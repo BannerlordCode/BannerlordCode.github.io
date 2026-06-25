@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyProfileGameModeSelectorItemVM"
+description: "Auto-generated class reference for MPLobbyProfileGameModeSelectorItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyProfileGameModeSelectorItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyProfileGameModeSelectorItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyProfileGameModeSelectorItemVM : SelectorItemVM`
 **Base:** `SelectorItemVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyProfileGameModeSelectorItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyProfileGameModeSelectorItemVM.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyProfileGameModeSelectorItemVM();
+// Obtain an instance from the relevant subsystem API
+MPLobbyProfileGameModeSelectorItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

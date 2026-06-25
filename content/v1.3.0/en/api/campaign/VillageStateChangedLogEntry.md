@@ -1,13 +1,7 @@
 ---
 title: "VillageStateChangedLogEntry"
+description: "Auto-generated class reference for VillageStateChangedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageStateChangedLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageStateChangedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** Handles logic related to `is related to war`.
+**Purpose:** Determines whether the current object is in the `related to war` state or condition.
+
+```csharp
+// Obtain an instance of VillageStateChangedLogEntry from the subsystem API first
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+var result = villageStateChangedLogEntry.IsRelatedToWar(stance, effector, effected);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of VillageStateChangedLogEntry from the subsystem API first
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+var result = villageStateChangedLogEntry.ToString();
+```
 
 ### GetAsRumor
 `public override int GetAsRumor(Settlement talkSettlement, out TextObject comment)`
 
-**Purpose:** Gets the current value of `as rumor`.
+**Purpose:** Reads and returns the `as rumor` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageStateChangedLogEntry from the subsystem API first
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+var result = villageStateChangedLogEntry.GetAsRumor(talkSettlement, comment);
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageStateChangedLogEntry from the subsystem API first
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+villageStateChangedLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillageStateChangedLogEntry();
-value.IsRelatedToWar(stance, effector, effected);
+// Typically call this after obtaining an instance from the subsystem API
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+villageStateChangedLogEntry.IsRelatedToWar(stance, effector, effected);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

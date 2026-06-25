@@ -1,13 +1,7 @@
 ---
 title: "NavigationPath"
+description: "Auto-generated class reference for NavigationPath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavigationPath`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NavigationPath
 
 **Namespace:** TaleWorlds.Library
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetObjectData
 `public virtual void GetObjectData(SerializationInfo info, StreamingContext context)`
 
-**Purpose:** Gets the current value of `object data`.
+**Purpose:** Reads and returns the `object data` value held by the current object.
+
+```csharp
+// Obtain an instance of NavigationPath from the subsystem API first
+NavigationPath navigationPath = ...;
+navigationPath.GetObjectData(info, context);
+```
 
 ### OverridePathPointAtIndex
 `public void OverridePathPointAtIndex(int index, in Vec2 newValue)`
 
-**Purpose:** Handles logic related to `override path point at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NavigationPath from the subsystem API first
+NavigationPath navigationPath = ...;
+navigationPath.OverridePathPointAtIndex(0, newValue);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NavigationPath();
-value.GetObjectData(info, context);
+// Typically call this after obtaining an instance from the subsystem API
+NavigationPath navigationPath = ...;
+navigationPath.GetObjectData(info, context);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

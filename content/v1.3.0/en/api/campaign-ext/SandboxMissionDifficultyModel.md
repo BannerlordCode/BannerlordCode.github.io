@@ -1,13 +1,7 @@
 ---
 title: "SandboxMissionDifficultyModel"
+description: "Auto-generated class reference for SandboxMissionDifficultyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxMissionDifficultyModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxMissionDifficultyModel
 
 **Namespace:** SandBox.GameComponents
@@ -29,7 +23,13 @@ Treat `SandboxMissionDifficultyModel` as a Model-style extension point: first id
 ### GetDamageMultiplierOfCombatDifficulty
 `public override float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
 
-**Purpose:** Gets the current value of `damage multiplier of combat difficulty`.
+**Purpose:** Reads and returns the `damage multiplier of combat difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxMissionDifficultyModel from the subsystem API first
+SandboxMissionDifficultyModel sandboxMissionDifficultyModel = ...;
+var result = sandboxMissionDifficultyModel.GetDamageMultiplierOfCombatDifficulty(victimAgent, null);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxMissionDifficultyModel>(new MySandboxMissionDif
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

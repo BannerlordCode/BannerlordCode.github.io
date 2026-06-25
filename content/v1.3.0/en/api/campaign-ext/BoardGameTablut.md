@@ -1,13 +1,7 @@
 ---
 title: "BoardGameTablut"
+description: "Auto-generated class reference for BoardGameTablut."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameTablut`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameTablut
 
 **Namespace:** SandBox.BoardGames
@@ -35,72 +29,155 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### IsCitadelTile
 `public static bool IsCitadelTile(int tileX, int tileY)`
 
-**Purpose:** Handles logic related to `is citadel tile`.
+**Purpose:** Determines whether the current object is in the `citadel tile` state or condition.
+
+```csharp
+// Static call; no instance required
+BoardGameTablut.IsCitadelTile(0, 0);
+```
 
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** Initializes the state, resources, or bindings for `units`.
+**Purpose:** Prepares the resources, state, or bindings required by `units`.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+boardGameTablut.InitializeUnits();
+```
 
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** Initializes the state, resources, or bindings for `tiles`.
+**Purpose:** Prepares the resources, state, or bindings required by `tiles`.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+boardGameTablut.InitializeTiles();
+```
 
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** Initializes the state, resources, or bindings for `sound`.
+**Purpose:** Prepares the resources, state, or bindings required by `sound`.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+boardGameTablut.InitializeSound();
+```
 
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+boardGameTablut.Reset();
+```
 
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** Handles logic related to `calculate valid moves`.
+**Purpose:** Calculates the current value or result of `valid moves`.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+var result = boardGameTablut.CalculateValidMoves(pawn);
+```
 
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**Purpose:** Sets the value or state of `pawn captured`.
+**Purpose:** Assigns a new value to `pawn captured` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+boardGameTablut.SetPawnCaptured(pawn, false);
+```
 
 ### AIMakeMove
 `public bool AIMakeMove(Move move)`
 
-**Purpose:** Handles logic related to `a i make move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+var result = boardGameTablut.AIMakeMove(move);
+```
 
 ### HasAvailableMoves
 `public bool HasAvailableMoves(PawnTablut pawn)`
 
-**Purpose:** Checks whether the current object has/contains `available moves`.
+**Purpose:** Determines whether the current object already holds `available moves`.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+var result = boardGameTablut.HasAvailableMoves(pawn);
+```
 
 ### GetRandomAvailableMove
 `public Move GetRandomAvailableMove(PawnTablut pawn)`
 
-**Purpose:** Gets the current value of `random available move`.
+**Purpose:** Reads and returns the `random available move` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+var result = boardGameTablut.GetRandomAvailableMove(pawn);
+```
 
 ### GetWinningMoveIfPresent
 `public Move GetWinningMoveIfPresent(BoardGameSide side)`
 
-**Purpose:** Gets the current value of `winning move if present`.
+**Purpose:** Reads and returns the `winning move if present` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+var result = boardGameTablut.GetWinningMoveIfPresent(side);
+```
 
 ### TakeBoardSnapshot
 `public BoardGameTablut.BoardInformation TakeBoardSnapshot()`
 
-**Purpose:** Handles logic related to `take board snapshot`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+var result = boardGameTablut.TakeBoardSnapshot();
+```
 
 ### UndoMove
 `public void UndoMove(ref BoardGameTablut.BoardInformation board)`
 
-**Purpose:** Handles logic related to `undo move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+boardGameTablut.UndoMove(board);
+```
 
 ### CheckGameState
 `public BoardGameTablut.State CheckGameState()`
 
-**Purpose:** Handles logic related to `check game state`.
+**Purpose:** Verifies whether `game state` holds true for the current object.
+
+```csharp
+// Obtain an instance of BoardGameTablut from the subsystem API first
+BoardGameTablut boardGameTablut = ...;
+var result = boardGameTablut.CheckGameState();
+```
 
 ## Usage Example
 
@@ -110,4 +187,4 @@ BoardGameTablut.IsCitadelTile(0, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

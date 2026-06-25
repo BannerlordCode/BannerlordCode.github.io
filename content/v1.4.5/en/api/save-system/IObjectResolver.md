@@ -1,20 +1,14 @@
 ---
 title: "IObjectResolver"
+description: "Auto-generated class reference for IObjectResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IObjectResolver`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IObjectResolver
 
 **Namespace:** TaleWorlds.SaveSystem.Resolvers
 **Module:** TaleWorlds.SaveSystem
-**Type:** `class`
+**Type:** `public interface IObjectResolver`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IObjectResolver.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IObjectResolver.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem.Resolvers` to place it in the stack,
 ## Usage Example
 
 ```csharp
-IObjectResolver implementation = GetObjectResolverImplementation();
+// Usually obtained through DI or a factory method
+IIObjectResolver service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

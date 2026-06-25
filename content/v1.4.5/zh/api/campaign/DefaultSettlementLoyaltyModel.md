@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementLoyaltyModel"
+description: "DefaultSettlementLoyaltyModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSettlementLoyaltyModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementLoyaltyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementLoyaltyModel : SettlementLoyaltyModel`
 **Base:** `SettlementLoyaltyModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementLoyaltyModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementLoyaltyModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultSettlementLoyaltyModel"
 ### CalculateLoyaltyChange
 `public override ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate loyalty change` 相关逻辑。
+**用途 / Purpose:** 计算「loyalty change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementLoyaltyModel 实例
+DefaultSettlementLoyaltyModel defaultSettlementLoyaltyModel = ...;
+var result = defaultSettlementLoyaltyModel.CalculateLoyaltyChange(town, false);
+```
 
 ### CalculateGoldGainDueToHighLoyalty
 `public override void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 处理 `calculate gold gain due to high loyalty` 相关逻辑。
+**用途 / Purpose:** 计算「gold gain due to high loyalty」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementLoyaltyModel 实例
+DefaultSettlementLoyaltyModel defaultSettlementLoyaltyModel = ...;
+defaultSettlementLoyaltyModel.CalculateGoldGainDueToHighLoyalty(town, explainedNumber);
+```
 
 ### CalculateGoldCutDueToLowLoyalty
 `public override void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 处理 `calculate gold cut due to low loyalty` 相关逻辑。
+**用途 / Purpose:** 计算「gold cut due to low loyalty」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementLoyaltyModel 实例
+DefaultSettlementLoyaltyModel defaultSettlementLoyaltyModel = ...;
+defaultSettlementLoyaltyModel.CalculateGoldCutDueToLowLoyalty(town, explainedNumber);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultSettlementLoyaltyModel>(new MyDefaultSettlement
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

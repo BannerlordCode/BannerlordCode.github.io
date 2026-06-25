@@ -1,13 +1,7 @@
 ---
 title: "FactoredNumber"
+description: "Auto-generated class reference for FactoredNumber."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FactoredNumber`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FactoredNumber
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,35 +32,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Add
 `public void Add(float value)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of FactoredNumber from the subsystem API first
+FactoredNumber factoredNumber = ...;
+factoredNumber.Add(0);
+```
 
 ### AddFactor
 `public void AddFactor(float value)`
 
 **Purpose:** Adds `factor` to the current collection or state.
 
+```csharp
+// Obtain an instance of FactoredNumber from the subsystem API first
+FactoredNumber factoredNumber = ...;
+factoredNumber.AddFactor(0);
+```
+
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**Purpose:** Handles logic related to `limit min`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FactoredNumber from the subsystem API first
+FactoredNumber factoredNumber = ...;
+factoredNumber.LimitMin(0);
+```
 
 ### LimitMax
 `public void LimitMax(float maxValue)`
 
-**Purpose:** Handles logic related to `limit max`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FactoredNumber from the subsystem API first
+FactoredNumber factoredNumber = ...;
+factoredNumber.LimitMax(0);
+```
 
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**Purpose:** Handles logic related to `clamp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FactoredNumber from the subsystem API first
+FactoredNumber factoredNumber = ...;
+factoredNumber.Clamp(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FactoredNumber();
-value.Add(0);
+// Typically call this after obtaining an instance from the subsystem API
+FactoredNumber factoredNumber = ...;
+factoredNumber.Add(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "InputKey"
+description: "Auto-generated class reference for InputKey."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputKey`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InputKey
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public enum InputKey`
 **Base:** none
 **File:** `TaleWorlds.InputSystem/InputKey.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ## Usage Example
 
 ```csharp
-var value = new InputKey();
+// Obtain an instance from the relevant subsystem API
+InputKey instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

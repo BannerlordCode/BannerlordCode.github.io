@@ -1,20 +1,14 @@
 ---
 title: "ShieldDamageTakenEffect"
+description: "Auto-generated class reference for ShieldDamageTakenEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShieldDamageTakenEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShieldDamageTakenEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ShieldDamageTakenEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ShieldDamageTakenEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ShieldDamageTakenEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetShieldDamageTaken
 `public override float GetShieldDamageTaken(bool isCorrectSideBlock)`
 
-**Purpose:** Gets the current value of `shield damage taken`.
+**Purpose:** Reads and returns the `shield damage taken` value held by the current object.
+
+```csharp
+// Obtain an instance of ShieldDamageTakenEffect from the subsystem API first
+ShieldDamageTakenEffect shieldDamageTakenEffect = ...;
+var result = shieldDamageTakenEffect.GetShieldDamageTaken(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShieldDamageTakenEffect();
-value.GetShieldDamageTaken(false);
+// Typically call this after obtaining an instance from the subsystem API
+ShieldDamageTakenEffect shieldDamageTakenEffect = ...;
+shieldDamageTakenEffect.GetShieldDamageTaken(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

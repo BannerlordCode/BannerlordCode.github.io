@@ -1,20 +1,14 @@
 ---
 title: "CampaignShipDamageModel"
+description: "CampaignShipDamageModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignShipDamageModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignShipDamageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CampaignShipDamageModel : MBGameModel<CampaignShipDamageModel>`
 **Base:** `MBGameModel<CampaignShipDamageModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CampaignShipDamageModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CampaignShipDamageModel.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "CampaignShipDamageModel"
 ### GetHourlyShipDamage
 `public abstract int GetHourlyShipDamage(MobileParty owner, Ship ship)`
 
-**用途 / Purpose:** 获取 `hourly ship damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hourly ship damage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignShipDamageModel 实例
+CampaignShipDamageModel campaignShipDamageModel = ...;
+var result = campaignShipDamageModel.GetHourlyShipDamage(owner, ship);
+```
 
 ### GetEstimatedSafeSailDuration
 `public abstract float GetEstimatedSafeSailDuration(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `estimated safe sail duration` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「estimated safe sail duration」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignShipDamageModel 实例
+CampaignShipDamageModel campaignShipDamageModel = ...;
+var result = campaignShipDamageModel.GetEstimatedSafeSailDuration(mobileParty);
+```
 
 ### GetShipDamage
 `public abstract float GetShipDamage(Ship ship, Ship rammingShip, float rawDamage)`
 
-**用途 / Purpose:** 获取 `ship damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship damage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignShipDamageModel 实例
+CampaignShipDamageModel campaignShipDamageModel = ...;
+var result = campaignShipDamageModel.GetShipDamage(ship, rammingShip, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCampaignShipDamageModel();
+// 通常通过子系统 API 或工厂获得派生实例
+CampaignShipDamageModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

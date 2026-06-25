@@ -1,18 +1,12 @@
 ---
 title: "Platform"
+description: "Auto-generated class reference for Platform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Platform`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Platform
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public enum Platform`
 **Base:** none
 **File:** `TaleWorlds.Library/Platform.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new Platform();
+// Obtain an instance from the relevant subsystem API
+Platform instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanMemberItemVM"
+description: "Auto-generated class reference for MPLobbyClanMemberItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanMemberItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanMemberItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanMemberItemVM : MPLobbyPlayerBaseVM`
 **Base:** `MPLobbyPlayerBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanMemberItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanMemberItemVM.cs`
 
 ## Overview
 
@@ -42,25 +36,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### MPLobbyClanMemberItemVM
 `public unsafe MPLobbyClanMemberItemVM(ClanPlayer member, bool isOnline, string selectedBadgeID, AnotherPlayerState state, Action<MPLobbyClanMemberItemVM> executeActivate = null)`
 
-**Purpose:** Handles logic related to `m p lobby clan member item v m`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPLobbyClanMemberItemVM from the subsystem API first
+MPLobbyClanMemberItemVM mPLobbyClanMemberItemVM = ...;
+var result = mPLobbyClanMemberItemVM.MPLobbyClanMemberItemVM(member, false, "example", state, null);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanMemberItemVM from the subsystem API first
+MPLobbyClanMemberItemVM mPLobbyClanMemberItemVM = ...;
+mPLobbyClanMemberItemVM.RefreshValues();
+```
 
 ### SetNotEligibleInfo
 `public void SetNotEligibleInfo(PlayerNotEligibleError notEligibleError)`
 
-**Purpose:** Sets the value or state of `not eligible info`.
+**Purpose:** Assigns a new value to `not eligible info` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyClanMemberItemVM from the subsystem API first
+MPLobbyClanMemberItemVM mPLobbyClanMemberItemVM = ...;
+mPLobbyClanMemberItemVM.SetNotEligibleInfo(notEligibleError);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanMemberItemVM();
-value.MPLobbyClanMemberItemVM(member, false, "example", state, null);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanMemberItemVM mPLobbyClanMemberItemVM = ...;
+mPLobbyClanMemberItemVM.MPLobbyClanMemberItemVM(member, false, "example", state, null);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

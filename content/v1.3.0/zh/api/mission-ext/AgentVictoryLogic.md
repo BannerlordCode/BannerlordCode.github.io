@@ -1,13 +1,7 @@
 ---
 title: "AgentVictoryLogic"
+description: "AgentVictoryLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentVictoryLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentVictoryLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,59 +32,119 @@ title: "AgentVictoryLogic"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.AfterStart();
+```
 
 ### SetCheerActionGroup
 `public void SetCheerActionGroup(AgentVictoryLogic.CheerActionGroupEnum cheerActionGroup = AgentVictoryLogic.CheerActionGroupEnum.None)`
 
-**用途 / Purpose:** 设置 `cheer action group` 的值或状态。
+**用途 / Purpose:** 为 「cheer action group」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetCheerActionGroup(agentVictoryLogic.CheerActionGroupEnum.None);
+```
 
 ### SetCheerReactionTimerSettings
 `public void SetCheerReactionTimerSettings(float minDuration = 1f, float maxDuration = 8f)`
 
-**用途 / Purpose:** 设置 `cheer reaction timer settings` 的值或状态。
+**用途 / Purpose:** 为 「cheer reaction timer settings」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetCheerReactionTimerSettings(0, 0);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnClearScene();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnMissionTick(0);
+```
 
 ### SetTimersOfVictoryReactionsOnBattleEnd
 `public void SetTimersOfVictoryReactionsOnBattleEnd(BattleSideEnum side)`
 
-**用途 / Purpose:** 设置 `timers of victory reactions on battle end` 的值或状态。
+**用途 / Purpose:** 为 「timers of victory reactions on battle end」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnBattleEnd(side);
+```
 
 ### SetTimersOfVictoryReactionsOnRetreat
 `public void SetTimersOfVictoryReactionsOnRetreat(BattleSideEnum side)`
 
-**用途 / Purpose:** 设置 `timers of victory reactions on retreat` 的值或状态。
+**用途 / Purpose:** 为 「timers of victory reactions on retreat」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnRetreat(side);
+```
 
 ### SetTimersOfVictoryReactionsOnTournamentVictoryForAgent
 `public void SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(Agent agent, float minStartTime, float maxStartTime)`
 
-**用途 / Purpose:** 设置 `timers of victory reactions on tournament victory for agent` 的值或状态。
+**用途 / Purpose:** 为 「timers of victory reactions on tournament victory for agent」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(agent, 0, 0);
+```
 
 ### OrderReceived
 `public void OrderReceived()`
 
-**用途 / Purpose:** 处理 `order received` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVictoryLogic 实例
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OrderReceived();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AgentVictoryLogic());
+var behavior = Mission.Current.GetMissionBehavior<AgentVictoryLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

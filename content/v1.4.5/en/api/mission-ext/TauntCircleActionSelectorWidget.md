@@ -1,20 +1,14 @@
 ---
 title: "TauntCircleActionSelectorWidget"
+description: "Auto-generated class reference for TauntCircleActionSelectorWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TauntCircleActionSelectorWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TauntCircleActionSelectorWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TauntCircleActionSelectorWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/TauntCircleActionSelectorWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/TauntCircleActionSelectorWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `TauntCircleActionSelectorWidget` as a Widget-style extension point: first
 ### TauntCircleActionSelectorWidget
 `public class TauntCircleActionSelectorWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `taunt circle action selector widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TauntCircleActionSelectorWidget from the subsystem API first
+TauntCircleActionSelectorWidget tauntCircleActionSelectorWidget = ...;
+var result = tauntCircleActionSelectorWidget.TauntCircleActionSelectorWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new TauntCircleActionSelectorWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TauntCircleActionSelectorWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

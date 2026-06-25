@@ -1,20 +1,14 @@
 ---
 title: "ParticleSystem"
+description: "Auto-generated class reference for ParticleSystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ParticleSystem`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ParticleSystem
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class ParticleSystem : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/ParticleSystem.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ParticleSystem.cs`
 
 ## Overview
 
@@ -29,82 +23,172 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateParticleSystemAttachedToBone
 `public static ParticleSystem CreateParticleSystemAttachedToBone(string systemName, Skeleton skeleton, sbyte boneIndex, ref MatrixFrame boneLocalFrame)`
 
-**Purpose:** Creates a new `particle system attached to bone` instance or object.
+**Purpose:** Constructs a new `particle system attached to bone` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ParticleSystem.CreateParticleSystemAttachedToBone("example", skeleton, 0, boneLocalFrame);
+```
 
 ### CreateParticleSystemAttachedToBone
 `public static ParticleSystem CreateParticleSystemAttachedToBone(int systemRuntimeId, Skeleton skeleton, sbyte boneIndex, ref MatrixFrame boneLocalFrame)`
 
-**Purpose:** Creates a new `particle system attached to bone` instance or object.
+**Purpose:** Constructs a new `particle system attached to bone` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ParticleSystem.CreateParticleSystemAttachedToBone(0, skeleton, 0, boneLocalFrame);
+```
 
 ### CreateParticleSystemAttachedToEntity
 `public static ParticleSystem CreateParticleSystemAttachedToEntity(string systemName, GameEntity parentEntity, ref MatrixFrame boneLocalFrame)`
 
-**Purpose:** Creates a new `particle system attached to entity` instance or object.
+**Purpose:** Constructs a new `particle system attached to entity` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ParticleSystem.CreateParticleSystemAttachedToEntity("example", parentEntity, boneLocalFrame);
+```
 
 ### CreateParticleSystemAttachedToEntity
 `public static ParticleSystem CreateParticleSystemAttachedToEntity(string systemName, WeakGameEntity parentEntity, ref MatrixFrame boneLocalFrame)`
 
-**Purpose:** Creates a new `particle system attached to entity` instance or object.
+**Purpose:** Constructs a new `particle system attached to entity` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ParticleSystem.CreateParticleSystemAttachedToEntity("example", parentEntity, boneLocalFrame);
+```
 
 ### CreateParticleSystemAttachedToEntity
 `public static ParticleSystem CreateParticleSystemAttachedToEntity(int systemRuntimeId, GameEntity parentEntity, ref MatrixFrame boneLocalFrame)`
 
-**Purpose:** Creates a new `particle system attached to entity` instance or object.
+**Purpose:** Constructs a new `particle system attached to entity` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ParticleSystem.CreateParticleSystemAttachedToEntity(0, parentEntity, boneLocalFrame);
+```
 
 ### CreateParticleSystemAttachedToEntity
 `public static ParticleSystem CreateParticleSystemAttachedToEntity(int systemRuntimeId, WeakGameEntity parentEntity, ref MatrixFrame boneLocalFrame)`
 
-**Purpose:** Creates a new `particle system attached to entity` instance or object.
+**Purpose:** Constructs a new `particle system attached to entity` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ParticleSystem.CreateParticleSystemAttachedToEntity(0, parentEntity, boneLocalFrame);
+```
 
 ### AddMesh
 `public void AddMesh(Mesh mesh)`
 
 **Purpose:** Adds `mesh` to the current collection or state.
 
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+particleSystem.AddMesh(mesh);
+```
+
 ### SetEnable
 `public void SetEnable(bool enable)`
 
-**Purpose:** Sets the value or state of `enable`.
+**Purpose:** Assigns a new value to `enable` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+particleSystem.SetEnable(false);
+```
 
 ### SetRuntimeEmissionRateMultiplier
 `public void SetRuntimeEmissionRateMultiplier(float multiplier)`
 
-**Purpose:** Sets the value or state of `runtime emission rate multiplier`.
+**Purpose:** Assigns a new value to `runtime emission rate multiplier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+particleSystem.SetRuntimeEmissionRateMultiplier(0);
+```
 
 ### Restart
 `public void Restart()`
 
-**Purpose:** Handles logic related to `restart`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+particleSystem.Restart();
+```
 
 ### SetLocalFrame
 `public void SetLocalFrame(in MatrixFrame newLocalFrame)`
 
-**Purpose:** Sets the value or state of `local frame`.
+**Purpose:** Assigns a new value to `local frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+particleSystem.SetLocalFrame(newLocalFrame);
+```
 
 ### SetPreviousGlobalFrame
 `public void SetPreviousGlobalFrame(in MatrixFrame globalFrame)`
 
-**Purpose:** Sets the value or state of `previous global frame`.
+**Purpose:** Assigns a new value to `previous global frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+particleSystem.SetPreviousGlobalFrame(globalFrame);
+```
 
 ### GetLocalFrame
 `public MatrixFrame GetLocalFrame()`
 
-**Purpose:** Gets the current value of `local frame`.
+**Purpose:** Reads and returns the `local frame` value held by the current object.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+var result = particleSystem.GetLocalFrame();
+```
 
 ### HasAliveParticles
 `public bool HasAliveParticles()`
 
-**Purpose:** Checks whether the current object has/contains `alive particles`.
+**Purpose:** Determines whether the current object already holds `alive particles`.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+var result = particleSystem.HasAliveParticles();
+```
 
 ### SetDontRemoveFromEntity
 `public void SetDontRemoveFromEntity(bool value)`
 
-**Purpose:** Sets the value or state of `dont remove from entity`.
+**Purpose:** Assigns a new value to `dont remove from entity` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+particleSystem.SetDontRemoveFromEntity(false);
+```
 
 ### SetParticleEffectByName
 `public void SetParticleEffectByName(string effectName)`
 
-**Purpose:** Sets the value or state of `particle effect by name`.
+**Purpose:** Assigns a new value to `particle effect by name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ParticleSystem from the subsystem API first
+ParticleSystem particleSystem = ...;
+particleSystem.SetParticleEffectByName("example");
+```
 
 ## Usage Example
 
@@ -114,4 +198,4 @@ ParticleSystem.CreateParticleSystemAttachedToBone("example", skeleton, 0, boneLo
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

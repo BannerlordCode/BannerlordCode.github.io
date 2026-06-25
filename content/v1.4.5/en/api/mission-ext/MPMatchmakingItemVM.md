@@ -1,20 +1,14 @@
 ---
 title: "MPMatchmakingItemVM"
+description: "Auto-generated class reference for MPMatchmakingItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPMatchmakingItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPMatchmakingItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPMatchmakingItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame/MPMatchmakingItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame/MPMatchmakingItemVM.cs`
 
 ## Overview
 
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### MPMatchmakingItemVM
 `public unsafe MPMatchmakingItemVM(MultiplayerGameType type)`
 
-**Purpose:** Handles logic related to `m p matchmaking item v m`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPMatchmakingItemVM from the subsystem API first
+MPMatchmakingItemVM mPMatchmakingItemVM = ...;
+var result = mPMatchmakingItemVM.MPMatchmakingItemVM(type);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPMatchmakingItemVM from the subsystem API first
+MPMatchmakingItemVM mPMatchmakingItemVM = ...;
+mPMatchmakingItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPMatchmakingItemVM();
-value.MPMatchmakingItemVM(type);
+// Typically call this after obtaining an instance from the subsystem API
+MPMatchmakingItemVM mPMatchmakingItemVM = ...;
+mPMatchmakingItemVM.MPMatchmakingItemVM(type);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PerformanceTestBlock"
+description: "Auto-generated class reference for PerformanceTestBlock."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerformanceTestBlock`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerformanceTestBlock
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class PerformanceTestBlock : IDisposable`
 **Base:** `IDisposable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PerformanceTestBlock.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PerformanceTestBlock.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new PerformanceTestBlock();
+// Obtain an instance from the relevant subsystem API
+PerformanceTestBlock instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

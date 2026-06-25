@@ -1,20 +1,14 @@
 ---
 title: "ContainerDefinition"
+description: "ContainerDefinition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ContainerDefinition`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerDefinition.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerDefinition.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "ContainerDefinition"
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate, bool hasNoChildObject)`
 
-**用途 / Purpose:** 初始化 `for auto generation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「for auto generation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ContainerDefinition 实例
+ContainerDefinition containerDefinition = ...;
+containerDefinition.InitializeForAutoGeneration(collectObjectsDelegate, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ContainerDefinition();
-value.InitializeForAutoGeneration(collectObjectsDelegate, false);
+// 通常从对应子系统 API 获取实例后调用
+ContainerDefinition containerDefinition = ...;
+containerDefinition.InitializeForAutoGeneration(collectObjectsDelegate, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

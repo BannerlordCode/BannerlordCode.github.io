@@ -1,18 +1,12 @@
 ---
 title: "SegmentSuitability"
+description: "Auto-generated class reference for SegmentSuitability."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SegmentSuitability`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SegmentSuitability
 
 **Namespace:** psai.net
 **Module:** psai.net
-**Type:** `class`
+**Type:** `public enum SegmentSuitability`
 **Base:** none
 **File:** `TaleWorlds.PSAI/net/SegmentSuitability.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var value = new SegmentSuitability();
+// Obtain an instance from the relevant subsystem API
+SegmentSuitability instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

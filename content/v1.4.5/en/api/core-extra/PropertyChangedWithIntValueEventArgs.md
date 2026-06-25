@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithIntValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithIntValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithIntValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithIntValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithIntValueEventArgs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithIntValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithIntValueEventArgs.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithIntValueEventArgs
 `public struct PropertyChangedWithIntValueEventArgs(string propertyName, int value)`
 
-**Purpose:** Handles logic related to `property changed with int value event args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PropertyChangedWithIntValueEventArgs from the subsystem API first
+PropertyChangedWithIntValueEventArgs propertyChangedWithIntValueEventArgs = ...;
+var result = propertyChangedWithIntValueEventArgs.PropertyChangedWithIntValueEventArgs("example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithIntValueEventArgs();
-value.PropertyChangedWithIntValueEventArgs("example", 0);
+// Typically call this after obtaining an instance from the subsystem API
+PropertyChangedWithIntValueEventArgs propertyChangedWithIntValueEventArgs = ...;
+propertyChangedWithIntValueEventArgs.PropertyChangedWithIntValueEventArgs("example", 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

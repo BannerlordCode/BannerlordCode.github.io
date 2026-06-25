@@ -1,20 +1,14 @@
 ---
 title: "ItemModifierGroup"
+description: "ItemModifierGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemModifierGroup`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemModifierGroup
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemModifierGroup : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemModifierGroup.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemModifierGroup.cs`
 
 ## 概述
 
@@ -36,35 +30,66 @@ title: "ItemModifierGroup"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ItemModifierGroup 实例
+ItemModifierGroup itemModifierGroup = ...;
+itemModifierGroup.Deserialize(objectManager, node);
+```
 
 ### AddItemModifier
 `public void AddItemModifier(ItemModifier itemModifier)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `item modifier`。
+**用途 / Purpose:** 将 「item modifier」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ItemModifierGroup 实例
+ItemModifierGroup itemModifierGroup = ...;
+itemModifierGroup.AddItemModifier(itemModifier);
+```
 
 ### GetRandomItemModifierLootScoreBased
 `public ItemModifier GetRandomItemModifierLootScoreBased()`
 
-**用途 / Purpose:** 获取 `random item modifier loot score based` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random item modifier loot score based」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemModifierGroup 实例
+ItemModifierGroup itemModifierGroup = ...;
+var result = itemModifierGroup.GetRandomItemModifierLootScoreBased();
+```
 
 ### GetRandomItemModifierProductionScoreBased
 `public ItemModifier GetRandomItemModifierProductionScoreBased()`
 
-**用途 / Purpose:** 获取 `random item modifier production score based` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random item modifier production score based」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemModifierGroup 实例
+ItemModifierGroup itemModifierGroup = ...;
+var result = itemModifierGroup.GetRandomItemModifierProductionScoreBased();
+```
 
 ### GetModifiersBasedOnQuality
 `public List<ItemModifier> GetModifiersBasedOnQuality(ItemQuality quality)`
 
-**用途 / Purpose:** 获取 `modifiers based on quality` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modifiers based on quality」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemModifierGroup 实例
+ItemModifierGroup itemModifierGroup = ...;
+var result = itemModifierGroup.GetModifiersBasedOnQuality(quality);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemModifierGroup();
-value.Deserialize(objectManager, node);
+// 通常从对应子系统 API 获取实例后调用
+ItemModifierGroup itemModifierGroup = ...;
+itemModifierGroup.Deserialize(objectManager, node);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

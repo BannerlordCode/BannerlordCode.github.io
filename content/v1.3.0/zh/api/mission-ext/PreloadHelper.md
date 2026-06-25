@@ -1,13 +1,7 @@
 ---
 title: "PreloadHelper"
+description: "PreloadHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PreloadHelper`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PreloadHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,27 +23,57 @@ title: "PreloadHelper"
 ### PreloadCharacters
 `public void PreloadCharacters(List<BasicCharacterObject> characters)`
 
-**用途 / Purpose:** 处理 `preload characters` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PreloadHelper 实例
+PreloadHelper preloadHelper = ...;
+preloadHelper.PreloadCharacters(characters);
+```
 
 ### WaitForMeshesToBeLoaded
 `public void WaitForMeshesToBeLoaded()`
 
-**用途 / Purpose:** 处理 `wait for meshes to be loaded` 相关逻辑。
+**用途 / Purpose:** 暂停当前流程，直到「for meshes to be loaded」条件满足。
+
+```csharp
+// 先通过子系统 API 拿到 PreloadHelper 实例
+PreloadHelper preloadHelper = ...;
+preloadHelper.WaitForMeshesToBeLoaded();
+```
 
 ### PreloadEquipments
 `public void PreloadEquipments(List<Equipment> equipments)`
 
-**用途 / Purpose:** 处理 `preload equipments` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PreloadHelper 实例
+PreloadHelper preloadHelper = ...;
+preloadHelper.PreloadEquipments(equipments);
+```
 
 ### PreloadItems
 `public void PreloadItems(List<ItemObject> items)`
 
-**用途 / Purpose:** 处理 `preload items` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PreloadHelper 实例
+PreloadHelper preloadHelper = ...;
+preloadHelper.PreloadItems(items);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 PreloadHelper 实例
+PreloadHelper preloadHelper = ...;
+preloadHelper.Clear();
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ PreloadHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

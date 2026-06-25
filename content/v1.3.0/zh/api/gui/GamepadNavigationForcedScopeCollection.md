@@ -1,13 +1,7 @@
 ---
 title: "GamepadNavigationForcedScopeCollection"
+description: "GamepadNavigationForcedScopeCollection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GamepadNavigationForcedScopeCollection`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GamepadNavigationForcedScopeCollection
 
 **Namespace:** TaleWorlds.GauntletUI.GamepadNavigation
@@ -42,35 +36,66 @@ title: "GamepadNavigationForcedScopeCollection"
 ### IsAvailable
 `public bool IsAvailable()`
 
-**用途 / Purpose:** 处理 `is available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「available」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+var result = gamepadNavigationForcedScopeCollection.IsAvailable();
+```
 
 ### AddScope
 `public void AddScope(GamepadNavigationScope scope)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `scope`。
+**用途 / Purpose:** 将 「scope」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+gamepadNavigationForcedScopeCollection.AddScope(scope);
+```
 
 ### RemoveScope
 `public void RemoveScope(GamepadNavigationScope scope)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `scope`。
+**用途 / Purpose:** 从当前容器或状态中移除 「scope」。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+gamepadNavigationForcedScopeCollection.RemoveScope(scope);
+```
 
 ### ClearScopes
 `public void ClearScopes()`
 
-**用途 / Purpose:** 处理 `clear scopes` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「scopes」。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+gamepadNavigationForcedScopeCollection.ClearScopes();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationForcedScopeCollection 实例
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+var result = gamepadNavigationForcedScopeCollection.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GamepadNavigationForcedScopeCollection();
-value.IsAvailable();
+// 通常从对应子系统 API 获取实例后调用
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+gamepadNavigationForcedScopeCollection.IsAvailable();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

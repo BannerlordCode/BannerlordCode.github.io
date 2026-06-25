@@ -1,20 +1,14 @@
 ---
 title: "Difficulty"
+description: "Auto-generated class reference for Difficulty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Difficulty`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Difficulty
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum Difficulty : short`
 **Base:** `short`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignOptions.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignOptions.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-Difficulty example = Difficulty.Value;
+// Obtain an instance from the relevant subsystem API
+Difficulty instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

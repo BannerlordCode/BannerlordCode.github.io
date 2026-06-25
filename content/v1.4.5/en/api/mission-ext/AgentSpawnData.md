@@ -1,20 +1,14 @@
 ---
 title: "AgentSpawnData"
+description: "Auto-generated class reference for AgentSpawnData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentSpawnData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentSpawnData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AgentSpawnData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentSpawnData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentSpawnData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `AgentSpawnData` as a Data-style extension point: first identify who creat
 ## Usage Example
 
 ```csharp
-var value = new AgentSpawnData();
+// This data object is usually returned by campaign/mission APIs
+AgentSpawnData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

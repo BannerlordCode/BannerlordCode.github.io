@@ -1,20 +1,14 @@
 ---
 title: "Dimensions"
+description: "Dimensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Dimensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Dimensions
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum Dimensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DimensionSyncWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DimensionSyncWidget.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "Dimensions"
 ## 使用示例
 
 ```csharp
-Dimensions example = Dimensions.Value;
+// 从对应子系统 API 获取实例
+Dimensions instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

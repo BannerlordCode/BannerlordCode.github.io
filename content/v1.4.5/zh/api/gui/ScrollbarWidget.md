@@ -1,20 +1,14 @@
 ---
 title: "ScrollbarWidget"
+description: "ScrollbarWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScrollbarWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScrollbarWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ScrollbarWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ScrollbarWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ScrollbarWidget.cs`
 
 ## 概述
 
@@ -45,14 +39,21 @@ title: "ScrollbarWidget"
 ### SetValueForced
 `public void SetValueForced(float value)`
 
-**用途 / Purpose:** 设置 `value forced` 的值或状态。
+**用途 / Purpose:** 为 「value forced」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScrollbarWidget 实例
+ScrollbarWidget scrollbarWidget = ...;
+scrollbarWidget.SetValueForced(0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ScrollbarWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ScrollbarWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

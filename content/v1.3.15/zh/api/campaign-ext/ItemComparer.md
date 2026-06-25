@@ -1,118 +1,54 @@
 ---
 title: "ItemComparer"
+description: "ItemComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemComparer`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemComparer
 
-**命名空间:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public abstract class ItemComparer : IComparer<SPItemVM>`
+**Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public abstract class ItemComparer : IComparer<SPItemVM>`
 **Base:** `IComparer<SPItemVM>`
-**领域:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Inventory/SPInventorySortControllerVM.cs`
 
 ## 概述
 
-`ItemComparer` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`ItemComparer` 位于 `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
 先从命名空间 `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `CurrentSortOption` | `public SPInventorySortControllerVM.InventoryItemSortOption? CurrentSortOption { get; }` |
-| `CurrentSortState` | `public SPInventorySortControllerVM.InventoryItemSortState? CurrentSortState { get; }` |
-| `TypeState` | `public int TypeState { get; set; }` |
-| `NameState` | `public int NameState { get; set; }` |
-| `QuantityState` | `public int QuantityState { get; set; }` |
-| `CostState` | `public int CostState { get; set; }` |
-| `IsTypeSelected` | `public bool IsTypeSelected { get; set; }` |
-| `IsNameSelected` | `public bool IsNameSelected { get; set; }` |
-| `IsQuantitySelected` | `public bool IsQuantitySelected { get; set; }` |
-| `IsCostSelected` | `public bool IsCostSelected { get; set; }` |
-
 ## 主要方法
-
-### SortByOption
-`public void SortByOption(SPInventorySortControllerVM.InventoryItemSortOption sortOption, SPInventorySortControllerVM.InventoryItemSortState sortState)`
-
-**用途 / Purpose:** 处理 `sort by option` 相关逻辑。
-
-### SortByDefaultState
-`public void SortByDefaultState()`
-
-**用途 / Purpose:** 处理 `sort by default state` 相关逻辑。
-
-### SortByCurrentState
-`public void SortByCurrentState()`
-
-**用途 / Purpose:** 处理 `sort by current state` 相关逻辑。
-
-### ExecuteSortByName
-`public void ExecuteSortByName()`
-
-**用途 / Purpose:** 执行 `sort by name` 操作或流程。
-
-### ExecuteSortByType
-`public void ExecuteSortByType()`
-
-**用途 / Purpose:** 执行 `sort by type` 操作或流程。
-
-### ExecuteSortByQuantity
-`public void ExecuteSortByQuantity()`
-
-**用途 / Purpose:** 执行 `sort by quantity` 操作或流程。
-
-### ExecuteSortByCost
-`public void ExecuteSortByCost()`
-
-**用途 / Purpose:** 执行 `sort by cost` 操作或流程。
 
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 设置 `sort mode` 的值或状态。
+**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ItemComparer 实例
+ItemComparer itemComparer = ...;
+itemComparer.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
-### Compare
-`public override int Compare(SPItemVM x, SPItemVM y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### Compare
-`public override int Compare(SPItemVM x, SPItemVM y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### Compare
-`public override int Compare(SPItemVM x, SPItemVM y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### Compare
-`public override int Compare(SPItemVM x, SPItemVM y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 ItemComparer 实例
+ItemComparer itemComparer = ...;
+var result = itemComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomItemComparer();
+// 通常通过子系统 API 或工厂获得派生实例
+ItemComparer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

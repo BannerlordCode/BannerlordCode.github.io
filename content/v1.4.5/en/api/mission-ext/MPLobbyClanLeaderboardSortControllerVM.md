@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanLeaderboardSortControllerVM"
+description: "Auto-generated class reference for MPLobbyClanLeaderboardSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanLeaderboardSortControllerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanLeaderboardSortControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanLeaderboardSortControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanLeaderboardSortControllerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanLeaderboardSortControllerVM.cs`
 
 ## Overview
 
@@ -40,35 +34,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
+MPLobbyClanLeaderboardSortControllerVM mPLobbyClanLeaderboardSortControllerVM = ...;
+mPLobbyClanLeaderboardSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ClanLeaderboardEntry x, ClanLeaderboardEntry y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
+MPLobbyClanLeaderboardSortControllerVM mPLobbyClanLeaderboardSortControllerVM = ...;
+var result = mPLobbyClanLeaderboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanLeaderboardEntry x, ClanLeaderboardEntry y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
+MPLobbyClanLeaderboardSortControllerVM mPLobbyClanLeaderboardSortControllerVM = ...;
+var result = mPLobbyClanLeaderboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanLeaderboardEntry x, ClanLeaderboardEntry y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
+MPLobbyClanLeaderboardSortControllerVM mPLobbyClanLeaderboardSortControllerVM = ...;
+var result = mPLobbyClanLeaderboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanLeaderboardEntry x, ClanLeaderboardEntry y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPLobbyClanLeaderboardSortControllerVM from the subsystem API first
+MPLobbyClanLeaderboardSortControllerVM mPLobbyClanLeaderboardSortControllerVM = ...;
+var result = mPLobbyClanLeaderboardSortControllerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanLeaderboardSortControllerVM();
-value.SetSortMode(false);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanLeaderboardSortControllerVM mPLobbyClanLeaderboardSortControllerVM = ...;
+mPLobbyClanLeaderboardSortControllerVM.SetSortMode(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BasePath"
+description: "Auto-generated class reference for BasePath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasePath`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasePath
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class BasePath`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/BasePath.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/BasePath.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new BasePath();
+// Obtain an instance from the relevant subsystem API
+BasePath instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

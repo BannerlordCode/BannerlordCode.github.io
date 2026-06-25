@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementGarrisonModel"
+description: "Auto-generated class reference for DefaultSettlementGarrisonModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementGarrisonModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementGarrisonModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementGarrisonModel : SettlementGarrisonModel`
 **Base:** `SettlementGarrisonModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementGarrisonModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementGarrisonModel.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `DefaultSettlementGarrisonModel` as a Model-style extension point: first i
 ### GetMaximumDailyAutoRecruitmentCount
 `public override int GetMaximumDailyAutoRecruitmentCount(Town town)`
 
-**Purpose:** Gets the current value of `maximum daily auto recruitment count`.
+**Purpose:** Reads and returns the `maximum daily auto recruitment count` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementGarrisonModel from the subsystem API first
+DefaultSettlementGarrisonModel defaultSettlementGarrisonModel = ...;
+var result = defaultSettlementGarrisonModel.GetMaximumDailyAutoRecruitmentCount(town);
+```
 
 ### CalculateBaseGarrisonChange
 `public override ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate base garrison change`.
+**Purpose:** Calculates the current value or result of `base garrison change`.
+
+```csharp
+// Obtain an instance of DefaultSettlementGarrisonModel from the subsystem API first
+DefaultSettlementGarrisonModel defaultSettlementGarrisonModel = ...;
+var result = defaultSettlementGarrisonModel.CalculateBaseGarrisonChange(settlement, false);
+```
 
 ### FindNumberOfTroopsToTakeFromGarrison
 `public override int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float defaultIdealGarrisonStrengthPerWalledCenter = 0f)`
 
-**Purpose:** Handles logic related to `find number of troops to take from garrison`.
+**Purpose:** Looks up the matching `number of troops to take from garrison` in the current collection or scope.
+
+```csharp
+// Obtain an instance of DefaultSettlementGarrisonModel from the subsystem API first
+DefaultSettlementGarrisonModel defaultSettlementGarrisonModel = ...;
+var result = defaultSettlementGarrisonModel.FindNumberOfTroopsToTakeFromGarrison(mobileParty, settlement, 0);
+```
 
 ### FindNumberOfTroopsToLeaveToGarrison
 `public override int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Handles logic related to `find number of troops to leave to garrison`.
+**Purpose:** Looks up the matching `number of troops to leave to garrison` in the current collection or scope.
+
+```csharp
+// Obtain an instance of DefaultSettlementGarrisonModel from the subsystem API first
+DefaultSettlementGarrisonModel defaultSettlementGarrisonModel = ...;
+var result = defaultSettlementGarrisonModel.FindNumberOfTroopsToLeaveToGarrison(mobileParty, settlement);
+```
 
 ### GetMaximumDailyRepairAmount
 `public override float GetMaximumDailyRepairAmount(Settlement settlement)`
 
-**Purpose:** Gets the current value of `maximum daily repair amount`.
+**Purpose:** Reads and returns the `maximum daily repair amount` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementGarrisonModel from the subsystem API first
+DefaultSettlementGarrisonModel defaultSettlementGarrisonModel = ...;
+var result = defaultSettlementGarrisonModel.GetMaximumDailyRepairAmount(settlement);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultSettlementGarrisonModel>(new MyDefaultSettlemen
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SandBoxGauntletUISubModule"
+description: "Auto-generated class reference for SandBoxGauntletUISubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxGauntletUISubModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxGauntletUISubModule
 
 **Namespace:** SandBox.GauntletUI
@@ -29,25 +23,44 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `campaign start` event is raised.
+**Purpose:** Invoked when the `campaign start` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxGauntletUISubModule from the subsystem API first
+SandBoxGauntletUISubModule sandBoxGauntletUISubModule = ...;
+sandBoxGauntletUISubModule.OnCampaignStart(game, starterObject);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxGauntletUISubModule from the subsystem API first
+SandBoxGauntletUISubModule sandBoxGauntletUISubModule = ...;
+sandBoxGauntletUISubModule.OnGameEnd(game);
+```
 
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**Purpose:** Handles logic related to `begin game start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SandBoxGauntletUISubModule from the subsystem API first
+SandBoxGauntletUISubModule sandBoxGauntletUISubModule = ...;
+sandBoxGauntletUISubModule.BeginGameStart(game);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SandBoxGauntletUISubModule();
-value.OnCampaignStart(game, starterObject);
+// Typically call this after obtaining an instance from the subsystem API
+SandBoxGauntletUISubModule sandBoxGauntletUISubModule = ...;
+sandBoxGauntletUISubModule.OnCampaignStart(game, starterObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

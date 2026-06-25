@@ -1,20 +1,14 @@
 ---
 title: "RangedSiegeWeaponChangeProjectile"
+description: "RangedSiegeWeaponChangeProjectile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RangedSiegeWeaponChangeProjectile`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedSiegeWeaponChangeProjectile
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RangedSiegeWeaponChangeProjectile : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RangedSiegeWeaponChangeProjectile.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RangedSiegeWeaponChangeProjectile.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "RangedSiegeWeaponChangeProjectile"
 ## 使用示例
 
 ```csharp
-var example = new RangedSiegeWeaponChangeProjectile();
+// 从对应子系统 API 获取实例
+RangedSiegeWeaponChangeProjectile instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

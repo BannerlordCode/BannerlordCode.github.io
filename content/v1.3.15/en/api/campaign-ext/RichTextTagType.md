@@ -1,18 +1,12 @@
 ---
 title: "RichTextTagType"
+description: "Auto-generated class reference for RichTextTagType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichTextTagType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RichTextTagType
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum RichTextTagType`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension/RichTextTagType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new RichTextTagType();
+// Obtain an instance from the relevant subsystem API
+RichTextTagType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

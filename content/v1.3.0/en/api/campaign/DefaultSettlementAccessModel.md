@@ -1,13 +1,7 @@
 ---
 title: "DefaultSettlementAccessModel"
+description: "Auto-generated class reference for DefaultSettlementAccessModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementAccessModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementAccessModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,32 +23,68 @@ Treat `DefaultSettlementAccessModel` as a Model-style extension point: first ide
 ### CanMainHeroEnterSettlement
 `public override void CanMainHeroEnterSettlement(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**Purpose:** Checks whether the current object can `main hero enter settlement`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero enter settlement`.
+
+```csharp
+// Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+defaultSettlementAccessModel.CanMainHeroEnterSettlement(settlement, accessDetails);
+```
 
 ### CanMainHeroEnterDungeon
 `public override void CanMainHeroEnterDungeon(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**Purpose:** Checks whether the current object can `main hero enter dungeon`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero enter dungeon`.
+
+```csharp
+// Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+defaultSettlementAccessModel.CanMainHeroEnterDungeon(settlement, accessDetails);
+```
 
 ### CanMainHeroEnterLordsHall
 `public override void CanMainHeroEnterLordsHall(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**Purpose:** Checks whether the current object can `main hero enter lords hall`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero enter lords hall`.
+
+```csharp
+// Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+defaultSettlementAccessModel.CanMainHeroEnterLordsHall(settlement, accessDetails);
+```
 
 ### CanMainHeroAccessLocation
 `public override bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** Checks whether the current object can `main hero access location`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero access location`.
+
+```csharp
+// Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+var result = defaultSettlementAccessModel.CanMainHeroAccessLocation(settlement, "example", disableOption, disabledText);
+```
 
 ### IsRequestMeetingOptionAvailable
 `public override bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** Handles logic related to `is request meeting option available`.
+**Purpose:** Determines whether the current object is in the `request meeting option available` state or condition.
+
+```csharp
+// Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+var result = defaultSettlementAccessModel.IsRequestMeetingOptionAvailable(settlement, disableOption, disabledText);
+```
 
 ### CanMainHeroDoSettlementAction
 `public override bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** Checks whether the current object can `main hero do settlement action`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero do settlement action`.
+
+```csharp
+// Obtain an instance of DefaultSettlementAccessModel from the subsystem API first
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+var result = defaultSettlementAccessModel.CanMainHeroDoSettlementAction(settlement, settlementAction, disableOption, disabledText);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultSettlementAccessModel>(new MyDefaultSettlementA
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

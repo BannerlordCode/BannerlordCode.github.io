@@ -1,13 +1,7 @@
 ---
 title: "Point"
+description: "Auto-generated class reference for Point."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Point`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Point
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ## Usage Example
 
 ```csharp
-var value = new Point();
+// Obtain an instance from the relevant subsystem API
+Point instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

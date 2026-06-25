@@ -1,20 +1,14 @@
 ---
 title: "FontStyle"
+description: "Auto-generated class reference for FontStyle."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FontStyle`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FontStyle
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum FontStyle`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/FontStyle.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/FontStyle.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new FontStyle();
+// Obtain an instance from the relevant subsystem API
+FontStyle instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,19 +1,14 @@
 ---
 title: "TownMercenaryData"
+description: "TownMercenaryData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TownMercenaryData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TownMercenaryData
 
-**命名空间:** TaleWorlds.CampaignSystem.CampaignBehaviors
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public class TownMercenaryData`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class TownMercenaryData`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/RecruitmentCampaignBehavior.cs`
 
 ## 概述
 
@@ -32,53 +27,46 @@ title: "TownMercenaryData"
 
 ## 主要方法
 
-### RegisterEvents
-`public override void RegisterEvents()`
-
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
-
-### SyncData
-`public override void SyncData(IDataStore dataStore)`
-
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
-
-### GetMercenaryData
-`public RecruitmentCampaignBehavior.TownMercenaryData GetMercenaryData(Town town)`
-
-**用途 / Purpose:** 获取 `mercenary data` 的当前值。
-
-### HourlyTickParty
-`public void HourlyTickParty(MobileParty mobileParty)`
-
-**用途 / Purpose:** 处理 `hourly tick party` 相关逻辑。
-
-### OnBeforeSettlementEntered
-`public void OnBeforeSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
-
-**用途 / Purpose:** 当 `before settlement entered` 事件触发时调用此方法。
-
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**用途 / Purpose:** 处理 `change mercenary type` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TownMercenaryData 实例
+TownMercenaryData townMercenaryData = ...;
+townMercenaryData.ChangeMercenaryType(troopType, 0);
+```
 
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**用途 / Purpose:** 处理 `change mercenary count` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TownMercenaryData 实例
+TownMercenaryData townMercenaryData = ...;
+townMercenaryData.ChangeMercenaryCount(0);
+```
 
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `available mercenary`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「available mercenary」。
+
+```csharp
+// 先通过子系统 API 拿到 TownMercenaryData 实例
+TownMercenaryData townMercenaryData = ...;
+var result = townMercenaryData.HasAvailableMercenary(occupation.NotAssigned);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TownMercenaryData();
+// 该数据对象通常由战役/任务 API 返回
+TownMercenaryData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "GamepadNavigationScope"
+description: "Auto-generated class reference for GamepadNavigationScope."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadNavigationScope`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GamepadNavigationScope
 
 **Namespace:** TaleWorlds.GauntletUI.GamepadNavigation
@@ -76,38 +70,75 @@ Start from namespace `TaleWorlds.GauntletUI.GamepadNavigation` to place it in th
 
 **Purpose:** Adds `widget at index` to the current collection or state.
 
+```csharp
+// Obtain an instance of GamepadNavigationScope from the subsystem API first
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.AddWidgetAtIndex(widget, 0);
+```
+
 ### AddWidget
 `public void AddWidget(Widget widget)`
 
 **Purpose:** Adds `widget` to the current collection or state.
+
+```csharp
+// Obtain an instance of GamepadNavigationScope from the subsystem API first
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.AddWidget(widget);
+```
 
 ### RemoveWidget
 `public void RemoveWidget(Widget widget)`
 
 **Purpose:** Removes `widget` from the current collection or state.
 
+```csharp
+// Obtain an instance of GamepadNavigationScope from the subsystem API first
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.RemoveWidget(widget);
+```
+
 ### SetParentScope
 `public void SetParentScope(GamepadNavigationScope scope)`
 
-**Purpose:** Sets the value or state of `parent scope`.
+**Purpose:** Assigns a new value to `parent scope` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GamepadNavigationScope from the subsystem API first
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.SetParentScope(scope);
+```
 
 ### ClearNavigatableWidgets
 `public void ClearNavigatableWidgets()`
 
-**Purpose:** Handles logic related to `clear navigatable widgets`.
+**Purpose:** Removes all `navigatable widgets` from the current object.
+
+```csharp
+// Obtain an instance of GamepadNavigationScope from the subsystem API first
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.ClearNavigatableWidgets();
+```
 
 ### Compare
 `public int Compare(Widget x, Widget y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of GamepadNavigationScope from the subsystem API first
+GamepadNavigationScope gamepadNavigationScope = ...;
+var result = gamepadNavigationScope.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GamepadNavigationScope();
-value.AddWidgetAtIndex(widget, 0);
+// Typically call this after obtaining an instance from the subsystem API
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.AddWidgetAtIndex(widget, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

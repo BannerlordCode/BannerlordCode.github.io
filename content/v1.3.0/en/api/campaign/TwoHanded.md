@@ -1,13 +1,7 @@
 ---
 title: "TwoHanded"
+description: "Auto-generated class reference for TwoHanded."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoHanded`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoHanded
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -50,9 +44,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new TwoHanded();
+// Obtain an instance from the relevant subsystem API
+TwoHanded instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

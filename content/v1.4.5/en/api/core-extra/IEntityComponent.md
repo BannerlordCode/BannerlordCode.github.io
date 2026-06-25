@@ -1,20 +1,14 @@
 ---
 title: "IEntityComponent"
+description: "Auto-generated class reference for IEntityComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IEntityComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IEntityComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IEntityComponent`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IEntityComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IEntityComponent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IEntityComponent` as a Component-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-IEntityComponent implementation = GetEntityComponentImplementation();
+// Usually obtained through DI or a factory method
+IIEntityComponent service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminMessageWidget"
+description: "Auto-generated class reference for MultiplayerAdminMessageWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAdminMessageWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminMessageWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.AdminMessage
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminMessageWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.AdminMessage/MultiplayerAdminMessageWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.AdminMessage/MultiplayerAdminMessageWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `MultiplayerAdminMessageWidget` as a Widget-style extension point: first i
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerAdminMessageWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerAdminMessageWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyPlayerNameplateVM"
+description: "Auto-generated class reference for PartyPlayerNameplateVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyPlayerNameplateVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyPlayerNameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PartyPlayerNameplateVM : PartyNameplateVM`
 **Base:** `PartyNameplateVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/PartyPlayerNameplateVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/PartyPlayerNameplateVM.cs`
 
 ## Overview
 
@@ -37,40 +31,77 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### InitializePlayerNameplate
 `public void InitializePlayerNameplate(Action resetCamera)`
 
-**Purpose:** Initializes the state, resources, or bindings for `player nameplate`.
+**Purpose:** Prepares the resources, state, or bindings required by `player nameplate`.
+
+```csharp
+// Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.InitializePlayerNameplate(resetCamera);
+```
 
 ### Clear
 `public override void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.Clear();
+```
 
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**Purpose:** Refreshes the display or cache of `dynamic properties`.
+**Purpose:** Keeps the display or cache of `dynamic properties` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshBinding
 `public override void RefreshBinding()`
 
-**Purpose:** Refreshes the display or cache of `binding`.
+**Purpose:** Keeps the display or cache of `binding` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.RefreshBinding();
+```
 
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**Purpose:** Refreshes the display or cache of `position`.
+**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.RefreshPosition();
+```
 
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**Purpose:** Executes the `set camera position` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set camera position`.
+
+```csharp
+// Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.ExecuteSetCameraPosition();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyPlayerNameplateVM();
-value.InitializePlayerNameplate(resetCamera);
+// Typically call this after obtaining an instance from the subsystem API
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.InitializePlayerNameplate(resetCamera);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LookBackPointData"
+description: "Auto-generated class reference for LookBackPointData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LookBackPointData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LookBackPointData
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class LookBackPointData : PointOfInterestBaseData`
 **Base:** `PointOfInterestBaseData`
-**Area:** campaign-ext
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionPathGenerationLogic.cs`
 
 ## Overview
 
@@ -26,113 +20,46 @@ Treat `LookBackPointData` as a Data-style extension point: first identify who cr
 
 ## Key Methods
 
-### ReverseClone
-`public NavigationPathData ReverseClone()`
-
-**Purpose:** Handles logic related to `reverse clone`.
-
-### InitializeUsablePoints
-`public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
-
-**Purpose:** Initializes the state, resources, or bindings for `usable points`.
-
-### GetPointOfInterestType
-`public abstract PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public abstract bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public abstract float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
 ### GetPointOfInterestType
 `public override PointOfInterests GetPointOfInterestType()`
 
-**Purpose:** Gets the current value of `point of interest type`.
+**Purpose:** Reads and returns the `point of interest type` value held by the current object.
+
+```csharp
+// Obtain an instance of LookBackPointData from the subsystem API first
+LookBackPointData lookBackPointData = ...;
+var result = lookBackPointData.GetPointOfInterestType();
+```
 
 ### IsInRadius
 `public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
 
-**Purpose:** Handles logic related to `is in radius`.
+**Purpose:** Determines whether the current object is in the `in radius` state or condition.
+
+```csharp
+// Obtain an instance of LookBackPointData from the subsystem API first
+LookBackPointData lookBackPointData = ...;
+var result = lookBackPointData.IsInRadius(otherPointOfInterest);
+```
 
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**Purpose:** Gets the current value of `location ratio`.
+**Purpose:** Reads and returns the `location ratio` value held by the current object.
 
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### Clone
-`public PointOfInterestScorePair Clone()`
-
-**Purpose:** Handles logic related to `clone`.
-
-### AddToData
-`public void AddToData(PointOfInterestBaseData pointOfInterestToAdd)`
-
-**Purpose:** Adds `to data` to the current collection or state.
-
-### IsDataEqualTo
-`public bool IsDataEqualTo(PointOfInterestScorePair other, PointOfInterestBaseData newDataToAdd)`
-
-**Purpose:** Handles logic related to `is data equal to`.
+```csharp
+// Obtain an instance of LookBackPointData from the subsystem API first
+LookBackPointData lookBackPointData = ...;
+var result = lookBackPointData.GetLocationRatio();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LookBackPointData();
+// This data object is usually returned by campaign/mission APIs
+LookBackPointData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

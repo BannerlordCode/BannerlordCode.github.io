@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyInformationPopup"
+description: "MPLobbyInformationPopup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyInformationPopup`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyInformationPopup
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyInformationPopup : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup/MPLobbyInformationPopup.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup/MPLobbyInformationPopup.cs`
 
 ## 概述
 
@@ -39,35 +33,66 @@ title: "MPLobbyInformationPopup"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.RefreshValues();
+```
 
 ### ShowInformation
 `public void ShowInformation(TextObject title, TextObject message)`
 
-**用途 / Purpose:** 处理 `show information` 相关逻辑。
+**用途 / Purpose:** 显示「information」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.ShowInformation(title, message);
+```
 
 ### ShowInformation
 `public void ShowInformation(string title, string message)`
 
-**用途 / Purpose:** 处理 `show information` 相关逻辑。
+**用途 / Purpose:** 显示「information」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.ShowInformation("example", "example");
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 `close` 操作或流程。
+**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.ExecuteClose();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.SetDoneInputKey(hotkey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyInformationPopup();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

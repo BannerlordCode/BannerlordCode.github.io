@@ -1,20 +1,14 @@
 ---
 title: "ResourceDepotLocation"
+description: "ResourceDepotLocation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ResourceDepotLocation`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResourceDepotLocation
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class ResourceDepotLocation`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ResourceDepotLocation.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ResourceDepotLocation.cs`
 
 ## 概述
 
@@ -38,20 +32,33 @@ title: "ResourceDepotLocation"
 ### StartWatchingChanges
 `public void StartWatchingChanges(FileSystemEventHandler onChangeEvent, RenamedEventHandler onRenameEvent)`
 
-**用途 / Purpose:** 处理 `start watching changes` 相关逻辑。
+**用途 / Purpose:** 启动「watching changes」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 ResourceDepotLocation 实例
+ResourceDepotLocation resourceDepotLocation = ...;
+resourceDepotLocation.StartWatchingChanges(onChangeEvent, onRenameEvent);
+```
 
 ### StopWatchingChanges
 `public void StopWatchingChanges()`
 
-**用途 / Purpose:** 处理 `stop watching changes` 相关逻辑。
+**用途 / Purpose:** 停止「watching changes」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 ResourceDepotLocation 实例
+ResourceDepotLocation resourceDepotLocation = ...;
+resourceDepotLocation.StopWatchingChanges();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ResourceDepotLocation();
-value.StartWatchingChanges(onChangeEvent, onRenameEvent);
+// 通常从对应子系统 API 获取实例后调用
+ResourceDepotLocation resourceDepotLocation = ...;
+resourceDepotLocation.StartWatchingChanges(onChangeEvent, onRenameEvent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

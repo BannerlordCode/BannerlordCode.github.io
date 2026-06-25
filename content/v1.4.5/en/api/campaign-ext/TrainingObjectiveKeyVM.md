@@ -1,20 +1,14 @@
 ---
 title: "TrainingObjectiveKeyVM"
+description: "Auto-generated class reference for TrainingObjectiveKeyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingObjectiveKeyVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingObjectiveKeyVM
 
 **Namespace:** StoryMode.ViewModelCollection.Missions
 **Module:** StoryMode.ViewModelCollection
 **Type:** `public class TrainingObjectiveKeyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.ViewModelCollection/StoryMode.ViewModelCollection.Missions/TrainingObjectiveKeyVM.cs`
+**File:** `Modules.StoryMode/StoryMode.ViewModelCollection/StoryMode.ViewModelCollection.Missions/TrainingObjectiveKeyVM.cs`
 
 ## Overview
 
@@ -40,20 +34,33 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### MouseAndClickInput
 `public struct MouseAndClickInput(MovementTypes movementType, MouseClickTypes mouseClickType)`
 
-**Purpose:** Handles logic related to `mouse and click input`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TrainingObjectiveKeyVM from the subsystem API first
+TrainingObjectiveKeyVM trainingObjectiveKeyVM = ...;
+var result = trainingObjectiveKeyVM.MouseAndClickInput(movementType, mouseClickType);
+```
 
 ### ControllerStickInput
 `public struct ControllerStickInput(MovementTypes movementType, bool isLeftStick)`
 
-**Purpose:** Handles logic related to `controller stick input`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TrainingObjectiveKeyVM from the subsystem API first
+TrainingObjectiveKeyVM trainingObjectiveKeyVM = ...;
+var result = trainingObjectiveKeyVM.ControllerStickInput(movementType, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrainingObjectiveKeyVM();
-value.MouseAndClickInput(movementType, mouseClickType);
+// Typically call this after obtaining an instance from the subsystem API
+TrainingObjectiveKeyVM trainingObjectiveKeyVM = ...;
+trainingObjectiveKeyVM.MouseAndClickInput(movementType, mouseClickType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

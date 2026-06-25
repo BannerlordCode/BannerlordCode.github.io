@@ -1,20 +1,14 @@
 ---
 title: "ImageFit"
+description: "Auto-generated class reference for ImageFit."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageFit`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageFit
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ImageFit`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### GetFittedRectangle
 `public ImageFitResult GetFittedRectangle(in Vector2 containerSize, in Vector2 imageSize)`
 
-**Purpose:** Gets the current value of `fitted rectangle`.
+**Purpose:** Reads and returns the `fitted rectangle` value held by the current object.
+
+```csharp
+// Obtain an instance of ImageFit from the subsystem API first
+ImageFit imageFit = ...;
+var result = imageFit.GetFittedRectangle(containerSize, imageSize);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ImageFit();
-value.GetFittedRectangle(containerSize, imageSize);
+// Typically call this after obtaining an instance from the subsystem API
+ImageFit imageFit = ...;
+imageFit.GetFittedRectangle(containerSize, imageSize);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

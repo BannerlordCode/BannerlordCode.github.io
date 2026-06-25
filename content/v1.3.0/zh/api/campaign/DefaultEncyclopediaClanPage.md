@@ -1,13 +1,7 @@
 ---
 title: "DefaultEncyclopediaClanPage"
+description: "DefaultEncyclopediaClanPage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEncyclopediaClanPage`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEncyclopediaClanPage
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,95 +23,198 @@ title: "DefaultEncyclopediaClanPage"
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「view fully qualified name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetViewFullyQualifiedName();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetName();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetDescriptionText();
+```
 
 ### GetStringID
 `public override string GetStringID()`
 
-**用途 / Purpose:** 获取 `string i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string i d」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetStringID();
+```
 
 ### GetObject
 `public override MBObjectBase GetObject(string typeName, string stringID)`
 
-**用途 / Purpose:** 获取 `object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetObject("example", "example");
+```
 
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid encyclopedia item」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.IsValidEncyclopediaItem(o);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### CompareClans
 `public int CompareClans(EncyclopediaListItem x, EncyclopediaListItem y, Func<Clan, Clan, int> comparison)`
 
-**用途 / Purpose:** 处理 `compare clans` 相关逻辑。
+**用途 / Purpose:** 比较两个「clans」对象并返回大小/顺序结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaClanPage 实例
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.CompareClans(x, y, func<Clan, clan, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultEncyclopediaClanPage();
-value.GetViewFullyQualifiedName();
+// 通常从对应子系统 API 获取实例后调用
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+defaultEncyclopediaClanPage.GetViewFullyQualifiedName();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBUtil"
+description: "Auto-generated class reference for MBUtil."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBUtil`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBUtil
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class MBUtil`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBUtil.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBUtil.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DirectoryCopy
 `public static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)`
 
-**Purpose:** Handles logic related to `directory copy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBUtil.DirectoryCopy("example", "example", false);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ MBUtil.DirectoryCopy("example", "example", false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

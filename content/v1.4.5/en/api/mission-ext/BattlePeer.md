@@ -1,20 +1,14 @@
 ---
 title: "BattlePeer"
+description: "Auto-generated class reference for BattlePeer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattlePeer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattlePeer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattlePeer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePeer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePeer.cs`
 
 ## Overview
 
@@ -42,20 +36,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### Rejoin
 `public void Rejoin(int teamNo)`
 
-**Purpose:** Handles logic related to `rejoin`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattlePeer from the subsystem API first
+BattlePeer battlePeer = ...;
+battlePeer.Rejoin(0);
+```
 
 ### InitializeSession
 `public void InitializeSession(int index, int sessionKey)`
 
-**Purpose:** Initializes the state, resources, or bindings for `session`.
+**Purpose:** Prepares the resources, state, or bindings required by `session`.
+
+```csharp
+// Obtain an instance of BattlePeer from the subsystem API first
+BattlePeer battlePeer = ...;
+battlePeer.InitializeSession(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattlePeer();
-value.Rejoin(0);
+// Typically call this after obtaining an instance from the subsystem API
+BattlePeer battlePeer = ...;
+battlePeer.Rejoin(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

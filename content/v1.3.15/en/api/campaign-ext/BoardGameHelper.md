@@ -1,13 +1,7 @@
 ---
 title: "BoardGameHelper"
+description: "Auto-generated class reference for BoardGameHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BoardGameHelper
 
 **Namespace:** Helpers
@@ -32,4 +26,4 @@ BoardGameHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

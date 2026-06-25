@@ -1,20 +1,14 @@
 ---
 title: "ItemVisualizer"
+description: "ItemVisualizer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemVisualizer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemVisualizer
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ItemVisualizer : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/ItemVisualizer.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/ItemVisualizer.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ItemVisualizer"
 ## 使用示例
 
 ```csharp
-var value = new ItemVisualizer();
+// 从对应子系统 API 获取实例
+ItemVisualizer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

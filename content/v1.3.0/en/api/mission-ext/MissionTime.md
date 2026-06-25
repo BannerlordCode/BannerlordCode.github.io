@@ -1,13 +1,7 @@
 ---
 title: "MissionTime"
+description: "Auto-generated class reference for MissionTime."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionTime`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTime
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -48,52 +42,106 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### MillisecondsFromNow
 `public static MissionTime MillisecondsFromNow(float valueInMilliseconds)`
 
-**Purpose:** Handles logic related to `milliseconds from now`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionTime.MillisecondsFromNow(0);
+```
 
 ### SecondsFromNow
 `public static MissionTime SecondsFromNow(float valueInSeconds)`
 
-**Purpose:** Handles logic related to `seconds from now`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionTime.SecondsFromNow(0);
+```
 
 ### Equals
 `public bool Equals(MissionTime other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MissionTime from the subsystem API first
+MissionTime missionTime = ...;
+var result = missionTime.Equals(other);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MissionTime from the subsystem API first
+MissionTime missionTime = ...;
+var result = missionTime.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MissionTime from the subsystem API first
+MissionTime missionTime = ...;
+var result = missionTime.GetHashCode();
+```
 
 ### CompareTo
 `public int CompareTo(MissionTime other)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of MissionTime from the subsystem API first
+MissionTime missionTime = ...;
+var result = missionTime.CompareTo(other);
+```
 
 ### Milliseconds
 `public static MissionTime Milliseconds(float valueInMilliseconds)`
 
-**Purpose:** Handles logic related to `milliseconds`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionTime.Milliseconds(0);
+```
 
 ### Seconds
 `public static MissionTime Seconds(float valueInSeconds)`
 
-**Purpose:** Handles logic related to `seconds`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionTime.Seconds(0);
+```
 
 ### Minutes
 `public static MissionTime Minutes(float valueInMinutes)`
 
-**Purpose:** Handles logic related to `minutes`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionTime.Minutes(0);
+```
 
 ### Hours
 `public static MissionTime Hours(float valueInHours)`
 
-**Purpose:** Handles logic related to `hours`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionTime.Hours(0);
+```
 
 ## Usage Example
 
@@ -103,4 +151,4 @@ MissionTime.MillisecondsFromNow(0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

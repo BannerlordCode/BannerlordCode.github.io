@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeValueTypeConstant"
+description: "Auto-generated class reference for WidgetAttributeValueTypeConstant."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeValueTypeConstant`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeValueTypeConstant
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CheckValueType
 `public override bool CheckValueType(string value)`
 
-**Purpose:** Handles logic related to `check value type`.
+**Purpose:** Verifies whether `value type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeConstant from the subsystem API first
+WidgetAttributeValueTypeConstant widgetAttributeValueTypeConstant = ...;
+var result = widgetAttributeValueTypeConstant.CheckValueType("example");
+```
 
 ### GetAttributeValue
 `public override string GetAttributeValue(string value)`
 
-**Purpose:** Gets the current value of `attribute value`.
+**Purpose:** Reads and returns the `attribute value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeConstant from the subsystem API first
+WidgetAttributeValueTypeConstant widgetAttributeValueTypeConstant = ...;
+var result = widgetAttributeValueTypeConstant.GetAttributeValue("example");
+```
 
 ### GetSerializedValue
 `public override string GetSerializedValue(string value)`
 
-**Purpose:** Gets the current value of `serialized value`.
+**Purpose:** Reads and returns the `serialized value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeConstant from the subsystem API first
+WidgetAttributeValueTypeConstant widgetAttributeValueTypeConstant = ...;
+var result = widgetAttributeValueTypeConstant.GetSerializedValue("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeValueTypeConstant();
-value.CheckValueType("example");
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeValueTypeConstant widgetAttributeValueTypeConstant = ...;
+widgetAttributeValueTypeConstant.CheckValueType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

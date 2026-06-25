@@ -1,13 +1,7 @@
 ---
 title: "GauntletMenuOverlayBaseView"
+description: "Auto-generated class reference for GauntletMenuOverlayBaseView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMenuOverlayBaseView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuOverlayBaseView
 
 **Namespace:** SandBox.GauntletUI.Menu
@@ -27,9 +21,10 @@ Treat `GauntletMenuOverlayBaseView` as a View-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var view = new GauntletMenuOverlayBaseView();
+// Retrieve this view from the subsystem API or scene
+GauntletMenuOverlayBaseView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

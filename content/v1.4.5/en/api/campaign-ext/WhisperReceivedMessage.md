@@ -1,20 +1,14 @@
 ---
 title: "WhisperReceivedMessage"
+description: "Auto-generated class reference for WhisperReceivedMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WhisperReceivedMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WhisperReceivedMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class WhisperReceivedMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/WhisperReceivedMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/WhisperReceivedMessage.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new WhisperReceivedMessage();
+// Obtain an instance from the relevant subsystem API
+WhisperReceivedMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

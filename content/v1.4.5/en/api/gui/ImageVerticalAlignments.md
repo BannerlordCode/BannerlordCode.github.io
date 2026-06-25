@@ -1,20 +1,14 @@
 ---
 title: "ImageVerticalAlignments"
+description: "Auto-generated class reference for ImageVerticalAlignments."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageVerticalAlignments`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageVerticalAlignments
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public enum ImageVerticalAlignments : byte`
 **Base:** `byte`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-ImageVerticalAlignments example = ImageVerticalAlignments.Value;
+// Obtain an instance from the relevant subsystem API
+ImageVerticalAlignments instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

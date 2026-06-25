@@ -1,13 +1,7 @@
 ---
 title: "ElementNotificationWidget"
+description: "Auto-generated class reference for ElementNotificationWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ElementNotificationWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ElementNotificationWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
@@ -35,9 +29,10 @@ Treat `ElementNotificationWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new ElementNotificationWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ElementNotificationWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

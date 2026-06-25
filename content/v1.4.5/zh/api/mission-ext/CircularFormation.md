@@ -1,20 +1,14 @@
 ---
 title: "CircularFormation"
+description: "CircularFormation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CircularFormation`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CircularFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CircularFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CircularFormation.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CircularFormation.cs`
 
 ## 概述
 
@@ -37,30 +31,55 @@ title: "CircularFormation"
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 CircularFormation 实例
+CircularFormation circularFormation = ...;
+var result = circularFormation.Clone(formation);
+```
 
 ### GetLocalDirectionOfUnitOrDefault
 `public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `local direction of unit or default` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local direction of unit or default」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CircularFormation 实例
+CircularFormation circularFormation = ...;
+var result = circularFormation.GetLocalDirectionOfUnitOrDefault(unit);
+```
 
 ### GetCircumferenceFromRankCount
 `public float GetCircumferenceFromRankCount(int rankCount)`
 
-**用途 / Purpose:** 获取 `circumference from rank count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「circumference from rank count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CircularFormation 实例
+CircularFormation circularFormation = ...;
+var result = circularFormation.GetCircumferenceFromRankCount(0);
+```
 
 ### FormFromCircumference
 `public void FormFromCircumference(float circumference)`
 
-**用途 / Purpose:** 处理 `form from circumference` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CircularFormation 实例
+CircularFormation circularFormation = ...;
+circularFormation.FormFromCircumference(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CircularFormation();
-value.Clone(formation);
+// 通常从对应子系统 API 获取实例后调用
+CircularFormation circularFormation = ...;
+circularFormation.Clone(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

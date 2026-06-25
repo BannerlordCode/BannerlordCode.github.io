@@ -1,20 +1,14 @@
 ---
 title: "SceneNotificationData"
+description: "Auto-generated class reference for SceneNotificationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneNotificationData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneNotificationData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class SceneNotificationData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
 
 ## Overview
 
@@ -50,49 +44,98 @@ Treat `SceneNotificationData` as a Data-style extension point: first identify wh
 ### SceneNotificationCharacter
 `public readonly struct SceneNotificationCharacter(BasicCharacterObject character, Equipment overriddenEquipment = null, BodyProperties overriddenBodyProperties = default(BodyProperties), bool useCivilianEquipment = false, uint customColor1 = uint.MaxValue, uint customColor2 = uint.MaxValue, bool useHorse = false)`
 
-**Purpose:** Handles logic related to `scene notification character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneNotificationData from the subsystem API first
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.SceneNotificationCharacter(character, null, default(BodyProperties), false, 0, 0, false);
+```
 
 ### SceneNotificationShip
 `public readonly struct SceneNotificationShip(string shipPrefabId, List<ShipVisualSlotInfo> shipUpgrades, float shipHitPointRatio, uint sailColor1, uint sailColor2, int shipSeed)`
 
-**Purpose:** Handles logic related to `scene notification ship`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneNotificationData from the subsystem API first
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.SceneNotificationShip("example", shipUpgrades, 0, 0, 0, 0);
+```
 
 ### OnAffirmativeAction
 `public virtual void OnAffirmativeAction()`
 
-**Purpose:** Called when the `affirmative action` event is raised.
+**Purpose:** Invoked when the `affirmative action` event is raised.
+
+```csharp
+// Obtain an instance of SceneNotificationData from the subsystem API first
+SceneNotificationData sceneNotificationData = ...;
+sceneNotificationData.OnAffirmativeAction();
+```
 
 ### OnNegativeAction
 `public virtual void OnNegativeAction()`
 
-**Purpose:** Called when the `negative action` event is raised.
+**Purpose:** Invoked when the `negative action` event is raised.
+
+```csharp
+// Obtain an instance of SceneNotificationData from the subsystem API first
+SceneNotificationData sceneNotificationData = ...;
+sceneNotificationData.OnNegativeAction();
+```
 
 ### OnCloseAction
 `public virtual void OnCloseAction()`
 
-**Purpose:** Called when the `close action` event is raised.
+**Purpose:** Invoked when the `close action` event is raised.
+
+```csharp
+// Obtain an instance of SceneNotificationData from the subsystem API first
+SceneNotificationData sceneNotificationData = ...;
+sceneNotificationData.OnCloseAction();
+```
 
 ### GetBanners
 `public virtual Banner GetBanners()`
 
-**Purpose:** Gets the current value of `banners`.
+**Purpose:** Reads and returns the `banners` value held by the current object.
+
+```csharp
+// Obtain an instance of SceneNotificationData from the subsystem API first
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.GetBanners();
+```
 
 ### GetSceneNotificationCharacters
 `public virtual SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of SceneNotificationData from the subsystem API first
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.GetSceneNotificationCharacters();
+```
 
 ### GetShips
 `public virtual SceneNotificationShip GetShips()`
 
-**Purpose:** Gets the current value of `ships`.
+**Purpose:** Reads and returns the `ships` value held by the current object.
+
+```csharp
+// Obtain an instance of SceneNotificationData from the subsystem API first
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.GetShips();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SceneNotificationData();
+// This data object is usually returned by campaign/mission APIs
+SceneNotificationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

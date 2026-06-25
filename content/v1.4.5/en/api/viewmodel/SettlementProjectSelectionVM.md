@@ -1,20 +1,14 @@
 ---
 title: "SettlementProjectSelectionVM"
+description: "Auto-generated class reference for SettlementProjectSelectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementProjectSelectionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementProjectSelectionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SettlementProjectSelectionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/SettlementProjectSelectionVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/SettlementProjectSelectionVM.cs`
 
 ## Overview
 
@@ -44,25 +38,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementProjectSelectionVM from the subsystem API first
+SettlementProjectSelectionVM settlementProjectSelectionVM = ...;
+settlementProjectSelectionVM.RefreshValues();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of SettlementProjectSelectionVM from the subsystem API first
+SettlementProjectSelectionVM settlementProjectSelectionVM = ...;
+settlementProjectSelectionVM.Refresh();
+```
 
 ### ExecuteChangeQueueOrder
 `public void ExecuteChangeQueueOrder(SettlementBuildingProjectVM project, int index, string targetTag)`
 
-**Purpose:** Executes the `change queue order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `change queue order`.
+
+```csharp
+// Obtain an instance of SettlementProjectSelectionVM from the subsystem API first
+SettlementProjectSelectionVM settlementProjectSelectionVM = ...;
+settlementProjectSelectionVM.ExecuteChangeQueueOrder(project, 0, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementProjectSelectionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementProjectSelectionVM settlementProjectSelectionVM = ...;
+settlementProjectSelectionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

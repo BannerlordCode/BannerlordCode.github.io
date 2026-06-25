@@ -1,20 +1,14 @@
 ---
 title: "BoardGameBaghChal"
+description: "Auto-generated class reference for BoardGameBaghChal."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameBaghChal`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameBaghChal
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGameBaghChal : BoardGameBase`
 **Base:** `BoardGameBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/BoardGameBaghChal.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/BoardGameBaghChal.cs`
 
 ## Overview
 
@@ -29,75 +23,154 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**Purpose:** Handles logic related to `board information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.BoardInformation(pawns, tiles);
+```
 
 ### PawnInformation
 `public struct PawnInformation(int x, int y, int prevX, int prevY, bool captured, Vec3 position)`
 
-**Purpose:** Handles logic related to `pawn information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.PawnInformation(0, 0, 0, 0, false, position);
+```
 
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** Initializes the state, resources, or bindings for `units`.
+**Purpose:** Prepares the resources, state, or bindings required by `units`.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.InitializeUnits();
+```
 
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** Initializes the state, resources, or bindings for `tiles`.
+**Purpose:** Prepares the resources, state, or bindings required by `tiles`.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.InitializeTiles();
+```
 
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** Initializes the state, resources, or bindings for `sound`.
+**Purpose:** Prepares the resources, state, or bindings required by `sound`.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.InitializeSound();
+```
 
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.Reset();
+```
 
 ### CalculateAllValidMoves
 `public override List<List<Move>> CalculateAllValidMoves(BoardGameSide side)`
 
-**Purpose:** Handles logic related to `calculate all valid moves`.
+**Purpose:** Calculates the current value or result of `all valid moves`.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.CalculateAllValidMoves(side);
+```
 
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** Handles logic related to `calculate valid moves`.
+**Purpose:** Calculates the current value or result of `valid moves`.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.CalculateValidMoves(pawn);
+```
 
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**Purpose:** Sets the value or state of `pawn captured`.
+**Purpose:** Assigns a new value to `pawn captured` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.SetPawnCaptured(pawn, false);
+```
 
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** Handles logic related to `a i make move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.AIMakeMove(move);
+```
 
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**Purpose:** Handles logic related to `take board snapshot`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.TakeBoardSnapshot();
+```
 
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**Purpose:** Handles logic related to `undo move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.UndoMove(board);
+```
 
 ### GetANonePlacedGoat
 `public PawnBaghChal GetANonePlacedGoat()`
 
-**Purpose:** Gets the current value of `a none placed goat`.
+**Purpose:** Reads and returns the `a none placed goat` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameBaghChal from the subsystem API first
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.GetANonePlacedGoat();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameBaghChal();
-value.BoardInformation(pawns, tiles);
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.BoardInformation(pawns, tiles);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

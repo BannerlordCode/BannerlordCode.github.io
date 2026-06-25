@@ -1,20 +1,14 @@
 ---
 title: "CampaignTimeModel"
+description: "Auto-generated class reference for CampaignTimeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignTimeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignTimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CampaignTimeModel : MBGameModel<CampaignTimeModel>`
 **Base:** `MBGameModel<CampaignTimeModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CampaignTimeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CampaignTimeModel.cs`
 
 ## Overview
 
@@ -43,9 +37,10 @@ Treat `CampaignTimeModel` as a Model-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCampaignTimeModel();
+// Typically obtained from a subsystem API or factory
+CampaignTimeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

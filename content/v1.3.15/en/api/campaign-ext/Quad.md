@@ -1,13 +1,7 @@
 ---
 title: "Quad"
+description: "Auto-generated class reference for Quad."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Quad`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Quad
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new Quad();
+// Obtain an instance from the relevant subsystem API
+Quad instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

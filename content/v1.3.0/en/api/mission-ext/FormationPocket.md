@@ -1,13 +1,7 @@
 ---
 title: "FormationPocket"
+description: "Auto-generated class reference for FormationPocket."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationPocket`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationPocket
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -43,28 +37,53 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Adds `troop` to the current collection or state.
 
+```csharp
+// Obtain an instance of FormationPocket from the subsystem API first
+FormationPocket formationPocket = ...;
+formationPocket.AddTroop();
+```
+
 ### IsFormationPocketFilled
 `public bool IsFormationPocketFilled()`
 
-**Purpose:** Handles logic related to `is formation pocket filled`.
+**Purpose:** Determines whether the current object is in the `formation pocket filled` state or condition.
+
+```csharp
+// Obtain an instance of FormationPocket from the subsystem API first
+FormationPocket formationPocket = ...;
+var result = formationPocket.IsFormationPocketFilled();
+```
 
 ### UpdateScoreToSeek
 `public void UpdateScoreToSeek()`
 
-**Purpose:** Updates the state or data of `score to seek`.
+**Purpose:** Recalculates and stores the latest representation of `score to seek`.
+
+```csharp
+// Obtain an instance of FormationPocket from the subsystem API first
+FormationPocket formationPocket = ...;
+formationPocket.UpdateScoreToSeek();
+```
 
 ### SetBestScoreSoFar
 `public void SetBestScoreSoFar(int bestScoreSoFar)`
 
-**Purpose:** Sets the value or state of `best score so far`.
+**Purpose:** Assigns a new value to `best score so far` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of FormationPocket from the subsystem API first
+FormationPocket formationPocket = ...;
+formationPocket.SetBestScoreSoFar(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationPocket();
-value.AddTroop();
+// Typically call this after obtaining an instance from the subsystem API
+FormationPocket formationPocket = ...;
+formationPocket.AddTroop();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

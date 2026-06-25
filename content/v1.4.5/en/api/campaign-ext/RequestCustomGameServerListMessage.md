@@ -1,20 +1,14 @@
 ---
 title: "RequestCustomGameServerListMessage"
+description: "Auto-generated class reference for RequestCustomGameServerListMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RequestCustomGameServerListMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RequestCustomGameServerListMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class RequestCustomGameServerListMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RequestCustomGameServerListMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RequestCustomGameServerListMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Messages.FromClient.ToLobbyServer` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new RequestCustomGameServerListMessage();
+// Obtain an instance from the relevant subsystem API
+RequestCustomGameServerListMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

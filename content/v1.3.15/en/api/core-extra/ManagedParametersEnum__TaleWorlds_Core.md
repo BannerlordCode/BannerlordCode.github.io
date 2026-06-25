@@ -1,13 +1,7 @@
 ---
-title: "ManagedParametersEnum__TaleWorlds_Core"
+title: "ManagedParametersEnum"
+description: "Auto-generated class reference for ManagedParametersEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedParametersEnum`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ManagedParametersEnum
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-ManagedParametersEnum example = ManagedParametersEnum.Value;
+// Obtain an instance from the relevant subsystem API
+ManagedParametersEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

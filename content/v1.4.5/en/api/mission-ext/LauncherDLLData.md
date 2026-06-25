@@ -1,20 +1,14 @@
 ---
 title: "LauncherDLLData"
+description: "Auto-generated class reference for LauncherDLLData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherDLLData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherDLLData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherDLLData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherDLLData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherDLLData.cs`
 
 ## Overview
 
@@ -38,24 +32,43 @@ Treat `LauncherDLLData` as a Data-style extension point: first identify who crea
 ### SetIsDLLDangerous
 `public void SetIsDLLDangerous(bool isDangerous)`
 
-**Purpose:** Sets the value or state of `is d l l dangerous`.
+**Purpose:** Assigns a new value to `is d l l dangerous` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LauncherDLLData from the subsystem API first
+LauncherDLLData launcherDLLData = ...;
+launcherDLLData.SetIsDLLDangerous(false);
+```
 
 ### SetDLLSize
 `public void SetDLLSize(uint size)`
 
-**Purpose:** Sets the value or state of `d l l size`.
+**Purpose:** Assigns a new value to `d l l size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LauncherDLLData from the subsystem API first
+LauncherDLLData launcherDLLData = ...;
+launcherDLLData.SetDLLSize(0);
+```
 
 ### SetDLLVerifyInformation
 `public void SetDLLVerifyInformation(string info)`
 
-**Purpose:** Sets the value or state of `d l l verify information`.
+**Purpose:** Assigns a new value to `d l l verify information` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LauncherDLLData from the subsystem API first
+LauncherDLLData launcherDLLData = ...;
+launcherDLLData.SetDLLVerifyInformation("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LauncherDLLData();
+// This data object is usually returned by campaign/mission APIs
+LauncherDLLData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

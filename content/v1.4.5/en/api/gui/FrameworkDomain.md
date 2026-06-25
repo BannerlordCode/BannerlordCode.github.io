@@ -1,20 +1,14 @@
 ---
 title: "FrameworkDomain"
+description: "Auto-generated class reference for FrameworkDomain."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FrameworkDomain`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FrameworkDomain
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public abstract class FrameworkDomain`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/FrameworkDomain.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/FrameworkDomain.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### Update
 `public abstract void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of FrameworkDomain from the subsystem API first
+FrameworkDomain frameworkDomain = ...;
+frameworkDomain.Update();
+```
 
 ### Destroy
 `public abstract void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FrameworkDomain from the subsystem API first
+FrameworkDomain frameworkDomain = ...;
+frameworkDomain.Destroy();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomFrameworkDomain();
+// Typically obtained from a subsystem API or factory
+FrameworkDomain instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

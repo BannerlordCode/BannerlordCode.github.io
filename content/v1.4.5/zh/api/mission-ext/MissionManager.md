@@ -1,20 +1,14 @@
 ---
 title: "MissionManager"
+description: "MissionManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionManager : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionManager.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ var manager = MissionManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

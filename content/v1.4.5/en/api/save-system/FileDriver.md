@@ -1,20 +1,14 @@
 ---
 title: "FileDriver"
+description: "Auto-generated class reference for FileDriver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FileDriver`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FileDriver
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class FileDriver : ISaveDriver`
 **Base:** `ISaveDriver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/FileDriver.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/FileDriver.cs`
 
 ## Overview
 
@@ -35,47 +29,100 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### GetSaveFilePath
 `public static PlatformFilePath GetSaveFilePath(string fileName)`
 
-**Purpose:** Gets the current value of `save file path`.
+**Purpose:** Reads and returns the `save file path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FileDriver.GetSaveFilePath("example");
+```
 
 ### Save
 `public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`
 
-**Purpose:** Saves `save` data.
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of FileDriver from the subsystem API first
+FileDriver fileDriver = ...;
+var result = fileDriver.Save("example", 0, metaData, gameData);
+```
 
 ### LoadMetaData
 `public MetaData LoadMetaData(string saveName)`
 
-**Purpose:** Loads `meta data` data.
+**Purpose:** Reads `meta data` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of FileDriver from the subsystem API first
+FileDriver fileDriver = ...;
+var result = fileDriver.LoadMetaData("example");
+```
 
 ### Load
 `public LoadData Load(string saveName)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of FileDriver from the subsystem API first
+FileDriver fileDriver = ...;
+var result = fileDriver.Load("example");
+```
 
 ### GetSaveGameFileInfos
 `public SaveGameFileInfo GetSaveGameFileInfos()`
 
-**Purpose:** Gets the current value of `save game file infos`.
+**Purpose:** Reads and returns the `save game file infos` value held by the current object.
+
+```csharp
+// Obtain an instance of FileDriver from the subsystem API first
+FileDriver fileDriver = ...;
+var result = fileDriver.GetSaveGameFileInfos();
+```
 
 ### GetSaveGameFileNames
 `public string GetSaveGameFileNames()`
 
-**Purpose:** Gets the current value of `save game file names`.
+**Purpose:** Reads and returns the `save game file names` value held by the current object.
+
+```csharp
+// Obtain an instance of FileDriver from the subsystem API first
+FileDriver fileDriver = ...;
+var result = fileDriver.GetSaveGameFileNames();
+```
 
 ### Delete
 `public bool Delete(string saveName)`
 
-**Purpose:** Handles logic related to `delete`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FileDriver from the subsystem API first
+FileDriver fileDriver = ...;
+var result = fileDriver.Delete("example");
+```
 
 ### IsSaveGameFileExists
 `public bool IsSaveGameFileExists(string saveName)`
 
-**Purpose:** Handles logic related to `is save game file exists`.
+**Purpose:** Determines whether the current object is in the `save game file exists` state or condition.
+
+```csharp
+// Obtain an instance of FileDriver from the subsystem API first
+FileDriver fileDriver = ...;
+var result = fileDriver.IsSaveGameFileExists("example");
+```
 
 ### IsWorkingAsync
 `public bool IsWorkingAsync()`
 
-**Purpose:** Handles logic related to `is working async`.
+**Purpose:** Determines whether the current object is in the `working async` state or condition.
+
+```csharp
+// Obtain an instance of FileDriver from the subsystem API first
+FileDriver fileDriver = ...;
+var result = fileDriver.IsWorkingAsync();
+```
 
 ## Usage Example
 
@@ -85,4 +132,4 @@ FileDriver.GetSaveFilePath("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "PersuasionArgumentStrength"
+description: "PersuasionArgumentStrength 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PersuasionArgumentStrength`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PersuasionArgumentStrength
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum PersuasionArgumentStrength`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/Conversation/Persuasion/PersuasionArgumentStrength.cs`
 
@@ -27,9 +21,10 @@ title: "PersuasionArgumentStrength"
 ## 使用示例
 
 ```csharp
-var value = new PersuasionArgumentStrength();
+// 从对应子系统 API 获取实例
+PersuasionArgumentStrength instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CreatePlayer"
+description: "Auto-generated class reference for CreatePlayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreatePlayer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreatePlayer
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Messages
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class CreatePlayer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network.Messages/CreatePlayer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network.Messages/CreatePlayer.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Messages` to place it in 
 ## Usage Example
 
 ```csharp
-var example = new CreatePlayer();
+// Obtain an instance from the relevant subsystem API
+CreatePlayer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

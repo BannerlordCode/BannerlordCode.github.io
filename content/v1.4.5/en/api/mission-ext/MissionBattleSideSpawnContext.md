@@ -1,20 +1,14 @@
 ---
 title: "MissionBattleSideSpawnContext"
+description: "Auto-generated class reference for MissionBattleSideSpawnContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBattleSideSpawnContext`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBattleSideSpawnContext
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBattleSideSpawnContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBattleSideSpawnContext.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBattleSideSpawnContext.cs`
 
 ## Overview
 
@@ -40,75 +34,154 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.GetNumberOfPlayerControllableTroops();
+```
 
 ### TryReinforcementSpawn
 `public int TryReinforcementSpawn()`
 
-**Purpose:** Attempts to get `reinforcement spawn`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `reinforcement spawn`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.TryReinforcementSpawn();
+```
 
 ### GetTeamFormationsSpawnData
 `public void GetTeamFormationsSpawnData(out MBList<(Team team, MissionFormationSpawnData formationSpawnData)> teamFormationsSpawnData)`
 
-**Purpose:** Gets the current value of `team formations spawn data`.
+**Purpose:** Reads and returns the `team formations spawn data` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.GetTeamFormationsSpawnData(team, teamFormationsSpawnData);
+```
 
 ### ReserveTroops
 `public void ReserveTroops(int number)`
 
-**Purpose:** Handles logic related to `reserve troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.ReserveTroops(0);
+```
 
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**Purpose:** Gets the current value of `general character`.
+**Purpose:** Reads and returns the `general character` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.GetGeneralCharacter();
+```
 
 ### CheckReinforcementBatch
 `public bool CheckReinforcementBatch()`
 
-**Purpose:** Handles logic related to `check reinforcement batch`.
+**Purpose:** Verifies whether `reinforcement batch` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.CheckReinforcementBatch();
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** Gets the current value of `all troops`.
+**Purpose:** Reads and returns the `all troops` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.GetAllTroops();
+```
 
 ### SpawnTroops
 `public int SpawnTroops(int number, bool isReinforcement)`
 
-**Purpose:** Handles logic related to `spawn troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.SpawnTroops(0, false);
+```
 
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool spawnWithHorses)`
 
-**Purpose:** Sets the value or state of `spawn with horses`.
+**Purpose:** Assigns a new value to `spawn with horses` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.SetSpawnWithHorses(false);
+```
 
 ### SetBannerBearerLogic
 `public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)`
 
-**Purpose:** Sets the value or state of `banner bearer logic`.
+**Purpose:** Assigns a new value to `banner bearer logic` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.SetBannerBearerLogic(bannerBearerLogic);
+```
 
 ### SetReinforcementsNotifiedOnLastBatch
 `public void SetReinforcementsNotifiedOnLastBatch(bool value)`
 
-**Purpose:** Sets the value or state of `reinforcements notified on last batch`.
+**Purpose:** Assigns a new value to `reinforcements notified on last batch` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.SetReinforcementsNotifiedOnLastBatch(false);
+```
 
 ### SetSpawnTroops
 `public void SetSpawnTroops(bool spawnTroops)`
 
-**Purpose:** Sets the value or state of `spawn troops`.
+**Purpose:** Assigns a new value to `spawn troops` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.SetSpawnTroops(false);
+```
 
 ### OnInitialSpawnOver
 `public void OnInitialSpawnOver()`
 
-**Purpose:** Called when the `initial spawn over` event is raised.
+**Purpose:** Invoked when the `initial spawn over` event is raised.
+
+```csharp
+// Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.OnInitialSpawnOver();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionBattleSideSpawnContext();
-value.GetNumberOfPlayerControllableTroops();
+// Typically call this after obtaining an instance from the subsystem API
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.GetNumberOfPlayerControllableTroops();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

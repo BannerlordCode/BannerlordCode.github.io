@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget"
+description: "Auto-generated class reference for MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
@@ -33,9 +27,10 @@ Treat `MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget` as a Widget-style ex
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionOrderCallbacks"
+description: "Auto-generated class reference for MissionOrderCallbacks."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionOrderCallbacks`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionOrderCallbacks
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -29,40 +23,77 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### OnRefreshVisualsDelegate
 `public delegate void OnRefreshVisualsDelegate()`
 
-**Purpose:** Called when the `refresh visuals delegate` event is raised.
+**Purpose:** Invoked when the `refresh visuals delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderCallbacks from the subsystem API first
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnRefreshVisualsDelegate();
+```
 
 ### OnToggleActivateOrderStateDelegate
 `public delegate void OnToggleActivateOrderStateDelegate()`
 
-**Purpose:** Called when the `toggle activate order state delegate` event is raised.
+**Purpose:** Invoked when the `toggle activate order state delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderCallbacks from the subsystem API first
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnToggleActivateOrderStateDelegate();
+```
 
 ### OnTransferTroopsFinishedDelegate
 `public delegate void OnTransferTroopsFinishedDelegate()`
 
-**Purpose:** Called when the `transfer troops finished delegate` event is raised.
+**Purpose:** Invoked when the `transfer troops finished delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderCallbacks from the subsystem API first
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnTransferTroopsFinishedDelegate();
+```
 
 ### OnBeforeOrderDelegate
 `public delegate void OnBeforeOrderDelegate()`
 
-**Purpose:** Called when the `before order delegate` event is raised.
+**Purpose:** Invoked when the `before order delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderCallbacks from the subsystem API first
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnBeforeOrderDelegate();
+```
 
 ### ToggleOrderPositionVisibilityDelegate
 `public delegate void ToggleOrderPositionVisibilityDelegate(bool value)`
 
-**Purpose:** Handles logic related to `toggle order position visibility delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionOrderCallbacks from the subsystem API first
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.ToggleOrderPositionVisibilityDelegate(false);
+```
 
 ### GetOrderExecutionParametersDelegate
 `public delegate VisualOrderExecutionParameters GetOrderExecutionParametersDelegate()`
 
-**Purpose:** Gets the current value of `order execution parameters delegate`.
+**Purpose:** Reads and returns the `order execution parameters delegate` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionOrderCallbacks from the subsystem API first
+MissionOrderCallbacks missionOrderCallbacks = ...;
+var result = missionOrderCallbacks.GetOrderExecutionParametersDelegate();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionOrderCallbacks();
-value.OnRefreshVisualsDelegate();
+// Typically call this after obtaining an instance from the subsystem API
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnRefreshVisualsDelegate();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

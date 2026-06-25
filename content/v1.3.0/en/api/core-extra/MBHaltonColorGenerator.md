@@ -1,13 +1,7 @@
 ---
 title: "MBHaltonColorGenerator"
+description: "Auto-generated class reference for MBHaltonColorGenerator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBHaltonColorGenerator`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBHaltonColorGenerator
 
 **Namespace:** TaleWorlds.Core
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetBase
 `public void SetBase()`
 
-**Purpose:** Sets the value or state of `base`.
+**Purpose:** Assigns a new value to `base` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBHaltonColorGenerator from the subsystem API first
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetBase();
+```
 
 ### SetBase
 `public void SetBase(int baseValue)`
 
-**Purpose:** Sets the value or state of `base`.
+**Purpose:** Assigns a new value to `base` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBHaltonColorGenerator from the subsystem API first
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetBase(0);
+```
 
 ### SetOffset
 `public void SetOffset(float offset)`
 
-**Purpose:** Sets the value or state of `offset`.
+**Purpose:** Assigns a new value to `offset` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBHaltonColorGenerator from the subsystem API first
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetOffset(0);
+```
 
 ### SetRandomOffset
 `public void SetRandomOffset()`
 
-**Purpose:** Sets the value or state of `random offset`.
+**Purpose:** Assigns a new value to `random offset` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBHaltonColorGenerator from the subsystem API first
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetRandomOffset();
+```
 
 ### GetColor
 `public Color GetColor(int index, int maxIndex)`
 
-**Purpose:** Gets the current value of `color`.
+**Purpose:** Reads and returns the `color` value held by the current object.
+
+```csharp
+// Obtain an instance of MBHaltonColorGenerator from the subsystem API first
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+var result = mBHaltonColorGenerator.GetColor(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBHaltonColorGenerator();
-value.SetBase();
+// Typically call this after obtaining an instance from the subsystem API
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetBase();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PlayersAddedToPartyMessage"
+description: "Auto-generated class reference for PlayersAddedToPartyMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayersAddedToPartyMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayersAddedToPartyMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayersAddedToPartyMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayersAddedToPartyMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayersAddedToPartyMessage.cs`
 
 ## Overview
 
@@ -31,18 +25,31 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 
 **Purpose:** Adds `player` to the current collection or state.
 
+```csharp
+// Obtain an instance of PlayersAddedToPartyMessage from the subsystem API first
+PlayersAddedToPartyMessage playersAddedToPartyMessage = ...;
+playersAddedToPartyMessage.AddPlayer(playerId, "example", false);
+```
+
 ### AddInvitedPlayer
 `public void AddInvitedPlayer(PlayerId playerId, string playerName)`
 
 **Purpose:** Adds `invited player` to the current collection or state.
 
+```csharp
+// Obtain an instance of PlayersAddedToPartyMessage from the subsystem API first
+PlayersAddedToPartyMessage playersAddedToPartyMessage = ...;
+playersAddedToPartyMessage.AddInvitedPlayer(playerId, "example");
+```
+
 ## Usage Example
 
 ```csharp
-var value = new PlayersAddedToPartyMessage();
-value.AddPlayer(playerId, "example", false);
+// Typically call this after obtaining an instance from the subsystem API
+PlayersAddedToPartyMessage playersAddedToPartyMessage = ...;
+playersAddedToPartyMessage.AddPlayer(playerId, "example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CubicBezier"
+description: "Auto-generated class reference for CubicBezier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CubicBezier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CubicBezier
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class CubicBezier`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/CubicBezier.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/CubicBezier.cs`
 
 ## Overview
 
@@ -29,22 +23,43 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CreateEase
 `public static CubicBezier CreateEase(double controlPoint1X, double controlPoint1Y, double controlPoint2X, double controlPoint2Y)`
 
-**Purpose:** Creates a new `ease` instance or object.
+**Purpose:** Constructs a new `ease` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CubicBezier.CreateEase(0, 0, 0, 0);
+```
 
 ### CreateYBeginToYEndWithRelativeControlDirs
 `public static CubicBezier CreateYBeginToYEndWithRelativeControlDirs(double yBegin, double yEnd, double controlDir1X, double controlDir1Y, double controlDir2X, double controlDir2Y)`
 
-**Purpose:** Creates a new `y begin to y end with relative control dirs` instance or object.
+**Purpose:** Constructs a new `y begin to y end with relative control dirs` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CubicBezier.CreateYBeginToYEndWithRelativeControlDirs(0, 0, 0, 0, 0, 0);
+```
 
 ### CreateYBeginToYEnd
 `public static CubicBezier CreateYBeginToYEnd(double yBegin, double yEnd, double controlPoint1X, double controlPoint1Y, double controlPoint2X, double controlPoint2Y)`
 
-**Purpose:** Creates a new `y begin to y end` instance or object.
+**Purpose:** Constructs a new `y begin to y end` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CubicBezier.CreateYBeginToYEnd(0, 0, 0, 0, 0, 0);
+```
 
 ### Sample
 `public double Sample(double x)`
 
-**Purpose:** Handles logic related to `sample`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CubicBezier from the subsystem API first
+CubicBezier cubicBezier = ...;
+var result = cubicBezier.Sample(0);
+```
 
 ## Usage Example
 
@@ -54,4 +69,4 @@ CubicBezier.CreateEase(0, 0, 0, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

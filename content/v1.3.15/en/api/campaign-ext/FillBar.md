@@ -1,13 +1,7 @@
 ---
 title: "FillBar"
+description: "Auto-generated class reference for FillBar."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillBar`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FillBar
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -40,9 +34,10 @@ Start from namespace `TaleWorlds.GauntletUI.ExtraWidgets` to place it in the sta
 ## Usage Example
 
 ```csharp
-var value = new FillBar();
+// Obtain an instance from the relevant subsystem API
+FillBar instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

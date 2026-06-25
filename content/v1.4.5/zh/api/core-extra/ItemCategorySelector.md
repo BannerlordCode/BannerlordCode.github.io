@@ -1,20 +1,14 @@
 ---
 title: "ItemCategorySelector"
+description: "ItemCategorySelector 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemCategorySelector`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCategorySelector
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ItemCategorySelector : MBGameModel<ItemCategorySelector>`
 **Base:** `MBGameModel<ItemCategorySelector>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemCategorySelector.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemCategorySelector.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "ItemCategorySelector"
 ### GetItemCategoryForItem
 `public abstract ItemCategory GetItemCategoryForItem(ItemObject itemObject)`
 
-**用途 / Purpose:** 获取 `item category for item` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item category for item」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemCategorySelector 实例
+ItemCategorySelector itemCategorySelector = ...;
+var result = itemCategorySelector.GetItemCategoryForItem(itemObject);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomItemCategorySelector();
+// 通常通过子系统 API 或工厂获得派生实例
+ItemCategorySelector instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

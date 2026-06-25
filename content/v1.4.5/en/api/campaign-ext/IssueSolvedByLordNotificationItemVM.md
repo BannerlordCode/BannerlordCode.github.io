@@ -1,20 +1,14 @@
 ---
 title: "IssueSolvedByLordNotificationItemVM"
+description: "Auto-generated class reference for IssueSolvedByLordNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IssueSolvedByLordNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IssueSolvedByLordNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class IssueSolvedByLordNotificationItemVM : SettlementNotificationItemBaseVM`
 **Base:** `SettlementNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/IssueSolvedByLordNotificationItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/IssueSolvedByLordNotificationItemVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ## Usage Example
 
 ```csharp
-var value = new IssueSolvedByLordNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+IssueSolvedByLordNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

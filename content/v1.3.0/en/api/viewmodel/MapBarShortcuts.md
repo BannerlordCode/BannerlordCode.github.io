@@ -1,13 +1,7 @@
 ---
 title: "MapBarShortcuts"
+description: "Auto-generated class reference for MapBarShortcuts."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapBarShortcuts`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapBarShortcuts
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ## Usage Example
 
 ```csharp
-var example = new MapBarShortcuts();
+// Obtain an instance from the relevant subsystem API
+MapBarShortcuts instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

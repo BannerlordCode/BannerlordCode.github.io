@@ -1,20 +1,14 @@
 ---
 title: "INavigationHandler"
+description: "Auto-generated class reference for INavigationHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `INavigationHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # INavigationHandler
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface INavigationHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/INavigationHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/INavigationHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `INavigationHandler` as a Handler-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-INavigationHandler implementation = GetNavigationHandlerImplementation();
+// Usually obtained through DI or a factory method
+IINavigationHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

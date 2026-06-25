@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaContentPageVM"
+description: "EncyclopediaContentPageVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaContentPageVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaContentPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -40,30 +34,55 @@ title: "EncyclopediaContentPageVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.RefreshValues();
+```
 
 ### InitializeQuickNavigation
 `public void InitializeQuickNavigation(EncyclopediaListVM list)`
 
-**用途 / Purpose:** 初始化 `quick navigation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「quick navigation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.InitializeQuickNavigation(list);
+```
 
 ### ExecuteGoToNextItem
 `public void ExecuteGoToNextItem()`
 
-**用途 / Purpose:** 执行 `go to next item` 操作或流程。
+**用途 / Purpose:** 执行 「go to next item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.ExecuteGoToNextItem();
+```
 
 ### ExecuteGoToPreviousItem
 `public void ExecuteGoToPreviousItem()`
 
-**用途 / Purpose:** 执行 `go to previous item` 操作或流程。
+**用途 / Purpose:** 执行 「go to previous item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaContentPageVM 实例
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.ExecuteGoToPreviousItem();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaContentPageVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

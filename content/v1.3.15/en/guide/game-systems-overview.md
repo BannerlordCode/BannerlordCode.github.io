@@ -118,19 +118,19 @@ MBSubModuleBase
 
 ## Related Documentation
 
-- [Mission System](./mission-system)
-- [Campaign System](./campaign-system)
+- [Mission System](mission-system/)
+- [Campaign System](campaign-system/)
 - [Architecture Documentation](../architecture/)
 
 ---
 
 ## Next Section
 
-- [Troubleshooting](./troubleshooting) - Solve problems
-- [Common Patterns](./common-patterns) - Best practices
+- [Troubleshooting](troubleshooting/) - Solve problems
+- [Common Patterns](common-patterns/) - Best practices
 
 ## Usage Example
 
 ```csharp
-var example = new Game Systems Overview();
+// Follow the sections below and use the code notes alongside them.
 ```

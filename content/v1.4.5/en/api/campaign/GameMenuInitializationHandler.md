@@ -1,20 +1,14 @@
 ---
 title: "GameMenuInitializationHandler"
+description: "Auto-generated class reference for GameMenuInitializationHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuInitializationHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuInitializationHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuInitializationHandler : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuInitializationHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuInitializationHandler.cs`
 
 ## Overview
 
@@ -33,9 +27,9 @@ Treat `GameMenuInitializationHandler` as a Handler-style extension point: first 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GameMenuInitializationHandler());
+var behavior = Mission.Current.GetMissionBehavior<GameMenuInitializationHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

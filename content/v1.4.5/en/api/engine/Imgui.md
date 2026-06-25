@@ -1,20 +1,14 @@
 ---
 title: "Imgui"
+description: "Auto-generated class reference for Imgui."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Imgui`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Imgui
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class Imgui`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Imgui.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Imgui.cs`
 
 ## Overview
 
@@ -29,182 +23,362 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### BeginMainThreadScope
 `public static void BeginMainThreadScope()`
 
-**Purpose:** Handles logic related to `begin main thread scope`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.BeginMainThreadScope();
+```
 
 ### EndMainThreadScope
 `public static void EndMainThreadScope()`
 
-**Purpose:** Handles logic related to `end main thread scope`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.EndMainThreadScope();
+```
 
 ### PushStyleColor
 `public static void PushStyleColor(ColorStyle style, ref Vec3 color)`
 
-**Purpose:** Handles logic related to `push style color`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.PushStyleColor(style, color);
+```
 
 ### PopStyleColor
 `public static void PopStyleColor()`
 
-**Purpose:** Handles logic related to `pop style color`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.PopStyleColor();
+```
 
 ### NewFrame
 `public static void NewFrame()`
 
-**Purpose:** Handles logic related to `new frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.NewFrame();
+```
 
 ### Render
 `public static void Render()`
 
-**Purpose:** Handles logic related to `render`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.Render();
+```
 
 ### Begin
 `public static void Begin(string text)`
 
-**Purpose:** Handles logic related to `begin`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.Begin("example");
+```
 
 ### Begin
 `public static void Begin(string text, ref bool is_open)`
 
-**Purpose:** Handles logic related to `begin`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.Begin("example", is_open);
+```
 
 ### End
 `public static void End()`
 
-**Purpose:** Handles logic related to `end`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.End();
+```
 
 ### Text
 `public static void Text(string text)`
 
-**Purpose:** Handles logic related to `text`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.Text("example");
+```
 
 ### Checkbox
 `public static bool Checkbox(string text, ref bool is_checked)`
 
-**Purpose:** Handles logic related to `checkbox`.
+**Purpose:** Verifies whether `box` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+Imgui.Checkbox("example", is_checked);
+```
 
 ### TreeNode
 `public static bool TreeNode(string name)`
 
-**Purpose:** Handles logic related to `tree node`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.TreeNode("example");
+```
 
 ### TreePop
 `public static void TreePop()`
 
-**Purpose:** Handles logic related to `tree pop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.TreePop();
+```
 
 ### Separator
 `public static void Separator()`
 
-**Purpose:** Handles logic related to `separator`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.Separator();
+```
 
 ### Button
 `public static bool Button(string text)`
 
-**Purpose:** Handles logic related to `button`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.Button("example");
+```
 
 ### PlotLines
 `public static void PlotLines(string name, float values, int valuesCount, int valuesOffset, string overlayText, float minScale, float maxScale, float graphWidth, float graphHeight, int stride)`
 
-**Purpose:** Handles logic related to `plot lines`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.PlotLines("example", 0, 0, 0, "example", 0, 0, 0, 0, 0);
+```
 
 ### ProgressBar
 `public static void ProgressBar(float progress)`
 
-**Purpose:** Handles logic related to `progress bar`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.ProgressBar(0);
+```
 
 ### NewLine
 `public static void NewLine()`
 
-**Purpose:** Handles logic related to `new line`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.NewLine();
+```
 
 ### SameLine
 `public static void SameLine(float posX = 0f, float spacingWidth = 0f)`
 
-**Purpose:** Handles logic related to `same line`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.SameLine(0, 0);
+```
 
 ### Combo
 `public static bool Combo(string label, ref int selectedIndex, string items)`
 
-**Purpose:** Handles logic related to `combo`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.Combo("example", selectedIndex, "example");
+```
 
 ### ComboCustomSeperator
 `public static bool ComboCustomSeperator(string label, ref int selectedIndex, string items, char seperator)`
 
-**Purpose:** Handles logic related to `combo custom seperator`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.ComboCustomSeperator("example", selectedIndex, "example", seperator);
+```
 
 ### InputInt
 `public static bool InputInt(string label, ref int value)`
 
-**Purpose:** Handles logic related to `input int`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.InputInt("example", value);
+```
 
 ### SliderFloat
 `public static bool SliderFloat(string label, ref float value, float min, float max)`
 
-**Purpose:** Handles logic related to `slider float`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.SliderFloat("example", value, 0, 0);
+```
 
 ### Columns
 `public static void Columns(int count = 1, string id = "", bool border = true)`
 
-**Purpose:** Handles logic related to `columns`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.Columns(0, "example", false);
+```
 
 ### NextColumn
 `public static void NextColumn()`
 
-**Purpose:** Handles logic related to `next column`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.NextColumn();
+```
 
 ### RadioButton
 `public static bool RadioButton(string label, bool active)`
 
-**Purpose:** Handles logic related to `radio button`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.RadioButton("example", false);
+```
 
 ### CollapsingHeader
 `public static bool CollapsingHeader(string label)`
 
-**Purpose:** Handles logic related to `collapsing header`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.CollapsingHeader("example");
+```
 
 ### IsItemHovered
 `public static bool IsItemHovered()`
 
-**Purpose:** Handles logic related to `is item hovered`.
+**Purpose:** Determines whether the current object is in the `item hovered` state or condition.
+
+```csharp
+// Static call; no instance required
+Imgui.IsItemHovered();
+```
 
 ### SetTooltip
 `public static void SetTooltip(string label)`
 
-**Purpose:** Sets the value or state of `tooltip`.
+**Purpose:** Assigns a new value to `tooltip` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+Imgui.SetTooltip("example");
+```
 
 ### SmallButton
 `public static bool SmallButton(string label)`
 
-**Purpose:** Handles logic related to `small button`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.SmallButton("example");
+```
 
 ### InputFloat
 `public static bool InputFloat(string label, ref float val, float step, float stepFast, int decimalPrecision = -1)`
 
-**Purpose:** Handles logic related to `input float`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.InputFloat("example", val, 0, 0, 0);
+```
 
 ### InputText
 `public static bool InputText(string label, ref string text)`
 
-**Purpose:** Handles logic related to `input text`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.InputText("example", text);
+```
 
 ### InputTextMultilineCopyPaste
 `public static bool InputTextMultilineCopyPaste(string label, int textBoxHeight, ref string text)`
 
-**Purpose:** Handles logic related to `input text multiline copy paste`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.InputTextMultilineCopyPaste("example", 0, text);
+```
 
 ### InputFloat2
 `public static bool InputFloat2(string label, ref float val0, ref float val1, int decimalPrecision = -1)`
 
-**Purpose:** Handles logic related to `input float2`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.InputFloat2("example", val0, val1, 0);
+```
 
 ### InputFloat3
 `public static bool InputFloat3(string label, ref float val0, ref float val1, ref float val2, int decimalPrecision = -1)`
 
-**Purpose:** Handles logic related to `input float3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.InputFloat3("example", val0, val1, val2, 0);
+```
 
 ### InputFloat4
 `public static bool InputFloat4(string label, ref float val0, ref float val1, ref float val2, ref float val3, int decimalPrecision = -1)`
 
-**Purpose:** Handles logic related to `input float4`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Imgui.InputFloat4("example", val0, val1, val2, val3, 0);
+```
 
 ## Usage Example
 
@@ -214,4 +388,4 @@ Imgui.BeginMainThreadScope();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

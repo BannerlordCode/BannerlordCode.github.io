@@ -1,20 +1,14 @@
 ---
 title: "MPHeroClassGroup"
+description: "Auto-generated class reference for MPHeroClassGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPHeroClassGroup`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPHeroClassGroup
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPHeroClassGroup`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MPHeroClassGroup from the subsystem API first
+MPHeroClassGroup mPHeroClassGroup = ...;
+var result = mPHeroClassGroup.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MPHeroClassGroup from the subsystem API first
+MPHeroClassGroup mPHeroClassGroup = ...;
+var result = mPHeroClassGroup.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPHeroClassGroup();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+MPHeroClassGroup mPHeroClassGroup = ...;
+mPHeroClassGroup.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

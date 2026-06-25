@@ -1,13 +1,7 @@
 ---
 title: "BrightnessDemoWidget"
+description: "Auto-generated class reference for BrightnessDemoWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrightnessDemoWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BrightnessDemoWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -33,9 +27,10 @@ Treat `BrightnessDemoWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new BrightnessDemoWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BrightnessDemoWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

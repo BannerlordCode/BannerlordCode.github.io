@@ -1,20 +1,14 @@
 ---
 title: "GridLayout"
+description: "Auto-generated class reference for GridLayout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GridLayout`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GridLayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GridLayout : ILayout`
 **Base:** `ILayout`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/GridLayout.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/GridLayout.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new GridLayout();
+// Obtain an instance from the relevant subsystem API
+GridLayout instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

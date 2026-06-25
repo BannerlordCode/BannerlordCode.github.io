@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyArmoryCosmeticItemBrushWidget"
+description: "Auto-generated class reference for MultiplayerLobbyArmoryCosmeticItemBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyArmoryCosmeticItemBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyArmoryCosmeticItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
@@ -36,14 +30,21 @@ Treat `MultiplayerLobbyArmoryCosmeticItemBrushWidget` as a Widget-style extensio
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyArmoryCosmeticItemBrushWidget from the subsystem API first
+MultiplayerLobbyArmoryCosmeticItemBrushWidget multiplayerLobbyArmoryCosmeticItemBrushWidget = ...;
+multiplayerLobbyArmoryCosmeticItemBrushWidget.SetState("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyArmoryCosmeticItemBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyArmoryCosmeticItemBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

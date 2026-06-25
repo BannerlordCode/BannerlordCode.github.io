@@ -1,20 +1,14 @@
 ---
 title: "ClanScreenPermissionEvent"
+description: "Auto-generated class reference for ClanScreenPermissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanScreenPermissionEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanScreenPermissionEvent
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
 **Module:** SandBox.View
 **Type:** `public class ClanScreenPermissionEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/ClanScreenPermissionEvent.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/ClanScreenPermissionEvent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ## Usage Example
 
 ```csharp
-var value = new ClanScreenPermissionEvent();
+// Obtain an instance from the relevant subsystem API
+ClanScreenPermissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

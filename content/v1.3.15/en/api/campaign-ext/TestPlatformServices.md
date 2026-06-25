@@ -1,13 +1,7 @@
 ---
 title: "TestPlatformServices"
+description: "Auto-generated class reference for TestPlatformServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestPlatformServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TestPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TestPlatformServices from the subsystem API first
+TestPlatformServices testPlatformServices = ...;
+testPlatformServices.Tick(0);
+```
 
 ### ActivateFriendList
 `public void ActivateFriendList()`
 
-**Purpose:** Handles logic related to `activate friend list`.
+**Purpose:** Activates the resource, state, or feature associated with `friend list`.
+
+```csharp
+// Obtain an instance of TestPlatformServices from the subsystem API first
+TestPlatformServices testPlatformServices = ...;
+testPlatformServices.ActivateFriendList();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TestPlatformServices();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+TestPlatformServices testPlatformServices = ...;
+testPlatformServices.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ICampaignMissionManager"
+description: "Auto-generated class reference for ICampaignMissionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICampaignMissionManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICampaignMissionManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public interface ICampaignMissionManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignMission.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignMission.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ICampaignMissionManager` as a Manager-style extension point: first identi
 ## Usage Example
 
 ```csharp
-ICampaignMissionManager implementation = GetCampaignMissionManagerImplementation();
+// Usually obtained through DI or a factory method
+IICampaignMissionManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

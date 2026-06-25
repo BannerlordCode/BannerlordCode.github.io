@@ -1,20 +1,14 @@
 ---
 title: "AssignPlayerRoleInTeamMissionController"
+description: "Auto-generated class reference for AssignPlayerRoleInTeamMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AssignPlayerRoleInTeamMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AssignPlayerRoleInTeamMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AssignPlayerRoleInTeamMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AssignPlayerRoleInTeamMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AssignPlayerRoleInTeamMissionController.cs`
 
 ## Overview
 
@@ -38,27 +32,57 @@ Treat `AssignPlayerRoleInTeamMissionController` as a Controller-style extension 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.AfterStart();
+```
 
 ### OnTeamDeployed
 `public override void OnTeamDeployed(Team team)`
 
-**Purpose:** Called when the `team deployed` event is raised.
+**Purpose:** Invoked when the `team deployed` event is raised.
+
+```csharp
+// Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.OnTeamDeployed(team);
+```
 
 ### OnPlayerTeamDeployed
 `public virtual void OnPlayerTeamDeployed()`
 
-**Purpose:** Called when the `player team deployed` event is raised.
+**Purpose:** Invoked when the `player team deployed` event is raised.
+
+```csharp
+// Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.OnPlayerTeamDeployed();
+```
 
 ### OnPlayerChoiceMade
 `public virtual void OnPlayerChoiceMade(int chosenIndex)`
 
-**Purpose:** Called when the `player choice made` event is raised.
+**Purpose:** Invoked when the `player choice made` event is raised.
+
+```csharp
+// Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.OnPlayerChoiceMade(0);
+```
 
 ### OnPlayerChoiceFinalized
 `public void OnPlayerChoiceFinalized()`
 
-**Purpose:** Called when the `player choice finalized` event is raised.
+**Purpose:** Invoked when the `player choice finalized` event is raised.
+
+```csharp
+// Obtain an instance of AssignPlayerRoleInTeamMissionController from the subsystem API first
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.OnPlayerChoiceFinalized();
+```
 
 ## Usage Example
 
@@ -68,4 +92,4 @@ var controller = Mission.Current.GetMissionBehavior<AssignPlayerRoleInTeamMissio
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

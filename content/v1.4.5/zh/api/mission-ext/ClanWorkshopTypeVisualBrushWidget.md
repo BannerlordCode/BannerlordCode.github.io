@@ -1,20 +1,14 @@
 ---
 title: "ClanWorkshopTypeVisualBrushWidget"
+description: "ClanWorkshopTypeVisualBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanWorkshopTypeVisualBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanWorkshopTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanWorkshopTypeVisualBrushWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanWorkshopTypeVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanWorkshopTypeVisualBrushWidget.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "ClanWorkshopTypeVisualBrushWidget"
 ### ClanWorkshopTypeVisualBrushWidget
 `public class ClanWorkshopTypeVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `clan workshop type visual brush widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClanWorkshopTypeVisualBrushWidget 实例
+ClanWorkshopTypeVisualBrushWidget clanWorkshopTypeVisualBrushWidget = ...;
+var result = clanWorkshopTypeVisualBrushWidget.ClanWorkshopTypeVisualBrushWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ClanWorkshopTypeVisualBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ClanWorkshopTypeVisualBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

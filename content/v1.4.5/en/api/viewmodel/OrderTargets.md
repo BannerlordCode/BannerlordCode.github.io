@@ -1,20 +1,14 @@
 ---
 title: "OrderTargets"
+description: "Auto-generated class reference for OrderTargets."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderTargets`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTargets
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum OrderTargets`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ## Usage Example
 
 ```csharp
-OrderTargets example = OrderTargets.Value;
+// Obtain an instance from the relevant subsystem API
+OrderTargets instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

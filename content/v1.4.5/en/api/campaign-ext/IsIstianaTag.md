@@ -1,20 +1,14 @@
 ---
 title: "IsIstianaTag"
+description: "Auto-generated class reference for IsIstianaTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IsIstianaTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IsIstianaTag
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class IsIstianaTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/IsIstianaTag.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/IsIstianaTag.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of IsIstianaTag from the subsystem API first
+IsIstianaTag isIstianaTag = ...;
+var result = isIstianaTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IsIstianaTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+IsIstianaTag isIstianaTag = ...;
+isIstianaTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

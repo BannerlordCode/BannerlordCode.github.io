@@ -1,13 +1,7 @@
 ---
 title: "MapIncidentView"
+description: "Auto-generated class reference for MapIncidentView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapIncidentView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapIncidentView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MapIncidentView` as a View-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var view = new MapIncidentView();
+// Retrieve this view from the subsystem API or scene
+MapIncidentView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

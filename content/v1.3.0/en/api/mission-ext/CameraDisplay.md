@@ -1,13 +1,7 @@
 ---
 title: "CameraDisplay"
+description: "Auto-generated class reference for CameraDisplay."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CameraDisplay`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CameraDisplay
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new CameraDisplay();
+// Obtain an instance from the relevant subsystem API
+CameraDisplay instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

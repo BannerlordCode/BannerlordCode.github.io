@@ -1,20 +1,14 @@
 ---
 title: "RundownTooltipVM"
+description: "Auto-generated class reference for RundownTooltipVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RundownTooltipVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RundownTooltipVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip
 **Module:** TaleWorlds.Core
 **Type:** `public class RundownTooltipVM : TooltipBaseVM`
 **Base:** `TooltipBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip/RundownTooltipVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip/RundownTooltipVM.cs`
 
 ## Overview
 
@@ -40,20 +34,32 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information.RundownToo
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RundownTooltipVM from the subsystem API first
+RundownTooltipVM rundownTooltipVM = ...;
+rundownTooltipVM.RefreshValues();
+```
 
 ### RefreshGenericRundownTooltip
 `public static void RefreshGenericRundownTooltip(RundownTooltipVM rundownTooltip, object args)`
 
-**Purpose:** Refreshes the display or cache of `generic rundown tooltip`.
+**Purpose:** Keeps the display or cache of `generic rundown tooltip` in sync with the underlying state.
+
+```csharp
+// Static call; no instance required
+RundownTooltipVM.RefreshGenericRundownTooltip(rundownTooltip, args);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RundownTooltipVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+RundownTooltipVM rundownTooltipVM = ...;
+rundownTooltipVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

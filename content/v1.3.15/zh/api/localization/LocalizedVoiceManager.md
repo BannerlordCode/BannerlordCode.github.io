@@ -1,19 +1,14 @@
 ---
 title: "LocalizedVoiceManager"
+description: "LocalizedVoiceManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LocalizedVoiceManager`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LocalizedVoiceManager
 
-**命名空间:** TaleWorlds.Localization
-**模块:** TaleWorlds.Localization
-**类型:** `public static class LocalizedVoiceManager`
-**领域:** localization
+**Namespace:** TaleWorlds.Localization
+**Module:** TaleWorlds.Localization
+**Type:** `public static class LocalizedVoiceManager`
+**Base:** 无
+**File:** `TaleWorlds.Localization/LocalizedVoiceManager.cs`
 
 ## 概述
 
@@ -28,12 +23,22 @@ title: "LocalizedVoiceManager"
 ### GetLocalizedVoice
 `public static VoiceObject GetLocalizedVoice(string id)`
 
-**用途 / Purpose:** 获取 `localized voice` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「localized voice」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedVoiceManager.GetLocalizedVoice("example");
+```
 
 ### GetVoiceLanguageIds
 `public static List<string> GetVoiceLanguageIds()`
 
-**用途 / Purpose:** 获取 `voice language ids` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「voice language ids」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedVoiceManager.GetVoiceLanguageIds();
+```
 
 ## 使用示例
 
@@ -43,5 +48,4 @@ var manager = LocalizedVoiceManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-localization)
+- [本区域目录](../)

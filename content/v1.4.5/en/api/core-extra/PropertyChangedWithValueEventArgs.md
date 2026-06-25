@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithValueEventArgs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithValueEventArgs.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithValueEventArgs
 `public struct PropertyChangedWithValueEventArgs(string propertyName, object value)`
 
-**Purpose:** Handles logic related to `property changed with value event args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PropertyChangedWithValueEventArgs from the subsystem API first
+PropertyChangedWithValueEventArgs propertyChangedWithValueEventArgs = ...;
+var result = propertyChangedWithValueEventArgs.PropertyChangedWithValueEventArgs("example", value);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithValueEventArgs();
-value.PropertyChangedWithValueEventArgs("example", value);
+// Typically call this after obtaining an instance from the subsystem API
+PropertyChangedWithValueEventArgs propertyChangedWithValueEventArgs = ...;
+propertyChangedWithValueEventArgs.PropertyChangedWithValueEventArgs("example", value);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

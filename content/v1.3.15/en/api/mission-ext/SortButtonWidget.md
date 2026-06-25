@@ -1,13 +1,7 @@
 ---
 title: "SortButtonWidget"
+description: "Auto-generated class reference for SortButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SortButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SortButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -34,9 +28,10 @@ Treat `SortButtonWidget` as a Widget-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-var widget = new SortButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SortButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

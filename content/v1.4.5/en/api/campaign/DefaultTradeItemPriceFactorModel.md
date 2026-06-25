@@ -1,20 +1,14 @@
 ---
 title: "DefaultTradeItemPriceFactorModel"
+description: "Auto-generated class reference for DefaultTradeItemPriceFactorModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTradeItemPriceFactorModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTradeItemPriceFactorModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTradeItemPriceFactorModel : TradeItemPriceFactorModel`
 **Base:** `TradeItemPriceFactorModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTradeItemPriceFactorModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTradeItemPriceFactorModel.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `DefaultTradeItemPriceFactorModel` as a Model-style extension point: first
 ### GetTradePenalty
 `public override float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)`
 
-**Purpose:** Gets the current value of `trade penalty`.
+**Purpose:** Reads and returns the `trade penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeItemPriceFactorModel from the subsystem API first
+DefaultTradeItemPriceFactorModel defaultTradeItemPriceFactorModel = ...;
+var result = defaultTradeItemPriceFactorModel.GetTradePenalty(item, clientParty, merchant, false, 0, 0, 0);
+```
 
 ### GetBasePriceFactor
 `public override float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)`
 
-**Purpose:** Gets the current value of `base price factor`.
+**Purpose:** Reads and returns the `base price factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeItemPriceFactorModel from the subsystem API first
+DefaultTradeItemPriceFactorModel defaultTradeItemPriceFactorModel = ...;
+var result = defaultTradeItemPriceFactorModel.GetBasePriceFactor(itemCategory, 0, 0, 0, false, 0);
+```
 
 ### GetPrice
 `public override int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)`
 
-**Purpose:** Gets the current value of `price`.
+**Purpose:** Reads and returns the `price` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeItemPriceFactorModel from the subsystem API first
+DefaultTradeItemPriceFactorModel defaultTradeItemPriceFactorModel = ...;
+var result = defaultTradeItemPriceFactorModel.GetPrice(itemRosterElement, clientParty, merchant, false, 0, 0, 0);
+```
 
 ### GetTheoreticalMaxItemMarketValue
 `public override int GetTheoreticalMaxItemMarketValue(ItemObject item)`
 
-**Purpose:** Gets the current value of `theoretical max item market value`.
+**Purpose:** Reads and returns the `theoretical max item market value` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeItemPriceFactorModel from the subsystem API first
+DefaultTradeItemPriceFactorModel defaultTradeItemPriceFactorModel = ...;
+var result = defaultTradeItemPriceFactorModel.GetTheoreticalMaxItemMarketValue(item);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultTradeItemPriceFactorModel>(new MyDefaultTradeIt
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

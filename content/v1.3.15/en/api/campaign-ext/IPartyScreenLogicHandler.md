@@ -1,18 +1,12 @@
 ---
 title: "IPartyScreenLogicHandler"
+description: "Auto-generated class reference for IPartyScreenLogicHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IPartyScreenLogicHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IPartyScreenLogicHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IPartyScreenLogicHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/IPartyScreenLogicHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IPartyScreenLogicHandler` as a Handler-style extension point: first ident
 ## Usage Example
 
 ```csharp
-IPartyScreenLogicHandler implementation = GetPartyScreenLogicHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIPartyScreenLogicHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "RoadPoint"
+description: "Auto-generated class reference for RoadPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RoadPoint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RoadPoint
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RoadPoint : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RoadPoint.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RoadPoint.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new RoadPoint();
+// Obtain an instance from the relevant subsystem API
+RoadPoint instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

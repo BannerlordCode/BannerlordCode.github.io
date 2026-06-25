@@ -1,20 +1,14 @@
 ---
 title: "MouseCursors"
+description: "Auto-generated class reference for MouseCursors."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MouseCursors`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MouseCursors
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public enum MouseCursors`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/UIContext.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/UIContext.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-MouseCursors example = MouseCursors.Value;
+// Obtain an instance from the relevant subsystem API
+MouseCursors instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TroopTypeSelectionPopUpVM"
+description: "Auto-generated class reference for TroopTypeSelectionPopUpVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopTypeSelectionPopUpVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopTypeSelectionPopUpVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TroopTypeSelectionPopUpVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/TroopTypeSelectionPopUpVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/TroopTypeSelectionPopUpVM.cs`
 
 ## Overview
 
@@ -44,70 +38,143 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.OnFinalize();
+```
 
 ### OpenPopUp
 `public void OpenPopUp(string title, MBBindingList<CustomBattleTroopTypeVM> troops)`
 
-**Purpose:** Handles logic related to `open pop up`.
+**Purpose:** Opens the resource or UI associated with `pop up`.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.OpenPopUp("example", troops);
+```
 
 ### OnItemSelectionToggled
 `public void OnItemSelectionToggled(CustomBattleTroopTypeVM item)`
 
-**Purpose:** Called when the `item selection toggled` event is raised.
+**Purpose:** Invoked when the `item selection toggled` event is raised.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.OnItemSelectionToggled(item);
+```
 
 ### ExecuteSelectAll
 `public void ExecuteSelectAll()`
 
-**Purpose:** Executes the `select all` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select all`.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteSelectAll();
+```
 
 ### ExecuteBackToDefault
 `public void ExecuteBackToDefault()`
 
-**Purpose:** Executes the `back to default` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `back to default`.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteBackToDefault();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteCancel();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteDone();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Executes the `reset` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset`.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteReset();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.SetCancelInputKey(hotkey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.SetDoneInputKey(hotkey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.SetResetInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TroopTypeSelectionPopUpVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

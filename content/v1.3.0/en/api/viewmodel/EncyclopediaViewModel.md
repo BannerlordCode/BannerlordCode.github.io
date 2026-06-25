@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaViewModel"
+description: "Auto-generated class reference for EncyclopediaViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaViewModel`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaViewModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -33,10 +27,11 @@ Treat `EncyclopediaViewModel` as a ViewModel-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var vm = new EncyclopediaViewModel();
+// Bind the instance as the view-model of a movie or view
+EncyclopediaViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

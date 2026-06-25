@@ -1,20 +1,14 @@
 ---
 title: "TeamTypes"
+description: "TeamTypes 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamTypes`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamTypes
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum TeamTypes`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionFormationMarkerTargetVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionFormationMarkerTargetVM.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "TeamTypes"
 ## 使用示例
 
 ```csharp
-TeamTypes example = TeamTypes.Value;
+// 从对应子系统 API 获取实例
+TeamTypes instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "OpenInventoryWithGivenItemsEventListenerLogic"
+description: "OpenInventoryWithGivenItemsEventListenerLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OpenInventoryWithGivenItemsEventListenerLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OpenInventoryWithGivenItemsEventListenerLogic
 
 **Namespace:** SandBox.Missions.MissionEvents
 **Module:** SandBox.Missions
 **Type:** `public class OpenInventoryWithGivenItemsEventListenerLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionEvents/OpenInventoryWithGivenItemsEventListenerLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionEvents/OpenInventoryWithGivenItemsEventListenerLogic.cs`
 
 ## 概述
 
@@ -27,9 +21,9 @@ title: "OpenInventoryWithGivenItemsEventListenerLogic"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new OpenInventoryWithGivenItemsEventListenerLogic());
+var behavior = Mission.Current.GetMissionBehavior<OpenInventoryWithGivenItemsEventListenerLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

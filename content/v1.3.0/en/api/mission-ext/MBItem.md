@@ -1,13 +1,7 @@
 ---
 title: "MBItem"
+description: "Auto-generated class reference for MBItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBItem`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBItem
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,42 +23,82 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetItemUsageIndex
 `public static int GetItemUsageIndex(string itemUsageName)`
 
-**Purpose:** Gets the current value of `item usage index`.
+**Purpose:** Reads and returns the `item usage index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBItem.GetItemUsageIndex("example");
+```
 
 ### GetItemHolsterIndex
 `public static int GetItemHolsterIndex(string itemHolsterName)`
 
-**Purpose:** Gets the current value of `item holster index`.
+**Purpose:** Reads and returns the `item holster index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBItem.GetItemHolsterIndex("example");
+```
 
 ### GetItemIsPassiveUsage
 `public static bool GetItemIsPassiveUsage(string itemUsageName)`
 
-**Purpose:** Gets the current value of `item is passive usage`.
+**Purpose:** Reads and returns the `item is passive usage` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBItem.GetItemIsPassiveUsage("example");
+```
 
 ### GetHolsterFrameByIndex
 `public static MatrixFrame GetHolsterFrameByIndex(int index)`
 
-**Purpose:** Gets the current value of `holster frame by index`.
+**Purpose:** Reads and returns the `holster frame by index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBItem.GetHolsterFrameByIndex(0);
+```
 
 ### GetItemUsageSetFlags
 `public static ItemObject.ItemUsageSetFlags GetItemUsageSetFlags(string ItemUsageName)`
 
-**Purpose:** Gets the current value of `item usage set flags`.
+**Purpose:** Reads and returns the `item usage set flags` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBItem.GetItemUsageSetFlags("example");
+```
 
 ### GetItemUsageReloadActionCode
 `public static ActionIndexCache GetItemUsageReloadActionCode(string itemUsageName, int usageDirection, bool isMounted, int leftHandUsageSetIndex, bool isLeftStance, bool isLowLookDirection)`
 
-**Purpose:** Gets the current value of `item usage reload action code`.
+**Purpose:** Reads and returns the `item usage reload action code` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBItem.GetItemUsageReloadActionCode("example", 0, false, 0, false, false);
+```
 
 ### GetItemUsageStrikeType
 `public static int GetItemUsageStrikeType(string itemUsageName, int usageDirection, bool isMounted, int leftHandUsageSetIndex, bool isLeftStance, bool isLowLookDirection)`
 
-**Purpose:** Gets the current value of `item usage strike type`.
+**Purpose:** Reads and returns the `item usage strike type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBItem.GetItemUsageStrikeType("example", 0, false, 0, false, false);
+```
 
 ### GetMissileRange
 `public static float GetMissileRange(float shotSpeed, float zDiff)`
 
-**Purpose:** Gets the current value of `missile range`.
+**Purpose:** Reads and returns the `missile range` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBItem.GetMissileRange(0, 0);
+```
 
 ## Usage Example
 
@@ -74,4 +108,4 @@ MBItem.GetItemUsageIndex("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

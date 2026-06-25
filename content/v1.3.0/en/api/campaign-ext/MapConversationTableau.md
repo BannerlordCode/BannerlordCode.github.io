@@ -1,13 +1,7 @@
 ---
 title: "MapConversationTableau"
+description: "Auto-generated class reference for MapConversationTableau."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationTableau`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationTableau
 
 **Namespace:** SandBox.View.Map
@@ -35,40 +29,77 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetEnabled(false);
+```
 
 ### SetData
 `public void SetData(object data)`
 
-**Purpose:** Sets the value or state of `data`.
+**Purpose:** Assigns a new value to `data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetData(data);
+```
 
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetTargetSize(0, 0);
+```
 
 ### OnFinalize
 `public void OnFinalize(bool clearNextFrame)`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnFinalize(false);
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnTick(0);
+```
 
 ### OnConversationPlay
 `public void OnConversationPlay(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**Purpose:** Called when the `conversation play` event is raised.
+**Purpose:** Invoked when the `conversation play` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnConversationPlay("example", "example", "example", "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapConversationTableau();
-value.SetEnabled(false);
+// Typically call this after obtaining an instance from the subsystem API
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetEnabled(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

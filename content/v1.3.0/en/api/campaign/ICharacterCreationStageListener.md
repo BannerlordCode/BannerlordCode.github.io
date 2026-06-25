@@ -1,18 +1,12 @@
 ---
 title: "ICharacterCreationStageListener"
+description: "Auto-generated class reference for ICharacterCreationStageListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICharacterCreationStageListener`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICharacterCreationStageListener
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICharacterCreationStageListener`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CharacterCreationContent/ICharacterCreationStageListener.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ## Usage Example
 
 ```csharp
-ICharacterCreationStageListener implementation = GetCharacterCreationStageListenerImplementation();
+// Usually obtained through DI or a factory method
+IICharacterCreationStageListener service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

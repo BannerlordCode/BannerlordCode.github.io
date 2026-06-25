@@ -1,13 +1,7 @@
 ---
 title: "SettlementPositionScript"
+description: "Auto-generated class reference for SettlementPositionScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementPositionScript`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementPositionScript
 
 **Namespace:** SandBox.View.Map
@@ -35,15 +29,22 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### GetSceneXmlCrcValues
 `public override void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-**Purpose:** Gets the current value of `scene xml crc values`.
+**Purpose:** Reads and returns the `scene xml crc values` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementPositionScript from the subsystem API first
+SettlementPositionScript settlementPositionScript = ...;
+settlementPositionScript.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementPositionScript();
-value.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
+// Typically call this after obtaining an instance from the subsystem API
+SettlementPositionScript settlementPositionScript = ...;
+settlementPositionScript.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

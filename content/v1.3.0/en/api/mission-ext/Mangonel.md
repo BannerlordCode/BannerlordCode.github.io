@@ -1,13 +1,7 @@
 ---
 title: "Mangonel"
+description: "Auto-generated class reference for Mangonel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Mangonel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Mangonel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,60 +23,121 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+var result = mangonel.CreateAIBehaviorObject();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+mangonel.OnDeploymentFinished();
+```
 
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Gets the current value of `siege engine type`.
+**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+var result = mangonel.GetSiegeEngineType();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+var result = mangonel.GetTickRequirement();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+var result = mangonel.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+var result = mangonel.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**Purpose:** Gets the current value of `target flags`.
+**Purpose:** Reads and returns the `target flags` value held by the current object.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+var result = mangonel.GetTargetFlags();
+```
 
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** Gets the current value of `target value`.
+**Purpose:** Reads and returns the `target value` value held by the current object.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+var result = mangonel.GetTargetValue(weaponPos);
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Handles logic related to `process target value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+var result = mangonel.ProcessTargetValue(0, flags);
+```
 
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** Sets the value or state of `spawned from spawner`.
+**Purpose:** Assigns a new value to `spawned from spawner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mangonel from the subsystem API first
+Mangonel mangonel = ...;
+mangonel.SetSpawnedFromSpawner();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Mangonel();
-value.CreateAIBehaviorObject();
+// Typically call this after obtaining an instance from the subsystem API
+Mangonel mangonel = ...;
+mangonel.CreateAIBehaviorObject();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

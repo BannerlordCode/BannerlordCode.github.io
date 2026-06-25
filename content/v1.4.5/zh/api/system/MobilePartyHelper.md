@@ -1,20 +1,14 @@
 ---
 title: "MobilePartyHelper"
+description: "MobilePartyHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MobilePartyHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class MobilePartyHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/MobilePartyHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/MobilePartyHelper.cs`
 
 ## 概述
 
@@ -29,87 +23,173 @@ title: "MobilePartyHelper"
 ### ResumePartyEscortBehaviorDelegate
 `public delegate void ResumePartyEscortBehaviorDelegate()`
 
-**用途 / Purpose:** 处理 `resume party escort behavior delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyHelper 实例
+MobilePartyHelper mobilePartyHelper = ...;
+mobilePartyHelper.ResumePartyEscortBehaviorDelegate();
+```
 
 ### SpawnLordParty
 `public static MobileParty SpawnLordParty(Hero hero, Settlement spawnSettlement)`
 
-**用途 / Purpose:** 处理 `spawn lord party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.SpawnLordParty(hero, spawnSettlement);
+```
 
 ### SpawnLordParty
 `public static MobileParty SpawnLordParty(Hero hero, CampaignVec2 position, float spawnRadius)`
 
-**用途 / Purpose:** 处理 `spawn lord party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.SpawnLordParty(hero, position, 0);
+```
 
 ### CreateNewClanMobileParty
 `public static MobileParty CreateNewClanMobileParty(Hero hero, Clan clan)`
 
-**用途 / Purpose:** 创建一个 `new clan mobile party` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「new clan mobile party」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.CreateNewClanMobileParty(hero, clan);
+```
 
 ### GetHeroWithHighestSkill
 `public static Hero GetHeroWithHighestSkill(MobileParty party, SkillObject skill)`
 
-**用途 / Purpose:** 获取 `hero with highest skill` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hero with highest skill」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.GetHeroWithHighestSkill(party, skill);
+```
 
 ### GetStrongestAndPriorTroops
 `public static TroopRoster GetStrongestAndPriorTroops(MobileParty mobileParty, int maxTroopCount, bool includePlayer)`
 
-**用途 / Purpose:** 获取 `strongest and prior troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「strongest and prior troops」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.GetStrongestAndPriorTroops(mobileParty, 0, false);
+```
 
 ### GetStrongestAndPriorTroops
 `public static TroopRoster GetStrongestAndPriorTroops(FlattenedTroopRoster roster, int maxTroopCount, bool includePlayer)`
 
-**用途 / Purpose:** 获取 `strongest and prior troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「strongest and prior troops」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.GetStrongestAndPriorTroops(roster, 0, false);
+```
 
 ### GetMaximumXpAmountPartyCanGet
 `public static int GetMaximumXpAmountPartyCanGet(MobileParty party)`
 
-**用途 / Purpose:** 获取 `maximum xp amount party can get` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum xp amount party can get」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.GetMaximumXpAmountPartyCanGet(party);
+```
 
 ### PartyAddSharedXp
 `public static void PartyAddSharedXp(MobileParty party, float xpToDistribute)`
 
-**用途 / Purpose:** 处理 `party add shared xp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.PartyAddSharedXp(party, 0);
+```
 
 ### WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath
 `public static void WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath(TroopRoster roster, int numberOfMen, float chanceOfDeathPerUnit, out int deathAmount)`
 
-**用途 / Purpose:** 处理 `wound number of non hero troops randomly with chance of death` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath(roster, 0, 0, deathAmount);
+```
 
 ### CanTroopGainXp
 `public static bool CanTroopGainXp(PartyBase owner, CharacterObject character, out int gainableMaxXp)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `troop gain xp`。
+**用途 / Purpose:** 检查当前对象是否满足 「troop gain xp」 的前置条件。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.CanTroopGainXp(owner, character, gainableMaxXp);
+```
 
 ### TryMatchPartySpeedWithItemWeight
 `public static void TryMatchPartySpeedWithItemWeight(MobileParty party, float targetPartySpeed, ItemObject itemToUse = null)`
 
-**用途 / Purpose:** 尝试获取 `match party speed with item weight`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「match party speed with item weight」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.TryMatchPartySpeedWithItemWeight(party, 0, null);
+```
 
 ### GetMainPartySkillCounsellor
 `public static Hero GetMainPartySkillCounsellor(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `main party skill counsellor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「main party skill counsellor」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.GetMainPartySkillCounsellor(skill);
+```
 
 ### GetCurrentSettlementOfMobilePartyForAICalculation
 `public static Settlement GetCurrentSettlementOfMobilePartyForAICalculation(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `current settlement of mobile party for a i calculation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current settlement of mobile party for a i calculation」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.GetCurrentSettlementOfMobilePartyForAICalculation(mobileParty);
+```
 
 ### GetPlayerPrisonersPlayerCanSell
 `public static TroopRoster GetPlayerPrisonersPlayerCanSell()`
 
-**用途 / Purpose:** 获取 `player prisoners player can sell` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player prisoners player can sell」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.GetPlayerPrisonersPlayerCanSell();
+```
 
 ### FillPartyManuallyAfterCreation
 `public static void FillPartyManuallyAfterCreation(MobileParty mobileParty, PartyTemplateObject partyTemplate, int desiredMenCount)`
 
-**用途 / Purpose:** 处理 `fill party manually after creation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.FillPartyManuallyAfterCreation(mobileParty, partyTemplate, 0);
+```
 
 ### CanPartyAttackWithCurrentMorale
 `public static bool CanPartyAttackWithCurrentMorale(MobileParty mobileParty)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `party attack with current morale`。
+**用途 / Purpose:** 检查当前对象是否满足 「party attack with current morale」 的前置条件。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyHelper.CanPartyAttackWithCurrentMorale(mobileParty);
+```
 
 ## 使用示例
 
@@ -119,4 +199,4 @@ MobilePartyHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

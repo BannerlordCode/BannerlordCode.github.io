@@ -1,20 +1,14 @@
 ---
 title: "ChoosingSkillFocusStep1Tutorial"
+description: "ChoosingSkillFocusStep1Tutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChoosingSkillFocusStep1Tutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChoosingSkillFocusStep1Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class ChoosingSkillFocusStep1Tutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/ChoosingSkillFocusStep1Tutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/ChoosingSkillFocusStep1Tutorial.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "ChoosingSkillFocusStep1Tutorial"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ChoosingSkillFocusStep1Tutorial 实例
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+var result = choosingSkillFocusStep1Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnTutorialContextChanged
 `public override void OnTutorialContextChanged(TutorialContextChangedEvent obj)`
 
-**用途 / Purpose:** 当 `tutorial context changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tutorial context changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ChoosingSkillFocusStep1Tutorial 实例
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+choosingSkillFocusStep1Tutorial.OnTutorialContextChanged(obj);
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ChoosingSkillFocusStep1Tutorial 实例
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+var result = choosingSkillFocusStep1Tutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ChoosingSkillFocusStep1Tutorial 实例
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+var result = choosingSkillFocusStep1Tutorial.IsConditionsMetForActivation();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ChoosingSkillFocusStep1Tutorial();
-value.IsConditionsMetForCompletion();
+// 通常从对应子系统 API 获取实例后调用
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+choosingSkillFocusStep1Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

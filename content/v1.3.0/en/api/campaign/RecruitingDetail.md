@@ -1,13 +1,7 @@
 ---
 title: "RecruitingDetail"
+description: "Auto-generated class reference for RecruitingDetail."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitingDetail`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitingDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-RecruitingDetail example = RecruitingDetail.Value;
+// Obtain an instance from the relevant subsystem API
+RecruitingDetail instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

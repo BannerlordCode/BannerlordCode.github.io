@@ -1,13 +1,7 @@
 ---
 title: "DefaultLayout"
+description: "Auto-generated class reference for DefaultLayout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultLayout`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultLayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var value = new DefaultLayout();
+// Obtain an instance from the relevant subsystem API
+DefaultLayout instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

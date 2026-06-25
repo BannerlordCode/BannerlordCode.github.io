@@ -1,20 +1,14 @@
 ---
 title: "ResetAnimationOnStopUsageComponent"
+description: "ResetAnimationOnStopUsageComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ResetAnimationOnStopUsageComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResetAnimationOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ResetAnimationOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ResetAnimationOnStopUsageComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ResetAnimationOnStopUsageComponent.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "ResetAnimationOnStopUsageComponent"
 ### UpdateSuccessfulResetAction
 `public void UpdateSuccessfulResetAction(ActionIndexCache successfulResetActionCode)`
 
-**用途 / Purpose:** 更新 `successful reset action` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「successful reset action」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ResetAnimationOnStopUsageComponent 实例
+ResetAnimationOnStopUsageComponent resetAnimationOnStopUsageComponent = ...;
+resetAnimationOnStopUsageComponent.UpdateSuccessfulResetAction(successfulResetActionCode);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var component = agent.GetComponent<ResetAnimationOnStopUsageComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

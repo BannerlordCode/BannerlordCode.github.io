@@ -1,13 +1,7 @@
 ---
 title: "AreaMarker"
+description: "Auto-generated class reference for AreaMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AreaMarker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AreaMarker
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
@@ -35,40 +29,77 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### IsPositionInRange
 `public bool IsPositionInRange(Vec3 position)`
 
-**Purpose:** Handles logic related to `is position in range`.
+**Purpose:** Determines whether the current object is in the `position in range` state or condition.
+
+```csharp
+// Obtain an instance of AreaMarker from the subsystem API first
+AreaMarker areaMarker = ...;
+var result = areaMarker.IsPositionInRange(position);
+```
 
 ### GetUsableMachinesInRange
 `public virtual List<UsableMachine> GetUsableMachinesInRange(string excludeTag = null)`
 
-**Purpose:** Gets the current value of `usable machines in range`.
+**Purpose:** Reads and returns the `usable machines in range` value held by the current object.
+
+```csharp
+// Obtain an instance of AreaMarker from the subsystem API first
+AreaMarker areaMarker = ...;
+var result = areaMarker.GetUsableMachinesInRange("example");
+```
 
 ### GetUsableMachinesWithTagInRange
 `public virtual List<UsableMachine> GetUsableMachinesWithTagInRange(string tag)`
 
-**Purpose:** Gets the current value of `usable machines with tag in range`.
+**Purpose:** Reads and returns the `usable machines with tag in range` value held by the current object.
+
+```csharp
+// Obtain an instance of AreaMarker from the subsystem API first
+AreaMarker areaMarker = ...;
+var result = areaMarker.GetUsableMachinesWithTagInRange("example");
+```
 
 ### GetGameEntitiesWithTagInRange
 `public virtual List<GameEntity> GetGameEntitiesWithTagInRange(string tag)`
 
-**Purpose:** Gets the current value of `game entities with tag in range`.
+**Purpose:** Reads and returns the `game entities with tag in range` value held by the current object.
+
+```csharp
+// Obtain an instance of AreaMarker from the subsystem API first
+AreaMarker areaMarker = ...;
+var result = areaMarker.GetGameEntitiesWithTagInRange("example");
+```
 
 ### GetName
 `public virtual TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of AreaMarker from the subsystem API first
+AreaMarker areaMarker = ...;
+var result = areaMarker.GetName();
+```
 
 ### GetPosition
 `public virtual Vec3 GetPosition()`
 
-**Purpose:** Gets the current value of `position`.
+**Purpose:** Reads and returns the `position` value held by the current object.
+
+```csharp
+// Obtain an instance of AreaMarker from the subsystem API first
+AreaMarker areaMarker = ...;
+var result = areaMarker.GetPosition();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AreaMarker();
-value.IsPositionInRange(position);
+// Typically call this after obtaining an instance from the subsystem API
+AreaMarker areaMarker = ...;
+areaMarker.IsPositionInRange(position);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

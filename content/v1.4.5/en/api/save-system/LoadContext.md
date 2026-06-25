@@ -1,20 +1,14 @@
 ---
 title: "LoadContext"
+description: "Auto-generated class reference for LoadContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadContext`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadContext
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadContext.cs`
 
 ## Overview
 
@@ -37,35 +31,65 @@ Start from namespace `TaleWorlds.SaveSystem.Load` to place it in the stack, then
 ### Load
 `public bool Load(LoadData loadData, bool loadAsLateInitialize)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of LoadContext from the subsystem API first
+LoadContext loadContext = ...;
+var result = loadContext.Load(loadData, false);
+```
 
 ### TryConvertType
 `public static bool TryConvertType(Type sourceType, Type targetType, ref object data)`
 
-**Purpose:** Attempts to get `convert type`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `convert type`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+LoadContext.TryConvertType(sourceType, targetType, data);
+```
 
 ### GetObjectWithId
 `public ObjectHeaderLoadData GetObjectWithId(int id)`
 
-**Purpose:** Gets the current value of `object with id`.
+**Purpose:** Reads and returns the `object with id` value held by the current object.
+
+```csharp
+// Obtain an instance of LoadContext from the subsystem API first
+LoadContext loadContext = ...;
+var result = loadContext.GetObjectWithId(0);
+```
 
 ### GetContainerWithId
 `public ContainerHeaderLoadData GetContainerWithId(int id)`
 
-**Purpose:** Gets the current value of `container with id`.
+**Purpose:** Reads and returns the `container with id` value held by the current object.
+
+```csharp
+// Obtain an instance of LoadContext from the subsystem API first
+LoadContext loadContext = ...;
+var result = loadContext.GetContainerWithId(0);
+```
 
 ### GetStringWithId
 `public string GetStringWithId(int id)`
 
-**Purpose:** Gets the current value of `string with id`.
+**Purpose:** Reads and returns the `string with id` value held by the current object.
+
+```csharp
+// Obtain an instance of LoadContext from the subsystem API first
+LoadContext loadContext = ...;
+var result = loadContext.GetStringWithId(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LoadContext();
-value.Load(loadData, false);
+// Typically call this after obtaining an instance from the subsystem API
+LoadContext loadContext = ...;
+loadContext.Load(loadData, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "FillBarHorizontalWidget"
+description: "FillBarHorizontalWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FillBarHorizontalWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FillBarHorizontalWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class FillBarHorizontalWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarHorizontalWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarHorizontalWidget.cs`
 
 ## 概述
 
@@ -43,9 +37,10 @@ title: "FillBarHorizontalWidget"
 ## 使用示例
 
 ```csharp
-var widget = new FillBarHorizontalWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+FillBarHorizontalWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

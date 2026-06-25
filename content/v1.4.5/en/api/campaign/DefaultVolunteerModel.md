@@ -1,20 +1,14 @@
 ---
 title: "DefaultVolunteerModel"
+description: "Auto-generated class reference for DefaultVolunteerModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultVolunteerModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultVolunteerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultVolunteerModel : VolunteerModel`
 **Base:** `VolunteerModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultVolunteerModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultVolunteerModel.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `DefaultVolunteerModel` as a Model-style extension point: first identify w
 ### MaximumIndexHeroCanRecruitFromHero
 `public override int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
 
-**Purpose:** Handles logic related to `maximum index hero can recruit from hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultVolunteerModel from the subsystem API first
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.MaximumIndexHeroCanRecruitFromHero(buyerHero, sellerHero, 0);
+```
 
 ### MaximumIndexGarrisonCanRecruitFromHero
 `public override int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
 
-**Purpose:** Handles logic related to `maximum index garrison can recruit from hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultVolunteerModel from the subsystem API first
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.MaximumIndexGarrisonCanRecruitFromHero(settlement, sellerHero);
+```
 
 ### GetDailyVolunteerProductionProbability
 `public override float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
 
-**Purpose:** Gets the current value of `daily volunteer production probability`.
+**Purpose:** Reads and returns the `daily volunteer production probability` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultVolunteerModel from the subsystem API first
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.GetDailyVolunteerProductionProbability(hero, 0, settlement);
+```
 
 ### GetBasicVolunteer
 `public override CharacterObject GetBasicVolunteer(Hero sellerHero)`
 
-**Purpose:** Gets the current value of `basic volunteer`.
+**Purpose:** Reads and returns the `basic volunteer` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultVolunteerModel from the subsystem API first
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.GetBasicVolunteer(sellerHero);
+```
 
 ### CanHaveRecruits
 `public override bool CanHaveRecruits(Hero hero)`
 
-**Purpose:** Checks whether the current object can `have recruits`.
+**Purpose:** Checks whether the current object meets the preconditions for `have recruits`.
+
+```csharp
+// Obtain an instance of DefaultVolunteerModel from the subsystem API first
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.CanHaveRecruits(hero);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultVolunteerModel>(new MyDefaultVolunteerModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

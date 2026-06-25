@@ -1,18 +1,12 @@
 ---
 title: "TutorialQuestPhase"
+description: "Auto-generated class reference for TutorialQuestPhase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialQuestPhase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialQuestPhase
 
 **Namespace:** StoryMode.StoryModePhases
 **Module:** StoryMode.StoryModePhases
-**Type:** `class`
+**Type:** `public enum TutorialQuestPhase`
 **Base:** none
 **File:** `StoryMode/StoryModePhases/TutorialQuestPhase.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new TutorialQuestPhase();
+// Obtain an instance from the relevant subsystem API
+TutorialQuestPhase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

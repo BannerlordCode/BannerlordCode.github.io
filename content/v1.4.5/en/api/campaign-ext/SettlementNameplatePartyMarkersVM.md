@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplatePartyMarkersVM"
+description: "Auto-generated class reference for SettlementNameplatePartyMarkersVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplatePartyMarkersVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplatePartyMarkersVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SettlementNameplatePartyMarkersVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplatePartyMarkersVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplatePartyMarkersVM.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### Compare
 `public int Compare(SettlementNameplatePartyMarkerItemVM x, SettlementNameplatePartyMarkerItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SettlementNameplatePartyMarkersVM from the subsystem API first
+SettlementNameplatePartyMarkersVM settlementNameplatePartyMarkersVM = ...;
+var result = settlementNameplatePartyMarkersVM.Compare(x, y);
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of SettlementNameplatePartyMarkersVM from the subsystem API first
+SettlementNameplatePartyMarkersVM settlementNameplatePartyMarkersVM = ...;
+settlementNameplatePartyMarkersVM.RegisterEvents();
+```
 
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**Purpose:** Handles logic related to `unload events`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SettlementNameplatePartyMarkersVM from the subsystem API first
+SettlementNameplatePartyMarkersVM settlementNameplatePartyMarkersVM = ...;
+settlementNameplatePartyMarkersVM.UnloadEvents();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNameplatePartyMarkersVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+SettlementNameplatePartyMarkersVM settlementNameplatePartyMarkersVM = ...;
+settlementNameplatePartyMarkersVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

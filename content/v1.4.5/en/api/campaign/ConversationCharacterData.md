@@ -1,20 +1,14 @@
 ---
 title: "ConversationCharacterData"
+description: "Auto-generated class reference for ConversationCharacterData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationCharacterData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationCharacterData
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct ConversationCharacterData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationCharacterData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationCharacterData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `ConversationCharacterData` as a Data-style extension point: first identif
 ### ConversationCharacterData
 `public struct ConversationCharacterData(CharacterObject character, PartyBase party = null, bool noHorse = false, bool noWeapon = false, bool spawnAfterFight = false, bool isCivilianEquipmentRequiredForLeader = false, bool isCivilianEquipmentRequiredForBodyGuardCharacters = false, bool noBodyguards = false)`
 
-**Purpose:** Handles logic related to `conversation character data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ConversationCharacterData from the subsystem API first
+ConversationCharacterData conversationCharacterData = ...;
+var result = conversationCharacterData.ConversationCharacterData(character, null, false, false, false, false, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConversationCharacterData();
+// This data object is usually returned by campaign/mission APIs
+ConversationCharacterData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SandBoxViewVisualManager"
+description: "Auto-generated class reference for SandBoxViewVisualManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxViewVisualManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewVisualManager
 
 **Namespace:** SandBox.View
@@ -29,27 +23,52 @@ Treat `SandBoxViewVisualManager` as a Manager-style extension point: first ident
 ### VisualTick
 `public static void VisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** Handles logic related to `visual tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.VisualTick(screen, 0, 0);
+```
 
 ### OnTick
 `public static void OnTick(float realDt, float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.OnTick(0, 0);
+```
 
 ### OnFrameTick
 `public static void OnFrameTick(float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.OnFrameTick(0);
+```
 
 ### OnMouseClick
 `public static bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**Purpose:** Called when the `mouse click` event is raised.
+**Purpose:** Invoked when the `mouse click` event is raised.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.OnMouseClick(visualOfSelectedEntity, intersectionPoint, mouseOverFaceIndex, false);
+```
 
 ### OnGameLoadFinished
 `public static void OnGameLoadFinished()`
 
-**Purpose:** Called when the `game load finished` event is raised.
+**Purpose:** Invoked when the `game load finished` event is raised.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.OnGameLoadFinished();
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ var manager = SandBoxViewVisualManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

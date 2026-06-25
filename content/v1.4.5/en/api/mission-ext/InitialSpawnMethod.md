@@ -1,20 +1,14 @@
 ---
 title: "InitialSpawnMethod"
+description: "Auto-generated class reference for InitialSpawnMethod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialSpawnMethod`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialSpawnMethod
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum InitialSpawnMethod`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-InitialSpawnMethod example = InitialSpawnMethod.Value;
+// Obtain an instance from the relevant subsystem API
+InitialSpawnMethod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

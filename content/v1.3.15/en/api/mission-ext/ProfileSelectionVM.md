@@ -1,13 +1,7 @@
 ---
 title: "ProfileSelectionVM"
+description: "Auto-generated class reference for ProfileSelectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProfileSelectionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ProfileSelectionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.ProfileSelection
@@ -39,20 +33,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.ProfileSelect
 ### OnActivate
 `public void OnActivate(bool isDirectPlayPossible)`
 
-**Purpose:** Called when the `activate` event is raised.
+**Purpose:** Invoked when the `activate` event is raised.
+
+```csharp
+// Obtain an instance of ProfileSelectionVM from the subsystem API first
+ProfileSelectionVM profileSelectionVM = ...;
+profileSelectionVM.OnActivate(false);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ProfileSelectionVM from the subsystem API first
+ProfileSelectionVM profileSelectionVM = ...;
+profileSelectionVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProfileSelectionVM();
-value.OnActivate(false);
+// Typically call this after obtaining an instance from the subsystem API
+ProfileSelectionVM profileSelectionVM = ...;
+profileSelectionVM.OnActivate(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

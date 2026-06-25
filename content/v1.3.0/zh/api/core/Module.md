@@ -1,13 +1,7 @@
 ---
 title: "Module"
+description: "Module 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Module`
-- [← 本领域 / 返回 core](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Module
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -43,120 +37,251 @@ title: "Module"
 ### CollectSubModules
 `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`
 
-**用途 / Purpose:** 处理 `collect sub modules` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+var result = module.CollectSubModules();
+```
 
 ### GetMetaMeshPackageMapping
 `public static void GetMetaMeshPackageMapping(Dictionary<string, string> metaMeshPackageMappings)`
 
-**用途 / Purpose:** 获取 `meta mesh package mapping` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「meta mesh package mapping」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Module.GetMetaMeshPackageMapping(dictionary<string, "example");
+```
 
 ### GetItemMeshNames
 `public static void GetItemMeshNames(HashSet<string> itemMeshNames)`
 
-**用途 / Purpose:** 获取 `item mesh names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item mesh names」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Module.GetItemMeshNames(itemMeshNames);
+```
 
 ### SetInitialModuleScreenAsRootScreen
 `public void SetInitialModuleScreenAsRootScreen()`
 
-**用途 / Purpose:** 设置 `initial module screen as root screen` 的值或状态。
+**用途 / Purpose:** 为 「initial module screen as root screen」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.SetInitialModuleScreenAsRootScreen();
+```
 
 ### GetSubModuleType
 `public Type GetSubModuleType(string name)`
 
-**用途 / Purpose:** 获取 `sub module type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sub module type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+var result = module.GetSubModuleType("example");
+```
 
 ### CheckIfSubmoduleCanBeLoadable
 `public bool CheckIfSubmoduleCanBeLoadable(SubModuleInfo subModuleInfo)`
 
-**用途 / Purpose:** 处理 `check if submodule can be loadable` 相关逻辑。
+**用途 / Purpose:** 检查「if submodule can be loadable」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+var result = module.CheckIfSubmoduleCanBeLoadable(subModuleInfo);
+```
 
 ### ClearStateOptions
 `public void ClearStateOptions()`
 
-**用途 / Purpose:** 处理 `clear state options` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「state options」。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.ClearStateOptions();
+```
 
 ### AddInitialStateOption
 `public void AddInitialStateOption(InitialStateOption initialStateOption)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `initial state option`。
+**用途 / Purpose:** 将 「initial state option」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.AddInitialStateOption(initialStateOption);
+```
 
 ### OverrideInitialStateOption
 `public void OverrideInitialStateOption(string id, InitialStateOption newInitialStateOption)`
 
-**用途 / Purpose:** 处理 `override initial state option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.OverrideInitialStateOption("example", newInitialStateOption);
+```
 
 ### GetInitialStateOptions
 `public IEnumerable<InitialStateOption> GetInitialStateOptions()`
 
-**用途 / Purpose:** 获取 `initial state options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial state options」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+var result = module.GetInitialStateOptions();
+```
 
 ### GetInitialStateOptionWithId
 `public InitialStateOption GetInitialStateOptionWithId(string id)`
 
-**用途 / Purpose:** 获取 `initial state option with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial state option with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+var result = module.GetInitialStateOptionWithId("example");
+```
 
 ### ExecuteInitialStateOptionWithId
 `public void ExecuteInitialStateOptionWithId(string id)`
 
-**用途 / Purpose:** 执行 `initial state option with id` 操作或流程。
+**用途 / Purpose:** 执行 「initial state option with id」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.ExecuteInitialStateOptionWithId("example");
+```
 
 ### SetCanLoadModules
 `public void SetCanLoadModules(bool canLoadModules)`
 
-**用途 / Purpose:** 设置 `can load modules` 的值或状态。
+**用途 / Purpose:** 为 「can load modules」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.SetCanLoadModules(false);
+```
 
 ### SetEditorMissionTester
 `public void SetEditorMissionTester(IEditorMissionTester editorMissionTester)`
 
-**用途 / Purpose:** 设置 `editor mission tester` 的值或状态。
+**用途 / Purpose:** 为 「editor mission tester」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.SetEditorMissionTester(editorMissionTester);
+```
 
 ### StartMissionForEditorAux
 `public void StartMissionForEditorAux(string missionName, string sceneName, string levels, bool forReplay, string replayFileName, bool isRecord)`
 
-**用途 / Purpose:** 处理 `start mission for editor aux` 相关逻辑。
+**用途 / Purpose:** 启动「mission for editor aux」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.StartMissionForEditorAux("example", "example", "example", false, "example", false);
+```
 
 ### GetMultiplayerGameMode
 `public MultiplayerGameMode GetMultiplayerGameMode(string gameType)`
 
-**用途 / Purpose:** 获取 `multiplayer game mode` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「multiplayer game mode」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+var result = module.GetMultiplayerGameMode("example");
+```
 
 ### AddMultiplayerGameMode
 `public void AddMultiplayerGameMode(MultiplayerGameMode multiplayerGameMode)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `multiplayer game mode`。
+**用途 / Purpose:** 将 「multiplayer game mode」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.AddMultiplayerGameMode(multiplayerGameMode);
+```
 
 ### GetMultiplayerGameTypes
 `public MBReadOnlyList<MultiplayerGameTypeInfo> GetMultiplayerGameTypes()`
 
-**用途 / Purpose:** 获取 `multiplayer game types` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「multiplayer game types」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+var result = module.GetMultiplayerGameTypes();
+```
 
 ### StartMultiplayerGame
 `public bool StartMultiplayerGame(string multiplayerGameType, string scene)`
 
-**用途 / Purpose:** 处理 `start multiplayer game` 相关逻辑。
+**用途 / Purpose:** 启动「multiplayer game」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+var result = module.StartMultiplayerGame("example", "example");
+```
 
 ### ShutDownWithDelay
 `public async void ShutDownWithDelay(string reason, int seconds)`
 
-**用途 / Purpose:** 处理 `shut down with delay` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.ShutDownWithDelay("example", 0);
+```
 
 ### DeactiveModule
 `public void DeactiveModule(string moduleId)`
 
-**用途 / Purpose:** 处理 `deactive module` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.DeactiveModule("example");
+```
 
 ### ActivateModule
 `public void ActivateModule(string moduleId)`
 
-**用途 / Purpose:** 处理 `activate module` 相关逻辑。
+**用途 / Purpose:** 激活「module」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 Module 实例
+Module module = ...;
+module.ActivateModule("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Module();
-value.CollectSubModules();
+// 通常从对应子系统 API 获取实例后调用
+Module module = ...;
+module.CollectSubModules();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

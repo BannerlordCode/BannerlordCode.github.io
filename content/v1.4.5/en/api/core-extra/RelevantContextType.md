@@ -1,20 +1,14 @@
 ---
 title: "RelevantContextType"
+description: "Auto-generated class reference for RelevantContextType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RelevantContextType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RelevantContextType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public enum RelevantContextType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-RelevantContextType example = RelevantContextType.Value;
+// Obtain an instance from the relevant subsystem API
+RelevantContextType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

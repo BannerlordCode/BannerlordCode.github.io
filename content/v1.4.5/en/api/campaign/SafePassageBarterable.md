@@ -1,20 +1,14 @@
 ---
 title: "SafePassageBarterable"
+description: "Auto-generated class reference for SafePassageBarterable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SafePassageBarterable`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SafePassageBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SafePassageBarterable : Barterable`
 **Base:** `Barterable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/SafePassageBarterable.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/SafePassageBarterable.cs`
 
 ## Overview
 
@@ -35,35 +29,66 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** Gets the current value of `unit value for faction`.
+**Purpose:** Reads and returns the `unit value for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of SafePassageBarterable from the subsystem API first
+SafePassageBarterable safePassageBarterable = ...;
+var result = safePassageBarterable.GetUnitValueForFaction(faction);
+```
 
 ### GetPlayerStrengthRatioInEncounter
 `public float GetPlayerStrengthRatioInEncounter()`
 
-**Purpose:** Gets the current value of `player strength ratio in encounter`.
+**Purpose:** Reads and returns the `player strength ratio in encounter` value held by the current object.
+
+```csharp
+// Obtain an instance of SafePassageBarterable from the subsystem API first
+SafePassageBarterable safePassageBarterable = ...;
+var result = safePassageBarterable.GetPlayerStrengthRatioInEncounter();
+```
 
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**Purpose:** Handles logic related to `is compatible`.
+**Purpose:** Determines whether the current object is in the `compatible` state or condition.
+
+```csharp
+// Obtain an instance of SafePassageBarterable from the subsystem API first
+SafePassageBarterable safePassageBarterable = ...;
+var result = safePassageBarterable.IsCompatible(barterable);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** Gets the current value of `visual identifier`.
+**Purpose:** Reads and returns the `visual identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of SafePassageBarterable from the subsystem API first
+SafePassageBarterable safePassageBarterable = ...;
+var result = safePassageBarterable.GetVisualIdentifier();
+```
 
 ### Apply
 `public override void Apply()`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Obtain an instance of SafePassageBarterable from the subsystem API first
+SafePassageBarterable safePassageBarterable = ...;
+safePassageBarterable.Apply();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SafePassageBarterable();
-value.GetUnitValueForFaction(faction);
+// Typically call this after obtaining an instance from the subsystem API
+SafePassageBarterable safePassageBarterable = ...;
+safePassageBarterable.GetUnitValueForFaction(faction);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

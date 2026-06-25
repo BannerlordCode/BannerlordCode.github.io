@@ -1,20 +1,14 @@
 ---
 title: "EscapeMenuItemVM"
+description: "Auto-generated class reference for EscapeMenuItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EscapeMenuItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EscapeMenuItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EscapeMenuItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu/EscapeMenuItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu/EscapeMenuItemVM.cs`
 
 ## Overview
 
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EscapeMenuItemVM from the subsystem API first
+EscapeMenuItemVM escapeMenuItemVM = ...;
+escapeMenuItemVM.RefreshValues();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of EscapeMenuItemVM from the subsystem API first
+EscapeMenuItemVM escapeMenuItemVM = ...;
+escapeMenuItemVM.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EscapeMenuItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EscapeMenuItemVM escapeMenuItemVM = ...;
+escapeMenuItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

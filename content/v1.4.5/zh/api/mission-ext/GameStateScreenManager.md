@@ -1,20 +1,14 @@
 ---
 title: "GameStateScreenManager"
+description: "GameStateScreenManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameStateScreenManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameStateScreenManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameStateScreenManager : IGameStateManagerListener`
 **Base:** `IGameStateManagerListener`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/GameStateScreenManager.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/GameStateScreenManager.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "GameStateScreenManager"
 ### CreateScreen
 `public ScreenBase CreateScreen(GameState state)`
 
-**用途 / Purpose:** 创建一个 `screen` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「screen」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateScreenManager 实例
+GameStateScreenManager gameStateScreenManager = ...;
+var result = gameStateScreenManager.CreateScreen(state);
+```
 
 ### BuildScreens
 `public void BuildScreens()`
 
-**用途 / Purpose:** 处理 `build screens` 相关逻辑。
+**用途 / Purpose:** 组装并返回「screens」的构建结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateScreenManager 实例
+GameStateScreenManager gameStateScreenManager = ...;
+gameStateScreenManager.BuildScreens();
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var manager = GameStateScreenManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

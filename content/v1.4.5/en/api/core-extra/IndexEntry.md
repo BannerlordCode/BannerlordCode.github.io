@@ -1,20 +1,14 @@
 ---
 title: "IndexEntry"
+description: "Auto-generated class reference for IndexEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IndexEntry`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IndexEntry
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct IndexEntry`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBFastRandomSelector.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBFastRandomSelector.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IndexEntry
 `public struct IndexEntry(ushort index, ushort version)`
 
-**Purpose:** Handles logic related to `index entry`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IndexEntry from the subsystem API first
+IndexEntry indexEntry = ...;
+var result = indexEntry.IndexEntry(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IndexEntry();
-value.IndexEntry(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+IndexEntry indexEntry = ...;
+indexEntry.IndexEntry(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

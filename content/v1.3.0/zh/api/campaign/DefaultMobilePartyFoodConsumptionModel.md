@@ -1,13 +1,7 @@
 ---
 title: "DefaultMobilePartyFoodConsumptionModel"
+description: "DefaultMobilePartyFoodConsumptionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultMobilePartyFoodConsumptionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMobilePartyFoodConsumptionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,17 +29,35 @@ title: "DefaultMobilePartyFoodConsumptionModel"
 ### CalculateDailyBaseFoodConsumptionf
 `public override ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)`
 
-**用途 / Purpose:** 处理 `calculate daily base food consumptionf` 相关逻辑。
+**用途 / Purpose:** 计算「daily base food consumptionf」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMobilePartyFoodConsumptionModel 实例
+DefaultMobilePartyFoodConsumptionModel defaultMobilePartyFoodConsumptionModel = ...;
+var result = defaultMobilePartyFoodConsumptionModel.CalculateDailyBaseFoodConsumptionf(party, false);
+```
 
 ### CalculateDailyFoodConsumptionf
 `public override ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)`
 
-**用途 / Purpose:** 处理 `calculate daily food consumptionf` 相关逻辑。
+**用途 / Purpose:** 计算「daily food consumptionf」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMobilePartyFoodConsumptionModel 实例
+DefaultMobilePartyFoodConsumptionModel defaultMobilePartyFoodConsumptionModel = ...;
+var result = defaultMobilePartyFoodConsumptionModel.CalculateDailyFoodConsumptionf(party, baseConsumption);
+```
 
 ### DoesPartyConsumeFood
 `public override bool DoesPartyConsumeFood(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `does party consume food` 相关逻辑。
+**用途 / Purpose:** 返回「party consume food」对当前对象是否成立的布尔结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMobilePartyFoodConsumptionModel 实例
+DefaultMobilePartyFoodConsumptionModel defaultMobilePartyFoodConsumptionModel = ...;
+var result = defaultMobilePartyFoodConsumptionModel.DoesPartyConsumeFood(mobileParty);
+```
 
 ## 使用示例
 
@@ -55,4 +67,4 @@ Game.Current.ReplaceModel<DefaultMobilePartyFoodConsumptionModel>(new MyDefaultM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

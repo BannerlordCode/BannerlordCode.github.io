@@ -1,20 +1,14 @@
 ---
 title: "DefaultPartyImpairmentModel"
+description: "Auto-generated class reference for DefaultPartyImpairmentModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyImpairmentModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyImpairmentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPartyImpairmentModel : PartyImpairmentModel`
 **Base:** `PartyImpairmentModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyImpairmentModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyImpairmentModel.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `DefaultPartyImpairmentModel` as a Model-style extension point: first iden
 ### GetSiegeExpectedVulnerabilityTime
 `public override float GetSiegeExpectedVulnerabilityTime()`
 
-**Purpose:** Gets the current value of `siege expected vulnerability time`.
+**Purpose:** Reads and returns the `siege expected vulnerability time` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyImpairmentModel from the subsystem API first
+DefaultPartyImpairmentModel defaultPartyImpairmentModel = ...;
+var result = defaultPartyImpairmentModel.GetSiegeExpectedVulnerabilityTime();
+```
 
 ### GetDisorganizedStateDuration
 `public override ExplainedNumber GetDisorganizedStateDuration(MobileParty party)`
 
-**Purpose:** Gets the current value of `disorganized state duration`.
+**Purpose:** Reads and returns the `disorganized state duration` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyImpairmentModel from the subsystem API first
+DefaultPartyImpairmentModel defaultPartyImpairmentModel = ...;
+var result = defaultPartyImpairmentModel.GetDisorganizedStateDuration(party);
+```
 
 ### CanGetDisorganized
 `public override bool CanGetDisorganized(PartyBase party)`
 
-**Purpose:** Checks whether the current object can `get disorganized`.
+**Purpose:** Checks whether the current object meets the preconditions for `get disorganized`.
+
+```csharp
+// Obtain an instance of DefaultPartyImpairmentModel from the subsystem API first
+DefaultPartyImpairmentModel defaultPartyImpairmentModel = ...;
+var result = defaultPartyImpairmentModel.CanGetDisorganized(party);
+```
 
 ### GetVulnerabilityStateDuration
 `public override float GetVulnerabilityStateDuration(PartyBase party)`
 
-**Purpose:** Gets the current value of `vulnerability state duration`.
+**Purpose:** Reads and returns the `vulnerability state duration` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyImpairmentModel from the subsystem API first
+DefaultPartyImpairmentModel defaultPartyImpairmentModel = ...;
+var result = defaultPartyImpairmentModel.GetVulnerabilityStateDuration(party);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultPartyImpairmentModel>(new MyDefaultPartyImpairm
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TournamentCampaignBehavior"
+description: "Auto-generated class reference for TournamentCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TournamentCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/TournamentCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/TournamentCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,54 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TournamentCampaignBehavior from the subsystem API first
+TournamentCampaignBehavior tournamentCampaignBehavior = ...;
+tournamentCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of TournamentCampaignBehavior from the subsystem API first
+TournamentCampaignBehavior tournamentCampaignBehavior = ...;
+tournamentCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of TournamentCampaignBehavior from the subsystem API first
+TournamentCampaignBehavior tournamentCampaignBehavior = ...;
+tournamentCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### game_menu_ui_town_arena_see_leaderboard_on_consequence
 `public static void game_menu_ui_town_arena_see_leaderboard_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_ui_town_arena_see_leaderboard_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TournamentCampaignBehavior.game_menu_ui_town_arena_see_leaderboard_on_consequence(args);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentCampaignBehavior tournamentCampaignBehavior = ...;
+tournamentCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

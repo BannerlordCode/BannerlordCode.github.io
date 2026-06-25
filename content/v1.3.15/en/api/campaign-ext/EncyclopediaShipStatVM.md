@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaShipStatVM"
+description: "Auto-generated class reference for EncyclopediaShipStatVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaShipStatVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaShipStatVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaShipStatVM from the subsystem API first
+EncyclopediaShipStatVM encyclopediaShipStatVM = ...;
+encyclopediaShipStatVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaShipStatVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaShipStatVM encyclopediaShipStatVM = ...;
+encyclopediaShipStatVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

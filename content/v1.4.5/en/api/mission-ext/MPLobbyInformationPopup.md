@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyInformationPopup"
+description: "Auto-generated class reference for MPLobbyInformationPopup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyInformationPopup`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyInformationPopup
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyInformationPopup : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup/MPLobbyInformationPopup.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup/MPLobbyInformationPopup.cs`
 
 ## Overview
 
@@ -39,35 +33,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyInformationPopup from the subsystem API first
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.RefreshValues();
+```
 
 ### ShowInformation
 `public void ShowInformation(TextObject title, TextObject message)`
 
-**Purpose:** Handles logic related to `show information`.
+**Purpose:** Displays the UI or element associated with `information`.
+
+```csharp
+// Obtain an instance of MPLobbyInformationPopup from the subsystem API first
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.ShowInformation(title, message);
+```
 
 ### ShowInformation
 `public void ShowInformation(string title, string message)`
 
-**Purpose:** Handles logic related to `show information`.
+**Purpose:** Displays the UI or element associated with `information`.
+
+```csharp
+// Obtain an instance of MPLobbyInformationPopup from the subsystem API first
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.ShowInformation("example", "example");
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of MPLobbyInformationPopup from the subsystem API first
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.ExecuteClose();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyInformationPopup from the subsystem API first
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.SetDoneInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyInformationPopup();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyInformationPopup mPLobbyInformationPopup = ...;
+mPLobbyInformationPopup.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionBattleSideSpawnContext"
+description: "MissionBattleSideSpawnContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBattleSideSpawnContext`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBattleSideSpawnContext
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBattleSideSpawnContext`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBattleSideSpawnContext.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBattleSideSpawnContext.cs`
 
 ## 概述
 
@@ -40,75 +34,154 @@ title: "MissionBattleSideSpawnContext"
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** 获取 `number of player controllable troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of player controllable troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.GetNumberOfPlayerControllableTroops();
+```
 
 ### TryReinforcementSpawn
 `public int TryReinforcementSpawn()`
 
-**用途 / Purpose:** 尝试获取 `reinforcement spawn`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「reinforcement spawn」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.TryReinforcementSpawn();
+```
 
 ### GetTeamFormationsSpawnData
 `public void GetTeamFormationsSpawnData(out MBList<(Team team, MissionFormationSpawnData formationSpawnData)> teamFormationsSpawnData)`
 
-**用途 / Purpose:** 获取 `team formations spawn data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「team formations spawn data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.GetTeamFormationsSpawnData(team, teamFormationsSpawnData);
+```
 
 ### ReserveTroops
 `public void ReserveTroops(int number)`
 
-**用途 / Purpose:** 处理 `reserve troops` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.ReserveTroops(0);
+```
 
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**用途 / Purpose:** 获取 `general character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「general character」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.GetGeneralCharacter();
+```
 
 ### CheckReinforcementBatch
 `public bool CheckReinforcementBatch()`
 
-**用途 / Purpose:** 处理 `check reinforcement batch` 相关逻辑。
+**用途 / Purpose:** 检查「reinforcement batch」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.CheckReinforcementBatch();
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**用途 / Purpose:** 获取 `all troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.GetAllTroops();
+```
 
 ### SpawnTroops
 `public int SpawnTroops(int number, bool isReinforcement)`
 
-**用途 / Purpose:** 处理 `spawn troops` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+var result = missionBattleSideSpawnContext.SpawnTroops(0, false);
+```
 
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool spawnWithHorses)`
 
-**用途 / Purpose:** 设置 `spawn with horses` 的值或状态。
+**用途 / Purpose:** 为 「spawn with horses」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.SetSpawnWithHorses(false);
+```
 
 ### SetBannerBearerLogic
 `public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)`
 
-**用途 / Purpose:** 设置 `banner bearer logic` 的值或状态。
+**用途 / Purpose:** 为 「banner bearer logic」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.SetBannerBearerLogic(bannerBearerLogic);
+```
 
 ### SetReinforcementsNotifiedOnLastBatch
 `public void SetReinforcementsNotifiedOnLastBatch(bool value)`
 
-**用途 / Purpose:** 设置 `reinforcements notified on last batch` 的值或状态。
+**用途 / Purpose:** 为 「reinforcements notified on last batch」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.SetReinforcementsNotifiedOnLastBatch(false);
+```
 
 ### SetSpawnTroops
 `public void SetSpawnTroops(bool spawnTroops)`
 
-**用途 / Purpose:** 设置 `spawn troops` 的值或状态。
+**用途 / Purpose:** 为 「spawn troops」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.SetSpawnTroops(false);
+```
 
 ### OnInitialSpawnOver
 `public void OnInitialSpawnOver()`
 
-**用途 / Purpose:** 当 `initial spawn over` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initial spawn over」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.OnInitialSpawnOver();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionBattleSideSpawnContext();
-value.GetNumberOfPlayerControllableTroops();
+// 通常从对应子系统 API 获取实例后调用
+MissionBattleSideSpawnContext missionBattleSideSpawnContext = ...;
+missionBattleSideSpawnContext.GetNumberOfPlayerControllableTroops();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

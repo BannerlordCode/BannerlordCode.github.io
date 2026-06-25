@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleSiegeMachineVM"
+description: "CustomBattleSiegeMachineVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleSiegeMachineVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleSiegeMachineVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSiegeMachineVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleSiegeMachineVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleSiegeMachineVM.cs`
 
 ## 概述
 
@@ -38,15 +32,22 @@ title: "CustomBattleSiegeMachineVM"
 ### SetMachineType
 `public void SetMachineType(SiegeEngineType machine)`
 
-**用途 / Purpose:** 设置 `machine type` 的值或状态。
+**用途 / Purpose:** 为 「machine type」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleSiegeMachineVM 实例
+CustomBattleSiegeMachineVM customBattleSiegeMachineVM = ...;
+customBattleSiegeMachineVM.SetMachineType(machine);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleSiegeMachineVM();
-value.SetMachineType(machine);
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleSiegeMachineVM customBattleSiegeMachineVM = ...;
+customBattleSiegeMachineVM.SetMachineType(machine);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "IGauntletMovie"
+description: "Auto-generated class reference for IGauntletMovie."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGauntletMovie`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IGauntletMovie
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface IGauntletMovie`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI.Data/IGauntletMovie.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-IGauntletMovie implementation = GetGauntletMovieImplementation();
+// Usually obtained through DI or a factory method
+IIGauntletMovie service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

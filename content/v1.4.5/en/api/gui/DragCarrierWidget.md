@@ -1,20 +1,14 @@
 ---
 title: "DragCarrierWidget"
+description: "Auto-generated class reference for DragCarrierWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DragCarrierWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DragCarrierWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class DragCarrierWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/DragCarrierWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/DragCarrierWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `DragCarrierWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new DragCarrierWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DragCarrierWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

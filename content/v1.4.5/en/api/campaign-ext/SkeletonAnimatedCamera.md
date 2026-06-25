@@ -1,20 +1,14 @@
 ---
 title: "SkeletonAnimatedCamera"
+description: "Auto-generated class reference for SkeletonAnimatedCamera."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkeletonAnimatedCamera`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkeletonAnimatedCamera
 
 **Namespace:** SandBox.Objects.Cinematics
 **Module:** SandBox.Objects
 **Type:** `public class SkeletonAnimatedCamera : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Cinematics/SkeletonAnimatedCamera.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.Cinematics/SkeletonAnimatedCamera.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Objects.Cinematics` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var value = new SkeletonAnimatedCamera();
+// Obtain an instance from the relevant subsystem API
+SkeletonAnimatedCamera instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

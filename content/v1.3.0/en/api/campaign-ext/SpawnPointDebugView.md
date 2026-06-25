@@ -1,13 +1,7 @@
 ---
 title: "SpawnPointDebugView"
+description: "Auto-generated class reference for SpawnPointDebugView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnPointDebugView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnPointDebugView
 
 **Namespace:** SandBox.View.Missions.SandBox
@@ -29,14 +23,21 @@ Treat `SpawnPointDebugView` as a View-style extension point: first identify who 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPointDebugView from the subsystem API first
+SpawnPointDebugView spawnPointDebugView = ...;
+var result = spawnPointDebugView.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new SpawnPointDebugView();
+// Retrieve this view from the subsystem API or scene
+SpawnPointDebugView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

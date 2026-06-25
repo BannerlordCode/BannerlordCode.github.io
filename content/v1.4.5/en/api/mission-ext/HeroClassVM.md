@@ -1,20 +1,14 @@
 ---
 title: "HeroClassVM"
+description: "Auto-generated class reference for HeroClassVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroClassVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroClassVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HeroClassVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/HeroClassVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/HeroClassVM.cs`
 
 ## Overview
 
@@ -47,25 +41,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of HeroClassVM from the subsystem API first
+HeroClassVM heroClassVM = ...;
+heroClassVM.RefreshValues();
+```
 
 ### UpdateEnabled
 `public void UpdateEnabled()`
 
-**Purpose:** Updates the state or data of `enabled`.
+**Purpose:** Recalculates and stores the latest representation of `enabled`.
+
+```csharp
+// Obtain an instance of HeroClassVM from the subsystem API first
+HeroClassVM heroClassVM = ...;
+heroClassVM.UpdateEnabled();
+```
 
 ### OnSelect
 `public void OnSelect()`
 
-**Purpose:** Called when the `select` event is raised.
+**Purpose:** Invoked when the `select` event is raised.
+
+```csharp
+// Obtain an instance of HeroClassVM from the subsystem API first
+HeroClassVM heroClassVM = ...;
+heroClassVM.OnSelect();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeroClassVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+HeroClassVM heroClassVM = ...;
+heroClassVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

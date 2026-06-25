@@ -1,394 +1,541 @@
 ---
-title: MBMath
-description: MBMath - 霸主通用数学工具?
+title: "MBMath"
+description: "MBMath 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBMath`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBMath
 
-**命名空间:** TaleWorlds.Library
-**模块:** TaleWorlds.Library
-**类型:** static class
-**领域:** 核心数据 Core
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public static class MBMath`
+**Base:** 无
+**File:** `TaleWorlds.Library/MBMath.cs`
 
 ## 概述
 
-`MBMath
+`MBMath` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-` 是霸?SDK 的通用数学工具库，提供标量/向量/矩阵的插值（Lerp）、角度运算（弧度/度转换、角度差、角度包裹）、范围映射（Map/Clamp/SmoothStep）、几何计算（点到线段距离、射线与平面交点、线段与三角形相交检测）、颜色转换（HSB↔RGB）、按权重分配（DistributeShares）、以及最大元素选取（MaxElements2~5）等实用函数?
-几乎所有霸主模块都依赖本类——从 UI 动画的缓动到战斗系统的瞄准角度计算，?AI 寻路的几何检测到地图渲染的坐标插值。模组开发者在需要任何数学运算时应首先检查本类是否已提供?
 ## 心智模型
 
-- **插值家?*: 
-
-`Lerp
-
-` 是基础线性插值（带最小差异阈值，避免浮点抖动）；
-
-`LinearExtrapolation
-
-` 是无阈值的纯线性外推；
-
-`SmoothStep
-
-` 是平滑阶梯；
-
-`SplitLerp
-
-` 是分段插值（先从 v1→v2，再?v2→v3）；
-
-`BilinearLerp
-
-` 是双线性插值（四角插值）?- **角度家族**: 
-
-`ToRadians
-
-`/
-
-`ToDegrees
-
-` 是单位转换；
-
-`GetSmallestDifferenceBetweenTwoAngles
-
-` 计算两角最短有向差（处?±π 跨越）；
-
-`WrapAngle
-
-`/
-
-`WrapAngleSafe
-
-` 把角度归一?(-π, π]；`ClampAngle
-
-` 把角度限制在以某中心为中心的范围内；
-
-`LerpRadians
-
-` 是角度插值（支持最?最大变化量限制）?- **几何家族**: 
-
-`GetClosestPointOnLineSegmentToPoint
-
-` 计算点到线段最近点；`GetDistanceSquareOfPointToLineSegment
-
-` 计算平方距离；`CheckLineToLineSegmentIntersection
-
-` 检测射线与线段交点；`IntersectLineSegmentWithTriangle
-
-` 检测线段与三角形相交（Möller-Trumbore 算法）；
-
-`CheckPointInsidePolygon
-
-` 用射线法判断点在四边形内?- **MaxElements 家族**: 
-
-`MaxElement
-
-` 返回集合中函数值最大的元素；`MaxElements2
-
-`~
-
-`MaxElements5
-
-` 返回?2~5 大的元素元组。使用单次遍历的插入排序，避免多次遍历或全排序的开销?
-## 主要常量
-
-\| 常量 \| ?\| 说明 \|
-\|------\|-----\|------\|
-\| 
-
-`TwoPI
-
-` \| 6.2831855f \| 2π \|
-\| 
-
-`PI
-
-` \| 3.1415927f \| π \|
-\| 
-
-`HalfPI
-
-` \| 1.5707964f \| π/2 \|
-\| 
-
-`E
-
-` \| 2.7182817f \| 自然常数 e \|
-\| 
-
-`DegreesToRadians
-
-` \| 0.017453292f \| 度→弧度 \|
-\| 
-
-`RadiansToDegrees
-
-` \| 57.295776f \| 弧度→度 \|
-\| 
-
-`Epsilon
-
-` \| 1E-05f \| 默认浮点比较容差 \|
+先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
 
+### ToRadians
+`public static float ToRadians(this float f)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ToRadians(f);
+```
+
+### ToDegrees
+`public static float ToDegrees(this float f)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ToDegrees(f);
+```
+
+### ApproximatelyEqualsTo
+`public static bool ApproximatelyEqualsTo(this float f, float comparedValue, float epsilon = 1E-05f)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ApproximatelyEqualsTo(f, 0, 0);
+```
+
+### ApproximatelyEquals
+`public static bool ApproximatelyEquals(float first, float second, float epsilon = 1E-05f)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ApproximatelyEquals(0, 0, 0);
+```
+
+### IsValidValue
+`public static bool IsValidValue(float f)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「valid value」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.IsValidValue(0);
+```
+
+### ClampIndex
+`public static int ClampIndex(int value, int minValue, int maxValue)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ClampIndex(0, 0, 0);
+```
+
+### ClampInt
+`public static int ClampInt(int value, int minValue, int maxValue)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ClampInt(0, 0, 0);
+```
+
+### ClampFloat
+`public static float ClampFloat(float value, float minValue, float maxValue)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ClampFloat(0, 0, 0);
+```
+
+### ClampUnit
+`public static void ClampUnit(ref float value)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ClampUnit(value);
+```
+
+### GetNumberOfBitsToRepresentNumber
+`public static int GetNumberOfBitsToRepresentNumber(uint value)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「number of bits to represent number」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.GetNumberOfBitsToRepresentNumber(0);
+```
+
+### GetNumberOfBitsToRepresentNumber
+`public static int GetNumberOfBitsToRepresentNumber(ulong value)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「number of bits to represent number」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.GetNumberOfBitsToRepresentNumber(0);
+```
+
 ### Lerp
-`
+`public static float Lerp(float valueFrom, float valueTo, float amount, float minimumDifference = 1E-05f)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public static float Lerp(float valueFrom, float valueTo, float amount, float minimumDifference = 1E-05f)
-public static Vec3 Lerp(Vec3 vecFrom, Vec3 vecTo, float amount, float minimumDifference)
-public static Vec2 Lerp(Vec2 vecFrom, Vec2 vecTo, float amount, float minimumDifference)
-public static Mat3 Lerp(ref Mat3 matFrom, ref Mat3 matTo, float amount, float minimumDifference)
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.Lerp(0, 0, 0, 0);
+```
 
-`
+### LinearExtrapolation
+`public static float LinearExtrapolation(float valueFrom, float valueTo, float amount)`
 
-`
-线性插值。当两端值差异小?
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`minimumDifference
+```csharp
+// 静态调用，不需要实例
+MBMath.LinearExtrapolation(0, 0, 0);
+```
 
-` 时直接返回目标值，避免浮点精度抖动。`amount
+### Lerp
+`public static Vec3 Lerp(Vec3 vecFrom, Vec3 vecTo, float amount, float minimumDifference)`
 
-` ?0 返回起点，为 1 返回终点?
-### LerpRadians
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.Lerp(vecFrom, vecTo, 0, 0);
+```
 
-`csharp
-public static float LerpRadians(float valueFrom, float valueTo, float amount, float minChange, float maxChange)
-`
+### Lerp
+`public static Vec2 Lerp(Vec2 vecFrom, Vec2 vecTo, float amount, float minimumDifference)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
-角度插值。先计算最短有向角差，若差异小?
+```csharp
+// 静态调用，不需要实例
+MBMath.Lerp(vecFrom, vecTo, 0, 0);
+```
 
-`minChange
-
-` 则直接返回目标；否则?
-
-`amount
-
-` 比例插值，但每帧变化量限制?
-
-`[minChange, maxChange]
-
-` 范围内。用于武器瞄准的平滑跟随?
 ### Map
-`
+`public static float Map(float input, float inputMinimum, float inputMaximum, float outputMinimum, float outputMaximum)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public static float Map(float input, float inputMinimum, float inputMaximum, float outputMinimum, float outputMaximum)
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.Map(0, 0, 0, 0, 0);
+```
 
-`
+### Lerp
+`public static Mat3 Lerp(ref Mat3 matFrom, ref Mat3 matTo, float amount, float minimumDifference)`
 
-`
-将输入值从一个范围线性映射到另一个范围。输入先?clamp ?
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`[inputMinimum, inputMaximum]
+```csharp
+// 静态调用，不需要实例
+MBMath.Lerp(matFrom, matTo, 0, 0);
+```
 
-`，再按比例映射到 
+### LerpRadians
+`public static float LerpRadians(float valueFrom, float valueTo, float amount, float minChange, float maxChange)`
 
-`[outputMinimum, outputMaximum]
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`?
-### ClampInt / ClampFloat / ClampUnit
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.LerpRadians(0, 0, 0, 0, 0);
+```
 
-`
+### SplitLerp
+`public static float SplitLerp(float value1, float value2, float value3, float cutOff, float amount, float minimumDifference)`
 
-`csharp
-public static int ClampInt(int value, int minValue, int maxValue)
-public static float ClampFloat(float value, float minValue, float maxValue)
-public static void ClampUnit(ref float value)
-`
+**用途 / Purpose:** 将「lerp」拆分为多个部分或子项。
 
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.SplitLerp(0, 0, 0, 0, 0, 0);
+```
 
-`
-数值钳制。`ClampUnit
+### InverseLerp
+`public static float InverseLerp(float valueFrom, float valueTo, float value)`
 
-` 把值限制在 [0, 1] 范围?
-### GetSmallestDifferenceBetweenTwoAngles / WrapAngle
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.InverseLerp(0, 0, 0);
+```
 
-`csharp
-public static float GetSmallestDifferenceBetweenTwoAngles(float fromAngle, float toAngle)
-public static float WrapAngle(float angle)
-public static float WrapAngleSafe(float angle)
-`
+### SmoothStep
+`public static float SmoothStep(float edge0, float edge1, float value)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
-角度运算。`GetSmallestDifferenceBetweenTwoAngles
+```csharp
+// 静态调用，不需要实例
+MBMath.SmoothStep(0, 0, 0);
+```
 
-` 返回?
+### BilinearLerp
+`public static float BilinearLerp(float topLeft, float topRight, float botLeft, float botRight, float x, float y)`
 
-`fromAngle
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-` ?
+```csharp
+// 静态调用，不需要实例
+MBMath.BilinearLerp(0, 0, 0, 0, 0, 0);
+```
 
-`toAngle
+### GetSmallestDifferenceBetweenTwoAngles
+`public static float GetSmallestDifferenceBetweenTwoAngles(float fromAngle, float toAngle)`
 
-` 的最短有向差（范?(-π, π]）；
+**用途 / Purpose:** 读取并返回当前对象中 「smallest difference between two angles」 的结果。
 
-`WrapAngle
+```csharp
+// 静态调用，不需要实例
+MBMath.GetSmallestDifferenceBetweenTwoAngles(0, 0);
+```
 
-` ?
+### ClampAngle
+`public static float ClampAngle(float angle, float restrictionCenter, float restrictionRange)`
 
-`IEEERemainder
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-` 快速归一；`WrapAngleSafe
+```csharp
+// 静态调用，不需要实例
+MBMath.ClampAngle(0, 0, 0);
+```
 
-` 用循环加减归一（更慢但无精度问题）?
-### DistributeShares
-`
+### WrapAngle
+`public static float WrapAngle(float angle)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public static IEnumerable&lt;ValueTuple&lt;T, int&gt;&gt; DistributeShares&lt;T&gt;(int totalAward, IEnumerable&lt;T&gt; stakeHolders, Func&lt;T, int&gt; shareFunction)
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.WrapAngle(0);
+```
 
-`
+### WrapAngleSafe
+`public static float WrapAngleSafe(float angle)`
 
-`
-按权重分配整数额度。每个持有者的份额?
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`round(剩余额度 * 该持有者权?/ 剩余总权?
+```csharp
+// 静态调用，不需要实例
+MBMath.WrapAngleSafe(0);
+```
 
-`，确保总额精确分配无余数。用于战利品分配、税收分摊等场景?
-### MaxElement / MaxElements2~5
-`
+### IsBetween
+`public static bool IsBetween(float numberToCheck, float bottom, float top)`
 
-`
+**用途 / Purpose:** 判断当前对象是否处于 「between」 状态或条件。
 
-`csharp
-public static T MaxElement&lt;T&gt;(IEnumerable&lt;T&gt; collection, Func&lt;T, float&gt; func)
-public static ValueTuple&lt;T, T&gt; MaxElements2&lt;T&gt;(IEnumerable&lt;T&gt; collection, Func&lt;T, float&gt; func)
-// ... MaxElements3, MaxElements4, MaxElements5 类似
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.IsBetween(0, 0, 0);
+```
 
-`
+### IsBetween
+`public static bool IsBetween(int value, int minValue, int maxValue)`
 
-`
-单次遍历返回集合中函数值最大的元素（或?N 大的元素元组）。比 
+**用途 / Purpose:** 判断当前对象是否处于 「between」 状态或条件。
 
-`OrderBy(func).Take(n)
+```csharp
+// 静态调用，不需要实例
+MBMath.IsBetween(0, 0, 0);
+```
 
-` 更高效（无需全排序）?
+### IsBetweenInclusive
+`public static bool IsBetweenInclusive(float numberToCheck, float bottom, float top)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「between inclusive」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.IsBetweenInclusive(0, 0, 0);
+```
+
+### ColorFromRGBA
+`public static uint ColorFromRGBA(float red, float green, float blue, float alpha)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ColorFromRGBA(0, 0, 0, 0);
+```
+
+### HSBtoRGB
+`public static Color HSBtoRGB(float hue, float saturation, float brightness, float outputAlpha)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.HSBtoRGB(0, 0, 0, 0);
+```
+
+### RGBtoHSB
+`public static Vec3 RGBtoHSB(Color rgb)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.RGBtoHSB(rgb);
+```
+
+### GammaCorrectRGB
+`public static Vec3 GammaCorrectRGB(float gamma, Vec3 rgb)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.GammaCorrectRGB(0, rgb);
+```
+
+### GetSignedDistanceOfPointToLineSegment
+`public static float GetSignedDistanceOfPointToLineSegment(in Vec2 lineSegmentBegin, in Vec2 lineSegmentEnd, in Vec2 point)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「signed distance of point to line segment」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.GetSignedDistanceOfPointToLineSegment(lineSegmentBegin, lineSegmentEnd, point);
+```
+
+### GetDistanceSquareOfPointToLineSegment
+`public static float GetDistanceSquareOfPointToLineSegment(in Vec2 lineSegmentBegin, in Vec2 lineSegmentEnd, Vec2 point)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「distance square of point to line segment」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.GetDistanceSquareOfPointToLineSegment(lineSegmentBegin, lineSegmentEnd, point);
+```
+
+### ProjectPointOntoLine
+`public static Vec2 ProjectPointOntoLine(Vec2 point, Vec2 lineStart, Vec2 lineEnd)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ProjectPointOntoLine(point, lineStart, lineEnd);
+```
+
+### ClampToAxisAlignedRectangle
+`public static Vec2 ClampToAxisAlignedRectangle(Vec2 point, Vec2 lineStart, Vec2 lineEnd)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ClampToAxisAlignedRectangle(point, lineStart, lineEnd);
+```
+
+### GetRayPlaneIntersectionPoint
+`public static bool GetRayPlaneIntersectionPoint(in Vec3 planeNormal, in Vec3 planeCenter, in Vec3 rayOrigin, in Vec3 rayDirection, out float t)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「ray plane intersection point」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.GetRayPlaneIntersectionPoint(planeNormal, planeCenter, rayOrigin, rayDirection, t);
+```
+
+### PointLiesAheadOfPlane
+`public static bool PointLiesAheadOfPlane(in Vec3 planeNormal, in Vec3 planeCenter, in Vec3 point)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.PointLiesAheadOfPlane(planeNormal, planeCenter, point);
+```
+
 ### GetClosestPointOnLineSegmentToPoint
-`
+`public static Vec2 GetClosestPointOnLineSegmentToPoint(in Vec2 lineSegmentBegin, in Vec2 lineSegmentEnd, in Vec2 point)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「closest point on line segment to point」 的结果。
 
-`csharp
-public static Vec2 GetClosestPointOnLineSegmentToPoint(in Vec2 lineSegmentBegin, in Vec2 lineSegmentEnd, in Vec2 point)
-public static Vec3 GetClosestPointOnLineSegmentToPoint(in Vec3 lineSegmentBegin, in Vec3 lineSegmentEnd, in Vec3 point)
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.GetClosestPointOnLineSegmentToPoint(lineSegmentBegin, lineSegmentEnd, point);
+```
 
-`
+### GetClosestPointOnLineSegmentToPoint
+`public static Vec3 GetClosestPointOnLineSegmentToPoint(in Vec3 lineSegmentBegin, in Vec3 lineSegmentEnd, in Vec3 point)`
 
-`
-计算点到线段的最近点。把点投影到线段所在直线上，若投影参数?[0,1] 内则返回投影点，否则返回最近的端点?
+**用途 / Purpose:** 读取并返回当前对象中 「closest point on line segment to point」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.GetClosestPointOnLineSegmentToPoint(lineSegmentBegin, lineSegmentEnd, point);
+```
+
+### CheckLineToLineSegmentIntersection
+`public static bool CheckLineToLineSegmentIntersection(Vec2 lineOrigin, Vec2 lineDirection, Vec2 segmentA, Vec2 segmentB, out float t, out Vec2 intersect)`
+
+**用途 / Purpose:** 检查「line to line segment intersection」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.CheckLineToLineSegmentIntersection(lineOrigin, lineDirection, segmentA, segmentB, t, intersect);
+```
+
 ### IntersectLineSegmentWithTriangle
-`
+`public static bool IntersectLineSegmentWithTriangle(in Vec3 segStart, in Vec3 segEnd, in Vec3 triA, in Vec3 triB, in Vec3 triC)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public static bool IntersectLineSegmentWithTriangle(in Vec3 segStart, in Vec3 segEnd, in Vec3 triA, in Vec3 triB, in Vec3 triC)
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.IntersectLineSegmentWithTriangle(segStart, segEnd, triA, triB, triC);
+```
 
-`
+### IntersectLineSegmentWithBoundingBox
+`public static bool IntersectLineSegmentWithBoundingBox(in Vec3 start, in Vec3 end, in Vec3 min, in Vec3 max)`
 
-`
-检测线段与三角形是否相交。使?Möller-Trumbore 算法，返回线段是否在三角形面片内有交点?
-### HSBtoRGB / RGBtoHSB
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
+```csharp
+// 静态调用，不需要实例
+MBMath.IntersectLineSegmentWithBoundingBox(start, end, min, max);
+```
 
-`csharp
-public static Color HSBtoRGB(float hue, float saturation, float brightness, float outputAlpha)
-public static Vec3 RGBtoHSB(Color rgb)
-`
+### CheckLineSegmentToLineSegmentIntersection
+`public static bool CheckLineSegmentToLineSegmentIntersection(Vec2 segment1Start, Vec2 segment1End, Vec2 segment2Start, Vec2 segment2End)`
 
-`
+**用途 / Purpose:** 检查「line segment to line segment intersection」在当前对象中是否成立。
 
-`
-HSB ?RGB 颜色空间互转。`hue
+```csharp
+// 静态调用，不需要实例
+MBMath.CheckLineSegmentToLineSegmentIntersection(segment1Start, segment1End, segment2Start, segment2End);
+```
 
-` 范围 [0, 360]，`saturation
+### CheckPointInsidePolygon
+`public static bool CheckPointInsidePolygon(in Vec2 v0, in Vec2 v1, in Vec2 v2, in Vec2 v3, in Vec2 point)`
 
-`/
+**用途 / Purpose:** 检查「point inside polygon」在当前对象中是否成立。
 
-`brightness
+```csharp
+// 静态调用，不需要实例
+MBMath.CheckPointInsidePolygon(v0, v1, v2, v3, point);
+```
 
-` 范围 [0, 1]?
+### CheckPolygonIntersection
+`public static bool CheckPolygonIntersection(Vec2 polygon1, Vec2 polygon2)`
+
+**用途 / Purpose:** 检查「polygon intersection」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.CheckPolygonIntersection(polygon1, polygon2);
+```
+
+### CheckPolygonLineSegmentIntersection
+`public static bool CheckPolygonLineSegmentIntersection(MBList<Vec2> polygon, Vec2 segmentStart, Vec2 segmentEnd)`
+
+**用途 / Purpose:** 检查「polygon line segment intersection」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.CheckPolygonLineSegmentIntersection(polygon, segmentStart, segmentEnd);
+```
+
+### IntersectRayWithPolygon
+`public static bool IntersectRayWithPolygon(Vec2 rayOrigin, Vec2 rayDir, MBList<Vec2> polygon, out Vec2 intersectionPoint)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.IntersectRayWithPolygon(rayOrigin, rayDir, polygon, intersectionPoint);
+```
+
+### ToOrdinal
+`public static string ToOrdinal(int number)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.ToOrdinal(0);
+```
+
+### FindPlaneLineIntersectionPointWithNormal
+`public static Vec3 FindPlaneLineIntersectionPointWithNormal(Vec3 planeP1, Vec3 planeNormal, Vec3 mouseP1, Vec3 mouseP2, out bool exceptionZero)`
+
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「plane line intersection point with normal」。
+
+```csharp
+// 静态调用，不需要实例
+MBMath.FindPlaneLineIntersectionPointWithNormal(planeP1, planeNormal, mouseP1, mouseP2, exceptionZero);
+```
+
 ## 使用示例
 
-### 示例: 平滑跟随目标角度
-**场景**: 模组的攻城武器需要平滑旋转到目标朝向?
+```csharp
+MBMath.ToRadians(f);
+```
 
-`
-
-`
-
-`csharp
-float currentAngle = weapon.CurrentDirection;
-float targetAngle = weapon.GetTargetDirection();
-// 每帧最多转 0.1 弧度，最?0.01 弧度
-weapon.CurrentDirection = MBMath.LerpRadians(currentAngle, targetAngle, 0.5f, 0.01f, 0.1f);
-`
-
-`
-
-`
-**要点**: 
-
-`LerpRadians
-
-` 处理了角度跨?±π 的情况，不会出现"绕远?旋转?
-### 示例: 按权重分配战利品
-**场景**: 战斗后按各方贡献分配 1000 金币?
-
-`
-
-`
-
-`csharp
-var contributors = new[] { hero1, hero2, hero3 };
-var shares = MBMath.DistributeShares(1000, contributors, h =&gt; h.ContributionScore);
-foreach ((Hero hero, int gold) in shares)
-{
-    GiveGold(hero, gold);
-}
-`
-
-`
-
-`
-**要点**: 总分配额保证精确等于 1000（无余数），先分配的持有者可能有微小优先优势?
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-core)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+- [本区域目录](../)

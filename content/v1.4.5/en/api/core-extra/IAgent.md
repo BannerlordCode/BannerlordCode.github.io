@@ -1,20 +1,14 @@
 ---
 title: "IAgent"
+description: "Auto-generated class reference for IAgent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAgent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IAgent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IAgent`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IAgent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IAgent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IAgent implementation = GetAgentImplementation();
+// Usually obtained through DI or a factory method
+IIAgent service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

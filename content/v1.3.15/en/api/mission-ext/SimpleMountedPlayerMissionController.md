@@ -1,13 +1,7 @@
 ---
 title: "SimpleMountedPlayerMissionController"
+description: "Auto-generated class reference for SimpleMountedPlayerMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SimpleMountedPlayerMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SimpleMountedPlayerMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
@@ -29,12 +23,24 @@ Treat `SimpleMountedPlayerMissionController` as a Controller-style extension poi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SimpleMountedPlayerMissionController from the subsystem API first
+SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
+simpleMountedPlayerMissionController.AfterStart();
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SimpleMountedPlayerMissionController from the subsystem API first
+SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
+var result = simpleMountedPlayerMissionController.MissionEnded(missionResult);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<SimpleMountedPlayerMissionCo
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

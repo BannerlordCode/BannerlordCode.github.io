@@ -1,13 +1,7 @@
 ---
 title: "FileHelperExtensions"
+description: "Auto-generated class reference for FileHelperExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FileHelperExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FileHelperExtensions
 
 **Namespace:** TaleWorlds.Library
@@ -29,22 +23,42 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Load
 `public static void Load(this XmlDocument document, PlatformFilePath path)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+FileHelperExtensions.Load(document, path);
+```
 
 ### LoadAsync
 `public static async Task LoadAsync(this XmlDocument document, PlatformFilePath path)`
 
-**Purpose:** Loads `async` data.
+**Purpose:** Reads `async` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+FileHelperExtensions.LoadAsync(document, path);
+```
 
 ### Save
 `public static void Save(this XmlDocument document, PlatformFilePath path)`
 
-**Purpose:** Saves `save` data.
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+FileHelperExtensions.Save(document, path);
+```
 
 ### SaveAsync
 `public static async Task SaveAsync(this XmlDocument document, PlatformFilePath path)`
 
-**Purpose:** Saves `async` data.
+**Purpose:** Writes `async` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+FileHelperExtensions.SaveAsync(document, path);
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ FileHelperExtensions.Load(document, path);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

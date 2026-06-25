@@ -1,13 +1,7 @@
 ---
 title: "ClanFriendListService"
+description: "Auto-generated class reference for ClanFriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFriendListService`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanFriendListService
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetUserWithName
 `public Task<PlayerId> GetUserWithName(string name)`
 
-**Purpose:** Gets the current value of `user with name`.
+**Purpose:** Reads and returns the `user with name` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanFriendListService from the subsystem API first
+ClanFriendListService clanFriendListService = ...;
+var result = clanFriendListService.GetUserWithName("example");
+```
 
 ### GetPendingRequests
 `public IEnumerable<PlayerId> GetPendingRequests()`
 
-**Purpose:** Gets the current value of `pending requests`.
+**Purpose:** Reads and returns the `pending requests` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanFriendListService from the subsystem API first
+ClanFriendListService clanFriendListService = ...;
+var result = clanFriendListService.GetPendingRequests();
+```
 
 ### GetReceivedRequests
 `public IEnumerable<PlayerId> GetReceivedRequests()`
 
-**Purpose:** Gets the current value of `received requests`.
+**Purpose:** Reads and returns the `received requests` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanFriendListService from the subsystem API first
+ClanFriendListService clanFriendListService = ...;
+var result = clanFriendListService.GetReceivedRequests();
+```
 
 ### OnClanInfoChanged
 `public void OnClanInfoChanged(List<ClanPlayerInfo> playerInfosInClan)`
 
-**Purpose:** Called when the `clan info changed` event is raised.
+**Purpose:** Invoked when the `clan info changed` event is raised.
+
+```csharp
+// Obtain an instance of ClanFriendListService from the subsystem API first
+ClanFriendListService clanFriendListService = ...;
+clanFriendListService.OnClanInfoChanged(playerInfosInClan);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanFriendListService();
-value.GetUserWithName("example");
+// Typically call this after obtaining an instance from the subsystem API
+ClanFriendListService clanFriendListService = ...;
+clanFriendListService.GetUserWithName("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TooltipRegistry"
+description: "TooltipRegistry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TooltipRegistry`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipRegistry
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct TooltipRegistry`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/InformationManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InformationManager.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "TooltipRegistry"
 ### TooltipRegistry
 `public struct TooltipRegistry(Type tooltipType, object onRefreshData, string movieName)`
 
-**用途 / Purpose:** 处理 `tooltip registry` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TooltipRegistry 实例
+TooltipRegistry tooltipRegistry = ...;
+var result = tooltipRegistry.TooltipRegistry(tooltipType, onRefreshData, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TooltipRegistry();
-value.TooltipRegistry(tooltipType, onRefreshData, "example");
+// 通常从对应子系统 API 获取实例后调用
+TooltipRegistry tooltipRegistry = ...;
+tooltipRegistry.TooltipRegistry(tooltipType, onRefreshData, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

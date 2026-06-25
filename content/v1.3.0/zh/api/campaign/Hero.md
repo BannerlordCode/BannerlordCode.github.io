@@ -1,14 +1,7 @@
 ---
 title: "Hero"
+description: "Hero 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Hero`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-- [🔀 跨版本对比 /versions/Hero](/versions/Hero)
-<!-- END BREADCRUMB -->
 # Hero
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -138,315 +131,678 @@ title: "Hero"
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetName();
+```
 
 ### SetName
 `public void SetName(TextObject fullName, TextObject firstName)`
 
-**用途 / Purpose:** 设置 `name` 的值或状态。
+**用途 / Purpose:** 为 「name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetName(fullName, firstName);
+```
 
 ### OnIssueCreatedForHero
 `public void OnIssueCreatedForHero(IssueBase issue)`
 
-**用途 / Purpose:** 当 `issue created for hero` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「issue created for hero」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.OnIssueCreatedForHero(issue);
+```
 
 ### OnIssueDeactivatedForHero
 `public void OnIssueDeactivatedForHero()`
 
-**用途 / Purpose:** 当 `issue deactivated for hero` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「issue deactivated for hero」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.OnIssueDeactivatedForHero();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.ToString();
+```
 
 ### UpdateLastKnownClosestSettlement
 `public void UpdateLastKnownClosestSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 更新 `last known closest settlement` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「last known closest settlement」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.UpdateLastKnownClosestSettlement(settlement);
+```
 
 ### SetNewOccupation
 `public void SetNewOccupation(Occupation occupation)`
 
-**用途 / Purpose:** 设置 `new occupation` 的值或状态。
+**用途 / Purpose:** 为 「new occupation」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetNewOccupation(occupation);
+```
 
 ### SetBirthDay
 `public void SetBirthDay(CampaignTime birthday)`
 
-**用途 / Purpose:** 设置 `birth day` 的值或状态。
+**用途 / Purpose:** 为 「birth day」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetBirthDay(birthday);
+```
 
 ### SetDeathDay
 `public void SetDeathDay(CampaignTime deathDay)`
 
-**用途 / Purpose:** 设置 `death day` 的值或状态。
+**用途 / Purpose:** 为 「death day」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetDeathDay(deathDay);
+```
 
 ### AddPower
 `public void AddPower(float value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `power`。
+**用途 / Purpose:** 将 「power」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.AddPower(0);
+```
 
 ### SetHasMet
 `public void SetHasMet()`
 
-**用途 / Purpose:** 设置 `has met` 的值或状态。
+**用途 / Purpose:** 为 「has met」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetHasMet();
+```
 
 ### UpdatePowerModifier
 `public void UpdatePowerModifier()`
 
-**用途 / Purpose:** 更新 `power modifier` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「power modifier」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.UpdatePowerModifier();
+```
 
 ### UpdateHomeSettlement
 `public void UpdateHomeSettlement()`
 
-**用途 / Purpose:** 更新 `home settlement` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「home settlement」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.UpdateHomeSettlement();
+```
 
 ### GetSkillValue
 `public int GetSkillValue(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `skill value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetSkillValue(skill);
+```
 
 ### SetSkillValue
 `public void SetSkillValue(SkillObject skill, int value)`
 
-**用途 / Purpose:** 设置 `skill value` 的值或状态。
+**用途 / Purpose:** 为 「skill value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetSkillValue(skill, 0);
+```
 
 ### ClearSkills
 `public void ClearSkills()`
 
-**用途 / Purpose:** 处理 `clear skills` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「skills」。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.ClearSkills();
+```
 
 ### AddSkillXp
 `public void AddSkillXp(SkillObject skill, float xpAmount)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `skill xp`。
+**用途 / Purpose:** 将 「skill xp」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.AddSkillXp(skill, 0);
+```
 
 ### GetAttributeValue
 `public int GetAttributeValue(CharacterAttribute charAttribute)`
 
-**用途 / Purpose:** 获取 `attribute value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attribute value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetAttributeValue(charAttribute);
+```
 
 ### ClearAttributes
 `public void ClearAttributes()`
 
-**用途 / Purpose:** 处理 `clear attributes` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「attributes」。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.ClearAttributes();
+```
 
 ### SetTraitLevel
 `public void SetTraitLevel(TraitObject trait, int value)`
 
-**用途 / Purpose:** 设置 `trait level` 的值或状态。
+**用途 / Purpose:** 为 「trait level」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetTraitLevel(trait, 0);
+```
 
 ### GetTraitLevel
 `public int GetTraitLevel(TraitObject trait)`
 
-**用途 / Purpose:** 获取 `trait level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trait level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetTraitLevel(trait);
+```
 
 ### ClearTraits
 `public void ClearTraits()`
 
-**用途 / Purpose:** 处理 `clear traits` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「traits」。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.ClearTraits();
+```
 
 ### GetPerkValue
 `public bool GetPerkValue(PerkObject perk)`
 
-**用途 / Purpose:** 获取 `perk value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「perk value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetPerkValue(perk);
+```
 
 ### ClearPerks
 `public void ClearPerks()`
 
-**用途 / Purpose:** 处理 `clear perks` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「perks」。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.ClearPerks();
+```
 
 ### ChangeState
 `public void ChangeState(Hero.CharacterStates newState)`
 
-**用途 / Purpose:** 处理 `change state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.ChangeState(newState);
+```
 
 ### IsHealthFull
 `public bool IsHealthFull()`
 
-**用途 / Purpose:** 处理 `is health full` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「health full」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.IsHealthFull();
+```
 
 ### Heal
 `public void Heal(int healAmount, bool addXp = false)`
 
-**用途 / Purpose:** 处理 `heal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.Heal(0, false);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.Deserialize(objectManager, node);
+```
 
 ### CanLeadParty
 `public bool CanLeadParty()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `lead party`。
+**用途 / Purpose:** 检查当前对象是否满足 「lead party」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.CanLeadParty();
+```
 
 ### SetHeroEncyclopediaTextAndLinks
 `public static TextObject SetHeroEncyclopediaTextAndLinks(Hero o)`
 
-**用途 / Purpose:** 设置 `hero encyclopedia text and links` 的值或状态。
+**用途 / Purpose:** 为 「hero encyclopedia text and links」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+Hero.SetHeroEncyclopediaTextAndLinks(o);
+```
 
 ### CanHeroEquipmentBeChanged
 `public bool CanHeroEquipmentBeChanged()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero equipment be changed`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero equipment be changed」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.CanHeroEquipmentBeChanged();
+```
 
 ### CanMarry
 `public bool CanMarry()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `marry`。
+**用途 / Purpose:** 检查当前对象是否满足 「marry」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.CanMarry();
+```
 
 ### CanBeGovernorOrHavePartyRole
 `public bool CanBeGovernorOrHavePartyRole()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `be governor or have party role`。
+**用途 / Purpose:** 检查当前对象是否满足 「be governor or have party role」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.CanBeGovernorOrHavePartyRole();
+```
 
 ### CanDie
 `public bool CanDie(KillCharacterAction.KillCharacterActionDetail causeOfDeath)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `die`。
+**用途 / Purpose:** 检查当前对象是否满足 「die」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.CanDie(causeOfDeath);
+```
 
 ### CanBecomePrisoner
 `public bool CanBecomePrisoner()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `become prisoner`。
+**用途 / Purpose:** 检查当前对象是否满足 「become prisoner」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.CanBecomePrisoner();
+```
 
 ### CanMoveToSettlement
 `public bool CanMoveToSettlement()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `move to settlement`。
+**用途 / Purpose:** 检查当前对象是否满足 「move to settlement」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.CanMoveToSettlement();
+```
 
 ### CanHaveCampaignIssues
 `public bool CanHaveCampaignIssues()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `have campaign issues`。
+**用途 / Purpose:** 检查当前对象是否满足 「have campaign issues」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.CanHaveCampaignIssues();
+```
 
 ### AddInfluenceWithKingdom
 `public void AddInfluenceWithKingdom(float additionalInfluence)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `influence with kingdom`。
+**用途 / Purpose:** 将 「influence with kingdom」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.AddInfluenceWithKingdom(0);
+```
 
 ### GetRelationWithPlayer
 `public float GetRelationWithPlayer()`
 
-**用途 / Purpose:** 获取 `relation with player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation with player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetRelationWithPlayer();
+```
 
 ### GetUnmodifiedClanLeaderRelationshipWithPlayer
 `public float GetUnmodifiedClanLeaderRelationshipWithPlayer()`
 
-**用途 / Purpose:** 获取 `unmodified clan leader relationship with player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unmodified clan leader relationship with player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetUnmodifiedClanLeaderRelationshipWithPlayer();
+```
 
 ### SetTextVariables
 `public void SetTextVariables()`
 
-**用途 / Purpose:** 设置 `text variables` 的值或状态。
+**用途 / Purpose:** 为 「text variables」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetTextVariables();
+```
 
 ### SetPersonalRelation
 `public void SetPersonalRelation(Hero otherHero, int value)`
 
-**用途 / Purpose:** 设置 `personal relation` 的值或状态。
+**用途 / Purpose:** 为 「personal relation」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.SetPersonalRelation(otherHero, 0);
+```
 
 ### GetRelation
 `public int GetRelation(Hero otherHero)`
 
-**用途 / Purpose:** 获取 `relation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetRelation(otherHero);
+```
 
 ### GetBaseHeroRelation
 `public int GetBaseHeroRelation(Hero otherHero)`
 
-**用途 / Purpose:** 获取 `base hero relation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「base hero relation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetBaseHeroRelation(otherHero);
+```
 
 ### IsEnemy
 `public bool IsEnemy(Hero otherHero)`
 
-**用途 / Purpose:** 处理 `is enemy` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「enemy」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.IsEnemy(otherHero);
+```
 
 ### IsFriend
 `public bool IsFriend(Hero otherHero)`
 
-**用途 / Purpose:** 处理 `is friend` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「friend」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.IsFriend(otherHero);
+```
 
 ### IsNeutral
 `public bool IsNeutral(Hero otherHero)`
 
-**用途 / Purpose:** 处理 `is neutral` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「neutral」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.IsNeutral(otherHero);
+```
 
 ### ModifyHair
 `public void ModifyHair(int hair, int beard, int tattoo)`
 
-**用途 / Purpose:** 处理 `modify hair` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.ModifyHair(0, 0, 0);
+```
 
 ### AddOwnedWorkshop
 `public void AddOwnedWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `owned workshop`。
+**用途 / Purpose:** 将 「owned workshop」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.AddOwnedWorkshop(workshop);
+```
 
 ### RemoveOwnedWorkshop
 `public void RemoveOwnedWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `owned workshop`。
+**用途 / Purpose:** 从当前容器或状态中移除 「owned workshop」。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.RemoveOwnedWorkshop(workshop);
+```
 
 ### FindFirst
 `public static Hero FindFirst(Func<Hero, bool> predicate)`
 
-**用途 / Purpose:** 处理 `find first` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「first」。
+
+```csharp
+// 静态调用，不需要实例
+Hero.FindFirst(func<Hero, false);
+```
 
 ### Find
 `public static Hero Find(string stringId)`
 
-**用途 / Purpose:** 处理 `find` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找匹配项。
+
+```csharp
+// 静态调用，不需要实例
+Hero.Find("example");
+```
 
 ### FindAll
 `public static IEnumerable<Hero> FindAll(Func<Hero, bool> predicate)`
 
-**用途 / Purpose:** 处理 `find all` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all」。
+
+```csharp
+// 静态调用，不需要实例
+Hero.FindAll(func<Hero, false);
+```
 
 ### MakeWounded
 `public void MakeWounded(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)`
 
-**用途 / Purpose:** 处理 `make wounded` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.MakeWounded(null, killCharacterAction.KillCharacterActionDetail.None);
+```
 
 ### AddDeathMark
 `public void AddDeathMark(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `death mark`。
+**用途 / Purpose:** 将 「death mark」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.AddDeathMark(null, killCharacterAction.KillCharacterActionDetail.None);
+```
 
 ### GetPositionAsVec3
 `public Vec3 GetPositionAsVec3()`
 
-**用途 / Purpose:** 获取 `position as vec3` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「position as vec3」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetPositionAsVec3();
+```
 
 ### GetCampaignPosition
 `public CampaignVec2 GetCampaignPosition()`
 
-**用途 / Purpose:** 获取 `campaign position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「campaign position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetCampaignPosition();
+```
 
 ### GetMapPoint
 `public IMapPoint GetMapPoint()`
 
-**用途 / Purpose:** 获取 `map point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「map point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+var result = hero.GetMapPoint();
+```
 
 ### ResetEquipments
 `public void ResetEquipments()`
 
-**用途 / Purpose:** 将 `equipments` 重置为初始状态。
+**用途 / Purpose:** 将 「equipments」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.ResetEquipments();
+```
 
 ### ChangeHeroGold
 `public void ChangeHeroGold(int changeAmount)`
 
-**用途 / Purpose:** 处理 `change hero gold` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.ChangeHeroGold(0);
+```
 
 ### CheckInvalidEquipmentsAndReplaceIfNeeded
 `public void CheckInvalidEquipmentsAndReplaceIfNeeded()`
 
-**用途 / Purpose:** 处理 `check invalid equipments and replace if needed` 相关逻辑。
+**用途 / Purpose:** 检查「invalid equipments and replace if needed」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 Hero 实例
+Hero hero = ...;
+hero.CheckInvalidEquipmentsAndReplaceIfNeeded();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Hero();
-value.GetName();
+// 通常从对应子系统 API 获取实例后调用
+Hero hero = ...;
+hero.GetName();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

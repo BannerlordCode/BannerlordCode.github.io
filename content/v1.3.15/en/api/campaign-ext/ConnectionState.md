@@ -1,18 +1,12 @@
 ---
 title: "ConnectionState"
+description: "Auto-generated class reference for ConnectionState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConnectionState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConnectionState
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** `class`
+**Type:** `public enum ConnectionState`
 **Base:** none
 **File:** `TaleWorlds.Network/ConnectionState.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new ConnectionState();
+// Obtain an instance from the relevant subsystem API
+ConnectionState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

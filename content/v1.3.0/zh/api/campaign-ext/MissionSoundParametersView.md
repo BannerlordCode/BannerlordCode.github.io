@@ -1,13 +1,7 @@
 ---
 title: "MissionSoundParametersView"
+description: "MissionSoundParametersView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionSoundParametersView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSoundParametersView
 
 **Namespace:** SandBox.View.Missions
@@ -29,24 +23,43 @@ title: "MissionSoundParametersView"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSoundParametersView 实例
+MissionSoundParametersView missionSoundParametersView = ...;
+missionSoundParametersView.EarlyStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSoundParametersView 实例
+MissionSoundParametersView missionSoundParametersView = ...;
+missionSoundParametersView.OnMissionScreenFinalize();
+```
 
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**用途 / Purpose:** 当 `mission mode change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission mode change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSoundParametersView 实例
+MissionSoundParametersView missionSoundParametersView = ...;
+missionSoundParametersView.OnMissionModeChange(oldMissionMode, false);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionSoundParametersView();
+// 从子系统 API 或场景中获取该视图
+MissionSoundParametersView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

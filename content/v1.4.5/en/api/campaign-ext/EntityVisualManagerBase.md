@@ -1,20 +1,14 @@
 ---
 title: "EntityVisualManagerBase"
+description: "Auto-generated class reference for EntityVisualManagerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EntityVisualManagerBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EntityVisualManagerBase
 
 **Namespace:** SandBox.View.Map.Managers
 **Module:** SandBox.View
 **Type:** `public abstract class EntityVisualManagerBase : CampaignEntityVisualComponent`
 **Base:** `CampaignEntityVisualComponent`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/EntityVisualManagerBase.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/EntityVisualManagerBase.cs`
 
 ## Overview
 
@@ -30,24 +24,13 @@ Start from namespace `SandBox.View.Map.Managers` to place it in the stack, then 
 |------|-----------|
 | `MapScene` | `public Scene MapScene { get; }` |
 
-## Key Methods
-
-### GetVisualOfEntity
-`public abstract MapEntityVisual<TEntity> GetVisualOfEntity(TEntity entity)`
-
-**Purpose:** Gets the current value of `visual of entity`.
-
-### GetEntityVisualManagerBase
-`public static EntityVisualManagerBase<TEntity> GetEntityVisualManagerBase()`
-
-**Purpose:** Gets the current value of `entity visual manager base`.
-
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEntityVisualManagerBase();
+// Typically obtained from a subsystem API or factory
+EntityVisualManagerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

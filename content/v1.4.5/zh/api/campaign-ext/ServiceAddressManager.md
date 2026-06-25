@@ -1,20 +1,14 @@
 ---
 title: "ServiceAddressManager"
+description: "ServiceAddressManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ServiceAddressManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServiceAddressManager
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public static class ServiceAddressManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddressManager.cs`
+**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddressManager.cs`
 
 ## 概述
 
@@ -38,12 +32,22 @@ title: "ServiceAddressManager"
 ### Initalize
 `public static void Initalize()`
 
-**用途 / Purpose:** 初始化 `alize` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「alize」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+ServiceAddressManager.Initalize();
+```
 
 ### ResolveAddress
 `public static bool ResolveAddress(string serviceDiscoveryAddress, ref string serviceAddress)`
 
-**用途 / Purpose:** 处理 `resolve address` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ServiceAddressManager.ResolveAddress("example", serviceAddress);
+```
 
 ## 使用示例
 
@@ -53,4 +57,4 @@ var manager = ServiceAddressManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

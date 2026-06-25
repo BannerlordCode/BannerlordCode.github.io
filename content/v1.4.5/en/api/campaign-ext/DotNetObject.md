@@ -1,20 +1,14 @@
 ---
 title: "DotNetObject"
+description: "Auto-generated class reference for DotNetObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DotNetObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DotNetObject
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class DotNetObject`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/DotNetObject.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/DotNetObject.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new DotNetObject();
+// Obtain an instance from the relevant subsystem API
+DotNetObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

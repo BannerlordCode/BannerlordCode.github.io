@@ -1,20 +1,14 @@
 ---
 title: "RevenueFarmingIssue"
+description: "Auto-generated class reference for RevenueFarmingIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RevenueFarmingIssue`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RevenueFarmingIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RevenueFarmingIssue`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
 
 ## Overview
 
@@ -37,75 +31,154 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.IssueStayAliveConditions();
+```
 
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**Purpose:** Handles logic related to `revenues are delivered to steward`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.RevenuesAreDeliveredToSteward();
+```
 
 ### FindCurrentRevenueVillage
 `public RevenueVillage FindCurrentRevenueVillage()`
 
-**Purpose:** Handles logic related to `find current revenue village`.
+**Purpose:** Looks up the matching `current revenue village` in the current collection or scope.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.FindCurrentRevenueVillage();
+```
 
 ### SetVillageAsCompleted
 `public void SetVillageAsCompleted(RevenueVillage village, bool addLog = true)`
 
-**Purpose:** Sets the value or state of `village as completed`.
+**Purpose:** Assigns a new value to `village as completed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.SetVillageAsCompleted(village, false);
+```
 
 ### SetDone
 `public void SetDone()`
 
-**Purpose:** Sets the value or state of `done`.
+**Purpose:** Assigns a new value to `done` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.SetDone();
+```
 
 ### SetAdditionalProgress
 `public void SetAdditionalProgress(float progress)`
 
-**Purpose:** Sets the value or state of `additional progress`.
+**Purpose:** Assigns a new value to `additional progress` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.SetAdditionalProgress(0);
+```
 
 ### GetIsCompleted
 `public bool GetIsCompleted()`
 
-**Purpose:** Gets the current value of `is completed`.
+**Purpose:** Reads and returns the `is completed` value held by the current object.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.GetIsCompleted();
+```
 
 ### VillageEventOptionData
 `public struct VillageEventOptionData(string text, GameMenuOption.OnConditionDelegate onCondition, GameMenuOption.OnConsequenceDelegate onConsequence, bool isLeave = false)`
 
-**Purpose:** Handles logic related to `village event option data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.VillageEventOptionData("example", onCondition, onConsequence, false);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.RegisterEvents();
+```
 
 ### OnVillageEventWithIdSpawned
 `public void OnVillageEventWithIdSpawned(string Id)`
 
-**Purpose:** Called when the `village event with id spawned` event is raised.
+**Purpose:** Invoked when the `village event with id spawned` event is raised.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.OnVillageEventWithIdSpawned("example");
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssue from the subsystem API first
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.OnCheckForIssue(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RevenueFarmingIssue();
-value.GetFrequency();
+// Typically call this after obtaining an instance from the subsystem API
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.GetFrequency();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

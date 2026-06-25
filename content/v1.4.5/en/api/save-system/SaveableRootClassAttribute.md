@@ -1,20 +1,14 @@
 ---
 title: "SaveableRootClassAttribute"
+description: "Auto-generated class reference for SaveableRootClassAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableRootClassAttribute`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableRootClassAttribute
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveableRootClassAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableRootClassAttribute.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableRootClassAttribute.cs`
 
 ## Overview
 
@@ -39,4 +33,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

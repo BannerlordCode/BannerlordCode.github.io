@@ -1,13 +1,7 @@
 ---
 title: "ClanRoleMemberItemVM"
+description: "Auto-generated class reference for ClanRoleMemberItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanRoleMemberItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanRoleMemberItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -40,35 +34,65 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanRoleMemberItemVM from the subsystem API first
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+clanRoleMemberItemVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanRoleMemberItemVM from the subsystem API first
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+clanRoleMemberItemVM.OnFinalize();
+```
 
 ### ExecuteAssignHeroToRole
 `public void ExecuteAssignHeroToRole()`
 
-**Purpose:** Executes the `assign hero to role` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `assign hero to role`.
+
+```csharp
+// Obtain an instance of ClanRoleMemberItemVM from the subsystem API first
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+clanRoleMemberItemVM.ExecuteAssignHeroToRole();
+```
 
 ### GetEffectsList
 `public string GetEffectsList(PartyRole role)`
 
-**Purpose:** Gets the current value of `effects list`.
+**Purpose:** Reads and returns the `effects list` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanRoleMemberItemVM from the subsystem API first
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+var result = clanRoleMemberItemVM.GetEffectsList(role);
+```
 
 ### IsHeroAssignableForRole
 `public static bool IsHeroAssignableForRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Handles logic related to `is hero assignable for role`.
+**Purpose:** Determines whether the current object is in the `hero assignable for role` state or condition.
+
+```csharp
+// Static call; no instance required
+ClanRoleMemberItemVM.IsHeroAssignableForRole(hero, role, party);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanRoleMemberItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+clanRoleMemberItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

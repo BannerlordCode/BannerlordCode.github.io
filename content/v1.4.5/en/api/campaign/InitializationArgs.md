@@ -1,20 +1,14 @@
 ---
 title: "InitializationArgs"
+description: "Auto-generated class reference for InitializationArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitializationArgs`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitializationArgs
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class InitializationArgs`
+**Type:** `class InitializationArgs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/LordPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/BanditPartyComponent.cs`
 
 ## Overview
 
@@ -26,18 +20,25 @@ Start from namespace `TaleWorlds.CampaignSystem.Party.PartyComponents` to place 
 
 ## Key Methods
 
-### InitializeLordPartyProperties
-`public void InitializeLordPartyProperties(MobileParty mobileParty, Hero owner)`
+### InitializeBanditOnCreation
+`public void InitializeBanditOnCreation(MobileParty mobileParty)`
 
-**Purpose:** Initializes the state, resources, or bindings for `lord party properties`.
+**Purpose:** Prepares the resources, state, or bindings required by `bandit on creation`.
+
+```csharp
+// Obtain an instance of InitializationArgs from the subsystem API first
+InitializationArgs initializationArgs = ...;
+initializationArgs.InitializeBanditOnCreation(mobileParty);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InitializationArgs();
-value.InitializeLordPartyProperties(mobileParty, owner);
+// Typically call this after obtaining an instance from the subsystem API
+InitializationArgs initializationArgs = ...;
+initializationArgs.InitializeBanditOnCreation(mobileParty);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

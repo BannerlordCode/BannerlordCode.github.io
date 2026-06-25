@@ -1,20 +1,14 @@
 ---
 title: "MBTextModel"
+description: "Auto-generated class reference for MBTextModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTextModel`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTextModel
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
 **Module:** TaleWorlds.Localization
 **Type:** `public class MBTextModel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/MBTextModel.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/MBTextModel.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ Game.Current.ReplaceModel<MBTextModel>(new MyMBTextModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

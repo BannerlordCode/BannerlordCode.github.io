@@ -1,20 +1,14 @@
 ---
 title: "MissionPreloadView"
+description: "Auto-generated class reference for MissionPreloadView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionPreloadView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionPreloadView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionPreloadView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionPreloadView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionPreloadView.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `MissionPreloadView` as a View-style extension point: first identify who c
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionPreloadView from the subsystem API first
+MissionPreloadView missionPreloadView = ...;
+missionPreloadView.OnPreMissionTick(0);
+```
 
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** Called when the `scene rendering started` event is raised.
+**Purpose:** Invoked when the `scene rendering started` event is raised.
+
+```csharp
+// Obtain an instance of MissionPreloadView from the subsystem API first
+MissionPreloadView missionPreloadView = ...;
+missionPreloadView.OnSceneRenderingStarted();
+```
 
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** Called when the `mission state deactivated` event is raised.
+**Purpose:** Invoked when the `mission state deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionPreloadView from the subsystem API first
+MissionPreloadView missionPreloadView = ...;
+missionPreloadView.OnMissionStateDeactivated();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionPreloadView from the subsystem API first
+MissionPreloadView missionPreloadView = ...;
+missionPreloadView.OnRemoveBehavior();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionPreloadView();
+// Retrieve this view from the subsystem API or scene
+MissionPreloadView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

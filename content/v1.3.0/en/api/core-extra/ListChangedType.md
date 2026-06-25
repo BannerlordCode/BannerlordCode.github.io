@@ -1,18 +1,12 @@
 ---
 title: "ListChangedType"
+description: "Auto-generated class reference for ListChangedType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ListChangedType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ListChangedType
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public enum ListChangedType`
 **Base:** none
 **File:** `TaleWorlds.Library/ListChangedType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new ListChangedType();
+// Obtain an instance from the relevant subsystem API
+ListChangedType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

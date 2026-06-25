@@ -1,20 +1,14 @@
 ---
 title: "MapSiegeOverlayView"
+description: "Auto-generated class reference for MapSiegeOverlayView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeOverlayView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeOverlayView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapSiegeOverlayView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapSiegeOverlayView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapSiegeOverlayView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MapSiegeOverlayView` as a View-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var view = new MapSiegeOverlayView();
+// Retrieve this view from the subsystem API or scene
+MapSiegeOverlayView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

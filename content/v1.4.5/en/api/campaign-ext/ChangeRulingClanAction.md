@@ -1,20 +1,14 @@
 ---
 title: "ChangeRulingClanAction"
+description: "Auto-generated class reference for ChangeRulingClanAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeRulingClanAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeRulingClanAction
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ChangeRulingClanAction`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/ChangeRulingClanAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/ChangeRulingClanAction.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ### Apply
 `public static void Apply(Kingdom kingdom, Clan clan)`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Static call; no instance required
+ChangeRulingClanAction.Apply(kingdom, clan);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ ChangeRulingClanAction.Apply(kingdom, clan);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

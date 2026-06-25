@@ -1,20 +1,14 @@
 ---
 title: "GameMenuItemWidget"
+description: "Auto-generated class reference for GameMenuItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameMenuItemWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/GameMenuItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/GameMenuItemWidget.cs`
 
 ## Overview
 
@@ -53,9 +47,10 @@ Treat `GameMenuItemWidget` as a Widget-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var widget = new GameMenuItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GameMenuItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

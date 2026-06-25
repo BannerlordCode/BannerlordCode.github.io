@@ -1,13 +1,7 @@
 ---
 title: "ArmyDispersionMapNotification"
+description: "Auto-generated class reference for ArmyDispersionMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyDispersionMapNotification`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ArmyDispersionMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ## Usage Example
 
 ```csharp
-var value = new ArmyDispersionMapNotification();
+// Obtain an instance from the relevant subsystem API
+ArmyDispersionMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

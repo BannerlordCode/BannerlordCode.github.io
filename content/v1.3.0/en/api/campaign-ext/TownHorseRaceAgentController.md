@@ -1,13 +1,7 @@
 ---
 title: "TownHorseRaceAgentController"
+description: "Auto-generated class reference for TownHorseRaceAgentController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownHorseRaceAgentController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownHorseRaceAgentController
 
 **Namespace:** SandBox.Tournaments.AgentControllers
@@ -29,22 +23,46 @@ Treat `TownHorseRaceAgentController` as a Controller-style extension point: firs
 ### OnInitialize
 `public override void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Obtain an instance of TownHorseRaceAgentController from the subsystem API first
+TownHorseRaceAgentController townHorseRaceAgentController = ...;
+townHorseRaceAgentController.OnInitialize();
+```
 
 ### DisableMovement
 `public void DisableMovement()`
 
-**Purpose:** Handles logic related to `disable movement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TownHorseRaceAgentController from the subsystem API first
+TownHorseRaceAgentController townHorseRaceAgentController = ...;
+townHorseRaceAgentController.DisableMovement();
+```
 
 ### Start
 `public void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of TownHorseRaceAgentController from the subsystem API first
+TownHorseRaceAgentController townHorseRaceAgentController = ...;
+townHorseRaceAgentController.Start();
+```
 
 ### OnEnterCheckPoint
 `public void OnEnterCheckPoint(VolumeBox checkPoint)`
 
-**Purpose:** Called when the `enter check point` event is raised.
+**Purpose:** Invoked when the `enter check point` event is raised.
+
+```csharp
+// Obtain an instance of TownHorseRaceAgentController from the subsystem API first
+TownHorseRaceAgentController townHorseRaceAgentController = ...;
+townHorseRaceAgentController.OnEnterCheckPoint(checkPoint);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var controller = Mission.Current.GetMissionBehavior<TownHorseRaceAgentController
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeValueTypeDefault"
+description: "WidgetAttributeValueTypeDefault 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetAttributeValueTypeDefault`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetAttributeValueTypeDefault
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,25 +23,44 @@ title: "WidgetAttributeValueTypeDefault"
 ### CheckValueType
 `public override bool CheckValueType(string value)`
 
-**用途 / Purpose:** 处理 `check value type` 相关逻辑。
+**用途 / Purpose:** 检查「value type」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeValueTypeDefault 实例
+WidgetAttributeValueTypeDefault widgetAttributeValueTypeDefault = ...;
+var result = widgetAttributeValueTypeDefault.CheckValueType("example");
+```
 
 ### GetAttributeValue
 `public override string GetAttributeValue(string value)`
 
-**用途 / Purpose:** 获取 `attribute value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attribute value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeValueTypeDefault 实例
+WidgetAttributeValueTypeDefault widgetAttributeValueTypeDefault = ...;
+var result = widgetAttributeValueTypeDefault.GetAttributeValue("example");
+```
 
 ### GetSerializedValue
 `public override string GetSerializedValue(string value)`
 
-**用途 / Purpose:** 获取 `serialized value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「serialized value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeValueTypeDefault 实例
+WidgetAttributeValueTypeDefault widgetAttributeValueTypeDefault = ...;
+var result = widgetAttributeValueTypeDefault.GetSerializedValue("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WidgetAttributeValueTypeDefault();
-value.CheckValueType("example");
+// 通常从对应子系统 API 获取实例后调用
+WidgetAttributeValueTypeDefault widgetAttributeValueTypeDefault = ...;
+widgetAttributeValueTypeDefault.CheckValueType("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

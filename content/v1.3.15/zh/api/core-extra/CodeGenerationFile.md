@@ -1,13 +1,7 @@
 ---
 title: "CodeGenerationFile"
+description: "CodeGenerationFile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CodeGenerationFile`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CodeGenerationFile
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -29,20 +23,33 @@ title: "CodeGenerationFile"
 ### AddLine
 `public void AddLine(string line)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `line`。
+**用途 / Purpose:** 将 「line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CodeGenerationFile 实例
+CodeGenerationFile codeGenerationFile = ...;
+codeGenerationFile.AddLine("example");
+```
 
 ### GenerateText
 `public string GenerateText()`
 
-**用途 / Purpose:** 处理 `generate text` 相关逻辑。
+**用途 / Purpose:** 生成「text」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 CodeGenerationFile 实例
+CodeGenerationFile codeGenerationFile = ...;
+var result = codeGenerationFile.GenerateText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CodeGenerationFile();
-value.AddLine("example");
+// 通常从对应子系统 API 获取实例后调用
+CodeGenerationFile codeGenerationFile = ...;
+codeGenerationFile.AddLine("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

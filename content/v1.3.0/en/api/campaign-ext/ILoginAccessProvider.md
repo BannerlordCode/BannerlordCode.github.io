@@ -1,18 +1,12 @@
 ---
 title: "ILoginAccessProvider"
+description: "Auto-generated class reference for ILoginAccessProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ILoginAccessProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ILoginAccessProvider
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public interface ILoginAccessProvider`
 **Base:** none
 **File:** `TaleWorlds.Diamond/ILoginAccessProvider.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-ILoginAccessProvider implementation = GetLoginAccessProviderImplementation();
+// Usually obtained through DI or a factory method
+IILoginAccessProvider service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

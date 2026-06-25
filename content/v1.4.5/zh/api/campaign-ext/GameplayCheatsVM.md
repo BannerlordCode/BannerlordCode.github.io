@@ -1,20 +1,14 @@
 ---
 title: "GameplayCheatsVM"
+description: "GameplayCheatsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameplayCheatsVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatsVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Cheat
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class GameplayCheatsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Cheat/GameplayCheatsVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Cheat/GameplayCheatsVM.cs`
 
 ## 概述
 
@@ -38,30 +32,55 @@ title: "GameplayCheatsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameplayCheatsVM 实例
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameplayCheatsVM 实例
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.OnFinalize();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 `close` 操作或流程。
+**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameplayCheatsVM 实例
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.ExecuteClose();
+```
 
 ### SetCloseInputKey
 `public void SetCloseInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `close input key` 的值或状态。
+**用途 / Purpose:** 为 「close input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GameplayCheatsVM 实例
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.SetCloseInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameplayCheatsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CreateClanAnswerMessage"
+description: "Auto-generated class reference for CreateClanAnswerMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreateClanAnswerMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreateClanAnswerMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class CreateClanAnswerMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/CreateClanAnswerMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/CreateClanAnswerMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new CreateClanAnswerMessage();
+// Obtain an instance from the relevant subsystem API
+CreateClanAnswerMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

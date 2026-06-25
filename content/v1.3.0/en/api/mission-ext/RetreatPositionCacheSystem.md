@@ -1,13 +1,7 @@
 ---
 title: "RetreatPositionCacheSystem"
+description: "Auto-generated class reference for RetreatPositionCacheSystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RetreatPositionCacheSystem`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RetreatPositionCacheSystem
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetRetreatPositionFromCache
 `public WorldPosition GetRetreatPositionFromCache(Vec2 agentPosition)`
 
-**Purpose:** Gets the current value of `retreat position from cache`.
+**Purpose:** Reads and returns the `retreat position from cache` value held by the current object.
+
+```csharp
+// Obtain an instance of RetreatPositionCacheSystem from the subsystem API first
+RetreatPositionCacheSystem retreatPositionCacheSystem = ...;
+var result = retreatPositionCacheSystem.GetRetreatPositionFromCache(agentPosition);
+```
 
 ### AddNewPositionToCache
 `public void AddNewPositionToCache(Vec2 agentPostion, WorldPosition retreatingPosition)`
 
 **Purpose:** Adds `new position to cache` to the current collection or state.
 
+```csharp
+// Obtain an instance of RetreatPositionCacheSystem from the subsystem API first
+RetreatPositionCacheSystem retreatPositionCacheSystem = ...;
+retreatPositionCacheSystem.AddNewPositionToCache(agentPostion, retreatingPosition);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new RetreatPositionCacheSystem();
-value.GetRetreatPositionFromCache(agentPosition);
+// Typically call this after obtaining an instance from the subsystem API
+RetreatPositionCacheSystem retreatPositionCacheSystem = ...;
+retreatPositionCacheSystem.GetRetreatPositionFromCache(agentPosition);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

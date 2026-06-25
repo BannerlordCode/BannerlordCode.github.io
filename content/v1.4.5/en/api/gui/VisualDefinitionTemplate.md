@@ -1,20 +1,14 @@
 ---
 title: "VisualDefinitionTemplate"
+description: "Auto-generated class reference for VisualDefinitionTemplate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualDefinitionTemplate`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualDefinitionTemplate
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class VisualDefinitionTemplate`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/VisualDefinitionTemplate.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/VisualDefinitionTemplate.cs`
 
 ## Overview
 
@@ -42,18 +36,31 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 
 **Purpose:** Adds `visual state` to the current collection or state.
 
+```csharp
+// Obtain an instance of VisualDefinitionTemplate from the subsystem API first
+VisualDefinitionTemplate visualDefinitionTemplate = ...;
+visualDefinitionTemplate.AddVisualState(visualState);
+```
+
 ### CreateVisualDefinition
 `public VisualDefinition CreateVisualDefinition(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** Creates a new `visual definition` instance or object.
+**Purpose:** Constructs a new `visual definition` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of VisualDefinitionTemplate from the subsystem API first
+VisualDefinitionTemplate visualDefinitionTemplate = ...;
+var result = visualDefinitionTemplate.CreateVisualDefinition(brushFactory, spriteData, dictionary<string, visualDefinitionTemplates, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VisualDefinitionTemplate();
-value.AddVisualState(visualState);
+// Typically call this after obtaining an instance from the subsystem API
+VisualDefinitionTemplate visualDefinitionTemplate = ...;
+visualDefinitionTemplate.AddVisualState(visualState);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "StyleFontContainer"
+description: "Auto-generated class reference for StyleFontContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StyleFontContainer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StyleFontContainer
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Add
 `public void Add(string style, Font font, float fontSize)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of StyleFontContainer from the subsystem API first
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.Add("example", font, 0);
+```
 
 ### GetFontData
 `public StyleFontContainer.FontData GetFontData(string style)`
 
-**Purpose:** Gets the current value of `font data`.
+**Purpose:** Reads and returns the `font data` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleFontContainer from the subsystem API first
+StyleFontContainer styleFontContainer = ...;
+var result = styleFontContainer.GetFontData("example");
+```
 
 ### ClearFonts
 `public void ClearFonts()`
 
-**Purpose:** Handles logic related to `clear fonts`.
+**Purpose:** Removes all `fonts` from the current object.
+
+```csharp
+// Obtain an instance of StyleFontContainer from the subsystem API first
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.ClearFonts();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StyleFontContainer();
-value.Add("example", font, 0);
+// Typically call this after obtaining an instance from the subsystem API
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.Add("example", font, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

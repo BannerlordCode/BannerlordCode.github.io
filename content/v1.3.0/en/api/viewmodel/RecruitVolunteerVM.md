@@ -1,13 +1,7 @@
 ---
 title: "RecruitVolunteerVM"
+description: "Auto-generated class reference for RecruitVolunteerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitVolunteerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitVolunteerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
@@ -44,35 +38,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Rec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RecruitVolunteerVM from the subsystem API first
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.RefreshValues();
+```
 
 ### ExecuteRecruit
 `public void ExecuteRecruit(RecruitVolunteerTroopVM troop)`
 
-**Purpose:** Executes the `recruit` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `recruit`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerVM from the subsystem API first
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.ExecuteRecruit(troop);
+```
 
 ### ExecuteRemoveFromCart
 `public void ExecuteRemoveFromCart(RecruitVolunteerTroopVM troop)`
 
-**Purpose:** Executes the `remove from cart` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove from cart`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerVM from the subsystem API first
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.ExecuteRemoveFromCart(troop);
+```
 
 ### OnRecruitMoveToCart
 `public void OnRecruitMoveToCart(RecruitVolunteerTroopVM troop)`
 
-**Purpose:** Called when the `recruit move to cart` event is raised.
+**Purpose:** Invoked when the `recruit move to cart` event is raised.
+
+```csharp
+// Obtain an instance of RecruitVolunteerVM from the subsystem API first
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.OnRecruitMoveToCart(troop);
+```
 
 ### OnRecruitRemovedFromCart
 `public void OnRecruitRemovedFromCart(RecruitVolunteerTroopVM troop)`
 
-**Purpose:** Called when the `recruit removed from cart` event is raised.
+**Purpose:** Invoked when the `recruit removed from cart` event is raised.
+
+```csharp
+// Obtain an instance of RecruitVolunteerVM from the subsystem API first
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.OnRecruitRemovedFromCart(troop);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RecruitVolunteerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

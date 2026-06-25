@@ -14,7 +14,7 @@ The key change in this version is not only API churn, but that the **source stru
 
 - [🏠 v1.4.5 Home](../)
 - [🗂️ API Index](../api/)
-- [📋 Complete Class Catalog](../api/catalog)
+- [📋 Complete Class Catalog](../api/)
 - [🔀 Cross-Version Compare](../../../versions/)
 - [⭐ Canonical v1.3.15 SDK Overview](../../../v1.3.15/en/architecture/sdk-overview)
 
@@ -31,3 +31,15 @@ The key change in this version is not only API churn, but that the **source stru
 2. Enter the [API index](../api/) to choose the subsystem you care about.
 3. Use class-page breadcrumbs to move back to the area, API, and version roots.
 4. Use [cross-version compare](../../../versions/) only when you need migration guidance.
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Child Pages
+
+_No child pages yet._
+
+<!-- END SECTION INDEX -->

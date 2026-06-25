@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardBaseVM"
+description: "Auto-generated class reference for ScoreboardBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardBaseVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ScoreboardBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/ScoreboardBaseVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/ScoreboardBaseVM.cs`
 
 ## Overview
 
@@ -67,89 +61,185 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.RefreshValues();
+```
 
 ### OnMainHeroDeath
 `public void OnMainHeroDeath()`
 
-**Purpose:** Called when the `main hero death` event is raised.
+**Purpose:** Invoked when the `main hero death` event is raised.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.OnMainHeroDeath();
+```
 
 ### OnTakenControlOfAnotherAgent
 `public void OnTakenControlOfAnotherAgent()`
 
-**Purpose:** Called when the `taken control of another agent` event is raised.
+**Purpose:** Invoked when the `taken control of another agent` event is raised.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.OnTakenControlOfAnotherAgent();
+```
 
 ### Initialize
 `public virtual void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.Initialize(missionScreen, mission, releaseSimulationSources, onToggle);
+```
 
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.OnDeploymentFinished();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.Tick(0);
+```
 
 ### SetMouseState
 `public void SetMouseState(bool visible)`
 
-**Purpose:** Sets the value or state of `mouse state`.
+**Purpose:** Assigns a new value to `mouse state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.SetMouseState(false);
+```
 
 ### GetFormattedTimeTextFromSeconds
 `public static string GetFormattedTimeTextFromSeconds(int seconds)`
 
-**Purpose:** Gets the current value of `formatted time text from seconds`.
+**Purpose:** Reads and returns the `formatted time text from seconds` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ScoreboardBaseVM.GetFormattedTimeTextFromSeconds(0);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.OnFinalize();
+```
 
 ### ExecuteShowScoreboardAction
 `public virtual void ExecuteShowScoreboardAction()`
 
-**Purpose:** Executes the `show scoreboard action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show scoreboard action`.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.ExecuteShowScoreboardAction();
+```
 
 ### ExecutePlayAction
 `public virtual void ExecutePlayAction()`
 
-**Purpose:** Executes the `play action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `play action`.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.ExecutePlayAction();
+```
 
 ### ExecuteFastForwardAction
 `public virtual void ExecuteFastForwardAction()`
 
-**Purpose:** Executes the `fast forward action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `fast forward action`.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.ExecuteFastForwardAction();
+```
 
 ### ExecutePauseSimulationAction
 `public virtual void ExecutePauseSimulationAction()`
 
-**Purpose:** Executes the `pause simulation action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `pause simulation action`.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.ExecutePauseSimulationAction();
+```
 
 ### ExecuteEndSimulationAction
 `public virtual void ExecuteEndSimulationAction()`
 
-**Purpose:** Executes the `end simulation action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end simulation action`.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.ExecuteEndSimulationAction();
+```
 
 ### ExecuteQuitAction
 `public virtual void ExecuteQuitAction()`
 
-**Purpose:** Executes the `quit action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `quit action`.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.ExecuteQuitAction();
+```
 
 ### SetShortcuts
 `public virtual void SetShortcuts(ScoreboardHotkeys shortcuts)`
 
-**Purpose:** Sets the value or state of `shortcuts`.
+**Purpose:** Assigns a new value to `shortcuts` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScoreboardBaseVM from the subsystem API first
+ScoreboardBaseVM scoreboardBaseVM = ...;
+scoreboardBaseVM.SetShortcuts(shortcuts);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomScoreboardBaseVM();
+// Typically obtained from a subsystem API or factory
+ScoreboardBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,123 +1,30 @@
 ---
 title: "EncyclopediaListSettlementComparer"
+description: "EncyclopediaListSettlementComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListSettlementComparer`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaListSettlementComparer
 
-**命名空间:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public abstract class EncyclopediaListSettlementComparer : EncyclopediaListItemComparerBase`
+**Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public abstract class EncyclopediaListSettlementComparer : EncyclopediaListItemComparerBase`
 **Base:** `EncyclopediaListItemComparerBase`
-**领域:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/Encyclopedia/Pages/DefaultEncyclopediaSettlementPage.cs`
 
 ## 概述
 
-`EncyclopediaListSettlementComparer` 位于 `TaleWorlds.CampaignSystem.Encyclopedia.Pages`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`EncyclopediaListSettlementComparer` 位于 `TaleWorlds.CampaignSystem.Encyclopedia.Pages`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
 先从命名空间 `TaleWorlds.CampaignSystem.Encyclopedia.Pages` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### GetViewFullyQualifiedName
-`public override string GetViewFullyQualifiedName()`
-
-**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
-
-### GetName
-`public override TextObject GetName()`
-
-**用途 / Purpose:** 获取 `name` 的当前值。
-
-### GetDescriptionText
-`public override TextObject GetDescriptionText()`
-
-**用途 / Purpose:** 获取 `description text` 的当前值。
-
-### GetStringID
-`public override string GetStringID()`
-
-**用途 / Purpose:** 获取 `string i d` 的当前值。
-
-### IsValidEncyclopediaItem
-`public override bool IsValidEncyclopediaItem(object o)`
-
-**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
-
-### Compare
-`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### GetComparedValueText
-`public override string GetComparedValueText(EncyclopediaListItem item)`
-
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
-
-### Compare
-`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### GetComparedValueText
-`public override string GetComparedValueText(EncyclopediaListItem item)`
-
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
-
-### Compare
-`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### GetComparedValueText
-`public override string GetComparedValueText(EncyclopediaListItem item)`
-
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
-
-### Compare
-`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### GetComparedValueText
-`public override string GetComparedValueText(EncyclopediaListItem item)`
-
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
-
-### Compare
-`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### GetComparedValueText
-`public override string GetComparedValueText(EncyclopediaListItem item)`
-
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
-
-### Compare
-`public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
-
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
-
-### GetComparedValueText
-`public override string GetComparedValueText(EncyclopediaListItem item)`
-
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
-
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEncyclopediaListSettlementComparer();
+// 通常通过子系统 API 或工厂获得派生实例
+EncyclopediaListSettlementComparer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

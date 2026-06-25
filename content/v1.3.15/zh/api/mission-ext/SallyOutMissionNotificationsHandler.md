@@ -1,13 +1,7 @@
 ---
 title: "SallyOutMissionNotificationsHandler"
+description: "SallyOutMissionNotificationsHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SallyOutMissionNotificationsHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SallyOutMissionNotificationsHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,34 +23,64 @@ title: "SallyOutMissionNotificationsHandler"
 ### OnBesiegedSideFallsbackToKeep
 `public void OnBesiegedSideFallsbackToKeep()`
 
-**用途 / Purpose:** 当 `besieged side fallsback to keep` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「besieged side fallsback to keep」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnBesiegedSideFallsbackToKeep();
+```
 
 ### OnAfterStart
 `public void OnAfterStart()`
 
-**用途 / Purpose:** 当 `after start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnAfterStart();
+```
 
 ### OnMissionEnd
 `public void OnMissionEnd()`
 
-**用途 / Purpose:** 当 `mission end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnMissionEnd();
+```
 
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnDeploymentFinished();
+```
 
 ### OnMissionTick
 `public void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionNotificationsHandler 实例
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SallyOutMissionNotificationsHandler());
+var behavior = Mission.Current.GetMissionBehavior<SallyOutMissionNotificationsHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

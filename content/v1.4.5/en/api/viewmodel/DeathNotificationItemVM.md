@@ -1,20 +1,14 @@
 ---
 title: "DeathNotificationItemVM"
+description: "Auto-generated class reference for DeathNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeathNotificationItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeathNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DeathNotificationItemVM : MapNotificationItemBaseVM`
 **Base:** `MapNotificationItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/DeathNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/DeathNotificationItemVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ## Usage Example
 
 ```csharp
-var example = new DeathNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+DeathNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

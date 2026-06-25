@@ -1,13 +1,7 @@
 ---
 title: "Key"
+description: "Auto-generated class reference for Key."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Key`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Key
 
 **Namespace:** TaleWorlds.InputSystem
@@ -39,65 +33,125 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### ChangeKey
 `public void ChangeKey(InputKey key)`
 
-**Purpose:** Handles logic related to `change key`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Key from the subsystem API first
+Key key = ...;
+key.ChangeKey(key);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Key from the subsystem API first
+Key key = ...;
+var result = key.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Key from the subsystem API first
+Key key = ...;
+var result = key.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Key from the subsystem API first
+Key key = ...;
+var result = key.GetHashCode();
+```
 
 ### IsLeftAnalogInput
 `public static bool IsLeftAnalogInput(InputKey key)`
 
-**Purpose:** Handles logic related to `is left analog input`.
+**Purpose:** Determines whether the current object is in the `left analog input` state or condition.
+
+```csharp
+// Static call; no instance required
+Key.IsLeftAnalogInput(key);
+```
 
 ### IsLeftBumperOrTriggerInput
 `public static bool IsLeftBumperOrTriggerInput(InputKey key)`
 
-**Purpose:** Handles logic related to `is left bumper or trigger input`.
+**Purpose:** Determines whether the current object is in the `left bumper or trigger input` state or condition.
+
+```csharp
+// Static call; no instance required
+Key.IsLeftBumperOrTriggerInput(key);
+```
 
 ### IsRightBumperOrTriggerInput
 `public static bool IsRightBumperOrTriggerInput(InputKey key)`
 
-**Purpose:** Handles logic related to `is right bumper or trigger input`.
+**Purpose:** Determines whether the current object is in the `right bumper or trigger input` state or condition.
+
+```csharp
+// Static call; no instance required
+Key.IsRightBumperOrTriggerInput(key);
+```
 
 ### IsFaceKeyInput
 `public static bool IsFaceKeyInput(InputKey key)`
 
-**Purpose:** Handles logic related to `is face key input`.
+**Purpose:** Determines whether the current object is in the `face key input` state or condition.
+
+```csharp
+// Static call; no instance required
+Key.IsFaceKeyInput(key);
+```
 
 ### IsRightAnalogInput
 `public static bool IsRightAnalogInput(InputKey key)`
 
-**Purpose:** Handles logic related to `is right analog input`.
+**Purpose:** Determines whether the current object is in the `right analog input` state or condition.
+
+```csharp
+// Static call; no instance required
+Key.IsRightAnalogInput(key);
+```
 
 ### IsDpadInput
 `public static bool IsDpadInput(InputKey key)`
 
-**Purpose:** Handles logic related to `is dpad input`.
+**Purpose:** Determines whether the current object is in the `dpad input` state or condition.
+
+```csharp
+// Static call; no instance required
+Key.IsDpadInput(key);
+```
 
 ### GetInputType
 `public static Key.InputType GetInputType(InputKey key)`
 
-**Purpose:** Gets the current value of `input type`.
+**Purpose:** Reads and returns the `input type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Key.GetInputType(key);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Key();
-value.ChangeKey(key);
+// Typically call this after obtaining an instance from the subsystem API
+Key key = ...;
+key.ChangeKey(key);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

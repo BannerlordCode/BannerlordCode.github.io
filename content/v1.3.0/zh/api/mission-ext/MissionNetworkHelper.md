@@ -1,13 +1,7 @@
 ---
 title: "MissionNetworkHelper"
+description: "MissionNetworkHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNetworkHelper`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNetworkHelper
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,27 +23,52 @@ title: "MissionNetworkHelper"
 ### GetAgentFromIndex
 `public static Agent GetAgentFromIndex(int agentIndex, bool canBeNull = false)`
 
-**用途 / Purpose:** 获取 `agent from index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「agent from index」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetAgentFromIndex(0, false);
+```
 
 ### GetMBTeamFromTeamIndex
 `public static MBTeam GetMBTeamFromTeamIndex(int teamIndex)`
 
-**用途 / Purpose:** 获取 `m b team from team index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「m b team from team index」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetMBTeamFromTeamIndex(0);
+```
 
 ### GetTeamFromTeamIndex
 `public static Team GetTeamFromTeamIndex(int teamIndex)`
 
-**用途 / Purpose:** 获取 `team from team index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「team from team index」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetTeamFromTeamIndex(0);
+```
 
 ### GetMissionObjectFromMissionObjectId
 `public static MissionObject GetMissionObjectFromMissionObjectId(MissionObjectId missionObjectId)`
 
-**用途 / Purpose:** 获取 `mission object from mission object id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission object from mission object id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetMissionObjectFromMissionObjectId(missionObjectId);
+```
 
 ### GetCombatLogDataForCombatLogNetworkMessage
 `public static CombatLogData GetCombatLogDataForCombatLogNetworkMessage(CombatLogNetworkMessage message)`
 
-**用途 / Purpose:** 获取 `combat log data for combat log network message` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「combat log data for combat log network message」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetCombatLogDataForCombatLogNetworkMessage(message);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ MissionNetworkHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

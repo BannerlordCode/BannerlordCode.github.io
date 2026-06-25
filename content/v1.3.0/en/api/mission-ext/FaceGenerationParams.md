@@ -1,13 +1,7 @@
 ---
 title: "FaceGenerationParams"
+description: "Auto-generated class reference for FaceGenerationParams."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGenerationParams`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGenerationParams
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,34 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Create
 `public static FaceGenerationParams Create()`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+FaceGenerationParams.Create();
+```
 
 ### SetRaceGenderAndAdjustParams
 `public void SetRaceGenderAndAdjustParams(int race, int gender, int curAge)`
 
-**Purpose:** Sets the value or state of `race gender and adjust params`.
+**Purpose:** Assigns a new value to `race gender and adjust params` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of FaceGenerationParams from the subsystem API first
+FaceGenerationParams faceGenerationParams = ...;
+faceGenerationParams.SetRaceGenderAndAdjustParams(0, 0, 0);
+```
 
 ### SetRandomParamsExceptKeys
 `public void SetRandomParamsExceptKeys(int race, int gender, int minAge, out float scale)`
 
-**Purpose:** Sets the value or state of `random params except keys`.
+**Purpose:** Assigns a new value to `random params except keys` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of FaceGenerationParams from the subsystem API first
+FaceGenerationParams faceGenerationParams = ...;
+faceGenerationParams.SetRandomParamsExceptKeys(0, 0, 0, scale);
+```
 
 ## Usage Example
 
@@ -49,4 +60,4 @@ FaceGenerationParams.Create();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

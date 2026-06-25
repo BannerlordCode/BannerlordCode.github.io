@@ -1,20 +1,14 @@
 ---
 title: "EndCaptivityDetailEnumResolver"
+description: "EndCaptivityDetailEnumResolver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EndCaptivityDetailEnumResolver`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EndCaptivityDetailEnumResolver
 
 **Namespace:** TaleWorlds.CampaignSystem.SaveCompability
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EndCaptivityDetailEnumResolver : IEnumResolver`
 **Base:** `IEnumResolver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/EndCaptivityDetailEnumResolver.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/EndCaptivityDetailEnumResolver.cs`
 
 ## 概述
 
@@ -29,14 +23,22 @@ title: "EndCaptivityDetailEnumResolver"
 ### ResolveObject
 `public string ResolveObject(string originalObject)`
 
-**用途 / Purpose:** 处理 `resolve object` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EndCaptivityDetailEnumResolver 实例
+EndCaptivityDetailEnumResolver endCaptivityDetailEnumResolver = ...;
+var result = endCaptivityDetailEnumResolver.ResolveObject("example");
+```
 
 ## 使用示例
 
 ```csharp
-EndCaptivityDetailEnumResolver example = EndCaptivityDetailEnumResolver.Value;
+// 通常从对应子系统 API 获取实例后调用
+EndCaptivityDetailEnumResolver endCaptivityDetailEnumResolver = ...;
+endCaptivityDetailEnumResolver.ResolveObject("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

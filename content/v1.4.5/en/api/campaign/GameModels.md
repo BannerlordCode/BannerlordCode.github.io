@@ -1,20 +1,14 @@
 ---
 title: "GameModels"
+description: "Auto-generated class reference for GameModels."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameModels`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameModels
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class GameModels : GameModelsManager`
 **Base:** `GameModelsManager`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameModels.cs`
 
 ## Overview
 
@@ -156,9 +150,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new GameModels();
+// Obtain an instance from the relevant subsystem API
+GameModels instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

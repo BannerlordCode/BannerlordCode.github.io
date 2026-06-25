@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminPanelMultiSelectionOptionVM"
+description: "Auto-generated class reference for MultiplayerAdminPanelMultiSelectionOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAdminPanelMultiSelectionOptionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelMultiSelectionOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminPanelMultiSelectionOptionVM : MultiplayerAdminPanelOptionBaseVM`
 **Base:** `MultiplayerAdminPanelOptionBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelMultiSelectionOptionVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelMultiSelectionOptionVM.cs`
 
 ## Overview
 
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelMultiSelectionOptionVM from the subsystem API first
+MultiplayerAdminPanelMultiSelectionOptionVM multiplayerAdminPanelMultiSelectionOptionVM = ...;
+multiplayerAdminPanelMultiSelectionOptionVM.RefreshValues();
+```
 
 ### UpdateValues
 `public override void UpdateValues()`
 
-**Purpose:** Updates the state or data of `values`.
+**Purpose:** Recalculates and stores the latest representation of `values`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelMultiSelectionOptionVM from the subsystem API first
+MultiplayerAdminPanelMultiSelectionOptionVM multiplayerAdminPanelMultiSelectionOptionVM = ...;
+multiplayerAdminPanelMultiSelectionOptionVM.UpdateValues();
+```
 
 ### ExecuteRestoreDefaults
 `public override void ExecuteRestoreDefaults()`
 
-**Purpose:** Executes the `restore defaults` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `restore defaults`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelMultiSelectionOptionVM from the subsystem API first
+MultiplayerAdminPanelMultiSelectionOptionVM multiplayerAdminPanelMultiSelectionOptionVM = ...;
+multiplayerAdminPanelMultiSelectionOptionVM.ExecuteRestoreDefaults();
+```
 
 ### ExecuteRevertChanges
 `public override void ExecuteRevertChanges()`
 
-**Purpose:** Executes the `revert changes` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `revert changes`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelMultiSelectionOptionVM from the subsystem API first
+MultiplayerAdminPanelMultiSelectionOptionVM multiplayerAdminPanelMultiSelectionOptionVM = ...;
+multiplayerAdminPanelMultiSelectionOptionVM.ExecuteRevertChanges();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerAdminPanelMultiSelectionOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerAdminPanelMultiSelectionOptionVM multiplayerAdminPanelMultiSelectionOptionVM = ...;
+multiplayerAdminPanelMultiSelectionOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

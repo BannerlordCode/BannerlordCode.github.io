@@ -1,20 +1,14 @@
 ---
 title: "SeasonItemVM"
+description: "Auto-generated class reference for SeasonItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SeasonItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SeasonItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SeasonItemVM : SelectorItemVM`
 **Base:** `SelectorItemVM`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/SeasonItemVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/SeasonItemVM.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.Selecti
 ## Usage Example
 
 ```csharp
-var value = new SeasonItemVM();
+// Obtain an instance from the relevant subsystem API
+SeasonItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

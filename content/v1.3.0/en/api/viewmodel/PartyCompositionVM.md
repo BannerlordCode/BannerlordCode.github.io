@@ -1,13 +1,7 @@
 ---
 title: "PartyCompositionVM"
+description: "Auto-generated class reference for PartyCompositionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyCompositionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyCompositionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -42,25 +36,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### OnTroopRemoved
 `public void OnTroopRemoved(FormationClass formationClass, int count)`
 
-**Purpose:** Called when the `troop removed` event is raised.
+**Purpose:** Invoked when the `troop removed` event is raised.
+
+```csharp
+// Obtain an instance of PartyCompositionVM from the subsystem API first
+PartyCompositionVM partyCompositionVM = ...;
+partyCompositionVM.OnTroopRemoved(formationClass, 0);
+```
 
 ### OnTroopAdded
 `public void OnTroopAdded(FormationClass formationClass, int count)`
 
-**Purpose:** Called when the `troop added` event is raised.
+**Purpose:** Invoked when the `troop added` event is raised.
+
+```csharp
+// Obtain an instance of PartyCompositionVM from the subsystem API first
+PartyCompositionVM partyCompositionVM = ...;
+partyCompositionVM.OnTroopAdded(formationClass, 0);
+```
 
 ### RefreshCounts
 `public void RefreshCounts(MBBindingList<PartyCharacterVM> list)`
 
-**Purpose:** Refreshes the display or cache of `counts`.
+**Purpose:** Keeps the display or cache of `counts` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyCompositionVM from the subsystem API first
+PartyCompositionVM partyCompositionVM = ...;
+partyCompositionVM.RefreshCounts(list);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyCompositionVM();
-value.OnTroopRemoved(formationClass, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PartyCompositionVM partyCompositionVM = ...;
+partyCompositionVM.OnTroopRemoved(formationClass, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

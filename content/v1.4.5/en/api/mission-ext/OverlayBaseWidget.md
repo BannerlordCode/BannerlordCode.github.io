@@ -1,20 +1,14 @@
 ---
 title: "OverlayBaseWidget"
+description: "Auto-generated class reference for OverlayBaseWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OverlayBaseWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OverlayBaseWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OverlayBaseWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/OverlayBaseWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/OverlayBaseWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `OverlayBaseWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new OverlayBaseWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OverlayBaseWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GameNotificationWidget"
+description: "GameNotificationWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameNotificationWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameNotificationWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameNotificationWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information/GameNotificationWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information/GameNotificationWidget.cs`
 
 ## 概述
 
@@ -41,9 +35,10 @@ title: "GameNotificationWidget"
 ## 使用示例
 
 ```csharp
-var widget = new GameNotificationWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+GameNotificationWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

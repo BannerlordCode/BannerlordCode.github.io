@@ -1,13 +1,7 @@
 ---
 title: "PartyNameplateVM"
+description: "PartyNameplateVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyNameplateVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyNameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -56,65 +50,132 @@ title: "PartyNameplateVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.OnFinalize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshValues();
+```
 
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**用途 / Purpose:** 刷新 `dynamic properties` 的显示或缓存。
+**用途 / Purpose:** 使 「dynamic properties」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**用途 / Purpose:** 刷新 `position` 的显示或缓存。
+**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshPosition();
+```
 
 ### RefreshTutorialStatus
 `public override void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**用途 / Purpose:** 刷新 `tutorial status` 的显示或缓存。
+**用途 / Purpose:** 使 「tutorial status」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshTutorialStatus("example");
+```
 
 ### DetermineIsVisibleOnMap
 `public void DetermineIsVisibleOnMap()`
 
-**用途 / Purpose:** 处理 `determine is visible on map` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「is visible on map」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.DetermineIsVisibleOnMap();
+```
 
 ### OnPlayerCharacterChanged
 `public void OnPlayerCharacterChanged(Hero newPlayer)`
 
-**用途 / Purpose:** 当 `player character changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player character changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.OnPlayerCharacterChanged(newPlayer);
+```
 
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**用途 / Purpose:** 刷新 `binding` 的显示或缓存。
+**用途 / Purpose:** 使 「binding」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshBinding();
+```
 
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**用途 / Purpose:** 执行 `set camera position` 操作或流程。
+**用途 / Purpose:** 执行 「set camera position」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.ExecuteSetCameraPosition();
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RegisterEvents();
+```
 
 ### UnregisterEvents
 `public void UnregisterEvents()`
 
-**用途 / Purpose:** 处理 `unregister events` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「events」。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.UnregisterEvents();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyNameplateVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

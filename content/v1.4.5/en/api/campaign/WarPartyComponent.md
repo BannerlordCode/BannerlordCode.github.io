@@ -1,20 +1,14 @@
 ---
 title: "WarPartyComponent"
+description: "Auto-generated class reference for WarPartyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WarPartyComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WarPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class WarPartyComponent : PartyComponent`
 **Base:** `PartyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/WarPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/WarPartyComponent.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `WarPartyComponent` as a Component-style extension point: first identify w
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Gets the current value of `default component banner`.
+**Purpose:** Reads and returns the `default component banner` value held by the current object.
+
+```csharp
+// Obtain an instance of WarPartyComponent from the subsystem API first
+WarPartyComponent warPartyComponent = ...;
+var result = warPartyComponent.GetDefaultComponentBanner();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomWarPartyComponent();
+// Typically obtained from a subsystem API or factory
+WarPartyComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

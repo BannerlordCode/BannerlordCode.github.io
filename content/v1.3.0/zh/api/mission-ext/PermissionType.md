@@ -1,13 +1,7 @@
 ---
 title: "PermissionType"
+description: "PermissionType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PermissionType`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PermissionType
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ title: "PermissionType"
 ## 使用示例
 
 ```csharp
-PermissionType example = PermissionType.Value;
+// 从对应子系统 API 获取实例
+PermissionType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

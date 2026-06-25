@@ -1,13 +1,7 @@
 ---
 title: "ImageIdentifierWidget"
+description: "Auto-generated class reference for ImageIdentifierWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageIdentifierWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ImageIdentifierWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -38,14 +32,21 @@ Treat `ImageIdentifierWidget` as a Widget-style extension point: first identify 
 ### OnClearTextureProvider
 `public override void OnClearTextureProvider()`
 
-**Purpose:** Called when the `clear texture provider` event is raised.
+**Purpose:** Invoked when the `clear texture provider` event is raised.
+
+```csharp
+// Obtain an instance of ImageIdentifierWidget from the subsystem API first
+ImageIdentifierWidget imageIdentifierWidget = ...;
+imageIdentifierWidget.OnClearTextureProvider();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ImageIdentifierWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ImageIdentifierWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

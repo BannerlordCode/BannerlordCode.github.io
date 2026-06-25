@@ -1,20 +1,14 @@
 ---
 title: "ToggleButtonWidget"
+description: "Auto-generated class reference for ToggleButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ToggleButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ToggleButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ToggleButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ToggleButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ToggleButtonWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `ToggleButtonWidget` as a Widget-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var widget = new ToggleButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ToggleButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

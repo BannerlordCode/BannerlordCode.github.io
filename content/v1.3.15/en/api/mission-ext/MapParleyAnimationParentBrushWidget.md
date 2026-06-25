@@ -1,13 +1,7 @@
 ---
 title: "MapParleyAnimationParentBrushWidget"
+description: "Auto-generated class reference for MapParleyAnimationParentBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapParleyAnimationParentBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapParleyAnimationParentBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Parley
@@ -33,9 +27,10 @@ Treat `MapParleyAnimationParentBrushWidget` as a Widget-style extension point: f
 ## Usage Example
 
 ```csharp
-var widget = new MapParleyAnimationParentBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapParleyAnimationParentBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

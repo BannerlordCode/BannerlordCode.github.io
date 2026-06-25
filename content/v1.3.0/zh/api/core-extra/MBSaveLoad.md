@@ -1,13 +1,7 @@
 ---
 title: "MBSaveLoad"
+description: "MBSaveLoad 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBSaveLoad`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBSaveLoad
 
 **Namespace:** TaleWorlds.Core
@@ -41,87 +35,172 @@ title: "MBSaveLoad"
 ### SetSaveDriver
 `public static void SetSaveDriver(ISaveDriver saveDriver)`
 
-**用途 / Purpose:** 设置 `save driver` 的值或状态。
+**用途 / Purpose:** 为 「save driver」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.SetSaveDriver(saveDriver);
+```
 
 ### GetSaveFiles
 `public static SaveGameFileInfo GetSaveFiles(Func<SaveGameFileInfo, bool> condition = null)`
 
-**用途 / Purpose:** 获取 `save files` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save files」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.GetSaveFiles(func<SaveGameFileInfo, false);
+```
 
 ### IsSaveGameFileExists
 `public static bool IsSaveGameFileExists(string saveFileName)`
 
-**用途 / Purpose:** 处理 `is save game file exists` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「save game file exists」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.IsSaveGameFileExists("example");
+```
 
 ### GetSaveFileNames
 `public static string GetSaveFileNames()`
 
-**用途 / Purpose:** 获取 `save file names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save file names」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.GetSaveFileNames();
+```
 
 ### LoadSaveGameData
 `public static LoadResult LoadSaveGameData(string saveName)`
 
-**用途 / Purpose:** 加载 `save game data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「save game data」。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.LoadSaveGameData("example");
+```
 
 ### GetSaveFileWithName
 `public static SaveGameFileInfo GetSaveFileWithName(string saveName)`
 
-**用途 / Purpose:** 获取 `save file with name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save file with name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.GetSaveFileWithName("example");
+```
 
 ### QuickSaveCurrentGame
 `public static void QuickSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**用途 / Purpose:** 处理 `quick save current game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.QuickSaveCurrentGame(campaignMetaData, action<ValueTuple<SaveResult, "example");
+```
 
 ### AutoSaveCurrentGame
 `public static void AutoSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**用途 / Purpose:** 处理 `auto save current game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.AutoSaveCurrentGame(campaignMetaData, action<ValueTuple<SaveResult, "example");
+```
 
 ### SaveAsCurrentGame
 `public static void SaveAsCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, string saveName, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**用途 / Purpose:** 保存 `as current game` 数据。
+**用途 / Purpose:** 将 「as current game」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.SaveAsCurrentGame(campaignMetaData, "example", action<ValueTuple<SaveResult, "example");
+```
 
 ### DeleteSaveGame
 `public static bool DeleteSaveGame(string saveName)`
 
-**用途 / Purpose:** 处理 `delete save game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.DeleteSaveGame("example");
+```
 
 ### Initialize
 `public static void Initialize(GameTextManager localizedTextProvider)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.Initialize(localizedTextProvider);
+```
 
 ### OnNewGame
 `public static void OnNewGame()`
 
-**用途 / Purpose:** 当 `new game` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「new game」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.OnNewGame();
+```
 
 ### OnGameDestroy
 `public static void OnGameDestroy()`
 
-**用途 / Purpose:** 当 `game destroy` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game destroy」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.OnGameDestroy();
+```
 
 ### OnStartGame
 `public static void OnStartGame(LoadResult loadResult)`
 
-**用途 / Purpose:** 当 `start game` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「start game」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.OnStartGame(loadResult);
+```
 
 ### IsSaveFileNameReserved
 `public static bool IsSaveFileNameReserved(string name)`
 
-**用途 / Purpose:** 处理 `is save file name reserved` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「save file name reserved」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.IsSaveFileNameReserved("example");
+```
 
 ### GetMaxNumberOfSaves
 `public static int GetMaxNumberOfSaves()`
 
-**用途 / Purpose:** 获取 `max number of saves` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max number of saves」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.GetMaxNumberOfSaves();
+```
 
 ### IsMaxNumberOfSavesReached
 `public static bool IsMaxNumberOfSavesReached()`
 
-**用途 / Purpose:** 处理 `is max number of saves reached` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「max number of saves reached」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MBSaveLoad.IsMaxNumberOfSavesReached();
+```
 
 ## 使用示例
 
@@ -131,4 +210,4 @@ MBSaveLoad.SetSaveDriver(saveDriver);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

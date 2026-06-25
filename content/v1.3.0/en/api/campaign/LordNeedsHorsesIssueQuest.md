@@ -1,13 +1,7 @@
 ---
 title: "LordNeedsHorsesIssueQuest"
+description: "Auto-generated class reference for LordNeedsHorsesIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LordNeedsHorsesIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordNeedsHorsesIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssueQuest from the subsystem API first
+LordNeedsHorsesIssueQuest lordNeedsHorsesIssueQuest = ...;
+lordNeedsHorsesIssueQuest.OnFailed();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LordNeedsHorsesIssueQuest();
-value.OnFailed();
+// Typically call this after obtaining an instance from the subsystem API
+LordNeedsHorsesIssueQuest lordNeedsHorsesIssueQuest = ...;
+lordNeedsHorsesIssueQuest.OnFailed();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

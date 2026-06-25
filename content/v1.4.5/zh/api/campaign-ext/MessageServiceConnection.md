@@ -1,20 +1,14 @@
 ---
 title: "MessageServiceConnection"
+description: "MessageServiceConnection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageServiceConnection`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageServiceConnection
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class MessageServiceConnection`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/MessageServiceConnection.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageServiceConnection.cs`
 
 ## 概述
 
@@ -35,44 +29,87 @@ title: "MessageServiceConnection"
 ### ClosedDelegate
 `public delegate Task ClosedDelegate()`
 
-**用途 / Purpose:** 处理 `closed delegate` 相关逻辑。
+**用途 / Purpose:** 关闭「d delegate」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.ClosedDelegate();
+```
 
 ### StateChangedDelegate
 `public delegate void StateChangedDelegate(ConnectionState oldState, ConnectionState newState)`
 
-**用途 / Purpose:** 处理 `state changed delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+messageServiceConnection.StateChangedDelegate(oldState, newState);
+```
 
 ### SendAsync
 `public abstract Task SendAsync(string text)`
 
-**用途 / Purpose:** 处理 `send async` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.SendAsync("example");
+```
 
 ### Init
 `public abstract void Init(string address, string token)`
 
-**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+messageServiceConnection.Init("example", "example");
+```
 
 ### RegisterProxyClient
 `public abstract void RegisterProxyClient(string name, IMessageProxyClient playerClient)`
 
-**用途 / Purpose:** 处理 `register proxy client` 相关逻辑。
+**用途 / Purpose:** 将「proxy client」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+messageServiceConnection.RegisterProxyClient("example", playerClient);
+```
 
 ### StartAsync
 `public abstract Task StartAsync()`
 
-**用途 / Purpose:** 处理 `start async` 相关逻辑。
+**用途 / Purpose:** 启动「async」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.StartAsync();
+```
 
 ### StopAsync
 `public abstract Task StopAsync()`
 
-**用途 / Purpose:** 处理 `stop async` 相关逻辑。
+**用途 / Purpose:** 停止「async」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MessageServiceConnection 实例
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.StopAsync();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMessageServiceConnection();
+// 通常通过子系统 API 或工厂获得派生实例
+MessageServiceConnection instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

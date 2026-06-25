@@ -1,20 +1,14 @@
 ---
 title: "PlaybackChannel"
+description: "Auto-generated class reference for PlaybackChannel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlaybackChannel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlaybackChannel
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public class PlaybackChannel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/PlaybackChannel.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/PlaybackChannel.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### OnPlaybackHasStarted
 `public void OnPlaybackHasStarted()`
 
-**Purpose:** Called when the `playback has started` event is raised.
+**Purpose:** Invoked when the `playback has started` event is raised.
+
+```csharp
+// Obtain an instance of PlaybackChannel from the subsystem API first
+PlaybackChannel playbackChannel = ...;
+playbackChannel.OnPlaybackHasStarted();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlaybackChannel();
-value.OnPlaybackHasStarted();
+// Typically call this after obtaining an instance from the subsystem API
+PlaybackChannel playbackChannel = ...;
+playbackChannel.OnPlaybackHasStarted();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

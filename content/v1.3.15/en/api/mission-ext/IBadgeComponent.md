@@ -1,18 +1,12 @@
 ---
 title: "IBadgeComponent"
+description: "Auto-generated class reference for IBadgeComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBadgeComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IBadgeComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IBadgeComponent`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/IBadgeComponent.cs`
 
@@ -27,9 +21,10 @@ Treat `IBadgeComponent` as a Component-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-IBadgeComponent implementation = GetBadgeComponentImplementation();
+// Usually obtained through DI or a factory method
+IIBadgeComponent service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

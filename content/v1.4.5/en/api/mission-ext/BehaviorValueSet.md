@@ -1,20 +1,14 @@
 ---
 title: "BehaviorValueSet"
+description: "Auto-generated class reference for BehaviorValueSet."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorValueSet`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorValueSet
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum BehaviorValueSet`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanAIComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanAIComponent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-BehaviorValueSet example = BehaviorValueSet.Value;
+// Obtain an instance from the relevant subsystem API
+BehaviorValueSet instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

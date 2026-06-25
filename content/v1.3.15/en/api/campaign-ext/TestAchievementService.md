@@ -1,13 +1,7 @@
 ---
 title: "TestAchievementService"
+description: "Auto-generated class reference for TestAchievementService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestAchievementService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TestAchievementService
 
 **Namespace:** TaleWorlds.AchievementSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.AchievementSystem` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var value = new TestAchievementService();
+// Obtain an instance from the relevant subsystem API
+TestAchievementService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

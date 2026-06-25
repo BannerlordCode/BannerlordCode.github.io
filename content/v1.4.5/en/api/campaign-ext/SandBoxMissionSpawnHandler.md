@@ -1,20 +1,14 @@
 ---
 title: "SandBoxMissionSpawnHandler"
+description: "Auto-generated class reference for SandBoxMissionSpawnHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxMissionSpawnHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxMissionSpawnHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class SandBoxMissionSpawnHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SandBoxMissionSpawnHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SandBoxMissionSpawnHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `SandBoxMissionSpawnHandler` as a Handler-style extension point: first ide
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxMissionSpawnHandler from the subsystem API first
+SandBoxMissionSpawnHandler sandBoxMissionSpawnHandler = ...;
+sandBoxMissionSpawnHandler.OnBehaviorInitialize();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SandBoxMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<SandBoxMissionSpawnHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

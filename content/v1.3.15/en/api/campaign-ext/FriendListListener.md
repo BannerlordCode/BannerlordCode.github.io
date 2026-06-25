@@ -1,13 +1,7 @@
 ---
 title: "FriendListListener"
+description: "Auto-generated class reference for FriendListListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FriendListListener`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FriendListListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnFriendListRetrieveSuccess
 `public override void OnFriendListRetrieveSuccess()`
 
-**Purpose:** Called when the `friend list retrieve success` event is raised.
+**Purpose:** Invoked when the `friend list retrieve success` event is raised.
+
+```csharp
+// Obtain an instance of FriendListListener from the subsystem API first
+FriendListListener friendListListener = ...;
+friendListListener.OnFriendListRetrieveSuccess();
+```
 
 ### OnFriendListRetrieveFailure
 `public override void OnFriendListRetrieveFailure(IFriendListListener.FailureReason failureReason)`
 
-**Purpose:** Called when the `friend list retrieve failure` event is raised.
+**Purpose:** Invoked when the `friend list retrieve failure` event is raised.
+
+```csharp
+// Obtain an instance of FriendListListener from the subsystem API first
+FriendListListener friendListListener = ...;
+friendListListener.OnFriendListRetrieveFailure(failureReason);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FriendListListener();
-value.OnFriendListRetrieveSuccess();
+// Typically call this after obtaining an instance from the subsystem API
+FriendListListener friendListListener = ...;
+friendListListener.OnFriendListRetrieveSuccess();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

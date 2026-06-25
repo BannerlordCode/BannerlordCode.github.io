@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplateEventVisualBrushWidget"
+description: "Auto-generated class reference for SettlementNameplateEventVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateEventVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateEventVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementNameplateEventVisualBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateEventVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateEventVisualBrushWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `SettlementNameplateEventVisualBrushWidget` as a Widget-style extension po
 ## Usage Example
 
 ```csharp
-var widget = new SettlementNameplateEventVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SettlementNameplateEventVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

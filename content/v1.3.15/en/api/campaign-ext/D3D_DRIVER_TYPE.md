@@ -1,45 +1,30 @@
 ---
 title: "D3D_DRIVER_TYPE"
+description: "Auto-generated class reference for D3D_DRIVER_TYPE."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `D3D_DRIVER_TYPE`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # D3D_DRIVER_TYPE
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public enum D3D_DRIVER_TYPE`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/D3D11.cs`
 
 ## Overview
 
-`D3D_DRIVER_TYPE` lives in `TaleWorlds.TwoDimension.Standalone.Native.Windows`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`D3D_DRIVER_TYPE` lives in `TaleWorlds.TwoDimension.Standalone.Native.Windows` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `UNKNOWN` |
-| `HARDWARE` |
-| `REFERENCE` |
-| `NULL_DRIVER` |
-| `SOFTWARE` |
-
 ## Usage Example
 
 ```csharp
-D3D_DRIVER_TYPE example = D3D_DRIVER_TYPE.UNKNOWN;
+// Obtain an instance from the relevant subsystem API
+D3D_DRIVER_TYPE instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

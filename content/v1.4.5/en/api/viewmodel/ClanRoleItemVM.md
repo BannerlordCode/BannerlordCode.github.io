@@ -1,20 +1,14 @@
 ---
 title: "ClanRoleItemVM"
+description: "Auto-generated class reference for ClanRoleItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanRoleItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanRoleItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanRoleItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanRoleItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanRoleItemVM.cs`
 
 ## Overview
 
@@ -47,40 +41,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public int Compare(ClanRoleMemberItemVM x, ClanRoleMemberItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanRoleItemVM from the subsystem API first
+ClanRoleItemVM clanRoleItemVM = ...;
+var result = clanRoleItemVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanRoleItemVM from the subsystem API first
+ClanRoleItemVM clanRoleItemVM = ...;
+clanRoleItemVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanRoleItemVM from the subsystem API first
+ClanRoleItemVM clanRoleItemVM = ...;
+clanRoleItemVM.OnFinalize();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of ClanRoleItemVM from the subsystem API first
+ClanRoleItemVM clanRoleItemVM = ...;
+clanRoleItemVM.Refresh();
+```
 
 ### ExecuteToggleRoleSelection
 `public void ExecuteToggleRoleSelection()`
 
-**Purpose:** Executes the `toggle role selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle role selection`.
+
+```csharp
+// Obtain an instance of ClanRoleItemVM from the subsystem API first
+ClanRoleItemVM clanRoleItemVM = ...;
+clanRoleItemVM.ExecuteToggleRoleSelection();
+```
 
 ### SetEnabled
 `public void SetEnabled(bool enabled, TextObject disabledHint)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanRoleItemVM from the subsystem API first
+ClanRoleItemVM clanRoleItemVM = ...;
+clanRoleItemVM.SetEnabled(false, disabledHint);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanRoleItemVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ClanRoleItemVM clanRoleItemVM = ...;
+clanRoleItemVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

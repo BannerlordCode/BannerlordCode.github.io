@@ -1,20 +1,14 @@
 ---
 title: "ConversationSentence"
+description: "ConversationSentence 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationSentence`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationSentence
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ConversationSentence`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationSentence.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationSentence.cs`
 
 ## 概述
 
@@ -49,50 +43,98 @@ title: "ConversationSentence"
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate()`
 
-**用途 / Purpose:** 当 `condition delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「condition delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationSentence 实例
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.OnConditionDelegate();
+```
 
 ### OnClickableConditionDelegate
 `public delegate bool OnClickableConditionDelegate(out TextObject explanation)`
 
-**用途 / Purpose:** 当 `clickable condition delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clickable condition delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationSentence 实例
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.OnClickableConditionDelegate(explanation);
+```
 
 ### OnPersuasionOptionDelegate
 `public delegate PersuasionOptionArgs OnPersuasionOptionDelegate()`
 
-**用途 / Purpose:** 当 `persuasion option delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「persuasion option delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationSentence 实例
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.OnPersuasionOptionDelegate();
+```
 
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate()`
 
-**用途 / Purpose:** 当 `consequence delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「consequence delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationSentence 实例
+ConversationSentence conversationSentence = ...;
+conversationSentence.OnConsequenceDelegate();
+```
 
 ### OnMultipleConversationConsequenceDelegate
 `public delegate bool OnMultipleConversationConsequenceDelegate(IAgent agent)`
 
-**用途 / Purpose:** 当 `multiple conversation consequence delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「multiple conversation consequence delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationSentence 实例
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.OnMultipleConversationConsequenceDelegate(agent);
+```
 
 ### Variation
 `public ConversationSentence Variation(params object list)`
 
-**用途 / Purpose:** 处理 `variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationSentence 实例
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.Variation(list);
+```
 
 ### Deserialize
 `public void Deserialize(XmlNode node, Type typeOfConversationCallbacks, ConversationManager conversationManager, int defaultPriority)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationSentence 实例
+ConversationSentence conversationSentence = ...;
+conversationSentence.Deserialize(node, typeOfConversationCallbacks, conversationManager, 0);
+```
 
 ### SetObjectsToRepeatOver
 `public static void SetObjectsToRepeatOver(IReadOnlyList<object> objectsToRepeatOver, int maxRepeatedDialogsInConversation = 5)`
 
-**用途 / Purpose:** 设置 `objects to repeat over` 的值或状态。
+**用途 / Purpose:** 为 「objects to repeat over」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+ConversationSentence.SetObjectsToRepeatOver(objectsToRepeatOver, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ConversationSentence();
-value.OnConditionDelegate();
+// 通常从对应子系统 API 获取实例后调用
+ConversationSentence conversationSentence = ...;
+conversationSentence.OnConditionDelegate();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

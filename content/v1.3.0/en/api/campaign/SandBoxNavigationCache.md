@@ -1,13 +1,7 @@
 ---
 title: "SandBoxNavigationCache"
+description: "Auto-generated class reference for SandBoxNavigationCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxNavigationCache`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxNavigationCache
 
 **Namespace:** TaleWorlds.CampaignSystem.Map.DistanceCache
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Map.DistanceCache` to place it i
 ### GetSceneXmlCrcValues
 `public override void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-**Purpose:** Gets the current value of `scene xml crc values`.
+**Purpose:** Reads and returns the `scene xml crc values` value held by the current object.
+
+```csharp
+// Obtain an instance of SandBoxNavigationCache from the subsystem API first
+SandBoxNavigationCache sandBoxNavigationCache = ...;
+sandBoxNavigationCache.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
+```
 
 ### FinalizeInitialization
 `public void FinalizeInitialization()`
 
-**Purpose:** Handles logic related to `finalize initialization`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SandBoxNavigationCache from the subsystem API first
+SandBoxNavigationCache sandBoxNavigationCache = ...;
+sandBoxNavigationCache.FinalizeInitialization();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SandBoxNavigationCache();
-value.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
+// Typically call this after obtaining an instance from the subsystem API
+SandBoxNavigationCache sandBoxNavigationCache = ...;
+sandBoxNavigationCache.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

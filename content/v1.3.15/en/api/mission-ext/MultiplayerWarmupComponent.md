@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerWarmupComponent"
+description: "Auto-generated class reference for MultiplayerWarmupComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerWarmupComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerWarmupComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,42 +30,89 @@ Treat `MultiplayerWarmupComponent` as a Component-style extension point: first i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.AfterStart();
+```
 
 ### CheckForWarmupProgressEnd
 `public bool CheckForWarmupProgressEnd()`
 
-**Purpose:** Handles logic related to `check for warmup progress end`.
+**Purpose:** Verifies whether `for warmup progress end` holds true for the current object.
+
+```csharp
+// Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+var result = multiplayerWarmupComponent.CheckForWarmupProgressEnd();
+```
 
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**Purpose:** Called when the `pre display mission tick` event is raised.
+**Purpose:** Invoked when the `pre display mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.OnPreDisplayMissionTick(0);
+```
 
 ### EndWarmupProgress
 `public void EndWarmupProgress()`
 
-**Purpose:** Handles logic related to `end warmup progress`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.EndWarmupProgress();
+```
 
 ### CanMatchStartAfterWarmup
 `public bool CanMatchStartAfterWarmup()`
 
-**Purpose:** Checks whether the current object can `match start after warmup`.
+**Purpose:** Checks whether the current object meets the preconditions for `match start after warmup`.
+
+```csharp
+// Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+var result = multiplayerWarmupComponent.CanMatchStartAfterWarmup();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerWarmupComponent from the subsystem API first
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.OnRemoveBehavior();
+```
 
 ### CommandEndWarmup
 `public static string CommandEndWarmup(List<string> strings)`
 
-**Purpose:** Handles logic related to `command end warmup`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MultiplayerWarmupComponent.CommandEndWarmup(strings);
+```
 
 ## Usage Example
 
@@ -81,4 +122,4 @@ var component = agent.GetComponent<MultiplayerWarmupComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

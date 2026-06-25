@@ -1,20 +1,14 @@
 ---
 title: "BettingFraudQuest"
+description: "BettingFraudQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BettingFraudQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BettingFraudQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BettingFraudQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/BettingFraudIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/BettingFraudIssueBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "BettingFraudQuest"
 ## 使用示例
 
 ```csharp
-var example = new BettingFraudQuest();
+// 从对应子系统 API 获取实例
+BettingFraudQuest instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

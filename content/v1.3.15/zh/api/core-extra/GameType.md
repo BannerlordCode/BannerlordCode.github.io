@@ -1,13 +1,7 @@
 ---
 title: "GameType"
+description: "GameType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameType`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameType
 
 **Namespace:** TaleWorlds.Core
@@ -50,34 +44,65 @@ title: "GameType"
 ### OnStateChanged
 `public abstract void OnStateChanged(GameState oldState)`
 
-**用途 / Purpose:** 当 `state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameType 实例
+GameType gameType = ...;
+gameType.OnStateChanged(oldState);
+```
 
 ### DoLoadingForGameType
 `public bool DoLoadingForGameType()`
 
-**用途 / Purpose:** 处理 `do loading for game type` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameType 实例
+GameType gameType = ...;
+var result = gameType.DoLoadingForGameType();
+```
 
 ### OnDestroy
 `public abstract void OnDestroy()`
 
-**用途 / Purpose:** 当 `destroy` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「destroy」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameType 实例
+GameType gameType = ...;
+gameType.OnDestroy();
+```
 
 ### OnMissionIsStarting
 `public virtual void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**用途 / Purpose:** 当 `mission is starting` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission is starting」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameType 实例
+GameType gameType = ...;
+gameType.OnMissionIsStarting("example", rec);
+```
 
 ### InitializeParameters
 `public virtual void InitializeParameters()`
 
-**用途 / Purpose:** 初始化 `parameters` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「parameters」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GameType 实例
+GameType gameType = ...;
+gameType.InitializeParameters();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameType();
+// 通常通过子系统 API 或工厂获得派生实例
+GameType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

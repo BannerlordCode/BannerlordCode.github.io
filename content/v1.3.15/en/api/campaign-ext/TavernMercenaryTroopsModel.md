@@ -1,13 +1,7 @@
 ---
 title: "TavernMercenaryTroopsModel"
+description: "Auto-generated class reference for TavernMercenaryTroopsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TavernMercenaryTroopsModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TavernMercenaryTroopsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -33,9 +27,10 @@ Treat `TavernMercenaryTroopsModel` as a Model-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTavernMercenaryTroopsModel();
+// Typically obtained from a subsystem API or factory
+TavernMercenaryTroopsModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

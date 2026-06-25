@@ -1,13 +1,7 @@
 ---
 title: "MovementBehaviorType"
+description: "Auto-generated class reference for MovementBehaviorType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MovementBehaviorType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MovementBehaviorType
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-MovementBehaviorType example = MovementBehaviorType.Value;
+// Obtain an instance from the relevant subsystem API
+MovementBehaviorType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

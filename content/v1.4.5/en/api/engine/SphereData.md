@@ -1,20 +1,14 @@
 ---
 title: "SphereData"
+description: "Auto-generated class reference for SphereData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SphereData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SphereData
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SphereData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/SphereData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SphereData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `SphereData` as a Data-style extension point: first identify who creates i
 ### SphereData
 `public struct SphereData(float radius, Vec3 origin)`
 
-**Purpose:** Handles logic related to `sphere data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SphereData from the subsystem API first
+SphereData sphereData = ...;
+var result = sphereData.SphereData(0, origin);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SphereData();
+// This data object is usually returned by campaign/mission APIs
+SphereData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

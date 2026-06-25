@@ -1,24 +1,18 @@
 ---
 title: "Shader"
+description: "Auto-generated class reference for Shader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Shader`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Shader
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Shader : Resource`
 **Base:** `Resource`
-**Area:** engine
+**File:** `TaleWorlds.Engine/Shader.cs`
 
 ## Overview
 
-`Shader` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Shader` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,21 +29,30 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetFromResource
 `public static Shader GetFromResource(string shaderName)`
 
-**Purpose:** Gets the current value of `from resource`.
+**Purpose:** Reads and returns the `from resource` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Shader.GetFromResource("example");
+```
 
 ### GetMaterialShaderFlagMask
 `public ulong GetMaterialShaderFlagMask(string flagName, bool showErrors = true)`
 
-**Purpose:** Gets the current value of `material shader flag mask`.
+**Purpose:** Reads and returns the `material shader flag mask` value held by the current object.
+
+```csharp
+// Obtain an instance of Shader from the subsystem API first
+Shader shader = ...;
+var result = shader.GetMaterialShaderFlagMask("example", false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 Shader.GetFromResource("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

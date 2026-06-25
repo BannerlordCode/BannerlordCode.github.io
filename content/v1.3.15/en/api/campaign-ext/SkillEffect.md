@@ -1,13 +1,7 @@
 ---
 title: "SkillEffect"
+description: "Auto-generated class reference for SkillEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillEffect`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkillEffect
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize(TextObject description, SkillObject effectedSkill, PartyRole role, float bonus, EffectIncrementType incrementType, float baseValue = 0f, float limitMin = -3.4028235E+38f, float limitMax = 3.4028235E+38f)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SkillEffect from the subsystem API first
+SkillEffect skillEffect = ...;
+skillEffect.Initialize(description, effectedSkill, role, 0, incrementType, 0, 0, 0);
+```
 
 ### GetSkillEffectValue
 `public float GetSkillEffectValue(int skillLevel)`
 
-**Purpose:** Gets the current value of `skill effect value`.
+**Purpose:** Reads and returns the `skill effect value` value held by the current object.
+
+```csharp
+// Obtain an instance of SkillEffect from the subsystem API first
+SkillEffect skillEffect = ...;
+var result = skillEffect.GetSkillEffectValue(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkillEffect();
-value.Initialize(description, effectedSkill, role, 0, incrementType, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+SkillEffect skillEffect = ...;
+skillEffect.Initialize(description, effectedSkill, role, 0, incrementType, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ImageIdentifier"
+description: "Auto-generated class reference for ImageIdentifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageIdentifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ImageIdentifier
 
 **Namespace:** TaleWorlds.Core.ImageIdentifiers
@@ -37,14 +31,21 @@ Start from namespace `TaleWorlds.Core.ImageIdentifiers` to place it in the stack
 ### Equals
 `public bool Equals(ImageIdentifier other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of ImageIdentifier from the subsystem API first
+ImageIdentifier imageIdentifier = ...;
+var result = imageIdentifier.Equals(other);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomImageIdentifier();
+// Typically obtained from a subsystem API or factory
+ImageIdentifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

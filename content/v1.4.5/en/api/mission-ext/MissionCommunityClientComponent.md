@@ -1,20 +1,14 @@
 ---
 title: "MissionCommunityClientComponent"
+description: "Auto-generated class reference for MissionCommunityClientComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCommunityClientComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCommunityClientComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionCommunityClientComponent : MissionLobbyComponent`
 **Base:** `MissionLobbyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionCommunityClientComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionCommunityClientComponent.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `MissionCommunityClientComponent` as a Component-style extension point: fi
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionCommunityClientComponent from the subsystem API first
+MissionCommunityClientComponent missionCommunityClientComponent = ...;
+missionCommunityClientComponent.OnBehaviorInitialize();
+```
 
 ### SetServerEndingBeforeClientLoaded
 `public void SetServerEndingBeforeClientLoaded(bool isServerEndingBeforeClientLoaded)`
 
-**Purpose:** Sets the value or state of `server ending before client loaded`.
+**Purpose:** Assigns a new value to `server ending before client loaded` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionCommunityClientComponent from the subsystem API first
+MissionCommunityClientComponent missionCommunityClientComponent = ...;
+missionCommunityClientComponent.SetServerEndingBeforeClientLoaded(false);
+```
 
 ### QuitMission
 `public override void QuitMission()`
 
-**Purpose:** Handles logic related to `quit mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCommunityClientComponent from the subsystem API first
+MissionCommunityClientComponent missionCommunityClientComponent = ...;
+missionCommunityClientComponent.QuitMission();
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var component = agent.GetComponent<MissionCommunityClientComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

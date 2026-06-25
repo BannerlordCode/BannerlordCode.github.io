@@ -1,20 +1,14 @@
 ---
 title: "SpriteNinePatchParameters"
+description: "Auto-generated class reference for SpriteNinePatchParameters."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpriteNinePatchParameters`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpriteNinePatchParameters
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct SpriteNinePatchParameters`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteNinePatchParameters.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteNinePatchParameters.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### SpriteNinePatchParameters
 `public struct SpriteNinePatchParameters(int leftWidth, int rightWidth, int topHeight, int bottomHeight)`
 
-**Purpose:** Handles logic related to `sprite nine patch parameters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteNinePatchParameters from the subsystem API first
+SpriteNinePatchParameters spriteNinePatchParameters = ...;
+var result = spriteNinePatchParameters.SpriteNinePatchParameters(0, 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpriteNinePatchParameters();
-value.SpriteNinePatchParameters(0, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+SpriteNinePatchParameters spriteNinePatchParameters = ...;
+spriteNinePatchParameters.SpriteNinePatchParameters(0, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

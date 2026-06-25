@@ -1,20 +1,14 @@
 ---
 title: "XmlHelper"
+description: "Auto-generated class reference for XmlHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `XmlHelper`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # XmlHelper
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class XmlHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/XmlHelper.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/XmlHelper.cs`
 
 ## Overview
 
@@ -29,32 +23,62 @@ Treat `XmlHelper` as a Helper-style extension point: first identify who creates 
 ### ReadInt
 `public static int ReadInt(XmlNode node, string str)`
 
-**Purpose:** Handles logic related to `read int`.
+**Purpose:** Reads the data or state of `int`.
+
+```csharp
+// Static call; no instance required
+XmlHelper.ReadInt(node, "example");
+```
 
 ### ReadInt
 `public static void ReadInt(ref int val, XmlNode node, string str)`
 
-**Purpose:** Handles logic related to `read int`.
+**Purpose:** Reads the data or state of `int`.
+
+```csharp
+// Static call; no instance required
+XmlHelper.ReadInt(val, node, "example");
+```
 
 ### ReadFloat
 `public static float ReadFloat(XmlNode node, string str, float defaultValue = 0f)`
 
-**Purpose:** Handles logic related to `read float`.
+**Purpose:** Reads the data or state of `float`.
+
+```csharp
+// Static call; no instance required
+XmlHelper.ReadFloat(node, "example", 0);
+```
 
 ### ReadString
 `public static string ReadString(XmlNode node, string str)`
 
-**Purpose:** Handles logic related to `read string`.
+**Purpose:** Reads the data or state of `string`.
+
+```csharp
+// Static call; no instance required
+XmlHelper.ReadString(node, "example");
+```
 
 ### ReadHexCode
 `public static void ReadHexCode(ref uint val, XmlNode node, string str)`
 
-**Purpose:** Handles logic related to `read hex code`.
+**Purpose:** Reads the data or state of `hex code`.
+
+```csharp
+// Static call; no instance required
+XmlHelper.ReadHexCode(val, node, "example");
+```
 
 ### ReadBool
 `public static bool ReadBool(XmlNode node, string str)`
 
-**Purpose:** Handles logic related to `read bool`.
+**Purpose:** Reads the data or state of `bool`.
+
+```csharp
+// Static call; no instance required
+XmlHelper.ReadBool(node, "example");
+```
 
 ## Usage Example
 
@@ -64,4 +88,4 @@ XmlHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

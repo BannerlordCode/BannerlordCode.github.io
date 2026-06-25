@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerBattleSpawnModel"
+description: "MultiplayerBattleSpawnModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerBattleSpawnModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleSpawnModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,12 +23,24 @@ title: "MultiplayerBattleSpawnModel"
 ### GetInitialSpawnAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**用途 / Purpose:** 获取 `initial spawn assignments` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial spawn assignments」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleSpawnModel 实例
+MultiplayerBattleSpawnModel multiplayerBattleSpawnModel = ...;
+var result = multiplayerBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+```
 
 ### GetReinforcementAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**用途 / Purpose:** 获取 `reinforcement assignments` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「reinforcement assignments」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleSpawnModel 实例
+MultiplayerBattleSpawnModel multiplayerBattleSpawnModel = ...;
+var result = multiplayerBattleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<MultiplayerBattleSpawnModel>(new MyMultiplayerBattleSp
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

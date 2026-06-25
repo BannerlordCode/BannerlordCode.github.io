@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticTauntSlotVM"
+description: "Auto-generated class reference for MPArmoryCosmeticTauntSlotVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryCosmeticTauntSlotVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticTauntSlotVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryCosmeticTauntSlotVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticTauntSlotVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticTauntSlotVM.cs`
 
 ## Overview
 
@@ -42,50 +36,99 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.OnFinalize();
+```
 
 ### AssignTauntItem
 `public void AssignTauntItem(MPArmoryCosmeticTauntItemVM tauntItem, bool isSwapping = false)`
 
-**Purpose:** Handles logic related to `assign taunt item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.AssignTauntItem(tauntItem, false);
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.ExecuteSelect();
+```
 
 ### ExecutePreview
 `public void ExecutePreview()`
 
-**Purpose:** Executes the `preview` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `preview`.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.ExecutePreview();
+```
 
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**Purpose:** Executes the `focus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focus`.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.ExecuteFocus();
+```
 
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**Purpose:** Executes the `unfocus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `unfocus`.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.ExecuteUnfocus();
+```
 
 ### SetSelectKeyVisual
 `public void SetSelectKeyVisual(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `select key visual`.
+**Purpose:** Assigns a new value to `select key visual` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.SetSelectKeyVisual(hotKey);
+```
 
 ### SetEmptySlotKeyVisual
 `public void SetEmptySlotKeyVisual(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `empty slot key visual`.
+**Purpose:** Assigns a new value to `empty slot key visual` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntSlotVM from the subsystem API first
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.SetEmptySlotKeyVisual(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPArmoryCosmeticTauntSlotVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+MPArmoryCosmeticTauntSlotVM mPArmoryCosmeticTauntSlotVM = ...;
+mPArmoryCosmeticTauntSlotVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

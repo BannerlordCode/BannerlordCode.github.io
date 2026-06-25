@@ -1,13 +1,7 @@
 ---
 title: "MusicParameters"
+description: "MusicParameters 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MusicParameters`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicParameters
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -52,7 +46,12 @@ title: "MusicParameters"
 ### LoadFromXml
 `public static void LoadFromXml()`
 
-**用途 / Purpose:** 加载 `from xml` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from xml」。
+
+```csharp
+// 静态调用，不需要实例
+MusicParameters.LoadFromXml();
+```
 
 ## 使用示例
 
@@ -62,4 +61,4 @@ MusicParameters.LoadFromXml();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

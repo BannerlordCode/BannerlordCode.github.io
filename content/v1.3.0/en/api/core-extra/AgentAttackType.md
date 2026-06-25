@@ -1,18 +1,12 @@
 ---
 title: "AgentAttackType"
+description: "Auto-generated class reference for AgentAttackType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentAttackType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentAttackType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum AgentAttackType`
 **Base:** none
 **File:** `TaleWorlds.Core/AgentAttackType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new AgentAttackType();
+// Obtain an instance from the relevant subsystem API
+AgentAttackType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

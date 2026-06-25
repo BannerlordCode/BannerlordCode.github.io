@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerScoreboard"
+description: "Auto-generated class reference for MissionGauntletMultiplayerScoreboard."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMultiplayerScoreboard`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerScoreboard
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerScoreboard : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerScoreboard.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerScoreboard.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerScoreboard from the subsystem API first
+MissionGauntletMultiplayerScoreboard missionGauntletMultiplayerScoreboard = ...;
+missionGauntletMultiplayerScoreboard.OnMissionScreenInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerScoreboard from the subsystem API first
+MissionGauntletMultiplayerScoreboard missionGauntletMultiplayerScoreboard = ...;
+missionGauntletMultiplayerScoreboard.OnRemoveBehavior();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerScoreboard from the subsystem API first
+MissionGauntletMultiplayerScoreboard missionGauntletMultiplayerScoreboard = ...;
+missionGauntletMultiplayerScoreboard.OnMissionScreenFinalize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerScoreboard from the subsystem API first
+MissionGauntletMultiplayerScoreboard missionGauntletMultiplayerScoreboard = ...;
+missionGauntletMultiplayerScoreboard.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletMultiplayerScoreboard();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletMultiplayerScoreboard missionGauntletMultiplayerScoreboard = ...;
+missionGauntletMultiplayerScoreboard.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

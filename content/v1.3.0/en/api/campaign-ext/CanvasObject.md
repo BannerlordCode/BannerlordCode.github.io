@@ -1,13 +1,7 @@
 ---
 title: "CanvasObject"
+description: "Auto-generated class reference for CanvasObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CanvasObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasObject
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -42,40 +36,77 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### Update
 `public virtual void Update(float scale)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of CanvasObject from the subsystem API first
+CanvasObject canvasObject = ...;
+canvasObject.Update(0);
+```
 
 ### BeginMeasure
 `public void BeginMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**Purpose:** Handles logic related to `begin measure`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CanvasObject from the subsystem API first
+CanvasObject canvasObject = ...;
+canvasObject.BeginMeasure(false, false, 0, 0);
+```
 
 ### DoMeasure
 `public void DoMeasure()`
 
-**Purpose:** Handles logic related to `do measure`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CanvasObject from the subsystem API first
+CanvasObject canvasObject = ...;
+canvasObject.DoMeasure();
+```
 
 ### DoLayout
 `public void DoLayout()`
 
-**Purpose:** Handles logic related to `do layout`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CanvasObject from the subsystem API first
+CanvasObject canvasObject = ...;
+canvasObject.DoLayout();
+```
 
 ### GetMarginSize
 `public virtual Vector2 GetMarginSize()`
 
-**Purpose:** Gets the current value of `margin size`.
+**Purpose:** Reads and returns the `margin size` value held by the current object.
+
+```csharp
+// Obtain an instance of CanvasObject from the subsystem API first
+CanvasObject canvasObject = ...;
+var result = canvasObject.GetMarginSize();
+```
 
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Handles logic related to `do render`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CanvasObject from the subsystem API first
+CanvasObject canvasObject = ...;
+canvasObject.DoRender(globalPosition, drawContext);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CanvasObject();
-value.Update(0);
+// Typically call this after obtaining an instance from the subsystem API
+CanvasObject canvasObject = ...;
+canvasObject.Update(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

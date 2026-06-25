@@ -1,13 +1,7 @@
 ---
 title: "DividableTask"
+description: "DividableTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DividableTask`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DividableTask
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,30 +23,55 @@ title: "DividableTask"
 ### ResetTaskStatus
 `public void ResetTaskStatus()`
 
-**用途 / Purpose:** 将 `task status` 重置为初始状态。
+**用途 / Purpose:** 将 「task status」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 DividableTask 实例
+DividableTask dividableTask = ...;
+dividableTask.ResetTaskStatus();
+```
 
 ### SetTaskFinished
 `public void SetTaskFinished(bool callLastAction = false)`
 
-**用途 / Purpose:** 设置 `task finished` 的值或状态。
+**用途 / Purpose:** 为 「task finished」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 DividableTask 实例
+DividableTask dividableTask = ...;
+dividableTask.SetTaskFinished(false);
+```
 
 ### Update
 `public bool Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 DividableTask 实例
+DividableTask dividableTask = ...;
+var result = dividableTask.Update();
+```
 
 ### SetLastAction
 `public void SetLastAction(Action action)`
 
-**用途 / Purpose:** 设置 `last action` 的值或状态。
+**用途 / Purpose:** 为 「last action」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 DividableTask 实例
+DividableTask dividableTask = ...;
+dividableTask.SetLastAction(action);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DividableTask();
-value.ResetTaskStatus();
+// 通常从对应子系统 API 获取实例后调用
+DividableTask dividableTask = ...;
+dividableTask.ResetTaskStatus();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

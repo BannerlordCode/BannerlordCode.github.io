@@ -1,13 +1,7 @@
 ---
 title: "GameStateManager"
+description: "GameStateManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameStateManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameStateManager
 
 **Namespace:** TaleWorlds.Core
@@ -41,52 +35,112 @@ title: "GameStateManager"
 ### RegisterListener
 `public bool RegisterListener(IGameStateManagerListener listener)`
 
-**用途 / Purpose:** 处理 `register listener` 相关逻辑。
+**用途 / Purpose:** 将「listener」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+var result = gameStateManager.RegisterListener(listener);
+```
 
 ### UnregisterListener
 `public bool UnregisterListener(IGameStateManagerListener listener)`
 
-**用途 / Purpose:** 处理 `unregister listener` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「listener」。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+var result = gameStateManager.UnregisterListener(listener);
+```
 
 ### RegisterActiveStateDisableRequest
 `public void RegisterActiveStateDisableRequest(object requestingInstance)`
 
-**用途 / Purpose:** 处理 `register active state disable request` 相关逻辑。
+**用途 / Purpose:** 将「active state disable request」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+gameStateManager.RegisterActiveStateDisableRequest(requestingInstance);
+```
 
 ### UnregisterActiveStateDisableRequest
 `public void UnregisterActiveStateDisableRequest(object requestingInstance)`
 
-**用途 / Purpose:** 处理 `unregister active state disable request` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「active state disable request」。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+gameStateManager.UnregisterActiveStateDisableRequest(requestingInstance);
+```
 
 ### OnSavedGameLoadFinished
 `public void OnSavedGameLoadFinished()`
 
-**用途 / Purpose:** 当 `saved game load finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「saved game load finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+gameStateManager.OnSavedGameLoadFinished();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+gameStateManager.OnTick(0);
+```
 
 ### PushState
 `public void PushState(GameState gameState, int level = 0)`
 
-**用途 / Purpose:** 处理 `push state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+gameStateManager.PushState(gameState, 0);
+```
 
 ### PopState
 `public void PopState(int level = 0)`
 
-**用途 / Purpose:** 处理 `pop state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+gameStateManager.PopState(0);
+```
 
 ### CleanAndPushState
 `public void CleanAndPushState(GameState gameState, int level = 0)`
 
-**用途 / Purpose:** 处理 `clean and push state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+gameStateManager.CleanAndPushState(gameState, 0);
+```
 
 ### CleanStates
 `public void CleanStates(int level = 0)`
 
-**用途 / Purpose:** 处理 `clean states` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameStateManager 实例
+GameStateManager gameStateManager = ...;
+gameStateManager.CleanStates(0);
+```
 
 ## 使用示例
 
@@ -96,4 +150,4 @@ var manager = GameStateManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CompassElementWidget"
+description: "Auto-generated class reference for CompassElementWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompassElementWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CompassElementWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CompassElementWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/CompassElementWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/CompassElementWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `CompassElementWidget` as a Widget-style extension point: first identify w
 ### CompassElementWidget
 `public class CompassElementWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `compass element widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CompassElementWidget from the subsystem API first
+CompassElementWidget compassElementWidget = ...;
+var result = compassElementWidget.CompassElementWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CompassElementWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CompassElementWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

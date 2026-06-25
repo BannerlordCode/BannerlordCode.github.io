@@ -1,20 +1,14 @@
 ---
 title: "MapReadyView"
+description: "Auto-generated class reference for MapReadyView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapReadyView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapReadyView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapReadyView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapReadyView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapReadyView.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `MapReadyView` as a View-style extension point: first identify who creates
 ### SetIsMapSceneReady
 `public virtual void SetIsMapSceneReady(bool isReady)`
 
-**Purpose:** Sets the value or state of `is map scene ready`.
+**Purpose:** Assigns a new value to `is map scene ready` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapReadyView from the subsystem API first
+MapReadyView mapReadyView = ...;
+mapReadyView.SetIsMapSceneReady(false);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MapReadyView();
+// Retrieve this view from the subsystem API or scene
+MapReadyView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

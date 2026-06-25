@@ -1,64 +1,44 @@
 ---
 title: "RomanticState"
+description: "Auto-generated class reference for RomanticState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RomanticState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RomanticState
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RomanticState`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Romance.cs`
 
 ## Overview
 
-`RomanticState` lives in `TaleWorlds.CampaignSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`RomanticState` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `RomanticStateList` | `public static List<Romance.RomanticState> RomanticStateList { get; }` |
-
 ## Key Methods
-
-### GetCourtedHeroInOtherClan
-`public static Hero GetCourtedHeroInOtherClan(Hero person1, Hero person2)`
-
-**Purpose:** Gets the current value of `courted hero in other clan`.
-
-### GetRomanticLevel
-`public static Romance.RomanceLevelEnum GetRomanticLevel(Hero person1, Hero person2)`
-
-**Purpose:** Gets the current value of `romantic level`.
-
-### GetRomanticState
-`public static Romance.RomanticState GetRomanticState(Hero person1, Hero person2)`
-
-**Purpose:** Gets the current value of `romantic state`.
 
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**Purpose:** Handles logic related to `partner`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RomanticState from the subsystem API first
+RomanticState romanticState = ...;
+var result = romanticState.Partner(hero);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
-RomanticState.GetCourtedHeroInOtherClan(person1, person2);
+// Typically call this after obtaining an instance from the subsystem API
+RomanticState romanticState = ...;
+romanticState.Partner(hero);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

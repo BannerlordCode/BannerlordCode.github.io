@@ -1,13 +1,7 @@
 ---
 title: "VolunteerTroop"
+description: "Auto-generated class reference for VolunteerTroop."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VolunteerTroop`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VolunteerTroop
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of VolunteerTroop from the subsystem API first
+VolunteerTroop volunteerTroop = ...;
+var result = volunteerTroop.CompareTo(obj);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VolunteerTroop();
-value.CompareTo(obj);
+// Typically call this after obtaining an instance from the subsystem API
+VolunteerTroop volunteerTroop = ...;
+volunteerTroop.CompareTo(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

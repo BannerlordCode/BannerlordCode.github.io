@@ -1,20 +1,14 @@
 ---
 title: "GetPlayerStatsMessage"
+description: "GetPlayerStatsMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GetPlayerStatsMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GetPlayerStatsMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class GetPlayerStatsMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetPlayerStatsMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetPlayerStatsMessage.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "GetPlayerStatsMessage"
 ## 使用示例
 
 ```csharp
-var example = new GetPlayerStatsMessage();
+// 从对应子系统 API 获取实例
+GetPlayerStatsMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

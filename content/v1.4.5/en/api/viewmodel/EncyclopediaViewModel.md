@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaViewModel"
+description: "Auto-generated class reference for EncyclopediaViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaViewModel`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaViewModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaViewModel : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/EncyclopediaViewModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/EncyclopediaViewModel.cs`
 
 ## Overview
 
@@ -33,10 +27,11 @@ Treat `EncyclopediaViewModel` as a ViewModel-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var vm = new EncyclopediaViewModel();
+// Bind the instance as the view-model of a movie or view
+EncyclopediaViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

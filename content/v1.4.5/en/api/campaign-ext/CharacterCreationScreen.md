@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationScreen"
+description: "Auto-generated class reference for CharacterCreationScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationScreen
 
 **Namespace:** SandBox.View.CharacterCreation
 **Module:** SandBox.View
 **Type:** `public class CharacterCreationScreen : ScreenBase, ICharacterCreationStateHandler, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.View.CharacterCreation` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationScreen();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

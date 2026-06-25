@@ -1,13 +1,7 @@
 ---
 title: "MBSortedMultiList"
+description: "Auto-generated class reference for MBSortedMultiList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBSortedMultiList`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBSortedMultiList
 
 **Namespace:** TaleWorlds.Library
@@ -41,169 +35,363 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Contains
 `public bool Contains(TKey key)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Contains(key);
+```
 
 ### Contains
 `public bool Contains(TKey key, TValue value)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Contains(key, value);
+```
 
 ### Get
 `public KeyValuePair<TKey, TValue> Get(int index)`
 
-**Purpose:** Gets the current value of `get`.
+**Purpose:** Reads the current object's value or state and returns it.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Get(0);
+```
 
 ### FirstIndexOf
 `public int FirstIndexOf(TKey key)`
 
-**Purpose:** Handles logic related to `first index of`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.FirstIndexOf(key);
+```
 
 ### FirstIndexOf
 `public int FirstIndexOf(TKey key, TValue value)`
 
-**Purpose:** Handles logic related to `first index of`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.FirstIndexOf(key, value);
+```
 
 ### LastIndexOf
 `public int LastIndexOf(TKey key)`
 
-**Purpose:** Handles logic related to `last index of`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.LastIndexOf(key);
+```
 
 ### LastIndexOf
 `public int LastIndexOf(TKey key, TValue value)`
 
-**Purpose:** Handles logic related to `last index of`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.LastIndexOf(key, value);
+```
 
 ### All
 `public bool All(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**Purpose:** Handles logic related to `all`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.All(predicate<KeyValuePair<TKey, predicate);
+```
 
 ### Any
 `public bool Any(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**Purpose:** Handles logic related to `any`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Any(predicate<KeyValuePair<TKey, predicate);
+```
 
 ### GetValues
 `public IEnumerator<TValue> GetValues(TKey key)`
 
-**Purpose:** Gets the current value of `values`.
+**Purpose:** Reads and returns the `values` value held by the current object.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.GetValues(key);
+```
 
 ### Find
 `public bool Find(Predicate<KeyValuePair<TKey, TValue>> predicate, out KeyValuePair<TKey, TValue> found, bool searchForward = true)`
 
-**Purpose:** Handles logic related to `find`.
+**Purpose:** Finds the matching entry in the current collection or scope.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Find(predicate<KeyValuePair<TKey, predicate, keyValuePair<TKey, found, false);
+```
 
 ### FindIndex
 `public int FindIndex(Predicate<KeyValuePair<TKey, TValue>> predicate, bool searchForward = true)`
 
-**Purpose:** Handles logic related to `find index`.
+**Purpose:** Looks up the matching `index` in the current collection or scope.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.FindIndex(predicate<KeyValuePair<TKey, predicate, false);
+```
 
 ### FindAll
 `public MBList<KeyValuePair<TKey, TValue>> FindAll(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**Purpose:** Handles logic related to `find all`.
+**Purpose:** Looks up the matching `all` in the current collection or scope.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.FindAll(predicate<KeyValuePair<TKey, predicate);
+```
 
 ### Add
 `public void Add(TKey key, TValue value)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Add(key, value);
+```
 
 ### AddRange
 `public void AddRange(IEnumerable<KeyValuePair<TKey, TValue>> items)`
 
 **Purpose:** Adds `range` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.AddRange(iEnumerable<KeyValuePair<TKey, items);
+```
+
 ### Remove
 `public bool Remove(TKey key, TValue value)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Remove(key, value);
+```
 
 ### Remove
 `public bool Remove(TKey key)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Remove(key);
+```
 
 ### RemoveAll
 `public int RemoveAll(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
 **Purpose:** Removes `all` from the current collection or state.
 
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.RemoveAll(predicate<KeyValuePair<TKey, predicate);
+```
+
 ### RemoveAt
 `public void RemoveAt(int index)`
 
 **Purpose:** Removes `at` from the current collection or state.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.RemoveAt(0);
+```
 
 ### RemoveLast
 `public void RemoveLast()`
 
 **Purpose:** Removes `last` from the current collection or state.
 
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.RemoveLast();
+```
+
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Clear();
+```
 
 ### SetCustomComparer
 `public void SetCustomComparer(IComparer<TKey> customComparer)`
 
-**Purpose:** Sets the value or state of `custom comparer`.
+**Purpose:** Assigns a new value to `custom comparer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.SetCustomComparer(customComparer);
+```
 
 ### SetDefaultComparer
 `public void SetDefaultComparer(bool isAscending = true)`
 
-**Purpose:** Sets the value or state of `default comparer`.
+**Purpose:** Assigns a new value to `default comparer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.SetDefaultComparer(false);
+```
 
 ### Reverse
 `public void Reverse()`
 
-**Purpose:** Handles logic related to `reverse`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Reverse();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.ToString();
+```
 
 ### GetEnumerator
 `public IEnumerator<TValue> GetEnumerator()`
 
-**Purpose:** Gets the current value of `enumerator`.
+**Purpose:** Reads and returns the `enumerator` value held by the current object.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.GetEnumerator();
+```
 
 ### MoveNext
 `public bool MoveNext()`
 
-**Purpose:** Handles logic related to `move next`.
+**Purpose:** Moves `next` to a new position or state.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.MoveNext();
+```
 
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Dispose();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Reset();
+```
 
 ### MoveNext
 `public bool MoveNext()`
 
-**Purpose:** Handles logic related to `move next`.
+**Purpose:** Moves `next` to a new position or state.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.MoveNext();
+```
 
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Dispose();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MBSortedMultiList from the subsystem API first
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-MBSortedMultiList example = MBSortedMultiList.Comparer;
+// Typically call this after obtaining an instance from the subsystem API
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Contains(key);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

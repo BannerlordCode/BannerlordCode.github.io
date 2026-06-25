@@ -1,20 +1,14 @@
 ---
 title: "RescueFamilyQuestBehavior"
+description: "Auto-generated class reference for RescueFamilyQuestBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RescueFamilyQuestBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RescueFamilyQuestBehavior
 
 **Namespace:** StoryMode.Quests.PlayerClanQuests
 **Module:** StoryMode.Quests
 **Type:** `public class RescueFamilyQuestBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.PlayerClanQuests/RescueFamilyQuestBehavior.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.PlayerClanQuests/RescueFamilyQuestBehavior.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `StoryMode.Quests.PlayerClanQuests` to place it in the stac
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of RescueFamilyQuestBehavior from the subsystem API first
+RescueFamilyQuestBehavior rescueFamilyQuestBehavior = ...;
+rescueFamilyQuestBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of RescueFamilyQuestBehavior from the subsystem API first
+RescueFamilyQuestBehavior rescueFamilyQuestBehavior = ...;
+rescueFamilyQuestBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of RescueFamilyQuestBehavior from the subsystem API first
+RescueFamilyQuestBehavior rescueFamilyQuestBehavior = ...;
+rescueFamilyQuestBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RescueFamilyQuestBehavior();
-value.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+// Typically call this after obtaining an instance from the subsystem API
+RescueFamilyQuestBehavior rescueFamilyQuestBehavior = ...;
+rescueFamilyQuestBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

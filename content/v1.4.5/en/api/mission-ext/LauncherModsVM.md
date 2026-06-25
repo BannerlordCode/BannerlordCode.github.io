@@ -1,20 +1,14 @@
 ---
 title: "LauncherModsVM"
+description: "Auto-generated class reference for LauncherModsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherModsVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherModsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherModsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherModsVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherModsVM.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Refresh
 `public void Refresh(bool isDisabled, bool isMultiplayer)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of LauncherModsVM from the subsystem API first
+LauncherModsVM launcherModsVM = ...;
+launcherModsVM.Refresh(false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LauncherModsVM();
-value.Refresh(false, false);
+// Typically call this after obtaining an instance from the subsystem API
+LauncherModsVM launcherModsVM = ...;
+launcherModsVM.Refresh(false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

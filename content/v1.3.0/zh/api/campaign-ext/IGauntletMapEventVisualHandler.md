@@ -1,18 +1,12 @@
 ---
 title: "IGauntletMapEventVisualHandler"
+description: "IGauntletMapEventVisualHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IGauntletMapEventVisualHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IGauntletMapEventVisualHandler
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
-**Type:** `class`
+**Type:** `public interface IGauntletMapEventVisualHandler`
 **Base:** 无
 **File:** `SandBox.GauntletUI/Map/IGauntletMapEventVisualHandler.cs`
 
@@ -27,9 +21,10 @@ title: "IGauntletMapEventVisualHandler"
 ## 使用示例
 
 ```csharp
-IGauntletMapEventVisualHandler implementation = GetGauntletMapEventVisualHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIGauntletMapEventVisualHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

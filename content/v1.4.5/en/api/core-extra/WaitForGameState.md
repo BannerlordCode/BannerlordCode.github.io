@@ -1,20 +1,14 @@
 ---
 title: "WaitForGameState"
+description: "Auto-generated class reference for WaitForGameState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WaitForGameState`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WaitForGameState
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class WaitForGameState : CoroutineState`
 **Base:** `CoroutineState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/WaitForGameState.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WaitForGameState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new WaitForGameState();
+// Obtain an instance from the relevant subsystem API
+WaitForGameState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MPPerkEffectBase"
+description: "Auto-generated class reference for MPPerkEffectBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerkEffectBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPPerkEffectBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,124 +30,263 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUpdate
 `public virtual void OnUpdate(Agent agent, bool newState)`
 
-**Purpose:** Called when the `update` event is raised.
+**Purpose:** Invoked when the `update` event is raised.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+mPPerkEffectBase.OnUpdate(agent, false);
+```
 
 ### OnTick
 `public virtual void OnTick(MissionPeer peer, int tickCount)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+mPPerkEffectBase.OnTick(peer, 0);
+```
 
 ### OnTick
 `public virtual void OnTick(Agent agent, int tickCount)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+mPPerkEffectBase.OnTick(agent, 0);
+```
 
 ### GetDamage
 `public virtual float GetDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**Purpose:** Gets the current value of `damage`.
+**Purpose:** Reads and returns the `damage` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetDamage(attackerWeapon, damageType, false);
+```
 
 ### GetMountDamage
 `public virtual float GetMountDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**Purpose:** Gets the current value of `mount damage`.
+**Purpose:** Reads and returns the `mount damage` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetMountDamage(attackerWeapon, damageType, false);
+```
 
 ### GetDamageTaken
 `public virtual float GetDamageTaken(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `damage taken`.
+**Purpose:** Reads and returns the `damage taken` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetDamageTaken(attackerWeapon, damageType);
+```
 
 ### GetMountDamageTaken
 `public virtual float GetMountDamageTaken(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `mount damage taken`.
+**Purpose:** Reads and returns the `mount damage taken` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetMountDamageTaken(attackerWeapon, damageType);
+```
 
 ### GetSpeedBonusEffectiveness
 `public virtual float GetSpeedBonusEffectiveness(Agent attacker, WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `speed bonus effectiveness`.
+**Purpose:** Reads and returns the `speed bonus effectiveness` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetSpeedBonusEffectiveness(attacker, attackerWeapon, damageType);
+```
 
 ### GetShieldDamage
 `public virtual float GetShieldDamage(bool isCorrectSideBlock)`
 
-**Purpose:** Gets the current value of `shield damage`.
+**Purpose:** Reads and returns the `shield damage` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetShieldDamage(false);
+```
 
 ### GetShieldDamageTaken
 `public virtual float GetShieldDamageTaken(bool isCorrectSideBlock)`
 
-**Purpose:** Gets the current value of `shield damage taken`.
+**Purpose:** Reads and returns the `shield damage taken` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetShieldDamageTaken(false);
+```
 
 ### GetRangedAccuracy
 `public virtual float GetRangedAccuracy()`
 
-**Purpose:** Gets the current value of `ranged accuracy`.
+**Purpose:** Reads and returns the `ranged accuracy` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetRangedAccuracy();
+```
 
 ### GetThrowingWeaponSpeed
 `public virtual float GetThrowingWeaponSpeed(WeaponComponentData attackerWeapon)`
 
-**Purpose:** Gets the current value of `throwing weapon speed`.
+**Purpose:** Reads and returns the `throwing weapon speed` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetThrowingWeaponSpeed(attackerWeapon);
+```
 
 ### GetDamageInterruptionThreshold
 `public virtual float GetDamageInterruptionThreshold()`
 
-**Purpose:** Gets the current value of `damage interruption threshold`.
+**Purpose:** Reads and returns the `damage interruption threshold` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetDamageInterruptionThreshold();
+```
 
 ### GetMountManeuver
 `public virtual float GetMountManeuver()`
 
-**Purpose:** Gets the current value of `mount maneuver`.
+**Purpose:** Reads and returns the `mount maneuver` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetMountManeuver();
+```
 
 ### GetMountSpeed
 `public virtual float GetMountSpeed()`
 
-**Purpose:** Gets the current value of `mount speed`.
+**Purpose:** Reads and returns the `mount speed` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetMountSpeed();
+```
 
 ### GetRangedHeadShotDamage
 `public virtual float GetRangedHeadShotDamage()`
 
-**Purpose:** Gets the current value of `ranged head shot damage`.
+**Purpose:** Reads and returns the `ranged head shot damage` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetRangedHeadShotDamage();
+```
 
 ### GetGoldOnKill
 `public virtual int GetGoldOnKill(float attackerValue, float victimValue)`
 
-**Purpose:** Gets the current value of `gold on kill`.
+**Purpose:** Reads and returns the `gold on kill` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetGoldOnKill(0, 0);
+```
 
 ### GetGoldOnAssist
 `public virtual int GetGoldOnAssist()`
 
-**Purpose:** Gets the current value of `gold on assist`.
+**Purpose:** Reads and returns the `gold on assist` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetGoldOnAssist();
+```
 
 ### GetRewardedGoldOnAssist
 `public virtual int GetRewardedGoldOnAssist()`
 
-**Purpose:** Gets the current value of `rewarded gold on assist`.
+**Purpose:** Reads and returns the `rewarded gold on assist` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetRewardedGoldOnAssist();
+```
 
 ### GetIsTeamRewardedOnDeath
 `public virtual bool GetIsTeamRewardedOnDeath()`
 
-**Purpose:** Gets the current value of `is team rewarded on death`.
+**Purpose:** Reads and returns the `is team rewarded on death` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetIsTeamRewardedOnDeath();
+```
 
 ### CalculateRewardedGoldOnDeath
 `public virtual void CalculateRewardedGoldOnDeath(Agent agent, List<ValueTuple<MissionPeer, int>> teamMembers)`
 
-**Purpose:** Handles logic related to `calculate rewarded gold on death`.
+**Purpose:** Calculates the current value or result of `rewarded gold on death`.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+mPPerkEffectBase.CalculateRewardedGoldOnDeath(agent, list<ValueTuple<MissionPeer, 0);
+```
 
 ### GetDrivenPropertyBonus
 `public virtual float GetDrivenPropertyBonus(DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Gets the current value of `driven property bonus`.
+**Purpose:** Reads and returns the `driven property bonus` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetDrivenPropertyBonus(drivenProperty, 0);
+```
 
 ### GetEncumbrance
 `public virtual float GetEncumbrance(bool isOnBody)`
 
-**Purpose:** Gets the current value of `encumbrance`.
+**Purpose:** Reads and returns the `encumbrance` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkEffectBase from the subsystem API first
+MPPerkEffectBase mPPerkEffectBase = ...;
+var result = mPPerkEffectBase.GetEncumbrance(false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPPerkEffectBase();
+// Typically obtained from a subsystem API or factory
+MPPerkEffectBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

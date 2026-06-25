@@ -1,13 +1,7 @@
 ---
 title: "CraftingCampaignBehavior"
+description: "Auto-generated class reference for CraftingCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -37,135 +31,286 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.RegisterEvents();
+```
 
 ### IsOpened
 `public bool IsOpened(CraftingPiece craftingPiece, CraftingTemplate craftingTemplate)`
 
-**Purpose:** Handles logic related to `is opened`.
+**Purpose:** Determines whether the current object is in the `opened` state or condition.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.IsOpened(craftingPiece, craftingTemplate);
+```
 
 ### GetCraftingDifficulty
 `public int GetCraftingDifficulty(WeaponDesign weaponDesign)`
 
-**Purpose:** Gets the current value of `crafting difficulty`.
+**Purpose:** Reads and returns the `crafting difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.GetCraftingDifficulty(weaponDesign);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### CanHeroUsePart
 `public bool CanHeroUsePart(Hero hero, CraftingPiece craftingPiece)`
 
-**Purpose:** Checks whether the current object can `hero use part`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero use part`.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.CanHeroUsePart(hero, craftingPiece);
+```
 
 ### GetHeroCraftingStamina
 `public int GetHeroCraftingStamina(Hero hero)`
 
-**Purpose:** Gets the current value of `hero crafting stamina`.
+**Purpose:** Reads and returns the `hero crafting stamina` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.GetHeroCraftingStamina(hero);
+```
 
 ### SetHeroCraftingStamina
 `public void SetHeroCraftingStamina(Hero hero, int value)`
 
-**Purpose:** Sets the value or state of `hero crafting stamina`.
+**Purpose:** Assigns a new value to `hero crafting stamina` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.SetHeroCraftingStamina(hero, 0);
+```
 
 ### SetCraftedWeaponName
 `public void SetCraftedWeaponName(ItemObject craftedWeaponItem, TextObject name)`
 
-**Purpose:** Sets the value or state of `crafted weapon name`.
+**Purpose:** Assigns a new value to `crafted weapon name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.SetCraftedWeaponName(craftedWeaponItem, name);
+```
 
 ### GetMaxHeroCraftingStamina
 `public int GetMaxHeroCraftingStamina(Hero hero)`
 
-**Purpose:** Gets the current value of `max hero crafting stamina`.
+**Purpose:** Reads and returns the `max hero crafting stamina` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.GetMaxHeroCraftingStamina(hero);
+```
 
 ### DoRefinement
 `public void DoRefinement(Hero hero, Crafting.RefiningFormula refineFormula)`
 
-**Purpose:** Handles logic related to `do refinement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.DoRefinement(hero, refineFormula);
+```
 
 ### DoSmelting
 `public void DoSmelting(Hero hero, EquipmentElement equipmentElement)`
 
-**Purpose:** Handles logic related to `do smelting`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.DoSmelting(hero, equipmentElement);
+```
 
 ### CreateCraftedWeaponInFreeBuildMode
 `public ItemObject CreateCraftedWeaponInFreeBuildMode(Hero hero, WeaponDesign weaponDesign, ItemModifier weaponModifier = null)`
 
-**Purpose:** Creates a new `crafted weapon in free build mode` instance or object.
+**Purpose:** Constructs a new `crafted weapon in free build mode` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.CreateCraftedWeaponInFreeBuildMode(hero, weaponDesign, null);
+```
 
 ### CreateCraftedWeaponInCraftingOrderMode
 `public ItemObject CreateCraftedWeaponInCraftingOrderMode(Hero crafterHero, CraftingOrder craftingOrder, WeaponDesign weaponDesign)`
 
-**Purpose:** Creates a new `crafted weapon in crafting order mode` instance or object.
+**Purpose:** Constructs a new `crafted weapon in crafting order mode` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.CreateCraftedWeaponInCraftingOrderMode(crafterHero, craftingOrder, weaponDesign);
+```
 
 ### GetActiveCraftingHero
 `public Hero GetActiveCraftingHero()`
 
-**Purpose:** Gets the current value of `active crafting hero`.
+**Purpose:** Reads and returns the `active crafting hero` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.GetActiveCraftingHero();
+```
 
 ### SetActiveCraftingHero
 `public void SetActiveCraftingHero(Hero hero)`
 
-**Purpose:** Sets the value or state of `active crafting hero`.
+**Purpose:** Assigns a new value to `active crafting hero` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.SetActiveCraftingHero(hero);
+```
 
 ### CreateTownOrder
 `public void CreateTownOrder(Hero orderOwner, int orderSlot)`
 
-**Purpose:** Creates a new `town order` instance or object.
+**Purpose:** Constructs a new `town order` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.CreateTownOrder(orderOwner, 0);
+```
 
 ### CreateCustomOrderForHero
 `public CraftingOrder CreateCustomOrderForHero(Hero orderOwner, float orderDifficulty = -1f, WeaponDesign weaponDesign = null, CraftingTemplate craftingTemplate = null)`
 
-**Purpose:** Creates a new `custom order for hero` instance or object.
+**Purpose:** Constructs a new `custom order for hero` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.CreateCustomOrderForHero(orderOwner, 0, null, null);
+```
 
 ### GetOrderResult
 `public void GetOrderResult(CraftingOrder craftingOrder, ItemObject craftedItem, out bool isSucceed, out TextObject orderRemark, out TextObject orderResult, out int finalReward)`
 
-**Purpose:** Gets the current value of `order result`.
+**Purpose:** Reads and returns the `order result` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.GetOrderResult(craftingOrder, craftedItem, isSucceed, orderRemark, orderResult, finalReward);
+```
 
 ### CompleteOrder
 `public void CompleteOrder(Town town, CraftingOrder craftingOrder, ItemObject craftedItem, Hero completerHero)`
 
-**Purpose:** Handles logic related to `complete order`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.CompleteOrder(town, craftingOrder, craftedItem, completerHero);
+```
 
 ### GetCurrentItemModifier
 `public ItemModifier GetCurrentItemModifier()`
 
-**Purpose:** Gets the current value of `current item modifier`.
+**Purpose:** Reads and returns the `current item modifier` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.GetCurrentItemModifier();
+```
 
 ### SetCurrentItemModifier
 `public void SetCurrentItemModifier(ItemModifier modifier)`
 
-**Purpose:** Sets the value or state of `current item modifier`.
+**Purpose:** Assigns a new value to `current item modifier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.SetCurrentItemModifier(modifier);
+```
 
 ### CancelCustomOrder
 `public void CancelCustomOrder(Town town, CraftingOrder craftingOrder)`
 
-**Purpose:** Checks whether the current object can `cel custom order`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel custom order`.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.CancelCustomOrder(town, craftingOrder);
+```
 
 ### IsThereAvailableSlot
 `public bool IsThereAvailableSlot()`
 
-**Purpose:** Handles logic related to `is there available slot`.
+**Purpose:** Determines whether the current object is in the `there available slot` state or condition.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.IsThereAvailableSlot();
+```
 
 ### GetAvailableSlot
 `public int GetAvailableSlot()`
 
-**Purpose:** Gets the current value of `available slot`.
+**Purpose:** Reads and returns the `available slot` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingCampaignBehavior from the subsystem API first
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+var result = craftingCampaignBehavior.GetAvailableSlot();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingCampaignBehavior();
-value.SyncData(dataStore);
+// Typically call this after obtaining an instance from the subsystem API
+CraftingCampaignBehavior craftingCampaignBehavior = ...;
+craftingCampaignBehavior.SyncData(dataStore);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

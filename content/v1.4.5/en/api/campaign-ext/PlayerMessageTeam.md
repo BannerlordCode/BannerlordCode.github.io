@@ -1,20 +1,14 @@
 ---
 title: "PlayerMessageTeam"
+description: "Auto-generated class reference for PlayerMessageTeam."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerMessageTeam`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerMessageTeam
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class PlayerMessageTeam : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/PlayerMessageTeam.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/PlayerMessageTeam.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new PlayerMessageTeam();
+// Obtain an instance from the relevant subsystem API
+PlayerMessageTeam instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SaveOutput"
+description: "Auto-generated class reference for SaveOutput."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveOutput`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveOutput
 
 **Namespace:** TaleWorlds.SaveSystem.Save
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveOutput`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveOutput.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveOutput.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### PrintStatus
 `public void PrintStatus()`
 
-**Purpose:** Handles logic related to `print status`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SaveOutput from the subsystem API first
+SaveOutput saveOutput = ...;
+saveOutput.PrintStatus();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SaveOutput();
-value.PrintStatus();
+// Typically call this after obtaining an instance from the subsystem API
+SaveOutput saveOutput = ...;
+saveOutput.PrintStatus();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

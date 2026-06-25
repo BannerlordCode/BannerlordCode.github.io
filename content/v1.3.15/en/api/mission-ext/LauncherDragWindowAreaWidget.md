@@ -1,13 +1,7 @@
 ---
 title: "LauncherDragWindowAreaWidget"
+description: "Auto-generated class reference for LauncherDragWindowAreaWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherDragWindowAreaWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherDragWindowAreaWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
@@ -27,9 +21,10 @@ Treat `LauncherDragWindowAreaWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new LauncherDragWindowAreaWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+LauncherDragWindowAreaWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

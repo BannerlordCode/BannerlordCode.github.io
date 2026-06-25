@@ -1,20 +1,14 @@
 ---
 title: "CardSelectionPopupButtonWidget"
+description: "Auto-generated class reference for CardSelectionPopupButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CardSelectionPopupButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CardSelectionPopupButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CardSelectionPopupButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CardSelectionPopupButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CardSelectionPopupButtonWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `CardSelectionPopupButtonWidget` as a Widget-style extension point: first 
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CardSelectionPopupButtonWidget from the subsystem API first
+CardSelectionPopupButtonWidget cardSelectionPopupButtonWidget = ...;
+cardSelectionPopupButtonWidget.SetState("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CardSelectionPopupButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CardSelectionPopupButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

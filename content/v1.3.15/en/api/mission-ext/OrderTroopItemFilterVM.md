@@ -1,13 +1,7 @@
 ---
 title: "OrderTroopItemFilterVM"
+description: "Auto-generated class reference for OrderTroopItemFilterVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderTroopItemFilterVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderTroopItemFilterVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ## Usage Example
 
 ```csharp
-var value = new OrderTroopItemFilterVM();
+// Obtain an instance from the relevant subsystem API
+OrderTroopItemFilterVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

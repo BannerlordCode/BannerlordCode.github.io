@@ -1,20 +1,14 @@
 ---
 title: "HeroDeathProbabilityCalculationModel"
+description: "HeroDeathProbabilityCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroDeathProbabilityCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroDeathProbabilityCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class HeroDeathProbabilityCalculationModel : MBGameModel<HeroDeathProbabilityCalculationModel>`
 **Base:** `MBGameModel<HeroDeathProbabilityCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HeroDeathProbabilityCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HeroDeathProbabilityCalculationModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "HeroDeathProbabilityCalculationModel"
 ### CalculateHeroDeathProbability
 `public abstract float CalculateHeroDeathProbability(Hero hero)`
 
-**用途 / Purpose:** 处理 `calculate hero death probability` 相关逻辑。
+**用途 / Purpose:** 计算「hero death probability」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeathProbabilityCalculationModel 实例
+HeroDeathProbabilityCalculationModel heroDeathProbabilityCalculationModel = ...;
+var result = heroDeathProbabilityCalculationModel.CalculateHeroDeathProbability(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomHeroDeathProbabilityCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+HeroDeathProbabilityCalculationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

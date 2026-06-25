@@ -1,13 +1,7 @@
 ---
 title: "GridLayout"
+description: "Auto-generated class reference for GridLayout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GridLayout`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GridLayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var value = new GridLayout();
+// Obtain an instance from the relevant subsystem API
+GridLayout instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

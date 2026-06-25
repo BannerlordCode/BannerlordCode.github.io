@@ -1,20 +1,14 @@
 ---
 title: "BehaviorReserve"
+description: "Auto-generated class reference for BehaviorReserve."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorReserve`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorReserve
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorReserve : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorReserve.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorReserve.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorReserve from the subsystem API first
+BehaviorReserve behaviorReserve = ...;
+behaviorReserve.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorReserve();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorReserve behaviorReserve = ...;
+behaviorReserve.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

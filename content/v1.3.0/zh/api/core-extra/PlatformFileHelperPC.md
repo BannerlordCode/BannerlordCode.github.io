@@ -1,13 +1,7 @@
 ---
 title: "PlatformFileHelperPC"
+description: "PlatformFileHelperPC 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlatformFileHelperPC`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformFileHelperPC
 
 **Namespace:** TaleWorlds.Library
@@ -29,85 +23,176 @@ title: "PlatformFileHelperPC"
 ### SaveFile
 `public SaveResult SaveFile(PlatformFilePath path, byte data)`
 
-**用途 / Purpose:** 保存 `file` 数据。
+**用途 / Purpose:** 将 「file」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.SaveFile(path, 0);
+```
 
 ### SaveFileString
 `public SaveResult SaveFileString(PlatformFilePath path, string data)`
 
-**用途 / Purpose:** 保存 `file string` 数据。
+**用途 / Purpose:** 将 「file string」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.SaveFileString(path, "example");
+```
 
 ### SaveFileAsync
 `public Task<SaveResult> SaveFileAsync(PlatformFilePath path, byte data)`
 
-**用途 / Purpose:** 保存 `file async` 数据。
+**用途 / Purpose:** 将 「file async」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.SaveFileAsync(path, 0);
+```
 
 ### SaveFileStringAsync
 `public Task<SaveResult> SaveFileStringAsync(PlatformFilePath path, string data)`
 
-**用途 / Purpose:** 保存 `file string async` 数据。
+**用途 / Purpose:** 将 「file string async」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.SaveFileStringAsync(path, "example");
+```
 
 ### AppendLineToFileString
 `public SaveResult AppendLineToFileString(PlatformFilePath path, string data)`
 
-**用途 / Purpose:** 处理 `append line to file string` 相关逻辑。
+**用途 / Purpose:** 将「line to file string」追加到当前集合或序列末尾。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.AppendLineToFileString(path, "example");
+```
 
 ### GetFileFullPath
 `public string GetFileFullPath(PlatformFilePath filePath)`
 
-**用途 / Purpose:** 获取 `file full path` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file full path」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFileFullPath(filePath);
+```
 
 ### FileExists
 `public bool FileExists(PlatformFilePath path)`
 
-**用途 / Purpose:** 处理 `file exists` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.FileExists(path);
+```
 
 ### GetFileContentStringAsync
 `public async Task<string> GetFileContentStringAsync(PlatformFilePath path)`
 
-**用途 / Purpose:** 获取 `file content string async` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file content string async」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFileContentStringAsync(path);
+```
 
 ### GetFileContentString
 `public string GetFileContentString(PlatformFilePath path)`
 
-**用途 / Purpose:** 获取 `file content string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file content string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFileContentString(path);
+```
 
 ### GetFileContent
 `public byte GetFileContent(PlatformFilePath path)`
 
-**用途 / Purpose:** 获取 `file content` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file content」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFileContent(path);
+```
 
 ### DeleteFile
 `public bool DeleteFile(PlatformFilePath path)`
 
-**用途 / Purpose:** 处理 `delete file` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.DeleteFile(path);
+```
 
 ### CreateDirectory
 `public void CreateDirectory(PlatformDirectoryPath path)`
 
-**用途 / Purpose:** 创建一个 `directory` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「directory」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+platformFileHelperPC.CreateDirectory(path);
+```
 
 ### GetFiles
 `public PlatformFilePath GetFiles(PlatformDirectoryPath path, string searchPattern, SearchOption searchOption)`
 
-**用途 / Purpose:** 获取 `files` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「files」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFiles(path, "example", searchOption);
+```
 
 ### RenameFile
 `public void RenameFile(PlatformFilePath filePath, string newName)`
 
-**用途 / Purpose:** 处理 `rename file` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+platformFileHelperPC.RenameFile(filePath, "example");
+```
 
 ### GetError
 `public string GetError()`
 
-**用途 / Purpose:** 获取 `error` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「error」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlatformFileHelperPC 实例
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetError();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlatformFileHelperPC();
-value.SaveFile(path, 0);
+// 通常从对应子系统 API 获取实例后调用
+PlatformFileHelperPC platformFileHelperPC = ...;
+platformFileHelperPC.SaveFile(path, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

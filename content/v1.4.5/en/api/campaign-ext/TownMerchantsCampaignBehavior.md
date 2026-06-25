@@ -1,20 +1,14 @@
 ---
 title: "TownMerchantsCampaignBehavior"
+description: "Auto-generated class reference for TownMerchantsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownMerchantsCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownMerchantsCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class TownMerchantsCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/TownMerchantsCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/TownMerchantsCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TownMerchantsCampaignBehavior from the subsystem API first
+TownMerchantsCampaignBehavior townMerchantsCampaignBehavior = ...;
+townMerchantsCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of TownMerchantsCampaignBehavior from the subsystem API first
+TownMerchantsCampaignBehavior townMerchantsCampaignBehavior = ...;
+townMerchantsCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TownMerchantsCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+TownMerchantsCampaignBehavior townMerchantsCampaignBehavior = ...;
+townMerchantsCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

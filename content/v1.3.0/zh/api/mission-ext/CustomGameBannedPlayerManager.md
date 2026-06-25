@@ -1,13 +1,7 @@
 ---
 title: "CustomGameBannedPlayerManager"
+description: "CustomGameBannedPlayerManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomGameBannedPlayerManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomGameBannedPlayerManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,12 +30,22 @@ title: "CustomGameBannedPlayerManager"
 ### AddBannedPlayer
 `public static void AddBannedPlayer(PlayerId playerId, int banDueTime)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `banned player`。
+**用途 / Purpose:** 将 「banned player」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CustomGameBannedPlayerManager.AddBannedPlayer(playerId, 0);
+```
 
 ### IsUserBanned
 `public static bool IsUserBanned(PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `is user banned` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「user banned」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+CustomGameBannedPlayerManager.IsUserBanned(playerId);
+```
 
 ## 使用示例
 
@@ -51,4 +55,4 @@ var manager = CustomGameBannedPlayerManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

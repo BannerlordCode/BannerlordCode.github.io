@@ -1,24 +1,18 @@
 ---
 title: "TextDrawObject"
+description: "Auto-generated class reference for TextDrawObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextDrawObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextDrawObject
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct TextDrawObject : IDrawObject`
 **Base:** `IDrawObject`
-**Area:** campaign-ext
+**File:** `TaleWorlds.TwoDimension/TextDrawObject.cs`
 
 ## Overview
 
-`TextDrawObject` lives in `TaleWorlds.TwoDimension`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TextDrawObject` lives in `TaleWorlds.TwoDimension` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,21 +29,30 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Create
 `public static TextDrawObject Create(float vertices, float uvs, uint indices, float text_MeshWidth, float text_MeshHeight, in Rectangle2D rectangle)`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+TextDrawObject.Create(0, 0, 0, 0, 0, rectangle);
+```
 
 ### ConvertToHashInPlace
 `public void ConvertToHashInPlace()`
 
-**Purpose:** Handles logic related to `convert to hash in place`.
+**Purpose:** Converts `to hash in place` into another representation or type.
+
+```csharp
+// Obtain an instance of TextDrawObject from the subsystem API first
+TextDrawObject textDrawObject = ...;
+textDrawObject.ConvertToHashInPlace();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TextDrawObject.Create(0, 0, 0, 0, 0, rectangle);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

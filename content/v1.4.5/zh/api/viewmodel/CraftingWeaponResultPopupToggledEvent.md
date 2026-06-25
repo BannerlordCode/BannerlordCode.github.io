@@ -1,20 +1,14 @@
 ---
 title: "CraftingWeaponResultPopupToggledEvent"
+description: "CraftingWeaponResultPopupToggledEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingWeaponResultPopupToggledEvent`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingWeaponResultPopupToggledEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingWeaponResultPopupToggledEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/CraftingWeaponResultPopupToggledEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/CraftingWeaponResultPopupToggledEvent.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "CraftingWeaponResultPopupToggledEvent"
 ## 使用示例
 
 ```csharp
-var example = new CraftingWeaponResultPopupToggledEvent();
+// 从对应子系统 API 获取实例
+CraftingWeaponResultPopupToggledEvent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

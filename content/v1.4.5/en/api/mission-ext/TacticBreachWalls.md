@@ -1,20 +1,14 @@
 ---
 title: "TacticBreachWalls"
+description: "Auto-generated class reference for TacticBreachWalls."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticBreachWalls`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticBreachWalls
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticBreachWalls : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticBreachWalls.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticBreachWalls.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetRetreatThresholdRatio
 `public float GetRetreatThresholdRatio(List<SiegeLane> lanes, int insideFormationCount)`
 
-**Purpose:** Gets the current value of `retreat threshold ratio`.
+**Purpose:** Reads and returns the `retreat threshold ratio` value held by the current object.
+
+```csharp
+// Obtain an instance of TacticBreachWalls from the subsystem API first
+TacticBreachWalls tacticBreachWalls = ...;
+var result = tacticBreachWalls.GetRetreatThresholdRatio(lanes, 0);
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticBreachWalls from the subsystem API first
+TacticBreachWalls tacticBreachWalls = ...;
+tacticBreachWalls.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticBreachWalls();
-value.GetRetreatThresholdRatio(lanes, 0);
+// Typically call this after obtaining an instance from the subsystem API
+TacticBreachWalls tacticBreachWalls = ...;
+tacticBreachWalls.GetRetreatThresholdRatio(lanes, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

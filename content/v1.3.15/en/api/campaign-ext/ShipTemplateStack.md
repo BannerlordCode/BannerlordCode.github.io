@@ -1,13 +1,7 @@
 ---
 title: "ShipTemplateStack"
+description: "Auto-generated class reference for ShipTemplateStack."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipTemplateStack`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipTemplateStack
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var value = new ShipTemplateStack();
+// Obtain an instance from the relevant subsystem API
+ShipTemplateStack instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CommandLineFunctionality"
+description: "Auto-generated class reference for CommandLineFunctionality."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommandLineFunctionality`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommandLineFunctionality
 
 **Namespace:** TaleWorlds.Library
@@ -29,27 +23,53 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CollectCommandLineFunctions
 `public static List<string> CollectCommandLineFunctions()`
 
-**Purpose:** Handles logic related to `collect command line functions`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CommandLineFunctionality.CollectCommandLineFunctions();
+```
 
 ### HasFunctionForCommand
 `public static bool HasFunctionForCommand(string command)`
 
-**Purpose:** Checks whether the current object has/contains `function for command`.
+**Purpose:** Determines whether the current object already holds `function for command`.
+
+```csharp
+// Static call; no instance required
+CommandLineFunctionality.HasFunctionForCommand("example");
+```
 
 ### CallFunction
 `public static string CallFunction(string concatName, string concatArguments, out bool found)`
 
-**Purpose:** Handles logic related to `call function`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CommandLineFunctionality.CallFunction("example", "example", found);
+```
 
 ### CallFunction
 `public static string CallFunction(string concatName, List<string> argList, out bool found)`
 
-**Purpose:** Handles logic related to `call function`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CommandLineFunctionality.CallFunction("example", argList, found);
+```
 
 ### Call
 `public string Call(List<string> objects)`
 
-**Purpose:** Handles logic related to `call`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CommandLineFunctionality from the subsystem API first
+CommandLineFunctionality commandLineFunctionality = ...;
+var result = commandLineFunctionality.Call(objects);
+```
 
 ## Usage Example
 
@@ -59,4 +79,4 @@ CommandLineFunctionality.CollectCommandLineFunctions();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

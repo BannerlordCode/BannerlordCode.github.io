@@ -1,18 +1,12 @@
 ---
 title: "MapNavigationItemType"
+description: "Auto-generated class reference for MapNavigationItemType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNavigationItemType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationItemType
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum MapNavigationItemType`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/MapNavigationItemType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new MapNavigationItemType();
+// Obtain an instance from the relevant subsystem API
+MapNavigationItemType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

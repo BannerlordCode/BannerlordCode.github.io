@@ -1,18 +1,12 @@
 ---
 title: "IThumbnailCache"
+description: "Auto-generated class reference for IThumbnailCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IThumbnailCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IThumbnailCache`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/Tableaus/Thumbnails/IThumbnailCache.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ## Usage Example
 
 ```csharp
-IThumbnailCache implementation = GetThumbnailCacheImplementation();
+// Usually obtained through DI or a factory method
+IIThumbnailCache service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

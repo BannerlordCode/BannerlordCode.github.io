@@ -1,20 +1,14 @@
 ---
 title: "MarriageOfferCampaignBehavior"
+description: "Auto-generated class reference for MarriageOfferCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarriageOfferCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageOfferCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MarriageOfferCampaignBehavior : CampaignBehaviorBase, IMarriageOfferCampaignBehavior, ICampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/MarriageOfferCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/MarriageOfferCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,55 +23,110 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+marriageOfferCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+marriageOfferCampaignBehavior.SyncData(dataStore);
+```
 
 ### CreateMarriageOffer
 `public void CreateMarriageOffer(Hero currentOfferedPlayerClanHero, Hero currentOfferedOtherClanHero)`
 
-**Purpose:** Creates a new `marriage offer` instance or object.
+**Purpose:** Constructs a new `marriage offer` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+marriageOfferCampaignBehavior.CreateMarriageOffer(currentOfferedPlayerClanHero, currentOfferedOtherClanHero);
+```
 
 ### GetMarriageAcceptedConsequences
 `public MBBindingList<TextObject> GetMarriageAcceptedConsequences()`
 
-**Purpose:** Gets the current value of `marriage accepted consequences`.
+**Purpose:** Reads and returns the `marriage accepted consequences` value held by the current object.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+var result = marriageOfferCampaignBehavior.GetMarriageAcceptedConsequences();
+```
 
 ### OnMarriageOfferAcceptedOnPopUp
 `public void OnMarriageOfferAcceptedOnPopUp()`
 
-**Purpose:** Called when the `marriage offer accepted on pop up` event is raised.
+**Purpose:** Invoked when the `marriage offer accepted on pop up` event is raised.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+marriageOfferCampaignBehavior.OnMarriageOfferAcceptedOnPopUp();
+```
 
 ### OnMarriageOfferedToPlayer
 `public void OnMarriageOfferedToPlayer(Hero suitor, Hero maiden)`
 
-**Purpose:** Called when the `marriage offered to player` event is raised.
+**Purpose:** Invoked when the `marriage offered to player` event is raised.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+marriageOfferCampaignBehavior.OnMarriageOfferedToPlayer(suitor, maiden);
+```
 
 ### OnMarriageOfferDeclinedOnPopUp
 `public void OnMarriageOfferDeclinedOnPopUp()`
 
-**Purpose:** Called when the `marriage offer declined on pop up` event is raised.
+**Purpose:** Invoked when the `marriage offer declined on pop up` event is raised.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+marriageOfferCampaignBehavior.OnMarriageOfferDeclinedOnPopUp();
+```
 
 ### OnMarriageOfferCanceled
 `public void OnMarriageOfferCanceled(Hero suitor, Hero maiden)`
 
-**Purpose:** Called when the `marriage offer canceled` event is raised.
+**Purpose:** Invoked when the `marriage offer canceled` event is raised.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+marriageOfferCampaignBehavior.OnMarriageOfferCanceled(suitor, maiden);
+```
 
 ### IsHeroEngaged
 `public bool IsHeroEngaged(Hero hero)`
 
-**Purpose:** Handles logic related to `is hero engaged`.
+**Purpose:** Determines whether the current object is in the `hero engaged` state or condition.
+
+```csharp
+// Obtain an instance of MarriageOfferCampaignBehavior from the subsystem API first
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+var result = marriageOfferCampaignBehavior.IsHeroEngaged(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MarriageOfferCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+MarriageOfferCampaignBehavior marriageOfferCampaignBehavior = ...;
+marriageOfferCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

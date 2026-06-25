@@ -1,20 +1,14 @@
 ---
 title: "StandingPointWithTeamLimit"
+description: "StandingPointWithTeamLimit 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StandingPointWithTeamLimit`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandingPointWithTeamLimit
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StandingPointWithTeamLimit : StandingPoint`
 **Base:** `StandingPoint`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StandingPointWithTeamLimit.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StandingPointWithTeamLimit.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "StandingPointWithTeamLimit"
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `is disabled for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointWithTeamLimit 实例
+StandingPointWithTeamLimit standingPointWithTeamLimit = ...;
+var result = standingPointWithTeamLimit.IsDisabledForAgent(agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StandingPointWithTeamLimit();
-value.IsDisabledForAgent(agent);
+// 通常从对应子系统 API 获取实例后调用
+StandingPointWithTeamLimit standingPointWithTeamLimit = ...;
+standingPointWithTeamLimit.IsDisabledForAgent(agent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

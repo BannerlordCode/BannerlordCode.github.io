@@ -1,13 +1,7 @@
 ---
 title: "BasicLeaveMissionLogic"
+description: "Auto-generated class reference for BasicLeaveMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasicLeaveMissionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BasicLeaveMissionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,19 +23,31 @@ Treat `BasicLeaveMissionLogic` as a Logic-style extension point: first identify 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BasicLeaveMissionLogic from the subsystem API first
+BasicLeaveMissionLogic basicLeaveMissionLogic = ...;
+var result = basicLeaveMissionLogic.MissionEnded(missionResult);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of BasicLeaveMissionLogic from the subsystem API first
+BasicLeaveMissionLogic basicLeaveMissionLogic = ...;
+var result = basicLeaveMissionLogic.OnEndMissionRequest(canPlayerLeave);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BasicLeaveMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<BasicLeaveMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

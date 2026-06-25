@@ -1,20 +1,14 @@
 ---
 title: "IMoveableSiegeWeapon"
+description: "Auto-generated class reference for IMoveableSiegeWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMoveableSiegeWeapon`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMoveableSiegeWeapon
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMoveableSiegeWeapon`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMoveableSiegeWeapon.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMoveableSiegeWeapon.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IMoveableSiegeWeapon implementation = GetMoveableSiegeWeaponImplementation();
+// Usually obtained through DI or a factory method
+IIMoveableSiegeWeapon service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

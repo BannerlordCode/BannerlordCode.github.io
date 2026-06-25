@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletCrosshair"
+description: "Auto-generated class reference for MissionGauntletCrosshair."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletCrosshair`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletCrosshair
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission` to place it i
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletCrosshair from the subsystem API first
+MissionGauntletCrosshair missionGauntletCrosshair = ...;
+missionGauntletCrosshair.OnMissionScreenTick(0);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletCrosshair from the subsystem API first
+MissionGauntletCrosshair missionGauntletCrosshair = ...;
+missionGauntletCrosshair.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletCrosshair from the subsystem API first
+MissionGauntletCrosshair missionGauntletCrosshair = ...;
+missionGauntletCrosshair.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletCrosshair();
-value.OnMissionScreenTick(0);
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletCrosshair missionGauntletCrosshair = ...;
+missionGauntletCrosshair.OnMissionScreenTick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

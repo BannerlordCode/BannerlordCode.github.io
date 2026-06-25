@@ -1,20 +1,14 @@
 ---
 title: "Blow"
+description: "Auto-generated class reference for Blow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Blow`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Blow
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct Blow`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Blow.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Blow.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsBlowCrit
 `public bool IsBlowCrit(int maxHitPointsOfVictim)`
 
-**Purpose:** Handles logic related to `is blow crit`.
+**Purpose:** Determines whether the current object is in the `blow crit` state or condition.
+
+```csharp
+// Obtain an instance of Blow from the subsystem API first
+Blow blow = ...;
+var result = blow.IsBlowCrit(0);
+```
 
 ### IsBlowLow
 `public bool IsBlowLow(int maxHitPointsOfVictim)`
 
-**Purpose:** Handles logic related to `is blow low`.
+**Purpose:** Determines whether the current object is in the `blow low` state or condition.
+
+```csharp
+// Obtain an instance of Blow from the subsystem API first
+Blow blow = ...;
+var result = blow.IsBlowLow(0);
+```
 
 ### IsHeadShot
 `public bool IsHeadShot()`
 
-**Purpose:** Handles logic related to `is head shot`.
+**Purpose:** Determines whether the current object is in the `head shot` state or condition.
+
+```csharp
+// Obtain an instance of Blow from the subsystem API first
+Blow blow = ...;
+var result = blow.IsHeadShot();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Blow();
-value.IsBlowCrit(0);
+// Typically call this after obtaining an instance from the subsystem API
+Blow blow = ...;
+blow.IsBlowCrit(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

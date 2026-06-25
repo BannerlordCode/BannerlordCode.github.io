@@ -1,20 +1,14 @@
 ---
 title: "Activity"
+description: "Activity 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Activity`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Activity
 
 **Namespace:** TaleWorlds.ActivitySystem
 **Module:** TaleWorlds.ActivitySystem
 **Type:** `public class Activity`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/Activity.cs`
+**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/Activity.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "Activity"
 ## 使用示例
 
 ```csharp
-var example = new Activity();
+// 从对应子系统 API 获取实例
+Activity instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

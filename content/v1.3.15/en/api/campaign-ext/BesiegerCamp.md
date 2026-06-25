@@ -1,13 +1,7 @@
 ---
 title: "BesiegerCamp"
+description: "Auto-generated class reference for BesiegerCamp."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BesiegerCamp`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BesiegerCamp
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -44,85 +38,176 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### GetInvolvedPartiesForEventType
 `public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**Purpose:** Gets the current value of `involved parties for event type`.
+**Purpose:** Reads and returns the `involved parties for event type` value held by the current object.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+var result = besiegerCamp.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
+```
 
 ### GetNextInvolvedPartyForEventType
 `public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**Purpose:** Gets the current value of `next involved party for event type`.
+**Purpose:** Reads and returns the `next involved party for event type` value held by the current object.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+var result = besiegerCamp.GetNextInvolvedPartyForEventType(partyIndex, mapEvent.BattleTypes.Siege);
+```
 
 ### HasInvolvedPartyForEventType
 `public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**Purpose:** Checks whether the current object has/contains `involved party for event type`.
+**Purpose:** Determines whether the current object already holds `involved party for event type`.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+var result = besiegerCamp.HasInvolvedPartyForEventType(party, mapEvent.BattleTypes.Siege);
+```
 
 ### IsBesiegerSideParty
 `public bool IsBesiegerSideParty(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `is besieger side party`.
+**Purpose:** Determines whether the current object is in the `besieger side party` state or condition.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+var result = besiegerCamp.IsBesiegerSideParty(mobileParty);
+```
 
 ### InitializeSiegeEventSide
 `public void InitializeSiegeEventSide()`
 
-**Purpose:** Initializes the state, resources, or bindings for `siege event side`.
+**Purpose:** Prepares the resources, state, or bindings required by `siege event side`.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.InitializeSiegeEventSide();
+```
 
 ### OnTroopsKilledOnSide
 `public void OnTroopsKilledOnSide(int killCount)`
 
-**Purpose:** Called when the `troops killed on side` event is raised.
+**Purpose:** Invoked when the `troops killed on side` event is raised.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.OnTroopsKilledOnSide(0);
+```
 
 ### SetSiegeStrategy
 `public void SetSiegeStrategy(SiegeStrategy strategy)`
 
-**Purpose:** Sets the value or state of `siege strategy`.
+**Purpose:** Assigns a new value to `siege strategy` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.SetSiegeStrategy(strategy);
+```
 
 ### RemoveAllSiegeParties
 `public void RemoveAllSiegeParties()`
 
 **Purpose:** Removes `all siege parties` from the current collection or state.
 
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.RemoveAllSiegeParties();
+```
+
 ### AddSiegeEngineMissile
 `public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)`
 
 **Purpose:** Adds `siege engine missile` to the current collection or state.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.AddSiegeEngineMissile(missile);
+```
 
 ### RemoveDeprecatedMissiles
 `public void RemoveDeprecatedMissiles()`
 
 **Purpose:** Removes `deprecated missiles` from the current collection or state.
 
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.RemoveDeprecatedMissiles();
+```
+
 ### BombardHitWalls
 `public void BombardHitWalls(SiegeEngineType attackerEngineType, int wallIndex)`
 
-**Purpose:** Handles logic related to `bombard hit walls`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.BombardHitWalls(attackerEngineType, 0);
+```
 
 ### GetAttackTarget
 `public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)`
 
-**Purpose:** Gets the current value of `attack target`.
+**Purpose:** Reads and returns the `attack target` value held by the current object.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.GetAttackTarget(siegeEventSide, siegeEngine, 0, targetType, targetIndex);
+```
 
 ### FinalizeSiegeEvent
 `public void FinalizeSiegeEvent()`
 
-**Purpose:** Handles logic related to `finalize siege event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.FinalizeSiegeEvent();
+```
 
 ### OnAfterLoad
 `public void OnAfterLoad()`
 
-**Purpose:** Called when the `after load` event is raised.
+**Purpose:** Invoked when the `after load` event is raised.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.OnAfterLoad();
+```
 
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**Purpose:** Sets the value or state of `position after map change`.
+**Purpose:** Assigns a new value to `position after map change` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BesiegerCamp from the subsystem API first
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.SetPositionAfterMapChange(newPosition);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BesiegerCamp();
-value.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
+// Typically call this after obtaining an instance from the subsystem API
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

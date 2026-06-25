@@ -1,13 +1,7 @@
 ---
 title: "DefineSynchedMissionObjectTypeForMod"
+description: "Auto-generated class reference for DefineSynchedMissionObjectTypeForMod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefineSynchedMissionObjectTypeForMod`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefineSynchedMissionObjectTypeForMod
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new DefineSynchedMissionObjectTypeForMod();
+// Obtain an instance from the relevant subsystem API
+DefineSynchedMissionObjectTypeForMod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

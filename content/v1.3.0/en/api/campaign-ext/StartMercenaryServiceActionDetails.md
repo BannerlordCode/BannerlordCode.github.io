@@ -1,13 +1,7 @@
 ---
 title: "StartMercenaryServiceActionDetails"
+description: "Auto-generated class reference for StartMercenaryServiceActionDetails."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StartMercenaryServiceActionDetails`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StartMercenaryServiceActionDetails
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ## Usage Example
 
 ```csharp
-StartMercenaryServiceActionDetails example = StartMercenaryServiceActionDetails.Value;
+// Obtain an instance from the relevant subsystem API
+StartMercenaryServiceActionDetails instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

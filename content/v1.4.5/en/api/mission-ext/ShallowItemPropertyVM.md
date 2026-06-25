@@ -1,20 +1,14 @@
 ---
 title: "ShallowItemPropertyVM"
+description: "Auto-generated class reference for ShallowItemPropertyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShallowItemPropertyVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShallowItemPropertyVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ShallowItemPropertyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/ShallowItemPropertyVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/ShallowItemPropertyVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ShallowItemPropertyVM from the subsystem API first
+ShallowItemPropertyVM shallowItemPropertyVM = ...;
+shallowItemPropertyVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShallowItemPropertyVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ShallowItemPropertyVM shallowItemPropertyVM = ...;
+shallowItemPropertyVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

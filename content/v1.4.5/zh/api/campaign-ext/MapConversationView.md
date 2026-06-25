@@ -1,20 +1,14 @@
 ---
 title: "MapConversationView"
+description: "MapConversationView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapConversationView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapConversationView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationView.cs`
 
 ## 概述
 
@@ -36,29 +30,54 @@ title: "MapConversationView"
 ### ConversationPlayArgs
 `public struct ConversationPlayArgs(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**用途 / Purpose:** 处理 `conversation play args` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationView 实例
+MapConversationView mapConversationView = ...;
+var result = mapConversationView.ConversationPlayArgs("example", "example", "example", "example", "example");
+```
 
 ### SetConversationTableau
 `public void SetConversationTableau(MapConversationTableau tableau)`
 
-**用途 / Purpose:** 设置 `conversation tableau` 的值或状态。
+**用途 / Purpose:** 为 「conversation tableau」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationView 实例
+MapConversationView mapConversationView = ...;
+mapConversationView.SetConversationTableau(tableau);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationView 实例
+MapConversationView mapConversationView = ...;
+mapConversationView.Tick(0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationView 实例
+MapConversationView mapConversationView = ...;
+mapConversationView.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MapConversationView();
+// 从子系统 API 或场景中获取该视图
+MapConversationView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

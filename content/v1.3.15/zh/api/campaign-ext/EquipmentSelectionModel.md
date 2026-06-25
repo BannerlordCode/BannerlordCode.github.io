@@ -1,13 +1,7 @@
 ---
 title: "EquipmentSelectionModel"
+description: "EquipmentSelectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EquipmentSelectionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EquipmentSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ title: "EquipmentSelectionModel"
 ### GetEquipmentRostersForHeroComeOfAge
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
 
-**用途 / Purpose:** 获取 `equipment rosters for hero come of age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for hero come of age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(hero, false);
+```
 
 ### GetEquipmentRostersForHeroReachesTeenAge
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment rosters for hero reaches teen age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for hero reaches teen age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForHeroReachesTeenAge(hero);
+```
 
 ### GetEquipmentRostersForInitialChildrenGeneration
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment rosters for initial children generation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for initial children generation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForInitialChildrenGeneration(hero);
+```
 
 ### GetEquipmentRostersForDeliveredOffspring
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment rosters for delivered offspring` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for delivered offspring」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForDeliveredOffspring(hero);
+```
 
 ### GetEquipmentRostersForCompanion
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero companionHero, bool isCivilian)`
 
-**用途 / Purpose:** 获取 `equipment rosters for companion` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for companion」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForCompanion(companionHero, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEquipmentSelectionModel();
+// 通常通过子系统 API 或工厂获得派生实例
+EquipmentSelectionModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

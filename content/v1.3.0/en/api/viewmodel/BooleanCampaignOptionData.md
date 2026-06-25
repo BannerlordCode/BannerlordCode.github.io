@@ -1,13 +1,7 @@
 ---
 title: "BooleanCampaignOptionData"
+description: "Auto-generated class reference for BooleanCampaignOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BooleanCampaignOptionData`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BooleanCampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -29,14 +23,21 @@ Treat `BooleanCampaignOptionData` as a Data-style extension point: first identif
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**Purpose:** Gets the current value of `data type`.
+**Purpose:** Reads and returns the `data type` value held by the current object.
+
+```csharp
+// Obtain an instance of BooleanCampaignOptionData from the subsystem API first
+BooleanCampaignOptionData booleanCampaignOptionData = ...;
+var result = booleanCampaignOptionData.GetDataType();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BooleanCampaignOptionData();
+// This data object is usually returned by campaign/mission APIs
+BooleanCampaignOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

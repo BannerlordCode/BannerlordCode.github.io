@@ -1,18 +1,12 @@
 ---
 title: "IPlatformInvitationServices"
+description: "Auto-generated class reference for IPlatformInvitationServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IPlatformInvitationServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IPlatformInvitationServices
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** `class`
+**Type:** `public interface IPlatformInvitationServices`
 **Base:** none
 **File:** `TaleWorlds.PlatformService/IPlatformInvitationServices.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-IPlatformInvitationServices implementation = GetPlatformInvitationServicesImplementation();
+// Usually obtained through DI or a factory method
+IIPlatformInvitationServices service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

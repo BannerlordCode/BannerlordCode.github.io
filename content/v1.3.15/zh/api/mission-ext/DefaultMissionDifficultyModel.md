@@ -1,13 +1,7 @@
 ---
 title: "DefaultMissionDifficultyModel"
+description: "DefaultMissionDifficultyModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultMissionDifficultyModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultMissionDifficultyModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,13 @@ title: "DefaultMissionDifficultyModel"
 ### GetDamageMultiplierOfCombatDifficulty
 `public override float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
 
-**用途 / Purpose:** 获取 `damage multiplier of combat difficulty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「damage multiplier of combat difficulty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMissionDifficultyModel 实例
+DefaultMissionDifficultyModel defaultMissionDifficultyModel = ...;
+var result = defaultMissionDifficultyModel.GetDamageMultiplierOfCombatDifficulty(victimAgent, null);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultMissionDifficultyModel>(new MyDefaultMissionDif
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

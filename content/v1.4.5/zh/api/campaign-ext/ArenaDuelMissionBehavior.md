@@ -1,20 +1,14 @@
 ---
 title: "ArenaDuelMissionBehavior"
+description: "ArenaDuelMissionBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArenaDuelMissionBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaDuelMissionBehavior
 
 **Namespace:** SandBox.Missions.MissionLogics.Arena
 **Module:** SandBox.Missions
 **Type:** `public class ArenaDuelMissionBehavior : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Arena/ArenaDuelMissionBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Arena/ArenaDuelMissionBehavior.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ArenaDuelMissionBehavior"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelMissionBehavior 实例
+ArenaDuelMissionBehavior arenaDuelMissionBehavior = ...;
+arenaDuelMissionBehavior.AfterStart();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArenaDuelMissionBehavior();
-value.AfterStart();
+// 通常从对应子系统 API 获取实例后调用
+ArenaDuelMissionBehavior arenaDuelMissionBehavior = ...;
+arenaDuelMissionBehavior.AfterStart();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

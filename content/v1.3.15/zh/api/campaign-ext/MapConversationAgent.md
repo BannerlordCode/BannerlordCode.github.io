@@ -1,13 +1,7 @@
 ---
 title: "MapConversationAgent"
+description: "MapConversationAgent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapConversationAgent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapConversationAgent
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
@@ -39,30 +33,55 @@ title: "MapConversationAgent"
 ### IsEnemyOf
 `public bool IsEnemyOf(IAgent agent)`
 
-**用途 / Purpose:** 处理 `is enemy of` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「enemy of」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationAgent 实例
+MapConversationAgent mapConversationAgent = ...;
+var result = mapConversationAgent.IsEnemyOf(agent);
+```
 
 ### IsFriendOf
 `public bool IsFriendOf(IAgent agent)`
 
-**用途 / Purpose:** 处理 `is friend of` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「friend of」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationAgent 实例
+MapConversationAgent mapConversationAgent = ...;
+var result = mapConversationAgent.IsFriendOf(agent);
+```
 
 ### IsActive
 `public bool IsActive()`
 
-**用途 / Purpose:** 处理 `is active` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「active」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationAgent 实例
+MapConversationAgent mapConversationAgent = ...;
+var result = mapConversationAgent.IsActive();
+```
 
 ### SetAsConversationAgent
 `public void SetAsConversationAgent(bool set)`
 
-**用途 / Purpose:** 设置 `as conversation agent` 的值或状态。
+**用途 / Purpose:** 为 「as conversation agent」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationAgent 实例
+MapConversationAgent mapConversationAgent = ...;
+mapConversationAgent.SetAsConversationAgent(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapConversationAgent();
-value.IsEnemyOf(agent);
+// 通常从对应子系统 API 获取实例后调用
+MapConversationAgent mapConversationAgent = ...;
+mapConversationAgent.IsEnemyOf(agent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

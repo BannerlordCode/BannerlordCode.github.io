@@ -1,13 +1,7 @@
 ---
 title: "LauncherDebugManager"
+description: "Auto-generated class reference for LauncherDebugManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherDebugManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherDebugManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -29,7 +23,13 @@ Treat `LauncherDebugManager` as a Manager-style extension point: first identify 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of LauncherDebugManager from the subsystem API first
+LauncherDebugManager launcherDebugManager = ...;
+launcherDebugManager.OnFinalize();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var manager = LauncherDebugManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

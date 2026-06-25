@@ -1,13 +1,7 @@
 ---
 title: "PlayerIsFemaleTag"
+description: "Auto-generated class reference for PlayerIsFemaleTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIsFemaleTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerIsFemaleTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of PlayerIsFemaleTag from the subsystem API first
+PlayerIsFemaleTag playerIsFemaleTag = ...;
+var result = playerIsFemaleTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerIsFemaleTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerIsFemaleTag playerIsFemaleTag = ...;
+playerIsFemaleTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

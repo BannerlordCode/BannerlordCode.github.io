@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementTaxModel"
+description: "DefaultSettlementTaxModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSettlementTaxModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementTaxModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementTaxModel : SettlementTaxModel`
 **Base:** `SettlementTaxModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementTaxModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementTaxModel.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "DefaultSettlementTaxModel"
 ### GetTownTaxRatio
 `public override float GetTownTaxRatio(Town town)`
 
-**用途 / Purpose:** 获取 `town tax ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「town tax ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.GetTownTaxRatio(town);
+```
 
 ### GetVillageTaxRatio
 `public override float GetVillageTaxRatio(Village village)`
 
-**用途 / Purpose:** 获取 `village tax ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「village tax ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.GetVillageTaxRatio(village);
+```
 
 ### GetTownCommissionChangeBasedOnSecurity
 `public override float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)`
 
-**用途 / Purpose:** 获取 `town commission change based on security` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「town commission change based on security」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.GetTownCommissionChangeBasedOnSecurity(town, 0);
+```
 
 ### CalculateTownTax
 `public override ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate town tax` 相关逻辑。
+**用途 / Purpose:** 计算「town tax」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.CalculateTownTax(town, false);
+```
 
 ### CalculateVillageTaxFromIncome
 `public override int CalculateVillageTaxFromIncome(Village village, int marketIncome)`
 
-**用途 / Purpose:** 处理 `calculate village tax from income` 相关逻辑。
+**用途 / Purpose:** 计算「village tax from income」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementTaxModel 实例
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.CalculateVillageTaxFromIncome(village, 0);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultSettlementTaxModel>(new MyDefaultSettlementTaxM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

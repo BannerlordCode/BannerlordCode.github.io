@@ -1,20 +1,14 @@
 ---
 title: "ChairUsePoint"
+description: "ChairUsePoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChairUsePoint`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChairUsePoint
 
 **Namespace:** SandBox.Objects.AnimationPoints
 **Module:** SandBox.Objects
 **Type:** `public class ChairUsePoint : AnimationPoint`
 **Base:** `AnimationPoint`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/ChairUsePoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/ChairUsePoint.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ChairUsePoint"
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `use` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ChairUsePoint 实例
+ChairUsePoint chairUsePoint = ...;
+chairUsePoint.OnUse(userAgent, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ChairUsePoint();
-value.OnUse(userAgent, 0);
+// 通常从对应子系统 API 获取实例后调用
+ChairUsePoint chairUsePoint = ...;
+chairUsePoint.OnUse(userAgent, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

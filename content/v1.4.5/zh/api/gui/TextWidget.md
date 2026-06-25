@@ -1,20 +1,14 @@
 ---
 title: "TextWidget"
+description: "TextWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class TextWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/TextWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/TextWidget.cs`
 
 ## 概述
 
@@ -37,9 +31,10 @@ title: "TextWidget"
 ## 使用示例
 
 ```csharp
-var widget = new TextWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+TextWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

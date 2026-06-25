@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticCategoryBaseVM"
+description: "MPArmoryCosmeticCategoryBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPArmoryCosmeticCategoryBaseVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticCategoryBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPArmoryCosmeticCategoryBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory/MPArmoryCosmeticCategoryBaseVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory/MPArmoryCosmeticCategoryBaseVM.cs`
 
 ## 概述
 
@@ -38,29 +32,54 @@ title: "MPArmoryCosmeticCategoryBaseVM"
 ### MPArmoryCosmeticCategoryBaseVM
 `public unsafe MPArmoryCosmeticCategoryBaseVM(CosmeticType cosmeticType)`
 
-**用途 / Purpose:** 处理 `m p armory cosmetic category base v m` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例
+MPArmoryCosmeticCategoryBaseVM mPArmoryCosmeticCategoryBaseVM = ...;
+var result = mPArmoryCosmeticCategoryBaseVM.MPArmoryCosmeticCategoryBaseVM(cosmeticType);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例
+MPArmoryCosmeticCategoryBaseVM mPArmoryCosmeticCategoryBaseVM = ...;
+mPArmoryCosmeticCategoryBaseVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例
+MPArmoryCosmeticCategoryBaseVM mPArmoryCosmeticCategoryBaseVM = ...;
+mPArmoryCosmeticCategoryBaseVM.OnFinalize();
+```
 
 ### Sort
 `public void Sort(MPArmoryCosmeticsVM.CosmeticItemComparer comparer)`
 
-**用途 / Purpose:** 处理 `sort` 相关逻辑。
+**用途 / Purpose:** 对当前对象中的内容进行排序。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例
+MPArmoryCosmeticCategoryBaseVM mPArmoryCosmeticCategoryBaseVM = ...;
+mPArmoryCosmeticCategoryBaseVM.Sort(comparer);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMPArmoryCosmeticCategoryBaseVM();
+// 通常通过子系统 API 或工厂获得派生实例
+MPArmoryCosmeticCategoryBaseVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

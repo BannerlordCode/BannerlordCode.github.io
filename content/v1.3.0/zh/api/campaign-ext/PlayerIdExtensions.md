@@ -1,13 +1,7 @@
 ---
 title: "PlayerIdExtensions"
+description: "PlayerIdExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerIdExtensions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerIdExtensions
 
 **Namespace:** TaleWorlds.Diamond
@@ -29,12 +23,22 @@ title: "PlayerIdExtensions"
 ### ConvertToPeerId
 `public static PeerId ConvertToPeerId(this PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `convert to peer id` 相关逻辑。
+**用途 / Purpose:** 把「to peer id」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+PlayerIdExtensions.ConvertToPeerId(playerId);
+```
 
 ### ConvertToPlayerId
 `public static PlayerId ConvertToPlayerId(this PeerId peerId)`
 
-**用途 / Purpose:** 处理 `convert to player id` 相关逻辑。
+**用途 / Purpose:** 把「to player id」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+PlayerIdExtensions.ConvertToPlayerId(peerId);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ PlayerIdExtensions.ConvertToPeerId(playerId);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

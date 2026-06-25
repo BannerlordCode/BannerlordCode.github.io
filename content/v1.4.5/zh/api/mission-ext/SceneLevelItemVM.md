@@ -1,20 +1,14 @@
 ---
 title: "SceneLevelItemVM"
+description: "SceneLevelItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SceneLevelItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneLevelItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneLevelItemVM : SelectorItemVM`
 **Base:** `SelectorItemVM`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/SceneLevelItemVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/SceneLevelItemVM.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "SceneLevelItemVM"
 ## 使用示例
 
 ```csharp
-var value = new SceneLevelItemVM();
+// 从对应子系统 API 获取实例
+SceneLevelItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

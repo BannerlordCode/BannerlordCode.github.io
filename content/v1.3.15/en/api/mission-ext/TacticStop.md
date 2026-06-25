@@ -1,13 +1,7 @@
 ---
 title: "TacticStop"
+description: "Auto-generated class reference for TacticStop."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticStop`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TacticStop
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticStop from the subsystem API first
+TacticStop tacticStop = ...;
+tacticStop.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticStop();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+TacticStop tacticStop = ...;
+tacticStop.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

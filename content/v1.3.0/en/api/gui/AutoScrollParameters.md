@@ -1,13 +1,7 @@
 ---
 title: "AutoScrollParameters"
+description: "Auto-generated class reference for AutoScrollParameters."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AutoScrollParameters`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AutoScrollParameters
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new AutoScrollParameters();
+// Obtain an instance from the relevant subsystem API
+AutoScrollParameters instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

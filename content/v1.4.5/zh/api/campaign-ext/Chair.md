@@ -1,20 +1,14 @@
 ---
 title: "Chair"
+description: "Chair 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Chair`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Chair
 
 **Namespace:** SandBox.Objects.Usables
 **Module:** SandBox.Objects
 **Type:** `public class Chair : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Usables/Chair.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.Usables/Chair.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "Chair"
 ### IsAgentFullySitting
 `public bool IsAgentFullySitting(Agent usingAgent)`
 
-**用途 / Purpose:** 处理 `is agent fully sitting` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「agent fully sitting」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Chair 实例
+Chair chair = ...;
+var result = chair.IsAgentFullySitting(usingAgent);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** 创建一个 `a i behavior object` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「a i behavior object」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 Chair 实例
+Chair chair = ...;
+var result = chair.CreateAIBehaviorObject();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Chair 实例
+Chair chair = ...;
+var result = chair.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Chair 实例
+Chair chair = ...;
+var result = chair.GetDescriptionText(gameEntity);
+```
 
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**用途 / Purpose:** 获取 `best point alternative to` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「best point alternative to」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Chair 实例
+Chair chair = ...;
+var result = chair.GetBestPointAlternativeTo(standingPoint, agent);
+```
 
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `order` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Chair 实例
+Chair chair = ...;
+var result = chair.GetOrder(side);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Chair();
-value.IsAgentFullySitting(usingAgent);
+// 通常从对应子系统 API 获取实例后调用
+Chair chair = ...;
+chair.IsAgentFullySitting(usingAgent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

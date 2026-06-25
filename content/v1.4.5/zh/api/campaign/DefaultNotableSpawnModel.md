@@ -1,20 +1,14 @@
 ---
 title: "DefaultNotableSpawnModel"
+description: "DefaultNotableSpawnModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultNotableSpawnModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultNotableSpawnModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultNotableSpawnModel : NotableSpawnModel`
 **Base:** `NotableSpawnModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultNotableSpawnModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultNotableSpawnModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultNotableSpawnModel"
 ### GetTargetNotableCountForSettlement
 `public override int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`
 
-**用途 / Purpose:** 获取 `target notable count for settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target notable count for settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultNotableSpawnModel 实例
+DefaultNotableSpawnModel defaultNotableSpawnModel = ...;
+var result = defaultNotableSpawnModel.GetTargetNotableCountForSettlement(settlement, occupation);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultNotableSpawnModel>(new MyDefaultNotableSpawnMod
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

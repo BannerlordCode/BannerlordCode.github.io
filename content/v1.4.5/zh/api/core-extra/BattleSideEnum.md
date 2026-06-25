@@ -1,20 +1,14 @@
 ---
 title: "BattleSideEnum"
+description: "BattleSideEnum 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleSideEnum`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSideEnum
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum BattleSideEnum`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BattleSideEnum.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BattleSideEnum.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "BattleSideEnum"
 ## 使用示例
 
 ```csharp
-var example = new BattleSideEnum();
+// 从对应子系统 API 获取实例
+BattleSideEnum instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

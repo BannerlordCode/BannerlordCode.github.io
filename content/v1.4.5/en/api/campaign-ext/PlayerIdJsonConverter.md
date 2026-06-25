@@ -1,20 +1,14 @@
 ---
 title: "PlayerIdJsonConverter"
+description: "Auto-generated class reference for PlayerIdJsonConverter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIdJsonConverter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerIdJsonConverter
 
 **Namespace:** TaleWorlds.PlayerServices
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class PlayerIdJsonConverter : JsonConverter`
 **Base:** `JsonConverter`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerIdJsonConverter.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerIdJsonConverter.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**Purpose:** Checks whether the current object can `convert`.
+**Purpose:** Checks whether the current object meets the preconditions for `convert`.
+
+```csharp
+// Obtain an instance of PlayerIdJsonConverter from the subsystem API first
+PlayerIdJsonConverter playerIdJsonConverter = ...;
+var result = playerIdJsonConverter.CanConvert(objectType);
+```
 
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `read json`.
+**Purpose:** Reads the data or state of `json`.
+
+```csharp
+// Obtain an instance of PlayerIdJsonConverter from the subsystem API first
+PlayerIdJsonConverter playerIdJsonConverter = ...;
+var result = playerIdJsonConverter.ReadJson(reader, objectType, existingValue, serializer);
+```
 
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `write json`.
+**Purpose:** Writes `json` to the target location.
+
+```csharp
+// Obtain an instance of PlayerIdJsonConverter from the subsystem API first
+PlayerIdJsonConverter playerIdJsonConverter = ...;
+playerIdJsonConverter.WriteJson(writer, value, serializer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerIdJsonConverter();
-value.CanConvert(objectType);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerIdJsonConverter playerIdJsonConverter = ...;
+playerIdJsonConverter.CanConvert(objectType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

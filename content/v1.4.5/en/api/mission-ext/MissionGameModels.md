@@ -1,20 +1,14 @@
 ---
 title: "MissionGameModels"
+description: "Auto-generated class reference for MissionGameModels."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGameModels`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGameModels
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MissionGameModels : GameModelsManager`
 **Base:** `GameModelsManager`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionGameModels.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionGameModels.cs`
 
 ## Overview
 
@@ -51,7 +45,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Static call; no instance required
+MissionGameModels.Clear();
+```
 
 ## Usage Example
 
@@ -61,4 +60,4 @@ MissionGameModels.Clear();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

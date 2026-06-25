@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationGainedSkillItemVM"
+description: "Auto-generated class reference for CharacterCreationGainedSkillItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationGainedSkillItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationGainedSkillItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationGainedSkillItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationGainedSkillItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationGainedSkillItemVM.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### SetValue
 `public void SetValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationGainedSkillItemVM from the subsystem API first
+CharacterCreationGainedSkillItemVM characterCreationGainedSkillItemVM = ...;
+characterCreationGainedSkillItemVM.SetValue(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationGainedSkillItemVM();
-value.SetValue(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationGainedSkillItemVM characterCreationGainedSkillItemVM = ...;
+characterCreationGainedSkillItemVM.SetValue(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

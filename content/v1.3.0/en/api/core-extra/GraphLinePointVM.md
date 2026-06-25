@@ -1,13 +1,7 @@
 ---
 title: "GraphLinePointVM"
+description: "Auto-generated class reference for GraphLinePointVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GraphLinePointVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GraphLinePointVM
 
 **Namespace:** TaleWorlds.Library.Graph
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Library.Graph` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new GraphLinePointVM();
+// Obtain an instance from the relevant subsystem API
+GraphLinePointVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

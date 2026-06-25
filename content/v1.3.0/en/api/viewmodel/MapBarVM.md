@@ -1,13 +1,7 @@
 ---
 title: "MapBarVM"
+description: "Auto-generated class reference for MapBarVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapBarVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapBarVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
@@ -45,40 +39,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ### Initialize
 `public void Initialize(INavigationHandler navigationHandler, IMapStateHandler mapStateHandler, Func<MapBarShortcuts> getMapBarShortcuts, Action openArmyManagement)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MapBarVM from the subsystem API first
+MapBarVM mapBarVM = ...;
+mapBarVM.Initialize(navigationHandler, mapStateHandler, getMapBarShortcuts, openArmyManagement);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapBarVM from the subsystem API first
+MapBarVM mapBarVM = ...;
+mapBarVM.RefreshValues();
+```
 
 ### OnRefresh
 `public void OnRefresh()`
 
-**Purpose:** Called when the `refresh` event is raised.
+**Purpose:** Invoked when the `refresh` event is raised.
+
+```csharp
+// Obtain an instance of MapBarVM from the subsystem API first
+MapBarVM mapBarVM = ...;
+mapBarVM.OnRefresh();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapBarVM from the subsystem API first
+MapBarVM mapBarVM = ...;
+mapBarVM.Tick(0);
+```
 
 ### ExecuteArmyManagement
 `public void ExecuteArmyManagement()`
 
-**Purpose:** Executes the `army management` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `army management`.
+
+```csharp
+// Obtain an instance of MapBarVM from the subsystem API first
+MapBarVM mapBarVM = ...;
+mapBarVM.ExecuteArmyManagement();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapBarVM from the subsystem API first
+MapBarVM mapBarVM = ...;
+mapBarVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapBarVM();
-value.Initialize(navigationHandler, mapStateHandler, getMapBarShortcuts, openArmyManagement);
+// Typically call this after obtaining an instance from the subsystem API
+MapBarVM mapBarVM = ...;
+mapBarVM.Initialize(navigationHandler, mapStateHandler, getMapBarShortcuts, openArmyManagement);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "RecruitTroopPanelButtonWidget"
+description: "Auto-generated class reference for RecruitTroopPanelButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitTroopPanelButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitTroopPanelButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Recruitment
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RecruitTroopPanelButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Recruitment/RecruitTroopPanelButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Recruitment/RecruitTroopPanelButtonWidget.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Treat `RecruitTroopPanelButtonWidget` as a Widget-style extension point: first i
 ## Usage Example
 
 ```csharp
-var widget = new RecruitTroopPanelButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+RecruitTroopPanelButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

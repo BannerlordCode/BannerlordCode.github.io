@@ -1,20 +1,14 @@
 ---
 title: "BannerThumbnailCache"
+description: "BannerThumbnailCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerThumbnailCache`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerThumbnailCache : ThumbnailCache<BannerThumbnailCreationData>`
 **Base:** `ThumbnailCache<BannerThumbnailCreationData>`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerThumbnailCache.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerThumbnailCache.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "BannerThumbnailCache"
 ## 使用示例
 
 ```csharp
-var value = new BannerThumbnailCache();
+// 从对应子系统 API 获取实例
+BannerThumbnailCache instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

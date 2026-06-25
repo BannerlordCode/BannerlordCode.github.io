@@ -1,20 +1,14 @@
 ---
 title: "MapNavigationHandler"
+description: "MapNavigationHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapNavigationHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationHandler
 
 **Namespace:** SandBox.View.Map.Navigation
 **Module:** SandBox.View
 **Type:** `public class MapNavigationHandler : INavigationHandler`
 **Base:** `INavigationHandler`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation/MapNavigationHandler.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation/MapNavigationHandler.cs`
 
 ## 概述
 
@@ -35,24 +29,42 @@ title: "MapNavigationHandler"
 ### GetElements
 `public INavigationElement GetElements()`
 
-**用途 / Purpose:** 获取 `elements` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「elements」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationHandler 实例
+MapNavigationHandler mapNavigationHandler = ...;
+var result = mapNavigationHandler.GetElements();
+```
 
 ### IsAnyElementActive
 `public bool IsAnyElementActive()`
 
-**用途 / Purpose:** 处理 `is any element active` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「any element active」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationHandler 实例
+MapNavigationHandler mapNavigationHandler = ...;
+var result = mapNavigationHandler.IsAnyElementActive();
+```
 
 ### GetElement
 `public INavigationElement GetElement(string id)`
 
-**用途 / Purpose:** 获取 `element` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「element」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationHandler 实例
+MapNavigationHandler mapNavigationHandler = ...;
+var result = mapNavigationHandler.GetElement("example");
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MapNavigationHandler());
+var behavior = Mission.Current.GetMissionBehavior<MapNavigationHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

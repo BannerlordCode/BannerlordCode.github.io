@@ -1,13 +1,7 @@
 ---
-title: "Program__TaleWorlds_MountAndBlade_Launcher"
+title: "Program"
+description: "Auto-generated class reference for Program."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Program`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Program
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new Program();
+// Obtain an instance from the relevant subsystem API
+Program instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

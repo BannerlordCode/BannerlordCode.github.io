@@ -1,24 +1,18 @@
 ---
 title: "PriorityQueue"
+description: "Auto-generated class reference for PriorityQueue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PriorityQueue`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PriorityQueue
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class PriorityQueue<TPriority, TValue> : ICollection<KeyValuePair<TPriority, TValue>>, IEnumerable<KeyValuePair<TPriority, TValue>>, IEnumerable`
 **Base:** `ICollection<KeyValuePair<TPriority`
-**Area:** core-extra
+**File:** `TaleWorlds.Library/PriorityQueue.cs`
 
 ## Overview
 
-`PriorityQueue` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PriorityQueue` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -37,75 +31,150 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### MergeQueues
 `public static PriorityQueue<TPriority, TValue> MergeQueues(PriorityQueue<TPriority, TValue> pq1, PriorityQueue<TPriority, TValue> pq2)`
 
-**Purpose:** Handles logic related to `merge queues`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority, pq2);
+```
 
 ### MergeQueues
 `public static PriorityQueue<TPriority, TValue> MergeQueues(PriorityQueue<TPriority, TValue> pq1, PriorityQueue<TPriority, TValue> pq2, IComparer<TPriority> comparer)`
 
-**Purpose:** Handles logic related to `merge queues`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority, pq2, comparer);
+```
 
 ### Enqueue
 `public void Enqueue(TPriority priority, TValue value)`
 
-**Purpose:** Handles logic related to `enqueue`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+priorityQueue.Enqueue(priority, value);
+```
 
 ### Dequeue
 `public KeyValuePair<TPriority, TValue> Dequeue()`
 
-**Purpose:** Handles logic related to `dequeue`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.Dequeue();
+```
 
 ### DequeueValue
 `public TValue DequeueValue()`
 
-**Purpose:** Handles logic related to `dequeue value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.DequeueValue();
+```
 
 ### Peek
 `public KeyValuePair<TPriority, TValue> Peek()`
 
-**Purpose:** Handles logic related to `peek`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.Peek();
+```
 
 ### PeekValue
 `public TValue PeekValue()`
 
-**Purpose:** Handles logic related to `peek value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.PeekValue();
+```
 
 ### Add
 `public void Add(KeyValuePair<TPriority, TValue> item)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+priorityQueue.Add(keyValuePair<TPriority, item);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+priorityQueue.Clear();
+```
 
 ### Contains
 `public bool Contains(KeyValuePair<TPriority, TValue> item)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.Contains(keyValuePair<TPriority, item);
+```
 
 ### CopyTo
 `public void CopyTo(KeyValuePair<TPriority, TValue> array, int arrayIndex)`
 
-**Purpose:** Handles logic related to `copy to`.
+**Purpose:** Copies the `to` state of the current object to a target.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+priorityQueue.CopyTo(keyValuePair<TPriority, array, 0);
+```
 
 ### Remove
 `public bool Remove(KeyValuePair<TPriority, TValue> item)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.Remove(keyValuePair<TPriority, item);
+```
 
 ### GetEnumerator
 `public IEnumerator<KeyValuePair<TPriority, TValue>> GetEnumerator()`
 
-**Purpose:** Gets the current value of `enumerator`.
+**Purpose:** Reads and returns the `enumerator` value held by the current object.
+
+```csharp
+// Obtain an instance of PriorityQueue from the subsystem API first
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.GetEnumerator();
+```
 
 ## Usage Example
 
 ```csharp
-PriorityQueue example = PriorityQueue.IsEmpty;
+PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority, pq2);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

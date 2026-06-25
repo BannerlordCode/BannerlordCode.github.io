@@ -1,13 +1,7 @@
 ---
 title: "CharacterBecameFugitiveLogEntry"
+description: "CharacterBecameFugitiveLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterBecameFugitiveLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterBecameFugitiveLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -29,25 +23,44 @@ title: "CharacterBecameFugitiveLogEntry"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterBecameFugitiveLogEntry 实例
+CharacterBecameFugitiveLogEntry characterBecameFugitiveLogEntry = ...;
+var result = characterBecameFugitiveLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** 获取 `encyclopedia text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterBecameFugitiveLogEntry 实例
+CharacterBecameFugitiveLogEntry characterBecameFugitiveLogEntry = ...;
+var result = characterBecameFugitiveLogEntry.GetEncyclopediaText();
+```
 
 ### IsValid
 `public override bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterBecameFugitiveLogEntry 实例
+CharacterBecameFugitiveLogEntry characterBecameFugitiveLogEntry = ...;
+var result = characterBecameFugitiveLogEntry.IsValid();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterBecameFugitiveLogEntry();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+CharacterBecameFugitiveLogEntry characterBecameFugitiveLogEntry = ...;
+characterBecameFugitiveLogEntry.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

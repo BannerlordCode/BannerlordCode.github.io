@@ -1,20 +1,14 @@
 ---
 title: "SoundEventParameter"
+description: "SoundEventParameter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SoundEventParameter`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundEventParameter
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SoundEventParameter`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/SoundEventParameter.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SoundEventParameter.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "SoundEventParameter"
 ### SoundEventParameter
 `public struct SoundEventParameter(string paramName, float value)`
 
-**用途 / Purpose:** 处理 `sound event parameter` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEventParameter 实例
+SoundEventParameter soundEventParameter = ...;
+var result = soundEventParameter.SoundEventParameter("example", 0);
+```
 
 ### Update
 `public void Update(string paramName, float value)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEventParameter 实例
+SoundEventParameter soundEventParameter = ...;
+soundEventParameter.Update("example", 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SoundEventParameter();
-value.SoundEventParameter("example", 0);
+// 通常从对应子系统 API 获取实例后调用
+SoundEventParameter soundEventParameter = ...;
+soundEventParameter.SoundEventParameter("example", 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

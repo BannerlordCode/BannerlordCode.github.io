@@ -1,13 +1,7 @@
 ---
 title: "SiegeMachineStonePile"
+description: "Auto-generated class reference for SiegeMachineStonePile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeMachineStonePile`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeMachineStonePile
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Usables` to place it in t
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeMachineStonePile from the subsystem API first
+SiegeMachineStonePile siegeMachineStonePile = ...;
+var result = siegeMachineStonePile.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeMachineStonePile from the subsystem API first
+SiegeMachineStonePile siegeMachineStonePile = ...;
+var result = siegeMachineStonePile.GetDescriptionText(gameEntity);
+```
 
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** Sets the value or state of `spawned from spawner`.
+**Purpose:** Assigns a new value to `spawned from spawner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeMachineStonePile from the subsystem API first
+SiegeMachineStonePile siegeMachineStonePile = ...;
+siegeMachineStonePile.SetSpawnedFromSpawner();
+```
 
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `order`.
+**Purpose:** Reads and returns the `order` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeMachineStonePile from the subsystem API first
+SiegeMachineStonePile siegeMachineStonePile = ...;
+var result = siegeMachineStonePile.GetOrder(side);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeMachineStonePile();
-value.GetActionTextForStandingPoint(usableGameObject);
+// Typically call this after obtaining an instance from the subsystem API
+SiegeMachineStonePile siegeMachineStonePile = ...;
+siegeMachineStonePile.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GenericImageIdentifierVM"
+description: "Auto-generated class reference for GenericImageIdentifierVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericImageIdentifierVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
 **Module:** TaleWorlds.Core
 **Type:** `public class GenericImageIdentifierVM : ImageIdentifierVM`
 **Base:** `ImageIdentifierVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/GenericImageIdentifierVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/GenericImageIdentifierVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ## Usage Example
 
 ```csharp
-var example = new GenericImageIdentifierVM();
+// Obtain an instance from the relevant subsystem API
+GenericImageIdentifierVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

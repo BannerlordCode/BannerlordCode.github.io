@@ -1,13 +1,7 @@
 ---
 title: "Shader"
+description: "Shader 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Shader`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Shader
 
 **Namespace:** TaleWorlds.Engine
@@ -35,12 +29,23 @@ title: "Shader"
 ### GetFromResource
 `public static Shader GetFromResource(string shaderName)`
 
-**用途 / Purpose:** 获取 `from resource` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「from resource」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Shader.GetFromResource("example");
+```
 
 ### GetMaterialShaderFlagMask
 `public ulong GetMaterialShaderFlagMask(string flagName, bool showErrors = true)`
 
-**用途 / Purpose:** 获取 `material shader flag mask` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「material shader flag mask」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+var result = shader.GetMaterialShaderFlagMask("example", false);
+```
 
 ## 使用示例
 
@@ -50,4 +55,4 @@ Shader.GetFromResource("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

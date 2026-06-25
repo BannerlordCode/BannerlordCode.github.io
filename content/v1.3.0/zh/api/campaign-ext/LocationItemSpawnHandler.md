@@ -1,13 +1,7 @@
 ---
 title: "LocationItemSpawnHandler"
+description: "LocationItemSpawnHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LocationItemSpawnHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationItemSpawnHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,19 +23,31 @@ title: "LocationItemSpawnHandler"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LocationItemSpawnHandler 实例
+LocationItemSpawnHandler locationItemSpawnHandler = ...;
+locationItemSpawnHandler.AfterStart();
+```
 
 ### OnEntityRemoved
 `public override void OnEntityRemoved(GameEntity entity)`
 
-**用途 / Purpose:** 当 `entity removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「entity removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LocationItemSpawnHandler 实例
+LocationItemSpawnHandler locationItemSpawnHandler = ...;
+locationItemSpawnHandler.OnEntityRemoved(entity);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new LocationItemSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<LocationItemSpawnHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

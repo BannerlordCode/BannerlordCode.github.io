@@ -1,20 +1,14 @@
 ---
 title: "InventoryFilterChangedEvent"
+description: "Auto-generated class reference for InventoryFilterChangedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryFilterChangedEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryFilterChangedEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class InventoryFilterChangedEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/InventoryFilterChangedEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/InventoryFilterChangedEvent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ## Usage Example
 
 ```csharp
-var example = new InventoryFilterChangedEvent();
+// Obtain an instance from the relevant subsystem API
+InventoryFilterChangedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

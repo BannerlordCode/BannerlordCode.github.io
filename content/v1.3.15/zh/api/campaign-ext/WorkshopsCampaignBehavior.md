@@ -1,13 +1,7 @@
 ---
 title: "WorkshopsCampaignBehavior"
+description: "WorkshopsCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WorkshopsCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WorkshopsCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,35 +23,66 @@ title: "WorkshopsCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopsCampaignBehavior 实例
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+workshopsCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopsCampaignBehavior 实例
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+workshopsCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetWarehouseItemRosterWeight
 `public float GetWarehouseItemRosterWeight(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `warehouse item roster weight` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「warehouse item roster weight」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopsCampaignBehavior 实例
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+var result = workshopsCampaignBehavior.GetWarehouseItemRosterWeight(settlement);
+```
 
 ### TransferWarehouseToPlayerParty
 `public void TransferWarehouseToPlayerParty(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `transfer warehouse to player party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopsCampaignBehavior 实例
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+workshopsCampaignBehavior.TransferWarehouseToPlayerParty(settlement);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopsCampaignBehavior 实例
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+var result = workshopsCampaignBehavior.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WorkshopsCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+workshopsCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

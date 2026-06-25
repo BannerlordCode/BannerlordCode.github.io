@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerIntermissionScreen"
+description: "Auto-generated class reference for MultiplayerIntermissionScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerIntermissionScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerIntermissionScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerIntermissionScreen : ScreenBase, IGameStateListener, IChatLogHandlerScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerIntermissionScreen.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerIntermissionScreen.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerIntermissionScreen();
+// Obtain an instance from the relevant subsystem API
+MultiplayerIntermissionScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

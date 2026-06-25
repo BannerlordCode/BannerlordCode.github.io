@@ -1,18 +1,12 @@
 ---
 title: "ITelemetryManager"
+description: "Auto-generated class reference for ITelemetryManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ITelemetryManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ITelemetryManager
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface ITelemetryManager`
 **Base:** none
 **File:** `TaleWorlds.Library/ITelemetryManager.cs`
 
@@ -27,9 +21,10 @@ Treat `ITelemetryManager` as a Manager-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-ITelemetryManager implementation = GetTelemetryManagerImplementation();
+// Usually obtained through DI or a factory method
+IITelemetryManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

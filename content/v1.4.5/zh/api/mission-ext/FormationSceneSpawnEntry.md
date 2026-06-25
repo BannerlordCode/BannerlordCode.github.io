@@ -1,20 +1,14 @@
 ---
 title: "FormationSceneSpawnEntry"
+description: "FormationSceneSpawnEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationSceneSpawnEntry`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationSceneSpawnEntry
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationSceneSpawnEntry`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationSceneSpawnEntry.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationSceneSpawnEntry.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "FormationSceneSpawnEntry"
 ### FormationSceneSpawnEntry
 `public struct FormationSceneSpawnEntry(FormationClass formationClass, GameEntity spawnEntity, GameEntity reinforcementSpawnEntity)`
 
-**用途 / Purpose:** 处理 `formation scene spawn entry` 相关逻辑。
+**用途 / Purpose:** 将「ion scene spawn entry」格式化为适合显示或存储的字符串。
+
+```csharp
+// 先通过子系统 API 拿到 FormationSceneSpawnEntry 实例
+FormationSceneSpawnEntry formationSceneSpawnEntry = ...;
+var result = formationSceneSpawnEntry.FormationSceneSpawnEntry(formationClass, spawnEntity, reinforcementSpawnEntity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FormationSceneSpawnEntry();
-value.FormationSceneSpawnEntry(formationClass, spawnEntity, reinforcementSpawnEntity);
+// 通常从对应子系统 API 获取实例后调用
+FormationSceneSpawnEntry formationSceneSpawnEntry = ...;
+formationSceneSpawnEntry.FormationSceneSpawnEntry(formationClass, spawnEntity, reinforcementSpawnEntity);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

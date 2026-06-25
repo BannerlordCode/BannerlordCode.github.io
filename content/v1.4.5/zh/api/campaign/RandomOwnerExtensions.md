@@ -1,20 +1,14 @@
 ---
 title: "RandomOwnerExtensions"
+description: "RandomOwnerExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RandomOwnerExtensions`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RandomOwnerExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class RandomOwnerExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/RandomOwnerExtensions.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/RandomOwnerExtensions.cs`
 
 ## 概述
 
@@ -29,62 +23,122 @@ title: "RandomOwnerExtensions"
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed)`
 
-**用途 / Purpose:** 处理 `random int with seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomIntWithSeed(obj, 0);
+```
 
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed, int max)`
 
-**用途 / Purpose:** 处理 `random int with seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomIntWithSeed(obj, 0, 0);
+```
 
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed, int min, int max)`
 
-**用途 / Purpose:** 处理 `random int with seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomIntWithSeed(obj, 0, 0, 0);
+```
 
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed)`
 
-**用途 / Purpose:** 处理 `random float with seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomFloatWithSeed(obj, 0);
+```
 
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed, float max)`
 
-**用途 / Purpose:** 处理 `random float with seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomFloatWithSeed(obj, 0, 0);
+```
 
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed, float min, float max)`
 
-**用途 / Purpose:** 处理 `random float with seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomFloatWithSeed(obj, 0, 0, 0);
+```
 
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj)`
 
-**用途 / Purpose:** 处理 `random int` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomInt(obj);
+```
 
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj, int max)`
 
-**用途 / Purpose:** 处理 `random int` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomInt(obj, 0);
+```
 
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj, int min, int max)`
 
-**用途 / Purpose:** 处理 `random int` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomInt(obj, 0, 0);
+```
 
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj)`
 
-**用途 / Purpose:** 处理 `random float` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomFloat(obj);
+```
 
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj, float max)`
 
-**用途 / Purpose:** 处理 `random float` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomFloat(obj, 0);
+```
 
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj, float min, float max)`
 
-**用途 / Purpose:** 处理 `random float` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RandomOwnerExtensions.RandomFloat(obj, 0, 0);
+```
 
 ## 使用示例
 
@@ -94,4 +148,4 @@ RandomOwnerExtensions.RandomIntWithSeed(obj, 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

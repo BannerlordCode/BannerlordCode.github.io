@@ -1,23 +1,18 @@
 ---
 title: "GangLeaderNeedsToOffloadStolenGoodsIssue"
+description: "Auto-generated class reference for GangLeaderNeedsToOffloadStolenGoodsIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GangLeaderNeedsToOffloadStolenGoodsIssue`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GangLeaderNeedsToOffloadStolenGoodsIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GangLeaderNeedsToOffloadStolenGoodsIssue`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Issues/GangLeaderNeedsToOffloadStolenGoodsIssueBehavior.cs`
 
 ## Overview
 
-`GangLeaderNeedsToOffloadStolenGoodsIssue` lives in `TaleWorlds.CampaignSystem.Issues`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`GangLeaderNeedsToOffloadStolenGoodsIssue` lives in `TaleWorlds.CampaignSystem.Issues` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -50,67 +45,132 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+gangLeaderNeedsToOffloadStolenGoodsIssue.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+gangLeaderNeedsToOffloadStolenGoodsIssue.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+gangLeaderNeedsToOffloadStolenGoodsIssue.OnCheckForIssue(hero);
+```
 
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Gets the current value of `alternative solution skill`.
+**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+var result = gangLeaderNeedsToOffloadStolenGoodsIssue.GetAlternativeSolutionSkill(hero);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+var result = gangLeaderNeedsToOffloadStolenGoodsIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+var result = gangLeaderNeedsToOffloadStolenGoodsIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
+**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+var result = gangLeaderNeedsToOffloadStolenGoodsIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+var result = gangLeaderNeedsToOffloadStolenGoodsIssue.IssueStayAliveConditions();
+```
 
 ### IsSettlementBusy
 `public override void IsSettlementBusy(Settlement settlement, object asker, ref int priority)`
 
-**Purpose:** Handles logic related to `is settlement busy`.
+**Purpose:** Determines whether the current object is in the `settlement busy` state or condition.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+gangLeaderNeedsToOffloadStolenGoodsIssue.IsSettlementBusy(settlement, asker, priority);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+var result = gangLeaderNeedsToOffloadStolenGoodsIssue.GetFrequency();
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssue from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+gangLeaderNeedsToOffloadStolenGoodsIssue.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a GangLeaderNeedsToOffloadStolenGoodsIssue instance from game state, then call one of its public methods
-var value = new GangLeaderNeedsToOffloadStolenGoodsIssue();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+GangLeaderNeedsToOffloadStolenGoodsIssue gangLeaderNeedsToOffloadStolenGoodsIssue = ...;
+gangLeaderNeedsToOffloadStolenGoodsIssue.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

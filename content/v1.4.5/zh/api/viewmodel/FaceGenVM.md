@@ -1,20 +1,14 @@
 ---
 title: "FaceGenVM"
+description: "FaceGenVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FaceGenVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGenVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FaceGenVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenVM.cs`
 
 ## 概述
 
@@ -99,155 +93,330 @@ title: "FaceGenVM"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.Reset();
+```
 
 ### SetFaceGenerationParams
 `public void SetFaceGenerationParams(FaceGenerationParams faceGenerationParams)`
 
-**用途 / Purpose:** 设置 `face generation params` 的值或状态。
+**用途 / Purpose:** 为 「face generation params」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.SetFaceGenerationParams(faceGenerationParams);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.RefreshValues();
+```
 
 ### InitializeHistory
 `public void InitializeHistory(FaceGenHistory faceGenHistory)`
 
-**用途 / Purpose:** 初始化 `history` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「history」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.InitializeHistory(faceGenHistory);
+```
 
 ### OnTabClicked
 `public void OnTabClicked(int index)`
 
-**用途 / Purpose:** 当 `tab clicked` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tab clicked」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.OnTabClicked(0);
+```
 
 ### SelectPreviousTab
 `public void SelectPreviousTab()`
 
-**用途 / Purpose:** 处理 `select previous tab` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.SelectPreviousTab();
+```
 
 ### SelectNextTab
 `public void SelectNextTab()`
 
-**用途 / Purpose:** 处理 `select next tab` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.SelectNextTab();
+```
 
 ### Refresh
 `public void Refresh(bool clearProperties)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.Refresh(false);
+```
 
 ### ExecuteHearCurrentVoiceSample
 `public void ExecuteHearCurrentVoiceSample()`
 
-**用途 / Purpose:** 执行 `hear current voice sample` 操作或流程。
+**用途 / Purpose:** 执行 「hear current voice sample」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteHearCurrentVoiceSample();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** 执行 `reset` 操作或流程。
+**用途 / Purpose:** 执行 「reset」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteReset();
+```
 
 ### ExecuteResetAll
 `public void ExecuteResetAll()`
 
-**用途 / Purpose:** 执行 `reset all` 操作或流程。
+**用途 / Purpose:** 执行 「reset all」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteResetAll();
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**用途 / Purpose:** 执行 `randomize` 操作或流程。
+**用途 / Purpose:** 执行 「randomize」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteRandomize();
+```
 
 ### ExecuteRandomizeAll
 `public void ExecuteRandomizeAll()`
 
-**用途 / Purpose:** 执行 `randomize all` 操作或流程。
+**用途 / Purpose:** 执行 「randomize all」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteRandomizeAll();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteCancel();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 `done` 操作或流程。
+**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteDone();
+```
 
 ### ExecuteRedo
 `public void ExecuteRedo()`
 
-**用途 / Purpose:** 执行 `redo` 操作或流程。
+**用途 / Purpose:** 执行 「redo」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteRedo();
+```
 
 ### ExecuteUndo
 `public void ExecuteUndo()`
 
-**用途 / Purpose:** 执行 `undo` 操作或流程。
+**用途 / Purpose:** 执行 「undo」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteUndo();
+```
 
 ### ExecuteChangeClothing
 `public void ExecuteChangeClothing()`
 
-**用途 / Purpose:** 执行 `change clothing` 操作或流程。
+**用途 / Purpose:** 执行 「change clothing」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.ExecuteChangeClothing();
+```
 
 ### AddCommand
 `public void AddCommand()`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `command`。
+**用途 / Purpose:** 将 「command」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.AddCommand();
+```
 
 ### SetBodyProperties
 `public void SetBodyProperties(BodyProperties bodyProperties, bool ignoreDebugValues, int race = 0, int gender = -1, bool recordChange = false)`
 
-**用途 / Purpose:** 设置 `body properties` 的值或状态。
+**用途 / Purpose:** 为 「body properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.SetBodyProperties(bodyProperties, false, 0, 0, false);
+```
 
 ### UpdateFacegen
 `public void UpdateFacegen()`
 
-**用途 / Purpose:** 更新 `facegen` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「facegen」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.UpdateFacegen();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.SetDoneInputKey(hotKey);
+```
 
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `previous tab input key` 的值或状态。
+**用途 / Purpose:** 为 「previous tab input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.SetPreviousTabInputKey(hotKey);
+```
 
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `next tab input key` 的值或状态。
+**用途 / Purpose:** 为 「next tab input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.SetNextTabInputKey(hotKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.AddCameraControlInputKey(hotKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.AddCameraControlInputKey(gameKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenVM 实例
+FaceGenVM faceGenVM = ...;
+faceGenVM.AddCameraControlInputKey(gameAxisKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FaceGenVM();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+FaceGenVM faceGenVM = ...;
+faceGenVM.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

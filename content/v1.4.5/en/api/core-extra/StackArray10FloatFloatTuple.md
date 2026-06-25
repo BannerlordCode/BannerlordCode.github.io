@@ -1,20 +1,14 @@
 ---
 title: "StackArray10FloatFloatTuple"
+description: "Auto-generated class reference for StackArray10FloatFloatTuple."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StackArray10FloatFloatTuple`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StackArray10FloatFloatTuple
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct StackArray10FloatFloatTuple`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/StackArray.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/StackArray.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new StackArray10FloatFloatTuple();
+// Obtain an instance from the relevant subsystem API
+StackArray10FloatFloatTuple instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

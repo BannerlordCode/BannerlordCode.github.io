@@ -1,13 +1,7 @@
 ---
 title: "AgeModel"
+description: "Auto-generated class reference for AgeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -41,14 +35,21 @@ Treat `AgeModel` as a Model-style extension point: first identify who creates it
 ### GetAgeLimitForLocation
 `public abstract void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")`
 
-**Purpose:** Gets the current value of `age limit for location`.
+**Purpose:** Reads and returns the `age limit for location` value held by the current object.
+
+```csharp
+// Obtain an instance of AgeModel from the subsystem API first
+AgeModel ageModel = ...;
+ageModel.GetAgeLimitForLocation(character, minimumAge, maximumAge, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAgeModel();
+// Typically obtained from a subsystem API or factory
+AgeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "INavigationCache"
+description: "Auto-generated class reference for INavigationCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `INavigationCache`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # INavigationCache
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public interface INavigationCache`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MapDistanceModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MapDistanceModel.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ComponentInterfaces` to place it
 ## Usage Example
 
 ```csharp
-INavigationCache implementation = GetNavigationCacheImplementation();
+// Usually obtained through DI or a factory method
+IINavigationCache service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

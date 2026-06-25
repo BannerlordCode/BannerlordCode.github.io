@@ -1,20 +1,14 @@
 ---
 title: "ClanStats"
+description: "ClanStats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanStats`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanStats`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanStats.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanStats.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "ClanStats"
 ## 使用示例
 
 ```csharp
-var example = new ClanStats();
+// 从对应子系统 API 获取实例
+ClanStats instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

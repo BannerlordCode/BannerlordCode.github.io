@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapSettlementNameplateView"
+description: "Auto-generated class reference for GauntletMapSettlementNameplateView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapSettlementNameplateView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapSettlementNameplateView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapSettlementNameplateView : MapView, IGauntletMapEventVisualHandler`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapSettlementNameplateView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapSettlementNameplateView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GauntletMapSettlementNameplateView` as a View-style extension point: firs
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapSettlementNameplateView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapSettlementNameplateView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

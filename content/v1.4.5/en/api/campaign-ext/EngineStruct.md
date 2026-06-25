@@ -1,20 +1,14 @@
 ---
 title: "EngineStruct"
+description: "Auto-generated class reference for EngineStruct."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineStruct`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineStruct
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class EngineStruct : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineStruct.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineStruct.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new EngineStruct();
+// Obtain an instance from the relevant subsystem API
+EngineStruct instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

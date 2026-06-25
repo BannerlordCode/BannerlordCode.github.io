@@ -1,23 +1,18 @@
 ---
 title: "TypeDefinitionBase"
+description: "Auto-generated class reference for TypeDefinitionBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TypeDefinitionBase`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TypeDefinitionBase
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class TypeDefinitionBase`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Definition/TypeDefinitionBase.cs`
 
 ## Overview
 
-`TypeDefinitionBase` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TypeDefinitionBase` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -36,16 +31,19 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetClassLevel
 `public static byte GetClassLevel(Type type)`
 
-**Purpose:** Gets the current value of `class level`.
+**Purpose:** Reads and returns the `class level` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TypeDefinitionBase.GetClassLevel(type);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TypeDefinitionBase.GetClassLevel(type);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

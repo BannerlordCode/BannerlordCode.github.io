@@ -1,13 +1,7 @@
 ---
 title: "StoryModeEvents"
+description: "Auto-generated class reference for StoryModeEvents."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeEvents`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeEvents
 
 **Namespace:** StoryMode
@@ -42,38 +36,75 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 
 **Purpose:** Removes `listeners` from the current collection or state.
 
+```csharp
+// Obtain an instance of StoryModeEvents from the subsystem API first
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.RemoveListeners(obj);
+```
+
 ### OnMainStoryLineSideChosen
 `public void OnMainStoryLineSideChosen(MainStoryLineSide side)`
 
-**Purpose:** Called when the `main story line side chosen` event is raised.
+**Purpose:** Invoked when the `main story line side chosen` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeEvents from the subsystem API first
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnMainStoryLineSideChosen(side);
+```
 
 ### OnStoryModeTutorialEnded
 `public void OnStoryModeTutorialEnded()`
 
-**Purpose:** Called when the `story mode tutorial ended` event is raised.
+**Purpose:** Invoked when the `story mode tutorial ended` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeEvents from the subsystem API first
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnStoryModeTutorialEnded();
+```
 
 ### OnBannerPieceCollected
 `public void OnBannerPieceCollected()`
 
-**Purpose:** Called when the `banner piece collected` event is raised.
+**Purpose:** Invoked when the `banner piece collected` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeEvents from the subsystem API first
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnBannerPieceCollected();
+```
 
 ### OnConspiracyActivated
 `public void OnConspiracyActivated()`
 
-**Purpose:** Called when the `conspiracy activated` event is raised.
+**Purpose:** Invoked when the `conspiracy activated` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeEvents from the subsystem API first
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnConspiracyActivated();
+```
 
 ### OnTravelToVillageTutorialQuestStarted
 `public void OnTravelToVillageTutorialQuestStarted()`
 
-**Purpose:** Called when the `travel to village tutorial quest started` event is raised.
+**Purpose:** Invoked when the `travel to village tutorial quest started` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeEvents from the subsystem API first
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnTravelToVillageTutorialQuestStarted();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StoryModeEvents();
-value.RemoveListeners(obj);
+// Typically call this after obtaining an instance from the subsystem API
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.RemoveListeners(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

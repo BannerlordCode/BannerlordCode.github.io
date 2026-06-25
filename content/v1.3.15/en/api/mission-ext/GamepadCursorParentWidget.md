@@ -1,13 +1,7 @@
 ---
 title: "GamepadCursorParentWidget"
+description: "Auto-generated class reference for GamepadCursorParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadCursorParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GamepadCursorParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -36,9 +30,10 @@ Treat `GamepadCursorParentWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new GamepadCursorParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GamepadCursorParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

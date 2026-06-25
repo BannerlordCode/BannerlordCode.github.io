@@ -1,13 +1,7 @@
 ---
 title: "CraftedDataViewManager"
+description: "CraftedDataViewManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftedDataViewManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftedDataViewManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,17 +23,32 @@ title: "CraftedDataViewManager"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+CraftedDataViewManager.Initialize();
+```
 
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 静态调用，不需要实例
+CraftedDataViewManager.Clear();
+```
 
 ### GetCraftedDataView
 `public static CraftedDataView GetCraftedDataView(WeaponDesign craftedData)`
 
-**用途 / Purpose:** 获取 `crafted data view` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「crafted data view」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CraftedDataViewManager.GetCraftedDataView(craftedData);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ var manager = CraftedDataViewManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "NativeScriptComponent"
+description: "NativeScriptComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeScriptComponent`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeScriptComponent
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class NativeScriptComponent : ScriptComponent`
 **Base:** `ScriptComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeScriptComponent.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeScriptComponent.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ var component = agent.GetComponent<NativeScriptComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

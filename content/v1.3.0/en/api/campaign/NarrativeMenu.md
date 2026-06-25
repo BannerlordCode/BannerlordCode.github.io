@@ -1,13 +1,7 @@
 ---
 title: "NarrativeMenu"
+description: "Auto-generated class reference for NarrativeMenu."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NarrativeMenu`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NarrativeMenu
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -38,23 +32,42 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 
 **Purpose:** Adds `narrative menu option` to the current collection or state.
 
+```csharp
+// Obtain an instance of NarrativeMenu from the subsystem API first
+NarrativeMenu narrativeMenu = ...;
+narrativeMenu.AddNarrativeMenuOption(narrativeMenuOption);
+```
+
 ### RemoveNarrativeMenuOption
 `public void RemoveNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
 
 **Purpose:** Removes `narrative menu option` from the current collection or state.
 
+```csharp
+// Obtain an instance of NarrativeMenu from the subsystem API first
+NarrativeMenu narrativeMenu = ...;
+narrativeMenu.RemoveNarrativeMenuOption(narrativeMenuOption);
+```
+
 ### GetNarrativeMenuCharacterArgsDelegate
 `public delegate List<NarrativeMenuCharacterArgs> GetNarrativeMenuCharacterArgsDelegate(CultureObject culture, string occupationType, CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Gets the current value of `narrative menu character args delegate`.
+**Purpose:** Reads and returns the `narrative menu character args delegate` value held by the current object.
+
+```csharp
+// Obtain an instance of NarrativeMenu from the subsystem API first
+NarrativeMenu narrativeMenu = ...;
+var result = narrativeMenu.GetNarrativeMenuCharacterArgsDelegate(culture, "example", characterCreationManager);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NarrativeMenu();
-value.AddNarrativeMenuOption(narrativeMenuOption);
+// Typically call this after obtaining an instance from the subsystem API
+NarrativeMenu narrativeMenu = ...;
+narrativeMenu.AddNarrativeMenuOption(narrativeMenuOption);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

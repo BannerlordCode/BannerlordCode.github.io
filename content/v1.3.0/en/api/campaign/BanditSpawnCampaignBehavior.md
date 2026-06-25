@@ -1,13 +1,7 @@
 ---
 title: "BanditSpawnCampaignBehavior"
+description: "Auto-generated class reference for BanditSpawnCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BanditSpawnCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BanditSpawnCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Called when the `settlement entered` event is raised.
+**Purpose:** Invoked when the `settlement entered` event is raised.
+
+```csharp
+// Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Handles logic related to `daily tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.DailyTick();
+```
 
 ### AddBanditToHideout
 `public MobileParty AddBanditToHideout(Hideout hideoutComponent, PartyTemplateObject overridenPartyTemplate = null, bool isBanditBossParty = false)`
 
 **Purpose:** Adds `bandit to hideout` to the current collection or state.
 
+```csharp
+// Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+var result = banditSpawnCampaignBehavior.AddBanditToHideout(hideoutComponent, null, false);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new BanditSpawnCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerTeamDeathmatch"
+description: "MissionMultiplayerTeamDeathmatch 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerTeamDeathmatch`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerTeamDeathmatch
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,45 +30,88 @@ title: "MissionMultiplayerTeamDeathmatch"
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**用途 / Purpose:** 获取 `mission type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+var result = missionMultiplayerTeamDeathmatch.GetMissionType();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.AfterStart();
+```
 
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**用途 / Purpose:** 当 `peer changed team` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「peer changed team」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.OnPeerChangedTeam(peer, oldTeam, newTeam);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### CheckForMatchEnd
 `public override bool CheckForMatchEnd()`
 
-**用途 / Purpose:** 处理 `check for match end` 相关逻辑。
+**用途 / Purpose:** 检查「for match end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+var result = missionMultiplayerTeamDeathmatch.CheckForMatchEnd();
+```
 
 ### GetWinnerTeam
 `public override Team GetWinnerTeam()`
 
-**用途 / Purpose:** 获取 `winner team` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「winner team」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+var result = missionMultiplayerTeamDeathmatch.GetWinnerTeam();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMultiplayerTeamDeathmatch();
-value.GetMissionType();
+// 通常从对应子系统 API 获取实例后调用
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.GetMissionType();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

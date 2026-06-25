@@ -1,13 +1,7 @@
 ---
 title: "SallyOutMissionController"
+description: "SallyOutMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SallyOutMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SallyOutMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,39 +29,74 @@ title: "SallyOutMissionController"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionController 实例
+SallyOutMissionController sallyOutMissionController = ...;
+sallyOutMissionController.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionController 实例
+SallyOutMissionController sallyOutMissionController = ...;
+sallyOutMissionController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionController 实例
+SallyOutMissionController sallyOutMissionController = ...;
+sallyOutMissionController.OnMissionTick(0);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutMissionController 实例
+SallyOutMissionController sallyOutMissionController = ...;
+sallyOutMissionController.OnDeploymentFinished();
+```
 
 ### GetBesiegerSiegeEngines
 `public static MBReadOnlyList<SiegeWeapon> GetBesiegerSiegeEngines()`
 
-**用途 / Purpose:** 获取 `besieger siege engines` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「besieger siege engines」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SallyOutMissionController.GetBesiegerSiegeEngines();
+```
 
 ### DisableSiegeEngines
 `public static void DisableSiegeEngines()`
 
-**用途 / Purpose:** 处理 `disable siege engines` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SallyOutMissionController.DisableSiegeEngines();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSallyOutMissionController();
+// 通常通过子系统 API 或工厂获得派生实例
+SallyOutMissionController instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

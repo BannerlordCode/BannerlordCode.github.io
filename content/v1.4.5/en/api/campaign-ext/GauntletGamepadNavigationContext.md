@@ -1,20 +1,14 @@
 ---
 title: "GauntletGamepadNavigationContext"
+description: "Auto-generated class reference for GauntletGamepadNavigationContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletGamepadNavigationContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletGamepadNavigationContext
 
 **Namespace:** (global)
 **Module:** (global)
 **Type:** `public class GauntletGamepadNavigationContext : IGamepadNavigationContext`
 **Base:** `IGamepadNavigationContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/GauntletGamepadNavigationContext.cs`
+**File:** `bin/TaleWorlds.GauntletUI/GauntletGamepadNavigationContext.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `(global)` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var example = new GauntletGamepadNavigationContext();
+// Obtain an instance from the relevant subsystem API
+GauntletGamepadNavigationContext instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

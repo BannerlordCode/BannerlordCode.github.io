@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentControllerEquipDropVM"
+description: "Auto-generated class reference for MissionMainAgentControllerEquipDropVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentControllerEquipDropVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMainAgentControllerEquipDropVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
@@ -40,55 +34,110 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.RefreshValues();
+```
 
 ### InitializeMainAgentPropterties
 `public void InitializeMainAgentPropterties()`
 
-**Purpose:** Initializes the state, resources, or bindings for `main agent propterties`.
+**Purpose:** Prepares the resources, state, or bindings required by `main agent propterties`.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.InitializeMainAgentPropterties();
+```
 
 ### OnToggle
 `public void OnToggle(bool isEnabled)`
 
-**Purpose:** Called when the `toggle` event is raised.
+**Purpose:** Invoked when the `toggle` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnToggle(false);
+```
 
 ### OnCancelHoldController
 `public void OnCancelHoldController()`
 
-**Purpose:** Called when the `cancel hold controller` event is raised.
+**Purpose:** Invoked when the `cancel hold controller` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnCancelHoldController();
+```
 
 ### OnWeaponDroppedAtIndex
 `public void OnWeaponDroppedAtIndex(int droppedWeaponIndex)`
 
-**Purpose:** Called when the `weapon dropped at index` event is raised.
+**Purpose:** Invoked when the `weapon dropped at index` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnWeaponDroppedAtIndex(0);
+```
 
 ### OnWeaponEquippedAtIndex
 `public void OnWeaponEquippedAtIndex(int equippedWeaponIndex)`
 
-**Purpose:** Called when the `weapon equipped at index` event is raised.
+**Purpose:** Invoked when the `weapon equipped at index` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnWeaponEquippedAtIndex(0);
+```
 
 ### SetDropProgressForIndex
 `public void SetDropProgressForIndex(EquipmentIndex eqIndex, float progress)`
 
-**Purpose:** Sets the value or state of `drop progress for index`.
+**Purpose:** Assigns a new value to `drop progress for index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.SetDropProgressForIndex(eqIndex, 0);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnFinalize();
+```
 
 ### OnGamepadActiveChanged
 `public void OnGamepadActiveChanged(bool isActive)`
 
-**Purpose:** Called when the `gamepad active changed` event is raised.
+**Purpose:** Invoked when the `gamepad active changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentControllerEquipDropVM from the subsystem API first
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnGamepadActiveChanged(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMainAgentControllerEquipDropVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

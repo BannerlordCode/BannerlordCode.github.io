@@ -1,13 +1,7 @@
 ---
 title: "ShipHelper"
+description: "ShipHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipHelper
 
 **Namespace:** Helpers
@@ -29,22 +23,42 @@ title: "ShipHelper"
 ### GetShipBanner
 `public static Banner GetShipBanner(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**用途 / Purpose:** 获取 `ship banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship banner」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ShipHelper.GetShipBanner(shipOrigin, null);
+```
 
 ### GetSailColors
 `public static ValueTuple<uint, uint> GetSailColors(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**用途 / Purpose:** 获取 `sail colors` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sail colors」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ShipHelper.GetSailColors(shipOrigin, null);
+```
 
 ### GetShipBanner
 `public static Banner GetShipBanner(PartyBase party = null)`
 
-**用途 / Purpose:** 获取 `ship banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship banner」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ShipHelper.GetShipBanner(null);
+```
 
 ### GetSailColors
 `public static ValueTuple<uint, uint> GetSailColors(PartyBase party = null)`
 
-**用途 / Purpose:** 获取 `sail colors` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sail colors」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ShipHelper.GetSailColors(null);
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ ShipHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

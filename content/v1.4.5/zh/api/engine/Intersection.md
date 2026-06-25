@@ -1,20 +1,14 @@
 ---
 title: "Intersection"
+description: "Intersection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Intersection`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Intersection
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct Intersection`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Intersection.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Intersection.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "Intersection"
 ### DoSegmentsIntersect
 `public static bool DoSegmentsIntersect(Vec2 line1Start, Vec2 line1Direction, Vec2 line2Start, Vec2 line2Direction, ref Vec2 intersectionPoint)`
 
-**用途 / Purpose:** 处理 `do segments intersect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Intersection.DoSegmentsIntersect(line1Start, line1Direction, line2Start, line2Direction, intersectionPoint);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ Intersection.DoSegmentsIntersect(line1Start, line1Direction, line2Start, line2Di
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

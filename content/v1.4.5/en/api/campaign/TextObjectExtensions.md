@@ -1,20 +1,14 @@
 ---
 title: "TextObjectExtensions"
+description: "Auto-generated class reference for TextObjectExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextObjectExtensions`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextObjectExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class TextObjectExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/TextObjectExtensions.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/TextObjectExtensions.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### SetCharacterProperties
 `public static void SetCharacterProperties(this TextObject to, string tag, CharacterObject character, bool includeDetails = false)`
 
-**Purpose:** Sets the value or state of `character properties`.
+**Purpose:** Assigns a new value to `character properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+TextObjectExtensions.SetCharacterProperties(to, "example", character, false);
+```
 
 ### SetSettlementProperties
 `public static void SetSettlementProperties(this TextObject to, Settlement settlement)`
 
-**Purpose:** Sets the value or state of `settlement properties`.
+**Purpose:** Assigns a new value to `settlement properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+TextObjectExtensions.SetSettlementProperties(to, settlement);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ TextObjectExtensions.SetCharacterProperties(to, "example", character, false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GenericCampaignPanelsGameKeyCategory"
+description: "Auto-generated class reference for GenericCampaignPanelsGameKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericCampaignPanelsGameKeyCategory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericCampaignPanelsGameKeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class GenericCampaignPanelsGameKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GenericCampaignPanelsGameKeyCategory.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GenericCampaignPanelsGameKeyCategory.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new GenericCampaignPanelsGameKeyCategory();
+// Obtain an instance from the relevant subsystem API
+GenericCampaignPanelsGameKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

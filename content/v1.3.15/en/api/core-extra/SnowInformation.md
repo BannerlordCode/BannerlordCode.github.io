@@ -1,13 +1,7 @@
 ---
 title: "SnowInformation"
+description: "Auto-generated class reference for SnowInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SnowInformation`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SnowInformation
 
 **Namespace:** TaleWorlds.Library
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `deserialize from`.
+**Purpose:** Restores `from` from serialized data.
+
+```csharp
+// Obtain an instance of SnowInformation from the subsystem API first
+SnowInformation snowInformation = ...;
+snowInformation.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `serialize to`.
+**Purpose:** Serializes `to` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of SnowInformation from the subsystem API first
+SnowInformation snowInformation = ...;
+snowInformation.SerializeTo(writer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SnowInformation();
-value.DeserializeFrom(reader);
+// Typically call this after obtaining an instance from the subsystem API
+SnowInformation snowInformation = ...;
+snowInformation.DeserializeFrom(reader);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

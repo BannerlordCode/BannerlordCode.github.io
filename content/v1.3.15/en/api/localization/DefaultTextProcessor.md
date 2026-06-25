@@ -1,24 +1,18 @@
 ---
 title: "DefaultTextProcessor"
+description: "Auto-generated class reference for DefaultTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
 **Module:** TaleWorlds.Localization
 **Type:** `public class DefaultTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**Area:** localization
+**File:** `TaleWorlds.Localization/TextProcessor/DefaultTextProcessor.cs`
 
 ## Overview
 
-`DefaultTextProcessor` lives in `TaleWorlds.Localization.TextProcessor`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`DefaultTextProcessor` lives in `TaleWorlds.Localization.TextProcessor` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,22 +29,33 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultTextProcessor from the subsystem API first
+DefaultTextProcessor defaultTextProcessor = ...;
+defaultTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of DefaultTextProcessor from the subsystem API first
+DefaultTextProcessor defaultTextProcessor = ...;
+defaultTextProcessor.ClearTemporaryData();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a DefaultTextProcessor instance from game state, then call one of its public methods
-var value = new DefaultTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+DefaultTextProcessor defaultTextProcessor = ...;
+defaultTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

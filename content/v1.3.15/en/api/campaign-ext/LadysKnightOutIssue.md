@@ -1,23 +1,18 @@
 ---
 title: "LadysKnightOutIssue"
+description: "Auto-generated class reference for LadysKnightOutIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LadysKnightOutIssue`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LadysKnightOutIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LadysKnightOutIssue`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Issues/LadysKnightOutIssueBehavior.cs`
 
 ## Overview
 
-`LadysKnightOutIssue` lives in `TaleWorlds.CampaignSystem.Issues`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LadysKnightOutIssue` lives in `TaleWorlds.CampaignSystem.Issues` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -48,37 +43,66 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+ladysKnightOutIssue.RegisterEvents();
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+ladysKnightOutIssue.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+ladysKnightOutIssue.SyncData(dataStore);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+var result = ladysKnightOutIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+var result = ladysKnightOutIssue.IssueStayAliveConditions();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a LadysKnightOutIssue instance from game state, then call one of its public methods
-var value = new LadysKnightOutIssue();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+ladysKnightOutIssue.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

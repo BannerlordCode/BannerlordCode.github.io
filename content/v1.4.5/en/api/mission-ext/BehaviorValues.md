@@ -1,20 +1,14 @@
 ---
 title: "BehaviorValues"
+description: "Auto-generated class reference for BehaviorValues."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorValues`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorValues
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BehaviorValues`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanAIComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanAIComponent.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetValueAt
 `public float GetValueAt(float x)`
 
-**Purpose:** Gets the current value of `value at`.
+**Purpose:** Reads and returns the `value at` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorValues from the subsystem API first
+BehaviorValues behaviorValues = ...;
+var result = behaviorValues.GetValueAt(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorValues();
-value.GetValueAt(0);
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorValues behaviorValues = ...;
+behaviorValues.GetValueAt(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

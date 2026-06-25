@@ -1,20 +1,14 @@
 ---
 title: "Mat3"
+description: "Auto-generated class reference for Mat3."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Mat3`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Mat3
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Mat3`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Mat3.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Mat3.cs`
 
 ## Overview
 
@@ -35,210 +29,445 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RotateAboutSide
 `public void RotateAboutSide(float a)`
 
-**Purpose:** Handles logic related to `rotate about side`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.RotateAboutSide(0);
+```
 
 ### RotateAboutForward
 `public void RotateAboutForward(float a)`
 
-**Purpose:** Handles logic related to `rotate about forward`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.RotateAboutForward(0);
+```
 
 ### RotateAboutUp
 `public void RotateAboutUp(float a)`
 
-**Purpose:** Handles logic related to `rotate about up`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.RotateAboutUp(0);
+```
 
 ### RotateAboutAnArbitraryVector
 `public void RotateAboutAnArbitraryVector(in Vec3 v, float a)`
 
-**Purpose:** Handles logic related to `rotate about an arbitrary vector`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.RotateAboutAnArbitraryVector(v, 0);
+```
 
 ### IsOrthonormal
 `public bool IsOrthonormal()`
 
-**Purpose:** Handles logic related to `is orthonormal`.
+**Purpose:** Determines whether the current object is in the `orthonormal` state or condition.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.IsOrthonormal();
+```
 
 ### IsLeftHanded
 `public bool IsLeftHanded()`
 
-**Purpose:** Handles logic related to `is left handed`.
+**Purpose:** Determines whether the current object is in the `left handed` state or condition.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.IsLeftHanded();
+```
 
 ### NearlyEquals
 `public bool NearlyEquals(in Mat3 rhs, float epsilon = 1E-05f)`
 
-**Purpose:** Handles logic related to `nearly equals`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.NearlyEquals(rhs, 0);
+```
 
 ### TransformToParent
 `public Vec3 TransformToParent(in Vec3 v)`
 
-**Purpose:** Handles logic related to `transform to parent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.TransformToParent(v);
+```
 
 ### TransformToParent
 `public Vec2 TransformToParent(in Vec2 v)`
 
-**Purpose:** Handles logic related to `transform to parent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.TransformToParent(v);
+```
 
 ### TransformToLocal
 `public Vec3 TransformToLocal(in Vec3 v)`
 
-**Purpose:** Handles logic related to `transform to local`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.TransformToLocal(v);
+```
 
 ### TransformToLocal
 `public Vec2 TransformToLocal(in Vec2 v)`
 
-**Purpose:** Handles logic related to `transform to local`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.TransformToLocal(v);
+```
 
 ### TransformToParent
 `public Mat3 TransformToParent(in Mat3 m)`
 
-**Purpose:** Handles logic related to `transform to parent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.TransformToParent(m);
+```
 
 ### TransformToLocal
 `public Mat3 TransformToLocal(in Mat3 m)`
 
-**Purpose:** Handles logic related to `transform to local`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.TransformToLocal(m);
+```
 
 ### Orthonormalize
 `public void Orthonormalize()`
 
-**Purpose:** Handles logic related to `orthonormalize`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.Orthonormalize();
+```
 
 ### OrthonormalizeAccordingToForwardAndKeepUpAsZAxis
 `public void OrthonormalizeAccordingToForwardAndKeepUpAsZAxis()`
 
-**Purpose:** Handles logic related to `orthonormalize according to forward and keep up as z axis`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.OrthonormalizeAccordingToForwardAndKeepUpAsZAxis();
+```
 
 ### GetUnitRotation
 `public Mat3 GetUnitRotation(float removedScale)`
 
-**Purpose:** Gets the current value of `unit rotation`.
+**Purpose:** Reads and returns the `unit rotation` value held by the current object.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.GetUnitRotation(0);
+```
 
 ### MakeUnit
 `public Vec3 MakeUnit()`
 
-**Purpose:** Handles logic related to `make unit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.MakeUnit();
+```
 
 ### IsUnit
 `public bool IsUnit()`
 
-**Purpose:** Handles logic related to `is unit`.
+**Purpose:** Determines whether the current object is in the `unit` state or condition.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.IsUnit();
+```
 
 ### ApplyScaleLocal
 `public void ApplyScaleLocal(float scaleAmount)`
 
-**Purpose:** Applies `scale local` to the current object.
+**Purpose:** Applies the effect of `scale local` to the current object.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.ApplyScaleLocal(0);
+```
 
 ### ApplyScaleLocal
 `public void ApplyScaleLocal(in Vec3 scaleAmountXYZ)`
 
-**Purpose:** Applies `scale local` to the current object.
+**Purpose:** Applies the effect of `scale local` to the current object.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.ApplyScaleLocal(scaleAmountXYZ);
+```
 
 ### HasScale
 `public bool HasScale()`
 
-**Purpose:** Checks whether the current object has/contains `scale`.
+**Purpose:** Determines whether the current object already holds `scale`.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.HasScale();
+```
 
 ### GetScaleVector
 `public Vec3 GetScaleVector()`
 
-**Purpose:** Gets the current value of `scale vector`.
+**Purpose:** Reads and returns the `scale vector` value held by the current object.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.GetScaleVector();
+```
 
 ### GetScaleVectorSquared
 `public Vec3 GetScaleVectorSquared()`
 
-**Purpose:** Gets the current value of `scale vector squared`.
+**Purpose:** Reads and returns the `scale vector squared` value held by the current object.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.GetScaleVectorSquared();
+```
 
 ### ToQuaternion
 `public void ToQuaternion(out Quaternion quat)`
 
-**Purpose:** Handles logic related to `to quaternion`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.ToQuaternion(quat);
+```
 
 ### ToQuaternion
 `public Quaternion ToQuaternion()`
 
-**Purpose:** Handles logic related to `to quaternion`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.ToQuaternion();
+```
 
 ### Lerp
 `public static Mat3 Lerp(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**Purpose:** Handles logic related to `lerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mat3.Lerp(m1, m2, 0);
+```
 
 ### LerpNonOrthogonal
 `public static Mat3 LerpNonOrthogonal(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**Purpose:** Handles logic related to `lerp non orthogonal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mat3.LerpNonOrthogonal(m1, m2, 0);
+```
 
 ### Slerp
 `public static Mat3 Slerp(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**Purpose:** Handles logic related to `slerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mat3.Slerp(m1, m2, 0);
+```
 
 ### SlerpFPSIndependent
 `public static Mat3 SlerpFPSIndependent(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**Purpose:** Handles logic related to `slerp f p s independent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mat3.SlerpFPSIndependent(m1, m2, 0);
+```
 
 ### CreateMat3WithForward
 `public static Mat3 CreateMat3WithForward(in Vec3 direction)`
 
-**Purpose:** Creates a new `mat3 with forward` instance or object.
+**Purpose:** Constructs a new `mat3 with forward` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Mat3.CreateMat3WithForward(direction);
+```
 
 ### CreateDiagonalMat3
 `public static Mat3 CreateDiagonalMat3(in Vec3 diagonalData)`
 
-**Purpose:** Creates a new `diagonal mat3` instance or object.
+**Purpose:** Constructs a new `diagonal mat3` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Mat3.CreateDiagonalMat3(diagonalData);
+```
 
 ### GetEulerAngles
 `public Vec3 GetEulerAngles()`
 
-**Purpose:** Gets the current value of `euler angles`.
+**Purpose:** Reads and returns the `euler angles` value held by the current object.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.GetEulerAngles();
+```
 
 ### Transpose
 `public Mat3 Transpose()`
 
-**Purpose:** Handles logic related to `transpose`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.Transpose();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.GetHashCode();
+```
 
 ### IsIdentity
 `public bool IsIdentity()`
 
-**Purpose:** Handles logic related to `is identity`.
+**Purpose:** Determines whether the current object is in the `identity` state or condition.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.IsIdentity();
+```
 
 ### IsZero
 `public bool IsZero()`
 
-**Purpose:** Handles logic related to `is zero`.
+**Purpose:** Determines whether the current object is in the `zero` state or condition.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.IsZero();
+```
 
 ### IsUniformScaled
 `public bool IsUniformScaled()`
 
-**Purpose:** Handles logic related to `is uniform scaled`.
+**Purpose:** Determines whether the current object is in the `uniform scaled` state or condition.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+var result = mat3.IsUniformScaled();
+```
 
 ### ApplyEulerAngles
 `public void ApplyEulerAngles(in Vec3 eulerAngles)`
 
-**Purpose:** Applies `euler angles` to the current object.
+**Purpose:** Applies the effect of `euler angles` to the current object.
+
+```csharp
+// Obtain an instance of Mat3 from the subsystem API first
+Mat3 mat3 = ...;
+mat3.ApplyEulerAngles(eulerAngles);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Mat3();
-value.RotateAboutSide(0);
+// Typically call this after obtaining an instance from the subsystem API
+Mat3 mat3 = ...;
+mat3.RotateAboutSide(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

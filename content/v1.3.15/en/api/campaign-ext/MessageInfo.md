@@ -1,13 +1,7 @@
 ---
 title: "MessageInfo"
+description: "Auto-generated class reference for MessageInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MessageInfo
 
 **Namespace:** TaleWorlds.Network
@@ -41,20 +35,32 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### WriteTo
 `public void WriteTo(Stream stream, bool fromServer)`
 
-**Purpose:** Handles logic related to `write to`.
+**Purpose:** Writes `to` to the target location.
+
+```csharp
+// Obtain an instance of MessageInfo from the subsystem API first
+MessageInfo messageInfo = ...;
+messageInfo.WriteTo(stream, false);
+```
 
 ### ReadFrom
 `public static MessageInfo ReadFrom(Stream stream, bool fromServer)`
 
-**Purpose:** Handles logic related to `read from`.
+**Purpose:** Reads the data or state of `from`.
+
+```csharp
+// Static call; no instance required
+MessageInfo.ReadFrom(stream, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MessageInfo();
-value.WriteTo(stream, false);
+// Typically call this after obtaining an instance from the subsystem API
+MessageInfo messageInfo = ...;
+messageInfo.WriteTo(stream, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

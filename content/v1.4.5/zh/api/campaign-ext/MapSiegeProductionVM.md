@@ -1,20 +1,14 @@
 ---
 title: "MapSiegeProductionVM"
+description: "MapSiegeProductionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapSiegeProductionVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeProductionVM
 
 **Namespace:** SandBox.ViewModelCollection.MapSiege
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MapSiegeProductionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.MapSiege/MapSiegeProductionVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.MapSiege/MapSiegeProductionVM.cs`
 
 ## 概述
 
@@ -37,30 +31,55 @@ title: "MapSiegeProductionVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeProductionVM 实例
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.RefreshValues();
+```
 
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeProductionVM 实例
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.Update();
+```
 
 ### OnMachineSelection
 `public void OnMachineSelection(MapSiegePOIVM poi)`
 
-**用途 / Purpose:** 当 `machine selection` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「machine selection」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeProductionVM 实例
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.OnMachineSelection(poi);
+```
 
 ### ExecuteDisable
 `public void ExecuteDisable()`
 
-**用途 / Purpose:** 执行 `disable` 操作或流程。
+**用途 / Purpose:** 执行 「disable」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeProductionVM 实例
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.ExecuteDisable();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapSiegeProductionVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

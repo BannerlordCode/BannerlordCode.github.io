@@ -1,20 +1,14 @@
 ---
 title: "DamageInterruptionThresholdEffect"
+description: "Auto-generated class reference for DamageInterruptionThresholdEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DamageInterruptionThresholdEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DamageInterruptionThresholdEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DamageInterruptionThresholdEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DamageInterruptionThresholdEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DamageInterruptionThresholdEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetDamageInterruptionThreshold
 `public override float GetDamageInterruptionThreshold()`
 
-**Purpose:** Gets the current value of `damage interruption threshold`.
+**Purpose:** Reads and returns the `damage interruption threshold` value held by the current object.
+
+```csharp
+// Obtain an instance of DamageInterruptionThresholdEffect from the subsystem API first
+DamageInterruptionThresholdEffect damageInterruptionThresholdEffect = ...;
+var result = damageInterruptionThresholdEffect.GetDamageInterruptionThreshold();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DamageInterruptionThresholdEffect();
-value.GetDamageInterruptionThreshold();
+// Typically call this after obtaining an instance from the subsystem API
+DamageInterruptionThresholdEffect damageInterruptionThresholdEffect = ...;
+damageInterruptionThresholdEffect.GetDamageInterruptionThreshold();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ClanFinanceAlleyItemVM"
+description: "ClanFinanceAlleyItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanFinanceAlleyItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceAlleyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanFinanceAlleyItemVM : ClanFinanceIncomeItemBaseVM`
 **Base:** `ClanFinanceIncomeItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceAlleyItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceAlleyItemVM.cs`
 
 ## 概述
 
@@ -38,30 +32,55 @@ title: "ClanFinanceAlleyItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceAlleyItemVM 实例
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.RefreshValues();
+```
 
 ### ExecuteManageAlley
 `public void ExecuteManageAlley()`
 
-**用途 / Purpose:** 执行 `manage alley` 操作或流程。
+**用途 / Purpose:** 执行 「manage alley」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceAlleyItemVM 实例
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.ExecuteManageAlley();
+```
 
 ### ExecuteBeginHeroHint
 `public void ExecuteBeginHeroHint()`
 
-**用途 / Purpose:** 执行 `begin hero hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hero hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceAlleyItemVM 实例
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.ExecuteBeginHeroHint();
+```
 
 ### ExecuteEndHeroHint
 `public void ExecuteEndHeroHint()`
 
-**用途 / Purpose:** 执行 `end hero hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hero hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceAlleyItemVM 实例
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.ExecuteEndHeroHint();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanFinanceAlleyItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

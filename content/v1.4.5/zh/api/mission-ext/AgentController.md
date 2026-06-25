@@ -1,20 +1,14 @@
 ---
 title: "AgentController"
+description: "AgentController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentController`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentController.cs`
 
 ## 概述
 
@@ -36,7 +30,13 @@ title: "AgentController"
 ### OnInitialize
 `public virtual void OnInitialize()`
 
-**用途 / Purpose:** 当 `initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentController 实例
+AgentController agentController = ...;
+agentController.OnInitialize();
+```
 
 ## 使用示例
 
@@ -46,4 +46,4 @@ var controller = Mission.Current.GetMissionBehavior<AgentController>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

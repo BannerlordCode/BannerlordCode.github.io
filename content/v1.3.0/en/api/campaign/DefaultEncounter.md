@@ -1,13 +1,7 @@
 ---
 title: "DefaultEncounter"
+description: "Auto-generated class reference for DefaultEncounter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultEncounter`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers
@@ -29,47 +23,92 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus.GameMenuInitialization
 ### game_menu_taken_prisoner_ui_on_init
 `public static void game_menu_taken_prisoner_ui_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_taken_prisoner_ui_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_taken_prisoner_ui_on_init(args);
+```
 
 ### game_menu_defeat_and_taken_prisoner_ui_on_init
 `public static void game_menu_defeat_and_taken_prisoner_ui_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_defeat_and_taken_prisoner_ui_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_defeat_and_taken_prisoner_ui_on_init(args);
+```
 
 ### game_menu_taken_prisoner_town_ui_on_init
 `public static void game_menu_taken_prisoner_town_ui_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_taken_prisoner_town_ui_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_taken_prisoner_town_ui_on_init(args);
+```
 
 ### game_menu_town_menu_on_init
 `public static void game_menu_town_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_town_menu_on_init(args);
+```
 
 ### game_menu_attackers_left_on_init
 `public static void game_menu_attackers_left_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_attackers_left_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_attackers_left_on_init(args);
+```
 
 ### game_menu_new_game_begin_on_init
 `public static void game_menu_new_game_begin_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_new_game_begin_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_new_game_begin_on_init(args);
+```
 
 ### game_menu_kingdom_mno_call_to_arms_on_consequence
 `public static void game_menu_kingdom_mno_call_to_arms_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_kingdom_mno_call_to_arms_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_kingdom_mno_call_to_arms_on_consequence(args);
+```
 
 ### game_menu_encyclopedia_on_consequence
 `public static void game_menu_encyclopedia_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_encyclopedia_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_encyclopedia_on_consequence(args);
+```
 
 ### game_menu_town_menu_request_meeting_on_init
 `public static void game_menu_town_menu_request_meeting_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_request_meeting_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DefaultEncounter.game_menu_town_menu_request_meeting_on_init(args);
+```
 
 ## Usage Example
 
@@ -79,4 +118,4 @@ DefaultEncounter.game_menu_taken_prisoner_ui_on_init(args);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

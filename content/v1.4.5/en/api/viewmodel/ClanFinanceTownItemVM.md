@@ -1,20 +1,14 @@
 ---
 title: "ClanFinanceTownItemVM"
+description: "Auto-generated class reference for ClanFinanceTownItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFinanceTownItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceTownItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanFinanceTownItemVM : ClanFinanceIncomeItemBaseVM`
 **Base:** `ClanFinanceIncomeItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceTownItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceTownItemVM.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ## Usage Example
 
 ```csharp
-var example = new ClanFinanceTownItemVM();
+// Obtain an instance from the relevant subsystem API
+ClanFinanceTownItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

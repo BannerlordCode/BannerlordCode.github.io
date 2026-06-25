@@ -1,20 +1,14 @@
 ---
 title: "EpicThirdPartyFriendListService"
+description: "Auto-generated class reference for EpicThirdPartyFriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EpicThirdPartyFriendListService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EpicThirdPartyFriendListService
 
 **Namespace:** TaleWorlds.PlatformService.Epic
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class EpicThirdPartyFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicThirdPartyFriendListService.cs`
+**File:** `bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicThirdPartyFriendListService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService.Epic` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new EpicThirdPartyFriendListService();
+// Obtain an instance from the relevant subsystem API
+EpicThirdPartyFriendListService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

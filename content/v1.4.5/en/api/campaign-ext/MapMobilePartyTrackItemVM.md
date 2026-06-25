@@ -1,20 +1,14 @@
 ---
 title: "MapMobilePartyTrackItemVM"
+description: "Auto-generated class reference for MapMobilePartyTrackItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapMobilePartyTrackItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapMobilePartyTrackItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Tracker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MapMobilePartyTrackItemVM : MapTrackerItemVM<MobileParty>`
 **Base:** `MapTrackerItemVM<MobileParty>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Tracker/MapMobilePartyTrackItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Tracker/MapMobilePartyTrackItemVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection.Map.Tracker` to place it in th
 ## Usage Example
 
 ```csharp
-var value = new MapMobilePartyTrackItemVM();
+// Obtain an instance from the relevant subsystem API
+MapMobilePartyTrackItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

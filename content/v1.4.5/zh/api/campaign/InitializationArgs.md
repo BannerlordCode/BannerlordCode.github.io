@@ -1,20 +1,14 @@
 ---
 title: "InitializationArgs"
+description: "InitializationArgs 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InitializationArgs`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitializationArgs
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class InitializationArgs`
+**Type:** `class InitializationArgs`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/LordPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/BanditPartyComponent.cs`
 
 ## 概述
 
@@ -26,18 +20,25 @@ title: "InitializationArgs"
 
 ## 主要方法
 
-### InitializeLordPartyProperties
-`public void InitializeLordPartyProperties(MobileParty mobileParty, Hero owner)`
+### InitializeBanditOnCreation
+`public void InitializeBanditOnCreation(MobileParty mobileParty)`
 
-**用途 / Purpose:** 初始化 `lord party properties` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「bandit on creation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 InitializationArgs 实例
+InitializationArgs initializationArgs = ...;
+initializationArgs.InitializeBanditOnCreation(mobileParty);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InitializationArgs();
-value.InitializeLordPartyProperties(mobileParty, owner);
+// 通常从对应子系统 API 获取实例后调用
+InitializationArgs initializationArgs = ...;
+initializationArgs.InitializeBanditOnCreation(mobileParty);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

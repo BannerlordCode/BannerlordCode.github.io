@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionEnginePlatform"
+description: "Auto-generated class reference for TwoDimensionEnginePlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionEnginePlatform`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionEnginePlatform
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
 **Module:** TaleWorlds.Engine
 **Type:** `public class TwoDimensionEnginePlatform : ITwoDimensionPlatform`
 **Base:** `ITwoDimensionPlatform`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/TwoDimensionEnginePlatform.cs`
+**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/TwoDimensionEnginePlatform.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new TwoDimensionEnginePlatform();
+// Obtain an instance from the relevant subsystem API
+TwoDimensionEnginePlatform instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

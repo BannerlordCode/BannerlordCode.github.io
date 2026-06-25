@@ -1,20 +1,14 @@
 ---
 title: "ClanFinanceCommonAreaItemVM"
+description: "Auto-generated class reference for ClanFinanceCommonAreaItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFinanceCommonAreaItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceCommonAreaItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanFinanceCommonAreaItemVM : ClanFinanceIncomeItemBaseVM`
 **Base:** `ClanFinanceIncomeItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceCommonAreaItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceCommonAreaItemVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ## Usage Example
 
 ```csharp
-var example = new ClanFinanceCommonAreaItemVM();
+// Obtain an instance from the relevant subsystem API
+ClanFinanceCommonAreaItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SiegeAmbushEventComponent"
+description: "Auto-generated class reference for SiegeAmbushEventComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeAmbushEventComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeAmbushEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SiegeAmbushEventComponent : MapEventComponent`
 **Base:** `MapEventComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/SiegeAmbushEventComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/SiegeAmbushEventComponent.cs`
 
 ## Overview
 
@@ -35,7 +29,12 @@ Treat `SiegeAmbushEventComponent` as a Component-style extension point: first id
 ### CreateSiegeAmbushEvent
 `public static SiegeAmbushEventComponent CreateSiegeAmbushEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Creates a new `siege ambush event` instance or object.
+**Purpose:** Constructs a new `siege ambush event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SiegeAmbushEventComponent.CreateSiegeAmbushEvent(attackerParty, defenderParty);
+```
 
 ## Usage Example
 
@@ -45,4 +44,4 @@ var component = agent.GetComponent<SiegeAmbushEventComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "HeroInformationVM"
+description: "Auto-generated class reference for HeroInformationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroInformationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HeroInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/HeroInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/HeroInformationVM.cs`
 
 ## Overview
 
@@ -53,25 +47,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of HeroInformationVM from the subsystem API first
+HeroInformationVM heroInformationVM = ...;
+heroInformationVM.RefreshValues();
+```
 
 ### RefreshWith
 `public void RefreshWith(MPHeroClass heroClass, List<IReadOnlyPerkObject> perks)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of HeroInformationVM from the subsystem API first
+HeroInformationVM heroInformationVM = ...;
+heroInformationVM.RefreshWith(heroClass, perks);
+```
 
 ### UpdateHighlightedItem
 `public void UpdateHighlightedItem(ShallowItemVM item)`
 
-**Purpose:** Updates the state or data of `highlighted item`.
+**Purpose:** Recalculates and stores the latest representation of `highlighted item`.
+
+```csharp
+// Obtain an instance of HeroInformationVM from the subsystem API first
+HeroInformationVM heroInformationVM = ...;
+heroInformationVM.UpdateHighlightedItem(item);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeroInformationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+HeroInformationVM heroInformationVM = ...;
+heroInformationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
-title: "ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard"
+title: "ItemComparerBase"
+description: "Auto-generated class reference for ItemComparerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemComparerBase`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemComparerBase
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ItemComparerBase : IComparer<TournamentLeaderboardEntryItemVM>`
 **Base:** `IComparer<TournamentLeaderboardEntryItemVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard/TournamentLeaderboardSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard/TournamentLeaderboardSortControllerVM.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tou
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemComparerBase from the subsystem API first
+ItemComparerBase itemComparerBase = ...;
+itemComparerBase.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemComparerBase from the subsystem API first
+ItemComparerBase itemComparerBase = ...;
+var result = itemComparerBase.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomItemComparerBase();
+// Typically obtained from a subsystem API or factory
+ItemComparerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

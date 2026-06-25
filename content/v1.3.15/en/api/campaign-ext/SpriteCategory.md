@@ -1,13 +1,7 @@
 ---
 title: "SpriteCategory"
+description: "Auto-generated class reference for SpriteCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpriteCategory`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpriteCategory
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -42,60 +36,121 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Load
 `public void Load(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+spriteCategory.Load(resourceContext, resourceDepot);
+```
 
 ### Unload
 `public void Unload()`
 
-**Purpose:** Handles logic related to `unload`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+spriteCategory.Unload();
+```
 
 ### Reload
 `public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)`
 
-**Purpose:** Handles logic related to `reload`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+spriteCategory.Reload(resourceContext, resourceDepot, newCategoryInfo);
+```
 
 ### InitializePartialLoad
 `public void InitializePartialLoad()`
 
-**Purpose:** Initializes the state, resources, or bindings for `partial load`.
+**Purpose:** Prepares the resources, state, or bindings required by `partial load`.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+spriteCategory.InitializePartialLoad();
+```
 
 ### ReleasePartialLoad
 `public void ReleasePartialLoad()`
 
-**Purpose:** Handles logic related to `release partial load`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+spriteCategory.ReleasePartialLoad();
+```
 
 ### PartialLoadAtIndex
 `public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)`
 
-**Purpose:** Handles logic related to `partial load at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+spriteCategory.PartialLoadAtIndex(resourceContext, resourceDepot, 0);
+```
 
 ### PartialUnloadAtIndex
 `public void PartialUnloadAtIndex(int sheetIndex)`
 
-**Purpose:** Handles logic related to `partial unload at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+spriteCategory.PartialUnloadAtIndex(0);
+```
 
 ### SortList
 `public void SortList()`
 
-**Purpose:** Handles logic related to `sort list`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+spriteCategory.SortList();
+```
 
 ### IsCategoryFullyLoaded
 `public bool IsCategoryFullyLoaded()`
 
-**Purpose:** Handles logic related to `is category fully loaded`.
+**Purpose:** Determines whether the current object is in the `category fully loaded` state or condition.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+var result = spriteCategory.IsCategoryFullyLoaded();
+```
 
 ### Compare
 `public int Compare(SpritePart x, SpritePart y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SpriteCategory from the subsystem API first
+SpriteCategory spriteCategory = ...;
+var result = spriteCategory.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpriteCategory();
-value.Load(resourceContext, resourceDepot);
+// Typically call this after obtaining an instance from the subsystem API
+SpriteCategory spriteCategory = ...;
+spriteCategory.Load(resourceContext, resourceDepot);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

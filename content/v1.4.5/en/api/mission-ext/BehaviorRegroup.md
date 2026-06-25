@@ -1,20 +1,14 @@
 ---
 title: "BehaviorRegroup"
+description: "Auto-generated class reference for BehaviorRegroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorRegroup`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorRegroup
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorRegroup : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorRegroup.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorRegroup.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorRegroup from the subsystem API first
+BehaviorRegroup behaviorRegroup = ...;
+behaviorRegroup.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorRegroup();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorRegroup behaviorRegroup = ...;
+behaviorRegroup.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

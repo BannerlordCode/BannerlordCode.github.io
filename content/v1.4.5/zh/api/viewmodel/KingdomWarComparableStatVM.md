@@ -1,20 +1,14 @@
 ---
 title: "KingdomWarComparableStatVM"
+description: "KingdomWarComparableStatVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomWarComparableStatVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomWarComparableStatVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomWarComparableStatVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomWarComparableStatVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomWarComparableStatVM.cs`
 
 ## 概述
 
@@ -43,15 +37,22 @@ title: "KingdomWarComparableStatVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomWarComparableStatVM 实例
+KingdomWarComparableStatVM kingdomWarComparableStatVM = ...;
+kingdomWarComparableStatVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomWarComparableStatVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+KingdomWarComparableStatVM kingdomWarComparableStatVM = ...;
+kingdomWarComparableStatVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

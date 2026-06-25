@@ -1,20 +1,14 @@
 ---
 title: "MBIllegalValueException"
+description: "Auto-generated class reference for MBIllegalValueException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBIllegalValueException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBIllegalValueException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBIllegalValueException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBIllegalValueException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBIllegalValueException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBIllegalValueException` as a Exception-style extension point: first iden
 ## Usage Example
 
 ```csharp
-try { CallMBIllegalValueException(); } catch (MBIllegalValueException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBIllegalValueException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

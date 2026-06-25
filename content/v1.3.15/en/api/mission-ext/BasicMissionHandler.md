@@ -1,13 +1,7 @@
 ---
 title: "BasicMissionHandler"
+description: "Auto-generated class reference for BasicMissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasicMissionHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BasicMissionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers
@@ -35,19 +29,31 @@ Treat `BasicMissionHandler` as a Handler-style extension point: first identify w
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of BasicMissionHandler from the subsystem API first
+BasicMissionHandler basicMissionHandler = ...;
+basicMissionHandler.OnBehaviorInitialize();
+```
 
 ### CreateWarningWidgetForResult
 `public void CreateWarningWidgetForResult(BattleEndLogic.ExitResult result)`
 
-**Purpose:** Creates a new `warning widget for result` instance or object.
+**Purpose:** Constructs a new `warning widget for result` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of BasicMissionHandler from the subsystem API first
+BasicMissionHandler basicMissionHandler = ...;
+basicMissionHandler.CreateWarningWidgetForResult(result);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BasicMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<BasicMissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

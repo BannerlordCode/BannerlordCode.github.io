@@ -1,20 +1,14 @@
 ---
 title: "VisualOrder"
+description: "Auto-generated class reference for VisualOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualOrder`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class VisualOrder`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrder.cs`
 
 ## Overview
 
@@ -35,44 +29,87 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### GetName
 `public abstract TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of VisualOrder from the subsystem API first
+VisualOrder visualOrder = ...;
+var result = visualOrder.GetName(orderController);
+```
 
 ### IsTargeted
 `public abstract bool IsTargeted()`
 
-**Purpose:** Handles logic related to `is targeted`.
+**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+
+```csharp
+// Obtain an instance of VisualOrder from the subsystem API first
+VisualOrder visualOrder = ...;
+var result = visualOrder.IsTargeted();
+```
 
 ### ExecuteOrder
 `public abstract void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Executes the `order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `order`.
+
+```csharp
+// Obtain an instance of VisualOrder from the subsystem API first
+VisualOrder visualOrder = ...;
+visualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ### BeforeExecuteOrder
 `public virtual void BeforeExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Handles logic related to `before execute order`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VisualOrder from the subsystem API first
+VisualOrder visualOrder = ...;
+visualOrder.BeforeExecuteOrder(orderController, executionParameters);
+```
 
 ### AfterExecuteOrder
 `public virtual void AfterExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Handles logic related to `after execute order`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VisualOrder from the subsystem API first
+VisualOrder visualOrder = ...;
+visualOrder.AfterExecuteOrder(orderController, executionParameters);
+```
 
 ### GetFormationHasOrder
 `public bool GetFormationHasOrder(Formation formation)`
 
-**Purpose:** Gets the current value of `formation has order`.
+**Purpose:** Reads and returns the `formation has order` value held by the current object.
+
+```csharp
+// Obtain an instance of VisualOrder from the subsystem API first
+VisualOrder visualOrder = ...;
+var result = visualOrder.GetFormationHasOrder(formation);
+```
 
 ### GetActiveState
 `public OrderState GetActiveState(OrderController orderController)`
 
-**Purpose:** Gets the current value of `active state`.
+**Purpose:** Reads and returns the `active state` value held by the current object.
+
+```csharp
+// Obtain an instance of VisualOrder from the subsystem API first
+VisualOrder visualOrder = ...;
+var result = visualOrder.GetActiveState(orderController);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomVisualOrder();
+// Typically obtained from a subsystem API or factory
+VisualOrder instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

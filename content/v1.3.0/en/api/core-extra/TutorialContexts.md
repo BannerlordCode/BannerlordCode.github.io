@@ -1,18 +1,12 @@
 ---
 title: "TutorialContexts"
+description: "Auto-generated class reference for TutorialContexts."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialContexts`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialContexts
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum TutorialContexts`
 **Base:** none
 **File:** `TaleWorlds.Core/TutorialContexts.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new TutorialContexts();
+// Obtain an instance from the relevant subsystem API
+TutorialContexts instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

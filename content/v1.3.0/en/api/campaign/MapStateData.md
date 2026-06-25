@@ -1,13 +1,7 @@
 ---
 title: "MapStateData"
+description: "Auto-generated class reference for MapStateData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapStateData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapStateData
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -27,9 +21,10 @@ Treat `MapStateData` as a Data-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var value = new MapStateData();
+// This data object is usually returned by campaign/mission APIs
+MapStateData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

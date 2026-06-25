@@ -1,13 +1,7 @@
 ---
 title: "GauntletView"
+description: "Auto-generated class reference for GauntletView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletView`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletView
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -45,47 +39,96 @@ Treat `GauntletView` as a View-style extension point: first identify who creates
 
 **Purpose:** Adds `child` to the current collection or state.
 
+```csharp
+// Obtain an instance of GauntletView from the subsystem API first
+GauntletView gauntletView = ...;
+gauntletView.AddChild(child);
+```
+
 ### RemoveChild
 `public void RemoveChild(GauntletView child)`
 
 **Purpose:** Removes `child` from the current collection or state.
 
+```csharp
+// Obtain an instance of GauntletView from the subsystem API first
+GauntletView gauntletView = ...;
+gauntletView.RemoveChild(child);
+```
+
 ### SwapChildrenAtIndeces
 `public void SwapChildrenAtIndeces(GauntletView child1, GauntletView child2)`
 
-**Purpose:** Handles logic related to `swap children at indeces`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletView from the subsystem API first
+GauntletView gauntletView = ...;
+gauntletView.SwapChildrenAtIndeces(child1, child2);
+```
 
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**Purpose:** Refreshes the display or cache of `binding`.
+**Purpose:** Keeps the display or cache of `binding` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GauntletView from the subsystem API first
+GauntletView gauntletView = ...;
+gauntletView.RefreshBinding();
+```
 
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**Purpose:** Refreshes the display or cache of `binding with children`.
+**Purpose:** Keeps the display or cache of `binding with children` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GauntletView from the subsystem API first
+GauntletView gauntletView = ...;
+gauntletView.RefreshBindingWithChildren();
+```
 
 ### ReleaseBindingWithChildren
 `public void ReleaseBindingWithChildren()`
 
-**Purpose:** Handles logic related to `release binding with children`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletView from the subsystem API first
+GauntletView gauntletView = ...;
+gauntletView.ReleaseBindingWithChildren();
+```
 
 ### BindData
 `public void BindData(string property, BindingPath path)`
 
-**Purpose:** Handles logic related to `bind data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletView from the subsystem API first
+GauntletView gauntletView = ...;
+gauntletView.BindData("example", path);
+```
 
 ### ClearBinding
 `public void ClearBinding(string propertyName)`
 
-**Purpose:** Handles logic related to `clear binding`.
+**Purpose:** Removes all `binding` from the current object.
+
+```csharp
+// Obtain an instance of GauntletView from the subsystem API first
+GauntletView gauntletView = ...;
+gauntletView.ClearBinding("example");
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletView();
+// Retrieve this view from the subsystem API or scene
+GauntletView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

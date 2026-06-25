@@ -1,20 +1,14 @@
 ---
 title: "PersuasionHelper"
+description: "Auto-generated class reference for PersuasionHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class PersuasionHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/PersuasionHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/PersuasionHelper.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Treat `PersuasionHelper` as a Helper-style extension point: first identify who c
 ### ShowSuccess
 `public static TextObject ShowSuccess(PersuasionOptionArgs optionArgs, bool showToPlayer = true)`
 
-**Purpose:** Handles logic related to `show success`.
+**Purpose:** Displays the UI or element associated with `success`.
+
+```csharp
+// Static call; no instance required
+PersuasionHelper.ShowSuccess(optionArgs, false);
+```
 
 ### GetDefaultPersuasionOptionReaction
 `public static TextObject GetDefaultPersuasionOptionReaction(PersuasionOptionResult optionResult)`
 
-**Purpose:** Gets the current value of `default persuasion option reaction`.
+**Purpose:** Reads and returns the `default persuasion option reaction` value held by the current object.
+
+```csharp
+// Static call; no instance required
+PersuasionHelper.GetDefaultPersuasionOptionReaction(optionResult);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ PersuasionHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "IConnectionInformation"
+description: "Auto-generated class reference for IConnectionInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IConnectionInformation`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IConnectionInformation
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public interface IConnectionInformation`
 **Base:** none
 **File:** `TaleWorlds.Diamond/IConnectionInformation.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-IConnectionInformation implementation = GetConnectionInformationImplementation();
+// Usually obtained through DI or a factory method
+IIConnectionInformation service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

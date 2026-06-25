@@ -1,18 +1,8 @@
 ---
 title: "PayForCrimeAction"
+description: "Auto-generated campaign action reference for PayForCrimeAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PayForCrimeAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PayForCrimeAction
-
-## Mental Model
-
-Treat `PayForCrimeAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -37,7 +27,7 @@ public static float GetClearCrimeCost(IFaction faction, CrimeModel.PaymentMethod
 public static void Apply(IFaction faction, CrimeModel.PaymentMethod paymentMethod)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -48,5 +38,5 @@ PayForCrimeAction.GetClearCrimeCost(faction, paymentMethod);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

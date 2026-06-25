@@ -1,23 +1,18 @@
 ---
 title: "IEnumResolver"
+description: "Auto-generated class reference for IEnumResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IEnumResolver`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IEnumResolver
 
 **Namespace:** TaleWorlds.SaveSystem.Resolvers
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface IEnumResolver`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Resolvers/IEnumResolver.cs`
 
 ## Overview
 
-`IEnumResolver` lives in `TaleWorlds.SaveSystem.Resolvers`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`IEnumResolver` lives in `TaleWorlds.SaveSystem.Resolvers` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -26,10 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem.Resolvers` to place it in the stack,
 ## Usage Example
 
 ```csharp
-IEnumResolver implementation = GetEnumResolverImplementation();
+// Usually obtained through DI or a factory method
+IIEnumResolver service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

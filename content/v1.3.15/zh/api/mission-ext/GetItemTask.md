@@ -1,13 +1,7 @@
 ---
 title: "GetItemTask"
+description: "GetItemTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GetItemTask`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GetItemTask
 
 **Namespace:** TaleWorlds.MountAndBlade.SteamWorkshop
@@ -29,20 +23,33 @@ title: "GetItemTask"
 ### LoadFrom
 `public override void LoadFrom(XmlNode xmlNode)`
 
-**用途 / Purpose:** 加载 `from` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+
+```csharp
+// 先通过子系统 API 拿到 GetItemTask 实例
+GetItemTask getItemTask = ...;
+getItemTask.LoadFrom(xmlNode);
+```
 
 ### DoJob
 `public override void DoJob()`
 
-**用途 / Purpose:** 处理 `do job` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GetItemTask 实例
+GetItemTask getItemTask = ...;
+getItemTask.DoJob();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GetItemTask();
-value.LoadFrom(xmlNode);
+// 通常从对应子系统 API 获取实例后调用
+GetItemTask getItemTask = ...;
+getItemTask.LoadFrom(xmlNode);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

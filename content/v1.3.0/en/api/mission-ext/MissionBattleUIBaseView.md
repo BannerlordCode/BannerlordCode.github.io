@@ -1,13 +1,7 @@
 ---
 title: "MissionBattleUIBaseView"
+description: "Auto-generated class reference for MissionBattleUIBaseView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBattleUIBaseView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBattleUIBaseView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -35,24 +29,43 @@ Treat `MissionBattleUIBaseView` as a View-style extension point: first identify 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionBattleUIBaseView from the subsystem API first
+MissionBattleUIBaseView missionBattleUIBaseView = ...;
+missionBattleUIBaseView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionBattleUIBaseView from the subsystem API first
+MissionBattleUIBaseView missionBattleUIBaseView = ...;
+missionBattleUIBaseView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionBattleUIBaseView from the subsystem API first
+MissionBattleUIBaseView missionBattleUIBaseView = ...;
+missionBattleUIBaseView.OnMissionScreenFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionBattleUIBaseView();
+// Typically obtained from a subsystem API or factory
+MissionBattleUIBaseView instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

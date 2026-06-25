@@ -1,13 +1,7 @@
 ---
 title: "Barterable"
+description: "Auto-generated class reference for Barterable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Barterable`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Barterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
@@ -45,59 +39,120 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetValueForFaction
 `public int GetValueForFaction(IFaction faction)`
 
-**Purpose:** Gets the current value of `value for faction`.
+**Purpose:** Reads and returns the `value for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+var result = barterable.GetValueForFaction(faction);
+```
 
 ### CheckBarterLink
 `public virtual void CheckBarterLink(Barterable linkedBarterable)`
 
-**Purpose:** Handles logic related to `check barter link`.
+**Purpose:** Verifies whether `barter link` holds true for the current object.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+barterable.CheckBarterLink(linkedBarterable);
+```
 
 ### GetUnitValueForFaction
 `public abstract int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** Gets the current value of `unit value for faction`.
+**Purpose:** Reads and returns the `unit value for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+var result = barterable.GetUnitValueForFaction(faction);
+```
 
 ### SetIsOffered
 `public void SetIsOffered(bool value)`
 
-**Purpose:** Sets the value or state of `is offered`.
+**Purpose:** Assigns a new value to `is offered` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+barterable.SetIsOffered(false);
+```
 
 ### AddBarterLink
 `public void AddBarterLink(Barterable barterable)`
 
 **Purpose:** Adds `barter link` to the current collection or state.
 
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+barterable.AddBarterLink(barterable);
+```
+
 ### Initialize
 `public void Initialize(BarterGroup barterGroup, bool isContextDependent)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+barterable.Initialize(barterGroup, false);
+```
 
 ### IsCompatible
 `public virtual bool IsCompatible(Barterable barterable)`
 
-**Purpose:** Handles logic related to `is compatible`.
+**Purpose:** Determines whether the current object is in the `compatible` state or condition.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+var result = barterable.IsCompatible(barterable);
+```
 
 ### GetVisualIdentifier
 `public abstract ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** Gets the current value of `visual identifier`.
+**Purpose:** Reads and returns the `visual identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+var result = barterable.GetVisualIdentifier();
+```
 
 ### GetEncyclopediaLink
 `public virtual string GetEncyclopediaLink()`
 
-**Purpose:** Gets the current value of `encyclopedia link`.
+**Purpose:** Reads and returns the `encyclopedia link` value held by the current object.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+var result = barterable.GetEncyclopediaLink();
+```
 
 ### Apply
 `public abstract void Apply()`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Obtain an instance of Barterable from the subsystem API first
+Barterable barterable = ...;
+barterable.Apply();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBarterable();
+// Typically obtained from a subsystem API or factory
+Barterable instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

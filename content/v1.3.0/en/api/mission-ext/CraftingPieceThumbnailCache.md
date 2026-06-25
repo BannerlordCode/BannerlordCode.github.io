@@ -1,13 +1,7 @@
 ---
 title: "CraftingPieceThumbnailCache"
+description: "Auto-generated class reference for CraftingPieceThumbnailCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceThumbnailCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ## Usage Example
 
 ```csharp
-var value = new CraftingPieceThumbnailCache();
+// Obtain an instance from the relevant subsystem API
+CraftingPieceThumbnailCache instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

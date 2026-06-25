@@ -1,20 +1,14 @@
 ---
 title: "BehaviorCautiousAdvance"
+description: "Auto-generated class reference for BehaviorCautiousAdvance."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorCautiousAdvance`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorCautiousAdvance
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class BehaviorCautiousAdvance : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorCautiousAdvance.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorCautiousAdvance.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnBehaviorCanceled
 `public override void OnBehaviorCanceled()`
 
-**Purpose:** Called when the `behavior canceled` event is raised.
+**Purpose:** Invoked when the `behavior canceled` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorCautiousAdvance from the subsystem API first
+BehaviorCautiousAdvance behaviorCautiousAdvance = ...;
+behaviorCautiousAdvance.OnBehaviorCanceled();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorCautiousAdvance from the subsystem API first
+BehaviorCautiousAdvance behaviorCautiousAdvance = ...;
+behaviorCautiousAdvance.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorCautiousAdvance();
-value.OnBehaviorCanceled();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorCautiousAdvance behaviorCautiousAdvance = ...;
+behaviorCautiousAdvance.OnBehaviorCanceled();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

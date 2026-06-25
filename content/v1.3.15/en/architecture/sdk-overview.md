@@ -59,20 +59,20 @@ Dependencies flow **bottom-up**: upper layers reference lower ones, never the re
 
 | I want to... | Touch these layers | Entry class / mechanism | Start here |
 |--------------|--------------------|------------------------|-----------|
-| Register a mod (game lifecycle hook) | L8 ModuleManager + L6 M&B | `MBSubModuleBase`, `ModuleInfo` | [Module System](./module-system) |
-| Add a new troop / item / equipment | L2 Core + XML | `ItemObject`, `CharacterObject`, `Equipment` + `MBObjectManager` | [Core API](../api/core/) · [Items API](../api/items/) |
-| Make a campaign mod (daily ticks, behaviors, kingdom logic) | L7 Campaign | `CampaignBehaviorBase` / `CampaignBehavior`, `CampaignEvents` | [Campaign API](../api/campaign/) · [Campaign Guide](../guide/campaign-system) |
-| Make a combat / mission mod (AI, damage, spawning) | L6 MountAndBlade | `MissionBehavior`, `MissionLogic`, `Agent`, `Formation` | [Mission API](../api/mission/) · [Mission Guide](../guide/mission-system) |
-| Add a custom UI screen (HUD, menu, dialog) | L4 Gauntlet + L6 M&B | `ViewModel` + `GauntletMovie`, `ScreenBase` | [GUI API](../api/gui/) · [Gauntlet Guide](../guide/gauntlet-ui) |
-| Persist custom data across saves | L5 SaveSystem | `[SaveableField]` / `[SaveableProperty]` + `SaveManager` | [Save API](../api/save-system/) · [Save Architecture](./save-system) |
-| Add localized text (multi-language strings) | L0 Localization | `TextObject`, `MBTextManager` | [Localization API](../api/localization/) · [Localization Guide](../guide/localization) |
+| Register a mod (game lifecycle hook) | L8 ModuleManager + L6 M&B | `MBSubModuleBase`, `ModuleInfo` | [Module System](module-system/) |
+| Add a new troop / item / equipment | L2 Core + XML | `ItemObject`, `CharacterObject`, `Equipment` + `MBObjectManager` | [Core API](../api/core/) · [Items / Core-Extra API](../api/core-extra/) |
+| Make a campaign mod (daily ticks, behaviors, kingdom logic) | L7 Campaign | `CampaignBehaviorBase` / `CampaignBehavior`, `CampaignEvents` | [Campaign API](../api/campaign/) · [Campaign Guide](../guide/campaign-system/) |
+| Make a combat / mission mod (AI, damage, spawning) | L6 MountAndBlade | `MissionBehavior`, `MissionLogic`, `Agent`, `Formation` | [Mission API](../api/mission/) · [Mission Guide](../guide/mission-system/) |
+| Add a custom UI screen (HUD, menu, dialog) | L4 Gauntlet + L6 M&B | `ViewModel` + `GauntletMovie`, `ScreenBase` | [GUI API](../api/gui/) · [Gauntlet Guide](../guide/gauntlet-ui/) |
+| Persist custom data across saves | L5 SaveSystem | `[SaveableField]` / `[SaveableProperty]` + `SaveManager` | [Save API](../api/save-system/) · [Save Architecture](save-system/) |
+| Add localized text (multi-language strings) | L0 Localization | `TextObject`, `MBTextManager` | [Localization API](../api/localization/) · [Localization Guide](../guide/localization/) |
 | Manipulate scene entities (position, skeleton, effects) | L3 Engine | `Scene`, `GameEntity`, `MatrixFrame`, `Skeleton` | [Engine API](../api/engine/) |
 | Read player input (keyboard / gamepad) | L1 InputSystem | `InputContext`, `InputKey` | [API Index](../api/) |
 | Add a new ViewModel / data binding | L4 Gauntlet + L1 Core.VMCollection | `ViewModel`, `DataSourceProperty` | [ViewModel API](../api/viewmodel/) |
 | Customize campaign extension types (settlements, templates) | L7 Campaign + L2 Core | `Settlement`, `PartyTemplateObject`, `CultureObject` | [Campaign-Ext API](../api/campaign-ext/) |
 | Customize battle components / Agent behavior | L6 MountAndBlade extension | `AgentComponent`, `MissionLogic` subclasses | [Mission-Ext API](../api/mission-ext/) |
 | Extend core models (crafting, skills, concepts) | L2 Core extension | `SkillObject`, `CraftingTemplate`, `BasicCharacterObject` | [Core-Extra API](../api/core-extra/) |
-| Multiplayer底层 (rare; split in 1.4.5) | L8 Network + L6 M&B.Multiplayer | `MultiplayerMission` family | [Version Delta](./version-delta) |
+| Multiplayer底层 (rare; split in 1.4.5) | L8 Network + L6 M&B.Multiplayer | `MultiplayerMission` family | [Version Delta](version-delta/) |
 
 > **How to use this table**: pick the row matching your goal → open the API doc and read the entry-class signature → come back here to check whether a dependent layer is needed (e.g. campaign mods almost always also need L5 Save).
 
@@ -164,7 +164,7 @@ Dependencies flow **bottom-up**: upper layers reference lower ones, never the re
 | `TaleWorlds.MountAndBlade.SteamWorkshop` | Workshop | Publishing mods to Steam Workshop |
 | `TaleWorlds.MountAndBlade.Multiplayer.Test` / `SaveSystem.CodeGenerator` | Test/tooling | Toolchain |
 
-> v1.3.0 additionally ships **gameplay modules**: `SandBox`(+.GauntletUI/.View/.ViewModelCollection) and `StoryMode`(+...). These are not separately provided in the 1.3.15 source bundle, but are available again in 1.4.5 (see [Version Delta](./version-delta)).
+> v1.3.0 additionally ships **gameplay modules**: `SandBox`(+.GauntletUI/.View/.ViewModelCollection) and `StoryMode`(+...). These are not separately provided in the 1.3.15 source bundle, but are available again in 1.4.5 (see [Version Delta](version-delta/)).
 
 ## Version delta quick reference
 
@@ -174,7 +174,7 @@ Dependencies flow **bottom-up**: upper layers reference lower ones, never the re
 | Key change | Includes SandBox/StoryMode gameplay modules | `SaveSystem` split out; platform services split; 23 new modules | Multiplayer/View/Gauntlet split into standalone assemblies; new `CampaignSystem.FastMode`, `BirthAndDeath`, `CustomBattle`, `Platform.PC` |
 | Migration note | — | `SaveSystem` reference path changed | Removed `Launcher`, `SteamWorkshop`, `CodeGenerator`; multiplayer mods must update references |
 
-> Full module-level comparison: [Version Delta](./version-delta). **Per-class API comparison across versions** (which members were removed/added): [🔀 Cross-version class compare](/versions/).
+> Full module-level comparison: [Version Delta](version-delta/). **Per-class API comparison across versions** (which members were removed/added): [🔀 Cross-version class compare](/versions/).
 
 ## Navigate to specific APIs
 
@@ -187,7 +187,7 @@ The list below mirrors the sidebar, organized by "which domain do I want to look
 - **Campaign** (`MobileParty`, `Kingdom`, `Clan`, `Hero`) → [../api/campaign/](../api/campaign/)
 - **Campaign-Ext** (`Settlement`, `PartyTemplateObject`) → [../api/campaign-ext/](../api/campaign-ext/)
 - **GUI** (`GauntletMovie`, `ScreenManager`) → [../api/gui/](../api/gui/)
-- **Items** (`ItemObject`, `Equipment`) → [../api/items/](../api/items/)
+- **Items** (`ItemObject`, `Equipment`) → [../api/core-extra/](../api/core-extra/)
 - **Save-System** (`SaveManager`, `SaveAttributes`) → [../api/save-system/](../api/save-system/)
 - **ViewModel** (`ViewModel`, `DataSourceProperty`) → [../api/viewmodel/](../api/viewmodel/)
 - **Localization** (`MBTextManager`, `TextObject`) → [../api/localization/](../api/localization/)
@@ -196,9 +196,9 @@ The list below mirrors the sidebar, organized by "which domain do I want to look
 
 ## See also
 
-- [Module System](./module-system) — mod loading flow, `SubModule.xml` in depth
-- [Save System](./save-system) — how `[SaveableField]` works, save format
-- [Version Delta](./version-delta) — 1.3.0 / 1.3.15 / 1.4.5 module-level comparison
+- [Module System](module-system/) — mod loading flow, `SubModule.xml` in depth
+- [Save System](save-system/) — how `[SaveableField]` works, save format
+- [Version Delta](version-delta/) — 1.3.0 / 1.3.15 / 1.4.5 module-level comparison
 - [🔀 Cross-version class compare](/versions/) — per-class API diffs (which members were removed/added)
 - [API Reference](../api/) — look up class signatures
 - [Native engine source](../native-1.3.15-src/) — decompiled `TaleWorlds.Native.dll` reference

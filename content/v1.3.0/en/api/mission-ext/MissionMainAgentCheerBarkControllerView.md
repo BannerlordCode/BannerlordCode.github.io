@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentCheerBarkControllerView"
+description: "Auto-generated class reference for MissionMainAgentCheerBarkControllerView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentCheerBarkControllerView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentCheerBarkControllerView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -27,9 +21,10 @@ Treat `MissionMainAgentCheerBarkControllerView` as a View-style extension point:
 ## Usage Example
 
 ```csharp
-var view = new MissionMainAgentCheerBarkControllerView();
+// Retrieve this view from the subsystem API or scene
+MissionMainAgentCheerBarkControllerView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

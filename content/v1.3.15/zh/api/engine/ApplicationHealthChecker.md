@@ -1,13 +1,7 @@
 ---
 title: "ApplicationHealthChecker"
+description: "ApplicationHealthChecker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ApplicationHealthChecker`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ApplicationHealthChecker
 
 **Namespace:** TaleWorlds.Engine
@@ -29,25 +23,44 @@ title: "ApplicationHealthChecker"
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 ApplicationHealthChecker 实例
+ApplicationHealthChecker applicationHealthChecker = ...;
+applicationHealthChecker.Start();
+```
 
 ### Stop
 `public void Stop()`
 
-**用途 / Purpose:** 处理 `stop` 相关逻辑。
+**用途 / Purpose:** 停止当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 ApplicationHealthChecker 实例
+ApplicationHealthChecker applicationHealthChecker = ...;
+applicationHealthChecker.Stop();
+```
 
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ApplicationHealthChecker 实例
+ApplicationHealthChecker applicationHealthChecker = ...;
+applicationHealthChecker.Update();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ApplicationHealthChecker();
-value.Start();
+// 通常从对应子系统 API 获取实例后调用
+ApplicationHealthChecker applicationHealthChecker = ...;
+applicationHealthChecker.Start();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

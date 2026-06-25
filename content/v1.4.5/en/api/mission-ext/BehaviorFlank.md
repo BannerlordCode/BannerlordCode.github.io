@@ -1,20 +1,14 @@
 ---
 title: "BehaviorFlank"
+description: "Auto-generated class reference for BehaviorFlank."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorFlank`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorFlank
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorFlank : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorFlank.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorFlank.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorFlank from the subsystem API first
+BehaviorFlank behaviorFlank = ...;
+behaviorFlank.TickOccasionally();
+```
 
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorFlank from the subsystem API first
+BehaviorFlank behaviorFlank = ...;
+var result = behaviorFlank.GetBehaviorString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorFlank();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorFlank behaviorFlank = ...;
+behaviorFlank.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

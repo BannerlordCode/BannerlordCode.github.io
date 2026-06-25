@@ -1,20 +1,14 @@
 ---
 title: "TownManagementVillageItemVM"
+description: "TownManagementVillageItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TownManagementVillageItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownManagementVillageItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TownManagementVillageItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementVillageItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementVillageItemVM.cs`
 
 ## 概述
 
@@ -38,25 +32,44 @@ title: "TownManagementVillageItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TownManagementVillageItemVM 实例
+TownManagementVillageItemVM townManagementVillageItemVM = ...;
+townManagementVillageItemVM.RefreshValues();
+```
 
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**用途 / Purpose:** 执行 `show tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「show tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TownManagementVillageItemVM 实例
+TownManagementVillageItemVM townManagementVillageItemVM = ...;
+townManagementVillageItemVM.ExecuteShowTooltip();
+```
 
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**用途 / Purpose:** 执行 `hide tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「hide tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TownManagementVillageItemVM 实例
+TownManagementVillageItemVM townManagementVillageItemVM = ...;
+townManagementVillageItemVM.ExecuteHideTooltip();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TownManagementVillageItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+TownManagementVillageItemVM townManagementVillageItemVM = ...;
+townManagementVillageItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "EscortMerchantCaravanIssueQuest"
+description: "Auto-generated class reference for EscortMerchantCaravanIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EscortMerchantCaravanIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EscortMerchantCaravanIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EscortMerchantCaravanIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/EscortMerchantCaravanIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/EscortMerchantCaravanIssueBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new EscortMerchantCaravanIssueQuest();
+// Obtain an instance from the relevant subsystem API
+EscortMerchantCaravanIssueQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

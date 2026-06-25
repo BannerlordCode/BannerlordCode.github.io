@@ -1,13 +1,7 @@
 ---
 title: "CampaignPeriodicEventManager"
+description: "Auto-generated class reference for CampaignPeriodicEventManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignPeriodicEventManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignPeriodicEventManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,12 +23,23 @@ Treat `CampaignPeriodicEventManager` as a Manager-style extension point: first i
 ### CreatePeriodicEvent
 `public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
 
-**Purpose:** Creates a new `periodic event` instance or object.
+**Purpose:** Constructs a new `periodic event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CampaignPeriodicEventManager.CreatePeriodicEvent(triggerPeriod, initialWait);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CampaignPeriodicEventManager from the subsystem API first
+CampaignPeriodicEventManager campaignPeriodicEventManager = ...;
+var result = campaignPeriodicEventManager.ToString();
+```
 
 ## Usage Example
 
@@ -44,4 +49,4 @@ var manager = CampaignPeriodicEventManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

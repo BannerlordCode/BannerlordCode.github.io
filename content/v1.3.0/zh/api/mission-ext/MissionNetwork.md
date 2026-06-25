@@ -1,13 +1,7 @@
 ---
 title: "MissionNetwork"
+description: "MissionNetwork 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNetwork`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNetwork
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,34 +23,65 @@ title: "MissionNetwork"
 ### OnAfterMissionCreated
 `public override void OnAfterMissionCreated()`
 
-**用途 / Purpose:** 当 `after mission created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after mission created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetwork 实例
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnAfterMissionCreated();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetwork 实例
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetwork 实例
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnRemoveBehavior();
+```
 
 ### OnPlayerConnectedToServer
 `public virtual void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 当 `player connected to server` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player connected to server」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetwork 实例
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnPlayerConnectedToServer(networkPeer);
+```
 
 ### OnPlayerDisconnectedFromServer
 `public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 当 `player disconnected from server` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player disconnected from server」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetwork 实例
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionNetwork();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionNetwork instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

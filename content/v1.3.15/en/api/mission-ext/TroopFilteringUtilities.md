@@ -1,23 +1,18 @@
 ---
 title: "TroopFilteringUtilities"
+description: "Auto-generated class reference for TroopFilteringUtilities."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopFilteringUtilities`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TroopFilteringUtilities
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class TroopFilteringUtilities`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/TroopFilteringUtilities.cs`
 
 ## Overview
 
-`TroopFilteringUtilities` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TroopFilteringUtilities` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,46 +23,79 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetFilter
 `public static TroopTraitsMask GetFilter(bool isMounted, bool isRanged, bool isMelee, bool hasHeavyArmor, bool hasThrown, bool hasSpear, bool hasShield)`
 
-**Purpose:** Gets the current value of `filter`.
+**Purpose:** Reads and returns the `filter` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TroopFilteringUtilities.GetFilter(false, false, false, false, false, false, false);
+```
 
 ### GetFilter
 `public static TroopTraitsMask GetFilter(params FormationClass formationClasses)`
 
-**Purpose:** Gets the current value of `filter`.
+**Purpose:** Reads and returns the `filter` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TroopFilteringUtilities.GetFilter(formationClasses);
+```
 
 ### GetFilter
 `public static TroopTraitsMask GetFilter(params FormationFilterType filterTypes)`
 
-**Purpose:** Gets the current value of `filter`.
+**Purpose:** Reads and returns the `filter` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TroopFilteringUtilities.GetFilter(filterTypes);
+```
 
 ### GetPriorityFunction
 `public static void GetPriorityFunction(TroopTraitsMask filter, out Func<Agent, int> priorityFunc)`
 
-**Purpose:** Gets the current value of `priority function`.
+**Purpose:** Reads and returns the `priority function` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TroopFilteringUtilities.GetPriorityFunction(filter, func<Agent, 0);
+```
 
 ### GetPriorityFunction
 `public static void GetPriorityFunction(TroopTraitsMask filter, out Func<IAgentOriginBase, int> priorityFunc)`
 
-**Purpose:** Gets the current value of `priority function`.
+**Purpose:** Reads and returns the `priority function` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TroopFilteringUtilities.GetPriorityFunction(filter, func<IAgentOriginBase, 0);
+```
 
 ### GetTroopPriority
 `public static int GetTroopPriority(TroopTraitsMask troopMask, int battleTier, TroopTraitsMask filter)`
 
-**Purpose:** Gets the current value of `troop priority`.
+**Purpose:** Reads and returns the `troop priority` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TroopFilteringUtilities.GetTroopPriority(troopMask, 0, filter);
+```
 
 ### GetMaxPriority
 `public static int GetMaxPriority(TroopTraitsMask filter)`
 
-**Purpose:** Gets the current value of `max priority`.
+**Purpose:** Reads and returns the `max priority` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TroopFilteringUtilities.GetMaxPriority(filter);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TroopFilteringUtilities.GetFilter(false, false, false, false, false, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

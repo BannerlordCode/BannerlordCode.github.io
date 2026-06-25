@@ -1,20 +1,14 @@
 ---
 title: "MenuOverlay"
+description: "Auto-generated class reference for MenuOverlay."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuOverlay`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuOverlay
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MenuOverlay : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/MenuOverlay.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/MenuOverlay.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ## Usage Example
 
 ```csharp
-var example = new MenuOverlay();
+// Obtain an instance from the relevant subsystem API
+MenuOverlay instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

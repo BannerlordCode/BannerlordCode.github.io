@@ -1,20 +1,14 @@
 ---
 title: "MPOptionsVM"
+description: "MPOptionsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPOptionsVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPOptionsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPOptionsVM : OptionsVM`
 **Base:** `OptionsVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/MPOptionsVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/MPOptionsVM.cs`
 
 ## 概述
 
@@ -38,30 +32,55 @@ title: "MPOptionsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPOptionsVM 实例
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.RefreshValues();
+```
 
 ### ExecuteCancel
 `public new void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPOptionsVM 实例
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.ExecuteCancel();
+```
 
 ### ExecuteApply
 `public void ExecuteApply()`
 
-**用途 / Purpose:** 执行 `apply` 操作或流程。
+**用途 / Purpose:** 执行 「apply」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPOptionsVM 实例
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.ExecuteApply();
+```
 
 ### ForceCancel
 `public void ForceCancel()`
 
-**用途 / Purpose:** 处理 `force cancel` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPOptionsVM 实例
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.ForceCancel();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPOptionsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

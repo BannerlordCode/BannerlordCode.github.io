@@ -1,13 +1,7 @@
 ---
 title: "MapNotificationView"
+description: "MapNotificationView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapNotificationView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNotificationView
 
 **Namespace:** SandBox.View.Map
@@ -29,19 +23,32 @@ title: "MapNotificationView"
 ### ResetNotifications
 `public virtual void ResetNotifications()`
 
-**用途 / Purpose:** 将 `notifications` 重置为初始状态。
+**用途 / Purpose:** 将 「notifications」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapNotificationView 实例
+MapNotificationView mapNotificationView = ...;
+mapNotificationView.ResetNotifications();
+```
 
 ### RegisterMapNotificationType
 `public virtual void RegisterMapNotificationType(Type data, Type item)`
 
-**用途 / Purpose:** 处理 `register map notification type` 相关逻辑。
+**用途 / Purpose:** 将「map notification type」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 MapNotificationView 实例
+MapNotificationView mapNotificationView = ...;
+mapNotificationView.RegisterMapNotificationType(data, item);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MapNotificationView();
+// 从子系统 API 或场景中获取该视图
+MapNotificationView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

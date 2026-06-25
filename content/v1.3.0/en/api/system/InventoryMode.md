@@ -1,13 +1,7 @@
 ---
 title: "InventoryMode"
+description: "Auto-generated class reference for InventoryMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryMode`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryMode
 
 **Namespace:** Helpers
@@ -27,9 +21,10 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-InventoryMode example = InventoryMode.Value;
+// Obtain an instance from the relevant subsystem API
+InventoryMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "AlignmentAxis"
+description: "Auto-generated class reference for AlignmentAxis."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlignmentAxis`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlignmentAxis
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum AlignmentAxis`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/AlignmentAxis.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/AlignmentAxis.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new AlignmentAxis();
+// Obtain an instance from the relevant subsystem API
+AlignmentAxis instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

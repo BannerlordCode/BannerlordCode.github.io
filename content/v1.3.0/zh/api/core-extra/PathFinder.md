@@ -1,13 +1,7 @@
 ---
 title: "PathFinder"
+description: "PathFinder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PathFinder`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PathFinder
 
 **Namespace:** TaleWorlds.Library
@@ -29,24 +23,43 @@ title: "PathFinder"
 ### Destroy
 `public virtual void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PathFinder 实例
+PathFinder pathFinder = ...;
+pathFinder.Destroy();
+```
 
 ### Initialize
 `public abstract void Initialize(Vec3 bbSize)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PathFinder 实例
+PathFinder pathFinder = ...;
+pathFinder.Initialize(bbSize);
+```
 
 ### FindPath
 `public abstract bool FindPath(Vec3 wSource, Vec3 wDestination, List<Vec3> path, float craftWidth = 5f)`
 
-**用途 / Purpose:** 处理 `find path` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「path」。
+
+```csharp
+// 先通过子系统 API 拿到 PathFinder 实例
+PathFinder pathFinder = ...;
+var result = pathFinder.FindPath(wSource, wDestination, path, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPathFinder();
+// 通常通过子系统 API 或工厂获得派生实例
+PathFinder instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

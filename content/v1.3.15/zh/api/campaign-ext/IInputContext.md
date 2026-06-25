@@ -1,18 +1,12 @@
 ---
 title: "IInputContext"
+description: "IInputContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IInputContext`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IInputContext
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public interface IInputContext`
 **Base:** 无
 **File:** `TaleWorlds.InputSystem/IInputContext.cs`
 
@@ -27,9 +21,10 @@ title: "IInputContext"
 ## 使用示例
 
 ```csharp
-IInputContext implementation = GetInputContextImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIInputContext service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

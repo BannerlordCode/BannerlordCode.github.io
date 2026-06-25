@@ -1,13 +1,7 @@
 ---
 title: "ItemTypeEnum"
+description: "Auto-generated class reference for ItemTypeEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemTypeEnum`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemTypeEnum
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-ItemTypeEnum example = ItemTypeEnum.Value;
+// Obtain an instance from the relevant subsystem API
+ItemTypeEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

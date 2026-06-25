@@ -1,20 +1,14 @@
 ---
 title: "SelectionGroup"
+description: "SelectionGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SelectionGroup`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectionGroup
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SelectionGroup : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/SelectionGroup.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/SelectionGroup.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "SelectionGroup"
 ## 使用示例
 
 ```csharp
-var value = new SelectionGroup();
+// 从对应子系统 API 获取实例
+SelectionGroup instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

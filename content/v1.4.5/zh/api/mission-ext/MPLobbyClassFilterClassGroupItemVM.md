@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClassFilterClassGroupItemVM"
+description: "MPLobbyClassFilterClassGroupItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyClassFilterClassGroupItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClassFilterClassGroupItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClassFilterClassGroupItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter/MPLobbyClassFilterClassGroupItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter/MPLobbyClassFilterClassGroupItemVM.cs`
 
 ## 概述
 
@@ -37,25 +31,44 @@ title: "MPLobbyClassFilterClassGroupItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClassFilterClassGroupItemVM 实例
+MPLobbyClassFilterClassGroupItemVM mPLobbyClassFilterClassGroupItemVM = ...;
+mPLobbyClassFilterClassGroupItemVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClassFilterClassGroupItemVM 实例
+MPLobbyClassFilterClassGroupItemVM mPLobbyClassFilterClassGroupItemVM = ...;
+mPLobbyClassFilterClassGroupItemVM.OnFinalize();
+```
 
 ### AddClass
 `public void AddClass(BasicCultureObject culture, MPHeroClass heroClass, Action<MPLobbyClassFilterClassItemVM> onSelect)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `class`。
+**用途 / Purpose:** 将 「class」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClassFilterClassGroupItemVM 实例
+MPLobbyClassFilterClassGroupItemVM mPLobbyClassFilterClassGroupItemVM = ...;
+mPLobbyClassFilterClassGroupItemVM.AddClass(culture, heroClass, onSelect);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyClassFilterClassGroupItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyClassFilterClassGroupItemVM mPLobbyClassFilterClassGroupItemVM = ...;
+mPLobbyClassFilterClassGroupItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

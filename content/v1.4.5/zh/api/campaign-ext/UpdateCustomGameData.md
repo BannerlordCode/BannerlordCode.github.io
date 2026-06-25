@@ -1,20 +1,14 @@
 ---
 title: "UpdateCustomGameData"
+description: "UpdateCustomGameData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UpdateCustomGameData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpdateCustomGameData
 
 **Namespace:** Messages.FromCustomBattleServer.ToCustomBattleServerManager
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class UpdateCustomGameData : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/UpdateCustomGameData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/UpdateCustomGameData.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "UpdateCustomGameData"
 ## 使用示例
 
 ```csharp
-var value = new UpdateCustomGameData();
+// 该数据对象通常由战役/任务 API 返回
+UpdateCustomGameData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

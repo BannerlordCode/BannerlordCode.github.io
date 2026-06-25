@@ -1,20 +1,14 @@
 ---
 title: "PsaiCore"
+description: "Auto-generated class reference for PsaiCore."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PsaiCore`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PsaiCore
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public class PsaiCore`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/PsaiCore.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/PsaiCore.cs`
 
 ## Overview
 
@@ -35,187 +29,408 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### IsInstanceInitialized
 `public static bool IsInstanceInitialized()`
 
-**Purpose:** Handles logic related to `is instance initialized`.
+**Purpose:** Determines whether the current object is in the `instance initialized` state or condition.
+
+```csharp
+// Static call; no instance required
+PsaiCore.IsInstanceInitialized();
+```
 
 ### SetMaximumLatencyNeededByPlatformToBufferSounddata
 `public PsaiResult SetMaximumLatencyNeededByPlatformToBufferSounddata(int latencyInMilliseconds)`
 
-**Purpose:** Sets the value or state of `maximum latency needed by platform to buffer sounddata`.
+**Purpose:** Assigns a new value to `maximum latency needed by platform to buffer sounddata` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.SetMaximumLatencyNeededByPlatformToBufferSounddata(0);
+```
 
 ### SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata
 `public PsaiResult SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata(int latencyInMilliseconds)`
 
-**Purpose:** Sets the value or state of `maximum latency needed by platform to play back buffered sounddata`.
+**Purpose:** Assigns a new value to `maximum latency needed by platform to play back buffered sounddata` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata(0);
+```
 
 ### LoadSoundtrackFromProjectFile
 `public PsaiResult LoadSoundtrackFromProjectFile(List<string> pathToProjectFiles)`
 
-**Purpose:** Loads `soundtrack from project file` data.
+**Purpose:** Reads `soundtrack from project file` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.LoadSoundtrackFromProjectFile(pathToProjectFiles);
+```
 
 ### TriggerMusicTheme
 `public PsaiResult TriggerMusicTheme(int themeId, float intensity)`
 
-**Purpose:** Handles logic related to `trigger music theme`.
+**Purpose:** Triggers the logic or event associated with `music theme`.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.TriggerMusicTheme(0, 0);
+```
 
 ### TriggerMusicTheme
 `public PsaiResult TriggerMusicTheme(int themeId, float intensity, int musicDurationInSeconds)`
 
-**Purpose:** Handles logic related to `trigger music theme`.
+**Purpose:** Triggers the logic or event associated with `music theme`.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.TriggerMusicTheme(0, 0, 0);
+```
 
 ### AddToCurrentIntensity
 `public PsaiResult AddToCurrentIntensity(float deltaIntensity)`
 
 **Purpose:** Adds `to current intensity` to the current collection or state.
 
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.AddToCurrentIntensity(0);
+```
+
 ### StopMusic
 `public PsaiResult StopMusic(bool immediately)`
 
-**Purpose:** Handles logic related to `stop music`.
+**Purpose:** Stops the `music` flow or state machine.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.StopMusic(false);
+```
 
 ### StopMusic
 `public PsaiResult StopMusic(bool immediately, float fadeOutSeconds)`
 
-**Purpose:** Handles logic related to `stop music`.
+**Purpose:** Stops the `music` flow or state machine.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.StopMusic(false, 0);
+```
 
 ### ReturnToLastBasicMood
 `public PsaiResult ReturnToLastBasicMood(bool immediately)`
 
-**Purpose:** Handles logic related to `return to last basic mood`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.ReturnToLastBasicMood(false);
+```
 
 ### GoToRest
 `public PsaiResult GoToRest(bool immediately, float fadeOutSeconds)`
 
-**Purpose:** Handles logic related to `go to rest`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GoToRest(false, 0);
+```
 
 ### GoToRest
 `public PsaiResult GoToRest(bool immediately, float fadeOutSeconds, int restTimeMin, int restTimeMax)`
 
-**Purpose:** Handles logic related to `go to rest`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GoToRest(false, 0, 0, 0);
+```
 
 ### HoldCurrentIntensity
 `public PsaiResult HoldCurrentIntensity(bool hold)`
 
-**Purpose:** Handles logic related to `hold current intensity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.HoldCurrentIntensity(false);
+```
 
 ### GetVersion
 `public string GetVersion()`
 
-**Purpose:** Gets the current value of `version`.
+**Purpose:** Reads and returns the `version` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetVersion();
+```
 
 ### Update
 `public PsaiResult Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.Update();
+```
 
 ### GetVolume
 `public float GetVolume()`
 
-**Purpose:** Gets the current value of `volume`.
+**Purpose:** Reads and returns the `volume` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetVolume();
+```
 
 ### SetVolume
 `public void SetVolume(float volume)`
 
-**Purpose:** Sets the value or state of `volume`.
+**Purpose:** Assigns a new value to `volume` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+psaiCore.SetVolume(0);
+```
 
 ### SetPaused
 `public void SetPaused(bool setPaused)`
 
-**Purpose:** Sets the value or state of `paused`.
+**Purpose:** Assigns a new value to `paused` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+psaiCore.SetPaused(false);
+```
 
 ### GetCurrentIntensity
 `public float GetCurrentIntensity()`
 
-**Purpose:** Gets the current value of `current intensity`.
+**Purpose:** Reads and returns the `current intensity` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetCurrentIntensity();
+```
 
 ### GetPsaiInfo
 `public PsaiInfo GetPsaiInfo()`
 
-**Purpose:** Gets the current value of `psai info`.
+**Purpose:** Reads and returns the `psai info` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetPsaiInfo();
+```
 
 ### GetSoundtrackInfo
 `public SoundtrackInfo GetSoundtrackInfo()`
 
-**Purpose:** Gets the current value of `soundtrack info`.
+**Purpose:** Reads and returns the `soundtrack info` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetSoundtrackInfo();
+```
 
 ### GetThemeInfo
 `public ThemeInfo GetThemeInfo(int themeId)`
 
-**Purpose:** Gets the current value of `theme info`.
+**Purpose:** Reads and returns the `theme info` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetThemeInfo(0);
+```
 
 ### GetSegmentInfo
 `public SegmentInfo GetSegmentInfo(int segmentId)`
 
-**Purpose:** Gets the current value of `segment info`.
+**Purpose:** Reads and returns the `segment info` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetSegmentInfo(0);
+```
 
 ### GetCurrentSegmentId
 `public int GetCurrentSegmentId()`
 
-**Purpose:** Gets the current value of `current segment id`.
+**Purpose:** Reads and returns the `current segment id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetCurrentSegmentId();
+```
 
 ### GetCurrentThemeId
 `public int GetCurrentThemeId()`
 
-**Purpose:** Gets the current value of `current theme id`.
+**Purpose:** Reads and returns the `current theme id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetCurrentThemeId();
+```
 
 ### GetRemainingMillisecondsOfCurrentSegmentPlayback
 `public int GetRemainingMillisecondsOfCurrentSegmentPlayback()`
 
-**Purpose:** Gets the current value of `remaining milliseconds of current segment playback`.
+**Purpose:** Reads and returns the `remaining milliseconds of current segment playback` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetRemainingMillisecondsOfCurrentSegmentPlayback();
+```
 
 ### GetRemainingMillisecondsUntilNextSegmentStart
 `public int GetRemainingMillisecondsUntilNextSegmentStart()`
 
-**Purpose:** Gets the current value of `remaining milliseconds until next segment start`.
+**Purpose:** Reads and returns the `remaining milliseconds until next segment start` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetRemainingMillisecondsUntilNextSegmentStart();
+```
 
 ### MenuModeEnter
 `public PsaiResult MenuModeEnter(int menuThemeId, float menuThemeIntensity)`
 
-**Purpose:** Handles logic related to `menu mode enter`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.MenuModeEnter(0, 0);
+```
 
 ### MenuModeLeave
 `public PsaiResult MenuModeLeave()`
 
-**Purpose:** Handles logic related to `menu mode leave`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.MenuModeLeave();
+```
 
 ### MenuModeIsActive
 `public bool MenuModeIsActive()`
 
-**Purpose:** Handles logic related to `menu mode is active`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.MenuModeIsActive();
+```
 
 ### CutSceneIsActive
 `public bool CutSceneIsActive()`
 
-**Purpose:** Handles logic related to `cut scene is active`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.CutSceneIsActive();
+```
 
 ### CutSceneEnter
 `public PsaiResult CutSceneEnter(int themeId, float intensity)`
 
-**Purpose:** Handles logic related to `cut scene enter`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.CutSceneEnter(0, 0);
+```
 
 ### CutSceneLeave
 `public PsaiResult CutSceneLeave(bool immediately, bool reset)`
 
-**Purpose:** Handles logic related to `cut scene leave`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.CutSceneLeave(false, false);
+```
 
 ### PlaySegment
 `public PsaiResult PlaySegment(int segmentId)`
 
-**Purpose:** Handles logic related to `play segment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.PlaySegment(0);
+```
 
 ### CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible
 `public bool CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(int sourceSegmentId, int targetThemeId)`
 
-**Purpose:** Handles logic related to `check if at least one direct transition or layering is possible`.
+**Purpose:** Verifies whether `if at least one direct transition or layering is possible` holds true for the current object.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+var result = psaiCore.CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(0, 0);
+```
 
 ### SetLastBasicMood
 `public void SetLastBasicMood(int themeId)`
 
-**Purpose:** Sets the value or state of `last basic mood`.
+**Purpose:** Assigns a new value to `last basic mood` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+psaiCore.SetLastBasicMood(0);
+```
 
 ### Release
 `public void Release()`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiCore from the subsystem API first
+PsaiCore psaiCore = ...;
+psaiCore.Release();
+```
 
 ## Usage Example
 
@@ -225,4 +440,4 @@ PsaiCore.IsInstanceInitialized();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

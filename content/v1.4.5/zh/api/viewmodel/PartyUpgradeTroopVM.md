@@ -1,20 +1,14 @@
 ---
 title: "PartyUpgradeTroopVM"
+description: "PartyUpgradeTroopVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyUpgradeTroopVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyUpgradeTroopVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyUpgradeTroopVM : PartyTroopManagerVM`
 **Base:** `PartyTroopManagerVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp/PartyUpgradeTroopVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp/PartyUpgradeTroopVM.cs`
 
 ## 概述
 
@@ -36,55 +30,110 @@ title: "PartyUpgradeTroopVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.RefreshValues();
+```
 
 ### OnRanOutTroop
 `public void OnRanOutTroop(PartyCharacterVM troop)`
 
-**用途 / Purpose:** 当 `ran out troop` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「ran out troop」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.OnRanOutTroop(troop);
+```
 
 ### OnTroopUpgraded
 `public void OnTroopUpgraded()`
 
-**用途 / Purpose:** 当 `troop upgraded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop upgraded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.OnTroopUpgraded();
+```
 
 ### OpenPopUp
 `public override void OpenPopUp()`
 
-**用途 / Purpose:** 处理 `open pop up` 相关逻辑。
+**用途 / Purpose:** 打开「pop up」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.OpenPopUp();
+```
 
 ### ExecuteDone
 `public override void ExecuteDone()`
 
-**用途 / Purpose:** 执行 `done` 操作或流程。
+**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteDone();
+```
 
 ### ExecuteCancel
 `public override void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteCancel();
+```
 
 ### ExecuteItemPrimaryAction
 `public override void ExecuteItemPrimaryAction()`
 
-**用途 / Purpose:** 执行 `item primary action` 操作或流程。
+**用途 / Purpose:** 执行 「item primary action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteItemPrimaryAction();
+```
 
 ### ExecuteItemSecondaryAction
 `public override void ExecuteItemSecondaryAction()`
 
-**用途 / Purpose:** 执行 `item secondary action` 操作或流程。
+**用途 / Purpose:** 执行 「item secondary action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteItemSecondaryAction();
+```
 
 ### ExecuteItemTertiaryAction
 `public override void ExecuteItemTertiaryAction()`
 
-**用途 / Purpose:** 执行 `item tertiary action` 操作或流程。
+**用途 / Purpose:** 执行 「item tertiary action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteItemTertiaryAction();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyUpgradeTroopVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

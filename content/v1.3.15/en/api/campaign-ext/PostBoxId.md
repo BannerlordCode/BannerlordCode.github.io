@@ -1,13 +1,7 @@
 ---
 title: "PostBoxId"
+description: "Auto-generated class reference for PostBoxId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PostBoxId`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PostBoxId
 
 **Namespace:** TaleWorlds.Network
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new PostBoxId();
+// Obtain an instance from the relevant subsystem API
+PostBoxId instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

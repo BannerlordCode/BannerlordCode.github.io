@@ -1,13 +1,7 @@
 ---
 title: "TradeAgreementDecisionItemVM"
+description: "Auto-generated class reference for TradeAgreementDecisionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeAgreementDecisionItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TradeAgreementDecisionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
@@ -43,9 +37,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var value = new TradeAgreementDecisionItemVM();
+// Obtain an instance from the relevant subsystem API
+TradeAgreementDecisionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

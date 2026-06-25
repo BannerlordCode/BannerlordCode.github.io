@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationCultureStage"
+description: "Auto-generated class reference for CharacterCreationCultureStage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationCultureStage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationCultureStage
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationCultureStage();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationCultureStage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

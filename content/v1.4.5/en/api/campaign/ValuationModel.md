@@ -1,20 +1,14 @@
 ---
 title: "ValuationModel"
+description: "Auto-generated class reference for ValuationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ValuationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ValuationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ValuationModel : MBGameModel<ValuationModel>`
 **Base:** `MBGameModel<ValuationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ValuationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ValuationModel.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `ValuationModel` as a Model-style extension point: first identify who crea
 ### GetValueOfTroop
 `public abstract float GetValueOfTroop(CharacterObject troop)`
 
-**Purpose:** Gets the current value of `value of troop`.
+**Purpose:** Reads and returns the `value of troop` value held by the current object.
+
+```csharp
+// Obtain an instance of ValuationModel from the subsystem API first
+ValuationModel valuationModel = ...;
+var result = valuationModel.GetValueOfTroop(troop);
+```
 
 ### GetMilitaryValueOfParty
 `public abstract float GetMilitaryValueOfParty(MobileParty party)`
 
-**Purpose:** Gets the current value of `military value of party`.
+**Purpose:** Reads and returns the `military value of party` value held by the current object.
+
+```csharp
+// Obtain an instance of ValuationModel from the subsystem API first
+ValuationModel valuationModel = ...;
+var result = valuationModel.GetMilitaryValueOfParty(party);
+```
 
 ### GetValueOfHero
 `public abstract float GetValueOfHero(Hero hero)`
 
-**Purpose:** Gets the current value of `value of hero`.
+**Purpose:** Reads and returns the `value of hero` value held by the current object.
+
+```csharp
+// Obtain an instance of ValuationModel from the subsystem API first
+ValuationModel valuationModel = ...;
+var result = valuationModel.GetValueOfHero(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomValuationModel();
+// Typically obtained from a subsystem API or factory
+ValuationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ShipHull"
+description: "Auto-generated class reference for ShipHull."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipHull`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipHull
 
 **Namespace:** TaleWorlds.Core
@@ -57,25 +51,44 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ShipHull from the subsystem API first
+ShipHull shipHull = ...;
+var result = shipHull.ToString();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of ShipHull from the subsystem API first
+ShipHull shipHull = ...;
+var result = shipHull.GetName();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ShipHull from the subsystem API first
+ShipHull shipHull = ...;
+shipHull.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipHull();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+ShipHull shipHull = ...;
+shipHull.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

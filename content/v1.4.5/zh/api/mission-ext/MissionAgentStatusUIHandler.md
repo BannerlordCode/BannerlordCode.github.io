@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentStatusUIHandler"
+description: "MissionAgentStatusUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentStatusUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentStatusUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentStatusUIHandler : MissionBattleUIBaseView, IInteractionInterfaceHandler`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionAgentStatusUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionAgentStatusUIHandler.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "MissionAgentStatusUIHandler"
 ### AddInteractionMessage
 `public virtual void AddInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `interaction message`。
+**用途 / Purpose:** 将 「interaction message」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusUIHandler 实例
+MissionAgentStatusUIHandler missionAgentStatusUIHandler = ...;
+missionAgentStatusUIHandler.AddInteractionMessage(message);
+```
 
 ### RemoveInteractionMessage
 `public virtual void RemoveInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `interaction message`。
+**用途 / Purpose:** 从当前容器或状态中移除 「interaction message」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusUIHandler 实例
+MissionAgentStatusUIHandler missionAgentStatusUIHandler = ...;
+missionAgentStatusUIHandler.RemoveInteractionMessage(message);
+```
 
 ### HasInteractionMessage
 `public virtual bool HasInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `interaction message`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「interaction message」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusUIHandler 实例
+MissionAgentStatusUIHandler missionAgentStatusUIHandler = ...;
+var result = missionAgentStatusUIHandler.HasInteractionMessage(message);
+```
 
 ## 使用示例
 
 ```csharp
-MissionAgentStatusUIHandler implementation = GetMissionAgentStatusUIHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IMissionAgentStatusUIHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapSiegeQueueIndexTextWidget"
+description: "Auto-generated class reference for MapSiegeQueueIndexTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeQueueIndexTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeQueueIndexTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapSiegeQueueIndexTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeQueueIndexTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeQueueIndexTextWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MapSiegeQueueIndexTextWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new MapSiegeQueueIndexTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapSiegeQueueIndexTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

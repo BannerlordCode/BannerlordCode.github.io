@@ -1,20 +1,14 @@
 ---
 title: "CombatLogManager"
+description: "Auto-generated class reference for CombatLogManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatLogManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatLogManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CombatLogManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogManager.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Treat `CombatLogManager` as a Manager-style extension point: first identify who 
 ### PrintDebugLogForInfo
 `public static void PrintDebugLogForInfo(Agent attackerAgent, Agent victimAgent, DamageTypes damageType, int speedBonus, int armorAmount, int inflictedDamage, int absorbedByArmor, sbyte collisionBone, float lostHpPercentage)`
 
-**Purpose:** Handles logic related to `print debug log for info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CombatLogManager.PrintDebugLogForInfo(attackerAgent, victimAgent, damageType, 0, 0, 0, 0, 0, 0);
+```
 
 ### GenerateCombatLog
 `public static void GenerateCombatLog(CombatLogData logData)`
 
-**Purpose:** Handles logic related to `generate combat log`.
+**Purpose:** Generates an instance, data, or representation of `combat log`.
+
+```csharp
+// Static call; no instance required
+CombatLogManager.GenerateCombatLog(logData);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ var manager = CombatLogManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

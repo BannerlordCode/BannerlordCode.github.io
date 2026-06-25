@@ -1,20 +1,14 @@
 ---
 title: "MissionGameNotificationUIHandler"
+description: "MissionGameNotificationUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGameNotificationUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGameNotificationUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGameNotificationUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionGameNotificationUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionGameNotificationUIHandler.cs`
 
 ## 概述
 
@@ -27,9 +21,9 @@ title: "MissionGameNotificationUIHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGameNotificationUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGameNotificationUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

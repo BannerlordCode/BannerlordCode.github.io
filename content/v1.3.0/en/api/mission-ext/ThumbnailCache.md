@@ -1,13 +1,7 @@
 ---
 title: "ThumbnailCache"
+description: "Auto-generated class reference for ThumbnailCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThumbnailCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -36,14 +30,21 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateTexture
 `public virtual Texture CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Creates a new `texture` instance or object.
+**Purpose:** Constructs a new `texture` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of ThumbnailCache from the subsystem API first
+ThumbnailCache thumbnailCache = ...;
+var result = thumbnailCache.CreateTexture(thumbnailCreationData);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomThumbnailCache();
+// Typically obtained from a subsystem API or factory
+ThumbnailCache instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

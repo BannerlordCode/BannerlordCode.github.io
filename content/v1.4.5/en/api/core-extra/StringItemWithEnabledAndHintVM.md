@@ -1,20 +1,14 @@
 ---
 title: "StringItemWithEnabledAndHintVM"
+description: "Auto-generated class reference for StringItemWithEnabledAndHintVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringItemWithEnabledAndHintVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringItemWithEnabledAndHintVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
 **Module:** TaleWorlds.Core
 **Type:** `public class StringItemWithEnabledAndHintVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringItemWithEnabledAndHintVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringItemWithEnabledAndHintVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of StringItemWithEnabledAndHintVM from the subsystem API first
+StringItemWithEnabledAndHintVM stringItemWithEnabledAndHintVM = ...;
+stringItemWithEnabledAndHintVM.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StringItemWithEnabledAndHintVM();
-value.ExecuteAction();
+// Typically call this after obtaining an instance from the subsystem API
+StringItemWithEnabledAndHintVM stringItemWithEnabledAndHintVM = ...;
+stringItemWithEnabledAndHintVM.ExecuteAction();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

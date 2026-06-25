@@ -1,13 +1,7 @@
 ---
 title: "ItemSizeComparer"
+description: "Auto-generated class reference for ItemSizeComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemSizeComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemSizeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public override int Compare(ClanPartyItemVM x, ClanPartyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemSizeComparer from the subsystem API first
+ItemSizeComparer itemSizeComparer = ...;
+var result = itemSizeComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemSizeComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemSizeComparer itemSizeComparer = ...;
+itemSizeComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,24 +1,18 @@
 ---
 title: "MPLobbyCosmeticSigilItemVM"
+description: "MPLobbyCosmeticSigilItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyCosmeticSigilItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyCosmeticSigilItemVM
 
-**命名空间:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class MPLobbyCosmeticSigilItemVM : MPLobbySigilItemVM`
+**Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MPLobbyCosmeticSigilItemVM : MPLobbySigilItemVM`
 **Base:** `MPLobbySigilItemVM`
-**领域:** mission-ext
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyCosmeticSigilItemVM.cs`
 
 ## 概述
 
-`MPLobbyCosmeticSigilItemVM` 位于 `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MPLobbyCosmeticSigilItemVM` 位于 `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -38,31 +32,49 @@ title: "MPLobbyCosmeticSigilItemVM"
 ### SetOnSelectionCallback
 `public static void SetOnSelectionCallback(Action<MPLobbyCosmeticSigilItemVM> onSelection)`
 
-**用途 / Purpose:** 设置 `on selection callback` 的值或状态。
+**用途 / Purpose:** 为 「on selection callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MPLobbyCosmeticSigilItemVM.SetOnSelectionCallback(onSelection);
+```
 
 ### ResetOnSelectionCallback
 `public static void ResetOnSelectionCallback()`
 
-**用途 / Purpose:** 将 `on selection callback` 重置为初始状态。
+**用途 / Purpose:** 将 「on selection callback」 重置回默认或初始状态。
+
+```csharp
+// 静态调用，不需要实例
+MPLobbyCosmeticSigilItemVM.ResetOnSelectionCallback();
+```
 
 ### SetOnObtainRequestedCallback
 `public static void SetOnObtainRequestedCallback(Action<MPLobbyCosmeticSigilItemVM> onObtainRequested)`
 
-**用途 / Purpose:** 设置 `on obtain requested callback` 的值或状态。
+**用途 / Purpose:** 为 「on obtain requested callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MPLobbyCosmeticSigilItemVM.SetOnObtainRequestedCallback(onObtainRequested);
+```
 
 ### ResetOnObtainRequestedCallback
 `public static void ResetOnObtainRequestedCallback()`
 
-**用途 / Purpose:** 将 `on obtain requested callback` 重置为初始状态。
+**用途 / Purpose:** 将 「on obtain requested callback」 重置回默认或初始状态。
+
+```csharp
+// 静态调用，不需要实例
+MPLobbyCosmeticSigilItemVM.ResetOnObtainRequestedCallback();
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 MPLobbyCosmeticSigilItemVM.SetOnSelectionCallback(onSelection);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

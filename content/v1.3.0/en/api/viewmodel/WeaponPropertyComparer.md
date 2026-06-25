@@ -1,13 +1,7 @@
 ---
 title: "WeaponPropertyComparer"
+description: "Auto-generated class reference for WeaponPropertyComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponPropertyComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponPropertyComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### Compare
 `public int Compare(CraftingListPropertyItem x, CraftingListPropertyItem y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of WeaponPropertyComparer from the subsystem API first
+WeaponPropertyComparer weaponPropertyComparer = ...;
+var result = weaponPropertyComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponPropertyComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+WeaponPropertyComparer weaponPropertyComparer = ...;
+weaponPropertyComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

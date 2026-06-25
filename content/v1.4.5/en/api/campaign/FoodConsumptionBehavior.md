@@ -1,20 +1,14 @@
 ---
 title: "FoodConsumptionBehavior"
+description: "Auto-generated class reference for FoodConsumptionBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FoodConsumptionBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FoodConsumptionBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FoodConsumptionBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/FoodConsumptionBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/FoodConsumptionBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of FoodConsumptionBehavior from the subsystem API first
+FoodConsumptionBehavior foodConsumptionBehavior = ...;
+foodConsumptionBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of FoodConsumptionBehavior from the subsystem API first
+FoodConsumptionBehavior foodConsumptionBehavior = ...;
+foodConsumptionBehavior.SyncData(dataStore);
+```
 
 ### DailyTickParty
 `public void DailyTickParty(MobileParty party)`
 
-**Purpose:** Handles logic related to `daily tick party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FoodConsumptionBehavior from the subsystem API first
+FoodConsumptionBehavior foodConsumptionBehavior = ...;
+foodConsumptionBehavior.DailyTickParty(party);
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of FoodConsumptionBehavior from the subsystem API first
+FoodConsumptionBehavior foodConsumptionBehavior = ...;
+foodConsumptionBehavior.OnTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FoodConsumptionBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+FoodConsumptionBehavior foodConsumptionBehavior = ...;
+foodConsumptionBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

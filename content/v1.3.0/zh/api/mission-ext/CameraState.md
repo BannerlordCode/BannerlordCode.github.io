@@ -1,13 +1,7 @@
 ---
 title: "CameraState"
+description: "CameraState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CameraState`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CameraState
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ title: "CameraState"
 ## 使用示例
 
 ```csharp
-CameraState example = CameraState.Value;
+// 从对应子系统 API 获取实例
+CameraState instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

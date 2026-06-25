@@ -1,23 +1,18 @@
 ---
 title: "CampaignBattleResult"
+description: "Auto-generated class reference for CampaignBattleResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignBattleResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignBattleResult
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignBattleResult`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Encounters/CampaignBattleResult.cs`
 
 ## Overview
 
-`CampaignBattleResult` lives in `TaleWorlds.CampaignSystem.Encounters`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CampaignBattleResult` lives in `TaleWorlds.CampaignSystem.Encounters` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,16 +33,19 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ### GetResult
 `public static CampaignBattleResult GetResult(BattleState winnerSide, bool enemyRetreated = false)`
 
-**Purpose:** Gets the current value of `result`.
+**Purpose:** Reads and returns the `result` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignBattleResult.GetResult(winnerSide, false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CampaignBattleResult.GetResult(winnerSide, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

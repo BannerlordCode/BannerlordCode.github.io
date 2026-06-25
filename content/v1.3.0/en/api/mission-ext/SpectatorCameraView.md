@@ -1,13 +1,7 @@
 ---
 title: "SpectatorCameraView"
+description: "Auto-generated class reference for SpectatorCameraView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpectatorCameraView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpectatorCameraView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,19 +23,32 @@ Treat `SpectatorCameraView` as a View-style extension point: first identify who 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of SpectatorCameraView from the subsystem API first
+SpectatorCameraView spectatorCameraView = ...;
+spectatorCameraView.OnMissionScreenInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpectatorCameraView from the subsystem API first
+SpectatorCameraView spectatorCameraView = ...;
+spectatorCameraView.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new SpectatorCameraView();
+// Retrieve this view from the subsystem API or scene
+SpectatorCameraView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

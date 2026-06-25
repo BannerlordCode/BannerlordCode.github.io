@@ -1,13 +1,7 @@
 ---
 title: "SimpleRectangle"
+description: "SimpleRectangle 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SimpleRectangle`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SimpleRectangle
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -36,45 +30,87 @@ title: "SimpleRectangle"
 ### IsCollide
 `public bool IsCollide(SimpleRectangle other)`
 
-**用途 / Purpose:** 处理 `is collide` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「collide」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleRectangle 实例
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.IsCollide(other);
+```
 
 ### GetCenter
 `public Vector2 GetCenter()`
 
-**用途 / Purpose:** 获取 `center` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「center」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleRectangle 实例
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.GetCenter();
+```
 
 ### IsSubRectOf
 `public bool IsSubRectOf(SimpleRectangle other)`
 
-**用途 / Purpose:** 处理 `is sub rect of` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「sub rect of」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleRectangle 实例
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.IsSubRectOf(other);
+```
 
 ### IsValid
 `public bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleRectangle 实例
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.IsValid();
+```
 
 ### IsPointInside
 `public bool IsPointInside(Vector2 point)`
 
-**用途 / Purpose:** 处理 `is point inside` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「point inside」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleRectangle 实例
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.IsPointInside(point);
+```
 
 ### ReduceToIntersection
 `public void ReduceToIntersection(SimpleRectangle other)`
 
-**用途 / Purpose:** 处理 `reduce to intersection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleRectangle 实例
+SimpleRectangle simpleRectangle = ...;
+simpleRectangle.ReduceToIntersection(other);
+```
 
 ### Lerp
 `public static SimpleRectangle Lerp(SimpleRectangle from, SimpleRectangle to, float ratio)`
 
-**用途 / Purpose:** 处理 `lerp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SimpleRectangle.Lerp(from, to, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SimpleRectangle();
-value.IsCollide(other);
+// 通常从对应子系统 API 获取实例后调用
+SimpleRectangle simpleRectangle = ...;
+simpleRectangle.IsCollide(other);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

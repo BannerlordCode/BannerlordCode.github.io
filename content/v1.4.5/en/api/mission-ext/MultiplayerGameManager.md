@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerGameManager"
+description: "Auto-generated class reference for MultiplayerGameManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerGameManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGameManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerGameManager : MBGameManager`
 **Base:** `MBGameManager`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerGameManager.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerGameManager.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `MultiplayerGameManager` as a Manager-style extension point: first identif
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** Called when the `load finished` event is raised.
+**Purpose:** Invoked when the `load finished` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerGameManager from the subsystem API first
+MultiplayerGameManager multiplayerGameManager = ...;
+multiplayerGameManager.OnLoadFinished();
+```
 
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**Purpose:** Called when the `after campaign start` event is raised.
+**Purpose:** Invoked when the `after campaign start` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerGameManager from the subsystem API first
+MultiplayerGameManager multiplayerGameManager = ...;
+multiplayerGameManager.OnAfterCampaignStart(game);
+```
 
 ### OnNewCampaignStart
 `public override void OnNewCampaignStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `new campaign start` event is raised.
+**Purpose:** Invoked when the `new campaign start` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerGameManager from the subsystem API first
+MultiplayerGameManager multiplayerGameManager = ...;
+multiplayerGameManager.OnNewCampaignStart(game, starterObject);
+```
 
 ### OnSessionInvitationAccepted
 `public override void OnSessionInvitationAccepted(SessionInvitationType sessionInvitationType)`
 
-**Purpose:** Called when the `session invitation accepted` event is raised.
+**Purpose:** Invoked when the `session invitation accepted` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerGameManager from the subsystem API first
+MultiplayerGameManager multiplayerGameManager = ...;
+multiplayerGameManager.OnSessionInvitationAccepted(sessionInvitationType);
+```
 
 ### OnPlatformRequestedMultiplayer
 `public override void OnPlatformRequestedMultiplayer()`
 
-**Purpose:** Called when the `platform requested multiplayer` event is raised.
+**Purpose:** Invoked when the `platform requested multiplayer` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerGameManager from the subsystem API first
+MultiplayerGameManager multiplayerGameManager = ...;
+multiplayerGameManager.OnPlatformRequestedMultiplayer();
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ var manager = MultiplayerGameManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

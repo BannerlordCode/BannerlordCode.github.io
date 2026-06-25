@@ -1,20 +1,14 @@
 ---
 title: "BaseNetworkComponent"
+description: "Auto-generated class reference for BaseNetworkComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BaseNetworkComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BaseNetworkComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.NetworkComponents
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BaseNetworkComponent : UdpNetworkComponent`
 **Base:** `UdpNetworkComponent`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.NetworkComponents/BaseNetworkComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.NetworkComponents/BaseNetworkComponent.cs`
 
 ## Overview
 
@@ -37,42 +31,90 @@ Treat `BaseNetworkComponent` as a Component-style extension point: first identif
 ### WelcomeMessageReceivedDelegate
 `public delegate void WelcomeMessageReceivedDelegate(string messageText)`
 
-**Purpose:** Handles logic related to `welcome message received delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BaseNetworkComponent from the subsystem API first
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.WelcomeMessageReceivedDelegate("example");
+```
 
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**Purpose:** Called when the `udp network handler tick` event is raised.
+**Purpose:** Invoked when the `udp network handler tick` event is raised.
+
+```csharp
+// Obtain an instance of BaseNetworkComponent from the subsystem API first
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.OnUdpNetworkHandlerTick(0);
+```
 
 ### HandleNewClientConnect
 `public override void HandleNewClientConnect(PlayerConnectionInfo playerConnectionInfo)`
 
-**Purpose:** Handles the `new client connect` event or callback.
+**Purpose:** Executes the response logic associated with `new client connect`.
+
+```csharp
+// Obtain an instance of BaseNetworkComponent from the subsystem API first
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.HandleNewClientConnect(playerConnectionInfo);
+```
 
 ### HandlePlayerDisconnect
 `public override void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `player disconnect` event or callback.
+**Purpose:** Executes the response logic associated with `player disconnect`.
+
+```csharp
+// Obtain an instance of BaseNetworkComponent from the subsystem API first
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.HandlePlayerDisconnect(networkPeer);
+```
 
 ### IntermissionCastVote
 `public void IntermissionCastVote(string itemID, int voteCount)`
 
-**Purpose:** Handles logic related to `intermission cast vote`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BaseNetworkComponent from the subsystem API first
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.IntermissionCastVote("example", 0);
+```
 
 ### HandleNewClientAfterSynchronized
 `public override void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `new client after synchronized` event or callback.
+**Purpose:** Executes the response logic associated with `new client after synchronized`.
+
+```csharp
+// Obtain an instance of BaseNetworkComponent from the subsystem API first
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.HandleNewClientAfterSynchronized(networkPeer);
+```
 
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**Purpose:** Called when the `udp network handler close` event is raised.
+**Purpose:** Invoked when the `udp network handler close` event is raised.
+
+```csharp
+// Obtain an instance of BaseNetworkComponent from the subsystem API first
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.OnUdpNetworkHandlerClose();
+```
 
 ### SetDisplayingWelcomeMessage
 `public void SetDisplayingWelcomeMessage(bool displaying)`
 
-**Purpose:** Sets the value or state of `displaying welcome message`.
+**Purpose:** Assigns a new value to `displaying welcome message` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BaseNetworkComponent from the subsystem API first
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.SetDisplayingWelcomeMessage(false);
+```
 
 ## Usage Example
 
@@ -82,4 +124,4 @@ var component = agent.GetComponent<BaseNetworkComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

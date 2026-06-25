@@ -1,13 +1,7 @@
 ---
 title: "ItemPickupModel"
+description: "Auto-generated class reference for ItemPickupModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemPickupModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemPickupModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,24 +23,43 @@ Treat `ItemPickupModel` as a Model-style extension point: first identify who cre
 ### GetItemScoreForAgent
 `public abstract float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)`
 
-**Purpose:** Gets the current value of `item score for agent`.
+**Purpose:** Reads and returns the `item score for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemPickupModel from the subsystem API first
+ItemPickupModel itemPickupModel = ...;
+var result = itemPickupModel.GetItemScoreForAgent(item, agent);
+```
 
 ### IsItemAvailableForAgent
 `public abstract bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)`
 
-**Purpose:** Handles logic related to `is item available for agent`.
+**Purpose:** Determines whether the current object is in the `item available for agent` state or condition.
+
+```csharp
+// Obtain an instance of ItemPickupModel from the subsystem API first
+ItemPickupModel itemPickupModel = ...;
+var result = itemPickupModel.IsItemAvailableForAgent(item, agent, slotToPickUp);
+```
 
 ### IsAgentEquipmentSuitableForPickUpAvailability
 `public abstract bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)`
 
-**Purpose:** Handles logic related to `is agent equipment suitable for pick up availability`.
+**Purpose:** Determines whether the current object is in the `agent equipment suitable for pick up availability` state or condition.
+
+```csharp
+// Obtain an instance of ItemPickupModel from the subsystem API first
+ItemPickupModel itemPickupModel = ...;
+var result = itemPickupModel.IsAgentEquipmentSuitableForPickUpAvailability(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomItemPickupModel();
+// Typically obtained from a subsystem API or factory
+ItemPickupModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

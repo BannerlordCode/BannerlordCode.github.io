@@ -1,13 +1,7 @@
 ---
 title: "DefaultParallelDriver"
+description: "Auto-generated class reference for DefaultParallelDriver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultParallelDriver`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultParallelDriver
 
 **Namespace:** TaleWorlds.Library
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### For
 `public void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize)`
 
-**Purpose:** Handles logic related to `for`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultParallelDriver from the subsystem API first
+DefaultParallelDriver defaultParallelDriver = ...;
+defaultParallelDriver.For(0, 0, body, 0);
+```
 
 ### ForWithoutRenderThread
 `public void ForWithoutRenderThread(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize)`
 
-**Purpose:** Handles logic related to `for without render thread`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultParallelDriver from the subsystem API first
+DefaultParallelDriver defaultParallelDriver = ...;
+defaultParallelDriver.ForWithoutRenderThread(0, 0, body, 0);
+```
 
 ### For
 `public void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize)`
 
-**Purpose:** Handles logic related to `for`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultParallelDriver from the subsystem API first
+DefaultParallelDriver defaultParallelDriver = ...;
+defaultParallelDriver.For(0, 0, 0, body, 0);
+```
 
 ### GetMainThreadId
 `public ulong GetMainThreadId()`
 
-**Purpose:** Gets the current value of `main thread id`.
+**Purpose:** Reads and returns the `main thread id` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultParallelDriver from the subsystem API first
+DefaultParallelDriver defaultParallelDriver = ...;
+var result = defaultParallelDriver.GetMainThreadId();
+```
 
 ### GetCurrentThreadId
 `public ulong GetCurrentThreadId()`
 
-**Purpose:** Gets the current value of `current thread id`.
+**Purpose:** Reads and returns the `current thread id` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultParallelDriver from the subsystem API first
+DefaultParallelDriver defaultParallelDriver = ...;
+var result = defaultParallelDriver.GetCurrentThreadId();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultParallelDriver();
-value.For(0, 0, body, 0);
+// Typically call this after obtaining an instance from the subsystem API
+DefaultParallelDriver defaultParallelDriver = ...;
+defaultParallelDriver.For(0, 0, body, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

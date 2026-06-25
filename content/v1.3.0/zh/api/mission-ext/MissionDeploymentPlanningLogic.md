@@ -1,13 +1,7 @@
 ---
 title: "MissionDeploymentPlanningLogic"
+description: "MissionDeploymentPlanningLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionDeploymentPlanningLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDeploymentPlanningLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,124 +23,263 @@ title: "MissionDeploymentPlanningLogic"
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.Initialize();
+```
 
 ### ClearAll
 `public virtual void ClearAll()`
 
-**用途 / Purpose:** 处理 `clear all` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「all」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.ClearAll();
+```
 
 ### MakeDefaultDeploymentPlans
 `public virtual void MakeDefaultDeploymentPlans()`
 
-**用途 / Purpose:** 处理 `make default deployment plans` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.MakeDefaultDeploymentPlans();
+```
 
 ### MakeDeploymentPlan
 `public virtual void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetPathOffset = 0f)`
 
-**用途 / Purpose:** 处理 `make deployment plan` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.MakeDeploymentPlan(team, 0, 0);
+```
 
 ### RemakeDeploymentPlan
 `public virtual bool RemakeDeploymentPlan(Team team)`
 
-**用途 / Purpose:** 处理 `remake deployment plan` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.RemakeDeploymentPlan(team);
+```
 
 ### ClearDeploymentPlan
 `public virtual void ClearDeploymentPlan(Team team)`
 
-**用途 / Purpose:** 处理 `clear deployment plan` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「deployment plan」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.ClearDeploymentPlan(team);
+```
 
 ### IsPlanMade
 `public virtual bool IsPlanMade(Team team)`
 
-**用途 / Purpose:** 处理 `is plan made` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「plan made」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.IsPlanMade(team);
+```
 
 ### IsPlanMade
 `public virtual bool IsPlanMade(Team team, out bool isFirstPlan)`
 
-**用途 / Purpose:** 处理 `is plan made` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「plan made」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.IsPlanMade(team, isFirstPlan);
+```
 
 ### IsPositionInsideDeploymentBoundaries
 `public virtual bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)`
 
-**用途 / Purpose:** 处理 `is position inside deployment boundaries` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「position inside deployment boundaries」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.IsPositionInsideDeploymentBoundaries(team, position);
+```
 
 ### HasDeploymentBoundaries
 `public virtual bool HasDeploymentBoundaries(Team team)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `deployment boundaries`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「deployment boundaries」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.HasDeploymentBoundaries(team);
+```
 
 ### GetDeploymentBoundaries
 `public virtual MBReadOnlyList<ValueTuple<string, List<Vec2>>> GetDeploymentBoundaries(Team team)`
 
-**用途 / Purpose:** 获取 `deployment boundaries` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「deployment boundaries」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetDeploymentBoundaries(team);
+```
 
 ### SupportsReinforcements
 `public virtual bool SupportsReinforcements()`
 
-**用途 / Purpose:** 处理 `supports reinforcements` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.SupportsReinforcements();
+```
 
 ### SupportsNavmesh
 `public virtual bool SupportsNavmesh()`
 
-**用途 / Purpose:** 处理 `supports navmesh` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.SupportsNavmesh();
+```
 
 ### HasPlayerSpawnFrame
 `public virtual bool HasPlayerSpawnFrame(BattleSideEnum battleSide)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `player spawn frame`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「player spawn frame」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.HasPlayerSpawnFrame(battleSide);
+```
 
 ### GetPlayerSpawnFrame
 `public virtual bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)`
 
-**用途 / Purpose:** 获取 `player spawn frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player spawn frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetPlayerSpawnFrame(battleSide, position, direction);
+```
 
 ### GetClosestDeploymentBoundaryPosition
 `public virtual Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)`
 
-**用途 / Purpose:** 获取 `closest deployment boundary position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「closest deployment boundary position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetClosestDeploymentBoundaryPosition(team, position);
+```
 
 ### ProjectPositionToDeploymentBoundaries
 `public virtual void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition position)`
 
-**用途 / Purpose:** 处理 `project position to deployment boundaries` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.ProjectPositionToDeploymentBoundaries(team, position);
+```
 
 ### GetPathDeploymentBoundaryIntersection
 `public virtual bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition foundPosition)`
 
-**用途 / Purpose:** 获取 `path deployment boundary intersection` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「path deployment boundary intersection」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetPathDeploymentBoundaryIntersection(team, startPosition, endPosition, foundPosition);
+```
 
 ### GetDeploymentFrame
 `public virtual MatrixFrame GetDeploymentFrame(Team team)`
 
-**用途 / Purpose:** 获取 `deployment frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「deployment frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetDeploymentFrame(team);
+```
 
 ### GetFormationPlan
 `public virtual IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement = false)`
 
-**用途 / Purpose:** 获取 `formation plan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「formation plan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetFormationPlan(team, fClass, false);
+```
 
 ### GetSpawnPathOffset
 `public virtual float GetSpawnPathOffset(Team team)`
 
-**用途 / Purpose:** 获取 `spawn path offset` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn path offset」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetSpawnPathOffset(team);
+```
 
 ### GetZoomFocusFrame
 `public virtual MatrixFrame GetZoomFocusFrame(Team team)`
 
-**用途 / Purpose:** 获取 `zoom focus frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「zoom focus frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetZoomFocusFrame(team);
+```
 
 ### GetZoomOffset
 `public virtual float GetZoomOffset(Team team, float fovAngle)`
 
-**用途 / Purpose:** 获取 `zoom offset` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「zoom offset」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetZoomOffset(team, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionDeploymentPlanningLogic();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionDeploymentPlanningLogic instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

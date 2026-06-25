@@ -1,20 +1,14 @@
 ---
 title: "MatchmakerDisabledMessage"
+description: "MatchmakerDisabledMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MatchmakerDisabledMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatchmakerDisabledMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class MatchmakerDisabledMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/MatchmakerDisabledMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/MatchmakerDisabledMessage.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "MatchmakerDisabledMessage"
 ## 使用示例
 
 ```csharp
-var example = new MatchmakerDisabledMessage();
+// 从对应子系统 API 获取实例
+MatchmakerDisabledMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

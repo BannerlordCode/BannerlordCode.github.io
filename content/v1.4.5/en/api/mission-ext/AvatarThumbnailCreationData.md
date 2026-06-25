@@ -1,20 +1,14 @@
 ---
 title: "AvatarThumbnailCreationData"
+description: "Auto-generated class reference for AvatarThumbnailCreationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvatarThumbnailCreationData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarThumbnailCreationData
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AvatarThumbnailCreationData : ThumbnailCreationData`
 **Base:** `ThumbnailCreationData`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/AvatarThumbnailCreationData.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/AvatarThumbnailCreationData.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `AvatarThumbnailCreationData` as a Data-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var value = new AvatarThumbnailCreationData();
+// This data object is usually returned by campaign/mission APIs
+AvatarThumbnailCreationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

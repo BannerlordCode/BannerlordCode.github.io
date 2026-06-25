@@ -1,13 +1,7 @@
 ---
 title: "RangedSiegeWeaponViewController"
+description: "Auto-generated class reference for RangedSiegeWeaponViewController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RangedSiegeWeaponViewController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedSiegeWeaponViewController
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon
@@ -29,7 +23,13 @@ Treat `RangedSiegeWeaponViewController` as a Controller-style extension point: f
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** Called when the `object used` event is raised.
+**Purpose:** Invoked when the `object used` event is raised.
+
+```csharp
+// Obtain an instance of RangedSiegeWeaponViewController from the subsystem API first
+RangedSiegeWeaponViewController rangedSiegeWeaponViewController = ...;
+rangedSiegeWeaponViewController.OnObjectUsed(userAgent, usedObject);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<RangedSiegeWeaponViewControl
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

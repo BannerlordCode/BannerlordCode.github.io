@@ -1,13 +1,7 @@
 ---
 title: "OnEncyclopediaListSortedEvent"
+description: "Auto-generated class reference for OnEncyclopediaListSortedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OnEncyclopediaListSortedEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OnEncyclopediaListSortedEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-var example = new OnEncyclopediaListSortedEvent();
+// Obtain an instance from the relevant subsystem API
+OnEncyclopediaListSortedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

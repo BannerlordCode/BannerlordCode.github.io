@@ -1,13 +1,7 @@
 ---
 title: "VideoPlayerView"
+description: "VideoPlayerView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VideoPlayerView`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VideoPlayerView
 
 **Namespace:** TaleWorlds.Engine
@@ -29,34 +23,64 @@ title: "VideoPlayerView"
 ### CreateVideoPlayerView
 `public static VideoPlayerView CreateVideoPlayerView()`
 
-**用途 / Purpose:** 创建一个 `video player view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「video player view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+VideoPlayerView.CreateVideoPlayerView();
+```
 
 ### PlayVideo
 `public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)`
 
-**用途 / Purpose:** 处理 `play video` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlayerView 实例
+VideoPlayerView videoPlayerView = ...;
+videoPlayerView.PlayVideo("example", "example", 0, false);
+```
 
 ### StopVideo
 `public void StopVideo()`
 
-**用途 / Purpose:** 处理 `stop video` 相关逻辑。
+**用途 / Purpose:** 停止「video」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlayerView 实例
+VideoPlayerView videoPlayerView = ...;
+videoPlayerView.StopVideo();
+```
 
 ### IsVideoFinished
 `public bool IsVideoFinished()`
 
-**用途 / Purpose:** 处理 `is video finished` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「video finished」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlayerView 实例
+VideoPlayerView videoPlayerView = ...;
+var result = videoPlayerView.IsVideoFinished();
+```
 
 ### FinalizePlayer
 `public void FinalizePlayer()`
 
-**用途 / Purpose:** 处理 `finalize player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlayerView 实例
+VideoPlayerView videoPlayerView = ...;
+videoPlayerView.FinalizePlayer();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new VideoPlayerView();
+// 从子系统 API 或场景中获取该视图
+VideoPlayerView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
-title: "ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_ArmyManagement"
+title: "ItemComparerBase"
+description: "Auto-generated class reference for ItemComparerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemComparerBase`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemComparerBase
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ItemComparerBase : IComparer<ArmyManagementItemVM>`
 **Base:** `IComparer<ArmyManagementItemVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementSortControllerVM.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemComparerBase from the subsystem API first
+ItemComparerBase itemComparerBase = ...;
+itemComparerBase.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemComparerBase from the subsystem API first
+ItemComparerBase itemComparerBase = ...;
+var result = itemComparerBase.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomItemComparerBase();
+// Typically obtained from a subsystem API or factory
+ItemComparerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

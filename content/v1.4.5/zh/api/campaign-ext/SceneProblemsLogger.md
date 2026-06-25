@@ -1,20 +1,14 @@
 ---
 title: "SceneProblemsLogger"
+description: "SceneProblemsLogger 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SceneProblemsLogger`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneProblemsLogger
 
 **Namespace:** (global)
 **Module:** (global)
 **Type:** `public class SceneProblemsLogger`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/SceneProblemsLogger.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/SceneProblemsLogger.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "SceneProblemsLogger"
 ### LogScene
 `public void LogScene(int sceneIndex, string sceneId, string log)`
 
-**用途 / Purpose:** 处理 `log scene` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SceneProblemsLogger 实例
+SceneProblemsLogger sceneProblemsLogger = ...;
+sceneProblemsLogger.LogScene(0, "example", "example");
+```
 
 ### FinishLogging
 `public void FinishLogging()`
 
-**用途 / Purpose:** 处理 `finish logging` 相关逻辑。
+**用途 / Purpose:** 结束「logging」流程并执行必要的收尾工作。
+
+```csharp
+// 先通过子系统 API 拿到 SceneProblemsLogger 实例
+SceneProblemsLogger sceneProblemsLogger = ...;
+sceneProblemsLogger.FinishLogging();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SceneProblemsLogger();
-value.LogScene(0, "example", "example");
+// 通常从对应子系统 API 获取实例后调用
+SceneProblemsLogger sceneProblemsLogger = ...;
+sceneProblemsLogger.LogScene(0, "example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

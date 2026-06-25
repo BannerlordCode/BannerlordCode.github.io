@@ -1,13 +1,7 @@
 ---
 title: "KillTracker"
+description: "Auto-generated class reference for KillTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KillTracker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KillTracker
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### OnKill
 `public override void OnKill(KillData killData)`
 
-**Purpose:** Called when the `kill` event is raised.
+**Purpose:** Invoked when the `kill` event is raised.
+
+```csharp
+// Obtain an instance of KillTracker from the subsystem API first
+KillTracker killTracker = ...;
+killTracker.OnKill(killData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KillTracker();
-value.OnKill(killData);
+// Typically call this after obtaining an instance from the subsystem API
+KillTracker killTracker = ...;
+killTracker.OnKill(killData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

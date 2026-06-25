@@ -1,20 +1,14 @@
 ---
 title: "Message"
+description: "Auto-generated class reference for Message."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Message`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Message
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class Message`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/Message.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/Message.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMessage();
+// Typically obtained from a subsystem API or factory
+Message instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

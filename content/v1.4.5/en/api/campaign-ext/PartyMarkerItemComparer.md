@@ -1,61 +1,44 @@
 ---
 title: "PartyMarkerItemComparer"
+description: "Auto-generated class reference for PartyMarkerItemComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyMarkerItemComparer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyMarkerItemComparer
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PartyMarkerItemComparer : IComparer<SettlementNameplatePartyMarkerItemVM>`
 **Base:** `IComparer<SettlementNameplatePartyMarkerItemVM>`
-**Area:** campaign-ext
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplatePartyMarkersVM.cs`
 
 ## Overview
 
-`PartyMarkerItemComparer` lives in `SandBox.ViewModelCollection.Nameplate`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PartyMarkerItemComparer` lives in `SandBox.ViewModelCollection.Nameplate` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
-
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `PartiesInSettlement` | `public MBBindingList<SettlementNameplatePartyMarkerItemVM> PartiesInSettlement { get; set; }` |
 
 ## Key Methods
 
 ### Compare
 `public int Compare(SettlementNameplatePartyMarkerItemVM x, SettlementNameplatePartyMarkerItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
 
-### RegisterEvents
-`public void RegisterEvents()`
-
-**Purpose:** Handles logic related to `register events`.
-
-### UnloadEvents
-`public void UnloadEvents()`
-
-**Purpose:** Handles logic related to `unload events`.
+```csharp
+// Obtain an instance of PartyMarkerItemComparer from the subsystem API first
+PartyMarkerItemComparer partyMarkerItemComparer = ...;
+var result = partyMarkerItemComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a PartyMarkerItemComparer instance from game state, then call one of its public methods
-var value = new PartyMarkerItemComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+PartyMarkerItemComparer partyMarkerItemComparer = ...;
+partyMarkerItemComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

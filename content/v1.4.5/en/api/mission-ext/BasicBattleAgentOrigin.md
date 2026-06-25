@@ -1,20 +1,14 @@
 ---
 title: "BasicBattleAgentOrigin"
+description: "Auto-generated class reference for BasicBattleAgentOrigin."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasicBattleAgentOrigin`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicBattleAgentOrigin
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BasicBattleAgentOrigin : IAgentOriginBase`
 **Base:** `IAgentOriginBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BasicBattleAgentOrigin.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BasicBattleAgentOrigin.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new BasicBattleAgentOrigin();
+// Obtain an instance from the relevant subsystem API
+BasicBattleAgentOrigin instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

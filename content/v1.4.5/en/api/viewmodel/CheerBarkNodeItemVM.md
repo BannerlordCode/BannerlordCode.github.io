@@ -1,20 +1,14 @@
 ---
 title: "CheerBarkNodeItemVM"
+description: "Auto-generated class reference for CheerBarkNodeItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheerBarkNodeItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheerBarkNodeItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CheerBarkNodeItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/CheerBarkNodeItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/CheerBarkNodeItemVM.cs`
 
 ## Overview
 
@@ -43,35 +37,66 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### ClearSelectionRecursive
 `public void ClearSelectionRecursive()`
 
-**Purpose:** Handles logic related to `clear selection recursive`.
+**Purpose:** Removes all `selection recursive` from the current object.
+
+```csharp
+// Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
+CheerBarkNodeItemVM cheerBarkNodeItemVM = ...;
+cheerBarkNodeItemVM.ClearSelectionRecursive();
+```
 
 ### ExecuteFocused
 `public void ExecuteFocused()`
 
-**Purpose:** Executes the `focused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focused`.
+
+```csharp
+// Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
+CheerBarkNodeItemVM cheerBarkNodeItemVM = ...;
+cheerBarkNodeItemVM.ExecuteFocused();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
+CheerBarkNodeItemVM cheerBarkNodeItemVM = ...;
+cheerBarkNodeItemVM.RefreshValues();
+```
 
 ### AddSubNode
 `public void AddSubNode(CheerBarkNodeItemVM subNode)`
 
 **Purpose:** Adds `sub node` to the current collection or state.
 
+```csharp
+// Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
+CheerBarkNodeItemVM cheerBarkNodeItemVM = ...;
+cheerBarkNodeItemVM.AddSubNode(subNode);
+```
+
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CheerBarkNodeItemVM from the subsystem API first
+CheerBarkNodeItemVM cheerBarkNodeItemVM = ...;
+cheerBarkNodeItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CheerBarkNodeItemVM();
-value.ClearSelectionRecursive();
+// Typically call this after obtaining an instance from the subsystem API
+CheerBarkNodeItemVM cheerBarkNodeItemVM = ...;
+cheerBarkNodeItemVM.ClearSelectionRecursive();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

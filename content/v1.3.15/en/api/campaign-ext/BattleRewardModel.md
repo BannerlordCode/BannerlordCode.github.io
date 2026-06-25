@@ -1,13 +1,7 @@
 ---
 title: "BattleRewardModel"
+description: "Auto-generated class reference for BattleRewardModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleRewardModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleRewardModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,129 +23,274 @@ Treat `BattleRewardModel` as a Model-style extension point: first identify who c
 ### GetBannerLootChanceFromDefeatedHero
 `public abstract float GetBannerLootChanceFromDefeatedHero(Hero defeatedHero)`
 
-**Purpose:** Gets the current value of `banner loot chance from defeated hero`.
+**Purpose:** Reads and returns the `banner loot chance from defeated hero` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetBannerLootChanceFromDefeatedHero(defeatedHero);
+```
 
 ### GetBannerRewardForWinningMapEvent
 `public abstract ItemObject GetBannerRewardForWinningMapEvent(MapEvent mapEvent)`
 
-**Purpose:** Gets the current value of `banner reward for winning map event`.
+**Purpose:** Reads and returns the `banner reward for winning map event` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetBannerRewardForWinningMapEvent(mapEvent);
+```
 
 ### GetPlayerGainedRelationAmount
 `public abstract int GetPlayerGainedRelationAmount(MapEvent mapEvent, Hero hero)`
 
-**Purpose:** Gets the current value of `player gained relation amount`.
+**Purpose:** Reads and returns the `player gained relation amount` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetPlayerGainedRelationAmount(mapEvent, hero);
+```
 
 ### CalculateRenownGain
 `public abstract ExplainedNumber CalculateRenownGain(PartyBase party, float renownValueOfBattle, float contributionShare)`
 
-**Purpose:** Handles logic related to `calculate renown gain`.
+**Purpose:** Calculates the current value or result of `renown gain`.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.CalculateRenownGain(party, 0, 0);
+```
 
 ### CalculateInfluenceGain
 `public abstract ExplainedNumber CalculateInfluenceGain(PartyBase party, float influenceValueOfBattle, float contributionShare)`
 
-**Purpose:** Handles logic related to `calculate influence gain`.
+**Purpose:** Calculates the current value or result of `influence gain`.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.CalculateInfluenceGain(party, 0, 0);
+```
 
 ### CalculateMoraleGainVictory
 `public abstract ExplainedNumber CalculateMoraleGainVictory(PartyBase party, float renownValueOfBattle, float contributionShare, MapEvent battle)`
 
-**Purpose:** Handles logic related to `calculate morale gain victory`.
+**Purpose:** Calculates the current value or result of `morale gain victory`.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.CalculateMoraleGainVictory(party, 0, 0, battle);
+```
 
 ### CalculateMoraleChangeOnRoundVictory
 `public abstract ExplainedNumber CalculateMoraleChangeOnRoundVictory(PartyBase party, MapEventSide partySide, BattleSideEnum roundWinner)`
 
-**Purpose:** Handles logic related to `calculate morale change on round victory`.
+**Purpose:** Calculates the current value or result of `morale change on round victory`.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.CalculateMoraleChangeOnRoundVictory(party, partySide, roundWinner);
+```
 
 ### CalculateGoldLossAfterDefeat
 `public abstract int CalculateGoldLossAfterDefeat(Hero partyLeaderHero)`
 
-**Purpose:** Handles logic related to `calculate gold loss after defeat`.
+**Purpose:** Calculates the current value or result of `gold loss after defeat`.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.CalculateGoldLossAfterDefeat(partyLeaderHero);
+```
 
 ### GetLootedItemFromTroop
 `public abstract EquipmentElement GetLootedItemFromTroop(CharacterObject character, float targetValue)`
 
-**Purpose:** Gets the current value of `looted item from troop`.
+**Purpose:** Reads and returns the `looted item from troop` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetLootedItemFromTroop(character, 0);
+```
 
 ### GetExpectedLootedItemValueFromCasualty
 `public abstract float GetExpectedLootedItemValueFromCasualty(Hero winnerPartyLeaderHero, CharacterObject casualtyCharacter)`
 
-**Purpose:** Gets the current value of `expected looted item value from casualty`.
+**Purpose:** Reads and returns the `expected looted item value from casualty` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetExpectedLootedItemValueFromCasualty(winnerPartyLeaderHero, casualtyCharacter);
+```
 
 ### CalculatePlunderedGoldAmountFromDefeatedParty
 `public abstract int CalculatePlunderedGoldAmountFromDefeatedParty(PartyBase defeatedParty)`
 
-**Purpose:** Handles logic related to `calculate plundered gold amount from defeated party`.
+**Purpose:** Calculates the current value or result of `plundered gold amount from defeated party`.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.CalculatePlunderedGoldAmountFromDefeatedParty(defeatedParty);
+```
 
 ### GetLootGoldChances
 `public abstract MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootGoldChances(MBReadOnlyList<MapEventParty> winnerParties)`
 
-**Purpose:** Gets the current value of `loot gold chances`.
+**Purpose:** Reads and returns the `loot gold chances` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetLootGoldChances(winnerParties);
+```
 
 ### GetMainPartyMemberScatterChance
 `public abstract float GetMainPartyMemberScatterChance()`
 
-**Purpose:** Gets the current value of `main party member scatter chance`.
+**Purpose:** Reads and returns the `main party member scatter chance` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetMainPartyMemberScatterChance();
+```
 
 ### GetAITradePenalty
 `public abstract float GetAITradePenalty()`
 
-**Purpose:** Gets the current value of `a i trade penalty`.
+**Purpose:** Reads and returns the `a i trade penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetAITradePenalty();
+```
 
 ### GetLootMemberChancesForWinnerParties
 `public abstract MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootMemberChancesForWinnerParties(MBReadOnlyList<MapEventParty> winnerParties)`
 
-**Purpose:** Gets the current value of `loot member chances for winner parties`.
+**Purpose:** Reads and returns the `loot member chances for winner parties` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetLootMemberChancesForWinnerParties(winnerParties);
+```
 
 ### GetLootPrisonerChances
 `public abstract MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootPrisonerChances(MBReadOnlyList<MapEventParty> winnerParties, TroopRosterElement prisonerElement)`
 
-**Purpose:** Gets the current value of `loot prisoner chances`.
+**Purpose:** Reads and returns the `loot prisoner chances` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetLootPrisonerChances(winnerParties, prisonerElement);
+```
 
 ### GetLootItemChancesForWinnerParties
 `public abstract MBList<KeyValuePair<MapEventParty, float>> GetLootItemChancesForWinnerParties(MBReadOnlyList<MapEventParty> winnerParties, PartyBase defeatedParty)`
 
-**Purpose:** Gets the current value of `loot item chances for winner parties`.
+**Purpose:** Reads and returns the `loot item chances for winner parties` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetLootItemChancesForWinnerParties(winnerParties, defeatedParty);
+```
 
 ### GetLootCasualtyChances
 `public abstract MBReadOnlyList<KeyValuePair<MapEventParty, float>> GetLootCasualtyChances(MBReadOnlyList<MapEventParty> winnerParties, PartyBase defeatedParty)`
 
-**Purpose:** Gets the current value of `loot casualty chances`.
+**Purpose:** Reads and returns the `loot casualty chances` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetLootCasualtyChances(winnerParties, defeatedParty);
+```
 
 ### CalculateShipDamageAfterDefeat
 `public abstract float CalculateShipDamageAfterDefeat(Ship ship)`
 
-**Purpose:** Handles logic related to `calculate ship damage after defeat`.
+**Purpose:** Calculates the current value or result of `ship damage after defeat`.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.CalculateShipDamageAfterDefeat(ship);
+```
 
 ### DistributeDefeatedPartyShipsAmongWinners
 `public abstract MBReadOnlyList<KeyValuePair<Ship, MapEventParty>> DistributeDefeatedPartyShipsAmongWinners(MapEvent mapEvent, MBReadOnlyList<Ship> shipsToLoot, MBReadOnlyList<MapEventParty> winnerParties)`
 
-**Purpose:** Handles logic related to `distribute defeated party ships among winners`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.DistributeDefeatedPartyShipsAmongWinners(mapEvent, shipsToLoot, winnerParties);
+```
 
 ### GetSunkenShipMoraleEffect
 `public abstract float GetSunkenShipMoraleEffect(PartyBase shipOwner, Ship ship)`
 
-**Purpose:** Gets the current value of `sunken ship morale effect`.
+**Purpose:** Reads and returns the `sunken ship morale effect` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetSunkenShipMoraleEffect(shipOwner, ship);
+```
 
 ### GetShipSiegeEngineHitMoraleEffect
 `public abstract float GetShipSiegeEngineHitMoraleEffect(Ship ship, SiegeEngineType siegeEngineType)`
 
-**Purpose:** Gets the current value of `ship siege engine hit morale effect`.
+**Purpose:** Reads and returns the `ship siege engine hit morale effect` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetShipSiegeEngineHitMoraleEffect(ship, siegeEngineType);
+```
 
 ### GetFigureheadLoot
 `public abstract Figurehead GetFigureheadLoot(MBReadOnlyList<MapEventParty> defeatedParties, PartyBase defeatedSideLeaderParty)`
 
-**Purpose:** Gets the current value of `figurehead loot`.
+**Purpose:** Reads and returns the `figurehead loot` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetFigureheadLoot(defeatedParties, defeatedSideLeaderParty);
+```
 
 ### GetWinnerPartiesThatCanPlunderGoldFromShips
 `public abstract MBReadOnlyList<MapEventParty> GetWinnerPartiesThatCanPlunderGoldFromShips(MBReadOnlyList<MapEventParty> winnerParties)`
 
-**Purpose:** Gets the current value of `winner parties that can plunder gold from ships`.
+**Purpose:** Reads and returns the `winner parties that can plunder gold from ships` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleRewardModel from the subsystem API first
+BattleRewardModel battleRewardModel = ...;
+var result = battleRewardModel.GetWinnerPartiesThatCanPlunderGoldFromShips(winnerParties);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBattleRewardModel();
+// Typically obtained from a subsystem API or factory
+BattleRewardModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

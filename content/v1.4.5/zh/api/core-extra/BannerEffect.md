@@ -1,20 +1,14 @@
 ---
 title: "BannerEffect"
+description: "BannerEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerEffect`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerEffect
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class BannerEffect : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BannerEffect.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerEffect.cs`
 
 ## 概述
 
@@ -35,35 +29,66 @@ title: "BannerEffect"
 ### Initialize
 `public void Initialize(string name, string description, float level1Bonus, float level2Bonus, float level3Bonus, EffectIncrementType incrementType)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEffect 实例
+BannerEffect bannerEffect = ...;
+bannerEffect.Initialize("example", "example", 0, 0, 0, incrementType);
+```
 
 ### GetBonusAtLevel
 `public float GetBonusAtLevel(int bannerLevel)`
 
-**用途 / Purpose:** 获取 `bonus at level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bonus at level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEffect 实例
+BannerEffect bannerEffect = ...;
+var result = bannerEffect.GetBonusAtLevel(0);
+```
 
 ### GetBonusStringAtLevel
 `public string GetBonusStringAtLevel(int bannerLevel)`
 
-**用途 / Purpose:** 获取 `bonus string at level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bonus string at level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEffect 实例
+BannerEffect bannerEffect = ...;
+var result = bannerEffect.GetBonusStringAtLevel(0);
+```
 
 ### GetDescription
 `public TextObject GetDescription(int bannerLevel)`
 
-**用途 / Purpose:** 获取 `description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEffect 实例
+BannerEffect bannerEffect = ...;
+var result = bannerEffect.GetDescription(0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEffect 实例
+BannerEffect bannerEffect = ...;
+var result = bannerEffect.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerEffect();
-value.Initialize("example", "example", 0, 0, 0, incrementType);
+// 通常从对应子系统 API 获取实例后调用
+BannerEffect bannerEffect = ...;
+bannerEffect.Initialize("example", "example", 0, 0, 0, incrementType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "SteamLauncherModuleExtension"
+description: "SteamLauncherModuleExtension 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SteamLauncherModuleExtension`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SteamLauncherModuleExtension
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Steam
@@ -29,35 +23,66 @@ title: "SteamLauncherModuleExtension"
 ### Initialize
 `public void Initialize(List<string> args)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SteamLauncherModuleExtension 实例
+SteamLauncherModuleExtension steamLauncherModuleExtension = ...;
+steamLauncherModuleExtension.Initialize(args);
+```
 
 ### GetModulePaths
 `public string GetModulePaths()`
 
-**用途 / Purpose:** 获取 `module paths` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「module paths」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SteamLauncherModuleExtension 实例
+SteamLauncherModuleExtension steamLauncherModuleExtension = ...;
+var result = steamLauncherModuleExtension.GetModulePaths();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SteamLauncherModuleExtension 实例
+SteamLauncherModuleExtension steamLauncherModuleExtension = ...;
+steamLauncherModuleExtension.Destroy();
+```
 
 ### SetLauncherMode
 `public void SetLauncherMode(bool isLauncherModeActive)`
 
-**用途 / Purpose:** 设置 `launcher mode` 的值或状态。
+**用途 / Purpose:** 为 「launcher mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SteamLauncherModuleExtension 实例
+SteamLauncherModuleExtension steamLauncherModuleExtension = ...;
+steamLauncherModuleExtension.SetLauncherMode(false);
+```
 
 ### CheckEntitlement
 `public bool CheckEntitlement(string title)`
 
-**用途 / Purpose:** 处理 `check entitlement` 相关逻辑。
+**用途 / Purpose:** 检查「entitlement」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 SteamLauncherModuleExtension 实例
+SteamLauncherModuleExtension steamLauncherModuleExtension = ...;
+var result = steamLauncherModuleExtension.CheckEntitlement("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SteamLauncherModuleExtension();
-value.Initialize(args);
+// 通常从对应子系统 API 获取实例后调用
+SteamLauncherModuleExtension steamLauncherModuleExtension = ...;
+steamLauncherModuleExtension.Initialize(args);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

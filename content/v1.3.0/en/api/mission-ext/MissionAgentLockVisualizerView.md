@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentLockVisualizerView"
+description: "Auto-generated class reference for MissionAgentLockVisualizerView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentLockVisualizerView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentLockVisualizerView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -27,9 +21,10 @@ Treat `MissionAgentLockVisualizerView` as a View-style extension point: first id
 ## Usage Example
 
 ```csharp
-var view = new MissionAgentLockVisualizerView();
+// Retrieve this view from the subsystem API or scene
+MissionAgentLockVisualizerView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

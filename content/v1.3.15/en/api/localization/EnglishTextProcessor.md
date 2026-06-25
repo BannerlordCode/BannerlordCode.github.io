@@ -1,24 +1,18 @@
 ---
 title: "EnglishTextProcessor"
+description: "Auto-generated class reference for EnglishTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EnglishTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EnglishTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
 **Module:** TaleWorlds.Localization
 **Type:** `public class EnglishTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**Area:** localization
+**File:** `TaleWorlds.Localization/TextProcessor/LanguageProcessors/EnglishTextProcessor.cs`
 
 ## Overview
 
-`EnglishTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`EnglishTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,22 +29,33 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EnglishTextProcessor from the subsystem API first
+EnglishTextProcessor englishTextProcessor = ...;
+englishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of EnglishTextProcessor from the subsystem API first
+EnglishTextProcessor englishTextProcessor = ...;
+englishTextProcessor.ClearTemporaryData();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a EnglishTextProcessor instance from game state, then call one of its public methods
-var value = new EnglishTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+EnglishTextProcessor englishTextProcessor = ...;
+englishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

@@ -1,14 +1,7 @@
 ---
 title: "IssueBase"
+description: "Auto-generated class reference for IssueBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IssueBase`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-- [🔀 Cross-Version Compare /versions/IssueBase](/versions/IssueBase)
-<!-- END BREADCRUMB -->
 # IssueBase
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -83,229 +76,494 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetTotalAlternativeSolutionNeededMenCount
 `public int GetTotalAlternativeSolutionNeededMenCount()`
 
-**Purpose:** Gets the current value of `total alternative solution needed men count`.
+**Purpose:** Reads and returns the `total alternative solution needed men count` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetTotalAlternativeSolutionNeededMenCount();
+```
 
 ### GetTotalAlternativeSolutionDurationInDays
 `public int GetTotalAlternativeSolutionDurationInDays()`
 
-**Purpose:** Gets the current value of `total alternative solution duration in days`.
+**Purpose:** Reads and returns the `total alternative solution duration in days` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetTotalAlternativeSolutionDurationInDays();
+```
 
 ### GetBaseAlternativeSolutionDurationInDays
 `public int GetBaseAlternativeSolutionDurationInDays()`
 
-**Purpose:** Gets the current value of `base alternative solution duration in days`.
+**Purpose:** Reads and returns the `base alternative solution duration in days` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetBaseAlternativeSolutionDurationInDays();
+```
 
 ### AlternativeSolutionCondition
 `public virtual bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.AlternativeSolutionCondition(explanation);
+```
 
 ### AlternativeSolutionStartConsequence
 `public virtual void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Handles logic related to `alternative solution start consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.AlternativeSolutionStartConsequence();
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public virtual bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public virtual bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
+**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### LordSolutionCondition
 `public virtual bool LordSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `lord solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.LordSolutionCondition(explanation);
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetName();
+```
 
 ### GetActiveIssueEffectAmount
 `public float GetActiveIssueEffectAmount(IssueEffect issueEffect)`
 
-**Purpose:** Gets the current value of `active issue effect amount`.
+**Purpose:** Reads and returns the `active issue effect amount` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetActiveIssueEffectAmount(issueEffect);
+```
 
 ### GetAlternativeSolutionSkill
 `public virtual ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Gets the current value of `alternative solution skill`.
+**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetAlternativeSolutionSkill(hero);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.ToString();
+```
 
 ### InitializeIssueBaseOnLoad
 `public void InitializeIssueBaseOnLoad()`
 
-**Purpose:** Initializes the state, resources, or bindings for `issue base on load`.
+**Purpose:** Prepares the resources, state, or bindings required by `issue base on load`.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.InitializeIssueBaseOnLoad();
+```
 
 ### GetFrequency
 `public abstract IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public abstract bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.IssueStayAliveConditions();
+```
 
 ### CanBeCompletedByAI
 `public virtual bool CanBeCompletedByAI()`
 
-**Purpose:** Checks whether the current object can `be completed by a i`.
+**Purpose:** Checks whether the current object meets the preconditions for `be completed by a i`.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.CanBeCompletedByAI();
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public virtual void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public virtual void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can lead party info is requested` event is raised.
+**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public virtual void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have party role or be governor info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanDieInfoIsRequested
 `public virtual void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
 
-**Purpose:** Called when the `hero can die info is requested` event is raised.
+**Purpose:** Invoked when the `hero can die info is requested` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
+```
 
 ### OnHeroCanBecomePrisonerInfoIsRequested
 `public virtual void OnHeroCanBecomePrisonerInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can become prisoner info is requested` event is raised.
+**Purpose:** Invoked when the `hero can become prisoner info is requested` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanBecomePrisonerInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public virtual void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanMoveToSettlementInfoIsRequested
 `public virtual void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can move to settlement info is requested` event is raised.
+**Purpose:** Invoked when the `hero can move to settlement info is requested` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanMoveToSettlementInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanMarryInfoIsRequested
 `public virtual void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can marry info is requested` event is raised.
+**Purpose:** Invoked when the `hero can marry info is requested` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanMarryInfoIsRequested(hero, result);
+```
 
 ### IsSettlementBusy
 `public virtual void IsSettlementBusy(Settlement settlement, object asker, ref int priority)`
 
-**Purpose:** Handles logic related to `is settlement busy`.
+**Purpose:** Determines whether the current object is in the `settlement busy` state or condition.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.IsSettlementBusy(settlement, asker, priority);
+```
 
 ### StartIssueWithQuest
 `public bool StartIssueWithQuest()`
 
-**Purpose:** Handles logic related to `start issue with quest`.
+**Purpose:** Starts the `issue with quest` flow or state machine.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.StartIssueWithQuest();
+```
 
 ### StartIssueWithAlternativeSolution
 `public void StartIssueWithAlternativeSolution()`
 
-**Purpose:** Handles logic related to `start issue with alternative solution`.
+**Purpose:** Starts the `issue with alternative solution` flow or state machine.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.StartIssueWithAlternativeSolution();
+```
 
 ### OnAlternativeSolutionSolvedAndTroopsAreReturning
 `public void OnAlternativeSolutionSolvedAndTroopsAreReturning()`
 
-**Purpose:** Called when the `alternative solution solved and troops are returning` event is raised.
+**Purpose:** Invoked when the `alternative solution solved and troops are returning` event is raised.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnAlternativeSolutionSolvedAndTroopsAreReturning();
+```
 
 ### IssueFinalized
 `public void IssueFinalized()`
 
-**Purpose:** Handles logic related to `issue finalized`.
+**Purpose:** Creates or raises `finalized`.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.IssueFinalized();
+```
 
 ### CompleteIssueWithQuest
 `public void CompleteIssueWithQuest()`
 
-**Purpose:** Handles logic related to `complete issue with quest`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithQuest();
+```
 
 ### CompleteIssueWithTimedOut
 `public void CompleteIssueWithTimedOut()`
 
-**Purpose:** Handles logic related to `complete issue with timed out`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithTimedOut();
+```
 
 ### CompleteIssueWithStayAliveConditionsFailed
 `public void CompleteIssueWithStayAliveConditionsFailed()`
 
-**Purpose:** Handles logic related to `complete issue with stay alive conditions failed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithStayAliveConditionsFailed();
+```
 
 ### CompleteIssueWithBetrayal
 `public void CompleteIssueWithBetrayal()`
 
-**Purpose:** Handles logic related to `complete issue with betrayal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithBetrayal();
+```
 
 ### CompleteIssueWithFail
 `public void CompleteIssueWithFail(TextObject log = null)`
 
-**Purpose:** Handles logic related to `complete issue with fail`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithFail(null);
+```
 
 ### CompleteIssueWithCancel
 `public void CompleteIssueWithCancel(TextObject log = null)`
 
-**Purpose:** Handles logic related to `complete issue with cancel`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithCancel(null);
+```
 
 ### CompleteIssueWithAiLord
 `public void CompleteIssueWithAiLord(Hero issueSolver)`
 
-**Purpose:** Handles logic related to `complete issue with ai lord`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithAiLord(issueSolver);
+```
 
 ### StartIssueWithLordSolution
 `public void StartIssueWithLordSolution()`
 
-**Purpose:** Handles logic related to `start issue with lord solution`.
+**Purpose:** Starts the `issue with lord solution` flow or state machine.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.StartIssueWithLordSolution();
+```
 
 ### CompleteIssueWithAlternativeSolution
 `public void CompleteIssueWithAlternativeSolution()`
 
-**Purpose:** Handles logic related to `complete issue with alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithAlternativeSolution();
+```
 
 ### CompleteIssueWithLordSolutionWithRefuseCounterOffer
 `public void CompleteIssueWithLordSolutionWithRefuseCounterOffer()`
 
-**Purpose:** Handles logic related to `complete issue with lord solution with refuse counter offer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithLordSolutionWithRefuseCounterOffer();
+```
 
 ### CompleteIssueWithLordSolutionWithAcceptCounterOffer
 `public void CompleteIssueWithLordSolutionWithAcceptCounterOffer()`
 
-**Purpose:** Handles logic related to `complete issue with lord solution with accept counter offer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithLordSolutionWithAcceptCounterOffer();
+```
 
 ### InitializeIssueOnSettlementOwnerChange
 `public void InitializeIssueOnSettlementOwnerChange()`
 
-**Purpose:** Initializes the state, resources, or bindings for `issue on settlement owner change`.
+**Purpose:** Prepares the resources, state, or bindings required by `issue on settlement owner change`.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.InitializeIssueOnSettlementOwnerChange();
+```
 
 ### AddLog
 `public void AddLog(JournalLog log)`
 
 **Purpose:** Adds `log` to the current collection or state.
 
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.AddLog(log);
+```
+
 ### AddTrackedObject
 `public void AddTrackedObject(ITrackableCampaignObject o)`
 
 **Purpose:** Adds `tracked object` to the current collection or state.
 
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.AddTrackedObject(o);
+```
+
 ### ToggleTrackedObjects
 `public void ToggleTrackedObjects(bool enableTrack)`
 
-**Purpose:** Handles logic related to `toggle tracked objects`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.ToggleTrackedObjects(false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomIssueBase();
+// Typically obtained from a subsystem API or factory
+IssueBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

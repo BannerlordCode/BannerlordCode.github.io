@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerRoundComponent"
+description: "MultiplayerRoundComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerRoundComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerRoundComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerRoundComponent : MissionNetwork, IRoundComponent, IMissionBehavior`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerRoundComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerRoundComponent.cs`
 
 ## 概述
 
@@ -39,7 +33,13 @@ title: "MultiplayerRoundComponent"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerRoundComponent 实例
+MultiplayerRoundComponent multiplayerRoundComponent = ...;
+multiplayerRoundComponent.AfterStart();
+```
 
 ## 使用示例
 
@@ -49,4 +49,4 @@ var component = agent.GetComponent<MultiplayerRoundComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "FormationPositionPreference"
+description: "Auto-generated class reference for FormationPositionPreference."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationPositionPreference`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationPositionPreference
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum FormationPositionPreference`
 **Base:** none
 **File:** `TaleWorlds.Core/FormationPositionPreference.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new FormationPositionPreference();
+// Obtain an instance from the relevant subsystem API
+FormationPositionPreference instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

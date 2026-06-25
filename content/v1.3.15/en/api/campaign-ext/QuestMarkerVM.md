@@ -1,13 +1,7 @@
 ---
 title: "QuestMarkerVM"
+description: "Auto-generated class reference for QuestMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestMarkerVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestMarkerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### RefreshWith
 `public void RefreshWith(CampaignUIHelper.IssueQuestFlags issueQuestFlag, TextObject questTitle = null, TextObject questHintText = null)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of QuestMarkerVM from the subsystem API first
+QuestMarkerVM questMarkerVM = ...;
+questMarkerVM.RefreshWith(issueQuestFlag, null, null);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of QuestMarkerVM from the subsystem API first
+QuestMarkerVM questMarkerVM = ...;
+questMarkerVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestMarkerVM();
-value.RefreshWith(issueQuestFlag, null, null);
+// Typically call this after obtaining an instance from the subsystem API
+QuestMarkerVM questMarkerVM = ...;
+questMarkerVM.RefreshWith(issueQuestFlag, null, null);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "CaptureTheFlagCaptureResultEnum"
+description: "Auto-generated class reference for CaptureTheFlagCaptureResultEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaptureTheFlagCaptureResultEnum`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaptureTheFlagCaptureResultEnum
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum CaptureTheFlagCaptureResultEnum`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/CaptureTheFlagCaptureResultEnum.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new CaptureTheFlagCaptureResultEnum();
+// Obtain an instance from the relevant subsystem API
+CaptureTheFlagCaptureResultEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

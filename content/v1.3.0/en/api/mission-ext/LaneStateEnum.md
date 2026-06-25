@@ -1,13 +1,7 @@
 ---
 title: "LaneStateEnum"
+description: "Auto-generated class reference for LaneStateEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LaneStateEnum`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LaneStateEnum
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-LaneStateEnum example = LaneStateEnum.Value;
+// Obtain an instance from the relevant subsystem API
+LaneStateEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

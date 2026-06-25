@@ -1,20 +1,14 @@
 ---
 title: "SaveContext"
+description: "Auto-generated class reference for SaveContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveContext`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveContext
 
 **Namespace:** TaleWorlds.SaveSystem.Save
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveContext : ISaveContext`
 **Base:** `ISaveContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveContext.cs`
 
 ## Overview
 
@@ -37,70 +31,141 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.ToString();
+```
 
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**Purpose:** Saves `statistics` data.
+**Purpose:** Writes `statistics` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+```
 
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**Purpose:** Gets the current value of `container size`.
+**Purpose:** Reads and returns the `container size` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerSize("example");
+```
 
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**Purpose:** Gets the current value of `type keys`.
+**Purpose:** Reads and returns the `type keys` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetTypeKeys();
+```
 
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**Purpose:** Gets the current value of `container keys`.
+**Purpose:** Reads and returns the `container keys` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerKeys();
+```
 
 ### GetStatistics
 `public static SaveStatistics GetStatistics()`
 
-**Purpose:** Gets the current value of `statistics`.
+**Purpose:** Reads and returns the `statistics` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SaveContext.GetStatistics();
+```
 
 ### AddOrGetStringId
 `public int AddOrGetStringId(string text)`
 
 **Purpose:** Adds `or get string id` to the current collection or state.
 
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.AddOrGetStringId("example");
+```
+
 ### GetObjectId
 `public int GetObjectId(object target)`
 
-**Purpose:** Gets the current value of `object id`.
+**Purpose:** Reads and returns the `object id` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetObjectId(target);
+```
 
 ### GetContainerId
 `public int GetContainerId(object target)`
 
-**Purpose:** Gets the current value of `container id`.
+**Purpose:** Reads and returns the `container id` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerId(target);
+```
 
 ### GetStringId
 `public int GetStringId(string target)`
 
-**Purpose:** Gets the current value of `string id`.
+**Purpose:** Reads and returns the `string id` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetStringId("example");
+```
 
 ### GetStringSizeInBytes
 `public static int GetStringSizeInBytes(string text)`
 
-**Purpose:** Gets the current value of `string size in bytes`.
+**Purpose:** Reads and returns the `string size in bytes` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SaveContext.GetStringSizeInBytes("example");
+```
 
 ### Save
 `public bool Save(object target, MetaData metaData, out string errorMessage)`
 
-**Purpose:** Saves `save` data.
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.Save(target, metaData, errorMessage);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SaveContext();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+SaveContext saveContext = ...;
+saveContext.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

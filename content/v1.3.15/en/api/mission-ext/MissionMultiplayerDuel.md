@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerDuel"
+description: "Auto-generated class reference for MissionMultiplayerDuel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerDuel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerDuel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -49,130 +43,275 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**Purpose:** Gets the current value of `mission type`.
+**Purpose:** Reads and returns the `mission type` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+var result = missionMultiplayerDuel.GetMissionType();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.AfterStart();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnBehaviorInitialize();
+```
 
 ### CheckIfPlayerCanDespawn
 `public override bool CheckIfPlayerCanDespawn(MissionPeer missionPeer)`
 
-**Purpose:** Handles logic related to `check if player can despawn`.
+**Purpose:** Verifies whether `if player can despawn` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+var result = missionMultiplayerDuel.CheckIfPlayerCanDespawn(missionPeer);
+```
 
 ### OnPlayerDespawn
 `public void OnPlayerDespawn(MissionPeer missionPeer)`
 
-**Purpose:** Called when the `player despawn` event is raised.
+**Purpose:** Invoked when the `player despawn` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnPlayerDespawn(missionPeer);
+```
 
 ### DuelRequestReceived
 `public void DuelRequestReceived(MissionPeer requesterPeer, MissionPeer requesteePeer)`
 
-**Purpose:** Handles logic related to `duel request received`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.DuelRequestReceived(requesterPeer, requesteePeer);
+```
 
 ### DuelRequestAccepted
 `public void DuelRequestAccepted(Agent requesterAgent, Agent requesteeAgent)`
 
-**Purpose:** Handles logic related to `duel request accepted`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.DuelRequestAccepted(requesterAgent, requesteeAgent);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### GetDuelAreaIndexIfDuelTeam
 `public int GetDuelAreaIndexIfDuelTeam(Team team)`
 
-**Purpose:** Gets the current value of `duel area index if duel team`.
+**Purpose:** Reads and returns the `duel area index if duel team` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+var result = missionMultiplayerDuel.GetDuelAreaIndexIfDuelTeam(team);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnAgentBuild(agent, banner);
+```
 
 ### OnDuelPreparation
 `public void OnDuelPreparation(Team duelTeam)`
 
-**Purpose:** Called when the `duel preparation` event is raised.
+**Purpose:** Invoked when the `duel preparation` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelPreparation(duelTeam);
+```
 
 ### OnDuelStarted
 `public void OnDuelStarted()`
 
-**Purpose:** Called when the `duel started` event is raised.
+**Purpose:** Invoked when the `duel started` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelStarted();
+```
 
 ### OnDuelEnding
 `public void OnDuelEnding()`
 
-**Purpose:** Called when the `duel ending` event is raised.
+**Purpose:** Invoked when the `duel ending` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelEnding();
+```
 
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**Purpose:** Called when the `duel ended` event is raised.
+**Purpose:** Invoked when the `duel ended` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelEnded();
+```
 
 ### OnAgentBuild
 `public void OnAgentBuild(Agent agent)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnAgentBuild(agent);
+```
 
 ### IsDuelStillValid
 `public bool IsDuelStillValid(bool doNotCheckAgent = false)`
 
-**Purpose:** Handles logic related to `is duel still valid`.
+**Purpose:** Determines whether the current object is in the `duel still valid` state or condition.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+var result = missionMultiplayerDuel.IsDuelStillValid(false);
+```
 
 ### IsPeerInThisDuel
 `public bool IsPeerInThisDuel(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `is peer in this duel`.
+**Purpose:** Determines whether the current object is in the `peer in this duel` state or condition.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+var result = missionMultiplayerDuel.IsPeerInThisDuel(peer);
+```
 
 ### UpdateDuelAreaIndex
 `public void UpdateDuelAreaIndex(KeyValuePair<int, TroopType> duelAreaPair)`
 
-**Purpose:** Updates the state or data of `duel area index`.
+**Purpose:** Recalculates and stores the latest representation of `duel area index`.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.UpdateDuelAreaIndex(keyValuePair<int, duelAreaPair);
+```
 
 ### OnDuelPreparation
 `public void OnDuelPreparation(Team duelingTeam)`
 
-**Purpose:** Called when the `duel preparation` event is raised.
+**Purpose:** Invoked when the `duel preparation` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelPreparation(duelingTeam);
+```
 
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**Purpose:** Called when the `duel ended` event is raised.
+**Purpose:** Invoked when the `duel ended` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelEnded();
+```
 
 ### IncreaseWinCount
 `public void IncreaseWinCount()`
 
-**Purpose:** Handles logic related to `increase win count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.IncreaseWinCount();
+```
 
 ### SetAgents
 `public void SetAgents(Agent agent)`
 
-**Purpose:** Sets the value or state of `agents`.
+**Purpose:** Assigns a new value to `agents` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.SetAgents(agent);
+```
 
 ### OnDuelEndedDelegate
 `public delegate void OnDuelEndedDelegate(MissionPeer winnerPeer, TroopType troopType)`
 
-**Purpose:** Called when the `duel ended delegate` event is raised.
+**Purpose:** Invoked when the `duel ended delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerDuel from the subsystem API first
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.OnDuelEndedDelegate(winnerPeer, troopType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerDuel();
-value.GetMissionType();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerDuel missionMultiplayerDuel = ...;
+missionMultiplayerDuel.GetMissionType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

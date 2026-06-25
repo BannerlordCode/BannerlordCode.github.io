@@ -1,13 +1,7 @@
 ---
 title: "MissionScoreboardSide"
+description: "Auto-generated class reference for MissionScoreboardSide."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionScoreboardSide`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardSide
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,53 +32,108 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Adds `player` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.AddPlayer(peer);
+```
+
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
 **Purpose:** Removes `player` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.RemovePlayer(peer);
+```
+
 ### GetValuesOf
 `public string GetValuesOf(MissionPeer peer)`
 
-**Purpose:** Gets the current value of `values of`.
+**Purpose:** Reads and returns the `values of` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetValuesOf(peer);
+```
 
 ### GetHeaderNames
 `public string GetHeaderNames()`
 
-**Purpose:** Gets the current value of `header names`.
+**Purpose:** Reads and returns the `header names` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetHeaderNames();
+```
 
 ### GetHeaderIds
 `public string GetHeaderIds()`
 
-**Purpose:** Gets the current value of `header ids`.
+**Purpose:** Reads and returns the `header ids` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetHeaderIds();
+```
 
 ### GetScore
 `public int GetScore(MissionPeer peer)`
 
-**Purpose:** Gets the current value of `score`.
+**Purpose:** Reads and returns the `score` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetScore(peer);
+```
 
 ### UpdateHeader
 `public void UpdateHeader(MissionScoreboardComponent.ScoreboardHeader headers)`
 
-**Purpose:** Updates the state or data of `header`.
+**Purpose:** Recalculates and stores the latest representation of `header`.
+
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.UpdateHeader(headers);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.Clear();
+```
 
 ### CalculateAndGetMVPScoreWithPeer
 `public KeyValuePair<MissionPeer, int> CalculateAndGetMVPScoreWithPeer()`
 
-**Purpose:** Handles logic related to `calculate and get m v p score with peer`.
+**Purpose:** Calculates the current value or result of `and get m v p score with peer`.
+
+```csharp
+// Obtain an instance of MissionScoreboardSide from the subsystem API first
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.CalculateAndGetMVPScoreWithPeer();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionScoreboardSide();
-value.AddPlayer(peer);
+// Typically call this after obtaining an instance from the subsystem API
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.AddPlayer(peer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

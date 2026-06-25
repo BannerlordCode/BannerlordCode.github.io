@@ -1,13 +1,7 @@
 ---
 title: "MerchantNotableTypeTag"
+description: "Auto-generated class reference for MerchantNotableTypeTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MerchantNotableTypeTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MerchantNotableTypeTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of MerchantNotableTypeTag from the subsystem API first
+MerchantNotableTypeTag merchantNotableTypeTag = ...;
+var result = merchantNotableTypeTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MerchantNotableTypeTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+MerchantNotableTypeTag merchantNotableTypeTag = ...;
+merchantNotableTypeTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

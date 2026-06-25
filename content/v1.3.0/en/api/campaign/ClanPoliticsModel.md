@@ -1,13 +1,7 @@
 ---
 title: "ClanPoliticsModel"
+description: "Auto-generated class reference for ClanPoliticsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanPoliticsModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanPoliticsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ Treat `ClanPoliticsModel` as a Model-style extension point: first identify who c
 ### CalculateInfluenceChange
 `public abstract ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate influence change`.
+**Purpose:** Calculates the current value or result of `influence change`.
+
+```csharp
+// Obtain an instance of ClanPoliticsModel from the subsystem API first
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.CalculateInfluenceChange(clan, false);
+```
 
 ### CalculateSupportForPolicyInClan
 `public abstract float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)`
 
-**Purpose:** Handles logic related to `calculate support for policy in clan`.
+**Purpose:** Calculates the current value or result of `support for policy in clan`.
+
+```csharp
+// Obtain an instance of ClanPoliticsModel from the subsystem API first
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.CalculateSupportForPolicyInClan(clan, policy);
+```
 
 ### CalculateRelationshipChangeWithSponsor
 `public abstract float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)`
 
-**Purpose:** Handles logic related to `calculate relationship change with sponsor`.
+**Purpose:** Calculates the current value or result of `relationship change with sponsor`.
+
+```csharp
+// Obtain an instance of ClanPoliticsModel from the subsystem API first
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.CalculateRelationshipChangeWithSponsor(clan, sponsorClan);
+```
 
 ### GetInfluenceRequiredToOverrideKingdomDecision
 `public abstract int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)`
 
-**Purpose:** Gets the current value of `influence required to override kingdom decision`.
+**Purpose:** Reads and returns the `influence required to override kingdom decision` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanPoliticsModel from the subsystem API first
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.GetInfluenceRequiredToOverrideKingdomDecision(popularOption, overridingOption, decision);
+```
 
 ### CanHeroBeGovernor
 `public abstract bool CanHeroBeGovernor(Hero hero)`
 
-**Purpose:** Checks whether the current object can `hero be governor`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero be governor`.
+
+```csharp
+// Obtain an instance of ClanPoliticsModel from the subsystem API first
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.CanHeroBeGovernor(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomClanPoliticsModel();
+// Typically obtained from a subsystem API or factory
+ClanPoliticsModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

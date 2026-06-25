@@ -1,20 +1,14 @@
 ---
 title: "Point"
+description: "Auto-generated class reference for Point."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Point`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Point
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct Point`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Point.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Point.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### Point
 `public struct Point(int x, int y)`
 
-**Purpose:** Handles logic related to `point`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Point from the subsystem API first
+Point point = ...;
+var result = point.Point(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Point();
-value.Point(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+Point point = ...;
+point.Point(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

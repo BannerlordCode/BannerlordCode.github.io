@@ -1,20 +1,14 @@
 ---
 title: "StealthMissionController"
+description: "Auto-generated class reference for StealthMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class StealthMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/StealthMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/StealthMissionController.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `StealthMissionController` as a Controller-style extension point: first id
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StealthMissionController from the subsystem API first
+StealthMissionController stealthMissionController = ...;
+stealthMissionController.AfterStart();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<StealthMissionController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

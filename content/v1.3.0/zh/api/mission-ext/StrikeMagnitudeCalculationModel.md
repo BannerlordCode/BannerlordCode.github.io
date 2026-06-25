@@ -1,13 +1,7 @@
 ---
 title: "StrikeMagnitudeCalculationModel"
+description: "StrikeMagnitudeCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StrikeMagnitudeCalculationModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StrikeMagnitudeCalculationModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,49 +23,98 @@ title: "StrikeMagnitudeCalculationModel"
 ### CalculateStrikeMagnitudeForMissile
 `public abstract float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for missile` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for missile」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
+StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
+var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForMissile(attackInformation, collisionData, weapon, 0);
+```
 
 ### CalculateStrikeMagnitudeForSwing
 `public abstract float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for swing` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for swing」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
+StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
+var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForSwing(attackInformation, collisionData, weapon, 0, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForThrust
 `public abstract float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for thrust` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for thrust」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
+StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
+var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForThrust(attackInformation, collisionData, weapon, 0, 0, false);
+```
 
 ### ComputeRawDamage
 `public abstract float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**用途 / Purpose:** 处理 `compute raw damage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
+StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
+var result = strikeMagnitudeCalculationModel.ComputeRawDamage(damageType, 0, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public abstract float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for unarmed attack` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for unarmed attack」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
+StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
+var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForUnarmedAttack(attackInformation, collisionData, 0, 0);
+```
 
 ### GetBluntDamageFactorByDamageType
 `public abstract float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**用途 / Purpose:** 获取 `blunt damage factor by damage type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「blunt damage factor by damage type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
+StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
+var result = strikeMagnitudeCalculationModel.GetBluntDamageFactorByDamageType(damageType);
+```
 
 ### CalculateHorseArcheryFactor
 `public abstract float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** 处理 `calculate horse archery factor` 相关逻辑。
+**用途 / Purpose:** 计算「horse archery factor」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
+StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
+var result = strikeMagnitudeCalculationModel.CalculateHorseArcheryFactor(characterObject);
+```
 
 ### CalculateAdjustedArmorForBlow
 `public virtual float CalculateAdjustedArmorForBlow(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseArmor, BasicCharacterObject attackerCharacter, BasicCharacterObject attackerCaptainCharacter, BasicCharacterObject victimCharacter, BasicCharacterObject victimCaptainCharacter, WeaponComponentData weaponComponent)`
 
-**用途 / Purpose:** 处理 `calculate adjusted armor for blow` 相关逻辑。
+**用途 / Purpose:** 计算「adjusted armor for blow」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
+StrikeMagnitudeCalculationModel strikeMagnitudeCalculationModel = ...;
+var result = strikeMagnitudeCalculationModel.CalculateAdjustedArmorForBlow(attackInformation, collisionData, 0, attackerCharacter, attackerCaptainCharacter, victimCharacter, victimCaptainCharacter, weaponComponent);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomStrikeMagnitudeCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+StrikeMagnitudeCalculationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

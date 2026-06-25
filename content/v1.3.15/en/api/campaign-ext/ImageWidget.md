@@ -1,13 +1,7 @@
 ---
 title: "ImageWidget"
+description: "Auto-generated class reference for ImageWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ImageWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -34,9 +28,10 @@ Treat `ImageWidget` as a Widget-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var widget = new ImageWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ImageWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

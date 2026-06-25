@@ -1,13 +1,7 @@
 ---
 title: "MissionCommunityClientComponent"
+description: "MissionCommunityClientComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionCommunityClientComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCommunityClientComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,35 @@ title: "MissionCommunityClientComponent"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCommunityClientComponent 实例
+MissionCommunityClientComponent missionCommunityClientComponent = ...;
+missionCommunityClientComponent.OnBehaviorInitialize();
+```
 
 ### SetServerEndingBeforeClientLoaded
 `public void SetServerEndingBeforeClientLoaded(bool isServerEndingBeforeClientLoaded)`
 
-**用途 / Purpose:** 设置 `server ending before client loaded` 的值或状态。
+**用途 / Purpose:** 为 「server ending before client loaded」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCommunityClientComponent 实例
+MissionCommunityClientComponent missionCommunityClientComponent = ...;
+missionCommunityClientComponent.SetServerEndingBeforeClientLoaded(false);
+```
 
 ### QuitMission
 `public override void QuitMission()`
 
-**用途 / Purpose:** 处理 `quit mission` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCommunityClientComponent 实例
+MissionCommunityClientComponent missionCommunityClientComponent = ...;
+missionCommunityClientComponent.QuitMission();
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ var component = agent.GetComponent<MissionCommunityClientComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

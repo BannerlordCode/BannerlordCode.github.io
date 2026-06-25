@@ -1,13 +1,7 @@
 ---
 title: "CampaignObjectManager"
+description: "Auto-generated class reference for CampaignObjectManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignObjectManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignObjectManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -51,47 +45,100 @@ Treat `CampaignObjectManager` as a Manager-style extension point: first identify
 ### PreAfterLoad
 `public void PreAfterLoad()`
 
-**Purpose:** Handles logic related to `pre after load`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CampaignObjectManager from the subsystem API first
+CampaignObjectManager campaignObjectManager = ...;
+campaignObjectManager.PreAfterLoad();
+```
 
 ### AfterLoad
 `public void AfterLoad()`
 
-**Purpose:** Handles logic related to `after load`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CampaignObjectManager from the subsystem API first
+CampaignObjectManager campaignObjectManager = ...;
+campaignObjectManager.AfterLoad();
+```
 
 ### GetMaxObjectSubId
 `public uint GetMaxObjectSubId()`
 
-**Purpose:** Gets the current value of `max object sub id`.
+**Purpose:** Reads and returns the `max object sub id` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignObjectManager from the subsystem API first
+CampaignObjectManager campaignObjectManager = ...;
+var result = campaignObjectManager.GetMaxObjectSubId();
+```
 
 ### OnItemAdded
 `public void OnItemAdded(T item)`
 
-**Purpose:** Called when the `item added` event is raised.
+**Purpose:** Invoked when the `item added` event is raised.
+
+```csharp
+// Obtain an instance of CampaignObjectManager from the subsystem API first
+CampaignObjectManager campaignObjectManager = ...;
+campaignObjectManager.OnItemAdded(item);
+```
 
 ### UnregisterItem
 `public void UnregisterItem(T item)`
 
-**Purpose:** Handles logic related to `unregister item`.
+**Purpose:** Unregisters `item` from the current system.
+
+```csharp
+// Obtain an instance of CampaignObjectManager from the subsystem API first
+CampaignObjectManager campaignObjectManager = ...;
+campaignObjectManager.UnregisterItem(item);
+```
 
 ### Find
 `public T Find(string id)`
 
-**Purpose:** Handles logic related to `find`.
+**Purpose:** Finds the matching entry in the current collection or scope.
+
+```csharp
+// Obtain an instance of CampaignObjectManager from the subsystem API first
+CampaignObjectManager campaignObjectManager = ...;
+var result = campaignObjectManager.Find("example");
+```
 
 ### FindFirst
 `public T FindFirst(Predicate<T> predicate)`
 
-**Purpose:** Handles logic related to `find first`.
+**Purpose:** Looks up the matching `first` in the current collection or scope.
+
+```csharp
+// Obtain an instance of CampaignObjectManager from the subsystem API first
+CampaignObjectManager campaignObjectManager = ...;
+var result = campaignObjectManager.FindFirst(predicate);
+```
 
 ### FindAll
 `public MBReadOnlyList<T> FindAll(Predicate<T> predicate)`
 
-**Purpose:** Handles logic related to `find all`.
+**Purpose:** Looks up the matching `all` in the current collection or scope.
+
+```csharp
+// Obtain an instance of CampaignObjectManager from the subsystem API first
+CampaignObjectManager campaignObjectManager = ...;
+var result = campaignObjectManager.FindAll(predicate);
+```
 
 ### FindNextUniqueStringId
 `public static string FindNextUniqueStringId(List<CampaignObjectManager.CampaignObjectType<T>> lists, string id)`
 
-**Purpose:** Handles logic related to `find next unique string id`.
+**Purpose:** Looks up the matching `next unique string id` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+CampaignObjectManager.FindNextUniqueStringId(lists, "example");
+```
 
 ## Usage Example
 
@@ -101,4 +148,4 @@ var manager = CampaignObjectManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

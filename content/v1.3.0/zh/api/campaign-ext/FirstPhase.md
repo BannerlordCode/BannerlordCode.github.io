@@ -1,13 +1,7 @@
 ---
 title: "FirstPhase"
+description: "FirstPhase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FirstPhase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FirstPhase
 
 **Namespace:** StoryMode.StoryModePhases
@@ -39,20 +33,33 @@ title: "FirstPhase"
 ### CollectBannerPiece
 `public void CollectBannerPiece()`
 
-**用途 / Purpose:** 处理 `collect banner piece` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FirstPhase 实例
+FirstPhase firstPhase = ...;
+firstPhase.CollectBannerPiece();
+```
 
 ### MergeDragonBanner
 `public void MergeDragonBanner()`
 
-**用途 / Purpose:** 处理 `merge dragon banner` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FirstPhase 实例
+FirstPhase firstPhase = ...;
+firstPhase.MergeDragonBanner();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FirstPhase();
-value.CollectBannerPiece();
+// 通常从对应子系统 API 获取实例后调用
+FirstPhase firstPhase = ...;
+firstPhase.CollectBannerPiece();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "BannerHelper"
+description: "Auto-generated class reference for BannerHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerHelper
 
 **Namespace:** MBHelpers
 **Module:** MBHelpers
 **Type:** `public static class BannerHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/MBHelpers/BannerHelper.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/MBHelpers/BannerHelper.cs`
 
 ## Overview
 
@@ -31,6 +25,11 @@ Treat `BannerHelper` as a Helper-style extension point: first identify who creat
 
 **Purpose:** Adds `banner bonus for banner` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+BannerHelper.AddBannerBonusForBanner(bannerEffect, bannerComponent, bonuses);
+```
+
 ## Usage Example
 
 ```csharp
@@ -39,4 +38,4 @@ BannerHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

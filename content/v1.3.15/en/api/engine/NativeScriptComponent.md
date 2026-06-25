@@ -1,13 +1,7 @@
 ---
 title: "NativeScriptComponent"
+description: "Auto-generated class reference for NativeScriptComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeScriptComponent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NativeScriptComponent
 
 **Namespace:** TaleWorlds.Engine
@@ -32,4 +26,4 @@ var component = agent.GetComponent<NativeScriptComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

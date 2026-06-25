@@ -86,7 +86,7 @@ public class MyBehavior : CampaignBehaviorBase
 
 ## 相关文档 / Related Documentation
 
-- [v1.3.15 存档系统](../../../v1.3.15/zh/guide/save-system-guide)
+- [v1.3.15 存档系统](../../../v1.3.15/zh/guide/save-system-guide/)
 
 ## 使用示例
 

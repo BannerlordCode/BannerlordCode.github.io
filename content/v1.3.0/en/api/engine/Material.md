@@ -1,13 +1,7 @@
 ---
 title: "Material"
+description: "Auto-generated class reference for Material."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Material`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Material
 
 **Namespace:** TaleWorlds.Engine
@@ -48,127 +42,271 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetDefaultMaterial
 `public static Material GetDefaultMaterial()`
 
-**Purpose:** Gets the current value of `default material`.
+**Purpose:** Reads and returns the `default material` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Material.GetDefaultMaterial();
+```
 
 ### GetOutlineMaterial
 `public static Material GetOutlineMaterial(Mesh mesh)`
 
-**Purpose:** Gets the current value of `outline material`.
+**Purpose:** Reads and returns the `outline material` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Material.GetOutlineMaterial(mesh);
+```
 
 ### GetDefaultTableauSampleMaterial
 `public static Material GetDefaultTableauSampleMaterial(bool transparency)`
 
-**Purpose:** Gets the current value of `default tableau sample material`.
+**Purpose:** Reads and returns the `default tableau sample material` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Material.GetDefaultTableauSampleMaterial(false);
+```
 
 ### CreateTableauMaterial
 `public static Material CreateTableauMaterial(RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, Material sampleMaterial, int tableauSizeX, int tableauSizeY, bool continuousTableau = false)`
 
-**Purpose:** Creates a new `tableau material` instance or object.
+**Purpose:** Constructs a new `tableau material` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Material.CreateTableauMaterial(eventHandler, objectRef, sampleMaterial, 0, 0, false);
+```
 
 ### CreateCopy
 `public Material CreateCopy()`
 
-**Purpose:** Creates a new `copy` instance or object.
+**Purpose:** Constructs a new `copy` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+var result = material.CreateCopy();
+```
 
 ### GetFromResource
 `public static Material GetFromResource(string materialName)`
 
-**Purpose:** Gets the current value of `from resource`.
+**Purpose:** Reads and returns the `from resource` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Material.GetFromResource("example");
+```
 
 ### SetShader
 `public void SetShader(Shader shader)`
 
-**Purpose:** Sets the value or state of `shader`.
+**Purpose:** Assigns a new value to `shader` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetShader(shader);
+```
 
 ### GetShader
 `public Shader GetShader()`
 
-**Purpose:** Gets the current value of `shader`.
+**Purpose:** Reads and returns the `shader` value held by the current object.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+var result = material.GetShader();
+```
 
 ### GetShaderFlags
 `public ulong GetShaderFlags()`
 
-**Purpose:** Gets the current value of `shader flags`.
+**Purpose:** Reads and returns the `shader flags` value held by the current object.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+var result = material.GetShaderFlags();
+```
 
 ### SetShaderFlags
 `public void SetShaderFlags(ulong flagEntry)`
 
-**Purpose:** Sets the value or state of `shader flags`.
+**Purpose:** Assigns a new value to `shader flags` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetShaderFlags(0);
+```
 
 ### SetMeshVectorArgument
 `public void SetMeshVectorArgument(float x, float y, float z, float w)`
 
-**Purpose:** Sets the value or state of `mesh vector argument`.
+**Purpose:** Assigns a new value to `mesh vector argument` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetMeshVectorArgument(0, 0, 0, 0);
+```
 
 ### SetTexture
 `public void SetTexture(Material.MBTextureType textureType, Texture texture)`
 
-**Purpose:** Sets the value or state of `texture`.
+**Purpose:** Assigns a new value to `texture` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetTexture(textureType, texture);
+```
 
 ### SetTextureAtSlot
 `public void SetTextureAtSlot(int textureSlot, Texture texture)`
 
-**Purpose:** Sets the value or state of `texture at slot`.
+**Purpose:** Assigns a new value to `texture at slot` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetTextureAtSlot(0, texture);
+```
 
 ### SetAreaMapScale
 `public void SetAreaMapScale(float scale)`
 
-**Purpose:** Sets the value or state of `area map scale`.
+**Purpose:** Assigns a new value to `area map scale` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetAreaMapScale(0);
+```
 
 ### SetEnableSkinning
 `public void SetEnableSkinning(bool enable)`
 
-**Purpose:** Sets the value or state of `enable skinning`.
+**Purpose:** Assigns a new value to `enable skinning` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetEnableSkinning(false);
+```
 
 ### UsingSkinning
 `public bool UsingSkinning()`
 
-**Purpose:** Handles logic related to `using skinning`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+var result = material.UsingSkinning();
+```
 
 ### GetTexture
 `public Texture GetTexture(Material.MBTextureType textureType)`
 
-**Purpose:** Gets the current value of `texture`.
+**Purpose:** Reads and returns the `texture` value held by the current object.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+var result = material.GetTexture(textureType);
+```
 
 ### GetTextureWithSlot
 `public Texture GetTextureWithSlot(int textureSlot)`
 
-**Purpose:** Gets the current value of `texture with slot`.
+**Purpose:** Reads and returns the `texture with slot` value held by the current object.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+var result = material.GetTextureWithSlot(0);
+```
 
 ### GetAlphaMaskTableauMaterial
 `public static Material GetAlphaMaskTableauMaterial()`
 
-**Purpose:** Gets the current value of `alpha mask tableau material`.
+**Purpose:** Reads and returns the `alpha mask tableau material` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Material.GetAlphaMaskTableauMaterial();
+```
 
 ### GetAlphaBlendMode
 `public Material.MBAlphaBlendMode GetAlphaBlendMode()`
 
-**Purpose:** Gets the current value of `alpha blend mode`.
+**Purpose:** Reads and returns the `alpha blend mode` value held by the current object.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+var result = material.GetAlphaBlendMode();
+```
 
 ### SetAlphaBlendMode
 `public void SetAlphaBlendMode(Material.MBAlphaBlendMode alphaBlendMode)`
 
-**Purpose:** Sets the value or state of `alpha blend mode`.
+**Purpose:** Assigns a new value to `alpha blend mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetAlphaBlendMode(alphaBlendMode);
+```
 
 ### SetAlphaTestValue
 `public void SetAlphaTestValue(float alphaTestValue)`
 
-**Purpose:** Sets the value or state of `alpha test value`.
+**Purpose:** Assigns a new value to `alpha test value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.SetAlphaTestValue(0);
+```
 
 ### GetAlphaTestValue
 `public float GetAlphaTestValue()`
 
-**Purpose:** Gets the current value of `alpha test value`.
+**Purpose:** Reads and returns the `alpha test value` value held by the current object.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+var result = material.GetAlphaTestValue();
+```
 
 ### AddMaterialShaderFlag
 `public void AddMaterialShaderFlag(string flagName, bool showErrors)`
 
 **Purpose:** Adds `material shader flag` to the current collection or state.
 
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.AddMaterialShaderFlag("example", false);
+```
+
 ### RemoveMaterialShaderFlag
 `public void RemoveMaterialShaderFlag(string flagName)`
 
 **Purpose:** Removes `material shader flag` from the current collection or state.
+
+```csharp
+// Obtain an instance of Material from the subsystem API first
+Material material = ...;
+material.RemoveMaterialShaderFlag("example");
+```
 
 ## Usage Example
 
@@ -178,4 +316,4 @@ Material.GetDefaultMaterial();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

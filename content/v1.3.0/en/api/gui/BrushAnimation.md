@@ -1,13 +1,7 @@
 ---
 title: "BrushAnimation"
+description: "Auto-generated class reference for BrushAnimation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushAnimation`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushAnimation
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -42,33 +36,64 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 
 **Purpose:** Adds `animation property` to the current collection or state.
 
+```csharp
+// Obtain an instance of BrushAnimation from the subsystem API first
+BrushAnimation brushAnimation = ...;
+brushAnimation.AddAnimationProperty(property);
+```
+
 ### RemoveAnimationProperty
 `public void RemoveAnimationProperty(BrushAnimationProperty property)`
 
 **Purpose:** Removes `animation property` from the current collection or state.
 
+```csharp
+// Obtain an instance of BrushAnimation from the subsystem API first
+BrushAnimation brushAnimation = ...;
+brushAnimation.RemoveAnimationProperty(property);
+```
+
 ### FillFrom
 `public void FillFrom(BrushAnimation animation)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BrushAnimation from the subsystem API first
+BrushAnimation brushAnimation = ...;
+brushAnimation.FillFrom(animation);
+```
 
 ### GetLayerAnimation
 `public BrushLayerAnimation GetLayerAnimation(string name)`
 
-**Purpose:** Gets the current value of `layer animation`.
+**Purpose:** Reads and returns the `layer animation` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushAnimation from the subsystem API first
+BrushAnimation brushAnimation = ...;
+var result = brushAnimation.GetLayerAnimation("example");
+```
 
 ### GetLayerAnimations
 `public IEnumerable<BrushLayerAnimation> GetLayerAnimations()`
 
-**Purpose:** Gets the current value of `layer animations`.
+**Purpose:** Reads and returns the `layer animations` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushAnimation from the subsystem API first
+BrushAnimation brushAnimation = ...;
+var result = brushAnimation.GetLayerAnimations();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushAnimation();
-value.AddAnimationProperty(property);
+// Typically call this after obtaining an instance from the subsystem API
+BrushAnimation brushAnimation = ...;
+brushAnimation.AddAnimationProperty(property);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

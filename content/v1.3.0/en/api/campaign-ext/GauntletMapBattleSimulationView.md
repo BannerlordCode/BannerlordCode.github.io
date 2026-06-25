@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapBattleSimulationView"
+description: "Auto-generated class reference for GauntletMapBattleSimulationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapBattleSimulationView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapBattleSimulationView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -27,9 +21,10 @@ Treat `GauntletMapBattleSimulationView` as a View-style extension point: first i
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapBattleSimulationView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapBattleSimulationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MountAgentLogic"
+description: "Auto-generated class reference for MountAgentLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountAgentLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountAgentLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,19 +23,31 @@ Treat `MountAgentLogic` as a Logic-style extension point: first identify who cre
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MountAgentLogic from the subsystem API first
+MountAgentLogic mountAgentLogic = ...;
+mountAgentLogic.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MountAgentLogic from the subsystem API first
+MountAgentLogic mountAgentLogic = ...;
+mountAgentLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MountAgentLogic());
+var behavior = Mission.Current.GetMissionBehavior<MountAgentLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

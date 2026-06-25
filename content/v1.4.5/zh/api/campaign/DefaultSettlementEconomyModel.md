@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementEconomyModel"
+description: "DefaultSettlementEconomyModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSettlementEconomyModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementEconomyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementEconomyModel : SettlementEconomyModel`
 **Base:** `SettlementEconomyModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementEconomyModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementEconomyModel.cs`
 
 ## 概述
 
@@ -29,32 +23,68 @@ title: "DefaultSettlementEconomyModel"
 ### GetValueOfCategory
 `public int GetValueOfCategory(ItemCategory category)`
 
-**用途 / Purpose:** 获取 `value of category` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of category」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetValueOfCategory(category);
+```
 
 ### GetDailyDemandForCategory
 `public override float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity)`
 
-**用途 / Purpose:** 获取 `daily demand for category` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily demand for category」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetDailyDemandForCategory(town, category, 0);
+```
 
 ### GetTownGoldChange
 `public override int GetTownGoldChange(Town town)`
 
-**用途 / Purpose:** 获取 `town gold change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「town gold change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetTownGoldChange(town);
+```
 
 ### CalculateDailySettlementBudgetForItemCategory
 `public override float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
 
-**用途 / Purpose:** 处理 `calculate daily settlement budget for item category` 相关逻辑。
+**用途 / Purpose:** 计算「daily settlement budget for item category」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.CalculateDailySettlementBudgetForItemCategory(town, 0, category);
+```
 
 ### GetDemandChangeFromValue
 `public override float GetDemandChangeFromValue(float purchaseValue)`
 
-**用途 / Purpose:** 获取 `demand change from value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「demand change from value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetDemandChangeFromValue(0);
+```
 
 ### GetEstimatedDemandForCategory
 `public override float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
 
-**用途 / Purpose:** 获取 `estimated demand for category` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「estimated demand for category」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetEstimatedDemandForCategory(town, itemData, category);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultSettlementEconomyModel>(new MyDefaultSettlement
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

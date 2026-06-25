@@ -1,13 +1,7 @@
 ---
 title: "CrosshairVM"
+description: "Auto-generated class reference for CrosshairVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrosshairVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CrosshairVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
@@ -48,30 +42,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### SetProperties
 `public void SetProperties(double accuracy, double scale)`
 
-**Purpose:** Sets the value or state of `properties`.
+**Purpose:** Assigns a new value to `properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CrosshairVM from the subsystem API first
+CrosshairVM crosshairVM = ...;
+crosshairVM.SetProperties(0, 0);
+```
 
 ### SetArrowProperties
 `public void SetArrowProperties(double topArrowOpacity, double rightArrowOpacity, double bottomArrowOpacity, double leftArrowOpacity)`
 
-**Purpose:** Sets the value or state of `arrow properties`.
+**Purpose:** Assigns a new value to `arrow properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CrosshairVM from the subsystem API first
+CrosshairVM crosshairVM = ...;
+crosshairVM.SetArrowProperties(0, 0, 0, 0);
+```
 
 ### SetReloadProperties
 `public void SetReloadProperties(in StackArray.StackArray10FloatFloatTuple reloadPhases, int reloadPhaseCount)`
 
-**Purpose:** Sets the value or state of `reload properties`.
+**Purpose:** Assigns a new value to `reload properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CrosshairVM from the subsystem API first
+CrosshairVM crosshairVM = ...;
+crosshairVM.SetReloadProperties(reloadPhases, 0);
+```
 
 ### ShowHitMarker
 `public void ShowHitMarker(bool isVictimDead, bool isHumanoidHeadShot)`
 
-**Purpose:** Handles logic related to `show hit marker`.
+**Purpose:** Displays the UI or element associated with `hit marker`.
+
+```csharp
+// Obtain an instance of CrosshairVM from the subsystem API first
+CrosshairVM crosshairVM = ...;
+crosshairVM.ShowHitMarker(false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CrosshairVM();
-value.SetProperties(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CrosshairVM crosshairVM = ...;
+crosshairVM.SetProperties(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

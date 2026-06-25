@@ -1,13 +1,7 @@
 ---
 title: "BehaviorUseMurderHole"
+description: "Auto-generated class reference for BehaviorUseMurderHole."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorUseMurderHole`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorUseMurderHole
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorUseMurderHole from the subsystem API first
+BehaviorUseMurderHole behaviorUseMurderHole = ...;
+behaviorUseMurderHole.TickOccasionally();
+```
 
 ### IsMurderHoleActive
 `public bool IsMurderHoleActive()`
 
-**Purpose:** Handles logic related to `is murder hole active`.
+**Purpose:** Determines whether the current object is in the `murder hole active` state or condition.
+
+```csharp
+// Obtain an instance of BehaviorUseMurderHole from the subsystem API first
+BehaviorUseMurderHole behaviorUseMurderHole = ...;
+var result = behaviorUseMurderHole.IsMurderHoleActive();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorUseMurderHole();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorUseMurderHole behaviorUseMurderHole = ...;
+behaviorUseMurderHole.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,24 +1,18 @@
 ---
 title: "NativeString"
+description: "NativeString 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeString`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NativeString
 
-**命名空间:** TaleWorlds.DotNet
-**模块:** TaleWorlds.DotNet
-**类型:** `public sealed class NativeString : NativeObject`
+**Namespace:** TaleWorlds.DotNet
+**Module:** TaleWorlds.DotNet
+**Type:** `public sealed class NativeString : NativeObject`
 **Base:** `NativeObject`
-**领域:** campaign-ext
+**File:** `TaleWorlds.DotNet/NativeString.cs`
 
 ## 概述
 
-`NativeString` 位于 `TaleWorlds.DotNet`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`NativeString` 位于 `TaleWorlds.DotNet`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -29,26 +23,41 @@ title: "NativeString"
 ### Create
 `public static NativeString Create()`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 静态调用，不需要实例
+NativeString.Create();
+```
 
 ### GetString
 `public string GetString()`
 
-**用途 / Purpose:** 获取 `string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeString 实例
+NativeString nativeString = ...;
+var result = nativeString.GetString();
+```
 
 ### SetString
 `public void SetString(string newString)`
 
-**用途 / Purpose:** 设置 `string` 的值或状态。
+**用途 / Purpose:** 为 「string」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NativeString 实例
+NativeString nativeString = ...;
+nativeString.SetString("example");
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 NativeString.Create();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

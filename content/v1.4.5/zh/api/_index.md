@@ -1,28 +1,26 @@
 ---
-title: API 参考 / API Reference
-description: Bannerlord v1.4.5 API 导航树入口
+title: "API 参考"
+description: Bannerlord SDK API 完整参考目录
 ---
-# API 参考 / API Reference
+<!-- BEGIN SECTION INDEX -->
 
-## 心智模型
+## ↑ 上级导航
 
-先把 `API 参考` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+- [版本首页](../)
 
-这是 v1.4.5 API 树的入口页。先从完整目录定位类型，再进入已生成的类页；类页顶部 breadcrumb 会把你带回这里。
+## ↓ 子页面目录
 
-## 上级导航 / Parent Navigation
+- [campaign 目录](./campaign/) — TaleWorlds.CampaignSystem 战役模块类参考目录
+- [campaign-ext 目录](./campaign-ext/) — 战役扩展类（Settlement/Workshop/PartyTemplate 等）参考目录
+- [core 目录](./core/) — TaleWorlds.Core 核心数据类型类参考目录
+- [core-extra 目录](./core-extra/) — Core / Library 相关扩展类参考目录
+- [engine 目录](./engine/) — TaleWorlds.Engine 引擎类参考目录
+- [gui 目录](./gui/) — Gauntlet UI 系统类参考目录
+- [localization 目录](./localization/) — 本地化系统类参考目录
+- [mission 目录](./mission/) — TaleWorlds.MountAndBlade 战斗系统类参考目录
+- [mission-ext 目录](./mission-ext/) — 战斗扩展类（MissionBehavior/AgentComponent 等）参考目录
+- [save-system 目录](./save-system/) — TaleWorlds.SaveSystem 存档系统类参考目录
+- [system 目录](./system/) — 系统层类参考目录
+- [viewmodel 目录](./viewmodel/) — ViewModel 视图模型类参考目录
 
-- [🏠 v1.4.5 首页](../)
-- [⭐ v1.3.15 SDK 总览（规范版）](../../../v1.3.15/zh/architecture/sdk-overview)
-- [🔀 跨版本类对比](../../../versions/)
-
-## 子级导航 / Child Navigation
-
-| 入口 | 用途 |
-|------|------|
-| [完整类目录](./catalog) | 查看 v1.4.5 全部公开类型与覆盖率 |
-| [Campaign-Ext](./campaign-ext/) | 战役扩展与 SandBox / StoryMode 战役类深页 |
-| [Core-Extra](./core-extra/) | Core / Library 相关深页 |
-| [Mission-Ext](./mission-ext/) | MountAndBlade / UI / Multiplayer 深页 |
-
-> 说明：v1.4.5 目前以源码目录和类目录为主，规范化的大局观说明仍以 [v1.3.15 架构总览](../../../v1.3.15/zh/architecture/) 为主入口。
+<!-- END SECTION INDEX -->

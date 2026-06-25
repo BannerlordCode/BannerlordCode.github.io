@@ -1,13 +1,7 @@
 ---
 title: "SingleplayerPersonalKillFeedItemWidget"
+description: "SingleplayerPersonalKillFeedItemWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SingleplayerPersonalKillFeedItemWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SingleplayerPersonalKillFeedItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.KillFeed.Personal
@@ -50,14 +44,21 @@ title: "SingleplayerPersonalKillFeedItemWidget"
 ### SetSpeedModifier
 `public void SetSpeedModifier(float newSpeed)`
 
-**用途 / Purpose:** 设置 `speed modifier` 的值或状态。
+**用途 / Purpose:** 为 「speed modifier」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SingleplayerPersonalKillFeedItemWidget 实例
+SingleplayerPersonalKillFeedItemWidget singleplayerPersonalKillFeedItemWidget = ...;
+singleplayerPersonalKillFeedItemWidget.SetSpeedModifier(0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new SingleplayerPersonalKillFeedItemWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+SingleplayerPersonalKillFeedItemWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

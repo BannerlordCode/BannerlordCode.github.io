@@ -1,13 +1,7 @@
 ---
 title: "PersuasionTask"
+description: "PersuasionTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PersuasionTask`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
@@ -29,30 +23,55 @@ title: "PersuasionTask"
 ### AddOptionToTask
 `public void AddOptionToTask(PersuasionOptionArgs option)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `option to task`。
+**用途 / Purpose:** 将 「option to task」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionTask 实例
+PersuasionTask persuasionTask = ...;
+persuasionTask.AddOptionToTask(option);
+```
 
 ### BlockAllOptions
 `public void BlockAllOptions()`
 
-**用途 / Purpose:** 处理 `block all options` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionTask 实例
+PersuasionTask persuasionTask = ...;
+persuasionTask.BlockAllOptions();
+```
 
 ### UnblockAllOptions
 `public void UnblockAllOptions()`
 
-**用途 / Purpose:** 处理 `unblock all options` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionTask 实例
+PersuasionTask persuasionTask = ...;
+persuasionTask.UnblockAllOptions();
+```
 
 ### ApplyEffects
 `public void ApplyEffects(float moveToNextStageChance, float blockRandomOptionChance)`
 
-**用途 / Purpose:** 将 `effects` 应用到当前对象。
+**用途 / Purpose:** 将 「effects」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionTask 实例
+PersuasionTask persuasionTask = ...;
+persuasionTask.ApplyEffects(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PersuasionTask();
-value.AddOptionToTask(option);
+// 通常从对应子系统 API 获取实例后调用
+PersuasionTask persuasionTask = ...;
+persuasionTask.AddOptionToTask(option);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

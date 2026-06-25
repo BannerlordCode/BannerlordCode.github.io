@@ -1,20 +1,14 @@
 ---
 title: "SpeedBonusEffect"
+description: "Auto-generated class reference for SpeedBonusEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpeedBonusEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpeedBonusEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpeedBonusEffect : MPCombatPerkEffect`
 **Base:** `MPCombatPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/SpeedBonusEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/SpeedBonusEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetSpeedBonusEffectiveness
 `public override float GetSpeedBonusEffectiveness(Agent attacker, WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `speed bonus effectiveness`.
+**Purpose:** Reads and returns the `speed bonus effectiveness` value held by the current object.
+
+```csharp
+// Obtain an instance of SpeedBonusEffect from the subsystem API first
+SpeedBonusEffect speedBonusEffect = ...;
+var result = speedBonusEffect.GetSpeedBonusEffectiveness(attacker, attackerWeapon, damageType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpeedBonusEffect();
-value.GetSpeedBonusEffectiveness(attacker, attackerWeapon, damageType);
+// Typically call this after obtaining an instance from the subsystem API
+SpeedBonusEffect speedBonusEffect = ...;
+speedBonusEffect.GetSpeedBonusEffectiveness(attacker, attackerWeapon, damageType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

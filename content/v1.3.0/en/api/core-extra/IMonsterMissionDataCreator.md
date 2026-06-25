@@ -1,18 +1,12 @@
 ---
 title: "IMonsterMissionDataCreator"
+description: "Auto-generated class reference for IMonsterMissionDataCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMonsterMissionDataCreator`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMonsterMissionDataCreator
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IMonsterMissionDataCreator`
 **Base:** none
 **File:** `TaleWorlds.Core/IMonsterMissionDataCreator.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IMonsterMissionDataCreator implementation = GetMonsterMissionDataCreatorImplementation();
+// Usually obtained through DI or a factory method
+IIMonsterMissionDataCreator service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

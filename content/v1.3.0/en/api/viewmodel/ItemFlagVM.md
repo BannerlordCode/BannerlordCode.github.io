@@ -1,13 +1,7 @@
 ---
 title: "ItemFlagVM"
+description: "Auto-generated class reference for ItemFlagVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemFlagVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemFlagVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ## Usage Example
 
 ```csharp
-var example = new ItemFlagVM();
+// Obtain an instance from the relevant subsystem API
+ItemFlagVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

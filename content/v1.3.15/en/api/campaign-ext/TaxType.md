@@ -1,18 +1,12 @@
 ---
 title: "TaxType"
+description: "Auto-generated class reference for TaxType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TaxType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TaxType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum TaxType`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/TaxType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ## Usage Example
 
 ```csharp
-var value = new TaxType();
+// Obtain an instance from the relevant subsystem API
+TaxType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

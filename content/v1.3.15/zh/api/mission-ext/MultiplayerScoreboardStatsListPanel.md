@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerScoreboardStatsListPanel"
+description: "MultiplayerScoreboardStatsListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerScoreboardStatsListPanel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardStatsListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
@@ -35,9 +29,10 @@ title: "MultiplayerScoreboardStatsListPanel"
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerScoreboardStatsListPanel();
+// 从对应子系统 API 获取实例
+MultiplayerScoreboardStatsListPanel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

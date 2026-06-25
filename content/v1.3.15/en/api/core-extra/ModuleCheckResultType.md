@@ -1,18 +1,12 @@
 ---
 title: "ModuleCheckResultType"
+description: "Auto-generated class reference for ModuleCheckResultType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleCheckResultType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ModuleCheckResultType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum ModuleCheckResultType`
 **Base:** none
 **File:** `TaleWorlds.Core/ModuleCheckResultType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new ModuleCheckResultType();
+// Obtain an instance from the relevant subsystem API
+ModuleCheckResultType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

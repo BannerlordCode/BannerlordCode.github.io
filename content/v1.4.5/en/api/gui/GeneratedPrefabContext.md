@@ -1,20 +1,14 @@
 ---
 title: "GeneratedPrefabContext"
+description: "Auto-generated class reference for GeneratedPrefabContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GeneratedPrefabContext`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GeneratedPrefabContext
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GeneratedPrefabContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/GeneratedPrefabContext.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/GeneratedPrefabContext.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CollectPrefabs
 `public void CollectPrefabs()`
 
-**Purpose:** Handles logic related to `collect prefabs`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GeneratedPrefabContext from the subsystem API first
+GeneratedPrefabContext generatedPrefabContext = ...;
+generatedPrefabContext.CollectPrefabs();
+```
 
 ### AddGeneratedPrefab
 `public void AddGeneratedPrefab(string prefabName, string variantName, CreateGeneratedWidget creator)`
 
 **Purpose:** Adds `generated prefab` to the current collection or state.
 
+```csharp
+// Obtain an instance of GeneratedPrefabContext from the subsystem API first
+GeneratedPrefabContext generatedPrefabContext = ...;
+generatedPrefabContext.AddGeneratedPrefab("example", "example", creator);
+```
+
 ### InstantiatePrefab
 `public GeneratedPrefabInstantiationResult InstantiatePrefab(UIContext conext, string prefabName, string variantName, Dictionary<string, object> data)`
 
-**Purpose:** Handles logic related to `instantiate prefab`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GeneratedPrefabContext from the subsystem API first
+GeneratedPrefabContext generatedPrefabContext = ...;
+var result = generatedPrefabContext.InstantiatePrefab(conext, "example", "example", dictionary<string, data);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GeneratedPrefabContext();
-value.CollectPrefabs();
+// Typically call this after obtaining an instance from the subsystem API
+GeneratedPrefabContext generatedPrefabContext = ...;
+generatedPrefabContext.CollectPrefabs();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

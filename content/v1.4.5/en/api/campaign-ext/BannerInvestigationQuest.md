@@ -1,20 +1,14 @@
 ---
 title: "BannerInvestigationQuest"
+description: "Auto-generated class reference for BannerInvestigationQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerInvestigationQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerInvestigationQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
 **Module:** StoryMode.Quests
 **Type:** `public class BannerInvestigationQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/BannerInvestigationQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/BannerInvestigationQuest.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.Quests.FirstPhase` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new BannerInvestigationQuest();
+// Obtain an instance from the relevant subsystem API
+BannerInvestigationQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

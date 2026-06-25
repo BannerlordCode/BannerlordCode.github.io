@@ -1,13 +1,7 @@
 ---
 title: "DefaultBanditDensityModel"
+description: "Auto-generated class reference for DefaultBanditDensityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBanditDensityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBanditDensityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -43,22 +37,46 @@ Treat `DefaultBanditDensityModel` as a Model-style extension point: first identi
 ### GetMinimumTroopCountForHideoutMission
 `public override int GetMinimumTroopCountForHideoutMission(MobileParty party)`
 
-**Purpose:** Gets the current value of `minimum troop count for hideout mission`.
+**Purpose:** Reads and returns the `minimum troop count for hideout mission` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBanditDensityModel from the subsystem API first
+DefaultBanditDensityModel defaultBanditDensityModel = ...;
+var result = defaultBanditDensityModel.GetMinimumTroopCountForHideoutMission(party);
+```
 
 ### GetMaxSupportedNumberOfLootersForClan
 `public override int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
 
-**Purpose:** Gets the current value of `max supported number of looters for clan`.
+**Purpose:** Reads and returns the `max supported number of looters for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBanditDensityModel from the subsystem API first
+DefaultBanditDensityModel defaultBanditDensityModel = ...;
+var result = defaultBanditDensityModel.GetMaxSupportedNumberOfLootersForClan(clan);
+```
 
 ### GetMaximumTroopCountForHideoutMission
 `public override int GetMaximumTroopCountForHideoutMission(MobileParty party)`
 
-**Purpose:** Gets the current value of `maximum troop count for hideout mission`.
+**Purpose:** Reads and returns the `maximum troop count for hideout mission` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBanditDensityModel from the subsystem API first
+DefaultBanditDensityModel defaultBanditDensityModel = ...;
+var result = defaultBanditDensityModel.GetMaximumTroopCountForHideoutMission(party);
+```
 
 ### IsPositionInsideNavalSafeZone
 `public override bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
 
-**Purpose:** Handles logic related to `is position inside naval safe zone`.
+**Purpose:** Determines whether the current object is in the `position inside naval safe zone` state or condition.
+
+```csharp
+// Obtain an instance of DefaultBanditDensityModel from the subsystem API first
+DefaultBanditDensityModel defaultBanditDensityModel = ...;
+var result = defaultBanditDensityModel.IsPositionInsideNavalSafeZone(position);
+```
 
 ## Usage Example
 
@@ -68,4 +86,4 @@ Game.Current.ReplaceModel<DefaultBanditDensityModel>(new MyDefaultBanditDensityM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TroopTradeDifference"
+description: "Auto-generated class reference for TroopTradeDifference."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopTradeDifference`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopTradeDifference
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct TroopTradeDifference`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/TroopTradeDifference.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/TroopTradeDifference.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new TroopTradeDifference();
+// Obtain an instance from the relevant subsystem API
+TroopTradeDifference instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

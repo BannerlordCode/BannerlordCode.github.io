@@ -1,13 +1,7 @@
 ---
 title: "MoraleArrowBrushWidget"
+description: "MoraleArrowBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MoraleArrowBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MoraleArrowBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
@@ -37,14 +31,21 @@ title: "MoraleArrowBrushWidget"
 ### SetFlowLevel
 `public void SetFlowLevel(int flow)`
 
-**用途 / Purpose:** 设置 `flow level` 的值或状态。
+**用途 / Purpose:** 为 「flow level」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MoraleArrowBrushWidget 实例
+MoraleArrowBrushWidget moraleArrowBrushWidget = ...;
+moraleArrowBrushWidget.SetFlowLevel(0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MoraleArrowBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MoraleArrowBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

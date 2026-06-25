@@ -1,20 +1,14 @@
 ---
 title: "ArrangementPosition"
+description: "Auto-generated class reference for ArrangementPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArrangementPosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArrangementPosition
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ArrangementPosition`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/FormationArrangementModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/FormationArrangementModel.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ComponentInterfaces` to place it 
 ## Usage Example
 
 ```csharp
-var example = new ArrangementPosition();
+// Obtain an instance from the relevant subsystem API
+ArrangementPosition instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

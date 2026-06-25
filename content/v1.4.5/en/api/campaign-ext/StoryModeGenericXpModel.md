@@ -1,20 +1,14 @@
 ---
 title: "StoryModeGenericXpModel"
+description: "Auto-generated class reference for StoryModeGenericXpModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeGenericXpModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeGenericXpModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeGenericXpModel : GenericXpModel`
 **Base:** `GenericXpModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeGenericXpModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeGenericXpModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `StoryModeGenericXpModel` as a Model-style extension point: first identify
 ### GetXpMultiplier
 `public override float GetXpMultiplier(Hero hero)`
 
-**Purpose:** Gets the current value of `xp multiplier`.
+**Purpose:** Reads and returns the `xp multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeGenericXpModel from the subsystem API first
+StoryModeGenericXpModel storyModeGenericXpModel = ...;
+var result = storyModeGenericXpModel.GetXpMultiplier(hero);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeGenericXpModel>(new MyStoryModeGenericXpModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

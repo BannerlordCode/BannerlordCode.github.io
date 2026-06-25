@@ -1,20 +1,14 @@
 ---
 title: "GameKeyTextExtensions"
+description: "GameKeyTextExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameKeyTextExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyTextExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class GameKeyTextExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyTextExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyTextExtensions.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "GameKeyTextExtensions"
 ### GetHotKeyGameText
 `public static TextObject GetHotKeyGameText(this GameTextManager gameTextManager, string categoryName, string hotKeyId)`
 
-**用途 / Purpose:** 获取 `hot key game text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hot key game text」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", "example");
+```
 
 ### GetHotKeyGameText
 `public static TextObject GetHotKeyGameText(this GameTextManager gameTextManager, string categoryName, int gameKeyId)`
 
-**用途 / Purpose:** 获取 `hot key game text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hot key game text」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", 0);
+```
 
 ### GetHotKeyGameTextFromKeyID
 `public static TextObject GetHotKeyGameTextFromKeyID(this GameTextManager gameTextManager, string keyId)`
 
-**用途 / Purpose:** 获取 `hot key game text from key i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hot key game text from key i d」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+GameKeyTextExtensions.GetHotKeyGameTextFromKeyID(gameTextManager, "example");
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", "example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

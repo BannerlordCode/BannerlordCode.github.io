@@ -1,20 +1,14 @@
 ---
 title: "Logger"
+description: "Auto-generated class reference for Logger."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Logger`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Logger
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class Logger`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Logger.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Logger.cs`
 
 ## Overview
 
@@ -35,45 +29,87 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetFileStream
 `public FileStream GetFileStream()`
 
-**Purpose:** Gets the current value of `file stream`.
+**Purpose:** Reads and returns the `file stream` value held by the current object.
+
+```csharp
+// Obtain an instance of Logger from the subsystem API first
+Logger logger = ...;
+var result = logger.GetFileStream();
+```
 
 ### GetErrorFileStream
 `public FileStream GetErrorFileStream()`
 
-**Purpose:** Gets the current value of `error file stream`.
+**Purpose:** Reads and returns the `error file stream` value held by the current object.
+
+```csharp
+// Obtain an instance of Logger from the subsystem API first
+Logger logger = ...;
+var result = logger.GetErrorFileStream();
+```
 
 ### CheckForFileSize
 `public void CheckForFileSize()`
 
-**Purpose:** Handles logic related to `check for file size`.
+**Purpose:** Verifies whether `for file size` holds true for the current object.
+
+```csharp
+// Obtain an instance of Logger from the subsystem API first
+Logger logger = ...;
+logger.CheckForFileSize();
+```
 
 ### ShutDown
 `public void ShutDown()`
 
-**Purpose:** Handles logic related to `shut down`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Logger from the subsystem API first
+Logger logger = ...;
+logger.ShutDown();
+```
 
 ### Print
 `public void Print(string log, HTMLDebugCategory debugInfo = HTMLDebugCategory.General)`
 
-**Purpose:** Handles logic related to `print`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Logger from the subsystem API first
+Logger logger = ...;
+logger.Print("example", hTMLDebugCategory.General);
+```
 
 ### Print
 `public void Print(string log, HTMLDebugCategory debugInfo, bool printOnGlobal)`
 
-**Purpose:** Handles logic related to `print`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Logger from the subsystem API first
+Logger logger = ...;
+logger.Print("example", debugInfo, false);
+```
 
 ### FinishAndCloseAll
 `public static void FinishAndCloseAll()`
 
-**Purpose:** Handles logic related to `finish and close all`.
+**Purpose:** Concludes the `and close all` flow and performs any cleanup.
+
+```csharp
+// Static call; no instance required
+Logger.FinishAndCloseAll();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Logger();
-value.GetFileStream();
+// Typically call this after obtaining an instance from the subsystem API
+Logger logger = ...;
+logger.GetFileStream();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

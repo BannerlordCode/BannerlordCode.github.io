@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyMenuWidget"
+description: "Auto-generated class reference for MultiplayerLobbyMenuWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyMenuWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyMenuWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyMenuWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyMenuWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyMenuWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `MultiplayerLobbyMenuWidget` as a Widget-style extension point: first iden
 ### LobbyStateChanged
 `public void LobbyStateChanged(bool isSearchRequested, bool isSearching, bool isMatchmakingEnabled, bool isCustomBattleEnabled, bool isPartyLeader, bool isInParty)`
 
-**Purpose:** Handles logic related to `lobby state changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyMenuWidget from the subsystem API first
+MultiplayerLobbyMenuWidget multiplayerLobbyMenuWidget = ...;
+multiplayerLobbyMenuWidget.LobbyStateChanged(false, false, false, false, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyMenuWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyMenuWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

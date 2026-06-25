@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapCheatsView"
+description: "Auto-generated class reference for GauntletMapCheatsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapCheatsView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapCheatsView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -27,9 +21,10 @@ Treat `GauntletMapCheatsView` as a View-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapCheatsView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapCheatsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

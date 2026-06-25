@@ -1,20 +1,14 @@
 ---
 title: "MissionOrderCallbacks"
+description: "MissionOrderCallbacks 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionOrderCallbacks`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionOrderCallbacks
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MissionOrderCallbacks`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderCallbacks.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderCallbacks.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "MissionOrderCallbacks"
 ### OnRefreshVisualsDelegate
 `public delegate void OnRefreshVisualsDelegate()`
 
-**用途 / Purpose:** 当 `refresh visuals delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「refresh visuals delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderCallbacks 实例
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnRefreshVisualsDelegate();
+```
 
 ### OnToggleActivateOrderStateDelegate
 `public delegate void OnToggleActivateOrderStateDelegate()`
 
-**用途 / Purpose:** 当 `toggle activate order state delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「toggle activate order state delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderCallbacks 实例
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnToggleActivateOrderStateDelegate();
+```
 
 ### OnTransferTroopsFinishedDelegate
 `public delegate void OnTransferTroopsFinishedDelegate()`
 
-**用途 / Purpose:** 当 `transfer troops finished delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「transfer troops finished delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderCallbacks 实例
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnTransferTroopsFinishedDelegate();
+```
 
 ### OnBeforeOrderDelegate
 `public delegate void OnBeforeOrderDelegate()`
 
-**用途 / Purpose:** 当 `before order delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「before order delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderCallbacks 实例
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnBeforeOrderDelegate();
+```
 
 ### ToggleOrderPositionVisibilityDelegate
 `public delegate void ToggleOrderPositionVisibilityDelegate(bool value)`
 
-**用途 / Purpose:** 处理 `toggle order position visibility delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderCallbacks 实例
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.ToggleOrderPositionVisibilityDelegate(false);
+```
 
 ### GetOrderExecutionParametersDelegate
 `public delegate VisualOrderExecutionParameters GetOrderExecutionParametersDelegate()`
 
-**用途 / Purpose:** 获取 `order execution parameters delegate` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order execution parameters delegate」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderCallbacks 实例
+MissionOrderCallbacks missionOrderCallbacks = ...;
+var result = missionOrderCallbacks.GetOrderExecutionParametersDelegate();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionOrderCallbacks();
-value.OnRefreshVisualsDelegate();
+// 通常从对应子系统 API 获取实例后调用
+MissionOrderCallbacks missionOrderCallbacks = ...;
+missionOrderCallbacks.OnRefreshVisualsDelegate();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "GarrisonRecruitmentCampaignBehavior"
+description: "GarrisonRecruitmentCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GarrisonRecruitmentCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GarrisonRecruitmentCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GarrisonRecruitmentCampaignBehavior : CampaignBehaviorBase, IGarrisonRecruitmentBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "GarrisonRecruitmentCampaignBehavior"
 ### VolunteerTroop
 `public struct VolunteerTroop(Hero ownerNotable, int notableVolunteerArrayIndex)`
 
-**用途 / Purpose:** 处理 `volunteer troop` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+var result = garrisonRecruitmentCampaignBehavior.VolunteerTroop(ownerNotable, 0);
+```
 
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+var result = garrisonRecruitmentCampaignBehavior.CompareTo(obj);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+garrisonRecruitmentCampaignBehavior.RegisterEvents();
+```
 
 ### GetGarrisonChangeExplainedNumber
 `public ExplainedNumber GetGarrisonChangeExplainedNumber(Town town)`
 
-**用途 / Purpose:** 获取 `garrison change explained number` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「garrison change explained number」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+var result = garrisonRecruitmentCampaignBehavior.GetGarrisonChangeExplainedNumber(town);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+garrisonRecruitmentCampaignBehavior.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GarrisonRecruitmentCampaignBehavior();
-value.VolunteerTroop(ownerNotable, 0);
+// 通常从对应子系统 API 获取实例后调用
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+garrisonRecruitmentCampaignBehavior.VolunteerTroop(ownerNotable, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyFriendGroupToggleWidget"
+description: "Auto-generated class reference for MultiplayerLobbyFriendGroupToggleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyFriendGroupToggleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyFriendGroupToggleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Friend
@@ -37,9 +31,10 @@ Treat `MultiplayerLobbyFriendGroupToggleWidget` as a Widget-style extension poin
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyFriendGroupToggleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyFriendGroupToggleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

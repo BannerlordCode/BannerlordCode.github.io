@@ -1,13 +1,7 @@
 ---
 title: "InitialSpawnMethod"
+description: "Auto-generated class reference for InitialSpawnMethod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialSpawnMethod`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialSpawnMethod
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-InitialSpawnMethod example = InitialSpawnMethod.Value;
+// Obtain an instance from the relevant subsystem API
+InitialSpawnMethod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

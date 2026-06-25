@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleCombatant"
+description: "Auto-generated class reference for CustomBattleCombatant."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleCombatant`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleCombatant
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -45,25 +39,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTacticsSkillAmount
 `public int GetTacticsSkillAmount()`
 
-**Purpose:** Gets the current value of `tactics skill amount`.
+**Purpose:** Reads and returns the `tactics skill amount` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleCombatant from the subsystem API first
+CustomBattleCombatant customBattleCombatant = ...;
+var result = customBattleCombatant.GetTacticsSkillAmount();
+```
 
 ### AddCharacter
 `public void AddCharacter(BasicCharacterObject characterObject, int number)`
 
 **Purpose:** Adds `character` to the current collection or state.
 
+```csharp
+// Obtain an instance of CustomBattleCombatant from the subsystem API first
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.AddCharacter(characterObject, 0);
+```
+
 ### SetGeneral
 `public void SetGeneral(BasicCharacterObject generalCharacter)`
 
-**Purpose:** Sets the value or state of `general`.
+**Purpose:** Assigns a new value to `general` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleCombatant from the subsystem API first
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.SetGeneral(generalCharacter);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleCombatant();
-value.GetTacticsSkillAmount();
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.GetTacticsSkillAmount();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

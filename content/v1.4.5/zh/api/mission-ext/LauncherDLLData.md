@@ -1,20 +1,14 @@
 ---
 title: "LauncherDLLData"
+description: "LauncherDLLData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LauncherDLLData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherDLLData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherDLLData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherDLLData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherDLLData.cs`
 
 ## 概述
 
@@ -38,24 +32,43 @@ title: "LauncherDLLData"
 ### SetIsDLLDangerous
 `public void SetIsDLLDangerous(bool isDangerous)`
 
-**用途 / Purpose:** 设置 `is d l l dangerous` 的值或状态。
+**用途 / Purpose:** 为 「is d l l dangerous」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherDLLData 实例
+LauncherDLLData launcherDLLData = ...;
+launcherDLLData.SetIsDLLDangerous(false);
+```
 
 ### SetDLLSize
 `public void SetDLLSize(uint size)`
 
-**用途 / Purpose:** 设置 `d l l size` 的值或状态。
+**用途 / Purpose:** 为 「d l l size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherDLLData 实例
+LauncherDLLData launcherDLLData = ...;
+launcherDLLData.SetDLLSize(0);
+```
 
 ### SetDLLVerifyInformation
 `public void SetDLLVerifyInformation(string info)`
 
-**用途 / Purpose:** 设置 `d l l verify information` 的值或状态。
+**用途 / Purpose:** 为 「d l l verify information」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherDLLData 实例
+LauncherDLLData launcherDLLData = ...;
+launcherDLLData.SetDLLVerifyInformation("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LauncherDLLData();
+// 该数据对象通常由战役/任务 API 返回
+LauncherDLLData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

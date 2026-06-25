@@ -1,20 +1,14 @@
 ---
 title: "BarterGroup"
+description: "Auto-generated class reference for BarterGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterGroup`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class BarterGroup`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterGroup.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterGroup.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem` to place it in the
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBarterGroup();
+// Typically obtained from a subsystem API or factory
+BarterGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

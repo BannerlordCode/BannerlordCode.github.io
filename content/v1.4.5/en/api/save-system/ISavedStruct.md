@@ -1,20 +1,14 @@
 ---
 title: "ISavedStruct"
+description: "Auto-generated class reference for ISavedStruct."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISavedStruct`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISavedStruct
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
-**Type:** `class`
+**Type:** `public interface ISavedStruct`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ISavedStruct.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ISavedStruct.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-ISavedStruct implementation = GetSavedStructImplementation();
+// Usually obtained through DI or a factory method
+IISavedStruct service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

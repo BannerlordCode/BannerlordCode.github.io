@@ -1,20 +1,14 @@
 ---
 title: "NameGenerator"
+description: "Auto-generated class reference for NameGenerator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NameGenerator`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NameGenerator
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class NameGenerator`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/NameGenerator.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/NameGenerator.cs`
 
 ## Overview
 
@@ -29,40 +23,77 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GenerateHeroNameAndHeroFullName
 `public void GenerateHeroNameAndHeroFullName(Hero hero, out TextObject firstName, out TextObject fullName, bool useDeterministicValues = true)`
 
-**Purpose:** Handles logic related to `generate hero name and hero full name`.
+**Purpose:** Generates an instance, data, or representation of `hero name and hero full name`.
+
+```csharp
+// Obtain an instance of NameGenerator from the subsystem API first
+NameGenerator nameGenerator = ...;
+nameGenerator.GenerateHeroNameAndHeroFullName(hero, firstName, fullName, false);
+```
 
 ### GenerateHeroFirstName
 `public TextObject GenerateHeroFirstName(Hero hero)`
 
-**Purpose:** Handles logic related to `generate hero first name`.
+**Purpose:** Generates an instance, data, or representation of `hero first name`.
+
+```csharp
+// Obtain an instance of NameGenerator from the subsystem API first
+NameGenerator nameGenerator = ...;
+var result = nameGenerator.GenerateHeroFirstName(hero);
+```
 
 ### GenerateFirstNameForPlayer
 `public TextObject GenerateFirstNameForPlayer(CultureObject culture, bool isFemale)`
 
-**Purpose:** Handles logic related to `generate first name for player`.
+**Purpose:** Generates an instance, data, or representation of `first name for player`.
+
+```csharp
+// Obtain an instance of NameGenerator from the subsystem API first
+NameGenerator nameGenerator = ...;
+var result = nameGenerator.GenerateFirstNameForPlayer(culture, false);
+```
 
 ### GenerateClanName
 `public TextObject GenerateClanName(CultureObject culture, Settlement clanOriginSettlement)`
 
-**Purpose:** Handles logic related to `generate clan name`.
+**Purpose:** Generates an instance, data, or representation of `clan name`.
+
+```csharp
+// Obtain an instance of NameGenerator from the subsystem API first
+NameGenerator nameGenerator = ...;
+var result = nameGenerator.GenerateClanName(culture, clanOriginSettlement);
+```
 
 ### GetNameListForCulture
 `public MBReadOnlyList<TextObject> GetNameListForCulture(CultureObject npcCulture, bool isFemale)`
 
-**Purpose:** Gets the current value of `name list for culture`.
+**Purpose:** Reads and returns the `name list for culture` value held by the current object.
+
+```csharp
+// Obtain an instance of NameGenerator from the subsystem API first
+NameGenerator nameGenerator = ...;
+var result = nameGenerator.GetNameListForCulture(npcCulture, false);
+```
 
 ### AddName
 `public void AddName(TextObject name)`
 
 **Purpose:** Adds `name` to the current collection or state.
 
+```csharp
+// Obtain an instance of NameGenerator from the subsystem API first
+NameGenerator nameGenerator = ...;
+nameGenerator.AddName(name);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new NameGenerator();
-value.GenerateHeroNameAndHeroFullName(hero, firstName, fullName, false);
+// Typically call this after obtaining an instance from the subsystem API
+NameGenerator nameGenerator = ...;
+nameGenerator.GenerateHeroNameAndHeroFullName(hero, firstName, fullName, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

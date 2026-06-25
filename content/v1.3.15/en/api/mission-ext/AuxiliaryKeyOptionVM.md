@@ -1,13 +1,7 @@
 ---
 title: "AuxiliaryKeyOptionVM"
+description: "Auto-generated class reference for AuxiliaryKeyOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AuxiliaryKeyOptionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AuxiliaryKeyOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of AuxiliaryKeyOptionVM from the subsystem API first
+AuxiliaryKeyOptionVM auxiliaryKeyOptionVM = ...;
+auxiliaryKeyOptionVM.RefreshValues();
+```
 
 ### Set
 `public override void Set(InputKey newKey)`
 
-**Purpose:** Sets the value or state of `set`.
+**Purpose:** Assigns a new value to the current object's property or state.
+
+```csharp
+// Obtain an instance of AuxiliaryKeyOptionVM from the subsystem API first
+AuxiliaryKeyOptionVM auxiliaryKeyOptionVM = ...;
+auxiliaryKeyOptionVM.Set(newKey);
+```
 
 ### Update
 `public override void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of AuxiliaryKeyOptionVM from the subsystem API first
+AuxiliaryKeyOptionVM auxiliaryKeyOptionVM = ...;
+auxiliaryKeyOptionVM.Update();
+```
 
 ### OnDone
 `public override void OnDone()`
 
-**Purpose:** Called when the `done` event is raised.
+**Purpose:** Invoked when the `done` event is raised.
+
+```csharp
+// Obtain an instance of AuxiliaryKeyOptionVM from the subsystem API first
+AuxiliaryKeyOptionVM auxiliaryKeyOptionVM = ...;
+auxiliaryKeyOptionVM.OnDone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AuxiliaryKeyOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+AuxiliaryKeyOptionVM auxiliaryKeyOptionVM = ...;
+auxiliaryKeyOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

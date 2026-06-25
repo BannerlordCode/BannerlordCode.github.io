@@ -1,20 +1,14 @@
 ---
 title: "DamageTakenEffect"
+description: "Auto-generated class reference for DamageTakenEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DamageTakenEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DamageTakenEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DamageTakenEffect : MPCombatPerkEffect`
 **Base:** `MPCombatPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DamageTakenEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DamageTakenEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetDamageTaken
 `public override float GetDamageTaken(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `damage taken`.
+**Purpose:** Reads and returns the `damage taken` value held by the current object.
+
+```csharp
+// Obtain an instance of DamageTakenEffect from the subsystem API first
+DamageTakenEffect damageTakenEffect = ...;
+var result = damageTakenEffect.GetDamageTaken(attackerWeapon, damageType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DamageTakenEffect();
-value.GetDamageTaken(attackerWeapon, damageType);
+// Typically call this after obtaining an instance from the subsystem API
+DamageTakenEffect damageTakenEffect = ...;
+damageTakenEffect.GetDamageTaken(attackerWeapon, damageType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

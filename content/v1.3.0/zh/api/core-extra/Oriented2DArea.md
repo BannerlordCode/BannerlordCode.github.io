@@ -1,13 +1,7 @@
 ---
 title: "Oriented2DArea"
+description: "Oriented2DArea 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Oriented2DArea`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Oriented2DArea
 
 **Namespace:** TaleWorlds.Library
@@ -43,40 +37,77 @@ title: "Oriented2DArea"
 ### SetCenter
 `public void SetCenter(in Vec2 center)`
 
-**用途 / Purpose:** 设置 `center` 的值或状态。
+**用途 / Purpose:** 为 「center」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetCenter(center);
+```
 
 ### SetForward
 `public void SetForward(in Vec2 forward)`
 
-**用途 / Purpose:** 设置 `forward` 的值或状态。
+**用途 / Purpose:** 为 「forward」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetForward(forward);
+```
 
 ### SetDimensions
 `public void SetDimensions(in Vec2 dimensions)`
 
-**用途 / Purpose:** 设置 `dimensions` 的值或状态。
+**用途 / Purpose:** 为 「dimensions」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetDimensions(dimensions);
+```
 
 ### Overlaps
 `public bool Overlaps(in Oriented2DArea otherArea, float clearanceMargin)`
 
-**用途 / Purpose:** 处理 `overlaps` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.Overlaps(otherArea, 0);
+```
 
 ### Intersects
 `public bool Intersects(in LineSegment2D line, float clearanceMargin)`
 
-**用途 / Purpose:** 处理 `intersects` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.Intersects(line, 0);
+```
 
 ### GetCorners
 `public Oriented2DArea.Corners GetCorners()`
 
-**用途 / Purpose:** 获取 `corners` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「corners」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.GetCorners();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Oriented2DArea();
-value.SetCenter(center);
+// 通常从对应子系统 API 获取实例后调用
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetCenter(center);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

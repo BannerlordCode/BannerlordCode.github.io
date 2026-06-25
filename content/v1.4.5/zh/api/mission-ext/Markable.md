@@ -1,20 +1,14 @@
 ---
 title: "Markable"
+description: "Markable 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Markable`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Markable
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Markable : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Markable.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Markable.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "Markable"
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Markable 实例
+Markable markable = ...;
+var result = markable.GetTickRequirement();
+```
 
 ### DisableMarkerActivation
 `public void DisableMarkerActivation()`
 
-**用途 / Purpose:** 处理 `disable marker activation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Markable 实例
+Markable markable = ...;
+markable.DisableMarkerActivation();
+```
 
 ### ActivateMarkerFor
 `public void ActivateMarkerFor(float activeSeconds, float passiveSeconds)`
 
-**用途 / Purpose:** 处理 `activate marker for` 相关逻辑。
+**用途 / Purpose:** 激活「marker for」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 Markable 实例
+Markable markable = ...;
+markable.ActivateMarkerFor(0, 0);
+```
 
 ### ResetPassiveDurationTimer
 `public void ResetPassiveDurationTimer()`
 
-**用途 / Purpose:** 将 `passive duration timer` 重置为初始状态。
+**用途 / Purpose:** 将 「passive duration timer」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Markable 实例
+Markable markable = ...;
+markable.ResetPassiveDurationTimer();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Markable();
-value.GetTickRequirement();
+// 通常从对应子系统 API 获取实例后调用
+Markable markable = ...;
+markable.GetTickRequirement();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

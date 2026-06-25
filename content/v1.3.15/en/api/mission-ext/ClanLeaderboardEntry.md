@@ -1,13 +1,7 @@
 ---
 title: "ClanLeaderboardEntry"
+description: "Auto-generated class reference for ClanLeaderboardEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanLeaderboardEntry`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanLeaderboardEntry
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -39,9 +33,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new ClanLeaderboardEntry();
+// Obtain an instance from the relevant subsystem API
+ClanLeaderboardEntry instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MatchmakingWaitTimeStats"
+description: "Auto-generated class reference for MatchmakingWaitTimeStats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatchmakingWaitTimeStats`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MatchmakingWaitTimeStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -37,23 +31,42 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 
 **Purpose:** Adds `region stats` to the current collection or state.
 
+```csharp
+// Obtain an instance of MatchmakingWaitTimeStats from the subsystem API first
+MatchmakingWaitTimeStats matchmakingWaitTimeStats = ...;
+matchmakingWaitTimeStats.AddRegionStats(regionStats);
+```
+
 ### GetRegionStats
 `public MatchmakingWaitTimeRegionStats GetRegionStats(string region)`
 
-**Purpose:** Gets the current value of `region stats`.
+**Purpose:** Reads and returns the `region stats` value held by the current object.
+
+```csharp
+// Obtain an instance of MatchmakingWaitTimeStats from the subsystem API first
+MatchmakingWaitTimeStats matchmakingWaitTimeStats = ...;
+var result = matchmakingWaitTimeStats.GetRegionStats("example");
+```
 
 ### GetWaitTime
 `public int GetWaitTime(string region, string gameType, WaitTimeStatType statType)`
 
-**Purpose:** Gets the current value of `wait time`.
+**Purpose:** Reads and returns the `wait time` value held by the current object.
+
+```csharp
+// Obtain an instance of MatchmakingWaitTimeStats from the subsystem API first
+MatchmakingWaitTimeStats matchmakingWaitTimeStats = ...;
+var result = matchmakingWaitTimeStats.GetWaitTime("example", "example", statType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MatchmakingWaitTimeStats();
-value.AddRegionStats(regionStats);
+// Typically call this after obtaining an instance from the subsystem API
+MatchmakingWaitTimeStats matchmakingWaitTimeStats = ...;
+matchmakingWaitTimeStats.AddRegionStats(regionStats);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

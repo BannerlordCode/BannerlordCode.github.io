@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardHeader"
+description: "Auto-generated class reference for ScoreboardHeader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardHeader`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardHeader
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ScoreboardHeader`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ScoreboardHeader
 `public struct ScoreboardHeader(string id, Func<MissionPeer, string> playerGetterFunc, Func<BotData, string> botGetterFunc)`
 
-**Purpose:** Handles logic related to `scoreboard header`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScoreboardHeader from the subsystem API first
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
+```
 
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
 
-**Purpose:** Gets the current value of `value of`.
+**Purpose:** Reads and returns the `value of` value held by the current object.
+
+```csharp
+// Obtain an instance of ScoreboardHeader from the subsystem API first
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.GetValueOf(missionPeer);
+```
 
 ### GetValueOf
 `public string GetValueOf(BotData botData)`
 
-**Purpose:** Gets the current value of `value of`.
+**Purpose:** Reads and returns the `value of` value held by the current object.
+
+```csharp
+// Obtain an instance of ScoreboardHeader from the subsystem API first
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.GetValueOf(botData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScoreboardHeader();
-value.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
+// Typically call this after obtaining an instance from the subsystem API
+ScoreboardHeader scoreboardHeader = ...;
+scoreboardHeader.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

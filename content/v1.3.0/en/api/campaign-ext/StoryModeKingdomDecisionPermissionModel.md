@@ -1,13 +1,7 @@
 ---
 title: "StoryModeKingdomDecisionPermissionModel"
+description: "Auto-generated class reference for StoryModeKingdomDecisionPermissionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeKingdomDecisionPermissionModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeKingdomDecisionPermissionModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,37 +23,79 @@ Treat `StoryModeKingdomDecisionPermissionModel` as a Model-style extension point
 ### IsPolicyDecisionAllowed
 `public override bool IsPolicyDecisionAllowed(PolicyObject policy)`
 
-**Purpose:** Handles logic related to `is policy decision allowed`.
+**Purpose:** Determines whether the current object is in the `policy decision allowed` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeKingdomDecisionPermissionModel from the subsystem API first
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsPolicyDecisionAllowed(policy);
+```
 
 ### IsAnnexationDecisionAllowed
 `public override bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)`
 
-**Purpose:** Handles logic related to `is annexation decision allowed`.
+**Purpose:** Determines whether the current object is in the `annexation decision allowed` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeKingdomDecisionPermissionModel from the subsystem API first
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsAnnexationDecisionAllowed(annexedSettlement);
+```
 
 ### IsExpulsionDecisionAllowed
 `public override bool IsExpulsionDecisionAllowed(Clan expelledClan)`
 
-**Purpose:** Handles logic related to `is expulsion decision allowed`.
+**Purpose:** Determines whether the current object is in the `expulsion decision allowed` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeKingdomDecisionPermissionModel from the subsystem API first
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsExpulsionDecisionAllowed(expelledClan);
+```
 
 ### IsKingSelectionDecisionAllowed
 `public override bool IsKingSelectionDecisionAllowed(Kingdom kingdom)`
 
-**Purpose:** Handles logic related to `is king selection decision allowed`.
+**Purpose:** Determines whether the current object is in the `king selection decision allowed` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeKingdomDecisionPermissionModel from the subsystem API first
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsKingSelectionDecisionAllowed(kingdom);
+```
 
 ### IsWarDecisionAllowedBetweenKingdoms
 `public override bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Handles logic related to `is war decision allowed between kingdoms`.
+**Purpose:** Determines whether the current object is in the `war decision allowed between kingdoms` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeKingdomDecisionPermissionModel from the subsystem API first
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsWarDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ### IsPeaceDecisionAllowedBetweenKingdoms
 `public override bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Handles logic related to `is peace decision allowed between kingdoms`.
+**Purpose:** Determines whether the current object is in the `peace decision allowed between kingdoms` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeKingdomDecisionPermissionModel from the subsystem API first
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsPeaceDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ### IsStartAllianceDecisionAllowedBetweenKingdoms
 `public override bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Handles logic related to `is start alliance decision allowed between kingdoms`.
+**Purpose:** Determines whether the current object is in the `start alliance decision allowed between kingdoms` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeKingdomDecisionPermissionModel from the subsystem API first
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsStartAllianceDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ## Usage Example
 
@@ -69,4 +105,4 @@ Game.Current.ReplaceModel<StoryModeKingdomDecisionPermissionModel>(new MyStoryMo
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

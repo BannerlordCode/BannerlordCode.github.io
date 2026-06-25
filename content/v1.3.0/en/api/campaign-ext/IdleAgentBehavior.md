@@ -1,13 +1,7 @@
 ---
 title: "IdleAgentBehavior"
+description: "Auto-generated class reference for IdleAgentBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IdleAgentBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IdleAgentBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,20 +23,33 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of IdleAgentBehavior from the subsystem API first
+IdleAgentBehavior idleAgentBehavior = ...;
+var result = idleAgentBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of IdleAgentBehavior from the subsystem API first
+IdleAgentBehavior idleAgentBehavior = ...;
+var result = idleAgentBehavior.GetDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IdleAgentBehavior();
-value.GetAvailability(false);
+// Typically call this after obtaining an instance from the subsystem API
+IdleAgentBehavior idleAgentBehavior = ...;
+idleAgentBehavior.GetAvailability(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ArmyCreationMapNotification"
+description: "Auto-generated class reference for ArmyCreationMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyCreationMapNotification`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyCreationMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ArmyCreationMapNotification : InformationData`
 **Base:** `InformationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/ArmyCreationMapNotification.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/ArmyCreationMapNotification.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ## Usage Example
 
 ```csharp
-var example = new ArmyCreationMapNotification();
+// Obtain an instance from the relevant subsystem API
+ArmyCreationMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

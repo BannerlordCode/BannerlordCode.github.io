@@ -1,20 +1,14 @@
 ---
 title: "MapWeatherModel"
+description: "MapWeatherModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapWeatherModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapWeatherModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class MapWeatherModel : MBGameModel<MapWeatherModel>`
 **Base:** `MBGameModel<MapWeatherModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MapWeatherModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MapWeatherModel.cs`
 
 ## 概述
 
@@ -36,54 +30,109 @@ title: "MapWeatherModel"
 ### GetInterpolatedAtmosphereState
 `public abstract AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)`
 
-**用途 / Purpose:** 获取 `interpolated atmosphere state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「interpolated atmosphere state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetInterpolatedAtmosphereState(timeOfYear, pos);
+```
 
 ### GetAtmosphereModel
 `public abstract AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)`
 
-**用途 / Purpose:** 获取 `atmosphere model` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「atmosphere model」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetAtmosphereModel(position);
+```
 
 ### GetSeasonTimeFactorOfCampaignTime
 `public abstract void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)`
 
-**用途 / Purpose:** 获取 `season time factor of campaign time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「season time factor of campaign time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+mapWeatherModel.GetSeasonTimeFactorOfCampaignTime(ct, timeFactorForSnow, timeFactorForRain, false);
+```
 
 ### UpdateWeatherForPosition
 `public abstract WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)`
 
-**用途 / Purpose:** 更新 `weather for position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「weather for position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.UpdateWeatherForPosition(position, ct);
+```
 
 ### InitializeCaches
 `public abstract void InitializeCaches()`
 
-**用途 / Purpose:** 初始化 `caches` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「caches」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+mapWeatherModel.InitializeCaches();
+```
 
 ### GetWeatherEventInPosition
 `public abstract WeatherEvent GetWeatherEventInPosition(Vec2 pos)`
 
-**用途 / Purpose:** 获取 `weather event in position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「weather event in position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetWeatherEventInPosition(pos);
+```
 
 ### GetSnowAndRainDataForPosition
 `public abstract void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)`
 
-**用途 / Purpose:** 获取 `snow and rain data for position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「snow and rain data for position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+mapWeatherModel.GetSnowAndRainDataForPosition(position, ct, snowValue, rainValue);
+```
 
 ### GetWeatherEffectOnTerrainForPosition
 `public abstract WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)`
 
-**用途 / Purpose:** 获取 `weather effect on terrain for position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「weather effect on terrain for position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetWeatherEffectOnTerrainForPosition(pos);
+```
 
 ### GetWindForPosition
 `public abstract Vec2 GetWindForPosition(CampaignVec2 position)`
 
-**用途 / Purpose:** 获取 `wind for position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「wind for position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherModel 实例
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetWindForPosition(position);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMapWeatherModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MapWeatherModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

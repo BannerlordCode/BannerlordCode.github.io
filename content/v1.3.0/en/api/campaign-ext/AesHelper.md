@@ -1,13 +1,7 @@
 ---
 title: "AesHelper"
+description: "Auto-generated class reference for AesHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AesHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AesHelper
 
 **Namespace:** TaleWorlds.Diamond
@@ -29,12 +23,22 @@ Treat `AesHelper` as a Helper-style extension point: first identify who creates 
 ### Encrypt
 `public static byte Encrypt(byte plainData, byte key, byte initializationVector)`
 
-**Purpose:** Handles logic related to `encrypt`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+AesHelper.Encrypt(0, 0, 0);
+```
 
 ### Decrypt
 `public static byte Decrypt(byte encrypted, byte key, byte initializationVector)`
 
-**Purpose:** Handles logic related to `decrypt`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+AesHelper.Decrypt(0, 0, 0);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ AesHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

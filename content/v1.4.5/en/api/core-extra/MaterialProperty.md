@@ -1,20 +1,14 @@
 ---
 title: "MaterialProperty"
+description: "Auto-generated class reference for MaterialProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MaterialProperty`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MaterialProperty
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct MaterialProperty`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/HorseComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/HorseComponent.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### MaterialProperty
 `public struct MaterialProperty(string name)`
 
-**Purpose:** Handles logic related to `material property`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MaterialProperty from the subsystem API first
+MaterialProperty materialProperty = ...;
+var result = materialProperty.MaterialProperty("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MaterialProperty();
-value.MaterialProperty("example");
+// Typically call this after obtaining an instance from the subsystem API
+MaterialProperty materialProperty = ...;
+materialProperty.MaterialProperty("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

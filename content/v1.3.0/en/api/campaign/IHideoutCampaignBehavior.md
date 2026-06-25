@@ -1,18 +1,12 @@
 ---
 title: "IHideoutCampaignBehavior"
+description: "Auto-generated class reference for IHideoutCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IHideoutCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IHideoutCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IHideoutCampaignBehavior`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IHideoutCampaignBehavior.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IHideoutCampaignBehavior implementation = GetHideoutCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIHideoutCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

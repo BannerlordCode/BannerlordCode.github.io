@@ -1,13 +1,7 @@
 ---
 title: "InventoryState"
+description: "Auto-generated class reference for InventoryState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var example = new InventoryState();
+// Obtain an instance from the relevant subsystem API
+InventoryState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

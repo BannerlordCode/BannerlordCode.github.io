@@ -1,20 +1,14 @@
 ---
 title: "PartyScreenLogicInitializationData"
+description: "Auto-generated class reference for PartyScreenLogicInitializationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyScreenLogicInitializationData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyScreenLogicInitializationData
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct PartyScreenLogicInitializationData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenLogicInitializationData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenLogicInitializationData.cs`
 
 ## Overview
 
@@ -29,19 +23,30 @@ Treat `PartyScreenLogicInitializationData` as a Data-style extension point: firs
 ### CreateBasicInitDataWithMainParty
 `public static PartyScreenLogicInitializationData CreateBasicInitDataWithMainParty(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, PartyScreenLogic.TransferState memberTransferState, PartyScreenLogic.TransferState prisonerTransferState, PartyScreenLogic.TransferState accompanyingTransferState, IsTroopTransferableDelegate troopTransferableDelegate, PartyScreenHelper.PartyScreenMode partyScreenMode, PartyBase leftOwnerParty = null, TextObject leftPartyName = null, TextObject header = null, Hero leftLeaderHero = null, int leftPartyMembersSizeLimit = 0, int leftPartyPrisonersSizeLimit = 0, PartyPresentationDoneButtonDelegate partyPresentationDoneButtonDelegate = null, PartyPresentationDoneButtonConditionDelegate partyPresentationDoneButtonConditionDelegate = null, PartyPresentationCancelButtonDelegate partyPresentationCancelButtonDelegate = null, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null, PartyScreenClosedDelegate partyScreenClosedDelegate = null, bool isDismissMode = false, bool transferHealthiesGetWoundedsFirst = false, bool isTroopUpgradesDisabled = false, bool showProgressBar = false, int questModeWageDaysMultiplier = 0)`
 
-**Purpose:** Creates a new `basic init data with main party` instance or object.
+**Purpose:** Constructs a new `basic init data with main party` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+PartyScreenLogicInitializationData.CreateBasicInitDataWithMainParty(leftMemberRoster, leftPrisonerRoster, memberTransferState, prisonerTransferState, accompanyingTransferState, troopTransferableDelegate, partyScreenMode, null, null, null, null, 0, 0, null, null, null, null, null, false, false, false, false, 0);
+```
 
 ### CreateBasicInitDataWithMainPartyAndOther
 `public static PartyScreenLogicInitializationData CreateBasicInitDataWithMainPartyAndOther(MobileParty party, PartyScreenLogic.TransferState memberTransferState, PartyScreenLogic.TransferState prisonerTransferState, PartyScreenLogic.TransferState accompanyingTransferState, IsTroopTransferableDelegate troopTransferableDelegate, PartyScreenHelper.PartyScreenMode partyScreenMode, TextObject header = null, PartyPresentationDoneButtonDelegate partyPresentationDoneButtonDelegate = null, PartyPresentationDoneButtonConditionDelegate partyPresentationDoneButtonConditionDelegate = null, PartyPresentationCancelButtonDelegate partyPresentationCancelButtonDelegate = null, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null, PartyScreenClosedDelegate partyScreenClosedDelegate = null, bool isDismissMode = false, bool transferHealthiesGetWoundedsFirst = false, bool isTroopUpgradesDisabled = true, bool showProgressBar = false)`
 
-**Purpose:** Creates a new `basic init data with main party and other` instance or object.
+**Purpose:** Constructs a new `basic init data with main party and other` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+PartyScreenLogicInitializationData.CreateBasicInitDataWithMainPartyAndOther(party, memberTransferState, prisonerTransferState, accompanyingTransferState, troopTransferableDelegate, partyScreenMode, null, null, null, null, null, null, false, false, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyScreenLogicInitializationData();
+// This data object is usually returned by campaign/mission APIs
+PartyScreenLogicInitializationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

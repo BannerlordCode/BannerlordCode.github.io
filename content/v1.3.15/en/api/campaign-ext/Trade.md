@@ -1,23 +1,18 @@
 ---
 title: "Trade"
+description: "Auto-generated class reference for Trade."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Trade`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Trade
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Trade`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Trade` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Trade` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,37 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `Appraiser` | `public static PerkObject Appraiser { get; }` |
+| `WholeSeller` | `public static PerkObject WholeSeller { get; }` |
+| `CaravanMaster` | `public static PerkObject CaravanMaster { get; }` |
+| `MarketDealer` | `public static PerkObject MarketDealer { get; }` |
+| `TravelingRumors` | `public static PerkObject TravelingRumors { get; }` |
+| `LocalConnection` | `public static PerkObject LocalConnection { get; }` |
+| `DistributedGoods` | `public static PerkObject DistributedGoods { get; }` |
+| `Tollgates` | `public static PerkObject Tollgates { get; }` |
+| `ArtisanCommunity` | `public static PerkObject ArtisanCommunity { get; }` |
+| `GreatInvestor` | `public static PerkObject GreatInvestor { get; }` |
+| `MercenaryConnections` | `public static PerkObject MercenaryConnections { get; }` |
+| `ContentTrades` | `public static PerkObject ContentTrades { get; }` |
+| `InsurancePlans` | `public static PerkObject InsurancePlans { get; }` |
+| `RapidDevelopment` | `public static PerkObject RapidDevelopment { get; }` |
+| `GranaryAccountant` | `public static PerkObject GranaryAccountant { get; }` |
+| `TradeyardForeman` | `public static PerkObject TradeyardForeman { get; }` |
+| `SwordForBarter` | `public static PerkObject SwordForBarter { get; }` |
+| `SelfMadeMan` | `public static PerkObject SelfMadeMan { get; }` |
+| `SilverTongue` | `public static PerkObject SilverTongue { get; }` |
+| `SpringOfGold` | `public static PerkObject SpringOfGold { get; }` |
+| `ManOfMeans` | `public static PerkObject ManOfMeans { get; }` |
+| `TrickleDown` | `public static PerkObject TrickleDown { get; }` |
+| `EverythingHasAPrice` | `public static PerkObject EverythingHasAPrice { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Trade();
+// Obtain an instance from the relevant subsystem API
+Trade instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BorderFlagEntityFactory"
+description: "Auto-generated class reference for BorderFlagEntityFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BorderFlagEntityFactory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BorderFlagEntityFactory
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### MakeEntity
 `public GameEntity MakeEntity(params object paramObjects)`
 
-**Purpose:** Handles logic related to `make entity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BorderFlagEntityFactory from the subsystem API first
+BorderFlagEntityFactory borderFlagEntityFactory = ...;
+var result = borderFlagEntityFactory.MakeEntity(paramObjects);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BorderFlagEntityFactory();
-value.MakeEntity(paramObjects);
+// Typically call this after obtaining an instance from the subsystem API
+BorderFlagEntityFactory borderFlagEntityFactory = ...;
+borderFlagEntityFactory.MakeEntity(paramObjects);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

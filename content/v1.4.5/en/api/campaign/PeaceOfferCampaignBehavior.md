@@ -1,20 +1,14 @@
 ---
 title: "PeaceOfferCampaignBehavior"
+description: "Auto-generated class reference for PeaceOfferCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PeaceOfferCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeaceOfferCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PeaceOfferCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PeaceOfferCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PeaceOfferCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PeaceOfferCampaignBehavior from the subsystem API first
+PeaceOfferCampaignBehavior peaceOfferCampaignBehavior = ...;
+peaceOfferCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PeaceOfferCampaignBehavior from the subsystem API first
+PeaceOfferCampaignBehavior peaceOfferCampaignBehavior = ...;
+peaceOfferCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PeaceOfferCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PeaceOfferCampaignBehavior peaceOfferCampaignBehavior = ...;
+peaceOfferCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

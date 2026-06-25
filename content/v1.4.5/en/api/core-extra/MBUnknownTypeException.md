@@ -1,20 +1,14 @@
 ---
 title: "MBUnknownTypeException"
+description: "Auto-generated class reference for MBUnknownTypeException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBUnknownTypeException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBUnknownTypeException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBUnknownTypeException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBUnknownTypeException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBUnknownTypeException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBUnknownTypeException` as a Exception-style extension point: first ident
 ## Usage Example
 
 ```csharp
-try { CallMBUnknownTypeException(); } catch (MBUnknownTypeException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBUnknownTypeException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

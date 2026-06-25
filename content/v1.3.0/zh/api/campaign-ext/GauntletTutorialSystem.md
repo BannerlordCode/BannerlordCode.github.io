@@ -1,13 +1,7 @@
 ---
 title: "GauntletTutorialSystem"
+description: "GauntletTutorialSystem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletTutorialSystem`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletTutorialSystem
 
 **Namespace:** SandBox.GauntletUI.Tutorial
@@ -37,12 +31,22 @@ title: "GauntletTutorialSystem"
 ### OnInitialize
 `public static void OnInitialize()`
 
-**用途 / Purpose:** 当 `initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+GauntletTutorialSystem.OnInitialize();
+```
 
 ### OnUnload
 `public static void OnUnload()`
 
-**用途 / Purpose:** 当 `unload` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unload」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+GauntletTutorialSystem.OnUnload();
+```
 
 ## 使用示例
 
@@ -52,4 +56,4 @@ GauntletTutorialSystem.OnInitialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

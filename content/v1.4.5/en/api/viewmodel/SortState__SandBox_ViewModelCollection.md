@@ -1,20 +1,14 @@
 ---
-title: "SortState__SandBox_ViewModelCollection"
+title: "SortState"
+description: "Auto-generated class reference for SortState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SortState`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SortState
 
 **Namespace:** SandBox.ViewModelCollection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public enum SortState`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/SandBoxUIHelper.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/SandBoxUIHelper.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-SortState example = SortState.Value;
+// Obtain an instance from the relevant subsystem API
+SortState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

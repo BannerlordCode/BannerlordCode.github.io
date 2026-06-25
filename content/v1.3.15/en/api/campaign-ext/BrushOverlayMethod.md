@@ -1,18 +1,12 @@
 ---
 title: "BrushOverlayMethod"
+description: "Auto-generated class reference for BrushOverlayMethod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushOverlayMethod`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BrushOverlayMethod
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum BrushOverlayMethod`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BrushOverlayMethod.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var value = new BrushOverlayMethod();
+// Obtain an instance from the relevant subsystem API
+BrushOverlayMethod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "NativeOptionsType"
+description: "Auto-generated class reference for NativeOptionsType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeOptionsType`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeOptionsType
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
 **Type:** `public enum NativeOptionsType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptions.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptions.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.Options` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-NativeOptionsType example = NativeOptionsType.Value;
+// Obtain an instance from the relevant subsystem API
+NativeOptionsType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

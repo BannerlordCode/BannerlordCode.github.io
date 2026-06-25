@@ -1,20 +1,14 @@
 ---
 title: "SiegeMissionRepresentative"
+description: "Auto-generated class reference for SiegeMissionRepresentative."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeMissionRepresentative`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeMissionRepresentative
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionRepresentatives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeMissionRepresentative : MissionRepresentativeBase`
 **Base:** `MissionRepresentativeBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/SiegeMissionRepresentative.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/SiegeMissionRepresentative.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**Purpose:** Called when the `agent spawned` event is raised.
+**Purpose:** Invoked when the `agent spawned` event is raised.
+
+```csharp
+// Obtain an instance of SiegeMissionRepresentative from the subsystem API first
+SiegeMissionRepresentative siegeMissionRepresentative = ...;
+siegeMissionRepresentative.OnAgentSpawned();
+```
 
 ### GetGoldGainsFromKillDataAndUpdateFlags
 `public int GetGoldGainsFromKillDataAndUpdateFlags(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isRanged, bool isFriendly)`
 
-**Purpose:** Gets the current value of `gold gains from kill data and update flags`.
+**Purpose:** Reads and returns the `gold gains from kill data and update flags` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeMissionRepresentative from the subsystem API first
+SiegeMissionRepresentative siegeMissionRepresentative = ...;
+var result = siegeMissionRepresentative.GetGoldGainsFromKillDataAndUpdateFlags(killerPerkHandler, assistingHitterPerkHandler, victimClass, false, false, false);
+```
 
 ### GetGoldGainsFromObjectiveAssist
 `public int GetGoldGainsFromObjectiveAssist(GameEntity objectiveMostParentEntity, float contributionRatio, bool isCompleted)`
 
-**Purpose:** Gets the current value of `gold gains from objective assist`.
+**Purpose:** Reads and returns the `gold gains from objective assist` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeMissionRepresentative from the subsystem API first
+SiegeMissionRepresentative siegeMissionRepresentative = ...;
+var result = siegeMissionRepresentative.GetGoldGainsFromObjectiveAssist(objectiveMostParentEntity, 0, false);
+```
 
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**Purpose:** Gets the current value of `gold gains from ally death reward`.
+**Purpose:** Reads and returns the `gold gains from ally death reward` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeMissionRepresentative from the subsystem API first
+SiegeMissionRepresentative siegeMissionRepresentative = ...;
+var result = siegeMissionRepresentative.GetGoldGainsFromAllyDeathReward(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeMissionRepresentative();
-value.OnAgentSpawned();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeMissionRepresentative siegeMissionRepresentative = ...;
+siegeMissionRepresentative.OnAgentSpawned();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SpanishTextProcessor"
+description: "Auto-generated class reference for SpanishTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpanishTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpanishTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
 **Module:** TaleWorlds.Localization
 **Type:** `public class SpanishTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor.LanguageProcessors/SpanishTextProcessor.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor.LanguageProcessors/SpanishTextProcessor.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpanishTextProcessor from the subsystem API first
+SpanishTextProcessor spanishTextProcessor = ...;
+spanishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of SpanishTextProcessor from the subsystem API first
+SpanishTextProcessor spanishTextProcessor = ...;
+spanishTextProcessor.ClearTemporaryData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpanishTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+SpanishTextProcessor spanishTextProcessor = ...;
+spanishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

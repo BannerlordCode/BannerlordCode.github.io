@@ -1,20 +1,14 @@
 ---
 title: "MissionFlagMarkerTargetVM"
+description: "Auto-generated class reference for MissionFlagMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionFlagMarkerTargetVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFlagMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionFlagMarkerTargetVM : MissionMarkerTargetVM`
 **Base:** `MissionMarkerTargetVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionFlagMarkerTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionFlagMarkerTargetVM.cs`
 
 ## Overview
 
@@ -40,25 +34,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### UpdateScreenPosition
 `public override void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `screen position`.
+**Purpose:** Recalculates and stores the latest representation of `screen position`.
+
+```csharp
+// Obtain an instance of MissionFlagMarkerTargetVM from the subsystem API first
+MissionFlagMarkerTargetVM missionFlagMarkerTargetVM = ...;
+missionFlagMarkerTargetVM.UpdateScreenPosition(missionCamera);
+```
 
 ### OnOwnerChanged
 `public void OnOwnerChanged(Team team)`
 
-**Purpose:** Called when the `owner changed` event is raised.
+**Purpose:** Invoked when the `owner changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionFlagMarkerTargetVM from the subsystem API first
+MissionFlagMarkerTargetVM missionFlagMarkerTargetVM = ...;
+missionFlagMarkerTargetVM.OnOwnerChanged(team);
+```
 
 ### OnRemainingMoraleChanged
 `public void OnRemainingMoraleChanged(int remainingMorale)`
 
-**Purpose:** Called when the `remaining morale changed` event is raised.
+**Purpose:** Invoked when the `remaining morale changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionFlagMarkerTargetVM from the subsystem API first
+MissionFlagMarkerTargetVM missionFlagMarkerTargetVM = ...;
+missionFlagMarkerTargetVM.OnRemainingMoraleChanged(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionFlagMarkerTargetVM();
-value.UpdateScreenPosition(missionCamera);
+// Typically call this after obtaining an instance from the subsystem API
+MissionFlagMarkerTargetVM missionFlagMarkerTargetVM = ...;
+missionFlagMarkerTargetVM.UpdateScreenPosition(missionCamera);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

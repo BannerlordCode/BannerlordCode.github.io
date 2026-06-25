@@ -1,18 +1,12 @@
 ---
 title: "IClientSessionProvider"
+description: "IClientSessionProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IClientSessionProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IClientSessionProvider
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public interface IClientSessionProvider<T>`
 **Base:** 无
 **File:** `TaleWorlds.Diamond/IClientSessionProvider.cs`
 
@@ -27,9 +21,10 @@ title: "IClientSessionProvider"
 ## 使用示例
 
 ```csharp
-IClientSessionProvider implementation = GetClientSessionProviderImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIClientSessionProvider service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

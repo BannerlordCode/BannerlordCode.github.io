@@ -1,13 +1,7 @@
 ---
 title: "SandBoxHelpers"
+description: "Auto-generated class reference for SandBoxHelpers."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxHelpers`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxHelpers
 
 **Namespace:** SandBox
@@ -29,67 +23,132 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### FollowAgent
 `public static void FollowAgent(Agent agent, Agent target)`
 
-**Purpose:** Handles logic related to `follow agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.FollowAgent(agent, target);
+```
 
 ### UnfollowAgent
 `public static void UnfollowAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `unfollow agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.UnfollowAgent(agent);
+```
 
 ### FadeOutAgents
 `public static void FadeOutAgents(IEnumerable<Agent> agents, bool hideInstantly, bool hideMount)`
 
-**Purpose:** Handles logic related to `fade out agents`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.FadeOutAgents(agents, false, false);
+```
 
 ### DisableGenericMissionEventScript
 `public static void DisableGenericMissionEventScript(string triggeringObjectTag, GenericMissionEvent missionEvent)`
 
-**Purpose:** Handles logic related to `disable generic mission event script`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.DisableGenericMissionEventScript("example", missionEvent);
+```
 
 ### SpawnPlayer
 `public static void SpawnPlayer(bool civilianEquipment = false, bool noHorses = false, bool noWeapon = false, bool wieldInitialWeapons = false, string spawnTag = "")`
 
-**Purpose:** Handles logic related to `spawn player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.SpawnPlayer(false, false, false, false, "example");
+```
 
 ### SpawnPlayer
 `public static void SpawnPlayer(GameEntity spawnPosition, bool civilianEquipment = false, bool noHorses = false, bool noWeapon = false, bool wieldInitialWeapons = false)`
 
-**Purpose:** Handles logic related to `spawn player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.SpawnPlayer(spawnPosition, false, false, false, false);
+```
 
 ### SpawnHorses
 `public static List<Agent> SpawnHorses()`
 
-**Purpose:** Handles logic related to `spawn horses`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.SpawnHorses();
+```
 
 ### SpawnSheeps
 `public static void SpawnSheeps()`
 
-**Purpose:** Handles logic related to `spawn sheeps`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.SpawnSheeps();
+```
 
 ### SpawnCows
 `public static void SpawnCows()`
 
-**Purpose:** Handles logic related to `spawn cows`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.SpawnCows();
+```
 
 ### SpawnGeese
 `public static void SpawnGeese()`
 
-**Purpose:** Handles logic related to `spawn geese`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.SpawnGeese();
+```
 
 ### SpawnChicken
 `public static void SpawnChicken()`
 
-**Purpose:** Handles logic related to `spawn chicken`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.SpawnChicken();
+```
 
 ### SpawnHogs
 `public static void SpawnHogs()`
 
-**Purpose:** Handles logic related to `spawn hogs`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.SpawnHogs();
+```
 
 ### GetRegionMapping
 `public static bool GetRegionMapping(PartyNavigationModel model)`
 
-**Purpose:** Gets the current value of `region mapping`.
+**Purpose:** Reads and returns the `region mapping` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxHelpers.GetRegionMapping(model);
+```
 
 ## Usage Example
 
@@ -99,4 +158,4 @@ SandBoxHelpers.FollowAgent(agent, target);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

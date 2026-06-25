@@ -1,20 +1,14 @@
 ---
 title: "MapPartyNameplateView"
+description: "Auto-generated class reference for MapPartyNameplateView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapPartyNameplateView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapPartyNameplateView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapPartyNameplateView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapPartyNameplateView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapPartyNameplateView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MapPartyNameplateView` as a View-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var view = new MapPartyNameplateView();
+// Retrieve this view from the subsystem API or scene
+MapPartyNameplateView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

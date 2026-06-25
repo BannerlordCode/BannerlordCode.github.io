@@ -1,13 +1,7 @@
 ---
 title: "BattleTypes"
+description: "Auto-generated class reference for BattleTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleTypes`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleTypes
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ## Usage Example
 
 ```csharp
-BattleTypes example = BattleTypes.Value;
+// Obtain an instance from the relevant subsystem API
+BattleTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

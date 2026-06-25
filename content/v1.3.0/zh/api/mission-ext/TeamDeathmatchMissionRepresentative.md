@@ -1,13 +1,7 @@
 ---
 title: "TeamDeathmatchMissionRepresentative"
+description: "TeamDeathmatchMissionRepresentative 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamDeathmatchMissionRepresentative`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamDeathmatchMissionRepresentative
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionRepresentatives
@@ -29,25 +23,44 @@ title: "TeamDeathmatchMissionRepresentative"
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**用途 / Purpose:** 当 `agent spawned` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent spawned」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchMissionRepresentative 实例
+TeamDeathmatchMissionRepresentative teamDeathmatchMissionRepresentative = ...;
+teamDeathmatchMissionRepresentative.OnAgentSpawned();
+```
 
 ### GetGoldGainsFromKillDataAndUpdateFlags
 `public int GetGoldGainsFromKillDataAndUpdateFlags(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isRanged, bool isFriendly)`
 
-**用途 / Purpose:** 获取 `gold gains from kill data and update flags` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold gains from kill data and update flags」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchMissionRepresentative 实例
+TeamDeathmatchMissionRepresentative teamDeathmatchMissionRepresentative = ...;
+var result = teamDeathmatchMissionRepresentative.GetGoldGainsFromKillDataAndUpdateFlags(killerPerkHandler, assistingHitterPerkHandler, victimClass, false, false, false);
+```
 
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**用途 / Purpose:** 获取 `gold gains from ally death reward` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold gains from ally death reward」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchMissionRepresentative 实例
+TeamDeathmatchMissionRepresentative teamDeathmatchMissionRepresentative = ...;
+var result = teamDeathmatchMissionRepresentative.GetGoldGainsFromAllyDeathReward(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamDeathmatchMissionRepresentative();
-value.OnAgentSpawned();
+// 通常从对应子系统 API 获取实例后调用
+TeamDeathmatchMissionRepresentative teamDeathmatchMissionRepresentative = ...;
+teamDeathmatchMissionRepresentative.OnAgentSpawned();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

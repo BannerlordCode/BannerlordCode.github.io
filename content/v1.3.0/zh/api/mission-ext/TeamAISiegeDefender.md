@@ -1,13 +1,7 @@
 ---
 title: "TeamAISiegeDefender"
+description: "TeamAISiegeDefender 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamAISiegeDefender`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamAISiegeDefender
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ title: "TeamAISiegeDefender"
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**用途 / Purpose:** 当 `unit added to formation for the first time` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unit added to formation for the first time」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAISiegeDefender 实例
+TeamAISiegeDefender teamAISiegeDefender = ...;
+teamAISiegeDefender.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAISiegeDefender 实例
+TeamAISiegeDefender teamAISiegeDefender = ...;
+teamAISiegeDefender.OnDeploymentFinished();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamAISiegeDefender();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// 通常从对应子系统 API 获取实例后调用
+TeamAISiegeDefender teamAISiegeDefender = ...;
+teamAISiegeDefender.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ScreenFadeController"
+description: "ScreenFadeController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScreenFadeController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScreenFadeController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ScreenFadeController`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScreenFadeController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScreenFadeController.cs`
 
 ## 概述
 
@@ -38,22 +32,42 @@ title: "ScreenFadeController"
 ### RegisterHandler
 `public static void RegisterHandler(IScreenFadeHandler handler)`
 
-**用途 / Purpose:** 处理 `register handler` 相关逻辑。
+**用途 / Purpose:** 将「handler」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 静态调用，不需要实例
+ScreenFadeController.RegisterHandler(handler);
+```
 
 ### BeginFadeOutAndIn
 `public static void BeginFadeOutAndIn(float fadeOutDuration = 0.5f, float blackOutDuration = 0.5f, float fadeInDuration = 0.5f)`
 
-**用途 / Purpose:** 处理 `begin fade out and in` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ScreenFadeController.BeginFadeOutAndIn(0, 0, 0);
+```
 
 ### BeginFadeOut
 `public static void BeginFadeOut(float fadeOutDuration = 0.5f)`
 
-**用途 / Purpose:** 处理 `begin fade out` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ScreenFadeController.BeginFadeOut(0);
+```
 
 ### BeginFadeIn
 `public static void BeginFadeIn(float fadeInDuration = 0.5f)`
 
-**用途 / Purpose:** 处理 `begin fade in` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ScreenFadeController.BeginFadeIn(0);
+```
 
 ## 使用示例
 
@@ -63,4 +77,4 @@ var controller = Mission.Current.GetMissionBehavior<ScreenFadeController>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

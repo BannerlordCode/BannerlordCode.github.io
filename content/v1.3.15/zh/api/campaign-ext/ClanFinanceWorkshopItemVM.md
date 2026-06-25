@@ -1,13 +1,7 @@
 ---
 title: "ClanFinanceWorkshopItemVM"
+description: "ClanFinanceWorkshopItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanFinanceWorkshopItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanFinanceWorkshopItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance
@@ -53,40 +47,77 @@ title: "ClanFinanceWorkshopItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.RefreshValues();
+```
 
 ### ExecuteToggleWarehouseUsage
 `public void ExecuteToggleWarehouseUsage()`
 
-**用途 / Purpose:** 执行 `toggle warehouse usage` 操作或流程。
+**用途 / Purpose:** 执行 「toggle warehouse usage」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.ExecuteToggleWarehouseUsage();
+```
 
 ### ExecuteBeginWorkshopHint
 `public void ExecuteBeginWorkshopHint()`
 
-**用途 / Purpose:** 执行 `begin workshop hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin workshop hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.ExecuteBeginWorkshopHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.ExecuteEndHint();
+```
 
 ### OnStoreOutputInWarehousePercentageUpdated
 `public void OnStoreOutputInWarehousePercentageUpdated(SelectorVM<WorkshopPercentageSelectorItemVM> selector)`
 
-**用途 / Purpose:** 当 `store output in warehouse percentage updated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「store output in warehouse percentage updated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.OnStoreOutputInWarehousePercentageUpdated(selector);
+```
 
 ### ExecuteManageWorkshop
 `public void ExecuteManageWorkshop()`
 
-**用途 / Purpose:** 执行 `manage workshop` 操作或流程。
+**用途 / Purpose:** 执行 「manage workshop」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.ExecuteManageWorkshop();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanFinanceWorkshopItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

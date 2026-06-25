@@ -1,13 +1,7 @@
 ---
 title: "DefaultSceneModel"
+description: "Auto-generated class reference for DefaultSceneModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSceneModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultSceneModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,12 +23,24 @@ Treat `DefaultSceneModel` as a Model-style extension point: first identify who c
 ### GetBattleSceneForMapPatch
 `public override string GetBattleSceneForMapPatch(MapPatchData mapPatch, bool isNavalEncounter)`
 
-**Purpose:** Gets the current value of `battle scene for map patch`.
+**Purpose:** Reads and returns the `battle scene for map patch` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSceneModel from the subsystem API first
+DefaultSceneModel defaultSceneModel = ...;
+var result = defaultSceneModel.GetBattleSceneForMapPatch(mapPatch, false);
+```
 
 ### GetConversationSceneForMapPosition
 `public override string GetConversationSceneForMapPosition(CampaignVec2 campaignPosition)`
 
-**Purpose:** Gets the current value of `conversation scene for map position`.
+**Purpose:** Reads and returns the `conversation scene for map position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSceneModel from the subsystem API first
+DefaultSceneModel defaultSceneModel = ...;
+var result = defaultSceneModel.GetConversationSceneForMapPosition(campaignPosition);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultSceneModel>(new MyDefaultSceneModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

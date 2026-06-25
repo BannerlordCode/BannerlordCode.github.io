@@ -1,13 +1,7 @@
 ---
 title: "UserGameTypeData"
+description: "Auto-generated class reference for UserGameTypeData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UserGameTypeData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UserGameTypeData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
@@ -33,9 +27,10 @@ Treat `UserGameTypeData` as a Data-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-var value = new UserGameTypeData();
+// This data object is usually returned by campaign/mission APIs
+UserGameTypeData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

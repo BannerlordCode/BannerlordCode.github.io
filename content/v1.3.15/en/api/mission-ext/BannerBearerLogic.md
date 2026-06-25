@@ -1,206 +1,420 @@
 ---
 title: "BannerBearerLogic"
+description: "Auto-generated class reference for BannerBearerLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerBearerLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerBearerLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** public class BannerBearerLogic : MissionLogic
+**Type:** `public class BannerBearerLogic : MissionLogic`
 **Base:** `MissionLogic`
 **File:** `TaleWorlds.MountAndBlade/BannerBearerLogic.cs`
 
 ## Overview
 
-`BannerBearerLogic` tracks formation banners — which agent carries each, whether a banner is on the ground, and lets you find the active banner for a formation (`GetActiveBanner`, `HasBannerOnGround`). Use it to query or manipulate banner-bearer state in siege/battle missions.
+`BannerBearerLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
 
 ## Mental Model
 
-Treat `BannerBearerLogic` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `BannerBearerLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `HasBanner` | `public bool HasBanner { get { return this.BannerItem != null; }` |
-| `NumberOfBanners` | `public int NumberOfBanners { get { return this._bannerInstances.Count; }` |
-| `BannerSearchDistance` | `public static float BannerSearchDistance { get { return 9f; }` |
-| `IsOnGround` | `public bool IsOnGround { get { return this.State == BannerBearerLogic.FormationBannerController.BannerState.OnGround; }` |
-| `IsOnAgent` | `public bool IsOnAgent { get { return this.State == BannerBearerLogic.FormationBannerController.BannerState.OnAgent; }` |
+| `AgentSpawnLogic` | `public IMissionAgentSpawnLogic AgentSpawnLogic { get; }` |
+| `Formation` | `public Formation Formation { get; }` |
+| `BannerItem` | `public ItemObject BannerItem { get; }` |
+| `HasBanner` | `public bool HasBanner { get; }` |
+| `BannerBearers` | `public List<Agent> BannerBearers { get; }` |
+| `BannersOnGround` | `public List<GameEntity> BannersOnGround { get; }` |
+| `NumberOfBannerBearers` | `public int NumberOfBannerBearers { get; }` |
+| `NumberOfBanners` | `public int NumberOfBanners { get; }` |
+| `BannerSearchDistance` | `public static float BannerSearchDistance { get; }` |
+| `IsOnGround` | `public bool IsOnGround { get; }` |
+| `IsOnAgent` | `public bool IsOnAgent { get; }` |
 
 ## Key Methods
 
 ### IsFormationBanner
+`public bool IsFormationBanner(Formation formation, SpawnedItemEntity spawnedItem)`
+
+**Purpose:** Determines whether the current object is in the `formation banner` state or condition.
+
 ```csharp
-public bool IsFormationBanner(Formation formation, SpawnedItemEntity spawnedItem)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.IsFormationBanner(formation, spawnedItem);
 ```
 
 ### HasBannerOnGround
+`public bool HasBannerOnGround(Formation formation)`
+
+**Purpose:** Determines whether the current object already holds `banner on ground`.
+
 ```csharp
-public bool HasBannerOnGround(Formation formation)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.HasBannerOnGround(formation);
 ```
 
 ### GetActiveBanner
+`public BannerComponent GetActiveBanner(Formation formation)`
+
+**Purpose:** Reads and returns the `active banner` value held by the current object.
+
 ```csharp
-public BannerComponent GetActiveBanner(Formation formation)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.GetActiveBanner(formation);
 ```
 
 ### GetFormationBannerBearers
+`public List<Agent> GetFormationBannerBearers(Formation formation)`
+
+**Purpose:** Reads and returns the `formation banner bearers` value held by the current object.
+
 ```csharp
-public List<Agent> GetFormationBannerBearers(Formation formation)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.GetFormationBannerBearers(formation);
 ```
 
 ### GetFormationBanner
+`public ItemObject GetFormationBanner(Formation formation)`
+
+**Purpose:** Reads and returns the `formation banner` value held by the current object.
+
 ```csharp
-public ItemObject GetFormationBanner(Formation formation)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.GetFormationBanner(formation);
 ```
 
 ### IsBannerSearchingAgent
+`public bool IsBannerSearchingAgent(Agent agent)`
+
+**Purpose:** Determines whether the current object is in the `banner searching agent` state or condition.
+
 ```csharp
-public bool IsBannerSearchingAgent(Agent agent)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.IsBannerSearchingAgent(agent);
 ```
 
 ### GetMissingBannerCount
+`public int GetMissingBannerCount(Formation formation)`
+
+**Purpose:** Reads and returns the `missing banner count` value held by the current object.
+
 ```csharp
-public int GetMissingBannerCount(Formation formation)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.GetMissingBannerCount(formation);
 ```
 
 ### GetFormationFromBanner
+`public Formation GetFormationFromBanner(SpawnedItemEntity spawnedItem)`
+
+**Purpose:** Reads and returns the `formation from banner` value held by the current object.
+
 ```csharp
-public Formation GetFormationFromBanner(SpawnedItemEntity spawnedItem)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.GetFormationFromBanner(spawnedItem);
 ```
 
 ### SetFormationBanner
+`public void SetFormationBanner(Formation formation, ItemObject newBanner)`
+
+**Purpose:** Assigns a new value to `formation banner` and updates the object's internal state.
+
 ```csharp
-public void SetFormationBanner(Formation formation, ItemObject newBanner)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.SetFormationBanner(formation, newBanner);
 ```
 
 ### OnBehaviorInitialize
+`public override void OnBehaviorInitialize()`
+
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
 ```csharp
-public override void OnBehaviorInitialize()
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnBehaviorInitialize();
 ```
 
 ### OnDeploymentFinished
+`public override void OnDeploymentFinished()`
+
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
 ```csharp
-public override void OnDeploymentFinished()
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnDeploymentFinished();
 ```
 
 ### OnMissionTick
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Invoked when the `mission tick` event is raised.
+
 ```csharp
-public override void OnMissionTick(float dt)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnMissionTick(0);
 ```
 
 ### OnItemPickup
+`public void OnItemPickup(Agent agent, SpawnedItemEntity spawnedItem)`
+
+**Purpose:** Invoked when the `item pickup` event is raised.
+
 ```csharp
-public void OnItemPickup(Agent agent, SpawnedItemEntity spawnedItem)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnItemPickup(agent, spawnedItem);
 ```
 
 ### OnItemDrop
+`public void OnItemDrop(Agent agent, SpawnedItemEntity spawnedItem)`
+
+**Purpose:** Invoked when the `item drop` event is raised.
+
 ```csharp
-public void OnItemDrop(Agent agent, SpawnedItemEntity spawnedItem)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnItemDrop(agent, spawnedItem);
 ```
 
 ### OnAgentRemoved
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
+
+**Purpose:** Invoked when the `agent removed` event is raised.
+
 ```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
 ```
 
 ### OnAgentPanicked
+`public override void OnAgentPanicked(Agent affectedAgent)`
+
+**Purpose:** Invoked when the `agent panicked` event is raised.
+
 ```csharp
-public override void OnAgentPanicked(Agent affectedAgent)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnAgentPanicked(affectedAgent);
 ```
 
 ### UpdateAgent
+`public void UpdateAgent(Agent agent, bool willBecomeBannerBearer)`
+
+**Purpose:** Recalculates and stores the latest representation of `agent`.
+
 ```csharp
-public void UpdateAgent(Agent agent, bool willBecomeBannerBearer)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.UpdateAgent(agent, false);
 ```
 
 ### SpawnBannerBearer
+`public Agent SpawnBannerBearer(IAgentOriginBase troopOrigin, bool isPlayerSide, Formation formation, bool spawnWithHorse, bool isReinforcement, int formationTroopCount, int formationTroopIndex, bool isAlarmed, bool wieldInitialWeapons, bool forceDismounted, Vec3? initialPosition, Vec2? initialDirection, string specialActionSetSuffix = null, bool useTroopClassForSpawn = false)`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public Agent SpawnBannerBearer(IAgentOriginBase troopOrigin, bool isPlayerSide, Formation formation, bool spawnWithHorse, bool isReinforcement, int formationTroopCount, int formationTroopIndex, bool isAlarmed, bool wieldInitialWeapons, bool forceDismounted, Vec3? initialPosition, Vec2? initialDirection, string specialActionSetSuffix = null, bool useTroopClassForSpawn = false)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.SpawnBannerBearer(troopOrigin, false, formation, false, false, 0, 0, false, false, false, initialPosition, initialDirection, "example", false);
 ```
 
 ### IsBannerItem
+`public static bool IsBannerItem(ItemObject item)`
+
+**Purpose:** Determines whether the current object is in the `banner item` state or condition.
+
 ```csharp
-public static bool IsBannerItem(ItemObject item)
+// Static call; no instance required
+BannerBearerLogic.IsBannerItem(item);
 ```
 
 ### SetBannerItem
+`public void SetBannerItem(ItemObject bannerItem)`
+
+**Purpose:** Assigns a new value to `banner item` and updates the object's internal state.
+
 ```csharp
-public void SetBannerItem(ItemObject bannerItem)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.SetBannerItem(bannerItem);
 ```
 
 ### HasBannerEntity
+`public bool HasBannerEntity(GameEntity bannerEntity)`
+
+**Purpose:** Determines whether the current object already holds `banner entity`.
+
 ```csharp
-public bool HasBannerEntity(GameEntity bannerEntity)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.HasBannerEntity(bannerEntity);
 ```
 
 ### HasBannerOnGround
+`public bool HasBannerOnGround()`
+
+**Purpose:** Determines whether the current object already holds `banner on ground`.
+
 ```csharp
-public bool HasBannerOnGround()
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.HasBannerOnGround();
 ```
 
 ### HasActiveBannerBearers
+`public bool HasActiveBannerBearers()`
+
+**Purpose:** Determines whether the current object already holds `active banner bearers`.
+
 ```csharp
-public bool HasActiveBannerBearers()
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.HasActiveBannerBearers();
 ```
 
 ### IsBannerSearchingAgent
+`public bool IsBannerSearchingAgent(Agent agent)`
+
+**Purpose:** Determines whether the current object is in the `banner searching agent` state or condition.
+
 ```csharp
-public bool IsBannerSearchingAgent(Agent agent)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.IsBannerSearchingAgent(agent);
 ```
 
 ### GetNumberOfActiveBannerBearers
+`public int GetNumberOfActiveBannerBearers()`
+
+**Purpose:** Reads and returns the `number of active banner bearers` value held by the current object.
+
 ```csharp
-public int GetNumberOfActiveBannerBearers()
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+var result = bannerBearerLogic.GetNumberOfActiveBannerBearers();
 ```
 
 ### UpdateAgentStats
+`public void UpdateAgentStats(bool forceUpdate = false)`
+
+**Purpose:** Recalculates and stores the latest representation of `agent stats`.
+
 ```csharp
-public void UpdateAgentStats(bool forceUpdate = false)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.UpdateAgentStats(false);
 ```
 
 ### UpdateBannerSearchers
+`public void UpdateBannerSearchers()`
+
+**Purpose:** Recalculates and stores the latest representation of `banner searchers`.
+
 ```csharp
-public void UpdateBannerSearchers()
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.UpdateBannerSearchers();
 ```
 
 ### UpdateBannerBearersForDeployment
+`public void UpdateBannerBearersForDeployment()`
+
+**Purpose:** Recalculates and stores the latest representation of `banner bearers for deployment`.
+
 ```csharp
-public void UpdateBannerBearersForDeployment()
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.UpdateBannerBearersForDeployment();
 ```
 
 ### AddBannerEntity
+`public void AddBannerEntity(GameEntity entity)`
+
+**Purpose:** Adds `banner entity` to the current collection or state.
+
 ```csharp
-public void AddBannerEntity(GameEntity entity)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.AddBannerEntity(entity);
 ```
 
 ### RemoveBannerEntity
+`public void RemoveBannerEntity(WeakGameEntity entity)`
+
+**Purpose:** Removes `banner entity` from the current collection or state.
+
 ```csharp
-public void RemoveBannerEntity(WeakGameEntity entity)
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.RemoveBannerEntity(entity);
+```
+
+### OnBannerEntityPickedUp
+`public void OnBannerEntityPickedUp(GameEntity entity, Agent agent)`
+
+**Purpose:** Invoked when the `banner entity picked up` event is raised.
+
+```csharp
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnBannerEntityPickedUp(entity, agent);
+```
+
+### OnBannerEntityDropped
+`public void OnBannerEntityDropped(GameEntity entity)`
+
+**Purpose:** Invoked when the `banner entity dropped` event is raised.
+
+```csharp
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnBannerEntityDropped(entity);
+```
+
+### OnBeforeFormationMovementOrderApplied
+`public void OnBeforeFormationMovementOrderApplied(Formation formation, MovementOrder.MovementOrderEnum orderType)`
+
+**Purpose:** Invoked when the `before formation movement order applied` event is raised.
+
+```csharp
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnBeforeFormationMovementOrderApplied(formation, orderType);
+```
+
+### OnAfterArrangementOrderApplied
+`public void OnAfterArrangementOrderApplied(Formation formation, ArrangementOrder.ArrangementOrderEnum orderEnum)`
+
+**Purpose:** Invoked when the `after arrangement order applied` event is raised.
+
+```csharp
+// Obtain an instance of BannerBearerLogic from the subsystem API first
+BannerBearerLogic bannerBearerLogic = ...;
+bannerBearerLogic.OnAfterArrangementOrderApplied(formation, orderEnum);
 ```
 
 ## Usage Example
 
 ```csharp
-// Report each formation's banner status
-var bearerLogic = Mission.Current.GetMissionBehavior<BannerBearerLogic>();
-foreach (Formation f in Mission.Current.PlayerTeam.Formations)
-{
-    if (!bearerLogic.IsFormationBanner(f)) continue;
-    bool onAgent = bearerLogic.IsOnAgent;
-    bool onGround = bearerLogic.HasBannerOnGround(f);
-    InformationManager.DisplayMessage(new InformationMessage(
-        $"{f.CountOfUnits} units — banner {(onAgent ? "held" : onGround ? "on ground" : "none")}"));
-}
+var behavior = Mission.Current.GetMissionBehavior<BannerBearerLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

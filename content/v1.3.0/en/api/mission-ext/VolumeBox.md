@@ -1,13 +1,7 @@
 ---
 title: "VolumeBox"
+description: "Auto-generated class reference for VolumeBox."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VolumeBox`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VolumeBox
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -31,38 +25,75 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Adds `to check list` to the current collection or state.
 
+```csharp
+// Obtain an instance of VolumeBox from the subsystem API first
+VolumeBox volumeBox = ...;
+volumeBox.AddToCheckList(agent);
+```
+
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
 **Purpose:** Removes `from check list` from the current collection or state.
 
+```csharp
+// Obtain an instance of VolumeBox from the subsystem API first
+VolumeBox volumeBox = ...;
+volumeBox.RemoveFromCheckList(agent);
+```
+
 ### SetIsOccupiedDelegate
 `public void SetIsOccupiedDelegate(VolumeBox.VolumeBoxDelegate volumeBoxDelegate)`
 
-**Purpose:** Sets the value or state of `is occupied delegate`.
+**Purpose:** Assigns a new value to `is occupied delegate` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VolumeBox from the subsystem API first
+VolumeBox volumeBox = ...;
+volumeBox.SetIsOccupiedDelegate(volumeBoxDelegate);
+```
 
 ### HasAgentsInAttackerSide
 `public bool HasAgentsInAttackerSide()`
 
-**Purpose:** Checks whether the current object has/contains `agents in attacker side`.
+**Purpose:** Determines whether the current object already holds `agents in attacker side`.
+
+```csharp
+// Obtain an instance of VolumeBox from the subsystem API first
+VolumeBox volumeBox = ...;
+var result = volumeBox.HasAgentsInAttackerSide();
+```
 
 ### IsPointIn
 `public bool IsPointIn(Vec3 point)`
 
-**Purpose:** Handles logic related to `is point in`.
+**Purpose:** Determines whether the current object is in the `point in` state or condition.
+
+```csharp
+// Obtain an instance of VolumeBox from the subsystem API first
+VolumeBox volumeBox = ...;
+var result = volumeBox.IsPointIn(point);
+```
 
 ### VolumeBoxDelegate
 `public delegate void VolumeBoxDelegate(VolumeBox volumeBox, List<Agent> agentsInVolume)`
 
-**Purpose:** Handles logic related to `volume box delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VolumeBox from the subsystem API first
+VolumeBox volumeBox = ...;
+volumeBox.VolumeBoxDelegate(volumeBox, agentsInVolume);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VolumeBox();
-value.AddToCheckList(agent);
+// Typically call this after obtaining an instance from the subsystem API
+VolumeBox volumeBox = ...;
+volumeBox.AddToCheckList(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

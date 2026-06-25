@@ -1,13 +1,7 @@
 ---
 title: "ProposeCallToWarOfferNotificationItemVM"
+description: "Auto-generated class reference for ProposeCallToWarOfferNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProposeCallToWarOfferNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ProposeCallToWarOfferNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ProposeCallToWarOfferNotificationItemVM from the subsystem API first
+ProposeCallToWarOfferNotificationItemVM proposeCallToWarOfferNotificationItemVM = ...;
+proposeCallToWarOfferNotificationItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProposeCallToWarOfferNotificationItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+ProposeCallToWarOfferNotificationItemVM proposeCallToWarOfferNotificationItemVM = ...;
+proposeCallToWarOfferNotificationItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

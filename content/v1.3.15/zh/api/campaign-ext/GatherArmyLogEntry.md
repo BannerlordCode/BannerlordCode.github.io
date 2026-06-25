@@ -1,13 +1,7 @@
 ---
 title: "GatherArmyLogEntry"
+description: "GatherArmyLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GatherArmyLogEntry`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GatherArmyLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -36,20 +30,33 @@ title: "GatherArmyLogEntry"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 GatherArmyLogEntry 实例
+GatherArmyLogEntry gatherArmyLogEntry = ...;
+var result = gatherArmyLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 获取 `notification text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GatherArmyLogEntry 实例
+GatherArmyLogEntry gatherArmyLogEntry = ...;
+var result = gatherArmyLogEntry.GetNotificationText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GatherArmyLogEntry();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+GatherArmyLogEntry gatherArmyLogEntry = ...;
+gatherArmyLogEntry.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionBattleSchedulerClientComponent"
+description: "MissionBattleSchedulerClientComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBattleSchedulerClientComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBattleSchedulerClientComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBattleSchedulerClientComponent : MissionLobbyComponent`
 **Base:** `MissionLobbyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBattleSchedulerClientComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBattleSchedulerClientComponent.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "MissionBattleSchedulerClientComponent"
 ### QuitMission
 `public override void QuitMission()`
 
-**用途 / Purpose:** 处理 `quit mission` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleSchedulerClientComponent 实例
+MissionBattleSchedulerClientComponent missionBattleSchedulerClientComponent = ...;
+missionBattleSchedulerClientComponent.QuitMission();
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var component = agent.GetComponent<MissionBattleSchedulerClientComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

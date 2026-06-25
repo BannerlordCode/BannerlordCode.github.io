@@ -1,13 +1,7 @@
 ---
 title: "ClassLoadoutTroopTupleCultureColorBrushWidget"
+description: "Auto-generated class reference for ClassLoadoutTroopTupleCultureColorBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClassLoadoutTroopTupleCultureColorBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClassLoadoutTroopTupleCultureColorBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
@@ -33,9 +27,10 @@ Treat `ClassLoadoutTroopTupleCultureColorBrushWidget` as a Widget-style extensio
 ## Usage Example
 
 ```csharp
-var widget = new ClassLoadoutTroopTupleCultureColorBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClassLoadoutTroopTupleCultureColorBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

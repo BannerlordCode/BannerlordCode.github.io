@@ -1,13 +1,7 @@
 ---
 title: "SteamPlatformServices"
+description: "Auto-generated class reference for SteamPlatformServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamPlatformServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SteamPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService.Steam
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ### ClearAvatarCache
 `public void ClearAvatarCache()`
 
-**Purpose:** Handles logic related to `clear avatar cache`.
+**Purpose:** Removes all `avatar cache` from the current object.
+
+```csharp
+// Obtain an instance of SteamPlatformServices from the subsystem API first
+SteamPlatformServices steamPlatformServices = ...;
+steamPlatformServices.ClearAvatarCache();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SteamPlatformServices();
-value.ClearAvatarCache();
+// Typically call this after obtaining an instance from the subsystem API
+SteamPlatformServices steamPlatformServices = ...;
+steamPlatformServices.ClearAvatarCache();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

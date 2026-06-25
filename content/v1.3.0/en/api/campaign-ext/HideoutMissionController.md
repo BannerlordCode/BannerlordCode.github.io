@@ -1,13 +1,7 @@
 ---
 title: "HideoutMissionController"
+description: "Auto-generated class reference for HideoutMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Hideout
@@ -37,102 +31,220 @@ Treat `HideoutMissionController` as a Controller-style extension point: first id
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.OnCreated();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.OnBehaviorInitialize();
+```
 
 ### OnObjectStoppedBeingUsed
 `public override void OnObjectStoppedBeingUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** Called when the `object stopped being used` event is raised.
+**Purpose:** Invoked when the `object stopped being used` event is raised.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.OnObjectStoppedBeingUsed(userAgent, usedObject);
+```
 
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, Agent.AIStateFlag flag)`
 
-**Purpose:** Called when the `agent alarmed state changed` event is raised.
+**Purpose:** Invoked when the `agent alarmed state changed` event is raised.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.OnAgentAlarmedStateChanged(agent, flag);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `start spawner`.
+**Purpose:** Starts the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.StartSpawner(side);
+```
 
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `stop spawner`.
+**Purpose:** Stops the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.StopSpawner(side);
+```
 
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side spawn enabled`.
+**Purpose:** Determines whether the current object is in the `side spawn enabled` state or condition.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+var result = hideoutMissionController.IsSideSpawnEnabled(side);
+```
 
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**Purpose:** Gets the current value of `reinforcement interval`.
+**Purpose:** Reads and returns the `reinforcement interval` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+var result = hideoutMissionController.GetReinforcementInterval();
+```
 
 ### IsSideDepleted
 `public unsafe bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side depleted`.
+**Purpose:** Determines whether the current object is in the `side depleted` state or condition.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+var result = hideoutMissionController.IsSideDepleted(side);
+```
 
 ### StartBossFightDuelMode
 `public static void StartBossFightDuelMode()`
 
-**Purpose:** Handles logic related to `start boss fight duel mode`.
+**Purpose:** Starts the `boss fight duel mode` flow or state machine.
+
+```csharp
+// Static call; no instance required
+HideoutMissionController.StartBossFightDuelMode();
+```
 
 ### StartBossFightBattleMode
 `public static void StartBossFightBattleMode()`
 
-**Purpose:** Handles logic related to `start boss fight battle mode`.
+**Purpose:** Starts the `boss fight battle mode` flow or state machine.
+
+```csharp
+// Static call; no instance required
+HideoutMissionController.StartBossFightBattleMode();
+```
 
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `all troops for side`.
+**Purpose:** Reads and returns the `all troops for side` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+var result = hideoutMissionController.GetAllTroopsForSide(side);
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+var result = hideoutMissionController.GetNumberOfPlayerControllableTroops();
+```
 
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `spawn horses`.
+**Purpose:** Reads and returns the `spawn horses` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+var result = hideoutMissionController.GetSpawnHorses(side);
+```
 
 ### SpawnTroops
 `public void SpawnTroops(List<CommonAreaMarker> areaMarkers, List<PatrolArea> patrolAreas, Dictionary<Agent, HideoutMissionController.UsedObject> defenderAgentObjects, int spawnCount)`
 
-**Purpose:** Handles logic related to `spawn troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.SpawnTroops(areaMarkers, patrolAreas, dictionary<Agent, defenderAgentObjects, 0);
+```
 
 ### SpawnRemainingTroopsForBossFight
 `public void SpawnRemainingTroopsForBossFight(List<MatrixFrame> spawnFrames, int spawnCount)`
 
-**Purpose:** Handles logic related to `spawn remaining troops for boss fight`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.SpawnRemainingTroopsForBossFight(spawnFrames, 0);
+```
 
 ### SetSpawnTroops
 `public void SetSpawnTroops(bool spawnTroops)`
 
-**Purpose:** Sets the value or state of `spawn troops`.
+**Purpose:** Assigns a new value to `spawn troops` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+hideoutMissionController.SetSpawnTroops(false);
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** Gets the current value of `all troops`.
+**Purpose:** Reads and returns the `all troops` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutMissionController from the subsystem API first
+HideoutMissionController hideoutMissionController = ...;
+var result = hideoutMissionController.GetAllTroops();
+```
 
 ## Usage Example
 
@@ -142,4 +254,4 @@ var controller = Mission.Current.GetMissionBehavior<HideoutMissionController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

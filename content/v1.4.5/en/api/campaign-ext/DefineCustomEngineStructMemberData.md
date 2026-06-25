@@ -1,20 +1,14 @@
 ---
 title: "DefineCustomEngineStructMemberData"
+description: "Auto-generated class reference for DefineCustomEngineStructMemberData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefineCustomEngineStructMemberData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefineCustomEngineStructMemberData
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class DefineCustomEngineStructMemberData : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/DefineCustomEngineStructMemberData.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/DefineCustomEngineStructMemberData.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `DefineCustomEngineStructMemberData` as a Data-style extension point: firs
 ## Usage Example
 
 ```csharp
-var value = new DefineCustomEngineStructMemberData();
+// This data object is usually returned by campaign/mission APIs
+DefineCustomEngineStructMemberData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

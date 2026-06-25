@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerPracticeMissions"
+description: "Auto-generated class reference for MultiplayerPracticeMissions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPracticeMissions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPracticeMissions
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerPracticeMissions`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerPracticeMissions.cs`
 
 ## Overview
 
-`MultiplayerPracticeMissions` lives in `TaleWorlds.MountAndBlade.Multiplayer`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MultiplayerPracticeMissions` lives in `TaleWorlds.MountAndBlade.Multiplayer` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### OpenMultiplayerPracticeMission
 `public static Mission OpenMultiplayerPracticeMission(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, bool isPlayerGeneral, BasicCharacterObject playerSideGeneralCharacter, string sceneLevels = "", string seasonString = "", float timeOfDay = 6f)`
 
-**Purpose:** Handles logic related to `open multiplayer practice mission`.
+**Purpose:** Opens the resource or UI associated with `multiplayer practice mission`.
+
+```csharp
+// Static call; no instance required
+MultiplayerPracticeMissions.OpenMultiplayerPracticeMission("example", playerCharacter, playerParty, enemyParty, false, playerSideGeneralCharacter, "example", "example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MultiplayerPracticeMissions.OpenMultiplayerPracticeMission("example", playerCharacter, playerParty, enemyParty, false, playerSideGeneralCharacter, "example", "example", 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

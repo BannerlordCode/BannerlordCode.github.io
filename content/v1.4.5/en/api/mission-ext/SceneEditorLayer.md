@@ -1,20 +1,14 @@
 ---
 title: "SceneEditorLayer"
+description: "Auto-generated class reference for SceneEditorLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneEditorLayer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneEditorLayer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneEditorLayer : ScreenLayer`
 **Base:** `ScreenLayer`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/SceneEditorLayer.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/SceneEditorLayer.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new SceneEditorLayer();
+// Obtain an instance from the relevant subsystem API
+SceneEditorLayer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

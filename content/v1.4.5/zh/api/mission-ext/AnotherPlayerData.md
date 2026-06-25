@@ -1,20 +1,14 @@
 ---
 title: "AnotherPlayerData"
+description: "AnotherPlayerData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AnotherPlayerData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnotherPlayerData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AnotherPlayerData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AnotherPlayerData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AnotherPlayerData.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "AnotherPlayerData"
 ## 使用示例
 
 ```csharp
-var value = new AnotherPlayerData();
+// 该数据对象通常由战役/任务 API 返回
+AnotherPlayerData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

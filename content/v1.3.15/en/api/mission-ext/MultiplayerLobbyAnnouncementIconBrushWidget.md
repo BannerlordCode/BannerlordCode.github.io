@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyAnnouncementIconBrushWidget"
+description: "Auto-generated class reference for MultiplayerLobbyAnnouncementIconBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyAnnouncementIconBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyAnnouncementIconBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Home
@@ -34,9 +28,10 @@ Treat `MultiplayerLobbyAnnouncementIconBrushWidget` as a Widget-style extension 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyAnnouncementIconBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyAnnouncementIconBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "AsyncRunner"
+description: "AsyncRunner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AsyncRunner`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AsyncRunner
 
 **Namespace:** TaleWorlds.Library
@@ -29,24 +23,43 @@ title: "AsyncRunner"
 ### Run
 `public abstract void Run()`
 
-**用途 / Purpose:** 处理 `run` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AsyncRunner 实例
+AsyncRunner asyncRunner = ...;
+asyncRunner.Run();
+```
 
 ### SyncTick
 `public abstract void SyncTick()`
 
-**用途 / Purpose:** 处理 `sync tick` 相关逻辑。
+**用途 / Purpose:** 将「tick」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 AsyncRunner 实例
+AsyncRunner asyncRunner = ...;
+asyncRunner.SyncTick();
+```
 
 ### OnRemove
 `public abstract void OnRemove()`
 
-**用途 / Purpose:** 当 `remove` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AsyncRunner 实例
+AsyncRunner asyncRunner = ...;
+asyncRunner.OnRemove();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomAsyncRunner();
+// 通常通过子系统 API 或工厂获得派生实例
+AsyncRunner instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

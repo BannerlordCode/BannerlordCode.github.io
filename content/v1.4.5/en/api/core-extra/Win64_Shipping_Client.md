@@ -1,20 +1,14 @@
 ---
 title: "Win64_Shipping_Client"
+description: "Auto-generated class reference for Win64_Shipping_Client."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Win64_Shipping_Client`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Win64_Shipping_Client
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class Win64_Shipping_Client`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFolders.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFolders.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetFileContent
 `public static string GetFileContent(string filePath, Type type = null)`
 
-**Purpose:** Gets the current value of `file content`.
+**Purpose:** Reads and returns the `file content` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Win64_Shipping_Client.GetFileContent("example", null);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ Win64_Shipping_Client.GetFileContent("example", null);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

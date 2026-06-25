@@ -1,13 +1,7 @@
 ---
 title: "GameEntityWithWorldPosition"
+description: "Auto-generated class reference for GameEntityWithWorldPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameEntityWithWorldPosition`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameEntityWithWorldPosition
 
 **Namespace:** TaleWorlds.Engine
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### InvalidateWorldPosition
 `public void InvalidateWorldPosition()`
 
-**Purpose:** Handles logic related to `invalidate world position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameEntityWithWorldPosition from the subsystem API first
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+gameEntityWithWorldPosition.InvalidateWorldPosition();
+```
 
 ### SetCustomLocalFrame
 `public void SetCustomLocalFrame(in MatrixFrame customLocalFrame)`
 
-**Purpose:** Sets the value or state of `custom local frame`.
+**Purpose:** Assigns a new value to `custom local frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameEntityWithWorldPosition from the subsystem API first
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+gameEntityWithWorldPosition.SetCustomLocalFrame(customLocalFrame);
+```
 
 ### GetNavMesh
 `public UIntPtr GetNavMesh()`
 
-**Purpose:** Gets the current value of `nav mesh`.
+**Purpose:** Reads and returns the `nav mesh` value held by the current object.
+
+```csharp
+// Obtain an instance of GameEntityWithWorldPosition from the subsystem API first
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+var result = gameEntityWithWorldPosition.GetNavMesh();
+```
 
 ### GetNavMeshVec3
 `public Vec3 GetNavMeshVec3()`
 
-**Purpose:** Gets the current value of `nav mesh vec3`.
+**Purpose:** Reads and returns the `nav mesh vec3` value held by the current object.
+
+```csharp
+// Obtain an instance of GameEntityWithWorldPosition from the subsystem API first
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+var result = gameEntityWithWorldPosition.GetNavMeshVec3();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameEntityWithWorldPosition();
-value.InvalidateWorldPosition();
+// Typically call this after obtaining an instance from the subsystem API
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+gameEntityWithWorldPosition.InvalidateWorldPosition();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

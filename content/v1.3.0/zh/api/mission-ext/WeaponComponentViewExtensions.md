@@ -1,13 +1,7 @@
 ---
 title: "WeaponComponentViewExtensions"
+description: "WeaponComponentViewExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponComponentViewExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponComponentViewExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,12 +23,22 @@ title: "WeaponComponentViewExtensions"
 ### GetFlyingMeshCopy
 `public static MetaMesh GetFlyingMeshCopy(this WeaponComponentData weaponComponentData, ItemObject item)`
 
-**用途 / Purpose:** 获取 `flying mesh copy` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flying mesh copy」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentViewExtensions.GetFlyingMeshCopy(weaponComponentData, item);
+```
 
 ### GetFlyingMeshIfExists
 `public static MetaMesh GetFlyingMeshIfExists(this WeaponComponentData weaponComponentData, ItemObject item)`
 
-**用途 / Purpose:** 获取 `flying mesh if exists` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flying mesh if exists」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentViewExtensions.GetFlyingMeshIfExists(weaponComponentData, item);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ WeaponComponentViewExtensions.GetFlyingMeshCopy(weaponComponentData, item);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

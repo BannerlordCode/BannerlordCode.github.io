@@ -1,20 +1,14 @@
 ---
 title: "LobbyGameClientHandler"
+description: "Auto-generated class reference for LobbyGameClientHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyGameClientHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyGameClientHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyGameClientHandler : ILobbyClientSessionHandler`
 **Base:** `ILobbyClientSessionHandler`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameClientHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameClientHandler.cs`
 
 ## Overview
 
@@ -33,9 +27,9 @@ Treat `LobbyGameClientHandler` as a Handler-style extension point: first identif
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new LobbyGameClientHandler());
+var behavior = Mission.Current.GetMissionBehavior<LobbyGameClientHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "KeybindingPopup"
+description: "Auto-generated class reference for KeybindingPopup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KeybindingPopup`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KeybindingPopup
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KeybindingPopup`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/KeybindingPopup.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/KeybindingPopup.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of KeybindingPopup from the subsystem API first
+KeybindingPopup keybindingPopup = ...;
+keybindingPopup.Tick();
+```
 
 ### OnToggle
 `public void OnToggle(bool isActive)`
 
-**Purpose:** Called when the `toggle` event is raised.
+**Purpose:** Invoked when the `toggle` event is raised.
+
+```csharp
+// Obtain an instance of KeybindingPopup from the subsystem API first
+KeybindingPopup keybindingPopup = ...;
+keybindingPopup.OnToggle(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KeybindingPopup();
-value.Tick();
+// Typically call this after obtaining an instance from the subsystem API
+KeybindingPopup keybindingPopup = ...;
+keybindingPopup.Tick();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

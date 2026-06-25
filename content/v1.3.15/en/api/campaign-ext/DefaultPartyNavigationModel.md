@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyNavigationModel"
+description: "Auto-generated class reference for DefaultPartyNavigationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyNavigationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPartyNavigationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,27 +23,57 @@ Treat `DefaultPartyNavigationModel` as a Model-style extension point: first iden
 ### GetEmbarkDisembarkThresholdDistance
 `public override float GetEmbarkDisembarkThresholdDistance()`
 
-**Purpose:** Gets the current value of `embark disembark threshold distance`.
+**Purpose:** Reads and returns the `embark disembark threshold distance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.GetEmbarkDisembarkThresholdDistance();
+```
 
 ### GetInvalidTerrainTypesForNavigationType
 `public override int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)`
 
-**Purpose:** Gets the current value of `invalid terrain types for navigation type`.
+**Purpose:** Reads and returns the `invalid terrain types for navigation type` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.GetInvalidTerrainTypesForNavigationType(navigationType);
+```
 
 ### IsTerrainTypeValidForNavigationType
 `public override bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)`
 
-**Purpose:** Handles logic related to `is terrain type valid for navigation type`.
+**Purpose:** Determines whether the current object is in the `terrain type valid for navigation type` state or condition.
+
+```csharp
+// Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.IsTerrainTypeValidForNavigationType(terrainType, navigationType);
+```
 
 ### HasNavalNavigationCapability
 `public override bool HasNavalNavigationCapability(MobileParty mobileParty)`
 
-**Purpose:** Checks whether the current object has/contains `naval navigation capability`.
+**Purpose:** Determines whether the current object already holds `naval navigation capability`.
+
+```csharp
+// Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.HasNavalNavigationCapability(mobileParty);
+```
 
 ### CanPlayerNavigateToPosition
 `public override bool CanPlayerNavigateToPosition(CampaignVec2 vec2, out MobileParty.NavigationType navigationType)`
 
-**Purpose:** Checks whether the current object can `player navigate to position`.
+**Purpose:** Checks whether the current object meets the preconditions for `player navigate to position`.
+
+```csharp
+// Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.CanPlayerNavigateToPosition(vec2, navigationType);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultPartyNavigationModel>(new MyDefaultPartyNavigat
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

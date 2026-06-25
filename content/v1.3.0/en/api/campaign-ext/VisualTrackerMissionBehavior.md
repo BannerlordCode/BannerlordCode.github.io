@@ -1,13 +1,7 @@
 ---
 title: "VisualTrackerMissionBehavior"
+description: "Auto-generated class reference for VisualTrackerMissionBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualTrackerMissionBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualTrackerMissionBehavior
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,45 +23,88 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** Called when the `agent created` event is raised.
+**Purpose:** Invoked when the `agent created` event is raised.
+
+```csharp
+// Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnAgentCreated(agent);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnMissionTick(0);
+```
 
 ### RegisterLocalOnlyObject
 `public void RegisterLocalOnlyObject(ITrackableBase obj)`
 
-**Purpose:** Handles logic related to `register local only object`.
+**Purpose:** Registers `local only object` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.RegisterLocalOnlyObject(obj);
+```
 
 ### GetCompassTargets
 `public override List<CompassItemUpdateParams> GetCompassTargets()`
 
-**Purpose:** Gets the current value of `compass targets`.
+**Purpose:** Reads and returns the `compass targets` value held by the current object.
+
+```csharp
+// Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+var result = visualTrackerMissionBehavior.GetCompassTargets();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**Purpose:** Called when the `agent deleted` event is raised.
+**Purpose:** Invoked when the `agent deleted` event is raised.
+
+```csharp
+// Obtain an instance of VisualTrackerMissionBehavior from the subsystem API first
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnAgentDeleted(affectedAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VisualTrackerMissionBehavior();
-value.OnAgentCreated(agent);
+// Typically call this after obtaining an instance from the subsystem API
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnAgentCreated(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

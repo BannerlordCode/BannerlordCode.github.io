@@ -1,20 +1,14 @@
 ---
 title: "SandBoxSaveManager"
+description: "SandBoxSaveManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxSaveManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSaveManager
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class SandBoxSaveManager : ISaveManager`
 **Base:** `ISaveManager`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/SandBoxSaveManager.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/SandBoxSaveManager.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "SandBoxSaveManager"
 ### GetAutoSaveInterval
 `public int GetAutoSaveInterval()`
 
-**用途 / Purpose:** 获取 `auto save interval` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「auto save interval」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSaveManager 实例
+SandBoxSaveManager sandBoxSaveManager = ...;
+var result = sandBoxSaveManager.GetAutoSaveInterval();
+```
 
 ### IsAutoSaveDisabled
 `public bool IsAutoSaveDisabled()`
 
-**用途 / Purpose:** 处理 `is auto save disabled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「auto save disabled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSaveManager 实例
+SandBoxSaveManager sandBoxSaveManager = ...;
+var result = sandBoxSaveManager.IsAutoSaveDisabled();
+```
 
 ### OnSaveOver
 `public void OnSaveOver(bool isSuccessful, string newSaveGameName)`
 
-**用途 / Purpose:** 当 `save over` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「save over」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSaveManager 实例
+SandBoxSaveManager sandBoxSaveManager = ...;
+sandBoxSaveManager.OnSaveOver(false, "example");
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ var manager = SandBoxSaveManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

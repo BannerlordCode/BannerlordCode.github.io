@@ -1,13 +1,7 @@
 ---
 title: "CodeBlock"
+description: "Auto-generated class reference for CodeBlock."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CodeBlock`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CodeBlock
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -37,18 +31,31 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 
 **Purpose:** Adds `line` to the current collection or state.
 
+```csharp
+// Obtain an instance of CodeBlock from the subsystem API first
+CodeBlock codeBlock = ...;
+codeBlock.AddLine("example");
+```
+
 ### AddLines
 `public void AddLines(IEnumerable<string> lines)`
 
 **Purpose:** Adds `lines` to the current collection or state.
 
+```csharp
+// Obtain an instance of CodeBlock from the subsystem API first
+CodeBlock codeBlock = ...;
+codeBlock.AddLines(lines);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new CodeBlock();
-value.AddLine("example");
+// Typically call this after obtaining an instance from the subsystem API
+CodeBlock codeBlock = ...;
+codeBlock.AddLine("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

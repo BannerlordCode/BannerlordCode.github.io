@@ -1,20 +1,14 @@
 ---
 title: "ParameterLoader"
+description: "Auto-generated class reference for ParameterLoader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ParameterLoader`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ParameterLoader
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class ParameterLoader`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ParameterLoader.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ParameterLoader.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### LoadParametersFromClientProfile
 `public static ParameterContainer LoadParametersFromClientProfile(string configurationName)`
 
-**Purpose:** Loads `parameters from client profile` data.
+**Purpose:** Reads `parameters from client profile` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+ParameterLoader.LoadParametersFromClientProfile("example");
+```
 
 ### LoadParametersInto
 `public static void LoadParametersInto(string fileFullName, ParameterContainer parameters)`
 
-**Purpose:** Loads `parameters into` data.
+**Purpose:** Reads `parameters into` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+ParameterLoader.LoadParametersInto("example", parameters);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ ParameterLoader.LoadParametersFromClientProfile("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

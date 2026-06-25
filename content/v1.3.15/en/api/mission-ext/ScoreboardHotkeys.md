@@ -1,13 +1,7 @@
 ---
 title: "ScoreboardHotkeys"
+description: "Auto-generated class reference for ScoreboardHotkeys."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardHotkeys`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScoreboardHotkeys
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ## Usage Example
 
 ```csharp
-var value = new ScoreboardHotkeys();
+// Obtain an instance from the relevant subsystem API
+ScoreboardHotkeys instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

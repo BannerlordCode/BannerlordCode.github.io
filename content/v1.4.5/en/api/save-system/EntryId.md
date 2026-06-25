@@ -1,20 +1,14 @@
 ---
 title: "EntryId"
+description: "Auto-generated class reference for EntryId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EntryId`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EntryId
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct EntryId : IEquatable<EntryId>`
 **Base:** `IEquatable<EntryId>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/EntryId.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/EntryId.cs`
 
 ## Overview
 
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of EntryId from the subsystem API first
+EntryId entryId = ...;
+var result = entryId.Equals(obj);
+```
 
 ### Equals
 `public bool Equals(EntryId other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of EntryId from the subsystem API first
+EntryId entryId = ...;
+var result = entryId.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of EntryId from the subsystem API first
+EntryId entryId = ...;
+var result = entryId.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EntryId();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+EntryId entryId = ...;
+entryId.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

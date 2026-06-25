@@ -1,20 +1,14 @@
 ---
 title: "FollowAgentBehavior"
+description: "Auto-generated class reference for FollowAgentBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FollowAgentBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FollowAgentBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class FollowAgentBehavior : AgentBehavior`
 **Base:** `AgentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/FollowAgentBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/FollowAgentBehavior.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### SetTargetAgent
 `public void SetTargetAgent(Agent agent)`
 
-**Purpose:** Sets the value or state of `target agent`.
+**Purpose:** Assigns a new value to `target agent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of FollowAgentBehavior from the subsystem API first
+FollowAgentBehavior followAgentBehavior = ...;
+followAgentBehavior.SetTargetAgent(agent);
+```
 
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of FollowAgentBehavior from the subsystem API first
+FollowAgentBehavior followAgentBehavior = ...;
+followAgentBehavior.Tick(0, false);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of FollowAgentBehavior from the subsystem API first
+FollowAgentBehavior followAgentBehavior = ...;
+followAgentBehavior.OnAgentRemoved(agent);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of FollowAgentBehavior from the subsystem API first
+FollowAgentBehavior followAgentBehavior = ...;
+var result = followAgentBehavior.GetDebugInfo();
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of FollowAgentBehavior from the subsystem API first
+FollowAgentBehavior followAgentBehavior = ...;
+var result = followAgentBehavior.GetAvailability(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FollowAgentBehavior();
-value.SetTargetAgent(agent);
+// Typically call this after obtaining an instance from the subsystem API
+FollowAgentBehavior followAgentBehavior = ...;
+followAgentBehavior.SetTargetAgent(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

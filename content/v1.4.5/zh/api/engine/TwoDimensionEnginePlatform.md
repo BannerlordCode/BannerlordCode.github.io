@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionEnginePlatform"
+description: "TwoDimensionEnginePlatform 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TwoDimensionEnginePlatform`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionEnginePlatform
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
 **Module:** TaleWorlds.Engine
 **Type:** `public class TwoDimensionEnginePlatform : ITwoDimensionPlatform`
 **Base:** `ITwoDimensionPlatform`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/TwoDimensionEnginePlatform.cs`
+**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/TwoDimensionEnginePlatform.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "TwoDimensionEnginePlatform"
 ## 使用示例
 
 ```csharp
-var example = new TwoDimensionEnginePlatform();
+// 从对应子系统 API 获取实例
+TwoDimensionEnginePlatform instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

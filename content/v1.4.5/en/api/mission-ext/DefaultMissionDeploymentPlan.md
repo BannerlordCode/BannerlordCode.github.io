@@ -1,20 +1,14 @@
 ---
 title: "DefaultMissionDeploymentPlan"
+description: "Auto-generated class reference for DefaultMissionDeploymentPlan."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMissionDeploymentPlan`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMissionDeploymentPlan
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultMissionDeploymentPlan : IMissionDeploymentPlan`
 **Base:** `IMissionDeploymentPlan`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultMissionDeploymentPlan.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultMissionDeploymentPlan.cs`
 
 ## Overview
 
@@ -29,185 +23,395 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.Initialize();
+```
 
 ### ClearDeploymentPlan
 `public void ClearDeploymentPlan(Team team)`
 
-**Purpose:** Handles logic related to `clear deployment plan`.
+**Purpose:** Removes all `deployment plan` from the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearDeploymentPlan(team);
+```
 
 ### ClearReinforcementPlan
 `public void ClearReinforcementPlan(Team team)`
 
-**Purpose:** Handles logic related to `clear reinforcement plan`.
+**Purpose:** Removes all `reinforcement plan` from the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearReinforcementPlan(team);
+```
 
 ### HasPlayerSpawnFrame
 `public bool HasPlayerSpawnFrame(BattleSideEnum battleSide)`
 
-**Purpose:** Checks whether the current object has/contains `player spawn frame`.
+**Purpose:** Determines whether the current object already holds `player spawn frame`.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.HasPlayerSpawnFrame(battleSide);
+```
 
 ### GetPlayerSpawnFrame
 `public bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)`
 
-**Purpose:** Gets the current value of `player spawn frame`.
+**Purpose:** Reads and returns the `player spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetPlayerSpawnFrame(battleSide, position, direction);
+```
 
 ### HasSignificantMountedTroops
 `public static bool HasSignificantMountedTroops(int footTroopCount, int mountedTroopCount)`
 
-**Purpose:** Checks whether the current object has/contains `significant mounted troops`.
+**Purpose:** Determines whether the current object already holds `significant mounted troops`.
+
+```csharp
+// Static call; no instance required
+DefaultMissionDeploymentPlan.HasSignificantMountedTroops(0, 0);
+```
 
 ### ClearAddedTroops
 `public void ClearAddedTroops(Team team, bool isReinforcement = false)`
 
-**Purpose:** Handles logic related to `clear added troops`.
+**Purpose:** Removes all `added troops` from the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearAddedTroops(team, false);
+```
 
 ### ClearAll
 `public void ClearAll()`
 
-**Purpose:** Handles logic related to `clear all`.
+**Purpose:** Removes all `all` from the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearAll();
+```
 
 ### AddTroops
 `public void AddTroops(Team team, FormationClass formationClass, int footTroopCount, int mountedTroopCount = 0, bool isReinforcement = false)`
 
 **Purpose:** Adds `troops` to the current collection or state.
 
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.AddTroops(team, formationClass, 0, 0, false);
+```
+
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(Team team, bool spawnWithHorses)`
 
-**Purpose:** Sets the value or state of `spawn with horses`.
+**Purpose:** Assigns a new value to `spawn with horses` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.SetSpawnWithHorses(team, false);
+```
 
 ### MakeDefaultDeploymentPlans
 `public void MakeDefaultDeploymentPlans()`
 
-**Purpose:** Handles logic related to `make default deployment plans`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeDefaultDeploymentPlans();
+```
 
 ### MakeDeploymentPlan
 `public void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetOffset = 0f)`
 
-**Purpose:** Handles logic related to `make deployment plan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeDeploymentPlan(team, 0, 0);
+```
 
 ### MakeReinforcementDeploymentPlan
 `public void MakeReinforcementDeploymentPlan(Team team)`
 
-**Purpose:** Handles logic related to `make reinforcement deployment plan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeReinforcementDeploymentPlan(team);
+```
 
 ### RemakeDeploymentPlan
 `public bool RemakeDeploymentPlan(Team team)`
 
-**Purpose:** Handles logic related to `remake deployment plan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.RemakeDeploymentPlan(team);
+```
 
 ### IsPositionInsideDeploymentBoundaries
 `public bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)`
 
-**Purpose:** Handles logic related to `is position inside deployment boundaries`.
+**Purpose:** Determines whether the current object is in the `position inside deployment boundaries` state or condition.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPositionInsideDeploymentBoundaries(team, position);
+```
 
 ### GetClosestDeploymentBoundaryPosition
 `public Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)`
 
-**Purpose:** Gets the current value of `closest deployment boundary position`.
+**Purpose:** Reads and returns the `closest deployment boundary position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetClosestDeploymentBoundaryPosition(team, position);
+```
 
 ### SupportsReinforcements
 `public bool SupportsReinforcements()`
 
-**Purpose:** Handles logic related to `supports reinforcements`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.SupportsReinforcements();
+```
 
 ### SupportsNavmesh
 `public bool SupportsNavmesh(Team team)`
 
-**Purpose:** Handles logic related to `supports navmesh`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.SupportsNavmesh(team);
+```
 
 ### GetPathDeploymentBoundaryIntersection
 `public bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition intersection)`
 
-**Purpose:** Gets the current value of `path deployment boundary intersection`.
+**Purpose:** Reads and returns the `path deployment boundary intersection` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetPathDeploymentBoundaryIntersection(team, startPosition, endPosition, intersection);
+```
 
 ### IsPositionInsideSiegeDeploymentBoundaries
 `public bool IsPositionInsideSiegeDeploymentBoundaries(in Vec2 position)`
 
-**Purpose:** Handles logic related to `is position inside siege deployment boundaries`.
+**Purpose:** Determines whether the current object is in the `position inside siege deployment boundaries` state or condition.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPositionInsideSiegeDeploymentBoundaries(position);
+```
 
 ### GetSpawnPathOffset
 `public float GetSpawnPathOffset(Team team)`
 
-**Purpose:** Gets the current value of `spawn path offset`.
+**Purpose:** Reads and returns the `spawn path offset` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetSpawnPathOffset(team);
+```
 
 ### GetTargetOffset
 `public float GetTargetOffset(Team team)`
 
-**Purpose:** Gets the current value of `target offset`.
+**Purpose:** Reads and returns the `target offset` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetTargetOffset(team);
+```
 
 ### GetTroopCount
 `public int GetTroopCount(Team team, bool isReinforcement = false)`
 
-**Purpose:** Gets the current value of `troop count`.
+**Purpose:** Reads and returns the `troop count` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetTroopCount(team, false);
+```
 
 ### GetFormationPlan
 `public IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement)`
 
-**Purpose:** Gets the current value of `formation plan`.
+**Purpose:** Reads and returns the `formation plan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetFormationPlan(team, fClass, false);
+```
 
 ### IsPlanMade
 `public bool IsPlanMade(Team team)`
 
-**Purpose:** Handles logic related to `is plan made`.
+**Purpose:** Determines whether the current object is in the `plan made` state or condition.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPlanMade(team);
+```
 
 ### IsPlanMade
 `public bool IsPlanMade(Team team, out bool isFirstPlan)`
 
-**Purpose:** Handles logic related to `is plan made`.
+**Purpose:** Determines whether the current object is in the `plan made` state or condition.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPlanMade(team, isFirstPlan);
+```
 
 ### IsReinforcementPlanMade
 `public bool IsReinforcementPlanMade(Team team)`
 
-**Purpose:** Handles logic related to `is reinforcement plan made`.
+**Purpose:** Determines whether the current object is in the `reinforcement plan made` state or condition.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsReinforcementPlanMade(team);
+```
 
 ### IsInitialPlanSuitableForFormations
 `public bool IsInitialPlanSuitableForFormations(Team team, (int footTroopCount, int mountedTroopCount) troopDataPerFormationClass)`
 
-**Purpose:** Handles logic related to `is initial plan suitable for formations`.
+**Purpose:** Determines whether the current object is in the `initial plan suitable for formations` state or condition.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsInitialPlanSuitableForFormations(team, footTroopCount, 0);
+```
 
 ### HasDeploymentBoundaries
 `public bool HasDeploymentBoundaries(Team team)`
 
-**Purpose:** Checks whether the current object has/contains `deployment boundaries`.
+**Purpose:** Determines whether the current object already holds `deployment boundaries`.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.HasDeploymentBoundaries(team);
+```
 
 ### GetDeploymentFrame
 `public MatrixFrame GetDeploymentFrame(Team team)`
 
-**Purpose:** Gets the current value of `deployment frame`.
+**Purpose:** Reads and returns the `deployment frame` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetDeploymentFrame(team);
+```
 
 ### ProjectPositionToDeploymentBoundaries
 `public void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition endPosition)`
 
-**Purpose:** Handles logic related to `project position to deployment boundaries`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ProjectPositionToDeploymentBoundaries(team, endPosition);
+```
 
 ### GetMeanPosition
 `public Vec3 GetMeanPosition(Team team, bool isReinforcement = false)`
 
-**Purpose:** Gets the current value of `mean position`.
+**Purpose:** Reads and returns the `mean position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetMeanPosition(team, false);
+```
 
 ### UpdateReinforcementPlan
 `public void UpdateReinforcementPlan(Team team)`
 
-**Purpose:** Updates the state or data of `reinforcement plan`.
+**Purpose:** Recalculates and stores the latest representation of `reinforcement plan`.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.UpdateReinforcementPlan(team);
+```
 
 ### GetZoomFocusFrame
 `public MatrixFrame GetZoomFocusFrame(Team team)`
 
-**Purpose:** Gets the current value of `zoom focus frame`.
+**Purpose:** Reads and returns the `zoom focus frame` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetZoomFocusFrame(team);
+```
 
 ### GetZoomOffset
 `public float GetZoomOffset(Team team, float fovAngle)`
 
-**Purpose:** Gets the current value of `zoom offset`.
+**Purpose:** Reads and returns the `zoom offset` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetZoomOffset(team, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultMissionDeploymentPlan();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

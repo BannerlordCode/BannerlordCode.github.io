@@ -1,20 +1,14 @@
 ---
 title: "CaravanHelper"
+description: "CaravanHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CaravanHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaravanHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class CaravanHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/CaravanHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/CaravanHelper.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "CaravanHelper"
 ### GetRandomCaravanTemplate
 `public static PartyTemplateObject GetRandomCaravanTemplate(CultureObject culture, bool isElite, bool isLand)`
 
-**用途 / Purpose:** 获取 `random caravan template` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random caravan template」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CaravanHelper.GetRandomCaravanTemplate(culture, false, false);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ CaravanHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

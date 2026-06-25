@@ -1,13 +1,7 @@
 ---
 title: "PlayerIsSisterTag"
+description: "Auto-generated class reference for PlayerIsSisterTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIsSisterTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerIsSisterTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of PlayerIsSisterTag from the subsystem API first
+PlayerIsSisterTag playerIsSisterTag = ...;
+var result = playerIsSisterTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerIsSisterTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerIsSisterTag playerIsSisterTag = ...;
+playerIsSisterTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

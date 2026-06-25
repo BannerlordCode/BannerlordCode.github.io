@@ -1,13 +1,7 @@
 ---
 title: "SiegeEngineConstructionProgress"
+description: "SiegeEngineConstructionProgress 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeEngineConstructionProgress`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineConstructionProgress
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -42,30 +36,55 @@ title: "SiegeEngineConstructionProgress"
 ### SetRedeploymentProgress
 `public void SetRedeploymentProgress(float redeploymentProgress)`
 
-**用途 / Purpose:** 设置 `redeployment progress` 的值或状态。
+**用途 / Purpose:** 为 「redeployment progress」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEngineConstructionProgress 实例
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRedeploymentProgress(0);
+```
 
 ### SetHitpoints
 `public void SetHitpoints(float hitPoints)`
 
-**用途 / Purpose:** 设置 `hitpoints` 的值或状态。
+**用途 / Purpose:** 为 「hitpoints」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEngineConstructionProgress 实例
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetHitpoints(0);
+```
 
 ### SetProgress
 `public void SetProgress(float progress)`
 
-**用途 / Purpose:** 设置 `progress` 的值或状态。
+**用途 / Purpose:** 为 「progress」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEngineConstructionProgress 实例
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetProgress(0);
+```
 
 ### SetRangedSiegeEngine
 `public void SetRangedSiegeEngine(SiegeEvent.RangedSiegeEngine rangedSiegeEngine)`
 
-**用途 / Purpose:** 设置 `ranged siege engine` 的值或状态。
+**用途 / Purpose:** 为 「ranged siege engine」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEngineConstructionProgress 实例
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRangedSiegeEngine(rangedSiegeEngine);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeEngineConstructionProgress();
-value.SetRedeploymentProgress(0);
+// 通常从对应子系统 API 获取实例后调用
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRedeploymentProgress(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

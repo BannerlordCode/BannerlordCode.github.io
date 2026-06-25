@@ -1,13 +1,7 @@
 ---
 title: "Highlight"
+description: "Auto-generated class reference for Highlight."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Highlight`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Highlight
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -46,65 +40,141 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Removes `highlights` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+Highlight.RemoveHighlights();
+```
+
 ### GetHighlightTypeWithId
 `public HighlightsController.HighlightType GetHighlightTypeWithId(string highlightId)`
 
-**Purpose:** Gets the current value of `highlight type with id`.
+**Purpose:** Reads and returns the `highlight type with id` value held by the current object.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+var result = highlight.GetHighlightTypeWithId("example");
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+highlight.AfterStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+highlight.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+highlight.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+highlight.OnMissionTick(0);
+```
 
 ### AddHighlightType
 `public static void AddHighlightType(HighlightsController.HighlightType highlightType)`
 
 **Purpose:** Adds `highlight type` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+Highlight.AddHighlightType(highlightType);
+```
+
 ### SaveHighlight
 `public void SaveHighlight(HighlightsController.Highlight highlight)`
 
-**Purpose:** Saves `highlight` data.
+**Purpose:** Writes `highlight` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+highlight.SaveHighlight(highlight);
+```
 
 ### SaveHighlight
 `public void SaveHighlight(HighlightsController.Highlight highlight, Vec3 position)`
 
-**Purpose:** Saves `highlight` data.
+**Purpose:** Writes `highlight` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+highlight.SaveHighlight(highlight, position);
+```
 
 ### CanSaveHighlight
 `public bool CanSaveHighlight(HighlightsController.HighlightType highlightType, Vec3 position)`
 
-**Purpose:** Checks whether the current object can `save highlight`.
+**Purpose:** Checks whether the current object meets the preconditions for `save highlight`.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+var result = highlight.CanSaveHighlight(highlightType, position);
+```
 
 ### GetPlayerIsLookingAtPositionScore
 `public float GetPlayerIsLookingAtPositionScore(Vec3 position)`
 
-**Purpose:** Gets the current value of `player is looking at position score`.
+**Purpose:** Reads and returns the `player is looking at position score` value held by the current object.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+var result = highlight.GetPlayerIsLookingAtPositionScore(position);
+```
 
 ### CanSeePosition
 `public bool CanSeePosition(Vec3 position)`
 
-**Purpose:** Checks whether the current object can `see position`.
+**Purpose:** Checks whether the current object meets the preconditions for `see position`.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+var result = highlight.CanSeePosition(position);
+```
 
 ### ShowSummary
 `public void ShowSummary()`
 
-**Purpose:** Handles logic related to `show summary`.
+**Purpose:** Displays the UI or element associated with `summary`.
+
+```csharp
+// Obtain an instance of Highlight from the subsystem API first
+Highlight highlight = ...;
+highlight.ShowSummary();
+```
 
 ## Usage Example
 
@@ -114,4 +184,4 @@ Highlight.RemoveHighlights();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

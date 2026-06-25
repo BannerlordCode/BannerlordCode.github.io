@@ -1,20 +1,14 @@
 ---
 title: "AgentList"
+description: "Auto-generated class reference for AgentList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentList`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentList
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentList : AgentReadOnlyList`
 **Base:** `AgentReadOnlyList`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/AgentList.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/AgentList.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new AgentList();
+// Obtain an instance from the relevant subsystem API
+AgentList instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "WidgetCreationData"
+description: "WidgetCreationData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetCreationData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetCreationData
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -40,19 +34,32 @@ title: "WidgetCreationData"
 ### AddExtensionData
 `public void AddExtensionData(string name, object data)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `extension data`。
+**用途 / Purpose:** 将 「extension data」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetCreationData 实例
+WidgetCreationData widgetCreationData = ...;
+widgetCreationData.AddExtensionData("example", data);
+```
 
 ### AddExtensionData
 `public void AddExtensionData(object data)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `extension data`。
+**用途 / Purpose:** 将 「extension data」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetCreationData 实例
+WidgetCreationData widgetCreationData = ...;
+widgetCreationData.AddExtensionData(data);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WidgetCreationData();
+// 该数据对象通常由战役/任务 API 返回
+WidgetCreationData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "AgentController"
+description: "Auto-generated class reference for AgentController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentController`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentController.cs`
 
 ## Overview
 
@@ -36,7 +30,13 @@ Treat `AgentController` as a Controller-style extension point: first identify wh
 ### OnInitialize
 `public virtual void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Obtain an instance of AgentController from the subsystem API first
+AgentController agentController = ...;
+agentController.OnInitialize();
+```
 
 ## Usage Example
 
@@ -46,4 +46,4 @@ var controller = Mission.Current.GetMissionBehavior<AgentController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

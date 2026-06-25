@@ -1,13 +1,7 @@
 ---
 title: "ParleyCampaignBehavior"
+description: "Auto-generated class reference for ParleyCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ParleyCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ParleyCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ParleyCampaignBehavior from the subsystem API first
+ParleyCampaignBehavior parleyCampaignBehavior = ...;
+parleyCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ParleyCampaignBehavior from the subsystem API first
+ParleyCampaignBehavior parleyCampaignBehavior = ...;
+parleyCampaignBehavior.SyncData(dataStore);
+```
 
 ### StartParley
 `public void StartParley(PartyBase partyBase)`
 
-**Purpose:** Handles logic related to `start parley`.
+**Purpose:** Starts the `parley` flow or state machine.
+
+```csharp
+// Obtain an instance of ParleyCampaignBehavior from the subsystem API first
+ParleyCampaignBehavior parleyCampaignBehavior = ...;
+parleyCampaignBehavior.StartParley(partyBase);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ParleyCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+ParleyCampaignBehavior parleyCampaignBehavior = ...;
+parleyCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

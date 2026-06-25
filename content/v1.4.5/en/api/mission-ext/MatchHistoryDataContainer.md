@@ -1,20 +1,14 @@
 ---
 title: "MatchHistoryDataContainer"
+description: "Auto-generated class reference for MatchHistoryDataContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatchHistoryDataContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatchHistoryDataContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchHistoryDataContainer : MultiplayerLocalDataContainer<MatchHistoryData>`
 **Base:** `MultiplayerLocalDataContainer<MatchHistoryData>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/MatchHistoryDataContainer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/MatchHistoryDataContainer.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place
 ### TryGetHistoryData
 `public bool TryGetHistoryData(string matchId, out MatchHistoryData historyData)`
 
-**Purpose:** Attempts to get `get history data`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get history data`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MatchHistoryDataContainer from the subsystem API first
+MatchHistoryDataContainer matchHistoryDataContainer = ...;
+var result = matchHistoryDataContainer.TryGetHistoryData("example", historyData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MatchHistoryDataContainer();
-value.TryGetHistoryData("example", historyData);
+// Typically call this after obtaining an instance from the subsystem API
+MatchHistoryDataContainer matchHistoryDataContainer = ...;
+matchHistoryDataContainer.TryGetHistoryData("example", historyData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

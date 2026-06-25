@@ -1,13 +1,7 @@
 ---
 title: "GenericPanelGameKeyCategory"
+description: "Auto-generated class reference for GenericPanelGameKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericPanelGameKeyCategory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GenericPanelGameKeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new GenericPanelGameKeyCategory();
+// Obtain an instance from the relevant subsystem API
+GenericPanelGameKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

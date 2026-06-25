@@ -1,13 +1,7 @@
 ---
 title: "StealthZone"
+description: "Auto-generated class reference for StealthZone."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthZone`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthZone
 
 **Namespace:** SandBox.Objects
@@ -39,50 +33,99 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### SetStealthAgents
 `public void SetStealthAgents(List<Agent> agents)`
 
-**Purpose:** Sets the value or state of `stealth agents`.
+**Purpose:** Assigns a new value to `stealth agents` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StealthZone from the subsystem API first
+StealthZone stealthZone = ...;
+stealthZone.SetStealthAgents(agents);
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of StealthZone from the subsystem API first
+StealthZone stealthZone = ...;
+stealthZone.Tick();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of StealthZone from the subsystem API first
+StealthZone stealthZone = ...;
+stealthZone.OnAgentRemoved(affectedAgent, affectorAgent);
+```
 
 ### IsAgentInside
 `public bool IsAgentInside(Agent agent)`
 
-**Purpose:** Handles logic related to `is agent inside`.
+**Purpose:** Determines whether the current object is in the `agent inside` state or condition.
+
+```csharp
+// Obtain an instance of StealthZone from the subsystem API first
+StealthZone stealthZone = ...;
+var result = stealthZone.IsAgentInside(agent);
+```
 
 ### OnPlayerFlees
 `public void OnPlayerFlees()`
 
-**Purpose:** Called when the `player flees` event is raised.
+**Purpose:** Invoked when the `player flees` event is raised.
+
+```csharp
+// Obtain an instance of StealthZone from the subsystem API first
+StealthZone stealthZone = ...;
+stealthZone.OnPlayerFlees();
+```
 
 ### ResetEvents
 `public void ResetEvents()`
 
-**Purpose:** Resets `events` to its initial state.
+**Purpose:** Returns `events` to its default or initial condition.
+
+```csharp
+// Obtain an instance of StealthZone from the subsystem API first
+StealthZone stealthZone = ...;
+stealthZone.ResetEvents();
+```
 
 ### DisableAll
 `public void DisableAll()`
 
-**Purpose:** Handles logic related to `disable all`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StealthZone from the subsystem API first
+StealthZone stealthZone = ...;
+stealthZone.DisableAll();
+```
 
 ### StealthZoneEvent
 `public delegate void StealthZoneEvent()`
 
-**Purpose:** Handles logic related to `stealth zone event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StealthZone from the subsystem API first
+StealthZone stealthZone = ...;
+stealthZone.StealthZoneEvent();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StealthZone();
-value.SetStealthAgents(agents);
+// Typically call this after obtaining an instance from the subsystem API
+StealthZone stealthZone = ...;
+stealthZone.SetStealthAgents(agents);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

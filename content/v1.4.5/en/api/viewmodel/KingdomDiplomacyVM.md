@@ -1,20 +1,14 @@
 ---
 title: "KingdomDiplomacyVM"
+description: "Auto-generated class reference for KingdomDiplomacyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDiplomacyVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDiplomacyVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomDiplomacyVM : KingdomCategoryVM`
 **Base:** `KingdomCategoryVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomDiplomacyVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomDiplomacyVM.cs`
 
 ## Overview
 
@@ -51,25 +45,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomDiplomacyVM from the subsystem API first
+KingdomDiplomacyVM kingdomDiplomacyVM = ...;
+kingdomDiplomacyVM.RefreshValues();
+```
 
 ### RefreshDiplomacyList
 `public void RefreshDiplomacyList()`
 
-**Purpose:** Refreshes the display or cache of `diplomacy list`.
+**Purpose:** Keeps the display or cache of `diplomacy list` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomDiplomacyVM from the subsystem API first
+KingdomDiplomacyVM kingdomDiplomacyVM = ...;
+kingdomDiplomacyVM.RefreshDiplomacyList();
+```
 
 ### SelectKingdom
 `public void SelectKingdom(Kingdom kingdom)`
 
-**Purpose:** Handles logic related to `select kingdom`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomDiplomacyVM from the subsystem API first
+KingdomDiplomacyVM kingdomDiplomacyVM = ...;
+kingdomDiplomacyVM.SelectKingdom(kingdom);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomDiplomacyVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomDiplomacyVM kingdomDiplomacyVM = ...;
+kingdomDiplomacyVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

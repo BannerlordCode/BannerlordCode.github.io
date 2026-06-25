@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminPanelOptionBaseVM"
+description: "MultiplayerAdminPanelOptionBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerAdminPanelOptionBaseVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelOptionBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MultiplayerAdminPanelOptionBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelOptionBaseVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelOptionBaseVM.cs`
 
 ## 概述
 
@@ -47,34 +41,65 @@ title: "MultiplayerAdminPanelOptionBaseVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.OnFinalize();
+```
 
 ### UpdateValues
 `public virtual void UpdateValues()`
 
-**用途 / Purpose:** 更新 `values` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「values」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.UpdateValues();
+```
 
 ### ExecuteRevertChanges
 `public virtual void ExecuteRevertChanges()`
 
-**用途 / Purpose:** 执行 `revert changes` 操作或流程。
+**用途 / Purpose:** 执行 「revert changes」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.ExecuteRevertChanges();
+```
 
 ### ExecuteRestoreDefaults
 `public virtual void ExecuteRestoreDefaults()`
 
-**用途 / Purpose:** 执行 `restore defaults` 操作或流程。
+**用途 / Purpose:** 执行 「restore defaults」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminPanelOptionBaseVM 实例
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.ExecuteRestoreDefaults();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMultiplayerAdminPanelOptionBaseVM();
+// 通常通过子系统 API 或工厂获得派生实例
+MultiplayerAdminPanelOptionBaseVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

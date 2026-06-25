@@ -1,13 +1,7 @@
 ---
 title: "ElementNotificationVM"
+description: "ElementNotificationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ElementNotificationVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ElementNotificationVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Tutorial
@@ -33,9 +27,10 @@ title: "ElementNotificationVM"
 ## 使用示例
 
 ```csharp
-var example = new ElementNotificationVM();
+// 从对应子系统 API 获取实例
+ElementNotificationVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

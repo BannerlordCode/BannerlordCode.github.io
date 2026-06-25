@@ -1,20 +1,14 @@
 ---
 title: "IManagedParametersInitializer"
+description: "Auto-generated class reference for IManagedParametersInitializer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IManagedParametersInitializer`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IManagedParametersInitializer
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IManagedParametersInitializer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IManagedParametersInitializer.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IManagedParametersInitializer.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IManagedParametersInitializer implementation = GetManagedParametersInitializerImplementation();
+// Usually obtained through DI or a factory method
+IIManagedParametersInitializer service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

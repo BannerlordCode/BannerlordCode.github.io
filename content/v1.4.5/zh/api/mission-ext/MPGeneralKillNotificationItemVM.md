@@ -1,20 +1,14 @@
 ---
 title: "MPGeneralKillNotificationItemVM"
+description: "MPGeneralKillNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPGeneralKillNotificationItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPGeneralKillNotificationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPGeneralKillNotificationItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General/MPGeneralKillNotificationItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General/MPGeneralKillNotificationItemVM.cs`
 
 ## 概述
 
@@ -51,25 +45,44 @@ title: "MPGeneralKillNotificationItemVM"
 ### InitProperties
 `public unsafe virtual void InitProperties(Agent affectedAgent, Agent affectorAgent)`
 
-**用途 / Purpose:** 初始化 `properties` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「properties」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MPGeneralKillNotificationItemVM 实例
+MPGeneralKillNotificationItemVM mPGeneralKillNotificationItemVM = ...;
+mPGeneralKillNotificationItemVM.InitProperties(affectedAgent, affectorAgent);
+```
 
 ### InitDeathProperties
 `public void InitDeathProperties(Agent affectedAgent, Agent affectorAgent, Agent assistedAgent)`
 
-**用途 / Purpose:** 初始化 `death properties` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「death properties」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MPGeneralKillNotificationItemVM 实例
+MPGeneralKillNotificationItemVM mPGeneralKillNotificationItemVM = ...;
+mPGeneralKillNotificationItemVM.InitDeathProperties(affectedAgent, affectorAgent, assistedAgent);
+```
 
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 `remove` 操作或流程。
+**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPGeneralKillNotificationItemVM 实例
+MPGeneralKillNotificationItemVM mPGeneralKillNotificationItemVM = ...;
+mPGeneralKillNotificationItemVM.ExecuteRemove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPGeneralKillNotificationItemVM();
-value.InitProperties(affectedAgent, affectorAgent);
+// 通常从对应子系统 API 获取实例后调用
+MPGeneralKillNotificationItemVM mPGeneralKillNotificationItemVM = ...;
+mPGeneralKillNotificationItemVM.InitProperties(affectedAgent, affectorAgent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "GetRankedLeaderboardMessageResult"
+description: "Auto-generated class reference for GetRankedLeaderboardMessageResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GetRankedLeaderboardMessageResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GetRankedLeaderboardMessageResult
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetRankedLeaderboardMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetRankedLeaderboardMessageResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetRankedLeaderboardMessageResult.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new GetRankedLeaderboardMessageResult();
+// Obtain an instance from the relevant subsystem API
+GetRankedLeaderboardMessageResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

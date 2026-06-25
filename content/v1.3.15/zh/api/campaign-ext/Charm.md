@@ -1,23 +1,18 @@
 ---
 title: "Charm"
+description: "Charm 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Charm`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Charm
 
-**命名空间:** TaleWorlds.CampaignSystem.CharacterDevelopment
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public static class Charm`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class Charm`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## 概述
 
-`Charm` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`Charm` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -27,34 +22,34 @@ title: "Charm"
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `Virile` | `public static PerkObject Virile { get; }` |
+| `SelfPromoter` | `public static PerkObject SelfPromoter { get; }` |
+| `Oratory` | `public static PerkObject Oratory { get; }` |
+| `Warlord` | `public static PerkObject Warlord { get; }` |
+| `ForgivableGrievances` | `public static PerkObject ForgivableGrievances { get; }` |
+| `MeaningfulFavors` | `public static PerkObject MeaningfulFavors { get; }` |
+| `InBloom` | `public static PerkObject InBloom { get; }` |
+| `YoungAndRespectful` | `public static PerkObject YoungAndRespectful { get; }` |
+| `Firebrand` | `public static PerkObject Firebrand { get; }` |
+| `FlexibleEthics` | `public static PerkObject FlexibleEthics { get; }` |
+| `EffortForThePeople` | `public static PerkObject EffortForThePeople { get; }` |
+| `SlickNegotiator` | `public static PerkObject SlickNegotiator { get; }` |
+| `GoodNatured` | `public static PerkObject GoodNatured { get; }` |
+| `Tribute` | `public static PerkObject Tribute { get; }` |
+| `MoralLeader` | `public static PerkObject MoralLeader { get; }` |
+| `NaturalLeader` | `public static PerkObject NaturalLeader { get; }` |
+| `PublicSpeaker` | `public static PerkObject PublicSpeaker { get; }` |
+| `Parade` | `public static PerkObject Parade { get; }` |
+| `Camaraderie` | `public static PerkObject Camaraderie { get; }` |
+| `ImmortalCharm` | `public static PerkObject ImmortalCharm { get; }` |
 
 ## 使用示例
 
 ```csharp
-var value = new Charm();
+// 从对应子系统 API 获取实例
+Charm instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

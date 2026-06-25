@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeKeyTypeAttribute"
+description: "WidgetAttributeKeyTypeAttribute 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetAttributeKeyTypeAttribute`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeAttribute
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,17 +23,35 @@ title: "WidgetAttributeKeyTypeAttribute"
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**用途 / Purpose:** 处理 `check key type` 相关逻辑。
+**用途 / Purpose:** 检查「key type」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeAttribute 实例
+WidgetAttributeKeyTypeAttribute widgetAttributeKeyTypeAttribute = ...;
+var result = widgetAttributeKeyTypeAttribute.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**用途 / Purpose:** 获取 `key name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「key name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeAttribute 实例
+WidgetAttributeKeyTypeAttribute widgetAttributeKeyTypeAttribute = ...;
+var result = widgetAttributeKeyTypeAttribute.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**用途 / Purpose:** 获取 `serialized key` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「serialized key」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeAttribute 实例
+WidgetAttributeKeyTypeAttribute widgetAttributeKeyTypeAttribute = ...;
+var result = widgetAttributeKeyTypeAttribute.GetSerializedKey("example");
+```
 
 ## 使用示例
 
@@ -50,4 +62,4 @@ public class Example { }
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

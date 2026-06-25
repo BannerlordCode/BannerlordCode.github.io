@@ -1,13 +1,7 @@
 ---
 title: "TextureView"
+description: "TextureView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextureView`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextureView
 
 **Namespace:** TaleWorlds.Engine
@@ -29,19 +23,31 @@ title: "TextureView"
 ### CreateTextureView
 `public static TextureView CreateTextureView()`
 
-**用途 / Purpose:** 创建一个 `texture view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「texture view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextureView.CreateTextureView();
+```
 
 ### SetTexture
 `public void SetTexture(Texture texture)`
 
-**用途 / Purpose:** 设置 `texture` 的值或状态。
+**用途 / Purpose:** 为 「texture」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TextureView 实例
+TextureView textureView = ...;
+textureView.SetTexture(texture);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new TextureView();
+// 从子系统 API 或场景中获取该视图
+TextureView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

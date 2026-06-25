@@ -1,20 +1,14 @@
 ---
 title: "UIResourceManager"
+description: "Auto-generated class reference for UIResourceManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UIResourceManager`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UIResourceManager
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
 **Module:** TaleWorlds.Engine
 **Type:** `public static class UIResourceManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/UIResourceManager.cs`
+**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/UIResourceManager.cs`
 
 ## Overview
 
@@ -40,32 +34,62 @@ Treat `UIResourceManager` as a Manager-style extension point: first identify who
 ### Refresh
 `public static void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Static call; no instance required
+UIResourceManager.Refresh();
+```
 
 ### GetSpriteCategory
 `public static SpriteCategory GetSpriteCategory(string spriteCategoryName)`
 
-**Purpose:** Gets the current value of `sprite category`.
+**Purpose:** Reads and returns the `sprite category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+UIResourceManager.GetSpriteCategory("example");
+```
 
 ### LoadSpriteCategory
 `public static SpriteCategory LoadSpriteCategory(string spriteCategoryName)`
 
-**Purpose:** Loads `sprite category` data.
+**Purpose:** Reads `sprite category` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+UIResourceManager.LoadSpriteCategory("example");
+```
 
 ### Update
 `public static void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Static call; no instance required
+UIResourceManager.Update();
+```
 
 ### OnLanguageChange
 `public static void OnLanguageChange(string newLanguageCode)`
 
-**Purpose:** Called when the `language change` event is raised.
+**Purpose:** Invoked when the `language change` event is raised.
+
+```csharp
+// Static call; no instance required
+UIResourceManager.OnLanguageChange("example");
+```
 
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Static call; no instance required
+UIResourceManager.Clear();
+```
 
 ## Usage Example
 
@@ -75,4 +99,4 @@ var manager = UIResourceManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

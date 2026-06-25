@@ -1,23 +1,18 @@
 ---
 title: "MemberDefinition"
+description: "Auto-generated class reference for MemberDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MemberDefinition`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MemberDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public abstract class MemberDefinition`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Definition/MemberDefinition.cs`
 
 ## Overview
 
-`MemberDefinition` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MemberDefinition` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,20 +30,32 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetMemberType
 `public abstract Type GetMemberType()`
 
-**Purpose:** Gets the current value of `member type`.
+**Purpose:** Reads and returns the `member type` value held by the current object.
+
+```csharp
+// Obtain an instance of MemberDefinition from the subsystem API first
+MemberDefinition memberDefinition = ...;
+var result = memberDefinition.GetMemberType();
+```
 
 ### GetValue
 `public abstract object GetValue(object target)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of MemberDefinition from the subsystem API first
+MemberDefinition memberDefinition = ...;
+var result = memberDefinition.GetValue(target);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMemberDefinition();
+// Typically obtained from a subsystem API or factory
+MemberDefinition instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

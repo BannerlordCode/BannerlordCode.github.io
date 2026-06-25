@@ -1,20 +1,14 @@
 ---
 title: "MissionMessageUIHandler"
+description: "MissionMessageUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMessageUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMessageUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMessageUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionMessageUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionMessageUIHandler.cs`
 
 ## 概述
 
@@ -29,24 +23,42 @@ title: "MissionMessageUIHandler"
 ### ShowMessage
 `public void ShowMessage(string str, float duration, bool hasPriority = true)`
 
-**用途 / Purpose:** 处理 `show message` 相关逻辑。
+**用途 / Purpose:** 显示「message」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMessageUIHandler 实例
+MissionMessageUIHandler missionMessageUIHandler = ...;
+missionMessageUIHandler.ShowMessage("example", 0, false);
+```
 
 ### DeleteMessage
 `public void DeleteMessage(string str)`
 
-**用途 / Purpose:** 处理 `delete message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMessageUIHandler 实例
+MissionMessageUIHandler missionMessageUIHandler = ...;
+missionMessageUIHandler.DeleteMessage("example");
+```
 
 ### DeleteCurrentMessage
 `public void DeleteCurrentMessage()`
 
-**用途 / Purpose:** 处理 `delete current message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMessageUIHandler 实例
+MissionMessageUIHandler missionMessageUIHandler = ...;
+missionMessageUIHandler.DeleteCurrentMessage();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionMessageUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionMessageUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

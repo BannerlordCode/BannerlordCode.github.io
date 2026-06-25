@@ -1,13 +1,7 @@
 ---
 title: "GameMenuTroopSelectionVM"
+description: "Auto-generated class reference for GameMenuTroopSelectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuTroopSelectionVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuTroopSelectionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection
@@ -47,55 +41,110 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tro
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.RefreshValues();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.ExecuteDone();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.ExecuteCancel();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Executes the `reset` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset`.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.ExecuteReset();
+```
 
 ### ExecuteClearSelection
 `public void ExecuteClearSelection()`
 
-**Purpose:** Executes the `clear selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `clear selection`.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.ExecuteClearSelection();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.SetCancelInputKey(hotkey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.SetDoneInputKey(hotkey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenuTroopSelectionVM from the subsystem API first
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.SetResetInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuTroopSelectionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuTroopSelectionVM gameMenuTroopSelectionVM = ...;
+gameMenuTroopSelectionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

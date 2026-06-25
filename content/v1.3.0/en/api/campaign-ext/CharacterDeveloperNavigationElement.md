@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperNavigationElement"
+description: "Auto-generated class reference for CharacterDeveloperNavigationElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperNavigationElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
@@ -38,20 +32,33 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ### OpenView
 `public override void OpenView()`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of CharacterDeveloperNavigationElement from the subsystem API first
+CharacterDeveloperNavigationElement characterDeveloperNavigationElement = ...;
+characterDeveloperNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of CharacterDeveloperNavigationElement from the subsystem API first
+CharacterDeveloperNavigationElement characterDeveloperNavigationElement = ...;
+characterDeveloperNavigationElement.OpenView(parameters);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterDeveloperNavigationElement();
-value.OpenView();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterDeveloperNavigationElement characterDeveloperNavigationElement = ...;
+characterDeveloperNavigationElement.OpenView();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

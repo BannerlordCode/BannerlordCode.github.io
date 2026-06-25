@@ -1,13 +1,7 @@
 ---
 title: "WarNotificationItemVM"
+description: "Auto-generated class reference for WarNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WarNotificationItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WarNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of WarNotificationItemVM from the subsystem API first
+WarNotificationItemVM warNotificationItemVM = ...;
+warNotificationItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WarNotificationItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+WarNotificationItemVM warNotificationItemVM = ...;
+warNotificationItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

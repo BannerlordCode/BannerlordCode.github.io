@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyBlockerStateVM"
+description: "Auto-generated class reference for MPLobbyBlockerStateVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyBlockerStateVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyBlockerStateVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyBlockerStateVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyBlockerStateVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyBlockerStateVM.cs`
 
 ## Overview
 
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### OnLobbyStateIsBlocker
 `public void OnLobbyStateIsBlocker(TextObject description)`
 
-**Purpose:** Called when the `lobby state is blocker` event is raised.
+**Purpose:** Invoked when the `lobby state is blocker` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyBlockerStateVM from the subsystem API first
+MPLobbyBlockerStateVM mPLobbyBlockerStateVM = ...;
+mPLobbyBlockerStateVM.OnLobbyStateIsBlocker(description);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyBlockerStateVM from the subsystem API first
+MPLobbyBlockerStateVM mPLobbyBlockerStateVM = ...;
+mPLobbyBlockerStateVM.RefreshValues();
+```
 
 ### OnLobbyStateNotBlocker
 `public void OnLobbyStateNotBlocker()`
 
-**Purpose:** Called when the `lobby state not blocker` event is raised.
+**Purpose:** Invoked when the `lobby state not blocker` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyBlockerStateVM from the subsystem API first
+MPLobbyBlockerStateVM mPLobbyBlockerStateVM = ...;
+mPLobbyBlockerStateVM.OnLobbyStateNotBlocker();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyBlockerStateVM();
-value.OnLobbyStateIsBlocker(description);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyBlockerStateVM mPLobbyBlockerStateVM = ...;
+mPLobbyBlockerStateVM.OnLobbyStateIsBlocker(description);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

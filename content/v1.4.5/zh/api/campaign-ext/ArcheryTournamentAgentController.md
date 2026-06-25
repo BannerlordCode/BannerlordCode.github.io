@@ -1,20 +1,14 @@
 ---
 title: "ArcheryTournamentAgentController"
+description: "ArcheryTournamentAgentController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArcheryTournamentAgentController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArcheryTournamentAgentController
 
 **Namespace:** SandBox.Tournaments.AgentControllers
 **Module:** SandBox.Tournaments
 **Type:** `public class ArcheryTournamentAgentController : AgentController`
 **Base:** `AgentController`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Tournaments.AgentControllers/ArcheryTournamentAgentController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments.AgentControllers/ArcheryTournamentAgentController.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "ArcheryTournamentAgentController"
 ### OnInitialize
 `public override void OnInitialize()`
 
-**用途 / Purpose:** 当 `initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArcheryTournamentAgentController 实例
+ArcheryTournamentAgentController archeryTournamentAgentController = ...;
+archeryTournamentAgentController.OnInitialize();
+```
 
 ### OnTick
 `public void OnTick()`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArcheryTournamentAgentController 实例
+ArcheryTournamentAgentController archeryTournamentAgentController = ...;
+archeryTournamentAgentController.OnTick();
+```
 
 ### SetTargets
 `public void SetTargets(List<DestructableComponent> targetList)`
 
-**用途 / Purpose:** 设置 `targets` 的值或状态。
+**用途 / Purpose:** 为 「targets」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ArcheryTournamentAgentController 实例
+ArcheryTournamentAgentController archeryTournamentAgentController = ...;
+archeryTournamentAgentController.SetTargets(targetList);
+```
 
 ### OnTargetHit
 `public void OnTargetHit(Agent agent, DestructableComponent target)`
 
-**用途 / Purpose:** 当 `target hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「target hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArcheryTournamentAgentController 实例
+ArcheryTournamentAgentController archeryTournamentAgentController = ...;
+archeryTournamentAgentController.OnTargetHit(agent, target);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ var controller = Mission.Current.GetMissionBehavior<ArcheryTournamentAgentContro
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

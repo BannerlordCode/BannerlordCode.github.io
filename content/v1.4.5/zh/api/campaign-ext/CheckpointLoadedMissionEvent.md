@@ -1,20 +1,14 @@
 ---
 title: "CheckpointLoadedMissionEvent"
+description: "CheckpointLoadedMissionEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CheckpointLoadedMissionEvent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheckpointLoadedMissionEvent
 
 **Namespace:** SandBox.Missions
 **Module:** SandBox.Missions
 **Type:** `public class CheckpointLoadedMissionEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions/CheckpointLoadedMissionEvent.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions/CheckpointLoadedMissionEvent.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "CheckpointLoadedMissionEvent"
 ## 使用示例
 
 ```csharp
-var value = new CheckpointLoadedMissionEvent();
+// 从对应子系统 API 获取实例
+CheckpointLoadedMissionEvent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

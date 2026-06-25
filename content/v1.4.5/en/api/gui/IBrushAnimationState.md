@@ -1,20 +1,14 @@
 ---
 title: "IBrushAnimationState"
+description: "Auto-generated class reference for IBrushAnimationState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBrushAnimationState`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBrushAnimationState
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface IBrushAnimationState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/IBrushAnimationState.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/IBrushAnimationState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-IBrushAnimationState implementation = GetBrushAnimationStateImplementation();
+// Usually obtained through DI or a factory method
+IIBrushAnimationState service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

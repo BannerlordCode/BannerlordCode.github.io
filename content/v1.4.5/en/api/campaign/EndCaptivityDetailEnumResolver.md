@@ -1,20 +1,14 @@
 ---
 title: "EndCaptivityDetailEnumResolver"
+description: "Auto-generated class reference for EndCaptivityDetailEnumResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EndCaptivityDetailEnumResolver`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EndCaptivityDetailEnumResolver
 
 **Namespace:** TaleWorlds.CampaignSystem.SaveCompability
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EndCaptivityDetailEnumResolver : IEnumResolver`
 **Base:** `IEnumResolver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/EndCaptivityDetailEnumResolver.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/EndCaptivityDetailEnumResolver.cs`
 
 ## Overview
 
@@ -29,14 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SaveCompability` to place it in 
 ### ResolveObject
 `public string ResolveObject(string originalObject)`
 
-**Purpose:** Handles logic related to `resolve object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EndCaptivityDetailEnumResolver from the subsystem API first
+EndCaptivityDetailEnumResolver endCaptivityDetailEnumResolver = ...;
+var result = endCaptivityDetailEnumResolver.ResolveObject("example");
+```
 
 ## Usage Example
 
 ```csharp
-EndCaptivityDetailEnumResolver example = EndCaptivityDetailEnumResolver.Value;
+// Typically call this after obtaining an instance from the subsystem API
+EndCaptivityDetailEnumResolver endCaptivityDetailEnumResolver = ...;
+endCaptivityDetailEnumResolver.ResolveObject("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

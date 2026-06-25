@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaTroopScrollablePanel"
+description: "Auto-generated class reference for EncyclopediaTroopScrollablePanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaTroopScrollablePanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaTroopScrollablePanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets` to place it i
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaTroopScrollablePanel();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaTroopScrollablePanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

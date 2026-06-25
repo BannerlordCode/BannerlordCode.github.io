@@ -1,13 +1,7 @@
 ---
 title: "TutorialState"
+description: "Auto-generated class reference for TutorialState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var example = new TutorialState();
+// Obtain an instance from the relevant subsystem API
+TutorialState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

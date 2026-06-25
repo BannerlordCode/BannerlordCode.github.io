@@ -1,13 +1,7 @@
 ---
 title: "DisbandPartyCampaignBehavior"
+description: "DisbandPartyCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DisbandPartyCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DisbandPartyCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,44 @@ title: "DisbandPartyCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 DisbandPartyCampaignBehavior 实例
+DisbandPartyCampaignBehavior disbandPartyCampaignBehavior = ...;
+disbandPartyCampaignBehavior.RegisterEvents();
+```
 
 ### IsPartyWaitingForDisband
 `public bool IsPartyWaitingForDisband(MobileParty party)`
 
-**用途 / Purpose:** 处理 `is party waiting for disband` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「party waiting for disband」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DisbandPartyCampaignBehavior 实例
+DisbandPartyCampaignBehavior disbandPartyCampaignBehavior = ...;
+var result = disbandPartyCampaignBehavior.IsPartyWaitingForDisband(party);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 DisbandPartyCampaignBehavior 实例
+DisbandPartyCampaignBehavior disbandPartyCampaignBehavior = ...;
+disbandPartyCampaignBehavior.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DisbandPartyCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+DisbandPartyCampaignBehavior disbandPartyCampaignBehavior = ...;
+disbandPartyCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

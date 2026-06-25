@@ -1,20 +1,14 @@
 ---
 title: "SunInformation"
+description: "Auto-generated class reference for SunInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SunInformation`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SunInformation
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct SunInformation`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SunInformation.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SunInformation.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `deserialize from`.
+**Purpose:** Restores `from` from serialized data.
+
+```csharp
+// Obtain an instance of SunInformation from the subsystem API first
+SunInformation sunInformation = ...;
+sunInformation.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `serialize to`.
+**Purpose:** Serializes `to` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of SunInformation from the subsystem API first
+SunInformation sunInformation = ...;
+sunInformation.SerializeTo(writer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SunInformation();
-value.DeserializeFrom(reader);
+// Typically call this after obtaining an instance from the subsystem API
+SunInformation sunInformation = ...;
+sunInformation.DeserializeFrom(reader);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "HideoutEncounter"
+description: "Auto-generated class reference for HideoutEncounter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutEncounter`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ## Usage Example
 
 ```csharp
-var example = new HideoutEncounter();
+// Obtain an instance from the relevant subsystem API
+HideoutEncounter instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

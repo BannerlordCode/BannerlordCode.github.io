@@ -1,13 +1,7 @@
 ---
 title: "RainbowRichTextWidget"
+description: "Auto-generated class reference for RainbowRichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RainbowRichTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RainbowRichTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -27,9 +21,10 @@ Treat `RainbowRichTextWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new RainbowRichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+RainbowRichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

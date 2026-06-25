@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationCultureFeatVM"
+description: "Auto-generated class reference for CharacterCreationCultureFeatVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationCultureFeatVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationCultureFeatVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationCultureFeatVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationCultureFeatVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationCultureFeatVM.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ## Usage Example
 
 ```csharp
-var example = new CharacterCreationCultureFeatVM();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationCultureFeatVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

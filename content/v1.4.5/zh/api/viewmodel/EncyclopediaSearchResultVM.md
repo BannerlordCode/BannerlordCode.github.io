@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaSearchResultVM"
+description: "EncyclopediaSearchResultVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaSearchResultVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaSearchResultVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaSearchResultVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaSearchResultVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaSearchResultVM.cs`
 
 ## 概述
 
@@ -36,20 +30,33 @@ title: "EncyclopediaSearchResultVM"
 ### UpdateSearchedText
 `public void UpdateSearchedText(string searchedText)`
 
-**用途 / Purpose:** 更新 `searched text` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「searched text」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaSearchResultVM 实例
+EncyclopediaSearchResultVM encyclopediaSearchResultVM = ...;
+encyclopediaSearchResultVM.UpdateSearchedText("example");
+```
 
 ### Execute
 `public void Execute()`
 
-**用途 / Purpose:** 执行 `execute` 操作或流程。
+**用途 / Purpose:** 执行当前对象代表的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaSearchResultVM 实例
+EncyclopediaSearchResultVM encyclopediaSearchResultVM = ...;
+encyclopediaSearchResultVM.Execute();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaSearchResultVM();
-value.UpdateSearchedText("example");
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaSearchResultVM encyclopediaSearchResultVM = ...;
+encyclopediaSearchResultVM.UpdateSearchedText("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

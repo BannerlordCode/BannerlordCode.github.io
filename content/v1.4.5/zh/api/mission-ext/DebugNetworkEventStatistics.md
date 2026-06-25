@@ -1,20 +1,14 @@
 ---
 title: "DebugNetworkEventStatistics"
+description: "DebugNetworkEventStatistics 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DebugNetworkEventStatistics`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugNetworkEventStatistics
 
 **Namespace:** TaleWorlds.MountAndBlade.Network
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugNetworkEventStatistics`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
 
 ## 概述
 
@@ -36,80 +30,154 @@ title: "DebugNetworkEventStatistics"
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.GetHashCode();
+```
 
 ### CompareTo
 `public int CompareTo(PerEventData other)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DebugNetworkEventStatistics 实例
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.CompareTo(other);
+```
 
 ### OpenExternalMonitor
 `public static void OpenExternalMonitor()`
 
-**用途 / Purpose:** 处理 `open external monitor` 相关逻辑。
+**用途 / Purpose:** 打开「external monitor」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.OpenExternalMonitor();
+```
 
 ### ControlActivate
 `public static void ControlActivate()`
 
-**用途 / Purpose:** 处理 `control activate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ControlActivate();
+```
 
 ### ControlDeactivate
 `public static void ControlDeactivate()`
 
-**用途 / Purpose:** 处理 `control deactivate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ControlDeactivate();
+```
 
 ### ControlJustDump
 `public static void ControlJustDump()`
 
-**用途 / Purpose:** 处理 `control just dump` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ControlJustDump();
+```
 
 ### ControlDumpAll
 `public static void ControlDumpAll()`
 
-**用途 / Purpose:** 处理 `control dump all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ControlDumpAll();
+```
 
 ### ControlClear
 `public static void ControlClear()`
 
-**用途 / Purpose:** 处理 `control clear` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ControlClear();
+```
 
 ### ClearNetGraphs
 `public static void ClearNetGraphs()`
 
-**用途 / Purpose:** 处理 `clear net graphs` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「net graphs」。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ClearNetGraphs();
+```
 
 ### ClearFpsGraph
 `public static void ClearFpsGraph()`
 
-**用途 / Purpose:** 处理 `clear fps graph` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「fps graph」。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ClearFpsGraph();
+```
 
 ### ControlClearAll
 `public static void ControlClearAll()`
 
-**用途 / Purpose:** 处理 `control clear all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ControlClearAll();
+```
 
 ### ControlDumpReplicationData
 `public static void ControlDumpReplicationData()`
 
-**用途 / Purpose:** 处理 `control dump replication data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.ControlDumpReplicationData();
+```
 
 ### EndTick
 `public static void EndTick(float dt)`
 
-**用途 / Purpose:** 处理 `end tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugNetworkEventStatistics.EndTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DebugNetworkEventStatistics();
-value.Equals(obj);
+// 通常从对应子系统 API 获取实例后调用
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+debugNetworkEventStatistics.Equals(obj);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

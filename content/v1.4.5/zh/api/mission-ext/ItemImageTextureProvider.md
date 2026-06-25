@@ -1,20 +1,14 @@
 ---
 title: "ItemImageTextureProvider"
+description: "ItemImageTextureProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemImageTextureProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemImageTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ItemImageTextureProvider : ImageIdentifierTextureProvider`
 **Base:** `ImageIdentifierTextureProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers/ItemImageTextureProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers/ItemImageTextureProvider.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ItemImageTextureProvider"
 ## 使用示例
 
 ```csharp
-var value = new ItemImageTextureProvider();
+// 从对应子系统 API 获取实例
+ItemImageTextureProvider instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

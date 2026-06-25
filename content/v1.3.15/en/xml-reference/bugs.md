@@ -424,5 +424,5 @@ Program crash
 ## Usage Example
 
 ```csharp
-var example = new XML Parsing Bug Analysis Report();
+// Use the sections below to locate common patterns or issues.
 ```

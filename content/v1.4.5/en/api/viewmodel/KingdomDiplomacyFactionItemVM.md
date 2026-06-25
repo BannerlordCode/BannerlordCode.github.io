@@ -1,20 +1,14 @@
 ---
 title: "KingdomDiplomacyFactionItemVM"
+description: "Auto-generated class reference for KingdomDiplomacyFactionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDiplomacyFactionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDiplomacyFactionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomDiplomacyFactionItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomDiplomacyFactionItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomDiplomacyFactionItemVM.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var example = new KingdomDiplomacyFactionItemVM();
+// Obtain an instance from the relevant subsystem API
+KingdomDiplomacyFactionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

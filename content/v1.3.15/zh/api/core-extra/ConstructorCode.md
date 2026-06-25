@@ -1,13 +1,7 @@
 ---
 title: "ConstructorCode"
+description: "ConstructorCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConstructorCode`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConstructorCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -39,20 +33,33 @@ title: "ConstructorCode"
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 处理 `generate into` 相关逻辑。
+**用途 / Purpose:** 生成「into」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 ConstructorCode 实例
+ConstructorCode constructorCode = ...;
+constructorCode.GenerateInto(codeGenerationFile);
+```
 
 ### AddLine
 `public void AddLine(string line)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `line`。
+**用途 / Purpose:** 将 「line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ConstructorCode 实例
+ConstructorCode constructorCode = ...;
+constructorCode.AddLine("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ConstructorCode();
-value.GenerateInto(codeGenerationFile);
+// 通常从对应子系统 API 获取实例后调用
+ConstructorCode constructorCode = ...;
+constructorCode.GenerateInto(codeGenerationFile);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

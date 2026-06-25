@@ -1,20 +1,14 @@
 ---
 title: "WidgetAttributeKeyTypeAttribute"
+description: "Auto-generated class reference for WidgetAttributeKeyTypeAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeKeyTypeAttribute`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeAttribute
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetAttributeKeyTypeAttribute : WidgetAttributeKeyType`
 **Base:** `WidgetAttributeKeyType`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeKeyTypeAttribute.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeKeyTypeAttribute.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `WidgetAttributeKeyTypeAttribute` as a Attribute-style extension point: fi
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**Purpose:** Handles logic related to `check key type`.
+**Purpose:** Verifies whether `key type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeAttribute from the subsystem API first
+WidgetAttributeKeyTypeAttribute widgetAttributeKeyTypeAttribute = ...;
+var result = widgetAttributeKeyTypeAttribute.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**Purpose:** Gets the current value of `key name`.
+**Purpose:** Reads and returns the `key name` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeAttribute from the subsystem API first
+WidgetAttributeKeyTypeAttribute widgetAttributeKeyTypeAttribute = ...;
+var result = widgetAttributeKeyTypeAttribute.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**Purpose:** Gets the current value of `serialized key`.
+**Purpose:** Reads and returns the `serialized key` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeAttribute from the subsystem API first
+WidgetAttributeKeyTypeAttribute widgetAttributeKeyTypeAttribute = ...;
+var result = widgetAttributeKeyTypeAttribute.GetSerializedKey("example");
+```
 
 ## Usage Example
 
@@ -50,4 +62,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

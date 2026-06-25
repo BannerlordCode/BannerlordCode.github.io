@@ -16,3 +16,14 @@ Bannerlord uses XML for configuration and data storage.
 
 - [已知问题 / Bugs](./bugs)
 
+<!-- BEGIN SECTION INDEX -->
+
+## ↑ 上级导航
+
+- [版本首页](../)
+
+## ↓ 子页面目录
+
+- [bugs](./bugs)
+
+<!-- END SECTION INDEX -->

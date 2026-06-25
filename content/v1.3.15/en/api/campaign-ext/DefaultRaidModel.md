@@ -1,13 +1,7 @@
 ---
 title: "DefaultRaidModel"
+description: "Auto-generated class reference for DefaultRaidModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultRaidModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultRaidModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,12 +29,24 @@ Treat `DefaultRaidModel` as a Model-style extension point: first identify who cr
 ### CalculateHitDamage
 `public override ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**Purpose:** Handles logic related to `calculate hit damage`.
+**Purpose:** Calculates the current value or result of `hit damage`.
+
+```csharp
+// Obtain an instance of DefaultRaidModel from the subsystem API first
+DefaultRaidModel defaultRaidModel = ...;
+var result = defaultRaidModel.CalculateHitDamage(attackerSide, 0);
+```
 
 ### GetCommonLootItemScores
 `public override MBReadOnlyList<ValueTuple<ItemObject, float>> GetCommonLootItemScores()`
 
-**Purpose:** Gets the current value of `common loot item scores`.
+**Purpose:** Reads and returns the `common loot item scores` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultRaidModel from the subsystem API first
+DefaultRaidModel defaultRaidModel = ...;
+var result = defaultRaidModel.GetCommonLootItemScores();
+```
 
 ## Usage Example
 
@@ -50,4 +56,4 @@ Game.Current.ReplaceModel<DefaultRaidModel>(new MyDefaultRaidModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

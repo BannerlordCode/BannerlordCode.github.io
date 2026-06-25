@@ -1,13 +1,7 @@
 ---
 title: "ViewSubModule"
+description: "Auto-generated class reference for ViewSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ViewSubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ViewSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -36,45 +30,88 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `campaign start` event is raised.
+**Purpose:** Invoked when the `campaign start` event is raised.
+
+```csharp
+// Obtain an instance of ViewSubModule from the subsystem API first
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnCampaignStart(game, starterObject);
+```
 
 ### OnMultiplayerGameStart
 `public override void OnMultiplayerGameStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `multiplayer game start` event is raised.
+**Purpose:** Invoked when the `multiplayer game start` event is raised.
+
+```csharp
+// Obtain an instance of ViewSubModule from the subsystem API first
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnMultiplayerGameStart(game, starterObject);
+```
 
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**Purpose:** Called when the `game loaded` event is raised.
+**Purpose:** Invoked when the `game loaded` event is raised.
+
+```csharp
+// Obtain an instance of ViewSubModule from the subsystem API first
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnGameLoaded(game, initializerObject);
+```
 
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** Called when the `game initialization finished` event is raised.
+**Purpose:** Invoked when the `game initialization finished` event is raised.
+
+```csharp
+// Obtain an instance of ViewSubModule from the subsystem API first
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnGameInitializationFinished(game);
+```
 
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**Purpose:** Handles logic related to `begin game start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ViewSubModule from the subsystem API first
+ViewSubModule viewSubModule = ...;
+viewSubModule.BeginGameStart(game);
+```
 
 ### DoLoading
 `public override bool DoLoading(Game game)`
 
-**Purpose:** Handles logic related to `do loading`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ViewSubModule from the subsystem API first
+ViewSubModule viewSubModule = ...;
+var result = viewSubModule.DoLoading(game);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of ViewSubModule from the subsystem API first
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnGameEnd(game);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ViewSubModule();
-value.OnCampaignStart(game, starterObject);
+// Typically call this after obtaining an instance from the subsystem API
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnCampaignStart(game, starterObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

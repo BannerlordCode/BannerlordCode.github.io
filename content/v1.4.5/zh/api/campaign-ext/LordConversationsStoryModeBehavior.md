@@ -1,20 +1,14 @@
 ---
 title: "LordConversationsStoryModeBehavior"
+description: "LordConversationsStoryModeBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LordConversationsStoryModeBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordConversationsStoryModeBehavior
 
 **Namespace:** StoryMode.GameComponents.CampaignBehaviors
 **Module:** StoryMode.GameComponents
 **Type:** `public class LordConversationsStoryModeBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents.CampaignBehaviors/LordConversationsStoryModeBehavior.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents.CampaignBehaviors/LordConversationsStoryModeBehavior.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "LordConversationsStoryModeBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 LordConversationsStoryModeBehavior 实例
+LordConversationsStoryModeBehavior lordConversationsStoryModeBehavior = ...;
+lordConversationsStoryModeBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 LordConversationsStoryModeBehavior 实例
+LordConversationsStoryModeBehavior lordConversationsStoryModeBehavior = ...;
+lordConversationsStoryModeBehavior.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LordConversationsStoryModeBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+LordConversationsStoryModeBehavior lordConversationsStoryModeBehavior = ...;
+lordConversationsStoryModeBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

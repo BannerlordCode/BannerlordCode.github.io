@@ -1,13 +1,7 @@
 ---
 title: "EndCaptivityLogEntry"
+description: "Auto-generated class reference for EndCaptivityLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EndCaptivityLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EndCaptivityLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of EndCaptivityLogEntry from the subsystem API first
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+var result = endCaptivityLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of EndCaptivityLogEntry from the subsystem API first
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+var result = endCaptivityLogEntry.GetEncyclopediaText();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of EndCaptivityLogEntry from the subsystem API first
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+var result = endCaptivityLogEntry.GetNotificationText();
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of EndCaptivityLogEntry from the subsystem API first
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+endCaptivityLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of EndCaptivityLogEntry from the subsystem API first
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+var result = endCaptivityLogEntry.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EndCaptivityLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+endCaptivityLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

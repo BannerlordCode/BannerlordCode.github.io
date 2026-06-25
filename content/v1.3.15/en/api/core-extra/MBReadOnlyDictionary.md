@@ -1,13 +1,7 @@
 ---
 title: "MBReadOnlyDictionary"
+description: "Auto-generated class reference for MBReadOnlyDictionary."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBReadOnlyDictionary`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBReadOnlyDictionary
 
 **Namespace:** TaleWorlds.Library
@@ -40,29 +34,55 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetEnumerator
 `public Dictionary<TKey, TValue>.Enumerator GetEnumerator()`
 
-**Purpose:** Gets the current value of `enumerator`.
+**Purpose:** Reads and returns the `enumerator` value held by the current object.
+
+```csharp
+// Obtain an instance of MBReadOnlyDictionary from the subsystem API first
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+var result = mBReadOnlyDictionary.GetEnumerator();
+```
 
 ### ContainsKey
 `public bool ContainsKey(TKey key)`
 
-**Purpose:** Handles logic related to `contains key`.
+**Purpose:** Indicates whether the current object contains `key`.
+
+```csharp
+// Obtain an instance of MBReadOnlyDictionary from the subsystem API first
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+var result = mBReadOnlyDictionary.ContainsKey(key);
+```
 
 ### TryGetValue
 `public bool TryGetValue(TKey key, out TValue value)`
 
-**Purpose:** Attempts to get `get value`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get value`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MBReadOnlyDictionary from the subsystem API first
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+var result = mBReadOnlyDictionary.TryGetValue(key, value);
+```
 
 ### CopyTo
 `public void CopyTo(Array array, int index)`
 
-**Purpose:** Handles logic related to `copy to`.
+**Purpose:** Copies the `to` state of the current object to a target.
+
+```csharp
+// Obtain an instance of MBReadOnlyDictionary from the subsystem API first
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+mBReadOnlyDictionary.CopyTo(array, 0);
+```
 
 ## Usage Example
 
 ```csharp
-MBReadOnlyDictionary example = MBReadOnlyDictionary.Count;
+// Typically call this after obtaining an instance from the subsystem API
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+mBReadOnlyDictionary.GetEnumerator();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

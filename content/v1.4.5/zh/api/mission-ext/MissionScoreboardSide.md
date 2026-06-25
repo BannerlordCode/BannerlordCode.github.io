@@ -1,20 +1,14 @@
 ---
 title: "MissionScoreboardSide"
+description: "MissionScoreboardSide 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionScoreboardSide`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardSide
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardSide`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
 
 ## 概述
 
@@ -29,55 +23,110 @@ title: "MissionScoreboardSide"
 ### AddPlayer
 `public void AddPlayer(MissionPeer peer)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `player`。
+**用途 / Purpose:** 将 「player」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.AddPlayer(peer);
+```
 
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `player`。
+**用途 / Purpose:** 从当前容器或状态中移除 「player」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.RemovePlayer(peer);
+```
 
 ### GetValuesOf
 `public string GetValuesOf(MissionPeer peer)`
 
-**用途 / Purpose:** 获取 `values of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「values of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetValuesOf(peer);
+```
 
 ### GetHeaderNames
 `public string GetHeaderNames()`
 
-**用途 / Purpose:** 获取 `header names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「header names」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetHeaderNames();
+```
 
 ### GetHeaderIds
 `public string GetHeaderIds()`
 
-**用途 / Purpose:** 获取 `header ids` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「header ids」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetHeaderIds();
+```
 
 ### GetScore
 `public int GetScore(MissionPeer peer)`
 
-**用途 / Purpose:** 获取 `score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetScore(peer);
+```
 
 ### UpdateHeader
 `public void UpdateHeader(ScoreboardHeader headers)`
 
-**用途 / Purpose:** 更新 `header` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「header」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.UpdateHeader(headers);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.Clear();
+```
 
 ### CalculateAndGetMVPScoreWithPeer
 `public KeyValuePair<MissionPeer, int> CalculateAndGetMVPScoreWithPeer()`
 
-**用途 / Purpose:** 处理 `calculate and get m v p score with peer` 相关逻辑。
+**用途 / Purpose:** 计算「and get m v p score with peer」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.CalculateAndGetMVPScoreWithPeer();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionScoreboardSide();
-value.AddPlayer(peer);
+// 通常从对应子系统 API 获取实例后调用
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.AddPlayer(peer);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PhotoModeView"
+description: "Auto-generated class reference for PhotoModeView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PhotoModeView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PhotoModeView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PhotoModeView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/PhotoModeView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/PhotoModeView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `PhotoModeView` as a View-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var view = new PhotoModeView();
+// Retrieve this view from the subsystem API or scene
+PhotoModeView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

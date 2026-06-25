@@ -1,13 +1,7 @@
 ---
 title: "AgentCommonAILogic"
+description: "Auto-generated class reference for AgentCommonAILogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentCommonAILogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentCommonAILogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,20 @@ Treat `AgentCommonAILogic` as a Logic-style extension point: first identify who 
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** Called when the `agent created` event is raised.
+**Purpose:** Invoked when the `agent created` event is raised.
+
+```csharp
+// Obtain an instance of AgentCommonAILogic from the subsystem API first
+AgentCommonAILogic agentCommonAILogic = ...;
+agentCommonAILogic.OnAgentCreated(agent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AgentCommonAILogic());
+var behavior = Mission.Current.GetMissionBehavior<AgentCommonAILogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

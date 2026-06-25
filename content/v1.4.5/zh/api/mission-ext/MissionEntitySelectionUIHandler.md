@@ -1,20 +1,14 @@
 ---
 title: "MissionEntitySelectionUIHandler"
+description: "MissionEntitySelectionUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionEntitySelectionUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionEntitySelectionUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionEntitySelectionUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionEntitySelectionUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionEntitySelectionUIHandler.cs`
 
 ## 概述
 
@@ -29,24 +23,42 @@ title: "MissionEntitySelectionUIHandler"
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEntitySelectionUIHandler 实例
+MissionEntitySelectionUIHandler missionEntitySelectionUIHandler = ...;
+missionEntitySelectionUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEntitySelectionUIHandler 实例
+MissionEntitySelectionUIHandler missionEntitySelectionUIHandler = ...;
+missionEntitySelectionUIHandler.OnRemoveBehavior();
+```
 
 ### TickDebug
 `public void TickDebug()`
 
-**用途 / Purpose:** 处理 `tick debug` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「debug」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionEntitySelectionUIHandler 实例
+MissionEntitySelectionUIHandler missionEntitySelectionUIHandler = ...;
+missionEntitySelectionUIHandler.TickDebug();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionEntitySelectionUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionEntitySelectionUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

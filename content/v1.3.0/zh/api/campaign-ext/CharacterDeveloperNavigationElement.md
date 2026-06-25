@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperNavigationElement"
+description: "CharacterDeveloperNavigationElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterDeveloperNavigationElement`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
@@ -38,20 +32,33 @@ title: "CharacterDeveloperNavigationElement"
 ### OpenView
 `public override void OpenView()`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperNavigationElement 实例
+CharacterDeveloperNavigationElement characterDeveloperNavigationElement = ...;
+characterDeveloperNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperNavigationElement 实例
+CharacterDeveloperNavigationElement characterDeveloperNavigationElement = ...;
+characterDeveloperNavigationElement.OpenView(parameters);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterDeveloperNavigationElement();
-value.OpenView();
+// 通常从对应子系统 API 获取实例后调用
+CharacterDeveloperNavigationElement characterDeveloperNavigationElement = ...;
+characterDeveloperNavigationElement.OpenView();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

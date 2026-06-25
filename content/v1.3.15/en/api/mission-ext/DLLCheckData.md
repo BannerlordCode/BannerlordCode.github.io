@@ -1,13 +1,7 @@
 ---
 title: "DLLCheckData"
+description: "Auto-generated class reference for DLLCheckData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DLLCheckData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DLLCheckData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
@@ -36,9 +30,10 @@ Treat `DLLCheckData` as a Data-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var value = new DLLCheckData();
+// This data object is usually returned by campaign/mission APIs
+DLLCheckData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

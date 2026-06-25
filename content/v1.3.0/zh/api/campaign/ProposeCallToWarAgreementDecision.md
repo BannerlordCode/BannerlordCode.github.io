@@ -1,13 +1,7 @@
 ---
 title: "ProposeCallToWarAgreementDecision"
+description: "ProposeCallToWarAgreementDecision 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ProposeCallToWarAgreementDecision`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProposeCallToWarAgreementDecision
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -35,125 +29,264 @@ title: "ProposeCallToWarAgreementDecision"
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**用途 / Purpose:** 处理 `is allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.IsAllowed();
+```
 
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**用途 / Purpose:** 获取 `proposal influence cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「proposal influence cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetProposalInfluenceCost();
+```
 
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**用途 / Purpose:** 获取 `general title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「general title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetGeneralTitle();
+```
 
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**用途 / Purpose:** 获取 `support title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「support title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetSupportTitle();
+```
 
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**用途 / Purpose:** 获取 `choose title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「choose title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetChooseTitle();
+```
 
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**用途 / Purpose:** 获取 `support description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「support description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetSupportDescription();
+```
 
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**用途 / Purpose:** 获取 `choose description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「choose description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetChooseDescription();
+```
 
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**用途 / Purpose:** 处理 `determine initial candidates` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「initial candidates」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.DetermineInitialCandidates();
+```
 
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**用途 / Purpose:** 处理 `determine chooser` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「chooser」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.DetermineChooser();
+```
 
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** 处理 `determine sponsors` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「sponsors」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+proposeCallToWarAgreementDecision.DetermineSponsors(possibleOutcomes);
+```
 
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**用途 / Purpose:** 将 `chosen outcome` 应用到当前对象。
+**用途 / Purpose:** 将 「chosen outcome」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+proposeCallToWarAgreementDecision.ApplyChosenOutcome(chosenOutcome);
+```
 
 ### OnShowDecision
 `public override bool OnShowDecision()`
 
-**用途 / Purpose:** 当 `show decision` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「show decision」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.OnShowDecision();
+```
 
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**用途 / Purpose:** 将 `secondary effects` 应用到当前对象。
+**用途 / Purpose:** 将 「secondary effects」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+proposeCallToWarAgreementDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutcome);
+```
 
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**用途 / Purpose:** 获取 `secondary effects` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「secondary effects」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetSecondaryEffects();
+```
 
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
 
-**用途 / Purpose:** 获取 `chosen outcome text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「chosen outcome text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, false);
+```
 
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** 获取 `queried decision outcome` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「queried decision outcome」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetQueriedDecisionOutcome(possibleOutcomes);
+```
 
 ### CalculateSupport
 `public float CalculateSupport(Clan clan)`
 
-**用途 / Purpose:** 处理 `calculate support` 相关逻辑。
+**用途 / Purpose:** 计算「support」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.CalculateSupport(clan);
+```
 
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**用途 / Purpose:** 处理 `determine support` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「support」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.DetermineSupport(clan, possibleOutcome);
+```
 
 ### CanMakeDecision
 `public override bool CanMakeDecision(out TextObject reason)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `make decision`。
+**用途 / Purpose:** 检查当前对象是否满足 「make decision」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.CanMakeDecision(reason);
+```
 
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** 获取 `decision title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** 获取 `decision description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**用途 / Purpose:** 获取 `decision link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** 获取 `decision image identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecision 实例
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetDecisionImageIdentifier();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ProposeCallToWarAgreementDecision();
-value.IsAllowed();
+// 通常从对应子系统 API 获取实例后调用
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+proposeCallToWarAgreementDecision.IsAllowed();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

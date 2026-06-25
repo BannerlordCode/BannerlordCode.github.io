@@ -1,20 +1,14 @@
 ---
 title: "MatchmakingWaitTimeStats"
+description: "MatchmakingWaitTimeStats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MatchmakingWaitTimeStats`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatchmakingWaitTimeStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingWaitTimeStats`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingWaitTimeStats.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingWaitTimeStats.cs`
 
 ## 概述
 
@@ -35,25 +29,44 @@ title: "MatchmakingWaitTimeStats"
 ### AddRegionStats
 `public void AddRegionStats(MatchmakingWaitTimeRegionStats regionStats)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `region stats`。
+**用途 / Purpose:** 将 「region stats」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingWaitTimeStats 实例
+MatchmakingWaitTimeStats matchmakingWaitTimeStats = ...;
+matchmakingWaitTimeStats.AddRegionStats(regionStats);
+```
 
 ### GetRegionStats
 `public MatchmakingWaitTimeRegionStats GetRegionStats(string region)`
 
-**用途 / Purpose:** 获取 `region stats` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「region stats」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingWaitTimeStats 实例
+MatchmakingWaitTimeStats matchmakingWaitTimeStats = ...;
+var result = matchmakingWaitTimeStats.GetRegionStats("example");
+```
 
 ### GetWaitTime
 `public int GetWaitTime(string region, string gameType, WaitTimeStatType statType)`
 
-**用途 / Purpose:** 获取 `wait time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「wait time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingWaitTimeStats 实例
+MatchmakingWaitTimeStats matchmakingWaitTimeStats = ...;
+var result = matchmakingWaitTimeStats.GetWaitTime("example", "example", statType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MatchmakingWaitTimeStats();
-value.AddRegionStats(regionStats);
+// 通常从对应子系统 API 获取实例后调用
+MatchmakingWaitTimeStats matchmakingWaitTimeStats = ...;
+matchmakingWaitTimeStats.AddRegionStats(regionStats);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

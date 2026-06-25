@@ -1,18 +1,12 @@
 ---
 title: "IWriter"
+description: "Auto-generated class reference for IWriter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IWriter`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IWriter
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IWriter`
 **Base:** none
 **File:** `TaleWorlds.Library/IWriter.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-IWriter implementation = GetWriterImplementation();
+// Usually obtained through DI or a factory method
+IIWriter service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

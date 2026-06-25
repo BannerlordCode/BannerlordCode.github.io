@@ -1,13 +1,7 @@
 ---
 title: "DiamondClientApplication"
+description: "DiamondClientApplication 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DiamondClientApplication`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DiamondClientApplication
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
@@ -37,35 +31,66 @@ title: "DiamondClientApplication"
 ### GetObject
 `public object GetObject(string name)`
 
-**用途 / Purpose:** 获取 `object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DiamondClientApplication 实例
+DiamondClientApplication diamondClientApplication = ...;
+var result = diamondClientApplication.GetObject("example");
+```
 
 ### AddObject
 `public void AddObject(string name, DiamondClientApplicationObject applicationObject)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `object`。
+**用途 / Purpose:** 将 「object」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DiamondClientApplication 实例
+DiamondClientApplication diamondClientApplication = ...;
+diamondClientApplication.AddObject("example", applicationObject);
+```
 
 ### Initialize
 `public void Initialize(ClientApplicationConfiguration applicationConfiguration)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 DiamondClientApplication 实例
+DiamondClientApplication diamondClientApplication = ...;
+diamondClientApplication.Initialize(applicationConfiguration);
+```
 
 ### CreateClientSessionProvider
 `public object CreateClientSessionProvider(string clientName, Type clientType, SessionProviderType sessionProviderType, ParameterContainer parameters)`
 
-**用途 / Purpose:** 创建一个 `client session provider` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「client session provider」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 DiamondClientApplication 实例
+DiamondClientApplication diamondClientApplication = ...;
+var result = diamondClientApplication.CreateClientSessionProvider("example", clientType, sessionProviderType, parameters);
+```
 
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 DiamondClientApplication 实例
+DiamondClientApplication diamondClientApplication = ...;
+diamondClientApplication.Update();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DiamondClientApplication();
-value.GetObject("example");
+// 通常从对应子系统 API 获取实例后调用
+DiamondClientApplication diamondClientApplication = ...;
+diamondClientApplication.GetObject("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

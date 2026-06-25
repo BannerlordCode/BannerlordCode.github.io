@@ -1,20 +1,14 @@
 ---
 title: "PlayerDataExperience"
+description: "Auto-generated class reference for PlayerDataExperience."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerDataExperience`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerDataExperience
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct PlayerDataExperience`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerDataExperience.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerDataExperience.cs`
 
 ## Overview
 
@@ -35,17 +29,32 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CalculateLevelFromExperience
 `public static int CalculateLevelFromExperience(int experience)`
 
-**Purpose:** Handles logic related to `calculate level from experience`.
+**Purpose:** Calculates the current value or result of `level from experience`.
+
+```csharp
+// Static call; no instance required
+PlayerDataExperience.CalculateLevelFromExperience(0);
+```
 
 ### CalculateExperienceFromLevel
 `public static int CalculateExperienceFromLevel(int level)`
 
-**Purpose:** Handles logic related to `calculate experience from level`.
+**Purpose:** Calculates the current value or result of `experience from level`.
+
+```csharp
+// Static call; no instance required
+PlayerDataExperience.CalculateExperienceFromLevel(0);
+```
 
 ### ExperienceRequiredForLevel
 `public static int ExperienceRequiredForLevel(int level)`
 
-**Purpose:** Handles logic related to `experience required for level`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerDataExperience.ExperienceRequiredForLevel(0);
+```
 
 ## Usage Example
 
@@ -55,4 +64,4 @@ PlayerDataExperience.CalculateLevelFromExperience(0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

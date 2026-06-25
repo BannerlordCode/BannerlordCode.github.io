@@ -1,13 +1,7 @@
 ---
 title: "OrderController"
+description: "Auto-generated class reference for OrderController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,202 +32,430 @@ Treat `OrderController` as a Controller-style extension point: first identify wh
 ### SelectFormation
 `public void SelectFormation(Formation formation)`
 
-**Purpose:** Handles logic related to `select formation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SelectFormation(formation);
+```
 
 ### DeselectFormation
 `public void DeselectFormation(Formation formation)`
 
-**Purpose:** Handles logic related to `deselect formation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.DeselectFormation(formation);
+```
 
 ### IsFormationListening
 `public bool IsFormationListening(Formation formation)`
 
-**Purpose:** Handles logic related to `is formation listening`.
+**Purpose:** Determines whether the current object is in the `formation listening` state or condition.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+var result = orderController.IsFormationListening(formation);
+```
 
 ### IsFormationSelectable
 `public bool IsFormationSelectable(Formation formation)`
 
-**Purpose:** Handles logic related to `is formation selectable`.
+**Purpose:** Determines whether the current object is in the `formation selectable` state or condition.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+var result = orderController.IsFormationSelectable(formation);
+```
 
 ### BackupAndDisableGesturesEnabled
 `public bool BackupAndDisableGesturesEnabled()`
 
-**Purpose:** Handles logic related to `backup and disable gestures enabled`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+var result = orderController.BackupAndDisableGesturesEnabled();
+```
 
 ### RestoreGesturesEnabled
 `public void RestoreGesturesEnabled(bool oldValue)`
 
-**Purpose:** Handles logic related to `restore gestures enabled`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.RestoreGesturesEnabled(false);
+```
 
 ### SelectAllFormations
 `public void SelectAllFormations(bool uiFeedback = false)`
 
-**Purpose:** Handles logic related to `select all formations`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SelectAllFormations(false);
+```
 
 ### ClearSelectedFormations
 `public void ClearSelectedFormations()`
 
-**Purpose:** Handles logic related to `clear selected formations`.
+**Purpose:** Removes all `selected formations` from the current object.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.ClearSelectedFormations();
+```
 
 ### SetOrder
 `public unsafe virtual void SetOrder(OrderType orderType)`
 
-**Purpose:** Sets the value or state of `order`.
+**Purpose:** Assigns a new value to `order` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetOrder(orderType);
+```
 
 ### SetOrderWithAgent
 `public virtual void SetOrderWithAgent(OrderType orderType, Agent agent)`
 
-**Purpose:** Sets the value or state of `order with agent`.
+**Purpose:** Assigns a new value to `order with agent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetOrderWithAgent(orderType, agent);
+```
 
 ### SetOrderWithPosition
 `public virtual void SetOrderWithPosition(OrderType orderType, WorldPosition orderPosition)`
 
-**Purpose:** Sets the value or state of `order with position`.
+**Purpose:** Assigns a new value to `order with position` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetOrderWithPosition(orderType, orderPosition);
+```
 
 ### SetOrderWithFormation
 `public virtual void SetOrderWithFormation(OrderType orderType, Formation orderFormation)`
 
-**Purpose:** Sets the value or state of `order with formation`.
+**Purpose:** Assigns a new value to `order with formation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetOrderWithFormation(orderType, orderFormation);
+```
 
 ### SetOrderWithFormationAndPercentage
 `public void SetOrderWithFormationAndPercentage(OrderType orderType, Formation orderFormation, float percentage)`
 
-**Purpose:** Sets the value or state of `order with formation and percentage`.
+**Purpose:** Assigns a new value to `order with formation and percentage` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetOrderWithFormationAndPercentage(orderType, orderFormation, 0);
+```
 
 ### TransferUnitWithPriorityFunction
 `public void TransferUnitWithPriorityFunction(Formation orderFormation, int number, bool hasShield, bool hasSpear, bool hasThrown, bool isHeavy, bool isRanged, bool isMounted, bool excludeBannerman, List<Agent> excludedAgents)`
 
-**Purpose:** Handles logic related to `transfer unit with priority function`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.TransferUnitWithPriorityFunction(orderFormation, 0, false, false, false, false, false, false, false, excludedAgents);
+```
 
 ### RearrangeFormationsAccordingToFilters
 `public void RearrangeFormationsAccordingToFilters(Team team, { "formation", "troopCount", "troopFilter", "excludedAgents" })`
 
-**Purpose:** Handles logic related to `rearrange formations according to filters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.RearrangeFormationsAccordingToFilters(team, "formation", "troopCount", "troopFilter", });
+```
 
 ### SetOrderWithFormationAndNumber
 `public void SetOrderWithFormationAndNumber(OrderType orderType, Formation orderFormation, int number)`
 
-**Purpose:** Sets the value or state of `order with formation and number`.
+**Purpose:** Assigns a new value to `order with formation and number` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetOrderWithFormationAndNumber(orderType, orderFormation, 0);
+```
 
 ### SetOrderWithTwoPositions
 `public virtual void SetOrderWithTwoPositions(OrderType orderType, WorldPosition position1, WorldPosition position2)`
 
-**Purpose:** Sets the value or state of `order with two positions`.
+**Purpose:** Assigns a new value to `order with two positions` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetOrderWithTwoPositions(orderType, position1, position2);
+```
 
 ### SetOrderWithOrderableObject
 `public virtual void SetOrderWithOrderableObject(IOrderable target)`
 
-**Purpose:** Sets the value or state of `order with orderable object`.
+**Purpose:** Assigns a new value to `order with orderable object` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetOrderWithOrderableObject(target);
+```
 
 ### GetActiveMovementOrderOf
 `public unsafe static OrderType GetActiveMovementOrderOf(Formation formation)`
 
-**Purpose:** Gets the current value of `active movement order of`.
+**Purpose:** Reads and returns the `active movement order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetActiveMovementOrderOf(formation);
+```
 
 ### GetActiveFacingOrderOf
 `public static OrderType GetActiveFacingOrderOf(Formation formation)`
 
-**Purpose:** Gets the current value of `active facing order of`.
+**Purpose:** Reads and returns the `active facing order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetActiveFacingOrderOf(formation);
+```
 
 ### GetActiveRidingOrderOf
 `public static OrderType GetActiveRidingOrderOf(Formation formation)`
 
-**Purpose:** Gets the current value of `active riding order of`.
+**Purpose:** Reads and returns the `active riding order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetActiveRidingOrderOf(formation);
+```
 
 ### GetActiveArrangementOrderOf
 `public static OrderType GetActiveArrangementOrderOf(Formation formation)`
 
-**Purpose:** Gets the current value of `active arrangement order of`.
+**Purpose:** Reads and returns the `active arrangement order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetActiveArrangementOrderOf(formation);
+```
 
 ### GetActiveFormOrderOf
 `public static OrderType GetActiveFormOrderOf(Formation formation)`
 
-**Purpose:** Gets the current value of `active form order of`.
+**Purpose:** Reads and returns the `active form order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetActiveFormOrderOf(formation);
+```
 
 ### GetActiveFiringOrderOf
 `public static OrderType GetActiveFiringOrderOf(Formation formation)`
 
-**Purpose:** Gets the current value of `active firing order of`.
+**Purpose:** Reads and returns the `active firing order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetActiveFiringOrderOf(formation);
+```
 
 ### GetActiveAIControlOrderOf
 `public static OrderType GetActiveAIControlOrderOf(Formation formation)`
 
-**Purpose:** Gets the current value of `active a i control order of`.
+**Purpose:** Reads and returns the `active a i control order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetActiveAIControlOrderOf(formation);
+```
 
 ### SimulateNewOrderWithPositionAndDirection
 `public void SimulateNewOrderWithPositionAndDirection(WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<WorldPosition> simulationAgentFrames, bool isFormationLayoutVertical)`
 
-**Purpose:** Handles logic related to `simulate new order with position and direction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SimulateNewOrderWithPositionAndDirection(formationLineBegin, formationLineEnd, simulationAgentFrames, false);
+```
 
 ### SimulateNewFacingOrder
 `public void SimulateNewFacingOrder(Vec2 direction, out List<WorldPosition> simulationAgentFrames)`
 
-**Purpose:** Handles logic related to `simulate new facing order`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SimulateNewFacingOrder(direction, simulationAgentFrames);
+```
 
 ### SimulateNewCustomWidthOrder
 `public void SimulateNewCustomWidthOrder(float width, out List<WorldPosition> simulationAgentFrames)`
 
-**Purpose:** Handles logic related to `simulate new custom width order`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SimulateNewCustomWidthOrder(0, simulationAgentFrames);
+```
 
 ### SimulateNewOrderWithPositionAndDirection
 `public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<WorldPosition> simulationAgentFrames, bool isFormationLayoutVertical = true)`
 
-**Purpose:** Handles logic related to `simulate new order with position and direction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<Formation, simulationFormations, formationLineBegin, formationLineEnd, simulationAgentFrames, false);
+```
 
 ### SimulateNewOrderWithPositionAndDirection
 `public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<ValueTuple<Formation, int, float, WorldPosition, Vec2>> formationChanges, out bool isLineShort, bool isFormationLayoutVertical = true)`
 
-**Purpose:** Handles logic related to `simulate new order with position and direction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<Formation, simulationFormations, formationLineBegin, formationLineEnd, list<ValueTuple<Formation, 0, 0, worldPosition, formationChanges, isLineShort, false);
+```
 
 ### SimulateDestinationFrames
 `public void SimulateDestinationFrames(out List<WorldPosition> simulationAgentFrames, float minDistance = 3f)`
 
-**Purpose:** Handles logic related to `simulate destination frames`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SimulateDestinationFrames(simulationAgentFrames, 0);
+```
 
 ### SortFormationsForHorizontalLayout
 `public static IEnumerable<Formation> SortFormationsForHorizontalLayout(IEnumerable<Formation> formations)`
 
-**Purpose:** Handles logic related to `sort formations for horizontal layout`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+OrderController.SortFormationsForHorizontalLayout(formations);
+```
 
 ### GetOrderLookAtDirection
 `public static Vec2 GetOrderLookAtDirection(IEnumerable<Formation> formations, Vec2 target)`
 
-**Purpose:** Gets the current value of `order look at direction`.
+**Purpose:** Reads and returns the `order look at direction` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetOrderLookAtDirection(formations, target);
+```
 
 ### GetOrderFormCustomWidth
 `public static float GetOrderFormCustomWidth(IEnumerable<Formation> formations, Vec3 orderPosition)`
 
-**Purpose:** Gets the current value of `order form custom width`.
+**Purpose:** Reads and returns the `order form custom width` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderController.GetOrderFormCustomWidth(formations, orderPosition);
+```
 
 ### TransferUnits
 `public void TransferUnits(Formation source, Formation target, int count)`
 
-**Purpose:** Handles logic related to `transfer units`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.TransferUnits(source, target, 0);
+```
 
 ### SplitFormation
 `public IEnumerable<Formation> SplitFormation(Formation formation, int count = 2)`
 
-**Purpose:** Handles logic related to `split formation`.
+**Purpose:** Splits `formation` into multiple parts or sub-items.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+var result = orderController.SplitFormation(formation, 0);
+```
 
 ### TickDebug
 `public void TickDebug()`
 
-**Purpose:** Handles logic related to `tick debug`.
+**Purpose:** Advances the `debug` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.TickDebug();
+```
 
 ### AddOrderOverride
 `public void AddOrderOverride(Func<Formation, MovementOrder, MovementOrder> orderOverride)`
 
 **Purpose:** Adds `order override` to the current collection or state.
 
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.AddOrderOverride(func<Formation, movementOrder, orderOverride);
+```
+
 ### GetOverridenOrderType
 `public OrderType GetOverridenOrderType(Formation formation)`
 
-**Purpose:** Gets the current value of `overriden order type`.
+**Purpose:** Reads and returns the `overriden order type` value held by the current object.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+var result = orderController.GetOverridenOrderType(formation);
+```
 
 ### SetFormationUpdateEnabledAfterSetOrder
 `public void SetFormationUpdateEnabledAfterSetOrder(bool value)`
 
-**Purpose:** Sets the value or state of `formation update enabled after set order`.
+**Purpose:** Assigns a new value to `formation update enabled after set order` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderController from the subsystem API first
+OrderController orderController = ...;
+orderController.SetFormationUpdateEnabledAfterSetOrder(false);
+```
 
 ## Usage Example
 
@@ -243,4 +465,4 @@ var controller = Mission.Current.GetMissionBehavior<OrderController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

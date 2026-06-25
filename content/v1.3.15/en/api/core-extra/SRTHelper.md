@@ -1,13 +1,7 @@
 ---
 title: "SRTHelper"
+description: "Auto-generated class reference for SRTHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SRTHelper`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SRTHelper
 
 **Namespace:** TaleWorlds.Library
@@ -37,17 +31,33 @@ Treat `SRTHelper` as a Helper-style extension point: first identify who creates 
 ### ParseStream
 `public static List<SRTHelper.SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
-**Purpose:** Handles logic related to `parse stream`.
+**Purpose:** Parses external input into a `stream` the current system understands.
+
+```csharp
+// Static call; no instance required
+SRTHelper.ParseStream(subtitleStream, encoding);
+```
 
 ### CopyStream
 `public static Stream CopyStream(Stream inputStream)`
 
-**Purpose:** Handles logic related to `copy stream`.
+**Purpose:** Copies the `stream` state of the current object to a target.
+
+```csharp
+// Static call; no instance required
+SRTHelper.CopyStream(inputStream);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SRTHelper from the subsystem API first
+SRTHelper sRTHelper = ...;
+var result = sRTHelper.ToString();
+```
 
 ## Usage Example
 
@@ -57,4 +67,4 @@ SRTHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

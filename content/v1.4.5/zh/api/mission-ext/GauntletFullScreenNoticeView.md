@@ -1,20 +1,14 @@
 ---
 title: "GauntletFullScreenNoticeView"
+description: "GauntletFullScreenNoticeView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletFullScreenNoticeView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletFullScreenNoticeView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletFullScreenNoticeView : GlobalLayer`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletFullScreenNoticeView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletFullScreenNoticeView.cs`
 
 ## 概述
 
@@ -35,19 +29,30 @@ title: "GauntletFullScreenNoticeView"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+GauntletFullScreenNoticeView.Initialize();
+```
 
 ### SkipNotice
 `public static void SkipNotice()`
 
-**用途 / Purpose:** 处理 `skip notice` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+GauntletFullScreenNoticeView.SkipNotice();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new GauntletFullScreenNoticeView();
+// 从子系统 API 或场景中获取该视图
+GauntletFullScreenNoticeView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

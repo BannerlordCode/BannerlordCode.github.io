@@ -1,13 +1,7 @@
 ---
 title: "CraftingPieceImageTextureProvider"
+description: "Auto-generated class reference for CraftingPieceImageTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceImageTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceImageTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.Image
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of CraftingPieceImageTextureProvider from the subsystem API first
+CraftingPieceImageTextureProvider craftingPieceImageTextureProvider = ...;
+craftingPieceImageTextureProvider.Clear(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingPieceImageTextureProvider();
-value.Clear(false);
+// Typically call this after obtaining an instance from the subsystem API
+CraftingPieceImageTextureProvider craftingPieceImageTextureProvider = ...;
+craftingPieceImageTextureProvider.Clear(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

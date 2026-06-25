@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletBattleScore"
+description: "Auto-generated class reference for MissionGauntletBattleScore."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletBattleScore`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletBattleScore
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletBattleScore : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletBattleScore.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletBattleScore.cs`
 
 ## Overview
 
@@ -29,55 +23,109 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBattleScore from the subsystem API first
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+missionGauntletBattleScore.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBattleScore from the subsystem API first
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+missionGauntletBattleScore.OnMissionScreenFinalize();
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBattleScore from the subsystem API first
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+var result = missionGauntletBattleScore.OnEscape();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletBattleScore from the subsystem API first
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+missionGauntletBattleScore.EarlyStart();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBattleScore from the subsystem API first
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+missionGauntletBattleScore.OnMissionScreenTick(0);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBattleScore from the subsystem API first
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+missionGauntletBattleScore.OnDeploymentFinished();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBattleScore from the subsystem API first
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+missionGauntletBattleScore.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBattleScore from the subsystem API first
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+missionGauntletBattleScore.OnPhotoModeDeactivated();
+```
 
 ### ForceScoreboardToggle
 `public static string ForceScoreboardToggle(List<string> args)`
 
-**Purpose:** Handles logic related to `force scoreboard toggle`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionGauntletBattleScore.ForceScoreboardToggle(args);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletBattleScore();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletBattleScore missionGauntletBattleScore = ...;
+missionGauntletBattleScore.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

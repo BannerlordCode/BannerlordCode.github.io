@@ -1,18 +1,12 @@
 ---
 title: "TargetIconType"
+description: "Auto-generated class reference for TargetIconType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TargetIconType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TargetIconType
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum TargetIconType`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/TargetIconType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new TargetIconType();
+// Obtain an instance from the relevant subsystem API
+TargetIconType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LocalizationException"
+description: "Auto-generated class reference for LocalizationException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocalizationException`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocalizationException
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class LocalizationException : Exception`
 **Base:** `Exception`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/LocalizationException.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/LocalizationException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `LocalizationException` as a Exception-style extension point: first identi
 ## Usage Example
 
 ```csharp
-try { CallLocalizationException(); } catch (LocalizationException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (LocalizationException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

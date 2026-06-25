@@ -1,20 +1,14 @@
 ---
 title: "RequestMaxAllowedPriorityResponse"
+description: "Auto-generated class reference for RequestMaxAllowedPriorityResponse."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RequestMaxAllowedPriorityResponse`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RequestMaxAllowedPriorityResponse
 
 **Namespace:** Messages.FromBattleServerManager.ToBattleServer
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class RequestMaxAllowedPriorityResponse : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/RequestMaxAllowedPriorityResponse.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/RequestMaxAllowedPriorityResponse.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromBattleServerManager.ToBattleServer` to place 
 ## Usage Example
 
 ```csharp
-var example = new RequestMaxAllowedPriorityResponse();
+// Obtain an instance from the relevant subsystem API
+RequestMaxAllowedPriorityResponse instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

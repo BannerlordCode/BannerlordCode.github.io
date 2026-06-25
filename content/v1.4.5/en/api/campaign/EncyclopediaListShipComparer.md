@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListShipComparer"
+description: "Auto-generated class reference for EncyclopediaListShipComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListShipComparer`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListShipComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class EncyclopediaListShipComparer : EncyclopediaListItemComparerBase`
 **Base:** `EncyclopediaListItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaShipPage.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaShipPage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncyclopediaListShipComparer();
+// Typically obtained from a subsystem API or factory
+EncyclopediaListShipComparer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

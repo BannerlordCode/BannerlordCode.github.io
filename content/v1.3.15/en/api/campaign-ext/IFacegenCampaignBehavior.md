@@ -1,19 +1,13 @@
 ---
 title: "IFacegenCampaignBehavior"
+description: "Auto-generated class reference for IFacegenCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IFacegenCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IFacegenCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
+**Type:** `public interface IFacegenCampaignBehavior : ICampaignBehavior`
+**Base:** `ICampaignBehavior`
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IFacegenCampaignBehavior.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IFacegenCampaignBehavior implementation = GetFacegenCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIFacegenCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

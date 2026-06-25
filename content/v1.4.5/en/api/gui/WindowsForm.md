@@ -1,20 +1,14 @@
 ---
 title: "WindowsForm"
+description: "Auto-generated class reference for WindowsForm."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WindowsForm`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WindowsForm
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class WindowsForm`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/WindowsForm.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/WindowsForm.cs`
 
 ## Overview
 
@@ -38,35 +32,66 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### SetParent
 `public void SetParent(IntPtr parentHandle)`
 
-**Purpose:** Sets the value or state of `parent`.
+**Purpose:** Assigns a new value to `parent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WindowsForm from the subsystem API first
+WindowsForm windowsForm = ...;
+windowsForm.SetParent(parentHandle);
+```
 
 ### Show
 `public void Show()`
 
-**Purpose:** Handles logic related to `show`.
+**Purpose:** Displays the UI or element associated with the current object.
+
+```csharp
+// Obtain an instance of WindowsForm from the subsystem API first
+WindowsForm windowsForm = ...;
+windowsForm.Show();
+```
 
 ### Hide
 `public void Hide()`
 
-**Purpose:** Handles logic related to `hide`.
+**Purpose:** Hides the UI or element associated with the current object.
+
+```csharp
+// Obtain an instance of WindowsForm from the subsystem API first
+WindowsForm windowsForm = ...;
+windowsForm.Hide();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WindowsForm from the subsystem API first
+WindowsForm windowsForm = ...;
+windowsForm.Destroy();
+```
 
 ### AddMessageHandler
 `public void AddMessageHandler(WindowsFormMessageHandler messageHandler)`
 
 **Purpose:** Adds `message handler` to the current collection or state.
 
+```csharp
+// Obtain an instance of WindowsForm from the subsystem API first
+WindowsForm windowsForm = ...;
+windowsForm.AddMessageHandler(messageHandler);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new WindowsForm();
-value.SetParent(parentHandle);
+// Typically call this after obtaining an instance from the subsystem API
+WindowsForm windowsForm = ...;
+windowsForm.SetParent(parentHandle);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

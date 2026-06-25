@@ -1,13 +1,7 @@
 ---
 title: "OptionsScreenWidget"
+description: "Auto-generated class reference for OptionsScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OptionsScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options
@@ -39,14 +33,21 @@ Treat `OptionsScreenWidget` as a Widget-style extension point: first identify wh
 ### SetCurrentOption
 `public void SetCurrentOption(Widget currentOptionWidget, Sprite newgraphicsSprite)`
 
-**Purpose:** Sets the value or state of `current option`.
+**Purpose:** Assigns a new value to `current option` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsScreenWidget from the subsystem API first
+OptionsScreenWidget optionsScreenWidget = ...;
+optionsScreenWidget.SetCurrentOption(currentOptionWidget, newgraphicsSprite);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new OptionsScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OptionsScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

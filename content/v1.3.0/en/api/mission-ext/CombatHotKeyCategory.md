@@ -1,13 +1,7 @@
 ---
 title: "CombatHotKeyCategory"
+description: "Auto-generated class reference for CombatHotKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatHotKeyCategory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatHotKeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new CombatHotKeyCategory();
+// Obtain an instance from the relevant subsystem API
+CombatHotKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

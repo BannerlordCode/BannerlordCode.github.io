@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyNavigationModel"
+description: "DefaultPartyNavigationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyNavigationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyNavigationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,22 +23,46 @@ title: "DefaultPartyNavigationModel"
 ### GetEmbarkDisembarkThresholdDistance
 `public override float GetEmbarkDisembarkThresholdDistance()`
 
-**用途 / Purpose:** 获取 `embark disembark threshold distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「embark disembark threshold distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyNavigationModel 实例
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.GetEmbarkDisembarkThresholdDistance();
+```
 
 ### GetInvalidTerrainTypesForNavigationType
 `public override int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 获取 `invalid terrain types for navigation type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「invalid terrain types for navigation type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyNavigationModel 实例
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.GetInvalidTerrainTypesForNavigationType(navigationType);
+```
 
 ### IsTerrainTypeValidForNavigationType
 `public override bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 处理 `is terrain type valid for navigation type` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「terrain type valid for navigation type」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyNavigationModel 实例
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.IsTerrainTypeValidForNavigationType(terrainType, navigationType);
+```
 
 ### HasNavalNavigationCapability
 `public override bool HasNavalNavigationCapability(MobileParty mobileParty)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `naval navigation capability`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「naval navigation capability」。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyNavigationModel 实例
+DefaultPartyNavigationModel defaultPartyNavigationModel = ...;
+var result = defaultPartyNavigationModel.HasNavalNavigationCapability(mobileParty);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultPartyNavigationModel>(new MyDefaultPartyNavigat
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

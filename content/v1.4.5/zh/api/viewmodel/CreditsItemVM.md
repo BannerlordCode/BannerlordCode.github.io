@@ -1,20 +1,14 @@
 ---
 title: "CreditsItemVM"
+description: "CreditsItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CreditsItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreditsItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Credits
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CreditsItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Credits/CreditsItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Credits/CreditsItemVM.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "CreditsItemVM"
 ## 使用示例
 
 ```csharp
-var example = new CreditsItemVM();
+// 从对应子系统 API 获取实例
+CreditsItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

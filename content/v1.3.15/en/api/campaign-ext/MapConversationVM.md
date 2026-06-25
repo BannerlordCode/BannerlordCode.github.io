@@ -1,13 +1,7 @@
 ---
 title: "MapConversationVM"
+description: "Auto-generated class reference for MapConversationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapConversationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapConversation
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapConve
 ### ExecuteContinue
 `public void ExecuteContinue()`
 
-**Purpose:** Executes the `continue` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `continue`.
+
+```csharp
+// Obtain an instance of MapConversationVM from the subsystem API first
+MapConversationVM mapConversationVM = ...;
+mapConversationVM.ExecuteContinue();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationVM from the subsystem API first
+MapConversationVM mapConversationVM = ...;
+mapConversationVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapConversationVM from the subsystem API first
+MapConversationVM mapConversationVM = ...;
+mapConversationVM.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapConversationVM();
-value.ExecuteContinue();
+// Typically call this after obtaining an instance from the subsystem API
+MapConversationVM mapConversationVM = ...;
+mapConversationVM.ExecuteContinue();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

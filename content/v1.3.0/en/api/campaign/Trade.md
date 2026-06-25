@@ -1,13 +1,7 @@
 ---
 title: "Trade"
+description: "Auto-generated class reference for Trade."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Trade`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Trade
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -55,9 +49,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new Trade();
+// Obtain an instance from the relevant subsystem API
+Trade instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

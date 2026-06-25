@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaSearchBarBrushWidget"
+description: "Auto-generated class reference for EncyclopediaSearchBarBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaSearchBarBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaSearchBarBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaSearchBarBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaSearchBarBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaSearchBarBrushWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `EncyclopediaSearchBarBrushWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaSearchBarBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaSearchBarBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

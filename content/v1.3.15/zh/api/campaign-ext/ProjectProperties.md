@@ -1,13 +1,7 @@
 ---
 title: "ProjectProperties"
+description: "ProjectProperties 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ProjectProperties`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ProjectProperties
 
 **Namespace:** psai.Editor
@@ -46,20 +40,33 @@ title: "ProjectProperties"
 ### ShallowCopy
 `public ProjectProperties ShallowCopy()`
 
-**用途 / Purpose:** 处理 `shallow copy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ProjectProperties 实例
+ProjectProperties projectProperties = ...;
+var result = projectProperties.ShallowCopy();
+```
 
 ### Clone
 `public object Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 ProjectProperties 实例
+ProjectProperties projectProperties = ...;
+var result = projectProperties.Clone();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ProjectProperties();
-value.ShallowCopy();
+// 通常从对应子系统 API 获取实例后调用
+ProjectProperties projectProperties = ...;
+projectProperties.ShallowCopy();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

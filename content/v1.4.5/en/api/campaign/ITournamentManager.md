@@ -1,20 +1,14 @@
 ---
 title: "ITournamentManager"
+description: "Auto-generated class reference for ITournamentManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ITournamentManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ITournamentManager
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ITournamentManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/ITournamentManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/ITournamentManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ITournamentManager` as a Manager-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-ITournamentManager implementation = GetTournamentManagerImplementation();
+// Usually obtained through DI or a factory method
+IITournamentManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

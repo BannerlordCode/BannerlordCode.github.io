@@ -1,13 +1,7 @@
 ---
 title: "BrushAnimationProperty"
+description: "Auto-generated class reference for BrushAnimationProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushAnimationProperty`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushAnimationProperty
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### GetFrameAfter
 `public BrushAnimationKeyFrame GetFrameAfter(float time)`
 
-**Purpose:** Gets the current value of `frame after`.
+**Purpose:** Reads and returns the `frame after` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushAnimationProperty from the subsystem API first
+BrushAnimationProperty brushAnimationProperty = ...;
+var result = brushAnimationProperty.GetFrameAfter(0);
+```
 
 ### GetFrameAt
 `public BrushAnimationKeyFrame GetFrameAt(int i)`
 
-**Purpose:** Gets the current value of `frame at`.
+**Purpose:** Reads and returns the `frame at` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushAnimationProperty from the subsystem API first
+BrushAnimationProperty brushAnimationProperty = ...;
+var result = brushAnimationProperty.GetFrameAt(0);
+```
 
 ### Clone
 `public BrushAnimationProperty Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of BrushAnimationProperty from the subsystem API first
+BrushAnimationProperty brushAnimationProperty = ...;
+var result = brushAnimationProperty.Clone();
+```
 
 ### AddKeyFrame
 `public void AddKeyFrame(BrushAnimationKeyFrame keyFrame)`
 
 **Purpose:** Adds `key frame` to the current collection or state.
 
+```csharp
+// Obtain an instance of BrushAnimationProperty from the subsystem API first
+BrushAnimationProperty brushAnimationProperty = ...;
+brushAnimationProperty.AddKeyFrame(keyFrame);
+```
+
 ### RemoveKeyFrame
 `public void RemoveKeyFrame(BrushAnimationKeyFrame keyFrame)`
 
 **Purpose:** Removes `key frame` from the current collection or state.
 
+```csharp
+// Obtain an instance of BrushAnimationProperty from the subsystem API first
+BrushAnimationProperty brushAnimationProperty = ...;
+brushAnimationProperty.RemoveKeyFrame(keyFrame);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new BrushAnimationProperty();
-value.GetFrameAfter(0);
+// Typically call this after obtaining an instance from the subsystem API
+BrushAnimationProperty brushAnimationProperty = ...;
+brushAnimationProperty.GetFrameAfter(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

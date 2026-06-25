@@ -1,13 +1,7 @@
 ---
 title: "ConspiracyProgressQuest"
+description: "Auto-generated class reference for ConspiracyProgressQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConspiracyProgressQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConspiracyProgressQuest
 
 **Namespace:** StoryMode.Quests.SecondPhase
@@ -33,9 +27,10 @@ Start from namespace `StoryMode.Quests.SecondPhase` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var value = new ConspiracyProgressQuest();
+// Obtain an instance from the relevant subsystem API
+ConspiracyProgressQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

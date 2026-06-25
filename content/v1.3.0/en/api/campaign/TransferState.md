@@ -1,13 +1,7 @@
 ---
 title: "TransferState"
+description: "Auto-generated class reference for TransferState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransferState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransferState
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ## Usage Example
 
 ```csharp
-TransferState example = TransferState.Value;
+// Obtain an instance from the relevant subsystem API
+TransferState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

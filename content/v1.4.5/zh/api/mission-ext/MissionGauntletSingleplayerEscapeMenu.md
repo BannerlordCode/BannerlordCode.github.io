@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletSingleplayerEscapeMenu"
+description: "MissionGauntletSingleplayerEscapeMenu 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletSingleplayerEscapeMenu`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletSingleplayerEscapeMenu
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletSingleplayerEscapeMenu : MissionGauntletEscapeMenuBase`
 **Base:** `MissionGauntletEscapeMenuBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSingleplayerEscapeMenu.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSingleplayerEscapeMenu.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "MissionGauntletSingleplayerEscapeMenu"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerEscapeMenu 实例
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerEscapeMenu 实例
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnMissionScreenFinalize();
+```
 
 ### OnFocusChangeOnGameWindow
 `public override void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**用途 / Purpose:** 当 `focus change on game window` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus change on game window」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerEscapeMenu 实例
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnFocusChangeOnGameWindow(false);
+```
 
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**用途 / Purpose:** 当 `scene rendering started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「scene rendering started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerEscapeMenu 实例
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnSceneRenderingStarted();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionGauntletSingleplayerEscapeMenu();
-value.OnMissionScreenInitialize();
+// 通常从对应子系统 API 获取实例后调用
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnMissionScreenInitialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

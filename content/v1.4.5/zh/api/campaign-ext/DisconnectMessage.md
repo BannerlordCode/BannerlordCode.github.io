@@ -1,20 +1,14 @@
 ---
 title: "DisconnectMessage"
+description: "DisconnectMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DisconnectMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisconnectMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public class DisconnectMessage : RestRequestMessage`
 **Base:** `RestRequestMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/DisconnectMessage.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/DisconnectMessage.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "DisconnectMessage"
 ## 使用示例
 
 ```csharp
-var example = new DisconnectMessage();
+// 从对应子系统 API 获取实例
+DisconnectMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "WorkshopAreaMarker"
+description: "WorkshopAreaMarker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WorkshopAreaMarker`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopAreaMarker
 
 **Namespace:** SandBox.Objects.AreaMarkers
@@ -35,25 +29,44 @@ title: "WorkshopAreaMarker"
 ### GetWorkshop
 `public Workshop GetWorkshop()`
 
-**用途 / Purpose:** 获取 `workshop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「workshop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopAreaMarker 实例
+WorkshopAreaMarker workshopAreaMarker = ...;
+var result = workshopAreaMarker.GetWorkshop();
+```
 
 ### GetWorkshopType
 `public WorkshopType GetWorkshopType()`
 
-**用途 / Purpose:** 获取 `workshop type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「workshop type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopAreaMarker 实例
+WorkshopAreaMarker workshopAreaMarker = ...;
+var result = workshopAreaMarker.GetWorkshopType();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopAreaMarker 实例
+WorkshopAreaMarker workshopAreaMarker = ...;
+var result = workshopAreaMarker.GetName();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WorkshopAreaMarker();
-value.GetWorkshop();
+// 通常从对应子系统 API 获取实例后调用
+WorkshopAreaMarker workshopAreaMarker = ...;
+workshopAreaMarker.GetWorkshop();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

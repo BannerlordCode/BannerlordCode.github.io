@@ -1,20 +1,14 @@
 ---
 title: "HorseHarnessCoverTypes"
+description: "Auto-generated class reference for HorseHarnessCoverTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HorseHarnessCoverTypes`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HorseHarnessCoverTypes
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public enum HorseHarnessCoverTypes`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ArmorComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ArmorComponent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-HorseHarnessCoverTypes example = HorseHarnessCoverTypes.Value;
+// Obtain an instance from the relevant subsystem API
+HorseHarnessCoverTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

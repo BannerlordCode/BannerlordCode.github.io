@@ -1,13 +1,7 @@
 ---
 title: "ConversationCharacterData"
+description: "Auto-generated class reference for ConversationCharacterData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationCharacterData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConversationCharacterData
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
@@ -27,9 +21,10 @@ Treat `ConversationCharacterData` as a Data-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var value = new ConversationCharacterData();
+// This data object is usually returned by campaign/mission APIs
+ConversationCharacterData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

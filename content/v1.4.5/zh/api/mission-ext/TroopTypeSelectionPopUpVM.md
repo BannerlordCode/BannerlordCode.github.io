@@ -1,20 +1,14 @@
 ---
 title: "TroopTypeSelectionPopUpVM"
+description: "TroopTypeSelectionPopUpVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TroopTypeSelectionPopUpVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopTypeSelectionPopUpVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TroopTypeSelectionPopUpVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/TroopTypeSelectionPopUpVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/TroopTypeSelectionPopUpVM.cs`
 
 ## 概述
 
@@ -44,70 +38,143 @@ title: "TroopTypeSelectionPopUpVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.OnFinalize();
+```
 
 ### OpenPopUp
 `public void OpenPopUp(string title, MBBindingList<CustomBattleTroopTypeVM> troops)`
 
-**用途 / Purpose:** 处理 `open pop up` 相关逻辑。
+**用途 / Purpose:** 打开「pop up」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.OpenPopUp("example", troops);
+```
 
 ### OnItemSelectionToggled
 `public void OnItemSelectionToggled(CustomBattleTroopTypeVM item)`
 
-**用途 / Purpose:** 当 `item selection toggled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「item selection toggled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.OnItemSelectionToggled(item);
+```
 
 ### ExecuteSelectAll
 `public void ExecuteSelectAll()`
 
-**用途 / Purpose:** 执行 `select all` 操作或流程。
+**用途 / Purpose:** 执行 「select all」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteSelectAll();
+```
 
 ### ExecuteBackToDefault
 `public void ExecuteBackToDefault()`
 
-**用途 / Purpose:** 执行 `back to default` 操作或流程。
+**用途 / Purpose:** 执行 「back to default」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteBackToDefault();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteCancel();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 `done` 操作或流程。
+**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteDone();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** 执行 `reset` 操作或流程。
+**用途 / Purpose:** 执行 「reset」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.ExecuteReset();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.SetCancelInputKey(hotkey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.SetDoneInputKey(hotkey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `reset input key` 的值或状态。
+**用途 / Purpose:** 为 「reset input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TroopTypeSelectionPopUpVM 实例
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.SetResetInputKey(hotkey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TroopTypeSelectionPopUpVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+TroopTypeSelectionPopUpVM troopTypeSelectionPopUpVM = ...;
+troopTypeSelectionPopUpVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

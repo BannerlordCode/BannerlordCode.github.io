@@ -1,13 +1,7 @@
 ---
 title: "MissionDeploymentBoundaryMarker"
+description: "Auto-generated class reference for MissionDeploymentBoundaryMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionDeploymentBoundaryMarker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDeploymentBoundaryMarker
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer` t
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionDeploymentBoundaryMarker from the subsystem API first
+MissionDeploymentBoundaryMarker missionDeploymentBoundaryMarker = ...;
+missionDeploymentBoundaryMarker.AfterStart();
+```
 
 ### OnDeploymentPlanMade
 `public override void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**Purpose:** Called when the `deployment plan made` event is raised.
+**Purpose:** Invoked when the `deployment plan made` event is raised.
+
+```csharp
+// Obtain an instance of MissionDeploymentBoundaryMarker from the subsystem API first
+MissionDeploymentBoundaryMarker missionDeploymentBoundaryMarker = ...;
+missionDeploymentBoundaryMarker.OnDeploymentPlanMade(team, false);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionDeploymentBoundaryMarker from the subsystem API first
+MissionDeploymentBoundaryMarker missionDeploymentBoundaryMarker = ...;
+missionDeploymentBoundaryMarker.OnRemoveBehavior();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionDeploymentBoundaryMarker();
-value.AfterStart();
+// Typically call this after obtaining an instance from the subsystem API
+MissionDeploymentBoundaryMarker missionDeploymentBoundaryMarker = ...;
+missionDeploymentBoundaryMarker.AfterStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

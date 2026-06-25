@@ -1,20 +1,14 @@
 ---
 title: "SandboxBattleInitializationModel"
+description: "SandboxBattleInitializationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxBattleInitializationModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxBattleInitializationModel
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
 **Type:** `public class SandboxBattleInitializationModel : BattleInitializationModel`
 **Base:** `BattleInitializationModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/SandboxBattleInitializationModel.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/SandboxBattleInitializationModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "SandboxBattleInitializationModel"
 ### GetAllAvailableTroopTypes
 `public override List<FormationClass> GetAllAvailableTroopTypes()`
 
-**用途 / Purpose:** 获取 `all available troop types` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all available troop types」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleInitializationModel 实例
+SandboxBattleInitializationModel sandboxBattleInitializationModel = ...;
+var result = sandboxBattleInitializationModel.GetAllAvailableTroopTypes();
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxBattleInitializationModel>(new MySandboxBattleI
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ICommanderInfo"
+description: "Auto-generated class reference for ICommanderInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICommanderInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICommanderInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICommanderInfo.cs`
+**Type:** `public interface ICommanderInfo : IMissionBehavior`
+**Base:** `IMissionBehavior`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICommanderInfo.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-ICommanderInfo implementation = GetCommanderInfoImplementation();
+// Usually obtained through DI or a factory method
+IICommanderInfo service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

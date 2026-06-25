@@ -1,13 +1,7 @@
 ---
 title: "ApiAvatarServiceBase"
+description: "Auto-generated class reference for ApiAvatarServiceBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApiAvatarServiceBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ApiAvatarServiceBase
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
@@ -29,34 +23,65 @@ Start from namespace `TaleWorlds.PlayerServices.Avatar` to place it in the stack
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ApiAvatarServiceBase from the subsystem API first
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+apiAvatarServiceBase.Tick(0);
+```
 
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `player avatar`.
+**Purpose:** Reads and returns the `player avatar` value held by the current object.
+
+```csharp
+// Obtain an instance of ApiAvatarServiceBase from the subsystem API first
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+var result = apiAvatarServiceBase.GetPlayerAvatar(playerId);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ApiAvatarServiceBase from the subsystem API first
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+apiAvatarServiceBase.Initialize();
+```
 
 ### ClearCache
 `public void ClearCache()`
 
-**Purpose:** Handles logic related to `clear cache`.
+**Purpose:** Removes all `cache` from the current object.
+
+```csharp
+// Obtain an instance of ApiAvatarServiceBase from the subsystem API first
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+apiAvatarServiceBase.ClearCache();
+```
 
 ### IsInitialized
 `public bool IsInitialized()`
 
-**Purpose:** Handles logic related to `is initialized`.
+**Purpose:** Determines whether the current object is in the `initialized` state or condition.
+
+```csharp
+// Obtain an instance of ApiAvatarServiceBase from the subsystem API first
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+var result = apiAvatarServiceBase.IsInitialized();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomApiAvatarServiceBase();
+// Typically obtained from a subsystem API or factory
+ApiAvatarServiceBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

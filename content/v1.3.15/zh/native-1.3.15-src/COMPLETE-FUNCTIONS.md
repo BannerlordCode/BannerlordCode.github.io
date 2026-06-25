@@ -19,7 +19,7 @@ description: TaleWorlds.Native.dll v1.3.15 反编译函数地址索引
 | 已索引函数 | 11,095 |
 | 首个函数 | `FUN_180001000` |
 | 最后函数 | `FUN_180a21db0` |
-| 完整列表 | [COMPLETE-FUNCTIONS.md](./COMPLETE-FUNCTIONS) |
+| 完整列表 | [COMPLETE-FUNCTIONS.md](./) |
 | 源码文件 | `TaleWorlds.Native.dll.c` |
 | 头文件声明 | `TaleWorlds.Native.dll.h` |
 
@@ -39,7 +39,7 @@ description: TaleWorlds.Native.dll v1.3.15 反编译函数地址索引
 | `pass_managed_initialize_method_pointer` | `TaleWorlds.Native.dll.h:15416` | `TaleWorlds.Native.dll.c:1316424` | 托管初始化委托注册 |
 | `DllMain` | `TaleWorlds.Native.dll.h:21264` | `TaleWorlds.Native.dll.c:1787079` | Windows DLL 入口 |
 
-详见 [导出与托管桥接](./exports-and-bridge)。
+详见 [导出与托管桥接](exports-and-bridge/)。
 
 ## 地址段索引 / Address Range Index
 
@@ -105,7 +105,7 @@ FUN_180a21db0
 
 ## 如何使用完整地址列表 / How To Use The Address List
 
-1. 打开 [COMPLETE-FUNCTIONS.md](./COMPLETE-FUNCTIONS)。
+1. 打开 [COMPLETE-FUNCTIONS.md](./)。
 2. 用地址前缀缩小范围，例如搜索 `FUN_180746` 或 `FUN_180a21`。
 3. 回到 `TaleWorlds.Native.dll.c` 中搜索同名函数。
 4. 查看函数附近的字符串、全局变量、vftable 写入和被调用函数。
@@ -115,12 +115,12 @@ FUN_180a21db0
 
 | 起点 | 下一步 |
 |------|--------|
-| 托管接口方法 | 查 [EngineMethod](../native/EngineMethod)，再搜索原生方法名或回调注册表 |
-| `NativeObject` 崩溃 | 查 [NativeObject](../native/NativeObject)、`IManaged`、`increase_reference_count`、`decrease_reference_count` |
-| 数组/字符串互操作 | 查 `ftdnNative_array`、`ftdnNative_string`、[INativeArray](../native/INativeArray)、[INativeString](../native/INativeString) |
-| DLL 启动问题 | 查 `WotsMainSDLL`、`pass_controller_methods`、[导出与托管桥接](./exports-and-bridge) |
+| 托管接口方法 | 查 [EngineMethod](../native/EngineMethod/)，再搜索原生方法名或回调注册表 |
+| `NativeObject` 崩溃 | 查 [NativeObject](../native/NativeObject/)、`IManaged`、`increase_reference_count`、`decrease_reference_count` |
+| 数组/字符串互操作 | 查 `ftdnNative_array`、`ftdnNative_string`、[INativeArray](../native/INativeArray/)、[INativeString](../native/INativeString/) |
+| DLL 启动问题 | 查 `WotsMainSDLL`、`pass_controller_methods`、[导出与托管桥接](exports-and-bridge/) |
 | 资源或 Native 模块问题 | 搜索 `Modules/Native`、`Unable to find native module`、`get_tileset.bat` |
-| 场景脚本问题 | 搜索 `rglNative_script_component`，再看 [场景系统](./scene) |
+| 场景脚本问题 | 搜索 `rglNative_script_component`，再看 [场景系统](scene/) |
 
 ## 注意事项 / Notes
 

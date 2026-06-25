@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPlayerHelper"
+description: "MultiplayerPlayerHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerPlayerHelper`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPlayerHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerPlayerHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPlayerHelper.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPlayerHelper.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "MultiplayerPlayerHelper"
 ### IsBlocked
 `public static bool IsBlocked(PlayerId playerID)`
 
-**用途 / Purpose:** 处理 `is blocked` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「blocked」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerPlayerHelper.IsBlocked(playerID);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ MultiplayerPlayerHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

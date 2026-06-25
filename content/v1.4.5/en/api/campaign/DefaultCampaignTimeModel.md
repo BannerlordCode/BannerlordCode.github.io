@@ -1,20 +1,14 @@
 ---
 title: "DefaultCampaignTimeModel"
+description: "Auto-generated class reference for DefaultCampaignTimeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCampaignTimeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCampaignTimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultCampaignTimeModel : CampaignTimeModel`
 **Base:** `CampaignTimeModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCampaignTimeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCampaignTimeModel.cs`
 
 ## Overview
 
@@ -39,4 +33,4 @@ Game.Current.ReplaceModel<DefaultCampaignTimeModel>(new MyDefaultCampaignTimeMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

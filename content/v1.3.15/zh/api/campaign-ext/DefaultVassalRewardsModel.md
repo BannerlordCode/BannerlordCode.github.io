@@ -1,13 +1,7 @@
 ---
 title: "DefaultVassalRewardsModel"
+description: "DefaultVassalRewardsModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultVassalRewardsModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultVassalRewardsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -36,12 +30,24 @@ title: "DefaultVassalRewardsModel"
 ### GetEquipmentRewardsForJoiningKingdom
 `public override ItemRoster GetEquipmentRewardsForJoiningKingdom(Kingdom kingdom)`
 
-**用途 / Purpose:** 获取 `equipment rewards for joining kingdom` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rewards for joining kingdom」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVassalRewardsModel 实例
+DefaultVassalRewardsModel defaultVassalRewardsModel = ...;
+var result = defaultVassalRewardsModel.GetEquipmentRewardsForJoiningKingdom(kingdom);
+```
 
 ### GetTroopRewardsForJoiningKingdom
 `public override TroopRoster GetTroopRewardsForJoiningKingdom(Kingdom kingdom)`
 
-**用途 / Purpose:** 获取 `troop rewards for joining kingdom` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop rewards for joining kingdom」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVassalRewardsModel 实例
+DefaultVassalRewardsModel defaultVassalRewardsModel = ...;
+var result = defaultVassalRewardsModel.GetTroopRewardsForJoiningKingdom(kingdom);
+```
 
 ## 使用示例
 
@@ -51,4 +57,4 @@ Game.Current.ReplaceModel<DefaultVassalRewardsModel>(new MyDefaultVassalRewardsM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

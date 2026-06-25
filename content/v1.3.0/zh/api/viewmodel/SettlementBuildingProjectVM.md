@@ -1,13 +1,7 @@
 ---
 title: "SettlementBuildingProjectVM"
+description: "SettlementBuildingProjectVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementBuildingProjectVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementBuildingProjectVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
@@ -44,45 +38,88 @@ title: "SettlementBuildingProjectVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementBuildingProjectVM 实例
+SettlementBuildingProjectVM settlementBuildingProjectVM = ...;
+settlementBuildingProjectVM.RefreshValues();
+```
 
 ### RefreshProductionText
 `public override void RefreshProductionText()`
 
-**用途 / Purpose:** 刷新 `production text` 的显示或缓存。
+**用途 / Purpose:** 使 「production text」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementBuildingProjectVM 实例
+SettlementBuildingProjectVM settlementBuildingProjectVM = ...;
+settlementBuildingProjectVM.RefreshProductionText();
+```
 
 ### ExecuteAddToQueue
 `public override void ExecuteAddToQueue()`
 
-**用途 / Purpose:** 执行 `add to queue` 操作或流程。
+**用途 / Purpose:** 执行 「add to queue」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementBuildingProjectVM 实例
+SettlementBuildingProjectVM settlementBuildingProjectVM = ...;
+settlementBuildingProjectVM.ExecuteAddToQueue();
+```
 
 ### ExecuteSetAsActiveDevelopment
 `public override void ExecuteSetAsActiveDevelopment()`
 
-**用途 / Purpose:** 执行 `set as active development` 操作或流程。
+**用途 / Purpose:** 执行 「set as active development」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementBuildingProjectVM 实例
+SettlementBuildingProjectVM settlementBuildingProjectVM = ...;
+settlementBuildingProjectVM.ExecuteSetAsActiveDevelopment();
+```
 
 ### ExecuteSetAsCurrent
 `public override void ExecuteSetAsCurrent()`
 
-**用途 / Purpose:** 执行 `set as current` 操作或流程。
+**用途 / Purpose:** 执行 「set as current」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementBuildingProjectVM 实例
+SettlementBuildingProjectVM settlementBuildingProjectVM = ...;
+settlementBuildingProjectVM.ExecuteSetAsCurrent();
+```
 
 ### ExecuteResetCurrent
 `public override void ExecuteResetCurrent()`
 
-**用途 / Purpose:** 执行 `reset current` 操作或流程。
+**用途 / Purpose:** 执行 「reset current」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementBuildingProjectVM 实例
+SettlementBuildingProjectVM settlementBuildingProjectVM = ...;
+settlementBuildingProjectVM.ExecuteResetCurrent();
+```
 
 ### ExecuteToggleSelected
 `public override void ExecuteToggleSelected()`
 
-**用途 / Purpose:** 执行 `toggle selected` 操作或流程。
+**用途 / Purpose:** 执行 「toggle selected」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementBuildingProjectVM 实例
+SettlementBuildingProjectVM settlementBuildingProjectVM = ...;
+settlementBuildingProjectVM.ExecuteToggleSelected();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SettlementBuildingProjectVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SettlementBuildingProjectVM settlementBuildingProjectVM = ...;
+settlementBuildingProjectVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

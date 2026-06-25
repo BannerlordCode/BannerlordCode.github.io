@@ -1,20 +1,14 @@
 ---
 title: "CommentOnDestroyMobilePartyBehavior"
+description: "CommentOnDestroyMobilePartyBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommentOnDestroyMobilePartyBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommentOnDestroyMobilePartyBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CommentOnDestroyMobilePartyBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors/CommentOnDestroyMobilePartyBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors/CommentOnDestroyMobilePartyBehavior.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CommentOnDestroyMobilePartyBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CommentOnDestroyMobilePartyBehavior 实例
+CommentOnDestroyMobilePartyBehavior commentOnDestroyMobilePartyBehavior = ...;
+commentOnDestroyMobilePartyBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 CommentOnDestroyMobilePartyBehavior 实例
+CommentOnDestroyMobilePartyBehavior commentOnDestroyMobilePartyBehavior = ...;
+commentOnDestroyMobilePartyBehavior.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CommentOnDestroyMobilePartyBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+CommentOnDestroyMobilePartyBehavior commentOnDestroyMobilePartyBehavior = ...;
+commentOnDestroyMobilePartyBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DependedModule"
+description: "DependedModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DependedModule`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DependedModule
 
 **Namespace:** TaleWorlds.ModuleManager
@@ -37,15 +31,22 @@ title: "DependedModule"
 ### UpdateVersionChangeSet
 `public void UpdateVersionChangeSet()`
 
-**用途 / Purpose:** 更新 `version change set` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「version change set」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 DependedModule 实例
+DependedModule dependedModule = ...;
+dependedModule.UpdateVersionChangeSet();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DependedModule();
-value.UpdateVersionChangeSet();
+// 通常从对应子系统 API 获取实例后调用
+DependedModule dependedModule = ...;
+dependedModule.UpdateVersionChangeSet();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

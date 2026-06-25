@@ -1,13 +1,7 @@
 ---
 title: "StringItemWithHintVM"
+description: "Auto-generated class reference for StringItemWithHintVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringItemWithHintVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringItemWithHintVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ## Usage Example
 
 ```csharp
-var example = new StringItemWithHintVM();
+// Obtain an instance from the relevant subsystem API
+StringItemWithHintVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

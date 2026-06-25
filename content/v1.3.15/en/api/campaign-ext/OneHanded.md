@@ -1,23 +1,18 @@
 ---
 title: "OneHanded"
+description: "Auto-generated class reference for OneHanded."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OneHanded`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OneHanded
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class OneHanded`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`OneHanded` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`OneHanded` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -47,14 +42,15 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 | `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
 | `Prestige` | `public static PerkObject Prestige { get; }` |
 | `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `ChinkInTheArmor` | `public static PerkObject ChinkInTheArmor { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new OneHanded();
+// Obtain an instance from the relevant subsystem API
+OneHanded instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

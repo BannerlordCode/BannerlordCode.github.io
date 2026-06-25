@@ -1,13 +1,7 @@
 ---
 title: "MeshBuilder"
+description: "Auto-generated class reference for MeshBuilder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MeshBuilder`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MeshBuilder
 
 **Namespace:** TaleWorlds.Engine
@@ -31,43 +25,83 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 
 **Purpose:** Adds `face corner` to the current collection or state.
 
+```csharp
+// Obtain an instance of MeshBuilder from the subsystem API first
+MeshBuilder meshBuilder = ...;
+var result = meshBuilder.AddFaceCorner(position, normal, uvCoord, 0);
+```
+
 ### AddFace
 `public int AddFace(int patchNode0, int patchNode1, int patchNode2)`
 
 **Purpose:** Adds `face` to the current collection or state.
 
+```csharp
+// Obtain an instance of MeshBuilder from the subsystem API first
+MeshBuilder meshBuilder = ...;
+var result = meshBuilder.AddFace(0, 0, 0);
+```
+
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MeshBuilder from the subsystem API first
+MeshBuilder meshBuilder = ...;
+meshBuilder.Clear();
+```
 
 ### Finalize
 `public new Mesh Finalize()`
 
-**Purpose:** Handles logic related to `finalize`.
+**Purpose:** Performs cleanup work when the object is garbage collected (usually for unmanaged resources).
+
+```csharp
+// Obtain an instance of MeshBuilder from the subsystem API first
+MeshBuilder meshBuilder = ...;
+var result = meshBuilder.Finalize();
+```
 
 ### CreateUnitMesh
 `public static Mesh CreateUnitMesh()`
 
-**Purpose:** Creates a new `unit mesh` instance or object.
+**Purpose:** Constructs a new `unit mesh` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MeshBuilder.CreateUnitMesh();
+```
 
 ### CreateTilingWindowMesh
 `public static Mesh CreateTilingWindowMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness, Vec2 bgBorderThickness)`
 
-**Purpose:** Creates a new `tiling window mesh` instance or object.
+**Purpose:** Constructs a new `tiling window mesh` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MeshBuilder.CreateTilingWindowMesh("example", meshSizeMin, meshSizeMax, borderThickness, bgBorderThickness);
+```
 
 ### CreateTilingButtonMesh
 `public static Mesh CreateTilingButtonMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness)`
 
-**Purpose:** Creates a new `tiling button mesh` instance or object.
+**Purpose:** Constructs a new `tiling button mesh` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MeshBuilder.CreateTilingButtonMesh("example", meshSizeMin, meshSizeMax, borderThickness);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MeshBuilder();
-value.AddFaceCorner(position, normal, uvCoord, 0);
+// Typically call this after obtaining an instance from the subsystem API
+MeshBuilder meshBuilder = ...;
+meshBuilder.AddFaceCorner(position, normal, uvCoord, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

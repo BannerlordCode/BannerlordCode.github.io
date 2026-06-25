@@ -1,13 +1,7 @@
 ---
 title: "DefaultAgeModel"
+description: "Auto-generated class reference for DefaultAgeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultAgeModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultAgeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -41,7 +35,13 @@ Treat `DefaultAgeModel` as a Model-style extension point: first identify who cre
 ### GetAgeLimitForLocation
 `public override void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")`
 
-**Purpose:** Gets the current value of `age limit for location`.
+**Purpose:** Reads and returns the `age limit for location` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAgeModel from the subsystem API first
+DefaultAgeModel defaultAgeModel = ...;
+defaultAgeModel.GetAgeLimitForLocation(character, minimumAge, maximumAge, "example");
+```
 
 ## Usage Example
 
@@ -51,4 +51,4 @@ Game.Current.ReplaceModel<DefaultAgeModel>(new MyDefaultAgeModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

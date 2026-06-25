@@ -1,13 +1,7 @@
 ---
 title: "DefaultDefectionModel"
+description: "Auto-generated class reference for DefaultDefectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultDefectionModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultDefectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultDefectionModel` as a Model-style extension point: first identify w
 ### CanHeroDefectToFaction
 `public override bool CanHeroDefectToFaction(Hero hero, Kingdom kingdom)`
 
-**Purpose:** Checks whether the current object can `hero defect to faction`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero defect to faction`.
+
+```csharp
+// Obtain an instance of DefaultDefectionModel from the subsystem API first
+DefaultDefectionModel defaultDefectionModel = ...;
+var result = defaultDefectionModel.CanHeroDefectToFaction(hero, kingdom);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultDefectionModel>(new MyDefaultDefectionModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

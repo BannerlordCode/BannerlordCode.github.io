@@ -1,21 +1,14 @@
 ---
 title: "CampaignBehaviorBase"
+description: "CampaignBehaviorBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignBehaviorBase`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-- [🔀 跨版本对比 /versions/CampaignBehaviorBase](/versions/CampaignBehaviorBase)
-<!-- END BREADCRUMB -->
 # CampaignBehaviorBase
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CampaignBehaviorBase : ICampaignBehavior`
 **Base:** `ICampaignBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs`
 
 ## 概述
 
@@ -30,19 +23,32 @@ title: "CampaignBehaviorBase"
 ### RegisterEvents
 `public abstract void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignBehaviorBase 实例
+CampaignBehaviorBase campaignBehaviorBase = ...;
+campaignBehaviorBase.RegisterEvents();
+```
 
 ### SyncData
 `public abstract void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignBehaviorBase 实例
+CampaignBehaviorBase campaignBehaviorBase = ...;
+campaignBehaviorBase.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCampaignBehaviorBase();
+// 通常通过子系统 API 或工厂获得派生实例
+CampaignBehaviorBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

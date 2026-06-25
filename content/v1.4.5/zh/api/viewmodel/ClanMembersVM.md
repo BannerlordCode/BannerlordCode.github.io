@@ -1,20 +1,14 @@
 ---
 title: "ClanMembersVM"
+description: "ClanMembersVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanMembersVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanMembersVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanMembersVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanMembersVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanMembersVM.cs`
 
 ## 概述
 
@@ -46,30 +40,55 @@ title: "ClanMembersVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMembersVM 实例
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.RefreshValues();
+```
 
 ### RefreshMembersList
 `public void RefreshMembersList()`
 
-**用途 / Purpose:** 刷新 `members list` 的显示或缓存。
+**用途 / Purpose:** 使 「members list」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMembersVM 实例
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.RefreshMembersList();
+```
 
 ### SelectMember
 `public void SelectMember(Hero hero)`
 
-**用途 / Purpose:** 处理 `select member` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMembersVM 实例
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.SelectMember(hero);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMembersVM 实例
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanMembersVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

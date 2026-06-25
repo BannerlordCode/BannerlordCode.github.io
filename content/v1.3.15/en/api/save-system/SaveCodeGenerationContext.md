@@ -1,23 +1,18 @@
 ---
 title: "SaveCodeGenerationContext"
+description: "Auto-generated class reference for SaveCodeGenerationContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveCodeGenerationContext`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveCodeGenerationContext
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveCodeGenerationContext`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Definition/SaveCodeGenerationContext.cs`
 
 ## Overview
 
-`SaveCodeGenerationContext` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SaveCodeGenerationContext` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -30,15 +25,20 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 
 **Purpose:** Adds `assembly` to the current collection or state.
 
+```csharp
+// Obtain an instance of SaveCodeGenerationContext from the subsystem API first
+SaveCodeGenerationContext saveCodeGenerationContext = ...;
+saveCodeGenerationContext.AddAssembly(assembly, "example", "example", "example");
+```
+
 ## Usage Example
 
 ```csharp
-// First obtain a SaveCodeGenerationContext instance from game state, then call one of its public methods
-var value = new SaveCodeGenerationContext();
-value.AddAssembly(assembly, "example", "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+SaveCodeGenerationContext saveCodeGenerationContext = ...;
+saveCodeGenerationContext.AddAssembly(assembly, "example", "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

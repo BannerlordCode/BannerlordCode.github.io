@@ -1,13 +1,7 @@
 ---
 title: "SoundPlayer"
+description: "Auto-generated class reference for SoundPlayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundPlayer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundPlayer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,40 +23,77 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### UpdatePlaying
 `public void UpdatePlaying()`
 
-**Purpose:** Updates the state or data of `playing`.
+**Purpose:** Recalculates and stores the latest representation of `playing`.
+
+```csharp
+// Obtain an instance of SoundPlayer from the subsystem API first
+SoundPlayer soundPlayer = ...;
+soundPlayer.UpdatePlaying();
+```
 
 ### PlaySound
 `public void PlaySound()`
 
-**Purpose:** Handles logic related to `play sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundPlayer from the subsystem API first
+SoundPlayer soundPlayer = ...;
+soundPlayer.PlaySound();
+```
 
 ### ResumeSound
 `public void ResumeSound()`
 
-**Purpose:** Handles logic related to `resume sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundPlayer from the subsystem API first
+SoundPlayer soundPlayer = ...;
+soundPlayer.ResumeSound();
+```
 
 ### PauseSound
 `public void PauseSound()`
 
-**Purpose:** Handles logic related to `pause sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundPlayer from the subsystem API first
+SoundPlayer soundPlayer = ...;
+soundPlayer.PauseSound();
+```
 
 ### StopSound
 `public void StopSound()`
 
-**Purpose:** Handles logic related to `stop sound`.
+**Purpose:** Stops the `sound` flow or state machine.
+
+```csharp
+// Obtain an instance of SoundPlayer from the subsystem API first
+SoundPlayer soundPlayer = ...;
+soundPlayer.StopSound();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of SoundPlayer from the subsystem API first
+SoundPlayer soundPlayer = ...;
+var result = soundPlayer.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SoundPlayer();
-value.UpdatePlaying();
+// Typically call this after obtaining an instance from the subsystem API
+SoundPlayer soundPlayer = ...;
+soundPlayer.UpdatePlaying();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

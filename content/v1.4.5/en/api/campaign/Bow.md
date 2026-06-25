@@ -1,20 +1,14 @@
 ---
 title: "Bow"
+description: "Auto-generated class reference for Bow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Bow`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Bow
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Bow`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/DefaultPerks.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new Bow();
+// Obtain an instance from the relevant subsystem API
+Bow instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

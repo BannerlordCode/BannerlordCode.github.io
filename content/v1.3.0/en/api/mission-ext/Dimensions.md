@@ -1,13 +1,7 @@
 ---
 title: "Dimensions"
+description: "Auto-generated class reference for Dimensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Dimensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Dimensions
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets` to place it i
 ## Usage Example
 
 ```csharp
-Dimensions example = Dimensions.Value;
+// Obtain an instance from the relevant subsystem API
+Dimensions instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

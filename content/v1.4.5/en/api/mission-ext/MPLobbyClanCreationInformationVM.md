@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanCreationInformationVM"
+description: "Auto-generated class reference for MPLobbyClanCreationInformationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanCreationInformationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanCreationInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanCreationInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanCreationInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanCreationInformationVM.cs`
 
 ## Overview
 
@@ -48,40 +42,77 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.RefreshValues();
+```
 
 ### RefreshWith
 `public void RefreshWith(ClanHomeInfo info)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.RefreshWith(info);
+```
 
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**Purpose:** Called when the `friend list updated` event is raised.
+**Purpose:** Invoked when the `friend list updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.OnFriendListUpdated(false);
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated()`
 
-**Purpose:** Called when the `player name updated` event is raised.
+**Purpose:** Invoked when the `player name updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.OnPlayerNameUpdated();
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Executes the `open popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationInformationVM from the subsystem API first
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.ExecuteClosePopup();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanCreationInformationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

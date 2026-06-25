@@ -1,20 +1,14 @@
 ---
 title: "MissionHint"
+description: "MissionHint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionHint`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHint
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Hints
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHint`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Hints/MissionHint.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Hints/MissionHint.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "MissionHint"
 ### CreateWithKeyAndAction
 `public static MissionHint CreateWithKeyAndAction(TextObject actionText, string hotKeyId)`
 
-**用途 / Purpose:** 创建一个 `with key and action` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「with key and action」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionHint.CreateWithKeyAndAction(actionText, "example");
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ MissionHint.CreateWithKeyAndAction(actionText, "example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

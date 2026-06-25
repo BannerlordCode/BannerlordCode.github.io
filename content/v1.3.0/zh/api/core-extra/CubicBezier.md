@@ -1,13 +1,7 @@
 ---
 title: "CubicBezier"
+description: "CubicBezier 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CubicBezier`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CubicBezier
 
 **Namespace:** TaleWorlds.Library
@@ -29,22 +23,43 @@ title: "CubicBezier"
 ### CreateEase
 `public static CubicBezier CreateEase(double controlPoint1X, double controlPoint1Y, double controlPoint2X, double controlPoint2Y)`
 
-**用途 / Purpose:** 创建一个 `ease` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「ease」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CubicBezier.CreateEase(0, 0, 0, 0);
+```
 
 ### CreateYBeginToYEndWithRelativeControlDirs
 `public static CubicBezier CreateYBeginToYEndWithRelativeControlDirs(double yBegin, double yEnd, double controlDir1X, double controlDir1Y, double controlDir2X, double controlDir2Y)`
 
-**用途 / Purpose:** 创建一个 `y begin to y end with relative control dirs` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「y begin to y end with relative control dirs」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CubicBezier.CreateYBeginToYEndWithRelativeControlDirs(0, 0, 0, 0, 0, 0);
+```
 
 ### CreateYBeginToYEnd
 `public static CubicBezier CreateYBeginToYEnd(double yBegin, double yEnd, double controlPoint1X, double controlPoint1Y, double controlPoint2X, double controlPoint2Y)`
 
-**用途 / Purpose:** 创建一个 `y begin to y end` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「y begin to y end」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CubicBezier.CreateYBeginToYEnd(0, 0, 0, 0, 0, 0);
+```
 
 ### Sample
 `public double Sample(double x)`
 
-**用途 / Purpose:** 处理 `sample` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CubicBezier 实例
+CubicBezier cubicBezier = ...;
+var result = cubicBezier.Sample(0);
+```
 
 ## 使用示例
 
@@ -54,4 +69,4 @@ CubicBezier.CreateEase(0, 0, 0, 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

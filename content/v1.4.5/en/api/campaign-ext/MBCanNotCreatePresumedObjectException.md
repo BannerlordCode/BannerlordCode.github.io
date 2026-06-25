@@ -1,20 +1,14 @@
 ---
 title: "MBCanNotCreatePresumedObjectException"
+description: "Auto-generated class reference for MBCanNotCreatePresumedObjectException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBCanNotCreatePresumedObjectException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBCanNotCreatePresumedObjectException
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBCanNotCreatePresumedObjectException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBCanNotCreatePresumedObjectException.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBCanNotCreatePresumedObjectException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBCanNotCreatePresumedObjectException` as a Exception-style extension poi
 ## Usage Example
 
 ```csharp
-try { CallMBCanNotCreatePresumedObjectException(); } catch (MBCanNotCreatePresumedObjectException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBCanNotCreatePresumedObjectException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

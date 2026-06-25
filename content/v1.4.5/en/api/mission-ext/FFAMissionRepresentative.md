@@ -1,20 +1,14 @@
 ---
 title: "FFAMissionRepresentative"
+description: "Auto-generated class reference for FFAMissionRepresentative."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FFAMissionRepresentative`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FFAMissionRepresentative
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionRepresentatives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FFAMissionRepresentative : MissionRepresentativeBase`
 **Base:** `MissionRepresentativeBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/FFAMissionRepresentative.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/FFAMissionRepresentative.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ## Usage Example
 
 ```csharp
-var example = new FFAMissionRepresentative();
+// Obtain an instance from the relevant subsystem API
+FFAMissionRepresentative instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
-title: "SortState__SandBox_ViewModelCollection"
+title: "SortState"
+description: "Auto-generated class reference for SortState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SortState`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SortState
 
 **Namespace:** SandBox.ViewModelCollection
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-SortState example = SortState.Value;
+// Obtain an instance from the relevant subsystem API
+SortState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

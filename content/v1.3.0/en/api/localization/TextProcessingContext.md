@@ -1,13 +1,7 @@
 ---
 title: "TextProcessingContext"
+description: "Auto-generated class reference for TextProcessingContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextProcessingContext`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextProcessingContext
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### SetFunction
 `public void SetFunction(string functionName, MBTextModel functionBody)`
 
-**Purpose:** Sets the value or state of `function`.
+**Purpose:** Assigns a new value to `function` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+textProcessingContext.SetFunction("example", functionBody);
+```
 
 ### ResetFunctions
 `public void ResetFunctions()`
 
-**Purpose:** Resets `functions` to its initial state.
+**Purpose:** Returns `functions` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+textProcessingContext.ResetFunctions();
+```
 
 ### GetFunctionBody
 `public MBTextModel GetFunctionBody(string functionName)`
 
-**Purpose:** Gets the current value of `function body`.
+**Purpose:** Reads and returns the `function body` value held by the current object.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+var result = textProcessingContext.GetFunctionBody("example");
+```
 
 ### GetFunctionParam
 `public TextObject GetFunctionParam(string rawValue)`
 
-**Purpose:** Gets the current value of `function param`.
+**Purpose:** Reads and returns the `function param` value held by the current object.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+var result = textProcessingContext.GetFunctionParam("example");
+```
 
 ### GetFunctionParamWithoutEvaluate
 `public TextObject GetFunctionParamWithoutEvaluate(string rawValue)`
 
-**Purpose:** Gets the current value of `function param without evaluate`.
+**Purpose:** Reads and returns the `function param without evaluate` value held by the current object.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+var result = textProcessingContext.GetFunctionParamWithoutEvaluate("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TextProcessingContext();
-value.SetFunction("example", functionBody);
+// Typically call this after obtaining an instance from the subsystem API
+TextProcessingContext textProcessingContext = ...;
+textProcessingContext.SetFunction("example", functionBody);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CraftingOrderSlots"
+description: "CraftingOrderSlots 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingOrderSlots`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingOrderSlots
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingOrderSlots`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CraftingOrderSlots"
 ### IsThereAvailableSlot
 `public bool IsThereAvailableSlot()`
 
-**用途 / Purpose:** 处理 `is there available slot` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there available slot」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrderSlots 实例
+CraftingOrderSlots craftingOrderSlots = ...;
+var result = craftingOrderSlots.IsThereAvailableSlot();
+```
 
 ### GetAvailableSlot
 `public int GetAvailableSlot()`
 
-**用途 / Purpose:** 获取 `available slot` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available slot」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrderSlots 实例
+CraftingOrderSlots craftingOrderSlots = ...;
+var result = craftingOrderSlots.GetAvailableSlot();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CraftingOrderSlots();
-value.IsThereAvailableSlot();
+// 通常从对应子系统 API 获取实例后调用
+CraftingOrderSlots craftingOrderSlots = ...;
+craftingOrderSlots.IsThereAvailableSlot();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

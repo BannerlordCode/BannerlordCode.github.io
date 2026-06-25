@@ -1,20 +1,14 @@
 ---
 title: "CraftingOrdersTutorial"
+description: "CraftingOrdersTutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingOrdersTutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingOrdersTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class CraftingOrdersTutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/CraftingOrdersTutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/CraftingOrdersTutorial.cs`
 
 ## 概述
 
@@ -29,45 +23,88 @@ title: "CraftingOrdersTutorial"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrdersTutorial 实例
+CraftingOrdersTutorial craftingOrdersTutorial = ...;
+var result = craftingOrdersTutorial.GetTutorialsRelevantContext();
+```
 
 ### OnCraftingWeaponClassSelectionOpened
 `public override void OnCraftingWeaponClassSelectionOpened(CraftingWeaponClassSelectionOpenedEvent obj)`
 
-**用途 / Purpose:** 当 `crafting weapon class selection opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting weapon class selection opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrdersTutorial 实例
+CraftingOrdersTutorial craftingOrdersTutorial = ...;
+craftingOrdersTutorial.OnCraftingWeaponClassSelectionOpened(obj);
+```
 
 ### OnCraftingOrderTabOpened
 `public override void OnCraftingOrderTabOpened(CraftingOrderTabOpenedEvent obj)`
 
-**用途 / Purpose:** 当 `crafting order tab opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting order tab opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrdersTutorial 实例
+CraftingOrdersTutorial craftingOrdersTutorial = ...;
+craftingOrdersTutorial.OnCraftingOrderTabOpened(obj);
+```
 
 ### OnCraftingOrderSelectionOpened
 `public override void OnCraftingOrderSelectionOpened(CraftingOrderSelectionOpenedEvent obj)`
 
-**用途 / Purpose:** 当 `crafting order selection opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting order selection opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrdersTutorial 实例
+CraftingOrdersTutorial craftingOrdersTutorial = ...;
+craftingOrdersTutorial.OnCraftingOrderSelectionOpened(obj);
+```
 
 ### OnCraftingOnWeaponResultPopupOpened
 `public override void OnCraftingOnWeaponResultPopupOpened(CraftingWeaponResultPopupToggledEvent obj)`
 
-**用途 / Purpose:** 当 `crafting on weapon result popup opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting on weapon result popup opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrdersTutorial 实例
+CraftingOrdersTutorial craftingOrdersTutorial = ...;
+craftingOrdersTutorial.OnCraftingOnWeaponResultPopupOpened(obj);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrdersTutorial 实例
+CraftingOrdersTutorial craftingOrdersTutorial = ...;
+var result = craftingOrdersTutorial.IsConditionsMetForActivation();
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrdersTutorial 实例
+CraftingOrdersTutorial craftingOrdersTutorial = ...;
+var result = craftingOrdersTutorial.IsConditionsMetForCompletion();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CraftingOrdersTutorial();
-value.GetTutorialsRelevantContext();
+// 通常从对应子系统 API 获取实例后调用
+CraftingOrdersTutorial craftingOrdersTutorial = ...;
+craftingOrdersTutorial.GetTutorialsRelevantContext();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

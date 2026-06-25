@@ -1,13 +1,7 @@
 ---
 title: "PortStateHelper"
+description: "PortStateHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PortStateHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PortStateHelper
 
 **Namespace:** Helpers
@@ -29,32 +23,62 @@ title: "PortStateHelper"
 ### OpenAsTrade
 `public static void OpenAsTrade(Town town)`
 
-**用途 / Purpose:** 处理 `open as trade` 相关逻辑。
+**用途 / Purpose:** 打开「as trade」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PortStateHelper.OpenAsTrade(town);
+```
 
 ### OpenAsLoot
 `public static void OpenAsLoot(MBReadOnlyList<Ship> lootShips)`
 
-**用途 / Purpose:** 处理 `open as loot` 相关逻辑。
+**用途 / Purpose:** 打开「as loot」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PortStateHelper.OpenAsLoot(lootShips);
+```
 
 ### OpenAsRestricted
 `public static void OpenAsRestricted(Town town, TextObject restrictedReason)`
 
-**用途 / Purpose:** 处理 `open as restricted` 相关逻辑。
+**用途 / Purpose:** 打开「as restricted」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PortStateHelper.OpenAsRestricted(town, restrictedReason);
+```
 
 ### OpenAsStoryMode
 `public static void OpenAsStoryMode(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `open as story mode` 相关逻辑。
+**用途 / Purpose:** 打开「as story mode」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PortStateHelper.OpenAsStoryMode(settlement);
+```
 
 ### OpenAsManageFleet
 `public static void OpenAsManageFleet(MBReadOnlyList<Ship> leftShips)`
 
-**用途 / Purpose:** 处理 `open as manage fleet` 相关逻辑。
+**用途 / Purpose:** 打开「as manage fleet」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PortStateHelper.OpenAsManageFleet(leftShips);
+```
 
 ### OpenAsManageOtherFleet
 `public static void OpenAsManageOtherFleet(PartyBase other, Action onEndAction)`
 
-**用途 / Purpose:** 处理 `open as manage other fleet` 相关逻辑。
+**用途 / Purpose:** 打开「as manage other fleet」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PortStateHelper.OpenAsManageOtherFleet(other, onEndAction);
+```
 
 ## 使用示例
 
@@ -64,4 +88,4 @@ PortStateHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

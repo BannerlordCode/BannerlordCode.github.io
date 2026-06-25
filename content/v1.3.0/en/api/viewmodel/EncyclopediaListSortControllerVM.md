@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListSortControllerVM"
+description: "Auto-generated class reference for EncyclopediaListSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListSortControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
@@ -41,40 +35,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
+EncyclopediaListSortControllerVM encyclopediaListSortControllerVM = ...;
+encyclopediaListSortControllerVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
+EncyclopediaListSortControllerVM encyclopediaListSortControllerVM = ...;
+encyclopediaListSortControllerVM.OnFinalize();
+```
 
 ### SetSortSelection
 `public void SetSortSelection(int index)`
 
-**Purpose:** Sets the value or state of `sort selection`.
+**Purpose:** Assigns a new value to `sort selection` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
+EncyclopediaListSortControllerVM encyclopediaListSortControllerVM = ...;
+encyclopediaListSortControllerVM.SetSortSelection(0);
+```
 
 ### ExecuteSwitchSortOrder
 `public void ExecuteSwitchSortOrder()`
 
-**Purpose:** Executes the `switch sort order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch sort order`.
+
+```csharp
+// Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
+EncyclopediaListSortControllerVM encyclopediaListSortControllerVM = ...;
+encyclopediaListSortControllerVM.ExecuteSwitchSortOrder();
+```
 
 ### SetSortOrder
 `public void SetSortOrder(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort order`.
+**Purpose:** Assigns a new value to `sort order` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
+EncyclopediaListSortControllerVM encyclopediaListSortControllerVM = ...;
+encyclopediaListSortControllerVM.SetSortOrder(false);
+```
 
 ### GetSortOrder
 `public bool GetSortOrder()`
 
-**Purpose:** Gets the current value of `sort order`.
+**Purpose:** Reads and returns the `sort order` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaListSortControllerVM from the subsystem API first
+EncyclopediaListSortControllerVM encyclopediaListSortControllerVM = ...;
+var result = encyclopediaListSortControllerVM.GetSortOrder();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaListSortControllerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaListSortControllerVM encyclopediaListSortControllerVM = ...;
+encyclopediaListSortControllerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

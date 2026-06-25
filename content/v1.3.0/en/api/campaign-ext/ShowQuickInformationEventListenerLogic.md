@@ -1,13 +1,7 @@
 ---
 title: "ShowQuickInformationEventListenerLogic"
+description: "Auto-generated class reference for ShowQuickInformationEventListenerLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShowQuickInformationEventListenerLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShowQuickInformationEventListenerLogic
 
 **Namespace:** SandBox.Missions.MissionEvents
@@ -27,9 +21,9 @@ Treat `ShowQuickInformationEventListenerLogic` as a Logic-style extension point:
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ShowQuickInformationEventListenerLogic());
+var behavior = Mission.Current.GetMissionBehavior<ShowQuickInformationEventListenerLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

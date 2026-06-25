@@ -1,19 +1,13 @@
 ---
 title: "WindowMessage"
+description: "Auto-generated class reference for WindowMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WindowMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WindowMessage
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
-**Base:** none
+**Type:** `public enum WindowMessage : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/WindowMessage.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ## Usage Example
 
 ```csharp
-var value = new WindowMessage();
+// Obtain an instance from the relevant subsystem API
+WindowMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

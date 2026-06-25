@@ -1,18 +1,12 @@
 ---
 title: "IFaction"
+description: "IFaction 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IFaction`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IFaction
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IFaction`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/IFaction.cs`
 
@@ -27,9 +21,10 @@ title: "IFaction"
 ## 使用示例
 
 ```csharp
-IFaction implementation = GetFactionImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIFaction service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

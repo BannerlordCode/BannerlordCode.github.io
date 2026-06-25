@@ -1,13 +1,7 @@
 ---
 title: "ItemCategory"
+description: "ItemCategory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemCategory`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCategory
 
 **Namespace:** TaleWorlds.Core
@@ -42,25 +36,44 @@ title: "ItemCategory"
 ### InitializeObject
 `public ItemCategory InitializeObject(bool isTradeGood = false, int baseDemand = 0, int luxuryDemand = 0, ItemCategory.Property properties = ItemCategory.Property.None, ItemCategory canSubstitute = null, float substitutionFactor = 0f, bool isAnimal = false, bool isValid = true)`
 
-**用途 / Purpose:** 初始化 `object` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「object」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ItemCategory 实例
+ItemCategory itemCategory = ...;
+var result = itemCategory.InitializeObject(false, 0, 0, itemCategory.Property.None, null, 0, false, false);
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemCategory 实例
+ItemCategory itemCategory = ...;
+var result = itemCategory.GetName();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 ItemCategory 实例
+ItemCategory itemCategory = ...;
+var result = itemCategory.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemCategory();
-value.InitializeObject(false, 0, 0, itemCategory.Property.None, null, 0, false, false);
+// 通常从对应子系统 API 获取实例后调用
+ItemCategory itemCategory = ...;
+itemCategory.InitializeObject(false, 0, 0, itemCategory.Property.None, null, 0, false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

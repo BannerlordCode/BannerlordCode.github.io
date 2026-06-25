@@ -1,19 +1,14 @@
 ---
 title: "TotalEventData"
+description: "Auto-generated class reference for TotalEventData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TotalEventData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TotalEventData
 
 **Namespace:** TaleWorlds.MountAndBlade.Network
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TotalEventData`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/Network/DebugNetworkEventStatistics.cs`
 
 ## Overview
 
@@ -27,89 +22,39 @@ Treat `TotalEventData` as a Data-style extension point: first identify who creat
 
 | Name | Signature |
 |------|-----------|
-| `SamplesPerSecond` | `public static int SamplesPerSecond { get; set; }` |
-| `IsActive` | `public static bool IsActive { get; }` |
 | `HasData` | `public bool HasData { get; }` |
 
 ## Key Methods
 
-### OpenExternalMonitor
-`public static void OpenExternalMonitor()`
-
-**Purpose:** Handles logic related to `open external monitor`.
-
-### ControlActivate
-`public static void ControlActivate()`
-
-**Purpose:** Handles logic related to `control activate`.
-
-### ControlDeactivate
-`public static void ControlDeactivate()`
-
-**Purpose:** Handles logic related to `control deactivate`.
-
-### ControlJustDump
-`public static void ControlJustDump()`
-
-**Purpose:** Handles logic related to `control just dump`.
-
-### ControlDumpAll
-`public static void ControlDumpAll()`
-
-**Purpose:** Handles logic related to `control dump all`.
-
-### ControlClear
-`public static void ControlClear()`
-
-**Purpose:** Handles logic related to `control clear`.
-
-### ClearNetGraphs
-`public static void ClearNetGraphs()`
-
-**Purpose:** Handles logic related to `clear net graphs`.
-
-### ClearFpsGraph
-`public static void ClearFpsGraph()`
-
-**Purpose:** Handles logic related to `clear fps graph`.
-
-### ControlClearAll
-`public static void ControlClearAll()`
-
-**Purpose:** Handles logic related to `control clear all`.
-
-### ControlDumpReplicationData
-`public static void ControlDumpReplicationData()`
-
-**Purpose:** Handles logic related to `control dump replication data`.
-
-### EndTick
-`public static void EndTick(float dt)`
-
-**Purpose:** Handles logic related to `end tick`.
-
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of TotalEventData from the subsystem API first
+TotalEventData totalEventData = ...;
+var result = totalEventData.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
 
-### CompareTo
-`public int CompareTo(DebugNetworkEventStatistics.PerEventData other)`
-
-**Purpose:** Handles logic related to `compare to`.
+```csharp
+// Obtain an instance of TotalEventData from the subsystem API first
+TotalEventData totalEventData = ...;
+var result = totalEventData.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TotalEventData();
+// This data object is usually returned by campaign/mission APIs
+TotalEventData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

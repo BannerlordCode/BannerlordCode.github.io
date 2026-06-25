@@ -1,23 +1,18 @@
 ---
 title: "RankBarInfo"
+description: "Auto-generated class reference for RankBarInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RankBarInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RankBarInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Ranked
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RankBarInfo`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/Ranked/RankBarInfo.cs`
 
 ## Overview
 
-`RankBarInfo` lives in `TaleWorlds.MountAndBlade.Diamond.Ranked`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`RankBarInfo` lives in `TaleWorlds.MountAndBlade.Diamond.Ranked` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -42,21 +37,29 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Ranked` to place it in th
 ### CreateBarInfo
 `public static RankBarInfo CreateBarInfo(string rankId, string previousRankId, string nextRankId, float progressPercentage, int rating, int ratingToNextRank)`
 
-**Purpose:** Creates a new `bar info` instance or object.
+**Purpose:** Constructs a new `bar info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
+```
 
 ### CreateUnrankedInfo
 `public static RankBarInfo CreateUnrankedInfo(int matchesPlayed, int totalMatchesRequired)`
 
-**Purpose:** Creates a new `unranked info` instance or object.
+**Purpose:** Constructs a new `unranked info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+RankBarInfo.CreateUnrankedInfo(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LoginBanReason"
+description: "Auto-generated class reference for LoginBanReason."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoginBanReason`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoginBanReason
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public enum LoginBanReason`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginBanReason.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginBanReason.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new LoginBanReason();
+// Obtain an instance from the relevant subsystem API
+LoginBanReason instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

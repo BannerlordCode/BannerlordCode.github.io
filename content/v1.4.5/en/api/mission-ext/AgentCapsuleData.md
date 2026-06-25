@@ -1,20 +1,14 @@
 ---
 title: "AgentCapsuleData"
+description: "Auto-generated class reference for AgentCapsuleData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentCapsuleData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentCapsuleData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AgentCapsuleData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCapsuleData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCapsuleData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `AgentCapsuleData` as a Data-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-var value = new AgentCapsuleData();
+// This data object is usually returned by campaign/mission APIs
+AgentCapsuleData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

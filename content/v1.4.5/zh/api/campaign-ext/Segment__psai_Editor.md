@@ -1,20 +1,14 @@
 ---
-title: "Segment__psai_Editor"
+title: "Segment"
+description: "Segment 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Segment`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Segment
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
 **Type:** `public class Segment : PsaiMusicEntity, ICloneable`
 **Base:** `PsaiMusicEntity`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.Editor/Segment.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.Editor/Segment.cs`
 
 ## 概述
 
@@ -56,145 +50,301 @@ title: "Segment__psai_Editor"
 ### GetChildren
 `public override List<PsaiMusicEntity> GetChildren()`
 
-**用途 / Purpose:** 获取 `children` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「children」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.GetChildren();
+```
 
 ### GetClassString
 `public override string GetClassString()`
 
-**用途 / Purpose:** 获取 `class string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「class string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.GetClassString();
+```
 
 ### Clone
 `public override object Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.Clone();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.ToString();
+```
 
 ### AddCompatibleSnippet
 `public bool AddCompatibleSnippet(Segment snippet, float compatibility)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `compatible snippet`。
+**用途 / Purpose:** 将 「compatible snippet」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.AddCompatibleSnippet(snippet, 0);
+```
 
 ### PropertyDifferencesAffectCompatibilities
 `public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**用途 / Purpose:** 处理 `property differences affect compatibilities` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.PropertyDifferencesAffectCompatibilities(otherEntity);
+```
 
 ### BuildCompatibleSegmentsSet
 `public void BuildCompatibleSegmentsSet(PsaiProject project)`
 
-**用途 / Purpose:** 处理 `build compatible segments set` 相关逻辑。
+**用途 / Purpose:** 组装并返回「compatible segments set」的构建结果。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+segment.BuildCompatibleSegmentsSet(project);
+```
 
 ### SetStartMiddleEndPropertiesFromBitfield
 `public void SetStartMiddleEndPropertiesFromBitfield(int bitfield)`
 
-**用途 / Purpose:** 设置 `start middle end properties from bitfield` 的值或状态。
+**用途 / Purpose:** 为 「start middle end properties from bitfield」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+segment.SetStartMiddleEndPropertiesFromBitfield(0);
+```
 
 ### CreateSegmentSuitabilityBitfield
 `public int CreateSegmentSuitabilityBitfield(PsaiProject parentProject)`
 
-**用途 / Purpose:** 创建一个 `segment suitability bitfield` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「segment suitability bitfield」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.CreateSegmentSuitabilityBitfield(parentProject);
+```
 
 ### CreatePsaiDotNetVersion
 `public psai.net.Segment CreatePsaiDotNetVersion(PsaiProject parentProject)`
 
-**用途 / Purpose:** 创建一个 `psai dot net version` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「psai dot net version」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.CreatePsaiDotNetVersion(parentProject);
+```
 
 ### HasOnlyStartSuitability
 `public bool HasOnlyStartSuitability()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `only start suitability`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「only start suitability」。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.HasOnlyStartSuitability();
+```
 
 ### HasOnlyMiddleSuitability
 `public bool HasOnlyMiddleSuitability()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `only middle suitability`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「only middle suitability」。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.HasOnlyMiddleSuitability();
+```
 
 ### HasOnlyEndSuitability
 `public bool HasOnlyEndSuitability()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `only end suitability`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「only end suitability」。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.HasOnlyEndSuitability();
+```
 
 ### ReadOutSegmentSuitabilityFlag
 `public static bool ReadOutSegmentSuitabilityFlag(int bitfield, SegmentSuitability suitability)`
 
-**用途 / Purpose:** 处理 `read out segment suitability flag` 相关逻辑。
+**用途 / Purpose:** 读取「out segment suitability flag」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+Segment.ReadOutSegmentSuitabilityFlag(0, suitability);
+```
 
 ### SetSegmentSuitabilityFlag
 `public static void SetSegmentSuitabilityFlag(ref int bitfield, SegmentSuitability snippetType)`
 
-**用途 / Purpose:** 设置 `segment suitability flag` 的值或状态。
+**用途 / Purpose:** 为 「segment suitability flag」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+Segment.SetSegmentSuitabilityFlag(bitfield, snippetType);
+```
 
 ### ClearSegmentSuitabilityFlag
 `public static void ClearSegmentSuitabilityFlag(ref int bitfield, SegmentSuitability snippetType)`
 
-**用途 / Purpose:** 处理 `clear segment suitability flag` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「segment suitability flag」。
+
+```csharp
+// 静态调用，不需要实例
+Segment.ClearSegmentSuitabilityFlag(bitfield, snippetType);
+```
 
 ### IsBridgeSnippetToAnyGroup
 `public bool IsBridgeSnippetToAnyGroup(PsaiProject project)`
 
-**用途 / Purpose:** 处理 `is bridge snippet to any group` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「bridge snippet to any group」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.IsBridgeSnippetToAnyGroup(project);
+```
 
 ### IsManualBridgeSnippetForAnyGroup
 `public bool IsManualBridgeSnippetForAnyGroup(PsaiProject project)`
 
-**用途 / Purpose:** 处理 `is manual bridge snippet for any group` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「manual bridge snippet for any group」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.IsManualBridgeSnippetForAnyGroup(project);
+```
 
 ### IsManualBridgeSegmentForSourceGroup
 `public bool IsManualBridgeSegmentForSourceGroup(Group sourceGroup)`
 
-**用途 / Purpose:** 处理 `is manual bridge segment for source group` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「manual bridge segment for source group」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.IsManualBridgeSegmentForSourceGroup(sourceGroup);
+```
 
 ### GetCompatibilitySetting
 `public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**用途 / Purpose:** 获取 `compatibility setting` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compatibility setting」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.GetCompatibilitySetting(targetEntity);
+```
 
 ### GetCompatibilityType
 `public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**用途 / Purpose:** 获取 `compatibility type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compatibility type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.GetCompatibilityType(targetEntity, reason);
+```
 
 ### GetParent
 `public override PsaiMusicEntity GetParent()`
 
-**用途 / Purpose:** 获取 `parent` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「parent」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.GetParent();
+```
 
 ### GetIndexPositionWithinParentEntity
 `public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**用途 / Purpose:** 获取 `index position within parent entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index position within parent entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.GetIndexPositionWithinParentEntity(parentProject);
+```
 
 ### GetExampleSnippet1
 `public static Segment GetExampleSnippet1()`
 
-**用途 / Purpose:** 获取 `example snippet1` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「example snippet1」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Segment.GetExampleSnippet1();
+```
 
 ### GetExampleSnippet2
 `public static Segment GetExampleSnippet2()`
 
-**用途 / Purpose:** 获取 `example snippet2` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「example snippet2」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Segment.GetExampleSnippet2();
+```
 
 ### GetExampleSnippet3
 `public static Segment GetExampleSnippet3()`
 
-**用途 / Purpose:** 获取 `example snippet3` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「example snippet3」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Segment.GetExampleSnippet3();
+```
 
 ### GetExampleSnippet4
 `public static Segment GetExampleSnippet4()`
 
-**用途 / Purpose:** 获取 `example snippet4` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「example snippet4」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Segment.GetExampleSnippet4();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Segment();
-value.GetChildren();
+// 通常从对应子系统 API 获取实例后调用
+Segment segment = ...;
+segment.GetChildren();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

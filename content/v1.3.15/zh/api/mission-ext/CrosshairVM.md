@@ -1,13 +1,7 @@
 ---
 title: "CrosshairVM"
+description: "CrosshairVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CrosshairVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CrosshairVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
@@ -48,30 +42,55 @@ title: "CrosshairVM"
 ### SetProperties
 `public void SetProperties(double accuracy, double scale)`
 
-**用途 / Purpose:** 设置 `properties` 的值或状态。
+**用途 / Purpose:** 为 「properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CrosshairVM 实例
+CrosshairVM crosshairVM = ...;
+crosshairVM.SetProperties(0, 0);
+```
 
 ### SetArrowProperties
 `public void SetArrowProperties(double topArrowOpacity, double rightArrowOpacity, double bottomArrowOpacity, double leftArrowOpacity)`
 
-**用途 / Purpose:** 设置 `arrow properties` 的值或状态。
+**用途 / Purpose:** 为 「arrow properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CrosshairVM 实例
+CrosshairVM crosshairVM = ...;
+crosshairVM.SetArrowProperties(0, 0, 0, 0);
+```
 
 ### SetReloadProperties
 `public void SetReloadProperties(in StackArray.StackArray10FloatFloatTuple reloadPhases, int reloadPhaseCount)`
 
-**用途 / Purpose:** 设置 `reload properties` 的值或状态。
+**用途 / Purpose:** 为 「reload properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CrosshairVM 实例
+CrosshairVM crosshairVM = ...;
+crosshairVM.SetReloadProperties(reloadPhases, 0);
+```
 
 ### ShowHitMarker
 `public void ShowHitMarker(bool isVictimDead, bool isHumanoidHeadShot)`
 
-**用途 / Purpose:** 处理 `show hit marker` 相关逻辑。
+**用途 / Purpose:** 显示「hit marker」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 CrosshairVM 实例
+CrosshairVM crosshairVM = ...;
+crosshairVM.ShowHitMarker(false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CrosshairVM();
-value.SetProperties(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+CrosshairVM crosshairVM = ...;
+crosshairVM.SetProperties(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

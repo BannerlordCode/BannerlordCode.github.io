@@ -1,13 +1,7 @@
 ---
 title: "MenuRecruitVolunteersView"
+description: "Auto-generated class reference for MenuRecruitVolunteersView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuRecruitVolunteersView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuRecruitVolunteersView
 
 **Namespace:** SandBox.View.Menu
@@ -27,9 +21,10 @@ Treat `MenuRecruitVolunteersView` as a View-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var view = new MenuRecruitVolunteersView();
+// Retrieve this view from the subsystem API or scene
+MenuRecruitVolunteersView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

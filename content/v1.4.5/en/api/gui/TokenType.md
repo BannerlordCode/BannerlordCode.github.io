@@ -1,20 +1,14 @@
 ---
 title: "TokenType"
+description: "Auto-generated class reference for TokenType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TokenType`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TokenType
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public enum TokenType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextToken.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextToken.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-TokenType example = TokenType.Value;
+// Obtain an instance from the relevant subsystem API
+TokenType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

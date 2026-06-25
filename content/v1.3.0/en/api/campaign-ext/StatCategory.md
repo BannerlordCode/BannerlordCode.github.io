@@ -1,13 +1,7 @@
 ---
 title: "StatCategory"
+description: "Auto-generated class reference for StatCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StatCategory`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StatCategory
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the s
 ## Usage Example
 
 ```csharp
-var value = new StatCategory();
+// Obtain an instance from the relevant subsystem API
+StatCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

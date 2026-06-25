@@ -1,20 +1,14 @@
 ---
 title: "ICallbackManager"
+description: "ICallbackManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICallbackManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICallbackManager
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** `class`
+**Type:** `public interface ICallbackManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ICallbackManager.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ICallbackManager.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ICallbackManager"
 ## 使用示例
 
 ```csharp
-ICallbackManager implementation = GetCallbackManagerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICallbackManager service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

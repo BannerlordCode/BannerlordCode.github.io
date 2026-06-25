@@ -1,13 +1,7 @@
 ---
 title: "WatchTypes"
+description: "Auto-generated class reference for WatchTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WatchTypes`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WatchTypes
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.ExtraWidgets` to place it in the sta
 ## Usage Example
 
 ```csharp
-WatchTypes example = WatchTypes.Value;
+// Obtain an instance from the relevant subsystem API
+WatchTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

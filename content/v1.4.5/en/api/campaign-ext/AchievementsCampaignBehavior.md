@@ -1,20 +1,14 @@
 ---
 title: "AchievementsCampaignBehavior"
+description: "Auto-generated class reference for AchievementsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AchievementsCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AchievementsCampaignBehavior
 
 **Namespace:** StoryMode.GameComponents.CampaignBehaviors
 **Module:** StoryMode.GameComponents
 **Type:** `public class AchievementsCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents.CampaignBehaviors/AchievementsCampaignBehavior.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents.CampaignBehaviors/AchievementsCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,45 +23,88 @@ Start from namespace `StoryMode.GameComponents.CampaignBehaviors` to place it in
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.RegisterEvents();
+```
 
 ### CheckAchievementSystemActivity
 `public bool CheckAchievementSystemActivity(out TextObject reason)`
 
-**Purpose:** Handles logic related to `check achievement system activity`.
+**Purpose:** Verifies whether `achievement system activity` holds true for the current object.
+
+```csharp
+// Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+var result = achievementsCampaignBehavior.CheckAchievementSystemActivity(reason);
+```
 
 ### OnRadagosDuelWon
 `public void OnRadagosDuelWon()`
 
-**Purpose:** Called when the `radagos duel won` event is raised.
+**Purpose:** Invoked when the `radagos duel won` event is raised.
+
+```csharp
+// Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.OnRadagosDuelWon();
+```
 
 ### DeactivateAchievements
 `public void DeactivateAchievements(TextObject reason = null, bool showMessage = true, bool temporarily = false)`
 
-**Purpose:** Handles logic related to `deactivate achievements`.
+**Purpose:** Deactivates the resource, state, or feature associated with `achievements`.
+
+```csharp
+// Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.DeactivateAchievements(null, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AchievementsCampaignBehavior();
-value.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+// Typically call this after obtaining an instance from the subsystem API
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

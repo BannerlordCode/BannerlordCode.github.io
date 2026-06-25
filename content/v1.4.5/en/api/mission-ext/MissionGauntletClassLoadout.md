@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletClassLoadout"
+description: "Auto-generated class reference for MissionGauntletClassLoadout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletClassLoadout`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletClassLoadout
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletClassLoadout : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletClassLoadout.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletClassLoadout.cs`
 
 ## Overview
 
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletClassLoadout from the subsystem API first
+MissionGauntletClassLoadout missionGauntletClassLoadout = ...;
+missionGauntletClassLoadout.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletClassLoadout from the subsystem API first
+MissionGauntletClassLoadout missionGauntletClassLoadout = ...;
+missionGauntletClassLoadout.OnMissionScreenFinalize();
+```
 
 ### OnTryToggle
 `public void OnTryToggle(bool isActive)`
 
-**Purpose:** Called when the `try toggle` event is raised.
+**Purpose:** Invoked when the `try toggle` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletClassLoadout from the subsystem API first
+MissionGauntletClassLoadout missionGauntletClassLoadout = ...;
+missionGauntletClassLoadout.OnTryToggle(false);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletClassLoadout from the subsystem API first
+MissionGauntletClassLoadout missionGauntletClassLoadout = ...;
+missionGauntletClassLoadout.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletClassLoadout();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletClassLoadout missionGauntletClassLoadout = ...;
+missionGauntletClassLoadout.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

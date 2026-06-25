@@ -1,20 +1,14 @@
 ---
 title: "PrisonBreakCampaignBehavior"
+description: "Auto-generated class reference for PrisonBreakCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrisonBreakCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrisonBreakCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class PrisonBreakCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/PrisonBreakCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/PrisonBreakCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,54 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PrisonBreakCampaignBehavior from the subsystem API first
+PrisonBreakCampaignBehavior prisonBreakCampaignBehavior = ...;
+prisonBreakCampaignBehavior.RegisterEvents();
+```
 
 ### CreatePrisonBreakGuard
 `public LocationCharacter CreatePrisonBreakGuard()`
 
-**Purpose:** Creates a new `prison break guard` instance or object.
+**Purpose:** Constructs a new `prison break guard` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of PrisonBreakCampaignBehavior from the subsystem API first
+PrisonBreakCampaignBehavior prisonBreakCampaignBehavior = ...;
+var result = prisonBreakCampaignBehavior.CreatePrisonBreakGuard();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PrisonBreakCampaignBehavior from the subsystem API first
+PrisonBreakCampaignBehavior prisonBreakCampaignBehavior = ...;
+prisonBreakCampaignBehavior.SyncData(dataStore);
+```
 
 ### game_menu_prison_menu_on_init
 `public static void game_menu_prison_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_prison_menu_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PrisonBreakCampaignBehavior.game_menu_prison_menu_on_init(args);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PrisonBreakCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PrisonBreakCampaignBehavior prisonBreakCampaignBehavior = ...;
+prisonBreakCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

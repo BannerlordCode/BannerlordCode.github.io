@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerClassLoadoutTroopTupleVisualWidget"
+description: "Auto-generated class reference for MultiplayerClassLoadoutTroopTupleVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerClassLoadoutTroopTupleVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerClassLoadoutTroopTupleVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
@@ -34,9 +28,10 @@ Treat `MultiplayerClassLoadoutTroopTupleVisualWidget` as a Widget-style extensio
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerClassLoadoutTroopTupleVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerClassLoadoutTroopTupleVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionInfo"
+description: "Auto-generated class reference for MissionInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new MissionInfo();
+// Obtain an instance from the relevant subsystem API
+MissionInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

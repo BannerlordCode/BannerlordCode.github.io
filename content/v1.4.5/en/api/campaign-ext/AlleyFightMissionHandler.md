@@ -1,20 +1,14 @@
 ---
 title: "AlleyFightMissionHandler"
+description: "Auto-generated class reference for AlleyFightMissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyFightMissionHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyFightMissionHandler
 
 **Namespace:** SandBox.Missions.MissionLogics.Towns
 **Module:** SandBox.Missions
 **Type:** `public class AlleyFightMissionHandler : MissionLogic, IMissionAgentSpawnLogic, IMissionBehavior`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/AlleyFightMissionHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/AlleyFightMissionHandler.cs`
 
 ## Overview
 
@@ -29,89 +23,185 @@ Treat `AlleyFightMissionHandler` as a Handler-style extension point: first ident
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.EarlyStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.AfterStart();
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+var result = alleyFightMissionHandler.OnEndMissionRequest(canLeave);
+```
 
 ### OnRetreatMission
 `public override void OnRetreatMission()`
 
-**Purpose:** Called when the `retreat mission` event is raised.
+**Purpose:** Invoked when the `retreat mission` event is raised.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.OnRetreatMission();
+```
 
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** Called when the `rendering started` event is raised.
+**Purpose:** Invoked when the `rendering started` event is raised.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.OnRenderingStarted();
+```
 
 ### OnMissionStateFinalized
 `public override void OnMissionStateFinalized()`
 
-**Purpose:** Called when the `mission state finalized` event is raised.
+**Purpose:** Invoked when the `mission state finalized` event is raised.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.OnMissionStateFinalized();
+```
 
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `start spawner`.
+**Purpose:** Starts the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.StartSpawner(side);
+```
 
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `stop spawner`.
+**Purpose:** Stops the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+alleyFightMissionHandler.StopSpawner(side);
+```
 
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side spawn enabled`.
+**Purpose:** Determines whether the current object is in the `side spawn enabled` state or condition.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+var result = alleyFightMissionHandler.IsSideSpawnEnabled(side);
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side depleted`.
+**Purpose:** Determines whether the current object is in the `side depleted` state or condition.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+var result = alleyFightMissionHandler.IsSideDepleted(side);
+```
 
 ### GetReinforcementInterval
 `public float GetReinforcementInterval(BattleSideEnum side = (BattleSideEnum)(-1))`
 
-**Purpose:** Gets the current value of `reinforcement interval`.
+**Purpose:** Reads and returns the `reinforcement interval` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+var result = alleyFightMissionHandler.GetReinforcementInterval((BattleSideEnum)(-1));
+```
 
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `all troops for side`.
+**Purpose:** Reads and returns the `all troops for side` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+var result = alleyFightMissionHandler.GetAllTroopsForSide(side);
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+var result = alleyFightMissionHandler.GetNumberOfPlayerControllableTroops();
+```
 
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `spawn horses`.
+**Purpose:** Reads and returns the `spawn horses` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyFightMissionHandler from the subsystem API first
+AlleyFightMissionHandler alleyFightMissionHandler = ...;
+var result = alleyFightMissionHandler.GetSpawnHorses(side);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AlleyFightMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<AlleyFightMissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

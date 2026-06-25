@@ -1,20 +1,14 @@
 ---
 title: "GameKey"
+description: "Auto-generated class reference for GameKey."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameKey`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKey
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public class GameKey`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKey.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKey.cs`
 
 ## Overview
 
@@ -42,25 +36,44 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of GameKey from the subsystem API first
+GameKey gameKey = ...;
+var result = gameKey.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of GameKey from the subsystem API first
+GameKey gameKey = ...;
+var result = gameKey.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of GameKey from the subsystem API first
+GameKey gameKey = ...;
+var result = gameKey.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameKey();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+GameKey gameKey = ...;
+gameKey.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

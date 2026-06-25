@@ -1,13 +1,7 @@
 ---
 title: "ArrangementOrder"
+description: "Auto-generated class reference for ArrangementOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArrangementOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArrangementOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,102 +29,216 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetUnitSpacingOf
 `public static int GetUnitSpacingOf(ArrangementOrder.ArrangementOrderEnum a)`
 
-**Purpose:** Gets the current value of `unit spacing of`.
+**Purpose:** Reads and returns the `unit spacing of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ArrangementOrder.GetUnitSpacingOf(a);
+```
 
 ### GetUnitLooseness
 `public static bool GetUnitLooseness(ArrangementOrder.ArrangementOrderEnum a)`
 
-**Purpose:** Gets the current value of `unit looseness`.
+**Purpose:** Reads and returns the `unit looseness` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ArrangementOrder.GetUnitLooseness(a);
+```
 
 ### GetMovementSpeedRestriction
 `public void GetMovementSpeedRestriction(out float? runRestriction, out float? walkRestriction)`
 
-**Purpose:** Gets the current value of `movement speed restriction`.
+**Purpose:** Reads and returns the `movement speed restriction` value held by the current object.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.GetMovementSpeedRestriction(runRestriction, walkRestriction);
+```
 
 ### GetArrangement
 `public IFormationArrangement GetArrangement(Formation formation)`
 
-**Purpose:** Gets the current value of `arrangement`.
+**Purpose:** Reads and returns the `arrangement` value held by the current object.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.GetArrangement(formation);
+```
 
 ### OnApply
 `public unsafe void OnApply(Formation formation)`
 
-**Purpose:** Called when the `apply` event is raised.
+**Purpose:** Invoked when the `apply` event is raised.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.OnApply(formation);
+```
 
 ### SoftUpdate
 `public void SoftUpdate(Formation formation)`
 
-**Purpose:** Handles logic related to `soft update`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.SoftUpdate(formation);
+```
 
 ### GetShieldDirectionOfUnit
 `public static Agent.UsageDirection GetShieldDirectionOfUnit(Formation formation, Agent unit, ArrangementOrder.ArrangementOrderEnum orderEnum)`
 
-**Purpose:** Gets the current value of `shield direction of unit`.
+**Purpose:** Reads and returns the `shield direction of unit` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ArrangementOrder.GetShieldDirectionOfUnit(formation, unit, orderEnum);
+```
 
 ### GetUnitSpacing
 `public int GetUnitSpacing()`
 
-**Purpose:** Gets the current value of `unit spacing`.
+**Purpose:** Reads and returns the `unit spacing` value held by the current object.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.GetUnitSpacing();
+```
 
 ### Rearrange
 `public void Rearrange(Formation formation)`
 
-**Purpose:** Handles logic related to `rearrange`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.Rearrange(formation);
+```
 
 ### RearrangeAux
 `public void RearrangeAux(Formation formation, bool isDirectly)`
 
-**Purpose:** Handles logic related to `rearrange aux`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.RearrangeAux(formation, false);
+```
 
 ### TransposeLineFormation
 `public unsafe static void TransposeLineFormation(Formation formation)`
 
-**Purpose:** Handles logic related to `transpose line formation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ArrangementOrder.TransposeLineFormation(formation);
+```
 
 ### OnCancel
 `public void OnCancel(Formation formation)`
 
-**Purpose:** Called when the `cancel` event is raised.
+**Purpose:** Invoked when the `cancel` event is raised.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.OnCancel(formation);
+```
 
 ### TickOccasionally
 `public void TickOccasionally(Formation formation)`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.TickOccasionally(formation);
+```
 
 ### GetNativeEnum
 `public ArrangementOrder.ArrangementOrderEnum GetNativeEnum()`
 
-**Purpose:** Gets the current value of `native enum`.
+**Purpose:** Reads and returns the `native enum` value held by the current object.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.GetNativeEnum();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.GetHashCode();
+```
 
 ### OnOrderPositionChanged
 `public void OnOrderPositionChanged(Formation formation, Vec2 previousOrderPosition)`
 
-**Purpose:** Called when the `order position changed` event is raised.
+**Purpose:** Invoked when the `order position changed` event is raised.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.OnOrderPositionChanged(formation, previousOrderPosition);
+```
 
 ### GetArrangementOrderDefensiveness
 `public static int GetArrangementOrderDefensiveness(ArrangementOrder.ArrangementOrderEnum orderEnum)`
 
-**Purpose:** Gets the current value of `arrangement order defensiveness`.
+**Purpose:** Reads and returns the `arrangement order defensiveness` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ArrangementOrder.GetArrangementOrderDefensiveness(orderEnum);
+```
 
 ### GetArrangementOrderDefensivenessChange
 `public static int GetArrangementOrderDefensivenessChange(ArrangementOrder.ArrangementOrderEnum previousOrderEnum, ArrangementOrder.ArrangementOrderEnum nextOrderEnum)`
 
-**Purpose:** Gets the current value of `arrangement order defensiveness change`.
+**Purpose:** Reads and returns the `arrangement order defensiveness change` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ArrangementOrder.GetArrangementOrderDefensivenessChange(previousOrderEnum, nextOrderEnum);
+```
 
 ### CalculateFormationDirectionEnforcingFactorForRank
 `public float CalculateFormationDirectionEnforcingFactorForRank(int formationRankIndex, int rankCount)`
 
-**Purpose:** Handles logic related to `calculate formation direction enforcing factor for rank`.
+**Purpose:** Calculates the current value or result of `formation direction enforcing factor for rank`.
+
+```csharp
+// Obtain an instance of ArrangementOrder from the subsystem API first
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.CalculateFormationDirectionEnforcingFactorForRank(0, 0);
+```
 
 ## Usage Example
 
@@ -140,4 +248,4 @@ ArrangementOrder.GetUnitSpacingOf(a);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

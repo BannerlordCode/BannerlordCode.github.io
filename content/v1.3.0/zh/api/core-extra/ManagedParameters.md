@@ -1,13 +1,7 @@
 ---
 title: "ManagedParameters"
+description: "ManagedParameters 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedParameters`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedParameters
 
 **Namespace:** TaleWorlds.Core
@@ -35,22 +29,44 @@ title: "ManagedParameters"
 ### GetParameter
 `public static float GetParameter(ManagedParametersEnum managedParameterType)`
 
-**用途 / Purpose:** 获取 `parameter` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「parameter」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ManagedParameters.GetParameter(managedParameterType);
+```
 
 ### SetParameter
 `public static void SetParameter(ManagedParametersEnum managedParameterType, float newValue)`
 
-**用途 / Purpose:** 设置 `parameter` 的值或状态。
+**用途 / Purpose:** 为 「parameter」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+ManagedParameters.SetParameter(managedParameterType, 0);
+```
 
 ### Initialize
 `public void Initialize(string relativeXmlPath)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedParameters 实例
+ManagedParameters managedParameters = ...;
+managedParameters.Initialize("example");
+```
 
 ### GetManagedParameter
 `public float GetManagedParameter(ManagedParametersEnum managedParameterEnum)`
 
-**用途 / Purpose:** 获取 `managed parameter` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「managed parameter」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedParameters 实例
+ManagedParameters managedParameters = ...;
+var result = managedParameters.GetManagedParameter(managedParameterEnum);
+```
 
 ## 使用示例
 
@@ -60,4 +76,4 @@ ManagedParameters.GetParameter(managedParameterType);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "HideoutAmbushMissionController"
+description: "HideoutAmbushMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HideoutAmbushMissionController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutAmbushMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Hideout
@@ -35,77 +29,164 @@ title: "HideoutAmbushMissionController"
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** 当 `created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnCreated();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.AfterStart();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnBehaviorInitialize();
+```
 
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**用途 / Purpose:** 当 `object used` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「object used」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnObjectUsed(userAgent, usedObject);
+```
 
 ### SetOverriddenHideoutBossCharacterObject
 `public void SetOverriddenHideoutBossCharacterObject(CharacterObject characterObject)`
 
-**用途 / Purpose:** 设置 `overridden hideout boss character object` 的值或状态。
+**用途 / Purpose:** 为 「overridden hideout boss character object」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.SetOverriddenHideoutBossCharacterObject(characterObject);
+```
 
 ### SpawnRemainingTroopsForBossFight
 `public void SpawnRemainingTroopsForBossFight(List<MatrixFrame> spawnFrames)`
 
-**用途 / Purpose:** 处理 `spawn remaining troops for boss fight` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.SpawnRemainingTroopsForBossFight(spawnFrames);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnMissionTick(0);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnStealthMissionCounterFailed
 `public void OnStealthMissionCounterFailed(OnStealthMissionCounterFailedEvent obj)`
 
-**用途 / Purpose:** 当 `stealth mission counter failed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「stealth mission counter failed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnStealthMissionCounterFailed(obj);
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `is side depleted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「side depleted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+var result = hideoutAmbushMissionController.IsSideDepleted(side);
+```
 
 ### OnAgentsShouldBeEnabled
 `public void OnAgentsShouldBeEnabled()`
 
-**用途 / Purpose:** 当 `agents should be enabled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agents should be enabled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnAgentsShouldBeEnabled();
+```
 
 ### StartBossFightDuelMode
 `public static void StartBossFightDuelMode()`
 
-**用途 / Purpose:** 处理 `start boss fight duel mode` 相关逻辑。
+**用途 / Purpose:** 启动「boss fight duel mode」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+HideoutAmbushMissionController.StartBossFightDuelMode();
+```
 
 ### StartBossFightBattleMode
 `public static void StartBossFightBattleMode()`
 
-**用途 / Purpose:** 处理 `start boss fight battle mode` 相关逻辑。
+**用途 / Purpose:** 启动「boss fight battle mode」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+HideoutAmbushMissionController.StartBossFightBattleMode();
+```
 
 ### KillAllSentries
 `public static string KillAllSentries(List<string> strings)`
 
-**用途 / Purpose:** 处理 `kill all sentries` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+HideoutAmbushMissionController.KillAllSentries(strings);
+```
 
 ## 使用示例
 
@@ -115,4 +196,4 @@ var controller = Mission.Current.GetMissionBehavior<HideoutAmbushMissionControll
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "FastModeOptionsProvider"
+description: "Auto-generated class reference for FastModeOptionsProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FastModeOptionsProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FastModeOptionsProvider
 
 **Namespace:** TaleWorlds.CampaignSystem.FastMode
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FastModeOptionsProvider : ICampaignOptionProvider`
 **Base:** `ICampaignOptionProvider`
-**File:** `Bannerlord.Source/Modules.FastMode/TaleWorlds.CampaignSystem.FastMode/FastModeOptionsProvider.cs`
+**File:** `Modules.FastMode/TaleWorlds.CampaignSystem.FastMode/FastModeOptionsProvider.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.FastMode` to place it in the sta
 ### GetGameplayCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**Purpose:** Gets the current value of `gameplay campaign options`.
+**Purpose:** Reads and returns the `gameplay campaign options` value held by the current object.
+
+```csharp
+// Obtain an instance of FastModeOptionsProvider from the subsystem API first
+FastModeOptionsProvider fastModeOptionsProvider = ...;
+var result = fastModeOptionsProvider.GetGameplayCampaignOptions();
+```
 
 ### GetCharacterCreationCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**Purpose:** Gets the current value of `character creation campaign options`.
+**Purpose:** Reads and returns the `character creation campaign options` value held by the current object.
+
+```csharp
+// Obtain an instance of FastModeOptionsProvider from the subsystem API first
+FastModeOptionsProvider fastModeOptionsProvider = ...;
+var result = fastModeOptionsProvider.GetCharacterCreationCampaignOptions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FastModeOptionsProvider();
-value.GetGameplayCampaignOptions();
+// Typically call this after obtaining an instance from the subsystem API
+FastModeOptionsProvider fastModeOptionsProvider = ...;
+fastModeOptionsProvider.GetGameplayCampaignOptions();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

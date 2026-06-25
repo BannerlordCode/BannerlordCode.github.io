@@ -1,13 +1,7 @@
 ---
 title: "AchievementManager"
+description: "AchievementManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AchievementManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AchievementManager
 
 **Namespace:** TaleWorlds.AchievementSystem
@@ -35,17 +29,32 @@ title: "AchievementManager"
 ### SetStat
 `public static bool SetStat(string name, int value)`
 
-**用途 / Purpose:** 设置 `stat` 的值或状态。
+**用途 / Purpose:** 为 「stat」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+AchievementManager.SetStat("example", 0);
+```
 
 ### GetStat
 `public static async Task<int> GetStat(string name)`
 
-**用途 / Purpose:** 获取 `stat` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stat」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AchievementManager.GetStat("example");
+```
 
 ### GetStats
 `public static async Task<int > GetStats(string names)`
 
-**用途 / Purpose:** 获取 `stats` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stats」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AchievementManager.GetStats("example");
+```
 
 ## 使用示例
 
@@ -55,4 +64,4 @@ var manager = AchievementManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

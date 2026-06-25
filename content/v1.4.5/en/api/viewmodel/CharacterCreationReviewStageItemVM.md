@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationReviewStageItemVM"
+description: "Auto-generated class reference for CharacterCreationReviewStageItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationReviewStageItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationReviewStageItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationReviewStageItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationReviewStageItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationReviewStageItemVM.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ## Usage Example
 
 ```csharp
-var example = new CharacterCreationReviewStageItemVM();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationReviewStageItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

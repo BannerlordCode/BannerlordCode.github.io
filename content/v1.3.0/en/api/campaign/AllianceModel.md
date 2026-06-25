@@ -1,13 +1,7 @@
 ---
 title: "AllianceModel"
+description: "Auto-generated class reference for AllianceModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AllianceModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AllianceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -38,39 +32,76 @@ Treat `AllianceModel` as a Model-style extension point: first identify who creat
 ### GetCallToWarCost
 `public abstract int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**Purpose:** Gets the current value of `call to war cost`.
+**Purpose:** Reads and returns the `call to war cost` value held by the current object.
+
+```csharp
+// Obtain an instance of AllianceModel from the subsystem API first
+AllianceModel allianceModel = ...;
+var result = allianceModel.GetCallToWarCost(callingKingdom, calledKingdom, kingdomToCallToWarAgainst);
+```
 
 ### GetScoreOfStartingAlliance
 `public abstract ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, bool includeDescription = false)`
 
-**Purpose:** Gets the current value of `score of starting alliance`.
+**Purpose:** Reads and returns the `score of starting alliance` value held by the current object.
+
+```csharp
+// Obtain an instance of AllianceModel from the subsystem API first
+AllianceModel allianceModel = ...;
+var result = allianceModel.GetScoreOfStartingAlliance(kingdomDeclaresAlliance, kingdomDeclaredAlliance, evaluatingFaction, false);
+```
 
 ### GetScoreOfCallingToWar
 `public abstract float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**Purpose:** Gets the current value of `score of calling to war`.
+**Purpose:** Reads and returns the `score of calling to war` value held by the current object.
+
+```csharp
+// Obtain an instance of AllianceModel from the subsystem API first
+AllianceModel allianceModel = ...;
+var result = allianceModel.GetScoreOfCallingToWar(callingKingdom, calledKingdom, kingdomToCallToWarAgainst, evaluatingFaction, reason);
+```
 
 ### GetScoreOfJoiningWar
 `public abstract float GetScoreOfJoiningWar(Kingdom offeringKingdom, Kingdom kingdomToOfferToJoinWarWith, Kingdom kingdomToOfferToJoinWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**Purpose:** Gets the current value of `score of joining war`.
+**Purpose:** Reads and returns the `score of joining war` value held by the current object.
+
+```csharp
+// Obtain an instance of AllianceModel from the subsystem API first
+AllianceModel allianceModel = ...;
+var result = allianceModel.GetScoreOfJoiningWar(offeringKingdom, kingdomToOfferToJoinWarWith, kingdomToOfferToJoinWarAgainst, evaluatingFaction, reason);
+```
 
 ### GetInfluenceCostOfProposingStartingAlliance
 `public abstract int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
 
-**Purpose:** Gets the current value of `influence cost of proposing starting alliance`.
+**Purpose:** Reads and returns the `influence cost of proposing starting alliance` value held by the current object.
+
+```csharp
+// Obtain an instance of AllianceModel from the subsystem API first
+AllianceModel allianceModel = ...;
+var result = allianceModel.GetInfluenceCostOfProposingStartingAlliance(proposingClan);
+```
 
 ### GetInfluenceCostOfCallingToWar
 `public abstract int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
 
-**Purpose:** Gets the current value of `influence cost of calling to war`.
+**Purpose:** Reads and returns the `influence cost of calling to war` value held by the current object.
+
+```csharp
+// Obtain an instance of AllianceModel from the subsystem API first
+AllianceModel allianceModel = ...;
+var result = allianceModel.GetInfluenceCostOfCallingToWar(proposingClan);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAllianceModel();
+// Typically obtained from a subsystem API or factory
+AllianceModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

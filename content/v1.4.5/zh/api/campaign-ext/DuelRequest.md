@@ -1,20 +1,14 @@
 ---
 title: "DuelRequest"
+description: "DuelRequest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DuelRequest`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelRequest
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class DuelRequest : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/DuelRequest.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/DuelRequest.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "DuelRequest"
 ## 使用示例
 
 ```csharp
-var example = new DuelRequest();
+// 从对应子系统 API 获取实例
+DuelRequest instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

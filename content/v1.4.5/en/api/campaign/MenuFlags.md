@@ -1,20 +1,14 @@
 ---
 title: "MenuFlags"
+description: "Auto-generated class reference for MenuFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuFlags`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuFlags
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum MenuFlags`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenu.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenu.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ## Usage Example
 
 ```csharp
-MenuFlags example = MenuFlags.Value;
+// Obtain an instance from the relevant subsystem API
+MenuFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

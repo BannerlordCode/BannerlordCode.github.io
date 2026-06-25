@@ -1,13 +1,7 @@
 ---
 title: "BattleSizeQualifier"
+description: "Auto-generated class reference for BattleSizeQualifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSizeQualifier`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSizeQualifier
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-BattleSizeQualifier example = BattleSizeQualifier.Value;
+// Obtain an instance from the relevant subsystem API
+BattleSizeQualifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

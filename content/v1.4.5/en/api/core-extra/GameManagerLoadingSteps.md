@@ -1,20 +1,14 @@
 ---
 title: "GameManagerLoadingSteps"
+description: "Auto-generated class reference for GameManagerLoadingSteps."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameManagerLoadingSteps`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameManagerLoadingSteps
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum GameManagerLoadingSteps`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/GameManagerLoadingSteps.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameManagerLoadingSteps.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new GameManagerLoadingSteps();
+// Obtain an instance from the relevant subsystem API
+GameManagerLoadingSteps instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

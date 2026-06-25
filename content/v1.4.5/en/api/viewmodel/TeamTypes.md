@@ -1,20 +1,14 @@
 ---
 title: "TeamTypes"
+description: "Auto-generated class reference for TeamTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamTypes`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamTypes
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum TeamTypes`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionFormationMarkerTargetVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionFormationMarkerTargetVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ## Usage Example
 
 ```csharp
-TeamTypes example = TeamTypes.Value;
+// Obtain an instance from the relevant subsystem API
+TeamTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

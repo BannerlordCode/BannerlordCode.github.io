@@ -1,20 +1,14 @@
 ---
 title: "TauntSlotDataContainer"
+description: "TauntSlotDataContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TauntSlotDataContainer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TauntSlotDataContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TauntSlotDataContainer : MultiplayerLocalDataContainer<TauntSlotData>`
 **Base:** `MultiplayerLocalDataContainer<TauntSlotData>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/TauntSlotDataContainer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/TauntSlotDataContainer.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "TauntSlotDataContainer"
 ### GetTauntIndicesForPlayer
 `public MBReadOnlyList<TauntIndexData> GetTauntIndicesForPlayer(string playerId)`
 
-**用途 / Purpose:** 获取 `taunt indices for player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「taunt indices for player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TauntSlotDataContainer 实例
+TauntSlotDataContainer tauntSlotDataContainer = ...;
+var result = tauntSlotDataContainer.GetTauntIndicesForPlayer("example");
+```
 
 ### SetTauntIndicesForPlayer
 `public void SetTauntIndicesForPlayer(string playerId, List<TauntIndexData> tauntIndices)`
 
-**用途 / Purpose:** 设置 `taunt indices for player` 的值或状态。
+**用途 / Purpose:** 为 「taunt indices for player」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TauntSlotDataContainer 实例
+TauntSlotDataContainer tauntSlotDataContainer = ...;
+tauntSlotDataContainer.SetTauntIndicesForPlayer("example", tauntIndices);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TauntSlotDataContainer();
-value.GetTauntIndicesForPlayer("example");
+// 通常从对应子系统 API 获取实例后调用
+TauntSlotDataContainer tauntSlotDataContainer = ...;
+tauntSlotDataContainer.GetTauntIndicesForPlayer("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameMenuEventHandler"
+description: "Auto-generated class reference for GameMenuEventHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuEventHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuEventHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
@@ -35,9 +29,9 @@ Treat `GameMenuEventHandler` as a Handler-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GameMenuEventHandler());
+var behavior = Mission.Current.GetMissionBehavior<GameMenuEventHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

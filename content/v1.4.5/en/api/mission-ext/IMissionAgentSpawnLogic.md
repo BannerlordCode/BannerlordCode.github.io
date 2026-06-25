@@ -1,20 +1,14 @@
 ---
 title: "IMissionAgentSpawnLogic"
+description: "Auto-generated class reference for IMissionAgentSpawnLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionAgentSpawnLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionAgentSpawnLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMissionAgentSpawnLogic.cs`
+**Type:** `public interface IMissionAgentSpawnLogic : IMissionBehavior`
+**Base:** `IMissionBehavior`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMissionAgentSpawnLogic.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IMissionAgentSpawnLogic` as a Logic-style extension point: first identify
 ## Usage Example
 
 ```csharp
-IMissionAgentSpawnLogic implementation = GetMissionAgentSpawnLogicImplementation();
+// Usually obtained through DI or a factory method
+IIMissionAgentSpawnLogic service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBObjectManagerExtensions"
+description: "Auto-generated class reference for MBObjectManagerExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBObjectManagerExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBObjectManagerExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBObjectManagerExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBObjectManagerExtensions.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBObjectManagerExtensions.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### LoadXML
 `public static void LoadXML(this MBObjectManager objectManager, string id, bool skipXmlFilterForEditor = false)`
 
-**Purpose:** Loads `x m l` data.
+**Purpose:** Reads `x m l` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MBObjectManagerExtensions.LoadXML(objectManager, "example", false);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ MBObjectManagerExtensions.LoadXML(objectManager, "example", false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

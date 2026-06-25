@@ -1,20 +1,14 @@
 ---
 title: "CharacterDeveloperSkillVerticalSeperatorWidget"
+description: "Auto-generated class reference for CharacterDeveloperSkillVerticalSeperatorWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperSkillVerticalSeperatorWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperSkillVerticalSeperatorWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterDeveloperSkillVerticalSeperatorWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperSkillVerticalSeperatorWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperSkillVerticalSeperatorWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `CharacterDeveloperSkillVerticalSeperatorWidget` as a Widget-style extensi
 ## Usage Example
 
 ```csharp
-var widget = new CharacterDeveloperSkillVerticalSeperatorWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterDeveloperSkillVerticalSeperatorWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

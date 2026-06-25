@@ -1,13 +1,7 @@
 ---
 title: "LocationComplex"
+description: "Auto-generated class reference for LocationComplex."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationComplex`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationComplex
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
@@ -35,132 +29,280 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ### CanAlways
 `public static bool CanAlways(LocationCharacter locationCharacter, Location location)`
 
-**Purpose:** Checks whether the current object can `always`.
+**Purpose:** Checks whether the current object meets the preconditions for `always`.
+
+```csharp
+// Static call; no instance required
+LocationComplex.CanAlways(locationCharacter, location);
+```
 
 ### CanNever
 `public static bool CanNever(LocationCharacter locationCharacter, Location location)`
 
-**Purpose:** Checks whether the current object can `never`.
+**Purpose:** Checks whether the current object meets the preconditions for `never`.
+
+```csharp
+// Static call; no instance required
+LocationComplex.CanNever(locationCharacter, location);
+```
 
 ### CanIfHero
 `public static bool CanIfHero(LocationCharacter locationCharacter, Location location)`
 
-**Purpose:** Checks whether the current object can `if hero`.
+**Purpose:** Checks whether the current object meets the preconditions for `if hero`.
+
+```csharp
+// Static call; no instance required
+LocationComplex.CanIfHero(locationCharacter, location);
+```
 
 ### CanIfDay
 `public static bool CanIfDay(LocationCharacter locationCharacter, Location location)`
 
-**Purpose:** Checks whether the current object can `if day`.
+**Purpose:** Checks whether the current object meets the preconditions for `if day`.
+
+```csharp
+// Static call; no instance required
+LocationComplex.CanIfDay(locationCharacter, location);
+```
 
 ### CanIfPriceIsPaid
 `public static bool CanIfPriceIsPaid(LocationCharacter locationCharacter, Location location)`
 
-**Purpose:** Checks whether the current object can `if price is paid`.
+**Purpose:** Checks whether the current object meets the preconditions for `if price is paid`.
+
+```csharp
+// Static call; no instance required
+LocationComplex.CanIfPriceIsPaid(locationCharacter, location);
+```
 
 ### CanIfGrownUpMaleOrHero
 `public static bool CanIfGrownUpMaleOrHero(LocationCharacter locationCharacter, Location location)`
 
-**Purpose:** Checks whether the current object can `if grown up male or hero`.
+**Purpose:** Checks whether the current object meets the preconditions for `if grown up male or hero`.
+
+```csharp
+// Static call; no instance required
+LocationComplex.CanIfGrownUpMaleOrHero(locationCharacter, location);
+```
 
 ### CanIfMaleOrHero
 `public static bool CanIfMaleOrHero(LocationCharacter locationCharacter, Location location)`
 
-**Purpose:** Checks whether the current object can `if male or hero`.
+**Purpose:** Checks whether the current object meets the preconditions for `if male or hero`.
+
+```csharp
+// Static call; no instance required
+LocationComplex.CanIfMaleOrHero(locationCharacter, location);
+```
 
 ### CanIfSettlementAccessModelLetsPlayer
 `public static bool CanIfSettlementAccessModelLetsPlayer(LocationCharacter locationCharacter, Location location)`
 
-**Purpose:** Checks whether the current object can `if settlement access model lets player`.
+**Purpose:** Checks whether the current object meets the preconditions for `if settlement access model lets player`.
+
+```csharp
+// Static call; no instance required
+LocationComplex.CanIfSettlementAccessModelLetsPlayer(locationCharacter, location);
+```
 
 ### Initialize
 `public void Initialize(LocationComplexTemplate complexTemplate)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+locationComplex.Initialize(complexTemplate);
+```
 
 ### AddPassage
 `public void AddPassage(Location firstLocation, Location secondLocation)`
 
 **Purpose:** Adds `passage` to the current collection or state.
 
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+locationComplex.AddPassage(firstLocation, secondLocation);
+```
+
 ### ChangeLocation
 `public void ChangeLocation(LocationCharacter locationCharacter, Location fromLocation, Location toLocation)`
 
-**Purpose:** Handles logic related to `change location`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+locationComplex.ChangeLocation(locationCharacter, fromLocation, toLocation);
+```
 
 ### GetListOfCharactersInLocation
 `public IEnumerable<LocationCharacter> GetListOfCharactersInLocation(string locationName)`
 
-**Purpose:** Gets the current value of `list of characters in location`.
+**Purpose:** Reads and returns the `list of characters in location` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetListOfCharactersInLocation("example");
+```
 
 ### GetListOfCharacters
 `public IList<LocationCharacter> GetListOfCharacters()`
 
-**Purpose:** Gets the current value of `list of characters`.
+**Purpose:** Reads and returns the `list of characters` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetListOfCharacters();
+```
 
 ### GetListOfLocations
 `public IEnumerable<Location> GetListOfLocations()`
 
-**Purpose:** Gets the current value of `list of locations`.
+**Purpose:** Reads and returns the `list of locations` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetListOfLocations();
+```
 
 ### AgentPassageUsageTick
 `public void AgentPassageUsageTick()`
 
-**Purpose:** Handles logic related to `agent passage usage tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+locationComplex.AgentPassageUsageTick();
+```
 
 ### GetLocationOfCharacter
 `public Location GetLocationOfCharacter(LocationCharacter character)`
 
-**Purpose:** Gets the current value of `location of character`.
+**Purpose:** Reads and returns the `location of character` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetLocationOfCharacter(character);
+```
 
 ### GetLocationOfCharacter
 `public Location GetLocationOfCharacter(Hero hero)`
 
-**Purpose:** Gets the current value of `location of character`.
+**Purpose:** Reads and returns the `location of character` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetLocationOfCharacter(hero);
+```
 
 ### GetLocationCharacterOfHero
 `public LocationCharacter GetLocationCharacterOfHero(Hero hero)`
 
-**Purpose:** Gets the current value of `location character of hero`.
+**Purpose:** Reads and returns the `location character of hero` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetLocationCharacterOfHero(hero);
+```
 
 ### GetFirstLocationCharacterOfCharacter
 `public LocationCharacter GetFirstLocationCharacterOfCharacter(CharacterObject character)`
 
-**Purpose:** Gets the current value of `first location character of character`.
+**Purpose:** Reads and returns the `first location character of character` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetFirstLocationCharacterOfCharacter(character);
+```
 
 ### RemoveCharacterIfExists
 `public void RemoveCharacterIfExists(Hero hero)`
 
 **Purpose:** Removes `character if exists` from the current collection or state.
 
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+locationComplex.RemoveCharacterIfExists(hero);
+```
+
 ### RemoveCharacterIfExists
 `public void RemoveCharacterIfExists(LocationCharacter locationCharacter)`
 
 **Purpose:** Removes `character if exists` from the current collection or state.
 
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+locationComplex.RemoveCharacterIfExists(locationCharacter);
+```
+
 ### ClearTempCharacters
 `public void ClearTempCharacters()`
 
-**Purpose:** Handles logic related to `clear temp characters`.
+**Purpose:** Removes all `temp characters` from the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+locationComplex.ClearTempCharacters();
+```
 
 ### GetLocationWithId
 `public Location GetLocationWithId(string id)`
 
-**Purpose:** Gets the current value of `location with id`.
+**Purpose:** Reads and returns the `location with id` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetLocationWithId("example");
+```
 
 ### GetScene
 `public string GetScene(string stringId, int upgradeLevel)`
 
-**Purpose:** Gets the current value of `scene`.
+**Purpose:** Reads and returns the `scene` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.GetScene("example", 0);
+```
 
 ### FindCharacter
 `public LocationCharacter FindCharacter(IAgent agent)`
 
-**Purpose:** Handles logic related to `find character`.
+**Purpose:** Looks up the matching `character` in the current collection or scope.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.FindCharacter(agent);
+```
 
 ### FindAll
 `public IEnumerable<Location> FindAll(Func<string, bool> predicate)`
 
-**Purpose:** Handles logic related to `find all`.
+**Purpose:** Looks up the matching `all` in the current collection or scope.
+
+```csharp
+// Obtain an instance of LocationComplex from the subsystem API first
+LocationComplex locationComplex = ...;
+var result = locationComplex.FindAll(func<string, false);
+```
 
 ## Usage Example
 
@@ -170,4 +312,4 @@ LocationComplex.CanAlways(locationCharacter, location);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

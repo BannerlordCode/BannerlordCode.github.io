@@ -1,13 +1,7 @@
 ---
 title: "RestData"
+description: "Auto-generated class reference for RestData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RestData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RestData
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -35,14 +29,21 @@ Treat `RestData` as a Data-style extension point: first identify who creates it,
 ### SerializeAsJson
 `public string SerializeAsJson()`
 
-**Purpose:** Handles logic related to `serialize as json`.
+**Purpose:** Serializes `as json` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of RestData from the subsystem API first
+RestData restData = ...;
+var result = restData.SerializeAsJson();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRestData();
+// Typically obtained from a subsystem API or factory
+RestData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

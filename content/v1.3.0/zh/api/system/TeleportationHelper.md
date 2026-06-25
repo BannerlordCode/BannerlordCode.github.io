@@ -1,13 +1,7 @@
 ---
 title: "TeleportationHelper"
+description: "TeleportationHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeleportationHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeleportationHelper
 
 **Namespace:** Helpers
@@ -29,7 +23,12 @@ title: "TeleportationHelper"
 ### GetHoursLeftForTeleportingHeroToReachItsDestination
 `public static float GetHoursLeftForTeleportingHeroToReachItsDestination(Hero teleportingHero)`
 
-**用途 / Purpose:** 获取 `hours left for teleporting hero to reach its destination` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hours left for teleporting hero to reach its destination」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TeleportationHelper.GetHoursLeftForTeleportingHeroToReachItsDestination(teleportingHero);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ TeleportationHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

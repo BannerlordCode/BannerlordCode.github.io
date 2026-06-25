@@ -1,13 +1,7 @@
 ---
 title: "GameText"
+description: "Auto-generated class reference for GameText."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameText`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameText
 
 **Namespace:** TaleWorlds.Core
@@ -39,23 +33,42 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 
 **Purpose:** Adds `variation with id` to the current collection or state.
 
+```csharp
+// Obtain an instance of GameText from the subsystem API first
+GameText gameText = ...;
+gameText.AddVariationWithId("example", text, choiceTags);
+```
+
 ### SetVariationWithId
 `public void SetVariationWithId(string variationId, TextObject text, List<GameTextManager.ChoiceTag> choiceTags)`
 
-**Purpose:** Sets the value or state of `variation with id`.
+**Purpose:** Assigns a new value to `variation with id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameText from the subsystem API first
+GameText gameText = ...;
+gameText.SetVariationWithId("example", text, choiceTags);
+```
 
 ### AddVariation
 `public void AddVariation(string text, params object propertiesAndWeights)`
 
 **Purpose:** Adds `variation` to the current collection or state.
 
+```csharp
+// Obtain an instance of GameText from the subsystem API first
+GameText gameText = ...;
+gameText.AddVariation("example", propertiesAndWeights);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new GameText();
-value.AddVariationWithId("example", text, choiceTags);
+// Typically call this after obtaining an instance from the subsystem API
+GameText gameText = ...;
+gameText.AddVariationWithId("example", text, choiceTags);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

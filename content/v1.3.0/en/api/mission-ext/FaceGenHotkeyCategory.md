@@ -1,13 +1,7 @@
 ---
 title: "FaceGenHotkeyCategory"
+description: "Auto-generated class reference for FaceGenHotkeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGenHotkeyCategory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGenHotkeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new FaceGenHotkeyCategory();
+// Obtain an instance from the relevant subsystem API
+FaceGenHotkeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

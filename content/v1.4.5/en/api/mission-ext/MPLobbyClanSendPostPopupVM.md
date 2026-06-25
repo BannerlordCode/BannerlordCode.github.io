@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanSendPostPopupVM"
+description: "Auto-generated class reference for MPLobbyClanSendPostPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanSendPostPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanSendPostPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanSendPostPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanSendPostPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanSendPostPopupVM.cs`
 
 ## Overview
 
@@ -40,45 +34,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
+MPLobbyClanSendPostPopupVM mPLobbyClanSendPostPopupVM = ...;
+mPLobbyClanSendPostPopupVM.RefreshValues();
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Executes the `open popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
+MPLobbyClanSendPostPopupVM mPLobbyClanSendPostPopupVM = ...;
+mPLobbyClanSendPostPopupVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
+MPLobbyClanSendPostPopupVM mPLobbyClanSendPostPopupVM = ...;
+mPLobbyClanSendPostPopupVM.ExecuteClosePopup();
+```
 
 ### ExecuteSend
 `public void ExecuteSend()`
 
-**Purpose:** Executes the `send` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `send`.
+
+```csharp
+// Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
+MPLobbyClanSendPostPopupVM mPLobbyClanSendPostPopupVM = ...;
+mPLobbyClanSendPostPopupVM.ExecuteSend();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
+MPLobbyClanSendPostPopupVM mPLobbyClanSendPostPopupVM = ...;
+mPLobbyClanSendPostPopupVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
+MPLobbyClanSendPostPopupVM mPLobbyClanSendPostPopupVM = ...;
+mPLobbyClanSendPostPopupVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
+MPLobbyClanSendPostPopupVM mPLobbyClanSendPostPopupVM = ...;
+mPLobbyClanSendPostPopupVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanSendPostPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanSendPostPopupVM mPLobbyClanSendPostPopupVM = ...;
+mPLobbyClanSendPostPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

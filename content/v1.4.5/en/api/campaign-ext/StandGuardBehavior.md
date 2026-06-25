@@ -1,20 +1,14 @@
 ---
 title: "StandGuardBehavior"
+description: "Auto-generated class reference for StandGuardBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandGuardBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandGuardBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class StandGuardBehavior : AgentBehavior`
 **Base:** `AgentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/StandGuardBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/StandGuardBehavior.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of StandGuardBehavior from the subsystem API first
+StandGuardBehavior standGuardBehavior = ...;
+standGuardBehavior.Tick(0, false);
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of StandGuardBehavior from the subsystem API first
+StandGuardBehavior standGuardBehavior = ...;
+var result = standGuardBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of StandGuardBehavior from the subsystem API first
+StandGuardBehavior standGuardBehavior = ...;
+var result = standGuardBehavior.GetDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StandGuardBehavior();
-value.Tick(0, false);
+// Typically call this after obtaining an instance from the subsystem API
+StandGuardBehavior standGuardBehavior = ...;
+standGuardBehavior.Tick(0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

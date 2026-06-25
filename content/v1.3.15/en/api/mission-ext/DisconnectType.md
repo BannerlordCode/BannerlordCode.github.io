@@ -1,18 +1,12 @@
 ---
 title: "DisconnectType"
+description: "Auto-generated class reference for DisconnectType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisconnectType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DisconnectType
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum DisconnectType`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/DisconnectType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new DisconnectType();
+// Obtain an instance from the relevant subsystem API
+DisconnectType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

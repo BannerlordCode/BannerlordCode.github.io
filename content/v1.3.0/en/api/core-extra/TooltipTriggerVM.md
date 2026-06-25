@@ -1,13 +1,7 @@
 ---
 title: "TooltipTriggerVM"
+description: "Auto-generated class reference for TooltipTriggerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipTriggerVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipTriggerVM
 
 **Namespace:** TaleWorlds.Library.Information
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library.Information` to place it in the stack, 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of TooltipTriggerVM from the subsystem API first
+TooltipTriggerVM tooltipTriggerVM = ...;
+tooltipTriggerVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of TooltipTriggerVM from the subsystem API first
+TooltipTriggerVM tooltipTriggerVM = ...;
+tooltipTriggerVM.ExecuteEndHint();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TooltipTriggerVM();
-value.ExecuteBeginHint();
+// Typically call this after obtaining an instance from the subsystem API
+TooltipTriggerVM tooltipTriggerVM = ...;
+tooltipTriggerVM.ExecuteBeginHint();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

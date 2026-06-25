@@ -1,20 +1,14 @@
 ---
 title: "ReferenceIMBEvent"
+description: "Auto-generated class reference for ReferenceIMBEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReferenceIMBEvent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReferenceIMBEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
-**File:** `TaleWorlds.CampaignSystem/ReferenceIMBEvent.cs`
+**Type:** `public interface ReferenceIMBEvent<T1, T2> : IMbEventBase`
+**Base:** `IMbEventBase`
+**File:** `TaleWorlds.CampaignSystem/ReferenceIMBEvent.2.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new ReferenceIMBEvent();
+// Usually obtained through DI or a factory method
+IReferenceIMBEvent service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

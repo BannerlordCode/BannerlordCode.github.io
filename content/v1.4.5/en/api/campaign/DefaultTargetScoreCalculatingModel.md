@@ -1,20 +1,14 @@
 ---
 title: "DefaultTargetScoreCalculatingModel"
+description: "Auto-generated class reference for DefaultTargetScoreCalculatingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTargetScoreCalculatingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTargetScoreCalculatingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTargetScoreCalculatingModel : TargetScoreCalculatingModel`
 **Base:** `TargetScoreCalculatingModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTargetScoreCalculatingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTargetScoreCalculatingModel.cs`
 
 ## Overview
 
@@ -29,32 +23,68 @@ Treat `DefaultTargetScoreCalculatingModel` as a Model-style extension point: fir
 ### GetDefensivePatrollingFactor
 `public override float GetDefensivePatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Gets the current value of `defensive patrolling factor`.
+**Purpose:** Reads and returns the `defensive patrolling factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.GetDefensivePatrollingFactor(false);
+```
 
 ### GetOffensivePatrollingFactor
 `public override float GetOffensivePatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Gets the current value of `offensive patrolling factor`.
+**Purpose:** Reads and returns the `offensive patrolling factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.GetOffensivePatrollingFactor(false);
+```
 
 ### CalculateOffensivePatrollingScoreForSettlement
 `public override float CalculateOffensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `calculate offensive patrolling score for settlement`.
+**Purpose:** Calculates the current value or result of `offensive patrolling score for settlement`.
+
+```csharp
+// Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.CalculateOffensivePatrollingScoreForSettlement(settlement, false, mobileParty);
+```
 
 ### CurrentObjectiveValue
 `public override float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `current objective value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.CurrentObjectiveValue(mobileParty);
+```
 
 ### CalculateDefensivePatrollingScoreForSettlement
 `public override float CalculateDefensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `calculate defensive patrolling score for settlement`.
+**Purpose:** Calculates the current value or result of `defensive patrolling score for settlement`.
+
+```csharp
+// Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.CalculateDefensivePatrollingScoreForSettlement(settlement, false, mobileParty);
+```
 
 ### GetTargetScoreForFaction
 `public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**Purpose:** Gets the current value of `target score for faction`.
+**Purpose:** Reads and returns the `target score for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.GetTargetScoreForFaction(targetSettlement, missionType, mobileParty, 0);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultTargetScoreCalculatingModel>(new MyDefaultTarge
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

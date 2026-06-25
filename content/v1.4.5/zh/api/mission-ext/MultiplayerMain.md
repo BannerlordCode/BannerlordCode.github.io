@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerMain"
+description: "MultiplayerMain 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerMain`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMain
 
-**命名空间:** TaleWorlds.MountAndBlade.Multiplayer
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public static class MultiplayerMain`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.Multiplayer
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public static class MultiplayerMain`
+**Base:** 无
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerMain.cs`
 
 ## 概述
 
-`MultiplayerMain` 位于 `TaleWorlds.MountAndBlade.Multiplayer`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MultiplayerMain` 位于 `TaleWorlds.MountAndBlade.Multiplayer`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -34,61 +29,109 @@ title: "MultiplayerMain"
 ### Initialize
 `public static void Initialize(IGameNetworkHandler gameNetworkHandler)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.Initialize(gameNetworkHandler);
+```
 
 ### InitializeAsDedicatedServer
 `public static void InitializeAsDedicatedServer(IGameNetworkHandler gameNetworkHandler)`
 
-**用途 / Purpose:** 初始化 `as dedicated server` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「as dedicated server」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.InitializeAsDedicatedServer(gameNetworkHandler);
+```
 
 ### GetAvailableRankedGameModes
 `public static MultiplayerGameType GetAvailableRankedGameModes()`
 
-**用途 / Purpose:** 获取 `available ranked game modes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available ranked game modes」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.GetAvailableRankedGameModes();
+```
 
 ### GetAvailableCustomGameModes
 `public static MultiplayerGameType GetAvailableCustomGameModes()`
 
-**用途 / Purpose:** 获取 `available custom game modes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available custom game modes」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.GetAvailableCustomGameModes();
+```
 
 ### GetAvailableQuickPlayGameModes
 `public static MultiplayerGameType GetAvailableQuickPlayGameModes()`
 
-**用途 / Purpose:** 获取 `available quick play game modes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available quick play game modes」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.GetAvailableQuickPlayGameModes();
+```
 
 ### GetAvailableMatchmakerRegions
 `public static string GetAvailableMatchmakerRegions()`
 
-**用途 / Purpose:** 获取 `available matchmaker regions` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available matchmaker regions」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.GetAvailableMatchmakerRegions();
+```
 
 ### GetUserDefaultRegion
 `public static string GetUserDefaultRegion()`
 
-**用途 / Purpose:** 获取 `user default region` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「user default region」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.GetUserDefaultRegion();
+```
 
 ### GetUserCurrentRegion
 `public static string GetUserCurrentRegion()`
 
-**用途 / Purpose:** 获取 `user current region` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「user current region」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.GetUserCurrentRegion();
+```
 
 ### GetUserSelectedGameTypes
 `public static string GetUserSelectedGameTypes()`
 
-**用途 / Purpose:** 获取 `user selected game types` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「user selected game types」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.GetUserSelectedGameTypes();
+```
 
 ### GetDedicatedCustomServerAuthToken
 `public static string GetDedicatedCustomServerAuthToken(List<string> strings)`
 
-**用途 / Purpose:** 获取 `dedicated custom server auth token` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「dedicated custom server auth token」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMain.GetDedicatedCustomServerAuthToken(strings);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 MultiplayerMain.Initialize(gameNetworkHandler);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

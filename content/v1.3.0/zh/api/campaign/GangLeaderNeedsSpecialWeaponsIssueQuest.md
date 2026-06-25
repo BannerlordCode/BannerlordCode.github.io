@@ -1,13 +1,7 @@
 ---
 title: "GangLeaderNeedsSpecialWeaponsIssueQuest"
+description: "GangLeaderNeedsSpecialWeaponsIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GangLeaderNeedsSpecialWeaponsIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GangLeaderNeedsSpecialWeaponsIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,20 +30,33 @@ title: "GangLeaderNeedsSpecialWeaponsIssueQuest"
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** 当 `failed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GangLeaderNeedsSpecialWeaponsIssueQuest 实例
+GangLeaderNeedsSpecialWeaponsIssueQuest gangLeaderNeedsSpecialWeaponsIssueQuest = ...;
+gangLeaderNeedsSpecialWeaponsIssueQuest.OnFailed();
+```
 
 ### OnCanceled
 `public override void OnCanceled()`
 
-**用途 / Purpose:** 当 `canceled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「canceled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GangLeaderNeedsSpecialWeaponsIssueQuest 实例
+GangLeaderNeedsSpecialWeaponsIssueQuest gangLeaderNeedsSpecialWeaponsIssueQuest = ...;
+gangLeaderNeedsSpecialWeaponsIssueQuest.OnCanceled();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GangLeaderNeedsSpecialWeaponsIssueQuest();
-value.OnFailed();
+// 通常从对应子系统 API 获取实例后调用
+GangLeaderNeedsSpecialWeaponsIssueQuest gangLeaderNeedsSpecialWeaponsIssueQuest = ...;
+gangLeaderNeedsSpecialWeaponsIssueQuest.OnFailed();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

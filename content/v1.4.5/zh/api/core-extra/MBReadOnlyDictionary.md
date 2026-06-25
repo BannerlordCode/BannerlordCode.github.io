@@ -1,20 +1,14 @@
 ---
 title: "MBReadOnlyDictionary"
+description: "MBReadOnlyDictionary 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBReadOnlyDictionary`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBReadOnlyDictionary
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class MBReadOnlyDictionary<TKey, TValue> : ICollection, IEnumerable, IReadOnlyDictionary<TKey, TValue>, IEnumerable<KeyValuePair<TKey, TValue>>, IReadOnlyCollection<KeyValuePair<TKey, TValue>>`
 **Base:** `ICollection`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBReadOnlyDictionary.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBReadOnlyDictionary.cs`
 
 ## 概述
 
@@ -29,29 +23,55 @@ title: "MBReadOnlyDictionary"
 ### GetEnumerator
 `public Dictionary<TKey, TValue>.Enumerator GetEnumerator()`
 
-**用途 / Purpose:** 获取 `enumerator` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「enumerator」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBReadOnlyDictionary 实例
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+var result = mBReadOnlyDictionary.GetEnumerator();
+```
 
 ### ContainsKey
 `public bool ContainsKey(TKey key)`
 
-**用途 / Purpose:** 处理 `contains key` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「key」。
+
+```csharp
+// 先通过子系统 API 拿到 MBReadOnlyDictionary 实例
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+var result = mBReadOnlyDictionary.ContainsKey(key);
+```
 
 ### TryGetValue
 `public bool TryGetValue(TKey key, out TValue value)`
 
-**用途 / Purpose:** 尝试获取 `get value`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get value」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 MBReadOnlyDictionary 实例
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+var result = mBReadOnlyDictionary.TryGetValue(key, value);
+```
 
 ### CopyTo
 `public void CopyTo(Array array, int index)`
 
-**用途 / Purpose:** 处理 `copy to` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「to」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBReadOnlyDictionary 实例
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+mBReadOnlyDictionary.CopyTo(array, 0);
+```
 
 ## 使用示例
 
 ```csharp
-MBReadOnlyDictionary example = MBReadOnlyDictionary.Value;
+// 通常从对应子系统 API 获取实例后调用
+MBReadOnlyDictionary mBReadOnlyDictionary = ...;
+mBReadOnlyDictionary.GetEnumerator();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

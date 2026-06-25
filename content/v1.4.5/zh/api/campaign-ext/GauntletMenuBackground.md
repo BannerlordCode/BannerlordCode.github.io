@@ -1,20 +1,14 @@
 ---
 title: "GauntletMenuBackground"
+description: "GauntletMenuBackground 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMenuBackground`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuBackground
 
 **Namespace:** SandBox.GauntletUI.Menu
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMenuBackground : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuBackground.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuBackground.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GauntletMenuBackground"
 ## 使用示例
 
 ```csharp
-var value = new GauntletMenuBackground();
+// 从对应子系统 API 获取实例
+GauntletMenuBackground instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

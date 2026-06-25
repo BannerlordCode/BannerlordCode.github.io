@@ -1,13 +1,7 @@
 ---
 title: "CrimeModel"
+description: "Auto-generated class reference for CrimeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrimeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CrimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,54 +29,109 @@ Treat `CrimeModel` as a Model-style extension point: first identify who creates 
 ### GetMaxCrimeRating
 `public abstract float GetMaxCrimeRating()`
 
-**Purpose:** Gets the current value of `max crime rating`.
+**Purpose:** Reads and returns the `max crime rating` value held by the current object.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetMaxCrimeRating();
+```
 
 ### GetMinAcceptableCrimeRating
 `public abstract float GetMinAcceptableCrimeRating(IFaction faction)`
 
-**Purpose:** Gets the current value of `min acceptable crime rating`.
+**Purpose:** Reads and returns the `min acceptable crime rating` value held by the current object.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetMinAcceptableCrimeRating(faction);
+```
 
 ### GetCrimeRatingAfterPunishment
 `public abstract float GetCrimeRatingAfterPunishment()`
 
-**Purpose:** Gets the current value of `crime rating after punishment`.
+**Purpose:** Reads and returns the `crime rating after punishment` value held by the current object.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetCrimeRatingAfterPunishment();
+```
 
 ### DoesPlayerHaveAnyCrimeRating
 `public abstract bool DoesPlayerHaveAnyCrimeRating(IFaction faction)`
 
-**Purpose:** Handles logic related to `does player have any crime rating`.
+**Purpose:** Returns a boolean answer to whether `player have any crime rating` is true for the current object.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.DoesPlayerHaveAnyCrimeRating(faction);
+```
 
 ### IsPlayerCrimeRatingSevere
 `public abstract bool IsPlayerCrimeRatingSevere(IFaction faction)`
 
-**Purpose:** Handles logic related to `is player crime rating severe`.
+**Purpose:** Determines whether the current object is in the `player crime rating severe` state or condition.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.IsPlayerCrimeRatingSevere(faction);
+```
 
 ### IsPlayerCrimeRatingModerate
 `public abstract bool IsPlayerCrimeRatingModerate(IFaction faction)`
 
-**Purpose:** Handles logic related to `is player crime rating moderate`.
+**Purpose:** Determines whether the current object is in the `player crime rating moderate` state or condition.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.IsPlayerCrimeRatingModerate(faction);
+```
 
 ### IsPlayerCrimeRatingMild
 `public abstract bool IsPlayerCrimeRatingMild(IFaction faction)`
 
-**Purpose:** Handles logic related to `is player crime rating mild`.
+**Purpose:** Determines whether the current object is in the `player crime rating mild` state or condition.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.IsPlayerCrimeRatingMild(faction);
+```
 
 ### GetCost
 `public abstract float GetCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod, float minimumCrimeRating)`
 
-**Purpose:** Gets the current value of `cost`.
+**Purpose:** Reads and returns the `cost` value held by the current object.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetCost(faction, paymentMethod, 0);
+```
 
 ### GetDailyCrimeRatingChange
 `public abstract ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `daily crime rating change`.
+**Purpose:** Reads and returns the `daily crime rating change` value held by the current object.
+
+```csharp
+// Obtain an instance of CrimeModel from the subsystem API first
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetDailyCrimeRatingChange(faction, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCrimeModel();
+// Typically obtained from a subsystem API or factory
+CrimeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ConversationTagView"
+description: "Auto-generated class reference for ConversationTagView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationTagView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationTagView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,14 +23,20 @@ Treat `ConversationTagView` as a View-style extension point: first identify who 
 ### GetSkillMeshName
 `public static string GetSkillMeshName(SkillObject skillEnum, bool isOn = false)`
 
-**Purpose:** Gets the current value of `skill mesh name`.
+**Purpose:** Reads and returns the `skill mesh name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ConversationTagView.GetSkillMeshName(skillEnum, false);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new ConversationTagView();
+// Retrieve this view from the subsystem API or scene
+ConversationTagView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

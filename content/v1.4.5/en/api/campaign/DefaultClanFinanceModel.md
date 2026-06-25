@@ -1,20 +1,14 @@
 ---
 title: "DefaultClanFinanceModel"
+description: "Auto-generated class reference for DefaultClanFinanceModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultClanFinanceModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultClanFinanceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultClanFinanceModel : ClanFinanceModel`
 **Base:** `ClanFinanceModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanFinanceModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanFinanceModel.cs`
 
 ## Overview
 
@@ -29,57 +23,123 @@ Treat `DefaultClanFinanceModel` as a Model-style extension point: first identify
 ### CalculateClanGoldChange
 `public override ExplainedNumber CalculateClanGoldChange(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**Purpose:** Handles logic related to `calculate clan gold change`.
+**Purpose:** Calculates the current value or result of `clan gold change`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateClanGoldChange(clan, false, false, false);
+```
 
 ### CalculateClanIncome
 `public override ExplainedNumber CalculateClanIncome(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**Purpose:** Handles logic related to `calculate clan income`.
+**Purpose:** Calculates the current value or result of `clan income`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateClanIncome(clan, false, false, false);
+```
 
 ### CalculateClanExpensesInternal
 `public void CalculateClanExpensesInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**Purpose:** Handles logic related to `calculate clan expenses internal`.
+**Purpose:** Calculates the current value or result of `clan expenses internal`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+defaultClanFinanceModel.CalculateClanExpensesInternal(clan, goldChange, false, false);
+```
 
 ### CalculateClanExpenses
 `public override ExplainedNumber CalculateClanExpenses(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**Purpose:** Handles logic related to `calculate clan expenses`.
+**Purpose:** Calculates the current value or result of `clan expenses`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateClanExpenses(clan, false, false, false);
+```
 
 ### CalculateTownIncomeFromTariffs
 `public override ExplainedNumber CalculateTownIncomeFromTariffs(Clan clan, Town town, bool applyWithdrawals = false)`
 
-**Purpose:** Handles logic related to `calculate town income from tariffs`.
+**Purpose:** Calculates the current value or result of `town income from tariffs`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateTownIncomeFromTariffs(clan, town, false);
+```
 
 ### CalculateTownIncomeFromProjects
 `public override int CalculateTownIncomeFromProjects(Town town)`
 
-**Purpose:** Handles logic related to `calculate town income from projects`.
+**Purpose:** Calculates the current value or result of `town income from projects`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateTownIncomeFromProjects(town);
+```
 
 ### CalculateVillageIncome
 `public override int CalculateVillageIncome(Clan clan, Village village, bool applyWithdrawals = false)`
 
-**Purpose:** Handles logic related to `calculate village income`.
+**Purpose:** Calculates the current value or result of `village income`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateVillageIncome(clan, village, false);
+```
 
 ### CalculateOwnerIncomeFromCaravan
 `public override int CalculateOwnerIncomeFromCaravan(MobileParty caravan)`
 
-**Purpose:** Handles logic related to `calculate owner income from caravan`.
+**Purpose:** Calculates the current value or result of `owner income from caravan`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateOwnerIncomeFromCaravan(caravan);
+```
 
 ### CalculateOwnerIncomeFromWorkshop
 `public override int CalculateOwnerIncomeFromWorkshop(Workshop workshop)`
 
-**Purpose:** Handles logic related to `calculate owner income from workshop`.
+**Purpose:** Calculates the current value or result of `owner income from workshop`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateOwnerIncomeFromWorkshop(workshop);
+```
 
 ### RevenueSmoothenFraction
 `public override float RevenueSmoothenFraction()`
 
-**Purpose:** Handles logic related to `revenue smoothen fraction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.RevenueSmoothenFraction();
+```
 
 ### CalculateNotableDailyGoldChange
 `public override int CalculateNotableDailyGoldChange(Hero hero, bool applyWithdrawals)`
 
-**Purpose:** Handles logic related to `calculate notable daily gold change`.
+**Purpose:** Calculates the current value or result of `notable daily gold change`.
+
+```csharp
+// Obtain an instance of DefaultClanFinanceModel from the subsystem API first
+DefaultClanFinanceModel defaultClanFinanceModel = ...;
+var result = defaultClanFinanceModel.CalculateNotableDailyGoldChange(hero, false);
+```
 
 ## Usage Example
 
@@ -89,4 +149,4 @@ Game.Current.ReplaceModel<DefaultClanFinanceModel>(new MyDefaultClanFinanceModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

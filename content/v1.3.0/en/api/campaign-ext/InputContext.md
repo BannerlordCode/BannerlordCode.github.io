@@ -1,13 +1,7 @@
 ---
 title: "InputContext"
+description: "Auto-generated class reference for InputContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputContext
 
 **Namespace:** TaleWorlds.InputSystem
@@ -39,215 +33,462 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### GetPointerX
 `public int GetPointerX()`
 
-**Purpose:** Gets the current value of `pointer x`.
+**Purpose:** Reads and returns the `pointer x` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetPointerX();
+```
 
 ### GetPointerY
 `public int GetPointerY()`
 
-**Purpose:** Gets the current value of `pointer y`.
+**Purpose:** Reads and returns the `pointer y` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetPointerY();
+```
 
 ### GetPointerPosition
 `public Vector2 GetPointerPosition()`
 
-**Purpose:** Gets the current value of `pointer position`.
+**Purpose:** Reads and returns the `pointer position` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetPointerPosition();
+```
 
 ### GetPointerPositionVec2
 `public Vec2 GetPointerPositionVec2()`
 
-**Purpose:** Gets the current value of `pointer position vec2`.
+**Purpose:** Reads and returns the `pointer position vec2` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetPointerPositionVec2();
+```
 
 ### RegisterHotKeyCategory
 `public void RegisterHotKeyCategory(GameKeyContext category)`
 
-**Purpose:** Handles logic related to `register hot key category`.
+**Purpose:** Registers `hot key category` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+inputContext.RegisterHotKeyCategory(category);
+```
 
 ### IsCategoryRegistered
 `public bool IsCategoryRegistered(GameKeyContext category)`
 
-**Purpose:** Handles logic related to `is category registered`.
+**Purpose:** Determines whether the current object is in the `category registered` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsCategoryRegistered(category);
+```
 
 ### RegisterDownKeys
 `public void RegisterDownKeys()`
 
-**Purpose:** Handles logic related to `register down keys`.
+**Purpose:** Registers `down keys` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+inputContext.RegisterDownKeys();
+```
 
 ### UnregisterReleasedKeys
 `public void UnregisterReleasedKeys()`
 
-**Purpose:** Handles logic related to `unregister released keys`.
+**Purpose:** Unregisters `released keys` from the current system.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+inputContext.UnregisterReleasedKeys();
+```
 
 ### ResetLastDownKeys
 `public void ResetLastDownKeys()`
 
-**Purpose:** Resets `last down keys` to its initial state.
+**Purpose:** Returns `last down keys` to its default or initial condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+inputContext.ResetLastDownKeys();
+```
 
 ### IsHotKeyDown
 `public bool IsHotKeyDown(string hotKey)`
 
-**Purpose:** Handles logic related to `is hot key down`.
+**Purpose:** Determines whether the current object is in the `hot key down` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsHotKeyDown("example");
+```
 
 ### IsGameKeyDown
 `public bool IsGameKeyDown(int gameKey)`
 
-**Purpose:** Handles logic related to `is game key down`.
+**Purpose:** Determines whether the current object is in the `game key down` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsGameKeyDown(0);
+```
 
 ### IsGameKeyDownImmediate
 `public bool IsGameKeyDownImmediate(int gameKey)`
 
-**Purpose:** Handles logic related to `is game key down immediate`.
+**Purpose:** Determines whether the current object is in the `game key down immediate` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsGameKeyDownImmediate(0);
+```
 
 ### IsHotKeyPressed
 `public bool IsHotKeyPressed(string hotKey)`
 
-**Purpose:** Handles logic related to `is hot key pressed`.
+**Purpose:** Determines whether the current object is in the `hot key pressed` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsHotKeyPressed("example");
+```
 
 ### IsGameKeyPressed
 `public bool IsGameKeyPressed(int gameKey)`
 
-**Purpose:** Handles logic related to `is game key pressed`.
+**Purpose:** Determines whether the current object is in the `game key pressed` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsGameKeyPressed(0);
+```
 
 ### IsHotKeyReleased
 `public bool IsHotKeyReleased(string hotKey)`
 
-**Purpose:** Handles logic related to `is hot key released`.
+**Purpose:** Determines whether the current object is in the `hot key released` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsHotKeyReleased("example");
+```
 
 ### IsGameKeyReleased
 `public bool IsGameKeyReleased(int gameKey)`
 
-**Purpose:** Handles logic related to `is game key released`.
+**Purpose:** Determines whether the current object is in the `game key released` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsGameKeyReleased(0);
+```
 
 ### GetGameKeyState
 `public float GetGameKeyState(int gameKey)`
 
-**Purpose:** Gets the current value of `game key state`.
+**Purpose:** Reads and returns the `game key state` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetGameKeyState(0);
+```
 
 ### IsHotKeyDoublePressed
 `public bool IsHotKeyDoublePressed(string hotKey)`
 
-**Purpose:** Handles logic related to `is hot key double pressed`.
+**Purpose:** Determines whether the current object is in the `hot key double pressed` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsHotKeyDoublePressed("example");
+```
 
 ### GetGameKeyAxis
 `public float GetGameKeyAxis(GameAxisKey gameKey)`
 
-**Purpose:** Gets the current value of `game key axis`.
+**Purpose:** Reads and returns the `game key axis` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetGameKeyAxis(gameKey);
+```
 
 ### GetGameKeyAxis
 `public float GetGameKeyAxis(string gameKey)`
 
-**Purpose:** Gets the current value of `game key axis`.
+**Purpose:** Reads and returns the `game key axis` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetGameKeyAxis("example");
+```
 
 ### GetKeyState
 `public Vec2 GetKeyState(InputKey key)`
 
-**Purpose:** Gets the current value of `key state`.
+**Purpose:** Reads and returns the `key state` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetKeyState(key);
+```
 
 ### IsKeyDown
 `public bool IsKeyDown(InputKey key)`
 
-**Purpose:** Handles logic related to `is key down`.
+**Purpose:** Determines whether the current object is in the `key down` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsKeyDown(key);
+```
 
 ### IsKeyPressed
 `public bool IsKeyPressed(InputKey key)`
 
-**Purpose:** Handles logic related to `is key pressed`.
+**Purpose:** Determines whether the current object is in the `key pressed` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsKeyPressed(key);
+```
 
 ### IsKeyReleased
 `public bool IsKeyReleased(InputKey key)`
 
-**Purpose:** Handles logic related to `is key released`.
+**Purpose:** Determines whether the current object is in the `key released` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsKeyReleased(key);
+```
 
 ### GetMouseMoveX
 `public float GetMouseMoveX()`
 
-**Purpose:** Gets the current value of `mouse move x`.
+**Purpose:** Reads and returns the `mouse move x` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetMouseMoveX();
+```
 
 ### GetMouseMoveY
 `public float GetMouseMoveY()`
 
-**Purpose:** Gets the current value of `mouse move y`.
+**Purpose:** Reads and returns the `mouse move y` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetMouseMoveY();
+```
 
 ### GetNormalizedMouseMoveX
 `public float GetNormalizedMouseMoveX()`
 
-**Purpose:** Gets the current value of `normalized mouse move x`.
+**Purpose:** Reads and returns the `normalized mouse move x` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetNormalizedMouseMoveX();
+```
 
 ### GetNormalizedMouseMoveY
 `public float GetNormalizedMouseMoveY()`
 
-**Purpose:** Gets the current value of `normalized mouse move y`.
+**Purpose:** Reads and returns the `normalized mouse move y` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetNormalizedMouseMoveY();
+```
 
 ### GetControllerRightStickState
 `public Vec2 GetControllerRightStickState()`
 
-**Purpose:** Gets the current value of `controller right stick state`.
+**Purpose:** Reads and returns the `controller right stick state` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetControllerRightStickState();
+```
 
 ### GetControllerLeftStickState
 `public Vec2 GetControllerLeftStickState()`
 
-**Purpose:** Gets the current value of `controller left stick state`.
+**Purpose:** Reads and returns the `controller left stick state` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetControllerLeftStickState();
+```
 
 ### GetIsMouseActive
 `public bool GetIsMouseActive()`
 
-**Purpose:** Gets the current value of `is mouse active`.
+**Purpose:** Reads and returns the `is mouse active` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetIsMouseActive();
+```
 
 ### GetIsMouseDown
 `public bool GetIsMouseDown()`
 
-**Purpose:** Gets the current value of `is mouse down`.
+**Purpose:** Reads and returns the `is mouse down` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetIsMouseDown();
+```
 
 ### GetMousePositionPixel
 `public Vec2 GetMousePositionPixel()`
 
-**Purpose:** Gets the current value of `mouse position pixel`.
+**Purpose:** Reads and returns the `mouse position pixel` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetMousePositionPixel();
+```
 
 ### GetDeltaMouseScroll
 `public float GetDeltaMouseScroll()`
 
-**Purpose:** Gets the current value of `delta mouse scroll`.
+**Purpose:** Reads and returns the `delta mouse scroll` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetDeltaMouseScroll();
+```
 
 ### GetIsControllerConnected
 `public bool GetIsControllerConnected()`
 
-**Purpose:** Gets the current value of `is controller connected`.
+**Purpose:** Reads and returns the `is controller connected` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetIsControllerConnected();
+```
 
 ### GetMousePositionRanged
 `public Vec2 GetMousePositionRanged()`
 
-**Purpose:** Gets the current value of `mouse position ranged`.
+**Purpose:** Reads and returns the `mouse position ranged` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetMousePositionRanged();
+```
 
 ### GetMouseSensitivity
 `public float GetMouseSensitivity()`
 
-**Purpose:** Gets the current value of `mouse sensitivity`.
+**Purpose:** Reads and returns the `mouse sensitivity` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetMouseSensitivity();
+```
 
 ### IsControlDown
 `public bool IsControlDown()`
 
-**Purpose:** Handles logic related to `is control down`.
+**Purpose:** Determines whether the current object is in the `control down` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsControlDown();
+```
 
 ### IsShiftDown
 `public bool IsShiftDown()`
 
-**Purpose:** Handles logic related to `is shift down`.
+**Purpose:** Determines whether the current object is in the `shift down` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsShiftDown();
+```
 
 ### IsAltDown
 `public bool IsAltDown()`
 
-**Purpose:** Handles logic related to `is alt down`.
+**Purpose:** Determines whether the current object is in the `alt down` state or condition.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.IsAltDown();
+```
 
 ### GetClickKeys
 `public InputKey GetClickKeys()`
 
-**Purpose:** Gets the current value of `click keys`.
+**Purpose:** Reads and returns the `click keys` value held by the current object.
+
+```csharp
+// Obtain an instance of InputContext from the subsystem API first
+InputContext inputContext = ...;
+var result = inputContext.GetClickKeys();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InputContext();
-value.GetPointerX();
+// Typically call this after obtaining an instance from the subsystem API
+InputContext inputContext = ...;
+inputContext.GetPointerX();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

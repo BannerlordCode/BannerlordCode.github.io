@@ -1,20 +1,14 @@
 ---
 title: "SmeltingVM"
+description: "SmeltingVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SmeltingVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SmeltingVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SmeltingVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting/SmeltingVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting/SmeltingVM.cs`
 
 ## 概述
 
@@ -41,30 +35,55 @@ title: "SmeltingVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingVM 实例
+SmeltingVM smeltingVM = ...;
+smeltingVM.RefreshValues();
+```
 
 ### RefreshList
 `public void RefreshList()`
 
-**用途 / Purpose:** 刷新 `list` 的显示或缓存。
+**用途 / Purpose:** 使 「list」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingVM 实例
+SmeltingVM smeltingVM = ...;
+smeltingVM.RefreshList();
+```
 
 ### TrySmeltingSelectedItems
 `public void TrySmeltingSelectedItems(Hero currentCraftingHero)`
 
-**用途 / Purpose:** 尝试获取 `smelting selected items`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「smelting selected items」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingVM 实例
+SmeltingVM smeltingVM = ...;
+smeltingVM.TrySmeltingSelectedItems(currentCraftingHero);
+```
 
 ### SaveItemLockStates
 `public void SaveItemLockStates()`
 
-**用途 / Purpose:** 保存 `item lock states` 数据。
+**用途 / Purpose:** 将 「item lock states」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingVM 实例
+SmeltingVM smeltingVM = ...;
+smeltingVM.SaveItemLockStates();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SmeltingVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SmeltingVM smeltingVM = ...;
+smeltingVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

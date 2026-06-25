@@ -1,13 +1,7 @@
 ---
 title: "SiegeDeploymentHandler"
+description: "SiegeDeploymentHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeDeploymentHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeDeploymentHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Handlers
@@ -36,79 +30,163 @@ title: "SiegeDeploymentHandler"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.OnRemoveBehavior();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.AfterStart();
+```
 
 ### FinishDeployment
 `public override void FinishDeployment()`
 
-**用途 / Purpose:** 处理 `finish deployment` 相关逻辑。
+**用途 / Purpose:** 结束「deployment」流程并执行必要的收尾工作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.FinishDeployment();
+```
 
 ### DeployAllSiegeWeaponsOfPlayer
 `public void DeployAllSiegeWeaponsOfPlayer()`
 
-**用途 / Purpose:** 处理 `deploy all siege weapons of player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.DeployAllSiegeWeaponsOfPlayer();
+```
 
 ### GetMaxDeployableWeaponCountOfPlayer
 `public int GetMaxDeployableWeaponCountOfPlayer(Type weapon)`
 
-**用途 / Purpose:** 获取 `max deployable weapon count of player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max deployable weapon count of player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+var result = siegeDeploymentHandler.GetMaxDeployableWeaponCountOfPlayer(weapon);
+```
 
 ### DeployAllSiegeWeaponsOfAi
 `public void DeployAllSiegeWeaponsOfAi()`
 
-**用途 / Purpose:** 处理 `deploy all siege weapons of ai` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.DeployAllSiegeWeaponsOfAi();
+```
 
 ### RemoveDeploymentPoints
 `public void RemoveDeploymentPoints(BattleSideEnum side)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `deployment points`。
+**用途 / Purpose:** 从当前容器或状态中移除 「deployment points」。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.RemoveDeploymentPoints(side);
+```
 
 ### RemoveUnavailableDeploymentPoints
 `public void RemoveUnavailableDeploymentPoints(BattleSideEnum side)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `unavailable deployment points`。
+**用途 / Purpose:** 从当前容器或状态中移除 「unavailable deployment points」。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.RemoveUnavailableDeploymentPoints(side);
+```
 
 ### UnHideDeploymentPoints
 `public void UnHideDeploymentPoints(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `un hide deployment points` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.UnHideDeploymentPoints(side);
+```
 
 ### GetDeployableWeaponCountOfPlayer
 `public int GetDeployableWeaponCountOfPlayer(Type weapon)`
 
-**用途 / Purpose:** 获取 `deployable weapon count of player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「deployable weapon count of player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+var result = siegeDeploymentHandler.GetDeployableWeaponCountOfPlayer(weapon);
+```
 
 ### AutoDeployTeamUsingTeamAI
 `public void AutoDeployTeamUsingTeamAI(Team team, bool autoAssignDetachments = true)`
 
-**用途 / Purpose:** 处理 `auto deploy team using team a i` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.AutoDeployTeamUsingTeamAI(team, false);
+```
 
 ### AutoAssignDetachmentsForDeployment
 `public void AutoAssignDetachmentsForDeployment(Team team)`
 
-**用途 / Purpose:** 处理 `auto assign detachments for deployment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+siegeDeploymentHandler.AutoAssignDetachmentsForDeployment(team);
+```
 
 ### GetEstimatedAverageDefenderPosition
 `public Vec2 GetEstimatedAverageDefenderPosition()`
 
-**用途 / Purpose:** 获取 `estimated average defender position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「estimated average defender position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
+SiegeDeploymentHandler siegeDeploymentHandler = ...;
+var result = siegeDeploymentHandler.GetEstimatedAverageDefenderPosition();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SiegeDeploymentHandler());
+var behavior = Mission.Current.GetMissionBehavior<SiegeDeploymentHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

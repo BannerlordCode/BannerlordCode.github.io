@@ -1,13 +1,7 @@
 ---
 title: "MissionSiegeEnginesLogic"
+description: "Auto-generated class reference for MissionSiegeEnginesLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeEnginesLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionSiegeEnginesLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,19 +23,31 @@ Treat `MissionSiegeEnginesLogic` as a Logic-style extension point: first identif
 ### GetSiegeWeaponsController
 `public IMissionSiegeWeaponsController GetSiegeWeaponsController(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `siege weapons controller`.
+**Purpose:** Reads and returns the `siege weapons controller` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionSiegeEnginesLogic from the subsystem API first
+MissionSiegeEnginesLogic missionSiegeEnginesLogic = ...;
+var result = missionSiegeEnginesLogic.GetSiegeWeaponsController(side);
+```
 
 ### GetMissionSiegeWeapons
 `public void GetMissionSiegeWeapons(out IEnumerable<IMissionSiegeWeapon> defenderSiegeWeapons, out IEnumerable<IMissionSiegeWeapon> attackerSiegeWeapons)`
 
-**Purpose:** Gets the current value of `mission siege weapons`.
+**Purpose:** Reads and returns the `mission siege weapons` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionSiegeEnginesLogic from the subsystem API first
+MissionSiegeEnginesLogic missionSiegeEnginesLogic = ...;
+missionSiegeEnginesLogic.GetMissionSiegeWeapons(defenderSiegeWeapons, attackerSiegeWeapons);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionSiegeEnginesLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionSiegeEnginesLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

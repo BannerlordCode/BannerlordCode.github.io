@@ -1,20 +1,14 @@
 ---
 title: "ContainerSaveId"
+description: "ContainerSaveId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ContainerSaveId`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerSaveId
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerSaveId : SaveId`
 **Base:** `SaveId`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerSaveId.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerSaveId.cs`
 
 ## 概述
 
@@ -37,30 +31,54 @@ title: "ContainerSaveId"
 ### GetStringId
 `public override string GetStringId()`
 
-**用途 / Purpose:** 获取 `string id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ContainerSaveId 实例
+ContainerSaveId containerSaveId = ...;
+var result = containerSaveId.GetStringId();
+```
 
 ### WriteTo
 `public override void WriteTo(IWriter writer)`
 
-**用途 / Purpose:** 处理 `write to` 相关逻辑。
+**用途 / Purpose:** 将「to」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 ContainerSaveId 实例
+ContainerSaveId containerSaveId = ...;
+containerSaveId.WriteTo(writer);
+```
 
 ### ReadFrom
 `public static ContainerSaveId ReadFrom(IReader reader)`
 
-**用途 / Purpose:** 处理 `read from` 相关逻辑。
+**用途 / Purpose:** 读取「from」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+ContainerSaveId.ReadFrom(reader);
+```
 
 ### GetSizeInBytes
 `public override int GetSizeInBytes()`
 
-**用途 / Purpose:** 获取 `size in bytes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「size in bytes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ContainerSaveId 实例
+ContainerSaveId containerSaveId = ...;
+var result = containerSaveId.GetSizeInBytes();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ContainerSaveId();
-value.GetStringId();
+// 通常从对应子系统 API 获取实例后调用
+ContainerSaveId containerSaveId = ...;
+containerSaveId.GetStringId();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

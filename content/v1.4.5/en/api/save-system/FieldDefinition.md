@@ -1,20 +1,14 @@
 ---
 title: "FieldDefinition"
+description: "Auto-generated class reference for FieldDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FieldDefinition`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FieldDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class FieldDefinition : MemberDefinition`
 **Base:** `MemberDefinition`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/FieldDefinition.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/FieldDefinition.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetMemberType
 `public override Type GetMemberType()`
 
-**Purpose:** Gets the current value of `member type`.
+**Purpose:** Reads and returns the `member type` value held by the current object.
+
+```csharp
+// Obtain an instance of FieldDefinition from the subsystem API first
+FieldDefinition fieldDefinition = ...;
+var result = fieldDefinition.GetMemberType();
+```
 
 ### GetValue
 `public override object GetValue(object target)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of FieldDefinition from the subsystem API first
+FieldDefinition fieldDefinition = ...;
+var result = fieldDefinition.GetValue(target);
+```
 
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(GetFieldValueDelegate getFieldValueMethod)`
 
-**Purpose:** Initializes the state, resources, or bindings for `for auto generation`.
+**Purpose:** Prepares the resources, state, or bindings required by `for auto generation`.
+
+```csharp
+// Obtain an instance of FieldDefinition from the subsystem API first
+FieldDefinition fieldDefinition = ...;
+fieldDefinition.InitializeForAutoGeneration(getFieldValueMethod);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FieldDefinition();
-value.GetMemberType();
+// Typically call this after obtaining an instance from the subsystem API
+FieldDefinition fieldDefinition = ...;
+fieldDefinition.GetMemberType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBNotNullParameterException"
+description: "Auto-generated class reference for MBNotNullParameterException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBNotNullParameterException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBNotNullParameterException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBNotNullParameterException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBNotNullParameterException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBNotNullParameterException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBNotNullParameterException` as a Exception-style extension point: first 
 ## Usage Example
 
 ```csharp
-try { CallMBNotNullParameterException(); } catch (MBNotNullParameterException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBNotNullParameterException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

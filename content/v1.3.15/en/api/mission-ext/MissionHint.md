@@ -1,23 +1,18 @@
 ---
 title: "MissionHint"
+description: "Auto-generated class reference for MissionHint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionHint
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Hints
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHint`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/Missions/Hints/MissionHint.cs`
 
 ## Overview
 
-`MissionHint` lives in `TaleWorlds.MountAndBlade.Missions.Hints`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MissionHint` lives in `TaleWorlds.MountAndBlade.Missions.Hints` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Hints` to place it in th
 ### CreateWithKeyAndAction
 `public static MissionHint CreateWithKeyAndAction(TextObject actionText, string hotKeyId)`
 
-**Purpose:** Creates a new `with key and action` instance or object.
+**Purpose:** Constructs a new `with key and action` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionHint.CreateWithKeyAndAction(actionText, "example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MissionHint.CreateWithKeyAndAction(actionText, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

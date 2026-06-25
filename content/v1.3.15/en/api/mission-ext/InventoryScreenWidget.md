@@ -1,13 +1,7 @@
 ---
 title: "InventoryScreenWidget"
+description: "Auto-generated class reference for InventoryScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
@@ -50,19 +44,32 @@ Treat `InventoryScreenWidget` as a Widget-style extension point: first identify 
 ### ItemWidgetDragBegin
 `public void ItemWidgetDragBegin(InventoryItemButtonWidget itemWidget)`
 
-**Purpose:** Handles logic related to `item widget drag begin`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InventoryScreenWidget from the subsystem API first
+InventoryScreenWidget inventoryScreenWidget = ...;
+inventoryScreenWidget.ItemWidgetDragBegin(itemWidget);
+```
 
 ### ItemWidgetDrop
 `public void ItemWidgetDrop(InventoryItemButtonWidget itemWidget)`
 
-**Purpose:** Handles logic related to `item widget drop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InventoryScreenWidget from the subsystem API first
+InventoryScreenWidget inventoryScreenWidget = ...;
+inventoryScreenWidget.ItemWidgetDrop(itemWidget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new InventoryScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InventoryScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

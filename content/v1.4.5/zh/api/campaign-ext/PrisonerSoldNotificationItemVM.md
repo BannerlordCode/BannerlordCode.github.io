@@ -1,20 +1,14 @@
 ---
 title: "PrisonerSoldNotificationItemVM"
+description: "PrisonerSoldNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrisonerSoldNotificationItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrisonerSoldNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PrisonerSoldNotificationItemVM : SettlementNotificationItemBaseVM`
 **Base:** `SettlementNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/PrisonerSoldNotificationItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/PrisonerSoldNotificationItemVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "PrisonerSoldNotificationItemVM"
 ### AddNewPrisoners
 `public void AddNewPrisoners(TroopRoster newPrisoners)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `new prisoners`。
+**用途 / Purpose:** 将 「new prisoners」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonerSoldNotificationItemVM 实例
+PrisonerSoldNotificationItemVM prisonerSoldNotificationItemVM = ...;
+prisonerSoldNotificationItemVM.AddNewPrisoners(newPrisoners);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PrisonerSoldNotificationItemVM();
-value.AddNewPrisoners(newPrisoners);
+// 通常从对应子系统 API 获取实例后调用
+PrisonerSoldNotificationItemVM prisonerSoldNotificationItemVM = ...;
+prisonerSoldNotificationItemVM.AddNewPrisoners(newPrisoners);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

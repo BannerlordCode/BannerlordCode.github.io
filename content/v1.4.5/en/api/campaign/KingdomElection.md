@@ -1,20 +1,14 @@
 ---
 title: "KingdomElection"
+description: "Auto-generated class reference for KingdomElection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomElection`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomElection
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomElection`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/KingdomElection.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/KingdomElection.cs`
 
 ## Overview
 
@@ -35,110 +29,230 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### StartElection
 `public void StartElection()`
 
-**Purpose:** Handles logic related to `start election`.
+**Purpose:** Starts the `election` flow or state machine.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+kingdomElection.StartElection();
+```
 
 ### GetElectionOutcomeSupport
 `public static ElectionOutcomeSupport GetElectionOutcomeSupport(KingdomDecision decision, Clan sponsor)`
 
-**Purpose:** Gets the current value of `election outcome support`.
+**Purpose:** Reads and returns the `election outcome support` value held by the current object.
+
+```csharp
+// Static call; no instance required
+KingdomElection.GetElectionOutcomeSupport(decision, sponsor);
+```
 
 ### SetupResultWithoutPlayerSupport
 `public void SetupResultWithoutPlayerSupport()`
 
-**Purpose:** Sets the value or state of `up result without player support`.
+**Purpose:** Assigns a new value to `up result without player support` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+kingdomElection.SetupResultWithoutPlayerSupport();
+```
 
 ### StartElectionWithoutPlayer
 `public void StartElectionWithoutPlayer()`
 
-**Purpose:** Handles logic related to `start election without player`.
+**Purpose:** Starts the `election without player` flow or state machine.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+kingdomElection.StartElectionWithoutPlayer();
+```
 
 ### GetLikelihoodForSponsor
 `public float GetLikelihoodForSponsor(Clan sponsor)`
 
-**Purpose:** Gets the current value of `likelihood for sponsor`.
+**Purpose:** Reads and returns the `likelihood for sponsor` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetLikelihoodForSponsor(sponsor);
+```
 
 ### GetWinChanceForSponsor
 `public float GetWinChanceForSponsor(Clan sponsor)`
 
-**Purpose:** Gets the current value of `win chance for sponsor`.
+**Purpose:** Reads and returns the `win chance for sponsor` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetWinChanceForSponsor(sponsor);
+```
 
 ### GetDecisionOutcomeSupportForSponsor
 `public ElectionOutcomeSupport GetDecisionOutcomeSupportForSponsor(Clan sponsor)`
 
-**Purpose:** Gets the current value of `decision outcome support for sponsor`.
+**Purpose:** Reads and returns the `decision outcome support for sponsor` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetDecisionOutcomeSupportForSponsor(sponsor);
+```
 
 ### GetRelationChangeWithSponsor
 `public int GetRelationChangeWithSponsor(Hero opposerOrSupporter, Supporter.SupportWeights supportWeight, bool isOpposingSides)`
 
-**Purpose:** Gets the current value of `relation change with sponsor`.
+**Purpose:** Reads and returns the `relation change with sponsor` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetRelationChangeWithSponsor(opposerOrSupporter, supportWeight, false);
+```
 
 ### GetChosenOutcomeText
 `public TextObject GetChosenOutcomeText()`
 
-**Purpose:** Gets the current value of `chosen outcome text`.
+**Purpose:** Reads and returns the `chosen outcome text` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetChosenOutcomeText();
+```
 
 ### DetermineOfficialSupport
 `public void DetermineOfficialSupport()`
 
-**Purpose:** Handles logic related to `determine official support`.
+**Purpose:** Determines the result of `official support` based on the current state.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+kingdomElection.DetermineOfficialSupport();
+```
 
 ### GetWinChanceWithPlayerSupport
 `public float GetWinChanceWithPlayerSupport(DecisionOutcome supportedOutcome, Supporter.SupportWeights supportWeight)`
 
-**Purpose:** Gets the current value of `win chance with player support`.
+**Purpose:** Reads and returns the `win chance with player support` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetWinChanceWithPlayerSupport(supportedOutcome, supportWeight);
+```
 
 ### GetInfluenceCostOfOutcome
 `public int GetInfluenceCostOfOutcome(DecisionOutcome outcome, Clan supporter, Supporter.SupportWeights weight)`
 
-**Purpose:** Gets the current value of `influence cost of outcome`.
+**Purpose:** Reads and returns the `influence cost of outcome` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetInfluenceCostOfOutcome(outcome, supporter, weight);
+```
 
 ### GetSecondaryEffects
 `public TextObject GetSecondaryEffects()`
 
-**Purpose:** Gets the current value of `secondary effects`.
+**Purpose:** Reads and returns the `secondary effects` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetSecondaryEffects();
+```
 
 ### OnPlayerSupport
 `public void OnPlayerSupport(DecisionOutcome decisionOutcome, Supporter.SupportWeights supportWeight)`
 
-**Purpose:** Called when the `player support` event is raised.
+**Purpose:** Invoked when the `player support` event is raised.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+kingdomElection.OnPlayerSupport(decisionOutcome, supportWeight);
+```
 
 ### OnPlayerAbstainedAsRuler
 `public void OnPlayerAbstainedAsRuler()`
 
-**Purpose:** Called when the `player abstained as ruler` event is raised.
+**Purpose:** Invoked when the `player abstained as ruler` event is raised.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+kingdomElection.OnPlayerAbstainedAsRuler();
+```
 
 ### ApplySelection
 `public void ApplySelection()`
 
-**Purpose:** Applies `selection` to the current object.
+**Purpose:** Applies the effect of `selection` to the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+kingdomElection.ApplySelection();
+```
 
 ### GetSortedDecisionOutcomes
 `public MBList<DecisionOutcome> GetSortedDecisionOutcomes()`
 
-**Purpose:** Gets the current value of `sorted decision outcomes`.
+**Purpose:** Reads and returns the `sorted decision outcomes` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetSortedDecisionOutcomes();
+```
 
 ### GetGeneralTitle
 `public TextObject GetGeneralTitle()`
 
-**Purpose:** Gets the current value of `general title`.
+**Purpose:** Reads and returns the `general title` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetGeneralTitle();
+```
 
 ### GetTitle
 `public TextObject GetTitle()`
 
-**Purpose:** Gets the current value of `title`.
+**Purpose:** Reads and returns the `title` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetTitle();
+```
 
 ### GetDescription
 `public TextObject GetDescription()`
 
-**Purpose:** Gets the current value of `description`.
+**Purpose:** Reads and returns the `description` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomElection from the subsystem API first
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetDescription();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomElection();
-value.StartElection();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomElection kingdomElection = ...;
+kingdomElection.StartElection();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

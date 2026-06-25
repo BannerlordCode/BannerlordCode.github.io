@@ -1,13 +1,7 @@
 ---
 title: "BanditPartyComponent"
+description: "Auto-generated class reference for BanditPartyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BanditPartyComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BanditPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -39,37 +33,75 @@ Treat `BanditPartyComponent` as a Component-style extension point: first identif
 ### CreateBanditParty
 `public static MobileParty CreateBanditParty(string stringId, Clan clan, Hideout hideout, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)`
 
-**Purpose:** Creates a new `bandit party` instance or object.
+**Purpose:** Constructs a new `bandit party` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BanditPartyComponent.CreateBanditParty("example", clan, hideout, false, pt, initialPosition);
+```
 
 ### ConvertPartyToBanditParty
 `public static void ConvertPartyToBanditParty(MobileParty mobileParty, Clan clan, Hideout hideout, bool isBossParty)`
 
-**Purpose:** Handles logic related to `convert party to bandit party`.
+**Purpose:** Converts `party to bandit party` into another representation or type.
+
+```csharp
+// Static call; no instance required
+BanditPartyComponent.ConvertPartyToBanditParty(mobileParty, clan, hideout, false);
+```
 
 ### CreateLooterParty
 `public static MobileParty CreateLooterParty(string stringId, Clan clan, Settlement relatedSettlement, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)`
 
-**Purpose:** Creates a new `looter party` instance or object.
+**Purpose:** Constructs a new `looter party` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BanditPartyComponent.CreateLooterParty("example", clan, relatedSettlement, false, pt, initialPosition);
+```
 
 ### ConvertPartyToLooterParty
 `public static void ConvertPartyToLooterParty(MobileParty mobileParty, Clan clan, Settlement relatedSettlement)`
 
-**Purpose:** Handles logic related to `convert party to looter party`.
+**Purpose:** Converts `party to looter party` into another representation or type.
+
+```csharp
+// Static call; no instance required
+BanditPartyComponent.ConvertPartyToLooterParty(mobileParty, clan, relatedSettlement);
+```
 
 ### SetHomeHideout
 `public void SetHomeHideout(Hideout hideout)`
 
-**Purpose:** Sets the value or state of `home hideout`.
+**Purpose:** Assigns a new value to `home hideout` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BanditPartyComponent from the subsystem API first
+BanditPartyComponent banditPartyComponent = ...;
+banditPartyComponent.SetHomeHideout(hideout);
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** Handles logic related to `clear cached name`.
+**Purpose:** Removes all `cached name` from the current object.
+
+```csharp
+// Obtain an instance of BanditPartyComponent from the subsystem API first
+BanditPartyComponent banditPartyComponent = ...;
+banditPartyComponent.ClearCachedName();
+```
 
 ### InitializeBanditOnCreation
 `public void InitializeBanditOnCreation(MobileParty mobileParty)`
 
-**Purpose:** Initializes the state, resources, or bindings for `bandit on creation`.
+**Purpose:** Prepares the resources, state, or bindings required by `bandit on creation`.
+
+```csharp
+// Obtain an instance of BanditPartyComponent from the subsystem API first
+BanditPartyComponent banditPartyComponent = ...;
+banditPartyComponent.InitializeBanditOnCreation(mobileParty);
+```
 
 ## Usage Example
 
@@ -79,4 +111,4 @@ var component = agent.GetComponent<BanditPartyComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

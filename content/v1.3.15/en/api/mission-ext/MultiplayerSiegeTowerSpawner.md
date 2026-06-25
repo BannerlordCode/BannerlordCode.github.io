@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerSiegeTowerSpawner"
+description: "Auto-generated class reference for MultiplayerSiegeTowerSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerSiegeTowerSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerSiegeTowerSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ### AssignParameters
 `public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**Purpose:** Handles logic related to `assign parameters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerSiegeTowerSpawner from the subsystem API first
+MultiplayerSiegeTowerSpawner multiplayerSiegeTowerSpawner = ...;
+multiplayerSiegeTowerSpawner.AssignParameters(_spawnerMissionHelper);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerSiegeTowerSpawner();
-value.AssignParameters(_spawnerMissionHelper);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerSiegeTowerSpawner multiplayerSiegeTowerSpawner = ...;
+multiplayerSiegeTowerSpawner.AssignParameters(_spawnerMissionHelper);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

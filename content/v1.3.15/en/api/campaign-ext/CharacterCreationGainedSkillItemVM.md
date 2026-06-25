@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationGainedSkillItemVM"
+description: "Auto-generated class reference for CharacterCreationGainedSkillItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationGainedSkillItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationGainedSkillItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### SetValue
 `public void SetValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationGainedSkillItemVM from the subsystem API first
+CharacterCreationGainedSkillItemVM characterCreationGainedSkillItemVM = ...;
+characterCreationGainedSkillItemVM.SetValue(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationGainedSkillItemVM();
-value.SetValue(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationGainedSkillItemVM characterCreationGainedSkillItemVM = ...;
+characterCreationGainedSkillItemVM.SetValue(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleCampaignBehavior"
+description: "Auto-generated class reference for OrderOfBattleCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class OrderOfBattleCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/OrderOfBattleCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/OrderOfBattleCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of OrderOfBattleCampaignBehavior from the subsystem API first
+OrderOfBattleCampaignBehavior orderOfBattleCampaignBehavior = ...;
+orderOfBattleCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of OrderOfBattleCampaignBehavior from the subsystem API first
+OrderOfBattleCampaignBehavior orderOfBattleCampaignBehavior = ...;
+orderOfBattleCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetFormationDataAtIndex
 `public OrderOfBattleFormationData GetFormationDataAtIndex(int formationIndex, bool isSiegeBattle, bool isInArmy)`
 
-**Purpose:** Gets the current value of `formation data at index`.
+**Purpose:** Reads and returns the `formation data at index` value held by the current object.
+
+```csharp
+// Obtain an instance of OrderOfBattleCampaignBehavior from the subsystem API first
+OrderOfBattleCampaignBehavior orderOfBattleCampaignBehavior = ...;
+var result = orderOfBattleCampaignBehavior.GetFormationDataAtIndex(0, false, false);
+```
 
 ### SetFormationInfos
 `public void SetFormationInfos(List<OrderOfBattleFormationData> formationInfos, bool isSiegeBattle, bool isInArmy)`
 
-**Purpose:** Sets the value or state of `formation infos`.
+**Purpose:** Assigns a new value to `formation infos` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderOfBattleCampaignBehavior from the subsystem API first
+OrderOfBattleCampaignBehavior orderOfBattleCampaignBehavior = ...;
+orderOfBattleCampaignBehavior.SetFormationInfos(formationInfos, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+OrderOfBattleCampaignBehavior orderOfBattleCampaignBehavior = ...;
+orderOfBattleCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

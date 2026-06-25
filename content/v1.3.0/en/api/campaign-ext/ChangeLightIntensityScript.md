@@ -1,13 +1,7 @@
 ---
 title: "ChangeLightIntensityScript"
+description: "Auto-generated class reference for ChangeLightIntensityScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeLightIntensityScript`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeLightIntensityScript
 
 **Namespace:** SandBox.Missions
@@ -29,15 +23,22 @@ Start from namespace `SandBox.Missions` to place it in the stack, then inspect i
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of ChangeLightIntensityScript from the subsystem API first
+ChangeLightIntensityScript changeLightIntensityScript = ...;
+var result = changeLightIntensityScript.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ChangeLightIntensityScript();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+ChangeLightIntensityScript changeLightIntensityScript = ...;
+changeLightIntensityScript.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

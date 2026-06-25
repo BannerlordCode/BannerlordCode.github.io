@@ -1,13 +1,7 @@
 ---
 title: "SPItemVM"
+description: "Auto-generated class reference for SPItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
@@ -56,95 +50,197 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.RefreshValues();
+```
 
 ### RefreshWith
 `public void RefreshWith(SPItemVM itemVM, InventoryLogic.InventorySide inventorySide)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.RefreshWith(itemVM, inventorySide);
+```
 
 ### ExecuteBuySingle
 `public void ExecuteBuySingle()`
 
-**Purpose:** Executes the `buy single` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `buy single`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteBuySingle();
+```
 
 ### ExecuteBuy
 `public void ExecuteBuy(int amount)`
 
-**Purpose:** Executes the `buy` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `buy`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteBuy(0);
+```
 
 ### ExecuteSellSingle
 `public void ExecuteSellSingle()`
 
-**Purpose:** Executes the `sell single` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sell single`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteSellSingle();
+```
 
 ### ExecuteSell
 `public void ExecuteSell(int amount)`
 
-**Purpose:** Executes the `sell` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sell`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteSell(0);
+```
 
 ### ExecuteSellItem
 `public void ExecuteSellItem()`
 
-**Purpose:** Executes the `sell item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sell item`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteSellItem();
+```
 
 ### ExecuteConcept
 `public void ExecuteConcept()`
 
-**Purpose:** Executes the `concept` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `concept`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteConcept();
+```
 
 ### ExecuteResetTrade
 `public void ExecuteResetTrade()`
 
-**Purpose:** Executes the `reset trade` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset trade`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteResetTrade();
+```
 
 ### UpdateTradeData
 `public void UpdateTradeData(bool forceUpdateAmounts)`
 
-**Purpose:** Updates the state or data of `trade data`.
+**Purpose:** Recalculates and stores the latest representation of `trade data`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.UpdateTradeData(false);
+```
 
 ### ExecuteSlaughterItem
 `public void ExecuteSlaughterItem()`
 
-**Purpose:** Executes the `slaughter item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `slaughter item`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteSlaughterItem();
+```
 
 ### ExecuteDonateItem
 `public void ExecuteDonateItem()`
 
-**Purpose:** Executes the `donate item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `donate item`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteDonateItem();
+```
 
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** Executes the `set focused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set focused`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteSetFocused();
+```
 
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** Executes the `set unfocused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set unfocused`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.ExecuteSetUnfocused();
+```
 
 ### UpdateCanBeSlaughtered
 `public void UpdateCanBeSlaughtered()`
 
-**Purpose:** Updates the state or data of `can be slaughtered`.
+**Purpose:** Recalculates and stores the latest representation of `can be slaughtered`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.UpdateCanBeSlaughtered();
+```
 
 ### UpdateHintTexts
 `public void UpdateHintTexts()`
 
-**Purpose:** Updates the state or data of `hint texts`.
+**Purpose:** Recalculates and stores the latest representation of `hint texts`.
+
+```csharp
+// Obtain an instance of SPItemVM from the subsystem API first
+SPItemVM sPItemVM = ...;
+sPItemVM.UpdateHintTexts();
+```
 
 ### GetProfitTypeFromDiff
 `public static SPItemVM.ProfitTypes GetProfitTypeFromDiff(float averageValue, float currentValue)`
 
-**Purpose:** Gets the current value of `profit type from diff`.
+**Purpose:** Reads and returns the `profit type from diff` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SPItemVM.GetProfitTypeFromDiff(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SPItemVM sPItemVM = ...;
+sPItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

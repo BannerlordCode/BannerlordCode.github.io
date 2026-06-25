@@ -1,20 +1,14 @@
 ---
 title: "TraitObject"
+description: "Auto-generated class reference for TraitObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TraitObject`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TraitObject
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class TraitObject : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/TraitObject.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/TraitObject.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, bool isHidden, int minValue, int maxValue)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of TraitObject from the subsystem API first
+TraitObject traitObject = ...;
+traitObject.Initialize(name, description, false, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TraitObject();
-value.Initialize(name, description, false, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+TraitObject traitObject = ...;
+traitObject.Initialize(name, description, false, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

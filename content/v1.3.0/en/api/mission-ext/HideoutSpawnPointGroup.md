@@ -1,13 +1,7 @@
 ---
 title: "HideoutSpawnPointGroup"
+description: "Auto-generated class reference for HideoutSpawnPointGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutSpawnPointGroup`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutSpawnPointGroup
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSpawnPointFrames
 `public MatrixFrame GetSpawnPointFrames()`
 
-**Purpose:** Gets the current value of `spawn point frames`.
+**Purpose:** Reads and returns the `spawn point frames` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutSpawnPointGroup from the subsystem API first
+HideoutSpawnPointGroup hideoutSpawnPointGroup = ...;
+var result = hideoutSpawnPointGroup.GetSpawnPointFrames();
+```
 
 ### RemoveWithAllChildren
 `public void RemoveWithAllChildren()`
 
 **Purpose:** Removes `with all children` from the current collection or state.
 
+```csharp
+// Obtain an instance of HideoutSpawnPointGroup from the subsystem API first
+HideoutSpawnPointGroup hideoutSpawnPointGroup = ...;
+hideoutSpawnPointGroup.RemoveWithAllChildren();
+```
+
 ## Usage Example
 
 ```csharp
-var value = new HideoutSpawnPointGroup();
-value.GetSpawnPointFrames();
+// Typically call this after obtaining an instance from the subsystem API
+HideoutSpawnPointGroup hideoutSpawnPointGroup = ...;
+hideoutSpawnPointGroup.GetSpawnPointFrames();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

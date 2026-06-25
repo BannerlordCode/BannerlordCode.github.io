@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaKingdomsTutorial"
+description: "Auto-generated class reference for EncyclopediaKingdomsTutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaKingdomsTutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaKingdomsTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class EncyclopediaKingdomsTutorial : EncyclopediaPageTutorialBase`
 **Base:** `EncyclopediaPageTutorialBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/EncyclopediaKingdomsTutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/EncyclopediaKingdomsTutorial.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaKingdomsTutorial();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaKingdomsTutorial instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

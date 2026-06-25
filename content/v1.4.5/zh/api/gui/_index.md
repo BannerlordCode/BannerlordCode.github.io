@@ -1,15 +1,402 @@
 ---
-title: GUI 界面
-description: v1.4.5 GUI 类页入口
+title: "gui 目录"
+description: Gauntlet UI 系统类参考目录
 ---
-# GUI 界面
+<!-- BEGIN SECTION INDEX -->
 
-## 心智模型
+## ↑ 上级导航
 
-先把 `GUI 界面` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+- [API 参考](../)
+- [版本首页](../../)
 
-这里收纳 v1.4.5 中偏 GUI / Gauntlet 的类页。
+## ↓ 子类列表 — 按字母分组
 
-- [← 返回 API 目录](../)
-- [📋 返回 UI 目录](../catalog-ui)
-- [🏠 返回 v1.4.5 首页](../../)
+### A
+
+- [AlignmentAxis](./AlignmentAxis)
+- [AlphaFormatFlags](./AlphaFormatFlags)
+- [AnimatedDropdownWidget](./AnimatedDropdownWidget)
+- [AnimatedNumberTextWidget](./AnimatedNumberTextWidget)
+- [AnimationInterpolation](./AnimationInterpolation)
+- [ArrayType](./ArrayType)
+- [AttribueMask](./AttribueMask)
+- [AudioProperty](./AudioProperty)
+- [AutoPinner](./AutoPinner)
+- [AutoScrollParameters](./AutoScrollParameters)
+
+### B
+
+- [BasicContainer](./BasicContainer)
+- [BeginMode](./BeginMode)
+- [BitmapFontCharacter](./BitmapFontCharacter)
+- [BitmapInfo](./BitmapInfo)
+- [BitmapInfoHeader](./BitmapInfoHeader)
+- [BlendFunction](./BlendFunction)
+- [BlendingDestinationFactor](./BlendingDestinationFactor)
+- [BlendingSourceFactor](./BlendingSourceFactor)
+- [BlurBehindConstraints](./BlurBehindConstraints)
+- [Brush](./Brush)
+- [BrushAnimation](./BrushAnimation)
+- [BrushAnimationKeyFrame](./BrushAnimationKeyFrame)
+- [BrushAnimationProperty](./BrushAnimationProperty)
+- [BrushAnimationPropertyType](./BrushAnimationPropertyType)
+- [BrushFactory](./BrushFactory)
+- [BrushLayer](./BrushLayer)
+- [BrushLayerAnimation](./BrushLayerAnimation)
+- [BrushLayerSizePolicy](./BrushLayerSizePolicy)
+- [BrushLayerState](./BrushLayerState)
+- [BrushListPanel](./BrushListPanel)
+- [BrushOverlayMethod](./BrushOverlayMethod)
+- [BrushRenderer](./BrushRenderer)
+- [BrushRendererAnimationState](./BrushRendererAnimationState)
+- [BrushState](./BrushState)
+- [BrushWidget](./BrushWidget)
+- [BufferBindingTarget](./BufferBindingTarget)
+- [ButtonType](./ButtonType)
+- [ButtonWidget](./ButtonWidget)
+
+### C
+
+- [CircleActionSelectorWidget](./CircleActionSelectorWidget)
+- [CircleItemPlacerWidget](./CircleItemPlacerWidget)
+- [ConstantDefinition](./ConstantDefinition)
+- [ConstantDefinitionType](./ConstantDefinitionType)
+- [Container](./Container)
+- [ContainerItemDescription](./ContainerItemDescription)
+- [ContextParameter](./ContextParameter)
+- [CursorMovementDirection](./CursorMovementDirection)
+- [CursorType](./CursorType)
+- [CustomWidgetManager](./CustomWidgetManager)
+- [CustomWidgetType](./CustomWidgetType)
+
+### D
+
+- [D3D_DRIVER_TYPE](./D3D_DRIVER_TYPE)
+- [D3D11](./D3D11)
+- [DataType](./DataType)
+- [DefaultLayout](./DefaultLayout)
+- [DelayedStateChanger](./DelayedStateChanger)
+- [DialogButtonsParentWidget](./DialogButtonsParentWidget)
+- [DisabledAlphaChangerWidget](./DisabledAlphaChangerWidget)
+- [DragCarrierLayout](./DragCarrierLayout)
+- [DragCarrierWidget](./DragCarrierWidget)
+- [DropdownWidget](./DropdownWidget)
+- [Dwmapi](./Dwmapi)
+- [DwmBlurBehind](./DwmBlurBehind)
+- [DXGI](./DXGI)
+- [DXGI_ADAPTER_DESC](./DXGI_ADAPTER_DESC)
+- [DXGI_OUTPUT_DESC](./DXGI_OUTPUT_DESC)
+
+### E
+
+- [EditableText](./EditableText)
+- [EditableTextWidget](./EditableTextWidget)
+- [EditorAttribute](./EditorAttribute)
+- [EmptyWidget](./EmptyWidget)
+- [EventManager](./EventManager)
+
+### F
+
+- [FillBar](./FillBar)
+- [FillBarHorizontalWidget](./FillBarHorizontalWidget)
+- [FillBarVerticalClipTierColorsWidget](./FillBarVerticalClipTierColorsWidget)
+- [FillBarVerticalClipWidget](./FillBarVerticalClipWidget)
+- [FillBarVerticalWidget](./FillBarVerticalWidget)
+- [FillBarWidget](./FillBarWidget)
+- [FloatInputTextWidget](./FloatInputTextWidget)
+- [Font](./Font)
+- [FontData](./FontData)
+- [FontFactory](./FontFactory)
+- [FontStyle](./FontStyle)
+- [FrameworkDomain](./FrameworkDomain)
+- [Function](./Function)
+
+### G
+
+- [GamepadNavigationForcedScopeCollection](./GamepadNavigationForcedScopeCollection)
+- [GamepadNavigationHelper](./GamepadNavigationHelper)
+- [GamepadNavigationScope](./GamepadNavigationScope)
+- [GamepadNavigationScopeCollection](./GamepadNavigationScopeCollection)
+- [GamepadNavigationTypes](./GamepadNavigationTypes)
+- [GauntletEvent](./GauntletEvent)
+- [GauntletExtensions](./GauntletExtensions)
+- [GauntletGamepadNavigationManager](./GauntletGamepadNavigationManager)
+- [GauntletInputContext](./GauntletInputContext)
+- [GauntletMovie](./GauntletMovie)
+- [GauntletView](./GauntletView)
+- [Gdi32](./Gdi32)
+- [GeneratedGauntletMovie](./GeneratedGauntletMovie)
+- [GeneratedPrefabContext](./GeneratedPrefabContext)
+- [GeneratedPrefabInstantiationResult](./GeneratedPrefabInstantiationResult)
+- [GeneratedWidgetData](./GeneratedWidgetData)
+- [GeoTypeId](./GeoTypeId)
+- [GlobalLayer](./GlobalLayer)
+- [GraphicsContext](./GraphicsContext)
+- [GraphicsForm](./GraphicsForm)
+- [GraphLinePointWidget](./GraphLinePointWidget)
+- [GraphLineWidget](./GraphLineWidget)
+- [GraphWidget](./GraphWidget)
+- [GridDirection](./GridDirection)
+- [GridHorizontalLayoutMethod](./GridHorizontalLayoutMethod)
+- [GridLayout](./GridLayout)
+- [GridVerticalLayoutMethod](./GridVerticalLayoutMethod)
+- [GridWidget](./GridWidget)
+- [GuiEventResult](./GuiEventResult)
+- [GuiEventType](./GuiEventType)
+
+### H
+
+- [HintMode](./HintMode)
+- [HorizontalAlignment](./HorizontalAlignment)
+
+### I
+
+- [IBrushAnimationState](./IBrushAnimationState)
+- [IBrushLayerData](./IBrushLayerData)
+- [IDataSource](./IDataSource)
+- [IDrawObject](./IDrawObject)
+- [IDropContainer](./IDropContainer)
+- [IDXGIAdapter](./IDXGIAdapter)
+- [IDXGIFactory](./IDXGIFactory)
+- [IDXGIOutput](./IDXGIOutput)
+- [IGauntletMovie](./IGauntletMovie)
+- [IGeneratedGauntletMovieRoot](./IGeneratedGauntletMovieRoot)
+- [IGeneratedUIPrefabCreator](./IGeneratedUIPrefabCreator)
+- [ILanguage](./ILanguage)
+- [ILayout](./ILayout)
+- [ImageDrawObject](./ImageDrawObject)
+- [ImageFit](./ImageFit)
+- [ImageFitResult](./ImageFitResult)
+- [ImageFitTypes](./ImageFitTypes)
+- [ImageHorizontalAlignments](./ImageHorizontalAlignments)
+- [ImageSizePolicies](./ImageSizePolicies)
+- [ImageVerticalAlignments](./ImageVerticalAlignments)
+- [ImageWidget](./ImageWidget)
+- [IMessageCommunicator](./IMessageCommunicator)
+- [InputData](./InputData)
+- [InputKeyVisualWidget](./InputKeyVisualWidget)
+- [InputRestrictions](./InputRestrictions)
+- [IntegerInputPercentageTextWidget](./IntegerInputPercentageTextWidget)
+- [IntegerInputTextWidget](./IntegerInputTextWidget)
+- [IReadonlyInputContext](./IReadonlyInputContext)
+- [IScreenManagerEngineConnection](./IScreenManagerEngineConnection)
+- [ItemTemplateUsage](./ItemTemplateUsage)
+- [ItemTemplateUsageWithData](./ItemTemplateUsageWithData)
+- [IText](./IText)
+- [ITexture](./ITexture)
+- [ITwoDimensionPlatform](./ITwoDimensionPlatform)
+- [ITwoDimensionResourceContext](./ITwoDimensionResourceContext)
+
+### K
+
+- [Kernel32](./Kernel32)
+- [KeyboardAction](./KeyboardAction)
+
+### L
+
+- [Language](./Language)
+- [LayeredWindowController](./LayeredWindowController)
+- [LayoutBox](./LayoutBox)
+- [LayoutMethod](./LayoutMethod)
+- [ListPanel](./ListPanel)
+
+### M
+
+- [MaskedTextureWidget](./MaskedTextureWidget)
+- [Material](./Material)
+- [MaterialPool](./MaterialPool)
+- [Mathf](./Mathf)
+- [MatrixMode](./MatrixMode)
+- [MeshTopology](./MeshTopology)
+- [MONITORINFOEX](./MONITORINFOEX)
+- [MouseCursors](./MouseCursors)
+- [MouseState](./MouseState)
+- [MouseWidget](./MouseWidget)
+
+### N
+
+- [NativeMessage](./NativeMessage)
+
+### O
+
+- [OnlineImageTextureWidget](./OnlineImageTextureWidget)
+- [Opengl32](./Opengl32)
+- [Opengl32ARB](./Opengl32ARB)
+- [OpenGLTexture](./OpenGLTexture)
+
+### P
+
+- [PixelFormat](./PixelFormat)
+- [PixelFormatDescriptor](./PixelFormatDescriptor)
+- [PixelFormatDescriptorFlags](./PixelFormatDescriptorFlags)
+- [PixelFormatDescriptorLayerTypes](./PixelFormatDescriptorLayerTypes)
+- [PixelFormatDescriptorPixelTypes](./PixelFormatDescriptorPixelTypes)
+- [Point](./Point)
+- [PrefabDatabindingExtension](./PrefabDatabindingExtension)
+- [PrefabExtension](./PrefabExtension)
+- [PrefabExtensionContext](./PrefabExtensionContext)
+- [PrimitivePolygonMaterial](./PrimitivePolygonMaterial)
+- [PropertyOwnerObject](./PropertyOwnerObject)
+
+### Q
+
+- [Quad](./Quad)
+
+### R
+
+- [RECT](./RECT)
+- [Rectangle2D](./Rectangle2D)
+- [ResourceTextureProvider](./ResourceTextureProvider)
+- [RichText](./RichText)
+- [RichTextException](./RichTextException)
+- [RichTextLinkGroup](./RichTextLinkGroup)
+- [RichTextParser](./RichTextParser)
+- [RichTextPart](./RichTextPart)
+- [RichTextPartType](./RichTextPartType)
+- [RichTextTag](./RichTextTag)
+- [RichTextTagParser](./RichTextTagParser)
+- [RichTextTagType](./RichTextTagType)
+- [RichTextWidget](./RichTextWidget)
+
+### S
+
+- [ScissorTestInfo](./ScissorTestInfo)
+- [ScreenBase](./ScreenBase)
+- [ScreenComponent](./ScreenComponent)
+- [ScreenLayer](./ScreenLayer)
+- [ScreenManager](./ScreenManager)
+- [ScrollablePanel](./ScrollablePanel)
+- [ScrollablePanelFixedHeaderWidget](./ScrollablePanelFixedHeaderWidget)
+- [ScrollbarInterpolationController](./ScrollbarInterpolationController)
+- [ScrollbarWidget](./ScrollbarWidget)
+- [ScrollingRichTextWidget](./ScrollingRichTextWidget)
+- [ScrollingTextWidget](./ScrollingTextWidget)
+- [SelectedStateBrushWidget](./SelectedStateBrushWidget)
+- [Shader](./Shader)
+- [ShaderType](./ShaderType)
+- [ShadingModel](./ShadingModel)
+- [SiblingIndexVisibilityWidget](./SiblingIndexVisibilityWidget)
+- [SimpleMaterial](./SimpleMaterial)
+- [SimpleRectangle](./SimpleRectangle)
+- [SizePolicy](./SizePolicy)
+- [SliderWidget](./SliderWidget)
+- [SmoothDecreaseIndicatorFillBar](./SmoothDecreaseIndicatorFillBar)
+- [SoundProperties](./SoundProperties)
+- [Sprite](./Sprite)
+- [SpriteCategory](./SpriteCategory)
+- [SpriteData](./SpriteData)
+- [SpriteFromTexture](./SpriteFromTexture)
+- [SpriteGeneric](./SpriteGeneric)
+- [SpriteNinePatchParameters](./SpriteNinePatchParameters)
+- [SpritePart](./SpritePart)
+- [SpriteSizeComparer](./SpriteSizeComparer)
+- [StackLayout](./StackLayout)
+- [StandaloneApplicationUtility](./StandaloneApplicationUtility)
+- [StandaloneInputManager](./StandaloneInputManager)
+- [StateSyncWidget](./StateSyncWidget)
+- [StringBasedVisibilityWidget](./StringBasedVisibilityWidget)
+- [Style](./Style)
+- [StyleAnimationMode](./StyleAnimationMode)
+- [StyleFontContainer](./StyleFontContainer)
+- [StyleLayer](./StyleLayer)
+
+### T
+
+- [TabControl](./TabControl)
+- [TabToggleWidget](./TabToggleWidget)
+- [Target](./Target)
+- [Text](./Text)
+- [TextDrawObject](./TextDrawObject)
+- [TextHelper](./TextHelper)
+- [TextHorizontalAlignment](./TextHorizontalAlignment)
+- [TextLayout](./TextLayout)
+- [TextLineOutput](./TextLineOutput)
+- [TextMaterial](./TextMaterial)
+- [TextMeshGenerator](./TextMeshGenerator)
+- [TextOutput](./TextOutput)
+- [TextParser](./TextParser)
+- [TextPart](./TextPart)
+- [TextToken](./TextToken)
+- [TextTokenOutput](./TextTokenOutput)
+- [Texture](./Texture)
+- [TextureInternalFormat](./TextureInternalFormat)
+- [TextureMagFilter](./TextureMagFilter)
+- [TextureParameterName](./TextureParameterName)
+- [TextureProvider](./TextureProvider)
+- [TextureProviderFactory](./TextureProviderFactory)
+- [TextureUnit](./TextureUnit)
+- [TextureWidget](./TextureWidget)
+- [TextureWrapParameter](./TextureWrapParameter)
+- [TextVerticalAlignment](./TextVerticalAlignment)
+- [TextWidget](./TextWidget)
+- [TokenType](./TokenType)
+- [TooltipPositioningType](./TooltipPositioningType)
+- [TooltipWidget](./TooltipWidget)
+- [TwoDimensionContext](./TwoDimensionContext)
+- [TwoDimensionContextObject](./TwoDimensionContextObject)
+- [TwoDimensionDrawContext](./TwoDimensionDrawContext)
+- [TwoDimensionDrawData](./TwoDimensionDrawData)
+- [TwoDimensionPlatform](./TwoDimensionPlatform)
+- [TwoWaySliderWidget](./TwoWaySliderWidget)
+- [Type](./Type)
+
+### U
+
+- [UIContext](./UIContext)
+- [UpdateAction](./UpdateAction)
+- [User32](./User32)
+
+### V
+
+- [ValueBasedVisibilityWidget](./ValueBasedVisibilityWidget)
+- [ValueType](./ValueType)
+- [VertexArrayObject](./VertexArrayObject)
+- [VerticalAlignment](./VerticalAlignment)
+- [ViewBindCommandInfo](./ViewBindCommandInfo)
+- [ViewBindDataInfo](./ViewBindDataInfo)
+- [VisualDefinition](./VisualDefinition)
+- [VisualDefinitionTemplate](./VisualDefinitionTemplate)
+- [VisualState](./VisualState)
+- [VisualStateAnimationState](./VisualStateAnimationState)
+- [VisualStateTemplate](./VisualStateTemplate)
+
+### W
+
+- [WatchTypes](./WatchTypes)
+- [Widget](./Widget)
+- [WidgetAttributeContext](./WidgetAttributeContext)
+- [WidgetAttributeKeyType](./WidgetAttributeKeyType)
+- [WidgetAttributeKeyTypeAttribute](./WidgetAttributeKeyTypeAttribute)
+- [WidgetAttributeKeyTypeCommand](./WidgetAttributeKeyTypeCommand)
+- [WidgetAttributeKeyTypeCommandParameter](./WidgetAttributeKeyTypeCommandParameter)
+- [WidgetAttributeKeyTypeDataSource](./WidgetAttributeKeyTypeDataSource)
+- [WidgetAttributeKeyTypeId](./WidgetAttributeKeyTypeId)
+- [WidgetAttributeKeyTypeParameter](./WidgetAttributeKeyTypeParameter)
+- [WidgetAttributeTemplate](./WidgetAttributeTemplate)
+- [WidgetAttributeValueType](./WidgetAttributeValueType)
+- [WidgetAttributeValueTypeBinding](./WidgetAttributeValueTypeBinding)
+- [WidgetAttributeValueTypeBindingPath](./WidgetAttributeValueTypeBindingPath)
+- [WidgetAttributeValueTypeConstant](./WidgetAttributeValueTypeConstant)
+- [WidgetAttributeValueTypeDefault](./WidgetAttributeValueTypeDefault)
+- [WidgetAttributeValueTypeParameter](./WidgetAttributeValueTypeParameter)
+- [WidgetComponent](./WidgetComponent)
+- [WidgetContainer](./WidgetContainer)
+- [WidgetCreationData](./WidgetCreationData)
+- [WidgetExtensions](./WidgetExtensions)
+- [WidgetFactory](./WidgetFactory)
+- [WidgetInfo](./WidgetInfo)
+- [WidgetInstantiationResult](./WidgetInstantiationResult)
+- [WidgetInstantiationResultDatabindingExtension](./WidgetInstantiationResultDatabindingExtension)
+- [WidgetInstantiationResultExtensionData](./WidgetInstantiationResultExtensionData)
+- [WidgetPrefab](./WidgetPrefab)
+- [WidgetTemplate](./WidgetTemplate)
+- [WindowClass](./WindowClass)
+- [WindowMessage](./WindowMessage)
+- [WindowsForm](./WindowsForm)
+- [WindowsFramework](./WindowsFramework)
+- [WindowsFrameworkThreadConfig](./WindowsFrameworkThreadConfig)
+- [WindowShowStyle](./WindowShowStyle)
+- [WindowStyle](./WindowStyle)
+
+
+<!-- END SECTION INDEX -->

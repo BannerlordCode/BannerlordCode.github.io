@@ -1,13 +1,7 @@
 ---
 title: "ClanPoliticsModel"
+description: "ClanPoliticsModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanPoliticsModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanPoliticsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ title: "ClanPoliticsModel"
 ### CalculateInfluenceChange
 `public abstract ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate influence change` 相关逻辑。
+**用途 / Purpose:** 计算「influence change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanPoliticsModel 实例
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.CalculateInfluenceChange(clan, false);
+```
 
 ### CalculateSupportForPolicyInClan
 `public abstract float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)`
 
-**用途 / Purpose:** 处理 `calculate support for policy in clan` 相关逻辑。
+**用途 / Purpose:** 计算「support for policy in clan」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanPoliticsModel 实例
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.CalculateSupportForPolicyInClan(clan, policy);
+```
 
 ### CalculateRelationshipChangeWithSponsor
 `public abstract float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)`
 
-**用途 / Purpose:** 处理 `calculate relationship change with sponsor` 相关逻辑。
+**用途 / Purpose:** 计算「relationship change with sponsor」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanPoliticsModel 实例
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.CalculateRelationshipChangeWithSponsor(clan, sponsorClan);
+```
 
 ### GetInfluenceRequiredToOverrideKingdomDecision
 `public abstract int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)`
 
-**用途 / Purpose:** 获取 `influence required to override kingdom decision` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence required to override kingdom decision」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanPoliticsModel 实例
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.GetInfluenceRequiredToOverrideKingdomDecision(popularOption, overridingOption, decision);
+```
 
 ### CanHeroBeGovernor
 `public abstract bool CanHeroBeGovernor(Hero hero)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero be governor`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero be governor」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 ClanPoliticsModel 实例
+ClanPoliticsModel clanPoliticsModel = ...;
+var result = clanPoliticsModel.CanHeroBeGovernor(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomClanPoliticsModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ClanPoliticsModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

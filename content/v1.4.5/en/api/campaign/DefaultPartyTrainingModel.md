@@ -1,20 +1,14 @@
 ---
 title: "DefaultPartyTrainingModel"
+description: "Auto-generated class reference for DefaultPartyTrainingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyTrainingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyTrainingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPartyTrainingModel : PartyTrainingModel`
 **Base:** `PartyTrainingModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyTrainingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyTrainingModel.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `DefaultPartyTrainingModel` as a Model-style extension point: first identi
 ### GetXpReward
 `public override int GetXpReward(CharacterObject character)`
 
-**Purpose:** Gets the current value of `xp reward`.
+**Purpose:** Reads and returns the `xp reward` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyTrainingModel from the subsystem API first
+DefaultPartyTrainingModel defaultPartyTrainingModel = ...;
+var result = defaultPartyTrainingModel.GetXpReward(character);
+```
 
 ### GetEffectiveDailyExperience
 `public override ExplainedNumber GetEffectiveDailyExperience(MobileParty mobileParty, TroopRosterElement troop)`
 
-**Purpose:** Gets the current value of `effective daily experience`.
+**Purpose:** Reads and returns the `effective daily experience` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyTrainingModel from the subsystem API first
+DefaultPartyTrainingModel defaultPartyTrainingModel = ...;
+var result = defaultPartyTrainingModel.GetEffectiveDailyExperience(mobileParty, troop);
+```
 
 ### GenerateSharedXp
 `public override int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `generate shared xp`.
+**Purpose:** Generates an instance, data, or representation of `shared xp`.
+
+```csharp
+// Obtain an instance of DefaultPartyTrainingModel from the subsystem API first
+DefaultPartyTrainingModel defaultPartyTrainingModel = ...;
+var result = defaultPartyTrainingModel.GenerateSharedXp(troop, 0, mobileParty);
+```
 
 ### CalculateXpGainFromBattles
 `public override ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
 
-**Purpose:** Handles logic related to `calculate xp gain from battles`.
+**Purpose:** Calculates the current value or result of `xp gain from battles`.
+
+```csharp
+// Obtain an instance of DefaultPartyTrainingModel from the subsystem API first
+DefaultPartyTrainingModel defaultPartyTrainingModel = ...;
+var result = defaultPartyTrainingModel.CalculateXpGainFromBattles(troopRosterElement, party);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultPartyTrainingModel>(new MyDefaultPartyTrainingM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

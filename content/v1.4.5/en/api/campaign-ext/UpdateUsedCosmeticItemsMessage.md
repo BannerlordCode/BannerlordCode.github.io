@@ -1,20 +1,14 @@
 ---
 title: "UpdateUsedCosmeticItemsMessage"
+description: "Auto-generated class reference for UpdateUsedCosmeticItemsMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UpdateUsedCosmeticItemsMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpdateUsedCosmeticItemsMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class UpdateUsedCosmeticItemsMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/UpdateUsedCosmeticItemsMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/UpdateUsedCosmeticItemsMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromClient.ToLobbyServer` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new UpdateUsedCosmeticItemsMessage();
+// Obtain an instance from the relevant subsystem API
+UpdateUsedCosmeticItemsMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

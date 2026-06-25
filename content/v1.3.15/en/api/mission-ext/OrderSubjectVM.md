@@ -1,13 +1,7 @@
 ---
 title: "OrderSubjectVM"
+description: "Auto-generated class reference for OrderSubjectVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderSubjectVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderSubjectVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -46,27 +40,52 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 
 **Purpose:** Adds `active order` to the current collection or state.
 
+```csharp
+// Obtain an instance of OrderSubjectVM from the subsystem API first
+OrderSubjectVM orderSubjectVM = ...;
+orderSubjectVM.AddActiveOrder(order);
+```
+
 ### RemoveActiveOrder
 `public void RemoveActiveOrder(OrderItemVM order)`
 
 **Purpose:** Removes `active order` from the current collection or state.
 
+```csharp
+// Obtain an instance of OrderSubjectVM from the subsystem API first
+OrderSubjectVM orderSubjectVM = ...;
+orderSubjectVM.RemoveActiveOrder(order);
+```
+
 ### ClearActiveOrders
 `public void ClearActiveOrders()`
 
-**Purpose:** Handles logic related to `clear active orders`.
+**Purpose:** Removes all `active orders` from the current object.
+
+```csharp
+// Obtain an instance of OrderSubjectVM from the subsystem API first
+OrderSubjectVM orderSubjectVM = ...;
+orderSubjectVM.ClearActiveOrders();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderSubjectVM from the subsystem API first
+OrderSubjectVM orderSubjectVM = ...;
+orderSubjectVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomOrderSubjectVM();
+// Typically obtained from a subsystem API or factory
+OrderSubjectVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

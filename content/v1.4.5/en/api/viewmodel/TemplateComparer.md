@@ -1,20 +1,14 @@
 ---
 title: "TemplateComparer"
+description: "Auto-generated class reference for TemplateComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TemplateComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TemplateComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TemplateComparer : IComparer<CraftingTemplate>`
 **Base:** `IComparer<CraftingTemplate>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### Compare
 `public int Compare(CraftingTemplate x, CraftingTemplate y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of TemplateComparer from the subsystem API first
+TemplateComparer templateComparer = ...;
+var result = templateComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TemplateComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+TemplateComparer templateComparer = ...;
+templateComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

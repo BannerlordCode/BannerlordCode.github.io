@@ -1,20 +1,14 @@
 ---
 title: "WidgetAttributeValueType"
+description: "Auto-generated class reference for WidgetAttributeValueType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeValueType`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeValueType
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public abstract class WidgetAttributeValueType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeValueType.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeValueType.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CheckValueType
 `public abstract bool CheckValueType(string value)`
 
-**Purpose:** Handles logic related to `check value type`.
+**Purpose:** Verifies whether `value type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueType from the subsystem API first
+WidgetAttributeValueType widgetAttributeValueType = ...;
+var result = widgetAttributeValueType.CheckValueType("example");
+```
 
 ### GetAttributeValue
 `public abstract string GetAttributeValue(string value)`
 
-**Purpose:** Gets the current value of `attribute value`.
+**Purpose:** Reads and returns the `attribute value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueType from the subsystem API first
+WidgetAttributeValueType widgetAttributeValueType = ...;
+var result = widgetAttributeValueType.GetAttributeValue("example");
+```
 
 ### GetSerializedValue
 `public abstract string GetSerializedValue(string value)`
 
-**Purpose:** Gets the current value of `serialized value`.
+**Purpose:** Reads and returns the `serialized value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueType from the subsystem API first
+WidgetAttributeValueType widgetAttributeValueType = ...;
+var result = widgetAttributeValueType.GetSerializedValue("example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomWidgetAttributeValueType();
+// Typically obtained from a subsystem API or factory
+WidgetAttributeValueType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

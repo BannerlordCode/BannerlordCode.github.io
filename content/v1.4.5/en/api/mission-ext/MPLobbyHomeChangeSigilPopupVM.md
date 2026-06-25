@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyHomeChangeSigilPopupVM"
+description: "Auto-generated class reference for MPLobbyHomeChangeSigilPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyHomeChangeSigilPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyHomeChangeSigilPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyHomeChangeSigilPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPLobbyHomeChangeSigilPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPLobbyHomeChangeSigilPopupVM.cs`
 
 ## Overview
 
@@ -46,55 +40,110 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### Compare
 `public int Compare(MPLobbyCosmeticSigilItemVM x, MPLobbyCosmeticSigilItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+var result = mPLobbyHomeChangeSigilPopupVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.RefreshValues();
+```
 
 ### Open
 `public void Open()`
 
-**Purpose:** Handles logic related to `open`.
+**Purpose:** Opens the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.Open();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.ExecuteClosePopup();
+```
 
 ### ExecuteChangeSigil
 `public void ExecuteChangeSigil()`
 
-**Purpose:** Executes the `change sigil` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `change sigil`.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.ExecuteChangeSigil();
+```
 
 ### OnLootUpdated
 `public void OnLootUpdated(int finalLoot)`
 
-**Purpose:** Called when the `loot updated` event is raised.
+**Purpose:** Invoked when the `loot updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.OnLootUpdated(0);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyHomeChangeSigilPopupVM from the subsystem API first
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyHomeChangeSigilPopupVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyHomeChangeSigilPopupVM mPLobbyHomeChangeSigilPopupVM = ...;
+mPLobbyHomeChangeSigilPopupVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

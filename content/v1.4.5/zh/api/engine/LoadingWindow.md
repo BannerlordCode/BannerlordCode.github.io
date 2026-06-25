@@ -1,20 +1,14 @@
 ---
 title: "LoadingWindow"
+description: "LoadingWindow 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LoadingWindow`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadingWindow
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class LoadingWindow`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/LoadingWindow.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/LoadingWindow.cs`
 
 ## 概述
 
@@ -36,22 +30,42 @@ title: "LoadingWindow"
 ### Destroy
 `public static void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LoadingWindow.Destroy();
+```
 
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 处理 `disable global loading window` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LoadingWindow.DisableGlobalLoadingWindow();
+```
 
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 处理 `enable global loading window` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LoadingWindow.EnableGlobalLoadingWindow();
+```
 
 ### SetCurrentModeIsMultiplayer
 `public static void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**用途 / Purpose:** 设置 `current mode is multiplayer` 的值或状态。
+**用途 / Purpose:** 为 「current mode is multiplayer」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+LoadingWindow.SetCurrentModeIsMultiplayer(false);
+```
 
 ## 使用示例
 
@@ -61,4 +75,4 @@ LoadingWindow.Destroy();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

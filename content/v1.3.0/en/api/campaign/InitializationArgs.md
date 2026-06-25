@@ -1,20 +1,14 @@
 ---
 title: "InitializationArgs"
+description: "Auto-generated class reference for InitializationArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitializationArgs`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitializationArgs
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class InitializationArgs`
+**Type:** `class InitializationArgs`
 **Base:** none
-**File:** `TaleWorlds.CampaignSystem/Party/PartyComponents/LordPartyComponent.cs`
+**File:** `TaleWorlds.CampaignSystem/Party/PartyComponents/BanditPartyComponent.cs`
 
 ## Overview
 
@@ -24,20 +18,13 @@ title: "InitializationArgs"
 
 Start from namespace `TaleWorlds.CampaignSystem.Party.PartyComponents` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Methods
-
-### InitializeLordPartyProperties
-`public void InitializeLordPartyProperties(MobileParty mobileParty, Hero owner)`
-
-**Purpose:** Initializes the state, resources, or bindings for `lord party properties`.
-
 ## Usage Example
 
 ```csharp
-var value = new InitializationArgs();
-value.InitializeLordPartyProperties(mobileParty, owner);
+// Obtain an instance from the relevant subsystem API
+InitializationArgs instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

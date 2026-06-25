@@ -1,20 +1,14 @@
 ---
 title: "CombatLogData"
+description: "Auto-generated class reference for CombatLogData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatLogData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatLogData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CombatLogData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogData.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `CombatLogData` as a Data-style extension point: first identify who create
 ### SetVictimAgent
 `public void SetVictimAgent(Agent victimAgent)`
 
-**Purpose:** Sets the value or state of `victim agent`.
+**Purpose:** Assigns a new value to `victim agent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CombatLogData from the subsystem API first
+CombatLogData combatLogData = ...;
+combatLogData.SetVictimAgent(victimAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CombatLogData();
+// This data object is usually returned by campaign/mission APIs
+CombatLogData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

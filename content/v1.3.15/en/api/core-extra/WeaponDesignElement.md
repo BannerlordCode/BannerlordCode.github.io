@@ -1,13 +1,7 @@
 ---
 title: "WeaponDesignElement"
+description: "Auto-generated class reference for WeaponDesignElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponDesignElement`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponDesignElement
 
 **Namespace:** TaleWorlds.Core
@@ -48,30 +42,53 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetScale
 `public void SetScale(int scalePercentage)`
 
-**Purpose:** Sets the value or state of `scale`.
+**Purpose:** Assigns a new value to `scale` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WeaponDesignElement from the subsystem API first
+WeaponDesignElement weaponDesignElement = ...;
+weaponDesignElement.SetScale(0);
+```
 
 ### GetCopy
 `public WeaponDesignElement GetCopy()`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Obtain an instance of WeaponDesignElement from the subsystem API first
+WeaponDesignElement weaponDesignElement = ...;
+var result = weaponDesignElement.GetCopy();
+```
 
 ### GetInvalidPieceForType
 `public static WeaponDesignElement GetInvalidPieceForType(CraftingPiece.PieceTypes pieceType)`
 
-**Purpose:** Gets the current value of `invalid piece for type`.
+**Purpose:** Reads and returns the `invalid piece for type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponDesignElement.GetInvalidPieceForType(pieceType);
+```
 
 ### CreateUsablePiece
 `public static WeaponDesignElement CreateUsablePiece(CraftingPiece craftingPiece, int scalePercentage = 100)`
 
-**Purpose:** Creates a new `usable piece` instance or object.
+**Purpose:** Constructs a new `usable piece` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+WeaponDesignElement.CreateUsablePiece(craftingPiece, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponDesignElement();
-value.SetScale(0);
+// Typically call this after obtaining an instance from the subsystem API
+WeaponDesignElement weaponDesignElement = ...;
+weaponDesignElement.SetScale(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

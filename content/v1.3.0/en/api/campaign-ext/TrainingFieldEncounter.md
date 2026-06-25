@@ -1,13 +1,7 @@
 ---
 title: "TrainingFieldEncounter"
+description: "Auto-generated class reference for TrainingFieldEncounter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingFieldEncounter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingFieldEncounter
 
 **Namespace:** StoryMode
@@ -29,15 +23,22 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### CreateAndOpenMissionController
 `public override IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**Purpose:** Creates a new `and open mission controller` instance or object.
+**Purpose:** Constructs a new `and open mission controller` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of TrainingFieldEncounter from the subsystem API first
+TrainingFieldEncounter trainingFieldEncounter = ...;
+var result = trainingFieldEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrainingFieldEncounter();
-value.CreateAndOpenMissionController(nextLocation, null, null, "example");
+// Typically call this after obtaining an instance from the subsystem API
+TrainingFieldEncounter trainingFieldEncounter = ...;
+trainingFieldEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "EngineStruct"
+description: "Auto-generated class reference for EngineStruct."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineStruct`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EngineStruct
 
 **Namespace:** TaleWorlds.DotNet
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new EngineStruct();
+// Obtain an instance from the relevant subsystem API
+EngineStruct instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

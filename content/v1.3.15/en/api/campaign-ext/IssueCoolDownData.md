@@ -1,13 +1,7 @@
 ---
 title: "IssueCoolDownData"
+description: "Auto-generated class reference for IssueCoolDownData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IssueCoolDownData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IssueCoolDownData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -29,19 +23,32 @@ Treat `IssueCoolDownData` as a Data-style extension point: first identify who cr
 ### IsValid
 `public virtual bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of IssueCoolDownData from the subsystem API first
+IssueCoolDownData issueCoolDownData = ...;
+var result = issueCoolDownData.IsValid();
+```
 
 ### IsRelatedTo
 `public abstract bool IsRelatedTo(object obj)`
 
-**Purpose:** Handles logic related to `is related to`.
+**Purpose:** Determines whether the current object is in the `related to` state or condition.
+
+```csharp
+// Obtain an instance of IssueCoolDownData from the subsystem API first
+IssueCoolDownData issueCoolDownData = ...;
+var result = issueCoolDownData.IsRelatedTo(obj);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomIssueCoolDownData();
+// Typically obtained from a subsystem API or factory
+IssueCoolDownData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

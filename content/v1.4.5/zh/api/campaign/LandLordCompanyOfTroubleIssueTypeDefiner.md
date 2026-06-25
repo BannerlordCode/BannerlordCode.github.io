@@ -1,20 +1,14 @@
 ---
 title: "LandLordCompanyOfTroubleIssueTypeDefiner"
+description: "LandLordCompanyOfTroubleIssueTypeDefiner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LandLordCompanyOfTroubleIssueTypeDefiner`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LandLordCompanyOfTroubleIssueTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LandLordCompanyOfTroubleIssueTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LandLordCompanyOfTroubleIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LandLordCompanyOfTroubleIssueBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "LandLordCompanyOfTroubleIssueTypeDefiner"
 ## 使用示例
 
 ```csharp
-var example = new LandLordCompanyOfTroubleIssueTypeDefiner();
+// 从对应子系统 API 获取实例
+LandLordCompanyOfTroubleIssueTypeDefiner instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultMapConversationDataProvider"
+description: "Auto-generated class reference for DefaultMapConversationDataProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMapConversationDataProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMapConversationDataProvider
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ## Usage Example
 
 ```csharp
-var value = new DefaultMapConversationDataProvider();
+// Obtain an instance from the relevant subsystem API
+DefaultMapConversationDataProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

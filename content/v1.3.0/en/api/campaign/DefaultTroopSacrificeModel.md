@@ -1,13 +1,7 @@
 ---
 title: "DefaultTroopSacrificeModel"
+description: "Auto-generated class reference for DefaultTroopSacrificeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTroopSacrificeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTroopSacrificeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -36,27 +30,57 @@ Treat `DefaultTroopSacrificeModel` as a Model-style extension point: first ident
 ### GetLostTroopCountForBreakingInBesiegedSettlement
 `public override ExplainedNumber GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent)`
 
-**Purpose:** Gets the current value of `lost troop count for breaking in besieged settlement`.
+**Purpose:** Reads and returns the `lost troop count for breaking in besieged settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTroopSacrificeModel from the subsystem API first
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+var result = defaultTroopSacrificeModel.GetLostTroopCountForBreakingInBesiegedSettlement(party, siegeEvent);
+```
 
 ### GetLostTroopCountForBreakingOutOfBesiegedSettlement
 `public override ExplainedNumber GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, bool isBreakingOutFromPort)`
 
-**Purpose:** Gets the current value of `lost troop count for breaking out of besieged settlement`.
+**Purpose:** Reads and returns the `lost troop count for breaking out of besieged settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTroopSacrificeModel from the subsystem API first
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+var result = defaultTroopSacrificeModel.GetLostTroopCountForBreakingOutOfBesiegedSettlement(party, siegeEvent, false);
+```
 
 ### GetNumberOfTroopsSacrificedForTryingToGetAway
 `public override int GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent)`
 
-**Purpose:** Gets the current value of `number of troops sacrificed for trying to get away`.
+**Purpose:** Reads and returns the `number of troops sacrificed for trying to get away` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTroopSacrificeModel from the subsystem API first
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+var result = defaultTroopSacrificeModel.GetNumberOfTroopsSacrificedForTryingToGetAway(playerBattleSide, mapEvent);
+```
 
 ### CanPlayerGetAwayFromEncounter
 `public override bool CanPlayerGetAwayFromEncounter(out TextObject explanation)`
 
-**Purpose:** Checks whether the current object can `player get away from encounter`.
+**Purpose:** Checks whether the current object meets the preconditions for `player get away from encounter`.
+
+```csharp
+// Obtain an instance of DefaultTroopSacrificeModel from the subsystem API first
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+var result = defaultTroopSacrificeModel.CanPlayerGetAwayFromEncounter(explanation);
+```
 
 ### GetShipsToSacrificeForTryingToGetAway
 `public override void GetShipsToSacrificeForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent, out MBList<Ship> shipsToCapture, out Ship shipToTakeDamage, out float damageToApplyForLastShip)`
 
-**Purpose:** Gets the current value of `ships to sacrifice for trying to get away`.
+**Purpose:** Reads and returns the `ships to sacrifice for trying to get away` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTroopSacrificeModel from the subsystem API first
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+defaultTroopSacrificeModel.GetShipsToSacrificeForTryingToGetAway(playerBattleSide, mapEvent, shipsToCapture, shipToTakeDamage, damageToApplyForLastShip);
+```
 
 ## Usage Example
 
@@ -66,4 +90,4 @@ Game.Current.ReplaceModel<DefaultTroopSacrificeModel>(new MyDefaultTroopSacrific
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "LogEntry"
+description: "Auto-generated class reference for LogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -40,62 +34,127 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 
 **Purpose:** Adds `log entry` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+LogEntry.AddLogEntry(logEntry);
+```
+
 ### AddLogEntry
 `public static void AddLogEntry(LogEntry logEntry, CampaignTime gameTime)`
 
 **Purpose:** Adds `log entry` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+LogEntry.AddLogEntry(logEntry, gameTime);
+```
+
 ### GetImportanceForClan
 `public virtual ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**Purpose:** Gets the current value of `importance for clan`.
+**Purpose:** Reads and returns the `importance for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+var result = logEntry.GetImportanceForClan(clan);
+```
 
 ### GetConversationScoreAndComment
 `public virtual void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+logEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### GetAsRumor
 `public virtual int GetAsRumor(Settlement settlement, out TextObject comment)`
 
-**Purpose:** Gets the current value of `as rumor`.
+**Purpose:** Reads and returns the `as rumor` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+var result = logEntry.GetAsRumor(settlement, comment);
+```
 
 ### GetHistoricComment
 `public virtual TextObject GetHistoricComment(Hero talkTroop)`
 
-**Purpose:** Gets the current value of `historic comment`.
+**Purpose:** Reads and returns the `historic comment` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+var result = logEntry.GetHistoricComment(talkTroop);
+```
 
 ### AsReasonForEnmity
 `public virtual int AsReasonForEnmity(Hero referenceHero1, Hero referenceHero2)`
 
-**Purpose:** Handles logic related to `as reason for enmity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+var result = logEntry.AsReasonForEnmity(referenceHero1, referenceHero2);
+```
 
 ### GetValueAsPoliticsAbuseOfPower
 `public virtual int GetValueAsPoliticsAbuseOfPower(Hero referenceTroop, Hero liege)`
 
-**Purpose:** Gets the current value of `value as politics abuse of power`.
+**Purpose:** Reads and returns the `value as politics abuse of power` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+var result = logEntry.GetValueAsPoliticsAbuseOfPower(referenceTroop, liege);
+```
 
 ### GetValueAsPoliticsSlightedClan
 `public virtual int GetValueAsPoliticsSlightedClan(Hero referenceTroop, Hero liege)`
 
-**Purpose:** Gets the current value of `value as politics slighted clan`.
+**Purpose:** Reads and returns the `value as politics slighted clan` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+var result = logEntry.GetValueAsPoliticsSlightedClan(referenceTroop, liege);
+```
 
 ### GetValueAsPoliticsShowedWeakness
 `public virtual int GetValueAsPoliticsShowedWeakness(Hero referenceTroop, Hero liege)`
 
-**Purpose:** Gets the current value of `value as politics showed weakness`.
+**Purpose:** Reads and returns the `value as politics showed weakness` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+var result = logEntry.GetValueAsPoliticsShowedWeakness(referenceTroop, liege);
+```
 
 ### IsValid
 `public virtual bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of LogEntry from the subsystem API first
+LogEntry logEntry = ...;
+var result = logEntry.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomLogEntry();
+// Typically obtained from a subsystem API or factory
+LogEntry instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

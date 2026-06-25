@@ -1,13 +1,7 @@
 ---
 title: "AIDifficulty"
+description: "Auto-generated class reference for AIDifficulty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AIDifficulty`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AIDifficulty
 
 **Namespace:** Helpers
@@ -27,9 +21,10 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-AIDifficulty example = AIDifficulty.Value;
+// Obtain an instance from the relevant subsystem API
+AIDifficulty instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

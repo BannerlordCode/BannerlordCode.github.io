@@ -1,20 +1,14 @@
 ---
 title: "CharacterTableau"
+description: "Auto-generated class reference for CharacterTableau."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterTableau`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterTableau
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterTableau`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/CharacterTableau.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/CharacterTableau.cs`
 
 ## Overview
 
@@ -38,150 +32,319 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.OnTick(0);
+```
 
 ### GetCustomAnimationProgressRatio
 `public float GetCustomAnimationProgressRatio()`
 
-**Purpose:** Gets the current value of `custom animation progress ratio`.
+**Purpose:** Reads and returns the `custom animation progress ratio` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+var result = characterTableau.GetCustomAnimationProgressRatio();
+```
 
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetEnabled(false);
+```
 
 ### SetLeftHandWieldedEquipmentIndex
 `public void SetLeftHandWieldedEquipmentIndex(int index)`
 
-**Purpose:** Sets the value or state of `left hand wielded equipment index`.
+**Purpose:** Assigns a new value to `left hand wielded equipment index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetLeftHandWieldedEquipmentIndex(0);
+```
 
 ### SetRightHandWieldedEquipmentIndex
 `public void SetRightHandWieldedEquipmentIndex(int index)`
 
-**Purpose:** Sets the value or state of `right hand wielded equipment index`.
+**Purpose:** Assigns a new value to `right hand wielded equipment index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetRightHandWieldedEquipmentIndex(0);
+```
 
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetTargetSize(0, 0);
+```
 
 ### SetCharStringID
 `public void SetCharStringID(string charStringId)`
 
-**Purpose:** Sets the value or state of `char string i d`.
+**Purpose:** Assigns a new value to `char string i d` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetCharStringID("example");
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.OnFinalize();
+```
 
 ### SetBodyProperties
 `public void SetBodyProperties(string bodyPropertiesCode)`
 
-**Purpose:** Sets the value or state of `body properties`.
+**Purpose:** Assigns a new value to `body properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetBodyProperties("example");
+```
 
 ### SetStanceIndex
 `public void SetStanceIndex(int index)`
 
-**Purpose:** Sets the value or state of `stance index`.
+**Purpose:** Assigns a new value to `stance index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetStanceIndex(0);
+```
 
 ### SetCustomRenderScale
 `public void SetCustomRenderScale(float value)`
 
-**Purpose:** Sets the value or state of `custom render scale`.
+**Purpose:** Assigns a new value to `custom render scale` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetCustomRenderScale(0);
+```
 
 ### SetIsFemale
 `public void SetIsFemale(bool isFemale)`
 
-**Purpose:** Sets the value or state of `is female`.
+**Purpose:** Assigns a new value to `is female` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetIsFemale(false);
+```
 
 ### SetIsBannerShownInBackground
 `public void SetIsBannerShownInBackground(bool isBannerShownInBackground)`
 
-**Purpose:** Sets the value or state of `is banner shown in background`.
+**Purpose:** Assigns a new value to `is banner shown in background` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetIsBannerShownInBackground(false);
+```
 
 ### SetRace
 `public void SetRace(int race)`
 
-**Purpose:** Sets the value or state of `race`.
+**Purpose:** Assigns a new value to `race` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetRace(0);
+```
 
 ### SetIdleAction
 `public void SetIdleAction(string idleAction)`
 
-**Purpose:** Sets the value or state of `idle action`.
+**Purpose:** Assigns a new value to `idle action` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetIdleAction("example");
+```
 
 ### SetCustomAnimation
 `public void SetCustomAnimation(string animation)`
 
-**Purpose:** Sets the value or state of `custom animation`.
+**Purpose:** Assigns a new value to `custom animation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetCustomAnimation("example");
+```
 
 ### StartCustomAnimation
 `public void StartCustomAnimation()`
 
-**Purpose:** Handles logic related to `start custom animation`.
+**Purpose:** Starts the `custom animation` flow or state machine.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.StartCustomAnimation();
+```
 
 ### StopCustomAnimation
 `public void StopCustomAnimation()`
 
-**Purpose:** Handles logic related to `stop custom animation`.
+**Purpose:** Stops the `custom animation` flow or state machine.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.StopCustomAnimation();
+```
 
 ### SetIdleFaceAnim
 `public void SetIdleFaceAnim(string idleFaceAnim)`
 
-**Purpose:** Sets the value or state of `idle face anim`.
+**Purpose:** Assigns a new value to `idle face anim` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetIdleFaceAnim("example");
+```
 
 ### SetEquipmentCode
 `public void SetEquipmentCode(string equipmentCode)`
 
-**Purpose:** Sets the value or state of `equipment code`.
+**Purpose:** Assigns a new value to `equipment code` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetEquipmentCode("example");
+```
 
 ### SetIsEquipmentAnimActive
 `public void SetIsEquipmentAnimActive(bool value)`
 
-**Purpose:** Sets the value or state of `is equipment anim active`.
+**Purpose:** Assigns a new value to `is equipment anim active` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetIsEquipmentAnimActive(false);
+```
 
 ### SetMountCreationKey
 `public void SetMountCreationKey(string value)`
 
-**Purpose:** Sets the value or state of `mount creation key`.
+**Purpose:** Assigns a new value to `mount creation key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetMountCreationKey("example");
+```
 
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**Purpose:** Sets the value or state of `banner code`.
+**Purpose:** Assigns a new value to `banner code` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetBannerCode("example");
+```
 
 ### SetArmorColor1
 `public void SetArmorColor1(uint clothColor1)`
 
-**Purpose:** Sets the value or state of `armor color1`.
+**Purpose:** Assigns a new value to `armor color1` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetArmorColor1(0);
+```
 
 ### SetArmorColor2
 `public void SetArmorColor2(uint clothColor2)`
 
-**Purpose:** Sets the value or state of `armor color2`.
+**Purpose:** Assigns a new value to `armor color2` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.SetArmorColor2(0);
+```
 
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**Purpose:** Handles logic related to `rotate character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.RotateCharacter(false);
+```
 
 ### TriggerCharacterMountPlacesSwap
 `public void TriggerCharacterMountPlacesSwap()`
 
-**Purpose:** Handles logic related to `trigger character mount places swap`.
+**Purpose:** Triggers the logic or event associated with `character mount places swap`.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.TriggerCharacterMountPlacesSwap();
+```
 
 ### OnCharacterTableauMouseMove
 `public void OnCharacterTableauMouseMove(int mouseMoveX)`
 
-**Purpose:** Called when the `character tableau mouse move` event is raised.
+**Purpose:** Invoked when the `character tableau mouse move` event is raised.
+
+```csharp
+// Obtain an instance of CharacterTableau from the subsystem API first
+CharacterTableau characterTableau = ...;
+characterTableau.OnCharacterTableauMouseMove(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterTableau();
-value.OnTick(0);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterTableau characterTableau = ...;
+characterTableau.OnTick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

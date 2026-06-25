@@ -1,19 +1,14 @@
 ---
 title: "TownMercenaryData"
+description: "Auto-generated class reference for TownMercenaryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownMercenaryData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TownMercenaryData
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TownMercenaryData`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/RecruitmentCampaignBehavior.cs`
 
 ## Overview
 
@@ -32,53 +27,46 @@ Treat `TownMercenaryData` as a Data-style extension point: first identify who cr
 
 ## Key Methods
 
-### RegisterEvents
-`public override void RegisterEvents()`
-
-**Purpose:** Handles logic related to `register events`.
-
-### SyncData
-`public override void SyncData(IDataStore dataStore)`
-
-**Purpose:** Handles logic related to `sync data`.
-
-### GetMercenaryData
-`public RecruitmentCampaignBehavior.TownMercenaryData GetMercenaryData(Town town)`
-
-**Purpose:** Gets the current value of `mercenary data`.
-
-### HourlyTickParty
-`public void HourlyTickParty(MobileParty mobileParty)`
-
-**Purpose:** Handles logic related to `hourly tick party`.
-
-### OnBeforeSettlementEntered
-`public void OnBeforeSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
-
-**Purpose:** Called when the `before settlement entered` event is raised.
-
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**Purpose:** Handles logic related to `change mercenary type`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TownMercenaryData from the subsystem API first
+TownMercenaryData townMercenaryData = ...;
+townMercenaryData.ChangeMercenaryType(troopType, 0);
+```
 
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**Purpose:** Handles logic related to `change mercenary count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TownMercenaryData from the subsystem API first
+TownMercenaryData townMercenaryData = ...;
+townMercenaryData.ChangeMercenaryCount(0);
+```
 
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**Purpose:** Checks whether the current object has/contains `available mercenary`.
+**Purpose:** Determines whether the current object already holds `available mercenary`.
+
+```csharp
+// Obtain an instance of TownMercenaryData from the subsystem API first
+TownMercenaryData townMercenaryData = ...;
+var result = townMercenaryData.HasAvailableMercenary(occupation.NotAssigned);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TownMercenaryData();
+// This data object is usually returned by campaign/mission APIs
+TownMercenaryData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

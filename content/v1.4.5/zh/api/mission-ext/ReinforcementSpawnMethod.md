@@ -1,20 +1,14 @@
 ---
 title: "ReinforcementSpawnMethod"
+description: "ReinforcementSpawnMethod 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ReinforcementSpawnMethod`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReinforcementSpawnMethod
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum ReinforcementSpawnMethod`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ReinforcementSpawnMethod"
 ## 使用示例
 
 ```csharp
-ReinforcementSpawnMethod example = ReinforcementSpawnMethod.Value;
+// 从对应子系统 API 获取实例
+ReinforcementSpawnMethod instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

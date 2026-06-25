@@ -1,18 +1,12 @@
 ---
 title: "Features"
+description: "Auto-generated class reference for Features."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Features`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Features
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum Features`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/Features.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new Features();
+// Obtain an instance from the relevant subsystem API
+Features instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

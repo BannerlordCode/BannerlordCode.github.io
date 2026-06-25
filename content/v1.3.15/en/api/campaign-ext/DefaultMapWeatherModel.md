@@ -1,13 +1,7 @@
 ---
 title: "DefaultMapWeatherModel"
+description: "Auto-generated class reference for DefaultMapWeatherModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMapWeatherModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultMapWeatherModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -38,47 +32,101 @@ Treat `DefaultMapWeatherModel` as a Model-style extension point: first identify 
 ### GetInterpolatedAtmosphereState
 `public override AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)`
 
-**Purpose:** Gets the current value of `interpolated atmosphere state`.
+**Purpose:** Reads and returns the `interpolated atmosphere state` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+var result = defaultMapWeatherModel.GetInterpolatedAtmosphereState(timeOfYear, pos);
+```
 
 ### GetAtmosphereModel
 `public override AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)`
 
-**Purpose:** Gets the current value of `atmosphere model`.
+**Purpose:** Reads and returns the `atmosphere model` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+var result = defaultMapWeatherModel.GetAtmosphereModel(position);
+```
 
 ### InitializeCaches
 `public override void InitializeCaches()`
 
-**Purpose:** Initializes the state, resources, or bindings for `caches`.
+**Purpose:** Prepares the resources, state, or bindings required by `caches`.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+defaultMapWeatherModel.InitializeCaches();
+```
 
 ### UpdateWeatherForPosition
 `public override MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)`
 
-**Purpose:** Updates the state or data of `weather for position`.
+**Purpose:** Recalculates and stores the latest representation of `weather for position`.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+var result = defaultMapWeatherModel.UpdateWeatherForPosition(position, ct);
+```
 
 ### GetSnowAndRainDataForPosition
 `public override void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)`
 
-**Purpose:** Gets the current value of `snow and rain data for position`.
+**Purpose:** Reads and returns the `snow and rain data for position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+defaultMapWeatherModel.GetSnowAndRainDataForPosition(position, ct, snowValue, rainValue);
+```
 
 ### GetWeatherEventInPosition
 `public override MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)`
 
-**Purpose:** Gets the current value of `weather event in position`.
+**Purpose:** Reads and returns the `weather event in position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+var result = defaultMapWeatherModel.GetWeatherEventInPosition(pos);
+```
 
 ### GetWeatherEffectOnTerrainForPosition
 `public override MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)`
 
-**Purpose:** Gets the current value of `weather effect on terrain for position`.
+**Purpose:** Reads and returns the `weather effect on terrain for position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+var result = defaultMapWeatherModel.GetWeatherEffectOnTerrainForPosition(pos);
+```
 
 ### GetSeasonTimeFactorOfCampaignTime
 `public override void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)`
 
-**Purpose:** Gets the current value of `season time factor of campaign time`.
+**Purpose:** Reads and returns the `season time factor of campaign time` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+defaultMapWeatherModel.GetSeasonTimeFactorOfCampaignTime(ct, timeFactorForSnow, timeFactorForRain, false);
+```
 
 ### GetWindForPosition
 `public override Vec2 GetWindForPosition(CampaignVec2 position)`
 
-**Purpose:** Gets the current value of `wind for position`.
+**Purpose:** Reads and returns the `wind for position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapWeatherModel from the subsystem API first
+DefaultMapWeatherModel defaultMapWeatherModel = ...;
+var result = defaultMapWeatherModel.GetWindForPosition(position);
+```
 
 ## Usage Example
 
@@ -88,4 +136,4 @@ Game.Current.ReplaceModel<DefaultMapWeatherModel>(new MyDefaultMapWeatherModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

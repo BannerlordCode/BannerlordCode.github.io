@@ -1,13 +1,7 @@
 ---
 title: "SettlementFoodModel"
+description: "SettlementFoodModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementFoodModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementFoodModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -38,14 +32,21 @@ title: "SettlementFoodModel"
 ### CalculateTownFoodStocksChange
 `public abstract ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate town food stocks change` 相关逻辑。
+**用途 / Purpose:** 计算「town food stocks change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementFoodModel 实例
+SettlementFoodModel settlementFoodModel = ...;
+var result = settlementFoodModel.CalculateTownFoodStocksChange(town, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementFoodModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementFoodModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

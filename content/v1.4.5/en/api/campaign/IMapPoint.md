@@ -1,20 +1,14 @@
 ---
 title: "IMapPoint"
+description: "Auto-generated class reference for IMapPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMapPoint`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMapPoint
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMapPoint`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/IMapPoint.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/IMapPoint.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-IMapPoint implementation = GetMapPointImplementation();
+// Usually obtained through DI or a factory method
+IIMapPoint service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

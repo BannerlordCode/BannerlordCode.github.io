@@ -1,13 +1,7 @@
 ---
 title: "NarrativeMenuOption"
+description: "NarrativeMenuOption 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NarrativeMenuOption`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NarrativeMenuOption
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -35,45 +29,88 @@ title: "NarrativeMenuOption"
 ### OnCondition
 `public bool OnCondition(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 当 `condition` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「condition」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOption 实例
+NarrativeMenuOption narrativeMenuOption = ...;
+var result = narrativeMenuOption.OnCondition(characterCreationManager);
+```
 
 ### OnSelect
 `public void OnSelect(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 当 `select` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「select」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOption 实例
+NarrativeMenuOption narrativeMenuOption = ...;
+narrativeMenuOption.OnSelect(characterCreationManager);
+```
 
 ### OnConsequence
 `public void OnConsequence(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 当 `consequence` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「consequence」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOption 实例
+NarrativeMenuOption narrativeMenuOption = ...;
+narrativeMenuOption.OnConsequence(characterCreationManager);
+```
 
 ### SetOnCondition
 `public void SetOnCondition(NarrativeMenuOptionOnConditionDelegate onCondition)`
 
-**用途 / Purpose:** 设置 `on condition` 的值或状态。
+**用途 / Purpose:** 为 「on condition」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOption 实例
+NarrativeMenuOption narrativeMenuOption = ...;
+narrativeMenuOption.SetOnCondition(onCondition);
+```
 
 ### SetOnSelect
 `public void SetOnSelect(NarrativeMenuOptionOnSelectDelegate onSelect)`
 
-**用途 / Purpose:** 设置 `on select` 的值或状态。
+**用途 / Purpose:** 为 「on select」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOption 实例
+NarrativeMenuOption narrativeMenuOption = ...;
+narrativeMenuOption.SetOnSelect(onSelect);
+```
 
 ### SetOnConsequence
 `public void SetOnConsequence(NarrativeMenuOptionOnConsequenceDelegate onConsequence)`
 
-**用途 / Purpose:** 设置 `on consequence` 的值或状态。
+**用途 / Purpose:** 为 「on consequence」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOption 实例
+NarrativeMenuOption narrativeMenuOption = ...;
+narrativeMenuOption.SetOnConsequence(onConsequence);
+```
 
 ### ApplyFinalEffects
 `public void ApplyFinalEffects(CharacterCreationContent characterCreationContent)`
 
-**用途 / Purpose:** 将 `final effects` 应用到当前对象。
+**用途 / Purpose:** 将 「final effects」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOption 实例
+NarrativeMenuOption narrativeMenuOption = ...;
+narrativeMenuOption.ApplyFinalEffects(characterCreationContent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NarrativeMenuOption();
-value.OnCondition(characterCreationManager);
+// 通常从对应子系统 API 获取实例后调用
+NarrativeMenuOption narrativeMenuOption = ...;
+narrativeMenuOption.OnCondition(characterCreationManager);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

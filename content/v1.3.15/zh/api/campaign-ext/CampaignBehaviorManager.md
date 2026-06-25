@@ -1,13 +1,7 @@
 ---
 title: "CampaignBehaviorManager"
+description: "CampaignBehaviorManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignBehaviorManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignBehaviorManager
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,27 +23,57 @@ title: "CampaignBehaviorManager"
 ### InitializeCampaignBehaviors
 `public void InitializeCampaignBehaviors(IEnumerable<CampaignBehaviorBase> inputComponents)`
 
-**用途 / Purpose:** 初始化 `campaign behaviors` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「campaign behaviors」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignBehaviorManager 实例
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.InitializeCampaignBehaviors(inputComponents);
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignBehaviorManager 实例
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.RegisterEvents();
+```
 
 ### LoadBehaviorData
 `public void LoadBehaviorData()`
 
-**用途 / Purpose:** 加载 `behavior data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「behavior data」。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignBehaviorManager 实例
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.LoadBehaviorData();
+```
 
 ### AddBehavior
 `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `behavior`。
+**用途 / Purpose:** 将 「behavior」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignBehaviorManager 实例
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.AddBehavior(campaignBehavior);
+```
 
 ### ClearBehaviors
 `public void ClearBehaviors()`
 
-**用途 / Purpose:** 处理 `clear behaviors` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「behaviors」。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignBehaviorManager 实例
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.ClearBehaviors();
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ var manager = CampaignBehaviorManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

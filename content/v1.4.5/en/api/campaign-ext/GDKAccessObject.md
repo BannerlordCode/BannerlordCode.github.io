@@ -1,20 +1,14 @@
 ---
 title: "GDKAccessObject"
+description: "Auto-generated class reference for GDKAccessObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GDKAccessObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GDKAccessObject
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class GDKAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/GDKAccessObject.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/GDKAccessObject.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new GDKAccessObject();
+// Obtain an instance from the relevant subsystem API
+GDKAccessObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

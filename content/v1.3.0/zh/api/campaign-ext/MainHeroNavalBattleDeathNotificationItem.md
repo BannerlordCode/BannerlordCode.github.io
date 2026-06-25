@@ -1,13 +1,7 @@
 ---
 title: "MainHeroNavalBattleDeathNotificationItem"
+description: "MainHeroNavalBattleDeathNotificationItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MainHeroNavalBattleDeathNotificationItem`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainHeroNavalBattleDeathNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -38,20 +32,33 @@ title: "MainHeroNavalBattleDeathNotificationItem"
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**用途 / Purpose:** 获取 `scene notification characters` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene notification characters」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MainHeroNavalBattleDeathNotificationItem 实例
+MainHeroNavalBattleDeathNotificationItem mainHeroNavalBattleDeathNotificationItem = ...;
+var result = mainHeroNavalBattleDeathNotificationItem.GetSceneNotificationCharacters();
+```
 
 ### GetShips
 `public override SceneNotificationData.SceneNotificationShip GetShips()`
 
-**用途 / Purpose:** 获取 `ships` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ships」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MainHeroNavalBattleDeathNotificationItem 实例
+MainHeroNavalBattleDeathNotificationItem mainHeroNavalBattleDeathNotificationItem = ...;
+var result = mainHeroNavalBattleDeathNotificationItem.GetShips();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MainHeroNavalBattleDeathNotificationItem();
-value.GetSceneNotificationCharacters();
+// 通常从对应子系统 API 获取实例后调用
+MainHeroNavalBattleDeathNotificationItem mainHeroNavalBattleDeathNotificationItem = ...;
+mainHeroNavalBattleDeathNotificationItem.GetSceneNotificationCharacters();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

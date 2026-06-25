@@ -1,20 +1,14 @@
 ---
 title: "ClanSupporterGroupVM"
+description: "Auto-generated class reference for ClanSupporterGroupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanSupporterGroupVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanSupporterGroupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanSupporterGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters/ClanSupporterGroupVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters/ClanSupporterGroupVM.cs`
 
 ## Overview
 
@@ -41,30 +35,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanSupporterGroupVM from the subsystem API first
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.RefreshValues();
+```
 
 ### AddSupporter
 `public void AddSupporter(Hero hero)`
 
 **Purpose:** Adds `supporter` to the current collection or state.
 
+```csharp
+// Obtain an instance of ClanSupporterGroupVM from the subsystem API first
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.AddSupporter(hero);
+```
+
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of ClanSupporterGroupVM from the subsystem API first
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.Refresh();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of ClanSupporterGroupVM from the subsystem API first
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.ExecuteSelect();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanSupporterGroupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

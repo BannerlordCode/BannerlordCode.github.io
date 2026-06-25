@@ -1,20 +1,14 @@
 ---
 title: "DuelArenaFlagVisualBrushWidget"
+description: "Auto-generated class reference for DuelArenaFlagVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelArenaFlagVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelArenaFlagVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DuelArenaFlagVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/DuelArenaFlagVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/DuelArenaFlagVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `DuelArenaFlagVisualBrushWidget` as a Widget-style extension point: first 
 ### DuelArenaFlagVisualBrushWidget
 `public class DuelArenaFlagVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `duel arena flag visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DuelArenaFlagVisualBrushWidget from the subsystem API first
+DuelArenaFlagVisualBrushWidget duelArenaFlagVisualBrushWidget = ...;
+var result = duelArenaFlagVisualBrushWidget.DuelArenaFlagVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new DuelArenaFlagVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DuelArenaFlagVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

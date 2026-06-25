@@ -1,13 +1,7 @@
 ---
 title: "PersuasionTask"
+description: "Auto-generated class reference for PersuasionTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PersuasionTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
@@ -31,28 +25,53 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 
 **Purpose:** Adds `option to task` to the current collection or state.
 
+```csharp
+// Obtain an instance of PersuasionTask from the subsystem API first
+PersuasionTask persuasionTask = ...;
+persuasionTask.AddOptionToTask(option);
+```
+
 ### BlockAllOptions
 `public void BlockAllOptions()`
 
-**Purpose:** Handles logic related to `block all options`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PersuasionTask from the subsystem API first
+PersuasionTask persuasionTask = ...;
+persuasionTask.BlockAllOptions();
+```
 
 ### UnblockAllOptions
 `public void UnblockAllOptions()`
 
-**Purpose:** Handles logic related to `unblock all options`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PersuasionTask from the subsystem API first
+PersuasionTask persuasionTask = ...;
+persuasionTask.UnblockAllOptions();
+```
 
 ### ApplyEffects
 `public void ApplyEffects(float moveToNextStageChance, float blockRandomOptionChance)`
 
-**Purpose:** Applies `effects` to the current object.
+**Purpose:** Applies the effect of `effects` to the current object.
+
+```csharp
+// Obtain an instance of PersuasionTask from the subsystem API first
+PersuasionTask persuasionTask = ...;
+persuasionTask.ApplyEffects(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PersuasionTask();
-value.AddOptionToTask(option);
+// Typically call this after obtaining an instance from the subsystem API
+PersuasionTask persuasionTask = ...;
+persuasionTask.AddOptionToTask(option);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

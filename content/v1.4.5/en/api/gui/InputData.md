@@ -1,20 +1,14 @@
 ---
 title: "InputData"
+description: "Auto-generated class reference for InputData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputData`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputData
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class InputData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/InputData.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/InputData.cs`
 
 ## Overview
 
@@ -41,19 +35,32 @@ Treat `InputData` as a Data-style extension point: first identify who creates it
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of InputData from the subsystem API first
+InputData inputData = ...;
+inputData.Reset();
+```
 
 ### FillFrom
 `public void FillFrom(InputData inputData)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InputData from the subsystem API first
+InputData inputData = ...;
+inputData.FillFrom(inputData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InputData();
+// This data object is usually returned by campaign/mission APIs
+InputData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

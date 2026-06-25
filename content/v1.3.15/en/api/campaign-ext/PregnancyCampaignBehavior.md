@@ -1,13 +1,7 @@
 ---
 title: "PregnancyCampaignBehavior"
+description: "Auto-generated class reference for PregnancyCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PregnancyCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PregnancyCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PregnancyCampaignBehavior from the subsystem API first
+PregnancyCampaignBehavior pregnancyCampaignBehavior = ...;
+pregnancyCampaignBehavior.RegisterEvents();
+```
 
 ### OnHeroKilled
 `public void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)`
 
-**Purpose:** Called when the `hero killed` event is raised.
+**Purpose:** Invoked when the `hero killed` event is raised.
+
+```csharp
+// Obtain an instance of PregnancyCampaignBehavior from the subsystem API first
+PregnancyCampaignBehavior pregnancyCampaignBehavior = ...;
+pregnancyCampaignBehavior.OnHeroKilled(victim, killer, detail, true);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PregnancyCampaignBehavior from the subsystem API first
+PregnancyCampaignBehavior pregnancyCampaignBehavior = ...;
+pregnancyCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PregnancyCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PregnancyCampaignBehavior pregnancyCampaignBehavior = ...;
+pregnancyCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

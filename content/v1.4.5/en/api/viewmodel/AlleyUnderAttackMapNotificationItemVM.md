@@ -1,20 +1,14 @@
 ---
 title: "AlleyUnderAttackMapNotificationItemVM"
+description: "Auto-generated class reference for AlleyUnderAttackMapNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyUnderAttackMapNotificationItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyUnderAttackMapNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class AlleyUnderAttackMapNotificationItemVM : MapNotificationItemBaseVM`
 **Base:** `MapNotificationItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AlleyUnderAttackMapNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AlleyUnderAttackMapNotificationItemVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ## Usage Example
 
 ```csharp
-var example = new AlleyUnderAttackMapNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+AlleyUnderAttackMapNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DependedModule"
+description: "Auto-generated class reference for DependedModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DependedModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DependedModule
 
 **Namespace:** TaleWorlds.ModuleManager
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public struct DependedModule`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/DependedModule.cs`
+**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/DependedModule.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ### UpdateVersionChangeSet
 `public void UpdateVersionChangeSet()`
 
-**Purpose:** Updates the state or data of `version change set`.
+**Purpose:** Recalculates and stores the latest representation of `version change set`.
+
+```csharp
+// Obtain an instance of DependedModule from the subsystem API first
+DependedModule dependedModule = ...;
+dependedModule.UpdateVersionChangeSet();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DependedModule();
-value.UpdateVersionChangeSet();
+// Typically call this after obtaining an instance from the subsystem API
+DependedModule dependedModule = ...;
+dependedModule.UpdateVersionChangeSet();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

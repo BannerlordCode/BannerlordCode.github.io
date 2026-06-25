@@ -1,18 +1,12 @@
 ---
 title: "IGameStateListener"
+description: "Auto-generated class reference for IGameStateListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGameStateListener`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IGameStateListener
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IGameStateListener`
 **Base:** none
 **File:** `TaleWorlds.Core/IGameStateListener.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IGameStateListener implementation = GetGameStateListenerImplementation();
+// Usually obtained through DI or a factory method
+IIGameStateListener service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

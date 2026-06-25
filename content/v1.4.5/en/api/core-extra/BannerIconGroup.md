@@ -1,20 +1,14 @@
 ---
 title: "BannerIconGroup"
+description: "Auto-generated class reference for BannerIconGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerIconGroup`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerIconGroup
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerIconGroup`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BannerIconGroup.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerIconGroup.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public void Deserialize(XmlNode xmlNode, MBList<BannerIconGroup> previouslyAddedGroups)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of BannerIconGroup from the subsystem API first
+BannerIconGroup bannerIconGroup = ...;
+bannerIconGroup.Deserialize(xmlNode, previouslyAddedGroups);
+```
 
 ### Merge
 `public void Merge(BannerIconGroup otherGroup)`
 
-**Purpose:** Handles logic related to `merge`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BannerIconGroup from the subsystem API first
+BannerIconGroup bannerIconGroup = ...;
+bannerIconGroup.Merge(otherGroup);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerIconGroup();
-value.Deserialize(xmlNode, previouslyAddedGroups);
+// Typically call this after obtaining an instance from the subsystem API
+BannerIconGroup bannerIconGroup = ...;
+bannerIconGroup.Deserialize(xmlNode, previouslyAddedGroups);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

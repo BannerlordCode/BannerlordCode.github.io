@@ -1,13 +1,7 @@
 ---
 title: "TownManagementShopItemVM"
+description: "Auto-generated class reference for TownManagementShopItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownManagementShopItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownManagementShopItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TownManagementShopItemVM from the subsystem API first
+TownManagementShopItemVM townManagementShopItemVM = ...;
+townManagementShopItemVM.RefreshValues();
+```
 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of TownManagementShopItemVM from the subsystem API first
+TownManagementShopItemVM townManagementShopItemVM = ...;
+townManagementShopItemVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of TownManagementShopItemVM from the subsystem API first
+TownManagementShopItemVM townManagementShopItemVM = ...;
+townManagementShopItemVM.ExecuteEndHint();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TownManagementShopItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TownManagementShopItemVM townManagementShopItemVM = ...;
+townManagementShopItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

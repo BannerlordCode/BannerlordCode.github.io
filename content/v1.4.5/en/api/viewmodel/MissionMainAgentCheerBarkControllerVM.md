@@ -1,20 +1,14 @@
 ---
 title: "MissionMainAgentCheerBarkControllerVM"
+description: "Auto-generated class reference for MissionMainAgentCheerBarkControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentCheerBarkControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentCheerBarkControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMainAgentCheerBarkControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionMainAgentCheerBarkControllerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionMainAgentCheerBarkControllerVM.cs`
 
 ## Overview
 
@@ -39,40 +33,77 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
+MissionMainAgentCheerBarkControllerVM missionMainAgentCheerBarkControllerVM = ...;
+missionMainAgentCheerBarkControllerVM.OnFinalize();
+```
 
 ### SelectItem
 `public void SelectItem(int itemIndex, int subNodeIndex = -1)`
 
-**Purpose:** Handles logic related to `select item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
+MissionMainAgentCheerBarkControllerVM missionMainAgentCheerBarkControllerVM = ...;
+missionMainAgentCheerBarkControllerVM.SelectItem(0, 0);
+```
 
 ### ExecuteActivate
 `public void ExecuteActivate()`
 
-**Purpose:** Executes the `activate` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `activate`.
+
+```csharp
+// Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
+MissionMainAgentCheerBarkControllerVM missionMainAgentCheerBarkControllerVM = ...;
+missionMainAgentCheerBarkControllerVM.ExecuteActivate();
+```
 
 ### ExecuteDeactivate
 `public void ExecuteDeactivate(bool applySelection)`
 
-**Purpose:** Executes the `deactivate` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `deactivate`.
+
+```csharp
+// Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
+MissionMainAgentCheerBarkControllerVM missionMainAgentCheerBarkControllerVM = ...;
+missionMainAgentCheerBarkControllerVM.ExecuteDeactivate(false);
+```
 
 ### OnNodeFocused
 `public void OnNodeFocused(CheerBarkNodeItemVM focusedNode)`
 
-**Purpose:** Called when the `node focused` event is raised.
+**Purpose:** Invoked when the `node focused` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
+MissionMainAgentCheerBarkControllerVM missionMainAgentCheerBarkControllerVM = ...;
+missionMainAgentCheerBarkControllerVM.OnNodeFocused(focusedNode);
+```
 
 ### OnNodeTooltipToggled
 `public void OnNodeTooltipToggled(CheerBarkNodeItemVM node)`
 
-**Purpose:** Called when the `node tooltip toggled` event is raised.
+**Purpose:** Invoked when the `node tooltip toggled` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentCheerBarkControllerVM from the subsystem API first
+MissionMainAgentCheerBarkControllerVM missionMainAgentCheerBarkControllerVM = ...;
+missionMainAgentCheerBarkControllerVM.OnNodeTooltipToggled(node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMainAgentCheerBarkControllerVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMainAgentCheerBarkControllerVM missionMainAgentCheerBarkControllerVM = ...;
+missionMainAgentCheerBarkControllerVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

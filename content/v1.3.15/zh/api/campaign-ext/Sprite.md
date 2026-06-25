@@ -1,13 +1,7 @@
 ---
 title: "Sprite"
+description: "Sprite 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Sprite`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Sprite
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -39,24 +33,43 @@ title: "Sprite"
 ### GetMinUvs
 `public abstract Vec2 GetMinUvs()`
 
-**用途 / Purpose:** 获取 `min uvs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「min uvs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Sprite 实例
+Sprite sprite = ...;
+var result = sprite.GetMinUvs();
+```
 
 ### GetMaxUvs
 `public abstract Vec2 GetMaxUvs()`
 
-**用途 / Purpose:** 获取 `max uvs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max uvs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Sprite 实例
+Sprite sprite = ...;
+var result = sprite.GetMaxUvs();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Sprite 实例
+Sprite sprite = ...;
+var result = sprite.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSprite();
+// 通常通过子系统 API 或工厂获得派生实例
+Sprite instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

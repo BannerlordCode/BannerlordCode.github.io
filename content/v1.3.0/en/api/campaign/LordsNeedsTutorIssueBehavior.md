@@ -1,13 +1,7 @@
 ---
 title: "LordsNeedsTutorIssueBehavior"
+description: "Auto-generated class reference for LordsNeedsTutorIssueBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LordsNeedsTutorIssueBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordsNeedsTutorIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -44,65 +38,132 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.RegisterEvents();
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.SyncData(dataStore);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+var result = lordsNeedsTutorIssueBehavior.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+var result = lordsNeedsTutorIssueBehavior.IssueStayAliveConditions();
+```
 
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have party role or be governor info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can lead party info is requested` event is raised.
+**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanMarryInfoIsRequested
 `public override void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can marry info is requested` event is raised.
+**Purpose:** Invoked when the `hero can marry info is requested` event is raised.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.OnHeroCanMarryInfoIsRequested(hero, result);
+```
 
 ### OnHeroGainedSkill
 `public void OnHeroGainedSkill(Hero hero, SkillObject skill, int change = 1, bool shouldNotify = true)`
 
-**Purpose:** Called when the `hero gained skill` event is raised.
+**Purpose:** Invoked when the `hero gained skill` event is raised.
+
+```csharp
+// Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.OnHeroGainedSkill(hero, skill, 0, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LordsNeedsTutorIssueBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+LordsNeedsTutorIssueBehavior lordsNeedsTutorIssueBehavior = ...;
+lordsNeedsTutorIssueBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

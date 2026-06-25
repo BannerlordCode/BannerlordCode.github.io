@@ -1,13 +1,7 @@
 ---
 title: "PolishTextProcessor"
+description: "PolishTextProcessor 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PolishTextProcessor`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PolishTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
@@ -35,30 +29,53 @@ title: "PolishTextProcessor"
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**用途 / Purpose:** 处理 `clear temporary data` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「temporary data」。
+
+```csharp
+// 先通过子系统 API 拿到 PolishTextProcessor 实例
+PolishTextProcessor polishTextProcessor = ...;
+polishTextProcessor.ClearTemporaryData();
+```
 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** 处理 `process token` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PolishTextProcessor 实例
+PolishTextProcessor polishTextProcessor = ...;
+polishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### GetProcessedNouns
 `public static string GetProcessedNouns(string str, string gender, string tokens = null)`
 
-**用途 / Purpose:** 获取 `processed nouns` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「processed nouns」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PolishTextProcessor.GetProcessedNouns("example", "example", "example");
+```
 
 ### GetProcessedAdjectives
 `public static string GetProcessedAdjectives(string str, string gender, string tokens = null)`
 
-**用途 / Purpose:** 获取 `processed adjectives` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「processed adjectives」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PolishTextProcessor.GetProcessedAdjectives("example", "example", "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PolishTextProcessor();
-value.ClearTemporaryData();
+// 通常从对应子系统 API 获取实例后调用
+PolishTextProcessor polishTextProcessor = ...;
+polishTextProcessor.ClearTemporaryData();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

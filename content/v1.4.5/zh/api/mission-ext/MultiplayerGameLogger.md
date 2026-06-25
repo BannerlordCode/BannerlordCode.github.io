@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerGameLogger"
+description: "MultiplayerGameLogger 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerGameLogger`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGameLogger
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerGameLogger : GameHandler`
 **Base:** `GameHandler`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerGameLogger.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerGameLogger.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "MultiplayerGameLogger"
 ### Log
 `public void Log(GameLog log)`
 
-**用途 / Purpose:** 处理 `log` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameLogger 实例
+MultiplayerGameLogger multiplayerGameLogger = ...;
+multiplayerGameLogger.Log(log);
+```
 
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**用途 / Purpose:** 当 `before save` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「before save」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameLogger 实例
+MultiplayerGameLogger multiplayerGameLogger = ...;
+multiplayerGameLogger.OnBeforeSave();
+```
 
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**用途 / Purpose:** 当 `after save` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after save」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameLogger 实例
+MultiplayerGameLogger multiplayerGameLogger = ...;
+multiplayerGameLogger.OnAfterSave();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerGameLogger();
-value.Log(log);
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerGameLogger multiplayerGameLogger = ...;
+multiplayerGameLogger.Log(log);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

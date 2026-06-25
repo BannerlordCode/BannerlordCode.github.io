@@ -1,13 +1,7 @@
 ---
 title: "GameOverStatItemVM"
+description: "Auto-generated class reference for GameOverStatItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverStatItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverStatItemVM
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
@@ -37,15 +31,22 @@ Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameOverStatItemVM from the subsystem API first
+GameOverStatItemVM gameOverStatItemVM = ...;
+gameOverStatItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameOverStatItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameOverStatItemVM gameOverStatItemVM = ...;
+gameOverStatItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

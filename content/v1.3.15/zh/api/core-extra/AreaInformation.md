@@ -1,13 +1,7 @@
 ---
 title: "AreaInformation"
+description: "AreaInformation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AreaInformation`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AreaInformation
 
 **Namespace:** TaleWorlds.Library
@@ -29,20 +23,33 @@ title: "AreaInformation"
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**用途 / Purpose:** 处理 `deserialize from` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原出「from」。
+
+```csharp
+// 先通过子系统 API 拿到 AreaInformation 实例
+AreaInformation areaInformation = ...;
+areaInformation.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**用途 / Purpose:** 处理 `serialize to` 相关逻辑。
+**用途 / Purpose:** 将「to」序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 AreaInformation 实例
+AreaInformation areaInformation = ...;
+areaInformation.SerializeTo(writer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AreaInformation();
-value.DeserializeFrom(reader);
+// 通常从对应子系统 API 获取实例后调用
+AreaInformation areaInformation = ...;
+areaInformation.DeserializeFrom(reader);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

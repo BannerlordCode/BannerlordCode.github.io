@@ -1,20 +1,14 @@
 ---
 title: "KingdomDecisionConcludedLogEntry"
+description: "KingdomDecisionConcludedLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomDecisionConcludedLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDecisionConcludedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomDecisionConcludedLogEntry : LogEntry, IChatNotification`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/KingdomDecisionConcludedLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/KingdomDecisionConcludedLogEntry.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "KingdomDecisionConcludedLogEntry"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionConcludedLogEntry 实例
+KingdomDecisionConcludedLogEntry kingdomDecisionConcludedLogEntry = ...;
+var result = kingdomDecisionConcludedLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 获取 `notification text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionConcludedLogEntry 实例
+KingdomDecisionConcludedLogEntry kingdomDecisionConcludedLogEntry = ...;
+var result = kingdomDecisionConcludedLogEntry.GetNotificationText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomDecisionConcludedLogEntry();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+KingdomDecisionConcludedLogEntry kingdomDecisionConcludedLogEntry = ...;
+kingdomDecisionConcludedLogEntry.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

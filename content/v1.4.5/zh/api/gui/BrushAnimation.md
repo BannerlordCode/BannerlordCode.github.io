@@ -1,20 +1,14 @@
 ---
 title: "BrushAnimation"
+description: "BrushAnimation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushAnimation`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushAnimation
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class BrushAnimation`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushAnimation.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushAnimation.cs`
 
 ## 概述
 
@@ -40,35 +34,66 @@ title: "BrushAnimation"
 ### AddAnimationProperty
 `public void AddAnimationProperty(BrushAnimationProperty property)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `animation property`。
+**用途 / Purpose:** 将 「animation property」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimation 实例
+BrushAnimation brushAnimation = ...;
+brushAnimation.AddAnimationProperty(property);
+```
 
 ### RemoveAnimationProperty
 `public void RemoveAnimationProperty(BrushAnimationProperty property)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `animation property`。
+**用途 / Purpose:** 从当前容器或状态中移除 「animation property」。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimation 实例
+BrushAnimation brushAnimation = ...;
+brushAnimation.RemoveAnimationProperty(property);
+```
 
 ### FillFrom
 `public void FillFrom(BrushAnimation animation)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimation 实例
+BrushAnimation brushAnimation = ...;
+brushAnimation.FillFrom(animation);
+```
 
 ### GetLayerAnimation
 `public BrushLayerAnimation GetLayerAnimation(string name)`
 
-**用途 / Purpose:** 获取 `layer animation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「layer animation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimation 实例
+BrushAnimation brushAnimation = ...;
+var result = brushAnimation.GetLayerAnimation("example");
+```
 
 ### GetLayerAnimations
 `public IEnumerable<BrushLayerAnimation> GetLayerAnimations()`
 
-**用途 / Purpose:** 获取 `layer animations` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「layer animations」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimation 实例
+BrushAnimation brushAnimation = ...;
+var result = brushAnimation.GetLayerAnimations();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrushAnimation();
-value.AddAnimationProperty(property);
+// 通常从对应子系统 API 获取实例后调用
+BrushAnimation brushAnimation = ...;
+brushAnimation.AddAnimationProperty(property);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

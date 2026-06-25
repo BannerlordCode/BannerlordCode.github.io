@@ -1,13 +1,7 @@
 ---
 title: "SceneInitializationData"
+description: "Auto-generated class reference for SceneInitializationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneInitializationData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneInitializationData
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Treat `SceneInitializationData` as a Data-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var value = new SceneInitializationData();
+// This data object is usually returned by campaign/mission APIs
+SceneInitializationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

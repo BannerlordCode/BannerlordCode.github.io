@@ -1,13 +1,7 @@
 ---
 title: "MBUnknownTypeException"
+description: "Auto-generated class reference for MBUnknownTypeException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBUnknownTypeException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBUnknownTypeException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBUnknownTypeException` as a Exception-style extension point: first ident
 ## Usage Example
 
 ```csharp
-try { CallMBUnknownTypeException(); } catch (MBUnknownTypeException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBUnknownTypeException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DamageParticleModel"
+description: "Auto-generated class reference for DamageParticleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DamageParticleModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DamageParticleModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,24 +23,43 @@ Treat `DamageParticleModel` as a Model-style extension point: first identify who
 ### GetMeleeAttackBloodParticles
 `public abstract void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**Purpose:** Gets the current value of `melee attack blood particles`.
+**Purpose:** Reads and returns the `melee attack blood particles` value held by the current object.
+
+```csharp
+// Obtain an instance of DamageParticleModel from the subsystem API first
+DamageParticleModel damageParticleModel = ...;
+damageParticleModel.GetMeleeAttackBloodParticles(attacker, victim, blow, collisionData, particleResultData);
+```
 
 ### GetMeleeAttackSweatParticles
 `public abstract void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**Purpose:** Gets the current value of `melee attack sweat particles`.
+**Purpose:** Reads and returns the `melee attack sweat particles` value held by the current object.
+
+```csharp
+// Obtain an instance of DamageParticleModel from the subsystem API first
+DamageParticleModel damageParticleModel = ...;
+damageParticleModel.GetMeleeAttackSweatParticles(attacker, victim, blow, collisionData, particleResultData);
+```
 
 ### GetMissileAttackParticle
 `public abstract int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Gets the current value of `missile attack particle`.
+**Purpose:** Reads and returns the `missile attack particle` value held by the current object.
+
+```csharp
+// Obtain an instance of DamageParticleModel from the subsystem API first
+DamageParticleModel damageParticleModel = ...;
+var result = damageParticleModel.GetMissileAttackParticle(attacker, victim, blow, collisionData);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDamageParticleModel();
+// Typically obtained from a subsystem API or factory
+DamageParticleModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

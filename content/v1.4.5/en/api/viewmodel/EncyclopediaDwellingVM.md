@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaDwellingVM"
+description: "Auto-generated class reference for EncyclopediaDwellingVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaDwellingVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaDwellingVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaDwellingVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items/EncyclopediaDwellingVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items/EncyclopediaDwellingVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaDwellingVM from the subsystem API first
+EncyclopediaDwellingVM encyclopediaDwellingVM = ...;
+encyclopediaDwellingVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaDwellingVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaDwellingVM encyclopediaDwellingVM = ...;
+encyclopediaDwellingVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DebugNetworkPositionCompressionStatisticsStruct"
+description: "Auto-generated class reference for DebugNetworkPositionCompressionStatisticsStruct."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugNetworkPositionCompressionStatisticsStruct`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugNetworkPositionCompressionStatisticsStruct
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct DebugNetworkPositionCompressionStatisticsStruct`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new DebugNetworkPositionCompressionStatisticsStruct();
+// Obtain an instance from the relevant subsystem API
+DebugNetworkPositionCompressionStatisticsStruct instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

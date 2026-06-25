@@ -1,13 +1,7 @@
 ---
 title: "MapTracksCampaignBehavior"
+description: "Auto-generated class reference for MapTracksCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapTracksCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapTracksCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -36,55 +30,110 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.SyncData(dataStore);
+```
 
 ### IsTrackDropped
 `public bool IsTrackDropped(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `is track dropped`.
+**Purpose:** Determines whether the current object is in the `track dropped` state or condition.
+
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+var result = mapTracksCampaignBehavior.IsTrackDropped(mobileParty);
+```
 
 ### AddTrack
 `public void AddTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
 **Purpose:** Adds `track` to the current collection or state.
 
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.AddTrack(party, trackPosition, trackDirection);
+```
+
 ### AddMapArrow
 `public void AddMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
 **Purpose:** Adds `map arrow` to the current collection or state.
 
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.AddMapArrow(pointerName, trackPosition, trackDirection, 0);
+```
+
 ### RequestTrack
 `public Track RequestTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
-**Purpose:** Handles logic related to `request track`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+var result = mapTracksCampaignBehavior.RequestTrack(party, trackPosition, trackDirection);
+```
 
 ### RequestMapArrow
 `public Track RequestMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
-**Purpose:** Handles logic related to `request map arrow`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+var result = mapTracksCampaignBehavior.RequestMapArrow(pointerName, trackPosition, trackDirection, 0);
+```
 
 ### ReleaseTrack
 `public void ReleaseTrack(Track track)`
 
-**Purpose:** Handles logic related to `release track`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.ReleaseTrack(track);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+var result = mapTracksCampaignBehavior.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapTracksCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

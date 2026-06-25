@@ -1,20 +1,14 @@
 ---
 title: "TeamAIGeneral"
+description: "Auto-generated class reference for TeamAIGeneral."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamAIGeneral`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamAIGeneral
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamAIGeneral : TeamAIComponent`
 **Base:** `TeamAIComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAIGeneral.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAIGeneral.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Called when the `unit added to formation for the first time` event is raised.
+**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+
+```csharp
+// Obtain an instance of TeamAIGeneral from the subsystem API first
+TeamAIGeneral teamAIGeneral = ...;
+teamAIGeneral.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of TeamAIGeneral from the subsystem API first
+TeamAIGeneral teamAIGeneral = ...;
+teamAIGeneral.OnDeploymentFinished();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamAIGeneral();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// Typically call this after obtaining an instance from the subsystem API
+TeamAIGeneral teamAIGeneral = ...;
+teamAIGeneral.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

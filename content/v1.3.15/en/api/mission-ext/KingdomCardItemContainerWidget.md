@@ -1,13 +1,7 @@
 ---
 title: "KingdomCardItemContainerWidget"
+description: "Auto-generated class reference for KingdomCardItemContainerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomCardItemContainerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomCardItemContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
@@ -27,9 +21,10 @@ Treat `KingdomCardItemContainerWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new KingdomCardItemContainerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+KingdomCardItemContainerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

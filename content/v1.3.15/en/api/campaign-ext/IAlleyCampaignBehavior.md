@@ -1,19 +1,13 @@
 ---
 title: "IAlleyCampaignBehavior"
+description: "Auto-generated class reference for IAlleyCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAlleyCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IAlleyCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
+**Type:** `public interface IAlleyCampaignBehavior : ICampaignBehavior`
+**Base:** `ICampaignBehavior`
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IAlleyCampaignBehavior.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IAlleyCampaignBehavior implementation = GetAlleyCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIAlleyCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

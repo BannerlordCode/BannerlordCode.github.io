@@ -1,20 +1,14 @@
 ---
 title: "ManagedDelegate"
+description: "Auto-generated class reference for ManagedDelegate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedDelegate`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedDelegate
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ManagedDelegate : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedDelegate.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedDelegate.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### DelegateDefinition
 `public delegate void DelegateDefinition()`
 
-**Purpose:** Handles logic related to `delegate definition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ManagedDelegate from the subsystem API first
+ManagedDelegate managedDelegate = ...;
+managedDelegate.DelegateDefinition();
+```
 
 ### InvokeAux
 `public void InvokeAux()`
 
-**Purpose:** Handles logic related to `invoke aux`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ManagedDelegate from the subsystem API first
+ManagedDelegate managedDelegate = ...;
+managedDelegate.InvokeAux();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ManagedDelegate();
-value.DelegateDefinition();
+// Typically call this after obtaining an instance from the subsystem API
+ManagedDelegate managedDelegate = ...;
+managedDelegate.DelegateDefinition();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

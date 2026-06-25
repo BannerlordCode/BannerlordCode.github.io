@@ -1,20 +1,14 @@
 ---
 title: "TroopRecruitmentNotificationItemVM"
+description: "Auto-generated class reference for TroopRecruitmentNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopRecruitmentNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopRecruitmentNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TroopRecruitmentNotificationItemVM : SettlementNotificationItemBaseVM`
 **Base:** `SettlementNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/TroopRecruitmentNotificationItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/TroopRecruitmentNotificationItemVM.cs`
 
 ## Overview
 
@@ -37,13 +31,20 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 
 **Purpose:** Adds `new action` to the current collection or state.
 
+```csharp
+// Obtain an instance of TroopRecruitmentNotificationItemVM from the subsystem API first
+TroopRecruitmentNotificationItemVM troopRecruitmentNotificationItemVM = ...;
+troopRecruitmentNotificationItemVM.AddNewAction(0);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new TroopRecruitmentNotificationItemVM();
-value.AddNewAction(0);
+// Typically call this after obtaining an instance from the subsystem API
+TroopRecruitmentNotificationItemVM troopRecruitmentNotificationItemVM = ...;
+troopRecruitmentNotificationItemVM.AddNewAction(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

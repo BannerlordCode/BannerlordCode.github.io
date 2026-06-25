@@ -1,13 +1,7 @@
 ---
 title: "MessageProxy"
+description: "Auto-generated class reference for MessageProxy."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageProxy`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MessageProxy
 
 **Namespace:** TaleWorlds.Network
@@ -29,14 +23,21 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Invoke
 `public abstract Task Invoke(string methodName, params object args)`
 
-**Purpose:** Handles logic related to `invoke`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MessageProxy from the subsystem API first
+MessageProxy messageProxy = ...;
+var result = messageProxy.Invoke("example", args);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMessageProxy();
+// Typically obtained from a subsystem API or factory
+MessageProxy instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

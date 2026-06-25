@@ -1,20 +1,14 @@
 ---
 title: "DefaultEmissaryModel"
+description: "Auto-generated class reference for DefaultEmissaryModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultEmissaryModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEmissaryModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultEmissaryModel : EmissaryModel`
 **Base:** `EmissaryModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultEmissaryModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultEmissaryModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultEmissaryModel` as a Model-style extension point: first identify wh
 ### IsEmissary
 `public override bool IsEmissary(Hero hero)`
 
-**Purpose:** Handles logic related to `is emissary`.
+**Purpose:** Determines whether the current object is in the `emissary` state or condition.
+
+```csharp
+// Obtain an instance of DefaultEmissaryModel from the subsystem API first
+DefaultEmissaryModel defaultEmissaryModel = ...;
+var result = defaultEmissaryModel.IsEmissary(hero);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultEmissaryModel>(new MyDefaultEmissaryModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

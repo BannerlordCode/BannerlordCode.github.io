@@ -1,20 +1,14 @@
 ---
 title: "AIDifficulty"
+description: "Auto-generated class reference for AIDifficulty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AIDifficulty`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AIDifficulty
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public enum AIDifficulty`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/BoardGameHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/BoardGameHelper.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-AIDifficulty example = AIDifficulty.Value;
+// Obtain an instance from the relevant subsystem API
+AIDifficulty instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

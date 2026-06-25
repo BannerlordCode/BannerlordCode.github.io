@@ -1,13 +1,7 @@
 ---
 title: "PeaceOfferCampaignBehavior"
+description: "Auto-generated class reference for PeaceOfferCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PeaceOfferCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeaceOfferCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PeaceOfferCampaignBehavior from the subsystem API first
+PeaceOfferCampaignBehavior peaceOfferCampaignBehavior = ...;
+peaceOfferCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PeaceOfferCampaignBehavior from the subsystem API first
+PeaceOfferCampaignBehavior peaceOfferCampaignBehavior = ...;
+peaceOfferCampaignBehavior.SyncData(dataStore);
+```
 
 ### SetCurrentTributeAmount
 `public void SetCurrentTributeAmount(int tributeAmount)`
 
-**Purpose:** Sets the value or state of `current tribute amount`.
+**Purpose:** Assigns a new value to `current tribute amount` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PeaceOfferCampaignBehavior from the subsystem API first
+PeaceOfferCampaignBehavior peaceOfferCampaignBehavior = ...;
+peaceOfferCampaignBehavior.SetCurrentTributeAmount(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PeaceOfferCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PeaceOfferCampaignBehavior peaceOfferCampaignBehavior = ...;
+peaceOfferCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

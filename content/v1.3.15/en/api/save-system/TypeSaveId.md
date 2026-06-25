@@ -1,24 +1,18 @@
 ---
 title: "TypeSaveId"
+description: "Auto-generated class reference for TypeSaveId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TypeSaveId`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TypeSaveId
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class TypeSaveId : SaveId`
 **Base:** `SaveId`
-**Area:** save-system
+**File:** `TaleWorlds.SaveSystem/Definition/TypeSaveId.cs`
 
 ## Overview
 
-`TypeSaveId` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TypeSaveId` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,32 +29,54 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetStringId
 `public override string GetStringId()`
 
-**Purpose:** Gets the current value of `string id`.
+**Purpose:** Reads and returns the `string id` value held by the current object.
+
+```csharp
+// Obtain an instance of TypeSaveId from the subsystem API first
+TypeSaveId typeSaveId = ...;
+var result = typeSaveId.GetStringId();
+```
 
 ### WriteTo
 `public override void WriteTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `write to`.
+**Purpose:** Writes `to` to the target location.
+
+```csharp
+// Obtain an instance of TypeSaveId from the subsystem API first
+TypeSaveId typeSaveId = ...;
+typeSaveId.WriteTo(writer);
+```
 
 ### ReadFrom
 `public static TypeSaveId ReadFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `read from`.
+**Purpose:** Reads the data or state of `from`.
+
+```csharp
+// Static call; no instance required
+TypeSaveId.ReadFrom(reader);
+```
 
 ### GetSizeInBytes
 `public override int GetSizeInBytes()`
 
-**Purpose:** Gets the current value of `size in bytes`.
+**Purpose:** Reads and returns the `size in bytes` value held by the current object.
+
+```csharp
+// Obtain an instance of TypeSaveId from the subsystem API first
+TypeSaveId typeSaveId = ...;
+var result = typeSaveId.GetSizeInBytes();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a TypeSaveId instance from game state, then call one of its public methods
-var value = new TypeSaveId();
-value.GetStringId();
+// Typically call this after obtaining an instance from the subsystem API
+TypeSaveId typeSaveId = ...;
+typeSaveId.GetStringId();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

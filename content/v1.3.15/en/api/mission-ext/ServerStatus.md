@@ -1,13 +1,7 @@
 ---
 title: "ServerStatus"
+description: "Auto-generated class reference for ServerStatus."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServerStatus`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServerStatus
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -40,9 +34,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new ServerStatus();
+// Obtain an instance from the relevant subsystem API
+ServerStatus instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

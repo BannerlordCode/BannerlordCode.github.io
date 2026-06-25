@@ -1,35 +1,63 @@
 ---
 title: "MissionState"
+description: "Auto-generated class reference for MissionState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionState
 
-**Namespace:** Storymode.Missions
-**Module:** Storymode.Missions
-**Type:** `public enum MissionState`
-**Base:** none
-**File:** `StoryMode/Storymode/Missions/SneakIntoTheVillaMissionController.cs`
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MissionState : GameState`
+**Base:** `GameState`
+**File:** `TaleWorlds.MountAndBlade/MissionState.cs`
 
 ## Overview
 
-`MissionState` lives in `Storymode.Missions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`MissionState` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Start from namespace `Storymode.Missions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `Handler` | `public IMissionSystemHandler Handler { get; }` |
+| `Current` | `public static MissionState Current { get; }` |
+| `CurrentMission` | `public Mission CurrentMission { get; }` |
+| `MissionName` | `public string MissionName { get; }` |
+| `FirstMissionTickAfterLoading` | `public bool FirstMissionTickAfterLoading { get; }` |
+| `Paused` | `public bool Paused { get; set; }` |
+
+## Key Methods
+
+### OpenNew
+`public static Mission OpenNew(string missionName, MissionInitializerRecord rec, InitializeMissionBehaviorsDelegate handler, bool addDefaultMissionBehaviors = true, bool needsMemoryCleanup = true)`
+
+**Purpose:** Opens the resource or UI associated with `new`.
+
+```csharp
+// Static call; no instance required
+MissionState.OpenNew("example", rec, handler, false, false);
+```
+
+### BeginDelayedDisconnectFromMission
+`public void BeginDelayedDisconnectFromMission()`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionState from the subsystem API first
+MissionState missionState = ...;
+missionState.BeginDelayedDisconnectFromMission();
+```
 
 ## Usage Example
 
 ```csharp
-MissionState example = MissionState.Value;
+MissionState.OpenNew("example", rec, handler, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "NetworkMessage"
+description: "NetworkMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NetworkMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NetworkMessage
 
 **Namespace:** TaleWorlds.Network
@@ -29,110 +23,231 @@ title: "NetworkMessage"
 ### Write
 `public void Write(string data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write("example");
+```
 
 ### Write
 `public void Write(int data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(short data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(bool data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(false);
+```
 
 ### Write
 `public void Write(byte data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(float data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(long data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(ulong data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(Guid data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(data);
+```
 
 ### Write
 `public void Write(byte data)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### ReadInt32
 `public int ReadInt32()`
 
-**用途 / Purpose:** 处理 `read int32` 相关逻辑。
+**用途 / Purpose:** 读取「int32」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadInt32();
+```
 
 ### ReadInt16
 `public short ReadInt16()`
 
-**用途 / Purpose:** 处理 `read int16` 相关逻辑。
+**用途 / Purpose:** 读取「int16」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadInt16();
+```
 
 ### ReadBoolean
 `public bool ReadBoolean()`
 
-**用途 / Purpose:** 处理 `read boolean` 相关逻辑。
+**用途 / Purpose:** 读取「boolean」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadBoolean();
+```
 
 ### ReadByte
 `public byte ReadByte()`
 
-**用途 / Purpose:** 处理 `read byte` 相关逻辑。
+**用途 / Purpose:** 读取「byte」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadByte();
+```
 
 ### ReadString
 `public string ReadString()`
 
-**用途 / Purpose:** 处理 `read string` 相关逻辑。
+**用途 / Purpose:** 读取「string」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadString();
+```
 
 ### ReadFloat
 `public float ReadFloat()`
 
-**用途 / Purpose:** 处理 `read float` 相关逻辑。
+**用途 / Purpose:** 读取「float」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadFloat();
+```
 
 ### ReadInt64
 `public long ReadInt64()`
 
-**用途 / Purpose:** 处理 `read int64` 相关逻辑。
+**用途 / Purpose:** 读取「int64」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadInt64();
+```
 
 ### ReadUInt64
 `public ulong ReadUInt64()`
 
-**用途 / Purpose:** 处理 `read u int64` 相关逻辑。
+**用途 / Purpose:** 读取「u int64」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadUInt64();
+```
 
 ### ReadGuid
 `public Guid ReadGuid()`
 
-**用途 / Purpose:** 处理 `read guid` 相关逻辑。
+**用途 / Purpose:** 读取「guid」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadGuid();
+```
 
 ### ReadByteArray
 `public byte ReadByteArray()`
 
-**用途 / Purpose:** 处理 `read byte array` 相关逻辑。
+**用途 / Purpose:** 读取「byte array」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkMessage 实例
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadByteArray();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NetworkMessage();
-value.Write("example");
+// 通常从对应子系统 API 获取实例后调用
+NetworkMessage networkMessage = ...;
+networkMessage.Write("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

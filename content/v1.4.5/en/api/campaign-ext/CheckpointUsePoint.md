@@ -1,20 +1,14 @@
 ---
 title: "CheckpointUsePoint"
+description: "Auto-generated class reference for CheckpointUsePoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheckpointUsePoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheckpointUsePoint
 
 **Namespace:** SandBox.Objects.Usables
 **Module:** SandBox.Objects
 **Type:** `public class CheckpointUsePoint : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Usables/CheckpointUsePoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.Usables/CheckpointUsePoint.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CheckpointUsePoint from the subsystem API first
+CheckpointUsePoint checkpointUsePoint = ...;
+checkpointUsePoint.AfterMissionStart();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of CheckpointUsePoint from the subsystem API first
+CheckpointUsePoint checkpointUsePoint = ...;
+var result = checkpointUsePoint.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of CheckpointUsePoint from the subsystem API first
+CheckpointUsePoint checkpointUsePoint = ...;
+var result = checkpointUsePoint.GetDescriptionText(gameEntity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CheckpointUsePoint();
-value.AfterMissionStart();
+// Typically call this after obtaining an instance from the subsystem API
+CheckpointUsePoint checkpointUsePoint = ...;
+checkpointUsePoint.AfterMissionStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

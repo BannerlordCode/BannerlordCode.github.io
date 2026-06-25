@@ -1,20 +1,14 @@
 ---
 title: "MBGUID"
+description: "Auto-generated class reference for MBGUID."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBGUID`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBGUID
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public struct MBGUID : IComparable, IEquatable<MBGUID>`
 **Base:** `IComparable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBGUID.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBGUID.cs`
 
 ## Overview
 
@@ -29,37 +23,78 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### GetHash2
 `public static long GetHash2(MBGUID id1, MBGUID id2)`
 
-**Purpose:** Gets the current value of `hash2`.
+**Purpose:** Reads and returns the `hash2` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBGUID.GetHash2(id1, id2);
+```
 
 ### CompareTo
 `public int CompareTo(object a)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of MBGUID from the subsystem API first
+MBGUID mBGUID = ...;
+var result = mBGUID.CompareTo(a);
+```
 
 ### GetTypeIndex
 `public uint GetTypeIndex()`
 
-**Purpose:** Gets the current value of `type index`.
+**Purpose:** Reads and returns the `type index` value held by the current object.
+
+```csharp
+// Obtain an instance of MBGUID from the subsystem API first
+MBGUID mBGUID = ...;
+var result = mBGUID.GetTypeIndex();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MBGUID from the subsystem API first
+MBGUID mBGUID = ...;
+var result = mBGUID.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MBGUID from the subsystem API first
+MBGUID mBGUID = ...;
+var result = mBGUID.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MBGUID from the subsystem API first
+MBGUID mBGUID = ...;
+var result = mBGUID.Equals(obj);
+```
 
 ### Equals
 `public bool Equals(MBGUID other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MBGUID from the subsystem API first
+MBGUID mBGUID = ...;
+var result = mBGUID.Equals(other);
+```
 
 ## Usage Example
 
@@ -69,4 +104,4 @@ MBGUID.GetHash2(id1, id2);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

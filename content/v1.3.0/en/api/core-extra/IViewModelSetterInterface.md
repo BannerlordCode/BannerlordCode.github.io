@@ -1,13 +1,7 @@
 ---
 title: "IViewModelSetterInterface"
+description: "Auto-generated class reference for IViewModelSetterInterface."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IViewModelSetterInterface`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IViewModelSetterInterface
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-IViewModelSetterInterface implementation = GetViewModelSetterInterfaceImplementation();
+// Usually obtained through DI or a factory method
+IIViewModelSetterInterface service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

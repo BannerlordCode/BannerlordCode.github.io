@@ -1,18 +1,12 @@
 ---
 title: "PlayerNotEligibleError"
+description: "Auto-generated class reference for PlayerNotEligibleError."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerNotEligibleError`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerNotEligibleError
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum PlayerNotEligibleError`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/PlayerNotEligibleError.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new PlayerNotEligibleError();
+// Obtain an instance from the relevant subsystem API
+PlayerNotEligibleError instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

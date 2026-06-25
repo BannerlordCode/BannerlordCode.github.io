@@ -1,13 +1,7 @@
 ---
 title: "WarMapNotification"
+description: "Auto-generated class reference for WarMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WarMapNotification`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WarMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ## Usage Example
 
 ```csharp
-var value = new WarMapNotification();
+// Obtain an instance from the relevant subsystem API
+WarMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

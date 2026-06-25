@@ -1,13 +1,7 @@
 ---
 title: "ArmorComponent"
+description: "ArmorComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArmorComponent`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ArmorComponent
 
 **Namespace:** TaleWorlds.Core
@@ -54,12 +48,24 @@ title: "ArmorComponent"
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**用途 / Purpose:** 获取 `copy` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「copy」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmorComponent 实例
+ArmorComponent armorComponent = ...;
+var result = armorComponent.GetCopy();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ArmorComponent 实例
+ArmorComponent armorComponent = ...;
+armorComponent.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
@@ -69,4 +75,4 @@ var component = agent.GetComponent<ArmorComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

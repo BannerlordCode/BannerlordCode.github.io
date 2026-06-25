@@ -1,20 +1,14 @@
 ---
 title: "MissionMessageUIHandler"
+description: "Auto-generated class reference for MissionMessageUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMessageUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMessageUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMessageUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionMessageUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionMessageUIHandler.cs`
 
 ## Overview
 
@@ -29,24 +23,42 @@ Treat `MissionMessageUIHandler` as a Handler-style extension point: first identi
 ### ShowMessage
 `public void ShowMessage(string str, float duration, bool hasPriority = true)`
 
-**Purpose:** Handles logic related to `show message`.
+**Purpose:** Displays the UI or element associated with `message`.
+
+```csharp
+// Obtain an instance of MissionMessageUIHandler from the subsystem API first
+MissionMessageUIHandler missionMessageUIHandler = ...;
+missionMessageUIHandler.ShowMessage("example", 0, false);
+```
 
 ### DeleteMessage
 `public void DeleteMessage(string str)`
 
-**Purpose:** Handles logic related to `delete message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMessageUIHandler from the subsystem API first
+MissionMessageUIHandler missionMessageUIHandler = ...;
+missionMessageUIHandler.DeleteMessage("example");
+```
 
 ### DeleteCurrentMessage
 `public void DeleteCurrentMessage()`
 
-**Purpose:** Handles logic related to `delete current message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMessageUIHandler from the subsystem API first
+MissionMessageUIHandler missionMessageUIHandler = ...;
+missionMessageUIHandler.DeleteCurrentMessage();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionMessageUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionMessageUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

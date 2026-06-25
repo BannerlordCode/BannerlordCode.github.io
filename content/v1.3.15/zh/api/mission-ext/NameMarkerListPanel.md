@@ -1,13 +1,7 @@
 ---
 title: "NameMarkerListPanel"
+description: "NameMarkerListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NameMarkerListPanel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NameMarkerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
@@ -59,20 +53,33 @@ title: "NameMarkerListPanel"
 ### Update
 `public void Update(float dt)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 NameMarkerListPanel 实例
+NameMarkerListPanel nameMarkerListPanel = ...;
+nameMarkerListPanel.Update(0);
+```
 
 ### UpdateRectangle
 `public void UpdateRectangle()`
 
-**用途 / Purpose:** 更新 `rectangle` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「rectangle」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 NameMarkerListPanel 实例
+NameMarkerListPanel nameMarkerListPanel = ...;
+nameMarkerListPanel.UpdateRectangle();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NameMarkerListPanel();
-value.Update(0);
+// 通常从对应子系统 API 获取实例后调用
+NameMarkerListPanel nameMarkerListPanel = ...;
+nameMarkerListPanel.Update(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "HttpPostRequest"
+description: "HttpPostRequest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HttpPostRequest`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HttpPostRequest
 
 **Namespace:** TaleWorlds.Library.Http
 **Module:** TaleWorlds.Library
 **Type:** `public class HttpPostRequest : IHttpRequestTask`
 **Base:** `IHttpRequestTask`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpPostRequest.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpPostRequest.cs`
 
 ## 概述
 
@@ -38,15 +32,22 @@ title: "HttpPostRequest"
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 HttpPostRequest 实例
+HttpPostRequest httpPostRequest = ...;
+httpPostRequest.Start();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HttpPostRequest();
-value.Start();
+// 通常从对应子系统 API 获取实例后调用
+HttpPostRequest httpPostRequest = ...;
+httpPostRequest.Start();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

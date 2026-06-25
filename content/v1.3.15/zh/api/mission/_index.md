@@ -1,22 +1,103 @@
 ---
-title: Mission 战斗系统 / Mission
-description: TaleWorlds.MountAndBlade 战斗任务 / Combat missions
+title: "mission 目录"
+description: TaleWorlds.MountAndBlade 战斗系统类参考目录
 ---
-# Mission 战斗系统 / Mission
+<!-- BEGIN SECTION INDEX -->
 
-## 心智模型
+## ↑ 上级导航
 
-先把 `Mission 战斗系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+- [API 参考](../)
+- [版本首页](../../)
 
-v1.3.15 战斗任务模块文档。
+## ↓ 子类列表 — 按字母分组
 
-Mission module documentation for v1.3.15.
+### A
 
-## 文件 / Files
+- [ActionIndexCache](./ActionIndexCache)
+- [Agent](./Agent)
+- [AgentCreationResult](./AgentCreationResult)
+- [AgentHelper](./AgentHelper)
 
-\| 文件 / File \| 描述 / Description \|
-\|------------\|-------------------\|
-\| [Agent.md](./Agent) \| 战斗单位类 \|
-\| [Formation.md](./Formation) \| 战斗阵型类 \|
-\| [Mission.md](./Mission) \| 任务主类 \|
-\| [Team.md](./Team) \| 战斗队伍类 \|
+### D
+
+- [DefineGameNetworkMessageType](./DefineGameNetworkMessageType)
+- [DefineSynchedMissionObjectType](./DefineSynchedMissionObjectType)
+- [DropExtraWeaponOnStopUsageComponent](./DropExtraWeaponOnStopUsageComponent)
+- [DynamicNavmeshLocalIds](./DynamicNavmeshLocalIds)
+
+### F
+
+- [Formation](./Formation)
+- [FormationSpawnData](./FormationSpawnData)
+
+### G
+
+- [GenericMissionObjective](./GenericMissionObjective)
+- [GenericMissionObjectiveTarget](./GenericMissionObjectiveTarget)
+
+### I
+
+- [IMBActionSet](./IMBActionSet)
+- [IMBAgent](./IMBAgent)
+- [IMBAgentVisuals](./IMBAgentVisuals)
+- [IMBAnimation](./IMBAnimation)
+- [IMBBannerlordChecker](./IMBBannerlordChecker)
+- [IMBBannerlordConfig](./IMBBannerlordConfig)
+- [IMBBannerlordTableauManager](./IMBBannerlordTableauManager)
+- [IMBDebugExtensions](./IMBDebugExtensions)
+- [IMBDelegate](./IMBDelegate)
+- [IMBEditor](./IMBEditor)
+- [IMBFaceGen](./IMBFaceGen)
+- [IMBGame](./IMBGame)
+- [IMBGameEntityExtensions](./IMBGameEntityExtensions)
+- [IMBItem](./IMBItem)
+- [IMBMapScene](./IMBMapScene)
+- [IMBMessageManager](./IMBMessageManager)
+- [IMBMission](./IMBMission)
+- [IMBMultiplayerData](./IMBMultiplayerData)
+- [IMBNetwork](./IMBNetwork)
+- [IMBPeer](./IMBPeer)
+- [IMBScreen](./IMBScreen)
+- [IMBSkeletonExtensions](./IMBSkeletonExtensions)
+- [IMBSoundEvent](./IMBSoundEvent)
+- [IMBTeam](./IMBTeam)
+- [IMBTestRun](./IMBTestRun)
+- [IMBVoiceManager](./IMBVoiceManager)
+- [IMBWindowManager](./IMBWindowManager)
+- [IMBWorld](./IMBWorld)
+- [ItemInnerData](./ItemInnerData)
+- [ItemList](./ItemList)
+- [ItemType](./ItemType)
+
+### M
+
+- [MBNetworkPeer](./MBNetworkPeer)
+- [Mission](./Mission)
+- [MissionBehavior](./MissionBehavior)
+- [MultiplayerBattleColors](./MultiplayerBattleColors)
+- [MultiplayerCultureColorInfo](./MultiplayerCultureColorInfo)
+
+### O
+
+- [OnPlatformRequestedMultiplayerJob](./OnPlatformRequestedMultiplayerJob)
+- [OnSessionInvitationAcceptedJob](./OnSessionInvitationAcceptedJob)
+
+### P
+
+- [PerkAssemblyCollection](./PerkAssemblyCollection)
+- [PlayerTypes](./PlayerTypes)
+- [ProximityMapSearchStructInternal](./ProximityMapSearchStructInternal)
+
+### S
+
+- [ScriptingInterfaceBase](./ScriptingInterfaceBase)
+
+### T
+
+- [TacticOption](./TacticOption)
+- [Target](./Target)
+- [Team](./Team)
+- [ToolDebugManager](./ToolDebugManager)
+
+
+<!-- END SECTION INDEX -->

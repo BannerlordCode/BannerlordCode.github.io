@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListSelectorVM"
+description: "EncyclopediaListSelectorVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListSelectorVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaListSelectorVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
@@ -29,15 +23,22 @@ title: "EncyclopediaListSelectorVM"
 ### ExecuteOnDropdownActivated
 `public void ExecuteOnDropdownActivated()`
 
-**用途 / Purpose:** 执行 `on dropdown activated` 操作或流程。
+**用途 / Purpose:** 执行 「on dropdown activated」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListSelectorVM 实例
+EncyclopediaListSelectorVM encyclopediaListSelectorVM = ...;
+encyclopediaListSelectorVM.ExecuteOnDropdownActivated();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaListSelectorVM();
-value.ExecuteOnDropdownActivated();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaListSelectorVM encyclopediaListSelectorVM = ...;
+encyclopediaListSelectorVM.ExecuteOnDropdownActivated();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

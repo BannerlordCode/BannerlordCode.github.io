@@ -1,13 +1,7 @@
 ---
 title: "MarriageOfferMapNotification"
+description: "Auto-generated class reference for MarriageOfferMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarriageOfferMapNotification`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageOfferMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of MarriageOfferMapNotification from the subsystem API first
+MarriageOfferMapNotification marriageOfferMapNotification = ...;
+var result = marriageOfferMapNotification.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MarriageOfferMapNotification();
-value.IsValid();
+// Typically call this after obtaining an instance from the subsystem API
+MarriageOfferMapNotification marriageOfferMapNotification = ...;
+marriageOfferMapNotification.IsValid();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

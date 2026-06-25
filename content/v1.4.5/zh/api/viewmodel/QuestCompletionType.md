@@ -1,20 +1,14 @@
 ---
 title: "QuestCompletionType"
+description: "QuestCompletionType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QuestCompletionType`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestCompletionType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum QuestCompletionType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Quests/QuestsVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Quests/QuestsVM.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "QuestCompletionType"
 ## 使用示例
 
 ```csharp
-QuestCompletionType example = QuestCompletionType.Value;
+// 从对应子系统 API 获取实例
+QuestCompletionType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

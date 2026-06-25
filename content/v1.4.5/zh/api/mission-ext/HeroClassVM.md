@@ -1,20 +1,14 @@
 ---
 title: "HeroClassVM"
+description: "HeroClassVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroClassVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroClassVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HeroClassVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/HeroClassVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/HeroClassVM.cs`
 
 ## 概述
 
@@ -47,25 +41,44 @@ title: "HeroClassVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 HeroClassVM 实例
+HeroClassVM heroClassVM = ...;
+heroClassVM.RefreshValues();
+```
 
 ### UpdateEnabled
 `public void UpdateEnabled()`
 
-**用途 / Purpose:** 更新 `enabled` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「enabled」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 HeroClassVM 实例
+HeroClassVM heroClassVM = ...;
+heroClassVM.UpdateEnabled();
+```
 
 ### OnSelect
 `public void OnSelect()`
 
-**用途 / Purpose:** 当 `select` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「select」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HeroClassVM 实例
+HeroClassVM heroClassVM = ...;
+heroClassVM.OnSelect();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HeroClassVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+HeroClassVM heroClassVM = ...;
+heroClassVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

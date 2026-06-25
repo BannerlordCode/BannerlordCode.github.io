@@ -1,13 +1,7 @@
 ---
 title: "MusicStealthMissionView"
+description: "Auto-generated class reference for MusicStealthMissionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MusicStealthMissionView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicStealthMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Sound
@@ -29,39 +23,76 @@ Treat `MusicStealthMissionView` as a View-style extension point: first identify 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MusicStealthMissionView from the subsystem API first
+MusicStealthMissionView musicStealthMissionView = ...;
+musicStealthMissionView.OnBehaviorInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MusicStealthMissionView from the subsystem API first
+MusicStealthMissionView musicStealthMissionView = ...;
+musicStealthMissionView.OnMissionScreenFinalize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MusicStealthMissionView from the subsystem API first
+MusicStealthMissionView musicStealthMissionView = ...;
+musicStealthMissionView.AfterStart();
+```
 
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, Agent.AIStateFlag flag)`
 
-**Purpose:** Called when the `agent alarmed state changed` event is raised.
+**Purpose:** Invoked when the `agent alarmed state changed` event is raised.
+
+```csharp
+// Obtain an instance of MusicStealthMissionView from the subsystem API first
+MusicStealthMissionView musicStealthMissionView = ...;
+musicStealthMissionView.OnAgentAlarmedStateChanged(agent, flag);
+```
 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Called when the `agent hit` event is raised.
+**Purpose:** Invoked when the `agent hit` event is raised.
+
+```csharp
+// Obtain an instance of MusicStealthMissionView from the subsystem API first
+MusicStealthMissionView musicStealthMissionView = ...;
+musicStealthMissionView.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, blow, attackCollisionData);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MusicStealthMissionView from the subsystem API first
+MusicStealthMissionView musicStealthMissionView = ...;
+musicStealthMissionView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MusicStealthMissionView();
+// Retrieve this view from the subsystem API or scene
+MusicStealthMissionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

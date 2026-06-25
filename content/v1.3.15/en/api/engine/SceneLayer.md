@@ -1,13 +1,7 @@
 ---
 title: "SceneLayer"
+description: "Auto-generated class reference for SceneLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneLayer`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SceneLayer
 
 **Namespace:** TaleWorlds.Engine.Screens
@@ -37,120 +31,253 @@ Start from namespace `TaleWorlds.Engine.Screens` to place it in the stack, then 
 ### SetScene
 `public void SetScene(Scene scene)`
 
-**Purpose:** Sets the value or state of `scene`.
+**Purpose:** Assigns a new value to `scene` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetScene(scene);
+```
 
 ### SetRenderWithPostfx
 `public void SetRenderWithPostfx(bool value)`
 
-**Purpose:** Sets the value or state of `render with postfx`.
+**Purpose:** Assigns a new value to `render with postfx` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetRenderWithPostfx(false);
+```
 
 ### SetPostfxConfigParams
 `public void SetPostfxConfigParams(int value)`
 
-**Purpose:** Sets the value or state of `postfx config params`.
+**Purpose:** Assigns a new value to `postfx config params` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetPostfxConfigParams(0);
+```
 
 ### SetCamera
 `public void SetCamera(Camera camera)`
 
-**Purpose:** Sets the value or state of `camera`.
+**Purpose:** Assigns a new value to `camera` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetCamera(camera);
+```
 
 ### SetPostfxFromConfig
 `public void SetPostfxFromConfig()`
 
-**Purpose:** Sets the value or state of `postfx from config`.
+**Purpose:** Assigns a new value to `postfx from config` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetPostfxFromConfig();
+```
 
 ### WorldPointToScreenPoint
 `public Vec2 WorldPointToScreenPoint(Vec3 position)`
 
-**Purpose:** Handles logic related to `world point to screen point`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+var result = sceneLayer.WorldPointToScreenPoint(position);
+```
 
 ### ScreenPointToViewportPoint
 `public Vec2 ScreenPointToViewportPoint(Vec2 position)`
 
-**Purpose:** Handles logic related to `screen point to viewport point`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+var result = sceneLayer.ScreenPointToViewportPoint(position);
+```
 
 ### ProjectedMousePositionOnGround
 `public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
 
-**Purpose:** Handles logic related to `projected mouse position on ground`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+var result = sceneLayer.ProjectedMousePositionOnGround(groundPosition, groundNormal, false, excludeBodyOwnerFlags, false);
+```
 
 ### TranslateMouse
 `public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)`
 
-**Purpose:** Handles logic related to `translate mouse`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.TranslateMouse(worldMouseNear, worldMouseFar, 0);
+```
 
 ### SetSceneUsesSkybox
 `public void SetSceneUsesSkybox(bool value)`
 
-**Purpose:** Sets the value or state of `scene uses skybox`.
+**Purpose:** Assigns a new value to `scene uses skybox` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetSceneUsesSkybox(false);
+```
 
 ### SetSceneUsesShadows
 `public void SetSceneUsesShadows(bool value)`
 
-**Purpose:** Sets the value or state of `scene uses shadows`.
+**Purpose:** Assigns a new value to `scene uses shadows` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetSceneUsesShadows(false);
+```
 
 ### SetSceneUsesContour
 `public void SetSceneUsesContour(bool value)`
 
-**Purpose:** Sets the value or state of `scene uses contour`.
+**Purpose:** Assigns a new value to `scene uses contour` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetSceneUsesContour(false);
+```
 
 ### SetShadowmapResolutionMultiplier
 `public void SetShadowmapResolutionMultiplier(float value)`
 
-**Purpose:** Sets the value or state of `shadowmap resolution multiplier`.
+**Purpose:** Assigns a new value to `shadowmap resolution multiplier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetShadowmapResolutionMultiplier(0);
+```
 
 ### SetFocusedShadowmap
 `public void SetFocusedShadowmap(bool enable, ref Vec3 center, float radius)`
 
-**Purpose:** Sets the value or state of `focused shadowmap`.
+**Purpose:** Assigns a new value to `focused shadowmap` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetFocusedShadowmap(false, center, 0);
+```
 
 ### DoNotClear
 `public void DoNotClear(bool value)`
 
-**Purpose:** Handles logic related to `do not clear`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.DoNotClear(false);
+```
 
 ### ReadyToRender
 `public bool ReadyToRender()`
 
-**Purpose:** Handles logic related to `ready to render`.
+**Purpose:** Reads the data or state of `y to render`.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+var result = sceneLayer.ReadyToRender();
+```
 
 ### SetCleanScreenUntilLoadingDone
 `public void SetCleanScreenUntilLoadingDone(bool value)`
 
-**Purpose:** Sets the value or state of `clean screen until loading done`.
+**Purpose:** Assigns a new value to `clean screen until loading done` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.SetCleanScreenUntilLoadingDone(false);
+```
 
 ### ClearAll
 `public void ClearAll()`
 
-**Purpose:** Handles logic related to `clear all`.
+**Purpose:** Removes all `all` from the current object.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.ClearAll();
+```
 
 ### ClearRuntimeGPUMemory
 `public void ClearRuntimeGPUMemory(bool remove_terrain)`
 
-**Purpose:** Handles logic related to `clear runtime g p u memory`.
+**Purpose:** Removes all `runtime g p u memory` from the current object.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+sceneLayer.ClearRuntimeGPUMemory(false);
+```
 
 ### HitTest
 `public override bool HitTest(Vector2 position)`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+var result = sceneLayer.HitTest(position);
+```
 
 ### HitTest
 `public override bool HitTest()`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+var result = sceneLayer.HitTest();
+```
 
 ### FocusTest
 `public override bool FocusTest()`
 
-**Purpose:** Handles logic related to `focus test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneLayer from the subsystem API first
+SceneLayer sceneLayer = ...;
+var result = sceneLayer.FocusTest();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SceneLayer();
-value.SetScene(scene);
+// Typically call this after obtaining an instance from the subsystem API
+SceneLayer sceneLayer = ...;
+sceneLayer.SetScene(scene);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

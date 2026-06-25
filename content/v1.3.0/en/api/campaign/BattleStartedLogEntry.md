@@ -1,13 +1,7 @@
 ---
 title: "BattleStartedLogEntry"
+description: "Auto-generated class reference for BattleStartedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleStartedLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleStartedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of BattleStartedLogEntry from the subsystem API first
+BattleStartedLogEntry battleStartedLogEntry = ...;
+var result = battleStartedLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleStartedLogEntry from the subsystem API first
+BattleStartedLogEntry battleStartedLogEntry = ...;
+var result = battleStartedLogEntry.GetNotificationText();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleStartedLogEntry from the subsystem API first
+BattleStartedLogEntry battleStartedLogEntry = ...;
+var result = battleStartedLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattleStartedLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+BattleStartedLogEntry battleStartedLogEntry = ...;
+battleStartedLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

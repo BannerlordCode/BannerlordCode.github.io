@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentStatusVM"
+description: "MissionAgentStatusVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentStatusVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionAgentStatusVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
@@ -67,80 +61,165 @@ title: "MissionAgentStatusVM"
 ### InitializeMainAgentPropterties
 `public void InitializeMainAgentPropterties()`
 
-**用途 / Purpose:** 初始化 `main agent propterties` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「main agent propterties」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.InitializeMainAgentPropterties();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.Tick(0);
+```
 
 ### OnEquipmentInteractionViewToggled
 `public void OnEquipmentInteractionViewToggled(bool isActive)`
 
-**用途 / Purpose:** 当 `equipment interaction view toggled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「equipment interaction view toggled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnEquipmentInteractionViewToggled(false);
+```
 
 ### OnMainAgentWeaponChange
 `public void OnMainAgentWeaponChange()`
 
-**用途 / Purpose:** 当 `main agent weapon change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「main agent weapon change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnMainAgentWeaponChange();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnAgentRemoved(agent);
+```
 
 ### OnAgentDeleted
 `public void OnAgentDeleted(Agent agent)`
 
-**用途 / Purpose:** 当 `agent deleted` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent deleted」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnAgentDeleted(agent);
+```
 
 ### OnMainAgentHit
 `public void OnMainAgentHit(int damage, float distance)`
 
-**用途 / Purpose:** 当 `main agent hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「main agent hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnMainAgentHit(0, 0);
+```
 
 ### OnFocusGained
 `public void OnFocusGained(Agent mainAgent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** 当 `focus gained` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus gained」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnFocusGained(mainAgent, focusableObject, false);
+```
 
 ### OnFocusLost
 `public void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** 当 `focus lost` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus lost」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnFocusLost(agent, focusableObject);
+```
 
 ### OnSecondaryFocusGained
 `public void OnSecondaryFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** 当 `secondary focus gained` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「secondary focus gained」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnSecondaryFocusGained(agent, focusableObject, false);
+```
 
 ### OnSecondaryFocusLost
 `public void OnSecondaryFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** 当 `secondary focus lost` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「secondary focus lost」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnSecondaryFocusLost(agent, focusableObject);
+```
 
 ### OnAgentInteraction
 `public void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `agent interaction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent interaction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentStatusVM 实例
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionAgentStatusVM();
-value.InitializeMainAgentPropterties();
+// 通常从对应子系统 API 获取实例后调用
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.InitializeMainAgentPropterties();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

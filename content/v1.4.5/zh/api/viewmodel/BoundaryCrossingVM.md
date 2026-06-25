@@ -1,20 +1,14 @@
 ---
 title: "BoundaryCrossingVM"
+description: "BoundaryCrossingVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoundaryCrossingVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoundaryCrossingVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BoundaryCrossingVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/BoundaryCrossingVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/BoundaryCrossingVM.cs`
 
 ## 概述
 
@@ -37,9 +31,10 @@ title: "BoundaryCrossingVM"
 ## 使用示例
 
 ```csharp
-var example = new BoundaryCrossingVM();
+// 从对应子系统 API 获取实例
+BoundaryCrossingVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DailyBehaviorGroup"
+description: "DailyBehaviorGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DailyBehaviorGroup`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DailyBehaviorGroup
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,35 +23,66 @@ title: "DailyBehaviorGroup"
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 DailyBehaviorGroup 实例
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.Tick(0, false);
+```
 
 ### ConversationTick
 `public override void ConversationTick()`
 
-**用途 / Purpose:** 处理 `conversation tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DailyBehaviorGroup 实例
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.ConversationTick();
+```
 
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DailyBehaviorGroup 实例
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+var result = dailyBehaviorGroup.GetScore(false);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DailyBehaviorGroup 实例
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.OnAgentRemoved(agent);
+```
 
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 处理 `force think` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DailyBehaviorGroup 实例
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.ForceThink(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DailyBehaviorGroup();
-value.Tick(0, false);
+// 通常从对应子系统 API 获取实例后调用
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.Tick(0, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

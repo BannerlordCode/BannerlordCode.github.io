@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaFamilyMemberVM"
+description: "EncyclopediaFamilyMemberVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaFamilyMemberVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaFamilyMemberVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items
@@ -35,15 +29,22 @@ title: "EncyclopediaFamilyMemberVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaFamilyMemberVM 实例
+EncyclopediaFamilyMemberVM encyclopediaFamilyMemberVM = ...;
+encyclopediaFamilyMemberVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaFamilyMemberVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaFamilyMemberVM encyclopediaFamilyMemberVM = ...;
+encyclopediaFamilyMemberVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

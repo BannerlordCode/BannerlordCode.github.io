@@ -1,13 +1,7 @@
 ---
 title: "MissionSiegeEngineMarkerView"
+description: "Auto-generated class reference for MissionSiegeEngineMarkerView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeEngineMarkerView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeEngineMarkerView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -27,9 +21,10 @@ Treat `MissionSiegeEngineMarkerView` as a View-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var view = new MissionSiegeEngineMarkerView();
+// Retrieve this view from the subsystem API or scene
+MissionSiegeEngineMarkerView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

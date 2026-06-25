@@ -1,13 +1,7 @@
 ---
 title: "MarriageModel"
+description: "MarriageModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MarriageModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,49 +30,98 @@ title: "MarriageModel"
 ### IsCoupleSuitableForMarriage
 `public abstract bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)`
 
-**用途 / Purpose:** 处理 `is couple suitable for marriage` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「couple suitable for marriage」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageModel 实例
+MarriageModel marriageModel = ...;
+var result = marriageModel.IsCoupleSuitableForMarriage(firstHero, secondHero);
+```
 
 ### GetEffectiveRelationIncrease
 `public abstract int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)`
 
-**用途 / Purpose:** 获取 `effective relation increase` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「effective relation increase」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageModel 实例
+MarriageModel marriageModel = ...;
+var result = marriageModel.GetEffectiveRelationIncrease(firstHero, secondHero);
+```
 
 ### GetClanAfterMarriage
 `public abstract Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)`
 
-**用途 / Purpose:** 获取 `clan after marriage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「clan after marriage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageModel 实例
+MarriageModel marriageModel = ...;
+var result = marriageModel.GetClanAfterMarriage(firstHero, secondHero);
+```
 
 ### IsSuitableForMarriage
 `public abstract bool IsSuitableForMarriage(Hero hero)`
 
-**用途 / Purpose:** 处理 `is suitable for marriage` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「suitable for marriage」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageModel 实例
+MarriageModel marriageModel = ...;
+var result = marriageModel.IsSuitableForMarriage(hero);
+```
 
 ### IsClanSuitableForMarriage
 `public abstract bool IsClanSuitableForMarriage(Clan clan)`
 
-**用途 / Purpose:** 处理 `is clan suitable for marriage` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「clan suitable for marriage」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageModel 实例
+MarriageModel marriageModel = ...;
+var result = marriageModel.IsClanSuitableForMarriage(clan);
+```
 
 ### NpcCoupleMarriageChance
 `public abstract float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)`
 
-**用途 / Purpose:** 处理 `npc couple marriage chance` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageModel 实例
+MarriageModel marriageModel = ...;
+var result = marriageModel.NpcCoupleMarriageChance(firstHero, secondHero);
+```
 
 ### ShouldNpcMarriageBetweenClansBeAllowed
 `public abstract bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)`
 
-**用途 / Purpose:** 处理 `should npc marriage between clans be allowed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageModel 实例
+MarriageModel marriageModel = ...;
+var result = marriageModel.ShouldNpcMarriageBetweenClansBeAllowed(consideringClan, targetClan);
+```
 
 ### GetAdultChildrenSuitableForMarriage
 `public abstract List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)`
 
-**用途 / Purpose:** 获取 `adult children suitable for marriage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「adult children suitable for marriage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageModel 实例
+MarriageModel marriageModel = ...;
+var result = marriageModel.GetAdultChildrenSuitableForMarriage(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMarriageModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MarriageModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

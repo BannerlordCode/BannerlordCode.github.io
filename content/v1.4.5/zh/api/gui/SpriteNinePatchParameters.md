@@ -1,20 +1,14 @@
 ---
 title: "SpriteNinePatchParameters"
+description: "SpriteNinePatchParameters 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SpriteNinePatchParameters`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpriteNinePatchParameters
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct SpriteNinePatchParameters`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteNinePatchParameters.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteNinePatchParameters.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "SpriteNinePatchParameters"
 ### SpriteNinePatchParameters
 `public struct SpriteNinePatchParameters(int leftWidth, int rightWidth, int topHeight, int bottomHeight)`
 
-**用途 / Purpose:** 处理 `sprite nine patch parameters` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteNinePatchParameters 实例
+SpriteNinePatchParameters spriteNinePatchParameters = ...;
+var result = spriteNinePatchParameters.SpriteNinePatchParameters(0, 0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SpriteNinePatchParameters();
-value.SpriteNinePatchParameters(0, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+SpriteNinePatchParameters spriteNinePatchParameters = ...;
+spriteNinePatchParameters.SpriteNinePatchParameters(0, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

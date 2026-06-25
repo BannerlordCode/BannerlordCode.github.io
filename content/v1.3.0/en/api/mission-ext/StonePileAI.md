@@ -1,13 +1,7 @@
 ---
 title: "StonePileAI"
+description: "Auto-generated class reference for StonePileAI."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StonePileAI`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StonePileAI
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(StonePile usableMachine, StandingPoint standingPoint, List<Agent> agents, List<Agent> usedAgents)`
 
-**Purpose:** Gets the current value of `suitable agent for standing point`.
+**Purpose:** Reads and returns the `suitable agent for standing point` value held by the current object.
+
+```csharp
+// Static call; no instance required
+StonePileAI.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, agents, usedAgents);
+```
 
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(StonePile stonePile, StandingPoint standingPoint, List<ValueTuple<Agent, float>> agents, List<Agent> usedAgents, float weight)`
 
-**Purpose:** Gets the current value of `suitable agent for standing point`.
+**Purpose:** Reads and returns the `suitable agent for standing point` value held by the current object.
+
+```csharp
+// Static call; no instance required
+StonePileAI.GetSuitableAgentForStandingPoint(stonePile, standingPoint, list<ValueTuple<Agent, 0, usedAgents, 0);
+```
 
 ### IsAgentAssignable
 `public static bool IsAgentAssignable(Agent agent)`
 
-**Purpose:** Handles logic related to `is agent assignable`.
+**Purpose:** Determines whether the current object is in the `agent assignable` state or condition.
+
+```csharp
+// Static call; no instance required
+StonePileAI.IsAgentAssignable(agent);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ StonePileAI.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, agent
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

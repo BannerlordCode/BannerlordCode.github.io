@@ -1,13 +1,7 @@
 ---
 title: "DefaultVillageProductionCalculatorModel"
+description: "Auto-generated class reference for DefaultVillageProductionCalculatorModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultVillageProductionCalculatorModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultVillageProductionCalculatorModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ Treat `DefaultVillageProductionCalculatorModel` as a Model-style extension point
 ### CalculateDailyProductionAmount
 `public override ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
 
-**Purpose:** Handles logic related to `calculate daily production amount`.
+**Purpose:** Calculates the current value or result of `daily production amount`.
+
+```csharp
+// Obtain an instance of DefaultVillageProductionCalculatorModel from the subsystem API first
+DefaultVillageProductionCalculatorModel defaultVillageProductionCalculatorModel = ...;
+var result = defaultVillageProductionCalculatorModel.CalculateDailyProductionAmount(village, item);
+```
 
 ### CalculateDailyFoodProductionAmount
 `public override float CalculateDailyFoodProductionAmount(Village village)`
 
-**Purpose:** Handles logic related to `calculate daily food production amount`.
+**Purpose:** Calculates the current value or result of `daily food production amount`.
+
+```csharp
+// Obtain an instance of DefaultVillageProductionCalculatorModel from the subsystem API first
+DefaultVillageProductionCalculatorModel defaultVillageProductionCalculatorModel = ...;
+var result = defaultVillageProductionCalculatorModel.CalculateDailyFoodProductionAmount(village);
+```
 
 ### CalculateProductionSpeedOfItemCategory
 `public override float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
 
-**Purpose:** Handles logic related to `calculate production speed of item category`.
+**Purpose:** Calculates the current value or result of `production speed of item category`.
+
+```csharp
+// Obtain an instance of DefaultVillageProductionCalculatorModel from the subsystem API first
+DefaultVillageProductionCalculatorModel defaultVillageProductionCalculatorModel = ...;
+var result = defaultVillageProductionCalculatorModel.CalculateProductionSpeedOfItemCategory(item);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultVillageProductionCalculatorModel>(new MyDefault
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

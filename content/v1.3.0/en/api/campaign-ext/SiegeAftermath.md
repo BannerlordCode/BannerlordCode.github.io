@@ -1,18 +1,8 @@
 ---
 title: "SiegeAftermath"
+description: "Auto-generated campaign action reference for SiegeAftermath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeAftermath`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeAftermath
-
-## Mental Model
-
-Treat `SiegeAftermath` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -40,5 +30,5 @@ SiegeAftermath.ApplyAftermath(attackerParty, settlement, aftermathType, previous
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

@@ -1,20 +1,14 @@
 ---
 title: "BattleEndingMessage"
+description: "Auto-generated class reference for BattleEndingMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleEndingMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleEndingMessage
 
 **Namespace:** Messages.FromBattleServer.ToBattleServerManager
 **Module:** Messages.FromBattleServer
 **Type:** `public class BattleEndingMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/BattleEndingMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/BattleEndingMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Messages.FromBattleServer.ToBattleServerManager` to place 
 ## Usage Example
 
 ```csharp
-var example = new BattleEndingMessage();
+// Obtain an instance from the relevant subsystem API
+BattleEndingMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

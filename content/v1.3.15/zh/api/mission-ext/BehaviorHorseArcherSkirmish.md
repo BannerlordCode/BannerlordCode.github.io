@@ -1,13 +1,7 @@
 ---
 title: "BehaviorHorseArcherSkirmish"
+description: "BehaviorHorseArcherSkirmish 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorHorseArcherSkirmish`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorHorseArcherSkirmish
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ title: "BehaviorHorseArcherSkirmish"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorHorseArcherSkirmish 实例
+BehaviorHorseArcherSkirmish behaviorHorseArcherSkirmish = ...;
+behaviorHorseArcherSkirmish.TickOccasionally();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorHorseArcherSkirmish();
-value.TickOccasionally();
+// 通常从对应子系统 API 获取实例后调用
+BehaviorHorseArcherSkirmish behaviorHorseArcherSkirmish = ...;
+behaviorHorseArcherSkirmish.TickOccasionally();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

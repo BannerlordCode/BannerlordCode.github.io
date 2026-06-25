@@ -1,324 +1,154 @@
 ---
-title: MissionTime
-description: MissionTime - 战斗任务内的时间表示与计算结构体
+title: "MissionTime"
+description: "MissionTime 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionTime`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionTime
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** struct（实?
 
-`IComparable&lt;MissionTime&gt;
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public struct MissionTime : IComparable<MissionTime>`
+**Base:** `IComparable<MissionTime>`
+**File:** `TaleWorlds.MountAndBlade/MissionTime.cs`
 
-`?
 ## 概述
-`MissionTime
 
-` 是战斗任务（Mission）内的时间表示结构体，以 tick（滴答）为基本单位? tick = 100 纳秒?0000 ticks = 1 毫秒?0000000 ticks = 1 秒。它提供了丰富的时间运算、比较和转换功能，用于在战斗中精确控制时间相关的逻辑（如冷却计时、动画时间、状态持续时间等）?
+`MissionTime` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
 ## 心智模型
-`MissionTime
 
-` 内部存储一?
-
-`long _numberOfTicks
-
-`，所有时间运算都基于此值。`Mission.Current.MissionTimeTracker
-
-` 提供当前任务时间。`Now
-
-` 获取当前时间点，
-
-`DeltaTime
-
-` 获取本帧时间增量。`IsFuture
-
-`/
-
-`IsPast
-
-`/
-
-`IsNow
-
-` 通过比较当前时间与自?tick 判断时间关系。`MillisecondsFromNow
-
-` ?
-
-`SecondsFromNow
-
-` 用于计算未来时间点（?3 秒后执行"）。结构体支持加减运算和全部比较运算符?
-## 主要属?\| 属?\| 类型 \| 说明 \|
-\|------\|------\|------\|
-\| 
-
-`NumberOfTicks
-
-` \| 
-
-`long
-
-` \| 底层 tick 数（只读?\|
-\| 
-
-`IsFuture
-
-` \| 
-
-`bool
-
-` \| 当前时间是否在此时间点之?\|
-\| 
-
-`IsPast
-
-` \| 
-
-`bool
-
-` \| 当前时间是否在此时间点之?\|
-\| 
-
-`IsNow
-
-` \| 
-
-`bool
-
-` \| 是否正好是当前时?\|
-\| 
-
-`ElapsedHours
-
-` \| 
-
-`float
-
-` \| 距当前时间已过的小时?\|
-\| 
-
-`ElapsedSeconds
-
-` \| 
-
-`float
-
-` \| 距当前时间已过的秒数 \|
-\| 
-
-`ElapsedMilliseconds
-
-` \| 
-
-`float
-
-` \| 距当前时间已过的毫秒?\|
-\| 
-
-`ToHours
-
-` \| 
-
-`double
-
-` \| 转换为小时数 \|
-\| 
-
-`ToMinutes
-
-` \| 
-
-`double
-
-` \| 转换为分钟数 \|
-\| 
-
-`ToSeconds
-
-` \| 
-
-`double
-
-` \| 转换为秒?\|
-\| 
-
-`ToMilliseconds
-
-` \| 
-
-`double
-
-` \| 转换为毫秒数 \|
-\| 
-
-`Now
-
-` \| 
-
-`MissionTime
-
-` (static) \| 当前任务时间 \|
-\| 
-
-`DeltaTime
-
-` \| 
-
-`MissionTime
-
-` (static) \| 本帧时间增量 \|
-\| 
-
-`Zero
-
-` \| 
-
-`MissionTime
-
-` (static) \| 零时间点 \|
+先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `NumberOfTicks` | `public long NumberOfTicks { get; }` |
+| `DeltaTime` | `public static MissionTime DeltaTime { get; }` |
+| `Now` | `public static MissionTime Now { get; }` |
+| `IsFuture` | `public bool IsFuture { get; }` |
+| `IsPast` | `public bool IsPast { get; }` |
+| `IsNow` | `public bool IsNow { get; }` |
+| `ElapsedHours` | `public float ElapsedHours { get; }` |
+| `ElapsedSeconds` | `public float ElapsedSeconds { get; }` |
+| `ElapsedMilliseconds` | `public float ElapsedMilliseconds { get; }` |
+| `ToHours` | `public double ToHours { get; }` |
+| `ToMinutes` | `public double ToMinutes { get; }` |
+| `ToSeconds` | `public double ToSeconds { get; }` |
+| `ToMilliseconds` | `public double ToMilliseconds { get; }` |
+| `Zero` | `public static MissionTime Zero { get; }` |
 
 ## 主要方法
+
 ### MillisecondsFromNow
-`
+`public static MissionTime MillisecondsFromNow(float valueInMilliseconds)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public static MissionTime MillisecondsFromNow(float valueInMilliseconds)
-`
+```csharp
+// 静态调用，不需要实例
+MissionTime.MillisecondsFromNow(0);
+```
 
-`
-
-`
-返回从当前时间起指定毫秒数后的时间点?
 ### SecondsFromNow
-`
+`public static MissionTime SecondsFromNow(float valueInSeconds)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public static MissionTime SecondsFromNow(float valueInSeconds)
-`
+```csharp
+// 静态调用，不需要实例
+MissionTime.SecondsFromNow(0);
+```
 
-`
+### Equals
+`public bool Equals(MissionTime other)`
 
-`
-返回从当前时间起指定秒数后的时间点?
-### Milliseconds / Seconds / Minutes / Hours
-`
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
-`
+```csharp
+// 先通过子系统 API 拿到 MissionTime 实例
+MissionTime missionTime = ...;
+var result = missionTime.Equals(other);
+```
 
-`csharp
-public static MissionTime Milliseconds(float valueInMilliseconds)
-public static MissionTime Seconds(float valueInSeconds)
-public static MissionTime Minutes(float valueInMinutes)
-public static MissionTime Hours(float valueInHours)
-`
+### Equals
+`public override bool Equals(object obj)`
 
-`
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
-`
-从绝对值创?
+```csharp
+// 先通过子系统 API 拿到 MissionTime 实例
+MissionTime missionTime = ...;
+var result = missionTime.Equals(obj);
+```
 
-`MissionTime
+### GetHashCode
+`public override int GetHashCode()`
 
-`（不从当前时间偏移）?
-### CompareTo / Equals
-`
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
-`
+```csharp
+// 先通过子系统 API 拿到 MissionTime 实例
+MissionTime missionTime = ...;
+var result = missionTime.GetHashCode();
+```
 
-`csharp
-public int CompareTo(MissionTime other)
-public bool Equals(MissionTime other)
-`
+### CompareTo
+`public int CompareTo(MissionTime other)`
 
-`
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
 
-`
-实现比较和相等性判断。同时重载了 
+```csharp
+// 先通过子系统 API 拿到 MissionTime 实例
+MissionTime missionTime = ...;
+var result = missionTime.CompareTo(other);
+```
 
-`&lt;
+### Milliseconds
+`public static MissionTime Milliseconds(float valueInMilliseconds)`
 
-`、`&gt;
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`、`&lt;=
+```csharp
+// 静态调用，不需要实例
+MissionTime.Milliseconds(0);
+```
 
-`、`&gt;=
+### Seconds
+`public static MissionTime Seconds(float valueInSeconds)`
 
-`、`==
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`、`!=
+```csharp
+// 静态调用，不需要实例
+MissionTime.Seconds(0);
+```
 
-` 运算符和 
+### Minutes
+`public static MissionTime Minutes(float valueInMinutes)`
 
-`+
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`、`-
+```csharp
+// 静态调用，不需要实例
+MissionTime.Minutes(0);
+```
 
-` 运算符?
+### Hours
+`public static MissionTime Hours(float valueInHours)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionTime.Hours(0);
+```
+
 ## 使用示例
-### 示例: 技能冷却计?**场景**: 实现一?5 秒冷却的技能，冷却期间不可再次使用?
 
-`
+```csharp
+MissionTime.MillisecondsFromNow(0);
+```
 
-`
-
-`csharp
-public class SkillWithCooldown
-{
-    private MissionTime _lastUseTime;
-    private const float CooldownSeconds = 5f;
-    
-    public bool CanUse =&gt; _lastUseTime.ElapsedSeconds &gt;= CooldownSeconds;
-    
-    public void Use()
-    {
-        if (!CanUse) return;
-        _lastUseTime = MissionTime.Now;
-        // 执行技能逻辑...
-    }
-    
-    public float RemainingCooldown
-    {
-        get
-        {
-            float elapsed = _lastUseTime.ElapsedSeconds;
-            return MathF.Max(0f, CooldownSeconds - elapsed);
-        }
-    }
-    
-    // 使用 MillisecondsFromNow 设置定时?    public MissionTime GetCooldownEndTime()
-    {
-        return MissionTime.SecondsFromNow(CooldownSeconds);
-    }
-}
-`
-
-`
-
-`
-**要点**: 
-
-`MissionTime
-
-` 是结构体，赋值是值拷贝；
-
-`ElapsedSeconds
-
-` 等属性基于当前时间动态计算，无需手动更新；常?
-
-`TimeTicksPerSecond
-
-` 等可用于手动 tick 计算?
 ## 参见
-- [完整类目录](../catalog-engine)
-- [本领域目录](../catalog-engine)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+
+- [本区域目录](../)

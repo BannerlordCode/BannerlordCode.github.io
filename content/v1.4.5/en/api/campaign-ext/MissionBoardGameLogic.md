@@ -1,20 +1,14 @@
 ---
 title: "MissionBoardGameLogic"
+description: "Auto-generated class reference for MissionBoardGameLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBoardGameLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoardGameLogic
 
 **Namespace:** SandBox.BoardGames.MissionLogics
 **Module:** SandBox.BoardGames
 **Type:** `public class MissionBoardGameLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.MissionLogics/MissionBoardGameLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.MissionLogics/MissionBoardGameLogic.cs`
 
 ## Overview
 
@@ -41,119 +35,249 @@ Treat `MissionBoardGameLogic` as a Logic-style extension point: first identify w
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.AfterStart();
+```
 
 ### SetStartingPlayer
 `public void SetStartingPlayer(bool playerOneStarts)`
 
-**Purpose:** Sets the value or state of `starting player`.
+**Purpose:** Assigns a new value to `starting player` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetStartingPlayer(false);
+```
 
 ### StartBoardGame
 `public void StartBoardGame()`
 
-**Purpose:** Handles logic related to `start board game`.
+**Purpose:** Starts the `board game` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.StartBoardGame();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.OnMissionTick(0);
+```
 
 ### DetectOpposingAgent
 `public void DetectOpposingAgent()`
 
-**Purpose:** Handles logic related to `detect opposing agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.DetectOpposingAgent();
+```
 
 ### CheckIfBothSidesAreSitting
 `public bool CheckIfBothSidesAreSitting()`
 
-**Purpose:** Handles logic related to `check if both sides are sitting`.
+**Purpose:** Verifies whether `if both sides are sitting` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+var result = missionBoardGameLogic.CheckIfBothSidesAreSitting();
+```
 
 ### PlayerOneWon
 `public void PlayerOneWon(string message = "str_boardgame_victory_message")`
 
-**Purpose:** Handles logic related to `player one won`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.PlayerOneWon("example");
+```
 
 ### PlayerTwoWon
 `public void PlayerTwoWon(string message = "str_boardgame_defeat_message")`
 
-**Purpose:** Handles logic related to `player two won`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.PlayerTwoWon("example");
+```
 
 ### GameWasDraw
 `public void GameWasDraw(string message = "str_boardgame_draw_message")`
 
-**Purpose:** Handles logic related to `game was draw`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.GameWasDraw("example");
+```
 
 ### SetGameOver
 `public void SetGameOver(GameOverEnum gameOverInfo)`
 
-**Purpose:** Sets the value or state of `game over`.
+**Purpose:** Assigns a new value to `game over` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetGameOver(gameOverInfo);
+```
 
 ### ForfeitGame
 `public void ForfeitGame()`
 
-**Purpose:** Handles logic related to `forfeit game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.ForfeitGame();
+```
 
 ### AIForfeitGame
 `public void AIForfeitGame()`
 
-**Purpose:** Handles logic related to `a i forfeit game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.AIForfeitGame();
+```
 
 ### RollDice
 `public void RollDice()`
 
-**Purpose:** Handles logic related to `roll dice`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.RollDice();
+```
 
 ### RequiresDiceRolling
 `public bool RequiresDiceRolling()`
 
-**Purpose:** Handles logic related to `requires dice rolling`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+var result = missionBoardGameLogic.RequiresDiceRolling();
+```
 
 ### SetBetAmount
 `public void SetBetAmount(int bet)`
 
-**Purpose:** Sets the value or state of `bet amount`.
+**Purpose:** Assigns a new value to `bet amount` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetBetAmount(0);
+```
 
 ### SetCurrentDifficulty
 `public void SetCurrentDifficulty(AIDifficulty difficulty)`
 
-**Purpose:** Sets the value or state of `current difficulty`.
+**Purpose:** Assigns a new value to `current difficulty` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetCurrentDifficulty(difficulty);
+```
 
 ### SetBoardGame
 `public void SetBoardGame(BoardGameType game)`
 
-**Purpose:** Sets the value or state of `board game`.
+**Purpose:** Assigns a new value to `board game` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetBoardGame(game);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+var result = missionBoardGameLogic.OnEndMissionRequest(canLeave);
+```
 
 ### IsBoardGameAvailable
 `public static bool IsBoardGameAvailable()`
 
-**Purpose:** Handles logic related to `is board game available`.
+**Purpose:** Determines whether the current object is in the `board game available` state or condition.
+
+```csharp
+// Static call; no instance required
+MissionBoardGameLogic.IsBoardGameAvailable();
+```
 
 ### IsThereActiveBoardGameWithHero
 `public static bool IsThereActiveBoardGameWithHero(Hero hero)`
 
-**Purpose:** Handles logic related to `is there active board game with hero`.
+**Purpose:** Determines whether the current object is in the `there active board game with hero` state or condition.
+
+```csharp
+// Static call; no instance required
+MissionBoardGameLogic.IsThereActiveBoardGameWithHero(hero);
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `agent interaction` event is raised.
+**Purpose:** Invoked when the `agent interaction` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of MissionBoardGameLogic from the subsystem API first
+MissionBoardGameLogic missionBoardGameLogic = ...;
+var result = missionBoardGameLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBoardGameLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionBoardGameLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

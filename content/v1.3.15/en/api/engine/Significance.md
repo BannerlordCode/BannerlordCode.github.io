@@ -1,54 +1,30 @@
 ---
 title: "Significance"
+description: "Auto-generated class reference for Significance."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Significance`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Significance
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public enum Significance`
-**Area:** engine
+**Base:** none
+**File:** `TaleWorlds.Engine/Highlights.cs`
 
 ## Overview
 
-`Significance` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Significance` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `None` |
-| `ExtremelyBad` |
-| `VeryBad` |
-| `Bad` |
-| `4` |
-| `Neutral` |
-| `16` |
-| `Good` |
-| `256` |
-| `VeryGood` |
-| `512` |
-| `ExtremelyGoods` |
-| `1024` |
-| `Max` |
-
 ## Usage Example
 
 ```csharp
-Significance example = Significance.None;
+// Obtain an instance from the relevant subsystem API
+Significance instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

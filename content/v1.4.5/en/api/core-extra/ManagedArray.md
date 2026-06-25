@@ -1,20 +1,14 @@
 ---
 title: "ManagedArray"
+description: "Auto-generated class reference for ManagedArray."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedArray`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedArray
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct ManagedArray`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ManagedArray.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ManagedArray.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ManagedArray
 `public struct ManagedArray(IntPtr array, int length)`
 
-**Purpose:** Handles logic related to `managed array`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ManagedArray from the subsystem API first
+ManagedArray managedArray = ...;
+var result = managedArray.ManagedArray(array, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ManagedArray();
-value.ManagedArray(array, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ManagedArray managedArray = ...;
+managedArray.ManagedArray(array, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MBReadOnlyQueue"
+description: "Auto-generated class reference for MBReadOnlyQueue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBReadOnlyQueue`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBReadOnlyQueue
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new MBReadOnlyQueue();
+// Obtain an instance from the relevant subsystem API
+MBReadOnlyQueue instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

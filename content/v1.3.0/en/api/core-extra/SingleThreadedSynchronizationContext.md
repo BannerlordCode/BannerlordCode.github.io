@@ -1,13 +1,7 @@
 ---
 title: "SingleThreadedSynchronizationContext"
+description: "Auto-generated class reference for SingleThreadedSynchronizationContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleThreadedSynchronizationContext`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SingleThreadedSynchronizationContext
 
 **Namespace:** TaleWorlds.Library
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Send
 `public override void Send(SendOrPostCallback callback, object state)`
 
-**Purpose:** Handles logic related to `send`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SingleThreadedSynchronizationContext from the subsystem API first
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Send(callback, state);
+```
 
 ### Post
 `public override void Post(SendOrPostCallback callback, object state)`
 
-**Purpose:** Handles logic related to `post`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SingleThreadedSynchronizationContext from the subsystem API first
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Post(callback, state);
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SingleThreadedSynchronizationContext from the subsystem API first
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Tick();
+```
 
 ### Invoke
 `public void Invoke()`
 
-**Purpose:** Handles logic related to `invoke`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SingleThreadedSynchronizationContext from the subsystem API first
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Invoke();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SingleThreadedSynchronizationContext();
-value.Send(callback, state);
+// Typically call this after obtaining an instance from the subsystem API
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Send(callback, state);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

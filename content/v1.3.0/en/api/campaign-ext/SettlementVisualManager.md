@@ -1,13 +1,7 @@
 ---
 title: "SettlementVisualManager"
+description: "Auto-generated class reference for SettlementVisualManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementVisualManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementVisualManager
 
 **Namespace:** SandBox.View.Map.Managers
@@ -35,32 +29,68 @@ Treat `SettlementVisualManager` as a Manager-style extension point: first identi
 ### OnTick
 `public override void OnTick(float realDt, float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of SettlementVisualManager from the subsystem API first
+SettlementVisualManager settlementVisualManager = ...;
+settlementVisualManager.OnTick(0, 0);
+```
 
 ### OnVisualIntersected
 `public override void OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, float closestDistanceSquared, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**Purpose:** Called when the `visual intersected` event is raised.
+**Purpose:** Invoked when the `visual intersected` event is raised.
+
+```csharp
+// Obtain an instance of SettlementVisualManager from the subsystem API first
+SettlementVisualManager settlementVisualManager = ...;
+settlementVisualManager.OnVisualIntersected(mouseRay, intersectedEntityIDs, intersectionInfos, 0, worldMouseNear, worldMouseFar, terrainIntersectionPoint, 0, hoveredVisual, selectedVisual);
+```
 
 ### OnFrameTick
 `public override void OnFrameTick(float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of SettlementVisualManager from the subsystem API first
+SettlementVisualManager settlementVisualManager = ...;
+settlementVisualManager.OnFrameTick(0);
+```
 
 ### OnMouseClick
 `public override bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**Purpose:** Called when the `mouse click` event is raised.
+**Purpose:** Invoked when the `mouse click` event is raised.
+
+```csharp
+// Obtain an instance of SettlementVisualManager from the subsystem API first
+SettlementVisualManager settlementVisualManager = ...;
+var result = settlementVisualManager.OnMouseClick(visualOfSelectedEntity, intersectionPoint, mouseOverFaceIndex, false);
+```
 
 ### GetVisualOfEntity
 `public override MapEntityVisual<PartyBase> GetVisualOfEntity(PartyBase partyBase)`
 
-**Purpose:** Gets the current value of `visual of entity`.
+**Purpose:** Reads and returns the `visual of entity` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisualManager from the subsystem API first
+SettlementVisualManager settlementVisualManager = ...;
+var result = settlementVisualManager.GetVisualOfEntity(partyBase);
+```
 
 ### GetSettlementVisual
 `public SettlementVisual GetSettlementVisual(Settlement settlement)`
 
-**Purpose:** Gets the current value of `settlement visual`.
+**Purpose:** Reads and returns the `settlement visual` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisualManager from the subsystem API first
+SettlementVisualManager settlementVisualManager = ...;
+var result = settlementVisualManager.GetSettlementVisual(settlement);
+```
 
 ## Usage Example
 
@@ -70,4 +100,4 @@ var manager = SettlementVisualManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

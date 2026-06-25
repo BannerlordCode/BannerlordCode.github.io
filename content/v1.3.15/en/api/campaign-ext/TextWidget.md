@@ -1,13 +1,7 @@
 ---
 title: "TextWidget"
+description: "Auto-generated class reference for TextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -37,9 +31,10 @@ Treat `TextWidget` as a Widget-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var widget = new TextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

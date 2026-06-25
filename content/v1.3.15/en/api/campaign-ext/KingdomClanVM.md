@@ -1,13 +1,7 @@
 ---
 title: "KingdomClanVM"
+description: "Auto-generated class reference for KingdomClanVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomClanVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomClanVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
@@ -53,30 +47,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomClanVM from the subsystem API first
+KingdomClanVM kingdomClanVM = ...;
+kingdomClanVM.RefreshValues();
+```
 
 ### RefreshClan
 `public void RefreshClan()`
 
-**Purpose:** Refreshes the display or cache of `clan`.
+**Purpose:** Keeps the display or cache of `clan` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomClanVM from the subsystem API first
+KingdomClanVM kingdomClanVM = ...;
+kingdomClanVM.RefreshClan();
+```
 
 ### SelectClan
 `public void SelectClan(Clan clan)`
 
-**Purpose:** Handles logic related to `select clan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomClanVM from the subsystem API first
+KingdomClanVM kingdomClanVM = ...;
+kingdomClanVM.SelectClan(clan);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of KingdomClanVM from the subsystem API first
+KingdomClanVM kingdomClanVM = ...;
+kingdomClanVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomClanVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomClanVM kingdomClanVM = ...;
+kingdomClanVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PrefabExtensionContext"
+description: "Auto-generated class reference for PrefabExtensionContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrefabExtensionContext`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrefabExtensionContext
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class PrefabExtensionContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/PrefabExtensionContext.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/PrefabExtensionContext.cs`
 
 ## Overview
 
@@ -31,13 +25,20 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 
 **Purpose:** Adds `extension` to the current collection or state.
 
+```csharp
+// Obtain an instance of PrefabExtensionContext from the subsystem API first
+PrefabExtensionContext prefabExtensionContext = ...;
+prefabExtensionContext.AddExtension(prefabExtension);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new PrefabExtensionContext();
-value.AddExtension(prefabExtension);
+// Typically call this after obtaining an instance from the subsystem API
+PrefabExtensionContext prefabExtensionContext = ...;
+prefabExtensionContext.AddExtension(prefabExtension);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

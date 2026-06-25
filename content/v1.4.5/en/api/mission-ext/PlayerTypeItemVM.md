@@ -1,20 +1,14 @@
 ---
 title: "PlayerTypeItemVM"
+description: "Auto-generated class reference for PlayerTypeItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerTypeItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerTypeItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerTypeItemVM : SelectorItemVM`
 **Base:** `SelectorItemVM`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/PlayerTypeItemVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/PlayerTypeItemVM.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.Selecti
 ## Usage Example
 
 ```csharp
-var value = new PlayerTypeItemVM();
+// Obtain an instance from the relevant subsystem API
+PlayerTypeItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

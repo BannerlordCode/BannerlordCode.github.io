@@ -1,20 +1,14 @@
 ---
 title: "MapSiegeScreenWidget"
+description: "Auto-generated class reference for MapSiegeScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapSiegeScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeScreenWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeScreenWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MapSiegeScreenWidget` as a Widget-style extension point: first identify w
 ### SetCurrentButton
 `public void SetCurrentButton(MapSiegeMachineButtonWidget button)`
 
-**Purpose:** Sets the value or state of `current button`.
+**Purpose:** Assigns a new value to `current button` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapSiegeScreenWidget from the subsystem API first
+MapSiegeScreenWidget mapSiegeScreenWidget = ...;
+mapSiegeScreenWidget.SetCurrentButton(button);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MapSiegeScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapSiegeScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

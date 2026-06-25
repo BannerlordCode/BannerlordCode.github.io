@@ -1,13 +1,7 @@
 ---
 title: "SPPersonalKillNotificationItemVM"
+description: "SPPersonalKillNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPPersonalKillNotificationItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPPersonalKillNotificationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.Personal
@@ -39,15 +33,22 @@ title: "SPPersonalKillNotificationItemVM"
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 `remove` 操作或流程。
+**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SPPersonalKillNotificationItemVM 实例
+SPPersonalKillNotificationItemVM sPPersonalKillNotificationItemVM = ...;
+sPPersonalKillNotificationItemVM.ExecuteRemove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPPersonalKillNotificationItemVM();
-value.ExecuteRemove();
+// 通常从对应子系统 API 获取实例后调用
+SPPersonalKillNotificationItemVM sPPersonalKillNotificationItemVM = ...;
+sPPersonalKillNotificationItemVM.ExecuteRemove();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

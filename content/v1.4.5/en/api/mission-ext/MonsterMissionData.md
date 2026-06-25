@@ -1,20 +1,14 @@
 ---
 title: "MonsterMissionData"
+description: "Auto-generated class reference for MonsterMissionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MonsterMissionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MonsterMissionData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MonsterMissionData : IMonsterMissionData`
 **Base:** `IMonsterMissionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterMissionData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterMissionData.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `MonsterMissionData` as a Data-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-var value = new MonsterMissionData();
+// This data object is usually returned by campaign/mission APIs
+MonsterMissionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

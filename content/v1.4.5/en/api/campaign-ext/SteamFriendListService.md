@@ -1,20 +1,14 @@
 ---
 title: "SteamFriendListService"
+description: "Auto-generated class reference for SteamFriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamFriendListService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamFriendListService
 
 **Namespace:** TaleWorlds.PlatformService.Steam
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class SteamFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamFriendListService.cs`
+**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamFriendListService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new SteamFriendListService();
+// Obtain an instance from the relevant subsystem API
+SteamFriendListService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

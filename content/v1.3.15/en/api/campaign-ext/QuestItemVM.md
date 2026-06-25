@@ -1,13 +1,7 @@
 ---
 title: "QuestItemVM"
+description: "Auto-generated class reference for QuestItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -54,30 +48,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of QuestItemVM from the subsystem API first
+QuestItemVM questItemVM = ...;
+questItemVM.RefreshValues();
+```
 
 ### UpdateIsUpdated
 `public void UpdateIsUpdated()`
 
-**Purpose:** Updates the state or data of `is updated`.
+**Purpose:** Recalculates and stores the latest representation of `is updated`.
+
+```csharp
+// Obtain an instance of QuestItemVM from the subsystem API first
+QuestItemVM questItemVM = ...;
+questItemVM.UpdateIsUpdated();
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of QuestItemVM from the subsystem API first
+QuestItemVM questItemVM = ...;
+questItemVM.ExecuteSelection();
+```
 
 ### ExecuteToggleQuestTrack
 `public void ExecuteToggleQuestTrack()`
 
-**Purpose:** Executes the `toggle quest track` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle quest track`.
+
+```csharp
+// Obtain an instance of QuestItemVM from the subsystem API first
+QuestItemVM questItemVM = ...;
+questItemVM.ExecuteToggleQuestTrack();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+QuestItemVM questItemVM = ...;
+questItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

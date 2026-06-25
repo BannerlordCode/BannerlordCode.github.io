@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleFormationData"
+description: "Auto-generated class reference for OrderOfBattleFormationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationData
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class OrderOfBattleFormationData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/OrderOfBattleCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/OrderOfBattleCampaignBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `OrderOfBattleFormationData` as a Data-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleFormationData();
+// This data object is usually returned by campaign/mission APIs
+OrderOfBattleFormationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

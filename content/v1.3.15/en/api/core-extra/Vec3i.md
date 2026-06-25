@@ -1,13 +1,7 @@
 ---
 title: "Vec3i"
+description: "Auto-generated class reference for Vec3i."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Vec3i`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Vec3i
 
 **Namespace:** TaleWorlds.Library
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ToVec3
 `public Vec3 ToVec3()`
 
-**Purpose:** Handles logic related to `to vec3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3i from the subsystem API first
+Vec3i vec3i = ...;
+var result = vec3i.ToVec3();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Vec3i from the subsystem API first
+Vec3i vec3i = ...;
+var result = vec3i.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Vec3i from the subsystem API first
+Vec3i vec3i = ...;
+var result = vec3i.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Vec3i from the subsystem API first
+Vec3i vec3i = ...;
+var result = vec3i.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Vec3i();
-value.ToVec3();
+// Typically call this after obtaining an instance from the subsystem API
+Vec3i vec3i = ...;
+vec3i.ToVec3();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

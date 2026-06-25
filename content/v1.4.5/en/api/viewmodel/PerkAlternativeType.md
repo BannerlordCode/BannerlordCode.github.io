@@ -1,20 +1,14 @@
 ---
 title: "PerkAlternativeType"
+description: "Auto-generated class reference for PerkAlternativeType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkAlternativeType`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkAlternativeType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum PerkAlternativeType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/PerkVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/PerkVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ## Usage Example
 
 ```csharp
-PerkAlternativeType example = PerkAlternativeType.Value;
+// Obtain an instance from the relevant subsystem API
+PerkAlternativeType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

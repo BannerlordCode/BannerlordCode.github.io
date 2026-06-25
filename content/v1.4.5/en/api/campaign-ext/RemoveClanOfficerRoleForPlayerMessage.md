@@ -1,20 +1,14 @@
 ---
 title: "RemoveClanOfficerRoleForPlayerMessage"
+description: "Auto-generated class reference for RemoveClanOfficerRoleForPlayerMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemoveClanOfficerRoleForPlayerMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemoveClanOfficerRoleForPlayerMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class RemoveClanOfficerRoleForPlayerMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RemoveClanOfficerRoleForPlayerMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/RemoveClanOfficerRoleForPlayerMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromClient.ToLobbyServer` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new RemoveClanOfficerRoleForPlayerMessage();
+// Obtain an instance from the relevant subsystem API
+RemoveClanOfficerRoleForPlayerMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

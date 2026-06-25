@@ -1,20 +1,14 @@
 ---
 title: "IDXGIOutput"
+description: "IDXGIOutput 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IDXGIOutput`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IDXGIOutput
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public interface IDXGIOutput`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IDXGIOutput"
 ## 使用示例
 
 ```csharp
-IDXGIOutput implementation = GetDXGIOutputImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIDXGIOutput service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

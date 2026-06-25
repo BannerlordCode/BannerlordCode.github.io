@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerIntermissionScreen"
+description: "MultiplayerIntermissionScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerIntermissionScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerIntermissionScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerIntermissionScreen : ScreenBase, IGameStateListener, IChatLogHandlerScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerIntermissionScreen.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerIntermissionScreen.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "MultiplayerIntermissionScreen"
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerIntermissionScreen();
+// 从对应子系统 API 获取实例
+MultiplayerIntermissionScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

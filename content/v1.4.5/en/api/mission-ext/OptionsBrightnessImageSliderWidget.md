@@ -1,20 +1,14 @@
 ---
 title: "OptionsBrightnessImageSliderWidget"
+description: "Auto-generated class reference for OptionsBrightnessImageSliderWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsBrightnessImageSliderWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionsBrightnessImageSliderWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsBrightnessImageSliderWidget : SliderWidget`
 **Base:** `SliderWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options/OptionsBrightnessImageSliderWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options/OptionsBrightnessImageSliderWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `OptionsBrightnessImageSliderWidget` as a Widget-style extension point: fi
 ## Usage Example
 
 ```csharp
-var widget = new OptionsBrightnessImageSliderWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OptionsBrightnessImageSliderWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

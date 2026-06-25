@@ -1,13 +1,7 @@
 ---
 title: "StandaloneUIDomain"
+description: "Auto-generated class reference for StandaloneUIDomain."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandaloneUIDomain`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StandaloneUIDomain
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Update
 `public override void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of StandaloneUIDomain from the subsystem API first
+StandaloneUIDomain standaloneUIDomain = ...;
+standaloneUIDomain.Update();
+```
 
 ### Destroy
 `public override void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StandaloneUIDomain from the subsystem API first
+StandaloneUIDomain standaloneUIDomain = ...;
+standaloneUIDomain.Destroy();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StandaloneUIDomain();
-value.Update();
+// Typically call this after obtaining an instance from the subsystem API
+StandaloneUIDomain standaloneUIDomain = ...;
+standaloneUIDomain.Update();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameLoadingType"
+description: "Auto-generated class reference for GameLoadingType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameLoadingType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameLoadingType
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-GameLoadingType example = GameLoadingType.Value;
+// Obtain an instance from the relevant subsystem API
+GameLoadingType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

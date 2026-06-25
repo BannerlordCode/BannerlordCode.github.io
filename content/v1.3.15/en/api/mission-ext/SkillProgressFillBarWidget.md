@@ -1,13 +1,7 @@
 ---
 title: "SkillProgressFillBarWidget"
+description: "Auto-generated class reference for SkillProgressFillBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillProgressFillBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkillProgressFillBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
@@ -33,9 +27,10 @@ Treat `SkillProgressFillBarWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new SkillProgressFillBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SkillProgressFillBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

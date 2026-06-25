@@ -1,13 +1,7 @@
 ---
 title: "LobbyNetworkComponent"
+description: "LobbyNetworkComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LobbyNetworkComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LobbyNetworkComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,27 +23,57 @@ title: "LobbyNetworkComponent"
 ### HandleEarlyNewClientAfterLoadingFinished
 `public override void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 处理 `early new client after loading finished` 事件或回调。
+**用途 / Purpose:** 执行与 「early new client after loading finished」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyNetworkComponent 实例
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.HandleEarlyNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandleNewClientAfterLoadingFinished
 `public override void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 处理 `new client after loading finished` 事件或回调。
+**用途 / Purpose:** 执行与 「new client after loading finished」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyNetworkComponent 实例
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.HandleNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandleLateNewClientAfterLoadingFinished
 `public override void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 处理 `late new client after loading finished` 事件或回调。
+**用途 / Purpose:** 执行与 「late new client after loading finished」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyNetworkComponent 实例
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.HandleLateNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandlePlayerDisconnect
 `public override void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 处理 `player disconnect` 事件或回调。
+**用途 / Purpose:** 执行与 「player disconnect」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyNetworkComponent 实例
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.HandlePlayerDisconnect(networkPeer);
+```
 
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**用途 / Purpose:** 当 `udp network handler tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「udp network handler tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyNetworkComponent 实例
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.OnUdpNetworkHandlerTick(0);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ var component = agent.GetComponent<LobbyNetworkComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "IncidentType"
+description: "Auto-generated class reference for IncidentType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IncidentType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IncidentType
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IncidentType example = IncidentType.Value;
+// Obtain an instance from the relevant subsystem API
+IncidentType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

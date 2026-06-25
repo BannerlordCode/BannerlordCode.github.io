@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationBannerEditorStage"
+description: "Auto-generated class reference for CharacterCreationBannerEditorStage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationBannerEditorStage`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationBannerEditorStage
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationBannerEditorStage : CharacterCreationStageBase`
 **Base:** `CharacterCreationStageBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationBannerEditorStage.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationBannerEditorStage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ## Usage Example
 
 ```csharp
-var example = new CharacterCreationBannerEditorStage();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationBannerEditorStage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

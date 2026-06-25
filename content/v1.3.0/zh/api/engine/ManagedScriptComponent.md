@@ -1,13 +1,7 @@
 ---
 title: "ManagedScriptComponent"
+description: "ManagedScriptComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedScriptComponent`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedScriptComponent
 
 **Namespace:** TaleWorlds.Engine
@@ -35,12 +29,24 @@ title: "ManagedScriptComponent"
 ### SetVariableEditorWidgetStatus
 `public void SetVariableEditorWidgetStatus(string field, bool enabled)`
 
-**用途 / Purpose:** 设置 `variable editor widget status` 的值或状态。
+**用途 / Purpose:** 为 「variable editor widget status」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedScriptComponent 实例
+ManagedScriptComponent managedScriptComponent = ...;
+managedScriptComponent.SetVariableEditorWidgetStatus("example", false);
+```
 
 ### SetVariableEditorWidgetValue
 `public void SetVariableEditorWidgetValue(string field, RglScriptFieldType fieldType, double value)`
 
-**用途 / Purpose:** 设置 `variable editor widget value` 的值或状态。
+**用途 / Purpose:** 为 「variable editor widget value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedScriptComponent 实例
+ManagedScriptComponent managedScriptComponent = ...;
+managedScriptComponent.SetVariableEditorWidgetValue("example", fieldType, 0);
+```
 
 ## 使用示例
 
@@ -50,4 +56,4 @@ var component = agent.GetComponent<ManagedScriptComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

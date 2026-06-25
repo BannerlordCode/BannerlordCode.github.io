@@ -1,13 +1,7 @@
 ---
 title: "MBQueue"
+description: "Auto-generated class reference for MBQueue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBQueue`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBQueue
 
 **Namespace:** TaleWorlds.Library
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Remove
 `public bool Remove(T item)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of MBQueue from the subsystem API first
+MBQueue mBQueue = ...;
+var result = mBQueue.Remove(item);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBQueue();
-value.Remove(item);
+// Typically call this after obtaining an instance from the subsystem API
+MBQueue mBQueue = ...;
+mBQueue.Remove(item);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

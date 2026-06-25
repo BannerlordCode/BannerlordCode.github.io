@@ -1,20 +1,14 @@
 ---
 title: "SaveCodeGenerationContext"
+description: "Auto-generated class reference for SaveCodeGenerationContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveCodeGenerationContext`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveCodeGenerationContext
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveCodeGenerationContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveCodeGenerationContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveCodeGenerationContext.cs`
 
 ## Overview
 
@@ -31,13 +25,20 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 
 **Purpose:** Adds `assembly` to the current collection or state.
 
+```csharp
+// Obtain an instance of SaveCodeGenerationContext from the subsystem API first
+SaveCodeGenerationContext saveCodeGenerationContext = ...;
+saveCodeGenerationContext.AddAssembly(assembly, "example", "example", "example");
+```
+
 ## Usage Example
 
 ```csharp
-var value = new SaveCodeGenerationContext();
-value.AddAssembly(assembly, "example", "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+SaveCodeGenerationContext saveCodeGenerationContext = ...;
+saveCodeGenerationContext.AddAssembly(assembly, "example", "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

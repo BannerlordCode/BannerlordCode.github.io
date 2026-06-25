@@ -1,13 +1,7 @@
 ---
 title: "BannerEditorState"
+description: "Auto-generated class reference for BannerEditorState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerEditorState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerEditorState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### GetClan
 `public Clan GetClan()`
 
-**Purpose:** Gets the current value of `clan`.
+**Purpose:** Reads and returns the `clan` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerEditorState from the subsystem API first
+BannerEditorState bannerEditorState = ...;
+var result = bannerEditorState.GetClan();
+```
 
 ### GetCharacter
 `public CharacterObject GetCharacter()`
 
-**Purpose:** Gets the current value of `character`.
+**Purpose:** Reads and returns the `character` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerEditorState from the subsystem API first
+BannerEditorState bannerEditorState = ...;
+var result = bannerEditorState.GetCharacter();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerEditorState();
-value.GetClan();
+// Typically call this after obtaining an instance from the subsystem API
+BannerEditorState bannerEditorState = ...;
+bannerEditorState.GetClan();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

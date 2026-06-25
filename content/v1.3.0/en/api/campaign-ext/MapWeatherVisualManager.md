@@ -1,13 +1,7 @@
 ---
 title: "MapWeatherVisualManager"
+description: "Auto-generated class reference for MapWeatherVisualManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapWeatherVisualManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapWeatherVisualManager
 
 **Namespace:** SandBox.View.Map.Managers
@@ -35,42 +29,90 @@ Treat `MapWeatherVisualManager` as a Manager-style extension point: first identi
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** Called when the `visual tick` event is raised.
+**Purpose:** Invoked when the `visual tick` event is raised.
+
+```csharp
+// Obtain an instance of MapWeatherVisualManager from the subsystem API first
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.OnVisualTick(screen, 0, 0);
+```
 
 ### SetRainData
 `public void SetRainData(int dataIndex, byte value)`
 
-**Purpose:** Sets the value or state of `rain data`.
+**Purpose:** Assigns a new value to `rain data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapWeatherVisualManager from the subsystem API first
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.SetRainData(0, 0);
+```
 
 ### SetCloudData
 `public void SetCloudData(int dataIndex, byte value)`
 
-**Purpose:** Sets the value or state of `cloud data`.
+**Purpose:** Assigns a new value to `cloud data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapWeatherVisualManager from the subsystem API first
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.SetCloudData(0, 0);
+```
 
 ### GetRainPrefabFromPool
 `public GameEntity GetRainPrefabFromPool()`
 
-**Purpose:** Gets the current value of `rain prefab from pool`.
+**Purpose:** Reads and returns the `rain prefab from pool` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherVisualManager from the subsystem API first
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+var result = mapWeatherVisualManager.GetRainPrefabFromPool();
+```
 
 ### GetBlizzardPrefabFromPool
 `public GameEntity GetBlizzardPrefabFromPool()`
 
-**Purpose:** Gets the current value of `blizzard prefab from pool`.
+**Purpose:** Reads and returns the `blizzard prefab from pool` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherVisualManager from the subsystem API first
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+var result = mapWeatherVisualManager.GetBlizzardPrefabFromPool();
+```
 
 ### ReleaseRainPrefab
 `public void ReleaseRainPrefab(GameEntity prefab)`
 
-**Purpose:** Handles logic related to `release rain prefab`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapWeatherVisualManager from the subsystem API first
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.ReleaseRainPrefab(prefab);
+```
 
 ### ReleaseBlizzardPrefab
 `public void ReleaseBlizzardPrefab(GameEntity prefab)`
 
-**Purpose:** Handles logic related to `release blizzard prefab`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapWeatherVisualManager from the subsystem API first
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.ReleaseBlizzardPrefab(prefab);
+```
 
 ### GetVisualOfEntity
 `public override MapEntityVisual<WeatherNode> GetVisualOfEntity(WeatherNode entity)`
 
-**Purpose:** Gets the current value of `visual of entity`.
+**Purpose:** Reads and returns the `visual of entity` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherVisualManager from the subsystem API first
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+var result = mapWeatherVisualManager.GetVisualOfEntity(entity);
+```
 
 ## Usage Example
 
@@ -80,4 +122,4 @@ var manager = MapWeatherVisualManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BindingPath"
+description: "BindingPath 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BindingPath`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BindingPath
 
 **Namespace:** TaleWorlds.Library
@@ -40,52 +34,109 @@ title: "BindingPath"
 ### CreateFromProperty
 `public static BindingPath CreateFromProperty(string propertyName)`
 
-**用途 / Purpose:** 创建一个 `from property` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from property」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+BindingPath.CreateFromProperty("example");
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 BindingPath 实例
+BindingPath bindingPath = ...;
+var result = bindingPath.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 BindingPath 实例
+BindingPath bindingPath = ...;
+var result = bindingPath.Equals(obj);
+```
 
 ### IsRelatedWithPathAsString
 `public static bool IsRelatedWithPathAsString(string path, string referencePath)`
 
-**用途 / Purpose:** 处理 `is related with path as string` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related with path as string」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+BindingPath.IsRelatedWithPathAsString("example", "example");
+```
 
 ### IsRelatedWithPath
 `public static bool IsRelatedWithPath(string path, BindingPath referencePath)`
 
-**用途 / Purpose:** 处理 `is related with path` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related with path」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+BindingPath.IsRelatedWithPath("example", referencePath);
+```
 
 ### IsRelatedWith
 `public bool IsRelatedWith(BindingPath referencePath)`
 
-**用途 / Purpose:** 处理 `is related with` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related with」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BindingPath 实例
+BindingPath bindingPath = ...;
+var result = bindingPath.IsRelatedWith(referencePath);
+```
 
 ### DecrementIfRelatedWith
 `public void DecrementIfRelatedWith(BindingPath path, int startIndex)`
 
-**用途 / Purpose:** 处理 `decrement if related with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BindingPath 实例
+BindingPath bindingPath = ...;
+bindingPath.DecrementIfRelatedWith(path, 0);
+```
 
 ### Simplify
 `public BindingPath Simplify()`
 
-**用途 / Purpose:** 处理 `simplify` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BindingPath 实例
+BindingPath bindingPath = ...;
+var result = bindingPath.Simplify();
+```
 
 ### Append
 `public BindingPath Append(BindingPath bindingPath)`
 
-**用途 / Purpose:** 处理 `append` 相关逻辑。
+**用途 / Purpose:** 将「append」追加到当前集合或序列末尾。
+
+```csharp
+// 先通过子系统 API 拿到 BindingPath 实例
+BindingPath bindingPath = ...;
+var result = bindingPath.Append(bindingPath);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 BindingPath 实例
+BindingPath bindingPath = ...;
+var result = bindingPath.ToString();
+```
 
 ## 使用示例
 
@@ -95,4 +146,4 @@ BindingPath.CreateFromProperty("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

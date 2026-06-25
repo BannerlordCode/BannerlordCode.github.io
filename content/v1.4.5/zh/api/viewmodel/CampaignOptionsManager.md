@@ -1,20 +1,14 @@
 ---
 title: "CampaignOptionsManager"
+description: "CampaignOptionsManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignOptionsManager`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignOptionsManager
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class CampaignOptionsManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionsManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionsManager.cs`
 
 ## 概述
 
@@ -29,27 +23,52 @@ title: "CampaignOptionsManager"
 ### GetOptionWithIdExists
 `public static bool GetOptionWithIdExists(string identifier)`
 
-**用途 / Purpose:** 获取 `option with id exists` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「option with id exists」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CampaignOptionsManager.GetOptionWithIdExists("example");
+```
 
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+CampaignOptionsManager.Initialize();
+```
 
 ### ClearCachedOptions
 `public static void ClearCachedOptions()`
 
-**用途 / Purpose:** 处理 `clear cached options` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「cached options」。
+
+```csharp
+// 静态调用，不需要实例
+CampaignOptionsManager.ClearCachedOptions();
+```
 
 ### GetGameplayCampaignOptions
 `public static List<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**用途 / Purpose:** 获取 `gameplay campaign options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gameplay campaign options」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CampaignOptionsManager.GetGameplayCampaignOptions();
+```
 
 ### GetCharacterCreationCampaignOptions
 `public static List<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**用途 / Purpose:** 获取 `character creation campaign options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character creation campaign options」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CampaignOptionsManager.GetCharacterCreationCampaignOptions();
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ var manager = CampaignOptionsManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

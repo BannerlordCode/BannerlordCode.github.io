@@ -1,20 +1,14 @@
 ---
 title: "DeploymentMissionController"
+description: "Auto-generated class reference for DeploymentMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeploymentMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeploymentMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class DeploymentMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentMissionController.cs`
 
 ## Overview
 
@@ -35,34 +29,65 @@ Treat `DeploymentMissionController` as a Controller-style extension point: first
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentMissionController from the subsystem API first
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.AfterStart();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of DeploymentMissionController from the subsystem API first
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.OnBehaviorInitialize();
+```
 
 ### FinishDeployment
 `public void FinishDeployment()`
 
-**Purpose:** Handles logic related to `finish deployment`.
+**Purpose:** Concludes the `deployment` flow and performs any cleanup.
+
+```csharp
+// Obtain an instance of DeploymentMissionController from the subsystem API first
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.FinishDeployment();
+```
 
 ### OnAgentControllerSetToPlayer
 `public override void OnAgentControllerSetToPlayer(Agent agent)`
 
-**Purpose:** Called when the `agent controller set to player` event is raised.
+**Purpose:** Invoked when the `agent controller set to player` event is raised.
+
+```csharp
+// Obtain an instance of DeploymentMissionController from the subsystem API first
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.OnAgentControllerSetToPlayer(agent);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of DeploymentMissionController from the subsystem API first
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDeploymentMissionController();
+// Typically obtained from a subsystem API or factory
+DeploymentMissionController instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

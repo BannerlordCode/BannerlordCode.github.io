@@ -1,159 +1,303 @@
 ---
 title: "CampaignTime"
+description: "CampaignTime 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignTime`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignTime
 
-**命名空间:** TaleWorlds.CampaignSystem  
-**模块:** TaleWorlds.CampaignSystem  
-**类型:** struct（实?
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public struct CampaignTime : IComparable<CampaignTime>`
+**Base:** `IComparable<CampaignTime>`
+**File:** `TaleWorlds.CampaignSystem/CampaignTime.cs`
 
-`IComparable&lt;CampaignTime&gt;
-
-`? 
-**文件:** 
-
-`bannerlord-1.3.15/TaleWorlds.CampaignSystem/CampaignTime.cs
-
-`
-
-`CampaignTime
-
-` 是战役时间系统的时间?时间长度值类型。mod 在做"X 天后""距今多久""到期"等时间计算时几乎都用到它?
 ## 概述
 
-`CampaignTime
+`CampaignTime` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-` 不可变，内部以毫秒存储。常用入口是静?
-
-`Now
-
-`（当前时刻）、`Never
-
-`（永不）、`DeltaTime
-
-`（本帧增量）。时间长度通过静态工厂创建（?
-
-`CampaignTime.HoursFromNow(24)
-
-`），或用 
-
-`Elapsed*UntilNow
-
-` / 
-
-`Remaining*FromNow
-
-` / 
-
-`To*
-
-` 属性换算。支持全部比较运算符?
-## 
 ## 心智模型
 
-先把 `CampaignTime` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
-静态成?
-\| 名称 \| 类型 \| 描述 \|
-\|------\|------\|------\|
-\| Now \| CampaignTime \| 当前战役时刻 \|
-\| Never \| CampaignTime \| "永不"哨兵?\|
-\| DeltaTime \| CampaignTime \| 本帧时间增量 \|
-\| DaysInSeason \| int \| 每季节天?\|
-\| DaysInYear \| int \| 每年天数 \|
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要属?
-\| 名称 \| 类型 \| 描述 \|
-\|------\|------\|------\|
-\| IsFuture \| bool \| 是否在未?\|
-\| IsPast \| bool \| 是否已过?\|
-\| IsNow \| bool \| 是否就是现在 \|
-\| IsDayTime / IsNightTime \| bool \| 是否白天/夜晚 \|
-\| CurrentHourInDay \| float \| 当日第几小时 \|
-\| ElapsedMillisecondsUntilNow / ElapsedSecondsUntilNow / ElapsedHoursUntilNow / ElapsedDaysUntilNow / ElapsedWeeksUntilNow / ElapsedSeasonsUntilNow / ElapsedYearsUntilNow \| float \| 距今已流逝的时间（各单位?\|
-\| RemainingMillisecondsFromNow / RemainingSecondsFromNow / RemainingHoursFromNow / RemainingDaysFromNow / RemainingWeeksFromNow / RemainingSeasonsFromNow / RemainingYearsFromNow \| float \| 距今剩余的时间（各单位） \|
-\| ToMilliseconds / ToSeconds / ToMinutes / ToHours / ToDays / ToWeeks / ToSeasons \| double \| 转为各单位的数?\|
+## 主要属性
 
-## 运算符与比较
+| Name | Signature |
+|------|-----------|
+| `DaysInSeason` | `public static int DaysInSeason { get; }` |
+| `DaysInYear` | `public static int DaysInYear { get; }` |
+| `DeltaTime` | `public static CampaignTime DeltaTime { get; }` |
+| `Now` | `public static CampaignTime Now { get; }` |
+| `Never` | `public static CampaignTime Never { get; }` |
+| `IsFuture` | `public bool IsFuture { get; }` |
+| `IsPast` | `public bool IsPast { get; }` |
+| `IsNow` | `public bool IsNow { get; }` |
+| `IsDayTime` | `public bool IsDayTime { get; }` |
+| `CurrentHourInDay` | `public float CurrentHourInDay { get; }` |
+| `IsNightTime` | `public bool IsNightTime { get; }` |
+| `ElapsedMillisecondsUntilNow` | `public float ElapsedMillisecondsUntilNow { get; }` |
+| `ElapsedSecondsUntilNow` | `public float ElapsedSecondsUntilNow { get; }` |
+| `ElapsedHoursUntilNow` | `public float ElapsedHoursUntilNow { get; }` |
+| `ElapsedDaysUntilNow` | `public float ElapsedDaysUntilNow { get; }` |
+| `ElapsedWeeksUntilNow` | `public float ElapsedWeeksUntilNow { get; }` |
+| `ElapsedSeasonsUntilNow` | `public float ElapsedSeasonsUntilNow { get; }` |
+| `ElapsedYearsUntilNow` | `public float ElapsedYearsUntilNow { get; }` |
+| `RemainingMillisecondsFromNow` | `public float RemainingMillisecondsFromNow { get; }` |
+| `RemainingSecondsFromNow` | `public float RemainingSecondsFromNow { get; }` |
+| `RemainingHoursFromNow` | `public float RemainingHoursFromNow { get; }` |
+| `RemainingDaysFromNow` | `public float RemainingDaysFromNow { get; }` |
+| `RemainingWeeksFromNow` | `public float RemainingWeeksFromNow { get; }` |
+| `RemainingSeasonsFromNow` | `public float RemainingSeasonsFromNow { get; }` |
+| `RemainingYearsFromNow` | `public float RemainingYearsFromNow { get; }` |
+| `ToMilliseconds` | `public double ToMilliseconds { get; }` |
+| `ToSeconds` | `public double ToSeconds { get; }` |
+| `ToMinutes` | `public double ToMinutes { get; }` |
+| `ToHours` | `public double ToHours { get; }` |
+| `ToDays` | `public double ToDays { get; }` |
+| `ToWeeks` | `public double ToWeeks { get; }` |
+| `ToSeasons` | `public double ToSeasons { get; }` |
+| `ToYears` | `public double ToYears { get; }` |
+| `GetHourOfDay` | `public int GetHourOfDay { get; }` |
+| `GetDayOfWeek` | `public int GetDayOfWeek { get; }` |
+| `GetDayOfSeason` | `public int GetDayOfSeason { get; }` |
+| `GetDayOfYear` | `public int GetDayOfYear { get; }` |
+| `GetWeekOfSeason` | `public int GetWeekOfSeason { get; }` |
+| `GetSeasonOfYear` | `public CampaignTime.Seasons GetSeasonOfYear { get; }` |
+| `GetYear` | `public int GetYear { get; }` |
+| `Zero` | `public static CampaignTime Zero { get; }` |
 
-`
+## 主要方法
 
-`
+### AutoGeneratedStaticCollectObjectsCampaignTime
+`public static void AutoGeneratedStaticCollectObjectsCampaignTime(object o, List<object> collectedObjects)`
 
-`csharp
-public static bool operator &lt;(CampaignTime x, CampaignTime y);
-public static bool operator &gt;(CampaignTime x, CampaignTime y);
-public static bool operator &lt;=(CampaignTime x, CampaignTime y);
-public static bool operator &gt;=(CampaignTime x, CampaignTime y);
-public static bool operator ==(CampaignTime x, CampaignTime y);
-public static bool operator !=(CampaignTime x, CampaignTime y);
-public int CompareTo(CampaignTime other);
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignTime.AutoGeneratedStaticCollectObjectsCampaignTime(o, collectedObjects);
+```
 
-`
+### Initialize
+`public static void Initialize()`
+
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.Initialize();
+```
+
+### Equals
+`public bool Equals(CampaignTime other)`
+
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.Equals(other);
+```
+
+### Equals
+`public override bool Equals(object obj)`
+
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.Equals(obj);
+```
+
+### GetHashCode
+`public override int GetHashCode()`
+
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.GetHashCode();
+```
+
+### CompareTo
+`public int CompareTo(CampaignTime other)`
+
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.CompareTo(other);
+```
+
+### Milliseconds
+`public static CampaignTime Milliseconds(long valueInMilliseconds)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.Milliseconds(0);
+```
+
+### MillisecondsFromNow
+`public static CampaignTime MillisecondsFromNow(long valueInMilliseconds)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.MillisecondsFromNow(0);
+```
+
+### Seconds
+`public static CampaignTime Seconds(long valueInSeconds)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.Seconds(0);
+```
+
+### SecondsFromNow
+`public static CampaignTime SecondsFromNow(long valueInSeconds)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.SecondsFromNow(0);
+```
+
+### Minutes
+`public static CampaignTime Minutes(long valueInMinutes)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.Minutes(0);
+```
+
+### MinutesFromNow
+`public static CampaignTime MinutesFromNow(long valueInMinutes)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.MinutesFromNow(0);
+```
+
+### Hours
+`public static CampaignTime Hours(float valueInHours)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.Hours(0);
+```
+
+### HoursFromNow
+`public static CampaignTime HoursFromNow(float valueInHours)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.HoursFromNow(0);
+```
+
+### Days
+`public static CampaignTime Days(float valueInDays)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.Days(0);
+```
+
+### DaysFromNow
+`public static CampaignTime DaysFromNow(float valueInDays)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.DaysFromNow(0);
+```
+
+### Weeks
+`public static CampaignTime Weeks(float valueInWeeks)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.Weeks(0);
+```
+
+### WeeksFromNow
+`public static CampaignTime WeeksFromNow(float valueInWeeks)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.WeeksFromNow(0);
+```
+
+### Years
+`public static CampaignTime Years(float valueInYears)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.Years(0);
+```
+
+### YearsFromNow
+`public static CampaignTime YearsFromNow(float valueInYears)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignTime.YearsFromNow(0);
+```
+
+### StringSameAs
+`public bool StringSameAs(CampaignTime otherTime)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.StringSameAs(otherTime);
+```
+
+### ToString
+`public override string ToString()`
+
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.ToString();
+```
 
 ## 使用示例
 
-`
-
-`
-
-`csharp
-// 当前时刻?3 天后"
-CampaignTime now = CampaignTime.Now;
-CampaignTime deadline = now + CampaignTime.HoursFromNow(72);  // 3 ?
-// 判断是否到期
-if (deadline.IsPast)
-{
-    InformationManager.DisplayMessage(new InformationMessage("已过?));
-}
-
-// 距今剩余天数
-float daysLeft = deadline.RemainingDaysFromNow;
-
-// 比较两个时间
-if (hero.DeathDay != CampaignTime.Never && hero.DeathDay &lt; now)
-{
-    // 已死?}
-`
-
-`
-
-`
-
-> **提示**
-> 源码中还提供 
->
-> `HoursFromNow
->
-> ` / 
->
-> `DaysFromNow
->
-> ` / 
->
-> `SecondsFromNow
->
-> ` 等静态工厂，以及 
->
-> `+
->
-> `/
->
-> `-
->
-> ` 运算，用于构造时间长度。详见源文件
+```csharp
+CampaignTime.AutoGeneratedStaticCollectObjectsCampaignTime(o, collectedObjects);
+```
 
 ## 参见
 
-- [Hero](../campaign/Hero)
-- [Campaign](./Campaign)
-- [Town](./Town)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MultipleBattleResult"
+description: "Auto-generated class reference for MultipleBattleResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultipleBattleResult`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultipleBattleResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CreateNewBattleResult
 `public void CreateNewBattleResult(string gameType)`
 
-**Purpose:** Creates a new `new battle result` instance or object.
+**Purpose:** Constructs a new `new battle result` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MultipleBattleResult from the subsystem API first
+MultipleBattleResult multipleBattleResult = ...;
+multipleBattleResult.CreateNewBattleResult("example");
+```
 
 ### GetCurrentBattleResult
 `public BattleResult GetCurrentBattleResult()`
 
-**Purpose:** Gets the current value of `current battle result`.
+**Purpose:** Reads and returns the `current battle result` value held by the current object.
+
+```csharp
+// Obtain an instance of MultipleBattleResult from the subsystem API first
+MultipleBattleResult multipleBattleResult = ...;
+var result = multipleBattleResult.GetCurrentBattleResult();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultipleBattleResult();
-value.CreateNewBattleResult("example");
+// Typically call this after obtaining an instance from the subsystem API
+MultipleBattleResult multipleBattleResult = ...;
+multipleBattleResult.CreateNewBattleResult("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

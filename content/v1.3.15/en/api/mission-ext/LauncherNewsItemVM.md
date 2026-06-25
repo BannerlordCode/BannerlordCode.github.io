@@ -1,13 +1,7 @@
 ---
 title: "LauncherNewsItemVM"
+description: "Auto-generated class reference for LauncherNewsItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherNewsItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherNewsItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ## Usage Example
 
 ```csharp
-var value = new LauncherNewsItemVM();
+// Obtain an instance from the relevant subsystem API
+LauncherNewsItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

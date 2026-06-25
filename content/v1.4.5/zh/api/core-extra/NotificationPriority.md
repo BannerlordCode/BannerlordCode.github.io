@@ -1,20 +1,14 @@
 ---
 title: "NotificationPriority"
+description: "NotificationPriority 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NotificationPriority`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotificationPriority
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public enum NotificationPriority`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBInformationManager.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBInformationManager.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "NotificationPriority"
 ## 使用示例
 
 ```csharp
-NotificationPriority example = NotificationPriority.Value;
+// 从对应子系统 API 获取实例
+NotificationPriority instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

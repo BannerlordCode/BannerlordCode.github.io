@@ -1,20 +1,14 @@
 ---
 title: "TournamentMatch"
+description: "Auto-generated class reference for TournamentMatch."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentMatch`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentMatch
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TournamentMatch`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/TournamentMatch.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/TournamentMatch.cs`
 
 ## Overview
 
@@ -35,45 +29,88 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### End
 `public void End()`
 
-**Purpose:** Handles logic related to `end`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentMatch from the subsystem API first
+TournamentMatch tournamentMatch = ...;
+tournamentMatch.End();
+```
 
 ### Start
 `public void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of TournamentMatch from the subsystem API first
+TournamentMatch tournamentMatch = ...;
+tournamentMatch.Start();
+```
 
 ### GetParticipant
 `public TournamentParticipant GetParticipant(int uniqueSeed)`
 
-**Purpose:** Gets the current value of `participant`.
+**Purpose:** Reads and returns the `participant` value held by the current object.
+
+```csharp
+// Obtain an instance of TournamentMatch from the subsystem API first
+TournamentMatch tournamentMatch = ...;
+var result = tournamentMatch.GetParticipant(0);
+```
 
 ### IsParticipantRequired
 `public bool IsParticipantRequired()`
 
-**Purpose:** Handles logic related to `is participant required`.
+**Purpose:** Determines whether the current object is in the `participant required` state or condition.
+
+```csharp
+// Obtain an instance of TournamentMatch from the subsystem API first
+TournamentMatch tournamentMatch = ...;
+var result = tournamentMatch.IsParticipantRequired();
+```
 
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant, bool firstTime)`
 
 **Purpose:** Adds `participant` to the current collection or state.
 
+```csharp
+// Obtain an instance of TournamentMatch from the subsystem API first
+TournamentMatch tournamentMatch = ...;
+tournamentMatch.AddParticipant(participant, false);
+```
+
 ### IsPlayerParticipating
 `public bool IsPlayerParticipating()`
 
-**Purpose:** Handles logic related to `is player participating`.
+**Purpose:** Determines whether the current object is in the `player participating` state or condition.
+
+```csharp
+// Obtain an instance of TournamentMatch from the subsystem API first
+TournamentMatch tournamentMatch = ...;
+var result = tournamentMatch.IsPlayerParticipating();
+```
 
 ### IsPlayerWinner
 `public bool IsPlayerWinner()`
 
-**Purpose:** Handles logic related to `is player winner`.
+**Purpose:** Determines whether the current object is in the `player winner` state or condition.
+
+```csharp
+// Obtain an instance of TournamentMatch from the subsystem API first
+TournamentMatch tournamentMatch = ...;
+var result = tournamentMatch.IsPlayerWinner();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentMatch();
-value.End();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentMatch tournamentMatch = ...;
+tournamentMatch.End();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "RomanticState"
+description: "RomanticState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RomanticState`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RomanticState
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,15 +23,22 @@ title: "RomanticState"
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**用途 / Purpose:** 处理 `partner` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RomanticState 实例
+RomanticState romanticState = ...;
+var result = romanticState.Partner(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RomanticState();
-value.Partner(hero);
+// 通常从对应子系统 API 获取实例后调用
+RomanticState romanticState = ...;
+romanticState.Partner(hero);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

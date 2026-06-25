@@ -1,13 +1,7 @@
 ---
 title: "ItemGovernorComparer"
+description: "Auto-generated class reference for ItemGovernorComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemGovernorComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemGovernorComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public override int Compare(ClanSettlementItemVM x, ClanSettlementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemGovernorComparer from the subsystem API first
+ItemGovernorComparer itemGovernorComparer = ...;
+var result = itemGovernorComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemGovernorComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemGovernorComparer itemGovernorComparer = ...;
+itemGovernorComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

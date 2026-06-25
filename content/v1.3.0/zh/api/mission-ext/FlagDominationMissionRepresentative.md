@@ -1,13 +1,7 @@
 ---
 title: "FlagDominationMissionRepresentative"
+description: "FlagDominationMissionRepresentative 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FlagDominationMissionRepresentative`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FlagDominationMissionRepresentative
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionRepresentatives
@@ -29,40 +23,77 @@ title: "FlagDominationMissionRepresentative"
 ### GetGoldAmountForVisual
 `public int GetGoldAmountForVisual()`
 
-**用途 / Purpose:** 获取 `gold amount for visual` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold amount for visual」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationMissionRepresentative 实例
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.GetGoldAmountForVisual();
+```
 
 ### UpdateSelectedClassServer
 `public void UpdateSelectedClassServer(Agent agent)`
 
-**用途 / Purpose:** 更新 `selected class server` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「selected class server」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationMissionRepresentative 实例
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+flagDominationMissionRepresentative.UpdateSelectedClassServer(agent);
+```
 
 ### CheckIfSurvivedLastRoundAndReset
 `public bool CheckIfSurvivedLastRoundAndReset()`
 
-**用途 / Purpose:** 处理 `check if survived last round and reset` 相关逻辑。
+**用途 / Purpose:** 检查「if survived last round and reset」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationMissionRepresentative 实例
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.CheckIfSurvivedLastRoundAndReset();
+```
 
 ### GetGoldGainsFromKillData
 `public int GetGoldGainsFromKillData(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isFriendly)`
 
-**用途 / Purpose:** 获取 `gold gains from kill data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold gains from kill data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationMissionRepresentative 实例
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.GetGoldGainsFromKillData(killerPerkHandler, assistingHitterPerkHandler, victimClass, false, false);
+```
 
 ### GetGoldGainFromKillDataAndUpdateFlags
 `public int GetGoldGainFromKillDataAndUpdateFlags(MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist)`
 
-**用途 / Purpose:** 获取 `gold gain from kill data and update flags` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold gain from kill data and update flags」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationMissionRepresentative 实例
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.GetGoldGainFromKillDataAndUpdateFlags(victimClass, false);
+```
 
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**用途 / Purpose:** 获取 `gold gains from ally death reward` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold gains from ally death reward」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationMissionRepresentative 实例
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.GetGoldGainsFromAllyDeathReward(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FlagDominationMissionRepresentative();
-value.GetGoldAmountForVisual();
+// 通常从对应子系统 API 获取实例后调用
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+flagDominationMissionRepresentative.GetGoldAmountForVisual();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

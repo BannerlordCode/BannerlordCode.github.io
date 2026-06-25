@@ -1,20 +1,14 @@
 ---
 title: "HeirComeOfAgeMapNotification"
+description: "Auto-generated class reference for HeirComeOfAgeMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeirComeOfAgeMapNotification`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeirComeOfAgeMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeirComeOfAgeMapNotification : InformationData`
 **Base:** `InformationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/HeirComeOfAgeMapNotification.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/HeirComeOfAgeMapNotification.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ## Usage Example
 
 ```csharp
-var example = new HeirComeOfAgeMapNotification();
+// Obtain an instance from the relevant subsystem API
+HeirComeOfAgeMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

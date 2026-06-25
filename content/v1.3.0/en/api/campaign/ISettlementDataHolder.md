@@ -1,18 +1,12 @@
 ---
 title: "ISettlementDataHolder"
+description: "Auto-generated class reference for ISettlementDataHolder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISettlementDataHolder`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISettlementDataHolder
 
 **Namespace:** TaleWorlds.CampaignSystem.Map.DistanceCache
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ISettlementDataHolder`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Map/DistanceCache/ISettlementDataHolder.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Map.DistanceCache` to place it i
 ## Usage Example
 
 ```csharp
-ISettlementDataHolder implementation = GetSettlementDataHolderImplementation();
+// Usually obtained through DI or a factory method
+IISettlementDataHolder service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

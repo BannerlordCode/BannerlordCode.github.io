@@ -1,20 +1,14 @@
 ---
 title: "DLLCheckData"
+description: "DLLCheckData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DLLCheckData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DLLCheckData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DLLCheckData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/DLLCheckData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/DLLCheckData.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "DLLCheckData"
 ## 使用示例
 
 ```csharp
-var value = new DLLCheckData();
+// 该数据对象通常由战役/任务 API 返回
+DLLCheckData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

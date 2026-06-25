@@ -1,20 +1,14 @@
 ---
 title: "DefaultFleetManagementModel"
+description: "Auto-generated class reference for DefaultFleetManagementModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultFleetManagementModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultFleetManagementModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultFleetManagementModel : FleetManagementModel`
 **Base:** `FleetManagementModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultFleetManagementModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultFleetManagementModel.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `DefaultFleetManagementModel` as a Model-style extension point: first iden
 ### CanSendShipToPlayerClan
 `public override bool CanSendShipToPlayerClan(Ship ship, int playerShipsCount, int troopsCountToSend, out TextObject hint)`
 
-**Purpose:** Checks whether the current object can `send ship to player clan`.
+**Purpose:** Checks whether the current object meets the preconditions for `send ship to player clan`.
+
+```csharp
+// Obtain an instance of DefaultFleetManagementModel from the subsystem API first
+DefaultFleetManagementModel defaultFleetManagementModel = ...;
+var result = defaultFleetManagementModel.CanSendShipToPlayerClan(ship, 0, 0, hint);
+```
 
 ### CanTroopsReturn
 `public override bool CanTroopsReturn()`
 
-**Purpose:** Checks whether the current object can `troops return`.
+**Purpose:** Checks whether the current object meets the preconditions for `troops return`.
+
+```csharp
+// Obtain an instance of DefaultFleetManagementModel from the subsystem API first
+DefaultFleetManagementModel defaultFleetManagementModel = ...;
+var result = defaultFleetManagementModel.CanTroopsReturn();
+```
 
 ### GetReturnTimeForTroops
 `public override CampaignTime GetReturnTimeForTroops(Ship ship)`
 
-**Purpose:** Gets the current value of `return time for troops`.
+**Purpose:** Reads and returns the `return time for troops` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultFleetManagementModel from the subsystem API first
+DefaultFleetManagementModel defaultFleetManagementModel = ...;
+var result = defaultFleetManagementModel.GetReturnTimeForTroops(ship);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultFleetManagementModel>(new MyDefaultFleetManagem
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

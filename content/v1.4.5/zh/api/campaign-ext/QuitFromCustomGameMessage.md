@@ -1,20 +1,14 @@
 ---
 title: "QuitFromCustomGameMessage"
+description: "QuitFromCustomGameMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QuitFromCustomGameMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuitFromCustomGameMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class QuitFromCustomGameMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/QuitFromCustomGameMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/QuitFromCustomGameMessage.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "QuitFromCustomGameMessage"
 ## 使用示例
 
 ```csharp
-var example = new QuitFromCustomGameMessage();
+// 从对应子系统 API 获取实例
+QuitFromCustomGameMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

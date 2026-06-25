@@ -1,20 +1,14 @@
 ---
 title: "Number"
+description: "Number 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Number`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Number
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Number`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/LordConversationsCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/LordConversationsCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "Number"
 ### GetBetween
 `public IEnumerable<Number> GetBetween(int start, int end)`
 
-**用途 / Purpose:** 获取 `between` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「between」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Number 实例
+Number number = ...;
+var result = number.GetBetween(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Number();
-value.GetBetween(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+Number number = ...;
+number.GetBetween(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

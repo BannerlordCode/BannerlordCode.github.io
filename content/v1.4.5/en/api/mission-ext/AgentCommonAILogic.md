@@ -1,20 +1,14 @@
 ---
 title: "AgentCommonAILogic"
+description: "Auto-generated class reference for AgentCommonAILogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentCommonAILogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentCommonAILogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentCommonAILogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCommonAILogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCommonAILogic.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `AgentCommonAILogic` as a Logic-style extension point: first identify who 
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** Called when the `agent created` event is raised.
+**Purpose:** Invoked when the `agent created` event is raised.
+
+```csharp
+// Obtain an instance of AgentCommonAILogic from the subsystem API first
+AgentCommonAILogic agentCommonAILogic = ...;
+agentCommonAILogic.OnAgentCreated(agent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AgentCommonAILogic());
+var behavior = Mission.Current.GetMissionBehavior<AgentCommonAILogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

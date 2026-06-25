@@ -1,13 +1,7 @@
 ---
 title: "BombardmentStep1Tutorial"
+description: "BombardmentStep1Tutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BombardmentStep1Tutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BombardmentStep1Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,40 +23,77 @@ title: "BombardmentStep1Tutorial"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
+BombardmentStep1Tutorial bombardmentStep1Tutorial = ...;
+var result = bombardmentStep1Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnPlayerStartEngineConstruction
 `public override void OnPlayerStartEngineConstruction(PlayerStartEngineConstructionEvent obj)`
 
-**用途 / Purpose:** 当 `player start engine construction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player start engine construction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
+BombardmentStep1Tutorial bombardmentStep1Tutorial = ...;
+bombardmentStep1Tutorial.OnPlayerStartEngineConstruction(obj);
+```
 
 ### OnGameMenuOptionSelected
 `public override void OnGameMenuOptionSelected(GameMenuOption obj)`
 
-**用途 / Purpose:** 当 `game menu option selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game menu option selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
+BombardmentStep1Tutorial bombardmentStep1Tutorial = ...;
+bombardmentStep1Tutorial.OnGameMenuOptionSelected(obj);
+```
 
 ### OnGameMenuOpened
 `public override void OnGameMenuOpened(MenuCallbackArgs obj)`
 
-**用途 / Purpose:** 当 `game menu opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game menu opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
+BombardmentStep1Tutorial bombardmentStep1Tutorial = ...;
+bombardmentStep1Tutorial.OnGameMenuOpened(obj);
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
+BombardmentStep1Tutorial bombardmentStep1Tutorial = ...;
+var result = bombardmentStep1Tutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BombardmentStep1Tutorial 实例
+BombardmentStep1Tutorial bombardmentStep1Tutorial = ...;
+var result = bombardmentStep1Tutorial.IsConditionsMetForActivation();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BombardmentStep1Tutorial();
-value.IsConditionsMetForCompletion();
+// 通常从对应子系统 API 获取实例后调用
+BombardmentStep1Tutorial bombardmentStep1Tutorial = ...;
+bombardmentStep1Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

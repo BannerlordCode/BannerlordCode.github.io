@@ -1,13 +1,7 @@
 ---
 title: "ColorButtonWidget"
+description: "Auto-generated class reference for ColorButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ColorButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ColorButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -33,9 +27,10 @@ Treat `ColorButtonWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new ColorButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ColorButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

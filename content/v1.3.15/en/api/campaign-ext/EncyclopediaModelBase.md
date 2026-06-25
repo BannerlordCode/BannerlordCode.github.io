@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaModelBase"
+description: "Auto-generated class reference for EncyclopediaModelBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaModelBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaModelBase
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncyclopediaModelBase();
+// Typically obtained from a subsystem API or factory
+EncyclopediaModelBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

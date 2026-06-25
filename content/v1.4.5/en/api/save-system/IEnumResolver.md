@@ -1,20 +1,14 @@
 ---
 title: "IEnumResolver"
+description: "Auto-generated class reference for IEnumResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IEnumResolver`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IEnumResolver
 
 **Namespace:** TaleWorlds.SaveSystem.Resolvers
 **Module:** TaleWorlds.SaveSystem
-**Type:** `class`
+**Type:** `public interface IEnumResolver`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IEnumResolver.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IEnumResolver.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem.Resolvers` to place it in the stack,
 ## Usage Example
 
 ```csharp
-IEnumResolver implementation = GetEnumResolverImplementation();
+// Usually obtained through DI or a factory method
+IIEnumResolver service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

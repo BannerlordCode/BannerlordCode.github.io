@@ -1,13 +1,7 @@
 ---
 title: "SiegeLadderSpawner"
+description: "Auto-generated class reference for SiegeLadderSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeLadderSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeLadderSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ### AssignParameters
 `public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**Purpose:** Handles logic related to `assign parameters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeLadderSpawner from the subsystem API first
+SiegeLadderSpawner siegeLadderSpawner = ...;
+siegeLadderSpawner.AssignParameters(_spawnerMissionHelper);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeLadderSpawner();
-value.AssignParameters(_spawnerMissionHelper);
+// Typically call this after obtaining an instance from the subsystem API
+SiegeLadderSpawner siegeLadderSpawner = ...;
+siegeLadderSpawner.AssignParameters(_spawnerMissionHelper);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

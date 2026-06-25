@@ -1,20 +1,14 @@
 ---
 title: "SaveCodeGenerationContext"
+description: "SaveCodeGenerationContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveCodeGenerationContext`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveCodeGenerationContext
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveCodeGenerationContext`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveCodeGenerationContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveCodeGenerationContext.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "SaveCodeGenerationContext"
 ### AddAssembly
 `public void AddAssembly(Assembly assembly, string defaultNamespace, string location, string fileName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `assembly`。
+**用途 / Purpose:** 将 「assembly」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveCodeGenerationContext 实例
+SaveCodeGenerationContext saveCodeGenerationContext = ...;
+saveCodeGenerationContext.AddAssembly(assembly, "example", "example", "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SaveCodeGenerationContext();
-value.AddAssembly(assembly, "example", "example", "example");
+// 通常从对应子系统 API 获取实例后调用
+SaveCodeGenerationContext saveCodeGenerationContext = ...;
+saveCodeGenerationContext.AddAssembly(assembly, "example", "example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

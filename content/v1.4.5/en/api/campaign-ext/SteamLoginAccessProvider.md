@@ -1,20 +1,14 @@
 ---
 title: "SteamLoginAccessProvider"
+description: "Auto-generated class reference for SteamLoginAccessProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamLoginAccessProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamLoginAccessProvider
 
 **Namespace:** TaleWorlds.Diamond.AccessProvider.Steam
 **Module:** TaleWorlds.Diamond
 **Type:** `public class SteamLoginAccessProvider : ILoginAccessProvider`
 **Base:** `ILoginAccessProvider`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond.AccessProvider.Steam/TaleWorlds.Diamond.AccessProvider.Steam/SteamLoginAccessProvider.cs`
+**File:** `bin/TaleWorlds.Diamond.AccessProvider.Steam/TaleWorlds.Diamond.AccessProvider.Steam/SteamLoginAccessProvider.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.AccessProvider.Steam` to place it in th
 ## Usage Example
 
 ```csharp
-var example = new SteamLoginAccessProvider();
+// Obtain an instance from the relevant subsystem API
+SteamLoginAccessProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GauntletDebugStats"
+description: "Auto-generated class reference for GauntletDebugStats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletDebugStats`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletDebugStats
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of GauntletDebugStats from the subsystem API first
+GauntletDebugStats gauntletDebugStats = ...;
+gauntletDebugStats.Initialize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletDebugStats();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+GauntletDebugStats gauntletDebugStats = ...;
+gauntletDebugStats.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

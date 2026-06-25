@@ -1,20 +1,14 @@
 ---
 title: "HeadmanNeedsGrainIssueQuest"
+description: "HeadmanNeedsGrainIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeadmanNeedsGrainIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeadmanNeedsGrainIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeadmanNeedsGrainIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/HeadmanNeedsGrainIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/HeadmanNeedsGrainIssueBehavior.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "HeadmanNeedsGrainIssueQuest"
 ## 使用示例
 
 ```csharp
-var example = new HeadmanNeedsGrainIssueQuest();
+// 从对应子系统 API 获取实例
+HeadmanNeedsGrainIssueQuest instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

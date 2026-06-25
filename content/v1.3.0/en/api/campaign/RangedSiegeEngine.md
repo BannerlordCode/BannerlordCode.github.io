@@ -1,13 +1,7 @@
 ---
 title: "RangedSiegeEngine"
+description: "Auto-generated class reference for RangedSiegeEngine."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RangedSiegeEngine`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedSiegeEngine
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -43,25 +37,44 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### Hold
 `public void Hold()`
 
-**Purpose:** Handles logic related to `hold`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RangedSiegeEngine from the subsystem API first
+RangedSiegeEngine rangedSiegeEngine = ...;
+rangedSiegeEngine.Hold();
+```
 
 ### Reload
 `public void Reload()`
 
-**Purpose:** Handles logic related to `reload`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RangedSiegeEngine from the subsystem API first
+RangedSiegeEngine rangedSiegeEngine = ...;
+rangedSiegeEngine.Reload();
+```
 
 ### OnFireDecisionTaken
 `public void OnFireDecisionTaken(SiegeEvent siegeEvent, BattleSideEnum battleSide, int targetSlotIndex, SiegeBombardTargets targetType)`
 
-**Purpose:** Called when the `fire decision taken` event is raised.
+**Purpose:** Invoked when the `fire decision taken` event is raised.
+
+```csharp
+// Obtain an instance of RangedSiegeEngine from the subsystem API first
+RangedSiegeEngine rangedSiegeEngine = ...;
+rangedSiegeEngine.OnFireDecisionTaken(siegeEvent, battleSide, 0, targetType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RangedSiegeEngine();
-value.Hold();
+// Typically call this after obtaining an instance from the subsystem API
+RangedSiegeEngine rangedSiegeEngine = ...;
+rangedSiegeEngine.Hold();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

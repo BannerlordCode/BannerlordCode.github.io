@@ -1,20 +1,14 @@
 ---
 title: "MapConversationTextureProvider"
+description: "Auto-generated class reference for MapConversationTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationTextureProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationTextureProvider
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class MapConversationTextureProvider : TextureProvider`
 **Base:** `TextureProvider`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/MapConversationTextureProvider.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/MapConversationTextureProvider.cs`
 
 ## Overview
 
@@ -36,25 +30,44 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MapConversationTextureProvider from the subsystem API first
+MapConversationTextureProvider mapConversationTextureProvider = ...;
+mapConversationTextureProvider.Clear(false);
+```
 
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationTextureProvider from the subsystem API first
+MapConversationTextureProvider mapConversationTextureProvider = ...;
+mapConversationTextureProvider.SetTargetSize(0, 0);
+```
 
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapConversationTextureProvider from the subsystem API first
+MapConversationTextureProvider mapConversationTextureProvider = ...;
+mapConversationTextureProvider.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapConversationTextureProvider();
-value.Clear(false);
+// Typically call this after obtaining an instance from the subsystem API
+MapConversationTextureProvider mapConversationTextureProvider = ...;
+mapConversationTextureProvider.Clear(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

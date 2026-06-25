@@ -1,20 +1,14 @@
 ---
 title: "SaveablePropertyAttribute"
+description: "Auto-generated class reference for SaveablePropertyAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveablePropertyAttribute`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveablePropertyAttribute
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveablePropertyAttribute : Attribute`
 **Base:** `Attribute`
-**Area:** save-system
+**File:** `TaleWorlds.SaveSystem/SaveablePropertyAttribute.cs`
 
 ## Overview
 
@@ -39,5 +33,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

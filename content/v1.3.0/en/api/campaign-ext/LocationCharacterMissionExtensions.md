@@ -1,13 +1,7 @@
 ---
 title: "LocationCharacterMissionExtensions"
+description: "Auto-generated class reference for LocationCharacterMissionExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationCharacterMissionExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationCharacterMissionExtensions
 
 **Namespace:** SandBox
@@ -29,7 +23,12 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### GetAgentBuildData
 `public static AgentBuildData GetAgentBuildData(this LocationCharacter locationCharacter)`
 
-**Purpose:** Gets the current value of `agent build data`.
+**Purpose:** Reads and returns the `agent build data` value held by the current object.
+
+```csharp
+// Static call; no instance required
+LocationCharacterMissionExtensions.GetAgentBuildData(locationCharacter);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ LocationCharacterMissionExtensions.GetAgentBuildData(locationCharacter);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

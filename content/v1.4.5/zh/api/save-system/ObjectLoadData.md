@@ -1,20 +1,14 @@
 ---
 title: "ObjectLoadData"
+description: "ObjectLoadData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ObjectLoadData`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ObjectLoadData
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ObjectLoadData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ObjectLoadData.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ObjectLoadData.cs`
 
 ## 概述
 
@@ -38,69 +32,142 @@ title: "ObjectLoadData"
 ### GetDataBySaveId
 `public object GetDataBySaveId(int localSaveId)`
 
-**用途 / Purpose:** 获取 `data by save id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「data by save id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetDataBySaveId(0);
+```
 
 ### GetMemberValueBySaveId
 `public object GetMemberValueBySaveId(int localSaveId, int typeLevel)`
 
-**用途 / Purpose:** 获取 `member value by save id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「member value by save id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetMemberValueBySaveId(0, 0);
+```
 
 ### GetMemberValueBySaveId
 `public object GetMemberValueBySaveId(int localSaveId)`
 
-**用途 / Purpose:** 获取 `member value by save id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「member value by save id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetMemberValueBySaveId(0);
+```
 
 ### GetFieldValueBySaveId
 `public object GetFieldValueBySaveId(int localSaveId)`
 
-**用途 / Purpose:** 获取 `field value by save id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「field value by save id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetFieldValueBySaveId(0);
+```
 
 ### GetPropertyValueBySaveId
 `public object GetPropertyValueBySaveId(int localSaveId)`
 
-**用途 / Purpose:** 获取 `property value by save id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「property value by save id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetPropertyValueBySaveId(0);
+```
 
 ### HasMember
 `public bool HasMember(int localSaveId)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `member`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「member」。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.HasMember(0);
+```
 
 ### HasMember
 `public bool HasMember(int localSaveId, int typeLevel)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `member`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「member」。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.HasMember(0, 0);
+```
 
 ### InitializeReaders
 `public void InitializeReaders(SaveEntryFolder saveEntryFolder)`
 
-**用途 / Purpose:** 初始化 `readers` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「readers」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+objectLoadData.InitializeReaders(saveEntryFolder);
+```
 
 ### CreateStruct
 `public void CreateStruct()`
 
-**用途 / Purpose:** 创建一个 `struct` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「struct」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+objectLoadData.CreateStruct();
+```
 
 ### FillCreatedObject
 `public void FillCreatedObject()`
 
-**用途 / Purpose:** 处理 `fill created object` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+objectLoadData.FillCreatedObject();
+```
 
 ### Read
 `public void Read()`
 
-**用途 / Purpose:** 处理 `read` 相关逻辑。
+**用途 / Purpose:** 读取当前对象的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+objectLoadData.Read();
+```
 
 ### FillObject
 `public void FillObject()`
 
-**用途 / Purpose:** 处理 `fill object` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectLoadData 实例
+ObjectLoadData objectLoadData = ...;
+objectLoadData.FillObject();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ObjectLoadData();
+// 该数据对象通常由战役/任务 API 返回
+ObjectLoadData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

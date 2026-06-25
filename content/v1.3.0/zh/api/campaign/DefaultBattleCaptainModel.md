@@ -1,13 +1,7 @@
 ---
 title: "DefaultBattleCaptainModel"
+description: "DefaultBattleCaptainModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultBattleCaptainModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBattleCaptainModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ title: "DefaultBattleCaptainModel"
 ### GetCaptainRatingForTroopUsages
 `public override float GetCaptainRatingForTroopUsages(Hero hero, TroopUsageFlags flag, out List<PerkObject> compatiblePerks)`
 
-**用途 / Purpose:** 获取 `captain rating for troop usages` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「captain rating for troop usages」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBattleCaptainModel 实例
+DefaultBattleCaptainModel defaultBattleCaptainModel = ...;
+var result = defaultBattleCaptainModel.GetCaptainRatingForTroopUsages(hero, flag, compatiblePerks);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultBattleCaptainModel>(new MyDefaultBattleCaptainM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

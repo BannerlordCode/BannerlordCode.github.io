@@ -1,20 +1,14 @@
 ---
 title: "DefaultLocationModel"
+description: "DefaultLocationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultLocationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultLocationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultLocationModel : LocationModel`
 **Base:** `LocationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultLocationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultLocationModel.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "DefaultLocationModel"
 ### GetSettlementUpgradeLevel
 `public override int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
 
-**用途 / Purpose:** 获取 `settlement upgrade level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「settlement upgrade level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultLocationModel 实例
+DefaultLocationModel defaultLocationModel = ...;
+var result = defaultLocationModel.GetSettlementUpgradeLevel(locationEncounter);
+```
 
 ### GetCivilianSceneLevel
 `public override string GetCivilianSceneLevel(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `civilian scene level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「civilian scene level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultLocationModel 实例
+DefaultLocationModel defaultLocationModel = ...;
+var result = defaultLocationModel.GetCivilianSceneLevel(settlement);
+```
 
 ### GetCivilianUpgradeLevelTag
 `public override string GetCivilianUpgradeLevelTag(int upgradeLevel)`
 
-**用途 / Purpose:** 获取 `civilian upgrade level tag` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「civilian upgrade level tag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultLocationModel 实例
+DefaultLocationModel defaultLocationModel = ...;
+var result = defaultLocationModel.GetCivilianUpgradeLevelTag(0);
+```
 
 ### GetUpgradeLevelTag
 `public override string GetUpgradeLevelTag(int upgradeLevel)`
 
-**用途 / Purpose:** 获取 `upgrade level tag` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「upgrade level tag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultLocationModel 实例
+DefaultLocationModel defaultLocationModel = ...;
+var result = defaultLocationModel.GetUpgradeLevelTag(0);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultLocationModel>(new MyDefaultLocationModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SandBoxSubModule"
+description: "Auto-generated class reference for SandBoxSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxSubModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSubModule
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class SandBoxSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/SandBoxSubModule.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/SandBoxSubModule.cs`
 
 ## Overview
 
@@ -29,40 +23,77 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `campaign start` event is raised.
+**Purpose:** Invoked when the `campaign start` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxSubModule from the subsystem API first
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnCampaignStart(game, starterObject);
+```
 
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** Called when the `game initialization finished` event is raised.
+**Purpose:** Invoked when the `game initialization finished` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxSubModule from the subsystem API first
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnGameInitializationFinished(game);
+```
 
 ### RegisterSubModuleObjects
 `public override void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** Handles logic related to `register sub module objects`.
+**Purpose:** Registers `sub module objects` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of SandBoxSubModule from the subsystem API first
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.RegisterSubModuleObjects(false);
+```
 
 ### AfterRegisterSubModuleObjects
 `public override void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** Handles logic related to `after register sub module objects`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SandBoxSubModule from the subsystem API first
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.AfterRegisterSubModuleObjects(false);
+```
 
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object starterObject)`
 
-**Purpose:** Called when the `game loaded` event is raised.
+**Purpose:** Invoked when the `game loaded` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxSubModule from the subsystem API first
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnGameLoaded(game, starterObject);
+```
 
 ### OnConfigChanged
 `public override void OnConfigChanged()`
 
-**Purpose:** Called when the `config changed` event is raised.
+**Purpose:** Invoked when the `config changed` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxSubModule from the subsystem API first
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnConfigChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SandBoxSubModule();
-value.OnCampaignStart(game, starterObject);
+// Typically call this after obtaining an instance from the subsystem API
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnCampaignStart(game, starterObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CharacterDeveloperPerkSelectionItemButtonWidget"
+description: "Auto-generated class reference for CharacterDeveloperPerkSelectionItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperPerkSelectionItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperPerkSelectionItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterDeveloperPerkSelectionItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperPerkSelectionItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperPerkSelectionItemButtonWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `CharacterDeveloperPerkSelectionItemButtonWidget` as a Widget-style extens
 ## Usage Example
 
 ```csharp
-var widget = new CharacterDeveloperPerkSelectionItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterDeveloperPerkSelectionItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

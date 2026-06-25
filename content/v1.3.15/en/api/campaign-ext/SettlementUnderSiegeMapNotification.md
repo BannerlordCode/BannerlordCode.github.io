@@ -1,13 +1,7 @@
 ---
 title: "SettlementUnderSiegeMapNotification"
+description: "Auto-generated class reference for SettlementUnderSiegeMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementUnderSiegeMapNotification`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementUnderSiegeMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ## Usage Example
 
 ```csharp
-var value = new SettlementUnderSiegeMapNotification();
+// Obtain an instance from the relevant subsystem API
+SettlementUnderSiegeMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

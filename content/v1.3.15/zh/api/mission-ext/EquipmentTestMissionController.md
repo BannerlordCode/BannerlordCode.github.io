@@ -1,13 +1,7 @@
 ---
 title: "EquipmentTestMissionController"
+description: "EquipmentTestMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EquipmentTestMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EquipmentTestMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
@@ -29,7 +23,13 @@ title: "EquipmentTestMissionController"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentTestMissionController 实例
+EquipmentTestMissionController equipmentTestMissionController = ...;
+equipmentTestMissionController.AfterStart();
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<EquipmentTestMissionControll
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

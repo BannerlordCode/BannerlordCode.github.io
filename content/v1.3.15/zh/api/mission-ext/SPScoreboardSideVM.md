@@ -1,13 +1,7 @@
 ---
 title: "SPScoreboardSideVM"
+description: "SPScoreboardSideVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPScoreboardSideVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPScoreboardSideVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
@@ -44,50 +38,99 @@ title: "SPScoreboardSideVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardSideVM 实例
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.RefreshValues();
+```
 
 ### UpdateScores
 `public void UpdateScores(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**用途 / Purpose:** 更新 `scores` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「scores」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardSideVM 实例
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.UpdateScores(battleCombatant, false, character, 0, 0, 0, 0, 0, 0);
+```
 
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**用途 / Purpose:** 更新 `hero skills` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「hero skills」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardSideVM 实例
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.UpdateHeroSkills(battleCombatant, false, heroCharacter, upgradedSkill);
+```
 
 ### GetPartyAddIfNotExists
 `public SPScoreboardPartyVM GetPartyAddIfNotExists(IBattleCombatant battleCombatant, bool isPlayerParty)`
 
-**用途 / Purpose:** 获取 `party add if not exists` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party add if not exists」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardSideVM 实例
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+var result = sPScoreboardSideVM.GetPartyAddIfNotExists(battleCombatant, false);
+```
 
 ### GetParty
 `public SPScoreboardPartyVM GetParty(IBattleCombatant battleCombatant)`
 
-**用途 / Purpose:** 获取 `party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardSideVM 实例
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+var result = sPScoreboardSideVM.GetParty(battleCombatant);
+```
 
 ### RemoveTroop
 `public SPScoreboardStatsVM RemoveTroop(IBattleCombatant battleCombatant, BasicCharacterObject troop)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `troop`。
+**用途 / Purpose:** 从当前容器或状态中移除 「troop」。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardSideVM 实例
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+var result = sPScoreboardSideVM.RemoveTroop(battleCombatant, troop);
+```
 
 ### AddTroop
 `public void AddTroop(IBattleCombatant battleCombatant, BasicCharacterObject currentTroop, SPScoreboardStatsVM scoreToBringOver)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `troop`。
+**用途 / Purpose:** 将 「troop」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardSideVM 实例
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.AddTroop(battleCombatant, currentTroop, scoreToBringOver);
+```
 
 ### GetShipAddIfNotExists
 `public SPScoreboardShipVM GetShipAddIfNotExists(IShipOrigin ship, string shipType, IBattleCombatant owner, TeamSideEnum teamSideEnum)`
 
-**用途 / Purpose:** 获取 `ship add if not exists` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship add if not exists」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardSideVM 实例
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+var result = sPScoreboardSideVM.GetShipAddIfNotExists(ship, "example", owner, teamSideEnum);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPScoreboardSideVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

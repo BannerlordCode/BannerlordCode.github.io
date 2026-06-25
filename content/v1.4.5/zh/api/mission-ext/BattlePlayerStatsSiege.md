@@ -1,20 +1,14 @@
 ---
 title: "BattlePlayerStatsSiege"
+description: "BattlePlayerStatsSiege 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattlePlayerStatsSiege`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattlePlayerStatsSiege
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattlePlayerStatsSiege : BattlePlayerStatsBase`
 **Base:** `BattlePlayerStatsBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsSiege.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsSiege.cs`
 
 ## 概述
 
@@ -37,9 +31,10 @@ title: "BattlePlayerStatsSiege"
 ## 使用示例
 
 ```csharp
-var example = new BattlePlayerStatsSiege();
+// 从对应子系统 API 获取实例
+BattlePlayerStatsSiege instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

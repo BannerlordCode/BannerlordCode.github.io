@@ -1,13 +1,7 @@
 ---
 title: "AnimationSystemBoneData"
+description: "Auto-generated class reference for AnimationSystemBoneData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimationSystemBoneData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimationSystemBoneData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Treat `AnimationSystemBoneData` as a Data-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var value = new AnimationSystemBoneData();
+// This data object is usually returned by campaign/mission APIs
+AnimationSystemBoneData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

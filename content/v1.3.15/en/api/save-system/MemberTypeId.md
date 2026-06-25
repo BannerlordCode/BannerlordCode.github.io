@@ -1,23 +1,18 @@
 ---
 title: "MemberTypeId"
+description: "Auto-generated class reference for MemberTypeId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MemberTypeId`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MemberTypeId
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct MemberTypeId`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Definition/MemberTypeId.cs`
 
 ## Overview
 
-`MemberTypeId` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MemberTypeId` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,27 +30,44 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MemberTypeId from the subsystem API first
+MemberTypeId memberTypeId = ...;
+var result = memberTypeId.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MemberTypeId from the subsystem API first
+MemberTypeId memberTypeId = ...;
+var result = memberTypeId.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MemberTypeId from the subsystem API first
+MemberTypeId memberTypeId = ...;
+var result = memberTypeId.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a MemberTypeId instance from game state, then call one of its public methods
-var value = new MemberTypeId();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+MemberTypeId memberTypeId = ...;
+memberTypeId.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TradeRumor"
+description: "Auto-generated class reference for TradeRumor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeRumor`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TradeRumor
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### IsCompatable
 `public bool IsCompatable(ItemObject item)`
 
-**Purpose:** Handles logic related to `is compatable`.
+**Purpose:** Determines whether the current object is in the `compatable` state or condition.
+
+```csharp
+// Obtain an instance of TradeRumor from the subsystem API first
+TradeRumor tradeRumor = ...;
+var result = tradeRumor.IsCompatable(item);
+```
 
 ### IsExpired
 `public bool IsExpired()`
 
-**Purpose:** Handles logic related to `is expired`.
+**Purpose:** Determines whether the current object is in the `expired` state or condition.
+
+```csharp
+// Obtain an instance of TradeRumor from the subsystem API first
+TradeRumor tradeRumor = ...;
+var result = tradeRumor.IsExpired();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TradeRumor();
-value.IsCompatable(item);
+// Typically call this after obtaining an instance from the subsystem API
+TradeRumor tradeRumor = ...;
+tradeRumor.IsCompatable(item);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

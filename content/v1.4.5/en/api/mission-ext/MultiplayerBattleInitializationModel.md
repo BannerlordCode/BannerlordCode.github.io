@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerBattleInitializationModel"
+description: "Auto-generated class reference for MultiplayerBattleInitializationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerBattleInitializationModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleInitializationModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleInitializationModel : BattleInitializationModel`
 **Base:** `BattleInitializationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleInitializationModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleInitializationModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `MultiplayerBattleInitializationModel` as a Model-style extension point: f
 ### GetAllAvailableTroopTypes
 `public override List<FormationClass> GetAllAvailableTroopTypes()`
 
-**Purpose:** Gets the current value of `all available troop types`.
+**Purpose:** Reads and returns the `all available troop types` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleInitializationModel from the subsystem API first
+MultiplayerBattleInitializationModel multiplayerBattleInitializationModel = ...;
+var result = multiplayerBattleInitializationModel.GetAllAvailableTroopTypes();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<MultiplayerBattleInitializationModel>(new MyMultiplaye
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

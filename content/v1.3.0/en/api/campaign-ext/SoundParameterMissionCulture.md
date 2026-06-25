@@ -1,51 +1,30 @@
 ---
 title: "SoundParameterMissionCulture"
+description: "Auto-generated class reference for SoundParameterMissionCulture."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundParameterMissionCulture`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundParameterMissionCulture
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public enum SoundParameterMissionCulture : short`
 **Base:** `short`
-**Area:** campaign-ext
+**File:** `SandBox.View/Missions/MissionSoundParametersView.cs`
 
 ## Overview
 
-`SoundParameterMissionCulture` lives in `SandBox.View.Missions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SoundParameterMissionCulture` lives in `SandBox.View.Missions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `SandBox.View.Missions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `None` |
-| `Aserai` |
-| `Battania` |
-| `Empire` |
-| `Khuzait` |
-| `Sturgia` |
-| `Vlandia` |
-| `Nord` |
-| `ReservedA` |
-| `ReservedB` |
-
 ## Usage Example
 
 ```csharp
-SoundParameterMissionCulture example = SoundParameterMissionCulture.None;
+// Obtain an instance from the relevant subsystem API
+SoundParameterMissionCulture instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

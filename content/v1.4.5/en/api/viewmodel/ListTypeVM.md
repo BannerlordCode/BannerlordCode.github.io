@@ -1,20 +1,14 @@
 ---
 title: "ListTypeVM"
+description: "Auto-generated class reference for ListTypeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ListTypeVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ListTypeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ListTypeVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List/ListTypeVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List/ListTypeVM.cs`
 
 ## Overview
 
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ListTypeVM from the subsystem API first
+ListTypeVM listTypeVM = ...;
+listTypeVM.RefreshValues();
+```
 
 ### Execute
 `public void Execute()`
 
-**Purpose:** Executes the `execute` operation or workflow.
+**Purpose:** Runs the operation or workflow represented by the current object.
+
+```csharp
+// Obtain an instance of ListTypeVM from the subsystem API first
+ListTypeVM listTypeVM = ...;
+listTypeVM.Execute();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ListTypeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ListTypeVM listTypeVM = ...;
+listTypeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

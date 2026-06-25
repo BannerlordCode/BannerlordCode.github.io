@@ -1,19 +1,44 @@
 ---
 title: "VolunteerTroop"
+description: "VolunteerTroop 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VolunteerTroop`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
+# VolunteerTroop
+
+**Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public struct VolunteerTroop : IComparable`
+**Base:** `IComparable`
+**File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
+
+## 概述
+
+`VolunteerTroop` 位于 `TaleWorlds.CampaignSystem.CampaignBehaviors`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
 ## 心智模型
 
-先把 `VolunteerTroop` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+先从命名空间 `TaleWorlds.CampaignSystem.CampaignBehaviors` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要方法
+
+### CompareTo
+`public int CompareTo(object obj)`
+
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 VolunteerTroop 实例
+VolunteerTroop volunteerTroop = ...;
+var result = volunteerTroop.CompareTo(obj);
+```
 
 ## 使用示例
 
 ```csharp
-var example = new VolunteerTroop();
+// 通常从对应子系统 API 获取实例后调用
+VolunteerTroop volunteerTroop = ...;
+volunteerTroop.CompareTo(obj);
 ```
+
+## 参见
+
+- [本区域目录](../)

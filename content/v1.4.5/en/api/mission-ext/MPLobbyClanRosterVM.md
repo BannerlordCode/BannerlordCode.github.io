@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanRosterVM"
+description: "Auto-generated class reference for MPLobbyClanRosterVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanRosterVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanRosterVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanRosterVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanRosterVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanRosterVM.cs`
 
 ## Overview
 
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### Compare
 `public int Compare(MPLobbyClanMemberItemVM x, MPLobbyClanMemberItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPLobbyClanRosterVM from the subsystem API first
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+var result = mPLobbyClanRosterVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanRosterVM from the subsystem API first
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+mPLobbyClanRosterVM.RefreshValues();
+```
 
 ### RefreshClanInformation
 `public void RefreshClanInformation(ClanHomeInfo info)`
 
-**Purpose:** Refreshes the display or cache of `clan information`.
+**Purpose:** Keeps the display or cache of `clan information` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanRosterVM from the subsystem API first
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+mPLobbyClanRosterVM.RefreshClanInformation(info);
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** Called when the `player name updated` event is raised.
+**Purpose:** Invoked when the `player name updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClanRosterVM from the subsystem API first
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+mPLobbyClanRosterVM.OnPlayerNameUpdated("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanRosterVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+mPLobbyClanRosterVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

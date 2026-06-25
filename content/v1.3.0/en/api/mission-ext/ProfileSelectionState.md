@@ -1,13 +1,7 @@
 ---
 title: "ProfileSelectionState"
+description: "Auto-generated class reference for ProfileSelectionState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProfileSelectionState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProfileSelectionState
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnProfileSelected
 `public void OnProfileSelected()`
 
-**Purpose:** Called when the `profile selected` event is raised.
+**Purpose:** Invoked when the `profile selected` event is raised.
+
+```csharp
+// Obtain an instance of ProfileSelectionState from the subsystem API first
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.OnProfileSelected();
+```
 
 ### StartGame
 `public void StartGame()`
 
-**Purpose:** Handles logic related to `start game`.
+**Purpose:** Starts the `game` flow or state machine.
+
+```csharp
+// Obtain an instance of ProfileSelectionState from the subsystem API first
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.StartGame();
+```
 
 ### OnProfileSelectionEvent
 `public delegate void OnProfileSelectionEvent()`
 
-**Purpose:** Called when the `profile selection event` event is raised.
+**Purpose:** Invoked when the `profile selection event` event is raised.
+
+```csharp
+// Obtain an instance of ProfileSelectionState from the subsystem API first
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.OnProfileSelectionEvent();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProfileSelectionState();
-value.OnProfileSelected();
+// Typically call this after obtaining an instance from the subsystem API
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.OnProfileSelected();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

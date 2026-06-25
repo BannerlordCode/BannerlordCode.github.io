@@ -1,20 +1,14 @@
 ---
 title: "BehaviorMountedSkirmish"
+description: "Auto-generated class reference for BehaviorMountedSkirmish."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorMountedSkirmish`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorMountedSkirmish
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorMountedSkirmish : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorMountedSkirmish.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorMountedSkirmish.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTargetPos
 `public Vec2 GetTargetPos(Vec2 position, float distance)`
 
-**Purpose:** Gets the current value of `target pos`.
+**Purpose:** Reads and returns the `target pos` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorMountedSkirmish from the subsystem API first
+BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
+var result = behaviorMountedSkirmish.GetTargetPos(position, 0);
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorMountedSkirmish from the subsystem API first
+BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
+behaviorMountedSkirmish.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorMountedSkirmish();
-value.GetTargetPos(position, 0);
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
+behaviorMountedSkirmish.GetTargetPos(position, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameTextManager"
+description: "GameTextManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameTextManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTextManager
 
 **Namespace:** TaleWorlds.Core
@@ -37,37 +31,79 @@ title: "GameTextManager"
 ### GetGameText
 `public GameText GetGameText(string id)`
 
-**用途 / Purpose:** 获取 `game text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「game text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextManager 实例
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.GetGameText("example");
+```
 
 ### AddGameText
 `public GameText AddGameText(string id)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `game text`。
+**用途 / Purpose:** 将 「game text」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextManager 实例
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.AddGameText("example");
+```
 
 ### TryGetText
 `public bool TryGetText(string id, string variation, out TextObject text)`
 
-**用途 / Purpose:** 尝试获取 `get text`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get text」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextManager 实例
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.TryGetText("example", "example", text);
+```
 
 ### FindText
 `public TextObject FindText(string id, string variation = null)`
 
-**用途 / Purpose:** 处理 `find text` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「text」。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextManager 实例
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.FindText("example", "example");
+```
 
 ### FindAllTextVariations
 `public IEnumerable<TextObject> FindAllTextVariations(string id)`
 
-**用途 / Purpose:** 处理 `find all text variations` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all text variations」。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextManager 实例
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.FindAllTextVariations("example");
+```
 
 ### LoadGameTexts
 `public void LoadGameTexts()`
 
-**用途 / Purpose:** 加载 `game texts` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「game texts」。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextManager 实例
+GameTextManager gameTextManager = ...;
+gameTextManager.LoadGameTexts();
+```
 
 ### LoadDefaultTexts
 `public void LoadDefaultTexts()`
 
-**用途 / Purpose:** 加载 `default texts` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「default texts」。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextManager 实例
+GameTextManager gameTextManager = ...;
+gameTextManager.LoadDefaultTexts();
+```
 
 ## 使用示例
 
@@ -77,4 +113,4 @@ var manager = GameTextManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

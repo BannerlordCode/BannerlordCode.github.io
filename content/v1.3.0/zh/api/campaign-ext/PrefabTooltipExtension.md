@@ -1,13 +1,7 @@
 ---
 title: "PrefabTooltipExtension"
+description: "PrefabTooltipExtension 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrefabTooltipExtension`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrefabTooltipExtension
 
 **Namespace:** TaleWorlds.GauntletUI.TooltipExtensions
@@ -27,9 +21,10 @@ title: "PrefabTooltipExtension"
 ## 使用示例
 
 ```csharp
-var value = new PrefabTooltipExtension();
+// 从对应子系统 API 获取实例
+PrefabTooltipExtension instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

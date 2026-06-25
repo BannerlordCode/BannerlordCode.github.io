@@ -1,13 +1,7 @@
 ---
 title: "HeirComeOfAgeNotificationItemVM"
+description: "Auto-generated class reference for HeirComeOfAgeNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeirComeOfAgeNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HeirComeOfAgeNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ## Usage Example
 
 ```csharp
-var value = new HeirComeOfAgeNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+HeirComeOfAgeNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

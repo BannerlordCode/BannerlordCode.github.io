@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplateEventItemVM"
+description: "SettlementNameplateEventItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNameplateEventItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateEventItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SettlementNameplateEventItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplateEventItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplateEventItemVM.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "SettlementNameplateEventItemVM"
 ## 使用示例
 
 ```csharp
-var value = new SettlementNameplateEventItemVM();
+// 从对应子系统 API 获取实例
+SettlementNameplateEventItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

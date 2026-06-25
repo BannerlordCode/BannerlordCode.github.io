@@ -1,20 +1,14 @@
 ---
 title: "MissionPeerMarkerTargetVM"
+description: "MissionPeerMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionPeerMarkerTargetVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionPeerMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionPeerMarkerTargetVM : MissionMarkerTargetVM`
 **Base:** `MissionMarkerTargetVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionPeerMarkerTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionPeerMarkerTargetVM.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "MissionPeerMarkerTargetVM"
 ### UpdateScreenPosition
 `public override void UpdateScreenPosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `screen position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「screen position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeerMarkerTargetVM 实例
+MissionPeerMarkerTargetVM missionPeerMarkerTargetVM = ...;
+missionPeerMarkerTargetVM.UpdateScreenPosition(missionCamera);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionPeerMarkerTargetVM();
-value.UpdateScreenPosition(missionCamera);
+// 通常从对应子系统 API 获取实例后调用
+MissionPeerMarkerTargetVM missionPeerMarkerTargetVM = ...;
+missionPeerMarkerTargetVM.UpdateScreenPosition(missionCamera);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

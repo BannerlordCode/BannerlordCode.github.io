@@ -1,13 +1,7 @@
 ---
 title: "MissileCollisionReaction"
+description: "MissileCollisionReaction 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissileCollisionReaction`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissileCollisionReaction
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ title: "MissileCollisionReaction"
 ## 使用示例
 
 ```csharp
-MissileCollisionReaction example = MissileCollisionReaction.Value;
+// 从对应子系统 API 获取实例
+MissileCollisionReaction instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

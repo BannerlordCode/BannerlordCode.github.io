@@ -1,13 +1,7 @@
 ---
 title: "SelectedStateBrushWidget"
+description: "Auto-generated class reference for SelectedStateBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectedStateBrushWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SelectedStateBrushWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -33,9 +27,10 @@ Treat `SelectedStateBrushWidget` as a Widget-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var widget = new SelectedStateBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SelectedStateBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

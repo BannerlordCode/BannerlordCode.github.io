@@ -1,13 +1,7 @@
 ---
 title: "VisualDefinition"
+description: "Auto-generated class reference for VisualDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualDefinition`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualDefinition
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -42,18 +36,31 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 
 **Purpose:** Adds `visual state` to the current collection or state.
 
+```csharp
+// Obtain an instance of VisualDefinition from the subsystem API first
+VisualDefinition visualDefinition = ...;
+visualDefinition.AddVisualState(visualState);
+```
+
 ### GetVisualState
 `public VisualState GetVisualState(string state)`
 
-**Purpose:** Gets the current value of `visual state`.
+**Purpose:** Reads and returns the `visual state` value held by the current object.
+
+```csharp
+// Obtain an instance of VisualDefinition from the subsystem API first
+VisualDefinition visualDefinition = ...;
+var result = visualDefinition.GetVisualState("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VisualDefinition();
-value.AddVisualState(visualState);
+// Typically call this after obtaining an instance from the subsystem API
+VisualDefinition visualDefinition = ...;
+visualDefinition.AddVisualState(visualState);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "RundownLineWidget"
+description: "RundownLineWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RundownLineWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RundownLineWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip
@@ -37,14 +31,21 @@ title: "RundownLineWidget"
 ### RefreshValueOffset
 `public void RefreshValueOffset(float columnWidth)`
 
-**用途 / Purpose:** 刷新 `value offset` 的显示或缓存。
+**用途 / Purpose:** 使 「value offset」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RundownLineWidget 实例
+RundownLineWidget rundownLineWidget = ...;
+rundownLineWidget.RefreshValueOffset(0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new RundownLineWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+RundownLineWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

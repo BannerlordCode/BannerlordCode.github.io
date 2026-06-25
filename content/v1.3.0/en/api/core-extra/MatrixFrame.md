@@ -1,13 +1,7 @@
 ---
 title: "MatrixFrame"
+description: "Auto-generated class reference for MatrixFrame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatrixFrame`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatrixFrame
 
 **Namespace:** TaleWorlds.Library
@@ -40,155 +34,325 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### TransformToParent
 `public Vec3 TransformToParent(in Vec3 v)`
 
-**Purpose:** Handles logic related to `transform to parent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(v);
+```
 
 ### TransformToParent
 `public Vec2 TransformToParent(in Vec2 v)`
 
-**Purpose:** Handles logic related to `transform to parent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(v);
+```
 
 ### TransformToLocal
 `public Vec3 TransformToLocal(in Vec3 v)`
 
-**Purpose:** Handles logic related to `transform to local`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocal(v);
+```
 
 ### TransformToLocalNonUnit
 `public Vec3 TransformToLocalNonUnit(in Vec3 v)`
 
-**Purpose:** Handles logic related to `transform to local non unit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonUnit(v);
+```
 
 ### NearlyEquals
 `public bool NearlyEquals(MatrixFrame rhs, float epsilon = 1E-05f)`
 
-**Purpose:** Handles logic related to `nearly equals`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.NearlyEquals(rhs, 0);
+```
 
 ### TransformToLocalNonOrthogonal
 `public Vec3 TransformToLocalNonOrthogonal(in Vec3 v)`
 
-**Purpose:** Handles logic related to `transform to local non orthogonal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonOrthogonal(v);
+```
 
 ### TransformToLocalNonOrthogonal
 `public MatrixFrame TransformToLocalNonOrthogonal(in MatrixFrame frame)`
 
-**Purpose:** Handles logic related to `transform to local non orthogonal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonOrthogonal(frame);
+```
 
 ### Lerp
 `public static MatrixFrame Lerp(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
 
-**Purpose:** Handles logic related to `lerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixFrame.Lerp(m1, m2, 0);
+```
 
 ### LerpNonOrthogonal
 `public static MatrixFrame LerpNonOrthogonal(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
 
-**Purpose:** Handles logic related to `lerp non orthogonal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixFrame.LerpNonOrthogonal(m1, m2, 0);
+```
 
 ### Slerp
 `public static MatrixFrame Slerp(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
 
-**Purpose:** Handles logic related to `slerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixFrame.Slerp(m1, m2, 0);
+```
 
 ### TransformToParent
 `public MatrixFrame TransformToParent(in MatrixFrame m)`
 
-**Purpose:** Handles logic related to `transform to parent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(m);
+```
 
 ### TransformToLocal
 `public MatrixFrame TransformToLocal(in MatrixFrame m)`
 
-**Purpose:** Handles logic related to `transform to local`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocal(m);
+```
 
 ### TransformToParentWithW
 `public Vec3 TransformToParentWithW(Vec3 _s)`
 
-**Purpose:** Handles logic related to `transform to parent with w`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParentWithW(_s);
+```
 
 ### GetUnitRotFrame
 `public MatrixFrame GetUnitRotFrame(float removedScale)`
 
-**Purpose:** Gets the current value of `unit rot frame`.
+**Purpose:** Reads and returns the `unit rot frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetUnitRotFrame(0);
+```
 
 ### InverseFast
 `public MatrixFrame InverseFast()`
 
-**Purpose:** Handles logic related to `inverse fast`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.InverseFast();
+```
 
 ### Inverse
 `public MatrixFrame Inverse()`
 
-**Purpose:** Handles logic related to `inverse`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Inverse();
+```
 
 ### Determinant4X4
 `public float Determinant4X4()`
 
-**Purpose:** Handles logic related to `determinant4 x4`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Determinant4X4();
+```
 
 ### Rotate
 `public void Rotate(float radian, in Vec3 axis)`
 
-**Purpose:** Handles logic related to `rotate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+matrixFrame.Rotate(0, axis);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetHashCode();
+```
 
 ### Strafe
 `public MatrixFrame Strafe(float a)`
 
-**Purpose:** Handles logic related to `strafe`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Strafe(0);
+```
 
 ### Advance
 `public MatrixFrame Advance(float a)`
 
-**Purpose:** Handles logic related to `advance`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Advance(0);
+```
 
 ### Elevate
 `public MatrixFrame Elevate(float a)`
 
-**Purpose:** Handles logic related to `elevate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Elevate(0);
+```
 
 ### Scale
 `public void Scale(in Vec3 scalingVector)`
 
-**Purpose:** Handles logic related to `scale`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+matrixFrame.Scale(scalingVector);
+```
 
 ### GetScale
 `public Vec3 GetScale()`
 
-**Purpose:** Gets the current value of `scale`.
+**Purpose:** Reads and returns the `scale` value held by the current object.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetScale();
+```
 
 ### CreateLookAt
 `public static MatrixFrame CreateLookAt(in Vec3 position, in Vec3 target, in Vec3 upVector)`
 
-**Purpose:** Creates a new `look at` instance or object.
+**Purpose:** Constructs a new `look at` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MatrixFrame.CreateLookAt(position, target, upVector);
+```
 
 ### CenterFrameOfTwoPoints
 `public static MatrixFrame CenterFrameOfTwoPoints(in Vec3 p1, in Vec3 p2, Vec3 upVector)`
 
-**Purpose:** Handles logic related to `center frame of two points`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixFrame.CenterFrameOfTwoPoints(p1, p2, upVector);
+```
 
 ### Fill
 `public void Fill()`
 
-**Purpose:** Handles logic related to `fill`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+matrixFrame.Fill();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MatrixFrame();
-value.TransformToParent(v);
+// Typically call this after obtaining an instance from the subsystem API
+MatrixFrame matrixFrame = ...;
+matrixFrame.TransformToParent(v);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

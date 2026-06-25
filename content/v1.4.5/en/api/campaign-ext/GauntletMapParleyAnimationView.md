@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapParleyAnimationView"
+description: "Auto-generated class reference for GauntletMapParleyAnimationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapParleyAnimationView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapParleyAnimationView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapParleyAnimationView : MapParleyAnimationView`
 **Base:** `MapParleyAnimationView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapParleyAnimationView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapParleyAnimationView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GauntletMapParleyAnimationView` as a View-style extension point: first id
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapParleyAnimationView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapParleyAnimationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

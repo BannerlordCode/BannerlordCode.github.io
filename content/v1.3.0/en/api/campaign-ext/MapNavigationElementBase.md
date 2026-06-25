@@ -1,13 +1,7 @@
 ---
 title: "MapNavigationElementBase"
+description: "Auto-generated class reference for MapNavigationElementBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNavigationElementBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationElementBase
 
 **Namespace:** SandBox.View.Map.Navigation
@@ -41,19 +35,32 @@ Start from namespace `SandBox.View.Map.Navigation` to place it in the stack, the
 ### OpenView
 `public abstract void OpenView()`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of MapNavigationElementBase from the subsystem API first
+MapNavigationElementBase mapNavigationElementBase = ...;
+mapNavigationElementBase.OpenView();
+```
 
 ### OpenView
 `public abstract void OpenView(params object parameters)`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of MapNavigationElementBase from the subsystem API first
+MapNavigationElementBase mapNavigationElementBase = ...;
+mapNavigationElementBase.OpenView(parameters);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapNavigationElementBase();
+// Typically obtained from a subsystem API or factory
+MapNavigationElementBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

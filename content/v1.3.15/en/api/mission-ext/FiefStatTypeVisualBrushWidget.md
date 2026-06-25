@@ -1,13 +1,7 @@
 ---
 title: "FiefStatTypeVisualBrushWidget"
+description: "Auto-generated class reference for FiefStatTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FiefStatTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FiefStatTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -33,9 +27,10 @@ Treat `FiefStatTypeVisualBrushWidget` as a Widget-style extension point: first i
 ## Usage Example
 
 ```csharp
-var widget = new FiefStatTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FiefStatTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

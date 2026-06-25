@@ -1,23 +1,18 @@
 ---
 title: "OrderOfBattleFormationExtensions"
+description: "OrderOfBattleFormationExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderOfBattleFormationExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationExtensions
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public static class OrderOfBattleFormationExtensions`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public static class OrderOfBattleFormationExtensions`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/OrderOfBattleFormationExtensions.cs`
 
 ## 概述
 
-`OrderOfBattleFormationExtensions` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`OrderOfBattleFormationExtensions` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,46 +23,79 @@ title: "OrderOfBattleFormationExtensions"
 ### Refresh
 `public unsafe static void Refresh(this Formation formation)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 静态调用，不需要实例
+OrderOfBattleFormationExtensions.Refresh(formation);
+```
 
 ### GetOrderOfBattleFormationClass
 `public static DeploymentFormationClass GetOrderOfBattleFormationClass(this FormationClass formationClass)`
 
-**用途 / Purpose:** 获取 `order of battle formation class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order of battle formation class」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderOfBattleFormationExtensions.GetOrderOfBattleFormationClass(formationClass);
+```
 
 ### GetFormationClasses
 `public static List<FormationClass> GetFormationClasses(this DeploymentFormationClass orderOfBattleFormationClass)`
 
-**用途 / Purpose:** 获取 `formation classes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「formation classes」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderOfBattleFormationExtensions.GetFormationClasses(orderOfBattleFormationClass);
+```
 
 ### GetFilterName
 `public static TextObject GetFilterName(this FormationFilterType filterType)`
 
-**用途 / Purpose:** 获取 `filter name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「filter name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderOfBattleFormationExtensions.GetFilterName(filterType);
+```
 
 ### GetFilterDescription
 `public static TextObject GetFilterDescription(this FormationFilterType filterType)`
 
-**用途 / Purpose:** 获取 `filter description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「filter description」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderOfBattleFormationExtensions.GetFilterDescription(filterType);
+```
 
 ### GetClassName
 `public static TextObject GetClassName(this DeploymentFormationClass formationClass)`
 
-**用途 / Purpose:** 获取 `class name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「class name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderOfBattleFormationExtensions.GetClassName(formationClass);
+```
 
 ### GetHeroAgents
 `public static List<Agent> GetHeroAgents(this Team team)`
 
-**用途 / Purpose:** 获取 `hero agents` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hero agents」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderOfBattleFormationExtensions.GetHeroAgents(team);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 OrderOfBattleFormationExtensions.Refresh(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

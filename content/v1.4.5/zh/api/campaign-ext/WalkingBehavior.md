@@ -1,20 +1,14 @@
 ---
 title: "WalkingBehavior"
+description: "WalkingBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WalkingBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WalkingBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class WalkingBehavior : AgentBehavior`
 **Base:** `AgentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/WalkingBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/WalkingBehavior.cs`
 
 ## 概述
 
@@ -29,50 +23,99 @@ title: "WalkingBehavior"
 ### SetIndoorWandering
 `public void SetIndoorWandering(bool isActive)`
 
-**用途 / Purpose:** 设置 `indoor wandering` 的值或状态。
+**用途 / Purpose:** 为 「indoor wandering」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WalkingBehavior 实例
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.SetIndoorWandering(false);
+```
 
 ### SetOutdoorWandering
 `public void SetOutdoorWandering(bool isActive)`
 
-**用途 / Purpose:** 设置 `outdoor wandering` 的值或状态。
+**用途 / Purpose:** 为 「outdoor wandering」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WalkingBehavior 实例
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.SetOutdoorWandering(false);
+```
 
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 WalkingBehavior 实例
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.Tick(0, false);
+```
 
 ### ConversationTick
 `public override void ConversationTick()`
 
-**用途 / Purpose:** 处理 `conversation tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WalkingBehavior 实例
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.ConversationTick();
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `availability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WalkingBehavior 实例
+WalkingBehavior walkingBehavior = ...;
+var result = walkingBehavior.GetAvailability(false);
+```
 
 ### SetCustomWanderTarget
 `public override void SetCustomWanderTarget(UsableMachine customUsableMachine)`
 
-**用途 / Purpose:** 设置 `custom wander target` 的值或状态。
+**用途 / Purpose:** 为 「custom wander target」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WalkingBehavior 实例
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.SetCustomWanderTarget(customUsableMachine);
+```
 
 ### OnSpecialTargetChanged
 `public override void OnSpecialTargetChanged()`
 
-**用途 / Purpose:** 当 `special target changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「special target changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WalkingBehavior 实例
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.OnSpecialTargetChanged();
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 获取 `debug info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WalkingBehavior 实例
+WalkingBehavior walkingBehavior = ...;
+var result = walkingBehavior.GetDebugInfo();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WalkingBehavior();
-value.SetIndoorWandering(false);
+// 通常从对应子系统 API 获取实例后调用
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.SetIndoorWandering(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

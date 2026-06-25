@@ -1,13 +1,7 @@
 ---
 title: "DefaultSettlementValueModel"
+description: "DefaultSettlementValueModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSettlementValueModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultSettlementValueModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,22 +23,46 @@ title: "DefaultSettlementValueModel"
 ### FindMostSuitableHomeSettlement
 `public override Settlement FindMostSuitableHomeSettlement(Clan clan)`
 
-**用途 / Purpose:** 处理 `find most suitable home settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「most suitable home settlement」。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementValueModel 实例
+DefaultSettlementValueModel defaultSettlementValueModel = ...;
+var result = defaultSettlementValueModel.FindMostSuitableHomeSettlement(clan);
+```
 
 ### CalculateSettlementBaseValue
 `public override float CalculateSettlementBaseValue(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `calculate settlement base value` 相关逻辑。
+**用途 / Purpose:** 计算「settlement base value」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementValueModel 实例
+DefaultSettlementValueModel defaultSettlementValueModel = ...;
+var result = defaultSettlementValueModel.CalculateSettlementBaseValue(settlement);
+```
 
 ### CalculateSettlementValueForFaction
 `public override float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
 
-**用途 / Purpose:** 处理 `calculate settlement value for faction` 相关逻辑。
+**用途 / Purpose:** 计算「settlement value for faction」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementValueModel 实例
+DefaultSettlementValueModel defaultSettlementValueModel = ...;
+var result = defaultSettlementValueModel.CalculateSettlementValueForFaction(settlement, faction);
+```
 
 ### CalculateSettlementValueForEnemyHero
 `public override float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** 处理 `calculate settlement value for enemy hero` 相关逻辑。
+**用途 / Purpose:** 计算「settlement value for enemy hero」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementValueModel 实例
+DefaultSettlementValueModel defaultSettlementValueModel = ...;
+var result = defaultSettlementValueModel.CalculateSettlementValueForEnemyHero(settlement, hero);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultSettlementValueModel>(new MyDefaultSettlementVa
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

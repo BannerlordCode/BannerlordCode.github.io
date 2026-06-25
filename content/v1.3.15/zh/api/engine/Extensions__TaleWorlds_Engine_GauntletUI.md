@@ -1,13 +1,7 @@
 ---
-title: "Extensions__TaleWorlds_Engine_GauntletUI"
+title: "Extensions"
+description: "Extensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Extensions`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Extensions
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -29,7 +23,12 @@ title: "Extensions__TaleWorlds_Engine_GauntletUI"
 ### Load
 `public static void Load(this SpriteCategory category)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 静态调用，不需要实例
+Extensions.Load(category);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ Extensions.Load(category);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

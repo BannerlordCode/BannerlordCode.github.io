@@ -1,20 +1,14 @@
 ---
 title: "BannerBearerCondition"
+description: "Auto-generated class reference for BannerBearerCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerBearerCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerBearerCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerBearerCondition : MPPerkCondition`
 **Base:** `MPPerkCondition`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/BannerBearerCondition.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/BannerBearerCondition.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of BannerBearerCondition from the subsystem API first
+BannerBearerCondition bannerBearerCondition = ...;
+var result = bannerBearerCondition.Check(peer);
+```
 
 ### Check
 `public override bool Check(Agent agent)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of BannerBearerCondition from the subsystem API first
+BannerBearerCondition bannerBearerCondition = ...;
+var result = bannerBearerCondition.Check(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerBearerCondition();
-value.Check(peer);
+// Typically call this after obtaining an instance from the subsystem API
+BannerBearerCondition bannerBearerCondition = ...;
+bannerBearerCondition.Check(peer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

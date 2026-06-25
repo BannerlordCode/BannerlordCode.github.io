@@ -1,13 +1,7 @@
 ---
 title: "WeaponData"
+description: "Auto-generated class reference for WeaponData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,24 +23,43 @@ Treat `WeaponData` as a Data-style extension point: first identify who creates i
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of WeaponData from the subsystem API first
+WeaponData weaponData = ...;
+var result = weaponData.IsValid();
+```
 
 ### GetItemObject
 `public ItemObject GetItemObject()`
 
-**Purpose:** Gets the current value of `item object`.
+**Purpose:** Reads and returns the `item object` value held by the current object.
+
+```csharp
+// Obtain an instance of WeaponData from the subsystem API first
+WeaponData weaponData = ...;
+var result = weaponData.GetItemObject();
+```
 
 ### DeinitializeManagedPointers
 `public void DeinitializeManagedPointers()`
 
-**Purpose:** Handles logic related to `deinitialize managed pointers`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WeaponData from the subsystem API first
+WeaponData weaponData = ...;
+weaponData.DeinitializeManagedPointers();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponData();
+// This data object is usually returned by campaign/mission APIs
+WeaponData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

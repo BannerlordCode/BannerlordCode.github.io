@@ -1,13 +1,7 @@
 ---
 title: "AnimatedNumberTextWidget"
+description: "Auto-generated class reference for AnimatedNumberTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimatedNumberTextWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimatedNumberTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -39,19 +33,32 @@ Treat `AnimatedNumberTextWidget` as a Widget-style extension point: first identi
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Handles logic related to `start animation`.
+**Purpose:** Starts the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of AnimatedNumberTextWidget from the subsystem API first
+AnimatedNumberTextWidget animatedNumberTextWidget = ...;
+animatedNumberTextWidget.StartAnimation();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of AnimatedNumberTextWidget from the subsystem API first
+AnimatedNumberTextWidget animatedNumberTextWidget = ...;
+animatedNumberTextWidget.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new AnimatedNumberTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AnimatedNumberTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

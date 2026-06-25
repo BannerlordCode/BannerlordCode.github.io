@@ -1,13 +1,7 @@
 ---
 title: "ShipSoldNotificationItemVM"
+description: "Auto-generated class reference for ShipSoldNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipSoldNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipSoldNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
@@ -39,13 +33,20 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 
 **Purpose:** Adds `new transaction` to the current collection or state.
 
+```csharp
+// Obtain an instance of ShipSoldNotificationItemVM from the subsystem API first
+ShipSoldNotificationItemVM shipSoldNotificationItemVM = ...;
+shipSoldNotificationItemVM.AddNewTransaction(0);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new ShipSoldNotificationItemVM();
-value.AddNewTransaction(0);
+// Typically call this after obtaining an instance from the subsystem API
+ShipSoldNotificationItemVM shipSoldNotificationItemVM = ...;
+shipSoldNotificationItemVM.AddNewTransaction(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

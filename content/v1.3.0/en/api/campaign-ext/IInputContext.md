@@ -1,18 +1,12 @@
 ---
 title: "IInputContext"
+description: "Auto-generated class reference for IInputContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IInputContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IInputContext
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public interface IInputContext`
 **Base:** none
 **File:** `TaleWorlds.InputSystem/IInputContext.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ## Usage Example
 
 ```csharp
-IInputContext implementation = GetInputContextImplementation();
+// Usually obtained through DI or a factory method
+IIInputContext service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BehaviorDefend"
+description: "Auto-generated class reference for BehaviorDefend."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorDefend`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorDefend
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorDefend : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefend.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefend.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorDefend from the subsystem API first
+BehaviorDefend behaviorDefend = ...;
+behaviorDefend.TickOccasionally();
+```
 
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**Purpose:** Resets `behavior` to its initial state.
+**Purpose:** Returns `behavior` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BehaviorDefend from the subsystem API first
+BehaviorDefend behaviorDefend = ...;
+behaviorDefend.ResetBehavior();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorDefend();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorDefend behaviorDefend = ...;
+behaviorDefend.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

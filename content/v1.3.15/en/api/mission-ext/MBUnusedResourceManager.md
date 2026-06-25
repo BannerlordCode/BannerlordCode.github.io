@@ -1,13 +1,7 @@
 ---
 title: "MBUnusedResourceManager"
+description: "Auto-generated class reference for MBUnusedResourceManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBUnusedResourceManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBUnusedResourceManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,32 @@ Treat `MBUnusedResourceManager` as a Manager-style extension point: first identi
 ### SetMeshUsed
 `public static void SetMeshUsed(string meshName)`
 
-**Purpose:** Sets the value or state of `mesh used`.
+**Purpose:** Assigns a new value to `mesh used` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBUnusedResourceManager.SetMeshUsed("example");
+```
 
 ### SetMaterialUsed
 `public static void SetMaterialUsed(string meshName)`
 
-**Purpose:** Sets the value or state of `material used`.
+**Purpose:** Assigns a new value to `material used` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBUnusedResourceManager.SetMaterialUsed("example");
+```
 
 ### SetBodyUsed
 `public static void SetBodyUsed(string bodyName)`
 
-**Purpose:** Sets the value or state of `body used`.
+**Purpose:** Assigns a new value to `body used` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBUnusedResourceManager.SetBodyUsed("example");
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ var manager = MBUnusedResourceManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ArmyCompositionGroupVM"
+description: "Auto-generated class reference for ArmyCompositionGroupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyCompositionGroupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyCompositionGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArmyCompositionGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionGroupVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionGroupVM.cs`
 
 ## Overview
 
@@ -42,30 +36,55 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ArmyCompositionGroupVM from the subsystem API first
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.RefreshValues();
+```
 
 ### SetCurrentSelectedCulture
 `public void SetCurrentSelectedCulture(BasicCultureObject selectedCulture)`
 
-**Purpose:** Sets the value or state of `current selected culture`.
+**Purpose:** Assigns a new value to `current selected culture` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ArmyCompositionGroupVM from the subsystem API first
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.SetCurrentSelectedCulture(selectedCulture);
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize(ArmyCompositionGroupVM oppositeSide = null)`
 
-**Purpose:** Executes the `randomize` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `randomize`.
+
+```csharp
+// Obtain an instance of ArmyCompositionGroupVM from the subsystem API first
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.ExecuteRandomize(null);
+```
 
 ### OnPlayerTypeChange
 `public void OnPlayerTypeChange(CustomBattlePlayerType playerType)`
 
-**Purpose:** Called when the `player type change` event is raised.
+**Purpose:** Invoked when the `player type change` event is raised.
+
+```csharp
+// Obtain an instance of ArmyCompositionGroupVM from the subsystem API first
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.OnPlayerTypeChange(playerType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyCompositionGroupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

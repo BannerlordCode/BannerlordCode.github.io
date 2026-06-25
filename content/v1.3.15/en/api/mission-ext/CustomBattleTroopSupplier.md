@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleTroopSupplier"
+description: "Auto-generated class reference for CustomBattleTroopSupplier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleTroopSupplier`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleTroopSupplier
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,50 +31,99 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SupplyTroops
 `public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-**Purpose:** Handles logic related to `supply troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.SupplyTroops(0);
+```
 
 ### SupplyOneTroop
 `public IAgentOriginBase SupplyOneTroop()`
 
-**Purpose:** Handles logic related to `supply one troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.SupplyOneTroop();
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** Gets the current value of `all troops`.
+**Purpose:** Reads and returns the `all troops` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.GetAllTroops();
+```
 
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**Purpose:** Gets the current value of `general character`.
+**Purpose:** Reads and returns the `general character` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.GetGeneralCharacter();
+```
 
 ### OnTroopWounded
 `public void OnTroopWounded()`
 
-**Purpose:** Called when the `troop wounded` event is raised.
+**Purpose:** Invoked when the `troop wounded` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+customBattleTroopSupplier.OnTroopWounded();
+```
 
 ### OnTroopKilled
 `public void OnTroopKilled()`
 
-**Purpose:** Called when the `troop killed` event is raised.
+**Purpose:** Invoked when the `troop killed` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+customBattleTroopSupplier.OnTroopKilled();
+```
 
 ### OnTroopRouted
 `public void OnTroopRouted()`
 
-**Purpose:** Called when the `troop routed` event is raised.
+**Purpose:** Invoked when the `troop routed` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+customBattleTroopSupplier.OnTroopRouted();
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleTroopSupplier from the subsystem API first
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.GetNumberOfPlayerControllableTroops();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleTroopSupplier();
-value.SupplyTroops(0);
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+customBattleTroopSupplier.SupplyTroops(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "VisualStateAnimationState"
+description: "Auto-generated class reference for VisualStateAnimationState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualStateAnimationState`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualStateAnimationState
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum VisualStateAnimationState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/VisualStateAnimationState.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/VisualStateAnimationState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new VisualStateAnimationState();
+// Obtain an instance from the relevant subsystem API
+VisualStateAnimationState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

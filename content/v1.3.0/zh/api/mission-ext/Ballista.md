@@ -1,13 +1,7 @@
 ---
 title: "Ballista"
+description: "Ballista 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Ballista`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Ballista
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,55 +30,110 @@ title: "Ballista"
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** 获取 `siege engine type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege engine type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+var result = ballista.GetSiegeEngineType();
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** 创建一个 `a i behavior object` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「a i behavior object」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+var result = ballista.CreateAIBehaviorObject();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+var result = ballista.GetTickRequirement();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+var result = ballista.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+var result = ballista.GetDescriptionText(gameEntity);
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**用途 / Purpose:** 处理 `process target value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+var result = ballista.ProcessTargetValue(0, flags);
+```
 
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**用途 / Purpose:** 获取 `target flags` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target flags」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+var result = ballista.GetTargetFlags();
+```
 
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**用途 / Purpose:** 获取 `target value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+var result = ballista.GetTargetValue(weaponPos);
+```
 
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**用途 / Purpose:** 设置 `spawned from spawner` 的值或状态。
+**用途 / Purpose:** 为 「spawned from spawner」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Ballista 实例
+Ballista ballista = ...;
+ballista.SetSpawnedFromSpawner();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Ballista();
-value.GetSiegeEngineType();
+// 通常从对应子系统 API 获取实例后调用
+Ballista ballista = ...;
+ballista.GetSiegeEngineType();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

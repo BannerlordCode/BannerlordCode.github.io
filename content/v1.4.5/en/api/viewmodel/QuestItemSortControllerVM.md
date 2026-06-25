@@ -1,20 +1,14 @@
 ---
 title: "QuestItemSortControllerVM"
+description: "Auto-generated class reference for QuestItemSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestItemSortControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestItemSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class QuestItemSortControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Quests/QuestItemSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Quests/QuestItemSortControllerVM.cs`
 
 ## Overview
 
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### Compare
 `public abstract int Compare(QuestItemVM x, QuestItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of QuestItemSortControllerVM from the subsystem API first
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+var result = questItemSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of QuestItemSortControllerVM from the subsystem API first
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+var result = questItemSortControllerVM.Compare(first, second);
+```
 
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of QuestItemSortControllerVM from the subsystem API first
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+var result = questItemSortControllerVM.Compare(first, second);
+```
 
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of QuestItemSortControllerVM from the subsystem API first
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+var result = questItemSortControllerVM.Compare(first, second);
+```
 
 ### SortByOption
 `public void SortByOption(QuestItemSortOption sortOption)`
 
-**Purpose:** Handles logic related to `sort by option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of QuestItemSortControllerVM from the subsystem API first
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+questItemSortControllerVM.SortByOption(sortOption);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestItemSortControllerVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+questItemSortControllerVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MessageContractHandlerManager"
+description: "MessageContractHandlerManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageContractHandlerManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageContractHandlerManager
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class MessageContractHandlerManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/MessageContractHandlerManager.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageContractHandlerManager.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "MessageContractHandlerManager"
 ### HandleMessage
 `public void HandleMessage(MessageContract messageContract)`
 
-**用途 / Purpose:** 处理 `message` 事件或回调。
+**用途 / Purpose:** 执行与 「message」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MessageContractHandlerManager 实例
+MessageContractHandlerManager messageContractHandlerManager = ...;
+messageContractHandlerManager.HandleMessage(messageContract);
+```
 
 ### HandleNetworkMessage
 `public void HandleNetworkMessage(NetworkMessage networkMessage)`
 
-**用途 / Purpose:** 处理 `network message` 事件或回调。
+**用途 / Purpose:** 执行与 「network message」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MessageContractHandlerManager 实例
+MessageContractHandlerManager messageContractHandlerManager = ...;
+messageContractHandlerManager.HandleNetworkMessage(networkMessage);
+```
 
 ### ContainsMessageHandler
 `public bool ContainsMessageHandler(byte id)`
 
-**用途 / Purpose:** 处理 `contains message handler` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「message handler」。
+
+```csharp
+// 先通过子系统 API 拿到 MessageContractHandlerManager 实例
+MessageContractHandlerManager messageContractHandlerManager = ...;
+var result = messageContractHandlerManager.ContainsMessageHandler(0);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ var manager = MessageContractHandlerManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

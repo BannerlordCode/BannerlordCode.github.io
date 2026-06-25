@@ -1,13 +1,7 @@
 ---
 title: "BannerBuilderColorItemVM"
+description: "Auto-generated class reference for BannerBuilderColorItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerBuilderColorItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerBuilderColorItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of BannerBuilderColorItemVM from the subsystem API first
+BannerBuilderColorItemVM bannerBuilderColorItemVM = ...;
+bannerBuilderColorItemVM.ExecuteSelection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerBuilderColorItemVM();
-value.ExecuteSelection();
+// Typically call this after obtaining an instance from the subsystem API
+BannerBuilderColorItemVM bannerBuilderColorItemVM = ...;
+bannerBuilderColorItemVM.ExecuteSelection();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

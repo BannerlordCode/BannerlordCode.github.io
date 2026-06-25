@@ -1,18 +1,12 @@
 ---
 title: "IMapStateHandler"
+description: "Auto-generated class reference for IMapStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMapStateHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMapStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMapStateHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/IMapStateHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IMapStateHandler` as a Handler-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-IMapStateHandler implementation = GetMapStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIMapStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

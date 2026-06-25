@@ -1,20 +1,14 @@
 ---
 title: "GenericVisualOrderSet"
+description: "Auto-generated class reference for GenericVisualOrderSet."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericVisualOrderSet`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericVisualOrderSet
 
 **Namespace:** TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GenericVisualOrderSet : VisualOrderSet`
 **Base:** `VisualOrderSet`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets/GenericVisualOrderSet.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets/GenericVisualOrderSet.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets` to p
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of GenericVisualOrderSet from the subsystem API first
+GenericVisualOrderSet genericVisualOrderSet = ...;
+var result = genericVisualOrderSet.GetName(orderController);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GenericVisualOrderSet();
-value.GetName(orderController);
+// Typically call this after obtaining an instance from the subsystem API
+GenericVisualOrderSet genericVisualOrderSet = ...;
+genericVisualOrderSet.GetName(orderController);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

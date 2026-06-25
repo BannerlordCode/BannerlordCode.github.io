@@ -1,20 +1,14 @@
 ---
 title: "EavesdroppingMissionLogic"
+description: "EavesdroppingMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EavesdroppingMissionLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EavesdroppingMissionLogic
 
 **Namespace:** SandBox.Missions
 **Module:** SandBox.Missions
 **Type:** `public class EavesdroppingMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions/EavesdroppingMissionLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions/EavesdroppingMissionLogic.cs`
 
 ## 概述
 
@@ -29,19 +23,31 @@ title: "EavesdroppingMissionLogic"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EavesdroppingMissionLogic 实例
+EavesdroppingMissionLogic eavesdroppingMissionLogic = ...;
+eavesdroppingMissionLogic.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 EavesdroppingMissionLogic 实例
+EavesdroppingMissionLogic eavesdroppingMissionLogic = ...;
+eavesdroppingMissionLogic.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new EavesdroppingMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<EavesdroppingMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

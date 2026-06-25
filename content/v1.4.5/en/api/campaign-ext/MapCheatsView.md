@@ -1,20 +1,14 @@
 ---
 title: "MapCheatsView"
+description: "Auto-generated class reference for MapCheatsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapCheatsView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapCheatsView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapCheatsView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapCheatsView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapCheatsView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MapCheatsView` as a View-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var view = new MapCheatsView();
+// Retrieve this view from the subsystem API or scene
+MapCheatsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

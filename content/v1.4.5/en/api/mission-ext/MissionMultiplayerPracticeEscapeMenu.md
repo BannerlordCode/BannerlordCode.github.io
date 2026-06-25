@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerPracticeEscapeMenu"
+description: "Auto-generated class reference for MissionMultiplayerPracticeEscapeMenu."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerPracticeEscapeMenu`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerPracticeEscapeMenu
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerPracticeEscapeMenu : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerPracticeEscapeMenu.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerPracticeEscapeMenu.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews` to
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerPracticeEscapeMenu();
+// Obtain an instance from the relevant subsystem API
+MissionMultiplayerPracticeEscapeMenu instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

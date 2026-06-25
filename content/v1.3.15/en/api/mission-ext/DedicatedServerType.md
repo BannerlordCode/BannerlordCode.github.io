@@ -1,18 +1,12 @@
 ---
 title: "DedicatedServerType"
+description: "Auto-generated class reference for DedicatedServerType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DedicatedServerType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DedicatedServerType
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum DedicatedServerType`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/DedicatedServerType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new DedicatedServerType();
+// Obtain an instance from the relevant subsystem API
+DedicatedServerType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

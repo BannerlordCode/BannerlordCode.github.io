@@ -1,23 +1,18 @@
 ---
 title: "Roguery"
+description: "Roguery 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Roguery`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Roguery
 
-**命名空间:** TaleWorlds.CampaignSystem.CharacterDevelopment
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public static class Roguery`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class Roguery`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## 概述
 
-`Roguery` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`Roguery` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -27,34 +22,35 @@ title: "Roguery"
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `NoRestForTheWicked` | `public static PerkObject NoRestForTheWicked { get; }` |
+| `SweetTalker` | `public static PerkObject SweetTalker { get; }` |
+| `TwoFaced` | `public static PerkObject TwoFaced { get; }` |
+| `DeepPockets` | `public static PerkObject DeepPockets { get; }` |
+| `InBestLight` | `public static PerkObject InBestLight { get; }` |
+| `KnowHow` | `public static PerkObject KnowHow { get; }` |
+| `Promises` | `public static PerkObject Promises { get; }` |
+| `Manhunter` | `public static PerkObject Manhunter { get; }` |
+| `Scarface` | `public static PerkObject Scarface { get; }` |
+| `WhiteLies` | `public static PerkObject WhiteLies { get; }` |
+| `SmugglerConnections` | `public static PerkObject SmugglerConnections { get; }` |
+| `PartnersInCrime` | `public static PerkObject PartnersInCrime { get; }` |
+| `OneOfTheFamily` | `public static PerkObject OneOfTheFamily { get; }` |
+| `SaltTheEarth` | `public static PerkObject SaltTheEarth { get; }` |
+| `Carver` | `public static PerkObject Carver { get; }` |
+| `RansomBroker` | `public static PerkObject RansomBroker { get; }` |
+| `ArmsDealer` | `public static PerkObject ArmsDealer { get; }` |
+| `DirtyFighting` | `public static PerkObject DirtyFighting { get; }` |
+| `DashAndSlash` | `public static PerkObject DashAndSlash { get; }` |
+| `FleetFooted` | `public static PerkObject FleetFooted { get; }` |
+| `RogueExtraordinaire` | `public static PerkObject RogueExtraordinaire { get; }` |
 
 ## 使用示例
 
 ```csharp
-var value = new Roguery();
+// 从对应子系统 API 获取实例
+Roguery instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

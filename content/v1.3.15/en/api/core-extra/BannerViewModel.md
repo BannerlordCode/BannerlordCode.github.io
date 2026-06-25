@@ -1,13 +1,7 @@
 ---
 title: "BannerViewModel"
+description: "Auto-generated class reference for BannerViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerViewModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.BannerEditor
@@ -34,10 +28,11 @@ Treat `BannerViewModel` as a ViewModel-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var vm = new BannerViewModel();
+// Bind the instance as the view-model of a movie or view
+BannerViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

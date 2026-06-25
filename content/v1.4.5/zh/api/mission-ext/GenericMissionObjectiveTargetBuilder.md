@@ -1,20 +1,14 @@
 ---
 title: "GenericMissionObjectiveTargetBuilder"
+description: "GenericMissionObjectiveTargetBuilder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenericMissionObjectiveTargetBuilder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericMissionObjectiveTargetBuilder
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct GenericMissionObjectiveTargetBuilder<T>`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjective.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjective.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "GenericMissionObjectiveTargetBuilder"
 ### SetIsActiveCallback
 `public GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
 
-**用途 / Purpose:** 设置 `is active callback` 的值或状态。
+**用途 / Purpose:** 为 「is active callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveTargetBuilder 实例
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+var result = genericMissionObjectiveTargetBuilder.SetIsActiveCallback(func<T, false);
+```
 
 ### SetGetGlobalPositionCallback
 `public GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
 
-**用途 / Purpose:** 设置 `get global position callback` 的值或状态。
+**用途 / Purpose:** 为 「get global position callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveTargetBuilder 实例
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+var result = genericMissionObjectiveTargetBuilder.SetGetGlobalPositionCallback(func<T, callback);
+```
 
 ### SetGetNameCallback
 `public GenericMissionObjectiveTargetBuilder<T> SetGetNameCallback(Func<T, TextObject> callback)`
 
-**用途 / Purpose:** 设置 `get name callback` 的值或状态。
+**用途 / Purpose:** 为 「get name callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveTargetBuilder 实例
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+var result = genericMissionObjectiveTargetBuilder.SetGetNameCallback(func<T, callback);
+```
 
 ### Build
 `public MissionObjectiveTarget<T> Build()`
 
-**用途 / Purpose:** 处理 `build` 相关逻辑。
+**用途 / Purpose:** 构建当前对象的实例或表示。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveTargetBuilder 实例
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+var result = genericMissionObjectiveTargetBuilder.Build();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GenericMissionObjectiveTargetBuilder();
-value.SetIsActiveCallback(func<T, false);
+// 通常从对应子系统 API 获取实例后调用
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+genericMissionObjectiveTargetBuilder.SetIsActiveCallback(func<T, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

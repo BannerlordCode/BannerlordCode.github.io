@@ -1,20 +1,14 @@
 ---
 title: "GamepadCursorViewModel"
+description: "GamepadCursorViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GamepadCursorViewModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GamepadCursorViewModel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GamepadCursorViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GamepadCursorViewModel.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GamepadCursorViewModel.cs`
 
 ## 概述
 
@@ -36,10 +30,11 @@ title: "GamepadCursorViewModel"
 ## 使用示例
 
 ```csharp
-var vm = new GamepadCursorViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+GamepadCursorViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

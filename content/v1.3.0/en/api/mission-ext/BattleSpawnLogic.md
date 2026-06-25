@@ -1,13 +1,7 @@
 ---
 title: "BattleSpawnLogic"
+description: "Auto-generated class reference for BattleSpawnLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSpawnLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSpawnLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
@@ -29,14 +23,20 @@ Treat `BattleSpawnLogic` as a Logic-style extension point: first identify who cr
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of BattleSpawnLogic from the subsystem API first
+BattleSpawnLogic battleSpawnLogic = ...;
+battleSpawnLogic.OnPreMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleSpawnLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleSpawnLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

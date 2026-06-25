@@ -1,13 +1,7 @@
 ---
 title: "MissionLeaveVM"
+description: "Auto-generated class reference for MissionLeaveVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLeaveVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionLeaveVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionLeaveVM from the subsystem API first
+MissionLeaveVM missionLeaveVM = ...;
+missionLeaveVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionLeaveVM from the subsystem API first
+MissionLeaveVM missionLeaveVM = ...;
+missionLeaveVM.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionLeaveVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionLeaveVM missionLeaveVM = ...;
+missionLeaveVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

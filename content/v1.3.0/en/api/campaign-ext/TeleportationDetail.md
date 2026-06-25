@@ -1,13 +1,7 @@
 ---
 title: "TeleportationDetail"
+description: "Auto-generated class reference for TeleportationDetail."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeleportationDetail`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeleportationDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ## Usage Example
 
 ```csharp
-TeleportationDetail example = TeleportationDetail.Value;
+// Obtain an instance from the relevant subsystem API
+TeleportationDetail instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

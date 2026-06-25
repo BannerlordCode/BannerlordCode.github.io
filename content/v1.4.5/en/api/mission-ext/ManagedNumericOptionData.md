@@ -1,20 +1,14 @@
 ---
 title: "ManagedNumericOptionData"
+description: "Auto-generated class reference for ManagedNumericOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedNumericOptionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedNumericOptionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Options.ManagedOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ManagedNumericOptionData : ManagedOptionData, INumericOptionData, IOptionData`
 **Base:** `ManagedOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedNumericOptionData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedNumericOptionData.cs`
 
 ## Overview
 
@@ -29,34 +23,65 @@ Treat `ManagedNumericOptionData` as a Data-style extension point: first identify
 ### GetMinValue
 `public float GetMinValue()`
 
-**Purpose:** Gets the current value of `min value`.
+**Purpose:** Reads and returns the `min value` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedNumericOptionData from the subsystem API first
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetMinValue();
+```
 
 ### GetMaxValue
 `public float GetMaxValue()`
 
-**Purpose:** Gets the current value of `max value`.
+**Purpose:** Reads and returns the `max value` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedNumericOptionData from the subsystem API first
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetMaxValue();
+```
 
 ### GetIsDiscrete
 `public bool GetIsDiscrete()`
 
-**Purpose:** Gets the current value of `is discrete`.
+**Purpose:** Reads and returns the `is discrete` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedNumericOptionData from the subsystem API first
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetIsDiscrete();
+```
 
 ### GetDiscreteIncrementInterval
 `public int GetDiscreteIncrementInterval()`
 
-**Purpose:** Gets the current value of `discrete increment interval`.
+**Purpose:** Reads and returns the `discrete increment interval` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedNumericOptionData from the subsystem API first
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetDiscreteIncrementInterval();
+```
 
 ### GetShouldUpdateContinuously
 `public bool GetShouldUpdateContinuously()`
 
-**Purpose:** Gets the current value of `should update continuously`.
+**Purpose:** Reads and returns the `should update continuously` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedNumericOptionData from the subsystem API first
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetShouldUpdateContinuously();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ManagedNumericOptionData();
+// This data object is usually returned by campaign/mission APIs
+ManagedNumericOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

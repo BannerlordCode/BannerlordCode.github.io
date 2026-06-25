@@ -1,20 +1,14 @@
 ---
 title: "EquipmentTypeVisualBrushWidget"
+description: "Auto-generated class reference for EquipmentTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EquipmentTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EquipmentTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EquipmentTypeVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/EquipmentTypeVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/EquipmentTypeVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `EquipmentTypeVisualBrushWidget` as a Widget-style extension point: first 
 ### EquipmentTypeVisualBrushWidget
 `public class EquipmentTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `equipment type visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EquipmentTypeVisualBrushWidget from the subsystem API first
+EquipmentTypeVisualBrushWidget equipmentTypeVisualBrushWidget = ...;
+var result = equipmentTypeVisualBrushWidget.EquipmentTypeVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new EquipmentTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EquipmentTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "OptionsProvider"
+description: "Auto-generated class reference for OptionsProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionsProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.Options
@@ -29,62 +23,122 @@ Start from namespace `TaleWorlds.MountAndBlade.Options` to place it in the stack
 ### GetVideoOptionCategory
 `public static OptionCategory GetVideoOptionCategory(bool isMainMenu, Action onBrightnessClick, Action onExposureClick, Action onBenchmarkClick)`
 
-**Purpose:** Gets the current value of `video option category`.
+**Purpose:** Reads and returns the `video option category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetVideoOptionCategory(false, onBrightnessClick, onExposureClick, onBenchmarkClick);
+```
 
 ### GetPerformanceOptionCategory
 `public static OptionCategory GetPerformanceOptionCategory(bool isMultiplayer)`
 
-**Purpose:** Gets the current value of `performance option category`.
+**Purpose:** Reads and returns the `performance option category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetPerformanceOptionCategory(false);
+```
 
 ### GetPerformanceGraphicsOptions
 `public static IEnumerable<IOptionData> GetPerformanceGraphicsOptions(bool isMultiplayer)`
 
-**Purpose:** Gets the current value of `performance graphics options`.
+**Purpose:** Reads and returns the `performance graphics options` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetPerformanceGraphicsOptions(false);
+```
 
 ### GetPerformanceResolutionScalingOptions
 `public static IEnumerable<IOptionData> GetPerformanceResolutionScalingOptions(bool isMultiplayer)`
 
-**Purpose:** Gets the current value of `performance resolution scaling options`.
+**Purpose:** Reads and returns the `performance resolution scaling options` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetPerformanceResolutionScalingOptions(false);
+```
 
 ### GetPerformanceGameplayOptions
 `public static IEnumerable<IOptionData> GetPerformanceGameplayOptions(bool isMultiplayer)`
 
-**Purpose:** Gets the current value of `performance gameplay options`.
+**Purpose:** Reads and returns the `performance gameplay options` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetPerformanceGameplayOptions(false);
+```
 
 ### GetPerformanceAudioOptions
 `public static IEnumerable<IOptionData> GetPerformanceAudioOptions()`
 
-**Purpose:** Gets the current value of `performance audio options`.
+**Purpose:** Reads and returns the `performance audio options` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetPerformanceAudioOptions();
+```
 
 ### GetAudioOptionCategory
 `public static OptionCategory GetAudioOptionCategory(bool isMultiplayer)`
 
-**Purpose:** Gets the current value of `audio option category`.
+**Purpose:** Reads and returns the `audio option category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetAudioOptionCategory(false);
+```
 
 ### GetGameplayOptionCategory
 `public static OptionCategory GetGameplayOptionCategory(bool isMainMenu, bool isMultiplayer)`
 
-**Purpose:** Gets the current value of `gameplay option category`.
+**Purpose:** Reads and returns the `gameplay option category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetGameplayOptionCategory(false, false);
+```
 
 ### GetGameKeyCategoriesList
 `public static IEnumerable<string> GetGameKeyCategoriesList(bool isMultiplayer)`
 
-**Purpose:** Gets the current value of `game key categories list`.
+**Purpose:** Reads and returns the `game key categories list` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetGameKeyCategoriesList(false);
+```
 
 ### GetControllerOptionCategory
 `public static OptionCategory GetControllerOptionCategory()`
 
-**Purpose:** Gets the current value of `controller option category`.
+**Purpose:** Reads and returns the `controller option category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetControllerOptionCategory();
+```
 
 ### GetDefaultNativeOptions
 `public static Dictionary<NativeOptions.NativeOptionsType, float > GetDefaultNativeOptions()`
 
-**Purpose:** Gets the current value of `default native options`.
+**Purpose:** Reads and returns the `default native options` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetDefaultNativeOptions();
+```
 
 ### GetDefaultManagedOptions
 `public static Dictionary<ManagedOptions.ManagedOptionsType, float > GetDefaultManagedOptions()`
 
-**Purpose:** Gets the current value of `default managed options`.
+**Purpose:** Reads and returns the `default managed options` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OptionsProvider.GetDefaultManagedOptions();
+```
 
 ## Usage Example
 
@@ -94,4 +148,4 @@ OptionsProvider.GetVideoOptionCategory(false, onBrightnessClick, onExposureClick
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

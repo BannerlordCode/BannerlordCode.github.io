@@ -1,20 +1,14 @@
 ---
 title: "SelectorWidget"
+description: "SelectorWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SelectorWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectorWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SelectorWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SelectorWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SelectorWidget.cs`
 
 ## 概述
 
@@ -37,24 +31,43 @@ title: "SelectorWidget"
 ### OnListChanged
 `public void OnListChanged(Widget widget)`
 
-**用途 / Purpose:** 当 `list changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「list changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorWidget 实例
+SelectorWidget selectorWidget = ...;
+selectorWidget.OnListChanged(widget);
+```
 
 ### OnListChanged
 `public void OnListChanged(Widget parentWidget, Widget addedWidget)`
 
-**用途 / Purpose:** 当 `list changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「list changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorWidget 实例
+SelectorWidget selectorWidget = ...;
+selectorWidget.OnListChanged(parentWidget, addedWidget);
+```
 
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**用途 / Purpose:** 当 `selection changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「selection changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorWidget 实例
+SelectorWidget selectorWidget = ...;
+selectorWidget.OnSelectionChanged(widget);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new SelectorWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+SelectorWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

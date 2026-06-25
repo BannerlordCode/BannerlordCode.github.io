@@ -1,13 +1,7 @@
 ---
 title: "MBDebugManager"
+description: "Auto-generated class reference for MBDebugManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBDebugManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBDebugManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -32,4 +26,4 @@ var manager = MBDebugManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

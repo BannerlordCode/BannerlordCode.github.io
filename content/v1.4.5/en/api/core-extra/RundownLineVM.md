@@ -1,20 +1,14 @@
 ---
 title: "RundownLineVM"
+description: "Auto-generated class reference for RundownLineVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RundownLineVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RundownLineVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip
 **Module:** TaleWorlds.Core
 **Type:** `public class RundownLineVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip/RundownLineVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip/RundownLineVM.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information.RundownToo
 ## Usage Example
 
 ```csharp
-var example = new RundownLineVM();
+// Obtain an instance from the relevant subsystem API
+RundownLineVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

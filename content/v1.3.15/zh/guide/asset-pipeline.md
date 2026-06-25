@@ -131,15 +131,15 @@ entity.SetMeshWithMaterial("my_mesh", "my_material");
 ## 相关文档 / Related Documentation
 
 - [XML 参考](../xml-reference/)
-- [MBObjectManager API](../api/core/MBObjectManager)
-- [Engine Utilities](../api/engine/Utilities)
+- [MBObjectManager API](../api/campaign-ext/MBObjectManager/)
+- [Engine Utilities](../api/engine/Utilities/)
 
 ---
 
 ## 下一节 / Next Section
 
-- [本地化](./localization) - 多语言支持
-- [常见模式](./common-patterns) - 最佳实践
+- [本地化](localization/) - 多语言支持
+- [常见模式](common-patterns/) - 最佳实践
 
 ## 使用示例
 

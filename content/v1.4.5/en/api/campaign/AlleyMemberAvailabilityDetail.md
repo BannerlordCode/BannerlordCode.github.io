@@ -1,20 +1,14 @@
 ---
 title: "AlleyMemberAvailabilityDetail"
+description: "Auto-generated class reference for AlleyMemberAvailabilityDetail."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyMemberAvailabilityDetail`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyMemberAvailabilityDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum AlleyMemberAvailabilityDetail`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAlleyModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAlleyModel.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameComponents` to place it in t
 ## Usage Example
 
 ```csharp
-AlleyMemberAvailabilityDetail example = AlleyMemberAvailabilityDetail.Value;
+// Obtain an instance from the relevant subsystem API
+AlleyMemberAvailabilityDetail instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

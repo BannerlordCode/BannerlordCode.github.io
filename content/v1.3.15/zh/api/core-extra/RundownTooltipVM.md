@@ -1,13 +1,7 @@
 ---
 title: "RundownTooltipVM"
+description: "RundownTooltipVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RundownTooltipVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RundownTooltipVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip
@@ -40,20 +34,32 @@ title: "RundownTooltipVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RundownTooltipVM 实例
+RundownTooltipVM rundownTooltipVM = ...;
+rundownTooltipVM.RefreshValues();
+```
 
 ### RefreshGenericRundownTooltip
 `public static void RefreshGenericRundownTooltip(RundownTooltipVM rundownTooltip, object args)`
 
-**用途 / Purpose:** 刷新 `generic rundown tooltip` 的显示或缓存。
+**用途 / Purpose:** 使 「generic rundown tooltip」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 静态调用，不需要实例
+RundownTooltipVM.RefreshGenericRundownTooltip(rundownTooltip, args);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RundownTooltipVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+RundownTooltipVM rundownTooltipVM = ...;
+rundownTooltipVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MapTrackModel"
+description: "Auto-generated class reference for MapTrackModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapTrackModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapTrackModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,59 +29,120 @@ Treat `MapTrackModel` as a Model-style extension point: first identify who creat
 ### GetSkipTrackChance
 `public abstract float GetSkipTrackChance(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `skip track chance`.
+**Purpose:** Reads and returns the `skip track chance` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.GetSkipTrackChance(mobileParty);
+```
 
 ### GetMaxTrackSpottingDistanceForMainParty
 `public abstract float GetMaxTrackSpottingDistanceForMainParty()`
 
-**Purpose:** Gets the current value of `max track spotting distance for main party`.
+**Purpose:** Reads and returns the `max track spotting distance for main party` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.GetMaxTrackSpottingDistanceForMainParty();
+```
 
 ### CanPartyLeaveTrack
 `public abstract bool CanPartyLeaveTrack(MobileParty mobileParty)`
 
-**Purpose:** Checks whether the current object can `party leave track`.
+**Purpose:** Checks whether the current object meets the preconditions for `party leave track`.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.CanPartyLeaveTrack(mobileParty);
+```
 
 ### GetTrackDetectionDifficultyForMainParty
 `public abstract float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)`
 
-**Purpose:** Gets the current value of `track detection difficulty for main party`.
+**Purpose:** Reads and returns the `track detection difficulty for main party` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.GetTrackDetectionDifficultyForMainParty(track, 0);
+```
 
 ### GetSkillFromTrackDetected
 `public abstract float GetSkillFromTrackDetected(Track track)`
 
-**Purpose:** Gets the current value of `skill from track detected`.
+**Purpose:** Reads and returns the `skill from track detected` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.GetSkillFromTrackDetected(track);
+```
 
 ### GetTrackLife
 `public abstract int GetTrackLife(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `track life`.
+**Purpose:** Reads and returns the `track life` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.GetTrackLife(mobileParty);
+```
 
 ### TrackTitle
 `public abstract TextObject TrackTitle(Track track)`
 
-**Purpose:** Handles logic related to `track title`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.TrackTitle(track);
+```
 
 ### GetTrackDescription
 `public abstract IEnumerable<ValueTuple<TextObject, string>> GetTrackDescription(Track track)`
 
-**Purpose:** Gets the current value of `track description`.
+**Purpose:** Reads and returns the `track description` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.GetTrackDescription(track);
+```
 
 ### GetTrackColor
 `public abstract uint GetTrackColor(Track track)`
 
-**Purpose:** Gets the current value of `track color`.
+**Purpose:** Reads and returns the `track color` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.GetTrackColor(track);
+```
 
 ### GetTrackScale
 `public abstract float GetTrackScale(Track track)`
 
-**Purpose:** Gets the current value of `track scale`.
+**Purpose:** Reads and returns the `track scale` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackModel from the subsystem API first
+MapTrackModel mapTrackModel = ...;
+var result = mapTrackModel.GetTrackScale(track);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapTrackModel();
+// Typically obtained from a subsystem API or factory
+MapTrackModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

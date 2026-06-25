@@ -1,20 +1,14 @@
 ---
 title: "SimpleMountedPlayerMissionController"
+description: "SimpleMountedPlayerMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SimpleMountedPlayerMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SimpleMountedPlayerMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SimpleMountedPlayerMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/SimpleMountedPlayerMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/SimpleMountedPlayerMissionController.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "SimpleMountedPlayerMissionController"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleMountedPlayerMissionController 实例
+SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
+simpleMountedPlayerMissionController.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleMountedPlayerMissionController 实例
+SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
+simpleMountedPlayerMissionController.AfterStart();
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** 处理 `mission ended` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleMountedPlayerMissionController 实例
+SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
+var result = simpleMountedPlayerMissionController.MissionEnded(missionResult);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ var controller = Mission.Current.GetMissionBehavior<SimpleMountedPlayerMissionCo
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

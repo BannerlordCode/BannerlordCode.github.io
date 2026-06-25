@@ -1,13 +1,7 @@
 ---
 title: "ModuleInfo"
+description: "Auto-generated class reference for ModuleInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleInfo
 
 **Namespace:** TaleWorlds.ModuleManager
@@ -47,30 +41,55 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ### LoadWithFullPath
 `public void LoadWithFullPath(string fullPath)`
 
-**Purpose:** Loads `with full path` data.
+**Purpose:** Reads `with full path` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of ModuleInfo from the subsystem API first
+ModuleInfo moduleInfo = ...;
+moduleInfo.LoadWithFullPath("example");
+```
 
 ### ActivateModule
 `public void ActivateModule()`
 
-**Purpose:** Handles logic related to `activate module`.
+**Purpose:** Activates the resource, state, or feature associated with `module`.
+
+```csharp
+// Obtain an instance of ModuleInfo from the subsystem API first
+ModuleInfo moduleInfo = ...;
+moduleInfo.ActivateModule();
+```
 
 ### DeactivateModule
 `public void DeactivateModule()`
 
-**Purpose:** Handles logic related to `deactivate module`.
+**Purpose:** Deactivates the resource, state, or feature associated with `module`.
+
+```csharp
+// Obtain an instance of ModuleInfo from the subsystem API first
+ModuleInfo moduleInfo = ...;
+moduleInfo.DeactivateModule();
+```
 
 ### UpdateVersionChangeSet
 `public void UpdateVersionChangeSet()`
 
-**Purpose:** Updates the state or data of `version change set`.
+**Purpose:** Recalculates and stores the latest representation of `version change set`.
+
+```csharp
+// Obtain an instance of ModuleInfo from the subsystem API first
+ModuleInfo moduleInfo = ...;
+moduleInfo.UpdateVersionChangeSet();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ModuleInfo();
-value.LoadWithFullPath("example");
+// Typically call this after obtaining an instance from the subsystem API
+ModuleInfo moduleInfo = ...;
+moduleInfo.LoadWithFullPath("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

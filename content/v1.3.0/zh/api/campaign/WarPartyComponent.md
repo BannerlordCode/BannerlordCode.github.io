@@ -1,19 +1,49 @@
 ---
 title: "WarPartyComponent"
+description: "WarPartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WarPartyComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
+# WarPartyComponent
+
+**Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public abstract class WarPartyComponent : PartyComponent`
+**Base:** `PartyComponent`
+**File:** `TaleWorlds.CampaignSystem/Party/PartyComponents/WarPartyComponent.cs`
+
+## 概述
+
+`WarPartyComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+
 ## 心智模型
 
-先把 `WarPartyComponent` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+把 `WarPartyComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Clan` | `public Clan Clan { get; }` |
+
+## 主要方法
+
+### GetDefaultComponentBanner
+`public override Banner GetDefaultComponentBanner()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「default component banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WarPartyComponent 实例
+WarPartyComponent warPartyComponent = ...;
+var result = warPartyComponent.GetDefaultComponentBanner();
+```
 
 ## 使用示例
 
 ```csharp
-var example = new WarPartyComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+WarPartyComponent instance = ...;
 ```
+
+## 参见
+
+- [本区域目录](../)

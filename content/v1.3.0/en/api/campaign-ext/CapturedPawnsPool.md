@@ -1,13 +1,7 @@
 ---
 title: "CapturedPawnsPool"
+description: "Auto-generated class reference for CapturedPawnsPool."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CapturedPawnsPool`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CapturedPawnsPool
 
 **Namespace:** SandBox.BoardGames
@@ -27,9 +21,10 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new CapturedPawnsPool();
+// Obtain an instance from the relevant subsystem API
+CapturedPawnsPool instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

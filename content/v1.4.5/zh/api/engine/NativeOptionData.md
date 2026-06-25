@@ -1,20 +1,14 @@
 ---
 title: "NativeOptionData"
+description: "NativeOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeOptionData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class NativeOptionData : IOptionData`
 **Base:** `IOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptionData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptionData.cs`
 
 ## 概述
 
@@ -29,44 +23,87 @@ title: "NativeOptionData"
 ### GetDefaultValue
 `public virtual float GetDefaultValue()`
 
-**用途 / Purpose:** 获取 `default value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptionData 实例
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.GetDefaultValue();
+```
 
 ### Commit
 `public void Commit()`
 
-**用途 / Purpose:** 处理 `commit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptionData 实例
+NativeOptionData nativeOptionData = ...;
+nativeOptionData.Commit();
+```
 
 ### GetValue
 `public float GetValue(bool forceRefresh)`
 
-**用途 / Purpose:** 获取 `value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptionData 实例
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.GetValue(false);
+```
 
 ### SetValue
 `public void SetValue(float value)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptionData 实例
+NativeOptionData nativeOptionData = ...;
+nativeOptionData.SetValue(0);
+```
 
 ### GetOptionType
 `public object GetOptionType()`
 
-**用途 / Purpose:** 获取 `option type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「option type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptionData 实例
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.GetOptionType();
+```
 
 ### IsNative
 `public bool IsNative()`
 
-**用途 / Purpose:** 处理 `is native` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「native」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptionData 实例
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.IsNative();
+```
 
 ### IsAction
 `public bool IsAction()`
 
-**用途 / Purpose:** 处理 `is action` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「action」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 NativeOptionData 实例
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.IsAction();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomNativeOptionData();
+// 通常通过子系统 API 或工厂获得派生实例
+NativeOptionData instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerViewCreator"
+description: "MultiplayerViewCreator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerViewCreator`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerViewCreator
 
-**命名空间:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public static class MultiplayerViewCreator`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public static class MultiplayerViewCreator`
+**Base:** 无
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerViewCreator.cs`
 
 ## 概述
 
-`MultiplayerViewCreator` 位于 `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MultiplayerViewCreator` 位于 `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,111 +23,209 @@ title: "MultiplayerViewCreator"
 ### CreateMissionMultiplayerPreloadView
 `public static MissionView CreateMissionMultiplayerPreloadView(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission multiplayer preload view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission multiplayer preload view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMissionMultiplayerPreloadView(null);
+```
 
 ### CreateMissionScoreBoardUIHandler
 `public static MissionView CreateMissionScoreBoardUIHandler(Mission mission, bool isSingleTeam)`
 
-**用途 / Purpose:** 创建一个 `mission score board u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission score board u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMissionScoreBoardUIHandler(mission, false);
+```
 
 ### CreateMultiplayerEndOfRoundUIHandler
 `public static MissionView CreateMultiplayerEndOfRoundUIHandler()`
 
-**用途 / Purpose:** 创建一个 `multiplayer end of round u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer end of round u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerEndOfRoundUIHandler();
+```
 
 ### CreateMultiplayerTeamSelectUIHandler
 `public static MissionView CreateMultiplayerTeamSelectUIHandler()`
 
-**用途 / Purpose:** 创建一个 `multiplayer team select u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer team select u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerTeamSelectUIHandler();
+```
 
 ### CreateMultiplayerCultureSelectUIHandler
 `public static MissionView CreateMultiplayerCultureSelectUIHandler()`
 
-**用途 / Purpose:** 创建一个 `multiplayer culture select u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer culture select u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerCultureSelectUIHandler();
+```
 
 ### CreateLobbyEquipmentUIHandler
 `public static MissionView CreateLobbyEquipmentUIHandler()`
 
-**用途 / Purpose:** 创建一个 `lobby equipment u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「lobby equipment u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateLobbyEquipmentUIHandler();
+```
 
 ### CreatePollProgressUIHandler
 `public static MissionView CreatePollProgressUIHandler()`
 
-**用途 / Purpose:** 创建一个 `poll progress u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「poll progress u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreatePollProgressUIHandler();
+```
 
 ### CreateMissionMultiplayerEscapeMenu
 `public static MissionView CreateMissionMultiplayerEscapeMenu(string gameType)`
 
-**用途 / Purpose:** 创建一个 `mission multiplayer escape menu` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission multiplayer escape menu」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMissionMultiplayerEscapeMenu("example");
+```
 
 ### CreateMissionMultiplayerPracticeEscapeMenu
 `public static MissionView CreateMissionMultiplayerPracticeEscapeMenu()`
 
-**用途 / Purpose:** 创建一个 `mission multiplayer practice escape menu` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission multiplayer practice escape menu」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMissionMultiplayerPracticeEscapeMenu();
+```
 
 ### CreateMissionKillNotificationUIHandler
 `public static MissionView CreateMissionKillNotificationUIHandler()`
 
-**用途 / Purpose:** 创建一个 `mission kill notification u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission kill notification u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMissionKillNotificationUIHandler();
+```
 
 ### CreateMissionServerStatusUIHandler
 `public static MissionView CreateMissionServerStatusUIHandler()`
 
-**用途 / Purpose:** 创建一个 `mission server status u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission server status u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMissionServerStatusUIHandler();
+```
 
 ### CreateMultiplayerAdminPanelUIHandler
 `public static MissionView CreateMultiplayerAdminPanelUIHandler()`
 
-**用途 / Purpose:** 创建一个 `multiplayer admin panel u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer admin panel u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerAdminPanelUIHandler();
+```
 
 ### CreateMultiplayerFactionBanVoteUIHandler
 `public static MissionView CreateMultiplayerFactionBanVoteUIHandler()`
 
-**用途 / Purpose:** 创建一个 `multiplayer faction ban vote u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer faction ban vote u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerFactionBanVoteUIHandler();
+```
 
 ### CreateMultiplayerMissionHUDExtensionUIHandler
 `public static MissionView CreateMultiplayerMissionHUDExtensionUIHandler()`
 
-**用途 / Purpose:** 创建一个 `multiplayer mission h u d extension u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer mission h u d extension u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerMissionHUDExtensionUIHandler();
+```
 
 ### CreateMultiplayerMissionVoiceChatUIHandler
 `public static MissionView CreateMultiplayerMissionVoiceChatUIHandler()`
 
-**用途 / Purpose:** 创建一个 `multiplayer mission voice chat u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer mission voice chat u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerMissionVoiceChatUIHandler();
+```
 
 ### CreateMultiplayerMissionOrderUIHandler
 `public static MissionView CreateMultiplayerMissionOrderUIHandler(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `multiplayer mission order u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer mission order u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerMissionOrderUIHandler(null);
+```
 
 ### CreateMultiplayerMissionDeathCardUIHandler
 `public static MissionView CreateMultiplayerMissionDeathCardUIHandler(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `multiplayer mission death card u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer mission death card u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerMissionDeathCardUIHandler(null);
+```
 
 ### CreateMissionMultiplayerDuelUI
 `public static MissionView CreateMissionMultiplayerDuelUI()`
 
-**用途 / Purpose:** 创建一个 `mission multiplayer duel u i` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission multiplayer duel u i」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMissionMultiplayerDuelUI();
+```
 
 ### CreateMultiplayerEndOfBattleUIHandler
 `public static MissionView CreateMultiplayerEndOfBattleUIHandler()`
 
-**用途 / Purpose:** 创建一个 `multiplayer end of battle u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multiplayer end of battle u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMultiplayerEndOfBattleUIHandler();
+```
 
 ### CreateMissionFlagMarkerUIHandler
 `public static MissionView CreateMissionFlagMarkerUIHandler()`
 
-**用途 / Purpose:** 创建一个 `mission flag marker u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission flag marker u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerViewCreator.CreateMissionFlagMarkerUIHandler();
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 MultiplayerViewCreator.CreateMissionMultiplayerPreloadView(null);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

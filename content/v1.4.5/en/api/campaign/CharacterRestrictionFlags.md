@@ -1,20 +1,14 @@
 ---
 title: "CharacterRestrictionFlags"
+description: "Auto-generated class reference for CharacterRestrictionFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterRestrictionFlags`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterRestrictionFlags
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterRestrictionFlags.cs`
+**Type:** `public enum CharacterRestrictionFlags : uint`
+**Base:** `uint`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterRestrictionFlags.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new CharacterRestrictionFlags();
+// Obtain an instance from the relevant subsystem API
+CharacterRestrictionFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

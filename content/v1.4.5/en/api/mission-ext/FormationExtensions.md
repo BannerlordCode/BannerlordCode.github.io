@@ -1,20 +1,14 @@
 ---
 title: "FormationExtensions"
+description: "Auto-generated class reference for FormationExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class FormationExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationExtensions.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnOrderChange
 `public static void OnOrderChange(Formation formation, IFormationArrangement arrangement)`
 
-**Purpose:** Called when the `order change` event is raised.
+**Purpose:** Invoked when the `order change` event is raised.
+
+```csharp
+// Static call; no instance required
+FormationExtensions.OnOrderChange(formation, arrangement);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ FormationExtensions.OnOrderChange(formation, arrangement);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

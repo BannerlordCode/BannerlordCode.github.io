@@ -1,20 +1,14 @@
 ---
 title: "HeroDeveloperResolver"
+description: "HeroDeveloperResolver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroDeveloperResolver`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroDeveloperResolver
 
 **Namespace:** TaleWorlds.CampaignSystem.SaveCompability
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeroDeveloperResolver : IConflictResolver`
 **Base:** `IConflictResolver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/HeroDeveloperResolver.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/HeroDeveloperResolver.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "HeroDeveloperResolver"
 ### IsApplicable
 `public bool IsApplicable(ApplicationVersion version)`
 
-**用途 / Purpose:** 处理 `is applicable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「applicable」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloperResolver 实例
+HeroDeveloperResolver heroDeveloperResolver = ...;
+var result = heroDeveloperResolver.IsApplicable(version);
+```
 
 ### GetFieldMemberWithId
 `public MemberTypeId GetFieldMemberWithId(MemberTypeId memberTypeId)`
 
-**用途 / Purpose:** 获取 `field member with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「field member with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloperResolver 实例
+HeroDeveloperResolver heroDeveloperResolver = ...;
+var result = heroDeveloperResolver.GetFieldMemberWithId(memberTypeId);
+```
 
 ### GetNewType
 `public Type GetNewType()`
 
-**用途 / Purpose:** 获取 `new type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「new type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloperResolver 实例
+HeroDeveloperResolver heroDeveloperResolver = ...;
+var result = heroDeveloperResolver.GetNewType();
+```
 
 ### GetPropertyMemberWithId
 `public MemberTypeId GetPropertyMemberWithId(MemberTypeId memberTypeId)`
 
-**用途 / Purpose:** 获取 `property member with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「property member with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloperResolver 实例
+HeroDeveloperResolver heroDeveloperResolver = ...;
+var result = heroDeveloperResolver.GetPropertyMemberWithId(memberTypeId);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HeroDeveloperResolver();
-value.IsApplicable(version);
+// 通常从对应子系统 API 获取实例后调用
+HeroDeveloperResolver heroDeveloperResolver = ...;
+heroDeveloperResolver.IsApplicable(version);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

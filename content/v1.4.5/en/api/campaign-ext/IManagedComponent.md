@@ -1,20 +1,14 @@
 ---
 title: "IManagedComponent"
+description: "Auto-generated class reference for IManagedComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IManagedComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IManagedComponent
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** `class`
+**Type:** `public interface IManagedComponent`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/IManagedComponent.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/IManagedComponent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IManagedComponent` as a Component-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-IManagedComponent implementation = GetManagedComponentImplementation();
+// Usually obtained through DI or a factory method
+IIManagedComponent service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TournamentParticipantVM"
+description: "Auto-generated class reference for TournamentParticipantVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentParticipantVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentParticipantVM
 
 **Namespace:** SandBox.ViewModelCollection.Tournament
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TournamentParticipantVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tournament/TournamentParticipantVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tournament/TournamentParticipantVM.cs`
 
 ## Overview
 
@@ -46,30 +40,55 @@ Start from namespace `SandBox.ViewModelCollection.Tournament` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TournamentParticipantVM from the subsystem API first
+TournamentParticipantVM tournamentParticipantVM = ...;
+tournamentParticipantVM.RefreshValues();
+```
 
 ### Refresh
 `public void Refresh(TournamentParticipant participant, Color teamColor)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of TournamentParticipantVM from the subsystem API first
+TournamentParticipantVM tournamentParticipantVM = ...;
+tournamentParticipantVM.Refresh(participant, teamColor);
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Executes the `open encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+
+```csharp
+// Obtain an instance of TournamentParticipantVM from the subsystem API first
+TournamentParticipantVM tournamentParticipantVM = ...;
+tournamentParticipantVM.ExecuteOpenEncyclopedia();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of TournamentParticipantVM from the subsystem API first
+TournamentParticipantVM tournamentParticipantVM = ...;
+tournamentParticipantVM.Refresh();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentParticipantVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentParticipantVM tournamentParticipantVM = ...;
+tournamentParticipantVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

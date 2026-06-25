@@ -1,23 +1,18 @@
 ---
 title: "TeamSideEnumExtensions"
+description: "Auto-generated class reference for TeamSideEnumExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamSideEnumExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TeamSideEnumExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class TeamSideEnumExtensions`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/TeamSideEnumExtensions.cs`
 
 ## Overview
 
-`TeamSideEnumExtensions` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TeamSideEnumExtensions` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,15 +23,19 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsValid
 `public static bool IsValid(this TeamSideEnum teamSide)`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Static call; no instance required
+TeamSideEnumExtensions.IsValid(teamSide);
+```
 
 ## Usage Example
 
 ```csharp
-TeamSideEnumExtensions example = TeamSideEnumExtensions.Value;
+TeamSideEnumExtensions.IsValid(teamSide);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

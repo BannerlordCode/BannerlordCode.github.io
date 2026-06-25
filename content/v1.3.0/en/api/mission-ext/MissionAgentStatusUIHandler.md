@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentStatusUIHandler"
+description: "Auto-generated class reference for MissionAgentStatusUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentStatusUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentStatusUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -27,9 +21,9 @@ Treat `MissionAgentStatusUIHandler` as a Handler-style extension point: first id
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAgentStatusUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionAgentStatusUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

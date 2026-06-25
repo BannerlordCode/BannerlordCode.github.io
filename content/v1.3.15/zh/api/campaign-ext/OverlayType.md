@@ -1,18 +1,12 @@
 ---
 title: "OverlayType"
+description: "OverlayType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OverlayType`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OverlayType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum OverlayType`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Overlay/OverlayType.cs`
 
@@ -27,9 +21,10 @@ title: "OverlayType"
 ## 使用示例
 
 ```csharp
-var value = new OverlayType();
+// 从对应子系统 API 获取实例
+OverlayType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

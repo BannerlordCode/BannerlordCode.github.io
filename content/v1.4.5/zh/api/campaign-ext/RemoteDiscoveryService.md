@@ -1,20 +1,14 @@
 ---
 title: "RemoteDiscoveryService"
+description: "RemoteDiscoveryService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RemoteDiscoveryService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemoteDiscoveryService
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public class RemoteDiscoveryService : IDiscoveryService`
 **Base:** `IDiscoveryService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/RemoteDiscoveryService.cs`
+**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/RemoteDiscoveryService.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "RemoteDiscoveryService"
 ## 使用示例
 
 ```csharp
-var example = new RemoteDiscoveryService();
+// 从对应子系统 API 获取实例
+RemoteDiscoveryService instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

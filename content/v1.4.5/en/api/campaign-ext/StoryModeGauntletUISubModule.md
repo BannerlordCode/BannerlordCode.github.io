@@ -1,20 +1,14 @@
 ---
 title: "StoryModeGauntletUISubModule"
+description: "Auto-generated class reference for StoryModeGauntletUISubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeGauntletUISubModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeGauntletUISubModule
 
 **Namespace:** StoryMode.GauntletUI
 **Module:** StoryMode.GauntletUI
 **Type:** `public class StoryModeGauntletUISubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI/StoryModeGauntletUISubModule.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI/StoryModeGauntletUISubModule.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `StoryMode.GauntletUI` to place it in the stack, then inspe
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** Called when the `game initialization finished` event is raised.
+**Purpose:** Invoked when the `game initialization finished` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeGauntletUISubModule from the subsystem API first
+StoryModeGauntletUISubModule storyModeGauntletUISubModule = ...;
+storyModeGauntletUISubModule.OnGameInitializationFinished(game);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeGauntletUISubModule from the subsystem API first
+StoryModeGauntletUISubModule storyModeGauntletUISubModule = ...;
+storyModeGauntletUISubModule.OnGameEnd(game);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StoryModeGauntletUISubModule();
-value.OnGameInitializationFinished(game);
+// Typically call this after obtaining an instance from the subsystem API
+StoryModeGauntletUISubModule storyModeGauntletUISubModule = ...;
+storyModeGauntletUISubModule.OnGameInitializationFinished(game);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

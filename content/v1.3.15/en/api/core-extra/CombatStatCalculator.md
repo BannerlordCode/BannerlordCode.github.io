@@ -1,23 +1,18 @@
 ---
 title: "CombatStatCalculator"
+description: "Auto-generated class reference for CombatStatCalculator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatStatCalculator`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CombatStatCalculator
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class CombatStatCalculator`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/CombatStatCalculator.cs`
 
 ## Overview
 
-`CombatStatCalculator` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CombatStatCalculator` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,36 +23,59 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CalculateStrikeMagnitudeForSwing
 `public static float CalculateStrikeMagnitudeForSwing(float swingSpeed, float impactPointAsPercent, float weaponWeight, float weaponLength, float weaponInertia, float weaponCoM, float extraLinearSpeed)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for swing`.
+**Purpose:** Calculates the current value or result of `strike magnitude for swing`.
+
+```csharp
+// Static call; no instance required
+CombatStatCalculator.CalculateStrikeMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForThrust
 `public static float CalculateStrikeMagnitudeForThrust(float thrustWeaponSpeed, float weaponWeight, float extraLinearSpeed, bool isThrown)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for thrust`.
+**Purpose:** Calculates the current value or result of `strike magnitude for thrust`.
+
+```csharp
+// Static call; no instance required
+CombatStatCalculator.CalculateStrikeMagnitudeForThrust(0, 0, 0, false);
+```
 
 ### CalculateBaseBlowMagnitudeForSwing
 `public static float CalculateBaseBlowMagnitudeForSwing(float angularSpeed, float weaponReach, float weaponWeight, float weaponInertia, float weaponCoM, float impactPoint, float exraLinearSpeed)`
 
-**Purpose:** Handles logic related to `calculate base blow magnitude for swing`.
+**Purpose:** Calculates the current value or result of `base blow magnitude for swing`.
+
+```csharp
+// Static call; no instance required
+CombatStatCalculator.CalculateBaseBlowMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
+```
 
 ### CalculateBaseBlowMagnitudeForThrust
 `public static float CalculateBaseBlowMagnitudeForThrust(float linearSpeed, float weaponWeight, float exraLinearSpeed)`
 
-**Purpose:** Handles logic related to `calculate base blow magnitude for thrust`.
+**Purpose:** Calculates the current value or result of `base blow magnitude for thrust`.
+
+```csharp
+// Static call; no instance required
+CombatStatCalculator.CalculateBaseBlowMagnitudeForThrust(0, 0, 0);
+```
 
 ### CalculateBaseBlowMagnitudeForPassiveUsage
 `public static float CalculateBaseBlowMagnitudeForPassiveUsage(float weaponWeight, float extraLinearSpeed)`
 
-**Purpose:** Handles logic related to `calculate base blow magnitude for passive usage`.
+**Purpose:** Calculates the current value or result of `base blow magnitude for passive usage`.
+
+```csharp
+// Static call; no instance required
+CombatStatCalculator.CalculateBaseBlowMagnitudeForPassiveUsage(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CombatStatCalculator.CalculateStrikeMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

@@ -1,21 +1,125 @@
 ---
-title: GUI / GUI 界面系统
-description: TaleWorlds.Gauntlet UI system / UI system
+title: "gui index"
+description: Gauntlet UI system class reference index
 ---
-# GUI / GUI 界面系统
+<!-- BEGIN SECTION INDEX -->
 
-## Mental Model
+## Parent Navigation
 
-Treat `GUI` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+- [API Reference](../)
+- [Version Home](../../)
 
-v1.3.15 GUI module documentation.
+## Child Classes — Alphabetical
 
-界面系统模块文档。
+### A
 
-## Files / 文件
+- [ArrayType](./ArrayType)
+- [AttribueMask](./AttribueMask)
+- [AutoPinner](./AutoPinner)
 
-| File / 文件 | Description / 描述 |
-|------------|-------------------|
-| [GauntletMovie.md](./GauntletMovie) | UI movie class |
-| [GauntletSystem.md](./GauntletSystem) | UI system class |
-| [ScreenManager.md](./ScreenManager) | Screen manager |
+### B
+
+- [BeginMode](./BeginMode)
+- [BlendingDestinationFactor](./BlendingDestinationFactor)
+- [BlendingSourceFactor](./BlendingSourceFactor)
+
+### C
+
+- [CursorMovementDirection](./CursorMovementDirection)
+
+### D
+
+- [DataType](./DataType)
+- [Dwmapi](./Dwmapi)
+- [DwmBlurBehind](./DwmBlurBehind)
+
+### E
+
+- [EmptyWidget](./EmptyWidget)
+
+### G
+
+- [GamepadNavigationHelper](./GamepadNavigationHelper)
+- [GamepadNavigationScopeCollection](./GamepadNavigationScopeCollection)
+- [GauntletEvent](./GauntletEvent)
+- [GauntletMovie](./GauntletMovie)
+- [Gdi32](./Gdi32)
+
+### H
+
+- [HintMode](./HintMode)
+
+### I
+
+- [ImageFitResult](./ImageFitResult)
+- [ITexture](./ITexture)
+
+### K
+
+- [KeyboardAction](./KeyboardAction)
+
+### L
+
+- [LayoutBox](./LayoutBox)
+
+### M
+
+- [Material](./Material)
+- [MatrixMode](./MatrixMode)
+- [MouseState](./MouseState)
+
+### O
+
+- [Opengl32](./Opengl32)
+- [Opengl32ARB](./Opengl32ARB)
+
+### P
+
+- [PixelFormat](./PixelFormat)
+- [PixelFormatDescriptor](./PixelFormatDescriptor)
+- [PixelFormatDescriptorFlags](./PixelFormatDescriptorFlags)
+- [PixelFormatDescriptorLayerTypes](./PixelFormatDescriptorLayerTypes)
+- [PixelFormatDescriptorPixelTypes](./PixelFormatDescriptorPixelTypes)
+
+### S
+
+- [ScreenManager](./ScreenManager)
+- [ScrollbarInterpolationController](./ScrollbarInterpolationController)
+- [Shader](./Shader)
+- [ShadingModel](./ShadingModel)
+- [SpriteFromTexture](./SpriteFromTexture)
+- [SpriteSizeComparer](./SpriteSizeComparer)
+
+### T
+
+- [Target](./Target)
+- [TextHelper](./TextHelper)
+- [TextLineOutput](./TextLineOutput)
+- [TextMeshGenerator](./TextMeshGenerator)
+- [TextOutput](./TextOutput)
+- [TextTokenOutput](./TextTokenOutput)
+- [Texture](./Texture)
+- [TextureInternalFormat](./TextureInternalFormat)
+- [TextureMagFilter](./TextureMagFilter)
+- [TextureParameterName](./TextureParameterName)
+- [TextureWrapParameter](./TextureWrapParameter)
+- [TokenType](./TokenType)
+- [TwoDimensionDrawData](./TwoDimensionDrawData)
+- [Type](./Type)
+
+### U
+
+- [UpdateAction](./UpdateAction)
+
+### V
+
+- [ViewBindCommandInfo](./ViewBindCommandInfo)
+- [ViewBindDataInfo](./ViewBindDataInfo)
+
+### W
+
+- [WidgetContainer](./WidgetContainer)
+- [WidgetInstantiationResultExtensionData](./WidgetInstantiationResultExtensionData)
+
+
+<!-- END SECTION INDEX -->

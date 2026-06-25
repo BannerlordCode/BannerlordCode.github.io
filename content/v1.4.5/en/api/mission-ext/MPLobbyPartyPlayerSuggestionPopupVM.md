@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyPartyPlayerSuggestionPopupVM"
+description: "Auto-generated class reference for MPLobbyPartyPlayerSuggestionPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyPartyPlayerSuggestionPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyPartyPlayerSuggestionPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyPartyPlayerSuggestionPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPartyPlayerSuggestionPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPartyPlayerSuggestionPopupVM.cs`
 
 ## Overview
 
@@ -43,25 +37,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyPartyPlayerSuggestionPopupVM from the subsystem API first
+MPLobbyPartyPlayerSuggestionPopupVM mPLobbyPartyPlayerSuggestionPopupVM = ...;
+mPLobbyPartyPlayerSuggestionPopupVM.RefreshValues();
+```
 
 ### OpenWith
 `public void OpenWith(PlayerPartySuggestionData data)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPLobbyPartyPlayerSuggestionPopupVM from the subsystem API first
+MPLobbyPartyPlayerSuggestionPopupVM mPLobbyPartyPlayerSuggestionPopupVM = ...;
+mPLobbyPartyPlayerSuggestionPopupVM.OpenWith(data);
+```
 
 ### Close
 `public void Close()`
 
-**Purpose:** Handles logic related to `close`.
+**Purpose:** Closes the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of MPLobbyPartyPlayerSuggestionPopupVM from the subsystem API first
+MPLobbyPartyPlayerSuggestionPopupVM mPLobbyPartyPlayerSuggestionPopupVM = ...;
+mPLobbyPartyPlayerSuggestionPopupVM.Close();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyPartyPlayerSuggestionPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyPartyPlayerSuggestionPopupVM mPLobbyPartyPlayerSuggestionPopupVM = ...;
+mPLobbyPartyPlayerSuggestionPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

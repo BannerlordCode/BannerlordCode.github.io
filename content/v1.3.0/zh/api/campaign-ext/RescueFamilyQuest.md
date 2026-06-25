@@ -1,23 +1,18 @@
 ---
 title: "RescueFamilyQuest"
+description: "RescueFamilyQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RescueFamilyQuest`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RescueFamilyQuest
 
-**命名空间:** StoryMode.Quests.PlayerClanQuests
-**模块:** StoryMode.Quests
-**类型:** `public class RescueFamilyQuest`
-**领域:** campaign-ext
+**Namespace:** StoryMode.Quests.PlayerClanQuests
+**Module:** StoryMode.Quests
+**Type:** `public class RescueFamilyQuest`
+**Base:** 无
+**File:** `StoryMode/Quests/PlayerClanQuests/RescueFamilyQuestBehavior.cs`
 
 ## 概述
 
-`RescueFamilyQuest` 位于 `StoryMode.Quests.PlayerClanQuests`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`RescueFamilyQuest` 位于 `StoryMode.Quests.PlayerClanQuests`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -34,27 +29,44 @@ title: "RescueFamilyQuest"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 RescueFamilyQuest 实例
+RescueFamilyQuest rescueFamilyQuest = ...;
+rescueFamilyQuest.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 RescueFamilyQuest 实例
+RescueFamilyQuest rescueFamilyQuest = ...;
+rescueFamilyQuest.SyncData(dataStore);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have campaign issues info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RescueFamilyQuest 实例
+RescueFamilyQuest rescueFamilyQuest = ...;
+rescueFamilyQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 RescueFamilyQuest 实例，再调用它的公开方法
-var value = new RescueFamilyQuest();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+RescueFamilyQuest rescueFamilyQuest = ...;
+rescueFamilyQuest.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

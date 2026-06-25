@@ -1,13 +1,7 @@
 ---
 title: "CompleteBuildingProjectCheat"
+description: "Auto-generated class reference for CompleteBuildingProjectCheat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompleteBuildingProjectCheat`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CompleteBuildingProjectCheat
 
 **Namespace:** SandBox
@@ -29,20 +23,33 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of CompleteBuildingProjectCheat from the subsystem API first
+CompleteBuildingProjectCheat completeBuildingProjectCheat = ...;
+completeBuildingProjectCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of CompleteBuildingProjectCheat from the subsystem API first
+CompleteBuildingProjectCheat completeBuildingProjectCheat = ...;
+var result = completeBuildingProjectCheat.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CompleteBuildingProjectCheat();
-value.ExecuteCheat();
+// Typically call this after obtaining an instance from the subsystem API
+CompleteBuildingProjectCheat completeBuildingProjectCheat = ...;
+completeBuildingProjectCheat.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

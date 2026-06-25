@@ -1,20 +1,14 @@
 ---
 title: "EditorVisibleScriptComponentVariable"
+description: "Auto-generated class reference for EditorVisibleScriptComponentVariable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditorVisibleScriptComponentVariable`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditorVisibleScriptComponentVariable
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class EditorVisibleScriptComponentVariable : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/EditorVisibleScriptComponentVariable.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EditorVisibleScriptComponentVariable.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new EditorVisibleScriptComponentVariable();
+// Obtain an instance from the relevant subsystem API
+EditorVisibleScriptComponentVariable instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

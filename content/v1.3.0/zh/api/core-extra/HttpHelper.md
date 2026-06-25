@@ -1,13 +1,7 @@
 ---
 title: "HttpHelper"
+description: "HttpHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HttpHelper`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HttpHelper
 
 **Namespace:** TaleWorlds.Library
@@ -29,17 +23,32 @@ title: "HttpHelper"
 ### DownloadStringTaskAsync
 `public static Task<string> DownloadStringTaskAsync(string url)`
 
-**用途 / Purpose:** 处理 `download string task async` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+HttpHelper.DownloadStringTaskAsync("example");
+```
 
 ### DownloadDataTaskAsync
 `public static Task<byte > DownloadDataTaskAsync(string url)`
 
-**用途 / Purpose:** 处理 `download data task async` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+HttpHelper.DownloadDataTaskAsync("example");
+```
 
 ### PostStringAsync
 `public static Task<string> PostStringAsync(string url, string postData, string mediaType = "application/json")`
 
-**用途 / Purpose:** 处理 `post string async` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+HttpHelper.PostStringAsync("example", "example", "example");
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ HttpHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

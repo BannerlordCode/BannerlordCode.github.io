@@ -1,20 +1,14 @@
 ---
 title: "IObjectResolver"
+description: "IObjectResolver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IObjectResolver`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IObjectResolver
 
 **Namespace:** TaleWorlds.SaveSystem.Resolvers
 **Module:** TaleWorlds.SaveSystem
-**Type:** `class`
+**Type:** `public interface IObjectResolver`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IObjectResolver.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IObjectResolver.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IObjectResolver"
 ## 使用示例
 
 ```csharp
-IObjectResolver implementation = GetObjectResolverImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIObjectResolver service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

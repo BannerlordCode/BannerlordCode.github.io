@@ -1,20 +1,14 @@
 ---
 title: "DecisionOutcome"
+description: "DecisionOutcome 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DecisionOutcome`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class DecisionOutcome`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/DecisionOutcome.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/DecisionOutcome.cs`
 
 ## 概述
 
@@ -39,44 +33,87 @@ title: "DecisionOutcome"
 ### GetDecisionTitle
 `public abstract TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** 获取 `decision title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DecisionOutcome 实例
+DecisionOutcome decisionOutcome = ...;
+var result = decisionOutcome.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public abstract TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** 获取 `decision description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DecisionOutcome 实例
+DecisionOutcome decisionOutcome = ...;
+var result = decisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public abstract string GetDecisionLink()`
 
-**用途 / Purpose:** 获取 `decision link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DecisionOutcome 实例
+DecisionOutcome decisionOutcome = ...;
+var result = decisionOutcome.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public abstract ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** 获取 `decision image identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DecisionOutcome 实例
+DecisionOutcome decisionOutcome = ...;
+var result = decisionOutcome.GetDecisionImageIdentifier();
+```
 
 ### AddSupport
 `public void AddSupport(Supporter supporter)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `support`。
+**用途 / Purpose:** 将 「support」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DecisionOutcome 实例
+DecisionOutcome decisionOutcome = ...;
+decisionOutcome.AddSupport(supporter);
+```
 
 ### ResetSupport
 `public void ResetSupport(Supporter supporter)`
 
-**用途 / Purpose:** 将 `support` 重置为初始状态。
+**用途 / Purpose:** 将 「support」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 DecisionOutcome 实例
+DecisionOutcome decisionOutcome = ...;
+decisionOutcome.ResetSupport(supporter);
+```
 
 ### SetSponsor
 `public void SetSponsor(Clan sponsorClan)`
 
-**用途 / Purpose:** 设置 `sponsor` 的值或状态。
+**用途 / Purpose:** 为 「sponsor」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 DecisionOutcome 实例
+DecisionOutcome decisionOutcome = ...;
+decisionOutcome.SetSponsor(sponsorClan);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDecisionOutcome();
+// 通常通过子系统 API 或工厂获得派生实例
+DecisionOutcome instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

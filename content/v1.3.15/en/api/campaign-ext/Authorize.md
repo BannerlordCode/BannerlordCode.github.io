@@ -1,13 +1,7 @@
 ---
 title: "Authorize"
+description: "Auto-generated class reference for Authorize."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Authorize`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Authorize
 
 **Namespace:** TaleWorlds.Network
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new Authorize();
+// Obtain an instance from the relevant subsystem API
+Authorize instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

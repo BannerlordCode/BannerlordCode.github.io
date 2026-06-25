@@ -1,20 +1,14 @@
 ---
 title: "TransformedBoundingBoxPointsContainer"
+description: "TransformedBoundingBoxPointsContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TransformedBoundingBoxPointsContainer`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransformedBoundingBoxPointsContainer
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct TransformedBoundingBoxPointsContainer`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/BoundingBox.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/BoundingBox.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "TransformedBoundingBoxPointsContainer"
 ## 使用示例
 
 ```csharp
-var example = new TransformedBoundingBoxPointsContainer();
+// 从对应子系统 API 获取实例
+TransformedBoundingBoxPointsContainer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

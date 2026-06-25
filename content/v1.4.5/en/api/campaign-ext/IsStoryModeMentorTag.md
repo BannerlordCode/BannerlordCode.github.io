@@ -1,20 +1,14 @@
 ---
 title: "IsStoryModeMentorTag"
+description: "Auto-generated class reference for IsStoryModeMentorTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IsStoryModeMentorTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IsStoryModeMentorTag
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class IsStoryModeMentorTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/IsStoryModeMentorTag.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/IsStoryModeMentorTag.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of IsStoryModeMentorTag from the subsystem API first
+IsStoryModeMentorTag isStoryModeMentorTag = ...;
+var result = isStoryModeMentorTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IsStoryModeMentorTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+IsStoryModeMentorTag isStoryModeMentorTag = ...;
+isStoryModeMentorTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

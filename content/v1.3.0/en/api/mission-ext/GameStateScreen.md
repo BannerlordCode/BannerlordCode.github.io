@@ -1,13 +1,7 @@
 ---
 title: "GameStateScreen"
+description: "Auto-generated class reference for GameStateScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameStateScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameStateScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new GameStateScreen();
+// Obtain an instance from the relevant subsystem API
+GameStateScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionObjective"
+description: "MissionObjective 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjective`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionObjective
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
@@ -42,119 +36,251 @@ title: "MissionObjective"
 ### GetCurrentProgress
 `public virtual MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**用途 / Purpose:** 获取 `current progress` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current progress」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetCurrentProgress();
+```
 
 ### SetObjectiveGiver
 `public void SetObjectiveGiver(BasicCharacterObject objectiveGiver)`
 
-**用途 / Purpose:** 设置 `objective giver` 的值或状态。
+**用途 / Purpose:** 为 「objective giver」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+missionObjective.SetObjectiveGiver(objectiveGiver);
+```
 
 ### AddTarget
 `public void AddTarget(MissionObjectiveTarget target)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `target`。
+**用途 / Purpose:** 将 「target」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+missionObjective.AddTarget(target);
+```
 
 ### RemoveTarget
 `public void RemoveTarget(MissionObjectiveTarget target)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `target`。
+**用途 / Purpose:** 从当前容器或状态中移除 「target」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+missionObjective.RemoveTarget(target);
+```
 
 ### ClearTargets
 `public void ClearTargets()`
 
-**用途 / Purpose:** 处理 `clear targets` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「targets」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+missionObjective.ClearTargets();
+```
 
 ### GetTargetsCopy
 `public MBReadOnlyList<MissionObjectiveTarget> GetTargetsCopy()`
 
-**用途 / Purpose:** 获取 `targets copy` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「targets copy」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetTargetsCopy();
+```
 
 ### CreateGenericObjectiveBuilder
 `public static MissionObjective.GenericMissionObjectiveBuilder CreateGenericObjectiveBuilder(Mission mission, string id, TextObject name = null, TextObject description = null)`
 
-**用途 / Purpose:** 创建一个 `generic objective builder` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「generic objective builder」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionObjective.CreateGenericObjectiveBuilder(mission, "example", null, null);
+```
 
 ### SetName
 `public MissionObjective.GenericMissionObjectiveBuilder SetName(TextObject name)`
 
-**用途 / Purpose:** 设置 `name` 的值或状态。
+**用途 / Purpose:** 为 「name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetName(name);
+```
 
 ### SetDescription
 `public MissionObjective.GenericMissionObjectiveBuilder SetDescription(TextObject description)`
 
-**用途 / Purpose:** 设置 `description` 的值或状态。
+**用途 / Purpose:** 为 「description」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetDescription(description);
+```
 
 ### SetObjectiveGiver
 `public MissionObjective.GenericMissionObjectiveBuilder SetObjectiveGiver(BasicCharacterObject objectiveGiver)`
 
-**用途 / Purpose:** 设置 `objective giver` 的值或状态。
+**用途 / Purpose:** 为 「objective giver」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetObjectiveGiver(objectiveGiver);
+```
 
 ### SetInitialTargets
 `public MissionObjective.GenericMissionObjectiveBuilder SetInitialTargets(params MissionObjectiveTarget targets)`
 
-**用途 / Purpose:** 设置 `initial targets` 的值或状态。
+**用途 / Purpose:** 为 「initial targets」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetInitialTargets(targets);
+```
 
 ### SetIsActivationRequirementsMetCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetIsActivationRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-**用途 / Purpose:** 设置 `is activation requirements met callback` 的值或状态。
+**用途 / Purpose:** 为 「is activation requirements met callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetIsActivationRequirementsMetCallback(func<MissionObjective, false);
+```
 
 ### SetIsCompletionRequirementsMetCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetIsCompletionRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-**用途 / Purpose:** 设置 `is completion requirements met callback` 的值或状态。
+**用途 / Purpose:** 为 「is completion requirements met callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetIsCompletionRequirementsMetCallback(func<MissionObjective, false);
+```
 
 ### SetOnStartCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetOnStartCallback(Action<MissionObjective> callback)`
 
-**用途 / Purpose:** 设置 `on start callback` 的值或状态。
+**用途 / Purpose:** 为 「on start callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetOnStartCallback(callback);
+```
 
 ### SetOnCompleteCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetOnCompleteCallback(Action<MissionObjective> callback)`
 
-**用途 / Purpose:** 设置 `on complete callback` 的值或状态。
+**用途 / Purpose:** 为 「on complete callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetOnCompleteCallback(callback);
+```
 
 ### SetOnTickCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetOnTickCallback(Action<MissionObjective, float> callback)`
 
-**用途 / Purpose:** 设置 `on tick callback` 的值或状态。
+**用途 / Purpose:** 为 「on tick callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetOnTickCallback(action<MissionObjective, 0);
+```
 
 ### SetProgressCallback
 `public MissionObjective.GenericMissionObjectiveBuilder SetProgressCallback(Func<MissionObjective, MissionObjectiveProgressInfo> callback)`
 
-**用途 / Purpose:** 设置 `progress callback` 的值或状态。
+**用途 / Purpose:** 为 「progress callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetProgressCallback(func<MissionObjective, callback);
+```
 
 ### Build
 `public MissionObjective Build()`
 
-**用途 / Purpose:** 处理 `build` 相关逻辑。
+**用途 / Purpose:** 构建当前对象的实例或表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.Build();
+```
 
 ### SetIsActiveCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
 
-**用途 / Purpose:** 设置 `is active callback` 的值或状态。
+**用途 / Purpose:** 为 「is active callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetIsActiveCallback(func<T, false);
+```
 
 ### SetGetGlobalPositionCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
 
-**用途 / Purpose:** 设置 `get global position callback` 的值或状态。
+**用途 / Purpose:** 为 「get global position callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetGetGlobalPositionCallback(func<T, callback);
+```
 
 ### SetGetNameCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetNameCallback(Func<T, TextObject> callback)`
 
-**用途 / Purpose:** 设置 `get name callback` 的值或状态。
+**用途 / Purpose:** 为 「get name callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.SetGetNameCallback(func<T, callback);
+```
 
 ### Build
 `public MissionObjectiveTarget<T> Build()`
 
-**用途 / Purpose:** 处理 `build` 相关逻辑。
+**用途 / Purpose:** 构建当前对象的实例或表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.Build();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionObjective();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionObjective instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

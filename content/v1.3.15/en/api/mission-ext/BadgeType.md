@@ -1,18 +1,12 @@
 ---
 title: "BadgeType"
+description: "Auto-generated class reference for BadgeType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BadgeType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BadgeType
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum BadgeType`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/MultiplayerBadges/BadgeType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ## Usage Example
 
 ```csharp
-var value = new BadgeType();
+// Obtain an instance from the relevant subsystem API
+BadgeType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

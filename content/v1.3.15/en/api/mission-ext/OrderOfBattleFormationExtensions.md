@@ -1,23 +1,18 @@
 ---
 title: "OrderOfBattleFormationExtensions"
+description: "Auto-generated class reference for OrderOfBattleFormationExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class OrderOfBattleFormationExtensions`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/OrderOfBattleFormationExtensions.cs`
 
 ## Overview
 
-`OrderOfBattleFormationExtensions` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`OrderOfBattleFormationExtensions` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,46 +23,79 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Refresh
 `public unsafe static void Refresh(this Formation formation)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Static call; no instance required
+OrderOfBattleFormationExtensions.Refresh(formation);
+```
 
 ### GetOrderOfBattleFormationClass
 `public static DeploymentFormationClass GetOrderOfBattleFormationClass(this FormationClass formationClass)`
 
-**Purpose:** Gets the current value of `order of battle formation class`.
+**Purpose:** Reads and returns the `order of battle formation class` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderOfBattleFormationExtensions.GetOrderOfBattleFormationClass(formationClass);
+```
 
 ### GetFormationClasses
 `public static List<FormationClass> GetFormationClasses(this DeploymentFormationClass orderOfBattleFormationClass)`
 
-**Purpose:** Gets the current value of `formation classes`.
+**Purpose:** Reads and returns the `formation classes` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderOfBattleFormationExtensions.GetFormationClasses(orderOfBattleFormationClass);
+```
 
 ### GetFilterName
 `public static TextObject GetFilterName(this FormationFilterType filterType)`
 
-**Purpose:** Gets the current value of `filter name`.
+**Purpose:** Reads and returns the `filter name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderOfBattleFormationExtensions.GetFilterName(filterType);
+```
 
 ### GetFilterDescription
 `public static TextObject GetFilterDescription(this FormationFilterType filterType)`
 
-**Purpose:** Gets the current value of `filter description`.
+**Purpose:** Reads and returns the `filter description` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderOfBattleFormationExtensions.GetFilterDescription(filterType);
+```
 
 ### GetClassName
 `public static TextObject GetClassName(this DeploymentFormationClass formationClass)`
 
-**Purpose:** Gets the current value of `class name`.
+**Purpose:** Reads and returns the `class name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderOfBattleFormationExtensions.GetClassName(formationClass);
+```
 
 ### GetHeroAgents
 `public static List<Agent> GetHeroAgents(this Team team)`
 
-**Purpose:** Gets the current value of `hero agents`.
+**Purpose:** Reads and returns the `hero agents` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderOfBattleFormationExtensions.GetHeroAgents(team);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 OrderOfBattleFormationExtensions.Refresh(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

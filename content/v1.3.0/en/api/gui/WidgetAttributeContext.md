@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeContext"
+description: "Auto-generated class reference for WidgetAttributeContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeContext`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeContext
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### RegisterKeyType
 `public void RegisterKeyType(WidgetAttributeKeyType keyType)`
 
-**Purpose:** Handles logic related to `register key type`.
+**Purpose:** Registers `key type` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of WidgetAttributeContext from the subsystem API first
+WidgetAttributeContext widgetAttributeContext = ...;
+widgetAttributeContext.RegisterKeyType(keyType);
+```
 
 ### RegisterValueType
 `public void RegisterValueType(WidgetAttributeValueType valueType)`
 
-**Purpose:** Handles logic related to `register value type`.
+**Purpose:** Registers `value type` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of WidgetAttributeContext from the subsystem API first
+WidgetAttributeContext widgetAttributeContext = ...;
+widgetAttributeContext.RegisterValueType(valueType);
+```
 
 ### GetKeyType
 `public WidgetAttributeKeyType GetKeyType(string key)`
 
-**Purpose:** Gets the current value of `key type`.
+**Purpose:** Reads and returns the `key type` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeContext from the subsystem API first
+WidgetAttributeContext widgetAttributeContext = ...;
+var result = widgetAttributeContext.GetKeyType("example");
+```
 
 ### GetValueType
 `public WidgetAttributeValueType GetValueType(string value)`
 
-**Purpose:** Gets the current value of `value type`.
+**Purpose:** Reads and returns the `value type` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeContext from the subsystem API first
+WidgetAttributeContext widgetAttributeContext = ...;
+var result = widgetAttributeContext.GetValueType("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeContext();
-value.RegisterKeyType(keyType);
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeContext widgetAttributeContext = ...;
+widgetAttributeContext.RegisterKeyType(keyType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

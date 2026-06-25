@@ -1,13 +1,7 @@
 ---
 title: "ScissorTestInfo"
+description: "ScissorTestInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScissorTestInfo`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScissorTestInfo
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -38,25 +32,44 @@ title: "ScissorTestInfo"
 ### ReduceToIntersection
 `public void ReduceToIntersection(ScissorTestInfo other)`
 
-**用途 / Purpose:** 处理 `reduce to intersection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScissorTestInfo 实例
+ScissorTestInfo scissorTestInfo = ...;
+scissorTestInfo.ReduceToIntersection(other);
+```
 
 ### GetSimpleRectangle
 `public SimpleRectangle GetSimpleRectangle()`
 
-**用途 / Purpose:** 获取 `simple rectangle` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「simple rectangle」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ScissorTestInfo 实例
+ScissorTestInfo scissorTestInfo = ...;
+var result = scissorTestInfo.GetSimpleRectangle();
+```
 
 ### IsCollide
 `public bool IsCollide(in Rectangle2D other)`
 
-**用途 / Purpose:** 处理 `is collide` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「collide」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ScissorTestInfo 实例
+ScissorTestInfo scissorTestInfo = ...;
+var result = scissorTestInfo.IsCollide(other);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ScissorTestInfo();
-value.ReduceToIntersection(other);
+// 通常从对应子系统 API 获取实例后调用
+ScissorTestInfo scissorTestInfo = ...;
+scissorTestInfo.ReduceToIntersection(other);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

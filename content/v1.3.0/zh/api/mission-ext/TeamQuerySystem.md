@@ -1,13 +1,7 @@
 ---
 title: "TeamQuerySystem"
+description: "TeamQuerySystem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamQuerySystem`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamQuerySystem
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -68,40 +62,77 @@ title: "TeamQuerySystem"
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 处理 `expire` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TeamQuerySystem 实例
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.Expire();
+```
 
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**用途 / Purpose:** 处理 `expire after unit add remove` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TeamQuerySystem 实例
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.ExpireAfterUnitAddRemove();
+```
 
 ### RegisterDeath
 `public void RegisterDeath()`
 
-**用途 / Purpose:** 处理 `register death` 相关逻辑。
+**用途 / Purpose:** 将「death」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 TeamQuerySystem 实例
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.RegisterDeath();
+```
 
 ### RegisterDeathByRanged
 `public void RegisterDeathByRanged()`
 
-**用途 / Purpose:** 处理 `register death by ranged` 相关逻辑。
+**用途 / Purpose:** 将「death by ranged」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 TeamQuerySystem 实例
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.RegisterDeathByRanged();
+```
 
 ### GetLocalAllyPower
 `public float GetLocalAllyPower(Vec2 target)`
 
-**用途 / Purpose:** 获取 `local ally power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local ally power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TeamQuerySystem 实例
+TeamQuerySystem teamQuerySystem = ...;
+var result = teamQuerySystem.GetLocalAllyPower(target);
+```
 
 ### GetLocalEnemyPower
 `public float GetLocalEnemyPower(Vec2 target)`
 
-**用途 / Purpose:** 获取 `local enemy power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local enemy power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TeamQuerySystem 实例
+TeamQuerySystem teamQuerySystem = ...;
+var result = teamQuerySystem.GetLocalEnemyPower(target);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamQuerySystem();
-value.Expire();
+// 通常从对应子系统 API 获取实例后调用
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.Expire();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

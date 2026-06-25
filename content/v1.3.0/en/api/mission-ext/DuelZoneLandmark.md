@@ -1,13 +1,7 @@
 ---
 title: "DuelZoneLandmark"
+description: "Auto-generated class reference for DuelZoneLandmark."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelZoneLandmark`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelZoneLandmark
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**Purpose:** Called when the `focus gain` event is raised.
+**Purpose:** Invoked when the `focus gain` event is raised.
+
+```csharp
+// Obtain an instance of DuelZoneLandmark from the subsystem API first
+DuelZoneLandmark duelZoneLandmark = ...;
+duelZoneLandmark.OnFocusGain(userAgent);
+```
 
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**Purpose:** Called when the `focus lose` event is raised.
+**Purpose:** Invoked when the `focus lose` event is raised.
+
+```csharp
+// Obtain an instance of DuelZoneLandmark from the subsystem API first
+DuelZoneLandmark duelZoneLandmark = ...;
+duelZoneLandmark.OnFocusLose(userAgent);
+```
 
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**Purpose:** Gets the current value of `info text for being not interactable`.
+**Purpose:** Reads and returns the `info text for being not interactable` value held by the current object.
+
+```csharp
+// Obtain an instance of DuelZoneLandmark from the subsystem API first
+DuelZoneLandmark duelZoneLandmark = ...;
+var result = duelZoneLandmark.GetInfoTextForBeingNotInteractable(userAgent);
+```
 
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of DuelZoneLandmark from the subsystem API first
+DuelZoneLandmark duelZoneLandmark = ...;
+var result = duelZoneLandmark.GetDescriptionText(gameEntity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DuelZoneLandmark();
-value.OnFocusGain(userAgent);
+// Typically call this after obtaining an instance from the subsystem API
+DuelZoneLandmark duelZoneLandmark = ...;
+duelZoneLandmark.OnFocusGain(userAgent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

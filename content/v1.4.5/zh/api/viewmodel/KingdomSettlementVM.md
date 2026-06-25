@@ -1,20 +1,14 @@
 ---
 title: "KingdomSettlementVM"
+description: "KingdomSettlementVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomSettlementVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomSettlementVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomSettlementVM : KingdomCategoryVM`
 **Base:** `KingdomCategoryVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementVM.cs`
 
 ## 概述
 
@@ -54,25 +48,44 @@ title: "KingdomSettlementVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementVM 实例
+KingdomSettlementVM kingdomSettlementVM = ...;
+kingdomSettlementVM.RefreshValues();
+```
 
 ### RefreshSettlementList
 `public void RefreshSettlementList()`
 
-**用途 / Purpose:** 刷新 `settlement list` 的显示或缓存。
+**用途 / Purpose:** 使 「settlement list」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementVM 实例
+KingdomSettlementVM kingdomSettlementVM = ...;
+kingdomSettlementVM.RefreshSettlementList();
+```
 
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `select settlement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementVM 实例
+KingdomSettlementVM kingdomSettlementVM = ...;
+kingdomSettlementVM.SelectSettlement(settlement);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomSettlementVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+KingdomSettlementVM kingdomSettlementVM = ...;
+kingdomSettlementVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

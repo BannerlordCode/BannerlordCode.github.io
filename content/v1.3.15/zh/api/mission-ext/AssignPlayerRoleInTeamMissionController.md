@@ -1,13 +1,7 @@
 ---
 title: "AssignPlayerRoleInTeamMissionController"
+description: "AssignPlayerRoleInTeamMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AssignPlayerRoleInTeamMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AssignPlayerRoleInTeamMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,27 +32,57 @@ title: "AssignPlayerRoleInTeamMissionController"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AssignPlayerRoleInTeamMissionController 实例
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.AfterStart();
+```
 
 ### OnTeamDeployed
 `public override void OnTeamDeployed(Team team)`
 
-**用途 / Purpose:** 当 `team deployed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「team deployed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AssignPlayerRoleInTeamMissionController 实例
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.OnTeamDeployed(team);
+```
 
 ### OnPlayerTeamDeployed
 `public virtual void OnPlayerTeamDeployed()`
 
-**用途 / Purpose:** 当 `player team deployed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player team deployed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AssignPlayerRoleInTeamMissionController 实例
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.OnPlayerTeamDeployed();
+```
 
 ### OnPlayerChoiceMade
 `public virtual void OnPlayerChoiceMade(int chosenIndex)`
 
-**用途 / Purpose:** 当 `player choice made` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player choice made」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AssignPlayerRoleInTeamMissionController 实例
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.OnPlayerChoiceMade(0);
+```
 
 ### OnPlayerChoiceFinalized
 `public void OnPlayerChoiceFinalized()`
 
-**用途 / Purpose:** 当 `player choice finalized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player choice finalized」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AssignPlayerRoleInTeamMissionController 实例
+AssignPlayerRoleInTeamMissionController assignPlayerRoleInTeamMissionController = ...;
+assignPlayerRoleInTeamMissionController.OnPlayerChoiceFinalized();
+```
 
 ## 使用示例
 
@@ -68,4 +92,4 @@ var controller = Mission.Current.GetMissionBehavior<AssignPlayerRoleInTeamMissio
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

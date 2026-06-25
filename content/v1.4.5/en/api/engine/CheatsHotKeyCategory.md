@@ -1,20 +1,14 @@
 ---
 title: "CheatsHotKeyCategory"
+description: "Auto-generated class reference for CheatsHotKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheatsHotKeyCategory`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheatsHotKeyCategory
 
 **Namespace:** TaleWorlds.Engine.InputSystem
 **Module:** TaleWorlds.Engine
 **Type:** `public class CheatsHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/CheatsHotKeyCategory.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/CheatsHotKeyCategory.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.InputSystem` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var example = new CheatsHotKeyCategory();
+// Obtain an instance from the relevant subsystem API
+CheatsHotKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "EavesdroppingMissionCameraView"
+description: "Auto-generated class reference for EavesdroppingMissionCameraView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EavesdroppingMissionCameraView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EavesdroppingMissionCameraView
 
 **Namespace:** SandBox.View.Missions
@@ -29,19 +23,32 @@ Treat `EavesdroppingMissionCameraView` as a View-style extension point: first id
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of EavesdroppingMissionCameraView from the subsystem API first
+EavesdroppingMissionCameraView eavesdroppingMissionCameraView = ...;
+eavesdroppingMissionCameraView.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of EavesdroppingMissionCameraView from the subsystem API first
+EavesdroppingMissionCameraView eavesdroppingMissionCameraView = ...;
+eavesdroppingMissionCameraView.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new EavesdroppingMissionCameraView();
+// Retrieve this view from the subsystem API or scene
+EavesdroppingMissionCameraView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

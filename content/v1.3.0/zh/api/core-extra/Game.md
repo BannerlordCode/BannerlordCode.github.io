@@ -1,13 +1,7 @@
 ---
 title: "Game"
+description: "Game 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Game`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Game
 
 **Namespace:** TaleWorlds.Core
@@ -58,110 +52,226 @@ title: "Game"
 ### CreateBannerVisual
 `public IBannerVisual CreateBannerVisual(Banner banner)`
 
-**用途 / Purpose:** 创建一个 `banner visual` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「banner visual」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+var result = game.CreateBannerVisual(banner);
+```
 
 ### GetDefaultEquipmentWithName
 `public Equipment GetDefaultEquipmentWithName(string equipmentName)`
 
-**用途 / Purpose:** 获取 `default equipment with name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default equipment with name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+var result = game.GetDefaultEquipmentWithName("example");
+```
 
 ### SetDefaultEquipments
 `public void SetDefaultEquipments(IReadOnlyDictionary<string, Equipment> defaultEquipments)`
 
-**用途 / Purpose:** 设置 `default equipments` 的值或状态。
+**用途 / Purpose:** 为 「default equipments」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.SetDefaultEquipments(iReadOnlyDictionary<string, defaultEquipments);
+```
 
 ### CreateGame
 `public static Game CreateGame(GameType gameType, GameManagerBase gameManager, int seed)`
 
-**用途 / Purpose:** 创建一个 `game` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「game」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Game.CreateGame(gameType, gameManager, 0);
+```
 
 ### CreateGame
 `public static Game CreateGame(GameType gameType, GameManagerBase gameManager)`
 
-**用途 / Purpose:** 创建一个 `game` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「game」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Game.CreateGame(gameType, gameManager);
+```
 
 ### LoadSaveGame
 `public static Game LoadSaveGame(LoadResult loadResult, GameManagerBase gameManager)`
 
-**用途 / Purpose:** 加载 `save game` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「save game」。
+
+```csharp
+// 静态调用，不需要实例
+Game.LoadSaveGame(loadResult, gameManager);
+```
 
 ### Save
 `public void Save(MetaData metaData, string saveName, ISaveDriver driver, Action<SaveResult> onSaveCompleted)`
 
-**用途 / Purpose:** 保存 `save` 数据。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.Save(metaData, "example", driver, onSaveCompleted);
+```
 
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.Destroy();
+```
 
 ### CreateGameManager
 `public void CreateGameManager()`
 
-**用途 / Purpose:** 创建一个 `game manager` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「game manager」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.CreateGameManager();
+```
 
 ### OnStateChanged
 `public void OnStateChanged(GameState oldState)`
 
-**用途 / Purpose:** 当 `state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.OnStateChanged(oldState);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.Initialize();
+```
 
 ### RegisterTypes
 `public static void RegisterTypes(GameType gameType, MBObjectManager objectManager, GameManagerBase gameManager)`
 
-**用途 / Purpose:** 处理 `register types` 相关逻辑。
+**用途 / Purpose:** 将「types」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 静态调用，不需要实例
+Game.RegisterTypes(gameType, objectManager, gameManager);
+```
 
 ### SetBasicModels
 `public void SetBasicModels(IEnumerable<GameModel> models)`
 
-**用途 / Purpose:** 设置 `basic models` 的值或状态。
+**用途 / Purpose:** 为 「basic models」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.SetBasicModels(models);
+```
 
 ### OnGameStart
 `public void OnGameStart()`
 
-**用途 / Purpose:** 当 `game start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.OnGameStart();
+```
 
 ### DoLoading
 `public bool DoLoading()`
 
-**用途 / Purpose:** 处理 `do loading` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+var result = game.DoLoading();
+```
 
 ### OnMissionIsStarting
 `public void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**用途 / Purpose:** 当 `mission is starting` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission is starting」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.OnMissionIsStarting("example", rec);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.OnFinalize();
+```
 
 ### InitializeDefaultGameObjects
 `public void InitializeDefaultGameObjects()`
 
-**用途 / Purpose:** 初始化 `default game objects` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「default game objects」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.InitializeDefaultGameObjects();
+```
 
 ### LoadBasicFiles
 `public void LoadBasicFiles()`
 
-**用途 / Purpose:** 加载 `basic files` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「basic files」。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.LoadBasicFiles();
+```
 
 ### ItemObjectDeserialized
 `public void ItemObjectDeserialized(ItemObject itemObject)`
 
-**用途 / Purpose:** 处理 `item object deserialized` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Game 实例
+Game game = ...;
+game.ItemObjectDeserialized(itemObject);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Game();
-value.CreateBannerVisual(banner);
+var game = Game.Current;
+game.AddGameObject(gameObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

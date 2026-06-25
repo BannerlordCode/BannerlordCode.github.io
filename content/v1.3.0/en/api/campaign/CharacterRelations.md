@@ -1,13 +1,7 @@
 ---
 title: "CharacterRelations"
+description: "Auto-generated class reference for CharacterRelations."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterRelations`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterRelations
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ## Usage Example
 
 ```csharp
-CharacterRelations example = CharacterRelations.Value;
+// Obtain an instance from the relevant subsystem API
+CharacterRelations instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

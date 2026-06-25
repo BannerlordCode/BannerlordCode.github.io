@@ -1,13 +1,7 @@
 ---
 title: "MissionCustomCameraView"
+description: "MissionCustomCameraView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionCustomCameraView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCustomCameraView
 
 **Namespace:** SandBox.View.Missions
@@ -29,19 +23,32 @@ title: "MissionCustomCameraView"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCustomCameraView 实例
+MissionCustomCameraView missionCustomCameraView = ...;
+missionCustomCameraView.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCustomCameraView 实例
+MissionCustomCameraView missionCustomCameraView = ...;
+missionCustomCameraView.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionCustomCameraView();
+// 从子系统 API 或场景中获取该视图
+MissionCustomCameraView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

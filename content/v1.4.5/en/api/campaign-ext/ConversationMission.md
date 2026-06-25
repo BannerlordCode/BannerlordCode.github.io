@@ -1,23 +1,18 @@
 ---
 title: "ConversationMission"
+description: "Auto-generated class reference for ConversationMission."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationMission`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationMission
 
 **Namespace:** SandBox.Conversation
 **Module:** SandBox.Conversation
 **Type:** `public static class ConversationMission`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/SandBox.Conversation/ConversationMission.cs`
 
 ## Overview
 
-`ConversationMission` lives in `SandBox.Conversation`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ConversationMission` lives in `SandBox.Conversation` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -36,16 +31,19 @@ Start from namespace `SandBox.Conversation` to place it in the stack, then inspe
 ### StartConversationWithAgent
 `public static void StartConversationWithAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `start conversation with agent`.
+**Purpose:** Starts the `conversation with agent` flow or state machine.
+
+```csharp
+// Static call; no instance required
+ConversationMission.StartConversationWithAgent(agent);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ConversationMission.StartConversationWithAgent(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

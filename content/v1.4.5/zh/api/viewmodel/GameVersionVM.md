@@ -1,20 +1,14 @@
 ---
 title: "GameVersionVM"
+description: "GameVersionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameVersionVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameVersionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameVersionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/GameVersionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/GameVersionVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "GameVersionVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameVersionVM 实例
+GameVersionVM gameVersionVM = ...;
+gameVersionVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameVersionVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+GameVersionVM gameVersionVM = ...;
+gameVersionVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

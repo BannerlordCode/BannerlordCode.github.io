@@ -1,13 +1,7 @@
 ---
 title: "CircleActionSelectorWidget"
+description: "Auto-generated class reference for CircleActionSelectorWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CircleActionSelectorWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CircleActionSelectorWidget
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -41,19 +35,32 @@ Treat `CircleActionSelectorWidget` as a Widget-style extension point: first iden
 ### AnimateDistanceFromCenterTo
 `public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)`
 
-**Purpose:** Handles logic related to `animate distance from center to`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CircleActionSelectorWidget from the subsystem API first
+CircleActionSelectorWidget circleActionSelectorWidget = ...;
+circleActionSelectorWidget.AnimateDistanceFromCenterTo(0, 0);
+```
 
 ### TrySetSelectedIndex
 `public bool TrySetSelectedIndex(int index)`
 
-**Purpose:** Attempts to get `set selected index`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `set selected index`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of CircleActionSelectorWidget from the subsystem API first
+CircleActionSelectorWidget circleActionSelectorWidget = ...;
+var result = circleActionSelectorWidget.TrySetSelectedIndex(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CircleActionSelectorWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CircleActionSelectorWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

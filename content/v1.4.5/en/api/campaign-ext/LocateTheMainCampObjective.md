@@ -1,20 +1,14 @@
 ---
 title: "LocateTheMainCampObjective"
+description: "Auto-generated class reference for LocateTheMainCampObjective."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocateTheMainCampObjective`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocateTheMainCampObjective
 
 **Namespace:** SandBox.Missions.MissionLogics.Hideout.Objectives
 **Module:** SandBox.Missions
 **Type:** `public class LocateTheMainCampObjective : MissionObjective`
 **Base:** `MissionObjective`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Hideout.Objectives/LocateTheMainCampObjective.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Hideout.Objectives/LocateTheMainCampObjective.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Missions.MissionLogics.Hideout.Objectives` to plac
 ## Usage Example
 
 ```csharp
-var value = new LocateTheMainCampObjective();
+// Obtain an instance from the relevant subsystem API
+LocateTheMainCampObjective instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "FakeInventoryListener"
+description: "Auto-generated class reference for FakeInventoryListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FakeInventoryListener`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FakeInventoryListener
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FakeInventoryListener : InventoryListener`
 **Base:** `InventoryListener`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/FakeInventoryListener.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/FakeInventoryListener.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ### GetGold
 `public override int GetGold()`
 
-**Purpose:** Gets the current value of `gold`.
+**Purpose:** Reads and returns the `gold` value held by the current object.
+
+```csharp
+// Obtain an instance of FakeInventoryListener from the subsystem API first
+FakeInventoryListener fakeInventoryListener = ...;
+var result = fakeInventoryListener.GetGold();
+```
 
 ### GetTraderName
 `public override TextObject GetTraderName()`
 
-**Purpose:** Gets the current value of `trader name`.
+**Purpose:** Reads and returns the `trader name` value held by the current object.
+
+```csharp
+// Obtain an instance of FakeInventoryListener from the subsystem API first
+FakeInventoryListener fakeInventoryListener = ...;
+var result = fakeInventoryListener.GetTraderName();
+```
 
 ### SetGold
 `public override void SetGold(int gold)`
 
-**Purpose:** Sets the value or state of `gold`.
+**Purpose:** Assigns a new value to `gold` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of FakeInventoryListener from the subsystem API first
+FakeInventoryListener fakeInventoryListener = ...;
+fakeInventoryListener.SetGold(0);
+```
 
 ### OnTransaction
 `public override void OnTransaction()`
 
-**Purpose:** Called when the `transaction` event is raised.
+**Purpose:** Invoked when the `transaction` event is raised.
+
+```csharp
+// Obtain an instance of FakeInventoryListener from the subsystem API first
+FakeInventoryListener fakeInventoryListener = ...;
+fakeInventoryListener.OnTransaction();
+```
 
 ### GetOppositeParty
 `public override PartyBase GetOppositeParty()`
 
-**Purpose:** Gets the current value of `opposite party`.
+**Purpose:** Reads and returns the `opposite party` value held by the current object.
+
+```csharp
+// Obtain an instance of FakeInventoryListener from the subsystem API first
+FakeInventoryListener fakeInventoryListener = ...;
+var result = fakeInventoryListener.GetOppositeParty();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FakeInventoryListener();
-value.GetGold();
+// Typically call this after obtaining an instance from the subsystem API
+FakeInventoryListener fakeInventoryListener = ...;
+fakeInventoryListener.GetGold();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

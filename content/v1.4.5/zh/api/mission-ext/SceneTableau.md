@@ -1,20 +1,14 @@
 ---
 title: "SceneTableau"
+description: "SceneTableau 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SceneTableau`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneTableau
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneTableau`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/SceneTableau.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/SceneTableau.cs`
 
 ## 概述
 
@@ -36,40 +30,77 @@ title: "SceneTableau"
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** 设置 `target size` 的值或状态。
+**用途 / Purpose:** 为 「target size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SceneTableau 实例
+SceneTableau sceneTableau = ...;
+sceneTableau.SetTargetSize(0, 0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SceneTableau 实例
+SceneTableau sceneTableau = ...;
+sceneTableau.OnFinalize();
+```
 
 ### SetScene
 `public void SetScene(object scene)`
 
-**用途 / Purpose:** 设置 `scene` 的值或状态。
+**用途 / Purpose:** 为 「scene」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SceneTableau 实例
+SceneTableau sceneTableau = ...;
+sceneTableau.SetScene(scene);
+```
 
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**用途 / Purpose:** 设置 `banner code` 的值或状态。
+**用途 / Purpose:** 为 「banner code」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SceneTableau 实例
+SceneTableau sceneTableau = ...;
+sceneTableau.SetBannerCode("example");
+```
 
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**用途 / Purpose:** 处理 `rotate character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SceneTableau 实例
+SceneTableau sceneTableau = ...;
+sceneTableau.RotateCharacter(false);
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SceneTableau 实例
+SceneTableau sceneTableau = ...;
+sceneTableau.OnTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SceneTableau();
-value.SetTargetSize(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+SceneTableau sceneTableau = ...;
+sceneTableau.SetTargetSize(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,19 +1,14 @@
 ---
 title: "GameTextHelper"
+description: "GameTextHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameTextHelper`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameTextHelper
 
-**命名空间:** TaleWorlds.Core
-**模块:** TaleWorlds.Core
-**类型:** `public class GameTextHelper`
-**领域:** core-extra
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public class GameTextHelper`
+**Base:** 无
+**File:** `TaleWorlds.Core/GameTexts.cs`
 
 ## 概述
 
@@ -25,70 +20,36 @@ title: "GameTextHelper"
 
 ## 主要方法
 
-### Initialize
-`public static void Initialize(GameTextManager gameTextManager)`
-
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
-
-### FindText
-`public static TextObject FindText(string id, string variation = null)`
-
-**用途 / Purpose:** 处理 `find text` 相关逻辑。
-
-### TryGetText
-`public static bool TryGetText(string id, out TextObject textObject, string variation = null)`
-
-**用途 / Purpose:** 尝试获取 `get text`，通常以 out 参数返回结果。
-
-### FindAllTextVariations
-`public static IEnumerable<TextObject> FindAllTextVariations(string id)`
-
-**用途 / Purpose:** 处理 `find all text variations` 相关逻辑。
-
-### SetVariable
-`public static void SetVariable(string variableName, string content)`
-
-**用途 / Purpose:** 设置 `variable` 的值或状态。
-
-### SetVariable
-`public static void SetVariable(string variableName, float content)`
-
-**用途 / Purpose:** 设置 `variable` 的值或状态。
-
-### SetVariable
-`public static void SetVariable(string variableName, int content)`
-
-**用途 / Purpose:** 设置 `variable` 的值或状态。
-
-### SetVariable
-`public static void SetVariable(string variableName, TextObject content)`
-
-**用途 / Purpose:** 设置 `variable` 的值或状态。
-
-### ClearInstance
-`public static void ClearInstance()`
-
-**用途 / Purpose:** 处理 `clear instance` 相关逻辑。
-
-### AddGameTextWithVariation
-`public static GameTexts.GameTextHelper AddGameTextWithVariation(string id)`
-
-**用途 / Purpose:** 向当前集合/状态中添加 `game text with variation`。
-
 ### Variation
 `public GameTexts.GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
-**用途 / Purpose:** 处理 `variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextHelper 实例
+GameTextHelper gameTextHelper = ...;
+var result = gameTextHelper.Variation("example", propertiesAndWeights);
+```
 
 ### MergeTextObjectsWithComma
 `public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
 
-**用途 / Purpose:** 处理 `merge text objects with comma` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+GameTextHelper.MergeTextObjectsWithComma(textObjects, false);
+```
 
 ### MergeTextObjectsWithSymbol
 `public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
 
-**用途 / Purpose:** 处理 `merge text objects with symbol` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+GameTextHelper.MergeTextObjectsWithSymbol(textObjects, symbol, null);
+```
 
 ## 使用示例
 
@@ -98,5 +59,4 @@ GameTextHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-core)
+- [本区域目录](../)

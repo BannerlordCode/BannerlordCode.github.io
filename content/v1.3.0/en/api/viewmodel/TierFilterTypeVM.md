@@ -1,13 +1,7 @@
 ---
 title: "TierFilterTypeVM"
+description: "Auto-generated class reference for TierFilterTypeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TierFilterTypeVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TierFilterTypeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteSelectTier
 `public void ExecuteSelectTier()`
 
-**Purpose:** Executes the `select tier` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select tier`.
+
+```csharp
+// Obtain an instance of TierFilterTypeVM from the subsystem API first
+TierFilterTypeVM tierFilterTypeVM = ...;
+tierFilterTypeVM.ExecuteSelectTier();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TierFilterTypeVM();
-value.ExecuteSelectTier();
+// Typically call this after obtaining an instance from the subsystem API
+TierFilterTypeVM tierFilterTypeVM = ...;
+tierFilterTypeVM.ExecuteSelectTier();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

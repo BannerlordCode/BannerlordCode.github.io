@@ -1,20 +1,14 @@
 ---
 title: "PartyTemplateObject"
+description: "PartyTemplateObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyTemplateObject`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTemplateObject
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class PartyTemplateObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyTemplateObject.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyTemplateObject.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "PartyTemplateObject"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTemplateObject 实例
+PartyTemplateObject partyTemplateObject = ...;
+partyTemplateObject.Deserialize(objectManager, node);
+```
 
 ### GetUpperTroopLimit
 `public int GetUpperTroopLimit()`
 
-**用途 / Purpose:** 获取 `upper troop limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「upper troop limit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTemplateObject 实例
+PartyTemplateObject partyTemplateObject = ...;
+var result = partyTemplateObject.GetUpperTroopLimit();
+```
 
 ### GetLowerTroopLimit
 `public int GetLowerTroopLimit()`
 
-**用途 / Purpose:** 获取 `lower troop limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「lower troop limit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTemplateObject 实例
+PartyTemplateObject partyTemplateObject = ...;
+var result = partyTemplateObject.GetLowerTroopLimit();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyTemplateObject();
-value.Deserialize(objectManager, node);
+// 通常从对应子系统 API 获取实例后调用
+PartyTemplateObject partyTemplateObject = ...;
+partyTemplateObject.Deserialize(objectManager, node);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

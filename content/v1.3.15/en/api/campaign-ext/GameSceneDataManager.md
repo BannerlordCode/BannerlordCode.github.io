@@ -1,13 +1,7 @@
 ---
 title: "GameSceneDataManager"
+description: "Auto-generated class reference for GameSceneDataManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameSceneDataManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameSceneDataManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -38,17 +32,35 @@ Treat `GameSceneDataManager` as a Manager-style extension point: first identify 
 ### LoadSPBattleScenes
 `public void LoadSPBattleScenes(string path)`
 
-**Purpose:** Loads `s p battle scenes` data.
+**Purpose:** Reads `s p battle scenes` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GameSceneDataManager from the subsystem API first
+GameSceneDataManager gameSceneDataManager = ...;
+gameSceneDataManager.LoadSPBattleScenes("example");
+```
 
 ### LoadConversationScenes
 `public void LoadConversationScenes(string path)`
 
-**Purpose:** Loads `conversation scenes` data.
+**Purpose:** Reads `conversation scenes` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GameSceneDataManager from the subsystem API first
+GameSceneDataManager gameSceneDataManager = ...;
+gameSceneDataManager.LoadConversationScenes("example");
+```
 
 ### LoadMeetingScenes
 `public void LoadMeetingScenes(string path)`
 
-**Purpose:** Loads `meeting scenes` data.
+**Purpose:** Reads `meeting scenes` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GameSceneDataManager from the subsystem API first
+GameSceneDataManager gameSceneDataManager = ...;
+gameSceneDataManager.LoadMeetingScenes("example");
+```
 
 ## Usage Example
 
@@ -58,4 +70,4 @@ var manager = GameSceneDataManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ShopVisualIconBrushWidget"
+description: "Auto-generated class reference for ShopVisualIconBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShopVisualIconBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShopVisualIconBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ShopVisualIconBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.TownManagement/ShopVisualIconBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.TownManagement/ShopVisualIconBrushWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `ShopVisualIconBrushWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new ShopVisualIconBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ShopVisualIconBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionCrimeHandler"
+description: "Auto-generated class reference for MissionCrimeHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCrimeHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCrimeHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class MissionCrimeHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionCrimeHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionCrimeHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionCrimeHandler` as a Handler-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionCrimeHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionCrimeHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

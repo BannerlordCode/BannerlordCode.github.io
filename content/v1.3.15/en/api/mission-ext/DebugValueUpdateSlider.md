@@ -1,13 +1,7 @@
 ---
 title: "DebugValueUpdateSlider"
+description: "Auto-generated class reference for DebugValueUpdateSlider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugValueUpdateSlider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DebugValueUpdateSlider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets` to place it i
 ## Usage Example
 
 ```csharp
-var value = new DebugValueUpdateSlider();
+// Obtain an instance from the relevant subsystem API
+DebugValueUpdateSlider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

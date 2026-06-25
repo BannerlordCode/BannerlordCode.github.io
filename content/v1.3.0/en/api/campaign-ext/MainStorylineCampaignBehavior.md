@@ -1,13 +1,7 @@
 ---
 title: "MainStorylineCampaignBehavior"
+description: "Auto-generated class reference for MainStorylineCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainStorylineCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainStorylineCampaignBehavior
 
 **Namespace:** StoryMode.GameComponents.CampaignBehaviors
@@ -29,20 +23,33 @@ Start from namespace `StoryMode.GameComponents.CampaignBehaviors` to place it in
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MainStorylineCampaignBehavior from the subsystem API first
+MainStorylineCampaignBehavior mainStorylineCampaignBehavior = ...;
+mainStorylineCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of MainStorylineCampaignBehavior from the subsystem API first
+MainStorylineCampaignBehavior mainStorylineCampaignBehavior = ...;
+mainStorylineCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MainStorylineCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+MainStorylineCampaignBehavior mainStorylineCampaignBehavior = ...;
+mainStorylineCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

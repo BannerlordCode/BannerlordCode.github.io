@@ -1,20 +1,14 @@
 ---
 title: "ShipVisualSlotInfo"
+description: "Auto-generated class reference for ShipVisualSlotInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipVisualSlotInfo`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipVisualSlotInfo
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct ShipVisualSlotInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ShipVisualSlotInfo.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipVisualSlotInfo.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ShipVisualSlotInfo
 `public struct ShipVisualSlotInfo(string visualSlotId, string visualPieceId)`
 
-**Purpose:** Handles logic related to `ship visual slot info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ShipVisualSlotInfo from the subsystem API first
+ShipVisualSlotInfo shipVisualSlotInfo = ...;
+var result = shipVisualSlotInfo.ShipVisualSlotInfo("example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipVisualSlotInfo();
-value.ShipVisualSlotInfo("example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+ShipVisualSlotInfo shipVisualSlotInfo = ...;
+shipVisualSlotInfo.ShipVisualSlotInfo("example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

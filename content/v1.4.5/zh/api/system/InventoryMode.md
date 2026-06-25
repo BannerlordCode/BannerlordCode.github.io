@@ -1,20 +1,14 @@
 ---
 title: "InventoryMode"
+description: "InventoryMode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryMode`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryMode
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public enum InventoryMode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/InventoryScreenHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/InventoryScreenHelper.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "InventoryMode"
 ## 使用示例
 
 ```csharp
-InventoryMode example = InventoryMode.Value;
+// 从对应子系统 API 获取实例
+InventoryMode instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

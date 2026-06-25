@@ -1,13 +1,7 @@
 ---
 title: "StonePileRecord"
+description: "Auto-generated class reference for StonePileRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StonePileRecord`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StonePileRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of StonePileRecord from the subsystem API first
+StonePileRecord stonePileRecord = ...;
+var result = stonePileRecord.ReadFromNetwork(bufferReadValid);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StonePileRecord();
-value.ReadFromNetwork(bufferReadValid);
+// Typically call this after obtaining an instance from the subsystem API
+StonePileRecord stonePileRecord = ...;
+stonePileRecord.ReadFromNetwork(bufferReadValid);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

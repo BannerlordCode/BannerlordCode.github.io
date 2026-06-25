@@ -1,20 +1,14 @@
 ---
 title: "TauntUsageFlag"
+description: "Auto-generated class reference for TauntUsageFlag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TauntUsageFlag`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TauntUsageFlag
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `class TauntUsageFlag`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Compare
 `public int Compare(TauntUsage.TauntUsageFlag x, TauntUsage.TauntUsageFlag y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of TauntUsageFlag from the subsystem API first
+TauntUsageFlag tauntUsageFlag = ...;
+var result = tauntUsageFlag.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TauntUsageFlag();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+TauntUsageFlag tauntUsageFlag = ...;
+tauntUsageFlag.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

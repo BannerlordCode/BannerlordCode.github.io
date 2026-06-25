@@ -1,20 +1,14 @@
 ---
 title: "SettlementMilitiaModel"
+description: "Auto-generated class reference for SettlementMilitiaModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementMilitiaModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementMilitiaModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementMilitiaModel : MBGameModel<SettlementMilitiaModel>`
 **Base:** `MBGameModel<SettlementMilitiaModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementMilitiaModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementMilitiaModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `SettlementMilitiaModel` as a Model-style extension point: first identify 
 ### MilitiaToSpawnAfterSiege
 `public abstract int MilitiaToSpawnAfterSiege(Town town)`
 
-**Purpose:** Handles logic related to `militia to spawn after siege`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SettlementMilitiaModel from the subsystem API first
+SettlementMilitiaModel settlementMilitiaModel = ...;
+var result = settlementMilitiaModel.MilitiaToSpawnAfterSiege(town);
+```
 
 ### CalculateMilitiaChange
 `public abstract ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate militia change`.
+**Purpose:** Calculates the current value or result of `militia change`.
+
+```csharp
+// Obtain an instance of SettlementMilitiaModel from the subsystem API first
+SettlementMilitiaModel settlementMilitiaModel = ...;
+var result = settlementMilitiaModel.CalculateMilitiaChange(settlement, false);
+```
 
 ### CalculateVeteranMilitiaSpawnChance
 `public abstract ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)`
 
-**Purpose:** Handles logic related to `calculate veteran militia spawn chance`.
+**Purpose:** Calculates the current value or result of `veteran militia spawn chance`.
+
+```csharp
+// Obtain an instance of SettlementMilitiaModel from the subsystem API first
+SettlementMilitiaModel settlementMilitiaModel = ...;
+var result = settlementMilitiaModel.CalculateVeteranMilitiaSpawnChance(settlement);
+```
 
 ### CalculateMilitiaSpawnRate
 `public abstract void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)`
 
-**Purpose:** Handles logic related to `calculate militia spawn rate`.
+**Purpose:** Calculates the current value or result of `militia spawn rate`.
+
+```csharp
+// Obtain an instance of SettlementMilitiaModel from the subsystem API first
+SettlementMilitiaModel settlementMilitiaModel = ...;
+settlementMilitiaModel.CalculateMilitiaSpawnRate(settlement, meleeTroopRate, rangedTroopRate);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementMilitiaModel();
+// Typically obtained from a subsystem API or factory
+SettlementMilitiaModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

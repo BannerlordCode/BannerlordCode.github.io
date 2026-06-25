@@ -1,18 +1,12 @@
 ---
 title: "PartyRole"
+description: "Auto-generated class reference for PartyRole."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyRole`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyRole
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum PartyRole`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/PartyRole.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new PartyRole();
+// Obtain an instance from the relevant subsystem API
+PartyRole instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

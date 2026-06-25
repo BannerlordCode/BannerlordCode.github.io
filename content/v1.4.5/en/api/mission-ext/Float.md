@@ -1,20 +1,14 @@
 ---
 title: "Float"
+description: "Auto-generated class reference for Float."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Float`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Float
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct Float`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## Overview
 
@@ -35,35 +29,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Gets the current value of `num bits`.
+**Purpose:** Reads and returns the `num bits` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetNumBits();
+```
 
 ### GetMaximumValue
 `public float GetMaximumValue()`
 
-**Purpose:** Gets the current value of `maximum value`.
+**Purpose:** Reads and returns the `maximum value` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetMaximumValue();
+```
 
 ### GetMinimumValue
 `public float GetMinimumValue()`
 
-**Purpose:** Gets the current value of `minimum value`.
+**Purpose:** Reads and returns the `minimum value` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetMinimumValue();
+```
 
 ### GetPrecision
 `public float GetPrecision()`
 
-**Purpose:** Gets the current value of `precision`.
+**Purpose:** Reads and returns the `precision` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetPrecision();
+```
 
 ### ClampValueAccordingToLimits
 `public void ClampValueAccordingToLimits(ref float x)`
 
-**Purpose:** Handles logic related to `clamp value according to limits`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+float.ClampValueAccordingToLimits(x);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Float();
-value.GetNumBits();
+// Typically call this after obtaining an instance from the subsystem API
+Float float = ...;
+float.GetNumBits();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

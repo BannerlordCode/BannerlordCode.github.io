@@ -1,20 +1,14 @@
 ---
 title: "CraftingPieceTypeSelectorButtonWidget"
+description: "Auto-generated class reference for CraftingPieceTypeSelectorButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceTypeSelectorButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceTypeSelectorButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingPieceTypeSelectorButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingPieceTypeSelectorButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingPieceTypeSelectorButtonWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `CraftingPieceTypeSelectorButtonWidget` as a Widget-style extension point:
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingPieceTypeSelectorButtonWidget from the subsystem API first
+CraftingPieceTypeSelectorButtonWidget craftingPieceTypeSelectorButtonWidget = ...;
+craftingPieceTypeSelectorButtonWidget.SetState("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CraftingPieceTypeSelectorButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingPieceTypeSelectorButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

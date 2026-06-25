@@ -1,13 +1,7 @@
 ---
 title: "FormationClassExtensions"
+description: "FormationClassExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationClassExtensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationClassExtensions
 
 **Namespace:** TaleWorlds.Core
@@ -29,37 +23,72 @@ title: "FormationClassExtensions"
 ### GetName
 `public static string GetName(this FormationClass formationClass)`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FormationClassExtensions.GetName(formationClass);
+```
 
 ### GetLocalizedName
 `public static TextObject GetLocalizedName(this FormationClass formationClass)`
 
-**用途 / Purpose:** 获取 `localized name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「localized name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FormationClassExtensions.GetLocalizedName(formationClass);
+```
 
 ### GetTroopUsageFlags
 `public static TroopUsageFlags GetTroopUsageFlags(this FormationClass troopClass)`
 
-**用途 / Purpose:** 获取 `troop usage flags` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop usage flags」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FormationClassExtensions.GetTroopUsageFlags(troopClass);
+```
 
 ### GetTroopTypeForRegularFormation
 `public static TroopType GetTroopTypeForRegularFormation(this FormationClass formationClass)`
 
-**用途 / Purpose:** 获取 `troop type for regular formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop type for regular formation」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FormationClassExtensions.GetTroopTypeForRegularFormation(formationClass);
+```
 
 ### IsDefaultFormationClass
 `public static bool IsDefaultFormationClass(this FormationClass formationClass)`
 
-**用途 / Purpose:** 处理 `is default formation class` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「default formation class」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+FormationClassExtensions.IsDefaultFormationClass(formationClass);
+```
 
 ### IsRegularFormationClass
 `public static bool IsRegularFormationClass(this FormationClass formationClass)`
 
-**用途 / Purpose:** 处理 `is regular formation class` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「regular formation class」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+FormationClassExtensions.IsRegularFormationClass(formationClass);
+```
 
 ### FallbackClass
 `public static FormationClass FallbackClass(this FormationClass formationClass)`
 
-**用途 / Purpose:** 处理 `fallback class` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+FormationClassExtensions.FallbackClass(formationClass);
+```
 
 ## 使用示例
 
@@ -69,4 +98,4 @@ FormationClassExtensions.GetName(formationClass);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

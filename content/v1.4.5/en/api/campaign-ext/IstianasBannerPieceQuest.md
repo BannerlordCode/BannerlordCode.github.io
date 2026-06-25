@@ -1,20 +1,14 @@
 ---
 title: "IstianasBannerPieceQuest"
+description: "Auto-generated class reference for IstianasBannerPieceQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IstianasBannerPieceQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IstianasBannerPieceQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
 **Module:** StoryMode.Quests
 **Type:** `public class IstianasBannerPieceQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/IstianasBannerPieceQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/IstianasBannerPieceQuest.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.Quests.FirstPhase` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new IstianasBannerPieceQuest();
+// Obtain an instance from the relevant subsystem API
+IstianasBannerPieceQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

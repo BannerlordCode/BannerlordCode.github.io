@@ -1,13 +1,7 @@
 ---
 title: "SaveableCampaignTypeDefiner"
+description: "Auto-generated class reference for SaveableCampaignTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableCampaignTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableCampaignTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new SaveableCampaignTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SaveableCampaignTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ConstructorCode"
+description: "Auto-generated class reference for ConstructorCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConstructorCode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConstructorCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
 **Type:** `public class ConstructorCode`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/ConstructorCode.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/ConstructorCode.cs`
 
 ## Overview
 
@@ -39,20 +33,33 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Handles logic related to `generate into`.
+**Purpose:** Generates an instance, data, or representation of `into`.
+
+```csharp
+// Obtain an instance of ConstructorCode from the subsystem API first
+ConstructorCode constructorCode = ...;
+constructorCode.GenerateInto(codeGenerationFile);
+```
 
 ### AddLine
 `public void AddLine(string line)`
 
 **Purpose:** Adds `line` to the current collection or state.
 
+```csharp
+// Obtain an instance of ConstructorCode from the subsystem API first
+ConstructorCode constructorCode = ...;
+constructorCode.AddLine("example");
+```
+
 ## Usage Example
 
 ```csharp
-var value = new ConstructorCode();
-value.GenerateInto(codeGenerationFile);
+// Typically call this after obtaining an instance from the subsystem API
+ConstructorCode constructorCode = ...;
+constructorCode.GenerateInto(codeGenerationFile);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

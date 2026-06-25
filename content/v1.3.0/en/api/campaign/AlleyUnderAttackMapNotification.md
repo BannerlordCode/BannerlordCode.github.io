@@ -1,13 +1,7 @@
 ---
 title: "AlleyUnderAttackMapNotification"
+description: "Auto-generated class reference for AlleyUnderAttackMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyUnderAttackMapNotification`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyUnderAttackMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ## Usage Example
 
 ```csharp
-var example = new AlleyUnderAttackMapNotification();
+// Obtain an instance from the relevant subsystem API
+AlleyUnderAttackMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

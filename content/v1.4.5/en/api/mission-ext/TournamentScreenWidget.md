@@ -1,20 +1,14 @@
 ---
 title: "TournamentScreenWidget"
+description: "Auto-generated class reference for TournamentScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TournamentScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament/TournamentScreenWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament/TournamentScreenWidget.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Treat `TournamentScreenWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new TournamentScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TournamentScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

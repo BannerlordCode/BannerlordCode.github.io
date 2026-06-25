@@ -1,13 +1,7 @@
 ---
 title: "CircleItemPlacerWidget"
+description: "Auto-generated class reference for CircleItemPlacerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CircleItemPlacerWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CircleItemPlacerWidget
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -38,14 +32,21 @@ Treat `CircleItemPlacerWidget` as a Widget-style extension point: first identify
 ### AnimateDistanceFromCenterTo
 `public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)`
 
-**Purpose:** Handles logic related to `animate distance from center to`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CircleItemPlacerWidget from the subsystem API first
+CircleItemPlacerWidget circleItemPlacerWidget = ...;
+circleItemPlacerWidget.AnimateDistanceFromCenterTo(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CircleItemPlacerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CircleItemPlacerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

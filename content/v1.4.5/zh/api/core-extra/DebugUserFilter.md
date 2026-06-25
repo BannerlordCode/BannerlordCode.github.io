@@ -1,20 +1,14 @@
 ---
 title: "DebugUserFilter"
+description: "DebugUserFilter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DebugUserFilter`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugUserFilter
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public enum DebugUserFilter : ulong`
 **Base:** `ulong`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Debug.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Debug.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "DebugUserFilter"
 ## 使用示例
 
 ```csharp
-DebugUserFilter example = DebugUserFilter.Value;
+// 从对应子系统 API 获取实例
+DebugUserFilter instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

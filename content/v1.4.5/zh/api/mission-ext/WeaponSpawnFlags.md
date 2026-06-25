@@ -1,20 +1,14 @@
 ---
 title: "WeaponSpawnFlags"
+description: "WeaponSpawnFlags 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponSpawnFlags`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponSpawnFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum WeaponSpawnFlags : uint`
 **Base:** `uint`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "WeaponSpawnFlags"
 ## 使用示例
 
 ```csharp
-WeaponSpawnFlags example = WeaponSpawnFlags.Value;
+// 从对应子系统 API 获取实例
+WeaponSpawnFlags instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

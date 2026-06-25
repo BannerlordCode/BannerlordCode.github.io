@@ -1,20 +1,14 @@
 ---
 title: "PartyPlayerNameplateWidget"
+description: "Auto-generated class reference for PartyPlayerNameplateWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyPlayerNameplateWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyPlayerNameplateWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyPlayerNameplateWidget : PartyNameplateWidget`
 **Base:** `PartyNameplateWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/PartyPlayerNameplateWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/PartyPlayerNameplateWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `PartyPlayerNameplateWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new PartyPlayerNameplateWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyPlayerNameplateWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

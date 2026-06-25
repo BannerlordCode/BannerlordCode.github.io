@@ -1,20 +1,14 @@
 ---
 title: "TradeCampaignBehavior"
+description: "TradeCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TradeCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TradeCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TradeCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TradeCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "TradeCampaignBehavior"
 ### OnNewGameCreated
 `public void OnNewGameCreated(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `new game created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「new game created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TradeCampaignBehavior 实例
+TradeCampaignBehavior tradeCampaignBehavior = ...;
+tradeCampaignBehavior.OnNewGameCreated(campaignGameStarter);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 TradeCampaignBehavior 实例
+TradeCampaignBehavior tradeCampaignBehavior = ...;
+tradeCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 TradeCampaignBehavior 实例
+TradeCampaignBehavior tradeCampaignBehavior = ...;
+tradeCampaignBehavior.SyncData(dataStore);
+```
 
 ### DailyTickTown
 `public void DailyTickTown(Town town)`
 
-**用途 / Purpose:** 处理 `daily tick town` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TradeCampaignBehavior 实例
+TradeCampaignBehavior tradeCampaignBehavior = ...;
+tradeCampaignBehavior.DailyTickTown(town);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TradeCampaignBehavior();
-value.OnNewGameCreated(campaignGameStarter);
+// 通常从对应子系统 API 获取实例后调用
+TradeCampaignBehavior tradeCampaignBehavior = ...;
+tradeCampaignBehavior.OnNewGameCreated(campaignGameStarter);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

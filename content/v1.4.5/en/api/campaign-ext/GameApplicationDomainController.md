@@ -1,20 +1,14 @@
 ---
 title: "GameApplicationDomainController"
+description: "Auto-generated class reference for GameApplicationDomainController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameApplicationDomainController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameApplicationDomainController
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class GameApplicationDomainController : MarshalByRefObject`
 **Base:** `MarshalByRefObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/GameApplicationDomainController.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/GameApplicationDomainController.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `GameApplicationDomainController` as a Controller-style extension point: f
 ### LoadAsHostedByNative
 `public void LoadAsHostedByNative(IntPtr passManagedInitializeMethodPointer, IntPtr passManagedCallbackMethodPointer, string gameApiDllName, string gameApiTypeName, Platform currentPlatform)`
 
-**Purpose:** Loads `as hosted by native` data.
+**Purpose:** Reads `as hosted by native` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GameApplicationDomainController from the subsystem API first
+GameApplicationDomainController gameApplicationDomainController = ...;
+gameApplicationDomainController.LoadAsHostedByNative(passManagedInitializeMethodPointer, passManagedCallbackMethodPointer, "example", "example", currentPlatform);
+```
 
 ### Load
 `public void Load(Delegate passManagedInitializeMethod, Delegate passManagedCallbackMethod, string gameApiDllName, string gameApiTypeName, Platform currentPlatform)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GameApplicationDomainController from the subsystem API first
+GameApplicationDomainController gameApplicationDomainController = ...;
+gameApplicationDomainController.Load(passManagedInitializeMethod, passManagedCallbackMethod, "example", "example", currentPlatform);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<GameApplicationDomainControl
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

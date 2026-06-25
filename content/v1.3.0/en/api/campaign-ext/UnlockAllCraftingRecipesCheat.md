@@ -1,13 +1,7 @@
 ---
 title: "UnlockAllCraftingRecipesCheat"
+description: "Auto-generated class reference for UnlockAllCraftingRecipesCheat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UnlockAllCraftingRecipesCheat`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UnlockAllCraftingRecipesCheat
 
 **Namespace:** SandBox
@@ -29,20 +23,33 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of UnlockAllCraftingRecipesCheat from the subsystem API first
+UnlockAllCraftingRecipesCheat unlockAllCraftingRecipesCheat = ...;
+unlockAllCraftingRecipesCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of UnlockAllCraftingRecipesCheat from the subsystem API first
+UnlockAllCraftingRecipesCheat unlockAllCraftingRecipesCheat = ...;
+var result = unlockAllCraftingRecipesCheat.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UnlockAllCraftingRecipesCheat();
-value.ExecuteCheat();
+// Typically call this after obtaining an instance from the subsystem API
+UnlockAllCraftingRecipesCheat unlockAllCraftingRecipesCheat = ...;
+unlockAllCraftingRecipesCheat.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

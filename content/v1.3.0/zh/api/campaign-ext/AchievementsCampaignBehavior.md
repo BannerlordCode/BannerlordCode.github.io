@@ -1,13 +1,7 @@
 ---
 title: "AchievementsCampaignBehavior"
+description: "AchievementsCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AchievementsCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AchievementsCampaignBehavior
 
 **Namespace:** StoryMode.GameComponents.CampaignBehaviors
@@ -29,45 +23,88 @@ title: "AchievementsCampaignBehavior"
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 AchievementsCampaignBehavior 实例
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 AchievementsCampaignBehavior 实例
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.RegisterEvents();
+```
 
 ### CheckAchievementSystemActivity
 `public bool CheckAchievementSystemActivity(out TextObject reason)`
 
-**用途 / Purpose:** 处理 `check achievement system activity` 相关逻辑。
+**用途 / Purpose:** 检查「achievement system activity」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 AchievementsCampaignBehavior 实例
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+var result = achievementsCampaignBehavior.CheckAchievementSystemActivity(reason);
+```
 
 ### OnRadagosDuelWon
 `public void OnRadagosDuelWon()`
 
-**用途 / Purpose:** 当 `radagos duel won` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「radagos duel won」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AchievementsCampaignBehavior 实例
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.OnRadagosDuelWon();
+```
 
 ### DeactivateAchievements
 `public void DeactivateAchievements(TextObject reason = null, bool showMessage = true, bool temporarily = false)`
 
-**用途 / Purpose:** 处理 `deactivate achievements` 相关逻辑。
+**用途 / Purpose:** 停用「achievements」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 AchievementsCampaignBehavior 实例
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.DeactivateAchievements(null, false, false);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AchievementsCampaignBehavior 实例
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** 当 `score hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「score hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AchievementsCampaignBehavior 实例
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AchievementsCampaignBehavior();
-value.SyncData(dataStore);
+// 通常从对应子系统 API 获取实例后调用
+AchievementsCampaignBehavior achievementsCampaignBehavior = ...;
+achievementsCampaignBehavior.SyncData(dataStore);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

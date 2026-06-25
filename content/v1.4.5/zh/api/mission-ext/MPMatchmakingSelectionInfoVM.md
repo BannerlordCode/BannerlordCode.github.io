@@ -1,20 +1,14 @@
 ---
 title: "MPMatchmakingSelectionInfoVM"
+description: "MPMatchmakingSelectionInfoVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPMatchmakingSelectionInfoVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPMatchmakingSelectionInfoVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPMatchmakingSelectionInfoVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame/MPMatchmakingSelectionInfoVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame/MPMatchmakingSelectionInfoVM.cs`
 
 ## 概述
 
@@ -38,25 +32,44 @@ title: "MPMatchmakingSelectionInfoVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingSelectionInfoVM 实例
+MPMatchmakingSelectionInfoVM mPMatchmakingSelectionInfoVM = ...;
+mPMatchmakingSelectionInfoVM.RefreshValues();
+```
 
 ### UpdateForGameType
 `public void UpdateForGameType(string gameTypeStr)`
 
-**用途 / Purpose:** 更新 `for game type` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「for game type」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingSelectionInfoVM 实例
+MPMatchmakingSelectionInfoVM mPMatchmakingSelectionInfoVM = ...;
+mPMatchmakingSelectionInfoVM.UpdateForGameType("example");
+```
 
 ### SetEnabled
 `public void SetEnabled(bool isEnabled)`
 
-**用途 / Purpose:** 设置 `enabled` 的值或状态。
+**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingSelectionInfoVM 实例
+MPMatchmakingSelectionInfoVM mPMatchmakingSelectionInfoVM = ...;
+mPMatchmakingSelectionInfoVM.SetEnabled(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPMatchmakingSelectionInfoVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPMatchmakingSelectionInfoVM mPMatchmakingSelectionInfoVM = ...;
+mPMatchmakingSelectionInfoVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

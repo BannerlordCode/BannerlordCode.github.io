@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyBadgeProgressInformationVM"
+description: "MPLobbyBadgeProgressInformationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyBadgeProgressInformationVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyBadgeProgressInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyBadgeProgressInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyBadgeProgressInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyBadgeProgressInformationVM.cs`
 
 ## 概述
 
@@ -44,45 +38,88 @@ title: "MPLobbyBadgeProgressInformationVM"
 ### OpenWith
 `public void OpenWith(MPLobbyAchievementBadgeGroupVM badgeGroup)`
 
-**用途 / Purpose:** 处理 `open with` 相关逻辑。
+**用途 / Purpose:** 打开「with」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.OpenWith(badgeGroup);
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 `close popup` 操作或流程。
+**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.ExecuteClosePopup();
+```
 
 ### ExecuteIncreaseActiveBadgeIndices
 `public void ExecuteIncreaseActiveBadgeIndices()`
 
-**用途 / Purpose:** 执行 `increase active badge indices` 操作或流程。
+**用途 / Purpose:** 执行 「increase active badge indices」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.ExecuteIncreaseActiveBadgeIndices();
+```
 
 ### ExecuteDecreaseActiveBadgeIndices
 `public void ExecuteDecreaseActiveBadgeIndices()`
 
-**用途 / Purpose:** 执行 `decrease active badge indices` 操作或流程。
+**用途 / Purpose:** 执行 「decrease active badge indices」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.ExecuteDecreaseActiveBadgeIndices();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.OnFinalize();
+```
 
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `previous tab input key` 的值或状态。
+**用途 / Purpose:** 为 「previous tab input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.SetPreviousTabInputKey(hotKey);
+```
 
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `next tab input key` 的值或状态。
+**用途 / Purpose:** 为 「next tab input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeProgressInformationVM 实例
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.SetNextTabInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyBadgeProgressInformationVM();
-value.OpenWith(badgeGroup);
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.OpenWith(badgeGroup);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

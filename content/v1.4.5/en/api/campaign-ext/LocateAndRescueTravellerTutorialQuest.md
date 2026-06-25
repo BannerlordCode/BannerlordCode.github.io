@@ -1,20 +1,14 @@
 ---
 title: "LocateAndRescueTravellerTutorialQuest"
+description: "Auto-generated class reference for LocateAndRescueTravellerTutorialQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocateAndRescueTravellerTutorialQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocateAndRescueTravellerTutorialQuest
 
 **Namespace:** StoryMode.Quests.TutorialPhase
 **Module:** StoryMode.Quests
 **Type:** `public class LocateAndRescueTravellerTutorialQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/LocateAndRescueTravellerTutorialQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/LocateAndRescueTravellerTutorialQuest.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new LocateAndRescueTravellerTutorialQuest();
+// Obtain an instance from the relevant subsystem API
+LocateAndRescueTravellerTutorialQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

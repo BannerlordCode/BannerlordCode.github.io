@@ -1,23 +1,18 @@
 ---
 title: "StackArray7Bool"
+description: "Auto-generated class reference for StackArray7Bool."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StackArray7Bool`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StackArray7Bool
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct StackArray7Bool`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/StackArray.cs`
 
 ## Overview
 
-`StackArray7Bool` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StackArray7Bool` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,28 +22,15 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public float this { get; set; }` |
-| `this` | `public float this { get; }` |
-| `this` | `public int this { get; set; }` |
-| `this` | `public int this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public int this { get; }` |
-| `this` | `public ValueTuple<float, float> this { get; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
 | `this` | `public bool this { get; set; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new StackArray7Bool();
+// Obtain an instance from the relevant subsystem API
+StackArray7Bool instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultVolunteerModel"
+description: "DefaultVolunteerModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultVolunteerModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultVolunteerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultVolunteerModel : VolunteerModel`
 **Base:** `VolunteerModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultVolunteerModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultVolunteerModel.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "DefaultVolunteerModel"
 ### MaximumIndexHeroCanRecruitFromHero
 `public override int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
 
-**用途 / Purpose:** 处理 `maximum index hero can recruit from hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVolunteerModel 实例
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.MaximumIndexHeroCanRecruitFromHero(buyerHero, sellerHero, 0);
+```
 
 ### MaximumIndexGarrisonCanRecruitFromHero
 `public override int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
 
-**用途 / Purpose:** 处理 `maximum index garrison can recruit from hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVolunteerModel 实例
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.MaximumIndexGarrisonCanRecruitFromHero(settlement, sellerHero);
+```
 
 ### GetDailyVolunteerProductionProbability
 `public override float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
 
-**用途 / Purpose:** 获取 `daily volunteer production probability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily volunteer production probability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVolunteerModel 实例
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.GetDailyVolunteerProductionProbability(hero, 0, settlement);
+```
 
 ### GetBasicVolunteer
 `public override CharacterObject GetBasicVolunteer(Hero sellerHero)`
 
-**用途 / Purpose:** 获取 `basic volunteer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「basic volunteer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVolunteerModel 实例
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.GetBasicVolunteer(sellerHero);
+```
 
 ### CanHaveRecruits
 `public override bool CanHaveRecruits(Hero hero)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `have recruits`。
+**用途 / Purpose:** 检查当前对象是否满足 「have recruits」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVolunteerModel 实例
+DefaultVolunteerModel defaultVolunteerModel = ...;
+var result = defaultVolunteerModel.CanHaveRecruits(hero);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultVolunteerModel>(new MyDefaultVolunteerModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

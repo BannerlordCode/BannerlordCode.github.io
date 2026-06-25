@@ -1,20 +1,14 @@
 ---
 title: "MissionStealthFailCounterView"
+description: "MissionStealthFailCounterView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionStealthFailCounterView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionStealthFailCounterView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionStealthFailCounterView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionStealthFailCounterView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionStealthFailCounterView.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MissionStealthFailCounterView"
 ## 使用示例
 
 ```csharp
-var view = new MissionStealthFailCounterView();
+// 从子系统 API 或场景中获取该视图
+MissionStealthFailCounterView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SecondPhase"
+description: "SecondPhase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SecondPhase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SecondPhase
 
 **Namespace:** StoryMode.StoryModePhases
 **Module:** StoryMode.StoryModePhases
 **Type:** `public class SecondPhase`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.StoryModePhases/SecondPhase.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.StoryModePhases/SecondPhase.cs`
 
 ## 概述
 
@@ -36,40 +30,77 @@ title: "SecondPhase"
 ### OnSessionLaunched
 `public void OnSessionLaunched()`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SecondPhase 实例
+SecondPhase secondPhase = ...;
+secondPhase.OnSessionLaunched();
+```
 
 ### TriggerConspiracy
 `public void TriggerConspiracy()`
 
-**用途 / Purpose:** 处理 `trigger conspiracy` 相关逻辑。
+**用途 / Purpose:** 触发「conspiracy」对应的逻辑或事件。
+
+```csharp
+// 先通过子系统 API 拿到 SecondPhase 实例
+SecondPhase secondPhase = ...;
+secondPhase.TriggerConspiracy();
+```
 
 ### IncreaseConspiracyStrength
 `public void IncreaseConspiracyStrength()`
 
-**用途 / Purpose:** 处理 `increase conspiracy strength` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SecondPhase 实例
+SecondPhase secondPhase = ...;
+secondPhase.IncreaseConspiracyStrength();
+```
 
 ### DecreaseConspiracyStrength
 `public void DecreaseConspiracyStrength(float amount)`
 
-**用途 / Purpose:** 处理 `decrease conspiracy strength` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SecondPhase 实例
+SecondPhase secondPhase = ...;
+secondPhase.DecreaseConspiracyStrength(0);
+```
 
 ### ActivateConspiracy
 `public void ActivateConspiracy()`
 
-**用途 / Purpose:** 处理 `activate conspiracy` 相关逻辑。
+**用途 / Purpose:** 激活「conspiracy」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 SecondPhase 实例
+SecondPhase secondPhase = ...;
+secondPhase.ActivateConspiracy();
+```
 
 ### CreateNextConspiracyQuest
 `public void CreateNextConspiracyQuest()`
 
-**用途 / Purpose:** 创建一个 `next conspiracy quest` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「next conspiracy quest」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 SecondPhase 实例
+SecondPhase secondPhase = ...;
+secondPhase.CreateNextConspiracyQuest();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SecondPhase();
-value.OnSessionLaunched();
+// 通常从对应子系统 API 获取实例后调用
+SecondPhase secondPhase = ...;
+secondPhase.OnSessionLaunched();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

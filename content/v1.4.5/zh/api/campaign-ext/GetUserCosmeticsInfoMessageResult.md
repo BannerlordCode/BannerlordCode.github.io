@@ -1,20 +1,14 @@
 ---
 title: "GetUserCosmeticsInfoMessageResult"
+description: "GetUserCosmeticsInfoMessageResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GetUserCosmeticsInfoMessageResult`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GetUserCosmeticsInfoMessageResult
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetUserCosmeticsInfoMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetUserCosmeticsInfoMessageResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetUserCosmeticsInfoMessageResult.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "GetUserCosmeticsInfoMessageResult"
 ## 使用示例
 
 ```csharp
-var example = new GetUserCosmeticsInfoMessageResult();
+// 从对应子系统 API 获取实例
+GetUserCosmeticsInfoMessageResult instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "FormationMarkerDistanceComparer"
+description: "Auto-generated class reference for FormationMarkerDistanceComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationMarkerDistanceComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationMarkerDistanceComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationMarkerDistanceComparer : IComparer<MissionFormationMarkerTargetVM>`
 **Base:** `IComparer<MissionFormationMarkerTargetVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionFormationMarkerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionFormationMarkerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### Compare
 `public int Compare(MissionFormationMarkerTargetVM x, MissionFormationMarkerTargetVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of FormationMarkerDistanceComparer from the subsystem API first
+FormationMarkerDistanceComparer formationMarkerDistanceComparer = ...;
+var result = formationMarkerDistanceComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationMarkerDistanceComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+FormationMarkerDistanceComparer formationMarkerDistanceComparer = ...;
+formationMarkerDistanceComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

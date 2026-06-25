@@ -1,13 +1,7 @@
 ---
 title: "ArmyManagementItemVM"
+description: "ArmyManagementItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArmyManagementItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyManagementItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -56,60 +50,121 @@ title: "ArmyManagementItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.RefreshValues();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteAction();
+```
 
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** 执行 `set focused` 操作或流程。
+**用途 / Purpose:** 执行 「set focused」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteSetFocused();
+```
 
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** 执行 `set unfocused` 操作或流程。
+**用途 / Purpose:** 执行 「set unfocused」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteSetUnfocused();
+```
 
 ### UpdateEligibility
 `public void UpdateEligibility()`
 
-**用途 / Purpose:** 更新 `eligibility` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「eligibility」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.UpdateEligibility();
+```
 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 `begin hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteBeginHint();
+```
 
 ### ExecuteBeginClanHint
 `public void ExecuteBeginClanHint()`
 
-**用途 / Purpose:** 执行 `begin clan hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin clan hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteBeginClanHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteEndHint();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteOpenEncyclopedia();
+```
 
 ### ExecuteOpenClanEncyclopedia
 `public void ExecuteOpenClanEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open clan encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open clan encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementItemVM 实例
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteOpenClanEncyclopedia();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArmyManagementItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

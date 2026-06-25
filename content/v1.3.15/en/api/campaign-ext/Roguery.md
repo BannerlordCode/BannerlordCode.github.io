@@ -1,23 +1,18 @@
 ---
 title: "Roguery"
+description: "Auto-generated class reference for Roguery."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Roguery`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Roguery
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Roguery`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Roguery` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Roguery` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `NoRestForTheWicked` | `public static PerkObject NoRestForTheWicked { get; }` |
+| `SweetTalker` | `public static PerkObject SweetTalker { get; }` |
+| `TwoFaced` | `public static PerkObject TwoFaced { get; }` |
+| `DeepPockets` | `public static PerkObject DeepPockets { get; }` |
+| `InBestLight` | `public static PerkObject InBestLight { get; }` |
+| `KnowHow` | `public static PerkObject KnowHow { get; }` |
+| `Promises` | `public static PerkObject Promises { get; }` |
+| `Manhunter` | `public static PerkObject Manhunter { get; }` |
+| `Scarface` | `public static PerkObject Scarface { get; }` |
+| `WhiteLies` | `public static PerkObject WhiteLies { get; }` |
+| `SmugglerConnections` | `public static PerkObject SmugglerConnections { get; }` |
+| `PartnersInCrime` | `public static PerkObject PartnersInCrime { get; }` |
+| `OneOfTheFamily` | `public static PerkObject OneOfTheFamily { get; }` |
+| `SaltTheEarth` | `public static PerkObject SaltTheEarth { get; }` |
+| `Carver` | `public static PerkObject Carver { get; }` |
+| `RansomBroker` | `public static PerkObject RansomBroker { get; }` |
+| `ArmsDealer` | `public static PerkObject ArmsDealer { get; }` |
+| `DirtyFighting` | `public static PerkObject DirtyFighting { get; }` |
+| `DashAndSlash` | `public static PerkObject DashAndSlash { get; }` |
+| `FleetFooted` | `public static PerkObject FleetFooted { get; }` |
+| `RogueExtraordinaire` | `public static PerkObject RogueExtraordinaire { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Roguery();
+// Obtain an instance from the relevant subsystem API
+Roguery instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ClanFiefsVM"
+description: "ClanFiefsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanFiefsVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanFiefsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -51,35 +45,66 @@ title: "ClanFiefsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFiefsVM 实例
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFiefsVM 实例
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.OnFinalize();
+```
 
 ### RefreshAllLists
 `public void RefreshAllLists()`
 
-**用途 / Purpose:** 刷新 `all lists` 的显示或缓存。
+**用途 / Purpose:** 使 「all lists」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFiefsVM 实例
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.RefreshAllLists();
+```
 
 ### SelectFief
 `public void SelectFief(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `select fief` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFiefsVM 实例
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.SelectFief(settlement);
+```
 
 ### ExecuteAssignGovernor
 `public void ExecuteAssignGovernor()`
 
-**用途 / Purpose:** 执行 `assign governor` 操作或流程。
+**用途 / Purpose:** 执行 「assign governor」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFiefsVM 实例
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.ExecuteAssignGovernor();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanFiefsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

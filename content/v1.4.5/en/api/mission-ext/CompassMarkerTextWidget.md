@@ -1,20 +1,14 @@
 ---
 title: "CompassMarkerTextWidget"
+description: "Auto-generated class reference for CompassMarkerTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompassMarkerTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CompassMarkerTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CompassMarkerTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/CompassMarkerTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/CompassMarkerTextWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `CompassMarkerTextWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new CompassMarkerTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CompassMarkerTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

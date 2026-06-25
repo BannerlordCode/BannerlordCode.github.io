@@ -1,13 +1,7 @@
 ---
 title: "StoryModeData"
+description: "Auto-generated class reference for StoryModeData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeData
 
 **Namespace:** StoryMode
@@ -43,19 +37,30 @@ Treat `StoryModeData` as a Data-style extension point: first identify who create
 ### OnGameEnd
 `public static void OnGameEnd()`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Static call; no instance required
+StoryModeData.OnGameEnd();
+```
 
 ### IsKingdomImperial
 `public static bool IsKingdomImperial(Kingdom kingdomToCheck)`
 
-**Purpose:** Handles logic related to `is kingdom imperial`.
+**Purpose:** Determines whether the current object is in the `kingdom imperial` state or condition.
+
+```csharp
+// Static call; no instance required
+StoryModeData.IsKingdomImperial(kingdomToCheck);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StoryModeData();
+// This data object is usually returned by campaign/mission APIs
+StoryModeData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

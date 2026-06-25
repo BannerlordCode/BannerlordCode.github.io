@@ -1,13 +1,7 @@
 ---
 title: "GauntletGameNotification"
+description: "GauntletGameNotification 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletGameNotification`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletGameNotification
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -35,17 +29,33 @@ title: "GauntletGameNotification"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+GauntletGameNotification.Initialize();
+```
 
 ### OnFinalize
 `public static void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+GauntletGameNotification.OnFinalize();
+```
 
 ### LoadMovie
 `public void LoadMovie(bool forMultiplayer)`
 
-**用途 / Purpose:** 加载 `movie` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「movie」。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletGameNotification 实例
+GauntletGameNotification gauntletGameNotification = ...;
+gauntletGameNotification.LoadMovie(false);
+```
 
 ## 使用示例
 
@@ -55,4 +65,4 @@ GauntletGameNotification.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

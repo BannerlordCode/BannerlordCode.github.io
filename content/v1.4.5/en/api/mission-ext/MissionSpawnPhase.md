@@ -1,20 +1,14 @@
 ---
 title: "MissionSpawnPhase"
+description: "Auto-generated class reference for MissionSpawnPhase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSpawnPhase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSpawnPhase
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSpawnPhase`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnPhase.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnPhase.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnInitialTroopsSpawned
 `public void OnInitialTroopsSpawned()`
 
-**Purpose:** Called when the `initial troops spawned` event is raised.
+**Purpose:** Invoked when the `initial troops spawned` event is raised.
+
+```csharp
+// Obtain an instance of MissionSpawnPhase from the subsystem API first
+MissionSpawnPhase missionSpawnPhase = ...;
+missionSpawnPhase.OnInitialTroopsSpawned();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionSpawnPhase();
-value.OnInitialTroopsSpawned();
+// Typically call this after obtaining an instance from the subsystem API
+MissionSpawnPhase missionSpawnPhase = ...;
+missionSpawnPhase.OnInitialTroopsSpawned();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

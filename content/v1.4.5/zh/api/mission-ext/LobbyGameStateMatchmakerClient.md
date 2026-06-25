@@ -1,20 +1,14 @@
 ---
 title: "LobbyGameStateMatchmakerClient"
+description: "LobbyGameStateMatchmakerClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LobbyGameStateMatchmakerClient`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyGameStateMatchmakerClient
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class LobbyGameStateMatchmakerClient : LobbyGameState`
 **Base:** `LobbyGameState`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameStateMatchmakerClient.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameStateMatchmakerClient.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "LobbyGameStateMatchmakerClient"
 ### SetStartingParameters
 `public void SetStartingParameters(LobbyGameClientHandler lobbyGameClientHandler, int playerIndex, int sessionKey, string address, int assignedPort, string multiplayerGameType, string scene)`
 
-**用途 / Purpose:** 设置 `starting parameters` 的值或状态。
+**用途 / Purpose:** 为 「starting parameters」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyGameStateMatchmakerClient 实例
+LobbyGameStateMatchmakerClient lobbyGameStateMatchmakerClient = ...;
+lobbyGameStateMatchmakerClient.SetStartingParameters(lobbyGameClientHandler, 0, 0, "example", 0, "example", "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LobbyGameStateMatchmakerClient();
-value.SetStartingParameters(lobbyGameClientHandler, 0, 0, "example", 0, "example", "example");
+// 通常从对应子系统 API 获取实例后调用
+LobbyGameStateMatchmakerClient lobbyGameStateMatchmakerClient = ...;
+lobbyGameStateMatchmakerClient.SetStartingParameters(lobbyGameClientHandler, 0, 0, "example", 0, "example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

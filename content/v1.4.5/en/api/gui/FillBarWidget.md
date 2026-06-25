@@ -1,20 +1,14 @@
 ---
 title: "FillBarWidget"
+description: "Auto-generated class reference for FillBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillBarWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FillBarWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class FillBarWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarWidget.cs`
 
 ## Overview
 
@@ -44,9 +38,10 @@ Treat `FillBarWidget` as a Widget-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var widget = new FillBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FillBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

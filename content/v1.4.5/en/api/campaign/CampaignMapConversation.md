@@ -1,20 +1,14 @@
 ---
 title: "CampaignMapConversation"
+description: "Auto-generated class reference for CampaignMapConversation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignMapConversation`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignMapConversation
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class CampaignMapConversation`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/CampaignMapConversation.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/CampaignMapConversation.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ### OpenConversation
 `public static void OpenConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**Purpose:** Handles logic related to `open conversation`.
+**Purpose:** Opens the resource or UI associated with `conversation`.
+
+```csharp
+// Static call; no instance required
+CampaignMapConversation.OpenConversation(playerCharacterData, conversationPartnerData);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ CampaignMapConversation.OpenConversation(playerCharacterData, conversationPartne
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

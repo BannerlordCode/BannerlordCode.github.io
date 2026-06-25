@@ -1,13 +1,7 @@
 ---
 title: "TroopUpgradeTracker"
+description: "Auto-generated class reference for TroopUpgradeTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopUpgradeTracker`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopUpgradeTracker
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -31,33 +25,64 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 
 **Purpose:** Adds `party` to the current collection or state.
 
+```csharp
+// Obtain an instance of TroopUpgradeTracker from the subsystem API first
+TroopUpgradeTracker troopUpgradeTracker = ...;
+troopUpgradeTracker.AddParty(mapEventParty);
+```
+
 ### RemoveParty
 `public void RemoveParty(MapEventParty mapEventParty)`
 
 **Purpose:** Removes `party` from the current collection or state.
+
+```csharp
+// Obtain an instance of TroopUpgradeTracker from the subsystem API first
+TroopUpgradeTracker troopUpgradeTracker = ...;
+troopUpgradeTracker.RemoveParty(mapEventParty);
+```
 
 ### AddTrackedTroop
 `public void AddTrackedTroop(PartyBase party, CharacterObject character)`
 
 **Purpose:** Adds `tracked troop` to the current collection or state.
 
+```csharp
+// Obtain an instance of TroopUpgradeTracker from the subsystem API first
+TroopUpgradeTracker troopUpgradeTracker = ...;
+troopUpgradeTracker.AddTrackedTroop(party, character);
+```
+
 ### CheckSkillUpgrades
 `public IEnumerable<SkillObject> CheckSkillUpgrades(Hero hero)`
 
-**Purpose:** Handles logic related to `check skill upgrades`.
+**Purpose:** Verifies whether `skill upgrades` holds true for the current object.
+
+```csharp
+// Obtain an instance of TroopUpgradeTracker from the subsystem API first
+TroopUpgradeTracker troopUpgradeTracker = ...;
+var result = troopUpgradeTracker.CheckSkillUpgrades(hero);
+```
 
 ### CheckUpgradedCount
 `public int CheckUpgradedCount(PartyBase party, CharacterObject character)`
 
-**Purpose:** Handles logic related to `check upgraded count`.
+**Purpose:** Verifies whether `upgraded count` holds true for the current object.
+
+```csharp
+// Obtain an instance of TroopUpgradeTracker from the subsystem API first
+TroopUpgradeTracker troopUpgradeTracker = ...;
+var result = troopUpgradeTracker.CheckUpgradedCount(party, character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TroopUpgradeTracker();
-value.AddParty(mapEventParty);
+// Typically call this after obtaining an instance from the subsystem API
+TroopUpgradeTracker troopUpgradeTracker = ...;
+troopUpgradeTracker.AddParty(mapEventParty);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

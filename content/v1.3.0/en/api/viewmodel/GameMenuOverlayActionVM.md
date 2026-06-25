@@ -1,13 +1,7 @@
 ---
 title: "GameMenuOverlayActionVM"
+description: "Auto-generated class reference for GameMenuOverlayActionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuOverlayActionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuOverlayActionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ## Usage Example
 
 ```csharp
-var example = new GameMenuOverlayActionVM();
+// Obtain an instance from the relevant subsystem API
+GameMenuOverlayActionVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

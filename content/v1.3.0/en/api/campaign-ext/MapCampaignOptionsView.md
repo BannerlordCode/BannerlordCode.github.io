@@ -1,13 +1,7 @@
 ---
 title: "MapCampaignOptionsView"
+description: "Auto-generated class reference for MapCampaignOptionsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapCampaignOptionsView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapCampaignOptionsView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MapCampaignOptionsView` as a View-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var view = new MapCampaignOptionsView();
+// Retrieve this view from the subsystem API or scene
+MapCampaignOptionsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

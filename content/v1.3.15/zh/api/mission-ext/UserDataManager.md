@@ -1,13 +1,7 @@
 ---
 title: "UserDataManager"
+description: "UserDataManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UserDataManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UserDataManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
@@ -35,17 +29,35 @@ title: "UserDataManager"
 ### HasUserData
 `public bool HasUserData()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `user data`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「user data」。
+
+```csharp
+// 先通过子系统 API 拿到 UserDataManager 实例
+UserDataManager userDataManager = ...;
+var result = userDataManager.HasUserData();
+```
 
 ### LoadUserData
 `public void LoadUserData()`
 
-**用途 / Purpose:** 加载 `user data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「user data」。
+
+```csharp
+// 先通过子系统 API 拿到 UserDataManager 实例
+UserDataManager userDataManager = ...;
+userDataManager.LoadUserData();
+```
 
 ### SaveUserData
 `public void SaveUserData()`
 
-**用途 / Purpose:** 保存 `user data` 数据。
+**用途 / Purpose:** 将 「user data」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 UserDataManager 实例
+UserDataManager userDataManager = ...;
+userDataManager.SaveUserData();
+```
 
 ## 使用示例
 
@@ -55,4 +67,4 @@ var manager = UserDataManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

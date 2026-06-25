@@ -1,13 +1,7 @@
 ---
 title: "MapMarker"
+description: "MapMarker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapMarker`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapMarker
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
@@ -40,25 +34,44 @@ title: "MapMarker"
 ### GetBanner
 `public Banner GetBanner()`
 
-**用途 / Purpose:** 获取 `banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapMarker 实例
+MapMarker mapMarker = ...;
+var result = mapMarker.GetBanner();
+```
 
 ### GetName
 `public TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapMarker 实例
+MapMarker mapMarker = ...;
+var result = mapMarker.GetName();
+```
 
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**用途 / Purpose:** 获取 `position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapMarker 实例
+MapMarker mapMarker = ...;
+var result = mapMarker.GetPosition();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapMarker();
-value.GetBanner();
+// 通常从对应子系统 API 获取实例后调用
+MapMarker mapMarker = ...;
+mapMarker.GetBanner();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

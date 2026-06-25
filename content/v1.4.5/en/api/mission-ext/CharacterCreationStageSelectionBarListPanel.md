@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationStageSelectionBarListPanel"
+description: "Auto-generated class reference for CharacterCreationStageSelectionBarListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationStageSelectionBarListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationStageSelectionBarListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterCreationStageSelectionBarListPanel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation/CharacterCreationStageSelectionBarListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation/CharacterCreationStageSelectionBarListPanel.cs`
 
 ## Overview
 
@@ -43,15 +37,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreat
 ### CharacterCreationStageSelectionBarListPanel
 `public class CharacterCreationStageSelectionBarListPanel(UIContext context)`
 
-**Purpose:** Handles logic related to `character creation stage selection bar list panel`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationStageSelectionBarListPanel from the subsystem API first
+CharacterCreationStageSelectionBarListPanel characterCreationStageSelectionBarListPanel = ...;
+var result = characterCreationStageSelectionBarListPanel.CharacterCreationStageSelectionBarListPanel(context);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationStageSelectionBarListPanel();
-value.CharacterCreationStageSelectionBarListPanel(context);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationStageSelectionBarListPanel characterCreationStageSelectionBarListPanel = ...;
+characterCreationStageSelectionBarListPanel.CharacterCreationStageSelectionBarListPanel(context);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

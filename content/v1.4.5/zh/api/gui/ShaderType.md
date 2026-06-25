@@ -1,20 +1,14 @@
 ---
 title: "ShaderType"
+description: "ShaderType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShaderType`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShaderType
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.OpenGL
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum ShaderType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/ShaderType.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/ShaderType.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ShaderType"
 ## 使用示例
 
 ```csharp
-var example = new ShaderType();
+// 从对应子系统 API 获取实例
+ShaderType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

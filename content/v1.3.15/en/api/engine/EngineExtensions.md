@@ -1,23 +1,18 @@
 ---
 title: "EngineExtensions"
+description: "Auto-generated class reference for EngineExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineExtensions`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EngineExtensions
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class EngineExtensions`
-**Area:** engine
+**Base:** none
+**File:** `TaleWorlds.Engine/EngineExtensions.cs`
 
 ## Overview
 
-`EngineExtensions` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`EngineExtensions` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### ToWorldPosition
 `public static WorldPosition ToWorldPosition(this Vec3 vec3, Scene scene)`
 
-**Purpose:** Handles logic related to `to world position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EngineExtensions.ToWorldPosition(vec3, scene);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 EngineExtensions.ToWorldPosition(vec3, scene);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

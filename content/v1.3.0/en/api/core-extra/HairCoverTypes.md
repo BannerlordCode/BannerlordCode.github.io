@@ -1,13 +1,7 @@
 ---
 title: "HairCoverTypes"
+description: "Auto-generated class reference for HairCoverTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HairCoverTypes`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HairCoverTypes
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-HairCoverTypes example = HairCoverTypes.Value;
+// Obtain an instance from the relevant subsystem API
+HairCoverTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

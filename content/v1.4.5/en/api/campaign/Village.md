@@ -1,21 +1,14 @@
 ---
 title: "Village"
+description: "Auto-generated class reference for Village."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Village`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-- [🔀 Cross-Version Compare /versions/Village](/versions/Village)
-<!-- END BREADCRUMB -->
 # Village
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Village : SettlementComponent`
 **Base:** `SettlementComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Village.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Village.cs`
 
 ## Overview
 
@@ -41,70 +34,143 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**Purpose:** Gets the current value of `defender parties`.
+**Purpose:** Reads and returns the `defender parties` value held by the current object.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.GetDefenderParties(battleType);
+```
 
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**Purpose:** Gets the current value of `next defender party`.
+**Purpose:** Reads and returns the `next defender party` value held by the current object.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.GetNextDefenderParty(partyIndex, battleType);
+```
 
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Handles logic related to `daily tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+village.DailyTick();
+```
 
 ### OnInit
 `public override void OnInit()`
 
-**Purpose:** Called when the `init` event is raised.
+**Purpose:** Invoked when the `init` event is raised.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+village.OnInit();
+```
 
 ### GetWarehouseCapacity
 `public int GetWarehouseCapacity()`
 
-**Purpose:** Gets the current value of `warehouse capacity`.
+**Purpose:** Reads and returns the `warehouse capacity` value held by the current object.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.GetWarehouseCapacity();
+```
 
 ### GetItemPrice
 `public override int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** Gets the current value of `item price`.
+**Purpose:** Reads and returns the `item price` value held by the current object.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.GetItemPrice(item, null, false);
+```
 
 ### GetItemPrice
 `public override int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** Gets the current value of `item price`.
+**Purpose:** Reads and returns the `item price` value held by the current object.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.GetItemPrice(itemRosterElement, null, false);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.ToString();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+village.Deserialize(objectManager, node);
+```
 
 ### IsProducing
 `public bool IsProducing(ItemObject item)`
 
-**Purpose:** Handles logic related to `is producing`.
+**Purpose:** Determines whether the current object is in the `producing` state or condition.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.IsProducing(item);
+```
 
 ### GetHearthLevel
 `public int GetHearthLevel()`
 
-**Purpose:** Gets the current value of `hearth level`.
+**Purpose:** Reads and returns the `hearth level` value held by the current object.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.GetHearthLevel();
+```
 
 ### GetProsperityLevel
 `public override ProsperityLevel GetProsperityLevel()`
 
-**Purpose:** Gets the current value of `prosperity level`.
+**Purpose:** Reads and returns the `prosperity level` value held by the current object.
+
+```csharp
+// Obtain an instance of Village from the subsystem API first
+Village village = ...;
+var result = village.GetProsperityLevel();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Village();
-value.GetDefenderParties(battleType);
+// Typically call this after obtaining an instance from the subsystem API
+Village village = ...;
+village.GetDefenderParties(battleType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

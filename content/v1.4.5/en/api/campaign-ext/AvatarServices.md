@@ -1,20 +1,14 @@
 ---
 title: "AvatarServices"
+description: "Auto-generated class reference for AvatarServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvatarServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarServices
 
 **Namespace:** TaleWorlds.Avatar.PlayerServices
 **Module:** TaleWorlds.Avatar
 **Type:** `public static class AvatarServices`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.Avatar.PlayerServices/AvatarServices.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.Avatar.PlayerServices/AvatarServices.cs`
 
 ## Overview
 
@@ -35,27 +29,52 @@ Start from namespace `TaleWorlds.Avatar.PlayerServices` to place it in the stack
 ### GetForcedAvatarIndexOfPlayer
 `public static int GetForcedAvatarIndexOfPlayer(PlayerId playerID)`
 
-**Purpose:** Gets the current value of `forced avatar index of player`.
+**Purpose:** Reads and returns the `forced avatar index of player` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AvatarServices.GetForcedAvatarIndexOfPlayer(playerID);
+```
 
 ### UpdateAvatarServices
 `public static void UpdateAvatarServices(float dt)`
 
-**Purpose:** Updates the state or data of `avatar services`.
+**Purpose:** Recalculates and stores the latest representation of `avatar services`.
+
+```csharp
+// Static call; no instance required
+AvatarServices.UpdateAvatarServices(0);
+```
 
 ### GetPlayerAvatar
 `public static AvatarDataResponse GetPlayerAvatar(PlayerId playerId, int forcedIndex)`
 
-**Purpose:** Gets the current value of `player avatar`.
+**Purpose:** Reads and returns the `player avatar` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AvatarServices.GetPlayerAvatar(playerId, 0);
+```
 
 ### AddAvatarService
 `public static void AddAvatarService(PlayerIdProvidedTypes type, IAvatarService avatarService)`
 
 **Purpose:** Adds `avatar service` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+AvatarServices.AddAvatarService(type, avatarService);
+```
+
 ### ClearAvatarCaches
 `public static void ClearAvatarCaches()`
 
-**Purpose:** Handles logic related to `clear avatar caches`.
+**Purpose:** Removes all `avatar caches` from the current object.
+
+```csharp
+// Static call; no instance required
+AvatarServices.ClearAvatarCaches();
+```
 
 ## Usage Example
 
@@ -65,4 +84,4 @@ AvatarServices.GetForcedAvatarIndexOfPlayer(playerID);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

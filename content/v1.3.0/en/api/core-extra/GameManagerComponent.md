@@ -1,13 +1,7 @@
 ---
 title: "GameManagerComponent"
+description: "Auto-generated class reference for GameManagerComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameManagerComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameManagerComponent
 
 **Namespace:** TaleWorlds.Core
@@ -33,9 +27,10 @@ Treat `GameManagerComponent` as a Component-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameManagerComponent();
+// Typically obtained from a subsystem API or factory
+GameManagerComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

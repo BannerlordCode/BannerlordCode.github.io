@@ -1,13 +1,7 @@
 ---
 title: "ConversationTagView"
+description: "ConversationTagView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationTagView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationTagView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,14 +23,20 @@ title: "ConversationTagView"
 ### GetSkillMeshName
 `public static string GetSkillMeshName(SkillObject skillEnum, bool isOn = false)`
 
-**用途 / Purpose:** 获取 `skill mesh name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill mesh name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ConversationTagView.GetSkillMeshName(skillEnum, false);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new ConversationTagView();
+// 从子系统 API 或场景中获取该视图
+ConversationTagView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

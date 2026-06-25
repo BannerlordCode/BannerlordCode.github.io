@@ -1,20 +1,14 @@
 ---
 title: "MBInvalidParameterException"
+description: "Auto-generated class reference for MBInvalidParameterException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBInvalidParameterException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBInvalidParameterException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBInvalidParameterException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBInvalidParameterException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBInvalidParameterException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBInvalidParameterException` as a Exception-style extension point: first 
 ## Usage Example
 
 ```csharp
-try { CallMBInvalidParameterException(); } catch (MBInvalidParameterException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBInvalidParameterException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

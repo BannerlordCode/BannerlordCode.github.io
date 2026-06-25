@@ -1,458 +1,236 @@
 ---
 title: "Army"
+description: "Army 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Army`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Army
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** public class Army : ITrackableCampaignObject, ITrackableBase
-**Base:** 
-
-`ITrackableCampaignObject
-
-`
-**File:** 
-
-`TaleWorlds.CampaignSystem/Army.cs
-
-`
+**Type:** `public class Army : ITrackableCampaignObject, ITrackableBase`
+**Base:** `ITrackableCampaignObject`
+**File:** `TaleWorlds.CampaignSystem/Army.cs`
 
 ## 概述
 
-`Army
+`Army` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-` 表示由一个领主（
-
-`ArmyOwner
-
-`，`Hero
-
-`）为某个 
-
-`Kingdom
-
-` 召集?
-
-`MobileParty
-
-` 联军，用于执行大规模军事目标（攻城、远征、防御集结）。是战役层面的协同作战机制?
-modder 需关注?- **凝聚?Cohesion**：联军每天流失凝聚力（`DailyCohesionChange
-
-`，由 
-
-`ArmyManagementCalculationModel
-
-` 计算）；低于 
-
-`CohesionThresholdForDispersion
-
-` 即解散。用 
-
-`BoostCohesionWithInfluence
-
-` 续命?- **集结 Gathering**：`Gather(...)
-
-` 召集队伍；`IsArmyInGatheringState
-
-` / 
-
-`IsWaitingForArmyMembers
-
-` 判断是否就绪?- **兵力 Strength**：`CalculateCurrentStrength()
-
-` 汇总成员队伍兵力?- **生命周期**：为目标创建，由 
-
-`FinishArmyObjective()
-
-` ?
-
-`DisbandArmyAction
-
-` 解散?
-## 
 ## 心智模型
 
-先把 `Army` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
-主要属?
-\| Name \| Signature \|
-\|------\|-----------\|
-\| 
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-`GatheringPositionMaxDistanceToTheSettlement
+## 主要属性
 
-` \| 
-
-`public float GatheringPositionMaxDistanceToTheSettlement { get { return Campaign.Current.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(this.LeaderParty.NavigationCapability) * 0.2f; }
-
-` \|
-\| 
-
-`GatheringPositionMinDistanceToTheSettlement
-
-` \| 
-
-`public float GatheringPositionMinDistanceToTheSettlement { get { return Campaign.Current.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(this.LeaderParty.NavigationCapability) * 0.1f; }
-
-` \|
-\| 
-
-`Parties
-
-` \| 
-
-`public MBReadOnlyList&lt;MobileParty&gt; Parties { get { return this._parties; }
-
-` \|
-\| 
-
-`EncyclopediaLinkWithName
-
-` \| 
-
-`public TextObject EncyclopediaLinkWithName { get { return this.ArmyOwner.EncyclopediaLinkWithName; }
-
-` \|
-\| 
-
-`ArmyType
-
-` \| 
-
-`public Army.ArmyTypes ArmyType { get; set; }
-
-` \|
-\| 
-
-`ArmyOwner
-
-` \| 
-
-`public Hero ArmyOwner { get; set; }
-
-` \|
-\| 
-
-`Cohesion
-
-` \| 
-
-`public float Cohesion { get; set; }
-
-` \|
-\| 
-
-`DailyCohesionChange
-
-` \| 
-
-`public float DailyCohesionChange { get { return Campaign.Current.Models.ArmyManagementCalculationModel.CalculateDailyCohesionChange(this, false).ResultNumber; }
-
-` \|
-\| 
-
-`DailyCohesionChangeExplanation
-
-` \| 
-
-`public ExplainedNumber DailyCohesionChangeExplanation { get { return Campaign.Current.Models.ArmyManagementCalculationModel.CalculateDailyCohesionChange(this, true); }
-
-` \|
-\| 
-
-`CohesionThresholdForDispersion
-
-` \| 
-
-`public int CohesionThresholdForDispersion { get { return Campaign.Current.Models.ArmyManagementCalculationModel.CohesionThresholdForDispersion; }
-
-` \|
-\| 
-
-`LeaderPartyAndAttachedPartiesCount
-
-` \| 
-
-`public int LeaderPartyAndAttachedPartiesCount { get { return this.LeaderParty.AttachedParties.Count + 1; }
-
-` \|
-\| 
-
-`Kingdom
-
-` \| 
-
-`public Kingdom Kingdom { get { return this._kingdom; }
-
-` \|
-\| 
-
-`AiBehaviorObject
-
-` \| 
-
-`public IMapPoint AiBehaviorObject { get { return this._aiBehaviorObject; }
-
-` \|
-\| 
-
-`IsReady
-
-` \| 
-
-`public bool IsReady { get { return true; }
-
-` \|
-\| 
-
-`IsArmyInGatheringState
-
-` \| 
-
-`public bool IsArmyInGatheringState { get { return this.LeaderParty.AttachedParties.Count + 1 &lt; this._parties.Count; }
-
-` \|
+| Name | Signature |
+|------|-----------|
+| `GatheringPositionMaxDistanceToTheSettlement` | `public float GatheringPositionMaxDistanceToTheSettlement { get; }` |
+| `GatheringPositionMinDistanceToTheSettlement` | `public float GatheringPositionMinDistanceToTheSettlement { get; }` |
+| `Parties` | `public MBReadOnlyList<MobileParty> Parties { get; }` |
+| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; set; }` |
+| `ArmyType` | `public Army.ArmyTypes ArmyType { get; set; }` |
+| `ArmyOwner` | `public Hero ArmyOwner { get; set; }` |
+| `Cohesion` | `public float Cohesion { get; set; }` |
+| `DailyCohesionChange` | `public float DailyCohesionChange { get; }` |
+| `DailyCohesionChangeExplanation` | `public ExplainedNumber DailyCohesionChangeExplanation { get; }` |
+| `CohesionThresholdForDispersion` | `public int CohesionThresholdForDispersion { get; }` |
+| `Morale` | `public float Morale { get; }` |
+| `LeaderParty` | `public MobileParty LeaderParty { get; }` |
+| `LeaderPartyAndAttachedPartiesCount` | `public int LeaderPartyAndAttachedPartiesCount { get; }` |
+| `EstimatedStrength` | `public float EstimatedStrength { get; }` |
+| `Kingdom` | `public Kingdom Kingdom { get; set; }` |
+| `AiBehaviorObject` | `public IMapPoint AiBehaviorObject { get; set; }` |
+| `Name` | `public TextObject Name { get; }` |
+| `TotalHealthyMembers` | `public int TotalHealthyMembers { get; }` |
+| `TotalManCount` | `public int TotalManCount { get; }` |
+| `TotalRegularCount` | `public int TotalRegularCount { get; }` |
+| `IsReady` | `public bool IsReady { get; }` |
+| `IsArmyInGatheringState` | `public bool IsArmyInGatheringState { get; }` |
 
 ## 主要方法
 
 ### ToString
-`
+`public override string ToString()`
 
-`
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
-`csharp
-public override string ToString()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+var result = army.ToString();
+```
 
 ### CalculateCurrentStrength
-`
+`public float CalculateCurrentStrength()`
 
-`
+**用途 / Purpose:** 计算「current strength」的当前值或结果。
 
-`csharp
-public float CalculateCurrentStrength()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+var result = army.CalculateCurrentStrength();
+```
 
 ### GetCustomStrength
-`
+`public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「custom strength」 的结果。
 
-`csharp
-public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+var result = army.GetCustomStrength(side, context);
+```
 
 ### UpdateName
-`
+`public void UpdateName()`
 
-`
+**用途 / Purpose:** 重新计算并更新 「name」 的最新表示。
 
-`csharp
-public void UpdateName()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+army.UpdateName();
+```
 
 ### DoesLeaderPartyAndAttachedPartiesContain
-`
+`public bool DoesLeaderPartyAndAttachedPartiesContain(MobileParty party)`
 
-`
+**用途 / Purpose:** 返回「leader party and attached parties contain」对当前对象是否成立的布尔结果。
 
-`csharp
-public bool DoesLeaderPartyAndAttachedPartiesContain(MobileParty party)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+var result = army.DoesLeaderPartyAndAttachedPartiesContain(party);
+```
 
 ### BoostCohesionWithInfluence
-`
+`public void BoostCohesionWithInfluence(float cohesionToGain, int cost)`
 
-`
+**用途 / Purpose:** 提升「cohesion with influence」的数值或强度。
 
-`csharp
-public void BoostCohesionWithInfluence(float cohesionToGain, int cost)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+army.BoostCohesionWithInfluence(0, 0);
+```
 
 ### RecalculateArmyMorale
-`
+`public void RecalculateArmyMorale()`
 
-`
+**用途 / Purpose:** 重新计算「army morale」以反映最新状态。
 
-`csharp
-public void RecalculateArmyMorale()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+army.RecalculateArmyMorale();
+```
 
 ### GetNotificationText
-`
+`public TextObject GetNotificationText()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
 
-`csharp
-public TextObject GetNotificationText()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+var result = army.GetNotificationText();
+```
 
 ### GetLongTermBehaviorText
-`
+`public TextObject GetLongTermBehaviorText(bool setWithLink = false)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「long term behavior text」 的结果。
 
-`csharp
-public TextObject GetLongTermBehaviorText(bool setWithLink = false)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+var result = army.GetLongTermBehaviorText(false);
+```
 
 ### Gather
-`
+`public void Gather(Settlement initialHostileSettlement, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
 
-`
+**用途 / Purpose:** 收集或汇总当前对象相关的内容。
 
-`csharp
-public void Gather(Settlement initialHostileSettlement, MBReadOnlyList&lt;MobileParty&gt; partiesToCallToArmy = null)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+army.Gather(initialHostileSettlement, null);
+```
 
 ### IsWaitingForArmyMembers
-`
+`public bool IsWaitingForArmyMembers()`
 
-`
+**用途 / Purpose:** 判断当前对象是否处于 「waiting for army members」 状态或条件。
 
-`csharp
-public bool IsWaitingForArmyMembers()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+var result = army.IsWaitingForArmyMembers();
+```
 
 ### FinishArmyObjective
-`
+`public void FinishArmyObjective()`
 
-`
+**用途 / Purpose:** 结束「army objective」流程并执行必要的收尾工作。
 
-`csharp
-public void FinishArmyObjective()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+army.FinishArmyObjective();
+```
 
 ### GetRelativePositionForParty
-`
+`public Vec2 GetRelativePositionForParty(MobileParty mobileParty, Vec2 armyFacing)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「relative position for party」 的结果。
 
-`csharp
-public Vec2 GetRelativePositionForParty(MobileParty mobileParty, Vec2 armyFacing)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+var result = army.GetRelativePositionForParty(mobileParty, armyFacing);
+```
 
 ### AddPartyToMergedParties
-`
+`public void AddPartyToMergedParties(MobileParty mobileParty)`
 
-`
+**用途 / Purpose:** 将 「party to merged parties」 添加到当前容器或状态中。
 
-`csharp
-public void AddPartyToMergedParties(MobileParty mobileParty)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+army.AddPartyToMergedParties(mobileParty);
+```
 
 ### SetPositionAfterMapChange
-`
+`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-`
+**用途 / Purpose:** 为 「position after map change」 赋新值，并同步更新对象内部状态。
 
-`csharp
-public void SetPositionAfterMapChange(CampaignVec2 newPosition)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+army.SetPositionAfterMapChange(newPosition);
+```
 
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
-`
+`public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-`
+**用途 / Purpose:** 检查「positions for map change and update if needed」在当前对象中是否成立。
 
-`csharp
-public void CheckPositionsForMapChangeAndUpdateIfNeeded()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 Army 实例
+Army army = ...;
+army.CheckPositionsForMapChangeAndUpdateIfNeeded();
+```
 
 ## 使用示例
 
-`
-
-`
-
-`csharp
-// 遍历所有王国的联军，报告兵?凝聚力，防止重要联军解散
-foreach (Army army in Kingdom.All.SelectMany(k =&gt; k.Armies))
-{
-    if (army.IsArmyInGatheringState) continue;
-    float strength = army.CalculateCurrentStrength();
-    InformationManager.DisplayMessage(new InformationMessage(
-        $"{army.Name}（统?{army.ArmyOwner.Name}）?兵力 {strength:F0}，凝聚力 {army.Cohesion:F1}"));
-
-    if (army.Cohesion &lt; army.CohesionThresholdForDispersion + 5f)
-        army.BoostCohesionWithInfluence(cohesionToGain: 20f, cost: 0);
-}
-`
-
-`
-
-`
+```csharp
+// 通常从对应子系统 API 获取实例后调用
+Army army = ...;
+army.ToString();
+```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

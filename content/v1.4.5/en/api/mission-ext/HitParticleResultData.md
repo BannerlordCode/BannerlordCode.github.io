@@ -1,20 +1,14 @@
 ---
 title: "HitParticleResultData"
+description: "Auto-generated class reference for HitParticleResultData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HitParticleResultData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HitParticleResultData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct HitParticleResultData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HitParticleResultData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HitParticleResultData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `HitParticleResultData` as a Data-style extension point: first identify wh
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of HitParticleResultData from the subsystem API first
+HitParticleResultData hitParticleResultData = ...;
+hitParticleResultData.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HitParticleResultData();
+// This data object is usually returned by campaign/mission APIs
+HitParticleResultData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

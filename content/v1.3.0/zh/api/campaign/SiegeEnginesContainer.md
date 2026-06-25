@@ -1,13 +1,7 @@
 ---
 title: "SiegeEnginesContainer"
+description: "SiegeEnginesContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeEnginesContainer`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEnginesContainer
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -39,45 +33,88 @@ title: "SiegeEnginesContainer"
 ### AllSiegeEngines
 `public IEnumerable<SiegeEvent.SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**用途 / Purpose:** 处理 `all siege engines` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.AllSiegeEngines();
+```
 
 ### AddPrebuiltEngineToReserve
 `public void AddPrebuiltEngineToReserve(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `prebuilt engine to reserve`。
+**用途 / Purpose:** 将 「prebuilt engine to reserve」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.AddPrebuiltEngineToReserve(siegeEngine);
+```
 
 ### DeploySiegeEngineAtIndex
 `public void DeploySiegeEngineAtIndex(SiegeEvent.SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**用途 / Purpose:** 处理 `deploy siege engine at index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.DeploySiegeEngineAtIndex(siegeEngine, 0);
+```
 
 ### RemoveDeployedSiegeEngine
 `public void RemoveDeployedSiegeEngine(int index, bool isRanged, bool moveToReserve)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `deployed siege engine`。
+**用途 / Purpose:** 从当前容器或状态中移除 「deployed siege engine」。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.RemoveDeployedSiegeEngine(0, false, false);
+```
 
 ### RemovedSiegeEngineFromReservedSiegeEngines
 `public bool RemovedSiegeEngineFromReservedSiegeEngines(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `d siege engine from reserved siege engines`。
+**用途 / Purpose:** 从当前容器或状态中移除 「d siege engine from reserved siege engines」。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.RemovedSiegeEngineFromReservedSiegeEngines(siegeEngine);
+```
 
 ### FindDeploymentIndexOfDeployedEngine
 `public int FindDeploymentIndexOfDeployedEngine(SiegeEvent.SiegeEngineConstructionProgress deployedEngine)`
 
-**用途 / Purpose:** 处理 `find deployment index of deployed engine` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「deployment index of deployed engine」。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.FindDeploymentIndexOfDeployedEngine(deployedEngine);
+```
 
 ### ClearRemovedEnginesIfNecessary
 `public bool ClearRemovedEnginesIfNecessary()`
 
-**用途 / Purpose:** 处理 `clear removed engines if necessary` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「removed engines if necessary」。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.ClearRemovedEnginesIfNecessary();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeEnginesContainer();
-value.AllSiegeEngines();
+// 通常从对应子系统 API 获取实例后调用
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.AllSiegeEngines();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

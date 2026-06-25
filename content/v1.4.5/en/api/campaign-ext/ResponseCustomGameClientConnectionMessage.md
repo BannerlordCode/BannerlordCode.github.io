@@ -1,20 +1,14 @@
 ---
 title: "ResponseCustomGameClientConnectionMessage"
+description: "Auto-generated class reference for ResponseCustomGameClientConnectionMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ResponseCustomGameClientConnectionMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResponseCustomGameClientConnectionMessage
 
 **Namespace:** Messages.FromCustomBattleServer.ToCustomBattleServerManager
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class ResponseCustomGameClientConnectionMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/ResponseCustomGameClientConnectionMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/ResponseCustomGameClientConnectionMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromCustomBattleServer.ToCustomBattleServerManage
 ## Usage Example
 
 ```csharp
-var example = new ResponseCustomGameClientConnectionMessage();
+// Obtain an instance from the relevant subsystem API
+ResponseCustomGameClientConnectionMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

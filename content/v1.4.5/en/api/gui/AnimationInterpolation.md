@@ -1,20 +1,14 @@
 ---
 title: "AnimationInterpolation"
+description: "Auto-generated class reference for AnimationInterpolation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimationInterpolation`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimationInterpolation
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public static class AnimationInterpolation`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/AnimationInterpolation.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/AnimationInterpolation.cs`
 
 ## Overview
 
@@ -29,30 +23,54 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Ease
 `public float Ease(Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ### Ease
 `public float Ease(Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ### Ease
 `public float Ease(Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ### Ease
 `public static float Ease(Type type, Function function, float ratio)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+AnimationInterpolation.Ease(type, function, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AnimationInterpolation();
-value.Ease(function, 0);
+// Typically call this after obtaining an instance from the subsystem API
+AnimationInterpolation animationInterpolation = ...;
+animationInterpolation.Ease(function, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

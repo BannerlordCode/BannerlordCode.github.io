@@ -1,13 +1,7 @@
 ---
 title: "DefaultLayerSpriteChangerBrushWidget"
+description: "Auto-generated class reference for DefaultLayerSpriteChangerBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultLayerSpriteChangerBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultLayerSpriteChangerBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -34,9 +28,10 @@ Treat `DefaultLayerSpriteChangerBrushWidget` as a Widget-style extension point: 
 ## Usage Example
 
 ```csharp
-var widget = new DefaultLayerSpriteChangerBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DefaultLayerSpriteChangerBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

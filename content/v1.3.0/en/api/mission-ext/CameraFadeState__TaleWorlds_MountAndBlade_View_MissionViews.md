@@ -1,13 +1,7 @@
 ---
-title: "CameraFadeState__TaleWorlds_MountAndBlade_View_MissionViews"
+title: "CameraFadeState"
+description: "Auto-generated class reference for CameraFadeState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CameraFadeState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CameraFadeState
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews` to place it in
 ## Usage Example
 
 ```csharp
-CameraFadeState example = CameraFadeState.Value;
+// Obtain an instance from the relevant subsystem API
+CameraFadeState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

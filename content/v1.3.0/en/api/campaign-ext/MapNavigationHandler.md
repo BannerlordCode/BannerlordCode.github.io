@@ -1,13 +1,7 @@
 ---
 title: "MapNavigationHandler"
+description: "Auto-generated class reference for MapNavigationHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNavigationHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationHandler
 
 **Namespace:** SandBox.View.Map.Navigation
@@ -36,24 +30,42 @@ Treat `MapNavigationHandler` as a Handler-style extension point: first identify 
 ### GetElements
 `public INavigationElement GetElements()`
 
-**Purpose:** Gets the current value of `elements`.
+**Purpose:** Reads and returns the `elements` value held by the current object.
+
+```csharp
+// Obtain an instance of MapNavigationHandler from the subsystem API first
+MapNavigationHandler mapNavigationHandler = ...;
+var result = mapNavigationHandler.GetElements();
+```
 
 ### IsAnyElementActive
 `public bool IsAnyElementActive()`
 
-**Purpose:** Handles logic related to `is any element active`.
+**Purpose:** Determines whether the current object is in the `any element active` state or condition.
+
+```csharp
+// Obtain an instance of MapNavigationHandler from the subsystem API first
+MapNavigationHandler mapNavigationHandler = ...;
+var result = mapNavigationHandler.IsAnyElementActive();
+```
 
 ### GetElement
 `public INavigationElement GetElement(string id)`
 
-**Purpose:** Gets the current value of `element`.
+**Purpose:** Reads and returns the `element` value held by the current object.
+
+```csharp
+// Obtain an instance of MapNavigationHandler from the subsystem API first
+MapNavigationHandler mapNavigationHandler = ...;
+var result = mapNavigationHandler.GetElement("example");
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MapNavigationHandler());
+var behavior = Mission.Current.GetMissionBehavior<MapNavigationHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "WeaponClassSelectionPopupVM"
+description: "WeaponClassSelectionPopupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponClassSelectionPopupVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponClassSelectionPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WeaponClassSelectionPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponClassSelectionPopupVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponClassSelectionPopupVM.cs`
 
 ## 概述
 
@@ -37,35 +31,66 @@ title: "WeaponClassSelectionPopupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
+WeaponClassSelectionPopupVM weaponClassSelectionPopupVM = ...;
+weaponClassSelectionPopupVM.RefreshValues();
+```
 
 ### UpdateNewlyUnlockedPiecesCount
 `public void UpdateNewlyUnlockedPiecesCount(List<CraftingPiece> newlyUnlockedPieces)`
 
-**用途 / Purpose:** 更新 `newly unlocked pieces count` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「newly unlocked pieces count」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
+WeaponClassSelectionPopupVM weaponClassSelectionPopupVM = ...;
+weaponClassSelectionPopupVM.UpdateNewlyUnlockedPiecesCount(newlyUnlockedPieces);
+```
 
 ### ExecuteSelectWeaponClass
 `public void ExecuteSelectWeaponClass(int index)`
 
-**用途 / Purpose:** 执行 `select weapon class` 操作或流程。
+**用途 / Purpose:** 执行 「select weapon class」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
+WeaponClassSelectionPopupVM weaponClassSelectionPopupVM = ...;
+weaponClassSelectionPopupVM.ExecuteSelectWeaponClass(0);
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 `close popup` 操作或流程。
+**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
+WeaponClassSelectionPopupVM weaponClassSelectionPopupVM = ...;
+weaponClassSelectionPopupVM.ExecuteClosePopup();
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** 执行 `open popup` 操作或流程。
+**用途 / Purpose:** 执行 「open popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassSelectionPopupVM 实例
+WeaponClassSelectionPopupVM weaponClassSelectionPopupVM = ...;
+weaponClassSelectionPopupVM.ExecuteOpenPopup();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeaponClassSelectionPopupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+WeaponClassSelectionPopupVM weaponClassSelectionPopupVM = ...;
+weaponClassSelectionPopupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardGainedSkillsListPanel"
+description: "Auto-generated class reference for ScoreboardGainedSkillsListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardGainedSkillsListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardGainedSkillsListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardGainedSkillsListPanel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardGainedSkillsListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardGainedSkillsListPanel.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard` to
 ### ScoreboardGainedSkillsListPanel
 `public class ScoreboardGainedSkillsListPanel(UIContext context)`
 
-**Purpose:** Handles logic related to `scoreboard gained skills list panel`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScoreboardGainedSkillsListPanel from the subsystem API first
+ScoreboardGainedSkillsListPanel scoreboardGainedSkillsListPanel = ...;
+var result = scoreboardGainedSkillsListPanel.ScoreboardGainedSkillsListPanel(context);
+```
 
 ### SetCurrentUnit
 `public void SetCurrentUnit(ScoreboardSkillItemHoverToggleWidget unit)`
 
-**Purpose:** Sets the value or state of `current unit`.
+**Purpose:** Assigns a new value to `current unit` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScoreboardGainedSkillsListPanel from the subsystem API first
+ScoreboardGainedSkillsListPanel scoreboardGainedSkillsListPanel = ...;
+scoreboardGainedSkillsListPanel.SetCurrentUnit(unit);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScoreboardGainedSkillsListPanel();
-value.ScoreboardGainedSkillsListPanel(context);
+// Typically call this after obtaining an instance from the subsystem API
+ScoreboardGainedSkillsListPanel scoreboardGainedSkillsListPanel = ...;
+scoreboardGainedSkillsListPanel.ScoreboardGainedSkillsListPanel(context);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

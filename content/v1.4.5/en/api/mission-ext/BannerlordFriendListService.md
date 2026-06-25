@@ -1,20 +1,14 @@
 ---
 title: "BannerlordFriendListService"
+description: "Auto-generated class reference for BannerlordFriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerlordFriendListService`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordFriendListService
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerlordFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordFriendListService.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordFriendListService.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnFriendListReceived
 `public void OnFriendListReceived(FriendInfo friends)`
 
-**Purpose:** Called when the `friend list received` event is raised.
+**Purpose:** Invoked when the `friend list received` event is raised.
+
+```csharp
+// Obtain an instance of BannerlordFriendListService from the subsystem API first
+BannerlordFriendListService bannerlordFriendListService = ...;
+bannerlordFriendListService.OnFriendListReceived(friends);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerlordFriendListService();
-value.OnFriendListReceived(friends);
+// Typically call this after obtaining an instance from the subsystem API
+BannerlordFriendListService bannerlordFriendListService = ...;
+bannerlordFriendListService.OnFriendListReceived(friends);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

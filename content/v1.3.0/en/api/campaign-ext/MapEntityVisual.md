@@ -1,20 +1,14 @@
 ---
 title: "MapEntityVisual"
+description: "Auto-generated class reference for MapEntityVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEntityVisual`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEntityVisual
 
 **Namespace:** SandBox.View.Map.Visuals
 **Module:** SandBox.View
-**Type:** `public abstract class MapEntityVisual`
-**Base:** none
-**File:** `SandBox.View/Map/Visuals/MapEntityVisual.cs`
+**Type:** `public abstract class MapEntityVisual<T> : MapEntityVisual`
+**Base:** `MapEntityVisual`
+**File:** `SandBox.View/Map/Visuals/MapEntityVisual.2.cs`
 
 ## Overview
 
@@ -28,72 +22,15 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 
 | Name | Signature |
 |------|-----------|
-| `MapScreen` | `public MapScreen MapScreen { get; }` |
-| `InteractionPositionForPlayer` | `public abstract CampaignVec2 InteractionPositionForPlayer { get; }` |
-| `AttachedTo` | `public abstract MapEntityVisual AttachedTo { get; set; }` |
-| `IsMobileEntity` | `public virtual bool IsMobileEntity { get; set; }` |
-| `CircleLocalFrame` | `public virtual MatrixFrame CircleLocalFrame { get; set; }` |
-| `IsMainEntity` | `public virtual bool IsMainEntity { get; }` |
-| `BearingRotation` | `public virtual float BearingRotation { get; }` |
-
-## Key Methods
-
-### OnMapClick
-`public abstract bool OnMapClick(bool followModifierUsed)`
-
-**Purpose:** Called when the `map click` event is raised.
-
-### OnHover
-`public abstract void OnHover()`
-
-**Purpose:** Called when the `hover` event is raised.
-
-### OnOpenEncyclopedia
-`public abstract void OnOpenEncyclopedia()`
-
-**Purpose:** Called when the `open encyclopedia` event is raised.
-
-### IsVisibleOrFadingOut
-`public abstract bool IsVisibleOrFadingOut()`
-
-**Purpose:** Handles logic related to `is visible or fading out`.
-
-### GetVisualPosition
-`public abstract Vec3 GetVisualPosition()`
-
-**Purpose:** Gets the current value of `visual position`.
-
-### ReleaseResources
-`public virtual void ReleaseResources()`
-
-**Purpose:** Handles logic related to `release resources`.
-
-### OnHoverEnd
-`public virtual void OnHoverEnd()`
-
-**Purpose:** Called when the `hover end` event is raised.
-
-### OnTrackAction
-`public virtual void OnTrackAction()`
-
-**Purpose:** Called when the `track action` event is raised.
-
-### IsEnemyOf
-`public virtual bool IsEnemyOf(IFaction faction)`
-
-**Purpose:** Handles logic related to `is enemy of`.
-
-### IsAllyOf
-`public virtual bool IsAllyOf(IFaction faction)`
-
-**Purpose:** Handles logic related to `is ally of`.
+| `MapEntity` | `public T MapEntity { get; }` |
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapEntityVisual();
+// Typically obtained from a subsystem API or factory
+MapEntityVisual instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

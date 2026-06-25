@@ -1,20 +1,14 @@
 ---
 title: "StealthTutorialView"
+description: "Auto-generated class reference for StealthTutorialView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthTutorialView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthTutorialView
 
 **Namespace:** StoryMode.View.Missions
 **Module:** StoryMode.View
 **Type:** `public class StealthTutorialView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.View/StoryMode.View.Missions/StealthTutorialView.cs`
+**File:** `Modules.StoryMode/StoryMode.View/StoryMode.View.Missions/StealthTutorialView.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `StealthTutorialView` as a View-style extension point: first identify who 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StealthTutorialView from the subsystem API first
+StealthTutorialView stealthTutorialView = ...;
+stealthTutorialView.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new StealthTutorialView();
+// Retrieve this view from the subsystem API or scene
+StealthTutorialView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

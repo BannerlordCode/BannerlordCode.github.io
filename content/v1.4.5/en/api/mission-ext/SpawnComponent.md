@@ -1,20 +1,14 @@
 ---
 title: "SpawnComponent"
+description: "Auto-generated class reference for SpawnComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnComponent : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnComponent.cs`
 
 ## Overview
 
@@ -36,87 +30,185 @@ Treat `SpawnComponent` as a Component-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.OnBehaviorInitialize();
+```
 
 ### AreAgentsSpawning
 `public bool AreAgentsSpawning()`
 
-**Purpose:** Handles logic related to `are agents spawning`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+var result = spawnComponent.AreAgentsSpawning();
+```
 
 ### SetNewSpawnFrameBehavior
 `public void SetNewSpawnFrameBehavior(SpawnFrameBehaviorBase spawnFrameBehavior)`
 
-**Purpose:** Sets the value or state of `new spawn frame behavior`.
+**Purpose:** Assigns a new value to `new spawn frame behavior` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.SetNewSpawnFrameBehavior(spawnFrameBehavior);
+```
 
 ### SetNewSpawningBehavior
 `public void SetNewSpawningBehavior(SpawningBehaviorBase spawningBehavior)`
 
-**Purpose:** Sets the value or state of `new spawning behavior`.
+**Purpose:** Assigns a new value to `new spawning behavior` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.SetNewSpawningBehavior(spawningBehavior);
+```
 
 ### SetSiegeSpawningBehavior
 `public static void SetSiegeSpawningBehavior()`
 
-**Purpose:** Sets the value or state of `siege spawning behavior`.
+**Purpose:** Assigns a new value to `siege spawning behavior` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SpawnComponent.SetSiegeSpawningBehavior();
+```
 
 ### SetFlagDominationSpawningBehavior
 `public static void SetFlagDominationSpawningBehavior()`
 
-**Purpose:** Sets the value or state of `flag domination spawning behavior`.
+**Purpose:** Assigns a new value to `flag domination spawning behavior` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SpawnComponent.SetFlagDominationSpawningBehavior();
+```
 
 ### SetWarmupSpawningBehavior
 `public static void SetWarmupSpawningBehavior()`
 
-**Purpose:** Sets the value or state of `warmup spawning behavior`.
+**Purpose:** Assigns a new value to `warmup spawning behavior` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SpawnComponent.SetWarmupSpawningBehavior();
+```
 
 ### SetSpawningBehaviorForCurrentGameType
 `public static void SetSpawningBehaviorForCurrentGameType(MultiplayerGameType currentGameType)`
 
-**Purpose:** Sets the value or state of `spawning behavior for current game type`.
+**Purpose:** Assigns a new value to `spawning behavior for current game type` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SpawnComponent.SetSpawningBehaviorForCurrentGameType(currentGameType);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.OnMissionTick(0);
+```
 
 ### GetSpawnFrame
 `public MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn = false)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+var result = spawnComponent.GetSpawnFrame(team, false, false);
+```
 
 ### SetEarlyAgentVisualsDespawning
 `public void SetEarlyAgentVisualsDespawning(MissionPeer missionPeer, bool canDespawnEarly = true)`
 
-**Purpose:** Sets the value or state of `early agent visuals despawning`.
+**Purpose:** Assigns a new value to `early agent visuals despawning` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.SetEarlyAgentVisualsDespawning(missionPeer, false);
+```
 
 ### ToggleUpdatingSpawnEquipment
 `public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
 
-**Purpose:** Handles logic related to `toggle updating spawn equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.ToggleUpdatingSpawnEquipment(false);
+```
 
 ### AllowEarlyAgentVisualsDespawning
 `public bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**Purpose:** Handles logic related to `allow early agent visuals despawning`.
+**Purpose:** Permits `early agent visuals despawning` to be enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+var result = spawnComponent.AllowEarlyAgentVisualsDespawning(lobbyPeer);
+```
 
 ### GetMaximumReSpawnPeriodForPeer
 `public int GetMaximumReSpawnPeriodForPeer(MissionPeer lobbyPeer)`
 
-**Purpose:** Gets the current value of `maximum re spawn period for peer`.
+**Purpose:** Reads and returns the `maximum re spawn period for peer` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+var result = spawnComponent.GetMaximumReSpawnPeriodForPeer(lobbyPeer);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.OnClearScene();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of SpawnComponent from the subsystem API first
+SpawnComponent spawnComponent = ...;
+spawnComponent.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ## Usage Example
 
@@ -126,4 +218,4 @@ var component = agent.GetComponent<SpawnComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

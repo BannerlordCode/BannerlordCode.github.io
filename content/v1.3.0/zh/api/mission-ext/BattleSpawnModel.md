@@ -1,13 +1,7 @@
 ---
 title: "BattleSpawnModel"
+description: "BattleSpawnModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleSpawnModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSpawnModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,29 +23,54 @@ title: "BattleSpawnModel"
 ### OnMissionStart
 `public virtual void OnMissionStart()`
 
-**用途 / Purpose:** 当 `mission start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnModel 实例
+BattleSpawnModel battleSpawnModel = ...;
+battleSpawnModel.OnMissionStart();
+```
 
 ### OnMissionEnd
 `public virtual void OnMissionEnd()`
 
-**用途 / Purpose:** 当 `mission end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnModel 实例
+BattleSpawnModel battleSpawnModel = ...;
+battleSpawnModel.OnMissionEnd();
+```
 
 ### GetInitialSpawnAssignments
 `public abstract List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**用途 / Purpose:** 获取 `initial spawn assignments` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial spawn assignments」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnModel 实例
+BattleSpawnModel battleSpawnModel = ...;
+var result = battleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+```
 
 ### GetReinforcementAssignments
 `public abstract List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**用途 / Purpose:** 获取 `reinforcement assignments` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「reinforcement assignments」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnModel 实例
+BattleSpawnModel battleSpawnModel = ...;
+var result = battleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBattleSpawnModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BattleSpawnModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

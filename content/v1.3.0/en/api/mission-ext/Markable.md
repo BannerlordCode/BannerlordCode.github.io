@@ -1,13 +1,7 @@
 ---
 title: "Markable"
+description: "Auto-generated class reference for Markable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Markable`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Markable
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of Markable from the subsystem API first
+Markable markable = ...;
+var result = markable.GetTickRequirement();
+```
 
 ### DisableMarkerActivation
 `public void DisableMarkerActivation()`
 
-**Purpose:** Handles logic related to `disable marker activation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Markable from the subsystem API first
+Markable markable = ...;
+markable.DisableMarkerActivation();
+```
 
 ### ActivateMarkerFor
 `public void ActivateMarkerFor(float activeSeconds, float passiveSeconds)`
 
-**Purpose:** Handles logic related to `activate marker for`.
+**Purpose:** Activates the resource, state, or feature associated with `marker for`.
+
+```csharp
+// Obtain an instance of Markable from the subsystem API first
+Markable markable = ...;
+markable.ActivateMarkerFor(0, 0);
+```
 
 ### ResetPassiveDurationTimer
 `public void ResetPassiveDurationTimer()`
 
-**Purpose:** Resets `passive duration timer` to its initial state.
+**Purpose:** Returns `passive duration timer` to its default or initial condition.
+
+```csharp
+// Obtain an instance of Markable from the subsystem API first
+Markable markable = ...;
+markable.ResetPassiveDurationTimer();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Markable();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+Markable markable = ...;
+markable.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

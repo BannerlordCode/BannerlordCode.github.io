@@ -1,20 +1,14 @@
 ---
 title: "PartyUpgradesContainerWidget"
+description: "Auto-generated class reference for PartyUpgradesContainerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyUpgradesContainerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyUpgradesContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyUpgradesContainerWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyUpgradesContainerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyUpgradesContainerWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `PartyUpgradesContainerWidget` as a Widget-style extension point: first id
 ### PartyUpgradesContainerWidget
 `public class PartyUpgradesContainerWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `party upgrades container widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyUpgradesContainerWidget from the subsystem API first
+PartyUpgradesContainerWidget partyUpgradesContainerWidget = ...;
+var result = partyUpgradesContainerWidget.PartyUpgradesContainerWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new PartyUpgradesContainerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyUpgradesContainerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

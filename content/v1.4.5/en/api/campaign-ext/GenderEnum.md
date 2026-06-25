@@ -1,43 +1,30 @@
 ---
 title: "GenderEnum"
+description: "Auto-generated class reference for GenderEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenderEnum`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenderEnum
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public enum GenderEnum`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionEquipItemToolView.cs`
 
 ## Overview
 
-`GenderEnum` lives in `SandBox.View.Missions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`GenderEnum` lives in `SandBox.View.Missions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `SandBox.View.Missions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `Male` |
-| `1` |
-| `Unisex` |
-
 ## Usage Example
 
 ```csharp
-GenderEnum example = GenderEnum.Male;
+// Obtain an instance from the relevant subsystem API
+GenderEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

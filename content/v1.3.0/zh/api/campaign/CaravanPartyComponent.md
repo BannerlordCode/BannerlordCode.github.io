@@ -1,13 +1,7 @@
 ---
 title: "CaravanPartyComponent"
+description: "CaravanPartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CaravanPartyComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaravanPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -43,42 +37,87 @@ title: "CaravanPartyComponent"
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** 获取 `default component banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default component banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CaravanPartyComponent 实例
+CaravanPartyComponent caravanPartyComponent = ...;
+var result = caravanPartyComponent.GetDefaultComponentBanner();
+```
 
 ### ConvertPartyToCaravanParty
 `public static void ConvertPartyToCaravanParty(MobileParty mobileParty, Hero caravanOwner, Settlement spawnSettlement, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)`
 
-**用途 / Purpose:** 处理 `convert party to caravan party` 相关逻辑。
+**用途 / Purpose:** 把「party to caravan party」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+CaravanPartyComponent.ConvertPartyToCaravanParty(mobileParty, caravanOwner, spawnSettlement, false, null, null, false);
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** 处理 `clear cached name` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「cached name」。
+
+```csharp
+// 先通过子系统 API 拿到 CaravanPartyComponent 实例
+CaravanPartyComponent caravanPartyComponent = ...;
+caravanPartyComponent.ClearCachedName();
+```
 
 ### CreateCaravanParty
 `public static MobileParty CreateCaravanParty(Hero caravanOwner, Settlement spawnSettlement, PartyTemplateObject templateObject, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)`
 
-**用途 / Purpose:** 创建一个 `caravan party` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「caravan party」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CaravanPartyComponent.CreateCaravanParty(caravanOwner, spawnSettlement, templateObject, false, null, null, false);
+```
 
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**用途 / Purpose:** 获取 `mount and harness visual ids for party icon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mount and harness visual ids for party icon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CaravanPartyComponent 实例
+CaravanPartyComponent caravanPartyComponent = ...;
+caravanPartyComponent.GetMountAndHarnessVisualIdsForPartyIcon(party, mountStringId, harnessStringId);
+```
 
 ### TransferCaravanOwnership
 `public static void TransferCaravanOwnership(MobileParty caravan, Hero newOwner, Settlement homeSettlement)`
 
-**用途 / Purpose:** 处理 `transfer caravan ownership` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CaravanPartyComponent.TransferCaravanOwnership(caravan, newOwner, homeSettlement);
+```
 
 ### ChangeHomeSettlement
 `public void ChangeHomeSettlement(Settlement newHomeSettlement)`
 
-**用途 / Purpose:** 处理 `change home settlement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CaravanPartyComponent 实例
+CaravanPartyComponent caravanPartyComponent = ...;
+caravanPartyComponent.ChangeHomeSettlement(newHomeSettlement);
+```
 
 ### InitializeCaravanOnCreation
 `public void InitializeCaravanOnCreation(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** 初始化 `caravan on creation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「caravan on creation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CaravanPartyComponent 实例
+CaravanPartyComponent caravanPartyComponent = ...;
+caravanPartyComponent.InitializeCaravanOnCreation(mobileParty, settlement);
+```
 
 ## 使用示例
 
@@ -88,4 +127,4 @@ var component = agent.GetComponent<CaravanPartyComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

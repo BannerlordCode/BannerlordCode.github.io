@@ -1,13 +1,7 @@
 ---
 title: "TextInquiryData"
+description: "TextInquiryData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextInquiryData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextInquiryData
 
 **Namespace:** TaleWorlds.Library
@@ -29,14 +23,21 @@ title: "TextInquiryData"
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `same content with`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「same content with」。
+
+```csharp
+// 先通过子系统 API 拿到 TextInquiryData 实例
+TextInquiryData textInquiryData = ...;
+var result = textInquiryData.HasSameContentWith(other);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TextInquiryData();
+// 该数据对象通常由战役/任务 API 返回
+TextInquiryData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaDividerButtonWidget"
+description: "Auto-generated class reference for EncyclopediaDividerButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaDividerButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaDividerButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
@@ -34,9 +28,10 @@ Treat `EncyclopediaDividerButtonWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaDividerButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaDividerButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

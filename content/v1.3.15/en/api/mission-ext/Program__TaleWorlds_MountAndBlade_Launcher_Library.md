@@ -1,13 +1,7 @@
 ---
-title: "Program__TaleWorlds_MountAndBlade_Launcher_Library"
+title: "Program"
+description: "Auto-generated class reference for Program."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Program`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Program
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -29,27 +23,52 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### NativeMain
 `public static void NativeMain(string commandLine)`
 
-**Purpose:** Handles logic related to `native main`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Program.NativeMain("example");
+```
 
 ### Main
 `public static void Main(string args)`
 
-**Purpose:** Handles logic related to `main`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Program.Main("example");
+```
 
 ### StartGame
 `public static void StartGame()`
 
-**Purpose:** Handles logic related to `start game`.
+**Purpose:** Starts the `game` flow or state machine.
+
+```csharp
+// Static call; no instance required
+Program.StartGame();
+```
 
 ### StartDigitalCompanion
 `public static void StartDigitalCompanion()`
 
-**Purpose:** Handles logic related to `start digital companion`.
+**Purpose:** Starts the `digital companion` flow or state machine.
+
+```csharp
+// Static call; no instance required
+Program.StartDigitalCompanion();
+```
 
 ### IsDigitalCompanionAvailable
 `public static bool IsDigitalCompanionAvailable()`
 
-**Purpose:** Handles logic related to `is digital companion available`.
+**Purpose:** Determines whether the current object is in the `digital companion available` state or condition.
+
+```csharp
+// Static call; no instance required
+Program.IsDigitalCompanionAvailable();
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ Program.NativeMain("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

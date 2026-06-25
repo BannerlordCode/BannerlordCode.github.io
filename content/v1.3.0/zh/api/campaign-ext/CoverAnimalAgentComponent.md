@@ -1,13 +1,7 @@
 ---
 title: "CoverAnimalAgentComponent"
+description: "CoverAnimalAgentComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CoverAnimalAgentComponent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CoverAnimalAgentComponent
 
 **Namespace:** SandBox.Missions
@@ -37,47 +31,101 @@ title: "CoverAnimalAgentComponent"
 ### SetDynamicPatrolArea
 `public void SetDynamicPatrolArea(GameEntity parentPatrolPoint)`
 
-**用途 / Purpose:** 设置 `dynamic patrol area` 的值或状态。
+**用途 / Purpose:** 为 「dynamic patrol area」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+coverAnimalAgentComponent.SetDynamicPatrolArea(parentPatrolPoint);
+```
 
 ### StartMovement
 `public void StartMovement()`
 
-**用途 / Purpose:** 处理 `start movement` 相关逻辑。
+**用途 / Purpose:** 启动「movement」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+coverAnimalAgentComponent.StartMovement();
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+coverAnimalAgentComponent.OnTick(0);
+```
 
 ### IsTargetReached
 `public bool IsTargetReached()`
 
-**用途 / Purpose:** 处理 `is target reached` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「target reached」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+var result = coverAnimalAgentComponent.IsTargetReached();
+```
 
 ### SetTargetFrame
 `public void SetTargetFrame(WorldPosition position, float rotation, float rangeThreshold = 1f, Agent.AIScriptedFrameFlags flags = 0)`
 
-**用途 / Purpose:** 设置 `target frame` 的值或状态。
+**用途 / Purpose:** 为 「target frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+coverAnimalAgentComponent.SetTargetFrame(position, 0, 0, 0);
+```
 
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**用途 / Purpose:** 当 `focus gain` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus gain」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+coverAnimalAgentComponent.OnFocusGain(userAgent);
+```
 
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**用途 / Purpose:** 当 `focus lose` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus lose」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+coverAnimalAgentComponent.OnFocusLose(userAgent);
+```
 
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**用途 / Purpose:** 获取 `info text for being not interactable` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「info text for being not interactable」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+var result = coverAnimalAgentComponent.GetInfoTextForBeingNotInteractable(userAgent);
+```
 
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CoverAnimalAgentComponent 实例
+CoverAnimalAgentComponent coverAnimalAgentComponent = ...;
+var result = coverAnimalAgentComponent.GetDescriptionText(gameEntity);
+```
 
 ## 使用示例
 
@@ -87,4 +135,4 @@ var component = agent.GetComponent<CoverAnimalAgentComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

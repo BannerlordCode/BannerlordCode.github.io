@@ -1,13 +1,7 @@
 ---
 title: "GameManagerBase"
+description: "GameManagerBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameManagerBase`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameManagerBase
 
 **Namespace:** TaleWorlds.Core
@@ -42,139 +36,296 @@ title: "GameManagerBase"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.Initialize();
+```
 
 ### AddComponent
 `public GameManagerComponent AddComponent(Type componentType)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `component`。
+**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+var result = gameManagerBase.AddComponent(componentType);
+```
 
 ### GetComponent
 `public GameManagerComponent GetComponent(Type componentType)`
 
-**用途 / Purpose:** 获取 `component` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「component」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+var result = gameManagerBase.GetComponent(componentType);
+```
 
 ### RemoveComponent
 `public void RemoveComponent(GameManagerComponent component)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `component`。
+**用途 / Purpose:** 从当前容器或状态中移除 「component」。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.RemoveComponent(component);
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnTick(0);
+```
 
 ### OnGameNetworkBegin
 `public void OnGameNetworkBegin()`
 
-**用途 / Purpose:** 当 `game network begin` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game network begin」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnGameNetworkBegin();
+```
 
 ### OnGameNetworkEnd
 `public void OnGameNetworkEnd()`
 
-**用途 / Purpose:** 当 `game network end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game network end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnGameNetworkEnd();
+```
 
 ### OnPlayerConnect
 `public void OnPlayerConnect(VirtualPlayer peer)`
 
-**用途 / Purpose:** 当 `player connect` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player connect」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnPlayerConnect(peer);
+```
 
 ### OnPlayerDisconnect
 `public void OnPlayerDisconnect(VirtualPlayer peer)`
 
-**用途 / Purpose:** 当 `player disconnect` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player disconnect」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnPlayerDisconnect(peer);
+```
 
 ### OnGameEnd
 `public virtual void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnGameEnd(game);
+```
 
 ### DoLoadingForGameManager
 `public bool DoLoadingForGameManager()`
 
-**用途 / Purpose:** 处理 `do loading for game manager` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+var result = gameManagerBase.DoLoadingForGameManager();
+```
 
 ### OnLoadFinished
 `public virtual void OnLoadFinished()`
 
-**用途 / Purpose:** 当 `load finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「load finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnLoadFinished();
+```
 
 ### InitializeGameStarter
 `public virtual void InitializeGameStarter(Game game, IGameStarter starterObject)`
 
-**用途 / Purpose:** 初始化 `game starter` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「game starter」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.InitializeGameStarter(game, starterObject);
+```
 
 ### OnGameStart
 `public abstract void OnGameStart(Game game, IGameStarter gameStarter)`
 
-**用途 / Purpose:** 当 `game start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnGameStart(game, gameStarter);
+```
 
 ### BeginGameStart
 `public abstract void BeginGameStart(Game game)`
 
-**用途 / Purpose:** 处理 `begin game start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.BeginGameStart(game);
+```
 
 ### OnNewCampaignStart
 `public abstract void OnNewCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `new campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「new campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnNewCampaignStart(game, starterObject);
+```
 
 ### OnAfterCampaignStart
 `public abstract void OnAfterCampaignStart(Game game)`
 
-**用途 / Purpose:** 当 `after campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnAfterCampaignStart(game);
+```
 
 ### RegisterSubModuleObjects
 `public abstract void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** 处理 `register sub module objects` 相关逻辑。
+**用途 / Purpose:** 将「sub module objects」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.RegisterSubModuleObjects(false);
+```
 
 ### AfterRegisterSubModuleObjects
 `public abstract void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** 处理 `after register sub module objects` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.AfterRegisterSubModuleObjects(false);
+```
 
 ### OnGameInitializationFinished
 `public abstract void OnGameInitializationFinished(Game game)`
 
-**用途 / Purpose:** 当 `game initialization finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game initialization finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnGameInitializationFinished(game);
+```
 
 ### OnNewGameCreated
 `public abstract void OnNewGameCreated(Game game, object initializerObject)`
 
-**用途 / Purpose:** 当 `new game created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「new game created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnNewGameCreated(game, initializerObject);
+```
 
 ### OnGameLoaded
 `public abstract void OnGameLoaded(Game game, object initializerObject)`
 
-**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnGameLoaded(game, initializerObject);
+```
 
 ### OnAfterGameLoaded
 `public abstract void OnAfterGameLoaded(Game game)`
 
-**用途 / Purpose:** 当 `after game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnAfterGameLoaded(game);
+```
 
 ### OnAfterGameInitializationFinished
 `public abstract void OnAfterGameInitializationFinished(Game game, object initializerObject)`
 
-**用途 / Purpose:** 当 `after game initialization finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after game initialization finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.OnAfterGameInitializationFinished(game, initializerObject);
+```
 
 ### RegisterSubModuleTypes
 `public abstract void RegisterSubModuleTypes()`
 
-**用途 / Purpose:** 处理 `register sub module types` 相关逻辑。
+**用途 / Purpose:** 将「sub module types」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.RegisterSubModuleTypes();
+```
 
 ### InitializeSubModuleGameObjects
 `public virtual void InitializeSubModuleGameObjects(Game game)`
 
-**用途 / Purpose:** 初始化 `sub module game objects` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「sub module game objects」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GameManagerBase 实例
+GameManagerBase gameManagerBase = ...;
+gameManagerBase.InitializeSubModuleGameObjects(game);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameManagerBase();
+// 通常通过子系统 API 或工厂获得派生实例
+GameManagerBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

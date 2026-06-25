@@ -1,20 +1,14 @@
 ---
 title: "IQueryData"
+description: "Auto-generated class reference for IQueryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IQueryData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IQueryData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IQueryData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IQueryData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IQueryData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IQueryData` as a Data-style extension point: first identify who creates i
 ## Usage Example
 
 ```csharp
-IQueryData implementation = GetQueryDataImplementation();
+// Usually obtained through DI or a factory method
+IIQueryData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

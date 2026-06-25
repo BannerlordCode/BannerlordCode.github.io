@@ -1,13 +1,7 @@
 ---
 title: "Activity"
+description: "Auto-generated class reference for Activity."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Activity`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Activity
 
 **Namespace:** TaleWorlds.ActivitySystem
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.ActivitySystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new Activity();
+// Obtain an instance from the relevant subsystem API
+Activity instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SandboxView"
+description: "Auto-generated class reference for SandboxView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxView
 
 **Namespace:** SandBox.View
 **Module:** SandBox.View
 **Type:** `public abstract class SandboxView`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View/SandboxView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View/SandboxView.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `SandboxView` as a View-style extension point: first identify who creates 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSandboxView();
+// Typically obtained from a subsystem API or factory
+SandboxView instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

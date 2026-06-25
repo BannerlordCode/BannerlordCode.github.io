@@ -1,20 +1,14 @@
 ---
 title: "AllianceOfferNotificationItemVM"
+description: "Auto-generated class reference for AllianceOfferNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AllianceOfferNotificationItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AllianceOfferNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class AllianceOfferNotificationItemVM : MapNotificationItemBaseVM`
 **Base:** `MapNotificationItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AllianceOfferNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/AllianceOfferNotificationItemVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of AllianceOfferNotificationItemVM from the subsystem API first
+AllianceOfferNotificationItemVM allianceOfferNotificationItemVM = ...;
+allianceOfferNotificationItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AllianceOfferNotificationItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+AllianceOfferNotificationItemVM allianceOfferNotificationItemVM = ...;
+allianceOfferNotificationItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

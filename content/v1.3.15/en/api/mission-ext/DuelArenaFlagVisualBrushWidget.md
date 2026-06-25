@@ -1,13 +1,7 @@
 ---
 title: "DuelArenaFlagVisualBrushWidget"
+description: "Auto-generated class reference for DuelArenaFlagVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelArenaFlagVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DuelArenaFlagVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
@@ -33,9 +27,10 @@ Treat `DuelArenaFlagVisualBrushWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new DuelArenaFlagVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DuelArenaFlagVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

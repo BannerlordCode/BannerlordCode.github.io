@@ -1,20 +1,14 @@
 ---
 title: "BenchmarkScreen"
+description: "Auto-generated class reference for BenchmarkScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BenchmarkScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BenchmarkScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BenchmarkScreen : ScreenBase`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/BenchmarkScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/BenchmarkScreen.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ### UpdateCamera
 `public void UpdateCamera()`
 
-**Purpose:** Updates the state or data of `camera`.
+**Purpose:** Recalculates and stores the latest representation of `camera`.
+
+```csharp
+// Obtain an instance of BenchmarkScreen from the subsystem API first
+BenchmarkScreen benchmarkScreen = ...;
+benchmarkScreen.UpdateCamera();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BenchmarkScreen();
-value.UpdateCamera();
+// Typically call this after obtaining an instance from the subsystem API
+BenchmarkScreen benchmarkScreen = ...;
+benchmarkScreen.UpdateCamera();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

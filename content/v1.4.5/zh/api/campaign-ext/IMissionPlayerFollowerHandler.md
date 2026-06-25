@@ -1,20 +1,14 @@
 ---
 title: "IMissionPlayerFollowerHandler"
+description: "IMissionPlayerFollowerHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IMissionPlayerFollowerHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionPlayerFollowerHandler
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
-**Type:** `class`
+**Type:** `public interface IMissionPlayerFollowerHandler`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/IMissionPlayerFollowerHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/IMissionPlayerFollowerHandler.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IMissionPlayerFollowerHandler"
 ## 使用示例
 
 ```csharp
-IMissionPlayerFollowerHandler implementation = GetMissionPlayerFollowerHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIMissionPlayerFollowerHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

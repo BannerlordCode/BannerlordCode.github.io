@@ -1,20 +1,14 @@
 ---
 title: "ComponentType"
+description: "Auto-generated class reference for ComponentType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ComponentType`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ComponentType
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public enum ComponentType : uint`
 **Base:** `uint`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntity.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntity.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-ComponentType example = ComponentType.Value;
+// Obtain an instance from the relevant subsystem API
+ComponentType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

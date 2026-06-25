@@ -1,20 +1,14 @@
 ---
 title: "ClanHomeInfo"
+description: "ClanHomeInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanHomeInfo`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanHomeInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanHomeInfo`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanHomeInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanHomeInfo.cs`
 
 ## 概述
 
@@ -40,22 +34,42 @@ title: "ClanHomeInfo"
 ### CreateInClanInfo
 `public static ClanHomeInfo CreateInClanInfo(ClanInfo clanInfo, ClanPlayerInfo clanPlayerInfos)`
 
-**用途 / Purpose:** 创建一个 `in clan info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「in clan info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ClanHomeInfo.CreateInClanInfo(clanInfo, clanPlayerInfos);
+```
 
 ### CreateCanCreateClanInfo
 `public static ClanHomeInfo CreateCanCreateClanInfo()`
 
-**用途 / Purpose:** 创建一个 `can create clan info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「can create clan info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ClanHomeInfo.CreateCanCreateClanInfo();
+```
 
 ### CreateCantCreateClanInfo
 `public static ClanHomeInfo CreateCantCreateClanInfo(NotEnoughPlayersInfo notEnoughPlayersInfo, PlayerNotEligibleInfo playerNotEligibleInfos)`
 
-**用途 / Purpose:** 创建一个 `cant create clan info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「cant create clan info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ClanHomeInfo.CreateCantCreateClanInfo(notEnoughPlayersInfo, playerNotEligibleInfos);
+```
 
 ### CreateInvalidStateClanInfo
 `public static ClanHomeInfo CreateInvalidStateClanInfo()`
 
-**用途 / Purpose:** 创建一个 `invalid state clan info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「invalid state clan info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ClanHomeInfo.CreateInvalidStateClanInfo();
+```
 
 ## 使用示例
 
@@ -65,4 +79,4 @@ ClanHomeInfo.CreateInClanInfo(clanInfo, clanPlayerInfos);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

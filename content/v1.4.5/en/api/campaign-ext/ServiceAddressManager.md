@@ -1,20 +1,14 @@
 ---
 title: "ServiceAddressManager"
+description: "Auto-generated class reference for ServiceAddressManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServiceAddressManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServiceAddressManager
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public static class ServiceAddressManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddressManager.cs`
+**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddressManager.cs`
 
 ## Overview
 
@@ -38,12 +32,22 @@ Treat `ServiceAddressManager` as a Manager-style extension point: first identify
 ### Initalize
 `public static void Initalize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `alize`.
+**Purpose:** Prepares the resources, state, or bindings required by `alize`.
+
+```csharp
+// Static call; no instance required
+ServiceAddressManager.Initalize();
+```
 
 ### ResolveAddress
 `public static bool ResolveAddress(string serviceDiscoveryAddress, ref string serviceAddress)`
 
-**Purpose:** Handles logic related to `resolve address`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ServiceAddressManager.ResolveAddress("example", serviceAddress);
+```
 
 ## Usage Example
 
@@ -53,4 +57,4 @@ var manager = ServiceAddressManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

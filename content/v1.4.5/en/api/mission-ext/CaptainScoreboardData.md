@@ -1,20 +1,14 @@
 ---
 title: "CaptainScoreboardData"
+description: "Auto-generated class reference for CaptainScoreboardData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaptainScoreboardData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaptainScoreboardData
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CaptainScoreboardData : IScoreboardData`
 **Base:** `IScoreboardData`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/CaptainScoreboardData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/CaptainScoreboardData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `CaptainScoreboardData` as a Data-style extension point: first identify wh
 ### GetScoreboardHeaders
 `public ScoreboardHeader GetScoreboardHeaders()`
 
-**Purpose:** Gets the current value of `scoreboard headers`.
+**Purpose:** Reads and returns the `scoreboard headers` value held by the current object.
+
+```csharp
+// Obtain an instance of CaptainScoreboardData from the subsystem API first
+CaptainScoreboardData captainScoreboardData = ...;
+var result = captainScoreboardData.GetScoreboardHeaders();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CaptainScoreboardData();
+// This data object is usually returned by campaign/mission APIs
+CaptainScoreboardData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "NativeString"
+description: "Auto-generated class reference for NativeString."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeString`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeString
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public sealed class NativeString : NativeObject`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeString.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeString.cs`
 
 ## Overview
 
@@ -29,17 +23,34 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### Create
 `public static NativeString Create()`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+NativeString.Create();
+```
 
 ### GetString
 `public string GetString()`
 
-**Purpose:** Gets the current value of `string`.
+**Purpose:** Reads and returns the `string` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeString from the subsystem API first
+NativeString nativeString = ...;
+var result = nativeString.GetString();
+```
 
 ### SetString
 `public void SetString(string newString)`
 
-**Purpose:** Sets the value or state of `string`.
+**Purpose:** Assigns a new value to `string` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NativeString from the subsystem API first
+NativeString nativeString = ...;
+nativeString.SetString("example");
+```
 
 ## Usage Example
 
@@ -49,4 +60,4 @@ NativeString.Create();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

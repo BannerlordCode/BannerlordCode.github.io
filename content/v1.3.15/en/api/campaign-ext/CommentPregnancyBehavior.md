@@ -1,13 +1,7 @@
 ---
 title: "CommentPregnancyBehavior"
+description: "Auto-generated class reference for CommentPregnancyBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommentPregnancyBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CommentPregnancyBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehavio
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CommentPregnancyBehavior from the subsystem API first
+CommentPregnancyBehavior commentPregnancyBehavior = ...;
+commentPregnancyBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CommentPregnancyBehavior from the subsystem API first
+CommentPregnancyBehavior commentPregnancyBehavior = ...;
+commentPregnancyBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommentPregnancyBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+CommentPregnancyBehavior commentPregnancyBehavior = ...;
+commentPregnancyBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

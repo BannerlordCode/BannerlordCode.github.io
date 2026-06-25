@@ -1,20 +1,14 @@
 ---
 title: "ShallowItemVM"
+description: "Auto-generated class reference for ShallowItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShallowItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShallowItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ShallowItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/ShallowItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/ShallowItemVM.cs`
 
 ## Overview
 
@@ -46,35 +40,65 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ShallowItemVM from the subsystem API first
+ShallowItemVM shallowItemVM = ...;
+shallowItemVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ShallowItemVM from the subsystem API first
+ShallowItemVM shallowItemVM = ...;
+shallowItemVM.OnFinalize();
+```
 
 ### RefreshWith
 `public void RefreshWith(EquipmentIndex equipmentIndex, Equipment equipment)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ShallowItemVM from the subsystem API first
+ShallowItemVM shallowItemVM = ...;
+shallowItemVM.RefreshWith(equipmentIndex, equipment);
+```
 
 ### OnSelect
 `public void OnSelect()`
 
-**Purpose:** Called when the `select` event is raised.
+**Purpose:** Invoked when the `select` event is raised.
+
+```csharp
+// Obtain an instance of ShallowItemVM from the subsystem API first
+ShallowItemVM shallowItemVM = ...;
+shallowItemVM.OnSelect();
+```
 
 ### IsItemUsageApplicable
 `public static bool IsItemUsageApplicable(WeaponComponentData weapon)`
 
-**Purpose:** Handles logic related to `is item usage applicable`.
+**Purpose:** Determines whether the current object is in the `item usage applicable` state or condition.
+
+```csharp
+// Static call; no instance required
+ShallowItemVM.IsItemUsageApplicable(weapon);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShallowItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ShallowItemVM shallowItemVM = ...;
+shallowItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

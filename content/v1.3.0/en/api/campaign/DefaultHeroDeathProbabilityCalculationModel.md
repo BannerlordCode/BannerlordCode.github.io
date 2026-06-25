@@ -1,13 +1,7 @@
 ---
 title: "DefaultHeroDeathProbabilityCalculationModel"
+description: "Auto-generated class reference for DefaultHeroDeathProbabilityCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultHeroDeathProbabilityCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultHeroDeathProbabilityCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultHeroDeathProbabilityCalculationModel` as a Model-style extension p
 ### CalculateHeroDeathProbability
 `public override float CalculateHeroDeathProbability(Hero hero)`
 
-**Purpose:** Handles logic related to `calculate hero death probability`.
+**Purpose:** Calculates the current value or result of `hero death probability`.
+
+```csharp
+// Obtain an instance of DefaultHeroDeathProbabilityCalculationModel from the subsystem API first
+DefaultHeroDeathProbabilityCalculationModel defaultHeroDeathProbabilityCalculationModel = ...;
+var result = defaultHeroDeathProbabilityCalculationModel.CalculateHeroDeathProbability(hero);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultHeroDeathProbabilityCalculationModel>(new MyDef
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

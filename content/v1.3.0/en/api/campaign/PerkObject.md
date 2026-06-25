@@ -1,13 +1,7 @@
 ---
 title: "PerkObject"
+description: "Auto-generated class reference for PerkObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkObject`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkObject
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -49,20 +43,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ### Initialize
 `public void Initialize(string name, SkillObject skill, int requiredSkillValue, PerkObject alternativePerk, string primaryDescription, PartyRole primaryRole, float primaryBonus, EffectIncrementType incrementType, string secondaryDescription = "", PartyRole secondaryRole = PartyRole.None, float secondaryBonus = 0f, EffectIncrementType secondaryIncrementType = EffectIncrementType.Invalid, TroopUsageFlags primaryTroopUsageMask = TroopUsageFlags.Undefined, TroopUsageFlags secondaryTroopUsageMask = TroopUsageFlags.Undefined)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PerkObject from the subsystem API first
+PerkObject perkObject = ...;
+perkObject.Initialize("example", skill, 0, alternativePerk, "example", primaryRole, 0, incrementType, "example", partyRole.None, 0, effectIncrementType.Invalid, troopUsageFlags.Undefined, troopUsageFlags.Undefined);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of PerkObject from the subsystem API first
+PerkObject perkObject = ...;
+var result = perkObject.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PerkObject();
-value.Initialize("example", skill, 0, alternativePerk, "example", primaryRole, 0, incrementType, "example", partyRole.None, 0, effectIncrementType.Invalid, troopUsageFlags.Undefined, troopUsageFlags.Undefined);
+// Typically call this after obtaining an instance from the subsystem API
+PerkObject perkObject = ...;
+perkObject.Initialize("example", skill, 0, alternativePerk, "example", primaryRole, 0, incrementType, "example", partyRole.None, 0, effectIncrementType.Invalid, troopUsageFlags.Undefined, troopUsageFlags.Undefined);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

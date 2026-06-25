@@ -1,13 +1,7 @@
 ---
 title: "HeroAgentLocationModel"
+description: "HeroAgentLocationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroAgentLocationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroAgentLocationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ title: "HeroAgentLocationModel"
 ### WillBeListedInOverlay
 `public abstract bool WillBeListedInOverlay(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** 处理 `will be listed in overlay` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HeroAgentLocationModel 实例
+HeroAgentLocationModel heroAgentLocationModel = ...;
+var result = heroAgentLocationModel.WillBeListedInOverlay(locationCharacter);
+```
 
 ### GetLocationForHero
 `public abstract Location GetLocationForHero(Hero hero, Settlement settlement, out HeroAgentLocationModel.HeroLocationDetail heroSpawnDetail)`
 
-**用途 / Purpose:** 获取 `location for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「location for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroAgentLocationModel 实例
+HeroAgentLocationModel heroAgentLocationModel = ...;
+var result = heroAgentLocationModel.GetLocationForHero(hero, settlement, heroSpawnDetail);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomHeroAgentLocationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+HeroAgentLocationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

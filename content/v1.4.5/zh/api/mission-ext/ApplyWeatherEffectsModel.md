@@ -1,20 +1,14 @@
 ---
 title: "ApplyWeatherEffectsModel"
+description: "ApplyWeatherEffectsModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ApplyWeatherEffectsModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ApplyWeatherEffectsModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ApplyWeatherEffectsModel : MBGameModel<ApplyWeatherEffectsModel>`
 **Base:** `MBGameModel<ApplyWeatherEffectsModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/ApplyWeatherEffectsModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/ApplyWeatherEffectsModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "ApplyWeatherEffectsModel"
 ### ApplyWeatherEffects
 `public abstract void ApplyWeatherEffects()`
 
-**用途 / Purpose:** 将 `weather effects` 应用到当前对象。
+**用途 / Purpose:** 将 「weather effects」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ApplyWeatherEffectsModel 实例
+ApplyWeatherEffectsModel applyWeatherEffectsModel = ...;
+applyWeatherEffectsModel.ApplyWeatherEffects();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomApplyWeatherEffectsModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ApplyWeatherEffectsModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

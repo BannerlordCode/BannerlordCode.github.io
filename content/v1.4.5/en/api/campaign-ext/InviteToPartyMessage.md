@@ -1,20 +1,14 @@
 ---
 title: "InviteToPartyMessage"
+description: "Auto-generated class reference for InviteToPartyMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InviteToPartyMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InviteToPartyMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class InviteToPartyMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/InviteToPartyMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/InviteToPartyMessage.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `Messages.FromClient.ToLobbyServer` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new InviteToPartyMessage();
+// Obtain an instance from the relevant subsystem API
+InviteToPartyMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

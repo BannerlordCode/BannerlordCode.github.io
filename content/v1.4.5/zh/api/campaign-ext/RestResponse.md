@@ -1,20 +1,14 @@
 ---
 title: "RestResponse"
+description: "RestResponse 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RestResponse`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestResponse
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public sealed class RestResponse : RestData`
 **Base:** `RestData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestResponse.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestResponse.cs`
 
 ## 概述
 
@@ -39,35 +33,65 @@ title: "RestResponse"
 ### SetSuccessful
 `public void SetSuccessful(bool successful, string successfulReason)`
 
-**用途 / Purpose:** 设置 `successful` 的值或状态。
+**用途 / Purpose:** 为 「successful」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RestResponse 实例
+RestResponse restResponse = ...;
+restResponse.SetSuccessful(false, "example");
+```
 
 ### Create
 `public static RestResponse Create(bool successful, string successfulReason)`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 静态调用，不需要实例
+RestResponse.Create(false, "example");
+```
 
 ### TryDequeueMessage
 `public RestResponseMessage TryDequeueMessage()`
 
-**用途 / Purpose:** 尝试获取 `dequeue message`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「dequeue message」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 RestResponse 实例
+RestResponse restResponse = ...;
+var result = restResponse.TryDequeueMessage();
+```
 
 ### ClearMessageQueue
 `public void ClearMessageQueue()`
 
-**用途 / Purpose:** 处理 `clear message queue` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「message queue」。
+
+```csharp
+// 先通过子系统 API 拿到 RestResponse 实例
+RestResponse restResponse = ...;
+restResponse.ClearMessageQueue();
+```
 
 ### EnqueueMessage
 `public void EnqueueMessage(RestResponseMessage message)`
 
-**用途 / Purpose:** 处理 `enqueue message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RestResponse 实例
+RestResponse restResponse = ...;
+restResponse.EnqueueMessage(message);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RestResponse();
-value.SetSuccessful(false, "example");
+// 通常从对应子系统 API 获取实例后调用
+RestResponse restResponse = ...;
+restResponse.SetSuccessful(false, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

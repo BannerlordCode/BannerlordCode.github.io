@@ -1,20 +1,14 @@
 ---
 title: "SPOrderOfBattleVM"
+description: "Auto-generated class reference for SPOrderOfBattleVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPOrderOfBattleVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPOrderOfBattleVM
 
 **Namespace:** SandBox.ViewModelCollection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SPOrderOfBattleVM : OrderOfBattleVM`
 **Base:** `OrderOfBattleVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/SPOrderOfBattleVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/SPOrderOfBattleVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new SPOrderOfBattleVM();
+// Obtain an instance from the relevant subsystem API
+SPOrderOfBattleVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

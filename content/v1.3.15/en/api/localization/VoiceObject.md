@@ -1,23 +1,18 @@
 ---
 title: "VoiceObject"
+description: "Auto-generated class reference for VoiceObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VoiceObject`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VoiceObject
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class VoiceObject`
-**Area:** localization
+**Base:** none
+**File:** `TaleWorlds.Localization/VoiceObject.cs`
 
 ## Overview
 
-`VoiceObject` lives in `TaleWorlds.Localization`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`VoiceObject` lives in `TaleWorlds.Localization` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -36,20 +31,30 @@ Start from namespace `TaleWorlds.Localization` to place it in the stack, then in
 
 **Purpose:** Adds `voice paths` to the current collection or state.
 
+```csharp
+// Obtain an instance of VoiceObject from the subsystem API first
+VoiceObject voiceObject = ...;
+voiceObject.AddVoicePaths(node, "example");
+```
+
 ### Deserialize
 `public static VoiceObject Deserialize(XmlNode node, string modulePath)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Static call; no instance required
+VoiceObject.Deserialize(node, "example");
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a VoiceObject instance from game state, then call one of its public methods
-var value = new VoiceObject();
-value.AddVoicePaths(node, "example");
+// Typically call this after obtaining an instance from the subsystem API
+VoiceObject voiceObject = ...;
+voiceObject.AddVoicePaths(node, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

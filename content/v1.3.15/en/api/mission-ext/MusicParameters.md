@@ -1,23 +1,18 @@
 ---
 title: "MusicParameters"
+description: "Auto-generated class reference for MusicParameters."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MusicParameters`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MusicParameters
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MusicParameters`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MusicParameters.cs`
 
 ## Overview
 
-`MusicParameters` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MusicParameters` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -51,16 +46,19 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### LoadFromXml
 `public static void LoadFromXml()`
 
-**Purpose:** Loads `from xml` data.
+**Purpose:** Reads `from xml` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MusicParameters.LoadFromXml();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MusicParameters.LoadFromXml();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

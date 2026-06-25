@@ -1,13 +1,7 @@
 ---
 title: "MissionObjective"
+description: "Auto-generated class reference for MissionObjective."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjective`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjective
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
@@ -40,34 +34,65 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it 
 ### ForceComplete
 `public void ForceComplete()`
 
-**Purpose:** Handles logic related to `force complete`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionObjective from the subsystem API first
+MissionObjective missionObjective = ...;
+missionObjective.ForceComplete();
+```
 
 ### GetIsActivationRequirementsMet
 `public bool GetIsActivationRequirementsMet()`
 
-**Purpose:** Gets the current value of `is activation requirements met`.
+**Purpose:** Reads and returns the `is activation requirements met` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionObjective from the subsystem API first
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetIsActivationRequirementsMet();
+```
 
 ### GetIsCompletionRequirementsMet
 `public bool GetIsCompletionRequirementsMet()`
 
-**Purpose:** Gets the current value of `is completion requirements met`.
+**Purpose:** Reads and returns the `is completion requirements met` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionObjective from the subsystem API first
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetIsCompletionRequirementsMet();
+```
 
 ### GetCurrentProgress
 `public virtual MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**Purpose:** Gets the current value of `current progress`.
+**Purpose:** Reads and returns the `current progress` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionObjective from the subsystem API first
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetCurrentProgress();
+```
 
 ### GetTargets
 `public abstract IMissionObjectiveTarget GetTargets()`
 
-**Purpose:** Gets the current value of `targets`.
+**Purpose:** Reads and returns the `targets` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionObjective from the subsystem API first
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetTargets();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionObjective();
+// Typically obtained from a subsystem API or factory
+MissionObjective instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

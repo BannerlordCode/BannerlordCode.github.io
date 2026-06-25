@@ -1,20 +1,14 @@
 ---
 title: "ArcherPosition"
+description: "ArcherPosition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArcherPosition`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArcherPosition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArcherPosition`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ArcherPosition.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ArcherPosition.cs`
 
 ## 概述
 
@@ -37,35 +31,66 @@ title: "ArcherPosition"
 ### GetLastAssignedFormation
 `public Formation GetLastAssignedFormation(int teamIndex)`
 
-**用途 / Purpose:** 获取 `last assigned formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「last assigned formation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArcherPosition 实例
+ArcherPosition archerPosition = ...;
+var result = archerPosition.GetLastAssignedFormation(0);
+```
 
 ### IsArcherPositionRelatedToSide
 `public bool IsArcherPositionRelatedToSide(FormationAI.BehaviorSide side)`
 
-**用途 / Purpose:** 处理 `is archer position related to side` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「archer position related to side」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ArcherPosition 实例
+ArcherPosition archerPosition = ...;
+var result = archerPosition.IsArcherPositionRelatedToSide(side);
+```
 
 ### GetArcherPositionClosestSide
 `public FormationAI.BehaviorSide GetArcherPositionClosestSide()`
 
-**用途 / Purpose:** 获取 `archer position closest side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「archer position closest side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArcherPosition 实例
+ArcherPosition archerPosition = ...;
+var result = archerPosition.GetArcherPositionClosestSide();
+```
 
 ### OnDeploymentFinished
 `public void OnDeploymentFinished(SiegeQuerySystem siegeQuerySystem, BattleSideEnum battleSide)`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArcherPosition 实例
+ArcherPosition archerPosition = ...;
+archerPosition.OnDeploymentFinished(siegeQuerySystem, battleSide);
+```
 
 ### SetLastAssignedFormation
 `public void SetLastAssignedFormation(int teamIndex, Formation formation)`
 
-**用途 / Purpose:** 设置 `last assigned formation` 的值或状态。
+**用途 / Purpose:** 为 「last assigned formation」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ArcherPosition 实例
+ArcherPosition archerPosition = ...;
+archerPosition.SetLastAssignedFormation(0, formation);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArcherPosition();
-value.GetLastAssignedFormation(0);
+// 通常从对应子系统 API 获取实例后调用
+ArcherPosition archerPosition = ...;
+archerPosition.GetLastAssignedFormation(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

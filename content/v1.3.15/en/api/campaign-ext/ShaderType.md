@@ -1,18 +1,12 @@
 ---
 title: "ShaderType"
+description: "Auto-generated class reference for ShaderType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShaderType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShaderType
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.OpenGL
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum ShaderType`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/ShaderType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` to place
 ## Usage Example
 
 ```csharp
-var value = new ShaderType();
+// Obtain an instance from the relevant subsystem API
+ShaderType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionCustomGameClientComponent"
+description: "Auto-generated class reference for MissionCustomGameClientComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCustomGameClientComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCustomGameClientComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,35 @@ Treat `MissionCustomGameClientComponent` as a Component-style extension point: f
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionCustomGameClientComponent from the subsystem API first
+MissionCustomGameClientComponent missionCustomGameClientComponent = ...;
+missionCustomGameClientComponent.OnBehaviorInitialize();
+```
 
 ### SetServerEndingBeforeClientLoaded
 `public void SetServerEndingBeforeClientLoaded(bool isServerEndingBeforeClientLoaded)`
 
-**Purpose:** Sets the value or state of `server ending before client loaded`.
+**Purpose:** Assigns a new value to `server ending before client loaded` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionCustomGameClientComponent from the subsystem API first
+MissionCustomGameClientComponent missionCustomGameClientComponent = ...;
+missionCustomGameClientComponent.SetServerEndingBeforeClientLoaded(false);
+```
 
 ### QuitMission
 `public override void QuitMission()`
 
-**Purpose:** Handles logic related to `quit mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCustomGameClientComponent from the subsystem API first
+MissionCustomGameClientComponent missionCustomGameClientComponent = ...;
+missionCustomGameClientComponent.QuitMission();
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var component = agent.GetComponent<MissionCustomGameClientComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

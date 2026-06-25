@@ -1,20 +1,14 @@
 ---
 title: "BannerEditorTextureCache"
+description: "Auto-generated class reference for BannerEditorTextureCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerEditorTextureCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerEditorTextureCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerEditorTextureCache : ThumbnailCache<BannerEditorTextureCreationData>`
 **Base:** `ThumbnailCache<BannerEditorTextureCreationData>`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerEditorTextureCache.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerEditorTextureCache.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### FlushCache
 `public void FlushCache()`
 
-**Purpose:** Handles logic related to `flush cache`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BannerEditorTextureCache from the subsystem API first
+BannerEditorTextureCache bannerEditorTextureCache = ...;
+bannerEditorTextureCache.FlushCache();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerEditorTextureCache();
-value.FlushCache();
+// Typically call this after obtaining an instance from the subsystem API
+BannerEditorTextureCache bannerEditorTextureCache = ...;
+bannerEditorTextureCache.FlushCache();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "RoundStateExtensions"
+description: "RoundStateExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RoundStateExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RoundStateExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class RoundStateExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RoundStateExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RoundStateExtensions.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "RoundStateExtensions"
 ### StateHasVisualTimer
 `public static bool StateHasVisualTimer(this MultiplayerRoundState roundState)`
 
-**用途 / Purpose:** 处理 `state has visual timer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RoundStateExtensions.StateHasVisualTimer(roundState);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ RoundStateExtensions.StateHasVisualTimer(roundState);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

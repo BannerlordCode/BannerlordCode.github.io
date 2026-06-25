@@ -1,20 +1,14 @@
 ---
 title: "NetworkSession"
+description: "Auto-generated class reference for NetworkSession."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NetworkSession`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NetworkSession
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class NetworkSession`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/NetworkSession.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/NetworkSession.cs`
 
 ## Overview
 
@@ -35,29 +29,54 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### ComponentMessageHandlerDelegate
 `public delegate void ComponentMessageHandlerDelegate(NetworkMessage networkMessage)`
 
-**Purpose:** Handles logic related to `component message handler delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NetworkSession from the subsystem API first
+NetworkSession networkSession = ...;
+networkSession.ComponentMessageHandlerDelegate(networkMessage);
+```
 
 ### SendDisconnectMessage
 `public void SendDisconnectMessage()`
 
-**Purpose:** Handles logic related to `send disconnect message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NetworkSession from the subsystem API first
+NetworkSession networkSession = ...;
+networkSession.SendDisconnectMessage();
+```
 
 ### Tick
 `public virtual void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of NetworkSession from the subsystem API first
+NetworkSession networkSession = ...;
+networkSession.Tick();
+```
 
 ### SendMessage
 `public void SendMessage(MessageContract message)`
 
-**Purpose:** Handles logic related to `send message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NetworkSession from the subsystem API first
+NetworkSession networkSession = ...;
+networkSession.SendMessage(message);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomNetworkSession();
+// Typically obtained from a subsystem API or factory
+NetworkSession instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

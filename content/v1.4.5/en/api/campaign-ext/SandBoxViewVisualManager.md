@@ -1,20 +1,14 @@
 ---
 title: "SandBoxViewVisualManager"
+description: "Auto-generated class reference for SandBoxViewVisualManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxViewVisualManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewVisualManager
 
 **Namespace:** SandBox.View
 **Module:** SandBox.View
 **Type:** `public class SandBoxViewVisualManager`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View/SandBoxViewVisualManager.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View/SandBoxViewVisualManager.cs`
 
 ## Overview
 
@@ -29,37 +23,73 @@ Treat `SandBoxViewVisualManager` as a Manager-style extension point: first ident
 ### VisualTick
 `public static void VisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** Handles logic related to `visual tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.VisualTick(screen, 0, 0);
+```
 
 ### OnTick
 `public static void OnTick(float realDt, float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.OnTick(0, 0);
+```
 
 ### ClearVisualMemory
 `public static void ClearVisualMemory()`
 
-**Purpose:** Handles logic related to `clear visual memory`.
+**Purpose:** Removes all `visual memory` from the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.ClearVisualMemory();
+```
 
 ### OnFrameTick
 `public static void OnFrameTick(float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.OnFrameTick(0);
+```
 
 ### OnMouseClick
 `public static bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**Purpose:** Called when the `mouse click` event is raised.
+**Purpose:** Invoked when the `mouse click` event is raised.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.OnMouseClick(visualOfSelectedEntity, intersectionPoint, mouseOverFaceIndex, false);
+```
 
 ### OnGameLoadFinished
 `public static void OnGameLoadFinished()`
 
-**Purpose:** Called when the `game load finished` event is raised.
+**Purpose:** Invoked when the `game load finished` event is raised.
+
+```csharp
+// Static call; no instance required
+SandBoxViewVisualManager.OnGameLoadFinished();
+```
 
 ### GetComponents
 `public MBList<CampaignEntityVisualComponent> GetComponents()`
 
-**Purpose:** Gets the current value of `components`.
+**Purpose:** Reads and returns the `components` value held by the current object.
+
+```csharp
+// Obtain an instance of SandBoxViewVisualManager from the subsystem API first
+SandBoxViewVisualManager sandBoxViewVisualManager = ...;
+var result = sandBoxViewVisualManager.GetComponents();
+```
 
 ## Usage Example
 
@@ -69,4 +99,4 @@ var manager = SandBoxViewVisualManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

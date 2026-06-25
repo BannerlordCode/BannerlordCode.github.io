@@ -1,13 +1,7 @@
 ---
 title: "FindingFirstBannerPieceSceneNotificationItem"
+description: "FindingFirstBannerPieceSceneNotificationItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FindingFirstBannerPieceSceneNotificationItem`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FindingFirstBannerPieceSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -37,15 +31,22 @@ title: "FindingFirstBannerPieceSceneNotificationItem"
 ### OnCloseAction
 `public override void OnCloseAction()`
 
-**用途 / Purpose:** 当 `close action` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「close action」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FindingFirstBannerPieceSceneNotificationItem 实例
+FindingFirstBannerPieceSceneNotificationItem findingFirstBannerPieceSceneNotificationItem = ...;
+findingFirstBannerPieceSceneNotificationItem.OnCloseAction();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FindingFirstBannerPieceSceneNotificationItem();
-value.OnCloseAction();
+// 通常从对应子系统 API 获取实例后调用
+FindingFirstBannerPieceSceneNotificationItem findingFirstBannerPieceSceneNotificationItem = ...;
+findingFirstBannerPieceSceneNotificationItem.OnCloseAction();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

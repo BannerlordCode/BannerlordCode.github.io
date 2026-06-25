@@ -1,20 +1,14 @@
 ---
 title: "DefaultAgeModel"
+description: "DefaultAgeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultAgeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultAgeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultAgeModel : AgeModel`
 **Base:** `AgeModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAgeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAgeModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultAgeModel"
 ### GetAgeLimitForLocation
 `public override void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")`
 
-**用途 / Purpose:** 获取 `age limit for location` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「age limit for location」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAgeModel 实例
+DefaultAgeModel defaultAgeModel = ...;
+defaultAgeModel.GetAgeLimitForLocation(character, minimumAge, maximumAge, "example");
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultAgeModel>(new MyDefaultAgeModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

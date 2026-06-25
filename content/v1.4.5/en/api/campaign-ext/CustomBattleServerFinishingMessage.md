@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleServerFinishingMessage"
+description: "Auto-generated class reference for CustomBattleServerFinishingMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleServerFinishingMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleServerFinishingMessage
 
 **Namespace:** Messages.FromCustomBattleServer.ToCustomBattleServerManager
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class CustomBattleServerFinishingMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/CustomBattleServerFinishingMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/CustomBattleServerFinishingMessage.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `Messages.FromCustomBattleServer.ToCustomBattleServerManage
 ## Usage Example
 
 ```csharp
-var example = new CustomBattleServerFinishingMessage();
+// Obtain an instance from the relevant subsystem API
+CustomBattleServerFinishingMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

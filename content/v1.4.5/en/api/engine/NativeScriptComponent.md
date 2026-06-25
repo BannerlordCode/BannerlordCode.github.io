@@ -1,20 +1,14 @@
 ---
 title: "NativeScriptComponent"
+description: "Auto-generated class reference for NativeScriptComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeScriptComponent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeScriptComponent
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class NativeScriptComponent : ScriptComponent`
 **Base:** `ScriptComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeScriptComponent.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeScriptComponent.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ var component = agent.GetComponent<NativeScriptComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

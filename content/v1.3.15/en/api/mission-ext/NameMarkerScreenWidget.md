@@ -1,13 +1,7 @@
 ---
 title: "NameMarkerScreenWidget"
+description: "Auto-generated class reference for NameMarkerScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NameMarkerScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NameMarkerScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
@@ -35,9 +29,10 @@ Treat `NameMarkerScreenWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new NameMarkerScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+NameMarkerScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

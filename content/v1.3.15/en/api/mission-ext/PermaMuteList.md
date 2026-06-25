@@ -1,23 +1,18 @@
 ---
 title: "PermaMuteList"
+description: "Auto-generated class reference for PermaMuteList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PermaMuteList`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PermaMuteList
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class PermaMuteList`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/PermaMuteList.cs`
 
 ## Overview
 
-`PermaMuteList` lives in `TaleWorlds.MountAndBlade.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PermaMuteList` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,41 +30,69 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SetPermanentMuteAvailableCallback
 `public static void SetPermanentMuteAvailableCallback(Func<bool> getPermanentMuteAvailable)`
 
-**Purpose:** Sets the value or state of `permanent mute available callback`.
+**Purpose:** Assigns a new value to `permanent mute available callback` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.SetPermanentMuteAvailableCallback(getPermanentMuteAvailable);
+```
 
 ### LoadMutedPlayers
 `public static Task LoadMutedPlayers(PlayerId currentPlayerId)`
 
-**Purpose:** Loads `muted players` data.
+**Purpose:** Reads `muted players` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.LoadMutedPlayers(currentPlayerId);
+```
 
 ### SaveMutedPlayers
 `public static void SaveMutedPlayers()`
 
-**Purpose:** Saves `muted players` data.
+**Purpose:** Writes `muted players` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.SaveMutedPlayers();
+```
 
 ### IsPlayerMuted
 `public static bool IsPlayerMuted(PlayerId player)`
 
-**Purpose:** Handles logic related to `is player muted`.
+**Purpose:** Determines whether the current object is in the `player muted` state or condition.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.IsPlayerMuted(player);
+```
 
 ### MutePlayer
 `public static void MutePlayer(PlayerId player, string name)`
 
-**Purpose:** Handles logic related to `mute player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.MutePlayer(player, "example");
+```
 
 ### RemoveMutedPlayer
 `public static void RemoveMutedPlayer(PlayerId player)`
 
 **Purpose:** Removes `muted player` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+PermaMuteList.RemoveMutedPlayer(player);
+```
+
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 PermaMuteList.SetPermanentMuteAvailableCallback(getPermanentMuteAvailable);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

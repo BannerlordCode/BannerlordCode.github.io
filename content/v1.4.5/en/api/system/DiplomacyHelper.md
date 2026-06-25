@@ -1,20 +1,14 @@
 ---
 title: "DiplomacyHelper"
+description: "Auto-generated class reference for DiplomacyHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DiplomacyHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DiplomacyHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class DiplomacyHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/DiplomacyHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/DiplomacyHelper.cs`
 
 ## Overview
 
@@ -29,27 +23,52 @@ Treat `DiplomacyHelper` as a Helper-style extension point: first identify who cr
 ### IsWarCausedByPlayer
 `public static bool IsWarCausedByPlayer(IFaction faction1, IFaction faction2, DeclareWarAction.DeclareWarDetail declareWarDetail)`
 
-**Purpose:** Handles logic related to `is war caused by player`.
+**Purpose:** Determines whether the current object is in the `war caused by player` state or condition.
+
+```csharp
+// Static call; no instance required
+DiplomacyHelper.IsWarCausedByPlayer(faction1, faction2, declareWarDetail);
+```
 
 ### IsSameFactionAndNotEliminated
 `public static bool IsSameFactionAndNotEliminated(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Handles logic related to `is same faction and not eliminated`.
+**Purpose:** Determines whether the current object is in the `same faction and not eliminated` state or condition.
+
+```csharp
+// Static call; no instance required
+DiplomacyHelper.IsSameFactionAndNotEliminated(faction1, faction2);
+```
 
 ### GetPrisonersOfWarTakenByFaction
 `public static List<Hero> GetPrisonersOfWarTakenByFaction(IFaction capturerFaction, IFaction prisonerFaction)`
 
-**Purpose:** Gets the current value of `prisoners of war taken by faction`.
+**Purpose:** Reads and returns the `prisoners of war taken by faction` value held by the current object.
+
+```csharp
+// Static call; no instance required
+DiplomacyHelper.GetPrisonersOfWarTakenByFaction(capturerFaction, prisonerFaction);
+```
 
 ### DidMainHeroSwornNotToAttackFaction
 `public static bool DidMainHeroSwornNotToAttackFaction(IFaction faction, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `did main hero sworn not to attack faction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DiplomacyHelper.DidMainHeroSwornNotToAttackFaction(faction, explanation);
+```
 
 ### HasAllianceWithFaction
 `public static bool HasAllianceWithFaction(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Checks whether the current object has/contains `alliance with faction`.
+**Purpose:** Determines whether the current object already holds `alliance with faction`.
+
+```csharp
+// Static call; no instance required
+DiplomacyHelper.HasAllianceWithFaction(faction1, faction2);
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ DiplomacyHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

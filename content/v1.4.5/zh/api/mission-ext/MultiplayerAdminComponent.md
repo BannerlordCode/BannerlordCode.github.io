@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminComponent"
+description: "MultiplayerAdminComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerAdminComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerAdminComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerAdminComponent.cs`
 
 ## 概述
 
@@ -29,102 +23,215 @@ title: "MultiplayerAdminComponent"
 ### OnSelectPlayerToKickDelegate
 `public delegate void OnSelectPlayerToKickDelegate(bool banPlayer)`
 
-**用途 / Purpose:** 当 `select player to kick delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「select player to kick delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.OnSelectPlayerToKickDelegate(false);
+```
 
 ### OnSetAdminMenuActiveStateDelegate
 `public delegate void OnSetAdminMenuActiveStateDelegate(bool showMenu)`
 
-**用途 / Purpose:** 当 `set admin menu active state delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「set admin menu active state delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.OnSetAdminMenuActiveStateDelegate(false);
+```
 
 ### OnMissionStateActivated
 `public override void OnMissionStateActivated()`
 
-**用途 / Purpose:** 当 `mission state activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission state activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.OnMissionStateActivated();
+```
 
 ### ChangeAdminMenuActiveState
 `public void ChangeAdminMenuActiveState(bool isActive)`
 
-**用途 / Purpose:** 处理 `change admin menu active state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.ChangeAdminMenuActiveState(false);
+```
 
 ### KickPlayer
 `public void KickPlayer(NetworkCommunicator peerToKick, bool banPlayer)`
 
-**用途 / Purpose:** 处理 `kick player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.KickPlayer(peerToKick, false);
+```
 
 ### GlobalMuteUnmutePlayer
 `public void GlobalMuteUnmutePlayer(NetworkCommunicator peerToMute, bool unmute)`
 
-**用途 / Purpose:** 处理 `global mute unmute player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.GlobalMuteUnmutePlayer(peerToMute, false);
+```
 
 ### EndWarmup
 `public void EndWarmup()`
 
-**用途 / Purpose:** 处理 `end warmup` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.EndWarmup();
+```
 
 ### ChangeWelcomeMessage
 `public void ChangeWelcomeMessage(string newWelcomeMessage)`
 
-**用途 / Purpose:** 处理 `change welcome message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.ChangeWelcomeMessage("example");
+```
 
 ### AdminAnnouncement
 `public void AdminAnnouncement(string message, bool isBroadcast)`
 
-**用途 / Purpose:** 处理 `admin announcement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.AdminAnnouncement("example", false);
+```
 
 ### ChangeClassRestriction
 `public void ChangeClassRestriction(FormationClass classToChangeRestriction, bool newValue)`
 
-**用途 / Purpose:** 处理 `change class restriction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.ChangeClassRestriction(classToChangeRestriction, false);
+```
 
 ### AdminEndMission
 `public void AdminEndMission()`
 
-**用途 / Purpose:** 处理 `admin end mission` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.AdminEndMission();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.OnBehaviorInitialize();
+```
 
 ### MPAdminAnnouncement
 `public static string MPAdminAnnouncement(List<string> strings)`
 
-**用途 / Purpose:** 处理 `m p admin announcement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerAdminComponent.MPAdminAnnouncement(strings);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
+MultiplayerAdminComponent multiplayerAdminComponent = ...;
+multiplayerAdminComponent.OnRemoveBehavior();
+```
 
 ### MPAdminKickPlayer
 `public static string MPAdminKickPlayer(List<string> strings)`
 
-**用途 / Purpose:** 处理 `m p admin kick player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerAdminComponent.MPAdminKickPlayer(strings);
+```
 
 ### MPAdminBanPlayer
 `public static string MPAdminBanPlayer(List<string> strings)`
 
-**用途 / Purpose:** 处理 `m p admin ban player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerAdminComponent.MPAdminBanPlayer(strings);
+```
 
 ### MPAdminChangeWelcomeMessage
 `public static string MPAdminChangeWelcomeMessage(List<string> strings)`
 
-**用途 / Purpose:** 处理 `m p admin change welcome message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerAdminComponent.MPAdminChangeWelcomeMessage(strings);
+```
 
 ### MPAdminChangeClassRestriction
 `public static string MPAdminChangeClassRestriction(List<string> strings)`
 
-**用途 / Purpose:** 处理 `m p admin change class restriction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerAdminComponent.MPAdminChangeClassRestriction(strings);
+```
 
 ### MPHostRestartGame
 `public static string MPHostRestartGame(List<string> strings)`
 
-**用途 / Purpose:** 处理 `m p host restart game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerAdminComponent.MPHostRestartGame(strings);
+```
 
 ### MPAdminChangeServerSlots
 `public static string MPAdminChangeServerSlots(List<string> strings)`
 
-**用途 / Purpose:** 处理 `m p admin change server slots` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerAdminComponent.MPAdminChangeServerSlots(strings);
+```
 
 ## 使用示例
 
@@ -134,4 +241,4 @@ var component = agent.GetComponent<MultiplayerAdminComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

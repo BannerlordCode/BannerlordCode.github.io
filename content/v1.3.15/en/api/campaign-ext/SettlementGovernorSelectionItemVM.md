@@ -1,13 +1,7 @@
 ---
 title: "SettlementGovernorSelectionItemVM"
+description: "Auto-generated class reference for SettlementGovernorSelectionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementGovernorSelectionItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementGovernorSelectionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementGovernorSelectionItemVM from the subsystem API first
+SettlementGovernorSelectionItemVM settlementGovernorSelectionItemVM = ...;
+settlementGovernorSelectionItemVM.RefreshValues();
+```
 
 ### OnSelection
 `public void OnSelection()`
 
-**Purpose:** Called when the `selection` event is raised.
+**Purpose:** Invoked when the `selection` event is raised.
+
+```csharp
+// Obtain an instance of SettlementGovernorSelectionItemVM from the subsystem API first
+SettlementGovernorSelectionItemVM settlementGovernorSelectionItemVM = ...;
+settlementGovernorSelectionItemVM.OnSelection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementGovernorSelectionItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementGovernorSelectionItemVM settlementGovernorSelectionItemVM = ...;
+settlementGovernorSelectionItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

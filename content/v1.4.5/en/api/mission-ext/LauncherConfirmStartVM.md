@@ -1,20 +1,14 @@
 ---
 title: "LauncherConfirmStartVM"
+description: "Auto-generated class reference for LauncherConfirmStartVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherConfirmStartVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherConfirmStartVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherConfirmStartVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherConfirmStartVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherConfirmStartVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### EnableWith
 `public void EnableWith(List<SubModuleInfo> unverifiedSubModules, List<DependentVersionMissmatchItem> missmatchedDependentModules)`
 
-**Purpose:** Handles logic related to `enable with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LauncherConfirmStartVM from the subsystem API first
+LauncherConfirmStartVM launcherConfirmStartVM = ...;
+launcherConfirmStartVM.EnableWith(unverifiedSubModules, missmatchedDependentModules);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LauncherConfirmStartVM();
-value.EnableWith(unverifiedSubModules, missmatchedDependentModules);
+// Typically call this after obtaining an instance from the subsystem API
+LauncherConfirmStartVM launcherConfirmStartVM = ...;
+launcherConfirmStartVM.EnableWith(unverifiedSubModules, missmatchedDependentModules);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

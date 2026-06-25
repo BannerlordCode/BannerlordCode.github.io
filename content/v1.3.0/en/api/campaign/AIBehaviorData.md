@@ -1,13 +1,7 @@
 ---
 title: "AIBehaviorData"
+description: "Auto-generated class reference for AIBehaviorData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AIBehaviorData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AIBehaviorData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,24 +23,43 @@ Treat `AIBehaviorData` as a Data-style extension point: first identify who creat
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of AIBehaviorData from the subsystem API first
+AIBehaviorData aIBehaviorData = ...;
+var result = aIBehaviorData.Equals(obj);
+```
 
 ### Equals
 `public bool Equals(AIBehaviorData other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of AIBehaviorData from the subsystem API first
+AIBehaviorData aIBehaviorData = ...;
+var result = aIBehaviorData.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of AIBehaviorData from the subsystem API first
+AIBehaviorData aIBehaviorData = ...;
+var result = aIBehaviorData.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AIBehaviorData();
+// This data object is usually returned by campaign/mission APIs
+AIBehaviorData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DelayedTeleportationModel"
+description: "DelayedTeleportationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DelayedTeleportationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DelayedTeleportationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class DelayedTeleportationModel : MBGameModel<DelayedTeleportationModel>`
 **Base:** `MBGameModel<DelayedTeleportationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DelayedTeleportationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DelayedTeleportationModel.cs`
 
 ## 概述
 
@@ -35,19 +29,32 @@ title: "DelayedTeleportationModel"
 ### GetTeleportationDelayAsHours
 `public abstract ExplainedNumber GetTeleportationDelayAsHours(Hero teleportingHero, PartyBase target)`
 
-**用途 / Purpose:** 获取 `teleportation delay as hours` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「teleportation delay as hours」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DelayedTeleportationModel 实例
+DelayedTeleportationModel delayedTeleportationModel = ...;
+var result = delayedTeleportationModel.GetTeleportationDelayAsHours(teleportingHero, target);
+```
 
 ### CanPerformImmediateTeleport
 `public abstract bool CanPerformImmediateTeleport(Hero hero, MobileParty targetMobileParty, Settlement targetSettlement)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `perform immediate teleport`。
+**用途 / Purpose:** 检查当前对象是否满足 「perform immediate teleport」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DelayedTeleportationModel 实例
+DelayedTeleportationModel delayedTeleportationModel = ...;
+var result = delayedTeleportationModel.CanPerformImmediateTeleport(hero, targetMobileParty, targetSettlement);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDelayedTeleportationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+DelayedTeleportationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

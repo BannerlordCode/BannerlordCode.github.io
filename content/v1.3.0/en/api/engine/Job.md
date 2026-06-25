@@ -1,13 +1,7 @@
 ---
 title: "Job"
+description: "Auto-generated class reference for Job."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Job`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Job
 
 **Namespace:** TaleWorlds.Engine
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### DoJob
 `public virtual void DoJob(float dt)`
 
-**Purpose:** Handles logic related to `do job`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Job from the subsystem API first
+Job job = ...;
+job.DoJob(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Job();
-value.DoJob(0);
+// Typically call this after obtaining an instance from the subsystem API
+Job job = ...;
+job.DoJob(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

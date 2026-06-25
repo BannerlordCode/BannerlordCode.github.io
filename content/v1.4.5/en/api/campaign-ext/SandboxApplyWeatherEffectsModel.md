@@ -1,20 +1,14 @@
 ---
 title: "SandboxApplyWeatherEffectsModel"
+description: "Auto-generated class reference for SandboxApplyWeatherEffectsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxApplyWeatherEffectsModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxApplyWeatherEffectsModel
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
 **Type:** `public class SandboxApplyWeatherEffectsModel : ApplyWeatherEffectsModel`
 **Base:** `ApplyWeatherEffectsModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/SandboxApplyWeatherEffectsModel.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/SandboxApplyWeatherEffectsModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `SandboxApplyWeatherEffectsModel` as a Model-style extension point: first 
 ### ApplyWeatherEffects
 `public override void ApplyWeatherEffects()`
 
-**Purpose:** Applies `weather effects` to the current object.
+**Purpose:** Applies the effect of `weather effects` to the current object.
+
+```csharp
+// Obtain an instance of SandboxApplyWeatherEffectsModel from the subsystem API first
+SandboxApplyWeatherEffectsModel sandboxApplyWeatherEffectsModel = ...;
+sandboxApplyWeatherEffectsModel.ApplyWeatherEffects();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxApplyWeatherEffectsModel>(new MySandboxApplyWea
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

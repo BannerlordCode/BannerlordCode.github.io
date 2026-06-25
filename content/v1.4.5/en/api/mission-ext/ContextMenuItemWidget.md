@@ -1,20 +1,14 @@
 ---
 title: "ContextMenuItemWidget"
+description: "Auto-generated class reference for ContextMenuItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContextMenuItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContextMenuItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ContextMenuItemWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ContextMenuItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ContextMenuItemWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `ContextMenuItemWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new ContextMenuItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ContextMenuItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

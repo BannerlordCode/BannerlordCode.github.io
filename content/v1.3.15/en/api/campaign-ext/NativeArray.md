@@ -1,24 +1,18 @@
 ---
 title: "NativeArray"
+description: "Auto-generated class reference for NativeArray."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeArray`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NativeArray
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public sealed class NativeArray : NativeObject`
 **Base:** `NativeObject`
-**Area:** campaign-ext
+**File:** `TaleWorlds.DotNet/NativeArray.cs`
 
 ## Overview
 
-`NativeArray` lives in `TaleWorlds.DotNet`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`NativeArray` lives in `TaleWorlds.DotNet` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,31 +29,52 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### Create
 `public static NativeArray Create()`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+NativeArray.Create();
+```
 
 ### AddElement
 `public void AddElement(int value)`
 
 **Purpose:** Adds `element` to the current collection or state.
 
+```csharp
+// Obtain an instance of NativeArray from the subsystem API first
+NativeArray nativeArray = ...;
+nativeArray.AddElement(0);
+```
+
 ### AddElement
 `public void AddElement(float value)`
 
 **Purpose:** Adds `element` to the current collection or state.
 
+```csharp
+// Obtain an instance of NativeArray from the subsystem API first
+NativeArray nativeArray = ...;
+nativeArray.AddElement(0);
+```
+
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of NativeArray from the subsystem API first
+NativeArray nativeArray = ...;
+nativeArray.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 NativeArray.Create();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

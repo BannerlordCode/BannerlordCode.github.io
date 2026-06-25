@@ -1,20 +1,14 @@
 ---
 title: "NavalDeathSceneNotificationItem"
+description: "Auto-generated class reference for NavalDeathSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavalDeathSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavalDeathSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class NavalDeathSceneNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/NavalDeathSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/NavalDeathSceneNotificationItem.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of NavalDeathSceneNotificationItem from the subsystem API first
+NavalDeathSceneNotificationItem navalDeathSceneNotificationItem = ...;
+var result = navalDeathSceneNotificationItem.GetSceneNotificationCharacters();
+```
 
 ### GetShips
 `public override SceneNotificationShip GetShips()`
 
-**Purpose:** Gets the current value of `ships`.
+**Purpose:** Reads and returns the `ships` value held by the current object.
+
+```csharp
+// Obtain an instance of NavalDeathSceneNotificationItem from the subsystem API first
+NavalDeathSceneNotificationItem navalDeathSceneNotificationItem = ...;
+var result = navalDeathSceneNotificationItem.GetShips();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NavalDeathSceneNotificationItem();
-value.GetSceneNotificationCharacters();
+// Typically call this after obtaining an instance from the subsystem API
+NavalDeathSceneNotificationItem navalDeathSceneNotificationItem = ...;
+navalDeathSceneNotificationItem.GetSceneNotificationCharacters();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

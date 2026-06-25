@@ -1,20 +1,14 @@
 ---
 title: "PartyUpgradeRequirementWidget"
+description: "Auto-generated class reference for PartyUpgradeRequirementWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyUpgradeRequirementWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyUpgradeRequirementWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyUpgradeRequirementWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyUpgradeRequirementWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyUpgradeRequirementWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `PartyUpgradeRequirementWidget` as a Widget-style extension point: first i
 ## Usage Example
 
 ```csharp
-var widget = new PartyUpgradeRequirementWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyUpgradeRequirementWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

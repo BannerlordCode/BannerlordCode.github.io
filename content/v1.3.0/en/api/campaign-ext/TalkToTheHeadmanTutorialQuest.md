@@ -1,13 +1,7 @@
 ---
 title: "TalkToTheHeadmanTutorialQuest"
+description: "Auto-generated class reference for TalkToTheHeadmanTutorialQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TalkToTheHeadmanTutorialQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TalkToTheHeadmanTutorialQuest
 
 **Namespace:** StoryMode.Quests.TutorialPhase
@@ -33,9 +27,10 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new TalkToTheHeadmanTutorialQuest();
+// Obtain an instance from the relevant subsystem API
+TalkToTheHeadmanTutorialQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

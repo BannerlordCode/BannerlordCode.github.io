@@ -1,20 +1,14 @@
 ---
 title: "PeaceMapNotification"
+description: "Auto-generated class reference for PeaceMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PeaceMapNotification`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeaceMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PeaceMapNotification : InformationData`
 **Base:** `InformationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/PeaceMapNotification.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/PeaceMapNotification.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ## Usage Example
 
 ```csharp
-var example = new PeaceMapNotification();
+// Obtain an instance from the relevant subsystem API
+PeaceMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

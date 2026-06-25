@@ -1,20 +1,14 @@
 ---
 title: "BannerManager"
+description: "Auto-generated class reference for BannerManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerManager
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BannerManager.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerManager.cs`
 
 ## Overview
 
@@ -36,72 +30,152 @@ Treat `BannerManager` as a Manager-style extension point: first identify who cre
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+BannerManager.Initialize();
+```
 
 ### ResetAndLoad
 `public static void ResetAndLoad()`
 
-**Purpose:** Resets `and load` to its initial state.
+**Purpose:** Returns `and load` to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+BannerManager.ResetAndLoad();
+```
 
 ### GetColor
 `public static uint GetColor(int id)`
 
-**Purpose:** Gets the current value of `color`.
+**Purpose:** Reads and returns the `color` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerManager.GetColor(0);
+```
 
 ### GetColorId
 `public static int GetColorId(uint color)`
 
-**Purpose:** Gets the current value of `color id`.
+**Purpose:** Reads and returns the `color id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerManager.GetColorId(0);
+```
 
 ### GetRandomColorId
 `public int GetRandomColorId(MBFastRandom random)`
 
-**Purpose:** Gets the current value of `random color id`.
+**Purpose:** Reads and returns the `random color id` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+var result = bannerManager.GetRandomColorId(random);
+```
 
 ### GetIconDataFromIconId
 `public BannerIconData GetIconDataFromIconId(int id)`
 
-**Purpose:** Gets the current value of `icon data from icon id`.
+**Purpose:** Reads and returns the `icon data from icon id` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+var result = bannerManager.GetIconDataFromIconId(0);
+```
 
 ### GetRandomBackgroundId
 `public int GetRandomBackgroundId(MBFastRandom random)`
 
-**Purpose:** Gets the current value of `random background id`.
+**Purpose:** Reads and returns the `random background id` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+var result = bannerManager.GetRandomBackgroundId(random);
+```
 
 ### GetRandomBannerIconId
 `public int GetRandomBannerIconId(MBFastRandom random)`
 
-**Purpose:** Gets the current value of `random banner icon id`.
+**Purpose:** Reads and returns the `random banner icon id` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+var result = bannerManager.GetRandomBannerIconId(random);
+```
 
 ### GetBackgroundMeshName
 `public string GetBackgroundMeshName(int id)`
 
-**Purpose:** Gets the current value of `background mesh name`.
+**Purpose:** Reads and returns the `background mesh name` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+var result = bannerManager.GetBackgroundMeshName(0);
+```
 
 ### GetIconSourceTextureName
 `public string GetIconSourceTextureName(int id)`
 
-**Purpose:** Gets the current value of `icon source texture name`.
+**Purpose:** Reads and returns the `icon source texture name` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+var result = bannerManager.GetIconSourceTextureName(0);
+```
 
 ### SetBaseBackgroundId
 `public void SetBaseBackgroundId(int id)`
 
-**Purpose:** Sets the value or state of `base background id`.
+**Purpose:** Assigns a new value to `base background id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+bannerManager.SetBaseBackgroundId(0);
+```
 
 ### SetCultureColors
 `public void SetCultureColors(BasicCultureObject culture, List<BannerColor> color)`
 
-**Purpose:** Sets the value or state of `culture colors`.
+**Purpose:** Assigns a new value to `culture colors` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+bannerManager.SetCultureColors(culture, color);
+```
 
 ### LoadBannerIcons
 `public void LoadBannerIcons()`
 
-**Purpose:** Loads `banner icons` data.
+**Purpose:** Reads `banner icons` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+bannerManager.LoadBannerIcons();
+```
 
 ### LoadBannerIcons
 `public void LoadBannerIcons(string xmlPath)`
 
-**Purpose:** Loads `banner icons` data.
+**Purpose:** Reads `banner icons` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of BannerManager from the subsystem API first
+BannerManager bannerManager = ...;
+bannerManager.LoadBannerIcons("example");
+```
 
 ## Usage Example
 
@@ -111,4 +185,4 @@ var manager = BannerManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

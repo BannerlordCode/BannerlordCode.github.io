@@ -1,20 +1,14 @@
 ---
 title: "BarterItemVM"
+description: "BarterItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BarterItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Barter
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BarterItemVM : EncyclopediaLinkVM`
 **Base:** `EncyclopediaLinkVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterItemVM.cs`
 
 ## 概述
 
@@ -47,40 +41,77 @@ title: "BarterItemVM"
 ### BarterTransferEventDelegate
 `public delegate void BarterTransferEventDelegate(BarterItemVM itemVM, bool transferAll)`
 
-**用途 / Purpose:** 处理 `barter transfer event delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BarterItemVM 实例
+BarterItemVM barterItemVM = ...;
+barterItemVM.BarterTransferEventDelegate(itemVM, false);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BarterItemVM 实例
+BarterItemVM barterItemVM = ...;
+barterItemVM.RefreshValues();
+```
 
 ### RefreshCompabilityWithItem
 `public void RefreshCompabilityWithItem(BarterItemVM item, bool isItemGotOffered)`
 
-**用途 / Purpose:** 刷新 `compability with item` 的显示或缓存。
+**用途 / Purpose:** 使 「compability with item」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BarterItemVM 实例
+BarterItemVM barterItemVM = ...;
+barterItemVM.RefreshCompabilityWithItem(item, false);
+```
 
 ### ExecuteAddOffered
 `public void ExecuteAddOffered()`
 
-**用途 / Purpose:** 执行 `add offered` 操作或流程。
+**用途 / Purpose:** 执行 「add offered」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterItemVM 实例
+BarterItemVM barterItemVM = ...;
+barterItemVM.ExecuteAddOffered();
+```
 
 ### ExecuteRemoveOffered
 `public void ExecuteRemoveOffered()`
 
-**用途 / Purpose:** 执行 `remove offered` 操作或流程。
+**用途 / Purpose:** 执行 「remove offered」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterItemVM 实例
+BarterItemVM barterItemVM = ...;
+barterItemVM.ExecuteRemoveOffered();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterItemVM 实例
+BarterItemVM barterItemVM = ...;
+barterItemVM.ExecuteAction();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BarterItemVM();
-value.BarterTransferEventDelegate(itemVM, false);
+// 通常从对应子系统 API 获取实例后调用
+BarterItemVM barterItemVM = ...;
+barterItemVM.BarterTransferEventDelegate(itemVM, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

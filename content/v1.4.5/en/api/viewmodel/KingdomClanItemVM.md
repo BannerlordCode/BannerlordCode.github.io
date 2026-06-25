@@ -1,20 +1,14 @@
 ---
 title: "KingdomClanItemVM"
+description: "Auto-generated class reference for KingdomClanItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomClanItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomClanItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomClanItemVM : KingdomItemVM`
 **Base:** `KingdomItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans/KingdomClanItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans/KingdomClanItemVM.cs`
 
 ## Overview
 
@@ -44,20 +38,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomClanItemVM from the subsystem API first
+KingdomClanItemVM kingdomClanItemVM = ...;
+kingdomClanItemVM.RefreshValues();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of KingdomClanItemVM from the subsystem API first
+KingdomClanItemVM kingdomClanItemVM = ...;
+kingdomClanItemVM.Refresh();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomClanItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomClanItemVM kingdomClanItemVM = ...;
+kingdomClanItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

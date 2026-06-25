@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaHeroPageVM"
+description: "Auto-generated class reference for EncyclopediaHeroPageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaHeroPageVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaHeroPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -79,45 +73,88 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
+EncyclopediaHeroPageVM encyclopediaHeroPageVM = ...;
+encyclopediaHeroPageVM.RefreshValues();
+```
 
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
+EncyclopediaHeroPageVM encyclopediaHeroPageVM = ...;
+encyclopediaHeroPageVM.Refresh();
+```
 
 ### GetName
 `public override string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
+EncyclopediaHeroPageVM encyclopediaHeroPageVM = ...;
+var result = encyclopediaHeroPageVM.GetName();
+```
 
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** Gets the current value of `navigation bar u r l`.
+**Purpose:** Reads and returns the `navigation bar u r l` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
+EncyclopediaHeroPageVM encyclopediaHeroPageVM = ...;
+var result = encyclopediaHeroPageVM.GetNavigationBarURL();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
+EncyclopediaHeroPageVM encyclopediaHeroPageVM = ...;
+encyclopediaHeroPageVM.ExecuteLink("example");
+```
 
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** Executes the `switch bookmarked state` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch bookmarked state`.
+
+```csharp
+// Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
+EncyclopediaHeroPageVM encyclopediaHeroPageVM = ...;
+encyclopediaHeroPageVM.ExecuteSwitchBookmarkedState();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaHeroPageVM from the subsystem API first
+EncyclopediaHeroPageVM encyclopediaHeroPageVM = ...;
+encyclopediaHeroPageVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaHeroPageVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaHeroPageVM encyclopediaHeroPageVM = ...;
+encyclopediaHeroPageVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

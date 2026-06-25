@@ -1,13 +1,7 @@
 ---
 title: "ServersideSessionManager"
+description: "Auto-generated class reference for ServersideSessionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServersideSessionManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServersideSessionManager
 
 **Namespace:** TaleWorlds.Network
@@ -35,24 +29,43 @@ Treat `ServersideSessionManager` as a Manager-style extension point: first ident
 ### Activate
 `public void Activate(ushort port, ServersideSessionManager.ThreadType threadType = ServersideSessionManager.ThreadType.Single, int readWriteThreadCount = 1)`
 
-**Purpose:** Handles logic related to `activate`.
+**Purpose:** Activates the resource, state, or feature represented by the current object.
+
+```csharp
+// Obtain an instance of ServersideSessionManager from the subsystem API first
+ServersideSessionManager serversideSessionManager = ...;
+serversideSessionManager.Activate(0, serversideSessionManager.ThreadType.Single, 0);
+```
 
 ### GetPeer
 `public ServersideSession GetPeer(int peerIndex)`
 
-**Purpose:** Gets the current value of `peer`.
+**Purpose:** Reads and returns the `peer` value held by the current object.
+
+```csharp
+// Obtain an instance of ServersideSessionManager from the subsystem API first
+ServersideSessionManager serversideSessionManager = ...;
+var result = serversideSessionManager.GetPeer(0);
+```
 
 ### Tick
 `public virtual void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ServersideSessionManager from the subsystem API first
+ServersideSessionManager serversideSessionManager = ...;
+serversideSessionManager.Tick();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomServersideSessionManager();
+// Typically obtained from a subsystem API or factory
+ServersideSessionManager instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

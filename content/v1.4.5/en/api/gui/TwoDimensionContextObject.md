@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionContextObject"
+description: "Auto-generated class reference for TwoDimensionContextObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionContextObject`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionContextObject
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class TwoDimensionContextObject`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TwoDimensionContextObject.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TwoDimensionContextObject.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new TwoDimensionContextObject();
+// Obtain an instance from the relevant subsystem API
+TwoDimensionContextObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

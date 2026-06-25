@@ -1,13 +1,7 @@
 ---
 title: "ActionVisualOrder"
+description: "Auto-generated class reference for ActionVisualOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActionVisualOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ActionVisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of ActionVisualOrder from the subsystem API first
+ActionVisualOrder actionVisualOrder = ...;
+var result = actionVisualOrder.GetName(orderController);
+```
 
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**Purpose:** Handles logic related to `is targeted`.
+**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+
+```csharp
+// Obtain an instance of ActionVisualOrder from the subsystem API first
+ActionVisualOrder actionVisualOrder = ...;
+var result = actionVisualOrder.IsTargeted();
+```
 
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Executes the `order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `order`.
+
+```csharp
+// Obtain an instance of ActionVisualOrder from the subsystem API first
+ActionVisualOrder actionVisualOrder = ...;
+actionVisualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ### OrderActionDelegate
 `public delegate void OrderActionDelegate(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Handles logic related to `order action delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ActionVisualOrder from the subsystem API first
+ActionVisualOrder actionVisualOrder = ...;
+actionVisualOrder.OrderActionDelegate(orderController, executionParameters);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ActionVisualOrder();
-value.GetName(orderController);
+// Typically call this after obtaining an instance from the subsystem API
+ActionVisualOrder actionVisualOrder = ...;
+actionVisualOrder.GetName(orderController);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

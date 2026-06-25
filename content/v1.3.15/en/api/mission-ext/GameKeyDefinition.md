@@ -1,18 +1,12 @@
 ---
 title: "GameKeyDefinition"
+description: "Auto-generated class reference for GameKeyDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameKeyDefinition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameKeyDefinition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum GameKeyDefinition`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/GameKeyDefinition.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new GameKeyDefinition();
+// Obtain an instance from the relevant subsystem API
+GameKeyDefinition instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

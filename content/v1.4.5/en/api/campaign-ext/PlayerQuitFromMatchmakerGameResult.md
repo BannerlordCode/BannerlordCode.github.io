@@ -1,20 +1,14 @@
 ---
 title: "PlayerQuitFromMatchmakerGameResult"
+description: "Auto-generated class reference for PlayerQuitFromMatchmakerGameResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerQuitFromMatchmakerGameResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerQuitFromMatchmakerGameResult
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerQuitFromMatchmakerGameResult : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerQuitFromMatchmakerGameResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerQuitFromMatchmakerGameResult.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new PlayerQuitFromMatchmakerGameResult();
+// Obtain an instance from the relevant subsystem API
+PlayerQuitFromMatchmakerGameResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

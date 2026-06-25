@@ -1,20 +1,14 @@
 ---
 title: "TextObject"
+description: "Auto-generated class reference for TextObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextObject`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextObject
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class TextObject`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/TextObject.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/TextObject.cs`
 
 ## Overview
 
@@ -36,130 +30,272 @@ Start from namespace `TaleWorlds.Localization` to place it in the stack, then in
 ### GetDepth
 `public int GetDepth(int maxDepth)`
 
-**Purpose:** Gets the current value of `depth`.
+**Purpose:** Reads and returns the `depth` value held by the current object.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.GetDepth(0);
+```
 
 ### CacheTokens
 `public void CacheTokens()`
 
-**Purpose:** Handles logic related to `cache tokens`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+textObject.CacheTokens();
+```
 
 ### GetEmpty
 `public static TextObject GetEmpty()`
 
-**Purpose:** Gets the current value of `empty`.
+**Purpose:** Reads and returns the `empty` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TextObject.GetEmpty();
+```
 
 ### IsEmpty
 `public bool IsEmpty()`
 
-**Purpose:** Handles logic related to `is empty`.
+**Purpose:** Determines whether the current object is in the `empty` state or condition.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.IsEmpty();
+```
 
 ### IsNullOrEmpty
 `public static bool IsNullOrEmpty(TextObject obj)`
 
-**Purpose:** Handles logic related to `is null or empty`.
+**Purpose:** Determines whether the current object is in the `null or empty` state or condition.
+
+```csharp
+// Static call; no instance required
+TextObject.IsNullOrEmpty(obj);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.ToString();
+```
 
 ### ToStringWithoutClear
 `public string ToStringWithoutClear()`
 
-**Purpose:** Handles logic related to `to string without clear`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.ToStringWithoutClear();
+```
 
 ### Format
 `public string Format(float p1)`
 
-**Purpose:** Handles logic related to `format`.
+**Purpose:** Formats `format` into a string suitable for display or storage.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.Format(0);
+```
 
 ### Contains
 `public bool Contains(TextObject to)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.Contains(to);
+```
 
 ### Contains
 `public bool Contains(string text)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.Contains("example");
+```
 
 ### Equals
 `public override bool Equals(object other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.GetHashCode();
+```
 
 ### Equals
 `public bool Equals(TextObject other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.Equals(other);
+```
 
 ### HasSameValue
 `public bool HasSameValue(TextObject to)`
 
-**Purpose:** Checks whether the current object has/contains `same value`.
+**Purpose:** Determines whether the current object already holds `same value`.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.HasSameValue(to);
+```
 
 ### ConvertToStringList
 `public static List<string> ConvertToStringList(List<TextObject> to)`
 
-**Purpose:** Handles logic related to `convert to string list`.
+**Purpose:** Converts `to string list` into another representation or type.
+
+```csharp
+// Static call; no instance required
+TextObject.ConvertToStringList(to);
+```
 
 ### SetTextVariable
 `public TextObject SetTextVariable(string tag, TextObject variable)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.SetTextVariable("example", variable);
+```
 
 ### SetTextVariable
 `public TextObject SetTextVariable(string tag, string variable)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.SetTextVariable("example", "example");
+```
 
 ### SetTextVariable
 `public TextObject SetTextVariable(string tag, float variable, int decimalDigits = 2)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.SetTextVariable("example", 0, 0);
+```
 
 ### SetTextVariable
 `public TextObject SetTextVariable(string tag, int variable)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.SetTextVariable("example", 0);
+```
 
 ### AddIDToValue
 `public void AddIDToValue(string id)`
 
 **Purpose:** Adds `i d to value` to the current collection or state.
 
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+textObject.AddIDToValue("example");
+```
+
 ### GetVariableValue
 `public bool GetVariableValue(string tag, out TextObject variable)`
 
-**Purpose:** Gets the current value of `variable value`.
+**Purpose:** Reads and returns the `variable value` value held by the current object.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.GetVariableValue("example", variable);
+```
 
 ### GetValueHashCode
 `public int GetValueHashCode()`
 
-**Purpose:** Gets the current value of `value hash code`.
+**Purpose:** Reads and returns the `value hash code` value held by the current object.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.GetValueHashCode();
+```
 
 ### CopyTextObject
 `public TextObject CopyTextObject()`
 
-**Purpose:** Handles logic related to `copy text object`.
+**Purpose:** Copies the `text object` state of the current object to a target.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.CopyTextObject();
+```
 
 ### GetID
 `public string GetID()`
 
-**Purpose:** Gets the current value of `i d`.
+**Purpose:** Reads and returns the `i d` value held by the current object.
+
+```csharp
+// Obtain an instance of TextObject from the subsystem API first
+TextObject textObject = ...;
+var result = textObject.GetID();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TextObject();
-value.GetDepth(0);
+// Typically call this after obtaining an instance from the subsystem API
+TextObject textObject = ...;
+textObject.GetDepth(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

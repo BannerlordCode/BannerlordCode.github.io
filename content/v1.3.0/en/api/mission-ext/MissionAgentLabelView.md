@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentLabelView"
+description: "Auto-generated class reference for MissionAgentLabelView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentLabelView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentLabelView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,69 +23,142 @@ Treat `MissionAgentLabelView` as a View-style extension point: first identify wh
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnMissionTick(0);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnRemoveBehavior();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnMissionScreenFinalize();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnAgentBuild(agent, banner);
+```
 
 ### OnAssignPlayerAsSergeantOfFormation
 `public override void OnAssignPlayerAsSergeantOfFormation(Agent agent)`
 
-**Purpose:** Called when the `assign player as sergeant of formation` event is raised.
+**Purpose:** Invoked when the `assign player as sergeant of formation` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnAssignPlayerAsSergeantOfFormation(agent);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnClearScene();
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** Called when the `agent team changed` event is raised.
+**Purpose:** Invoked when the `agent team changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLabelView from the subsystem API first
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionAgentLabelView();
+// Retrieve this view from the subsystem API or scene
+MissionAgentLabelView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

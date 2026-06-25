@@ -1,19 +1,13 @@
 ---
 title: "ISelectionOptionData"
+description: "ISelectionOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ISelectionOptionData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ISelectionOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** 无
+**Type:** `public interface ISelectionOptionData : IOptionData`
+**Base:** `IOptionData`
 **File:** `TaleWorlds.Engine/Options/ISelectionOptionData.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "ISelectionOptionData"
 ## 使用示例
 
 ```csharp
-ISelectionOptionData implementation = GetSelectionOptionDataImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IISelectionOptionData service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

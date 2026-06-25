@@ -1,13 +1,7 @@
 ---
 title: "RecentPlayersManager"
+description: "RecentPlayersManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RecentPlayersManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RecentPlayersManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -37,37 +31,72 @@ title: "RecentPlayersManager"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+RecentPlayersManager.Initialize();
+```
 
 ### GetRecentPlayerInfos
 `public static Task<MBReadOnlyList<RecentPlayerInfo>> GetRecentPlayerInfos()`
 
-**用途 / Purpose:** 获取 `recent player infos` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「recent player infos」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+RecentPlayersManager.GetRecentPlayerInfos();
+```
 
 ### GetRecentPlayerIds
 `public static PlayerId GetRecentPlayerIds()`
 
-**用途 / Purpose:** 获取 `recent player ids` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「recent player ids」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+RecentPlayersManager.GetRecentPlayerIds();
+```
 
 ### AddOrUpdatePlayerEntry
 `public static void AddOrUpdatePlayerEntry(PlayerId playerId, string playerName, InteractionType interactionType, int forcedIndex)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `or update player entry`。
+**用途 / Purpose:** 将 「or update player entry」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+RecentPlayersManager.AddOrUpdatePlayerEntry(playerId, "example", interactionType, 0);
+```
 
 ### TrimPlayers
 `public static void TrimPlayers()`
 
-**用途 / Purpose:** 处理 `trim players` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+RecentPlayersManager.TrimPlayers();
+```
 
 ### Serialize
 `public static void Serialize()`
 
-**用途 / Purpose:** 处理 `serialize` 相关逻辑。
+**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+
+```csharp
+// 静态调用，不需要实例
+RecentPlayersManager.Serialize();
+```
 
 ### GetPlayersOrdered
 `public static IEnumerable<PlayerId> GetPlayersOrdered()`
 
-**用途 / Purpose:** 获取 `players ordered` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「players ordered」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+RecentPlayersManager.GetPlayersOrdered();
+```
 
 ## 使用示例
 
@@ -77,4 +106,4 @@ var manager = RecentPlayersManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

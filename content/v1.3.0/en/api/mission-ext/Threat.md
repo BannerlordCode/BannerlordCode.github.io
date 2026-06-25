@@ -1,13 +1,7 @@
 ---
 title: "Threat"
+description: "Auto-generated class reference for Threat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Threat`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Threat
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Threat from the subsystem API first
+Threat threat = ...;
+var result = threat.GetHashCode();
+```
 
 ### GetGlobalVelocity
 `public Vec3 GetGlobalVelocity()`
 
-**Purpose:** Gets the current value of `global velocity`.
+**Purpose:** Reads and returns the `global velocity` value held by the current object.
+
+```csharp
+// Obtain an instance of Threat from the subsystem API first
+Threat threat = ...;
+var result = threat.GetGlobalVelocity();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Threat from the subsystem API first
+Threat threat = ...;
+var result = threat.Equals(obj);
+```
 
 ### DisplayDebugInfo
 `public void DisplayDebugInfo()`
 
-**Purpose:** Handles logic related to `display debug info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Threat from the subsystem API first
+Threat threat = ...;
+threat.DisplayDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Threat();
-value.GetHashCode();
+// Typically call this after obtaining an instance from the subsystem API
+Threat threat = ...;
+threat.GetHashCode();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

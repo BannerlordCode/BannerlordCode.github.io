@@ -1,20 +1,14 @@
 ---
 title: "IBannerEditorStateHandler"
+description: "Auto-generated class reference for IBannerEditorStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBannerEditorStateHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBannerEditorStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IBannerEditorStateHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IBannerEditorStateHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IBannerEditorStateHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IBannerEditorStateHandler` as a Handler-style extension point: first iden
 ## Usage Example
 
 ```csharp
-IBannerEditorStateHandler implementation = GetBannerEditorStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIBannerEditorStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

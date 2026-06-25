@@ -1,13 +1,7 @@
 ---
 title: "ForceVolunteersEventComponent"
+description: "Auto-generated class reference for ForceVolunteersEventComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ForceVolunteersEventComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ForceVolunteersEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -35,12 +29,22 @@ Treat `ForceVolunteersEventComponent` as a Component-style extension point: firs
 ### CreateForceSuppliesEvent
 `public static ForceVolunteersEventComponent CreateForceSuppliesEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Creates a new `force supplies event` instance or object.
+**Purpose:** Constructs a new `force supplies event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ForceVolunteersEventComponent.CreateForceSuppliesEvent(attackerParty, defenderParty);
+```
 
 ### CreateComponentForOldSaves
 `public static ForceVolunteersEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
 
-**Purpose:** Creates a new `component for old saves` instance or object.
+**Purpose:** Constructs a new `component for old saves` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ForceVolunteersEventComponent.CreateComponentForOldSaves(mapEvent);
+```
 
 ## Usage Example
 
@@ -50,4 +54,4 @@ var component = agent.GetComponent<ForceVolunteersEventComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

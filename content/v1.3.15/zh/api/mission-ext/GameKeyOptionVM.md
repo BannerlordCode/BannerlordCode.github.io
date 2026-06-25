@@ -1,13 +1,7 @@
 ---
 title: "GameKeyOptionVM"
+description: "GameKeyOptionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameKeyOptionVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameKeyOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys
@@ -35,40 +29,77 @@ title: "GameKeyOptionVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionVM 实例
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.RefreshValues();
+```
 
 ### Set
 `public override void Set(InputKey newKey)`
 
-**用途 / Purpose:** 设置 `set` 的值或状态。
+**用途 / Purpose:** 为当前对象的属性或状态赋新值。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionVM 实例
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.Set(newKey);
+```
 
 ### Update
 `public override void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionVM 实例
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.Update();
+```
 
 ### OnDone
 `public override void OnDone()`
 
-**用途 / Purpose:** 当 `done` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「done」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionVM 实例
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.OnDone();
+```
 
 ### Revert
 `public void Revert()`
 
-**用途 / Purpose:** 处理 `revert` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionVM 实例
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.Revert();
+```
 
 ### Apply
 `public void Apply()`
 
-**用途 / Purpose:** 将 `apply` 应用到当前对象。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionVM 实例
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.Apply();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameKeyOptionVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

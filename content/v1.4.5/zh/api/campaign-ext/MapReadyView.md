@@ -1,20 +1,14 @@
 ---
 title: "MapReadyView"
+description: "MapReadyView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapReadyView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapReadyView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapReadyView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapReadyView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapReadyView.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "MapReadyView"
 ### SetIsMapSceneReady
 `public virtual void SetIsMapSceneReady(bool isReady)`
 
-**用途 / Purpose:** 设置 `is map scene ready` 的值或状态。
+**用途 / Purpose:** 为 「is map scene ready」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapReadyView 实例
+MapReadyView mapReadyView = ...;
+mapReadyView.SetIsMapSceneReady(false);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MapReadyView();
+// 从子系统 API 或场景中获取该视图
+MapReadyView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "EffectIncrementType"
+description: "Auto-generated class reference for EffectIncrementType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EffectIncrementType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EffectIncrementType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum EffectIncrementType`
 **Base:** none
 **File:** `TaleWorlds.Core/EffectIncrementType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new EffectIncrementType();
+// Obtain an instance from the relevant subsystem API
+EffectIncrementType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

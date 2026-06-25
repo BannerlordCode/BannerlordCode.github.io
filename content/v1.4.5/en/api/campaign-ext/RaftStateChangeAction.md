@@ -1,20 +1,14 @@
 ---
 title: "RaftStateChangeAction"
+description: "Auto-generated class reference for RaftStateChangeAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RaftStateChangeAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RaftStateChangeAction
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RaftStateChangeAction`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/RaftStateChangeAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/RaftStateChangeAction.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ### ActivateRaftStateForParty
 `public static void ActivateRaftStateForParty(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `activate raft state for party`.
+**Purpose:** Activates the resource, state, or feature associated with `raft state for party`.
+
+```csharp
+// Static call; no instance required
+RaftStateChangeAction.ActivateRaftStateForParty(mobileParty);
+```
 
 ### DeactivateRaftStateForParty
 `public static void DeactivateRaftStateForParty(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `deactivate raft state for party`.
+**Purpose:** Deactivates the resource, state, or feature associated with `raft state for party`.
+
+```csharp
+// Static call; no instance required
+RaftStateChangeAction.DeactivateRaftStateForParty(mobileParty);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ RaftStateChangeAction.ActivateRaftStateForParty(mobileParty);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

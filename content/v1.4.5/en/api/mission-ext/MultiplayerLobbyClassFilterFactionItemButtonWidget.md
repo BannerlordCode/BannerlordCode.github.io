@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyClassFilterFactionItemButtonWidget"
+description: "Auto-generated class reference for MultiplayerLobbyClassFilterFactionItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyClassFilterFactionItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyClassFilterFactionItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyClassFilterFactionItemButtonWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyClassFilterFactionItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyClassFilterFactionItemButtonWidget.cs`
 
 ## Overview
 
@@ -36,14 +30,21 @@ Treat `MultiplayerLobbyClassFilterFactionItemButtonWidget` as a Widget-style ext
 ### MultiplayerLobbyClassFilterFactionItemButtonWidget
 `public class MultiplayerLobbyClassFilterFactionItemButtonWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer lobby class filter faction item button widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyClassFilterFactionItemButtonWidget from the subsystem API first
+MultiplayerLobbyClassFilterFactionItemButtonWidget multiplayerLobbyClassFilterFactionItemButtonWidget = ...;
+var result = multiplayerLobbyClassFilterFactionItemButtonWidget.MultiplayerLobbyClassFilterFactionItemButtonWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyClassFilterFactionItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyClassFilterFactionItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

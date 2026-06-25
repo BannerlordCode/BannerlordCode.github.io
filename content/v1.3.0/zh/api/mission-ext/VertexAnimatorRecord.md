@@ -1,13 +1,7 @@
 ---
 title: "VertexAnimatorRecord"
+description: "VertexAnimatorRecord 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VertexAnimatorRecord`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VertexAnimatorRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,15 +32,22 @@ title: "VertexAnimatorRecord"
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 处理 `read from network` 相关逻辑。
+**用途 / Purpose:** 读取「from network」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimatorRecord 实例
+VertexAnimatorRecord vertexAnimatorRecord = ...;
+var result = vertexAnimatorRecord.ReadFromNetwork(bufferReadValid);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VertexAnimatorRecord();
-value.ReadFromNetwork(bufferReadValid);
+// 通常从对应子系统 API 获取实例后调用
+VertexAnimatorRecord vertexAnimatorRecord = ...;
+vertexAnimatorRecord.ReadFromNetwork(bufferReadValid);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

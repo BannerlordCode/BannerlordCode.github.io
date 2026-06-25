@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleSceneNotificationContextProvider"
+description: "Auto-generated class reference for CustomBattleSceneNotificationContextProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleSceneNotificationContextProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleSceneNotificationContextProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSceneNotificationContextProvider : ISceneNotificationContextProvider`
 **Base:** `ISceneNotificationContextProvider`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSceneNotificationContextProvider.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSceneNotificationContextProvider.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### IsContextAllowed
 `public bool IsContextAllowed(RelevantContextType relevantType)`
 
-**Purpose:** Handles logic related to `is context allowed`.
+**Purpose:** Determines whether the current object is in the `context allowed` state or condition.
+
+```csharp
+// Obtain an instance of CustomBattleSceneNotificationContextProvider from the subsystem API first
+CustomBattleSceneNotificationContextProvider customBattleSceneNotificationContextProvider = ...;
+var result = customBattleSceneNotificationContextProvider.IsContextAllowed(relevantType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleSceneNotificationContextProvider();
-value.IsContextAllowed(relevantType);
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleSceneNotificationContextProvider customBattleSceneNotificationContextProvider = ...;
+customBattleSceneNotificationContextProvider.IsContextAllowed(relevantType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

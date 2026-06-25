@@ -1,13 +1,7 @@
 ---
 title: "Canvas"
+description: "Canvas 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Canvas`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Canvas
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -35,35 +29,66 @@ title: "Canvas"
 ### LoadFrom
 `public void LoadFrom(XmlNode canvasNode)`
 
-**用途 / Purpose:** 加载 `from` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+
+```csharp
+// 先通过子系统 API 拿到 Canvas 实例
+Canvas canvas = ...;
+canvas.LoadFrom(canvasNode);
+```
 
 ### Update
 `public void Update(float scale)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Canvas 实例
+Canvas canvas = ...;
+canvas.Update(0);
+```
 
 ### DoMeasure
 `public void DoMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**用途 / Purpose:** 处理 `do measure` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Canvas 实例
+Canvas canvas = ...;
+canvas.DoMeasure(false, false, 0, 0);
+```
 
 ### DoLayout
 `public void DoLayout()`
 
-**用途 / Purpose:** 处理 `do layout` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Canvas 实例
+Canvas canvas = ...;
+canvas.DoLayout();
+```
 
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** 处理 `do render` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Canvas 实例
+Canvas canvas = ...;
+canvas.DoRender(globalPosition, drawContext);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Canvas();
-value.LoadFrom(canvasNode);
+// 通常从对应子系统 API 获取实例后调用
+Canvas canvas = ...;
+canvas.LoadFrom(canvasNode);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

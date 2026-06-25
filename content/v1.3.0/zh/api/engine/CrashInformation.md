@@ -1,13 +1,7 @@
 ---
 title: "CrashInformation"
+description: "CrashInformation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CrashInformation`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CrashInformation
 
 **Namespace:** TaleWorlds.Engine
@@ -29,7 +23,12 @@ title: "CrashInformation"
 ### CollectInformation
 `public static string CollectInformation()`
 
-**用途 / Purpose:** 处理 `collect information` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrashInformation.CollectInformation();
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ CrashInformation.CollectInformation();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

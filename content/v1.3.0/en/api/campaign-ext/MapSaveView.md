@@ -1,13 +1,7 @@
 ---
 title: "MapSaveView"
+description: "Auto-generated class reference for MapSaveView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSaveView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSaveView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MapSaveView` as a View-style extension point: first identify who creates 
 ## Usage Example
 
 ```csharp
-var view = new MapSaveView();
+// Retrieve this view from the subsystem API or scene
+MapSaveView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

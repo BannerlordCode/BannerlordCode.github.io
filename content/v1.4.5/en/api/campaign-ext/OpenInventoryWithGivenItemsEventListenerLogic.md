@@ -1,20 +1,14 @@
 ---
 title: "OpenInventoryWithGivenItemsEventListenerLogic"
+description: "Auto-generated class reference for OpenInventoryWithGivenItemsEventListenerLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OpenInventoryWithGivenItemsEventListenerLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OpenInventoryWithGivenItemsEventListenerLogic
 
 **Namespace:** SandBox.Missions.MissionEvents
 **Module:** SandBox.Missions
 **Type:** `public class OpenInventoryWithGivenItemsEventListenerLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionEvents/OpenInventoryWithGivenItemsEventListenerLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionEvents/OpenInventoryWithGivenItemsEventListenerLogic.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `OpenInventoryWithGivenItemsEventListenerLogic` as a Logic-style extension
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new OpenInventoryWithGivenItemsEventListenerLogic());
+var behavior = Mission.Current.GetMissionBehavior<OpenInventoryWithGivenItemsEventListenerLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

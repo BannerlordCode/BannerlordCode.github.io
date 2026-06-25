@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletOptionsUIHandler"
+description: "MissionGauntletOptionsUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletOptionsUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletOptionsUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletOptionsUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletOptionsUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletOptionsUIHandler.cs`
 
 ## 概述
 
@@ -35,34 +29,64 @@ title: "MissionGauntletOptionsUIHandler"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+missionGauntletOptionsUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+missionGauntletOptionsUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+missionGauntletOptionsUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+var result = missionGauntletOptionsUIHandler.OnEscape();
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**用途 / Purpose:** 处理 `is opening escape menu on focus change allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「opening escape menu on focus change allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+var result = missionGauntletOptionsUIHandler.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletOptionsUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletOptionsUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "AgentDrivenProperties"
+description: "AgentDrivenProperties 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentDrivenProperties`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentDrivenProperties
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -130,20 +124,33 @@ title: "AgentDrivenProperties"
 ### GetStat
 `public float GetStat(DrivenProperty propertyEnum)`
 
-**用途 / Purpose:** 获取 `stat` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stat」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentDrivenProperties 实例
+AgentDrivenProperties agentDrivenProperties = ...;
+var result = agentDrivenProperties.GetStat(propertyEnum);
+```
 
 ### SetStat
 `public void SetStat(DrivenProperty propertyEnum, float value)`
 
-**用途 / Purpose:** 设置 `stat` 的值或状态。
+**用途 / Purpose:** 为 「stat」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentDrivenProperties 实例
+AgentDrivenProperties agentDrivenProperties = ...;
+agentDrivenProperties.SetStat(propertyEnum, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AgentDrivenProperties();
-value.GetStat(propertyEnum);
+// 通常从对应子系统 API 获取实例后调用
+AgentDrivenProperties agentDrivenProperties = ...;
+agentDrivenProperties.GetStat(propertyEnum);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

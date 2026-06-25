@@ -1,13 +1,7 @@
 ---
 title: "StealthAreaMissionLogic"
+description: "Auto-generated class reference for StealthAreaMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthAreaMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthAreaMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -36,59 +30,119 @@ Treat `StealthAreaMissionLogic` as a Logic-style extension point: first identify
 ### IsSentry
 `public bool IsSentry(Agent agent)`
 
-**Purpose:** Handles logic related to `is sentry`.
+**Purpose:** Determines whether the current object is in the `sentry` state or condition.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+var result = stealthAreaMissionLogic.IsSentry(agent);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnBehaviorInitialize();
+```
 
 ### AddAgentSpawnType
 `public void AddAgentSpawnType(string spawnGroupId, Dictionary<string, int> spawnDictionary)`
 
 **Purpose:** Adds `agent spawn type` to the current collection or state.
 
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.AddAgentSpawnType("example", dictionary<string, 0);
+```
+
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** Called when the `agent team changed` event is raised.
+**Purpose:** Invoked when the `agent team changed` event is raised.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** Called when the `object used` event is raised.
+**Purpose:** Invoked when the `object used` event is raised.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnObjectUsed(userAgent, usedObject);
+```
 
 ### CheckIfAllStealthAreasAreTriggered
 `public bool CheckIfAllStealthAreasAreTriggered()`
 
-**Purpose:** Handles logic related to `check if all stealth areas are triggered`.
+**Purpose:** Verifies whether `if all stealth areas are triggered` holds true for the current object.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+var result = stealthAreaMissionLogic.CheckIfAllStealthAreasAreTriggered();
+```
 
 ### CheckIfAllStealthAreasReinforcementsAreCalled
 `public bool CheckIfAllStealthAreasReinforcementsAreCalled()`
 
-**Purpose:** Handles logic related to `check if all stealth areas reinforcements are called`.
+**Purpose:** Verifies whether `if all stealth areas reinforcements are called` holds true for the current object.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+var result = stealthAreaMissionLogic.CheckIfAllStealthAreasReinforcementsAreCalled();
+```
 
 ### GetReinforcementAllyTroopsDelegate
 `public delegate List<IAgentOriginBase> GetReinforcementAllyTroopsDelegate(StealthAreaMissionLogic.StealthAreaData triggeredStealthAreaData, StealthAreaMarker stealthAreaMarker)`
 
-**Purpose:** Gets the current value of `reinforcement ally troops delegate`.
+**Purpose:** Reads and returns the `reinforcement ally troops delegate` value held by the current object.
+
+```csharp
+// Obtain an instance of StealthAreaMissionLogic from the subsystem API first
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+var result = stealthAreaMissionLogic.GetReinforcementAllyTroopsDelegate(triggeredStealthAreaData, stealthAreaMarker);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthAreaMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<StealthAreaMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

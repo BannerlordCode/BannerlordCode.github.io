@@ -1,20 +1,14 @@
 ---
 title: "Float"
+description: "Float 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Float`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Float
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct Float`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## 概述
 
@@ -35,35 +29,66 @@ title: "Float"
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 获取 `num bits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Float 实例
+Float float = ...;
+var result = float.GetNumBits();
+```
 
 ### GetMaximumValue
 `public float GetMaximumValue()`
 
-**用途 / Purpose:** 获取 `maximum value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Float 实例
+Float float = ...;
+var result = float.GetMaximumValue();
+```
 
 ### GetMinimumValue
 `public float GetMinimumValue()`
 
-**用途 / Purpose:** 获取 `minimum value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「minimum value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Float 实例
+Float float = ...;
+var result = float.GetMinimumValue();
+```
 
 ### GetPrecision
 `public float GetPrecision()`
 
-**用途 / Purpose:** 获取 `precision` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「precision」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Float 实例
+Float float = ...;
+var result = float.GetPrecision();
+```
 
 ### ClampValueAccordingToLimits
 `public void ClampValueAccordingToLimits(ref float x)`
 
-**用途 / Purpose:** 处理 `clamp value according to limits` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Float 实例
+Float float = ...;
+float.ClampValueAccordingToLimits(x);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Float();
-value.GetNumBits();
+// 通常从对应子系统 API 获取实例后调用
+Float float = ...;
+float.GetNumBits();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

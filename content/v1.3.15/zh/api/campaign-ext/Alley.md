@@ -1,13 +1,7 @@
 ---
 title: "Alley"
+description: "Alley 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Alley`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Alley
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -39,20 +33,33 @@ title: "Alley"
 ### SetOwner
 `public void SetOwner(Hero newOwner)`
 
-**用途 / Purpose:** 设置 `owner` 的值或状态。
+**用途 / Purpose:** 为 「owner」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Alley 实例
+Alley alley = ...;
+alley.SetOwner(newOwner);
+```
 
 ### Initialize
 `public void Initialize(Settlement settlement, string tag, TextObject name)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Alley 实例
+Alley alley = ...;
+alley.Initialize(settlement, "example", name);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Alley();
-value.SetOwner(newOwner);
+// 通常从对应子系统 API 获取实例后调用
+Alley alley = ...;
+alley.SetOwner(newOwner);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

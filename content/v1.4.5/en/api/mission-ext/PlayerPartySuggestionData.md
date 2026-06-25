@@ -1,19 +1,14 @@
 ---
 title: "PlayerPartySuggestionData"
+description: "Auto-generated class reference for PlayerPartySuggestionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerPartySuggestionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerPartySuggestionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerPartySuggestionData`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPartyPlayerSuggestionPopupVM.cs`
 
 ## Overview
 
@@ -31,36 +26,14 @@ Treat `PlayerPartySuggestionData` as a Data-style extension point: first identif
 | `PlayerName` | `public string PlayerName { get; }` |
 | `SuggestingPlayerId` | `public PlayerId SuggestingPlayerId { get; }` |
 | `SuggestingPlayerName` | `public string SuggestingPlayerName { get; }` |
-| `IsEnabled` | `public bool IsEnabled { get; set; }` |
-| `TitleText` | `public string TitleText { get; set; }` |
-| `DoYouWantToInviteText` | `public string DoYouWantToInviteText { get; set; }` |
-| `PlayerSuggestedText` | `public string PlayerSuggestedText { get; set; }` |
-| `SuggestedPlayer` | `public MPLobbyPlayerBaseVM SuggestedPlayer { get; set; }` |
-
-## Key Methods
-
-### RefreshValues
-`public override void RefreshValues()`
-
-**Purpose:** Refreshes the display or cache of `values`.
-
-### OpenWith
-`public void OpenWith(PlayerPartySuggestionData data)`
-
-**Purpose:** Handles logic related to `open with`.
-
-### Close
-`public void Close()`
-
-**Purpose:** Handles logic related to `close`.
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerPartySuggestionData();
+// This data object is usually returned by campaign/mission APIs
+PlayerPartySuggestionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

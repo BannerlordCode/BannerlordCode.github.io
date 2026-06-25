@@ -1,20 +1,14 @@
 ---
 title: "SrtParser"
+description: "Auto-generated class reference for SrtParser."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SrtParser`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SrtParser
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class SrtParser`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ParseStream
 `public static List<SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
-**Purpose:** Handles logic related to `parse stream`.
+**Purpose:** Parses external input into a `stream` the current system understands.
+
+```csharp
+// Static call; no instance required
+SrtParser.ParseStream(subtitleStream, encoding);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ SrtParser.ParseStream(subtitleStream, encoding);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

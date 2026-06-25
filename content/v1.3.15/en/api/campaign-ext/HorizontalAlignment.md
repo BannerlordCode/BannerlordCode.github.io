@@ -1,18 +1,12 @@
 ---
 title: "HorizontalAlignment"
+description: "Auto-generated class reference for HorizontalAlignment."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HorizontalAlignment`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HorizontalAlignment
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum HorizontalAlignment`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/HorizontalAlignment.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var value = new HorizontalAlignment();
+// Obtain an instance from the relevant subsystem API
+HorizontalAlignment instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

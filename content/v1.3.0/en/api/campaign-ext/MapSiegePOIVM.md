@@ -1,13 +1,7 @@
 ---
 title: "MapSiegePOIVM"
+description: "Auto-generated class reference for MapSiegePOIVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegePOIVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegePOIVM
 
 **Namespace:** SandBox.ViewModelCollection.MapSiege
@@ -53,45 +47,88 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of MapSiegePOIVM from the subsystem API first
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.ExecuteSelection();
+```
 
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Updates the state or data of `properties`.
+**Purpose:** Recalculates and stores the latest representation of `properties`.
+
+```csharp
+// Obtain an instance of MapSiegePOIVM from the subsystem API first
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.UpdateProperties();
+```
 
 ### RefreshDistanceValue
 `public void RefreshDistanceValue(float newDistance)`
 
-**Purpose:** Refreshes the display or cache of `distance value`.
+**Purpose:** Keeps the display or cache of `distance value` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapSiegePOIVM from the subsystem API first
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.RefreshDistanceValue(0);
+```
 
 ### RefreshPosition
 `public void RefreshPosition()`
 
-**Purpose:** Refreshes the display or cache of `position`.
+**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapSiegePOIVM from the subsystem API first
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.RefreshPosition();
+```
 
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**Purpose:** Refreshes the display or cache of `binding`.
+**Purpose:** Keeps the display or cache of `binding` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapSiegePOIVM from the subsystem API first
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.RefreshBinding();
+```
 
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**Purpose:** Executes the `show tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show tooltip`.
+
+```csharp
+// Obtain an instance of MapSiegePOIVM from the subsystem API first
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.ExecuteShowTooltip();
+```
 
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**Purpose:** Executes the `hide tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `hide tooltip`.
+
+```csharp
+// Obtain an instance of MapSiegePOIVM from the subsystem API first
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.ExecuteHideTooltip();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapSiegePOIVM();
-value.ExecuteSelection();
+// Typically call this after obtaining an instance from the subsystem API
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.ExecuteSelection();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

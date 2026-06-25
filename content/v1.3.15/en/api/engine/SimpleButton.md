@@ -1,13 +1,7 @@
 ---
 title: "SimpleButton"
+description: "Auto-generated class reference for SimpleButton."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SimpleButton`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SimpleButton
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new SimpleButton();
+// Obtain an instance from the relevant subsystem API
+SimpleButton instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

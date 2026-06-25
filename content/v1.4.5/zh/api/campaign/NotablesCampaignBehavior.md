@@ -1,20 +1,14 @@
 ---
 title: "NotablesCampaignBehavior"
+description: "NotablesCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NotablesCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotablesCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class NotablesCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/NotablesCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/NotablesCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "NotablesCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 NotablesCampaignBehavior 实例
+NotablesCampaignBehavior notablesCampaignBehavior = ...;
+notablesCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 NotablesCampaignBehavior 实例
+NotablesCampaignBehavior notablesCampaignBehavior = ...;
+notablesCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnNewGameCreated
 `public void OnNewGameCreated(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `new game created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「new game created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 NotablesCampaignBehavior 实例
+NotablesCampaignBehavior notablesCampaignBehavior = ...;
+notablesCampaignBehavior.OnNewGameCreated(campaignGameStarter);
+```
 
 ### OnNewGameCreatedPartialFollowUp
 `public void OnNewGameCreatedPartialFollowUp(CampaignGameStarter starter, int i)`
 
-**用途 / Purpose:** 当 `new game created partial follow up` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「new game created partial follow up」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 NotablesCampaignBehavior 实例
+NotablesCampaignBehavior notablesCampaignBehavior = ...;
+notablesCampaignBehavior.OnNewGameCreatedPartialFollowUp(starter, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NotablesCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+NotablesCampaignBehavior notablesCampaignBehavior = ...;
+notablesCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

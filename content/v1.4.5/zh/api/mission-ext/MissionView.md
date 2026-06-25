@@ -1,20 +1,14 @@
 ---
 title: "MissionView"
+description: "MissionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionView : MissionBehavior`
 **Base:** `MissionBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionView.cs`
 
 ## 概述
 
@@ -36,114 +30,241 @@ title: "MissionView"
 ### OnMissionScreenTick
 `public virtual void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 在 MissionScreen 已经建立后，每帧为这个视图执行 UI 侧更新，适合刷新 HUD、状态条或屏幕覆盖层。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnMissionScreenTick(0);
+```
 
 ### OnEscape
 `public virtual bool OnEscape()`
 
-**用途 / Purpose:** 处理玩家按下 Escape 的时机，决定当前视图是否要消费这次输入、弹出菜单或把控制权继续交给别的视图。
+**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+var result = missionView.OnEscape();
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public virtual bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**用途 / Purpose:** 告诉任务界面：当窗口失焦或焦点变化时，当前视图是否允许自动拉起 Escape 菜单。
+**用途 / Purpose:** 判断当前对象是否处于 「opening escape menu on focus change allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+var result = missionView.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ### IsPhotoModeAllowed
 `public virtual bool IsPhotoModeAllowed()`
 
-**用途 / Purpose:** 声明当前任务视图是否允许照片模式；常用于剧情镜头、教程或受限视图里禁用拍照。
+**用途 / Purpose:** 判断当前对象是否处于 「photo mode allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+var result = missionView.IsPhotoModeAllowed();
+```
 
 ### OnFocusChangeOnGameWindow
 `public virtual void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**用途 / Purpose:** 响应游戏窗口获得/失去焦点的事件，以便暂停输入、隐藏提示或恢复视图状态。
+**用途 / Purpose:** 在 「focus change on game window」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnFocusChangeOnGameWindow(false);
+```
 
 ### OnSceneRenderingStarted
 `public virtual void OnSceneRenderingStarted()`
 
-**用途 / Purpose:** 在场景开始渲染后做一次视图初始化，适合挂接材质、标记或屏幕层资源。
+**用途 / Purpose:** 在 「scene rendering started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnSceneRenderingStarted();
+```
 
 ### OnMissionScreenInitialize
 `public virtual void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 MissionScreen 构建完成时初始化这个视图绑定的 UI、事件订阅和局部状态。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public virtual void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenActivate
 `public virtual void OnMissionScreenActivate()`
 
-**用途 / Purpose:** 当 `mission screen activate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen activate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnMissionScreenActivate();
+```
 
 ### OnMissionScreenDeactivate
 `public virtual void OnMissionScreenDeactivate()`
 
-**用途 / Purpose:** 当 `mission screen deactivate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen deactivate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnMissionScreenDeactivate();
+```
 
 ### UpdateOverridenCamera
 `public virtual bool UpdateOverridenCamera(float dt)`
 
-**用途 / Purpose:** 更新 `overriden camera` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「overriden camera」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+var result = missionView.UpdateOverridenCamera(0);
+```
 
 ### IsReady
 `public virtual bool IsReady()`
 
-**用途 / Purpose:** 处理 `is ready` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ready」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+var result = missionView.IsReady();
+```
 
 ### OnPhotoModeActivated
 `public virtual void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public virtual void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnPhotoModeDeactivated();
+```
 
 ### OnConversationBegin
 `public virtual void OnConversationBegin()`
 
-**用途 / Purpose:** 当 `conversation begin` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「conversation begin」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnConversationBegin();
+```
 
 ### OnConversationEnd
 `public virtual void OnConversationEnd()`
 
-**用途 / Purpose:** 当 `conversation end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「conversation end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnConversationEnd();
+```
 
 ### OnDeploymentPlanMade
 `public virtual void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**用途 / Purpose:** 当 `deployment plan made` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment plan made」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnDeploymentPlanMade(team, false);
+```
 
 ### SuspendView
 `public void SuspendView()`
 
-**用途 / Purpose:** 处理 `suspend view` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.SuspendView();
+```
 
 ### ResumeView
 `public void ResumeView()`
 
-**用途 / Purpose:** 处理 `resume view` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.ResumeView();
+```
 
 ### OnEndMissionInternal
 `public sealed override void OnEndMissionInternal()`
 
-**用途 / Purpose:** 当 `end mission internal` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission internal」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnEndMissionInternal();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionView 实例
+MissionView missionView = ...;
+missionView.OnRemoveBehavior();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionView();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionView instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

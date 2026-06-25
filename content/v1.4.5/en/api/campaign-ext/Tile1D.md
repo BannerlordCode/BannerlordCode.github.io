@@ -1,20 +1,14 @@
 ---
 title: "Tile1D"
+description: "Auto-generated class reference for Tile1D."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Tile1D`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Tile1D
 
 **Namespace:** SandBox.BoardGames.Tiles
 **Module:** SandBox.BoardGames
 **Type:** `public class Tile1D : TileBase`
 **Base:** `TileBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/Tile1D.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/Tile1D.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `SandBox.BoardGames.Tiles` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new Tile1D();
+// Obtain an instance from the relevant subsystem API
+Tile1D instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

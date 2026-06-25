@@ -1,20 +1,14 @@
 ---
 title: "GangLeaderNeedsToOffloadStolenGoodsIssueQuest"
+description: "Auto-generated class reference for GangLeaderNeedsToOffloadStolenGoodsIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GangLeaderNeedsToOffloadStolenGoodsIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GangLeaderNeedsToOffloadStolenGoodsIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GangLeaderNeedsToOffloadStolenGoodsIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/GangLeaderNeedsToOffloadStolenGoodsIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/GangLeaderNeedsToOffloadStolenGoodsIssueBehavior.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssueQuest from the subsystem API first
+GangLeaderNeedsToOffloadStolenGoodsIssueQuest gangLeaderNeedsToOffloadStolenGoodsIssueQuest = ...;
+gangLeaderNeedsToOffloadStolenGoodsIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GangLeaderNeedsToOffloadStolenGoodsIssueQuest();
-value.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+// Typically call this after obtaining an instance from the subsystem API
+GangLeaderNeedsToOffloadStolenGoodsIssueQuest gangLeaderNeedsToOffloadStolenGoodsIssueQuest = ...;
+gangLeaderNeedsToOffloadStolenGoodsIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

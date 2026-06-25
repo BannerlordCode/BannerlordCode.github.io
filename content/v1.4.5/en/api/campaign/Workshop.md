@@ -1,20 +1,14 @@
 ---
 title: "Workshop"
+description: "Auto-generated class reference for Workshop."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Workshop`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Workshop
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Workshops
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Workshop : SettlementArea`
 **Base:** `SettlementArea`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/Workshop.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/Workshop.cs`
 
 ## Overview
 
@@ -38,60 +32,121 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Workshops` to place 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+var result = workshop.GetHashCode();
+```
 
 ### InitializeWorkshop
 `public void InitializeWorkshop(Hero owner, WorkshopType type)`
 
-**Purpose:** Initializes the state, resources, or bindings for `workshop`.
+**Purpose:** Prepares the resources, state, or bindings required by `workshop`.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+workshop.InitializeWorkshop(owner, type);
+```
 
 ### ChangeOwnerOfWorkshop
 `public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)`
 
-**Purpose:** Handles logic related to `change owner of workshop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+workshop.ChangeOwnerOfWorkshop(newOwner, type, 0);
+```
 
 ### ChangeWorkshopProduction
 `public void ChangeWorkshopProduction(WorkshopType newWorkshopType)`
 
-**Purpose:** Handles logic related to `change workshop production`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+workshop.ChangeWorkshopProduction(newWorkshopType);
+```
 
 ### SetCustomName
 `public void SetCustomName(TextObject customName)`
 
-**Purpose:** Sets the value or state of `custom name`.
+**Purpose:** Assigns a new value to `custom name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+workshop.SetCustomName(customName);
+```
 
 ### UpdateLastRunTime
 `public void UpdateLastRunTime()`
 
-**Purpose:** Updates the state or data of `last run time`.
+**Purpose:** Recalculates and stores the latest representation of `last run time`.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+workshop.UpdateLastRunTime();
+```
 
 ### SetProgress
 `public void SetProgress(int i, float value)`
 
-**Purpose:** Sets the value or state of `progress`.
+**Purpose:** Assigns a new value to `progress` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+workshop.SetProgress(0, 0);
+```
 
 ### ChangeGold
 `public void ChangeGold(int goldChange)`
 
-**Purpose:** Handles logic related to `change gold`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+workshop.ChangeGold(0);
+```
 
 ### GetProductionProgress
 `public float GetProductionProgress(int index)`
 
-**Purpose:** Gets the current value of `production progress`.
+**Purpose:** Reads and returns the `production progress` value held by the current object.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+var result = workshop.GetProductionProgress(0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Workshop from the subsystem API first
+Workshop workshop = ...;
+var result = workshop.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Workshop();
-value.GetHashCode();
+// Typically call this after obtaining an instance from the subsystem API
+Workshop workshop = ...;
+workshop.GetHashCode();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

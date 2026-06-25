@@ -1,20 +1,14 @@
 ---
 title: "ConversationHelper"
+description: "ConversationHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationHelper`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationHelper
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class ConversationHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationHelper.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "ConversationHelper"
 ### HeroRefersToHero
 `public static string HeroRefersToHero(Hero talkTroop, Hero referringTo, bool uppercaseFirst)`
 
-**用途 / Purpose:** 处理 `hero refers to hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ConversationHelper.HeroRefersToHero(talkTroop, referringTo, false);
+```
 
 ### GetHeroRelationToHeroTextShort
 `public static string GetHeroRelationToHeroTextShort(Hero queriedHero, Hero baseHero, bool uppercaseFirst)`
 
-**用途 / Purpose:** 获取 `hero relation to hero text short` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hero relation to hero text short」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ConversationHelper.GetHeroRelationToHeroTextShort(queriedHero, baseHero, false);
+```
 
 ### GetConversationCharacterPartyLeader
 `public static CharacterObject GetConversationCharacterPartyLeader(PartyBase party)`
 
-**用途 / Purpose:** 获取 `conversation character party leader` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation character party leader」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ConversationHelper.GetConversationCharacterPartyLeader(party);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ ConversationHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PlayerAttackAlleyLogEntry"
+description: "PlayerAttackAlleyLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerAttackAlleyLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerAttackAlleyLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerAttackAlleyLogEntry : LogEntry`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/PlayerAttackAlleyLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/PlayerAttackAlleyLogEntry.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "PlayerAttackAlleyLogEntry"
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**用途 / Purpose:** 获取 `importance for clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「importance for clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerAttackAlleyLogEntry 实例
+PlayerAttackAlleyLogEntry playerAttackAlleyLogEntry = ...;
+var result = playerAttackAlleyLogEntry.GetImportanceForClan(clan);
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**用途 / Purpose:** 获取 `conversation score and comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation score and comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerAttackAlleyLogEntry 实例
+PlayerAttackAlleyLogEntry playerAttackAlleyLogEntry = ...;
+playerAttackAlleyLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerAttackAlleyLogEntry 实例
+PlayerAttackAlleyLogEntry playerAttackAlleyLogEntry = ...;
+var result = playerAttackAlleyLogEntry.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerAttackAlleyLogEntry();
-value.GetImportanceForClan(clan);
+// 通常从对应子系统 API 获取实例后调用
+PlayerAttackAlleyLogEntry playerAttackAlleyLogEntry = ...;
+playerAttackAlleyLogEntry.GetImportanceForClan(clan);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

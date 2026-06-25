@@ -1,13 +1,7 @@
 ---
 title: "FillBarVerticalWidget"
+description: "Auto-generated class reference for FillBarVerticalWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillBarVerticalWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FillBarVerticalWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -43,9 +37,10 @@ Treat `FillBarVerticalWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new FillBarVerticalWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FillBarVerticalWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

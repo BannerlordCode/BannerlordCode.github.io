@@ -1,20 +1,14 @@
 ---
 title: "ConversationScreenButtonWidget"
+description: "ConversationScreenButtonWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationScreenButtonWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationScreenButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConversationScreenButtonWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationScreenButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationScreenButtonWidget.cs`
 
 ## 概述
 
@@ -37,14 +31,21 @@ title: "ConversationScreenButtonWidget"
 ### ConversationScreenButtonWidget
 `public class ConversationScreenButtonWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `conversation screen button widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationScreenButtonWidget 实例
+ConversationScreenButtonWidget conversationScreenButtonWidget = ...;
+var result = conversationScreenButtonWidget.ConversationScreenButtonWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ConversationScreenButtonWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ConversationScreenButtonWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MessageContractHandlerManager"
+description: "Auto-generated class reference for MessageContractHandlerManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageContractHandlerManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageContractHandlerManager
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class MessageContractHandlerManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/MessageContractHandlerManager.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageContractHandlerManager.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `MessageContractHandlerManager` as a Manager-style extension point: first 
 ### HandleMessage
 `public void HandleMessage(MessageContract messageContract)`
 
-**Purpose:** Handles the `message` event or callback.
+**Purpose:** Executes the response logic associated with `message`.
+
+```csharp
+// Obtain an instance of MessageContractHandlerManager from the subsystem API first
+MessageContractHandlerManager messageContractHandlerManager = ...;
+messageContractHandlerManager.HandleMessage(messageContract);
+```
 
 ### HandleNetworkMessage
 `public void HandleNetworkMessage(NetworkMessage networkMessage)`
 
-**Purpose:** Handles the `network message` event or callback.
+**Purpose:** Executes the response logic associated with `network message`.
+
+```csharp
+// Obtain an instance of MessageContractHandlerManager from the subsystem API first
+MessageContractHandlerManager messageContractHandlerManager = ...;
+messageContractHandlerManager.HandleNetworkMessage(networkMessage);
+```
 
 ### ContainsMessageHandler
 `public bool ContainsMessageHandler(byte id)`
 
-**Purpose:** Handles logic related to `contains message handler`.
+**Purpose:** Indicates whether the current object contains `message handler`.
+
+```csharp
+// Obtain an instance of MessageContractHandlerManager from the subsystem API first
+MessageContractHandlerManager messageContractHandlerManager = ...;
+var result = messageContractHandlerManager.ContainsMessageHandler(0);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var manager = MessageContractHandlerManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

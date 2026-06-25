@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerScoreboardEndOfBattlePanelWidget"
+description: "Auto-generated class reference for MultiplayerScoreboardEndOfBattlePanelWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerScoreboardEndOfBattlePanelWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardEndOfBattlePanelWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerScoreboardEndOfBattlePanelWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardEndOfBattlePanelWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardEndOfBattlePanelWidget.cs`
 
 ## Overview
 
@@ -37,19 +31,32 @@ Treat `MultiplayerScoreboardEndOfBattlePanelWidget` as a Widget-style extension 
 ### MultiplayerScoreboardEndOfBattlePanelWidget
 `public class MultiplayerScoreboardEndOfBattlePanelWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer scoreboard end of battle panel widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerScoreboardEndOfBattlePanelWidget from the subsystem API first
+MultiplayerScoreboardEndOfBattlePanelWidget multiplayerScoreboardEndOfBattlePanelWidget = ...;
+var result = multiplayerScoreboardEndOfBattlePanelWidget.MultiplayerScoreboardEndOfBattlePanelWidget(context);
+```
 
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Handles logic related to `start animation`.
+**Purpose:** Starts the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerScoreboardEndOfBattlePanelWidget from the subsystem API first
+MultiplayerScoreboardEndOfBattlePanelWidget multiplayerScoreboardEndOfBattlePanelWidget = ...;
+multiplayerScoreboardEndOfBattlePanelWidget.StartAnimation();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerScoreboardEndOfBattlePanelWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerScoreboardEndOfBattlePanelWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

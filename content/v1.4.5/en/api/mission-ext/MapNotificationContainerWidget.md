@@ -1,20 +1,14 @@
 ---
 title: "MapNotificationContainerWidget"
+description: "Auto-generated class reference for MapNotificationContainerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNotificationContainerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNotificationContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapNotificationContainerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification/MapNotificationContainerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification/MapNotificationContainerWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `MapNotificationContainerWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new MapNotificationContainerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapNotificationContainerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

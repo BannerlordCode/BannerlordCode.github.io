@@ -1,18 +1,12 @@
 ---
 title: "IAgentVisual"
+description: "Auto-generated class reference for IAgentVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAgentVisual`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IAgentVisual
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IAgentVisual`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IAgentVisual.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IAgentVisual implementation = GetAgentVisualImplementation();
+// Usually obtained through DI or a factory method
+IIAgentVisual service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

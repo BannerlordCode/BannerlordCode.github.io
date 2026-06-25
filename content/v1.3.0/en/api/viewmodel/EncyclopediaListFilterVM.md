@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListFilterVM"
+description: "Auto-generated class reference for EncyclopediaListFilterVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListFilterVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListFilterVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaListFilterVM from the subsystem API first
+EncyclopediaListFilterVM encyclopediaListFilterVM = ...;
+encyclopediaListFilterVM.RefreshValues();
+```
 
 ### CopyFilterFrom
 `public void CopyFilterFrom(Dictionary<EncyclopediaFilterItem, bool> filters)`
 
-**Purpose:** Handles logic related to `copy filter from`.
+**Purpose:** Copies the `filter from` state of the current object to a target.
+
+```csharp
+// Obtain an instance of EncyclopediaListFilterVM from the subsystem API first
+EncyclopediaListFilterVM encyclopediaListFilterVM = ...;
+encyclopediaListFilterVM.CopyFilterFrom(dictionary<EncyclopediaFilterItem, false);
+```
 
 ### ExecuteOnFilterActivated
 `public void ExecuteOnFilterActivated()`
 
-**Purpose:** Executes the `on filter activated` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `on filter activated`.
+
+```csharp
+// Obtain an instance of EncyclopediaListFilterVM from the subsystem API first
+EncyclopediaListFilterVM encyclopediaListFilterVM = ...;
+encyclopediaListFilterVM.ExecuteOnFilterActivated();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaListFilterVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaListFilterVM encyclopediaListFilterVM = ...;
+encyclopediaListFilterVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

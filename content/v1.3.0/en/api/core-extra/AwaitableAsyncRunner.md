@@ -1,13 +1,7 @@
 ---
 title: "AwaitableAsyncRunner"
+description: "Auto-generated class reference for AwaitableAsyncRunner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AwaitableAsyncRunner`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AwaitableAsyncRunner
 
 **Namespace:** TaleWorlds.Library
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RunAsync
 `public abstract Task RunAsync()`
 
-**Purpose:** Handles logic related to `run async`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AwaitableAsyncRunner from the subsystem API first
+AwaitableAsyncRunner awaitableAsyncRunner = ...;
+var result = awaitableAsyncRunner.RunAsync();
+```
 
 ### OnTick
 `public abstract void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of AwaitableAsyncRunner from the subsystem API first
+AwaitableAsyncRunner awaitableAsyncRunner = ...;
+awaitableAsyncRunner.OnTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAwaitableAsyncRunner();
+// Typically obtained from a subsystem API or factory
+AwaitableAsyncRunner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

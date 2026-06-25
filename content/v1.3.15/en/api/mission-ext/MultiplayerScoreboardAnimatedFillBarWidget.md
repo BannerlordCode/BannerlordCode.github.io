@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerScoreboardAnimatedFillBarWidget"
+description: "Auto-generated class reference for MultiplayerScoreboardAnimatedFillBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerScoreboardAnimatedFillBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardAnimatedFillBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
@@ -39,24 +33,43 @@ Treat `MultiplayerScoreboardAnimatedFillBarWidget` as a Widget-style extension p
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Handles logic related to `start animation`.
+**Purpose:** Starts the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerScoreboardAnimatedFillBarWidget from the subsystem API first
+MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
+multiplayerScoreboardAnimatedFillBarWidget.StartAnimation();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MultiplayerScoreboardAnimatedFillBarWidget from the subsystem API first
+MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
+multiplayerScoreboardAnimatedFillBarWidget.Reset();
+```
 
 ### FullFillFinishedHandler
 `public delegate void FullFillFinishedHandler()`
 
-**Purpose:** Handles logic related to `full fill finished handler`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerScoreboardAnimatedFillBarWidget from the subsystem API first
+MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
+multiplayerScoreboardAnimatedFillBarWidget.FullFillFinishedHandler();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerScoreboardAnimatedFillBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerScoreboardAnimatedFillBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

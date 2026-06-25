@@ -1,20 +1,14 @@
 ---
 title: "ContainerItemDescription"
+description: "Auto-generated class reference for ContainerItemDescription."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContainerItemDescription`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerItemDescription
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ContainerItemDescription`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ContainerItemDescription.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ContainerItemDescription.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new ContainerItemDescription();
+// Obtain an instance from the relevant subsystem API
+ContainerItemDescription instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

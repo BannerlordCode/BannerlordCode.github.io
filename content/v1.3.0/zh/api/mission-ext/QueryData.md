@@ -1,13 +1,7 @@
 ---
 title: "QueryData"
+description: "QueryData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QueryData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QueryData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,49 +29,97 @@ title: "QueryData"
 ### Evaluate
 `public void Evaluate(float currentTime)`
 
-**用途 / Purpose:** 处理 `evaluate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 QueryData 实例
+QueryData queryData = ...;
+queryData.Evaluate(0);
+```
 
 ### SetValue
 `public void SetValue(T value, float currentTime)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 QueryData 实例
+QueryData queryData = ...;
+queryData.SetValue(value, 0);
+```
 
 ### GetCachedValue
 `public T GetCachedValue()`
 
-**用途 / Purpose:** 获取 `cached value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cached value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 QueryData 实例
+QueryData queryData = ...;
+var result = queryData.GetCachedValue();
+```
 
 ### GetCachedValueUnlessTooOld
 `public T GetCachedValueUnlessTooOld()`
 
-**用途 / Purpose:** 获取 `cached value unless too old` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cached value unless too old」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 QueryData 实例
+QueryData queryData = ...;
+var result = queryData.GetCachedValueUnlessTooOld();
+```
 
 ### GetCachedValueWithMaxAge
 `public T GetCachedValueWithMaxAge(float age)`
 
-**用途 / Purpose:** 获取 `cached value with max age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cached value with max age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 QueryData 实例
+QueryData queryData = ...;
+var result = queryData.GetCachedValueWithMaxAge(0);
+```
 
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 处理 `expire` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 QueryData 实例
+QueryData queryData = ...;
+queryData.Expire();
+```
 
 ### SetupSyncGroup
 `public static void SetupSyncGroup(params IQueryData groupItems)`
 
-**用途 / Purpose:** 设置 `up sync group` 的值或状态。
+**用途 / Purpose:** 为 「up sync group」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+QueryData.SetupSyncGroup(groupItems);
+```
 
 ### SetSyncGroup
 `public void SetSyncGroup(IQueryData syncGroup)`
 
-**用途 / Purpose:** 设置 `sync group` 的值或状态。
+**用途 / Purpose:** 为 「sync group」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 QueryData 实例
+QueryData queryData = ...;
+queryData.SetSyncGroup(syncGroup);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new QueryData();
+// 该数据对象通常由战役/任务 API 返回
+QueryData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

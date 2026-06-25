@@ -1,18 +1,12 @@
 ---
 title: "IMissionSiegeWeaponsController"
+description: "Auto-generated class reference for IMissionSiegeWeaponsController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionSiegeWeaponsController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMissionSiegeWeaponsController
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMissionSiegeWeaponsController`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/Missions/IMissionSiegeWeaponsController.cs`
 
@@ -27,9 +21,10 @@ Treat `IMissionSiegeWeaponsController` as a Controller-style extension point: fi
 ## Usage Example
 
 ```csharp
-IMissionSiegeWeaponsController implementation = GetMissionSiegeWeaponsControllerImplementation();
+// Usually obtained through DI or a factory method
+IIMissionSiegeWeaponsController service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BuildingModel"
+description: "Auto-generated class reference for BuildingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `BuildingModel` as a Model-style extension point: first identify who creat
 ### CanAddBuildingTypeToTown
 `public abstract bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)`
 
-**Purpose:** Checks whether the current object can `add building type to town`.
+**Purpose:** Checks whether the current object meets the preconditions for `add building type to town`.
+
+```csharp
+// Obtain an instance of BuildingModel from the subsystem API first
+BuildingModel buildingModel = ...;
+var result = buildingModel.CanAddBuildingTypeToTown(buildingType, town);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBuildingModel();
+// Typically obtained from a subsystem API or factory
+BuildingModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CharacterTableauTextureProvider"
+description: "CharacterTableauTextureProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterTableauTextureProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterTableauTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterTableauTextureProvider : TextureProvider`
 **Base:** `TextureProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/CharacterTableauTextureProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/CharacterTableauTextureProvider.cs`
 
 ## 概述
 
@@ -59,25 +53,44 @@ title: "CharacterTableauTextureProvider"
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableauTextureProvider 实例
+CharacterTableauTextureProvider characterTableauTextureProvider = ...;
+characterTableauTextureProvider.Clear(false);
+```
 
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** 设置 `target size` 的值或状态。
+**用途 / Purpose:** 为 「target size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableauTextureProvider 实例
+CharacterTableauTextureProvider characterTableauTextureProvider = ...;
+characterTableauTextureProvider.SetTargetSize(0, 0);
+```
 
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableauTextureProvider 实例
+CharacterTableauTextureProvider characterTableauTextureProvider = ...;
+characterTableauTextureProvider.Tick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterTableauTextureProvider();
-value.Clear(false);
+// 通常从对应子系统 API 获取实例后调用
+CharacterTableauTextureProvider characterTableauTextureProvider = ...;
+characterTableauTextureProvider.Clear(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

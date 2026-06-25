@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleFormationWeightChangedEvent"
+description: "Auto-generated class reference for OrderOfBattleFormationWeightChangedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationWeightChangedEvent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationWeightChangedEvent
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleFormationWeightChangedEvent();
+// Obtain an instance from the relevant subsystem API
+OrderOfBattleFormationWeightChangedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

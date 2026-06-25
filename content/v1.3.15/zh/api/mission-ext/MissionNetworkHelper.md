@@ -1,19 +1,14 @@
 ---
 title: "MissionNetworkHelper"
+description: "MissionNetworkHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNetworkHelper`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionNetworkHelper
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public static class MissionNetworkHelper`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public static class MissionNetworkHelper`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 
@@ -23,132 +18,57 @@ title: "MissionNetworkHelper"
 
 把 `MissionNetworkHelper` 当作一个 Helper 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `Current` | `public static Mission Current { get; }` |
-| `SceneName` | `public string SceneName { get; }` |
-| `SceneLevels` | `public string SceneLevels { get; }` |
-| `DamageToPlayerMultiplier` | `public float DamageToPlayerMultiplier { get; }` |
-| `DamageToFriendsMultiplier` | `public float DamageToFriendsMultiplier { get; }` |
-| `DamageFromPlayerToFriendsMultiplier` | `public float DamageFromPlayerToFriendsMultiplier { get; }` |
-| `HasValidTerrainType` | `public bool HasValidTerrainType { get; }` |
-| `TerrainType` | `public TerrainType TerrainType { get; }` |
-| `Scene` | `public Scene Scene { get; }` |
-| `CustomCameraTargetLocalOffset` | `public Vec3 CustomCameraTargetLocalOffset { get; }` |
-| `CustomCameraLocalOffset` | `public Vec3 CustomCameraLocalOffset { get; }` |
-| `CustomCameraLocalOffset2` | `public Vec3 CustomCameraLocalOffset2 { get; }` |
-| `CustomCameraGlobalOffset` | `public Vec3 CustomCameraGlobalOffset { get; }` |
-| `CustomCameraLocalRotationalOffset` | `public Vec3 CustomCameraLocalRotationalOffset { get; }` |
-| `CustomCameraIgnoreCollision` | `public bool CustomCameraIgnoreCollision { get; }` |
-| `CustomCameraFovMultiplier` | `public float CustomCameraFovMultiplier { get; }` |
-| `CustomCameraFixedDistance` | `public float CustomCameraFixedDistance { get; }` |
-| `ListenerAndAttenuationPosBlendFactor` | `public float ListenerAndAttenuationPosBlendFactor { get; }` |
-| `IgnoredEntityForCamera` | `public GameEntity IgnoredEntityForCamera { get; }` |
-
 ## 主要方法
 
-### AddActiveMissionObject
-`public void AddActiveMissionObject(MissionObject missionObject)`
+### GetAgentFromIndex
+`public static Agent GetAgentFromIndex(int agentIndex, bool canBeNull = false)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `active mission object`。
+**用途 / Purpose:** 读取并返回当前对象中 「agent from index」 的结果。
 
-### ActivateMissionObject
-`public void ActivateMissionObject(MissionObject missionObject)`
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetAgentFromIndex(0, false);
+```
 
-**用途 / Purpose:** 处理 `activate mission object` 相关逻辑。
+### GetMBTeamFromTeamIndex
+`public static MBTeam GetMBTeamFromTeamIndex(int teamIndex)`
 
-### DeactivateMissionObject
-`public void DeactivateMissionObject(MissionObject missionObject)`
+**用途 / Purpose:** 读取并返回当前对象中 「m b team from team index」 的结果。
 
-**用途 / Purpose:** 处理 `deactivate mission object` 相关逻辑。
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetMBTeamFromTeamIndex(0);
+```
 
-### SetMissionCombatType
-`public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)`
+### GetTeamFromTeamIndex
+`public static Team GetTeamFromTeamIndex(int teamIndex)`
 
-**用途 / Purpose:** 设置 `mission combat type` 的值或状态。
+**用途 / Purpose:** 读取并返回当前对象中 「team from team index」 的结果。
 
-### ConversationCharacterChanged
-`public void ConversationCharacterChanged()`
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetTeamFromTeamIndex(0);
+```
 
-**用途 / Purpose:** 处理 `conversation character changed` 相关逻辑。
+### GetMissionObjectFromMissionObjectId
+`public static MissionObject GetMissionObjectFromMissionObjectId(MissionObjectId missionObjectId)`
 
-### SetMissionMode
-`public void SetMissionMode(MissionMode newMode, bool atStart)`
+**用途 / Purpose:** 读取并返回当前对象中 「mission object from mission object id」 的结果。
 
-**用途 / Purpose:** 设置 `mission mode` 的值或状态。
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetMissionObjectFromMissionObjectId(missionObjectId);
+```
 
-### GetAverageFps
-`public float GetAverageFps()`
+### GetCombatLogDataForCombatLogNetworkMessage
+`public static CombatLogData GetCombatLogDataForCombatLogNetworkMessage(CombatLogNetworkMessage message)`
 
-**用途 / Purpose:** 获取 `average fps` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「combat log data for combat log network message」 的结果。
 
-### GetFallAvoidSystemActive
-`public bool GetFallAvoidSystemActive()`
-
-**用途 / Purpose:** 获取 `fall avoid system active` 的当前值。
-
-### SetFallAvoidSystemActive
-`public void SetFallAvoidSystemActive(bool fallAvoidActive)`
-
-**用途 / Purpose:** 设置 `fall avoid system active` 的值或状态。
-
-### IsPositionInsideBoundaries
-`public bool IsPositionInsideBoundaries(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside boundaries` 相关逻辑。
-
-### IsPositionInsideHardBoundaries
-`public bool IsPositionInsideHardBoundaries(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside hard boundaries` 相关逻辑。
-
-### IsPositionInsideAnyBlockerNavMeshFace2D
-`public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside any blocker nav mesh face2 d` 相关逻辑。
-
-### IsPositionOnAnyBlockerNavMeshFace
-`public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)`
-
-**用途 / Purpose:** 处理 `is position on any blocker nav mesh face` 相关逻辑。
-
-### RayCastForClosestAgent
-`public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
-
-**用途 / Purpose:** 处理 `ray cast for closest agent` 相关逻辑。
-
-### RayCastForClosestAgentsLimbs
-`public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**用途 / Purpose:** 处理 `ray cast for closest agents limbs` 相关逻辑。
-
-### RayCastForGivenAgentsLimbs
-`public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**用途 / Purpose:** 处理 `ray cast for given agents limbs` 相关逻辑。
-
-### GetBiggestAgentCollisionPadding
-`public float GetBiggestAgentCollisionPadding()`
-
-**用途 / Purpose:** 获取 `biggest agent collision padding` 的当前值。
-
-### SetMissionCorpseFadeOutTimeInSeconds
-`public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)`
-
-**用途 / Purpose:** 设置 `mission corpse fade out time in seconds` 的值或状态。
-
-### SetOverrideCorpseCount
-`public void SetOverrideCorpseCount(int overrideCorpseCount)`
-
-**用途 / Purpose:** 设置 `override corpse count` 的值或状态。
-
-### SetReportStuckAgentsMode
-`public void SetReportStuckAgentsMode(bool value)`
-
-**用途 / Purpose:** 设置 `report stuck agents mode` 的值或状态。
+```csharp
+// 静态调用，不需要实例
+MissionNetworkHelper.GetCombatLogDataForCombatLogNetworkMessage(message);
+```
 
 ## 使用示例
 
@@ -158,5 +78,4 @@ MissionNetworkHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyHomeVM"
+description: "Auto-generated class reference for MPLobbyHomeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyHomeVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyHomeVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyHomeVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPLobbyHomeVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPLobbyHomeVM.cs`
 
 ## Overview
 
@@ -45,45 +39,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyHomeVM from the subsystem API first
+MPLobbyHomeVM mPLobbyHomeVM = ...;
+mPLobbyHomeVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyHomeVM from the subsystem API first
+MPLobbyHomeVM mPLobbyHomeVM = ...;
+mPLobbyHomeVM.OnTick(0);
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData, bool updateRating = true)`
 
-**Purpose:** Refreshes the display or cache of `player data`.
+**Purpose:** Keeps the display or cache of `player data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyHomeVM from the subsystem API first
+MPLobbyHomeVM mPLobbyHomeVM = ...;
+mPLobbyHomeVM.RefreshPlayerData(playerData, false);
+```
 
 ### OnMatchSelectionChanged
 `public void OnMatchSelectionChanged(string selectionInfo, bool isMatchFindPossible)`
 
-**Purpose:** Called when the `match selection changed` event is raised.
+**Purpose:** Invoked when the `match selection changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyHomeVM from the subsystem API first
+MPLobbyHomeVM mPLobbyHomeVM = ...;
+mPLobbyHomeVM.OnMatchSelectionChanged("example", false);
+```
 
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**Purpose:** Called when the `clan info changed` event is raised.
+**Purpose:** Invoked when the `clan info changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyHomeVM from the subsystem API first
+MPLobbyHomeVM mPLobbyHomeVM = ...;
+mPLobbyHomeVM.OnClanInfoChanged();
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** Called when the `player name updated` event is raised.
+**Purpose:** Invoked when the `player name updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyHomeVM from the subsystem API first
+MPLobbyHomeVM mPLobbyHomeVM = ...;
+mPLobbyHomeVM.OnPlayerNameUpdated("example");
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyHomeVM from the subsystem API first
+MPLobbyHomeVM mPLobbyHomeVM = ...;
+mPLobbyHomeVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyHomeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyHomeVM mPLobbyHomeVM = ...;
+mPLobbyHomeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

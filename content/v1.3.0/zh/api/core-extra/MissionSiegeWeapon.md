@@ -1,13 +1,7 @@
 ---
 title: "MissionSiegeWeapon"
+description: "MissionSiegeWeapon 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionSiegeWeapon`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeWeapon
 
 **Namespace:** TaleWorlds.Core
@@ -39,17 +33,33 @@ title: "MissionSiegeWeapon"
 ### CreateDefaultWeapon
 `public static MissionSiegeWeapon CreateDefaultWeapon(SiegeEngineType type)`
 
-**用途 / Purpose:** 创建一个 `default weapon` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「default weapon」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionSiegeWeapon.CreateDefaultWeapon(type);
+```
 
 ### CreateCampaignWeapon
 `public static MissionSiegeWeapon CreateCampaignWeapon(SiegeEngineType type, int index, float health, float maxHealth)`
 
-**用途 / Purpose:** 创建一个 `campaign weapon` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「campaign weapon」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionSiegeWeapon.CreateCampaignWeapon(type, 0, 0, 0);
+```
 
 ### SetHealth
 `public void SetHealth(float health)`
 
-**用途 / Purpose:** 设置 `health` 的值或状态。
+**用途 / Purpose:** 为 「health」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSiegeWeapon 实例
+MissionSiegeWeapon missionSiegeWeapon = ...;
+missionSiegeWeapon.SetHealth(0);
+```
 
 ## 使用示例
 
@@ -59,4 +69,4 @@ MissionSiegeWeapon.CreateDefaultWeapon(type);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

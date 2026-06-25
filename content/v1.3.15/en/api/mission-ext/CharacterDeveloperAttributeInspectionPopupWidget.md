@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperAttributeInspectionPopupWidget"
+description: "Auto-generated class reference for CharacterDeveloperAttributeInspectionPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperAttributeInspectionPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperAttributeInspectionPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
@@ -33,9 +27,10 @@ Treat `CharacterDeveloperAttributeInspectionPopupWidget` as a Widget-style exten
 ## Usage Example
 
 ```csharp
-var widget = new CharacterDeveloperAttributeInspectionPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterDeveloperAttributeInspectionPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

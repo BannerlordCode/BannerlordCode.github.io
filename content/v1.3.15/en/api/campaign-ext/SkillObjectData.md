@@ -1,20 +1,14 @@
 ---
 title: "SkillObjectData"
+description: "Auto-generated class reference for SkillObjectData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillObjectData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkillObjectData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SkillObjectData : CharacterData.PropertyObjectData`
 **Base:** `CharacterData.PropertyObjectData`
-**Area:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/CharacterData.cs`
 
 ## Overview
 
@@ -24,25 +18,13 @@ title: "SkillObjectData"
 
 Treat `SkillObjectData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
-## Key Methods
-
-### ExportCharacter
-`public static void ExportCharacter(Hero hero, string path)`
-
-**Purpose:** Handles logic related to `export character`.
-
-### ImportCharacter
-`public static void ImportCharacter(Hero hero, string path)`
-
-**Purpose:** Handles logic related to `import character`.
-
 ## Usage Example
 
 ```csharp
-var value = new SkillObjectData();
+// This data object is usually returned by campaign/mission APIs
+SkillObjectData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

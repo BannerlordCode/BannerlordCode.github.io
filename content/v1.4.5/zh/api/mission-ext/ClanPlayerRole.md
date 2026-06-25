@@ -1,20 +1,14 @@
 ---
 title: "ClanPlayerRole"
+description: "ClanPlayerRole 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanPlayerRole`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanPlayerRole
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum ClanPlayerRole`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanPlayerRole.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanPlayerRole.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ClanPlayerRole"
 ## 使用示例
 
 ```csharp
-var example = new ClanPlayerRole();
+// 从对应子系统 API 获取实例
+ClanPlayerRole instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

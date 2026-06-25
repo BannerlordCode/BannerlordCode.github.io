@@ -1,13 +1,7 @@
 ---
 title: "UnderwearTypes"
+description: "Auto-generated class reference for UnderwearTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UnderwearTypes`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UnderwearTypes
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-UnderwearTypes example = UnderwearTypes.Value;
+// Obtain an instance from the relevant subsystem API
+UnderwearTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

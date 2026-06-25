@@ -1,20 +1,14 @@
 ---
 title: "MobilePartyAIModel"
+description: "MobilePartyAIModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MobilePartyAIModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyAIModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class MobilePartyAIModel : MBGameModel<MobilePartyAIModel>`
 **Base:** `MBGameModel<MobilePartyAIModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MobilePartyAIModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MobilePartyAIModel.cs`
 
 ## 概述
 
@@ -45,39 +39,76 @@ title: "MobilePartyAIModel"
 ### ShouldConsiderAvoiding
 `public abstract bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** 处理 `should consider avoiding` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyAIModel 实例
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.ShouldConsiderAvoiding(party, targetParty);
+```
 
 ### ShouldConsiderAttacking
 `public abstract bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** 处理 `should consider attacking` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyAIModel 实例
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.ShouldConsiderAttacking(party, targetParty);
+```
 
 ### GetPatrolRadius
 `public abstract float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)`
 
-**用途 / Purpose:** 获取 `patrol radius` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「patrol radius」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyAIModel 实例
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.GetPatrolRadius(mobileParty, patrolPoint);
+```
 
 ### GetSettlementNearbyThreatAndAllyCheckRadius
 `public abstract float GetSettlementNearbyThreatAndAllyCheckRadius(Settlement settlement, bool isPort)`
 
-**用途 / Purpose:** 获取 `settlement nearby threat and ally check radius` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「settlement nearby threat and ally check radius」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyAIModel 实例
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.GetSettlementNearbyThreatAndAllyCheckRadius(settlement, false);
+```
 
 ### ShouldPartyCheckInitiativeBehavior
 `public abstract bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `should party check initiative behavior` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyAIModel 实例
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.ShouldPartyCheckInitiativeBehavior(mobileParty);
+```
 
 ### GetBestInitiativeBehavior
 `public abstract void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)`
 
-**用途 / Purpose:** 获取 `best initiative behavior` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「best initiative behavior」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyAIModel 实例
+MobilePartyAIModel mobilePartyAIModel = ...;
+mobilePartyAIModel.GetBestInitiativeBehavior(mobileParty, bestInitiativeBehavior, bestInitiativeTargetParty, bestInitiativeBehaviorScore, averageEnemyVec);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMobilePartyAIModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MobilePartyAIModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

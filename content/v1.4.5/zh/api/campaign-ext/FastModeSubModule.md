@@ -1,20 +1,14 @@
 ---
 title: "FastModeSubModule"
+description: "FastModeSubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FastModeSubModule`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FastModeSubModule
 
 **Namespace:** TaleWorlds.CampaignSystem.FastMode
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FastModeSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.FastMode/TaleWorlds.CampaignSystem.FastMode/FastModeSubModule.cs`
+**File:** `Modules.FastMode/TaleWorlds.CampaignSystem.FastMode/FastModeSubModule.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "FastModeSubModule"
 ## 使用示例
 
 ```csharp
-var value = new FastModeSubModule();
+// 从对应子系统 API 获取实例
+FastModeSubModule instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "Font"
+description: "Font 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Font`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Font
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class Font`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Font.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Font.cs`
 
 ## 概述
 
@@ -44,30 +38,55 @@ title: "Font"
 ### TryLoadFontFromPath
 `public bool TryLoadFontFromPath(string path, SpriteData spriteData)`
 
-**用途 / Purpose:** 尝试获取 `load font from path`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「load font from path」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 Font 实例
+Font font = ...;
+var result = font.TryLoadFontFromPath("example", spriteData);
+```
 
 ### GetWordWidth
 `public float GetWordWidth(string word, float extraPadding)`
 
-**用途 / Purpose:** 获取 `word width` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「word width」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Font 实例
+Font font = ...;
+var result = font.GetWordWidth("example", 0);
+```
 
 ### GetCharacterWidth
 `public float GetCharacterWidth(char character, float extraPadding)`
 
-**用途 / Purpose:** 获取 `character width` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character width」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Font 实例
+Font font = ...;
+var result = font.GetCharacterWidth(character, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Font 实例
+Font font = ...;
+var result = font.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Font();
-value.TryLoadFontFromPath("example", spriteData);
+// 通常从对应子系统 API 获取实例后调用
+Font font = ...;
+font.TryLoadFontFromPath("example", spriteData);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

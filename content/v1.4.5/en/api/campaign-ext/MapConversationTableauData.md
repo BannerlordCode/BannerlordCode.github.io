@@ -1,20 +1,14 @@
 ---
 title: "MapConversationTableauData"
+description: "Auto-generated class reference for MapConversationTableauData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationTableauData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationTableauData
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapConversationTableauData`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationTableauData.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationTableauData.cs`
 
 ## Overview
 
@@ -43,14 +37,20 @@ Treat `MapConversationTableauData` as a Data-style extension point: first identi
 ### CreateFrom
 `public static MapConversationTableauData CreateFrom(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, TerrainType terrainType, float timeOfDay, bool isCurrentTerrainUnderSnow, Settlement settlement, string locationId, bool isRaining, bool isSnowing)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MapConversationTableauData.CreateFrom(playerCharacterData, conversationPartnerData, terrainType, 0, false, settlement, "example", false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapConversationTableauData();
+// This data object is usually returned by campaign/mission APIs
+MapConversationTableauData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementProsperityModel"
+description: "DefaultSettlementProsperityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSettlementProsperityModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementProsperityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementProsperityModel : SettlementProsperityModel`
 **Base:** `SettlementProsperityModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementProsperityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementProsperityModel.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "DefaultSettlementProsperityModel"
 ### CalculateProsperityChange
 `public override ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate prosperity change` 相关逻辑。
+**用途 / Purpose:** 计算「prosperity change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementProsperityModel 实例
+DefaultSettlementProsperityModel defaultSettlementProsperityModel = ...;
+var result = defaultSettlementProsperityModel.CalculateProsperityChange(fortification, false);
+```
 
 ### CalculateHearthChange
 `public override ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate hearth change` 相关逻辑。
+**用途 / Purpose:** 计算「hearth change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementProsperityModel 实例
+DefaultSettlementProsperityModel defaultSettlementProsperityModel = ...;
+var result = defaultSettlementProsperityModel.CalculateHearthChange(village, false);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultSettlementProsperityModel>(new MyDefaultSettlem
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

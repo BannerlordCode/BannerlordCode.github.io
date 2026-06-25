@@ -1,20 +1,14 @@
 ---
 title: "TrainingField"
+description: "Auto-generated class reference for TrainingField."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingField`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingField
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class TrainingField : SettlementComponent`
 **Base:** `SettlementComponent`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/TrainingField.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/TrainingField.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of TrainingField from the subsystem API first
+TrainingField trainingField = ...;
+trainingField.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrainingField();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+TrainingField trainingField = ...;
+trainingField.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

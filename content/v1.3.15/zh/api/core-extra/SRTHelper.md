@@ -1,13 +1,7 @@
 ---
 title: "SRTHelper"
+description: "SRTHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SRTHelper`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SRTHelper
 
 **Namespace:** TaleWorlds.Library
@@ -37,17 +31,33 @@ title: "SRTHelper"
 ### ParseStream
 `public static List<SRTHelper.SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
-**用途 / Purpose:** 处理 `parse stream` 相关逻辑。
+**用途 / Purpose:** 将外部输入解析为当前系统可识别的「stream」。
+
+```csharp
+// 静态调用，不需要实例
+SRTHelper.ParseStream(subtitleStream, encoding);
+```
 
 ### CopyStream
 `public static Stream CopyStream(Stream inputStream)`
 
-**用途 / Purpose:** 处理 `copy stream` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「stream」状态复制到目标对象。
+
+```csharp
+// 静态调用，不需要实例
+SRTHelper.CopyStream(inputStream);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 SRTHelper 实例
+SRTHelper sRTHelper = ...;
+var result = sRTHelper.ToString();
+```
 
 ## 使用示例
 
@@ -57,4 +67,4 @@ SRTHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

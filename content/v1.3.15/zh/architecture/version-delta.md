@@ -93,6 +93,6 @@ description: Bannerlord v1.3.0 / v1.3.15 / v1.4.5 模块差异对照
 
 ## 参见
 
-- [SDK 总览](./sdk-overview)
-- [模块系统](./module-system)
+- [SDK 总览](sdk-overview/)
+- [模块系统](module-system/)
 - [🔀 跨版本类对比（逐类 API 差异）](/versions/)

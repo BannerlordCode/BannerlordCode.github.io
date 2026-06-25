@@ -1,20 +1,14 @@
 ---
 title: "MissionScoreboardHeaderItemVM"
+description: "Auto-generated class reference for MissionScoreboardHeaderItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionScoreboardHeaderItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardHeaderItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardHeaderItemVM : BindingListStringItem`
 **Base:** `BindingListStringItem`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardHeaderItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardHeaderItemVM.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ## Usage Example
 
 ```csharp
-var value = new MissionScoreboardHeaderItemVM();
+// Obtain an instance from the relevant subsystem API
+MissionScoreboardHeaderItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

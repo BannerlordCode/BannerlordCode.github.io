@@ -1,18 +1,12 @@
 ---
 title: "IFaceGeneratorHandler"
+description: "Auto-generated class reference for IFaceGeneratorHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IFaceGeneratorHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IFaceGeneratorHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IFaceGeneratorHandler`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IFaceGeneratorHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IFaceGeneratorHandler` as a Handler-style extension point: first identify
 ## Usage Example
 
 ```csharp
-IFaceGeneratorHandler implementation = GetFaceGeneratorHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIFaceGeneratorHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

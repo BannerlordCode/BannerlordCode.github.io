@@ -1,20 +1,14 @@
 ---
 title: "Workshop"
+description: "Workshop 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Workshop`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Workshop
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Workshops
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Workshop : SettlementArea`
 **Base:** `SettlementArea`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/Workshop.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/Workshop.cs`
 
 ## 概述
 
@@ -38,60 +32,121 @@ title: "Workshop"
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+var result = workshop.GetHashCode();
+```
 
 ### InitializeWorkshop
 `public void InitializeWorkshop(Hero owner, WorkshopType type)`
 
-**用途 / Purpose:** 初始化 `workshop` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「workshop」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+workshop.InitializeWorkshop(owner, type);
+```
 
 ### ChangeOwnerOfWorkshop
 `public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)`
 
-**用途 / Purpose:** 处理 `change owner of workshop` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+workshop.ChangeOwnerOfWorkshop(newOwner, type, 0);
+```
 
 ### ChangeWorkshopProduction
 `public void ChangeWorkshopProduction(WorkshopType newWorkshopType)`
 
-**用途 / Purpose:** 处理 `change workshop production` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+workshop.ChangeWorkshopProduction(newWorkshopType);
+```
 
 ### SetCustomName
 `public void SetCustomName(TextObject customName)`
 
-**用途 / Purpose:** 设置 `custom name` 的值或状态。
+**用途 / Purpose:** 为 「custom name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+workshop.SetCustomName(customName);
+```
 
 ### UpdateLastRunTime
 `public void UpdateLastRunTime()`
 
-**用途 / Purpose:** 更新 `last run time` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「last run time」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+workshop.UpdateLastRunTime();
+```
 
 ### SetProgress
 `public void SetProgress(int i, float value)`
 
-**用途 / Purpose:** 设置 `progress` 的值或状态。
+**用途 / Purpose:** 为 「progress」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+workshop.SetProgress(0, 0);
+```
 
 ### ChangeGold
 `public void ChangeGold(int goldChange)`
 
-**用途 / Purpose:** 处理 `change gold` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+workshop.ChangeGold(0);
+```
 
 ### GetProductionProgress
 `public float GetProductionProgress(int index)`
 
-**用途 / Purpose:** 获取 `production progress` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「production progress」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+var result = workshop.GetProductionProgress(0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Workshop 实例
+Workshop workshop = ...;
+var result = workshop.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Workshop();
-value.GetHashCode();
+// 通常从对应子系统 API 获取实例后调用
+Workshop workshop = ...;
+workshop.GetHashCode();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

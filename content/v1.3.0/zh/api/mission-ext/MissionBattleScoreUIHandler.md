@@ -1,13 +1,7 @@
 ---
 title: "MissionBattleScoreUIHandler"
+description: "MissionBattleScoreUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBattleScoreUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBattleScoreUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -27,9 +21,9 @@ title: "MissionBattleScoreUIHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBattleScoreUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionBattleScoreUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

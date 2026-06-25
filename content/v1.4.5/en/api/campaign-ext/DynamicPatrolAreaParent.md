@@ -1,20 +1,14 @@
 ---
 title: "DynamicPatrolAreaParent"
+description: "Auto-generated class reference for DynamicPatrolAreaParent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DynamicPatrolAreaParent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DynamicPatrolAreaParent
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class DynamicPatrolAreaParent : MissionObject`
 **Base:** `MissionObject`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/DynamicPatrolAreaParent.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/DynamicPatrolAreaParent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new DynamicPatrolAreaParent();
+// Obtain an instance from the relevant subsystem API
+DynamicPatrolAreaParent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

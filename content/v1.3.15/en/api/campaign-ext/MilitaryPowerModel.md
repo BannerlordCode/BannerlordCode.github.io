@@ -1,13 +1,7 @@
 ---
 title: "MilitaryPowerModel"
+description: "Auto-generated class reference for MilitaryPowerModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MilitaryPowerModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MilitaryPowerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,44 +23,87 @@ Treat `MilitaryPowerModel` as a Model-style extension point: first identify who 
 ### GetTroopPower
 `public abstract float GetTroopPower(CharacterObject troop, BattleSideEnum side, MapEvent.PowerCalculationContext context, float leaderModifier)`
 
-**Purpose:** Gets the current value of `troop power`.
+**Purpose:** Reads and returns the `troop power` value held by the current object.
+
+```csharp
+// Obtain an instance of MilitaryPowerModel from the subsystem API first
+MilitaryPowerModel militaryPowerModel = ...;
+var result = militaryPowerModel.GetTroopPower(troop, side, context, 0);
+```
 
 ### GetPowerOfParty
 `public abstract float GetPowerOfParty(PartyBase party, BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Gets the current value of `power of party`.
+**Purpose:** Reads and returns the `power of party` value held by the current object.
+
+```csharp
+// Obtain an instance of MilitaryPowerModel from the subsystem API first
+MilitaryPowerModel militaryPowerModel = ...;
+var result = militaryPowerModel.GetPowerOfParty(party, side, context);
+```
 
 ### GetContextModifier
 `public abstract float GetContextModifier(CharacterObject troop, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Gets the current value of `context modifier`.
+**Purpose:** Reads and returns the `context modifier` value held by the current object.
+
+```csharp
+// Obtain an instance of MilitaryPowerModel from the subsystem API first
+MilitaryPowerModel militaryPowerModel = ...;
+var result = militaryPowerModel.GetContextModifier(troop, battleSideEnum, context);
+```
 
 ### GetContextModifier
 `public abstract float GetContextModifier(Ship ship, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Gets the current value of `context modifier`.
+**Purpose:** Reads and returns the `context modifier` value held by the current object.
+
+```csharp
+// Obtain an instance of MilitaryPowerModel from the subsystem API first
+MilitaryPowerModel militaryPowerModel = ...;
+var result = militaryPowerModel.GetContextModifier(ship, battleSideEnum, context);
+```
 
 ### GetContextForPosition
 `public abstract MapEvent.PowerCalculationContext GetContextForPosition(CampaignVec2 position)`
 
-**Purpose:** Gets the current value of `context for position`.
+**Purpose:** Reads and returns the `context for position` value held by the current object.
+
+```csharp
+// Obtain an instance of MilitaryPowerModel from the subsystem API first
+MilitaryPowerModel militaryPowerModel = ...;
+var result = militaryPowerModel.GetContextForPosition(position);
+```
 
 ### GetDefaultTroopPower
 `public abstract float GetDefaultTroopPower(CharacterObject troop)`
 
-**Purpose:** Gets the current value of `default troop power`.
+**Purpose:** Reads and returns the `default troop power` value held by the current object.
+
+```csharp
+// Obtain an instance of MilitaryPowerModel from the subsystem API first
+MilitaryPowerModel militaryPowerModel = ...;
+var result = militaryPowerModel.GetDefaultTroopPower(troop);
+```
 
 ### GetPowerModifierOfHero
 `public abstract float GetPowerModifierOfHero(Hero leaderHero)`
 
-**Purpose:** Gets the current value of `power modifier of hero`.
+**Purpose:** Reads and returns the `power modifier of hero` value held by the current object.
+
+```csharp
+// Obtain an instance of MilitaryPowerModel from the subsystem API first
+MilitaryPowerModel militaryPowerModel = ...;
+var result = militaryPowerModel.GetPowerModifierOfHero(leaderHero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMilitaryPowerModel();
+// Typically obtained from a subsystem API or factory
+MilitaryPowerModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

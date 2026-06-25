@@ -1,20 +1,14 @@
 ---
 title: "NetworkCommunicator"
+description: "Auto-generated class reference for NetworkCommunicator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NetworkCommunicator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NetworkCommunicator
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class NetworkCommunicator : ICommunicator`
 **Base:** `ICommunicator`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NetworkCommunicator.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NetworkCommunicator.cs`
 
 ## Overview
 
@@ -48,45 +42,88 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetRelevantGameOptions
 `public void SetRelevantGameOptions(bool sendMeBloodEvents, bool sendMeSoundEvents)`
 
-**Purpose:** Sets the value or state of `relevant game options`.
+**Purpose:** Assigns a new value to `relevant game options` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NetworkCommunicator from the subsystem API first
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.SetRelevantGameOptions(false, false);
+```
 
 ### GetHost
 `public uint GetHost()`
 
-**Purpose:** Gets the current value of `host`.
+**Purpose:** Reads and returns the `host` value held by the current object.
+
+```csharp
+// Obtain an instance of NetworkCommunicator from the subsystem API first
+NetworkCommunicator networkCommunicator = ...;
+var result = networkCommunicator.GetHost();
+```
 
 ### GetReversedHost
 `public uint GetReversedHost()`
 
-**Purpose:** Gets the current value of `reversed host`.
+**Purpose:** Reads and returns the `reversed host` value held by the current object.
+
+```csharp
+// Obtain an instance of NetworkCommunicator from the subsystem API first
+NetworkCommunicator networkCommunicator = ...;
+var result = networkCommunicator.GetReversedHost();
+```
 
 ### GetPort
 `public ushort GetPort()`
 
-**Purpose:** Gets the current value of `port`.
+**Purpose:** Reads and returns the `port` value held by the current object.
+
+```csharp
+// Obtain an instance of NetworkCommunicator from the subsystem API first
+NetworkCommunicator networkCommunicator = ...;
+var result = networkCommunicator.GetPort();
+```
 
 ### UpdateConnectionInfoForReconnect
 `public void UpdateConnectionInfoForReconnect(PlayerConnectionInfo playerConnectionInfo, bool isAdmin)`
 
-**Purpose:** Updates the state or data of `connection info for reconnect`.
+**Purpose:** Recalculates and stores the latest representation of `connection info for reconnect`.
+
+```csharp
+// Obtain an instance of NetworkCommunicator from the subsystem API first
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.UpdateConnectionInfoForReconnect(playerConnectionInfo, false);
+```
 
 ### UpdateIndexForReconnectingPlayer
 `public void UpdateIndexForReconnectingPlayer(int newIndex)`
 
-**Purpose:** Updates the state or data of `index for reconnecting player`.
+**Purpose:** Recalculates and stores the latest representation of `index for reconnecting player`.
+
+```csharp
+// Obtain an instance of NetworkCommunicator from the subsystem API first
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.UpdateIndexForReconnectingPlayer(0);
+```
 
 ### UpdateForJoiningCustomGame
 `public void UpdateForJoiningCustomGame(bool isAdmin)`
 
-**Purpose:** Updates the state or data of `for joining custom game`.
+**Purpose:** Recalculates and stores the latest representation of `for joining custom game`.
+
+```csharp
+// Obtain an instance of NetworkCommunicator from the subsystem API first
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.UpdateForJoiningCustomGame(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NetworkCommunicator();
-value.SetRelevantGameOptions(false, false);
+// Typically call this after obtaining an instance from the subsystem API
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.SetRelevantGameOptions(false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

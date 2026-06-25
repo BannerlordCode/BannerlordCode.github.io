@@ -1,24 +1,18 @@
 ---
 title: "ContainerDefinition"
+description: "ContainerDefinition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ContainerDefinition`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ContainerDefinition
 
-**命名空间:** TaleWorlds.SaveSystem.Definition
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public class ContainerDefinition : TypeDefinitionBase`
+**Namespace:** TaleWorlds.SaveSystem.Definition
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class ContainerDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**领域:** save-system
+**File:** `TaleWorlds.SaveSystem/Definition/ContainerDefinition.cs`
 
 ## 概述
 
-`ContainerDefinition` 位于 `TaleWorlds.SaveSystem.Definition`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`ContainerDefinition` 位于 `TaleWorlds.SaveSystem.Definition`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -37,17 +31,22 @@ title: "ContainerDefinition"
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate, bool hasNoChildObject)`
 
-**用途 / Purpose:** 初始化 `for auto generation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「for auto generation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ContainerDefinition 实例
+ContainerDefinition containerDefinition = ...;
+containerDefinition.InitializeForAutoGeneration(collectObjectsDelegate, false);
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 ContainerDefinition 实例，再调用它的公开方法
-var value = new ContainerDefinition();
-value.InitializeForAutoGeneration(collectObjectsDelegate, false);
+// 通常从对应子系统 API 获取实例后调用
+ContainerDefinition containerDefinition = ...;
+containerDefinition.InitializeForAutoGeneration(collectObjectsDelegate, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

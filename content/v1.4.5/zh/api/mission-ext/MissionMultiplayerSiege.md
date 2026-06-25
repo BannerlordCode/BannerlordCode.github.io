@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerSiege"
+description: "MissionMultiplayerSiege 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerSiege`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerSiege
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerSiege : MissionMultiplayerGameModeBase, IAnalyticsFlagInfo, IMissionBehavior`
 **Base:** `MissionMultiplayerGameModeBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerSiege.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerSiege.cs`
 
 ## 概述
 
@@ -36,105 +30,220 @@ title: "MissionMultiplayerSiege"
 ### IncreaseAmount
 `public void IncreaseAmount(float deltaContribution)`
 
-**用途 / Purpose:** 处理 `increase amount` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.IncreaseAmount(0);
+```
 
 ### RegisterObjective
 `public bool RegisterObjective(GameEntity entity)`
 
-**用途 / Purpose:** 处理 `register objective` 相关逻辑。
+**用途 / Purpose:** 将「objective」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.RegisterObjective(entity);
+```
 
 ### AddContributionForObjective
 `public void AddContributionForObjective(GameEntity objectiveEntity, MissionPeer contributorPeer, float contribution)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `contribution for objective`。
+**用途 / Purpose:** 将 「contribution for objective」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.AddContributionForObjective(objectiveEntity, contributorPeer, 0);
+```
 
 ### GetAllContributorsForSideAndClear
 `public List<KeyValuePair<MissionPeer, float>> GetAllContributorsForSideAndClear(GameEntity objectiveEntity, BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `all contributors for side and clear` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all contributors for side and clear」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetAllContributorsForSideAndClear(objectiveEntity, side);
+```
 
 ### OnDestructableComponentDestroyedDelegate
 `public delegate void OnDestructableComponentDestroyedDelegate(DestructableComponent destructableComponent, ScriptComponentBehavior attackerScriptComponentBehaviour, MissionPeer contributors)`
 
-**用途 / Purpose:** 当 `destructable component destroyed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「destructable component destroyed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnDestructableComponentDestroyedDelegate(destructableComponent, attackerScriptComponentBehaviour, contributors);
+```
 
 ### OnObjectiveGoldGainedDelegate
 `public delegate void OnObjectiveGoldGainedDelegate(MissionPeer peer, int goldGain)`
 
-**用途 / Purpose:** 当 `objective gold gained delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「objective gold gained delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnObjectiveGoldGainedDelegate(peer, 0);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnBehaviorInitialize();
+```
 
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**用途 / Purpose:** 获取 `mission type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetMissionType();
+```
 
 ### UseRoundController
 `public override bool UseRoundController()`
 
-**用途 / Purpose:** 处理 `use round controller` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.UseRoundController();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnMissionTick(0);
+```
 
 ### CheckForMatchEnd
 `public override bool CheckForMatchEnd()`
 
-**用途 / Purpose:** 处理 `check for match end` 相关逻辑。
+**用途 / Purpose:** 检查「for match end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.CheckForMatchEnd();
+```
 
 ### GetWinnerTeam
 `public override Team GetWinnerTeam()`
 
-**用途 / Purpose:** 获取 `winner team` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「winner team」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetWinnerTeam();
+```
 
 ### GetFlagOwnerTeam
 `public Team GetFlagOwnerTeam(FlagCapturePoint flag)`
 
-**用途 / Purpose:** 获取 `flag owner team` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flag owner team」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetFlagOwnerTeam(flag);
+```
 
 ### CheckForWarmupEnd
 `public override bool CheckForWarmupEnd()`
 
-**用途 / Purpose:** 处理 `check for warmup end` 相关逻辑。
+**用途 / Purpose:** 检查「for warmup end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.CheckForWarmupEnd();
+```
 
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**用途 / Purpose:** 当 `peer changed team` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「peer changed team」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnPeerChangedTeam(peer, oldTeam, newTeam);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnRemoveBehavior();
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnClearScene();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMultiplayerSiege();
-value.IncreaseAmount(0);
+// 通常从对应子系统 API 获取实例后调用
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.IncreaseAmount(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

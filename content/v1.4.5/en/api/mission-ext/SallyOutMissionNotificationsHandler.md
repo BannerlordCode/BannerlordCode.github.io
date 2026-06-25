@@ -1,20 +1,14 @@
 ---
 title: "SallyOutMissionNotificationsHandler"
+description: "Auto-generated class reference for SallyOutMissionNotificationsHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SallyOutMissionNotificationsHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SallyOutMissionNotificationsHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SallyOutMissionNotificationsHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SallyOutMissionNotificationsHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SallyOutMissionNotificationsHandler.cs`
 
 ## Overview
 
@@ -29,34 +23,64 @@ Treat `SallyOutMissionNotificationsHandler` as a Handler-style extension point: 
 ### OnBesiegedSideFallsbackToKeep
 `public void OnBesiegedSideFallsbackToKeep()`
 
-**Purpose:** Called when the `besieged side fallsback to keep` event is raised.
+**Purpose:** Invoked when the `besieged side fallsback to keep` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnBesiegedSideFallsbackToKeep();
+```
 
 ### OnAfterStart
 `public void OnAfterStart()`
 
-**Purpose:** Called when the `after start` event is raised.
+**Purpose:** Invoked when the `after start` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnAfterStart();
+```
 
 ### OnMissionEnd
 `public void OnMissionEnd()`
 
-**Purpose:** Called when the `mission end` event is raised.
+**Purpose:** Invoked when the `mission end` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnMissionEnd();
+```
 
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnDeploymentFinished();
+```
 
 ### OnMissionTick
 `public void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
+SallyOutMissionNotificationsHandler sallyOutMissionNotificationsHandler = ...;
+sallyOutMissionNotificationsHandler.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SallyOutMissionNotificationsHandler());
+var behavior = Mission.Current.GetMissionBehavior<SallyOutMissionNotificationsHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

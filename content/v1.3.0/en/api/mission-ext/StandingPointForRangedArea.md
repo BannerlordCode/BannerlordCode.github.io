@@ -1,13 +1,7 @@
 ---
 title: "StandingPointForRangedArea"
+description: "Auto-generated class reference for StandingPointForRangedArea."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandingPointForRangedArea`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandingPointForRangedArea
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of StandingPointForRangedArea from the subsystem API first
+StandingPointForRangedArea standingPointForRangedArea = ...;
+var result = standingPointForRangedArea.IsDisabledForAgent(agent);
+```
 
 ### GetUsageScoreForAgent
 `public override float GetUsageScoreForAgent(Agent agent)`
 
-**Purpose:** Gets the current value of `usage score for agent`.
+**Purpose:** Reads and returns the `usage score for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of StandingPointForRangedArea from the subsystem API first
+StandingPointForRangedArea standingPointForRangedArea = ...;
+var result = standingPointForRangedArea.GetUsageScoreForAgent(agent);
+```
 
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**Purpose:** Checks whether the current object has/contains `alternative`.
+**Purpose:** Determines whether the current object already holds `alternative`.
+
+```csharp
+// Obtain an instance of StandingPointForRangedArea from the subsystem API first
+StandingPointForRangedArea standingPointForRangedArea = ...;
+var result = standingPointForRangedArea.HasAlternative();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of StandingPointForRangedArea from the subsystem API first
+StandingPointForRangedArea standingPointForRangedArea = ...;
+var result = standingPointForRangedArea.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StandingPointForRangedArea();
-value.IsDisabledForAgent(agent);
+// Typically call this after obtaining an instance from the subsystem API
+StandingPointForRangedArea standingPointForRangedArea = ...;
+standingPointForRangedArea.IsDisabledForAgent(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "QuestHelper"
+description: "Auto-generated class reference for QuestHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestHelper
 
 **Namespace:** Helpers
@@ -31,45 +25,90 @@ Treat `QuestHelper` as a Helper-style extension point: first identify who create
 
 **Purpose:** Adds `map arrow from point to target` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+QuestHelper.AddMapArrowFromPointToTarget(name, sourcePosition, targetPosition, 0, 0);
+```
+
 ### CheckGoldForAlternativeSolution
 `public static bool CheckGoldForAlternativeSolution(int requiredGold, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `check gold for alternative solution`.
+**Purpose:** Verifies whether `gold for alternative solution` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+QuestHelper.CheckGoldForAlternativeSolution(0, explanation);
+```
 
 ### GetAlternativeSolutionMeleeSkills
 `public static List<SkillObject> GetAlternativeSolutionMeleeSkills()`
 
-**Purpose:** Gets the current value of `alternative solution melee skills`.
+**Purpose:** Reads and returns the `alternative solution melee skills` value held by the current object.
+
+```csharp
+// Static call; no instance required
+QuestHelper.GetAlternativeSolutionMeleeSkills();
+```
 
 ### CheckRosterForAlternativeSolution
 `public static bool CheckRosterForAlternativeSolution(TroopRoster troopRoster, int requiredTroopCount, out TextObject explanation, int minimumTier = 0, bool mountedRequired = false)`
 
-**Purpose:** Handles logic related to `check roster for alternative solution`.
+**Purpose:** Verifies whether `roster for alternative solution` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+QuestHelper.CheckRosterForAlternativeSolution(troopRoster, 0, explanation, 0, false);
+```
 
 ### GetAlternativeSolutionRangedSkills
 `public static List<SkillObject> GetAlternativeSolutionRangedSkills()`
 
-**Purpose:** Gets the current value of `alternative solution ranged skills`.
+**Purpose:** Reads and returns the `alternative solution ranged skills` value held by the current object.
+
+```csharp
+// Static call; no instance required
+QuestHelper.GetAlternativeSolutionRangedSkills();
+```
 
 ### CheckMinorMajorCoercion
 `public static bool CheckMinorMajorCoercion(QuestBase questToCheck, MapEvent mapEvent, PartyBase attackerParty)`
 
-**Purpose:** Handles logic related to `check minor major coercion`.
+**Purpose:** Verifies whether `minor major coercion` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+QuestHelper.CheckMinorMajorCoercion(questToCheck, mapEvent, attackerParty);
+```
 
 ### ApplyGenericMinorMajorCoercionConsequences
 `public static void ApplyGenericMinorMajorCoercionConsequences(QuestBase quest, MapEvent mapEvent)`
 
-**Purpose:** Applies `generic minor major coercion consequences` to the current object.
+**Purpose:** Applies the effect of `generic minor major coercion consequences` to the current object.
+
+```csharp
+// Static call; no instance required
+QuestHelper.ApplyGenericMinorMajorCoercionConsequences(quest, mapEvent);
+```
 
 ### GetAveragePriceOfItemInTheWorld
 `public static int GetAveragePriceOfItemInTheWorld(ItemObject item)`
 
-**Purpose:** Gets the current value of `average price of item in the world`.
+**Purpose:** Reads and returns the `average price of item in the world` value held by the current object.
+
+```csharp
+// Static call; no instance required
+QuestHelper.GetAveragePriceOfItemInTheWorld(item);
+```
 
 ### CheckWarDeclarationAndFailOrCancelTheQuest
 `public static void CheckWarDeclarationAndFailOrCancelTheQuest(QuestBase questToCheck, IFaction faction1, IFaction faction2, DeclareWarAction.DeclareWarDetail detail, TextObject failLog, TextObject cancelLog, bool forceCancel = false)`
 
-**Purpose:** Handles logic related to `check war declaration and fail or cancel the quest`.
+**Purpose:** Verifies whether `war declaration and fail or cancel the quest` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+QuestHelper.CheckWarDeclarationAndFailOrCancelTheQuest(questToCheck, faction1, faction2, detail, failLog, cancelLog, false);
+```
 
 ## Usage Example
 
@@ -79,4 +118,4 @@ QuestHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

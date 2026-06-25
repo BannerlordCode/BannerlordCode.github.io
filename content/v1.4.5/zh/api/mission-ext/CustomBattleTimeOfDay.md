@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleTimeOfDay"
+description: "CustomBattleTimeOfDay 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleTimeOfDay`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleTimeOfDay
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum CustomBattleTimeOfDay`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleTimeOfDay.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleTimeOfDay.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "CustomBattleTimeOfDay"
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleTimeOfDay();
+// 从对应子系统 API 获取实例
+CustomBattleTimeOfDay instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

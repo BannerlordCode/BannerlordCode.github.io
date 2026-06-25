@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryVM"
+description: "Auto-generated class reference for MPArmoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryVM.cs`
 
 ## Overview
 
@@ -48,65 +42,131 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.OnFinalize();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.OnTick(0);
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**Purpose:** Refreshes the display or cache of `player data`.
+**Purpose:** Keeps the display or cache of `player data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.RefreshPlayerData(playerData);
+```
 
 ### ForceRefreshCharacter
 `public void ForceRefreshCharacter()`
 
-**Purpose:** Handles logic related to `force refresh character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ForceRefreshCharacter();
+```
 
 ### SetCanOpenFacegen
 `public void SetCanOpenFacegen(bool enabled)`
 
-**Purpose:** Sets the value or state of `can open facegen`.
+**Purpose:** Assigns a new value to `can open facegen` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.SetCanOpenFacegen(false);
+```
 
 ### ExecuteClearTauntSelection
 `public void ExecuteClearTauntSelection()`
 
-**Purpose:** Executes the `clear taunt selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `clear taunt selection`.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ExecuteClearTauntSelection();
+```
 
 ### ExecuteToggleManageTauntsState
 `public void ExecuteToggleManageTauntsState()`
 
-**Purpose:** Executes the `toggle manage taunts state` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle manage taunts state`.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ExecuteToggleManageTauntsState();
+```
 
 ### ExecuteSelectFocusedSlot
 `public void ExecuteSelectFocusedSlot()`
 
-**Purpose:** Executes the `select focused slot` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select focused slot`.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ExecuteSelectFocusedSlot();
+```
 
 ### ExecuteEmptyFocusedSlot
 `public void ExecuteEmptyFocusedSlot()`
 
-**Purpose:** Executes the `empty focused slot` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `empty focused slot`.
+
+```csharp
+// Obtain an instance of MPArmoryVM from the subsystem API first
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ExecuteEmptyFocusedSlot();
+```
 
 ### ApplyPerkEffectsToEquipment
 `public static void ApplyPerkEffectsToEquipment(ref Equipment equipment, List<IReadOnlyPerkObject> selectedPerks)`
 
-**Purpose:** Applies `perk effects to equipment` to the current object.
+**Purpose:** Applies the effect of `perk effects to equipment` to the current object.
+
+```csharp
+// Static call; no instance required
+MPArmoryVM.ApplyPerkEffectsToEquipment(equipment, selectedPerks);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPArmoryVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

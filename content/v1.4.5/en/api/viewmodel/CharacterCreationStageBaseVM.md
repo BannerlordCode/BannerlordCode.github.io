@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationStageBaseVM"
+description: "Auto-generated class reference for CharacterCreationStageBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationStageBaseVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationStageBaseVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CharacterCreationStageBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationStageBaseVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationStageBaseVM.cs`
 
 ## Overview
 
@@ -44,24 +38,43 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### OnNextStage
 `public abstract void OnNextStage()`
 
-**Purpose:** Called when the `next stage` event is raised.
+**Purpose:** Invoked when the `next stage` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationStageBaseVM from the subsystem API first
+CharacterCreationStageBaseVM characterCreationStageBaseVM = ...;
+characterCreationStageBaseVM.OnNextStage();
+```
 
 ### OnPreviousStage
 `public abstract void OnPreviousStage()`
 
-**Purpose:** Called when the `previous stage` event is raised.
+**Purpose:** Invoked when the `previous stage` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationStageBaseVM from the subsystem API first
+CharacterCreationStageBaseVM characterCreationStageBaseVM = ...;
+characterCreationStageBaseVM.OnPreviousStage();
+```
 
 ### CanAdvanceToNextStage
 `public abstract bool CanAdvanceToNextStage()`
 
-**Purpose:** Checks whether the current object can `advance to next stage`.
+**Purpose:** Checks whether the current object meets the preconditions for `advance to next stage`.
+
+```csharp
+// Obtain an instance of CharacterCreationStageBaseVM from the subsystem API first
+CharacterCreationStageBaseVM characterCreationStageBaseVM = ...;
+var result = characterCreationStageBaseVM.CanAdvanceToNextStage();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCharacterCreationStageBaseVM();
+// Typically obtained from a subsystem API or factory
+CharacterCreationStageBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SettlementDecisionItemVM"
+description: "Auto-generated class reference for SettlementDecisionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementDecisionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementDecisionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
@@ -64,9 +58,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var example = new SettlementDecisionItemVM();
+// Obtain an instance from the relevant subsystem API
+SettlementDecisionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "TextureUnit"
+description: "TextureUnit 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextureUnit`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextureUnit
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.OpenGL
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum TextureUnit`
 **Base:** 无
 **File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/TextureUnit.cs`
 
@@ -27,9 +21,10 @@ title: "TextureUnit"
 ## 使用示例
 
 ```csharp
-var value = new TextureUnit();
+// 从对应子系统 API 获取实例
+TextureUnit instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerEndOfBattleVM"
+description: "Auto-generated class reference for MultiplayerEndOfBattleVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerEndOfBattleVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerEndOfBattleVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerEndOfBattleVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerEndOfBattleVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerEndOfBattleVM.cs`
 
 ## Overview
 
@@ -43,25 +37,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfBattleVM from the subsystem API first
+MultiplayerEndOfBattleVM multiplayerEndOfBattleVM = ...;
+multiplayerEndOfBattleVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfBattleVM from the subsystem API first
+MultiplayerEndOfBattleVM multiplayerEndOfBattleVM = ...;
+multiplayerEndOfBattleVM.OnTick(0);
+```
 
 ### OnBattleEnded
 `public void OnBattleEnded()`
 
-**Purpose:** Called when the `battle ended` event is raised.
+**Purpose:** Invoked when the `battle ended` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfBattleVM from the subsystem API first
+MultiplayerEndOfBattleVM multiplayerEndOfBattleVM = ...;
+multiplayerEndOfBattleVM.OnBattleEnded();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerEndOfBattleVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerEndOfBattleVM multiplayerEndOfBattleVM = ...;
+multiplayerEndOfBattleVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

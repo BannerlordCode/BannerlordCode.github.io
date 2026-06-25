@@ -1,13 +1,7 @@
 ---
 title: "CanvasLine"
+description: "Auto-generated class reference for CanvasLine."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CanvasLine`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasLine
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public void LoadFrom(XmlNode lineNode)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CanvasLine from the subsystem API first
+CanvasLine canvasLine = ...;
+canvasLine.LoadFrom(lineNode);
+```
 
 ### GetHorizontalPositionOf
 `public float GetHorizontalPositionOf(int index)`
 
-**Purpose:** Gets the current value of `horizontal position of`.
+**Purpose:** Reads and returns the `horizontal position of` value held by the current object.
+
+```csharp
+// Obtain an instance of CanvasLine from the subsystem API first
+CanvasLine canvasLine = ...;
+var result = canvasLine.GetHorizontalPositionOf(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CanvasLine();
-value.LoadFrom(lineNode);
+// Typically call this after obtaining an instance from the subsystem API
+CanvasLine canvasLine = ...;
+canvasLine.LoadFrom(lineNode);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

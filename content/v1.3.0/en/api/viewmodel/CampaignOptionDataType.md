@@ -1,18 +1,12 @@
 ---
 title: "CampaignOptionDataType"
+description: "Auto-generated class reference for CampaignOptionDataType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignOptionDataType`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignOptionDataType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum CampaignOptionDataType`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/CampaignOptionDataType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ## Usage Example
 
 ```csharp
-var example = new CampaignOptionDataType();
+// Obtain an instance from the relevant subsystem API
+CampaignOptionDataType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

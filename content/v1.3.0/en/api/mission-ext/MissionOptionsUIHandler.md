@@ -1,13 +1,7 @@
 ---
 title: "MissionOptionsUIHandler"
+description: "Auto-generated class reference for MissionOptionsUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionOptionsUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionOptionsUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -27,9 +21,9 @@ Treat `MissionOptionsUIHandler` as a Handler-style extension point: first identi
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionOptionsUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionOptionsUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

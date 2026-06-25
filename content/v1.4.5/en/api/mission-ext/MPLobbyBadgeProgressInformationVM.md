@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyBadgeProgressInformationVM"
+description: "Auto-generated class reference for MPLobbyBadgeProgressInformationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyBadgeProgressInformationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyBadgeProgressInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyBadgeProgressInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyBadgeProgressInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyBadgeProgressInformationVM.cs`
 
 ## Overview
 
@@ -44,45 +38,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### OpenWith
 `public void OpenWith(MPLobbyAchievementBadgeGroupVM badgeGroup)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.OpenWith(badgeGroup);
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.ExecuteClosePopup();
+```
 
 ### ExecuteIncreaseActiveBadgeIndices
 `public void ExecuteIncreaseActiveBadgeIndices()`
 
-**Purpose:** Executes the `increase active badge indices` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `increase active badge indices`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.ExecuteIncreaseActiveBadgeIndices();
+```
 
 ### ExecuteDecreaseActiveBadgeIndices
 `public void ExecuteDecreaseActiveBadgeIndices()`
 
-**Purpose:** Executes the `decrease active badge indices` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `decrease active badge indices`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.ExecuteDecreaseActiveBadgeIndices();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.OnFinalize();
+```
 
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `previous tab input key`.
+**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.SetPreviousTabInputKey(hotKey);
+```
 
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `next tab input key`.
+**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.SetNextTabInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyBadgeProgressInformationVM();
-value.OpenWith(badgeGroup);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyBadgeProgressInformationVM mPLobbyBadgeProgressInformationVM = ...;
+mPLobbyBadgeProgressInformationVM.OpenWith(badgeGroup);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

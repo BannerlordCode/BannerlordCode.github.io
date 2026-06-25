@@ -1,13 +1,7 @@
 ---
 title: "ClanMembersVM"
+description: "Auto-generated class reference for ClanMembersVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanMembersVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanMembersVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -46,30 +40,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanMembersVM from the subsystem API first
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.RefreshValues();
+```
 
 ### RefreshMembersList
 `public void RefreshMembersList()`
 
-**Purpose:** Refreshes the display or cache of `members list`.
+**Purpose:** Keeps the display or cache of `members list` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanMembersVM from the subsystem API first
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.RefreshMembersList();
+```
 
 ### SelectMember
 `public void SelectMember(Hero hero)`
 
-**Purpose:** Handles logic related to `select member`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanMembersVM from the subsystem API first
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.SelectMember(hero);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanMembersVM from the subsystem API first
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanMembersVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanMembersVM clanMembersVM = ...;
+clanMembersVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

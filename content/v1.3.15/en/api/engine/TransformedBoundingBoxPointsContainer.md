@@ -1,23 +1,18 @@
 ---
 title: "TransformedBoundingBoxPointsContainer"
+description: "Auto-generated class reference for TransformedBoundingBoxPointsContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransformedBoundingBoxPointsContainer`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TransformedBoundingBoxPointsContainer
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct TransformedBoundingBoxPointsContainer`
-**Area:** engine
+**Base:** none
+**File:** `TaleWorlds.Engine/BoundingBox.cs`
 
 ## Overview
 
-`TransformedBoundingBoxPointsContainer` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TransformedBoundingBoxPointsContainer` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,89 +23,28 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 | Name | Signature |
 |------|-----------|
 | `this` | `public Vec3 this { get; }` |
-| `this` | `public Vec3 this { get; }` |
 
 ## Key Methods
-
-### RelaxMinMaxWithPoint
-`public void RelaxMinMaxWithPoint(in Vec3 point)`
-
-**Purpose:** Handles logic related to `relax min max with point`.
-
-### RelaxMinMaxWithPointAndRadius
-`public void RelaxMinMaxWithPointAndRadius(in Vec3 point, float radius)`
-
-**Purpose:** Handles logic related to `relax min max with point and radius`.
-
-### RecomputeRadius
-`public void RecomputeRadius()`
-
-**Purpose:** Handles logic related to `recompute radius`.
-
-### GetTransformedTipPointsToParent
-`public BoundingBox.TransformedBoundingBoxPointsContainer GetTransformedTipPointsToParent(in MatrixFrame parentFrame)`
-
-**Purpose:** Gets the current value of `transformed tip points to parent`.
-
-### GetTransformedTipPointsToChild
-`public BoundingBox.TransformedBoundingBoxPointsContainer GetTransformedTipPointsToChild(in MatrixFrame childFrame)`
-
-**Purpose:** Gets the current value of `transformed tip points to child`.
-
-### RelaxWithBoundingBox
-`public void RelaxWithBoundingBox(BoundingBox modifiedBoundingBox)`
-
-**Purpose:** Handles logic related to `relax with bounding box`.
-
-### RelaxWithArbitraryBoundingBox
-`public void RelaxWithArbitraryBoundingBox(BoundingBox otherBoundingBox, MatrixFrame otherGlobalFrame, MatrixFrame globalFrameOfThisBoundingBox)`
-
-**Purpose:** Handles logic related to `relax with arbitrary bounding box`.
-
-### RelaxWithChildBoundingBox
-`public void RelaxWithChildBoundingBox(BoundingBox childBoundingBox, MatrixFrame childFrame)`
-
-**Purpose:** Handles logic related to `relax with child bounding box`.
-
-### BeginRelaxation
-`public void BeginRelaxation()`
-
-**Purpose:** Handles logic related to `begin relaxation`.
-
-### ArrangeWithAnotherBoundingBox
-`public static bool ArrangeWithAnotherBoundingBox(ref BoundingBox boundingBox, BoundingBox otherBoundingBox, float changeAmount)`
-
-**Purpose:** Handles logic related to `arrange with another bounding box`.
-
-### PointInsideBox
-`public bool PointInsideBox(Vec3 point, float epsilon)`
-
-**Purpose:** Handles logic related to `point inside box`.
-
-### GetLongestHalfDimensionOfBoundingBox
-`public static float GetLongestHalfDimensionOfBoundingBox(BoundingBox boundingBox)`
-
-**Purpose:** Gets the current value of `longest half dimension of bounding box`.
-
-### RenderBoundingBox
-`public void RenderBoundingBox()`
-
-**Purpose:** Handles logic related to `render bounding box`.
 
 ### ComputeTransformedMinMax
 `public ValueTuple<Vec3, Vec3> ComputeTransformedMinMax()`
 
-**Purpose:** Handles logic related to `compute transformed min max`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TransformedBoundingBoxPointsContainer from the subsystem API first
+TransformedBoundingBoxPointsContainer transformedBoundingBoxPointsContainer = ...;
+var result = transformedBoundingBoxPointsContainer.ComputeTransformedMinMax();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a TransformedBoundingBoxPointsContainer instance from game state, then call one of its public methods
-var value = new TransformedBoundingBoxPointsContainer();
-value.RelaxMinMaxWithPoint(point);
+// Typically call this after obtaining an instance from the subsystem API
+TransformedBoundingBoxPointsContainer transformedBoundingBoxPointsContainer = ...;
+transformedBoundingBoxPointsContainer.ComputeTransformedMinMax();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

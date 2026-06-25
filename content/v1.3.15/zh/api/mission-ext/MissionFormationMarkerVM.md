@@ -1,13 +1,7 @@
 ---
 title: "MissionFormationMarkerVM"
+description: "MissionFormationMarkerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionFormationMarkerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionFormationMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
@@ -38,20 +32,33 @@ title: "MissionFormationMarkerVM"
 ### RefreshFormationMarkers
 `public void RefreshFormationMarkers()`
 
-**用途 / Purpose:** 刷新 `formation markers` 的显示或缓存。
+**用途 / Purpose:** 使 「formation markers」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationMarkerVM 实例
+MissionFormationMarkerVM missionFormationMarkerVM = ...;
+missionFormationMarkerVM.RefreshFormationMarkers();
+```
 
 ### Compare
 `public int Compare(MissionFormationMarkerTargetVM x, MissionFormationMarkerTargetVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationMarkerVM 实例
+MissionFormationMarkerVM missionFormationMarkerVM = ...;
+var result = missionFormationMarkerVM.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionFormationMarkerVM();
-value.RefreshFormationMarkers();
+// 通常从对应子系统 API 获取实例后调用
+MissionFormationMarkerVM missionFormationMarkerVM = ...;
+missionFormationMarkerVM.RefreshFormationMarkers();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

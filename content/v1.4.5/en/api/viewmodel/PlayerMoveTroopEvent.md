@@ -1,20 +1,14 @@
 ---
 title: "PlayerMoveTroopEvent"
+description: "Auto-generated class reference for PlayerMoveTroopEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerMoveTroopEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerMoveTroopEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerMoveTroopEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PlayerMoveTroopEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PlayerMoveTroopEvent.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ## Usage Example
 
 ```csharp
-var example = new PlayerMoveTroopEvent();
+// Obtain an instance from the relevant subsystem API
+PlayerMoveTroopEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

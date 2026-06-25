@@ -1,20 +1,14 @@
 ---
 title: "RandomOwnerExtensions"
+description: "Auto-generated class reference for RandomOwnerExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RandomOwnerExtensions`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RandomOwnerExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class RandomOwnerExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/RandomOwnerExtensions.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/RandomOwnerExtensions.cs`
 
 ## Overview
 
@@ -29,62 +23,122 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed)`
 
-**Purpose:** Handles logic related to `random int with seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomIntWithSeed(obj, 0);
+```
 
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed, int max)`
 
-**Purpose:** Handles logic related to `random int with seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomIntWithSeed(obj, 0, 0);
+```
 
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed, int min, int max)`
 
-**Purpose:** Handles logic related to `random int with seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomIntWithSeed(obj, 0, 0, 0);
+```
 
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed)`
 
-**Purpose:** Handles logic related to `random float with seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomFloatWithSeed(obj, 0);
+```
 
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed, float max)`
 
-**Purpose:** Handles logic related to `random float with seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomFloatWithSeed(obj, 0, 0);
+```
 
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed, float min, float max)`
 
-**Purpose:** Handles logic related to `random float with seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomFloatWithSeed(obj, 0, 0, 0);
+```
 
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj)`
 
-**Purpose:** Handles logic related to `random int`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomInt(obj);
+```
 
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj, int max)`
 
-**Purpose:** Handles logic related to `random int`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomInt(obj, 0);
+```
 
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj, int min, int max)`
 
-**Purpose:** Handles logic related to `random int`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomInt(obj, 0, 0);
+```
 
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj)`
 
-**Purpose:** Handles logic related to `random float`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomFloat(obj);
+```
 
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj, float max)`
 
-**Purpose:** Handles logic related to `random float`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomFloat(obj, 0);
+```
 
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj, float min, float max)`
 
-**Purpose:** Handles logic related to `random float`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RandomOwnerExtensions.RandomFloat(obj, 0, 0);
+```
 
 ## Usage Example
 
@@ -94,4 +148,4 @@ RandomOwnerExtensions.RandomIntWithSeed(obj, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

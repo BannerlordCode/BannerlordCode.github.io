@@ -1,20 +1,14 @@
 ---
 title: "JobManager"
+description: "Auto-generated class reference for JobManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JobManager`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # JobManager
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class JobManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/JobManager.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/JobManager.cs`
 
 ## Overview
 
@@ -31,6 +25,12 @@ Treat `JobManager` as a Manager-style extension point: first identify who create
 
 **Purpose:** Adds `job` to the current collection or state.
 
+```csharp
+// Obtain an instance of JobManager from the subsystem API first
+JobManager jobManager = ...;
+jobManager.AddJob(job);
+```
+
 ## Usage Example
 
 ```csharp
@@ -39,4 +39,4 @@ var manager = JobManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

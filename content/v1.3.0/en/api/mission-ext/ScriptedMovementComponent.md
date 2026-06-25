@@ -1,13 +1,7 @@
 ---
 title: "ScriptedMovementComponent"
+description: "Auto-generated class reference for ScriptedMovementComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScriptedMovementComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScriptedMovementComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.AI.AgentComponents
@@ -29,22 +23,46 @@ Treat `ScriptedMovementComponent` as a Component-style extension point: first id
 ### SetTargetAgent
 `public void SetTargetAgent(Agent targetAgent)`
 
-**Purpose:** Sets the value or state of `target agent`.
+**Purpose:** Assigns a new value to `target agent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScriptedMovementComponent from the subsystem API first
+ScriptedMovementComponent scriptedMovementComponent = ...;
+scriptedMovementComponent.SetTargetAgent(targetAgent);
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of ScriptedMovementComponent from the subsystem API first
+ScriptedMovementComponent scriptedMovementComponent = ...;
+scriptedMovementComponent.OnTick(0);
+```
 
 ### ShouldConversationStartWithAgent
 `public bool ShouldConversationStartWithAgent()`
 
-**Purpose:** Handles logic related to `should conversation start with agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScriptedMovementComponent from the subsystem API first
+ScriptedMovementComponent scriptedMovementComponent = ...;
+var result = scriptedMovementComponent.ShouldConversationStartWithAgent();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of ScriptedMovementComponent from the subsystem API first
+ScriptedMovementComponent scriptedMovementComponent = ...;
+scriptedMovementComponent.Reset();
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var component = agent.GetComponent<ScriptedMovementComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

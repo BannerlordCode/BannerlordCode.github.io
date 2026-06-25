@@ -1,20 +1,14 @@
 ---
 title: "CreditsVM"
+description: "Auto-generated class reference for CreditsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreditsVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreditsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Credits
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CreditsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Credits/CreditsVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Credits/CreditsVM.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Credits` to p
 ### FillFromFile
 `public void FillFromFile(string path)`
 
-**Purpose:** Handles logic related to `fill from file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CreditsVM from the subsystem API first
+CreditsVM creditsVM = ...;
+creditsVM.FillFromFile("example");
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CreditsVM from the subsystem API first
+CreditsVM creditsVM = ...;
+creditsVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CreditsVM();
-value.FillFromFile("example");
+// Typically call this after obtaining an instance from the subsystem API
+CreditsVM creditsVM = ...;
+creditsVM.FillFromFile("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

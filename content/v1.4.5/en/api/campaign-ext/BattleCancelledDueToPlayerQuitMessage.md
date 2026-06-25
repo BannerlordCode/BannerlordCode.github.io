@@ -1,20 +1,14 @@
 ---
 title: "BattleCancelledDueToPlayerQuitMessage"
+description: "Auto-generated class reference for BattleCancelledDueToPlayerQuitMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleCancelledDueToPlayerQuitMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleCancelledDueToPlayerQuitMessage
 
 **Namespace:** Messages.FromBattleServer.ToBattleServerManager
 **Module:** Messages.FromBattleServer
 **Type:** `public class BattleCancelledDueToPlayerQuitMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/BattleCancelledDueToPlayerQuitMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/BattleCancelledDueToPlayerQuitMessage.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `Messages.FromBattleServer.ToBattleServerManager` to place 
 ## Usage Example
 
 ```csharp
-var example = new BattleCancelledDueToPlayerQuitMessage();
+// Obtain an instance from the relevant subsystem API
+BattleCancelledDueToPlayerQuitMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

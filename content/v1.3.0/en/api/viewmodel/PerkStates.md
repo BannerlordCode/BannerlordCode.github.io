@@ -1,13 +1,7 @@
 ---
 title: "PerkStates"
+description: "Auto-generated class reference for PerkStates."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkStates`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkStates
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ## Usage Example
 
 ```csharp
-PerkStates example = PerkStates.Value;
+// Obtain an instance from the relevant subsystem API
+PerkStates instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

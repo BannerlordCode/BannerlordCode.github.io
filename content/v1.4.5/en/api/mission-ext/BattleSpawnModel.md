@@ -1,20 +1,14 @@
 ---
 title: "BattleSpawnModel"
+description: "Auto-generated class reference for BattleSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSpawnModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSpawnModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BattleSpawnModel : MBGameModel<BattleSpawnModel>`
 **Base:** `MBGameModel<BattleSpawnModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/BattleSpawnModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/BattleSpawnModel.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `BattleSpawnModel` as a Model-style extension point: first identify who cr
 ### OnMissionStart
 `public virtual void OnMissionStart()`
 
-**Purpose:** Called when the `mission start` event is raised.
+**Purpose:** Invoked when the `mission start` event is raised.
+
+```csharp
+// Obtain an instance of BattleSpawnModel from the subsystem API first
+BattleSpawnModel battleSpawnModel = ...;
+battleSpawnModel.OnMissionStart();
+```
 
 ### OnMissionEnd
 `public virtual void OnMissionEnd()`
 
-**Purpose:** Called when the `mission end` event is raised.
+**Purpose:** Invoked when the `mission end` event is raised.
+
+```csharp
+// Obtain an instance of BattleSpawnModel from the subsystem API first
+BattleSpawnModel battleSpawnModel = ...;
+battleSpawnModel.OnMissionEnd();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBattleSpawnModel();
+// Typically obtained from a subsystem API or factory
+BattleSpawnModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

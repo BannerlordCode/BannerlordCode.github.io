@@ -1,13 +1,7 @@
 ---
 title: "MissionReinforcementsHelper"
+description: "Auto-generated class reference for MissionReinforcementsHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionReinforcementsHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionReinforcementsHelper
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,42 +23,87 @@ Treat `MissionReinforcementsHelper` as a Helper-style extension point: first ide
 ### OnMissionStart
 `public static void OnMissionStart()`
 
-**Purpose:** Called when the `mission start` event is raised.
+**Purpose:** Invoked when the `mission start` event is raised.
+
+```csharp
+// Static call; no instance required
+MissionReinforcementsHelper.OnMissionStart();
+```
 
 ### GetReinforcementAssignments
 `public unsafe static List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Gets the current value of `reinforcement assignments`.
+**Purpose:** Reads and returns the `reinforcement assignments` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionReinforcementsHelper.GetReinforcementAssignments(battleSide, troopOrigins);
+```
 
 ### OnMissionEnd
 `public static void OnMissionEnd()`
 
-**Purpose:** Called when the `mission end` event is raised.
+**Purpose:** Invoked when the `mission end` event is raised.
+
+```csharp
+// Static call; no instance required
+MissionReinforcementsHelper.OnMissionEnd();
+```
 
 ### Compare
 `public int Compare(MissionReinforcementsHelper.ReinforcementFormationPriority left, MissionReinforcementsHelper.ReinforcementFormationPriority right)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionReinforcementsHelper from the subsystem API first
+MissionReinforcementsHelper missionReinforcementsHelper = ...;
+var result = missionReinforcementsHelper.Compare(left, right);
+```
 
 ### Initialize
 `public void Initialize(Formation formation, uint initTime)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MissionReinforcementsHelper from the subsystem API first
+MissionReinforcementsHelper missionReinforcementsHelper = ...;
+missionReinforcementsHelper.Initialize(formation, 0);
+```
 
 ### AddProspectiveTroop
 `public void AddProspectiveTroop(FormationClass troopClass)`
 
 **Purpose:** Adds `prospective troop` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionReinforcementsHelper from the subsystem API first
+MissionReinforcementsHelper missionReinforcementsHelper = ...;
+missionReinforcementsHelper.AddProspectiveTroop(troopClass);
+```
+
 ### IsInitialized
 `public bool IsInitialized(uint initTime)`
 
-**Purpose:** Handles logic related to `is initialized`.
+**Purpose:** Determines whether the current object is in the `initialized` state or condition.
+
+```csharp
+// Obtain an instance of MissionReinforcementsHelper from the subsystem API first
+MissionReinforcementsHelper missionReinforcementsHelper = ...;
+var result = missionReinforcementsHelper.IsInitialized(0);
+```
 
 ### GetPriority
 `public MissionReinforcementsHelper.ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
 
-**Purpose:** Gets the current value of `priority`.
+**Purpose:** Reads and returns the `priority` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionReinforcementsHelper from the subsystem API first
+MissionReinforcementsHelper missionReinforcementsHelper = ...;
+var result = missionReinforcementsHelper.GetPriority(troopClass);
+```
 
 ## Usage Example
 
@@ -74,4 +113,4 @@ MissionReinforcementsHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

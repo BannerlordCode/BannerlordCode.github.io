@@ -1,20 +1,14 @@
 ---
 title: "DCSHelperVM"
+description: "DCSHelperVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DCSHelperVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DCSHelperVM
 
 **Namespace:** TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DCSHelperVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/DCSHelperVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/DCSHelperVM.cs`
 
 ## 概述
 
@@ -59,65 +53,132 @@ title: "DCSHelperVM"
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.Refresh();
+```
 
 ### GetPanelSubtitle
 `public string GetPanelSubtitle(string serverName)`
 
-**用途 / Purpose:** 获取 `panel subtitle` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「panel subtitle」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetPanelSubtitle("example");
+```
 
 ### GetProgressCounter
 `public string GetProgressCounter(int downloadedCount, int totalCount)`
 
-**用途 / Purpose:** 获取 `progress counter` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「progress counter」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetProgressCounter(0, 0);
+```
 
 ### GetDownloadCompleteMessageSingular
 `public string GetDownloadCompleteMessageSingular(string mapName)`
 
-**用途 / Purpose:** 获取 `download complete message singular` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「download complete message singular」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetDownloadCompleteMessageSingular("example");
+```
 
 ### GetDownloadCompleteMessagePlural
 `public string GetDownloadCompleteMessagePlural(int mapCount)`
 
-**用途 / Purpose:** 获取 `download complete message plural` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「download complete message plural」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetDownloadCompleteMessagePlural(0);
+```
 
 ### GetReplacementConfirmationMessage
 `public string GetReplacementConfirmationMessage(string mapName)`
 
-**用途 / Purpose:** 获取 `replacement confirmation message` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「replacement confirmation message」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetReplacementConfirmationMessage("example");
+```
 
 ### OpenPopup
 `public async Task OpenPopup()`
 
-**用途 / Purpose:** 处理 `open popup` 相关逻辑。
+**用途 / Purpose:** 打开「popup」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.OpenPopup();
+```
 
 ### ExecuteDownloadMap
 `public async Task ExecuteDownloadMap()`
 
-**用途 / Purpose:** 执行 `download map` 操作或流程。
+**用途 / Purpose:** 执行 「download map」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.ExecuteDownloadMap();
+```
 
 ### ExecuteCloseOrCancel
 `public void ExecuteCloseOrCancel()`
 
-**用途 / Purpose:** 执行 `close or cancel` 操作或流程。
+**用途 / Purpose:** 执行 「close or cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.ExecuteCloseOrCancel();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 `close popup` 操作或流程。
+**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.ExecuteClosePopup();
+```
 
 ### ExecuteCancelDownload
 `public void ExecuteCancelDownload()`
 
-**用途 / Purpose:** 执行 `cancel download` 操作或流程。
+**用途 / Purpose:** 执行 「cancel download」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 DCSHelperVM 实例
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.ExecuteCancelDownload();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DCSHelperVM();
-value.Refresh();
+// 通常从对应子系统 API 获取实例后调用
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.Refresh();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

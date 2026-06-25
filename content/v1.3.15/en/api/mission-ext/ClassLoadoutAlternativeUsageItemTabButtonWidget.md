@@ -1,13 +1,7 @@
 ---
 title: "ClassLoadoutAlternativeUsageItemTabButtonWidget"
+description: "Auto-generated class reference for ClassLoadoutAlternativeUsageItemTabButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClassLoadoutAlternativeUsageItemTabButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClassLoadoutAlternativeUsageItemTabButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
@@ -34,9 +28,10 @@ Treat `ClassLoadoutAlternativeUsageItemTabButtonWidget` as a Widget-style extens
 ## Usage Example
 
 ```csharp
-var widget = new ClassLoadoutAlternativeUsageItemTabButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClassLoadoutAlternativeUsageItemTabButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

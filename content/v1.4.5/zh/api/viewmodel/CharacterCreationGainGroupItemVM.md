@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationGainGroupItemVM"
+description: "CharacterCreationGainGroupItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationGainGroupItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationGainGroupItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationGainGroupItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationGainGroupItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationGainGroupItemVM.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "CharacterCreationGainGroupItemVM"
 ### ResetValues
 `public void ResetValues()`
 
-**用途 / Purpose:** 将 `values` 重置为初始状态。
+**用途 / Purpose:** 将 「values」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationGainGroupItemVM 实例
+CharacterCreationGainGroupItemVM characterCreationGainGroupItemVM = ...;
+characterCreationGainGroupItemVM.ResetValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterCreationGainGroupItemVM();
-value.ResetValues();
+// 通常从对应子系统 API 获取实例后调用
+CharacterCreationGainGroupItemVM characterCreationGainGroupItemVM = ...;
+characterCreationGainGroupItemVM.ResetValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

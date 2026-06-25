@@ -1,19 +1,13 @@
 ---
 title: "ICraftingCampaignBehavior"
+description: "ICraftingCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICraftingCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICraftingCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** 无
+**Type:** `public interface ICraftingCampaignBehavior : ICampaignBehavior`
+**Base:** `ICampaignBehavior`
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/ICraftingCampaignBehavior.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "ICraftingCampaignBehavior"
 ## 使用示例
 
 ```csharp
-ICraftingCampaignBehavior implementation = GetCraftingCampaignBehaviorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICraftingCampaignBehavior service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

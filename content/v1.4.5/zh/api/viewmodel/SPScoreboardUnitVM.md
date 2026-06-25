@@ -1,20 +1,14 @@
 ---
 title: "SPScoreboardUnitVM"
+description: "SPScoreboardUnitVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPScoreboardUnitVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPScoreboardUnitVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPScoreboardUnitVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardUnitVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardUnitVM.cs`
 
 ## 概述
 
@@ -38,25 +32,44 @@ title: "SPScoreboardUnitVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardUnitVM 实例
+SPScoreboardUnitVM sPScoreboardUnitVM = ...;
+sPScoreboardUnitVM.RefreshValues();
+```
 
 ### UpdateScores
 `public void UpdateScores(int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**用途 / Purpose:** 更新 `scores` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「scores」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardUnitVM 实例
+SPScoreboardUnitVM sPScoreboardUnitVM = ...;
+sPScoreboardUnitVM.UpdateScores(0, 0, 0, 0, 0, 0);
+```
 
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(SkillObject gainedSkill, int currentSkill)`
 
-**用途 / Purpose:** 更新 `hero skills` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「hero skills」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardUnitVM 实例
+SPScoreboardUnitVM sPScoreboardUnitVM = ...;
+sPScoreboardUnitVM.UpdateHeroSkills(gainedSkill, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPScoreboardUnitVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SPScoreboardUnitVM sPScoreboardUnitVM = ...;
+sPScoreboardUnitVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

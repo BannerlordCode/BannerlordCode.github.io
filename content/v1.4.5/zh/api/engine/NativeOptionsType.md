@@ -1,20 +1,14 @@
 ---
 title: "NativeOptionsType"
+description: "NativeOptionsType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeOptionsType`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeOptionsType
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
 **Type:** `public enum NativeOptionsType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptions.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptions.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "NativeOptionsType"
 ## 使用示例
 
 ```csharp
-NativeOptionsType example = NativeOptionsType.Value;
+// 从对应子系统 API 获取实例
+NativeOptionsType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

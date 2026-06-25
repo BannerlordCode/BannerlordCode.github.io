@@ -1,20 +1,14 @@
 ---
 title: "ThreadedClientSession"
+description: "Auto-generated class reference for ThreadedClientSession."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThreadedClientSession`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThreadedClientSession
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ThreadedClientSession : IClientSession`
 **Base:** `IClientSession`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientSession.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClientSession.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new ThreadedClientSession();
+// Obtain an instance from the relevant subsystem API
+ThreadedClientSession instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

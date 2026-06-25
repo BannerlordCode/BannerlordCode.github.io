@@ -1,13 +1,7 @@
 ---
 title: "TransferPrisonerBarterable"
+description: "Auto-generated class reference for TransferPrisonerBarterable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransferPrisonerBarterable`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TransferPrisonerBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** Gets the current value of `unit value for faction`.
+**Purpose:** Reads and returns the `unit value for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of TransferPrisonerBarterable from the subsystem API first
+TransferPrisonerBarterable transferPrisonerBarterable = ...;
+var result = transferPrisonerBarterable.GetUnitValueForFaction(faction);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** Gets the current value of `visual identifier`.
+**Purpose:** Reads and returns the `visual identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of TransferPrisonerBarterable from the subsystem API first
+TransferPrisonerBarterable transferPrisonerBarterable = ...;
+var result = transferPrisonerBarterable.GetVisualIdentifier();
+```
 
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**Purpose:** Gets the current value of `encyclopedia link`.
+**Purpose:** Reads and returns the `encyclopedia link` value held by the current object.
+
+```csharp
+// Obtain an instance of TransferPrisonerBarterable from the subsystem API first
+TransferPrisonerBarterable transferPrisonerBarterable = ...;
+var result = transferPrisonerBarterable.GetEncyclopediaLink();
+```
 
 ### Apply
 `public override void Apply()`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Obtain an instance of TransferPrisonerBarterable from the subsystem API first
+TransferPrisonerBarterable transferPrisonerBarterable = ...;
+transferPrisonerBarterable.Apply();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TransferPrisonerBarterable();
-value.GetUnitValueForFaction(faction);
+// Typically call this after obtaining an instance from the subsystem API
+TransferPrisonerBarterable transferPrisonerBarterable = ...;
+transferPrisonerBarterable.GetUnitValueForFaction(faction);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

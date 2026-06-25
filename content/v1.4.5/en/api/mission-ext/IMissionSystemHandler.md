@@ -1,20 +1,14 @@
 ---
 title: "IMissionSystemHandler"
+description: "Auto-generated class reference for IMissionSystemHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionSystemHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionSystemHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMissionSystemHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMissionSystemHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IMissionSystemHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IMissionSystemHandler` as a Handler-style extension point: first identify
 ## Usage Example
 
 ```csharp
-IMissionSystemHandler implementation = GetMissionSystemHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIMissionSystemHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

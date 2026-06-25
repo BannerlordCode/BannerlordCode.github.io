@@ -1,20 +1,14 @@
 ---
 title: "AgentBehavior"
+description: "AgentBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public abstract class AgentBehavior`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AgentBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AgentBehavior.cs`
 
 ## 概述
 
@@ -36,49 +30,98 @@ title: "AgentBehavior"
 ### GetAvailability
 `public virtual float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `availability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehavior 实例
+AgentBehavior agentBehavior = ...;
+var result = agentBehavior.GetAvailability(false);
+```
 
 ### Tick
 `public virtual void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehavior 实例
+AgentBehavior agentBehavior = ...;
+agentBehavior.Tick(0, false);
+```
 
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**用途 / Purpose:** 处理 `conversation tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehavior 实例
+AgentBehavior agentBehavior = ...;
+agentBehavior.ConversationTick();
+```
 
 ### CheckStartWithBehavior
 `public virtual bool CheckStartWithBehavior()`
 
-**用途 / Purpose:** 处理 `check start with behavior` 相关逻辑。
+**用途 / Purpose:** 检查「start with behavior」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehavior 实例
+AgentBehavior agentBehavior = ...;
+var result = agentBehavior.CheckStartWithBehavior();
+```
 
 ### OnSpecialTargetChanged
 `public virtual void OnSpecialTargetChanged()`
 
-**用途 / Purpose:** 当 `special target changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「special target changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehavior 实例
+AgentBehavior agentBehavior = ...;
+agentBehavior.OnSpecialTargetChanged();
+```
 
 ### SetCustomWanderTarget
 `public virtual void SetCustomWanderTarget(UsableMachine customUsableMachine)`
 
-**用途 / Purpose:** 设置 `custom wander target` 的值或状态。
+**用途 / Purpose:** 为 「custom wander target」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehavior 实例
+AgentBehavior agentBehavior = ...;
+agentBehavior.SetCustomWanderTarget(customUsableMachine);
+```
 
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehavior 实例
+AgentBehavior agentBehavior = ...;
+agentBehavior.OnAgentRemoved(agent);
+```
 
 ### GetDebugInfo
 `public abstract string GetDebugInfo()`
 
-**用途 / Purpose:** 获取 `debug info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehavior 实例
+AgentBehavior agentBehavior = ...;
+var result = agentBehavior.GetDebugInfo();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomAgentBehavior();
+// 通常通过子系统 API 或工厂获得派生实例
+AgentBehavior instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

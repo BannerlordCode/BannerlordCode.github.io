@@ -1,13 +1,7 @@
 ---
 title: "ExplainedNumber"
+description: "Auto-generated class reference for ExplainedNumber."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ExplainedNumber`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ExplainedNumber
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -45,65 +39,132 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GetExplanations
 `public string GetExplanations()`
 
-**Purpose:** Gets the current value of `explanations`.
+**Purpose:** Reads and returns the `explanations` value held by the current object.
+
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+var result = explainedNumber.GetExplanations();
+```
 
 ### GetLines
 `public List<ValueTuple<string, float>> GetLines()`
 
-**Purpose:** Gets the current value of `lines`.
+**Purpose:** Reads and returns the `lines` value held by the current object.
+
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+var result = explainedNumber.GetLines();
+```
 
 ### AddFromExplainedNumber
 `public void AddFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
 **Purpose:** Adds `from explained number` to the current collection or state.
 
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+explainedNumber.AddFromExplainedNumber(explainedNumber, baseText);
+```
+
 ### SubtractFromExplainedNumber
 `public void SubtractFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
-**Purpose:** Handles logic related to `subtract from explained number`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+explainedNumber.SubtractFromExplainedNumber(explainedNumber, baseText);
+```
 
 ### Add
 `public void Add(float value, TextObject description = null, TextObject variable = null)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+explainedNumber.Add(0, null, null);
+```
 
 ### AddFactor
 `public void AddFactor(float value, TextObject description = null)`
 
 **Purpose:** Adds `factor` to the current collection or state.
 
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+explainedNumber.AddFactor(0, null);
+```
+
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**Purpose:** Handles logic related to `limit min`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+explainedNumber.LimitMin(0);
+```
 
 ### LimitMax
 `public void LimitMax(float maxValue, TextObject description = null)`
 
-**Purpose:** Handles logic related to `limit max`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+explainedNumber.LimitMax(0, null);
+```
 
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**Purpose:** Handles logic related to `clamp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+explainedNumber.Clamp(0, 0);
+```
 
 ### GetLines
 `public List<ValueTuple<string, float>> GetLines(float baseNumber, float unclampedResultNumber, TextObject overrideBaseLineText = null, TextObject overrideMaximumLineText = null, TextObject overrideMinimumLineText = null)`
 
-**Purpose:** Gets the current value of `lines`.
+**Purpose:** Reads and returns the `lines` value held by the current object.
+
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+var result = explainedNumber.GetLines(0, 0, null, null, null);
+```
 
 ### AddLine
 `public void AddLine(string name, float number, ExplainedNumber.StatExplainer.OperationType opType)`
 
 **Purpose:** Adds `line` to the current collection or state.
 
+```csharp
+// Obtain an instance of ExplainedNumber from the subsystem API first
+ExplainedNumber explainedNumber = ...;
+explainedNumber.AddLine("example", 0, opType);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new ExplainedNumber();
-value.GetExplanations();
+// Typically call this after obtaining an instance from the subsystem API
+ExplainedNumber explainedNumber = ...;
+explainedNumber.GetExplanations();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

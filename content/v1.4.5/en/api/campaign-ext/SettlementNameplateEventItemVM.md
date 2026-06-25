@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplateEventItemVM"
+description: "Auto-generated class reference for SettlementNameplateEventItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateEventItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateEventItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SettlementNameplateEventItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplateEventItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplateEventItemVM.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNameplateEventItemVM();
+// Obtain an instance from the relevant subsystem API
+SettlementNameplateEventItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

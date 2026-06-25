@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaFilterGroupVM"
+description: "EncyclopediaFilterGroupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaFilterGroupVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaFilterGroupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
@@ -36,20 +30,33 @@ title: "EncyclopediaFilterGroupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaFilterGroupVM 实例
+EncyclopediaFilterGroupVM encyclopediaFilterGroupVM = ...;
+encyclopediaFilterGroupVM.RefreshValues();
+```
 
 ### CopyFiltersFrom
 `public void CopyFiltersFrom(Dictionary<EncyclopediaFilterItem, bool> filters)`
 
-**用途 / Purpose:** 处理 `copy filters from` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「filters from」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaFilterGroupVM 实例
+EncyclopediaFilterGroupVM encyclopediaFilterGroupVM = ...;
+encyclopediaFilterGroupVM.CopyFiltersFrom(dictionary<EncyclopediaFilterItem, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaFilterGroupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaFilterGroupVM encyclopediaFilterGroupVM = ...;
+encyclopediaFilterGroupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

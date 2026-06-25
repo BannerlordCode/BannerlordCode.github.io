@@ -1,20 +1,14 @@
 ---
 title: "MonsterExtensions"
+description: "Auto-generated class reference for MonsterExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MonsterExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MonsterExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MonsterExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterExtensions.cs`
 
 ## Overview
 
@@ -29,22 +23,42 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FillAnimationSystemData
 `public static AnimationSystemData FillAnimationSystemData(this Monster monster, float stepSize, bool hasClippingPlane, bool isFemale)`
 
-**Purpose:** Handles logic related to `fill animation system data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MonsterExtensions.FillAnimationSystemData(monster, 0, false, false);
+```
 
 ### FillAnimationSystemData
 `public static AnimationSystemData FillAnimationSystemData(this Monster monster, MBActionSet actionSet, float stepSize, bool hasClippingPlane)`
 
-**Purpose:** Handles logic related to `fill animation system data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MonsterExtensions.FillAnimationSystemData(monster, actionSet, 0, false);
+```
 
 ### FillCapsuleData
 `public static AgentCapsuleData FillCapsuleData(this Monster monster)`
 
-**Purpose:** Handles logic related to `fill capsule data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MonsterExtensions.FillCapsuleData(monster);
+```
 
 ### FillSpawnData
 `public static AgentSpawnData FillSpawnData(this Monster monster, ItemObject mountItem)`
 
-**Purpose:** Handles logic related to `fill spawn data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MonsterExtensions.FillSpawnData(monster, mountItem);
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ MonsterExtensions.FillAnimationSystemData(monster, 0, false, false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

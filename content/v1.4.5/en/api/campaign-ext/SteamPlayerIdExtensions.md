@@ -1,20 +1,14 @@
 ---
 title: "SteamPlayerIdExtensions"
+description: "Auto-generated class reference for SteamPlayerIdExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamPlayerIdExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamPlayerIdExtensions
 
 **Namespace:** TaleWorlds.PlatformService.Steam
 **Module:** TaleWorlds.PlatformService
 **Type:** `public static class SteamPlayerIdExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamPlayerIdExtensions.cs`
+**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamPlayerIdExtensions.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ### ToPlayerId
 `public static PlayerId ToPlayerId(this CSteamID steamId)`
 
-**Purpose:** Handles logic related to `to player id`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SteamPlayerIdExtensions.ToPlayerId(steamId);
+```
 
 ### ToSteamId
 `public static CSteamID ToSteamId(this PlayerId playerId)`
 
-**Purpose:** Handles logic related to `to steam id`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SteamPlayerIdExtensions.ToSteamId(playerId);
+```
 
 ### IsValidSteamId
 `public static bool IsValidSteamId(this PlayerId playerId)`
 
-**Purpose:** Handles logic related to `is valid steam id`.
+**Purpose:** Determines whether the current object is in the `valid steam id` state or condition.
+
+```csharp
+// Static call; no instance required
+SteamPlayerIdExtensions.IsValidSteamId(playerId);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ SteamPlayerIdExtensions.ToPlayerId(steamId);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

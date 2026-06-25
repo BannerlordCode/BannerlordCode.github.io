@@ -1,13 +1,7 @@
 ---
 title: "CodeBlock"
+description: "CodeBlock 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CodeBlock`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CodeBlock
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -35,20 +29,33 @@ title: "CodeBlock"
 ### AddLine
 `public void AddLine(string line)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `line`。
+**用途 / Purpose:** 将 「line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CodeBlock 实例
+CodeBlock codeBlock = ...;
+codeBlock.AddLine("example");
+```
 
 ### AddLines
 `public void AddLines(IEnumerable<string> lines)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `lines`。
+**用途 / Purpose:** 将 「lines」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CodeBlock 实例
+CodeBlock codeBlock = ...;
+codeBlock.AddLines(lines);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CodeBlock();
-value.AddLine("example");
+// 通常从对应子系统 API 获取实例后调用
+CodeBlock codeBlock = ...;
+codeBlock.AddLine("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

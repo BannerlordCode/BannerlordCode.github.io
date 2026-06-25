@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerBattleBannerBearersModel"
+description: "Auto-generated class reference for MultiplayerBattleBannerBearersModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerBattleBannerBearersModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleBannerBearersModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleBannerBearersModel : BattleBannerBearersModel`
 **Base:** `BattleBannerBearersModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleBannerBearersModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleBannerBearersModel.cs`
 
 ## Overview
 
@@ -29,47 +23,101 @@ Treat `MultiplayerBattleBannerBearersModel` as a Model-style extension point: fi
 ### GetMinimumFormationTroopCountToBearBanners
 `public override int GetMinimumFormationTroopCountToBearBanners()`
 
-**Purpose:** Gets the current value of `minimum formation troop count to bear banners`.
+**Purpose:** Reads and returns the `minimum formation troop count to bear banners` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.GetMinimumFormationTroopCountToBearBanners();
+```
 
 ### GetBannerInteractionDistance
 `public override float GetBannerInteractionDistance(Agent interactingAgent)`
 
-**Purpose:** Gets the current value of `banner interaction distance`.
+**Purpose:** Reads and returns the `banner interaction distance` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.GetBannerInteractionDistance(interactingAgent);
+```
 
 ### CanAgentPickUpAnyBanner
 `public override bool CanAgentPickUpAnyBanner(Agent agent)`
 
-**Purpose:** Checks whether the current object can `agent pick up any banner`.
+**Purpose:** Checks whether the current object meets the preconditions for `agent pick up any banner`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.CanAgentPickUpAnyBanner(agent);
+```
 
 ### CanBannerBearerProvideEffectToFormation
 `public override bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
 
-**Purpose:** Checks whether the current object can `banner bearer provide effect to formation`.
+**Purpose:** Checks whether the current object meets the preconditions for `banner bearer provide effect to formation`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.CanBannerBearerProvideEffectToFormation(agent, formation);
+```
 
 ### CanAgentBecomeBannerBearer
 `public override bool CanAgentBecomeBannerBearer(Agent agent)`
 
-**Purpose:** Checks whether the current object can `agent become banner bearer`.
+**Purpose:** Checks whether the current object meets the preconditions for `agent become banner bearer`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.CanAgentBecomeBannerBearer(agent);
+```
 
 ### GetAgentBannerBearingPriority
 `public override int GetAgentBannerBearingPriority(Agent agent)`
 
-**Purpose:** Gets the current value of `agent banner bearing priority`.
+**Purpose:** Reads and returns the `agent banner bearing priority` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.GetAgentBannerBearingPriority(agent);
+```
 
 ### CanFormationDeployBannerBearers
 `public override bool CanFormationDeployBannerBearers(Formation formation)`
 
-**Purpose:** Checks whether the current object can `formation deploy banner bearers`.
+**Purpose:** Checks whether the current object meets the preconditions for `formation deploy banner bearers`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.CanFormationDeployBannerBearers(formation);
+```
 
 ### GetDesiredNumberOfBannerBearersForFormation
 `public override int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
 
-**Purpose:** Gets the current value of `desired number of banner bearers for formation`.
+**Purpose:** Reads and returns the `desired number of banner bearers for formation` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.GetDesiredNumberOfBannerBearersForFormation(formation);
+```
 
 ### GetBannerBearerReplacementWeapon
 `public override ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
 
-**Purpose:** Gets the current value of `banner bearer replacement weapon`.
+**Purpose:** Reads and returns the `banner bearer replacement weapon` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleBannerBearersModel from the subsystem API first
+MultiplayerBattleBannerBearersModel multiplayerBattleBannerBearersModel = ...;
+var result = multiplayerBattleBannerBearersModel.GetBannerBearerReplacementWeapon(agentCharacter);
+```
 
 ## Usage Example
 
@@ -79,4 +127,4 @@ Game.Current.ReplaceModel<MultiplayerBattleBannerBearersModel>(new MyMultiplayer
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPChatLineVM"
+description: "MPChatLineVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPChatLineVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPChatLineVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPChatLineVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer/MPChatLineVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer/MPChatLineVM.cs`
 
 ## 概述
 
@@ -38,25 +32,44 @@ title: "MPChatLineVM"
 ### HandleFading
 `public void HandleFading(float dt)`
 
-**用途 / Purpose:** 处理 `fading` 事件或回调。
+**用途 / Purpose:** 执行与 「fading」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatLineVM 实例
+MPChatLineVM mPChatLineVM = ...;
+mPChatLineVM.HandleFading(0);
+```
 
 ### ForceInvisible
 `public void ForceInvisible()`
 
-**用途 / Purpose:** 处理 `force invisible` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatLineVM 实例
+MPChatLineVM mPChatLineVM = ...;
+mPChatLineVM.ForceInvisible();
+```
 
 ### ToggleForceVisible
 `public void ToggleForceVisible(bool visible)`
 
-**用途 / Purpose:** 处理 `toggle force visible` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatLineVM 实例
+MPChatLineVM mPChatLineVM = ...;
+mPChatLineVM.ToggleForceVisible(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPChatLineVM();
-value.HandleFading(0);
+// 通常从对应子系统 API 获取实例后调用
+MPChatLineVM mPChatLineVM = ...;
+mPChatLineVM.HandleFading(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CompleteBuildingProjectCheat"
+description: "CompleteBuildingProjectCheat 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CompleteBuildingProjectCheat`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CompleteBuildingProjectCheat
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class CompleteBuildingProjectCheat : GameplayCheatItem`
 **Base:** `GameplayCheatItem`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/CompleteBuildingProjectCheat.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/CompleteBuildingProjectCheat.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CompleteBuildingProjectCheat"
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**用途 / Purpose:** 执行 `cheat` 操作或流程。
+**用途 / Purpose:** 执行 「cheat」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CompleteBuildingProjectCheat 实例
+CompleteBuildingProjectCheat completeBuildingProjectCheat = ...;
+completeBuildingProjectCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompleteBuildingProjectCheat 实例
+CompleteBuildingProjectCheat completeBuildingProjectCheat = ...;
+var result = completeBuildingProjectCheat.GetName();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CompleteBuildingProjectCheat();
-value.ExecuteCheat();
+// 通常从对应子系统 API 获取实例后调用
+CompleteBuildingProjectCheat completeBuildingProjectCheat = ...;
+completeBuildingProjectCheat.ExecuteCheat();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

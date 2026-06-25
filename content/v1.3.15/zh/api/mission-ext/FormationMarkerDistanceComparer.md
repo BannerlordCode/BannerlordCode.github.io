@@ -1,59 +1,44 @@
 ---
 title: "FormationMarkerDistanceComparer"
+description: "FormationMarkerDistanceComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationMarkerDistanceComparer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FormationMarkerDistanceComparer
 
-**命名空间:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class FormationMarkerDistanceComparer : IComparer<MissionFormationMarkerTargetVM>`
+**Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class FormationMarkerDistanceComparer : IComparer<MissionFormationMarkerTargetVM>`
 **Base:** `IComparer<MissionFormationMarkerTargetVM>`
-**领域:** mission-ext
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/HUD/FormationMarker/MissionFormationMarkerVM.cs`
 
 ## 概述
 
-`FormationMarkerDistanceComparer` 位于 `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`FormationMarkerDistanceComparer` 位于 `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `IsEnabled` | `public bool IsEnabled { get; set; }` |
-| `IsFormationTargetRelevant` | `public bool IsFormationTargetRelevant { get; set; }` |
-| `ShowDistanceTexts` | `public bool ShowDistanceTexts { get; set; }` |
-| `Targets` | `public MBBindingList<MissionFormationMarkerTargetVM> Targets { get; set; }` |
-
 ## 主要方法
-
-### RefreshFormationMarkers
-`public void RefreshFormationMarkers()`
-
-**用途 / Purpose:** 刷新 `formation markers` 的显示或缓存。
 
 ### Compare
 `public int Compare(MissionFormationMarkerTargetVM x, MissionFormationMarkerTargetVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 FormationMarkerDistanceComparer 实例
+FormationMarkerDistanceComparer formationMarkerDistanceComparer = ...;
+var result = formationMarkerDistanceComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 FormationMarkerDistanceComparer 实例，再调用它的公开方法
-var value = new FormationMarkerDistanceComparer();
-value.RefreshFormationMarkers();
+// 通常从对应子系统 API 获取实例后调用
+FormationMarkerDistanceComparer formationMarkerDistanceComparer = ...;
+formationMarkerDistanceComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

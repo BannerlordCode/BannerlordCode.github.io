@@ -1,13 +1,7 @@
 ---
 title: "TournamentGame"
+description: "Auto-generated class reference for TournamentGame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentGame`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentGame
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -44,39 +38,76 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### GetMenuText
 `public abstract TextObject GetMenuText()`
 
-**Purpose:** Gets the current value of `menu text`.
+**Purpose:** Reads and returns the `menu text` value held by the current object.
+
+```csharp
+// Obtain an instance of TournamentGame from the subsystem API first
+TournamentGame tournamentGame = ...;
+var result = tournamentGame.GetMenuText();
+```
 
 ### OpenMission
 `public abstract void OpenMission(Settlement settlement, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open mission`.
+**Purpose:** Opens the resource or UI associated with `mission`.
+
+```csharp
+// Obtain an instance of TournamentGame from the subsystem API first
+TournamentGame tournamentGame = ...;
+tournamentGame.OpenMission(settlement, false);
+```
 
 ### GetParticipantCharacters
 `public abstract MBList<CharacterObject> GetParticipantCharacters(Settlement settlement, bool includePlayer = true)`
 
-**Purpose:** Gets the current value of `participant characters`.
+**Purpose:** Reads and returns the `participant characters` value held by the current object.
+
+```csharp
+// Obtain an instance of TournamentGame from the subsystem API first
+TournamentGame tournamentGame = ...;
+var result = tournamentGame.GetParticipantCharacters(settlement, false);
+```
 
 ### CanBeAParticipant
 `public virtual bool CanBeAParticipant(CharacterObject character, bool considerSkills)`
 
-**Purpose:** Checks whether the current object can `be a participant`.
+**Purpose:** Checks whether the current object meets the preconditions for `be a participant`.
+
+```csharp
+// Obtain an instance of TournamentGame from the subsystem API first
+TournamentGame tournamentGame = ...;
+var result = tournamentGame.CanBeAParticipant(character, false);
+```
 
 ### PrepareForTournamentGame
 `public void PrepareForTournamentGame(bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `prepare for tournament game`.
+**Purpose:** Finishes prerequisite setup for the upcoming `for tournament game` operation.
+
+```csharp
+// Obtain an instance of TournamentGame from the subsystem API first
+TournamentGame tournamentGame = ...;
+tournamentGame.PrepareForTournamentGame(false);
+```
 
 ### UpdateTournamentPrize
 `public void UpdateTournamentPrize(bool includePlayer, bool removeCurrentPrize = false)`
 
-**Purpose:** Updates the state or data of `tournament prize`.
+**Purpose:** Recalculates and stores the latest representation of `tournament prize`.
+
+```csharp
+// Obtain an instance of TournamentGame from the subsystem API first
+TournamentGame tournamentGame = ...;
+tournamentGame.UpdateTournamentPrize(false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTournamentGame();
+// Typically obtained from a subsystem API or factory
+TournamentGame instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

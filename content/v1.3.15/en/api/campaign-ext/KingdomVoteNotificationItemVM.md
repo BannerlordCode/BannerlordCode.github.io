@@ -1,13 +1,7 @@
 ---
 title: "KingdomVoteNotificationItemVM"
+description: "Auto-generated class reference for KingdomVoteNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomVoteNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomVoteNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of KingdomVoteNotificationItemVM from the subsystem API first
+KingdomVoteNotificationItemVM kingdomVoteNotificationItemVM = ...;
+kingdomVoteNotificationItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomVoteNotificationItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomVoteNotificationItemVM kingdomVoteNotificationItemVM = ...;
+kingdomVoteNotificationItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

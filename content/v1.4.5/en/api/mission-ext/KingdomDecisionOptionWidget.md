@@ -1,20 +1,14 @@
 ---
 title: "KingdomDecisionOptionWidget"
+description: "Auto-generated class reference for KingdomDecisionOptionWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDecisionOptionWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDecisionOptionWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KingdomDecisionOptionWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomDecisionOptionWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomDecisionOptionWidget.cs`
 
 ## Overview
 
@@ -43,9 +37,10 @@ Treat `KingdomDecisionOptionWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new KingdomDecisionOptionWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+KingdomDecisionOptionWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

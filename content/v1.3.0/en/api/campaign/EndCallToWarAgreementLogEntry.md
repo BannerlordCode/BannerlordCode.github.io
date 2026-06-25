@@ -1,13 +1,7 @@
 ---
 title: "EndCallToWarAgreementLogEntry"
+description: "Auto-generated class reference for EndCallToWarAgreementLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EndCallToWarAgreementLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EndCallToWarAgreementLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of EndCallToWarAgreementLogEntry from the subsystem API first
+EndCallToWarAgreementLogEntry endCallToWarAgreementLogEntry = ...;
+var result = endCallToWarAgreementLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of EndCallToWarAgreementLogEntry from the subsystem API first
+EndCallToWarAgreementLogEntry endCallToWarAgreementLogEntry = ...;
+var result = endCallToWarAgreementLogEntry.GetEncyclopediaText();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of EndCallToWarAgreementLogEntry from the subsystem API first
+EndCallToWarAgreementLogEntry endCallToWarAgreementLogEntry = ...;
+var result = endCallToWarAgreementLogEntry.GetNotificationText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EndCallToWarAgreementLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+EndCallToWarAgreementLogEntry endCallToWarAgreementLogEntry = ...;
+endCallToWarAgreementLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

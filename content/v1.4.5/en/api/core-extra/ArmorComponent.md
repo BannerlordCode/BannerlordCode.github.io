@@ -1,20 +1,14 @@
 ---
 title: "ArmorComponent"
+description: "Auto-generated class reference for ArmorComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmorComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmorComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class ArmorComponent : ItemComponent`
 **Base:** `ItemComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ArmorComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ArmorComponent.cs`
 
 ## Overview
 
@@ -54,12 +48,24 @@ Treat `ArmorComponent` as a Component-style extension point: first identify who 
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Obtain an instance of ArmorComponent from the subsystem API first
+ArmorComponent armorComponent = ...;
+var result = armorComponent.GetCopy();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ArmorComponent from the subsystem API first
+ArmorComponent armorComponent = ...;
+armorComponent.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
@@ -69,4 +75,4 @@ var component = agent.GetComponent<ArmorComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

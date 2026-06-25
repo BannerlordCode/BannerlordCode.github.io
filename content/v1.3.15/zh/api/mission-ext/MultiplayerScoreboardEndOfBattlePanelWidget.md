@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerScoreboardEndOfBattlePanelWidget"
+description: "MultiplayerScoreboardEndOfBattlePanelWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerScoreboardEndOfBattlePanelWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardEndOfBattlePanelWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
@@ -37,14 +31,21 @@ title: "MultiplayerScoreboardEndOfBattlePanelWidget"
 ### StartAnimation
 `public void StartAnimation()`
 
-**用途 / Purpose:** 处理 `start animation` 相关逻辑。
+**用途 / Purpose:** 启动「animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerScoreboardEndOfBattlePanelWidget 实例
+MultiplayerScoreboardEndOfBattlePanelWidget multiplayerScoreboardEndOfBattlePanelWidget = ...;
+multiplayerScoreboardEndOfBattlePanelWidget.StartAnimation();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerScoreboardEndOfBattlePanelWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerScoreboardEndOfBattlePanelWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

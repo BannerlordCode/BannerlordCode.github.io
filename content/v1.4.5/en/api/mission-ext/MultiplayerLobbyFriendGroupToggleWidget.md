@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyFriendGroupToggleWidget"
+description: "Auto-generated class reference for MultiplayerLobbyFriendGroupToggleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyFriendGroupToggleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyFriendGroupToggleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Friend
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyFriendGroupToggleWidget : ToggleButtonWidget`
 **Base:** `ToggleButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Friend/MultiplayerLobbyFriendGroupToggleWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Friend/MultiplayerLobbyFriendGroupToggleWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `MultiplayerLobbyFriendGroupToggleWidget` as a Widget-style extension poin
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyFriendGroupToggleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyFriendGroupToggleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

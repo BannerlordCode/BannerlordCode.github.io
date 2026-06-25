@@ -1,13 +1,7 @@
 ---
 title: "LanguageSpecificTextProcessor"
+description: "Auto-generated class reference for LanguageSpecificTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LanguageSpecificTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LanguageSpecificTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
@@ -35,24 +29,43 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### ProcessToken
 `public abstract void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LanguageSpecificTextProcessor from the subsystem API first
+LanguageSpecificTextProcessor languageSpecificTextProcessor = ...;
+languageSpecificTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### ClearTemporaryData
 `public abstract void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of LanguageSpecificTextProcessor from the subsystem API first
+LanguageSpecificTextProcessor languageSpecificTextProcessor = ...;
+languageSpecificTextProcessor.ClearTemporaryData();
+```
 
 ### Process
 `public string Process(string text)`
 
-**Purpose:** Handles logic related to `process`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LanguageSpecificTextProcessor from the subsystem API first
+LanguageSpecificTextProcessor languageSpecificTextProcessor = ...;
+var result = languageSpecificTextProcessor.Process("example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomLanguageSpecificTextProcessor();
+// Typically obtained from a subsystem API or factory
+LanguageSpecificTextProcessor instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

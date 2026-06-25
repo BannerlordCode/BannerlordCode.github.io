@@ -1,13 +1,7 @@
 ---
-title: "Theme__psai_net"
+title: "Theme"
+description: "Theme 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Theme`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Theme
 
 **Namespace:** psai.net
@@ -29,22 +23,43 @@ title: "Theme__psai_net"
 ### ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities
 `public static bool ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(ThemeInterruptionBehavior interruptionBehavior)`
 
-**用途 / Purpose:** 处理 `theme interruption behavior requires evaluation of segment compatibilities` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Theme.ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(interruptionBehavior);
+```
 
 ### ThemeTypeToString
 `public static string ThemeTypeToString(ThemeType themeType)`
 
-**用途 / Purpose:** 处理 `theme type to string` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Theme.ThemeTypeToString(themeType);
+```
 
 ### GetThemeInterruptionBehavior
 `public static ThemeInterruptionBehavior GetThemeInterruptionBehavior(ThemeType sourceThemeType, ThemeType targetThemeType)`
 
-**用途 / Purpose:** 获取 `theme interruption behavior` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「theme interruption behavior」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Theme.GetThemeInterruptionBehavior(sourceThemeType, targetThemeType);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Theme 实例
+Theme theme = ...;
+var result = theme.ToString();
+```
 
 ## 使用示例
 
@@ -54,4 +69,4 @@ Theme.ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(interr
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

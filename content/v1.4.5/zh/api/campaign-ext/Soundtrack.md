@@ -1,20 +1,14 @@
 ---
 title: "Soundtrack"
+description: "Soundtrack 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Soundtrack`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Soundtrack
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public class Soundtrack`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/Soundtrack.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/Soundtrack.cs`
 
 ## 概述
 
@@ -29,50 +23,99 @@ title: "Soundtrack"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 Soundtrack 实例
+Soundtrack soundtrack = ...;
+soundtrack.Clear();
+```
 
 ### getThemeById
 `public Theme getThemeById(int id)`
 
-**用途 / Purpose:** 处理 `get theme by id` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Soundtrack 实例
+Soundtrack soundtrack = ...;
+var result = soundtrack.getThemeById(0);
+```
 
 ### GetSegmentById
 `public Segment GetSegmentById(int id)`
 
-**用途 / Purpose:** 获取 `segment by id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「segment by id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Soundtrack 实例
+Soundtrack soundtrack = ...;
+var result = soundtrack.GetSegmentById(0);
+```
 
 ### getSoundtrackInfo
 `public SoundtrackInfo getSoundtrackInfo()`
 
-**用途 / Purpose:** 处理 `get soundtrack info` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Soundtrack 实例
+Soundtrack soundtrack = ...;
+var result = soundtrack.getSoundtrackInfo();
+```
 
 ### getThemeInfo
 `public ThemeInfo getThemeInfo(int themeId)`
 
-**用途 / Purpose:** 处理 `get theme info` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Soundtrack 实例
+Soundtrack soundtrack = ...;
+var result = soundtrack.getThemeInfo(0);
+```
 
 ### getSegmentInfo
 `public SegmentInfo getSegmentInfo(int snippetId)`
 
-**用途 / Purpose:** 处理 `get segment info` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Soundtrack 实例
+Soundtrack soundtrack = ...;
+var result = soundtrack.getSegmentInfo(0);
+```
 
 ### UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets
 `public void UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets()`
 
-**用途 / Purpose:** 更新 `max pre beat ms of compatible middle or bridge snippets` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「max pre beat ms of compatible middle or bridge snippets」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Soundtrack 实例
+Soundtrack soundtrack = ...;
+soundtrack.UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets();
+```
 
 ### BuildAllIndirectionSequences
 `public void BuildAllIndirectionSequences()`
 
-**用途 / Purpose:** 处理 `build all indirection sequences` 相关逻辑。
+**用途 / Purpose:** 组装并返回「all indirection sequences」的构建结果。
+
+```csharp
+// 先通过子系统 API 拿到 Soundtrack 实例
+Soundtrack soundtrack = ...;
+soundtrack.BuildAllIndirectionSequences();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Soundtrack();
-value.Clear();
+// 通常从对应子系统 API 获取实例后调用
+Soundtrack soundtrack = ...;
+soundtrack.Clear();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

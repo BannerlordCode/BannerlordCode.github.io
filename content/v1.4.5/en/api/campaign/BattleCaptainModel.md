@@ -1,20 +1,14 @@
 ---
 title: "BattleCaptainModel"
+description: "Auto-generated class reference for BattleCaptainModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleCaptainModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleCaptainModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class BattleCaptainModel : MBGameModel<BattleCaptainModel>`
 **Base:** `MBGameModel<BattleCaptainModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BattleCaptainModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BattleCaptainModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `BattleCaptainModel` as a Model-style extension point: first identify who 
 ### GetCaptainRatingForTroopUsages
 `public abstract float GetCaptainRatingForTroopUsages(Hero hero, TroopUsageFlags flag, out List<PerkObject> compatiblePerks)`
 
-**Purpose:** Gets the current value of `captain rating for troop usages`.
+**Purpose:** Reads and returns the `captain rating for troop usages` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleCaptainModel from the subsystem API first
+BattleCaptainModel battleCaptainModel = ...;
+var result = battleCaptainModel.GetCaptainRatingForTroopUsages(hero, flag, compatiblePerks);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBattleCaptainModel();
+// Typically obtained from a subsystem API or factory
+BattleCaptainModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

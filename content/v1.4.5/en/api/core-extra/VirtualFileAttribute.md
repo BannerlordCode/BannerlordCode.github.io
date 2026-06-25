@@ -1,20 +1,14 @@
 ---
 title: "VirtualFileAttribute"
+description: "Auto-generated class reference for VirtualFileAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VirtualFileAttribute`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VirtualFileAttribute
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class VirtualFileAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFileAttribute.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFileAttribute.cs`
 
 ## Overview
 
@@ -40,4 +34,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "RESTClient"
+description: "Auto-generated class reference for RESTClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RESTClient`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RESTClient
 
 **Namespace:** TaleWorlds.Network
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Get
 `public Task Get(string service, List<KeyValuePair<string, string>> headers)`
 
-**Purpose:** Gets the current value of `get`.
+**Purpose:** Reads the current object's value or state and returns it.
+
+```csharp
+// Obtain an instance of RESTClient from the subsystem API first
+RESTClient rESTClient = ...;
+var result = rESTClient.Get("example", list<KeyValuePair<string, "example");
+```
 
 ### Post
 `public Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")`
 
-**Purpose:** Handles logic related to `post`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RESTClient from the subsystem API first
+RESTClient rESTClient = ...;
+var result = rESTClient.Post("example", list<KeyValuePair<string, "example", "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RESTClient();
-value.Get("example", list<KeyValuePair<string, "example");
+// Typically call this after obtaining an instance from the subsystem API
+RESTClient rESTClient = ...;
+rESTClient.Get("example", list<KeyValuePair<string, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

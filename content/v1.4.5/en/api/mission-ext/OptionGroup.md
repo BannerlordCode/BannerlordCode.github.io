@@ -1,20 +1,14 @@
 ---
 title: "OptionGroup"
+description: "Auto-generated class reference for OptionGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionGroup`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionGroup
 
 **Namespace:** TaleWorlds.MountAndBlade.Options
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionGroup`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options/OptionGroup.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options/OptionGroup.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Options` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new OptionGroup();
+// Obtain an instance from the relevant subsystem API
+OptionGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

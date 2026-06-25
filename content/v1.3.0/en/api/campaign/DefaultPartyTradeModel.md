@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyTradeModel"
+description: "Auto-generated class reference for DefaultPartyTradeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyTradeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,7 +29,13 @@ Treat `DefaultPartyTradeModel` as a Model-style extension point: first identify 
 ### GetTradePenaltyFactor
 `public override float GetTradePenaltyFactor(MobileParty party)`
 
-**Purpose:** Gets the current value of `trade penalty factor`.
+**Purpose:** Reads and returns the `trade penalty factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyTradeModel from the subsystem API first
+DefaultPartyTradeModel defaultPartyTradeModel = ...;
+var result = defaultPartyTradeModel.GetTradePenaltyFactor(party);
+```
 
 ## Usage Example
 
@@ -45,4 +45,4 @@ Game.Current.ReplaceModel<DefaultPartyTradeModel>(new MyDefaultPartyTradeModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

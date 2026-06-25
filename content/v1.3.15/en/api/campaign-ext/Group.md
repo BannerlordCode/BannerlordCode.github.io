@@ -1,13 +1,7 @@
 ---
 title: "Group"
+description: "Auto-generated class reference for Group."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Group`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Group
 
 **Namespace:** psai.Editor
@@ -44,90 +38,187 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### GetClassString
 `public override string GetClassString()`
 
-**Purpose:** Gets the current value of `class string`.
+**Purpose:** Reads and returns the `class string` value held by the current object.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.GetClassString();
+```
 
 ### AddSegment
 `public void AddSegment(Segment snippet)`
 
 **Purpose:** Adds `segment` to the current collection or state.
 
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+group.AddSegment(snippet);
+```
+
 ### AddSegment
 `public void AddSegment(Segment snippet, int index)`
 
 **Purpose:** Adds `segment` to the current collection or state.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+group.AddSegment(snippet, 0);
+```
 
 ### RemoveSegment
 `public void RemoveSegment(Segment snippet)`
 
 **Purpose:** Removes `segment` from the current collection or state.
 
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+group.RemoveSegment(snippet);
+```
+
 ### HasAtLeastOneBridgeSegmentToTargetGroup
 `public bool HasAtLeastOneBridgeSegmentToTargetGroup(Group targetGroup)`
 
-**Purpose:** Checks whether the current object has/contains `at least one bridge segment to target group`.
+**Purpose:** Determines whether the current object already holds `at least one bridge segment to target group`.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.HasAtLeastOneBridgeSegmentToTargetGroup(targetGroup);
+```
 
 ### ContainsAtLeastOneManualBridgeSegmentForSourceGroup
 `public bool ContainsAtLeastOneManualBridgeSegmentForSourceGroup(Group sourceGroup)`
 
-**Purpose:** Handles logic related to `contains at least one manual bridge segment for source group`.
+**Purpose:** Indicates whether the current object contains `at least one manual bridge segment for source group`.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.ContainsAtLeastOneManualBridgeSegmentForSourceGroup(sourceGroup);
+```
 
 ### ContainsAtLeastOneAutomaticBridgeSegment
 `public bool ContainsAtLeastOneAutomaticBridgeSegment()`
 
-**Purpose:** Handles logic related to `contains at least one automatic bridge segment`.
+**Purpose:** Indicates whether the current object contains `at least one automatic bridge segment`.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.ContainsAtLeastOneAutomaticBridgeSegment();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.ToString();
+```
 
 ### GetCompatibilitySetting
 `public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**Purpose:** Gets the current value of `compatibility setting`.
+**Purpose:** Reads and returns the `compatibility setting` value held by the current object.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.GetCompatibilitySetting(targetEntity);
+```
 
 ### GetCompatibilityType
 `public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**Purpose:** Gets the current value of `compatibility type`.
+**Purpose:** Reads and returns the `compatibility type` value held by the current object.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.GetCompatibilityType(targetEntity, reason);
+```
 
 ### SetAsParentGroupForAllSegments
 `public void SetAsParentGroupForAllSegments()`
 
-**Purpose:** Sets the value or state of `as parent group for all segments`.
+**Purpose:** Assigns a new value to `as parent group for all segments` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+group.SetAsParentGroupForAllSegments();
+```
 
 ### GetParent
 `public override PsaiMusicEntity GetParent()`
 
-**Purpose:** Gets the current value of `parent`.
+**Purpose:** Reads and returns the `parent` value held by the current object.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.GetParent();
+```
 
 ### GetChildren
 `public override List<PsaiMusicEntity> GetChildren()`
 
-**Purpose:** Gets the current value of `children`.
+**Purpose:** Reads and returns the `children` value held by the current object.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.GetChildren();
+```
 
 ### GetIndexPositionWithinParentEntity
 `public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**Purpose:** Gets the current value of `index position within parent entity`.
+**Purpose:** Reads and returns the `index position within parent entity` value held by the current object.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.GetIndexPositionWithinParentEntity(parentProject);
+```
 
 ### Clone
 `public override object Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.Clone();
+```
 
 ### ShallowCopy
 `public override PsaiMusicEntity ShallowCopy()`
 
-**Purpose:** Handles logic related to `shallow copy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Group from the subsystem API first
+Group group = ...;
+var result = group.ShallowCopy();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Group();
-value.GetClassString();
+// Typically call this after obtaining an instance from the subsystem API
+Group group = ...;
+group.GetClassString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MessageId"
+description: "MessageId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageId`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageId
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class MessageId : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/MessageId.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageId.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "MessageId"
 ## 使用示例
 
 ```csharp
-var example = new MessageId();
+// 从对应子系统 API 获取实例
+MessageId instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

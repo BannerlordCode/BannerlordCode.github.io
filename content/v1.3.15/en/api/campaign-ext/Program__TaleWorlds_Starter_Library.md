@@ -1,13 +1,7 @@
 ---
-title: "Program__TaleWorlds_Starter_Library"
+title: "Program"
+description: "Auto-generated class reference for Program."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Program`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Program
 
 **Namespace:** TaleWorlds.Starter.Library
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Starter.Library` to place it in the stack, then
 ### Main
 `public static int Main(string args)`
 
-**Purpose:** Handles logic related to `main`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Program.Main("example");
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ Program.Main("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

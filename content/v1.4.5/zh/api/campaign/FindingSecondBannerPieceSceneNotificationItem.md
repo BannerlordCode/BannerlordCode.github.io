@@ -1,20 +1,14 @@
 ---
 title: "FindingSecondBannerPieceSceneNotificationItem"
+description: "FindingSecondBannerPieceSceneNotificationItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FindingSecondBannerPieceSceneNotificationItem`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FindingSecondBannerPieceSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FindingSecondBannerPieceSceneNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/FindingSecondBannerPieceSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/FindingSecondBannerPieceSceneNotificationItem.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "FindingSecondBannerPieceSceneNotificationItem"
 ### GetBanners
 `public override Banner GetBanners()`
 
-**用途 / Purpose:** 获取 `banners` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banners」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FindingSecondBannerPieceSceneNotificationItem 实例
+FindingSecondBannerPieceSceneNotificationItem findingSecondBannerPieceSceneNotificationItem = ...;
+var result = findingSecondBannerPieceSceneNotificationItem.GetBanners();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FindingSecondBannerPieceSceneNotificationItem();
-value.GetBanners();
+// 通常从对应子系统 API 获取实例后调用
+FindingSecondBannerPieceSceneNotificationItem findingSecondBannerPieceSceneNotificationItem = ...;
+findingSecondBannerPieceSceneNotificationItem.GetBanners();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MerchantNeedsHelpWithOutlawsIssue"
+description: "MerchantNeedsHelpWithOutlawsIssue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MerchantNeedsHelpWithOutlawsIssue`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MerchantNeedsHelpWithOutlawsIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MerchantNeedsHelpWithOutlawsIssue`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/MerchantNeedsHelpWithOutlawsIssueQuestBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/MerchantNeedsHelpWithOutlawsIssueQuestBehavior.cs`
 
 ## 概述
 
@@ -41,55 +35,110 @@ title: "MerchantNeedsHelpWithOutlawsIssue"
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `do troops satisfy alternative solution` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+var result = merchantNeedsHelpWithOutlawsIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `alternative solution condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+var result = merchantNeedsHelpWithOutlawsIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is troop type needed by alternative solution` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「troop type needed by alternative solution」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+var result = merchantNeedsHelpWithOutlawsIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 获取 `frequency` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+var result = merchantNeedsHelpWithOutlawsIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
+**用途 / Purpose:** 创建或发起「stay alive conditions」。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+var result = merchantNeedsHelpWithOutlawsIssue.IssueStayAliveConditions();
+```
 
 ### IsSettlementBusy
 `public override void IsSettlementBusy(Settlement settlement, object asker, ref int priority)`
 
-**用途 / Purpose:** 处理 `is settlement busy` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「settlement busy」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+merchantNeedsHelpWithOutlawsIssue.IsSettlementBusy(settlement, asker, priority);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+merchantNeedsHelpWithOutlawsIssue.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+merchantNeedsHelpWithOutlawsIssue.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** 当 `check for issue` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「check for issue」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MerchantNeedsHelpWithOutlawsIssue 实例
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+merchantNeedsHelpWithOutlawsIssue.OnCheckForIssue(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MerchantNeedsHelpWithOutlawsIssue();
-value.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+// 通常从对应子系统 API 获取实例后调用
+MerchantNeedsHelpWithOutlawsIssue merchantNeedsHelpWithOutlawsIssue = ...;
+merchantNeedsHelpWithOutlawsIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

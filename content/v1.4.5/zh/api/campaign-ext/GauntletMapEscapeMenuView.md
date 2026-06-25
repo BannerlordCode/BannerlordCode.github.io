@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapEscapeMenuView"
+description: "GauntletMapEscapeMenuView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMapEscapeMenuView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapEscapeMenuView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapEscapeMenuView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEscapeMenuView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEscapeMenuView.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GauntletMapEscapeMenuView"
 ## 使用示例
 
 ```csharp
-var view = new GauntletMapEscapeMenuView();
+// 从子系统 API 或场景中获取该视图
+GauntletMapEscapeMenuView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

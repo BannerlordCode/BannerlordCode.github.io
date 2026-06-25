@@ -1,13 +1,7 @@
 ---
 title: "ScrollablePanelFixedHeaderWidget"
+description: "Auto-generated class reference for ScrollablePanelFixedHeaderWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScrollablePanelFixedHeaderWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScrollablePanelFixedHeaderWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -39,9 +33,10 @@ Treat `ScrollablePanelFixedHeaderWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new ScrollablePanelFixedHeaderWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScrollablePanelFixedHeaderWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

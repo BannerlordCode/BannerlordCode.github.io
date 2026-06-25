@@ -1,13 +1,7 @@
 ---
 title: "ScrollingRichTextWidget"
+description: "Auto-generated class reference for ScrollingRichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScrollingRichTextWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScrollingRichTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -40,14 +34,21 @@ Treat `ScrollingRichTextWidget` as a Widget-style extension point: first identif
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**Purpose:** Called when the `brush changed` event is raised.
+**Purpose:** Invoked when the `brush changed` event is raised.
+
+```csharp
+// Obtain an instance of ScrollingRichTextWidget from the subsystem API first
+ScrollingRichTextWidget scrollingRichTextWidget = ...;
+scrollingRichTextWidget.OnBrushChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ScrollingRichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScrollingRichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

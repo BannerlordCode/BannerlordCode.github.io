@@ -1,20 +1,14 @@
 ---
 title: "DiamondClientApplicationObject"
+description: "Auto-generated class reference for DiamondClientApplicationObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DiamondClientApplicationObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DiamondClientApplicationObject
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class DiamondClientApplicationObject`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/DiamondClientApplicationObject.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/DiamondClientApplicationObject.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDiamondClientApplicationObject();
+// Typically obtained from a subsystem API or factory
+DiamondClientApplicationObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

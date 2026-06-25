@@ -1,13 +1,7 @@
 ---
 title: "TeleportationCampaignBehaviorTypeDefiner"
+description: "Auto-generated class reference for TeleportationCampaignBehaviorTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeleportationCampaignBehaviorTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeleportationCampaignBehaviorTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-var example = new TeleportationCampaignBehaviorTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+TeleportationCampaignBehaviorTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

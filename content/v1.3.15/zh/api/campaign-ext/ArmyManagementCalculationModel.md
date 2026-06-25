@@ -1,13 +1,7 @@
 ---
 title: "ArmyManagementCalculationModel"
+description: "ArmyManagementCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArmyManagementCalculationModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ArmyManagementCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -42,64 +36,131 @@ title: "ArmyManagementCalculationModel"
 ### CanPlayerCreateArmy
 `public abstract bool CanPlayerCreateArmy(out TextObject disabledReason)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `player create army`。
+**用途 / Purpose:** 检查当前对象是否满足 「player create army」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CanPlayerCreateArmy(disabledReason);
+```
 
 ### CalculatePartyInfluenceCost
 `public abstract int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)`
 
-**用途 / Purpose:** 处理 `calculate party influence cost` 相关逻辑。
+**用途 / Purpose:** 计算「party influence cost」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CalculatePartyInfluenceCost(armyLeaderParty, party);
+```
 
 ### DailyBeingAtArmyInfluenceAward
 `public abstract float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)`
 
-**用途 / Purpose:** 处理 `daily being at army influence award` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.DailyBeingAtArmyInfluenceAward(armyMemberParty);
+```
 
 ### GetMobilePartiesToCallToArmy
 `public abstract List<MobileParty> GetMobilePartiesToCallToArmy(MobileParty leaderParty)`
 
-**用途 / Purpose:** 获取 `mobile parties to call to army` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mobile parties to call to army」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.GetMobilePartiesToCallToArmy(leaderParty);
+```
 
 ### CalculateTotalInfluenceCost
 `public abstract int CalculateTotalInfluenceCost(Army army, float percentage)`
 
-**用途 / Purpose:** 处理 `calculate total influence cost` 相关逻辑。
+**用途 / Purpose:** 计算「total influence cost」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CalculateTotalInfluenceCost(army, 0);
+```
 
 ### GetPartySizeScore
 `public abstract float GetPartySizeScore(MobileParty party)`
 
-**用途 / Purpose:** 获取 `party size score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party size score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.GetPartySizeScore(party);
+```
 
 ### CheckPartyEligibility
 `public abstract bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `check party eligibility` 相关逻辑。
+**用途 / Purpose:** 检查「party eligibility」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CheckPartyEligibility(party, explanation);
+```
 
 ### GetPartyRelation
 `public abstract int GetPartyRelation(Hero hero)`
 
-**用途 / Purpose:** 获取 `party relation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party relation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.GetPartyRelation(hero);
+```
 
 ### CalculateDailyCohesionChange
 `public abstract ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate daily cohesion change` 相关逻辑。
+**用途 / Purpose:** 计算「daily cohesion change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CalculateDailyCohesionChange(army, false);
+```
 
 ### CalculateNewCohesion
 `public abstract int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)`
 
-**用途 / Purpose:** 处理 `calculate new cohesion` 相关逻辑。
+**用途 / Purpose:** 计算「new cohesion」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CalculateNewCohesion(army, newParty, 0, 0);
+```
 
 ### GetCohesionBoostInfluenceCost
 `public abstract int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
 
-**用途 / Purpose:** 获取 `cohesion boost influence cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cohesion boost influence cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementCalculationModel 实例
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.GetCohesionBoostInfluenceCost(army, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomArmyManagementCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ArmyManagementCalculationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

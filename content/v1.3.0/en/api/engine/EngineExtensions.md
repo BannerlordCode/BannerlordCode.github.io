@@ -1,13 +1,7 @@
 ---
 title: "EngineExtensions"
+description: "Auto-generated class reference for EngineExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineExtensions`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineExtensions
 
 **Namespace:** TaleWorlds.Engine
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### ToWorldPosition
 `public static WorldPosition ToWorldPosition(this Vec3 vec3, Scene scene)`
 
-**Purpose:** Handles logic related to `to world position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EngineExtensions.ToWorldPosition(vec3, scene);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ EngineExtensions.ToWorldPosition(vec3, scene);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionDeploymentBoundaryMarker"
+description: "MissionDeploymentBoundaryMarker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionDeploymentBoundaryMarker`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDeploymentBoundaryMarker
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionDeploymentBoundaryMarker : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionDeploymentBoundaryMarker.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionDeploymentBoundaryMarker.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "MissionDeploymentBoundaryMarker"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentBoundaryMarker 实例
+MissionDeploymentBoundaryMarker missionDeploymentBoundaryMarker = ...;
+missionDeploymentBoundaryMarker.AfterStart();
+```
 
 ### OnDeploymentPlanMade
 `public override void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**用途 / Purpose:** 当 `deployment plan made` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment plan made」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentBoundaryMarker 实例
+MissionDeploymentBoundaryMarker missionDeploymentBoundaryMarker = ...;
+missionDeploymentBoundaryMarker.OnDeploymentPlanMade(team, false);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDeploymentBoundaryMarker 实例
+MissionDeploymentBoundaryMarker missionDeploymentBoundaryMarker = ...;
+missionDeploymentBoundaryMarker.OnRemoveBehavior();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionDeploymentBoundaryMarker();
-value.AfterStart();
+// 通常从对应子系统 API 获取实例后调用
+MissionDeploymentBoundaryMarker missionDeploymentBoundaryMarker = ...;
+missionDeploymentBoundaryMarker.AfterStart();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

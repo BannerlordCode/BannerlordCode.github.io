@@ -1,13 +1,7 @@
 ---
 title: "DefaultBuildingModel"
+description: "DefaultBuildingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultBuildingModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultBuildingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ title: "DefaultBuildingModel"
 ### CanAddBuildingTypeToTown
 `public override bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `add building type to town`。
+**用途 / Purpose:** 检查当前对象是否满足 「add building type to town」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBuildingModel 实例
+DefaultBuildingModel defaultBuildingModel = ...;
+var result = defaultBuildingModel.CanAddBuildingTypeToTown(buildingType, town);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultBuildingModel>(new MyDefaultBuildingModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

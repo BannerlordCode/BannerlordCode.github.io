@@ -1,20 +1,14 @@
 ---
 title: "RosterTroopState"
+description: "Auto-generated class reference for RosterTroopState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RosterTroopState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RosterTroopState
 
 **Namespace:** TaleWorlds.CampaignSystem.Roster
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum RosterTroopState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Roster/RosterTroopState.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Roster/RosterTroopState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Roster` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new RosterTroopState();
+// Obtain an instance from the relevant subsystem API
+RosterTroopState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

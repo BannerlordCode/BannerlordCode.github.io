@@ -1,13 +1,7 @@
 ---
 title: "BattleSimulationResult"
+description: "Auto-generated class reference for BattleSimulationResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSimulationResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSimulationResult
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new BattleSimulationResult();
+// Obtain an instance from the relevant subsystem API
+BattleSimulationResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

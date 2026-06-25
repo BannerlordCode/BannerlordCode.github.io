@@ -1,20 +1,14 @@
 ---
 title: "RequestToSpawnAsBot"
+description: "Auto-generated class reference for RequestToSpawnAsBot."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RequestToSpawnAsBot`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RequestToSpawnAsBot
 
 **Namespace:** NetworkMessages.FromClient
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class RequestToSpawnAsBot : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestToSpawnAsBot.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/RequestToSpawnAsBot.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `NetworkMessages.FromClient` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new RequestToSpawnAsBot();
+// Obtain an instance from the relevant subsystem API
+RequestToSpawnAsBot instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

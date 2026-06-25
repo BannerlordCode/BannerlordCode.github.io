@@ -1,20 +1,14 @@
 ---
 title: "StonePileRecord"
+description: "StonePileRecord 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StonePileRecord`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StonePileRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct StonePileRecord : ISynchedMissionObjectReadableRecord`
 **Base:** `ISynchedMissionObjectReadableRecord`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePile.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePile.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "StonePileRecord"
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 处理 `read from network` 相关逻辑。
+**用途 / Purpose:** 读取「from network」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 StonePileRecord 实例
+StonePileRecord stonePileRecord = ...;
+var result = stonePileRecord.ReadFromNetwork(bufferReadValid);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StonePileRecord();
-value.ReadFromNetwork(bufferReadValid);
+// 通常从对应子系统 API 获取实例后调用
+StonePileRecord stonePileRecord = ...;
+stonePileRecord.ReadFromNetwork(bufferReadValid);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

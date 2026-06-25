@@ -1,20 +1,14 @@
 ---
 title: "DeploymentHandler"
+description: "DeploymentHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DeploymentHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeploymentHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class DeploymentHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentHandler.cs`
 
 ## 概述
 
@@ -29,59 +23,119 @@ title: "DeploymentHandler"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.OnRemoveBehavior();
+```
 
 ### OnBattleSideDeployed
 `public override void OnBattleSideDeployed(BattleSideEnum side)`
 
-**用途 / Purpose:** 当 `battle side deployed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「battle side deployed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.OnBattleSideDeployed(side);
+```
 
 ### AutoDeployTeamUsingDeploymentPlan
 `public abstract void AutoDeployTeamUsingDeploymentPlan(Team playerTeam)`
 
-**用途 / Purpose:** 处理 `auto deploy team using deployment plan` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.AutoDeployTeamUsingDeploymentPlan(playerTeam);
+```
 
 ### ForceUpdateAllUnits
 `public abstract void ForceUpdateAllUnits()`
 
-**用途 / Purpose:** 处理 `force update all units` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.ForceUpdateAllUnits();
+```
 
 ### FinishDeployment
 `public virtual void FinishDeployment()`
 
-**用途 / Purpose:** 处理 `finish deployment` 相关逻辑。
+**用途 / Purpose:** 结束「deployment」流程并执行必要的收尾工作。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.FinishDeployment();
+```
 
 ### InitializeDeploymentPoints
 `public void InitializeDeploymentPoints()`
 
-**用途 / Purpose:** 初始化 `deployment points` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「deployment points」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentHandler 实例
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.InitializeDeploymentPoints();
+```
 
 ### OrderController_OnOrderIssued_Aux
 `public static void OrderController_OnOrderIssued_Aux(OrderType orderType, MBReadOnlyList<Formation> appliedFormations, OrderController orderController = null, params object delegateParams)`
 
-**用途 / Purpose:** 处理 `order controller_ on order issued_ aux` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DeploymentHandler.OrderController_OnOrderIssued_Aux(orderType, appliedFormations, null, delegateParams);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDeploymentHandler();
+// 通常通过子系统 API 或工厂获得派生实例
+DeploymentHandler instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

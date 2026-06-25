@@ -1,13 +1,7 @@
 ---
 title: "MissionBoundaryPlacer"
+description: "Auto-generated class reference for MissionBoundaryPlacer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBoundaryPlacer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionBoundaryPlacer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBoundaryPlacer from the subsystem API first
+MissionBoundaryPlacer missionBoundaryPlacer = ...;
+missionBoundaryPlacer.EarlyStart();
+```
 
 ### AddMissionBoundaries
 `public void AddMissionBoundaries()`
 
 **Purpose:** Adds `mission boundaries` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionBoundaryPlacer from the subsystem API first
+MissionBoundaryPlacer missionBoundaryPlacer = ...;
+missionBoundaryPlacer.AddMissionBoundaries();
+```
+
 ## Usage Example
 
 ```csharp
-var value = new MissionBoundaryPlacer();
-value.EarlyStart();
+// Typically call this after obtaining an instance from the subsystem API
+MissionBoundaryPlacer missionBoundaryPlacer = ...;
+missionBoundaryPlacer.EarlyStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

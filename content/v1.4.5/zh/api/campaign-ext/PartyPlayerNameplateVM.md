@@ -1,20 +1,14 @@
 ---
 title: "PartyPlayerNameplateVM"
+description: "PartyPlayerNameplateVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyPlayerNameplateVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyPlayerNameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PartyPlayerNameplateVM : PartyNameplateVM`
 **Base:** `PartyNameplateVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/PartyPlayerNameplateVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/PartyPlayerNameplateVM.cs`
 
 ## 概述
 
@@ -37,40 +31,77 @@ title: "PartyPlayerNameplateVM"
 ### InitializePlayerNameplate
 `public void InitializePlayerNameplate(Action resetCamera)`
 
-**用途 / Purpose:** 初始化 `player nameplate` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「player nameplate」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.InitializePlayerNameplate(resetCamera);
+```
 
 ### Clear
 `public override void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.Clear();
+```
 
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**用途 / Purpose:** 刷新 `dynamic properties` 的显示或缓存。
+**用途 / Purpose:** 使 「dynamic properties」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshBinding
 `public override void RefreshBinding()`
 
-**用途 / Purpose:** 刷新 `binding` 的显示或缓存。
+**用途 / Purpose:** 使 「binding」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.RefreshBinding();
+```
 
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**用途 / Purpose:** 刷新 `position` 的显示或缓存。
+**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.RefreshPosition();
+```
 
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**用途 / Purpose:** 执行 `set camera position` 操作或流程。
+**用途 / Purpose:** 执行 「set camera position」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.ExecuteSetCameraPosition();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyPlayerNameplateVM();
-value.InitializePlayerNameplate(resetCamera);
+// 通常从对应子系统 API 获取实例后调用
+PartyPlayerNameplateVM partyPlayerNameplateVM = ...;
+partyPlayerNameplateVM.InitializePlayerNameplate(resetCamera);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

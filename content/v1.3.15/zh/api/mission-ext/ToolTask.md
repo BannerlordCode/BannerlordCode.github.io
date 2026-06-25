@@ -1,13 +1,7 @@
 ---
 title: "ToolTask"
+description: "ToolTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ToolTask`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ToolTask
 
 **Namespace:** TaleWorlds.MountAndBlade.SteamWorkshop
@@ -29,19 +23,32 @@ title: "ToolTask"
 ### LoadFrom
 `public abstract void LoadFrom(XmlNode xmlNode)`
 
-**用途 / Purpose:** 加载 `from` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+
+```csharp
+// 先通过子系统 API 拿到 ToolTask 实例
+ToolTask toolTask = ...;
+toolTask.LoadFrom(xmlNode);
+```
 
 ### DoJob
 `public abstract void DoJob()`
 
-**用途 / Purpose:** 处理 `do job` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ToolTask 实例
+ToolTask toolTask = ...;
+toolTask.DoJob();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomToolTask();
+// 通常通过子系统 API 或工厂获得派生实例
+ToolTask instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

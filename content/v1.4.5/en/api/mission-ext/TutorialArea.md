@@ -1,20 +1,14 @@
 ---
 title: "TutorialArea"
+description: "Auto-generated class reference for TutorialArea."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialArea`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialArea
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TutorialArea : MissionObject`
 **Base:** `MissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TutorialArea.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TutorialArea.cs`
 
 ## Overview
 
@@ -35,125 +29,264 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.AfterMissionStart();
+```
 
 ### MarkTrainingIcons
 `public void MarkTrainingIcons(bool mark)`
 
-**Purpose:** Handles logic related to `mark training icons`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.MarkTrainingIcons(false);
+```
 
 ### GetActiveTrainingIcon
 `public TrainingIcon GetActiveTrainingIcon()`
 
-**Purpose:** Gets the current value of `active training icon`.
+**Purpose:** Reads and returns the `active training icon` value held by the current object.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.GetActiveTrainingIcon();
+```
 
 ### GetIndexFromTag
 `public int GetIndexFromTag(string tag)`
 
-**Purpose:** Gets the current value of `index from tag`.
+**Purpose:** Reads and returns the `index from tag` value held by the current object.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.GetIndexFromTag("example");
+```
 
 ### GetSubTrainingTags
 `public List<string> GetSubTrainingTags()`
 
-**Purpose:** Gets the current value of `sub training tags`.
+**Purpose:** Reads and returns the `sub training tags` value held by the current object.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.GetSubTrainingTags();
+```
 
 ### ActivateTaggedWeapons
 `public void ActivateTaggedWeapons(int index)`
 
-**Purpose:** Handles logic related to `activate tagged weapons`.
+**Purpose:** Activates the resource, state, or feature associated with `tagged weapons`.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.ActivateTaggedWeapons(0);
+```
 
 ### EquipWeaponsToPlayer
 `public void EquipWeaponsToPlayer(int index)`
 
-**Purpose:** Handles logic related to `equip weapons to player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.EquipWeaponsToPlayer(0);
+```
 
 ### DeactivateAllWeapons
 `public void DeactivateAllWeapons(bool resetDestructibles)`
 
-**Purpose:** Handles logic related to `deactivate all weapons`.
+**Purpose:** Deactivates the resource, state, or feature associated with `all weapons`.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.DeactivateAllWeapons(false);
+```
 
 ### ActivateBoundaries
 `public void ActivateBoundaries()`
 
-**Purpose:** Handles logic related to `activate boundaries`.
+**Purpose:** Activates the resource, state, or feature associated with `boundaries`.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.ActivateBoundaries();
+```
 
 ### HideBoundaries
 `public void HideBoundaries()`
 
-**Purpose:** Handles logic related to `hide boundaries`.
+**Purpose:** Hides the UI or element associated with `boundaries`.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.HideBoundaries();
+```
 
 ### GetBreakablesCount
 `public int GetBreakablesCount(int index)`
 
-**Purpose:** Gets the current value of `breakables count`.
+**Purpose:** Reads and returns the `breakables count` value held by the current object.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.GetBreakablesCount(0);
+```
 
 ### MakeDestructible
 `public void MakeDestructible(int index)`
 
-**Purpose:** Handles logic related to `make destructible`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.MakeDestructible(0);
+```
 
 ### MarkAllTargets
 `public void MarkAllTargets(int index, bool mark)`
 
-**Purpose:** Handles logic related to `mark all targets`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.MarkAllTargets(0, false);
+```
 
 ### ResetMarkingTargetTimers
 `public void ResetMarkingTargetTimers(int index)`
 
-**Purpose:** Resets `marking target timers` to its initial state.
+**Purpose:** Returns `marking target timers` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.ResetMarkingTargetTimers(0);
+```
 
 ### MakeInDestructible
 `public void MakeInDestructible(int index)`
 
-**Purpose:** Handles logic related to `make in destructible`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.MakeInDestructible(0);
+```
 
 ### AllBreakablesAreBroken
 `public bool AllBreakablesAreBroken(int index)`
 
-**Purpose:** Handles logic related to `all breakables are broken`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.AllBreakablesAreBroken(0);
+```
 
 ### GetBrokenBreakableCount
 `public int GetBrokenBreakableCount(int index)`
 
-**Purpose:** Gets the current value of `broken breakable count`.
+**Purpose:** Reads and returns the `broken breakable count` value held by the current object.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.GetBrokenBreakableCount(0);
+```
 
 ### GetUnbrokenBreakableCount
 `public int GetUnbrokenBreakableCount(int index)`
 
-**Purpose:** Gets the current value of `unbroken breakable count`.
+**Purpose:** Reads and returns the `unbroken breakable count` value held by the current object.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.GetUnbrokenBreakableCount(0);
+```
 
 ### ResetBreakables
 `public void ResetBreakables(int index, bool makeIndestructible = true)`
 
-**Purpose:** Resets `breakables` to its initial state.
+**Purpose:** Returns `breakables` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.ResetBreakables(0, false);
+```
 
 ### HasMainAgentPickedAll
 `public bool HasMainAgentPickedAll(int index)`
 
-**Purpose:** Checks whether the current object has/contains `main agent picked all`.
+**Purpose:** Determines whether the current object already holds `main agent picked all`.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.HasMainAgentPickedAll(0);
+```
 
 ### CheckMainAgentEquipment
 `public void CheckMainAgentEquipment(int index)`
 
-**Purpose:** Handles logic related to `check main agent equipment`.
+**Purpose:** Verifies whether `main agent equipment` holds true for the current object.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.CheckMainAgentEquipment(0);
+```
 
 ### CheckWeapons
 `public void CheckWeapons(int index)`
 
-**Purpose:** Handles logic related to `check weapons`.
+**Purpose:** Verifies whether `weapons` holds true for the current object.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+tutorialArea.CheckWeapons(0);
+```
 
 ### IsPositionInsideTutorialArea
 `public bool IsPositionInsideTutorialArea(Vec3 position, out string volumeBoxTags)`
 
-**Purpose:** Handles logic related to `is position inside tutorial area`.
+**Purpose:** Determines whether the current object is in the `position inside tutorial area` state or condition.
+
+```csharp
+// Obtain an instance of TutorialArea from the subsystem API first
+TutorialArea tutorialArea = ...;
+var result = tutorialArea.IsPositionInsideTutorialArea(position, volumeBoxTags);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TutorialArea();
-value.AfterMissionStart();
+// Typically call this after obtaining an instance from the subsystem API
+TutorialArea tutorialArea = ...;
+tutorialArea.AfterMissionStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

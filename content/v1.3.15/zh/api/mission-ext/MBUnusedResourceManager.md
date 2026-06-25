@@ -1,13 +1,7 @@
 ---
 title: "MBUnusedResourceManager"
+description: "MBUnusedResourceManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBUnusedResourceManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBUnusedResourceManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,32 @@ title: "MBUnusedResourceManager"
 ### SetMeshUsed
 `public static void SetMeshUsed(string meshName)`
 
-**用途 / Purpose:** 设置 `mesh used` 的值或状态。
+**用途 / Purpose:** 为 「mesh used」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MBUnusedResourceManager.SetMeshUsed("example");
+```
 
 ### SetMaterialUsed
 `public static void SetMaterialUsed(string meshName)`
 
-**用途 / Purpose:** 设置 `material used` 的值或状态。
+**用途 / Purpose:** 为 「material used」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MBUnusedResourceManager.SetMaterialUsed("example");
+```
 
 ### SetBodyUsed
 `public static void SetBodyUsed(string bodyName)`
 
-**用途 / Purpose:** 设置 `body used` 的值或状态。
+**用途 / Purpose:** 为 「body used」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MBUnusedResourceManager.SetBodyUsed("example");
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ var manager = MBUnusedResourceManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

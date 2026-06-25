@@ -1,13 +1,7 @@
 ---
 title: "FakeInventoryListener"
+description: "FakeInventoryListener 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FakeInventoryListener`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FakeInventoryListener
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
@@ -29,35 +23,66 @@ title: "FakeInventoryListener"
 ### GetGold
 `public override int GetGold()`
 
-**用途 / Purpose:** 获取 `gold` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FakeInventoryListener 实例
+FakeInventoryListener fakeInventoryListener = ...;
+var result = fakeInventoryListener.GetGold();
+```
 
 ### GetTraderName
 `public override TextObject GetTraderName()`
 
-**用途 / Purpose:** 获取 `trader name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trader name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FakeInventoryListener 实例
+FakeInventoryListener fakeInventoryListener = ...;
+var result = fakeInventoryListener.GetTraderName();
+```
 
 ### SetGold
 `public override void SetGold(int gold)`
 
-**用途 / Purpose:** 设置 `gold` 的值或状态。
+**用途 / Purpose:** 为 「gold」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FakeInventoryListener 实例
+FakeInventoryListener fakeInventoryListener = ...;
+fakeInventoryListener.SetGold(0);
+```
 
 ### OnTransaction
 `public override void OnTransaction()`
 
-**用途 / Purpose:** 当 `transaction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「transaction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FakeInventoryListener 实例
+FakeInventoryListener fakeInventoryListener = ...;
+fakeInventoryListener.OnTransaction();
+```
 
 ### GetOppositeParty
 `public override PartyBase GetOppositeParty()`
 
-**用途 / Purpose:** 获取 `opposite party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「opposite party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FakeInventoryListener 实例
+FakeInventoryListener fakeInventoryListener = ...;
+var result = fakeInventoryListener.GetOppositeParty();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FakeInventoryListener();
-value.GetGold();
+// 通常从对应子系统 API 获取实例后调用
+FakeInventoryListener fakeInventoryListener = ...;
+fakeInventoryListener.GetGold();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

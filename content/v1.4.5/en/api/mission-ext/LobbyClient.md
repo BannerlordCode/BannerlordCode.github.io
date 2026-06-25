@@ -1,20 +1,14 @@
 ---
 title: "LobbyClient"
+description: "Auto-generated class reference for LobbyClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyClient`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyClient
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyClient : Client<LobbyClient>`
 **Base:** `Client<LobbyClient>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClient.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClient.cs`
 
 ## Overview
 
@@ -72,510 +66,1111 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### Logout
 `public void Logout(TextObject logOutReason)`
 
-**Purpose:** Handles logic related to `logout`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.Logout(logOutReason);
+```
 
 ### SetLoadedModules
 `public void SetLoadedModules(string moduleIDs)`
 
-**Purpose:** Sets the value or state of `loaded modules`.
+**Purpose:** Assigns a new value to `loaded modules` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.SetLoadedModules("example");
+```
 
 ### GetCustomGameServerList
 `public async Task<AvailableCustomGames> GetCustomGameServerList()`
 
-**Purpose:** Gets the current value of `custom game server list`.
+**Purpose:** Reads and returns the `custom game server list` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetCustomGameServerList();
+```
 
 ### QuitFromCustomGame
 `public void QuitFromCustomGame()`
 
-**Purpose:** Handles logic related to `quit from custom game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.QuitFromCustomGame();
+```
 
 ### QuitFromMatchmakerGame
 `public void QuitFromMatchmakerGame()`
 
-**Purpose:** Handles logic related to `quit from matchmaker game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.QuitFromMatchmakerGame();
+```
 
 ### RequestJoinCustomGame
 `public async Task<bool> RequestJoinCustomGame(CustomBattleId serverId, string password, bool isJoinAsAdmin = false)`
 
-**Purpose:** Handles logic related to `request join custom game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.RequestJoinCustomGame(serverId, "example", false);
+```
 
 ### RequestJoinPlayerParty
 `public async Task<bool> RequestJoinPlayerParty(PlayerId targetPlayer, bool inviteRequest)`
 
-**Purpose:** Handles logic related to `request join player party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.RequestJoinPlayerParty(targetPlayer, false);
+```
 
 ### CancelFindGame
 `public void CancelFindGame()`
 
-**Purpose:** Checks whether the current object can `cel find game`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel find game`.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.CancelFindGame();
+```
 
 ### FindGame
 `public void FindGame()`
 
-**Purpose:** Handles logic related to `find game`.
+**Purpose:** Looks up the matching `game` in the current collection or scope.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.FindGame();
+```
 
 ### FindCustomGame
 `public async Task<bool> FindCustomGame(string selectedCustomGameTypes, bool? hasCrossplayPrivilege, string region)`
 
-**Purpose:** Handles logic related to `find custom game`.
+**Purpose:** Looks up the matching `custom game` in the current collection or scope.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.FindCustomGame("example", false, "example");
+```
 
 ### Connect
 `public async Task<LobbyClientConnectResult> Connect(ILobbyClientSessionHandler lobbyClientSessionHandler, ILoginAccessProvider lobbyClientLoginAccessProvider, string overridenUserName, bool hasUserGeneratedContentPrivilege, PlatformInitParams initParams, Func<Task<bool>> preLoginTask)`
 
-**Purpose:** Handles logic related to `connect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.Connect(lobbyClientSessionHandler, lobbyClientLoginAccessProvider, "example", false, initParams, preLoginTask);
+```
 
 ### KickPlayer
 `public void KickPlayer(PlayerId id, bool banPlayer)`
 
-**Purpose:** Handles logic related to `kick player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.KickPlayer(id, false);
+```
 
 ### ChangeRegion
 `public void ChangeRegion(string region)`
 
-**Purpose:** Handles logic related to `change region`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeRegion("example");
+```
 
 ### ChangeGameTypes
 `public void ChangeGameTypes(string gameTypes)`
 
-**Purpose:** Handles logic related to `change game types`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeGameTypes("example");
+```
 
 ### OnConnected
 `public override void OnConnected()`
 
-**Purpose:** Called when the `connected` event is raised.
+**Purpose:** Invoked when the `connected` event is raised.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.OnConnected();
+```
 
 ### OnCantConnect
 `public override void OnCantConnect()`
 
-**Purpose:** Called when the `cant connect` event is raised.
+**Purpose:** Invoked when the `cant connect` event is raised.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.OnCantConnect();
+```
 
 ### OnDisconnected
 `public override void OnDisconnected()`
 
-**Purpose:** Called when the `disconnected` event is raised.
+**Purpose:** Invoked when the `disconnected` event is raised.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.OnDisconnected();
+```
 
 ### RemoveLobbyClientHandler
 `public void RemoveLobbyClientHandler()`
 
 **Purpose:** Removes `lobby client handler` from the current collection or state.
 
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.RemoveLobbyClientHandler();
+```
+
 ### SendWhisper
 `public void SendWhisper(string playerName, string message)`
 
-**Purpose:** Handles logic related to `send whisper`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.SendWhisper("example", "example");
+```
 
 ### FleeBattle
 `public void FleeBattle()`
 
-**Purpose:** Handles logic related to `flee battle`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.FleeBattle();
+```
 
 ### SendPartyMessage
 `public void SendPartyMessage(string message)`
 
-**Purpose:** Handles logic related to `send party message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.SendPartyMessage("example");
+```
 
 ### RejoinBattle
 `public void RejoinBattle()`
 
-**Purpose:** Handles logic related to `rejoin battle`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.RejoinBattle();
+```
 
 ### OnBattleResultsSeen
 `public void OnBattleResultsSeen()`
 
-**Purpose:** Called when the `battle results seen` event is raised.
+**Purpose:** Invoked when the `battle results seen` event is raised.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.OnBattleResultsSeen();
+```
 
 ### AcceptClanInvitation
 `public void AcceptClanInvitation()`
 
-**Purpose:** Handles logic related to `accept clan invitation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptClanInvitation();
+```
 
 ### DeclineClanInvitation
 `public void DeclineClanInvitation()`
 
-**Purpose:** Handles logic related to `decline clan invitation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclineClanInvitation();
+```
 
 ### MarkNotificationAsRead
 `public void MarkNotificationAsRead(int notificationID)`
 
-**Purpose:** Handles logic related to `mark notification as read`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.MarkNotificationAsRead(0);
+```
 
 ### AcceptClanCreationRequest
 `public void AcceptClanCreationRequest()`
 
-**Purpose:** Handles logic related to `accept clan creation request`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptClanCreationRequest();
+```
 
 ### DeclineClanCreationRequest
 `public void DeclineClanCreationRequest()`
 
-**Purpose:** Handles logic related to `decline clan creation request`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclineClanCreationRequest();
+```
 
 ### PromoteToClanLeader
 `public void PromoteToClanLeader(PlayerId playerId, bool dontUseNameForUnknownPlayer)`
 
-**Purpose:** Handles logic related to `promote to clan leader`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.PromoteToClanLeader(playerId, false);
+```
 
 ### KickFromClan
 `public void KickFromClan(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `kick from clan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.KickFromClan(playerId);
+```
 
 ### ClanNameExists
 `public async Task<CheckClanParameterValidResult> ClanNameExists(string clanName)`
 
-**Purpose:** Handles logic related to `clan name exists`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.ClanNameExists("example");
+```
 
 ### ClanTagExists
 `public async Task<CheckClanParameterValidResult> ClanTagExists(string clanTag)`
 
-**Purpose:** Handles logic related to `clan tag exists`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.ClanTagExists("example");
+```
 
 ### GetClanHomeInfo
 `public async Task<ClanHomeInfo> GetClanHomeInfo()`
 
-**Purpose:** Gets the current value of `clan home info`.
+**Purpose:** Reads and returns the `clan home info` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetClanHomeInfo();
+```
 
 ### AssignAsClanOfficer
 `public void AssignAsClanOfficer(PlayerId playerId, bool dontUseNameForUnknownPlayer)`
 
-**Purpose:** Handles logic related to `assign as clan officer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AssignAsClanOfficer(playerId, false);
+```
 
 ### RemoveClanOfficerRoleForPlayer
 `public void RemoveClanOfficerRoleForPlayer(PlayerId playerId)`
 
 **Purpose:** Removes `clan officer role for player` from the current collection or state.
 
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.RemoveClanOfficerRoleForPlayer(playerId);
+```
+
 ### GetClanLeaderboardInfo
 `public async Task<ClanLeaderboardInfo> GetClanLeaderboardInfo()`
 
-**Purpose:** Gets the current value of `clan leaderboard info`.
+**Purpose:** Reads and returns the `clan leaderboard info` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetClanLeaderboardInfo();
+```
 
 ### GetPlayerClanInfo
 `public async Task<ClanInfo> GetPlayerClanInfo(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `player clan info`.
+**Purpose:** Reads and returns the `player clan info` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerClanInfo(playerId);
+```
 
 ### SendClanMessage
 `public void SendClanMessage(string message)`
 
-**Purpose:** Handles logic related to `send clan message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.SendClanMessage("example");
+```
 
 ### GetPremadeGameList
 `public async Task<PremadeGameList> GetPremadeGameList()`
 
-**Purpose:** Gets the current value of `premade game list`.
+**Purpose:** Reads and returns the `premade game list` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPremadeGameList();
+```
 
 ### GetAvailableScenes
 `public async Task<AvailableScenes> GetAvailableScenes()`
 
-**Purpose:** Gets the current value of `available scenes`.
+**Purpose:** Reads and returns the `available scenes` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetAvailableScenes();
+```
 
 ### GetLobbyNews
 `public async Task<PublishedLobbyNewsArticle > GetLobbyNews()`
 
-**Purpose:** Gets the current value of `lobby news`.
+**Purpose:** Reads and returns the `lobby news` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetLobbyNews();
+```
 
 ### SetClanInformationText
 `public void SetClanInformationText(string informationText)`
 
-**Purpose:** Sets the value or state of `clan information text`.
+**Purpose:** Assigns a new value to `clan information text` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.SetClanInformationText("example");
+```
 
 ### AddClanAnnouncement
 `public void AddClanAnnouncement(string announcement)`
 
 **Purpose:** Adds `clan announcement` to the current collection or state.
 
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AddClanAnnouncement("example");
+```
+
 ### EditClanAnnouncement
 `public void EditClanAnnouncement(int announcementId, string text)`
 
-**Purpose:** Handles logic related to `edit clan announcement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.EditClanAnnouncement(0, "example");
+```
 
 ### RemoveClanAnnouncement
 `public void RemoveClanAnnouncement(int announcementId)`
 
 **Purpose:** Removes `clan announcement` from the current collection or state.
 
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.RemoveClanAnnouncement(0);
+```
+
 ### ChangeClanFaction
 `public void ChangeClanFaction(string faction)`
 
-**Purpose:** Handles logic related to `change clan faction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeClanFaction("example");
+```
 
 ### ChangeClanSigil
 `public void ChangeClanSigil(string sigil)`
 
-**Purpose:** Handles logic related to `change clan sigil`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeClanSigil("example");
+```
 
 ### DestroyClan
 `public void DestroyClan()`
 
-**Purpose:** Handles logic related to `destroy clan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.DestroyClan();
+```
 
 ### InviteToClan
 `public void InviteToClan(PlayerId invitedPlayerId, bool dontUseNameForUnknownPlayer)`
 
-**Purpose:** Handles logic related to `invite to clan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.InviteToClan(invitedPlayerId, false);
+```
 
 ### CreatePremadeGame
 `public async void CreatePremadeGame(string name, string gameType, string mapName, string factionA, string factionB, string password, PremadeGameType premadeGameType)`
 
-**Purpose:** Creates a new `premade game` instance or object.
+**Purpose:** Constructs a new `premade game` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.CreatePremadeGame("example", "example", "example", "example", "example", "example", premadeGameType);
+```
 
 ### CancelCreatingPremadeGame
 `public void CancelCreatingPremadeGame()`
 
-**Purpose:** Checks whether the current object can `cel creating premade game`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel creating premade game`.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.CancelCreatingPremadeGame();
+```
 
 ### RequestToJoinPremadeGame
 `public void RequestToJoinPremadeGame(Guid gameId, string password)`
 
-**Purpose:** Handles logic related to `request to join premade game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.RequestToJoinPremadeGame(gameId, "example");
+```
 
 ### AcceptJoinPremadeGameRequest
 `public void AcceptJoinPremadeGameRequest(Guid partyId)`
 
-**Purpose:** Handles logic related to `accept join premade game request`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptJoinPremadeGameRequest(partyId);
+```
 
 ### DeclineJoinPremadeGameRequest
 `public void DeclineJoinPremadeGameRequest(Guid partyId)`
 
-**Purpose:** Handles logic related to `decline join premade game request`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclineJoinPremadeGameRequest(partyId);
+```
 
 ### InviteToParty
 `public void InviteToParty(PlayerId playerId, bool dontUseNameForUnknownPlayer)`
 
-**Purpose:** Handles logic related to `invite to party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.InviteToParty(playerId, false);
+```
 
 ### DisbandParty
 `public void DisbandParty()`
 
-**Purpose:** Handles logic related to `disband party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.DisbandParty();
+```
 
 ### KickPlayerFromParty
 `public void KickPlayerFromParty(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `kick player from party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.KickPlayerFromParty(playerId);
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string name)`
 
-**Purpose:** Called when the `player name updated` event is raised.
+**Purpose:** Invoked when the `player name updated` event is raised.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.OnPlayerNameUpdated("example");
+```
 
 ### ToggleUseClanSigil
 `public void ToggleUseClanSigil(bool isUsed)`
 
-**Purpose:** Handles logic related to `toggle use clan sigil`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ToggleUseClanSigil(false);
+```
 
 ### PromotePlayerToPartyLeader
 `public void PromotePlayerToPartyLeader(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `promote player to party leader`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.PromotePlayerToPartyLeader(playerId);
+```
 
 ### ChangeSigil
 `public void ChangeSigil(string sigilId)`
 
-**Purpose:** Handles logic related to `change sigil`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeSigil("example");
+```
 
 ### InviteToPlatformSession
 `public async Task<bool> InviteToPlatformSession(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `invite to platform session`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.InviteToPlatformSession(playerId);
+```
 
 ### EndCustomGame
 `public async void EndCustomGame()`
 
-**Purpose:** Handles logic related to `end custom game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.EndCustomGame();
+```
 
 ### RegisterCustomGame
 `public async void RegisterCustomGame(string gameModule, string gameType, string serverName, int maxPlayerCount, string map, string uniqueMapId, string gamePassword, string adminPassword, int port)`
 
-**Purpose:** Handles logic related to `register custom game`.
+**Purpose:** Registers `custom game` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.RegisterCustomGame("example", "example", "example", 0, "example", "example", "example", "example", 0);
+```
 
 ### UpdateCustomGameData
 `public void UpdateCustomGameData(string newGameType, string newMap, int newCount)`
 
-**Purpose:** Updates the state or data of `custom game data`.
+**Purpose:** Recalculates and stores the latest representation of `custom game data`.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.UpdateCustomGameData("example", "example", 0);
+```
 
 ### ResponseCustomGameClientConnection
 `public void ResponseCustomGameClientConnection(PlayerJoinGameResponseDataFromHost playerJoinData)`
 
-**Purpose:** Handles logic related to `response custom game client connection`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ResponseCustomGameClientConnection(playerJoinData);
+```
 
 ### AcceptPartyInvitation
 `public void AcceptPartyInvitation()`
 
-**Purpose:** Handles logic related to `accept party invitation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptPartyInvitation();
+```
 
 ### DeclinePartyInvitation
 `public void DeclinePartyInvitation()`
 
-**Purpose:** Handles logic related to `decline party invitation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclinePartyInvitation();
+```
 
 ### AcceptPartyJoinRequest
 `public void AcceptPartyJoinRequest(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `accept party join request`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptPartyJoinRequest(playerId);
+```
 
 ### DeclinePartyJoinRequest
 `public void DeclinePartyJoinRequest(PlayerId playerId, PartyJoinDeclineReason reason)`
 
-**Purpose:** Handles logic related to `decline party join request`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclinePartyJoinRequest(playerId, reason);
+```
 
 ### UpdateCharacter
 `public void UpdateCharacter(BodyProperties bodyProperties, bool isFemale)`
 
-**Purpose:** Updates the state or data of `character`.
+**Purpose:** Recalculates and stores the latest representation of `character`.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.UpdateCharacter(bodyProperties, false);
+```
 
 ### UpdateShownBadgeId
 `public async Task<bool> UpdateShownBadgeId(string shownBadgeId)`
 
-**Purpose:** Updates the state or data of `shown badge id`.
+**Purpose:** Recalculates and stores the latest representation of `shown badge id`.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.UpdateShownBadgeId("example");
+```
 
 ### GetAnotherPlayerState
 `public async Task<AnotherPlayerData> GetAnotherPlayerState(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `another player state`.
+**Purpose:** Reads and returns the `another player state` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetAnotherPlayerState(playerId);
+```
 
 ### GetAnotherPlayerData
 `public async Task<PlayerData> GetAnotherPlayerData(PlayerId playerID)`
 
-**Purpose:** Gets the current value of `another player data`.
+**Purpose:** Reads and returns the `another player data` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetAnotherPlayerData(playerID);
+```
 
 ### GetPlayerCountInQueue
 `public async Task<MatchmakingQueueStats> GetPlayerCountInQueue()`
 
-**Purpose:** Gets the current value of `player count in queue`.
+**Purpose:** Reads and returns the `player count in queue` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerCountInQueue();
+```
 
 ### GetMatchmakingWaitTimes
 `public async Task<MatchmakingWaitTimeStats> GetMatchmakingWaitTimes()`
 
-**Purpose:** Gets the current value of `matchmaking wait times`.
+**Purpose:** Reads and returns the `matchmaking wait times` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetMatchmakingWaitTimes();
+```
 
 ### GetPlayerBadges
 `public async Task<Badge > GetPlayerBadges()`
 
-**Purpose:** Gets the current value of `player badges`.
+**Purpose:** Reads and returns the `player badges` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerBadges();
+```
 
 ### GetPlayerStats
 `public async Task<PlayerStatsBase > GetPlayerStats(PlayerId playerID)`
 
-**Purpose:** Gets the current value of `player stats`.
+**Purpose:** Reads and returns the `player stats` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerStats(playerID);
+```
 
 ### GetGameTypeRankInfo
 `public async Task<GameTypeRankInfo > GetGameTypeRankInfo(PlayerId playerID)`
 
-**Purpose:** Gets the current value of `game type rank info`.
+**Purpose:** Reads and returns the `game type rank info` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetGameTypeRankInfo(playerID);
+```
 
 ### GetRankedLeaderboardCount
 `public async Task<int> GetRankedLeaderboardCount(string gameType)`
 
-**Purpose:** Gets the current value of `ranked leaderboard count`.
+**Purpose:** Reads and returns the `ranked leaderboard count` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetRankedLeaderboardCount("example");
+```
 
 ### GetRankedLeaderboard
 `public async Task<PlayerLeaderboardData > GetRankedLeaderboard(string gameType, int startIndex, int count)`
 
-**Purpose:** Gets the current value of `ranked leaderboard`.
+**Purpose:** Reads and returns the `ranked leaderboard` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetRankedLeaderboard("example", 0, 0);
+```
 
 ### SendCreateClanMessage
 `public void SendCreateClanMessage(string clanName, string clanTag, string clanFaction, string clanSigil)`
 
-**Purpose:** Handles logic related to `send create clan message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.SendCreateClanMessage("example", "example", "example", "example");
+```
 
 ### GetFriendList
 `public void GetFriendList()`
 
-**Purpose:** Gets the current value of `friend list`.
+**Purpose:** Reads and returns the `friend list` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.GetFriendList();
+```
 
 ### AddFriend
 `public void AddFriend(PlayerId friendId, bool dontUseNameForUnknownPlayer)`
 
 **Purpose:** Adds `friend` to the current collection or state.
 
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AddFriend(friendId, false);
+```
+
 ### RemoveFriend
 `public void RemoveFriend(PlayerId friendId)`
 
 **Purpose:** Removes `friend` from the current collection or state.
 
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.RemoveFriend(friendId);
+```
+
 ### RespondToFriendRequest
 `public void RespondToFriendRequest(PlayerId playerId, bool dontUseNameForUnknownPlayer, bool isAccepted, bool isBlocked = false)`
 
-**Purpose:** Handles logic related to `respond to friend request`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.RespondToFriendRequest(playerId, false, false, false);
+```
 
 ### ReportPlayer
 `public void ReportPlayer(string gameId, PlayerId player, string playerName, PlayerReportType type, string message)`
 
-**Purpose:** Handles logic related to `report player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ReportPlayer("example", player, "example", type, "example");
+```
 
 ### ChangeUsername
 `public void ChangeUsername(string username)`
 
-**Purpose:** Handles logic related to `change username`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeUsername("example");
+```
 
 ### AddFriendByUsernameAndId
 `public void AddFriendByUsernameAndId(string username, int userId, bool dontUseNameForUnknownPlayer)`
 
 **Purpose:** Adds `friend by username and id` to the current collection or state.
 
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+lobbyClient.AddFriendByUsernameAndId("example", 0, false);
+```
+
 ### DoesPlayerWithUsernameAndIdExist
 `public async Task<bool> DoesPlayerWithUsernameAndIdExist(string username, int userId)`
 
-**Purpose:** Handles logic related to `does player with username and id exist`.
+**Purpose:** Returns a boolean answer to whether `player with username and id exist` is true for the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.DoesPlayerWithUsernameAndIdExist("example", 0);
+```
 
 ### IsPlayerClanLeader
 `public bool IsPlayerClanLeader(PlayerId playerID)`
 
-**Purpose:** Handles logic related to `is player clan leader`.
+**Purpose:** Determines whether the current object is in the `player clan leader` state or condition.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.IsPlayerClanLeader(playerID);
+```
 
 ### IsPlayerClanOfficer
 `public bool IsPlayerClanOfficer(PlayerId playerID)`
 
-**Purpose:** Handles logic related to `is player clan officer`.
+**Purpose:** Determines whether the current object is in the `player clan officer` state or condition.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.IsPlayerClanOfficer(playerID);
+```
 
 ### UpdateUsedCosmeticItems
 `public async Task<bool> UpdateUsedCosmeticItems(Dictionary<string, List<(string cosmeticId, bool isEquipped)>> usedCosmetics)`
 
-**Purpose:** Updates the state or data of `used cosmetic items`.
+**Purpose:** Recalculates and stores the latest representation of `used cosmetic items`.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.UpdateUsedCosmeticItems(dictionary<string, cosmeticId, false);
+```
 
 ### GetDedicatedCustomServerAuthToken
 `public async Task<string> GetDedicatedCustomServerAuthToken()`
 
-**Purpose:** Gets the current value of `dedicated custom server auth token`.
+**Purpose:** Reads and returns the `dedicated custom server auth token` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetDedicatedCustomServerAuthToken();
+```
 
 ### GetOfficialServerProviderName
 `public async Task<string> GetOfficialServerProviderName()`
 
-**Purpose:** Gets the current value of `official server provider name`.
+**Purpose:** Reads and returns the `official server provider name` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetOfficialServerProviderName();
+```
 
 ### GetPlayerBannerlordID
 `public async Task<string> GetPlayerBannerlordID(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `player bannerlord i d`.
+**Purpose:** Reads and returns the `player bannerlord i d` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerBannerlordID(playerId);
+```
 
 ### IsKnownPlayer
 `public bool IsKnownPlayer(PlayerId playerID)`
 
-**Purpose:** Handles logic related to `is known player`.
+**Purpose:** Determines whether the current object is in the `known player` state or condition.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.IsKnownPlayer(playerID);
+```
 
 ### GetPingToServer
 `public async Task<long> GetPingToServer(string IpAddress)`
 
-**Purpose:** Gets the current value of `ping to server`.
+**Purpose:** Reads and returns the `ping to server` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPingToServer("example");
+```
 
 ### SendPSPlayerJoinedToPlayerSessionMessage
 `public async Task<bool> SendPSPlayerJoinedToPlayerSessionMessage(ulong inviterPlayerId)`
 
-**Purpose:** Handles logic related to `send p s player joined to player session message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.SendPSPlayerJoinedToPlayerSessionMessage(0);
+```
 
 ### SendPlatformPlayerJoinedToPlayerSessionMessage
 `public async Task<bool> SendPlatformPlayerJoinedToPlayerSessionMessage(PlayerId inviterPlayerId)`
 
-**Purpose:** Handles logic related to `send platform player joined to player session message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LobbyClient from the subsystem API first
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.SendPlatformPlayerJoinedToPlayerSessionMessage(inviterPlayerId);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LobbyClient();
-value.Logout(logOutReason);
+// Typically call this after obtaining an instance from the subsystem API
+LobbyClient lobbyClient = ...;
+lobbyClient.Logout(logOutReason);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

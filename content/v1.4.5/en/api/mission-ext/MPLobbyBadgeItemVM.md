@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyBadgeItemVM"
+description: "Auto-generated class reference for MPLobbyBadgeItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyBadgeItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyBadgeItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyBadgeItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyBadgeItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyBadgeItemVM.cs`
 
 ## Overview
 
@@ -46,40 +40,77 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
+MPLobbyBadgeItemVM mPLobbyBadgeItemVM = ...;
+mPLobbyBadgeItemVM.RefreshValues();
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey inspectProgressKey)`
 
-**Purpose:** Refreshes the display or cache of `key bindings`.
+**Purpose:** Keeps the display or cache of `key bindings` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
+MPLobbyBadgeItemVM mPLobbyBadgeItemVM = ...;
+mPLobbyBadgeItemVM.RefreshKeyBindings(inspectProgressKey);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
+MPLobbyBadgeItemVM mPLobbyBadgeItemVM = ...;
+mPLobbyBadgeItemVM.OnFinalize();
+```
 
 ### UpdateWith
 `public void UpdateWith(Badge badge)`
 
-**Purpose:** Updates the state or data of `with`.
+**Purpose:** Recalculates and stores the latest representation of `with`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
+MPLobbyBadgeItemVM mPLobbyBadgeItemVM = ...;
+mPLobbyBadgeItemVM.UpdateWith(badge);
+```
 
 ### UpdateIsSelected
 `public void UpdateIsSelected()`
 
-**Purpose:** Updates the state or data of `is selected`.
+**Purpose:** Recalculates and stores the latest representation of `is selected`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
+MPLobbyBadgeItemVM mPLobbyBadgeItemVM = ...;
+mPLobbyBadgeItemVM.UpdateIsSelected();
+```
 
 ### SetGroup
 `public void SetGroup(MPLobbyAchievementBadgeGroupVM group, Action<MPLobbyAchievementBadgeGroupVM> onBadgeProgressInfoRequested)`
 
-**Purpose:** Sets the value or state of `group`.
+**Purpose:** Assigns a new value to `group` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
+MPLobbyBadgeItemVM mPLobbyBadgeItemVM = ...;
+mPLobbyBadgeItemVM.SetGroup(group, onBadgeProgressInfoRequested);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyBadgeItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyBadgeItemVM mPLobbyBadgeItemVM = ...;
+mPLobbyBadgeItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ICustomSystemManager"
+description: "Auto-generated class reference for ICustomSystemManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICustomSystemManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICustomSystemManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Handlers
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICustomSystemManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Handlers/ICustomSystemManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Handlers/ICustomSystemManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ICustomSystemManager` as a Manager-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-ICustomSystemManager implementation = GetCustomSystemManagerImplementation();
+// Usually obtained through DI or a factory method
+IICustomSystemManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

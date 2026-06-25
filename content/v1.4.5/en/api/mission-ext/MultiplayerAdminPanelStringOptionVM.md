@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminPanelStringOptionVM"
+description: "Auto-generated class reference for MultiplayerAdminPanelStringOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAdminPanelStringOptionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelStringOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminPanelStringOptionVM : MultiplayerAdminPanelOptionBaseVM`
 **Base:** `MultiplayerAdminPanelOptionBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelStringOptionVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelStringOptionVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### UpdateValues
 `public override void UpdateValues()`
 
-**Purpose:** Updates the state or data of `values`.
+**Purpose:** Recalculates and stores the latest representation of `values`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelStringOptionVM from the subsystem API first
+MultiplayerAdminPanelStringOptionVM multiplayerAdminPanelStringOptionVM = ...;
+multiplayerAdminPanelStringOptionVM.UpdateValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerAdminPanelStringOptionVM();
-value.UpdateValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerAdminPanelStringOptionVM multiplayerAdminPanelStringOptionVM = ...;
+multiplayerAdminPanelStringOptionVM.UpdateValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

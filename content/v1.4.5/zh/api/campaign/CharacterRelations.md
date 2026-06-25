@@ -1,20 +1,14 @@
 ---
 title: "CharacterRelations"
+description: "CharacterRelations 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterRelations`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterRelations
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum CharacterRelations`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationCharacter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationCharacter.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "CharacterRelations"
 ## 使用示例
 
 ```csharp
-CharacterRelations example = CharacterRelations.Value;
+// 从对应子系统 API 获取实例
+CharacterRelations instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

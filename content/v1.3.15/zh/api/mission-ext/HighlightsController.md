@@ -1,13 +1,7 @@
 ---
 title: "HighlightsController"
+description: "HighlightsController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HighlightsController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HighlightsController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -44,67 +38,143 @@ title: "HighlightsController"
 ### RemoveHighlights
 `public static void RemoveHighlights()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `highlights`。
+**用途 / Purpose:** 从当前容器或状态中移除 「highlights」。
+
+```csharp
+// 静态调用，不需要实例
+HighlightsController.RemoveHighlights();
+```
 
 ### GetHighlightTypeWithId
 `public HighlightsController.HighlightType GetHighlightTypeWithId(string highlightId)`
 
-**用途 / Purpose:** 获取 `highlight type with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「highlight type with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+var result = highlightsController.GetHighlightTypeWithId("example");
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+highlightsController.AfterStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+highlightsController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** 当 `score hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「score hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+highlightsController.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+highlightsController.OnMissionTick(0);
+```
 
 ### AddHighlightType
 `public static void AddHighlightType(HighlightsController.HighlightType highlightType)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `highlight type`。
+**用途 / Purpose:** 将 「highlight type」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+HighlightsController.AddHighlightType(highlightType);
+```
 
 ### SaveHighlight
 `public void SaveHighlight(HighlightsController.Highlight highlight)`
 
-**用途 / Purpose:** 保存 `highlight` 数据。
+**用途 / Purpose:** 将 「highlight」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+highlightsController.SaveHighlight(highlight);
+```
 
 ### SaveHighlight
 `public void SaveHighlight(HighlightsController.Highlight highlight, Vec3 position)`
 
-**用途 / Purpose:** 保存 `highlight` 数据。
+**用途 / Purpose:** 将 「highlight」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+highlightsController.SaveHighlight(highlight, position);
+```
 
 ### CanSaveHighlight
 `public bool CanSaveHighlight(HighlightsController.HighlightType highlightType, Vec3 position)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `save highlight`。
+**用途 / Purpose:** 检查当前对象是否满足 「save highlight」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+var result = highlightsController.CanSaveHighlight(highlightType, position);
+```
 
 ### GetPlayerIsLookingAtPositionScore
 `public float GetPlayerIsLookingAtPositionScore(Vec3 position)`
 
-**用途 / Purpose:** 获取 `player is looking at position score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player is looking at position score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+var result = highlightsController.GetPlayerIsLookingAtPositionScore(position);
+```
 
 ### CanSeePosition
 `public bool CanSeePosition(Vec3 position)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `see position`。
+**用途 / Purpose:** 检查当前对象是否满足 「see position」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+var result = highlightsController.CanSeePosition(position);
+```
 
 ### ShowSummary
 `public void ShowSummary()`
 
-**用途 / Purpose:** 处理 `show summary` 相关逻辑。
+**用途 / Purpose:** 显示「summary」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 HighlightsController 实例
+HighlightsController highlightsController = ...;
+highlightsController.ShowSummary();
+```
 
 ## 使用示例
 
@@ -114,4 +184,4 @@ var controller = Mission.Current.GetMissionBehavior<HighlightsController>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ItemBarterable"
+description: "ItemBarterable 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemBarterable`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
@@ -39,35 +33,66 @@ title: "ItemBarterable"
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**用途 / Purpose:** 获取 `unit value for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit value for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterable 实例
+ItemBarterable itemBarterable = ...;
+var result = itemBarterable.GetUnitValueForFaction(faction);
+```
 
 ### CheckBarterLink
 `public override void CheckBarterLink(Barterable parentLinkedBarterable)`
 
-**用途 / Purpose:** 处理 `check barter link` 相关逻辑。
+**用途 / Purpose:** 检查「barter link」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterable 实例
+ItemBarterable itemBarterable = ...;
+itemBarterable.CheckBarterLink(parentLinkedBarterable);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**用途 / Purpose:** 获取 `visual identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterable 实例
+ItemBarterable itemBarterable = ...;
+var result = itemBarterable.GetVisualIdentifier();
+```
 
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**用途 / Purpose:** 获取 `encyclopedia link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterable 实例
+ItemBarterable itemBarterable = ...;
+var result = itemBarterable.GetEncyclopediaLink();
+```
 
 ### Apply
 `public override void Apply()`
 
-**用途 / Purpose:** 将 `apply` 应用到当前对象。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterable 实例
+ItemBarterable itemBarterable = ...;
+itemBarterable.Apply();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemBarterable();
-value.GetUnitValueForFaction(faction);
+// 通常从对应子系统 API 获取实例后调用
+ItemBarterable itemBarterable = ...;
+itemBarterable.GetUnitValueForFaction(faction);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

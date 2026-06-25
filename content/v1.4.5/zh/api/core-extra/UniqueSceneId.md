@@ -1,20 +1,14 @@
 ---
 title: "UniqueSceneId"
+description: "UniqueSceneId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UniqueSceneId`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UniqueSceneId
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class UniqueSceneId`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/UniqueSceneId.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/UniqueSceneId.cs`
 
 ## 概述
 
@@ -36,20 +30,32 @@ title: "UniqueSceneId"
 ### Serialize
 `public string Serialize()`
 
-**用途 / Purpose:** 处理 `serialize` 相关逻辑。
+**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 UniqueSceneId 实例
+UniqueSceneId uniqueSceneId = ...;
+var result = uniqueSceneId.Serialize();
+```
 
 ### TryParse
 `public static bool TryParse(string uniqueMapId, out UniqueSceneId identifiers)`
 
-**用途 / Purpose:** 尝试获取 `parse`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「parse」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 静态调用，不需要实例
+UniqueSceneId.TryParse("example", identifiers);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new UniqueSceneId();
-value.Serialize();
+// 通常从对应子系统 API 获取实例后调用
+UniqueSceneId uniqueSceneId = ...;
+uniqueSceneId.Serialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

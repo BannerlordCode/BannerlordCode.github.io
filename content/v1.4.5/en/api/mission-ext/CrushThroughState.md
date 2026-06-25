@@ -1,20 +1,14 @@
 ---
 title: "CrushThroughState"
+description: "Auto-generated class reference for CrushThroughState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrushThroughState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CrushThroughState
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CrushThroughState.cs`
+**Type:** `public enum CrushThroughState : byte`
+**Base:** `byte`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CrushThroughState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new CrushThroughState();
+// Obtain an instance from the relevant subsystem API
+CrushThroughState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SpawnPointDebugView"
+description: "SpawnPointDebugView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SpawnPointDebugView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnPointDebugView
 
 **Namespace:** SandBox.View.Missions.SandBox
@@ -29,14 +23,21 @@ title: "SpawnPointDebugView"
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnPointDebugView 实例
+SpawnPointDebugView spawnPointDebugView = ...;
+var result = spawnPointDebugView.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new SpawnPointDebugView();
+// 从子系统 API 或场景中获取该视图
+SpawnPointDebugView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

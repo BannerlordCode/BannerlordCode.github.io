@@ -1,20 +1,14 @@
 ---
 title: "VillagerPartyComponent"
+description: "VillagerPartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VillagerPartyComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillagerPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class VillagerPartyComponent : PartyComponent`
 **Base:** `PartyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/VillagerPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/VillagerPartyComponent.cs`
 
 ## 概述
 
@@ -36,27 +30,55 @@ title: "VillagerPartyComponent"
 ### InitializeVillagerPartyProperties
 `public void InitializeVillagerPartyProperties(MobileParty mobileParty, Village village)`
 
-**用途 / Purpose:** 初始化 `villager party properties` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「villager party properties」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 VillagerPartyComponent 实例
+VillagerPartyComponent villagerPartyComponent = ...;
+villagerPartyComponent.InitializeVillagerPartyProperties(mobileParty, village);
+```
 
 ### CreateVillagerParty
 `public static MobileParty CreateVillagerParty(string stringId, Village village)`
 
-**用途 / Purpose:** 创建一个 `villager party` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「villager party」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+VillagerPartyComponent.CreateVillagerParty("example", village);
+```
 
 ### ConvertPartyToVillagerParty
 `public static void ConvertPartyToVillagerParty(MobileParty mobileParty, Village village)`
 
-**用途 / Purpose:** 处理 `convert party to villager party` 相关逻辑。
+**用途 / Purpose:** 把「party to villager party」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+VillagerPartyComponent.ConvertPartyToVillagerParty(mobileParty, village);
+```
 
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** 获取 `default component banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default component banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillagerPartyComponent 实例
+VillagerPartyComponent villagerPartyComponent = ...;
+var result = villagerPartyComponent.GetDefaultComponentBanner();
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** 处理 `clear cached name` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「cached name」。
+
+```csharp
+// 先通过子系统 API 拿到 VillagerPartyComponent 实例
+VillagerPartyComponent villagerPartyComponent = ...;
+villagerPartyComponent.ClearCachedName();
+```
 
 ## 使用示例
 
@@ -66,4 +88,4 @@ var component = agent.GetComponent<VillagerPartyComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

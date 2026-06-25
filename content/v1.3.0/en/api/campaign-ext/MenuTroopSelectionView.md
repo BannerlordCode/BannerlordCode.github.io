@@ -1,13 +1,7 @@
 ---
 title: "MenuTroopSelectionView"
+description: "Auto-generated class reference for MenuTroopSelectionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuTroopSelectionView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuTroopSelectionView
 
 **Namespace:** SandBox.View.Menu
@@ -27,9 +21,10 @@ Treat `MenuTroopSelectionView` as a View-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var view = new MenuTroopSelectionView();
+// Retrieve this view from the subsystem API or scene
+MenuTroopSelectionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

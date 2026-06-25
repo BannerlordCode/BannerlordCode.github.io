@@ -1,13 +1,7 @@
 ---
 title: "FFASpawnFrameBehavior"
+description: "FFASpawnFrameBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FFASpawnFrameBehavior`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FFASpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ title: "FFASpawnFrameBehavior"
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**用途 / Purpose:** 获取 `spawn frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FFASpawnFrameBehavior 实例
+FFASpawnFrameBehavior fFASpawnFrameBehavior = ...;
+var result = fFASpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FFASpawnFrameBehavior();
-value.GetSpawnFrame(team, false, false);
+// 通常从对应子系统 API 获取实例后调用
+FFASpawnFrameBehavior fFASpawnFrameBehavior = ...;
+fFASpawnFrameBehavior.GetSpawnFrame(team, false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

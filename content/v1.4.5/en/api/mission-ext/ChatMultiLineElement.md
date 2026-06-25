@@ -1,20 +1,14 @@
 ---
 title: "ChatMultiLineElement"
+description: "Auto-generated class reference for ChatMultiLineElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChatMultiLineElement`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatMultiLineElement
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ChatMultiLineElement`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatLogItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatLogItemWidget.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat` to place
 ### ChatMultiLineElement
 `public struct ChatMultiLineElement(string line, int identModifier)`
 
-**Purpose:** Handles logic related to `chat multi line element`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ChatMultiLineElement from the subsystem API first
+ChatMultiLineElement chatMultiLineElement = ...;
+var result = chatMultiLineElement.ChatMultiLineElement("example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ChatMultiLineElement();
-value.ChatMultiLineElement("example", 0);
+// Typically call this after obtaining an instance from the subsystem API
+ChatMultiLineElement chatMultiLineElement = ...;
+chatMultiLineElement.ChatMultiLineElement("example", 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

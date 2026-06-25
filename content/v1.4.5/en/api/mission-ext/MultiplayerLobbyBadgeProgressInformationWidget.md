@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyBadgeProgressInformationWidget"
+description: "Auto-generated class reference for MultiplayerLobbyBadgeProgressInformationWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyBadgeProgressInformationWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyBadgeProgressInformationWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyBadgeProgressInformationWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyBadgeProgressInformationWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyBadgeProgressInformationWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `MultiplayerLobbyBadgeProgressInformationWidget` as a Widget-style extensi
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyBadgeProgressInformationWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyBadgeProgressInformationWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

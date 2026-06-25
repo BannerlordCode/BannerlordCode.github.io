@@ -1,20 +1,14 @@
 ---
 title: "GraphLineVM"
+description: "Auto-generated class reference for GraphLineVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GraphLineVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GraphLineVM
 
 **Namespace:** TaleWorlds.Library.Graph
 **Module:** TaleWorlds.Library
 **Type:** `public class GraphLineVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.Graph/GraphLineVM.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Graph/GraphLineVM.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.Library.Graph` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new GraphLineVM();
+// Obtain an instance from the relevant subsystem API
+GraphLineVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

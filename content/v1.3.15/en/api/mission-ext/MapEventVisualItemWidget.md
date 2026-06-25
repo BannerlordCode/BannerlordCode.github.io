@@ -1,13 +1,7 @@
 ---
 title: "MapEventVisualItemWidget"
+description: "Auto-generated class reference for MapEventVisualItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventVisualItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapEventVisualItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapEvents
@@ -34,9 +28,10 @@ Treat `MapEventVisualItemWidget` as a Widget-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var widget = new MapEventVisualItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapEventVisualItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

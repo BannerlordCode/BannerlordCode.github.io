@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletVoiceChat"
+description: "Auto-generated class reference for MissionGauntletVoiceChat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletVoiceChat`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletVoiceChat
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletVoiceChat : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletVoiceChat.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletVoiceChat.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletVoiceChat from the subsystem API first
+MissionGauntletVoiceChat missionGauntletVoiceChat = ...;
+missionGauntletVoiceChat.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletVoiceChat from the subsystem API first
+MissionGauntletVoiceChat missionGauntletVoiceChat = ...;
+missionGauntletVoiceChat.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletVoiceChat from the subsystem API first
+MissionGauntletVoiceChat missionGauntletVoiceChat = ...;
+missionGauntletVoiceChat.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletVoiceChat();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletVoiceChat missionGauntletVoiceChat = ...;
+missionGauntletVoiceChat.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

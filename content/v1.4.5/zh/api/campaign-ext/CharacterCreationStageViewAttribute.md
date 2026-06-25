@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationStageViewAttribute"
+description: "CharacterCreationStageViewAttribute 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationStageViewAttribute`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationStageViewAttribute
 
 **Namespace:** SandBox.View.CharacterCreation
 **Module:** SandBox.View
 **Type:** `public sealed class CharacterCreationStageViewAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationStageViewAttribute.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationStageViewAttribute.cs`
 
 ## 概述
 
@@ -33,4 +27,4 @@ public class Example { }
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

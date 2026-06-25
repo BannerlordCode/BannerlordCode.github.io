@@ -1,13 +1,7 @@
 ---
 title: "AsyncRunner"
+description: "Auto-generated class reference for AsyncRunner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AsyncRunner`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AsyncRunner
 
 **Namespace:** TaleWorlds.Library
@@ -29,24 +23,43 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Run
 `public abstract void Run()`
 
-**Purpose:** Handles logic related to `run`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AsyncRunner from the subsystem API first
+AsyncRunner asyncRunner = ...;
+asyncRunner.Run();
+```
 
 ### SyncTick
 `public abstract void SyncTick()`
 
-**Purpose:** Handles logic related to `sync tick`.
+**Purpose:** Synchronizes `tick` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of AsyncRunner from the subsystem API first
+AsyncRunner asyncRunner = ...;
+asyncRunner.SyncTick();
+```
 
 ### OnRemove
 `public abstract void OnRemove()`
 
-**Purpose:** Called when the `remove` event is raised.
+**Purpose:** Invoked when the `remove` event is raised.
+
+```csharp
+// Obtain an instance of AsyncRunner from the subsystem API first
+AsyncRunner asyncRunner = ...;
+asyncRunner.OnRemove();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAsyncRunner();
+// Typically obtained from a subsystem API or factory
+AsyncRunner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

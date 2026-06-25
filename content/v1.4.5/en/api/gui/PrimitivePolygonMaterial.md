@@ -1,20 +1,14 @@
 ---
 title: "PrimitivePolygonMaterial"
+description: "Auto-generated class reference for PrimitivePolygonMaterial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrimitivePolygonMaterial`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrimitivePolygonMaterial
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class PrimitivePolygonMaterial : Material`
 **Base:** `Material`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/PrimitivePolygonMaterial.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/PrimitivePolygonMaterial.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new PrimitivePolygonMaterial();
+// Obtain an instance from the relevant subsystem API
+PrimitivePolygonMaterial instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

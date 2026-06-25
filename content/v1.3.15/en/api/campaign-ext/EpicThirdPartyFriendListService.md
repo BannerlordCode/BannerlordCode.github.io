@@ -1,13 +1,7 @@
 ---
 title: "EpicThirdPartyFriendListService"
+description: "Auto-generated class reference for EpicThirdPartyFriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EpicThirdPartyFriendListService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EpicThirdPartyFriendListService
 
 **Namespace:** TaleWorlds.PlatformService.Epic
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService.Epic` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var value = new EpicThirdPartyFriendListService();
+// Obtain an instance from the relevant subsystem API
+EpicThirdPartyFriendListService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

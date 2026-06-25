@@ -1,20 +1,14 @@
 ---
 title: "MountDamageEffect"
+description: "Auto-generated class reference for MountDamageEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountDamageEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountDamageEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MountDamageEffect : MPCombatPerkEffect`
 **Base:** `MPCombatPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountDamageEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountDamageEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetMountDamage
 `public override float GetMountDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**Purpose:** Gets the current value of `mount damage`.
+**Purpose:** Reads and returns the `mount damage` value held by the current object.
+
+```csharp
+// Obtain an instance of MountDamageEffect from the subsystem API first
+MountDamageEffect mountDamageEffect = ...;
+var result = mountDamageEffect.GetMountDamage(attackerWeapon, damageType, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MountDamageEffect();
-value.GetMountDamage(attackerWeapon, damageType, false);
+// Typically call this after obtaining an instance from the subsystem API
+MountDamageEffect mountDamageEffect = ...;
+mountDamageEffect.GetMountDamage(attackerWeapon, damageType, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

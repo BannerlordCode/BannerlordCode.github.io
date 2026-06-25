@@ -1,20 +1,14 @@
 ---
 title: "TutorialArrowWidget"
+description: "Auto-generated class reference for TutorialArrowWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialArrowWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialArrowWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TutorialArrowWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialArrowWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialArrowWidget.cs`
 
 ## Overview
 
@@ -38,24 +32,43 @@ Treat `TutorialArrowWidget` as a Widget-style extension point: first identify wh
 ### SetArrowProperties
 `public void SetArrowProperties(float width, float height, bool isDirectionDown, bool isDirectionRight)`
 
-**Purpose:** Sets the value or state of `arrow properties`.
+**Purpose:** Assigns a new value to `arrow properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TutorialArrowWidget from the subsystem API first
+TutorialArrowWidget tutorialArrowWidget = ...;
+tutorialArrowWidget.SetArrowProperties(0, 0, false, false);
+```
 
 ### ResetFade
 `public void ResetFade()`
 
-**Purpose:** Resets `fade` to its initial state.
+**Purpose:** Returns `fade` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TutorialArrowWidget from the subsystem API first
+TutorialArrowWidget tutorialArrowWidget = ...;
+tutorialArrowWidget.ResetFade();
+```
 
 ### DisableFade
 `public void DisableFade()`
 
-**Purpose:** Handles logic related to `disable fade`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialArrowWidget from the subsystem API first
+TutorialArrowWidget tutorialArrowWidget = ...;
+tutorialArrowWidget.DisableFade();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new TutorialArrowWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TutorialArrowWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

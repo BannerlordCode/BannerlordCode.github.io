@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplatePartyMarkersVM"
+description: "SettlementNameplatePartyMarkersVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNameplatePartyMarkersVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplatePartyMarkersVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -35,25 +29,44 @@ title: "SettlementNameplatePartyMarkersVM"
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatePartyMarkersVM 实例
+SettlementNameplatePartyMarkersVM settlementNameplatePartyMarkersVM = ...;
+settlementNameplatePartyMarkersVM.RegisterEvents();
+```
 
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**用途 / Purpose:** 处理 `unload events` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatePartyMarkersVM 实例
+SettlementNameplatePartyMarkersVM settlementNameplatePartyMarkersVM = ...;
+settlementNameplatePartyMarkersVM.UnloadEvents();
+```
 
 ### Compare
 `public int Compare(SettlementNameplatePartyMarkerItemVM x, SettlementNameplatePartyMarkerItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatePartyMarkersVM 实例
+SettlementNameplatePartyMarkersVM settlementNameplatePartyMarkersVM = ...;
+var result = settlementNameplatePartyMarkersVM.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SettlementNameplatePartyMarkersVM();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+SettlementNameplatePartyMarkersVM settlementNameplatePartyMarkersVM = ...;
+settlementNameplatePartyMarkersVM.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

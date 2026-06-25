@@ -1,13 +1,7 @@
 ---
 title: "MissionPeer"
+description: "MissionPeer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionPeer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionPeer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -67,155 +61,330 @@ title: "MissionPeer"
 ### SetMutedFromPlatform
 `public void SetMutedFromPlatform(bool isMuted)`
 
-**用途 / Purpose:** 设置 `muted from platform` 的值或状态。
+**用途 / Purpose:** 为 「muted from platform」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.SetMutedFromPlatform(false);
+```
 
 ### SetMuted
 `public void SetMuted(bool isMuted)`
 
-**用途 / Purpose:** 设置 `muted` 的值或状态。
+**用途 / Purpose:** 为 「muted」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.SetMuted(false);
+```
 
 ### ResetRequestedKickPollCount
 `public void ResetRequestedKickPollCount()`
 
-**用途 / Purpose:** 将 `requested kick poll count` 重置为初始状态。
+**用途 / Purpose:** 将 「requested kick poll count」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.ResetRequestedKickPollCount();
+```
 
 ### IncrementRequestedKickPollCount
 `public void IncrementRequestedKickPollCount()`
 
-**用途 / Purpose:** 处理 `increment requested kick poll count` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.IncrementRequestedKickPollCount();
+```
 
 ### GetSelectedPerkIndexWithPerkListIndex
 `public int GetSelectedPerkIndexWithPerkListIndex(int troopIndex, int perkListIndex)`
 
-**用途 / Purpose:** 获取 `selected perk index with perk list index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selected perk index with perk list index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.GetSelectedPerkIndexWithPerkListIndex(0, 0);
+```
 
 ### SelectPerk
 `public bool SelectPerk(int perkListIndex, int perkIndex, int enforcedSelectedTroopIndex = -1)`
 
-**用途 / Purpose:** 处理 `select perk` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.SelectPerk(0, 0, 0);
+```
 
 ### HandleVoteChange
 `public void HandleVoteChange(CultureVoteTypes voteType, BasicCultureObject culture)`
 
-**用途 / Purpose:** 处理 `vote change` 事件或回调。
+**用途 / Purpose:** 执行与 「vote change」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.HandleVoteChange(voteType, culture);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnFinalize();
+```
 
 ### OnInitialize
 `public override void OnInitialize()`
 
-**用途 / Purpose:** 当 `initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnInitialize();
+```
 
 ### GetAmountOfAgentVisualsForPeer
 `public int GetAmountOfAgentVisualsForPeer()`
 
-**用途 / Purpose:** 获取 `amount of agent visuals for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「amount of agent visuals for peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.GetAmountOfAgentVisualsForPeer();
+```
 
 ### GetVisuals
 `public PeerVisualsHolder GetVisuals(int visualIndex)`
 
-**用途 / Purpose:** 获取 `visuals` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visuals」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.GetVisuals(0);
+```
 
 ### ClearVisuals
 `public void ClearVisuals(int visualIndex)`
 
-**用途 / Purpose:** 处理 `clear visuals` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「visuals」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.ClearVisuals(0);
+```
 
 ### ClearAllVisuals
 `public void ClearAllVisuals(bool freeResources = false)`
 
-**用途 / Purpose:** 处理 `clear all visuals` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「all visuals」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.ClearAllVisuals(false);
+```
 
 ### OnVisualsSpawned
 `public void OnVisualsSpawned(PeerVisualsHolder visualsHolder, int visualIndex)`
 
-**用途 / Purpose:** 当 `visuals spawned` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「visuals spawned」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnVisualsSpawned(visualsHolder, 0);
+```
 
 ### GetAllAgentVisualsForPeer
 `public IEnumerable<IAgentVisual> GetAllAgentVisualsForPeer()`
 
-**用途 / Purpose:** 获取 `all agent visuals for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all agent visuals for peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.GetAllAgentVisualsForPeer();
+```
 
 ### GetAgentVisualForPeer
 `public IAgentVisual GetAgentVisualForPeer(int visualsIndex)`
 
-**用途 / Purpose:** 获取 `agent visual for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「agent visual for peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.GetAgentVisualForPeer(0);
+```
 
 ### GetAgentVisualForPeer
 `public IAgentVisual GetAgentVisualForPeer(int visualsIndex, out IAgentVisual mountAgentVisuals)`
 
-**用途 / Purpose:** 获取 `agent visual for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「agent visual for peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.GetAgentVisualForPeer(0, mountAgentVisuals);
+```
 
 ### TickInactivityStatus
 `public void TickInactivityStatus()`
 
-**用途 / Purpose:** 处理 `tick inactivity status` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「inactivity status」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.TickInactivityStatus();
+```
 
 ### OnKillAnotherPeer
 `public void OnKillAnotherPeer(MissionPeer victimPeer)`
 
-**用途 / Purpose:** 当 `kill another peer` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「kill another peer」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnKillAnotherPeer(victimPeer);
+```
 
 ### OverrideCultureWithTeamCulture
 `public void OverrideCultureWithTeamCulture()`
 
-**用途 / Purpose:** 处理 `override culture with team culture` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OverrideCultureWithTeamCulture();
+```
 
 ### GetNumberOfTimesPeerKilledPeer
 `public int GetNumberOfTimesPeerKilledPeer(MissionPeer killedPeer)`
 
-**用途 / Purpose:** 获取 `number of times peer killed peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of times peer killed peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.GetNumberOfTimesPeerKilledPeer(killedPeer);
+```
 
 ### ResetKillRegistry
 `public void ResetKillRegistry()`
 
-**用途 / Purpose:** 将 `kill registry` 重置为初始状态。
+**用途 / Purpose:** 将 「kill registry」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.ResetKillRegistry();
+```
 
 ### RefreshSelectedPerks
 `public bool RefreshSelectedPerks()`
 
-**用途 / Purpose:** 刷新 `selected perks` 的显示或缓存。
+**用途 / Purpose:** 使 「selected perks」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+var result = missionPeer.RefreshSelectedPerks();
+```
 
 ### OnTeamInitialPerkInfoReceived
 `public void OnTeamInitialPerkInfoReceived(int perks)`
 
-**用途 / Purpose:** 当 `team initial perk info received` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「team initial perk info received」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnTeamInitialPerkInfoReceived(0);
+```
 
 ### OnUpdateEquipmentSetIndexEventDelegate
 `public delegate void OnUpdateEquipmentSetIndexEventDelegate(MissionPeer lobbyPeer, int equipmentSetIndex)`
 
-**用途 / Purpose:** 当 `update equipment set index event delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「update equipment set index event delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnUpdateEquipmentSetIndexEventDelegate(lobbyPeer, 0);
+```
 
 ### OnPerkUpdateEventDelegate
 `public delegate void OnPerkUpdateEventDelegate(MissionPeer peer)`
 
-**用途 / Purpose:** 当 `perk update event delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「perk update event delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnPerkUpdateEventDelegate(peer);
+```
 
 ### OnTeamChangedDelegate
 `public delegate void OnTeamChangedDelegate(NetworkCommunicator peer, Team previousTeam, Team newTeam)`
 
-**用途 / Purpose:** 当 `team changed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「team changed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnTeamChangedDelegate(peer, previousTeam, newTeam);
+```
 
 ### OnCultureChangedDelegate
 `public delegate void OnCultureChangedDelegate(BasicCultureObject newCulture)`
 
-**用途 / Purpose:** 当 `culture changed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「culture changed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnCultureChangedDelegate(newCulture);
+```
 
 ### OnPlayerKilledDelegate
 `public delegate void OnPlayerKilledDelegate(MissionPeer killerPeer, MissionPeer killedPeer)`
 
-**用途 / Purpose:** 当 `player killed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player killed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPeer 实例
+MissionPeer missionPeer = ...;
+missionPeer.OnPlayerKilledDelegate(killerPeer, killedPeer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionPeer();
-value.SetMutedFromPlatform(false);
+// 通常从对应子系统 API 获取实例后调用
+MissionPeer missionPeer = ...;
+missionPeer.SetMutedFromPlatform(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

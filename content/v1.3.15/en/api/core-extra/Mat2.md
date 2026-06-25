@@ -1,13 +1,7 @@
 ---
 title: "Mat2"
+description: "Auto-generated class reference for Mat2."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Mat2`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Mat2
 
 **Namespace:** TaleWorlds.Library
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RotateCounterClockWise
 `public void RotateCounterClockWise(float a)`
 
-**Purpose:** Handles logic related to `rotate counter clock wise`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mat2 from the subsystem API first
+Mat2 mat2 = ...;
+mat2.RotateCounterClockWise(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Mat2();
-value.RotateCounterClockWise(0);
+// Typically call this after obtaining an instance from the subsystem API
+Mat2 mat2 = ...;
+mat2.RotateCounterClockWise(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

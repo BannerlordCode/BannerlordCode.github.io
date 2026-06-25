@@ -1,20 +1,14 @@
 ---
 title: "BarterHelper"
+description: "BarterHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BarterHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class BarterHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/BarterHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/BarterHelper.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ BarterHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

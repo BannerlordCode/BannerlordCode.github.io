@@ -1,20 +1,14 @@
 ---
 title: "GameMenuOverlay"
+description: "Auto-generated class reference for GameMenuOverlay."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuOverlay`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuOverlay
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuOverlay : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/GameMenuOverlay.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/GameMenuOverlay.cs`
 
 ## Overview
 
@@ -40,55 +34,110 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.RefreshValues();
+```
 
 ### ExecuteOnOverlayClosed
 `public virtual void ExecuteOnOverlayClosed()`
 
-**Purpose:** Executes the `on overlay closed` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `on overlay closed`.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.ExecuteOnOverlayClosed();
+```
 
 ### ExecuteOnOverlayOpened
 `public virtual void ExecuteOnOverlayOpened()`
 
-**Purpose:** Executes the `on overlay opened` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `on overlay opened`.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.ExecuteOnOverlayOpened();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.OnFinalize();
+```
 
 ### Refresh
 `public virtual void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.Refresh();
+```
 
 ### UpdateOverlayType
 `public virtual void UpdateOverlayType(TaleWorlds.CampaignSystem.GameMenus.GameMenu.MenuOverlayType newType)`
 
-**Purpose:** Updates the state or data of `overlay type`.
+**Purpose:** Recalculates and stores the latest representation of `overlay type`.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.UpdateOverlayType(newType);
+```
 
 ### OnFrameTick
 `public virtual void OnFrameTick(float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.OnFrameTick(0);
+```
 
 ### HourlyTick
 `public void HourlyTick()`
 
-**Purpose:** Handles logic related to `hourly tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.HourlyTick();
+```
 
 ### SetExitInputKey
 `public void SetExitInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `exit input key`.
+**Purpose:** Assigns a new value to `exit input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenuOverlay from the subsystem API first
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.SetExitInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuOverlay();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuOverlay gameMenuOverlay = ...;
+gameMenuOverlay.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

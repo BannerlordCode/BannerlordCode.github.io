@@ -1,13 +1,7 @@
 ---
 title: "DecisionSupporterGridWidget"
+description: "Auto-generated class reference for DecisionSupporterGridWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DecisionSupporterGridWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DecisionSupporterGridWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
@@ -34,9 +28,10 @@ Treat `DecisionSupporterGridWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new DecisionSupporterGridWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DecisionSupporterGridWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BannerVisual"
+description: "BannerVisual 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerVisual`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerVisual
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -35,40 +29,76 @@ title: "BannerVisual"
 ### ValidateCreateTableauTextures
 `public void ValidateCreateTableauTextures()`
 
-**用途 / Purpose:** 处理 `validate create tableau textures` 相关逻辑。
+**用途 / Purpose:** 检查「create tableau textures」是否满足约束条件，通常返回布尔值。
+
+```csharp
+// 先通过子系统 API 拿到 BannerVisual 实例
+BannerVisual bannerVisual = ...;
+bannerVisual.ValidateCreateTableauTextures();
+```
 
 ### GetTableauTextureSmall
 `public Texture GetTableauTextureSmall(Action<Texture> setAction, bool isTableauOrNineGrid = true)`
 
-**用途 / Purpose:** 获取 `tableau texture small` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tableau texture small」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerVisual 实例
+BannerVisual bannerVisual = ...;
+var result = bannerVisual.GetTableauTextureSmall(setAction, false);
+```
 
 ### GetTableauTextureLarge
 `public Texture GetTableauTextureLarge(Action<Texture> setAction, bool isTableauOrNineGrid = true)`
 
-**用途 / Purpose:** 获取 `tableau texture large` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tableau texture large」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerVisual 实例
+BannerVisual bannerVisual = ...;
+var result = bannerVisual.GetTableauTextureLarge(setAction, false);
+```
 
 ### GetTableauTextureLarge
 `public Texture GetTableauTextureLarge(Action<Texture> setAction, out BannerThumbnailCreationData creationData, bool isTableauOrNineGrid = true)`
 
-**用途 / Purpose:** 获取 `tableau texture large` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tableau texture large」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerVisual 实例
+BannerVisual bannerVisual = ...;
+var result = bannerVisual.GetTableauTextureLarge(setAction, creationData, false);
+```
 
 ### GetMeshMatrix
 `public static MatrixFrame GetMeshMatrix(ref Mesh mesh, float marginLeft, float marginTop, float width, float height, bool mirrored, float rotation, float deltaZ)`
 
-**用途 / Purpose:** 获取 `mesh matrix` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mesh matrix」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerVisual.GetMeshMatrix(mesh, 0, 0, 0, 0, false, 0, 0);
+```
 
 ### ConvertToMultiMesh
 `public MetaMesh ConvertToMultiMesh()`
 
-**用途 / Purpose:** 处理 `convert to multi mesh` 相关逻辑。
+**用途 / Purpose:** 把「to multi mesh」转换为另一种表示或类型。
+
+```csharp
+// 先通过子系统 API 拿到 BannerVisual 实例
+BannerVisual bannerVisual = ...;
+var result = bannerVisual.ConvertToMultiMesh();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerVisual();
-value.ValidateCreateTableauTextures();
+// 通常从对应子系统 API 获取实例后调用
+BannerVisual bannerVisual = ...;
+bannerVisual.ValidateCreateTableauTextures();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

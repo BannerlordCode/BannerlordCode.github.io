@@ -1,20 +1,14 @@
 ---
 title: "TournamentCampaignBehavior"
+description: "TournamentCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TournamentCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/TournamentCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/TournamentCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,30 +23,54 @@ title: "TournamentCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentCampaignBehavior 实例
+TournamentCampaignBehavior tournamentCampaignBehavior = ...;
+tournamentCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentCampaignBehavior 实例
+TournamentCampaignBehavior tournamentCampaignBehavior = ...;
+tournamentCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentCampaignBehavior 实例
+TournamentCampaignBehavior tournamentCampaignBehavior = ...;
+tournamentCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### game_menu_ui_town_arena_see_leaderboard_on_consequence
 `public static void game_menu_ui_town_arena_see_leaderboard_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_ui_town_arena_see_leaderboard_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TournamentCampaignBehavior.game_menu_ui_town_arena_see_leaderboard_on_consequence(args);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TournamentCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+TournamentCampaignBehavior tournamentCampaignBehavior = ...;
+tournamentCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

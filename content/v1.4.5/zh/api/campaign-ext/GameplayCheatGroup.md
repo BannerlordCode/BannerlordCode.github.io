@@ -1,20 +1,14 @@
 ---
 title: "GameplayCheatGroup"
+description: "GameplayCheatGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameplayCheatGroup`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatGroup
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public abstract class GameplayCheatGroup : GameplayCheatBase`
 **Base:** `GameplayCheatBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/GameplayCheatGroup.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/GameplayCheatGroup.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "GameplayCheatGroup"
 ### GetCheats
 `public abstract IEnumerable<GameplayCheatBase> GetCheats()`
 
-**用途 / Purpose:** 获取 `cheats` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cheats」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameplayCheatGroup 实例
+GameplayCheatGroup gameplayCheatGroup = ...;
+var result = gameplayCheatGroup.GetCheats();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameplayCheatGroup();
+// 通常通过子系统 API 或工厂获得派生实例
+GameplayCheatGroup instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

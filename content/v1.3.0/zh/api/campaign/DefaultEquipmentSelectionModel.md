@@ -1,13 +1,7 @@
 ---
 title: "DefaultEquipmentSelectionModel"
+description: "DefaultEquipmentSelectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEquipmentSelectionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEquipmentSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,27 +23,57 @@ title: "DefaultEquipmentSelectionModel"
 ### GetEquipmentRostersForHeroComeOfAge
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
 
-**用途 / Purpose:** 获取 `equipment rosters for hero come of age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for hero come of age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(hero, false);
+```
 
 ### GetEquipmentRostersForHeroReachesTeenAge
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment rosters for hero reaches teen age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for hero reaches teen age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForHeroReachesTeenAge(hero);
+```
 
 ### GetEquipmentRostersForInitialChildrenGeneration
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment rosters for initial children generation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for initial children generation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForInitialChildrenGeneration(hero);
+```
 
 ### GetEquipmentRostersForDeliveredOffspring
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment rosters for delivered offspring` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for delivered offspring」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForDeliveredOffspring(hero);
+```
 
 ### GetEquipmentRostersForCompanion
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero hero, bool isCivilian)`
 
-**用途 / Purpose:** 获取 `equipment rosters for companion` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment rosters for companion」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForCompanion(hero, false);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultEquipmentSelectionModel>(new MyDefaultEquipment
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMainAgentEquipDropView"
+description: "MissionGauntletMainAgentEquipDropView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletMainAgentEquipDropView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMainAgentEquipDropView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMainAgentEquipDropView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletMainAgentEquipDropView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletMainAgentEquipDropView.cs`
 
 ## 概述
 
@@ -29,44 +23,87 @@ title: "MissionGauntletMainAgentEquipDropView"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipDropView 实例
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipDropView 实例
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipDropView 实例
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipDropView 实例
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnMissionScreenTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipDropView 实例
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipDropView 实例
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipDropView 实例
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletMainAgentEquipDropView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletMainAgentEquipDropView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

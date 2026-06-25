@@ -1,13 +1,7 @@
 ---
 title: "ChatLogItemWidget"
+description: "Auto-generated class reference for ChatLogItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChatLogItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChatLogItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat
@@ -36,9 +30,10 @@ Treat `ChatLogItemWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new ChatLogItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ChatLogItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

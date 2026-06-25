@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationStageSelectionBarListPanel"
+description: "Auto-generated class reference for CharacterCreationStageSelectionBarListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationStageSelectionBarListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationStageSelectionBarListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation
@@ -41,9 +35,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreat
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationStageSelectionBarListPanel();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationStageSelectionBarListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

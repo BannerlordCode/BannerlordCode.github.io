@@ -1,13 +1,7 @@
 ---
 title: "MissionLocationLogic"
+description: "Auto-generated class reference for MissionLocationLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLocationLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionLocationLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,39 +23,75 @@ Treat `MissionLocationLogic` as a Logic-style extension point: first identify wh
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLocationLogic from the subsystem API first
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.EarlyStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionLocationLogic from the subsystem API first
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionLocationLogic from the subsystem API first
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.OnRemoveBehavior();
+```
 
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of MissionLocationLogic from the subsystem API first
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.OnCreated();
+```
 
 ### SpawnCharactersAccompanyingPlayer
 `public void SpawnCharactersAccompanyingPlayer(bool noHorse)`
 
-**Purpose:** Handles logic related to `spawn characters accompanying player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLocationLogic from the subsystem API first
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.SpawnCharactersAccompanyingPlayer(false);
+```
 
 ### GetSpawnFrameOfPassage
 `public MatrixFrame GetSpawnFrameOfPassage(Location location)`
 
-**Purpose:** Gets the current value of `spawn frame of passage`.
+**Purpose:** Reads and returns the `spawn frame of passage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionLocationLogic from the subsystem API first
+MissionLocationLogic missionLocationLogic = ...;
+var result = missionLocationLogic.GetSpawnFrameOfPassage(location);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionLocationLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionLocationLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

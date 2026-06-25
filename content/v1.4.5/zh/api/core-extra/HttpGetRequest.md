@@ -1,20 +1,14 @@
 ---
 title: "HttpGetRequest"
+description: "HttpGetRequest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HttpGetRequest`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HttpGetRequest
 
 **Namespace:** TaleWorlds.Library.Http
 **Module:** TaleWorlds.Library
 **Type:** `public class HttpGetRequest : IHttpRequestTask`
 **Base:** `IHttpRequestTask`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpGetRequest.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpGetRequest.cs`
 
 ## 概述
 
@@ -39,15 +33,22 @@ title: "HttpGetRequest"
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 HttpGetRequest 实例
+HttpGetRequest httpGetRequest = ...;
+httpGetRequest.Start();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HttpGetRequest();
-value.Start();
+// 通常从对应子系统 API 获取实例后调用
+HttpGetRequest httpGetRequest = ...;
+httpGetRequest.Start();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

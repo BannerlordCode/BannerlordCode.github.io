@@ -1,13 +1,7 @@
 ---
 title: "NativeBooleanOptionData"
+description: "Auto-generated class reference for NativeBooleanOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeBooleanOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeBooleanOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
@@ -27,9 +21,10 @@ Treat `NativeBooleanOptionData` as a Data-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var value = new NativeBooleanOptionData();
+// This data object is usually returned by campaign/mission APIs
+NativeBooleanOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

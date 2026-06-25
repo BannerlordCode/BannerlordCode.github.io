@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleHeroButtonWidget"
+description: "Auto-generated class reference for OrderOfBattleHeroButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleHeroButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHeroButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleHeroButtonWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleHeroButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleHeroButtonWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `OrderOfBattleHeroButtonWidget` as a Widget-style extension point: first i
 ### OrderOfBattleHeroButtonWidget
 `public class OrderOfBattleHeroButtonWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `order of battle hero button widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderOfBattleHeroButtonWidget from the subsystem API first
+OrderOfBattleHeroButtonWidget orderOfBattleHeroButtonWidget = ...;
+var result = orderOfBattleHeroButtonWidget.OrderOfBattleHeroButtonWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new OrderOfBattleHeroButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderOfBattleHeroButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

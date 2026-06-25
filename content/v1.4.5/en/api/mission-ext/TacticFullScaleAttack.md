@@ -1,20 +1,14 @@
 ---
 title: "TacticFullScaleAttack"
+description: "Auto-generated class reference for TacticFullScaleAttack."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticFullScaleAttack`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticFullScaleAttack
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticFullScaleAttack : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticFullScaleAttack.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticFullScaleAttack.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticFullScaleAttack from the subsystem API first
+TacticFullScaleAttack tacticFullScaleAttack = ...;
+tacticFullScaleAttack.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticFullScaleAttack();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+TacticFullScaleAttack tacticFullScaleAttack = ...;
+tacticFullScaleAttack.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

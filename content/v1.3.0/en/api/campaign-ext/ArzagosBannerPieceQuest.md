@@ -1,13 +1,7 @@
 ---
 title: "ArzagosBannerPieceQuest"
+description: "Auto-generated class reference for ArzagosBannerPieceQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArzagosBannerPieceQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArzagosBannerPieceQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
@@ -34,9 +28,10 @@ Start from namespace `StoryMode.Quests.FirstPhase` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new ArzagosBannerPieceQuest();
+// Obtain an instance from the relevant subsystem API
+ArzagosBannerPieceQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

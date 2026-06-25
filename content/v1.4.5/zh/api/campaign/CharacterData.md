@@ -1,20 +1,14 @@
 ---
 title: "CharacterData"
+description: "CharacterData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterData.cs`
 
 ## 概述
 
@@ -29,19 +23,30 @@ title: "CharacterData"
 ### ExportCharacter
 `public static void ExportCharacter(Hero hero, string path)`
 
-**用途 / Purpose:** 处理 `export character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CharacterData.ExportCharacter(hero, "example");
+```
 
 ### ImportCharacter
 `public static void ImportCharacter(Hero hero, string path)`
 
-**用途 / Purpose:** 处理 `import character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CharacterData.ImportCharacter(hero, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterData();
+// 该数据对象通常由战役/任务 API 返回
+CharacterData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

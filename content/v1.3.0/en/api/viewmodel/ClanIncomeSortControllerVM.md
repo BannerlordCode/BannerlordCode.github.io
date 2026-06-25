@@ -1,13 +1,7 @@
 ---
 title: "ClanIncomeSortControllerVM"
+description: "Auto-generated class reference for ClanIncomeSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanIncomeSortControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanIncomeSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -43,105 +37,220 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.RefreshValues();
+```
 
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** Executes the `sort by name` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by name`.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.ExecuteSortByName();
+```
 
 ### ExecuteSortByLocation
 `public void ExecuteSortByLocation()`
 
-**Purpose:** Executes the `sort by location` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by location`.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.ExecuteSortByLocation();
+```
 
 ### ExecuteSortByIncome
 `public void ExecuteSortByIncome()`
 
-**Purpose:** Executes the `sort by income` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by income`.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.ExecuteSortByIncome();
+```
 
 ### ResetAllStates
 `public void ResetAllStates()`
 
-**Purpose:** Resets `all states` to its initial state.
+**Purpose:** Returns `all states` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.ResetAllStates();
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanIncomeSortControllerVM from the subsystem API first
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+var result = clanIncomeSortControllerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanIncomeSortControllerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanIncomeSortControllerVM clanIncomeSortControllerVM = ...;
+clanIncomeSortControllerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

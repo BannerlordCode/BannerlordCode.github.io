@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAchievementComponent"
+description: "Auto-generated class reference for MultiplayerAchievementComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAchievementComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAchievementComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAchievementComponent : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerAchievementComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerAchievementComponent.cs`
 
 ## Overview
 
@@ -29,37 +23,79 @@ Treat `MultiplayerAchievementComponent` as a Component-style extension point: fi
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.EarlyStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnMissionTick(0);
+```
 
 ### OnAgentMount
 `public override void OnAgentMount(Agent agent)`
 
-**Purpose:** Called when the `agent mount` event is raised.
+**Purpose:** Invoked when the `agent mount` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnAgentMount(agent);
+```
 
 ### OnAgentDismount
 `public override void OnAgentDismount(Agent agent)`
 
-**Purpose:** Called when the `agent dismount` event is raised.
+**Purpose:** Invoked when the `agent dismount` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnAgentDismount(agent);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ## Usage Example
 
@@ -69,4 +105,4 @@ var component = agent.GetComponent<MultiplayerAchievementComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

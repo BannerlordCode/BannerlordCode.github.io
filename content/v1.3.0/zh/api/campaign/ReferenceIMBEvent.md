@@ -1,20 +1,14 @@
 ---
 title: "ReferenceIMBEvent"
+description: "ReferenceIMBEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ReferenceIMBEvent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReferenceIMBEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** 无
-**File:** `TaleWorlds.CampaignSystem/ReferenceIMBEvent.cs`
+**Type:** `public interface ReferenceIMBEvent<T1, T2> : IMbEventBase`
+**Base:** `IMbEventBase`
+**File:** `TaleWorlds.CampaignSystem/ReferenceIMBEvent.2.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ReferenceIMBEvent"
 ## 使用示例
 
 ```csharp
-var example = new ReferenceIMBEvent();
+// 通常通过依赖注入或工厂方法获得实现
+IReferenceIMBEvent service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

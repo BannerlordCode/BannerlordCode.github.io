@@ -1,20 +1,14 @@
 ---
 title: "GameMenuPartyItemButtonWidget"
+description: "Auto-generated class reference for GameMenuPartyItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuPartyItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuPartyItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameMenuPartyItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/GameMenuPartyItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/GameMenuPartyItemButtonWidget.cs`
 
 ## Overview
 
@@ -45,9 +39,10 @@ Treat `GameMenuPartyItemButtonWidget` as a Widget-style extension point: first i
 ## Usage Example
 
 ```csharp
-var widget = new GameMenuPartyItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GameMenuPartyItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

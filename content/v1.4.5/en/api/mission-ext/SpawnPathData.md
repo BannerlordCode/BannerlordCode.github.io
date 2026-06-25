@@ -1,20 +1,14 @@
 ---
 title: "SpawnPathData"
+description: "Auto-generated class reference for SpawnPathData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnPathData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnPathData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnPathData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnPathData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnPathData.cs`
 
 ## Overview
 
@@ -35,64 +29,130 @@ Treat `SpawnPathData` as a Data-style extension point: first identify who create
 ### Invert
 `public SpawnPathData Invert()`
 
-**Purpose:** Handles logic related to `invert`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.Invert();
+```
 
 ### ClampPathOffset
 `public void ClampPathOffset(ref float relativePathOffset)`
 
-**Purpose:** Handles logic related to `clamp path offset`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+spawnPathData.ClampPathOffset(relativePathOffset);
+```
 
 ### ConvertPointToRelativePathOffset
 `public float ConvertPointToRelativePathOffset(int pointIndex)`
 
-**Purpose:** Handles logic related to `convert point to relative path offset`.
+**Purpose:** Converts `point to relative path offset` into another representation or type.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.ConvertPointToRelativePathOffset(0);
+```
 
 ### ConvertRelativePathOffsetToPathDistance
 `public float ConvertRelativePathOffsetToPathDistance(float relativePathOffset)`
 
-**Purpose:** Handles logic related to `convert relative path offset to path distance`.
+**Purpose:** Converts `relative path offset to path distance` into another representation or type.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.ConvertRelativePathOffsetToPathDistance(0);
+```
 
 ### GetNodeIndexAtPathDistance
 `public int GetNodeIndexAtPathDistance(float pathDistance)`
 
-**Purpose:** Gets the current value of `node index at path distance`.
+**Purpose:** Reads and returns the `node index at path distance` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.GetNodeIndexAtPathDistance(0);
+```
 
 ### GetBaseOffset
 `public float GetBaseOffset()`
 
-**Purpose:** Gets the current value of `base offset`.
+**Purpose:** Reads and returns the `base offset` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.GetBaseOffset();
+```
 
 ### IsPathOffsetValid
 `public bool IsPathOffsetValid(float relativePathOffset)`
 
-**Purpose:** Handles logic related to `is path offset valid`.
+**Purpose:** Determines whether the current object is in the `path offset valid` state or condition.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.IsPathOffsetValid(0);
+```
 
 ### GetOffsetOverflow
 `public float GetOffsetOverflow(float relativePathOffset)`
 
-**Purpose:** Gets the current value of `offset overflow`.
+**Purpose:** Reads and returns the `offset overflow` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.GetOffsetOverflow(0);
+```
 
 ### GetSpawnFrame
 `public MatrixFrame GetSpawnFrame(float relativePathOffset, bool searchNearestValidFrame = false, SearchDirection searchDirection = SearchDirection.Backward)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.GetSpawnFrame(0, false, searchDirection.Backward);
+```
 
 ### GetSpawnPathFrameFacingTarget
 `public void GetSpawnPathFrameFacingTarget(float basePathOffset, float targetPathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)`
 
-**Purpose:** Gets the current value of `spawn path frame facing target`.
+**Purpose:** Reads and returns the `spawn path frame facing target` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+spawnPathData.GetSpawnPathFrameFacingTarget(0, 0, false, spawnPathPosition, spawnPathDirection, false, 0);
+```
 
 ### Create
 `public static SpawnPathData Create(Scene scene, Path path, float pivotOffset, bool isInverted = false, SnapMethod snapType = SnapMethod.DontSnap)`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+SpawnPathData.Create(scene, path, 0, false, snapMethod.DontSnap);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpawnPathData();
+// This data object is usually returned by campaign/mission APIs
+SpawnPathData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

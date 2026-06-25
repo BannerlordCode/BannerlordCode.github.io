@@ -1,13 +1,7 @@
 ---
 title: "CheckpointLoadedMissionEvent"
+description: "Auto-generated class reference for CheckpointLoadedMissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheckpointLoadedMissionEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheckpointLoadedMissionEvent
 
 **Namespace:** SandBox.Missions
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Missions` to place it in the stack, then inspect i
 ## Usage Example
 
 ```csharp
-var value = new CheckpointLoadedMissionEvent();
+// Obtain an instance from the relevant subsystem API
+CheckpointLoadedMissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

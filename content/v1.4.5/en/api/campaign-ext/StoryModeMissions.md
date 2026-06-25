@@ -1,23 +1,18 @@
 ---
 title: "StoryModeMissions"
+description: "Auto-generated class reference for StoryModeMissions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeMissions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeMissions
 
 **Namespace:** StoryMode.Missions
 **Module:** StoryMode.Missions
 **Type:** `public static class StoryModeMissions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.StoryMode/StoryMode/Storymode.Missions/StoryModeMissions.cs`
 
 ## Overview
 
-`StoryModeMissions` lives in `StoryMode.Missions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StoryModeMissions` lives in `StoryMode.Missions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,21 +23,29 @@ Start from namespace `StoryMode.Missions` to place it in the stack, then inspect
 ### OpenTrainingFieldMission
 `public static Mission OpenTrainingFieldMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null)`
 
-**Purpose:** Handles logic related to `open training field mission`.
+**Purpose:** Opens the resource or UI associated with `training field mission`.
+
+```csharp
+// Static call; no instance required
+StoryModeMissions.OpenTrainingFieldMission("example", location, null, "example");
+```
 
 ### OpenSneakIntoTheVillaMission
 `public static Mission OpenSneakIntoTheVillaMission(string scene, CampaignTime overridenCt, string sceneLevels = null)`
 
-**Purpose:** Handles logic related to `open sneak into the villa mission`.
+**Purpose:** Opens the resource or UI associated with `sneak into the villa mission`.
+
+```csharp
+// Static call; no instance required
+StoryModeMissions.OpenSneakIntoTheVillaMission("example", overridenCt, "example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 StoryModeMissions.OpenTrainingFieldMission("example", location, null, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

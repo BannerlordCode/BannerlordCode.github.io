@@ -1,13 +1,7 @@
 ---
 title: "BoundaryWallView"
+description: "Auto-generated class reference for BoundaryWallView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoundaryWallView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BoundaryWallView
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,20 @@ Treat `BoundaryWallView` as a View-style extension point: first identify who cre
 ### CreateBoundaryMesh
 `public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784U)`
 
-**Purpose:** Creates a new `boundary mesh` instance or object.
+**Purpose:** Constructs a new `boundary mesh` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BoundaryWallView.CreateBoundaryMesh(scene, boundaryPoints, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new BoundaryWallView();
+// Retrieve this view from the subsystem API or scene
+BoundaryWallView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

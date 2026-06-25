@@ -1,22 +1,90 @@
 ---
-title: ViewModel 视图模型 / ViewModel
-description: TaleWorlds.Gauntlet 视图模型 / View models
+title: "viewmodel 目录"
+description: ViewModel 视图模型类参考目录
 ---
-# ViewModel 视图模型 / ViewModel
+<!-- BEGIN SECTION INDEX -->
 
-## 心智模型
+## ↑ 上级导航
 
-先把 `ViewModel 视图模型` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+- [API 参考](../)
+- [版本首页](../../)
 
-v1.3.15 视图模型模块文档。
+## ↓ 子类列表 — 按字母分组
 
-ViewModel module documentation for v1.3.15.
+### B
 
-## 文件 / Files
+- [BattleResultType](./BattleResultType)
 
-\| 文件 / File \| 描述 / Description \|
-\|------------\|-------------------\|
-\| [CharacterViewModel.md](./CharacterViewModel) \| 角色视图模型 \|
-\| [DataSourceProperty.md](./DataSourceProperty) \| 数据源属性类 \|
-\| [HintViewModel.md](./HintViewModel) \| 提示视图模型 \|
-\| [ViewModel.md](./ViewModel) \| 视图模型基类 \|
+### C
+
+- [CharacterViewModel](./CharacterViewModel)
+- [ClanCardSelectionInfo](./ClanCardSelectionInfo)
+- [ClanCardSelectionItemInfo](./ClanCardSelectionItemInfo)
+- [ClanCardSelectionItemPropertyInfo](./ClanCardSelectionItemPropertyInfo)
+
+### D
+
+- [DecisionTypes](./DecisionTypes)
+- [DescriptionType](./DescriptionType)
+
+### G
+
+- [GameMenuItemCreationData](./GameMenuItemCreationData)
+
+### H
+
+- [HintViewModel](./HintViewModel)
+
+### I
+
+- [InputKeyItemVM](./InputKeyItemVM)
+- [IssueQuestFlags](./IssueQuestFlags)
+- [ItemClanComparer](./ItemClanComparer)
+- [ItemComparerBase](./ItemComparerBase)
+- [ItemComparerBase](./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard)
+- [ItemComparerBase](./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies)
+- [ItemComparerBase](./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans)
+- [ItemComparerBase](./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Diplomacy)
+- [ItemComparerBase](./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements)
+- [ItemComparerBase](./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting)
+- [ItemCostComparer](./ItemCostComparer)
+- [ItemDistanceComparer](./ItemDistanceComparer)
+- [ItemNameComparer](./ItemNameComparer)
+- [ItemNameComparer](./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard)
+- [ItemNameComparer](./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory)
+- [ItemNameComparer](./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies)
+- [ItemNameComparer](./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans)
+- [ItemNameComparer](./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements)
+- [ItemNameComparer](./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting)
+- [ItemOwnerComparer](./ItemOwnerComparer)
+- [ItemShipCountComparer](./ItemShipCountComparer)
+- [ItemStrengthComparer](./ItemStrengthComparer)
+- [ItemTypeComparer](./ItemTypeComparer)
+- [ItemTypeComparer](./ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory)
+- [ItemTypeComparer](./ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements)
+- [ItemTypeComparer](./ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting)
+
+### J
+
+- [JournalLogIndex](./JournalLogIndex)
+
+### M
+
+- [MenuOverlayContextList](./MenuOverlayContextList)
+- [MissionHintInteractionItemVM](./MissionHintInteractionItemVM)
+- [MouseState](./MouseState)
+
+### O
+
+- [OrderOfBattleUIHelper](./OrderOfBattleUIHelper)
+
+### T
+
+- [TroopItemFormationIndexComparer](./TroopItemFormationIndexComparer)
+
+### V
+
+- [VisualOrderExecutionParameters](./VisualOrderExecutionParameters)
+
+
+<!-- END SECTION INDEX -->

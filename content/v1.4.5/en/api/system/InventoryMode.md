@@ -1,20 +1,14 @@
 ---
 title: "InventoryMode"
+description: "Auto-generated class reference for InventoryMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryMode`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryMode
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public enum InventoryMode`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/InventoryScreenHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/InventoryScreenHelper.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-InventoryMode example = InventoryMode.Value;
+// Obtain an instance from the relevant subsystem API
+InventoryMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

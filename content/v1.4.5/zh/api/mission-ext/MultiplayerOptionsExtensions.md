@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerOptionsExtensions"
+description: "MultiplayerOptionsExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerOptionsExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerOptionsExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerOptionsExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerOptionsExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerOptionsExtensions.cs`
 
 ## 概述
 
@@ -29,52 +23,102 @@ title: "MultiplayerOptionsExtensions"
 ### GetValueText
 `public static string GetValueText(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** 获取 `value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value text」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.GetValueText(optionType, multiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions);
+```
 
 ### GetBoolValue
 `public static bool GetBoolValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** 获取 `bool value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bool value」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.GetBoolValue(optionType, multiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions);
+```
 
 ### GetIntValue
 `public static int GetIntValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** 获取 `int value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「int value」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.GetIntValue(optionType, multiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions);
+```
 
 ### GetStrValue
 `public static string GetStrValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** 获取 `str value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「str value」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.GetStrValue(optionType, multiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions);
+```
 
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, bool value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.SetValue(optionType, false, multiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions);
+```
 
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, int value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.SetValue(optionType, 0, multiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions);
+```
 
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, string value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.SetValue(optionType, "example", multiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions);
+```
 
 ### GetMinimumValue
 `public static int GetMinimumValue(this MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** 获取 `minimum value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「minimum value」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.GetMinimumValue(optionType);
+```
 
 ### GetMaximumValue
 `public static int GetMaximumValue(this MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** 获取 `maximum value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum value」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.GetMaximumValue(optionType);
+```
 
 ### GetOptionProperty
 `public static MultiplayerOptionsProperty GetOptionProperty(this MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** 获取 `option property` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「option property」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerOptionsExtensions.GetOptionProperty(optionType);
+```
 
 ## 使用示例
 
@@ -84,4 +128,4 @@ MultiplayerOptionsExtensions.GetValueText(optionType, multiplayerOptions.Multipl
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

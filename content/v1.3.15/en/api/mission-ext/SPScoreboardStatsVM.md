@@ -1,13 +1,7 @@
 ---
 title: "SPScoreboardStatsVM"
+description: "Auto-generated class reference for SPScoreboardStatsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPScoreboardStatsVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPScoreboardStatsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
@@ -43,30 +37,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SPScoreboardStatsVM from the subsystem API first
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+sPScoreboardStatsVM.RefreshValues();
+```
 
 ### UpdateScores
 `public void UpdateScores(int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**Purpose:** Updates the state or data of `scores`.
+**Purpose:** Recalculates and stores the latest representation of `scores`.
+
+```csharp
+// Obtain an instance of SPScoreboardStatsVM from the subsystem API first
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+sPScoreboardStatsVM.UpdateScores(0, 0, 0, 0, 0, 0);
+```
 
 ### IsAnyStatRelevant
 `public bool IsAnyStatRelevant()`
 
-**Purpose:** Handles logic related to `is any stat relevant`.
+**Purpose:** Determines whether the current object is in the `any stat relevant` state or condition.
+
+```csharp
+// Obtain an instance of SPScoreboardStatsVM from the subsystem API first
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+var result = sPScoreboardStatsVM.IsAnyStatRelevant();
+```
 
 ### GetScoreForOneAliveMember
 `public SPScoreboardStatsVM GetScoreForOneAliveMember()`
 
-**Purpose:** Gets the current value of `score for one alive member`.
+**Purpose:** Reads and returns the `score for one alive member` value held by the current object.
+
+```csharp
+// Obtain an instance of SPScoreboardStatsVM from the subsystem API first
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+var result = sPScoreboardStatsVM.GetScoreForOneAliveMember();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPScoreboardStatsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+sPScoreboardStatsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

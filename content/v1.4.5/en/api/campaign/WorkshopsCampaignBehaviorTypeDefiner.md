@@ -1,20 +1,14 @@
 ---
 title: "WorkshopsCampaignBehaviorTypeDefiner"
+description: "Auto-generated class reference for WorkshopsCampaignBehaviorTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorkshopsCampaignBehaviorTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopsCampaignBehaviorTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WorkshopsCampaignBehaviorTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/WorkshopsCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/WorkshopsCampaignBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-var example = new WorkshopsCampaignBehaviorTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+WorkshopsCampaignBehaviorTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

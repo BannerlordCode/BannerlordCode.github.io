@@ -1,13 +1,7 @@
 ---
 title: "AlarmedBehaviorGroup"
+description: "AlarmedBehaviorGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AlarmedBehaviorGroup`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlarmedBehaviorGroup
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -35,65 +29,131 @@ title: "AlarmedBehaviorGroup"
 ### SetCanMoveWhenCautious
 `public void SetCanMoveWhenCautious(bool value)`
 
-**用途 / Purpose:** 设置 `can move when cautious` 的值或状态。
+**用途 / Purpose:** 为 「can move when cautious」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.SetCanMoveWhenCautious(false);
+```
 
 ### AddIgnoredAgentsForAlarm
 `public void AddIgnoredAgentsForAlarm(Agent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `ignored agents for alarm`。
+**用途 / Purpose:** 将 「ignored agents for alarm」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.AddIgnoredAgentsForAlarm(agent);
+```
 
 ### GetVisualFactor
 `public float GetVisualFactor(Vec3 usedGlobalLookDirection, Agent currentAgent, ref bool hasVisualOnCorpse, ref bool hasVisualOnEnemy)`
 
-**用途 / Purpose:** 获取 `visual factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+var result = alarmedBehaviorGroup.GetVisualFactor(usedGlobalLookDirection, currentAgent, hasVisualOnCorpse, hasVisualOnEnemy);
+```
 
 ### ResetAlarmFactor
 `public void ResetAlarmFactor()`
 
-**用途 / Purpose:** 将 `alarm factor` 重置为初始状态。
+**用途 / Purpose:** 将 「alarm factor」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.ResetAlarmFactor();
+```
 
 ### AddAlarmFactor
 `public void AddAlarmFactor(float addedAlarmFactor, in WorldPosition suspiciousPosition)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `alarm factor`。
+**用途 / Purpose:** 将 「alarm factor」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.AddAlarmFactor(0, suspiciousPosition);
+```
 
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.Tick(0, false);
+```
 
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+var result = alarmedBehaviorGroup.GetScore(false);
+```
 
 ### GetClosestAlarmSource
 `public Agent GetClosestAlarmSource(out float distanceSquared)`
 
-**用途 / Purpose:** 获取 `closest alarm source` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「closest alarm source」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+var result = alarmedBehaviorGroup.GetClosestAlarmSource(distanceSquared);
+```
 
 ### AlarmAgent
 `public static void AlarmAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `alarm agent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+AlarmedBehaviorGroup.AlarmAgent(agent);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.OnAgentRemoved(agent);
+```
 
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 处理 `force think` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.ForceThink(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AlarmedBehaviorGroup();
-value.SetCanMoveWhenCautious(false);
+// 通常从对应子系统 API 获取实例后调用
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.SetCanMoveWhenCautious(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

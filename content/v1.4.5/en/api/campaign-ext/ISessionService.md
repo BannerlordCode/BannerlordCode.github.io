@@ -1,20 +1,14 @@
 ---
 title: "ISessionService"
+description: "Auto-generated class reference for ISessionService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISessionService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISessionService
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** `class`
+**Type:** `public interface ISessionService`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/ISessionService.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/ISessionService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-ISessionService implementation = GetSessionServiceImplementation();
+// Usually obtained through DI or a factory method
+IISessionService service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

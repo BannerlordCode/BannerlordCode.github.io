@@ -1,20 +1,14 @@
 ---
 title: "VertexAnimator"
+description: "VertexAnimator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VertexAnimator`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VertexAnimator
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VertexAnimator : SynchedMissionObject`
 **Base:** `SynchedMissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VertexAnimator.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VertexAnimator.cs`
 
 ## 概述
 
@@ -38,75 +32,154 @@ title: "VertexAnimator"
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 处理 `read from network` 相关逻辑。
+**用途 / Purpose:** 读取「from network」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+var result = vertexAnimator.ReadFromNetwork(bufferReadValid);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+var result = vertexAnimator.GetTickRequirement();
+```
 
 ### PlayOnce
 `public void PlayOnce()`
 
-**用途 / Purpose:** 处理 `play once` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.PlayOnce();
+```
 
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** 处理 `pause` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.Pause();
+```
 
 ### Play
 `public void Play()`
 
-**用途 / Purpose:** 处理 `play` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.Play();
+```
 
 ### Resume
 `public void Resume()`
 
-**用途 / Purpose:** 处理 `resume` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.Resume();
+```
 
 ### Stop
 `public void Stop()`
 
-**用途 / Purpose:** 处理 `stop` 相关逻辑。
+**用途 / Purpose:** 停止当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.Stop();
+```
 
 ### StopAndGoToEnd
 `public void StopAndGoToEnd()`
 
-**用途 / Purpose:** 处理 `stop and go to end` 相关逻辑。
+**用途 / Purpose:** 停止「and go to end」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.StopAndGoToEnd();
+```
 
 ### SetAnimation
 `public void SetAnimation(int beginKey, int endKey, float speed)`
 
-**用途 / Purpose:** 设置 `animation` 的值或状态。
+**用途 / Purpose:** 为 「animation」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.SetAnimation(0, 0, 0);
+```
 
 ### SetAnimationSynched
 `public void SetAnimationSynched(int beginKey, int endKey, float speed)`
 
-**用途 / Purpose:** 设置 `animation synched` 的值或状态。
+**用途 / Purpose:** 为 「animation synched」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.SetAnimationSynched(0, 0, 0);
+```
 
 ### SetProgressSynched
 `public void SetProgressSynched(float value)`
 
-**用途 / Purpose:** 设置 `progress synched` 的值或状态。
+**用途 / Purpose:** 为 「progress synched」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.SetProgressSynched(0);
+```
 
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**用途 / Purpose:** 处理 `write to network` 相关逻辑。
+**用途 / Purpose:** 将「to network」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.WriteToNetwork();
+```
 
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**用途 / Purpose:** 当 `after read from network` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after read from network」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VertexAnimator 实例
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VertexAnimator();
-value.ReadFromNetwork(bufferReadValid);
+// 通常从对应子系统 API 获取实例后调用
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.ReadFromNetwork(bufferReadValid);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

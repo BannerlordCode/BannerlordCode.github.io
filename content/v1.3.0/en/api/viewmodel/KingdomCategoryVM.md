@@ -1,13 +1,7 @@
 ---
 title: "KingdomCategoryVM"
+description: "Auto-generated class reference for KingdomCategoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomCategoryVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomCategoryVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var implementation = new CustomKingdomCategoryVM();
+// Typically obtained from a subsystem API or factory
+KingdomCategoryVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

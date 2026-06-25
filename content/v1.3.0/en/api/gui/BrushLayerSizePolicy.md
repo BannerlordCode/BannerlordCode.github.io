@@ -1,18 +1,12 @@
 ---
 title: "BrushLayerSizePolicy"
+description: "Auto-generated class reference for BrushLayerSizePolicy."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushLayerSizePolicy`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushLayerSizePolicy
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum BrushLayerSizePolicy`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BrushLayerSizePolicy.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new BrushLayerSizePolicy();
+// Obtain an instance from the relevant subsystem API
+BrushLayerSizePolicy instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

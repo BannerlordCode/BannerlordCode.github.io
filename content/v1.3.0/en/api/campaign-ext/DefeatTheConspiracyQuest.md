@@ -1,23 +1,18 @@
 ---
 title: "DefeatTheConspiracyQuest"
+description: "Auto-generated class reference for DefeatTheConspiracyQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefeatTheConspiracyQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefeatTheConspiracyQuest
 
 **Namespace:** StoryMode.Quests.ThirdPhase
 **Module:** StoryMode.Quests
 **Type:** `public class DefeatTheConspiracyQuest`
-**Area:** campaign-ext
+**Base:** none
+**File:** `StoryMode/Quests/ThirdPhase/DefeatTheConspiracyQuestBehavior.cs`
 
 ## Overview
 
-`DefeatTheConspiracyQuest` lives in `StoryMode.Quests.ThirdPhase`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`DefeatTheConspiracyQuest` lives in `StoryMode.Quests.ThirdPhase` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,32 +29,55 @@ Start from namespace `StoryMode.Quests.ThirdPhase` to place it in the stack, the
 ### IsMobilePartyCreatedForQuest
 `public bool IsMobilePartyCreatedForQuest(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `is mobile party created for quest`.
+**Purpose:** Determines whether the current object is in the `mobile party created for quest` state or condition.
+
+```csharp
+// Obtain an instance of DefeatTheConspiracyQuest from the subsystem API first
+DefeatTheConspiracyQuest defeatTheConspiracyQuest = ...;
+var result = defeatTheConspiracyQuest.IsMobilePartyCreatedForQuest(mobileParty);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of DefeatTheConspiracyQuest from the subsystem API first
+DefeatTheConspiracyQuest defeatTheConspiracyQuest = ...;
+defeatTheConspiracyQuest.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of DefeatTheConspiracyQuest from the subsystem API first
+DefeatTheConspiracyQuest defeatTheConspiracyQuest = ...;
+defeatTheConspiracyQuest.SyncData(dataStore);
+```
 
 ### CalculateReinforcedWarScore
 `public void CalculateReinforcedWarScore()`
 
-**Purpose:** Handles logic related to `calculate reinforced war score`.
+**Purpose:** Calculates the current value or result of `reinforced war score`.
+
+```csharp
+// Obtain an instance of DefeatTheConspiracyQuest from the subsystem API first
+DefeatTheConspiracyQuest defeatTheConspiracyQuest = ...;
+defeatTheConspiracyQuest.CalculateReinforcedWarScore();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a DefeatTheConspiracyQuest instance from game state, then call one of its public methods
-var value = new DefeatTheConspiracyQuest();
-value.IsMobilePartyCreatedForQuest(mobileParty);
+// Typically call this after obtaining an instance from the subsystem API
+DefeatTheConspiracyQuest defeatTheConspiracyQuest = ...;
+defeatTheConspiracyQuest.IsMobilePartyCreatedForQuest(mobileParty);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

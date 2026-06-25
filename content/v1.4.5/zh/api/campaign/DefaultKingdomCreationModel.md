@@ -1,20 +1,14 @@
 ---
 title: "DefaultKingdomCreationModel"
+description: "DefaultKingdomCreationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultKingdomCreationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultKingdomCreationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultKingdomCreationModel : KingdomCreationModel`
 **Base:** `KingdomCreationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultKingdomCreationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultKingdomCreationModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultKingdomCreationModel"
 ### IsPlayerKingdomCreationPossible
 `public override bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)`
 
-**用途 / Purpose:** 处理 `is player kingdom creation possible` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player kingdom creation possible」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultKingdomCreationModel 实例
+DefaultKingdomCreationModel defaultKingdomCreationModel = ...;
+var result = defaultKingdomCreationModel.IsPlayerKingdomCreationPossible(explanations);
+```
 
 ### IsPlayerKingdomAbdicationPossible
 `public override bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)`
 
-**用途 / Purpose:** 处理 `is player kingdom abdication possible` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player kingdom abdication possible」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultKingdomCreationModel 实例
+DefaultKingdomCreationModel defaultKingdomCreationModel = ...;
+var result = defaultKingdomCreationModel.IsPlayerKingdomAbdicationPossible(explanations);
+```
 
 ### GetAvailablePlayerKingdomCultures
 `public override IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()`
 
-**用途 / Purpose:** 获取 `available player kingdom cultures` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available player kingdom cultures」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultKingdomCreationModel 实例
+DefaultKingdomCreationModel defaultKingdomCreationModel = ...;
+var result = defaultKingdomCreationModel.GetAvailablePlayerKingdomCultures();
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultKingdomCreationModel>(new MyDefaultKingdomCreat
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

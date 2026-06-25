@@ -1,20 +1,14 @@
 ---
 title: "MissionLosingTargetVM"
+description: "Auto-generated class reference for MissionLosingTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLosingTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionLosingTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.MainAgentDetection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionLosingTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.MainAgentDetection/MissionLosingTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.MainAgentDetection/MissionLosingTargetVM.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `SandBox.ViewModelCollection.Missions.MainAgentDetection` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionLosingTargetVM from the subsystem API first
+MissionLosingTargetVM missionLosingTargetVM = ...;
+missionLosingTargetVM.RefreshValues();
+```
 
 ### UpdateLosingTargetValues
 `public void UpdateLosingTargetValues(bool isLosingTarget, float losingTargetTimer, float losingTargetTreshold)`
 
-**Purpose:** Updates the state or data of `losing target values`.
+**Purpose:** Recalculates and stores the latest representation of `losing target values`.
+
+```csharp
+// Obtain an instance of MissionLosingTargetVM from the subsystem API first
+MissionLosingTargetVM missionLosingTargetVM = ...;
+missionLosingTargetVM.UpdateLosingTargetValues(false, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionLosingTargetVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionLosingTargetVM missionLosingTargetVM = ...;
+missionLosingTargetVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "KingdomClanTypeVisualBrushWidget"
+description: "Auto-generated class reference for KingdomClanTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomClanTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomClanTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KingdomClanTypeVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomClanTypeVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomClanTypeVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `KingdomClanTypeVisualBrushWidget` as a Widget-style extension point: firs
 ### KingdomClanTypeVisualBrushWidget
 `public class KingdomClanTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `kingdom clan type visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomClanTypeVisualBrushWidget from the subsystem API first
+KingdomClanTypeVisualBrushWidget kingdomClanTypeVisualBrushWidget = ...;
+var result = kingdomClanTypeVisualBrushWidget.KingdomClanTypeVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new KingdomClanTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+KingdomClanTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

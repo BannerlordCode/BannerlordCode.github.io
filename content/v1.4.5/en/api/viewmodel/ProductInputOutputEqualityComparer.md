@@ -1,20 +1,14 @@
 ---
 title: "ProductInputOutputEqualityComparer"
+description: "Auto-generated class reference for ProductInputOutputEqualityComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProductInputOutputEqualityComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProductInputOutputEqualityComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ProductInputOutputEqualityComparer : IEqualityComparer<(ItemCategory, int)>`
 **Base:** `IEqualityComparer<(ItemCategory`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignUIHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignUIHelper.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Equals
 `public bool Equals((ItemCategory, int) x, (ItemCategory, int) y)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of ProductInputOutputEqualityComparer from the subsystem API first
+ProductInputOutputEqualityComparer productInputOutputEqualityComparer = ...;
+var result = productInputOutputEqualityComparer.Equals((ItemCategory, 0, (ItemCategory, 0);
+```
 
 ### GetHashCode
 `public int GetHashCode((ItemCategory, int) obj)`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of ProductInputOutputEqualityComparer from the subsystem API first
+ProductInputOutputEqualityComparer productInputOutputEqualityComparer = ...;
+var result = productInputOutputEqualityComparer.GetHashCode((ItemCategory, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProductInputOutputEqualityComparer();
-value.Equals((ItemCategory, 0, (ItemCategory, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ProductInputOutputEqualityComparer productInputOutputEqualityComparer = ...;
+productInputOutputEqualityComparer.Equals((ItemCategory, 0, (ItemCategory, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

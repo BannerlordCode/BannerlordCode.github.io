@@ -1,20 +1,14 @@
 ---
 title: "PersuasionOptionVM"
+description: "Auto-generated class reference for PersuasionOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionOptionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionOptionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PersuasionOptionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Conversation/PersuasionOptionVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Conversation/PersuasionOptionVM.cs`
 
 ## Overview
 
@@ -52,25 +46,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PersuasionOptionVM from the subsystem API first
+PersuasionOptionVM persuasionOptionVM = ...;
+persuasionOptionVM.RefreshValues();
+```
 
 ### GetPersuasionAdditionalText
 `public string GetPersuasionAdditionalText()`
 
-**Purpose:** Gets the current value of `persuasion additional text`.
+**Purpose:** Reads and returns the `persuasion additional text` value held by the current object.
+
+```csharp
+// Obtain an instance of PersuasionOptionVM from the subsystem API first
+PersuasionOptionVM persuasionOptionVM = ...;
+var result = persuasionOptionVM.GetPersuasionAdditionalText();
+```
 
 ### ExecuteReadyToContinue
 `public void ExecuteReadyToContinue()`
 
-**Purpose:** Executes the `ready to continue` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `ready to continue`.
+
+```csharp
+// Obtain an instance of PersuasionOptionVM from the subsystem API first
+PersuasionOptionVM persuasionOptionVM = ...;
+persuasionOptionVM.ExecuteReadyToContinue();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PersuasionOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+PersuasionOptionVM persuasionOptionVM = ...;
+persuasionOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

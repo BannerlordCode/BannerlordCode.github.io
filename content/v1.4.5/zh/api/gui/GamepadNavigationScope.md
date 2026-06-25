@@ -1,20 +1,14 @@
 ---
 title: "GamepadNavigationScope"
+description: "GamepadNavigationScope 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GamepadNavigationScope`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GamepadNavigationScope
 
 **Namespace:** TaleWorlds.GauntletUI.GamepadNavigation
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GamepadNavigationScope`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.GamepadNavigation/GamepadNavigationScope.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.GamepadNavigation/GamepadNavigationScope.cs`
 
 ## 概述
 
@@ -74,40 +68,77 @@ title: "GamepadNavigationScope"
 ### Compare
 `public int Compare(Widget x, Widget y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationScope 实例
+GamepadNavigationScope gamepadNavigationScope = ...;
+var result = gamepadNavigationScope.Compare(x, y);
+```
 
 ### AddWidgetAtIndex
 `public void AddWidgetAtIndex(Widget widget, int index)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `widget at index`。
+**用途 / Purpose:** 将 「widget at index」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationScope 实例
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.AddWidgetAtIndex(widget, 0);
+```
 
 ### AddWidget
 `public void AddWidget(Widget widget)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `widget`。
+**用途 / Purpose:** 将 「widget」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationScope 实例
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.AddWidget(widget);
+```
 
 ### RemoveWidget
 `public void RemoveWidget(Widget widget)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `widget`。
+**用途 / Purpose:** 从当前容器或状态中移除 「widget」。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationScope 实例
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.RemoveWidget(widget);
+```
 
 ### SetParentScope
 `public void SetParentScope(GamepadNavigationScope scope)`
 
-**用途 / Purpose:** 设置 `parent scope` 的值或状态。
+**用途 / Purpose:** 为 「parent scope」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationScope 实例
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.SetParentScope(scope);
+```
 
 ### ClearNavigatableWidgets
 `public void ClearNavigatableWidgets()`
 
-**用途 / Purpose:** 处理 `clear navigatable widgets` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「navigatable widgets」。
+
+```csharp
+// 先通过子系统 API 拿到 GamepadNavigationScope 实例
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.ClearNavigatableWidgets();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GamepadNavigationScope();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+GamepadNavigationScope gamepadNavigationScope = ...;
+gamepadNavigationScope.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

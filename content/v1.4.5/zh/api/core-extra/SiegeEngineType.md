@@ -1,20 +1,14 @@
 ---
 title: "SiegeEngineType"
+description: "SiegeEngineType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeEngineType`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class SiegeEngineType : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SiegeEngineType.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SiegeEngineType.cs`
 
 ## 概述
 
@@ -49,20 +43,33 @@ title: "SiegeEngineType"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEngineType 实例
+SiegeEngineType siegeEngineType = ...;
+var result = siegeEngineType.ToString();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEngineType 实例
+SiegeEngineType siegeEngineType = ...;
+siegeEngineType.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeEngineType();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+SiegeEngineType siegeEngineType = ...;
+siegeEngineType.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

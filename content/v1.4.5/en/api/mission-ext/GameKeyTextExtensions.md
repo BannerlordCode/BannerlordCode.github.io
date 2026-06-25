@@ -1,20 +1,14 @@
 ---
 title: "GameKeyTextExtensions"
+description: "Auto-generated class reference for GameKeyTextExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameKeyTextExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyTextExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class GameKeyTextExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyTextExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyTextExtensions.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetHotKeyGameText
 `public static TextObject GetHotKeyGameText(this GameTextManager gameTextManager, string categoryName, string hotKeyId)`
 
-**Purpose:** Gets the current value of `hot key game text`.
+**Purpose:** Reads and returns the `hot key game text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", "example");
+```
 
 ### GetHotKeyGameText
 `public static TextObject GetHotKeyGameText(this GameTextManager gameTextManager, string categoryName, int gameKeyId)`
 
-**Purpose:** Gets the current value of `hot key game text`.
+**Purpose:** Reads and returns the `hot key game text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", 0);
+```
 
 ### GetHotKeyGameTextFromKeyID
 `public static TextObject GetHotKeyGameTextFromKeyID(this GameTextManager gameTextManager, string keyId)`
 
-**Purpose:** Gets the current value of `hot key game text from key i d`.
+**Purpose:** Reads and returns the `hot key game text from key i d` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameKeyTextExtensions.GetHotKeyGameTextFromKeyID(gameTextManager, "example");
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", "example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

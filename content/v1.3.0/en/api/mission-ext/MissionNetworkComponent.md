@@ -1,13 +1,7 @@
 ---
 title: "MissionNetworkComponent"
+description: "Auto-generated class reference for MissionNetworkComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNetworkComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNetworkComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,42 +23,90 @@ Treat `MissionNetworkComponent` as a Component-style extension point: first iden
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Called when the `player disconnected from server` event is raised.
+**Purpose:** Invoked when the `player disconnected from server` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetworkComponent from the subsystem API first
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetworkComponent from the subsystem API first
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnRemoveBehavior();
+```
 
 ### OnAddTeam
 `public override void OnAddTeam(Team team)`
 
-**Purpose:** Called when the `add team` event is raised.
+**Purpose:** Invoked when the `add team` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetworkComponent from the subsystem API first
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnAddTeam(team);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetworkComponent from the subsystem API first
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnBehaviorInitialize();
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetworkComponent from the subsystem API first
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnClearScene();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetworkComponent from the subsystem API first
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnMissionTick(0);
+```
 
 ### OnPeerSelectedTeam
 `public void OnPeerSelectedTeam(MissionPeer missionPeer)`
 
-**Purpose:** Called when the `peer selected team` event is raised.
+**Purpose:** Invoked when the `peer selected team` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetworkComponent from the subsystem API first
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnPeerSelectedTeam(missionPeer);
+```
 
 ### OnClientSynchronized
 `public void OnClientSynchronized(NetworkCommunicator networkPeer)`
 
-**Purpose:** Called when the `client synchronized` event is raised.
+**Purpose:** Invoked when the `client synchronized` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetworkComponent from the subsystem API first
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnClientSynchronized(networkPeer);
+```
 
 ## Usage Example
 
@@ -74,4 +116,4 @@ var component = agent.GetComponent<MissionNetworkComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

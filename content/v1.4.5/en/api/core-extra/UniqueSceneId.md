@@ -1,20 +1,14 @@
 ---
 title: "UniqueSceneId"
+description: "Auto-generated class reference for UniqueSceneId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UniqueSceneId`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UniqueSceneId
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class UniqueSceneId`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/UniqueSceneId.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/UniqueSceneId.cs`
 
 ## Overview
 
@@ -36,20 +30,32 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Serialize
 `public string Serialize()`
 
-**Purpose:** Handles logic related to `serialize`.
+**Purpose:** Serializes the current object into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of UniqueSceneId from the subsystem API first
+UniqueSceneId uniqueSceneId = ...;
+var result = uniqueSceneId.Serialize();
+```
 
 ### TryParse
 `public static bool TryParse(string uniqueMapId, out UniqueSceneId identifiers)`
 
-**Purpose:** Attempts to get `parse`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `parse`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+UniqueSceneId.TryParse("example", identifiers);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UniqueSceneId();
-value.Serialize();
+// Typically call this after obtaining an instance from the subsystem API
+UniqueSceneId uniqueSceneId = ...;
+uniqueSceneId.Serialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

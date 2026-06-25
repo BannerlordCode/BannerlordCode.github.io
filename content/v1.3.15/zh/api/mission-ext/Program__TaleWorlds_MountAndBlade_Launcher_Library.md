@@ -1,13 +1,7 @@
 ---
-title: "Program__TaleWorlds_MountAndBlade_Launcher_Library"
+title: "Program"
+description: "Program 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Program`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Program
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -29,27 +23,52 @@ title: "Program__TaleWorlds_MountAndBlade_Launcher_Library"
 ### NativeMain
 `public static void NativeMain(string commandLine)`
 
-**用途 / Purpose:** 处理 `native main` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Program.NativeMain("example");
+```
 
 ### Main
 `public static void Main(string args)`
 
-**用途 / Purpose:** 处理 `main` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Program.Main("example");
+```
 
 ### StartGame
 `public static void StartGame()`
 
-**用途 / Purpose:** 处理 `start game` 相关逻辑。
+**用途 / Purpose:** 启动「game」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+Program.StartGame();
+```
 
 ### StartDigitalCompanion
 `public static void StartDigitalCompanion()`
 
-**用途 / Purpose:** 处理 `start digital companion` 相关逻辑。
+**用途 / Purpose:** 启动「digital companion」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+Program.StartDigitalCompanion();
+```
 
 ### IsDigitalCompanionAvailable
 `public static bool IsDigitalCompanionAvailable()`
 
-**用途 / Purpose:** 处理 `is digital companion available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「digital companion available」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+Program.IsDigitalCompanionAvailable();
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ Program.NativeMain("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "LesserNobleRevoltIssueQuest"
+description: "Auto-generated class reference for LesserNobleRevoltIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LesserNobleRevoltIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LesserNobleRevoltIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of LesserNobleRevoltIssueQuest from the subsystem API first
+LesserNobleRevoltIssueQuest lesserNobleRevoltIssueQuest = ...;
+lesserNobleRevoltIssueQuest.OnFailed();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LesserNobleRevoltIssueQuest();
-value.OnFailed();
+// Typically call this after obtaining an instance from the subsystem API
+LesserNobleRevoltIssueQuest lesserNobleRevoltIssueQuest = ...;
+lesserNobleRevoltIssueQuest.OnFailed();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "StoryModePrisonerRecruitmentCalculationModel"
+description: "Auto-generated class reference for StoryModePrisonerRecruitmentCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModePrisonerRecruitmentCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModePrisonerRecruitmentCalculationModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModePrisonerRecruitmentCalculationModel : PrisonerRecruitmentCalculationModel`
 **Base:** `PrisonerRecruitmentCalculationModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModePrisonerRecruitmentCalculationModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModePrisonerRecruitmentCalculationModel.cs`
 
 ## Overview
 
@@ -29,32 +23,68 @@ Treat `StoryModePrisonerRecruitmentCalculationModel` as a Model-style extension 
 ### CalculateRecruitableNumber
 `public override int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
 
-**Purpose:** Handles logic related to `calculate recruitable number`.
+**Purpose:** Calculates the current value or result of `recruitable number`.
+
+```csharp
+// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.CalculateRecruitableNumber(party, character);
+```
 
 ### GetConformityChangePerHour
 `public override ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)`
 
-**Purpose:** Gets the current value of `conformity change per hour`.
+**Purpose:** Reads and returns the `conformity change per hour` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.GetConformityChangePerHour(party, character);
+```
 
 ### GetConformityNeededToRecruitPrisoner
 `public override int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**Purpose:** Gets the current value of `conformity needed to recruit prisoner`.
+**Purpose:** Reads and returns the `conformity needed to recruit prisoner` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.GetConformityNeededToRecruitPrisoner(character);
+```
 
 ### GetPrisonerRecruitmentMoraleEffect
 `public override int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**Purpose:** Gets the current value of `prisoner recruitment morale effect`.
+**Purpose:** Reads and returns the `prisoner recruitment morale effect` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.GetPrisonerRecruitmentMoraleEffect(party, character, 0);
+```
 
 ### IsPrisonerRecruitable
 `public override bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**Purpose:** Handles logic related to `is prisoner recruitable`.
+**Purpose:** Determines whether the current object is in the `prisoner recruitable` state or condition.
+
+```csharp
+// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.IsPrisonerRecruitable(party, character, conformityNeeded);
+```
 
 ### ShouldPartyRecruitPrisoners
 `public override bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**Purpose:** Handles logic related to `should party recruit prisoners`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.ShouldPartyRecruitPrisoners(party);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<StoryModePrisonerRecruitmentCalculationModel>(new MySt
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

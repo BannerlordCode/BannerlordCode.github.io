@@ -1,13 +1,7 @@
 ---
 title: "BaseNetworkComponentData"
+description: "BaseNetworkComponentData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BaseNetworkComponentData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BaseNetworkComponentData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,14 +29,21 @@ title: "BaseNetworkComponentData"
 ### UpdateCurrentBattleIndex
 `public void UpdateCurrentBattleIndex(int currentBattleIndex)`
 
-**用途 / Purpose:** 更新 `current battle index` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「current battle index」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponentData 实例
+BaseNetworkComponentData baseNetworkComponentData = ...;
+baseNetworkComponentData.UpdateCurrentBattleIndex(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BaseNetworkComponentData();
+// 该数据对象通常由战役/任务 API 返回
+BaseNetworkComponentData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

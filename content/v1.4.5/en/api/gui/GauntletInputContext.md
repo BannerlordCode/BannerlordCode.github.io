@@ -1,20 +1,14 @@
 ---
 title: "GauntletInputContext"
+description: "Auto-generated class reference for GauntletInputContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletInputContext`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletInputContext
 
 **Namespace:** TaleWorlds.GauntletUI.GauntletInput
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GauntletInputContext : IReadonlyInputContext`
 **Base:** `IReadonlyInputContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.GauntletInput/GauntletInputContext.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.GauntletInput/GauntletInputContext.cs`
 
 ## Overview
 
@@ -29,60 +23,121 @@ Start from namespace `TaleWorlds.GauntletUI.GauntletInput` to place it in the st
 ### GetIsMouseActive
 `public bool GetIsMouseActive()`
 
-**Purpose:** Gets the current value of `is mouse active`.
+**Purpose:** Reads and returns the `is mouse active` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetIsMouseActive();
+```
 
 ### GetMousePosition
 `public Vector2 GetMousePosition()`
 
-**Purpose:** Gets the current value of `mouse position`.
+**Purpose:** Reads and returns the `mouse position` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetMousePosition();
+```
 
 ### GetMouseMovement
 `public Vector2 GetMouseMovement()`
 
-**Purpose:** Gets the current value of `mouse movement`.
+**Purpose:** Reads and returns the `mouse movement` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetMouseMovement();
+```
 
 ### GetClickKeys
 `public InputKey GetClickKeys()`
 
-**Purpose:** Gets the current value of `click keys`.
+**Purpose:** Reads and returns the `click keys` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetClickKeys();
+```
 
 ### GetAlternateClickKeys
 `public InputKey GetAlternateClickKeys()`
 
-**Purpose:** Gets the current value of `alternate click keys`.
+**Purpose:** Reads and returns the `alternate click keys` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetAlternateClickKeys();
+```
 
 ### GetMouseScrollDelta
 `public float GetMouseScrollDelta()`
 
-**Purpose:** Gets the current value of `mouse scroll delta`.
+**Purpose:** Reads and returns the `mouse scroll delta` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetMouseScrollDelta();
+```
 
 ### GetControllerLeftStickState
 `public Vector2 GetControllerLeftStickState()`
 
-**Purpose:** Gets the current value of `controller left stick state`.
+**Purpose:** Reads and returns the `controller left stick state` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetControllerLeftStickState();
+```
 
 ### GetControllerRightStickState
 `public Vector2 GetControllerRightStickState()`
 
-**Purpose:** Gets the current value of `controller right stick state`.
+**Purpose:** Reads and returns the `controller right stick state` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetControllerRightStickState();
+```
 
 ### SetMousePositionOverride
 `public void SetMousePositionOverride(Vector2 mousePosition)`
 
-**Purpose:** Sets the value or state of `mouse position override`.
+**Purpose:** Assigns a new value to `mouse position override` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+gauntletInputContext.SetMousePositionOverride(mousePosition);
+```
 
 ### ResetMousePositionOverride
 `public void ResetMousePositionOverride()`
 
-**Purpose:** Resets `mouse position override` to its initial state.
+**Purpose:** Returns `mouse position override` to its default or initial condition.
+
+```csharp
+// Obtain an instance of GauntletInputContext from the subsystem API first
+GauntletInputContext gauntletInputContext = ...;
+gauntletInputContext.ResetMousePositionOverride();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletInputContext();
-value.GetIsMouseActive();
+// Typically call this after obtaining an instance from the subsystem API
+GauntletInputContext gauntletInputContext = ...;
+gauntletInputContext.GetIsMouseActive();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

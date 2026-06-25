@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithFloatValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithFloatValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithFloatValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithFloatValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithFloatValueEventArgs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithFloatValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithFloatValueEventArgs.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithFloatValueEventArgs
 `public struct PropertyChangedWithFloatValueEventArgs(string propertyName, float value)`
 
-**Purpose:** Handles logic related to `property changed with float value event args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PropertyChangedWithFloatValueEventArgs from the subsystem API first
+PropertyChangedWithFloatValueEventArgs propertyChangedWithFloatValueEventArgs = ...;
+var result = propertyChangedWithFloatValueEventArgs.PropertyChangedWithFloatValueEventArgs("example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithFloatValueEventArgs();
-value.PropertyChangedWithFloatValueEventArgs("example", 0);
+// Typically call this after obtaining an instance from the subsystem API
+PropertyChangedWithFloatValueEventArgs propertyChangedWithFloatValueEventArgs = ...;
+propertyChangedWithFloatValueEventArgs.PropertyChangedWithFloatValueEventArgs("example", 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

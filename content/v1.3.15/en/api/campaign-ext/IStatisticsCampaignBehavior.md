@@ -1,19 +1,13 @@
 ---
 title: "IStatisticsCampaignBehavior"
+description: "Auto-generated class reference for IStatisticsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IStatisticsCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IStatisticsCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
+**Type:** `public interface IStatisticsCampaignBehavior : ICampaignBehavior`
+**Base:** `ICampaignBehavior`
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IStatisticsCampaignBehavior.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IStatisticsCampaignBehavior implementation = GetStatisticsCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIStatisticsCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

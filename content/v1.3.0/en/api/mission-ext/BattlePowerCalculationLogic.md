@@ -1,13 +1,7 @@
 ---
 title: "BattlePowerCalculationLogic"
+description: "Auto-generated class reference for BattlePowerCalculationLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattlePowerCalculationLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattlePowerCalculationLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,14 +29,20 @@ Treat `BattlePowerCalculationLogic` as a Logic-style extension point: first iden
 ### GetTotalTeamPower
 `public float GetTotalTeamPower(Team team)`
 
-**Purpose:** Gets the current value of `total team power`.
+**Purpose:** Reads and returns the `total team power` value held by the current object.
+
+```csharp
+// Obtain an instance of BattlePowerCalculationLogic from the subsystem API first
+BattlePowerCalculationLogic battlePowerCalculationLogic = ...;
+var result = battlePowerCalculationLogic.GetTotalTeamPower(team);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattlePowerCalculationLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattlePowerCalculationLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

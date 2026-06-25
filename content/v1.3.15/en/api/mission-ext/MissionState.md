@@ -1,24 +1,18 @@
 ---
 title: "MissionState"
+description: "Auto-generated class reference for MissionState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionState
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionState : GameState`
 **Base:** `GameState`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/MissionState.cs`
 
 ## Overview
 
-`MissionState` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MissionState` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -40,21 +34,30 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OpenNew
 `public static Mission OpenNew(string missionName, MissionInitializerRecord rec, InitializeMissionBehaviorsDelegate handler, bool addDefaultMissionBehaviors = true, bool needsMemoryCleanup = true)`
 
-**Purpose:** Handles logic related to `open new`.
+**Purpose:** Opens the resource or UI associated with `new`.
+
+```csharp
+// Static call; no instance required
+MissionState.OpenNew("example", rec, handler, false, false);
+```
 
 ### BeginDelayedDisconnectFromMission
 `public void BeginDelayedDisconnectFromMission()`
 
-**Purpose:** Handles logic related to `begin delayed disconnect from mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionState from the subsystem API first
+MissionState missionState = ...;
+missionState.BeginDelayedDisconnectFromMission();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MissionState.OpenNew("example", rec, handler, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

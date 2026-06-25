@@ -1,20 +1,14 @@
 ---
 title: "ItemCollectionElementViewModel"
+description: "ItemCollectionElementViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemCollectionElementViewModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCollectionElementViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemCollectionElementViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/ItemCollectionElementViewModel.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/ItemCollectionElementViewModel.cs`
 
 ## 概述
 
@@ -40,20 +34,33 @@ title: "ItemCollectionElementViewModel"
 ### FillFrom
 `public void FillFrom(EquipmentElement item, Banner banner = null)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ItemCollectionElementViewModel 实例
+ItemCollectionElementViewModel itemCollectionElementViewModel = ...;
+itemCollectionElementViewModel.FillFrom(item, null);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ItemCollectionElementViewModel 实例
+ItemCollectionElementViewModel itemCollectionElementViewModel = ...;
+itemCollectionElementViewModel.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var vm = new ItemCollectionElementViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+ItemCollectionElementViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

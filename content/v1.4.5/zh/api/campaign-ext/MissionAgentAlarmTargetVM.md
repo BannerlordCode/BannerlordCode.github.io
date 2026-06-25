@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentAlarmTargetVM"
+description: "MissionAgentAlarmTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentAlarmTargetVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentAlarmTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionAgentAlarmTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionAgentAlarmTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionAgentAlarmTargetVM.cs`
 
 ## 概述
 
@@ -44,25 +38,44 @@ title: "MissionAgentAlarmTargetVM"
 ### UpdateValues
 `public void UpdateValues()`
 
-**用途 / Purpose:** 更新 `values` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「values」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmTargetVM 实例
+MissionAgentAlarmTargetVM missionAgentAlarmTargetVM = ...;
+missionAgentAlarmTargetVM.UpdateValues();
+```
 
 ### UpdateScreenPosition
 `public void UpdateScreenPosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `screen position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「screen position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmTargetVM 实例
+MissionAgentAlarmTargetVM missionAgentAlarmTargetVM = ...;
+missionAgentAlarmTargetVM.UpdateScreenPosition(missionCamera);
+```
 
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 `remove` 操作或流程。
+**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmTargetVM 实例
+MissionAgentAlarmTargetVM missionAgentAlarmTargetVM = ...;
+missionAgentAlarmTargetVM.ExecuteRemove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionAgentAlarmTargetVM();
-value.UpdateValues();
+// 通常从对应子系统 API 获取实例后调用
+MissionAgentAlarmTargetVM missionAgentAlarmTargetVM = ...;
+missionAgentAlarmTargetVM.UpdateValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

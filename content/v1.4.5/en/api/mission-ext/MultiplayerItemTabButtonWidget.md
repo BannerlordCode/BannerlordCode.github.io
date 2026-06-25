@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerItemTabButtonWidget"
+description: "Auto-generated class reference for MultiplayerItemTabButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerItemTabButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerItemTabButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerItemTabButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerItemTabButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerItemTabButtonWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MultiplayerItemTabButtonWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerItemTabButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerItemTabButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

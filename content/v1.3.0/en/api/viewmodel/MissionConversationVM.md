@@ -1,13 +1,7 @@
 ---
 title: "MissionConversationVM"
+description: "Auto-generated class reference for MissionConversationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionConversationVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionConversationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
@@ -64,60 +58,121 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.RefreshValues();
+```
 
 ### OnConversationContinue
 `public void OnConversationContinue()`
 
-**Purpose:** Called when the `conversation continue` event is raised.
+**Purpose:** Invoked when the `conversation continue` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.OnConversationContinue();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.ExecuteLink("example");
+```
 
 ### ExecuteConversedHeroLink
 `public void ExecuteConversedHeroLink()`
 
-**Purpose:** Executes the `conversed hero link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `conversed hero link`.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.ExecuteConversedHeroLink();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.Refresh();
+```
 
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Executes the `close tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.ExecuteCloseTooltip();
+```
 
 ### ExecuteHeroTooltip
 `public void ExecuteHeroTooltip()`
 
-**Purpose:** Executes the `hero tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `hero tooltip`.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.ExecuteHeroTooltip();
+```
 
 ### ExecuteFinalizeSelection
 `public void ExecuteFinalizeSelection()`
 
-**Purpose:** Executes the `finalize selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `finalize selection`.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.ExecuteFinalizeSelection();
+```
 
 ### ExecuteContinue
 `public void ExecuteContinue()`
 
-**Purpose:** Executes the `continue` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `continue`.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.ExecuteContinue();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationVM from the subsystem API first
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionConversationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionConversationVM missionConversationVM = ...;
+missionConversationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

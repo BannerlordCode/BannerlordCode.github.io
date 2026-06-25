@@ -1,13 +1,7 @@
 ---
 title: "PlayerStatsRanked"
+description: "PlayerStatsRanked 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerStatsRanked`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerStatsRanked
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -38,20 +32,33 @@ title: "PlayerStatsRanked"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int rating, int ratingDeviation, string rank, bool evaluating, int evaluationMatchesPlayedCount)`
 
-**用途 / Purpose:** 处理 `fill with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsRanked 实例
+PlayerStatsRanked playerStatsRanked = ...;
+playerStatsRanked.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0);
+```
 
 ### FillWithNewPlayer
 `public virtual void FillWithNewPlayer(PlayerId playerId, string gameType, int defaultRating, int defaultRatingDeviation)`
 
-**用途 / Purpose:** 处理 `fill with new player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsRanked 实例
+PlayerStatsRanked playerStatsRanked = ...;
+playerStatsRanked.FillWithNewPlayer(playerId, "example", 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerStatsRanked();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0);
+// 通常从对应子系统 API 获取实例后调用
+PlayerStatsRanked playerStatsRanked = ...;
+playerStatsRanked.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

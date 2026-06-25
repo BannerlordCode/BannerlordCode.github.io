@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyRankLeaderboardVM"
+description: "Auto-generated class reference for MPLobbyRankLeaderboardVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyRankLeaderboardVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyRankLeaderboardVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyRankLeaderboardVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRankLeaderboardVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRankLeaderboardVM.cs`
 
 ## Overview
 
@@ -57,80 +51,165 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.RefreshValues();
+```
 
 ### OpenWith
 `public async void OpenWith(string gameType)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.OpenWith("example");
+```
 
 ### ExecuteLoadFirstPage
 `public void ExecuteLoadFirstPage()`
 
-**Purpose:** Executes the `load first page` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `load first page`.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.ExecuteLoadFirstPage();
+```
 
 ### ExecuteLoadPreviousPage
 `public void ExecuteLoadPreviousPage()`
 
-**Purpose:** Executes the `load previous page` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `load previous page`.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.ExecuteLoadPreviousPage();
+```
 
 ### ExecuteLoadNextPage
 `public void ExecuteLoadNextPage()`
 
-**Purpose:** Executes the `load next page` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `load next page`.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.ExecuteLoadNextPage();
+```
 
 ### ExecuteLoadLastPage
 `public void ExecuteLoadLastPage()`
 
-**Purpose:** Executes the `load last page` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `load last page`.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.ExecuteLoadLastPage();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.ExecuteClosePopup();
+```
 
 ### ActivatePlayerActions
 `public void ActivatePlayerActions(MPLobbyLeaderboardPlayerItemVM playerVM)`
 
-**Purpose:** Handles logic related to `activate player actions`.
+**Purpose:** Activates the resource, state, or feature associated with `player actions`.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.ActivatePlayerActions(playerVM);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.SetCancelInputKey(hotKey);
+```
 
 ### SetPreviousInputKey
 `public void SetPreviousInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `previous input key`.
+**Purpose:** Assigns a new value to `previous input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.SetPreviousInputKey(hotKey);
+```
 
 ### SetNextInputKey
 `public void SetNextInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `next input key`.
+**Purpose:** Assigns a new value to `next input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.SetNextInputKey(hotKey);
+```
 
 ### SetFirstInputKey
 `public void SetFirstInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `first input key`.
+**Purpose:** Assigns a new value to `first input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.SetFirstInputKey(hotKey);
+```
 
 ### SetLastInputKey
 `public void SetLastInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `last input key`.
+**Purpose:** Assigns a new value to `last input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyRankLeaderboardVM from the subsystem API first
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.SetLastInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyRankLeaderboardVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyRankLeaderboardVM mPLobbyRankLeaderboardVM = ...;
+mPLobbyRankLeaderboardVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "EducationGainedAttributeItemVM"
+description: "EducationGainedAttributeItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EducationGainedAttributeItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationGainedAttributeItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationGainedAttributeItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainedAttributeItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainedAttributeItemVM.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "EducationGainedAttributeItemVM"
 ### SetValue
 `public void SetValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EducationGainedAttributeItemVM 实例
+EducationGainedAttributeItemVM educationGainedAttributeItemVM = ...;
+educationGainedAttributeItemVM.SetValue(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EducationGainedAttributeItemVM();
-value.SetValue(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+EducationGainedAttributeItemVM educationGainedAttributeItemVM = ...;
+educationGainedAttributeItemVM.SetValue(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

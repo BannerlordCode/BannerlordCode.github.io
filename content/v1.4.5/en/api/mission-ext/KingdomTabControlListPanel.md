@@ -1,20 +1,14 @@
 ---
 title: "KingdomTabControlListPanel"
+description: "Auto-generated class reference for KingdomTabControlListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomTabControlListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomTabControlListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KingdomTabControlListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomTabControlListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomTabControlListPanel.cs`
 
 ## Overview
 
@@ -42,9 +36,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom` to pl
 ## Usage Example
 
 ```csharp
-var example = new KingdomTabControlListPanel();
+// Obtain an instance from the relevant subsystem API
+KingdomTabControlListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

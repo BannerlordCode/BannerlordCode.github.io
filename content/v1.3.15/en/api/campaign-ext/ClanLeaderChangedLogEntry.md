@@ -1,13 +1,7 @@
 ---
 title: "ClanLeaderChangedLogEntry"
+description: "Auto-generated class reference for ClanLeaderChangedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanLeaderChangedLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanLeaderChangedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ClanLeaderChangedLogEntry from the subsystem API first
+ClanLeaderChangedLogEntry clanLeaderChangedLogEntry = ...;
+var result = clanLeaderChangedLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanLeaderChangedLogEntry from the subsystem API first
+ClanLeaderChangedLogEntry clanLeaderChangedLogEntry = ...;
+var result = clanLeaderChangedLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanLeaderChangedLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+ClanLeaderChangedLogEntry clanLeaderChangedLogEntry = ...;
+clanLeaderChangedLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

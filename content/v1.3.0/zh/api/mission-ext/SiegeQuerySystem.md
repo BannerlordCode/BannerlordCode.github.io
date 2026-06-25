@@ -1,13 +1,7 @@
 ---
 title: "SiegeQuerySystem"
+description: "SiegeQuerySystem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeQuerySystem`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeQuerySystem
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -54,30 +48,53 @@ title: "SiegeQuerySystem"
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 处理 `expire` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeQuerySystem 实例
+SiegeQuerySystem siegeQuerySystem = ...;
+siegeQuerySystem.Expire();
+```
 
 ### DeterminePositionAssociatedSide
 `public int DeterminePositionAssociatedSide(Vec3 position)`
 
-**用途 / Purpose:** 处理 `determine position associated side` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「position associated side」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeQuerySystem 实例
+SiegeQuerySystem siegeQuerySystem = ...;
+var result = siegeQuerySystem.DeterminePositionAssociatedSide(position);
+```
 
 ### AreSidesRelated
 `public static bool AreSidesRelated(FormationAI.BehaviorSide side, int connectedSides)`
 
-**用途 / Purpose:** 处理 `are sides related` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SiegeQuerySystem.AreSidesRelated(side, 0);
+```
 
 ### SideDistance
 `public static int SideDistance(int connectedSides, int side)`
 
-**用途 / Purpose:** 处理 `side distance` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SiegeQuerySystem.SideDistance(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeQuerySystem();
-value.Expire();
+// 通常从对应子系统 API 获取实例后调用
+SiegeQuerySystem siegeQuerySystem = ...;
+siegeQuerySystem.Expire();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

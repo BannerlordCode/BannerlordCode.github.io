@@ -1,20 +1,14 @@
 ---
 title: "CallbackStringBufferManager"
+description: "CallbackStringBufferManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CallbackStringBufferManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CallbackStringBufferManager
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class CallbackStringBufferManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackStringBufferManager.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackStringBufferManager.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ var manager = CallbackStringBufferManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

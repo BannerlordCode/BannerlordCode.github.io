@@ -1,20 +1,14 @@
 ---
 title: "IQuestsStateHandler"
+description: "Auto-generated class reference for IQuestsStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IQuestsStateHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IQuestsStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IQuestsStateHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IQuestsStateHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IQuestsStateHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IQuestsStateHandler` as a Handler-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-IQuestsStateHandler implementation = GetQuestsStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIQuestsStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

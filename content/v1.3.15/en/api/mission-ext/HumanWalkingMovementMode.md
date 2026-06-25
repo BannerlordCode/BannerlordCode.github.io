@@ -1,18 +1,12 @@
 ---
 title: "HumanWalkingMovementMode"
+description: "Auto-generated class reference for HumanWalkingMovementMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HumanWalkingMovementMode`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HumanWalkingMovementMode
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum HumanWalkingMovementMode`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/HumanWalkingMovementMode.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new HumanWalkingMovementMode();
+// Obtain an instance from the relevant subsystem API
+HumanWalkingMovementMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

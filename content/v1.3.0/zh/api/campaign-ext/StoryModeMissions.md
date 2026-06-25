@@ -1,13 +1,7 @@
 ---
 title: "StoryModeMissions"
+description: "StoryModeMissions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeMissions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeMissions
 
 **Namespace:** StoryMode.Missions
@@ -29,12 +23,22 @@ title: "StoryModeMissions"
 ### OpenTrainingFieldMission
 `public static Mission OpenTrainingFieldMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null)`
 
-**用途 / Purpose:** 处理 `open training field mission` 相关逻辑。
+**用途 / Purpose:** 打开「training field mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+StoryModeMissions.OpenTrainingFieldMission("example", location, null, "example");
+```
 
 ### OpenSneakIntoTheVillaMission
 `public static Mission OpenSneakIntoTheVillaMission(string scene, CampaignTime overridenCt, string sceneLevels = null)`
 
-**用途 / Purpose:** 处理 `open sneak into the villa mission` 相关逻辑。
+**用途 / Purpose:** 打开「sneak into the villa mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+StoryModeMissions.OpenSneakIntoTheVillaMission("example", overridenCt, "example");
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ StoryModeMissions.OpenTrainingFieldMission("example", location, null, "example")
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

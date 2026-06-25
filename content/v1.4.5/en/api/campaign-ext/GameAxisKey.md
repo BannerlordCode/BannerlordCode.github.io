@@ -1,20 +1,14 @@
 ---
 title: "GameAxisKey"
+description: "Auto-generated class reference for GameAxisKey."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameAxisKey`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameAxisKey
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public class GameAxisKey`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameAxisKey.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameAxisKey.cs`
 
 ## Overview
 
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### GetAxisState
 `public float GetAxisState(bool isKeysAllowed, bool isMouseButtonAllowed, bool isMouseWheelAllowed, bool isControllerAllowed)`
 
-**Purpose:** Gets the current value of `axis state`.
+**Purpose:** Reads and returns the `axis state` value held by the current object.
+
+```csharp
+// Obtain an instance of GameAxisKey from the subsystem API first
+GameAxisKey gameAxisKey = ...;
+var result = gameAxisKey.GetAxisState(false, false, false, false);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of GameAxisKey from the subsystem API first
+GameAxisKey gameAxisKey = ...;
+var result = gameAxisKey.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameAxisKey();
-value.GetAxisState(false, false, false, false);
+// Typically call this after obtaining an instance from the subsystem API
+GameAxisKey gameAxisKey = ...;
+gameAxisKey.GetAxisState(false, false, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

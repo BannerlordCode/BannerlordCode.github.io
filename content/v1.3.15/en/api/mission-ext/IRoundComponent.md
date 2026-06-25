@@ -1,19 +1,13 @@
 ---
 title: "IRoundComponent"
+description: "Auto-generated class reference for IRoundComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IRoundComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IRoundComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
+**Type:** `public interface IRoundComponent : IMissionBehavior`
+**Base:** `IMissionBehavior`
 **File:** `TaleWorlds.MountAndBlade/IRoundComponent.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Treat `IRoundComponent` as a Component-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-IRoundComponent implementation = GetRoundComponentImplementation();
+// Usually obtained through DI or a factory method
+IIRoundComponent service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

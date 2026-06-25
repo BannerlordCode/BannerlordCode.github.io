@@ -1,20 +1,14 @@
 ---
 title: "GauntletCameraFadeView"
+description: "Auto-generated class reference for GauntletCameraFadeView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletCameraFadeView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletCameraFadeView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletCameraFadeView : GlobalLayer, IScreenFadeHandler`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletCameraFadeView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletCameraFadeView.cs`
 
 ## Overview
 
@@ -29,34 +23,64 @@ Treat `GauntletCameraFadeView` as a View-style extension point: first identify w
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletCameraFadeView.Initialize();
+```
 
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutDuration = 0.5f, float blackOutDuration = 0.5f, float fadeInDuration = 0.5f)`
 
-**Purpose:** Handles logic related to `begin fade out and in`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletCameraFadeView from the subsystem API first
+GauntletCameraFadeView gauntletCameraFadeView = ...;
+gauntletCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
+```
 
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutDuration = 0.5f)`
 
-**Purpose:** Handles logic related to `begin fade out`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletCameraFadeView from the subsystem API first
+GauntletCameraFadeView gauntletCameraFadeView = ...;
+gauntletCameraFadeView.BeginFadeOut(0);
+```
 
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInDuration = 0.5f)`
 
-**Purpose:** Handles logic related to `begin fade in`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletCameraFadeView from the subsystem API first
+GauntletCameraFadeView gauntletCameraFadeView = ...;
+gauntletCameraFadeView.BeginFadeIn(0);
+```
 
 ### GetScreenFadeState
 `public ScreenFadeState GetScreenFadeState()`
 
-**Purpose:** Gets the current value of `screen fade state`.
+**Purpose:** Reads and returns the `screen fade state` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletCameraFadeView from the subsystem API first
+GauntletCameraFadeView gauntletCameraFadeView = ...;
+var result = gauntletCameraFadeView.GetScreenFadeState();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletCameraFadeView();
+// Retrieve this view from the subsystem API or scene
+GauntletCameraFadeView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

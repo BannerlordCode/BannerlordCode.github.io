@@ -1,20 +1,14 @@
 ---
 title: "GameMenuPartyItemVM"
+description: "Auto-generated class reference for GameMenuPartyItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuPartyItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuPartyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuPartyItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/GameMenuPartyItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/GameMenuPartyItemVM.cs`
 
 ## Overview
 
@@ -59,70 +53,143 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+var result = gameMenuPartyItemVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshValues();
+```
 
 ### ExecuteSetAsContextMenuItem
 `public void ExecuteSetAsContextMenuItem()`
 
-**Purpose:** Executes the `set as context menu item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set as context menu item`.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.ExecuteSetAsContextMenuItem();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Executes the `open encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.ExecuteOpenEncyclopedia();
+```
 
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Executes the `close tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.ExecuteCloseTooltip();
+```
 
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**Purpose:** Executes the `open tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open tooltip`.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.ExecuteOpenTooltip();
+```
 
 ### RefreshProperties
 `public void RefreshProperties()`
 
-**Purpose:** Refreshes the display or cache of `properties`.
+**Purpose:** Keeps the display or cache of `properties` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshProperties();
+```
 
 ### RefreshQuestStatus
 `public void RefreshQuestStatus()`
 
-**Purpose:** Refreshes the display or cache of `quest status`.
+**Purpose:** Keeps the display or cache of `quest status` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshQuestStatus();
+```
 
 ### RefreshVisual
 `public void RefreshVisual()`
 
-**Purpose:** Refreshes the display or cache of `visual`.
+**Purpose:** Keeps the display or cache of `visual` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshVisual();
+```
 
 ### RefreshCounts
 `public void RefreshCounts()`
 
-**Purpose:** Refreshes the display or cache of `counts`.
+**Purpose:** Keeps the display or cache of `counts` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshCounts();
+```
 
 ### GetPartyDescriptionTextFromValues
 `public string GetPartyDescriptionTextFromValues()`
 
-**Purpose:** Gets the current value of `party description text from values`.
+**Purpose:** Reads and returns the `party description text from values` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+var result = gameMenuPartyItemVM.GetPartyDescriptionTextFromValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuPartyItemVM from the subsystem API first
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuPartyItemVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

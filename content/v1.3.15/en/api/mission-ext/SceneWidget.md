@@ -1,13 +1,7 @@
 ---
 title: "SceneWidget"
+description: "Auto-generated class reference for SceneWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SceneWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -46,9 +40,10 @@ Treat `SceneWidget` as a Widget-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var widget = new SceneWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SceneWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

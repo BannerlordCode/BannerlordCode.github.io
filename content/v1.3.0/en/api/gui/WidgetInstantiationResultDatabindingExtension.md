@@ -1,13 +1,7 @@
 ---
 title: "WidgetInstantiationResultDatabindingExtension"
+description: "Auto-generated class reference for WidgetInstantiationResultDatabindingExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetInstantiationResultDatabindingExtension`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetInstantiationResultDatabindingExtension
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### GetGauntletView
 `public static GauntletView GetGauntletView(this WidgetInstantiationResult widgetInstantiationResult)`
 
-**Purpose:** Gets the current value of `gauntlet view`.
+**Purpose:** Reads and returns the `gauntlet view` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WidgetInstantiationResultDatabindingExtension.GetGauntletView(widgetInstantiationResult);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ WidgetInstantiationResultDatabindingExtension.GetGauntletView(widgetInstantiatio
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

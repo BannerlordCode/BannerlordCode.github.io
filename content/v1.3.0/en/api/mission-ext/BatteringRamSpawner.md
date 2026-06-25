@@ -1,13 +1,7 @@
 ---
 title: "BatteringRamSpawner"
+description: "Auto-generated class reference for BatteringRamSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BatteringRamSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BatteringRamSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ### AssignParameters
 `public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**Purpose:** Handles logic related to `assign parameters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BatteringRamSpawner from the subsystem API first
+BatteringRamSpawner batteringRamSpawner = ...;
+batteringRamSpawner.AssignParameters(_spawnerMissionHelper);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BatteringRamSpawner();
-value.AssignParameters(_spawnerMissionHelper);
+// Typically call this after obtaining an instance from the subsystem API
+BatteringRamSpawner batteringRamSpawner = ...;
+batteringRamSpawner.AssignParameters(_spawnerMissionHelper);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

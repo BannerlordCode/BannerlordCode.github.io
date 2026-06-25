@@ -1,13 +1,7 @@
 ---
 title: "ConversationViewManager"
+description: "Auto-generated class reference for ConversationViewManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationViewManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationViewManager
 
 **Namespace:** SandBox.View.Conversation
@@ -38,4 +32,4 @@ var manager = ConversationViewManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

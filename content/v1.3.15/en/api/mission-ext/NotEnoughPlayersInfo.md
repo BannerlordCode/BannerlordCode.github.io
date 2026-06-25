@@ -1,13 +1,7 @@
 ---
 title: "NotEnoughPlayersInfo"
+description: "Auto-generated class reference for NotEnoughPlayersInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NotEnoughPlayersInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NotEnoughPlayersInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new NotEnoughPlayersInfo();
+// Obtain an instance from the relevant subsystem API
+NotEnoughPlayersInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

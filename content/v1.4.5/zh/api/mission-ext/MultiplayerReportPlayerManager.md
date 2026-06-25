@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerReportPlayerManager"
+description: "MultiplayerReportPlayerManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerReportPlayerManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerReportPlayerManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerReportPlayerManager`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerReportPlayerManager.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerReportPlayerManager.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "MultiplayerReportPlayerManager"
 ### RequestReportPlayer
 `public static void RequestReportPlayer(string gameId, PlayerId playerId, string playerName, bool isRequestedFromMission)`
 
-**用途 / Purpose:** 处理 `request report player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerReportPlayerManager.RequestReportPlayer("example", playerId, "example", false);
+```
 
 ### OnPlayerReported
 `public static void OnPlayerReported(PlayerId playerId)`
 
-**用途 / Purpose:** 当 `player reported` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player reported」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerReportPlayerManager.OnPlayerReported(playerId);
+```
 
 ### IsPlayerReportedOverLimit
 `public static bool IsPlayerReportedOverLimit(PlayerId player)`
 
-**用途 / Purpose:** 处理 `is player reported over limit` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player reported over limit」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerReportPlayerManager.IsPlayerReportedOverLimit(player);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ var manager = MultiplayerReportPlayerManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

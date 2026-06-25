@@ -1,13 +1,7 @@
 ---
 title: "ShipHull"
+description: "ShipHull 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipHull`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipHull
 
 **Namespace:** TaleWorlds.Core
@@ -57,25 +51,44 @@ title: "ShipHull"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 ShipHull 实例
+ShipHull shipHull = ...;
+var result = shipHull.ToString();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShipHull 实例
+ShipHull shipHull = ...;
+var result = shipHull.GetName();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ShipHull 实例
+ShipHull shipHull = ...;
+shipHull.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ShipHull();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+ShipHull shipHull = ...;
+shipHull.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

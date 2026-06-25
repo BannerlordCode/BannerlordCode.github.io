@@ -1,13 +1,7 @@
 ---
 title: "BattleMissionStarterLogic"
+description: "Auto-generated class reference for BattleMissionStarterLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleMissionStarterLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleMissionStarterLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,20 @@ Treat `BattleMissionStarterLogic` as a Logic-style extension point: first identi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleMissionStarterLogic from the subsystem API first
+BattleMissionStarterLogic battleMissionStarterLogic = ...;
+battleMissionStarterLogic.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleMissionStarterLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleMissionStarterLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

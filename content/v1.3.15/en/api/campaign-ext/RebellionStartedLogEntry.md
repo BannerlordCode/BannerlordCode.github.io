@@ -1,13 +1,7 @@
 ---
 title: "RebellionStartedLogEntry"
+description: "Auto-generated class reference for RebellionStartedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RebellionStartedLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RebellionStartedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of RebellionStartedLogEntry from the subsystem API first
+RebellionStartedLogEntry rebellionStartedLogEntry = ...;
+var result = rebellionStartedLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of RebellionStartedLogEntry from the subsystem API first
+RebellionStartedLogEntry rebellionStartedLogEntry = ...;
+var result = rebellionStartedLogEntry.GetNotificationText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RebellionStartedLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+RebellionStartedLogEntry rebellionStartedLogEntry = ...;
+rebellionStartedLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

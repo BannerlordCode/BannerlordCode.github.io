@@ -1,13 +1,7 @@
 ---
 title: "MissionNetwork"
+description: "Auto-generated class reference for MissionNetwork."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNetwork`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNetwork
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,34 +23,65 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnAfterMissionCreated
 `public override void OnAfterMissionCreated()`
 
-**Purpose:** Called when the `after mission created` event is raised.
+**Purpose:** Invoked when the `after mission created` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetwork from the subsystem API first
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnAfterMissionCreated();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetwork from the subsystem API first
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetwork from the subsystem API first
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnRemoveBehavior();
+```
 
 ### OnPlayerConnectedToServer
 `public virtual void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Called when the `player connected to server` event is raised.
+**Purpose:** Invoked when the `player connected to server` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetwork from the subsystem API first
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnPlayerConnectedToServer(networkPeer);
+```
 
 ### OnPlayerDisconnectedFromServer
 `public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Called when the `player disconnected from server` event is raised.
+**Purpose:** Invoked when the `player disconnected from server` event is raised.
+
+```csharp
+// Obtain an instance of MissionNetwork from the subsystem API first
+MissionNetwork missionNetwork = ...;
+missionNetwork.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionNetwork();
+// Typically obtained from a subsystem API or factory
+MissionNetwork instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

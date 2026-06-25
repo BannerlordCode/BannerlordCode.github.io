@@ -1,20 +1,14 @@
 ---
 title: "MapEventComponent"
+description: "Auto-generated class reference for MapEventComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class MapEventComponent`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventComponent.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MapEventComponent` as a Component-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapEventComponent();
+// Typically obtained from a subsystem API or factory
+MapEventComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ServerStatusItemBrushWidget"
+description: "Auto-generated class reference for ServerStatusItemBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServerStatusItemBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServerStatusItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ServerStatusItemBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/ServerStatusItemBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/ServerStatusItemBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `ServerStatusItemBrushWidget` as a Widget-style extension point: first ide
 ### ServerStatusItemBrushWidget
 `public class ServerStatusItemBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `server status item brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ServerStatusItemBrushWidget from the subsystem API first
+ServerStatusItemBrushWidget serverStatusItemBrushWidget = ...;
+var result = serverStatusItemBrushWidget.ServerStatusItemBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ServerStatusItemBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ServerStatusItemBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

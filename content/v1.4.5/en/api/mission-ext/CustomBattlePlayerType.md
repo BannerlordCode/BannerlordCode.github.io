@@ -1,20 +1,14 @@
 ---
 title: "CustomBattlePlayerType"
+description: "Auto-generated class reference for CustomBattlePlayerType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattlePlayerType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattlePlayerType
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum CustomBattlePlayerType`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattlePlayerType.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattlePlayerType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ## Usage Example
 
 ```csharp
-var value = new CustomBattlePlayerType();
+// Obtain an instance from the relevant subsystem API
+CustomBattlePlayerType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

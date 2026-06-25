@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerStarter"
+description: "MultiplayerStarter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerStarter`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerStarter
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerStarter`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerStarter.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerStarter.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "MultiplayerStarter"
 ### LoadXMLFromFile
 `public void LoadXMLFromFile(string xmlPath, string xsdPath)`
 
-**用途 / Purpose:** 加载 `x m l from file` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「x m l from file」。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerStarter 实例
+MultiplayerStarter multiplayerStarter = ...;
+multiplayerStarter.LoadXMLFromFile("example", "example");
+```
 
 ### ClearEmptyObjects
 `public void ClearEmptyObjects()`
 
-**用途 / Purpose:** 处理 `clear empty objects` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「empty objects」。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerStarter 实例
+MultiplayerStarter multiplayerStarter = ...;
+multiplayerStarter.ClearEmptyObjects();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerStarter();
-value.LoadXMLFromFile("example", "example");
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerStarter multiplayerStarter = ...;
+multiplayerStarter.LoadXMLFromFile("example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

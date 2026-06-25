@@ -1,20 +1,14 @@
 ---
 title: "CraftingPieceTypeSelectorButtonWidget"
+description: "CraftingPieceTypeSelectorButtonWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingPieceTypeSelectorButtonWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceTypeSelectorButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingPieceTypeSelectorButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingPieceTypeSelectorButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingPieceTypeSelectorButtonWidget.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "CraftingPieceTypeSelectorButtonWidget"
 ### SetState
 `public override void SetState(string stateName)`
 
-**用途 / Purpose:** 设置 `state` 的值或状态。
+**用途 / Purpose:** 为 「state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingPieceTypeSelectorButtonWidget 实例
+CraftingPieceTypeSelectorButtonWidget craftingPieceTypeSelectorButtonWidget = ...;
+craftingPieceTypeSelectorButtonWidget.SetState("example");
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new CraftingPieceTypeSelectorButtonWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+CraftingPieceTypeSelectorButtonWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

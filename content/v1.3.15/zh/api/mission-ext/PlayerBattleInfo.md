@@ -1,13 +1,7 @@
 ---
 title: "PlayerBattleInfo"
+description: "PlayerBattleInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerBattleInfo`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerBattleInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -42,35 +36,66 @@ title: "PlayerBattleInfo"
 ### Flee
 `public void Flee()`
 
-**用途 / Purpose:** 处理 `flee` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleInfo 实例
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.Flee();
+```
 
 ### Disconnect
 `public void Disconnect()`
 
-**用途 / Purpose:** 处理 `disconnect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleInfo 实例
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.Disconnect();
+```
 
 ### Initialize
 `public void Initialize(int peerIndex)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleInfo 实例
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.Initialize(0);
+```
 
 ### RejoinBattle
 `public void RejoinBattle(int teamNo)`
 
-**用途 / Purpose:** 处理 `rejoin battle` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleInfo 实例
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.RejoinBattle(0);
+```
 
 ### Clone
 `public PlayerBattleInfo Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleInfo 实例
+PlayerBattleInfo playerBattleInfo = ...;
+var result = playerBattleInfo.Clone();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerBattleInfo();
-value.Flee();
+// 通常从对应子系统 API 获取实例后调用
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.Flee();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

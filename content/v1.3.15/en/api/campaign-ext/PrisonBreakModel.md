@@ -1,13 +1,7 @@
 ---
 title: "PrisonBreakModel"
+description: "Auto-generated class reference for PrisonBreakModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrisonBreakModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PrisonBreakModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ Treat `PrisonBreakModel` as a Model-style extension point: first identify who cr
 ### GetNumberOfGuardsToSpawn
 `public abstract int GetNumberOfGuardsToSpawn(Settlement settlement)`
 
-**Purpose:** Gets the current value of `number of guards to spawn`.
+**Purpose:** Reads and returns the `number of guards to spawn` value held by the current object.
+
+```csharp
+// Obtain an instance of PrisonBreakModel from the subsystem API first
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.GetNumberOfGuardsToSpawn(settlement);
+```
 
 ### CanPlayerStagePrisonBreak
 `public abstract bool CanPlayerStagePrisonBreak(Settlement settlement)`
 
-**Purpose:** Checks whether the current object can `player stage prison break`.
+**Purpose:** Checks whether the current object meets the preconditions for `player stage prison break`.
+
+```csharp
+// Obtain an instance of PrisonBreakModel from the subsystem API first
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.CanPlayerStagePrisonBreak(settlement);
+```
 
 ### GetPrisonBreakStartCost
 `public abstract int GetPrisonBreakStartCost(Hero prisonerHero)`
 
-**Purpose:** Gets the current value of `prison break start cost`.
+**Purpose:** Reads and returns the `prison break start cost` value held by the current object.
+
+```csharp
+// Obtain an instance of PrisonBreakModel from the subsystem API first
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.GetPrisonBreakStartCost(prisonerHero);
+```
 
 ### GetRelationRewardOnPrisonBreak
 `public abstract int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
 
-**Purpose:** Gets the current value of `relation reward on prison break`.
+**Purpose:** Reads and returns the `relation reward on prison break` value held by the current object.
+
+```csharp
+// Obtain an instance of PrisonBreakModel from the subsystem API first
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.GetRelationRewardOnPrisonBreak(prisonerHero);
+```
 
 ### GetRogueryRewardOnPrisonBreak
 `public abstract float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
 
-**Purpose:** Gets the current value of `roguery reward on prison break`.
+**Purpose:** Reads and returns the `roguery reward on prison break` value held by the current object.
+
+```csharp
+// Obtain an instance of PrisonBreakModel from the subsystem API first
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.GetRogueryRewardOnPrisonBreak(prisonerHero, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPrisonBreakModel();
+// Typically obtained from a subsystem API or factory
+PrisonBreakModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

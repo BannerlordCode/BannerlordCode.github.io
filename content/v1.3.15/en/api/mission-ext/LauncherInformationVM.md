@@ -1,13 +1,7 @@
 ---
 title: "LauncherInformationVM"
+description: "Auto-generated class reference for LauncherInformationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherInformationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ## Usage Example
 
 ```csharp
-var value = new LauncherInformationVM();
+// Obtain an instance from the relevant subsystem API
+LauncherInformationVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

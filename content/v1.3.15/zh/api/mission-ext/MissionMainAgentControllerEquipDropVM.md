@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentControllerEquipDropVM"
+description: "MissionMainAgentControllerEquipDropVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMainAgentControllerEquipDropVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMainAgentControllerEquipDropVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
@@ -40,55 +34,110 @@ title: "MissionMainAgentControllerEquipDropVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.RefreshValues();
+```
 
 ### InitializeMainAgentPropterties
 `public void InitializeMainAgentPropterties()`
 
-**用途 / Purpose:** 初始化 `main agent propterties` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「main agent propterties」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.InitializeMainAgentPropterties();
+```
 
 ### OnToggle
 `public void OnToggle(bool isEnabled)`
 
-**用途 / Purpose:** 当 `toggle` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「toggle」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnToggle(false);
+```
 
 ### OnCancelHoldController
 `public void OnCancelHoldController()`
 
-**用途 / Purpose:** 当 `cancel hold controller` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「cancel hold controller」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnCancelHoldController();
+```
 
 ### OnWeaponDroppedAtIndex
 `public void OnWeaponDroppedAtIndex(int droppedWeaponIndex)`
 
-**用途 / Purpose:** 当 `weapon dropped at index` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「weapon dropped at index」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnWeaponDroppedAtIndex(0);
+```
 
 ### OnWeaponEquippedAtIndex
 `public void OnWeaponEquippedAtIndex(int equippedWeaponIndex)`
 
-**用途 / Purpose:** 当 `weapon equipped at index` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「weapon equipped at index」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnWeaponEquippedAtIndex(0);
+```
 
 ### SetDropProgressForIndex
 `public void SetDropProgressForIndex(EquipmentIndex eqIndex, float progress)`
 
-**用途 / Purpose:** 设置 `drop progress for index` 的值或状态。
+**用途 / Purpose:** 为 「drop progress for index」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.SetDropProgressForIndex(eqIndex, 0);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnFinalize();
+```
 
 ### OnGamepadActiveChanged
 `public void OnGamepadActiveChanged(bool isActive)`
 
-**用途 / Purpose:** 当 `gamepad active changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「gamepad active changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentControllerEquipDropVM 实例
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.OnGamepadActiveChanged(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMainAgentControllerEquipDropVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MissionMainAgentControllerEquipDropVM missionMainAgentControllerEquipDropVM = ...;
+missionMainAgentControllerEquipDropVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

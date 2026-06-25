@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyBattleRewardWidget"
+description: "Auto-generated class reference for MultiplayerLobbyBattleRewardWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyBattleRewardWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyBattleRewardWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyBattleRewardWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyBattleRewardWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyBattleRewardWidget.cs`
 
 ## Overview
 
@@ -37,24 +31,43 @@ Treat `MultiplayerLobbyBattleRewardWidget` as a Widget-style extension point: fi
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Handles logic related to `start animation`.
+**Purpose:** Starts the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyBattleRewardWidget from the subsystem API first
+MultiplayerLobbyBattleRewardWidget multiplayerLobbyBattleRewardWidget = ...;
+multiplayerLobbyBattleRewardWidget.StartAnimation();
+```
 
 ### StartPreAnimation
 `public void StartPreAnimation()`
 
-**Purpose:** Handles logic related to `start pre animation`.
+**Purpose:** Starts the `pre animation` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyBattleRewardWidget from the subsystem API first
+MultiplayerLobbyBattleRewardWidget multiplayerLobbyBattleRewardWidget = ...;
+multiplayerLobbyBattleRewardWidget.StartPreAnimation();
+```
 
 ### EndAnimation
 `public void EndAnimation()`
 
-**Purpose:** Handles logic related to `end animation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyBattleRewardWidget from the subsystem API first
+MultiplayerLobbyBattleRewardWidget multiplayerLobbyBattleRewardWidget = ...;
+multiplayerLobbyBattleRewardWidget.EndAnimation();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyBattleRewardWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyBattleRewardWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

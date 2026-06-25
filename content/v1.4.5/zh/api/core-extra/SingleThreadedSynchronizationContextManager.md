@@ -1,20 +1,14 @@
 ---
 title: "SingleThreadedSynchronizationContextManager"
+description: "SingleThreadedSynchronizationContextManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SingleThreadedSynchronizationContextManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SingleThreadedSynchronizationContextManager
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class SingleThreadedSynchronizationContextManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SingleThreadedSynchronizationContextManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SingleThreadedSynchronizationContextManager.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "SingleThreadedSynchronizationContextManager"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+SingleThreadedSynchronizationContextManager.Initialize();
+```
 
 ### Tick
 `public static void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 静态调用，不需要实例
+SingleThreadedSynchronizationContextManager.Tick();
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ var manager = SingleThreadedSynchronizationContextManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

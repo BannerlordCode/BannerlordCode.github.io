@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPollProgressVM"
+description: "MultiplayerPollProgressVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerPollProgressVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPollProgressVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPollProgressVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPollProgressVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPollProgressVM.cs`
 
 ## 概述
 
@@ -42,35 +36,66 @@ title: "MultiplayerPollProgressVM"
 ### OnKickPollOpened
 `public void OnKickPollOpened(MissionPeer initiatorPeer, MissionPeer targetPeer, bool isBanRequested)`
 
-**用途 / Purpose:** 当 `kick poll opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「kick poll opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnKickPollOpened(initiatorPeer, targetPeer, false);
+```
 
 ### OnPollUpdated
 `public void OnPollUpdated(int votesAccepted, int votesRejected)`
 
-**用途 / Purpose:** 当 `poll updated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「poll updated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnPollUpdated(0, 0);
+```
 
 ### OnPollClosed
 `public void OnPollClosed()`
 
-**用途 / Purpose:** 当 `poll closed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「poll closed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnPollClosed();
+```
 
 ### OnPollOptionPicked
 `public void OnPollOptionPicked()`
 
-**用途 / Purpose:** 当 `poll option picked` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「poll option picked」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnPollOptionPicked();
+```
 
 ### AddKey
 `public void AddKey(GameKey key)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `key`。
+**用途 / Purpose:** 将 「key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.AddKey(key);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerPollProgressVM();
-value.OnKickPollOpened(initiatorPeer, targetPeer, false);
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnKickPollOpened(initiatorPeer, targetPeer, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

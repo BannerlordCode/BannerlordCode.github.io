@@ -1,13 +1,7 @@
 ---
 title: "CraftingPieceImageIdentifierVM"
+description: "Auto-generated class reference for CraftingPieceImageIdentifierVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceImageIdentifierVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ## Usage Example
 
 ```csharp
-var example = new CraftingPieceImageIdentifierVM();
+// Obtain an instance from the relevant subsystem API
+CraftingPieceImageIdentifierVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

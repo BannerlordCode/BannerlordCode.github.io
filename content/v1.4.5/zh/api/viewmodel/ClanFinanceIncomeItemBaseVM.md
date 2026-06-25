@@ -1,20 +1,14 @@
 ---
 title: "ClanFinanceIncomeItemBaseVM"
+description: "ClanFinanceIncomeItemBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanFinanceIncomeItemBaseVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceIncomeItemBaseVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanFinanceIncomeItemBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanFinanceIncomeItemBaseVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanFinanceIncomeItemBaseVM.cs`
 
 ## 概述
 
@@ -44,15 +38,22 @@ title: "ClanFinanceIncomeItemBaseVM"
 ### OnIncomeSelection
 `public void OnIncomeSelection()`
 
-**用途 / Purpose:** 当 `income selection` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「income selection」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceIncomeItemBaseVM 实例
+ClanFinanceIncomeItemBaseVM clanFinanceIncomeItemBaseVM = ...;
+clanFinanceIncomeItemBaseVM.OnIncomeSelection();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanFinanceIncomeItemBaseVM();
-value.OnIncomeSelection();
+// 通常从对应子系统 API 获取实例后调用
+ClanFinanceIncomeItemBaseVM clanFinanceIncomeItemBaseVM = ...;
+clanFinanceIncomeItemBaseVM.OnIncomeSelection();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

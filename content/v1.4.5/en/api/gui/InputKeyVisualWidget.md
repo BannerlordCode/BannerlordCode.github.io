@@ -1,20 +1,14 @@
 ---
 title: "InputKeyVisualWidget"
+description: "Auto-generated class reference for InputKeyVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputKeyVisualWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputKeyVisualWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class InputKeyVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/InputKeyVisualWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/InputKeyVisualWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `InputKeyVisualWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new InputKeyVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InputKeyVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

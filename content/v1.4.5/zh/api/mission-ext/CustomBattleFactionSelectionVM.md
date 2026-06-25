@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleFactionSelectionVM"
+description: "CustomBattleFactionSelectionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleFactionSelectionVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleFactionSelectionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleFactionSelectionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/CustomBattleFactionSelectionVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/CustomBattleFactionSelectionVM.cs`
 
 ## 概述
 
@@ -37,25 +31,44 @@ title: "CustomBattleFactionSelectionVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleFactionSelectionVM 实例
+CustomBattleFactionSelectionVM customBattleFactionSelectionVM = ...;
+customBattleFactionSelectionVM.RefreshValues();
+```
 
 ### SelectFaction
 `public void SelectFaction(int index)`
 
-**用途 / Purpose:** 处理 `select faction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleFactionSelectionVM 实例
+CustomBattleFactionSelectionVM customBattleFactionSelectionVM = ...;
+customBattleFactionSelectionVM.SelectFaction(0);
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**用途 / Purpose:** 执行 `randomize` 操作或流程。
+**用途 / Purpose:** 执行 「randomize」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleFactionSelectionVM 实例
+CustomBattleFactionSelectionVM customBattleFactionSelectionVM = ...;
+customBattleFactionSelectionVM.ExecuteRandomize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleFactionSelectionVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleFactionSelectionVM customBattleFactionSelectionVM = ...;
+customBattleFactionSelectionVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

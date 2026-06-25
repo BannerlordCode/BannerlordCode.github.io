@@ -1,20 +1,14 @@
 ---
 title: "ConsoleMatchStartEndHandler"
+description: "Auto-generated class reference for ConsoleMatchStartEndHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConsoleMatchStartEndHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConsoleMatchStartEndHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConsoleMatchStartEndHandler : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/ConsoleMatchStartEndHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/ConsoleMatchStartEndHandler.cs`
 
 ## Overview
 
@@ -29,29 +23,53 @@ Treat `ConsoleMatchStartEndHandler` as a Handler-style extension point: first id
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of ConsoleMatchStartEndHandler from the subsystem API first
+ConsoleMatchStartEndHandler consoleMatchStartEndHandler = ...;
+consoleMatchStartEndHandler.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of ConsoleMatchStartEndHandler from the subsystem API first
+ConsoleMatchStartEndHandler consoleMatchStartEndHandler = ...;
+consoleMatchStartEndHandler.OnRemoveBehavior();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of ConsoleMatchStartEndHandler from the subsystem API first
+ConsoleMatchStartEndHandler consoleMatchStartEndHandler = ...;
+consoleMatchStartEndHandler.OnAgentBuild(agent, banner);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of ConsoleMatchStartEndHandler from the subsystem API first
+ConsoleMatchStartEndHandler consoleMatchStartEndHandler = ...;
+consoleMatchStartEndHandler.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ConsoleMatchStartEndHandler());
+var behavior = Mission.Current.GetMissionBehavior<ConsoleMatchStartEndHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "InventoryTradeVM"
+description: "Auto-generated class reference for InventoryTradeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryTradeVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryTradeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
@@ -52,50 +46,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of InventoryTradeVM from the subsystem API first
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.RefreshValues();
+```
 
 ### UpdateItemData
 `public void UpdateItemData(ItemRosterElement itemRoster, InventoryLogic.InventorySide side, bool forceUpdate = true)`
 
-**Purpose:** Updates the state or data of `item data`.
+**Purpose:** Recalculates and stores the latest representation of `item data`.
+
+```csharp
+// Obtain an instance of InventoryTradeVM from the subsystem API first
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.UpdateItemData(itemRoster, side, false);
+```
 
 ### GetAveragePrice
 `public string GetAveragePrice(int totalPrice, int lastPrice, bool isBuying)`
 
-**Purpose:** Gets the current value of `average price`.
+**Purpose:** Reads and returns the `average price` value held by the current object.
+
+```csharp
+// Obtain an instance of InventoryTradeVM from the subsystem API first
+InventoryTradeVM inventoryTradeVM = ...;
+var result = inventoryTradeVM.GetAveragePrice(0, 0, false);
+```
 
 ### ExecuteIncreaseThisStock
 `public void ExecuteIncreaseThisStock()`
 
-**Purpose:** Executes the `increase this stock` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `increase this stock`.
+
+```csharp
+// Obtain an instance of InventoryTradeVM from the subsystem API first
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteIncreaseThisStock();
+```
 
 ### ExecuteIncreaseOtherStock
 `public void ExecuteIncreaseOtherStock()`
 
-**Purpose:** Executes the `increase other stock` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `increase other stock`.
+
+```csharp
+// Obtain an instance of InventoryTradeVM from the subsystem API first
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteIncreaseOtherStock();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Executes the `reset` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset`.
+
+```csharp
+// Obtain an instance of InventoryTradeVM from the subsystem API first
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteReset();
+```
 
 ### ExecuteApplyTransaction
 `public void ExecuteApplyTransaction()`
 
-**Purpose:** Executes the `apply transaction` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `apply transaction`.
+
+```csharp
+// Obtain an instance of InventoryTradeVM from the subsystem API first
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteApplyTransaction();
+```
 
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**Purpose:** Executes the `remove zero counts` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove zero counts`.
+
+```csharp
+// Obtain an instance of InventoryTradeVM from the subsystem API first
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteRemoveZeroCounts();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InventoryTradeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

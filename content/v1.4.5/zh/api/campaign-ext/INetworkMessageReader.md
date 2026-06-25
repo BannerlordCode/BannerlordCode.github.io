@@ -1,20 +1,14 @@
 ---
 title: "INetworkMessageReader"
+description: "INetworkMessageReader 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `INetworkMessageReader`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # INetworkMessageReader
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** `class`
+**Type:** `public interface INetworkMessageReader`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/INetworkMessageReader.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/INetworkMessageReader.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "INetworkMessageReader"
 ## 使用示例
 
 ```csharp
-INetworkMessageReader implementation = GetNetworkMessageReaderImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IINetworkMessageReader service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

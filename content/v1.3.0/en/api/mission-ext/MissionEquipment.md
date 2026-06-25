@@ -1,13 +1,7 @@
 ---
 title: "MissionEquipment"
+description: "Auto-generated class reference for MissionEquipment."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionEquipment`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionEquipment
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,215 +30,460 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FillFrom
 `public void FillFrom(MissionEquipment sourceEquipment)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.FillFrom(sourceEquipment);
+```
 
 ### FillFrom
 `public void FillFrom(Equipment sourceEquipment, Banner banner)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.FillFrom(sourceEquipment, banner);
+```
 
 ### GetTotalWeightOfWeapons
 `public float GetTotalWeightOfWeapons()`
 
-**Purpose:** Gets the current value of `total weight of weapons`.
+**Purpose:** Reads and returns the `total weight of weapons` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetTotalWeightOfWeapons();
+```
 
 ### SelectWeaponPickUpSlot
 `public static EquipmentIndex SelectWeaponPickUpSlot(Agent agentPickingUp, MissionWeapon weaponBeingPickedUp, bool isStuckMissile)`
 
-**Purpose:** Handles logic related to `select weapon pick up slot`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionEquipment.SelectWeaponPickUpSlot(agentPickingUp, weaponBeingPickedUp, false);
+```
 
 ### HasAmmo
 `public bool HasAmmo(EquipmentIndex equipmentIndex, out int rangedUsageIndex, out bool hasLoadedAmmo, out bool noAmmoInThisSlot)`
 
-**Purpose:** Checks whether the current object has/contains `ammo`.
+**Purpose:** Determines whether the current object already holds `ammo`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasAmmo(equipmentIndex, rangedUsageIndex, hasLoadedAmmo, noAmmoInThisSlot);
+```
 
 ### GetAmmoAmount
 `public int GetAmmoAmount(EquipmentIndex weaponIndex)`
 
-**Purpose:** Gets the current value of `ammo amount`.
+**Purpose:** Reads and returns the `ammo amount` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetAmmoAmount(weaponIndex);
+```
 
 ### GetMaxAmmo
 `public int GetMaxAmmo(EquipmentIndex weaponIndex)`
 
-**Purpose:** Gets the current value of `max ammo`.
+**Purpose:** Reads and returns the `max ammo` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetMaxAmmo(weaponIndex);
+```
 
 ### GetAmmoCountAndIndexOfType
 `public void GetAmmoCountAndIndexOfType(ItemObject.ItemTypeEnum itemType, out int ammoCount, out EquipmentIndex eIndex, EquipmentIndex equippedIndex = EquipmentIndex.None)`
 
-**Purpose:** Gets the current value of `ammo count and index of type`.
+**Purpose:** Reads and returns the `ammo count and index of type` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.GetAmmoCountAndIndexOfType(itemType, ammoCount, eIndex, equipmentIndex.None);
+```
 
 ### DoesWeaponFitToSlot
 `public static bool DoesWeaponFitToSlot(EquipmentIndex slotIndex, MissionWeapon weapon)`
 
-**Purpose:** Handles logic related to `does weapon fit to slot`.
+**Purpose:** Returns a boolean answer to whether `weapon fit to slot` is true for the current object.
+
+```csharp
+// Static call; no instance required
+MissionEquipment.DoesWeaponFitToSlot(slotIndex, weapon);
+```
 
 ### CheckLoadedAmmos
 `public void CheckLoadedAmmos()`
 
-**Purpose:** Handles logic related to `check loaded ammos`.
+**Purpose:** Verifies whether `loaded ammos` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.CheckLoadedAmmos();
+```
 
 ### SetUsageIndexOfSlot
 `public void SetUsageIndexOfSlot(EquipmentIndex slotIndex, int usageIndex)`
 
-**Purpose:** Sets the value or state of `usage index of slot`.
+**Purpose:** Assigns a new value to `usage index of slot` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetUsageIndexOfSlot(slotIndex, 0);
+```
 
 ### SetReloadPhaseOfSlot
 `public void SetReloadPhaseOfSlot(EquipmentIndex slotIndex, short reloadPhase)`
 
-**Purpose:** Sets the value or state of `reload phase of slot`.
+**Purpose:** Assigns a new value to `reload phase of slot` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetReloadPhaseOfSlot(slotIndex, 0);
+```
 
 ### SetAmountOfSlot
 `public void SetAmountOfSlot(EquipmentIndex slotIndex, short dataValue, bool addOverflowToMaxAmount = false)`
 
-**Purpose:** Sets the value or state of `amount of slot`.
+**Purpose:** Assigns a new value to `amount of slot` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetAmountOfSlot(slotIndex, 0, false);
+```
 
 ### SetHitPointsOfSlot
 `public void SetHitPointsOfSlot(EquipmentIndex slotIndex, short dataValue, bool addOverflowToMaxHitPoints = false)`
 
-**Purpose:** Sets the value or state of `hit points of slot`.
+**Purpose:** Assigns a new value to `hit points of slot` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetHitPointsOfSlot(slotIndex, 0, false);
+```
 
 ### SetReloadedAmmoOfSlot
 `public void SetReloadedAmmoOfSlot(EquipmentIndex slotIndex, EquipmentIndex ammoSlotIndex, short totalAmmo)`
 
-**Purpose:** Sets the value or state of `reloaded ammo of slot`.
+**Purpose:** Assigns a new value to `reloaded ammo of slot` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetReloadedAmmoOfSlot(slotIndex, ammoSlotIndex, 0);
+```
 
 ### SetConsumedAmmoOfSlot
 `public void SetConsumedAmmoOfSlot(EquipmentIndex slotIndex, short count)`
 
-**Purpose:** Sets the value or state of `consumed ammo of slot`.
+**Purpose:** Assigns a new value to `consumed ammo of slot` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetConsumedAmmoOfSlot(slotIndex, 0);
+```
 
 ### AttachWeaponToWeaponInSlot
 `public void AttachWeaponToWeaponInSlot(EquipmentIndex slotIndex, ref MissionWeapon weapon, ref MatrixFrame attachLocalFrame)`
 
-**Purpose:** Handles logic related to `attach weapon to weapon in slot`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.AttachWeaponToWeaponInSlot(slotIndex, weapon, attachLocalFrame);
+```
 
 ### HasShield
 `public bool HasShield()`
 
-**Purpose:** Checks whether the current object has/contains `shield`.
+**Purpose:** Determines whether the current object already holds `shield`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasShield();
+```
 
 ### HasAnyWeapon
 `public bool HasAnyWeapon()`
 
-**Purpose:** Checks whether the current object has/contains `any weapon`.
+**Purpose:** Determines whether the current object already holds `any weapon`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasAnyWeapon();
+```
 
 ### HasAnyWeaponWithFlags
 `public bool HasAnyWeaponWithFlags(WeaponFlags flags)`
 
-**Purpose:** Checks whether the current object has/contains `any weapon with flags`.
+**Purpose:** Determines whether the current object already holds `any weapon with flags`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasAnyWeaponWithFlags(flags);
+```
 
 ### GetBanner
 `public ItemObject GetBanner()`
 
-**Purpose:** Gets the current value of `banner`.
+**Purpose:** Reads and returns the `banner` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetBanner();
+```
 
 ### HasRangedWeapon
 `public bool HasRangedWeapon(WeaponClass requiredAmmoClass = WeaponClass.Undefined)`
 
-**Purpose:** Checks whether the current object has/contains `ranged weapon`.
+**Purpose:** Determines whether the current object already holds `ranged weapon`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasRangedWeapon(weaponClass.Undefined);
+```
 
 ### ContainsNonConsumableRangedWeaponWithAmmo
 `public bool ContainsNonConsumableRangedWeaponWithAmmo()`
 
-**Purpose:** Handles logic related to `contains non consumable ranged weapon with ammo`.
+**Purpose:** Indicates whether the current object contains `non consumable ranged weapon with ammo`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsNonConsumableRangedWeaponWithAmmo();
+```
 
 ### ContainsMeleeWeapon
 `public bool ContainsMeleeWeapon()`
 
-**Purpose:** Handles logic related to `contains melee weapon`.
+**Purpose:** Indicates whether the current object contains `melee weapon`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsMeleeWeapon();
+```
 
 ### ContainsShield
 `public bool ContainsShield()`
 
-**Purpose:** Handles logic related to `contains shield`.
+**Purpose:** Indicates whether the current object contains `shield`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsShield();
+```
 
 ### ContainsSpear
 `public bool ContainsSpear()`
 
-**Purpose:** Handles logic related to `contains spear`.
+**Purpose:** Indicates whether the current object contains `spear`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsSpear();
+```
 
 ### ContainsThrownWeapon
 `public bool ContainsThrownWeapon()`
 
-**Purpose:** Handles logic related to `contains thrown weapon`.
+**Purpose:** Indicates whether the current object contains `thrown weapon`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsThrownWeapon();
+```
 
 ### SetGlossMultipliersOfWeaponsRandomly
 `public void SetGlossMultipliersOfWeaponsRandomly(int seed)`
 
-**Purpose:** Sets the value or state of `gloss multipliers of weapons randomly`.
+**Purpose:** Assigns a new value to `gloss multipliers of weapons randomly` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetGlossMultipliersOfWeaponsRandomly(0);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.Initialize();
+```
 
 ### IsValid
 `public bool IsValid(MissionEquipment.MissionEquipmentCache.CachedBool queriedData)`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.IsValid(queriedData);
+```
 
 ### UpdateAndMarkValid
 `public void UpdateAndMarkValid(MissionEquipment.MissionEquipmentCache.CachedBool data, bool value)`
 
-**Purpose:** Updates the state or data of `and mark valid`.
+**Purpose:** Recalculates and stores the latest representation of `and mark valid`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.UpdateAndMarkValid(data, false);
+```
 
 ### GetValue
 `public bool GetValue(MissionEquipment.MissionEquipmentCache.CachedBool data)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetValue(data);
+```
 
 ### IsValid
 `public bool IsValid(MissionEquipment.MissionEquipmentCache.CachedFloat queriedData)`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.IsValid(queriedData);
+```
 
 ### UpdateAndMarkValid
 `public void UpdateAndMarkValid(MissionEquipment.MissionEquipmentCache.CachedFloat data, float value)`
 
-**Purpose:** Updates the state or data of `and mark valid`.
+**Purpose:** Recalculates and stores the latest representation of `and mark valid`.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.UpdateAndMarkValid(data, 0);
+```
 
 ### GetValue
 `public float GetValue(MissionEquipment.MissionEquipmentCache.CachedFloat data)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetValue(data);
+```
 
 ### InvalidateOnWeaponSlotUpdated
 `public void InvalidateOnWeaponSlotUpdated()`
 
-**Purpose:** Handles logic related to `invalidate on weapon slot updated`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponSlotUpdated();
+```
 
 ### InvalidateOnWeaponUsageIndexUpdated
 `public void InvalidateOnWeaponUsageIndexUpdated()`
 
-**Purpose:** Handles logic related to `invalidate on weapon usage index updated`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponUsageIndexUpdated();
+```
 
 ### InvalidateOnWeaponAmmoUpdated
 `public void InvalidateOnWeaponAmmoUpdated()`
 
-**Purpose:** Handles logic related to `invalidate on weapon ammo updated`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponAmmoUpdated();
+```
 
 ### InvalidateOnWeaponAmmoAvailabilityChanged
 `public void InvalidateOnWeaponAmmoAvailabilityChanged()`
 
-**Purpose:** Handles logic related to `invalidate on weapon ammo availability changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponAmmoAvailabilityChanged();
+```
 
 ### InvalidateOnWeaponHitPointsUpdated
 `public void InvalidateOnWeaponHitPointsUpdated()`
 
-**Purpose:** Handles logic related to `invalidate on weapon hit points updated`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponHitPointsUpdated();
+```
 
 ### InvalidateOnWeaponDestroyed
 `public void InvalidateOnWeaponDestroyed()`
 
-**Purpose:** Handles logic related to `invalidate on weapon destroyed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipment from the subsystem API first
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponDestroyed();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionEquipment();
-value.FillFrom(sourceEquipment);
+// Typically call this after obtaining an instance from the subsystem API
+MissionEquipment missionEquipment = ...;
+missionEquipment.FillFrom(sourceEquipment);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

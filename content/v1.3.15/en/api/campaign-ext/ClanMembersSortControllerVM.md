@@ -1,13 +1,7 @@
 ---
 title: "ClanMembersSortControllerVM"
+description: "Auto-generated class reference for ClanMembersSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanMembersSortControllerVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanMembersSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -40,50 +34,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+clanMembersSortControllerVM.RefreshValues();
+```
 
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** Executes the `sort by name` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by name`.
+
+```csharp
+// Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+clanMembersSortControllerVM.ExecuteSortByName();
+```
 
 ### ExecuteSortByLocation
 `public void ExecuteSortByLocation()`
 
-**Purpose:** Executes the `sort by location` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by location`.
+
+```csharp
+// Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+clanMembersSortControllerVM.ExecuteSortByLocation();
+```
 
 ### ResetAllStates
 `public void ResetAllStates()`
 
-**Purpose:** Resets `all states` to its initial state.
+**Purpose:** Returns `all states` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+clanMembersSortControllerVM.ResetAllStates();
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+clanMembersSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+var result = clanMembersSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+var result = clanMembersSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ClanLordItemVM x, ClanLordItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ClanMembersSortControllerVM from the subsystem API first
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+var result = clanMembersSortControllerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanMembersSortControllerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanMembersSortControllerVM clanMembersSortControllerVM = ...;
+clanMembersSortControllerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

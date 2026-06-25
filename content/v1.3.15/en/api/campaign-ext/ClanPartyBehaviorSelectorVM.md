@@ -1,13 +1,7 @@
 ---
 title: "ClanPartyBehaviorSelectorVM"
+description: "Auto-generated class reference for ClanPartyBehaviorSelectorVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanPartyBehaviorSelectorVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanPartyBehaviorSelectorVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ## Usage Example
 
 ```csharp
-var value = new ClanPartyBehaviorSelectorVM();
+// Obtain an instance from the relevant subsystem API
+ClanPartyBehaviorSelectorVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

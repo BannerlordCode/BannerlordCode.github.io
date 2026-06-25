@@ -1,13 +1,7 @@
 ---
 title: "CombatXpModel"
+description: "Auto-generated class reference for CombatXpModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatXpModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatXpModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,24 +29,43 @@ Treat `CombatXpModel` as a Model-style extension point: first identify who creat
 ### GetSkillForWeapon
 `public abstract SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**Purpose:** Gets the current value of `skill for weapon`.
+**Purpose:** Reads and returns the `skill for weapon` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatXpModel from the subsystem API first
+CombatXpModel combatXpModel = ...;
+var result = combatXpModel.GetSkillForWeapon(weapon, false);
+```
 
 ### GetXpFromHit
 `public abstract ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`
 
-**Purpose:** Gets the current value of `xp from hit`.
+**Purpose:** Reads and returns the `xp from hit` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatXpModel from the subsystem API first
+CombatXpModel combatXpModel = ...;
+var result = combatXpModel.GetXpFromHit(attackerTroop, captain, attackedTroop, attackerParty, 0, false, missionType);
+```
 
 ### GetXpMultiplierFromShotDifficulty
 `public abstract float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**Purpose:** Gets the current value of `xp multiplier from shot difficulty`.
+**Purpose:** Reads and returns the `xp multiplier from shot difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatXpModel from the subsystem API first
+CombatXpModel combatXpModel = ...;
+var result = combatXpModel.GetXpMultiplierFromShotDifficulty(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCombatXpModel();
+// Typically obtained from a subsystem API or factory
+CombatXpModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

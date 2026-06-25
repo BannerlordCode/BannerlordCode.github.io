@@ -1,20 +1,14 @@
 ---
 title: "CraftingOrder"
+description: "Auto-generated class reference for CraftingOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingOrder`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingOrder
 
 **Namespace:** TaleWorlds.CampaignSystem.CraftingSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingOrder : ITrackableCampaignObject, ITrackableBase`
 **Base:** `ITrackableCampaignObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CraftingSystem/CraftingOrder.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CraftingSystem/CraftingOrder.cs`
 
 ## Overview
 
@@ -29,50 +23,99 @@ Start from namespace `TaleWorlds.CampaignSystem.CraftingSystem` to place it in t
 ### InitializeCraftingOrderOnLoad
 `public void InitializeCraftingOrderOnLoad()`
 
-**Purpose:** Initializes the state, resources, or bindings for `crafting order on load`.
+**Purpose:** Prepares the resources, state, or bindings required by `crafting order on load`.
+
+```csharp
+// Obtain an instance of CraftingOrder from the subsystem API first
+CraftingOrder craftingOrder = ...;
+craftingOrder.InitializeCraftingOrderOnLoad();
+```
 
 ### IsPreCraftedWeaponDesignValid
 `public bool IsPreCraftedWeaponDesignValid()`
 
-**Purpose:** Handles logic related to `is pre crafted weapon design valid`.
+**Purpose:** Determines whether the current object is in the `pre crafted weapon design valid` state or condition.
+
+```csharp
+// Obtain an instance of CraftingOrder from the subsystem API first
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.IsPreCraftedWeaponDesignValid();
+```
 
 ### GetStatWeapon
 `public WeaponComponentData GetStatWeapon()`
 
-**Purpose:** Gets the current value of `stat weapon`.
+**Purpose:** Reads and returns the `stat weapon` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingOrder from the subsystem API first
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.GetStatWeapon();
+```
 
 ### IsOrderAvailableForHero
 `public bool IsOrderAvailableForHero(Hero hero)`
 
-**Purpose:** Handles logic related to `is order available for hero`.
+**Purpose:** Determines whether the current object is in the `order available for hero` state or condition.
+
+```csharp
+// Obtain an instance of CraftingOrder from the subsystem API first
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.IsOrderAvailableForHero(hero);
+```
 
 ### CanHeroCompleteOrder
 `public bool CanHeroCompleteOrder(Hero hero, ItemObject craftDesignItem)`
 
-**Purpose:** Checks whether the current object can `hero complete order`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero complete order`.
+
+```csharp
+// Obtain an instance of CraftingOrder from the subsystem API first
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.CanHeroCompleteOrder(hero, craftDesignItem);
+```
 
 ### GetOrderExperience
 `public float GetOrderExperience(ItemObject craftedItem, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `order experience`.
+**Purpose:** Reads and returns the `order experience` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingOrder from the subsystem API first
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.GetOrderExperience(craftedItem, itemModifier);
+```
 
 ### CheckForBonusesAndPenalties
 `public void CheckForBonusesAndPenalties(ItemObject craftedItem, ItemModifier itemModifier, out float craftedStatsSum, out float requiredStatsSum, out bool thrustDamageCheck, out bool swingDamageCheck)`
 
-**Purpose:** Handles logic related to `check for bonuses and penalties`.
+**Purpose:** Verifies whether `for bonuses and penalties` holds true for the current object.
+
+```csharp
+// Obtain an instance of CraftingOrder from the subsystem API first
+CraftingOrder craftingOrder = ...;
+craftingOrder.CheckForBonusesAndPenalties(craftedItem, itemModifier, craftedStatsSum, requiredStatsSum, thrustDamageCheck, swingDamageCheck);
+```
 
 ### GetStatDataForItem
 `public List<CraftingStatData> GetStatDataForItem(ItemObject itemObject, out WeaponComponentData weapon)`
 
-**Purpose:** Gets the current value of `stat data for item`.
+**Purpose:** Reads and returns the `stat data for item` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingOrder from the subsystem API first
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.GetStatDataForItem(itemObject, weapon);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingOrder();
-value.InitializeCraftingOrderOnLoad();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingOrder craftingOrder = ...;
+craftingOrder.InitializeCraftingOrderOnLoad();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

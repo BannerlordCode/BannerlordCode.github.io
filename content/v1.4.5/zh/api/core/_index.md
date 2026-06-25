@@ -1,15 +1,20 @@
 ---
-title: Core 核心
-description: v1.4.5 core 类页入口
+title: "core 目录"
+description: TaleWorlds.Core 核心数据类型类参考目录
 ---
-# Core 核心
+<!-- BEGIN SECTION INDEX -->
 
-## 心智模型
+## ↑ 上级导航
 
-先把 `Core 核心` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+- [API 参考](../)
+- [版本首页](../../)
 
-这里收纳 v1.4.5 中偏核心层的类页。
+## ↓ 子类列表 — 按字母分组
 
-- [← 返回 API 目录](../)
-- [📋 返回 Core 目录](../catalog-core)
-- [🏠 返回 v1.4.5 首页](../../)
+### M
+
+- [MBSubModuleBase](./MBSubModuleBase)
+- [Module](./Module)
+
+
+<!-- END SECTION INDEX -->

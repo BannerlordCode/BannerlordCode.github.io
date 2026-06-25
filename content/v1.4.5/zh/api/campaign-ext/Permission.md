@@ -1,20 +1,14 @@
 ---
 title: "Permission"
+description: "Permission 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Permission`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Permission
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** `class`
+**Type:** `public enum Permission`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/Permission.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/Permission.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "Permission"
 ## 使用示例
 
 ```csharp
-var example = new Permission();
+// 从对应子系统 API 获取实例
+Permission instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

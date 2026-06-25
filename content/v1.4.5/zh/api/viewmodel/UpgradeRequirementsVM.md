@@ -1,20 +1,14 @@
 ---
 title: "UpgradeRequirementsVM"
+description: "UpgradeRequirementsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UpgradeRequirementsVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpgradeRequirementsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class UpgradeRequirementsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/UpgradeRequirementsVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/UpgradeRequirementsVM.cs`
 
 ## 概述
 
@@ -42,30 +36,55 @@ title: "UpgradeRequirementsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 UpgradeRequirementsVM 实例
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.RefreshValues();
+```
 
 ### SetItemRequirement
 `public void SetItemRequirement(ItemCategory category)`
 
-**用途 / Purpose:** 设置 `item requirement` 的值或状态。
+**用途 / Purpose:** 为 「item requirement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 UpgradeRequirementsVM 实例
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.SetItemRequirement(category);
+```
 
 ### SetPerkRequirement
 `public void SetPerkRequirement(PerkObject perk)`
 
-**用途 / Purpose:** 设置 `perk requirement` 的值或状态。
+**用途 / Purpose:** 为 「perk requirement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 UpgradeRequirementsVM 实例
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.SetPerkRequirement(perk);
+```
 
 ### SetRequirementsMet
 `public void SetRequirementsMet(bool isItemRequirementMet, bool isPerkRequirementMet)`
 
-**用途 / Purpose:** 设置 `requirements met` 的值或状态。
+**用途 / Purpose:** 为 「requirements met」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 UpgradeRequirementsVM 实例
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.SetRequirementsMet(false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new UpgradeRequirementsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

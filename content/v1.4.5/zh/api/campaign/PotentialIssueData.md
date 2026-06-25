@@ -1,20 +1,14 @@
 ---
 title: "PotentialIssueData"
+description: "PotentialIssueData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PotentialIssueData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PotentialIssueData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct PotentialIssueData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/PotentialIssueData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/PotentialIssueData.cs`
 
 ## 概述
 
@@ -39,14 +33,21 @@ title: "PotentialIssueData"
 ### StartIssueDelegate
 `public delegate IssueBase StartIssueDelegate(in PotentialIssueData pid, Hero issueOwner)`
 
-**用途 / Purpose:** 处理 `start issue delegate` 相关逻辑。
+**用途 / Purpose:** 启动「issue delegate」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 PotentialIssueData 实例
+PotentialIssueData potentialIssueData = ...;
+var result = potentialIssueData.StartIssueDelegate(pid, issueOwner);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PotentialIssueData();
+// 该数据对象通常由战役/任务 API 返回
+PotentialIssueData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

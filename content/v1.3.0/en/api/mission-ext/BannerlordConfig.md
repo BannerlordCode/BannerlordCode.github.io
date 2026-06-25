@@ -1,13 +1,7 @@
 ---
 title: "BannerlordConfig"
+description: "Auto-generated class reference for BannerlordConfig."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerlordConfig`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordConfig
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -93,37 +87,73 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.Initialize();
+```
 
 ### Save
 `public static SaveResult Save()`
 
-**Purpose:** Saves `save` data.
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.Save();
+```
 
 ### GetRealBattleSize
 `public static int GetRealBattleSize()`
 
-**Purpose:** Gets the current value of `real battle size`.
+**Purpose:** Reads and returns the `real battle size` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetRealBattleSize();
+```
 
 ### GetRealBattleSizeForSiege
 `public static int GetRealBattleSizeForSiege()`
 
-**Purpose:** Gets the current value of `real battle size for siege`.
+**Purpose:** Reads and returns the `real battle size for siege` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetRealBattleSizeForSiege();
+```
 
 ### GetReinforcementWaveCount
 `public static int GetReinforcementWaveCount()`
 
-**Purpose:** Gets the current value of `reinforcement wave count`.
+**Purpose:** Reads and returns the `reinforcement wave count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetReinforcementWaveCount();
+```
 
 ### GetRealBattleSizeForSallyOut
 `public static int GetRealBattleSizeForSallyOut()`
 
-**Purpose:** Gets the current value of `real battle size for sally out`.
+**Purpose:** Reads and returns the `real battle size for sally out` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetRealBattleSizeForSallyOut();
+```
 
 ### IsValidValue
 `public bool IsValidValue(int value)`
 
-**Purpose:** Handles logic related to `is valid value`.
+**Purpose:** Determines whether the current object is in the `valid value` state or condition.
+
+```csharp
+// Obtain an instance of BannerlordConfig from the subsystem API first
+BannerlordConfig bannerlordConfig = ...;
+var result = bannerlordConfig.IsValidValue(0);
+```
 
 ## Usage Example
 
@@ -133,4 +163,4 @@ BannerlordConfig.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

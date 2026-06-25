@@ -1,20 +1,14 @@
 ---
 title: "ICampaignOptionProvider"
+description: "Auto-generated class reference for ICampaignOptionProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICampaignOptionProvider`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICampaignOptionProvider
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICampaignOptionProvider`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/ICampaignOptionProvider.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/ICampaignOptionProvider.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ## Usage Example
 
 ```csharp
-ICampaignOptionProvider implementation = GetCampaignOptionProviderImplementation();
+// Usually obtained through DI or a factory method
+IICampaignOptionProvider service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

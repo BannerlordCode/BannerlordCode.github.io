@@ -1,20 +1,14 @@
 ---
 title: "MPPerkVM"
+description: "Auto-generated class reference for MPPerkVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerkVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPerkVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPerkVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/MPPerkVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/MPPerkVM.cs`
 
 ## Overview
 
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPPerkVM from the subsystem API first
+MPPerkVM mPPerkVM = ...;
+mPPerkVM.RefreshValues();
+```
 
 ### ExecuteSelectPerk
 `public void ExecuteSelectPerk()`
 
-**Purpose:** Executes the `select perk` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select perk`.
+
+```csharp
+// Obtain an instance of MPPerkVM from the subsystem API first
+MPPerkVM mPPerkVM = ...;
+mPPerkVM.ExecuteSelectPerk();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPPerkVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPPerkVM mPPerkVM = ...;
+mPPerkVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

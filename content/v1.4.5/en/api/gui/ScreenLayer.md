@@ -1,20 +1,14 @@
 ---
 title: "ScreenLayer"
+description: "Auto-generated class reference for ScreenLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScreenLayer`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScreenLayer
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
 **Type:** `public abstract class ScreenLayer : IComparable`
 **Base:** `IComparable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenLayer.cs`
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenLayer.cs`
 
 ## Overview
 
@@ -44,64 +38,131 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ### DrawDebugInfo
 `public virtual void DrawDebugInfo()`
 
-**Purpose:** Handles logic related to `draw debug info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+screenLayer.DrawDebugInfo();
+```
 
 ### EarlyProcessEvents
 `public virtual void EarlyProcessEvents(InputType handledInputs)`
 
-**Purpose:** Handles logic related to `early process events`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+screenLayer.EarlyProcessEvents(handledInputs);
+```
 
 ### ProcessEvents
 `public virtual void ProcessEvents()`
 
-**Purpose:** Handles logic related to `process events`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+screenLayer.ProcessEvents();
+```
 
 ### HitTest
 `public virtual bool HitTest(Vector2 position)`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+var result = screenLayer.HitTest(position);
+```
 
 ### HitTest
 `public virtual bool HitTest()`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+var result = screenLayer.HitTest();
+```
 
 ### FocusTest
 `public virtual bool FocusTest()`
 
-**Purpose:** Handles logic related to `focus test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+var result = screenLayer.FocusTest();
+```
 
 ### IsFocusedOnInput
 `public virtual bool IsFocusedOnInput()`
 
-**Purpose:** Handles logic related to `is focused on input`.
+**Purpose:** Determines whether the current object is in the `focused on input` state or condition.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+var result = screenLayer.IsFocusedOnInput();
+```
 
 ### OnOnScreenKeyboardDone
 `public virtual void OnOnScreenKeyboardDone(string inputText)`
 
-**Purpose:** Called when the `on screen keyboard done` event is raised.
+**Purpose:** Invoked when the `on screen keyboard done` event is raised.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+screenLayer.OnOnScreenKeyboardDone("example");
+```
 
 ### OnOnScreenKeyboardCanceled
 `public virtual void OnOnScreenKeyboardCanceled()`
 
-**Purpose:** Called when the `on screen keyboard canceled` event is raised.
+**Purpose:** Invoked when the `on screen keyboard canceled` event is raised.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+screenLayer.OnOnScreenKeyboardCanceled();
+```
 
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+var result = screenLayer.CompareTo(obj);
+```
 
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**Purpose:** Updates the state or data of `layout`.
+**Purpose:** Recalculates and stores the latest representation of `layout`.
+
+```csharp
+// Obtain an instance of ScreenLayer from the subsystem API first
+ScreenLayer screenLayer = ...;
+screenLayer.UpdateLayout();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomScreenLayer();
+// Typically obtained from a subsystem API or factory
+ScreenLayer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CraftingWeaponClassSelectionOpenedEvent"
+description: "Auto-generated class reference for CraftingWeaponClassSelectionOpenedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingWeaponClassSelectionOpenedEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingWeaponClassSelectionOpenedEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ## Usage Example
 
 ```csharp
-var example = new CraftingWeaponClassSelectionOpenedEvent();
+// Obtain an instance from the relevant subsystem API
+CraftingWeaponClassSelectionOpenedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PartyDiplomaticHandlerCampaignBehavior"
+description: "PartyDiplomaticHandlerCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyDiplomaticHandlerCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyDiplomaticHandlerCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,43 @@ title: "PartyDiplomaticHandlerCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 PartyDiplomaticHandlerCampaignBehavior 实例
+PartyDiplomaticHandlerCampaignBehavior partyDiplomaticHandlerCampaignBehavior = ...;
+partyDiplomaticHandlerCampaignBehavior.RegisterEvents();
+```
 
 ### hostile_action_end_by_peace_on_init
 `public static void hostile_action_end_by_peace_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `hostile_action_end_by_peace_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PartyDiplomaticHandlerCampaignBehavior.hostile_action_end_by_peace_on_init(args);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 PartyDiplomaticHandlerCampaignBehavior 实例
+PartyDiplomaticHandlerCampaignBehavior partyDiplomaticHandlerCampaignBehavior = ...;
+partyDiplomaticHandlerCampaignBehavior.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyDiplomaticHandlerCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+PartyDiplomaticHandlerCampaignBehavior partyDiplomaticHandlerCampaignBehavior = ...;
+partyDiplomaticHandlerCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

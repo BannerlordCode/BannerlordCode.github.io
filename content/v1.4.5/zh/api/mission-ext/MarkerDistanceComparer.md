@@ -1,20 +1,14 @@
 ---
 title: "MarkerDistanceComparer"
+description: "MarkerDistanceComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MarkerDistanceComparer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarkerDistanceComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MarkerDistanceComparer : IComparer<MissionMarkerTargetVM>`
 **Base:** `IComparer<MissionMarkerTargetVM>`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker/MultiplayerMissionMarkerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker/MultiplayerMissionMarkerVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MarkerDistanceComparer"
 ### Compare
 `public int Compare(MissionMarkerTargetVM x, MissionMarkerTargetVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MarkerDistanceComparer 实例
+MarkerDistanceComparer markerDistanceComparer = ...;
+var result = markerDistanceComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MarkerDistanceComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+MarkerDistanceComparer markerDistanceComparer = ...;
+markerDistanceComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

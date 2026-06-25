@@ -1,20 +1,14 @@
 ---
 title: "KingdomDestroyedLogEntry"
+description: "Auto-generated class reference for KingdomDestroyedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDestroyedLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDestroyedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomDestroyedLogEntry : LogEntry, IEncyclopediaLog, IChatNotification`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/KingdomDestroyedLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/KingdomDestroyedLogEntry.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomDestroyedLogEntry from the subsystem API first
+KingdomDestroyedLogEntry kingdomDestroyedLogEntry = ...;
+var result = kingdomDestroyedLogEntry.GetEncyclopediaText();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomDestroyedLogEntry from the subsystem API first
+KingdomDestroyedLogEntry kingdomDestroyedLogEntry = ...;
+var result = kingdomDestroyedLogEntry.GetNotificationText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomDestroyedLogEntry();
-value.GetEncyclopediaText();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomDestroyedLogEntry kingdomDestroyedLogEntry = ...;
+kingdomDestroyedLogEntry.GetEncyclopediaText();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

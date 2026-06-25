@@ -1,20 +1,14 @@
 ---
 title: "MissionObject"
+description: "Auto-generated class reference for MissionObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObject`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObject
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionObject : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObject.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObject.cs`
 
 ## Overview
 
@@ -37,64 +31,131 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetAbilityOfFaces
 `public virtual void SetAbilityOfFaces(bool enabled)`
 
-**Purpose:** Sets the value or state of `ability of faces`.
+**Purpose:** Assigns a new value to `ability of faces` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.SetAbilityOfFaces(false);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+var result = missionObject.GetHashCode();
+```
 
 ### AfterMissionStart
 `public virtual void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.AfterMissionStart();
+```
 
 ### OnMissionEnded
 `public virtual void OnMissionEnded()`
 
-**Purpose:** Called when the `mission ended` event is raised.
+**Purpose:** Invoked when the `mission ended` event is raised.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.OnMissionEnded();
+```
 
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.OnDeploymentFinished();
+```
 
 ### SetEnabled
 `public void SetEnabled(bool isParentObject = false)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.SetEnabled(false);
+```
 
 ### SetEnabledAndMakeVisible
 `public void SetEnabledAndMakeVisible(bool isParentObject = false, bool enableFaces = false)`
 
-**Purpose:** Sets the value or state of `enabled and make visible`.
+**Purpose:** Assigns a new value to `enabled and make visible` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.SetEnabledAndMakeVisible(false, false);
+```
 
 ### SetDisabled
 `public void SetDisabled(bool isParentObject = false)`
 
-**Purpose:** Sets the value or state of `disabled`.
+**Purpose:** Assigns a new value to `disabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.SetDisabled(false);
+```
 
 ### SetDisabledAndMakeInvisible
 `public void SetDisabledAndMakeInvisible(bool isParentObject = false, bool disableFaces = false)`
 
-**Purpose:** Sets the value or state of `disabled and make invisible`.
+**Purpose:** Assigns a new value to `disabled and make invisible` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.SetDisabledAndMakeInvisible(false, false);
+```
 
 ### OnEndMission
 `public virtual void OnEndMission()`
 
-**Purpose:** Called when the `end mission` event is raised.
+**Purpose:** Invoked when the `end mission` event is raised.
+
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.OnEndMission();
+```
 
 ### AddStuckMissile
 `public virtual void AddStuckMissile(GameEntity missileEntity)`
 
 **Purpose:** Adds `stuck missile` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionObject from the subsystem API first
+MissionObject missionObject = ...;
+missionObject.AddStuckMissile(missileEntity);
+```
+
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionObject();
+// Typically obtained from a subsystem API or factory
+MissionObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

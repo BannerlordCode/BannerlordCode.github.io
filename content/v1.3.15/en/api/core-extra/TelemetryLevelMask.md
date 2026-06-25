@@ -1,19 +1,13 @@
 ---
 title: "TelemetryLevelMask"
+description: "Auto-generated class reference for TelemetryLevelMask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TelemetryLevelMask`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TelemetryLevelMask
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
-**Base:** none
+**Type:** `public enum TelemetryLevelMask : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.Library/TelemetryLevelMask.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new TelemetryLevelMask();
+// Obtain an instance from the relevant subsystem API
+TelemetryLevelMask instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

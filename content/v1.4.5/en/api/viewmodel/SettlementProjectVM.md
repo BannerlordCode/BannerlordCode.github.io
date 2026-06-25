@@ -1,20 +1,14 @@
 ---
 title: "SettlementProjectVM"
+description: "Auto-generated class reference for SettlementProjectVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementProjectVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementProjectVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementProjectVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/SettlementProjectVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/SettlementProjectVM.cs`
 
 ## Overview
 
@@ -45,44 +39,87 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementProjectVM from the subsystem API first
+SettlementProjectVM settlementProjectVM = ...;
+settlementProjectVM.RefreshValues();
+```
 
 ### RefreshProductionText
 `public virtual void RefreshProductionText()`
 
-**Purpose:** Refreshes the display or cache of `production text`.
+**Purpose:** Keeps the display or cache of `production text` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementProjectVM from the subsystem API first
+SettlementProjectVM settlementProjectVM = ...;
+settlementProjectVM.RefreshProductionText();
+```
 
 ### ExecuteAddRemoveToQueue
 `public abstract void ExecuteAddRemoveToQueue()`
 
-**Purpose:** Executes the `add remove to queue` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `add remove to queue`.
+
+```csharp
+// Obtain an instance of SettlementProjectVM from the subsystem API first
+SettlementProjectVM settlementProjectVM = ...;
+settlementProjectVM.ExecuteAddRemoveToQueue();
+```
 
 ### ExecuteSetAsActiveDevelopment
 `public abstract void ExecuteSetAsActiveDevelopment()`
 
-**Purpose:** Executes the `set as active development` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set as active development`.
+
+```csharp
+// Obtain an instance of SettlementProjectVM from the subsystem API first
+SettlementProjectVM settlementProjectVM = ...;
+settlementProjectVM.ExecuteSetAsActiveDevelopment();
+```
 
 ### ExecuteSetAsCurrent
 `public abstract void ExecuteSetAsCurrent()`
 
-**Purpose:** Executes the `set as current` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set as current`.
+
+```csharp
+// Obtain an instance of SettlementProjectVM from the subsystem API first
+SettlementProjectVM settlementProjectVM = ...;
+settlementProjectVM.ExecuteSetAsCurrent();
+```
 
 ### ExecuteResetCurrent
 `public abstract void ExecuteResetCurrent()`
 
-**Purpose:** Executes the `reset current` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset current`.
+
+```csharp
+// Obtain an instance of SettlementProjectVM from the subsystem API first
+SettlementProjectVM settlementProjectVM = ...;
+settlementProjectVM.ExecuteResetCurrent();
+```
 
 ### ExecuteToggleSelected
 `public abstract void ExecuteToggleSelected()`
 
-**Purpose:** Executes the `toggle selected` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle selected`.
+
+```csharp
+// Obtain an instance of SettlementProjectVM from the subsystem API first
+SettlementProjectVM settlementProjectVM = ...;
+settlementProjectVM.ExecuteToggleSelected();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementProjectVM();
+// Typically obtained from a subsystem API or factory
+SettlementProjectVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

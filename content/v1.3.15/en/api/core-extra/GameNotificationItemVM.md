@@ -1,13 +1,7 @@
 ---
 title: "GameNotificationItemVM"
+description: "Auto-generated class reference for GameNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameNotificationItemVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameNotificationItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ## Usage Example
 
 ```csharp
-var value = new GameNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+GameNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

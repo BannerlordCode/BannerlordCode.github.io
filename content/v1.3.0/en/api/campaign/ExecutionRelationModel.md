@@ -1,13 +1,7 @@
 ---
 title: "ExecutionRelationModel"
+description: "Auto-generated class reference for ExecutionRelationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ExecutionRelationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ExecutionRelationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -44,14 +38,21 @@ Treat `ExecutionRelationModel` as a Model-style extension point: first identify 
 ### GetRelationChangeForExecutingHero
 `public abstract int GetRelationChangeForExecutingHero(Hero victim, Hero hero, out bool showQuickNotification)`
 
-**Purpose:** Gets the current value of `relation change for executing hero`.
+**Purpose:** Reads and returns the `relation change for executing hero` value held by the current object.
+
+```csharp
+// Obtain an instance of ExecutionRelationModel from the subsystem API first
+ExecutionRelationModel executionRelationModel = ...;
+var result = executionRelationModel.GetRelationChangeForExecutingHero(victim, hero, showQuickNotification);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomExecutionRelationModel();
+// Typically obtained from a subsystem API or factory
+ExecutionRelationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

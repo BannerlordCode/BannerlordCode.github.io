@@ -1,13 +1,7 @@
 ---
 title: "TauntSlotDataContainer"
+description: "Auto-generated class reference for TauntSlotDataContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TauntSlotDataContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TauntSlotDataContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place
 ### GetTauntIndicesForPlayer
 `public MBReadOnlyList<TauntIndexData> GetTauntIndicesForPlayer(string playerId)`
 
-**Purpose:** Gets the current value of `taunt indices for player`.
+**Purpose:** Reads and returns the `taunt indices for player` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntSlotDataContainer from the subsystem API first
+TauntSlotDataContainer tauntSlotDataContainer = ...;
+var result = tauntSlotDataContainer.GetTauntIndicesForPlayer("example");
+```
 
 ### SetTauntIndicesForPlayer
 `public void SetTauntIndicesForPlayer(string playerId, List<TauntIndexData> tauntIndices)`
 
-**Purpose:** Sets the value or state of `taunt indices for player`.
+**Purpose:** Assigns a new value to `taunt indices for player` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TauntSlotDataContainer from the subsystem API first
+TauntSlotDataContainer tauntSlotDataContainer = ...;
+tauntSlotDataContainer.SetTauntIndicesForPlayer("example", tauntIndices);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TauntSlotDataContainer();
-value.GetTauntIndicesForPlayer("example");
+// Typically call this after obtaining an instance from the subsystem API
+TauntSlotDataContainer tauntSlotDataContainer = ...;
+tauntSlotDataContainer.GetTauntIndicesForPlayer("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

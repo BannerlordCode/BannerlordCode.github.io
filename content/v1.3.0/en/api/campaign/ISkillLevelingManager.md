@@ -1,18 +1,12 @@
 ---
 title: "ISkillLevelingManager"
+description: "Auto-generated class reference for ISkillLevelingManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISkillLevelingManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISkillLevelingManager
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ISkillLevelingManager`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/ISkillLevelingManager.cs`
 
@@ -27,9 +21,10 @@ Treat `ISkillLevelingManager` as a Manager-style extension point: first identify
 ## Usage Example
 
 ```csharp
-ISkillLevelingManager implementation = GetSkillLevelingManagerImplementation();
+// Usually obtained through DI or a factory method
+IISkillLevelingManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

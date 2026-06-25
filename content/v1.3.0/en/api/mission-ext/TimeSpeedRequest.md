@@ -1,13 +1,7 @@
 ---
 title: "TimeSpeedRequest"
+description: "Auto-generated class reference for TimeSpeedRequest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TimeSpeedRequest`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TimeSpeedRequest
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new TimeSpeedRequest();
+// Obtain an instance from the relevant subsystem API
+TimeSpeedRequest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

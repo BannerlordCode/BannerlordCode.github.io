@@ -1,20 +1,14 @@
 ---
 title: "SiegeAftermathLogEntry"
+description: "Auto-generated class reference for SiegeAftermathLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeAftermathLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeAftermathLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SiegeAftermathLogEntry : LogEntry`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/SiegeAftermathLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/SiegeAftermathLogEntry.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**Purpose:** Gets the current value of `importance for clan`.
+**Purpose:** Reads and returns the `importance for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeAftermathLogEntry from the subsystem API first
+SiegeAftermathLogEntry siegeAftermathLogEntry = ...;
+var result = siegeAftermathLogEntry.GetImportanceForClan(clan);
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeAftermathLogEntry from the subsystem API first
+SiegeAftermathLogEntry siegeAftermathLogEntry = ...;
+siegeAftermathLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SiegeAftermathLogEntry from the subsystem API first
+SiegeAftermathLogEntry siegeAftermathLogEntry = ...;
+var result = siegeAftermathLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeAftermathLogEntry from the subsystem API first
+SiegeAftermathLogEntry siegeAftermathLogEntry = ...;
+var result = siegeAftermathLogEntry.GetNotificationText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeAftermathLogEntry();
-value.GetImportanceForClan(clan);
+// Typically call this after obtaining an instance from the subsystem API
+SiegeAftermathLogEntry siegeAftermathLogEntry = ...;
+siegeAftermathLogEntry.GetImportanceForClan(clan);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

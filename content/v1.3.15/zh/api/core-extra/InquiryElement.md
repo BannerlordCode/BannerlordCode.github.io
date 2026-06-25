@@ -1,13 +1,7 @@
 ---
 title: "InquiryElement"
+description: "InquiryElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InquiryElement`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InquiryElement
 
 **Namespace:** TaleWorlds.Core
@@ -29,15 +23,22 @@ title: "InquiryElement"
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `same content with`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「same content with」。
+
+```csharp
+// 先通过子系统 API 拿到 InquiryElement 实例
+InquiryElement inquiryElement = ...;
+var result = inquiryElement.HasSameContentWith(other);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InquiryElement();
-value.HasSameContentWith(other);
+// 通常从对应子系统 API 获取实例后调用
+InquiryElement inquiryElement = ...;
+inquiryElement.HasSameContentWith(other);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

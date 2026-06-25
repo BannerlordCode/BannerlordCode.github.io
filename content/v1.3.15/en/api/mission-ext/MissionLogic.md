@@ -1,13 +1,7 @@
 ---
 title: "MissionLogic"
+description: "Auto-generated class reference for MissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,54 +29,109 @@ Treat `MissionLogic` as a Logic-style extension point: first identify who create
 ### OnEndMissionRequest
 `public virtual InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+var result = missionLogic.OnEndMissionRequest(canLeave);
+```
 
 ### MissionEnded
 `public virtual bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+var result = missionLogic.MissionEnded(missionResult);
+```
 
 ### OnBattleEnded
 `public virtual void OnBattleEnded()`
 
-**Purpose:** Called when the `battle ended` event is raised.
+**Purpose:** Invoked when the `battle ended` event is raised.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+missionLogic.OnBattleEnded();
+```
 
 ### ShowBattleResults
 `public virtual void ShowBattleResults()`
 
-**Purpose:** Handles logic related to `show battle results`.
+**Purpose:** Displays the UI or element associated with `battle results`.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+missionLogic.ShowBattleResults();
+```
 
 ### OnRetreatMission
 `public virtual void OnRetreatMission()`
 
-**Purpose:** Called when the `retreat mission` event is raised.
+**Purpose:** Invoked when the `retreat mission` event is raised.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+missionLogic.OnRetreatMission();
+```
 
 ### OnSurrenderMission
 `public virtual void OnSurrenderMission()`
 
-**Purpose:** Called when the `surrender mission` event is raised.
+**Purpose:** Invoked when the `surrender mission` event is raised.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+missionLogic.OnSurrenderMission();
+```
 
 ### OnAutoDeployTeam
 `public virtual void OnAutoDeployTeam(Team team)`
 
-**Purpose:** Called when the `auto deploy team` event is raised.
+**Purpose:** Invoked when the `auto deploy team` event is raised.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+missionLogic.OnAutoDeployTeam(team);
+```
 
 ### GetExtraEquipmentElementsForCharacter
 `public virtual List<EquipmentElement> GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)`
 
-**Purpose:** Gets the current value of `extra equipment elements for character`.
+**Purpose:** Reads and returns the `extra equipment elements for character` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+var result = missionLogic.GetExtraEquipmentElementsForCharacter(character, false);
+```
 
 ### OnMissionResultReady
 `public virtual void OnMissionResultReady(MissionResult missionResult)`
 
-**Purpose:** Called when the `mission result ready` event is raised.
+**Purpose:** Invoked when the `mission result ready` event is raised.
+
+```csharp
+// Obtain an instance of MissionLogic from the subsystem API first
+MissionLogic missionLogic = ...;
+missionLogic.OnMissionResultReady(missionResult);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionLogic();
+// Typically obtained from a subsystem API or factory
+MissionLogic instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

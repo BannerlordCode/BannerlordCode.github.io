@@ -1,13 +1,7 @@
 ---
 title: "IstianasBannerPieceQuest"
+description: "Auto-generated class reference for IstianasBannerPieceQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IstianasBannerPieceQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IstianasBannerPieceQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
@@ -34,9 +28,10 @@ Start from namespace `StoryMode.Quests.FirstPhase` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new IstianasBannerPieceQuest();
+// Obtain an instance from the relevant subsystem API
+IstianasBannerPieceQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

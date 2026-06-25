@@ -1,13 +1,7 @@
 ---
 title: "SandBoxMission"
+description: "SandBoxMission 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxMission`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxMission
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,27 +23,52 @@ title: "SandBoxMission"
 ### OpenTournamentArcheryMission
 `public static IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament archery mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament archery mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentFightMission
 `public static IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament fight mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament fight mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenTournamentFightMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentHorseRaceMission
 `public static IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament horse race mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament horse race mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenTournamentHorseRaceMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentJoustingMission
 `public static IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament jousting mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament jousting mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenTournamentJoustingMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenBattleChallengeMission
 `public static IMission OpenBattleChallengeMission(string scene, IList<Hero> priorityCharsAttacker, IList<Hero> priorityCharsDefender)`
 
-**用途 / Purpose:** 处理 `open battle challenge mission` 相关逻辑。
+**用途 / Purpose:** 打开「battle challenge mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenBattleChallengeMission("example", priorityCharsAttacker, priorityCharsDefender);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ SandBoxMission.OpenTournamentArcheryMission("example", tournamentGame, settlemen
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

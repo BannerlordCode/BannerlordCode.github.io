@@ -1,20 +1,14 @@
 ---
 title: "BoardGamePuluc"
+description: "Auto-generated class reference for BoardGamePuluc."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGamePuluc`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGamePuluc
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGamePuluc : BoardGameBase`
 **Base:** `BoardGameBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/BoardGamePuluc.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/BoardGamePuluc.cs`
 
 ## Overview
 
@@ -29,70 +23,143 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### PawnInformation
 `public struct PawnInformation(int x, bool inSpawn, bool topPawn, PawnPuluc.MovementState state, List<PawnPuluc> pawnsBelow, bool captured, Vec3 position, PawnPuluc capturedBy)`
 
-**Purpose:** Handles logic related to `pawn information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+var result = boardGamePuluc.PawnInformation(0, false, false, state, pawnsBelow, false, position, capturedBy);
+```
 
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns)`
 
-**Purpose:** Handles logic related to `board information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+var result = boardGamePuluc.BoardInformation(pawns);
+```
 
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** Initializes the state, resources, or bindings for `units`.
+**Purpose:** Prepares the resources, state, or bindings required by `units`.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.InitializeUnits();
+```
 
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** Initializes the state, resources, or bindings for `tiles`.
+**Purpose:** Prepares the resources, state, or bindings required by `tiles`.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.InitializeTiles();
+```
 
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** Initializes the state, resources, or bindings for `sound`.
+**Purpose:** Prepares the resources, state, or bindings required by `sound`.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.InitializeSound();
+```
 
 ### InitializeDiceBoard
 `public override void InitializeDiceBoard()`
 
-**Purpose:** Initializes the state, resources, or bindings for `dice board`.
+**Purpose:** Prepares the resources, state, or bindings required by `dice board`.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.InitializeDiceBoard();
+```
 
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.Reset();
+```
 
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** Handles logic related to `calculate valid moves`.
+**Purpose:** Calculates the current value or result of `valid moves`.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+var result = boardGamePuluc.CalculateValidMoves(pawn);
+```
 
 ### RollDice
 `public override void RollDice()`
 
-**Purpose:** Handles logic related to `roll dice`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.RollDice();
+```
 
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** Handles logic related to `a i make move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.AIMakeMove(move);
+```
 
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**Purpose:** Handles logic related to `take board snapshot`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+var result = boardGamePuluc.TakeBoardSnapshot();
+```
 
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**Purpose:** Handles logic related to `undo move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGamePuluc from the subsystem API first
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.UndoMove(board);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGamePuluc();
-value.PawnInformation(0, false, false, state, pawnsBelow, false, position, capturedBy);
+// Typically call this after obtaining an instance from the subsystem API
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.PawnInformation(0, false, false, state, pawnsBelow, false, position, capturedBy);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CraftingCardHighlightBrushWidget"
+description: "Auto-generated class reference for CraftingCardHighlightBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingCardHighlightBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingCardHighlightBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingCardHighlightBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingCardHighlightBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingCardHighlightBrushWidget.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `CraftingCardHighlightBrushWidget` as a Widget-style extension point: firs
 ### CraftingCardHighlightBrushWidget
 `public class CraftingCardHighlightBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `crafting card highlight brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CraftingCardHighlightBrushWidget from the subsystem API first
+CraftingCardHighlightBrushWidget craftingCardHighlightBrushWidget = ...;
+var result = craftingCardHighlightBrushWidget.CraftingCardHighlightBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CraftingCardHighlightBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingCardHighlightBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

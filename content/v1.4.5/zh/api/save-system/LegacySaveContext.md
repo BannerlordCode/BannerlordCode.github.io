@@ -1,20 +1,14 @@
 ---
 title: "LegacySaveContext"
+description: "LegacySaveContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LegacySaveContext`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LegacySaveContext
 
 **Namespace:** TaleWorlds.SaveSystem.Save
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LegacySaveContext : ISaveContext`
 **Base:** `ISaveContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/LegacySaveContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/LegacySaveContext.cs`
 
 ## 概述
 
@@ -37,65 +31,131 @@ title: "LegacySaveContext"
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**用途 / Purpose:** 保存 `statistics` 数据。
+**用途 / Purpose:** 将 「statistics」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+```
 
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**用途 / Purpose:** 获取 `container size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container size」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerSize("example");
+```
 
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**用途 / Purpose:** 获取 `type keys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「type keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetTypeKeys();
+```
 
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**用途 / Purpose:** 获取 `container keys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerKeys();
+```
 
 ### GetStatistics
 `public static SaveStatistics GetStatistics()`
 
-**用途 / Purpose:** 获取 `statistics` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「statistics」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LegacySaveContext.GetStatistics();
+```
 
 ### AddStrings
 `public void AddStrings(List<string> texts)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `strings`。
+**用途 / Purpose:** 将 「strings」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+legacySaveContext.AddStrings(texts);
+```
 
 ### AddOrGetStringId
 `public int AddOrGetStringId(string text)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `or get string id`。
+**用途 / Purpose:** 将 「or get string id」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.AddOrGetStringId("example");
+```
 
 ### GetObjectId
 `public int GetObjectId(object target)`
 
-**用途 / Purpose:** 获取 `object id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetObjectId(target);
+```
 
 ### GetContainerId
 `public int GetContainerId(object target)`
 
-**用途 / Purpose:** 获取 `container id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerId(target);
+```
 
 ### GetStringId
 `public int GetStringId(string target)`
 
-**用途 / Purpose:** 获取 `string id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetStringId("example");
+```
 
 ### Save
 `public bool Save(object target, MetaData metaData, out string errorMessage)`
 
-**用途 / Purpose:** 保存 `save` 数据。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 LegacySaveContext 实例
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.Save(target, metaData, errorMessage);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LegacySaveContext();
-value.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+LegacySaveContext legacySaveContext = ...;
+legacySaveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

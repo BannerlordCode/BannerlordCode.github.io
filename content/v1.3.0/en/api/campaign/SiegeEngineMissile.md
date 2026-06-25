@@ -1,13 +1,7 @@
 ---
 title: "SiegeEngineMissile"
+description: "Auto-generated class reference for SiegeEngineMissile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEngineMissile`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineMissile
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new SiegeEngineMissile();
+// Obtain an instance from the relevant subsystem API
+SiegeEngineMissile instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

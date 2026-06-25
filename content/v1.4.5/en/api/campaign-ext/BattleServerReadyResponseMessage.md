@@ -1,20 +1,14 @@
 ---
 title: "BattleServerReadyResponseMessage"
+description: "Auto-generated class reference for BattleServerReadyResponseMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleServerReadyResponseMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleServerReadyResponseMessage
 
 **Namespace:** Messages.FromBattleServerManager.ToBattleServer
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class BattleServerReadyResponseMessage : LoginResultObject`
 **Base:** `LoginResultObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/BattleServerReadyResponseMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/BattleServerReadyResponseMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Messages.FromBattleServerManager.ToBattleServer` to place 
 ## Usage Example
 
 ```csharp
-var example = new BattleServerReadyResponseMessage();
+// Obtain an instance from the relevant subsystem API
+BattleServerReadyResponseMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

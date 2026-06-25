@@ -1,18 +1,12 @@
 ---
 title: "ICustomBattleServerSessionHandler"
+description: "Auto-generated class reference for ICustomBattleServerSessionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICustomBattleServerSessionHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICustomBattleServerSessionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ICustomBattleServerSessionHandler`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/ICustomBattleServerSessionHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `ICustomBattleServerSessionHandler` as a Handler-style extension point: fi
 ## Usage Example
 
 ```csharp
-ICustomBattleServerSessionHandler implementation = GetCustomBattleServerSessionHandlerImplementation();
+// Usually obtained through DI or a factory method
+IICustomBattleServerSessionHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

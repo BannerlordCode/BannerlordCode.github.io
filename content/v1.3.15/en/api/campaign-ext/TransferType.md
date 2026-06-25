@@ -1,42 +1,30 @@
 ---
 title: "TransferType"
+description: "Auto-generated class reference for TransferType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransferType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TransferType
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum TransferType`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Inventory/InventoryLogic.cs`
 
 ## Overview
 
-`TransferType` lives in `TaleWorlds.CampaignSystem.Inventory`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TransferType` lives in `TaleWorlds.CampaignSystem.Inventory` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `Neutral` |
-| `Sell` |
-
 ## Usage Example
 
 ```csharp
-TransferType example = TransferType.Neutral;
+// Obtain an instance from the relevant subsystem API
+TransferType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

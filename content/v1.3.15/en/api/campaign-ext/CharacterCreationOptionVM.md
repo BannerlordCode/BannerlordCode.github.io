@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationOptionVM"
+description: "Auto-generated class reference for CharacterCreationOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationOptionVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationOptionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
@@ -39,20 +33,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionVM from the subsystem API first
+CharacterCreationOptionVM characterCreationOptionVM = ...;
+characterCreationOptionVM.RefreshValues();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionVM from the subsystem API first
+CharacterCreationOptionVM characterCreationOptionVM = ...;
+characterCreationOptionVM.ExecuteSelect();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationOptionVM characterCreationOptionVM = ...;
+characterCreationOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

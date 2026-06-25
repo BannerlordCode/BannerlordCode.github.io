@@ -1,13 +1,7 @@
 ---
 title: "GermanTextProcessor"
+description: "Auto-generated class reference for GermanTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GermanTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GermanTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of GermanTextProcessor from the subsystem API first
+GermanTextProcessor germanTextProcessor = ...;
+germanTextProcessor.ClearTemporaryData();
+```
 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GermanTextProcessor from the subsystem API first
+GermanTextProcessor germanTextProcessor = ...;
+germanTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GermanTextProcessor();
-value.ClearTemporaryData();
+// Typically call this after obtaining an instance from the subsystem API
+GermanTextProcessor germanTextProcessor = ...;
+germanTextProcessor.ClearTemporaryData();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

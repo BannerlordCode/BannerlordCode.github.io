@@ -1,20 +1,14 @@
 ---
 title: "IScoreboardData"
+description: "Auto-generated class reference for IScoreboardData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IScoreboardData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IScoreboardData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IScoreboardData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IScoreboardData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IScoreboardData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IScoreboardData` as a Data-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-IScoreboardData implementation = GetScoreboardDataImplementation();
+// Usually obtained through DI or a factory method
+IIScoreboardData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

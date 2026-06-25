@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanCreationPopupVM"
+description: "MPLobbyClanCreationPopupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyClanCreationPopupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanCreationPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanCreationPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanCreationPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanCreationPopupVM.cs`
 
 ## 概述
 
@@ -55,55 +49,110 @@ title: "MPLobbyClanCreationPopupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.RefreshValues();
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** 执行 `open popup` 操作或流程。
+**用途 / Purpose:** 执行 「open popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 `close popup` 操作或流程。
+**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.ExecuteClosePopup();
+```
 
 ### UpdateFactionErrorText
 `public void UpdateFactionErrorText()`
 
-**用途 / Purpose:** 更新 `faction error text` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「faction error text」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.UpdateFactionErrorText();
+```
 
 ### UpdateSigilIconErrorText
 `public void UpdateSigilIconErrorText()`
 
-**用途 / Purpose:** 更新 `sigil icon error text` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「sigil icon error text」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.UpdateSigilIconErrorText();
+```
 
 ### UpdateConfirmation
 `public void UpdateConfirmation(PlayerId playerId, ClanCreationAnswer answer)`
 
-**用途 / Purpose:** 更新 `confirmation` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「confirmation」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.UpdateConfirmation(playerId, answer);
+```
 
 ### ExecuteSwitchToWaiting
 `public void ExecuteSwitchToWaiting()`
 
-**用途 / Purpose:** 执行 `switch to waiting` 操作或流程。
+**用途 / Purpose:** 执行 「switch to waiting」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.ExecuteSwitchToWaiting();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationPopupVM 实例
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.SetCancelInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyClanCreationPopupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

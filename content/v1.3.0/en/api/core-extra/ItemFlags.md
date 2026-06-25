@@ -1,19 +1,13 @@
 ---
 title: "ItemFlags"
+description: "Auto-generated class reference for ItemFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemFlags`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemFlags
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
-**Base:** none
+**Type:** `public enum ItemFlags : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.Core/ItemFlags.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new ItemFlags();
+// Obtain an instance from the relevant subsystem API
+ItemFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

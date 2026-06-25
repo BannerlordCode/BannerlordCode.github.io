@@ -1,20 +1,14 @@
 ---
 title: "ImageDrawObject"
+description: "Auto-generated class reference for ImageDrawObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageDrawObject`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageDrawObject
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct ImageDrawObject : IDrawObject`
 **Base:** `IDrawObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ImageDrawObject.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ImageDrawObject.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Create
 `public static ImageDrawObject Create(in Rectangle2D rectangle, in Vec2 uvMin, in Vec2 uvMax)`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+ImageDrawObject.Create(rectangle, uvMin, uvMax);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ ImageDrawObject.Create(rectangle, uvMin, uvMax);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

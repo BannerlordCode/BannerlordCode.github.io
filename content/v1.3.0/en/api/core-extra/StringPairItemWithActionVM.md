@@ -1,13 +1,7 @@
 ---
 title: "StringPairItemWithActionVM"
+description: "Auto-generated class reference for StringPairItemWithActionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringPairItemWithActionVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringPairItemWithActionVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of StringPairItemWithActionVM from the subsystem API first
+StringPairItemWithActionVM stringPairItemWithActionVM = ...;
+stringPairItemWithActionVM.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StringPairItemWithActionVM();
-value.ExecuteAction();
+// Typically call this after obtaining an instance from the subsystem API
+StringPairItemWithActionVM stringPairItemWithActionVM = ...;
+stringPairItemWithActionVM.ExecuteAction();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

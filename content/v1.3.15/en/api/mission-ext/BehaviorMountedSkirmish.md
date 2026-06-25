@@ -1,13 +1,7 @@
 ---
 title: "BehaviorMountedSkirmish"
+description: "Auto-generated class reference for BehaviorMountedSkirmish."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorMountedSkirmish`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorMountedSkirmish
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorMountedSkirmish from the subsystem API first
+BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
+behaviorMountedSkirmish.TickOccasionally();
+```
 
 ### GetTargetPos
 `public Vec2 GetTargetPos(Vec2 position, float distance)`
 
-**Purpose:** Gets the current value of `target pos`.
+**Purpose:** Reads and returns the `target pos` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorMountedSkirmish from the subsystem API first
+BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
+var result = behaviorMountedSkirmish.GetTargetPos(position, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorMountedSkirmish();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorMountedSkirmish behaviorMountedSkirmish = ...;
+behaviorMountedSkirmish.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

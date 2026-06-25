@@ -1,13 +1,7 @@
 ---
 title: "GauntletLayer"
+description: "GauntletLayer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletLayer`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GauntletLayer
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -36,85 +30,176 @@ title: "GauntletLayer"
 ### OnResourceRefreshBegin
 `public void OnResourceRefreshBegin(out List<GauntletMovieIdentifier> previouslyLoadedMovies)`
 
-**用途 / Purpose:** 当 `resource refresh begin` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「resource refresh begin」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnResourceRefreshBegin(previouslyLoadedMovies);
+```
 
 ### OnResourceRefreshEnd
 `public void OnResourceRefreshEnd(List<GauntletMovieIdentifier> previouslyLoadedMovies)`
 
-**用途 / Purpose:** 当 `resource refresh end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「resource refresh end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnResourceRefreshEnd(previouslyLoadedMovies);
+```
 
 ### GetMovieIdentifier
 `public GauntletMovieIdentifier GetMovieIdentifier(string movieName)`
 
-**用途 / Purpose:** 获取 `movie identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「movie identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.GetMovieIdentifier("example");
+```
 
 ### LoadMovie
 `public GauntletMovieIdentifier LoadMovie(string movieName, ViewModel dataSource)`
 
-**用途 / Purpose:** 加载 `movie` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「movie」。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.LoadMovie("example", dataSource);
+```
 
 ### ReleaseMovie
 `public void ReleaseMovie(GauntletMovieIdentifier identifier)`
 
-**用途 / Purpose:** 处理 `release movie` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.ReleaseMovie(identifier);
+```
 
 ### ProcessEvents
 `public override void ProcessEvents()`
 
-**用途 / Purpose:** 处理 `process events` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.ProcessEvents();
+```
 
 ### HitTest
 `public override bool HitTest(Vector2 position)`
 
-**用途 / Purpose:** 处理 `hit test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.HitTest(position);
+```
 
 ### HitTest
 `public override bool HitTest()`
 
-**用途 / Purpose:** 处理 `hit test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.HitTest();
+```
 
 ### FocusTest
 `public override bool FocusTest()`
 
-**用途 / Purpose:** 处理 `focus test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.FocusTest();
+```
 
 ### IsFocusedOnInput
 `public override bool IsFocusedOnInput()`
 
-**用途 / Purpose:** 处理 `is focused on input` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「focused on input」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.IsFocusedOnInput();
+```
 
 ### OnOnScreenKeyboardDone
 `public override void OnOnScreenKeyboardDone(string inputText)`
 
-**用途 / Purpose:** 当 `on screen keyboard done` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「on screen keyboard done」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnOnScreenKeyboardDone("example");
+```
 
 ### OnOnScreenKeyboardCanceled
 `public override void OnOnScreenKeyboardCanceled()`
 
-**用途 / Purpose:** 当 `on screen keyboard canceled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「on screen keyboard canceled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnOnScreenKeyboardCanceled();
+```
 
 ### UpdateLayout
 `public override void UpdateLayout()`
 
-**用途 / Purpose:** 更新 `layout` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「layout」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.UpdateLayout();
+```
 
 ### GetIsAvailableForGamepadNavigation
 `public bool GetIsAvailableForGamepadNavigation()`
 
-**用途 / Purpose:** 获取 `is available for gamepad navigation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is available for gamepad navigation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.GetIsAvailableForGamepadNavigation();
+```
 
 ### DrawDebugInfo
 `public override void DrawDebugInfo()`
 
-**用途 / Purpose:** 处理 `draw debug info` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletLayer 实例
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.DrawDebugInfo();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletLayer();
-value.OnResourceRefreshBegin(previouslyLoadedMovies);
+// 通常从对应子系统 API 获取实例后调用
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnResourceRefreshBegin(previouslyLoadedMovies);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

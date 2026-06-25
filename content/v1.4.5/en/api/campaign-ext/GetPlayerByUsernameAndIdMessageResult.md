@@ -1,20 +1,14 @@
 ---
 title: "GetPlayerByUsernameAndIdMessageResult"
+description: "Auto-generated class reference for GetPlayerByUsernameAndIdMessageResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GetPlayerByUsernameAndIdMessageResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GetPlayerByUsernameAndIdMessageResult
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetPlayerByUsernameAndIdMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPlayerByUsernameAndIdMessageResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPlayerByUsernameAndIdMessageResult.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new GetPlayerByUsernameAndIdMessageResult();
+// Obtain an instance from the relevant subsystem API
+GetPlayerByUsernameAndIdMessageResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

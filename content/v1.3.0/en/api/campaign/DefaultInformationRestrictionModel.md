@@ -1,13 +1,7 @@
 ---
 title: "DefaultInformationRestrictionModel"
+description: "Auto-generated class reference for DefaultInformationRestrictionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultInformationRestrictionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultInformationRestrictionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,12 +23,24 @@ Treat `DefaultInformationRestrictionModel` as a Model-style extension point: fir
 ### DoesPlayerKnowDetailsOf
 `public override bool DoesPlayerKnowDetailsOf(Settlement settlement)`
 
-**Purpose:** Handles logic related to `does player know details of`.
+**Purpose:** Returns a boolean answer to whether `player know details of` is true for the current object.
+
+```csharp
+// Obtain an instance of DefaultInformationRestrictionModel from the subsystem API first
+DefaultInformationRestrictionModel defaultInformationRestrictionModel = ...;
+var result = defaultInformationRestrictionModel.DoesPlayerKnowDetailsOf(settlement);
+```
 
 ### DoesPlayerKnowDetailsOf
 `public override bool DoesPlayerKnowDetailsOf(Hero hero)`
 
-**Purpose:** Handles logic related to `does player know details of`.
+**Purpose:** Returns a boolean answer to whether `player know details of` is true for the current object.
+
+```csharp
+// Obtain an instance of DefaultInformationRestrictionModel from the subsystem API first
+DefaultInformationRestrictionModel defaultInformationRestrictionModel = ...;
+var result = defaultInformationRestrictionModel.DoesPlayerKnowDetailsOf(hero);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultInformationRestrictionModel>(new MyDefaultInfor
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

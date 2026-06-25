@@ -1,20 +1,14 @@
 ---
 title: "MissionGameModels"
+description: "MissionGameModels 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGameModels`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGameModels
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MissionGameModels : GameModelsManager`
 **Base:** `GameModelsManager`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionGameModels.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionGameModels.cs`
 
 ## 概述
 
@@ -51,7 +45,12 @@ title: "MissionGameModels"
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 静态调用，不需要实例
+MissionGameModels.Clear();
+```
 
 ## 使用示例
 
@@ -61,4 +60,4 @@ MissionGameModels.Clear();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

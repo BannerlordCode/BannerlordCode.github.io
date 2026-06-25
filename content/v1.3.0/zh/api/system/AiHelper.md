@@ -1,13 +1,7 @@
 ---
 title: "AiHelper"
+description: "AiHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AiHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AiHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ title: "AiHelper"
 ### GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty
 `public static void GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty(MobileParty mobileParty, Settlement settlement, bool isTargetingPort, out MobileParty.NavigationType bestNavigationType, out float bestNavigationDistance, out bool isFromPort)`
 
-**用途 / Purpose:** 获取 `best navigation type and adjusted distance of settlement for mobile party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「best navigation type and adjusted distance of settlement for mobile party」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AiHelper.GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty(mobileParty, settlement, false, bestNavigationType, bestNavigationDistance, isFromPort);
+```
 
 ### GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty
 `public static void GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty(MobileParty mobileParty, MobileParty toMobileParty, out MobileParty.NavigationType bestNavigationType, out float bestNavigationDistance)`
 
-**用途 / Purpose:** 获取 `best navigation type and distance of mobile party for mobile party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「best navigation type and distance of mobile party for mobile party」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AiHelper.GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty(mobileParty, toMobileParty, bestNavigationType, bestNavigationDistance);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ AiHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

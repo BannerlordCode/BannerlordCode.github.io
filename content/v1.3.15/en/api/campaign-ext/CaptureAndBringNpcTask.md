@@ -1,13 +1,7 @@
 ---
 title: "CaptureAndBringNpcTask"
+description: "Auto-generated class reference for CaptureAndBringNpcTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaptureAndBringNpcTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CaptureAndBringNpcTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnPlayerBattleEnd
 `public void OnPlayerBattleEnd(MapEvent mapEvent)`
 
-**Purpose:** Called when the `player battle end` event is raised.
+**Purpose:** Invoked when the `player battle end` event is raised.
+
+```csharp
+// Obtain an instance of CaptureAndBringNpcTask from the subsystem API first
+CaptureAndBringNpcTask captureAndBringNpcTask = ...;
+captureAndBringNpcTask.OnPlayerBattleEnd(mapEvent);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CaptureAndBringNpcTask from the subsystem API first
+CaptureAndBringNpcTask captureAndBringNpcTask = ...;
+captureAndBringNpcTask.SetReferences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CaptureAndBringNpcTask();
-value.OnPlayerBattleEnd(mapEvent);
+// Typically call this after obtaining an instance from the subsystem API
+CaptureAndBringNpcTask captureAndBringNpcTask = ...;
+captureAndBringNpcTask.OnPlayerBattleEnd(mapEvent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

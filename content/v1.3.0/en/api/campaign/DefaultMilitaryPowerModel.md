@@ -1,13 +1,7 @@
 ---
 title: "DefaultMilitaryPowerModel"
+description: "Auto-generated class reference for DefaultMilitaryPowerModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMilitaryPowerModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMilitaryPowerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,37 +23,79 @@ Treat `DefaultMilitaryPowerModel` as a Model-style extension point: first identi
 ### GetTroopPower
 `public override float GetTroopPower(CharacterObject troop, BattleSideEnum side, MapEvent.PowerCalculationContext context, float leaderModifier)`
 
-**Purpose:** Gets the current value of `troop power`.
+**Purpose:** Reads and returns the `troop power` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMilitaryPowerModel from the subsystem API first
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetTroopPower(troop, side, context, 0);
+```
 
 ### GetPowerOfParty
 `public override float GetPowerOfParty(PartyBase party, BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Gets the current value of `power of party`.
+**Purpose:** Reads and returns the `power of party` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMilitaryPowerModel from the subsystem API first
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetPowerOfParty(party, side, context);
+```
 
 ### GetPowerModifierOfHero
 `public override float GetPowerModifierOfHero(Hero leaderHero)`
 
-**Purpose:** Gets the current value of `power modifier of hero`.
+**Purpose:** Reads and returns the `power modifier of hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMilitaryPowerModel from the subsystem API first
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetPowerModifierOfHero(leaderHero);
+```
 
 ### GetContextModifier
 `public override float GetContextModifier(CharacterObject troop, BattleSideEnum battleSide, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Gets the current value of `context modifier`.
+**Purpose:** Reads and returns the `context modifier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMilitaryPowerModel from the subsystem API first
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetContextModifier(troop, battleSide, context);
+```
 
 ### GetContextForPosition
 `public override MapEvent.PowerCalculationContext GetContextForPosition(CampaignVec2 position)`
 
-**Purpose:** Gets the current value of `context for position`.
+**Purpose:** Reads and returns the `context for position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMilitaryPowerModel from the subsystem API first
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetContextForPosition(position);
+```
 
 ### GetDefaultTroopPower
 `public override float GetDefaultTroopPower(CharacterObject troop)`
 
-**Purpose:** Gets the current value of `default troop power`.
+**Purpose:** Reads and returns the `default troop power` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMilitaryPowerModel from the subsystem API first
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetDefaultTroopPower(troop);
+```
 
 ### GetContextModifier
 `public override float GetContextModifier(Ship ship, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Gets the current value of `context modifier`.
+**Purpose:** Reads and returns the `context modifier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMilitaryPowerModel from the subsystem API first
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetContextModifier(ship, battleSideEnum, context);
+```
 
 ## Usage Example
 
@@ -69,4 +105,4 @@ Game.Current.ReplaceModel<DefaultMilitaryPowerModel>(new MyDefaultMilitaryPowerM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

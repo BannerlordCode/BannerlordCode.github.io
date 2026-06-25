@@ -1,13 +1,7 @@
 ---
 title: "DiplomacyHelper"
+description: "DiplomacyHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DiplomacyHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DiplomacyHelper
 
 **Namespace:** Helpers
@@ -29,27 +23,52 @@ title: "DiplomacyHelper"
 ### IsWarCausedByPlayer
 `public static bool IsWarCausedByPlayer(IFaction faction1, IFaction faction2, DeclareWarAction.DeclareWarDetail declareWarDetail)`
 
-**用途 / Purpose:** 处理 `is war caused by player` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「war caused by player」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+DiplomacyHelper.IsWarCausedByPlayer(faction1, faction2, declareWarDetail);
+```
 
 ### IsSameFactionAndNotEliminated
 `public static bool IsSameFactionAndNotEliminated(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** 处理 `is same faction and not eliminated` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「same faction and not eliminated」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+DiplomacyHelper.IsSameFactionAndNotEliminated(faction1, faction2);
+```
 
 ### GetLogsForWar
 `public static List<ValueTuple<LogEntry, IFaction, IFaction>> GetLogsForWar(StanceLink stance)`
 
-**用途 / Purpose:** 获取 `logs for war` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「logs for war」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+DiplomacyHelper.GetLogsForWar(stance);
+```
 
 ### GetPrisonersOfWarTakenByFaction
 `public static List<Hero> GetPrisonersOfWarTakenByFaction(IFaction capturerFaction, IFaction prisonerFaction)`
 
-**用途 / Purpose:** 获取 `prisoners of war taken by faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「prisoners of war taken by faction」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+DiplomacyHelper.GetPrisonersOfWarTakenByFaction(capturerFaction, prisonerFaction);
+```
 
 ### DidMainHeroSwornNotToAttackFaction
 `public static bool DidMainHeroSwornNotToAttackFaction(IFaction faction, out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `did main hero sworn not to attack faction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DiplomacyHelper.DidMainHeroSwornNotToAttackFaction(faction, explanation);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ DiplomacyHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

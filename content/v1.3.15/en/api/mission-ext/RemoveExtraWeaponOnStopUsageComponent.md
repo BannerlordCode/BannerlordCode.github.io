@@ -1,13 +1,7 @@
 ---
 title: "RemoveExtraWeaponOnStopUsageComponent"
+description: "Auto-generated class reference for RemoveExtraWeaponOnStopUsageComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemoveExtraWeaponOnStopUsageComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RemoveExtraWeaponOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
@@ -32,4 +26,4 @@ var component = agent.GetComponent<RemoveExtraWeaponOnStopUsageComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

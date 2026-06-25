@@ -1,13 +1,7 @@
 ---
 title: "BehaviorRetakeCastleKeyPosition"
+description: "Auto-generated class reference for BehaviorRetakeCastleKeyPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorRetakeCastleKeyPosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorRetakeCastleKeyPosition
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** Called when the `valid behavior side changed` event is raised.
+**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorRetakeCastleKeyPosition from the subsystem API first
+BehaviorRetakeCastleKeyPosition behaviorRetakeCastleKeyPosition = ...;
+behaviorRetakeCastleKeyPosition.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorRetakeCastleKeyPosition from the subsystem API first
+BehaviorRetakeCastleKeyPosition behaviorRetakeCastleKeyPosition = ...;
+behaviorRetakeCastleKeyPosition.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorRetakeCastleKeyPosition();
-value.OnValidBehaviorSideChanged();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorRetakeCastleKeyPosition behaviorRetakeCastleKeyPosition = ...;
+behaviorRetakeCastleKeyPosition.OnValidBehaviorSideChanged();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

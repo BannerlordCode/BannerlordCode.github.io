@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplateEventVisualBrushWidget"
+description: "Auto-generated class reference for SettlementNameplateEventVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateEventVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementNameplateEventVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
@@ -34,9 +28,10 @@ Treat `SettlementNameplateEventVisualBrushWidget` as a Widget-style extension po
 ## Usage Example
 
 ```csharp
-var widget = new SettlementNameplateEventVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SettlementNameplateEventVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

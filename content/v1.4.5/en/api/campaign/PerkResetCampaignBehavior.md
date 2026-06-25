@@ -1,20 +1,14 @@
 ---
 title: "PerkResetCampaignBehavior"
+description: "Auto-generated class reference for PerkResetCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkResetCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkResetCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PerkResetCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PerkResetCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PerkResetCampaignBehavior.cs`
 
 ## Overview
 
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PerkResetCampaignBehavior from the subsystem API first
+PerkResetCampaignBehavior perkResetCampaignBehavior = ...;
+perkResetCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PerkResetCampaignBehavior from the subsystem API first
+PerkResetCampaignBehavior perkResetCampaignBehavior = ...;
+perkResetCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of PerkResetCampaignBehavior from the subsystem API first
+PerkResetCampaignBehavior perkResetCampaignBehavior = ...;
+perkResetCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PerkResetCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PerkResetCampaignBehavior perkResetCampaignBehavior = ...;
+perkResetCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LobbyPracticeStateGauntletScreen"
+description: "Auto-generated class reference for LobbyPracticeStateGauntletScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyPracticeStateGauntletScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyPracticeStateGauntletScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyPracticeStateGauntletScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/LobbyPracticeStateGauntletScreen.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/LobbyPracticeStateGauntletScreen.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ## Usage Example
 
 ```csharp
-var value = new LobbyPracticeStateGauntletScreen();
+// Obtain an instance from the relevant subsystem API
+LobbyPracticeStateGauntletScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

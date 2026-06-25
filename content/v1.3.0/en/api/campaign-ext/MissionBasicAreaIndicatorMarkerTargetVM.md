@@ -1,13 +1,7 @@
 ---
 title: "MissionBasicAreaIndicatorMarkerTargetVM"
+description: "Auto-generated class reference for MissionBasicAreaIndicatorMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBasicAreaIndicatorMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBasicAreaIndicatorMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
@@ -29,15 +23,22 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets` t
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionBasicAreaIndicatorMarkerTargetVM from the subsystem API first
+MissionBasicAreaIndicatorMarkerTargetVM missionBasicAreaIndicatorMarkerTargetVM = ...;
+missionBasicAreaIndicatorMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionBasicAreaIndicatorMarkerTargetVM();
-value.UpdatePosition(missionCamera);
+// Typically call this after obtaining an instance from the subsystem API
+MissionBasicAreaIndicatorMarkerTargetVM missionBasicAreaIndicatorMarkerTargetVM = ...;
+missionBasicAreaIndicatorMarkerTargetVM.UpdatePosition(missionCamera);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

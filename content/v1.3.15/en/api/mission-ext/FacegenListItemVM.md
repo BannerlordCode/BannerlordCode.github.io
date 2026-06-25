@@ -1,13 +1,7 @@
 ---
 title: "FacegenListItemVM"
+description: "Auto-generated class reference for FacegenListItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FacegenListItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FacegenListItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of FacegenListItemVM from the subsystem API first
+FacegenListItemVM facegenListItemVM = ...;
+facegenListItemVM.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FacegenListItemVM();
-value.ExecuteAction();
+// Typically call this after obtaining an instance from the subsystem API
+FacegenListItemVM facegenListItemVM = ...;
+facegenListItemVM.ExecuteAction();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

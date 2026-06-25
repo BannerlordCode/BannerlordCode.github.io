@@ -1,13 +1,7 @@
 ---
 title: "DefaultDamageParticleModel"
+description: "Auto-generated class reference for DefaultDamageParticleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultDamageParticleModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultDamageParticleModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,35 @@ Treat `DefaultDamageParticleModel` as a Model-style extension point: first ident
 ### GetMeleeAttackBloodParticles
 `public override void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**Purpose:** Gets the current value of `melee attack blood particles`.
+**Purpose:** Reads and returns the `melee attack blood particles` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDamageParticleModel from the subsystem API first
+DefaultDamageParticleModel defaultDamageParticleModel = ...;
+defaultDamageParticleModel.GetMeleeAttackBloodParticles(attacker, victim, blow, collisionData, particleResultData);
+```
 
 ### GetMeleeAttackSweatParticles
 `public override void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**Purpose:** Gets the current value of `melee attack sweat particles`.
+**Purpose:** Reads and returns the `melee attack sweat particles` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDamageParticleModel from the subsystem API first
+DefaultDamageParticleModel defaultDamageParticleModel = ...;
+defaultDamageParticleModel.GetMeleeAttackSweatParticles(attacker, victim, blow, collisionData, particleResultData);
+```
 
 ### GetMissileAttackParticle
 `public override int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Gets the current value of `missile attack particle`.
+**Purpose:** Reads and returns the `missile attack particle` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDamageParticleModel from the subsystem API first
+DefaultDamageParticleModel defaultDamageParticleModel = ...;
+var result = defaultDamageParticleModel.GetMissileAttackParticle(attacker, victim, blow, collisionData);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultDamageParticleModel>(new MyDefaultDamageParticl
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

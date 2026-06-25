@@ -1,20 +1,14 @@
 ---
 title: "EventManager"
+description: "Auto-generated class reference for EventManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EventManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventManager
 
 **Namespace:** TaleWorlds.Library.EventSystem
 **Module:** TaleWorlds.Library
 **Type:** `public class EventManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventManager.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `EventManager` as a Manager-style extension point: first identify who crea
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+eventManager.Clear();
+```
 
 ### GetCloneOfEventDictionary
 `public IDictionary<Type, object> GetCloneOfEventDictionary()`
 
-**Purpose:** Gets the current value of `clone of event dictionary`.
+**Purpose:** Reads and returns the `clone of event dictionary` value held by the current object.
+
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+var result = eventManager.GetCloneOfEventDictionary();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = EventManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MBOutOfRangeException"
+description: "Auto-generated class reference for MBOutOfRangeException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBOutOfRangeException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBOutOfRangeException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBOutOfRangeException` as a Exception-style extension point: first identi
 ## Usage Example
 
 ```csharp
-try { CallMBOutOfRangeException(); } catch (MBOutOfRangeException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBOutOfRangeException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

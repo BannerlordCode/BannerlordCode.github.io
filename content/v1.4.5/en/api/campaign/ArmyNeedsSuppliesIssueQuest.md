@@ -1,20 +1,14 @@
 ---
 title: "ArmyNeedsSuppliesIssueQuest"
+description: "Auto-generated class reference for ArmyNeedsSuppliesIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyNeedsSuppliesIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyNeedsSuppliesIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ArmyNeedsSuppliesIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ArmyNeedsSuppliesIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ArmyNeedsSuppliesIssueBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of ArmyNeedsSuppliesIssueQuest from the subsystem API first
+ArmyNeedsSuppliesIssueQuest armyNeedsSuppliesIssueQuest = ...;
+armyNeedsSuppliesIssueQuest.OnFailed();
+```
 
 ### OnCanceled
 `public override void OnCanceled()`
 
-**Purpose:** Called when the `canceled` event is raised.
+**Purpose:** Invoked when the `canceled` event is raised.
+
+```csharp
+// Obtain an instance of ArmyNeedsSuppliesIssueQuest from the subsystem API first
+ArmyNeedsSuppliesIssueQuest armyNeedsSuppliesIssueQuest = ...;
+armyNeedsSuppliesIssueQuest.OnCanceled();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyNeedsSuppliesIssueQuest();
-value.OnFailed();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyNeedsSuppliesIssueQuest armyNeedsSuppliesIssueQuest = ...;
+armyNeedsSuppliesIssueQuest.OnFailed();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

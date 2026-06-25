@@ -1,20 +1,14 @@
 ---
 title: "ChangeAmountTextWidget"
+description: "Auto-generated class reference for ChangeAmountTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeAmountTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeAmountTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ChangeAmountTextWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ChangeAmountTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ChangeAmountTextWidget.cs`
 
 ## Overview
 
@@ -39,14 +33,21 @@ Treat `ChangeAmountTextWidget` as a Widget-style extension point: first identify
 ### ChangeAmountTextWidget
 `public class ChangeAmountTextWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `change amount text widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ChangeAmountTextWidget from the subsystem API first
+ChangeAmountTextWidget changeAmountTextWidget = ...;
+var result = changeAmountTextWidget.ChangeAmountTextWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ChangeAmountTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ChangeAmountTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

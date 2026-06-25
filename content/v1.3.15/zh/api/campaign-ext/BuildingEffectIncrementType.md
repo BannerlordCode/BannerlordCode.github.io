@@ -1,18 +1,12 @@
 ---
 title: "BuildingEffectIncrementType"
+description: "BuildingEffectIncrementType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BuildingEffectIncrementType`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BuildingEffectIncrementType
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Buildings
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum BuildingEffectIncrementType`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/Settlements/Buildings/BuildingEffectIncrementType.cs`
 
@@ -27,9 +21,10 @@ title: "BuildingEffectIncrementType"
 ## 使用示例
 
 ```csharp
-var value = new BuildingEffectIncrementType();
+// 从对应子系统 API 获取实例
+BuildingEffectIncrementType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

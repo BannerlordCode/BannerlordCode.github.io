@@ -1,13 +1,7 @@
 ---
 title: "HoverToggleWidget"
+description: "Auto-generated class reference for HoverToggleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HoverToggleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HoverToggleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -34,9 +28,10 @@ Treat `HoverToggleWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new HoverToggleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+HoverToggleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

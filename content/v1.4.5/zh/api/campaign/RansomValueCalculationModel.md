@@ -1,20 +1,14 @@
 ---
 title: "RansomValueCalculationModel"
+description: "RansomValueCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RansomValueCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RansomValueCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class RansomValueCalculationModel : MBGameModel<RansomValueCalculationModel>`
 **Base:** `MBGameModel<RansomValueCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/RansomValueCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/RansomValueCalculationModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "RansomValueCalculationModel"
 ### PrisonerRansomValue
 `public abstract int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
 
-**用途 / Purpose:** 处理 `prisoner ransom value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RansomValueCalculationModel 实例
+RansomValueCalculationModel ransomValueCalculationModel = ...;
+var result = ransomValueCalculationModel.PrisonerRansomValue(prisoner, null);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomRansomValueCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+RansomValueCalculationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

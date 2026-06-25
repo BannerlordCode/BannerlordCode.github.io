@@ -1,18 +1,12 @@
 ---
 title: "IMissionObjectiveTarget"
+description: "IMissionObjectiveTarget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IMissionObjectiveTarget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionObjectiveTarget
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMissionObjectiveTarget`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade/Missions/Objectives/IMissionObjectiveTarget.cs`
 
@@ -27,9 +21,10 @@ title: "IMissionObjectiveTarget"
 ## 使用示例
 
 ```csharp
-IMissionObjectiveTarget implementation = GetMissionObjectiveTargetImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIMissionObjectiveTarget service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

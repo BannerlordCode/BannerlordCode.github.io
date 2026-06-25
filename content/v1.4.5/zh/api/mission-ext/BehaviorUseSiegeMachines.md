@@ -1,20 +1,14 @@
 ---
 title: "BehaviorUseSiegeMachines"
+description: "BehaviorUseSiegeMachines 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorUseSiegeMachines`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorUseSiegeMachines
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorUseSiegeMachines : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorUseSiegeMachines.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorUseSiegeMachines.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "BehaviorUseSiegeMachines"
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**用途 / Purpose:** 获取 `behavior string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「behavior string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorUseSiegeMachines 实例
+BehaviorUseSiegeMachines behaviorUseSiegeMachines = ...;
+var result = behaviorUseSiegeMachines.GetBehaviorString();
+```
 
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**用途 / Purpose:** 当 `valid behavior side changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「valid behavior side changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorUseSiegeMachines 实例
+BehaviorUseSiegeMachines behaviorUseSiegeMachines = ...;
+behaviorUseSiegeMachines.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorUseSiegeMachines 实例
+BehaviorUseSiegeMachines behaviorUseSiegeMachines = ...;
+behaviorUseSiegeMachines.TickOccasionally();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorUseSiegeMachines();
-value.GetBehaviorString();
+// 通常从对应子系统 API 获取实例后调用
+BehaviorUseSiegeMachines behaviorUseSiegeMachines = ...;
+behaviorUseSiegeMachines.GetBehaviorString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

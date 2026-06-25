@@ -1,20 +1,14 @@
 ---
 title: "HealPlayerPartyCheat"
+description: "Auto-generated class reference for HealPlayerPartyCheat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HealPlayerPartyCheat`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HealPlayerPartyCheat
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class HealPlayerPartyCheat : GameplayCheatItem`
 **Base:** `GameplayCheatItem`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/HealPlayerPartyCheat.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/HealPlayerPartyCheat.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of HealPlayerPartyCheat from the subsystem API first
+HealPlayerPartyCheat healPlayerPartyCheat = ...;
+healPlayerPartyCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of HealPlayerPartyCheat from the subsystem API first
+HealPlayerPartyCheat healPlayerPartyCheat = ...;
+var result = healPlayerPartyCheat.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HealPlayerPartyCheat();
-value.ExecuteCheat();
+// Typically call this after obtaining an instance from the subsystem API
+HealPlayerPartyCheat healPlayerPartyCheat = ...;
+healPlayerPartyCheat.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

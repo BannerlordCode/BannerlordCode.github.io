@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionView"
+description: "Auto-generated class reference for TwoDimensionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionView`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionView
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class TwoDimensionView : View`
 **Base:** `View`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionView.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionView.cs`
 
 ## Overview
 
@@ -29,49 +23,97 @@ Treat `TwoDimensionView` as a View-style extension point: first identify who cre
 ### CreateTwoDimension
 `public static TwoDimensionView CreateTwoDimension(string viewName)`
 
-**Purpose:** Creates a new `two dimension` instance or object.
+**Purpose:** Constructs a new `two dimension` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TwoDimensionView.CreateTwoDimension("example");
+```
 
 ### BeginFrame
 `public void BeginFrame()`
 
-**Purpose:** Handles logic related to `begin frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionView from the subsystem API first
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.BeginFrame();
+```
 
 ### EndFrame
 `public void EndFrame()`
 
-**Purpose:** Handles logic related to `end frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionView from the subsystem API first
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.EndFrame();
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of TwoDimensionView from the subsystem API first
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.Clear();
+```
 
 ### CreateMeshFromDescription
 `public void CreateMeshFromDescription(WeakMaterial material, TwoDimensionMeshDrawData meshDrawData)`
 
-**Purpose:** Creates a new `mesh from description` instance or object.
+**Purpose:** Constructs a new `mesh from description` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of TwoDimensionView from the subsystem API first
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.CreateMeshFromDescription(material, meshDrawData);
+```
 
 ### CreateTextMeshFromCache
 `public bool CreateTextMeshFromCache(Material material, TwoDimensionTextMeshDrawData meshDrawData)`
 
-**Purpose:** Creates a new `text mesh from cache` instance or object.
+**Purpose:** Constructs a new `text mesh from cache` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of TwoDimensionView from the subsystem API first
+TwoDimensionView twoDimensionView = ...;
+var result = twoDimensionView.CreateTextMeshFromCache(material, meshDrawData);
+```
 
 ### CreateTextMeshFromDescription
 `public void CreateTextMeshFromDescription(float vertices, float uvs, uint indices, int indexCount, Material material, TwoDimensionTextMeshDrawData meshDrawData)`
 
-**Purpose:** Creates a new `text mesh from description` instance or object.
+**Purpose:** Constructs a new `text mesh from description` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of TwoDimensionView from the subsystem API first
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.CreateTextMeshFromDescription(0, 0, 0, 0, material, meshDrawData);
+```
 
 ### GetOrCreateMaterial
 `public WeakMaterial GetOrCreateMaterial(Texture mainTexture, Texture overlayTexture)`
 
-**Purpose:** Gets the current value of `or create material`.
+**Purpose:** Reads and returns the `or create material` value held by the current object.
+
+```csharp
+// Obtain an instance of TwoDimensionView from the subsystem API first
+TwoDimensionView twoDimensionView = ...;
+var result = twoDimensionView.GetOrCreateMaterial(mainTexture, overlayTexture);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new TwoDimensionView();
+// Retrieve this view from the subsystem API or scene
+TwoDimensionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -85,3 +85,21 @@ If you need to trace from managed interfaces into `TaleWorlds.Native.dll` v1.3.1
 2. **Pointer type** - Use `UIntPtr` not `IntPtr` for storing native pointers
 3. **Reference counting** - Each NativeObject increments ref count on construction, decrements on destruction
 4. **Thread safety** - Native interfaces accessed via static fields, be careful of threading
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Child Pages
+
+- [EngineClass and EngineMethod Attributes](./EngineMethod)
+- [IManaged Interface](./IManaged)
+- [INativeArray Interface](./INativeArray)
+- [INativeObjectArray Interface](./INativeObjectArray)
+- [INativeString Interface](./INativeString)
+- [LibraryApplicationInterface Documentation](./LibraryApplicationInterface)
+- [NativeObject Documentation](./NativeObject)
+
+<!-- END SECTION INDEX -->

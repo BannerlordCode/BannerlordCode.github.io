@@ -1,20 +1,14 @@
 ---
 title: "WidgetInfo"
+description: "WidgetInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetInfo`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetInfo
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetInfo`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/WidgetInfo.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/WidgetInfo.cs`
 
 ## 概述
 
@@ -40,17 +34,32 @@ title: "WidgetInfo"
 ### Refresh
 `public static void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 静态调用，不需要实例
+WidgetInfo.Refresh();
+```
 
 ### GetWidgetInfo
 `public static WidgetInfo GetWidgetInfo(Type type)`
 
-**用途 / Purpose:** 获取 `widget info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「widget info」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WidgetInfo.GetWidgetInfo(type);
+```
 
 ### GetWidgetInfos
 `public static WidgetInfo GetWidgetInfos()`
 
-**用途 / Purpose:** 获取 `widget infos` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「widget infos」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WidgetInfo.GetWidgetInfos();
+```
 
 ## 使用示例
 
@@ -60,4 +69,4 @@ WidgetInfo.Refresh();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

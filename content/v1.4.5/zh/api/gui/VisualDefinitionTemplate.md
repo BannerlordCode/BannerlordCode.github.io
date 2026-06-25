@@ -1,20 +1,14 @@
 ---
 title: "VisualDefinitionTemplate"
+description: "VisualDefinitionTemplate 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualDefinitionTemplate`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualDefinitionTemplate
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class VisualDefinitionTemplate`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/VisualDefinitionTemplate.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/VisualDefinitionTemplate.cs`
 
 ## 概述
 
@@ -40,20 +34,33 @@ title: "VisualDefinitionTemplate"
 ### AddVisualState
 `public void AddVisualState(VisualStateTemplate visualState)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `visual state`。
+**用途 / Purpose:** 将 「visual state」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 VisualDefinitionTemplate 实例
+VisualDefinitionTemplate visualDefinitionTemplate = ...;
+visualDefinitionTemplate.AddVisualState(visualState);
+```
 
 ### CreateVisualDefinition
 `public VisualDefinition CreateVisualDefinition(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**用途 / Purpose:** 创建一个 `visual definition` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「visual definition」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 VisualDefinitionTemplate 实例
+VisualDefinitionTemplate visualDefinitionTemplate = ...;
+var result = visualDefinitionTemplate.CreateVisualDefinition(brushFactory, spriteData, dictionary<string, visualDefinitionTemplates, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VisualDefinitionTemplate();
-value.AddVisualState(visualState);
+// 通常从对应子系统 API 获取实例后调用
+VisualDefinitionTemplate visualDefinitionTemplate = ...;
+visualDefinitionTemplate.AddVisualState(visualState);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

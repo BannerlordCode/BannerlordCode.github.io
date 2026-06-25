@@ -1,13 +1,7 @@
 ---
 title: "PartyRecruitTroopVM"
+description: "Auto-generated class reference for PartyRecruitTroopVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyRecruitTroopVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyRecruitTroopVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
@@ -37,40 +31,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyT
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyRecruitTroopVM from the subsystem API first
+PartyRecruitTroopVM partyRecruitTroopVM = ...;
+partyRecruitTroopVM.RefreshValues();
+```
 
 ### OnTroopRecruited
 `public void OnTroopRecruited(PartyCharacterVM recruitedCharacter)`
 
-**Purpose:** Called when the `troop recruited` event is raised.
+**Purpose:** Invoked when the `troop recruited` event is raised.
+
+```csharp
+// Obtain an instance of PartyRecruitTroopVM from the subsystem API first
+PartyRecruitTroopVM partyRecruitTroopVM = ...;
+partyRecruitTroopVM.OnTroopRecruited(recruitedCharacter);
+```
 
 ### OpenPopUp
 `public override void OpenPopUp()`
 
-**Purpose:** Handles logic related to `open pop up`.
+**Purpose:** Opens the resource or UI associated with `pop up`.
+
+```csharp
+// Obtain an instance of PartyRecruitTroopVM from the subsystem API first
+PartyRecruitTroopVM partyRecruitTroopVM = ...;
+partyRecruitTroopVM.OpenPopUp();
+```
 
 ### ExecuteDone
 `public override void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of PartyRecruitTroopVM from the subsystem API first
+PartyRecruitTroopVM partyRecruitTroopVM = ...;
+partyRecruitTroopVM.ExecuteDone();
+```
 
 ### ExecuteCancel
 `public override void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of PartyRecruitTroopVM from the subsystem API first
+PartyRecruitTroopVM partyRecruitTroopVM = ...;
+partyRecruitTroopVM.ExecuteCancel();
+```
 
 ### ExecuteRecruitAll
 `public void ExecuteRecruitAll()`
 
-**Purpose:** Executes the `recruit all` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `recruit all`.
+
+```csharp
+// Obtain an instance of PartyRecruitTroopVM from the subsystem API first
+PartyRecruitTroopVM partyRecruitTroopVM = ...;
+partyRecruitTroopVM.ExecuteRecruitAll();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyRecruitTroopVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+PartyRecruitTroopVM partyRecruitTroopVM = ...;
+partyRecruitTroopVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

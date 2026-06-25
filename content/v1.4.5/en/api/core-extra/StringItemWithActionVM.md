@@ -1,20 +1,14 @@
 ---
 title: "StringItemWithActionVM"
+description: "Auto-generated class reference for StringItemWithActionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringItemWithActionVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringItemWithActionVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
 **Module:** TaleWorlds.Core
 **Type:** `public class StringItemWithActionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringItemWithActionVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringItemWithActionVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of StringItemWithActionVM from the subsystem API first
+StringItemWithActionVM stringItemWithActionVM = ...;
+stringItemWithActionVM.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StringItemWithActionVM();
-value.ExecuteAction();
+// Typically call this after obtaining an instance from the subsystem API
+StringItemWithActionVM stringItemWithActionVM = ...;
+stringItemWithActionVM.ExecuteAction();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LauncherOnlineImageTextureProvider"
+description: "Auto-generated class reference for LauncherOnlineImageTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherOnlineImageTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherOnlineImageTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherOnlineImageTextureProvider : TextureProvider`
 **Base:** `TextureProvider`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherOnlineImageTextureProvider.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherOnlineImageTextureProvider.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of LauncherOnlineImageTextureProvider from the subsystem API first
+LauncherOnlineImageTextureProvider launcherOnlineImageTextureProvider = ...;
+launcherOnlineImageTextureProvider.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LauncherOnlineImageTextureProvider();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+LauncherOnlineImageTextureProvider launcherOnlineImageTextureProvider = ...;
+launcherOnlineImageTextureProvider.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

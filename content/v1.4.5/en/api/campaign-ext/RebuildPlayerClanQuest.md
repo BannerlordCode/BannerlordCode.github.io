@@ -1,20 +1,14 @@
 ---
 title: "RebuildPlayerClanQuest"
+description: "Auto-generated class reference for RebuildPlayerClanQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RebuildPlayerClanQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RebuildPlayerClanQuest
 
 **Namespace:** StoryMode.Quests.PlayerClanQuests
 **Module:** StoryMode.Quests
 **Type:** `public class RebuildPlayerClanQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.PlayerClanQuests/RebuildPlayerClanQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.PlayerClanQuests/RebuildPlayerClanQuest.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.Quests.PlayerClanQuests` to place it in the stac
 ## Usage Example
 
 ```csharp
-var value = new RebuildPlayerClanQuest();
+// Obtain an instance from the relevant subsystem API
+RebuildPlayerClanQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

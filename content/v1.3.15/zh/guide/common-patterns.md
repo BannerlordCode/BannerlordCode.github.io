@@ -211,8 +211,8 @@ C:\Users\<用户名>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 
 ## 下一节 / Next Section
 
-- [游戏系统概述](./game-systems-overview) - 了解可自定义的内容
-- [故障排除](./troubleshooting) - 解决问题
+- [游戏系统概述](game-systems-overview/) - 了解可自定义的内容
+- [故障排除](troubleshooting/) - 解决问题
 
 ## 使用示例
 

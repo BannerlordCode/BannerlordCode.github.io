@@ -1,20 +1,14 @@
 ---
 title: "AiHelper"
+description: "Auto-generated class reference for AiHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AiHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AiHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class AiHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/AiHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/AiHelper.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Treat `AiHelper` as a Helper-style extension point: first identify who creates i
 ### GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty
 `public static void GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty(MobileParty mobileParty, Settlement settlement, bool isTargetingPort, out MobileParty.NavigationType bestNavigationType, out float bestNavigationDistance, out bool isFromPort)`
 
-**Purpose:** Gets the current value of `best navigation type and adjusted distance of settlement for mobile party`.
+**Purpose:** Reads and returns the `best navigation type and adjusted distance of settlement for mobile party` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AiHelper.GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty(mobileParty, settlement, false, bestNavigationType, bestNavigationDistance, isFromPort);
+```
 
 ### GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty
 `public static void GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty(MobileParty mobileParty, MobileParty toMobileParty, out MobileParty.NavigationType bestNavigationType, out float bestNavigationDistance)`
 
-**Purpose:** Gets the current value of `best navigation type and distance of mobile party for mobile party`.
+**Purpose:** Reads and returns the `best navigation type and distance of mobile party for mobile party` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AiHelper.GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty(mobileParty, toMobileParty, bestNavigationType, bestNavigationDistance);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ AiHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

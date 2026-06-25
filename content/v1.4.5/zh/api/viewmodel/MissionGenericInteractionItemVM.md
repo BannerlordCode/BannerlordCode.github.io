@@ -1,20 +1,14 @@
 ---
 title: "MissionGenericInteractionItemVM"
+description: "MissionGenericInteractionItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGenericInteractionItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGenericInteractionItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGenericInteractionItemVM : MissionInteractionItemBaseVM`
 **Base:** `MissionInteractionItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems/MissionGenericInteractionItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems/MissionGenericInteractionItemVM.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "MissionGenericInteractionItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGenericInteractionItemVM 实例
+MissionGenericInteractionItemVM missionGenericInteractionItemVM = ...;
+missionGenericInteractionItemVM.RefreshValues();
+```
 
 ### SetData
 `public void SetData(TextObject message, bool isDisabled = false)`
 
-**用途 / Purpose:** 设置 `data` 的值或状态。
+**用途 / Purpose:** 为 「data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGenericInteractionItemVM 实例
+MissionGenericInteractionItemVM missionGenericInteractionItemVM = ...;
+missionGenericInteractionItemVM.SetData(message, false);
+```
 
 ### ResetData
 `public void ResetData()`
 
-**用途 / Purpose:** 将 `data` 重置为初始状态。
+**用途 / Purpose:** 将 「data」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGenericInteractionItemVM 实例
+MissionGenericInteractionItemVM missionGenericInteractionItemVM = ...;
+missionGenericInteractionItemVM.ResetData();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionGenericInteractionItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MissionGenericInteractionItemVM missionGenericInteractionItemVM = ...;
+missionGenericInteractionItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

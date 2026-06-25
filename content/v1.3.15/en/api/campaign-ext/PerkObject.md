@@ -1,89 +1,75 @@
 ---
 title: "PerkObject"
+description: "Auto-generated class reference for PerkObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerkObject
 
-**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** sealed class (inherits `PropertyObject`)  
-**File:** `bannerlord-1.3.15/TaleWorlds.CampaignSystem/CharacterDevelopment/PerkObject.cs`
-
-`PerkObject` represents a perk — a passive bonus unlocked when a skill reaches a threshold. Each perk belongs to a skill and has primary/secondary role bonuses (e.g. commander, quartermaster).
+**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public sealed class PerkObject : PropertyObject`
+**Base:** `PropertyObject`
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/PerkObject.cs`
 
 ## Overview
 
-Mods usually do not `new PerkObject`; instead reference existing perks via the `DefaultPerks` static fields (e.g. `DefaultPerks.OneHanded.Pugilist`), or enumerate all with `PerkObject.All`. To check whether a hero has a perk, use `Hero.GetPerkValue(perk)`.
+`PerkObject` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `PerkObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Main properties
+## Key Properties
 
-| Name | Type | Description |
-|------|------|-------------|
-| All | `MBReadOnlyList<PerkObject>` | Static; all perks (from `Campaign.Current.AllPerks`) |
-| Skill | SkillObject | Owning skill |
-| RequiredSkillValue | float | Skill value required to unlock |
-| AlternativePerk | PerkObject | Mutually exclusive alternative perk (one of two) |
-| PrimaryRole | PartyRole | Party role the primary bonus applies to |
-| SecondaryRole | PartyRole | Party role the secondary bonus applies to |
-| PrimaryBonus / SecondaryBonus | float | Primary / secondary bonus amount |
-| PrimaryIncrementType / SecondaryIncrementType | EffectIncrementType | Bonus increment type |
-| PrimaryTroopUsageMask / SecondaryTroopUsageMask | TroopUsageFlags | Primary/secondary troop-usage mask |
-| PrimaryDescription / SecondaryDescription | TextObject | Primary / secondary bonus description |
-| IsTrash | bool | Whether uninitialized (Name/Description/Skill null) |
+| Name | Signature |
+|------|-----------|
+| `All` | `public static MBReadOnlyList<PerkObject> All { get; }` |
+| `Skill` | `public SkillObject Skill { get; }` |
+| `RequiredSkillValue` | `public float RequiredSkillValue { get; }` |
+| `AlternativePerk` | `public PerkObject AlternativePerk { get; }` |
+| `PrimaryRole` | `public PartyRole PrimaryRole { get; }` |
+| `SecondaryRole` | `public PartyRole SecondaryRole { get; }` |
+| `PrimaryBonus` | `public float PrimaryBonus { get; }` |
+| `SecondaryBonus` | `public float SecondaryBonus { get; }` |
+| `PrimaryIncrementType` | `public EffectIncrementType PrimaryIncrementType { get; }` |
+| `SecondaryIncrementType` | `public EffectIncrementType SecondaryIncrementType { get; }` |
+| `PrimaryTroopUsageMask` | `public TroopUsageFlags PrimaryTroopUsageMask { get; }` |
+| `SecondaryTroopUsageMask` | `public TroopUsageFlags SecondaryTroopUsageMask { get; }` |
+| `PrimaryDescription` | `public TextObject PrimaryDescription { get; }` |
+| `SecondaryDescription` | `public TextObject SecondaryDescription { get; }` |
+| `IsTrash` | `public bool IsTrash { get; }` |
 
-## Initialize
+## Key Methods
 
-```csharp
-public void Initialize(string name, SkillObject skill, int requiredSkillValue, PerkObject alternativePerk,
-    string primaryDescription, PartyRole primaryRole, float primaryBonus, EffectIncrementType incrementType,
-    string secondaryDescription = "", PartyRole secondaryRole = PartyRole.None, float secondaryBonus = 0f,
-    EffectIncrementType secondaryIncrementType = EffectIncrementType.Invalid,
-    TroopUsageFlags primaryTroopUsageMask = TroopUsageFlags.Undefined,
-    TroopUsageFlags secondaryTroopUsageMask = TroopUsageFlags.Undefined)
-```
+### Initialize
+`public void Initialize(string name, SkillObject skill, int requiredSkillValue, PerkObject alternativePerk, string primaryDescription, PartyRole primaryRole, float primaryBonus, EffectIncrementType incrementType, string secondaryDescription = "", PartyRole secondaryRole = PartyRole.None, float secondaryBonus = 0f, EffectIncrementType secondaryIncrementType = EffectIncrementType.Invalid, TroopUsageFlags primaryTroopUsageMask = TroopUsageFlags.Undefined, TroopUsageFlags secondaryTroopUsageMask = TroopUsageFlags.Undefined)`
 
-Used to set all fields when defining a perk in XML/code. A non-null `alternativePerk` sets up a two-way mutually exclusive link.
-
-## Usage example
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
 
 ```csharp
-// Reference an existing perk and check whether a hero has it
-PerkObject perk = DefaultPerks.OneHanded.Pugilist;
-if (hero.GetPerkValue(perk))
-{
-    // hero has the perk
-}
-
-// Enumerate all perks under a skill
-foreach (PerkObject p in PerkObject.All)
-{
-    if (p.Skill == DefaultSkills.OneHanded && !p.IsTrash)
-    {
-        Debug.Print($"{p.Name}: requires {p.RequiredSkillValue}, primary bonus {p.PrimaryBonus}");
-    }
-}
+// Obtain an instance of PerkObject from the subsystem API first
+PerkObject perkObject = ...;
+perkObject.Initialize("example", skill, 0, alternativePerk, "example", primaryRole, 0, incrementType, "example", partyRole.None, 0, effectIncrementType.Invalid, troopUsageFlags.Undefined, troopUsageFlags.Undefined);
 ```
 
-## See also
+### ToString
+`public override string ToString()`
 
-- [Hero](../campaign/Hero)
-- [HeroDeveloper](./HeroDeveloper)
-- [SkillObject](../core-extra/SkillObject)
-- [TraitObject](./TraitObject)
-- [Campaign](./Campaign)
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of PerkObject from the subsystem API first
+PerkObject perkObject = ...;
+var result = perkObject.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var example = new PerkObject();
+// Typically call this after obtaining an instance from the subsystem API
+PerkObject perkObject = ...;
+perkObject.Initialize("example", skill, 0, alternativePerk, "example", primaryRole, 0, incrementType, "example", partyRole.None, 0, effectIncrementType.Invalid, troopUsageFlags.Undefined, troopUsageFlags.Undefined);
 ```
+
+## See Also
+
+- [Area Index](../)

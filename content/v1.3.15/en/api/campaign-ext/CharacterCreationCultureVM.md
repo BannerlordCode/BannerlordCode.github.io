@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationCultureVM"
+description: "Auto-generated class reference for CharacterCreationCultureVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationCultureVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationCultureVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
@@ -42,15 +36,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### ExecuteSelectCulture
 `public void ExecuteSelectCulture()`
 
-**Purpose:** Executes the `select culture` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select culture`.
+
+```csharp
+// Obtain an instance of CharacterCreationCultureVM from the subsystem API first
+CharacterCreationCultureVM characterCreationCultureVM = ...;
+characterCreationCultureVM.ExecuteSelectCulture();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationCultureVM();
-value.ExecuteSelectCulture();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationCultureVM characterCreationCultureVM = ...;
+characterCreationCultureVM.ExecuteSelectCulture();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

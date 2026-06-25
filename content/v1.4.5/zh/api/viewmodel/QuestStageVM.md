@@ -1,20 +1,14 @@
 ---
 title: "QuestStageVM"
+description: "QuestStageVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QuestStageVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestStageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class QuestStageVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Quests/QuestStageVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Quests/QuestStageVM.cs`
 
 ## 概述
 
@@ -41,25 +35,44 @@ title: "QuestStageVM"
 ### ExecuteResetUpdated
 `public void ExecuteResetUpdated()`
 
-**用途 / Purpose:** 执行 `reset updated` 操作或流程。
+**用途 / Purpose:** 执行 「reset updated」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 QuestStageVM 实例
+QuestStageVM questStageVM = ...;
+questStageVM.ExecuteResetUpdated();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** 执行 `link` 操作或流程。
+**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 QuestStageVM 实例
+QuestStageVM questStageVM = ...;
+questStageVM.ExecuteLink("example");
+```
 
 ### UpdateIsNew
 `public void UpdateIsNew()`
 
-**用途 / Purpose:** 更新 `is new` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「is new」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 QuestStageVM 实例
+QuestStageVM questStageVM = ...;
+questStageVM.UpdateIsNew();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new QuestStageVM();
-value.ExecuteResetUpdated();
+// 通常从对应子系统 API 获取实例后调用
+QuestStageVM questStageVM = ...;
+questStageVM.ExecuteResetUpdated();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

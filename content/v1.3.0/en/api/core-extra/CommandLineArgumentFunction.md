@@ -1,13 +1,7 @@
 ---
 title: "CommandLineArgumentFunction"
+description: "Auto-generated class reference for CommandLineArgumentFunction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommandLineArgumentFunction`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommandLineArgumentFunction
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new CommandLineArgumentFunction();
+// Obtain an instance from the relevant subsystem API
+CommandLineArgumentFunction instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

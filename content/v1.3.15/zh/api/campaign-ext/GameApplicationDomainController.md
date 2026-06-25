@@ -1,13 +1,7 @@
 ---
 title: "GameApplicationDomainController"
+description: "GameApplicationDomainController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameApplicationDomainController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameApplicationDomainController
 
 **Namespace:** TaleWorlds.DotNet
@@ -29,12 +23,24 @@ title: "GameApplicationDomainController"
 ### LoadAsHostedByNative
 `public void LoadAsHostedByNative(IntPtr passManagedInitializeMethodPointer, IntPtr passManagedCallbackMethodPointer, string gameApiDllName, string gameApiTypeName, Platform currentPlatform)`
 
-**用途 / Purpose:** 加载 `as hosted by native` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「as hosted by native」。
+
+```csharp
+// 先通过子系统 API 拿到 GameApplicationDomainController 实例
+GameApplicationDomainController gameApplicationDomainController = ...;
+gameApplicationDomainController.LoadAsHostedByNative(passManagedInitializeMethodPointer, passManagedCallbackMethodPointer, "example", "example", currentPlatform);
+```
 
 ### Load
 `public void Load(Delegate passManagedInitializeMethod, Delegate passManagedCallbackMethod, string gameApiDllName, string gameApiTypeName, Platform currentPlatform)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 先通过子系统 API 拿到 GameApplicationDomainController 实例
+GameApplicationDomainController gameApplicationDomainController = ...;
+gameApplicationDomainController.Load(passManagedInitializeMethod, passManagedCallbackMethod, "example", "example", currentPlatform);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<GameApplicationDomainControl
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

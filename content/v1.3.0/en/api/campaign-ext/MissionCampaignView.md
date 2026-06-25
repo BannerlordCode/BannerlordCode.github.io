@@ -1,13 +1,7 @@
 ---
 title: "MissionCampaignView"
+description: "Auto-generated class reference for MissionCampaignView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCampaignView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCampaignView
 
 **Namespace:** SandBox.View.Missions
@@ -29,29 +23,53 @@ Treat `MissionCampaignView` as a View-style extension point: first identify who 
 ### OnMissionScreenPreLoad
 `public override void OnMissionScreenPreLoad()`
 
-**Purpose:** Called when the `mission screen pre load` event is raised.
+**Purpose:** Invoked when the `mission screen pre load` event is raised.
+
+```csharp
+// Obtain an instance of MissionCampaignView from the subsystem API first
+MissionCampaignView missionCampaignView = ...;
+missionCampaignView.OnMissionScreenPreLoad();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionCampaignView from the subsystem API first
+MissionCampaignView missionCampaignView = ...;
+missionCampaignView.OnMissionScreenFinalize();
+```
 
 ### GetFaceAndHelmetInfoOfFollowedAgent
 `public static string GetFaceAndHelmetInfoOfFollowedAgent(List<string> strings)`
 
-**Purpose:** Gets the current value of `face and helmet info of followed agent`.
+**Purpose:** Reads and returns the `face and helmet info of followed agent` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionCampaignView.GetFaceAndHelmetInfoOfFollowedAgent(strings);
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCampaignView from the subsystem API first
+MissionCampaignView missionCampaignView = ...;
+missionCampaignView.EarlyStart();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionCampaignView();
+// Retrieve this view from the subsystem API or scene
+MissionCampaignView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

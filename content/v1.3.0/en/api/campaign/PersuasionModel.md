@@ -1,13 +1,7 @@
 ---
 title: "PersuasionModel"
+description: "Auto-generated class reference for PersuasionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,44 +23,87 @@ Treat `PersuasionModel` as a Model-style extension point: first identify who cre
 ### GetSkillXpFromPersuasion
 `public abstract int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
 
-**Purpose:** Gets the current value of `skill xp from persuasion`.
+**Purpose:** Reads and returns the `skill xp from persuasion` value held by the current object.
+
+```csharp
+// Obtain an instance of PersuasionModel from the subsystem API first
+PersuasionModel persuasionModel = ...;
+var result = persuasionModel.GetSkillXpFromPersuasion(difficulty, 0);
+```
 
 ### GetChances
 `public abstract void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)`
 
-**Purpose:** Gets the current value of `chances`.
+**Purpose:** Reads and returns the `chances` value held by the current object.
+
+```csharp
+// Obtain an instance of PersuasionModel from the subsystem API first
+PersuasionModel persuasionModel = ...;
+persuasionModel.GetChances(optionArgs, successChance, critSuccessChance, critFailChance, failChance, 0);
+```
 
 ### GetEffectChances
 `public abstract void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)`
 
-**Purpose:** Gets the current value of `effect chances`.
+**Purpose:** Reads and returns the `effect chances` value held by the current object.
+
+```csharp
+// Obtain an instance of PersuasionModel from the subsystem API first
+PersuasionModel persuasionModel = ...;
+persuasionModel.GetEffectChances(option, moveToNextStageChance, blockRandomOptionChance, 0);
+```
 
 ### GetArgumentStrengthBasedOnTargetTraits
 `public abstract PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelation)`
 
-**Purpose:** Gets the current value of `argument strength based on target traits`.
+**Purpose:** Reads and returns the `argument strength based on target traits` value held by the current object.
+
+```csharp
+// Obtain an instance of PersuasionModel from the subsystem API first
+PersuasionModel persuasionModel = ...;
+var result = persuasionModel.GetArgumentStrengthBasedOnTargetTraits(character, tuple<TraitObject, 0);
+```
 
 ### GetDifficulty
 `public abstract float GetDifficulty(PersuasionDifficulty difficulty)`
 
-**Purpose:** Gets the current value of `difficulty`.
+**Purpose:** Reads and returns the `difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of PersuasionModel from the subsystem API first
+PersuasionModel persuasionModel = ...;
+var result = persuasionModel.GetDifficulty(difficulty);
+```
 
 ### CalculateInitialPersuasionProgress
 `public abstract float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)`
 
-**Purpose:** Handles logic related to `calculate initial persuasion progress`.
+**Purpose:** Calculates the current value or result of `initial persuasion progress`.
+
+```csharp
+// Obtain an instance of PersuasionModel from the subsystem API first
+PersuasionModel persuasionModel = ...;
+var result = persuasionModel.CalculateInitialPersuasionProgress(character, 0, 0);
+```
 
 ### CalculatePersuasionGoalValue
 `public abstract float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)`
 
-**Purpose:** Handles logic related to `calculate persuasion goal value`.
+**Purpose:** Calculates the current value or result of `persuasion goal value`.
+
+```csharp
+// Obtain an instance of PersuasionModel from the subsystem API first
+PersuasionModel persuasionModel = ...;
+var result = persuasionModel.CalculatePersuasionGoalValue(oneToOneConversationCharacter, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPersuasionModel();
+// Typically obtained from a subsystem API or factory
+PersuasionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

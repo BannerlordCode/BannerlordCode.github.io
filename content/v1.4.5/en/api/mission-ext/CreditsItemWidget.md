@@ -1,20 +1,14 @@
 ---
 title: "CreditsItemWidget"
+description: "Auto-generated class reference for CreditsItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreditsItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreditsItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CreditsItemWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits/CreditsItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits/CreditsItemWidget.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Treat `CreditsItemWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new CreditsItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CreditsItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

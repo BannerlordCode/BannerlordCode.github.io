@@ -1,20 +1,14 @@
 ---
 title: "EndCaptivityLogEntry"
+description: "EndCaptivityLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EndCaptivityLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EndCaptivityLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EndCaptivityLogEntry : LogEntry, IEncyclopediaLog, IChatNotification`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/EndCaptivityLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/EndCaptivityLogEntry.cs`
 
 ## 概述
 
@@ -35,35 +29,66 @@ title: "EndCaptivityLogEntry"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 EndCaptivityLogEntry 实例
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+var result = endCaptivityLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** 获取 `encyclopedia text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EndCaptivityLogEntry 实例
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+var result = endCaptivityLogEntry.GetEncyclopediaText();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 获取 `notification text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EndCaptivityLogEntry 实例
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+var result = endCaptivityLogEntry.GetNotificationText();
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**用途 / Purpose:** 获取 `conversation score and comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation score and comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EndCaptivityLogEntry 实例
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+endCaptivityLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### IsValid
 `public override bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EndCaptivityLogEntry 实例
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+var result = endCaptivityLogEntry.IsValid();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EndCaptivityLogEntry();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+EndCaptivityLogEntry endCaptivityLogEntry = ...;
+endCaptivityLogEntry.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "GenericMissionEventScript"
+description: "Auto-generated class reference for GenericMissionEventScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericMissionEventScript`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericMissionEventScript
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new GenericMissionEventScript();
+// Obtain an instance from the relevant subsystem API
+GenericMissionEventScript instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

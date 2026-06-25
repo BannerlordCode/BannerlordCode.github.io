@@ -1,20 +1,14 @@
 ---
 title: "ScopedTimer"
+description: "Auto-generated class reference for ScopedTimer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScopedTimer`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScopedTimer
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class ScopedTimer : IDisposable`
 **Base:** `IDisposable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ScopedTimer.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ScopedTimer.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of ScopedTimer from the subsystem API first
+ScopedTimer scopedTimer = ...;
+scopedTimer.Dispose();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScopedTimer();
-value.Dispose();
+// Typically call this after obtaining an instance from the subsystem API
+ScopedTimer scopedTimer = ...;
+scopedTimer.Dispose();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

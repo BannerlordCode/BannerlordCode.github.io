@@ -1,20 +1,14 @@
 ---
 title: "SPScoreboardSkillItemVM"
+description: "Auto-generated class reference for SPScoreboardSkillItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPScoreboardSkillItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPScoreboardSkillItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPScoreboardSkillItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSkillItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSkillItemVM.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SPScoreboardSkillItemVM from the subsystem API first
+SPScoreboardSkillItemVM sPScoreboardSkillItemVM = ...;
+sPScoreboardSkillItemVM.RefreshValues();
+```
 
 ### UpdateSkill
 `public void UpdateSkill(int newValue)`
 
-**Purpose:** Updates the state or data of `skill`.
+**Purpose:** Recalculates and stores the latest representation of `skill`.
+
+```csharp
+// Obtain an instance of SPScoreboardSkillItemVM from the subsystem API first
+SPScoreboardSkillItemVM sPScoreboardSkillItemVM = ...;
+sPScoreboardSkillItemVM.UpdateSkill(0);
+```
 
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of SPScoreboardSkillItemVM from the subsystem API first
+SPScoreboardSkillItemVM sPScoreboardSkillItemVM = ...;
+var result = sPScoreboardSkillItemVM.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPScoreboardSkillItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SPScoreboardSkillItemVM sPScoreboardSkillItemVM = ...;
+sPScoreboardSkillItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplateNotificationsVM"
+description: "SettlementNameplateNotificationsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNameplateNotificationsVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateNotificationsVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
@@ -36,30 +30,55 @@ title: "SettlementNameplateNotificationsVM"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateNotificationsVM 实例
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+settlementNameplateNotificationsVM.Tick();
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateNotificationsVM 实例
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+settlementNameplateNotificationsVM.RegisterEvents();
+```
 
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**用途 / Purpose:** 处理 `unload events` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateNotificationsVM 实例
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+settlementNameplateNotificationsVM.UnloadEvents();
+```
 
 ### IsValidItemForNotification
 `public bool IsValidItemForNotification(ItemRosterElement item)`
 
-**用途 / Purpose:** 处理 `is valid item for notification` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid item for notification」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateNotificationsVM 实例
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+var result = settlementNameplateNotificationsVM.IsValidItemForNotification(item);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SettlementNameplateNotificationsVM();
-value.Tick();
+// 通常从对应子系统 API 获取实例后调用
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+settlementNameplateNotificationsVM.Tick();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

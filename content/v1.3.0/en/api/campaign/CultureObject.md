@@ -1,13 +1,7 @@
 ---
 title: "CultureObject"
+description: "Auto-generated class reference for CultureObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CultureObject`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CultureObject
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -127,40 +121,77 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### HasTrait
 `public bool HasTrait(CultureTrait trait)`
 
-**Purpose:** Checks whether the current object has/contains `trait`.
+**Purpose:** Determines whether the current object already holds `trait`.
+
+```csharp
+// Obtain an instance of CultureObject from the subsystem API first
+CultureObject cultureObject = ...;
+var result = cultureObject.HasTrait(trait);
+```
 
 ### HasFeat
 `public bool HasFeat(FeatObject feat)`
 
-**Purpose:** Checks whether the current object has/contains `feat`.
+**Purpose:** Determines whether the current object already holds `feat`.
+
+```csharp
+// Obtain an instance of CultureObject from the subsystem API first
+CultureObject cultureObject = ...;
+var result = cultureObject.HasFeat(feat);
+```
 
 ### GetCulturalFeats
 `public IEnumerable<FeatObject> GetCulturalFeats(Func<FeatObject, bool> predicate = null)`
 
-**Purpose:** Gets the current value of `cultural feats`.
+**Purpose:** Reads and returns the `cultural feats` value held by the current object.
+
+```csharp
+// Obtain an instance of CultureObject from the subsystem API first
+CultureObject cultureObject = ...;
+var result = cultureObject.GetCulturalFeats(func<FeatObject, false);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CultureObject from the subsystem API first
+CultureObject cultureObject = ...;
+var result = cultureObject.ToString();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of CultureObject from the subsystem API first
+CultureObject cultureObject = ...;
+cultureObject.Deserialize(objectManager, node);
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of CultureObject from the subsystem API first
+CultureObject cultureObject = ...;
+var result = cultureObject.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CultureObject();
-value.HasTrait(trait);
+// Typically call this after obtaining an instance from the subsystem API
+CultureObject cultureObject = ...;
+cultureObject.HasTrait(trait);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

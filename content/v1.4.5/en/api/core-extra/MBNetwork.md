@@ -1,20 +1,14 @@
 ---
 title: "MBNetwork"
+description: "Auto-generated class reference for MBNetwork."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBNetwork`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBNetwork
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBNetwork`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBNetwork.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBNetwork.cs`
 
 ## Overview
 
@@ -36,7 +30,12 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Initialize
 `public static void Initialize(INetworkCommunication networkCommunication)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+MBNetwork.Initialize(networkCommunication);
+```
 
 ## Usage Example
 
@@ -46,4 +45,4 @@ MBNetwork.Initialize(networkCommunication);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

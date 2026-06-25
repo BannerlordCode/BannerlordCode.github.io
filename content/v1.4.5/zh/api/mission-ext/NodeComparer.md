@@ -1,20 +1,14 @@
 ---
 title: "NodeComparer"
+description: "NodeComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NodeComparer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NodeComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NodeComparer : IComparer<ThumbnailCacheNode>`
 **Base:** `IComparer<ThumbnailCacheNode>`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/NodeComparer.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/NodeComparer.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "NodeComparer"
 ### Compare
 `public int Compare(ThumbnailCacheNode x, ThumbnailCacheNode y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 NodeComparer 实例
+NodeComparer nodeComparer = ...;
+var result = nodeComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NodeComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+NodeComparer nodeComparer = ...;
+nodeComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

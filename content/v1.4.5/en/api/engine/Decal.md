@@ -1,20 +1,14 @@
 ---
 title: "Decal"
+description: "Auto-generated class reference for Decal."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Decal`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Decal
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Decal : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Decal.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Decal.cs`
 
 ## Overview
 
@@ -35,77 +29,166 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateDecal
 `public static Decal CreateDecal(string name = null)`
 
-**Purpose:** Creates a new `decal` instance or object.
+**Purpose:** Constructs a new `decal` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Decal.CreateDecal("example");
+```
 
 ### CreateCopy
 `public Decal CreateCopy()`
 
-**Purpose:** Creates a new `copy` instance or object.
+**Purpose:** Constructs a new `copy` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+var result = decal.CreateCopy();
+```
 
 ### CheckAndRegisterToDecalSet
 `public void CheckAndRegisterToDecalSet()`
 
-**Purpose:** Handles logic related to `check and register to decal set`.
+**Purpose:** Verifies whether `and register to decal set` holds true for the current object.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.CheckAndRegisterToDecalSet();
+```
 
 ### SetIsVisible
 `public void SetIsVisible(bool value)`
 
-**Purpose:** Sets the value or state of `is visible`.
+**Purpose:** Assigns a new value to `is visible` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.SetIsVisible(false);
+```
 
 ### GetFactor1
 `public uint GetFactor1()`
 
-**Purpose:** Gets the current value of `factor1`.
+**Purpose:** Reads and returns the `factor1` value held by the current object.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+var result = decal.GetFactor1();
+```
 
 ### OverrideRoadBoundaryP0
 `public void OverrideRoadBoundaryP0(Vec2 data)`
 
-**Purpose:** Handles logic related to `override road boundary p0`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.OverrideRoadBoundaryP0(data);
+```
 
 ### OverrideRoadBoundaryP1
 `public void OverrideRoadBoundaryP1(Vec2 data)`
 
-**Purpose:** Handles logic related to `override road boundary p1`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.OverrideRoadBoundaryP1(data);
+```
 
 ### SetFactor1Linear
 `public void SetFactor1Linear(uint linearFactorColor1)`
 
-**Purpose:** Sets the value or state of `factor1 linear`.
+**Purpose:** Assigns a new value to `factor1 linear` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.SetFactor1Linear(0);
+```
 
 ### SetFactor1
 `public void SetFactor1(uint factorColor1)`
 
-**Purpose:** Sets the value or state of `factor1`.
+**Purpose:** Assigns a new value to `factor1` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.SetFactor1(0);
+```
 
 ### SetAlpha
 `public void SetAlpha(float alpha)`
 
-**Purpose:** Sets the value or state of `alpha`.
+**Purpose:** Assigns a new value to `alpha` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.SetAlpha(0);
+```
 
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** Sets the value or state of `vector argument`.
+**Purpose:** Assigns a new value to `vector argument` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.SetVectorArgument(0, 0, 0, 0);
+```
 
 ### SetVectorArgument2
 `public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** Sets the value or state of `vector argument2`.
+**Purpose:** Assigns a new value to `vector argument2` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.SetVectorArgument2(0, 0, 0, 0);
+```
 
 ### GetMaterial
 `public Material GetMaterial()`
 
-**Purpose:** Gets the current value of `material`.
+**Purpose:** Reads and returns the `material` value held by the current object.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+var result = decal.GetMaterial();
+```
 
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**Purpose:** Sets the value or state of `material`.
+**Purpose:** Assigns a new value to `material` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.SetMaterial(material);
+```
 
 ### SetFrame
 `public void SetFrame(MatrixFrame Frame)`
 
-**Purpose:** Sets the value or state of `frame`.
+**Purpose:** Assigns a new value to `frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Decal from the subsystem API first
+Decal decal = ...;
+decal.SetFrame(frame);
+```
 
 ## Usage Example
 
@@ -115,4 +198,4 @@ Decal.CreateDecal("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

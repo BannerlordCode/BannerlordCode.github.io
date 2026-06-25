@@ -1,13 +1,7 @@
 ---
 title: "TradeAgreementLogEntry"
+description: "Auto-generated class reference for TradeAgreementLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeAgreementLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TradeAgreementLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementLogEntry from the subsystem API first
+TradeAgreementLogEntry tradeAgreementLogEntry = ...;
+var result = tradeAgreementLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementLogEntry from the subsystem API first
+TradeAgreementLogEntry tradeAgreementLogEntry = ...;
+var result = tradeAgreementLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TradeAgreementLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+TradeAgreementLogEntry tradeAgreementLogEntry = ...;
+tradeAgreementLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

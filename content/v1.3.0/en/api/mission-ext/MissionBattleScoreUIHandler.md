@@ -1,13 +1,7 @@
 ---
 title: "MissionBattleScoreUIHandler"
+description: "Auto-generated class reference for MissionBattleScoreUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBattleScoreUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBattleScoreUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -27,9 +21,9 @@ Treat `MissionBattleScoreUIHandler` as a Handler-style extension point: first id
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBattleScoreUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionBattleScoreUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

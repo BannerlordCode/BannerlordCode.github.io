@@ -1,13 +1,7 @@
 ---
 title: "VertexAnimatorRecord"
+description: "Auto-generated class reference for VertexAnimatorRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VertexAnimatorRecord`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VertexAnimatorRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of VertexAnimatorRecord from the subsystem API first
+VertexAnimatorRecord vertexAnimatorRecord = ...;
+var result = vertexAnimatorRecord.ReadFromNetwork(bufferReadValid);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VertexAnimatorRecord();
-value.ReadFromNetwork(bufferReadValid);
+// Typically call this after obtaining an instance from the subsystem API
+VertexAnimatorRecord vertexAnimatorRecord = ...;
+vertexAnimatorRecord.ReadFromNetwork(bufferReadValid);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

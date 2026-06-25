@@ -1,13 +1,7 @@
 ---
 title: "ProposeCallToWarAgreementDecisionItemVM"
+description: "Auto-generated class reference for ProposeCallToWarAgreementDecisionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProposeCallToWarAgreementDecisionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProposeCallToWarAgreementDecisionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
@@ -41,9 +35,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var example = new ProposeCallToWarAgreementDecisionItemVM();
+// Obtain an instance from the relevant subsystem API
+ProposeCallToWarAgreementDecisionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

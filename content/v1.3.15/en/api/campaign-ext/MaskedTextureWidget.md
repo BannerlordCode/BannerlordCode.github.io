@@ -1,13 +1,7 @@
 ---
 title: "MaskedTextureWidget"
+description: "Auto-generated class reference for MaskedTextureWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MaskedTextureWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MaskedTextureWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -38,14 +32,21 @@ Treat `MaskedTextureWidget` as a Widget-style extension point: first identify wh
 ### OnClearTextureProvider
 `public override void OnClearTextureProvider()`
 
-**Purpose:** Called when the `clear texture provider` event is raised.
+**Purpose:** Invoked when the `clear texture provider` event is raised.
+
+```csharp
+// Obtain an instance of MaskedTextureWidget from the subsystem API first
+MaskedTextureWidget maskedTextureWidget = ...;
+maskedTextureWidget.OnClearTextureProvider();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MaskedTextureWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MaskedTextureWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

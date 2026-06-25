@@ -1,24 +1,18 @@
 ---
 title: "TradeAgreementDecisionOutcome"
+description: "Auto-generated class reference for TradeAgreementDecisionOutcome."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeAgreementDecisionOutcome`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TradeAgreementDecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TradeAgreementDecisionOutcome : DecisionOutcome`
 **Base:** `DecisionOutcome`
-**Area:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/Election/TradeAgreementDecision.cs`
 
 ## Overview
 
-`TradeAgreementDecisionOutcome` lives in `TaleWorlds.CampaignSystem.Election`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TradeAgreementDecisionOutcome` lives in `TaleWorlds.CampaignSystem.Election` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -26,115 +20,58 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 
 ## Key Methods
 
-### OnShowDecision
-`public override bool OnShowDecision()`
+### GetDecisionDescription
+`public override TextObject GetDecisionDescription()`
 
-**Purpose:** Called when the `show decision` event is raised.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
 
-### ApplyChosenOutcome
-`public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
+```csharp
+// Obtain an instance of TradeAgreementDecisionOutcome from the subsystem API first
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionDescription();
+```
 
-**Purpose:** Applies `chosen outcome` to the current object.
+### GetDecisionImageIdentifier
+`public override ImageIdentifier GetDecisionImageIdentifier()`
 
-### ApplySecondaryEffects
-`public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
 
-**Purpose:** Applies `secondary effects` to the current object.
+```csharp
+// Obtain an instance of TradeAgreementDecisionOutcome from the subsystem API first
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionImageIdentifier();
+```
 
-### GetProposerClanForPlayerKingdom
-`public static Clan GetProposerClanForPlayerKingdom(Kingdom target)`
+### GetDecisionLink
+`public override string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `proposer clan for player kingdom`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
 
-### DetermineChooser
-`public override Clan DetermineChooser()`
+```csharp
+// Obtain an instance of TradeAgreementDecisionOutcome from the subsystem API first
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionLink();
+```
 
-**Purpose:** Handles logic related to `determine chooser`.
+### GetDecisionTitle
+`public override TextObject GetDecisionTitle()`
 
-### DetermineInitialCandidates
-`public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
+**Purpose:** Reads and returns the `decision title` value held by the current object.
 
-**Purpose:** Handles logic related to `determine initial candidates`.
-
-### DetermineSponsors
-`public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
-
-**Purpose:** Handles logic related to `determine sponsors`.
-
-### DetermineSupport
-`public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
-
-**Purpose:** Handles logic related to `determine support`.
-
-### GetChooseDescription
-`public override TextObject GetChooseDescription()`
-
-**Purpose:** Gets the current value of `choose description`.
-
-### GetChooseTitle
-`public override TextObject GetChooseTitle()`
-
-**Purpose:** Gets the current value of `choose title`.
-
-### GetChosenOutcomeText
-`public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
-
-**Purpose:** Gets the current value of `chosen outcome text`.
-
-### GetGeneralTitle
-`public override TextObject GetGeneralTitle()`
-
-**Purpose:** Gets the current value of `general title`.
-
-### GetProposalInfluenceCost
-`public override int GetProposalInfluenceCost()`
-
-**Purpose:** Gets the current value of `proposal influence cost`.
-
-### CanMakeDecision
-`public override bool CanMakeDecision(out TextObject reason, bool includeReason = false)`
-
-**Purpose:** Checks whether the current object can `make decision`.
-
-### CalculateSupport
-`public float CalculateSupport(Clan clan)`
-
-**Purpose:** Handles logic related to `calculate support`.
-
-### GetQueriedDecisionOutcome
-`public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
-
-**Purpose:** Gets the current value of `queried decision outcome`.
-
-### GetSecondaryEffects
-`public override TextObject GetSecondaryEffects()`
-
-**Purpose:** Gets the current value of `secondary effects`.
-
-### GetSupportDescription
-`public override TextObject GetSupportDescription()`
-
-**Purpose:** Gets the current value of `support description`.
-
-### GetSupportTitle
-`public override TextObject GetSupportTitle()`
-
-**Purpose:** Gets the current value of `support title`.
-
-### IsAllowed
-`public override bool IsAllowed()`
-
-**Purpose:** Handles logic related to `is allowed`.
+```csharp
+// Obtain an instance of TradeAgreementDecisionOutcome from the subsystem API first
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionTitle();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a TradeAgreementDecisionOutcome instance from game state, then call one of its public methods
-var value = new TradeAgreementDecisionOutcome();
-value.OnShowDecision();
+// Typically call this after obtaining an instance from the subsystem API
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+tradeAgreementDecisionOutcome.GetDecisionDescription();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

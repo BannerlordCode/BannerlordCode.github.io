@@ -1,20 +1,14 @@
 ---
 title: "AlphaFormatFlags"
+description: "Auto-generated class reference for AlphaFormatFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlphaFormatFlags`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlphaFormatFlags
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/AlphaFormatFlags.cs`
+**Type:** `public enum AlphaFormatFlags : byte`
+**Base:** `byte`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/AlphaFormatFlags.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ## Usage Example
 
 ```csharp
-var example = new AlphaFormatFlags();
+// Obtain an instance from the relevant subsystem API
+AlphaFormatFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

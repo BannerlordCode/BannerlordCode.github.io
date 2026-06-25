@@ -1,18 +1,8 @@
 ---
 title: "DisbandArmyAction"
+description: "DisbandArmyAction 的自动生成战役动作参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DisbandArmyAction`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DisbandArmyAction
-
-## 心智模型
-
-先把 `DisbandArmyAction` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -128,5 +118,5 @@ DisbandArmyAction.ApplyByReleasedByPlayerAfterBattle(army);
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [战役系统目录](../catalog-campaign)
+- [本区域目录](../)
+- [战役系统](../campaign/)

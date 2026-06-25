@@ -1,20 +1,14 @@
 ---
 title: "BuildingHelper"
+description: "Auto-generated class reference for BuildingHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class BuildingHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/BuildingHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/BuildingHelper.cs`
 
 ## Overview
 
@@ -29,37 +23,72 @@ Treat `BuildingHelper` as a Helper-style extension point: first identify who cre
 ### CheckIfBuildingIsComplete
 `public static void CheckIfBuildingIsComplete(Building building)`
 
-**Purpose:** Handles logic related to `check if building is complete`.
+**Purpose:** Verifies whether `if building is complete` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+BuildingHelper.CheckIfBuildingIsComplete(building);
+```
 
 ### ChangeDefaultBuilding
 `public static void ChangeDefaultBuilding(Building newDefault, Town town)`
 
-**Purpose:** Handles logic related to `change default building`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BuildingHelper.ChangeDefaultBuilding(newDefault, town);
+```
 
 ### ChangeCurrentBuildingQueue
 `public static void ChangeCurrentBuildingQueue(List<Building> buildings, Town town)`
 
-**Purpose:** Handles logic related to `change current building queue`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BuildingHelper.ChangeCurrentBuildingQueue(buildings, town);
+```
 
 ### GetProgressOfBuilding
 `public static float GetProgressOfBuilding(Building building, Town town)`
 
-**Purpose:** Gets the current value of `progress of building`.
+**Purpose:** Reads and returns the `progress of building` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BuildingHelper.GetProgressOfBuilding(building, town);
+```
 
 ### GetDaysToComplete
 `public static int GetDaysToComplete(Building building, Town town)`
 
-**Purpose:** Gets the current value of `days to complete`.
+**Purpose:** Reads and returns the `days to complete` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BuildingHelper.GetDaysToComplete(building, town);
+```
 
 ### GetTierOfBuilding
 `public static int GetTierOfBuilding(BuildingType buildingType, Town town)`
 
-**Purpose:** Gets the current value of `tier of building`.
+**Purpose:** Reads and returns the `tier of building` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BuildingHelper.GetTierOfBuilding(buildingType, town);
+```
 
 ### BoostBuildingProcessWithGold
 `public static void BoostBuildingProcessWithGold(int gold, Town town)`
 
-**Purpose:** Handles logic related to `boost building process with gold`.
+**Purpose:** Increases the value or strength of `building process with gold`.
+
+```csharp
+// Static call; no instance required
+BuildingHelper.BoostBuildingProcessWithGold(0, town);
+```
 
 ## Usage Example
 
@@ -69,4 +98,4 @@ BuildingHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

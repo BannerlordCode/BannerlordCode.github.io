@@ -1,13 +1,7 @@
 ---
 title: "DefeatTheConspiracyQuestBehavior"
+description: "Auto-generated class reference for DefeatTheConspiracyQuestBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefeatTheConspiracyQuestBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefeatTheConspiracyQuestBehavior
 
 **Namespace:** StoryMode.Quests.ThirdPhase
@@ -35,30 +29,55 @@ Start from namespace `StoryMode.Quests.ThirdPhase` to place it in the stack, the
 ### IsMobilePartyCreatedForQuest
 `public bool IsMobilePartyCreatedForQuest(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `is mobile party created for quest`.
+**Purpose:** Determines whether the current object is in the `mobile party created for quest` state or condition.
+
+```csharp
+// Obtain an instance of DefeatTheConspiracyQuestBehavior from the subsystem API first
+DefeatTheConspiracyQuestBehavior defeatTheConspiracyQuestBehavior = ...;
+var result = defeatTheConspiracyQuestBehavior.IsMobilePartyCreatedForQuest(mobileParty);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of DefeatTheConspiracyQuestBehavior from the subsystem API first
+DefeatTheConspiracyQuestBehavior defeatTheConspiracyQuestBehavior = ...;
+defeatTheConspiracyQuestBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of DefeatTheConspiracyQuestBehavior from the subsystem API first
+DefeatTheConspiracyQuestBehavior defeatTheConspiracyQuestBehavior = ...;
+defeatTheConspiracyQuestBehavior.SyncData(dataStore);
+```
 
 ### CalculateReinforcedWarScore
 `public void CalculateReinforcedWarScore()`
 
-**Purpose:** Handles logic related to `calculate reinforced war score`.
+**Purpose:** Calculates the current value or result of `reinforced war score`.
+
+```csharp
+// Obtain an instance of DefeatTheConspiracyQuestBehavior from the subsystem API first
+DefeatTheConspiracyQuestBehavior defeatTheConspiracyQuestBehavior = ...;
+defeatTheConspiracyQuestBehavior.CalculateReinforcedWarScore();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefeatTheConspiracyQuestBehavior();
-value.IsMobilePartyCreatedForQuest(mobileParty);
+// Typically call this after obtaining an instance from the subsystem API
+DefeatTheConspiracyQuestBehavior defeatTheConspiracyQuestBehavior = ...;
+defeatTheConspiracyQuestBehavior.IsMobilePartyCreatedForQuest(mobileParty);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

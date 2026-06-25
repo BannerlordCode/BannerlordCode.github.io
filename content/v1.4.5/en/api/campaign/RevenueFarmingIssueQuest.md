@@ -1,20 +1,14 @@
 ---
 title: "RevenueFarmingIssueQuest"
+description: "Auto-generated class reference for RevenueFarmingIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RevenueFarmingIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RevenueFarmingIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RevenueFarmingIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**Purpose:** Handles logic related to `revenues are delivered to steward`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssueQuest from the subsystem API first
+RevenueFarmingIssueQuest revenueFarmingIssueQuest = ...;
+revenueFarmingIssueQuest.RevenuesAreDeliveredToSteward();
+```
 
 ### FindCurrentRevenueVillage
 `public RevenueVillage FindCurrentRevenueVillage()`
 
-**Purpose:** Handles logic related to `find current revenue village`.
+**Purpose:** Looks up the matching `current revenue village` in the current collection or scope.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssueQuest from the subsystem API first
+RevenueFarmingIssueQuest revenueFarmingIssueQuest = ...;
+var result = revenueFarmingIssueQuest.FindCurrentRevenueVillage();
+```
 
 ### SetVillageAsCompleted
 `public void SetVillageAsCompleted(RevenueVillage village, bool addLog = true)`
 
-**Purpose:** Sets the value or state of `village as completed`.
+**Purpose:** Assigns a new value to `village as completed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RevenueFarmingIssueQuest from the subsystem API first
+RevenueFarmingIssueQuest revenueFarmingIssueQuest = ...;
+revenueFarmingIssueQuest.SetVillageAsCompleted(village, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RevenueFarmingIssueQuest();
-value.RevenuesAreDeliveredToSteward();
+// Typically call this after obtaining an instance from the subsystem API
+RevenueFarmingIssueQuest revenueFarmingIssueQuest = ...;
+revenueFarmingIssueQuest.RevenuesAreDeliveredToSteward();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GenericXpModel"
+description: "GenericXpModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenericXpModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericXpModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class GenericXpModel : MBGameModel<GenericXpModel>`
 **Base:** `MBGameModel<GenericXpModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/GenericXpModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/GenericXpModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "GenericXpModel"
 ### GetXpMultiplier
 `public abstract float GetXpMultiplier(Hero hero)`
 
-**用途 / Purpose:** 获取 `xp multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GenericXpModel 实例
+GenericXpModel genericXpModel = ...;
+var result = genericXpModel.GetXpMultiplier(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGenericXpModel();
+// 通常通过子系统 API 或工厂获得派生实例
+GenericXpModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

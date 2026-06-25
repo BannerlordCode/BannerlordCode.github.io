@@ -1,13 +1,7 @@
 ---
 title: "ThumbnailRenderRequest"
+description: "ThumbnailRenderRequest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ThumbnailRenderRequest`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThumbnailRenderRequest
 
 **Namespace:** TaleWorlds.Engine
@@ -29,22 +23,42 @@ title: "ThumbnailRenderRequest"
 ### CreateWithTexture
 `public static ThumbnailRenderRequest CreateWithTexture(Scene scene, Camera camera, Texture texture, GameEntity entity, string renderId, int allocationGroupIndex)`
 
-**用途 / Purpose:** 创建一个 `with texture` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「with texture」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailRenderRequest.CreateWithTexture(scene, camera, texture, entity, "example", 0);
+```
 
 ### CreateWithoutTexture
 `public static ThumbnailRenderRequest CreateWithoutTexture(Scene scene, Camera camera, GameEntity entity, string renderId, int width, int height, string debugName, int allocationGroupIndex)`
 
-**用途 / Purpose:** 创建一个 `without texture` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「without texture」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailRenderRequest.CreateWithoutTexture(scene, camera, entity, "example", 0, 0, "example", 0);
+```
 
 ### CreateForCachedEntity
 `public static ThumbnailRenderRequest CreateForCachedEntity(Scene scene, Camera camera, Texture texture, string cachedEntityId, string renderId, int allocationGroupIndex)`
 
-**用途 / Purpose:** 创建一个 `for cached entity` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「for cached entity」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailRenderRequest.CreateForCachedEntity(scene, camera, texture, "example", "example", 0);
+```
 
 ### CreateForCachedEntityWithoutTexture
 `public static ThumbnailRenderRequest CreateForCachedEntityWithoutTexture(Scene scene, Camera camera, string cachedEntityId, string renderId, int width, int height, string debugName, int allocationGroupIndex)`
 
-**用途 / Purpose:** 创建一个 `for cached entity without texture` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「for cached entity without texture」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailRenderRequest.CreateForCachedEntityWithoutTexture(scene, camera, "example", "example", 0, 0, "example", 0);
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ ThumbnailRenderRequest.CreateWithTexture(scene, camera, texture, entity, "exampl
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

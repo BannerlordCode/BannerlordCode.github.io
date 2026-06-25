@@ -1,23 +1,18 @@
 ---
 title: "CampaignMapConversation"
+description: "Auto-generated class reference for CampaignMapConversation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignMapConversation`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignMapConversation
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class CampaignMapConversation`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Conversation/CampaignMapConversation.cs`
 
 ## Overview
 
-`CampaignMapConversation` lives in `TaleWorlds.CampaignSystem.Conversation`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CampaignMapConversation` lives in `TaleWorlds.CampaignSystem.Conversation` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ### OpenConversation
 `public static void OpenConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**Purpose:** Handles logic related to `open conversation`.
+**Purpose:** Opens the resource or UI associated with `conversation`.
+
+```csharp
+// Static call; no instance required
+CampaignMapConversation.OpenConversation(playerCharacterData, conversationPartnerData);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CampaignMapConversation.OpenConversation(playerCharacterData, conversationPartnerData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

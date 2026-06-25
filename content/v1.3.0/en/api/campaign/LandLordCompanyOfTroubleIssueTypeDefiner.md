@@ -1,13 +1,7 @@
 ---
 title: "LandLordCompanyOfTroubleIssueTypeDefiner"
+description: "Auto-generated class reference for LandLordCompanyOfTroubleIssueTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LandLordCompanyOfTroubleIssueTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LandLordCompanyOfTroubleIssueTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new LandLordCompanyOfTroubleIssueTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+LandLordCompanyOfTroubleIssueTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

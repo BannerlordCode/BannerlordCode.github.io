@@ -1,13 +1,7 @@
 ---
 title: "DeploymentSiegeMachineVM"
+description: "DeploymentSiegeMachineVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DeploymentSiegeMachineVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DeploymentSiegeMachineVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -44,50 +38,99 @@ title: "DeploymentSiegeMachineVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.RefreshValues();
+```
 
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.Update();
+```
 
 ### CalculatePosition
 `public void CalculatePosition()`
 
-**用途 / Purpose:** 处理 `calculate position` 相关逻辑。
+**用途 / Purpose:** 计算「position」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.CalculatePosition();
+```
 
 ### RefreshPosition
 `public void RefreshPosition()`
 
-**用途 / Purpose:** 刷新 `position` 的显示或缓存。
+**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.RefreshPosition();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.ExecuteAction();
+```
 
 ### ExecuteFocusBegin
 `public void ExecuteFocusBegin()`
 
-**用途 / Purpose:** 执行 `focus begin` 操作或流程。
+**用途 / Purpose:** 执行 「focus begin」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.ExecuteFocusBegin();
+```
 
 ### ExecuteFocusEnd
 `public void ExecuteFocusEnd()`
 
-**用途 / Purpose:** 执行 `focus end` 操作或流程。
+**用途 / Purpose:** 执行 「focus end」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.ExecuteFocusEnd();
+```
 
 ### RefreshWithDeployedWeapon
 `public void RefreshWithDeployedWeapon()`
 
-**用途 / Purpose:** 刷新 `with deployed weapon` 的显示或缓存。
+**用途 / Purpose:** 使 「with deployed weapon」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentSiegeMachineVM 实例
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.RefreshWithDeployedWeapon();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DeploymentSiegeMachineVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

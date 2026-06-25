@@ -1,20 +1,14 @@
 ---
 title: "GroupSpawnPoint"
+description: "Auto-generated class reference for GroupSpawnPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GroupSpawnPoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GroupSpawnPoint
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class GroupSpawnPoint : UsablePlace`
 **Base:** `UsablePlace`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/GroupSpawnPoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/GroupSpawnPoint.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new GroupSpawnPoint();
+// Obtain an instance from the relevant subsystem API
+GroupSpawnPoint instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

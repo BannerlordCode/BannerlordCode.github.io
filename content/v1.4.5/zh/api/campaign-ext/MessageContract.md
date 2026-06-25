@@ -1,20 +1,14 @@
 ---
 title: "MessageContract"
+description: "MessageContract 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageContract`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageContract
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class MessageContract`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/MessageContract.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageContract.cs`
 
 ## 概述
 
@@ -29,24 +23,42 @@ title: "MessageContract"
 ### CreateMessageContract
 `public static MessageContract CreateMessageContract(Type messageContractType)`
 
-**用途 / Purpose:** 创建一个 `message contract` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「message contract」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MessageContract.CreateMessageContract(messageContractType);
+```
 
 ### SerializeToNetworkMessage
 `public abstract void SerializeToNetworkMessage(INetworkMessageWriter networkMessage)`
 
-**用途 / Purpose:** 处理 `serialize to network message` 相关逻辑。
+**用途 / Purpose:** 将「to network message」序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 MessageContract 实例
+MessageContract messageContract = ...;
+messageContract.SerializeToNetworkMessage(networkMessage);
+```
 
 ### DeserializeFromNetworkMessage
 `public abstract void DeserializeFromNetworkMessage(INetworkMessageReader networkMessage)`
 
-**用途 / Purpose:** 处理 `deserialize from network message` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原出「from network message」。
+
+```csharp
+// 先通过子系统 API 拿到 MessageContract 实例
+MessageContract messageContract = ...;
+messageContract.DeserializeFromNetworkMessage(networkMessage);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMessageContract();
+// 通常通过子系统 API 或工厂获得派生实例
+MessageContract instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

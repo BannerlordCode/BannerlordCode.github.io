@@ -1,20 +1,14 @@
 ---
 title: "TileBase"
+description: "TileBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TileBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TileBase
 
 **Namespace:** SandBox.BoardGames.Tiles
 **Module:** SandBox.BoardGames
 **Type:** `public abstract class TileBase`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/TileBase.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/TileBase.cs`
 
 ## 概述
 
@@ -36,24 +30,43 @@ title: "TileBase"
 ### Reset
 `public virtual void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 TileBase 实例
+TileBase tileBase = ...;
+tileBase.Reset();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TileBase 实例
+TileBase tileBase = ...;
+tileBase.Tick(0);
+```
 
 ### SetVisibility
 `public void SetVisibility(bool isVisible)`
 
-**用途 / Purpose:** 设置 `visibility` 的值或状态。
+**用途 / Purpose:** 为 「visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TileBase 实例
+TileBase tileBase = ...;
+tileBase.SetVisibility(false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTileBase();
+// 通常通过子系统 API 或工厂获得派生实例
+TileBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

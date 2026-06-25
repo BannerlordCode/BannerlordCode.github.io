@@ -1,20 +1,14 @@
 ---
 title: "ReloadBarHeightAdjustmentWidget"
+description: "Auto-generated class reference for ReloadBarHeightAdjustmentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReloadBarHeightAdjustmentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReloadBarHeightAdjustmentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReloadBarHeightAdjustmentWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/ReloadBarHeightAdjustmentWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/ReloadBarHeightAdjustmentWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `ReloadBarHeightAdjustmentWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new ReloadBarHeightAdjustmentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ReloadBarHeightAdjustmentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

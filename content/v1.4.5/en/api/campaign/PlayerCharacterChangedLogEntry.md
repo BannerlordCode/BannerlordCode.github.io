@@ -1,20 +1,14 @@
 ---
 title: "PlayerCharacterChangedLogEntry"
+description: "Auto-generated class reference for PlayerCharacterChangedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerCharacterChangedLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerCharacterChangedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerCharacterChangedLogEntry : LogEntry`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/PlayerCharacterChangedLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/PlayerCharacterChangedLogEntry.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ## Usage Example
 
 ```csharp
-var example = new PlayerCharacterChangedLogEntry();
+// Obtain an instance from the relevant subsystem API
+PlayerCharacterChangedLogEntry instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

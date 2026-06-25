@@ -1,13 +1,7 @@
 ---
 title: "MBTestRun"
+description: "MBTestRun 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBTestRun`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTestRun
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,47 +23,92 @@ title: "MBTestRun"
 ### EnterEditMode
 `public static bool EnterEditMode()`
 
-**用途 / Purpose:** 处理 `enter edit mode` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.EnterEditMode();
+```
 
 ### NewScene
 `public static bool NewScene()`
 
-**用途 / Purpose:** 处理 `new scene` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.NewScene();
+```
 
 ### LeaveEditMode
 `public static bool LeaveEditMode()`
 
-**用途 / Purpose:** 处理 `leave edit mode` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.LeaveEditMode();
+```
 
 ### OpenScene
 `public static bool OpenScene(string sceneName)`
 
-**用途 / Purpose:** 处理 `open scene` 相关逻辑。
+**用途 / Purpose:** 打开「scene」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.OpenScene("example");
+```
 
 ### CloseScene
 `public static bool CloseScene()`
 
-**用途 / Purpose:** 处理 `close scene` 相关逻辑。
+**用途 / Purpose:** 关闭「scene」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.CloseScene();
+```
 
 ### SaveScene
 `public static bool SaveScene()`
 
-**用途 / Purpose:** 保存 `scene` 数据。
+**用途 / Purpose:** 将 「scene」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.SaveScene();
+```
 
 ### OpenDefaultScene
 `public static bool OpenDefaultScene()`
 
-**用途 / Purpose:** 处理 `open default scene` 相关逻辑。
+**用途 / Purpose:** 打开「default scene」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.OpenDefaultScene();
+```
 
 ### GetFPS
 `public static int GetFPS()`
 
-**用途 / Purpose:** 获取 `f p s` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「f p s」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.GetFPS();
+```
 
 ### StartMission
 `public static void StartMission()`
 
-**用途 / Purpose:** 处理 `start mission` 相关逻辑。
+**用途 / Purpose:** 启动「mission」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+MBTestRun.StartMission();
+```
 
 ## 使用示例
 
@@ -79,4 +118,4 @@ MBTestRun.EnterEditMode();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MatchmakingQueueStats"
+description: "MatchmakingQueueStats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MatchmakingQueueStats`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatchmakingQueueStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingQueueStats`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueStats.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueStats.cs`
 
 ## 概述
 
@@ -37,30 +31,55 @@ title: "MatchmakingQueueStats"
 ### AddRegionStats
 `public void AddRegionStats(MatchmakingQueueRegionStats matchmakingQueueRegionStats)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `region stats`。
+**用途 / Purpose:** 将 「region stats」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueStats 实例
+MatchmakingQueueStats matchmakingQueueStats = ...;
+matchmakingQueueStats.AddRegionStats(matchmakingQueueRegionStats);
+```
 
 ### GetRegionStats
 `public MatchmakingQueueRegionStats GetRegionStats(string region)`
 
-**用途 / Purpose:** 获取 `region stats` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「region stats」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueStats 实例
+MatchmakingQueueStats matchmakingQueueStats = ...;
+var result = matchmakingQueueStats.GetRegionStats("example");
+```
 
 ### GetQueueCountOf
 `public int GetQueueCountOf(string region, string gameTypes)`
 
-**用途 / Purpose:** 获取 `queue count of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「queue count of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueStats 实例
+MatchmakingQueueStats matchmakingQueueStats = ...;
+var result = matchmakingQueueStats.GetQueueCountOf("example", "example");
+```
 
 ### GetRegionNames
 `public string GetRegionNames()`
 
-**用途 / Purpose:** 获取 `region names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「region names」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueStats 实例
+MatchmakingQueueStats matchmakingQueueStats = ...;
+var result = matchmakingQueueStats.GetRegionNames();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MatchmakingQueueStats();
-value.AddRegionStats(matchmakingQueueRegionStats);
+// 通常从对应子系统 API 获取实例后调用
+MatchmakingQueueStats matchmakingQueueStats = ...;
+matchmakingQueueStats.AddRegionStats(matchmakingQueueRegionStats);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

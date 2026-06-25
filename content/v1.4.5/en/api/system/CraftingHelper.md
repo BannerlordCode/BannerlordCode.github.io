@@ -1,20 +1,14 @@
 ---
 title: "CraftingHelper"
+description: "Auto-generated class reference for CraftingHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class CraftingHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/CraftingHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/CraftingHelper.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Treat `CraftingHelper` as a Helper-style extension point: first identify who cre
 ### GetAvailableHeroesForCrafting
 `public static IEnumerable<Hero> GetAvailableHeroesForCrafting()`
 
-**Purpose:** Gets the current value of `available heroes for crafting`.
+**Purpose:** Reads and returns the `available heroes for crafting` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CraftingHelper.GetAvailableHeroesForCrafting();
+```
 
 ### ChangeCurrentCraftingTemplate
 `public static void ChangeCurrentCraftingTemplate(CraftingTemplate craftingTemplate)`
 
-**Purpose:** Handles logic related to `change current crafting template`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CraftingHelper.ChangeCurrentCraftingTemplate(craftingTemplate);
+```
 
 ### OpenCrafting
 `public static void OpenCrafting(CraftingTemplate craftingTemplate, CraftingState oldState = null)`
 
-**Purpose:** Handles logic related to `open crafting`.
+**Purpose:** Opens the resource or UI associated with `crafting`.
+
+```csharp
+// Static call; no instance required
+CraftingHelper.OpenCrafting(craftingTemplate, null);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ CraftingHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

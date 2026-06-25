@@ -1,13 +1,7 @@
 ---
 title: "SmeltingVM"
+description: "Auto-generated class reference for SmeltingVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SmeltingVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SmeltingVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting
@@ -41,30 +35,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SmeltingVM from the subsystem API first
+SmeltingVM smeltingVM = ...;
+smeltingVM.RefreshValues();
+```
 
 ### RefreshList
 `public void RefreshList()`
 
-**Purpose:** Refreshes the display or cache of `list`.
+**Purpose:** Keeps the display or cache of `list` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SmeltingVM from the subsystem API first
+SmeltingVM smeltingVM = ...;
+smeltingVM.RefreshList();
+```
 
 ### TrySmeltingSelectedItems
 `public void TrySmeltingSelectedItems(Hero currentCraftingHero)`
 
-**Purpose:** Attempts to get `smelting selected items`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `smelting selected items`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of SmeltingVM from the subsystem API first
+SmeltingVM smeltingVM = ...;
+smeltingVM.TrySmeltingSelectedItems(currentCraftingHero);
+```
 
 ### SaveItemLockStates
 `public void SaveItemLockStates()`
 
-**Purpose:** Saves `item lock states` data.
+**Purpose:** Writes `item lock states` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SmeltingVM from the subsystem API first
+SmeltingVM smeltingVM = ...;
+smeltingVM.SaveItemLockStates();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SmeltingVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SmeltingVM smeltingVM = ...;
+smeltingVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

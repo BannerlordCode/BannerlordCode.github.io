@@ -1,20 +1,14 @@
 ---
 title: "ScrollablePanel"
+description: "Auto-generated class reference for ScrollablePanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScrollablePanel`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScrollablePanel
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ScrollablePanel : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ScrollablePanel.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ScrollablePanel.cs`
 
 ## Overview
 
@@ -46,55 +40,110 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### SetControlledScrollbar
 `public void SetControlledScrollbar(ScrollbarWidget scrollbar)`
 
-**Purpose:** Sets the value or state of `controlled scrollbar`.
+**Purpose:** Assigns a new value to `controlled scrollbar` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.SetControlledScrollbar(scrollbar);
+```
 
 ### StartInterpolation
 `public void StartInterpolation(float targetValue, float duration)`
 
-**Purpose:** Handles logic related to `start interpolation`.
+**Purpose:** Starts the `interpolation` flow or state machine.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.StartInterpolation(0, 0);
+```
 
 ### StopInterpolation
 `public void StopInterpolation()`
 
-**Purpose:** Handles logic related to `stop interpolation`.
+**Purpose:** Stops the `interpolation` flow or state machine.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.StopInterpolation();
+```
 
 ### GetValue
 `public float GetValue()`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+var result = scrollablePanel.GetValue();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.Tick(0);
+```
 
 ### ResetTweenSpeed
 `public void ResetTweenSpeed()`
 
-**Purpose:** Resets `tween speed` to its initial state.
+**Purpose:** Returns `tween speed` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.ResetTweenSpeed();
+```
 
 ### ScrollToChild
 `public void ScrollToChild(Widget targetWidget, AutoScrollParameters scrollParameters = null)`
 
-**Purpose:** Handles logic related to `scroll to child`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.ScrollToChild(targetWidget, null);
+```
 
 ### SetVerticalScrollTarget
 `public void SetVerticalScrollTarget(float targetValue, float interpolationDuration)`
 
-**Purpose:** Sets the value or state of `vertical scroll target`.
+**Purpose:** Assigns a new value to `vertical scroll target` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.SetVerticalScrollTarget(0, 0);
+```
 
 ### SetHorizontalScrollTarget
 `public void SetHorizontalScrollTarget(float targetValue, float interpolationDuration)`
 
-**Purpose:** Sets the value or state of `horizontal scroll target`.
+**Purpose:** Assigns a new value to `horizontal scroll target` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScrollablePanel from the subsystem API first
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.SetHorizontalScrollTarget(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScrollablePanel();
-value.SetControlledScrollbar(scrollbar);
+// Typically call this after obtaining an instance from the subsystem API
+ScrollablePanel scrollablePanel = ...;
+scrollablePanel.SetControlledScrollbar(scrollbar);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

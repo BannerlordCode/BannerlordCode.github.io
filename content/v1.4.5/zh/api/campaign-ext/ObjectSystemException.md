@@ -1,20 +1,14 @@
 ---
 title: "ObjectSystemException"
+description: "ObjectSystemException 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ObjectSystemException`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ObjectSystemException
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class ObjectSystemException : Exception`
 **Base:** `Exception`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/ObjectSystemException.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/ObjectSystemException.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ObjectSystemException"
 ## 使用示例
 
 ```csharp
-try { CallObjectSystemException(); } catch (ObjectSystemException exception) { Handle(exception); }
+try { /* 调用可能抛出该异常的分支 */ }
+catch (ObjectSystemException ex) { /* 处理异常 */ }
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

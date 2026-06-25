@@ -1,20 +1,14 @@
 ---
 title: "DefaultVillageTypes"
+description: "Auto-generated class reference for DefaultVillageTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultVillageTypes`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultVillageTypes
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultVillageTypes`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/DefaultVillageTypes.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/DefaultVillageTypes.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ## Usage Example
 
 ```csharp
-var example = new DefaultVillageTypes();
+// Obtain an instance from the relevant subsystem API
+DefaultVillageTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

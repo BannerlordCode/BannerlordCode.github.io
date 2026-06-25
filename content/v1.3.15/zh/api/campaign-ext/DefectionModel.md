@@ -1,13 +1,7 @@
 ---
 title: "DefectionModel"
+description: "DefectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefectionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ title: "DefectionModel"
 ### CanHeroDefectToFaction
 `public abstract bool CanHeroDefectToFaction(Hero hero, Kingdom kingdom)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero defect to faction`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero defect to faction」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefectionModel 实例
+DefectionModel defectionModel = ...;
+var result = defectionModel.CanHeroDefectToFaction(hero, kingdom);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDefectionModel();
+// 通常通过子系统 API 或工厂获得派生实例
+DefectionModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

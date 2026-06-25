@@ -1,20 +1,14 @@
 ---
 title: "MissionHintLogic"
+description: "Auto-generated class reference for MissionHintLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHintLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHintLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.MissionLogics
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHintLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.MissionLogics/MissionHintLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.MissionLogics/MissionHintLogic.cs`
 
 ## Overview
 
@@ -35,24 +29,42 @@ Treat `MissionHintLogic` as a Logic-style extension point: first identify who cr
 ### MissionHintChangedDelegate
 `public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)`
 
-**Purpose:** Handles logic related to `mission hint changed delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionHintLogic from the subsystem API first
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.MissionHintChangedDelegate(previousHint, newHint);
+```
 
 ### SetActiveHint
 `public void SetActiveHint(MissionHint hint)`
 
-**Purpose:** Sets the value or state of `active hint`.
+**Purpose:** Assigns a new value to `active hint` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionHintLogic from the subsystem API first
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.SetActiveHint(hint);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MissionHintLogic from the subsystem API first
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionHintLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionHintLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

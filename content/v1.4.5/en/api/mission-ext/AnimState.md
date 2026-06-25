@@ -1,20 +1,14 @@
 ---
 title: "AnimState"
+description: "Auto-generated class reference for AnimState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimState
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum AnimState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialHighlightItemBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialHighlightItemBrushWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial` to p
 ## Usage Example
 
 ```csharp
-AnimState example = AnimState.Value;
+// Obtain an instance from the relevant subsystem API
+AnimState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

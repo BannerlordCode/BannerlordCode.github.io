@@ -1,20 +1,14 @@
 ---
 title: "VictoryComponent"
+description: "Auto-generated class reference for VictoryComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VictoryComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VictoryComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VictoryComponent : AgentComponent`
 **Base:** `AgentComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VictoryComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VictoryComponent.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `VictoryComponent` as a Component-style extension point: first identify wh
 ### CheckTimer
 `public bool CheckTimer()`
 
-**Purpose:** Handles logic related to `check timer`.
+**Purpose:** Verifies whether `timer` holds true for the current object.
+
+```csharp
+// Obtain an instance of VictoryComponent from the subsystem API first
+VictoryComponent victoryComponent = ...;
+var result = victoryComponent.CheckTimer();
+```
 
 ### ChangeTimerDuration
 `public void ChangeTimerDuration(float min, float max)`
 
-**Purpose:** Handles logic related to `change timer duration`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VictoryComponent from the subsystem API first
+VictoryComponent victoryComponent = ...;
+victoryComponent.ChangeTimerDuration(0, 0);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var component = agent.GetComponent<VictoryComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PartyMoraleModel"
+description: "PartyMoraleModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyMoraleModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyMoraleModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,39 +29,76 @@ title: "PartyMoraleModel"
 ### GetDailyStarvationMoralePenalty
 `public abstract int GetDailyStarvationMoralePenalty(PartyBase party)`
 
-**用途 / Purpose:** 获取 `daily starvation morale penalty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily starvation morale penalty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyMoraleModel 实例
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetDailyStarvationMoralePenalty(party);
+```
 
 ### GetDailyNoWageMoralePenalty
 `public abstract int GetDailyNoWageMoralePenalty(MobileParty party)`
 
-**用途 / Purpose:** 获取 `daily no wage morale penalty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily no wage morale penalty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyMoraleModel 实例
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetDailyNoWageMoralePenalty(party);
+```
 
 ### GetStandardBaseMorale
 `public abstract float GetStandardBaseMorale(PartyBase party)`
 
-**用途 / Purpose:** 获取 `standard base morale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「standard base morale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyMoraleModel 实例
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetStandardBaseMorale(party);
+```
 
 ### GetVictoryMoraleChange
 `public abstract float GetVictoryMoraleChange(PartyBase party)`
 
-**用途 / Purpose:** 获取 `victory morale change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「victory morale change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyMoraleModel 实例
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetVictoryMoraleChange(party);
+```
 
 ### GetDefeatMoraleChange
 `public abstract float GetDefeatMoraleChange(PartyBase party)`
 
-**用途 / Purpose:** 获取 `defeat morale change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「defeat morale change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyMoraleModel 实例
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetDefeatMoraleChange(party);
+```
 
 ### GetEffectivePartyMorale
 `public abstract ExplainedNumber GetEffectivePartyMorale(MobileParty party, bool includeDescription = false)`
 
-**用途 / Purpose:** 获取 `effective party morale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「effective party morale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyMoraleModel 实例
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetEffectivePartyMorale(party, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyMoraleModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyMoraleModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

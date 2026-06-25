@@ -1,18 +1,12 @@
 ---
 title: "SiegeWeaponOrderType"
+description: "Auto-generated class reference for SiegeWeaponOrderType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeWeaponOrderType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeWeaponOrderType
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum SiegeWeaponOrderType`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/SiegeWeaponOrderType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new SiegeWeaponOrderType();
+// Obtain an instance from the relevant subsystem API
+SiegeWeaponOrderType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

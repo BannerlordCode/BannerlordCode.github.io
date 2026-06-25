@@ -1,20 +1,14 @@
 ---
 title: "RetirementMissionLogic"
+description: "Auto-generated class reference for RetirementMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RetirementMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RetirementMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class RetirementMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/RetirementMissionLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/RetirementMissionLogic.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `RetirementMissionLogic` as a Logic-style extension point: first identify 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RetirementMissionLogic from the subsystem API first
+RetirementMissionLogic retirementMissionLogic = ...;
+retirementMissionLogic.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new RetirementMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<RetirementMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

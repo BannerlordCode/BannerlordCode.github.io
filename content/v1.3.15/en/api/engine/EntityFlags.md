@@ -1,19 +1,13 @@
 ---
 title: "EntityFlags"
+description: "Auto-generated class reference for EntityFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EntityFlags`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EntityFlags
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
+**Type:** `public enum EntityFlags : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.Engine/EntityFlags.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new EntityFlags();
+// Obtain an instance from the relevant subsystem API
+EntityFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

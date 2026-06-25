@@ -1,20 +1,14 @@
 ---
 title: "HasTableauCache"
+description: "Auto-generated class reference for HasTableauCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HasTableauCache`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HasTableauCache
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class HasTableauCache : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/HasTableauCache.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/HasTableauCache.cs`
 
 ## Overview
 
@@ -36,7 +30,12 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CollectTableauCacheTypes
 `public static void CollectTableauCacheTypes()`
 
-**Purpose:** Handles logic related to `collect tableau cache types`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HasTableauCache.CollectTableauCacheTypes();
+```
 
 ## Usage Example
 
@@ -46,4 +45,4 @@ HasTableauCache.CollectTableauCacheTypes();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

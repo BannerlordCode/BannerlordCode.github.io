@@ -1,20 +1,14 @@
 ---
 title: "UpgradingTroopsStep3Tutorial"
+description: "UpgradingTroopsStep3Tutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UpgradingTroopsStep3Tutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpgradingTroopsStep3Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class UpgradingTroopsStep3Tutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/UpgradingTroopsStep3Tutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/UpgradingTroopsStep3Tutorial.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "UpgradingTroopsStep3Tutorial"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 UpgradingTroopsStep3Tutorial 实例
+UpgradingTroopsStep3Tutorial upgradingTroopsStep3Tutorial = ...;
+var result = upgradingTroopsStep3Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnPlayerUpgradeTroop
 `public override void OnPlayerUpgradeTroop(CharacterObject arg1, CharacterObject arg2, int arg3)`
 
-**用途 / Purpose:** 当 `player upgrade troop` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player upgrade troop」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 UpgradingTroopsStep3Tutorial 实例
+UpgradingTroopsStep3Tutorial upgradingTroopsStep3Tutorial = ...;
+upgradingTroopsStep3Tutorial.OnPlayerUpgradeTroop(arg1, arg2, 0);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 UpgradingTroopsStep3Tutorial 实例
+UpgradingTroopsStep3Tutorial upgradingTroopsStep3Tutorial = ...;
+var result = upgradingTroopsStep3Tutorial.IsConditionsMetForActivation();
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 UpgradingTroopsStep3Tutorial 实例
+UpgradingTroopsStep3Tutorial upgradingTroopsStep3Tutorial = ...;
+var result = upgradingTroopsStep3Tutorial.GetTutorialsRelevantContext();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new UpgradingTroopsStep3Tutorial();
-value.IsConditionsMetForCompletion();
+// 通常从对应子系统 API 获取实例后调用
+UpgradingTroopsStep3Tutorial upgradingTroopsStep3Tutorial = ...;
+upgradingTroopsStep3Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

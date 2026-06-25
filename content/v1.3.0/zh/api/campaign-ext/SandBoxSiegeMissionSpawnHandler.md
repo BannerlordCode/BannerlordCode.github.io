@@ -1,13 +1,7 @@
 ---
 title: "SandBoxSiegeMissionSpawnHandler"
+description: "SandBoxSiegeMissionSpawnHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxSiegeMissionSpawnHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSiegeMissionSpawnHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,14 +23,20 @@ title: "SandBoxSiegeMissionSpawnHandler"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSiegeMissionSpawnHandler 实例
+SandBoxSiegeMissionSpawnHandler sandBoxSiegeMissionSpawnHandler = ...;
+sandBoxSiegeMissionSpawnHandler.AfterStart();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SandBoxSiegeMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<SandBoxSiegeMissionSpawnHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

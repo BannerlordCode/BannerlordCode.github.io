@@ -1,13 +1,7 @@
 ---
 title: "StonePile"
+description: "Auto-generated class reference for StonePile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StonePile`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StonePile
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,65 +34,132 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetAmmo
 `public void SetAmmo(int ammoLeft)`
 
-**Purpose:** Sets the value or state of `ammo`.
+**Purpose:** Assigns a new value to `ammo` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+stonePile.SetAmmo(0);
+```
 
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+stonePile.AfterMissionStart();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+var result = stonePile.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+var result = stonePile.GetDescriptionText(gameEntity);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+var result = stonePile.CreateAIBehaviorObject();
+```
 
 ### IsInRangeToCheckAlternativePoints
 `public override bool IsInRangeToCheckAlternativePoints(Agent agent)`
 
-**Purpose:** Handles logic related to `is in range to check alternative points`.
+**Purpose:** Determines whether the current object is in the `in range to check alternative points` state or condition.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+var result = stonePile.IsInRangeToCheckAlternativePoints(agent);
+```
 
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**Purpose:** Gets the current value of `best point alternative to`.
+**Purpose:** Reads and returns the `best point alternative to` value held by the current object.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+var result = stonePile.GetBestPointAlternativeTo(standingPoint, agent);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+var result = stonePile.GetTickRequirement();
+```
 
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** Handles logic related to `write to network`.
+**Purpose:** Writes `to network` to the target location.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+stonePile.WriteToNetwork();
+```
 
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+var result = stonePile.ReadFromNetwork(bufferReadValid);
+```
 
 ### CanUseAttackEntity
 `public bool CanUseAttackEntity()`
 
-**Purpose:** Checks whether the current object can `use attack entity`.
+**Purpose:** Checks whether the current object meets the preconditions for `use attack entity`.
+
+```csharp
+// Obtain an instance of StonePile from the subsystem API first
+StonePile stonePile = ...;
+var result = stonePile.CanUseAttackEntity();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StonePile();
-value.SetAmmo(0);
+// Typically call this after obtaining an instance from the subsystem API
+StonePile stonePile = ...;
+stonePile.SetAmmo(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPAnnouncementsVM"
+description: "MPAnnouncementsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPAnnouncementsVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPAnnouncementsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPAnnouncementsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPAnnouncementsVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPAnnouncementsVM.cs`
 
 ## 概述
 
@@ -37,25 +31,44 @@ title: "MPAnnouncementsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPAnnouncementsVM 实例
+MPAnnouncementsVM mPAnnouncementsVM = ...;
+mPAnnouncementsVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPAnnouncementsVM 实例
+MPAnnouncementsVM mPAnnouncementsVM = ...;
+mPAnnouncementsVM.OnTick(0);
+```
 
 ### UpdateAnnouncements
 `public async void UpdateAnnouncements()`
 
-**用途 / Purpose:** 更新 `announcements` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「announcements」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPAnnouncementsVM 实例
+MPAnnouncementsVM mPAnnouncementsVM = ...;
+mPAnnouncementsVM.UpdateAnnouncements();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPAnnouncementsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPAnnouncementsVM mPAnnouncementsVM = ...;
+mPAnnouncementsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "RetreatPositionCacheSystem"
+description: "RetreatPositionCacheSystem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RetreatPositionCacheSystem`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RetreatPositionCacheSystem
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RetreatPositionCacheSystem`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "RetreatPositionCacheSystem"
 ### GetRetreatPositionFromCache
 `public WorldPosition GetRetreatPositionFromCache(Vec2 agentPosition)`
 
-**用途 / Purpose:** 获取 `retreat position from cache` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「retreat position from cache」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RetreatPositionCacheSystem 实例
+RetreatPositionCacheSystem retreatPositionCacheSystem = ...;
+var result = retreatPositionCacheSystem.GetRetreatPositionFromCache(agentPosition);
+```
 
 ### AddNewPositionToCache
 `public void AddNewPositionToCache(Vec2 agentPostion, WorldPosition retreatingPosition)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `new position to cache`。
+**用途 / Purpose:** 将 「new position to cache」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 RetreatPositionCacheSystem 实例
+RetreatPositionCacheSystem retreatPositionCacheSystem = ...;
+retreatPositionCacheSystem.AddNewPositionToCache(agentPostion, retreatingPosition);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RetreatPositionCacheSystem();
-value.GetRetreatPositionFromCache(agentPosition);
+// 通常从对应子系统 API 获取实例后调用
+RetreatPositionCacheSystem retreatPositionCacheSystem = ...;
+retreatPositionCacheSystem.GetRetreatPositionFromCache(agentPosition);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

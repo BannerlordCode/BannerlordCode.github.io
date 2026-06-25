@@ -1,20 +1,14 @@
 ---
 title: "ArmyOverlayWidget"
+description: "Auto-generated class reference for ArmyOverlayWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyOverlayWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyOverlayWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArmyOverlayWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/ArmyOverlayWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/ArmyOverlayWidget.cs`
 
 ## Overview
 
@@ -39,14 +33,21 @@ Treat `ArmyOverlayWidget` as a Widget-style extension point: first identify who 
 ### ArmyOverlayWidget
 `public class ArmyOverlayWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `army overlay widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArmyOverlayWidget from the subsystem API first
+ArmyOverlayWidget armyOverlayWidget = ...;
+var result = armyOverlayWidget.ArmyOverlayWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ArmyOverlayWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ArmyOverlayWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

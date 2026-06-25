@@ -1,20 +1,14 @@
 ---
 title: "DefaultCaravanModel"
+description: "Auto-generated class reference for DefaultCaravanModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCaravanModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCaravanModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultCaravanModel : CaravanModel`
 **Base:** `CaravanModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCaravanModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCaravanModel.cs`
 
 ## Overview
 
@@ -29,32 +23,68 @@ Treat `DefaultCaravanModel` as a Model-style extension point: first identify who
 ### GetEliteCaravanSpawnChance
 `public override float GetEliteCaravanSpawnChance(Hero hero)`
 
-**Purpose:** Gets the current value of `elite caravan spawn chance`.
+**Purpose:** Reads and returns the `elite caravan spawn chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCaravanModel from the subsystem API first
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetEliteCaravanSpawnChance(hero);
+```
 
 ### GetPowerChangeAfterCaravanCreation
 `public override int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
 
-**Purpose:** Gets the current value of `power change after caravan creation`.
+**Purpose:** Reads and returns the `power change after caravan creation` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCaravanModel from the subsystem API first
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetPowerChangeAfterCaravanCreation(hero, caravanParty);
+```
 
 ### CanHeroCreateCaravan
 `public override bool CanHeroCreateCaravan(Hero hero)`
 
-**Purpose:** Checks whether the current object can `hero create caravan`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero create caravan`.
+
+```csharp
+// Obtain an instance of DefaultCaravanModel from the subsystem API first
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.CanHeroCreateCaravan(hero);
+```
 
 ### GetCaravanFormingCost
 `public override int GetCaravanFormingCost(bool largerCaravan, bool navalCaravan)`
 
-**Purpose:** Gets the current value of `caravan forming cost`.
+**Purpose:** Reads and returns the `caravan forming cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCaravanModel from the subsystem API first
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetCaravanFormingCost(false, false);
+```
 
 ### GetInitialTradeGold
 `public override int GetInitialTradeGold(Hero owner, bool navalCaravan, bool largeCaravan)`
 
-**Purpose:** Gets the current value of `initial trade gold`.
+**Purpose:** Reads and returns the `initial trade gold` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCaravanModel from the subsystem API first
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetInitialTradeGold(owner, false, false);
+```
 
 ### GetMaxGoldToSpendOnOneItemCategory
 `public override int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
 
-**Purpose:** Gets the current value of `max gold to spend on one item category`.
+**Purpose:** Reads and returns the `max gold to spend on one item category` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCaravanModel from the subsystem API first
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetMaxGoldToSpendOnOneItemCategory(caravan, itemCategory);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultCaravanModel>(new MyDefaultCaravanModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

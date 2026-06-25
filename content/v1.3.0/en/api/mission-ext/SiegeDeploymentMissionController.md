@@ -1,13 +1,7 @@
 ---
 title: "SiegeDeploymentMissionController"
+description: "Auto-generated class reference for SiegeDeploymentMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeDeploymentMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeDeploymentMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,12 +23,24 @@ Treat `SiegeDeploymentMissionController` as a Controller-style extension point: 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of SiegeDeploymentMissionController from the subsystem API first
+SiegeDeploymentMissionController siegeDeploymentMissionController = ...;
+siegeDeploymentMissionController.OnBehaviorInitialize();
+```
 
 ### GetSiegeMissiles
 `public List<ItemObject> GetSiegeMissiles()`
 
-**Purpose:** Gets the current value of `siege missiles`.
+**Purpose:** Reads and returns the `siege missiles` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeDeploymentMissionController from the subsystem API first
+SiegeDeploymentMissionController siegeDeploymentMissionController = ...;
+var result = siegeDeploymentMissionController.GetSiegeMissiles();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<SiegeDeploymentMissionContro
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

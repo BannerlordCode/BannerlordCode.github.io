@@ -1,13 +1,7 @@
 ---
 title: "CrosshairWidget"
+description: "Auto-generated class reference for CrosshairWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrosshairWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CrosshairWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
@@ -48,9 +42,10 @@ Treat `CrosshairWidget` as a Widget-style extension point: first identify who cr
 ## Usage Example
 
 ```csharp
-var widget = new CrosshairWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CrosshairWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

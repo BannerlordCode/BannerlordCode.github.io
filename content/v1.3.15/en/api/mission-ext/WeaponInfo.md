@@ -1,13 +1,7 @@
 ---
 title: "WeaponInfo"
+description: "Auto-generated class reference for WeaponInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new WeaponInfo();
+// Obtain an instance from the relevant subsystem API
+WeaponInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

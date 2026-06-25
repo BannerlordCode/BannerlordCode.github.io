@@ -1,20 +1,14 @@
 ---
 title: "AgentLockVisualBrushWidget"
+description: "AgentLockVisualBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentLockVisualBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentLockVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentLockVisualBrushWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentLockVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentLockVisualBrushWidget.cs`
 
 ## 概述
 
@@ -36,14 +30,21 @@ title: "AgentLockVisualBrushWidget"
 ### AgentLockVisualBrushWidget
 `public class AgentLockVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `agent lock visual brush widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentLockVisualBrushWidget 实例
+AgentLockVisualBrushWidget agentLockVisualBrushWidget = ...;
+var result = agentLockVisualBrushWidget.AgentLockVisualBrushWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new AgentLockVisualBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+AgentLockVisualBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

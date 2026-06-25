@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListUnitComparer"
+description: "EncyclopediaListUnitComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListUnitComparer`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListUnitComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class EncyclopediaListUnitComparer : EncyclopediaListItemComparerBase`
 **Base:** `EncyclopediaListItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaUnitPage.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaUnitPage.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "EncyclopediaListUnitComparer"
 ### CompareUnits
 `public int CompareUnits(EncyclopediaListItem x, EncyclopediaListItem y, Func<CharacterObject, CharacterObject, int> comparison)`
 
-**用途 / Purpose:** 处理 `compare units` 相关逻辑。
+**用途 / Purpose:** 比较两个「units」对象并返回大小/顺序结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListUnitComparer 实例
+EncyclopediaListUnitComparer encyclopediaListUnitComparer = ...;
+var result = encyclopediaListUnitComparer.CompareUnits(x, y, func<CharacterObject, characterObject, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEncyclopediaListUnitComparer();
+// 通常通过子系统 API 或工厂获得派生实例
+EncyclopediaListUnitComparer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

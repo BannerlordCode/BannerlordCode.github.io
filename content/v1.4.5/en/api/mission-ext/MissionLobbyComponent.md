@@ -1,20 +1,14 @@
 ---
 title: "MissionLobbyComponent"
+description: "Auto-generated class reference for MissionLobbyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLobbyComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionLobbyComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionLobbyComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionLobbyComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionLobbyComponent.cs`
 
 ## Overview
 
@@ -39,122 +33,257 @@ Treat `MissionLobbyComponent` as a Component-style extension point: first identi
 
 **Purpose:** Adds `lobby component type` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+MissionLobbyComponent.AddLobbyComponentType(type, missionType, false);
+```
+
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnBehaviorInitialize();
+```
 
 ### CreateBehavior
 `public static MissionLobbyComponent CreateBehavior()`
 
-**Purpose:** Creates a new `behavior` instance or object.
+**Purpose:** Constructs a new `behavior` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionLobbyComponent.CreateBehavior();
+```
 
 ### QuitMission
 `public virtual void QuitMission()`
 
-**Purpose:** Handles logic related to `quit mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.QuitMission();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.AfterStart();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.EarlyStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnMissionTick(0);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnRemoveBehavior();
+```
 
 ### IsClassAvailable
 `public bool IsClassAvailable(FormationClass formationClass)`
 
-**Purpose:** Handles logic related to `is class available`.
+**Purpose:** Determines whether the current object is in the `class available` state or condition.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+var result = missionLobbyComponent.IsClassAvailable(formationClass);
+```
 
 ### ChangeClassRestriction
 `public void ChangeClassRestriction(FormationClass classToChangeRestriction, bool value)`
 
-**Purpose:** Handles logic related to `change class restriction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.ChangeClassRestriction(classToChangeRestriction, false);
+```
 
 ### DespawnPlayer
 `public void DespawnPlayer(MissionPeer missionPeer)`
 
-**Purpose:** Handles logic related to `despawn player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.DespawnPlayer(missionPeer);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnAgentBuild(agent, banner);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnClearScene();
+```
 
 ### GetSpawnPeriodDurationForPeer
 `public static int GetSpawnPeriodDurationForPeer(MissionPeer peer)`
 
-**Purpose:** Gets the current value of `spawn period duration for peer`.
+**Purpose:** Reads and returns the `spawn period duration for peer` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionLobbyComponent.GetSpawnPeriodDurationForPeer(peer);
+```
 
 ### SetStateEndingAsServer
 `public virtual void SetStateEndingAsServer()`
 
-**Purpose:** Sets the value or state of `state ending as server`.
+**Purpose:** Assigns a new value to `state ending as server` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.SetStateEndingAsServer();
+```
 
 ### RequestCultureSelection
 `public void RequestCultureSelection()`
 
-**Purpose:** Handles logic related to `request culture selection`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.RequestCultureSelection();
+```
 
 ### RequestAdminMessage
 `public void RequestAdminMessage(string message, bool isBroadcast)`
 
-**Purpose:** Handles logic related to `request admin message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.RequestAdminMessage("example", false);
+```
 
 ### RequestTroopSelection
 `public void RequestTroopSelection()`
 
-**Purpose:** Handles logic related to `request troop selection`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.RequestTroopSelection();
+```
 
 ### OnCultureSelected
 `public void OnCultureSelected(BasicCultureObject culture)`
 
-**Purpose:** Called when the `culture selected` event is raised.
+**Purpose:** Invoked when the `culture selected` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnCultureSelected(culture);
+```
 
 ### GetRandomFaceSeedForCharacter
 `public int GetRandomFaceSeedForCharacter(BasicCharacterObject character, int addition = 0)`
 
-**Purpose:** Gets the current value of `random face seed for character`.
+**Purpose:** Reads and returns the `random face seed for character` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionLobbyComponent from the subsystem API first
+MissionLobbyComponent missionLobbyComponent = ...;
+var result = missionLobbyComponent.GetRandomFaceSeedForCharacter(character, 0);
+```
 
 ### MPHostChangeParam
 `public static string MPHostChangeParam(List<string> strings)`
 
-**Purpose:** Handles logic related to `m p host change param`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionLobbyComponent.MPHostChangeParam(strings);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionLobbyComponent();
+// Typically obtained from a subsystem API or factory
+MissionLobbyComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

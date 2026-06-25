@@ -1,13 +1,7 @@
 ---
 title: "TooltipPropertyFlags"
+description: "Auto-generated class reference for TooltipPropertyFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipPropertyFlags`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipPropertyFlags
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ## Usage Example
 
 ```csharp
-TooltipPropertyFlags example = TooltipPropertyFlags.Value;
+// Obtain an instance from the relevant subsystem API
+TooltipPropertyFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

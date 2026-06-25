@@ -1,20 +1,14 @@
 ---
 title: "EscapeMenuVM"
+description: "Auto-generated class reference for EscapeMenuVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EscapeMenuVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EscapeMenuVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EscapeMenuVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu/EscapeMenuVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu/EscapeMenuVM.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EscapeMenuVM from the subsystem API first
+EscapeMenuVM escapeMenuVM = ...;
+escapeMenuVM.RefreshValues();
+```
 
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of EscapeMenuVM from the subsystem API first
+EscapeMenuVM escapeMenuVM = ...;
+escapeMenuVM.Tick(0);
+```
 
 ### RefreshItems
 `public void RefreshItems(IEnumerable<EscapeMenuItemVM> items)`
 
-**Purpose:** Refreshes the display or cache of `items`.
+**Purpose:** Keeps the display or cache of `items` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EscapeMenuVM from the subsystem API first
+EscapeMenuVM escapeMenuVM = ...;
+escapeMenuVM.RefreshItems(items);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EscapeMenuVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EscapeMenuVM escapeMenuVM = ...;
+escapeMenuVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

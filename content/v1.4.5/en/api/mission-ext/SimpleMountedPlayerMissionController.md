@@ -1,20 +1,14 @@
 ---
 title: "SimpleMountedPlayerMissionController"
+description: "Auto-generated class reference for SimpleMountedPlayerMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SimpleMountedPlayerMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SimpleMountedPlayerMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SimpleMountedPlayerMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/SimpleMountedPlayerMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/SimpleMountedPlayerMissionController.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `SimpleMountedPlayerMissionController` as a Controller-style extension poi
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SimpleMountedPlayerMissionController from the subsystem API first
+SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
+simpleMountedPlayerMissionController.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SimpleMountedPlayerMissionController from the subsystem API first
+SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
+simpleMountedPlayerMissionController.AfterStart();
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SimpleMountedPlayerMissionController from the subsystem API first
+SimpleMountedPlayerMissionController simpleMountedPlayerMissionController = ...;
+var result = simpleMountedPlayerMissionController.MissionEnded(missionResult);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var controller = Mission.Current.GetMissionBehavior<SimpleMountedPlayerMissionCo
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "InitializeSessionResponse"
+description: "Auto-generated class reference for InitializeSessionResponse."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitializeSessionResponse`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitializeSessionResponse
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class InitializeSessionResponse : LoginResultObject`
 **Base:** `LoginResultObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/InitializeSessionResponse.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/InitializeSessionResponse.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new InitializeSessionResponse();
+// Obtain an instance from the relevant subsystem API
+InitializeSessionResponse instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

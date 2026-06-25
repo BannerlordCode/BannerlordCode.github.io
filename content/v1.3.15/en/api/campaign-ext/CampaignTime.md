@@ -1,99 +1,303 @@
 ---
 title: "CampaignTime"
+description: "Auto-generated class reference for CampaignTime."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignTime`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignTime
 
-**Namespace:** TaleWorlds.CampaignSystem  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** struct (implements `IComparable<CampaignTime>`)  
-**File:** `bannerlord-1.3.15/TaleWorlds.CampaignSystem/CampaignTime.cs`
-
-`CampaignTime` is the time-point / duration value type of the campaign time system. Mods use it for almost any "X days later", "how long ago", "expires at" calculation.
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public struct CampaignTime : IComparable<CampaignTime>`
+**Base:** `IComparable<CampaignTime>`
+**File:** `TaleWorlds.CampaignSystem/CampaignTime.cs`
 
 ## Overview
 
-`CampaignTime` is immutable, storing milliseconds internally. Common entry points are the static `Now` (current moment), `Never` (never), and `DeltaTime` (this frame's delta). Durations are created via static factories (e.g. `CampaignTime.HoursFromNow(24)`), or converted via the `Elapsed*UntilNow` / `Remaining*FromNow` / `To*` properties. All comparison operators are supported.
+`CampaignTime` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `CampaignTime` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Static members
+## Key Properties
 
-| Name | Type | Description |
-|------|------|-------------|
-| Now | CampaignTime | Current campaign moment |
-| Never | CampaignTime | "Never" sentinel |
-| DeltaTime | CampaignTime | This frame's time delta |
-| DaysInSeason | int | Days per season |
-| DaysInYear | int | Days per year |
+| Name | Signature |
+|------|-----------|
+| `DaysInSeason` | `public static int DaysInSeason { get; }` |
+| `DaysInYear` | `public static int DaysInYear { get; }` |
+| `DeltaTime` | `public static CampaignTime DeltaTime { get; }` |
+| `Now` | `public static CampaignTime Now { get; }` |
+| `Never` | `public static CampaignTime Never { get; }` |
+| `IsFuture` | `public bool IsFuture { get; }` |
+| `IsPast` | `public bool IsPast { get; }` |
+| `IsNow` | `public bool IsNow { get; }` |
+| `IsDayTime` | `public bool IsDayTime { get; }` |
+| `CurrentHourInDay` | `public float CurrentHourInDay { get; }` |
+| `IsNightTime` | `public bool IsNightTime { get; }` |
+| `ElapsedMillisecondsUntilNow` | `public float ElapsedMillisecondsUntilNow { get; }` |
+| `ElapsedSecondsUntilNow` | `public float ElapsedSecondsUntilNow { get; }` |
+| `ElapsedHoursUntilNow` | `public float ElapsedHoursUntilNow { get; }` |
+| `ElapsedDaysUntilNow` | `public float ElapsedDaysUntilNow { get; }` |
+| `ElapsedWeeksUntilNow` | `public float ElapsedWeeksUntilNow { get; }` |
+| `ElapsedSeasonsUntilNow` | `public float ElapsedSeasonsUntilNow { get; }` |
+| `ElapsedYearsUntilNow` | `public float ElapsedYearsUntilNow { get; }` |
+| `RemainingMillisecondsFromNow` | `public float RemainingMillisecondsFromNow { get; }` |
+| `RemainingSecondsFromNow` | `public float RemainingSecondsFromNow { get; }` |
+| `RemainingHoursFromNow` | `public float RemainingHoursFromNow { get; }` |
+| `RemainingDaysFromNow` | `public float RemainingDaysFromNow { get; }` |
+| `RemainingWeeksFromNow` | `public float RemainingWeeksFromNow { get; }` |
+| `RemainingSeasonsFromNow` | `public float RemainingSeasonsFromNow { get; }` |
+| `RemainingYearsFromNow` | `public float RemainingYearsFromNow { get; }` |
+| `ToMilliseconds` | `public double ToMilliseconds { get; }` |
+| `ToSeconds` | `public double ToSeconds { get; }` |
+| `ToMinutes` | `public double ToMinutes { get; }` |
+| `ToHours` | `public double ToHours { get; }` |
+| `ToDays` | `public double ToDays { get; }` |
+| `ToWeeks` | `public double ToWeeks { get; }` |
+| `ToSeasons` | `public double ToSeasons { get; }` |
+| `ToYears` | `public double ToYears { get; }` |
+| `GetHourOfDay` | `public int GetHourOfDay { get; }` |
+| `GetDayOfWeek` | `public int GetDayOfWeek { get; }` |
+| `GetDayOfSeason` | `public int GetDayOfSeason { get; }` |
+| `GetDayOfYear` | `public int GetDayOfYear { get; }` |
+| `GetWeekOfSeason` | `public int GetWeekOfSeason { get; }` |
+| `GetSeasonOfYear` | `public CampaignTime.Seasons GetSeasonOfYear { get; }` |
+| `GetYear` | `public int GetYear { get; }` |
+| `Zero` | `public static CampaignTime Zero { get; }` |
 
-## Main properties
+## Key Methods
 
-| Name | Type | Description |
-|------|------|-------------|
-| IsFuture | bool | Whether in the future |
-| IsPast | bool | Whether already past |
-| IsNow | bool | Whether exactly now |
-| IsDayTime / IsNightTime | bool | Whether day / night |
-| CurrentHourInDay | float | Hour of the current day |
-| ElapsedMillisecondsUntilNow / ElapsedSecondsUntilNow / ElapsedHoursUntilNow / ElapsedDaysUntilNow / ElapsedWeeksUntilNow / ElapsedSeasonsUntilNow / ElapsedYearsUntilNow | float | Elapsed time since now (per unit) |
-| RemainingMillisecondsFromNow / RemainingSecondsFromNow / RemainingHoursFromNow / RemainingDaysFromNow / RemainingWeeksFromNow / RemainingSeasonsFromNow / RemainingYearsFromNow | float | Remaining time from now (per unit) |
-| ToMilliseconds / ToSeconds / ToMinutes / ToHours / ToDays / ToWeeks / ToSeasons | double | Value converted to each unit |
+### AutoGeneratedStaticCollectObjectsCampaignTime
+`public static void AutoGeneratedStaticCollectObjectsCampaignTime(object o, List<object> collectedObjects)`
 
-## Operators & comparison
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public static bool operator <(CampaignTime x, CampaignTime y);
-public static bool operator >(CampaignTime x, CampaignTime y);
-public static bool operator <=(CampaignTime x, CampaignTime y);
-public static bool operator >=(CampaignTime x, CampaignTime y);
-public static bool operator ==(CampaignTime x, CampaignTime y);
-public static bool operator !=(CampaignTime x, CampaignTime y);
-public int CompareTo(CampaignTime other);
+// Static call; no instance required
+CampaignTime.AutoGeneratedStaticCollectObjectsCampaignTime(o, collectedObjects);
 ```
 
-## Usage example
+### Initialize
+`public static void Initialize()`
+
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
 
 ```csharp
-// Current moment and "3 days later"
-CampaignTime now = CampaignTime.Now;
-CampaignTime deadline = now + CampaignTime.HoursFromNow(72);  // 3 days
-
-// Check expiry
-if (deadline.IsPast)
-{
-    InformationManager.DisplayMessage(new InformationMessage("Expired"));
-}
-
-// Days remaining
-float daysLeft = deadline.RemainingDaysFromNow;
-
-// Compare two times
-if (hero.DeathDay != CampaignTime.Never && hero.DeathDay < now)
-{
-    // dead
-}
+// Static call; no instance required
+CampaignTime.Initialize();
 ```
 
-> **Tip**
-> The source also provides static factories `HoursFromNow` / `DaysFromNow` / `SecondsFromNow` and `+`/`-` operators for building durations. See the source file.
+### Equals
+`public bool Equals(CampaignTime other)`
 
-## See also
+**Purpose:** Compares the current object with the supplied instance for equality.
 
-- [Hero](../campaign/Hero)
-- [Campaign](./Campaign)
-- [Town](./Town)
+```csharp
+// Obtain an instance of CampaignTime from the subsystem API first
+CampaignTime campaignTime = ...;
+var result = campaignTime.Equals(other);
+```
+
+### Equals
+`public override bool Equals(object obj)`
+
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of CampaignTime from the subsystem API first
+CampaignTime campaignTime = ...;
+var result = campaignTime.Equals(obj);
+```
+
+### GetHashCode
+`public override int GetHashCode()`
+
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of CampaignTime from the subsystem API first
+CampaignTime campaignTime = ...;
+var result = campaignTime.GetHashCode();
+```
+
+### CompareTo
+`public int CompareTo(CampaignTime other)`
+
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of CampaignTime from the subsystem API first
+CampaignTime campaignTime = ...;
+var result = campaignTime.CompareTo(other);
+```
+
+### Milliseconds
+`public static CampaignTime Milliseconds(long valueInMilliseconds)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.Milliseconds(0);
+```
+
+### MillisecondsFromNow
+`public static CampaignTime MillisecondsFromNow(long valueInMilliseconds)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.MillisecondsFromNow(0);
+```
+
+### Seconds
+`public static CampaignTime Seconds(long valueInSeconds)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.Seconds(0);
+```
+
+### SecondsFromNow
+`public static CampaignTime SecondsFromNow(long valueInSeconds)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.SecondsFromNow(0);
+```
+
+### Minutes
+`public static CampaignTime Minutes(long valueInMinutes)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.Minutes(0);
+```
+
+### MinutesFromNow
+`public static CampaignTime MinutesFromNow(long valueInMinutes)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.MinutesFromNow(0);
+```
+
+### Hours
+`public static CampaignTime Hours(float valueInHours)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.Hours(0);
+```
+
+### HoursFromNow
+`public static CampaignTime HoursFromNow(float valueInHours)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.HoursFromNow(0);
+```
+
+### Days
+`public static CampaignTime Days(float valueInDays)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.Days(0);
+```
+
+### DaysFromNow
+`public static CampaignTime DaysFromNow(float valueInDays)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.DaysFromNow(0);
+```
+
+### Weeks
+`public static CampaignTime Weeks(float valueInWeeks)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.Weeks(0);
+```
+
+### WeeksFromNow
+`public static CampaignTime WeeksFromNow(float valueInWeeks)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.WeeksFromNow(0);
+```
+
+### Years
+`public static CampaignTime Years(float valueInYears)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.Years(0);
+```
+
+### YearsFromNow
+`public static CampaignTime YearsFromNow(float valueInYears)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CampaignTime.YearsFromNow(0);
+```
+
+### StringSameAs
+`public bool StringSameAs(CampaignTime otherTime)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CampaignTime from the subsystem API first
+CampaignTime campaignTime = ...;
+var result = campaignTime.StringSameAs(otherTime);
+```
+
+### ToString
+`public override string ToString()`
+
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CampaignTime from the subsystem API first
+CampaignTime campaignTime = ...;
+var result = campaignTime.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var example = new CampaignTime();
+CampaignTime.AutoGeneratedStaticCollectObjectsCampaignTime(o, collectedObjects);
 ```
+
+## See Also
+
+- [Area Index](../)

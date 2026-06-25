@@ -1,13 +1,7 @@
 ---
 title: "DotNetObject"
+description: "Auto-generated class reference for DotNetObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DotNetObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DotNetObject
 
 **Namespace:** TaleWorlds.DotNet
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new DotNetObject();
+// Obtain an instance from the relevant subsystem API
+DotNetObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

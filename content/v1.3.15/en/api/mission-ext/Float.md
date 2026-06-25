@@ -1,23 +1,18 @@
 ---
 title: "Float"
+description: "Auto-generated class reference for Float."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Float`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Float
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct Float`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## Overview
 
-`Float` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Float` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,62 +29,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Gets the current value of `num bits`.
+**Purpose:** Reads and returns the `num bits` value held by the current object.
 
-### GetMaximumValue
-`public int GetMaximumValue()`
-
-**Purpose:** Gets the current value of `maximum value`.
-
-### GetNumBits
-`public int GetNumBits()`
-
-**Purpose:** Gets the current value of `num bits`.
-
-### GetNumBits
-`public int GetNumBits()`
-
-**Purpose:** Gets the current value of `num bits`.
-
-### GetNumBits
-`public int GetNumBits()`
-
-**Purpose:** Gets the current value of `num bits`.
-
-### GetNumBits
-`public int GetNumBits()`
-
-**Purpose:** Gets the current value of `num bits`.
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetNumBits();
+```
 
 ### GetMaximumValue
 `public float GetMaximumValue()`
 
-**Purpose:** Gets the current value of `maximum value`.
+**Purpose:** Reads and returns the `maximum value` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetMaximumValue();
+```
 
 ### GetMinimumValue
 `public float GetMinimumValue()`
 
-**Purpose:** Gets the current value of `minimum value`.
+**Purpose:** Reads and returns the `minimum value` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetMinimumValue();
+```
 
 ### GetPrecision
 `public float GetPrecision()`
 
-**Purpose:** Gets the current value of `precision`.
+**Purpose:** Reads and returns the `precision` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetPrecision();
+```
 
 ### ClampValueAccordingToLimits
 `public void ClampValueAccordingToLimits(ref float x)`
 
-**Purpose:** Handles logic related to `clamp value according to limits`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+float.ClampValueAccordingToLimits(x);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a Float instance from game state, then call one of its public methods
-var value = new Float();
-value.GetNumBits();
+// Typically call this after obtaining an instance from the subsystem API
+Float float = ...;
+float.GetNumBits();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

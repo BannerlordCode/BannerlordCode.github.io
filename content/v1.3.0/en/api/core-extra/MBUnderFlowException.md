@@ -1,13 +1,7 @@
 ---
 title: "MBUnderFlowException"
+description: "Auto-generated class reference for MBUnderFlowException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBUnderFlowException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBUnderFlowException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBUnderFlowException` as a Exception-style extension point: first identif
 ## Usage Example
 
 ```csharp
-try { CallMBUnderFlowException(); } catch (MBUnderFlowException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBUnderFlowException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

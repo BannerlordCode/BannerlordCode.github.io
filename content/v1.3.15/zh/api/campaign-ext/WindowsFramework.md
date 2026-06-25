@@ -1,13 +1,7 @@
 ---
 title: "WindowsFramework"
+description: "WindowsFramework 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WindowsFramework`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WindowsFramework
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -37,40 +31,77 @@ title: "WindowsFramework"
 ### Initialize
 `public void Initialize(FrameworkDomain frameworkDomains)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsFramework 实例
+WindowsFramework windowsFramework = ...;
+windowsFramework.Initialize(frameworkDomains);
+```
 
 ### RegisterMessageCommunicator
 `public void RegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**用途 / Purpose:** 处理 `register message communicator` 相关逻辑。
+**用途 / Purpose:** 将「message communicator」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsFramework 实例
+WindowsFramework windowsFramework = ...;
+windowsFramework.RegisterMessageCommunicator(communicator);
+```
 
 ### UnRegisterMessageCommunicator
 `public void UnRegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**用途 / Purpose:** 处理 `un register message communicator` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsFramework 实例
+WindowsFramework windowsFramework = ...;
+windowsFramework.UnRegisterMessageCommunicator(communicator);
+```
 
 ### Stop
 `public void Stop()`
 
-**用途 / Purpose:** 处理 `stop` 相关逻辑。
+**用途 / Purpose:** 停止当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsFramework 实例
+WindowsFramework windowsFramework = ...;
+windowsFramework.Stop();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsFramework 实例
+WindowsFramework windowsFramework = ...;
+windowsFramework.OnFinalize();
+```
 
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsFramework 实例
+WindowsFramework windowsFramework = ...;
+windowsFramework.Start();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WindowsFramework();
-value.Initialize(frameworkDomains);
+// 通常从对应子系统 API 获取实例后调用
+WindowsFramework windowsFramework = ...;
+windowsFramework.Initialize(frameworkDomains);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

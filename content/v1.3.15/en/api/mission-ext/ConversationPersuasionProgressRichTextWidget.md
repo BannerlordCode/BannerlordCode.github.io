@@ -1,13 +1,7 @@
 ---
 title: "ConversationPersuasionProgressRichTextWidget"
+description: "Auto-generated class reference for ConversationPersuasionProgressRichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationPersuasionProgressRichTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConversationPersuasionProgressRichTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
@@ -35,9 +29,10 @@ Treat `ConversationPersuasionProgressRichTextWidget` as a Widget-style extension
 ## Usage Example
 
 ```csharp
-var widget = new ConversationPersuasionProgressRichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ConversationPersuasionProgressRichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

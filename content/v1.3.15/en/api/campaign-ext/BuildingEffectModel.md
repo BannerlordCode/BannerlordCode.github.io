@@ -1,13 +1,7 @@
 ---
 title: "BuildingEffectModel"
+description: "Auto-generated class reference for BuildingEffectModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingEffectModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BuildingEffectModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `BuildingEffectModel` as a Model-style extension point: first identify who
 ### GetBuildingEffect
 `public abstract ExplainedNumber GetBuildingEffect(Building building, BuildingEffectEnum effect)`
 
-**Purpose:** Gets the current value of `building effect`.
+**Purpose:** Reads and returns the `building effect` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingEffectModel from the subsystem API first
+BuildingEffectModel buildingEffectModel = ...;
+var result = buildingEffectModel.GetBuildingEffect(building, effect);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBuildingEffectModel();
+// Typically obtained from a subsystem API or factory
+BuildingEffectModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

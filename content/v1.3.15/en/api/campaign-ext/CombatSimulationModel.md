@@ -1,13 +1,7 @@
 ---
 title: "CombatSimulationModel"
+description: "Auto-generated class reference for CombatSimulationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatSimulationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CombatSimulationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,59 +23,120 @@ Treat `CombatSimulationModel` as a Model-style extension point: first identify w
 ### SimulateHit
 `public abstract ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)`
 
-**Purpose:** Handles logic related to `simulate hit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.SimulateHit(strikerTroop, struckTroop, strikerParty, struckParty, 0, battle, 0, 0);
+```
 
 ### SimulateHit
 `public abstract ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
 
-**Purpose:** Handles logic related to `simulate hit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.SimulateHit(strikerShip, struckShip, strikerParty, struckParty, siegeEngine, 0, battle, troopCasualties);
+```
 
 ### GetSimulationTicksForBattleRound
 `public abstract ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)`
 
-**Purpose:** Gets the current value of `simulation ticks for battle round`.
+**Purpose:** Reads and returns the `simulation ticks for battle round` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.GetSimulationTicksForBattleRound(mapEvent);
+```
 
 ### GetNumberOfEquipmentsBuilt
 `public abstract int GetNumberOfEquipmentsBuilt(Settlement settlement)`
 
-**Purpose:** Gets the current value of `number of equipments built`.
+**Purpose:** Reads and returns the `number of equipments built` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.GetNumberOfEquipmentsBuilt(settlement);
+```
 
 ### GetMaximumSiegeEquipmentProgress
 `public abstract float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
 
-**Purpose:** Gets the current value of `maximum siege equipment progress`.
+**Purpose:** Reads and returns the `maximum siege equipment progress` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.GetMaximumSiegeEquipmentProgress(settlement);
+```
 
 ### GetSettlementAdvantage
 `public abstract float GetSettlementAdvantage(Settlement settlement)`
 
-**Purpose:** Gets the current value of `settlement advantage`.
+**Purpose:** Reads and returns the `settlement advantage` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.GetSettlementAdvantage(settlement);
+```
 
 ### GetBattleAdvantage
 `public abstract void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
 
-**Purpose:** Gets the current value of `battle advantage`.
+**Purpose:** Reads and returns the `battle advantage` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+combatSimulationModel.GetBattleAdvantage(mapEvent, defenderAdvantage, attackerAdvantage);
+```
 
 ### GetShipSiegeEngineHitChance
 `public abstract float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
 
-**Purpose:** Gets the current value of `ship siege engine hit chance`.
+**Purpose:** Reads and returns the `ship siege engine hit chance` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.GetShipSiegeEngineHitChance(ship, siegeEngineType, battleSide);
+```
 
 ### GetPursuitRoundCount
 `public abstract int GetPursuitRoundCount(MapEvent mapEvent)`
 
-**Purpose:** Gets the current value of `pursuit round count`.
+**Purpose:** Reads and returns the `pursuit round count` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.GetPursuitRoundCount(mapEvent);
+```
 
 ### GetBluntDamageChance
 `public abstract float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)`
 
-**Purpose:** Gets the current value of `blunt damage chance`.
+**Purpose:** Reads and returns the `blunt damage chance` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatSimulationModel from the subsystem API first
+CombatSimulationModel combatSimulationModel = ...;
+var result = combatSimulationModel.GetBluntDamageChance(strikerTroop, strikedTroop, strikerParty, strikedParty, battle);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCombatSimulationModel();
+// Typically obtained from a subsystem API or factory
+CombatSimulationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

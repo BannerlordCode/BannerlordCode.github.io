@@ -1,23 +1,18 @@
 ---
 title: "VisualOrderFactory"
+description: "Auto-generated class reference for VisualOrderFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualOrderFactory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VisualOrderFactory
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class VisualOrderFactory`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/VisualOrderFactory.cs`
 
 ## Overview
 
-`VisualOrderFactory` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`VisualOrderFactory` lives in `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,26 +23,39 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### RegisterProvider
 `public static void RegisterProvider(VisualOrderProvider provider)`
 
-**Purpose:** Handles logic related to `register provider`.
+**Purpose:** Registers `provider` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+VisualOrderFactory.RegisterProvider(provider);
+```
 
 ### UnregisterProvider
 `public static void UnregisterProvider(VisualOrderProvider provider)`
 
-**Purpose:** Handles logic related to `unregister provider`.
+**Purpose:** Unregisters `provider` from the current system.
+
+```csharp
+// Static call; no instance required
+VisualOrderFactory.UnregisterProvider(provider);
+```
 
 ### GetOrders
 `public static MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**Purpose:** Gets the current value of `orders`.
+**Purpose:** Reads and returns the `orders` value held by the current object.
+
+```csharp
+// Static call; no instance required
+VisualOrderFactory.GetOrders();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 VisualOrderFactory.RegisterProvider(provider);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

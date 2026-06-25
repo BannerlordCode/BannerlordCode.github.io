@@ -1,20 +1,14 @@
 ---
 title: "AlleyItemLocationComparer"
+description: "AlleyItemLocationComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AlleyItemLocationComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyItemLocationComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class AlleyItemLocationComparer : AlleyItemComparerBase`
 **Base:** `AlleyItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "AlleyItemLocationComparer"
 ### Compare
 `public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyItemLocationComparer 实例
+AlleyItemLocationComparer alleyItemLocationComparer = ...;
+var result = alleyItemLocationComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AlleyItemLocationComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+AlleyItemLocationComparer alleyItemLocationComparer = ...;
+alleyItemLocationComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

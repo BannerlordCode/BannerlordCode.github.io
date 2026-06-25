@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletMainAgentCheerControllerView"
+description: "Auto-generated class reference for MissionGauntletMainAgentCheerControllerView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMainAgentCheerControllerView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMainAgentCheerControllerView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
@@ -29,34 +23,65 @@ Treat `MissionGauntletMainAgentCheerControllerView` as a View-style extension po
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentCheerControllerView from the subsystem API first
+MissionGauntletMainAgentCheerControllerView missionGauntletMainAgentCheerControllerView = ...;
+missionGauntletMainAgentCheerControllerView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentCheerControllerView from the subsystem API first
+MissionGauntletMainAgentCheerControllerView missionGauntletMainAgentCheerControllerView = ...;
+missionGauntletMainAgentCheerControllerView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentCheerControllerView from the subsystem API first
+MissionGauntletMainAgentCheerControllerView missionGauntletMainAgentCheerControllerView = ...;
+missionGauntletMainAgentCheerControllerView.OnMissionScreenTick(0);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentCheerControllerView from the subsystem API first
+MissionGauntletMainAgentCheerControllerView missionGauntletMainAgentCheerControllerView = ...;
+missionGauntletMainAgentCheerControllerView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentCheerControllerView from the subsystem API first
+MissionGauntletMainAgentCheerControllerView missionGauntletMainAgentCheerControllerView = ...;
+missionGauntletMainAgentCheerControllerView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletMainAgentCheerControllerView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletMainAgentCheerControllerView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

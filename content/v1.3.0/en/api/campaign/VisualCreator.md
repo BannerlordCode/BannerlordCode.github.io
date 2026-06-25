@@ -1,13 +1,7 @@
 ---
 title: "VisualCreator"
+description: "Auto-generated class reference for VisualCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualCreator`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualCreator
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### CreateMapEventVisual
 `public IMapEventVisual CreateMapEventVisual(MapEvent mapEvent)`
 
-**Purpose:** Creates a new `map event visual` instance or object.
+**Purpose:** Constructs a new `map event visual` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of VisualCreator from the subsystem API first
+VisualCreator visualCreator = ...;
+var result = visualCreator.CreateMapEventVisual(mapEvent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VisualCreator();
-value.CreateMapEventVisual(mapEvent);
+// Typically call this after obtaining an instance from the subsystem API
+VisualCreator visualCreator = ...;
+visualCreator.CreateMapEventVisual(mapEvent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

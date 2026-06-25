@@ -1,20 +1,14 @@
 ---
 title: "SaveLoadHeroTableauTextureProvider"
+description: "Auto-generated class reference for SaveLoadHeroTableauTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveLoadHeroTableauTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveLoadHeroTableauTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SaveLoadHeroTableauTextureProvider : TextureProvider`
 **Base:** `TextureProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/SaveLoadHeroTableauTextureProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/SaveLoadHeroTableauTextureProvider.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders` to p
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SaveLoadHeroTableauTextureProvider from the subsystem API first
+SaveLoadHeroTableauTextureProvider saveLoadHeroTableauTextureProvider = ...;
+saveLoadHeroTableauTextureProvider.Tick(0);
+```
 
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SaveLoadHeroTableauTextureProvider from the subsystem API first
+SaveLoadHeroTableauTextureProvider saveLoadHeroTableauTextureProvider = ...;
+saveLoadHeroTableauTextureProvider.SetTargetSize(0, 0);
+```
 
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of SaveLoadHeroTableauTextureProvider from the subsystem API first
+SaveLoadHeroTableauTextureProvider saveLoadHeroTableauTextureProvider = ...;
+saveLoadHeroTableauTextureProvider.Clear(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SaveLoadHeroTableauTextureProvider();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+SaveLoadHeroTableauTextureProvider saveLoadHeroTableauTextureProvider = ...;
+saveLoadHeroTableauTextureProvider.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

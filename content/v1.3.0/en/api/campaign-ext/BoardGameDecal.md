@@ -1,13 +1,7 @@
 ---
 title: "BoardGameDecal"
+description: "Auto-generated class reference for BoardGameDecal."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameDecal`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameDecal
 
 **Namespace:** SandBox.BoardGames.Objects
@@ -29,15 +23,22 @@ Start from namespace `SandBox.BoardGames.Objects` to place it in the stack, then
 ### SetAlpha
 `public void SetAlpha(float alpha)`
 
-**Purpose:** Sets the value or state of `alpha`.
+**Purpose:** Assigns a new value to `alpha` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameDecal from the subsystem API first
+BoardGameDecal boardGameDecal = ...;
+boardGameDecal.SetAlpha(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameDecal();
-value.SetAlpha(0);
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameDecal boardGameDecal = ...;
+boardGameDecal.SetAlpha(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

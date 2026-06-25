@@ -1,20 +1,14 @@
 ---
 title: "GarrisonRecruitmentCampaignBehavior"
+description: "Auto-generated class reference for GarrisonRecruitmentCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GarrisonRecruitmentCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GarrisonRecruitmentCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GarrisonRecruitmentCampaignBehavior : CampaignBehaviorBase, IGarrisonRecruitmentBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### VolunteerTroop
 `public struct VolunteerTroop(Hero ownerNotable, int notableVolunteerArrayIndex)`
 
-**Purpose:** Handles logic related to `volunteer troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+var result = garrisonRecruitmentCampaignBehavior.VolunteerTroop(ownerNotable, 0);
+```
 
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+var result = garrisonRecruitmentCampaignBehavior.CompareTo(obj);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+garrisonRecruitmentCampaignBehavior.RegisterEvents();
+```
 
 ### GetGarrisonChangeExplainedNumber
 `public ExplainedNumber GetGarrisonChangeExplainedNumber(Town town)`
 
-**Purpose:** Gets the current value of `garrison change explained number`.
+**Purpose:** Reads and returns the `garrison change explained number` value held by the current object.
+
+```csharp
+// Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+var result = garrisonRecruitmentCampaignBehavior.GetGarrisonChangeExplainedNumber(town);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+garrisonRecruitmentCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GarrisonRecruitmentCampaignBehavior();
-value.VolunteerTroop(ownerNotable, 0);
+// Typically call this after obtaining an instance from the subsystem API
+GarrisonRecruitmentCampaignBehavior garrisonRecruitmentCampaignBehavior = ...;
+garrisonRecruitmentCampaignBehavior.VolunteerTroop(ownerNotable, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

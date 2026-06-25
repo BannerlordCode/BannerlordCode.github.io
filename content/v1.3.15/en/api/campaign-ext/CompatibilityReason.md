@@ -1,18 +1,12 @@
 ---
 title: "CompatibilityReason"
+description: "Auto-generated class reference for CompatibilityReason."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompatibilityReason`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CompatibilityReason
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
-**Type:** `class`
+**Type:** `public enum CompatibilityReason`
 **Base:** none
 **File:** `TaleWorlds.PSAI/Editor/CompatibilityReason.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ## Usage Example
 
 ```csharp
-var value = new CompatibilityReason();
+// Obtain an instance from the relevant subsystem API
+CompatibilityReason instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

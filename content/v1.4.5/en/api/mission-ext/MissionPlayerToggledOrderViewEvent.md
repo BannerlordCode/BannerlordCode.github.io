@@ -1,20 +1,14 @@
 ---
 title: "MissionPlayerToggledOrderViewEvent"
+description: "Auto-generated class reference for MissionPlayerToggledOrderViewEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionPlayerToggledOrderViewEvent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionPlayerToggledOrderViewEvent
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionPlayerToggledOrderViewEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/MissionPlayerToggledOrderViewEvent.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/MissionPlayerToggledOrderViewEvent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var value = new MissionPlayerToggledOrderViewEvent();
+// Obtain an instance from the relevant subsystem API
+MissionPlayerToggledOrderViewEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

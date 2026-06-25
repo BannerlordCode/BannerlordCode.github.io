@@ -1,20 +1,14 @@
 ---
 title: "TeamDeathmatchSpawnFrameBehavior"
+description: "Auto-generated class reference for TeamDeathmatchSpawnFrameBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamDeathmatchSpawnFrameBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamDeathmatchSpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamDeathmatchSpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/TeamDeathmatchSpawnFrameBehavior.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/TeamDeathmatchSpawnFrameBehavior.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of TeamDeathmatchSpawnFrameBehavior from the subsystem API first
+TeamDeathmatchSpawnFrameBehavior teamDeathmatchSpawnFrameBehavior = ...;
+var result = teamDeathmatchSpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamDeathmatchSpawnFrameBehavior();
-value.GetSpawnFrame(team, false, false);
+// Typically call this after obtaining an instance from the subsystem API
+TeamDeathmatchSpawnFrameBehavior teamDeathmatchSpawnFrameBehavior = ...;
+teamDeathmatchSpawnFrameBehavior.GetSpawnFrame(team, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

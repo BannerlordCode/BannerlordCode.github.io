@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleHeroButtonWidget"
+description: "Auto-generated class reference for OrderOfBattleHeroButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleHeroButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHeroButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
@@ -35,9 +29,10 @@ Treat `OrderOfBattleHeroButtonWidget` as a Widget-style extension point: first i
 ## Usage Example
 
 ```csharp
-var widget = new OrderOfBattleHeroButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderOfBattleHeroButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

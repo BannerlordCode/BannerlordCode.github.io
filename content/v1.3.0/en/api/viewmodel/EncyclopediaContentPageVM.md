@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaContentPageVM"
+description: "Auto-generated class reference for EncyclopediaContentPageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaContentPageVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaContentPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -40,30 +34,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaContentPageVM from the subsystem API first
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.RefreshValues();
+```
 
 ### InitializeQuickNavigation
 `public void InitializeQuickNavigation(EncyclopediaListVM list)`
 
-**Purpose:** Initializes the state, resources, or bindings for `quick navigation`.
+**Purpose:** Prepares the resources, state, or bindings required by `quick navigation`.
+
+```csharp
+// Obtain an instance of EncyclopediaContentPageVM from the subsystem API first
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.InitializeQuickNavigation(list);
+```
 
 ### ExecuteGoToNextItem
 `public void ExecuteGoToNextItem()`
 
-**Purpose:** Executes the `go to next item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `go to next item`.
+
+```csharp
+// Obtain an instance of EncyclopediaContentPageVM from the subsystem API first
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.ExecuteGoToNextItem();
+```
 
 ### ExecuteGoToPreviousItem
 `public void ExecuteGoToPreviousItem()`
 
-**Purpose:** Executes the `go to previous item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `go to previous item`.
+
+```csharp
+// Obtain an instance of EncyclopediaContentPageVM from the subsystem API first
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.ExecuteGoToPreviousItem();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaContentPageVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaContentPageVM encyclopediaContentPageVM = ...;
+encyclopediaContentPageVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

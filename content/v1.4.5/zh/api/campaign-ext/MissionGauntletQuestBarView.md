@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletQuestBarView"
+description: "MissionGauntletQuestBarView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletQuestBarView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletQuestBarView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletQuestBarView : MissionQuestBarView`
 **Base:** `MissionQuestBarView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletQuestBarView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletQuestBarView.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "MissionGauntletQuestBarView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletQuestBarView 实例
+MissionGauntletQuestBarView missionGauntletQuestBarView = ...;
+missionGauntletQuestBarView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletQuestBarView 实例
+MissionGauntletQuestBarView missionGauntletQuestBarView = ...;
+missionGauntletQuestBarView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletQuestBarView 实例
+MissionGauntletQuestBarView missionGauntletQuestBarView = ...;
+missionGauntletQuestBarView.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletQuestBarView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletQuestBarView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

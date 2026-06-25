@@ -1,20 +1,14 @@
 ---
 title: "ISiegeEventSide"
+description: "Auto-generated class reference for ISiegeEventSide."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISiegeEventSide`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISiegeEventSide
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ISiegeEventSide`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Siege/ISiegeEventSide.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Siege/ISiegeEventSide.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ## Usage Example
 
 ```csharp
-ISiegeEventSide implementation = GetSiegeEventSideImplementation();
+// Usually obtained through DI or a factory method
+IISiegeEventSide service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

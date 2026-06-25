@@ -1,20 +1,14 @@
 ---
 title: "PerkStates"
+description: "Auto-generated class reference for PerkStates."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkStates`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkStates
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum PerkStates`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/PerkVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/PerkVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ## Usage Example
 
 ```csharp
-PerkStates example = PerkStates.Value;
+// Obtain an instance from the relevant subsystem API
+PerkStates instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

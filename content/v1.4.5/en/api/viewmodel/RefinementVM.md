@@ -1,20 +1,14 @@
 ---
 title: "RefinementVM"
+description: "Auto-generated class reference for RefinementVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RefinementVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RefinementVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Refinement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RefinementVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Refinement/RefinementVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Refinement/RefinementVM.cs`
 
 ## Overview
 
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RefinementVM from the subsystem API first
+RefinementVM refinementVM = ...;
+refinementVM.RefreshValues();
+```
 
 ### ExecuteSelectedRefinement
 `public void ExecuteSelectedRefinement(Hero currentCraftingHero)`
 
-**Purpose:** Executes the `selected refinement` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selected refinement`.
+
+```csharp
+// Obtain an instance of RefinementVM from the subsystem API first
+RefinementVM refinementVM = ...;
+refinementVM.ExecuteSelectedRefinement(currentCraftingHero);
+```
 
 ### RefreshRefinementActionsList
 `public void RefreshRefinementActionsList(Hero craftingHero)`
 
-**Purpose:** Refreshes the display or cache of `refinement actions list`.
+**Purpose:** Keeps the display or cache of `refinement actions list` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RefinementVM from the subsystem API first
+RefinementVM refinementVM = ...;
+refinementVM.RefreshRefinementActionsList(craftingHero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RefinementVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+RefinementVM refinementVM = ...;
+refinementVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

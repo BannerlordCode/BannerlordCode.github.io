@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerHUDExtension"
+description: "Auto-generated class reference for MissionGauntletMultiplayerHUDExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMultiplayerHUDExtension`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerHUDExtension
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerHUDExtension : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerHUDExtension.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerHUDExtension.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerHUDExtension from the subsystem API first
+MissionGauntletMultiplayerHUDExtension missionGauntletMultiplayerHUDExtension = ...;
+missionGauntletMultiplayerHUDExtension.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerHUDExtension from the subsystem API first
+MissionGauntletMultiplayerHUDExtension missionGauntletMultiplayerHUDExtension = ...;
+missionGauntletMultiplayerHUDExtension.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerHUDExtension from the subsystem API first
+MissionGauntletMultiplayerHUDExtension missionGauntletMultiplayerHUDExtension = ...;
+missionGauntletMultiplayerHUDExtension.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletMultiplayerHUDExtension();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletMultiplayerHUDExtension missionGauntletMultiplayerHUDExtension = ...;
+missionGauntletMultiplayerHUDExtension.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "IClanStateHandler"
+description: "Auto-generated class reference for IClanStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IClanStateHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IClanStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IClanStateHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/IClanStateHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IClanStateHandler` as a Handler-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-IClanStateHandler implementation = GetClanStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIClanStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

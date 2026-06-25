@@ -1,20 +1,14 @@
 ---
 title: "IClientSession"
+description: "Auto-generated class reference for IClientSession."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IClientSession`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IClientSession
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public interface IClientSession`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/IClientSession.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/IClientSession.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-IClientSession implementation = GetClientSessionImplementation();
+// Usually obtained through DI or a factory method
+IIClientSession service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "RaidVillageQuestTask"
+description: "RaidVillageQuestTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RaidVillageQuestTask`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RaidVillageQuestTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
@@ -29,25 +23,44 @@ title: "RaidVillageQuestTask"
 ### OnVillageLooted
 `public void OnVillageLooted(Village village)`
 
-**用途 / Purpose:** 当 `village looted` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「village looted」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RaidVillageQuestTask 实例
+RaidVillageQuestTask raidVillageQuestTask = ...;
+raidVillageQuestTask.OnVillageLooted(village);
+```
 
 ### OnClanChangedKingdom
 `public void OnClanChangedKingdom(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, ChangeKingdomAction.ChangeKingdomActionDetail detail, bool showNotification)`
 
-**用途 / Purpose:** 当 `clan changed kingdom` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clan changed kingdom」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RaidVillageQuestTask 实例
+RaidVillageQuestTask raidVillageQuestTask = ...;
+raidVillageQuestTask.OnClanChangedKingdom(clan, oldKingdom, newKingdom, detail, true);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 设置 `references` 的值或状态。
+**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RaidVillageQuestTask 实例
+RaidVillageQuestTask raidVillageQuestTask = ...;
+raidVillageQuestTask.SetReferences();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RaidVillageQuestTask();
-value.OnVillageLooted(village);
+// 通常从对应子系统 API 获取实例后调用
+RaidVillageQuestTask raidVillageQuestTask = ...;
+raidVillageQuestTask.OnVillageLooted(village);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

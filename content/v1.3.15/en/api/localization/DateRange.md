@@ -1,23 +1,18 @@
 ---
 title: "DateRange"
+description: "Auto-generated class reference for DateRange."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DateRange`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DateRange
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class DateRange`
-**Area:** localization
+**Base:** none
+**File:** `TaleWorlds.Localization/DateRange.cs`
 
 ## Overview
 
-`DateRange` lives in `TaleWorlds.Localization`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`DateRange` lives in `TaleWorlds.Localization` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -33,10 +28,10 @@ Start from namespace `TaleWorlds.Localization` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new DateRange();
+// Obtain an instance from the relevant subsystem API
+DateRange instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

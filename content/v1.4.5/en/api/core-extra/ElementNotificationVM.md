@@ -1,20 +1,14 @@
 ---
 title: "ElementNotificationVM"
+description: "Auto-generated class reference for ElementNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ElementNotificationVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ElementNotificationVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Tutorial
 **Module:** TaleWorlds.Core
 **Type:** `public class ElementNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Tutorial/ElementNotificationVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Tutorial/ElementNotificationVM.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Tutorial` to place it 
 ## Usage Example
 
 ```csharp
-var example = new ElementNotificationVM();
+// Obtain an instance from the relevant subsystem API
+ElementNotificationVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

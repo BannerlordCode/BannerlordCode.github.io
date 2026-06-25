@@ -1,13 +1,7 @@
 ---
 title: "SpawnPathData"
+description: "Auto-generated class reference for SpawnPathData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnPathData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpawnPathData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,44 +29,86 @@ Treat `SpawnPathData` as a Data-style extension point: first identify who create
 ### Invert
 `public SpawnPathData Invert()`
 
-**Purpose:** Handles logic related to `invert`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.Invert();
+```
 
 ### ClampPathOffset
 `public float ClampPathOffset(float pathOffsetRatio)`
 
-**Purpose:** Handles logic related to `clamp path offset`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.ClampPathOffset(0);
+```
 
 ### GetOffsetOverflow
 `public float GetOffsetOverflow(float pathOffset)`
 
-**Purpose:** Gets the current value of `offset overflow`.
+**Purpose:** Reads and returns the `offset overflow` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+var result = spawnPathData.GetOffsetOverflow(0);
+```
 
 ### GetSpawnPathFrameFacingTarget
 `public void GetSpawnPathFrameFacingTarget(float baseOffset, float targetOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)`
 
-**Purpose:** Gets the current value of `spawn path frame facing target`.
+**Purpose:** Reads and returns the `spawn path frame facing target` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+spawnPathData.GetSpawnPathFrameFacingTarget(0, 0, false, spawnPathPosition, spawnPathDirection, false, 0);
+```
 
 ### GetSpawnPathFrameFacingPivot
 `public void GetSpawnPathFrameFacingPivot(float pathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
 
-**Purpose:** Gets the current value of `spawn path frame facing pivot`.
+**Purpose:** Reads and returns the `spawn path frame facing pivot` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+spawnPathData.GetSpawnPathFrameFacingPivot(0, false, spawnPathPosition, spawnPathDirection);
+```
 
 ### GetSpawnPathFrameFacingTangentDirection
 `public void GetSpawnPathFrameFacingTangentDirection(float baseOffset, int tangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
 
-**Purpose:** Gets the current value of `spawn path frame facing tangent direction`.
+**Purpose:** Reads and returns the `spawn path frame facing tangent direction` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPathData from the subsystem API first
+SpawnPathData spawnPathData = ...;
+spawnPathData.GetSpawnPathFrameFacingTangentDirection(0, 0, spawnPathPosition, spawnPathDirection);
+```
 
 ### Create
 `public static SpawnPathData Create(Scene scene, Path path, float pivotRatio = 0f, bool isInverted = false, SpawnPathData.SnapMethod snapType = SpawnPathData.SnapMethod.DontSnap)`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+SpawnPathData.Create(scene, path, 0, false, spawnPathData.SnapMethod.DontSnap);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpawnPathData();
+// This data object is usually returned by campaign/mission APIs
+SpawnPathData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

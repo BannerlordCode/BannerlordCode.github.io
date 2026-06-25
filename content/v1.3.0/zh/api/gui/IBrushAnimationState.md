@@ -1,18 +1,12 @@
 ---
 title: "IBrushAnimationState"
+description: "IBrushAnimationState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IBrushAnimationState`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBrushAnimationState
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface IBrushAnimationState`
 **Base:** 无
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/IBrushAnimationState.cs`
 
@@ -27,9 +21,10 @@ title: "IBrushAnimationState"
 ## 使用示例
 
 ```csharp
-IBrushAnimationState implementation = GetBrushAnimationStateImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIBrushAnimationState service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

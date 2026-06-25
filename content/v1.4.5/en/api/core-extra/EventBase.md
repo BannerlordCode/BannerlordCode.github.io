@@ -1,20 +1,14 @@
 ---
 title: "EventBase"
+description: "Auto-generated class reference for EventBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EventBase`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventBase
 
 **Namespace:** TaleWorlds.Library.EventSystem
 **Module:** TaleWorlds.Library
 **Type:** `public class EventBase`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventBase.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventBase.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.EventSystem` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var example = new EventBase();
+// Obtain an instance from the relevant subsystem API
+EventBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MemberDefinition"
+description: "MemberDefinition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MemberDefinition`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MemberDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public abstract class MemberDefinition`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/MemberDefinition.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/MemberDefinition.cs`
 
 ## 概述
 
@@ -36,19 +30,32 @@ title: "MemberDefinition"
 ### GetMemberType
 `public abstract Type GetMemberType()`
 
-**用途 / Purpose:** 获取 `member type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「member type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MemberDefinition 实例
+MemberDefinition memberDefinition = ...;
+var result = memberDefinition.GetMemberType();
+```
 
 ### GetValue
 `public abstract object GetValue(object target)`
 
-**用途 / Purpose:** 获取 `value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MemberDefinition 实例
+MemberDefinition memberDefinition = ...;
+var result = memberDefinition.GetValue(target);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMemberDefinition();
+// 通常通过子系统 API 或工厂获得派生实例
+MemberDefinition instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

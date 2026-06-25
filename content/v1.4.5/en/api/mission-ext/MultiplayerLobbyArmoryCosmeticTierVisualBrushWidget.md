@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget"
+description: "Auto-generated class reference for MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget` as a Widget-style ex
 ### MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget
 `public class MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer lobby armory cosmetic tier visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget from the subsystem API first
+MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget multiplayerLobbyArmoryCosmeticTierVisualBrushWidget = ...;
+var result = multiplayerLobbyArmoryCosmeticTierVisualBrushWidget.MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

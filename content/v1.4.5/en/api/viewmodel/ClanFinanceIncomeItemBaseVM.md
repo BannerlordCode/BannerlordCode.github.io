@@ -1,20 +1,14 @@
 ---
 title: "ClanFinanceIncomeItemBaseVM"
+description: "Auto-generated class reference for ClanFinanceIncomeItemBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFinanceIncomeItemBaseVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceIncomeItemBaseVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanFinanceIncomeItemBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanFinanceIncomeItemBaseVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanFinanceIncomeItemBaseVM.cs`
 
 ## Overview
 
@@ -44,15 +38,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### OnIncomeSelection
 `public void OnIncomeSelection()`
 
-**Purpose:** Called when the `income selection` event is raised.
+**Purpose:** Invoked when the `income selection` event is raised.
+
+```csharp
+// Obtain an instance of ClanFinanceIncomeItemBaseVM from the subsystem API first
+ClanFinanceIncomeItemBaseVM clanFinanceIncomeItemBaseVM = ...;
+clanFinanceIncomeItemBaseVM.OnIncomeSelection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanFinanceIncomeItemBaseVM();
-value.OnIncomeSelection();
+// Typically call this after obtaining an instance from the subsystem API
+ClanFinanceIncomeItemBaseVM clanFinanceIncomeItemBaseVM = ...;
+clanFinanceIncomeItemBaseVM.OnIncomeSelection();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

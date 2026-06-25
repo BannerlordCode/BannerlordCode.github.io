@@ -1,13 +1,7 @@
 ---
 title: "BehaviorScreenedSkirmish"
+description: "Auto-generated class reference for BehaviorScreenedSkirmish."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorScreenedSkirmish`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorScreenedSkirmish
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorScreenedSkirmish from the subsystem API first
+BehaviorScreenedSkirmish behaviorScreenedSkirmish = ...;
+behaviorScreenedSkirmish.TickOccasionally();
+```
 
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorScreenedSkirmish from the subsystem API first
+BehaviorScreenedSkirmish behaviorScreenedSkirmish = ...;
+var result = behaviorScreenedSkirmish.GetBehaviorString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorScreenedSkirmish();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorScreenedSkirmish behaviorScreenedSkirmish = ...;
+behaviorScreenedSkirmish.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

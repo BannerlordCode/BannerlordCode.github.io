@@ -1,13 +1,7 @@
 ---
 title: "FontFactory"
+description: "FontFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FontFactory`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FontFactory
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -37,65 +31,132 @@ title: "FontFactory"
 ### LoadAllFonts
 `public void LoadAllFonts(SpriteData spriteData)`
 
-**用途 / Purpose:** 加载 `all fonts` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「all fonts」。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+fontFactory.LoadAllFonts(spriteData);
+```
 
 ### TryAddFontDefinition
 `public bool TryAddFontDefinition(string fontPath, string fontName, SpriteData spriteData)`
 
-**用途 / Purpose:** 尝试获取 `add font definition`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「add font definition」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+var result = fontFactory.TryAddFontDefinition("example", "example", spriteData);
+```
 
 ### LoadLocalizationValues
 `public void LoadLocalizationValues(string sourceXMLPath)`
 
-**用途 / Purpose:** 加载 `localization values` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「localization values」。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+fontFactory.LoadLocalizationValues("example");
+```
 
 ### GetCurrentLanguage
 `public Language GetCurrentLanguage()`
 
-**用途 / Purpose:** 获取 `current language` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current language」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+var result = fontFactory.GetCurrentLanguage();
+```
 
 ### GetFont
 `public Font GetFont(string fontName)`
 
-**用途 / Purpose:** 获取 `font` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「font」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+var result = fontFactory.GetFont("example");
+```
 
 ### GetFonts
 `public IEnumerable<Font> GetFonts()`
 
-**用途 / Purpose:** 获取 `fonts` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「fonts」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+var result = fontFactory.GetFonts();
+```
 
 ### GetFontName
 `public string GetFontName(Font font)`
 
-**用途 / Purpose:** 获取 `font name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「font name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+var result = fontFactory.GetFontName(font);
+```
 
 ### GetMappedFontForLocalization
 `public Font GetMappedFontForLocalization(string englishFontName)`
 
-**用途 / Purpose:** 获取 `mapped font for localization` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mapped font for localization」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+var result = fontFactory.GetMappedFontForLocalization("example");
+```
 
 ### OnLanguageChange
 `public void OnLanguageChange(string newLanguageCode)`
 
-**用途 / Purpose:** 当 `language change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「language change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+fontFactory.OnLanguageChange("example");
+```
 
 ### GetUsableFontForCharacter
 `public Font GetUsableFontForCharacter(int characterCode)`
 
-**用途 / Purpose:** 获取 `usable font for character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「usable font for character」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+var result = fontFactory.GetUsableFontForCharacter(0);
+```
 
 ### CheckForUpdates
 `public void CheckForUpdates()`
 
-**用途 / Purpose:** 处理 `check for updates` 相关逻辑。
+**用途 / Purpose:** 检查「for updates」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 FontFactory 实例
+FontFactory fontFactory = ...;
+fontFactory.CheckForUpdates();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FontFactory();
-value.LoadAllFonts(spriteData);
+// 通常从对应子系统 API 获取实例后调用
+FontFactory fontFactory = ...;
+fontFactory.LoadAllFonts(spriteData);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

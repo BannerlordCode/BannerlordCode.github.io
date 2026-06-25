@@ -1,13 +1,7 @@
 ---
 title: "SelectionData"
+description: "Auto-generated class reference for SelectionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SelectionData
 
 **Namespace:** TaleWorlds.Engine.Options
@@ -27,9 +21,10 @@ Treat `SelectionData` as a Data-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var value = new SelectionData();
+// This data object is usually returned by campaign/mission APIs
+SelectionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

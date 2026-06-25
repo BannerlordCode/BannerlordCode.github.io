@@ -1,13 +1,7 @@
 ---
 title: "BricoleView"
+description: "Auto-generated class reference for BricoleView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BricoleView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BricoleView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon
@@ -27,9 +21,10 @@ Treat `BricoleView` as a View-style extension point: first identify who creates 
 ## Usage Example
 
 ```csharp
-var view = new BricoleView();
+// Retrieve this view from the subsystem API or scene
+BricoleView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "AuxiliaryKeyGroupVM"
+description: "AuxiliaryKeyGroupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AuxiliaryKeyGroupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AuxiliaryKeyGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys
@@ -36,25 +30,44 @@ title: "AuxiliaryKeyGroupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 AuxiliaryKeyGroupVM 实例
+AuxiliaryKeyGroupVM auxiliaryKeyGroupVM = ...;
+auxiliaryKeyGroupVM.RefreshValues();
+```
 
 ### OnDone
 `public void OnDone()`
 
-**用途 / Purpose:** 当 `done` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「done」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AuxiliaryKeyGroupVM 实例
+AuxiliaryKeyGroupVM auxiliaryKeyGroupVM = ...;
+auxiliaryKeyGroupVM.OnDone();
+```
 
 ### OnGamepadActiveStateChanged
 `public void OnGamepadActiveStateChanged()`
 
-**用途 / Purpose:** 当 `gamepad active state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「gamepad active state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AuxiliaryKeyGroupVM 实例
+AuxiliaryKeyGroupVM auxiliaryKeyGroupVM = ...;
+auxiliaryKeyGroupVM.OnGamepadActiveStateChanged();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AuxiliaryKeyGroupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+AuxiliaryKeyGroupVM auxiliaryKeyGroupVM = ...;
+auxiliaryKeyGroupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

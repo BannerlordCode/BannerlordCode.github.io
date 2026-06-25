@@ -1,13 +1,7 @@
 ---
 title: "FiefBarterGroup"
+description: "Auto-generated class reference for FiefBarterGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FiefBarterGroup`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FiefBarterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem` to place it in the
 ## Usage Example
 
 ```csharp
-var example = new FiefBarterGroup();
+// Obtain an instance from the relevant subsystem API
+FiefBarterGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

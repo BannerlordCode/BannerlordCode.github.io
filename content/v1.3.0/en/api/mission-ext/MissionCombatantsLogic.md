@@ -1,13 +1,7 @@
 ---
 title: "MissionCombatantsLogic"
+description: "Auto-generated class reference for MissionCombatantsLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCombatantsLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCombatantsLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,39 +29,74 @@ Treat `MissionCombatantsLogic` as a Logic-style extension point: first identify 
 ### GetBannerForSide
 `public Banner GetBannerForSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `banner for side`.
+**Purpose:** Reads and returns the `banner for side` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionCombatantsLogic from the subsystem API first
+MissionCombatantsLogic missionCombatantsLogic = ...;
+var result = missionCombatantsLogic.GetBannerForSide(side);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionCombatantsLogic from the subsystem API first
+MissionCombatantsLogic missionCombatantsLogic = ...;
+missionCombatantsLogic.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCombatantsLogic from the subsystem API first
+MissionCombatantsLogic missionCombatantsLogic = ...;
+missionCombatantsLogic.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCombatantsLogic from the subsystem API first
+MissionCombatantsLogic missionCombatantsLogic = ...;
+missionCombatantsLogic.AfterStart();
+```
 
 ### GetAllCombatants
 `public IEnumerable<IBattleCombatant> GetAllCombatants()`
 
-**Purpose:** Gets the current value of `all combatants`.
+**Purpose:** Reads and returns the `all combatants` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionCombatantsLogic from the subsystem API first
+MissionCombatantsLogic missionCombatantsLogic = ...;
+var result = missionCombatantsLogic.GetAllCombatants();
+```
 
 ### SupportsAllyTeamOnPlayerSide
 `public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, out IBattleCombatant allyCombatant)`
 
-**Purpose:** Handles logic related to `supports ally team on player side`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionCombatantsLogic.SupportsAllyTeamOnPlayerSide(playerSideBattleCombatants, playerBattleCombatant, false, allyCombatant);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionCombatantsLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionCombatantsLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

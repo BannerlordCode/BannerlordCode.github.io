@@ -1,13 +1,7 @@
 ---
 title: "OverrideStrikeAndDeathActionDuringUsageComponent"
+description: "Auto-generated class reference for OverrideStrikeAndDeathActionDuringUsageComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OverrideStrikeAndDeathActionDuringUsageComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OverrideStrikeAndDeathActionDuringUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -32,4 +26,4 @@ var component = agent.GetComponent<OverrideStrikeAndDeathActionDuringUsageCompon
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

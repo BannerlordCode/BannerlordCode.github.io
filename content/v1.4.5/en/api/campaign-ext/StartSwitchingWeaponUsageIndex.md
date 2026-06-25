@@ -1,20 +1,14 @@
 ---
 title: "StartSwitchingWeaponUsageIndex"
+description: "Auto-generated class reference for StartSwitchingWeaponUsageIndex."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StartSwitchingWeaponUsageIndex`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StartSwitchingWeaponUsageIndex
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class StartSwitchingWeaponUsageIndex : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/StartSwitchingWeaponUsageIndex.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/StartSwitchingWeaponUsageIndex.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new StartSwitchingWeaponUsageIndex();
+// Obtain an instance from the relevant subsystem API
+StartSwitchingWeaponUsageIndex instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

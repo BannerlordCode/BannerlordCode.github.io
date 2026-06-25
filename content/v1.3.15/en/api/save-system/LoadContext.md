@@ -1,70 +1,96 @@
 ---
 title: "LoadContext"
+description: "Auto-generated class reference for LoadContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadContext`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LoadContext
 
-**Namespace:** TaleWorlds.SaveSystem.Load  
-**Module:** TaleWorlds.SaveSystem  
-**Type:** public class
-
-The **read-side context** of the save system. `SaveManager.Load` creates a `LoadContext` internally; it deserializes headers, objects, and containers from save data and rebuilds the full object graph.
+**Namespace:** TaleWorlds.SaveSystem.Load
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class LoadContext`
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Load/LoadContext.cs`
 
 ## Overview
 
-`LoadContext` holds a `DefinitionContext` (type definition table) and an `ISaveDriver` (file I/O). Loading happens in three steps:
-
-1. **Read headers**: `ArchiveDeserializer` parses object/container/string counts and header data from `loadData.GameData.Header`.
-2. **Create objects**: iterate `ObjectHeaderLoadData`, creating empty objects per definition (ID 0 is the root).
-3. **Fill objects**: read field values and populate each object (supports deferred init via `loadAsLateInitialize`).
+`LoadContext` lives in `TaleWorlds.SaveSystem.Load` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `LoadContext` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.SaveSystem.Load` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Main properties
+## Key Properties
 
-| Name | Type | Description |
-|------|------|-------------|
-| `DefinitionContext` | DefinitionContext | Type/field definition context |
-| `Driver` | ISaveDriver | Underlying file I/O driver |
+| Name | Signature |
+|------|-----------|
+| `EnableLoadStatistics` | `public static bool EnableLoadStatistics { get; }` |
+| `RootObject` | `public object RootObject { get; }` |
+| `DefinitionContext` | `public DefinitionContext DefinitionContext { get; }` |
+| `Driver` | `public ISaveDriver Driver { get; }` |
 
-## Main methods
+## Key Methods
 
-```csharp
-public LoadContext(DefinitionContext definitionContext, ISaveDriver driver);
+### Load
+`public bool Load(LoadData loadData, bool loadAsLateInitialize)`
 
-// Runs the full load flow; loadAsLateInitialize defers callbacks
-public bool Load(LoadData loadData, bool loadAsLateInitialize);
-```
-
-## Usage example
+**Purpose:** Reads the current object's data from persistent storage or a stream.
 
 ```csharp
-var loadResult = SaveManager.Load("MySave", fileDriver);
-if (loadResult.Success)
-{
-    var game = loadResult.RootObject;  // root object rebuilt by LoadContext
-}
+// Obtain an instance of LoadContext from the subsystem API first
+LoadContext loadContext = ...;
+var result = loadContext.Load(loadData, false);
 ```
 
-> **For mod developers**
-> Like `SaveContext`, `LoadContext` is managed internally by `SaveManager` and not usually instantiated by mods. Understanding it helps when debugging save compatibility issues (e.g. missing fields during version migration).
+### TryConvertType
+`public static bool TryConvertType(Type sourceType, Type targetType, ref object data)`
 
-## See also
+**Purpose:** Attempts to retrieve `convert type`, usually returning success through an out parameter.
 
-- [SaveManager](./SaveManager)
-- [SaveContext](./SaveContext)
-- [SaveAttributes](./SaveAttributes)
+```csharp
+// Static call; no instance required
+LoadContext.TryConvertType(sourceType, targetType, data);
+```
+
+### GetObjectWithId
+`public ObjectHeaderLoadData GetObjectWithId(int id)`
+
+**Purpose:** Reads and returns the `object with id` value held by the current object.
+
+```csharp
+// Obtain an instance of LoadContext from the subsystem API first
+LoadContext loadContext = ...;
+var result = loadContext.GetObjectWithId(0);
+```
+
+### GetContainerWithId
+`public ContainerHeaderLoadData GetContainerWithId(int id)`
+
+**Purpose:** Reads and returns the `container with id` value held by the current object.
+
+```csharp
+// Obtain an instance of LoadContext from the subsystem API first
+LoadContext loadContext = ...;
+var result = loadContext.GetContainerWithId(0);
+```
+
+### GetStringWithId
+`public string GetStringWithId(int id)`
+
+**Purpose:** Reads and returns the `string with id` value held by the current object.
+
+```csharp
+// Obtain an instance of LoadContext from the subsystem API first
+LoadContext loadContext = ...;
+var result = loadContext.GetStringWithId(0);
+```
 
 ## Usage Example
 
 ```csharp
-var example = new LoadContext();
+// Typically call this after obtaining an instance from the subsystem API
+LoadContext loadContext = ...;
+loadContext.Load(loadData, false);
 ```
+
+## See Also
+
+- [Area Index](../)

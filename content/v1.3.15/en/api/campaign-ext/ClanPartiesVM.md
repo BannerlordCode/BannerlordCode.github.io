@@ -1,13 +1,7 @@
 ---
 title: "ClanPartiesVM"
+description: "Auto-generated class reference for ClanPartiesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanPartiesVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanPartiesVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -53,50 +47,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanPartiesVM from the subsystem API first
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.RefreshValues();
+```
 
 ### RefreshTotalExpense
 `public void RefreshTotalExpense()`
 
-**Purpose:** Refreshes the display or cache of `total expense`.
+**Purpose:** Keeps the display or cache of `total expense` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanPartiesVM from the subsystem API first
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.RefreshTotalExpense();
+```
 
 ### RefreshPartiesList
 `public void RefreshPartiesList()`
 
-**Purpose:** Refreshes the display or cache of `parties list`.
+**Purpose:** Keeps the display or cache of `parties list` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanPartiesVM from the subsystem API first
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.RefreshPartiesList();
+```
 
 ### ExecuteCreateNewParty
 `public void ExecuteCreateNewParty()`
 
-**Purpose:** Executes the `create new party` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `create new party`.
+
+```csharp
+// Obtain an instance of ClanPartiesVM from the subsystem API first
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.ExecuteCreateNewParty();
+```
 
 ### SelectParty
 `public void SelectParty(PartyBase party)`
 
-**Purpose:** Handles logic related to `select party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanPartiesVM from the subsystem API first
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.SelectParty(party);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanPartiesVM from the subsystem API first
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.OnFinalize();
+```
 
 ### OnShowNewPartyPopup
 `public void OnShowNewPartyPopup()`
 
-**Purpose:** Called when the `show new party popup` event is raised.
+**Purpose:** Invoked when the `show new party popup` event is raised.
+
+```csharp
+// Obtain an instance of ClanPartiesVM from the subsystem API first
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.OnShowNewPartyPopup();
+```
 
 ### OnShowChangeLeaderPopup
 `public void OnShowChangeLeaderPopup()`
 
-**Purpose:** Called when the `show change leader popup` event is raised.
+**Purpose:** Invoked when the `show change leader popup` event is raised.
+
+```csharp
+// Obtain an instance of ClanPartiesVM from the subsystem API first
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.OnShowChangeLeaderPopup();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanPartiesVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanPartiesVM clanPartiesVM = ...;
+clanPartiesVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

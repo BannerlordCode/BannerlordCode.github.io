@@ -1,20 +1,14 @@
 ---
 title: "MBHaltonColorGenerator"
+description: "MBHaltonColorGenerator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBHaltonColorGenerator`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBHaltonColorGenerator
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBHaltonColorGenerator`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBHaltonColorGenerator.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBHaltonColorGenerator.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "MBHaltonColorGenerator"
 ### SetBase
 `public void SetBase()`
 
-**用途 / Purpose:** 设置 `base` 的值或状态。
+**用途 / Purpose:** 为 「base」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetBase();
+```
 
 ### SetBase
 `public void SetBase(int baseValue)`
 
-**用途 / Purpose:** 设置 `base` 的值或状态。
+**用途 / Purpose:** 为 「base」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetBase(0);
+```
 
 ### SetOffset
 `public void SetOffset(float offset)`
 
-**用途 / Purpose:** 设置 `offset` 的值或状态。
+**用途 / Purpose:** 为 「offset」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetOffset(0);
+```
 
 ### SetRandomOffset
 `public void SetRandomOffset()`
 
-**用途 / Purpose:** 设置 `random offset` 的值或状态。
+**用途 / Purpose:** 为 「random offset」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetRandomOffset();
+```
 
 ### GetColor
 `public Color GetColor(int index, int maxIndex)`
 
-**用途 / Purpose:** 获取 `color` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「color」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+var result = mBHaltonColorGenerator.GetColor(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBHaltonColorGenerator();
-value.SetBase();
+// 通常从对应子系统 API 获取实例后调用
+MBHaltonColorGenerator mBHaltonColorGenerator = ...;
+mBHaltonColorGenerator.SetBase();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

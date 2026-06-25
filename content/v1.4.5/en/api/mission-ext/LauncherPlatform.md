@@ -1,20 +1,14 @@
 ---
 title: "LauncherPlatform"
+description: "Auto-generated class reference for LauncherPlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherPlatform`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherPlatform
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class LauncherPlatform`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherPlatform.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherPlatform.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Initialize
 `public static void Initialize(List<string> args)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+LauncherPlatform.Initialize(args);
+```
 
 ### Destroy
 `public static void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LauncherPlatform.Destroy();
+```
 
 ### SetLauncherMode
 `public static void SetLauncherMode(bool isLauncherModeActive)`
 
-**Purpose:** Sets the value or state of `launcher mode`.
+**Purpose:** Assigns a new value to `launcher mode` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+LauncherPlatform.SetLauncherMode(false);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ LauncherPlatform.Initialize(args);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

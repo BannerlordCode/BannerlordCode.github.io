@@ -1,20 +1,14 @@
 ---
 title: "FormOrder"
+description: "FormOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormOrder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormOrder`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormOrder.cs`
 
 ## 概述
 
@@ -35,37 +29,76 @@ title: "FormOrder"
 ### FormOrderCustom
 `public static FormOrder FormOrderCustom(float customWidth)`
 
-**用途 / Purpose:** 处理 `form order custom` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+FormOrder.FormOrderCustom(0);
+```
 
 ### OnApply
 `public void OnApply(Formation formation)`
 
-**用途 / Purpose:** 当 `apply` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「apply」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FormOrder 实例
+FormOrder formOrder = ...;
+formOrder.OnApply(formation);
+```
 
 ### GetUnitCountOf
 `public static int GetUnitCountOf(Formation formation)`
 
-**用途 / Purpose:** 获取 `unit count of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit count of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FormOrder.GetUnitCountOf(formation);
+```
 
 ### OnApplyToCustomArrangement
 `public bool OnApplyToCustomArrangement(Formation formation, IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 当 `apply to custom arrangement` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「apply to custom arrangement」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FormOrder 实例
+FormOrder formOrder = ...;
+var result = formOrder.OnApplyToCustomArrangement(formation, arrangement);
+```
 
 ### GetMaxFileCountStatic
 `public static int? GetMaxFileCountStatic(FormOrderEnum order, int unitCount)`
 
-**用途 / Purpose:** 获取 `max file count static` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max file count static」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FormOrder.GetMaxFileCountStatic(order, 0);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 FormOrder 实例
+FormOrder formOrder = ...;
+var result = formOrder.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 FormOrder 实例
+FormOrder formOrder = ...;
+var result = formOrder.GetHashCode();
+```
 
 ## 使用示例
 
@@ -75,4 +108,4 @@ FormOrder.FormOrderCustom(0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "RemoveMissionObjectBodyFlags"
+description: "Auto-generated class reference for RemoveMissionObjectBodyFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemoveMissionObjectBodyFlags`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemoveMissionObjectBodyFlags
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RemoveMissionObjectBodyFlags : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemoveMissionObjectBodyFlags.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemoveMissionObjectBodyFlags.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new RemoveMissionObjectBodyFlags();
+// Obtain an instance from the relevant subsystem API
+RemoveMissionObjectBodyFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

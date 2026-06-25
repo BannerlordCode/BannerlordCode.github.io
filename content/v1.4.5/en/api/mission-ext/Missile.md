@@ -1,20 +1,14 @@
 ---
 title: "Missile"
+description: "Auto-generated class reference for Missile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Missile`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Missile
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Missile : MBMissile`
 **Base:** `MBMissile`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
 
 ## Overview
 
@@ -39,25 +33,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CalculatePassbySoundParametersMT
 `public void CalculatePassbySoundParametersMT(ref SoundEventParameter soundEventParameter)`
 
-**Purpose:** Handles logic related to `calculate passby sound parameters m t`.
+**Purpose:** Calculates the current value or result of `passby sound parameters m t`.
+
+```csharp
+// Obtain an instance of Missile from the subsystem API first
+Missile missile = ...;
+missile.CalculatePassbySoundParametersMT(soundEventParameter);
+```
 
 ### CalculateBounceBackVelocity
 `public void CalculateBounceBackVelocity(Vec3 rotationSpeed, AttackCollisionData collisionData, out Vec3 velocity, out Vec3 angularVelocity)`
 
-**Purpose:** Handles logic related to `calculate bounce back velocity`.
+**Purpose:** Calculates the current value or result of `bounce back velocity`.
+
+```csharp
+// Obtain an instance of Missile from the subsystem API first
+Missile missile = ...;
+missile.CalculateBounceBackVelocity(rotationSpeed, collisionData, velocity, angularVelocity);
+```
 
 ### PassThroughEntity
 `public void PassThroughEntity(GameEntity entity)`
 
-**Purpose:** Handles logic related to `pass through entity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Missile from the subsystem API first
+Missile missile = ...;
+missile.PassThroughEntity(entity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Missile();
-value.CalculatePassbySoundParametersMT(soundEventParameter);
+// Typically call this after obtaining an instance from the subsystem API
+Missile missile = ...;
+missile.CalculatePassbySoundParametersMT(soundEventParameter);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

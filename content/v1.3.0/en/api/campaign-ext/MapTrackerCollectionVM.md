@@ -1,13 +1,7 @@
 ---
 title: "MapTrackerCollectionVM"
+description: "Auto-generated class reference for MapTrackerCollectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapTrackerCollectionVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapTrackerCollectionVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Tracker
@@ -35,25 +29,44 @@ Start from namespace `SandBox.ViewModelCollection.Map.Tracker` to place it in th
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapTrackerCollectionVM from the subsystem API first
+MapTrackerCollectionVM mapTrackerCollectionVM = ...;
+mapTrackerCollectionVM.Tick(0);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapTrackerCollectionVM from the subsystem API first
+MapTrackerCollectionVM mapTrackerCollectionVM = ...;
+mapTrackerCollectionVM.OnFinalize();
+```
 
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Updates the state or data of `properties`.
+**Purpose:** Recalculates and stores the latest representation of `properties`.
+
+```csharp
+// Obtain an instance of MapTrackerCollectionVM from the subsystem API first
+MapTrackerCollectionVM mapTrackerCollectionVM = ...;
+mapTrackerCollectionVM.UpdateProperties();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapTrackerCollectionVM();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+MapTrackerCollectionVM mapTrackerCollectionVM = ...;
+mapTrackerCollectionVM.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

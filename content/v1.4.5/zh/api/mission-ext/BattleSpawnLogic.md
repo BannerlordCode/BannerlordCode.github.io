@@ -1,20 +1,14 @@
 ---
 title: "BattleSpawnLogic"
+description: "BattleSpawnLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleSpawnLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSpawnLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleSpawnLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BattleSpawnLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BattleSpawnLogic.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "BattleSpawnLogic"
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnLogic 实例
+BattleSpawnLogic battleSpawnLogic = ...;
+battleSpawnLogic.OnPreMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleSpawnLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleSpawnLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

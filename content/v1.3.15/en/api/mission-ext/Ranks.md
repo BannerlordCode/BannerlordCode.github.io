@@ -1,13 +1,7 @@
 ---
 title: "Ranks"
+description: "Auto-generated class reference for Ranks."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Ranks`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Ranks
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Ranked
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Ranked` to place it in th
 ## Usage Example
 
 ```csharp
-var value = new Ranks();
+// Obtain an instance from the relevant subsystem API
+Ranks instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

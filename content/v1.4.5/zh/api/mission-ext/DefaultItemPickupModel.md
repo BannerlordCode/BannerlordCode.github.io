@@ -1,20 +1,14 @@
 ---
 title: "DefaultItemPickupModel"
+description: "DefaultItemPickupModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultItemPickupModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultItemPickupModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultItemPickupModel : ItemPickupModel`
 **Base:** `ItemPickupModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultItemPickupModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultItemPickupModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultItemPickupModel"
 ### GetItemScoreForAgent
 `public override float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)`
 
-**用途 / Purpose:** 获取 `item score for agent` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item score for agent」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemPickupModel 实例
+DefaultItemPickupModel defaultItemPickupModel = ...;
+var result = defaultItemPickupModel.GetItemScoreForAgent(item, agent);
+```
 
 ### IsItemAvailableForAgent
 `public override bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)`
 
-**用途 / Purpose:** 处理 `is item available for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「item available for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemPickupModel 实例
+DefaultItemPickupModel defaultItemPickupModel = ...;
+var result = defaultItemPickupModel.IsItemAvailableForAgent(item, agent, slotToPickUp);
+```
 
 ### IsAgentEquipmentSuitableForPickUpAvailability
 `public override bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)`
 
-**用途 / Purpose:** 处理 `is agent equipment suitable for pick up availability` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「agent equipment suitable for pick up availability」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemPickupModel 实例
+DefaultItemPickupModel defaultItemPickupModel = ...;
+var result = defaultItemPickupModel.IsAgentEquipmentSuitableForPickUpAvailability(agent);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultItemPickupModel>(new MyDefaultItemPickupModel()
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

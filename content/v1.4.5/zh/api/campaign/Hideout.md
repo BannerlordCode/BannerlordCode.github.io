@@ -1,20 +1,14 @@
 ---
 title: "Hideout"
+description: "Hideout 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Hideout`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Hideout
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Hideout : SettlementComponent, ISpottable`
 **Base:** `SettlementComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Hideout.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/Hideout.cs`
 
 ## 概述
 
@@ -36,50 +30,99 @@ title: "Hideout"
 ### SetNextPossibleAttackTime
 `public void SetNextPossibleAttackTime(CampaignTime hiddenDurationFromNow)`
 
-**用途 / Purpose:** 设置 `next possible attack time` 的值或状态。
+**用途 / Purpose:** 为 「next possible attack time」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Hideout 实例
+Hideout hideout = ...;
+hideout.SetNextPossibleAttackTime(hiddenDurationFromNow);
+```
 
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 获取 `defender parties` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「defender parties」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hideout 实例
+Hideout hideout = ...;
+var result = hideout.GetDefenderParties(battleType);
+```
 
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 获取 `next defender party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next defender party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Hideout 实例
+Hideout hideout = ...;
+var result = hideout.GetNextDefenderParty(partyIndex, battleType);
+```
 
 ### OnPartyEntered
 `public override void OnPartyEntered(MobileParty mobileParty)`
 
-**用途 / Purpose:** 当 `party entered` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「party entered」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Hideout 实例
+Hideout hideout = ...;
+hideout.OnPartyEntered(mobileParty);
+```
 
 ### OnPartyLeft
 `public override void OnPartyLeft(MobileParty mobileParty)`
 
-**用途 / Purpose:** 当 `party left` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「party left」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Hideout 实例
+Hideout hideout = ...;
+hideout.OnPartyLeft(mobileParty);
+```
 
 ### OnRelatedPartyRemoved
 `public override void OnRelatedPartyRemoved(MobileParty mobileParty)`
 
-**用途 / Purpose:** 当 `related party removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「related party removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Hideout 实例
+Hideout hideout = ...;
+hideout.OnRelatedPartyRemoved(mobileParty);
+```
 
 ### OnInit
 `public override void OnInit()`
 
-**用途 / Purpose:** 当 `init` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「init」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Hideout 实例
+Hideout hideout = ...;
+hideout.OnInit();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Hideout 实例
+Hideout hideout = ...;
+hideout.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Hideout();
-value.SetNextPossibleAttackTime(hiddenDurationFromNow);
+// 通常从对应子系统 API 获取实例后调用
+Hideout hideout = ...;
+hideout.SetNextPossibleAttackTime(hiddenDurationFromNow);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

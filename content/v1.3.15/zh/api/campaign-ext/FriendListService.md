@@ -1,23 +1,18 @@
 ---
 title: "FriendListService"
+description: "FriendListService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FriendListService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FriendListService
 
-**命名空间:** TaleWorlds.PlatformService
-**模块:** TaleWorlds.PlatformService
-**类型:** `public static class FriendListService`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.PlatformService
+**Module:** TaleWorlds.PlatformService
+**Type:** `public static class FriendListService`
+**Base:** 无
+**File:** `TaleWorlds.PlatformService/FriendListService.cs`
 
 ## 概述
 
-`FriendListService` 位于 `TaleWorlds.PlatformService`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`FriendListService` 位于 `TaleWorlds.PlatformService`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,16 +23,19 @@ title: "FriendListService"
 ### GetAllFriendsInAllPlatforms
 `public static IEnumerable<PlayerId> GetAllFriendsInAllPlatforms()`
 
-**用途 / Purpose:** 获取 `all friends in all platforms` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all friends in all platforms」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FriendListService.GetAllFriendsInAllPlatforms();
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 FriendListService.GetAllFriendsInAllPlatforms();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

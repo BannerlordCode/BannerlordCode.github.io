@@ -1,20 +1,14 @@
 ---
 title: "CampaignMapSiegePrefabEntityCache"
+description: "Auto-generated class reference for CampaignMapSiegePrefabEntityCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignMapSiegePrefabEntityCache`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignMapSiegePrefabEntityCache
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class CampaignMapSiegePrefabEntityCache : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/CampaignMapSiegePrefabEntityCache.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/CampaignMapSiegePrefabEntityCache.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### GetLaunchEntitialFrameForSiegeEngine
 `public MatrixFrame GetLaunchEntitialFrameForSiegeEngine(SiegeEngineType type, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `launch entitial frame for siege engine`.
+**Purpose:** Reads and returns the `launch entitial frame for siege engine` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignMapSiegePrefabEntityCache from the subsystem API first
+CampaignMapSiegePrefabEntityCache campaignMapSiegePrefabEntityCache = ...;
+var result = campaignMapSiegePrefabEntityCache.GetLaunchEntitialFrameForSiegeEngine(type, side);
+```
 
 ### GetScaleForSiegeEngine
 `public Vec3 GetScaleForSiegeEngine(SiegeEngineType type, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `scale for siege engine`.
+**Purpose:** Reads and returns the `scale for siege engine` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignMapSiegePrefabEntityCache from the subsystem API first
+CampaignMapSiegePrefabEntityCache campaignMapSiegePrefabEntityCache = ...;
+var result = campaignMapSiegePrefabEntityCache.GetScaleForSiegeEngine(type, side);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CampaignMapSiegePrefabEntityCache();
-value.GetLaunchEntitialFrameForSiegeEngine(type, side);
+// Typically call this after obtaining an instance from the subsystem API
+CampaignMapSiegePrefabEntityCache campaignMapSiegePrefabEntityCache = ...;
+campaignMapSiegePrefabEntityCache.GetLaunchEntitialFrameForSiegeEngine(type, side);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

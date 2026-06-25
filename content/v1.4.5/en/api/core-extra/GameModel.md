@@ -1,20 +1,14 @@
 ---
 title: "GameModel"
+description: "Auto-generated class reference for GameModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameModel
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class GameModel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/GameModel.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameModel.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GameModel` as a Model-style extension point: first identify who creates i
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameModel();
+// Typically obtained from a subsystem API or factory
+GameModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

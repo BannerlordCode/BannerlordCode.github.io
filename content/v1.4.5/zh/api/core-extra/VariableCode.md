@@ -1,20 +1,14 @@
 ---
 title: "VariableCode"
+description: "VariableCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VariableCode`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VariableCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
 **Type:** `public class VariableCode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/VariableCode.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/VariableCode.cs`
 
 ## 概述
 
@@ -38,15 +32,22 @@ title: "VariableCode"
 ### GenerateLine
 `public string GenerateLine()`
 
-**用途 / Purpose:** 处理 `generate line` 相关逻辑。
+**用途 / Purpose:** 生成「line」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 VariableCode 实例
+VariableCode variableCode = ...;
+var result = variableCode.GenerateLine();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VariableCode();
-value.GenerateLine();
+// 通常从对应子系统 API 获取实例后调用
+VariableCode variableCode = ...;
+variableCode.GenerateLine();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

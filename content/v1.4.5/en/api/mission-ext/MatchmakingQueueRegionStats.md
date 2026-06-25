@@ -1,20 +1,14 @@
 ---
 title: "MatchmakingQueueRegionStats"
+description: "Auto-generated class reference for MatchmakingQueueRegionStats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatchmakingQueueRegionStats`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatchmakingQueueRegionStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingQueueRegionStats`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueRegionStats.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueRegionStats.cs`
 
 ## Overview
 
@@ -40,30 +34,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetQueueCountObjectOf
 `public MatchmakingQueueGameTypeStats GetQueueCountObjectOf(string gameTypes)`
 
-**Purpose:** Gets the current value of `queue count object of`.
+**Purpose:** Reads and returns the `queue count object of` value held by the current object.
+
+```csharp
+// Obtain an instance of MatchmakingQueueRegionStats from the subsystem API first
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+var result = matchmakingQueueRegionStats.GetQueueCountObjectOf("example");
+```
 
 ### AddStats
 `public void AddStats(MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats)`
 
 **Purpose:** Adds `stats` to the current collection or state.
 
+```csharp
+// Obtain an instance of MatchmakingQueueRegionStats from the subsystem API first
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+matchmakingQueueRegionStats.AddStats(matchmakingQueueGameTypeStats);
+```
+
 ### GetQueueCountOf
 `public int GetQueueCountOf(string gameTypes)`
 
-**Purpose:** Gets the current value of `queue count of`.
+**Purpose:** Reads and returns the `queue count of` value held by the current object.
+
+```csharp
+// Obtain an instance of MatchmakingQueueRegionStats from the subsystem API first
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+var result = matchmakingQueueRegionStats.GetQueueCountOf("example");
+```
 
 ### SetWaitTimeStats
 `public void SetWaitTimeStats(int averageWaitTime, int maxWaitTime, int minWaitTime, int medianWaitTime)`
 
-**Purpose:** Sets the value or state of `wait time stats`.
+**Purpose:** Assigns a new value to `wait time stats` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MatchmakingQueueRegionStats from the subsystem API first
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+matchmakingQueueRegionStats.SetWaitTimeStats(0, 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MatchmakingQueueRegionStats();
-value.GetQueueCountObjectOf("example");
+// Typically call this after obtaining an instance from the subsystem API
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+matchmakingQueueRegionStats.GetQueueCountObjectOf("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

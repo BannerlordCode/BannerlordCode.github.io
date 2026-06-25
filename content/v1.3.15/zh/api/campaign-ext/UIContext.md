@@ -1,13 +1,7 @@
 ---
 title: "UIContext"
+description: "UIContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UIContext`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UIContext
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -58,115 +52,242 @@ title: "UIContext"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.Initialize();
+```
 
 ### GetBrush
 `public Brush GetBrush(string name)`
 
-**用途 / Purpose:** 获取 `brush` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「brush」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+var result = uIContext.GetBrush("example");
+```
 
 ### RefreshResources
 `public void RefreshResources(SpriteData spriteData, FontFactory fontFactory, BrushFactory brushFactory)`
 
-**用途 / Purpose:** 刷新 `resources` 的显示或缓存。
+**用途 / Purpose:** 使 「resources」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.RefreshResources(spriteData, fontFactory, brushFactory);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.OnFinalize();
+```
 
 ### Activate
 `public void Activate()`
 
-**用途 / Purpose:** 处理 `activate` 相关逻辑。
+**用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.Activate();
+```
 
 ### Deactivate
 `public void Deactivate()`
 
-**用途 / Purpose:** 处理 `deactivate` 相关逻辑。
+**用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.Deactivate();
+```
 
 ### Update
 `public void Update(float dt)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.Update(0);
+```
 
 ### LateUpdate
 `public void LateUpdate(float dt)`
 
-**用途 / Purpose:** 处理 `late update` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.LateUpdate(0);
+```
 
 ### RenderTick
 `public void RenderTick(float dt)`
 
-**用途 / Purpose:** 处理 `render tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.RenderTick(0);
+```
 
 ### InitializeGamepadNavigation
 `public void InitializeGamepadNavigation(IGamepadNavigationContext context)`
 
-**用途 / Purpose:** 初始化 `gamepad navigation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「gamepad navigation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.InitializeGamepadNavigation(context);
+```
 
 ### OnOnScreenkeyboardTextInputDone
 `public void OnOnScreenkeyboardTextInputDone(string inputText)`
 
-**用途 / Purpose:** 当 `on screenkeyboard text input done` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「on screenkeyboard text input done」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.OnOnScreenkeyboardTextInputDone("example");
+```
 
 ### OnOnScreenKeyboardCanceled
 `public void OnOnScreenKeyboardCanceled()`
 
-**用途 / Purpose:** 当 `on screen keyboard canceled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「on screen keyboard canceled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.OnOnScreenKeyboardCanceled();
+```
 
 ### HitTest
 `public bool HitTest(Widget root, Vector2 position)`
 
-**用途 / Purpose:** 处理 `hit test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+var result = uIContext.HitTest(root, position);
+```
 
 ### HitTest
 `public bool HitTest(Widget root)`
 
-**用途 / Purpose:** 处理 `hit test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+var result = uIContext.HitTest(root);
+```
 
 ### FocusTest
 `public bool FocusTest(Widget root)`
 
-**用途 / Purpose:** 处理 `focus test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+var result = uIContext.FocusTest(root);
+```
 
 ### SetIsMouseEnabled
 `public void SetIsMouseEnabled(bool isMouseEnabled)`
 
-**用途 / Purpose:** 设置 `is mouse enabled` 的值或状态。
+**用途 / Purpose:** 为 「is mouse enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.SetIsMouseEnabled(false);
+```
 
 ### UpdateInput
 `public void UpdateInput(InputType handleInputs)`
 
-**用途 / Purpose:** 更新 `input` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「input」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.UpdateInput(handleInputs);
+```
 
 ### OnMovieLoaded
 `public void OnMovieLoaded(string movieName)`
 
-**用途 / Purpose:** 当 `movie loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「movie loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.OnMovieLoaded("example");
+```
 
 ### OnMovieReleased
 `public void OnMovieReleased(string movieName)`
 
-**用途 / Purpose:** 当 `movie released` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「movie released」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.OnMovieReleased("example");
+```
 
 ### DrawWidgetDebugInfo
 `public void DrawWidgetDebugInfo()`
 
-**用途 / Purpose:** 处理 `draw widget debug info` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.DrawWidgetDebugInfo();
+```
 
 ### DebugDraw
 `public void DebugDraw()`
 
-**用途 / Purpose:** 处理 `debug draw` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UIContext 实例
+UIContext uIContext = ...;
+uIContext.DebugDraw();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new UIContext();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+UIContext uIContext = ...;
+uIContext.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

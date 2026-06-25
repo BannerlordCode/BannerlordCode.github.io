@@ -1,20 +1,14 @@
 ---
 title: "DefaultClanPoliticsModel"
+description: "DefaultClanPoliticsModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultClanPoliticsModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultClanPoliticsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultClanPoliticsModel : ClanPoliticsModel`
 **Base:** `ClanPoliticsModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanPoliticsModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanPoliticsModel.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "DefaultClanPoliticsModel"
 ### CalculateInfluenceChange
 `public override ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate influence change` 相关逻辑。
+**用途 / Purpose:** 计算「influence change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.CalculateInfluenceChange(clan, false);
+```
 
 ### CalculateSupportForPolicyInClan
 `public override float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)`
 
-**用途 / Purpose:** 处理 `calculate support for policy in clan` 相关逻辑。
+**用途 / Purpose:** 计算「support for policy in clan」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.CalculateSupportForPolicyInClan(clan, policy);
+```
 
 ### CalculateRelationshipChangeWithSponsor
 `public override float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)`
 
-**用途 / Purpose:** 处理 `calculate relationship change with sponsor` 相关逻辑。
+**用途 / Purpose:** 计算「relationship change with sponsor」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.CalculateRelationshipChangeWithSponsor(clan, sponsorClan);
+```
 
 ### GetInfluenceRequiredToOverrideKingdomDecision
 `public override int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)`
 
-**用途 / Purpose:** 获取 `influence required to override kingdom decision` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence required to override kingdom decision」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.GetInfluenceRequiredToOverrideKingdomDecision(popularOption, overridingOption, decision);
+```
 
 ### CanHeroBeGovernor
 `public override bool CanHeroBeGovernor(Hero hero)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero be governor`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero be governor」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.CanHeroBeGovernor(hero);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultClanPoliticsModel>(new MyDefaultClanPoliticsMod
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

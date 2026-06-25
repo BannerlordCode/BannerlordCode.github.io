@@ -1,20 +1,14 @@
 ---
 title: "StoryModePrisonerRecruitmentCalculationModel"
+description: "StoryModePrisonerRecruitmentCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModePrisonerRecruitmentCalculationModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModePrisonerRecruitmentCalculationModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModePrisonerRecruitmentCalculationModel : PrisonerRecruitmentCalculationModel`
 **Base:** `PrisonerRecruitmentCalculationModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModePrisonerRecruitmentCalculationModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModePrisonerRecruitmentCalculationModel.cs`
 
 ## 概述
 
@@ -29,32 +23,68 @@ title: "StoryModePrisonerRecruitmentCalculationModel"
 ### CalculateRecruitableNumber
 `public override int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** 处理 `calculate recruitable number` 相关逻辑。
+**用途 / Purpose:** 计算「recruitable number」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.CalculateRecruitableNumber(party, character);
+```
 
 ### GetConformityChangePerHour
 `public override ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** 获取 `conformity change per hour` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conformity change per hour」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.GetConformityChangePerHour(party, character);
+```
 
 ### GetConformityNeededToRecruitPrisoner
 `public override int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `conformity needed to recruit prisoner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conformity needed to recruit prisoner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.GetConformityNeededToRecruitPrisoner(character);
+```
 
 ### GetPrisonerRecruitmentMoraleEffect
 `public override int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**用途 / Purpose:** 获取 `prisoner recruitment morale effect` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「prisoner recruitment morale effect」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.GetPrisonerRecruitmentMoraleEffect(party, character, 0);
+```
 
 ### IsPrisonerRecruitable
 `public override bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**用途 / Purpose:** 处理 `is prisoner recruitable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「prisoner recruitable」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.IsPrisonerRecruitable(party, character, conformityNeeded);
+```
 
 ### ShouldPartyRecruitPrisoners
 `public override bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**用途 / Purpose:** 处理 `should party recruit prisoners` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例
+StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
+var result = storyModePrisonerRecruitmentCalculationModel.ShouldPartyRecruitPrisoners(party);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<StoryModePrisonerRecruitmentCalculationModel>(new MySt
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

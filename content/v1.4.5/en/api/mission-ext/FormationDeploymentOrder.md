@@ -1,20 +1,14 @@
 ---
 title: "FormationDeploymentOrder"
+description: "Auto-generated class reference for FormationDeploymentOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationDeploymentOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationDeploymentOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationDeploymentOrder`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
 
 ## Overview
 
@@ -36,25 +30,42 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Compare
 `public int Compare(FormationDeploymentOrder a, FormationDeploymentOrder b)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of FormationDeploymentOrder from the subsystem API first
+FormationDeploymentOrder formationDeploymentOrder = ...;
+var result = formationDeploymentOrder.Compare(a, b);
+```
 
 ### GetDeploymentOrder
 `public static FormationDeploymentOrder GetDeploymentOrder(FormationClass fClass, int offset = 0)`
 
-**Purpose:** Gets the current value of `deployment order`.
+**Purpose:** Reads and returns the `deployment order` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
+```
 
 ### GetComparer
 `public static DeploymentOrderComparer GetComparer()`
 
-**Purpose:** Gets the current value of `comparer`.
+**Purpose:** Reads and returns the `comparer` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormationDeploymentOrder.GetComparer();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationDeploymentOrder();
-value.Compare(a, b);
+// Typically call this after obtaining an instance from the subsystem API
+FormationDeploymentOrder formationDeploymentOrder = ...;
+formationDeploymentOrder.Compare(a, b);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

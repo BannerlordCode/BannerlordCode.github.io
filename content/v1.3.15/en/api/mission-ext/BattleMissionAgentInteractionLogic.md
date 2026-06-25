@@ -1,13 +1,7 @@
 ---
 title: "BattleMissionAgentInteractionLogic"
+description: "Auto-generated class reference for BattleMissionAgentInteractionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleMissionAgentInteractionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleMissionAgentInteractionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic
@@ -29,14 +23,20 @@ Treat `BattleMissionAgentInteractionLogic` as a Logic-style extension point: fir
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of BattleMissionAgentInteractionLogic from the subsystem API first
+BattleMissionAgentInteractionLogic battleMissionAgentInteractionLogic = ...;
+var result = battleMissionAgentInteractionLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleMissionAgentInteractionLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleMissionAgentInteractionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

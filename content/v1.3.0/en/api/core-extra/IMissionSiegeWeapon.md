@@ -1,18 +1,12 @@
 ---
 title: "IMissionSiegeWeapon"
+description: "Auto-generated class reference for IMissionSiegeWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionSiegeWeapon`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionSiegeWeapon
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IMissionSiegeWeapon`
 **Base:** none
 **File:** `TaleWorlds.Core/IMissionSiegeWeapon.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IMissionSiegeWeapon implementation = GetMissionSiegeWeaponImplementation();
+// Usually obtained through DI or a factory method
+IIMissionSiegeWeapon service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

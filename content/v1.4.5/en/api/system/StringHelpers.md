@@ -1,20 +1,14 @@
 ---
 title: "StringHelpers"
+description: "Auto-generated class reference for StringHelpers."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringHelpers`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringHelpers
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class StringHelpers`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/StringHelpers.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/StringHelpers.cs`
 
 ## Overview
 
@@ -29,37 +23,72 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ### SplitCamelCase
 `public static string SplitCamelCase(string text)`
 
-**Purpose:** Handles logic related to `split camel case`.
+**Purpose:** Splits `camel case` into multiple parts or sub-items.
+
+```csharp
+// Static call; no instance required
+StringHelpers.SplitCamelCase("example");
+```
 
 ### CamelCaseToSnakeCase
 `public static string CamelCaseToSnakeCase(string camelCaseString)`
 
-**Purpose:** Handles logic related to `camel case to snake case`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+StringHelpers.CamelCaseToSnakeCase("example");
+```
 
 ### SetSettlementProperties
 `public static void SetSettlementProperties(string tag, Settlement settlement, TextObject parent = null, bool isRepeatable = false)`
 
-**Purpose:** Sets the value or state of `settlement properties`.
+**Purpose:** Assigns a new value to `settlement properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+StringHelpers.SetSettlementProperties("example", settlement, null, false);
+```
 
 ### SetRepeatableCharacterProperties
 `public static void SetRepeatableCharacterProperties(string tag, CharacterObject character, bool includeDetails = false)`
 
-**Purpose:** Sets the value or state of `repeatable character properties`.
+**Purpose:** Assigns a new value to `repeatable character properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+StringHelpers.SetRepeatableCharacterProperties("example", character, false);
+```
 
 ### SetCharacterProperties
 `public static TextObject SetCharacterProperties(string tag, CharacterObject character, TextObject parent = null, bool includeDetails = false)`
 
-**Purpose:** Sets the value or state of `character properties`.
+**Purpose:** Assigns a new value to `character properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+StringHelpers.SetCharacterProperties("example", character, null, false);
+```
 
 ### SetEffectIncrementTypeTextVariable
 `public static void SetEffectIncrementTypeTextVariable(string tag, TextObject description, float bonus, EffectIncrementType effectIncrementType)`
 
-**Purpose:** Sets the value or state of `effect increment type text variable`.
+**Purpose:** Assigns a new value to `effect increment type text variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+StringHelpers.SetEffectIncrementTypeTextVariable("example", description, 0, effectIncrementType);
+```
 
 ### RemoveDiacritics
 `public static string RemoveDiacritics(string originalText)`
 
 **Purpose:** Removes `diacritics` from the current collection or state.
+
+```csharp
+// Static call; no instance required
+StringHelpers.RemoveDiacritics("example");
+```
 
 ## Usage Example
 
@@ -69,4 +98,4 @@ StringHelpers.SplitCamelCase("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

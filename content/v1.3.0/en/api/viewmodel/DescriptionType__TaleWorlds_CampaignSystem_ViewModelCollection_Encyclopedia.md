@@ -1,13 +1,7 @@
 ---
-title: "DescriptionType__TaleWorlds_CampaignSystem_ViewModelCollection_Encyclopedia"
+title: "DescriptionType"
+description: "Auto-generated class reference for DescriptionType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DescriptionType`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DescriptionType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-DescriptionType example = DescriptionType.Value;
+// Obtain an instance from the relevant subsystem API
+DescriptionType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

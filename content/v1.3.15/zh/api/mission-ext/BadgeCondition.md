@@ -1,13 +1,7 @@
 ---
 title: "BadgeCondition"
+description: "BadgeCondition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BadgeCondition`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BadgeCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
@@ -39,20 +33,33 @@ title: "BadgeCondition"
 ### Check
 `public bool Check(string value)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 BadgeCondition 实例
+BadgeCondition badgeCondition = ...;
+var result = badgeCondition.Check("example");
+```
 
 ### Check
 `public bool Check(int value)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 BadgeCondition 实例
+BadgeCondition badgeCondition = ...;
+var result = badgeCondition.Check(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BadgeCondition();
-value.Check("example");
+// 通常从对应子系统 API 获取实例后调用
+BadgeCondition badgeCondition = ...;
+badgeCondition.Check("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

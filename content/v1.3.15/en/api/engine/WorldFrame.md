@@ -1,13 +1,7 @@
 ---
 title: "WorldFrame"
+description: "Auto-generated class reference for WorldFrame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorldFrame`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WorldFrame
 
 **Namespace:** TaleWorlds.Engine
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### ToGroundMatrixFrame
 `public MatrixFrame ToGroundMatrixFrame()`
 
-**Purpose:** Handles logic related to `to ground matrix frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorldFrame from the subsystem API first
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToGroundMatrixFrame();
+```
 
 ### ToGroundMatrixFrameMT
 `public MatrixFrame ToGroundMatrixFrameMT()`
 
-**Purpose:** Handles logic related to `to ground matrix frame m t`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorldFrame from the subsystem API first
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToGroundMatrixFrameMT();
+```
 
 ### ToNavMeshMatrixFrame
 `public MatrixFrame ToNavMeshMatrixFrame()`
 
-**Purpose:** Handles logic related to `to nav mesh matrix frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorldFrame from the subsystem API first
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToNavMeshMatrixFrame();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WorldFrame();
-value.ToGroundMatrixFrame();
+// Typically call this after obtaining an instance from the subsystem API
+WorldFrame worldFrame = ...;
+worldFrame.ToGroundMatrixFrame();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

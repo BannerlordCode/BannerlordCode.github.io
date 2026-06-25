@@ -1,13 +1,7 @@
 ---
 title: "DevelopmentItemVisualButtonWidget"
+description: "Auto-generated class reference for DevelopmentItemVisualButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DevelopmentItemVisualButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DevelopmentItemVisualButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
@@ -36,9 +30,10 @@ Treat `DevelopmentItemVisualButtonWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new DevelopmentItemVisualButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DevelopmentItemVisualButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

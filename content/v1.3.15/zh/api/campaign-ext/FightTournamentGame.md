@@ -1,13 +1,7 @@
 ---
 title: "FightTournamentGame"
+description: "FightTournamentGame 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FightTournamentGame`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FightTournamentGame
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -38,30 +32,55 @@ title: "FightTournamentGame"
 ### CanBeAParticipant
 `public override bool CanBeAParticipant(CharacterObject character, bool considerSkills)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `be a participant`。
+**用途 / Purpose:** 检查当前对象是否满足 「be a participant」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 FightTournamentGame 实例
+FightTournamentGame fightTournamentGame = ...;
+var result = fightTournamentGame.CanBeAParticipant(character, false);
+```
 
 ### GetMenuText
 `public override TextObject GetMenuText()`
 
-**用途 / Purpose:** 获取 `menu text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「menu text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FightTournamentGame 实例
+FightTournamentGame fightTournamentGame = ...;
+var result = fightTournamentGame.GetMenuText();
+```
 
 ### OpenMission
 `public override void OpenMission(Settlement settlement, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open mission` 相关逻辑。
+**用途 / Purpose:** 打开「mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 FightTournamentGame 实例
+FightTournamentGame fightTournamentGame = ...;
+fightTournamentGame.OpenMission(settlement, false);
+```
 
 ### GetParticipantCharacters
 `public override MBList<CharacterObject> GetParticipantCharacters(Settlement settlement, bool includePlayer = true)`
 
-**用途 / Purpose:** 获取 `participant characters` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「participant characters」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FightTournamentGame 实例
+FightTournamentGame fightTournamentGame = ...;
+var result = fightTournamentGame.GetParticipantCharacters(settlement, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FightTournamentGame();
-value.CanBeAParticipant(character, false);
+// 通常从对应子系统 API 获取实例后调用
+FightTournamentGame fightTournamentGame = ...;
+fightTournamentGame.CanBeAParticipant(character, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

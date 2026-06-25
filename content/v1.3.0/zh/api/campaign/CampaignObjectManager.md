@@ -1,13 +1,7 @@
 ---
 title: "CampaignObjectManager"
+description: "CampaignObjectManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignObjectManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignObjectManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -51,47 +45,100 @@ title: "CampaignObjectManager"
 ### PreAfterLoad
 `public void PreAfterLoad()`
 
-**用途 / Purpose:** 处理 `pre after load` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignObjectManager 实例
+CampaignObjectManager campaignObjectManager = ...;
+campaignObjectManager.PreAfterLoad();
+```
 
 ### AfterLoad
 `public void AfterLoad()`
 
-**用途 / Purpose:** 处理 `after load` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignObjectManager 实例
+CampaignObjectManager campaignObjectManager = ...;
+campaignObjectManager.AfterLoad();
+```
 
 ### GetMaxObjectSubId
 `public uint GetMaxObjectSubId()`
 
-**用途 / Purpose:** 获取 `max object sub id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max object sub id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignObjectManager 实例
+CampaignObjectManager campaignObjectManager = ...;
+var result = campaignObjectManager.GetMaxObjectSubId();
+```
 
 ### OnItemAdded
 `public void OnItemAdded(T item)`
 
-**用途 / Purpose:** 当 `item added` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「item added」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignObjectManager 实例
+CampaignObjectManager campaignObjectManager = ...;
+campaignObjectManager.OnItemAdded(item);
+```
 
 ### UnregisterItem
 `public void UnregisterItem(T item)`
 
-**用途 / Purpose:** 处理 `unregister item` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「item」。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignObjectManager 实例
+CampaignObjectManager campaignObjectManager = ...;
+campaignObjectManager.UnregisterItem(item);
+```
 
 ### Find
 `public T Find(string id)`
 
-**用途 / Purpose:** 处理 `find` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找匹配项。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignObjectManager 实例
+CampaignObjectManager campaignObjectManager = ...;
+var result = campaignObjectManager.Find("example");
+```
 
 ### FindFirst
 `public T FindFirst(Predicate<T> predicate)`
 
-**用途 / Purpose:** 处理 `find first` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「first」。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignObjectManager 实例
+CampaignObjectManager campaignObjectManager = ...;
+var result = campaignObjectManager.FindFirst(predicate);
+```
 
 ### FindAll
 `public MBReadOnlyList<T> FindAll(Predicate<T> predicate)`
 
-**用途 / Purpose:** 处理 `find all` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all」。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignObjectManager 实例
+CampaignObjectManager campaignObjectManager = ...;
+var result = campaignObjectManager.FindAll(predicate);
+```
 
 ### FindNextUniqueStringId
 `public static string FindNextUniqueStringId(List<CampaignObjectManager.CampaignObjectType<T>> lists, string id)`
 
-**用途 / Purpose:** 处理 `find next unique string id` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「next unique string id」。
+
+```csharp
+// 静态调用，不需要实例
+CampaignObjectManager.FindNextUniqueStringId(lists, "example");
+```
 
 ## 使用示例
 
@@ -101,4 +148,4 @@ var manager = CampaignObjectManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

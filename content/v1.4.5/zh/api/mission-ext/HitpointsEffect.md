@@ -1,20 +1,14 @@
 ---
 title: "HitpointsEffect"
+description: "HitpointsEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HitpointsEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HitpointsEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HitpointsEffect : MPOnSpawnPerkEffect`
 **Base:** `MPOnSpawnPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/HitpointsEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/HitpointsEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "HitpointsEffect"
 ### GetHitpoints
 `public override float GetHitpoints(bool isPlayer)`
 
-**用途 / Purpose:** 获取 `hitpoints` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hitpoints」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HitpointsEffect 实例
+HitpointsEffect hitpointsEffect = ...;
+var result = hitpointsEffect.GetHitpoints(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HitpointsEffect();
-value.GetHitpoints(false);
+// 通常从对应子系统 API 获取实例后调用
+HitpointsEffect hitpointsEffect = ...;
+hitpointsEffect.GetHitpoints(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

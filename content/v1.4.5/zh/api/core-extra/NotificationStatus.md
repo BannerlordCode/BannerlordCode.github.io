@@ -1,20 +1,14 @@
 ---
 title: "NotificationStatus"
+description: "NotificationStatus 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NotificationStatus`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotificationStatus
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public enum NotificationStatus`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBInformationManager.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBInformationManager.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "NotificationStatus"
 ## 使用示例
 
 ```csharp
-NotificationStatus example = NotificationStatus.Value;
+// 从对应子系统 API 获取实例
+NotificationStatus instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

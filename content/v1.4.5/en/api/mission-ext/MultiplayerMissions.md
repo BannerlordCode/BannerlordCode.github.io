@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerMissions"
+description: "Auto-generated class reference for MultiplayerMissions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerMissions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissions
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerMissions`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerMissions.cs`
 
 ## Overview
 
-`MultiplayerMissions` lives in `TaleWorlds.MountAndBlade.Multiplayer`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MultiplayerMissions` lives in `TaleWorlds.MountAndBlade.Multiplayer` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,41 +23,69 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### OpenTeamDeathmatchMission
 `public static void OpenTeamDeathmatchMission(string scene)`
 
-**Purpose:** Handles logic related to `open team deathmatch mission`.
+**Purpose:** Opens the resource or UI associated with `team deathmatch mission`.
+
+```csharp
+// Static call; no instance required
+MultiplayerMissions.OpenTeamDeathmatchMission("example");
+```
 
 ### OpenDuelMission
 `public static void OpenDuelMission(string scene)`
 
-**Purpose:** Handles logic related to `open duel mission`.
+**Purpose:** Opens the resource or UI associated with `duel mission`.
+
+```csharp
+// Static call; no instance required
+MultiplayerMissions.OpenDuelMission("example");
+```
 
 ### OpenSiegeMission
 `public static void OpenSiegeMission(string scene)`
 
-**Purpose:** Handles logic related to `open siege mission`.
+**Purpose:** Opens the resource or UI associated with `siege mission`.
+
+```csharp
+// Static call; no instance required
+MultiplayerMissions.OpenSiegeMission("example");
+```
 
 ### OpenBattleMission
 `public static void OpenBattleMission(string scene)`
 
-**Purpose:** Handles logic related to `open battle mission`.
+**Purpose:** Opens the resource or UI associated with `battle mission`.
+
+```csharp
+// Static call; no instance required
+MultiplayerMissions.OpenBattleMission("example");
+```
 
 ### OpenCaptainMission
 `public static void OpenCaptainMission(string scene)`
 
-**Purpose:** Handles logic related to `open captain mission`.
+**Purpose:** Opens the resource or UI associated with `captain mission`.
+
+```csharp
+// Static call; no instance required
+MultiplayerMissions.OpenCaptainMission("example");
+```
 
 ### OpenSkirmishMission
 `public static void OpenSkirmishMission(string scene)`
 
-**Purpose:** Handles logic related to `open skirmish mission`.
+**Purpose:** Opens the resource or UI associated with `skirmish mission`.
+
+```csharp
+// Static call; no instance required
+MultiplayerMissions.OpenSkirmishMission("example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MultiplayerMissions.OpenTeamDeathmatchMission("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

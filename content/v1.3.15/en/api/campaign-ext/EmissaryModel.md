@@ -1,13 +1,7 @@
 ---
 title: "EmissaryModel"
+description: "Auto-generated class reference for EmissaryModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EmissaryModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EmissaryModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,14 +29,21 @@ Treat `EmissaryModel` as a Model-style extension point: first identify who creat
 ### IsEmissary
 `public abstract bool IsEmissary(Hero hero)`
 
-**Purpose:** Handles logic related to `is emissary`.
+**Purpose:** Determines whether the current object is in the `emissary` state or condition.
+
+```csharp
+// Obtain an instance of EmissaryModel from the subsystem API first
+EmissaryModel emissaryModel = ...;
+var result = emissaryModel.IsEmissary(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEmissaryModel();
+// Typically obtained from a subsystem API or factory
+EmissaryModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

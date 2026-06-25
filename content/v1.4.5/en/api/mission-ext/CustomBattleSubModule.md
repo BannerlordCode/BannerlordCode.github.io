@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleSubModule"
+description: "Auto-generated class reference for CustomBattleSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleSubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSubModule.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSubModule.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleSubModule();
+// Obtain an instance from the relevant subsystem API
+CustomBattleSubModule instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

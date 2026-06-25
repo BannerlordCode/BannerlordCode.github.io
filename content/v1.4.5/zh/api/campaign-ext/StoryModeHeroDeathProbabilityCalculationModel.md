@@ -1,20 +1,14 @@
 ---
 title: "StoryModeHeroDeathProbabilityCalculationModel"
+description: "StoryModeHeroDeathProbabilityCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeHeroDeathProbabilityCalculationModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeHeroDeathProbabilityCalculationModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeHeroDeathProbabilityCalculationModel : HeroDeathProbabilityCalculationModel`
 **Base:** `HeroDeathProbabilityCalculationModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeHeroDeathProbabilityCalculationModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeHeroDeathProbabilityCalculationModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "StoryModeHeroDeathProbabilityCalculationModel"
 ### CalculateHeroDeathProbability
 `public override float CalculateHeroDeathProbability(Hero hero)`
 
-**用途 / Purpose:** 处理 `calculate hero death probability` 相关逻辑。
+**用途 / Purpose:** 计算「hero death probability」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeHeroDeathProbabilityCalculationModel 实例
+StoryModeHeroDeathProbabilityCalculationModel storyModeHeroDeathProbabilityCalculationModel = ...;
+var result = storyModeHeroDeathProbabilityCalculationModel.CalculateHeroDeathProbability(hero);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeHeroDeathProbabilityCalculationModel>(new MyS
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ItemTemplateUsage"
+description: "Auto-generated class reference for ItemTemplateUsage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemTemplateUsage`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemTemplateUsage
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new ItemTemplateUsage();
+// Obtain an instance from the relevant subsystem API
+ItemTemplateUsage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

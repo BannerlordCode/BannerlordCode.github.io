@@ -1,13 +1,7 @@
 ---
 title: "BoardGameAIMuTorere"
+description: "Auto-generated class reference for BoardGameAIMuTorere."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameAIMuTorere`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIMuTorere
 
 **Namespace:** SandBox.BoardGames.AI
@@ -29,15 +23,22 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate movement stage move`.
+**Purpose:** Calculates the current value or result of `movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAIMuTorere from the subsystem API first
+BoardGameAIMuTorere boardGameAIMuTorere = ...;
+var result = boardGameAIMuTorere.CalculateMovementStageMove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameAIMuTorere();
-value.CalculateMovementStageMove();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameAIMuTorere boardGameAIMuTorere = ...;
+boardGameAIMuTorere.CalculateMovementStageMove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

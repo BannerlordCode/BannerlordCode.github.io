@@ -1,20 +1,14 @@
 ---
 title: "GoldGainOnAssistEffect"
+description: "GoldGainOnAssistEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GoldGainOnAssistEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GoldGainOnAssistEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GoldGainOnAssistEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldGainOnAssistEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldGainOnAssistEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "GoldGainOnAssistEffect"
 ### GetGoldOnAssist
 `public override int GetGoldOnAssist()`
 
-**用途 / Purpose:** 获取 `gold on assist` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold on assist」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GoldGainOnAssistEffect 实例
+GoldGainOnAssistEffect goldGainOnAssistEffect = ...;
+var result = goldGainOnAssistEffect.GetGoldOnAssist();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GoldGainOnAssistEffect();
-value.GetGoldOnAssist();
+// 通常从对应子系统 API 获取实例后调用
+GoldGainOnAssistEffect goldGainOnAssistEffect = ...;
+goldGainOnAssistEffect.GetGoldOnAssist();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

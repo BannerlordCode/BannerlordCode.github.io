@@ -1,13 +1,7 @@
 ---
 title: "ClanSupporterItemVM"
+description: "Auto-generated class reference for ClanSupporterItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanSupporterItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanSupporterItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**Purpose:** Executes the `open tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open tooltip`.
+
+```csharp
+// Obtain an instance of ClanSupporterItemVM from the subsystem API first
+ClanSupporterItemVM clanSupporterItemVM = ...;
+clanSupporterItemVM.ExecuteOpenTooltip();
+```
 
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Executes the `close tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+
+```csharp
+// Obtain an instance of ClanSupporterItemVM from the subsystem API first
+ClanSupporterItemVM clanSupporterItemVM = ...;
+clanSupporterItemVM.ExecuteCloseTooltip();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanSupporterItemVM();
-value.ExecuteOpenTooltip();
+// Typically call this after obtaining an instance from the subsystem API
+ClanSupporterItemVM clanSupporterItemVM = ...;
+clanSupporterItemVM.ExecuteOpenTooltip();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

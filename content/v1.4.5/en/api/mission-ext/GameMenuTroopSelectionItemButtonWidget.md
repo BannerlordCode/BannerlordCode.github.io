@@ -1,20 +1,14 @@
 ---
 title: "GameMenuTroopSelectionItemButtonWidget"
+description: "Auto-generated class reference for GameMenuTroopSelectionItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuTroopSelectionItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuTroopSelectionItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameMenuTroopSelectionItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu/GameMenuTroopSelectionItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu/GameMenuTroopSelectionItemButtonWidget.cs`
 
 ## Overview
 
@@ -42,9 +36,10 @@ Treat `GameMenuTroopSelectionItemButtonWidget` as a Widget-style extension point
 ## Usage Example
 
 ```csharp
-var widget = new GameMenuTroopSelectionItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GameMenuTroopSelectionItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

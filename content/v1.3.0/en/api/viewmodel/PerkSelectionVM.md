@@ -1,13 +1,7 @@
 ---
 title: "PerkSelectionVM"
+description: "Auto-generated class reference for PerkSelectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkSelectionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkSelectionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection
@@ -36,40 +30,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### SetCurrentSelectionPerk
 `public void SetCurrentSelectionPerk(PerkVM perk)`
 
-**Purpose:** Sets the value or state of `current selection perk`.
+**Purpose:** Assigns a new value to `current selection perk` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PerkSelectionVM from the subsystem API first
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.SetCurrentSelectionPerk(perk);
+```
 
 ### ResetSelectedPerks
 `public void ResetSelectedPerks()`
 
-**Purpose:** Resets `selected perks` to its initial state.
+**Purpose:** Returns `selected perks` to its default or initial condition.
+
+```csharp
+// Obtain an instance of PerkSelectionVM from the subsystem API first
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.ResetSelectedPerks();
+```
 
 ### ApplySelectedPerks
 `public void ApplySelectedPerks()`
 
-**Purpose:** Applies `selected perks` to the current object.
+**Purpose:** Applies the effect of `selected perks` to the current object.
+
+```csharp
+// Obtain an instance of PerkSelectionVM from the subsystem API first
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.ApplySelectedPerks();
+```
 
 ### IsPerkSelected
 `public bool IsPerkSelected(PerkObject perk)`
 
-**Purpose:** Handles logic related to `is perk selected`.
+**Purpose:** Determines whether the current object is in the `perk selected` state or condition.
+
+```csharp
+// Obtain an instance of PerkSelectionVM from the subsystem API first
+PerkSelectionVM perkSelectionVM = ...;
+var result = perkSelectionVM.IsPerkSelected(perk);
+```
 
 ### IsAnyPerkSelected
 `public bool IsAnyPerkSelected()`
 
-**Purpose:** Handles logic related to `is any perk selected`.
+**Purpose:** Determines whether the current object is in the `any perk selected` state or condition.
+
+```csharp
+// Obtain an instance of PerkSelectionVM from the subsystem API first
+PerkSelectionVM perkSelectionVM = ...;
+var result = perkSelectionVM.IsAnyPerkSelected();
+```
 
 ### ExecuteDeactivate
 `public void ExecuteDeactivate()`
 
-**Purpose:** Executes the `deactivate` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `deactivate`.
+
+```csharp
+// Obtain an instance of PerkSelectionVM from the subsystem API first
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.ExecuteDeactivate();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PerkSelectionVM();
-value.SetCurrentSelectionPerk(perk);
+// Typically call this after obtaining an instance from the subsystem API
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.SetCurrentSelectionPerk(perk);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

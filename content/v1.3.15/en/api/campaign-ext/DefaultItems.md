@@ -1,13 +1,7 @@
 ---
 title: "DefaultItems"
+description: "Auto-generated class reference for DefaultItems."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultItems`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultItems
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -48,9 +42,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new DefaultItems();
+// Obtain an instance from the relevant subsystem API
+DefaultItems instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

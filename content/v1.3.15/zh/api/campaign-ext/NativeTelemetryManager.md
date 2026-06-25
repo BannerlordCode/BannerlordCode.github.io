@@ -1,13 +1,7 @@
 ---
 title: "NativeTelemetryManager"
+description: "NativeTelemetryManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeTelemetryManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NativeTelemetryManager
 
 **Namespace:** TaleWorlds.DotNet
@@ -35,37 +29,79 @@ title: "NativeTelemetryManager"
 ### GetTelemetryLevelMask
 `public TelemetryLevelMask GetTelemetryLevelMask()`
 
-**用途 / Purpose:** 获取 `telemetry level mask` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「telemetry level mask」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeTelemetryManager 实例
+NativeTelemetryManager nativeTelemetryManager = ...;
+var result = nativeTelemetryManager.GetTelemetryLevelMask();
+```
 
 ### StartTelemetryConnection
 `public void StartTelemetryConnection(bool showErrors)`
 
-**用途 / Purpose:** 处理 `start telemetry connection` 相关逻辑。
+**用途 / Purpose:** 启动「telemetry connection」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 NativeTelemetryManager 实例
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.StartTelemetryConnection(false);
+```
 
 ### StopTelemetryConnection
 `public void StopTelemetryConnection()`
 
-**用途 / Purpose:** 处理 `stop telemetry connection` 相关逻辑。
+**用途 / Purpose:** 停止「telemetry connection」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 NativeTelemetryManager 实例
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.StopTelemetryConnection();
+```
 
 ### BeginTelemetryScopeInternal
 `public void BeginTelemetryScopeInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**用途 / Purpose:** 处理 `begin telemetry scope internal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeTelemetryManager 实例
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.BeginTelemetryScopeInternal(levelMask, "example");
+```
 
 ### EndTelemetryScopeInternal
 `public void EndTelemetryScopeInternal()`
 
-**用途 / Purpose:** 处理 `end telemetry scope internal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeTelemetryManager 实例
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.EndTelemetryScopeInternal();
+```
 
 ### BeginTelemetryScopeBaseLevelInternal
 `public void BeginTelemetryScopeBaseLevelInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**用途 / Purpose:** 处理 `begin telemetry scope base level internal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeTelemetryManager 实例
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.BeginTelemetryScopeBaseLevelInternal(levelMask, "example");
+```
 
 ### EndTelemetryScopeBaseLevelInternal
 `public void EndTelemetryScopeBaseLevelInternal()`
 
-**用途 / Purpose:** 处理 `end telemetry scope base level internal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeTelemetryManager 实例
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.EndTelemetryScopeBaseLevelInternal();
+```
 
 ## 使用示例
 
@@ -75,4 +111,4 @@ var manager = NativeTelemetryManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

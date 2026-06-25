@@ -1,13 +1,7 @@
 ---
 title: "MissionOrderDeploymentControllerVM"
+description: "MissionOrderDeploymentControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionOrderDeploymentControllerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionOrderDeploymentControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -39,80 +33,165 @@ title: "MissionOrderDeploymentControllerVM"
 ### SetMissionParameters
 `public void SetMissionParameters(Camera deploymentCamera, List<DeploymentPoint> deploymentPoints)`
 
-**用途 / Purpose:** 设置 `mission parameters` 的值或状态。
+**用途 / Purpose:** 为 「mission parameters」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.SetMissionParameters(deploymentCamera, deploymentPoints);
+```
 
 ### SetCallbacks
 `public void SetCallbacks(MissionOrderCallbacks callbacks)`
 
-**用途 / Purpose:** 设置 `callbacks` 的值或状态。
+**用途 / Purpose:** 为 「callbacks」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.SetCallbacks(callbacks);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.RefreshValues();
+```
 
 ### OnRefreshSelectedDeploymentPoint
 `public void OnRefreshSelectedDeploymentPoint(DeploymentSiegeMachineVM item)`
 
-**用途 / Purpose:** 当 `refresh selected deployment point` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「refresh selected deployment point」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnRefreshSelectedDeploymentPoint(item);
+```
 
 ### OnEntityHover
 `public void OnEntityHover(WeakGameEntity hoveredEntity)`
 
-**用途 / Purpose:** 当 `entity hover` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「entity hover」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnEntityHover(hoveredEntity);
+```
 
 ### OnEntityHover
 `public void OnEntityHover(DeploymentPoint deploymentPoint)`
 
-**用途 / Purpose:** 当 `entity hover` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「entity hover」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnEntityHover(deploymentPoint);
+```
 
 ### OnEntitySelect
 `public void OnEntitySelect(WeakGameEntity selectedEntity)`
 
-**用途 / Purpose:** 当 `entity select` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「entity select」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnEntitySelect(selectedEntity);
+```
 
 ### RefreshSelectedDeploymentPoint
 `public void RefreshSelectedDeploymentPoint(DeploymentPoint selectedDeploymentPoint)`
 
-**用途 / Purpose:** 刷新 `selected deployment point` 的显示或缓存。
+**用途 / Purpose:** 使 「selected deployment point」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.RefreshSelectedDeploymentPoint(selectedDeploymentPoint);
+```
 
 ### ExecuteCancelSelectedDeploymentPoint
 `public void ExecuteCancelSelectedDeploymentPoint()`
 
-**用途 / Purpose:** 执行 `cancel selected deployment point` 操作或流程。
+**用途 / Purpose:** 执行 「cancel selected deployment point」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.ExecuteCancelSelectedDeploymentPoint();
+```
 
 ### ExecuteBeginMission
 `public void ExecuteBeginMission()`
 
-**用途 / Purpose:** 执行 `begin mission` 操作或流程。
+**用途 / Purpose:** 执行 「begin mission」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.ExecuteBeginMission();
+```
 
 ### ExecuteAutoDeploy
 `public void ExecuteAutoDeploy()`
 
-**用途 / Purpose:** 执行 `auto deploy` 操作或流程。
+**用途 / Purpose:** 执行 「auto deploy」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.ExecuteAutoDeploy();
+```
 
 ### ExecuteDeployPlayerSide
 `public void ExecuteDeployPlayerSide()`
 
-**用途 / Purpose:** 执行 `deploy player side` 操作或流程。
+**用途 / Purpose:** 执行 「deploy player side」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.ExecuteDeployPlayerSide();
+```
 
 ### FinalizeDeployment
 `public void FinalizeDeployment()`
 
-**用途 / Purpose:** 处理 `finalize deployment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.FinalizeDeployment();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionOrderDeploymentControllerVM();
-value.SetMissionParameters(deploymentCamera, deploymentPoints);
+// 通常从对应子系统 API 获取实例后调用
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.SetMissionParameters(deploymentCamera, deploymentPoints);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

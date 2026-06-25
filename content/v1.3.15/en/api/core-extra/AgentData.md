@@ -1,13 +1,7 @@
 ---
 title: "AgentData"
+description: "Auto-generated class reference for AgentData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentData
 
 **Namespace:** TaleWorlds.Core
@@ -56,104 +50,219 @@ Treat `AgentData` as a Data-style extension point: first identify who creates it
 ### Character
 `public AgentData Character(BasicCharacterObject characterObject)`
 
-**Purpose:** Handles logic related to `character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.Character(characterObject);
+```
 
 ### Monster
 `public AgentData Monster(Monster monster)`
 
-**Purpose:** Handles logic related to `monster`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.Monster(monster);
+```
 
 ### OwnerParty
 `public AgentData OwnerParty(IBattleCombatant owner)`
 
-**Purpose:** Handles logic related to `owner party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.OwnerParty(owner);
+```
 
 ### Equipment
 `public AgentData Equipment(Equipment equipment)`
 
-**Purpose:** Handles logic related to `equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.Equipment(equipment);
+```
 
 ### EquipmentSeed
 `public AgentData EquipmentSeed(int seed)`
 
-**Purpose:** Handles logic related to `equipment seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.EquipmentSeed(0);
+```
 
 ### NoHorses
 `public AgentData NoHorses(bool noHorses)`
 
-**Purpose:** Handles logic related to `no horses`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.NoHorses(false);
+```
 
 ### NoWeapons
 `public AgentData NoWeapons(bool noWeapons)`
 
-**Purpose:** Handles logic related to `no weapons`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.NoWeapons(false);
+```
 
 ### NoArmor
 `public AgentData NoArmor(bool noArmor)`
 
-**Purpose:** Handles logic related to `no armor`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.NoArmor(false);
+```
 
 ### FixedEquipment
 `public AgentData FixedEquipment(bool fixedEquipment)`
 
-**Purpose:** Handles logic related to `fixed equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.FixedEquipment(false);
+```
 
 ### CivilianEquipment
 `public AgentData CivilianEquipment(bool civilianEquipment)`
 
-**Purpose:** Handles logic related to `civilian equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.CivilianEquipment(false);
+```
 
 ### SetPrepareImmediately
 `public AgentData SetPrepareImmediately()`
 
-**Purpose:** Sets the value or state of `prepare immediately`.
+**Purpose:** Assigns a new value to `prepare immediately` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.SetPrepareImmediately();
+```
 
 ### ClothingColor1
 `public AgentData ClothingColor1(uint color)`
 
-**Purpose:** Handles logic related to `clothing color1`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.ClothingColor1(0);
+```
 
 ### ClothingColor2
 `public AgentData ClothingColor2(uint color)`
 
-**Purpose:** Handles logic related to `clothing color2`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.ClothingColor2(0);
+```
 
 ### BodyProperties
 `public AgentData BodyProperties(BodyProperties bodyProperties)`
 
-**Purpose:** Handles logic related to `body properties`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.BodyProperties(bodyProperties);
+```
 
 ### Age
 `public AgentData Age(int age)`
 
-**Purpose:** Handles logic related to `age`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.Age(0);
+```
 
 ### TroopOrigin
 `public AgentData TroopOrigin(IAgentOriginBase troopOrigin)`
 
-**Purpose:** Handles logic related to `troop origin`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.TroopOrigin(troopOrigin);
+```
 
 ### IsFemale
 `public AgentData IsFemale(bool isFemale)`
 
-**Purpose:** Handles logic related to `is female`.
+**Purpose:** Determines whether the current object is in the `female` state or condition.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.IsFemale(false);
+```
 
 ### Race
 `public AgentData Race(int race)`
 
-**Purpose:** Handles logic related to `race`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.Race(0);
+```
 
 ### MountKey
 `public AgentData MountKey(string mountKey)`
 
-**Purpose:** Handles logic related to `mount key`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentData from the subsystem API first
+AgentData agentData = ...;
+var result = agentData.MountKey("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AgentData();
+// This data object is usually returned by campaign/mission APIs
+AgentData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

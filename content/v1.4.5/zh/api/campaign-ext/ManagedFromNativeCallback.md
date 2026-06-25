@@ -1,20 +1,14 @@
 ---
 title: "ManagedFromNativeCallback"
+description: "ManagedFromNativeCallback 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedFromNativeCallback`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedFromNativeCallback
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ManagedFromNativeCallback : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedFromNativeCallback.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedFromNativeCallback.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "ManagedFromNativeCallback"
 ## 使用示例
 
 ```csharp
-var example = new ManagedFromNativeCallback();
+// 从对应子系统 API 获取实例
+ManagedFromNativeCallback instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

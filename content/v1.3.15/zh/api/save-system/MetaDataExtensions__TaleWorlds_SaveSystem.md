@@ -1,13 +1,7 @@
 ---
-title: "MetaDataExtensions__TaleWorlds_SaveSystem"
+title: "MetaDataExtensions"
+description: "MetaDataExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MetaDataExtensions`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MetaDataExtensions
 
 **Namespace:** TaleWorlds.SaveSystem
@@ -29,7 +23,12 @@ title: "MetaDataExtensions__TaleWorlds_SaveSystem"
 ### GetApplicationVersion
 `public static ApplicationVersion GetApplicationVersion(this MetaData metaData)`
 
-**用途 / Purpose:** 获取 `application version` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「application version」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MetaDataExtensions.GetApplicationVersion(metaData);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ MetaDataExtensions.GetApplicationVersion(metaData);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

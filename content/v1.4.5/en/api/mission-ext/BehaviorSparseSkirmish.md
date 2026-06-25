@@ -1,20 +1,14 @@
 ---
 title: "BehaviorSparseSkirmish"
+description: "Auto-generated class reference for BehaviorSparseSkirmish."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorSparseSkirmish`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorSparseSkirmish
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSparseSkirmish : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSparseSkirmish.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSparseSkirmish.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorSparseSkirmish from the subsystem API first
+BehaviorSparseSkirmish behaviorSparseSkirmish = ...;
+behaviorSparseSkirmish.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorSparseSkirmish();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorSparseSkirmish behaviorSparseSkirmish = ...;
+behaviorSparseSkirmish.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

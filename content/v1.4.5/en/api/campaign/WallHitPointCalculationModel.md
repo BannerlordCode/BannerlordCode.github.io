@@ -1,20 +1,14 @@
 ---
 title: "WallHitPointCalculationModel"
+description: "Auto-generated class reference for WallHitPointCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WallHitPointCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WallHitPointCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class WallHitPointCalculationModel : MBGameModel<WallHitPointCalculationModel>`
 **Base:** `MBGameModel<WallHitPointCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/WallHitPointCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/WallHitPointCalculationModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `WallHitPointCalculationModel` as a Model-style extension point: first ide
 ### CalculateMaximumWallHitPoint
 `public abstract float CalculateMaximumWallHitPoint(Town town)`
 
-**Purpose:** Handles logic related to `calculate maximum wall hit point`.
+**Purpose:** Calculates the current value or result of `maximum wall hit point`.
+
+```csharp
+// Obtain an instance of WallHitPointCalculationModel from the subsystem API first
+WallHitPointCalculationModel wallHitPointCalculationModel = ...;
+var result = wallHitPointCalculationModel.CalculateMaximumWallHitPoint(town);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomWallHitPointCalculationModel();
+// Typically obtained from a subsystem API or factory
+WallHitPointCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

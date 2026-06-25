@@ -1,13 +1,7 @@
 ---
 title: "ShipThumbnailWidget"
+description: "Auto-generated class reference for ShipThumbnailWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipThumbnailWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipThumbnailWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -35,9 +29,10 @@ Treat `ShipThumbnailWidget` as a Widget-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var widget = new ShipThumbnailWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ShipThumbnailWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

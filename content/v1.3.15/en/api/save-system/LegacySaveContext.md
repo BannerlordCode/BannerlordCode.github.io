@@ -1,24 +1,18 @@
 ---
 title: "LegacySaveContext"
+description: "Auto-generated class reference for LegacySaveContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LegacySaveContext`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LegacySaveContext
 
 **Namespace:** TaleWorlds.SaveSystem.Save
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LegacySaveContext : ISaveContext`
 **Base:** `ISaveContext`
-**Area:** save-system
+**File:** `TaleWorlds.SaveSystem/Save/LegacySaveContext.cs`
 
 ## Overview
 
-`LegacySaveContext` lives in `TaleWorlds.SaveSystem.Save`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LegacySaveContext` lives in `TaleWorlds.SaveSystem.Save` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,71 +32,140 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### GetStatistics
 `public static LegacySaveContext.SaveStatistics GetStatistics()`
 
-**Purpose:** Gets the current value of `statistics`.
+**Purpose:** Reads and returns the `statistics` value held by the current object.
+
+```csharp
+// Static call; no instance required
+LegacySaveContext.GetStatistics();
+```
 
 ### AddStrings
 `public void AddStrings(List<string> texts)`
 
 **Purpose:** Adds `strings` to the current collection or state.
 
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+legacySaveContext.AddStrings(texts);
+```
+
 ### AddOrGetStringId
 `public int AddOrGetStringId(string text)`
 
 **Purpose:** Adds `or get string id` to the current collection or state.
 
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.AddOrGetStringId("example");
+```
+
 ### GetObjectId
 `public int GetObjectId(object target)`
 
-**Purpose:** Gets the current value of `object id`.
+**Purpose:** Reads and returns the `object id` value held by the current object.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetObjectId(target);
+```
 
 ### GetContainerId
 `public int GetContainerId(object target)`
 
-**Purpose:** Gets the current value of `container id`.
+**Purpose:** Reads and returns the `container id` value held by the current object.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerId(target);
+```
 
 ### GetStringId
 `public int GetStringId(string target)`
 
-**Purpose:** Gets the current value of `string id`.
+**Purpose:** Reads and returns the `string id` value held by the current object.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetStringId("example");
+```
 
 ### Save
 `public bool Save(object target, MetaData metaData, out string errorMessage)`
 
-**Purpose:** Saves `save` data.
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.Save(target, metaData, errorMessage);
+```
 
 ### GetObjectCounts
 `public ValueTuple<int, int, int, long> GetObjectCounts(string key)`
 
-**Purpose:** Gets the current value of `object counts`.
+**Purpose:** Reads and returns the `object counts` value held by the current object.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetObjectCounts("example");
+```
 
 ### GetContainerCounts
 `public ValueTuple<int, int, int, int, long> GetContainerCounts(string key)`
 
-**Purpose:** Gets the current value of `container counts`.
+**Purpose:** Reads and returns the `container counts` value held by the current object.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerCounts("example");
+```
 
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**Purpose:** Gets the current value of `container size`.
+**Purpose:** Reads and returns the `container size` value held by the current object.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerSize("example");
+```
 
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**Purpose:** Gets the current value of `type keys`.
+**Purpose:** Reads and returns the `type keys` value held by the current object.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetTypeKeys();
+```
 
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**Purpose:** Gets the current value of `container keys`.
+**Purpose:** Reads and returns the `container keys` value held by the current object.
+
+```csharp
+// Obtain an instance of LegacySaveContext from the subsystem API first
+LegacySaveContext legacySaveContext = ...;
+var result = legacySaveContext.GetContainerKeys();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 LegacySaveContext.GetStatistics();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

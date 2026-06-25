@@ -1,20 +1,14 @@
 ---
 title: "PopupSceneSequence"
+description: "Auto-generated class reference for PopupSceneSequence."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneSequence`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneSequence
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PopupSceneSequence : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/PopupSceneSequence.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/PopupSceneSequence.cs`
 
 ## Overview
 
@@ -29,50 +23,99 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### InitializeWithAgentVisuals
 `public void InitializeWithAgentVisuals(AgentVisuals visuals)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with agent visuals`.
+**Purpose:** Prepares the resources, state, or bindings required by `with agent visuals`.
+
+```csharp
+// Obtain an instance of PopupSceneSequence from the subsystem API first
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.InitializeWithAgentVisuals(visuals);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of PopupSceneSequence from the subsystem API first
+PopupSceneSequence popupSceneSequence = ...;
+var result = popupSceneSequence.GetTickRequirement();
+```
 
 ### OnInitialState
 `public virtual void OnInitialState()`
 
-**Purpose:** Called when the `initial state` event is raised.
+**Purpose:** Invoked when the `initial state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSequence from the subsystem API first
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.OnInitialState();
+```
 
 ### OnPositiveState
 `public virtual void OnPositiveState()`
 
-**Purpose:** Called when the `positive state` event is raised.
+**Purpose:** Invoked when the `positive state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSequence from the subsystem API first
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.OnPositiveState();
+```
 
 ### OnNegativeState
 `public virtual void OnNegativeState()`
 
-**Purpose:** Called when the `negative state` event is raised.
+**Purpose:** Invoked when the `negative state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSequence from the subsystem API first
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.OnNegativeState();
+```
 
 ### SetInitialState
 `public void SetInitialState()`
 
-**Purpose:** Sets the value or state of `initial state`.
+**Purpose:** Assigns a new value to `initial state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneSequence from the subsystem API first
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.SetInitialState();
+```
 
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**Purpose:** Sets the value or state of `positive state`.
+**Purpose:** Assigns a new value to `positive state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneSequence from the subsystem API first
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.SetPositiveState();
+```
 
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**Purpose:** Sets the value or state of `negative state`.
+**Purpose:** Assigns a new value to `negative state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneSequence from the subsystem API first
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.SetNegativeState();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PopupSceneSequence();
-value.InitializeWithAgentVisuals(visuals);
+// Typically call this after obtaining an instance from the subsystem API
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.InitializeWithAgentVisuals(visuals);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

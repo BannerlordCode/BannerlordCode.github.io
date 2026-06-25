@@ -1,20 +1,14 @@
 ---
 title: "VisualOrderProvider"
+description: "VisualOrderProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualOrderProvider`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualOrderProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class VisualOrderProvider`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderProvider.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderProvider.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "VisualOrderProvider"
 ### IsAvailable
 `public abstract bool IsAvailable()`
 
-**用途 / Purpose:** 处理 `is available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「available」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrderProvider 实例
+VisualOrderProvider visualOrderProvider = ...;
+var result = visualOrderProvider.IsAvailable();
+```
 
 ### GetOrders
 `public abstract MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**用途 / Purpose:** 获取 `orders` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「orders」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrderProvider 实例
+VisualOrderProvider visualOrderProvider = ...;
+var result = visualOrderProvider.GetOrders();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomVisualOrderProvider();
+// 通常通过子系统 API 或工厂获得派生实例
+VisualOrderProvider instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

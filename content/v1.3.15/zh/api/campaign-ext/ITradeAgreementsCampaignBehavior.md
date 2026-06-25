@@ -1,18 +1,12 @@
 ---
 title: "ITradeAgreementsCampaignBehavior"
+description: "ITradeAgreementsCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ITradeAgreementsCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ITradeAgreementsCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ITradeAgreementsCampaignBehavior`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/ITradeAgreementsCampaignBehavior.cs`
 
@@ -27,9 +21,10 @@ title: "ITradeAgreementsCampaignBehavior"
 ## 使用示例
 
 ```csharp
-ITradeAgreementsCampaignBehavior implementation = GetTradeAgreementsCampaignBehaviorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IITradeAgreementsCampaignBehavior service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

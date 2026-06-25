@@ -1,43 +1,30 @@
 ---
 title: "ObjectivePerformingType"
+description: "Auto-generated class reference for ObjectivePerformingType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ObjectivePerformingType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ObjectivePerformingType
 
 **Namespace:** StoryMode.Missions
 **Module:** StoryMode.Missions
 **Type:** `public enum ObjectivePerformingType`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.StoryMode/StoryMode/Storymode.Missions/TrainingFieldMissionController.cs`
 
 ## Overview
 
-`ObjectivePerformingType` lives in `StoryMode.Missions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ObjectivePerformingType` lives in `StoryMode.Missions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `StoryMode.Missions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `None` |
-| `ByLookDirection` |
-| `ByMovement` |
-
 ## Usage Example
 
 ```csharp
-ObjectivePerformingType example = ObjectivePerformingType.None;
+// Obtain an instance from the relevant subsystem API
+ObjectivePerformingType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

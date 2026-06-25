@@ -1,13 +1,7 @@
 ---
 title: "OptionsBrightnessImageSliderWidget"
+description: "Auto-generated class reference for OptionsBrightnessImageSliderWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsBrightnessImageSliderWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OptionsBrightnessImageSliderWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options
@@ -34,9 +28,10 @@ Treat `OptionsBrightnessImageSliderWidget` as a Widget-style extension point: fi
 ## Usage Example
 
 ```csharp
-var widget = new OptionsBrightnessImageSliderWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OptionsBrightnessImageSliderWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,19 +1,13 @@
 ---
 title: "INumericOptionData"
+description: "Auto-generated class reference for INumericOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `INumericOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # INumericOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
+**Type:** `public interface INumericOptionData : IOptionData`
+**Base:** `IOptionData`
 **File:** `TaleWorlds.Engine/Options/INumericOptionData.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Treat `INumericOptionData` as a Data-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-INumericOptionData implementation = GetNumericOptionDataImplementation();
+// Usually obtained through DI or a factory method
+IINumericOptionData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

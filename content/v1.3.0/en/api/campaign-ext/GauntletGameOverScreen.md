@@ -1,13 +1,7 @@
 ---
 title: "GauntletGameOverScreen"
+description: "Auto-generated class reference for GauntletGameOverScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletGameOverScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletGameOverScreen
 
 **Namespace:** SandBox.GauntletUI
@@ -27,9 +21,10 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new GauntletGameOverScreen();
+// Obtain an instance from the relevant subsystem API
+GauntletGameOverScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

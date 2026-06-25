@@ -1,20 +1,14 @@
 ---
 title: "Ray"
+description: "Ray 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Ray`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Ray
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Ray`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Ray.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Ray.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "Ray"
 ### Reset
 `public void Reset(Vec3 origin, Vec3 direction, float maxDistance = float.MaxValue)`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Ray 实例
+Ray ray = ...;
+ray.Reset(origin, direction, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Ray();
-value.Reset(origin, direction, 0);
+// 通常从对应子系统 API 获取实例后调用
+Ray ray = ...;
+ray.Reset(origin, direction, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletEavesdroppingCameraView"
+description: "Auto-generated class reference for MissionGauntletEavesdroppingCameraView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletEavesdroppingCameraView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletEavesdroppingCameraView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletEavesdroppingCameraView : EavesdroppingMissionCameraView`
 **Base:** `EavesdroppingMissionCameraView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletEavesdroppingCameraView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletEavesdroppingCameraView.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionGauntletEavesdroppingCameraView` as a View-style extension point: 
 ### HitTest
 `public override bool HitTest()`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletEavesdroppingCameraView from the subsystem API first
+MissionGauntletEavesdroppingCameraView missionGauntletEavesdroppingCameraView = ...;
+var result = missionGauntletEavesdroppingCameraView.HitTest();
+```
 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletEavesdroppingCameraView from the subsystem API first
+MissionGauntletEavesdroppingCameraView missionGauntletEavesdroppingCameraView = ...;
+missionGauntletEavesdroppingCameraView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletEavesdroppingCameraView from the subsystem API first
+MissionGauntletEavesdroppingCameraView missionGauntletEavesdroppingCameraView = ...;
+missionGauntletEavesdroppingCameraView.OnMissionScreenFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletEavesdroppingCameraView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletEavesdroppingCameraView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SettlementMenuOverlayVM"
+description: "Auto-generated class reference for SettlementMenuOverlayVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementMenuOverlayVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementMenuOverlayVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
@@ -76,50 +70,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+settlementMenuOverlayVM.RefreshValues();
+```
 
 ### ExecuteOnOverlayClosed
 `public override void ExecuteOnOverlayClosed()`
 
-**Purpose:** Executes the `on overlay closed` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `on overlay closed`.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+settlementMenuOverlayVM.ExecuteOnOverlayClosed();
+```
 
 ### UpdateOverlayType
 `public override void UpdateOverlayType(GameMenu.MenuOverlayType newType)`
 
-**Purpose:** Updates the state or data of `overlay type`.
+**Purpose:** Recalculates and stores the latest representation of `overlay type`.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+settlementMenuOverlayVM.UpdateOverlayType(newType);
+```
 
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+settlementMenuOverlayVM.Refresh();
+```
 
 ### ExecuteAddCompanion
 `public void ExecuteAddCompanion()`
 
-**Purpose:** Executes the `add companion` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `add companion`.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+settlementMenuOverlayVM.ExecuteAddCompanion();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+settlementMenuOverlayVM.OnFinalize();
+```
 
 ### Compare
 `public int Compare(GameMenuPartyItemVM x, GameMenuPartyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+var result = settlementMenuOverlayVM.Compare(x, y);
+```
 
 ### Compare
 `public int Compare(GameMenuPartyItemVM x, GameMenuPartyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayVM from the subsystem API first
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+var result = settlementMenuOverlayVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementMenuOverlayVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementMenuOverlayVM settlementMenuOverlayVM = ...;
+settlementMenuOverlayVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

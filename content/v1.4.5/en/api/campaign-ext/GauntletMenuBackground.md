@@ -1,20 +1,14 @@
 ---
 title: "GauntletMenuBackground"
+description: "Auto-generated class reference for GauntletMenuBackground."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMenuBackground`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuBackground
 
 **Namespace:** SandBox.GauntletUI.Menu
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMenuBackground : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuBackground.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuBackground.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.GauntletUI.Menu` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new GauntletMenuBackground();
+// Obtain an instance from the relevant subsystem API
+GauntletMenuBackground instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

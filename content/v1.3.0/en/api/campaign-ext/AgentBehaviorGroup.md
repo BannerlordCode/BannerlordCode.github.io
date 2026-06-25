@@ -1,13 +1,7 @@
 ---
 title: "AgentBehaviorGroup"
+description: "Auto-generated class reference for AgentBehaviorGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentBehaviorGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentBehaviorGroup
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -38,49 +32,98 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### DisableScriptedBehavior
 `public void DisableScriptedBehavior()`
 
-**Purpose:** Handles logic related to `disable scripted behavior`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBehaviorGroup from the subsystem API first
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.DisableScriptedBehavior();
+```
 
 ### DisableAllBehaviors
 `public void DisableAllBehaviors()`
 
-**Purpose:** Handles logic related to `disable all behaviors`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBehaviorGroup from the subsystem API first
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.DisableAllBehaviors();
+```
 
 ### GetActiveBehavior
 `public AgentBehavior GetActiveBehavior()`
 
-**Purpose:** Gets the current value of `active behavior`.
+**Purpose:** Reads and returns the `active behavior` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentBehaviorGroup from the subsystem API first
+AgentBehaviorGroup agentBehaviorGroup = ...;
+var result = agentBehaviorGroup.GetActiveBehavior();
+```
 
 ### Tick
 `public virtual void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of AgentBehaviorGroup from the subsystem API first
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.Tick(0, false);
+```
 
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**Purpose:** Handles logic related to `conversation tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBehaviorGroup from the subsystem API first
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.ConversationTick();
+```
 
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of AgentBehaviorGroup from the subsystem API first
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.OnAgentRemoved(agent);
+```
 
 ### GetScore
 `public virtual float GetScore(bool isSimulation)`
 
-**Purpose:** Gets the current value of `score`.
+**Purpose:** Reads and returns the `score` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentBehaviorGroup from the subsystem API first
+AgentBehaviorGroup agentBehaviorGroup = ...;
+var result = agentBehaviorGroup.GetScore(false);
+```
 
 ### ForceThink
 `public virtual void ForceThink(float inSeconds)`
 
-**Purpose:** Handles logic related to `force think`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBehaviorGroup from the subsystem API first
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.ForceThink(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAgentBehaviorGroup();
+// Typically obtained from a subsystem API or factory
+AgentBehaviorGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

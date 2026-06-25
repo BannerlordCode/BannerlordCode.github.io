@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletTrainingFieldObjectiveView"
+description: "MissionGauntletTrainingFieldObjectiveView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletTrainingFieldObjectiveView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletTrainingFieldObjectiveView
 
 **Namespace:** StoryMode.GauntletUI.Missions
@@ -29,34 +23,65 @@ title: "MissionGauntletTrainingFieldObjectiveView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTrainingFieldObjectiveView 实例
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTrainingFieldObjectiveView 实例
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTrainingFieldObjectiveView 实例
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnMissionScreenFinalize();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTrainingFieldObjectiveView 实例
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTrainingFieldObjectiveView 实例
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletTrainingFieldObjectiveView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletTrainingFieldObjectiveView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

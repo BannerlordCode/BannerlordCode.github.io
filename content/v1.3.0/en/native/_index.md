@@ -17,3 +17,15 @@ Native interface docs for v1.3.0 are brief. For the full P/Invoke interface and 
 
 - [v1.3.0 Home](../)
 - [v1.3.15 docs (recommended)](../../../v1.3.15/en/)
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Child Pages
+
+_No child pages yet._
+
+<!-- END SECTION INDEX -->

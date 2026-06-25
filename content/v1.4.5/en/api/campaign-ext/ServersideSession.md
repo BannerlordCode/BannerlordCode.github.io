@@ -1,20 +1,14 @@
 ---
 title: "ServersideSession"
+description: "Auto-generated class reference for ServersideSession."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServersideSession`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServersideSession
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class ServersideSession : NetworkSession`
 **Base:** `NetworkSession`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/ServersideSession.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ServersideSession.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var implementation = new CustomServersideSession();
+// Typically obtained from a subsystem API or factory
+ServersideSession instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

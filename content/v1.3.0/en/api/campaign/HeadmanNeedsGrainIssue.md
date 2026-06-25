@@ -1,13 +1,7 @@
 ---
 title: "HeadmanNeedsGrainIssue"
+description: "Auto-generated class reference for HeadmanNeedsGrainIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeadmanNeedsGrainIssue`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeadmanNeedsGrainIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -51,55 +45,110 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+headmanNeedsGrainIssue.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+headmanNeedsGrainIssue.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+headmanNeedsGrainIssue.OnCheckForIssue(hero);
+```
 
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Gets the current value of `alternative solution skill`.
+**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+var result = headmanNeedsGrainIssue.GetAlternativeSolutionSkill(hero);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+var result = headmanNeedsGrainIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+var result = headmanNeedsGrainIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Handles logic related to `alternative solution start consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+headmanNeedsGrainIssue.AlternativeSolutionStartConsequence();
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+var result = headmanNeedsGrainIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of HeadmanNeedsGrainIssue from the subsystem API first
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+var result = headmanNeedsGrainIssue.IssueStayAliveConditions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeadmanNeedsGrainIssue();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+HeadmanNeedsGrainIssue headmanNeedsGrainIssue = ...;
+headmanNeedsGrainIssue.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

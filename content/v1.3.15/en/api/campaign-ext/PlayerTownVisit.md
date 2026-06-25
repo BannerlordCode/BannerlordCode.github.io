@@ -1,23 +1,18 @@
 ---
 title: "PlayerTownVisit"
+description: "Auto-generated class reference for PlayerTownVisit."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerTownVisit`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerTownVisit
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerTownVisit`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/GameMenus/GameMenuInitializationHandlers/PlayerTownVisit.cs`
 
 ## Overview
 
-`PlayerTownVisit` lives in `TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PlayerTownVisit` lives in `TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,31 +23,49 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus.GameMenuInitialization
 ### game_menu_town_menu_on_init
 `public static void game_menu_town_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisit.game_menu_town_menu_on_init(args);
+```
 
 ### game_menu_town_manage_town_on_consequence
 `public static void game_menu_town_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_manage_town_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisit.game_menu_town_manage_town_on_consequence(args);
+```
 
 ### game_menu_town_castle_manage_town_on_consequence
 `public static void game_menu_town_castle_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_castle_manage_town_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisit.game_menu_town_castle_manage_town_on_consequence(args);
+```
 
 ### game_menu_castle_manage_castle_on_consequence
 `public static void game_menu_castle_manage_castle_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_castle_manage_castle_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisit.game_menu_castle_manage_castle_on_consequence(args);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 PlayerTownVisit.game_menu_town_menu_on_init(args);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

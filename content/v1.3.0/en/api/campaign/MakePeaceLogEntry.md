@@ -1,13 +1,7 @@
 ---
 title: "MakePeaceLogEntry"
+description: "Auto-generated class reference for MakePeaceLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MakePeaceLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MakePeaceLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetAsRumor
 `public override int GetAsRumor(Settlement talkSettlement, out TextObject comment)`
 
-**Purpose:** Gets the current value of `as rumor`.
+**Purpose:** Reads and returns the `as rumor` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceLogEntry from the subsystem API first
+MakePeaceLogEntry makePeaceLogEntry = ...;
+var result = makePeaceLogEntry.GetAsRumor(talkSettlement, comment);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MakePeaceLogEntry from the subsystem API first
+MakePeaceLogEntry makePeaceLogEntry = ...;
+var result = makePeaceLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceLogEntry from the subsystem API first
+MakePeaceLogEntry makePeaceLogEntry = ...;
+var result = makePeaceLogEntry.GetNotificationText();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceLogEntry from the subsystem API first
+MakePeaceLogEntry makePeaceLogEntry = ...;
+var result = makePeaceLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MakePeaceLogEntry();
-value.GetAsRumor(talkSettlement, comment);
+// Typically call this after obtaining an instance from the subsystem API
+MakePeaceLogEntry makePeaceLogEntry = ...;
+makePeaceLogEntry.GetAsRumor(talkSettlement, comment);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

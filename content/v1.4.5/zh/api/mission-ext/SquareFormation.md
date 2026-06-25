@@ -1,20 +1,14 @@
 ---
 title: "SquareFormation"
+description: "SquareFormation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SquareFormation`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SquareFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SquareFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SquareFormation.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SquareFormation.cs`
 
 ## 概述
 
@@ -36,50 +30,99 @@ title: "SquareFormation"
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 SquareFormation 实例
+SquareFormation squareFormation = ...;
+var result = squareFormation.Clone(formation);
+```
 
 ### DeepCopyFrom
 `public override void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 处理 `deep copy from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SquareFormation 实例
+SquareFormation squareFormation = ...;
+squareFormation.DeepCopyFrom(arrangement);
+```
 
 ### FormFromBorderSideWidth
 `public void FormFromBorderSideWidth(float borderSideWidth)`
 
-**用途 / Purpose:** 处理 `form from border side width` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SquareFormation 实例
+SquareFormation squareFormation = ...;
+squareFormation.FormFromBorderSideWidth(0);
+```
 
 ### FormFromBorderUnitCountPerSide
 `public void FormFromBorderUnitCountPerSide(int unitCountPerSide)`
 
-**用途 / Purpose:** 处理 `form from border unit count per side` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SquareFormation 实例
+SquareFormation squareFormation = ...;
+squareFormation.FormFromBorderUnitCountPerSide(0);
+```
 
 ### GetUnitsPerSideFromRankCount
 `public int GetUnitsPerSideFromRankCount(int rankCount)`
 
-**用途 / Purpose:** 获取 `units per side from rank count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「units per side from rank count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SquareFormation 实例
+SquareFormation squareFormation = ...;
+var result = squareFormation.GetUnitsPerSideFromRankCount(0);
+```
 
 ### FormFromRankCount
 `public void FormFromRankCount(int rankCount)`
 
-**用途 / Purpose:** 处理 `form from rank count` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SquareFormation 实例
+SquareFormation squareFormation = ...;
+squareFormation.FormFromRankCount(0);
+```
 
 ### GetLocalDirectionOfUnitOrDefault
 `public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `local direction of unit or default` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local direction of unit or default」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SquareFormation 实例
+SquareFormation squareFormation = ...;
+var result = squareFormation.GetLocalDirectionOfUnitOrDefault(unit);
+```
 
 ### TurnBackwards
 `public override void TurnBackwards()`
 
-**用途 / Purpose:** 处理 `turn backwards` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SquareFormation 实例
+SquareFormation squareFormation = ...;
+squareFormation.TurnBackwards();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SquareFormation();
-value.Clone(formation);
+// 通常从对应子系统 API 获取实例后调用
+SquareFormation squareFormation = ...;
+squareFormation.Clone(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

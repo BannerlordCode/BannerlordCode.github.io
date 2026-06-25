@@ -1,20 +1,14 @@
 ---
 title: "SkillIconVisualWidget"
+description: "Auto-generated class reference for SkillIconVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillIconVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillIconVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SkillIconVisualWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SkillIconVisualWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SkillIconVisualWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `SkillIconVisualWidget` as a Widget-style extension point: first identify 
 ### SkillIconVisualWidget
 `public class SkillIconVisualWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `skill icon visual widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SkillIconVisualWidget from the subsystem API first
+SkillIconVisualWidget skillIconVisualWidget = ...;
+var result = skillIconVisualWidget.SkillIconVisualWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new SkillIconVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SkillIconVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

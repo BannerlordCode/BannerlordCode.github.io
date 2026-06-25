@@ -1,18 +1,12 @@
 ---
 title: "IWorkshopWarehouseCampaignBehavior"
+description: "Auto-generated class reference for IWorkshopWarehouseCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IWorkshopWarehouseCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IWorkshopWarehouseCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IWorkshopWarehouseCampaignBehavior`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IWorkshopWarehouseCampaignBehavior.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IWorkshopWarehouseCampaignBehavior implementation = GetWorkshopWarehouseCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIWorkshopWarehouseCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

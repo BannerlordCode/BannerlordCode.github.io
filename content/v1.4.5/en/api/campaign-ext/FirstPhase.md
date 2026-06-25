@@ -1,20 +1,14 @@
 ---
 title: "FirstPhase"
+description: "Auto-generated class reference for FirstPhase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FirstPhase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FirstPhase
 
 **Namespace:** StoryMode.StoryModePhases
 **Module:** StoryMode.StoryModePhases
 **Type:** `public class FirstPhase`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.StoryModePhases/FirstPhase.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.StoryModePhases/FirstPhase.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 ### CollectBannerPiece
 `public void CollectBannerPiece()`
 
-**Purpose:** Handles logic related to `collect banner piece`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FirstPhase from the subsystem API first
+FirstPhase firstPhase = ...;
+firstPhase.CollectBannerPiece();
+```
 
 ### MergeDragonBanner
 `public void MergeDragonBanner()`
 
-**Purpose:** Handles logic related to `merge dragon banner`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FirstPhase from the subsystem API first
+FirstPhase firstPhase = ...;
+firstPhase.MergeDragonBanner();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FirstPhase();
-value.CollectBannerPiece();
+// Typically call this after obtaining an instance from the subsystem API
+FirstPhase firstPhase = ...;
+firstPhase.CollectBannerPiece();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BehaviorHoldHighGround"
+description: "Auto-generated class reference for BehaviorHoldHighGround."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorHoldHighGround`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorHoldHighGround
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorHoldHighGround : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorHoldHighGround.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorHoldHighGround.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorHoldHighGround from the subsystem API first
+BehaviorHoldHighGround behaviorHoldHighGround = ...;
+behaviorHoldHighGround.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorHoldHighGround();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorHoldHighGround behaviorHoldHighGround = ...;
+behaviorHoldHighGround.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

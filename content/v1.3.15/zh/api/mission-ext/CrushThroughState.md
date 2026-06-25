@@ -1,19 +1,13 @@
 ---
 title: "CrushThroughState"
+description: "CrushThroughState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CrushThroughState`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CrushThroughState
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** 无
+**Type:** `public enum CrushThroughState : byte`
+**Base:** `byte`
 **File:** `TaleWorlds.MountAndBlade/CrushThroughState.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "CrushThroughState"
 ## 使用示例
 
 ```csharp
-var value = new CrushThroughState();
+// 从对应子系统 API 获取实例
+CrushThroughState instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

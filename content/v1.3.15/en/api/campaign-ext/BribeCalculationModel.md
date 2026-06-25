@@ -1,13 +1,7 @@
 ---
 title: "BribeCalculationModel"
+description: "Auto-generated class reference for BribeCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BribeCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BribeCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,29 +23,54 @@ Treat `BribeCalculationModel` as a Model-style extension point: first identify w
 ### GetBribeToEnterLordsHall
 `public abstract int GetBribeToEnterLordsHall(Settlement settlement)`
 
-**Purpose:** Gets the current value of `bribe to enter lords hall`.
+**Purpose:** Reads and returns the `bribe to enter lords hall` value held by the current object.
+
+```csharp
+// Obtain an instance of BribeCalculationModel from the subsystem API first
+BribeCalculationModel bribeCalculationModel = ...;
+var result = bribeCalculationModel.GetBribeToEnterLordsHall(settlement);
+```
 
 ### GetBribeToEnterDungeon
 `public abstract int GetBribeToEnterDungeon(Settlement settlement)`
 
-**Purpose:** Gets the current value of `bribe to enter dungeon`.
+**Purpose:** Reads and returns the `bribe to enter dungeon` value held by the current object.
+
+```csharp
+// Obtain an instance of BribeCalculationModel from the subsystem API first
+BribeCalculationModel bribeCalculationModel = ...;
+var result = bribeCalculationModel.GetBribeToEnterDungeon(settlement);
+```
 
 ### IsBribeNotNeededToEnterKeep
 `public abstract bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
 
-**Purpose:** Handles logic related to `is bribe not needed to enter keep`.
+**Purpose:** Determines whether the current object is in the `bribe not needed to enter keep` state or condition.
+
+```csharp
+// Obtain an instance of BribeCalculationModel from the subsystem API first
+BribeCalculationModel bribeCalculationModel = ...;
+var result = bribeCalculationModel.IsBribeNotNeededToEnterKeep(settlement);
+```
 
 ### IsBribeNotNeededToEnterDungeon
 `public abstract bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
 
-**Purpose:** Handles logic related to `is bribe not needed to enter dungeon`.
+**Purpose:** Determines whether the current object is in the `bribe not needed to enter dungeon` state or condition.
+
+```csharp
+// Obtain an instance of BribeCalculationModel from the subsystem API first
+BribeCalculationModel bribeCalculationModel = ...;
+var result = bribeCalculationModel.IsBribeNotNeededToEnterDungeon(settlement);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBribeCalculationModel();
+// Typically obtained from a subsystem API or factory
+BribeCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

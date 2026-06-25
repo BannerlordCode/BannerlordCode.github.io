@@ -1,20 +1,14 @@
 ---
 title: "BattleHighlightsController"
+description: "Auto-generated class reference for BattleHighlightsController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleHighlightsController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleHighlightsController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleHighlightsController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleHighlightsController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleHighlightsController.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `BattleHighlightsController` as a Controller-style extension point: first 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleHighlightsController from the subsystem API first
+BattleHighlightsController battleHighlightsController = ...;
+battleHighlightsController.AfterStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of BattleHighlightsController from the subsystem API first
+BattleHighlightsController battleHighlightsController = ...;
+battleHighlightsController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<BattleHighlightsController>(
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

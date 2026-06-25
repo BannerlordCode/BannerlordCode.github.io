@@ -1,13 +1,7 @@
 ---
 title: "SliderWidget"
+description: "Auto-generated class reference for SliderWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SliderWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SliderWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -51,9 +45,10 @@ Treat `SliderWidget` as a Widget-style extension point: first identify who creat
 ## Usage Example
 
 ```csharp
-var widget = new SliderWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SliderWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

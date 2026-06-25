@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletNameMarkerView"
+description: "MissionGauntletNameMarkerView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletNameMarkerView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletNameMarkerView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletNameMarkerView : MissionNameMarkerUIHandler`
 **Base:** `MissionNameMarkerUIHandler`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletNameMarkerView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletNameMarkerView.cs`
 
 ## 概述
 
@@ -29,54 +23,109 @@ title: "MissionGauntletNameMarkerView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.OnMissionScreenTick(0);
+```
 
 ### SetMarkersDirty
 `public override void SetMarkersDirty()`
 
-**用途 / Purpose:** 设置 `markers dirty` 的值或状态。
+**用途 / Purpose:** 为 「markers dirty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.SetMarkersDirty();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent affectedAgent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.OnAgentBuild(affectedAgent, banner);
+```
 
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**用途 / Purpose:** 当 `agent deleted` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent deleted」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.OnAgentDeleted(affectedAgent);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletNameMarkerView 实例
+MissionGauntletNameMarkerView missionGauntletNameMarkerView = ...;
+missionGauntletNameMarkerView.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletNameMarkerView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletNameMarkerView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

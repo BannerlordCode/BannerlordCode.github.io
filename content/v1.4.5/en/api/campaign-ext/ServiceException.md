@@ -1,20 +1,14 @@
 ---
 title: "ServiceException"
+description: "Auto-generated class reference for ServiceException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServiceException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServiceException
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class ServiceException : Exception`
 **Base:** `Exception`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/ServiceException.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ServiceException.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `ServiceException` as a Exception-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-try { CallServiceException(); } catch (ServiceException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (ServiceException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

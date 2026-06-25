@@ -1,20 +1,14 @@
 ---
 title: "MapNavigationElementBase"
+description: "MapNavigationElementBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapNavigationElementBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationElementBase
 
 **Namespace:** SandBox.View.Map.Navigation
 **Module:** SandBox.View
 **Type:** `public abstract class MapNavigationElementBase : INavigationElement`
 **Base:** `INavigationElement`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation/MapNavigationElementBase.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation/MapNavigationElementBase.cs`
 
 ## 概述
 
@@ -38,24 +32,43 @@ title: "MapNavigationElementBase"
 ### OpenView
 `public abstract void OpenView()`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationElementBase 实例
+MapNavigationElementBase mapNavigationElementBase = ...;
+mapNavigationElementBase.OpenView();
+```
 
 ### OpenView
 `public abstract void OpenView(params object parameters)`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationElementBase 实例
+MapNavigationElementBase mapNavigationElementBase = ...;
+mapNavigationElementBase.OpenView(parameters);
+```
 
 ### GoToLink
 `public abstract void GoToLink()`
 
-**用途 / Purpose:** 处理 `go to link` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationElementBase 实例
+MapNavigationElementBase mapNavigationElementBase = ...;
+mapNavigationElementBase.GoToLink();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMapNavigationElementBase();
+// 通常通过子系统 API 或工厂获得派生实例
+MapNavigationElementBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "HeroSpawnCampaignBehavior"
+description: "Auto-generated class reference for HeroSpawnCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroSpawnCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroSpawnCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of HeroSpawnCampaignBehavior from the subsystem API first
+HeroSpawnCampaignBehavior heroSpawnCampaignBehavior = ...;
+heroSpawnCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of HeroSpawnCampaignBehavior from the subsystem API first
+HeroSpawnCampaignBehavior heroSpawnCampaignBehavior = ...;
+heroSpawnCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnGovernorChanged
 `public void OnGovernorChanged(Town fortification, Hero oldGovernor, Hero newGovernor)`
 
-**Purpose:** Called when the `governor changed` event is raised.
+**Purpose:** Invoked when the `governor changed` event is raised.
+
+```csharp
+// Obtain an instance of HeroSpawnCampaignBehavior from the subsystem API first
+HeroSpawnCampaignBehavior heroSpawnCampaignBehavior = ...;
+heroSpawnCampaignBehavior.OnGovernorChanged(fortification, oldGovernor, newGovernor);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeroSpawnCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+HeroSpawnCampaignBehavior heroSpawnCampaignBehavior = ...;
+heroSpawnCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

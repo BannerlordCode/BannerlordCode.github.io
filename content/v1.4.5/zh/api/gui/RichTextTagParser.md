@@ -1,20 +1,14 @@
 ---
 title: "RichTextTagParser"
+description: "RichTextTagParser 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RichTextTagParser`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RichTextTagParser
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class RichTextTagParser`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichTextTagParser.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichTextTagParser.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "RichTextTagParser"
 ### Parse
 `public static RichTextTag Parse(string text2, int tagBeginIndex, int tagEndIndex)`
 
-**用途 / Purpose:** 处理 `parse` 相关逻辑。
+**用途 / Purpose:** 将外部输入解析为当前系统可识别的「parse」。
+
+```csharp
+// 静态调用，不需要实例
+RichTextTagParser.Parse("example", 0, 0);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ RichTextTagParser.Parse("example", 0, 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

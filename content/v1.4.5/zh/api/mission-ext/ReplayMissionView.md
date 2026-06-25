@@ -1,20 +1,14 @@
 ---
 title: "ReplayMissionView"
+description: "ReplayMissionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ReplayMissionView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReplayMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReplayMissionView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/ReplayMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/ReplayMissionView.cs`
 
 ## 概述
 
@@ -29,49 +23,98 @@ title: "ReplayMissionView"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ReplayMissionView 实例
+ReplayMissionView replayMissionView = ...;
+replayMissionView.OnBehaviorInitialize();
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ReplayMissionView 实例
+ReplayMissionView replayMissionView = ...;
+replayMissionView.OnPreMissionTick(0);
+```
 
 ### OverrideInput
 `public void OverrideInput(bool isOverridden)`
 
-**用途 / Purpose:** 处理 `override input` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ReplayMissionView 实例
+ReplayMissionView replayMissionView = ...;
+replayMissionView.OverrideInput(false);
+```
 
 ### ResetReplay
 `public void ResetReplay()`
 
-**用途 / Purpose:** 将 `replay` 重置为初始状态。
+**用途 / Purpose:** 将 「replay」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 ReplayMissionView 实例
+ReplayMissionView replayMissionView = ...;
+replayMissionView.ResetReplay();
+```
 
 ### Rewind
 `public void Rewind(float time)`
 
-**用途 / Purpose:** 处理 `rewind` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ReplayMissionView 实例
+ReplayMissionView replayMissionView = ...;
+replayMissionView.Rewind(0);
+```
 
 ### FastForward
 `public void FastForward(float time)`
 
-**用途 / Purpose:** 处理 `fast forward` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ReplayMissionView 实例
+ReplayMissionView replayMissionView = ...;
+replayMissionView.FastForward(0);
+```
 
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** 处理 `pause` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ReplayMissionView 实例
+ReplayMissionView replayMissionView = ...;
+replayMissionView.Pause();
+```
 
 ### Resume
 `public void Resume()`
 
-**用途 / Purpose:** 处理 `resume` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ReplayMissionView 实例
+ReplayMissionView replayMissionView = ...;
+replayMissionView.Resume();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new ReplayMissionView();
+// 从子系统 API 或场景中获取该视图
+ReplayMissionView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

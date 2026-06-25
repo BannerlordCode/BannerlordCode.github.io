@@ -1,20 +1,14 @@
 ---
 title: "ValueComparisonStateChangerWidget"
+description: "Auto-generated class reference for ValueComparisonStateChangerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ValueComparisonStateChangerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ValueComparisonStateChangerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ValueComparisonStateChangerWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ValueComparisonStateChangerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ValueComparisonStateChangerWidget.cs`
 
 ## Overview
 
@@ -40,9 +34,10 @@ Treat `ValueComparisonStateChangerWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new ValueComparisonStateChangerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ValueComparisonStateChangerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

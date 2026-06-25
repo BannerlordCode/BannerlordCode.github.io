@@ -1,13 +1,7 @@
 ---
 title: "CircularSchiltronFormation"
+description: "CircularSchiltronFormation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CircularSchiltronFormation`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CircularSchiltronFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ title: "CircularSchiltronFormation"
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 CircularSchiltronFormation 实例
+CircularSchiltronFormation circularSchiltronFormation = ...;
+var result = circularSchiltronFormation.Clone(formation);
+```
 
 ### Form
 `public void Form()`
 
-**用途 / Purpose:** 处理 `form` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CircularSchiltronFormation 实例
+CircularSchiltronFormation circularSchiltronFormation = ...;
+circularSchiltronFormation.Form();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CircularSchiltronFormation();
-value.Clone(formation);
+// 通常从对应子系统 API 获取实例后调用
+CircularSchiltronFormation circularSchiltronFormation = ...;
+circularSchiltronFormation.Clone(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

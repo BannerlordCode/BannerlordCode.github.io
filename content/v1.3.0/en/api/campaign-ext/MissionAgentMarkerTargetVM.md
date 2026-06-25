@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentMarkerTargetVM"
+description: "Auto-generated class reference for MissionAgentMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
@@ -29,25 +23,44 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets` t
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ### UpdateQuestStatus
 `public void UpdateQuestStatus()`
 
-**Purpose:** Updates the state or data of `quest status`.
+**Purpose:** Recalculates and stores the latest representation of `quest status`.
+
+```csharp
+// Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.UpdateQuestStatus();
+```
 
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+var result = missionAgentMarkerTargetVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentMarkerTargetVM();
-value.UpdatePosition(missionCamera);
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.UpdatePosition(missionCamera);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

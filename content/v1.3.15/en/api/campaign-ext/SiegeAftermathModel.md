@@ -1,13 +1,7 @@
 ---
 title: "SiegeAftermathModel"
+description: "Auto-generated class reference for SiegeAftermathModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeAftermathModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeAftermathModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `SiegeAftermathModel` as a Model-style extension point: first identify who
 ### GetSiegeAftermathTraitXpChangeForPlayer
 `public abstract int GetSiegeAftermathTraitXpChangeForPlayer(TraitObject trait, Settlement devastatedSettlement, SiegeAftermathAction.SiegeAftermath aftermathType)`
 
-**Purpose:** Gets the current value of `siege aftermath trait xp change for player`.
+**Purpose:** Reads and returns the `siege aftermath trait xp change for player` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeAftermathModel from the subsystem API first
+SiegeAftermathModel siegeAftermathModel = ...;
+var result = siegeAftermathModel.GetSiegeAftermathTraitXpChangeForPlayer(trait, devastatedSettlement, aftermathType);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSiegeAftermathModel();
+// Typically obtained from a subsystem API or factory
+SiegeAftermathModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

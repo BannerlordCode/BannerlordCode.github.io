@@ -1,20 +1,14 @@
 ---
 title: "DefaultPregnancyModel"
+description: "Auto-generated class reference for DefaultPregnancyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPregnancyModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPregnancyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPregnancyModel : PregnancyModel`
 **Base:** `PregnancyModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPregnancyModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPregnancyModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultPregnancyModel` as a Model-style extension point: first identify w
 ### GetDailyChanceOfPregnancyForHero
 `public override float GetDailyChanceOfPregnancyForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `daily chance of pregnancy for hero`.
+**Purpose:** Reads and returns the `daily chance of pregnancy for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPregnancyModel from the subsystem API first
+DefaultPregnancyModel defaultPregnancyModel = ...;
+var result = defaultPregnancyModel.GetDailyChanceOfPregnancyForHero(hero);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultPregnancyModel>(new MyDefaultPregnancyModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

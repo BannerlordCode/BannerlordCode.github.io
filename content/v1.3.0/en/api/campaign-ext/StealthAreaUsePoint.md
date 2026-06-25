@@ -1,13 +1,7 @@
 ---
 title: "StealthAreaUsePoint"
+description: "Auto-generated class reference for StealthAreaUsePoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthAreaUsePoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthAreaUsePoint
 
 **Namespace:** SandBox.Objects.Usables
@@ -29,45 +23,88 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of StealthAreaUsePoint from the subsystem API first
+StealthAreaUsePoint stealthAreaUsePoint = ...;
+var result = stealthAreaUsePoint.GetDescriptionText(gameEntity);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of StealthAreaUsePoint from the subsystem API first
+StealthAreaUsePoint stealthAreaUsePoint = ...;
+stealthAreaUsePoint.OnUse(userAgent, 0);
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Called when the `use stopped` event is raised.
+**Purpose:** Invoked when the `use stopped` event is raised.
+
+```csharp
+// Obtain an instance of StealthAreaUsePoint from the subsystem API first
+StealthAreaUsePoint stealthAreaUsePoint = ...;
+stealthAreaUsePoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### DisableAgentAIs
 `public void DisableAgentAIs()`
 
-**Purpose:** Handles logic related to `disable agent a is`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StealthAreaUsePoint from the subsystem API first
+StealthAreaUsePoint stealthAreaUsePoint = ...;
+stealthAreaUsePoint.DisableAgentAIs();
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of StealthAreaUsePoint from the subsystem API first
+StealthAreaUsePoint stealthAreaUsePoint = ...;
+var result = stealthAreaUsePoint.IsDisabledForAgent(agent);
+```
 
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** Handles logic related to `is usable by agent`.
+**Purpose:** Determines whether the current object is in the `usable by agent` state or condition.
+
+```csharp
+// Obtain an instance of StealthAreaUsePoint from the subsystem API first
+StealthAreaUsePoint stealthAreaUsePoint = ...;
+var result = stealthAreaUsePoint.IsUsableByAgent(userAgent);
+```
 
 ### EnableStealthAreaUsePoint
 `public void EnableStealthAreaUsePoint()`
 
-**Purpose:** Handles logic related to `enable stealth area use point`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StealthAreaUsePoint from the subsystem API first
+StealthAreaUsePoint stealthAreaUsePoint = ...;
+stealthAreaUsePoint.EnableStealthAreaUsePoint();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StealthAreaUsePoint();
-value.GetDescriptionText(gameEntity);
+// Typically call this after obtaining an instance from the subsystem API
+StealthAreaUsePoint stealthAreaUsePoint = ...;
+stealthAreaUsePoint.GetDescriptionText(gameEntity);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PlatformServices"
+description: "Auto-generated class reference for PlatformServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlatformServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformServices
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class PlatformServices`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/PlatformServices.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/PlatformServices.cs`
 
 ## Overview
 
@@ -39,67 +33,132 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ### Setup
 `public static void Setup(IPlatformServices platformServices)`
 
-**Purpose:** Sets the value or state of `up`.
+**Purpose:** Assigns a new value to `up` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+PlatformServices.Setup(platformServices);
+```
 
 ### Initialize
 `public static bool Initialize(IFriendListService additionalFriendListServices)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+PlatformServices.Initialize(additionalFriendListServices);
+```
 
 ### Terminate
 `public static void Terminate()`
 
-**Purpose:** Handles logic related to `terminate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlatformServices.Terminate();
+```
 
 ### ConnectionStateChanged
 `public static void ConnectionStateChanged(bool isAuthenticated)`
 
-**Purpose:** Handles logic related to `connection state changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlatformServices.ConnectionStateChanged(false);
+```
 
 ### MultiplayerGameStateChanged
 `public static void MultiplayerGameStateChanged(bool isPlaying)`
 
-**Purpose:** Handles logic related to `multiplayer game state changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlatformServices.MultiplayerGameStateChanged(false);
+```
 
 ### LobbyClientStateChanged
 `public static void LobbyClientStateChanged(bool atLobby, bool isPartyLeaderOrSolo)`
 
-**Purpose:** Handles logic related to `lobby client state changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlatformServices.LobbyClientStateChanged(false, false);
+```
 
 ### FireOnSessionInvitationAccepted
 `public static void FireOnSessionInvitationAccepted(SessionInvitationType sessionInvitationType)`
 
-**Purpose:** Handles logic related to `fire on session invitation accepted`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlatformServices.FireOnSessionInvitationAccepted(sessionInvitationType);
+```
 
 ### FireOnPlatformRequestedMultiplayer
 `public static void FireOnPlatformRequestedMultiplayer()`
 
-**Purpose:** Handles logic related to `fire on platform requested multiplayer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlatformServices.FireOnPlatformRequestedMultiplayer();
+```
 
 ### OnSessionInvitationHandled
 `public static void OnSessionInvitationHandled()`
 
-**Purpose:** Called when the `session invitation handled` event is raised.
+**Purpose:** Invoked when the `session invitation handled` event is raised.
+
+```csharp
+// Static call; no instance required
+PlatformServices.OnSessionInvitationHandled();
+```
 
 ### OnPlatformMultiplayerRequestHandled
 `public static void OnPlatformMultiplayerRequestHandled()`
 
-**Purpose:** Called when the `platform multiplayer request handled` event is raised.
+**Purpose:** Invoked when the `platform multiplayer request handled` event is raised.
+
+```csharp
+// Static call; no instance required
+PlatformServices.OnPlatformMultiplayerRequestHandled();
+```
 
 ### SetIsPlatformRequestedContinueGame
 `public static void SetIsPlatformRequestedContinueGame(bool isRequested)`
 
-**Purpose:** Sets the value or state of `is platform requested continue game`.
+**Purpose:** Assigns a new value to `is platform requested continue game` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+PlatformServices.SetIsPlatformRequestedContinueGame(false);
+```
 
 ### FilterString
 `public static async Task<string> FilterString(string content, string defaultContent)`
 
-**Purpose:** Handles logic related to `filter string`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlatformServices.FilterString("example", "example");
+```
 
 ### TriggerInvitation
 `public static string TriggerInvitation(List<string> strings)`
 
-**Purpose:** Handles logic related to `trigger invitation`.
+**Purpose:** Triggers the logic or event associated with `invitation`.
+
+```csharp
+// Static call; no instance required
+PlatformServices.TriggerInvitation(strings);
+```
 
 ## Usage Example
 
@@ -109,4 +168,4 @@ PlatformServices.Setup(platformServices);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

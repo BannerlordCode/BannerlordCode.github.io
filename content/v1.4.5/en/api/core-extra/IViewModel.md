@@ -1,20 +1,14 @@
 ---
 title: "IViewModel"
+description: "Auto-generated class reference for IViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IViewModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IViewModel
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/IViewModel.cs`
+**Type:** `public interface IViewModel : INotifyPropertyChanged`
+**Base:** `INotifyPropertyChanged`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IViewModel.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IViewModel` as a ViewModel-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-IViewModel implementation = GetViewModelImplementation();
+// Usually obtained through DI or a factory method
+IIViewModel service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

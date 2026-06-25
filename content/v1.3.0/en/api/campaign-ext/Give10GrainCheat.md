@@ -1,13 +1,7 @@
 ---
 title: "Give10GrainCheat"
+description: "Auto-generated class reference for Give10GrainCheat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Give10GrainCheat`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Give10GrainCheat
 
 **Namespace:** SandBox
@@ -29,20 +23,33 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of Give10GrainCheat from the subsystem API first
+Give10GrainCheat give10GrainCheat = ...;
+give10GrainCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of Give10GrainCheat from the subsystem API first
+Give10GrainCheat give10GrainCheat = ...;
+var result = give10GrainCheat.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Give10GrainCheat();
-value.ExecuteCheat();
+// Typically call this after obtaining an instance from the subsystem API
+Give10GrainCheat give10GrainCheat = ...;
+give10GrainCheat.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

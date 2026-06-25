@@ -1,20 +1,14 @@
 ---
 title: "SettlementAccessModel"
+description: "Auto-generated class reference for SettlementAccessModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementAccessModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementAccessModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementAccessModel : MBGameModel<SettlementAccessModel>`
 **Base:** `MBGameModel<SettlementAccessModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementAccessModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementAccessModel.cs`
 
 ## Overview
 
@@ -29,39 +23,76 @@ Treat `SettlementAccessModel` as a Model-style extension point: first identify w
 ### CanMainHeroEnterSettlement
 `public abstract void CanMainHeroEnterSettlement(Settlement settlement, out AccessDetails accessDetails)`
 
-**Purpose:** Checks whether the current object can `main hero enter settlement`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero enter settlement`.
+
+```csharp
+// Obtain an instance of SettlementAccessModel from the subsystem API first
+SettlementAccessModel settlementAccessModel = ...;
+settlementAccessModel.CanMainHeroEnterSettlement(settlement, accessDetails);
+```
 
 ### CanMainHeroEnterLordsHall
 `public abstract void CanMainHeroEnterLordsHall(Settlement settlement, out AccessDetails accessDetails)`
 
-**Purpose:** Checks whether the current object can `main hero enter lords hall`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero enter lords hall`.
+
+```csharp
+// Obtain an instance of SettlementAccessModel from the subsystem API first
+SettlementAccessModel settlementAccessModel = ...;
+settlementAccessModel.CanMainHeroEnterLordsHall(settlement, accessDetails);
+```
 
 ### CanMainHeroEnterDungeon
 `public abstract void CanMainHeroEnterDungeon(Settlement settlement, out AccessDetails accessDetails)`
 
-**Purpose:** Checks whether the current object can `main hero enter dungeon`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero enter dungeon`.
+
+```csharp
+// Obtain an instance of SettlementAccessModel from the subsystem API first
+SettlementAccessModel settlementAccessModel = ...;
+settlementAccessModel.CanMainHeroEnterDungeon(settlement, accessDetails);
+```
 
 ### CanMainHeroAccessLocation
 `public abstract bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** Checks whether the current object can `main hero access location`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero access location`.
+
+```csharp
+// Obtain an instance of SettlementAccessModel from the subsystem API first
+SettlementAccessModel settlementAccessModel = ...;
+var result = settlementAccessModel.CanMainHeroAccessLocation(settlement, "example", disableOption, disabledText);
+```
 
 ### CanMainHeroDoSettlementAction
 `public abstract bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** Checks whether the current object can `main hero do settlement action`.
+**Purpose:** Checks whether the current object meets the preconditions for `main hero do settlement action`.
+
+```csharp
+// Obtain an instance of SettlementAccessModel from the subsystem API first
+SettlementAccessModel settlementAccessModel = ...;
+var result = settlementAccessModel.CanMainHeroDoSettlementAction(settlement, settlementAction, disableOption, disabledText);
+```
 
 ### IsRequestMeetingOptionAvailable
 `public abstract bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)`
 
-**Purpose:** Handles logic related to `is request meeting option available`.
+**Purpose:** Determines whether the current object is in the `request meeting option available` state or condition.
+
+```csharp
+// Obtain an instance of SettlementAccessModel from the subsystem API first
+SettlementAccessModel settlementAccessModel = ...;
+var result = settlementAccessModel.IsRequestMeetingOptionAvailable(settlement, disableOption, disabledText);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementAccessModel();
+// Typically obtained from a subsystem API or factory
+SettlementAccessModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

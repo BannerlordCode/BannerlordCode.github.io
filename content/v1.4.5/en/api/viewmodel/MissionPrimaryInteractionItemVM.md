@@ -1,20 +1,14 @@
 ---
 title: "MissionPrimaryInteractionItemVM"
+description: "Auto-generated class reference for MissionPrimaryInteractionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionPrimaryInteractionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionPrimaryInteractionItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionPrimaryInteractionItemVM : MissionGenericInteractionItemVM`
 **Base:** `MissionGenericInteractionItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems/MissionPrimaryInteractionItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems/MissionPrimaryInteractionItemVM.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Inte
 ## Usage Example
 
 ```csharp
-var example = new MissionPrimaryInteractionItemVM();
+// Obtain an instance from the relevant subsystem API
+MissionPrimaryInteractionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -5,10 +5,10 @@ extra:
 ---
 <!-- BEGIN BREADCRUMB -->
 **首页** → **API 目录** → **本领域** → `战役动作速查`
-- [← 本领域 / 返回 campaign-ext](./)
+- [← 本领域 / 返回 campaign-ext](../)
 - [↑ API 目录](../)
 - [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
+- [⭐ SDK 总览](../../architecture/sdk-overview/)
 <!-- END BREADCRUMB -->
 # 战役动作速查
 
@@ -29,72 +29,72 @@ extra:
 
 `BeHostileAction
 
-`](./BeHostileAction) \| Be Hostile \|
+`](BeHostileAction/) \| Be Hostile \|
 \| [
 
 `BreakInOutBesiegedSettlementAction
 
-`](./BreakInOutBesiegedSettlementAction) \| Break In Out Besieged Settlement \|
+`](BreakInOutBesiegedSettlementAction/) \| Break In Out Besieged Settlement \|
 \| [
 
 `ChangeKingdomAction
 
-`](./ChangeKingdomAction) \| Change Kingdom \|
+`](ChangeKingdomAction/) \| Change Kingdom \|
 \| [
 
 `DeclareWarAction
 
-`](./DeclareWarAction) \| Declare War \|
+`](DeclareWarAction/) \| Declare War \|
 \| [
 
 `DestroyKingdomAction
 
-`](./DestroyKingdomAction) \| Destroy Kingdom \|
+`](DestroyKingdomAction/) \| Destroy Kingdom \|
 \| [
 
 `DisbandArmyAction
 
-`](./DisbandArmyAction) \| Disband Army \|
+`](DisbandArmyAction/) \| Disband Army \|
 \| [
 
 `EndMercenaryServiceAction
 
-`](./EndMercenaryServiceAction) \| End Mercenary Service \|
+`](EndMercenaryServiceAction/) \| End Mercenary Service \|
 \| [
 
 `GainKingdomInfluenceAction
 
-`](./GainKingdomInfluenceAction) \| Gain Kingdom Influence \|
+`](GainKingdomInfluenceAction/) \| Gain Kingdom Influence \|
 \| [
 
 `GatherArmyAction
 
-`](./GatherArmyAction) \| Gather Army \|
+`](GatherArmyAction/) \| Gather Army \|
 \| [
 
 `LiftSiegeAction
 
-`](./LiftSiegeAction) \| Lift Siege \|
+`](LiftSiegeAction/) \| Lift Siege \|
 \| [
 
 `MakePeaceAction
 
-`](./MakePeaceAction) \| Make Peace \|
+`](MakePeaceAction/) \| Make Peace \|
 \| [
 
 `SiegeAftermathAction
 
-`](./SiegeAftermathAction) \| Siege Aftermath \|
+`](SiegeAftermathAction/) \| Siege Aftermath \|
 \| [
 
 `StartBattleAction
 
-`](./StartBattleAction) \| Start Battle \|
+`](StartBattleAction/) \| Start Battle \|
 \| [
 
 `StartMercenaryServiceAction
 
-`](./StartMercenaryServiceAction) \| Start Mercenary Service \|
+`](StartMercenaryServiceAction/) \| Start Mercenary Service \|
 
 ## 角色与关?Character & Relations (20)
 
@@ -104,102 +104,102 @@ extra:
 
 `AddCompanionAction
 
-`](./AddCompanionAction) \| Add Companion \|
+`](AddCompanionAction/) \| Add Companion \|
 \| [
 
 `AddHeroToPartyAction
 
-`](./AddHeroToPartyAction) \| Add Hero To Party \|
+`](AddHeroToPartyAction/) \| Add Hero To Party \|
 \| [
 
 `AdoptHeroAction
 
-`](./AdoptHeroAction) \| Adopt Hero \|
+`](AdoptHeroAction/) \| Adopt Hero \|
 \| [
 
 `ApplyHeirSelectionAction
 
-`](./ApplyHeirSelectionAction) \| Apply Heir Selection \|
+`](ApplyHeirSelectionAction/) \| Apply Heir Selection \|
 \| [
 
 `ChangeClanLeaderAction
 
-`](./ChangeClanLeaderAction) \| Change Clan Leader \|
+`](ChangeClanLeaderAction/) \| Change Clan Leader \|
 \| [
 
 `ChangePlayerCharacterAction
 
-`](./ChangePlayerCharacterAction) \| Change Player Character \|
+`](ChangePlayerCharacterAction/) \| Change Player Character \|
 \| [
 
 `ChangeRelationAction
 
-`](./ChangeRelationAction) \| Change Relation \|
+`](ChangeRelationAction/) \| Change Relation \|
 \| [
 
 `ChangeRomanticStateAction
 
-`](./ChangeRomanticStateAction) \| Change Romantic State \|
+`](ChangeRomanticStateAction/) \| Change Romantic State \|
 \| [
 
 `ChangeRulingClanAction
 
-`](./ChangeRulingClanAction) \| Change Ruling Clan \|
+`](ChangeRulingClanAction/) \| Change Ruling Clan \|
 \| [
 
 `DisableHeroAction
 
-`](./DisableHeroAction) \| Disable Hero \|
+`](DisableHeroAction/) \| Disable Hero \|
 \| [
 
 `EndCaptivityAction
 
-`](./EndCaptivityAction) \| End Captivity \|
+`](EndCaptivityAction/) \| End Captivity \|
 \| [
 
 `KillCharacterAction
 
-`](./KillCharacterAction) \| Kill Character \|
+`](KillCharacterAction/) \| Kill Character \|
 \| [
 
 `MakeHeroFugitiveAction
 
-`](./MakeHeroFugitiveAction) \| Make Hero Fugitive \|
+`](MakeHeroFugitiveAction/) \| Make Hero Fugitive \|
 \| [
 
 `MakePregnantAction
 
-`](./MakePregnantAction) \| Make Pregnant \|
+`](MakePregnantAction/) \| Make Pregnant \|
 \| [
 
 `MarriageAction
 
-`](./MarriageAction) \| Marriage \|
+`](MarriageAction/) \| Marriage \|
 \| [
 
 `RemoveCompanionAction
 
-`](./RemoveCompanionAction) \| Remove Companion \|
+`](RemoveCompanionAction/) \| Remove Companion \|
 \| [
 
 `SellPrisonersAction
 
-`](./SellPrisonersAction) \| Sell Prisoners \|
+`](SellPrisonersAction/) \| Sell Prisoners \|
 \| [
 
 `TakePrisonerAction
 
-`](./TakePrisonerAction) \| Take Prisoner \|
+`](TakePrisonerAction/) \| Take Prisoner \|
 \| [
 
 `TeleportHeroAction
 
-`](./TeleportHeroAction) \| Teleport Hero \|
+`](TeleportHeroAction/) \| Teleport Hero \|
 \| [
 
 `TransferPrisonerAction
 
-`](./TransferPrisonerAction) \| Transfer Prisoner \|
+`](TransferPrisonerAction/) \| Transfer Prisoner \|
 
 ## 经济与声?Economy & Renown (16)
 
@@ -209,82 +209,82 @@ extra:
 
 `BribeGuardsAction
 
-`](./BribeGuardsAction) \| Bribe Guards \|
+`](BribeGuardsAction/) \| Bribe Guards \|
 \| [
 
 `ChangeClanInfluenceAction
 
-`](./ChangeClanInfluenceAction) \| Change Clan Influence \|
+`](ChangeClanInfluenceAction/) \| Change Clan Influence \|
 \| [
 
 `ChangeCrimeRatingAction
 
-`](./ChangeCrimeRatingAction) \| Change Crime Rating \|
+`](ChangeCrimeRatingAction/) \| Change Crime Rating \|
 \| [
 
 `ChangeOwnerOfWorkshopAction
 
-`](./ChangeOwnerOfWorkshopAction) \| Change Owner Of Workshop \|
+`](ChangeOwnerOfWorkshopAction/) \| Change Owner Of Workshop \|
 \| [
 
 `ChangeProductionTypeOfWorkshopAction
 
-`](./ChangeProductionTypeOfWorkshopAction) \| Change Production Type Of Workshop \|
+`](ChangeProductionTypeOfWorkshopAction/) \| Change Production Type Of Workshop \|
 \| [
 
 `ChangeShipOwnerAction
 
-`](./ChangeShipOwnerAction) \| Change Ship Owner \|
+`](ChangeShipOwnerAction/) \| Change Ship Owner \|
 \| [
 
 `DestroyShipAction
 
-`](./DestroyShipAction) \| Destroy Ship \|
+`](DestroyShipAction/) \| Destroy Ship \|
 \| [
 
 `GainRenownAction
 
-`](./GainRenownAction) \| Gain Renown \|
+`](GainRenownAction/) \| Gain Renown \|
 \| [
 
 `GiveGoldAction
 
-`](./GiveGoldAction) \| Give Gold \|
+`](GiveGoldAction/) \| Give Gold \|
 \| [
 
 `GiveItemAction
 
-`](./GiveItemAction) \| Give Item \|
+`](GiveItemAction/) \| Give Item \|
 \| [
 
 `InitializeWorkshopAction
 
-`](./InitializeWorkshopAction) \| Initialize Workshop \|
+`](InitializeWorkshopAction/) \| Initialize Workshop \|
 \| [
 
 `PayForCrimeAction
 
-`](./PayForCrimeAction) \| Pay For Crime \|
+`](PayForCrimeAction/) \| Pay For Crime \|
 \| [
 
 `RaftStateChangeAction
 
-`](./RaftStateChangeAction) \| Raft State Change \|
+`](RaftStateChangeAction/) \| Raft State Change \|
 \| [
 
 `RepairShipAction
 
-`](./RepairShipAction) \| Repair Ship \|
+`](RepairShipAction/) \| Repair Ship \|
 \| [
 
 `SellGoodsForTradeAction
 
-`](./SellGoodsForTradeAction) \| Sell Goods For Trade \|
+`](SellGoodsForTradeAction/) \| Sell Goods For Trade \|
 \| [
 
 `SellItemsAction
 
-`](./SellItemsAction) \| Sell Items \|
+`](SellItemsAction/) \| Sell Items \|
 
 ## 领地与定居点 Settlements (7)
 
@@ -294,37 +294,37 @@ extra:
 
 `ChangeGovernorAction
 
-`](./ChangeGovernorAction) \| Change Governor \|
+`](ChangeGovernorAction/) \| Change Governor \|
 \| [
 
 `ChangeOwnerOfSettlementAction
 
-`](./ChangeOwnerOfSettlementAction) \| Change Owner Of Settlement \|
+`](ChangeOwnerOfSettlementAction/) \| Change Owner Of Settlement \|
 \| [
 
 `ChangeVillageStateAction
 
-`](./ChangeVillageStateAction) \| Change Village State \|
+`](ChangeVillageStateAction/) \| Change Village State \|
 \| [
 
 `ClaimSettlementAction
 
-`](./ClaimSettlementAction) \| Claim Settlement \|
+`](ClaimSettlementAction/) \| Claim Settlement \|
 \| [
 
 `EnterSettlementAction
 
-`](./EnterSettlementAction) \| Enter Settlement \|
+`](EnterSettlementAction/) \| Enter Settlement \|
 \| [
 
 `IncreaseSettlementHealthAction
 
-`](./IncreaseSettlementHealthAction) \| Increase Settlement Health \|
+`](IncreaseSettlementHealthAction/) \| Increase Settlement Health \|
 \| [
 
 `LeaveSettlementAction
 
-`](./LeaveSettlementAction) \| Leave Settlement \|
+`](LeaveSettlementAction/) \| Leave Settlement \|
 
 ## 派系与队?Factions & Parties (4)
 
@@ -334,22 +334,22 @@ extra:
 
 `DestroyClanAction
 
-`](./DestroyClanAction) \| Destroy Clan \|
+`](DestroyClanAction/) \| Destroy Clan \|
 \| [
 
 `DestroyPartyAction
 
-`](./DestroyPartyAction) \| Destroy Party \|
+`](DestroyPartyAction/) \| Destroy Party \|
 \| [
 
 `DisbandPartyAction
 
-`](./DisbandPartyAction) \| Disband Party \|
+`](DisbandPartyAction/) \| Disband Party \|
 \| [
 
 `SetPartyAiAction
 
-`](./SetPartyAiAction) \| Set Party Ai \|
+`](SetPartyAiAction/) \| Set Party Ai \|
 
 ## 使用示例
 
@@ -359,5 +359,5 @@ var example = new 战役动作速查();
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [战役系统目录](../catalog-campaign)
+- [本区域目录](../)
+- [战役系统](../campaign/)

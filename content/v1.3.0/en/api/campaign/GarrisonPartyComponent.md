@@ -1,13 +1,7 @@
 ---
 title: "GarrisonPartyComponent"
+description: "Auto-generated class reference for GarrisonPartyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GarrisonPartyComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GarrisonPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -40,32 +34,66 @@ Treat `GarrisonPartyComponent` as a Component-style extension point: first ident
 ### CreateGarrisonParty
 `public static MobileParty CreateGarrisonParty(string stringId, Settlement settlement)`
 
-**Purpose:** Creates a new `garrison party` instance or object.
+**Purpose:** Constructs a new `garrison party` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+GarrisonPartyComponent.CreateGarrisonParty("example", settlement);
+```
 
 ### ConvertPartyToGarrisonParty
 `public static void ConvertPartyToGarrisonParty(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Handles logic related to `convert party to garrison party`.
+**Purpose:** Converts `party to garrison party` into another representation or type.
+
+```csharp
+// Static call; no instance required
+GarrisonPartyComponent.ConvertPartyToGarrisonParty(mobileParty, settlement);
+```
 
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Gets the current value of `default component banner`.
+**Purpose:** Reads and returns the `default component banner` value held by the current object.
+
+```csharp
+// Obtain an instance of GarrisonPartyComponent from the subsystem API first
+GarrisonPartyComponent garrisonPartyComponent = ...;
+var result = garrisonPartyComponent.GetDefaultComponentBanner();
+```
 
 ### SetWagePaymentLimit
 `public override void SetWagePaymentLimit(int newLimit)`
 
-**Purpose:** Sets the value or state of `wage payment limit`.
+**Purpose:** Assigns a new value to `wage payment limit` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GarrisonPartyComponent from the subsystem API first
+GarrisonPartyComponent garrisonPartyComponent = ...;
+garrisonPartyComponent.SetWagePaymentLimit(0);
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** Handles logic related to `clear cached name`.
+**Purpose:** Removes all `cached name` from the current object.
+
+```csharp
+// Obtain an instance of GarrisonPartyComponent from the subsystem API first
+GarrisonPartyComponent garrisonPartyComponent = ...;
+garrisonPartyComponent.ClearCachedName();
+```
 
 ### InitializeGarrisonPartyProperties
 `public void InitializeGarrisonPartyProperties(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Initializes the state, resources, or bindings for `garrison party properties`.
+**Purpose:** Prepares the resources, state, or bindings required by `garrison party properties`.
+
+```csharp
+// Obtain an instance of GarrisonPartyComponent from the subsystem API first
+GarrisonPartyComponent garrisonPartyComponent = ...;
+garrisonPartyComponent.InitializeGarrisonPartyProperties(mobileParty, settlement);
+```
 
 ## Usage Example
 
@@ -75,4 +103,4 @@ var component = agent.GetComponent<GarrisonPartyComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

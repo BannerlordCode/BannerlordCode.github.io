@@ -1,13 +1,7 @@
 ---
 title: "RichTextPart"
+description: "Auto-generated class reference for RichTextPart."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichTextPart`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RichTextPart
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -42,9 +36,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new RichTextPart();
+// Obtain an instance from the relevant subsystem API
+RichTextPart instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

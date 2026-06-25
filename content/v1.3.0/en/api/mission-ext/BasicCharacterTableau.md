@@ -1,13 +1,7 @@
 ---
 title: "BasicCharacterTableau"
+description: "Auto-generated class reference for BasicCharacterTableau."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasicCharacterTableau`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicCharacterTableau
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
@@ -36,40 +30,77 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of BasicCharacterTableau from the subsystem API first
+BasicCharacterTableau basicCharacterTableau = ...;
+basicCharacterTableau.OnTick(0);
+```
 
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BasicCharacterTableau from the subsystem API first
+BasicCharacterTableau basicCharacterTableau = ...;
+basicCharacterTableau.SetTargetSize(0, 0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of BasicCharacterTableau from the subsystem API first
+BasicCharacterTableau basicCharacterTableau = ...;
+basicCharacterTableau.OnFinalize();
+```
 
 ### DeserializeCharacterCode
 `public void DeserializeCharacterCode(string code)`
 
-**Purpose:** Handles logic related to `deserialize character code`.
+**Purpose:** Restores `character code` from serialized data.
+
+```csharp
+// Obtain an instance of BasicCharacterTableau from the subsystem API first
+BasicCharacterTableau basicCharacterTableau = ...;
+basicCharacterTableau.DeserializeCharacterCode("example");
+```
 
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**Purpose:** Handles logic related to `rotate character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BasicCharacterTableau from the subsystem API first
+BasicCharacterTableau basicCharacterTableau = ...;
+basicCharacterTableau.RotateCharacter(false);
+```
 
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**Purpose:** Sets the value or state of `banner code`.
+**Purpose:** Assigns a new value to `banner code` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BasicCharacterTableau from the subsystem API first
+BasicCharacterTableau basicCharacterTableau = ...;
+basicCharacterTableau.SetBannerCode("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BasicCharacterTableau();
-value.OnTick(0);
+// Typically call this after obtaining an instance from the subsystem API
+BasicCharacterTableau basicCharacterTableau = ...;
+basicCharacterTableau.OnTick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

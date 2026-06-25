@@ -1,13 +1,7 @@
 ---
 title: "BoardGameSeega"
+description: "BoardGameSeega 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameSeega`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameSeega
 
 **Namespace:** SandBox.BoardGames
@@ -35,65 +29,132 @@ title: "BoardGameSeega"
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**用途 / Purpose:** 初始化 `units` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「units」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+boardGameSeega.InitializeUnits();
+```
 
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**用途 / Purpose:** 初始化 `tiles` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「tiles」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+boardGameSeega.InitializeTiles();
+```
 
 ### InitializeSound
 `public override void InitializeSound()`
 
-**用途 / Purpose:** 初始化 `sound` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「sound」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+boardGameSeega.InitializeSound();
+```
 
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+boardGameSeega.Reset();
+```
 
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**用途 / Purpose:** 处理 `calculate valid moves` 相关逻辑。
+**用途 / Purpose:** 计算「valid moves」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+var result = boardGameSeega.CalculateValidMoves(pawn);
+```
 
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool aiSimulation = false)`
 
-**用途 / Purpose:** 设置 `pawn captured` 的值或状态。
+**用途 / Purpose:** 为 「pawn captured」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+boardGameSeega.SetPawnCaptured(pawn, false);
+```
 
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 处理 `a i make move` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+boardGameSeega.AIMakeMove(move);
+```
 
 ### GetBlockingPawns
 `public Dictionary<PawnBase, int> GetBlockingPawns(bool playerOneBlocked)`
 
-**用途 / Purpose:** 获取 `blocking pawns` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「blocking pawns」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+var result = boardGameSeega.GetBlockingPawns(false);
+```
 
 ### TakeBoardSnapshot
 `public BoardGameSeega.BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 处理 `take board snapshot` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+var result = boardGameSeega.TakeBoardSnapshot();
+```
 
 ### UndoMove
 `public void UndoMove(ref BoardGameSeega.BoardInformation board)`
 
-**用途 / Purpose:** 处理 `undo move` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+boardGameSeega.UndoMove(board);
+```
 
 ### GetTile
 `public TileBase GetTile(int x, int y)`
 
-**用途 / Purpose:** 获取 `tile` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tile」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameSeega 实例
+BoardGameSeega boardGameSeega = ...;
+var result = boardGameSeega.GetTile(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameSeega();
-value.InitializeUnits();
+// 通常从对应子系统 API 获取实例后调用
+BoardGameSeega boardGameSeega = ...;
+boardGameSeega.InitializeUnits();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

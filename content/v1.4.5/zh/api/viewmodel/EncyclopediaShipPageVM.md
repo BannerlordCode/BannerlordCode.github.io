@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaShipPageVM"
+description: "EncyclopediaShipPageVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaShipPageVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaShipPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaShipPageVM : EncyclopediaContentPageVM`
 **Base:** `EncyclopediaContentPageVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/EncyclopediaShipPageVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/EncyclopediaShipPageVM.cs`
 
 ## 概述
 
@@ -43,35 +37,66 @@ title: "EncyclopediaShipPageVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+encyclopediaShipPageVM.RefreshValues();
+```
 
 ### GetName
 `public override string GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+var result = encyclopediaShipPageVM.GetName();
+```
 
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**用途 / Purpose:** 获取 `navigation bar u r l` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「navigation bar u r l」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+var result = encyclopediaShipPageVM.GetNavigationBarURL();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** 执行 `link` 操作或流程。
+**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+encyclopediaShipPageVM.ExecuteLink("example");
+```
 
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**用途 / Purpose:** 执行 `switch bookmarked state` 操作或流程。
+**用途 / Purpose:** 执行 「switch bookmarked state」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaShipPageVM 实例
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+encyclopediaShipPageVM.ExecuteSwitchBookmarkedState();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaShipPageVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+encyclopediaShipPageVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

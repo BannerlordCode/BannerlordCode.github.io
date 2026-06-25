@@ -1,13 +1,7 @@
 ---
 title: "ItemTableau"
+description: "Auto-generated class reference for ItemTableau."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemTableau`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemTableau
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
@@ -35,95 +29,198 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetTargetSize(0, 0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.OnFinalize();
+```
 
 ### SetStringId
 `public void SetStringId(string stringId)`
 
-**Purpose:** Sets the value or state of `string id`.
+**Purpose:** Assigns a new value to `string id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetStringId("example");
+```
 
 ### SetAmmo
 `public void SetAmmo(int ammo)`
 
-**Purpose:** Sets the value or state of `ammo`.
+**Purpose:** Assigns a new value to `ammo` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetAmmo(0);
+```
 
 ### SetAverageUnitCost
 `public void SetAverageUnitCost(int averageUnitCost)`
 
-**Purpose:** Sets the value or state of `average unit cost`.
+**Purpose:** Assigns a new value to `average unit cost` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetAverageUnitCost(0);
+```
 
 ### SetItemModifierId
 `public void SetItemModifierId(string itemModifierId)`
 
-**Purpose:** Sets the value or state of `item modifier id`.
+**Purpose:** Assigns a new value to `item modifier id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetItemModifierId("example");
+```
 
 ### SetBannerCode
 `public void SetBannerCode(string bannerCode)`
 
-**Purpose:** Sets the value or state of `banner code`.
+**Purpose:** Assigns a new value to `banner code` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetBannerCode("example");
+```
 
 ### Recalculate
 `public void Recalculate()`
 
-**Purpose:** Handles logic related to `recalculate`.
+**Purpose:** Recalculates `recalculate` to reflect the latest state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.Recalculate();
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.Initialize();
+```
 
 ### RotateItem
 `public void RotateItem(bool value)`
 
-**Purpose:** Handles logic related to `rotate item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.RotateItem(false);
+```
 
 ### RotateItemVerticalWithAmount
 `public void RotateItemVerticalWithAmount(float value)`
 
-**Purpose:** Handles logic related to `rotate item vertical with amount`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.RotateItemVerticalWithAmount(0);
+```
 
 ### RotateItemHorizontalWithAmount
 `public void RotateItemHorizontalWithAmount(float value)`
 
-**Purpose:** Handles logic related to `rotate item horizontal with amount`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.RotateItemHorizontalWithAmount(0);
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.OnTick(0);
+```
 
 ### SetInitialTiltRotation
 `public void SetInitialTiltRotation(float amount)`
 
-**Purpose:** Sets the value or state of `initial tilt rotation`.
+**Purpose:** Assigns a new value to `initial tilt rotation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetInitialTiltRotation(0);
+```
 
 ### SetInitialPanRotation
 `public void SetInitialPanRotation(float amount)`
 
-**Purpose:** Sets the value or state of `initial pan rotation`.
+**Purpose:** Assigns a new value to `initial pan rotation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetInitialPanRotation(0);
+```
 
 ### Zoom
 `public void Zoom(double value)`
 
-**Purpose:** Handles logic related to `zoom`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.Zoom(0);
+```
 
 ### SetItem
 `public void SetItem(ItemRosterElement itemRosterElement)`
 
-**Purpose:** Sets the value or state of `item`.
+**Purpose:** Assigns a new value to `item` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableau from the subsystem API first
+ItemTableau itemTableau = ...;
+itemTableau.SetItem(itemRosterElement);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemTableau();
-value.SetTargetSize(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ItemTableau itemTableau = ...;
+itemTableau.SetTargetSize(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

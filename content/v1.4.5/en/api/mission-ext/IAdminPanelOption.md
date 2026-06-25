@@ -1,20 +1,14 @@
 ---
 title: "IAdminPanelOption"
+description: "Auto-generated class reference for IAdminPanelOption."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAdminPanelOption`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IAdminPanelOption
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Admin
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IAdminPanelOption`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelOption.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelOption.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in
 ## Usage Example
 
 ```csharp
-IAdminPanelOption implementation = GetAdminPanelOptionImplementation();
+// Usually obtained through DI or a factory method
+IIAdminPanelOption service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

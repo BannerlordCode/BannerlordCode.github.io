@@ -1,24 +1,18 @@
 ---
 title: "TestScript"
+description: "Auto-generated class reference for TestScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestScript`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TestScript
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TestScript : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/TestScript.cs`
 
 ## Overview
 
-`TestScript` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TestScript` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,21 +23,30 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetIntegerFromStringEnd
 `public static int GetIntegerFromStringEnd(string str)`
 
-**Purpose:** Gets the current value of `integer from string end`.
+**Purpose:** Reads and returns the `integer from string end` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TestScript.GetIntegerFromStringEnd("example");
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of TestScript from the subsystem API first
+TestScript testScript = ...;
+var result = testScript.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TestScript.GetIntegerFromStringEnd("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

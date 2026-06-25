@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentTakenDamageVM"
+description: "Auto-generated class reference for MissionAgentTakenDamageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentTakenDamageVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionAgentTakenDamageVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### SetIsEnabled
 `public void SetIsEnabled(bool isEnabled)`
 
-**Purpose:** Sets the value or state of `is enabled`.
+**Purpose:** Assigns a new value to `is enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentTakenDamageVM from the subsystem API first
+MissionAgentTakenDamageVM missionAgentTakenDamageVM = ...;
+missionAgentTakenDamageVM.SetIsEnabled(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentTakenDamageVM();
-value.SetIsEnabled(false);
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentTakenDamageVM missionAgentTakenDamageVM = ...;
+missionAgentTakenDamageVM.SetIsEnabled(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

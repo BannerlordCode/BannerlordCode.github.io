@@ -1,20 +1,14 @@
 ---
 title: "CraftedDataView"
+description: "Auto-generated class reference for CraftedDataView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftedDataView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftedDataView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftedDataView`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/CraftedDataView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/CraftedDataView.cs`
 
 ## Overview
 
@@ -37,34 +31,62 @@ Treat `CraftedDataView` as a View-style extension point: first identify who crea
 ### OnMeshBuiltDelegate
 `public delegate void OnMeshBuiltDelegate(WeaponDesign weaponDesign, ref MetaMesh builtMesh)`
 
-**Purpose:** Called when the `mesh built delegate` event is raised.
+**Purpose:** Invoked when the `mesh built delegate` event is raised.
+
+```csharp
+// Obtain an instance of CraftedDataView from the subsystem API first
+CraftedDataView craftedDataView = ...;
+craftedDataView.OnMeshBuiltDelegate(weaponDesign, builtMesh);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of CraftedDataView from the subsystem API first
+CraftedDataView craftedDataView = ...;
+craftedDataView.Clear();
+```
 
 ### BuildWeaponMesh
 `public static MetaMesh BuildWeaponMesh(WeaponDesign craftedData, float pivotDiff, bool pieceTypeHidingEnabledForHolster, bool batchAllMeshes)`
 
-**Purpose:** Handles logic related to `build weapon mesh`.
+**Purpose:** Assembles and returns the built result for `weapon mesh`.
+
+```csharp
+// Static call; no instance required
+CraftedDataView.BuildWeaponMesh(craftedData, 0, false, false);
+```
 
 ### BuildHolsterMesh
 `public static MetaMesh BuildHolsterMesh(WeaponDesign craftedData)`
 
-**Purpose:** Handles logic related to `build holster mesh`.
+**Purpose:** Assembles and returns the built result for `holster mesh`.
+
+```csharp
+// Static call; no instance required
+CraftedDataView.BuildHolsterMesh(craftedData);
+```
 
 ### BuildHolsterMeshWithWeapon
 `public static MetaMesh BuildHolsterMeshWithWeapon(WeaponDesign craftedData, float pivotDiff, bool batchAllMeshes)`
 
-**Purpose:** Handles logic related to `build holster mesh with weapon`.
+**Purpose:** Assembles and returns the built result for `holster mesh with weapon`.
+
+```csharp
+// Static call; no instance required
+CraftedDataView.BuildHolsterMeshWithWeapon(craftedData, 0, false);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new CraftedDataView();
+// Retrieve this view from the subsystem API or scene
+CraftedDataView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

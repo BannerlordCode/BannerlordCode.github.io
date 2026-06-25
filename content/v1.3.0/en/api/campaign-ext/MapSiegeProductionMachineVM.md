@@ -1,13 +1,7 @@
 ---
 title: "MapSiegeProductionMachineVM"
+description: "Auto-generated class reference for MapSiegeProductionMachineVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeProductionMachineVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeProductionMachineVM
 
 **Namespace:** SandBox.ViewModelCollection.MapSiege
@@ -40,30 +34,55 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapSiegeProductionMachineVM from the subsystem API first
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.RefreshValues();
+```
 
 ### OnSelection
 `public void OnSelection()`
 
-**Purpose:** Called when the `selection` event is raised.
+**Purpose:** Invoked when the `selection` event is raised.
+
+```csharp
+// Obtain an instance of MapSiegeProductionMachineVM from the subsystem API first
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.OnSelection();
+```
 
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**Purpose:** Executes the `show tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show tooltip`.
+
+```csharp
+// Obtain an instance of MapSiegeProductionMachineVM from the subsystem API first
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.ExecuteShowTooltip();
+```
 
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**Purpose:** Executes the `hide tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `hide tooltip`.
+
+```csharp
+// Obtain an instance of MapSiegeProductionMachineVM from the subsystem API first
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.ExecuteHideTooltip();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapSiegeProductionMachineVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

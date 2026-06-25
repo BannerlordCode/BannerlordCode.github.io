@@ -1,23 +1,18 @@
 ---
 title: "CustomBattleViews"
+description: "Auto-generated class reference for CustomBattleViews."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleViews`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleViews
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleViews`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleViews.cs`
 
 ## Overview
 
-`CustomBattleViews` lives in `TaleWorlds.MountAndBlade.CustomBattle`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CustomBattleViews` lives in `TaleWorlds.MountAndBlade.CustomBattle` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,26 +23,39 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### OpenCustomBattleMission
 `public static MissionView OpenCustomBattleMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open custom battle mission`.
+**Purpose:** Opens the resource or UI associated with `custom battle mission`.
+
+```csharp
+// Static call; no instance required
+CustomBattleViews.OpenCustomBattleMission(mission);
+```
 
 ### OpenCustomSiegeBattleMission
 `public static MissionView OpenCustomSiegeBattleMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open custom siege battle mission`.
+**Purpose:** Opens the resource or UI associated with `custom siege battle mission`.
+
+```csharp
+// Static call; no instance required
+CustomBattleViews.OpenCustomSiegeBattleMission(mission);
+```
 
 ### OpenCustomBattleLordsHallMission
 `public static MissionView OpenCustomBattleLordsHallMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open custom battle lords hall mission`.
+**Purpose:** Opens the resource or UI associated with `custom battle lords hall mission`.
+
+```csharp
+// Static call; no instance required
+CustomBattleViews.OpenCustomBattleLordsHallMission(mission);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CustomBattleViews.OpenCustomBattleMission(mission);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

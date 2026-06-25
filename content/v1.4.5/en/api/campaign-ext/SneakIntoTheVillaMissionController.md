@@ -1,20 +1,14 @@
 ---
 title: "SneakIntoTheVillaMissionController"
+description: "Auto-generated class reference for SneakIntoTheVillaMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SneakIntoTheVillaMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SneakIntoTheVillaMissionController
 
 **Namespace:** Storymode.Missions
 **Module:** Storymode.Missions
 **Type:** `public class SneakIntoTheVillaMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/Storymode.Missions/SneakIntoTheVillaMissionController.cs`
+**File:** `Modules.StoryMode/StoryMode/Storymode.Missions/SneakIntoTheVillaMissionController.cs`
 
 ## Overview
 
@@ -37,67 +31,143 @@ Treat `SneakIntoTheVillaMissionController` as a Controller-style extension point
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+sneakIntoTheVillaMissionController.OnMissionTick(0);
+```
 
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+sneakIntoTheVillaMissionController.OnCreated();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+sneakIntoTheVillaMissionController.AfterStart();
+```
 
 ### IsStealthTutorialReadyForActivation
 `public static bool IsStealthTutorialReadyForActivation(MissionState missionState)`
 
-**Purpose:** Handles logic related to `is stealth tutorial ready for activation`.
+**Purpose:** Determines whether the current object is in the `stealth tutorial ready for activation` state or condition.
+
+```csharp
+// Static call; no instance required
+SneakIntoTheVillaMissionController.IsStealthTutorialReadyForActivation(missionState);
+```
 
 ### IsStealthTutorialReadyForCompletion
 `public static bool IsStealthTutorialReadyForCompletion(MissionState missionState)`
 
-**Purpose:** Handles logic related to `is stealth tutorial ready for completion`.
+**Purpose:** Determines whether the current object is in the `stealth tutorial ready for completion` state or condition.
+
+```csharp
+// Static call; no instance required
+SneakIntoTheVillaMissionController.IsStealthTutorialReadyForCompletion(missionState);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+sneakIntoTheVillaMissionController.OnRemoveBehavior();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+sneakIntoTheVillaMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnAfterTalkingToPrisoner
 `public void OnAfterTalkingToPrisoner()`
 
-**Purpose:** Called when the `after talking to prisoner` event is raised.
+**Purpose:** Invoked when the `after talking to prisoner` event is raised.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+sneakIntoTheVillaMissionController.OnAfterTalkingToPrisoner();
+```
 
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** Called when the `object used` event is raised.
+**Purpose:** Invoked when the `object used` event is raised.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+sneakIntoTheVillaMissionController.OnObjectUsed(userAgent, usedObject);
+```
 
 ### IsTargetAgentDistracted
 `public bool IsTargetAgentDistracted()`
 
-**Purpose:** Handles logic related to `is target agent distracted`.
+**Purpose:** Determines whether the current object is in the `target agent distracted` state or condition.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+var result = sneakIntoTheVillaMissionController.IsTargetAgentDistracted();
+```
 
 ### IsTargetAgentKilled
 `public bool IsTargetAgentKilled()`
 
-**Purpose:** Handles logic related to `is target agent killed`.
+**Purpose:** Determines whether the current object is in the `target agent killed` state or condition.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+var result = sneakIntoTheVillaMissionController.IsTargetAgentKilled();
+```
 
 ### IsMainAgentDraggingTargetBody
 `public bool IsMainAgentDraggingTargetBody()`
 
-**Purpose:** Handles logic related to `is main agent dragging target body`.
+**Purpose:** Determines whether the current object is in the `main agent dragging target body` state or condition.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+var result = sneakIntoTheVillaMissionController.IsMainAgentDraggingTargetBody();
+```
 
 ### OnMeleeHit
 `public override void OnMeleeHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
 
-**Purpose:** Called when the `melee hit` event is raised.
+**Purpose:** Invoked when the `melee hit` event is raised.
+
+```csharp
+// Obtain an instance of SneakIntoTheVillaMissionController from the subsystem API first
+SneakIntoTheVillaMissionController sneakIntoTheVillaMissionController = ...;
+sneakIntoTheVillaMissionController.OnMeleeHit(attacker, victim, false, collisionData);
+```
 
 ## Usage Example
 
@@ -107,4 +177,4 @@ var controller = Mission.Current.GetMissionBehavior<SneakIntoTheVillaMissionCont
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PinnedArrayData"
+description: "PinnedArrayData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PinnedArrayData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PinnedArrayData
 
 **Namespace:** TaleWorlds.Library
@@ -39,19 +33,31 @@ title: "PinnedArrayData"
 ### CheckIfTypeRequiresManualPinning
 `public static bool CheckIfTypeRequiresManualPinning(Type type)`
 
-**用途 / Purpose:** 处理 `check if type requires manual pinning` 相关逻辑。
+**用途 / Purpose:** 检查「if type requires manual pinning」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+PinnedArrayData.CheckIfTypeRequiresManualPinning(type);
+```
 
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 处理 `dispose` 相关逻辑。
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 PinnedArrayData 实例
+PinnedArrayData pinnedArrayData = ...;
+pinnedArrayData.Dispose();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PinnedArrayData();
+// 该数据对象通常由战役/任务 API 返回
+PinnedArrayData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

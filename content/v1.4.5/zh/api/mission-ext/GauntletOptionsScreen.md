@@ -1,20 +1,14 @@
 ---
 title: "GauntletOptionsScreen"
+description: "GauntletOptionsScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletOptionsScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletOptionsScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletOptionsScreen : ScreenBase`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletOptionsScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletOptionsScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GauntletOptionsScreen"
 ## 使用示例
 
 ```csharp
-var value = new GauntletOptionsScreen();
+// 从对应子系统 API 获取实例
+GauntletOptionsScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

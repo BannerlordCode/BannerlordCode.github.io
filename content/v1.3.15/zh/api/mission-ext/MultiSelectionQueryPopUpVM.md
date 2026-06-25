@@ -1,13 +1,7 @@
 ---
 title: "MultiSelectionQueryPopUpVM"
+description: "MultiSelectionQueryPopUpVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiSelectionQueryPopUpVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiSelectionQueryPopUpVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
@@ -40,30 +34,55 @@ title: "MultiSelectionQueryPopUpVM"
 ### SetData
 `public void SetData(MultiSelectionInquiryData data)`
 
-**用途 / Purpose:** 设置 `data` 的值或状态。
+**用途 / Purpose:** 为 「data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiSelectionQueryPopUpVM 实例
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.SetData(data);
+```
 
 ### ExecuteAffirmativeAction
 `public override void ExecuteAffirmativeAction()`
 
-**用途 / Purpose:** 执行 `affirmative action` 操作或流程。
+**用途 / Purpose:** 执行 「affirmative action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiSelectionQueryPopUpVM 实例
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.ExecuteAffirmativeAction();
+```
 
 ### ExecuteNegativeAction
 `public override void ExecuteNegativeAction()`
 
-**用途 / Purpose:** 执行 `negative action` 操作或流程。
+**用途 / Purpose:** 执行 「negative action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiSelectionQueryPopUpVM 实例
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.ExecuteNegativeAction();
+```
 
 ### OnClearData
 `public override void OnClearData()`
 
-**用途 / Purpose:** 当 `clear data` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear data」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiSelectionQueryPopUpVM 实例
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.OnClearData();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiSelectionQueryPopUpVM();
-value.SetData(data);
+// 通常从对应子系统 API 获取实例后调用
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.SetData(data);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

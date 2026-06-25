@@ -1,20 +1,14 @@
 ---
 title: "BladeData"
+description: "BladeData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BladeData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BladeData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class BladeData : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BladeData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BladeData.cs`
 
 ## 概述
 
@@ -46,14 +40,21 @@ title: "BladeData"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode childNode)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 BladeData 实例
+BladeData bladeData = ...;
+bladeData.Deserialize(objectManager, childNode);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BladeData();
+// 该数据对象通常由战役/任务 API 返回
+BladeData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

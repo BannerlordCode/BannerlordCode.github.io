@@ -1,19 +1,13 @@
 ---
 title: "IntersectionType"
+description: "Auto-generated class reference for IntersectionType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntersectionType`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IntersectionType
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
+**Type:** `public enum IntersectionType : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.Engine/IntersectionType.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new IntersectionType();
+// Obtain an instance from the relevant subsystem API
+IntersectionType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

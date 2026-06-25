@@ -1,20 +1,14 @@
 ---
 title: "GOGAccessObject"
+description: "GOGAccessObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GOGAccessObject`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GOGAccessObject
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class GOGAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/GOGAccessObject.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/GOGAccessObject.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "GOGAccessObject"
 ## 使用示例
 
 ```csharp
-var example = new GOGAccessObject();
+// 从对应子系统 API 获取实例
+GOGAccessObject instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

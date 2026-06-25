@@ -1,20 +1,14 @@
 ---
 title: "MenuBaseView"
+description: "Auto-generated class reference for MenuBaseView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuBaseView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuBaseView
 
 **Namespace:** SandBox.View.Menu
 **Module:** SandBox.View
 **Type:** `public class MenuBaseView : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Menu/MenuBaseView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Menu/MenuBaseView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MenuBaseView` as a View-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var view = new MenuBaseView();
+// Retrieve this view from the subsystem API or scene
+MenuBaseView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

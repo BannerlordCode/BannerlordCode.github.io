@@ -1,13 +1,7 @@
 ---
 title: "DefaultMobilePartyFoodConsumptionModel"
+description: "Auto-generated class reference for DefaultMobilePartyFoodConsumptionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMobilePartyFoodConsumptionModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultMobilePartyFoodConsumptionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,17 +29,35 @@ Treat `DefaultMobilePartyFoodConsumptionModel` as a Model-style extension point:
 ### CalculateDailyBaseFoodConsumptionf
 `public override ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)`
 
-**Purpose:** Handles logic related to `calculate daily base food consumptionf`.
+**Purpose:** Calculates the current value or result of `daily base food consumptionf`.
+
+```csharp
+// Obtain an instance of DefaultMobilePartyFoodConsumptionModel from the subsystem API first
+DefaultMobilePartyFoodConsumptionModel defaultMobilePartyFoodConsumptionModel = ...;
+var result = defaultMobilePartyFoodConsumptionModel.CalculateDailyBaseFoodConsumptionf(party, false);
+```
 
 ### CalculateDailyFoodConsumptionf
 `public override ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)`
 
-**Purpose:** Handles logic related to `calculate daily food consumptionf`.
+**Purpose:** Calculates the current value or result of `daily food consumptionf`.
+
+```csharp
+// Obtain an instance of DefaultMobilePartyFoodConsumptionModel from the subsystem API first
+DefaultMobilePartyFoodConsumptionModel defaultMobilePartyFoodConsumptionModel = ...;
+var result = defaultMobilePartyFoodConsumptionModel.CalculateDailyFoodConsumptionf(party, baseConsumption);
+```
 
 ### DoesPartyConsumeFood
 `public override bool DoesPartyConsumeFood(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `does party consume food`.
+**Purpose:** Returns a boolean answer to whether `party consume food` is true for the current object.
+
+```csharp
+// Obtain an instance of DefaultMobilePartyFoodConsumptionModel from the subsystem API first
+DefaultMobilePartyFoodConsumptionModel defaultMobilePartyFoodConsumptionModel = ...;
+var result = defaultMobilePartyFoodConsumptionModel.DoesPartyConsumeFood(mobileParty);
+```
 
 ## Usage Example
 
@@ -55,4 +67,4 @@ Game.Current.ReplaceModel<DefaultMobilePartyFoodConsumptionModel>(new MyDefaultM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

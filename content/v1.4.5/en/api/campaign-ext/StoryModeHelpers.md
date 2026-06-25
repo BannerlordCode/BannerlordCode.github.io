@@ -1,23 +1,18 @@
 ---
 title: "StoryModeHelpers"
+description: "Auto-generated class reference for StoryModeHelpers."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeHelpers`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeHelpers
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public static class StoryModeHelpers`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.StoryMode/StoryMode/StoryMode/StoryModeHelpers.cs`
 
 ## Overview
 
-`StoryModeHelpers` lives in `StoryMode`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StoryModeHelpers` lives in `StoryMode` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### SetPlayerSiblingsSkillsIfNeeded
 `public static void SetPlayerSiblingsSkillsIfNeeded(Hero hero)`
 
-**Purpose:** Sets the value or state of `player siblings skills if needed`.
+**Purpose:** Assigns a new value to `player siblings skills if needed` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+StoryModeHelpers.SetPlayerSiblingsSkillsIfNeeded(hero);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 StoryModeHelpers.SetPlayerSiblingsSkillsIfNeeded(hero);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

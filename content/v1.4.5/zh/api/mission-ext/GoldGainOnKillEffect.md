@@ -1,20 +1,14 @@
 ---
 title: "GoldGainOnKillEffect"
+description: "GoldGainOnKillEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GoldGainOnKillEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GoldGainOnKillEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GoldGainOnKillEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldGainOnKillEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldGainOnKillEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "GoldGainOnKillEffect"
 ### GetGoldOnKill
 `public override int GetGoldOnKill(float attackerValue, float victimValue)`
 
-**用途 / Purpose:** 获取 `gold on kill` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold on kill」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GoldGainOnKillEffect 实例
+GoldGainOnKillEffect goldGainOnKillEffect = ...;
+var result = goldGainOnKillEffect.GetGoldOnKill(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GoldGainOnKillEffect();
-value.GetGoldOnKill(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+GoldGainOnKillEffect goldGainOnKillEffect = ...;
+goldGainOnKillEffect.GetGoldOnKill(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

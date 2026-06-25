@@ -1,20 +1,14 @@
 ---
 title: "SettlementOverlayTalkPermissionEvent"
+description: "Auto-generated class reference for SettlementOverlayTalkPermissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementOverlayTalkPermissionEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementOverlayTalkPermissionEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SettlementOverlayTalkPermissionEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events/SettlementOverlayTalkPermissionEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events/SettlementOverlayTalkPermissionEvent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Eve
 ## Usage Example
 
 ```csharp
-var example = new SettlementOverlayTalkPermissionEvent();
+// Obtain an instance from the relevant subsystem API
+SettlementOverlayTalkPermissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SelectedStateBrushWidget"
+description: "Auto-generated class reference for SelectedStateBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectedStateBrushWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectedStateBrushWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class SelectedStateBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/SelectedStateBrushWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/SelectedStateBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `SelectedStateBrushWidget` as a Widget-style extension point: first identi
 ### SelectedStateBrushWidget
 `public class SelectedStateBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `selected state brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SelectedStateBrushWidget from the subsystem API first
+SelectedStateBrushWidget selectedStateBrushWidget = ...;
+var result = selectedStateBrushWidget.SelectedStateBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new SelectedStateBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SelectedStateBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

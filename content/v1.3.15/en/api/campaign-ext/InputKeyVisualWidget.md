@@ -1,13 +1,7 @@
 ---
 title: "InputKeyVisualWidget"
+description: "Auto-generated class reference for InputKeyVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputKeyVisualWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InputKeyVisualWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -34,9 +28,10 @@ Treat `InputKeyVisualWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new InputKeyVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InputKeyVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

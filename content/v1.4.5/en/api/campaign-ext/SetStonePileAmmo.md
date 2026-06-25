@@ -1,20 +1,14 @@
 ---
 title: "SetStonePileAmmo"
+description: "Auto-generated class reference for SetStonePileAmmo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SetStonePileAmmo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetStonePileAmmo
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetStonePileAmmo : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetStonePileAmmo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetStonePileAmmo.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SetStonePileAmmo();
+// Obtain an instance from the relevant subsystem API
+SetStonePileAmmo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "Chair"
+description: "Auto-generated class reference for Chair."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Chair`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Chair
 
 **Namespace:** SandBox.Objects.Usables
 **Module:** SandBox.Objects
 **Type:** `public class Chair : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Usables/Chair.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.Usables/Chair.cs`
 
 ## Overview
 
@@ -29,40 +23,77 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### IsAgentFullySitting
 `public bool IsAgentFullySitting(Agent usingAgent)`
 
-**Purpose:** Handles logic related to `is agent fully sitting`.
+**Purpose:** Determines whether the current object is in the `agent fully sitting` state or condition.
+
+```csharp
+// Obtain an instance of Chair from the subsystem API first
+Chair chair = ...;
+var result = chair.IsAgentFullySitting(usingAgent);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Chair from the subsystem API first
+Chair chair = ...;
+var result = chair.CreateAIBehaviorObject();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of Chair from the subsystem API first
+Chair chair = ...;
+var result = chair.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of Chair from the subsystem API first
+Chair chair = ...;
+var result = chair.GetDescriptionText(gameEntity);
+```
 
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**Purpose:** Gets the current value of `best point alternative to`.
+**Purpose:** Reads and returns the `best point alternative to` value held by the current object.
+
+```csharp
+// Obtain an instance of Chair from the subsystem API first
+Chair chair = ...;
+var result = chair.GetBestPointAlternativeTo(standingPoint, agent);
+```
 
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `order`.
+**Purpose:** Reads and returns the `order` value held by the current object.
+
+```csharp
+// Obtain an instance of Chair from the subsystem API first
+Chair chair = ...;
+var result = chair.GetOrder(side);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Chair();
-value.IsAgentFullySitting(usingAgent);
+// Typically call this after obtaining an instance from the subsystem API
+Chair chair = ...;
+chair.IsAgentFullySitting(usingAgent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

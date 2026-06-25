@@ -1,20 +1,14 @@
 ---
 title: "TeamAISallyOutDefender"
+description: "TeamAISallyOutDefender 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamAISallyOutDefender`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamAISallyOutDefender
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamAISallyOutDefender : TeamAISiegeComponent`
 **Base:** `TeamAISiegeComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAISallyOutDefender.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAISallyOutDefender.cs`
 
 ## 概述
 
@@ -35,25 +29,44 @@ title: "TeamAISallyOutDefender"
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**用途 / Purpose:** 当 `unit added to formation for the first time` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unit added to formation for the first time」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAISallyOutDefender 实例
+TeamAISallyOutDefender teamAISallyOutDefender = ...;
+teamAISallyOutDefender.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ### CalculateSallyOutReferencePosition
 `public Vec3 CalculateSallyOutReferencePosition(FormationAI.BehaviorSide side)`
 
-**用途 / Purpose:** 处理 `calculate sally out reference position` 相关逻辑。
+**用途 / Purpose:** 计算「sally out reference position」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAISallyOutDefender 实例
+TeamAISallyOutDefender teamAISallyOutDefender = ...;
+var result = teamAISallyOutDefender.CalculateSallyOutReferencePosition(side);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAISallyOutDefender 实例
+TeamAISallyOutDefender teamAISallyOutDefender = ...;
+teamAISallyOutDefender.OnDeploymentFinished();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamAISallyOutDefender();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// 通常从对应子系统 API 获取实例后调用
+TeamAISallyOutDefender teamAISallyOutDefender = ...;
+teamAISallyOutDefender.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

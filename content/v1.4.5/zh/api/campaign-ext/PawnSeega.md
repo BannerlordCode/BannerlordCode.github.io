@@ -1,20 +1,14 @@
 ---
 title: "PawnSeega"
+description: "PawnSeega 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PawnSeega`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnSeega
 
 **Namespace:** SandBox.BoardGames.Pawns
 **Module:** SandBox.BoardGames
 **Type:** `public class PawnSeega : PawnBase`
 **Base:** `PawnBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Pawns/PawnSeega.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Pawns/PawnSeega.cs`
 
 ## 概述
 
@@ -38,25 +32,44 @@ title: "PawnSeega"
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnSeega 实例
+PawnSeega pawnSeega = ...;
+pawnSeega.Reset();
+```
 
 ### UpdateMoveBackAvailable
 `public void UpdateMoveBackAvailable()`
 
-**用途 / Purpose:** 更新 `move back available` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「move back available」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PawnSeega 实例
+PawnSeega pawnSeega = ...;
+pawnSeega.UpdateMoveBackAvailable();
+```
 
 ### AISetMovedThisTurn
 `public void AISetMovedThisTurn(bool moved)`
 
-**用途 / Purpose:** 处理 `a i set moved this turn` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PawnSeega 实例
+PawnSeega pawnSeega = ...;
+pawnSeega.AISetMovedThisTurn(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PawnSeega();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+PawnSeega pawnSeega = ...;
+pawnSeega.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

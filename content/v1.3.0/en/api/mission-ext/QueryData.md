@@ -1,13 +1,7 @@
 ---
 title: "QueryData"
+description: "Auto-generated class reference for QueryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QueryData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QueryData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,49 +29,97 @@ Treat `QueryData` as a Data-style extension point: first identify who creates it
 ### Evaluate
 `public void Evaluate(float currentTime)`
 
-**Purpose:** Handles logic related to `evaluate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of QueryData from the subsystem API first
+QueryData queryData = ...;
+queryData.Evaluate(0);
+```
 
 ### SetValue
 `public void SetValue(T value, float currentTime)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of QueryData from the subsystem API first
+QueryData queryData = ...;
+queryData.SetValue(value, 0);
+```
 
 ### GetCachedValue
 `public T GetCachedValue()`
 
-**Purpose:** Gets the current value of `cached value`.
+**Purpose:** Reads and returns the `cached value` value held by the current object.
+
+```csharp
+// Obtain an instance of QueryData from the subsystem API first
+QueryData queryData = ...;
+var result = queryData.GetCachedValue();
+```
 
 ### GetCachedValueUnlessTooOld
 `public T GetCachedValueUnlessTooOld()`
 
-**Purpose:** Gets the current value of `cached value unless too old`.
+**Purpose:** Reads and returns the `cached value unless too old` value held by the current object.
+
+```csharp
+// Obtain an instance of QueryData from the subsystem API first
+QueryData queryData = ...;
+var result = queryData.GetCachedValueUnlessTooOld();
+```
 
 ### GetCachedValueWithMaxAge
 `public T GetCachedValueWithMaxAge(float age)`
 
-**Purpose:** Gets the current value of `cached value with max age`.
+**Purpose:** Reads and returns the `cached value with max age` value held by the current object.
+
+```csharp
+// Obtain an instance of QueryData from the subsystem API first
+QueryData queryData = ...;
+var result = queryData.GetCachedValueWithMaxAge(0);
+```
 
 ### Expire
 `public void Expire()`
 
-**Purpose:** Handles logic related to `expire`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of QueryData from the subsystem API first
+QueryData queryData = ...;
+queryData.Expire();
+```
 
 ### SetupSyncGroup
 `public static void SetupSyncGroup(params IQueryData groupItems)`
 
-**Purpose:** Sets the value or state of `up sync group`.
+**Purpose:** Assigns a new value to `up sync group` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+QueryData.SetupSyncGroup(groupItems);
+```
 
 ### SetSyncGroup
 `public void SetSyncGroup(IQueryData syncGroup)`
 
-**Purpose:** Sets the value or state of `sync group`.
+**Purpose:** Assigns a new value to `sync group` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of QueryData from the subsystem API first
+QueryData queryData = ...;
+queryData.SetSyncGroup(syncGroup);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QueryData();
+// This data object is usually returned by campaign/mission APIs
+QueryData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

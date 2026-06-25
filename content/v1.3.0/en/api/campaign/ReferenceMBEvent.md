@@ -1,20 +1,14 @@
 ---
 title: "ReferenceMBEvent"
+description: "Auto-generated class reference for ReferenceMBEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReferenceMBEvent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReferenceMBEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class ReferenceMBEvent<T1> : ReferenceIMBEvent<T1>, IMbEventBase`
-**Base:** `ReferenceIMBEvent<T1>`
-**File:** `TaleWorlds.CampaignSystem/ReferenceMBEvent.cs`
+**Type:** `public class ReferenceMBEvent<T1, T2> : ReferenceIMBEvent<T1, T2>, IMbEventBase`
+**Base:** `ReferenceIMBEvent<T1`
+**File:** `TaleWorlds.CampaignSystem/ReferenceMBEvent.2.cs`
 
 ## Overview
 
@@ -27,27 +21,46 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Key Methods
 
 ### AddNonSerializedListener
-`public void AddNonSerializedListener(object owner, ReferenceAction<T1> action)`
+`public void AddNonSerializedListener(object owner, ReferenceAction<T1, T2> action)`
 
 **Purpose:** Adds `non serialized listener` to the current collection or state.
 
-### Invoke
-`public void Invoke(ref T1 t1)`
+```csharp
+// Obtain an instance of ReferenceMBEvent from the subsystem API first
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.AddNonSerializedListener(owner, referenceAction<T1, action);
+```
 
-**Purpose:** Handles logic related to `invoke`.
+### Invoke
+`public void Invoke(T1 t1, ref T2 t2)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ReferenceMBEvent from the subsystem API first
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.Invoke(t1, t2);
+```
 
 ### ClearListeners
 `public void ClearListeners(object o)`
 
-**Purpose:** Handles logic related to `clear listeners`.
+**Purpose:** Removes all `listeners` from the current object.
+
+```csharp
+// Obtain an instance of ReferenceMBEvent from the subsystem API first
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.ClearListeners(o);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ReferenceMBEvent();
-value.AddNonSerializedListener(owner, action);
+// Typically call this after obtaining an instance from the subsystem API
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.AddNonSerializedListener(owner, referenceAction<T1, action);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

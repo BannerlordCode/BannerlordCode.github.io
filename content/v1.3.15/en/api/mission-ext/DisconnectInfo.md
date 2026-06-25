@@ -1,13 +1,7 @@
 ---
 title: "DisconnectInfo"
+description: "Auto-generated class reference for DisconnectInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisconnectInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DisconnectInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new DisconnectInfo();
+// Obtain an instance from the relevant subsystem API
+DisconnectInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

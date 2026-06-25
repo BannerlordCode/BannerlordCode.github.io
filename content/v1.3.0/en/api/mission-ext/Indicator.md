@@ -1,23 +1,18 @@
 ---
 title: "Indicator"
+description: "Auto-generated class reference for Indicator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Indicator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Indicator
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Indicator`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/MissionViews/Singleplayer/FormationIndicatorMissionView.cs`
 
 ## Overview
 
-`Indicator` lives in `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Indicator` lives in `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -25,30 +20,25 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer` t
 
 ## Key Methods
 
-### AfterStart
-`public override void AfterStart()`
-
-**Purpose:** Handles logic related to `after start`.
-
-### OnMissionScreenTick
-`public override void OnMissionScreenTick(float dt)`
-
-**Purpose:** Called when the `mission screen tick` event is raised.
-
 ### DetermineIndicatorState
 `public void DetermineIndicatorState(float dt, Vec3 position)`
 
-**Purpose:** Handles logic related to `determine indicator state`.
+**Purpose:** Determines the result of `indicator state` based on the current state.
+
+```csharp
+// Obtain an instance of Indicator from the subsystem API first
+Indicator indicator = ...;
+indicator.DetermineIndicatorState(0, position);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a Indicator instance from game state, then call one of its public methods
-var value = new Indicator();
-value.AfterStart();
+// Typically call this after obtaining an instance from the subsystem API
+Indicator indicator = ...;
+indicator.DetermineIndicatorState(0, position);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

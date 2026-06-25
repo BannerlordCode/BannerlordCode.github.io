@@ -1,13 +1,7 @@
 ---
 title: "ConversationMissionLogic"
+description: "Auto-generated class reference for ConversationMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationMissionLogic
 
 **Namespace:** SandBox.Conversation.MissionLogics
@@ -36,24 +30,42 @@ Treat `ConversationMissionLogic` as a Logic-style extension point: first identif
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ConversationMissionLogic from the subsystem API first
+ConversationMissionLogic conversationMissionLogic = ...;
+conversationMissionLogic.AfterStart();
+```
 
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** Called when the `rendering started` event is raised.
+**Purpose:** Invoked when the `rendering started` event is raised.
+
+```csharp
+// Obtain an instance of ConversationMissionLogic from the subsystem API first
+ConversationMissionLogic conversationMissionLogic = ...;
+conversationMissionLogic.OnRenderingStarted();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of ConversationMissionLogic from the subsystem API first
+ConversationMissionLogic conversationMissionLogic = ...;
+conversationMissionLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ConversationMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<ConversationMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

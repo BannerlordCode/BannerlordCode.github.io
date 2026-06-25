@@ -1,13 +1,7 @@
 ---
 title: "ThirdPhase"
+description: "ThirdPhase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ThirdPhase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThirdPhase
 
 **Namespace:** StoryMode.StoryModePhases
@@ -37,30 +31,55 @@ title: "ThirdPhase"
 ### AddAllyKingdom
 `public void AddAllyKingdom(Kingdom kingdom)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `ally kingdom`。
+**用途 / Purpose:** 将 「ally kingdom」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ThirdPhase 实例
+ThirdPhase thirdPhase = ...;
+thirdPhase.AddAllyKingdom(kingdom);
+```
 
 ### AddOppositionKingdom
 `public void AddOppositionKingdom(Kingdom kingdom)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `opposition kingdom`。
+**用途 / Purpose:** 将 「opposition kingdom」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ThirdPhase 实例
+ThirdPhase thirdPhase = ...;
+thirdPhase.AddOppositionKingdom(kingdom);
+```
 
 ### RemoveOppositionKingdom
 `public void RemoveOppositionKingdom(Kingdom kingdom)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `opposition kingdom`。
+**用途 / Purpose:** 从当前容器或状态中移除 「opposition kingdom」。
+
+```csharp
+// 先通过子系统 API 拿到 ThirdPhase 实例
+ThirdPhase thirdPhase = ...;
+thirdPhase.RemoveOppositionKingdom(kingdom);
+```
 
 ### CompleteThirdPhase
 `public void CompleteThirdPhase(QuestBase.QuestCompleteDetails defeatTheConspiracyQuestCompleteDetail)`
 
-**用途 / Purpose:** 处理 `complete third phase` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ThirdPhase 实例
+ThirdPhase thirdPhase = ...;
+thirdPhase.CompleteThirdPhase(defeatTheConspiracyQuestCompleteDetail);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ThirdPhase();
-value.AddAllyKingdom(kingdom);
+// 通常从对应子系统 API 获取实例后调用
+ThirdPhase thirdPhase = ...;
+thirdPhase.AddAllyKingdom(kingdom);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

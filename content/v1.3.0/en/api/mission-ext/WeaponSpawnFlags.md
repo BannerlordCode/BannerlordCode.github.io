@@ -1,13 +1,7 @@
 ---
 title: "WeaponSpawnFlags"
+description: "Auto-generated class reference for WeaponSpawnFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponSpawnFlags`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponSpawnFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-WeaponSpawnFlags example = WeaponSpawnFlags.Value;
+// Obtain an instance from the relevant subsystem API
+WeaponSpawnFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

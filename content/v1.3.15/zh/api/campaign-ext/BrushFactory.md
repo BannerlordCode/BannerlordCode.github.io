@@ -1,13 +1,7 @@
 ---
 title: "BrushFactory"
+description: "BrushFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushFactory`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BrushFactory
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -36,35 +30,66 @@ title: "BrushFactory"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BrushFactory 实例
+BrushFactory brushFactory = ...;
+brushFactory.Initialize();
+```
 
 ### LoadBrushFile
 `public void LoadBrushFile(string name)`
 
-**用途 / Purpose:** 加载 `brush file` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「brush file」。
+
+```csharp
+// 先通过子系统 API 拿到 BrushFactory 实例
+BrushFactory brushFactory = ...;
+brushFactory.LoadBrushFile("example");
+```
 
 ### GetBrush
 `public Brush GetBrush(string name)`
 
-**用途 / Purpose:** 获取 `brush` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「brush」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushFactory 实例
+BrushFactory brushFactory = ...;
+var result = brushFactory.GetBrush("example");
+```
 
 ### SaveBrushAs
 `public bool SaveBrushAs(string name, Brush brush)`
 
-**用途 / Purpose:** 保存 `brush as` 数据。
+**用途 / Purpose:** 将 「brush as」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 BrushFactory 实例
+BrushFactory brushFactory = ...;
+var result = brushFactory.SaveBrushAs("example", brush);
+```
 
 ### CheckForUpdates
 `public void CheckForUpdates()`
 
-**用途 / Purpose:** 处理 `check for updates` 相关逻辑。
+**用途 / Purpose:** 检查「for updates」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 BrushFactory 实例
+BrushFactory brushFactory = ...;
+brushFactory.CheckForUpdates();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrushFactory();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+BrushFactory brushFactory = ...;
+brushFactory.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

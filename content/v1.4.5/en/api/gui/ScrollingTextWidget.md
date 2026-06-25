@@ -1,20 +1,14 @@
 ---
 title: "ScrollingTextWidget"
+description: "Auto-generated class reference for ScrollingTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScrollingTextWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScrollingTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ScrollingTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/ScrollingTextWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/ScrollingTextWidget.cs`
 
 ## Overview
 
@@ -40,14 +34,21 @@ Treat `ScrollingTextWidget` as a Widget-style extension point: first identify wh
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**Purpose:** Called when the `brush changed` event is raised.
+**Purpose:** Invoked when the `brush changed` event is raised.
+
+```csharp
+// Obtain an instance of ScrollingTextWidget from the subsystem API first
+ScrollingTextWidget scrollingTextWidget = ...;
+scrollingTextWidget.OnBrushChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ScrollingTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScrollingTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "OnlineImageTextureProvider"
+description: "Auto-generated class reference for OnlineImageTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OnlineImageTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OnlineImageTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OnlineImageTextureProvider : TextureProvider`
 **Base:** `TextureProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/OnlineImageTextureProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/OnlineImageTextureProvider.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders` to p
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of OnlineImageTextureProvider from the subsystem API first
+OnlineImageTextureProvider onlineImageTextureProvider = ...;
+onlineImageTextureProvider.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OnlineImageTextureProvider();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+OnlineImageTextureProvider onlineImageTextureProvider = ...;
+onlineImageTextureProvider.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

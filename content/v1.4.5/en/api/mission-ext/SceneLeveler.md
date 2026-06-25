@@ -1,20 +1,14 @@
 ---
 title: "SceneLeveler"
+description: "Auto-generated class reference for SceneLeveler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneLeveler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneLeveler
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Objects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneLeveler : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Objects/SceneLeveler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Objects/SceneLeveler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Source.Objects` to place it in th
 ## Usage Example
 
 ```csharp
-var example = new SceneLeveler();
+// Obtain an instance from the relevant subsystem API
+SceneLeveler instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

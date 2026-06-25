@@ -1,20 +1,14 @@
 ---
 title: "HeroDeathProbabilityCalculationModel"
+description: "Auto-generated class reference for HeroDeathProbabilityCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroDeathProbabilityCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroDeathProbabilityCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class HeroDeathProbabilityCalculationModel : MBGameModel<HeroDeathProbabilityCalculationModel>`
 **Base:** `MBGameModel<HeroDeathProbabilityCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HeroDeathProbabilityCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HeroDeathProbabilityCalculationModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `HeroDeathProbabilityCalculationModel` as a Model-style extension point: f
 ### CalculateHeroDeathProbability
 `public abstract float CalculateHeroDeathProbability(Hero hero)`
 
-**Purpose:** Handles logic related to `calculate hero death probability`.
+**Purpose:** Calculates the current value or result of `hero death probability`.
+
+```csharp
+// Obtain an instance of HeroDeathProbabilityCalculationModel from the subsystem API first
+HeroDeathProbabilityCalculationModel heroDeathProbabilityCalculationModel = ...;
+var result = heroDeathProbabilityCalculationModel.CalculateHeroDeathProbability(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomHeroDeathProbabilityCalculationModel();
+// Typically obtained from a subsystem API or factory
+HeroDeathProbabilityCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

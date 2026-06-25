@@ -1,13 +1,7 @@
 ---
 title: "CircularSchiltronFormation"
+description: "Auto-generated class reference for CircularSchiltronFormation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CircularSchiltronFormation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CircularSchiltronFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of CircularSchiltronFormation from the subsystem API first
+CircularSchiltronFormation circularSchiltronFormation = ...;
+var result = circularSchiltronFormation.Clone(formation);
+```
 
 ### Form
 `public void Form()`
 
-**Purpose:** Handles logic related to `form`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CircularSchiltronFormation from the subsystem API first
+CircularSchiltronFormation circularSchiltronFormation = ...;
+circularSchiltronFormation.Form();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CircularSchiltronFormation();
-value.Clone(formation);
+// Typically call this after obtaining an instance from the subsystem API
+CircularSchiltronFormation circularSchiltronFormation = ...;
+circularSchiltronFormation.Clone(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

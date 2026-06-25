@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPermissionHandler"
+description: "MultiplayerPermissionHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerPermissionHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPermissionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPermissionHandler : UdpNetworkComponent`
 **Base:** `UdpNetworkComponent`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerPermissionHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerPermissionHandler.cs`
 
 ## 概述
 
@@ -29,19 +23,31 @@ title: "MultiplayerPermissionHandler"
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**用途 / Purpose:** 当 `udp network handler close` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「udp network handler close」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPermissionHandler 实例
+MultiplayerPermissionHandler multiplayerPermissionHandler = ...;
+multiplayerPermissionHandler.OnUdpNetworkHandlerClose();
+```
 
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 当 `player disconnected from server` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player disconnected from server」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPermissionHandler 实例
+MultiplayerPermissionHandler multiplayerPermissionHandler = ...;
+multiplayerPermissionHandler.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerPermissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerPermissionHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

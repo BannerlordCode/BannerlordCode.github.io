@@ -1,20 +1,14 @@
 ---
 title: "OrderCircleActionSelectorParentWidget"
+description: "Auto-generated class reference for OrderCircleActionSelectorParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderCircleActionSelectorParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderCircleActionSelectorParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderCircleActionSelectorParentWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderCircleActionSelectorParentWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderCircleActionSelectorParentWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `OrderCircleActionSelectorParentWidget` as a Widget-style extension point:
 ## Usage Example
 
 ```csharp
-var widget = new OrderCircleActionSelectorParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderCircleActionSelectorParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

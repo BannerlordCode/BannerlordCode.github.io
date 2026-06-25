@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListClanComparer"
+description: "EncyclopediaListClanComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListClanComparer`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListClanComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,14 +23,21 @@ title: "EncyclopediaListClanComparer"
 ### CompareClans
 `public int CompareClans(EncyclopediaListItem x, EncyclopediaListItem y, Func<Clan, Clan, int> comparison)`
 
-**用途 / Purpose:** 处理 `compare clans` 相关逻辑。
+**用途 / Purpose:** 比较两个「clans」对象并返回大小/顺序结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListClanComparer 实例
+EncyclopediaListClanComparer encyclopediaListClanComparer = ...;
+var result = encyclopediaListClanComparer.CompareClans(x, y, func<Clan, clan, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEncyclopediaListClanComparer();
+// 通常通过子系统 API 或工厂获得派生实例
+EncyclopediaListClanComparer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

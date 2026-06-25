@@ -1,13 +1,7 @@
 ---
 title: "BlockadePositionScript"
+description: "Auto-generated class reference for BlockadePositionScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BlockadePositionScript`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BlockadePositionScript
 
 **Namespace:** SandBox.View.Map
@@ -29,15 +23,22 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### GetBlockadeArc
 `public List<List<Vec3>> GetBlockadeArc(int totalNumberOfShips, out Vec3 center)`
 
-**Purpose:** Gets the current value of `blockade arc`.
+**Purpose:** Reads and returns the `blockade arc` value held by the current object.
+
+```csharp
+// Obtain an instance of BlockadePositionScript from the subsystem API first
+BlockadePositionScript blockadePositionScript = ...;
+var result = blockadePositionScript.GetBlockadeArc(0, center);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BlockadePositionScript();
-value.GetBlockadeArc(0, center);
+// Typically call this after obtaining an instance from the subsystem API
+BlockadePositionScript blockadePositionScript = ...;
+blockadePositionScript.GetBlockadeArc(0, center);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

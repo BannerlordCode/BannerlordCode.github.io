@@ -1,13 +1,7 @@
 ---
 title: "LocatableSearchData"
+description: "Auto-generated class reference for LocatableSearchData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocatableSearchData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LocatableSearchData
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
@@ -27,9 +21,10 @@ Treat `LocatableSearchData` as a Data-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var value = new LocatableSearchData();
+// This data object is usually returned by campaign/mission APIs
+LocatableSearchData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

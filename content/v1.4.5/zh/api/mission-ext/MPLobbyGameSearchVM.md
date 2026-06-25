@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyGameSearchVM"
+description: "MPLobbyGameSearchVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyGameSearchVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyGameSearchVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyGameSearchVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyGameSearchVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyGameSearchVM.cs`
 
 ## 概述
 
@@ -47,50 +41,99 @@ title: "MPLobbyGameSearchVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.OnTick(0);
+```
 
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**用途 / Purpose:** 设置 `enabled` 的值或状态。
+**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.SetEnabled(false);
+```
 
 ### UpdateData
 `public void UpdateData(MatchmakingWaitTimeStats matchmakingWaitTimeStats, string gameTypeInfo)`
 
-**用途 / Purpose:** 更新 `data` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「data」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.UpdateData(matchmakingWaitTimeStats, "example");
+```
 
 ### UpdatePremadeGameData
 `public void UpdatePremadeGameData()`
 
-**用途 / Purpose:** 更新 `premade game data` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「premade game data」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.UpdatePremadeGameData();
+```
 
 ### OnJoinPremadeGameRequestSuccessful
 `public void OnJoinPremadeGameRequestSuccessful()`
 
-**用途 / Purpose:** 当 `join premade game request successful` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「join premade game request successful」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.OnJoinPremadeGameRequestSuccessful();
+```
 
 ### OnRequestedToCancelSearchBattle
 `public void OnRequestedToCancelSearchBattle()`
 
-**用途 / Purpose:** 当 `requested to cancel search battle` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「requested to cancel search battle」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.OnRequestedToCancelSearchBattle();
+```
 
 ### UpdateCanCancel
 `public void UpdateCanCancel()`
 
-**用途 / Purpose:** 更新 `can cancel` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「can cancel」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.UpdateCanCancel();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyGameSearchVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

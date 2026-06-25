@@ -1,13 +1,7 @@
 ---
 title: "MobilePartyMoraleModel"
+description: "MobilePartyMoraleModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MobilePartyMoraleModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MobilePartyMoraleModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ title: "MobilePartyMoraleModel"
 ### CalculateMoraleChange
 `public abstract float CalculateMoraleChange(MobileParty party)`
 
-**用途 / Purpose:** 处理 `calculate morale change` 相关逻辑。
+**用途 / Purpose:** 计算「morale change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyMoraleModel 实例
+MobilePartyMoraleModel mobilePartyMoraleModel = ...;
+var result = mobilePartyMoraleModel.CalculateMoraleChange(party);
+```
 
 ### GetMoraleTooltipText
 `public abstract TextObject GetMoraleTooltipText(MobileParty party)`
 
-**用途 / Purpose:** 获取 `morale tooltip text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「morale tooltip text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyMoraleModel 实例
+MobilePartyMoraleModel mobilePartyMoraleModel = ...;
+var result = mobilePartyMoraleModel.GetMoraleTooltipText(party);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMobilePartyMoraleModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MobilePartyMoraleModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

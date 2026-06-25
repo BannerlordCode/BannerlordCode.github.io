@@ -1,20 +1,14 @@
 ---
 title: "DefaultsBarterGroup"
+description: "DefaultsBarterGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultsBarterGroup`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultsBarterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultsBarterGroup : BarterGroup`
 **Base:** `BarterGroup`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/DefaultsBarterGroup.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/DefaultsBarterGroup.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "DefaultsBarterGroup"
 ## 使用示例
 
 ```csharp
-var example = new DefaultsBarterGroup();
+// 从对应子系统 API 获取实例
+DefaultsBarterGroup instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

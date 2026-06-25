@@ -1,13 +1,7 @@
 ---
 title: "SocketMessage"
+description: "Auto-generated class reference for SocketMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SocketMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SocketMessage
 
 **Namespace:** TaleWorlds.Diamond.Socket
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.Diamond.Socket` to place it in the stack, then 
 ### SerializeToNetworkMessage
 `public override void SerializeToNetworkMessage(INetworkMessageWriter networkMessage)`
 
-**Purpose:** Handles logic related to `serialize to network message`.
+**Purpose:** Serializes `to network message` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of SocketMessage from the subsystem API first
+SocketMessage socketMessage = ...;
+socketMessage.SerializeToNetworkMessage(networkMessage);
+```
 
 ### DeserializeFromNetworkMessage
 `public override void DeserializeFromNetworkMessage(INetworkMessageReader networkMessage)`
 
-**Purpose:** Handles logic related to `deserialize from network message`.
+**Purpose:** Restores `from network message` from serialized data.
+
+```csharp
+// Obtain an instance of SocketMessage from the subsystem API first
+SocketMessage socketMessage = ...;
+socketMessage.DeserializeFromNetworkMessage(networkMessage);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SocketMessage();
-value.SerializeToNetworkMessage(networkMessage);
+// Typically call this after obtaining an instance from the subsystem API
+SocketMessage socketMessage = ...;
+socketMessage.SerializeToNetworkMessage(networkMessage);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

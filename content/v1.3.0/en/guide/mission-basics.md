@@ -6,7 +6,7 @@ description: v1.3.0 Mission and MissionBehavior introduction
 
 **v1.3.0 Version**
 
-> Note: This page covers v1.3.0 Mission system basics. v1.3.15 has more features and APIs. For complete content, see [v1.3.15 Mission System](../../../v1.3.15/en/guide/mission-system).
+> Note: This page covers v1.3.0 Mission system basics. v1.3.15 has more features and APIs. For complete content, see [v1.3.15 Mission System](../../../v1.3.15/en/guide/mission-system/).
 
 ## Overview
 
@@ -78,11 +78,12 @@ float health = agent.Health;
 
 ## Related Documentation
 
-- [v1.3.15 Mission System](../../../v1.3.15/en/guide/mission-system)
+- [v1.3.15 Mission System](../../../v1.3.15/en/guide/mission-system/)
 - [API Reference](../api/mission/)
 
 ## Usage Example
 
 ```csharp
-var example = new Mission System Basics();
+// Example: access the active mission
+Mission mission = Mission.Current;
 ```

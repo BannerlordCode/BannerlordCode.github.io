@@ -1,20 +1,14 @@
 ---
 title: "DefaultRaidModel"
+description: "Auto-generated class reference for DefaultRaidModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultRaidModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultRaidModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultRaidModel : RaidModel`
 **Base:** `RaidModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultRaidModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultRaidModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DefaultRaidModel` as a Model-style extension point: first identify who cr
 ### CalculateHitDamage
 `public override ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**Purpose:** Handles logic related to `calculate hit damage`.
+**Purpose:** Calculates the current value or result of `hit damage`.
+
+```csharp
+// Obtain an instance of DefaultRaidModel from the subsystem API first
+DefaultRaidModel defaultRaidModel = ...;
+var result = defaultRaidModel.CalculateHitDamage(attackerSide, 0);
+```
 
 ### GetRaidLootMultiplier
 `public override ExplainedNumber GetRaidLootMultiplier(PartyBase receivingParty)`
 
-**Purpose:** Gets the current value of `raid loot multiplier`.
+**Purpose:** Reads and returns the `raid loot multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultRaidModel from the subsystem API first
+DefaultRaidModel defaultRaidModel = ...;
+var result = defaultRaidModel.GetRaidLootMultiplier(receivingParty);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultRaidModel>(new MyDefaultRaidModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

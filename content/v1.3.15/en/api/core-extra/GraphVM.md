@@ -1,13 +1,7 @@
 ---
 title: "GraphVM"
+description: "Auto-generated class reference for GraphVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GraphVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GraphVM
 
 **Namespace:** TaleWorlds.Library.Graph
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.Library.Graph` to place it in the stack, then i
 ### Draw
 `public void Draw( { "line", "points" })`
 
-**Purpose:** Handles logic related to `draw`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GraphVM from the subsystem API first
+GraphVM graphVM = ...;
+graphVM.Draw("line", });
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GraphVM();
-value.Draw("line", });
+// Typically call this after obtaining an instance from the subsystem API
+GraphVM graphVM = ...;
+graphVM.Draw("line", });
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

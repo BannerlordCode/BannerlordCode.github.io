@@ -1,13 +1,7 @@
 ---
 title: "AlliedLordTag"
+description: "Auto-generated class reference for AlliedLordTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlliedLordTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AlliedLordTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of AlliedLordTag from the subsystem API first
+AlliedLordTag alliedLordTag = ...;
+var result = alliedLordTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AlliedLordTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+AlliedLordTag alliedLordTag = ...;
+alliedLordTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

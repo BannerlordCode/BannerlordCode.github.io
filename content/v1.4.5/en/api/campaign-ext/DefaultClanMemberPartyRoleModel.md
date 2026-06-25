@@ -1,20 +1,14 @@
 ---
 title: "DefaultClanMemberPartyRoleModel"
+description: "Auto-generated class reference for DefaultClanMemberPartyRoleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultClanMemberPartyRoleModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultClanMemberPartyRoleModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultClanMemberPartyRoleModel : ClanMemberPartyRoleModel`
 **Base:** `ClanMemberPartyRoleModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanMemberPartyRoleModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanMemberPartyRoleModel.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `DefaultClanMemberPartyRoleModel` as a Model-style extension point: first 
 ### GetAssignablePartyRoles
 `public override IEnumerable<PartyRole> GetAssignablePartyRoles()`
 
-**Purpose:** Gets the current value of `assignable party roles`.
+**Purpose:** Reads and returns the `assignable party roles` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
+DefaultClanMemberPartyRoleModel defaultClanMemberPartyRoleModel = ...;
+var result = defaultClanMemberPartyRoleModel.GetAssignablePartyRoles();
+```
 
 ### GetRelevantSkillForPartyRole
 `public override SkillObject GetRelevantSkillForPartyRole(PartyRole role)`
 
-**Purpose:** Gets the current value of `relevant skill for party role`.
+**Purpose:** Reads and returns the `relevant skill for party role` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
+DefaultClanMemberPartyRoleModel defaultClanMemberPartyRoleModel = ...;
+var result = defaultClanMemberPartyRoleModel.GetRelevantSkillForPartyRole(role);
+```
 
 ### IsHeroAssignableForPartyRole
 `public override bool IsHeroAssignableForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Handles logic related to `is hero assignable for party role`.
+**Purpose:** Determines whether the current object is in the `hero assignable for party role` state or condition.
+
+```csharp
+// Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
+DefaultClanMemberPartyRoleModel defaultClanMemberPartyRoleModel = ...;
+var result = defaultClanMemberPartyRoleModel.IsHeroAssignableForPartyRole(hero, role, party);
+```
 
 ### DoesHeroHaveEnoughSkillForPartyRole
 `public override bool DoesHeroHaveEnoughSkillForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Handles logic related to `does hero have enough skill for party role`.
+**Purpose:** Returns a boolean answer to whether `hero have enough skill for party role` is true for the current object.
+
+```csharp
+// Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
+DefaultClanMemberPartyRoleModel defaultClanMemberPartyRoleModel = ...;
+var result = defaultClanMemberPartyRoleModel.DoesHeroHaveEnoughSkillForPartyRole(hero, role, party);
+```
 
 ### IsHeroAssignableForPartyRoleInParty
 `public override bool IsHeroAssignableForPartyRoleInParty(PartyRole role, Hero hero, MobileParty party)`
 
-**Purpose:** Handles logic related to `is hero assignable for party role in party`.
+**Purpose:** Determines whether the current object is in the `hero assignable for party role in party` state or condition.
+
+```csharp
+// Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
+DefaultClanMemberPartyRoleModel defaultClanMemberPartyRoleModel = ...;
+var result = defaultClanMemberPartyRoleModel.IsHeroAssignableForPartyRoleInParty(role, hero, party);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultClanMemberPartyRoleModel>(new MyDefaultClanMemb
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

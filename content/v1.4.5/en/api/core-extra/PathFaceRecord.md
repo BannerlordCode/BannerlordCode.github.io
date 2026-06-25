@@ -1,20 +1,14 @@
 ---
 title: "PathFaceRecord"
+description: "Auto-generated class reference for PathFaceRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PathFaceRecord`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PathFaceRecord
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PathFaceRecord`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PathFaceRecord.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PathFaceRecord.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PathFaceRecord
 `public struct PathFaceRecord(int index, int groupIndex, int islandIndex)`
 
-**Purpose:** Handles logic related to `path face record`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PathFaceRecord from the subsystem API first
+PathFaceRecord pathFaceRecord = ...;
+var result = pathFaceRecord.PathFaceRecord(0, 0, 0);
+```
 
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of PathFaceRecord from the subsystem API first
+PathFaceRecord pathFaceRecord = ...;
+var result = pathFaceRecord.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PathFaceRecord();
-value.PathFaceRecord(0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PathFaceRecord pathFaceRecord = ...;
+pathFaceRecord.PathFaceRecord(0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

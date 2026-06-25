@@ -1,13 +1,7 @@
 ---
 title: "Blow"
+description: "Blow 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Blow`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Blow
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,25 +29,44 @@ title: "Blow"
 ### IsBlowCrit
 `public bool IsBlowCrit(int maxHitPointsOfVictim)`
 
-**用途 / Purpose:** 处理 `is blow crit` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「blow crit」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Blow 实例
+Blow blow = ...;
+var result = blow.IsBlowCrit(0);
+```
 
 ### IsBlowLow
 `public bool IsBlowLow(int maxHitPointsOfVictim)`
 
-**用途 / Purpose:** 处理 `is blow low` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「blow low」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Blow 实例
+Blow blow = ...;
+var result = blow.IsBlowLow(0);
+```
 
 ### IsHeadShot
 `public bool IsHeadShot()`
 
-**用途 / Purpose:** 处理 `is head shot` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「head shot」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Blow 实例
+Blow blow = ...;
+var result = blow.IsHeadShot();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Blow();
-value.IsBlowCrit(0);
+// 通常从对应子系统 API 获取实例后调用
+Blow blow = ...;
+blow.IsBlowCrit(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaUnitTreeNodeItemBrushWidget"
+description: "Auto-generated class reference for EncyclopediaUnitTreeNodeItemBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaUnitTreeNodeItemBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaUnitTreeNodeItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaUnitTreeNodeItemBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaUnitTreeNodeItemBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaUnitTreeNodeItemBrushWidget.cs`
 
 ## Overview
 
@@ -39,14 +33,21 @@ Treat `EncyclopediaUnitTreeNodeItemBrushWidget` as a Widget-style extension poin
 ### OnListItemAdded
 `public void OnListItemAdded(Widget parentWidget, Widget addedWidget)`
 
-**Purpose:** Called when the `list item added` event is raised.
+**Purpose:** Invoked when the `list item added` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaUnitTreeNodeItemBrushWidget from the subsystem API first
+EncyclopediaUnitTreeNodeItemBrushWidget encyclopediaUnitTreeNodeItemBrushWidget = ...;
+encyclopediaUnitTreeNodeItemBrushWidget.OnListItemAdded(parentWidget, addedWidget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaUnitTreeNodeItemBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaUnitTreeNodeItemBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

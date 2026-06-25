@@ -1,20 +1,14 @@
 ---
-title: "VisualState__TaleWorlds_MountAndBlade_Launcher_Library_CustomWidgets"
+title: "VisualState"
+description: "VisualState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualState`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualState
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum VisualState`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherCircleLoadingAnimWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherCircleLoadingAnimWidget.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "VisualState__TaleWorlds_MountAndBlade_Launcher_Library_CustomWidgets"
 ## 使用示例
 
 ```csharp
-VisualState example = VisualState.Value;
+// 从对应子系统 API 获取实例
+VisualState instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

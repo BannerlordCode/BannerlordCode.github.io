@@ -1,20 +1,14 @@
 ---
 title: "PlatformPlayerJoinedToPlayerSessionMessageResult"
+description: "Auto-generated class reference for PlatformPlayerJoinedToPlayerSessionMessageResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlatformPlayerJoinedToPlayerSessionMessageResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformPlayerJoinedToPlayerSessionMessageResult
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class PlatformPlayerJoinedToPlayerSessionMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/PlatformPlayerJoinedToPlayerSessionMessageResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/PlatformPlayerJoinedToPlayerSessionMessageResult.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromClient.ToLobbyServer` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new PlatformPlayerJoinedToPlayerSessionMessageResult();
+// Obtain an instance from the relevant subsystem API
+PlatformPlayerJoinedToPlayerSessionMessageResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

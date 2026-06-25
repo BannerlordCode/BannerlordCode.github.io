@@ -1,20 +1,14 @@
 ---
 title: "MissionMainAgentEquipmentControllerView"
+description: "Auto-generated class reference for MissionMainAgentEquipmentControllerView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentEquipmentControllerView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentEquipmentControllerView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMainAgentEquipmentControllerView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionMainAgentEquipmentControllerView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionMainAgentEquipmentControllerView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionMainAgentEquipmentControllerView` as a View-style extension point:
 ## Usage Example
 
 ```csharp
-var view = new MissionMainAgentEquipmentControllerView();
+// Retrieve this view from the subsystem API or scene
+MissionMainAgentEquipmentControllerView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

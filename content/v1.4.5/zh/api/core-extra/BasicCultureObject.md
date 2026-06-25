@@ -1,20 +1,14 @@
 ---
 title: "BasicCultureObject"
+description: "BasicCultureObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BasicCultureObject`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicCultureObject
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class BasicCultureObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BasicCultureObject.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BasicCultureObject.cs`
 
 ## 概述
 
@@ -48,20 +42,33 @@ title: "BasicCultureObject"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCultureObject 实例
+BasicCultureObject basicCultureObject = ...;
+var result = basicCultureObject.ToString();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCultureObject 实例
+BasicCultureObject basicCultureObject = ...;
+basicCultureObject.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BasicCultureObject();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+BasicCultureObject basicCultureObject = ...;
+basicCultureObject.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "RequestMaxAllowedPriorityMessage"
+description: "Auto-generated class reference for RequestMaxAllowedPriorityMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RequestMaxAllowedPriorityMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RequestMaxAllowedPriorityMessage
 
 **Namespace:** Messages.FromBattleServer.ToBattleServerManager
 **Module:** Messages.FromBattleServer
 **Type:** `public class RequestMaxAllowedPriorityMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/RequestMaxAllowedPriorityMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/RequestMaxAllowedPriorityMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Messages.FromBattleServer.ToBattleServerManager` to place 
 ## Usage Example
 
 ```csharp
-var example = new RequestMaxAllowedPriorityMessage();
+// Obtain an instance from the relevant subsystem API
+RequestMaxAllowedPriorityMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

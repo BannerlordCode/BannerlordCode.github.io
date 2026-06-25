@@ -1,20 +1,14 @@
 ---
 title: "ICommunityClientHandler"
+description: "Auto-generated class reference for ICommunityClientHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICommunityClientHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICommunityClientHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ICommunityClientHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICommunityClientHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICommunityClientHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ICommunityClientHandler` as a Handler-style extension point: first identi
 ## Usage Example
 
 ```csharp
-ICommunityClientHandler implementation = GetCommunityClientHandlerImplementation();
+// Usually obtained through DI or a factory method
+IICommunityClientHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

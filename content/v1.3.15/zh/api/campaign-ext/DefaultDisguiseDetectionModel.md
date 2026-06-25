@@ -1,13 +1,7 @@
 ---
 title: "DefaultDisguiseDetectionModel"
+description: "DefaultDisguiseDetectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultDisguiseDetectionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultDisguiseDetectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ title: "DefaultDisguiseDetectionModel"
 ### CalculateDisguiseDetectionProbability
 `public override float CalculateDisguiseDetectionProbability(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `calculate disguise detection probability` 相关逻辑。
+**用途 / Purpose:** 计算「disguise detection probability」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultDisguiseDetectionModel 实例
+DefaultDisguiseDetectionModel defaultDisguiseDetectionModel = ...;
+var result = defaultDisguiseDetectionModel.CalculateDisguiseDetectionProbability(settlement);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultDisguiseDetectionModel>(new MyDefaultDisguiseDe
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

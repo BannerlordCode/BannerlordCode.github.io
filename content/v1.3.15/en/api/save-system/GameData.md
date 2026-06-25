@@ -1,19 +1,14 @@
 ---
 title: "GameData"
+description: "Auto-generated class reference for GameData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameData`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameData
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class GameData`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/GameData.cs`
 
 ## Overview
 
@@ -38,40 +33,73 @@ Treat `GameData` as a Data-style extension point: first identify who creates it,
 ### Inspect
 `public void Inspect()`
 
-**Purpose:** Handles logic related to `inspect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameData from the subsystem API first
+GameData gameData = ...;
+gameData.Inspect();
+```
 
 ### CreateFrom
 `public static GameData CreateFrom(byte readBytes)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+GameData.CreateFrom(0);
+```
 
 ### GetData
 `public byte GetData()`
 
-**Purpose:** Gets the current value of `data`.
+**Purpose:** Reads and returns the `data` value held by the current object.
+
+```csharp
+// Obtain an instance of GameData from the subsystem API first
+GameData gameData = ...;
+var result = gameData.GetData();
+```
 
 ### Write
 `public static void Write(BinaryWriter writer, GameData gameData)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Static call; no instance required
+GameData.Write(writer, gameData);
+```
 
 ### Read
 `public static GameData Read(BinaryReader reader)`
 
-**Purpose:** Handles logic related to `read`.
+**Purpose:** Reads the data or state of the current object.
+
+```csharp
+// Static call; no instance required
+GameData.Read(reader);
+```
 
 ### IsEqualTo
 `public bool IsEqualTo(GameData gameData)`
 
-**Purpose:** Handles logic related to `is equal to`.
+**Purpose:** Determines whether the current object is in the `equal to` state or condition.
+
+```csharp
+// Obtain an instance of GameData from the subsystem API first
+GameData gameData = ...;
+var result = gameData.IsEqualTo(gameData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameData();
+// This data object is usually returned by campaign/mission APIs
+GameData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

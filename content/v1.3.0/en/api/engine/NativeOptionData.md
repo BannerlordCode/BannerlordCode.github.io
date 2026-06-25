@@ -1,13 +1,7 @@
 ---
 title: "NativeOptionData"
+description: "Auto-generated class reference for NativeOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
@@ -29,49 +23,98 @@ Treat `NativeOptionData` as a Data-style extension point: first identify who cre
 ### GetDefaultValue
 `public virtual float GetDefaultValue()`
 
-**Purpose:** Gets the current value of `default value`.
+**Purpose:** Reads and returns the `default value` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeOptionData from the subsystem API first
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.GetDefaultValue();
+```
 
 ### Commit
 `public void Commit()`
 
-**Purpose:** Handles logic related to `commit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NativeOptionData from the subsystem API first
+NativeOptionData nativeOptionData = ...;
+nativeOptionData.Commit();
+```
 
 ### GetValue
 `public float GetValue(bool forceRefresh)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeOptionData from the subsystem API first
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.GetValue(false);
+```
 
 ### SetValue
 `public void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NativeOptionData from the subsystem API first
+NativeOptionData nativeOptionData = ...;
+nativeOptionData.SetValue(0);
+```
 
 ### GetOptionType
 `public object GetOptionType()`
 
-**Purpose:** Gets the current value of `option type`.
+**Purpose:** Reads and returns the `option type` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeOptionData from the subsystem API first
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.GetOptionType();
+```
 
 ### IsNative
 `public bool IsNative()`
 
-**Purpose:** Handles logic related to `is native`.
+**Purpose:** Determines whether the current object is in the `native` state or condition.
+
+```csharp
+// Obtain an instance of NativeOptionData from the subsystem API first
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.IsNative();
+```
 
 ### IsAction
 `public bool IsAction()`
 
-**Purpose:** Handles logic related to `is action`.
+**Purpose:** Determines whether the current object is in the `action` state or condition.
+
+```csharp
+// Obtain an instance of NativeOptionData from the subsystem API first
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.IsAction();
+```
 
 ### GetIsDisabledAndReasonID
 `public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
 
-**Purpose:** Gets the current value of `is disabled and reason i d`.
+**Purpose:** Reads and returns the `is disabled and reason i d` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeOptionData from the subsystem API first
+NativeOptionData nativeOptionData = ...;
+var result = nativeOptionData.GetIsDisabledAndReasonID();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomNativeOptionData();
+// Typically obtained from a subsystem API or factory
+NativeOptionData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

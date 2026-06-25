@@ -1,20 +1,14 @@
 ---
 title: "BannerEditorTextureCache"
+description: "BannerEditorTextureCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerEditorTextureCache`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerEditorTextureCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerEditorTextureCache : ThumbnailCache<BannerEditorTextureCreationData>`
 **Base:** `ThumbnailCache<BannerEditorTextureCreationData>`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerEditorTextureCache.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerEditorTextureCache.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "BannerEditorTextureCache"
 ### FlushCache
 `public void FlushCache()`
 
-**用途 / Purpose:** 处理 `flush cache` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorTextureCache 实例
+BannerEditorTextureCache bannerEditorTextureCache = ...;
+bannerEditorTextureCache.FlushCache();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerEditorTextureCache();
-value.FlushCache();
+// 通常从对应子系统 API 获取实例后调用
+BannerEditorTextureCache bannerEditorTextureCache = ...;
+bannerEditorTextureCache.FlushCache();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

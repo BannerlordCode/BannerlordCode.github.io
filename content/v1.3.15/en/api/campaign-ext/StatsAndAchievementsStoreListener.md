@@ -1,13 +1,7 @@
 ---
 title: "StatsAndAchievementsStoreListener"
+description: "Auto-generated class reference for StatsAndAchievementsStoreListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StatsAndAchievementsStoreListener`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StatsAndAchievementsStoreListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnUserStatsAndAchievementsStoreFailure
 `public override void OnUserStatsAndAchievementsStoreFailure(IStatsAndAchievementsStoreListener.FailureReason failureReason)`
 
-**Purpose:** Called when the `user stats and achievements store failure` event is raised.
+**Purpose:** Invoked when the `user stats and achievements store failure` event is raised.
+
+```csharp
+// Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreFailure(failureReason);
+```
 
 ### OnUserStatsAndAchievementsStoreSuccess
 `public override void OnUserStatsAndAchievementsStoreSuccess()`
 
-**Purpose:** Called when the `user stats and achievements store success` event is raised.
+**Purpose:** Invoked when the `user stats and achievements store success` event is raised.
+
+```csharp
+// Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreSuccess();
+```
 
 ### UserStatsAndAchievementsStored
 `public delegate void UserStatsAndAchievementsStored(bool success, IStatsAndAchievementsStoreListener.FailureReason? failureReason)`
 
-**Purpose:** Handles logic related to `user stats and achievements stored`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.UserStatsAndAchievementsStored(false, failureReason);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StatsAndAchievementsStoreListener();
-value.OnUserStatsAndAchievementsStoreFailure(failureReason);
+// Typically call this after obtaining an instance from the subsystem API
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreFailure(failureReason);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

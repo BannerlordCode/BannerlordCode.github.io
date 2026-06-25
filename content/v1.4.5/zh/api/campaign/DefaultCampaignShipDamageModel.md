@@ -1,20 +1,14 @@
 ---
 title: "DefaultCampaignShipDamageModel"
+description: "DefaultCampaignShipDamageModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultCampaignShipDamageModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCampaignShipDamageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultCampaignShipDamageModel : CampaignShipDamageModel`
 **Base:** `CampaignShipDamageModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCampaignShipDamageModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCampaignShipDamageModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultCampaignShipDamageModel"
 ### GetHourlyShipDamage
 `public override int GetHourlyShipDamage(MobileParty owner, Ship ship)`
 
-**用途 / Purpose:** 获取 `hourly ship damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hourly ship damage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCampaignShipDamageModel 实例
+DefaultCampaignShipDamageModel defaultCampaignShipDamageModel = ...;
+var result = defaultCampaignShipDamageModel.GetHourlyShipDamage(owner, ship);
+```
 
 ### GetEstimatedSafeSailDuration
 `public override float GetEstimatedSafeSailDuration(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `estimated safe sail duration` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「estimated safe sail duration」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCampaignShipDamageModel 实例
+DefaultCampaignShipDamageModel defaultCampaignShipDamageModel = ...;
+var result = defaultCampaignShipDamageModel.GetEstimatedSafeSailDuration(mobileParty);
+```
 
 ### GetShipDamage
 `public override float GetShipDamage(Ship ship, Ship rammingShip, float rawDamage)`
 
-**用途 / Purpose:** 获取 `ship damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship damage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCampaignShipDamageModel 实例
+DefaultCampaignShipDamageModel defaultCampaignShipDamageModel = ...;
+var result = defaultCampaignShipDamageModel.GetShipDamage(ship, rammingShip, 0);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultCampaignShipDamageModel>(new MyDefaultCampaignS
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

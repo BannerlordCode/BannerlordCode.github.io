@@ -1,20 +1,14 @@
 ---
 title: "RevenueVillage"
+description: "RevenueVillage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RevenueVillage`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RevenueVillage
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RevenueVillage`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "RevenueVillage"
 ### SetDone
 `public void SetDone()`
 
-**用途 / Purpose:** 设置 `done` 的值或状态。
+**用途 / Purpose:** 为 「done」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueVillage 实例
+RevenueVillage revenueVillage = ...;
+revenueVillage.SetDone();
+```
 
 ### SetAdditionalProgress
 `public void SetAdditionalProgress(float progress)`
 
-**用途 / Purpose:** 设置 `additional progress` 的值或状态。
+**用途 / Purpose:** 为 「additional progress」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueVillage 实例
+RevenueVillage revenueVillage = ...;
+revenueVillage.SetAdditionalProgress(0);
+```
 
 ### GetIsCompleted
 `public bool GetIsCompleted()`
 
-**用途 / Purpose:** 获取 `is completed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is completed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueVillage 实例
+RevenueVillage revenueVillage = ...;
+var result = revenueVillage.GetIsCompleted();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RevenueVillage();
-value.SetDone();
+// 通常从对应子系统 API 获取实例后调用
+RevenueVillage revenueVillage = ...;
+revenueVillage.SetDone();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

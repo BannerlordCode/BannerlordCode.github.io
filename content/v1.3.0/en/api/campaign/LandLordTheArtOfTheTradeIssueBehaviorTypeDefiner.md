@@ -1,13 +1,7 @@
 ---
 title: "LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner"
+description: "Auto-generated class reference for LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

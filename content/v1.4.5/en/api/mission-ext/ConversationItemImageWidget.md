@@ -1,20 +1,14 @@
 ---
 title: "ConversationItemImageWidget"
+description: "Auto-generated class reference for ConversationItemImageWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationItemImageWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationItemImageWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConversationItemImageWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationItemImageWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationItemImageWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `ConversationItemImageWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new ConversationItemImageWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ConversationItemImageWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

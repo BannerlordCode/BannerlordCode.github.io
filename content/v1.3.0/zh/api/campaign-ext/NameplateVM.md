@@ -1,13 +1,7 @@
 ---
 title: "NameplateVM"
+description: "NameplateVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NameplateVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -43,40 +37,77 @@ title: "NameplateVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 NameplateVM 实例
+NameplateVM nameplateVM = ...;
+nameplateVM.OnFinalize();
+```
 
 ### Initialize
 `public virtual void Initialize(GameEntity strategicEntity)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 NameplateVM 实例
+NameplateVM nameplateVM = ...;
+nameplateVM.Initialize(strategicEntity);
+```
 
 ### RefreshDynamicProperties
 `public virtual void RefreshDynamicProperties(bool forceUpdate)`
 
-**用途 / Purpose:** 刷新 `dynamic properties` 的显示或缓存。
+**用途 / Purpose:** 使 「dynamic properties」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 NameplateVM 实例
+NameplateVM nameplateVM = ...;
+nameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshPosition
 `public virtual void RefreshPosition()`
 
-**用途 / Purpose:** 刷新 `position` 的显示或缓存。
+**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 NameplateVM 实例
+NameplateVM nameplateVM = ...;
+nameplateVM.RefreshPosition();
+```
 
 ### RefreshRelationStatus
 `public virtual void RefreshRelationStatus()`
 
-**用途 / Purpose:** 刷新 `relation status` 的显示或缓存。
+**用途 / Purpose:** 使 「relation status」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 NameplateVM 实例
+NameplateVM nameplateVM = ...;
+nameplateVM.RefreshRelationStatus();
+```
 
 ### RefreshTutorialStatus
 `public virtual void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**用途 / Purpose:** 刷新 `tutorial status` 的显示或缓存。
+**用途 / Purpose:** 使 「tutorial status」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 NameplateVM 实例
+NameplateVM nameplateVM = ...;
+nameplateVM.RefreshTutorialStatus("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NameplateVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+NameplateVM nameplateVM = ...;
+nameplateVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

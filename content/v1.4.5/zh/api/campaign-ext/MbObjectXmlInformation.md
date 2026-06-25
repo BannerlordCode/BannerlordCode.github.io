@@ -1,20 +1,14 @@
 ---
 title: "MbObjectXmlInformation"
+description: "MbObjectXmlInformation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MbObjectXmlInformation`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MbObjectXmlInformation
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public struct MbObjectXmlInformation`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MbObjectXmlInformation.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MbObjectXmlInformation.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MbObjectXmlInformation"
 ### MbObjectXmlInformation
 `public struct MbObjectXmlInformation(string id, string name, string moduleName, List<string> gameTypesIncluded)`
 
-**用途 / Purpose:** 处理 `mb object xml information` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MbObjectXmlInformation 实例
+MbObjectXmlInformation mbObjectXmlInformation = ...;
+var result = mbObjectXmlInformation.MbObjectXmlInformation("example", "example", "example", gameTypesIncluded);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MbObjectXmlInformation();
-value.MbObjectXmlInformation("example", "example", "example", gameTypesIncluded);
+// 通常从对应子系统 API 获取实例后调用
+MbObjectXmlInformation mbObjectXmlInformation = ...;
+mbObjectXmlInformation.MbObjectXmlInformation("example", "example", "example", gameTypesIncluded);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

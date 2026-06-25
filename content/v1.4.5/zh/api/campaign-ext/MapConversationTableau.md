@@ -1,20 +1,14 @@
 ---
 title: "MapConversationTableau"
+description: "MapConversationTableau 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapConversationTableau`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationTableau
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapConversationTableau`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationTableau.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationTableau.cs`
 
 ## 概述
 
@@ -35,50 +29,99 @@ title: "MapConversationTableau"
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**用途 / Purpose:** 设置 `enabled` 的值或状态。
+**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationTableau 实例
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetEnabled(false);
+```
 
 ### SetData
 `public void SetData(object data)`
 
-**用途 / Purpose:** 设置 `data` 的值或状态。
+**用途 / Purpose:** 为 「data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationTableau 实例
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetData(data);
+```
 
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** 设置 `target size` 的值或状态。
+**用途 / Purpose:** 为 「target size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationTableau 实例
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetTargetSize(0, 0);
+```
 
 ### OnFinalize
 `public void OnFinalize(bool clearNextFrame)`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationTableau 实例
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnFinalize(false);
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationTableau 实例
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnTick(0);
+```
 
 ### OnConversationPlay
 `public void OnConversationPlay(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**用途 / Purpose:** 当 `conversation play` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「conversation play」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationTableau 实例
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnConversationPlay("example", "example", "example", "example", "example");
+```
 
 ### RemovePreviousAgentsSoundEvent
 `public void RemovePreviousAgentsSoundEvent()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `previous agents sound event`。
+**用途 / Purpose:** 从当前容器或状态中移除 「previous agents sound event」。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationTableau 实例
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.RemovePreviousAgentsSoundEvent();
+```
 
 ### StopConversationSoundEvent
 `public void StopConversationSoundEvent()`
 
-**用途 / Purpose:** 处理 `stop conversation sound event` 相关逻辑。
+**用途 / Purpose:** 停止「conversation sound event」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationTableau 实例
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.StopConversationSoundEvent();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapConversationTableau();
-value.SetEnabled(false);
+// 通常从对应子系统 API 获取实例后调用
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetEnabled(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

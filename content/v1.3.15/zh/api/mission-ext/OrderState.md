@@ -1,18 +1,12 @@
 ---
 title: "OrderState"
+description: "OrderState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderState`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderState
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum OrderState`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/OrderState.cs`
 
@@ -27,9 +21,10 @@ title: "OrderState"
 ## 使用示例
 
 ```csharp
-var value = new OrderState();
+// 从对应子系统 API 获取实例
+OrderState instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

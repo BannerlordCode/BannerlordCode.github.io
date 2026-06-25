@@ -1,18 +1,12 @@
 ---
 title: "IBrushLayerData"
+description: "Auto-generated class reference for IBrushLayerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBrushLayerData`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBrushLayerData
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface IBrushLayerData`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/IBrushLayerData.cs`
 
@@ -27,9 +21,10 @@ Treat `IBrushLayerData` as a Data-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-IBrushLayerData implementation = GetBrushLayerDataImplementation();
+// Usually obtained through DI or a factory method
+IIBrushLayerData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

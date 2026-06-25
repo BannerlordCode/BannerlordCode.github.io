@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerAgentStatCalculateModel"
+description: "Auto-generated class reference for MultiplayerAgentStatCalculateModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAgentStatCalculateModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAgentStatCalculateModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,72 +23,155 @@ Treat `MultiplayerAgentStatCalculateModel` as a Model-style extension point: fir
 ### GetDifficultyModifier
 `public override float GetDifficultyModifier()`
 
-**Purpose:** Gets the current value of `difficulty modifier`.
+**Purpose:** Reads and returns the `difficulty modifier` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetDifficultyModifier();
+```
 
 ### CanAgentRideMount
 `public override bool CanAgentRideMount(Agent agent, Agent targetMount)`
 
-**Purpose:** Checks whether the current object can `agent ride mount`.
+**Purpose:** Checks whether the current object meets the preconditions for `agent ride mount`.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.CanAgentRideMount(agent, targetMount);
+```
 
 ### InitializeAgentStats
 `public override void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
 
-**Purpose:** Initializes the state, resources, or bindings for `agent stats`.
+**Purpose:** Prepares the resources, state, or bindings required by `agent stats`.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+multiplayerAgentStatCalculateModel.InitializeAgentStats(agent, spawnEquipment, agentDrivenProperties, agentBuildData);
+```
 
 ### GetWeaponInaccuracy
 `public override float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
 
-**Purpose:** Gets the current value of `weapon inaccuracy`.
+**Purpose:** Reads and returns the `weapon inaccuracy` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetWeaponInaccuracy(agent, weapon, 0);
+```
 
 ### GetWeaponDamageMultiplier
 `public override float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**Purpose:** Gets the current value of `weapon damage multiplier`.
+**Purpose:** Reads and returns the `weapon damage multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetWeaponDamageMultiplier(agent, weapon);
+```
 
 ### GetEquipmentStealthBonus
 `public override float GetEquipmentStealthBonus(Agent agent)`
 
-**Purpose:** Gets the current value of `equipment stealth bonus`.
+**Purpose:** Reads and returns the `equipment stealth bonus` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetEquipmentStealthBonus(agent);
+```
 
 ### GetSneakAttackMultiplier
 `public override float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**Purpose:** Gets the current value of `sneak attack multiplier`.
+**Purpose:** Reads and returns the `sneak attack multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetSneakAttackMultiplier(agent, weapon);
+```
 
 ### GetKnockBackResistance
 `public override float GetKnockBackResistance(Agent agent)`
 
-**Purpose:** Gets the current value of `knock back resistance`.
+**Purpose:** Reads and returns the `knock back resistance` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetKnockBackResistance(agent);
+```
 
 ### GetKnockDownResistance
 `public override float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)`
 
-**Purpose:** Gets the current value of `knock down resistance`.
+**Purpose:** Reads and returns the `knock down resistance` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetKnockDownResistance(agent, strikeType.Invalid);
+```
 
 ### GetDismountResistance
 `public override float GetDismountResistance(Agent agent)`
 
-**Purpose:** Gets the current value of `dismount resistance`.
+**Purpose:** Reads and returns the `dismount resistance` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetDismountResistance(agent);
+```
 
 ### GetBreatheHoldMaxDuration
 `public override float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
 
-**Purpose:** Gets the current value of `breathe hold max duration`.
+**Purpose:** Reads and returns the `breathe hold max duration` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetBreatheHoldMaxDuration(agent, 0);
+```
 
 ### UpdateAgentStats
 `public override void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
 
-**Purpose:** Updates the state or data of `agent stats`.
+**Purpose:** Recalculates and stores the latest representation of `agent stats`.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+multiplayerAgentStatCalculateModel.UpdateAgentStats(agent, agentDrivenProperties);
+```
 
 ### GetEffectiveSkillForWeapon
 `public override int GetEffectiveSkillForWeapon(Agent agent, WeaponComponentData weapon)`
 
-**Purpose:** Gets the current value of `effective skill for weapon`.
+**Purpose:** Reads and returns the `effective skill for weapon` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerAgentStatCalculateModel from the subsystem API first
+MultiplayerAgentStatCalculateModel multiplayerAgentStatCalculateModel = ...;
+var result = multiplayerAgentStatCalculateModel.GetEffectiveSkillForWeapon(agent, weapon);
+```
 
 ### CalculateMaximumSpeedMultiplier
 `public static float CalculateMaximumSpeedMultiplier(Agent agent)`
 
-**Purpose:** Handles logic related to `calculate maximum speed multiplier`.
+**Purpose:** Calculates the current value or result of `maximum speed multiplier`.
+
+```csharp
+// Static call; no instance required
+MultiplayerAgentStatCalculateModel.CalculateMaximumSpeedMultiplier(agent);
+```
 
 ## Usage Example
 
@@ -104,4 +181,4 @@ Game.Current.ReplaceModel<MultiplayerAgentStatCalculateModel>(new MyMultiplayerA
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

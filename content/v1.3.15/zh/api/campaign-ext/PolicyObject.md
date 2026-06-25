@@ -1,61 +1,66 @@
 ---
 title: "PolicyObject"
+description: "PolicyObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PolicyObject`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PolicyObject
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** public sealed class PolicyObject : PropertyObject
+**Type:** `public sealed class PolicyObject : PropertyObject`
 **Base:** `PropertyObject`
 **File:** `TaleWorlds.CampaignSystem/PolicyObject.cs`
 
 ## 概述
 
-`PolicyObject` 表示一项王国政策（影响王国机制的生效/未生效法律）。所有政策可通过静态 `All` 列表访问，通常来自 XML。mod 查询某王国已激活政策（`Kingdom.ActivePolicies`），增删以改变王国行为。
+`PolicyObject` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
-先把 `PolicyObject` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要属性
 
-\| Name \| Signature \|
-\|------\|-----------\|
-\| `All` \| `public static MBReadOnlyList&lt;PolicyObject&gt; All { get { return Campaign.Current.AllPolicies; }` \|
+| Name | Signature |
+|------|-----------|
+| `All` | `public static MBReadOnlyList<PolicyObject> All { get; }` |
+| `SecondaryEffects` | `public TextObject SecondaryEffects { get; }` |
+| `AuthoritarianWeight` | `public float AuthoritarianWeight { get; }` |
+| `OligarchicWeight` | `public float OligarchicWeight { get; }` |
+| `EgalitarianWeight` | `public float EgalitarianWeight { get; }` |
+| `LogEntryDescription` | `public TextObject LogEntryDescription { get; }` |
 
 ## 主要方法
 
 ### Initialize
+`public void Initialize(TextObject name, TextObject description, TextObject logEntryDescription, TextObject secondaryEffects, float authoritarianWeight, float oligarchyWeight, float egalitarianWeight)`
+
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
 ```csharp
-public void Initialize(TextObject name, TextObject description, TextObject logEntryDescription, TextObject secondaryEffects, float authoritarianWeight, float oligarchyWeight, float egalitarianWeight)
+// 先通过子系统 API 拿到 PolicyObject 实例
+PolicyObject policyObject = ...;
+policyObject.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
 ```
 
 ### ToString
+`public override string ToString()`
+
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
 ```csharp
-public override string ToString()
+// 先通过子系统 API 拿到 PolicyObject 实例
+PolicyObject policyObject = ...;
+var result = policyObject.ToString();
 ```
 
 ## 使用示例
 
 ```csharp
-// 按 id 找一项政策，并检查玩家王国是否已激活
-PolicyObject policy = PolicyObject.All.FirstOrDefault(p => p.StringId == "demesne_rights");
-Kingdom k = Clan.PlayerClan.Kingdom;
-if (policy != null && k != null)
-{
-    bool active = k.ActivePolicies.Contains(policy);
-    InformationManager.DisplayMessage(new InformationMessage(
-        $"{policy.Name} 在 {k.Name} 中{(active ? "已激活" : "未激活")}"));
-}
+// 通常从对应子系统 API 获取实例后调用
+PolicyObject policyObject = ...;
+policyObject.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "HeroCreator"
+description: "Auto-generated class reference for HeroCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroCreator`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroCreator
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -54,102 +48,216 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### CreateNotable
 `public static Hero CreateNotable(Occupation occupation, Settlement settlement = null)`
 
-**Purpose:** Creates a new `notable` instance or object.
+**Purpose:** Constructs a new `notable` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HeroCreator.CreateNotable(occupation, null);
+```
 
 ### CreateSpecialHero
 `public static Hero CreateSpecialHero(CharacterObject template, Settlement bornSettlement = null, Clan faction = null, Clan supporterOfClan = null, int age = -1)`
 
-**Purpose:** Creates a new `special hero` instance or object.
+**Purpose:** Constructs a new `special hero` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HeroCreator.CreateSpecialHero(template, null, null, null, 0);
+```
 
 ### CreateChild
 `public static Hero CreateChild(CharacterObject template, Settlement bornSettlement, Clan clan, int age)`
 
-**Purpose:** Creates a new `child` instance or object.
+**Purpose:** Constructs a new `child` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HeroCreator.CreateChild(template, bornSettlement, clan, 0);
+```
 
 ### CreateRelativeNotableHero
 `public static Hero CreateRelativeNotableHero(Hero relative)`
 
-**Purpose:** Creates a new `relative notable hero` instance or object.
+**Purpose:** Constructs a new `relative notable hero` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HeroCreator.CreateRelativeNotableHero(relative);
+```
 
 ### CreateBasicHero
 `public static bool CreateBasicHero(string stringId, CharacterObject character, out Hero hero, bool isAlive = true)`
 
-**Purpose:** Creates a new `basic hero` instance or object.
+**Purpose:** Constructs a new `basic hero` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HeroCreator.CreateBasicHero("example", character, hero, false);
+```
 
 ### DeliverOffSpring
 `public static Hero DeliverOffSpring(Hero mother, Hero father, bool isOffspringFemale)`
 
-**Purpose:** Handles logic related to `deliver off spring`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroCreator.DeliverOffSpring(mother, father, false);
+```
 
 ### SetGenerateFirstAndFullName
 `public HeroCreator.HeroInitializationArgs SetGenerateFirstAndFullName(bool value)`
 
-**Purpose:** Sets the value or state of `generate first and full name`.
+**Purpose:** Assigns a new value to `generate first and full name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetGenerateFirstAndFullName(false);
+```
 
 ### SetName
 `public HeroCreator.HeroInitializationArgs SetName(TextObject name)`
 
-**Purpose:** Sets the value or state of `name`.
+**Purpose:** Assigns a new value to `name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetName(name);
+```
 
 ### SetFirstName
 `public HeroCreator.HeroInitializationArgs SetFirstName(TextObject firstName)`
 
-**Purpose:** Sets the value or state of `first name`.
+**Purpose:** Assigns a new value to `first name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetFirstName(firstName);
+```
 
 ### SetMother
 `public HeroCreator.HeroInitializationArgs SetMother(Hero mother)`
 
-**Purpose:** Sets the value or state of `mother`.
+**Purpose:** Assigns a new value to `mother` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetMother(mother);
+```
 
 ### SetFather
 `public HeroCreator.HeroInitializationArgs SetFather(Hero father)`
 
-**Purpose:** Sets the value or state of `father`.
+**Purpose:** Assigns a new value to `father` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetFather(father);
+```
 
 ### SetIsFemale
 `public HeroCreator.HeroInitializationArgs SetIsFemale(bool isFemale)`
 
-**Purpose:** Sets the value or state of `is female`.
+**Purpose:** Assigns a new value to `is female` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetIsFemale(false);
+```
 
 ### SetBornSettlement
 `public HeroCreator.HeroInitializationArgs SetBornSettlement(Settlement bornSettlement)`
 
-**Purpose:** Sets the value or state of `born settlement`.
+**Purpose:** Assigns a new value to `born settlement` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetBornSettlement(bornSettlement);
+```
 
 ### SetLevel
 `public HeroCreator.HeroInitializationArgs SetLevel(int level)`
 
-**Purpose:** Sets the value or state of `level`.
+**Purpose:** Assigns a new value to `level` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetLevel(0);
+```
 
 ### SetAppearance
 `public HeroCreator.HeroInitializationArgs SetAppearance(StaticBodyProperties? staticBodyProperties, float weight = -1f, float build = -1f, int hair = -1, int beard = -1, int tattoo = -1)`
 
-**Purpose:** Sets the value or state of `appearance`.
+**Purpose:** Assigns a new value to `appearance` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetAppearance(staticBodyProperties, 0, 0, 0, 0, 0);
+```
 
 ### SetPreferredUpgradeFormation
 `public HeroCreator.HeroInitializationArgs SetPreferredUpgradeFormation(FormationClass preferredUpgradeFormation)`
 
-**Purpose:** Sets the value or state of `preferred upgrade formation`.
+**Purpose:** Assigns a new value to `preferred upgrade formation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetPreferredUpgradeFormation(preferredUpgradeFormation);
+```
 
 ### SetClan
 `public HeroCreator.HeroInitializationArgs SetClan(Clan clan)`
 
-**Purpose:** Sets the value or state of `clan`.
+**Purpose:** Assigns a new value to `clan` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetClan(clan);
+```
 
 ### SetCulture
 `public HeroCreator.HeroInitializationArgs SetCulture(CultureObject culture)`
 
-**Purpose:** Sets the value or state of `culture`.
+**Purpose:** Assigns a new value to `culture` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetCulture(culture);
+```
 
 ### SetSupporterOf
 `public HeroCreator.HeroInitializationArgs SetSupporterOf(Clan supporterOf)`
 
-**Purpose:** Sets the value or state of `supporter of`.
+**Purpose:** Assigns a new value to `supporter of` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetSupporterOf(supporterOf);
+```
 
 ### SetOccupation
 `public HeroCreator.HeroInitializationArgs SetOccupation(Occupation occupation)`
 
-**Purpose:** Sets the value or state of `occupation`.
+**Purpose:** Assigns a new value to `occupation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroCreator from the subsystem API first
+HeroCreator heroCreator = ...;
+var result = heroCreator.SetOccupation(occupation);
+```
 
 ## Usage Example
 
@@ -159,4 +267,4 @@ HeroCreator.CreateNotable(occupation, null);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

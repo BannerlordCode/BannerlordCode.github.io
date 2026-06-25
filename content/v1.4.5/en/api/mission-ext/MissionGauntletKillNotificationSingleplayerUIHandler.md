@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletKillNotificationSingleplayerUIHandler"
+description: "Auto-generated class reference for MissionGauntletKillNotificationSingleplayerUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletKillNotificationSingleplayerUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletKillNotificationSingleplayerUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletKillNotificationSingleplayerUIHandler : MissionBattleUIBaseView`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletKillNotificationSingleplayerUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletKillNotificationSingleplayerUIHandler.cs`
 
 ## Overview
 
@@ -29,39 +23,75 @@ Treat `MissionGauntletKillNotificationSingleplayerUIHandler` as a Handler-style 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationSingleplayerUIHandler from the subsystem API first
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletKillNotificationSingleplayerUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletKillNotificationSingleplayerUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

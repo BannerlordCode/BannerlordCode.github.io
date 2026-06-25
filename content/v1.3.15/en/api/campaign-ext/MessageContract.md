@@ -1,23 +1,18 @@
 ---
 title: "MessageContract"
+description: "Auto-generated class reference for MessageContract."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageContract`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MessageContract
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class MessageContract`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.Network/MessageContract.cs`
 
 ## Overview
 
-`MessageContract` lives in `TaleWorlds.Network`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MessageContract` lives in `TaleWorlds.Network` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,25 +29,42 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### CreateMessageContract
 `public static MessageContract CreateMessageContract(Type messageContractType)`
 
-**Purpose:** Creates a new `message contract` instance or object.
+**Purpose:** Constructs a new `message contract` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MessageContract.CreateMessageContract(messageContractType);
+```
 
 ### SerializeToNetworkMessage
 `public abstract void SerializeToNetworkMessage(INetworkMessageWriter networkMessage)`
 
-**Purpose:** Handles logic related to `serialize to network message`.
+**Purpose:** Serializes `to network message` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of MessageContract from the subsystem API first
+MessageContract messageContract = ...;
+messageContract.SerializeToNetworkMessage(networkMessage);
+```
 
 ### DeserializeFromNetworkMessage
 `public abstract void DeserializeFromNetworkMessage(INetworkMessageReader networkMessage)`
 
-**Purpose:** Handles logic related to `deserialize from network message`.
+**Purpose:** Restores `from network message` from serialized data.
+
+```csharp
+// Obtain an instance of MessageContract from the subsystem API first
+MessageContract messageContract = ...;
+messageContract.DeserializeFromNetworkMessage(networkMessage);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMessageContract();
+// Typically obtained from a subsystem API or factory
+MessageContract instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

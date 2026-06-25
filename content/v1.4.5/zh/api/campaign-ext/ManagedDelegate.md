@@ -1,20 +1,14 @@
 ---
 title: "ManagedDelegate"
+description: "ManagedDelegate 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedDelegate`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedDelegate
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ManagedDelegate : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedDelegate.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedDelegate.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "ManagedDelegate"
 ### DelegateDefinition
 `public delegate void DelegateDefinition()`
 
-**用途 / Purpose:** 处理 `delegate definition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedDelegate 实例
+ManagedDelegate managedDelegate = ...;
+managedDelegate.DelegateDefinition();
+```
 
 ### InvokeAux
 `public void InvokeAux()`
 
-**用途 / Purpose:** 处理 `invoke aux` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedDelegate 实例
+ManagedDelegate managedDelegate = ...;
+managedDelegate.InvokeAux();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ManagedDelegate();
-value.DelegateDefinition();
+// 通常从对应子系统 API 获取实例后调用
+ManagedDelegate managedDelegate = ...;
+managedDelegate.DelegateDefinition();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

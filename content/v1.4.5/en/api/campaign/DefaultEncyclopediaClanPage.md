@@ -1,20 +1,14 @@
 ---
 title: "DefaultEncyclopediaClanPage"
+description: "Auto-generated class reference for DefaultEncyclopediaClanPage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultEncyclopediaClanPage`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEncyclopediaClanPage
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultEncyclopediaClanPage : EncyclopediaPage`
 **Base:** `EncyclopediaPage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaClanPage.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaClanPage.cs`
 
 ## Overview
 
@@ -29,95 +23,198 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Gets the current value of `compared value text`.
+**Purpose:** Reads and returns the `compared value text` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Gets the current value of `compared value text`.
+**Purpose:** Reads and returns the `compared value text` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Gets the current value of `compared value text`.
+**Purpose:** Reads and returns the `compared value text` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Gets the current value of `compared value text`.
+**Purpose:** Reads and returns the `compared value text` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Gets the current value of `compared value text`.
+**Purpose:** Reads and returns the `compared value text` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetComparedValueText(item);
+```
 
 ### CompareClans
 `public int CompareClans(EncyclopediaListItem x, EncyclopediaListItem y, Func<Clan, Clan, int> comparison)`
 
-**Purpose:** Handles logic related to `compare clans`.
+**Purpose:** Compares two `clans` objects and returns an ordering result.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.CompareClans(x, y, func<Clan, clan, 0);
+```
 
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**Purpose:** Gets the current value of `view fully qualified name`.
+**Purpose:** Reads and returns the `view fully qualified name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetViewFullyQualifiedName();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetName();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetDescriptionText();
+```
 
 ### GetStringID
 `public override string GetStringID()`
 
-**Purpose:** Gets the current value of `string i d`.
+**Purpose:** Reads and returns the `string i d` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetStringID();
+```
 
 ### GetObject
 `public override MBObjectBase GetObject(string typeName, string stringID)`
 
-**Purpose:** Gets the current value of `object`.
+**Purpose:** Reads and returns the `object` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.GetObject("example", "example");
+```
 
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**Purpose:** Handles logic related to `is valid encyclopedia item`.
+**Purpose:** Determines whether the current object is in the `valid encyclopedia item` state or condition.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaClanPage from the subsystem API first
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+var result = defaultEncyclopediaClanPage.IsValidEncyclopediaItem(o);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultEncyclopediaClanPage();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+DefaultEncyclopediaClanPage defaultEncyclopediaClanPage = ...;
+defaultEncyclopediaClanPage.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

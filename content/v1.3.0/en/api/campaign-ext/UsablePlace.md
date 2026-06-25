@@ -1,13 +1,7 @@
 ---
 title: "UsablePlace"
+description: "Auto-generated class reference for UsablePlace."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UsablePlace`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsablePlace
 
 **Namespace:** SandBox.Objects.Usables
@@ -29,25 +23,44 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of UsablePlace from the subsystem API first
+UsablePlace usablePlace = ...;
+var result = usablePlace.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of UsablePlace from the subsystem API first
+UsablePlace usablePlace = ...;
+var result = usablePlace.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of UsablePlace from the subsystem API first
+UsablePlace usablePlace = ...;
+var result = usablePlace.CreateAIBehaviorObject();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UsablePlace();
-value.GetDescriptionText(gameEntity);
+// Typically call this after obtaining an instance from the subsystem API
+UsablePlace usablePlace = ...;
+usablePlace.GetDescriptionText(gameEntity);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

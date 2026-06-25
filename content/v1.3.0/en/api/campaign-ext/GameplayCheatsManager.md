@@ -1,13 +1,7 @@
 ---
 title: "GameplayCheatsManager"
+description: "Auto-generated class reference for GameplayCheatsManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameplayCheatsManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatsManager
 
 **Namespace:** SandBox
@@ -29,12 +23,22 @@ Treat `GameplayCheatsManager` as a Manager-style extension point: first identify
 ### GetMapCheatList
 `public static IEnumerable<GameplayCheatBase> GetMapCheatList()`
 
-**Purpose:** Gets the current value of `map cheat list`.
+**Purpose:** Reads and returns the `map cheat list` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameplayCheatsManager.GetMapCheatList();
+```
 
 ### GetMissionCheatList
 `public static IEnumerable<GameplayCheatBase> GetMissionCheatList()`
 
-**Purpose:** Gets the current value of `mission cheat list`.
+**Purpose:** Reads and returns the `mission cheat list` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameplayCheatsManager.GetMissionCheatList();
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ var manager = GameplayCheatsManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

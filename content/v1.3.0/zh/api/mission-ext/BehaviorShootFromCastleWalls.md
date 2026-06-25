@@ -1,13 +1,7 @@
 ---
 title: "BehaviorShootFromCastleWalls"
+description: "BehaviorShootFromCastleWalls 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorShootFromCastleWalls`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorShootFromCastleWalls
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,15 +30,22 @@ title: "BehaviorShootFromCastleWalls"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorShootFromCastleWalls 实例
+BehaviorShootFromCastleWalls behaviorShootFromCastleWalls = ...;
+behaviorShootFromCastleWalls.TickOccasionally();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorShootFromCastleWalls();
-value.TickOccasionally();
+// 通常从对应子系统 API 获取实例后调用
+BehaviorShootFromCastleWalls behaviorShootFromCastleWalls = ...;
+behaviorShootFromCastleWalls.TickOccasionally();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SingleThreadedSynchronizationContext"
+description: "SingleThreadedSynchronizationContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SingleThreadedSynchronizationContext`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SingleThreadedSynchronizationContext
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public sealed class SingleThreadedSynchronizationContext : SynchronizationContext`
 **Base:** `SynchronizationContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SingleThreadedSynchronizationContext.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SingleThreadedSynchronizationContext.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "SingleThreadedSynchronizationContext"
 ### Invoke
 `public void Invoke()`
 
-**用途 / Purpose:** 处理 `invoke` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Invoke();
+```
 
 ### Send
 `public override void Send(SendOrPostCallback callback, object state)`
 
-**用途 / Purpose:** 处理 `send` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Send(callback, state);
+```
 
 ### Post
 `public override void Post(SendOrPostCallback callback, object state)`
 
-**用途 / Purpose:** 处理 `post` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Post(callback, state);
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Tick();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SingleThreadedSynchronizationContext();
-value.Invoke();
+// 通常从对应子系统 API 获取实例后调用
+SingleThreadedSynchronizationContext singleThreadedSynchronizationContext = ...;
+singleThreadedSynchronizationContext.Invoke();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

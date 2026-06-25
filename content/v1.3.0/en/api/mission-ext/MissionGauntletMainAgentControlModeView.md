@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletMainAgentControlModeView"
+description: "Auto-generated class reference for MissionGauntletMainAgentControlModeView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMainAgentControlModeView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMainAgentControlModeView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
@@ -29,44 +23,87 @@ Treat `MissionGauntletMainAgentControlModeView` as a View-style extension point:
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
+MissionGauntletMainAgentControlModeView missionGauntletMainAgentControlModeView = ...;
+missionGauntletMainAgentControlModeView.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
+MissionGauntletMainAgentControlModeView missionGauntletMainAgentControlModeView = ...;
+missionGauntletMainAgentControlModeView.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
+MissionGauntletMainAgentControlModeView missionGauntletMainAgentControlModeView = ...;
+missionGauntletMainAgentControlModeView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
+MissionGauntletMainAgentControlModeView missionGauntletMainAgentControlModeView = ...;
+missionGauntletMainAgentControlModeView.OnMissionScreenTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
+MissionGauntletMainAgentControlModeView missionGauntletMainAgentControlModeView = ...;
+missionGauntletMainAgentControlModeView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
+MissionGauntletMainAgentControlModeView missionGauntletMainAgentControlModeView = ...;
+missionGauntletMainAgentControlModeView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentControlModeView from the subsystem API first
+MissionGauntletMainAgentControlModeView missionGauntletMainAgentControlModeView = ...;
+missionGauntletMainAgentControlModeView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletMainAgentControlModeView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletMainAgentControlModeView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

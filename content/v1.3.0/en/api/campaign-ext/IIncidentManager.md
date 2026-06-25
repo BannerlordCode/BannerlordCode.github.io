@@ -1,18 +1,12 @@
 ---
 title: "IIncidentManager"
+description: "Auto-generated class reference for IIncidentManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IIncidentManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IIncidentManager
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IIncidentManager`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IIncidentManager.cs`
 
@@ -27,9 +21,10 @@ Treat `IIncidentManager` as a Manager-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-IIncidentManager implementation = GetIncidentManagerImplementation();
+// Usually obtained through DI or a factory method
+IIIncidentManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

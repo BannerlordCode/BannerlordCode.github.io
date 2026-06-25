@@ -1,19 +1,25 @@
 ---
-title: API Reference
-description: Complete API reference for Bannerlord SDK
+title: "API Reference"
+description: Complete API reference catalog for Bannerlord SDK
 ---
-# API Reference
+<!-- BEGIN SECTION INDEX -->
 
-## Mental Model
+## Parent Navigation
 
-Treat `API Reference` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+- [Version Home](../)
 
-Complete API reference for v1.3.0.
+## Child Pages
 
-## Modules
+- [campaign index](./campaign/) — Campaign system module class reference index
+- [campaign-ext index](./campaign-ext/) — Campaign extension class reference index
+- [core index](./core/) — Core data types class reference index
+- [core-extra index](./core-extra/) — Core / Library extension class reference index
+- [engine index](./engine/) — Engine class reference index
+- [gui index](./gui/) — Gauntlet UI system class reference index
+- [localization index](./localization/) — Localization system class reference index
+- [mission index](./mission/) — Mission / combat system class reference index
+- [mission-ext index](./mission-ext/) — Mission extension class reference index
+- [system index](./system/) — System layer class reference index
+- [viewmodel index](./viewmodel/) — ViewModel class reference index
 
-- [Core](./core/) — MBSubModuleBase, Module
-- [Mission](./mission/) — Mission, Agent
-- [Campaign](./campaign/) — MobileParty, PartyBase
-- [TaleWorlds.MountAndBlade](./TaleWorlds.MountAndBlade/) — core game classes
-
+<!-- END SECTION INDEX -->

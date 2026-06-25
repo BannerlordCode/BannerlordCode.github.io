@@ -1,20 +1,14 @@
 ---
 title: "AnimationPoint"
+description: "AnimationPoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AnimationPoint`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimationPoint
 
 **Namespace:** SandBox.Objects.AnimationPoints
 **Module:** SandBox.Objects
 **Type:** `public class AnimationPoint : StandingPoint`
 **Base:** `StandingPoint`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/AnimationPoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/AnimationPoint.cs`
 
 ## 概述
 
@@ -36,90 +30,187 @@ title: "AnimationPoint"
 ### RequestResync
 `public void RequestResync()`
 
-**用途 / Purpose:** 处理 `request resync` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+animationPoint.RequestResync();
+```
 
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 处理 `after mission start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+animationPoint.AfterMissionStart();
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `is disabled for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+var result = animationPoint.IsDisabledForAgent(agent);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+var result = animationPoint.GetTickRequirement();
+```
 
 ### GetUserFrameForAgent
 `public override WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**用途 / Purpose:** 获取 `user frame for agent` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「user frame for agent」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+var result = animationPoint.GetUserFrameForAgent(agent);
+```
 
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**用途 / Purpose:** 处理 `is usable by agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「usable by agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+var result = animationPoint.IsUsableByAgent(userAgent);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `use` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+animationPoint.OnUse(userAgent, 0);
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** 当 `use stopped` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use stopped」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+animationPoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### SimulateTick
 `public override void SimulateTick(float dt)`
 
-**用途 / Purpose:** 处理 `simulate tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+animationPoint.SimulateTick(0);
+```
 
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `alternative`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「alternative」。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+var result = animationPoint.HasAlternative();
+```
 
 ### GetRandomWaitInSeconds
 `public float GetRandomWaitInSeconds()`
 
-**用途 / Purpose:** 获取 `random wait in seconds` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random wait in seconds」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+var result = animationPoint.GetRandomWaitInSeconds();
+```
 
 ### GetAlternatives
 `public List<AnimationPoint> GetAlternatives()`
 
-**用途 / Purpose:** 获取 `alternatives` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「alternatives」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+var result = animationPoint.GetAlternatives();
+```
 
 ### IsRotationCorrectDuringUsage
 `public bool IsRotationCorrectDuringUsage()`
 
-**用途 / Purpose:** 处理 `is rotation correct during usage` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「rotation correct during usage」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+var result = animationPoint.IsRotationCorrectDuringUsage();
+```
 
 ### OnUserConversationStart
 `public override void OnUserConversationStart()`
 
-**用途 / Purpose:** 当 `user conversation start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「user conversation start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+animationPoint.OnUserConversationStart();
+```
 
 ### OnUserConversationEnd
 `public override void OnUserConversationEnd()`
 
-**用途 / Purpose:** 当 `user conversation end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「user conversation end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+animationPoint.OnUserConversationEnd();
+```
 
 ### SetAgentItemsVisibility
 `public void SetAgentItemsVisibility(bool isVisible)`
 
-**用途 / Purpose:** 设置 `agent items visibility` 的值或状态。
+**用途 / Purpose:** 为 「agent items visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AnimationPoint 实例
+AnimationPoint animationPoint = ...;
+animationPoint.SetAgentItemsVisibility(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AnimationPoint();
-value.RequestResync();
+// 通常从对应子系统 API 获取实例后调用
+AnimationPoint animationPoint = ...;
+animationPoint.RequestResync();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

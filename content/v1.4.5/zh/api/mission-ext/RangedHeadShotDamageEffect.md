@@ -1,20 +1,14 @@
 ---
 title: "RangedHeadShotDamageEffect"
+description: "RangedHeadShotDamageEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RangedHeadShotDamageEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedHeadShotDamageEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RangedHeadShotDamageEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/RangedHeadShotDamageEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/RangedHeadShotDamageEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "RangedHeadShotDamageEffect"
 ### GetRangedHeadShotDamage
 `public override float GetRangedHeadShotDamage()`
 
-**用途 / Purpose:** 获取 `ranged head shot damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ranged head shot damage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RangedHeadShotDamageEffect 实例
+RangedHeadShotDamageEffect rangedHeadShotDamageEffect = ...;
+var result = rangedHeadShotDamageEffect.GetRangedHeadShotDamage();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RangedHeadShotDamageEffect();
-value.GetRangedHeadShotDamage();
+// 通常从对应子系统 API 获取实例后调用
+RangedHeadShotDamageEffect rangedHeadShotDamageEffect = ...;
+rangedHeadShotDamageEffect.GetRangedHeadShotDamage();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

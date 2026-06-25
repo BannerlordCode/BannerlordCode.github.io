@@ -1,13 +1,7 @@
 ---
 title: "MBMusicManager"
+description: "Auto-generated class reference for MBMusicManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMusicManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBMusicManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,162 +30,351 @@ Treat `MBMusicManager` as a Manager-style extension point: first identify who cr
 ### IsCreationCompleted
 `public static bool IsCreationCompleted()`
 
-**Purpose:** Handles logic related to `is creation completed`.
+**Purpose:** Determines whether the current object is in the `creation completed` state or condition.
+
+```csharp
+// Static call; no instance required
+MBMusicManager.IsCreationCompleted();
+```
 
 ### Create
 `public static void Create()`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+MBMusicManager.Create();
+```
 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+MBMusicManager.Initialize();
+```
 
 ### OnCampaignMusicHandlerInit
 `public void OnCampaignMusicHandlerInit(IMusicHandler campaignMusicHandler)`
 
-**Purpose:** Called when the `campaign music handler init` event is raised.
+**Purpose:** Invoked when the `campaign music handler init` event is raised.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.OnCampaignMusicHandlerInit(campaignMusicHandler);
+```
 
 ### OnCampaignMusicHandlerFinalize
 `public void OnCampaignMusicHandlerFinalize()`
 
-**Purpose:** Called when the `campaign music handler finalize` event is raised.
+**Purpose:** Invoked when the `campaign music handler finalize` event is raised.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.OnCampaignMusicHandlerFinalize();
+```
 
 ### OnBattleMusicHandlerInit
 `public void OnBattleMusicHandlerInit(IMusicHandler battleMusicHandler)`
 
-**Purpose:** Called when the `battle music handler init` event is raised.
+**Purpose:** Invoked when the `battle music handler init` event is raised.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.OnBattleMusicHandlerInit(battleMusicHandler);
+```
 
 ### OnBattleMusicHandlerFinalize
 `public void OnBattleMusicHandlerFinalize()`
 
-**Purpose:** Called when the `battle music handler finalize` event is raised.
+**Purpose:** Invoked when the `battle music handler finalize` event is raised.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.OnBattleMusicHandlerFinalize();
+```
 
 ### OnSilencedMusicHandlerInit
 `public void OnSilencedMusicHandlerInit(IMusicHandler silencedMusicHandler)`
 
-**Purpose:** Called when the `silenced music handler init` event is raised.
+**Purpose:** Invoked when the `silenced music handler init` event is raised.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.OnSilencedMusicHandlerInit(silencedMusicHandler);
+```
 
 ### OnSilencedMusicHandlerFinalize
 `public void OnSilencedMusicHandlerFinalize()`
 
-**Purpose:** Called when the `silenced music handler finalize` event is raised.
+**Purpose:** Invoked when the `silenced music handler finalize` event is raised.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.OnSilencedMusicHandlerFinalize();
+```
 
 ### ActivateBattleMode
 `public void ActivateBattleMode()`
 
-**Purpose:** Handles logic related to `activate battle mode`.
+**Purpose:** Activates the resource, state, or feature associated with `battle mode`.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.ActivateBattleMode();
+```
 
 ### DeactivateBattleMode
 `public void DeactivateBattleMode()`
 
-**Purpose:** Handles logic related to `deactivate battle mode`.
+**Purpose:** Deactivates the resource, state, or feature associated with `battle mode`.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.DeactivateBattleMode();
+```
 
 ### ActivateCampaignMode
 `public void ActivateCampaignMode()`
 
-**Purpose:** Handles logic related to `activate campaign mode`.
+**Purpose:** Activates the resource, state, or feature associated with `campaign mode`.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.ActivateCampaignMode();
+```
 
 ### DeactivateCampaignMode
 `public void DeactivateCampaignMode()`
 
-**Purpose:** Handles logic related to `deactivate campaign mode`.
+**Purpose:** Deactivates the resource, state, or feature associated with `campaign mode`.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.DeactivateCampaignMode();
+```
 
 ### DeactivateCurrentMode
 `public void DeactivateCurrentMode()`
 
-**Purpose:** Handles logic related to `deactivate current mode`.
+**Purpose:** Deactivates the resource, state, or feature associated with `current mode`.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.DeactivateCurrentMode();
+```
 
 ### UnpauseMusicManagerSystem
 `public void UnpauseMusicManagerSystem()`
 
-**Purpose:** Handles logic related to `unpause music manager system`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.UnpauseMusicManagerSystem();
+```
 
 ### PauseMusicManagerSystem
 `public void PauseMusicManagerSystem()`
 
-**Purpose:** Handles logic related to `pause music manager system`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.PauseMusicManagerSystem();
+```
 
 ### StartTheme
 `public void StartTheme(MusicTheme theme, float startIntensity, bool queueEndSegment = false)`
 
-**Purpose:** Handles logic related to `start theme`.
+**Purpose:** Starts the `theme` flow or state machine.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.StartTheme(theme, 0, false);
+```
 
 ### StartThemeWithConstantIntensity
 `public void StartThemeWithConstantIntensity(MusicTheme theme, bool queueEndSegment = false)`
 
-**Purpose:** Handles logic related to `start theme with constant intensity`.
+**Purpose:** Starts the `theme with constant intensity` flow or state machine.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.StartThemeWithConstantIntensity(theme, false);
+```
 
 ### ForceStopThemeWithFadeOut
 `public void ForceStopThemeWithFadeOut()`
 
-**Purpose:** Handles logic related to `force stop theme with fade out`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.ForceStopThemeWithFadeOut();
+```
 
 ### ChangeCurrentThemeIntensity
 `public void ChangeCurrentThemeIntensity(float deltaIntensity)`
 
-**Purpose:** Handles logic related to `change current theme intensity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.ChangeCurrentThemeIntensity(0);
+```
 
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+mBMusicManager.Update(0);
+```
 
 ### GetSiegeTheme
 `public MusicTheme GetSiegeTheme(BasicCultureObject culture)`
 
-**Purpose:** Gets the current value of `siege theme`.
+**Purpose:** Reads and returns the `siege theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetSiegeTheme(culture);
+```
 
 ### GetBattleTheme
 `public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)`
 
-**Purpose:** Gets the current value of `battle theme`.
+**Purpose:** Reads and returns the `battle theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetBattleTheme(culture, 0, isPaganBattle);
+```
 
 ### GetBattleEndTheme
 `public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictory)`
 
-**Purpose:** Gets the current value of `battle end theme`.
+**Purpose:** Reads and returns the `battle end theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetBattleEndTheme(culture, false);
+```
 
 ### GetBattleTurnsOneSideTheme
 `public MusicTheme GetBattleTurnsOneSideTheme(BasicCultureObject culture, bool isPositive, bool isPaganBattle)`
 
-**Purpose:** Gets the current value of `battle turns one side theme`.
+**Purpose:** Reads and returns the `battle turns one side theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetBattleTurnsOneSideTheme(culture, false, false);
+```
 
 ### GetCampaignMusicTheme
 `public MusicTheme GetCampaignMusicTheme(BasicCultureObject culture, bool isDark, bool isWarMode, bool isAtSea)`
 
-**Purpose:** Gets the current value of `campaign music theme`.
+**Purpose:** Reads and returns the `campaign music theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetCampaignMusicTheme(culture, false, false, false);
+```
 
 ### GetCampaignTheme
 `public MusicTheme GetCampaignTheme(BasicCultureObject culture, bool isDark)`
 
-**Purpose:** Gets the current value of `campaign theme`.
+**Purpose:** Reads and returns the `campaign theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetCampaignTheme(culture, false);
+```
 
 ### GetCampaignDramaticThemeWithCulture
 `public MusicTheme GetCampaignDramaticThemeWithCulture(BasicCultureObject culture)`
 
-**Purpose:** Gets the current value of `campaign dramatic theme with culture`.
+**Purpose:** Reads and returns the `campaign dramatic theme with culture` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetCampaignDramaticThemeWithCulture(culture);
+```
 
 ### GetSeaCampignMusic
 `public MusicTheme GetSeaCampignMusic(BasicCultureObject culture)`
 
-**Purpose:** Gets the current value of `sea campign music`.
+**Purpose:** Reads and returns the `sea campign music` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetSeaCampignMusic(culture);
+```
 
 ### GetBattleTheme
 `public MusicTheme GetBattleTheme(BasicCultureObject culture, int battleSize, out bool isPaganBattle)`
 
-**Purpose:** Gets the current value of `battle theme`.
+**Purpose:** Reads and returns the `battle theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetBattleTheme(culture, 0, isPaganBattle);
+```
 
 ### GetSiegeTheme
 `public MusicTheme GetSiegeTheme(BasicCultureObject culture)`
 
-**Purpose:** Gets the current value of `siege theme`.
+**Purpose:** Reads and returns the `siege theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetSiegeTheme(culture);
+```
 
 ### GetBattleEndTheme
 `public MusicTheme GetBattleEndTheme(BasicCultureObject culture, bool isVictorious)`
 
-**Purpose:** Gets the current value of `battle end theme`.
+**Purpose:** Reads and returns the `battle end theme` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMusicManager from the subsystem API first
+MBMusicManager mBMusicManager = ...;
+var result = mBMusicManager.GetBattleEndTheme(culture, false);
+```
 
 ## Usage Example
 
@@ -201,4 +384,4 @@ var manager = MBMusicManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

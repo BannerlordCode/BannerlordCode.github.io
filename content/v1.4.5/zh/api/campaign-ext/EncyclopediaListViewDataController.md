@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListViewDataController"
+description: "EncyclopediaListViewDataController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListViewDataController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListViewDataController
 
 **Namespace:** SandBox.GauntletUI.Encyclopedia
 **Module:** SandBox.GauntletUI
 **Type:** `public class EncyclopediaListViewDataController`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Encyclopedia/EncyclopediaListViewDataController.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Encyclopedia/EncyclopediaListViewDataController.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "EncyclopediaListViewDataController"
 ### SaveListData
 `public void SaveListData(EncyclopediaListVM list, string id)`
 
-**用途 / Purpose:** 保存 `list data` 数据。
+**用途 / Purpose:** 将 「list data」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListViewDataController 实例
+EncyclopediaListViewDataController encyclopediaListViewDataController = ...;
+encyclopediaListViewDataController.SaveListData(list, "example");
+```
 
 ### LoadListData
 `public void LoadListData(EncyclopediaListVM list)`
 
-**用途 / Purpose:** 加载 `list data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「list data」。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListViewDataController 实例
+EncyclopediaListViewDataController encyclopediaListViewDataController = ...;
+encyclopediaListViewDataController.LoadListData(list);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<EncyclopediaListViewDataCont
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

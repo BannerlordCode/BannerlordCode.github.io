@@ -1,13 +1,7 @@
 ---
 title: "KingdomSettlementSortControllerVM"
+description: "KingdomSettlementSortControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomSettlementSortControllerVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomSettlementSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements
@@ -44,65 +38,132 @@ title: "KingdomSettlementSortControllerVM"
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 设置 `sort mode` 的值或状态。
+**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+kingdomSettlementSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+var result = kingdomSettlementSortControllerVM.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomSettlementSortControllerVM();
-value.SetSortMode(false);
+// 通常从对应子系统 API 获取实例后调用
+KingdomSettlementSortControllerVM kingdomSettlementSortControllerVM = ...;
+kingdomSettlementSortControllerVM.SetSortMode(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

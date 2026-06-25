@@ -1,13 +1,7 @@
 ---
 title: "BoardGameAIKonane"
+description: "BoardGameAIKonane 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameAIKonane`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIKonane
 
 **Namespace:** SandBox.BoardGames.AI
@@ -29,20 +23,33 @@ title: "BoardGameAIKonane"
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIKonane 实例
+BoardGameAIKonane boardGameAIKonane = ...;
+var result = boardGameAIKonane.CalculateMovementStageMove();
+```
 
 ### CalculatePreMovementStageMove
 `public override Move CalculatePreMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate pre movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「pre movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIKonane 实例
+BoardGameAIKonane boardGameAIKonane = ...;
+var result = boardGameAIKonane.CalculatePreMovementStageMove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameAIKonane();
-value.CalculateMovementStageMove();
+// 通常从对应子系统 API 获取实例后调用
+BoardGameAIKonane boardGameAIKonane = ...;
+boardGameAIKonane.CalculateMovementStageMove();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "RoundStateExtensions"
+description: "Auto-generated class reference for RoundStateExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RoundStateExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RoundStateExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### StateHasVisualTimer
 `public static bool StateHasVisualTimer(this MultiplayerRoundState roundState)`
 
-**Purpose:** Handles logic related to `state has visual timer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RoundStateExtensions.StateHasVisualTimer(roundState);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ RoundStateExtensions.StateHasVisualTimer(roundState);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

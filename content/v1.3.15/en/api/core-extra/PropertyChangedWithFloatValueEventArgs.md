@@ -1,13 +1,7 @@
 ---
 title: "PropertyChangedWithFloatValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithFloatValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithFloatValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithFloatValueEventArgs
 
 **Namespace:** TaleWorlds.Library
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithFloatValueEventArgs();
+// Obtain an instance from the relevant subsystem API
+PropertyChangedWithFloatValueEventArgs instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

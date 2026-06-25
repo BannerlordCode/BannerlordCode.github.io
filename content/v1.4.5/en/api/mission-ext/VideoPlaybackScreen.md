@@ -1,20 +1,14 @@
 ---
 title: "VideoPlaybackScreen"
+description: "Auto-generated class reference for VideoPlaybackScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VideoPlaybackScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VideoPlaybackScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VideoPlaybackScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/VideoPlaybackScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/VideoPlaybackScreen.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new VideoPlaybackScreen();
+// Obtain an instance from the relevant subsystem API
+VideoPlaybackScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GameSceneDataManager"
+description: "GameSceneDataManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameSceneDataManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameSceneDataManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameSceneDataManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameSceneDataManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameSceneDataManager.cs`
 
 ## 概述
 
@@ -35,17 +29,35 @@ title: "GameSceneDataManager"
 ### LoadSPBattleScenes
 `public void LoadSPBattleScenes(string path)`
 
-**用途 / Purpose:** 加载 `s p battle scenes` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「s p battle scenes」。
+
+```csharp
+// 先通过子系统 API 拿到 GameSceneDataManager 实例
+GameSceneDataManager gameSceneDataManager = ...;
+gameSceneDataManager.LoadSPBattleScenes("example");
+```
 
 ### LoadConversationScenes
 `public void LoadConversationScenes(string path)`
 
-**用途 / Purpose:** 加载 `conversation scenes` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「conversation scenes」。
+
+```csharp
+// 先通过子系统 API 拿到 GameSceneDataManager 实例
+GameSceneDataManager gameSceneDataManager = ...;
+gameSceneDataManager.LoadConversationScenes("example");
+```
 
 ### LoadMeetingScenes
 `public void LoadMeetingScenes(string path)`
 
-**用途 / Purpose:** 加载 `meeting scenes` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「meeting scenes」。
+
+```csharp
+// 先通过子系统 API 拿到 GameSceneDataManager 实例
+GameSceneDataManager gameSceneDataManager = ...;
+gameSceneDataManager.LoadMeetingScenes("example");
+```
 
 ## 使用示例
 
@@ -55,4 +67,4 @@ var manager = GameSceneDataManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

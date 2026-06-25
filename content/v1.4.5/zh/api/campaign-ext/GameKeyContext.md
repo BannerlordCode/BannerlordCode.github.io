@@ -1,20 +1,14 @@
 ---
 title: "GameKeyContext"
+description: "GameKeyContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameKeyContext`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyContext
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public abstract class GameKeyContext`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKeyContext.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKeyContext.cs`
 
 ## 概述
 
@@ -36,29 +30,54 @@ title: "GameKeyContext"
 ### GetHotKey
 `public HotKey GetHotKey(string hotKeyId)`
 
-**用途 / Purpose:** 获取 `hot key` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hot key」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyContext 实例
+GameKeyContext gameKeyContext = ...;
+var result = gameKeyContext.GetHotKey("example");
+```
 
 ### GetGameKey
 `public GameKey GetGameKey(int gameKeyId)`
 
-**用途 / Purpose:** 获取 `game key` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「game key」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyContext 实例
+GameKeyContext gameKeyContext = ...;
+var result = gameKeyContext.GetGameKey(0);
+```
 
 ### GetHotKeyId
 `public string GetHotKeyId(string hotKeyId)`
 
-**用途 / Purpose:** 获取 `hot key id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hot key id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyContext 实例
+GameKeyContext gameKeyContext = ...;
+var result = gameKeyContext.GetHotKeyId("example");
+```
 
 ### GetHotKeyId
 `public string GetHotKeyId(int gameKeyId)`
 
-**用途 / Purpose:** 获取 `hot key id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hot key id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyContext 实例
+GameKeyContext gameKeyContext = ...;
+var result = gameKeyContext.GetHotKeyId(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameKeyContext();
+// 通常通过子系统 API 或工厂获得派生实例
+GameKeyContext instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

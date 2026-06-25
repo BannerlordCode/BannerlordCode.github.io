@@ -1,13 +1,7 @@
 ---
 title: "ItemBarterable"
+description: "Auto-generated class reference for ItemBarterable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemBarterable`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
@@ -39,35 +33,66 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** Gets the current value of `unit value for faction`.
+**Purpose:** Reads and returns the `unit value for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemBarterable from the subsystem API first
+ItemBarterable itemBarterable = ...;
+var result = itemBarterable.GetUnitValueForFaction(faction);
+```
 
 ### CheckBarterLink
 `public override void CheckBarterLink(Barterable parentLinkedBarterable)`
 
-**Purpose:** Handles logic related to `check barter link`.
+**Purpose:** Verifies whether `barter link` holds true for the current object.
+
+```csharp
+// Obtain an instance of ItemBarterable from the subsystem API first
+ItemBarterable itemBarterable = ...;
+itemBarterable.CheckBarterLink(parentLinkedBarterable);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** Gets the current value of `visual identifier`.
+**Purpose:** Reads and returns the `visual identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemBarterable from the subsystem API first
+ItemBarterable itemBarterable = ...;
+var result = itemBarterable.GetVisualIdentifier();
+```
 
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**Purpose:** Gets the current value of `encyclopedia link`.
+**Purpose:** Reads and returns the `encyclopedia link` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemBarterable from the subsystem API first
+ItemBarterable itemBarterable = ...;
+var result = itemBarterable.GetEncyclopediaLink();
+```
 
 ### Apply
 `public override void Apply()`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Obtain an instance of ItemBarterable from the subsystem API first
+ItemBarterable itemBarterable = ...;
+itemBarterable.Apply();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemBarterable();
-value.GetUnitValueForFaction(faction);
+// Typically call this after obtaining an instance from the subsystem API
+ItemBarterable itemBarterable = ...;
+itemBarterable.GetUnitValueForFaction(faction);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GauntletChatLogView"
+description: "Auto-generated class reference for GauntletChatLogView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletChatLogView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletChatLogView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -35,34 +29,64 @@ Treat `GauntletChatLogView` as a View-style extension point: first identify who 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletChatLogView.Initialize();
+```
 
 ### SetCanFocusWhileInMission
 `public void SetCanFocusWhileInMission(bool canFocusInMission)`
 
-**Purpose:** Sets the value or state of `can focus while in mission`.
+**Purpose:** Assigns a new value to `can focus while in mission` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GauntletChatLogView from the subsystem API first
+GauntletChatLogView gauntletChatLogView = ...;
+gauntletChatLogView.SetCanFocusWhileInMission(false);
+```
 
 ### OnSupportedFeaturesReceived
 `public void OnSupportedFeaturesReceived(SupportedFeatures supportedFeatures)`
 
-**Purpose:** Called when the `supported features received` event is raised.
+**Purpose:** Invoked when the `supported features received` event is raised.
+
+```csharp
+// Obtain an instance of GauntletChatLogView from the subsystem API first
+GauntletChatLogView gauntletChatLogView = ...;
+gauntletChatLogView.OnSupportedFeaturesReceived(supportedFeatures);
+```
 
 ### SetEnabled
 `public void SetEnabled(bool isEnabled)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GauntletChatLogView from the subsystem API first
+GauntletChatLogView gauntletChatLogView = ...;
+gauntletChatLogView.SetEnabled(false);
+```
 
 ### LoadMovie
 `public void LoadMovie(bool forMultiplayer)`
 
-**Purpose:** Loads `movie` data.
+**Purpose:** Reads `movie` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GauntletChatLogView from the subsystem API first
+GauntletChatLogView gauntletChatLogView = ...;
+gauntletChatLogView.LoadMovie(false);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletChatLogView();
+// Retrieve this view from the subsystem API or scene
+GauntletChatLogView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

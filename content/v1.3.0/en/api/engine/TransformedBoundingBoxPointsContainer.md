@@ -1,13 +1,7 @@
 ---
 title: "TransformedBoundingBoxPointsContainer"
+description: "Auto-generated class reference for TransformedBoundingBoxPointsContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransformedBoundingBoxPointsContainer`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransformedBoundingBoxPointsContainer
 
 **Namespace:** TaleWorlds.Engine
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new TransformedBoundingBoxPointsContainer();
+// Obtain an instance from the relevant subsystem API
+TransformedBoundingBoxPointsContainer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

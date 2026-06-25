@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleAutoBlockModel"
+description: "CustomBattleAutoBlockModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleAutoBlockModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleAutoBlockModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,13 @@ title: "CustomBattleAutoBlockModel"
 ### GetBlockDirection
 `public override Agent.UsageDirection GetBlockDirection(Mission mission)`
 
-**用途 / Purpose:** 获取 `block direction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「block direction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAutoBlockModel 实例
+CustomBattleAutoBlockModel customBattleAutoBlockModel = ...;
+var result = customBattleAutoBlockModel.GetBlockDirection(mission);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<CustomBattleAutoBlockModel>(new MyCustomBattleAutoBloc
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

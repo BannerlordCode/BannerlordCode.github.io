@@ -1,20 +1,14 @@
 ---
 title: "MissionPeerMarkerTargetVM"
+description: "Auto-generated class reference for MissionPeerMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionPeerMarkerTargetVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionPeerMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionPeerMarkerTargetVM : MissionMarkerTargetVM`
 **Base:** `MissionMarkerTargetVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionPeerMarkerTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionPeerMarkerTargetVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### UpdateScreenPosition
 `public override void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `screen position`.
+**Purpose:** Recalculates and stores the latest representation of `screen position`.
+
+```csharp
+// Obtain an instance of MissionPeerMarkerTargetVM from the subsystem API first
+MissionPeerMarkerTargetVM missionPeerMarkerTargetVM = ...;
+missionPeerMarkerTargetVM.UpdateScreenPosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionPeerMarkerTargetVM();
-value.UpdateScreenPosition(missionCamera);
+// Typically call this after obtaining an instance from the subsystem API
+MissionPeerMarkerTargetVM missionPeerMarkerTargetVM = ...;
+missionPeerMarkerTargetVM.UpdateScreenPosition(missionCamera);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

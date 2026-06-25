@@ -1,20 +1,14 @@
 ---
 title: "ThumbnailCacheManager"
+description: "ThumbnailCacheManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ThumbnailCacheManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThumbnailCacheManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ThumbnailCacheManager`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/ThumbnailCacheManager.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/ThumbnailCacheManager.cs`
 
 ## 概述
 
@@ -36,102 +30,216 @@ title: "ThumbnailCacheManager"
 ### IsCachedInventoryTableauSceneUsed
 `public bool IsCachedInventoryTableauSceneUsed()`
 
-**用途 / Purpose:** 处理 `is cached inventory tableau scene used` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「cached inventory tableau scene used」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.IsCachedInventoryTableauSceneUsed();
+```
 
 ### GetCachedInventoryTableauScene
 `public Scene GetCachedInventoryTableauScene()`
 
-**用途 / Purpose:** 获取 `cached inventory tableau scene` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cached inventory tableau scene」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.GetCachedInventoryTableauScene();
+```
 
 ### ReturnCachedInventoryTableauScene
 `public void ReturnCachedInventoryTableauScene()`
 
-**用途 / Purpose:** 处理 `return cached inventory tableau scene` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.ReturnCachedInventoryTableauScene();
+```
 
 ### IsCachedMapConversationTableauSceneUsed
 `public bool IsCachedMapConversationTableauSceneUsed()`
 
-**用途 / Purpose:** 处理 `is cached map conversation tableau scene used` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「cached map conversation tableau scene used」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.IsCachedMapConversationTableauSceneUsed();
+```
 
 ### GetCachedMapConversationTableauScene
 `public Scene GetCachedMapConversationTableauScene()`
 
-**用途 / Purpose:** 获取 `cached map conversation tableau scene` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cached map conversation tableau scene」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.GetCachedMapConversationTableauScene();
+```
 
 ### ReturnCachedMapConversationTableauScene
 `public void ReturnCachedMapConversationTableauScene()`
 
-**用途 / Purpose:** 处理 `return cached map conversation tableau scene` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.ReturnCachedMapConversationTableauScene();
+```
 
 ### GetNumberOfPendingRequests
 `public static int GetNumberOfPendingRequests()`
 
-**用途 / Purpose:** 获取 `number of pending requests` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of pending requests」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailCacheManager.GetNumberOfPendingRequests();
+```
 
 ### IsNativeMemoryCleared
 `public static bool IsNativeMemoryCleared()`
 
-**用途 / Purpose:** 处理 `is native memory cleared` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「native memory cleared」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailCacheManager.IsNativeMemoryCleared();
+```
 
 ### InitializeManager
 `public static void InitializeManager()`
 
-**用途 / Purpose:** 初始化 `manager` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「manager」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailCacheManager.InitializeManager();
+```
 
 ### RegisterThumbnailCache
 `public void RegisterThumbnailCache(IThumbnailCache thumbnailCache)`
 
-**用途 / Purpose:** 处理 `register thumbnail cache` 相关逻辑。
+**用途 / Purpose:** 将「thumbnail cache」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.RegisterThumbnailCache(thumbnailCache);
+```
 
 ### UnregisterThumbnailCache
 `public void UnregisterThumbnailCache(IThumbnailCache thumbnailCache)`
 
-**用途 / Purpose:** 处理 `unregister thumbnail cache` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「thumbnail cache」。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.UnregisterThumbnailCache(thumbnailCache);
+```
 
 ### InitializeSandboxValues
 `public static void InitializeSandboxValues()`
 
-**用途 / Purpose:** 初始化 `sandbox values` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「sandbox values」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailCacheManager.InitializeSandboxValues();
+```
 
 ### ReleaseSandboxValues
 `public static void ReleaseSandboxValues()`
 
-**用途 / Purpose:** 处理 `release sandbox values` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailCacheManager.ReleaseSandboxValues();
+```
 
 ### ClearManager
 `public static void ClearManager()`
 
-**用途 / Purpose:** 处理 `clear manager` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「manager」。
+
+```csharp
+// 静态调用，不需要实例
+ThumbnailCacheManager.ClearManager();
+```
 
 ### CreateTexture
 `public TextureCreationInfo CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**用途 / Purpose:** 创建一个 `texture` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「texture」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.CreateTexture(thumbnailCreationData);
+```
 
 ### DestroyTexture
 `public bool DestroyTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**用途 / Purpose:** 处理 `destroy texture` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.DestroyTexture(thumbnailCreationData);
+```
 
 ### ForceClearAllCache
 `public void ForceClearAllCache(bool releaseImmediately)`
 
-**用途 / Purpose:** 处理 `force clear all cache` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.ForceClearAllCache(false);
+```
 
 ### GetCachedHeroSilhouetteTexture
 `public Texture GetCachedHeroSilhouetteTexture()`
 
-**用途 / Purpose:** 获取 `cached hero silhouette texture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cached hero silhouette texture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.GetCachedHeroSilhouetteTexture();
+```
 
 ### ClearUnusedCache
 `public void ClearUnusedCache()`
 
-**用途 / Purpose:** 处理 `clear unused cache` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「unused cache」。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.ClearUnusedCache();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCacheManager 实例
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.Tick(0);
+```
 
 ## 使用示例
 
@@ -141,4 +249,4 @@ var manager = ThumbnailCacheManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

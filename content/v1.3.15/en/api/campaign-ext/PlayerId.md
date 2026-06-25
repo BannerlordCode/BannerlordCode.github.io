@@ -1,13 +1,7 @@
 ---
 title: "PlayerId"
+description: "Auto-generated class reference for PlayerId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerId`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerId
 
 **Namespace:** TaleWorlds.PlayerServices
@@ -43,55 +37,109 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ### ToByteArray
 `public byte ToByteArray()`
 
-**Purpose:** Handles logic related to `to byte array`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerId from the subsystem API first
+PlayerId playerId = ...;
+var result = playerId.ToByteArray();
+```
 
 ### Serialize
 `public void Serialize(IWriter writer)`
 
-**Purpose:** Handles logic related to `serialize`.
+**Purpose:** Serializes the current object into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of PlayerId from the subsystem API first
+PlayerId playerId = ...;
+playerId.Serialize(writer);
+```
 
 ### Deserialize
 `public void Deserialize(IReader reader)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of PlayerId from the subsystem API first
+PlayerId playerId = ...;
+playerId.Deserialize(reader);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of PlayerId from the subsystem API first
+PlayerId playerId = ...;
+var result = playerId.ToString();
+```
 
 ### Equals
 `public override bool Equals(object o)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of PlayerId from the subsystem API first
+PlayerId playerId = ...;
+var result = playerId.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of PlayerId from the subsystem API first
+PlayerId playerId = ...;
+var result = playerId.GetHashCode();
+```
 
 ### FromString
 `public static PlayerId FromString(string id)`
 
-**Purpose:** Handles logic related to `from string`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerId.FromString("example");
+```
 
 ### CompareTo
 `public int CompareTo(PlayerId other)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of PlayerId from the subsystem API first
+PlayerId playerId = ...;
+var result = playerId.CompareTo(other);
+```
 
 ### Equals
 `public bool Equals(PlayerId other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of PlayerId from the subsystem API first
+PlayerId playerId = ...;
+var result = playerId.Equals(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerId();
-value.ToByteArray();
+// Typically call this after obtaining an instance from the subsystem API
+PlayerId playerId = ...;
+playerId.ToByteArray();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

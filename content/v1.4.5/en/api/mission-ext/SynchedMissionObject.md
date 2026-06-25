@@ -1,20 +1,14 @@
 ---
 title: "SynchedMissionObject"
+description: "Auto-generated class reference for SynchedMissionObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SynchedMissionObject`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SynchedMissionObject
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SynchedMissionObject : MissionObject`
 **Base:** `MissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SynchedMissionObject.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SynchedMissionObject.cs`
 
 ## Overview
 
@@ -36,120 +30,253 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+var result = synchedMissionObject.GetTickRequirement();
+```
 
 ### SetLocalPositionSmoothStep
 `public void SetLocalPositionSmoothStep(ref Vec3 targetPosition)`
 
-**Purpose:** Sets the value or state of `local position smooth step`.
+**Purpose:** Assigns a new value to `local position smooth step` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetLocalPositionSmoothStep(targetPosition);
+```
 
 ### SetVisibleSynched
 `public virtual void SetVisibleSynched(bool value, bool forceChildrenVisible = false)`
 
-**Purpose:** Sets the value or state of `visible synched`.
+**Purpose:** Assigns a new value to `visible synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetVisibleSynched(false, false);
+```
 
 ### SetPhysicsStateSynched
 `public virtual void SetPhysicsStateSynched(bool value, bool setChildren = true)`
 
-**Purpose:** Sets the value or state of `physics state synched`.
+**Purpose:** Assigns a new value to `physics state synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetPhysicsStateSynched(false, false);
+```
 
 ### SetDisabledSynched
 `public virtual void SetDisabledSynched()`
 
-**Purpose:** Sets the value or state of `disabled synched`.
+**Purpose:** Assigns a new value to `disabled synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetDisabledSynched();
+```
 
 ### SetFrameSynched
 `public void SetFrameSynched(ref MatrixFrame frame, bool isClient = false)`
 
-**Purpose:** Sets the value or state of `frame synched`.
+**Purpose:** Assigns a new value to `frame synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetFrameSynched(frame, false);
+```
 
 ### SetGlobalFrameSynched
 `public void SetGlobalFrameSynched(ref MatrixFrame frame, bool isClient = false)`
 
-**Purpose:** Sets the value or state of `global frame synched`.
+**Purpose:** Assigns a new value to `global frame synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetGlobalFrameSynched(frame, false);
+```
 
 ### SetFrameSynchedOverTime
 `public void SetFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
 
-**Purpose:** Sets the value or state of `frame synched over time`.
+**Purpose:** Assigns a new value to `frame synched over time` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetFrameSynchedOverTime(frame, 0, false);
+```
 
 ### SetGlobalFrameSynchedOverTime
 `public void SetGlobalFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
 
-**Purpose:** Sets the value or state of `global frame synched over time`.
+**Purpose:** Assigns a new value to `global frame synched over time` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetGlobalFrameSynchedOverTime(frame, 0, false);
+```
 
 ### SetAnimationAtChannelSynched
 `public void SetAnimationAtChannelSynched(string animationName, int channelNo, float animationSpeed = 1f)`
 
-**Purpose:** Sets the value or state of `animation at channel synched`.
+**Purpose:** Assigns a new value to `animation at channel synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetAnimationAtChannelSynched("example", 0, 0);
+```
 
 ### SetAnimationAtChannelSynched
 `public void SetAnimationAtChannelSynched(int animationIndex, int channelNo, float animationSpeed = 1f)`
 
-**Purpose:** Sets the value or state of `animation at channel synched`.
+**Purpose:** Assigns a new value to `animation at channel synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetAnimationAtChannelSynched(0, 0, 0);
+```
 
 ### SetAnimationChannelParameterSynched
 `public void SetAnimationChannelParameterSynched(int channelNo, float parameter)`
 
-**Purpose:** Sets the value or state of `animation channel parameter synched`.
+**Purpose:** Assigns a new value to `animation channel parameter synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetAnimationChannelParameterSynched(0, 0);
+```
 
 ### PauseSkeletonAnimationSynched
 `public void PauseSkeletonAnimationSynched()`
 
-**Purpose:** Handles logic related to `pause skeleton animation synched`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.PauseSkeletonAnimationSynched();
+```
 
 ### ResumeSkeletonAnimationSynched
 `public void ResumeSkeletonAnimationSynched()`
 
-**Purpose:** Handles logic related to `resume skeleton animation synched`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.ResumeSkeletonAnimationSynched();
+```
 
 ### BurstParticlesSynched
 `public void BurstParticlesSynched(bool doChildren = true)`
 
-**Purpose:** Handles logic related to `burst particles synched`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.BurstParticlesSynched(false);
+```
 
 ### ApplyImpulseSynched
 `public void ApplyImpulseSynched(Vec3 localPosition, Vec3 impulse)`
 
-**Purpose:** Applies `impulse synched` to the current object.
+**Purpose:** Applies the effect of `impulse synched` to the current object.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.ApplyImpulseSynched(localPosition, impulse);
+```
 
 ### AddBodyFlagsSynched
 `public void AddBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
 
 **Purpose:** Adds `body flags synched` to the current collection or state.
 
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.AddBodyFlagsSynched(flags, false);
+```
+
 ### RemoveBodyFlagsSynched
 `public void RemoveBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
 
 **Purpose:** Removes `body flags synched` from the current collection or state.
 
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.RemoveBodyFlagsSynched(flags, false);
+```
+
 ### SetTeamColors
 `public void SetTeamColors(uint color, uint color2)`
 
-**Purpose:** Sets the value or state of `team colors`.
+**Purpose:** Assigns a new value to `team colors` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetTeamColors(0, 0);
+```
 
 ### SetTeamColorsSynched
 `public virtual void SetTeamColorsSynched(uint color, uint color2)`
 
-**Purpose:** Sets the value or state of `team colors synched`.
+**Purpose:** Assigns a new value to `team colors synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.SetTeamColorsSynched(0, 0);
+```
 
 ### WriteToNetwork
 `public virtual void WriteToNetwork()`
 
-**Purpose:** Handles logic related to `write to network`.
+**Purpose:** Writes `to network` to the target location.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.WriteToNetwork();
+```
 
 ### OnAfterReadFromNetwork
 `public virtual void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**Purpose:** Called when the `after read from network` event is raised.
+**Purpose:** Invoked when the `after read from network` event is raised.
+
+```csharp
+// Obtain an instance of SynchedMissionObject from the subsystem API first
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SynchedMissionObject();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+SynchedMissionObject synchedMissionObject = ...;
+synchedMissionObject.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

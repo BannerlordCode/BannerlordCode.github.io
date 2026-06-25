@@ -1,13 +1,7 @@
 ---
 title: "MiscSoundContainer"
+description: "Auto-generated class reference for MiscSoundContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MiscSoundContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MiscSoundContainer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -39,9 +33,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new MiscSoundContainer();
+// Obtain an instance from the relevant subsystem API
+MiscSoundContainer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

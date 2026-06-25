@@ -1,13 +1,7 @@
 ---
 title: "ParameterContainer"
+description: "Auto-generated class reference for ParameterContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ParameterContainer`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ParameterContainer
 
 **Namespace:** TaleWorlds.Library
@@ -37,83 +31,174 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 
 **Purpose:** Adds `parameter` to the current collection or state.
 
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+parameterContainer.AddParameter("example", "example", false);
+```
+
 ### AddParameterConcurrent
 `public void AddParameterConcurrent(string key, string value, bool overwriteIfExists)`
 
 **Purpose:** Adds `parameter concurrent` to the current collection or state.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+parameterContainer.AddParameterConcurrent("example", "example", false);
+```
 
 ### AddParametersConcurrent
 `public void AddParametersConcurrent(IEnumerable<KeyValuePair<string, string>> parameters, bool overwriteIfExists)`
 
 **Purpose:** Adds `parameters concurrent` to the current collection or state.
 
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+parameterContainer.AddParametersConcurrent(iEnumerable<KeyValuePair<string, "example", false);
+```
+
 ### ClearParameters
 `public void ClearParameters()`
 
-**Purpose:** Handles logic related to `clear parameters`.
+**Purpose:** Removes all `parameters` from the current object.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+parameterContainer.ClearParameters();
+```
 
 ### TryGetParameter
 `public bool TryGetParameter(string key, out string outValue)`
 
-**Purpose:** Attempts to get `get parameter`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameter("example", outValue);
+```
 
 ### TryGetParameterAsBool
 `public bool TryGetParameterAsBool(string key, out bool outValue)`
 
-**Purpose:** Attempts to get `get parameter as bool`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter as bool`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameterAsBool("example", outValue);
+```
 
 ### TryGetParameterAsInt
 `public bool TryGetParameterAsInt(string key, out int outValue)`
 
-**Purpose:** Attempts to get `get parameter as int`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter as int`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameterAsInt("example", outValue);
+```
 
 ### TryGetParameterAsUInt16
 `public bool TryGetParameterAsUInt16(string key, out ushort outValue)`
 
-**Purpose:** Attempts to get `get parameter as u int16`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter as u int16`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameterAsUInt16("example", outValue);
+```
 
 ### TryGetParameterAsFloat
 `public bool TryGetParameterAsFloat(string key, out float outValue)`
 
-**Purpose:** Attempts to get `get parameter as float`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter as float`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameterAsFloat("example", outValue);
+```
 
 ### TryGetParameterAsByte
 `public bool TryGetParameterAsByte(string key, out byte outValue)`
 
-**Purpose:** Attempts to get `get parameter as byte`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter as byte`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameterAsByte("example", outValue);
+```
 
 ### TryGetParameterAsSByte
 `public bool TryGetParameterAsSByte(string key, out sbyte outValue)`
 
-**Purpose:** Attempts to get `get parameter as s byte`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter as s byte`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameterAsSByte("example", outValue);
+```
 
 ### TryGetParameterAsVec3
 `public bool TryGetParameterAsVec3(string key, out Vec3 outValue)`
 
-**Purpose:** Attempts to get `get parameter as vec3`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter as vec3`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameterAsVec3("example", outValue);
+```
 
 ### TryGetParameterAsVec2
 `public bool TryGetParameterAsVec2(string key, out Vec2 outValue)`
 
-**Purpose:** Attempts to get `get parameter as vec2`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get parameter as vec2`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.TryGetParameterAsVec2("example", outValue);
+```
 
 ### GetParameter
 `public string GetParameter(string key)`
 
-**Purpose:** Gets the current value of `parameter`.
+**Purpose:** Reads and returns the `parameter` value held by the current object.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.GetParameter("example");
+```
 
 ### Clone
 `public ParameterContainer Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of ParameterContainer from the subsystem API first
+ParameterContainer parameterContainer = ...;
+var result = parameterContainer.Clone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ParameterContainer();
-value.AddParameter("example", "example", false);
+// Typically call this after obtaining an instance from the subsystem API
+ParameterContainer parameterContainer = ...;
+parameterContainer.AddParameter("example", "example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

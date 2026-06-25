@@ -1,13 +1,7 @@
 ---
 title: "HandMorphTest"
+description: "HandMorphTest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HandMorphTest`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HandMorphTest
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
@@ -36,25 +30,44 @@ title: "HandMorphTest"
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**用途 / Purpose:** 处理 `spawn character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HandMorphTest 实例
+HandMorphTest handMorphTest = ...;
+handMorphTest.SpawnCharacter();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 HandMorphTest 实例
+HandMorphTest handMorphTest = ...;
+handMorphTest.Reset();
+```
 
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode)`
 
-**用途 / Purpose:** 初始化 `with character` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「with character」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 HandMorphTest 实例
+HandMorphTest handMorphTest = ...;
+handMorphTest.InitWithCharacter(characterCode);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HandMorphTest();
-value.SpawnCharacter();
+// 通常从对应子系统 API 获取实例后调用
+HandMorphTest handMorphTest = ...;
+handMorphTest.SpawnCharacter();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

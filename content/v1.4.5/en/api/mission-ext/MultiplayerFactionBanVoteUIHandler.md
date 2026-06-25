@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerFactionBanVoteUIHandler"
+description: "Auto-generated class reference for MultiplayerFactionBanVoteUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerFactionBanVoteUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerFactionBanVoteUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerFactionBanVoteUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerFactionBanVoteUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerFactionBanVoteUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MultiplayerFactionBanVoteUIHandler` as a Handler-style extension point: f
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerFactionBanVoteUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerFactionBanVoteUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

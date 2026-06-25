@@ -1,13 +1,7 @@
 ---
 title: "BehaviorShootFromCliff"
+description: "Auto-generated class reference for BehaviorShootFromCliff."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorShootFromCliff`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorShootFromCliff
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetTacticalDefendPosition
 `public void SetTacticalDefendPosition(TacticalPosition tacticalPosition)`
 
-**Purpose:** Sets the value or state of `tactical defend position`.
+**Purpose:** Assigns a new value to `tactical defend position` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BehaviorShootFromCliff from the subsystem API first
+BehaviorShootFromCliff behaviorShootFromCliff = ...;
+behaviorShootFromCliff.SetTacticalDefendPosition(tacticalPosition);
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorShootFromCliff from the subsystem API first
+BehaviorShootFromCliff behaviorShootFromCliff = ...;
+behaviorShootFromCliff.TickOccasionally();
+```
 
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**Purpose:** Resets `behavior` to its initial state.
+**Purpose:** Returns `behavior` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BehaviorShootFromCliff from the subsystem API first
+BehaviorShootFromCliff behaviorShootFromCliff = ...;
+behaviorShootFromCliff.ResetBehavior();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorShootFromCliff();
-value.SetTacticalDefendPosition(tacticalPosition);
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorShootFromCliff behaviorShootFromCliff = ...;
+behaviorShootFromCliff.SetTacticalDefendPosition(tacticalPosition);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

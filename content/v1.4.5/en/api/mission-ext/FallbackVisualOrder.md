@@ -1,20 +1,14 @@
 ---
 title: "FallbackVisualOrder"
+description: "Auto-generated class reference for FallbackVisualOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FallbackVisualOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FallbackVisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.Default.Orders.MovementOrders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FallbackVisualOrder : VisualOrder`
 **Base:** `VisualOrder`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.Default.Orders.MovementOrders/FallbackVisualOrder.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.Default.Orders.MovementOrders/FallbackVisualOrder.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of FallbackVisualOrder from the subsystem API first
+FallbackVisualOrder fallbackVisualOrder = ...;
+var result = fallbackVisualOrder.GetName(orderController);
+```
 
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Executes the `order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `order`.
+
+```csharp
+// Obtain an instance of FallbackVisualOrder from the subsystem API first
+FallbackVisualOrder fallbackVisualOrder = ...;
+fallbackVisualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**Purpose:** Handles logic related to `is targeted`.
+**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+
+```csharp
+// Obtain an instance of FallbackVisualOrder from the subsystem API first
+FallbackVisualOrder fallbackVisualOrder = ...;
+var result = fallbackVisualOrder.IsTargeted();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FallbackVisualOrder();
-value.GetName(orderController);
+// Typically call this after obtaining an instance from the subsystem API
+FallbackVisualOrder fallbackVisualOrder = ...;
+fallbackVisualOrder.GetName(orderController);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

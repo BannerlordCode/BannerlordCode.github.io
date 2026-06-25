@@ -1,20 +1,14 @@
 ---
 title: "ChoosingSkillFocusStep1Tutorial"
+description: "Auto-generated class reference for ChoosingSkillFocusStep1Tutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChoosingSkillFocusStep1Tutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChoosingSkillFocusStep1Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class ChoosingSkillFocusStep1Tutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/ChoosingSkillFocusStep1Tutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/ChoosingSkillFocusStep1Tutorial.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of ChoosingSkillFocusStep1Tutorial from the subsystem API first
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+var result = choosingSkillFocusStep1Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnTutorialContextChanged
 `public override void OnTutorialContextChanged(TutorialContextChangedEvent obj)`
 
-**Purpose:** Called when the `tutorial context changed` event is raised.
+**Purpose:** Invoked when the `tutorial context changed` event is raised.
+
+```csharp
+// Obtain an instance of ChoosingSkillFocusStep1Tutorial from the subsystem API first
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+choosingSkillFocusStep1Tutorial.OnTutorialContextChanged(obj);
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of ChoosingSkillFocusStep1Tutorial from the subsystem API first
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+var result = choosingSkillFocusStep1Tutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of ChoosingSkillFocusStep1Tutorial from the subsystem API first
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+var result = choosingSkillFocusStep1Tutorial.IsConditionsMetForActivation();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ChoosingSkillFocusStep1Tutorial();
-value.IsConditionsMetForCompletion();
+// Typically call this after obtaining an instance from the subsystem API
+ChoosingSkillFocusStep1Tutorial choosingSkillFocusStep1Tutorial = ...;
+choosingSkillFocusStep1Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

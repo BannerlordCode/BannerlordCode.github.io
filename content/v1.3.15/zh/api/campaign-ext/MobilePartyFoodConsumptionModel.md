@@ -1,13 +1,7 @@
 ---
 title: "MobilePartyFoodConsumptionModel"
+description: "MobilePartyFoodConsumptionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MobilePartyFoodConsumptionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MobilePartyFoodConsumptionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,24 +29,43 @@ title: "MobilePartyFoodConsumptionModel"
 ### CalculateDailyBaseFoodConsumptionf
 `public abstract ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)`
 
-**用途 / Purpose:** 处理 `calculate daily base food consumptionf` 相关逻辑。
+**用途 / Purpose:** 计算「daily base food consumptionf」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyFoodConsumptionModel 实例
+MobilePartyFoodConsumptionModel mobilePartyFoodConsumptionModel = ...;
+var result = mobilePartyFoodConsumptionModel.CalculateDailyBaseFoodConsumptionf(party, false);
+```
 
 ### CalculateDailyFoodConsumptionf
 `public abstract ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)`
 
-**用途 / Purpose:** 处理 `calculate daily food consumptionf` 相关逻辑。
+**用途 / Purpose:** 计算「daily food consumptionf」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyFoodConsumptionModel 实例
+MobilePartyFoodConsumptionModel mobilePartyFoodConsumptionModel = ...;
+var result = mobilePartyFoodConsumptionModel.CalculateDailyFoodConsumptionf(party, baseConsumption);
+```
 
 ### DoesPartyConsumeFood
 `public abstract bool DoesPartyConsumeFood(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `does party consume food` 相关逻辑。
+**用途 / Purpose:** 返回「party consume food」对当前对象是否成立的布尔结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyFoodConsumptionModel 实例
+MobilePartyFoodConsumptionModel mobilePartyFoodConsumptionModel = ...;
+var result = mobilePartyFoodConsumptionModel.DoesPartyConsumeFood(mobileParty);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMobilePartyFoodConsumptionModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MobilePartyFoodConsumptionModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

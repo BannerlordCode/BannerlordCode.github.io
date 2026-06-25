@@ -1,13 +1,7 @@
 ---
 title: "VoiceGroupPersonaEarnestLowerTag"
+description: "Auto-generated class reference for VoiceGroupPersonaEarnestLowerTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VoiceGroupPersonaEarnestLowerTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VoiceGroupPersonaEarnestLowerTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of VoiceGroupPersonaEarnestLowerTag from the subsystem API first
+VoiceGroupPersonaEarnestLowerTag voiceGroupPersonaEarnestLowerTag = ...;
+var result = voiceGroupPersonaEarnestLowerTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VoiceGroupPersonaEarnestLowerTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+VoiceGroupPersonaEarnestLowerTag voiceGroupPersonaEarnestLowerTag = ...;
+voiceGroupPersonaEarnestLowerTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

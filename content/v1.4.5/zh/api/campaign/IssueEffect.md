@@ -1,20 +1,14 @@
 ---
 title: "IssueEffect"
+description: "IssueEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IssueEffect`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IssueEffect
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class IssueEffect : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueEffect.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueEffect.cs`
 
 ## 概述
 
@@ -36,20 +30,33 @@ title: "IssueEffect"
 ### Initialize
 `public void Initialize(TextObject name, TextObject description)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 IssueEffect 实例
+IssueEffect issueEffect = ...;
+issueEffect.Initialize(name, description);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 IssueEffect 实例
+IssueEffect issueEffect = ...;
+var result = issueEffect.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new IssueEffect();
-value.Initialize(name, description);
+// 通常从对应子系统 API 获取实例后调用
+IssueEffect issueEffect = ...;
+issueEffect.Initialize(name, description);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

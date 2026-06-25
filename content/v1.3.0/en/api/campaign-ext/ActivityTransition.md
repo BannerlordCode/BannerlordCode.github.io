@@ -1,18 +1,12 @@
 ---
 title: "ActivityTransition"
+description: "Auto-generated class reference for ActivityTransition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActivityTransition`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ActivityTransition
 
 **Namespace:** TaleWorlds.ActivitySystem
 **Module:** TaleWorlds.ActivitySystem
-**Type:** `class`
+**Type:** `public enum ActivityTransition`
 **Base:** none
 **File:** `TaleWorlds.ActivitySystem/ActivityTransition.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ActivitySystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new ActivityTransition();
+// Obtain an instance from the relevant subsystem API
+ActivityTransition instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

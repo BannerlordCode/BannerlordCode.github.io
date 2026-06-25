@@ -1,13 +1,7 @@
 ---
 title: "PeerExtensions"
+description: "Auto-generated class reference for PeerExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PeerExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeerExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,37 +23,72 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SendExistingObjects
 `public static void SendExistingObjects(this NetworkCommunicator peer, Mission mission)`
 
-**Purpose:** Handles logic related to `send existing objects`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PeerExtensions.SendExistingObjects(peer, mission);
+```
 
 ### GetPeer
 `public static VirtualPlayer GetPeer(this PeerComponent peerComponent)`
 
-**Purpose:** Gets the current value of `peer`.
+**Purpose:** Reads and returns the `peer` value held by the current object.
+
+```csharp
+// Static call; no instance required
+PeerExtensions.GetPeer(peerComponent);
+```
 
 ### GetNetworkPeer
 `public static NetworkCommunicator GetNetworkPeer(this PeerComponent peerComponent)`
 
-**Purpose:** Gets the current value of `network peer`.
+**Purpose:** Reads and returns the `network peer` value held by the current object.
+
+```csharp
+// Static call; no instance required
+PeerExtensions.GetNetworkPeer(peerComponent);
+```
 
 ### RemoveComponent
 `public static void RemoveComponent(this NetworkCommunicator networkPeer, PeerComponent component)`
 
 **Purpose:** Removes `component` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+PeerExtensions.RemoveComponent(networkPeer, component);
+```
+
 ### GetComponent
 `public static PeerComponent GetComponent(this NetworkCommunicator networkPeer, uint componentId)`
 
-**Purpose:** Gets the current value of `component`.
+**Purpose:** Reads and returns the `component` value held by the current object.
+
+```csharp
+// Static call; no instance required
+PeerExtensions.GetComponent(networkPeer, 0);
+```
 
 ### AddComponent
 `public static void AddComponent(this NetworkCommunicator networkPeer, Type peerComponentType)`
 
 **Purpose:** Adds `component` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+PeerExtensions.AddComponent(networkPeer, peerComponentType);
+```
+
 ### AddComponent
 `public static void AddComponent(this NetworkCommunicator networkPeer, uint componentId)`
 
 **Purpose:** Adds `component` to the current collection or state.
+
+```csharp
+// Static call; no instance required
+PeerExtensions.AddComponent(networkPeer, 0);
+```
 
 ## Usage Example
 
@@ -69,4 +98,4 @@ PeerExtensions.SendExistingObjects(peer, mission);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

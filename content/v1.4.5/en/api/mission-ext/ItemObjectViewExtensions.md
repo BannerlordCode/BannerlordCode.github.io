@@ -1,23 +1,18 @@
 ---
 title: "ItemObjectViewExtensions"
+description: "Auto-generated class reference for ItemObjectViewExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemObjectViewExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemObjectViewExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ItemObjectViewExtensions`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/ItemObjectViewExtensions.cs`
 
 ## Overview
 
-`ItemObjectViewExtensions` lives in `TaleWorlds.MountAndBlade.View`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ItemObjectViewExtensions` lives in `TaleWorlds.MountAndBlade.View` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,31 +23,49 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetCraftedMultiMesh
 `public static MetaMesh GetCraftedMultiMesh(this ItemObject itemObject, bool needBatchedVersion)`
 
-**Purpose:** Gets the current value of `crafted multi mesh`.
+**Purpose:** Reads and returns the `crafted multi mesh` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObjectViewExtensions.GetCraftedMultiMesh(itemObject, false);
+```
 
 ### GetMultiMeshCopy
 `public static MetaMesh GetMultiMeshCopy(this ItemObject itemObject)`
 
-**Purpose:** Gets the current value of `multi mesh copy`.
+**Purpose:** Reads and returns the `multi mesh copy` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObjectViewExtensions.GetMultiMeshCopy(itemObject);
+```
 
 ### GetMultiMeshCopyWithGenderData
 `public static MetaMesh GetMultiMeshCopyWithGenderData(this ItemObject itemObject, bool isFemale, bool useSlimVersion, bool needBatchedVersion)`
 
-**Purpose:** Gets the current value of `multi mesh copy with gender data`.
+**Purpose:** Reads and returns the `multi mesh copy with gender data` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObjectViewExtensions.GetMultiMeshCopyWithGenderData(itemObject, false, false, false);
+```
 
 ### GetScaledFrame
 `public static MatrixFrame GetScaledFrame(this ItemObject itemObject, Mat3 rotationMatrix, MetaMesh metaMesh, float scaleFactor, Vec3 positionShift)`
 
-**Purpose:** Gets the current value of `scaled frame`.
+**Purpose:** Reads and returns the `scaled frame` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObjectViewExtensions.GetScaledFrame(itemObject, rotationMatrix, metaMesh, 0, positionShift);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ItemObjectViewExtensions.GetCraftedMultiMesh(itemObject, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

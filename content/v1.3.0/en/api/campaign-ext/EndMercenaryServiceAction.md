@@ -1,18 +1,8 @@
 ---
 title: "EndMercenaryServiceAction"
+description: "Auto-generated campaign action reference for EndMercenaryServiceAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EndMercenaryServiceAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EndMercenaryServiceAction
-
-## Mental Model
-
-Treat `EndMercenaryServiceAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -56,5 +46,5 @@ EndMercenaryServiceAction.EndByDefault(clan);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

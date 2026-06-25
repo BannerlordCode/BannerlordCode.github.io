@@ -1,13 +1,7 @@
 ---
 title: "PlayerJoinGameResponseDataFromHost"
+description: "Auto-generated class reference for PlayerJoinGameResponseDataFromHost."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerJoinGameResponseDataFromHost`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerJoinGameResponseDataFromHost
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new PlayerJoinGameResponseDataFromHost();
+// Obtain an instance from the relevant subsystem API
+PlayerJoinGameResponseDataFromHost instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

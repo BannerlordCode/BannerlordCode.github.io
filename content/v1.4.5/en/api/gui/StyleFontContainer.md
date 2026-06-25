@@ -1,20 +1,14 @@
 ---
 title: "StyleFontContainer"
+description: "Auto-generated class reference for StyleFontContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StyleFontContainer`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StyleFontContainer
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class StyleFontContainer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/StyleFontContainer.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/StyleFontContainer.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### FontData
 `public struct FontData(Font font, float fontSize)`
 
-**Purpose:** Handles logic related to `font data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StyleFontContainer from the subsystem API first
+StyleFontContainer styleFontContainer = ...;
+var result = styleFontContainer.FontData(font, 0);
+```
 
 ### Add
 `public void Add(string style, Font font, float fontSize)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of StyleFontContainer from the subsystem API first
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.Add("example", font, 0);
+```
 
 ### GetFontData
 `public FontData GetFontData(string style)`
 
-**Purpose:** Gets the current value of `font data`.
+**Purpose:** Reads and returns the `font data` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleFontContainer from the subsystem API first
+StyleFontContainer styleFontContainer = ...;
+var result = styleFontContainer.GetFontData("example");
+```
 
 ### ClearFonts
 `public void ClearFonts()`
 
-**Purpose:** Handles logic related to `clear fonts`.
+**Purpose:** Removes all `fonts` from the current object.
+
+```csharp
+// Obtain an instance of StyleFontContainer from the subsystem API first
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.ClearFonts();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StyleFontContainer();
-value.FontData(font, 0);
+// Typically call this after obtaining an instance from the subsystem API
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.FontData(font, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

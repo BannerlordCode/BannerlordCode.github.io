@@ -1,20 +1,14 @@
 ---
 title: "OverrideEncyclopediaModel"
+description: "OverrideEncyclopediaModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OverrideEncyclopediaModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OverrideEncyclopediaModel
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class OverrideEncyclopediaModel : EncyclopediaModelBase`
 **Base:** `EncyclopediaModelBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/OverrideEncyclopediaModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/OverrideEncyclopediaModel.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ Game.Current.ReplaceModel<OverrideEncyclopediaModel>(new MyOverrideEncyclopediaM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

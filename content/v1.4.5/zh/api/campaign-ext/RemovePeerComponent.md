@@ -1,20 +1,14 @@
 ---
 title: "RemovePeerComponent"
+description: "RemovePeerComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RemovePeerComponent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemovePeerComponent
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RemovePeerComponent : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemovePeerComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemovePeerComponent.cs`
 
 ## 概述
 
@@ -39,4 +33,4 @@ var component = agent.GetComponent<RemovePeerComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

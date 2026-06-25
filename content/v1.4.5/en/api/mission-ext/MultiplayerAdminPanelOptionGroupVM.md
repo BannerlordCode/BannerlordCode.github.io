@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminPanelOptionGroupVM"
+description: "Auto-generated class reference for MultiplayerAdminPanelOptionGroupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAdminPanelOptionGroupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelOptionGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminPanelOptionGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelOptionGroupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelOptionGroupVM.cs`
 
 ## Overview
 
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelOptionGroupVM from the subsystem API first
+MultiplayerAdminPanelOptionGroupVM multiplayerAdminPanelOptionGroupVM = ...;
+multiplayerAdminPanelOptionGroupVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelOptionGroupVM from the subsystem API first
+MultiplayerAdminPanelOptionGroupVM multiplayerAdminPanelOptionGroupVM = ...;
+multiplayerAdminPanelOptionGroupVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerAdminPanelOptionGroupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerAdminPanelOptionGroupVM multiplayerAdminPanelOptionGroupVM = ...;
+multiplayerAdminPanelOptionGroupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

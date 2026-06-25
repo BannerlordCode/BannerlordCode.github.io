@@ -1,13 +1,7 @@
 ---
 title: "CommentSection"
+description: "Auto-generated class reference for CommentSection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommentSection`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommentSection
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -31,18 +25,31 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 
 **Purpose:** Adds `comment line` to the current collection or state.
 
+```csharp
+// Obtain an instance of CommentSection from the subsystem API first
+CommentSection commentSection = ...;
+commentSection.AddCommentLine("example");
+```
+
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Handles logic related to `generate into`.
+**Purpose:** Generates an instance, data, or representation of `into`.
+
+```csharp
+// Obtain an instance of CommentSection from the subsystem API first
+CommentSection commentSection = ...;
+commentSection.GenerateInto(codeGenerationFile);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommentSection();
-value.AddCommentLine("example");
+// Typically call this after obtaining an instance from the subsystem API
+CommentSection commentSection = ...;
+commentSection.AddCommentLine("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

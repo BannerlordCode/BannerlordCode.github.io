@@ -1,13 +1,7 @@
 ---
 title: "AlleyHelper"
+description: "AlleyHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AlleyHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AlleyHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ title: "AlleyHelper"
 ### OpenScreenForManagingAlley
 `public static void OpenScreenForManagingAlley(bool isNewAlley, TroopRoster leftMemberRoster, PartyPresentationDoneButtonDelegate onDoneButtonClicked, TextObject leftText, PartyPresentationCancelButtonDelegate onCancelButtonClicked = null)`
 
-**用途 / Purpose:** 处理 `open screen for managing alley` 相关逻辑。
+**用途 / Purpose:** 打开「screen for managing alley」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+AlleyHelper.OpenScreenForManagingAlley(false, leftMemberRoster, onDoneButtonClicked, leftText, null);
+```
 
 ### CreateMultiSelectionInquiryForSelectingClanMemberToAlley
 `public static void CreateMultiSelectionInquiryForSelectingClanMemberToAlley(Alley alley, Action<List<InquiryElement>> affirmativeAction, Action<List<InquiryElement>> negativeAction)`
 
-**用途 / Purpose:** 创建一个 `multi selection inquiry for selecting clan member to alley` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「multi selection inquiry for selecting clan member to alley」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+AlleyHelper.CreateMultiSelectionInquiryForSelectingClanMemberToAlley(alley, affirmativeAction, negativeAction);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ AlleyHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

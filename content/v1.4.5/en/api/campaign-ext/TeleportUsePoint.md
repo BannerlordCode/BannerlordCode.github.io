@@ -1,20 +1,14 @@
 ---
 title: "TeleportUsePoint"
+description: "Auto-generated class reference for TeleportUsePoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeleportUsePoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeleportUsePoint
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class TeleportUsePoint : StandingPoint`
 **Base:** `StandingPoint`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/TeleportUsePoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/TeleportUsePoint.cs`
 
 ## Overview
 
@@ -29,45 +23,88 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### IsAIMovingTo
 `public override bool IsAIMovingTo(Agent agent)`
 
-**Purpose:** Handles logic related to `is a i moving to`.
+**Purpose:** Determines whether the current object is in the `a i moving to` state or condition.
+
+```csharp
+// Obtain an instance of TeleportUsePoint from the subsystem API first
+TeleportUsePoint teleportUsePoint = ...;
+var result = teleportUsePoint.IsAIMovingTo(agent);
+```
 
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** Handles logic related to `is usable by agent`.
+**Purpose:** Determines whether the current object is in the `usable by agent` state or condition.
+
+```csharp
+// Obtain an instance of TeleportUsePoint from the subsystem API first
+TeleportUsePoint teleportUsePoint = ...;
+var result = teleportUsePoint.IsUsableByAgent(userAgent);
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of TeleportUsePoint from the subsystem API first
+TeleportUsePoint teleportUsePoint = ...;
+var result = teleportUsePoint.IsDisabledForAgent(agent);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of TeleportUsePoint from the subsystem API first
+TeleportUsePoint teleportUsePoint = ...;
+teleportUsePoint.OnUse(userAgent, 0);
+```
 
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** Handles logic related to `deactivate`.
+**Purpose:** Deactivates the resource, state, or feature represented by the current object.
+
+```csharp
+// Obtain an instance of TeleportUsePoint from the subsystem API first
+TeleportUsePoint teleportUsePoint = ...;
+teleportUsePoint.Deactivate();
+```
 
 ### Activate
 `public void Activate()`
 
-**Purpose:** Handles logic related to `activate`.
+**Purpose:** Activates the resource, state, or feature represented by the current object.
+
+```csharp
+// Obtain an instance of TeleportUsePoint from the subsystem API first
+TeleportUsePoint teleportUsePoint = ...;
+teleportUsePoint.Activate();
+```
 
 ### OnFocusGain
 `public override void OnFocusGain(Agent userAgent)`
 
-**Purpose:** Called when the `focus gain` event is raised.
+**Purpose:** Invoked when the `focus gain` event is raised.
+
+```csharp
+// Obtain an instance of TeleportUsePoint from the subsystem API first
+TeleportUsePoint teleportUsePoint = ...;
+teleportUsePoint.OnFocusGain(userAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeleportUsePoint();
-value.IsAIMovingTo(agent);
+// Typically call this after obtaining an instance from the subsystem API
+TeleportUsePoint teleportUsePoint = ...;
+teleportUsePoint.IsAIMovingTo(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "CallbackDebugTool"
+description: "Auto-generated class reference for CallbackDebugTool."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CallbackDebugTool`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CallbackDebugTool
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class CallbackDebugTool`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.DotNet/CallbackDebugTool.cs`
 
 ## Overview
 
-`CallbackDebugTool` lives in `TaleWorlds.DotNet`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CallbackDebugTool` lives in `TaleWorlds.DotNet` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -30,29 +25,47 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 
 **Purpose:** Adds `log` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+CallbackDebugTool.AddLog("example");
+```
+
 ### FrameEnd
 `public static void FrameEnd()`
 
-**Purpose:** Handles logic related to `frame end`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CallbackDebugTool.FrameEnd();
+```
 
 ### Reset
 `public static void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+CallbackDebugTool.Reset();
+```
 
 ### ShowResults
 `public static string ShowResults()`
 
-**Purpose:** Handles logic related to `show results`.
+**Purpose:** Displays the UI or element associated with `results`.
+
+```csharp
+// Static call; no instance required
+CallbackDebugTool.ShowResults();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CallbackDebugTool.AddLog("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

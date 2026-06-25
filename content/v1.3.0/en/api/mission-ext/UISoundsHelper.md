@@ -1,13 +1,7 @@
 ---
 title: "UISoundsHelper"
+description: "Auto-generated class reference for UISoundsHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UISoundsHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UISoundsHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,7 +23,12 @@ Treat `UISoundsHelper` as a Helper-style extension point: first identify who cre
 ### PlayUISound
 `public static void PlayUISound(string soundName)`
 
-**Purpose:** Handles logic related to `play u i sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+UISoundsHelper.PlayUISound("example");
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ UISoundsHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

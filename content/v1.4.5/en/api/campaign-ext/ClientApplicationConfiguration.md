@@ -1,20 +1,14 @@
 ---
 title: "ClientApplicationConfiguration"
+description: "Auto-generated class reference for ClientApplicationConfiguration."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClientApplicationConfiguration`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClientApplicationConfiguration
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ClientApplicationConfiguration`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/ClientApplicationConfiguration.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/ClientApplicationConfiguration.cs`
 
 ## Overview
 
@@ -39,22 +33,44 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ### GetDefaultConfigurationFromFile
 `public static string GetDefaultConfigurationFromFile()`
 
-**Purpose:** Gets the current value of `default configuration from file`.
+**Purpose:** Reads and returns the `default configuration from file` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
+```
 
 ### SetDefaultConfigurationCategory
 `public static void SetDefaultConfigurationCategory(string category)`
 
-**Purpose:** Sets the value or state of `default configuration category`.
+**Purpose:** Assigns a new value to `default configuration category` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+ClientApplicationConfiguration.SetDefaultConfigurationCategory("example");
+```
 
 ### FillFrom
 `public void FillFrom(string configurationName)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientApplicationConfiguration from the subsystem API first
+ClientApplicationConfiguration clientApplicationConfiguration = ...;
+clientApplicationConfiguration.FillFrom("example");
+```
 
 ### FillFrom
 `public void FillFrom(string configurationCategory, string configurationName)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientApplicationConfiguration from the subsystem API first
+ClientApplicationConfiguration clientApplicationConfiguration = ...;
+clientApplicationConfiguration.FillFrom("example", "example");
+```
 
 ## Usage Example
 
@@ -64,4 +80,4 @@ ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

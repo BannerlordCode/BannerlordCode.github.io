@@ -1,18 +1,8 @@
 ---
 title: "ChangeGovernorAction"
+description: "Auto-generated campaign action reference for ChangeGovernorAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeGovernorAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChangeGovernorAction
-
-## Mental Model
-
-Treat `ChangeGovernorAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -29,7 +19,7 @@ ChangeGovernorAction is a set of static methods that trigger "ChangeGovernor" in
 public static void Apply(Town fortification, Hero governor)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ### RemoveGovernorOf
 
@@ -56,5 +46,5 @@ ChangeGovernorAction.Apply(fortification, governor);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

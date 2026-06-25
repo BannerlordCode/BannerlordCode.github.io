@@ -1,20 +1,14 @@
 ---
 title: "PlayerQuitFromMatchmakerGameResult"
+description: "PlayerQuitFromMatchmakerGameResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerQuitFromMatchmakerGameResult`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerQuitFromMatchmakerGameResult
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerQuitFromMatchmakerGameResult : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerQuitFromMatchmakerGameResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerQuitFromMatchmakerGameResult.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "PlayerQuitFromMatchmakerGameResult"
 ## 使用示例
 
 ```csharp
-var example = new PlayerQuitFromMatchmakerGameResult();
+// 从对应子系统 API 获取实例
+PlayerQuitFromMatchmakerGameResult instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

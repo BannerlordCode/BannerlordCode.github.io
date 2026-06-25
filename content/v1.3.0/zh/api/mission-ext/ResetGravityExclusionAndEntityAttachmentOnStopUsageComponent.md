@@ -1,13 +1,7 @@
 ---
 title: "ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent"
+description: "ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -32,4 +26,4 @@ var component = agent.GetComponent<ResetGravityExclusionAndEntityAttachmentOnSto
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

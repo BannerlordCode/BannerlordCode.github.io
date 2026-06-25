@@ -1,13 +1,7 @@
 ---
 title: "OrderTroopPlacer"
+description: "OrderTroopPlacer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderTroopPlacer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTroopPlacer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Order
@@ -36,30 +30,55 @@ title: "OrderTroopPlacer"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.OnMissionTick(0);
+```
 
 ### RestrictOrdersToDeploymentBoundaries
 `public void RestrictOrdersToDeploymentBoundaries(bool enabled)`
 
-**用途 / Purpose:** 处理 `restrict orders to deployment boundaries` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.RestrictOrdersToDeploymentBoundaries(false);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderTroopPlacer();
-value.AfterStart();
+// 通常从对应子系统 API 获取实例后调用
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.AfterStart();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

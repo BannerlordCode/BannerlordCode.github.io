@@ -1,20 +1,14 @@
 ---
 title: "TraitChangedMapNotification"
+description: "Auto-generated class reference for TraitChangedMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TraitChangedMapNotification`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TraitChangedMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TraitChangedMapNotification : InformationData`
 **Base:** `InformationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/TraitChangedMapNotification.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/TraitChangedMapNotification.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ## Usage Example
 
 ```csharp
-var example = new TraitChangedMapNotification();
+// Obtain an instance from the relevant subsystem API
+TraitChangedMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

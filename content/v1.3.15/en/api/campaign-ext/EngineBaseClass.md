@@ -1,13 +1,7 @@
 ---
 title: "EngineBaseClass"
+description: "Auto-generated class reference for EngineBaseClass."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineBaseClass`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EngineBaseClass
 
 **Namespace:** TaleWorlds.DotNet
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEngineBaseClass();
+// Typically obtained from a subsystem API or factory
+EngineBaseClass instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

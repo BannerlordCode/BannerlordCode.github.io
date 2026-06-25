@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPerkContainerPanelWidget"
+description: "Auto-generated class reference for MultiplayerPerkContainerPanelWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPerkContainerPanelWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPerkContainerPanelWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPerkContainerPanelWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks/MultiplayerPerkContainerPanelWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks/MultiplayerPerkContainerPanelWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `MultiplayerPerkContainerPanelWidget` as a Widget-style extension point: f
 ### PerkSelected
 `public void PerkSelected(MultiplayerPerkItemToggleWidget selectedItem)`
 
-**Purpose:** Handles logic related to `perk selected`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerPerkContainerPanelWidget from the subsystem API first
+MultiplayerPerkContainerPanelWidget multiplayerPerkContainerPanelWidget = ...;
+multiplayerPerkContainerPanelWidget.PerkSelected(selectedItem);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerPerkContainerPanelWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerPerkContainerPanelWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

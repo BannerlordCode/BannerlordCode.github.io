@@ -1,13 +1,7 @@
 ---
 title: "PartyLeaderChangeNotificationVM"
+description: "Auto-generated class reference for PartyLeaderChangeNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyLeaderChangeNotificationVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyLeaderChangeNotificationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of PartyLeaderChangeNotificationVM from the subsystem API first
+PartyLeaderChangeNotificationVM partyLeaderChangeNotificationVM = ...;
+partyLeaderChangeNotificationVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyLeaderChangeNotificationVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+PartyLeaderChangeNotificationVM partyLeaderChangeNotificationVM = ...;
+partyLeaderChangeNotificationVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

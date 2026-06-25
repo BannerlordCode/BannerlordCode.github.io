@@ -1,13 +1,7 @@
 ---
 title: "ClanPartyType"
+description: "Auto-generated class reference for ClanPartyType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanPartyType`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanPartyType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ## Usage Example
 
 ```csharp
-ClanPartyType example = ClanPartyType.Value;
+// Obtain an instance from the relevant subsystem API
+ClanPartyType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

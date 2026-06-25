@@ -1,13 +1,7 @@
 ---
 title: "AntiEmpireConspiracyBeginsSceneNotificationItem"
+description: "Auto-generated class reference for AntiEmpireConspiracyBeginsSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AntiEmpireConspiracyBeginsSceneNotificationItem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AntiEmpireConspiracyBeginsSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ## Usage Example
 
 ```csharp
-var value = new AntiEmpireConspiracyBeginsSceneNotificationItem();
+// Obtain an instance from the relevant subsystem API
+AntiEmpireConspiracyBeginsSceneNotificationItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

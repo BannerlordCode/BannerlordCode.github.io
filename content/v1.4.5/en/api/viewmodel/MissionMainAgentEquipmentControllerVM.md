@@ -1,20 +1,14 @@
 ---
 title: "MissionMainAgentEquipmentControllerVM"
+description: "Auto-generated class reference for MissionMainAgentEquipmentControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentEquipmentControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentEquipmentControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMainAgentEquipmentControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionMainAgentEquipmentControllerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionMainAgentEquipmentControllerVM.cs`
 
 ## Overview
 
@@ -42,45 +36,87 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.RefreshValues();
+```
 
 ### OnDropControllerToggle
 `public void OnDropControllerToggle(bool isActive)`
 
-**Purpose:** Called when the `drop controller toggle` event is raised.
+**Purpose:** Invoked when the `drop controller toggle` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.OnDropControllerToggle(false);
+```
 
 ### SetCurrentFocusedWeaponEntity
 `public void SetCurrentFocusedWeaponEntity(SpawnedItemEntity weaponEntity)`
 
-**Purpose:** Sets the value or state of `current focused weapon entity`.
+**Purpose:** Assigns a new value to `current focused weapon entity` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.SetCurrentFocusedWeaponEntity(weaponEntity);
+```
 
 ### OnEquipControllerToggle
 `public void OnEquipControllerToggle(bool isActive)`
 
-**Purpose:** Called when the `equip controller toggle` event is raised.
+**Purpose:** Invoked when the `equip controller toggle` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.OnEquipControllerToggle(false);
+```
 
 ### OnCancelEquipController
 `public void OnCancelEquipController()`
 
-**Purpose:** Called when the `cancel equip controller` event is raised.
+**Purpose:** Invoked when the `cancel equip controller` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.OnCancelEquipController();
+```
 
 ### OnCancelDropController
 `public void OnCancelDropController()`
 
-**Purpose:** Called when the `cancel drop controller` event is raised.
+**Purpose:** Invoked when the `cancel drop controller` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentEquipmentControllerVM from the subsystem API first
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.OnCancelDropController();
+```
 
 ### GetItemTypeAsString
 `public static string GetItemTypeAsString(ItemObject item)`
 
-**Purpose:** Gets the current value of `item type as string`.
+**Purpose:** Reads and returns the `item type as string` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionMainAgentEquipmentControllerVM.GetItemTypeAsString(item);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMainAgentEquipmentControllerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

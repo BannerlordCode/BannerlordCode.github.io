@@ -1,13 +1,7 @@
 ---
 title: "Intersection"
+description: "Auto-generated class reference for Intersection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Intersection`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Intersection
 
 **Namespace:** TaleWorlds.Engine
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### DoSegmentsIntersect
 `public static bool DoSegmentsIntersect(Vec2 line1Start, Vec2 line1Direction, Vec2 line2Start, Vec2 line2Direction, ref Vec2 intersectionPoint)`
 
-**Purpose:** Handles logic related to `do segments intersect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Intersection.DoSegmentsIntersect(line1Start, line1Direction, line2Start, line2Direction, intersectionPoint);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ Intersection.DoSegmentsIntersect(line1Start, line1Direction, line2Start, line2Di
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

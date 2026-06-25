@@ -1,13 +1,7 @@
 ---
 title: "DefaultPrisonerRecruitmentCalculationModel"
+description: "DefaultPrisonerRecruitmentCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPrisonerRecruitmentCalculationModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPrisonerRecruitmentCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,32 +23,68 @@ title: "DefaultPrisonerRecruitmentCalculationModel"
 ### GetConformityNeededToRecruitPrisoner
 `public override int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `conformity needed to recruit prisoner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conformity needed to recruit prisoner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerRecruitmentCalculationModel 实例
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.GetConformityNeededToRecruitPrisoner(character);
+```
 
 ### GetConformityChangePerHour
 `public override ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject troopToBoost)`
 
-**用途 / Purpose:** 获取 `conformity change per hour` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conformity change per hour」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerRecruitmentCalculationModel 实例
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.GetConformityChangePerHour(party, troopToBoost);
+```
 
 ### GetPrisonerRecruitmentMoraleEffect
 `public override int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**用途 / Purpose:** 获取 `prisoner recruitment morale effect` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「prisoner recruitment morale effect」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerRecruitmentCalculationModel 实例
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.GetPrisonerRecruitmentMoraleEffect(party, character, 0);
+```
 
 ### IsPrisonerRecruitable
 `public override bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**用途 / Purpose:** 处理 `is prisoner recruitable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「prisoner recruitable」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerRecruitmentCalculationModel 实例
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.IsPrisonerRecruitable(party, character, conformityNeeded);
+```
 
 ### ShouldPartyRecruitPrisoners
 `public override bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**用途 / Purpose:** 处理 `should party recruit prisoners` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerRecruitmentCalculationModel 实例
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.ShouldPartyRecruitPrisoners(party);
+```
 
 ### CalculateRecruitableNumber
 `public override int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** 处理 `calculate recruitable number` 相关逻辑。
+**用途 / Purpose:** 计算「recruitable number」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerRecruitmentCalculationModel 实例
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.CalculateRecruitableNumber(party, character);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultPrisonerRecruitmentCalculationModel>(new MyDefa
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

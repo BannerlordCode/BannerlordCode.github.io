@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaPageChangedEvent"
+description: "Auto-generated class reference for EncyclopediaPageChangedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaPageChangedEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaPageChangedEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaPageChangedEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaPageChangedEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaPageChangedEvent.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-var example = new EncyclopediaPageChangedEvent();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaPageChangedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

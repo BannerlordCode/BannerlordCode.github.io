@@ -1,13 +1,7 @@
 ---
 title: "SandboxGeneralsAndCaptainsAssignmentLogic"
+description: "SandboxGeneralsAndCaptainsAssignmentLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxGeneralsAndCaptainsAssignmentLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxGeneralsAndCaptainsAssignmentLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -27,9 +21,9 @@ title: "SandboxGeneralsAndCaptainsAssignmentLogic"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SandboxGeneralsAndCaptainsAssignmentLogic());
+var behavior = Mission.Current.GetMissionBehavior<SandboxGeneralsAndCaptainsAssignmentLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

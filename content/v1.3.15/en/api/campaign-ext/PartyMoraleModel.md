@@ -1,13 +1,7 @@
 ---
 title: "PartyMoraleModel"
+description: "Auto-generated class reference for PartyMoraleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyMoraleModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyMoraleModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,39 +29,76 @@ Treat `PartyMoraleModel` as a Model-style extension point: first identify who cr
 ### GetDailyStarvationMoralePenalty
 `public abstract int GetDailyStarvationMoralePenalty(PartyBase party)`
 
-**Purpose:** Gets the current value of `daily starvation morale penalty`.
+**Purpose:** Reads and returns the `daily starvation morale penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyMoraleModel from the subsystem API first
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetDailyStarvationMoralePenalty(party);
+```
 
 ### GetDailyNoWageMoralePenalty
 `public abstract int GetDailyNoWageMoralePenalty(MobileParty party)`
 
-**Purpose:** Gets the current value of `daily no wage morale penalty`.
+**Purpose:** Reads and returns the `daily no wage morale penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyMoraleModel from the subsystem API first
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetDailyNoWageMoralePenalty(party);
+```
 
 ### GetStandardBaseMorale
 `public abstract float GetStandardBaseMorale(PartyBase party)`
 
-**Purpose:** Gets the current value of `standard base morale`.
+**Purpose:** Reads and returns the `standard base morale` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyMoraleModel from the subsystem API first
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetStandardBaseMorale(party);
+```
 
 ### GetVictoryMoraleChange
 `public abstract float GetVictoryMoraleChange(PartyBase party)`
 
-**Purpose:** Gets the current value of `victory morale change`.
+**Purpose:** Reads and returns the `victory morale change` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyMoraleModel from the subsystem API first
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetVictoryMoraleChange(party);
+```
 
 ### GetDefeatMoraleChange
 `public abstract float GetDefeatMoraleChange(PartyBase party)`
 
-**Purpose:** Gets the current value of `defeat morale change`.
+**Purpose:** Reads and returns the `defeat morale change` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyMoraleModel from the subsystem API first
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetDefeatMoraleChange(party);
+```
 
 ### GetEffectivePartyMorale
 `public abstract ExplainedNumber GetEffectivePartyMorale(MobileParty party, bool includeDescription = false)`
 
-**Purpose:** Gets the current value of `effective party morale`.
+**Purpose:** Reads and returns the `effective party morale` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyMoraleModel from the subsystem API first
+PartyMoraleModel partyMoraleModel = ...;
+var result = partyMoraleModel.GetEffectivePartyMorale(party, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyMoraleModel();
+// Typically obtained from a subsystem API or factory
+PartyMoraleModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

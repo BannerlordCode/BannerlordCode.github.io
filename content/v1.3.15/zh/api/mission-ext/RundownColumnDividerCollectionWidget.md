@@ -1,13 +1,7 @@
 ---
 title: "RundownColumnDividerCollectionWidget"
+description: "RundownColumnDividerCollectionWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RundownColumnDividerCollectionWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RundownColumnDividerCollectionWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip
@@ -37,14 +31,21 @@ title: "RundownColumnDividerCollectionWidget"
 ### Refresh
 `public void Refresh(IReadOnlyList<float> columnWidths)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RundownColumnDividerCollectionWidget 实例
+RundownColumnDividerCollectionWidget rundownColumnDividerCollectionWidget = ...;
+rundownColumnDividerCollectionWidget.Refresh(columnWidths);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new RundownColumnDividerCollectionWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+RundownColumnDividerCollectionWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

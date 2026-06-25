@@ -1,13 +1,7 @@
 ---
 title: "DeclareWarLogEntry"
+description: "Auto-generated class reference for DeclareWarLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeclareWarLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeclareWarLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -36,40 +30,77 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** Handles logic related to `is related to war`.
+**Purpose:** Determines whether the current object is in the `related to war` state or condition.
+
+```csharp
+// Obtain an instance of DeclareWarLogEntry from the subsystem API first
+DeclareWarLogEntry declareWarLogEntry = ...;
+var result = declareWarLogEntry.IsRelatedToWar(stance, effector, effected);
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of DeclareWarLogEntry from the subsystem API first
+DeclareWarLogEntry declareWarLogEntry = ...;
+var result = declareWarLogEntry.GetNotificationText();
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of DeclareWarLogEntry from the subsystem API first
+DeclareWarLogEntry declareWarLogEntry = ...;
+declareWarLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### GetAsRumor
 `public override int GetAsRumor(Settlement talkSettlement, out TextObject comment)`
 
-**Purpose:** Gets the current value of `as rumor`.
+**Purpose:** Reads and returns the `as rumor` value held by the current object.
+
+```csharp
+// Obtain an instance of DeclareWarLogEntry from the subsystem API first
+DeclareWarLogEntry declareWarLogEntry = ...;
+var result = declareWarLogEntry.GetAsRumor(talkSettlement, comment);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of DeclareWarLogEntry from the subsystem API first
+DeclareWarLogEntry declareWarLogEntry = ...;
+var result = declareWarLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of DeclareWarLogEntry from the subsystem API first
+DeclareWarLogEntry declareWarLogEntry = ...;
+var result = declareWarLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DeclareWarLogEntry();
-value.IsRelatedToWar(stance, effector, effected);
+// Typically call this after obtaining an instance from the subsystem API
+DeclareWarLogEntry declareWarLogEntry = ...;
+declareWarLogEntry.IsRelatedToWar(stance, effector, effected);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

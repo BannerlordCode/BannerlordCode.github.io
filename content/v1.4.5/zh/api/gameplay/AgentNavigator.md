@@ -1,20 +1,14 @@
 ---
 title: "AgentNavigator"
+description: "AgentNavigator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentNavigator`
-- [← 本领域 / 返回 gameplay](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentNavigator
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public sealed class AgentNavigator`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/AgentNavigator.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/AgentNavigator.cs`
 
 ## 概述
 
@@ -42,115 +36,242 @@ title: "AgentNavigator"
 ### OnStopUsingGameObject
 `public void OnStopUsingGameObject()`
 
-**用途 / Purpose:** 当 `stop using game object` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「stop using game object」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.OnStopUsingGameObject();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.OnAgentRemoved(agent);
+```
 
 ### SetTarget
 `public void SetTarget(UsableMachine usableMachine, bool isInitialTarget = false, AIScriptedFrameFlags customFlags = (AIScriptedFrameFlags)0)`
 
-**用途 / Purpose:** 设置 `target` 的值或状态。
+**用途 / Purpose:** 为 「target」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.SetTarget(usableMachine, false, (AIScriptedFrameFlags)0);
+```
 
 ### SetTargetFrame
 `public void SetTargetFrame(WorldPosition position, float rotation, float rangeThreshold = 1f, float rotationThreshold = -10f, AIScriptedFrameFlags flags = (AIScriptedFrameFlags)0, bool disableClearTargetWhenTargetIsReached = false)`
 
-**用途 / Purpose:** 设置 `target frame` 的值或状态。
+**用途 / Purpose:** 为 「target frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.SetTargetFrame(position, 0, 0, 0, (AIScriptedFrameFlags)0, false);
+```
 
 ### ClearTarget
 `public void ClearTarget()`
 
-**用途 / Purpose:** 处理 `clear target` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「target」。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.ClearTarget();
+```
 
 ### Tick
 `public void Tick(float dt, bool isSimulation = false)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.Tick(0, false);
+```
 
 ### GetDistanceToTarget
 `public float GetDistanceToTarget(UsableMachine target)`
 
-**用途 / Purpose:** 获取 `distance to target` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「distance to target」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+var result = agentNavigator.GetDistanceToTarget(target);
+```
 
 ### IsTargetReached
 `public bool IsTargetReached()`
 
-**用途 / Purpose:** 处理 `is target reached` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「target reached」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+var result = agentNavigator.IsTargetReached();
+```
 
 ### HoldAndHideRecentlyUsedMeshes
 `public void HoldAndHideRecentlyUsedMeshes()`
 
-**用途 / Purpose:** 处理 `hold and hide recently used meshes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.HoldAndHideRecentlyUsedMeshes();
+```
 
 ### RecoverRecentlyUsedMeshes
 `public void RecoverRecentlyUsedMeshes()`
 
-**用途 / Purpose:** 处理 `recover recently used meshes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.RecoverRecentlyUsedMeshes();
+```
 
 ### CanSeeAgent
 `public bool CanSeeAgent(Agent otherAgent)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `see agent`。
+**用途 / Purpose:** 检查当前对象是否满足 「see agent」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+var result = agentNavigator.CanSeeAgent(otherAgent);
+```
 
 ### IsCarryingSomething
 `public bool IsCarryingSomething()`
 
-**用途 / Purpose:** 处理 `is carrying something` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「carrying something」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+var result = agentNavigator.IsCarryingSomething();
+```
 
 ### SetPrefabVisibility
 `public void SetPrefabVisibility(sbyte realBoneIndex, string prefabName, bool isVisible)`
 
-**用途 / Purpose:** 设置 `prefab visibility` 的值或状态。
+**用途 / Purpose:** 为 「prefab visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.SetPrefabVisibility(0, "example", false);
+```
 
 ### GetPrefabVisibility
 `public bool GetPrefabVisibility(sbyte realBoneIndex, string prefabName)`
 
-**用途 / Purpose:** 获取 `prefab visibility` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「prefab visibility」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+var result = agentNavigator.GetPrefabVisibility(0, "example");
+```
 
 ### SetSpecialItem
 `public void SetSpecialItem()`
 
-**用途 / Purpose:** 设置 `special item` 的值或状态。
+**用途 / Purpose:** 为 「special item」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.SetSpecialItem();
+```
 
 ### SetItemsVisibility
 `public void SetItemsVisibility(bool isVisible)`
 
-**用途 / Purpose:** 设置 `items visibility` 的值或状态。
+**用途 / Purpose:** 为 「items visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.SetItemsVisibility(false);
+```
 
 ### SetCommonArea
 `public void SetCommonArea(Alley alley)`
 
-**用途 / Purpose:** 设置 `common area` 的值或状态。
+**用途 / Purpose:** 为 「common area」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.SetCommonArea(alley);
+```
 
 ### ForceThink
 `public void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 处理 `force think` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.ForceThink(0);
+```
 
 ### RefreshBehaviorGroups
 `public void RefreshBehaviorGroups(bool isSimulation)`
 
-**用途 / Purpose:** 刷新 `behavior groups` 的显示或缓存。
+**用途 / Purpose:** 使 「behavior groups」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+agentNavigator.RefreshBehaviorGroups(false);
+```
 
 ### GetActiveBehavior
 `public AgentBehavior GetActiveBehavior()`
 
-**用途 / Purpose:** 获取 `active behavior` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active behavior」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+var result = agentNavigator.GetActiveBehavior();
+```
 
 ### GetActiveBehaviorGroup
 `public AgentBehaviorGroup GetActiveBehaviorGroup()`
 
-**用途 / Purpose:** 获取 `active behavior group` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active behavior group」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentNavigator 实例
+AgentNavigator agentNavigator = ...;
+var result = agentNavigator.GetActiveBehaviorGroup();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AgentNavigator();
-value.OnStopUsingGameObject();
+// 通常从对应子系统 API 获取实例后调用
+AgentNavigator agentNavigator = ...;
+agentNavigator.OnStopUsingGameObject();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

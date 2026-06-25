@@ -1,20 +1,14 @@
 ---
 title: "StoryModeBannerItemModel"
+description: "StoryModeBannerItemModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeBannerItemModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeBannerItemModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeBannerItemModel : BannerItemModel`
 **Base:** `BannerItemModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeBannerItemModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeBannerItemModel.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "StoryModeBannerItemModel"
 ### GetPossibleRewardBannerItems
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
 
-**用途 / Purpose:** 获取 `possible reward banner items` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「possible reward banner items」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeBannerItemModel 实例
+StoryModeBannerItemModel storyModeBannerItemModel = ...;
+var result = storyModeBannerItemModel.GetPossibleRewardBannerItems();
+```
 
 ### CanBannerBeUpdated
 `public override bool CanBannerBeUpdated(ItemObject item)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `banner be updated`。
+**用途 / Purpose:** 检查当前对象是否满足 「banner be updated」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeBannerItemModel 实例
+StoryModeBannerItemModel storyModeBannerItemModel = ...;
+var result = storyModeBannerItemModel.CanBannerBeUpdated(item);
+```
 
 ### GetPossibleRewardBannerItemsForHero
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `possible reward banner items for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「possible reward banner items for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeBannerItemModel 实例
+StoryModeBannerItemModel storyModeBannerItemModel = ...;
+var result = storyModeBannerItemModel.GetPossibleRewardBannerItemsForHero(hero);
+```
 
 ### GetBannerItemLevelForHero
 `public override int GetBannerItemLevelForHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `banner item level for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner item level for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeBannerItemModel 实例
+StoryModeBannerItemModel storyModeBannerItemModel = ...;
+var result = storyModeBannerItemModel.GetBannerItemLevelForHero(hero);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<StoryModeBannerItemModel>(new MyStoryModeBannerItemMod
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultPersuasionModel"
+description: "Auto-generated class reference for DefaultPersuasionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPersuasionModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPersuasionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,37 +23,79 @@ Treat `DefaultPersuasionModel` as a Model-style extension point: first identify 
 ### GetSkillXpFromPersuasion
 `public override int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
 
-**Purpose:** Gets the current value of `skill xp from persuasion`.
+**Purpose:** Reads and returns the `skill xp from persuasion` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPersuasionModel from the subsystem API first
+DefaultPersuasionModel defaultPersuasionModel = ...;
+var result = defaultPersuasionModel.GetSkillXpFromPersuasion(difficulty, 0);
+```
 
 ### GetChances
 `public override void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)`
 
-**Purpose:** Gets the current value of `chances`.
+**Purpose:** Reads and returns the `chances` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPersuasionModel from the subsystem API first
+DefaultPersuasionModel defaultPersuasionModel = ...;
+defaultPersuasionModel.GetChances(optionArgs, successChance, critSuccessChance, critFailChance, failChance, 0);
+```
 
 ### GetEffectChances
 `public override void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)`
 
-**Purpose:** Gets the current value of `effect chances`.
+**Purpose:** Reads and returns the `effect chances` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPersuasionModel from the subsystem API first
+DefaultPersuasionModel defaultPersuasionModel = ...;
+defaultPersuasionModel.GetEffectChances(option, moveToNextStageChance, blockRandomOptionChance, 0);
+```
 
 ### GetArgumentStrengthBasedOnTargetTraits
 `public override PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelations)`
 
-**Purpose:** Gets the current value of `argument strength based on target traits`.
+**Purpose:** Reads and returns the `argument strength based on target traits` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPersuasionModel from the subsystem API first
+DefaultPersuasionModel defaultPersuasionModel = ...;
+var result = defaultPersuasionModel.GetArgumentStrengthBasedOnTargetTraits(character, tuple<TraitObject, 0);
+```
 
 ### CalculateInitialPersuasionProgress
 `public override float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)`
 
-**Purpose:** Handles logic related to `calculate initial persuasion progress`.
+**Purpose:** Calculates the current value or result of `initial persuasion progress`.
+
+```csharp
+// Obtain an instance of DefaultPersuasionModel from the subsystem API first
+DefaultPersuasionModel defaultPersuasionModel = ...;
+var result = defaultPersuasionModel.CalculateInitialPersuasionProgress(character, 0, 0);
+```
 
 ### CalculatePersuasionGoalValue
 `public override float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)`
 
-**Purpose:** Handles logic related to `calculate persuasion goal value`.
+**Purpose:** Calculates the current value or result of `persuasion goal value`.
+
+```csharp
+// Obtain an instance of DefaultPersuasionModel from the subsystem API first
+DefaultPersuasionModel defaultPersuasionModel = ...;
+var result = defaultPersuasionModel.CalculatePersuasionGoalValue(oneToOneConversationCharacter, 0);
+```
 
 ### GetDifficulty
 `public override float GetDifficulty(PersuasionDifficulty difficulty)`
 
-**Purpose:** Gets the current value of `difficulty`.
+**Purpose:** Reads and returns the `difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPersuasionModel from the subsystem API first
+DefaultPersuasionModel defaultPersuasionModel = ...;
+var result = defaultPersuasionModel.GetDifficulty(difficulty);
+```
 
 ## Usage Example
 
@@ -69,4 +105,4 @@ Game.Current.ReplaceModel<DefaultPersuasionModel>(new MyDefaultPersuasionModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

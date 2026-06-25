@@ -1,13 +1,7 @@
 ---
 title: "MapConversationVM"
+description: "MapConversationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapConversationVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapConversationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapConversation
@@ -37,25 +31,44 @@ title: "MapConversationVM"
 ### ExecuteContinue
 `public void ExecuteContinue()`
 
-**用途 / Purpose:** 执行 `continue` 操作或流程。
+**用途 / Purpose:** 执行 「continue」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationVM 实例
+MapConversationVM mapConversationVM = ...;
+mapConversationVM.ExecuteContinue();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationVM 实例
+MapConversationVM mapConversationVM = ...;
+mapConversationVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapConversationVM 实例
+MapConversationVM mapConversationVM = ...;
+mapConversationVM.Tick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapConversationVM();
-value.ExecuteContinue();
+// 通常从对应子系统 API 获取实例后调用
+MapConversationVM mapConversationVM = ...;
+mapConversationVM.ExecuteContinue();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

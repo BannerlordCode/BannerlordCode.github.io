@@ -1,13 +1,7 @@
 ---
 title: "TournamentGame"
+description: "TournamentGame 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentGame`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentGame
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -44,39 +38,76 @@ title: "TournamentGame"
 ### GetMenuText
 `public abstract TextObject GetMenuText()`
 
-**用途 / Purpose:** 获取 `menu text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「menu text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentGame 实例
+TournamentGame tournamentGame = ...;
+var result = tournamentGame.GetMenuText();
+```
 
 ### OpenMission
 `public abstract void OpenMission(Settlement settlement, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open mission` 相关逻辑。
+**用途 / Purpose:** 打开「mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentGame 实例
+TournamentGame tournamentGame = ...;
+tournamentGame.OpenMission(settlement, false);
+```
 
 ### GetParticipantCharacters
 `public abstract MBList<CharacterObject> GetParticipantCharacters(Settlement settlement, bool includePlayer = true)`
 
-**用途 / Purpose:** 获取 `participant characters` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「participant characters」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentGame 实例
+TournamentGame tournamentGame = ...;
+var result = tournamentGame.GetParticipantCharacters(settlement, false);
+```
 
 ### CanBeAParticipant
 `public virtual bool CanBeAParticipant(CharacterObject character, bool considerSkills)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `be a participant`。
+**用途 / Purpose:** 检查当前对象是否满足 「be a participant」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentGame 实例
+TournamentGame tournamentGame = ...;
+var result = tournamentGame.CanBeAParticipant(character, false);
+```
 
 ### PrepareForTournamentGame
 `public void PrepareForTournamentGame(bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `prepare for tournament game` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「for tournament game」操作完成前置准备工作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentGame 实例
+TournamentGame tournamentGame = ...;
+tournamentGame.PrepareForTournamentGame(false);
+```
 
 ### UpdateTournamentPrize
 `public void UpdateTournamentPrize(bool includePlayer, bool removeCurrentPrize = false)`
 
-**用途 / Purpose:** 更新 `tournament prize` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「tournament prize」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentGame 实例
+TournamentGame tournamentGame = ...;
+tournamentGame.UpdateTournamentPrize(false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTournamentGame();
+// 通常通过子系统 API 或工厂获得派生实例
+TournamentGame instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CharacterThumbnailCreationData"
+description: "CharacterThumbnailCreationData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterThumbnailCreationData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterThumbnailCreationData
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterThumbnailCreationData : ThumbnailCreationData`
 **Base:** `ThumbnailCreationData`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/CharacterThumbnailCreationData.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/CharacterThumbnailCreationData.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "CharacterThumbnailCreationData"
 ## 使用示例
 
 ```csharp
-var value = new CharacterThumbnailCreationData();
+// 该数据对象通常由战役/任务 API 返回
+CharacterThumbnailCreationData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

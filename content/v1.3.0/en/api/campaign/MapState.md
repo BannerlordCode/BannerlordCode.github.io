@@ -1,13 +1,7 @@
 ---
 title: "MapState"
+description: "Auto-generated class reference for MapState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -40,100 +34,209 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### OnJoinArmy
 `public void OnJoinArmy()`
 
-**Purpose:** Called when the `join army` event is raised.
+**Purpose:** Invoked when the `join army` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnJoinArmy();
+```
 
 ### OnLeaveArmy
 `public void OnLeaveArmy()`
 
-**Purpose:** Called when the `leave army` event is raised.
+**Purpose:** Invoked when the `leave army` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnLeaveArmy();
+```
 
 ### OnFadeInAndOut
 `public void OnFadeInAndOut(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**Purpose:** Called when the `fade in and out` event is raised.
+**Purpose:** Invoked when the `fade in and out` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnFadeInAndOut(0, 0, 0);
+```
 
 ### OnDispersePlayerLeadedArmy
 `public void OnDispersePlayerLeadedArmy()`
 
-**Purpose:** Called when the `disperse player leaded army` event is raised.
+**Purpose:** Invoked when the `disperse player leaded army` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnDispersePlayerLeadedArmy();
+```
 
 ### OnArmyCreated
 `public void OnArmyCreated(MobileParty mobileParty)`
 
-**Purpose:** Called when the `army created` event is raised.
+**Purpose:** Invoked when the `army created` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnArmyCreated(mobileParty);
+```
 
 ### OnIncidentStarted
 `public void OnIncidentStarted(Incident incident)`
 
-**Purpose:** Called when the `incident started` event is raised.
+**Purpose:** Invoked when the `incident started` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnIncidentStarted(incident);
+```
 
 ### OnMainPartyEncounter
 `public void OnMainPartyEncounter()`
 
-**Purpose:** Called when the `main party encounter` event is raised.
+**Purpose:** Invoked when the `main party encounter` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnMainPartyEncounter();
+```
 
 ### ProcessTravel
 `public void ProcessTravel(CampaignVec2 moveTargetPoint)`
 
-**Purpose:** Handles logic related to `process travel`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.ProcessTravel(moveTargetPoint);
+```
 
 ### OnLoadingFinished
 `public void OnLoadingFinished()`
 
-**Purpose:** Called when the `loading finished` event is raised.
+**Purpose:** Invoked when the `loading finished` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnLoadingFinished();
+```
 
 ### OnMapConversationStarts
 `public void OnMapConversationStarts(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**Purpose:** Called when the `map conversation starts` event is raised.
+**Purpose:** Invoked when the `map conversation starts` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnMapConversationStarts(playerCharacterData, conversationPartnerData);
+```
 
 ### OnMapConversationOver
 `public void OnMapConversationOver()`
 
-**Purpose:** Called when the `map conversation over` event is raised.
+**Purpose:** Invoked when the `map conversation over` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnMapConversationOver();
+```
 
 ### EnterMenuMode
 `public void EnterMenuMode()`
 
-**Purpose:** Handles logic related to `enter menu mode`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.EnterMenuMode();
+```
 
 ### ExitMenuMode
 `public void ExitMenuMode()`
 
-**Purpose:** Handles logic related to `exit menu mode`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.ExitMenuMode();
+```
 
 ### StartBattleSimulation
 `public void StartBattleSimulation()`
 
-**Purpose:** Handles logic related to `start battle simulation`.
+**Purpose:** Starts the `battle simulation` flow or state machine.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.StartBattleSimulation();
+```
 
 ### EndBattleSimulation
 `public void EndBattleSimulation()`
 
-**Purpose:** Handles logic related to `end battle simulation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.EndBattleSimulation();
+```
 
 ### OnPlayerSiegeActivated
 `public void OnPlayerSiegeActivated()`
 
-**Purpose:** Called when the `player siege activated` event is raised.
+**Purpose:** Invoked when the `player siege activated` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnPlayerSiegeActivated();
+```
 
 ### OnPlayerSiegeDeactivated
 `public void OnPlayerSiegeDeactivated()`
 
-**Purpose:** Called when the `player siege deactivated` event is raised.
+**Purpose:** Invoked when the `player siege deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnPlayerSiegeDeactivated();
+```
 
 ### OnSiegeEngineClick
 `public void OnSiegeEngineClick(MatrixFrame siegeEngineFrame)`
 
-**Purpose:** Called when the `siege engine click` event is raised.
+**Purpose:** Invoked when the `siege engine click` event is raised.
+
+```csharp
+// Obtain an instance of MapState from the subsystem API first
+MapState mapState = ...;
+mapState.OnSiegeEngineClick(siegeEngineFrame);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapState();
-value.OnJoinArmy();
+// Typically call this after obtaining an instance from the subsystem API
+MapState mapState = ...;
+mapState.OnJoinArmy();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

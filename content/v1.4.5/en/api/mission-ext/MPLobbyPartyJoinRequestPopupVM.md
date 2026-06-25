@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyPartyJoinRequestPopupVM"
+description: "Auto-generated class reference for MPLobbyPartyJoinRequestPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyPartyJoinRequestPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyPartyJoinRequestPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyPartyJoinRequestPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPartyJoinRequestPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPartyJoinRequestPopupVM.cs`
 
 ## Overview
 
@@ -41,35 +35,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
+MPLobbyPartyJoinRequestPopupVM mPLobbyPartyJoinRequestPopupVM = ...;
+mPLobbyPartyJoinRequestPopupVM.RefreshValues();
+```
 
 ### OpenWith
 `public void OpenWith(PlayerId joiningPlayer, PlayerId viaPlayerId, string viaPlayerName)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
+MPLobbyPartyJoinRequestPopupVM mPLobbyPartyJoinRequestPopupVM = ...;
+mPLobbyPartyJoinRequestPopupVM.OpenWith(joiningPlayer, viaPlayerId, "example");
+```
 
 ### OpenWithNewParty
 `public void OpenWithNewParty(PlayerId joiningPlayer)`
 
-**Purpose:** Handles logic related to `open with new party`.
+**Purpose:** Opens the resource or UI associated with `with new party`.
+
+```csharp
+// Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
+MPLobbyPartyJoinRequestPopupVM mPLobbyPartyJoinRequestPopupVM = ...;
+mPLobbyPartyJoinRequestPopupVM.OpenWithNewParty(joiningPlayer);
+```
 
 ### Close
 `public void Close()`
 
-**Purpose:** Handles logic related to `close`.
+**Purpose:** Closes the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
+MPLobbyPartyJoinRequestPopupVM mPLobbyPartyJoinRequestPopupVM = ...;
+mPLobbyPartyJoinRequestPopupVM.Close();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyPartyJoinRequestPopupVM from the subsystem API first
+MPLobbyPartyJoinRequestPopupVM mPLobbyPartyJoinRequestPopupVM = ...;
+mPLobbyPartyJoinRequestPopupVM.OnTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyPartyJoinRequestPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyPartyJoinRequestPopupVM mPLobbyPartyJoinRequestPopupVM = ...;
+mPLobbyPartyJoinRequestPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

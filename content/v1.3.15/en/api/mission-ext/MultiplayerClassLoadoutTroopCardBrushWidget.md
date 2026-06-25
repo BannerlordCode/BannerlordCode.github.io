@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerClassLoadoutTroopCardBrushWidget"
+description: "Auto-generated class reference for MultiplayerClassLoadoutTroopCardBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerClassLoadoutTroopCardBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerClassLoadoutTroopCardBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
@@ -36,9 +30,10 @@ Treat `MultiplayerClassLoadoutTroopCardBrushWidget` as a Widget-style extension 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerClassLoadoutTroopCardBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerClassLoadoutTroopCardBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

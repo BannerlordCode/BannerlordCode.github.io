@@ -1,13 +1,7 @@
 ---
 title: "SandBoxViewSubModule"
+description: "Auto-generated class reference for SandBoxViewSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxViewSubModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewSubModule
 
 **Namespace:** SandBox.View
@@ -37,45 +31,87 @@ Start from namespace `SandBox.View` to place it in the stack, then inspect its p
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `campaign start` event is raised.
+**Purpose:** Invoked when the `campaign start` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxViewSubModule from the subsystem API first
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnCampaignStart(game, starterObject);
+```
 
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**Purpose:** Called when the `game loaded` event is raised.
+**Purpose:** Invoked when the `game loaded` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxViewSubModule from the subsystem API first
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnGameLoaded(game, initializerObject);
+```
 
 ### OnAfterGameInitializationFinished
 `public override void OnAfterGameInitializationFinished(Game game, object starterObject)`
 
-**Purpose:** Called when the `after game initialization finished` event is raised.
+**Purpose:** Invoked when the `after game initialization finished` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxViewSubModule from the subsystem API first
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnAfterGameInitializationFinished(game, starterObject);
+```
 
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**Purpose:** Handles logic related to `begin game start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SandBoxViewSubModule from the subsystem API first
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.BeginGameStart(game);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxViewSubModule from the subsystem API first
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnGameEnd(game);
+```
 
 ### OnInitialState
 `public override void OnInitialState()`
 
-**Purpose:** Called when the `initial state` event is raised.
+**Purpose:** Invoked when the `initial state` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxViewSubModule from the subsystem API first
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnInitialState();
+```
 
 ### SetMapConversationDataProvider
 `public static void SetMapConversationDataProvider(IMapConversationDataProvider mapConversationDataProvider)`
 
-**Purpose:** Sets the value or state of `map conversation data provider`.
+**Purpose:** Assigns a new value to `map conversation data provider` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SandBoxViewSubModule.SetMapConversationDataProvider(mapConversationDataProvider);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SandBoxViewSubModule();
-value.OnCampaignStart(game, starterObject);
+// Typically call this after obtaining an instance from the subsystem API
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnCampaignStart(game, starterObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

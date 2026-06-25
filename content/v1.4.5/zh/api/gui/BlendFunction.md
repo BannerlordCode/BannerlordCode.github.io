@@ -1,20 +1,14 @@
 ---
 title: "BlendFunction"
+description: "BlendFunction 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BlendFunction`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BlendFunction
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct BlendFunction`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/BlendFunction.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/BlendFunction.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "BlendFunction"
 ### BlendFunction
 `public struct BlendFunction(AlphaFormatFlags op, byte flags, byte alpha, AlphaFormatFlags format)`
 
-**用途 / Purpose:** 处理 `blend function` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BlendFunction 实例
+BlendFunction blendFunction = ...;
+var result = blendFunction.BlendFunction(op, 0, 0, format);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BlendFunction();
-value.BlendFunction(op, 0, 0, format);
+// 通常从对应子系统 API 获取实例后调用
+BlendFunction blendFunction = ...;
+blendFunction.BlendFunction(op, 0, 0, format);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

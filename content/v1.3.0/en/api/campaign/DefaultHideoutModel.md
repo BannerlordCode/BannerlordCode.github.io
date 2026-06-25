@@ -1,13 +1,7 @@
 ---
 title: "DefaultHideoutModel"
+description: "Auto-generated class reference for DefaultHideoutModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultHideoutModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultHideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -39,4 +33,4 @@ Game.Current.ReplaceModel<DefaultHideoutModel>(new MyDefaultHideoutModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

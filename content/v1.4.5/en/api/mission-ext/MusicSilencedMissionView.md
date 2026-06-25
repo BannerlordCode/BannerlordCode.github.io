@@ -1,20 +1,14 @@
 ---
 title: "MusicSilencedMissionView"
+description: "Auto-generated class reference for MusicSilencedMissionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MusicSilencedMissionView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicSilencedMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Sound
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MusicSilencedMissionView : MissionView, IMusicHandler`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Sound/MusicSilencedMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Sound/MusicSilencedMissionView.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `MusicSilencedMissionView` as a View-style extension point: first identify
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MusicSilencedMissionView from the subsystem API first
+MusicSilencedMissionView musicSilencedMissionView = ...;
+musicSilencedMissionView.OnBehaviorInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MusicSilencedMissionView from the subsystem API first
+MusicSilencedMissionView musicSilencedMissionView = ...;
+musicSilencedMissionView.OnMissionScreenFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MusicSilencedMissionView();
+// Retrieve this view from the subsystem API or scene
+MusicSilencedMissionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

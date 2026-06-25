@@ -1,20 +1,14 @@
 ---
 title: "IAvatarService"
+description: "Auto-generated class reference for IAvatarService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAvatarService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IAvatarService
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
-**Type:** `class`
+**Type:** `public interface IAvatarService`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/IAvatarService.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/IAvatarService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlayerServices.Avatar` to place it in the stack
 ## Usage Example
 
 ```csharp
-IAvatarService implementation = GetAvatarServiceImplementation();
+// Usually obtained through DI or a factory method
+IIAvatarService service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BannerData"
+description: "Auto-generated class reference for BannerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BannerData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerData.cs`
 
 ## Overview
 
@@ -42,19 +36,32 @@ Treat `BannerData` as a Data-style extension point: first identify who creates i
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of BannerData from the subsystem API first
+BannerData bannerData = ...;
+var result = bannerData.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of BannerData from the subsystem API first
+BannerData bannerData = ...;
+var result = bannerData.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerData();
+// This data object is usually returned by campaign/mission APIs
+BannerData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

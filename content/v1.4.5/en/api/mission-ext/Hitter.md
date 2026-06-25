@@ -1,20 +1,14 @@
 ---
 title: "Hitter"
+description: "Auto-generated class reference for Hitter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Hitter`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Hitter
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Hitter`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IncreaseDamage
 `public void IncreaseDamage(float amount)`
 
-**Purpose:** Handles logic related to `increase damage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Hitter from the subsystem API first
+Hitter hitter = ...;
+hitter.IncreaseDamage(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Hitter();
-value.IncreaseDamage(0);
+// Typically call this after obtaining an instance from the subsystem API
+Hitter hitter = ...;
+hitter.IncreaseDamage(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

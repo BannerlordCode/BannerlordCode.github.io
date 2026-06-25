@@ -1,13 +1,7 @@
 ---
 title: "FormationPocket"
+description: "FormationPocket 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationPocket`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationPocket
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -41,30 +35,55 @@ title: "FormationPocket"
 ### AddTroop
 `public void AddTroop()`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `troop`。
+**用途 / Purpose:** 将 「troop」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 FormationPocket 实例
+FormationPocket formationPocket = ...;
+formationPocket.AddTroop();
+```
 
 ### IsFormationPocketFilled
 `public bool IsFormationPocketFilled()`
 
-**用途 / Purpose:** 处理 `is formation pocket filled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「formation pocket filled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 FormationPocket 实例
+FormationPocket formationPocket = ...;
+var result = formationPocket.IsFormationPocketFilled();
+```
 
 ### UpdateScoreToSeek
 `public void UpdateScoreToSeek()`
 
-**用途 / Purpose:** 更新 `score to seek` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「score to seek」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 FormationPocket 实例
+FormationPocket formationPocket = ...;
+formationPocket.UpdateScoreToSeek();
+```
 
 ### SetBestScoreSoFar
 `public void SetBestScoreSoFar(int bestScoreSoFar)`
 
-**用途 / Purpose:** 设置 `best score so far` 的值或状态。
+**用途 / Purpose:** 为 「best score so far」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FormationPocket 实例
+FormationPocket formationPocket = ...;
+formationPocket.SetBestScoreSoFar(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FormationPocket();
-value.AddTroop();
+// 通常从对应子系统 API 获取实例后调用
+FormationPocket formationPocket = ...;
+formationPocket.AddTroop();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

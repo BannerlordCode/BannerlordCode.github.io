@@ -1,13 +1,7 @@
 ---
 title: "AgentLastHitInfo"
+description: "Auto-generated class reference for AgentLastHitInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentLastHitInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentLastHitInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of AgentLastHitInfo from the subsystem API first
+AgentLastHitInfo agentLastHitInfo = ...;
+agentLastHitInfo.Initialize();
+```
 
 ### RegisterLastBlow
 `public void RegisterLastBlow(int ownerId, AgentAttackType attackType)`
 
-**Purpose:** Handles logic related to `register last blow`.
+**Purpose:** Registers `last blow` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of AgentLastHitInfo from the subsystem API first
+AgentLastHitInfo agentLastHitInfo = ...;
+agentLastHitInfo.RegisterLastBlow(0, attackType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AgentLastHitInfo();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+AgentLastHitInfo agentLastHitInfo = ...;
+agentLastHitInfo.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

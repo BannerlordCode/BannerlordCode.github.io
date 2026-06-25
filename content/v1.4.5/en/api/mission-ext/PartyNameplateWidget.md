@@ -1,20 +1,14 @@
 ---
 title: "PartyNameplateWidget"
+description: "Auto-generated class reference for PartyNameplateWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyNameplateWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyNameplateWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyNameplateWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/PartyNameplateWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/PartyNameplateWidget.cs`
 
 ## Overview
 
@@ -58,14 +52,21 @@ Treat `PartyNameplateWidget` as a Widget-style extension point: first identify w
 ### PartyNameplateWidget
 `public class PartyNameplateWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `party nameplate widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyNameplateWidget from the subsystem API first
+PartyNameplateWidget partyNameplateWidget = ...;
+var result = partyNameplateWidget.PartyNameplateWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new PartyNameplateWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyNameplateWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

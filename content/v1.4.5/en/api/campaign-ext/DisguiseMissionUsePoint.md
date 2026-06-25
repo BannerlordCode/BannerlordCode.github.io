@@ -1,20 +1,14 @@
 ---
 title: "DisguiseMissionUsePoint"
+description: "Auto-generated class reference for DisguiseMissionUsePoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisguiseMissionUsePoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisguiseMissionUsePoint
 
 **Namespace:** SandBox.Objects.Usables
 **Module:** SandBox.Objects
 **Type:** `public class DisguiseMissionUsePoint : UsableMissionObject`
 **Base:** `UsableMissionObject`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Usables/DisguiseMissionUsePoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.Usables/DisguiseMissionUsePoint.cs`
 
 ## Overview
 
@@ -29,40 +23,77 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
+DisguiseMissionUsePoint disguiseMissionUsePoint = ...;
+var result = disguiseMissionUsePoint.GetDescriptionText(gameEntity);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
+DisguiseMissionUsePoint disguiseMissionUsePoint = ...;
+disguiseMissionUsePoint.OnUse(userAgent, 0);
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Called when the `use stopped` event is raised.
+**Purpose:** Invoked when the `use stopped` event is raised.
+
+```csharp
+// Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
+DisguiseMissionUsePoint disguiseMissionUsePoint = ...;
+disguiseMissionUsePoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
+DisguiseMissionUsePoint disguiseMissionUsePoint = ...;
+var result = disguiseMissionUsePoint.IsDisabledForAgent(agent);
+```
 
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** Handles logic related to `is usable by agent`.
+**Purpose:** Determines whether the current object is in the `usable by agent` state or condition.
+
+```csharp
+// Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
+DisguiseMissionUsePoint disguiseMissionUsePoint = ...;
+var result = disguiseMissionUsePoint.IsUsableByAgent(userAgent);
+```
 
 ### GetUserFrameForAgent
 `public override WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**Purpose:** Gets the current value of `user frame for agent`.
+**Purpose:** Reads and returns the `user frame for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of DisguiseMissionUsePoint from the subsystem API first
+DisguiseMissionUsePoint disguiseMissionUsePoint = ...;
+var result = disguiseMissionUsePoint.GetUserFrameForAgent(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DisguiseMissionUsePoint();
-value.GetDescriptionText(gameEntity);
+// Typically call this after obtaining an instance from the subsystem API
+DisguiseMissionUsePoint disguiseMissionUsePoint = ...;
+disguiseMissionUsePoint.GetDescriptionText(gameEntity);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GraphicsForm"
+description: "GraphicsForm 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GraphicsForm`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GraphicsForm
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -37,125 +31,264 @@ title: "GraphicsForm"
 ### CompareRecrangles
 `public bool CompareRecrangles(DXGI.RECT Rect1, DXGI.RECT Rect2)`
 
-**用途 / Purpose:** 处理 `compare recrangles` 相关逻辑。
+**用途 / Purpose:** 比较两个「recrangles」对象并返回大小/顺序结果。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.CompareRecrangles(rect1, rect2);
+```
 
 ### DecideWindowPosition
 `public DXGI.RECT DecideWindowPosition()`
 
-**用途 / Purpose:** 处理 `decide window position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.DecideWindowPosition();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.Destroy();
+```
 
 ### MinimizeWindow
 `public void MinimizeWindow()`
 
-**用途 / Purpose:** 处理 `minimize window` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.MinimizeWindow();
+```
 
 ### InitializeGraphicsContext
 `public void InitializeGraphicsContext(ResourceDepot resourceDepot)`
 
-**用途 / Purpose:** 初始化 `graphics context` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「graphics context」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.InitializeGraphicsContext(resourceDepot);
+```
 
 ### BeginFrame
 `public void BeginFrame()`
 
-**用途 / Purpose:** 处理 `begin frame` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.BeginFrame();
+```
 
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.Update();
+```
 
 ### MessageLoop
 `public void MessageLoop()`
 
-**用途 / Purpose:** 处理 `message loop` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.MessageLoop();
+```
 
 ### UpdateInput
 `public void UpdateInput(bool mouseOverDragArea = false)`
 
-**用途 / Purpose:** 更新 `input` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「input」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.UpdateInput(false);
+```
 
 ### PostRender
 `public void PostRender()`
 
-**用途 / Purpose:** 处理 `post render` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.PostRender();
+```
 
 ### GetKeyDown
 `public bool GetKeyDown(InputKey keyCode)`
 
-**用途 / Purpose:** 获取 `key down` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「key down」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.GetKeyDown(keyCode);
+```
 
 ### GetKey
 `public bool GetKey(InputKey keyCode)`
 
-**用途 / Purpose:** 获取 `key` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「key」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.GetKey(keyCode);
+```
 
 ### GetKeyUp
 `public bool GetKeyUp(InputKey keyCode)`
 
-**用途 / Purpose:** 获取 `key up` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「key up」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.GetKeyUp(keyCode);
+```
 
 ### GetMouseDeltaZ
 `public float GetMouseDeltaZ()`
 
-**用途 / Purpose:** 获取 `mouse delta z` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mouse delta z」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.GetMouseDeltaZ();
+```
 
 ### LeftMouse
 `public bool LeftMouse()`
 
-**用途 / Purpose:** 处理 `left mouse` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.LeftMouse();
+```
 
 ### LeftMouseDown
 `public bool LeftMouseDown()`
 
-**用途 / Purpose:** 处理 `left mouse down` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.LeftMouseDown();
+```
 
 ### LeftMouseUp
 `public bool LeftMouseUp()`
 
-**用途 / Purpose:** 处理 `left mouse up` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.LeftMouseUp();
+```
 
 ### RightMouse
 `public bool RightMouse()`
 
-**用途 / Purpose:** 处理 `right mouse` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.RightMouse();
+```
 
 ### RightMouseDown
 `public bool RightMouseDown()`
 
-**用途 / Purpose:** 处理 `right mouse down` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.RightMouseDown();
+```
 
 ### RightMouseUp
 `public bool RightMouseUp()`
 
-**用途 / Purpose:** 处理 `right mouse up` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.RightMouseUp();
+```
 
 ### MousePosition
 `public Vector2 MousePosition()`
 
-**用途 / Purpose:** 处理 `mouse position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.MousePosition();
+```
 
 ### MouseMove
 `public bool MouseMove()`
 
-**用途 / Purpose:** 处理 `mouse move` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+var result = graphicsForm.MouseMove();
+```
 
 ### FillInputDataFromCurrent
 `public void FillInputDataFromCurrent(InputData inputData)`
 
-**用途 / Purpose:** 处理 `fill input data from current` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphicsForm 实例
+GraphicsForm graphicsForm = ...;
+graphicsForm.FillInputDataFromCurrent(inputData);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GraphicsForm();
-value.CompareRecrangles(rect1, rect2);
+// 通常从对应子系统 API 获取实例后调用
+GraphicsForm graphicsForm = ...;
+graphicsForm.CompareRecrangles(rect1, rect2);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

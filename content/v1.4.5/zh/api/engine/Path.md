@@ -1,20 +1,14 @@
 ---
 title: "Path"
+description: "Path 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Path`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Path
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Path : NativeObject`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Path.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Path.cs`
 
 ## 概述
 
@@ -29,80 +23,165 @@ title: "Path"
 ### GetHermiteFrameForDt
 `public MatrixFrame GetHermiteFrameForDt(float phase, int first_point)`
 
-**用途 / Purpose:** 获取 `hermite frame for dt` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hermite frame for dt」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.GetHermiteFrameForDt(0, 0);
+```
 
 ### GetFrameForDistance
 `public MatrixFrame GetFrameForDistance(float distance)`
 
-**用途 / Purpose:** 获取 `frame for distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frame for distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.GetFrameForDistance(0);
+```
 
 ### GetNearestFrameWithValidAlphaForDistance
 `public MatrixFrame GetNearestFrameWithValidAlphaForDistance(float distance, bool searchForward = true, float alphaThreshold = 0.5f)`
 
-**用途 / Purpose:** 获取 `nearest frame with valid alpha for distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「nearest frame with valid alpha for distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.GetNearestFrameWithValidAlphaForDistance(0, false, 0);
+```
 
 ### GetFrameAndColorForDistance
 `public void GetFrameAndColorForDistance(float distance, out MatrixFrame frame, out Vec3 color)`
 
-**用途 / Purpose:** 获取 `frame and color for distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frame and color for distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+path.GetFrameAndColorForDistance(0, frame, color);
+```
 
 ### GetArcLength
 `public float GetArcLength(int first_point)`
 
-**用途 / Purpose:** 获取 `arc length` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「arc length」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.GetArcLength(0);
+```
 
 ### GetPoints
 `public void GetPoints(MatrixFrame points)`
 
-**用途 / Purpose:** 获取 `points` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「points」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+path.GetPoints(points);
+```
 
 ### GetTotalLength
 `public float GetTotalLength()`
 
-**用途 / Purpose:** 获取 `total length` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total length」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.GetTotalLength();
+```
 
 ### GetVersion
 `public int GetVersion()`
 
-**用途 / Purpose:** 获取 `version` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「version」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.GetVersion();
+```
 
 ### SetFrameOfPoint
 `public void SetFrameOfPoint(int pointIndex, ref MatrixFrame frame)`
 
-**用途 / Purpose:** 设置 `frame of point` 的值或状态。
+**用途 / Purpose:** 为 「frame of point」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+path.SetFrameOfPoint(0, frame);
+```
 
 ### SetTangentPositionOfPoint
 `public void SetTangentPositionOfPoint(int pointIndex, int tangentIndex, ref Vec3 position)`
 
-**用途 / Purpose:** 设置 `tangent position of point` 的值或状态。
+**用途 / Purpose:** 为 「tangent position of point」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+path.SetTangentPositionOfPoint(0, 0, position);
+```
 
 ### AddPathPoint
 `public int AddPathPoint(int newNodeIndex)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `path point`。
+**用途 / Purpose:** 将 「path point」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.AddPathPoint(0);
+```
 
 ### DeletePathPoint
 `public void DeletePathPoint(int nodeIndex)`
 
-**用途 / Purpose:** 处理 `delete path point` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+path.DeletePathPoint(0);
+```
 
 ### HasValidAlphaAtPathPoint
 `public bool HasValidAlphaAtPathPoint(int nodeIndex, float alphaThreshold = 0.5f)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `valid alpha at path point`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「valid alpha at path point」。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.HasValidAlphaAtPathPoint(0, 0);
+```
 
 ### GetName
 `public string GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Path 实例
+Path path = ...;
+var result = path.GetName();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Path();
-value.GetHermiteFrameForDt(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+Path path = ...;
+path.GetHermiteFrameForDt(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

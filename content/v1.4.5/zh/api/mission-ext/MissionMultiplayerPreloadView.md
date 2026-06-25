@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerPreloadView"
+description: "MissionMultiplayerPreloadView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerPreloadView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerPreloadView
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerPreloadView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerPreloadView.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerPreloadView.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "MissionMultiplayerPreloadView"
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerPreloadView 实例
+MissionMultiplayerPreloadView missionMultiplayerPreloadView = ...;
+missionMultiplayerPreloadView.OnPreMissionTick(0);
+```
 
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**用途 / Purpose:** 当 `scene rendering started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「scene rendering started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerPreloadView 实例
+MissionMultiplayerPreloadView missionMultiplayerPreloadView = ...;
+missionMultiplayerPreloadView.OnSceneRenderingStarted();
+```
 
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**用途 / Purpose:** 当 `mission state deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission state deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerPreloadView 实例
+MissionMultiplayerPreloadView missionMultiplayerPreloadView = ...;
+missionMultiplayerPreloadView.OnMissionStateDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionMultiplayerPreloadView();
+// 从子系统 API 或场景中获取该视图
+MissionMultiplayerPreloadView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

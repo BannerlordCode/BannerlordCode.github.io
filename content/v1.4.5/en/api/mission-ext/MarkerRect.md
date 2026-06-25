@@ -1,20 +1,14 @@
 ---
 title: "MarkerRect"
+description: "Auto-generated class reference for MarkerRect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarkerRect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarkerRect
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MarkerRect`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/MarkerRect.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/MarkerRect.cs`
 
 ## Overview
 
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMa
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MarkerRect from the subsystem API first
+MarkerRect markerRect = ...;
+markerRect.Reset();
+```
 
 ### UpdatePoints
 `public void UpdatePoints(float left, float right, float top, float bottom)`
 
-**Purpose:** Updates the state or data of `points`.
+**Purpose:** Recalculates and stores the latest representation of `points`.
+
+```csharp
+// Obtain an instance of MarkerRect from the subsystem API first
+MarkerRect markerRect = ...;
+markerRect.UpdatePoints(0, 0, 0, 0);
+```
 
 ### IsOverlapping
 `public bool IsOverlapping(MarkerRect other)`
 
-**Purpose:** Handles logic related to `is overlapping`.
+**Purpose:** Determines whether the current object is in the `overlapping` state or condition.
+
+```csharp
+// Obtain an instance of MarkerRect from the subsystem API first
+MarkerRect markerRect = ...;
+var result = markerRect.IsOverlapping(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MarkerRect();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+MarkerRect markerRect = ...;
+markerRect.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

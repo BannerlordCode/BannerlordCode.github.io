@@ -1,20 +1,14 @@
 ---
 title: "ServerMessage"
+description: "Auto-generated class reference for ServerMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServerMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServerMessage
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ServerMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ServerMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ServerMessage.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new ServerMessage();
+// Obtain an instance from the relevant subsystem API
+ServerMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

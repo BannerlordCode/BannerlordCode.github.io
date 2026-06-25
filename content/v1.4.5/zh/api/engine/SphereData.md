@@ -1,20 +1,14 @@
 ---
 title: "SphereData"
+description: "SphereData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SphereData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SphereData
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SphereData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/SphereData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SphereData.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "SphereData"
 ### SphereData
 `public struct SphereData(float radius, Vec3 origin)`
 
-**用途 / Purpose:** 处理 `sphere data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SphereData 实例
+SphereData sphereData = ...;
+var result = sphereData.SphereData(0, origin);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SphereData();
+// 该数据对象通常由战役/任务 API 返回
+SphereData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

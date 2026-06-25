@@ -1,20 +1,14 @@
 ---
 title: "ReplayMissionView"
+description: "Auto-generated class reference for ReplayMissionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReplayMissionView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReplayMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReplayMissionView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/ReplayMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/ReplayMissionView.cs`
 
 ## Overview
 
@@ -29,49 +23,98 @@ Treat `ReplayMissionView` as a View-style extension point: first identify who cr
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of ReplayMissionView from the subsystem API first
+ReplayMissionView replayMissionView = ...;
+replayMissionView.OnBehaviorInitialize();
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of ReplayMissionView from the subsystem API first
+ReplayMissionView replayMissionView = ...;
+replayMissionView.OnPreMissionTick(0);
+```
 
 ### OverrideInput
 `public void OverrideInput(bool isOverridden)`
 
-**Purpose:** Handles logic related to `override input`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ReplayMissionView from the subsystem API first
+ReplayMissionView replayMissionView = ...;
+replayMissionView.OverrideInput(false);
+```
 
 ### ResetReplay
 `public void ResetReplay()`
 
-**Purpose:** Resets `replay` to its initial state.
+**Purpose:** Returns `replay` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ReplayMissionView from the subsystem API first
+ReplayMissionView replayMissionView = ...;
+replayMissionView.ResetReplay();
+```
 
 ### Rewind
 `public void Rewind(float time)`
 
-**Purpose:** Handles logic related to `rewind`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ReplayMissionView from the subsystem API first
+ReplayMissionView replayMissionView = ...;
+replayMissionView.Rewind(0);
+```
 
 ### FastForward
 `public void FastForward(float time)`
 
-**Purpose:** Handles logic related to `fast forward`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ReplayMissionView from the subsystem API first
+ReplayMissionView replayMissionView = ...;
+replayMissionView.FastForward(0);
+```
 
 ### Pause
 `public void Pause()`
 
-**Purpose:** Handles logic related to `pause`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ReplayMissionView from the subsystem API first
+ReplayMissionView replayMissionView = ...;
+replayMissionView.Pause();
+```
 
 ### Resume
 `public void Resume()`
 
-**Purpose:** Handles logic related to `resume`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ReplayMissionView from the subsystem API first
+ReplayMissionView replayMissionView = ...;
+replayMissionView.Resume();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new ReplayMissionView();
+// Retrieve this view from the subsystem API or scene
+ReplayMissionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

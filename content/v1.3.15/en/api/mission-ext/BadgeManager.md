@@ -1,13 +1,7 @@
 ---
 title: "BadgeManager"
+description: "Auto-generated class reference for BadgeManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BadgeManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BadgeManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
@@ -36,37 +30,72 @@ Treat `BadgeManager` as a Manager-style extension point: first identify who crea
 ### InitializeWithXML
 `public static void InitializeWithXML(string xmlPath)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with x m l`.
+**Purpose:** Prepares the resources, state, or bindings required by `with x m l`.
+
+```csharp
+// Static call; no instance required
+BadgeManager.InitializeWithXML("example");
+```
 
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Static call; no instance required
+BadgeManager.OnFinalize();
+```
 
 ### GetByIndex
 `public static Badge GetByIndex(int index)`
 
-**Purpose:** Gets the current value of `by index`.
+**Purpose:** Reads and returns the `by index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BadgeManager.GetByIndex(0);
+```
 
 ### GetById
 `public static Badge GetById(string id)`
 
-**Purpose:** Gets the current value of `by id`.
+**Purpose:** Reads and returns the `by id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BadgeManager.GetById("example");
+```
 
 ### GetByType
 `public static List<Badge> GetByType(BadgeType type)`
 
-**Purpose:** Gets the current value of `by type`.
+**Purpose:** Reads and returns the `by type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BadgeManager.GetByType(type);
+```
 
 ### GetBadgeConditionValue
 `public static string GetBadgeConditionValue(this PlayerData playerData, BadgeCondition condition)`
 
-**Purpose:** Gets the current value of `badge condition value`.
+**Purpose:** Reads and returns the `badge condition value` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BadgeManager.GetBadgeConditionValue(playerData, condition);
+```
 
 ### GetBadgeConditionNumericValue
 `public static int GetBadgeConditionNumericValue(this PlayerData playerData, BadgeCondition condition)`
 
-**Purpose:** Gets the current value of `badge condition numeric value`.
+**Purpose:** Reads and returns the `badge condition numeric value` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BadgeManager.GetBadgeConditionNumericValue(playerData, condition);
+```
 
 ## Usage Example
 
@@ -76,4 +105,4 @@ var manager = BadgeManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

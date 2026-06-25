@@ -1,18 +1,12 @@
 ---
 title: "IMonsterMissionData"
+description: "IMonsterMissionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IMonsterMissionData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMonsterMissionData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IMonsterMissionData`
 **Base:** 无
 **File:** `TaleWorlds.Core/IMonsterMissionData.cs`
 
@@ -27,9 +21,10 @@ title: "IMonsterMissionData"
 ## 使用示例
 
 ```csharp
-IMonsterMissionData implementation = GetMonsterMissionDataImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIMonsterMissionData service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

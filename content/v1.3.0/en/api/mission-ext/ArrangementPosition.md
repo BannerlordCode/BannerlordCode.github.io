@@ -1,13 +1,7 @@
 ---
 title: "ArrangementPosition"
+description: "Auto-generated class reference for ArrangementPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArrangementPosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArrangementPosition
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ComponentInterfaces` to place it 
 ## Usage Example
 
 ```csharp
-var example = new ArrangementPosition();
+// Obtain an instance from the relevant subsystem API
+ArrangementPosition instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

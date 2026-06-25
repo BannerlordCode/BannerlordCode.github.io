@@ -1,20 +1,14 @@
 ---
 title: "NativeObject"
+description: "Auto-generated class reference for NativeObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeObject
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public abstract class NativeObject`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeObject.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeObject.cs`
 
 ## Overview
 
@@ -35,24 +29,43 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### ManualInvalidate
 `public void ManualInvalidate()`
 
-**Purpose:** Handles logic related to `manual invalidate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NativeObject from the subsystem API first
+NativeObject nativeObject = ...;
+nativeObject.ManualInvalidate();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of NativeObject from the subsystem API first
+NativeObject nativeObject = ...;
+var result = nativeObject.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of NativeObject from the subsystem API first
+NativeObject nativeObject = ...;
+var result = nativeObject.Equals(obj);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomNativeObject();
+// Typically obtained from a subsystem API or factory
+NativeObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

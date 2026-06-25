@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyFoodBuyingModel"
+description: "DefaultPartyFoodBuyingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyFoodBuyingModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyFoodBuyingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -37,7 +31,13 @@ title: "DefaultPartyFoodBuyingModel"
 ### FindItemToBuy
 `public override void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemElement, out float itemElementsPrice)`
 
-**用途 / Purpose:** 处理 `find item to buy` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「item to buy」。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyFoodBuyingModel 实例
+DefaultPartyFoodBuyingModel defaultPartyFoodBuyingModel = ...;
+defaultPartyFoodBuyingModel.FindItemToBuy(mobileParty, settlement, itemElement, itemElementsPrice);
+```
 
 ## 使用示例
 
@@ -47,4 +47,4 @@ Game.Current.ReplaceModel<DefaultPartyFoodBuyingModel>(new MyDefaultPartyFoodBuy
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

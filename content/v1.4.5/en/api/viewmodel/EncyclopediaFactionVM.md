@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaFactionVM"
+description: "Auto-generated class reference for EncyclopediaFactionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaFactionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaFactionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaFactionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items/EncyclopediaFactionVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items/EncyclopediaFactionVM.cs`
 
 ## Overview
 
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaFactionVM from the subsystem API first
+EncyclopediaFactionVM encyclopediaFactionVM = ...;
+encyclopediaFactionVM.RefreshValues();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of EncyclopediaFactionVM from the subsystem API first
+EncyclopediaFactionVM encyclopediaFactionVM = ...;
+encyclopediaFactionVM.ExecuteLink();
+```
 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of EncyclopediaFactionVM from the subsystem API first
+EncyclopediaFactionVM encyclopediaFactionVM = ...;
+encyclopediaFactionVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of EncyclopediaFactionVM from the subsystem API first
+EncyclopediaFactionVM encyclopediaFactionVM = ...;
+encyclopediaFactionVM.ExecuteEndHint();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaFactionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaFactionVM encyclopediaFactionVM = ...;
+encyclopediaFactionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

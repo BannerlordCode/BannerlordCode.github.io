@@ -1,13 +1,7 @@
 ---
 title: "HotKeyManager"
+description: "HotKeyManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HotKeyManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HotKeyManager
 
 **Namespace:** TaleWorlds.InputSystem
@@ -29,67 +23,133 @@ title: "HotKeyManager"
 ### GetHotKeyId
 `public static string GetHotKeyId(string categoryName, string hotKeyId)`
 
-**用途 / Purpose:** 获取 `hot key id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hot key id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.GetHotKeyId("example", "example");
+```
 
 ### GetHotKeyId
 `public static string GetHotKeyId(string categoryName, int hotKeyId)`
 
-**用途 / Purpose:** 获取 `hot key id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hot key id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.GetHotKeyId("example", 0);
+```
 
 ### GetCategory
 `public static GameKeyContext GetCategory(string categoryName)`
 
-**用途 / Purpose:** 获取 `category` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「category」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.GetCategory("example");
+```
 
 ### GetAllCategories
 `public static Dictionary<string, GameKeyContext>.ValueCollection GetAllCategories()`
 
-**用途 / Purpose:** 获取 `all categories` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all categories」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.GetAllCategories();
+```
 
 ### Tick
 `public static void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.Tick(0);
+```
 
 ### Initialize
 `public static void Initialize(PlatformFilePath savePath, bool isRDownSwappedWithRRight)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.Initialize(savePath, false);
+```
 
 ### RegisterInitialContexts
 `public static void RegisterInitialContexts(IEnumerable<GameKeyContext> contexts, bool loadKeys)`
 
-**用途 / Purpose:** 处理 `register initial contexts` 相关逻辑。
+**用途 / Purpose:** 将「initial contexts」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.RegisterInitialContexts(contexts, false);
+```
 
 ### RegisterContext
 `public static void RegisterContext(GameKeyContext context, bool ignoreSerialize = false, bool loadKeys = false)`
 
-**用途 / Purpose:** 处理 `register context` 相关逻辑。
+**用途 / Purpose:** 将「context」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.RegisterContext(context, false, false);
+```
 
 ### ShouldNotifyDocumentVersionDifferent
 `public static bool ShouldNotifyDocumentVersionDifferent()`
 
-**用途 / Purpose:** 处理 `should notify document version different` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.ShouldNotifyDocumentVersionDifferent();
+```
 
 ### Reset
 `public static void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.Reset();
+```
 
 ### LoadAsync
 `public static void LoadAsync()`
 
-**用途 / Purpose:** 加载 `async` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「async」。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.LoadAsync();
+```
 
 ### SaveAsync
 `public static void SaveAsync(bool throwEvent)`
 
-**用途 / Purpose:** 保存 `async` 数据。
+**用途 / Purpose:** 将 「async」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+HotKeyManager.SaveAsync(false);
+```
 
 ### OnKeybindsChangedEvent
 `public delegate void OnKeybindsChangedEvent()`
 
-**用途 / Purpose:** 当 `keybinds changed event` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「keybinds changed event」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HotKeyManager 实例
+HotKeyManager hotKeyManager = ...;
+hotKeyManager.OnKeybindsChangedEvent();
+```
 
 ## 使用示例
 
@@ -99,4 +159,4 @@ var manager = HotKeyManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

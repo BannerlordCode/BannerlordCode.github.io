@@ -1,20 +1,14 @@
 ---
 title: "MobilePartyTrainingBehavior"
+description: "Auto-generated class reference for MobilePartyTrainingBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyTrainingBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyTrainingBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MobilePartyTrainingBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/MobilePartyTrainingBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/MobilePartyTrainingBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MobilePartyTrainingBehavior from the subsystem API first
+MobilePartyTrainingBehavior mobilePartyTrainingBehavior = ...;
+mobilePartyTrainingBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of MobilePartyTrainingBehavior from the subsystem API first
+MobilePartyTrainingBehavior mobilePartyTrainingBehavior = ...;
+mobilePartyTrainingBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MobilePartyTrainingBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+MobilePartyTrainingBehavior mobilePartyTrainingBehavior = ...;
+mobilePartyTrainingBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

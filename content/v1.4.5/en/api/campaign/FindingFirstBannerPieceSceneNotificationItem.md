@@ -1,20 +1,14 @@
 ---
 title: "FindingFirstBannerPieceSceneNotificationItem"
+description: "Auto-generated class reference for FindingFirstBannerPieceSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FindingFirstBannerPieceSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FindingFirstBannerPieceSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FindingFirstBannerPieceSceneNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/FindingFirstBannerPieceSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/FindingFirstBannerPieceSceneNotificationItem.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### OnCloseAction
 `public override void OnCloseAction()`
 
-**Purpose:** Called when the `close action` event is raised.
+**Purpose:** Invoked when the `close action` event is raised.
+
+```csharp
+// Obtain an instance of FindingFirstBannerPieceSceneNotificationItem from the subsystem API first
+FindingFirstBannerPieceSceneNotificationItem findingFirstBannerPieceSceneNotificationItem = ...;
+findingFirstBannerPieceSceneNotificationItem.OnCloseAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FindingFirstBannerPieceSceneNotificationItem();
-value.OnCloseAction();
+// Typically call this after obtaining an instance from the subsystem API
+FindingFirstBannerPieceSceneNotificationItem findingFirstBannerPieceSceneNotificationItem = ...;
+findingFirstBannerPieceSceneNotificationItem.OnCloseAction();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

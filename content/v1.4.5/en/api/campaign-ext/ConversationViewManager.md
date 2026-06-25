@@ -1,20 +1,14 @@
 ---
 title: "ConversationViewManager"
+description: "Auto-generated class reference for ConversationViewManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationViewManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationViewManager
 
 **Namespace:** SandBox.View.Conversation
 **Module:** SandBox.View
 **Type:** `public class ConversationViewManager`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Conversation/ConversationViewManager.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Conversation/ConversationViewManager.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ var manager = ConversationViewManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

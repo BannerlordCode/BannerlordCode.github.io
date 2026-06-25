@@ -1,13 +1,7 @@
 ---
 title: "BoardGameBaghChal"
+description: "BoardGameBaghChal 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameBaghChal`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameBaghChal
 
 **Namespace:** SandBox.BoardGames
@@ -35,65 +29,132 @@ title: "BoardGameBaghChal"
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**用途 / Purpose:** 初始化 `units` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「units」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.InitializeUnits();
+```
 
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**用途 / Purpose:** 初始化 `tiles` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「tiles」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.InitializeTiles();
+```
 
 ### InitializeSound
 `public override void InitializeSound()`
 
-**用途 / Purpose:** 初始化 `sound` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「sound」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.InitializeSound();
+```
 
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.Reset();
+```
 
 ### CalculateAllValidMoves
 `public override List<List<Move>> CalculateAllValidMoves(BoardGameSide side)`
 
-**用途 / Purpose:** 处理 `calculate all valid moves` 相关逻辑。
+**用途 / Purpose:** 计算「all valid moves」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.CalculateAllValidMoves(side);
+```
 
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**用途 / Purpose:** 处理 `calculate valid moves` 相关逻辑。
+**用途 / Purpose:** 计算「valid moves」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.CalculateValidMoves(pawn);
+```
 
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**用途 / Purpose:** 设置 `pawn captured` 的值或状态。
+**用途 / Purpose:** 为 「pawn captured」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.SetPawnCaptured(pawn, false);
+```
 
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 处理 `a i make move` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.AIMakeMove(move);
+```
 
 ### TakeBoardSnapshot
 `public BoardGameBaghChal.BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 处理 `take board snapshot` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.TakeBoardSnapshot();
+```
 
 ### UndoMove
 `public void UndoMove(ref BoardGameBaghChal.BoardInformation board)`
 
-**用途 / Purpose:** 处理 `undo move` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.UndoMove(board);
+```
 
 ### GetANonePlacedGoat
 `public PawnBaghChal GetANonePlacedGoat()`
 
-**用途 / Purpose:** 获取 `a none placed goat` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「a none placed goat」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBaghChal 实例
+BoardGameBaghChal boardGameBaghChal = ...;
+var result = boardGameBaghChal.GetANonePlacedGoat();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameBaghChal();
-value.InitializeUnits();
+// 通常从对应子系统 API 获取实例后调用
+BoardGameBaghChal boardGameBaghChal = ...;
+boardGameBaghChal.InitializeUnits();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

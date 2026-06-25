@@ -1,24 +1,18 @@
 ---
 title: "SaveableBasicTypeDefiner"
+description: "Auto-generated class reference for SaveableBasicTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableBasicTypeDefiner`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveableBasicTypeDefiner
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveableBasicTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**Area:** save-system
+**File:** `TaleWorlds.SaveSystem/SaveableBasicTypeDefiner.cs`
 
 ## Overview
 
-`SaveableBasicTypeDefiner` lives in `TaleWorlds.SaveSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SaveableBasicTypeDefiner` lives in `TaleWorlds.SaveSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,10 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var value = new SaveableBasicTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SaveableBasicTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

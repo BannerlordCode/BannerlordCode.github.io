@@ -1,13 +1,7 @@
 ---
 title: "DefaultInformationRestrictionModel"
+description: "DefaultInformationRestrictionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultInformationRestrictionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultInformationRestrictionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,12 +23,24 @@ title: "DefaultInformationRestrictionModel"
 ### DoesPlayerKnowDetailsOf
 `public override bool DoesPlayerKnowDetailsOf(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `does player know details of` 相关逻辑。
+**用途 / Purpose:** 返回「player know details of」对当前对象是否成立的布尔结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultInformationRestrictionModel 实例
+DefaultInformationRestrictionModel defaultInformationRestrictionModel = ...;
+var result = defaultInformationRestrictionModel.DoesPlayerKnowDetailsOf(settlement);
+```
 
 ### DoesPlayerKnowDetailsOf
 `public override bool DoesPlayerKnowDetailsOf(Hero hero)`
 
-**用途 / Purpose:** 处理 `does player know details of` 相关逻辑。
+**用途 / Purpose:** 返回「player know details of」对当前对象是否成立的布尔结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultInformationRestrictionModel 实例
+DefaultInformationRestrictionModel defaultInformationRestrictionModel = ...;
+var result = defaultInformationRestrictionModel.DoesPlayerKnowDetailsOf(hero);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultInformationRestrictionModel>(new MyDefaultInfor
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

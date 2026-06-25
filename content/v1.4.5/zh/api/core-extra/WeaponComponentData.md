@@ -1,20 +1,14 @@
 ---
 title: "WeaponComponentData"
+description: "WeaponComponentData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponComponentData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponComponentData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class WeaponComponentData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponentData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponentData.cs`
 
 ## 概述
 
@@ -73,49 +67,96 @@ title: "WeaponComponentData"
 ### Init
 `public void Init(string weaponUsageName, string physicsMaterial, string itemUsage, DamageTypes thrustDamageType, DamageTypes swingDamageType, int bodyArmor, int weaponLength, float weaponBalance, float inertia, float centerOfMass, int handling, float swingDamageFactor, float thrustDamageFactor, short maxDataValue, string passBySoundCode, int accuracy, int missileSpeed, MatrixFrame stickingFrame, WeaponClass ammoClass, float sweetSpot, int swingSpeed, int swingDamage, int thrustSpeed, int thrustDamage, Vec3 rotationSpeed, WeaponTiers tier, short reloadPhaseCount)`
 
-**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponentData 实例
+WeaponComponentData weaponComponentData = ...;
+weaponComponentData.Init("example", "example", "example", thrustDamageType, swingDamageType, 0, 0, 0, 0, 0, 0, 0, 0, 0, "example", 0, 0, stickingFrame, ammoClass, 0, 0, 0, 0, 0, rotationSpeed, tier, 0);
+```
 
 ### SetFrame
 `public void SetFrame(MatrixFrame frame)`
 
-**用途 / Purpose:** 设置 `frame` 的值或状态。
+**用途 / Purpose:** 为 「frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponentData 实例
+WeaponComponentData weaponComponentData = ...;
+weaponComponentData.SetFrame(frame);
+```
 
 ### SetAmmoOffset
 `public void SetAmmoOffset(Vec3 ammoOffset)`
 
-**用途 / Purpose:** 设置 `ammo offset` 的值或状态。
+**用途 / Purpose:** 为 「ammo offset」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponentData 实例
+WeaponComponentData weaponComponentData = ...;
+weaponComponentData.SetAmmoOffset(ammoOffset);
+```
 
 ### GetRelevantSkillFromWeaponClass
 `public static SkillObject GetRelevantSkillFromWeaponClass(WeaponClass weaponClass)`
 
-**用途 / Purpose:** 获取 `relevant skill from weapon class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relevant skill from weapon class」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentData.GetRelevantSkillFromWeaponClass(weaponClass);
+```
 
 ### GetItemTypeFromWeaponClass
 `public static ItemObject.ItemTypeEnum GetItemTypeFromWeaponClass(WeaponClass weaponClass)`
 
-**用途 / Purpose:** 获取 `item type from weapon class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item type from weapon class」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentData.GetItemTypeFromWeaponClass(weaponClass);
+```
 
 ### Deserialize
 `public void Deserialize(ItemObject item, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponentData 实例
+WeaponComponentData weaponComponentData = ...;
+weaponComponentData.Deserialize(item, node);
+```
 
 ### GetRealWeaponLength
 `public float GetRealWeaponLength()`
 
-**用途 / Purpose:** 获取 `real weapon length` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「real weapon length」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponentData 实例
+WeaponComponentData weaponComponentData = ...;
+var result = weaponComponentData.GetRealWeaponLength();
+```
 
 ### GetMissileStartingFrame
 `public MatrixFrame GetMissileStartingFrame()`
 
-**用途 / Purpose:** 获取 `missile starting frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「missile starting frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponentData 实例
+WeaponComponentData weaponComponentData = ...;
+var result = weaponComponentData.GetMissileStartingFrame();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeaponComponentData();
+// 该数据对象通常由战役/任务 API 返回
+WeaponComponentData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

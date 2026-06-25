@@ -1,13 +1,7 @@
 ---
 title: "HeirSelectionPopupView"
+description: "Auto-generated class reference for HeirSelectionPopupView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeirSelectionPopupView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeirSelectionPopupView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `HeirSelectionPopupView` as a View-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var view = new HeirSelectionPopupView();
+// Retrieve this view from the subsystem API or scene
+HeirSelectionPopupView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

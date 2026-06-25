@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaFilterListItemButtonWidget"
+description: "Auto-generated class reference for EncyclopediaFilterListItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaFilterListItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaFilterListItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaFilterListItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaFilterListItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaFilterListItemButtonWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `EncyclopediaFilterListItemButtonWidget` as a Widget-style extension point
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaFilterListItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaFilterListItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

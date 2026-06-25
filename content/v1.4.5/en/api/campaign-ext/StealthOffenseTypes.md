@@ -1,20 +1,14 @@
 ---
 title: "StealthOffenseTypes"
+description: "Auto-generated class reference for StealthOffenseTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthOffenseTypes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthOffenseTypes
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
-**Type:** `class`
+**Type:** `public enum StealthOffenseTypes`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/StealthOffenseTypes.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/StealthOffenseTypes.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new StealthOffenseTypes();
+// Obtain an instance from the relevant subsystem API
+StealthOffenseTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveView"
+description: "Auto-generated class reference for MissionObjectiveView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionObjectiveView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionObjectiveView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionObjectiveView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionObjectiveView` as a View-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var view = new MissionObjectiveView();
+// Retrieve this view from the subsystem API or scene
+MissionObjectiveView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

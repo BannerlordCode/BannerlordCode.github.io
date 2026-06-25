@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerFireBallistaSpawner"
+description: "Auto-generated class reference for MultiplayerFireBallistaSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerFireBallistaSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerFireBallistaSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerFireBallistaSpawner();
+// Obtain an instance from the relevant subsystem API
+MultiplayerFireBallistaSpawner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

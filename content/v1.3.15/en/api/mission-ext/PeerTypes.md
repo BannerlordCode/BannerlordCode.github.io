@@ -1,13 +1,7 @@
 ---
 title: "PeerTypes"
+description: "Auto-generated class reference for PeerTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PeerTypes`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PeerTypes
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new PeerTypes();
+// Obtain an instance from the relevant subsystem API
+PeerTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

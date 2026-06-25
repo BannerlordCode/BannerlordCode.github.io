@@ -1,20 +1,14 @@
 ---
 title: "AlternativeEquipmentEffect"
+description: "AlternativeEquipmentEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AlternativeEquipmentEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlternativeEquipmentEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AlternativeEquipmentEffect : MPOnSpawnPerkEffect`
 **Base:** `MPOnSpawnPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/AlternativeEquipmentEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/AlternativeEquipmentEffect.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "AlternativeEquipmentEffect"
 ## 使用示例
 
 ```csharp
-var value = new AlternativeEquipmentEffect();
+// 从对应子系统 API 获取实例
+AlternativeEquipmentEffect instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

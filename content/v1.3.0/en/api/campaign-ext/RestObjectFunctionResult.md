@@ -1,13 +1,7 @@
 ---
 title: "RestObjectFunctionResult"
+description: "Auto-generated class reference for RestObjectFunctionResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RestObjectFunctionResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestObjectFunctionResult
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### GetFunctionResult
 `public override FunctionResult GetFunctionResult()`
 
-**Purpose:** Gets the current value of `function result`.
+**Purpose:** Reads and returns the `function result` value held by the current object.
+
+```csharp
+// Obtain an instance of RestObjectFunctionResult from the subsystem API first
+RestObjectFunctionResult restObjectFunctionResult = ...;
+var result = restObjectFunctionResult.GetFunctionResult();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RestObjectFunctionResult();
-value.GetFunctionResult();
+// Typically call this after obtaining an instance from the subsystem API
+RestObjectFunctionResult restObjectFunctionResult = ...;
+restObjectFunctionResult.GetFunctionResult();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

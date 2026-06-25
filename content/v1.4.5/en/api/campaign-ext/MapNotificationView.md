@@ -1,20 +1,14 @@
 ---
 title: "MapNotificationView"
+description: "Auto-generated class reference for MapNotificationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNotificationView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNotificationView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapNotificationView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapNotificationView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapNotificationView.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `MapNotificationView` as a View-style extension point: first identify who 
 ### ResetNotifications
 `public virtual void ResetNotifications()`
 
-**Purpose:** Resets `notifications` to its initial state.
+**Purpose:** Returns `notifications` to its default or initial condition.
+
+```csharp
+// Obtain an instance of MapNotificationView from the subsystem API first
+MapNotificationView mapNotificationView = ...;
+mapNotificationView.ResetNotifications();
+```
 
 ### RegisterMapNotificationType
 `public virtual void RegisterMapNotificationType(Type data, Type item)`
 
-**Purpose:** Handles logic related to `register map notification type`.
+**Purpose:** Registers `map notification type` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MapNotificationView from the subsystem API first
+MapNotificationView mapNotificationView = ...;
+mapNotificationView.RegisterMapNotificationType(data, item);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MapNotificationView();
+// Retrieve this view from the subsystem API or scene
+MapNotificationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

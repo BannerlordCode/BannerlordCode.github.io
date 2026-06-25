@@ -1,20 +1,14 @@
 ---
 title: "ManagedBooleanOptionData"
+description: "Auto-generated class reference for ManagedBooleanOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedBooleanOptionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedBooleanOptionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Options.ManagedOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ManagedBooleanOptionData : ManagedOptionData, IBooleanOptionData, IOptionData`
 **Base:** `ManagedOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedBooleanOptionData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedBooleanOptionData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ManagedBooleanOptionData` as a Data-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var value = new ManagedBooleanOptionData();
+// This data object is usually returned by campaign/mission APIs
+ManagedBooleanOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

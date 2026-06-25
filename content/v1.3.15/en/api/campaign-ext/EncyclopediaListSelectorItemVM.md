@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListSelectorItemVM"
+description: "Auto-generated class reference for EncyclopediaListSelectorItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListSelectorItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaListSelectorItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaListSelectorItemVM();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaListSelectorItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

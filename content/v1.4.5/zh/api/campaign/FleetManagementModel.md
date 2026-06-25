@@ -1,20 +1,14 @@
 ---
 title: "FleetManagementModel"
+description: "FleetManagementModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FleetManagementModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FleetManagementModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class FleetManagementModel : MBGameModel<FleetManagementModel>`
 **Base:** `MBGameModel<FleetManagementModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/FleetManagementModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/FleetManagementModel.cs`
 
 ## 概述
 
@@ -35,24 +29,43 @@ title: "FleetManagementModel"
 ### CanTroopsReturn
 `public abstract bool CanTroopsReturn()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `troops return`。
+**用途 / Purpose:** 检查当前对象是否满足 「troops return」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 FleetManagementModel 实例
+FleetManagementModel fleetManagementModel = ...;
+var result = fleetManagementModel.CanTroopsReturn();
+```
 
 ### GetReturnTimeForTroops
 `public abstract CampaignTime GetReturnTimeForTroops(Ship ship)`
 
-**用途 / Purpose:** 获取 `return time for troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「return time for troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FleetManagementModel 实例
+FleetManagementModel fleetManagementModel = ...;
+var result = fleetManagementModel.GetReturnTimeForTroops(ship);
+```
 
 ### CanSendShipToPlayerClan
 `public abstract bool CanSendShipToPlayerClan(Ship ship, int playerShipsCount, int troopsCountToSend, out TextObject hint)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `send ship to player clan`。
+**用途 / Purpose:** 检查当前对象是否满足 「send ship to player clan」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 FleetManagementModel 实例
+FleetManagementModel fleetManagementModel = ...;
+var result = fleetManagementModel.CanSendShipToPlayerClan(ship, 0, 0, hint);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomFleetManagementModel();
+// 通常通过子系统 API 或工厂获得派生实例
+FleetManagementModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

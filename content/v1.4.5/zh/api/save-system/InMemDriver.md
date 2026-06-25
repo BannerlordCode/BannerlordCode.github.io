@@ -1,20 +1,14 @@
 ---
 title: "InMemDriver"
+description: "InMemDriver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InMemDriver`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InMemDriver
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class InMemDriver : ISaveDriver`
 **Base:** `ISaveDriver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/InMemDriver.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/InMemDriver.cs`
 
 ## 概述
 
@@ -29,50 +23,99 @@ title: "InMemDriver"
 ### Save
 `public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`
 
-**用途 / Purpose:** 保存 `save` 数据。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 InMemDriver 实例
+InMemDriver inMemDriver = ...;
+var result = inMemDriver.Save("example", 0, metaData, gameData);
+```
 
 ### LoadMetaData
 `public MetaData LoadMetaData(string saveName)`
 
-**用途 / Purpose:** 加载 `meta data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「meta data」。
+
+```csharp
+// 先通过子系统 API 拿到 InMemDriver 实例
+InMemDriver inMemDriver = ...;
+var result = inMemDriver.LoadMetaData("example");
+```
 
 ### Load
 `public LoadData Load(string saveName)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 先通过子系统 API 拿到 InMemDriver 实例
+InMemDriver inMemDriver = ...;
+var result = inMemDriver.Load("example");
+```
 
 ### GetSaveGameFileInfos
 `public SaveGameFileInfo GetSaveGameFileInfos()`
 
-**用途 / Purpose:** 获取 `save game file infos` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save game file infos」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InMemDriver 实例
+InMemDriver inMemDriver = ...;
+var result = inMemDriver.GetSaveGameFileInfos();
+```
 
 ### GetSaveGameFileNames
 `public string GetSaveGameFileNames()`
 
-**用途 / Purpose:** 获取 `save game file names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save game file names」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InMemDriver 实例
+InMemDriver inMemDriver = ...;
+var result = inMemDriver.GetSaveGameFileNames();
+```
 
 ### Delete
 `public bool Delete(string saveName)`
 
-**用途 / Purpose:** 处理 `delete` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 InMemDriver 实例
+InMemDriver inMemDriver = ...;
+var result = inMemDriver.Delete("example");
+```
 
 ### IsSaveGameFileExists
 `public bool IsSaveGameFileExists(string saveName)`
 
-**用途 / Purpose:** 处理 `is save game file exists` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「save game file exists」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InMemDriver 实例
+InMemDriver inMemDriver = ...;
+var result = inMemDriver.IsSaveGameFileExists("example");
+```
 
 ### IsWorkingAsync
 `public bool IsWorkingAsync()`
 
-**用途 / Purpose:** 处理 `is working async` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「working async」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InMemDriver 实例
+InMemDriver inMemDriver = ...;
+var result = inMemDriver.IsWorkingAsync();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InMemDriver();
-value.Save("example", 0, metaData, gameData);
+// 通常从对应子系统 API 获取实例后调用
+InMemDriver inMemDriver = ...;
+inMemDriver.Save("example", 0, metaData, gameData);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

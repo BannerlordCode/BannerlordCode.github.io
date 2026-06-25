@@ -1,20 +1,14 @@
 ---
 title: "Texture"
+description: "Auto-generated class reference for Texture."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Texture`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Texture
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class Texture`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Texture.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Texture.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### IsLoaded
 `public bool IsLoaded()`
 
-**Purpose:** Handles logic related to `is loaded`.
+**Purpose:** Determines whether the current object is in the `loaded` state or condition.
+
+```csharp
+// Obtain an instance of Texture from the subsystem API first
+Texture texture = ...;
+var result = texture.IsLoaded();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Texture();
-value.IsLoaded();
+// Typically call this after obtaining an instance from the subsystem API
+Texture texture = ...;
+texture.IsLoaded();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

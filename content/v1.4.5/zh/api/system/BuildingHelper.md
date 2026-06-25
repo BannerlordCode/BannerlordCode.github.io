@@ -1,20 +1,14 @@
 ---
 title: "BuildingHelper"
+description: "BuildingHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BuildingHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class BuildingHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/BuildingHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/BuildingHelper.cs`
 
 ## 概述
 
@@ -29,37 +23,72 @@ title: "BuildingHelper"
 ### CheckIfBuildingIsComplete
 `public static void CheckIfBuildingIsComplete(Building building)`
 
-**用途 / Purpose:** 处理 `check if building is complete` 相关逻辑。
+**用途 / Purpose:** 检查「if building is complete」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+BuildingHelper.CheckIfBuildingIsComplete(building);
+```
 
 ### ChangeDefaultBuilding
 `public static void ChangeDefaultBuilding(Building newDefault, Town town)`
 
-**用途 / Purpose:** 处理 `change default building` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BuildingHelper.ChangeDefaultBuilding(newDefault, town);
+```
 
 ### ChangeCurrentBuildingQueue
 `public static void ChangeCurrentBuildingQueue(List<Building> buildings, Town town)`
 
-**用途 / Purpose:** 处理 `change current building queue` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BuildingHelper.ChangeCurrentBuildingQueue(buildings, town);
+```
 
 ### GetProgressOfBuilding
 `public static float GetProgressOfBuilding(Building building, Town town)`
 
-**用途 / Purpose:** 获取 `progress of building` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「progress of building」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BuildingHelper.GetProgressOfBuilding(building, town);
+```
 
 ### GetDaysToComplete
 `public static int GetDaysToComplete(Building building, Town town)`
 
-**用途 / Purpose:** 获取 `days to complete` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「days to complete」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BuildingHelper.GetDaysToComplete(building, town);
+```
 
 ### GetTierOfBuilding
 `public static int GetTierOfBuilding(BuildingType buildingType, Town town)`
 
-**用途 / Purpose:** 获取 `tier of building` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tier of building」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BuildingHelper.GetTierOfBuilding(buildingType, town);
+```
 
 ### BoostBuildingProcessWithGold
 `public static void BoostBuildingProcessWithGold(int gold, Town town)`
 
-**用途 / Purpose:** 处理 `boost building process with gold` 相关逻辑。
+**用途 / Purpose:** 提升「building process with gold」的数值或强度。
+
+```csharp
+// 静态调用，不需要实例
+BuildingHelper.BoostBuildingProcessWithGold(0, town);
+```
 
 ## 使用示例
 
@@ -69,4 +98,4 @@ BuildingHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

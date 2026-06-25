@@ -1,20 +1,14 @@
 ---
 title: "VlandianTag"
+description: "Auto-generated class reference for VlandianTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VlandianTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VlandianTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class VlandianTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/VlandianTag.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/VlandianTag.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of VlandianTag from the subsystem API first
+VlandianTag vlandianTag = ...;
+var result = vlandianTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VlandianTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+VlandianTag vlandianTag = ...;
+vlandianTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleFormationWeightChangedEvent"
+description: "OrderOfBattleFormationWeightChangedEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderOfBattleFormationWeightChangedEvent`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationWeightChangedEvent
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleFormationWeightChangedEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleFormationWeightChangedEvent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleFormationWeightChangedEvent.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "OrderOfBattleFormationWeightChangedEvent"
 ## 使用示例
 
 ```csharp
-var example = new OrderOfBattleFormationWeightChangedEvent();
+// 从对应子系统 API 获取实例
+OrderOfBattleFormationWeightChangedEvent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

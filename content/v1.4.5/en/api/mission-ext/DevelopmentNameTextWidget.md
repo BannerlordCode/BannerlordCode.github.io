@@ -1,20 +1,14 @@
 ---
 title: "DevelopmentNameTextWidget"
+description: "Auto-generated class reference for DevelopmentNameTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DevelopmentNameTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DevelopmentNameTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DevelopmentNameTextWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentNameTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentNameTextWidget.cs`
 
 ## Overview
 
@@ -38,19 +32,32 @@ Treat `DevelopmentNameTextWidget` as a Widget-style extension point: first ident
 ### DevelopmentNameTextWidget
 `public class DevelopmentNameTextWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `development name text widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DevelopmentNameTextWidget from the subsystem API first
+DevelopmentNameTextWidget developmentNameTextWidget = ...;
+var result = developmentNameTextWidget.DevelopmentNameTextWidget(context);
+```
 
 ### StartMaxTextAnimation
 `public void StartMaxTextAnimation()`
 
-**Purpose:** Handles logic related to `start max text animation`.
+**Purpose:** Starts the `max text animation` flow or state machine.
+
+```csharp
+// Obtain an instance of DevelopmentNameTextWidget from the subsystem API first
+DevelopmentNameTextWidget developmentNameTextWidget = ...;
+developmentNameTextWidget.StartMaxTextAnimation();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new DevelopmentNameTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DevelopmentNameTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

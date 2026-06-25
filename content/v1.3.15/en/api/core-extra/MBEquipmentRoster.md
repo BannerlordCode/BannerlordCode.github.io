@@ -1,13 +1,7 @@
 ---
 title: "MBEquipmentRoster"
+description: "Auto-generated class reference for MBEquipmentRoster."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBEquipmentRoster`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBEquipmentRoster
 
 **Namespace:** TaleWorlds.Core
@@ -37,50 +31,99 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### HasEquipmentFlags
 `public bool HasEquipmentFlags(EquipmentFlags flags)`
 
-**Purpose:** Checks whether the current object has/contains `equipment flags`.
+**Purpose:** Determines whether the current object already holds `equipment flags`.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+var result = mBEquipmentRoster.HasEquipmentFlags(flags);
+```
 
 ### IsEquipmentTemplate
 `public bool IsEquipmentTemplate()`
 
-**Purpose:** Handles logic related to `is equipment template`.
+**Purpose:** Determines whether the current object is in the `equipment template` state or condition.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+var result = mBEquipmentRoster.IsEquipmentTemplate();
+```
 
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.Init(objectManager, node);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.Deserialize(objectManager, node);
+```
 
 ### AddEquipmentRoster
 `public void AddEquipmentRoster(MBEquipmentRoster equipmentRoster, Equipment.EquipmentType equipmentType)`
 
 **Purpose:** Adds `equipment roster` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.AddEquipmentRoster(equipmentRoster, equipmentType);
+```
+
 ### AddOverridenEquipments
 `public void AddOverridenEquipments(MBObjectManager objectManager, List<XmlNode> overridenEquipmentSlots)`
 
 **Purpose:** Adds `overriden equipments` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.AddOverridenEquipments(objectManager, overridenEquipmentSlots);
+```
+
 ### OrderEquipments
 `public void OrderEquipments()`
 
-**Purpose:** Handles logic related to `order equipments`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.OrderEquipments();
+```
 
 ### InitializeDefaultEquipment
 `public void InitializeDefaultEquipment(string equipmentName)`
 
-**Purpose:** Initializes the state, resources, or bindings for `default equipment`.
+**Purpose:** Prepares the resources, state, or bindings required by `default equipment`.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.InitializeDefaultEquipment("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBEquipmentRoster();
-value.HasEquipmentFlags(flags);
+// Typically call this after obtaining an instance from the subsystem API
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.HasEquipmentFlags(flags);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPAfterBattlePopupVM"
+description: "Auto-generated class reference for MPAfterBattlePopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPAfterBattlePopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPAfterBattlePopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPAfterBattlePopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle/MPAfterBattlePopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle/MPAfterBattlePopupVM.cs`
 
 ## Overview
 
@@ -60,25 +54,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPAfterBattlePopupVM from the subsystem API first
+MPAfterBattlePopupVM mPAfterBattlePopupVM = ...;
+mPAfterBattlePopupVM.RefreshValues();
+```
 
 ### OpenWith
 `public void OpenWith(int oldExperience, int newExperience, List<string> badgesEarned, int lootGained, RankBarInfo oldRankBarInfo, RankBarInfo newRankBarInfo)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPAfterBattlePopupVM from the subsystem API first
+MPAfterBattlePopupVM mPAfterBattlePopupVM = ...;
+mPAfterBattlePopupVM.OpenWith(0, 0, badgesEarned, 0, oldRankBarInfo, newRankBarInfo);
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of MPAfterBattlePopupVM from the subsystem API first
+MPAfterBattlePopupVM mPAfterBattlePopupVM = ...;
+mPAfterBattlePopupVM.ExecuteClose();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPAfterBattlePopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPAfterBattlePopupVM mPAfterBattlePopupVM = ...;
+mPAfterBattlePopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

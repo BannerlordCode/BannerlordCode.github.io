@@ -1,20 +1,14 @@
 ---
 title: "CharacterSpawner"
+description: "CharacterSpawner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterSpawner`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterSpawner : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/CharacterSpawner.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/CharacterSpawner.cs`
 
 ## 概述
 
@@ -36,30 +30,55 @@ title: "CharacterSpawner"
 ### SetCreateFaceImmediately
 `public void SetCreateFaceImmediately(bool value)`
 
-**用途 / Purpose:** 设置 `create face immediately` 的值或状态。
+**用途 / Purpose:** 为 「create face immediately」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterSpawner 实例
+CharacterSpawner characterSpawner = ...;
+characterSpawner.SetCreateFaceImmediately(false);
+```
 
 ### SetClothColors
 `public void SetClothColors(uint color1, uint color2)`
 
-**用途 / Purpose:** 设置 `cloth colors` 的值或状态。
+**用途 / Purpose:** 为 「cloth colors」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterSpawner 实例
+CharacterSpawner characterSpawner = ...;
+characterSpawner.SetClothColors(0, 0);
+```
 
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**用途 / Purpose:** 处理 `spawn character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterSpawner 实例
+CharacterSpawner characterSpawner = ...;
+characterSpawner.SpawnCharacter();
+```
 
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode, bool useBodyProperties = false)`
 
-**用途 / Purpose:** 初始化 `with character` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「with character」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterSpawner 实例
+CharacterSpawner characterSpawner = ...;
+characterSpawner.InitWithCharacter(characterCode, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterSpawner();
-value.SetCreateFaceImmediately(false);
+// 通常从对应子系统 API 获取实例后调用
+CharacterSpawner characterSpawner = ...;
+characterSpawner.SetCreateFaceImmediately(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

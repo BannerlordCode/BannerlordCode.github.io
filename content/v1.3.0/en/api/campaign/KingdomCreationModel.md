@@ -1,13 +1,7 @@
 ---
 title: "KingdomCreationModel"
+description: "Auto-generated class reference for KingdomCreationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomCreationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomCreationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -38,24 +32,43 @@ Treat `KingdomCreationModel` as a Model-style extension point: first identify wh
 ### IsPlayerKingdomCreationPossible
 `public abstract bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)`
 
-**Purpose:** Handles logic related to `is player kingdom creation possible`.
+**Purpose:** Determines whether the current object is in the `player kingdom creation possible` state or condition.
+
+```csharp
+// Obtain an instance of KingdomCreationModel from the subsystem API first
+KingdomCreationModel kingdomCreationModel = ...;
+var result = kingdomCreationModel.IsPlayerKingdomCreationPossible(explanations);
+```
 
 ### IsPlayerKingdomAbdicationPossible
 `public abstract bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)`
 
-**Purpose:** Handles logic related to `is player kingdom abdication possible`.
+**Purpose:** Determines whether the current object is in the `player kingdom abdication possible` state or condition.
+
+```csharp
+// Obtain an instance of KingdomCreationModel from the subsystem API first
+KingdomCreationModel kingdomCreationModel = ...;
+var result = kingdomCreationModel.IsPlayerKingdomAbdicationPossible(explanations);
+```
 
 ### GetAvailablePlayerKingdomCultures
 `public abstract IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()`
 
-**Purpose:** Gets the current value of `available player kingdom cultures`.
+**Purpose:** Reads and returns the `available player kingdom cultures` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomCreationModel from the subsystem API first
+KingdomCreationModel kingdomCreationModel = ...;
+var result = kingdomCreationModel.GetAvailablePlayerKingdomCultures();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomKingdomCreationModel();
+// Typically obtained from a subsystem API or factory
+KingdomCreationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

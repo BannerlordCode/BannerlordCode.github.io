@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationStageBase"
+description: "Auto-generated class reference for CharacterCreationStageBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationStageBase`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationStageBase
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CharacterCreationStageBase`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationStageBase.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationStageBase.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCharacterCreationStageBase();
+// Typically obtained from a subsystem API or factory
+CharacterCreationStageBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

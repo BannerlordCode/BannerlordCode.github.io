@@ -1,13 +1,7 @@
 ---
 title: "MissionLobbyEquipmentNetworkComponent"
+description: "Auto-generated class reference for MissionLobbyEquipmentNetworkComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLobbyEquipmentNetworkComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionLobbyEquipmentNetworkComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,32 +23,68 @@ Treat `MissionLobbyEquipmentNetworkComponent` as a Component-style extension poi
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
+MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
+missionLobbyEquipmentNetworkComponent.OnBehaviorInitialize();
+```
 
 ### PerkUpdated
 `public void PerkUpdated(int perkList, int perkIndex)`
 
-**Purpose:** Handles logic related to `perk updated`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
+MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
+missionLobbyEquipmentNetworkComponent.PerkUpdated(0, 0);
+```
 
 ### EquipmentUpdated
 `public void EquipmentUpdated()`
 
-**Purpose:** Handles logic related to `equipment updated`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
+MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
+missionLobbyEquipmentNetworkComponent.EquipmentUpdated();
+```
 
 ### ToggleLoadout
 `public void ToggleLoadout(bool isActive)`
 
-**Purpose:** Handles logic related to `toggle loadout`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
+MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
+missionLobbyEquipmentNetworkComponent.ToggleLoadout(false);
+```
 
 ### OnToggleLoadoutDelegate
 `public delegate void OnToggleLoadoutDelegate(bool isActive)`
 
-**Purpose:** Called when the `toggle loadout delegate` event is raised.
+**Purpose:** Invoked when the `toggle loadout delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
+MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
+missionLobbyEquipmentNetworkComponent.OnToggleLoadoutDelegate(false);
+```
 
 ### OnRefreshEquipmentEventDelegate
 `public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)`
 
-**Purpose:** Called when the `refresh equipment event delegate` event is raised.
+**Purpose:** Invoked when the `refresh equipment event delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
+MissionLobbyEquipmentNetworkComponent missionLobbyEquipmentNetworkComponent = ...;
+missionLobbyEquipmentNetworkComponent.OnRefreshEquipmentEventDelegate(lobbyPeer);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ var component = agent.GetComponent<MissionLobbyEquipmentNetworkComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

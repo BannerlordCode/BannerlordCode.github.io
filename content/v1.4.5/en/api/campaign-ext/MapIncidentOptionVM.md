@@ -1,20 +1,14 @@
 ---
 title: "MapIncidentOptionVM"
+description: "Auto-generated class reference for MapIncidentOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapIncidentOptionVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapIncidentOptionVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Incidents
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MapIncidentOptionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Incidents/MapIncidentOptionVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Incidents/MapIncidentOptionVM.cs`
 
 ## Overview
 
@@ -38,35 +32,66 @@ Start from namespace `SandBox.ViewModelCollection.Map.Incidents` to place it in 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapIncidentOptionVM from the subsystem API first
+MapIncidentOptionVM mapIncidentOptionVM = ...;
+mapIncidentOptionVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapIncidentOptionVM from the subsystem API first
+MapIncidentOptionVM mapIncidentOptionVM = ...;
+mapIncidentOptionVM.OnFinalize();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of MapIncidentOptionVM from the subsystem API first
+MapIncidentOptionVM mapIncidentOptionVM = ...;
+mapIncidentOptionVM.ExecuteSelect();
+```
 
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**Purpose:** Executes the `focus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focus`.
+
+```csharp
+// Obtain an instance of MapIncidentOptionVM from the subsystem API first
+MapIncidentOptionVM mapIncidentOptionVM = ...;
+mapIncidentOptionVM.ExecuteFocus();
+```
 
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**Purpose:** Executes the `unfocus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `unfocus`.
+
+```csharp
+// Obtain an instance of MapIncidentOptionVM from the subsystem API first
+MapIncidentOptionVM mapIncidentOptionVM = ...;
+mapIncidentOptionVM.ExecuteUnfocus();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapIncidentOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapIncidentOptionVM mapIncidentOptionVM = ...;
+mapIncidentOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

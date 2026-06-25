@@ -1,13 +1,7 @@
 ---
 title: "HandlerResult"
+description: "Auto-generated class reference for HandlerResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HandlerResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HandlerResult
 
 **Namespace:** TaleWorlds.Diamond
@@ -37,17 +31,32 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### CreateSuccessful
 `public static HandlerResult CreateSuccessful()`
 
-**Purpose:** Creates a new `successful` instance or object.
+**Purpose:** Constructs a new `successful` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HandlerResult.CreateSuccessful();
+```
 
 ### CreateSuccessful
 `public static HandlerResult CreateSuccessful(Message nextMessage)`
 
-**Purpose:** Creates a new `successful` instance or object.
+**Purpose:** Constructs a new `successful` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HandlerResult.CreateSuccessful(nextMessage);
+```
 
 ### CreateFailed
 `public static HandlerResult CreateFailed(string error)`
 
-**Purpose:** Creates a new `failed` instance or object.
+**Purpose:** Constructs a new `failed` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HandlerResult.CreateFailed("example");
+```
 
 ## Usage Example
 
@@ -57,4 +66,4 @@ HandlerResult.CreateSuccessful();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPOnSpawnPerkHandler"
+description: "Auto-generated class reference for MPOnSpawnPerkHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPOnSpawnPerkHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPOnSpawnPerkHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `class MPOnSpawnPerkHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkObject.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkObject.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MPOnSpawnPerkHandler` as a Handler-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MPOnSpawnPerkHandler());
+var behavior = Mission.Current.GetMissionBehavior<MPOnSpawnPerkHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultCombatXpModel"
+description: "DefaultCombatXpModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultCombatXpModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultCombatXpModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,17 +29,35 @@ title: "DefaultCombatXpModel"
 ### GetSkillForWeapon
 `public override SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**用途 / Purpose:** 获取 `skill for weapon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill for weapon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCombatXpModel 实例
+DefaultCombatXpModel defaultCombatXpModel = ...;
+var result = defaultCombatXpModel.GetSkillForWeapon(weapon, false);
+```
 
 ### GetXpFromHit
 `public override ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`
 
-**用途 / Purpose:** 获取 `xp from hit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp from hit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCombatXpModel 实例
+DefaultCombatXpModel defaultCombatXpModel = ...;
+var result = defaultCombatXpModel.GetXpFromHit(attackerTroop, captain, attackedTroop, attackerParty, 0, false, missionType);
+```
 
 ### GetXpMultiplierFromShotDifficulty
 `public override float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**用途 / Purpose:** 获取 `xp multiplier from shot difficulty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp multiplier from shot difficulty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCombatXpModel 实例
+DefaultCombatXpModel defaultCombatXpModel = ...;
+var result = defaultCombatXpModel.GetXpMultiplierFromShotDifficulty(0);
+```
 
 ## 使用示例
 
@@ -55,4 +67,4 @@ Game.Current.ReplaceModel<DefaultCombatXpModel>(new MyDefaultCombatXpModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

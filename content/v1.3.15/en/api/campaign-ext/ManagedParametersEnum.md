@@ -1,18 +1,12 @@
 ---
 title: "ManagedParametersEnum"
+description: "Auto-generated class reference for ManagedParametersEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedParametersEnum`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ManagedParametersEnum
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum ManagedParametersEnum`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/ManagedParametersEnum.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new ManagedParametersEnum();
+// Obtain an instance from the relevant subsystem API
+ManagedParametersEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

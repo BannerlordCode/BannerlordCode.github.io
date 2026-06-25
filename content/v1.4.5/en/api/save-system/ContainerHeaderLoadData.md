@@ -1,20 +1,14 @@
 ---
 title: "ContainerHeaderLoadData"
+description: "Auto-generated class reference for ContainerHeaderLoadData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContainerHeaderLoadData`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerHeaderLoadData
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerHeaderLoadData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ContainerHeaderLoadData.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ContainerHeaderLoadData.cs`
 
 ## Overview
 
@@ -41,24 +35,43 @@ Treat `ContainerHeaderLoadData` as a Data-style extension point: first identify 
 ### GetObjectTypeDefinition
 `public bool GetObjectTypeDefinition()`
 
-**Purpose:** Gets the current value of `object type definition`.
+**Purpose:** Reads and returns the `object type definition` value held by the current object.
+
+```csharp
+// Obtain an instance of ContainerHeaderLoadData from the subsystem API first
+ContainerHeaderLoadData containerHeaderLoadData = ...;
+var result = containerHeaderLoadData.GetObjectTypeDefinition();
+```
 
 ### CreateObject
 `public void CreateObject()`
 
-**Purpose:** Creates a new `object` instance or object.
+**Purpose:** Constructs a new `object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of ContainerHeaderLoadData from the subsystem API first
+ContainerHeaderLoadData containerHeaderLoadData = ...;
+containerHeaderLoadData.CreateObject();
+```
 
 ### InitialieReaders
 `public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
 
-**Purpose:** Initializes the state, resources, or bindings for `ialie readers`.
+**Purpose:** Prepares the resources, state, or bindings required by `ialie readers`.
+
+```csharp
+// Obtain an instance of ContainerHeaderLoadData from the subsystem API first
+ContainerHeaderLoadData containerHeaderLoadData = ...;
+containerHeaderLoadData.InitialieReaders(saveEntryFolder);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ContainerHeaderLoadData();
+// This data object is usually returned by campaign/mission APIs
+ContainerHeaderLoadData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BattleTypeEnumResolver"
+description: "BattleTypeEnumResolver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleTypeEnumResolver`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleTypeEnumResolver
 
 **Namespace:** TaleWorlds.CampaignSystem.SaveCompability
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BattleTypeEnumResolver : IEnumResolver`
 **Base:** `IEnumResolver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/BattleTypeEnumResolver.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/BattleTypeEnumResolver.cs`
 
 ## 概述
 
@@ -29,14 +23,22 @@ title: "BattleTypeEnumResolver"
 ### ResolveObject
 `public string ResolveObject(string originalObject)`
 
-**用途 / Purpose:** 处理 `resolve object` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleTypeEnumResolver 实例
+BattleTypeEnumResolver battleTypeEnumResolver = ...;
+var result = battleTypeEnumResolver.ResolveObject("example");
+```
 
 ## 使用示例
 
 ```csharp
-BattleTypeEnumResolver example = BattleTypeEnumResolver.Value;
+// 通常从对应子系统 API 获取实例后调用
+BattleTypeEnumResolver battleTypeEnumResolver = ...;
+battleTypeEnumResolver.ResolveObject("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "DestroyMobilePartyLogEntry"
+description: "DestroyMobilePartyLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DestroyMobilePartyLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DestroyMobilePartyLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DestroyMobilePartyLogEntry : LogEntry`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/DestroyMobilePartyLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/DestroyMobilePartyLogEntry.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "DestroyMobilePartyLogEntry"
 ### GetAsRumor
 `public override int GetAsRumor(Settlement settlement, out TextObject comment)`
 
-**用途 / Purpose:** 获取 `as rumor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「as rumor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DestroyMobilePartyLogEntry 实例
+DestroyMobilePartyLogEntry destroyMobilePartyLogEntry = ...;
+var result = destroyMobilePartyLogEntry.GetAsRumor(settlement, comment);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 DestroyMobilePartyLogEntry 实例
+DestroyMobilePartyLogEntry destroyMobilePartyLogEntry = ...;
+var result = destroyMobilePartyLogEntry.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DestroyMobilePartyLogEntry();
-value.GetAsRumor(settlement, comment);
+// 通常从对应子系统 API 获取实例后调用
+DestroyMobilePartyLogEntry destroyMobilePartyLogEntry = ...;
+destroyMobilePartyLogEntry.GetAsRumor(settlement, comment);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "AudioPlaybackLayerChannelStandalone"
+description: "Auto-generated class reference for AudioPlaybackLayerChannelStandalone."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AudioPlaybackLayerChannelStandalone`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AudioPlaybackLayerChannelStandalone
 
 **Namespace:** psai.net
@@ -29,45 +23,88 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### Release
 `public void Release()`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+audioPlaybackLayerChannelStandalone.Release();
+```
 
 ### LoadSegment
 `public PsaiResult LoadSegment(Segment segment)`
 
-**Purpose:** Loads `segment` data.
+**Purpose:** Reads `segment` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.LoadSegment(segment);
+```
 
 ### ReleaseSegment
 `public PsaiResult ReleaseSegment()`
 
-**Purpose:** Handles logic related to `release segment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.ReleaseSegment();
+```
 
 ### ScheduleSegmentPlayback
 `public PsaiResult ScheduleSegmentPlayback(Segment snippet, int delayMilliseconds)`
 
-**Purpose:** Handles logic related to `schedule segment playback`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.ScheduleSegmentPlayback(snippet, 0);
+```
 
 ### StopChannel
 `public PsaiResult StopChannel()`
 
-**Purpose:** Handles logic related to `stop channel`.
+**Purpose:** Stops the `channel` flow or state machine.
+
+```csharp
+// Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.StopChannel();
+```
 
 ### SetVolume
 `public PsaiResult SetVolume(float volume)`
 
-**Purpose:** Sets the value or state of `volume`.
+**Purpose:** Assigns a new value to `volume` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.SetVolume(0);
+```
 
 ### SetPaused
 `public PsaiResult SetPaused(bool paused)`
 
-**Purpose:** Sets the value or state of `paused`.
+**Purpose:** Assigns a new value to `paused` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.SetPaused(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AudioPlaybackLayerChannelStandalone();
-value.Release();
+// Typically call this after obtaining an instance from the subsystem API
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+audioPlaybackLayerChannelStandalone.Release();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

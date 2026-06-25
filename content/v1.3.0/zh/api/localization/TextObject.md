@@ -1,13 +1,7 @@
 ---
 title: "TextObject"
+description: "TextObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextObject`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextObject
 
 **Namespace:** TaleWorlds.Localization
@@ -37,125 +31,261 @@ title: "TextObject"
 ### CacheTokens
 `public void CacheTokens()`
 
-**用途 / Purpose:** 处理 `cache tokens` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+textObject.CacheTokens();
+```
 
 ### GetEmpty
 `public static TextObject GetEmpty()`
 
-**用途 / Purpose:** 获取 `empty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「empty」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TextObject.GetEmpty();
+```
 
 ### IsEmpty
 `public bool IsEmpty()`
 
-**用途 / Purpose:** 处理 `is empty` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「empty」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.IsEmpty();
+```
 
 ### IsNullOrEmpty
 `public static bool IsNullOrEmpty(TextObject obj)`
 
-**用途 / Purpose:** 处理 `is null or empty` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「null or empty」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TextObject.IsNullOrEmpty(obj);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.ToString();
+```
 
 ### ToStringWithoutClear
 `public string ToStringWithoutClear()`
 
-**用途 / Purpose:** 处理 `to string without clear` 相关逻辑。
+**用途 / Purpose:** 生成当前对象的可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.ToStringWithoutClear();
+```
 
 ### Format
 `public string Format(float p1)`
 
-**用途 / Purpose:** 处理 `format` 相关逻辑。
+**用途 / Purpose:** 将「format」格式化为适合显示或存储的字符串。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.Format(0);
+```
 
 ### Contains
 `public bool Contains(TextObject to)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.Contains(to);
+```
 
 ### Contains
 `public bool Contains(string text)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.Contains("example");
+```
 
 ### Equals
 `public override bool Equals(object other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.GetHashCode();
+```
 
 ### Equals
 `public bool Equals(TextObject other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.Equals(other);
+```
 
 ### HasSameValue
 `public bool HasSameValue(TextObject to)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `same value`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「same value」。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.HasSameValue(to);
+```
 
 ### ConvertToStringList
 `public static List<string> ConvertToStringList(List<TextObject> to)`
 
-**用途 / Purpose:** 处理 `convert to string list` 相关逻辑。
+**用途 / Purpose:** 把「to string list」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+TextObject.ConvertToStringList(to);
+```
 
 ### SetTextVariable
 `public TextObject SetTextVariable(string tag, TextObject variable)`
 
-**用途 / Purpose:** 设置 `text variable` 的值或状态。
+**用途 / Purpose:** 为 「text variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.SetTextVariable("example", variable);
+```
 
 ### SetTextVariable
 `public TextObject SetTextVariable(string tag, string variable)`
 
-**用途 / Purpose:** 设置 `text variable` 的值或状态。
+**用途 / Purpose:** 为 「text variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.SetTextVariable("example", "example");
+```
 
 ### SetTextVariable
 `public TextObject SetTextVariable(string tag, float variable, int decimalDigits = 2)`
 
-**用途 / Purpose:** 设置 `text variable` 的值或状态。
+**用途 / Purpose:** 为 「text variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.SetTextVariable("example", 0, 0);
+```
 
 ### SetTextVariable
 `public TextObject SetTextVariable(string tag, int variable)`
 
-**用途 / Purpose:** 设置 `text variable` 的值或状态。
+**用途 / Purpose:** 为 「text variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.SetTextVariable("example", 0);
+```
 
 ### AddIDToValue
 `public void AddIDToValue(string id)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `i d to value`。
+**用途 / Purpose:** 将 「i d to value」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+textObject.AddIDToValue("example");
+```
 
 ### GetVariableValue
 `public bool GetVariableValue(string tag, out TextObject variable)`
 
-**用途 / Purpose:** 获取 `variable value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「variable value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.GetVariableValue("example", variable);
+```
 
 ### GetValueHashCode
 `public int GetValueHashCode()`
 
-**用途 / Purpose:** 获取 `value hash code` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value hash code」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.GetValueHashCode();
+```
 
 ### CopyTextObject
 `public TextObject CopyTextObject()`
 
-**用途 / Purpose:** 处理 `copy text object` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「text object」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.CopyTextObject();
+```
 
 ### GetID
 `public string GetID()`
 
-**用途 / Purpose:** 获取 `i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「i d」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TextObject 实例
+TextObject textObject = ...;
+var result = textObject.GetID();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TextObject();
-value.CacheTokens();
+// 通常从对应子系统 API 获取实例后调用
+TextObject textObject = ...;
+textObject.CacheTokens();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

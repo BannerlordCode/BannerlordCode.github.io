@@ -1,20 +1,14 @@
 ---
 title: "MatchmakingWaitTimeRegionStats"
+description: "Auto-generated class reference for MatchmakingWaitTimeRegionStats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatchmakingWaitTimeRegionStats`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatchmakingWaitTimeRegionStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingWaitTimeRegionStats`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingWaitTimeRegionStats.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingWaitTimeRegionStats.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SetGameTypeAverage
 `public void SetGameTypeAverage(string gameType, WaitTimeStatType statType, int average)`
 
-**Purpose:** Sets the value or state of `game type average`.
+**Purpose:** Assigns a new value to `game type average` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MatchmakingWaitTimeRegionStats from the subsystem API first
+MatchmakingWaitTimeRegionStats matchmakingWaitTimeRegionStats = ...;
+matchmakingWaitTimeRegionStats.SetGameTypeAverage("example", statType, 0);
+```
 
 ### HasStatsForGameType
 `public bool HasStatsForGameType(string gameType)`
 
-**Purpose:** Checks whether the current object has/contains `stats for game type`.
+**Purpose:** Determines whether the current object already holds `stats for game type`.
+
+```csharp
+// Obtain an instance of MatchmakingWaitTimeRegionStats from the subsystem API first
+MatchmakingWaitTimeRegionStats matchmakingWaitTimeRegionStats = ...;
+var result = matchmakingWaitTimeRegionStats.HasStatsForGameType("example");
+```
 
 ### GetWaitTime
 `public int GetWaitTime(string gameType, WaitTimeStatType statType)`
 
-**Purpose:** Gets the current value of `wait time`.
+**Purpose:** Reads and returns the `wait time` value held by the current object.
+
+```csharp
+// Obtain an instance of MatchmakingWaitTimeRegionStats from the subsystem API first
+MatchmakingWaitTimeRegionStats matchmakingWaitTimeRegionStats = ...;
+var result = matchmakingWaitTimeRegionStats.GetWaitTime("example", statType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MatchmakingWaitTimeRegionStats();
-value.SetGameTypeAverage("example", statType, 0);
+// Typically call this after obtaining an instance from the subsystem API
+MatchmakingWaitTimeRegionStats matchmakingWaitTimeRegionStats = ...;
+matchmakingWaitTimeRegionStats.SetGameTypeAverage("example", statType, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

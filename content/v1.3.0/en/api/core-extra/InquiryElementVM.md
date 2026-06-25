@@ -1,13 +1,7 @@
 ---
 title: "InquiryElementVM"
+description: "Auto-generated class reference for InquiryElementVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InquiryElementVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InquiryElementVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -39,9 +33,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ## Usage Example
 
 ```csharp
-var example = new InquiryElementVM();
+// Obtain an instance from the relevant subsystem API
+InquiryElementVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

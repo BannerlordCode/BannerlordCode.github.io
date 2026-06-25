@@ -1,20 +1,14 @@
 ---
 title: "GauntletBodyGeneratorScreen"
+description: "GauntletBodyGeneratorScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletBodyGeneratorScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletBodyGeneratorScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletBodyGeneratorScreen : ScreenBase, IFaceGeneratorScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator/GauntletBodyGeneratorScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator/GauntletBodyGeneratorScreen.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "GauntletBodyGeneratorScreen"
 ### OnExit
 `public void OnExit()`
 
-**用途 / Purpose:** 当 `exit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「exit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletBodyGeneratorScreen 实例
+GauntletBodyGeneratorScreen gauntletBodyGeneratorScreen = ...;
+gauntletBodyGeneratorScreen.OnExit();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletBodyGeneratorScreen();
-value.OnExit();
+// 通常从对应子系统 API 获取实例后调用
+GauntletBodyGeneratorScreen gauntletBodyGeneratorScreen = ...;
+gauntletBodyGeneratorScreen.OnExit();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "IGeneratedUIPrefabCreator"
+description: "Auto-generated class reference for IGeneratedUIPrefabCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGeneratedUIPrefabCreator`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IGeneratedUIPrefabCreator
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface IGeneratedUIPrefabCreator`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/IGeneratedUIPrefabCreator.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/IGeneratedUIPrefabCreator.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ## Usage Example
 
 ```csharp
-IGeneratedUIPrefabCreator implementation = GetGeneratedUIPrefabCreatorImplementation();
+// Usually obtained through DI or a factory method
+IIGeneratedUIPrefabCreator service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BehaviorSergeantMPLastFlagLastStand"
+description: "Auto-generated class reference for BehaviorSergeantMPLastFlagLastStand."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorSergeantMPLastFlagLastStand`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorSergeantMPLastFlagLastStand
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSergeantMPLastFlagLastStand : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSergeantMPLastFlagLastStand.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSergeantMPLastFlagLastStand.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorSergeantMPLastFlagLastStand from the subsystem API first
+BehaviorSergeantMPLastFlagLastStand behaviorSergeantMPLastFlagLastStand = ...;
+behaviorSergeantMPLastFlagLastStand.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorSergeantMPLastFlagLastStand();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorSergeantMPLastFlagLastStand behaviorSergeantMPLastFlagLastStand = ...;
+behaviorSergeantMPLastFlagLastStand.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TrainingObjectiveKeyVM"
+description: "TrainingObjectiveKeyVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TrainingObjectiveKeyVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingObjectiveKeyVM
 
 **Namespace:** StoryMode.ViewModelCollection.Missions
 **Module:** StoryMode.ViewModelCollection
 **Type:** `public class TrainingObjectiveKeyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.ViewModelCollection/StoryMode.ViewModelCollection.Missions/TrainingObjectiveKeyVM.cs`
+**File:** `Modules.StoryMode/StoryMode.ViewModelCollection/StoryMode.ViewModelCollection.Missions/TrainingObjectiveKeyVM.cs`
 
 ## 概述
 
@@ -40,20 +34,33 @@ title: "TrainingObjectiveKeyVM"
 ### MouseAndClickInput
 `public struct MouseAndClickInput(MovementTypes movementType, MouseClickTypes mouseClickType)`
 
-**用途 / Purpose:** 处理 `mouse and click input` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingObjectiveKeyVM 实例
+TrainingObjectiveKeyVM trainingObjectiveKeyVM = ...;
+var result = trainingObjectiveKeyVM.MouseAndClickInput(movementType, mouseClickType);
+```
 
 ### ControllerStickInput
 `public struct ControllerStickInput(MovementTypes movementType, bool isLeftStick)`
 
-**用途 / Purpose:** 处理 `controller stick input` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingObjectiveKeyVM 实例
+TrainingObjectiveKeyVM trainingObjectiveKeyVM = ...;
+var result = trainingObjectiveKeyVM.ControllerStickInput(movementType, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TrainingObjectiveKeyVM();
-value.MouseAndClickInput(movementType, mouseClickType);
+// 通常从对应子系统 API 获取实例后调用
+TrainingObjectiveKeyVM trainingObjectiveKeyVM = ...;
+trainingObjectiveKeyVM.MouseAndClickInput(movementType, mouseClickType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

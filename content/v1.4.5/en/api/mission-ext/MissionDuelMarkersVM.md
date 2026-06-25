@@ -1,20 +1,14 @@
 ---
 title: "MissionDuelMarkersVM"
+description: "Auto-generated class reference for MissionDuelMarkersVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionDuelMarkersVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDuelMarkersVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionDuelMarkersVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MissionDuelMarkersVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MissionDuelMarkersVM.cs`
 
 ## Overview
 
@@ -37,85 +31,176 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### Compare
 `public int Compare(MissionDuelPeerMarkerVM x, MissionDuelPeerMarkerVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+var result = missionDuelMarkersVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.RefreshValues();
+```
 
 ### UpdateScreenCenter
 `public void UpdateScreenCenter()`
 
-**Purpose:** Updates the state or data of `screen center`.
+**Purpose:** Recalculates and stores the latest representation of `screen center`.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.UpdateScreenCenter();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.Tick(0);
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.RegisterEvents();
+```
 
 ### UnregisterEvents
 `public void UnregisterEvents()`
 
-**Purpose:** Handles logic related to `unregister events`.
+**Purpose:** Unregisters `events` from the current system.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.UnregisterEvents();
+```
 
 ### RefreshPeerEquipments
 `public void RefreshPeerEquipments()`
 
-**Purpose:** Refreshes the display or cache of `peer equipments`.
+**Purpose:** Keeps the display or cache of `peer equipments` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.RefreshPeerEquipments();
+```
 
 ### OnAgentSpawnedWithoutDuel
 `public void OnAgentSpawnedWithoutDuel()`
 
-**Purpose:** Called when the `agent spawned without duel` event is raised.
+**Purpose:** Invoked when the `agent spawned without duel` event is raised.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnAgentSpawnedWithoutDuel();
+```
 
 ### OnAgentBuiltForTheFirstTime
 `public void OnAgentBuiltForTheFirstTime()`
 
-**Purpose:** Called when the `agent built for the first time` event is raised.
+**Purpose:** Invoked when the `agent built for the first time` event is raised.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnAgentBuiltForTheFirstTime();
+```
 
 ### OnDuelStarted
 `public void OnDuelStarted(MissionPeer firstPeer, MissionPeer secondPeer)`
 
-**Purpose:** Called when the `duel started` event is raised.
+**Purpose:** Invoked when the `duel started` event is raised.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnDuelStarted(firstPeer, secondPeer);
+```
 
 ### SetMarkerOfPeerEnabled
 `public void SetMarkerOfPeerEnabled(MissionPeer peer, bool isEnabled)`
 
-**Purpose:** Sets the value or state of `marker of peer enabled`.
+**Purpose:** Assigns a new value to `marker of peer enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.SetMarkerOfPeerEnabled(peer, false);
+```
 
 ### OnPlayerPreferredZoneChanged
 `public void OnPlayerPreferredZoneChanged(int playerPrefferedArenaType)`
 
-**Purpose:** Called when the `player preferred zone changed` event is raised.
+**Purpose:** Invoked when the `player preferred zone changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnPlayerPreferredZoneChanged(0);
+```
 
 ### OnFocusGained
 `public void OnFocusGained()`
 
-**Purpose:** Called when the `focus gained` event is raised.
+**Purpose:** Invoked when the `focus gained` event is raised.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnFocusGained();
+```
 
 ### OnFocusLost
 `public void OnFocusLost()`
 
-**Purpose:** Called when the `focus lost` event is raised.
+**Purpose:** Invoked when the `focus lost` event is raised.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnFocusLost();
+```
 
 ### OnPeerEquipmentRefreshed
 `public void OnPeerEquipmentRefreshed(MissionPeer peer)`
 
-**Purpose:** Called when the `peer equipment refreshed` event is raised.
+**Purpose:** Invoked when the `peer equipment refreshed` event is raised.
+
+```csharp
+// Obtain an instance of MissionDuelMarkersVM from the subsystem API first
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnPeerEquipmentRefreshed(peer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionDuelMarkersVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

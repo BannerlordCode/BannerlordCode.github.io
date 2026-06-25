@@ -1,20 +1,14 @@
 ---
 title: "TrainingFieldCampaignBehavior"
+description: "Auto-generated class reference for TrainingFieldCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingFieldCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingFieldCampaignBehavior
 
 **Namespace:** StoryMode.GameComponents.CampaignBehaviors
 **Module:** StoryMode.GameComponents
 **Type:** `public class TrainingFieldCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents.CampaignBehaviors/TrainingFieldCampaignBehavior.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents.CampaignBehaviors/TrainingFieldCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `StoryMode.GameComponents.CampaignBehaviors` to place it in
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of TrainingFieldCampaignBehavior from the subsystem API first
+TrainingFieldCampaignBehavior trainingFieldCampaignBehavior = ...;
+trainingFieldCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TrainingFieldCampaignBehavior from the subsystem API first
+TrainingFieldCampaignBehavior trainingFieldCampaignBehavior = ...;
+trainingFieldCampaignBehavior.RegisterEvents();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrainingFieldCampaignBehavior();
-value.SyncData(dataStore);
+// Typically call this after obtaining an instance from the subsystem API
+TrainingFieldCampaignBehavior trainingFieldCampaignBehavior = ...;
+trainingFieldCampaignBehavior.SyncData(dataStore);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapArmyTrackItemVM"
+description: "Auto-generated class reference for MapArmyTrackItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapArmyTrackItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapArmyTrackItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Tracker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MapArmyTrackItemVM : MapTrackerItemVM<Army>`
 **Base:** `MapTrackerItemVM<Army>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Tracker/MapArmyTrackItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Tracker/MapArmyTrackItemVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection.Map.Tracker` to place it in th
 ## Usage Example
 
 ```csharp
-var value = new MapArmyTrackItemVM();
+// Obtain an instance from the relevant subsystem API
+MapArmyTrackItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionHint"
+description: "Auto-generated class reference for MissionHint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHint
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Hints
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHint`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Hints/MissionHint.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Hints/MissionHint.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Hints` to place it in th
 ### CreateWithKeyAndAction
 `public static MissionHint CreateWithKeyAndAction(TextObject actionText, string hotKeyId)`
 
-**Purpose:** Creates a new `with key and action` instance or object.
+**Purpose:** Constructs a new `with key and action` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionHint.CreateWithKeyAndAction(actionText, "example");
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ MissionHint.CreateWithKeyAndAction(actionText, "example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PropertyChangedWithBoolValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithBoolValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithBoolValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithBoolValueEventArgs
 
 **Namespace:** TaleWorlds.Library
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithBoolValueEventArgs();
+// Obtain an instance from the relevant subsystem API
+PropertyChangedWithBoolValueEventArgs instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

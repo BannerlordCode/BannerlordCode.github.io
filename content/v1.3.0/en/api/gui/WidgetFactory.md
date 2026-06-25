@@ -1,13 +1,7 @@
 ---
 title: "WidgetFactory"
+description: "Auto-generated class reference for WidgetFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetFactory`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetFactory
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -37,70 +31,143 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### Initialize
 `public void Initialize(List<string> assemblyOrder = null)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+widgetFactory.Initialize(null);
+```
 
 ### AddCustomType
 `public void AddCustomType(string name, string path)`
 
 **Purpose:** Adds `custom type` to the current collection or state.
 
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+widgetFactory.AddCustomType("example", "example");
+```
+
 ### GetPrefabNames
 `public IEnumerable<string> GetPrefabNames()`
 
-**Purpose:** Gets the current value of `prefab names`.
+**Purpose:** Reads and returns the `prefab names` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetPrefabNames();
+```
 
 ### GetWidgetTypes
 `public IEnumerable<string> GetWidgetTypes()`
 
-**Purpose:** Gets the current value of `widget types`.
+**Purpose:** Reads and returns the `widget types` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetWidgetTypes();
+```
 
 ### IsBuiltinType
 `public bool IsBuiltinType(string name)`
 
-**Purpose:** Handles logic related to `is builtin type`.
+**Purpose:** Determines whether the current object is in the `builtin type` state or condition.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.IsBuiltinType("example");
+```
 
 ### GetBuiltinType
 `public Type GetBuiltinType(string name)`
 
-**Purpose:** Gets the current value of `builtin type`.
+**Purpose:** Reads and returns the `builtin type` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetBuiltinType("example");
+```
 
 ### IsCustomType
 `public bool IsCustomType(string typeName)`
 
-**Purpose:** Handles logic related to `is custom type`.
+**Purpose:** Determines whether the current object is in the `custom type` state or condition.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.IsCustomType("example");
+```
 
 ### GetCustomTypePath
 `public string GetCustomTypePath(string name)`
 
-**Purpose:** Gets the current value of `custom type path`.
+**Purpose:** Reads and returns the `custom type path` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetCustomTypePath("example");
+```
 
 ### CreateBuiltinWidget
 `public Widget CreateBuiltinWidget(UIContext context, string typeName)`
 
-**Purpose:** Creates a new `builtin widget` instance or object.
+**Purpose:** Constructs a new `builtin widget` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.CreateBuiltinWidget(context, "example");
+```
 
 ### GetCustomType
 `public WidgetPrefab GetCustomType(string typeName)`
 
-**Purpose:** Gets the current value of `custom type`.
+**Purpose:** Reads and returns the `custom type` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetCustomType("example");
+```
 
 ### OnUnload
 `public void OnUnload(string typeName)`
 
-**Purpose:** Called when the `unload` event is raised.
+**Purpose:** Invoked when the `unload` event is raised.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+widgetFactory.OnUnload("example");
+```
 
 ### CheckForUpdates
 `public void CheckForUpdates()`
 
-**Purpose:** Handles logic related to `check for updates`.
+**Purpose:** Verifies whether `for updates` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetFactory from the subsystem API first
+WidgetFactory widgetFactory = ...;
+widgetFactory.CheckForUpdates();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetFactory();
-value.Initialize(null);
+// Typically call this after obtaining an instance from the subsystem API
+WidgetFactory widgetFactory = ...;
+widgetFactory.Initialize(null);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

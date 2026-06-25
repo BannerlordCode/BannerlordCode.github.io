@@ -1,20 +1,14 @@
 ---
 title: "FontData"
+description: "Auto-generated class reference for FontData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FontData`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FontData
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct FontData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/StyleFontContainer.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/StyleFontContainer.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `FontData` as a Data-style extension point: first identify who creates it,
 ### FontData
 `public struct FontData(Font font, float fontSize)`
 
-**Purpose:** Handles logic related to `font data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FontData from the subsystem API first
+FontData fontData = ...;
+var result = fontData.FontData(font, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FontData();
+// This data object is usually returned by campaign/mission APIs
+FontData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

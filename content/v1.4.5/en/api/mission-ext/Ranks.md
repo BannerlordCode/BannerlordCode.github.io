@@ -1,20 +1,14 @@
 ---
 title: "Ranks"
+description: "Auto-generated class reference for Ranks."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Ranks`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Ranks
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Ranked
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class Ranks`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/Ranks.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/Ranks.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Ranked` to place it in th
 ## Usage Example
 
 ```csharp
-var example = new Ranks();
+// Obtain an instance from the relevant subsystem API
+Ranks instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

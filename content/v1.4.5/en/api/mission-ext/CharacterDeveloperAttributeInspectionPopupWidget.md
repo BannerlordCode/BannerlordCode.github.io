@@ -1,20 +1,14 @@
 ---
 title: "CharacterDeveloperAttributeInspectionPopupWidget"
+description: "Auto-generated class reference for CharacterDeveloperAttributeInspectionPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperAttributeInspectionPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperAttributeInspectionPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterDeveloperAttributeInspectionPopupWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperAttributeInspectionPopupWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperAttributeInspectionPopupWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `CharacterDeveloperAttributeInspectionPopupWidget` as a Widget-style exten
 ## Usage Example
 
 ```csharp
-var widget = new CharacterDeveloperAttributeInspectionPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterDeveloperAttributeInspectionPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

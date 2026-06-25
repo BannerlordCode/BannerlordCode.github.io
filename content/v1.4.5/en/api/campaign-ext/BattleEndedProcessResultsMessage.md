@@ -1,20 +1,14 @@
 ---
 title: "BattleEndedProcessResultsMessage"
+description: "Auto-generated class reference for BattleEndedProcessResultsMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleEndedProcessResultsMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleEndedProcessResultsMessage
 
 **Namespace:** Messages.BattleServerManager.BattleServerManager
 **Module:** Messages.BattleServerManager
 **Type:** `public class BattleEndedProcessResultsMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.BattleServerManager.BattleServerManager/BattleEndedProcessResultsMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.BattleServerManager.BattleServerManager/BattleEndedProcessResultsMessage.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `Messages.BattleServerManager.BattleServerManager` to place
 ## Usage Example
 
 ```csharp
-var example = new BattleEndedProcessResultsMessage();
+// Obtain an instance from the relevant subsystem API
+BattleEndedProcessResultsMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyNavigationModel"
+description: "Auto-generated class reference for PartyNavigationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyNavigationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyNavigationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyNavigationModel : MBGameModel<PartyNavigationModel>`
 **Base:** `MBGameModel<PartyNavigationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyNavigationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyNavigationModel.cs`
 
 ## Overview
 
@@ -29,34 +23,65 @@ Treat `PartyNavigationModel` as a Model-style extension point: first identify wh
 ### CanPlayerNavigateToPosition
 `public abstract bool CanPlayerNavigateToPosition(CampaignVec2 vec2, out MobileParty.NavigationType navigationType)`
 
-**Purpose:** Checks whether the current object can `player navigate to position`.
+**Purpose:** Checks whether the current object meets the preconditions for `player navigate to position`.
+
+```csharp
+// Obtain an instance of PartyNavigationModel from the subsystem API first
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.CanPlayerNavigateToPosition(vec2, navigationType);
+```
 
 ### GetEmbarkDisembarkThresholdDistance
 `public abstract float GetEmbarkDisembarkThresholdDistance()`
 
-**Purpose:** Gets the current value of `embark disembark threshold distance`.
+**Purpose:** Reads and returns the `embark disembark threshold distance` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyNavigationModel from the subsystem API first
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.GetEmbarkDisembarkThresholdDistance();
+```
 
 ### IsTerrainTypeValidForNavigationType
 `public abstract bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)`
 
-**Purpose:** Handles logic related to `is terrain type valid for navigation type`.
+**Purpose:** Determines whether the current object is in the `terrain type valid for navigation type` state or condition.
+
+```csharp
+// Obtain an instance of PartyNavigationModel from the subsystem API first
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.IsTerrainTypeValidForNavigationType(terrainType, navigationType);
+```
 
 ### GetInvalidTerrainTypesForNavigationType
 `public abstract int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)`
 
-**Purpose:** Gets the current value of `invalid terrain types for navigation type`.
+**Purpose:** Reads and returns the `invalid terrain types for navigation type` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyNavigationModel from the subsystem API first
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.GetInvalidTerrainTypesForNavigationType(navigationType);
+```
 
 ### HasNavalNavigationCapability
 `public abstract bool HasNavalNavigationCapability(MobileParty mobileParty)`
 
-**Purpose:** Checks whether the current object has/contains `naval navigation capability`.
+**Purpose:** Determines whether the current object already holds `naval navigation capability`.
+
+```csharp
+// Obtain an instance of PartyNavigationModel from the subsystem API first
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.HasNavalNavigationCapability(mobileParty);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyNavigationModel();
+// Typically obtained from a subsystem API or factory
+PartyNavigationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyTradeModel"
+description: "DefaultPartyTradeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyTradeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,7 +29,13 @@ title: "DefaultPartyTradeModel"
 ### GetTradePenaltyFactor
 `public override float GetTradePenaltyFactor(MobileParty party)`
 
-**用途 / Purpose:** 获取 `trade penalty factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trade penalty factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTradeModel 实例
+DefaultPartyTradeModel defaultPartyTradeModel = ...;
+var result = defaultPartyTradeModel.GetTradePenaltyFactor(party);
+```
 
 ## 使用示例
 
@@ -45,4 +45,4 @@ Game.Current.ReplaceModel<DefaultPartyTradeModel>(new MyDefaultPartyTradeModel()
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -163,7 +163,7 @@ ftdnNative_object_array::vftable
 
 ## Key Functions
 
-For more exported functions, startup entry points, and managed callback registration details, see [Exports and Managed Bridge](./exports-and-bridge).
+For more exported functions, startup entry points, and managed callback registration details, see [Exports and Managed Bridge](exports-and-bridge/).
 
 ### pass_managed_library_callback_method_pointers
 
@@ -331,5 +331,5 @@ ftmmEpic_module_extension::vftable
 ## Usage Example
 
 ```csharp
-var example = new Engine Core();
+// Example: check native export signatures before using P/Invoke.
 ```

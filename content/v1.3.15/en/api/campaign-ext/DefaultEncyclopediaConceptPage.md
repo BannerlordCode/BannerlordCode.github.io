@@ -1,13 +1,7 @@
 ---
 title: "DefaultEncyclopediaConceptPage"
+description: "Auto-generated class reference for DefaultEncyclopediaConceptPage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultEncyclopediaConceptPage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultEncyclopediaConceptPage
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**Purpose:** Gets the current value of `view fully qualified name`.
+**Purpose:** Reads and returns the `view fully qualified name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.GetViewFullyQualifiedName();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.GetName();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.GetDescriptionText();
+```
 
 ### GetStringID
 `public override string GetStringID()`
 
-**Purpose:** Gets the current value of `string i d`.
+**Purpose:** Reads and returns the `string i d` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.GetStringID();
+```
 
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**Purpose:** Handles logic related to `is valid encyclopedia item`.
+**Purpose:** Determines whether the current object is in the `valid encyclopedia item` state or condition.
+
+```csharp
+// Obtain an instance of DefaultEncyclopediaConceptPage from the subsystem API first
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.IsValidEncyclopediaItem(o);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultEncyclopediaConceptPage();
-value.GetViewFullyQualifiedName();
+// Typically call this after obtaining an instance from the subsystem API
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+defaultEncyclopediaConceptPage.GetViewFullyQualifiedName();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

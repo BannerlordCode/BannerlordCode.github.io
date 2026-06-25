@@ -1,13 +1,7 @@
 ---
 title: "CaravansCampaignBehavior"
+description: "Auto-generated class reference for CaravansCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaravansCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CaravansCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -37,75 +31,154 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### SpawnCaravan
 `public void SpawnCaravan(Hero hero, bool initialSpawn = false)`
 
-**Purpose:** Handles logic related to `spawn caravan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.SpawnCaravan(hero, false);
+```
 
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Handles logic related to `daily tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.DailyTick();
+```
 
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `hourly tick party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.HourlyTickParty(mobileParty);
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Called when the `settlement entered` event is raised.
+**Purpose:** Invoked when the `settlement entered` event is raised.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Called when the `settlement left` event is raised.
+**Purpose:** Invoked when the `settlement left` event is raised.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSettlementLeft(mobileParty, settlement);
+```
 
 ### OnSellAction
 `public void OnSellAction(Settlement soldSettlement, int sellPrice)`
 
-**Purpose:** Called when the `sell action` event is raised.
+**Purpose:** Invoked when the `sell action` event is raised.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSellAction(soldSettlement, 0);
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.Reset();
+```
 
 ### CreateNewLog
 `public CaravansCampaignBehavior.TradeActionLog CreateNewLog(Settlement boughtSettlement, int buyPrice, ItemRosterElement itemRosterElement)`
 
-**Purpose:** Creates a new `new log` instance or object.
+**Purpose:** Constructs a new `new log` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+var result = caravansCampaignBehavior.CreateNewLog(boughtSettlement, 0, itemRosterElement);
+```
 
 ### ReleaseLog
 `public void ReleaseLog(CaravansCampaignBehavior.TradeActionLog log)`
 
-**Purpose:** Handles logic related to `release log`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.ReleaseLog(log);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CaravansCampaignBehavior from the subsystem API first
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+var result = caravansCampaignBehavior.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CaravansCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

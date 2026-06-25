@@ -1,23 +1,18 @@
 ---
 title: "StickAnimStage"
+description: "StickAnimStage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StickAnimStage`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StickAnimStage
 
-**命名空间:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class StickAnimStage`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class StickAnimStage`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Tutorial/TutorialObjectiveStickParentWidget.cs`
 
 ## 概述
 
-`StickAnimStage` 位于 `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`StickAnimStage` 位于 `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -27,8 +22,6 @@ title: "StickAnimStage"
 
 | Name | Signature |
 |------|-----------|
-| `StickMiddle` | `public Widget StickMiddle { get; set; }` |
-| `MovementType` | `public int MovementType { get; set; }` |
 | `IsCompleted` | `public bool IsCompleted { get; }` |
 | `AnimTime` | `public float AnimTime { get; }` |
 | `Direction` | `public Vec2 Direction { get; }` |
@@ -40,17 +33,22 @@ title: "StickAnimStage"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 StickAnimStage 实例
+StickAnimStage stickAnimStage = ...;
+stickAnimStage.Tick(0);
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 StickAnimStage 实例，再调用它的公开方法
-var value = new StickAnimStage();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+StickAnimStage stickAnimStage = ...;
+stickAnimStage.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

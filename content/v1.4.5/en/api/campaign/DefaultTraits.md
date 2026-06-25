@@ -1,20 +1,14 @@
 ---
 title: "DefaultTraits"
+description: "Auto-generated class reference for DefaultTraits."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTraits`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTraits
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTraits`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/DefaultTraits.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/DefaultTraits.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ### RegisterAll
 `public void RegisterAll()`
 
-**Purpose:** Handles logic related to `register all`.
+**Purpose:** Registers `all` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of DefaultTraits from the subsystem API first
+DefaultTraits defaultTraits = ...;
+defaultTraits.RegisterAll();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultTraits();
-value.RegisterAll();
+// Typically call this after obtaining an instance from the subsystem API
+DefaultTraits defaultTraits = ...;
+defaultTraits.RegisterAll();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

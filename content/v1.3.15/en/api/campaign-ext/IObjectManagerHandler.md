@@ -1,18 +1,12 @@
 ---
 title: "IObjectManagerHandler"
+description: "Auto-generated class reference for IObjectManagerHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IObjectManagerHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IObjectManagerHandler
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
-**Type:** `class`
+**Type:** `public interface IObjectManagerHandler`
 **Base:** none
 **File:** `TaleWorlds.ObjectSystem/IObjectManagerHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IObjectManagerHandler` as a Handler-style extension point: first identify
 ## Usage Example
 
 ```csharp
-IObjectManagerHandler implementation = GetObjectManagerHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIObjectManagerHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

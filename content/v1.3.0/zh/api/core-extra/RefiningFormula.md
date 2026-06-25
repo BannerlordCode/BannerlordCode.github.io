@@ -1,13 +1,7 @@
 ---
 title: "RefiningFormula"
+description: "RefiningFormula 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RefiningFormula`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RefiningFormula
 
 **Namespace:** TaleWorlds.Core
@@ -40,9 +34,10 @@ title: "RefiningFormula"
 ## 使用示例
 
 ```csharp
-var example = new RefiningFormula();
+// 从对应子系统 API 获取实例
+RefiningFormula instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "CanvasObject"
+description: "CanvasObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CanvasObject`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasObject
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -42,40 +36,77 @@ title: "CanvasObject"
 ### Update
 `public virtual void Update(float scale)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasObject 实例
+CanvasObject canvasObject = ...;
+canvasObject.Update(0);
+```
 
 ### BeginMeasure
 `public void BeginMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**用途 / Purpose:** 处理 `begin measure` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasObject 实例
+CanvasObject canvasObject = ...;
+canvasObject.BeginMeasure(false, false, 0, 0);
+```
 
 ### DoMeasure
 `public void DoMeasure()`
 
-**用途 / Purpose:** 处理 `do measure` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasObject 实例
+CanvasObject canvasObject = ...;
+canvasObject.DoMeasure();
+```
 
 ### DoLayout
 `public void DoLayout()`
 
-**用途 / Purpose:** 处理 `do layout` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasObject 实例
+CanvasObject canvasObject = ...;
+canvasObject.DoLayout();
+```
 
 ### GetMarginSize
 `public virtual Vector2 GetMarginSize()`
 
-**用途 / Purpose:** 获取 `margin size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「margin size」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasObject 实例
+CanvasObject canvasObject = ...;
+var result = canvasObject.GetMarginSize();
+```
 
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** 处理 `do render` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasObject 实例
+CanvasObject canvasObject = ...;
+canvasObject.DoRender(globalPosition, drawContext);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CanvasObject();
-value.Update(0);
+// 通常从对应子系统 API 获取实例后调用
+CanvasObject canvasObject = ...;
+canvasObject.Update(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

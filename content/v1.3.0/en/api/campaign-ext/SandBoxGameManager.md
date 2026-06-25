@@ -1,13 +1,7 @@
 ---
 title: "SandBoxGameManager"
+description: "Auto-generated class reference for SandBoxGameManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxGameManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxGameManager
 
 **Namespace:** SandBox
@@ -36,22 +30,46 @@ Treat `SandBoxGameManager` as a Manager-style extension point: first identify wh
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxGameManager from the subsystem API first
+SandBoxGameManager sandBoxGameManager = ...;
+sandBoxGameManager.OnGameEnd(game);
+```
 
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**Purpose:** Called when the `after campaign start` event is raised.
+**Purpose:** Invoked when the `after campaign start` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxGameManager from the subsystem API first
+SandBoxGameManager sandBoxGameManager = ...;
+sandBoxGameManager.OnAfterCampaignStart(game);
+```
 
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** Called when the `load finished` event is raised.
+**Purpose:** Invoked when the `load finished` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxGameManager from the subsystem API first
+SandBoxGameManager sandBoxGameManager = ...;
+sandBoxGameManager.OnLoadFinished();
+```
 
 ### CampaignCreatorDelegate
 `public delegate Campaign CampaignCreatorDelegate()`
 
-**Purpose:** Handles logic related to `campaign creator delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SandBoxGameManager from the subsystem API first
+SandBoxGameManager sandBoxGameManager = ...;
+var result = sandBoxGameManager.CampaignCreatorDelegate();
+```
 
 ## Usage Example
 
@@ -61,4 +79,4 @@ var manager = SandBoxGameManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

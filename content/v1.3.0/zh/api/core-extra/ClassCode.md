@@ -1,13 +1,7 @@
 ---
 title: "ClassCode"
+description: "ClassCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClassCode`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClassCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -46,40 +40,77 @@ title: "ClassCode"
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 处理 `generate into` 相关逻辑。
+**用途 / Purpose:** 生成「into」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 ClassCode 实例
+ClassCode classCode = ...;
+classCode.GenerateInto(codeGenerationFile);
+```
 
 ### AddVariable
 `public void AddVariable(VariableCode variableCode)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `variable`。
+**用途 / Purpose:** 将 「variable」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ClassCode 实例
+ClassCode classCode = ...;
+classCode.AddVariable(variableCode);
+```
 
 ### AddNestedClass
 `public void AddNestedClass(ClassCode clasCode)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `nested class`。
+**用途 / Purpose:** 将 「nested class」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ClassCode 实例
+ClassCode classCode = ...;
+classCode.AddNestedClass(clasCode);
+```
 
 ### AddMethod
 `public void AddMethod(MethodCode methodCode)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `method`。
+**用途 / Purpose:** 将 「method」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ClassCode 实例
+ClassCode classCode = ...;
+classCode.AddMethod(methodCode);
+```
 
 ### AddConsturctor
 `public void AddConsturctor(ConstructorCode constructorCode)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `consturctor`。
+**用途 / Purpose:** 将 「consturctor」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ClassCode 实例
+ClassCode classCode = ...;
+classCode.AddConsturctor(constructorCode);
+```
 
 ### AddInterface
 `public void AddInterface(string interfaceName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `interface`。
+**用途 / Purpose:** 将 「interface」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ClassCode 实例
+ClassCode classCode = ...;
+classCode.AddInterface("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClassCode();
-value.GenerateInto(codeGenerationFile);
+// 通常从对应子系统 API 获取实例后调用
+ClassCode classCode = ...;
+classCode.GenerateInto(codeGenerationFile);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

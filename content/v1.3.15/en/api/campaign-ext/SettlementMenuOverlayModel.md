@@ -1,13 +1,7 @@
 ---
 title: "SettlementMenuOverlayModel"
+description: "Auto-generated class reference for SettlementMenuOverlayModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementMenuOverlayModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementMenuOverlayModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `SettlementMenuOverlayModel` as a Model-style extension point: first ident
 ### GetOverlayHeroes
 `public abstract Dictionary<Hero, bool> GetOverlayHeroes()`
 
-**Purpose:** Gets the current value of `overlay heroes`.
+**Purpose:** Reads and returns the `overlay heroes` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementMenuOverlayModel from the subsystem API first
+SettlementMenuOverlayModel settlementMenuOverlayModel = ...;
+var result = settlementMenuOverlayModel.GetOverlayHeroes();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementMenuOverlayModel();
+// Typically obtained from a subsystem API or factory
+SettlementMenuOverlayModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

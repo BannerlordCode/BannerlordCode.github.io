@@ -1,20 +1,14 @@
 ---
 title: "RegisterCustomGameMessageResponseMessage"
+description: "Auto-generated class reference for RegisterCustomGameMessageResponseMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RegisterCustomGameMessageResponseMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RegisterCustomGameMessageResponseMessage
 
 **Namespace:** Messages.FromCustomBattleServerManager.ToCustomBattleServer
 **Module:** Messages.FromCustomBattleServerManager
 **Type:** `public class RegisterCustomGameMessageResponseMessage : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/RegisterCustomGameMessageResponseMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/RegisterCustomGameMessageResponseMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromCustomBattleServerManager.ToCustomBattleServe
 ## Usage Example
 
 ```csharp
-var example = new RegisterCustomGameMessageResponseMessage();
+// Obtain an instance from the relevant subsystem API
+RegisterCustomGameMessageResponseMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletOrderOfBattleUIHandler"
+description: "MissionGauntletOrderOfBattleUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletOrderOfBattleUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletOrderOfBattleUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletOrderOfBattleUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletOrderOfBattleUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletOrderOfBattleUIHandler.cs`
 
 ## 概述
 
@@ -29,59 +23,119 @@ title: "MissionGauntletOrderOfBattleUIHandler"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+missionGauntletOrderOfBattleUIHandler.OnMissionScreenInitialize();
+```
 
 ### IsReady
 `public override bool IsReady()`
 
-**用途 / Purpose:** 处理 `is ready` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ready」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+var result = missionGauntletOrderOfBattleUIHandler.IsReady();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+missionGauntletOrderOfBattleUIHandler.OnMissionTick(0);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+missionGauntletOrderOfBattleUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+missionGauntletOrderOfBattleUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+var result = missionGauntletOrderOfBattleUIHandler.OnEscape();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+missionGauntletOrderOfBattleUIHandler.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+missionGauntletOrderOfBattleUIHandler.OnPhotoModeDeactivated();
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**用途 / Purpose:** 处理 `is opening escape menu on focus change allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「opening escape menu on focus change allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+var result = missionGauntletOrderOfBattleUIHandler.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletOrderOfBattleUIHandler 实例
+MissionGauntletOrderOfBattleUIHandler missionGauntletOrderOfBattleUIHandler = ...;
+missionGauntletOrderOfBattleUIHandler.OnDeploymentFinished();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletOrderOfBattleUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletOrderOfBattleUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

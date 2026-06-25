@@ -1,13 +1,7 @@
 ---
 title: "QuestManager"
+description: "QuestManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QuestManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -37,137 +31,297 @@ title: "QuestManager"
 ### OnQuestStarted
 `public override void OnQuestStarted(QuestBase quest)`
 
-**用途 / Purpose:** 当 `quest started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「quest started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.OnQuestStarted(quest);
+```
 
 ### IsThereActiveQuestWithType
 `public bool IsThereActiveQuestWithType(Type type)`
 
-**用途 / Purpose:** 处理 `is there active quest with type` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there active quest with type」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+var result = questManager.IsThereActiveQuestWithType(type);
+```
 
 ### IsQuestGiver
 `public bool IsQuestGiver(Hero offeringHero)`
 
-**用途 / Purpose:** 处理 `is quest giver` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「quest giver」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+var result = questManager.IsQuestGiver(offeringHero);
+```
 
 ### OnGameLoaded
 `public override void OnGameLoaded(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.OnGameLoaded(campaignGameStarter);
+```
 
 ### OnSessionStart
 `public override void OnSessionStart(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.OnSessionStart(campaignGameStarter);
+```
 
 ### HourlyTick
 `public override void HourlyTick()`
 
-**用途 / Purpose:** 处理 `hourly tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.HourlyTick();
+```
 
 ### HourlyTickParty
 `public override void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `hourly tick party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.HourlyTickParty(mobileParty);
+```
 
 ### DailyTick
 `public override void DailyTick()`
 
-**用途 / Purpose:** 处理 `daily tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.DailyTick();
+```
 
 ### WeeklyTick
 `public override void WeeklyTick()`
 
-**用途 / Purpose:** 处理 `weekly tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.WeeklyTick();
+```
 
 ### CheckQuestForMenuLocations
 `public GameMenuOption.IssueQuestFlags CheckQuestForMenuLocations(List<Location> currentLocations)`
 
-**用途 / Purpose:** 处理 `check quest for menu locations` 相关逻辑。
+**用途 / Purpose:** 检查「quest for menu locations」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+var result = questManager.CheckQuestForMenuLocations(currentLocations);
+```
 
 ### OnQuestFinalized
 `public void OnQuestFinalized(QuestBase quest)`
 
-**用途 / Purpose:** 当 `quest finalized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「quest finalized」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.OnQuestFinalized(quest);
+```
 
 ### OnPlayerCharacterChanged
 `public override void OnPlayerCharacterChanged(Hero oldPlayer, Hero newPlayer, MobileParty newPlayerParty, bool isMainPartyChanged)`
 
-**用途 / Purpose:** 当 `player character changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player character changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.OnPlayerCharacterChanged(oldPlayer, newPlayer, newPlayerParty, false);
+```
 
 ### CanHaveCampaignIssues
 `public override void CanHaveCampaignIssues(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `have campaign issues`。
+**用途 / Purpose:** 检查当前对象是否满足 「have campaign issues」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.CanHaveCampaignIssues(hero, result);
+```
 
 ### CanHeroDie
 `public override void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero die`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero die」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.CanHeroDie(hero, causeOfDeath, result);
+```
 
 ### CanHeroBecomePrisoner
 `public override void CanHeroBecomePrisoner(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero become prisoner`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero become prisoner」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.CanHeroBecomePrisoner(hero, result);
+```
 
 ### CanHeroEquipmentBeChanged
 `public override void CanHeroEquipmentBeChanged(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero equipment be changed`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero equipment be changed」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.CanHeroEquipmentBeChanged(hero, result);
+```
 
 ### CanHeroLeadParty
 `public override void CanHeroLeadParty(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero lead party`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero lead party」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.CanHeroLeadParty(hero, result);
+```
 
 ### CanHeroMarry
 `public override void CanHeroMarry(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero marry`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero marry」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.CanHeroMarry(hero, result);
+```
 
 ### CanMoveToSettlement
 `public override void CanMoveToSettlement(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `move to settlement`。
+**用途 / Purpose:** 检查当前对象是否满足 「move to settlement」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.CanMoveToSettlement(hero, result);
+```
 
 ### CanBeGovernorOrHavePartyRole
 `public override void CanBeGovernorOrHavePartyRole(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `be governor or have party role`。
+**用途 / Purpose:** 检查当前对象是否满足 「be governor or have party role」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.CanBeGovernorOrHavePartyRole(hero, result);
+```
 
 ### AddTrackedObjectForQuest
 `public void AddTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tracked object for quest`。
+**用途 / Purpose:** 将 「tracked object for quest」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.AddTrackedObjectForQuest(trackedObject, relatedQuest);
+```
 
 ### RemoveTrackedObjectForQuest
 `public void RemoveTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `tracked object for quest`。
+**用途 / Purpose:** 从当前容器或状态中移除 「tracked object for quest」。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.RemoveTrackedObjectForQuest(trackedObject, relatedQuest);
+```
 
 ### RemoveAllTrackedObjectsForQuest
 `public void RemoveAllTrackedObjectsForQuest(QuestBase quest)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `all tracked objects for quest`。
+**用途 / Purpose:** 从当前容器或状态中移除 「all tracked objects for quest」。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+questManager.RemoveAllTrackedObjectsForQuest(quest);
+```
 
 ### GetAllTrackedObjectsOfAQuest
 `public List<ITrackableCampaignObject> GetAllTrackedObjectsOfAQuest(QuestBase quest)`
 
-**用途 / Purpose:** 获取 `all tracked objects of a quest` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all tracked objects of a quest」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+var result = questManager.GetAllTrackedObjectsOfAQuest(quest);
+```
 
 ### GetQuestGiverQuests
 `public IEnumerable<QuestBase> GetQuestGiverQuests(Hero hero)`
 
-**用途 / Purpose:** 获取 `quest giver quests` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「quest giver quests」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 QuestManager 实例
+QuestManager questManager = ...;
+var result = questManager.GetQuestGiverQuests(hero);
+```
 
 ### QuestExistInSettlementNotables
 `public static bool QuestExistInSettlementNotables(QuestBase questBase, Settlement settlement)`
 
-**用途 / Purpose:** 处理 `quest exist in settlement notables` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+QuestManager.QuestExistInSettlementNotables(questBase, settlement);
+```
 
 ### QuestExistInClan
 `public static bool QuestExistInClan(QuestBase questBase, Clan clan)`
 
-**用途 / Purpose:** 处理 `quest exist in clan` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+QuestManager.QuestExistInClan(questBase, clan);
+```
 
 ## 使用示例
 
@@ -177,4 +331,4 @@ var manager = QuestManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ScoutEnemyGarrisonsIssue"
+description: "Auto-generated class reference for ScoutEnemyGarrisonsIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoutEnemyGarrisonsIssue`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoutEnemyGarrisonsIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ScoutEnemyGarrisonsIssue`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ScoutEnemyGarrisonsIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ScoutEnemyGarrisonsIssueBehavior.cs`
 
 ## Overview
 
@@ -37,50 +31,99 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssue from the subsystem API first
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+var result = scoutEnemyGarrisonsIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssue from the subsystem API first
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+var result = scoutEnemyGarrisonsIssue.IssueStayAliveConditions();
+```
 
 ### IsScoutingCompleted
 `public bool IsScoutingCompleted()`
 
-**Purpose:** Handles logic related to `is scouting completed`.
+**Purpose:** Determines whether the current object is in the `scouting completed` state or condition.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssue from the subsystem API first
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+var result = scoutEnemyGarrisonsIssue.IsScoutingCompleted();
+```
 
 ### SetScoutingCompleted
 `public void SetScoutingCompleted()`
 
-**Purpose:** Sets the value or state of `scouting completed`.
+**Purpose:** Assigns a new value to `scouting completed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssue from the subsystem API first
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+scoutEnemyGarrisonsIssue.SetScoutingCompleted();
+```
 
 ### ResetCurrentProgress
 `public void ResetCurrentProgress()`
 
-**Purpose:** Resets `current progress` to its initial state.
+**Purpose:** Returns `current progress` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssue from the subsystem API first
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+scoutEnemyGarrisonsIssue.ResetCurrentProgress();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssue from the subsystem API first
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+scoutEnemyGarrisonsIssue.RegisterEvents();
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssue from the subsystem API first
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+scoutEnemyGarrisonsIssue.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssue from the subsystem API first
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+scoutEnemyGarrisonsIssue.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScoutEnemyGarrisonsIssue();
-value.GetFrequency();
+// Typically call this after obtaining an instance from the subsystem API
+ScoutEnemyGarrisonsIssue scoutEnemyGarrisonsIssue = ...;
+scoutEnemyGarrisonsIssue.GetFrequency();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

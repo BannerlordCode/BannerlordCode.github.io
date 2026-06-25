@@ -1,13 +1,7 @@
 ---
 title: "FloatInputTextWidget"
+description: "Auto-generated class reference for FloatInputTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FloatInputTextWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FloatInputTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -38,19 +32,32 @@ Treat `FloatInputTextWidget` as a Widget-style extension point: first identify w
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**Purpose:** Handles the `input` event or callback.
+**Purpose:** Executes the response logic associated with `input`.
+
+```csharp
+// Obtain an instance of FloatInputTextWidget from the subsystem API first
+FloatInputTextWidget floatInputTextWidget = ...;
+floatInputTextWidget.HandleInput(lastKeysPressed);
+```
 
 ### SetAllText
 `public override void SetAllText(string text)`
 
-**Purpose:** Sets the value or state of `all text`.
+**Purpose:** Assigns a new value to `all text` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of FloatInputTextWidget from the subsystem API first
+FloatInputTextWidget floatInputTextWidget = ...;
+floatInputTextWidget.SetAllText("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new FloatInputTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FloatInputTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyPlayerRecentGameDataVM"
+description: "Auto-generated class reference for MPLobbyPlayerRecentGameDataVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyPlayerRecentGameDataVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyPlayerRecentGameDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyPlayerRecentGameDataVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPlayerRecentGameDataVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPlayerRecentGameDataVM.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyPlayerRecentGameDataVM();
+// Obtain an instance from the relevant subsystem API
+MPLobbyPlayerRecentGameDataVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

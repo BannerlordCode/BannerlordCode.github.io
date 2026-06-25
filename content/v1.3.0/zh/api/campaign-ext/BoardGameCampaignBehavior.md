@@ -1,13 +1,7 @@
 ---
 title: "BoardGameCampaignBehavior"
+description: "BoardGameCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
@@ -35,55 +29,109 @@ title: "BoardGameCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### InitializeConversationVars
 `public void InitializeConversationVars()`
 
-**用途 / Purpose:** 初始化 `conversation vars` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「conversation vars」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.InitializeConversationVars();
+```
 
 ### OnMissionStarted
 `public void OnMissionStarted(IMission mission)`
 
-**用途 / Purpose:** 当 `mission started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.OnMissionStarted(mission);
+```
 
 ### OnHeroKilled
 `public void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification = true)`
 
-**用途 / Purpose:** 当 `hero killed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero killed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.OnHeroKilled(victim, killer, detail, false);
+```
 
 ### taverngamehost_player_sitting_now_on_condition
 `public static bool taverngamehost_player_sitting_now_on_condition()`
 
-**用途 / Purpose:** 处理 `taverngamehost_player_sitting_now_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BoardGameCampaignBehavior.taverngamehost_player_sitting_now_on_condition();
+```
 
 ### PlayerWonAgainstTavernChampion
 `public void PlayerWonAgainstTavernChampion()`
 
-**用途 / Purpose:** 处理 `player won against tavern champion` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.PlayerWonAgainstTavernChampion();
+```
 
 ### SetBetAmount
 `public void SetBetAmount(int bet)`
 
-**用途 / Purpose:** 设置 `bet amount` 的值或状态。
+**用途 / Purpose:** 为 「bet amount」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.SetBetAmount(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

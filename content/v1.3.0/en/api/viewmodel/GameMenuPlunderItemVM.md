@@ -1,13 +1,7 @@
 ---
 title: "GameMenuPlunderItemVM"
+description: "Auto-generated class reference for GameMenuPlunderItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuPlunderItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuPlunderItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to
 ### ExecuteBeginTooltip
 `public void ExecuteBeginTooltip()`
 
-**Purpose:** Executes the `begin tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin tooltip`.
+
+```csharp
+// Obtain an instance of GameMenuPlunderItemVM from the subsystem API first
+GameMenuPlunderItemVM gameMenuPlunderItemVM = ...;
+gameMenuPlunderItemVM.ExecuteBeginTooltip();
+```
 
 ### ExecuteEndTooltip
 `public void ExecuteEndTooltip()`
 
-**Purpose:** Executes the `end tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end tooltip`.
+
+```csharp
+// Obtain an instance of GameMenuPlunderItemVM from the subsystem API first
+GameMenuPlunderItemVM gameMenuPlunderItemVM = ...;
+gameMenuPlunderItemVM.ExecuteEndTooltip();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuPlunderItemVM();
-value.ExecuteBeginTooltip();
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuPlunderItemVM gameMenuPlunderItemVM = ...;
+gameMenuPlunderItemVM.ExecuteBeginTooltip();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

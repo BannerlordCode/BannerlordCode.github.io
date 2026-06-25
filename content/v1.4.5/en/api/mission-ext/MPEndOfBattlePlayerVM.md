@@ -1,20 +1,14 @@
 ---
 title: "MPEndOfBattlePlayerVM"
+description: "Auto-generated class reference for MPEndOfBattlePlayerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPEndOfBattlePlayerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPEndOfBattlePlayerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPEndOfBattlePlayerVM : MPPlayerVM`
 **Base:** `MPPlayerVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MPEndOfBattlePlayerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MPEndOfBattlePlayerVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPEndOfBattlePlayerVM from the subsystem API first
+MPEndOfBattlePlayerVM mPEndOfBattlePlayerVM = ...;
+mPEndOfBattlePlayerVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPEndOfBattlePlayerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPEndOfBattlePlayerVM mPEndOfBattlePlayerVM = ...;
+mPEndOfBattlePlayerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

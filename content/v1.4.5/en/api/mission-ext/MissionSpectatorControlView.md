@@ -1,20 +1,14 @@
 ---
 title: "MissionSpectatorControlView"
+description: "Auto-generated class reference for MissionSpectatorControlView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSpectatorControlView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSpectatorControlView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSpectatorControlView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionSpectatorControlView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionSpectatorControlView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionSpectatorControlView` as a View-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var view = new MissionSpectatorControlView();
+// Retrieve this view from the subsystem API or scene
+MissionSpectatorControlView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

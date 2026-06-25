@@ -1,13 +1,7 @@
 ---
 title: "Vec2i"
+description: "Auto-generated class reference for Vec2i."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Vec2i`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Vec2i
 
 **Namespace:** TaleWorlds.Library
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Vec2i from the subsystem API first
+Vec2i vec2i = ...;
+var result = vec2i.Equals(obj);
+```
 
 ### Equals
 `public bool Equals(Vec2i value)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Vec2i from the subsystem API first
+Vec2i vec2i = ...;
+var result = vec2i.Equals(value);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Vec2i from the subsystem API first
+Vec2i vec2i = ...;
+var result = vec2i.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Vec2i();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+Vec2i vec2i = ...;
+vec2i.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

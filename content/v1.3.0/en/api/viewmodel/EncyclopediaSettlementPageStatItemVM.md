@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaSettlementPageStatItemVM"
+description: "Auto-generated class reference for EncyclopediaSettlementPageStatItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaSettlementPageStatItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaSettlementPageStatItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-var example = new EncyclopediaSettlementPageStatItemVM();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaSettlementPageStatItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

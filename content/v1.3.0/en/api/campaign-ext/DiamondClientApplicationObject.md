@@ -1,13 +1,7 @@
 ---
 title: "DiamondClientApplicationObject"
+description: "Auto-generated class reference for DiamondClientApplicationObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DiamondClientApplicationObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DiamondClientApplicationObject
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDiamondClientApplicationObject();
+// Typically obtained from a subsystem API or factory
+DiamondClientApplicationObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

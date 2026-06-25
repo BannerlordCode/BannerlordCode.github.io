@@ -1,13 +1,7 @@
 ---
 title: "PersuasionVM"
+description: "Auto-generated class reference for PersuasionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
@@ -43,30 +37,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### OnPersuasionProgress
 `public void OnPersuasionProgress(Tuple<PersuasionOptionArgs, PersuasionOptionResult> selectedOption)`
 
-**Purpose:** Called when the `persuasion progress` event is raised.
+**Purpose:** Invoked when the `persuasion progress` event is raised.
+
+```csharp
+// Obtain an instance of PersuasionVM from the subsystem API first
+PersuasionVM persuasionVM = ...;
+persuasionVM.OnPersuasionProgress(tuple<PersuasionOptionArgs, selectedOption);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PersuasionVM from the subsystem API first
+PersuasionVM persuasionVM = ...;
+persuasionVM.RefreshValues();
+```
 
 ### SetCurrentOption
 `public void SetCurrentOption(PersuasionOptionVM option)`
 
-**Purpose:** Sets the value or state of `current option`.
+**Purpose:** Assigns a new value to `current option` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PersuasionVM from the subsystem API first
+PersuasionVM persuasionVM = ...;
+persuasionVM.SetCurrentOption(option);
+```
 
 ### RefreshPersusasion
 `public void RefreshPersusasion()`
 
-**Purpose:** Refreshes the display or cache of `persusasion`.
+**Purpose:** Keeps the display or cache of `persusasion` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PersuasionVM from the subsystem API first
+PersuasionVM persuasionVM = ...;
+persuasionVM.RefreshPersusasion();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PersuasionVM();
-value.OnPersuasionProgress(tuple<PersuasionOptionArgs, selectedOption);
+// Typically call this after obtaining an instance from the subsystem API
+PersuasionVM persuasionVM = ...;
+persuasionVM.OnPersuasionProgress(tuple<PersuasionOptionArgs, selectedOption);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

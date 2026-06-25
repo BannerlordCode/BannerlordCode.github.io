@@ -1,13 +1,7 @@
 ---
 title: "BlockadeBattleMapEvent"
+description: "Auto-generated class reference for BlockadeBattleMapEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BlockadeBattleMapEvent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BlockadeBattleMapEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -35,7 +29,12 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ### CreateBlockadeBattleMapEvent
 `public static BlockadeBattleMapEvent CreateBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase besiegerParty, bool isSallyOut)`
 
-**Purpose:** Creates a new `blockade battle map event` instance or object.
+**Purpose:** Constructs a new `blockade battle map event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BlockadeBattleMapEvent.CreateBlockadeBattleMapEvent(attackerParty, besiegerParty, false);
+```
 
 ## Usage Example
 
@@ -45,4 +44,4 @@ BlockadeBattleMapEvent.CreateBlockadeBattleMapEvent(attackerParty, besiegerParty
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

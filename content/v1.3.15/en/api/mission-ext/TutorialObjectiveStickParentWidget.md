@@ -1,13 +1,7 @@
 ---
 title: "TutorialObjectiveStickParentWidget"
+description: "Auto-generated class reference for TutorialObjectiveStickParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialObjectiveStickParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TutorialObjectiveStickParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
@@ -41,14 +35,21 @@ Treat `TutorialObjectiveStickParentWidget` as a Widget-style extension point: fi
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TutorialObjectiveStickParentWidget from the subsystem API first
+TutorialObjectiveStickParentWidget tutorialObjectiveStickParentWidget = ...;
+tutorialObjectiveStickParentWidget.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new TutorialObjectiveStickParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TutorialObjectiveStickParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

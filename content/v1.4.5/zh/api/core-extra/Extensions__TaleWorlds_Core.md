@@ -1,20 +1,14 @@
 ---
-title: "Extensions__TaleWorlds_Core"
+title: "Extensions"
+description: "Extensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Extensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Extensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class Extensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/Extensions.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Extensions.cs`
 
 ## 概述
 
@@ -29,32 +23,62 @@ title: "Extensions__TaleWorlds_Core"
 ### ToHexadecimalString
 `public static string ToHexadecimalString(this uint number)`
 
-**用途 / Purpose:** 处理 `to hexadecimal string` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Extensions.ToHexadecimalString(number);
+```
 
 ### Description
 `public static string Description(this Enum value)`
 
-**用途 / Purpose:** 处理 `description` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Extensions.Description(value);
+```
 
 ### NextFloat
 `public static float NextFloat(this Random random)`
 
-**用途 / Purpose:** 处理 `next float` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Extensions.NextFloat(random);
+```
 
 ### Add
 `public static string Add(this string str, string appendant, bool newLine = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 静态调用，不需要实例
+Extensions.Add(str, "example", false);
+```
 
 ### Split
 `public static IEnumerable<string> Split(this string str, int maxChunkSize)`
 
-**用途 / Purpose:** 处理 `split` 相关逻辑。
+**用途 / Purpose:** 将「split」拆分为多个部分或子项。
+
+```csharp
+// 静态调用，不需要实例
+Extensions.Split(str, 0);
+```
 
 ### GetOppositeSide
 `public static BattleSideEnum GetOppositeSide(this BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `opposite side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「opposite side」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Extensions.GetOppositeSide(side);
+```
 
 ## 使用示例
 
@@ -64,4 +88,4 @@ Extensions.ToHexadecimalString(number);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

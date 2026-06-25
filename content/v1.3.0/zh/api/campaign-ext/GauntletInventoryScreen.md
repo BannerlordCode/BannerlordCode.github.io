@@ -1,13 +1,7 @@
 ---
 title: "GauntletInventoryScreen"
+description: "GauntletInventoryScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletInventoryScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletInventoryScreen
 
 **Namespace:** SandBox.GauntletUI
@@ -35,65 +29,132 @@ title: "GauntletInventoryScreen"
 ### ExecuteLootingScript
 `public void ExecuteLootingScript()`
 
-**用途 / Purpose:** 执行 `looting script` 操作或流程。
+**用途 / Purpose:** 执行 「looting script」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteLootingScript();
+```
 
 ### ExecuteSellAllLoot
 `public void ExecuteSellAllLoot()`
 
-**用途 / Purpose:** 执行 `sell all loot` 操作或流程。
+**用途 / Purpose:** 执行 「sell all loot」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteSellAllLoot();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteCancel();
+```
 
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**用途 / Purpose:** 执行 `confirm` 操作或流程。
+**用途 / Purpose:** 执行 「confirm」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteConfirm();
+```
 
 ### ExecuteSwitchToPreviousTab
 `public void ExecuteSwitchToPreviousTab()`
 
-**用途 / Purpose:** 执行 `switch to previous tab` 操作或流程。
+**用途 / Purpose:** 执行 「switch to previous tab」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteSwitchToPreviousTab();
+```
 
 ### ExecuteSwitchToNextTab
 `public void ExecuteSwitchToNextTab()`
 
-**用途 / Purpose:** 执行 `switch to next tab` 操作或流程。
+**用途 / Purpose:** 执行 「switch to next tab」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteSwitchToNextTab();
+```
 
 ### ExecuteBuySingle
 `public void ExecuteBuySingle()`
 
-**用途 / Purpose:** 执行 `buy single` 操作或流程。
+**用途 / Purpose:** 执行 「buy single」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteBuySingle();
+```
 
 ### ExecuteSellSingle
 `public void ExecuteSellSingle()`
 
-**用途 / Purpose:** 执行 `sell single` 操作或流程。
+**用途 / Purpose:** 执行 「sell single」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteSellSingle();
+```
 
 ### ExecuteTakeAll
 `public void ExecuteTakeAll()`
 
-**用途 / Purpose:** 执行 `take all` 操作或流程。
+**用途 / Purpose:** 执行 「take all」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteTakeAll();
+```
 
 ### ExecuteGiveAll
 `public void ExecuteGiveAll()`
 
-**用途 / Purpose:** 执行 `give all` 操作或流程。
+**用途 / Purpose:** 执行 「give all」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteGiveAll();
+```
 
 ### ExecuteBuyConsumableItem
 `public void ExecuteBuyConsumableItem()`
 
-**用途 / Purpose:** 执行 `buy consumable item` 操作或流程。
+**用途 / Purpose:** 执行 「buy consumable item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInventoryScreen 实例
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteBuyConsumableItem();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletInventoryScreen();
-value.ExecuteLootingScript();
+// 通常从对应子系统 API 获取实例后调用
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteLootingScript();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

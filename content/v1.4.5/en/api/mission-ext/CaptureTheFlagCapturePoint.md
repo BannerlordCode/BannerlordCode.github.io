@@ -1,20 +1,14 @@
 ---
 title: "CaptureTheFlagCapturePoint"
+description: "Auto-generated class reference for CaptureTheFlagCapturePoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaptureTheFlagCapturePoint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaptureTheFlagCapturePoint
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CaptureTheFlagCapturePoint`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CaptureTheFlagCapturePoint.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CaptureTheFlagCapturePoint.cs`
 
 ## Overview
 
@@ -45,15 +39,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of CaptureTheFlagCapturePoint from the subsystem API first
+CaptureTheFlagCapturePoint captureTheFlagCapturePoint = ...;
+captureTheFlagCapturePoint.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CaptureTheFlagCapturePoint();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+CaptureTheFlagCapturePoint captureTheFlagCapturePoint = ...;
+captureTheFlagCapturePoint.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "FormOrder"
+description: "Auto-generated class reference for FormOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormOrder`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormOrder.cs`
 
 ## Overview
 
@@ -35,37 +29,76 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FormOrderCustom
 `public static FormOrder FormOrderCustom(float customWidth)`
 
-**Purpose:** Handles logic related to `form order custom`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+FormOrder.FormOrderCustom(0);
+```
 
 ### OnApply
 `public void OnApply(Formation formation)`
 
-**Purpose:** Called when the `apply` event is raised.
+**Purpose:** Invoked when the `apply` event is raised.
+
+```csharp
+// Obtain an instance of FormOrder from the subsystem API first
+FormOrder formOrder = ...;
+formOrder.OnApply(formation);
+```
 
 ### GetUnitCountOf
 `public static int GetUnitCountOf(Formation formation)`
 
-**Purpose:** Gets the current value of `unit count of`.
+**Purpose:** Reads and returns the `unit count of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormOrder.GetUnitCountOf(formation);
+```
 
 ### OnApplyToCustomArrangement
 `public bool OnApplyToCustomArrangement(Formation formation, IFormationArrangement arrangement)`
 
-**Purpose:** Called when the `apply to custom arrangement` event is raised.
+**Purpose:** Invoked when the `apply to custom arrangement` event is raised.
+
+```csharp
+// Obtain an instance of FormOrder from the subsystem API first
+FormOrder formOrder = ...;
+var result = formOrder.OnApplyToCustomArrangement(formation, arrangement);
+```
 
 ### GetMaxFileCountStatic
 `public static int? GetMaxFileCountStatic(FormOrderEnum order, int unitCount)`
 
-**Purpose:** Gets the current value of `max file count static`.
+**Purpose:** Reads and returns the `max file count static` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormOrder.GetMaxFileCountStatic(order, 0);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of FormOrder from the subsystem API first
+FormOrder formOrder = ...;
+var result = formOrder.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of FormOrder from the subsystem API first
+FormOrder formOrder = ...;
+var result = formOrder.GetHashCode();
+```
 
 ## Usage Example
 
@@ -75,4 +108,4 @@ FormOrder.FormOrderCustom(0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

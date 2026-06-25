@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListClanComparer"
+description: "Auto-generated class reference for EncyclopediaListClanComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListClanComparer`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListClanComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,14 +23,21 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### CompareClans
 `public int CompareClans(EncyclopediaListItem x, EncyclopediaListItem y, Func<Clan, Clan, int> comparison)`
 
-**Purpose:** Handles logic related to `compare clans`.
+**Purpose:** Compares two `clans` objects and returns an ordering result.
+
+```csharp
+// Obtain an instance of EncyclopediaListClanComparer from the subsystem API first
+EncyclopediaListClanComparer encyclopediaListClanComparer = ...;
+var result = encyclopediaListClanComparer.CompareClans(x, y, func<Clan, clan, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncyclopediaListClanComparer();
+// Typically obtained from a subsystem API or factory
+EncyclopediaListClanComparer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

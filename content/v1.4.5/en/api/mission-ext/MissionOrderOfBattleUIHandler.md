@@ -1,20 +1,14 @@
 ---
 title: "MissionOrderOfBattleUIHandler"
+description: "Auto-generated class reference for MissionOrderOfBattleUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionOrderOfBattleUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionOrderOfBattleUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionOrderOfBattleUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionOrderOfBattleUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionOrderOfBattleUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionOrderOfBattleUIHandler` as a Handler-style extension point: first 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionOrderOfBattleUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionOrderOfBattleUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

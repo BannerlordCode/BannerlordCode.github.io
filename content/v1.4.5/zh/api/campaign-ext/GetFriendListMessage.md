@@ -1,20 +1,14 @@
 ---
 title: "GetFriendListMessage"
+description: "GetFriendListMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GetFriendListMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GetFriendListMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class GetFriendListMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetFriendListMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetFriendListMessage.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GetFriendListMessage"
 ## 使用示例
 
 ```csharp
-var example = new GetFriendListMessage();
+// 从对应子系统 API 获取实例
+GetFriendListMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

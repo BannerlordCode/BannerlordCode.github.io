@@ -1,20 +1,14 @@
 ---
 title: "AddPrefabComponentToAgentBone"
+description: "Auto-generated class reference for AddPrefabComponentToAgentBone."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AddPrefabComponentToAgentBone`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AddPrefabComponentToAgentBone
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AddPrefabComponentToAgentBone : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AddPrefabComponentToAgentBone.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AddPrefabComponentToAgentBone.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new AddPrefabComponentToAgentBone();
+// Obtain an instance from the relevant subsystem API
+AddPrefabComponentToAgentBone instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionStealthAreaNameMarkerTargetVM"
+description: "Auto-generated class reference for MissionStealthAreaNameMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionStealthAreaNameMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionStealthAreaNameMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout
@@ -29,15 +23,22 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hi
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionStealthAreaNameMarkerTargetVM from the subsystem API first
+MissionStealthAreaNameMarkerTargetVM missionStealthAreaNameMarkerTargetVM = ...;
+missionStealthAreaNameMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionStealthAreaNameMarkerTargetVM();
-value.UpdatePosition(missionCamera);
+// Typically call this after obtaining an instance from the subsystem API
+MissionStealthAreaNameMarkerTargetVM missionStealthAreaNameMarkerTargetVM = ...;
+missionStealthAreaNameMarkerTargetVM.UpdatePosition(missionCamera);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

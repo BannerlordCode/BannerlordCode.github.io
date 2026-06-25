@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerCheatView"
+description: "MissionGauntletMultiplayerCheatView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletMultiplayerCheatView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerCheatView
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerCheatView : MissionCheatView`
 **Base:** `MissionCheatView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerCheatView.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerCheatView.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "MissionGauntletMultiplayerCheatView"
 ### GetIsCheatsAvailable
 `public override bool GetIsCheatsAvailable()`
 
-**用途 / Purpose:** 获取 `is cheats available` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is cheats available」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerCheatView 实例
+MissionGauntletMultiplayerCheatView missionGauntletMultiplayerCheatView = ...;
+var result = missionGauntletMultiplayerCheatView.GetIsCheatsAvailable();
+```
 
 ### InitializeScreen
 `public override void InitializeScreen()`
 
-**用途 / Purpose:** 初始化 `screen` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「screen」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerCheatView 实例
+MissionGauntletMultiplayerCheatView missionGauntletMultiplayerCheatView = ...;
+missionGauntletMultiplayerCheatView.InitializeScreen();
+```
 
 ### FinalizeScreen
 `public override void FinalizeScreen()`
 
-**用途 / Purpose:** 处理 `finalize screen` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerCheatView 实例
+MissionGauntletMultiplayerCheatView missionGauntletMultiplayerCheatView = ...;
+missionGauntletMultiplayerCheatView.FinalizeScreen();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletMultiplayerCheatView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletMultiplayerCheatView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

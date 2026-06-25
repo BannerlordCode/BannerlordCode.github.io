@@ -1,13 +1,7 @@
 ---
 title: "CanvasImage"
+description: "CanvasImage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CanvasImage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasImage
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -35,15 +29,22 @@ title: "CanvasImage"
 ### LoadFrom
 `public override void LoadFrom(XmlNode canvasImageNode)`
 
-**用途 / Purpose:** 加载 `from` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasImage 实例
+CanvasImage canvasImage = ...;
+canvasImage.LoadFrom(canvasImageNode);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CanvasImage();
-value.LoadFrom(canvasImageNode);
+// 通常从对应子系统 API 获取实例后调用
+CanvasImage canvasImage = ...;
+canvasImage.LoadFrom(canvasImageNode);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

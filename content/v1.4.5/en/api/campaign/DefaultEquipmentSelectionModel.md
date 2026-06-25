@@ -1,20 +1,14 @@
 ---
 title: "DefaultEquipmentSelectionModel"
+description: "Auto-generated class reference for DefaultEquipmentSelectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultEquipmentSelectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEquipmentSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultEquipmentSelectionModel : EquipmentSelectionModel`
 **Base:** `EquipmentSelectionModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultEquipmentSelectionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultEquipmentSelectionModel.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `DefaultEquipmentSelectionModel` as a Model-style extension point: first i
 ### GetEquipmentForHeroComeOfAge
 `public override Equipment GetEquipmentForHeroComeOfAge(Hero hero, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** Gets the current value of `equipment for hero come of age`.
+**Purpose:** Reads and returns the `equipment for hero come of age` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForHeroComeOfAge(hero, equipmentType);
+```
 
 ### GetEquipmentForHeroReachesTeenAge
 `public override Equipment GetEquipmentForHeroReachesTeenAge(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment for hero reaches teen age`.
+**Purpose:** Reads and returns the `equipment for hero reaches teen age` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForHeroReachesTeenAge(hero);
+```
 
 ### GetEquipmentForDeliveredOffspring
 `public override Equipment GetEquipmentForDeliveredOffspring(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment for delivered offspring`.
+**Purpose:** Reads and returns the `equipment for delivered offspring` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForDeliveredOffspring(hero);
+```
 
 ### GetEquipmentForCompanionWhenTurningToLord
 `public override Equipment GetEquipmentForCompanionWhenTurningToLord(Hero companionHero, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** Gets the current value of `equipment for companion when turning to lord`.
+**Purpose:** Reads and returns the `equipment for companion when turning to lord` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForCompanionWhenTurningToLord(companionHero, equipmentType);
+```
 
 ### GetEquipmentForInitialChildrenGeneration
 `public override Equipment GetEquipmentForInitialChildrenGeneration(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment for initial children generation`.
+**Purpose:** Reads and returns the `equipment for initial children generation` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForInitialChildrenGeneration(hero);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultEquipmentSelectionModel>(new MyDefaultEquipment
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

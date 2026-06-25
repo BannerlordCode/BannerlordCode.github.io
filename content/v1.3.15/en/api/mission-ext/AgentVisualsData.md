@@ -1,13 +1,7 @@
 ---
 title: "AgentVisualsData"
+description: "Auto-generated class reference for AgentVisualsData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentVisualsData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentVisualsData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -64,144 +58,307 @@ Treat `AgentVisualsData` as a Data-style extension point: first identify who cre
 ### Equipment
 `public AgentVisualsData Equipment(Equipment equipment)`
 
-**Purpose:** Handles logic related to `equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.Equipment(equipment);
+```
 
 ### BodyProperties
 `public AgentVisualsData BodyProperties(BodyProperties bodyProperties)`
 
-**Purpose:** Handles logic related to `body properties`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.BodyProperties(bodyProperties);
+```
 
 ### Frame
 `public AgentVisualsData Frame(MatrixFrame frame)`
 
-**Purpose:** Handles logic related to `frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.Frame(frame);
+```
 
 ### ActionSet
 `public AgentVisualsData ActionSet(MBActionSet actionSet)`
 
-**Purpose:** Handles logic related to `action set`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.ActionSet(actionSet);
+```
 
 ### Scene
 `public AgentVisualsData Scene(Scene scene)`
 
-**Purpose:** Handles logic related to `scene`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.Scene(scene);
+```
 
 ### Monster
 `public AgentVisualsData Monster(Monster monster)`
 
-**Purpose:** Handles logic related to `monster`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.Monster(monster);
+```
 
 ### PrepareImmediately
 `public AgentVisualsData PrepareImmediately(bool prepareImmediately)`
 
-**Purpose:** Handles logic related to `prepare immediately`.
+**Purpose:** Finishes prerequisite setup for the upcoming `immediately` operation.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.PrepareImmediately(false);
+```
 
 ### UseScaledWeapons
 `public AgentVisualsData UseScaledWeapons(bool useScaledWeapons)`
 
-**Purpose:** Handles logic related to `use scaled weapons`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.UseScaledWeapons(false);
+```
 
 ### SkeletonType
 `public AgentVisualsData SkeletonType(SkeletonType skeletonType)`
 
-**Purpose:** Handles logic related to `skeleton type`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.SkeletonType(skeletonType);
+```
 
 ### UseMorphAnims
 `public AgentVisualsData UseMorphAnims(bool useMorphAnims)`
 
-**Purpose:** Handles logic related to `use morph anims`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.UseMorphAnims(false);
+```
 
 ### ClothColor1
 `public AgentVisualsData ClothColor1(uint clothColor1)`
 
-**Purpose:** Handles logic related to `cloth color1`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.ClothColor1(0);
+```
 
 ### ClothColor2
 `public AgentVisualsData ClothColor2(uint clothColor2)`
 
-**Purpose:** Handles logic related to `cloth color2`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.ClothColor2(0);
+```
 
 ### Banner
 `public AgentVisualsData Banner(Banner banner)`
 
-**Purpose:** Handles logic related to `banner`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.Banner(banner);
+```
 
 ### Race
 `public AgentVisualsData Race(int race)`
 
-**Purpose:** Handles logic related to `race`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.Race(0);
+```
 
 ### GetCachedWeaponEntity
 `public GameEntity GetCachedWeaponEntity(EquipmentIndex slotIndex)`
 
-**Purpose:** Gets the current value of `cached weapon entity`.
+**Purpose:** Reads and returns the `cached weapon entity` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.GetCachedWeaponEntity(slotIndex);
+```
 
 ### CachedWeaponEntity
 `public AgentVisualsData CachedWeaponEntity(EquipmentIndex slotIndex, GameEntity cachedWeaponEntity)`
 
-**Purpose:** Handles logic related to `cached weapon entity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.CachedWeaponEntity(slotIndex, cachedWeaponEntity);
+```
 
 ### Entity
 `public AgentVisualsData Entity(GameEntity entity)`
 
-**Purpose:** Handles logic related to `entity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.Entity(entity);
+```
 
 ### UseTranslucency
 `public AgentVisualsData UseTranslucency(bool useTranslucency)`
 
-**Purpose:** Handles logic related to `use translucency`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.UseTranslucency(false);
+```
 
 ### UseTesselation
 `public AgentVisualsData UseTesselation(bool useTesselation)`
 
-**Purpose:** Handles logic related to `use tesselation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.UseTesselation(false);
+```
 
 ### ActionCode
 `public AgentVisualsData ActionCode(in ActionIndexCache actionCode)`
 
-**Purpose:** Handles logic related to `action code`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.ActionCode(actionCode);
+```
 
 ### RightWieldedItemIndex
 `public AgentVisualsData RightWieldedItemIndex(int rightWieldedItemIndex)`
 
-**Purpose:** Handles logic related to `right wielded item index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.RightWieldedItemIndex(0);
+```
 
 ### LeftWieldedItemIndex
 `public AgentVisualsData LeftWieldedItemIndex(int leftWieldedItemIndex)`
 
-**Purpose:** Handles logic related to `left wielded item index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.LeftWieldedItemIndex(0);
+```
 
 ### Scale
 `public AgentVisualsData Scale(float scale)`
 
-**Purpose:** Handles logic related to `scale`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.Scale(0);
+```
 
 ### CharacterObjectStringId
 `public AgentVisualsData CharacterObjectStringId(string characterObjectStringId)`
 
-**Purpose:** Handles logic related to `character object string id`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.CharacterObjectStringId("example");
+```
 
 ### HasClippingPlane
 `public AgentVisualsData HasClippingPlane(bool hasClippingPlane)`
 
-**Purpose:** Checks whether the current object has/contains `clipping plane`.
+**Purpose:** Determines whether the current object already holds `clipping plane`.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.HasClippingPlane(false);
+```
 
 ### MountCreationKey
 `public AgentVisualsData MountCreationKey(string mountCreationKey)`
 
-**Purpose:** Handles logic related to `mount creation key`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.MountCreationKey("example");
+```
 
 ### AddColorRandomness
 `public AgentVisualsData AddColorRandomness(bool addColorRandomness)`
 
 **Purpose:** Adds `color randomness` to the current collection or state.
 
+```csharp
+// Obtain an instance of AgentVisualsData from the subsystem API first
+AgentVisualsData agentVisualsData = ...;
+var result = agentVisualsData.AddColorRandomness(false);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new AgentVisualsData();
+// This data object is usually returned by campaign/mission APIs
+AgentVisualsData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

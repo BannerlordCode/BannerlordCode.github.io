@@ -1,20 +1,14 @@
 ---
 title: "FormationQuerySystem"
+description: "FormationQuerySystem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationQuerySystem`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationQuerySystem
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationQuerySystem`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationQuerySystem.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationQuerySystem.cs`
 
 ## 概述
 
@@ -36,35 +30,66 @@ title: "FormationQuerySystem"
 ### EvaluateAllPreliminaryQueryData
 `public void EvaluateAllPreliminaryQueryData()`
 
-**用途 / Purpose:** 处理 `evaluate all preliminary query data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FormationQuerySystem 实例
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.EvaluateAllPreliminaryQueryData();
+```
 
 ### ForceExpireCavalryUnitRatio
 `public void ForceExpireCavalryUnitRatio()`
 
-**用途 / Purpose:** 处理 `force expire cavalry unit ratio` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FormationQuerySystem 实例
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.ForceExpireCavalryUnitRatio();
+```
 
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 处理 `expire` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FormationQuerySystem 实例
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.Expire();
+```
 
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**用途 / Purpose:** 处理 `expire after unit add remove` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FormationQuerySystem 实例
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.ExpireAfterUnitAddRemove();
+```
 
 ### GetClassWeightedFactor
 `public float GetClassWeightedFactor(float infantryWeight, float rangedWeight, float cavalryWeight, float rangedCavalryWeight)`
 
-**用途 / Purpose:** 获取 `class weighted factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「class weighted factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FormationQuerySystem 实例
+FormationQuerySystem formationQuerySystem = ...;
+var result = formationQuerySystem.GetClassWeightedFactor(0, 0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FormationQuerySystem();
-value.EvaluateAllPreliminaryQueryData();
+// 通常从对应子系统 API 获取实例后调用
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.EvaluateAllPreliminaryQueryData();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

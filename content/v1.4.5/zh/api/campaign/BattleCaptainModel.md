@@ -1,20 +1,14 @@
 ---
 title: "BattleCaptainModel"
+description: "BattleCaptainModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleCaptainModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleCaptainModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class BattleCaptainModel : MBGameModel<BattleCaptainModel>`
 **Base:** `MBGameModel<BattleCaptainModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BattleCaptainModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BattleCaptainModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "BattleCaptainModel"
 ### GetCaptainRatingForTroopUsages
 `public abstract float GetCaptainRatingForTroopUsages(Hero hero, TroopUsageFlags flag, out List<PerkObject> compatiblePerks)`
 
-**用途 / Purpose:** 获取 `captain rating for troop usages` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「captain rating for troop usages」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleCaptainModel 实例
+BattleCaptainModel battleCaptainModel = ...;
+var result = battleCaptainModel.GetCaptainRatingForTroopUsages(hero, flag, compatiblePerks);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBattleCaptainModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BattleCaptainModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "HttpPostRequest"
+description: "Auto-generated class reference for HttpPostRequest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HttpPostRequest`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HttpPostRequest
 
 **Namespace:** TaleWorlds.Library.Http
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.Library.Http` to place it in the stack, then in
 ### Start
 `public void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of HttpPostRequest from the subsystem API first
+HttpPostRequest httpPostRequest = ...;
+httpPostRequest.Start();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HttpPostRequest();
-value.Start();
+// Typically call this after obtaining an instance from the subsystem API
+HttpPostRequest httpPostRequest = ...;
+httpPostRequest.Start();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

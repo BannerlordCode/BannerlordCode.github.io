@@ -1,13 +1,7 @@
 ---
 title: "GauntletBodyGeneratorScreen"
+description: "Auto-generated class reference for GauntletBodyGeneratorScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletBodyGeneratorScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletBodyGeneratorScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator` to plac
 ### OnExit
 `public void OnExit()`
 
-**Purpose:** Called when the `exit` event is raised.
+**Purpose:** Invoked when the `exit` event is raised.
+
+```csharp
+// Obtain an instance of GauntletBodyGeneratorScreen from the subsystem API first
+GauntletBodyGeneratorScreen gauntletBodyGeneratorScreen = ...;
+gauntletBodyGeneratorScreen.OnExit();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletBodyGeneratorScreen();
-value.OnExit();
+// Typically call this after obtaining an instance from the subsystem API
+GauntletBodyGeneratorScreen gauntletBodyGeneratorScreen = ...;
+gauntletBodyGeneratorScreen.OnExit();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

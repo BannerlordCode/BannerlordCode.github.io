@@ -1,13 +1,7 @@
 ---
 title: "MapNavigationVM"
+description: "MapNavigationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapNavigationVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapNavigationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
@@ -39,70 +33,143 @@ title: "MapNavigationVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.OnFinalize();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.Refresh();
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.Tick();
+```
 
 ### ExecuteOpenQuests
 `public void ExecuteOpenQuests()`
 
-**用途 / Purpose:** 执行 `open quests` 操作或流程。
+**用途 / Purpose:** 执行 「open quests」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenQuests();
+```
 
 ### ExecuteOpenInventory
 `public void ExecuteOpenInventory()`
 
-**用途 / Purpose:** 执行 `open inventory` 操作或流程。
+**用途 / Purpose:** 执行 「open inventory」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenInventory();
+```
 
 ### ExecuteOpenParty
 `public void ExecuteOpenParty()`
 
-**用途 / Purpose:** 执行 `open party` 操作或流程。
+**用途 / Purpose:** 执行 「open party」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenParty();
+```
 
 ### ExecuteOpenCharacterDeveloper
 `public void ExecuteOpenCharacterDeveloper()`
 
-**用途 / Purpose:** 执行 `open character developer` 操作或流程。
+**用途 / Purpose:** 执行 「open character developer」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenCharacterDeveloper();
+```
 
 ### ExecuteOpenKingdom
 `public void ExecuteOpenKingdom()`
 
-**用途 / Purpose:** 执行 `open kingdom` 操作或流程。
+**用途 / Purpose:** 执行 「open kingdom」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenKingdom();
+```
 
 ### ExecuteOpenClan
 `public void ExecuteOpenClan()`
 
-**用途 / Purpose:** 执行 `open clan` 操作或流程。
+**用途 / Purpose:** 执行 「open clan」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenClan();
+```
 
 ### ExecuteOpenEscapeMenu
 `public void ExecuteOpenEscapeMenu()`
 
-**用途 / Purpose:** 执行 `open escape menu` 操作或流程。
+**用途 / Purpose:** 执行 「open escape menu」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenEscapeMenu();
+```
 
 ### ExecuteOpenMainHeroKingdomEncyclopedia
 `public void ExecuteOpenMainHeroKingdomEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open main hero kingdom encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open main hero kingdom encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationVM 实例
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenMainHeroKingdomEncyclopedia();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapNavigationVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

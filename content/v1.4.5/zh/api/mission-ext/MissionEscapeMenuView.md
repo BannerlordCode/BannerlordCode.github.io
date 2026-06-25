@@ -1,20 +1,14 @@
 ---
 title: "MissionEscapeMenuView"
+description: "MissionEscapeMenuView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionEscapeMenuView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionEscapeMenuView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionEscapeMenuView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionEscapeMenuView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionEscapeMenuView.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "MissionEscapeMenuView"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionEscapeMenuView();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionEscapeMenuView instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ClanScreenWidget"
+description: "Auto-generated class reference for ClanScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
@@ -27,9 +21,10 @@ Treat `ClanScreenWidget` as a Widget-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-var widget = new ClanScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClanScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

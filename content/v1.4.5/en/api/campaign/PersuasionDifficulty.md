@@ -1,20 +1,14 @@
 ---
 title: "PersuasionDifficulty"
+description: "Auto-generated class reference for PersuasionDifficulty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionDifficulty`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionDifficulty
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum PersuasionDifficulty`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/PersuasionDifficulty.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/PersuasionDifficulty.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ## Usage Example
 
 ```csharp
-var example = new PersuasionDifficulty();
+// Obtain an instance from the relevant subsystem API
+PersuasionDifficulty instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

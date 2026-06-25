@@ -1,13 +1,7 @@
 ---
 title: "CanvasTextBox"
+description: "Auto-generated class reference for CanvasTextBox."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CanvasTextBox`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasTextBox
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public override void LoadFrom(XmlNode canvasTextNode)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CanvasTextBox from the subsystem API first
+CanvasTextBox canvasTextBox = ...;
+canvasTextBox.LoadFrom(canvasTextNode);
+```
 
 ### GetVerticalPositionOf
 `public float GetVerticalPositionOf(int index)`
 
-**Purpose:** Gets the current value of `vertical position of`.
+**Purpose:** Reads and returns the `vertical position of` value held by the current object.
+
+```csharp
+// Obtain an instance of CanvasTextBox from the subsystem API first
+CanvasTextBox canvasTextBox = ...;
+var result = canvasTextBox.GetVerticalPositionOf(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CanvasTextBox();
-value.LoadFrom(canvasTextNode);
+// Typically call this after obtaining an instance from the subsystem API
+CanvasTextBox canvasTextBox = ...;
+canvasTextBox.LoadFrom(canvasTextNode);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "StandingPointWithAgentLimit"
+description: "Auto-generated class reference for StandingPointWithAgentLimit."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandingPointWithAgentLimit`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandingPointWithAgentLimit
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -31,23 +25,42 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Adds `valid agent` to the current collection or state.
 
+```csharp
+// Obtain an instance of StandingPointWithAgentLimit from the subsystem API first
+StandingPointWithAgentLimit standingPointWithAgentLimit = ...;
+standingPointWithAgentLimit.AddValidAgent(agent);
+```
+
 ### ClearValidAgents
 `public void ClearValidAgents()`
 
-**Purpose:** Handles logic related to `clear valid agents`.
+**Purpose:** Removes all `valid agents` from the current object.
+
+```csharp
+// Obtain an instance of StandingPointWithAgentLimit from the subsystem API first
+StandingPointWithAgentLimit standingPointWithAgentLimit = ...;
+standingPointWithAgentLimit.ClearValidAgents();
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of StandingPointWithAgentLimit from the subsystem API first
+StandingPointWithAgentLimit standingPointWithAgentLimit = ...;
+var result = standingPointWithAgentLimit.IsDisabledForAgent(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StandingPointWithAgentLimit();
-value.AddValidAgent(agent);
+// Typically call this after obtaining an instance from the subsystem API
+StandingPointWithAgentLimit standingPointWithAgentLimit = ...;
+standingPointWithAgentLimit.AddValidAgent(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

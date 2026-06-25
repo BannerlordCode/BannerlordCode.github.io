@@ -1,20 +1,14 @@
 ---
 title: "BarterManager"
+description: "Auto-generated class reference for BarterManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterManager
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BarterManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterManager.cs`
 
 ## Overview
 
@@ -35,97 +29,211 @@ Treat `BarterManager` as a Manager-style extension point: first identify who cre
 ### BarterContextInitializer
 `public delegate bool BarterContextInitializer(Barterable barterable, BarterData args, object obj = null)`
 
-**Purpose:** Handles logic related to `barter context initializer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.BarterContextInitializer(barterable, args, null);
+```
 
 ### BarterCloseEventDelegate
 `public delegate void BarterCloseEventDelegate()`
 
-**Purpose:** Handles logic related to `barter close event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.BarterCloseEventDelegate();
+```
 
 ### BarterBeginEventDelegate
 `public delegate void BarterBeginEventDelegate(BarterData args)`
 
-**Purpose:** Handles logic related to `barter begin event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.BarterBeginEventDelegate(args);
+```
 
 ### BeginPlayerBarter
 `public void BeginPlayerBarter(BarterData args)`
 
-**Purpose:** Handles logic related to `begin player barter`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.BeginPlayerBarter(args);
+```
 
 ### StartBarterOffer
 `public void StartBarterOffer(Hero offerer, Hero other, PartyBase offererParty, PartyBase otherParty, Hero beneficiaryOfOtherHero = null, BarterContextInitializer InitContext = null, int persuasionCostReduction = 0, bool isAIBarter = false, IEnumerable<Barterable> defaultBarterables = null)`
 
-**Purpose:** Handles logic related to `start barter offer`.
+**Purpose:** Starts the `barter offer` flow or state machine.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.StartBarterOffer(offerer, other, offererParty, otherParty, null, null, 0, false, null);
+```
 
 ### ExecuteAiBarter
 `public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, Barterable barterable)`
 
-**Purpose:** Executes the `ai barter` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `ai barter`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.ExecuteAiBarter(faction1, faction2, faction1Hero, faction2Hero, barterable);
+```
 
 ### ExecuteAiBarter
 `public void ExecuteAiBarter(IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero, IEnumerable<Barterable> baseBarterables)`
 
-**Purpose:** Executes the `ai barter` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `ai barter`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.ExecuteAiBarter(faction1, faction2, faction1Hero, faction2Hero, baseBarterables);
+```
 
 ### ExecuteAIBarter
 `public void ExecuteAIBarter(BarterData barterData, IFaction faction1, IFaction faction2, Hero faction1Hero, Hero faction2Hero)`
 
-**Purpose:** Executes the `a i barter` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `a i barter`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.ExecuteAIBarter(barterData, faction1, faction2, faction1Hero, faction2Hero);
+```
 
 ### Close
 `public void Close()`
 
-**Purpose:** Handles logic related to `close`.
+**Purpose:** Closes the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.Close();
+```
 
 ### IsOfferAcceptable
 `public bool IsOfferAcceptable(BarterData args, Hero hero, PartyBase party)`
 
-**Purpose:** Handles logic related to `is offer acceptable`.
+**Purpose:** Determines whether the current object is in the `offer acceptable` state or condition.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.IsOfferAcceptable(args, hero, party);
+```
 
 ### GetOfferValueForFaction
 `public float GetOfferValueForFaction(BarterData barterData, IFaction faction)`
 
-**Purpose:** Gets the current value of `offer value for faction`.
+**Purpose:** Reads and returns the `offer value for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.GetOfferValueForFaction(barterData, faction);
+```
 
 ### GetOfferValue
 `public float GetOfferValue(Hero selfHero, PartyBase selfParty, PartyBase offererParty, IEnumerable<Barterable> offeredBarters)`
 
-**Purpose:** Gets the current value of `offer value`.
+**Purpose:** Reads and returns the `offer value` value held by the current object.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.GetOfferValue(selfHero, selfParty, offererParty, offeredBarters);
+```
 
 ### ApplyAndFinalizePlayerBarter
 `public void ApplyAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)`
 
-**Purpose:** Applies `and finalize player barter` to the current object.
+**Purpose:** Applies the effect of `and finalize player barter` to the current object.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.ApplyAndFinalizePlayerBarter(offererHero, otherHero, barterData);
+```
 
 ### CancelAndFinalizePlayerBarter
 `public void CancelAndFinalizePlayerBarter(Hero offererHero, Hero otherHero, BarterData barterData)`
 
-**Purpose:** Checks whether the current object can `cel and finalize player barter`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel and finalize player barter`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+barterManager.CancelAndFinalizePlayerBarter(offererHero, otherHero, barterData);
+```
 
 ### CanPlayerBarterWithHero
 `public bool CanPlayerBarterWithHero(Hero hero)`
 
-**Purpose:** Checks whether the current object can `player barter with hero`.
+**Purpose:** Checks whether the current object meets the preconditions for `player barter with hero`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.CanPlayerBarterWithHero(hero);
+```
 
 ### InitializeMarriageBarterContext
 `public bool InitializeMarriageBarterContext(Barterable barterable, BarterData args, object obj)`
 
-**Purpose:** Initializes the state, resources, or bindings for `marriage barter context`.
+**Purpose:** Prepares the resources, state, or bindings required by `marriage barter context`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.InitializeMarriageBarterContext(barterable, args, obj);
+```
 
 ### InitializeJoinFactionBarterContext
 `public bool InitializeJoinFactionBarterContext(Barterable barterable, BarterData args, object obj)`
 
-**Purpose:** Initializes the state, resources, or bindings for `join faction barter context`.
+**Purpose:** Prepares the resources, state, or bindings required by `join faction barter context`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.InitializeJoinFactionBarterContext(barterable, args, obj);
+```
 
 ### InitializeMakePeaceBarterContext
 `public bool InitializeMakePeaceBarterContext(Barterable barterable, BarterData args, object obj)`
 
-**Purpose:** Initializes the state, resources, or bindings for `make peace barter context`.
+**Purpose:** Prepares the resources, state, or bindings required by `make peace barter context`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.InitializeMakePeaceBarterContext(barterable, args, obj);
+```
 
 ### InitializeSafePassageBarterContext
 `public bool InitializeSafePassageBarterContext(Barterable barterable, BarterData args, object obj)`
 
-**Purpose:** Initializes the state, resources, or bindings for `safe passage barter context`.
+**Purpose:** Prepares the resources, state, or bindings required by `safe passage barter context`.
+
+```csharp
+// Obtain an instance of BarterManager from the subsystem API first
+BarterManager barterManager = ...;
+var result = barterManager.InitializeSafePassageBarterContext(barterable, args, obj);
+```
 
 ## Usage Example
 
@@ -135,4 +243,4 @@ var manager = BarterManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

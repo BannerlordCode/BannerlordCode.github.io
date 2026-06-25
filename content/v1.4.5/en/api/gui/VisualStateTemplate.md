@@ -1,20 +1,14 @@
 ---
 title: "VisualStateTemplate"
+description: "Auto-generated class reference for VisualStateTemplate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualStateTemplate`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualStateTemplate
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class VisualStateTemplate`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/VisualStateTemplate.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/VisualStateTemplate.cs`
 
 ## Overview
 
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### SetAttribute
 `public void SetAttribute(string name, string value)`
 
-**Purpose:** Sets the value or state of `attribute`.
+**Purpose:** Assigns a new value to `attribute` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VisualStateTemplate from the subsystem API first
+VisualStateTemplate visualStateTemplate = ...;
+visualStateTemplate.SetAttribute("example", "example");
+```
 
 ### GetAttributes
 `public Dictionary<string, string> GetAttributes()`
 
-**Purpose:** Gets the current value of `attributes`.
+**Purpose:** Reads and returns the `attributes` value held by the current object.
+
+```csharp
+// Obtain an instance of VisualStateTemplate from the subsystem API first
+VisualStateTemplate visualStateTemplate = ...;
+var result = visualStateTemplate.GetAttributes();
+```
 
 ### ClearAttribute
 `public void ClearAttribute(string name)`
 
-**Purpose:** Handles logic related to `clear attribute`.
+**Purpose:** Removes all `attribute` from the current object.
+
+```csharp
+// Obtain an instance of VisualStateTemplate from the subsystem API first
+VisualStateTemplate visualStateTemplate = ...;
+visualStateTemplate.ClearAttribute("example");
+```
 
 ### CreateVisualState
 `public VisualState CreateVisualState(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** Creates a new `visual state` instance or object.
+**Purpose:** Constructs a new `visual state` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of VisualStateTemplate from the subsystem API first
+VisualStateTemplate visualStateTemplate = ...;
+var result = visualStateTemplate.CreateVisualState(brushFactory, spriteData, dictionary<string, visualDefinitionTemplates, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VisualStateTemplate();
-value.SetAttribute("example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+VisualStateTemplate visualStateTemplate = ...;
+visualStateTemplate.SetAttribute("example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

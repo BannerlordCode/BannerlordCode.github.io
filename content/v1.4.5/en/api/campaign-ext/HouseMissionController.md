@@ -1,20 +1,14 @@
 ---
 title: "HouseMissionController"
+description: "Auto-generated class reference for HouseMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HouseMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HouseMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class HouseMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/HouseMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/HouseMissionController.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `HouseMissionController` as a Controller-style extension point: first iden
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of HouseMissionController from the subsystem API first
+HouseMissionController houseMissionController = ...;
+houseMissionController.OnBehaviorInitialize();
+```
 
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of HouseMissionController from the subsystem API first
+HouseMissionController houseMissionController = ...;
+houseMissionController.OnCreated();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HouseMissionController from the subsystem API first
+HouseMissionController houseMissionController = ...;
+houseMissionController.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HouseMissionController from the subsystem API first
+HouseMissionController houseMissionController = ...;
+houseMissionController.AfterStart();
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var controller = Mission.Current.GetMissionBehavior<HouseMissionController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

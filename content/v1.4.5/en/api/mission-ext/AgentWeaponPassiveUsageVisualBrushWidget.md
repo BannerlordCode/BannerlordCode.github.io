@@ -1,20 +1,14 @@
 ---
 title: "AgentWeaponPassiveUsageVisualBrushWidget"
+description: "Auto-generated class reference for AgentWeaponPassiveUsageVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentWeaponPassiveUsageVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentWeaponPassiveUsageVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentWeaponPassiveUsageVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentWeaponPassiveUsageVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentWeaponPassiveUsageVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `AgentWeaponPassiveUsageVisualBrushWidget` as a Widget-style extension poi
 ### AgentWeaponPassiveUsageVisualBrushWidget
 `public class AgentWeaponPassiveUsageVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `agent weapon passive usage visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentWeaponPassiveUsageVisualBrushWidget from the subsystem API first
+AgentWeaponPassiveUsageVisualBrushWidget agentWeaponPassiveUsageVisualBrushWidget = ...;
+var result = agentWeaponPassiveUsageVisualBrushWidget.AgentWeaponPassiveUsageVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new AgentWeaponPassiveUsageVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AgentWeaponPassiveUsageVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

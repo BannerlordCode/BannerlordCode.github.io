@@ -1,13 +1,7 @@
 ---
 title: "ObjectSystemException"
+description: "Auto-generated class reference for ObjectSystemException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ObjectSystemException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ObjectSystemException
 
 **Namespace:** TaleWorlds.ObjectSystem
@@ -27,9 +21,10 @@ Treat `ObjectSystemException` as a Exception-style extension point: first identi
 ## Usage Example
 
 ```csharp
-try { CallObjectSystemException(); } catch (ObjectSystemException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (ObjectSystemException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

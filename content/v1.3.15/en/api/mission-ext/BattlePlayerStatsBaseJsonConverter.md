@@ -1,13 +1,7 @@
 ---
 title: "BattlePlayerStatsBaseJsonConverter"
+description: "Auto-generated class reference for BattlePlayerStatsBaseJsonConverter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattlePlayerStatsBaseJsonConverter`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattlePlayerStatsBaseJsonConverter
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**Purpose:** Checks whether the current object can `convert`.
+**Purpose:** Checks whether the current object meets the preconditions for `convert`.
+
+```csharp
+// Obtain an instance of BattlePlayerStatsBaseJsonConverter from the subsystem API first
+BattlePlayerStatsBaseJsonConverter battlePlayerStatsBaseJsonConverter = ...;
+var result = battlePlayerStatsBaseJsonConverter.CanConvert(objectType);
+```
 
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `read json`.
+**Purpose:** Reads the data or state of `json`.
+
+```csharp
+// Obtain an instance of BattlePlayerStatsBaseJsonConverter from the subsystem API first
+BattlePlayerStatsBaseJsonConverter battlePlayerStatsBaseJsonConverter = ...;
+var result = battlePlayerStatsBaseJsonConverter.ReadJson(reader, objectType, existingValue, serializer);
+```
 
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `write json`.
+**Purpose:** Writes `json` to the target location.
+
+```csharp
+// Obtain an instance of BattlePlayerStatsBaseJsonConverter from the subsystem API first
+BattlePlayerStatsBaseJsonConverter battlePlayerStatsBaseJsonConverter = ...;
+battlePlayerStatsBaseJsonConverter.WriteJson(writer, value, serializer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattlePlayerStatsBaseJsonConverter();
-value.CanConvert(objectType);
+// Typically call this after obtaining an instance from the subsystem API
+BattlePlayerStatsBaseJsonConverter battlePlayerStatsBaseJsonConverter = ...;
+battlePlayerStatsBaseJsonConverter.CanConvert(objectType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

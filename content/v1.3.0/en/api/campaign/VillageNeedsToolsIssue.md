@@ -1,13 +1,7 @@
 ---
 title: "VillageNeedsToolsIssue"
+description: "Auto-generated class reference for VillageNeedsToolsIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageNeedsToolsIssue`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageNeedsToolsIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -52,65 +46,131 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+villageNeedsToolsIssue.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+villageNeedsToolsIssue.SyncData(dataStore);
+```
 
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Gets the current value of `alternative solution skill`.
+**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+var result = villageNeedsToolsIssue.GetAlternativeSolutionSkill(hero);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+var result = villageNeedsToolsIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+var result = villageNeedsToolsIssue.IssueStayAliveConditions();
+```
 
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Handles logic related to `alternative solution start consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+villageNeedsToolsIssue.AlternativeSolutionStartConsequence();
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+var result = villageNeedsToolsIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
+**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+var result = villageNeedsToolsIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+var result = villageNeedsToolsIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssue from the subsystem API first
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+villageNeedsToolsIssue.OnFailed();
+```
 
 ### GiveTradeOrExchangeRewardToMainParty
 `public static void GiveTradeOrExchangeRewardToMainParty(Hero questGiver, int gold, ItemObject exchangeItem, int exchangeItemCount)`
 
-**Purpose:** Handles logic related to `give trade or exchange reward to main party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+VillageNeedsToolsIssue.GiveTradeOrExchangeRewardToMainParty(questGiver, 0, exchangeItem, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillageNeedsToolsIssue();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+VillageNeedsToolsIssue villageNeedsToolsIssue = ...;
+villageNeedsToolsIssue.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

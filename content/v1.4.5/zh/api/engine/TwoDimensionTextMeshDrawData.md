@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionTextMeshDrawData"
+description: "TwoDimensionTextMeshDrawData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TwoDimensionTextMeshDrawData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionTextMeshDrawData
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct TwoDimensionTextMeshDrawData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionTextMeshDrawData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionTextMeshDrawData.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "TwoDimensionTextMeshDrawData"
 ## 使用示例
 
 ```csharp
-var value = new TwoDimensionTextMeshDrawData();
+// 该数据对象通常由战役/任务 API 返回
+TwoDimensionTextMeshDrawData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

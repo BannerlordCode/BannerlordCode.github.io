@@ -1,20 +1,14 @@
 ---
 title: "OrderTroopPlacer"
+description: "OrderTroopPlacer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderTroopPlacer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTroopPlacer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderTroopPlacer : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Order/OrderTroopPlacer.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Order/OrderTroopPlacer.cs`
 
 ## 概述
 
@@ -36,40 +30,77 @@ title: "OrderTroopPlacer"
 ### GetGroundOrNormalCursor
 `public CursorState GetGroundOrNormalCursor()`
 
-**用途 / Purpose:** 获取 `ground or normal cursor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ground or normal cursor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+var result = orderTroopPlacer.GetGroundOrNormalCursor();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.OnMissionTick(0);
+```
 
 ### RestrictOrdersToDeploymentBoundaries
 `public void RestrictOrdersToDeploymentBoundaries(bool enabled)`
 
-**用途 / Purpose:** 处理 `restrict orders to deployment boundaries` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.RestrictOrdersToDeploymentBoundaries(false);
+```
 
 ### UpdateFormationDrawing
 `public void UpdateFormationDrawing(bool giveOrder)`
 
-**用途 / Purpose:** 更新 `formation drawing` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「formation drawing」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.UpdateFormationDrawing(false);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopPlacer 实例
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderTroopPlacer();
-value.GetGroundOrNormalCursor();
+// 通常从对应子系统 API 获取实例后调用
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.GetGroundOrNormalCursor();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

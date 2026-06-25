@@ -1,23 +1,18 @@
 ---
 title: "ModuleInfoModelExtensions"
+description: "Auto-generated class reference for ModuleInfoModelExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleInfoModelExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ModuleInfoModelExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ModuleInfoModelExtensions`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/ModuleInfoModelExtensions.cs`
 
 ## Overview
 
-`ModuleInfoModelExtensions` lives in `TaleWorlds.MountAndBlade.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ModuleInfoModelExtensions` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### IsCompatibleWith
 `public static bool IsCompatibleWith(this IEnumerable<ModuleInfoModel> a, IEnumerable<ModuleInfoModel> b, bool allowOptionalModules)`
 
-**Purpose:** Handles logic related to `is compatible with`.
+**Purpose:** Determines whether the current object is in the `compatible with` state or condition.
+
+```csharp
+// Static call; no instance required
+ModuleInfoModelExtensions.IsCompatibleWith(a, b, false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ModuleInfoModelExtensions.IsCompatibleWith(a, b, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPPerkCondition"
+description: "Auto-generated class reference for MPPerkCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerkCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPerkCondition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MPPerkCondition`
-**Base:** none
-**File:** `TaleWorlds.MountAndBlade/MPPerkCondition.cs`
+**Type:** `public abstract class MPPerkCondition<T> : MPPerkCondition where T : MissionMultiplayerGameModeBase`
+**Base:** `MPPerkCondition where T : MissionMultiplayerGameModeBase`
+**File:** `TaleWorlds.MountAndBlade/MPPerkCondition.2.cs`
 
 ## Overview
 
@@ -24,36 +18,13 @@ title: "MPPerkCondition"
 
 Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `EventFlags` | `public virtual MPPerkCondition.PerkEventFlags EventFlags { get; }` |
-| `IsPeerCondition` | `public virtual bool IsPeerCondition { get; }` |
-
-## Key Methods
-
-### Check
-`public abstract bool Check(MissionPeer peer)`
-
-**Purpose:** Handles logic related to `check`.
-
-### Check
-`public abstract bool Check(Agent agent)`
-
-**Purpose:** Handles logic related to `check`.
-
-### CreateFrom
-`public static MPPerkCondition CreateFrom(List<string> gameModes, XmlNode node)`
-
-**Purpose:** Creates a new `from` instance or object.
-
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPPerkCondition();
+// Typically obtained from a subsystem API or factory
+MPPerkCondition instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

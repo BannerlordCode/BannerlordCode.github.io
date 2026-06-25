@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerScoreboardStripedBackgroundWidget"
+description: "Auto-generated class reference for MultiplayerScoreboardStripedBackgroundWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerScoreboardStripedBackgroundWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardStripedBackgroundWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerScoreboardStripedBackgroundWidget : MultiplayerScoreboardStatsListPanel`
 **Base:** `MultiplayerScoreboardStatsListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardStripedBackgroundWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardStripedBackgroundWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MultiplayerScoreboardStripedBackgroundWidget` as a Widget-style extension
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerScoreboardStripedBackgroundWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerScoreboardStripedBackgroundWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

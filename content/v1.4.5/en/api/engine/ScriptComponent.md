@@ -1,20 +1,14 @@
 ---
 title: "ScriptComponent"
+description: "Auto-generated class reference for ScriptComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScriptComponent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScriptComponent
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class ScriptComponent : NativeObject`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponent.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponent.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `ScriptComponent` as a Component-style extension point: first identify who
 ### GetName
 `public string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of ScriptComponent from the subsystem API first
+ScriptComponent scriptComponent = ...;
+var result = scriptComponent.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomScriptComponent();
+// Typically obtained from a subsystem API or factory
+ScriptComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

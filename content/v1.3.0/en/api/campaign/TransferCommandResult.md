@@ -1,13 +1,7 @@
 ---
 title: "TransferCommandResult"
+description: "Auto-generated class reference for TransferCommandResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransferCommandResult`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransferCommandResult
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
@@ -39,9 +33,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ## Usage Example
 
 ```csharp
-var example = new TransferCommandResult();
+// Obtain an instance from the relevant subsystem API
+TransferCommandResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

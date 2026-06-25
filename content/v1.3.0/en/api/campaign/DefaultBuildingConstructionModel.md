@@ -1,13 +1,7 @@
 ---
 title: "DefaultBuildingConstructionModel"
+description: "Auto-generated class reference for DefaultBuildingConstructionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBuildingConstructionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBuildingConstructionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -38,22 +32,46 @@ Treat `DefaultBuildingConstructionModel` as a Model-style extension point: first
 ### CalculateDailyConstructionPower
 `public override ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate daily construction power`.
+**Purpose:** Calculates the current value or result of `daily construction power`.
+
+```csharp
+// Obtain an instance of DefaultBuildingConstructionModel from the subsystem API first
+DefaultBuildingConstructionModel defaultBuildingConstructionModel = ...;
+var result = defaultBuildingConstructionModel.CalculateDailyConstructionPower(town, false);
+```
 
 ### CalculateDailyConstructionPowerWithoutBoost
 `public override int CalculateDailyConstructionPowerWithoutBoost(Town town)`
 
-**Purpose:** Handles logic related to `calculate daily construction power without boost`.
+**Purpose:** Calculates the current value or result of `daily construction power without boost`.
+
+```csharp
+// Obtain an instance of DefaultBuildingConstructionModel from the subsystem API first
+DefaultBuildingConstructionModel defaultBuildingConstructionModel = ...;
+var result = defaultBuildingConstructionModel.CalculateDailyConstructionPowerWithoutBoost(town);
+```
 
 ### GetBoostAmount
 `public override int GetBoostAmount(Town town)`
 
-**Purpose:** Gets the current value of `boost amount`.
+**Purpose:** Reads and returns the `boost amount` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBuildingConstructionModel from the subsystem API first
+DefaultBuildingConstructionModel defaultBuildingConstructionModel = ...;
+var result = defaultBuildingConstructionModel.GetBoostAmount(town);
+```
 
 ### GetBoostCost
 `public override int GetBoostCost(Town town)`
 
-**Purpose:** Gets the current value of `boost cost`.
+**Purpose:** Reads and returns the `boost cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBuildingConstructionModel from the subsystem API first
+DefaultBuildingConstructionModel defaultBuildingConstructionModel = ...;
+var result = defaultBuildingConstructionModel.GetBoostCost(town);
+```
 
 ## Usage Example
 
@@ -63,4 +81,4 @@ Game.Current.ReplaceModel<DefaultBuildingConstructionModel>(new MyDefaultBuildin
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

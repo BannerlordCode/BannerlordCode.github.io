@@ -1,20 +1,14 @@
 ---
 title: "PerkObjectComparer"
+description: "Auto-generated class reference for PerkObjectComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkObjectComparer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkObjectComparer
 
 **Namespace:** SandBox.ViewModelCollection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PerkObjectComparer : IComparer<PerkObject>`
 **Base:** `IComparer<PerkObject>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/PerkObjectComparer.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/PerkObjectComparer.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.ViewModelCollection` to place it in the stack, the
 ### Compare
 `public int Compare(PerkObject x, PerkObject y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of PerkObjectComparer from the subsystem API first
+PerkObjectComparer perkObjectComparer = ...;
+var result = perkObjectComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PerkObjectComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+PerkObjectComparer perkObjectComparer = ...;
+perkObjectComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

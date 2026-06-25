@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyMenuWidget"
+description: "MultiplayerLobbyMenuWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerLobbyMenuWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyMenuWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyMenuWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyMenuWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyMenuWidget.cs`
 
 ## 概述
 
@@ -37,14 +31,21 @@ title: "MultiplayerLobbyMenuWidget"
 ### LobbyStateChanged
 `public void LobbyStateChanged(bool isSearchRequested, bool isSearching, bool isMatchmakingEnabled, bool isCustomBattleEnabled, bool isPartyLeader, bool isInParty)`
 
-**用途 / Purpose:** 处理 `lobby state changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLobbyMenuWidget 实例
+MultiplayerLobbyMenuWidget multiplayerLobbyMenuWidget = ...;
+multiplayerLobbyMenuWidget.LobbyStateChanged(false, false, false, false, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerLobbyMenuWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerLobbyMenuWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultCulturalFeats"
+description: "Auto-generated class reference for DefaultCulturalFeats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCulturalFeats`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCulturalFeats
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -50,9 +44,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new DefaultCulturalFeats();
+// Obtain an instance from the relevant subsystem API
+DefaultCulturalFeats instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

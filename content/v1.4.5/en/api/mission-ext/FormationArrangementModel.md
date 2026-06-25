@@ -1,20 +1,14 @@
 ---
 title: "FormationArrangementModel"
+description: "Auto-generated class reference for FormationArrangementModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationArrangementModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationArrangementModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class FormationArrangementModel : MBGameModel<FormationArrangementModel>`
 **Base:** `MBGameModel<FormationArrangementModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/FormationArrangementModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/FormationArrangementModel.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `FormationArrangementModel` as a Model-style extension point: first identi
 ### GetBannerBearerPositions
 `public abstract List<ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
-**Purpose:** Gets the current value of `banner bearer positions`.
+**Purpose:** Reads and returns the `banner bearer positions` value held by the current object.
+
+```csharp
+// Obtain an instance of FormationArrangementModel from the subsystem API first
+FormationArrangementModel formationArrangementModel = ...;
+var result = formationArrangementModel.GetBannerBearerPositions(formation, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomFormationArrangementModel();
+// Typically obtained from a subsystem API or factory
+FormationArrangementModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

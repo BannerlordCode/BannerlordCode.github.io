@@ -1,13 +1,7 @@
 ---
 title: "MissionRecorder"
+description: "Auto-generated class reference for MissionRecorder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionRecorder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionRecorder
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,75 +23,149 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### RestartRecord
 `public void RestartRecord()`
 
-**Purpose:** Handles logic related to `restart record`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionRecorder from the subsystem API first
+MissionRecorder missionRecorder = ...;
+missionRecorder.RestartRecord();
+```
 
 ### ProcessRecordUntilTime
 `public void ProcessRecordUntilTime(float time)`
 
-**Purpose:** Handles logic related to `process record until time`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionRecorder from the subsystem API first
+MissionRecorder missionRecorder = ...;
+missionRecorder.ProcessRecordUntilTime(0);
+```
 
 ### IsEndOfRecord
 `public bool IsEndOfRecord()`
 
-**Purpose:** Handles logic related to `is end of record`.
+**Purpose:** Determines whether the current object is in the `end of record` state or condition.
+
+```csharp
+// Obtain an instance of MissionRecorder from the subsystem API first
+MissionRecorder missionRecorder = ...;
+var result = missionRecorder.IsEndOfRecord();
+```
 
 ### StartRecording
 `public void StartRecording()`
 
-**Purpose:** Handles logic related to `start recording`.
+**Purpose:** Starts the `recording` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionRecorder from the subsystem API first
+MissionRecorder missionRecorder = ...;
+missionRecorder.StartRecording();
+```
 
 ### RecordCurrentState
 `public void RecordCurrentState()`
 
-**Purpose:** Handles logic related to `record current state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionRecorder from the subsystem API first
+MissionRecorder missionRecorder = ...;
+missionRecorder.RecordCurrentState();
+```
 
 ### BackupRecordToFile
 `public void BackupRecordToFile(string fileName, string gameType, string sceneLevels)`
 
-**Purpose:** Handles logic related to `backup record to file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionRecorder from the subsystem API first
+MissionRecorder missionRecorder = ...;
+missionRecorder.BackupRecordToFile("example", "example", "example");
+```
 
 ### RestoreRecordFromFile
 `public void RestoreRecordFromFile(string fileName)`
 
-**Purpose:** Handles logic related to `restore record from file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionRecorder from the subsystem API first
+MissionRecorder missionRecorder = ...;
+missionRecorder.RestoreRecordFromFile("example");
+```
 
 ### ClearRecordBuffers
 `public void ClearRecordBuffers()`
 
-**Purpose:** Handles logic related to `clear record buffers`.
+**Purpose:** Removes all `record buffers` from the current object.
+
+```csharp
+// Obtain an instance of MissionRecorder from the subsystem API first
+MissionRecorder missionRecorder = ...;
+missionRecorder.ClearRecordBuffers();
+```
 
 ### GetSceneNameForReplay
 `public static string GetSceneNameForReplay(PlatformFilePath fileName)`
 
-**Purpose:** Gets the current value of `scene name for replay`.
+**Purpose:** Reads and returns the `scene name for replay` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionRecorder.GetSceneNameForReplay(fileName);
+```
 
 ### GetGameTypeForReplay
 `public static string GetGameTypeForReplay(PlatformFilePath fileName)`
 
-**Purpose:** Gets the current value of `game type for replay`.
+**Purpose:** Reads and returns the `game type for replay` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionRecorder.GetGameTypeForReplay(fileName);
+```
 
 ### GetSceneLevelsForReplay
 `public static string GetSceneLevelsForReplay(PlatformFilePath fileName)`
 
-**Purpose:** Gets the current value of `scene levels for replay`.
+**Purpose:** Reads and returns the `scene levels for replay` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionRecorder.GetSceneLevelsForReplay(fileName);
+```
 
 ### GetAtmosphereNameForReplay
 `public static string GetAtmosphereNameForReplay(PlatformFilePath fileName)`
 
-**Purpose:** Gets the current value of `atmosphere name for replay`.
+**Purpose:** Reads and returns the `atmosphere name for replay` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionRecorder.GetAtmosphereNameForReplay(fileName);
+```
 
 ### GetAtmosphereSeasonForReplay
 `public static int GetAtmosphereSeasonForReplay(PlatformFilePath fileName)`
 
-**Purpose:** Gets the current value of `atmosphere season for replay`.
+**Purpose:** Reads and returns the `atmosphere season for replay` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionRecorder.GetAtmosphereSeasonForReplay(fileName);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionRecorder();
-value.RestartRecord();
+// Typically call this after obtaining an instance from the subsystem API
+MissionRecorder missionRecorder = ...;
+missionRecorder.RestartRecord();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

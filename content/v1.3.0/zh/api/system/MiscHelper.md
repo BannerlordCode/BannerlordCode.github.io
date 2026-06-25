@@ -1,13 +1,7 @@
 ---
 title: "MiscHelper"
+description: "MiscHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MiscHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MiscHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ title: "MiscHelper"
 ### LoadXmlFile
 `public static XmlDocument LoadXmlFile(string path)`
 
-**用途 / Purpose:** 加载 `xml file` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「xml file」。
+
+```csharp
+// 静态调用，不需要实例
+MiscHelper.LoadXmlFile("example");
+```
 
 ### GenerateCampaignId
 `public static string GenerateCampaignId(int length)`
 
-**用途 / Purpose:** 处理 `generate campaign id` 相关逻辑。
+**用途 / Purpose:** 生成「campaign id」的实例、数据或表示。
+
+```csharp
+// 静态调用，不需要实例
+MiscHelper.GenerateCampaignId(0);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ MiscHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

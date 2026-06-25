@@ -1,13 +1,7 @@
 ---
 title: "StoryModePermissionsSystem"
+description: "Auto-generated class reference for StoryModePermissionsSystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModePermissionsSystem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModePermissionsSystem
 
 **Namespace:** StoryMode.View.Permissions
@@ -29,7 +23,12 @@ Start from namespace `StoryMode.View.Permissions` to place it in the stack, then
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Static call; no instance required
+StoryModePermissionsSystem.OnInitialize();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ StoryModePermissionsSystem.OnInitialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

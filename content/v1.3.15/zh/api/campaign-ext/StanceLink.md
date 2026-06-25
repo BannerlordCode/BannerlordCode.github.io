@@ -1,13 +1,7 @@
 ---
 title: "StanceLink"
+description: "StanceLink 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StanceLink`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StanceLink
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -53,50 +47,99 @@ title: "StanceLink"
 ### GetCasualties
 `public int GetCasualties(IFaction faction)`
 
-**用途 / Purpose:** 获取 `casualties` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「casualties」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StanceLink 实例
+StanceLink stanceLink = ...;
+var result = stanceLink.GetCasualties(faction);
+```
 
 ### GetSuccessfulSieges
 `public int GetSuccessfulSieges(IFaction faction)`
 
-**用途 / Purpose:** 获取 `successful sieges` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「successful sieges」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StanceLink 实例
+StanceLink stanceLink = ...;
+var result = stanceLink.GetSuccessfulSieges(faction);
+```
 
 ### GetSuccessfulRaids
 `public int GetSuccessfulRaids(IFaction faction)`
 
-**用途 / Purpose:** 获取 `successful raids` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「successful raids」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StanceLink 实例
+StanceLink stanceLink = ...;
+var result = stanceLink.GetSuccessfulRaids(faction);
+```
 
 ### GetTotalTributePaid
 `public int GetTotalTributePaid(IFaction faction)`
 
-**用途 / Purpose:** 获取 `total tribute paid` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total tribute paid」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StanceLink 实例
+StanceLink stanceLink = ...;
+var result = stanceLink.GetTotalTributePaid(faction);
+```
 
 ### GetSuccessfulTownSieges
 `public int GetSuccessfulTownSieges(IFaction faction)`
 
-**用途 / Purpose:** 获取 `successful town sieges` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「successful town sieges」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StanceLink 实例
+StanceLink stanceLink = ...;
+var result = stanceLink.GetSuccessfulTownSieges(faction);
+```
 
 ### GetDailyTributeToPay
 `public int GetDailyTributeToPay(IFaction faction)`
 
-**用途 / Purpose:** 获取 `daily tribute to pay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily tribute to pay」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StanceLink 实例
+StanceLink stanceLink = ...;
+var result = stanceLink.GetDailyTributeToPay(faction);
+```
 
 ### SetDailyTributePaid
 `public void SetDailyTributePaid(IFaction payer, int dailyTribute, int dailyTributeInstallments)`
 
-**用途 / Purpose:** 设置 `daily tribute paid` 的值或状态。
+**用途 / Purpose:** 为 「daily tribute paid」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StanceLink 实例
+StanceLink stanceLink = ...;
+stanceLink.SetDailyTributePaid(payer, 0, 0);
+```
 
 ### GetRemainingTributePaymentCount
 `public int GetRemainingTributePaymentCount()`
 
-**用途 / Purpose:** 获取 `remaining tribute payment count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「remaining tribute payment count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StanceLink 实例
+StanceLink stanceLink = ...;
+var result = stanceLink.GetRemainingTributePaymentCount();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StanceLink();
-value.GetCasualties(faction);
+// 通常从对应子系统 API 获取实例后调用
+StanceLink stanceLink = ...;
+stanceLink.GetCasualties(faction);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

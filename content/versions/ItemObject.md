@@ -69,8 +69,8 @@ This page compares the accessible API of `ItemObject` across **1.3.0 / 1.3.15 / 
 |------|------|------|
 | v1.3.0 | 🇨🇳 中文 | [v1.3.0 ItemObject](/v1.3.0/zh/api/core-extra/ItemObject) |
 | v1.3.0 | 🇬🇧 English | [v1.3.0 ItemObject](/v1.3.0/en/api/core-extra/ItemObject) |
-| v1.3.15 | 🇨🇳 中文 | [v1.3.15 ItemObject](/v1.3.15/zh/api/items/ItemObject) |
-| v1.3.15 | 🇬🇧 English | [v1.3.15 ItemObject](/v1.3.15/en/api/items/ItemObject) |
+| v1.3.15 | 🇨🇳 中文 | [v1.3.15 ItemObject](/v1.3.15/zh/api/core-extra/ItemObject/) |
+| v1.3.15 | 🇬🇧 English | [v1.3.15 ItemObject](/v1.3.15/en/api/core-extra/ItemObject/) |
 | v1.4.5 | 🇨🇳 中文 | [v1.4.5 ItemObject](/v1.4.5/zh/api/core-extra/ItemObject) |
 | v1.4.5 | 🇬🇧 English | [v1.4.5 ItemObject](/v1.4.5/en/api/core-extra/ItemObject) |
 
@@ -79,5 +79,5 @@ This page compares the accessible API of `ItemObject` across **1.3.0 / 1.3.15 / 
 ## Usage Example
 
 ```csharp
-var example = new ItemObject();
+// Compare class APIs across versions using the notes above.
 ```

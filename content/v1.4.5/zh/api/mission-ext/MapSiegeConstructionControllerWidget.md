@@ -1,20 +1,14 @@
 ---
 title: "MapSiegeConstructionControllerWidget"
+description: "MapSiegeConstructionControllerWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapSiegeConstructionControllerWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeConstructionControllerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapSiegeConstructionControllerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeConstructionControllerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeConstructionControllerWidget.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "MapSiegeConstructionControllerWidget"
 ### SetCurrentPOIWidget
 `public void SetCurrentPOIWidget(MapSiegePOIBrushWidget widget)`
 
-**用途 / Purpose:** 设置 `current p o i widget` 的值或状态。
+**用途 / Purpose:** 为 「current p o i widget」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeConstructionControllerWidget 实例
+MapSiegeConstructionControllerWidget mapSiegeConstructionControllerWidget = ...;
+mapSiegeConstructionControllerWidget.SetCurrentPOIWidget(widget);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MapSiegeConstructionControllerWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MapSiegeConstructionControllerWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

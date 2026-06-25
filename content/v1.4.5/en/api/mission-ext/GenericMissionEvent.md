@@ -1,20 +1,14 @@
 ---
 title: "GenericMissionEvent"
+description: "Auto-generated class reference for GenericMissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericMissionEvent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericMissionEvent
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GenericMissionEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/GenericMissionEvent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/GenericMissionEvent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new GenericMissionEvent();
+// Obtain an instance from the relevant subsystem API
+GenericMissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

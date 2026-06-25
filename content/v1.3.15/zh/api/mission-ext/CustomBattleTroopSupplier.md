@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleTroopSupplier"
+description: "CustomBattleTroopSupplier 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleTroopSupplier`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleTroopSupplier
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,50 +31,99 @@ title: "CustomBattleTroopSupplier"
 ### SupplyTroops
 `public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-**用途 / Purpose:** 处理 `supply troops` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.SupplyTroops(0);
+```
 
 ### SupplyOneTroop
 `public IAgentOriginBase SupplyOneTroop()`
 
-**用途 / Purpose:** 处理 `supply one troop` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.SupplyOneTroop();
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**用途 / Purpose:** 获取 `all troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.GetAllTroops();
+```
 
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**用途 / Purpose:** 获取 `general character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「general character」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.GetGeneralCharacter();
+```
 
 ### OnTroopWounded
 `public void OnTroopWounded()`
 
-**用途 / Purpose:** 当 `troop wounded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop wounded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+customBattleTroopSupplier.OnTroopWounded();
+```
 
 ### OnTroopKilled
 `public void OnTroopKilled()`
 
-**用途 / Purpose:** 当 `troop killed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop killed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+customBattleTroopSupplier.OnTroopKilled();
+```
 
 ### OnTroopRouted
 `public void OnTroopRouted()`
 
-**用途 / Purpose:** 当 `troop routed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop routed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+customBattleTroopSupplier.OnTroopRouted();
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** 获取 `number of player controllable troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of player controllable troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+var result = customBattleTroopSupplier.GetNumberOfPlayerControllableTroops();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleTroopSupplier();
-value.SupplyTroops(0);
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleTroopSupplier customBattleTroopSupplier = ...;
+customBattleTroopSupplier.SupplyTroops(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

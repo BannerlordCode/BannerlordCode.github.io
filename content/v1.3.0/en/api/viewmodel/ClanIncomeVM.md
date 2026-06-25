@@ -1,13 +1,7 @@
 ---
 title: "ClanIncomeVM"
+description: "Auto-generated class reference for ClanIncomeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanIncomeVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanIncomeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -53,40 +47,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanIncomeVM from the subsystem API first
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.RefreshValues();
+```
 
 ### RefreshList
 `public void RefreshList()`
 
-**Purpose:** Refreshes the display or cache of `list`.
+**Purpose:** Keeps the display or cache of `list` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanIncomeVM from the subsystem API first
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.RefreshList();
+```
 
 ### SelectWorkshop
 `public void SelectWorkshop(Workshop workshop)`
 
-**Purpose:** Handles logic related to `select workshop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanIncomeVM from the subsystem API first
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.SelectWorkshop(workshop);
+```
 
 ### SelectAlley
 `public void SelectAlley(Alley alley)`
 
-**Purpose:** Handles logic related to `select alley`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanIncomeVM from the subsystem API first
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.SelectAlley(alley);
+```
 
 ### RefreshTotalIncome
 `public void RefreshTotalIncome()`
 
-**Purpose:** Refreshes the display or cache of `total income`.
+**Purpose:** Keeps the display or cache of `total income` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanIncomeVM from the subsystem API first
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.RefreshTotalIncome();
+```
 
 ### OnRefresh
 `public void OnRefresh()`
 
-**Purpose:** Called when the `refresh` event is raised.
+**Purpose:** Invoked when the `refresh` event is raised.
+
+```csharp
+// Obtain an instance of ClanIncomeVM from the subsystem API first
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.OnRefresh();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanIncomeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

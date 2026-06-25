@@ -1,20 +1,14 @@
 ---
 title: "MusicTournamentMissionView"
+description: "Auto-generated class reference for MusicTournamentMissionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MusicTournamentMissionView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicTournamentMissionView
 
 **Namespace:** SandBox.View.Missions.Sound.Components
 **Module:** SandBox.View
 **Type:** `public class MusicTournamentMissionView : MissionView, IMusicHandler`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions.Sound.Components/MusicTournamentMissionView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions.Sound.Components/MusicTournamentMissionView.cs`
 
 ## Overview
 
@@ -29,59 +23,120 @@ Treat `MusicTournamentMissionView` as a View-style extension point: first identi
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.EarlyStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnMissionScreenFinalize();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnMissionTick(0);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnMissileHit
 `public override void OnMissileHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
 
-**Purpose:** Called when the `missile hit` event is raised.
+**Purpose:** Invoked when the `missile hit` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnMissileHit(attacker, victim, false, collisionData);
+```
 
 ### OnMeleeHit
 `public override void OnMeleeHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
 
-**Purpose:** Called when the `melee hit` event is raised.
+**Purpose:** Invoked when the `melee hit` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnMeleeHit(attacker, victim, false, collisionData);
+```
 
 ### OnTournamentRoundBegin
 `public void OnTournamentRoundBegin(bool isFinalRound)`
 
-**Purpose:** Called when the `tournament round begin` event is raised.
+**Purpose:** Invoked when the `tournament round begin` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnTournamentRoundBegin(false);
+```
 
 ### OnTournamentRoundEnd
 `public void OnTournamentRoundEnd()`
 
-**Purpose:** Called when the `tournament round end` event is raised.
+**Purpose:** Invoked when the `tournament round end` event is raised.
+
+```csharp
+// Obtain an instance of MusicTournamentMissionView from the subsystem API first
+MusicTournamentMissionView musicTournamentMissionView = ...;
+musicTournamentMissionView.OnTournamentRoundEnd();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MusicTournamentMissionView();
+// Retrieve this view from the subsystem API or scene
+MusicTournamentMissionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

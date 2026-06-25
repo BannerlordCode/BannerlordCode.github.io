@@ -1,20 +1,14 @@
 ---
 title: "EventManager"
+description: "EventManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EventManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventManager
 
 **Namespace:** TaleWorlds.Library.EventSystem
 **Module:** TaleWorlds.Library
 **Type:** `public class EventManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventManager.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "EventManager"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+eventManager.Clear();
+```
 
 ### GetCloneOfEventDictionary
 `public IDictionary<Type, object> GetCloneOfEventDictionary()`
 
-**用途 / Purpose:** 获取 `clone of event dictionary` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「clone of event dictionary」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+var result = eventManager.GetCloneOfEventDictionary();
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var manager = EventManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

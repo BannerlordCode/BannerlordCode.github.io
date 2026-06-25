@@ -1,20 +1,14 @@
 ---
 title: "ServerPerformanceState"
+description: "Auto-generated class reference for ServerPerformanceState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServerPerformanceState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServerPerformanceState
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
-**Type:** `class`
+**Type:** `public enum ServerPerformanceState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ServerPerformanceState.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ServerPerformanceState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new ServerPerformanceState();
+// Obtain an instance from the relevant subsystem API
+ServerPerformanceState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

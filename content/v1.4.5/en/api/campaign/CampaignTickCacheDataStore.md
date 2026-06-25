@@ -1,20 +1,14 @@
 ---
 title: "CampaignTickCacheDataStore"
+description: "Auto-generated class reference for CampaignTickCacheDataStore."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignTickCacheDataStore`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignTickCacheDataStore
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignTickCacheDataStore`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignTickCacheDataStore.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignTickCacheDataStore.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Compare
 `public int Compare(MobileParty x, MobileParty y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of CampaignTickCacheDataStore from the subsystem API first
+CampaignTickCacheDataStore campaignTickCacheDataStore = ...;
+var result = campaignTickCacheDataStore.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CampaignTickCacheDataStore();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+CampaignTickCacheDataStore campaignTickCacheDataStore = ...;
+campaignTickCacheDataStore.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

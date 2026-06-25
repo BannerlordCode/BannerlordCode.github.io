@@ -1,20 +1,14 @@
 ---
 title: "MissionTrainingFieldObjectiveView"
+description: "MissionTrainingFieldObjectiveView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionTrainingFieldObjectiveView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTrainingFieldObjectiveView
 
 **Namespace:** StoryMode.View.Missions
 **Module:** StoryMode.View
 **Type:** `public class MissionTrainingFieldObjectiveView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.View/StoryMode.View.Missions/MissionTrainingFieldObjectiveView.cs`
+**File:** `Modules.StoryMode/StoryMode.View/StoryMode.View.Missions/MissionTrainingFieldObjectiveView.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MissionTrainingFieldObjectiveView"
 ## 使用示例
 
 ```csharp
-var view = new MissionTrainingFieldObjectiveView();
+// 从子系统 API 或场景中获取该视图
+MissionTrainingFieldObjectiveView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "IssueQuestLogEntry"
+description: "Auto-generated class reference for IssueQuestLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IssueQuestLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IssueQuestLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class IssueQuestLogEntry : LogEntry`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/IssueQuestLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/IssueQuestLogEntry.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueQuestLogEntry from the subsystem API first
+IssueQuestLogEntry issueQuestLogEntry = ...;
+issueQuestLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IssueQuestLogEntry();
-value.GetConversationScoreAndComment(talkTroop, false, comment, score);
+// Typically call this after obtaining an instance from the subsystem API
+IssueQuestLogEntry issueQuestLogEntry = ...;
+issueQuestLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

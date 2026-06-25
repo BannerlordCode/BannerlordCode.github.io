@@ -1,20 +1,14 @@
 ---
 title: "TradersCampaignBehavior"
+description: "Auto-generated class reference for TradersCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradersCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradersCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class TradersCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/TradersCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/TradersCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TradersCampaignBehavior from the subsystem API first
+TradersCampaignBehavior tradersCampaignBehavior = ...;
+tradersCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of TradersCampaignBehavior from the subsystem API first
+TradersCampaignBehavior tradersCampaignBehavior = ...;
+tradersCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of TradersCampaignBehavior from the subsystem API first
+TradersCampaignBehavior tradersCampaignBehavior = ...;
+tradersCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TradersCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+TradersCampaignBehavior tradersCampaignBehavior = ...;
+tradersCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

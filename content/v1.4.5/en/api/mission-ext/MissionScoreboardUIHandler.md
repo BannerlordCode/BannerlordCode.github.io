@@ -1,20 +1,14 @@
 ---
 title: "MissionScoreboardUIHandler"
+description: "Auto-generated class reference for MissionScoreboardUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionScoreboardUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionScoreboardUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionScoreboardUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionScoreboardUIHandler` as a Handler-style extension point: first ide
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionScoreboardUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionScoreboardUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

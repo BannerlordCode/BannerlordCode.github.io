@@ -1,24 +1,18 @@
 ---
 title: "BlockadeBattleMapEvent"
+description: "Auto-generated class reference for BlockadeBattleMapEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BlockadeBattleMapEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BlockadeBattleMapEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BlockadeBattleMapEvent : MapEventComponent`
 **Base:** `MapEventComponent`
-**Area:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/MapEvents/BlockadeBattleMapEvent.cs`
 
 ## Overview
 
-`BlockadeBattleMapEvent` lives in `TaleWorlds.CampaignSystem.MapEvents`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`BlockadeBattleMapEvent` lives in `TaleWorlds.CampaignSystem.MapEvents` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,16 +29,19 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ### CreateBlockadeBattleMapEvent
 `public static BlockadeBattleMapEvent CreateBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase besiegerParty, bool isSallyOut)`
 
-**Purpose:** Creates a new `blockade battle map event` instance or object.
+**Purpose:** Constructs a new `blockade battle map event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BlockadeBattleMapEvent.CreateBlockadeBattleMapEvent(attackerParty, besiegerParty, false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 BlockadeBattleMapEvent.CreateBlockadeBattleMapEvent(attackerParty, besiegerParty, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

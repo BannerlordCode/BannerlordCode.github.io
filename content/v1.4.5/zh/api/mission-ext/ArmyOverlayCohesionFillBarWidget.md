@@ -1,20 +1,14 @@
 ---
 title: "ArmyOverlayCohesionFillBarWidget"
+description: "ArmyOverlayCohesionFillBarWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArmyOverlayCohesionFillBarWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyOverlayCohesionFillBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArmyOverlayCohesionFillBarWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay/ArmyOverlayCohesionFillBarWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay/ArmyOverlayCohesionFillBarWidget.cs`
 
 ## 概述
 
@@ -36,14 +30,21 @@ title: "ArmyOverlayCohesionFillBarWidget"
 ### ArmyOverlayCohesionFillBarWidget
 `public class ArmyOverlayCohesionFillBarWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `army overlay cohesion fill bar widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyOverlayCohesionFillBarWidget 实例
+ArmyOverlayCohesionFillBarWidget armyOverlayCohesionFillBarWidget = ...;
+var result = armyOverlayCohesionFillBarWidget.ArmyOverlayCohesionFillBarWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ArmyOverlayCohesionFillBarWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ArmyOverlayCohesionFillBarWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

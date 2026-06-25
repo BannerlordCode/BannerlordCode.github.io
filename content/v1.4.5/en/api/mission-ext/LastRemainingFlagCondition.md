@@ -1,20 +1,14 @@
 ---
 title: "LastRemainingFlagCondition"
+description: "Auto-generated class reference for LastRemainingFlagCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LastRemainingFlagCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LastRemainingFlagCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LastRemainingFlagCondition : MPPerkCondition<MissionMultiplayerFlagDomination>`
 **Base:** `MPPerkCondition<MissionMultiplayerFlagDomination>`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/LastRemainingFlagCondition.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/LastRemainingFlagCondition.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of LastRemainingFlagCondition from the subsystem API first
+LastRemainingFlagCondition lastRemainingFlagCondition = ...;
+var result = lastRemainingFlagCondition.Check(peer);
+```
 
 ### Check
 `public override bool Check(Agent agent)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of LastRemainingFlagCondition from the subsystem API first
+LastRemainingFlagCondition lastRemainingFlagCondition = ...;
+var result = lastRemainingFlagCondition.Check(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LastRemainingFlagCondition();
-value.Check(peer);
+// Typically call this after obtaining an instance from the subsystem API
+LastRemainingFlagCondition lastRemainingFlagCondition = ...;
+lastRemainingFlagCondition.Check(peer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

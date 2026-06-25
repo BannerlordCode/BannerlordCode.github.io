@@ -1,13 +1,7 @@
 ---
 title: "CircularAutoScrollablePanelWidget"
+description: "Auto-generated class reference for CircularAutoScrollablePanelWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CircularAutoScrollablePanelWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CircularAutoScrollablePanelWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -43,24 +37,43 @@ Treat `CircularAutoScrollablePanelWidget` as a Widget-style extension point: fir
 ### SetScrollMouse
 `public void SetScrollMouse()`
 
-**Purpose:** Sets the value or state of `scroll mouse`.
+**Purpose:** Assigns a new value to `scroll mouse` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CircularAutoScrollablePanelWidget from the subsystem API first
+CircularAutoScrollablePanelWidget circularAutoScrollablePanelWidget = ...;
+circularAutoScrollablePanelWidget.SetScrollMouse();
+```
 
 ### SetHoverBegin
 `public void SetHoverBegin()`
 
-**Purpose:** Sets the value or state of `hover begin`.
+**Purpose:** Assigns a new value to `hover begin` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CircularAutoScrollablePanelWidget from the subsystem API first
+CircularAutoScrollablePanelWidget circularAutoScrollablePanelWidget = ...;
+circularAutoScrollablePanelWidget.SetHoverBegin();
+```
 
 ### SetHoverEnd
 `public void SetHoverEnd()`
 
-**Purpose:** Sets the value or state of `hover end`.
+**Purpose:** Assigns a new value to `hover end` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CircularAutoScrollablePanelWidget from the subsystem API first
+CircularAutoScrollablePanelWidget circularAutoScrollablePanelWidget = ...;
+circularAutoScrollablePanelWidget.SetHoverEnd();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CircularAutoScrollablePanelWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CircularAutoScrollablePanelWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

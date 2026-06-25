@@ -1,20 +1,14 @@
 ---
 title: "DecalAtlasGroup"
+description: "Auto-generated class reference for DecalAtlasGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DecalAtlasGroup`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DecalAtlasGroup
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
+**Type:** `public enum DecalAtlasGroup`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/DecalAtlasGroup.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/DecalAtlasGroup.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new DecalAtlasGroup();
+// Obtain an instance from the relevant subsystem API
+DecalAtlasGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

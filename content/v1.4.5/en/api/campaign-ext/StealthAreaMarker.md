@@ -1,20 +1,14 @@
 ---
 title: "StealthAreaMarker"
+description: "Auto-generated class reference for StealthAreaMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthAreaMarker`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthAreaMarker
 
 **Namespace:** SandBox.Objects.AreaMarkers
 **Module:** SandBox.Objects
 **Type:** `public class StealthAreaMarker : AreaMarker`
 **Base:** `AreaMarker`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/StealthAreaMarker.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/StealthAreaMarker.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StealthAreaMarker from the subsystem API first
+StealthAreaMarker stealthAreaMarker = ...;
+stealthAreaMarker.AfterMissionStart();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StealthAreaMarker();
-value.AfterMissionStart();
+// Typically call this after obtaining an instance from the subsystem API
+StealthAreaMarker stealthAreaMarker = ...;
+stealthAreaMarker.AfterMissionStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

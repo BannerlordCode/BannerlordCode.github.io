@@ -1,20 +1,14 @@
 ---
 title: "TileBaseInformation"
+description: "Auto-generated class reference for TileBaseInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TileBaseInformation`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TileBaseInformation
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
 **Type:** `public struct TileBaseInformation`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/TileBaseInformation.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/TileBaseInformation.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### TileBaseInformation
 `public struct TileBaseInformation(ref PawnBase pawnOnTile)`
 
-**Purpose:** Handles logic related to `tile base information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TileBaseInformation from the subsystem API first
+TileBaseInformation tileBaseInformation = ...;
+var result = tileBaseInformation.TileBaseInformation(pawnOnTile);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TileBaseInformation();
-value.TileBaseInformation(pawnOnTile);
+// Typically call this after obtaining an instance from the subsystem API
+TileBaseInformation tileBaseInformation = ...;
+tileBaseInformation.TileBaseInformation(pawnOnTile);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

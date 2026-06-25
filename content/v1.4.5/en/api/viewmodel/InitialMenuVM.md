@@ -1,20 +1,14 @@
 ---
 title: "InitialMenuVM"
+description: "Auto-generated class reference for InitialMenuVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialMenuVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialMenuVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InitialMenuVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu/InitialMenuVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu/InitialMenuVM.cs`
 
 ## Overview
 
@@ -43,30 +37,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of InitialMenuVM from the subsystem API first
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of InitialMenuVM from the subsystem API first
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.Tick();
+```
 
 ### RefreshMenuOptions
 `public void RefreshMenuOptions()`
 
-**Purpose:** Refreshes the display or cache of `menu options`.
+**Purpose:** Keeps the display or cache of `menu options` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of InitialMenuVM from the subsystem API first
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.RefreshMenuOptions();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of InitialMenuVM from the subsystem API first
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InitialMenuVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "OrderTutorialStep2"
+description: "OrderTutorialStep2 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderTutorialStep2`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTutorialStep2
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class OrderTutorialStep2 : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/OrderTutorialStep2.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/OrderTutorialStep2.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "OrderTutorialStep2"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTutorialStep2 实例
+OrderTutorialStep2 orderTutorialStep2 = ...;
+var result = orderTutorialStep2.IsConditionsMetForCompletion();
+```
 
 ### OnDeactivate
 `public override void OnDeactivate()`
 
-**用途 / Purpose:** 当 `deactivate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deactivate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTutorialStep2 实例
+OrderTutorialStep2 orderTutorialStep2 = ...;
+orderTutorialStep2.OnDeactivate();
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTutorialStep2 实例
+OrderTutorialStep2 orderTutorialStep2 = ...;
+var result = orderTutorialStep2.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTutorialStep2 实例
+OrderTutorialStep2 orderTutorialStep2 = ...;
+var result = orderTutorialStep2.IsConditionsMetForActivation();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderTutorialStep2();
-value.IsConditionsMetForCompletion();
+// 通常从对应子系统 API 获取实例后调用
+OrderTutorialStep2 orderTutorialStep2 = ...;
+orderTutorialStep2.IsConditionsMetForCompletion();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapConversationBarterView"
+description: "GauntletMapConversationBarterView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMapConversationBarterView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapConversationBarterView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapConversationBarterView`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapConversationBarterView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapConversationBarterView.cs`
 
 ## 概述
 
@@ -36,39 +30,76 @@ title: "GauntletMapConversationBarterView"
 ### OnBarterActiveStateChanged
 `public delegate void OnBarterActiveStateChanged(bool isBarterActive)`
 
-**用途 / Purpose:** 当 `barter active state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「barter active state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapConversationBarterView 实例
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.OnBarterActiveStateChanged(false);
+```
 
 ### CreateBarterView
 `public void CreateBarterView(BarterData args)`
 
-**用途 / Purpose:** 创建一个 `barter view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「barter view」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapConversationBarterView 实例
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.CreateBarterView(args);
+```
 
 ### DestroyBarterView
 `public void DestroyBarterView()`
 
-**用途 / Purpose:** 处理 `destroy barter view` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapConversationBarterView 实例
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.DestroyBarterView();
+```
 
 ### Activate
 `public void Activate()`
 
-**用途 / Purpose:** 处理 `activate` 相关逻辑。
+**用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapConversationBarterView 实例
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.Activate();
+```
 
 ### Deactivate
 `public void Deactivate()`
 
-**用途 / Purpose:** 处理 `deactivate` 相关逻辑。
+**用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapConversationBarterView 实例
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.Deactivate();
+```
 
 ### TickInput
 `public void TickInput()`
 
-**用途 / Purpose:** 处理 `tick input` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「input」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapConversationBarterView 实例
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.TickInput();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new GauntletMapConversationBarterView();
+// 从子系统 API 或场景中获取该视图
+GauntletMapConversationBarterView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

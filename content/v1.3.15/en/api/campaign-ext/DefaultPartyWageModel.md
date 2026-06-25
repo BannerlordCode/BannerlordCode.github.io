@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyWageModel"
+description: "Auto-generated class reference for DefaultPartyWageModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyWageModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPartyWageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,17 +29,35 @@ Treat `DefaultPartyWageModel` as a Model-style extension point: first identify w
 ### GetCharacterWage
 `public override int GetCharacterWage(CharacterObject character)`
 
-**Purpose:** Gets the current value of `character wage`.
+**Purpose:** Reads and returns the `character wage` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyWageModel from the subsystem API first
+DefaultPartyWageModel defaultPartyWageModel = ...;
+var result = defaultPartyWageModel.GetCharacterWage(character);
+```
 
 ### GetTotalWage
 `public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `total wage`.
+**Purpose:** Reads and returns the `total wage` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyWageModel from the subsystem API first
+DefaultPartyWageModel defaultPartyWageModel = ...;
+var result = defaultPartyWageModel.GetTotalWage(mobileParty, troopRoster, false);
+```
 
 ### GetTroopRecruitmentCost
 `public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**Purpose:** Gets the current value of `troop recruitment cost`.
+**Purpose:** Reads and returns the `troop recruitment cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyWageModel from the subsystem API first
+DefaultPartyWageModel defaultPartyWageModel = ...;
+var result = defaultPartyWageModel.GetTroopRecruitmentCost(troop, buyerHero, false);
+```
 
 ## Usage Example
 
@@ -55,4 +67,4 @@ Game.Current.ReplaceModel<DefaultPartyWageModel>(new MyDefaultPartyWageModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

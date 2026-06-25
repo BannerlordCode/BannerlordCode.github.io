@@ -1,20 +1,14 @@
 ---
 title: "MapBarCustomValueTextWidget"
+description: "Auto-generated class reference for MapBarCustomValueTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapBarCustomValueTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapBarCustomValueTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapBarCustomValueTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapBarCustomValueTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapBarCustomValueTextWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `MapBarCustomValueTextWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new MapBarCustomValueTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapBarCustomValueTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

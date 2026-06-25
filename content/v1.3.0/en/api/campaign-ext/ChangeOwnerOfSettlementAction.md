@@ -1,18 +1,8 @@
 ---
 title: "ChangeOwnerOfSettlementAction"
+description: "Auto-generated campaign action reference for ChangeOwnerOfSettlementAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeOwnerOfSettlementAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeOwnerOfSettlementAction
-
-## Mental Model
-
-Treat `ChangeOwnerOfSettlementAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -96,5 +86,5 @@ ChangeOwnerOfSettlementAction.ApplyByDefault(hero, settlement);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

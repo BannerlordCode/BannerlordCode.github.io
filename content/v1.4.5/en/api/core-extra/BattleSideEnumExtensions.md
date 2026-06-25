@@ -1,20 +1,14 @@
 ---
 title: "BattleSideEnumExtensions"
+description: "Auto-generated class reference for BattleSideEnumExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSideEnumExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSideEnumExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class BattleSideEnumExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BattleSideEnumExtensions.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BattleSideEnumExtensions.cs`
 
 ## Overview
 
@@ -29,14 +23,19 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsValid
 `public static bool IsValid(this BattleSideEnum battleSide)`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Static call; no instance required
+BattleSideEnumExtensions.IsValid(battleSide);
+```
 
 ## Usage Example
 
 ```csharp
-BattleSideEnumExtensions example = BattleSideEnumExtensions.Value;
+BattleSideEnumExtensions.IsValid(battleSide);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

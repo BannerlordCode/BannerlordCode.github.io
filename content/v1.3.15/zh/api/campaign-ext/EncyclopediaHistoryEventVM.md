@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaHistoryEventVM"
+description: "EncyclopediaHistoryEventVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaHistoryEventVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaHistoryEventVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items
@@ -36,20 +30,33 @@ title: "EncyclopediaHistoryEventVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaHistoryEventVM 实例
+EncyclopediaHistoryEventVM encyclopediaHistoryEventVM = ...;
+encyclopediaHistoryEventVM.RefreshValues();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** 执行 `link` 操作或流程。
+**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaHistoryEventVM 实例
+EncyclopediaHistoryEventVM encyclopediaHistoryEventVM = ...;
+encyclopediaHistoryEventVM.ExecuteLink("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaHistoryEventVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaHistoryEventVM encyclopediaHistoryEventVM = ...;
+encyclopediaHistoryEventVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

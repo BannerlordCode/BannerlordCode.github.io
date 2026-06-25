@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithColorValueEventArgs"
+description: "PropertyChangedWithColorValueEventArgs 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PropertyChangedWithColorValueEventArgs`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithColorValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithColorValueEventArgs`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithColorValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithColorValueEventArgs.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "PropertyChangedWithColorValueEventArgs"
 ### PropertyChangedWithColorValueEventArgs
 `public struct PropertyChangedWithColorValueEventArgs(string propertyName, Color value)`
 
-**用途 / Purpose:** 处理 `property changed with color value event args` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PropertyChangedWithColorValueEventArgs 实例
+PropertyChangedWithColorValueEventArgs propertyChangedWithColorValueEventArgs = ...;
+var result = propertyChangedWithColorValueEventArgs.PropertyChangedWithColorValueEventArgs("example", value);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PropertyChangedWithColorValueEventArgs();
-value.PropertyChangedWithColorValueEventArgs("example", value);
+// 通常从对应子系统 API 获取实例后调用
+PropertyChangedWithColorValueEventArgs propertyChangedWithColorValueEventArgs = ...;
+propertyChangedWithColorValueEventArgs.PropertyChangedWithColorValueEventArgs("example", value);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

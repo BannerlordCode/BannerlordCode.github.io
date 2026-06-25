@@ -1,23 +1,18 @@
 ---
 title: "FamilyFeudIssue"
+description: "FamilyFeudIssue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FamilyFeudIssue`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FamilyFeudIssue
 
-**命名空间:** SandBox.Issues
-**模块:** SandBox.Issues
-**类型:** `public class FamilyFeudIssue`
-**领域:** campaign-ext
+**Namespace:** SandBox.Issues
+**Module:** SandBox.Issues
+**Type:** `public class FamilyFeudIssue`
+**Base:** 无
+**File:** `Modules.SandBox/SandBox/SandBox.Issues/FamilyFeudIssueBehavior.cs`
 
 ## 概述
 
-`FamilyFeudIssue` 位于 `SandBox.Issues`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`FamilyFeudIssue` 位于 `SandBox.Issues`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -46,112 +41,242 @@ title: "FamilyFeudIssue"
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** 当 `agent hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, blow, attackCollisionData);
+```
 
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can be selected in inventory info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can be selected in inventory info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have party role or be governor info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have party role or be governor info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can lead party info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can lead party info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have campaign issues info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### LordSolutionCondition
 `public override bool LordSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `lord solution condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.LordSolutionCondition(explanation);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `alternative solution condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `do troops satisfy alternative solution` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is troop type needed by alternative solution` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「troop type needed by alternative solution」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 获取 `frequency` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
+**用途 / Purpose:** 创建或发起「stay alive conditions」。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.IssueStayAliveConditions();
+```
 
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can be selected in inventory info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can be selected in inventory info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have party role or be governor info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have party role or be governor info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can lead party info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can lead party info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have campaign issues info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnMissionStarted
 `public void OnMissionStarted(IMission iMission)`
 
-**用途 / Purpose:** 当 `mission started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnMissionStarted(iMission);
+```
 
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty party, Settlement settlement)`
 
-**用途 / Purpose:** 当 `settlement left` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「settlement left」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnSettlementLeft(party, settlement);
+```
 
 ### OnBeforeMissionOpened
 `public void OnBeforeMissionOpened()`
 
-**用途 / Purpose:** 当 `before mission opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「before mission opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnBeforeMissionOpened();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.RegisterEvents();
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** 当 `check for issue` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「check for issue」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnCheckForIssue(hero);
+```
+
+### SyncData
+`public override void SyncData(IDataStore dataStore)`
+
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 FamilyFeudIssue 实例
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 FamilyFeudIssue 实例，再调用它的公开方法
-var value = new FamilyFeudIssue();
-value.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, blow, attackCollisionData);
+// 通常从对应子系统 API 获取实例后调用
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, blow, attackCollisionData);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

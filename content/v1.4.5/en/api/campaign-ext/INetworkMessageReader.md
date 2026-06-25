@@ -1,20 +1,14 @@
 ---
 title: "INetworkMessageReader"
+description: "Auto-generated class reference for INetworkMessageReader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `INetworkMessageReader`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # INetworkMessageReader
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** `class`
+**Type:** `public interface INetworkMessageReader`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/INetworkMessageReader.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/INetworkMessageReader.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-INetworkMessageReader implementation = GetNetworkMessageReaderImplementation();
+// Usually obtained through DI or a factory method
+IINetworkMessageReader service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

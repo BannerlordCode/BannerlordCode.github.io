@@ -1,20 +1,14 @@
 ---
 title: "EquipmentHelper"
+description: "Auto-generated class reference for EquipmentHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EquipmentHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EquipmentHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class EquipmentHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/EquipmentHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/EquipmentHelper.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Treat `EquipmentHelper` as a Helper-style extension point: first identify who cr
 ### AssignHeroEquipmentFromEquipment
 `public static void AssignHeroEquipmentFromEquipment(Hero hero, Equipment equipment)`
 
-**Purpose:** Handles logic related to `assign hero equipment from equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EquipmentHelper.AssignHeroEquipmentFromEquipment(hero, equipment);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ EquipmentHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "Badge"
+description: "Auto-generated class reference for Badge."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Badge`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Badge
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Badge`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/Badge.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/Badge.cs`
 
 ## Overview
 
@@ -45,15 +39,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### Deserialize
 `public virtual void Deserialize(XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of Badge from the subsystem API first
+Badge badge = ...;
+badge.Deserialize(node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Badge();
-value.Deserialize(node);
+// Typically call this after obtaining an instance from the subsystem API
+Badge badge = ...;
+badge.Deserialize(node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

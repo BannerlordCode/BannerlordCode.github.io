@@ -1,20 +1,14 @@
 ---
 title: "NewPlayerMessage"
+description: "NewPlayerMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NewPlayerMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NewPlayerMessage
 
 **Namespace:** Messages.FromBattleServerManager.ToBattleServer
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class NewPlayerMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/NewPlayerMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/NewPlayerMessage.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "NewPlayerMessage"
 ## 使用示例
 
 ```csharp
-var example = new NewPlayerMessage();
+// 从对应子系统 API 获取实例
+NewPlayerMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

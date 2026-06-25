@@ -1,18 +1,20 @@
 ---
-title: Core (v1.3.0)
-description: v1.3.0 core classes
+title: "core index"
+description: Core data types class reference index
 ---
-# Core (v1.3.0)
+<!-- BEGIN SECTION INDEX -->
 
-## Mental Model
+## Parent Navigation
 
-Treat `Core` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+- [API Reference](../)
+- [Version Home](../../)
 
-Core classes for v1.3.0. For full docs see [v1.3.15 Core](../../../../v1.3.15/en/api/core/).
+## Child Classes — Alphabetical
 
-## Classes
+### M
 
-| Class | Description |
-|-------|-------------|
-| [MBSubModuleBase](./MBSubModuleBase) | Base class for every mod SubModule; defines lifecycle hooks |
-| [Module](./Module) | Main module-system coordinator; controls the whole lifecycle |
+- [MBSubModuleBase](./MBSubModuleBase)
+- [Module](./Module)
+
+
+<!-- END SECTION INDEX -->

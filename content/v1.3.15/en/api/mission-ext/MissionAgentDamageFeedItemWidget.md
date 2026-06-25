@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentDamageFeedItemWidget"
+description: "Auto-generated class reference for MissionAgentDamageFeedItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentDamageFeedItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionAgentDamageFeedItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.DamageFeed
@@ -38,19 +32,32 @@ Treat `MissionAgentDamageFeedItemWidget` as a Widget-style extension point: firs
 ### ShowFeed
 `public void ShowFeed()`
 
-**Purpose:** Handles logic related to `show feed`.
+**Purpose:** Displays the UI or element associated with `feed`.
+
+```csharp
+// Obtain an instance of MissionAgentDamageFeedItemWidget from the subsystem API first
+MissionAgentDamageFeedItemWidget missionAgentDamageFeedItemWidget = ...;
+missionAgentDamageFeedItemWidget.ShowFeed();
+```
 
 ### SetSpeedModifier
 `public void SetSpeedModifier(float newSpeed)`
 
-**Purpose:** Sets the value or state of `speed modifier`.
+**Purpose:** Assigns a new value to `speed modifier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentDamageFeedItemWidget from the subsystem API first
+MissionAgentDamageFeedItemWidget missionAgentDamageFeedItemWidget = ...;
+missionAgentDamageFeedItemWidget.SetSpeedModifier(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MissionAgentDamageFeedItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MissionAgentDamageFeedItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

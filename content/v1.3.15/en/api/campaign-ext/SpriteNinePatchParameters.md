@@ -1,13 +1,7 @@
 ---
 title: "SpriteNinePatchParameters"
+description: "Auto-generated class reference for SpriteNinePatchParameters."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpriteNinePatchParameters`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpriteNinePatchParameters
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new SpriteNinePatchParameters();
+// Obtain an instance from the relevant subsystem API
+SpriteNinePatchParameters instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

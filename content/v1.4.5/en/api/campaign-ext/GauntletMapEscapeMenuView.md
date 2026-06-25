@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapEscapeMenuView"
+description: "Auto-generated class reference for GauntletMapEscapeMenuView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapEscapeMenuView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapEscapeMenuView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapEscapeMenuView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEscapeMenuView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEscapeMenuView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GauntletMapEscapeMenuView` as a View-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapEscapeMenuView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapEscapeMenuView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

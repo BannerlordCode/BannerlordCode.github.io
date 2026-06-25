@@ -1,18 +1,12 @@
 ---
 title: "MessageType"
+description: "MessageType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageType`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageType
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public enum MessageType`
 **Base:** 无
 **File:** `TaleWorlds.Diamond/Rest/MessageType.cs`
 
@@ -27,9 +21,10 @@ title: "MessageType"
 ## 使用示例
 
 ```csharp
-var example = new MessageType();
+// 从对应子系统 API 获取实例
+MessageType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

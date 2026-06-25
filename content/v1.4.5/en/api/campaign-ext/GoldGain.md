@@ -1,20 +1,14 @@
 ---
 title: "GoldGain"
+description: "Auto-generated class reference for GoldGain."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GoldGain`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GoldGain
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class GoldGain : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/GoldGain.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/GoldGain.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new GoldGain();
+// Obtain an instance from the relevant subsystem API
+GoldGain instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

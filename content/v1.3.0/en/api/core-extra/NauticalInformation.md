@@ -1,13 +1,7 @@
 ---
 title: "NauticalInformation"
+description: "Auto-generated class reference for NauticalInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NauticalInformation`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NauticalInformation
 
 **Namespace:** TaleWorlds.Library
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `deserialize from`.
+**Purpose:** Restores `from` from serialized data.
+
+```csharp
+// Obtain an instance of NauticalInformation from the subsystem API first
+NauticalInformation nauticalInformation = ...;
+nauticalInformation.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `serialize to`.
+**Purpose:** Serializes `to` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of NauticalInformation from the subsystem API first
+NauticalInformation nauticalInformation = ...;
+nauticalInformation.SerializeTo(writer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NauticalInformation();
-value.DeserializeFrom(reader);
+// Typically call this after obtaining an instance from the subsystem API
+NauticalInformation nauticalInformation = ...;
+nauticalInformation.DeserializeFrom(reader);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

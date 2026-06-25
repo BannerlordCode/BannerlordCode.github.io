@@ -1,20 +1,14 @@
 ---
 title: "TalkBehavior"
+description: "Auto-generated class reference for TalkBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TalkBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TalkBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class TalkBehavior : AgentBehavior`
 **Base:** `AgentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/TalkBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/TalkBehavior.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TalkBehavior from the subsystem API first
+TalkBehavior talkBehavior = ...;
+talkBehavior.Tick(0, false);
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of TalkBehavior from the subsystem API first
+TalkBehavior talkBehavior = ...;
+var result = talkBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of TalkBehavior from the subsystem API first
+TalkBehavior talkBehavior = ...;
+var result = talkBehavior.GetDebugInfo();
+```
 
 ### Disable
 `public void Disable()`
 
-**Purpose:** Handles logic related to `disable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TalkBehavior from the subsystem API first
+TalkBehavior talkBehavior = ...;
+talkBehavior.Disable();
+```
 
 ### Enable
 `public void Enable(bool doNotMove)`
 
-**Purpose:** Handles logic related to `enable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TalkBehavior from the subsystem API first
+TalkBehavior talkBehavior = ...;
+talkBehavior.Enable(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TalkBehavior();
-value.Tick(0, false);
+// Typically call this after obtaining an instance from the subsystem API
+TalkBehavior talkBehavior = ...;
+talkBehavior.Tick(0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BannerIconVM"
+description: "Auto-generated class reference for BannerIconVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerIconVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerIconVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.BannerEditor
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.BannerEditor` to place
 ### ExecuteSelectIcon
 `public void ExecuteSelectIcon()`
 
-**Purpose:** Executes the `select icon` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select icon`.
+
+```csharp
+// Obtain an instance of BannerIconVM from the subsystem API first
+BannerIconVM bannerIconVM = ...;
+bannerIconVM.ExecuteSelectIcon();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerIconVM();
-value.ExecuteSelectIcon();
+// Typically call this after obtaining an instance from the subsystem API
+BannerIconVM bannerIconVM = ...;
+bannerIconVM.ExecuteSelectIcon();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

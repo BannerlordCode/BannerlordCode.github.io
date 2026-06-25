@@ -1,20 +1,14 @@
 ---
 title: "MissionCustomCameraView"
+description: "Auto-generated class reference for MissionCustomCameraView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCustomCameraView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCustomCameraView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionCustomCameraView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionCustomCameraView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionCustomCameraView.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `MissionCustomCameraView` as a View-style extension point: first identify 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionCustomCameraView from the subsystem API first
+MissionCustomCameraView missionCustomCameraView = ...;
+missionCustomCameraView.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionCustomCameraView from the subsystem API first
+MissionCustomCameraView missionCustomCameraView = ...;
+missionCustomCameraView.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionCustomCameraView();
+// Retrieve this view from the subsystem API or scene
+MissionCustomCameraView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

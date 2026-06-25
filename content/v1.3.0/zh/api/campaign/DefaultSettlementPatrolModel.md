@@ -1,13 +1,7 @@
 ---
 title: "DefaultSettlementPatrolModel"
+description: "DefaultSettlementPatrolModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSettlementPatrolModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementPatrolModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ title: "DefaultSettlementPatrolModel"
 ### GetPatrolPartySpawnDuration
 `public override CampaignTime GetPatrolPartySpawnDuration(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `patrol party spawn duration` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「patrol party spawn duration」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementPatrolModel 实例
+DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
+var result = defaultSettlementPatrolModel.GetPatrolPartySpawnDuration(settlement);
+```
 
 ### CanSettlementHavePatrolParties
 `public override bool CanSettlementHavePatrolParties(Settlement settlement)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `settlement have patrol parties`。
+**用途 / Purpose:** 检查当前对象是否满足 「settlement have patrol parties」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementPatrolModel 实例
+DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
+var result = defaultSettlementPatrolModel.CanSettlementHavePatrolParties(settlement);
+```
 
 ### GetPartyTemplateForPatrolParty
 `public override PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `party template for patrol party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party template for patrol party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementPatrolModel 实例
+DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
+var result = defaultSettlementPatrolModel.GetPartyTemplateForPatrolParty(settlement);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultSettlementPatrolModel>(new MyDefaultSettlementP
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

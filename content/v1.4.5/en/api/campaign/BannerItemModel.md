@@ -1,20 +1,14 @@
 ---
 title: "BannerItemModel"
+description: "Auto-generated class reference for BannerItemModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerItemModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerItemModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class BannerItemModel : MBGameModel<BannerItemModel>`
 **Base:** `MBGameModel<BannerItemModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BannerItemModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BannerItemModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `BannerItemModel` as a Model-style extension point: first identify who cre
 ### GetPossibleRewardBannerItems
 `public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
 
-**Purpose:** Gets the current value of `possible reward banner items`.
+**Purpose:** Reads and returns the `possible reward banner items` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerItemModel from the subsystem API first
+BannerItemModel bannerItemModel = ...;
+var result = bannerItemModel.GetPossibleRewardBannerItems();
+```
 
 ### GetPossibleRewardBannerItemsForHero
 `public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `possible reward banner items for hero`.
+**Purpose:** Reads and returns the `possible reward banner items for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerItemModel from the subsystem API first
+BannerItemModel bannerItemModel = ...;
+var result = bannerItemModel.GetPossibleRewardBannerItemsForHero(hero);
+```
 
 ### GetBannerItemLevelForHero
 `public abstract int GetBannerItemLevelForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `banner item level for hero`.
+**Purpose:** Reads and returns the `banner item level for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerItemModel from the subsystem API first
+BannerItemModel bannerItemModel = ...;
+var result = bannerItemModel.GetBannerItemLevelForHero(hero);
+```
 
 ### CanBannerBeUpdated
 `public abstract bool CanBannerBeUpdated(ItemObject item)`
 
-**Purpose:** Checks whether the current object can `banner be updated`.
+**Purpose:** Checks whether the current object meets the preconditions for `banner be updated`.
+
+```csharp
+// Obtain an instance of BannerItemModel from the subsystem API first
+BannerItemModel bannerItemModel = ...;
+var result = bannerItemModel.CanBannerBeUpdated(item);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBannerItemModel();
+// Typically obtained from a subsystem API or factory
+BannerItemModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

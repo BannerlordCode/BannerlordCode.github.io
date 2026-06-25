@@ -1,20 +1,14 @@
 ---
 title: "CampaignMission"
+description: "Auto-generated class reference for CampaignMission."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignMission`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignMission
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class CampaignMission`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignMission.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignMission.cs`
 
 ## Overview
 
@@ -35,122 +29,242 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### OpenBattleMission
 `public static IMission OpenBattleMission(string scene, bool usesTownDecalAtlas, string sceneLevels = "")`
 
-**Purpose:** Handles logic related to `open battle mission`.
+**Purpose:** Opens the resource or UI associated with `battle mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenBattleMission("example", false, "example");
+```
 
 ### OpenNavalRaidMission
 `public static IMission OpenNavalRaidMission(TroopRoster attackerSideTroops, BattleSideEnum navalSide, List<Ship> allShips)`
 
-**Purpose:** Handles logic related to `open naval raid mission`.
+**Purpose:** Opens the resource or UI associated with `naval raid mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenNavalRaidMission(attackerSideTroops, navalSide, allShips);
+```
 
 ### OpenAlleyFightMission
 `public static IMission OpenAlleyFightMission(string scene, int upgradeLevel, Location location, TroopRoster playerSideTroops, TroopRoster rivalSideTroops)`
 
-**Purpose:** Handles logic related to `open alley fight mission`.
+**Purpose:** Opens the resource or UI associated with `alley fight mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenAlleyFightMission("example", 0, location, playerSideTroops, rivalSideTroops);
+```
 
 ### OpenCombatMissionWithDialogue
 `public static IMission OpenCombatMissionWithDialogue(string scene, CharacterObject characterToTalkTo, int upgradeLevel)`
 
-**Purpose:** Handles logic related to `open combat mission with dialogue`.
+**Purpose:** Opens the resource or UI associated with `combat mission with dialogue`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenCombatMissionWithDialogue("example", characterToTalkTo, 0);
+```
 
 ### OpenBattleMissionWhileEnteringSettlement
 `public static IMission OpenBattleMissionWhileEnteringSettlement(string scene, int upgradeLevel, int numberOfMaxTroopToBeSpawnedForPlayer, int numberOfMaxTroopToBeSpawnedForOpponent)`
 
-**Purpose:** Handles logic related to `open battle mission while entering settlement`.
+**Purpose:** Opens the resource or UI associated with `battle mission while entering settlement`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenBattleMissionWhileEnteringSettlement("example", 0, 0, 0);
+```
 
 ### OpenHideoutBattleMission
 `public static IMission OpenHideoutBattleMission(string scene, FlattenedTroopRoster playerTroops, bool isTutorial)`
 
-**Purpose:** Handles logic related to `open hideout battle mission`.
+**Purpose:** Opens the resource or UI associated with `hideout battle mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenHideoutBattleMission("example", playerTroops, false);
+```
 
 ### OpenSiegeMissionWithDeployment
 `public static IMission OpenSiegeMissionWithDeployment(string scene, float wallHitPointsPercentages, bool hasAnySiegeTower, List<MissionSiegeWeapon> siegeWeaponsOfAttackers, List<MissionSiegeWeapon> siegeWeaponsOfDefenders, bool isPlayerAttacker, int upgradeLevel = 0, bool isSallyOut = false, bool isReliefForceAttack = false)`
 
-**Purpose:** Handles logic related to `open siege mission with deployment`.
+**Purpose:** Opens the resource or UI associated with `siege mission with deployment`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenSiegeMissionWithDeployment("example", 0, false, siegeWeaponsOfAttackers, siegeWeaponsOfDefenders, false, 0, false, false);
+```
 
 ### OpenSiegeMissionNoDeployment
 `public static IMission OpenSiegeMissionNoDeployment(string scene, bool isSallyOut = false, bool isReliefForceAttack = false)`
 
-**Purpose:** Handles logic related to `open siege mission no deployment`.
+**Purpose:** Opens the resource or UI associated with `siege mission no deployment`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenSiegeMissionNoDeployment("example", false, false);
+```
 
 ### OpenSiegeLordsHallFightMission
 `public static IMission OpenSiegeLordsHallFightMission(string scene, FlattenedTroopRoster attackerPriorityList)`
 
-**Purpose:** Handles logic related to `open siege lords hall fight mission`.
+**Purpose:** Opens the resource or UI associated with `siege lords hall fight mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenSiegeLordsHallFightMission("example", attackerPriorityList);
+```
 
 ### OpenBattleMission
 `public static IMission OpenBattleMission(MissionInitializerRecord rec)`
 
-**Purpose:** Handles logic related to `open battle mission`.
+**Purpose:** Opens the resource or UI associated with `battle mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenBattleMission(rec);
+```
 
 ### OpenNavalBattleMission
 `public static IMission OpenNavalBattleMission(MissionInitializerRecord rec)`
 
-**Purpose:** Handles logic related to `open naval battle mission`.
+**Purpose:** Opens the resource or UI associated with `naval battle mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenNavalBattleMission(rec);
+```
 
 ### OpenNavalSetPieceBattleMission
 `public static IMission OpenNavalSetPieceBattleMission(MissionInitializerRecord rec, MBList<IShipOrigin> playerShips, MBList<IShipOrigin> playerAllyShips, MBList<IShipOrigin> enemyShips)`
 
-**Purpose:** Handles logic related to `open naval set piece battle mission`.
+**Purpose:** Opens the resource or UI associated with `naval set piece battle mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenNavalSetPieceBattleMission(rec, playerShips, playerAllyShips, enemyShips);
+```
 
 ### OpenCaravanBattleMission
 `public static IMission OpenCaravanBattleMission(MissionInitializerRecord rec, bool isCaravan)`
 
-**Purpose:** Handles logic related to `open caravan battle mission`.
+**Purpose:** Opens the resource or UI associated with `caravan battle mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenCaravanBattleMission(rec, false);
+```
 
 ### OpenTownCenterMission
 `public static IMission OpenTownCenterMission(string scene, Location location, CharacterObject talkToChar, int townUpgradeLevel, string playerSpawnTag)`
 
-**Purpose:** Handles logic related to `open town center mission`.
+**Purpose:** Opens the resource or UI associated with `town center mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenTownCenterMission("example", location, talkToChar, 0, "example");
+```
 
 ### OpenCastleCourtyardMission
 `public static IMission OpenCastleCourtyardMission(string scene, Location location, CharacterObject talkToChar, int castleUpgradeLevel)`
 
-**Purpose:** Handles logic related to `open castle courtyard mission`.
+**Purpose:** Opens the resource or UI associated with `castle courtyard mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenCastleCourtyardMission("example", location, talkToChar, 0);
+```
 
 ### OpenVillageMission
 `public static IMission OpenVillageMission(string scene, Location location, CharacterObject talkToChar)`
 
-**Purpose:** Handles logic related to `open village mission`.
+**Purpose:** Opens the resource or UI associated with `village mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenVillageMission("example", location, talkToChar);
+```
 
 ### OpenIndoorMission
 `public static IMission OpenIndoorMission(string scene, int upgradeLevel, Location location, CharacterObject talkToChar)`
 
-**Purpose:** Handles logic related to `open indoor mission`.
+**Purpose:** Opens the resource or UI associated with `indoor mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenIndoorMission("example", 0, location, talkToChar);
+```
 
 ### OpenPrisonBreakMission
 `public static IMission OpenPrisonBreakMission(string scene, Location location, CharacterObject prisonerCharacter)`
 
-**Purpose:** Handles logic related to `open prison break mission`.
+**Purpose:** Opens the resource or UI associated with `prison break mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenPrisonBreakMission("example", location, prisonerCharacter);
+```
 
 ### OpenArenaStartMission
 `public static IMission OpenArenaStartMission(string scene, Location location, CharacterObject talkToChar)`
 
-**Purpose:** Handles logic related to `open arena start mission`.
+**Purpose:** Opens the resource or UI associated with `arena start mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenArenaStartMission("example", location, talkToChar);
+```
 
 ### OpenArenaDuelMission
 `public static IMission OpenArenaDuelMission(string scene, Location location, CharacterObject talkToChar, bool requireCivilianEquipment, bool spawnBothSidesWithHorse, Action<CharacterObject> onDuelEnd, float customAgentHealth)`
 
-**Purpose:** Handles logic related to `open arena duel mission`.
+**Purpose:** Opens the resource or UI associated with `arena duel mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenArenaDuelMission("example", location, talkToChar, false, false, onDuelEnd, 0);
+```
 
 ### OpenConversationMission
 `public static IMission OpenConversationMission(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, string specialScene = "", string sceneLevels = "", bool isMultiAgentConversation = false)`
 
-**Purpose:** Handles logic related to `open conversation mission`.
+**Purpose:** Opens the resource or UI associated with `conversation mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenConversationMission(playerCharacterData, conversationPartnerData, "example", "example", false);
+```
 
 ### OpenRetirementMission
 `public static IMission OpenRetirementMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null, string unconsciousMenuId = "")`
 
-**Purpose:** Handles logic related to `open retirement mission`.
+**Purpose:** Opens the resource or UI associated with `retirement mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenRetirementMission("example", location, null, "example", "example");
+```
 
 ### OpenHideoutAmbushMission
 `public static IMission OpenHideoutAmbushMission(string sceneName, FlattenedTroopRoster playerTroops, Location location)`
 
-**Purpose:** Handles logic related to `open hideout ambush mission`.
+**Purpose:** Opens the resource or UI associated with `hideout ambush mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenHideoutAmbushMission("example", playerTroops, location);
+```
 
 ### OpenDisguiseMission
 `public static IMission OpenDisguiseMission(string scene, bool willSetUpContact, string sceneLevels, Location fromLocation)`
 
-**Purpose:** Handles logic related to `open disguise mission`.
+**Purpose:** Opens the resource or UI associated with `disguise mission`.
+
+```csharp
+// Static call; no instance required
+CampaignMission.OpenDisguiseMission("example", false, "example", fromLocation);
+```
 
 ## Usage Example
 
@@ -160,4 +274,4 @@ CampaignMission.OpenBattleMission("example", false, "example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

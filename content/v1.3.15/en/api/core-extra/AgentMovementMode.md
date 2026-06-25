@@ -1,19 +1,13 @@
 ---
 title: "AgentMovementMode"
+description: "Auto-generated class reference for AgentMovementMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentMovementMode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentMovementMode
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
-**Base:** none
+**Type:** `public enum AgentMovementMode : byte`
+**Base:** `byte`
 **File:** `TaleWorlds.Core/AgentMovementMode.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new AgentMovementMode();
+// Obtain an instance from the relevant subsystem API
+AgentMovementMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

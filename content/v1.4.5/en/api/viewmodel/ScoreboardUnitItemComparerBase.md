@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardUnitItemComparerBase"
+description: "Auto-generated class reference for ScoreboardUnitItemComparerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardUnitItemComparerBase`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardUnitItemComparerBase
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ScoreboardUnitItemComparerBase : IComparer<SPScoreboardUnitVM>`
 **Base:** `IComparer<SPScoreboardUnitVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSortControllerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSortControllerVM.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScoreboardUnitItemComparerBase from the subsystem API first
+ScoreboardUnitItemComparerBase scoreboardUnitItemComparerBase = ...;
+scoreboardUnitItemComparerBase.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ScoreboardUnitItemComparerBase from the subsystem API first
+ScoreboardUnitItemComparerBase scoreboardUnitItemComparerBase = ...;
+var result = scoreboardUnitItemComparerBase.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomScoreboardUnitItemComparerBase();
+// Typically obtained from a subsystem API or factory
+ScoreboardUnitItemComparerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

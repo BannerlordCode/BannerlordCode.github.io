@@ -1,13 +1,7 @@
 ---
 title: "PlayerMoveTroopEvent"
+description: "Auto-generated class reference for PlayerMoveTroopEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerMoveTroopEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerMoveTroopEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ## Usage Example
 
 ```csharp
-var value = new PlayerMoveTroopEvent();
+// Obtain an instance from the relevant subsystem API
+PlayerMoveTroopEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

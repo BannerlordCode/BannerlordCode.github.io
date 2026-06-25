@@ -1,13 +1,7 @@
 ---
 title: "GameTexts"
+description: "GameTexts 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameTexts`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTexts
 
 **Namespace:** TaleWorlds.Core
@@ -29,67 +23,133 @@ title: "GameTexts"
 ### Initialize
 `public static void Initialize(GameTextManager gameTextManager)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.Initialize(gameTextManager);
+```
 
 ### FindText
 `public static TextObject FindText(string id, string variation = null)`
 
-**用途 / Purpose:** 处理 `find text` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「text」。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.FindText("example", "example");
+```
 
 ### TryGetText
 `public static bool TryGetText(string id, out TextObject textObject, string variation = null)`
 
-**用途 / Purpose:** 尝试获取 `get text`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get text」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.TryGetText("example", textObject, "example");
+```
 
 ### FindAllTextVariations
 `public static IEnumerable<TextObject> FindAllTextVariations(string id)`
 
-**用途 / Purpose:** 处理 `find all text variations` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all text variations」。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.FindAllTextVariations("example");
+```
 
 ### SetVariable
 `public static void SetVariable(string variableName, string content)`
 
-**用途 / Purpose:** 设置 `variable` 的值或状态。
+**用途 / Purpose:** 为 「variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.SetVariable("example", "example");
+```
 
 ### SetVariable
 `public static void SetVariable(string variableName, float content)`
 
-**用途 / Purpose:** 设置 `variable` 的值或状态。
+**用途 / Purpose:** 为 「variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.SetVariable("example", 0);
+```
 
 ### SetVariable
 `public static void SetVariable(string variableName, int content)`
 
-**用途 / Purpose:** 设置 `variable` 的值或状态。
+**用途 / Purpose:** 为 「variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.SetVariable("example", 0);
+```
 
 ### SetVariable
 `public static void SetVariable(string variableName, TextObject content)`
 
-**用途 / Purpose:** 设置 `variable` 的值或状态。
+**用途 / Purpose:** 为 「variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.SetVariable("example", content);
+```
 
 ### ClearInstance
 `public static void ClearInstance()`
 
-**用途 / Purpose:** 处理 `clear instance` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「instance」。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.ClearInstance();
+```
 
 ### AddGameTextWithVariation
 `public static GameTexts.GameTextHelper AddGameTextWithVariation(string id)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `game text with variation`。
+**用途 / Purpose:** 将 「game text with variation」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.AddGameTextWithVariation("example");
+```
 
 ### Variation
 `public GameTexts.GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
-**用途 / Purpose:** 处理 `variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameTexts 实例
+GameTexts gameTexts = ...;
+var result = gameTexts.Variation("example", propertiesAndWeights);
+```
 
 ### MergeTextObjectsWithComma
 `public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
 
-**用途 / Purpose:** 处理 `merge text objects with comma` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.MergeTextObjectsWithComma(textObjects, false);
+```
 
 ### MergeTextObjectsWithSymbol
 `public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
 
-**用途 / Purpose:** 处理 `merge text objects with symbol` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+GameTexts.MergeTextObjectsWithSymbol(textObjects, symbol, null);
+```
 
 ## 使用示例
 
@@ -99,4 +159,4 @@ GameTexts.Initialize(gameTextManager);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

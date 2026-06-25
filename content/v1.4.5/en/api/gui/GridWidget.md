@@ -1,20 +1,14 @@
 ---
 title: "GridWidget"
+description: "Auto-generated class reference for GridWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GridWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GridWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GridWidget : Container`
 **Base:** `Container`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/GridWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/GridWidget.cs`
 
 ## Overview
 
@@ -42,24 +36,43 @@ Treat `GridWidget` as a Widget-style extension point: first identify who creates
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `drop gizmo position`.
+**Purpose:** Reads and returns the `drop gizmo position` value held by the current object.
+
+```csharp
+// Obtain an instance of GridWidget from the subsystem API first
+GridWidget gridWidget = ...;
+var result = gridWidget.GetDropGizmoPosition(draggedWidgetPosition);
+```
 
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `index for drop`.
+**Purpose:** Reads and returns the `index for drop` value held by the current object.
+
+```csharp
+// Obtain an instance of GridWidget from the subsystem API first
+GridWidget gridWidget = ...;
+var result = gridWidget.GetIndexForDrop(draggedWidgetPosition);
+```
 
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**Purpose:** Called when the `child selected` event is raised.
+**Purpose:** Invoked when the `child selected` event is raised.
+
+```csharp
+// Obtain an instance of GridWidget from the subsystem API first
+GridWidget gridWidget = ...;
+gridWidget.OnChildSelected(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new GridWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GridWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

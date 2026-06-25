@@ -1,20 +1,14 @@
 ---
 title: "MapEventVisualItemVM"
+description: "Auto-generated class reference for MapEventVisualItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventVisualItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventVisualItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Map
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MapEventVisualItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map/MapEventVisualItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map/MapEventVisualItemVM.cs`
 
 ## Overview
 
@@ -38,30 +32,55 @@ Start from namespace `SandBox.ViewModelCollection.Map` to place it in the stack,
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Updates the state or data of `properties`.
+**Purpose:** Recalculates and stores the latest representation of `properties`.
+
+```csharp
+// Obtain an instance of MapEventVisualItemVM from the subsystem API first
+MapEventVisualItemVM mapEventVisualItemVM = ...;
+mapEventVisualItemVM.UpdateProperties();
+```
 
 ### ParallelUpdatePosition
 `public void ParallelUpdatePosition()`
 
-**Purpose:** Handles logic related to `parallel update position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapEventVisualItemVM from the subsystem API first
+MapEventVisualItemVM mapEventVisualItemVM = ...;
+mapEventVisualItemVM.ParallelUpdatePosition();
+```
 
 ### DetermineIsVisibleOnMap
 `public void DetermineIsVisibleOnMap()`
 
-**Purpose:** Handles logic related to `determine is visible on map`.
+**Purpose:** Determines the result of `is visible on map` based on the current state.
+
+```csharp
+// Obtain an instance of MapEventVisualItemVM from the subsystem API first
+MapEventVisualItemVM mapEventVisualItemVM = ...;
+mapEventVisualItemVM.DetermineIsVisibleOnMap();
+```
 
 ### UpdateBindingProperties
 `public void UpdateBindingProperties()`
 
-**Purpose:** Updates the state or data of `binding properties`.
+**Purpose:** Recalculates and stores the latest representation of `binding properties`.
+
+```csharp
+// Obtain an instance of MapEventVisualItemVM from the subsystem API first
+MapEventVisualItemVM mapEventVisualItemVM = ...;
+mapEventVisualItemVM.UpdateBindingProperties();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapEventVisualItemVM();
-value.UpdateProperties();
+// Typically call this after obtaining an instance from the subsystem API
+MapEventVisualItemVM mapEventVisualItemVM = ...;
+mapEventVisualItemVM.UpdateProperties();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

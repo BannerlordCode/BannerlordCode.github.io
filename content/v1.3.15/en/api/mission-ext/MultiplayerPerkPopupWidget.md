@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerPerkPopupWidget"
+description: "Auto-generated class reference for MultiplayerPerkPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPerkPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerPerkPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks
@@ -35,14 +29,21 @@ Treat `MultiplayerPerkPopupWidget` as a Widget-style extension point: first iden
 ### SetPopupPerksContainer
 `public void SetPopupPerksContainer(MultiplayerPerkContainerPanelWidget container)`
 
-**Purpose:** Sets the value or state of `popup perks container`.
+**Purpose:** Assigns a new value to `popup perks container` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerPerkPopupWidget from the subsystem API first
+MultiplayerPerkPopupWidget multiplayerPerkPopupWidget = ...;
+multiplayerPerkPopupWidget.SetPopupPerksContainer(container);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerPerkPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerPerkPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

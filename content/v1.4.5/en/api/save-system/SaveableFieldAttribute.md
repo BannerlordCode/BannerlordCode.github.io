@@ -1,20 +1,14 @@
 ---
 title: "SaveableFieldAttribute"
+description: "Auto-generated class reference for SaveableFieldAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableFieldAttribute`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableFieldAttribute
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveableFieldAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableFieldAttribute.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableFieldAttribute.cs`
 
 ## Overview
 
@@ -39,4 +33,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

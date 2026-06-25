@@ -1,13 +1,7 @@
 ---
 title: "AccessDetails"
+description: "Auto-generated class reference for AccessDetails."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AccessDetails`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AccessDetails
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ComponentInterfaces` to place it
 ## Usage Example
 
 ```csharp
-var example = new AccessDetails();
+// Obtain an instance from the relevant subsystem API
+AccessDetails instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

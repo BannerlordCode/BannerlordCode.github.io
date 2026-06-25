@@ -1,13 +1,7 @@
 ---
 title: "SoundEventParameter"
+description: "Auto-generated class reference for SoundEventParameter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundEventParameter`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SoundEventParameter
 
 **Namespace:** TaleWorlds.Engine
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Update
 `public void Update(string paramName, float value)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of SoundEventParameter from the subsystem API first
+SoundEventParameter soundEventParameter = ...;
+soundEventParameter.Update("example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SoundEventParameter();
-value.Update("example", 0);
+// Typically call this after obtaining an instance from the subsystem API
+SoundEventParameter soundEventParameter = ...;
+soundEventParameter.Update("example", 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

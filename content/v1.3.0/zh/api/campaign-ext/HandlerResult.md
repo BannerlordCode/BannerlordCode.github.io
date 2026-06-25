@@ -1,13 +1,7 @@
 ---
 title: "HandlerResult"
+description: "HandlerResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HandlerResult`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HandlerResult
 
 **Namespace:** TaleWorlds.Diamond
@@ -37,17 +31,32 @@ title: "HandlerResult"
 ### CreateSuccessful
 `public static HandlerResult CreateSuccessful()`
 
-**用途 / Purpose:** 创建一个 `successful` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「successful」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+HandlerResult.CreateSuccessful();
+```
 
 ### CreateSuccessful
 `public static HandlerResult CreateSuccessful(Message nextMessage)`
 
-**用途 / Purpose:** 创建一个 `successful` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「successful」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+HandlerResult.CreateSuccessful(nextMessage);
+```
 
 ### CreateFailed
 `public static HandlerResult CreateFailed(string error)`
 
-**用途 / Purpose:** 创建一个 `failed` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「failed」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+HandlerResult.CreateFailed("example");
+```
 
 ## 使用示例
 
@@ -57,4 +66,4 @@ HandlerResult.CreateSuccessful();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

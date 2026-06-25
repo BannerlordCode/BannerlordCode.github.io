@@ -1,20 +1,14 @@
 ---
 title: "TimedDictionaryCache"
+description: "TimedDictionaryCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TimedDictionaryCache`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TimedDictionaryCache
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class TimedDictionaryCache<TKey, TValue>`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TimedDictionaryCache.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TimedDictionaryCache.cs`
 
 ## 概述
 
@@ -35,40 +29,77 @@ title: "TimedDictionaryCache"
 ### PruneExpiredItems
 `public void PruneExpiredItems()`
 
-**用途 / Purpose:** 处理 `prune expired items` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TimedDictionaryCache 实例
+TimedDictionaryCache timedDictionaryCache = ...;
+timedDictionaryCache.PruneExpiredItems();
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 TimedDictionaryCache 实例
+TimedDictionaryCache timedDictionaryCache = ...;
+timedDictionaryCache.Clear();
+```
 
 ### ContainsKey
 `public bool ContainsKey(TKey key)`
 
-**用途 / Purpose:** 处理 `contains key` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「key」。
+
+```csharp
+// 先通过子系统 API 拿到 TimedDictionaryCache 实例
+TimedDictionaryCache timedDictionaryCache = ...;
+var result = timedDictionaryCache.ContainsKey(key);
+```
 
 ### Remove
 `public bool Remove(TKey key)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 TimedDictionaryCache 实例
+TimedDictionaryCache timedDictionaryCache = ...;
+var result = timedDictionaryCache.Remove(key);
+```
 
 ### TryGetValue
 `public bool TryGetValue(TKey key, out TValue value)`
 
-**用途 / Purpose:** 尝试获取 `get value`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get value」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 TimedDictionaryCache 实例
+TimedDictionaryCache timedDictionaryCache = ...;
+var result = timedDictionaryCache.TryGetValue(key, value);
+```
 
 ### AsReadOnlyDictionary
 `public MBReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary()`
 
-**用途 / Purpose:** 处理 `as read only dictionary` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TimedDictionaryCache 实例
+TimedDictionaryCache timedDictionaryCache = ...;
+var result = timedDictionaryCache.AsReadOnlyDictionary();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TimedDictionaryCache();
-value.PruneExpiredItems();
+// 通常从对应子系统 API 获取实例后调用
+TimedDictionaryCache timedDictionaryCache = ...;
+timedDictionaryCache.PruneExpiredItems();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,19 +1,13 @@
 ---
 title: "RagdollState"
+description: "Auto-generated class reference for RagdollState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RagdollState`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RagdollState
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
+**Type:** `public enum RagdollState : ushort`
+**Base:** `ushort`
 **File:** `TaleWorlds.Engine/RagdollState.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new RagdollState();
+// Obtain an instance from the relevant subsystem API
+RagdollState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

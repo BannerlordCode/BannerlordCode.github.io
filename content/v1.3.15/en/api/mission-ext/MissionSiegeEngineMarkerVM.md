@@ -1,13 +1,7 @@
 ---
 title: "MissionSiegeEngineMarkerVM"
+description: "Auto-generated class reference for MissionSiegeEngineMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeEngineMarkerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionSiegeEngineMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### InitializeWith
 `public void InitializeWith(List<SiegeWeapon> siegeEngines)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with`.
+**Purpose:** Prepares the resources, state, or bindings required by `with`.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+missionSiegeEngineMarkerVM.InitializeWith(siegeEngines);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+missionSiegeEngineMarkerVM.Tick(0);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+missionSiegeEngineMarkerVM.OnFinalize();
+```
 
 ### Compare
 `public int Compare(MissionSiegeEngineMarkerTargetVM x, MissionSiegeEngineMarkerTargetVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+var result = missionSiegeEngineMarkerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionSiegeEngineMarkerVM();
-value.InitializeWith(siegeEngines);
+// Typically call this after obtaining an instance from the subsystem API
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+missionSiegeEngineMarkerVM.InitializeWith(siegeEngines);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

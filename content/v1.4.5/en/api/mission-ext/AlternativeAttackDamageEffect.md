@@ -1,20 +1,14 @@
 ---
 title: "AlternativeAttackDamageEffect"
+description: "Auto-generated class reference for AlternativeAttackDamageEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlternativeAttackDamageEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlternativeAttackDamageEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AlternativeAttackDamageEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/AlternativeAttackDamageEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/AlternativeAttackDamageEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetDamage
 `public override float GetDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**Purpose:** Gets the current value of `damage`.
+**Purpose:** Reads and returns the `damage` value held by the current object.
+
+```csharp
+// Obtain an instance of AlternativeAttackDamageEffect from the subsystem API first
+AlternativeAttackDamageEffect alternativeAttackDamageEffect = ...;
+var result = alternativeAttackDamageEffect.GetDamage(attackerWeapon, damageType, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AlternativeAttackDamageEffect();
-value.GetDamage(attackerWeapon, damageType, false);
+// Typically call this after obtaining an instance from the subsystem API
+AlternativeAttackDamageEffect alternativeAttackDamageEffect = ...;
+alternativeAttackDamageEffect.GetDamage(attackerWeapon, damageType, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

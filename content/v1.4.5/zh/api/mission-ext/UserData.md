@@ -1,20 +1,14 @@
 ---
 title: "UserData"
+description: "UserData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UserData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UserData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class UserData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/UserData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/UserData.cs`
 
 ## 概述
 
@@ -38,44 +32,87 @@ title: "UserData"
 ### GetUserModData
 `public UserModData GetUserModData(bool isMultiplayer, string id)`
 
-**用途 / Purpose:** 获取 `user mod data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「user mod data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 UserData 实例
+UserData userData = ...;
+var result = userData.GetUserModData(false, "example");
+```
 
 ### GetDLLLatestSizeInBytes
 `public uint? GetDLLLatestSizeInBytes(string dllName)`
 
-**用途 / Purpose:** 获取 `d l l latest size in bytes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「d l l latest size in bytes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 UserData 实例
+UserData userData = ...;
+var result = userData.GetDLLLatestSizeInBytes("example");
+```
 
 ### GetDLLLatestIsDangerous
 `public bool GetDLLLatestIsDangerous(string dllName)`
 
-**用途 / Purpose:** 获取 `d l l latest is dangerous` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「d l l latest is dangerous」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 UserData 实例
+UserData userData = ...;
+var result = userData.GetDLLLatestIsDangerous("example");
+```
 
 ### GetDLLLatestVerifyInformation
 `public string GetDLLLatestVerifyInformation(string dllName)`
 
-**用途 / Purpose:** 获取 `d l l latest verify information` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「d l l latest verify information」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 UserData 实例
+UserData userData = ...;
+var result = userData.GetDLLLatestVerifyInformation("example");
+```
 
 ### SetDLLLatestSizeInBytes
 `public void SetDLLLatestSizeInBytes(string dllName, uint sizeInBytes)`
 
-**用途 / Purpose:** 设置 `d l l latest size in bytes` 的值或状态。
+**用途 / Purpose:** 为 「d l l latest size in bytes」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 UserData 实例
+UserData userData = ...;
+userData.SetDLLLatestSizeInBytes("example", 0);
+```
 
 ### SetDLLLatestVerifyInformation
 `public void SetDLLLatestVerifyInformation(string dllName, string verifyInformation)`
 
-**用途 / Purpose:** 设置 `d l l latest verify information` 的值或状态。
+**用途 / Purpose:** 为 「d l l latest verify information」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 UserData 实例
+UserData userData = ...;
+userData.SetDLLLatestVerifyInformation("example", "example");
+```
 
 ### SetDLLLatestIsDangerous
 `public void SetDLLLatestIsDangerous(string dllName, bool isDangerous)`
 
-**用途 / Purpose:** 设置 `d l l latest is dangerous` 的值或状态。
+**用途 / Purpose:** 为 「d l l latest is dangerous」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 UserData 实例
+UserData userData = ...;
+userData.SetDLLLatestIsDangerous("example", false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new UserData();
+// 该数据对象通常由战役/任务 API 返回
+UserData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ManagedNumericOptionData"
+description: "ManagedNumericOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedNumericOptionData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedNumericOptionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Options.ManagedOptions
@@ -29,34 +23,65 @@ title: "ManagedNumericOptionData"
 ### GetMinValue
 `public float GetMinValue()`
 
-**用途 / Purpose:** 获取 `min value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「min value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedNumericOptionData 实例
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetMinValue();
+```
 
 ### GetMaxValue
 `public float GetMaxValue()`
 
-**用途 / Purpose:** 获取 `max value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedNumericOptionData 实例
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetMaxValue();
+```
 
 ### GetIsDiscrete
 `public bool GetIsDiscrete()`
 
-**用途 / Purpose:** 获取 `is discrete` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is discrete」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedNumericOptionData 实例
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetIsDiscrete();
+```
 
 ### GetDiscreteIncrementInterval
 `public int GetDiscreteIncrementInterval()`
 
-**用途 / Purpose:** 获取 `discrete increment interval` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「discrete increment interval」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedNumericOptionData 实例
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetDiscreteIncrementInterval();
+```
 
 ### GetShouldUpdateContinuously
 `public bool GetShouldUpdateContinuously()`
 
-**用途 / Purpose:** 获取 `should update continuously` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「should update continuously」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedNumericOptionData 实例
+ManagedNumericOptionData managedNumericOptionData = ...;
+var result = managedNumericOptionData.GetShouldUpdateContinuously();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ManagedNumericOptionData();
+// 该数据对象通常由战役/任务 API 返回
+ManagedNumericOptionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

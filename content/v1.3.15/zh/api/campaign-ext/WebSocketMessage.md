@@ -1,13 +1,7 @@
 ---
 title: "WebSocketMessage"
+description: "WebSocketMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WebSocketMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WebSocketMessage
 
 **Namespace:** TaleWorlds.Network
@@ -38,45 +32,84 @@ title: "WebSocketMessage"
 ### SetTextPayload
 `public void SetTextPayload(string payload)`
 
-**用途 / Purpose:** 设置 `text payload` 的值或状态。
+**用途 / Purpose:** 为 「text payload」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WebSocketMessage 实例
+WebSocketMessage webSocketMessage = ...;
+webSocketMessage.SetTextPayload("example");
+```
 
 ### WriteTo
 `public void WriteTo(bool fromServer, Stream stream)`
 
-**用途 / Purpose:** 处理 `write to` 相关逻辑。
+**用途 / Purpose:** 将「to」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 WebSocketMessage 实例
+WebSocketMessage webSocketMessage = ...;
+webSocketMessage.WriteTo(false, stream);
+```
 
 ### ReadFrom
 `public static WebSocketMessage ReadFrom(bool fromServer, byte payload)`
 
-**用途 / Purpose:** 处理 `read from` 相关逻辑。
+**用途 / Purpose:** 读取「from」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+WebSocketMessage.ReadFrom(false, 0);
+```
 
 ### ReadFrom
 `public static WebSocketMessage ReadFrom(bool fromServer, Stream stream)`
 
-**用途 / Purpose:** 处理 `read from` 相关逻辑。
+**用途 / Purpose:** 读取「from」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+WebSocketMessage.ReadFrom(false, stream);
+```
 
 ### CreateCursorMessage
 `public static WebSocketMessage CreateCursorMessage(int cursor)`
 
-**用途 / Purpose:** 创建一个 `cursor message` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「cursor message」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+WebSocketMessage.CreateCursorMessage(0);
+```
 
 ### CreateCloseMessage
 `public static WebSocketMessage CreateCloseMessage()`
 
-**用途 / Purpose:** 创建一个 `close message` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「close message」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+WebSocketMessage.CreateCloseMessage();
+```
 
 ### GetCursor
 `public int GetCursor()`
 
-**用途 / Purpose:** 获取 `cursor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cursor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WebSocketMessage 实例
+WebSocketMessage webSocketMessage = ...;
+var result = webSocketMessage.GetCursor();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WebSocketMessage();
-value.SetTextPayload("example");
+// 通常从对应子系统 API 获取实例后调用
+WebSocketMessage webSocketMessage = ...;
+webSocketMessage.SetTextPayload("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

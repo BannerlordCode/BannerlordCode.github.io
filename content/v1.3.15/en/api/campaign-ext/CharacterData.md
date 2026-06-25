@@ -1,13 +1,7 @@
 ---
 title: "CharacterData"
+description: "Auto-generated class reference for CharacterData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,19 +23,30 @@ Treat `CharacterData` as a Data-style extension point: first identify who create
 ### ExportCharacter
 `public static void ExportCharacter(Hero hero, string path)`
 
-**Purpose:** Handles logic related to `export character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CharacterData.ExportCharacter(hero, "example");
+```
 
 ### ImportCharacter
 `public static void ImportCharacter(Hero hero, string path)`
 
-**Purpose:** Handles logic related to `import character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CharacterData.ImportCharacter(hero, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterData();
+// This data object is usually returned by campaign/mission APIs
+CharacterData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

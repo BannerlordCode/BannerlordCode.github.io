@@ -1,13 +1,7 @@
 ---
 title: "ArcherPosition"
+description: "Auto-generated class reference for ArcherPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArcherPosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArcherPosition
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetLastAssignedFormation
 `public Formation GetLastAssignedFormation(int teamIndex)`
 
-**Purpose:** Gets the current value of `last assigned formation`.
+**Purpose:** Reads and returns the `last assigned formation` value held by the current object.
+
+```csharp
+// Obtain an instance of ArcherPosition from the subsystem API first
+ArcherPosition archerPosition = ...;
+var result = archerPosition.GetLastAssignedFormation(0);
+```
 
 ### IsArcherPositionRelatedToSide
 `public bool IsArcherPositionRelatedToSide(FormationAI.BehaviorSide side)`
 
-**Purpose:** Handles logic related to `is archer position related to side`.
+**Purpose:** Determines whether the current object is in the `archer position related to side` state or condition.
+
+```csharp
+// Obtain an instance of ArcherPosition from the subsystem API first
+ArcherPosition archerPosition = ...;
+var result = archerPosition.IsArcherPositionRelatedToSide(side);
+```
 
 ### GetArcherPositionClosestSide
 `public FormationAI.BehaviorSide GetArcherPositionClosestSide()`
 
-**Purpose:** Gets the current value of `archer position closest side`.
+**Purpose:** Reads and returns the `archer position closest side` value held by the current object.
+
+```csharp
+// Obtain an instance of ArcherPosition from the subsystem API first
+ArcherPosition archerPosition = ...;
+var result = archerPosition.GetArcherPositionClosestSide();
+```
 
 ### OnDeploymentFinished
 `public void OnDeploymentFinished(SiegeQuerySystem siegeQuerySystem, BattleSideEnum battleSide)`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of ArcherPosition from the subsystem API first
+ArcherPosition archerPosition = ...;
+archerPosition.OnDeploymentFinished(siegeQuerySystem, battleSide);
+```
 
 ### SetLastAssignedFormation
 `public void SetLastAssignedFormation(int teamIndex, Formation formation)`
 
-**Purpose:** Sets the value or state of `last assigned formation`.
+**Purpose:** Assigns a new value to `last assigned formation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ArcherPosition from the subsystem API first
+ArcherPosition archerPosition = ...;
+archerPosition.SetLastAssignedFormation(0, formation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArcherPosition();
-value.GetLastAssignedFormation(0);
+// Typically call this after obtaining an instance from the subsystem API
+ArcherPosition archerPosition = ...;
+archerPosition.GetLastAssignedFormation(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

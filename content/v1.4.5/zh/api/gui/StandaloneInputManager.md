@@ -1,20 +1,14 @@
 ---
 title: "StandaloneInputManager"
+description: "StandaloneInputManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StandaloneInputManager`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandaloneInputManager
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class StandaloneInputManager : IInputManager`
 **Base:** `IInputManager`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/StandaloneInputManager.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/StandaloneInputManager.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "StandaloneInputManager"
 ### SetRumbleEffect
 `public void SetRumbleEffect(float lowFrequencyLevels, float lowFrequencyDurations, int numLowFrequencyElements, float highFrequencyLevels, float highFrequencyDurations, int numHighFrequencyElements)`
 
-**用途 / Purpose:** 设置 `rumble effect` 的值或状态。
+**用途 / Purpose:** 为 「rumble effect」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StandaloneInputManager 实例
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetRumbleEffect(0, 0, 0, 0, 0, 0);
+```
 
 ### SetTriggerFeedback
 `public void SetTriggerFeedback(byte leftTriggerPosition, byte leftTriggerStrength, byte rightTriggerPosition, byte rightTriggerStrength)`
 
-**用途 / Purpose:** 设置 `trigger feedback` 的值或状态。
+**用途 / Purpose:** 为 「trigger feedback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StandaloneInputManager 实例
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetTriggerFeedback(0, 0, 0, 0);
+```
 
 ### SetTriggerWeaponEffect
 `public void SetTriggerWeaponEffect(byte leftStartPosition, byte leftEnd_position, byte leftStrength, byte rightStartPosition, byte rightEndPosition, byte rightStrength)`
 
-**用途 / Purpose:** 设置 `trigger weapon effect` 的值或状态。
+**用途 / Purpose:** 为 「trigger weapon effect」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StandaloneInputManager 实例
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetTriggerWeaponEffect(0, 0, 0, 0, 0, 0);
+```
 
 ### SetTriggerVibration
 `public void SetTriggerVibration(float leftTriggerAmplitudes, float leftTriggerFrequencies, float leftTriggerDurations, int numLeftTriggerElements, float rightTriggerAmplitudes, float rightTriggerFrequencies, float rightTriggerDurations, int numRightTriggerElements)`
 
-**用途 / Purpose:** 设置 `trigger vibration` 的值或状态。
+**用途 / Purpose:** 为 「trigger vibration」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StandaloneInputManager 实例
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetTriggerVibration(0, 0, 0, 0, 0, 0, 0, 0);
+```
 
 ### SetLightbarColor
 `public void SetLightbarColor(float red, float green, float blue)`
 
-**用途 / Purpose:** 设置 `lightbar color` 的值或状态。
+**用途 / Purpose:** 为 「lightbar color」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StandaloneInputManager 实例
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetLightbarColor(0, 0, 0);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ var manager = StandaloneInputManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

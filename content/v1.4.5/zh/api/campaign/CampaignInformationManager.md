@@ -1,20 +1,14 @@
 ---
 title: "CampaignInformationManager"
+description: "CampaignInformationManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignInformationManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignInformationManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignInformationManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignInformationManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignInformationManager.cs`
 
 ## 概述
 
@@ -29,37 +23,74 @@ title: "CampaignInformationManager"
 ### OnGameLoaded
 `public void OnGameLoaded()`
 
-**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignInformationManager 实例
+CampaignInformationManager campaignInformationManager = ...;
+campaignInformationManager.OnGameLoaded();
+```
 
 ### NewMapNoticeAdded
 `public void NewMapNoticeAdded(InformationData informationData)`
 
-**用途 / Purpose:** 处理 `new map notice added` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignInformationManager 实例
+CampaignInformationManager campaignInformationManager = ...;
+campaignInformationManager.NewMapNoticeAdded(informationData);
+```
 
 ### AddDialogLine
 `public static MBInformationManager.DialogNotificationHandle AddDialogLine(TextObject text, CharacterObject speakerCharacter, Equipment equipment = null, int extraTimeInMs = 0, MBInformationManager.NotificationPriority priority = MBInformationManager.NotificationPriority.Medium)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `dialog line`。
+**用途 / Purpose:** 将 「dialog line」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignInformationManager.AddDialogLine(text, speakerCharacter, null, 0, mBInformationManager.NotificationPriority.Medium);
+```
 
 ### GetStatusOfDialogNotification
 `public static MBInformationManager.NotificationStatus GetStatusOfDialogNotification(MBInformationManager.DialogNotificationHandle handle)`
 
-**用途 / Purpose:** 获取 `status of dialog notification` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「status of dialog notification」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CampaignInformationManager.GetStatusOfDialogNotification(handle);
+```
 
 ### ClearDialogNotification
 `public static void ClearDialogNotification(MBInformationManager.DialogNotificationHandle handle, bool fadeOut = true)`
 
-**用途 / Purpose:** 处理 `clear dialog notification` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「dialog notification」。
+
+```csharp
+// 静态调用，不需要实例
+CampaignInformationManager.ClearDialogNotification(handle, false);
+```
 
 ### GetIsAnyDialogNotificationActiveOrQueued
 `public static bool GetIsAnyDialogNotificationActiveOrQueued()`
 
-**用途 / Purpose:** 获取 `is any dialog notification active or queued` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is any dialog notification active or queued」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CampaignInformationManager.GetIsAnyDialogNotificationActiveOrQueued();
+```
 
 ### ClearAllDialogNotifications
 `public static void ClearAllDialogNotifications(bool fadeOut)`
 
-**用途 / Purpose:** 处理 `clear all dialog notifications` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「all dialog notifications」。
+
+```csharp
+// 静态调用，不需要实例
+CampaignInformationManager.ClearAllDialogNotifications(false);
+```
 
 ## 使用示例
 
@@ -69,4 +100,4 @@ var manager = CampaignInformationManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

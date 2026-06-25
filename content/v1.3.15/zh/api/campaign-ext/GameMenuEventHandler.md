@@ -1,13 +1,7 @@
 ---
 title: "GameMenuEventHandler"
+description: "GameMenuEventHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuEventHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuEventHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
@@ -35,9 +29,9 @@ title: "GameMenuEventHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GameMenuEventHandler());
+var behavior = Mission.Current.GetMissionBehavior<GameMenuEventHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

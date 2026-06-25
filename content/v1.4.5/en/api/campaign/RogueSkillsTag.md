@@ -1,20 +1,14 @@
 ---
 title: "RogueSkillsTag"
+description: "Auto-generated class reference for RogueSkillsTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RogueSkillsTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RogueSkillsTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RogueSkillsTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/RogueSkillsTag.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/RogueSkillsTag.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of RogueSkillsTag from the subsystem API first
+RogueSkillsTag rogueSkillsTag = ...;
+var result = rogueSkillsTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RogueSkillsTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+RogueSkillsTag rogueSkillsTag = ...;
+rogueSkillsTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

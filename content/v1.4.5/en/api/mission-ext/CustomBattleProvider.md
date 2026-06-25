@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleProvider"
+description: "Auto-generated class reference for CustomBattleProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleProvider : ICustomBattleProvider`
 **Base:** `ICustomBattleProvider`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleProvider.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleProvider.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### StartCustomBattle
 `public void StartCustomBattle()`
 
-**Purpose:** Handles logic related to `start custom battle`.
+**Purpose:** Starts the `custom battle` flow or state machine.
+
+```csharp
+// Obtain an instance of CustomBattleProvider from the subsystem API first
+CustomBattleProvider customBattleProvider = ...;
+customBattleProvider.StartCustomBattle();
+```
 
 ### GetName
 `public TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleProvider from the subsystem API first
+CustomBattleProvider customBattleProvider = ...;
+var result = customBattleProvider.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleProvider();
-value.StartCustomBattle();
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleProvider customBattleProvider = ...;
+customBattleProvider.StartCustomBattle();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

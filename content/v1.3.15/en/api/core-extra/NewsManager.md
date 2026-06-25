@@ -1,13 +1,7 @@
 ---
 title: "NewsManager"
+description: "Auto-generated class reference for NewsManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NewsManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NewsManager
 
 **Namespace:** TaleWorlds.Library.NewsManager
@@ -37,27 +31,57 @@ Treat `NewsManager` as a Manager-style extension point: first identify who creat
 ### GetNewsItems
 `public Task<MBReadOnlyList<NewsItem>> GetNewsItems(bool forceRefresh)`
 
-**Purpose:** Gets the current value of `news items`.
+**Purpose:** Reads and returns the `news items` value held by the current object.
+
+```csharp
+// Obtain an instance of NewsManager from the subsystem API first
+NewsManager newsManager = ...;
+var result = newsManager.GetNewsItems(false);
+```
 
 ### SetNewsSourceURL
 `public void SetNewsSourceURL(string url)`
 
-**Purpose:** Sets the value or state of `news source u r l`.
+**Purpose:** Assigns a new value to `news source u r l` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NewsManager from the subsystem API first
+NewsManager newsManager = ...;
+newsManager.SetNewsSourceURL("example");
+```
 
 ### UpdateNewsItems
 `public Task UpdateNewsItems(bool forceRefresh)`
 
-**Purpose:** Updates the state or data of `news items`.
+**Purpose:** Recalculates and stores the latest representation of `news items`.
+
+```csharp
+// Obtain an instance of NewsManager from the subsystem API first
+NewsManager newsManager = ...;
+var result = newsManager.UpdateNewsItems(false);
+```
 
 ### UpdateLocalizationID
 `public void UpdateLocalizationID(string localizationID)`
 
-**Purpose:** Updates the state or data of `localization i d`.
+**Purpose:** Recalculates and stores the latest representation of `localization i d`.
+
+```csharp
+// Obtain an instance of NewsManager from the subsystem API first
+NewsManager newsManager = ...;
+newsManager.UpdateLocalizationID("example");
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of NewsManager from the subsystem API first
+NewsManager newsManager = ...;
+newsManager.OnFinalize();
+```
 
 ## Usage Example
 
@@ -67,4 +91,4 @@ var manager = NewsManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SetChatFilterListsMessage"
+description: "Auto-generated class reference for SetChatFilterListsMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SetChatFilterListsMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetChatFilterListsMessage
 
 **Namespace:** Messages.FromCustomBattleServerManager.ToCustomBattleServer
 **Module:** Messages.FromCustomBattleServerManager
 **Type:** `public class SetChatFilterListsMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/SetChatFilterListsMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/SetChatFilterListsMessage.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `Messages.FromCustomBattleServerManager.ToCustomBattleServe
 ## Usage Example
 
 ```csharp
-var example = new SetChatFilterListsMessage();
+// Obtain an instance from the relevant subsystem API
+SetChatFilterListsMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ApplicationPlatform"
+description: "Auto-generated class reference for ApplicationPlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplicationPlatform`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ApplicationPlatform
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class ApplicationPlatform`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ApplicationPlatform.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ApplicationPlatform.cs`
 
 ## Overview
 
@@ -37,17 +31,32 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize(EngineType engineType, Platform currentPlatform, Runtime currentRuntimeLibrary)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+ApplicationPlatform.Initialize(engineType, currentPlatform, currentRuntimeLibrary);
+```
 
 ### IsPlatformWindows
 `public static bool IsPlatformWindows()`
 
-**Purpose:** Handles logic related to `is platform windows`.
+**Purpose:** Determines whether the current object is in the `platform windows` state or condition.
+
+```csharp
+// Static call; no instance required
+ApplicationPlatform.IsPlatformWindows();
+```
 
 ### IsPlatformConsole
 `public static bool IsPlatformConsole()`
 
-**Purpose:** Handles logic related to `is platform console`.
+**Purpose:** Determines whether the current object is in the `platform console` state or condition.
+
+```csharp
+// Static call; no instance required
+ApplicationPlatform.IsPlatformConsole();
+```
 
 ## Usage Example
 
@@ -57,4 +66,4 @@ ApplicationPlatform.Initialize(engineType, currentPlatform, currentRuntimeLibrar
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

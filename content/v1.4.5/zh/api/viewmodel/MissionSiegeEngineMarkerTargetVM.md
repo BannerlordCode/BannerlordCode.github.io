@@ -1,20 +1,14 @@
 ---
 title: "MissionSiegeEngineMarkerTargetVM"
+description: "MissionSiegeEngineMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionSiegeEngineMarkerTargetVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeEngineMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSiegeEngineMarkerTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerTargetVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerTargetVM.cs`
 
 ## 概述
 
@@ -42,15 +36,22 @@ title: "MissionSiegeEngineMarkerTargetVM"
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSiegeEngineMarkerTargetVM 实例
+MissionSiegeEngineMarkerTargetVM missionSiegeEngineMarkerTargetVM = ...;
+missionSiegeEngineMarkerTargetVM.Refresh();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionSiegeEngineMarkerTargetVM();
-value.Refresh();
+// 通常从对应子系统 API 获取实例后调用
+MissionSiegeEngineMarkerTargetVM missionSiegeEngineMarkerTargetVM = ...;
+missionSiegeEngineMarkerTargetVM.Refresh();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

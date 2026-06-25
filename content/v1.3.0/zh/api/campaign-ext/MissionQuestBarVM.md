@@ -1,13 +1,7 @@
 ---
 title: "MissionQuestBarVM"
+description: "MissionQuestBarVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionQuestBarVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionQuestBarVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions
@@ -39,15 +33,22 @@ title: "MissionQuestBarVM"
 ### UpdateQuestValues
 `public void UpdateQuestValues(float minDetectionLevel, float maxDetectionLevel, float currentDetectionLevel)`
 
-**用途 / Purpose:** 更新 `quest values` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「quest values」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionQuestBarVM 实例
+MissionQuestBarVM missionQuestBarVM = ...;
+missionQuestBarVM.UpdateQuestValues(0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionQuestBarVM();
-value.UpdateQuestValues(0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+MissionQuestBarVM missionQuestBarVM = ...;
+missionQuestBarVM.UpdateQuestValues(0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ProposeCallToWarAgreementDecision"
+description: "Auto-generated class reference for ProposeCallToWarAgreementDecision."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProposeCallToWarAgreementDecision`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ProposeCallToWarAgreementDecision
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -35,125 +29,264 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**Purpose:** Handles logic related to `is allowed`.
+**Purpose:** Determines whether the current object is in the `allowed` state or condition.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.IsAllowed();
+```
 
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**Purpose:** Gets the current value of `proposal influence cost`.
+**Purpose:** Reads and returns the `proposal influence cost` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetProposalInfluenceCost();
+```
 
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**Purpose:** Gets the current value of `general title`.
+**Purpose:** Reads and returns the `general title` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetGeneralTitle();
+```
 
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**Purpose:** Gets the current value of `support title`.
+**Purpose:** Reads and returns the `support title` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetSupportTitle();
+```
 
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**Purpose:** Gets the current value of `choose title`.
+**Purpose:** Reads and returns the `choose title` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetChooseTitle();
+```
 
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**Purpose:** Gets the current value of `support description`.
+**Purpose:** Reads and returns the `support description` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetSupportDescription();
+```
 
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**Purpose:** Gets the current value of `choose description`.
+**Purpose:** Reads and returns the `choose description` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetChooseDescription();
+```
 
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**Purpose:** Handles logic related to `determine initial candidates`.
+**Purpose:** Determines the result of `initial candidates` based on the current state.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.DetermineInitialCandidates();
+```
 
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**Purpose:** Handles logic related to `determine chooser`.
+**Purpose:** Determines the result of `chooser` based on the current state.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.DetermineChooser();
+```
 
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** Handles logic related to `determine sponsors`.
+**Purpose:** Determines the result of `sponsors` based on the current state.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+proposeCallToWarAgreementDecision.DetermineSponsors(possibleOutcomes);
+```
 
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**Purpose:** Applies `chosen outcome` to the current object.
+**Purpose:** Applies the effect of `chosen outcome` to the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+proposeCallToWarAgreementDecision.ApplyChosenOutcome(chosenOutcome);
+```
 
 ### OnShowDecision
 `public override bool OnShowDecision()`
 
-**Purpose:** Called when the `show decision` event is raised.
+**Purpose:** Invoked when the `show decision` event is raised.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.OnShowDecision();
+```
 
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**Purpose:** Applies `secondary effects` to the current object.
+**Purpose:** Applies the effect of `secondary effects` to the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+proposeCallToWarAgreementDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutcome);
+```
 
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**Purpose:** Gets the current value of `secondary effects`.
+**Purpose:** Reads and returns the `secondary effects` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetSecondaryEffects();
+```
 
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
 
-**Purpose:** Gets the current value of `chosen outcome text`.
+**Purpose:** Reads and returns the `chosen outcome text` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, false);
+```
 
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** Gets the current value of `queried decision outcome`.
+**Purpose:** Reads and returns the `queried decision outcome` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetQueriedDecisionOutcome(possibleOutcomes);
+```
 
 ### CalculateSupport
 `public float CalculateSupport(Clan clan)`
 
-**Purpose:** Handles logic related to `calculate support`.
+**Purpose:** Calculates the current value or result of `support`.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.CalculateSupport(clan);
+```
 
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**Purpose:** Handles logic related to `determine support`.
+**Purpose:** Determines the result of `support` based on the current state.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.DetermineSupport(clan, possibleOutcome);
+```
 
 ### CanMakeDecision
 `public override bool CanMakeDecision(out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Checks whether the current object can `make decision`.
+**Purpose:** Checks whether the current object meets the preconditions for `make decision`.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.CanMakeDecision(reason, false);
+```
 
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Gets the current value of `decision title`.
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Gets the current value of `decision description`.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `decision link`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Gets the current value of `decision image identifier`.
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of ProposeCallToWarAgreementDecision from the subsystem API first
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+var result = proposeCallToWarAgreementDecision.GetDecisionImageIdentifier();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProposeCallToWarAgreementDecision();
-value.IsAllowed();
+// Typically call this after obtaining an instance from the subsystem API
+ProposeCallToWarAgreementDecision proposeCallToWarAgreementDecision = ...;
+proposeCallToWarAgreementDecision.IsAllowed();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CharacterSkillsResolver"
+description: "CharacterSkillsResolver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterSkillsResolver`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterSkillsResolver
 
 **Namespace:** TaleWorlds.Core.SaveCompability
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterSkillsResolver : IConflictResolver`
 **Base:** `IConflictResolver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core.SaveCompability/CharacterSkillsResolver.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.SaveCompability/CharacterSkillsResolver.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "CharacterSkillsResolver"
 ### IsApplicable
 `public bool IsApplicable(ApplicationVersion version)`
 
-**用途 / Purpose:** 处理 `is applicable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「applicable」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterSkillsResolver 实例
+CharacterSkillsResolver characterSkillsResolver = ...;
+var result = characterSkillsResolver.IsApplicable(version);
+```
 
 ### GetFieldMemberWithId
 `public MemberTypeId GetFieldMemberWithId(MemberTypeId memberTypeId)`
 
-**用途 / Purpose:** 获取 `field member with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「field member with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterSkillsResolver 实例
+CharacterSkillsResolver characterSkillsResolver = ...;
+var result = characterSkillsResolver.GetFieldMemberWithId(memberTypeId);
+```
 
 ### GetNewType
 `public Type GetNewType()`
 
-**用途 / Purpose:** 获取 `new type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「new type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterSkillsResolver 实例
+CharacterSkillsResolver characterSkillsResolver = ...;
+var result = characterSkillsResolver.GetNewType();
+```
 
 ### GetPropertyMemberWithId
 `public MemberTypeId GetPropertyMemberWithId(MemberTypeId memberTypeId)`
 
-**用途 / Purpose:** 获取 `property member with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「property member with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterSkillsResolver 实例
+CharacterSkillsResolver characterSkillsResolver = ...;
+var result = characterSkillsResolver.GetPropertyMemberWithId(memberTypeId);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterSkillsResolver();
-value.IsApplicable(version);
+// 通常从对应子系统 API 获取实例后调用
+CharacterSkillsResolver characterSkillsResolver = ...;
+characterSkillsResolver.IsApplicable(version);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

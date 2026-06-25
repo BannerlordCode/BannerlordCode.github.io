@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyRecentGamePlayerItemVM"
+description: "Auto-generated class reference for MPLobbyRecentGamePlayerItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyRecentGamePlayerItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyRecentGamePlayerItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyRecentGamePlayerItemVM : MPLobbyPlayerBaseVM`
 **Base:** `MPLobbyPlayerBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGamePlayerItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGamePlayerItemVM.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### MPLobbyRecentGamePlayerItemVM
 `public unsafe MPLobbyRecentGamePlayerItemVM(PlayerId playerId, MatchHistoryData matchOfThePlayer, Action<MPLobbyRecentGamePlayerItemVM> onActivatePlayerActions)`
 
-**Purpose:** Handles logic related to `m p lobby recent game player item v m`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGamePlayerItemVM from the subsystem API first
+MPLobbyRecentGamePlayerItemVM mPLobbyRecentGamePlayerItemVM = ...;
+var result = mPLobbyRecentGamePlayerItemVM.MPLobbyRecentGamePlayerItemVM(playerId, matchOfThePlayer, onActivatePlayerActions);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGamePlayerItemVM from the subsystem API first
+MPLobbyRecentGamePlayerItemVM mPLobbyRecentGamePlayerItemVM = ...;
+mPLobbyRecentGamePlayerItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyRecentGamePlayerItemVM();
-value.MPLobbyRecentGamePlayerItemVM(playerId, matchOfThePlayer, onActivatePlayerActions);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyRecentGamePlayerItemVM mPLobbyRecentGamePlayerItemVM = ...;
+mPLobbyRecentGamePlayerItemVM.MPLobbyRecentGamePlayerItemVM(playerId, matchOfThePlayer, onActivatePlayerActions);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

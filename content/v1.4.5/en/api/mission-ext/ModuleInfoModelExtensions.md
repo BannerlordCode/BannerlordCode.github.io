@@ -1,20 +1,14 @@
 ---
 title: "ModuleInfoModelExtensions"
+description: "Auto-generated class reference for ModuleInfoModelExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleInfoModelExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleInfoModelExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ModuleInfoModelExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ModuleInfoModelExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ModuleInfoModelExtensions.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### IsCompatibleWith
 `public static bool IsCompatibleWith(this IEnumerable<ModuleInfoModel> a, IEnumerable<ModuleInfoModel> b, bool allowOptionalModules)`
 
-**Purpose:** Handles logic related to `is compatible with`.
+**Purpose:** Determines whether the current object is in the `compatible with` state or condition.
+
+```csharp
+// Static call; no instance required
+ModuleInfoModelExtensions.IsCompatibleWith(a, b, false);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ ModuleInfoModelExtensions.IsCompatibleWith(a, b, false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

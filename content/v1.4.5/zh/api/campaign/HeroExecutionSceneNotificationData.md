@@ -1,20 +1,14 @@
 ---
 title: "HeroExecutionSceneNotificationData"
+description: "HeroExecutionSceneNotificationData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroExecutionSceneNotificationData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroExecutionSceneNotificationData
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeroExecutionSceneNotificationData : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/HeroExecutionSceneNotificationData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/HeroExecutionSceneNotificationData.cs`
 
 ## 概述
 
@@ -44,34 +38,63 @@ title: "HeroExecutionSceneNotificationData"
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**用途 / Purpose:** 获取 `scene notification characters` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene notification characters」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroExecutionSceneNotificationData 实例
+HeroExecutionSceneNotificationData heroExecutionSceneNotificationData = ...;
+var result = heroExecutionSceneNotificationData.GetSceneNotificationCharacters();
+```
 
 ### OnCloseAction
 `public override void OnCloseAction()`
 
-**用途 / Purpose:** 当 `close action` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「close action」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HeroExecutionSceneNotificationData 实例
+HeroExecutionSceneNotificationData heroExecutionSceneNotificationData = ...;
+heroExecutionSceneNotificationData.OnCloseAction();
+```
 
 ### OnAffirmativeAction
 `public override void OnAffirmativeAction()`
 
-**用途 / Purpose:** 当 `affirmative action` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「affirmative action」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HeroExecutionSceneNotificationData 实例
+HeroExecutionSceneNotificationData heroExecutionSceneNotificationData = ...;
+heroExecutionSceneNotificationData.OnAffirmativeAction();
+```
 
 ### CreateForPlayerExecutingHero
 `public static HeroExecutionSceneNotificationData CreateForPlayerExecutingHero(Hero dyingHero, Action onAffirmativeAction, RelevantContextType relevantContextType = RelevantContextType.Any, bool showNegativeOption = true)`
 
-**用途 / Purpose:** 创建一个 `for player executing hero` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「for player executing hero」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+HeroExecutionSceneNotificationData.CreateForPlayerExecutingHero(dyingHero, onAffirmativeAction, relevantContextType.Any, false);
+```
 
 ### CreateForInformingPlayer
 `public static HeroExecutionSceneNotificationData CreateForInformingPlayer(Hero executingHero, Hero dyingHero, RelevantContextType relevantContextType = RelevantContextType.Any, Action onClose = null)`
 
-**用途 / Purpose:** 创建一个 `for informing player` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「for informing player」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+HeroExecutionSceneNotificationData.CreateForInformingPlayer(executingHero, dyingHero, relevantContextType.Any, null);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HeroExecutionSceneNotificationData();
+// 该数据对象通常由战役/任务 API 返回
+HeroExecutionSceneNotificationData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

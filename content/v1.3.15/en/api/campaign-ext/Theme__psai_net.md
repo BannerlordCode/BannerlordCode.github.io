@@ -1,13 +1,7 @@
 ---
-title: "Theme__psai_net"
+title: "Theme"
+description: "Auto-generated class reference for Theme."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Theme`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Theme
 
 **Namespace:** psai.net
@@ -29,22 +23,43 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities
 `public static bool ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(ThemeInterruptionBehavior interruptionBehavior)`
 
-**Purpose:** Handles logic related to `theme interruption behavior requires evaluation of segment compatibilities`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Theme.ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(interruptionBehavior);
+```
 
 ### ThemeTypeToString
 `public static string ThemeTypeToString(ThemeType themeType)`
 
-**Purpose:** Handles logic related to `theme type to string`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Theme.ThemeTypeToString(themeType);
+```
 
 ### GetThemeInterruptionBehavior
 `public static ThemeInterruptionBehavior GetThemeInterruptionBehavior(ThemeType sourceThemeType, ThemeType targetThemeType)`
 
-**Purpose:** Gets the current value of `theme interruption behavior`.
+**Purpose:** Reads and returns the `theme interruption behavior` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Theme.GetThemeInterruptionBehavior(sourceThemeType, targetThemeType);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.ToString();
+```
 
 ## Usage Example
 
@@ -54,4 +69,4 @@ Theme.ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(interr
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

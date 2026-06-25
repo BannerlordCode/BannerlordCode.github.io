@@ -1,20 +1,14 @@
 ---
 title: "ScriptComponentFieldHolder"
+description: "Auto-generated class reference for ScriptComponentFieldHolder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScriptComponentFieldHolder`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScriptComponentFieldHolder
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct ScriptComponentFieldHolder`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponentFieldHolder.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponentFieldHolder.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new ScriptComponentFieldHolder();
+// Obtain an instance from the relevant subsystem API
+ScriptComponentFieldHolder instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DuelSpawnFrameBehavior"
+description: "Auto-generated class reference for DuelSpawnFrameBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelSpawnFrameBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelSpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DuelSpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DuelSpawnFrameBehavior.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DuelSpawnFrameBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of DuelSpawnFrameBehavior from the subsystem API first
+DuelSpawnFrameBehavior duelSpawnFrameBehavior = ...;
+duelSpawnFrameBehavior.Initialize();
+```
 
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of DuelSpawnFrameBehavior from the subsystem API first
+DuelSpawnFrameBehavior duelSpawnFrameBehavior = ...;
+var result = duelSpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DuelSpawnFrameBehavior();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+DuelSpawnFrameBehavior duelSpawnFrameBehavior = ...;
+duelSpawnFrameBehavior.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SavedGameModuleInfoVM"
+description: "Auto-generated class reference for SavedGameModuleInfoVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SavedGameModuleInfoVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SavedGameModuleInfoVM
 
 **Namespace:** SandBox.ViewModelCollection.SaveLoad
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SavedGameModuleInfoVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SavedGameModuleInfoVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SavedGameModuleInfoVM.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the s
 ## Usage Example
 
 ```csharp
-var value = new SavedGameModuleInfoVM();
+// Obtain an instance from the relevant subsystem API
+SavedGameModuleInfoVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

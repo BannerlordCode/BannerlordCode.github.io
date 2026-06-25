@@ -1,13 +1,7 @@
 ---
 title: "DisguiseDetectionModel"
+description: "Auto-generated class reference for DisguiseDetectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisguiseDetectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisguiseDetectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `DisguiseDetectionModel` as a Model-style extension point: first identify 
 ### CalculateDisguiseDetectionProbability
 `public abstract float CalculateDisguiseDetectionProbability(Settlement settlement)`
 
-**Purpose:** Handles logic related to `calculate disguise detection probability`.
+**Purpose:** Calculates the current value or result of `disguise detection probability`.
+
+```csharp
+// Obtain an instance of DisguiseDetectionModel from the subsystem API first
+DisguiseDetectionModel disguiseDetectionModel = ...;
+var result = disguiseDetectionModel.CalculateDisguiseDetectionProbability(settlement);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDisguiseDetectionModel();
+// Typically obtained from a subsystem API or factory
+DisguiseDetectionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

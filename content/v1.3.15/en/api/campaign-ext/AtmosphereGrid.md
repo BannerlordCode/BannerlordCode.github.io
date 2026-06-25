@@ -1,13 +1,7 @@
 ---
 title: "AtmosphereGrid"
+description: "Auto-generated class reference for AtmosphereGrid."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AtmosphereGrid`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AtmosphereGrid
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of AtmosphereGrid from the subsystem API first
+AtmosphereGrid atmosphereGrid = ...;
+atmosphereGrid.Initialize();
+```
 
 ### GetInterpolatedStateInfo
 `public AtmosphereState GetInterpolatedStateInfo(Vec3 pos)`
 
-**Purpose:** Gets the current value of `interpolated state info`.
+**Purpose:** Reads and returns the `interpolated state info` value held by the current object.
+
+```csharp
+// Obtain an instance of AtmosphereGrid from the subsystem API first
+AtmosphereGrid atmosphereGrid = ...;
+var result = atmosphereGrid.GetInterpolatedStateInfo(pos);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AtmosphereGrid();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+AtmosphereGrid atmosphereGrid = ...;
+atmosphereGrid.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

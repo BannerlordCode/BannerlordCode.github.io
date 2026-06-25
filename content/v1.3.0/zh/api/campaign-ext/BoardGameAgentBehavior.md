@@ -1,13 +1,7 @@
 ---
 title: "BoardGameAgentBehavior"
+description: "BoardGameAgentBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameAgentBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAgentBehavior
 
 **Namespace:** SandBox.Source.Missions.AgentBehaviors
@@ -29,40 +23,74 @@ title: "BoardGameAgentBehavior"
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAgentBehavior 实例
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+boardGameAgentBehavior.Tick(0, false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 获取 `debug info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAgentBehavior 实例
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+var result = boardGameAgentBehavior.GetDebugInfo();
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `availability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAgentBehavior 实例
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+var result = boardGameAgentBehavior.GetAvailability(false);
+```
 
 ### AddTargetChair
 `public static void AddTargetChair(Agent ownerAgent, Chair chair)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `target chair`。
+**用途 / Purpose:** 将 「target chair」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BoardGameAgentBehavior.AddTargetChair(ownerAgent, chair);
+```
 
 ### RemoveBoardGameBehaviorOfAgent
 `public static void RemoveBoardGameBehaviorOfAgent(Agent ownerAgent)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `board game behavior of agent`。
+**用途 / Purpose:** 从当前容器或状态中移除 「board game behavior of agent」。
+
+```csharp
+// 静态调用，不需要实例
+BoardGameAgentBehavior.RemoveBoardGameBehaviorOfAgent(ownerAgent);
+```
 
 ### IsAgentMovingToChair
 `public static bool IsAgentMovingToChair(Agent ownerAgent)`
 
-**用途 / Purpose:** 处理 `is agent moving to chair` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「agent moving to chair」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+BoardGameAgentBehavior.IsAgentMovingToChair(ownerAgent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameAgentBehavior();
-value.Tick(0, false);
+// 通常从对应子系统 API 获取实例后调用
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+boardGameAgentBehavior.Tick(0, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

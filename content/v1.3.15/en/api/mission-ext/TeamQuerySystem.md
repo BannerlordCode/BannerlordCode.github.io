@@ -1,13 +1,7 @@
 ---
 title: "TeamQuerySystem"
+description: "Auto-generated class reference for TeamQuerySystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamQuerySystem`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TeamQuerySystem
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -68,40 +62,77 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Expire
 `public void Expire()`
 
-**Purpose:** Handles logic related to `expire`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TeamQuerySystem from the subsystem API first
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.Expire();
+```
 
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**Purpose:** Handles logic related to `expire after unit add remove`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TeamQuerySystem from the subsystem API first
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.ExpireAfterUnitAddRemove();
+```
 
 ### RegisterDeath
 `public void RegisterDeath()`
 
-**Purpose:** Handles logic related to `register death`.
+**Purpose:** Registers `death` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TeamQuerySystem from the subsystem API first
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.RegisterDeath();
+```
 
 ### RegisterDeathByRanged
 `public void RegisterDeathByRanged()`
 
-**Purpose:** Handles logic related to `register death by ranged`.
+**Purpose:** Registers `death by ranged` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TeamQuerySystem from the subsystem API first
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.RegisterDeathByRanged();
+```
 
 ### GetLocalAllyPower
 `public float GetLocalAllyPower(Vec2 target)`
 
-**Purpose:** Gets the current value of `local ally power`.
+**Purpose:** Reads and returns the `local ally power` value held by the current object.
+
+```csharp
+// Obtain an instance of TeamQuerySystem from the subsystem API first
+TeamQuerySystem teamQuerySystem = ...;
+var result = teamQuerySystem.GetLocalAllyPower(target);
+```
 
 ### GetLocalEnemyPower
 `public float GetLocalEnemyPower(Vec2 target)`
 
-**Purpose:** Gets the current value of `local enemy power`.
+**Purpose:** Reads and returns the `local enemy power` value held by the current object.
+
+```csharp
+// Obtain an instance of TeamQuerySystem from the subsystem API first
+TeamQuerySystem teamQuerySystem = ...;
+var result = teamQuerySystem.GetLocalEnemyPower(target);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamQuerySystem();
-value.Expire();
+// Typically call this after obtaining an instance from the subsystem API
+TeamQuerySystem teamQuerySystem = ...;
+teamQuerySystem.Expire();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

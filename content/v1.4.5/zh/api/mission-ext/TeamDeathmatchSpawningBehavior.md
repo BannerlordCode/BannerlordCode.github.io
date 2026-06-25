@@ -1,20 +1,14 @@
 ---
 title: "TeamDeathmatchSpawningBehavior"
+description: "TeamDeathmatchSpawningBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamDeathmatchSpawningBehavior`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamDeathmatchSpawningBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamDeathmatchSpawningBehavior : SpawningBehaviorBase`
 **Base:** `SpawningBehaviorBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/TeamDeathmatchSpawningBehavior.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/TeamDeathmatchSpawningBehavior.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "TeamDeathmatchSpawningBehavior"
 ### Initialize
 `public override void Initialize(SpawnComponent spawnComponent)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchSpawningBehavior 实例
+TeamDeathmatchSpawningBehavior teamDeathmatchSpawningBehavior = ...;
+teamDeathmatchSpawningBehavior.Initialize(spawnComponent);
+```
 
 ### Clear
 `public override void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchSpawningBehavior 实例
+TeamDeathmatchSpawningBehavior teamDeathmatchSpawningBehavior = ...;
+teamDeathmatchSpawningBehavior.Clear();
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchSpawningBehavior 实例
+TeamDeathmatchSpawningBehavior teamDeathmatchSpawningBehavior = ...;
+teamDeathmatchSpawningBehavior.OnTick(0);
+```
 
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**用途 / Purpose:** 处理 `allow early agent visuals despawning` 相关逻辑。
+**用途 / Purpose:** 允许当前对象启用或执行「early agent visuals despawning」。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchSpawningBehavior 实例
+TeamDeathmatchSpawningBehavior teamDeathmatchSpawningBehavior = ...;
+var result = teamDeathmatchSpawningBehavior.AllowEarlyAgentVisualsDespawning(lobbyPeer);
+```
 
 ### GetMaximumReSpawnPeriodForPeer
 `public override int GetMaximumReSpawnPeriodForPeer(MissionPeer peer)`
 
-**用途 / Purpose:** 获取 `maximum re spawn period for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum re spawn period for peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchSpawningBehavior 实例
+TeamDeathmatchSpawningBehavior teamDeathmatchSpawningBehavior = ...;
+var result = teamDeathmatchSpawningBehavior.GetMaximumReSpawnPeriodForPeer(peer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamDeathmatchSpawningBehavior();
-value.Initialize(spawnComponent);
+// 通常从对应子系统 API 获取实例后调用
+TeamDeathmatchSpawningBehavior teamDeathmatchSpawningBehavior = ...;
+teamDeathmatchSpawningBehavior.Initialize(spawnComponent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

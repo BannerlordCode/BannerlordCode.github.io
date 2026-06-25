@@ -1,20 +1,14 @@
 ---
 title: "MapNavigationItemVM"
+description: "MapNavigationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapNavigationItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MapNavigationItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar/MapNavigationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar/MapNavigationItemVM.cs`
 
 ## 概述
 
@@ -41,30 +35,55 @@ title: "MapNavigationItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationItemVM 实例
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.RefreshValues();
+```
 
 ### RefreshStates
 `public void RefreshStates(bool forceRefresh = false)`
 
-**用途 / Purpose:** 刷新 `states` 的显示或缓存。
+**用途 / Purpose:** 使 「states」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationItemVM 实例
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.RefreshStates(false);
+```
 
 ### ExecuteOpen
 `public void ExecuteOpen()`
 
-**用途 / Purpose:** 执行 `open` 操作或流程。
+**用途 / Purpose:** 执行 「open」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationItemVM 实例
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.ExecuteOpen();
+```
 
 ### ExecuteGoToLink
 `public void ExecuteGoToLink()`
 
-**用途 / Purpose:** 执行 `go to link` 操作或流程。
+**用途 / Purpose:** 执行 「go to link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapNavigationItemVM 实例
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.ExecuteGoToLink();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapNavigationItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

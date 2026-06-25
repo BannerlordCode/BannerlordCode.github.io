@@ -1,13 +1,7 @@
 ---
 title: "WorldFrame"
+description: "WorldFrame 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WorldFrame`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorldFrame
 
 **Namespace:** TaleWorlds.Engine
@@ -35,20 +29,33 @@ title: "WorldFrame"
 ### ToGroundMatrixFrame
 `public MatrixFrame ToGroundMatrixFrame()`
 
-**用途 / Purpose:** 处理 `to ground matrix frame` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorldFrame 实例
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToGroundMatrixFrame();
+```
 
 ### ToNavMeshMatrixFrame
 `public MatrixFrame ToNavMeshMatrixFrame()`
 
-**用途 / Purpose:** 处理 `to nav mesh matrix frame` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorldFrame 实例
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToNavMeshMatrixFrame();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WorldFrame();
-value.ToGroundMatrixFrame();
+// 通常从对应子系统 API 获取实例后调用
+WorldFrame worldFrame = ...;
+worldFrame.ToGroundMatrixFrame();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

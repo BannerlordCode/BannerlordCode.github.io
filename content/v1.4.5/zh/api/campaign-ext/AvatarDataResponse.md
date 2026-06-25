@@ -1,20 +1,14 @@
 ---
 title: "AvatarDataResponse"
+description: "AvatarDataResponse 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AvatarDataResponse`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarDataResponse
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class AvatarDataResponse`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarDataResponse.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarDataResponse.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "AvatarDataResponse"
 ## 使用示例
 
 ```csharp
-var example = new AvatarDataResponse();
+// 从对应子系统 API 获取实例
+AvatarDataResponse instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

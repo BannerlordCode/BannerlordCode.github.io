@@ -1,20 +1,14 @@
 ---
 title: "PostBoxId"
+description: "PostBoxId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PostBoxId`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PostBoxId
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class PostBoxId : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/PostBoxId.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/PostBoxId.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "PostBoxId"
 ## 使用示例
 
 ```csharp
-var example = new PostBoxId();
+// 从对应子系统 API 获取实例
+PostBoxId instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "EventTriggeringUsableMachine"
+description: "Auto-generated class reference for EventTriggeringUsableMachine."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EventTriggeringUsableMachine`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventTriggeringUsableMachine
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Usables` to place it in t
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of EventTriggeringUsableMachine from the subsystem API first
+EventTriggeringUsableMachine eventTriggeringUsableMachine = ...;
+var result = eventTriggeringUsableMachine.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of EventTriggeringUsableMachine from the subsystem API first
+EventTriggeringUsableMachine eventTriggeringUsableMachine = ...;
+var result = eventTriggeringUsableMachine.GetDescriptionText(gameEntity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EventTriggeringUsableMachine();
-value.GetActionTextForStandingPoint(usableGameObject);
+// Typically call this after obtaining an instance from the subsystem API
+EventTriggeringUsableMachine eventTriggeringUsableMachine = ...;
+eventTriggeringUsableMachine.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SliderPopupWidget"
+description: "Auto-generated class reference for SliderPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SliderPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SliderPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
@@ -36,9 +30,10 @@ Treat `SliderPopupWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new SliderPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SliderPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultAlleyModel"
+description: "DefaultAlleyModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultAlleyModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultAlleyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultAlleyModel : AlleyModel`
 **Base:** `AlleyModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAlleyModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAlleyModel.cs`
 
 ## 概述
 
@@ -29,52 +23,112 @@ title: "DefaultAlleyModel"
 ### GetDailyXpGainForAssignedClanMember
 `public override float GetDailyXpGainForAssignedClanMember(Hero assignedHero)`
 
-**用途 / Purpose:** 获取 `daily xp gain for assigned clan member` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily xp gain for assigned clan member」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetDailyXpGainForAssignedClanMember(assignedHero);
+```
 
 ### GetDailyXpGainForMainHero
 `public override float GetDailyXpGainForMainHero()`
 
-**用途 / Purpose:** 获取 `daily xp gain for main hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily xp gain for main hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetDailyXpGainForMainHero();
+```
 
 ### GetInitialXpGainForMainHero
 `public override float GetInitialXpGainForMainHero()`
 
-**用途 / Purpose:** 获取 `initial xp gain for main hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial xp gain for main hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetInitialXpGainForMainHero();
+```
 
 ### GetXpGainAfterSuccessfulAlleyDefenseForMainHero
 `public override float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()`
 
-**用途 / Purpose:** 获取 `xp gain after successful alley defense for main hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp gain after successful alley defense for main hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetXpGainAfterSuccessfulAlleyDefenseForMainHero();
+```
 
 ### GetTroopsOfAIOwnedAlley
 `public override TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)`
 
-**用途 / Purpose:** 获取 `troops of a i owned alley` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troops of a i owned alley」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetTroopsOfAIOwnedAlley(alley);
+```
 
 ### GetTroopsOfAlleyForBattleMission
 `public override TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)`
 
-**用途 / Purpose:** 获取 `troops of alley for battle mission` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troops of alley for battle mission」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetTroopsOfAlleyForBattleMission(alley);
+```
 
 ### GetTroopsToRecruitFromAlleyDependingOnAlleyRandom
 `public override TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)`
 
-**用途 / Purpose:** 获取 `troops to recruit from alley depending on alley random` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troops to recruit from alley depending on alley random」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(alley, 0);
+```
 
 ### GetDisabledReasonTextForHero
 `public override TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, AlleyMemberAvailabilityDetail detail)`
 
-**用途 / Purpose:** 获取 `disabled reason text for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「disabled reason text for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetDisabledReasonTextForHero(hero, alley, detail);
+```
 
 ### GetAlleyAttackResponseTimeInDays
 `public override float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)`
 
-**用途 / Purpose:** 获取 `alley attack response time in days` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「alley attack response time in days」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetAlleyAttackResponseTimeInDays(troopRoster);
+```
 
 ### GetDailyIncomeOfAlley
 `public override int GetDailyIncomeOfAlley(Alley alley)`
 
-**用途 / Purpose:** 获取 `daily income of alley` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily income of alley」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAlleyModel 实例
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetDailyIncomeOfAlley(alley);
+```
 
 ## 使用示例
 
@@ -84,4 +138,4 @@ Game.Current.ReplaceModel<DefaultAlleyModel>(new MyDefaultAlleyModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

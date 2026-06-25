@@ -1,13 +1,7 @@
 ---
 title: "GauntletTutorialSystem"
+description: "Auto-generated class reference for GauntletTutorialSystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletTutorialSystem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletTutorialSystem
 
 **Namespace:** SandBox.GauntletUI.Tutorial
@@ -37,12 +31,22 @@ Start from namespace `SandBox.GauntletUI.Tutorial` to place it in the stack, the
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Static call; no instance required
+GauntletTutorialSystem.OnInitialize();
+```
 
 ### OnUnload
 `public static void OnUnload()`
 
-**Purpose:** Called when the `unload` event is raised.
+**Purpose:** Invoked when the `unload` event is raised.
+
+```csharp
+// Static call; no instance required
+GauntletTutorialSystem.OnUnload();
+```
 
 ## Usage Example
 
@@ -52,4 +56,4 @@ GauntletTutorialSystem.OnInitialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

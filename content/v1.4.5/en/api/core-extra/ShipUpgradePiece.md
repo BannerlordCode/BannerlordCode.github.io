@@ -1,20 +1,14 @@
 ---
 title: "ShipUpgradePiece"
+description: "Auto-generated class reference for ShipUpgradePiece."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipUpgradePiece`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipUpgradePiece
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipUpgradePiece : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ShipUpgradePiece.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipUpgradePiece.cs`
 
 ## Overview
 
@@ -66,30 +60,55 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ShipUpgradePiece from the subsystem API first
+ShipUpgradePiece shipUpgradePiece = ...;
+shipUpgradePiece.Deserialize(objectManager, node);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ShipUpgradePiece from the subsystem API first
+ShipUpgradePiece shipUpgradePiece = ...;
+var result = shipUpgradePiece.ToString();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of ShipUpgradePiece from the subsystem API first
+ShipUpgradePiece shipUpgradePiece = ...;
+var result = shipUpgradePiece.GetName();
+```
 
 ### DoesPieceMatchSlot
 `public bool DoesPieceMatchSlot(ShipSlot slot)`
 
-**Purpose:** Handles logic related to `does piece match slot`.
+**Purpose:** Returns a boolean answer to whether `piece match slot` is true for the current object.
+
+```csharp
+// Obtain an instance of ShipUpgradePiece from the subsystem API first
+ShipUpgradePiece shipUpgradePiece = ...;
+var result = shipUpgradePiece.DoesPieceMatchSlot(slot);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipUpgradePiece();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+ShipUpgradePiece shipUpgradePiece = ...;
+shipUpgradePiece.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

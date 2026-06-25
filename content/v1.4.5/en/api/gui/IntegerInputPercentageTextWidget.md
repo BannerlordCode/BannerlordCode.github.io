@@ -1,20 +1,14 @@
 ---
 title: "IntegerInputPercentageTextWidget"
+description: "Auto-generated class reference for IntegerInputPercentageTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntegerInputPercentageTextWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IntegerInputPercentageTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class IntegerInputPercentageTextWidget : IntegerInputTextWidget`
 **Base:** `IntegerInputTextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/IntegerInputPercentageTextWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/IntegerInputPercentageTextWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `IntegerInputPercentageTextWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new IntegerInputPercentageTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+IntegerInputPercentageTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

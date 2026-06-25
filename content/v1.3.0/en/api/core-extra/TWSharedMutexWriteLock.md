@@ -1,13 +1,7 @@
 ---
 title: "TWSharedMutexWriteLock"
+description: "Auto-generated class reference for TWSharedMutexWriteLock."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TWSharedMutexWriteLock`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TWSharedMutexWriteLock
 
 **Namespace:** TaleWorlds.Library
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of TWSharedMutexWriteLock from the subsystem API first
+TWSharedMutexWriteLock tWSharedMutexWriteLock = ...;
+tWSharedMutexWriteLock.Dispose();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TWSharedMutexWriteLock();
-value.Dispose();
+// Typically call this after obtaining an instance from the subsystem API
+TWSharedMutexWriteLock tWSharedMutexWriteLock = ...;
+tWSharedMutexWriteLock.Dispose();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

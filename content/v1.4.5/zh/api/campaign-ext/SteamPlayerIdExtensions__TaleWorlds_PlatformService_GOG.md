@@ -1,20 +1,14 @@
 ---
-title: "SteamPlayerIdExtensions__TaleWorlds_PlatformService_GOG"
+title: "SteamPlayerIdExtensions"
+description: "SteamPlayerIdExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SteamPlayerIdExtensions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamPlayerIdExtensions
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public static class SteamPlayerIdExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/SteamPlayerIdExtensions.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/SteamPlayerIdExtensions.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "SteamPlayerIdExtensions__TaleWorlds_PlatformService_GOG"
 ### ToPlayerId
 `public static PlayerId ToPlayerId(this GalaxyID galaxyID)`
 
-**用途 / Purpose:** 处理 `to player id` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SteamPlayerIdExtensions.ToPlayerId(galaxyID);
+```
 
 ### ToGOGID
 `public static GalaxyID ToGOGID(this PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `to g o g i d` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SteamPlayerIdExtensions.ToGOGID(playerId);
+```
 
 ### IsValidGOGId
 `public static bool IsValidGOGId(this PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `is valid g o g id` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid g o g id」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+SteamPlayerIdExtensions.IsValidGOGId(playerId);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ SteamPlayerIdExtensions.ToPlayerId(galaxyID);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

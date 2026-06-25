@@ -1,13 +1,7 @@
 ---
 title: "DefencePoint"
+description: "Auto-generated class reference for DefencePoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefencePoint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefencePoint
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,33 +31,64 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Adds `defender` to the current collection or state.
 
+```csharp
+// Obtain an instance of DefencePoint from the subsystem API first
+DefencePoint defencePoint = ...;
+defencePoint.AddDefender(defender);
+```
+
 ### RemoveDefender
 `public bool RemoveDefender(Agent defender)`
 
 **Purpose:** Removes `defender` from the current collection or state.
 
+```csharp
+// Obtain an instance of DefencePoint from the subsystem API first
+DefencePoint defencePoint = ...;
+var result = defencePoint.RemoveDefender(defender);
+```
+
 ### PurgeInactiveDefenders
 `public void PurgeInactiveDefenders()`
 
-**Purpose:** Handles logic related to `purge inactive defenders`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefencePoint from the subsystem API first
+DefencePoint defencePoint = ...;
+defencePoint.PurgeInactiveDefenders();
+```
 
 ### GetVacantPosition
 `public MatrixFrame GetVacantPosition(Agent a)`
 
-**Purpose:** Gets the current value of `vacant position`.
+**Purpose:** Reads and returns the `vacant position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefencePoint from the subsystem API first
+DefencePoint defencePoint = ...;
+var result = defencePoint.GetVacantPosition(a);
+```
 
 ### CountOccupiedDefenderPositions
 `public int CountOccupiedDefenderPositions()`
 
-**Purpose:** Handles logic related to `count occupied defender positions`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefencePoint from the subsystem API first
+DefencePoint defencePoint = ...;
+var result = defencePoint.CountOccupiedDefenderPositions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefencePoint();
-value.AddDefender(defender);
+// Typically call this after obtaining an instance from the subsystem API
+DefencePoint defencePoint = ...;
+defencePoint.AddDefender(defender);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

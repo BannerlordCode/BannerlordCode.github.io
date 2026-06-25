@@ -1,20 +1,14 @@
 ---
 title: "MonoNativeFunctionWrapperAttribute"
+description: "Auto-generated class reference for MonoNativeFunctionWrapperAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MonoNativeFunctionWrapperAttribute`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MonoNativeFunctionWrapperAttribute
 
 **Namespace:** (global)
 **Module:** (global)
 **Type:** `public class MonoNativeFunctionWrapperAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/MonoNativeFunctionWrapperAttribute.cs`
+**File:** `bin/TaleWorlds.DotNet/MonoNativeFunctionWrapperAttribute.cs`
 
 ## Overview
 
@@ -33,4 +27,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveTarget"
+description: "MissionObjectiveTarget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectiveTarget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveTarget
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionObjectiveTarget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjectiveTarget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjectiveTarget.cs`
 
 ## 概述
 
@@ -24,35 +18,48 @@ title: "MissionObjectiveTarget"
 
 先从命名空间 `TaleWorlds.MountAndBlade.Missions.Objectives` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `Target` | `public T Target { get; }` |
-
 ## 主要方法
 
 ### IsActive
 `public abstract bool IsActive()`
 
-**用途 / Purpose:** 处理 `is active` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「active」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveTarget 实例
+MissionObjectiveTarget missionObjectiveTarget = ...;
+var result = missionObjectiveTarget.IsActive();
+```
 
 ### GetName
 `public abstract TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveTarget 实例
+MissionObjectiveTarget missionObjectiveTarget = ...;
+var result = missionObjectiveTarget.GetName();
+```
 
 ### GetGlobalPosition
 `public abstract Vec3 GetGlobalPosition()`
 
-**用途 / Purpose:** 获取 `global position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveTarget 实例
+MissionObjectiveTarget missionObjectiveTarget = ...;
+var result = missionObjectiveTarget.GetGlobalPosition();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionObjectiveTarget();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionObjectiveTarget instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

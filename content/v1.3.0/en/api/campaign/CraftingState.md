@@ -1,13 +1,7 @@
 ---
 title: "CraftingState"
+description: "Auto-generated class reference for CraftingState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### InitializeLogic
 `public void InitializeLogic(Crafting newCraftingLogic, bool isReplacingWeaponClass = false)`
 
-**Purpose:** Initializes the state, resources, or bindings for `logic`.
+**Purpose:** Prepares the resources, state, or bindings required by `logic`.
+
+```csharp
+// Obtain an instance of CraftingState from the subsystem API first
+CraftingState craftingState = ...;
+craftingState.InitializeLogic(newCraftingLogic, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingState();
-value.InitializeLogic(newCraftingLogic, false);
+// Typically call this after obtaining an instance from the subsystem API
+CraftingState craftingState = ...;
+craftingState.InitializeLogic(newCraftingLogic, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

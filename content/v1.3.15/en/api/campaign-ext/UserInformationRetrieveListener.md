@@ -1,13 +1,7 @@
 ---
 title: "UserInformationRetrieveListener"
+description: "Auto-generated class reference for UserInformationRetrieveListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UserInformationRetrieveListener`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UserInformationRetrieveListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnUserInformationRetrieveFailure
 `public override void OnUserInformationRetrieveFailure(GalaxyID userID, IUserInformationRetrieveListener.FailureReason failureReason)`
 
-**Purpose:** Called when the `user information retrieve failure` event is raised.
+**Purpose:** Invoked when the `user information retrieve failure` event is raised.
+
+```csharp
+// Obtain an instance of UserInformationRetrieveListener from the subsystem API first
+UserInformationRetrieveListener userInformationRetrieveListener = ...;
+userInformationRetrieveListener.OnUserInformationRetrieveFailure(userID, failureReason);
+```
 
 ### OnUserInformationRetrieveSuccess
 `public override void OnUserInformationRetrieveSuccess(GalaxyID userID)`
 
-**Purpose:** Called when the `user information retrieve success` event is raised.
+**Purpose:** Invoked when the `user information retrieve success` event is raised.
+
+```csharp
+// Obtain an instance of UserInformationRetrieveListener from the subsystem API first
+UserInformationRetrieveListener userInformationRetrieveListener = ...;
+userInformationRetrieveListener.OnUserInformationRetrieveSuccess(userID);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UserInformationRetrieveListener();
-value.OnUserInformationRetrieveFailure(userID, failureReason);
+// Typically call this after obtaining an instance from the subsystem API
+UserInformationRetrieveListener userInformationRetrieveListener = ...;
+userInformationRetrieveListener.OnUserInformationRetrieveFailure(userID, failureReason);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

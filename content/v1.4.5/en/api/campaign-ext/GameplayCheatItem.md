@@ -1,20 +1,14 @@
 ---
 title: "GameplayCheatItem"
+description: "Auto-generated class reference for GameplayCheatItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameplayCheatItem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatItem
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public abstract class GameplayCheatItem : GameplayCheatBase`
 **Base:** `GameplayCheatBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/GameplayCheatItem.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/GameplayCheatItem.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public abstract void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of GameplayCheatItem from the subsystem API first
+GameplayCheatItem gameplayCheatItem = ...;
+gameplayCheatItem.ExecuteCheat();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameplayCheatItem();
+// Typically obtained from a subsystem API or factory
+GameplayCheatItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

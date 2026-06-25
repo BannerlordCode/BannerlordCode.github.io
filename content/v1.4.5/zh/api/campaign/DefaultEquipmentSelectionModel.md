@@ -1,20 +1,14 @@
 ---
 title: "DefaultEquipmentSelectionModel"
+description: "DefaultEquipmentSelectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEquipmentSelectionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEquipmentSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultEquipmentSelectionModel : EquipmentSelectionModel`
 **Base:** `EquipmentSelectionModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultEquipmentSelectionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultEquipmentSelectionModel.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "DefaultEquipmentSelectionModel"
 ### GetEquipmentForHeroComeOfAge
 `public override Equipment GetEquipmentForHeroComeOfAge(Hero hero, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 获取 `equipment for hero come of age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for hero come of age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForHeroComeOfAge(hero, equipmentType);
+```
 
 ### GetEquipmentForHeroReachesTeenAge
 `public override Equipment GetEquipmentForHeroReachesTeenAge(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment for hero reaches teen age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for hero reaches teen age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForHeroReachesTeenAge(hero);
+```
 
 ### GetEquipmentForDeliveredOffspring
 `public override Equipment GetEquipmentForDeliveredOffspring(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment for delivered offspring` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for delivered offspring」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForDeliveredOffspring(hero);
+```
 
 ### GetEquipmentForCompanionWhenTurningToLord
 `public override Equipment GetEquipmentForCompanionWhenTurningToLord(Hero companionHero, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 获取 `equipment for companion when turning to lord` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for companion when turning to lord」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForCompanionWhenTurningToLord(companionHero, equipmentType);
+```
 
 ### GetEquipmentForInitialChildrenGeneration
 `public override Equipment GetEquipmentForInitialChildrenGeneration(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment for initial children generation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for initial children generation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentForInitialChildrenGeneration(hero);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultEquipmentSelectionModel>(new MyDefaultEquipment
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

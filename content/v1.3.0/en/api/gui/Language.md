@@ -1,13 +1,7 @@
 ---
 title: "Language"
+description: "Auto-generated class reference for Language."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Language`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Language
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -41,25 +35,43 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FontMapHasKey
 `public bool FontMapHasKey(string keyFontName)`
 
-**Purpose:** Handles logic related to `font map has key`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Language from the subsystem API first
+Language language = ...;
+var result = language.FontMapHasKey("example");
+```
 
 ### GetMappedFont
 `public Font GetMappedFont(string keyFontName)`
 
-**Purpose:** Gets the current value of `mapped font`.
+**Purpose:** Reads and returns the `mapped font` value held by the current object.
+
+```csharp
+// Obtain an instance of Language from the subsystem API first
+Language language = ...;
+var result = language.GetMappedFont("example");
+```
 
 ### CreateFrom
 `public static Language CreateFrom(XmlNode languageNode, FontFactory fontFactory)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Language.CreateFrom(languageNode, fontFactory);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Language();
-value.FontMapHasKey("example");
+// Typically call this after obtaining an instance from the subsystem API
+Language language = ...;
+language.FontMapHasKey("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

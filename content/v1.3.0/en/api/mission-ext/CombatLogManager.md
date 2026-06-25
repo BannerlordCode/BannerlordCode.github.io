@@ -1,13 +1,7 @@
 ---
 title: "CombatLogManager"
+description: "Auto-generated class reference for CombatLogManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatLogManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatLogManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,33 @@ Treat `CombatLogManager` as a Manager-style extension point: first identify who 
 ### PrintDebugLogForInfo
 `public static void PrintDebugLogForInfo(Agent attackerAgent, Agent victimAgent, DamageTypes damageType, int speedBonus, int armorAmount, int inflictedDamage, int absorbedByArmor, sbyte collisionBone, float lostHpPercentage)`
 
-**Purpose:** Handles logic related to `print debug log for info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CombatLogManager.PrintDebugLogForInfo(attackerAgent, victimAgent, damageType, 0, 0, 0, 0, 0, 0);
+```
 
 ### GenerateCombatLog
 `public static void GenerateCombatLog(CombatLogData logData)`
 
-**Purpose:** Handles logic related to `generate combat log`.
+**Purpose:** Generates an instance, data, or representation of `combat log`.
+
+```csharp
+// Static call; no instance required
+CombatLogManager.GenerateCombatLog(logData);
+```
 
 ### OnPrintCombatLogHandler
 `public delegate void OnPrintCombatLogHandler(CombatLogData logData)`
 
-**Purpose:** Called when the `print combat log handler` event is raised.
+**Purpose:** Invoked when the `print combat log handler` event is raised.
+
+```csharp
+// Obtain an instance of CombatLogManager from the subsystem API first
+CombatLogManager combatLogManager = ...;
+combatLogManager.OnPrintCombatLogHandler(logData);
+```
 
 ## Usage Example
 
@@ -49,4 +59,4 @@ var manager = CombatLogManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

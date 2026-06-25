@@ -1,20 +1,14 @@
 ---
 title: "ResourceDepotFile"
+description: "ResourceDepotFile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ResourceDepotFile`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResourceDepotFile
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class ResourceDepotFile`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ResourceDepotFile.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ResourceDepotFile.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "ResourceDepotFile"
 ## 使用示例
 
 ```csharp
-var example = new ResourceDepotFile();
+// 从对应子系统 API 获取实例
+ResourceDepotFile instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

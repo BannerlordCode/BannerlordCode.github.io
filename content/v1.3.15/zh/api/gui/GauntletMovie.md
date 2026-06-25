@@ -1,253 +1,112 @@
 ---
-title: GauntletMovie
-description: GauntletMovie - Gauntlet UI 影片，桥?UI Prefab ?ViewModel 并驱动更?
+title: "GauntletMovie"
+description: "GauntletMovie 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMovie`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GauntletMovie
-**命名空间:** TaleWorlds.GauntletUI.Data
-**模块:** TaleWorlds.GauntletUI.Data
-**类型:** class（实?
 
-`IGauntletMovie
+**Namespace:** TaleWorlds.GauntletUI.Data
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class GauntletMovie : IGauntletMovie`
+**Base:** `IGauntletMovie`
+**File:** `TaleWorlds.GauntletUI.Data/GauntletMovie.cs`
 
-`?
 ## 概述
-`GauntletMovie
 
-` ?Gauntlet UI 系统?影片"（Movie）的实现，它把一?UI Prefab?prefab 模板）与一?
+`GauntletMovie` 位于 `TaleWorlds.GauntletUI.Data`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-`ViewModel
-
-` 绑定在一起，生成可渲染的 Widget 树，并每帧驱动数据绑定更新。它?
-
-`GauntletMovie.Load
-
-` 的返回类型，也是 UI 框架与业务逻辑之间的核心桥梁?
-构造时接收 
-
-`UIContext
-
-`、`ViewModel
-
-`、`movieName
-
-`、`doManualUpdate
-
-`。`Load
-
-` 阙口通过 
-
-`PrefabSystem
-
-` 加载指定 
-
-`movieName
-
-` ?Prefab，用 
-
-`WidgetFactory
-
-` 生成 Widget 树，?
-
-`ViewModel
-
-` 注入?Widget。`Update
-
-` 每帧调用，刷新所有数据绑定（
-
-`Binding
-
-`、`PropertyBinding
-
-`、`EventBinding
-
-`）。`Release
-
-` 释放影片，销?Widget 树并解绑 ViewModel?
 ## 心智模型
-?
 
-`GauntletMovie
+先从命名空间 `TaleWorlds.GauntletUI.Data` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-` 看作"一个运行中?UI 实例"。Prefab 是模板（类），Movie 是实例（对象）。一?Prefab 可以同时加载多个 Movie（如多个背包面板）。Movie 持有?Widget 引用（`RootView
+## 主要属性
 
-`），每帧 
-
-`Update
-
-` ?ViewModel 属性变化推送到 Widget，把 Widget 事件（点击、拖拽）回调?ViewModel 命令。`doManualUpdate
-
-` ?
-
-`true
-
-` 时不自动每帧更新，需外部手动?
-
-`Update
-
-`?
-## 主要属?\| 属?\| 类型 \| 说明 \|
-\|------\|------\|------\|
-\| 
-
-`MovieName
-
-` \| 
-
-`string
-
-` \| Prefab 名称（只读） \|
-\| 
-
-`RootView
-
-` \| 
-
-`Widget
-
-` \| ?Widget（只读） \|
-\| 
-
-`ViewModel
-
-` \| 
-
-`ViewModel
-
-` \| 绑定的视图模型（只读?\|
-\| 
-
-`Context
-
-` \| 
-
-`UIContext
-
-` \| UI 上下文（只读?\|
-\| 
-
-`WidgetFactory
-
-` \| 
-
-`WidgetFactory
-
-` \| Widget 工厂（只读） \|
-\| 
-
-`BrushFactory
-
-` \| 
-
-`BrushFactory
-
-` \| 画刷工厂（只读） \|
+| Name | Signature |
+|------|-----------|
+| `WidgetFactory` | `public WidgetFactory WidgetFactory { get; }` |
+| `BrushFactory` | `public BrushFactory BrushFactory { get; }` |
+| `Context` | `public UIContext Context { get; }` |
+| `ViewModel` | `public IViewModel ViewModel { get; }` |
+| `MovieName` | `public string MovieName { get; }` |
+| `RootView` | `public GauntletView RootView { get; }` |
+| `RootWidget` | `public Widget RootWidget { get; }` |
+| `IsLoaded` | `public bool IsLoaded { get; }` |
+| `IsReleased` | `public bool IsReleased { get; }` |
 
 ## 主要方法
-### Update
-`
 
-`
+### RefreshDataSource
+`public void RefreshDataSource(IViewModel dataSourve)`
 
-`csharp
-public void Update()
-`
+**用途 / Purpose:** 使 「data source」 的显示或缓存与底层状态保持一致。
 
-`
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshDataSource(dataSourve);
+```
 
-`
-每帧调用：刷新所有数据绑定，?ViewModel 属性推送到 Widget，把 Widget 事件回调?ViewModel?
 ### Release
-`
+`public void Release()`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public void Release()
-`
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.Release();
+```
 
-`
+### Update
+`public void Update()`
 
-`
-释放影片：解?ViewModel，销?Widget 树，?UI 上下文注销?
-### Load (静?
-`
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
-`
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.Update();
+```
 
-`csharp
-public static IGauntletMovie Load(UIContext context, ViewModel viewModel,
-    string movieName, bool doManualUpdate = false)
-`
+### Load
+`public static IGauntletMovie Load(UIContext context, WidgetFactory widgetFactory, string movieName, IViewModel datasource, bool doNotUseGeneratedPrefabs, bool hotReloadEnabled)`
 
-`
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
-`
-工厂方法：加载指?Prefab，构?
+```csharp
+// 静态调用，不需要实例
+GauntletMovie.Load(context, widgetFactory, "example", datasource, false, false);
+```
 
-`GauntletMovie
+### RefreshBindingWithChildren
+`public void RefreshBindingWithChildren()`
 
-`，生?Widget 树并绑定 ViewModel?
+**用途 / Purpose:** 使 「binding with children」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshBindingWithChildren();
+```
+
+### FindViewOf
+`public GauntletView FindViewOf(Widget widget)`
+
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「view of」。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+var result = gauntletMovie.FindViewOf(widget);
+```
+
 ## 使用示例
-### 示例: 加载并显示一?UI 面板
-**场景**: 战役地图上显示任务面?
 
-`
+```csharp
+// 通常从对应子系统 API 获取实例后调用
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshDataSource(dataSourve);
+```
 
-`
-
-`csharp
-// 1. 创建 ViewModel
-var questVM = new QuestPanelVM(campaign);
-
-// 2. 加载 Movie（加?Prefab 并绑?ViewModel?IGauntletMovie movie = GauntletMovie.Load(
-    context: uiContext,
-    viewModel: questVM,
-    movieName: "QuestPanel",
-    doManualUpdate: false);
-
-// 3. 每帧自动 Update（由 UI 上下文驱动）
-//    ViewModel 属性变??Widget 自动刷新
-//    Widget 事件 ?ViewModel 命令自动调用
-
-// 4. 关闭面板时释?movie.Release();
-questVM.OnFinalize();
-`
-
-`
-
-`
-**要点**: 
-
-`doManualUpdate
-
-` ?
-
-`true
-
-` 时需外部每帧手动?
-
-`Update
-
-`，用于需要精确控制更新时机的场景（如编辑器）。`Release
-
-` 必须?ViewModel ?
-
-`OnFinalize
-
-` 之前或之后调用，但不能跳过——否?Widget 树与绑定泄漏。`Load
-
-` 会缓?Prefab 解析结果，重复加载同?Prefab 不会重新解析 XML。`RootView
-
-` ?Widget 树的根，可手动遍历查找特?Widget（不推荐，应通过绑定操作）?
 ## 参见
-- [完整类目录](../catalog-ui)
-- [本领域目录](../catalog-ui)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+
+- [本区域目录](../)

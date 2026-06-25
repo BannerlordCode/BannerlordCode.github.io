@@ -1,13 +1,7 @@
 ---
 title: "SkillGridItemButtonWidget"
+description: "Auto-generated class reference for SkillGridItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillGridItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkillGridItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
@@ -37,9 +31,10 @@ Treat `SkillGridItemButtonWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new SkillGridItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SkillGridItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

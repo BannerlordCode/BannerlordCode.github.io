@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletOptionsUIHandler"
+description: "Auto-generated class reference for MissionGauntletOptionsUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletOptionsUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletOptionsUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletOptionsUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletOptionsUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletOptionsUIHandler.cs`
 
 ## Overview
 
@@ -35,34 +29,64 @@ Treat `MissionGauntletOptionsUIHandler` as a Handler-style extension point: firs
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+missionGauntletOptionsUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+missionGauntletOptionsUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+missionGauntletOptionsUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+var result = missionGauntletOptionsUIHandler.OnEscape();
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** Handles logic related to `is opening escape menu on focus change allowed`.
+**Purpose:** Determines whether the current object is in the `opening escape menu on focus change allowed` state or condition.
+
+```csharp
+// Obtain an instance of MissionGauntletOptionsUIHandler from the subsystem API first
+MissionGauntletOptionsUIHandler missionGauntletOptionsUIHandler = ...;
+var result = missionGauntletOptionsUIHandler.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletOptionsUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletOptionsUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

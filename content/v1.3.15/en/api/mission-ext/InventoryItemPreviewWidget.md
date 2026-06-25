@@ -1,13 +1,7 @@
 ---
 title: "InventoryItemPreviewWidget"
+description: "Auto-generated class reference for InventoryItemPreviewWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryItemPreviewWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryItemPreviewWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
@@ -34,9 +28,10 @@ Treat `InventoryItemPreviewWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new InventoryItemPreviewWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InventoryItemPreviewWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ThumbnailCache"
+description: "Auto-generated class reference for ThumbnailCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThumbnailCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ThumbnailCache<T> : IThumbnailCache where T : ThumbnailCreationData`
 **Base:** `IThumbnailCache where T : ThumbnailCreationData`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/ThumbnailCache.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/ThumbnailCache.cs`
 
 ## Overview
 
@@ -35,19 +29,32 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateTexture
 `public TextureCreationInfo CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Creates a new `texture` instance or object.
+**Purpose:** Constructs a new `texture` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of ThumbnailCache from the subsystem API first
+ThumbnailCache thumbnailCache = ...;
+var result = thumbnailCache.CreateTexture(thumbnailCreationData);
+```
 
 ### ReleaseTexture
 `public bool ReleaseTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Handles logic related to `release texture`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ThumbnailCache from the subsystem API first
+ThumbnailCache thumbnailCache = ...;
+var result = thumbnailCache.ReleaseTexture(thumbnailCreationData);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomThumbnailCache();
+// Typically obtained from a subsystem API or factory
+ThumbnailCache instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

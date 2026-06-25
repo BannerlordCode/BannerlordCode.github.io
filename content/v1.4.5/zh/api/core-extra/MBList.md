@@ -1,20 +1,14 @@
 ---
 title: "MBList"
+description: "MBList 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBList`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class MBList<T> : MBReadOnlyList<T>`
 **Base:** `MBReadOnlyList<T>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBList.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBList.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MBList"
 ## 使用示例
 
 ```csharp
-var example = new MBList();
+// 从对应子系统 API 获取实例
+MBList instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

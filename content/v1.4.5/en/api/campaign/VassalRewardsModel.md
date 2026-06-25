@@ -1,20 +1,14 @@
 ---
 title: "VassalRewardsModel"
+description: "Auto-generated class reference for VassalRewardsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VassalRewardsModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VassalRewardsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class VassalRewardsModel : MBGameModel<VassalRewardsModel>`
 **Base:** `MBGameModel<VassalRewardsModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VassalRewardsModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VassalRewardsModel.cs`
 
 ## Overview
 
@@ -36,19 +30,32 @@ Treat `VassalRewardsModel` as a Model-style extension point: first identify who 
 ### GetTroopRewardsForJoiningKingdom
 `public abstract TroopRoster GetTroopRewardsForJoiningKingdom(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `troop rewards for joining kingdom`.
+**Purpose:** Reads and returns the `troop rewards for joining kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of VassalRewardsModel from the subsystem API first
+VassalRewardsModel vassalRewardsModel = ...;
+var result = vassalRewardsModel.GetTroopRewardsForJoiningKingdom(kingdom);
+```
 
 ### GetEquipmentRewardsForJoiningKingdom
 `public abstract ItemRoster GetEquipmentRewardsForJoiningKingdom(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `equipment rewards for joining kingdom`.
+**Purpose:** Reads and returns the `equipment rewards for joining kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of VassalRewardsModel from the subsystem API first
+VassalRewardsModel vassalRewardsModel = ...;
+var result = vassalRewardsModel.GetEquipmentRewardsForJoiningKingdom(kingdom);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomVassalRewardsModel();
+// Typically obtained from a subsystem API or factory
+VassalRewardsModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

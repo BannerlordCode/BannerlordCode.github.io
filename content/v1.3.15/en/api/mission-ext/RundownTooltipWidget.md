@@ -1,13 +1,7 @@
 ---
 title: "RundownTooltipWidget"
+description: "Auto-generated class reference for RundownTooltipWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RundownTooltipWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RundownTooltipWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip
@@ -35,9 +29,10 @@ Treat `RundownTooltipWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new RundownTooltipWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+RundownTooltipWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

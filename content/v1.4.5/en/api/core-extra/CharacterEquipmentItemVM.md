@@ -1,20 +1,14 @@
 ---
 title: "CharacterEquipmentItemVM"
+description: "Auto-generated class reference for CharacterEquipmentItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterEquipmentItemVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterEquipmentItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterEquipmentItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/CharacterEquipmentItemVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/CharacterEquipmentItemVM.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the st
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of CharacterEquipmentItemVM from the subsystem API first
+CharacterEquipmentItemVM characterEquipmentItemVM = ...;
+characterEquipmentItemVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of CharacterEquipmentItemVM from the subsystem API first
+CharacterEquipmentItemVM characterEquipmentItemVM = ...;
+characterEquipmentItemVM.ExecuteEndHint();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterEquipmentItemVM();
-value.ExecuteBeginHint();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterEquipmentItemVM characterEquipmentItemVM = ...;
+characterEquipmentItemVM.ExecuteBeginHint();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PathFaceRecord"
+description: "Auto-generated class reference for PathFaceRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PathFaceRecord`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PathFaceRecord
 
 **Namespace:** TaleWorlds.Library
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of PathFaceRecord from the subsystem API first
+PathFaceRecord pathFaceRecord = ...;
+var result = pathFaceRecord.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PathFaceRecord();
-value.IsValid();
+// Typically call this after obtaining an instance from the subsystem API
+PathFaceRecord pathFaceRecord = ...;
+pathFaceRecord.IsValid();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

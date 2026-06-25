@@ -1,13 +1,7 @@
 ---
 title: "ScreenBase"
+description: "ScreenBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScreenBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScreenBase
 
 **Namespace:** TaleWorlds.ScreenSystem
@@ -41,84 +35,175 @@ title: "ScreenBase"
 ### ActivateAllLayers
 `public void ActivateAllLayers()`
 
-**用途 / Purpose:** 处理 `activate all layers` 相关逻辑。
+**用途 / Purpose:** 激活「all layers」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.ActivateAllLayers();
+```
 
 ### DeactivateAllLayers
 `public void DeactivateAllLayers()`
 
-**用途 / Purpose:** 处理 `deactivate all layers` 相关逻辑。
+**用途 / Purpose:** 停用「all layers」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.DeactivateAllLayers();
+```
 
 ### Deactivate
 `public void Deactivate()`
 
-**用途 / Purpose:** 处理 `deactivate` 相关逻辑。
+**用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.Deactivate();
+```
 
 ### Activate
 `public void Activate()`
 
-**用途 / Purpose:** 处理 `activate` 相关逻辑。
+**用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.Activate();
+```
 
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**用途 / Purpose:** 更新 `layout` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「layout」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.UpdateLayout();
+```
 
 ### OnFocusChangeOnGameWindow
 `public virtual void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**用途 / Purpose:** 当 `focus change on game window` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus change on game window」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.OnFocusChangeOnGameWindow(false);
+```
 
 ### AddComponent
 `public void AddComponent(ScreenComponent component)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `component`。
+**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.AddComponent(component);
+```
 
 ### AddLayer
 `public void AddLayer(ScreenLayer layer)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `layer`。
+**用途 / Purpose:** 将 「layer」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.AddLayer(layer);
+```
 
 ### RemoveLayer
 `public void RemoveLayer(ScreenLayer layer)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `layer`。
+**用途 / Purpose:** 从当前容器或状态中移除 「layer」。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.RemoveLayer(layer);
+```
 
 ### HasLayer
 `public bool HasLayer(ScreenLayer layer)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `layer`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「layer」。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+var result = screenBase.HasLayer(layer);
+```
 
 ### SetLayerCategoriesState
 `public void SetLayerCategoriesState(string categoryIds, bool isActive)`
 
-**用途 / Purpose:** 设置 `layer categories state` 的值或状态。
+**用途 / Purpose:** 为 「layer categories state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.SetLayerCategoriesState("example", false);
+```
 
 ### SetLayerCategoriesStateAndToggleOthers
 `public void SetLayerCategoriesStateAndToggleOthers(string categoryIds, bool isActive)`
 
-**用途 / Purpose:** 设置 `layer categories state and toggle others` 的值或状态。
+**用途 / Purpose:** 为 「layer categories state and toggle others」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.SetLayerCategoriesStateAndToggleOthers("example", false);
+```
 
 ### SetLayerCategoriesStateAndDeactivateOthers
 `public void SetLayerCategoriesStateAndDeactivateOthers(string categoryIds, bool isActive)`
 
-**用途 / Purpose:** 设置 `layer categories state and deactivate others` 的值或状态。
+**用途 / Purpose:** 为 「layer categories state and deactivate others」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.SetLayerCategoriesStateAndDeactivateOthers("example", false);
+```
 
 ### OnLayerAddedEvent
 `public delegate void OnLayerAddedEvent(ScreenLayer addedLayer)`
 
-**用途 / Purpose:** 当 `layer added event` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「layer added event」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.OnLayerAddedEvent(addedLayer);
+```
 
 ### OnLayerRemovedEvent
 `public delegate void OnLayerRemovedEvent(ScreenLayer removedLayer)`
 
-**用途 / Purpose:** 当 `layer removed event` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「layer removed event」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenBase 实例
+ScreenBase screenBase = ...;
+screenBase.OnLayerRemovedEvent(removedLayer);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomScreenBase();
+// 通常通过子系统 API 或工厂获得派生实例
+ScreenBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

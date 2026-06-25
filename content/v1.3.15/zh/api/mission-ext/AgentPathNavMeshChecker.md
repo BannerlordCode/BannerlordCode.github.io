@@ -1,13 +1,7 @@
 ---
 title: "AgentPathNavMeshChecker"
+description: "AgentPathNavMeshChecker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentPathNavMeshChecker`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentPathNavMeshChecker
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Objects.Siege
@@ -29,25 +23,44 @@ title: "AgentPathNavMeshChecker"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentPathNavMeshChecker 实例
+AgentPathNavMeshChecker agentPathNavMeshChecker = ...;
+agentPathNavMeshChecker.Tick(0);
+```
 
 ### TickOccasionally
 `public void TickOccasionally(float dt)`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentPathNavMeshChecker 实例
+AgentPathNavMeshChecker agentPathNavMeshChecker = ...;
+agentPathNavMeshChecker.TickOccasionally(0);
+```
 
 ### HasAgentsUsingPath
 `public bool HasAgentsUsingPath()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `agents using path`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「agents using path」。
+
+```csharp
+// 先通过子系统 API 拿到 AgentPathNavMeshChecker 实例
+AgentPathNavMeshChecker agentPathNavMeshChecker = ...;
+var result = agentPathNavMeshChecker.HasAgentsUsingPath();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AgentPathNavMeshChecker();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+AgentPathNavMeshChecker agentPathNavMeshChecker = ...;
+agentPathNavMeshChecker.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

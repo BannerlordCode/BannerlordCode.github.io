@@ -1,20 +1,14 @@
 ---
 title: "MapViewsContainer"
+description: "Auto-generated class reference for MapViewsContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapViewsContainer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapViewsContainer
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapViewsContainer`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapViewsContainer.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapViewsContainer.cs`
 
 ## Overview
 
@@ -29,55 +23,110 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### Add
 `public void Add(MapView mapView)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+mapViewsContainer.Add(mapView);
+```
 
 ### Remove
 `public void Remove(MapView mapView)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+mapViewsContainer.Remove(mapView);
+```
 
 ### Contains
 `public bool Contains(MapView mapView)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+var result = mapViewsContainer.Contains(mapView);
+```
 
 ### Foreach
 `public void Foreach(Action<MapView> action)`
 
-**Purpose:** Handles logic related to `foreach`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+mapViewsContainer.Foreach(action);
+```
 
 ### ForeachReverse
 `public void ForeachReverse(Action<MapView> action)`
 
-**Purpose:** Handles logic related to `foreach reverse`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+mapViewsContainer.ForeachReverse(action);
+```
 
 ### ReturnFirstElementWithCondition
 `public MapView ReturnFirstElementWithCondition(Func<MapView, bool> condition)`
 
-**Purpose:** Handles logic related to `return first element with condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+var result = mapViewsContainer.ReturnFirstElementWithCondition(func<MapView, false);
+```
 
 ### GetContextToChangeTo
 `public TutorialContexts GetContextToChangeTo()`
 
-**Purpose:** Gets the current value of `context to change to`.
+**Purpose:** Reads and returns the `context to change to` value held by the current object.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+var result = mapViewsContainer.GetContextToChangeTo();
+```
 
 ### IsThereAnyViewIsEscaped
 `public bool IsThereAnyViewIsEscaped()`
 
-**Purpose:** Handles logic related to `is there any view is escaped`.
+**Purpose:** Determines whether the current object is in the `there any view is escaped` state or condition.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+var result = mapViewsContainer.IsThereAnyViewIsEscaped();
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowedForAll
 `public bool IsOpeningEscapeMenuOnFocusChangeAllowedForAll()`
 
-**Purpose:** Handles logic related to `is opening escape menu on focus change allowed for all`.
+**Purpose:** Determines whether the current object is in the `opening escape menu on focus change allowed for all` state or condition.
+
+```csharp
+// Obtain an instance of MapViewsContainer from the subsystem API first
+MapViewsContainer mapViewsContainer = ...;
+var result = mapViewsContainer.IsOpeningEscapeMenuOnFocusChangeAllowedForAll();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapViewsContainer();
-value.Add(mapView);
+// Typically call this after obtaining an instance from the subsystem API
+MapViewsContainer mapViewsContainer = ...;
+mapViewsContainer.Add(mapView);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

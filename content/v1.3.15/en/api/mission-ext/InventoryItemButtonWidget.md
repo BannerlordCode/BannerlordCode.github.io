@@ -1,13 +1,7 @@
 ---
 title: "InventoryItemButtonWidget"
+description: "Auto-generated class reference for InventoryItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
@@ -36,9 +30,10 @@ Treat `InventoryItemButtonWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var implementation = new CustomInventoryItemButtonWidget();
+// Typically obtained from a subsystem API or factory
+InventoryItemButtonWidget instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

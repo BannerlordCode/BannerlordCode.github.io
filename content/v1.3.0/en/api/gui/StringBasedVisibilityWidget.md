@@ -1,13 +1,7 @@
 ---
 title: "StringBasedVisibilityWidget"
+description: "Auto-generated class reference for StringBasedVisibilityWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringBasedVisibilityWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringBasedVisibilityWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -35,9 +29,10 @@ Treat `StringBasedVisibilityWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new StringBasedVisibilityWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+StringBasedVisibilityWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

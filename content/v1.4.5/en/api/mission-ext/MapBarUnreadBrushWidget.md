@@ -1,20 +1,14 @@
 ---
 title: "MapBarUnreadBrushWidget"
+description: "Auto-generated class reference for MapBarUnreadBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapBarUnreadBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapBarUnreadBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapBarUnreadBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapBarUnreadBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapBarUnreadBrushWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MapBarUnreadBrushWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new MapBarUnreadBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapBarUnreadBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

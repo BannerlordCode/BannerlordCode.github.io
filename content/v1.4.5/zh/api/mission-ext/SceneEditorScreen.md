@@ -1,20 +1,14 @@
 ---
 title: "SceneEditorScreen"
+description: "SceneEditorScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SceneEditorScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneEditorScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneEditorScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/SceneEditorScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/SceneEditorScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "SceneEditorScreen"
 ## 使用示例
 
 ```csharp
-var value = new SceneEditorScreen();
+// 从对应子系统 API 获取实例
+SceneEditorScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapMarkerManager"
+description: "Auto-generated class reference for MapMarkerManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapMarkerManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapMarkerManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MapMarkerManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/MapMarkerManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/MapMarkerManager.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `MapMarkerManager` as a Manager-style extension point: first identify who 
 ### CreateMapMarker
 `public MapMarker CreateMapMarker(Banner banner, TextObject name, Vec3 position, bool isVisibleOnMap, string questId)`
 
-**Purpose:** Creates a new `map marker` instance or object.
+**Purpose:** Constructs a new `map marker` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MapMarkerManager from the subsystem API first
+MapMarkerManager mapMarkerManager = ...;
+var result = mapMarkerManager.CreateMapMarker(banner, name, position, false, "example");
+```
 
 ### RemoveMapMarker
 `public void RemoveMapMarker(MapMarker mapMarker)`
 
 **Purpose:** Removes `map marker` from the current collection or state.
 
+```csharp
+// Obtain an instance of MapMarkerManager from the subsystem API first
+MapMarkerManager mapMarkerManager = ...;
+mapMarkerManager.RemoveMapMarker(mapMarker);
+```
+
 ### RemoveAllMapMarkersByQuestId
 `public void RemoveAllMapMarkersByQuestId(string questId)`
 
 **Purpose:** Removes `all map markers by quest id` from the current collection or state.
 
+```csharp
+// Obtain an instance of MapMarkerManager from the subsystem API first
+MapMarkerManager mapMarkerManager = ...;
+mapMarkerManager.RemoveAllMapMarkersByQuestId("example");
+```
+
 ### GetMapMarkersByQuestId
 `public IEnumerable<MapMarker> GetMapMarkersByQuestId(string questId)`
 
-**Purpose:** Gets the current value of `map markers by quest id`.
+**Purpose:** Reads and returns the `map markers by quest id` value held by the current object.
+
+```csharp
+// Obtain an instance of MapMarkerManager from the subsystem API first
+MapMarkerManager mapMarkerManager = ...;
+var result = mapMarkerManager.GetMapMarkersByQuestId("example");
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var manager = MapMarkerManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "WorkshopItemNameComparer"
+description: "Auto-generated class reference for WorkshopItemNameComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorkshopItemNameComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopItemNameComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of WorkshopItemNameComparer from the subsystem API first
+WorkshopItemNameComparer workshopItemNameComparer = ...;
+var result = workshopItemNameComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WorkshopItemNameComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+WorkshopItemNameComparer workshopItemNameComparer = ...;
+workshopItemNameComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

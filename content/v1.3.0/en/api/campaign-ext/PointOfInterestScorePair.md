@@ -1,23 +1,18 @@
 ---
 title: "PointOfInterestScorePair"
+description: "Auto-generated class reference for PointOfInterestScorePair."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PointOfInterestScorePair`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PointOfInterestScorePair
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class PointOfInterestScorePair`
-**Area:** campaign-ext
+**Base:** none
+**File:** `SandBox/Missions/MissionLogics/MissionPathGenerationLogic.cs`
 
 ## Overview
 
-`PointOfInterestScorePair` lives in `SandBox.Missions.MissionLogics`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PointOfInterestScorePair` lives in `SandBox.Missions.MissionLogics` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -31,115 +26,80 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 
 ## Key Methods
 
-### OnObjectUsed
-`public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
+### Clone
+`public MissionPathGenerationLogic.PointOfInterestScorePair Clone()`
 
-**Purpose:** Called when the `object used` event is raised.
+**Purpose:** Duplicates the current object's state and returns a new instance.
 
-### InitializeBehavior
-`public void InitializeBehavior()`
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.Clone();
+```
 
-**Purpose:** Initializes the state, resources, or bindings for `behavior`.
+### AddToData
+`public void AddToData(MissionPathGenerationLogic.PointOfInterestBaseData pointOfInterestToAdd)`
 
-### OnMissionTick
-`public override void OnMissionTick(float dt)`
+**Purpose:** Adds `to data` to the current collection or state.
 
-**Purpose:** Called when the `mission tick` event is raised.
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.AddToData(pointOfInterestToAdd);
+```
 
-### GetAllPossiblePaths
-`public List<MissionPathGenerationLogic.PointOfInterestScorePair> GetAllPossiblePaths()`
+### IsDataEqualTo
+`public bool IsDataEqualTo(MissionPathGenerationLogic.PointOfInterestScorePair other, MissionPathGenerationLogic.PointOfInterestBaseData newDataToAdd)`
 
-**Purpose:** Gets the current value of `all possible paths`.
+**Purpose:** Determines whether the current object is in the `data equal to` state or condition.
 
-### IsOnLeftSide
-`public bool IsOnLeftSide(Vec2 lineA, Vec2 lineB, Vec2 point)`
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsDataEqualTo(other, newDataToAdd);
+```
 
-**Purpose:** Handles logic related to `is on left side`.
+### IsBetterThan
+`public bool IsBetterThan(MissionPathGenerationLogic.PointOfInterestScorePair other)`
 
-### ReverseClone
-`public MissionPathGenerationLogic.NavigationPathData ReverseClone()`
+**Purpose:** Determines whether the current object is in the `better than` state or condition.
 
-**Purpose:** Handles logic related to `reverse clone`.
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsBetterThan(other);
+```
 
-### InitializeUsablePoints
-`public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
+### IsSufficient
+`public bool IsSufficient()`
 
-**Purpose:** Initializes the state, resources, or bindings for `usable points`.
+**Purpose:** Determines whether the current object is in the `sufficient` state or condition.
 
-### GetPointOfInterestType
-`public abstract MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsSufficient();
+```
 
-**Purpose:** Gets the current value of `point of interest type`.
+### ReOrderDataAccordingToPathRatios
+`public void ReOrderDataAccordingToPathRatios()`
 
-### GetPositionAndRadiusPairs
-`public abstract List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
+**Purpose:** Performs the operation described by this method.
 
-**Purpose:** Gets the current value of `position and radius pairs`.
-
-### IsInRadius
-`public abstract bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public abstract float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### GetPositionAndRadiusPairs
-`public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
-
-**Purpose:** Gets the current value of `position and radius pairs`.
-
-### IsInRadius
-`public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### GetPositionAndRadiusPairs
-`public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
-
-**Purpose:** Gets the current value of `position and radius pairs`.
-
-### IsInRadius
-`public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.ReOrderDataAccordingToPathRatios();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a PointOfInterestScorePair instance from game state, then call one of its public methods
-var value = new PointOfInterestScorePair();
-value.OnObjectUsed(userAgent, usedObject);
+// Typically call this after obtaining an instance from the subsystem API
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.Clone();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

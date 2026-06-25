@@ -1,13 +1,7 @@
 ---
 title: "NameplateNotificationListPanel"
+description: "Auto-generated class reference for NameplateNotificationListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NameplateNotificationListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NameplateNotificationListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Notifications
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Noti
 ## Usage Example
 
 ```csharp
-var value = new NameplateNotificationListPanel();
+// Obtain an instance from the relevant subsystem API
+NameplateNotificationListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

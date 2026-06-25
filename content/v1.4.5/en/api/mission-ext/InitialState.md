@@ -1,20 +1,14 @@
 ---
 title: "InitialState"
+description: "Auto-generated class reference for InitialState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialState
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InitialState : GameState`
 **Base:** `GameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/InitialState.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/InitialState.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnExecutedInitialStateOption
 `public void OnExecutedInitialStateOption(InitialStateOption target)`
 
-**Purpose:** Called when the `executed initial state option` event is raised.
+**Purpose:** Invoked when the `executed initial state option` event is raised.
+
+```csharp
+// Obtain an instance of InitialState from the subsystem API first
+InitialState initialState = ...;
+initialState.OnExecutedInitialStateOption(target);
+```
 
 ### RefreshContentState
 `public void RefreshContentState()`
 
-**Purpose:** Refreshes the display or cache of `content state`.
+**Purpose:** Keeps the display or cache of `content state` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of InitialState from the subsystem API first
+InitialState initialState = ...;
+initialState.RefreshContentState();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InitialState();
-value.OnExecutedInitialStateOption(target);
+// Typically call this after obtaining an instance from the subsystem API
+InitialState initialState = ...;
+initialState.OnExecutedInitialStateOption(target);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

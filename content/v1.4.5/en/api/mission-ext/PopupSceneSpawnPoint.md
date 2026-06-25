@@ -1,20 +1,14 @@
 ---
 title: "PopupSceneSpawnPoint"
+description: "Auto-generated class reference for PopupSceneSpawnPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneSpawnPoint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneSpawnPoint
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PopupSceneSpawnPoint : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/PopupSceneSpawnPoint.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/PopupSceneSpawnPoint.cs`
 
 ## Overview
 
@@ -35,40 +29,77 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### InitializeWithAgentVisuals
 `public void InitializeWithAgentVisuals(AgentVisuals humanVisuals, AgentVisuals mountVisuals = null)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with agent visuals`.
+**Purpose:** Prepares the resources, state, or bindings required by `with agent visuals`.
+
+```csharp
+// Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
+PopupSceneSpawnPoint popupSceneSpawnPoint = ...;
+popupSceneSpawnPoint.InitializeWithAgentVisuals(humanVisuals, null);
+```
 
 ### SetInitialState
 `public void SetInitialState()`
 
-**Purpose:** Sets the value or state of `initial state`.
+**Purpose:** Assigns a new value to `initial state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
+PopupSceneSpawnPoint popupSceneSpawnPoint = ...;
+popupSceneSpawnPoint.SetInitialState();
+```
 
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**Purpose:** Sets the value or state of `positive state`.
+**Purpose:** Assigns a new value to `positive state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
+PopupSceneSpawnPoint popupSceneSpawnPoint = ...;
+popupSceneSpawnPoint.SetPositiveState();
+```
 
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**Purpose:** Sets the value or state of `negative state`.
+**Purpose:** Assigns a new value to `negative state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
+PopupSceneSpawnPoint popupSceneSpawnPoint = ...;
+popupSceneSpawnPoint.SetNegativeState();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
+PopupSceneSpawnPoint popupSceneSpawnPoint = ...;
+popupSceneSpawnPoint.Destroy();
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
+PopupSceneSpawnPoint popupSceneSpawnPoint = ...;
+var result = popupSceneSpawnPoint.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PopupSceneSpawnPoint();
-value.InitializeWithAgentVisuals(humanVisuals, null);
+// Typically call this after obtaining an instance from the subsystem API
+PopupSceneSpawnPoint popupSceneSpawnPoint = ...;
+popupSceneSpawnPoint.InitializeWithAgentVisuals(humanVisuals, null);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

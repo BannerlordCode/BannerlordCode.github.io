@@ -1,13 +1,7 @@
 ---
 title: "PartyTroopManagerItemVM"
+description: "PartyTroopManagerItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyTroopManagerItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTroopManagerItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
@@ -39,25 +33,44 @@ title: "PartyTroopManagerItemVM"
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** 执行 `set focused` 操作或流程。
+**用途 / Purpose:** 执行 「set focused」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerItemVM 实例
+PartyTroopManagerItemVM partyTroopManagerItemVM = ...;
+partyTroopManagerItemVM.ExecuteSetFocused();
+```
 
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** 执行 `set unfocused` 操作或流程。
+**用途 / Purpose:** 执行 「set unfocused」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerItemVM 实例
+PartyTroopManagerItemVM partyTroopManagerItemVM = ...;
+partyTroopManagerItemVM.ExecuteSetUnfocused();
+```
 
 ### ExecuteOpenTroopEncyclopedia
 `public void ExecuteOpenTroopEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open troop encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open troop encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerItemVM 实例
+PartyTroopManagerItemVM partyTroopManagerItemVM = ...;
+partyTroopManagerItemVM.ExecuteOpenTroopEncyclopedia();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyTroopManagerItemVM();
-value.ExecuteSetFocused();
+// 通常从对应子系统 API 获取实例后调用
+PartyTroopManagerItemVM partyTroopManagerItemVM = ...;
+partyTroopManagerItemVM.ExecuteSetFocused();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

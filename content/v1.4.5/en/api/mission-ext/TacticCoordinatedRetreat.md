@@ -1,20 +1,14 @@
 ---
 title: "TacticCoordinatedRetreat"
+description: "Auto-generated class reference for TacticCoordinatedRetreat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticCoordinatedRetreat`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticCoordinatedRetreat
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticCoordinatedRetreat`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticCoordinatedRetreat.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticCoordinatedRetreat.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TacticCoordinatedRetreat
 `public class TacticCoordinatedRetreat(Team team)`
 
-**Purpose:** Handles logic related to `tactic coordinated retreat`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TacticCoordinatedRetreat from the subsystem API first
+TacticCoordinatedRetreat tacticCoordinatedRetreat = ...;
+var result = tacticCoordinatedRetreat.TacticCoordinatedRetreat(team);
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticCoordinatedRetreat from the subsystem API first
+TacticCoordinatedRetreat tacticCoordinatedRetreat = ...;
+tacticCoordinatedRetreat.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticCoordinatedRetreat();
-value.TacticCoordinatedRetreat(team);
+// Typically call this after obtaining an instance from the subsystem API
+TacticCoordinatedRetreat tacticCoordinatedRetreat = ...;
+tacticCoordinatedRetreat.TacticCoordinatedRetreat(team);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

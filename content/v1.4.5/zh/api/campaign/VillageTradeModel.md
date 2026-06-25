@@ -1,20 +1,14 @@
 ---
 title: "VillageTradeModel"
+description: "VillageTradeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VillageTradeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class VillageTradeModel : MBGameModel<VillageTradeModel>`
 **Base:** `MBGameModel<VillageTradeModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VillageTradeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VillageTradeModel.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "VillageTradeModel"
 ### TradeBoundDistanceLimitAsDays
 `public abstract float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 处理 `trade bound distance limit as days` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VillageTradeModel 实例
+VillageTradeModel villageTradeModel = ...;
+var result = villageTradeModel.TradeBoundDistanceLimitAsDays(navigationType);
+```
 
 ### GetTradeBoundToAssignForVillage
 `public abstract Settlement GetTradeBoundToAssignForVillage(Village village)`
 
-**用途 / Purpose:** 获取 `trade bound to assign for village` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trade bound to assign for village」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillageTradeModel 实例
+VillageTradeModel villageTradeModel = ...;
+var result = villageTradeModel.GetTradeBoundToAssignForVillage(village);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomVillageTradeModel();
+// 通常通过子系统 API 或工厂获得派生实例
+VillageTradeModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionTimeTracker"
+description: "Auto-generated class reference for MissionTimeTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionTimeTracker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTimeTracker
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Tick
 `public void Tick(float seconds)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionTimeTracker from the subsystem API first
+MissionTimeTracker missionTimeTracker = ...;
+missionTimeTracker.Tick(0);
+```
 
 ### UpdateSync
 `public void UpdateSync(float newValue)`
 
-**Purpose:** Updates the state or data of `sync`.
+**Purpose:** Recalculates and stores the latest representation of `sync`.
+
+```csharp
+// Obtain an instance of MissionTimeTracker from the subsystem API first
+MissionTimeTracker missionTimeTracker = ...;
+missionTimeTracker.UpdateSync(0);
+```
 
 ### GetLastSyncDifference
 `public float GetLastSyncDifference()`
 
-**Purpose:** Gets the current value of `last sync difference`.
+**Purpose:** Reads and returns the `last sync difference` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionTimeTracker from the subsystem API first
+MissionTimeTracker missionTimeTracker = ...;
+var result = missionTimeTracker.GetLastSyncDifference();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionTimeTracker();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+MissionTimeTracker missionTimeTracker = ...;
+missionTimeTracker.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

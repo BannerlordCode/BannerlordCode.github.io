@@ -1,13 +1,7 @@
 ---
 title: "SettlementPatrolModel"
+description: "SettlementPatrolModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementPatrolModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementPatrolModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ title: "SettlementPatrolModel"
 ### GetPatrolPartySpawnDuration
 `public abstract CampaignTime GetPatrolPartySpawnDuration(Settlement settlement, bool naval)`
 
-**用途 / Purpose:** 获取 `patrol party spawn duration` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「patrol party spawn duration」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementPatrolModel 实例
+SettlementPatrolModel settlementPatrolModel = ...;
+var result = settlementPatrolModel.GetPatrolPartySpawnDuration(settlement, false);
+```
 
 ### CanSettlementHavePatrolParties
 `public abstract bool CanSettlementHavePatrolParties(Settlement settlement, bool naval)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `settlement have patrol parties`。
+**用途 / Purpose:** 检查当前对象是否满足 「settlement have patrol parties」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementPatrolModel 实例
+SettlementPatrolModel settlementPatrolModel = ...;
+var result = settlementPatrolModel.CanSettlementHavePatrolParties(settlement, false);
+```
 
 ### GetPartyTemplateForPatrolParty
 `public abstract PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement, bool naval)`
 
-**用途 / Purpose:** 获取 `party template for patrol party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party template for patrol party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementPatrolModel 实例
+SettlementPatrolModel settlementPatrolModel = ...;
+var result = settlementPatrolModel.GetPartyTemplateForPatrolParty(settlement, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementPatrolModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementPatrolModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

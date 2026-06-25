@@ -1,20 +1,14 @@
 ---
 title: "QuestSettlement"
+description: "Auto-generated class reference for QuestSettlement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestSettlement`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestSettlement
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class QuestSettlement`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ScoutEnemyGarrisonsIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ScoutEnemyGarrisonsIssueBehavior.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### IsScoutingCompleted
 `public bool IsScoutingCompleted()`
 
-**Purpose:** Handles logic related to `is scouting completed`.
+**Purpose:** Determines whether the current object is in the `scouting completed` state or condition.
+
+```csharp
+// Obtain an instance of QuestSettlement from the subsystem API first
+QuestSettlement questSettlement = ...;
+var result = questSettlement.IsScoutingCompleted();
+```
 
 ### SetScoutingCompleted
 `public void SetScoutingCompleted()`
 
-**Purpose:** Sets the value or state of `scouting completed`.
+**Purpose:** Assigns a new value to `scouting completed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of QuestSettlement from the subsystem API first
+QuestSettlement questSettlement = ...;
+questSettlement.SetScoutingCompleted();
+```
 
 ### ResetCurrentProgress
 `public void ResetCurrentProgress()`
 
-**Purpose:** Resets `current progress` to its initial state.
+**Purpose:** Returns `current progress` to its default or initial condition.
+
+```csharp
+// Obtain an instance of QuestSettlement from the subsystem API first
+QuestSettlement questSettlement = ...;
+questSettlement.ResetCurrentProgress();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestSettlement();
-value.IsScoutingCompleted();
+// Typically call this after obtaining an instance from the subsystem API
+QuestSettlement questSettlement = ...;
+questSettlement.IsScoutingCompleted();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

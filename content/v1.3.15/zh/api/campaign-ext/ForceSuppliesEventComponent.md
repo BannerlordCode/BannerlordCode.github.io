@@ -1,13 +1,7 @@
 ---
 title: "ForceSuppliesEventComponent"
+description: "ForceSuppliesEventComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ForceSuppliesEventComponent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ForceSuppliesEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -35,12 +29,22 @@ title: "ForceSuppliesEventComponent"
 ### CreateForceSuppliesEvent
 `public static ForceSuppliesEventComponent CreateForceSuppliesEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** 创建一个 `force supplies event` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「force supplies event」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ForceSuppliesEventComponent.CreateForceSuppliesEvent(attackerParty, defenderParty);
+```
 
 ### CreateComponentForOldSaves
 `public static ForceSuppliesEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
 
-**用途 / Purpose:** 创建一个 `component for old saves` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「component for old saves」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ForceSuppliesEventComponent.CreateComponentForOldSaves(mapEvent);
+```
 
 ## 使用示例
 
@@ -50,4 +54,4 @@ var component = agent.GetComponent<ForceSuppliesEventComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

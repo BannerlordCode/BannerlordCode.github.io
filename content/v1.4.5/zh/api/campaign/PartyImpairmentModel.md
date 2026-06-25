@@ -1,20 +1,14 @@
 ---
 title: "PartyImpairmentModel"
+description: "PartyImpairmentModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyImpairmentModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyImpairmentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyImpairmentModel : MBGameModel<PartyImpairmentModel>`
 **Base:** `MBGameModel<PartyImpairmentModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyImpairmentModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyImpairmentModel.cs`
 
 ## 概述
 
@@ -29,29 +23,54 @@ title: "PartyImpairmentModel"
 ### GetDisorganizedStateDuration
 `public abstract ExplainedNumber GetDisorganizedStateDuration(MobileParty party)`
 
-**用途 / Purpose:** 获取 `disorganized state duration` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「disorganized state duration」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyImpairmentModel 实例
+PartyImpairmentModel partyImpairmentModel = ...;
+var result = partyImpairmentModel.GetDisorganizedStateDuration(party);
+```
 
 ### GetVulnerabilityStateDuration
 `public abstract float GetVulnerabilityStateDuration(PartyBase party)`
 
-**用途 / Purpose:** 获取 `vulnerability state duration` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「vulnerability state duration」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyImpairmentModel 实例
+PartyImpairmentModel partyImpairmentModel = ...;
+var result = partyImpairmentModel.GetVulnerabilityStateDuration(party);
+```
 
 ### GetSiegeExpectedVulnerabilityTime
 `public abstract float GetSiegeExpectedVulnerabilityTime()`
 
-**用途 / Purpose:** 获取 `siege expected vulnerability time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege expected vulnerability time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyImpairmentModel 实例
+PartyImpairmentModel partyImpairmentModel = ...;
+var result = partyImpairmentModel.GetSiegeExpectedVulnerabilityTime();
+```
 
 ### CanGetDisorganized
 `public abstract bool CanGetDisorganized(PartyBase partyBase)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `get disorganized`。
+**用途 / Purpose:** 检查当前对象是否满足 「get disorganized」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 PartyImpairmentModel 实例
+PartyImpairmentModel partyImpairmentModel = ...;
+var result = partyImpairmentModel.CanGetDisorganized(partyBase);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyImpairmentModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyImpairmentModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

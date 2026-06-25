@@ -1,13 +1,7 @@
 ---
 title: "StatsAndAchievementsStoreListener"
+description: "StatsAndAchievementsStoreListener 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StatsAndAchievementsStoreListener`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StatsAndAchievementsStoreListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
@@ -29,25 +23,44 @@ title: "StatsAndAchievementsStoreListener"
 ### OnUserStatsAndAchievementsStoreFailure
 `public override void OnUserStatsAndAchievementsStoreFailure(IStatsAndAchievementsStoreListener.FailureReason failureReason)`
 
-**用途 / Purpose:** 当 `user stats and achievements store failure` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「user stats and achievements store failure」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StatsAndAchievementsStoreListener 实例
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreFailure(failureReason);
+```
 
 ### OnUserStatsAndAchievementsStoreSuccess
 `public override void OnUserStatsAndAchievementsStoreSuccess()`
 
-**用途 / Purpose:** 当 `user stats and achievements store success` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「user stats and achievements store success」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StatsAndAchievementsStoreListener 实例
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreSuccess();
+```
 
 ### UserStatsAndAchievementsStored
 `public delegate void UserStatsAndAchievementsStored(bool success, IStatsAndAchievementsStoreListener.FailureReason? failureReason)`
 
-**用途 / Purpose:** 处理 `user stats and achievements stored` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StatsAndAchievementsStoreListener 实例
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.UserStatsAndAchievementsStored(false, failureReason);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StatsAndAchievementsStoreListener();
-value.OnUserStatsAndAchievementsStoreFailure(failureReason);
+// 通常从对应子系统 API 获取实例后调用
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreFailure(failureReason);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

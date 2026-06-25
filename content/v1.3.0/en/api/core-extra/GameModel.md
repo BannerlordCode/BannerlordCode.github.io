@@ -1,13 +1,7 @@
 ---
 title: "GameModel"
+description: "Auto-generated class reference for GameModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameModel
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `GameModel` as a Model-style extension point: first identify who creates i
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameModel();
+// Typically obtained from a subsystem API or factory
+GameModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

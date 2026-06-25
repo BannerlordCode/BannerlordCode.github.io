@@ -1,13 +1,7 @@
 ---
 title: "MBSortedMultiList"
+description: "MBSortedMultiList 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBSortedMultiList`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBSortedMultiList
 
 **Namespace:** TaleWorlds.Library
@@ -41,169 +35,363 @@ title: "MBSortedMultiList"
 ### Contains
 `public bool Contains(TKey key)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Contains(key);
+```
 
 ### Contains
 `public bool Contains(TKey key, TValue value)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Contains(key, value);
+```
 
 ### Get
 `public KeyValuePair<TKey, TValue> Get(int index)`
 
-**用途 / Purpose:** 获取 `get` 的当前值。
+**用途 / Purpose:** 读取当前对象的值或状态并返回。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Get(0);
+```
 
 ### FirstIndexOf
 `public int FirstIndexOf(TKey key)`
 
-**用途 / Purpose:** 处理 `first index of` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.FirstIndexOf(key);
+```
 
 ### FirstIndexOf
 `public int FirstIndexOf(TKey key, TValue value)`
 
-**用途 / Purpose:** 处理 `first index of` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.FirstIndexOf(key, value);
+```
 
 ### LastIndexOf
 `public int LastIndexOf(TKey key)`
 
-**用途 / Purpose:** 处理 `last index of` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.LastIndexOf(key);
+```
 
 ### LastIndexOf
 `public int LastIndexOf(TKey key, TValue value)`
 
-**用途 / Purpose:** 处理 `last index of` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.LastIndexOf(key, value);
+```
 
 ### All
 `public bool All(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**用途 / Purpose:** 处理 `all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.All(predicate<KeyValuePair<TKey, predicate);
+```
 
 ### Any
 `public bool Any(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**用途 / Purpose:** 处理 `any` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Any(predicate<KeyValuePair<TKey, predicate);
+```
 
 ### GetValues
 `public IEnumerator<TValue> GetValues(TKey key)`
 
-**用途 / Purpose:** 获取 `values` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「values」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.GetValues(key);
+```
 
 ### Find
 `public bool Find(Predicate<KeyValuePair<TKey, TValue>> predicate, out KeyValuePair<TKey, TValue> found, bool searchForward = true)`
 
-**用途 / Purpose:** 处理 `find` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找匹配项。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Find(predicate<KeyValuePair<TKey, predicate, keyValuePair<TKey, found, false);
+```
 
 ### FindIndex
 `public int FindIndex(Predicate<KeyValuePair<TKey, TValue>> predicate, bool searchForward = true)`
 
-**用途 / Purpose:** 处理 `find index` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「index」。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.FindIndex(predicate<KeyValuePair<TKey, predicate, false);
+```
 
 ### FindAll
 `public MBList<KeyValuePair<TKey, TValue>> FindAll(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**用途 / Purpose:** 处理 `find all` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all」。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.FindAll(predicate<KeyValuePair<TKey, predicate);
+```
 
 ### Add
 `public void Add(TKey key, TValue value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Add(key, value);
+```
 
 ### AddRange
 `public void AddRange(IEnumerable<KeyValuePair<TKey, TValue>> items)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `range`。
+**用途 / Purpose:** 将 「range」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.AddRange(iEnumerable<KeyValuePair<TKey, items);
+```
 
 ### Remove
 `public bool Remove(TKey key, TValue value)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Remove(key, value);
+```
 
 ### Remove
 `public bool Remove(TKey key)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.Remove(key);
+```
 
 ### RemoveAll
 `public int RemoveAll(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `all`。
+**用途 / Purpose:** 从当前容器或状态中移除 「all」。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.RemoveAll(predicate<KeyValuePair<TKey, predicate);
+```
 
 ### RemoveAt
 `public void RemoveAt(int index)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `at`。
+**用途 / Purpose:** 从当前容器或状态中移除 「at」。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.RemoveAt(0);
+```
 
 ### RemoveLast
 `public void RemoveLast()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `last`。
+**用途 / Purpose:** 从当前容器或状态中移除 「last」。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.RemoveLast();
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Clear();
+```
 
 ### SetCustomComparer
 `public void SetCustomComparer(IComparer<TKey> customComparer)`
 
-**用途 / Purpose:** 设置 `custom comparer` 的值或状态。
+**用途 / Purpose:** 为 「custom comparer」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.SetCustomComparer(customComparer);
+```
 
 ### SetDefaultComparer
 `public void SetDefaultComparer(bool isAscending = true)`
 
-**用途 / Purpose:** 设置 `default comparer` 的值或状态。
+**用途 / Purpose:** 为 「default comparer」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.SetDefaultComparer(false);
+```
 
 ### Reverse
 `public void Reverse()`
 
-**用途 / Purpose:** 处理 `reverse` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Reverse();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.ToString();
+```
 
 ### GetEnumerator
 `public IEnumerator<TValue> GetEnumerator()`
 
-**用途 / Purpose:** 获取 `enumerator` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「enumerator」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.GetEnumerator();
+```
 
 ### MoveNext
 `public bool MoveNext()`
 
-**用途 / Purpose:** 处理 `move next` 相关逻辑。
+**用途 / Purpose:** 移动「next」到新的位置或状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.MoveNext();
+```
 
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 处理 `dispose` 相关逻辑。
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Dispose();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Reset();
+```
 
 ### MoveNext
 `public bool MoveNext()`
 
-**用途 / Purpose:** 处理 `move next` 相关逻辑。
+**用途 / Purpose:** 移动「next」到新的位置或状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+var result = mBSortedMultiList.MoveNext();
+```
 
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 处理 `dispose` 相关逻辑。
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Dispose();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBSortedMultiList 实例
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Reset();
+```
 
 ## 使用示例
 
 ```csharp
-MBSortedMultiList example = MBSortedMultiList.Comparer;
+// 通常从对应子系统 API 获取实例后调用
+MBSortedMultiList mBSortedMultiList = ...;
+mBSortedMultiList.Contains(key);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

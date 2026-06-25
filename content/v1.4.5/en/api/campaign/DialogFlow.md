@@ -1,20 +1,14 @@
 ---
 title: "DialogFlow"
+description: "Auto-generated class reference for DialogFlow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DialogFlow`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DialogFlow
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DialogFlow`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/DialogFlow.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/DialogFlow.cs`
 
 ## Overview
 
@@ -29,175 +23,373 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Variation
 `public DialogFlow Variation(string text, params object propertiesAndWeights)`
 
-**Purpose:** Handles logic related to `variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Variation("example", propertiesAndWeights);
+```
 
 ### Variation
 `public DialogFlow Variation(TextObject text, params object propertiesAndWeights)`
 
-**Purpose:** Handles logic related to `variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Variation(text, propertiesAndWeights);
+```
 
 ### NpcLine
 `public DialogFlow NpcLine(string npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `npc line`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLine("example", null, null, "example", "example");
+```
 
 ### NpcLine
 `public DialogFlow NpcLine(TextObject npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `npc line`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLine(npcText, null, null, "example", "example");
+```
 
 ### NpcLineWithVariation
 `public DialogFlow NpcLineWithVariation(string npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `npc line with variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLineWithVariation("example", null, null, "example", "example");
+```
 
 ### NpcLineWithVariation
 `public DialogFlow NpcLineWithVariation(TextObject npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `npc line with variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLineWithVariation(npcText, null, null, "example", "example");
+```
 
 ### PlayerLine
 `public DialogFlow PlayerLine(string playerText, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `player line`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerLine("example", null, "example", "example");
+```
 
 ### PlayerLine
 `public DialogFlow PlayerLine(TextObject playerText, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `player line`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerLine(playerText, null, "example", "example");
+```
 
 ### BeginPlayerOptions
 `public DialogFlow BeginPlayerOptions(string inputToken = null, bool optionUsedOnce = false)`
 
-**Purpose:** Handles logic related to `begin player options`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.BeginPlayerOptions("example", false);
+```
 
 ### BeginNpcOptions
 `public DialogFlow BeginNpcOptions(string inputToken = null, bool optionUsedOnce = false)`
 
-**Purpose:** Handles logic related to `begin npc options`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.BeginNpcOptions("example", false);
+```
 
 ### PlayerOption
 `public DialogFlow PlayerOption(string text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `player option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerOption("example", null, "example", "example");
+```
 
 ### PlayerOption
 `public DialogFlow PlayerOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `player option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerOption(text, null, "example", "example");
+```
 
 ### PlayerSpecialOption
 `public DialogFlow PlayerSpecialOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `player special option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerSpecialOption(text, null, "example", "example");
+```
 
 ### PlayerRepeatableOption
 `public DialogFlow PlayerRepeatableOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `player repeatable option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerRepeatableOption(text, null, "example", "example");
+```
 
 ### NpcOption
 `public DialogFlow NpcOption(string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `npc option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOption("example", conditionDelegate, null, null, "example", "example");
+```
 
 ### NpcOption
 `public DialogFlow NpcOption(TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `npc option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOption(text, conditionDelegate, null, null, "example", "example");
+```
 
 ### NpcOptionWithVariation
 `public DialogFlow NpcOptionWithVariation(string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `npc option with variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOptionWithVariation("example", conditionDelegate, null, null, "example", "example");
+```
 
 ### NpcOptionWithVariation
 `public DialogFlow NpcOptionWithVariation(TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**Purpose:** Handles logic related to `npc option with variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOptionWithVariation(text, conditionDelegate, null, null, "example", "example");
+```
 
 ### EndPlayerOptions
 `public DialogFlow EndPlayerOptions()`
 
-**Purpose:** Handles logic related to `end player options`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.EndPlayerOptions();
+```
 
 ### EndNpcOptions
 `public DialogFlow EndNpcOptions()`
 
-**Purpose:** Handles logic related to `end npc options`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.EndNpcOptions();
+```
 
 ### Condition
 `public DialogFlow Condition(ConversationSentence.OnConditionDelegate conditionDelegate)`
 
-**Purpose:** Handles logic related to `condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Condition(conditionDelegate);
+```
 
 ### ClickableCondition
 `public DialogFlow ClickableCondition(ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate)`
 
-**Purpose:** Handles logic related to `clickable condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.ClickableCondition(clickableConditionDelegate);
+```
 
 ### Consequence
 `public DialogFlow Consequence(ConversationSentence.OnConsequenceDelegate consequenceDelegate)`
 
-**Purpose:** Handles logic related to `consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Consequence(consequenceDelegate);
+```
 
 ### CreateDialogFlow
 `public static DialogFlow CreateDialogFlow(string inputToken = null, int priority = 100)`
 
-**Purpose:** Creates a new `dialog flow` instance or object.
+**Purpose:** Constructs a new `dialog flow` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+DialogFlow.CreateDialogFlow("example", 0);
+```
 
 ### NpcDefaultOption
 `public DialogFlow NpcDefaultOption(string text)`
 
-**Purpose:** Handles logic related to `npc default option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcDefaultOption("example");
+```
 
 ### GenerateToken
 `public DialogFlow GenerateToken(out string token)`
 
-**Purpose:** Handles logic related to `generate token`.
+**Purpose:** Generates an instance, data, or representation of `token`.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GenerateToken(token);
+```
 
 ### GotoDialogState
 `public DialogFlow GotoDialogState(string input)`
 
-**Purpose:** Handles logic related to `goto dialog state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GotoDialogState("example");
+```
 
 ### GotoDialogStateBranched
 `public DialogFlow GotoDialogStateBranched(string input, ConversationSentence.OnConditionDelegate conditionDelegate, string alternative)`
 
-**Purpose:** Handles logic related to `goto dialog state branched`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GotoDialogStateBranched("example", conditionDelegate, "example");
+```
 
 ### GetOutputToken
 `public DialogFlow GetOutputToken(out string oState)`
 
-**Purpose:** Gets the current value of `output token`.
+**Purpose:** Reads and returns the `output token` value held by the current object.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GetOutputToken(oState);
+```
 
 ### GoBackToDialogState
 `public DialogFlow GoBackToDialogState(string iState)`
 
-**Purpose:** Handles logic related to `go back to dialog state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GoBackToDialogState("example");
+```
 
 ### CloseDialog
 `public DialogFlow CloseDialog()`
 
-**Purpose:** Handles logic related to `close dialog`.
+**Purpose:** Closes the resource or UI associated with `dialog`.
+
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.CloseDialog();
+```
 
 ### AddPlayerLine
 `public ConversationSentence AddPlayerLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, object relatedObject, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnPersuasionOptionDelegate persuasionOptionDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null)`
 
 **Purpose:** Adds `player line` to the current collection or state.
 
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.AddPlayerLine("example", "example", "example", "example", conditionDelegate, consequenceDelegate, relatedObject, 0, null, null, null, null);
+```
+
 ### AddDialogLine
 `public ConversationSentence AddDialogLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, object relatedObject, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null)`
 
 **Purpose:** Adds `dialog line` to the current collection or state.
 
+```csharp
+// Obtain an instance of DialogFlow from the subsystem API first
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.AddDialogLine("example", "example", "example", "example", conditionDelegate, consequenceDelegate, relatedObject, 0, null, null, null);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new DialogFlow();
-value.Variation("example", propertiesAndWeights);
+// Typically call this after obtaining an instance from the subsystem API
+DialogFlow dialogFlow = ...;
+dialogFlow.Variation("example", propertiesAndWeights);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

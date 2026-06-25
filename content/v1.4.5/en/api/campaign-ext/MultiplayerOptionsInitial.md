@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerOptionsInitial"
+description: "Auto-generated class reference for MultiplayerOptionsInitial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerOptionsInitial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerOptionsInitial
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class MultiplayerOptionsInitial : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerOptionsInitial.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerOptionsInitial.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ### GetOption
 `public MultiplayerOptions.MultiplayerOption GetOption(MultiplayerOptions.OptionType optionType)`
 
-**Purpose:** Gets the current value of `option`.
+**Purpose:** Reads and returns the `option` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerOptionsInitial from the subsystem API first
+MultiplayerOptionsInitial multiplayerOptionsInitial = ...;
+var result = multiplayerOptionsInitial.GetOption(optionType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerOptionsInitial();
-value.GetOption(optionType);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerOptionsInitial multiplayerOptionsInitial = ...;
+multiplayerOptionsInitial.GetOption(optionType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

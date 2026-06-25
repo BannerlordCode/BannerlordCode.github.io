@@ -1,20 +1,14 @@
 ---
 title: "PartyQuestProgressWidget"
+description: "Auto-generated class reference for PartyQuestProgressWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyQuestProgressWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyQuestProgressWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyQuestProgressWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyQuestProgressWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyQuestProgressWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `PartyQuestProgressWidget` as a Widget-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var widget = new PartyQuestProgressWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyQuestProgressWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerEndOfRoundSideVM"
+description: "MultiplayerEndOfRoundSideVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerEndOfRoundSideVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerEndOfRoundSideVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerEndOfRoundSideVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound/MultiplayerEndOfRoundSideVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound/MultiplayerEndOfRoundSideVM.cs`
 
 ## 概述
 
@@ -40,20 +34,33 @@ title: "MultiplayerEndOfRoundSideVM"
 ### SetData
 `public void SetData(BasicCultureObject culture, int score, bool isWinner, MultiplayerCultureColorInfo cultureColors)`
 
-**用途 / Purpose:** 设置 `data` 的值或状态。
+**用途 / Purpose:** 为 「data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerEndOfRoundSideVM 实例
+MultiplayerEndOfRoundSideVM multiplayerEndOfRoundSideVM = ...;
+multiplayerEndOfRoundSideVM.SetData(culture, 0, false, cultureColors);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerEndOfRoundSideVM 实例
+MultiplayerEndOfRoundSideVM multiplayerEndOfRoundSideVM = ...;
+multiplayerEndOfRoundSideVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerEndOfRoundSideVM();
-value.SetData(culture, 0, false, cultureColors);
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerEndOfRoundSideVM multiplayerEndOfRoundSideVM = ...;
+multiplayerEndOfRoundSideVM.SetData(culture, 0, false, cultureColors);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

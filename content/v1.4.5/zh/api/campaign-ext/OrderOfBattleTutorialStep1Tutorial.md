@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleTutorialStep1Tutorial"
+description: "OrderOfBattleTutorialStep1Tutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderOfBattleTutorialStep1Tutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleTutorialStep1Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class OrderOfBattleTutorialStep1Tutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/OrderOfBattleTutorialStep1Tutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/OrderOfBattleTutorialStep1Tutorial.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "OrderOfBattleTutorialStep1Tutorial"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleTutorialStep1Tutorial 实例
+OrderOfBattleTutorialStep1Tutorial orderOfBattleTutorialStep1Tutorial = ...;
+var result = orderOfBattleTutorialStep1Tutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleTutorialStep1Tutorial 实例
+OrderOfBattleTutorialStep1Tutorial orderOfBattleTutorialStep1Tutorial = ...;
+var result = orderOfBattleTutorialStep1Tutorial.IsConditionsMetForActivation();
+```
 
 ### OnOrderOfBattleHeroAssignedToFormation
 `public override void OnOrderOfBattleHeroAssignedToFormation(OrderOfBattleHeroAssignedToFormationEvent obj)`
 
-**用途 / Purpose:** 当 `order of battle hero assigned to formation` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「order of battle hero assigned to formation」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleTutorialStep1Tutorial 实例
+OrderOfBattleTutorialStep1Tutorial orderOfBattleTutorialStep1Tutorial = ...;
+orderOfBattleTutorialStep1Tutorial.OnOrderOfBattleHeroAssignedToFormation(obj);
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleTutorialStep1Tutorial 实例
+OrderOfBattleTutorialStep1Tutorial orderOfBattleTutorialStep1Tutorial = ...;
+var result = orderOfBattleTutorialStep1Tutorial.IsConditionsMetForCompletion();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderOfBattleTutorialStep1Tutorial();
-value.GetTutorialsRelevantContext();
+// 通常从对应子系统 API 获取实例后调用
+OrderOfBattleTutorialStep1Tutorial orderOfBattleTutorialStep1Tutorial = ...;
+orderOfBattleTutorialStep1Tutorial.GetTutorialsRelevantContext();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

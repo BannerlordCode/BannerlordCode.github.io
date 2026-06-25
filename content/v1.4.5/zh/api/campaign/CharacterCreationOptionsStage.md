@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationOptionsStage"
+description: "CharacterCreationOptionsStage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationOptionsStage`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationOptionsStage
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationOptionsStage : CharacterCreationStageBase`
 **Base:** `CharacterCreationStageBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationOptionsStage.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationOptionsStage.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "CharacterCreationOptionsStage"
 ## 使用示例
 
 ```csharp
-var example = new CharacterCreationOptionsStage();
+// 从对应子系统 API 获取实例
+CharacterCreationOptionsStage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

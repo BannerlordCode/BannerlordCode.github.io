@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleFormationClassContainerWidget"
+description: "Auto-generated class reference for OrderOfBattleFormationClassContainerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationClassContainerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationClassContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
@@ -33,9 +27,10 @@ Treat `OrderOfBattleFormationClassContainerWidget` as a Widget-style extension p
 ## Usage Example
 
 ```csharp
-var widget = new OrderOfBattleFormationClassContainerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderOfBattleFormationClassContainerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

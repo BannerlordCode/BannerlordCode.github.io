@@ -1,13 +1,7 @@
 ---
 title: "BrushAnimationProperty"
+description: "BrushAnimationProperty 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushAnimationProperty`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushAnimationProperty
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -37,35 +31,66 @@ title: "BrushAnimationProperty"
 ### GetFrameAfter
 `public BrushAnimationKeyFrame GetFrameAfter(float time)`
 
-**用途 / Purpose:** 获取 `frame after` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frame after」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationProperty 实例
+BrushAnimationProperty brushAnimationProperty = ...;
+var result = brushAnimationProperty.GetFrameAfter(0);
+```
 
 ### GetFrameAt
 `public BrushAnimationKeyFrame GetFrameAt(int i)`
 
-**用途 / Purpose:** 获取 `frame at` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frame at」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationProperty 实例
+BrushAnimationProperty brushAnimationProperty = ...;
+var result = brushAnimationProperty.GetFrameAt(0);
+```
 
 ### Clone
 `public BrushAnimationProperty Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationProperty 实例
+BrushAnimationProperty brushAnimationProperty = ...;
+var result = brushAnimationProperty.Clone();
+```
 
 ### AddKeyFrame
 `public void AddKeyFrame(BrushAnimationKeyFrame keyFrame)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `key frame`。
+**用途 / Purpose:** 将 「key frame」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationProperty 实例
+BrushAnimationProperty brushAnimationProperty = ...;
+brushAnimationProperty.AddKeyFrame(keyFrame);
+```
 
 ### RemoveKeyFrame
 `public void RemoveKeyFrame(BrushAnimationKeyFrame keyFrame)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `key frame`。
+**用途 / Purpose:** 从当前容器或状态中移除 「key frame」。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationProperty 实例
+BrushAnimationProperty brushAnimationProperty = ...;
+brushAnimationProperty.RemoveKeyFrame(keyFrame);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrushAnimationProperty();
-value.GetFrameAfter(0);
+// 通常从对应子系统 API 获取实例后调用
+BrushAnimationProperty brushAnimationProperty = ...;
+brushAnimationProperty.GetFrameAfter(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

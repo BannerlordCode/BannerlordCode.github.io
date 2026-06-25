@@ -1,20 +1,14 @@
 ---
 title: "ItemImageIdentifierVM"
+description: "Auto-generated class reference for ItemImageIdentifierVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemImageIdentifierVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemImageIdentifierVM : ImageIdentifierVM`
 **Base:** `ImageIdentifierVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/ItemImageIdentifierVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/ItemImageIdentifierVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ### Clone
 `public ItemImageIdentifierVM Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of ItemImageIdentifierVM from the subsystem API first
+ItemImageIdentifierVM itemImageIdentifierVM = ...;
+var result = itemImageIdentifierVM.Clone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemImageIdentifierVM();
-value.Clone();
+// Typically call this after obtaining an instance from the subsystem API
+ItemImageIdentifierVM itemImageIdentifierVM = ...;
+itemImageIdentifierVM.Clone();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

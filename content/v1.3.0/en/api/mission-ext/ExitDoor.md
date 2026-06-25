@@ -1,13 +1,7 @@
 ---
 title: "ExitDoor"
+description: "Auto-generated class reference for ExitDoor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ExitDoor`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ExitDoor
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of ExitDoor from the subsystem API first
+ExitDoor exitDoor = ...;
+var result = exitDoor.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of ExitDoor from the subsystem API first
+ExitDoor exitDoor = ...;
+var result = exitDoor.GetDescriptionText(gameEntity);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of ExitDoor from the subsystem API first
+ExitDoor exitDoor = ...;
+var result = exitDoor.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ExitDoor();
-value.GetActionTextForStandingPoint(usableGameObject);
+// Typically call this after obtaining an instance from the subsystem API
+ExitDoor exitDoor = ...;
+exitDoor.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PartyListPanel"
+description: "Auto-generated class reference for PartyListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party` to plac
 ## Usage Example
 
 ```csharp
-var value = new PartyListPanel();
+// Obtain an instance from the relevant subsystem API
+PartyListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

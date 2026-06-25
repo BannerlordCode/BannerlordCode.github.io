@@ -1,13 +1,7 @@
 ---
 title: "MissionPathGenerationLogic"
+description: "MissionPathGenerationLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionPathGenerationLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionPathGenerationLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -35,174 +29,372 @@ title: "MissionPathGenerationLogic"
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**用途 / Purpose:** 当 `object used` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「object used」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+missionPathGenerationLogic.OnObjectUsed(userAgent, usedObject);
+```
 
 ### InitializeBehavior
 `public void InitializeBehavior()`
 
-**用途 / Purpose:** 初始化 `behavior` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「behavior」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+missionPathGenerationLogic.InitializeBehavior();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+missionPathGenerationLogic.OnMissionTick(0);
+```
 
 ### GetAllPossiblePaths
 `public List<MissionPathGenerationLogic.PointOfInterestScorePair> GetAllPossiblePaths()`
 
-**用途 / Purpose:** 获取 `all possible paths` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all possible paths」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetAllPossiblePaths();
+```
 
 ### IsOnLeftSide
 `public bool IsOnLeftSide(Vec2 lineA, Vec2 lineB, Vec2 point)`
 
-**用途 / Purpose:** 处理 `is on left side` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「on left side」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsOnLeftSide(lineA, lineB, point);
+```
 
 ### ReverseClone
 `public MissionPathGenerationLogic.NavigationPathData ReverseClone()`
 
-**用途 / Purpose:** 处理 `reverse clone` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.ReverseClone();
+```
 
 ### InitializeUsablePoints
 `public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
 
-**用途 / Purpose:** 初始化 `usable points` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「usable points」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+missionPathGenerationLogic.InitializeUsablePoints(allUsableMachines);
+```
 
 ### GetPointOfInterestType
 `public abstract MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「point of interest type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPointOfInterestType();
+```
 
 ### GetPositionAndRadiusPairs
 `public abstract List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**用途 / Purpose:** 获取 `position and radius pairs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「position and radius pairs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
+```
 
 ### IsInRadius
 `public abstract bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「in radius」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
+```
 
 ### GetLocationRatio
 `public abstract float GetLocationRatio()`
 
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「location ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetLocationRatio();
+```
 
 ### GetPointOfInterestType
 `public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「point of interest type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPointOfInterestType();
+```
 
 ### GetPositionAndRadiusPairs
 `public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**用途 / Purpose:** 获取 `position and radius pairs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「position and radius pairs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
+```
 
 ### IsInRadius
 `public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「in radius」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
+```
 
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「location ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetLocationRatio();
+```
 
 ### GetPointOfInterestType
 `public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「point of interest type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPointOfInterestType();
+```
 
 ### GetPositionAndRadiusPairs
 `public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**用途 / Purpose:** 获取 `position and radius pairs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「position and radius pairs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
+```
 
 ### IsInRadius
 `public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「in radius」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
+```
 
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「location ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetLocationRatio();
+```
 
 ### GetPointOfInterestType
 `public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「point of interest type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPointOfInterestType();
+```
 
 ### GetPositionAndRadiusPairs
 `public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**用途 / Purpose:** 获取 `position and radius pairs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「position and radius pairs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
+```
 
 ### IsInRadius
 `public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「in radius」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
+```
 
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「location ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetLocationRatio();
+```
 
 ### GetPointOfInterestType
 `public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
 
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「point of interest type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPointOfInterestType();
+```
 
 ### GetPositionAndRadiusPairs
 `public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
 
-**用途 / Purpose:** 获取 `position and radius pairs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「position and radius pairs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetPositionAndRadiusPairs();
+```
 
 ### IsInRadius
 `public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
 
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「in radius」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsInRadius(otherPointOfInterest);
+```
 
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「location ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.GetLocationRatio();
+```
 
 ### Clone
 `public MissionPathGenerationLogic.PointOfInterestScorePair Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.Clone();
+```
 
 ### AddToData
 `public void AddToData(MissionPathGenerationLogic.PointOfInterestBaseData pointOfInterestToAdd)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `to data`。
+**用途 / Purpose:** 将 「to data」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+missionPathGenerationLogic.AddToData(pointOfInterestToAdd);
+```
 
 ### IsDataEqualTo
 `public bool IsDataEqualTo(MissionPathGenerationLogic.PointOfInterestScorePair other, MissionPathGenerationLogic.PointOfInterestBaseData newDataToAdd)`
 
-**用途 / Purpose:** 处理 `is data equal to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「data equal to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsDataEqualTo(other, newDataToAdd);
+```
 
 ### IsBetterThan
 `public bool IsBetterThan(MissionPathGenerationLogic.PointOfInterestScorePair other)`
 
-**用途 / Purpose:** 处理 `is better than` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「better than」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsBetterThan(other);
+```
 
 ### IsSufficient
 `public bool IsSufficient()`
 
-**用途 / Purpose:** 处理 `is sufficient` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「sufficient」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+var result = missionPathGenerationLogic.IsSufficient();
+```
 
 ### ReOrderDataAccordingToPathRatios
 `public void ReOrderDataAccordingToPathRatios()`
 
-**用途 / Purpose:** 处理 `re order data according to path ratios` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionPathGenerationLogic 实例
+MissionPathGenerationLogic missionPathGenerationLogic = ...;
+missionPathGenerationLogic.ReOrderDataAccordingToPathRatios();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionPathGenerationLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionPathGenerationLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

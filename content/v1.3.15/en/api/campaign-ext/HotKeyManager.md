@@ -1,13 +1,7 @@
 ---
 title: "HotKeyManager"
+description: "Auto-generated class reference for HotKeyManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HotKeyManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HotKeyManager
 
 **Namespace:** TaleWorlds.InputSystem
@@ -29,67 +23,133 @@ Treat `HotKeyManager` as a Manager-style extension point: first identify who cre
 ### GetHotKeyId
 `public static string GetHotKeyId(string categoryName, string hotKeyId)`
 
-**Purpose:** Gets the current value of `hot key id`.
+**Purpose:** Reads and returns the `hot key id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.GetHotKeyId("example", "example");
+```
 
 ### GetHotKeyId
 `public static string GetHotKeyId(string categoryName, int hotKeyId)`
 
-**Purpose:** Gets the current value of `hot key id`.
+**Purpose:** Reads and returns the `hot key id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.GetHotKeyId("example", 0);
+```
 
 ### GetCategory
 `public static GameKeyContext GetCategory(string categoryName)`
 
-**Purpose:** Gets the current value of `category`.
+**Purpose:** Reads and returns the `category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.GetCategory("example");
+```
 
 ### GetAllCategories
 `public static Dictionary<string, GameKeyContext>.ValueCollection GetAllCategories()`
 
-**Purpose:** Gets the current value of `all categories`.
+**Purpose:** Reads and returns the `all categories` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.GetAllCategories();
+```
 
 ### Tick
 `public static void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.Tick(0);
+```
 
 ### Initialize
 `public static void Initialize(PlatformFilePath savePath, bool isRDownSwappedWithRRight)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.Initialize(savePath, false);
+```
 
 ### RegisterInitialContexts
 `public static void RegisterInitialContexts(IEnumerable<GameKeyContext> contexts, bool loadKeys)`
 
-**Purpose:** Handles logic related to `register initial contexts`.
+**Purpose:** Registers `initial contexts` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.RegisterInitialContexts(contexts, false);
+```
 
 ### RegisterContext
 `public static void RegisterContext(GameKeyContext context, bool ignoreSerialize = false, bool loadKeys = false)`
 
-**Purpose:** Handles logic related to `register context`.
+**Purpose:** Registers `context` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.RegisterContext(context, false, false);
+```
 
 ### ShouldNotifyDocumentVersionDifferent
 `public static bool ShouldNotifyDocumentVersionDifferent()`
 
-**Purpose:** Handles logic related to `should notify document version different`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.ShouldNotifyDocumentVersionDifferent();
+```
 
 ### Reset
 `public static void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.Reset();
+```
 
 ### LoadAsync
 `public static void LoadAsync()`
 
-**Purpose:** Loads `async` data.
+**Purpose:** Reads `async` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.LoadAsync();
+```
 
 ### SaveAsync
 `public static void SaveAsync(bool throwEvent)`
 
-**Purpose:** Saves `async` data.
+**Purpose:** Writes `async` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+HotKeyManager.SaveAsync(false);
+```
 
 ### OnKeybindsChangedEvent
 `public delegate void OnKeybindsChangedEvent()`
 
-**Purpose:** Called when the `keybinds changed event` event is raised.
+**Purpose:** Invoked when the `keybinds changed event` event is raised.
+
+```csharp
+// Obtain an instance of HotKeyManager from the subsystem API first
+HotKeyManager hotKeyManager = ...;
+hotKeyManager.OnKeybindsChangedEvent();
+```
 
 ## Usage Example
 
@@ -99,4 +159,4 @@ var manager = HotKeyManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

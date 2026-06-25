@@ -1,13 +1,7 @@
 ---
 title: "DefaultRansomValueCalculationModel"
+description: "Auto-generated class reference for DefaultRansomValueCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultRansomValueCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultRansomValueCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultRansomValueCalculationModel` as a Model-style extension point: fir
 ### PrisonerRansomValue
 `public override int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
 
-**Purpose:** Handles logic related to `prisoner ransom value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultRansomValueCalculationModel from the subsystem API first
+DefaultRansomValueCalculationModel defaultRansomValueCalculationModel = ...;
+var result = defaultRansomValueCalculationModel.PrisonerRansomValue(prisoner, null);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultRansomValueCalculationModel>(new MyDefaultRanso
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

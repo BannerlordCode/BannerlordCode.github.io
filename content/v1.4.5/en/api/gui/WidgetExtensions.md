@@ -1,20 +1,14 @@
 ---
 title: "WidgetExtensions"
+description: "Auto-generated class reference for WidgetExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetExtensions`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetExtensions
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public static class WidgetExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetExtensions.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetExtensions.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### SetWidgetAttributeFromString
 `public static void SetWidgetAttributeFromString(object target, string name, string value, BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, XmlElement> customElements, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** Sets the value or state of `widget attribute from string`.
+**Purpose:** Assigns a new value to `widget attribute from string` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+WidgetExtensions.SetWidgetAttributeFromString(target, "example", "example", brushFactory, spriteData, dictionary<string, visualDefinitionTemplates, dictionary<string, constants, dictionary<string, parameters, dictionary<string, customElements, dictionary<string, "example");
+```
 
 ### GetWidgetAttributeType
 `public static Type GetWidgetAttributeType(object target, string name)`
 
-**Purpose:** Gets the current value of `widget attribute type`.
+**Purpose:** Reads and returns the `widget attribute type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WidgetExtensions.GetWidgetAttributeType(target, "example");
+```
 
 ### SetWidgetAttribute
 `public static void SetWidgetAttribute(UIContext context, object target, string name, object value)`
 
-**Purpose:** Sets the value or state of `widget attribute`.
+**Purpose:** Assigns a new value to `widget attribute` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+WidgetExtensions.SetWidgetAttribute(context, target, "example", value);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ WidgetExtensions.SetWidgetAttributeFromString(target, "example", "example", brus
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

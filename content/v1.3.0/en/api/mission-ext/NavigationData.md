@@ -1,13 +1,7 @@
 ---
 title: "NavigationData"
+description: "Auto-generated class reference for NavigationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavigationData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,21 @@ Treat `NavigationData` as a Data-style extension point: first identify who creat
 ### TickDebug
 `public void TickDebug()`
 
-**Purpose:** Handles logic related to `tick debug`.
+**Purpose:** Advances the `debug` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of NavigationData from the subsystem API first
+NavigationData navigationData = ...;
+navigationData.TickDebug();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NavigationData();
+// This data object is usually returned by campaign/mission APIs
+NavigationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

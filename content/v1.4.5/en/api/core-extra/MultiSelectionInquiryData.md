@@ -1,20 +1,14 @@
 ---
 title: "MultiSelectionInquiryData"
+description: "Auto-generated class reference for MultiSelectionInquiryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiSelectionInquiryData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiSelectionInquiryData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MultiSelectionInquiryData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MultiSelectionInquiryData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MultiSelectionInquiryData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `MultiSelectionInquiryData` as a Data-style extension point: first identif
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of MultiSelectionInquiryData from the subsystem API first
+MultiSelectionInquiryData multiSelectionInquiryData = ...;
+var result = multiSelectionInquiryData.HasSameContentWith(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiSelectionInquiryData();
+// This data object is usually returned by campaign/mission APIs
+MultiSelectionInquiryData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

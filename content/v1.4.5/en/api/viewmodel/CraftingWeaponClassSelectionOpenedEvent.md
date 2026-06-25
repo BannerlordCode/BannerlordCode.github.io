@@ -1,20 +1,14 @@
 ---
 title: "CraftingWeaponClassSelectionOpenedEvent"
+description: "Auto-generated class reference for CraftingWeaponClassSelectionOpenedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingWeaponClassSelectionOpenedEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingWeaponClassSelectionOpenedEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingWeaponClassSelectionOpenedEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/CraftingWeaponClassSelectionOpenedEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/CraftingWeaponClassSelectionOpenedEvent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ## Usage Example
 
 ```csharp
-var example = new CraftingWeaponClassSelectionOpenedEvent();
+// Obtain an instance from the relevant subsystem API
+CraftingWeaponClassSelectionOpenedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,300 +1,136 @@
 ---
 title: "CharacterViewModel"
+description: "CharacterViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterViewModel / CharacterViewModel`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
-# CharacterViewModel / CharacterViewModel
+# CharacterViewModel
+
+**Namespace:** TaleWorlds.Core.ViewModelCollection
+**Module:** TaleWorlds.Core
+**Type:** `public class CharacterViewModel : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/CharacterViewModel.cs`
+
+## 概述
+
+`CharacterViewModel` 是一个 Gauntlet ViewModel——C# 逻辑与 UI 之间的数据绑定桥梁。mod 常通过它暴露状态、命令和列表项给界面。
 
 ## 心智模型
 
-先把 `CharacterViewModel` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+把 `CharacterViewModel` 当作一个 ViewModel 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `BannerCodeText` | `public string BannerCodeText { get; set; }` |
+| `BodyProperties` | `public string BodyProperties { get; set; }` |
+| `MountCreationKey` | `public string MountCreationKey { get; set; }` |
+| `CharStringId` | `public string CharStringId { get; set; }` |
+| `CustomAnimation` | `public string CustomAnimation { get; set; }` |
+| `StanceIndex` | `public int StanceIndex { get; }` |
+| `IsFemale` | `public bool IsFemale { get; set; }` |
+| `IsHidden` | `public bool IsHidden { get; set; }` |
+| `IsPlayingCustomAnimations` | `public bool IsPlayingCustomAnimations { get; set; }` |
+| `ShouldLoopCustomAnimation` | `public bool ShouldLoopCustomAnimation { get; set; }` |
+| `CustomAnimationProgressRatio` | `public float CustomAnimationProgressRatio { get; set; }` |
+| `CustomAnimationWaitDuration` | `public float CustomAnimationWaitDuration { get; set; }` |
+| `Race` | `public int Race { get; set; }` |
+| `HasMount` | `public bool HasMount { get; set; }` |
+| `EquipmentCode` | `public string EquipmentCode { get; set; }` |
+| `IdleAction` | `public string IdleAction { get; set; }` |
+| `IdleFaceAnim` | `public string IdleFaceAnim { get; set; }` |
+| `ArmorColor1` | `public uint ArmorColor1 { get; set; }` |
+| `ArmorColor2` | `public uint ArmorColor2 { get; set; }` |
+| `LeftHandWieldedEquipmentIndex` | `public int LeftHandWieldedEquipmentIndex { get; set; }` |
+| `RightHandWieldedEquipmentIndex` | `public int RightHandWieldedEquipmentIndex { get; set; }` |
+
+## 主要方法
+
+### SetEquipment
+`public void SetEquipment(EquipmentIndex index, EquipmentElement item)`
+
+**用途 / Purpose:** 为 「equipment」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.SetEquipment(index, item);
+```
+
+### SetEquipment
+`public virtual void SetEquipment(Equipment equipment)`
+
+**用途 / Purpose:** 为 「equipment」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.SetEquipment(equipment);
+```
+
+### FillFrom
+`public void FillFrom(BasicCharacterObject character, int seed = -1, string bannerCode = null)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.FillFrom(character, 0, "example");
+```
+
+### FillFrom
+`public void FillFrom(CharacterViewModel characterViewModel, int seed = -1)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.FillFrom(characterViewModel, 0);
+```
+
+### ExecuteEquipWeaponAtIndex
+`public void ExecuteEquipWeaponAtIndex(EquipmentIndex index, bool isLeftHand)`
+
+**用途 / Purpose:** 执行 「equip weapon at index」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteEquipWeaponAtIndex(index, false);
+```
+
+### ExecuteStartCustomAnimation
+`public void ExecuteStartCustomAnimation(string animation, bool loop = false, float loopInterval = 0f)`
+
+**用途 / Purpose:** 执行 「start custom animation」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteStartCustomAnimation("example", false, 0);
+```
+
+### ExecuteStopCustomAnimation
+`public void ExecuteStopCustomAnimation()`
+
+**用途 / Purpose:** 执行 「stop custom animation」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteStopCustomAnimation();
+```
 
-**Namespace**: TaleWorlds.Core.ViewModelCollection
-**File**: 
+## 使用示例
 
-`bannerlord-1.3.15/TaleWorlds.Core.ViewModelCollection/CharacterViewModel.cs
+```csharp
+// 将实例绑定到 Movie 或 View 的 ViewModel
+CharacterViewModel vm = ...;
+movie.SetViewModel(vm);
+```
 
-`
-**Purpose**: 用于?UI 中显示角?装备信息?ViewModel 基类 / ViewModel base class for displaying character/equipment information in UI
+## 参见
 
-## 概述 / Overview
-
-`CharacterViewModel
-
-` ?
-
-`ViewModel
-
-` 的具体实现，用于?UI 中显示角色信息和装备数据。它?
-
-`HeroViewModel
-
-` 和其他角色相?UI 组件广泛使用?
-
-`CharacterViewModel
-
-` is a concrete implementation of 
-
-`ViewModel
-
-` used to display character information and equipment data in the UI. It is widely used by 
-
-`HeroViewModel
-
-` and other character-related UI components.
-
-## 继承关系 / Inheritance Hierarchy
-
-`
-
-`
-
-`
-ViewModel (TaleWorlds.Library)
-    └── CharacterViewModel (TaleWorlds.Core.ViewModelCollection)
-`
-
-`
-
-`
-
-## 重要属?/ Important Properties
-
-\| Property \| Type \| Description \|
-\|----------\|------\|-------------\|
-\| BannerCodeText \| 
-
-`string
-
-` \| 旗帜代码文本 / Banner code text \|
-\| BodyProperties \| 
-
-`string
-
-` \| 身体属性字符串 / Body properties string \|
-\| MountCreationKey \| 
-
-`string
-
-` \| 坐骑创建?/ Mount creation key \|
-\| CharStringId \| 
-
-`string
-
-` \| 角色字符?ID / Character string ID \|
-\| CustomAnimation \| 
-
-`string
-
-` \| 自定义动画名?/ Custom animation name \|
-\| StancesIndex \| 
-
-`int
-
-` \| 姿态索?/ Stance index \|
-\| IsFemale \| 
-
-`bool
-
-` \| 是否为女?/ Whether female \|
-\| IsHidden \| 
-
-`bool
-
-` \| 是否隐藏 / Whether hidden \|
-\| IsPlayingCustomAnimations \| 
-
-`bool
-
-` \| 是否正在播放自定义动?/ Whether playing custom animations \|
-\| ShouldLoopCustomAnimation \| 
-
-`bool
-
-` \| 是否循环自定义动?/ Whether to loop custom animation \|
-\| CustomAnimationProgressRatio \| 
-
-`float
-
-` \| 自定义动画进度比?/ Custom animation progress ratio \|
-\| CustomAnimationWaitDuration \| 
-
-`float
-
-` \| 自定义动画等待时?/ Custom animation wait duration \|
-\| Race \| 
-
-`int
-
-` \| 种族 / Race \|
-\| HasMount \| 
-
-`bool
-
-` \| 是否有坐?/ Whether has mount \|
-\| EquipmentCode \| 
-
-`string
-
-` \| 装备代码 / Equipment code \|
-\| IdleAction \| 
-
-`string
-
-` \| 空闲动作 / Idle action \|
-\| IdleFaceAnim \| 
-
-`string
-
-` \| 空闲面部动画 / Idle face animation \|
-\| ArmorColor1 \| 
-
-`uint
-
-` \| 护甲颜色1 / Armor color 1 \|
-\| ArmorColor2 \| 
-
-`uint
-
-` \| 护甲颜色2 / Armor color 2 \|
-\| LeftHandWieldedEquipmentIndex \| 
-
-`int
-
-` \| 左手武器索引 / Left hand weapon index \|
-\| RightHandWieldedEquipmentIndex \| 
-
-`int
-
-` \| 右手武器索引 / Right hand weapon index \|
-
-## 重要方法 / Important Methods
-
-\| Method \| Signature \| Description \|
-\|--------\|-----------\|-------------\|
-\| SetEquipment \| 
-
-`public void SetEquipment(EquipmentIndex index, EquipmentElement item)
-
-` \| 设置指定索引的装?/ Set equipment at specified index \|
-\| SetEquipment \| 
-
-`public virtual void SetEquipment(Equipment equipment)
-
-` \| 设置全部装备 / Set all equipment \|
-\| FillFrom \| 
-
-`public void FillFrom(CharacterViewModel characterViewModel, int seed)
-
-` \| 从另一?CharacterViewModel 填充 / Fill from another CharacterViewModel \|
-\| FillFrom \| 
-
-`public void FillFrom(BasicCharacterObject character, int seed, string bannerCode)
-
-` \| ?BasicCharacterObject 填充 / Fill from BasicCharacterObject \|
-\| ExecuteEquipWeaponAtIndex \| 
-
-`public void ExecuteEquipWeaponAtIndex(EquipmentIndex index, bool isLeftHand)
-
-` \| 执行装备武器命令 / Execute equip weapon command \|
-\| ExecuteStartCustomAnimation \| 
-
-`public void ExecuteStartCustomAnimation(string animation, bool loop, float loopInterval)
-
-` \| 开始自定义动画 / Start custom animation \|
-\| ExecuteStopCustomAnimation \| 
-
-`public void ExecuteStopCustomAnimation()
-
-` \| 停止自定义动?/ Stop custom animation \|
-
-## 使用示例 / Usage Example
-
-`
-
-`
-
-`csharp
-// ?BasicCharacterObject 创建 CharacterViewModel
-// Create CharacterViewModel from BasicCharacterObject
-public void DisplayCharacter(BasicCharacterObject character)
-{
-    CharacterViewModel characterVM = new CharacterViewModel();
-    characterVM.FillFrom(character, -1, null);
-    
-    // 设置装备
-    // Set equipment
-    EquipmentIndex index = EquipmentIndex.Head;
-    EquipmentElement equipment = character.Equipment[index];
-    characterVM.SetEquipment(index, equipment);
-}
-
-// 在自定义 UI 中使?
-// Use in custom UI
-public class MyCharacterSheetVM : ViewModel
-{
-    private CharacterViewModel _selectedCharacter;
-    
-    [DataSourceProperty]
-    public CharacterViewModel SelectedCharacter
-    {
-        get =&gt; this._selectedCharacter;
-        set
-        {
-            if (SetField(ref this._selectedCharacter, value, "SelectedCharacter"))
-            {
-                // 处理角色变更
-                // Handle character change
-            }
-        }
-    }
-}
-`
-
-`
-
-`
-
-## 姿态类?/ Stance Types
-
-`CharacterViewModel.StancesTypes
-
-` 枚举定义了角色展示时的姿态：
-
-\| Value \| Description \|
-\|-------\|-------------\|
-\| None \| 无姿?/ No stance \|
-\| EmphasizeFace \| 强调面部 / Emphasize face \|
-\| SideView \| 侧面视图 / Side view \|
-\| CelebrateVictory \| 庆祝胜利 / Celebrate victory \|
-\| OnMount \| 在马背上 / On mount \|
-
-## 注意事项 / Notes
-
-- 
-
-`CharacterViewModel
-
-` 主要用于 UI 显示，不应包含复杂的业务逻辑
-- 
-
-`CharacterViewModel
-
-` is primarily for UI display and should not contain complex business logic
-- 装备变更?
-
-`EquipmentCode
-
-` 会自动重新计?
-- 
-
-`EquipmentCode
-
-` is automatically recalculated after equipment changes
-- 动画相关的属性允?Gauntlet UI 直接控制角色动画
-- Animation-related properties allow Gauntlet UI to directly control character animations
+- [本区域目录](../)

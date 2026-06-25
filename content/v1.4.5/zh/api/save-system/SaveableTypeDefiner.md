@@ -1,20 +1,14 @@
 ---
 title: "SaveableTypeDefiner"
+description: "SaveableTypeDefiner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveableTypeDefiner`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableTypeDefiner
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public abstract class SaveableTypeDefiner`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableTypeDefiner.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableTypeDefiner.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "SaveableTypeDefiner"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSaveableTypeDefiner();
+// 通常通过子系统 API 或工厂获得派生实例
+SaveableTypeDefiner instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

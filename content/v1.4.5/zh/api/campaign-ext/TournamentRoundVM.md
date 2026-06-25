@@ -1,20 +1,14 @@
 ---
 title: "TournamentRoundVM"
+description: "TournamentRoundVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentRoundVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentRoundVM
 
 **Namespace:** SandBox.ViewModelCollection.Tournament
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TournamentRoundVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tournament/TournamentRoundVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tournament/TournamentRoundVM.cs`
 
 ## 概述
 
@@ -47,30 +41,55 @@ title: "TournamentRoundVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentRoundVM 实例
+TournamentRoundVM tournamentRoundVM = ...;
+tournamentRoundVM.RefreshValues();
+```
 
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentRoundVM 实例
+TournamentRoundVM tournamentRoundVM = ...;
+tournamentRoundVM.Initialize();
+```
 
 ### Initialize
 `public void Initialize(TournamentRound round, TextObject name)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentRoundVM 实例
+TournamentRoundVM tournamentRoundVM = ...;
+tournamentRoundVM.Initialize(round, name);
+```
 
 ### GetParticipants
 `public IEnumerable<TournamentParticipantVM> GetParticipants()`
 
-**用途 / Purpose:** 获取 `participants` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「participants」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentRoundVM 实例
+TournamentRoundVM tournamentRoundVM = ...;
+var result = tournamentRoundVM.GetParticipants();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TournamentRoundVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+TournamentRoundVM tournamentRoundVM = ...;
+tournamentRoundVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

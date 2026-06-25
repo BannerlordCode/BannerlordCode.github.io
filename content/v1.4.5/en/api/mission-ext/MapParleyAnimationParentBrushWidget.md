@@ -1,20 +1,14 @@
 ---
 title: "MapParleyAnimationParentBrushWidget"
+description: "Auto-generated class reference for MapParleyAnimationParentBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapParleyAnimationParentBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapParleyAnimationParentBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Parley
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapParleyAnimationParentBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Parley/MapParleyAnimationParentBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Parley/MapParleyAnimationParentBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MapParleyAnimationParentBrushWidget` as a Widget-style extension point: f
 ### MapParleyAnimationParentBrushWidget
 `public class MapParleyAnimationParentBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `map parley animation parent brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapParleyAnimationParentBrushWidget from the subsystem API first
+MapParleyAnimationParentBrushWidget mapParleyAnimationParentBrushWidget = ...;
+var result = mapParleyAnimationParentBrushWidget.MapParleyAnimationParentBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MapParleyAnimationParentBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapParleyAnimationParentBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

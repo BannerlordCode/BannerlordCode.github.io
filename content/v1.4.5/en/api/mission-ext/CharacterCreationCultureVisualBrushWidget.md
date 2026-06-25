@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationCultureVisualBrushWidget"
+description: "Auto-generated class reference for CharacterCreationCultureVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationCultureVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationCultureVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Culture
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterCreationCultureVisualBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Culture/CharacterCreationCultureVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Culture/CharacterCreationCultureVisualBrushWidget.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Treat `CharacterCreationCultureVisualBrushWidget` as a Widget-style extension po
 ## Usage Example
 
 ```csharp
-var widget = new CharacterCreationCultureVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterCreationCultureVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

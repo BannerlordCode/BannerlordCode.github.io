@@ -1,13 +1,7 @@
 ---
 title: "MapAtmosphereProbe"
+description: "Auto-generated class reference for MapAtmosphereProbe."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapAtmosphereProbe`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapAtmosphereProbe
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetInfluenceAmount
 `public float GetInfluenceAmount(Vec3 worldPosition)`
 
-**Purpose:** Gets the current value of `influence amount`.
+**Purpose:** Reads and returns the `influence amount` value held by the current object.
+
+```csharp
+// Obtain an instance of MapAtmosphereProbe from the subsystem API first
+MapAtmosphereProbe mapAtmosphereProbe = ...;
+var result = mapAtmosphereProbe.GetInfluenceAmount(worldPosition);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapAtmosphereProbe();
-value.GetInfluenceAmount(worldPosition);
+// Typically call this after obtaining an instance from the subsystem API
+MapAtmosphereProbe mapAtmosphereProbe = ...;
+mapAtmosphereProbe.GetInfluenceAmount(worldPosition);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "AttackCollisionData"
+description: "Auto-generated class reference for AttackCollisionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AttackCollisionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AttackCollisionData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AttackCollisionData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AttackCollisionData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AttackCollisionData.cs`
 
 ## Overview
 
@@ -59,24 +53,42 @@ Treat `AttackCollisionData` as a Data-style extension point: first identify who 
 ### SetCollisionBoneIndexForAreaDamage
 `public void SetCollisionBoneIndexForAreaDamage(sbyte boneIndex)`
 
-**Purpose:** Sets the value or state of `collision bone index for area damage`.
+**Purpose:** Assigns a new value to `collision bone index for area damage` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AttackCollisionData from the subsystem API first
+AttackCollisionData attackCollisionData = ...;
+attackCollisionData.SetCollisionBoneIndexForAreaDamage(0);
+```
 
 ### UpdateCollisionPositionAndBoneForReflect
 `public void UpdateCollisionPositionAndBoneForReflect(int inflictedDamage, Vec3 position, sbyte boneIndex)`
 
-**Purpose:** Updates the state or data of `collision position and bone for reflect`.
+**Purpose:** Recalculates and stores the latest representation of `collision position and bone for reflect`.
+
+```csharp
+// Obtain an instance of AttackCollisionData from the subsystem API first
+AttackCollisionData attackCollisionData = ...;
+attackCollisionData.UpdateCollisionPositionAndBoneForReflect(0, position, 0);
+```
 
 ### GetAttackCollisionDataForDebugPurpose
 `public static AttackCollisionData GetAttackCollisionDataForDebugPurpose(bool _attackBlockedWithShield, bool _correctSideShieldBlock, bool _isAlternativeAttack, bool _isColliderAgent, bool _collidedWithShieldOnBack, bool _isMissile, bool _isMissileBlockedWithWeapon, bool _missileHasPhysics, bool _entityExists, bool _thrustTipHit, bool _missileGoneUnderWater, bool _missileGoneOutOfBorder, CombatCollisionResult collisionResult, int affectorWeaponSlotOrMissileIndex, int StrikeType, int DamageType, sbyte CollisionBoneIndex, BoneBodyPartType VictimHitBodyPart, sbyte AttackBoneIndex, Agent.UsageDirection AttackDirection, int PhysicsMaterialIndex, CombatHitResultFlags CollisionHitResultFlags, float AttackProgress, float CollisionDistanceOnWeapon, float AttackerStunPeriod, float DefenderStunPeriod, float MissileTotalDamage, float MissileInitialSpeed, float ChargeVelocity, float FallSpeed, Vec3 WeaponRotUp, Vec3 _weaponBlowDir, Vec3 CollisionGlobalPosition, Vec3 MissileVelocity, Vec3 MissileStartingPosition, Vec3 VictimAgentCurVelocity, Vec3 GroundNormal)`
 
-**Purpose:** Gets the current value of `attack collision data for debug purpose`.
+**Purpose:** Reads and returns the `attack collision data for debug purpose` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AttackCollisionData.GetAttackCollisionDataForDebugPurpose(false, false, false, false, false, false, false, false, false, false, false, false, collisionResult, 0, 0, 0, 0, victimHitBodyPart, 0, attackDirection, 0, collisionHitResultFlags, 0, 0, 0, 0, 0, 0, 0, 0, weaponRotUp, _weaponBlowDir, collisionGlobalPosition, missileVelocity, missileStartingPosition, victimAgentCurVelocity, groundNormal);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AttackCollisionData();
+// This data object is usually returned by campaign/mission APIs
+AttackCollisionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

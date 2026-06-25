@@ -1,20 +1,14 @@
 ---
 title: "GameKeyContextType"
+description: "Auto-generated class reference for GameKeyContextType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameKeyContextType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyContextType
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum GameKeyContextType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKeyContext.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKeyContext.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ## Usage Example
 
 ```csharp
-GameKeyContextType example = GameKeyContextType.Value;
+// Obtain an instance from the relevant subsystem API
+GameKeyContextType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

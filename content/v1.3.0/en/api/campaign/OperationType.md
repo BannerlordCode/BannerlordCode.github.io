@@ -1,13 +1,7 @@
 ---
 title: "OperationType"
+description: "Auto-generated class reference for OperationType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OperationType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OperationType
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-OperationType example = OperationType.Value;
+// Obtain an instance from the relevant subsystem API
+OperationType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

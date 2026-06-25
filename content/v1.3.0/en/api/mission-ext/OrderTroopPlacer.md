@@ -1,13 +1,7 @@
 ---
 title: "OrderTroopPlacer"
+description: "Auto-generated class reference for OrderTroopPlacer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderTroopPlacer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTroopPlacer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Order
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Order` to place
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.OnMissionTick(0);
+```
 
 ### RestrictOrdersToDeploymentBoundaries
 `public void RestrictOrdersToDeploymentBoundaries(bool enabled)`
 
-**Purpose:** Handles logic related to `restrict orders to deployment boundaries`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.RestrictOrdersToDeploymentBoundaries(false);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderTroopPlacer();
-value.AfterStart();
+// Typically call this after obtaining an instance from the subsystem API
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.AfterStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

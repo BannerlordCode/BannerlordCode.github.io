@@ -1,13 +1,7 @@
 ---
 title: "DynamicBodyProperties"
+description: "Auto-generated class reference for DynamicBodyProperties."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DynamicBodyProperties`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DynamicBodyProperties
 
 **Namespace:** TaleWorlds.Core
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Equals
 `public bool Equals(DynamicBodyProperties other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.Equals(other);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DynamicBodyProperties();
-value.Equals(other);
+// Typically call this after obtaining an instance from the subsystem API
+DynamicBodyProperties dynamicBodyProperties = ...;
+dynamicBodyProperties.Equals(other);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

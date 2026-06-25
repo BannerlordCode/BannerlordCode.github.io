@@ -1,19 +1,13 @@
 ---
 title: "MessageTypes"
+description: "Auto-generated class reference for MessageTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageTypes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MessageTypes
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** `class`
-**Base:** none
+**Type:** `public enum MessageTypes : byte`
+**Base:** `byte`
 **File:** `TaleWorlds.Network/MessageTypes.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new MessageTypes();
+// Obtain an instance from the relevant subsystem API
+MessageTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

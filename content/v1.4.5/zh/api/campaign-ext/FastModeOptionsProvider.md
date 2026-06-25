@@ -1,20 +1,14 @@
 ---
 title: "FastModeOptionsProvider"
+description: "FastModeOptionsProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FastModeOptionsProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FastModeOptionsProvider
 
 **Namespace:** TaleWorlds.CampaignSystem.FastMode
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FastModeOptionsProvider : ICampaignOptionProvider`
 **Base:** `ICampaignOptionProvider`
-**File:** `Bannerlord.Source/Modules.FastMode/TaleWorlds.CampaignSystem.FastMode/FastModeOptionsProvider.cs`
+**File:** `Modules.FastMode/TaleWorlds.CampaignSystem.FastMode/FastModeOptionsProvider.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "FastModeOptionsProvider"
 ### GetGameplayCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**用途 / Purpose:** 获取 `gameplay campaign options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gameplay campaign options」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FastModeOptionsProvider 实例
+FastModeOptionsProvider fastModeOptionsProvider = ...;
+var result = fastModeOptionsProvider.GetGameplayCampaignOptions();
+```
 
 ### GetCharacterCreationCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**用途 / Purpose:** 获取 `character creation campaign options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character creation campaign options」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FastModeOptionsProvider 实例
+FastModeOptionsProvider fastModeOptionsProvider = ...;
+var result = fastModeOptionsProvider.GetCharacterCreationCampaignOptions();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FastModeOptionsProvider();
-value.GetGameplayCampaignOptions();
+// 通常从对应子系统 API 获取实例后调用
+FastModeOptionsProvider fastModeOptionsProvider = ...;
+fastModeOptionsProvider.GetGameplayCampaignOptions();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

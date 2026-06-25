@@ -1,20 +1,14 @@
 ---
 title: "BattleSideEnumExtensions"
+description: "BattleSideEnumExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleSideEnumExtensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSideEnumExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class BattleSideEnumExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BattleSideEnumExtensions.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BattleSideEnumExtensions.cs`
 
 ## 概述
 
@@ -29,14 +23,19 @@ title: "BattleSideEnumExtensions"
 ### IsValid
 `public static bool IsValid(this BattleSideEnum battleSide)`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+BattleSideEnumExtensions.IsValid(battleSide);
+```
 
 ## 使用示例
 
 ```csharp
-BattleSideEnumExtensions example = BattleSideEnumExtensions.Value;
+BattleSideEnumExtensions.IsValid(battleSide);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "ActionSetCode"
+description: "Auto-generated class reference for ActionSetCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActionSetCode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ActionSetCode
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class ActionSetCode`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/ActionSetCode.cs`
 
 ## Overview
 
-`ActionSetCode` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ActionSetCode` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GenerateActionSetNameWithSuffix
 `public static string GenerateActionSetNameWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**Purpose:** Handles logic related to `generate action set name with suffix`.
+**Purpose:** Generates an instance, data, or representation of `action set name with suffix`.
+
+```csharp
+// Static call; no instance required
+ActionSetCode.GenerateActionSetNameWithSuffix(monster, false, "example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ActionSetCode.GenerateActionSetNameWithSuffix(monster, false, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

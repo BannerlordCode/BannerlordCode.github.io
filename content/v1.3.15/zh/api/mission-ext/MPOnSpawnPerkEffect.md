@@ -1,24 +1,18 @@
 ---
 title: "MPOnSpawnPerkEffect"
+description: "MPOnSpawnPerkEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPOnSpawnPerkEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPOnSpawnPerkEffect
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public abstract class MPOnSpawnPerkEffect : MPOnSpawnPerkEffectBase`
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public abstract class MPOnSpawnPerkEffect : MPOnSpawnPerkEffectBase`
 **Base:** `MPOnSpawnPerkEffectBase`
-**领域:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/MPOnSpawnPerkEffect.cs`
 
 ## 概述
 
-`MPOnSpawnPerkEffect` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MPOnSpawnPerkEffect` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -29,15 +23,20 @@ title: "MPOnSpawnPerkEffect"
 ### CreateFrom
 `public static MPOnSpawnPerkEffect CreateFrom(XmlNode node)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MPOnSpawnPerkEffect.CreateFrom(node);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMPOnSpawnPerkEffect();
+// 通常通过子系统 API 或工厂获得派生实例
+MPOnSpawnPerkEffect instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

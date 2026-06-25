@@ -1,13 +1,7 @@
 ---
 title: "ClanRoleMemberItemVM"
+description: "ClanRoleMemberItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanRoleMemberItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanRoleMemberItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -40,35 +34,65 @@ title: "ClanRoleMemberItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanRoleMemberItemVM 实例
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+clanRoleMemberItemVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanRoleMemberItemVM 实例
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+clanRoleMemberItemVM.OnFinalize();
+```
 
 ### ExecuteAssignHeroToRole
 `public void ExecuteAssignHeroToRole()`
 
-**用途 / Purpose:** 执行 `assign hero to role` 操作或流程。
+**用途 / Purpose:** 执行 「assign hero to role」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanRoleMemberItemVM 实例
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+clanRoleMemberItemVM.ExecuteAssignHeroToRole();
+```
 
 ### GetEffectsList
 `public string GetEffectsList(PartyRole role)`
 
-**用途 / Purpose:** 获取 `effects list` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「effects list」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanRoleMemberItemVM 实例
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+var result = clanRoleMemberItemVM.GetEffectsList(role);
+```
 
 ### IsHeroAssignableForRole
 `public static bool IsHeroAssignableForRole(Hero hero, PartyRole role, MobileParty party)`
 
-**用途 / Purpose:** 处理 `is hero assignable for role` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「hero assignable for role」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+ClanRoleMemberItemVM.IsHeroAssignableForRole(hero, role, party);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanRoleMemberItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanRoleMemberItemVM clanRoleMemberItemVM = ...;
+clanRoleMemberItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

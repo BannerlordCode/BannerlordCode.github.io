@@ -1,13 +1,7 @@
 ---
 title: "BasicGameStarter"
+description: "Auto-generated class reference for BasicGameStarter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasicGameStarter`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicGameStarter
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -31,13 +25,20 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Adds `model` to the current collection or state.
 
+```csharp
+// Obtain an instance of BasicGameStarter from the subsystem API first
+BasicGameStarter basicGameStarter = ...;
+basicGameStarter.AddModel(gameModel);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new BasicGameStarter();
-value.AddModel(gameModel);
+// Typically call this after obtaining an instance from the subsystem API
+BasicGameStarter basicGameStarter = ...;
+basicGameStarter.AddModel(gameModel);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

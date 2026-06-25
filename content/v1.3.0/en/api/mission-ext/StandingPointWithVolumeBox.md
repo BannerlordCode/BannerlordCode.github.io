@@ -1,13 +1,7 @@
 ---
 title: "StandingPointWithVolumeBox"
+description: "Auto-generated class reference for StandingPointWithVolumeBox."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandingPointWithVolumeBox`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandingPointWithVolumeBox
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of StandingPointWithVolumeBox from the subsystem API first
+StandingPointWithVolumeBox standingPointWithVolumeBox = ...;
+var result = standingPointWithVolumeBox.IsDisabledForAgent(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StandingPointWithVolumeBox();
-value.IsDisabledForAgent(agent);
+// Typically call this after obtaining an instance from the subsystem API
+StandingPointWithVolumeBox standingPointWithVolumeBox = ...;
+standingPointWithVolumeBox.IsDisabledForAgent(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TauntSlotData"
+description: "Auto-generated class reference for TauntSlotData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TauntSlotData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TauntSlotData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
@@ -36,14 +30,21 @@ Treat `TauntSlotData` as a Data-style extension point: first identify who create
 ### HasSameContentWith
 `public override bool HasSameContentWith(MultiplayerLocalData other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of TauntSlotData from the subsystem API first
+TauntSlotData tauntSlotData = ...;
+var result = tauntSlotData.HasSameContentWith(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TauntSlotData();
+// This data object is usually returned by campaign/mission APIs
+TauntSlotData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

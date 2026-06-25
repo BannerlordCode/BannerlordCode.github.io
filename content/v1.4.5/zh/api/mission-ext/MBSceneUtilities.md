@@ -1,20 +1,14 @@
 ---
 title: "MBSceneUtilities"
+description: "MBSceneUtilities 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBSceneUtilities`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBSceneUtilities
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBSceneUtilities`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSceneUtilities.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSceneUtilities.cs`
 
 ## 概述
 
@@ -29,62 +23,122 @@ title: "MBSceneUtilities"
 ### GetAllSpawnPaths
 `public static MBList<Path> GetAllSpawnPaths(Scene scene)`
 
-**用途 / Purpose:** 获取 `all spawn paths` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all spawn paths」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.GetAllSpawnPaths(scene);
+```
 
 ### GetSoftBoundaryPoints
 `public static MBList<Vec2> GetSoftBoundaryPoints(Scene scene)`
 
-**用途 / Purpose:** 获取 `soft boundary points` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「soft boundary points」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.GetSoftBoundaryPoints(scene);
+```
 
 ### GetHardBoundaryPoints
 `public static MBList<Vec2> GetHardBoundaryPoints(Scene scene)`
 
-**用途 / Purpose:** 获取 `hard boundary points` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hard boundary points」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.GetHardBoundaryPoints(scene);
+```
 
 ### GetSceneLimitPoints
 `public static MBList<Vec2> GetSceneLimitPoints(Scene scene, out Vec2 sceneLimitMin, out Vec2 sceneLimitMax)`
 
-**用途 / Purpose:** 获取 `scene limit points` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene limit points」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.GetSceneLimitPoints(scene, sceneLimitMin, sceneLimitMax);
+```
 
 ### GetAxisAlignedBoundaryRectangle
 `public static void GetAxisAlignedBoundaryRectangle(List<Vec2> boundaryPoints, out Vec2 boundsMin, out Vec2 boundsMax)`
 
-**用途 / Purpose:** 获取 `axis aligned boundary rectangle` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「axis aligned boundary rectangle」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.GetAxisAlignedBoundaryRectangle(boundaryPoints, boundsMin, boundsMax);
+```
 
 ### FindConvexHull
 `public static void FindConvexHull(ref MBList<Vec2> boundary)`
 
-**用途 / Purpose:** 处理 `find convex hull` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「convex hull」。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.FindConvexHull(boundary);
+```
 
 ### RadialSortBoundary
 `public static void RadialSortBoundary(ref MBList<Vec2> boundary)`
 
-**用途 / Purpose:** 处理 `radial sort boundary` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.RadialSortBoundary(boundary);
+```
 
 ### RadialSortBoundary
 `public static void RadialSortBoundary(ref MBList<Vec3> boundary)`
 
-**用途 / Purpose:** 处理 `radial sort boundary` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.RadialSortBoundary(boundary);
+```
 
 ### IsConvexAndRadiallySorted
 `public static bool IsConvexAndRadiallySorted(MBList<Vec2> boundary)`
 
-**用途 / Purpose:** 处理 `is convex and radially sorted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「convex and radially sorted」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.IsConvexAndRadiallySorted(boundary);
+```
 
 ### IsPointInsideBoundaries
 `public static bool IsPointInsideBoundaries(in Vec2 point, MBList<Vec2> boundaries, float acceptanceThreshold = 0.05f)`
 
-**用途 / Purpose:** 处理 `is point inside boundaries` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「point inside boundaries」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.IsPointInsideBoundaries(point, boundaries, 0);
+```
 
 ### FindClosestPointToBoundaries
 `public static float FindClosestPointToBoundaries(in Vec2 position, MBList<Vec2> boundaries, out Vec2 closestPoint)`
 
-**用途 / Purpose:** 处理 `find closest point to boundaries` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「closest point to boundaries」。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.FindClosestPointToBoundaries(position, boundaries, closestPoint);
+```
 
 ### FindClosestPointToBoundariesReturnDistanceSquared
 `public static float FindClosestPointToBoundariesReturnDistanceSquared(in Vec2 position, MBList<Vec2> boundaries, out Vec2 closestPoint, out bool isPositionInsideBoundaries)`
 
-**用途 / Purpose:** 处理 `find closest point to boundaries return distance squared` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「closest point to boundaries return distance squared」。
+
+```csharp
+// 静态调用，不需要实例
+MBSceneUtilities.FindClosestPointToBoundariesReturnDistanceSquared(position, boundaries, closestPoint, isPositionInsideBoundaries);
+```
 
 ## 使用示例
 
@@ -94,4 +148,4 @@ MBSceneUtilities.GetAllSpawnPaths(scene);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

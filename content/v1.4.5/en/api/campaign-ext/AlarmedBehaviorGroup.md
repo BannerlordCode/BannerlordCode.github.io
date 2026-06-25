@@ -1,20 +1,14 @@
 ---
 title: "AlarmedBehaviorGroup"
+description: "Auto-generated class reference for AlarmedBehaviorGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlarmedBehaviorGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlarmedBehaviorGroup
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class AlarmedBehaviorGroup : AgentBehaviorGroup`
 **Base:** `AgentBehaviorGroup`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AlarmedBehaviorGroup.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AlarmedBehaviorGroup.cs`
 
 ## Overview
 
@@ -35,65 +29,131 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### SetCanMoveWhenCautious
 `public void SetCanMoveWhenCautious(bool value)`
 
-**Purpose:** Sets the value or state of `can move when cautious`.
+**Purpose:** Assigns a new value to `can move when cautious` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.SetCanMoveWhenCautious(false);
+```
 
 ### GetVisualFactor
 `public float GetVisualFactor(Vec3 usedGlobalLookDirection, Agent currentAgent, MBReadOnlyList<GameEntity> stealthIndoorLightingAreas, ref bool hasVisualOnCorpse, ref bool hasVisualOnEnemy)`
 
-**Purpose:** Gets the current value of `visual factor`.
+**Purpose:** Reads and returns the `visual factor` value held by the current object.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+var result = alarmedBehaviorGroup.GetVisualFactor(usedGlobalLookDirection, currentAgent, stealthIndoorLightingAreas, hasVisualOnCorpse, hasVisualOnEnemy);
+```
 
 ### ResetAlarmFactor
 `public void ResetAlarmFactor()`
 
-**Purpose:** Resets `alarm factor` to its initial state.
+**Purpose:** Returns `alarm factor` to its default or initial condition.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.ResetAlarmFactor();
+```
 
 ### AddAlarmFactor
 `public void AddAlarmFactor(float addedAlarmFactor, in WorldPosition suspiciousPosition)`
 
 **Purpose:** Adds `alarm factor` to the current collection or state.
 
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.AddAlarmFactor(0, suspiciousPosition);
+```
+
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.Tick(0, false);
+```
 
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**Purpose:** Gets the current value of `score`.
+**Purpose:** Reads and returns the `score` value held by the current object.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+var result = alarmedBehaviorGroup.GetScore(false);
+```
 
 ### GetClosestAlarmSource
 `public Agent GetClosestAlarmSource(out float distanceSquared)`
 
-**Purpose:** Gets the current value of `closest alarm source`.
+**Purpose:** Reads and returns the `closest alarm source` value held by the current object.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+var result = alarmedBehaviorGroup.GetClosestAlarmSource(distanceSquared);
+```
 
 ### AlarmAgent
 `public static void AlarmAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `alarm agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+AlarmedBehaviorGroup.AlarmAgent(agent);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.OnAgentRemoved(agent);
+```
 
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**Purpose:** Handles logic related to `force think`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.ForceThink(0);
+```
 
 ### ConversationTick
 `public override void ConversationTick()`
 
-**Purpose:** Handles logic related to `conversation tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.ConversationTick();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AlarmedBehaviorGroup();
-value.SetCanMoveWhenCautious(false);
+// Typically call this after obtaining an instance from the subsystem API
+AlarmedBehaviorGroup alarmedBehaviorGroup = ...;
+alarmedBehaviorGroup.SetCanMoveWhenCautious(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

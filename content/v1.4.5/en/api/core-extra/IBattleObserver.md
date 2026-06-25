@@ -1,20 +1,14 @@
 ---
 title: "IBattleObserver"
+description: "Auto-generated class reference for IBattleObserver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBattleObserver`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBattleObserver
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IBattleObserver`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IBattleObserver.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IBattleObserver.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IBattleObserver implementation = GetBattleObserverImplementation();
+// Usually obtained through DI or a factory method
+IIBattleObserver service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

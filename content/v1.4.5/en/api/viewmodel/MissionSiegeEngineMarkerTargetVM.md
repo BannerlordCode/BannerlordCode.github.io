@@ -1,20 +1,14 @@
 ---
 title: "MissionSiegeEngineMarkerTargetVM"
+description: "Auto-generated class reference for MissionSiegeEngineMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeEngineMarkerTargetVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeEngineMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSiegeEngineMarkerTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerTargetVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerTargetVM.cs`
 
 ## Overview
 
@@ -42,15 +36,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerTargetVM from the subsystem API first
+MissionSiegeEngineMarkerTargetVM missionSiegeEngineMarkerTargetVM = ...;
+missionSiegeEngineMarkerTargetVM.Refresh();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionSiegeEngineMarkerTargetVM();
-value.Refresh();
+// Typically call this after obtaining an instance from the subsystem API
+MissionSiegeEngineMarkerTargetVM missionSiegeEngineMarkerTargetVM = ...;
+missionSiegeEngineMarkerTargetVM.Refresh();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

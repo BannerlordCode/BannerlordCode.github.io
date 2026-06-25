@@ -1,13 +1,7 @@
 ---
 title: "MeetWithArzagosQuest"
+description: "Auto-generated class reference for MeetWithArzagosQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MeetWithArzagosQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MeetWithArzagosQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
@@ -34,9 +28,10 @@ Start from namespace `StoryMode.Quests.FirstPhase` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new MeetWithArzagosQuest();
+// Obtain an instance from the relevant subsystem API
+MeetWithArzagosQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

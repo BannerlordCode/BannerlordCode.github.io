@@ -1,13 +1,7 @@
 ---
 title: "DefaultValuationModel"
+description: "Auto-generated class reference for DefaultValuationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultValuationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultValuationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ Treat `DefaultValuationModel` as a Model-style extension point: first identify w
 ### GetMilitaryValueOfParty
 `public override float GetMilitaryValueOfParty(MobileParty party)`
 
-**Purpose:** Gets the current value of `military value of party`.
+**Purpose:** Reads and returns the `military value of party` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultValuationModel from the subsystem API first
+DefaultValuationModel defaultValuationModel = ...;
+var result = defaultValuationModel.GetMilitaryValueOfParty(party);
+```
 
 ### GetValueOfTroop
 `public override float GetValueOfTroop(CharacterObject troop)`
 
-**Purpose:** Gets the current value of `value of troop`.
+**Purpose:** Reads and returns the `value of troop` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultValuationModel from the subsystem API first
+DefaultValuationModel defaultValuationModel = ...;
+var result = defaultValuationModel.GetValueOfTroop(troop);
+```
 
 ### GetValueOfHero
 `public override float GetValueOfHero(Hero hero)`
 
-**Purpose:** Gets the current value of `value of hero`.
+**Purpose:** Reads and returns the `value of hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultValuationModel from the subsystem API first
+DefaultValuationModel defaultValuationModel = ...;
+var result = defaultValuationModel.GetValueOfHero(hero);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultValuationModel>(new MyDefaultValuationModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

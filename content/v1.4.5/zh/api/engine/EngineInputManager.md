@@ -1,20 +1,14 @@
 ---
 title: "EngineInputManager"
+description: "EngineInputManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EngineInputManager`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineInputManager
 
 **Namespace:** TaleWorlds.Engine.InputSystem
 **Module:** TaleWorlds.Engine
 **Type:** `public class EngineInputManager : IInputManager`
 **Base:** `IInputManager`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/EngineInputManager.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/EngineInputManager.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "EngineInputManager"
 ### SetRumbleEffect
 `public void SetRumbleEffect(float lowFrequencyLevels, float lowFrequencyDurations, int numLowFrequencyElements, float highFrequencyLevels, float highFrequencyDurations, int numHighFrequencyElements)`
 
-**用途 / Purpose:** 设置 `rumble effect` 的值或状态。
+**用途 / Purpose:** 为 「rumble effect」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EngineInputManager 实例
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetRumbleEffect(0, 0, 0, 0, 0, 0);
+```
 
 ### SetTriggerFeedback
 `public void SetTriggerFeedback(byte leftTriggerPosition, byte leftTriggerStrength, byte rightTriggerPosition, byte rightTriggerStrength)`
 
-**用途 / Purpose:** 设置 `trigger feedback` 的值或状态。
+**用途 / Purpose:** 为 「trigger feedback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EngineInputManager 实例
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetTriggerFeedback(0, 0, 0, 0);
+```
 
 ### SetTriggerWeaponEffect
 `public void SetTriggerWeaponEffect(byte leftStartPosition, byte leftEnd_position, byte leftStrength, byte rightStartPosition, byte rightEndPosition, byte rightStrength)`
 
-**用途 / Purpose:** 设置 `trigger weapon effect` 的值或状态。
+**用途 / Purpose:** 为 「trigger weapon effect」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EngineInputManager 实例
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetTriggerWeaponEffect(0, 0, 0, 0, 0, 0);
+```
 
 ### SetTriggerVibration
 `public void SetTriggerVibration(float leftTriggerAmplitudes, float leftTriggerFrequencies, float leftTriggerDurations, int numLeftTriggerElements, float rightTriggerAmplitudes, float rightTriggerFrequencies, float rightTriggerDurations, int numRightTriggerElements)`
 
-**用途 / Purpose:** 设置 `trigger vibration` 的值或状态。
+**用途 / Purpose:** 为 「trigger vibration」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EngineInputManager 实例
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetTriggerVibration(0, 0, 0, 0, 0, 0, 0, 0);
+```
 
 ### SetLightbarColor
 `public void SetLightbarColor(float red, float green, float blue)`
 
-**用途 / Purpose:** 设置 `lightbar color` 的值或状态。
+**用途 / Purpose:** 为 「lightbar color」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EngineInputManager 实例
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetLightbarColor(0, 0, 0);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ var manager = EngineInputManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

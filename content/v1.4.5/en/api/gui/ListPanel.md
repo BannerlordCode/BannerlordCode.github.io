@@ -1,20 +1,14 @@
 ---
 title: "ListPanel"
+description: "Auto-generated class reference for ListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ListPanel`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ListPanel
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ListPanel : Container`
 **Base:** `Container`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ListPanel.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ListPanel.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 mousePosition)`
 
-**Purpose:** Gets the current value of `index for drop`.
+**Purpose:** Reads and returns the `index for drop` value held by the current object.
+
+```csharp
+// Obtain an instance of ListPanel from the subsystem API first
+ListPanel listPanel = ...;
+var result = listPanel.GetIndexForDrop(mousePosition);
+```
 
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 mousePosition)`
 
-**Purpose:** Gets the current value of `drop gizmo position`.
+**Purpose:** Reads and returns the `drop gizmo position` value held by the current object.
+
+```csharp
+// Obtain an instance of ListPanel from the subsystem API first
+ListPanel listPanel = ...;
+var result = listPanel.GetDropGizmoPosition(mousePosition);
+```
 
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**Purpose:** Called when the `child selected` event is raised.
+**Purpose:** Invoked when the `child selected` event is raised.
+
+```csharp
+// Obtain an instance of ListPanel from the subsystem API first
+ListPanel listPanel = ...;
+listPanel.OnChildSelected(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ListPanel();
-value.GetIndexForDrop(mousePosition);
+// Typically call this after obtaining an instance from the subsystem API
+ListPanel listPanel = ...;
+listPanel.GetIndexForDrop(mousePosition);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

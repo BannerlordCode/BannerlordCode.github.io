@@ -1,13 +1,7 @@
 ---
 title: "TutorialVM"
+description: "TutorialVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TutorialVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialVM
 
 **Namespace:** SandBox.ViewModelCollection.Tutorial
@@ -45,35 +39,66 @@ title: "TutorialVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialVM 实例
+TutorialVM tutorialVM = ...;
+tutorialVM.RefreshValues();
+```
 
 ### SetCurrentTutorial
 `public void SetCurrentTutorial(TutorialItemVM.ItemPlacements placement, string tutorialTypeId, bool requiresMouse)`
 
-**用途 / Purpose:** 设置 `current tutorial` 的值或状态。
+**用途 / Purpose:** 为 「current tutorial」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialVM 实例
+TutorialVM tutorialVM = ...;
+tutorialVM.SetCurrentTutorial(placement, "example", false);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialVM 实例
+TutorialVM tutorialVM = ...;
+tutorialVM.Tick(0);
+```
 
 ### CloseTutorialStep
 `public void CloseTutorialStep(bool finalizeAllSteps = false)`
 
-**用途 / Purpose:** 处理 `close tutorial step` 相关逻辑。
+**用途 / Purpose:** 关闭「tutorial step」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialVM 实例
+TutorialVM tutorialVM = ...;
+tutorialVM.CloseTutorialStep(false);
+```
 
 ### FinalizeTutorial
 `public void FinalizeTutorial()`
 
-**用途 / Purpose:** 处理 `finalize tutorial` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialVM 实例
+TutorialVM tutorialVM = ...;
+tutorialVM.FinalizeTutorial();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TutorialVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+TutorialVM tutorialVM = ...;
+tutorialVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

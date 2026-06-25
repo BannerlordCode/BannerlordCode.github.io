@@ -1,20 +1,14 @@
 ---
 title: "PlayerJoinGameData"
+description: "PlayerJoinGameData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerJoinGameData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerJoinGameData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerJoinGameData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerJoinGameData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerJoinGameData.cs`
 
 ## 概述
 
@@ -40,14 +34,21 @@ title: "PlayerJoinGameData"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerJoinGameData 实例
+PlayerJoinGameData playerJoinGameData = ...;
+var result = playerJoinGameData.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerJoinGameData();
+// 该数据对象通常由战役/任务 API 返回
+PlayerJoinGameData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

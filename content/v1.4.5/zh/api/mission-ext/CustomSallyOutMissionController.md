@@ -1,20 +1,14 @@
 ---
 title: "CustomSallyOutMissionController"
+description: "CustomSallyOutMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomSallyOutMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomSallyOutMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionSpawnHandlers
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomSallyOutMissionController : SallyOutMissionController`
 **Base:** `SallyOutMissionController`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomSallyOutMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomSallyOutMissionController.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ var controller = Mission.Current.GetMissionBehavior<CustomSallyOutMissionControl
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

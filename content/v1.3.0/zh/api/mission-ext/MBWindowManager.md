@@ -1,13 +1,7 @@
 ---
 title: "MBWindowManager"
+description: "MBWindowManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBWindowManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBWindowManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,37 +23,72 @@ title: "MBWindowManager"
 ### WorldToScreen
 `public static float WorldToScreen(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**用途 / Purpose:** 处理 `world to screen` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBWindowManager.WorldToScreen(camera, worldSpacePosition, screenX, screenY, w);
+```
 
 ### WorldToScreenInsideUsableArea
 `public static float WorldToScreenInsideUsableArea(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**用途 / Purpose:** 处理 `world to screen inside usable area` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBWindowManager.WorldToScreenInsideUsableArea(camera, worldSpacePosition, screenX, screenY, w);
+```
 
 ### WorldToScreenWithFixedZ
 `public static float WorldToScreenWithFixedZ(Camera camera, Vec3 cameraPosition, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**用途 / Purpose:** 处理 `world to screen with fixed z` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBWindowManager.WorldToScreenWithFixedZ(camera, cameraPosition, worldSpacePosition, screenX, screenY, w);
+```
 
 ### ScreenToWorld
 `public static void ScreenToWorld(Camera camera, float screenX, float screenY, float w, ref Vec3 worldSpacePosition)`
 
-**用途 / Purpose:** 处理 `screen to world` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBWindowManager.ScreenToWorld(camera, 0, 0, 0, worldSpacePosition);
+```
 
 ### GetScreenResolution
 `public static Vec2 GetScreenResolution()`
 
-**用途 / Purpose:** 获取 `screen resolution` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「screen resolution」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBWindowManager.GetScreenResolution();
+```
 
 ### PreDisplay
 `public static void PreDisplay()`
 
-**用途 / Purpose:** 处理 `pre display` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBWindowManager.PreDisplay();
+```
 
 ### DontChangeCursorPos
 `public static void DontChangeCursorPos()`
 
-**用途 / Purpose:** 处理 `dont change cursor pos` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBWindowManager.DontChangeCursorPos();
+```
 
 ## 使用示例
 
@@ -69,4 +98,4 @@ var manager = MBWindowManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

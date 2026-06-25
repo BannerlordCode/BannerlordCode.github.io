@@ -1,20 +1,14 @@
 ---
 title: "ClanMemberPartyRoleModel"
+description: "ClanMemberPartyRoleModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanMemberPartyRoleModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanMemberPartyRoleModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ClanMemberPartyRoleModel : MBGameModel<ClanMemberPartyRoleModel>`
 **Base:** `MBGameModel<ClanMemberPartyRoleModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanMemberPartyRoleModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanMemberPartyRoleModel.cs`
 
 ## 概述
 
@@ -35,34 +29,65 @@ title: "ClanMemberPartyRoleModel"
 ### GetAssignablePartyRoles
 `public abstract IEnumerable<PartyRole> GetAssignablePartyRoles()`
 
-**用途 / Purpose:** 获取 `assignable party roles` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「assignable party roles」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.GetAssignablePartyRoles();
+```
 
 ### GetRelevantSkillForPartyRole
 `public abstract SkillObject GetRelevantSkillForPartyRole(PartyRole role)`
 
-**用途 / Purpose:** 获取 `relevant skill for party role` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relevant skill for party role」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.GetRelevantSkillForPartyRole(role);
+```
 
 ### IsHeroAssignableForPartyRole
 `public abstract bool IsHeroAssignableForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**用途 / Purpose:** 处理 `is hero assignable for party role` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「hero assignable for party role」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.IsHeroAssignableForPartyRole(hero, role, party);
+```
 
 ### DoesHeroHaveEnoughSkillForPartyRole
 `public abstract bool DoesHeroHaveEnoughSkillForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**用途 / Purpose:** 处理 `does hero have enough skill for party role` 相关逻辑。
+**用途 / Purpose:** 返回「hero have enough skill for party role」对当前对象是否成立的布尔结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.DoesHeroHaveEnoughSkillForPartyRole(hero, role, party);
+```
 
 ### IsHeroAssignableForPartyRoleInParty
 `public abstract bool IsHeroAssignableForPartyRoleInParty(PartyRole role, Hero hero, MobileParty party)`
 
-**用途 / Purpose:** 处理 `is hero assignable for party role in party` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「hero assignable for party role in party」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.IsHeroAssignableForPartyRoleInParty(role, hero, party);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomClanMemberPartyRoleModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ClanMemberPartyRoleModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

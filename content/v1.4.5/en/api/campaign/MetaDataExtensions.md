@@ -1,20 +1,14 @@
 ---
 title: "MetaDataExtensions"
+description: "Auto-generated class reference for MetaDataExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MetaDataExtensions`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MetaDataExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class MetaDataExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/MetaDataExtensions.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/MetaDataExtensions.cs`
 
 ## Overview
 
@@ -29,82 +23,162 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### GetUniqueGameId
 `public static string GetUniqueGameId(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `unique game id`.
+**Purpose:** Reads and returns the `unique game id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetUniqueGameId(metaData);
+```
 
 ### GetMainHeroLevel
 `public static int GetMainHeroLevel(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `main hero level`.
+**Purpose:** Reads and returns the `main hero level` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetMainHeroLevel(metaData);
+```
 
 ### GetMainPartyFood
 `public static float GetMainPartyFood(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `main party food`.
+**Purpose:** Reads and returns the `main party food` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetMainPartyFood(metaData);
+```
 
 ### GetMainHeroGold
 `public static int GetMainHeroGold(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `main hero gold`.
+**Purpose:** Reads and returns the `main hero gold` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetMainHeroGold(metaData);
+```
 
 ### GetClanInfluence
 `public static float GetClanInfluence(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `clan influence`.
+**Purpose:** Reads and returns the `clan influence` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetClanInfluence(metaData);
+```
 
 ### GetClanFiefs
 `public static int GetClanFiefs(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `clan fiefs`.
+**Purpose:** Reads and returns the `clan fiefs` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetClanFiefs(metaData);
+```
 
 ### GetMainPartyShipCount
 `public static int GetMainPartyShipCount(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `main party ship count`.
+**Purpose:** Reads and returns the `main party ship count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetMainPartyShipCount(metaData);
+```
 
 ### GetMainPartyHealthyMemberCount
 `public static int GetMainPartyHealthyMemberCount(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `main party healthy member count`.
+**Purpose:** Reads and returns the `main party healthy member count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetMainPartyHealthyMemberCount(metaData);
+```
 
 ### GetMainPartyPrisonerMemberCount
 `public static int GetMainPartyPrisonerMemberCount(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `main party prisoner member count`.
+**Purpose:** Reads and returns the `main party prisoner member count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetMainPartyPrisonerMemberCount(metaData);
+```
 
 ### GetMainPartyWoundedMemberCount
 `public static int GetMainPartyWoundedMemberCount(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `main party wounded member count`.
+**Purpose:** Reads and returns the `main party wounded member count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetMainPartyWoundedMemberCount(metaData);
+```
 
 ### GetClanBannerCode
 `public static string GetClanBannerCode(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `clan banner code`.
+**Purpose:** Reads and returns the `clan banner code` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetClanBannerCode(metaData);
+```
 
 ### GetCharacterName
 `public static string GetCharacterName(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `character name`.
+**Purpose:** Reads and returns the `character name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetCharacterName(metaData);
+```
 
 ### GetCharacterVisualCode
 `public static string GetCharacterVisualCode(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `character visual code`.
+**Purpose:** Reads and returns the `character visual code` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetCharacterVisualCode(metaData);
+```
 
 ### GetDayLong
 `public static double GetDayLong(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `day long`.
+**Purpose:** Reads and returns the `day long` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetDayLong(metaData);
+```
 
 ### GetIronmanMode
 `public static bool GetIronmanMode(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `ironman mode`.
+**Purpose:** Reads and returns the `ironman mode` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetIronmanMode(metaData);
+```
 
 ### GetPlayerHealthPercentage
 `public static int GetPlayerHealthPercentage(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `player health percentage`.
+**Purpose:** Reads and returns the `player health percentage` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetPlayerHealthPercentage(metaData);
+```
 
 ## Usage Example
 
@@ -114,4 +188,4 @@ MetaDataExtensions.GetUniqueGameId(metaData);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

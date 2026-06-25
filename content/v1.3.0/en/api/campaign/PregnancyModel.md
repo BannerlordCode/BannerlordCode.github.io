@@ -1,13 +1,7 @@
 ---
 title: "PregnancyModel"
+description: "Auto-generated class reference for PregnancyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PregnancyModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PregnancyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -39,14 +33,21 @@ Treat `PregnancyModel` as a Model-style extension point: first identify who crea
 ### GetDailyChanceOfPregnancyForHero
 `public abstract float GetDailyChanceOfPregnancyForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `daily chance of pregnancy for hero`.
+**Purpose:** Reads and returns the `daily chance of pregnancy for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of PregnancyModel from the subsystem API first
+PregnancyModel pregnancyModel = ...;
+var result = pregnancyModel.GetDailyChanceOfPregnancyForHero(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPregnancyModel();
+// Typically obtained from a subsystem API or factory
+PregnancyModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

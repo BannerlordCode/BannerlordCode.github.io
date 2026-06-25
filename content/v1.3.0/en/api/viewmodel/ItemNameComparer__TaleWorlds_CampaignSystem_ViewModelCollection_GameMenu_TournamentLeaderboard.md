@@ -1,13 +1,7 @@
 ---
-title: "ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard"
+title: "ItemNameComparer"
+description: "Auto-generated class reference for ItemNameComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemNameComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemNameComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tou
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemNameComparer from the subsystem API first
+ItemNameComparer itemNameComparer = ...;
+var result = itemNameComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemNameComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemNameComparer itemNameComparer = ...;
+itemNameComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

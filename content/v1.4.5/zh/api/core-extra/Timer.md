@@ -1,20 +1,14 @@
 ---
 title: "Timer"
+description: "Timer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Timer`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Timer
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class Timer`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/Timer.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Timer.cs`
 
 ## 概述
 
@@ -37,35 +31,66 @@ title: "Timer"
 ### Check
 `public virtual bool Check(float gameTime)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 Timer 实例
+Timer timer = ...;
+var result = timer.Check(0);
+```
 
 ### ElapsedTime
 `public float ElapsedTime()`
 
-**用途 / Purpose:** 处理 `elapsed time` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Timer 实例
+Timer timer = ...;
+var result = timer.ElapsedTime();
+```
 
 ### Reset
 `public void Reset(float gameTime)`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Timer 实例
+Timer timer = ...;
+timer.Reset(0);
+```
 
 ### Reset
 `public void Reset(float gameTime, float newDuration)`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Timer 实例
+Timer timer = ...;
+timer.Reset(0, 0);
+```
 
 ### AdjustStartTime
 `public void AdjustStartTime(float deltaTime)`
 
-**用途 / Purpose:** 处理 `adjust start time` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Timer 实例
+Timer timer = ...;
+timer.AdjustStartTime(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Timer();
-value.Check(0);
+// 通常从对应子系统 API 获取实例后调用
+Timer timer = ...;
+timer.Check(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

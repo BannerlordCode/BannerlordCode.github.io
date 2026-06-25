@@ -1,20 +1,14 @@
 ---
 title: "MeetWithIstianaQuest"
+description: "MeetWithIstianaQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MeetWithIstianaQuest`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MeetWithIstianaQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
 **Module:** StoryMode.Quests
 **Type:** `public class MeetWithIstianaQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/MeetWithIstianaQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/MeetWithIstianaQuest.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "MeetWithIstianaQuest"
 ## 使用示例
 
 ```csharp
-var value = new MeetWithIstianaQuest();
+// 从对应子系统 API 获取实例
+MeetWithIstianaQuest instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

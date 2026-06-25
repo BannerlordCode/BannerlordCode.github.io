@@ -1,13 +1,7 @@
 ---
 title: "OrderSetVM"
+description: "Auto-generated class reference for OrderSetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderSetVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderSetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -39,55 +33,110 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.OnFinalize();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.ExecuteSelect();
+```
 
 ### ExecuteDeSelect
 `public void ExecuteDeSelect()`
 
-**Purpose:** Executes the `de select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `de select`.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.ExecuteDeSelect();
+```
 
 ### OnOrderExecuted
 `public void OnOrderExecuted(OrderItemVM order)`
 
-**Purpose:** Called when the `order executed` event is raised.
+**Purpose:** Invoked when the `order executed` event is raised.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.OnOrderExecuted(order);
+```
 
 ### RefreshOrders
 `public void RefreshOrders()`
 
-**Purpose:** Refreshes the display or cache of `orders`.
+**Purpose:** Keeps the display or cache of `orders` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.RefreshOrders();
+```
 
 ### RefreshOrderStates
 `public void RefreshOrderStates()`
 
-**Purpose:** Refreshes the display or cache of `order states`.
+**Purpose:** Keeps the display or cache of `order states` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.RefreshOrderStates();
+```
 
 ### UpdateCanUseShortcuts
 `public void UpdateCanUseShortcuts(bool value)`
 
-**Purpose:** Updates the state or data of `can use shortcuts`.
+**Purpose:** Recalculates and stores the latest representation of `can use shortcuts`.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.UpdateCanUseShortcuts(false);
+```
 
 ### OnOrderSetSelectionStateChangedDelegate
 `public delegate void OnOrderSetSelectionStateChangedDelegate(OrderSetVM orderSet, bool isSelected)`
 
-**Purpose:** Called when the `order set selection state changed delegate` event is raised.
+**Purpose:** Invoked when the `order set selection state changed delegate` event is raised.
+
+```csharp
+// Obtain an instance of OrderSetVM from the subsystem API first
+OrderSetVM orderSetVM = ...;
+orderSetVM.OnOrderSetSelectionStateChangedDelegate(orderSet, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderSetVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+OrderSetVM orderSetVM = ...;
+orderSetVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

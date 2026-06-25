@@ -1,18 +1,12 @@
 ---
 title: "IMissionObjectiveTarget"
+description: "Auto-generated class reference for IMissionObjectiveTarget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionObjectiveTarget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionObjectiveTarget
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMissionObjectiveTarget`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/Missions/Objectives/IMissionObjectiveTarget.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it 
 ## Usage Example
 
 ```csharp
-IMissionObjectiveTarget implementation = GetMissionObjectiveTargetImplementation();
+// Usually obtained through DI or a factory method
+IIMissionObjectiveTarget service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

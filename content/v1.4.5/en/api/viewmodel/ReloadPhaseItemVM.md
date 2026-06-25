@@ -1,20 +1,14 @@
 ---
 title: "ReloadPhaseItemVM"
+description: "Auto-generated class reference for ReloadPhaseItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReloadPhaseItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReloadPhaseItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReloadPhaseItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/ReloadPhaseItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/ReloadPhaseItemVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### Update
 `public void Update(float progress, float relativeDurationToMaxDuration)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of ReloadPhaseItemVM from the subsystem API first
+ReloadPhaseItemVM reloadPhaseItemVM = ...;
+reloadPhaseItemVM.Update(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ReloadPhaseItemVM();
-value.Update(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ReloadPhaseItemVM reloadPhaseItemVM = ...;
+reloadPhaseItemVM.Update(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

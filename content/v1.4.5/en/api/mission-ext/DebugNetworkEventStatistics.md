@@ -1,20 +1,14 @@
 ---
 title: "DebugNetworkEventStatistics"
+description: "Auto-generated class reference for DebugNetworkEventStatistics."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugNetworkEventStatistics`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugNetworkEventStatistics
 
 **Namespace:** TaleWorlds.MountAndBlade.Network
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugNetworkEventStatistics`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
 
 ## Overview
 
@@ -36,80 +30,154 @@ Start from namespace `TaleWorlds.MountAndBlade.Network` to place it in the stack
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of DebugNetworkEventStatistics from the subsystem API first
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of DebugNetworkEventStatistics from the subsystem API first
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.GetHashCode();
+```
 
 ### CompareTo
 `public int CompareTo(PerEventData other)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of DebugNetworkEventStatistics from the subsystem API first
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+var result = debugNetworkEventStatistics.CompareTo(other);
+```
 
 ### OpenExternalMonitor
 `public static void OpenExternalMonitor()`
 
-**Purpose:** Handles logic related to `open external monitor`.
+**Purpose:** Opens the resource or UI associated with `external monitor`.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.OpenExternalMonitor();
+```
 
 ### ControlActivate
 `public static void ControlActivate()`
 
-**Purpose:** Handles logic related to `control activate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ControlActivate();
+```
 
 ### ControlDeactivate
 `public static void ControlDeactivate()`
 
-**Purpose:** Handles logic related to `control deactivate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ControlDeactivate();
+```
 
 ### ControlJustDump
 `public static void ControlJustDump()`
 
-**Purpose:** Handles logic related to `control just dump`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ControlJustDump();
+```
 
 ### ControlDumpAll
 `public static void ControlDumpAll()`
 
-**Purpose:** Handles logic related to `control dump all`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ControlDumpAll();
+```
 
 ### ControlClear
 `public static void ControlClear()`
 
-**Purpose:** Handles logic related to `control clear`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ControlClear();
+```
 
 ### ClearNetGraphs
 `public static void ClearNetGraphs()`
 
-**Purpose:** Handles logic related to `clear net graphs`.
+**Purpose:** Removes all `net graphs` from the current object.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ClearNetGraphs();
+```
 
 ### ClearFpsGraph
 `public static void ClearFpsGraph()`
 
-**Purpose:** Handles logic related to `clear fps graph`.
+**Purpose:** Removes all `fps graph` from the current object.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ClearFpsGraph();
+```
 
 ### ControlClearAll
 `public static void ControlClearAll()`
 
-**Purpose:** Handles logic related to `control clear all`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ControlClearAll();
+```
 
 ### ControlDumpReplicationData
 `public static void ControlDumpReplicationData()`
 
-**Purpose:** Handles logic related to `control dump replication data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.ControlDumpReplicationData();
+```
 
 ### EndTick
 `public static void EndTick(float dt)`
 
-**Purpose:** Handles logic related to `end tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugNetworkEventStatistics.EndTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DebugNetworkEventStatistics();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+DebugNetworkEventStatistics debugNetworkEventStatistics = ...;
+debugNetworkEventStatistics.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

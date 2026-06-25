@@ -1,13 +1,7 @@
 ---
 title: "KhuzaitTag"
+description: "Auto-generated class reference for KhuzaitTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KhuzaitTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KhuzaitTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of KhuzaitTag from the subsystem API first
+KhuzaitTag khuzaitTag = ...;
+var result = khuzaitTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KhuzaitTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+KhuzaitTag khuzaitTag = ...;
+khuzaitTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

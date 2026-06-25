@@ -1,20 +1,14 @@
 ---
 title: "PublishedLobbyNewsArticle"
+description: "Auto-generated class reference for PublishedLobbyNewsArticle."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PublishedLobbyNewsArticle`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PublishedLobbyNewsArticle
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PublishedLobbyNewsArticle`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PublishedLobbyNewsArticle.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PublishedLobbyNewsArticle.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new PublishedLobbyNewsArticle();
+// Obtain an instance from the relevant subsystem API
+PublishedLobbyNewsArticle instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentHandler"
+description: "Auto-generated class reference for MissionAgentHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class MissionAgentHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionAgentHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionAgentHandler.cs`
 
 ## Overview
 
@@ -36,134 +30,282 @@ Treat `MissionAgentHandler` as a Handler-style extension point: first identify w
 ### HasPassages
 `public bool HasPassages()`
 
-**Purpose:** Checks whether the current object has/contains `passages`.
+**Purpose:** Determines whether the current object already holds `passages`.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.HasPassages();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.EarlyStart();
+```
 
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** Called when the `rendering started` event is raised.
+**Purpose:** Invoked when the `rendering started` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.OnRenderingStarted();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.OnMissionTick(0);
+```
 
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**Purpose:** Called when the `mission mode change` event is raised.
+**Purpose:** Invoked when the `mission mode change` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.OnMissionModeChange(oldMissionMode, false);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### DetectMissingEntities
 `public void DetectMissingEntities()`
 
-**Purpose:** Handles logic related to `detect missing entities`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.DetectMissingEntities();
+```
 
 ### FindUnusedUsablePointCount
 `public Dictionary<string, int> FindUnusedUsablePointCount()`
 
-**Purpose:** Handles logic related to `find unused usable point count`.
+**Purpose:** Looks up the matching `unused usable point count` in the current collection or scope.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.FindUnusedUsablePointCount();
+```
 
 ### SpawnLocationCharacters
 `public void SpawnLocationCharacters(string overridenTagValue = null)`
 
-**Purpose:** Handles logic related to `spawn location characters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.SpawnLocationCharacters("example");
+```
 
 ### SpawnDefaultLocationCharacter
 `public Agent SpawnDefaultLocationCharacter(LocationCharacter locationCharacter, bool simulateAgentAfterSpawn = false)`
 
-**Purpose:** Handles logic related to `spawn default location character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.SpawnDefaultLocationCharacter(locationCharacter, false);
+```
 
 ### SimulateAgent
 `public void SimulateAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `simulate agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.SimulateAgent(agent);
+```
 
 ### FadeoutExitingLocationCharacter
 `public void FadeoutExitingLocationCharacter(LocationCharacter locationCharacter)`
 
-**Purpose:** Handles logic related to `fadeout exiting location character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.FadeoutExitingLocationCharacter(locationCharacter);
+```
 
 ### SpawnEnteringLocationCharacter
 `public void SpawnEnteringLocationCharacter(LocationCharacter locationCharacter, Location fromLocation)`
 
-**Purpose:** Handles logic related to `spawn entering location character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.SpawnEnteringLocationCharacter(locationCharacter, fromLocation);
+```
 
 ### HasUsablePointWithTag
 `public bool HasUsablePointWithTag(string tag)`
 
-**Purpose:** Checks whether the current object has/contains `usable point with tag`.
+**Purpose:** Determines whether the current object already holds `usable point with tag`.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.HasUsablePointWithTag("example");
+```
 
 ### GetAllSpawnTags
 `public IEnumerable<string> GetAllSpawnTags()`
 
-**Purpose:** Gets the current value of `all spawn tags`.
+**Purpose:** Reads and returns the `all spawn tags` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.GetAllSpawnTags();
+```
 
 ### GetAllUsablePointsWithTag
 `public List<UsableMachine> GetAllUsablePointsWithTag(string tag)`
 
-**Purpose:** Gets the current value of `all usable points with tag`.
+**Purpose:** Reads and returns the `all usable points with tag` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.GetAllUsablePointsWithTag("example");
+```
 
 ### SpawnWanderingAgent
 `public Agent SpawnWanderingAgent(LocationCharacter locationCharacter)`
 
-**Purpose:** Handles logic related to `spawn wandering agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.SpawnWanderingAgent(locationCharacter);
+```
 
 ### SpawnWanderingAgentWithDelay
 `public void SpawnWanderingAgentWithDelay(LocationCharacter locationCharacter, MatrixFrame matrixFrame, GameEntity spawnEntity, bool noHorses = true, bool hasTorch = false, float delay = 3f)`
 
-**Purpose:** Handles logic related to `spawn wandering agent with delay`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.SpawnWanderingAgentWithDelay(locationCharacter, matrixFrame, spawnEntity, false, false, 0);
+```
 
 ### SpawnWanderingAgentWithInitialFrame
 `public Agent SpawnWanderingAgentWithInitialFrame(LocationCharacter locationCharacter, MatrixFrame spawnPointFrame, WeakGameEntity spawnEntity, bool noHorses = true, bool hasTorch = false)`
 
-**Purpose:** Handles logic related to `spawn wandering agent with initial frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.SpawnWanderingAgentWithInitialFrame(locationCharacter, spawnPointFrame, spawnEntity, false, false);
+```
 
 ### GetRandomTournamentTeamColor
 `public static uint GetRandomTournamentTeamColor(int teamIndex)`
 
-**Purpose:** Gets the current value of `random tournament team color`.
+**Purpose:** Reads and returns the `random tournament team color` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionAgentHandler.GetRandomTournamentTeamColor(0);
+```
 
 ### FindUnusedPointWithTagForAgent
 `public UsableMachine FindUnusedPointWithTagForAgent(Agent agent, string tag)`
 
-**Purpose:** Handles logic related to `find unused point with tag for agent`.
+**Purpose:** Looks up the matching `unused point with tag for agent` in the current collection or scope.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.FindUnusedPointWithTagForAgent(agent, "example");
+```
 
 ### FindUnusedPoints
 `public List<UsableMachine> FindUnusedPoints(string tag)`
 
-**Purpose:** Handles logic related to `find unused points`.
+**Purpose:** Looks up the matching `unused points` in the current collection or scope.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.FindUnusedPoints("example");
+```
 
 ### FindAllUnusedPoints
 `public List<UsableMachine> FindAllUnusedPoints(Agent agent, string primaryTag)`
 
-**Purpose:** Handles logic related to `find all unused points`.
+**Purpose:** Looks up the matching `all unused points` in the current collection or scope.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+var result = missionAgentHandler.FindAllUnusedPoints(agent, "example");
+```
 
 ### TeleportTargetAgentNearReferenceAgent
 `public void TeleportTargetAgentNearReferenceAgent(Agent referenceAgent, Agent teleportAgent, bool teleportFollowers, bool teleportOpposite)`
 
-**Purpose:** Handles logic related to `teleport target agent near reference agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentHandler from the subsystem API first
+MissionAgentHandler missionAgentHandler = ...;
+missionAgentHandler.TeleportTargetAgentNearReferenceAgent(referenceAgent, teleportAgent, false, false);
+```
 
 ### GetPointCountOfUsableMachine
 `public static int GetPointCountOfUsableMachine(UsableMachine usableMachine, bool checkForUnusedOnes)`
 
-**Purpose:** Gets the current value of `point count of usable machine`.
+**Purpose:** Reads and returns the `point count of usable machine` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionAgentHandler.GetPointCountOfUsableMachine(usableMachine, false);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAgentHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionAgentHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

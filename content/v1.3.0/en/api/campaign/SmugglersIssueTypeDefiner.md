@@ -1,13 +1,7 @@
 ---
 title: "SmugglersIssueTypeDefiner"
+description: "Auto-generated class reference for SmugglersIssueTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SmugglersIssueTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SmugglersIssueTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new SmugglersIssueTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SmugglersIssueTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

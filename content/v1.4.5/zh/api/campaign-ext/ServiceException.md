@@ -1,20 +1,14 @@
 ---
 title: "ServiceException"
+description: "ServiceException 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ServiceException`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServiceException
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class ServiceException : Exception`
 **Base:** `Exception`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/ServiceException.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ServiceException.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "ServiceException"
 ## 使用示例
 
 ```csharp
-try { CallServiceException(); } catch (ServiceException exception) { Handle(exception); }
+try { /* 调用可能抛出该异常的分支 */ }
+catch (ServiceException ex) { /* 处理异常 */ }
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

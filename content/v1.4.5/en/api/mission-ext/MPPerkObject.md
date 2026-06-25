@@ -1,20 +1,14 @@
 ---
 title: "MPPerkObject"
+description: "Auto-generated class reference for MPPerkObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerkObject`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPerkObject
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPerkObject : IReadOnlyPerkObject`
 **Base:** `IReadOnlyPerkObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkObject.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkObject.cs`
 
 ## Overview
 
@@ -42,210 +36,439 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetExtraTroopCount
 `public float GetExtraTroopCount()`
 
-**Purpose:** Gets the current value of `extra troop count`.
+**Purpose:** Reads and returns the `extra troop count` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetExtraTroopCount();
+```
 
 ### GetDrivenPropertyBonusOnSpawn
 `public float GetDrivenPropertyBonusOnSpawn(bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Gets the current value of `driven property bonus on spawn`.
+**Purpose:** Reads and returns the `driven property bonus on spawn` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
+```
 
 ### GetHitpoints
 `public float GetHitpoints(bool isPlayer)`
 
-**Purpose:** Gets the current value of `hitpoints`.
+**Purpose:** Reads and returns the `hitpoints` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetHitpoints(false);
+```
 
 ### OnEvent
 `public void OnEvent(MPPerkCondition.PerkEventFlags flags)`
 
-**Purpose:** Called when the `event` event is raised.
+**Purpose:** Invoked when the `event` event is raised.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+mPPerkObject.OnEvent(flags);
+```
 
 ### OnEvent
 `public void OnEvent(Agent agent, MPPerkCondition.PerkEventFlags flags)`
 
-**Purpose:** Called when the `event` event is raised.
+**Purpose:** Invoked when the `event` event is raised.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+mPPerkObject.OnEvent(agent, flags);
+```
 
 ### OnTick
 `public void OnTick(int tickCount)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+mPPerkObject.OnTick(0);
+```
 
 ### GetDrivenPropertyBonus
 `public float GetDrivenPropertyBonus(DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Gets the current value of `driven property bonus`.
+**Purpose:** Reads and returns the `driven property bonus` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetDrivenPropertyBonus(drivenProperty, 0);
+```
 
 ### GetRangedAccuracy
 `public float GetRangedAccuracy()`
 
-**Purpose:** Gets the current value of `ranged accuracy`.
+**Purpose:** Reads and returns the `ranged accuracy` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetRangedAccuracy();
+```
 
 ### GetThrowingWeaponSpeed
 `public float GetThrowingWeaponSpeed(WeaponComponentData attackerWeapon)`
 
-**Purpose:** Gets the current value of `throwing weapon speed`.
+**Purpose:** Reads and returns the `throwing weapon speed` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetThrowingWeaponSpeed(attackerWeapon);
+```
 
 ### GetDamageInterruptionThreshold
 `public float GetDamageInterruptionThreshold()`
 
-**Purpose:** Gets the current value of `damage interruption threshold`.
+**Purpose:** Reads and returns the `damage interruption threshold` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetDamageInterruptionThreshold();
+```
 
 ### GetMountManeuver
 `public float GetMountManeuver()`
 
-**Purpose:** Gets the current value of `mount maneuver`.
+**Purpose:** Reads and returns the `mount maneuver` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetMountManeuver();
+```
 
 ### GetMountSpeed
 `public float GetMountSpeed()`
 
-**Purpose:** Gets the current value of `mount speed`.
+**Purpose:** Reads and returns the `mount speed` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetMountSpeed();
+```
 
 ### GetGoldOnKill
 `public int GetGoldOnKill(float attackerValue, float victimValue)`
 
-**Purpose:** Gets the current value of `gold on kill`.
+**Purpose:** Reads and returns the `gold on kill` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetGoldOnKill(0, 0);
+```
 
 ### GetGoldOnAssist
 `public int GetGoldOnAssist()`
 
-**Purpose:** Gets the current value of `gold on assist`.
+**Purpose:** Reads and returns the `gold on assist` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetGoldOnAssist();
+```
 
 ### GetRewardedGoldOnAssist
 `public int GetRewardedGoldOnAssist()`
 
-**Purpose:** Gets the current value of `rewarded gold on assist`.
+**Purpose:** Reads and returns the `rewarded gold on assist` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetRewardedGoldOnAssist();
+```
 
 ### GetIsTeamRewardedOnDeath
 `public bool GetIsTeamRewardedOnDeath()`
 
-**Purpose:** Gets the current value of `is team rewarded on death`.
+**Purpose:** Reads and returns the `is team rewarded on death` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetIsTeamRewardedOnDeath();
+```
 
 ### GetEncumbrance
 `public float GetEncumbrance(bool isOnBody)`
 
-**Purpose:** Gets the current value of `encumbrance`.
+**Purpose:** Reads and returns the `encumbrance` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetEncumbrance(false);
+```
 
 ### GetDamage
 `public float GetDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**Purpose:** Gets the current value of `damage`.
+**Purpose:** Reads and returns the `damage` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetDamage(attackerWeapon, damageType, false);
+```
 
 ### GetDamageTaken
 `public float GetDamageTaken(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `damage taken`.
+**Purpose:** Reads and returns the `damage taken` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetDamageTaken(attackerWeapon, damageType);
+```
 
 ### GetSpeedBonusEffectiveness
 `public float GetSpeedBonusEffectiveness(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `speed bonus effectiveness`.
+**Purpose:** Reads and returns the `speed bonus effectiveness` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetSpeedBonusEffectiveness(attackerWeapon, damageType);
+```
 
 ### GetShieldDamage
 `public float GetShieldDamage(bool isCorrectSideBlock)`
 
-**Purpose:** Gets the current value of `shield damage`.
+**Purpose:** Reads and returns the `shield damage` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetShieldDamage(false);
+```
 
 ### GetShieldDamageTaken
 `public float GetShieldDamageTaken(bool isCorrectSideBlock)`
 
-**Purpose:** Gets the current value of `shield damage taken`.
+**Purpose:** Reads and returns the `shield damage taken` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetShieldDamageTaken(false);
+```
 
 ### GetRangedHeadShotDamage
 `public float GetRangedHeadShotDamage()`
 
-**Purpose:** Gets the current value of `ranged head shot damage`.
+**Purpose:** Reads and returns the `ranged head shot damage` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetRangedHeadShotDamage();
+```
 
 ### Clone
 `public MPPerkObject Clone(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.Clone(peer);
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+mPPerkObject.Reset();
+```
 
 ### GetExtraTroopCount
 `public int GetExtraTroopCount(bool isWarmup)`
 
-**Purpose:** Gets the current value of `extra troop count`.
+**Purpose:** Reads and returns the `extra troop count` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetExtraTroopCount(false);
+```
 
 ### GetDrivenPropertyBonusOnSpawn
 `public float GetDrivenPropertyBonusOnSpawn(bool isWarmup, bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Gets the current value of `driven property bonus on spawn`.
+**Purpose:** Reads and returns the `driven property bonus on spawn` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetDrivenPropertyBonusOnSpawn(false, false, drivenProperty, 0);
+```
 
 ### GetHitpoints
 `public float GetHitpoints(bool isWarmup, bool isPlayer)`
 
-**Purpose:** Gets the current value of `hitpoints`.
+**Purpose:** Reads and returns the `hitpoints` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkObject from the subsystem API first
+MPPerkObject mPPerkObject = ...;
+var result = mPPerkObject.GetHitpoints(false, false);
+```
 
 ### GetTroopCount
 `public static int GetTroopCount(MultiplayerClassDivisions.MPHeroClass heroClass, int botsPerFormation, MPOnSpawnPerkHandler onSpawnPerkHandler)`
 
-**Purpose:** Gets the current value of `troop count`.
+**Purpose:** Reads and returns the `troop count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.GetTroopCount(heroClass, 0, onSpawnPerkHandler);
+```
 
 ### Deserialize
 `public static IReadOnlyPerkObject Deserialize(XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.Deserialize(node);
+```
 
 ### GetPerkHandler
 `public static MPPerkHandler GetPerkHandler(Agent agent)`
 
-**Purpose:** Gets the current value of `perk handler`.
+**Purpose:** Reads and returns the `perk handler` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.GetPerkHandler(agent);
+```
 
 ### GetPerkHandler
 `public static MPPerkHandler GetPerkHandler(MissionPeer peer)`
 
-**Purpose:** Gets the current value of `perk handler`.
+**Purpose:** Reads and returns the `perk handler` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.GetPerkHandler(peer);
+```
 
 ### GetCombatPerkHandler
 `public static MPCombatPerkHandler GetCombatPerkHandler(Agent attacker, Agent defender)`
 
-**Purpose:** Gets the current value of `combat perk handler`.
+**Purpose:** Reads and returns the `combat perk handler` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.GetCombatPerkHandler(attacker, defender);
+```
 
 ### GetOnSpawnPerkHandler
 `public static MPOnSpawnPerkHandler GetOnSpawnPerkHandler(MissionPeer peer)`
 
-**Purpose:** Gets the current value of `on spawn perk handler`.
+**Purpose:** Reads and returns the `on spawn perk handler` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.GetOnSpawnPerkHandler(peer);
+```
 
 ### GetOnSpawnPerkHandler
 `public static MPOnSpawnPerkHandler GetOnSpawnPerkHandler(IEnumerable<IReadOnlyPerkObject> perks)`
 
-**Purpose:** Gets the current value of `on spawn perk handler`.
+**Purpose:** Reads and returns the `on spawn perk handler` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.GetOnSpawnPerkHandler(perks);
+```
 
 ### RaiseEventForAllPeers
 `public static void RaiseEventForAllPeers(MPPerkCondition.PerkEventFlags flags)`
 
-**Purpose:** Handles logic related to `raise event for all peers`.
+**Purpose:** Raises or triggers the event/exception related to `event for all peers`.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.RaiseEventForAllPeers(flags);
+```
 
 ### RaiseEventForAllPeersOnTeam
 `public static void RaiseEventForAllPeersOnTeam(Team side, MPPerkCondition.PerkEventFlags flags)`
 
-**Purpose:** Handles logic related to `raise event for all peers on team`.
+**Purpose:** Raises or triggers the event/exception related to `event for all peers on team`.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.RaiseEventForAllPeersOnTeam(side, flags);
+```
 
 ### TickAllPeerPerks
 `public static void TickAllPeerPerks(int tickCount)`
 
-**Purpose:** Handles logic related to `tick all peer perks`.
+**Purpose:** Advances the `all peer perks` state each frame or update cycle.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.TickAllPeerPerks(0);
+```
 
 ### RaiseEventForAllPeersCommand
 `public static string RaiseEventForAllPeersCommand(List<string> strings)`
 
-**Purpose:** Handles logic related to `raise event for all peers command`.
+**Purpose:** Raises or triggers the event/exception related to `event for all peers command`.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.RaiseEventForAllPeersCommand(strings);
+```
 
 ### TickAllPeerPerksCommand
 `public static string TickAllPeerPerksCommand(List<string> strings)`
 
-**Purpose:** Handles logic related to `tick all peer perks command`.
+**Purpose:** Advances the `all peer perks command` state each frame or update cycle.
+
+```csharp
+// Static call; no instance required
+MPPerkObject.TickAllPeerPerksCommand(strings);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPPerkObject();
-value.GetExtraTroopCount();
+// Typically call this after obtaining an instance from the subsystem API
+MPPerkObject mPPerkObject = ...;
+mPPerkObject.GetExtraTroopCount();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

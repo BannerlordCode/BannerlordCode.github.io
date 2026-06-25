@@ -1,20 +1,14 @@
 ---
 title: "TributeFinishedMapNotificationVM"
+description: "Auto-generated class reference for TributeFinishedMapNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TributeFinishedMapNotificationVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TributeFinishedMapNotificationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TributeFinishedMapNotificationVM : MapNotificationItemBaseVM`
 **Base:** `MapNotificationItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/TributeFinishedMapNotificationVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/TributeFinishedMapNotificationVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ## Usage Example
 
 ```csharp
-var example = new TributeFinishedMapNotificationVM();
+// Obtain an instance from the relevant subsystem API
+TributeFinishedMapNotificationVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

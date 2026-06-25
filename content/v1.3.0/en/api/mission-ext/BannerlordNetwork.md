@@ -1,13 +1,7 @@
 ---
 title: "BannerlordNetwork"
+description: "Auto-generated class reference for BannerlordNetwork."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerlordNetwork`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordNetwork
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,17 +29,32 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateServerPeer
 `public static void CreateServerPeer()`
 
-**Purpose:** Creates a new `server peer` instance or object.
+**Purpose:** Constructs a new `server peer` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BannerlordNetwork.CreateServerPeer();
+```
 
 ### StartMultiplayerLobbyMission
 `public static void StartMultiplayerLobbyMission(LobbyMissionType lobbyMissionType)`
 
-**Purpose:** Handles logic related to `start multiplayer lobby mission`.
+**Purpose:** Starts the `multiplayer lobby mission` flow or state machine.
+
+```csharp
+// Static call; no instance required
+BannerlordNetwork.StartMultiplayerLobbyMission(lobbyMissionType);
+```
 
 ### EndMultiplayerLobbyMission
 `public static void EndMultiplayerLobbyMission()`
 
-**Purpose:** Handles logic related to `end multiplayer lobby mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BannerlordNetwork.EndMultiplayerLobbyMission();
+```
 
 ## Usage Example
 
@@ -55,4 +64,4 @@ BannerlordNetwork.CreateServerPeer();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

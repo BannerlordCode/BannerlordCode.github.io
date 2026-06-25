@@ -1,20 +1,14 @@
 ---
 title: "FormationDeploymentOrder"
+description: "FormationDeploymentOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationDeploymentOrder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationDeploymentOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationDeploymentOrder`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
 
 ## 概述
 
@@ -36,25 +30,42 @@ title: "FormationDeploymentOrder"
 ### Compare
 `public int Compare(FormationDeploymentOrder a, FormationDeploymentOrder b)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 FormationDeploymentOrder 实例
+FormationDeploymentOrder formationDeploymentOrder = ...;
+var result = formationDeploymentOrder.Compare(a, b);
+```
 
 ### GetDeploymentOrder
 `public static FormationDeploymentOrder GetDeploymentOrder(FormationClass fClass, int offset = 0)`
 
-**用途 / Purpose:** 获取 `deployment order` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「deployment order」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
+```
 
 ### GetComparer
 `public static DeploymentOrderComparer GetComparer()`
 
-**用途 / Purpose:** 获取 `comparer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「comparer」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FormationDeploymentOrder.GetComparer();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FormationDeploymentOrder();
-value.Compare(a, b);
+// 通常从对应子系统 API 获取实例后调用
+FormationDeploymentOrder formationDeploymentOrder = ...;
+formationDeploymentOrder.Compare(a, b);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

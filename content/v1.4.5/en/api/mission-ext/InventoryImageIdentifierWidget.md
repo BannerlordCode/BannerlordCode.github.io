@@ -1,20 +1,14 @@
 ---
 title: "InventoryImageIdentifierWidget"
+description: "Auto-generated class reference for InventoryImageIdentifierWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryImageIdentifierWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryImageIdentifierWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryImageIdentifierWidget : ImageIdentifierWidget`
 **Base:** `ImageIdentifierWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryImageIdentifierWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryImageIdentifierWidget.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `InventoryImageIdentifierWidget` as a Widget-style extension point: first 
 ### SetRenderRequestedPreviousFrame
 `public void SetRenderRequestedPreviousFrame(bool isRequested)`
 
-**Purpose:** Sets the value or state of `render requested previous frame`.
+**Purpose:** Assigns a new value to `render requested previous frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of InventoryImageIdentifierWidget from the subsystem API first
+InventoryImageIdentifierWidget inventoryImageIdentifierWidget = ...;
+inventoryImageIdentifierWidget.SetRenderRequestedPreviousFrame(false);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new InventoryImageIdentifierWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InventoryImageIdentifierWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

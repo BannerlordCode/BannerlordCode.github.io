@@ -203,5 +203,5 @@ public const string MainDllName = "TaleWorlds.Native.dll";
 ## 使用示例
 
 ```csharp
-var example = new LibraryApplicationInterface();
+// 示例：通过 P/Invoke 调用 Native 导出函数前查看签名说明。
 ```

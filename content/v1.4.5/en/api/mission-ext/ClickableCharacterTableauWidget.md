@@ -1,20 +1,14 @@
 ---
 title: "ClickableCharacterTableauWidget"
+description: "Auto-generated class reference for ClickableCharacterTableauWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClickableCharacterTableauWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClickableCharacterTableauWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClickableCharacterTableauWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ClickableCharacterTableauWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ClickableCharacterTableauWidget.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `ClickableCharacterTableauWidget` as a Widget-style extension point: first
 ### ClickableCharacterTableauWidget
 `public class ClickableCharacterTableauWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `clickable character tableau widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClickableCharacterTableauWidget from the subsystem API first
+ClickableCharacterTableauWidget clickableCharacterTableauWidget = ...;
+var result = clickableCharacterTableauWidget.ClickableCharacterTableauWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ClickableCharacterTableauWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClickableCharacterTableauWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

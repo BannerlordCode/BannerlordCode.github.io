@@ -1,13 +1,7 @@
 ---
 title: "StealthPatrolPointMissionLogic"
+description: "StealthPatrolPointMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthPatrolPointMissionLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthPatrolPointMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,79 +23,163 @@ title: "StealthPatrolPointMissionLogic"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.AfterStart();
+```
 
 ### OnLocationCharacterAgentSpawned
 `public void OnLocationCharacterAgentSpawned(LocationCharacterAgentSpawnedMissionEvent locationCharacterAgentSpawnedEvent)`
 
-**用途 / Purpose:** 当 `location character agent spawned` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「location character agent spawned」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.OnLocationCharacterAgentSpawned(locationCharacterAgentSpawnedEvent);
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `agent interaction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent interaction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 处理 `is there agent action` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### OnCheckpointLoadedEvent
 `public void OnCheckpointLoadedEvent(CheckpointLoadedMissionEvent checkpointLoadedMissionEvent)`
 
-**用途 / Purpose:** 当 `checkpoint loaded event` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「checkpoint loaded event」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.OnCheckpointLoadedEvent(checkpointLoadedMissionEvent);
+```
 
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `start spawner` 相关逻辑。
+**用途 / Purpose:** 启动「spawner」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.StartSpawner(side);
+```
 
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `stop spawner` 相关逻辑。
+**用途 / Purpose:** 停止「spawner」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.StopSpawner(side);
+```
 
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `is side spawn enabled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「side spawn enabled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.IsSideSpawnEnabled(side);
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `is side depleted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「side depleted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.IsSideDepleted(side);
+```
 
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**用途 / Purpose:** 获取 `reinforcement interval` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「reinforcement interval」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.GetReinforcementInterval();
+```
 
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `all troops for side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all troops for side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.GetAllTroopsForSide(side);
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** 获取 `number of player controllable troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of player controllable troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.GetNumberOfPlayerControllableTroops();
+```
 
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `spawn horses` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn horses」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StealthPatrolPointMissionLogic 实例
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.GetSpawnHorses(side);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthPatrolPointMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<StealthPatrolPointMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

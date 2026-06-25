@@ -1,24 +1,18 @@
 ---
 title: "MPHeroClass"
+description: "Auto-generated class reference for MPHeroClass."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPHeroClass`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPHeroClass
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPHeroClass : MBObjectBase`
 **Base:** `MBObjectBase`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
 
 ## Overview
 
-`MPHeroClass` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MPHeroClass` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,7 +22,6 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 | Name | Signature |
 |------|-----------|
-| `MultiplayerHeroClassGroups` | `public static List<MultiplayerClassDivisions.MPHeroClassGroup> MultiplayerHeroClassGroups { get; }` |
 | `HeroCharacter` | `public BasicCharacterObject HeroCharacter { get; }` |
 | `TroopCharacter` | `public BasicCharacterObject TroopCharacter { get; }` |
 | `BannerBearerCharacter` | `public BasicCharacterObject BannerBearerCharacter { get; }` |
@@ -48,102 +41,81 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 | `TroopTopSpeedReachDuration` | `public float TroopTopSpeedReachDuration { get; }` |
 | `TroopMultiplier` | `public float TroopMultiplier { get; }` |
 | `TroopCost` | `public int TroopCost { get; }` |
+| `TroopCasualCost` | `public int TroopCasualCost { get; }` |
+| `TroopBattleCost` | `public int TroopBattleCost { get; }` |
+| `MeleeAI` | `public int MeleeAI { get; }` |
+| `RangedAI` | `public int RangedAI { get; }` |
+| `HeroInformation` | `public TextObject HeroInformation { get; }` |
+| `TroopInformation` | `public TextObject TroopInformation { get; }` |
+| `IconType` | `public TargetIconType IconType { get; }` |
+| `HeroName` | `public TextObject HeroName { get; }` |
+| `TroopName` | `public TextObject TroopName { get; }` |
 
 ## Key Methods
-
-### GetMPHeroClasses
-`public static IEnumerable<MultiplayerClassDivisions.MPHeroClass> GetMPHeroClasses(BasicCultureObject culture)`
-
-**Purpose:** Gets the current value of `m p hero classes`.
-
-### GetMPHeroClasses
-`public static MBReadOnlyList<MultiplayerClassDivisions.MPHeroClass> GetMPHeroClasses()`
-
-**Purpose:** Gets the current value of `m p hero classes`.
-
-### GetMPHeroClassForCharacter
-`public static MultiplayerClassDivisions.MPHeroClass GetMPHeroClassForCharacter(BasicCharacterObject character)`
-
-**Purpose:** Gets the current value of `m p hero class for character`.
-
-### GetAllPerksForHeroClass
-`public static List<List<IReadOnlyPerkObject>> GetAllPerksForHeroClass(MultiplayerClassDivisions.MPHeroClass heroClass, string forcedForGameMode = null)`
-
-**Purpose:** Gets the current value of `all perks for hero class`.
-
-### GetMPHeroClassForPeer
-`public static MultiplayerClassDivisions.MPHeroClass GetMPHeroClassForPeer(MissionPeer peer, bool skipTeamCheck = false)`
-
-**Purpose:** Gets the current value of `m p hero class for peer`.
-
-### GetMPHeroClassForFormation
-`public static TargetIconType GetMPHeroClassForFormation(Formation formation)`
-
-**Purpose:** Gets the current value of `m p hero class for formation`.
-
-### GetAvailablePerksForPeer
-`public static List<List<IReadOnlyPerkObject>> GetAvailablePerksForPeer(MissionPeer missionPeer)`
-
-**Purpose:** Gets the current value of `available perks for peer`.
-
-### Initialize
-`public static void Initialize()`
-
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
-
-### Release
-`public static void Release()`
-
-**Purpose:** Handles logic related to `release`.
-
-### GetMinimumTroopCost
-`public static int GetMinimumTroopCost(BasicCultureObject culture = null)`
-
-**Purpose:** Gets the current value of `minimum troop cost`.
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.GetHashCode();
+```
 
 ### GetAllAvailablePerksForListIndex
 `public List<IReadOnlyPerkObject> GetAllAvailablePerksForListIndex(int index, string forcedForGameMode = null)`
 
-**Purpose:** Gets the current value of `all available perks for list index`.
+**Purpose:** Reads and returns the `all available perks for list index` value held by the current object.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.GetAllAvailablePerksForListIndex(0, "example");
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+mPHeroClass.Deserialize(objectManager, node);
+```
 
 ### IsTroopCharacter
 `public bool IsTroopCharacter(BasicCharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop character`.
+**Purpose:** Determines whether the current object is in the `troop character` state or condition.
 
-### Equals
-`public override bool Equals(object obj)`
-
-**Purpose:** Handles logic related to `equals`.
-
-### GetHashCode
-`public override int GetHashCode()`
-
-**Purpose:** Gets the current value of `hash code`.
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.IsTroopCharacter(character);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
-MPHeroClass.GetMPHeroClasses(culture);
+// Typically call this after obtaining an instance from the subsystem API
+MPHeroClass mPHeroClass = ...;
+mPHeroClass.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

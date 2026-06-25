@@ -1,20 +1,14 @@
 ---
 title: "MPAuthenticationVM"
+description: "Auto-generated class reference for MPAuthenticationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPAuthenticationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPAuthenticationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Authentication
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPAuthenticationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Authentication/MPAuthenticationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Authentication/MPAuthenticationVM.cs`
 
 ## Overview
 
@@ -45,45 +39,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPAuthenticationVM from the subsystem API first
+MPAuthenticationVM mPAuthenticationVM = ...;
+mPAuthenticationVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPAuthenticationVM from the subsystem API first
+MPAuthenticationVM mPAuthenticationVM = ...;
+mPAuthenticationVM.OnFinalize();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPAuthenticationVM from the subsystem API first
+MPAuthenticationVM mPAuthenticationVM = ...;
+mPAuthenticationVM.OnTick(0);
+```
 
 ### ExecuteExit
 `public void ExecuteExit()`
 
-**Purpose:** Executes the `exit` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `exit`.
+
+```csharp
+// Obtain an instance of MPAuthenticationVM from the subsystem API first
+MPAuthenticationVM mPAuthenticationVM = ...;
+mPAuthenticationVM.ExecuteExit();
+```
 
 ### ExecuteLogin
 `public async void ExecuteLogin()`
 
-**Purpose:** Executes the `login` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `login`.
+
+```csharp
+// Obtain an instance of MPAuthenticationVM from the subsystem API first
+MPAuthenticationVM mPAuthenticationVM = ...;
+mPAuthenticationVM.ExecuteLogin();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPAuthenticationVM from the subsystem API first
+MPAuthenticationVM mPAuthenticationVM = ...;
+mPAuthenticationVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPAuthenticationVM from the subsystem API first
+MPAuthenticationVM mPAuthenticationVM = ...;
+mPAuthenticationVM.SetCancelInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPAuthenticationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPAuthenticationVM mPAuthenticationVM = ...;
+mPAuthenticationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

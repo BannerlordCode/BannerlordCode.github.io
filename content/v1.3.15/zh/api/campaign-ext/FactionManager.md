@@ -1,13 +1,7 @@
 ---
 title: "FactionManager"
+description: "FactionManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FactionManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FactionManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,32 +29,62 @@ title: "FactionManager"
 ### DeclareWar
 `public static void DeclareWar(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** 处理 `declare war` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+FactionManager.DeclareWar(faction1, faction2);
+```
 
 ### SetNeutral
 `public static void SetNeutral(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** 设置 `neutral` 的值或状态。
+**用途 / Purpose:** 为 「neutral」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+FactionManager.SetNeutral(faction1, faction2);
+```
 
 ### IsAtWarAgainstFaction
 `public static bool IsAtWarAgainstFaction(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** 处理 `is at war against faction` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「at war against faction」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+FactionManager.IsAtWarAgainstFaction(faction1, faction2);
+```
 
 ### IsAtConstantWarAgainstFaction
 `public static bool IsAtConstantWarAgainstFaction(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** 处理 `is at constant war against faction` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「at constant war against faction」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+FactionManager.IsAtConstantWarAgainstFaction(faction1, faction2);
+```
 
 ### IsNeutralWithFaction
 `public static bool IsNeutralWithFaction(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** 处理 `is neutral with faction` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「neutral with faction」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+FactionManager.IsNeutralWithFaction(faction1, faction2);
+```
 
 ### GetRelationBetweenClans
 `public static int GetRelationBetweenClans(Clan clan1, Clan clan2)`
 
-**用途 / Purpose:** 获取 `relation between clans` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation between clans」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FactionManager.GetRelationBetweenClans(clan1, clan2);
+```
 
 ## 使用示例
 
@@ -70,4 +94,4 @@ var manager = FactionManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

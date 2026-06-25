@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyTransitionModel"
+description: "DefaultPartyTransitionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyTransitionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyTransitionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ title: "DefaultPartyTransitionModel"
 ### GetFleetTravelTimeToPoint
 `public override CampaignTime GetFleetTravelTimeToPoint(MobileParty mobileParty, CampaignVec2 target)`
 
-**用途 / Purpose:** 获取 `fleet travel time to point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「fleet travel time to point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetFleetTravelTimeToPoint(mobileParty, target);
+```
 
 ### GetTransitionTimeDisembarking
 `public override CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `transition time disembarking` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「transition time disembarking」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetTransitionTimeDisembarking(mobileParty);
+```
 
 ### GetTransitionTimeForEmbarking
 `public override CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `transition time for embarking` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「transition time for embarking」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetTransitionTimeForEmbarking(mobileParty);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPartyTransitionModel>(new MyDefaultPartyTransit
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

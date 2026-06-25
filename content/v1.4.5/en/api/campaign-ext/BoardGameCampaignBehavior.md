@@ -1,20 +1,14 @@
 ---
 title: "BoardGameCampaignBehavior"
+description: "Auto-generated class reference for BoardGameCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class BoardGameCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BoardGameCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BoardGameCampaignBehavior.cs`
 
 ## Overview
 
@@ -35,55 +29,109 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of BoardGameCampaignBehavior from the subsystem API first
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of BoardGameCampaignBehavior from the subsystem API first
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of BoardGameCampaignBehavior from the subsystem API first
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### InitializeConversationVars
 `public unsafe void InitializeConversationVars()`
 
-**Purpose:** Initializes the state, resources, or bindings for `conversation vars`.
+**Purpose:** Prepares the resources, state, or bindings required by `conversation vars`.
+
+```csharp
+// Obtain an instance of BoardGameCampaignBehavior from the subsystem API first
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.InitializeConversationVars();
+```
 
 ### OnMissionStarted
 `public void OnMissionStarted(IMission mission)`
 
-**Purpose:** Called when the `mission started` event is raised.
+**Purpose:** Invoked when the `mission started` event is raised.
+
+```csharp
+// Obtain an instance of BoardGameCampaignBehavior from the subsystem API first
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.OnMissionStarted(mission);
+```
 
 ### OnHeroKilled
 `public void OnHeroKilled(Hero victim, Hero killer, KillCharacterActionDetail detail, bool showNotification = true)`
 
-**Purpose:** Called when the `hero killed` event is raised.
+**Purpose:** Invoked when the `hero killed` event is raised.
+
+```csharp
+// Obtain an instance of BoardGameCampaignBehavior from the subsystem API first
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.OnHeroKilled(victim, killer, detail, false);
+```
 
 ### taverngamehost_player_sitting_now_on_condition
 `public static bool taverngamehost_player_sitting_now_on_condition()`
 
-**Purpose:** Handles logic related to `taverngamehost_player_sitting_now_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BoardGameCampaignBehavior.taverngamehost_player_sitting_now_on_condition();
+```
 
 ### PlayerWonAgainstTavernChampion
 `public void PlayerWonAgainstTavernChampion()`
 
-**Purpose:** Handles logic related to `player won against tavern champion`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameCampaignBehavior from the subsystem API first
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.PlayerWonAgainstTavernChampion();
+```
 
 ### SetBetAmount
 `public void SetBetAmount(int bet)`
 
-**Purpose:** Sets the value or state of `bet amount`.
+**Purpose:** Assigns a new value to `bet amount` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameCampaignBehavior from the subsystem API first
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.SetBetAmount(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameCampaignBehavior boardGameCampaignBehavior = ...;
+boardGameCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

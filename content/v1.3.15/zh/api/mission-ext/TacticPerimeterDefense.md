@@ -1,13 +1,7 @@
 ---
 title: "TacticPerimeterDefense"
+description: "TacticPerimeterDefense 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TacticPerimeterDefense`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TacticPerimeterDefense
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,30 +31,55 @@ title: "TacticPerimeterDefense"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TacticPerimeterDefense 实例
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.TickOccasionally();
+```
 
 ### UpdateClusterData
 `public void UpdateClusterData()`
 
-**用途 / Purpose:** 更新 `cluster data` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「cluster data」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 TacticPerimeterDefense 实例
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.UpdateClusterData();
+```
 
 ### AddToCluster
 `public void AddToCluster(Formation formation)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `to cluster`。
+**用途 / Purpose:** 将 「to cluster」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TacticPerimeterDefense 实例
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.AddToCluster(formation);
+```
 
 ### RemoveFromCluster
 `public void RemoveFromCluster(Formation formation)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `from cluster`。
+**用途 / Purpose:** 从当前容器或状态中移除 「from cluster」。
+
+```csharp
+// 先通过子系统 API 拿到 TacticPerimeterDefense 实例
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.RemoveFromCluster(formation);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TacticPerimeterDefense();
-value.TickOccasionally();
+// 通常从对应子系统 API 获取实例后调用
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.TickOccasionally();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

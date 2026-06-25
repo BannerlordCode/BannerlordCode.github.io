@@ -1,20 +1,14 @@
 ---
 title: "ConversationNameButtonWidget"
+description: "Auto-generated class reference for ConversationNameButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationNameButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationNameButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConversationNameButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationNameButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationNameButtonWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `ConversationNameButtonWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new ConversationNameButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ConversationNameButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

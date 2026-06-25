@@ -1,20 +1,14 @@
 ---
 title: "ViewModel"
+description: "Auto-generated class reference for ViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ViewModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ViewModel
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public abstract class ViewModel : IViewModel, INotifyPropertyChanged`
 **Base:** `IViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ViewModel.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ViewModel.cs`
 
 ## Overview
 
@@ -45,99 +39,207 @@ Treat `ViewModel` as a Model-style extension point: first identify who creates i
 ### OnPropertyChanged
 `public void OnPropertyChanged( string propertyName = null)`
 
-**Purpose:** Called when the `property changed` event is raised.
+**Purpose:** Invoked when the `property changed` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnPropertyChanged("example");
+```
 
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(bool value, string propertyName = null)`
 
-**Purpose:** Called when the `property changed with value` event is raised.
+**Purpose:** Invoked when the `property changed with value` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnPropertyChangedWithValue(false, "example");
+```
 
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(int value, string propertyName = null)`
 
-**Purpose:** Called when the `property changed with value` event is raised.
+**Purpose:** Invoked when the `property changed with value` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnPropertyChangedWithValue(0, "example");
+```
 
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(float value, string propertyName = null)`
 
-**Purpose:** Called when the `property changed with value` event is raised.
+**Purpose:** Invoked when the `property changed with value` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnPropertyChangedWithValue(0, "example");
+```
 
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(uint value, string propertyName = null)`
 
-**Purpose:** Called when the `property changed with value` event is raised.
+**Purpose:** Invoked when the `property changed with value` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnPropertyChangedWithValue(0, "example");
+```
 
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(Color value, string propertyName = null)`
 
-**Purpose:** Called when the `property changed with value` event is raised.
+**Purpose:** Invoked when the `property changed with value` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnPropertyChangedWithValue(value, "example");
+```
 
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(double value, string propertyName = null)`
 
-**Purpose:** Called when the `property changed with value` event is raised.
+**Purpose:** Invoked when the `property changed with value` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnPropertyChangedWithValue(0, "example");
+```
 
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(Vec2 value, string propertyName = null)`
 
-**Purpose:** Called when the `property changed with value` event is raised.
+**Purpose:** Invoked when the `property changed with value` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnPropertyChangedWithValue(value, "example");
+```
 
 ### GetViewModelAtPath
 `public object GetViewModelAtPath(BindingPath path, bool isList)`
 
-**Purpose:** Gets the current value of `view model at path`.
+**Purpose:** Reads and returns the `view model at path` value held by the current object.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+var result = viewModel.GetViewModelAtPath(path, false);
+```
 
 ### GetViewModelAtPath
 `public object GetViewModelAtPath(BindingPath path)`
 
-**Purpose:** Gets the current value of `view model at path`.
+**Purpose:** Reads and returns the `view model at path` value held by the current object.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+var result = viewModel.GetViewModelAtPath(path);
+```
 
 ### GetPropertyValue
 `public object GetPropertyValue(string name, PropertyTypeFeeder propertyTypeFeeder)`
 
-**Purpose:** Gets the current value of `property value`.
+**Purpose:** Reads and returns the `property value` value held by the current object.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+var result = viewModel.GetPropertyValue("example", propertyTypeFeeder);
+```
 
 ### GetPropertyValue
 `public object GetPropertyValue(string name)`
 
-**Purpose:** Gets the current value of `property value`.
+**Purpose:** Reads and returns the `property value` value held by the current object.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+var result = viewModel.GetPropertyValue("example");
+```
 
 ### GetPropertyType
 `public Type GetPropertyType(string name)`
 
-**Purpose:** Gets the current value of `property type`.
+**Purpose:** Reads and returns the `property type` value held by the current object.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+var result = viewModel.GetPropertyType("example");
+```
 
 ### SetPropertyValue
 `public void SetPropertyValue(string name, object value)`
 
-**Purpose:** Sets the value or state of `property value`.
+**Purpose:** Assigns a new value to `property value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.SetPropertyValue("example", value);
+```
 
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.OnFinalize();
+```
 
 ### ExecuteCommand
 `public void ExecuteCommand(string commandName, object parameters)`
 
-**Purpose:** Executes the `command` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `command`.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.ExecuteCommand("example", parameters);
+```
 
 ### RefreshValues
 `public virtual void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ViewModel from the subsystem API first
+ViewModel viewModel = ...;
+viewModel.RefreshValues();
+```
 
 ### RefreshPropertyAndMethodInfos
 `public static void RefreshPropertyAndMethodInfos()`
 
-**Purpose:** Refreshes the display or cache of `property and method infos`.
+**Purpose:** Keeps the display or cache of `property and method infos` in sync with the underlying state.
+
+```csharp
+// Static call; no instance required
+ViewModel.RefreshPropertyAndMethodInfos();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomViewModel();
+// Typically obtained from a subsystem API or factory
+ViewModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

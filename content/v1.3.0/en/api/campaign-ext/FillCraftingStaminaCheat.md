@@ -1,13 +1,7 @@
 ---
 title: "FillCraftingStaminaCheat"
+description: "Auto-generated class reference for FillCraftingStaminaCheat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillCraftingStaminaCheat`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FillCraftingStaminaCheat
 
 **Namespace:** SandBox
@@ -29,20 +23,33 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of FillCraftingStaminaCheat from the subsystem API first
+FillCraftingStaminaCheat fillCraftingStaminaCheat = ...;
+fillCraftingStaminaCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of FillCraftingStaminaCheat from the subsystem API first
+FillCraftingStaminaCheat fillCraftingStaminaCheat = ...;
+var result = fillCraftingStaminaCheat.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FillCraftingStaminaCheat();
-value.ExecuteCheat();
+// Typically call this after obtaining an instance from the subsystem API
+FillCraftingStaminaCheat fillCraftingStaminaCheat = ...;
+fillCraftingStaminaCheat.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

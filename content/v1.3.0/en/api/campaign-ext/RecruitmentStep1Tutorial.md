@@ -1,13 +1,7 @@
 ---
 title: "RecruitmentStep1Tutorial"
+description: "Auto-generated class reference for RecruitmentStep1Tutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitmentStep1Tutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitmentStep1Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of RecruitmentStep1Tutorial from the subsystem API first
+RecruitmentStep1Tutorial recruitmentStep1Tutorial = ...;
+var result = recruitmentStep1Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnTutorialContextChanged
 `public override void OnTutorialContextChanged(TutorialContextChangedEvent obj)`
 
-**Purpose:** Called when the `tutorial context changed` event is raised.
+**Purpose:** Invoked when the `tutorial context changed` event is raised.
+
+```csharp
+// Obtain an instance of RecruitmentStep1Tutorial from the subsystem API first
+RecruitmentStep1Tutorial recruitmentStep1Tutorial = ...;
+recruitmentStep1Tutorial.OnTutorialContextChanged(obj);
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of RecruitmentStep1Tutorial from the subsystem API first
+RecruitmentStep1Tutorial recruitmentStep1Tutorial = ...;
+var result = recruitmentStep1Tutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of RecruitmentStep1Tutorial from the subsystem API first
+RecruitmentStep1Tutorial recruitmentStep1Tutorial = ...;
+var result = recruitmentStep1Tutorial.IsConditionsMetForActivation();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RecruitmentStep1Tutorial();
-value.IsConditionsMetForCompletion();
+// Typically call this after obtaining an instance from the subsystem API
+RecruitmentStep1Tutorial recruitmentStep1Tutorial = ...;
+recruitmentStep1Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

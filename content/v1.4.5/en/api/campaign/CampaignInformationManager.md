@@ -1,20 +1,14 @@
 ---
 title: "CampaignInformationManager"
+description: "Auto-generated class reference for CampaignInformationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignInformationManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignInformationManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignInformationManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignInformationManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignInformationManager.cs`
 
 ## Overview
 
@@ -29,37 +23,74 @@ Treat `CampaignInformationManager` as a Manager-style extension point: first ide
 ### OnGameLoaded
 `public void OnGameLoaded()`
 
-**Purpose:** Called when the `game loaded` event is raised.
+**Purpose:** Invoked when the `game loaded` event is raised.
+
+```csharp
+// Obtain an instance of CampaignInformationManager from the subsystem API first
+CampaignInformationManager campaignInformationManager = ...;
+campaignInformationManager.OnGameLoaded();
+```
 
 ### NewMapNoticeAdded
 `public void NewMapNoticeAdded(InformationData informationData)`
 
-**Purpose:** Handles logic related to `new map notice added`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CampaignInformationManager from the subsystem API first
+CampaignInformationManager campaignInformationManager = ...;
+campaignInformationManager.NewMapNoticeAdded(informationData);
+```
 
 ### AddDialogLine
 `public static MBInformationManager.DialogNotificationHandle AddDialogLine(TextObject text, CharacterObject speakerCharacter, Equipment equipment = null, int extraTimeInMs = 0, MBInformationManager.NotificationPriority priority = MBInformationManager.NotificationPriority.Medium)`
 
 **Purpose:** Adds `dialog line` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+CampaignInformationManager.AddDialogLine(text, speakerCharacter, null, 0, mBInformationManager.NotificationPriority.Medium);
+```
+
 ### GetStatusOfDialogNotification
 `public static MBInformationManager.NotificationStatus GetStatusOfDialogNotification(MBInformationManager.DialogNotificationHandle handle)`
 
-**Purpose:** Gets the current value of `status of dialog notification`.
+**Purpose:** Reads and returns the `status of dialog notification` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignInformationManager.GetStatusOfDialogNotification(handle);
+```
 
 ### ClearDialogNotification
 `public static void ClearDialogNotification(MBInformationManager.DialogNotificationHandle handle, bool fadeOut = true)`
 
-**Purpose:** Handles logic related to `clear dialog notification`.
+**Purpose:** Removes all `dialog notification` from the current object.
+
+```csharp
+// Static call; no instance required
+CampaignInformationManager.ClearDialogNotification(handle, false);
+```
 
 ### GetIsAnyDialogNotificationActiveOrQueued
 `public static bool GetIsAnyDialogNotificationActiveOrQueued()`
 
-**Purpose:** Gets the current value of `is any dialog notification active or queued`.
+**Purpose:** Reads and returns the `is any dialog notification active or queued` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignInformationManager.GetIsAnyDialogNotificationActiveOrQueued();
+```
 
 ### ClearAllDialogNotifications
 `public static void ClearAllDialogNotifications(bool fadeOut)`
 
-**Purpose:** Handles logic related to `clear all dialog notifications`.
+**Purpose:** Removes all `all dialog notifications` from the current object.
+
+```csharp
+// Static call; no instance required
+CampaignInformationManager.ClearAllDialogNotifications(false);
+```
 
 ## Usage Example
 
@@ -69,4 +100,4 @@ var manager = CampaignInformationManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MusicParameters"
+description: "Auto-generated class reference for MusicParameters."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MusicParameters`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicParameters
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -52,7 +46,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### LoadFromXml
 `public static void LoadFromXml()`
 
-**Purpose:** Loads `from xml` data.
+**Purpose:** Reads `from xml` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MusicParameters.LoadFromXml();
+```
 
 ## Usage Example
 
@@ -62,4 +61,4 @@ MusicParameters.LoadFromXml();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

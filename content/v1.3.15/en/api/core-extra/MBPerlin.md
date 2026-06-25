@@ -1,23 +1,18 @@
 ---
 title: "MBPerlin"
+description: "Auto-generated class reference for MBPerlin."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBPerlin`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBPerlin
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBPerlin`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/MBPerlin.cs`
 
 ## Overview
 
-`MBPerlin` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBPerlin` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,26 +23,39 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Noise
 `public static float Noise(float x, float y, float z)`
 
-**Purpose:** Handles logic related to `noise`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBPerlin.Noise(0, 0, 0);
+```
 
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float t)`
 
-**Purpose:** Handles logic related to `noise vec3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBPerlin.NoiseVec3(0);
+```
 
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float x, float y, float z)`
 
-**Purpose:** Handles logic related to `noise vec3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBPerlin.NoiseVec3(0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBPerlin.Noise(0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

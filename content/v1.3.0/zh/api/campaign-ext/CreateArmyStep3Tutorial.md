@@ -1,13 +1,7 @@
 ---
 title: "CreateArmyStep3Tutorial"
+description: "CreateArmyStep3Tutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CreateArmyStep3Tutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreateArmyStep3Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ title: "CreateArmyStep3Tutorial"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CreateArmyStep3Tutorial 实例
+CreateArmyStep3Tutorial createArmyStep3Tutorial = ...;
+var result = createArmyStep3Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnTutorialContextChanged
 `public override void OnTutorialContextChanged(TutorialContextChangedEvent obj)`
 
-**用途 / Purpose:** 当 `tutorial context changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tutorial context changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CreateArmyStep3Tutorial 实例
+CreateArmyStep3Tutorial createArmyStep3Tutorial = ...;
+createArmyStep3Tutorial.OnTutorialContextChanged(obj);
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CreateArmyStep3Tutorial 实例
+CreateArmyStep3Tutorial createArmyStep3Tutorial = ...;
+var result = createArmyStep3Tutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CreateArmyStep3Tutorial 实例
+CreateArmyStep3Tutorial createArmyStep3Tutorial = ...;
+var result = createArmyStep3Tutorial.IsConditionsMetForActivation();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CreateArmyStep3Tutorial();
-value.IsConditionsMetForCompletion();
+// 通常从对应子系统 API 获取实例后调用
+CreateArmyStep3Tutorial createArmyStep3Tutorial = ...;
+createArmyStep3Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

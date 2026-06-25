@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerOptionsInitial"
+description: "MultiplayerOptionsInitial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerOptionsInitial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerOptionsInitial
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class MultiplayerOptionsInitial : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerOptionsInitial.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MultiplayerOptionsInitial.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MultiplayerOptionsInitial"
 ### GetOption
 `public MultiplayerOptions.MultiplayerOption GetOption(MultiplayerOptions.OptionType optionType)`
 
-**用途 / Purpose:** 获取 `option` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「option」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerOptionsInitial 实例
+MultiplayerOptionsInitial multiplayerOptionsInitial = ...;
+var result = multiplayerOptionsInitial.GetOption(optionType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerOptionsInitial();
-value.GetOption(optionType);
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerOptionsInitial multiplayerOptionsInitial = ...;
+multiplayerOptionsInitial.GetOption(optionType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

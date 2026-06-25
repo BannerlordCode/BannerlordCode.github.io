@@ -1,13 +1,7 @@
 ---
 title: "Ballista"
+description: "Auto-generated class reference for Ballista."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Ballista`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Ballista
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,60 +32,121 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Gets the current value of `siege engine type`.
+**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+var result = ballista.GetSiegeEngineType();
+```
 
 ### OnPilotAssignedDuringSpawn
 `public override void OnPilotAssignedDuringSpawn()`
 
-**Purpose:** Called when the `pilot assigned during spawn` event is raised.
+**Purpose:** Invoked when the `pilot assigned during spawn` event is raised.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+ballista.OnPilotAssignedDuringSpawn();
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+var result = ballista.CreateAIBehaviorObject();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+var result = ballista.GetTickRequirement();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+var result = ballista.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+var result = ballista.GetDescriptionText(gameEntity);
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Handles logic related to `process target value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+var result = ballista.ProcessTargetValue(0, flags);
+```
 
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**Purpose:** Gets the current value of `target flags`.
+**Purpose:** Reads and returns the `target flags` value held by the current object.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+var result = ballista.GetTargetFlags();
+```
 
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** Gets the current value of `target value`.
+**Purpose:** Reads and returns the `target value` value held by the current object.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+var result = ballista.GetTargetValue(weaponPos);
+```
 
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** Sets the value or state of `spawned from spawner`.
+**Purpose:** Assigns a new value to `spawned from spawner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Ballista from the subsystem API first
+Ballista ballista = ...;
+ballista.SetSpawnedFromSpawner();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Ballista();
-value.GetSiegeEngineType();
+// Typically call this after obtaining an instance from the subsystem API
+Ballista ballista = ...;
+ballista.GetSiegeEngineType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

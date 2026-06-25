@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplateNotificationsVM"
+description: "Auto-generated class reference for SettlementNameplateNotificationsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateNotificationsVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateNotificationsVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
@@ -36,30 +30,55 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SettlementNameplateNotificationsVM from the subsystem API first
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+settlementNameplateNotificationsVM.Tick();
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of SettlementNameplateNotificationsVM from the subsystem API first
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+settlementNameplateNotificationsVM.RegisterEvents();
+```
 
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**Purpose:** Handles logic related to `unload events`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SettlementNameplateNotificationsVM from the subsystem API first
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+settlementNameplateNotificationsVM.UnloadEvents();
+```
 
 ### IsValidItemForNotification
 `public bool IsValidItemForNotification(ItemRosterElement item)`
 
-**Purpose:** Handles logic related to `is valid item for notification`.
+**Purpose:** Determines whether the current object is in the `valid item for notification` state or condition.
+
+```csharp
+// Obtain an instance of SettlementNameplateNotificationsVM from the subsystem API first
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+var result = settlementNameplateNotificationsVM.IsValidItemForNotification(item);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNameplateNotificationsVM();
-value.Tick();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementNameplateNotificationsVM settlementNameplateNotificationsVM = ...;
+settlementNameplateNotificationsVM.Tick();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

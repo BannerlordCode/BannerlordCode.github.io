@@ -1,13 +1,7 @@
 ---
 title: "ObjectInstanceTracker"
+description: "Auto-generated class reference for ObjectInstanceTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ObjectInstanceTracker`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ObjectInstanceTracker
 
 **Namespace:** TaleWorlds.Library
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RegisterTrackedInstance
 `public static void RegisterTrackedInstance(string name, WeakReference instance)`
 
-**Purpose:** Handles logic related to `register tracked instance`.
+**Purpose:** Registers `tracked instance` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+ObjectInstanceTracker.RegisterTrackedInstance("example", instance);
+```
 
 ### CheckBlacklistedTypeCounts
 `public static bool CheckBlacklistedTypeCounts(Dictionary<string, int> typeNameCounts, ref string outputLog)`
 
-**Purpose:** Handles logic related to `check blacklisted type counts`.
+**Purpose:** Verifies whether `blacklisted type counts` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+ObjectInstanceTracker.CheckBlacklistedTypeCounts(dictionary<string, 0, outputLog);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ ObjectInstanceTracker.RegisterTrackedInstance("example", instance);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

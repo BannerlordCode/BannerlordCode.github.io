@@ -1,13 +1,7 @@
 ---
 title: "DefaultEquipmentSelectionModel"
+description: "Auto-generated class reference for DefaultEquipmentSelectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultEquipmentSelectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEquipmentSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,27 +23,57 @@ Treat `DefaultEquipmentSelectionModel` as a Model-style extension point: first i
 ### GetEquipmentRostersForHeroComeOfAge
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
 
-**Purpose:** Gets the current value of `equipment rosters for hero come of age`.
+**Purpose:** Reads and returns the `equipment rosters for hero come of age` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(hero, false);
+```
 
 ### GetEquipmentRostersForHeroReachesTeenAge
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment rosters for hero reaches teen age`.
+**Purpose:** Reads and returns the `equipment rosters for hero reaches teen age` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForHeroReachesTeenAge(hero);
+```
 
 ### GetEquipmentRostersForInitialChildrenGeneration
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment rosters for initial children generation`.
+**Purpose:** Reads and returns the `equipment rosters for initial children generation` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForInitialChildrenGeneration(hero);
+```
 
 ### GetEquipmentRostersForDeliveredOffspring
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment rosters for delivered offspring`.
+**Purpose:** Reads and returns the `equipment rosters for delivered offspring` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForDeliveredOffspring(hero);
+```
 
 ### GetEquipmentRostersForCompanion
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero hero, bool isCivilian)`
 
-**Purpose:** Gets the current value of `equipment rosters for companion`.
+**Purpose:** Reads and returns the `equipment rosters for companion` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
+DefaultEquipmentSelectionModel defaultEquipmentSelectionModel = ...;
+var result = defaultEquipmentSelectionModel.GetEquipmentRostersForCompanion(hero, false);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultEquipmentSelectionModel>(new MyDefaultEquipment
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

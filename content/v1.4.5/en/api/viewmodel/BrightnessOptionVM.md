@@ -1,20 +1,14 @@
 ---
 title: "BrightnessOptionVM"
+description: "Auto-generated class reference for BrightnessOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrightnessOptionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrightnessOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BrightnessOptionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/BrightnessOptionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/BrightnessOptionVM.cs`
 
 ## Overview
 
@@ -47,35 +41,66 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BrightnessOptionVM from the subsystem API first
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.RefreshValues();
+```
 
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**Purpose:** Executes the `confirm` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `confirm`.
+
+```csharp
+// Obtain an instance of BrightnessOptionVM from the subsystem API first
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.ExecuteConfirm();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of BrightnessOptionVM from the subsystem API first
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.ExecuteCancel();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrightnessOptionVM from the subsystem API first
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.SetCancelInputKey(hotkey);
+```
 
 ### SetConfirmInputKey
 `public void SetConfirmInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `confirm input key`.
+**Purpose:** Assigns a new value to `confirm input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrightnessOptionVM from the subsystem API first
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.SetConfirmInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrightnessOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

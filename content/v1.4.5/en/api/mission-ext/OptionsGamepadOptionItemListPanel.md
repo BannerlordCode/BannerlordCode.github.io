@@ -1,20 +1,14 @@
 ---
 title: "OptionsGamepadOptionItemListPanel"
+description: "Auto-generated class reference for OptionsGamepadOptionItemListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsGamepadOptionItemListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionsGamepadOptionItemListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsGamepadOptionItemListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad/OptionsGamepadOptionItemListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad/OptionsGamepadOptionItemListPanel.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepa
 ### OnActionTextChangeEvent
 `public delegate void OnActionTextChangeEvent()`
 
-**Purpose:** Called when the `action text change event` event is raised.
+**Purpose:** Invoked when the `action text change event` event is raised.
+
+```csharp
+// Obtain an instance of OptionsGamepadOptionItemListPanel from the subsystem API first
+OptionsGamepadOptionItemListPanel optionsGamepadOptionItemListPanel = ...;
+optionsGamepadOptionItemListPanel.OnActionTextChangeEvent();
+```
 
 ### SetKeyProperties
 `public void SetKeyProperties(OptionsGamepadKeyLocationWidget currentTarget, Widget parentAreaWidget)`
 
-**Purpose:** Sets the value or state of `key properties`.
+**Purpose:** Assigns a new value to `key properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsGamepadOptionItemListPanel from the subsystem API first
+OptionsGamepadOptionItemListPanel optionsGamepadOptionItemListPanel = ...;
+optionsGamepadOptionItemListPanel.SetKeyProperties(currentTarget, parentAreaWidget);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OptionsGamepadOptionItemListPanel();
-value.OnActionTextChangeEvent();
+// Typically call this after obtaining an instance from the subsystem API
+OptionsGamepadOptionItemListPanel optionsGamepadOptionItemListPanel = ...;
+optionsGamepadOptionItemListPanel.OnActionTextChangeEvent();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

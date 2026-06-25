@@ -1,13 +1,7 @@
 ---
 title: "EducationReviewItemVM"
+description: "Auto-generated class reference for EducationReviewItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationReviewItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EducationReviewItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### UpdateWith
 `public void UpdateWith(string gainText)`
 
-**Purpose:** Updates the state or data of `with`.
+**Purpose:** Recalculates and stores the latest representation of `with`.
+
+```csharp
+// Obtain an instance of EducationReviewItemVM from the subsystem API first
+EducationReviewItemVM educationReviewItemVM = ...;
+educationReviewItemVM.UpdateWith("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationReviewItemVM();
-value.UpdateWith("example");
+// Typically call this after obtaining an instance from the subsystem API
+EducationReviewItemVM educationReviewItemVM = ...;
+educationReviewItemVM.UpdateWith("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

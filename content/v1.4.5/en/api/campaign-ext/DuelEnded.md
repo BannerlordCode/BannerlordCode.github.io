@@ -1,20 +1,14 @@
 ---
 title: "DuelEnded"
+description: "Auto-generated class reference for DuelEnded."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelEnded`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelEnded
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class DuelEnded : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/DuelEnded.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/DuelEnded.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new DuelEnded();
+// Obtain an instance from the relevant subsystem API
+DuelEnded instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

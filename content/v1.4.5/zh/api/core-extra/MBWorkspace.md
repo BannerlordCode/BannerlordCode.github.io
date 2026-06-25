@@ -1,20 +1,14 @@
 ---
 title: "MBWorkspace"
+description: "MBWorkspace 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBWorkspace`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBWorkspace
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class MBWorkspace<T>`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBWorkspace.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBWorkspace.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "MBWorkspace"
 ### StartUsingWorkspace
 `public T StartUsingWorkspace()`
 
-**用途 / Purpose:** 处理 `start using workspace` 相关逻辑。
+**用途 / Purpose:** 启动「using workspace」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MBWorkspace 实例
+MBWorkspace mBWorkspace = ...;
+var result = mBWorkspace.StartUsingWorkspace();
+```
 
 ### StopUsingWorkspace
 `public void StopUsingWorkspace()`
 
-**用途 / Purpose:** 处理 `stop using workspace` 相关逻辑。
+**用途 / Purpose:** 停止「using workspace」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MBWorkspace 实例
+MBWorkspace mBWorkspace = ...;
+mBWorkspace.StopUsingWorkspace();
+```
 
 ### GetWorkspace
 `public T GetWorkspace()`
 
-**用途 / Purpose:** 获取 `workspace` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「workspace」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBWorkspace 实例
+MBWorkspace mBWorkspace = ...;
+var result = mBWorkspace.GetWorkspace();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBWorkspace();
-value.StartUsingWorkspace();
+// 通常从对应子系统 API 获取实例后调用
+MBWorkspace mBWorkspace = ...;
+mBWorkspace.StartUsingWorkspace();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

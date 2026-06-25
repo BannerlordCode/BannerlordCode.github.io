@@ -1,20 +1,14 @@
 ---
 title: "CrimeModel"
+description: "CrimeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CrimeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CrimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CrimeModel : MBGameModel<CrimeModel>`
 **Base:** `MBGameModel<CrimeModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CrimeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CrimeModel.cs`
 
 ## 概述
 
@@ -35,54 +29,109 @@ title: "CrimeModel"
 ### GetMaxCrimeRating
 `public abstract float GetMaxCrimeRating()`
 
-**用途 / Purpose:** 获取 `max crime rating` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max crime rating」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetMaxCrimeRating();
+```
 
 ### GetMinAcceptableCrimeRating
 `public abstract float GetMinAcceptableCrimeRating(IFaction faction)`
 
-**用途 / Purpose:** 获取 `min acceptable crime rating` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「min acceptable crime rating」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetMinAcceptableCrimeRating(faction);
+```
 
 ### GetCrimeRatingAfterPunishment
 `public abstract float GetCrimeRatingAfterPunishment()`
 
-**用途 / Purpose:** 获取 `crime rating after punishment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「crime rating after punishment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetCrimeRatingAfterPunishment();
+```
 
 ### DoesPlayerHaveAnyCrimeRating
 `public abstract bool DoesPlayerHaveAnyCrimeRating(IFaction faction)`
 
-**用途 / Purpose:** 处理 `does player have any crime rating` 相关逻辑。
+**用途 / Purpose:** 返回「player have any crime rating」对当前对象是否成立的布尔结果。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.DoesPlayerHaveAnyCrimeRating(faction);
+```
 
 ### IsPlayerCrimeRatingSevere
 `public abstract bool IsPlayerCrimeRatingSevere(IFaction faction)`
 
-**用途 / Purpose:** 处理 `is player crime rating severe` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player crime rating severe」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.IsPlayerCrimeRatingSevere(faction);
+```
 
 ### IsPlayerCrimeRatingModerate
 `public abstract bool IsPlayerCrimeRatingModerate(IFaction faction)`
 
-**用途 / Purpose:** 处理 `is player crime rating moderate` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player crime rating moderate」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.IsPlayerCrimeRatingModerate(faction);
+```
 
 ### IsPlayerCrimeRatingMild
 `public abstract bool IsPlayerCrimeRatingMild(IFaction faction)`
 
-**用途 / Purpose:** 处理 `is player crime rating mild` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player crime rating mild」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.IsPlayerCrimeRatingMild(faction);
+```
 
 ### GetCost
 `public abstract float GetCost(IFaction faction, PaymentMethod paymentMethod, float minimumCrimeRating)`
 
-**用途 / Purpose:** 获取 `cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetCost(faction, paymentMethod, 0);
+```
 
 ### GetDailyCrimeRatingChange
 `public abstract ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `daily crime rating change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily crime rating change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeModel 实例
+CrimeModel crimeModel = ...;
+var result = crimeModel.GetDailyCrimeRatingChange(faction, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCrimeModel();
+// 通常通过子系统 API 或工厂获得派生实例
+CrimeModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

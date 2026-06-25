@@ -1,23 +1,18 @@
 ---
 title: "NotableWantsDaughterFoundIssue"
+description: "Auto-generated class reference for NotableWantsDaughterFoundIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NotableWantsDaughterFoundIssue`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotableWantsDaughterFoundIssue
 
 **Namespace:** SandBox.Issues
 **Module:** SandBox.Issues
 **Type:** `public class NotableWantsDaughterFoundIssue`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/SandBox.Issues/NotableWantsDaughterFoundIssueBehavior.cs`
 
 ## Overview
 
-`NotableWantsDaughterFoundIssue` lives in `SandBox.Issues`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`NotableWantsDaughterFoundIssue` lives in `SandBox.Issues` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -42,67 +37,132 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+var result = notableWantsDaughterFoundIssue.GetFrequency();
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+var result = notableWantsDaughterFoundIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+var result = notableWantsDaughterFoundIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
+**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+var result = notableWantsDaughterFoundIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+var result = notableWantsDaughterFoundIssue.IssueStayAliveConditions();
+```
 
 ### OnBeforeMissionOpened
 `public void OnBeforeMissionOpened()`
 
-**Purpose:** Called when the `before mission opened` event is raised.
+**Purpose:** Invoked when the `before mission opened` event is raised.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+notableWantsDaughterFoundIssue.OnBeforeMissionOpened();
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+notableWantsDaughterFoundIssue.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanMoveToSettlementInfoIsRequested
 `public override void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can move to settlement info is requested` event is raised.
+**Purpose:** Invoked when the `hero can move to settlement info is requested` event is raised.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+notableWantsDaughterFoundIssue.OnHeroCanMoveToSettlementInfoIsRequested(hero, result);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+notableWantsDaughterFoundIssue.RegisterEvents();
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+notableWantsDaughterFoundIssue.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of NotableWantsDaughterFoundIssue from the subsystem API first
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+notableWantsDaughterFoundIssue.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a NotableWantsDaughterFoundIssue instance from game state, then call one of its public methods
-var value = new NotableWantsDaughterFoundIssue();
-value.GetFrequency();
+// Typically call this after obtaining an instance from the subsystem API
+NotableWantsDaughterFoundIssue notableWantsDaughterFoundIssue = ...;
+notableWantsDaughterFoundIssue.GetFrequency();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

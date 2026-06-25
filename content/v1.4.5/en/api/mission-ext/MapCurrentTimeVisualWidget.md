@@ -1,20 +1,14 @@
 ---
 title: "MapCurrentTimeVisualWidget"
+description: "Auto-generated class reference for MapCurrentTimeVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapCurrentTimeVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapCurrentTimeVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapCurrentTimeVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapCurrentTimeVisualWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapCurrentTimeVisualWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `MapCurrentTimeVisualWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new MapCurrentTimeVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapCurrentTimeVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

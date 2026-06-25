@@ -1,13 +1,7 @@
 ---
 title: "WalkingBehavior"
+description: "Auto-generated class reference for WalkingBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WalkingBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WalkingBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,50 +23,99 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### SetIndoorWandering
 `public void SetIndoorWandering(bool isActive)`
 
-**Purpose:** Sets the value or state of `indoor wandering`.
+**Purpose:** Assigns a new value to `indoor wandering` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WalkingBehavior from the subsystem API first
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.SetIndoorWandering(false);
+```
 
 ### SetOutdoorWandering
 `public void SetOutdoorWandering(bool isActive)`
 
-**Purpose:** Sets the value or state of `outdoor wandering`.
+**Purpose:** Assigns a new value to `outdoor wandering` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WalkingBehavior from the subsystem API first
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.SetOutdoorWandering(false);
+```
 
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of WalkingBehavior from the subsystem API first
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.Tick(0, false);
+```
 
 ### ConversationTick
 `public override void ConversationTick()`
 
-**Purpose:** Handles logic related to `conversation tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WalkingBehavior from the subsystem API first
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.ConversationTick();
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of WalkingBehavior from the subsystem API first
+WalkingBehavior walkingBehavior = ...;
+var result = walkingBehavior.GetAvailability(false);
+```
 
 ### SetCustomWanderTarget
 `public override void SetCustomWanderTarget(UsableMachine customUsableMachine)`
 
-**Purpose:** Sets the value or state of `custom wander target`.
+**Purpose:** Assigns a new value to `custom wander target` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WalkingBehavior from the subsystem API first
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.SetCustomWanderTarget(customUsableMachine);
+```
 
 ### OnSpecialTargetChanged
 `public override void OnSpecialTargetChanged()`
 
-**Purpose:** Called when the `special target changed` event is raised.
+**Purpose:** Invoked when the `special target changed` event is raised.
+
+```csharp
+// Obtain an instance of WalkingBehavior from the subsystem API first
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.OnSpecialTargetChanged();
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of WalkingBehavior from the subsystem API first
+WalkingBehavior walkingBehavior = ...;
+var result = walkingBehavior.GetDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WalkingBehavior();
-value.SetIndoorWandering(false);
+// Typically call this after obtaining an instance from the subsystem API
+WalkingBehavior walkingBehavior = ...;
+walkingBehavior.SetIndoorWandering(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

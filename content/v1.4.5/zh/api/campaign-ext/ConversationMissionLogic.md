@@ -1,20 +1,14 @@
 ---
 title: "ConversationMissionLogic"
+description: "ConversationMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationMissionLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationMissionLogic
 
 **Namespace:** SandBox.Conversation.MissionLogics
 **Module:** SandBox.Conversation
 **Type:** `public class ConversationMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Conversation.MissionLogics/ConversationMissionLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Conversation.MissionLogics/ConversationMissionLogic.cs`
 
 ## 概述
 
@@ -37,24 +31,42 @@ title: "ConversationMissionLogic"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationMissionLogic 实例
+ConversationMissionLogic conversationMissionLogic = ...;
+conversationMissionLogic.AfterStart();
+```
 
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**用途 / Purpose:** 当 `rendering started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「rendering started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationMissionLogic 实例
+ConversationMissionLogic conversationMissionLogic = ...;
+conversationMissionLogic.OnRenderingStarted();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationMissionLogic 实例
+ConversationMissionLogic conversationMissionLogic = ...;
+conversationMissionLogic.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ConversationMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<ConversationMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

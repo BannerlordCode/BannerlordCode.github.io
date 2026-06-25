@@ -1,20 +1,14 @@
 ---
 title: "TradeAgreementDecisionItemVM"
+description: "Auto-generated class reference for TradeAgreementDecisionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeAgreementDecisionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeAgreementDecisionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TradeAgreementDecisionItemVM : DecisionItemBaseVM`
 **Base:** `DecisionItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/TradeAgreementDecisionItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/TradeAgreementDecisionItemVM.cs`
 
 ## Overview
 
@@ -42,9 +36,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var example = new TradeAgreementDecisionItemVM();
+// Obtain an instance from the relevant subsystem API
+TradeAgreementDecisionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

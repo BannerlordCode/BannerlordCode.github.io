@@ -1,20 +1,14 @@
 ---
 title: "BrushAnimationKeyFrame"
+description: "Auto-generated class reference for BrushAnimationKeyFrame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushAnimationKeyFrame`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushAnimationKeyFrame
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class BrushAnimationKeyFrame`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushAnimationKeyFrame.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushAnimationKeyFrame.cs`
 
 ## Overview
 
@@ -36,55 +30,110 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### InitializeAsFloat
 `public void InitializeAsFloat(float time, float value)`
 
-**Purpose:** Initializes the state, resources, or bindings for `as float`.
+**Purpose:** Prepares the resources, state, or bindings required by `as float`.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeAsFloat(0, 0);
+```
 
 ### InitializeAsColor
 `public void InitializeAsColor(float time, Color value)`
 
-**Purpose:** Initializes the state, resources, or bindings for `as color`.
+**Purpose:** Prepares the resources, state, or bindings required by `as color`.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeAsColor(0, value);
+```
 
 ### InitializeAsSprite
 `public void InitializeAsSprite(float time, Sprite value)`
 
-**Purpose:** Initializes the state, resources, or bindings for `as sprite`.
+**Purpose:** Prepares the resources, state, or bindings required by `as sprite`.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeAsSprite(0, value);
+```
 
 ### InitializeIndex
 `public void InitializeIndex(int index)`
 
-**Purpose:** Initializes the state, resources, or bindings for `index`.
+**Purpose:** Prepares the resources, state, or bindings required by `index`.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeIndex(0);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat()`
 
-**Purpose:** Gets the current value of `value as float`.
+**Purpose:** Reads and returns the `value as float` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.GetValueAsFloat();
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor()`
 
-**Purpose:** Gets the current value of `value as color`.
+**Purpose:** Reads and returns the `value as color` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.GetValueAsColor();
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite()`
 
-**Purpose:** Gets the current value of `value as sprite`.
+**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.GetValueAsSprite();
+```
 
 ### GetValueAsObject
 `public object GetValueAsObject()`
 
-**Purpose:** Gets the current value of `value as object`.
+**Purpose:** Reads and returns the `value as object` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.GetValueAsObject();
+```
 
 ### Clone
 `public BrushAnimationKeyFrame Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of BrushAnimationKeyFrame from the subsystem API first
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.Clone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushAnimationKeyFrame();
-value.InitializeAsFloat(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeAsFloat(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

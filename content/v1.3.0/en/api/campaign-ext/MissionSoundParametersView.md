@@ -1,13 +1,7 @@
 ---
 title: "MissionSoundParametersView"
+description: "Auto-generated class reference for MissionSoundParametersView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSoundParametersView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSoundParametersView
 
 **Namespace:** SandBox.View.Missions
@@ -29,24 +23,43 @@ Treat `MissionSoundParametersView` as a View-style extension point: first identi
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionSoundParametersView from the subsystem API first
+MissionSoundParametersView missionSoundParametersView = ...;
+missionSoundParametersView.EarlyStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionSoundParametersView from the subsystem API first
+MissionSoundParametersView missionSoundParametersView = ...;
+missionSoundParametersView.OnMissionScreenFinalize();
+```
 
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**Purpose:** Called when the `mission mode change` event is raised.
+**Purpose:** Invoked when the `mission mode change` event is raised.
+
+```csharp
+// Obtain an instance of MissionSoundParametersView from the subsystem API first
+MissionSoundParametersView missionSoundParametersView = ...;
+missionSoundParametersView.OnMissionModeChange(oldMissionMode, false);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionSoundParametersView();
+// Retrieve this view from the subsystem API or scene
+MissionSoundParametersView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

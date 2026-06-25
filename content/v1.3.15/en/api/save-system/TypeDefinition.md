@@ -1,24 +1,18 @@
 ---
 title: "TypeDefinition"
+description: "Auto-generated class reference for TypeDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TypeDefinition`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TypeDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class TypeDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**Area:** save-system
+**File:** `TaleWorlds.SaveSystem/Definition/TypeDefinition.cs`
 
 ## Overview
 
-`TypeDefinition` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TypeDefinition` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -43,62 +37,121 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### CheckIfRequiresAdvancedResolving
 `public bool CheckIfRequiresAdvancedResolving(object originalObject)`
 
-**Purpose:** Handles logic related to `check if requires advanced resolving`.
+**Purpose:** Verifies whether `if requires advanced resolving` holds true for the current object.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.CheckIfRequiresAdvancedResolving(originalObject);
+```
 
 ### ResolveObject
 `public object ResolveObject(object originalObject)`
 
-**Purpose:** Handles logic related to `resolve object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.ResolveObject(originalObject);
+```
 
 ### AdvancedResolveObject
 `public object AdvancedResolveObject(object originalObject, MetaData metaData, ObjectLoadData objectLoadData)`
 
-**Purpose:** Handles logic related to `advanced resolve object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.AdvancedResolveObject(originalObject, metaData, objectLoadData);
+```
 
 ### CollectInitializationCallbacks
 `public void CollectInitializationCallbacks()`
 
-**Purpose:** Handles logic related to `collect initialization callbacks`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+typeDefinition.CollectInitializationCallbacks();
+```
 
 ### CollectProperties
 `public void CollectProperties()`
 
-**Purpose:** Handles logic related to `collect properties`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+typeDefinition.CollectProperties();
+```
 
 ### CollectFields
 `public void CollectFields()`
 
-**Purpose:** Handles logic related to `collect fields`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+typeDefinition.CollectFields();
+```
 
 ### AddCustomField
 `public void AddCustomField(string fieldName, short saveId)`
 
 **Purpose:** Adds `custom field` to the current collection or state.
 
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+typeDefinition.AddCustomField("example", 0);
+```
+
 ### GetPropertyDefinitionWithId
 `public PropertyDefinition GetPropertyDefinitionWithId(MemberTypeId id)`
 
-**Purpose:** Gets the current value of `property definition with id`.
+**Purpose:** Reads and returns the `property definition with id` value held by the current object.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.GetPropertyDefinitionWithId(id);
+```
 
 ### GetFieldDefinitionWithId
 `public FieldDefinition GetFieldDefinitionWithId(MemberTypeId id)`
 
-**Purpose:** Gets the current value of `field definition with id`.
+**Purpose:** Reads and returns the `field definition with id` value held by the current object.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.GetFieldDefinitionWithId(id);
+```
 
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate)`
 
-**Purpose:** Initializes the state, resources, or bindings for `for auto generation`.
+**Purpose:** Prepares the resources, state, or bindings required by `for auto generation`.
+
+```csharp
+// Obtain an instance of TypeDefinition from the subsystem API first
+TypeDefinition typeDefinition = ...;
+typeDefinition.InitializeForAutoGeneration(collectObjectsDelegate);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a TypeDefinition instance from game state, then call one of its public methods
-var value = new TypeDefinition();
-value.CheckIfRequiresAdvancedResolving(originalObject);
+// Typically call this after obtaining an instance from the subsystem API
+TypeDefinition typeDefinition = ...;
+typeDefinition.CheckIfRequiresAdvancedResolving(originalObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ItemValueModel"
+description: "ItemValueModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemValueModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemValueModel
 
 **Namespace:** TaleWorlds.Core
@@ -29,29 +23,54 @@ title: "ItemValueModel"
 ### GetEquipmentValueFromTier
 `public abstract float GetEquipmentValueFromTier(float itemTierf)`
 
-**用途 / Purpose:** 获取 `equipment value from tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment value from tier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemValueModel 实例
+ItemValueModel itemValueModel = ...;
+var result = itemValueModel.GetEquipmentValueFromTier(0);
+```
 
 ### CalculateTier
 `public abstract float CalculateTier(ItemObject item)`
 
-**用途 / Purpose:** 处理 `calculate tier` 相关逻辑。
+**用途 / Purpose:** 计算「tier」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemValueModel 实例
+ItemValueModel itemValueModel = ...;
+var result = itemValueModel.CalculateTier(item);
+```
 
 ### CalculateValue
 `public abstract int CalculateValue(ItemObject item)`
 
-**用途 / Purpose:** 处理 `calculate value` 相关逻辑。
+**用途 / Purpose:** 计算「value」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemValueModel 实例
+ItemValueModel itemValueModel = ...;
+var result = itemValueModel.CalculateValue(item);
+```
 
 ### GetIsTransferable
 `public abstract bool GetIsTransferable(ItemObject item)`
 
-**用途 / Purpose:** 获取 `is transferable` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is transferable」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemValueModel 实例
+ItemValueModel itemValueModel = ...;
+var result = itemValueModel.GetIsTransferable(item);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomItemValueModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ItemValueModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

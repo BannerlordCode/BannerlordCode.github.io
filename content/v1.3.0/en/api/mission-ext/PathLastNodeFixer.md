@@ -1,13 +1,7 @@
 ---
 title: "PathLastNodeFixer"
+description: "Auto-generated class reference for PathLastNodeFixer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PathLastNodeFixer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PathLastNodeFixer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of PathLastNodeFixer from the subsystem API first
+PathLastNodeFixer pathLastNodeFixer = ...;
+pathLastNodeFixer.Update();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PathLastNodeFixer();
-value.Update();
+// Typically call this after obtaining an instance from the subsystem API
+PathLastNodeFixer pathLastNodeFixer = ...;
+pathLastNodeFixer.Update();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

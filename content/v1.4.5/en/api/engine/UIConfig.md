@@ -1,20 +1,14 @@
 ---
 title: "UIConfig"
+description: "Auto-generated class reference for UIConfig."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UIConfig`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UIConfig
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
 **Module:** TaleWorlds.Engine
 **Type:** `public static class UIConfig`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/UIConfig.cs`
+**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/UIConfig.cs`
 
 ## Overview
 
@@ -36,22 +30,42 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### GetIsUsingGeneratedPrefabs
 `public static bool GetIsUsingGeneratedPrefabs()`
 
-**Purpose:** Gets the current value of `is using generated prefabs`.
+**Purpose:** Reads and returns the `is using generated prefabs` value held by the current object.
+
+```csharp
+// Static call; no instance required
+UIConfig.GetIsUsingGeneratedPrefabs();
+```
 
 ### GetIsHotReloadEnabled
 `public static bool GetIsHotReloadEnabled()`
 
-**Purpose:** Gets the current value of `is hot reload enabled`.
+**Purpose:** Reads and returns the `is hot reload enabled` value held by the current object.
+
+```csharp
+// Static call; no instance required
+UIConfig.GetIsHotReloadEnabled();
+```
 
 ### SetDebugMode
 `public static string SetDebugMode(List<string> args)`
 
-**Purpose:** Sets the value or state of `debug mode`.
+**Purpose:** Assigns a new value to `debug mode` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+UIConfig.SetDebugMode(args);
+```
 
 ### SetUsingGeneratedPrefabs
 `public static string SetUsingGeneratedPrefabs(List<string> args)`
 
-**Purpose:** Sets the value or state of `using generated prefabs`.
+**Purpose:** Assigns a new value to `using generated prefabs` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+UIConfig.SetUsingGeneratedPrefabs(args);
+```
 
 ## Usage Example
 
@@ -61,4 +75,4 @@ UIConfig.GetIsUsingGeneratedPrefabs();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

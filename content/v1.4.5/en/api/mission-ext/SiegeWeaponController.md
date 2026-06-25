@@ -1,20 +1,14 @@
 ---
 title: "SiegeWeaponController"
+description: "Auto-generated class reference for SiegeWeaponController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeWeaponController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeWeaponController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeWeaponController`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeWeaponController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeWeaponController.cs`
 
 ## Overview
 
@@ -29,62 +23,128 @@ Treat `SiegeWeaponController` as a Controller-style extension point: first ident
 ### Select
 `public void Select(SiegeWeapon weapon)`
 
-**Purpose:** Handles logic related to `select`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeWeaponController from the subsystem API first
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.Select(weapon);
+```
 
 ### ClearSelectedWeapons
 `public void ClearSelectedWeapons()`
 
-**Purpose:** Handles logic related to `clear selected weapons`.
+**Purpose:** Removes all `selected weapons` from the current object.
+
+```csharp
+// Obtain an instance of SiegeWeaponController from the subsystem API first
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.ClearSelectedWeapons();
+```
 
 ### Deselect
 `public void Deselect(SiegeWeapon weapon)`
 
-**Purpose:** Handles logic related to `deselect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeWeaponController from the subsystem API first
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.Deselect(weapon);
+```
 
 ### SelectAll
 `public void SelectAll()`
 
-**Purpose:** Handles logic related to `select all`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeWeaponController from the subsystem API first
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.SelectAll();
+```
 
 ### IsWeaponSelectable
 `public static bool IsWeaponSelectable(SiegeWeapon weapon)`
 
-**Purpose:** Handles logic related to `is weapon selectable`.
+**Purpose:** Determines whether the current object is in the `weapon selectable` state or condition.
+
+```csharp
+// Static call; no instance required
+SiegeWeaponController.IsWeaponSelectable(weapon);
+```
 
 ### GetActiveOrderOf
 `public static SiegeWeaponOrderType GetActiveOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Gets the current value of `active order of`.
+**Purpose:** Reads and returns the `active order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SiegeWeaponController.GetActiveOrderOf(weapon);
+```
 
 ### GetActiveMovementOrderOf
 `public static SiegeWeaponOrderType GetActiveMovementOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Gets the current value of `active movement order of`.
+**Purpose:** Reads and returns the `active movement order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SiegeWeaponController.GetActiveMovementOrderOf(weapon);
+```
 
 ### GetActiveFacingOrderOf
 `public static SiegeWeaponOrderType GetActiveFacingOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Gets the current value of `active facing order of`.
+**Purpose:** Reads and returns the `active facing order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SiegeWeaponController.GetActiveFacingOrderOf(weapon);
+```
 
 ### GetActiveFiringOrderOf
 `public static SiegeWeaponOrderType GetActiveFiringOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Gets the current value of `active firing order of`.
+**Purpose:** Reads and returns the `active firing order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SiegeWeaponController.GetActiveFiringOrderOf(weapon);
+```
 
 ### GetActiveAIControlOrderOf
 `public static SiegeWeaponOrderType GetActiveAIControlOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Gets the current value of `active a i control order of`.
+**Purpose:** Reads and returns the `active a i control order of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SiegeWeaponController.GetActiveAIControlOrderOf(weapon);
+```
 
 ### SetOrder
 `public void SetOrder(SiegeWeaponOrderType order)`
 
-**Purpose:** Sets the value or state of `order`.
+**Purpose:** Assigns a new value to `order` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeWeaponController from the subsystem API first
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.SetOrder(order);
+```
 
 ### GetShortcutIndexOf
 `public int GetShortcutIndexOf(SiegeWeapon weapon)`
 
-**Purpose:** Gets the current value of `shortcut index of`.
+**Purpose:** Reads and returns the `shortcut index of` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeaponController from the subsystem API first
+SiegeWeaponController siegeWeaponController = ...;
+var result = siegeWeaponController.GetShortcutIndexOf(weapon);
+```
 
 ## Usage Example
 
@@ -94,4 +154,4 @@ var controller = Mission.Current.GetMissionBehavior<SiegeWeaponController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

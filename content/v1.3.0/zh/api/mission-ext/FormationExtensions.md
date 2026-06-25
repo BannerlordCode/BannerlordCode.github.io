@@ -1,13 +1,7 @@
 ---
 title: "FormationExtensions"
+description: "FormationExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,12 @@ title: "FormationExtensions"
 ### OnOrderChange
 `public static void OnOrderChange(Formation formation, IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 当 `order change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「order change」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+FormationExtensions.OnOrderChange(formation, arrangement);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ FormationExtensions.OnOrderChange(formation, arrangement);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

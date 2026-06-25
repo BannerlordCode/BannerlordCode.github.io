@@ -1,20 +1,14 @@
 ---
 title: "ClassLoadoutTroopTupleCultureColorBrushWidget"
+description: "Auto-generated class reference for ClassLoadoutTroopTupleCultureColorBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClassLoadoutTroopTupleCultureColorBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClassLoadoutTroopTupleCultureColorBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClassLoadoutTroopTupleCultureColorBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/ClassLoadoutTroopTupleCultureColorBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/ClassLoadoutTroopTupleCultureColorBrushWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `ClassLoadoutTroopTupleCultureColorBrushWidget` as a Widget-style extensio
 ## Usage Example
 
 ```csharp
-var widget = new ClassLoadoutTroopTupleCultureColorBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClassLoadoutTroopTupleCultureColorBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

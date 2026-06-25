@@ -1,13 +1,7 @@
 ---
 title: "AgentVictoryLogic"
+description: "Auto-generated class reference for AgentVictoryLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentVictoryLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentVictoryLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,59 +32,119 @@ Treat `AgentVictoryLogic` as a Logic-style extension point: first identify who c
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.AfterStart();
+```
 
 ### SetCheerActionGroup
 `public void SetCheerActionGroup(AgentVictoryLogic.CheerActionGroupEnum cheerActionGroup = AgentVictoryLogic.CheerActionGroupEnum.None)`
 
-**Purpose:** Sets the value or state of `cheer action group`.
+**Purpose:** Assigns a new value to `cheer action group` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetCheerActionGroup(agentVictoryLogic.CheerActionGroupEnum.None);
+```
 
 ### SetCheerReactionTimerSettings
 `public void SetCheerReactionTimerSettings(float minDuration = 1f, float maxDuration = 8f)`
 
-**Purpose:** Sets the value or state of `cheer reaction timer settings`.
+**Purpose:** Assigns a new value to `cheer reaction timer settings` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetCheerReactionTimerSettings(0, 0);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnClearScene();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnMissionTick(0);
+```
 
 ### SetTimersOfVictoryReactionsOnBattleEnd
 `public void SetTimersOfVictoryReactionsOnBattleEnd(BattleSideEnum side)`
 
-**Purpose:** Sets the value or state of `timers of victory reactions on battle end`.
+**Purpose:** Assigns a new value to `timers of victory reactions on battle end` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnBattleEnd(side);
+```
 
 ### SetTimersOfVictoryReactionsOnRetreat
 `public void SetTimersOfVictoryReactionsOnRetreat(BattleSideEnum side)`
 
-**Purpose:** Sets the value or state of `timers of victory reactions on retreat`.
+**Purpose:** Assigns a new value to `timers of victory reactions on retreat` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnRetreat(side);
+```
 
 ### SetTimersOfVictoryReactionsOnTournamentVictoryForAgent
 `public void SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(Agent agent, float minStartTime, float maxStartTime)`
 
-**Purpose:** Sets the value or state of `timers of victory reactions on tournament victory for agent`.
+**Purpose:** Assigns a new value to `timers of victory reactions on tournament victory for agent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(agent, 0, 0);
+```
 
 ### OrderReceived
 `public void OrderReceived()`
 
-**Purpose:** Handles logic related to `order received`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OrderReceived();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AgentVictoryLogic());
+var behavior = Mission.Current.GetMissionBehavior<AgentVictoryLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

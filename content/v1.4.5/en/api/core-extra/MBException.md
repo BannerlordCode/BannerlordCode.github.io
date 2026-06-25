@@ -1,20 +1,14 @@
 ---
 title: "MBException"
+description: "Auto-generated class reference for MBException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBException : ApplicationException`
 **Base:** `ApplicationException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBException` as a Exception-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-try { CallMBException(); } catch (MBException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

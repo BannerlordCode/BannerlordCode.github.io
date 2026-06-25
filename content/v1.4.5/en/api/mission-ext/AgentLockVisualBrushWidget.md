@@ -1,20 +1,14 @@
 ---
 title: "AgentLockVisualBrushWidget"
+description: "Auto-generated class reference for AgentLockVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentLockVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentLockVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentLockVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentLockVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentLockVisualBrushWidget.cs`
 
 ## Overview
 
@@ -36,14 +30,21 @@ Treat `AgentLockVisualBrushWidget` as a Widget-style extension point: first iden
 ### AgentLockVisualBrushWidget
 `public class AgentLockVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `agent lock visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentLockVisualBrushWidget from the subsystem API first
+AgentLockVisualBrushWidget agentLockVisualBrushWidget = ...;
+var result = agentLockVisualBrushWidget.AgentLockVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new AgentLockVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AgentLockVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

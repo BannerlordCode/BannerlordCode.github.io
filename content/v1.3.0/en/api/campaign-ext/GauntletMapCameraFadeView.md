@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapCameraFadeView"
+description: "Auto-generated class reference for GauntletMapCameraFadeView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapCameraFadeView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapCameraFadeView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -27,9 +21,10 @@ Treat `GauntletMapCameraFadeView` as a View-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapCameraFadeView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapCameraFadeView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

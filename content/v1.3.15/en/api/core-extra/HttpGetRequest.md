@@ -1,13 +1,7 @@
 ---
 title: "HttpGetRequest"
+description: "Auto-generated class reference for HttpGetRequest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HttpGetRequest`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HttpGetRequest
 
 **Namespace:** TaleWorlds.Library.Http
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.Library.Http` to place it in the stack, then in
 ### Start
 `public void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of HttpGetRequest from the subsystem API first
+HttpGetRequest httpGetRequest = ...;
+httpGetRequest.Start();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HttpGetRequest();
-value.Start();
+// Typically call this after obtaining an instance from the subsystem API
+HttpGetRequest httpGetRequest = ...;
+httpGetRequest.Start();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

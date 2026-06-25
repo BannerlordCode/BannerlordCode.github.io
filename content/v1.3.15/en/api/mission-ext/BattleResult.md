@@ -1,13 +1,7 @@
 ---
 title: "BattleResult"
+description: "Auto-generated class reference for BattleResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleResult`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -41,38 +35,75 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 
 **Purpose:** Adds `or update player entry` to the current collection or state.
 
+```csharp
+// Obtain an instance of BattleResult from the subsystem API first
+BattleResult battleResult = ...;
+battleResult.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
+```
+
 ### TryGetPlayerEntry
 `public bool TryGetPlayerEntry(PlayerId playerId, out BattlePlayerEntry battlePlayerEntry)`
 
-**Purpose:** Attempts to get `get player entry`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get player entry`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of BattleResult from the subsystem API first
+BattleResult battleResult = ...;
+var result = battleResult.TryGetPlayerEntry(playerId, battlePlayerEntry);
+```
 
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerId)`
 
-**Purpose:** Handles the `player disconnect` event or callback.
+**Purpose:** Executes the response logic associated with `player disconnect`.
+
+```csharp
+// Obtain an instance of BattleResult from the subsystem API first
+BattleResult battleResult = ...;
+battleResult.HandlePlayerDisconnect(playerId);
+```
 
 ### DebugPrint
 `public void DebugPrint()`
 
-**Purpose:** Handles logic related to `debug print`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleResult from the subsystem API first
+BattleResult battleResult = ...;
+battleResult.DebugPrint();
+```
 
 ### SetBattleFinished
 `public void SetBattleFinished(int winnerTeamNo, bool isPremadeGame, PremadeGameType premadeGameType)`
 
-**Purpose:** Sets the value or state of `battle finished`.
+**Purpose:** Assigns a new value to `battle finished` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BattleResult from the subsystem API first
+BattleResult battleResult = ...;
+battleResult.SetBattleFinished(0, false, premadeGameType);
+```
 
 ### SetBattleCancelled
 `public void SetBattleCancelled()`
 
-**Purpose:** Sets the value or state of `battle cancelled`.
+**Purpose:** Assigns a new value to `battle cancelled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BattleResult from the subsystem API first
+BattleResult battleResult = ...;
+battleResult.SetBattleCancelled();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattleResult();
-value.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
+// Typically call this after obtaining an instance from the subsystem API
+BattleResult battleResult = ...;
+battleResult.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

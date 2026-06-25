@@ -1,13 +1,7 @@
 ---
 title: "AzureDiscovery"
+description: "Auto-generated class reference for AzureDiscovery."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AzureDiscovery`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AzureDiscovery
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new AzureDiscovery();
+// Obtain an instance from the relevant subsystem API
+AzureDiscovery instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

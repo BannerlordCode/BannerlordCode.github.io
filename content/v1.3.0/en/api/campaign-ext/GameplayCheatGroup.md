@@ -1,13 +1,7 @@
 ---
 title: "GameplayCheatGroup"
+description: "Auto-generated class reference for GameplayCheatGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameplayCheatGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatGroup
 
 **Namespace:** SandBox
@@ -29,14 +23,21 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### GetCheats
 `public abstract IEnumerable<GameplayCheatBase> GetCheats()`
 
-**Purpose:** Gets the current value of `cheats`.
+**Purpose:** Reads and returns the `cheats` value held by the current object.
+
+```csharp
+// Obtain an instance of GameplayCheatGroup from the subsystem API first
+GameplayCheatGroup gameplayCheatGroup = ...;
+var result = gameplayCheatGroup.GetCheats();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameplayCheatGroup();
+// Typically obtained from a subsystem API or factory
+GameplayCheatGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "QuestCompleteDetails"
+description: "Auto-generated class reference for QuestCompleteDetails."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestCompleteDetails`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestCompleteDetails
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-QuestCompleteDetails example = QuestCompleteDetails.Value;
+// Obtain an instance from the relevant subsystem API
+QuestCompleteDetails instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SnowAndRainTextureDefiner"
+description: "Auto-generated class reference for SnowAndRainTextureDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SnowAndRainTextureDefiner`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SnowAndRainTextureDefiner
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class SnowAndRainTextureDefiner : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/SnowAndRainTextureDefiner.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/SnowAndRainTextureDefiner.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ## Usage Example
 
 ```csharp
-var value = new SnowAndRainTextureDefiner();
+// Obtain an instance from the relevant subsystem API
+SnowAndRainTextureDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

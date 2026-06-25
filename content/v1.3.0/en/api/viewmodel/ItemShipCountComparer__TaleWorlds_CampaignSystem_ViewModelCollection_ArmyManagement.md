@@ -1,13 +1,7 @@
 ---
-title: "ItemShipCountComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ArmyManagement"
+title: "ItemShipCountComparer"
+description: "Auto-generated class reference for ItemShipCountComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemShipCountComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemShipCountComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemShipCountComparer from the subsystem API first
+ItemShipCountComparer itemShipCountComparer = ...;
+var result = itemShipCountComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemShipCountComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemShipCountComparer itemShipCountComparer = ...;
+itemShipCountComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

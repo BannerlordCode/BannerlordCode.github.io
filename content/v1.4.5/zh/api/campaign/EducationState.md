@@ -1,20 +1,14 @@
 ---
 title: "EducationState"
+description: "EducationState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EducationState`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationState : TaleWorlds.Core.GameState`
 **Base:** `TaleWorlds.Core.GameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/EducationState.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/EducationState.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "EducationState"
 ## 使用示例
 
 ```csharp
-var example = new EducationState();
+// 从对应子系统 API 获取实例
+EducationState instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

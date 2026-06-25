@@ -1,20 +1,14 @@
 ---
 title: "PartyVM"
+description: "Auto-generated class reference for PartyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PartyVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PartyVM.cs`
 
 ## Overview
 
@@ -129,180 +123,385 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### Compare
 `public int Compare(PartyCharacterVM x, PartyCharacterVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+var result = partyVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.RefreshValues();
+```
 
 ### SetSelectedCharacter
 `public void SetSelectedCharacter(PartyCharacterVM troop)`
 
-**Purpose:** Sets the value or state of `selected character`.
+**Purpose:** Assigns a new value to `selected character` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetSelectedCharacter(troop);
+```
 
 ### ExecuteSelectCharacterTuple
 `public void ExecuteSelectCharacterTuple(PartyCharacterVM troop)`
 
-**Purpose:** Executes the `select character tuple` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select character tuple`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteSelectCharacterTuple(troop);
+```
 
 ### ExecuteClearSelectedCharacterTuple
 `public void ExecuteClearSelectedCharacterTuple()`
 
-**Purpose:** Executes the `clear selected character tuple` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `clear selected character tuple`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteClearSelectedCharacterTuple();
+```
 
 ### ExecuteTransferWithParameters
 `public void ExecuteTransferWithParameters(PartyCharacterVM party, int index, string targetTag)`
 
-**Purpose:** Executes the `transfer with parameters` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer with parameters`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferWithParameters(party, 0, "example");
+```
 
 ### OnUpgradePopUpClosed
 `public void OnUpgradePopUpClosed(bool isCancelled)`
 
-**Purpose:** Called when the `upgrade pop up closed` event is raised.
+**Purpose:** Invoked when the `upgrade pop up closed` event is raised.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.OnUpgradePopUpClosed(false);
+```
 
 ### OnRecruitPopUpClosed
 `public void OnRecruitPopUpClosed(bool isCancelled)`
 
-**Purpose:** Called when the `recruit pop up closed` event is raised.
+**Purpose:** Invoked when the `recruit pop up closed` event is raised.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.OnRecruitPopUpClosed(false);
+```
 
 ### ExecuteTransferAllMainTroops
 `public void ExecuteTransferAllMainTroops()`
 
-**Purpose:** Executes the `transfer all main troops` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all main troops`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferAllMainTroops();
+```
 
 ### ExecuteTransferAllOtherTroops
 `public void ExecuteTransferAllOtherTroops()`
 
-**Purpose:** Executes the `transfer all other troops` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all other troops`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferAllOtherTroops();
+```
 
 ### ExecuteTransferAllMainPrisoners
 `public void ExecuteTransferAllMainPrisoners()`
 
-**Purpose:** Executes the `transfer all main prisoners` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all main prisoners`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferAllMainPrisoners();
+```
 
 ### ExecuteTransferAllOtherPrisoners
 `public void ExecuteTransferAllOtherPrisoners()`
 
-**Purpose:** Executes the `transfer all other prisoners` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all other prisoners`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferAllOtherPrisoners();
+```
 
 ### ExecuteOpenUpgradePopUp
 `public void ExecuteOpenUpgradePopUp()`
 
-**Purpose:** Executes the `open upgrade pop up` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open upgrade pop up`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteOpenUpgradePopUp();
+```
 
 ### ExecuteOpenRecruitPopUp
 `public void ExecuteOpenRecruitPopUp()`
 
-**Purpose:** Executes the `open recruit pop up` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open recruit pop up`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteOpenRecruitPopUp();
+```
 
 ### ExecuteUpgrade
 `public void ExecuteUpgrade(PartyCharacterVM troop, int upgradeTargetType, int maxUpgradeCount)`
 
-**Purpose:** Executes the `upgrade` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `upgrade`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteUpgrade(troop, 0, 0);
+```
 
 ### ExecuteRecruit
 `public void ExecuteRecruit(PartyCharacterVM character, bool recruitAll = false)`
 
-**Purpose:** Executes the `recruit` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `recruit`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteRecruit(character, false);
+```
 
 ### ExecuteExecution
 `public void ExecuteExecution()`
 
-**Purpose:** Executes the `execution` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `execution`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteExecution();
+```
 
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**Purpose:** Executes the `remove zero counts` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove zero counts`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteRemoveZeroCounts();
+```
 
 ### ExecuteTalk
 `public void ExecuteTalk()`
 
-**Purpose:** Executes the `talk` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `talk`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTalk();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteDone();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Executes the `reset` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteReset();
+```
 
 ### ExecuteCancelWithoutInquiry
 `public void ExecuteCancelWithoutInquiry()`
 
-**Purpose:** Executes the `cancel without inquiry` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel without inquiry`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteCancelWithoutInquiry();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel(bool showCancelInquiry = false)`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteCancel(false);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.OnFinalize();
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetResetInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetDoneInputKey(hotKey);
+```
 
 ### SetTakeAllTroopsInputKey
 `public void SetTakeAllTroopsInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `take all troops input key`.
+**Purpose:** Assigns a new value to `take all troops input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetTakeAllTroopsInputKey(hotKey);
+```
 
 ### SetDismissAllTroopsInputKey
 `public void SetDismissAllTroopsInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `dismiss all troops input key`.
+**Purpose:** Assigns a new value to `dismiss all troops input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetDismissAllTroopsInputKey(hotKey);
+```
 
 ### SetTakeAllPrisonersInputKey
 `public void SetTakeAllPrisonersInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `take all prisoners input key`.
+**Purpose:** Assigns a new value to `take all prisoners input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetTakeAllPrisonersInputKey(hotKey);
+```
 
 ### SetDismissAllPrisonersInputKey
 `public void SetDismissAllPrisonersInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `dismiss all prisoners input key`.
+**Purpose:** Assigns a new value to `dismiss all prisoners input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetDismissAllPrisonersInputKey(hotKey);
+```
 
 ### SetOpenUpgradePanelInputKey
 `public void SetOpenUpgradePanelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `open upgrade panel input key`.
+**Purpose:** Assigns a new value to `open upgrade panel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetOpenUpgradePanelInputKey(hotKey);
+```
 
 ### SetOpenRecruitPanelInputKey
 `public void SetOpenRecruitPanelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `open recruit panel input key`.
+**Purpose:** Assigns a new value to `open recruit panel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetOpenRecruitPanelInputKey(hotKey);
+```
 
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**Purpose:** Sets the value or state of `get key text from key i d func`.
+**Purpose:** Assigns a new value to `get key text from key i d func` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+PartyVM partyVM = ...;
+partyVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

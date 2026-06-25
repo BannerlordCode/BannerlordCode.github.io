@@ -1,20 +1,14 @@
 ---
 title: "PhysicsMaterialFlags"
+description: "PhysicsMaterialFlags 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PhysicsMaterialFlags`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PhysicsMaterialFlags
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/PhysicsMaterialFlags.cs`
+**Type:** `public enum PhysicsMaterialFlags : byte`
+**Base:** `byte`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/PhysicsMaterialFlags.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "PhysicsMaterialFlags"
 ## 使用示例
 
 ```csharp
-var example = new PhysicsMaterialFlags();
+// 从对应子系统 API 获取实例
+PhysicsMaterialFlags instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

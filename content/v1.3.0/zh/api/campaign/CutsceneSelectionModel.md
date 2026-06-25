@@ -1,13 +1,7 @@
 ---
 title: "CutsceneSelectionModel"
+description: "CutsceneSelectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CutsceneSelectionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CutsceneSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ title: "CutsceneSelectionModel"
 ### GetKingdomDestroyedSceneNotification
 `public abstract SceneNotificationData GetKingdomDestroyedSceneNotification(Kingdom kingdom)`
 
-**用途 / Purpose:** 获取 `kingdom destroyed scene notification` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「kingdom destroyed scene notification」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CutsceneSelectionModel 实例
+CutsceneSelectionModel cutsceneSelectionModel = ...;
+var result = cutsceneSelectionModel.GetKingdomDestroyedSceneNotification(kingdom);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCutsceneSelectionModel();
+// 通常通过子系统 API 或工厂获得派生实例
+CutsceneSelectionModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

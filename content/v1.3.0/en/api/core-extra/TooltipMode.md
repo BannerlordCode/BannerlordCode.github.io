@@ -1,13 +1,7 @@
 ---
 title: "TooltipMode"
+description: "Auto-generated class reference for TooltipMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipMode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipMode
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ## Usage Example
 
 ```csharp
-TooltipMode example = TooltipMode.Value;
+// Obtain an instance from the relevant subsystem API
+TooltipMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

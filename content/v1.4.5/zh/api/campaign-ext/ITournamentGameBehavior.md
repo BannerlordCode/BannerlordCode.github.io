@@ -1,20 +1,14 @@
 ---
 title: "ITournamentGameBehavior"
+description: "ITournamentGameBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ITournamentGameBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ITournamentGameBehavior
 
 **Namespace:** SandBox.Tournaments
 **Module:** SandBox.Tournaments
-**Type:** `class`
+**Type:** `public interface ITournamentGameBehavior`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Tournaments/ITournamentGameBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments/ITournamentGameBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ITournamentGameBehavior"
 ## 使用示例
 
 ```csharp
-ITournamentGameBehavior implementation = GetTournamentGameBehaviorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IITournamentGameBehavior service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

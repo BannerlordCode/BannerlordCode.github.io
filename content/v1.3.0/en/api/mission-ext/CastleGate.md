@@ -1,13 +1,7 @@
 ---
 title: "CastleGate"
+description: "Auto-generated class reference for CastleGate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CastleGate`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CastleGate
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -44,120 +38,253 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** Gets the current value of `position`.
+**Purpose:** Reads and returns the `position` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetPosition();
+```
 
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `order`.
+**Purpose:** Reads and returns the `order` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetOrder(side);
+```
 
 ### SetUsableTeam
 `public void SetUsableTeam(Team team)`
 
-**Purpose:** Sets the value or state of `usable team`.
+**Purpose:** Assigns a new value to `usable team` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+castleGate.SetUsableTeam(team);
+```
 
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+castleGate.AfterMissionStart();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.CreateAIBehaviorObject();
+```
 
 ### OpenDoorAndDisableGateForCivilianMission
 `public void OpenDoorAndDisableGateForCivilianMission()`
 
-**Purpose:** Handles logic related to `open door and disable gate for civilian mission`.
+**Purpose:** Opens the resource or UI associated with `door and disable gate for civilian mission`.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+castleGate.OpenDoorAndDisableGateForCivilianMission();
+```
 
 ### OpenDoor
 `public void OpenDoor()`
 
-**Purpose:** Handles logic related to `open door`.
+**Purpose:** Opens the resource or UI associated with `door`.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+castleGate.OpenDoor();
+```
 
 ### CloseDoor
 `public void CloseDoor()`
 
-**Purpose:** Handles logic related to `close door`.
+**Purpose:** Closes the resource or UI associated with `door`.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+castleGate.CloseDoor();
+```
 
 ### SetAutoOpenState
 `public void SetAutoOpenState(bool isEnabled)`
 
-**Purpose:** Sets the value or state of `auto open state`.
+**Purpose:** Assigns a new value to `auto open state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+castleGate.SetAutoOpenState(false);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetTickRequirement();
+```
 
 ### GetTargetFlags
 `public TargetFlags GetTargetFlags()`
 
-**Purpose:** Gets the current value of `target flags`.
+**Purpose:** Reads and returns the `target flags` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetTargetFlags();
+```
 
 ### GetTargetValue
 `public float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** Gets the current value of `target value`.
+**Purpose:** Reads and returns the `target value` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetTargetValue(weaponPos);
+```
 
 ### GetTargetEntity
 `public WeakGameEntity GetTargetEntity()`
 
-**Purpose:** Gets the current value of `target entity`.
+**Purpose:** Reads and returns the `target entity` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetTargetEntity();
+```
 
 ### GetSide
 `public BattleSideEnum GetSide()`
 
-**Purpose:** Gets the current value of `side`.
+**Purpose:** Reads and returns the `side` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetSide();
+```
 
 ### GetTargetGlobalVelocity
 `public Vec3 GetTargetGlobalVelocity()`
 
-**Purpose:** Gets the current value of `target global velocity`.
+**Purpose:** Reads and returns the `target global velocity` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetTargetGlobalVelocity();
+```
 
 ### IsDestructable
 `public bool IsDestructable()`
 
-**Purpose:** Handles logic related to `is destructable`.
+**Purpose:** Determines whether the current object is in the `destructable` state or condition.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.IsDestructable();
+```
 
 ### Entity
 `public WeakGameEntity Entity()`
 
-**Purpose:** Handles logic related to `entity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.Entity();
+```
 
 ### GetPhysicsGlobalBoxMax
 `public Vec3 GetPhysicsGlobalBoxMax()`
 
-**Purpose:** Gets the current value of `physics global box max`.
+**Purpose:** Reads and returns the `physics global box max` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetPhysicsGlobalBoxMax();
+```
 
 ### GetPhysicsGlobalBoxMin
 `public Vec3 GetPhysicsGlobalBoxMin()`
 
-**Purpose:** Gets the current value of `physics global box min`.
+**Purpose:** Reads and returns the `physics global box min` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetPhysicsGlobalBoxMin();
+```
 
 ### GetTargetingOffset
 `public Vec3 GetTargetingOffset()`
 
-**Purpose:** Gets the current value of `targeting offset`.
+**Purpose:** Reads and returns the `targeting offset` value held by the current object.
+
+```csharp
+// Obtain an instance of CastleGate from the subsystem API first
+CastleGate castleGate = ...;
+var result = castleGate.GetTargetingOffset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CastleGate();
-value.GetPosition();
+// Typically call this after obtaining an instance from the subsystem API
+CastleGate castleGate = ...;
+castleGate.GetPosition();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

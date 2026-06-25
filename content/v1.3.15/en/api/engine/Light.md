@@ -1,24 +1,18 @@
 ---
 title: "Light"
+description: "Auto-generated class reference for Light."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Light`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Light
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Light : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**Area:** engine
+**File:** `TaleWorlds.Engine/Light.cs`
 
 ## Overview
 
-`Light` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Light` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -40,41 +34,74 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreatePointLight
 `public static Light CreatePointLight(float lightRadius)`
 
-**Purpose:** Creates a new `point light` instance or object.
+**Purpose:** Constructs a new `point light` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Light.CreatePointLight(0);
+```
 
 ### SetShadowType
 `public void SetShadowType(Light.ShadowType type)`
 
-**Purpose:** Sets the value or state of `shadow type`.
+**Purpose:** Assigns a new value to `shadow type` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.SetShadowType(type);
+```
 
 ### SetLightFlicker
 `public void SetLightFlicker(float magnitude, float interval)`
 
-**Purpose:** Sets the value or state of `light flicker`.
+**Purpose:** Assigns a new value to `light flicker` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.SetLightFlicker(0, 0);
+```
 
 ### SetVolumetricProperties
 `public void SetVolumetricProperties(bool volumetricLightEnabled, float volumeParameters)`
 
-**Purpose:** Sets the value or state of `volumetric properties`.
+**Purpose:** Assigns a new value to `volumetric properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.SetVolumetricProperties(false, 0);
+```
 
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.Dispose();
+```
 
 ### SetVisibility
 `public void SetVisibility(bool value)`
 
-**Purpose:** Sets the value or state of `visibility`.
+**Purpose:** Assigns a new value to `visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.SetVisibility(false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 Light.CreatePointLight(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

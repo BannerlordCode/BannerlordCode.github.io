@@ -1,20 +1,14 @@
 ---
 title: "HideoutPhasedMissionController"
+description: "Auto-generated class reference for HideoutPhasedMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutPhasedMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutPhasedMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HideoutPhasedMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/HideoutPhasedMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/HideoutPhasedMissionController.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `HideoutPhasedMissionController` as a Controller-style extension point: fi
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of HideoutPhasedMissionController from the subsystem API first
+HideoutPhasedMissionController hideoutPhasedMissionController = ...;
+hideoutPhasedMissionController.OnMissionTick(0);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of HideoutPhasedMissionController from the subsystem API first
+HideoutPhasedMissionController hideoutPhasedMissionController = ...;
+hideoutPhasedMissionController.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HideoutPhasedMissionController from the subsystem API first
+HideoutPhasedMissionController hideoutPhasedMissionController = ...;
+hideoutPhasedMissionController.AfterStart();
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var controller = Mission.Current.GetMissionBehavior<HideoutPhasedMissionControll
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

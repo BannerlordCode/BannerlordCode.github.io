@@ -1,20 +1,14 @@
 ---
 title: "TextureProviderFactory"
+description: "Auto-generated class reference for TextureProviderFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextureProviderFactory`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextureProviderFactory
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public static class TextureProviderFactory`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/TextureProviderFactory.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/TextureProviderFactory.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### CreateInstance
 `public static TextureProvider CreateInstance(string textureProviderName)`
 
-**Purpose:** Creates a new `instance` instance or object.
+**Purpose:** Constructs a new `instance` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TextureProviderFactory.CreateInstance("example");
+```
 
 ### RefreshProviderTypes
 `public static void RefreshProviderTypes()`
 
-**Purpose:** Refreshes the display or cache of `provider types`.
+**Purpose:** Keeps the display or cache of `provider types` in sync with the underlying state.
+
+```csharp
+// Static call; no instance required
+TextureProviderFactory.RefreshProviderTypes();
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ TextureProviderFactory.CreateInstance("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

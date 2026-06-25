@@ -1,13 +1,7 @@
 ---
 title: "TroopType"
+description: "Auto-generated class reference for TroopType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopType
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ## Usage Example
 
 ```csharp
-TroopType example = TroopType.Value;
+// Obtain an instance from the relevant subsystem API
+TroopType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

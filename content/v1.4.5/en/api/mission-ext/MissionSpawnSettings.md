@@ -1,20 +1,14 @@
 ---
 title: "MissionSpawnSettings"
+description: "Auto-generated class reference for MissionSpawnSettings."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSpawnSettings`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSpawnSettings
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MissionSpawnSettings`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnSettings.cs`
 
 ## Overview
 
@@ -46,7 +40,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateDefaultSpawnSettings
 `public static MissionSpawnSettings CreateDefaultSpawnSettings()`
 
-**Purpose:** Creates a new `default spawn settings` instance or object.
+**Purpose:** Constructs a new `default spawn settings` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionSpawnSettings.CreateDefaultSpawnSettings();
+```
 
 ## Usage Example
 
@@ -56,4 +55,4 @@ MissionSpawnSettings.CreateDefaultSpawnSettings();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

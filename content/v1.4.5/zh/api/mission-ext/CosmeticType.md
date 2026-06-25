@@ -1,20 +1,14 @@
 ---
 title: "CosmeticType"
+description: "CosmeticType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CosmeticType`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CosmeticType
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CosmeticType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics/CosmeticsManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics/CosmeticsManager.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "CosmeticType"
 ## 使用示例
 
 ```csharp
-CosmeticType example = CosmeticType.Value;
+// 从对应子系统 API 获取实例
+CosmeticType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

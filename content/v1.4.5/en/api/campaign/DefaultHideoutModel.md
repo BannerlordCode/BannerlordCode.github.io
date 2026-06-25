@@ -1,20 +1,14 @@
 ---
 title: "DefaultHideoutModel"
+description: "Auto-generated class reference for DefaultHideoutModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultHideoutModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultHideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultHideoutModel : HideoutModel`
 **Base:** `HideoutModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultHideoutModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultHideoutModel.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `DefaultHideoutModel` as a Model-style extension point: first identify who
 ### GetRogueryXpGainAsGhost
 `public override float GetRogueryXpGainAsGhost()`
 
-**Purpose:** Gets the current value of `roguery xp gain as ghost`.
+**Purpose:** Reads and returns the `roguery xp gain as ghost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultHideoutModel from the subsystem API first
+DefaultHideoutModel defaultHideoutModel = ...;
+var result = defaultHideoutModel.GetRogueryXpGainAsGhost();
+```
 
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public override float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**Purpose:** Gets the current value of `roguery xp gain on hideout mission end`.
+**Purpose:** Reads and returns the `roguery xp gain on hideout mission end` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultHideoutModel from the subsystem API first
+DefaultHideoutModel defaultHideoutModel = ...;
+var result = defaultHideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
+```
 
 ### GetSendTroopsSuccessChance
 `public override float GetSendTroopsSuccessChance(Hideout hideout)`
 
-**Purpose:** Gets the current value of `send troops success chance`.
+**Purpose:** Reads and returns the `send troops success chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultHideoutModel from the subsystem API first
+DefaultHideoutModel defaultHideoutModel = ...;
+var result = defaultHideoutModel.GetSendTroopsSuccessChance(hideout);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultHideoutModel>(new MyDefaultHideoutModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionCombatantsLogic"
+description: "MissionCombatantsLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionCombatantsLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCombatantsLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionCombatantsLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionCombatantsLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionCombatantsLogic.cs`
 
 ## 概述
 
@@ -35,39 +29,74 @@ title: "MissionCombatantsLogic"
 ### GetBannerForSide
 `public Banner GetBannerForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `banner for side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner for side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCombatantsLogic 实例
+MissionCombatantsLogic missionCombatantsLogic = ...;
+var result = missionCombatantsLogic.GetBannerForSide(side);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCombatantsLogic 实例
+MissionCombatantsLogic missionCombatantsLogic = ...;
+missionCombatantsLogic.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCombatantsLogic 实例
+MissionCombatantsLogic missionCombatantsLogic = ...;
+missionCombatantsLogic.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCombatantsLogic 实例
+MissionCombatantsLogic missionCombatantsLogic = ...;
+missionCombatantsLogic.AfterStart();
+```
 
 ### GetAllCombatants
 `public IEnumerable<IBattleCombatant> GetAllCombatants()`
 
-**用途 / Purpose:** 获取 `all combatants` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all combatants」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCombatantsLogic 实例
+MissionCombatantsLogic missionCombatantsLogic = ...;
+var result = missionCombatantsLogic.GetAllCombatants();
+```
 
 ### SupportsAllyTeamOnPlayerSide
 `public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, bool isNavalLandHybridMission, out IBattleCombatant allyCombatant)`
 
-**用途 / Purpose:** 处理 `supports ally team on player side` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionCombatantsLogic.SupportsAllyTeamOnPlayerSide(playerSideBattleCombatants, playerBattleCombatant, false, false, allyCombatant);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionCombatantsLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionCombatantsLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

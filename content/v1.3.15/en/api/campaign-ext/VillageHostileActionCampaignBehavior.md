@@ -1,13 +1,7 @@
 ---
 title: "VillageHostileActionCampaignBehavior"
+description: "Auto-generated class reference for VillageHostileActionCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageHostileActionCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VillageHostileActionCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of VillageHostileActionCampaignBehavior from the subsystem API first
+VillageHostileActionCampaignBehavior villageHostileActionCampaignBehavior = ...;
+villageHostileActionCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of VillageHostileActionCampaignBehavior from the subsystem API first
+VillageHostileActionCampaignBehavior villageHostileActionCampaignBehavior = ...;
+villageHostileActionCampaignBehavior.RegisterEvents();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillageHostileActionCampaignBehavior();
-value.SyncData(dataStore);
+// Typically call this after obtaining an instance from the subsystem API
+VillageHostileActionCampaignBehavior villageHostileActionCampaignBehavior = ...;
+villageHostileActionCampaignBehavior.SyncData(dataStore);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

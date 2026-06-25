@@ -1,20 +1,14 @@
 ---
 title: "GameplayCheatBase"
+description: "Auto-generated class reference for GameplayCheatBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameplayCheatBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatBase
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public abstract class GameplayCheatBase`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/GameplayCheatBase.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/GameplayCheatBase.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### GetName
 `public abstract TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of GameplayCheatBase from the subsystem API first
+GameplayCheatBase gameplayCheatBase = ...;
+var result = gameplayCheatBase.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameplayCheatBase();
+// Typically obtained from a subsystem API or factory
+GameplayCheatBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

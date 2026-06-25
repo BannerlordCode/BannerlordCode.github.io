@@ -1,20 +1,14 @@
 ---
 title: "PlatformInitParams"
+description: "Auto-generated class reference for PlatformInitParams."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlatformInitParams`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformInitParams
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class PlatformInitParams : Dictionary<string, object>`
 **Base:** `Dictionary<string`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PlatformInitParams.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PlatformInitParams.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new PlatformInitParams();
+// Obtain an instance from the relevant subsystem API
+PlatformInitParams instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

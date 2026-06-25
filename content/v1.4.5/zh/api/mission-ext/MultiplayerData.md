@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerData"
+description: "MultiplayerData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerData : MBMultiplayerData`
 **Base:** `MBMultiplayerData`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerData.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "MultiplayerData"
 ### IsMultiplayerTeamAvailable
 `public bool IsMultiplayerTeamAvailable(int peerNo, int teamNo)`
 
-**用途 / Purpose:** 处理 `is multiplayer team available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「multiplayer team available」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerData 实例
+MultiplayerData multiplayerData = ...;
+var result = multiplayerData.IsMultiplayerTeamAvailable(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerData();
+// 该数据对象通常由战役/任务 API 返回
+MultiplayerData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

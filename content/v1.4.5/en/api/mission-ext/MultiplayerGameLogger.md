@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerGameLogger"
+description: "Auto-generated class reference for MultiplayerGameLogger."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerGameLogger`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGameLogger
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerGameLogger : GameHandler`
 **Base:** `GameHandler`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerGameLogger.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerGameLogger.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Log
 `public void Log(GameLog log)`
 
-**Purpose:** Handles logic related to `log`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameLogger from the subsystem API first
+MultiplayerGameLogger multiplayerGameLogger = ...;
+multiplayerGameLogger.Log(log);
+```
 
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**Purpose:** Called when the `before save` event is raised.
+**Purpose:** Invoked when the `before save` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerGameLogger from the subsystem API first
+MultiplayerGameLogger multiplayerGameLogger = ...;
+multiplayerGameLogger.OnBeforeSave();
+```
 
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**Purpose:** Called when the `after save` event is raised.
+**Purpose:** Invoked when the `after save` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerGameLogger from the subsystem API first
+MultiplayerGameLogger multiplayerGameLogger = ...;
+multiplayerGameLogger.OnAfterSave();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerGameLogger();
-value.Log(log);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerGameLogger multiplayerGameLogger = ...;
+multiplayerGameLogger.Log(log);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

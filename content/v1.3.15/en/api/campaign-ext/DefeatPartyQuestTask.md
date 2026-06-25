@@ -1,13 +1,7 @@
 ---
 title: "DefeatPartyQuestTask"
+description: "Auto-generated class reference for DefeatPartyQuestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefeatPartyQuestTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefeatPartyQuestTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**Purpose:** Called when the `map event ended` event is raised.
+**Purpose:** Invoked when the `map event ended` event is raised.
+
+```csharp
+// Obtain an instance of DefeatPartyQuestTask from the subsystem API first
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+defeatPartyQuestTask.OnMapEventEnded(mapEvent);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DefeatPartyQuestTask from the subsystem API first
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+defeatPartyQuestTask.SetReferences();
+```
 
 ### PartyConditionDelegateType
 `public delegate bool PartyConditionDelegateType(PartyBase defeatedParty)`
 
-**Purpose:** Handles logic related to `party condition delegate type`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefeatPartyQuestTask from the subsystem API first
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+var result = defeatPartyQuestTask.PartyConditionDelegateType(defeatedParty);
+```
 
 ### OnPartyDefeatedDelegateType
 `public delegate void OnPartyDefeatedDelegateType(PartyBase party)`
 
-**Purpose:** Called when the `party defeated delegate type` event is raised.
+**Purpose:** Invoked when the `party defeated delegate type` event is raised.
+
+```csharp
+// Obtain an instance of DefeatPartyQuestTask from the subsystem API first
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+defeatPartyQuestTask.OnPartyDefeatedDelegateType(party);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefeatPartyQuestTask();
-value.OnMapEventEnded(mapEvent);
+// Typically call this after obtaining an instance from the subsystem API
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+defeatPartyQuestTask.OnMapEventEnded(mapEvent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

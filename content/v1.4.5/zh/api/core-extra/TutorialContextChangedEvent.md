@@ -1,20 +1,14 @@
 ---
 title: "TutorialContextChangedEvent"
+description: "TutorialContextChangedEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TutorialContextChangedEvent`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialContextChangedEvent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class TutorialContextChangedEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/TutorialContextChangedEvent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TutorialContextChangedEvent.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "TutorialContextChangedEvent"
 ## 使用示例
 
 ```csharp
-var example = new TutorialContextChangedEvent();
+// 从对应子系统 API 获取实例
+TutorialContextChangedEvent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

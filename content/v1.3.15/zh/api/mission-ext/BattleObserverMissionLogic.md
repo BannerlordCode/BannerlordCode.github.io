@@ -1,13 +1,7 @@
 ---
 title: "BattleObserverMissionLogic"
+description: "BattleObserverMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleObserverMissionLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleObserverMissionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,44 +29,86 @@ title: "BattleObserverMissionLogic"
 ### SetObserver
 `public void SetObserver(IBattleObserver observer)`
 
-**用途 / Purpose:** 设置 `observer` 的值或状态。
+**用途 / Purpose:** 为 「observer」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.SetObserver(observer);
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.EarlyStart();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**用途 / Purpose:** 当 `agent team changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent team changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**用途 / Purpose:** 当 `mission result ready` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission result ready」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.OnMissionResultReady(missionResult);
+```
 
 ### GetDeathToBuiltAgentRatioForSide
 `public float GetDeathToBuiltAgentRatioForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `death to built agent ratio for side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「death to built agent ratio for side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleObserverMissionLogic 实例
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+var result = battleObserverMissionLogic.GetDeathToBuiltAgentRatioForSide(side);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleObserverMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleObserverMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MobilePartyVisual"
+description: "Auto-generated class reference for MobilePartyVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyVisual`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyVisual
 
 **Namespace:** SandBox.View.Map.Visuals
 **Module:** SandBox.View
 **Type:** `public class MobilePartyVisual : MapEntityVisual<PartyBase>`
 **Base:** `MapEntityVisual<PartyBase>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Visuals/MobilePartyVisual.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Visuals/MobilePartyVisual.cs`
 
 ## Overview
 
@@ -39,70 +33,142 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 ### IsEnemyOf
 `public override bool IsEnemyOf(IFaction faction)`
 
-**Purpose:** Handles logic related to `is enemy of`.
+**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.IsEnemyOf(faction);
+```
 
 ### IsInSameFaction
 `public override bool IsInSameFaction(IFaction faction)`
 
-**Purpose:** Handles logic related to `is in same faction`.
+**Purpose:** Determines whether the current object is in the `in same faction` state or condition.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.IsInSameFaction(faction);
+```
 
 ### IsAllyOf
 `public override bool IsAllyOf(IFaction faction)`
 
-**Purpose:** Handles logic related to `is ally of`.
+**Purpose:** Determines whether the current object is in the `ally of` state or condition.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.IsAllyOf(faction);
+```
 
 ### OnTrackAction
 `public override void OnTrackAction()`
 
-**Purpose:** Called when the `track action` event is raised.
+**Purpose:** Invoked when the `track action` event is raised.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.OnTrackAction();
+```
 
 ### OnMapClick
 `public override bool OnMapClick(bool followModifierUsed)`
 
-**Purpose:** Called when the `map click` event is raised.
+**Purpose:** Invoked when the `map click` event is raised.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.OnMapClick(false);
+```
 
 ### OnHover
 `public override void OnHover()`
 
-**Purpose:** Called when the `hover` event is raised.
+**Purpose:** Invoked when the `hover` event is raised.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.OnHover();
+```
 
 ### GetVisualPosition
 `public override Vec3 GetVisualPosition()`
 
-**Purpose:** Gets the current value of `visual position`.
+**Purpose:** Reads and returns the `visual position` value held by the current object.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.GetVisualPosition();
+```
 
 ### ReleaseResources
 `public override void ReleaseResources()`
 
-**Purpose:** Handles logic related to `release resources`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.ReleaseResources();
+```
 
 ### IsVisibleOrFadingOut
 `public override bool IsVisibleOrFadingOut()`
 
-**Purpose:** Handles logic related to `is visible or fading out`.
+**Purpose:** Determines whether the current object is in the `visible or fading out` state or condition.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.IsVisibleOrFadingOut();
+```
 
 ### OnOpenEncyclopedia
 `public override void OnOpenEncyclopedia()`
 
-**Purpose:** Called when the `open encyclopedia` event is raised.
+**Purpose:** Invoked when the `open encyclopedia` event is raised.
+
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.OnOpenEncyclopedia();
+```
 
 ### GetBannerOfCharacter
 `public static MetaMesh GetBannerOfCharacter(Banner banner, string bannerMeshName)`
 
-**Purpose:** Gets the current value of `banner of character`.
+**Purpose:** Reads and returns the `banner of character` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MobilePartyVisual.GetBannerOfCharacter(banner, "example");
+```
 
 ### AddTentEntityForParty
 `public void AddTentEntityForParty(GameEntity strategicEntity, PartyBase party, ref bool clearBannerComponentCache)`
 
 **Purpose:** Adds `tent entity for party` to the current collection or state.
 
+```csharp
+// Obtain an instance of MobilePartyVisual from the subsystem API first
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.AddTentEntityForParty(strategicEntity, party, clearBannerComponentCache);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new MobilePartyVisual();
-value.IsEnemyOf(faction);
+// Typically call this after obtaining an instance from the subsystem API
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.IsEnemyOf(faction);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

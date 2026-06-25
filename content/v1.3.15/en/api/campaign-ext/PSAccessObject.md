@@ -1,13 +1,7 @@
 ---
 title: "PSAccessObject"
+description: "Auto-generated class reference for PSAccessObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PSAccessObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PSAccessObject
 
 **Namespace:** TaleWorlds.Diamond
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new PSAccessObject();
+// Obtain an instance from the relevant subsystem API
+PSAccessObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

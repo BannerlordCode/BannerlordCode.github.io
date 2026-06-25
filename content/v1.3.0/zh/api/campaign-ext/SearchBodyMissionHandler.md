@@ -1,13 +1,7 @@
 ---
 title: "SearchBodyMissionHandler"
+description: "SearchBodyMissionHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SearchBodyMissionHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SearchBodyMissionHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,19 +23,31 @@ title: "SearchBodyMissionHandler"
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `agent interaction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent interaction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SearchBodyMissionHandler 实例
+SearchBodyMissionHandler searchBodyMissionHandler = ...;
+searchBodyMissionHandler.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 处理 `is there agent action` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SearchBodyMissionHandler 实例
+SearchBodyMissionHandler searchBodyMissionHandler = ...;
+var result = searchBodyMissionHandler.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SearchBodyMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<SearchBodyMissionHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

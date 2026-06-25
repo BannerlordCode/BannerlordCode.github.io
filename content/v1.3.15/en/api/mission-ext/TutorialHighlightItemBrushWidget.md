@@ -1,13 +1,7 @@
 ---
 title: "TutorialHighlightItemBrushWidget"
+description: "Auto-generated class reference for TutorialHighlightItemBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialHighlightItemBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TutorialHighlightItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
@@ -38,9 +32,10 @@ Treat `TutorialHighlightItemBrushWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new TutorialHighlightItemBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TutorialHighlightItemBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

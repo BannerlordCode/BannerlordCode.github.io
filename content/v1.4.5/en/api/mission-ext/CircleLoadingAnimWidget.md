@@ -1,20 +1,14 @@
 ---
 title: "CircleLoadingAnimWidget"
+description: "Auto-generated class reference for CircleLoadingAnimWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CircleLoadingAnimWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CircleLoadingAnimWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CircleLoadingAnimWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/CircleLoadingAnimWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/CircleLoadingAnimWidget.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Treat `CircleLoadingAnimWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new CircleLoadingAnimWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CircleLoadingAnimWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

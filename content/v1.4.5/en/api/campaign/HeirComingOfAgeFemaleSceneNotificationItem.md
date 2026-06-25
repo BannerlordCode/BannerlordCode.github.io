@@ -1,20 +1,14 @@
 ---
 title: "HeirComingOfAgeFemaleSceneNotificationItem"
+description: "Auto-generated class reference for HeirComingOfAgeFemaleSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeirComingOfAgeFemaleSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeirComingOfAgeFemaleSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeirComingOfAgeFemaleSceneNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/HeirComingOfAgeFemaleSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/HeirComingOfAgeFemaleSceneNotificationItem.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of HeirComingOfAgeFemaleSceneNotificationItem from the subsystem API first
+HeirComingOfAgeFemaleSceneNotificationItem heirComingOfAgeFemaleSceneNotificationItem = ...;
+var result = heirComingOfAgeFemaleSceneNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeirComingOfAgeFemaleSceneNotificationItem();
-value.GetSceneNotificationCharacters();
+// Typically call this after obtaining an instance from the subsystem API
+HeirComingOfAgeFemaleSceneNotificationItem heirComingOfAgeFemaleSceneNotificationItem = ...;
+heirComingOfAgeFemaleSceneNotificationItem.GetSceneNotificationCharacters();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

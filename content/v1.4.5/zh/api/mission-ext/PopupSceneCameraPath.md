@@ -1,20 +1,14 @@
 ---
 title: "PopupSceneCameraPath"
+description: "PopupSceneCameraPath 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PopupSceneCameraPath`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneCameraPath
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PopupSceneCameraPath : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/PopupSceneCameraPath.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/PopupSceneCameraPath.cs`
 
 ## 概述
 
@@ -29,50 +23,99 @@ title: "PopupSceneCameraPath"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneCameraPath 实例
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.Initialize();
+```
 
 ### SetInitialState
 `public void SetInitialState()`
 
-**用途 / Purpose:** 设置 `initial state` 的值或状态。
+**用途 / Purpose:** 为 「initial state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneCameraPath 实例
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.SetInitialState();
+```
 
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**用途 / Purpose:** 设置 `positive state` 的值或状态。
+**用途 / Purpose:** 为 「positive state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneCameraPath 实例
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.SetPositiveState();
+```
 
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**用途 / Purpose:** 设置 `negative state` 的值或状态。
+**用途 / Purpose:** 为 「negative state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneCameraPath 实例
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.SetNegativeState();
+```
 
 ### SetIsReady
 `public void SetIsReady(bool isReady)`
 
-**用途 / Purpose:** 设置 `is ready` 的值或状态。
+**用途 / Purpose:** 为 「is ready」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneCameraPath 实例
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.SetIsReady(false);
+```
 
 ### GetCameraFade
 `public float GetCameraFade()`
 
-**用途 / Purpose:** 获取 `camera fade` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「camera fade」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneCameraPath 实例
+PopupSceneCameraPath popupSceneCameraPath = ...;
+var result = popupSceneCameraPath.GetCameraFade();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneCameraPath 实例
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.Destroy();
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneCameraPath 实例
+PopupSceneCameraPath popupSceneCameraPath = ...;
+var result = popupSceneCameraPath.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PopupSceneCameraPath();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

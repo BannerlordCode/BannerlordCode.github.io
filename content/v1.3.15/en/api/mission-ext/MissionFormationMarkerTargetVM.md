@@ -1,13 +1,7 @@
 ---
 title: "MissionFormationMarkerTargetVM"
+description: "Auto-generated class reference for MissionFormationMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionFormationMarkerTargetVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionFormationMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
@@ -47,25 +41,43 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of MissionFormationMarkerTargetVM from the subsystem API first
+MissionFormationMarkerTargetVM missionFormationMarkerTargetVM = ...;
+missionFormationMarkerTargetVM.Refresh();
+```
 
 ### SetTargetedState
 `public void SetTargetedState(bool isFocused, bool isTargetingAFormation)`
 
-**Purpose:** Sets the value or state of `targeted state`.
+**Purpose:** Assigns a new value to `targeted state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionFormationMarkerTargetVM from the subsystem API first
+MissionFormationMarkerTargetVM missionFormationMarkerTargetVM = ...;
+missionFormationMarkerTargetVM.SetTargetedState(false, false);
+```
 
 ### GetFormationType
 `public static string GetFormationType(FormationClass formationType)`
 
-**Purpose:** Gets the current value of `formation type`.
+**Purpose:** Reads and returns the `formation type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionFormationMarkerTargetVM.GetFormationType(formationType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionFormationMarkerTargetVM();
-value.Refresh();
+// Typically call this after obtaining an instance from the subsystem API
+MissionFormationMarkerTargetVM missionFormationMarkerTargetVM = ...;
+missionFormationMarkerTargetVM.Refresh();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

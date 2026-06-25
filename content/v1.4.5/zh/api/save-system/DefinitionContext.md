@@ -1,20 +1,14 @@
 ---
 title: "DefinitionContext"
+description: "DefinitionContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefinitionContext`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefinitionContext
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class DefinitionContext`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/DefinitionContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/DefinitionContext.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "DefinitionContext"
 ### FillWithCurrentTypes
 `public void FillWithCurrentTypes()`
 
-**用途 / Purpose:** 处理 `fill with current types` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefinitionContext 实例
+DefinitionContext definitionContext = ...;
+definitionContext.FillWithCurrentTypes();
+```
 
 ### TryGetTypeDefinition
 `public TypeDefinitionBase TryGetTypeDefinition(SaveId saveId)`
 
-**用途 / Purpose:** 尝试获取 `get type definition`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get type definition」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 DefinitionContext 实例
+DefinitionContext definitionContext = ...;
+var result = definitionContext.TryGetTypeDefinition(saveId);
+```
 
 ### GenerateCode
 `public void GenerateCode(SaveCodeGenerationContext context)`
 
-**用途 / Purpose:** 处理 `generate code` 相关逻辑。
+**用途 / Purpose:** 生成「code」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 DefinitionContext 实例
+DefinitionContext definitionContext = ...;
+definitionContext.GenerateCode(context);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefinitionContext();
-value.FillWithCurrentTypes();
+// 通常从对应子系统 API 获取实例后调用
+DefinitionContext definitionContext = ...;
+definitionContext.FillWithCurrentTypes();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

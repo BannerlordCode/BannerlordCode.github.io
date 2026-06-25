@@ -1,20 +1,14 @@
 ---
 title: "Mobility"
+description: "Auto-generated class reference for Mobility."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Mobility`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Mobility
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public enum Mobility : sbyte`
 **Base:** `sbyte`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntity.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntity.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-Mobility example = Mobility.Value;
+// Obtain an instance from the relevant subsystem API
+Mobility instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

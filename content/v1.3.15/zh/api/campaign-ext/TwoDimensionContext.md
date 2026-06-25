@@ -1,13 +1,7 @@
 ---
 title: "TwoDimensionContext"
+description: "TwoDimensionContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TwoDimensionContext`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TwoDimensionContext
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -40,90 +34,187 @@ title: "TwoDimensionContext"
 ### PlaySound
 `public void PlaySound(string soundName)`
 
-**用途 / Purpose:** 处理 `play sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.PlaySound("example");
+```
 
 ### CreateSoundEvent
 `public void CreateSoundEvent(string soundName)`
 
-**用途 / Purpose:** 创建一个 `sound event` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「sound event」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.CreateSoundEvent("example");
+```
 
 ### StopAndRemoveSoundEvent
 `public void StopAndRemoveSoundEvent(string soundName)`
 
-**用途 / Purpose:** 处理 `stop and remove sound event` 相关逻辑。
+**用途 / Purpose:** 停止「and remove sound event」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.StopAndRemoveSoundEvent("example");
+```
 
 ### PlaySoundEvent
 `public void PlaySoundEvent(string soundName)`
 
-**用途 / Purpose:** 处理 `play sound event` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.PlaySoundEvent("example");
+```
 
 ### DrawImage
 `public void DrawImage(SimpleMaterial material, in ImageDrawObject drawObject2D, int layer = 0)`
 
-**用途 / Purpose:** 处理 `draw image` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.DrawImage(material, drawObject2D, 0);
+```
 
 ### DrawText
 `public void DrawText(TextMaterial material, in TextDrawObject drawObject2D, int layer = 0)`
 
-**用途 / Purpose:** 处理 `draw text` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.DrawText(material, drawObject2D, 0);
+```
 
 ### BeginDebugPanel
 `public void BeginDebugPanel(string panelTitle)`
 
-**用途 / Purpose:** 处理 `begin debug panel` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.BeginDebugPanel("example");
+```
 
 ### EndDebugPanel
 `public void EndDebugPanel()`
 
-**用途 / Purpose:** 处理 `end debug panel` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.EndDebugPanel();
+```
 
 ### DrawDebugText
 `public void DrawDebugText(string text)`
 
-**用途 / Purpose:** 处理 `draw debug text` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.DrawDebugText("example");
+```
 
 ### DrawDebugTreeNode
 `public bool DrawDebugTreeNode(string text)`
 
-**用途 / Purpose:** 处理 `draw debug tree node` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+var result = twoDimensionContext.DrawDebugTreeNode("example");
+```
 
 ### PopDebugTreeNode
 `public void PopDebugTreeNode()`
 
-**用途 / Purpose:** 处理 `pop debug tree node` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.PopDebugTreeNode();
+```
 
 ### DrawCheckbox
 `public void DrawCheckbox(string label, ref bool isChecked)`
 
-**用途 / Purpose:** 处理 `draw checkbox` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.DrawCheckbox("example", isChecked);
+```
 
 ### IsDebugItemHovered
 `public bool IsDebugItemHovered()`
 
-**用途 / Purpose:** 处理 `is debug item hovered` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「debug item hovered」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+var result = twoDimensionContext.IsDebugItemHovered();
+```
 
 ### LoadTexture
 `public Texture LoadTexture(string name)`
 
-**用途 / Purpose:** 加载 `texture` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「texture」。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+var result = twoDimensionContext.LoadTexture("example");
+```
 
 ### SetScissor
 `public void SetScissor(ScissorTestInfo scissor)`
 
-**用途 / Purpose:** 设置 `scissor` 的值或状态。
+**用途 / Purpose:** 为 「scissor」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.SetScissor(scissor);
+```
 
 ### ResetScissor
 `public void ResetScissor()`
 
-**用途 / Purpose:** 将 `scissor` 重置为初始状态。
+**用途 / Purpose:** 将 「scissor」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionContext 实例
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.ResetScissor();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TwoDimensionContext();
-value.PlaySound("example");
+// 通常从对应子系统 API 获取实例后调用
+TwoDimensionContext twoDimensionContext = ...;
+twoDimensionContext.PlaySound("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

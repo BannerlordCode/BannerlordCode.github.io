@@ -1,20 +1,14 @@
 ---
 title: "ClanSupporterGroupVM"
+description: "ClanSupporterGroupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanSupporterGroupVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanSupporterGroupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanSupporterGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters/ClanSupporterGroupVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters/ClanSupporterGroupVM.cs`
 
 ## 概述
 
@@ -41,30 +35,55 @@ title: "ClanSupporterGroupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSupporterGroupVM 实例
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.RefreshValues();
+```
 
 ### AddSupporter
 `public void AddSupporter(Hero hero)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `supporter`。
+**用途 / Purpose:** 将 「supporter」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSupporterGroupVM 实例
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.AddSupporter(hero);
+```
 
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSupporterGroupVM 实例
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.Refresh();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** 执行 `select` 操作或流程。
+**用途 / Purpose:** 执行 「select」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSupporterGroupVM 实例
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.ExecuteSelect();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanSupporterGroupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanSupporterGroupVM clanSupporterGroupVM = ...;
+clanSupporterGroupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

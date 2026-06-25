@@ -1,13 +1,7 @@
 ---
 title: "BarterHelper"
+description: "Auto-generated class reference for BarterHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BarterHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ Treat `BarterHelper` as a Helper-style extension point: first identify who creat
 ### GetAutoBalanceBarterablesAdd
 `public static IEnumerable<ValueTuple<Barterable, int>> GetAutoBalanceBarterablesAdd(BarterData barterData, IFaction factionToBalanceFor, IFaction offerer, Hero offererHero, float fulfillRatio = 1f)`
 
-**Purpose:** Gets the current value of `auto balance barterables add`.
+**Purpose:** Reads and returns the `auto balance barterables add` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BarterHelper.GetAutoBalanceBarterablesAdd(barterData, factionToBalanceFor, offerer, offererHero, 0);
+```
 
 ### GetAutoBalanceBarterablesToRemove
 `public static IEnumerable<ValueTuple<Barterable, int>> GetAutoBalanceBarterablesToRemove(BarterData barterData, IFaction factionToBalanceFor, IFaction offerer, Hero offererHero)`
 
-**Purpose:** Gets the current value of `auto balance barterables to remove`.
+**Purpose:** Reads and returns the `auto balance barterables to remove` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BarterHelper.GetAutoBalanceBarterablesToRemove(barterData, factionToBalanceFor, offerer, offererHero);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ BarterHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "RemoveAgentVisualsFromIndexForPeer"
+description: "RemoveAgentVisualsFromIndexForPeer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RemoveAgentVisualsFromIndexForPeer`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemoveAgentVisualsFromIndexForPeer
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RemoveAgentVisualsFromIndexForPeer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemoveAgentVisualsFromIndexForPeer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemoveAgentVisualsFromIndexForPeer.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "RemoveAgentVisualsFromIndexForPeer"
 ## 使用示例
 
 ```csharp
-var example = new RemoveAgentVisualsFromIndexForPeer();
+// 从对应子系统 API 获取实例
+RemoveAgentVisualsFromIndexForPeer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

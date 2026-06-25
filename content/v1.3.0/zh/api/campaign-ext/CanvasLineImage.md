@@ -1,13 +1,7 @@
 ---
 title: "CanvasLineImage"
+description: "CanvasLineImage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CanvasLineImage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasLineImage
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -35,15 +29,22 @@ title: "CanvasLineImage"
 ### LoadFrom
 `public void LoadFrom(XmlNode imageNode)`
 
-**用途 / Purpose:** 加载 `from` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasLineImage 实例
+CanvasLineImage canvasLineImage = ...;
+canvasLineImage.LoadFrom(imageNode);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CanvasLineImage();
-value.LoadFrom(imageNode);
+// 通常从对应子系统 API 获取实例后调用
+CanvasLineImage canvasLineImage = ...;
+canvasLineImage.LoadFrom(imageNode);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

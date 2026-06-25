@@ -1,13 +1,7 @@
 ---
 title: "Music"
+description: "Music 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Music`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Music
 
 **Namespace:** TaleWorlds.Engine
@@ -29,52 +23,102 @@ title: "Music"
 ### GetFreeMusicChannelIndex
 `public static int GetFreeMusicChannelIndex()`
 
-**用途 / Purpose:** 获取 `free music channel index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「free music channel index」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Music.GetFreeMusicChannelIndex();
+```
 
 ### LoadClip
 `public static void LoadClip(int index, string pathToClip)`
 
-**用途 / Purpose:** 加载 `clip` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「clip」。
+
+```csharp
+// 静态调用，不需要实例
+Music.LoadClip(0, "example");
+```
 
 ### UnloadClip
 `public static void UnloadClip(int index)`
 
-**用途 / Purpose:** 处理 `unload clip` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Music.UnloadClip(0);
+```
 
 ### IsClipLoaded
 `public static bool IsClipLoaded(int index)`
 
-**用途 / Purpose:** 处理 `is clip loaded` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「clip loaded」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+Music.IsClipLoaded(0);
+```
 
 ### PlayMusic
 `public static void PlayMusic(int index)`
 
-**用途 / Purpose:** 处理 `play music` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Music.PlayMusic(0);
+```
 
 ### PlayDelayed
 `public static void PlayDelayed(int index, int deltaMilliseconds)`
 
-**用途 / Purpose:** 处理 `play delayed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Music.PlayDelayed(0, 0);
+```
 
 ### IsMusicPlaying
 `public static bool IsMusicPlaying(int index)`
 
-**用途 / Purpose:** 处理 `is music playing` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「music playing」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+Music.IsMusicPlaying(0);
+```
 
 ### PauseMusic
 `public static void PauseMusic(int index)`
 
-**用途 / Purpose:** 处理 `pause music` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Music.PauseMusic(0);
+```
 
 ### StopMusic
 `public static void StopMusic(int index)`
 
-**用途 / Purpose:** 处理 `stop music` 相关逻辑。
+**用途 / Purpose:** 停止「music」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+Music.StopMusic(0);
+```
 
 ### SetVolume
 `public static void SetVolume(int index, float volume)`
 
-**用途 / Purpose:** 设置 `volume` 的值或状态。
+**用途 / Purpose:** 为 「volume」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+Music.SetVolume(0, 0);
+```
 
 ## 使用示例
 
@@ -84,4 +128,4 @@ Music.GetFreeMusicChannelIndex();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

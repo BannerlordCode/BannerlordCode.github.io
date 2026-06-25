@@ -1,20 +1,14 @@
 ---
 title: "LoadResult"
+description: "Auto-generated class reference for LoadResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadResult`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadResult
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadResult`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadResult.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadResult.cs`
 
 ## Overview
 
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.SaveSystem.Load` to place it in the stack, then
 ### InitializeObjects
 `public void InitializeObjects()`
 
-**Purpose:** Initializes the state, resources, or bindings for `objects`.
+**Purpose:** Prepares the resources, state, or bindings required by `objects`.
+
+```csharp
+// Obtain an instance of LoadResult from the subsystem API first
+LoadResult loadResult = ...;
+loadResult.InitializeObjects();
+```
 
 ### AfterInitializeObjects
 `public void AfterInitializeObjects()`
 
-**Purpose:** Handles logic related to `after initialize objects`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LoadResult from the subsystem API first
+LoadResult loadResult = ...;
+loadResult.AfterInitializeObjects();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LoadResult();
-value.InitializeObjects();
+// Typically call this after obtaining an instance from the subsystem API
+LoadResult loadResult = ...;
+loadResult.InitializeObjects();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

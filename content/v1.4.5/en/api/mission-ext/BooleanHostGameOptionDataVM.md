@@ -1,20 +1,14 @@
 ---
 title: "BooleanHostGameOptionDataVM"
+description: "Auto-generated class reference for BooleanHostGameOptionDataVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BooleanHostGameOptionDataVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BooleanHostGameOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BooleanHostGameOptionDataVM : GenericHostGameOptionDataVM`
 **Base:** `GenericHostGameOptionDataVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions/BooleanHostGameOptionDataVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions/BooleanHostGameOptionDataVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshData
 `public override void RefreshData()`
 
-**Purpose:** Refreshes the display or cache of `data`.
+**Purpose:** Keeps the display or cache of `data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BooleanHostGameOptionDataVM from the subsystem API first
+BooleanHostGameOptionDataVM booleanHostGameOptionDataVM = ...;
+booleanHostGameOptionDataVM.RefreshData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BooleanHostGameOptionDataVM();
-value.RefreshData();
+// Typically call this after obtaining an instance from the subsystem API
+BooleanHostGameOptionDataVM booleanHostGameOptionDataVM = ...;
+booleanHostGameOptionDataVM.RefreshData();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

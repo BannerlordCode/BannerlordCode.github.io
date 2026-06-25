@@ -1,20 +1,14 @@
 ---
 title: "DynamicBodyProperties"
+description: "DynamicBodyProperties 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DynamicBodyProperties`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DynamicBodyProperties
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct DynamicBodyProperties`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/DynamicBodyProperties.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DynamicBodyProperties.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "DynamicBodyProperties"
 ### DynamicBodyProperties
 `public struct DynamicBodyProperties(float age, float weight, float build)`
 
-**用途 / Purpose:** 处理 `dynamic body properties` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicBodyProperties 实例
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.DynamicBodyProperties(0, 0, 0);
+```
 
 ### Equals
 `public bool Equals(DynamicBodyProperties other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicBodyProperties 实例
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.Equals(other);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicBodyProperties 实例
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicBodyProperties 实例
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicBodyProperties 实例
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DynamicBodyProperties();
-value.DynamicBodyProperties(0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+DynamicBodyProperties dynamicBodyProperties = ...;
+dynamicBodyProperties.DynamicBodyProperties(0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaUnitPageVM"
+description: "EncyclopediaUnitPageVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaUnitPageVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaUnitPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -45,30 +39,55 @@ title: "EncyclopediaUnitPageVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaUnitPageVM 实例
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+encyclopediaUnitPageVM.RefreshValues();
+```
 
 ### GetName
 `public override string GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaUnitPageVM 实例
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+var result = encyclopediaUnitPageVM.GetName();
+```
 
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**用途 / Purpose:** 获取 `navigation bar u r l` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「navigation bar u r l」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaUnitPageVM 实例
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+var result = encyclopediaUnitPageVM.GetNavigationBarURL();
+```
 
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**用途 / Purpose:** 执行 `switch bookmarked state` 操作或流程。
+**用途 / Purpose:** 执行 「switch bookmarked state」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaUnitPageVM 实例
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+encyclopediaUnitPageVM.ExecuteSwitchBookmarkedState();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaUnitPageVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+encyclopediaUnitPageVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

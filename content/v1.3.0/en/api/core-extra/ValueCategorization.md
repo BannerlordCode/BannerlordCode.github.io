@@ -1,13 +1,7 @@
 ---
 title: "ValueCategorization"
+description: "Auto-generated class reference for ValueCategorization."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ValueCategorization`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ValueCategorization
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information.RundownToo
 ## Usage Example
 
 ```csharp
-ValueCategorization example = ValueCategorization.Value;
+// Obtain an instance from the relevant subsystem API
+ValueCategorization instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanMatchmakingRequestPopupVM"
+description: "Auto-generated class reference for MPLobbyClanMatchmakingRequestPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanMatchmakingRequestPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanMatchmakingRequestPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanMatchmakingRequestPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanMatchmakingRequestPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanMatchmakingRequestPopupVM.cs`
 
 ## Overview
 
@@ -44,35 +38,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
+MPLobbyClanMatchmakingRequestPopupVM mPLobbyClanMatchmakingRequestPopupVM = ...;
+mPLobbyClanMatchmakingRequestPopupVM.RefreshValues();
+```
 
 ### OpenWith
 `public void OpenWith(string clanName, string clanSigilCode, Guid partyId, PlayerId challengerPlayerIDs, PlayerId challengerPartyLeaderID, PremadeGameType premadeGameType)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
+MPLobbyClanMatchmakingRequestPopupVM mPLobbyClanMatchmakingRequestPopupVM = ...;
+mPLobbyClanMatchmakingRequestPopupVM.OpenWith("example", "example", partyId, challengerPlayerIDs, challengerPartyLeaderID, premadeGameType);
+```
 
 ### Close
 `public void Close()`
 
-**Purpose:** Handles logic related to `close`.
+**Purpose:** Closes the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
+MPLobbyClanMatchmakingRequestPopupVM mPLobbyClanMatchmakingRequestPopupVM = ...;
+mPLobbyClanMatchmakingRequestPopupVM.Close();
+```
 
 ### ExecuteAcceptMatchmaking
 `public void ExecuteAcceptMatchmaking()`
 
-**Purpose:** Executes the `accept matchmaking` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `accept matchmaking`.
+
+```csharp
+// Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
+MPLobbyClanMatchmakingRequestPopupVM mPLobbyClanMatchmakingRequestPopupVM = ...;
+mPLobbyClanMatchmakingRequestPopupVM.ExecuteAcceptMatchmaking();
+```
 
 ### ExecuteDeclineMatchmaking
 `public void ExecuteDeclineMatchmaking()`
 
-**Purpose:** Executes the `decline matchmaking` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `decline matchmaking`.
+
+```csharp
+// Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
+MPLobbyClanMatchmakingRequestPopupVM mPLobbyClanMatchmakingRequestPopupVM = ...;
+mPLobbyClanMatchmakingRequestPopupVM.ExecuteDeclineMatchmaking();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanMatchmakingRequestPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanMatchmakingRequestPopupVM mPLobbyClanMatchmakingRequestPopupVM = ...;
+mPLobbyClanMatchmakingRequestPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

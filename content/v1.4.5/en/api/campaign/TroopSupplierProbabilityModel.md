@@ -1,20 +1,14 @@
 ---
 title: "TroopSupplierProbabilityModel"
+description: "Auto-generated class reference for TroopSupplierProbabilityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopSupplierProbabilityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopSupplierProbabilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class TroopSupplierProbabilityModel : MBGameModel<TroopSupplierProbabilityModel>`
 **Base:** `MBGameModel<TroopSupplierProbabilityModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TroopSupplierProbabilityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TroopSupplierProbabilityModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `TroopSupplierProbabilityModel` as a Model-style extension point: first id
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public abstract void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayers, int sizeOfSide, bool forcePriorityTroops, List<(FlattenedTroopRosterElement, MapEventParty, float)> priorityList)`
 
-**Purpose:** Handles logic related to `enqueue troop spawn probabilities according to unit spawn prioritization`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TroopSupplierProbabilityModel from the subsystem API first
+TroopSupplierProbabilityModel troopSupplierProbabilityModel = ...;
+troopSupplierProbabilityModel.EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(battleParty, priorityTroops, false, 0, false, list<(FlattenedTroopRosterElement, mapEventParty, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTroopSupplierProbabilityModel();
+// Typically obtained from a subsystem API or factory
+TroopSupplierProbabilityModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

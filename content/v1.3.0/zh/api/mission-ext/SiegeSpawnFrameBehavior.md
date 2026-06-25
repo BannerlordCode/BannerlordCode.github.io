@@ -1,13 +1,7 @@
 ---
 title: "SiegeSpawnFrameBehavior"
+description: "SiegeSpawnFrameBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeSpawnFrameBehavior`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeSpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ title: "SiegeSpawnFrameBehavior"
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeSpawnFrameBehavior 实例
+SiegeSpawnFrameBehavior siegeSpawnFrameBehavior = ...;
+siegeSpawnFrameBehavior.Initialize();
+```
 
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**用途 / Purpose:** 获取 `spawn frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeSpawnFrameBehavior 实例
+SiegeSpawnFrameBehavior siegeSpawnFrameBehavior = ...;
+var result = siegeSpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ### OnFlagDeactivated
 `public void OnFlagDeactivated(FlagCapturePoint flag)`
 
-**用途 / Purpose:** 当 `flag deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「flag deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeSpawnFrameBehavior 实例
+SiegeSpawnFrameBehavior siegeSpawnFrameBehavior = ...;
+siegeSpawnFrameBehavior.OnFlagDeactivated(flag);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeSpawnFrameBehavior();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+SiegeSpawnFrameBehavior siegeSpawnFrameBehavior = ...;
+siegeSpawnFrameBehavior.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

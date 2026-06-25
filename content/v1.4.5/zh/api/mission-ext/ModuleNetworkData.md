@@ -1,20 +1,14 @@
 ---
 title: "ModuleNetworkData"
+description: "ModuleNetworkData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ModuleNetworkData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleNetworkData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ModuleNetworkData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ModuleNetworkData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ModuleNetworkData.cs`
 
 ## 概述
 
@@ -29,39 +23,70 @@ title: "ModuleNetworkData"
 ### ReadItemReferenceFromPacket
 `public static EquipmentElement ReadItemReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**用途 / Purpose:** 处理 `read item reference from packet` 相关逻辑。
+**用途 / Purpose:** 读取「item reference from packet」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+ModuleNetworkData.ReadItemReferenceFromPacket(objectManager, bufferReadValid);
+```
 
 ### WriteItemReferenceToPacket
 `public static void WriteItemReferenceToPacket(EquipmentElement equipElement)`
 
-**用途 / Purpose:** 处理 `write item reference to packet` 相关逻辑。
+**用途 / Purpose:** 将「item reference to packet」写入目标位置。
+
+```csharp
+// 静态调用，不需要实例
+ModuleNetworkData.WriteItemReferenceToPacket(equipElement);
+```
 
 ### ReadWeaponReferenceFromPacket
 `public static MissionWeapon ReadWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**用途 / Purpose:** 处理 `read weapon reference from packet` 相关逻辑。
+**用途 / Purpose:** 读取「weapon reference from packet」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+ModuleNetworkData.ReadWeaponReferenceFromPacket(objectManager, bufferReadValid);
+```
 
 ### WriteWeaponReferenceToPacket
 `public static void WriteWeaponReferenceToPacket(MissionWeapon weapon)`
 
-**用途 / Purpose:** 处理 `write weapon reference to packet` 相关逻辑。
+**用途 / Purpose:** 将「weapon reference to packet」写入目标位置。
+
+```csharp
+// 静态调用，不需要实例
+ModuleNetworkData.WriteWeaponReferenceToPacket(weapon);
+```
 
 ### ReadMissileWeaponReferenceFromPacket
 `public static MissionWeapon ReadMissileWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**用途 / Purpose:** 处理 `read missile weapon reference from packet` 相关逻辑。
+**用途 / Purpose:** 读取「missile weapon reference from packet」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+ModuleNetworkData.ReadMissileWeaponReferenceFromPacket(objectManager, bufferReadValid);
+```
 
 ### WriteMissileWeaponReferenceToPacket
 `public static void WriteMissileWeaponReferenceToPacket(MissionWeapon weapon)`
 
-**用途 / Purpose:** 处理 `write missile weapon reference to packet` 相关逻辑。
+**用途 / Purpose:** 将「missile weapon reference to packet」写入目标位置。
+
+```csharp
+// 静态调用，不需要实例
+ModuleNetworkData.WriteMissileWeaponReferenceToPacket(weapon);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ModuleNetworkData();
+// 该数据对象通常由战役/任务 API 返回
+ModuleNetworkData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

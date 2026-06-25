@@ -1,20 +1,14 @@
 ---
 title: "DefaultRansomValueCalculationModel"
+description: "DefaultRansomValueCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultRansomValueCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultRansomValueCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultRansomValueCalculationModel : RansomValueCalculationModel`
 **Base:** `RansomValueCalculationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultRansomValueCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultRansomValueCalculationModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultRansomValueCalculationModel"
 ### PrisonerRansomValue
 `public override int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
 
-**用途 / Purpose:** 处理 `prisoner ransom value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultRansomValueCalculationModel 实例
+DefaultRansomValueCalculationModel defaultRansomValueCalculationModel = ...;
+var result = defaultRansomValueCalculationModel.PrisonerRansomValue(prisoner, null);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultRansomValueCalculationModel>(new MyDefaultRanso
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

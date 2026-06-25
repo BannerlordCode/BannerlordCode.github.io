@@ -1,20 +1,14 @@
 ---
 title: "RemoveAgentVisualsForPeer"
+description: "Auto-generated class reference for RemoveAgentVisualsForPeer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemoveAgentVisualsForPeer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemoveAgentVisualsForPeer
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RemoveAgentVisualsForPeer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemoveAgentVisualsForPeer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemoveAgentVisualsForPeer.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new RemoveAgentVisualsForPeer();
+// Obtain an instance from the relevant subsystem API
+RemoveAgentVisualsForPeer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

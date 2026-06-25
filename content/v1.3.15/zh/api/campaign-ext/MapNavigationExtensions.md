@@ -1,251 +1,271 @@
 ---
-title: MapNavigationExtensions
-description: MapNavigationExtensions - 大地图导航栏视图切换扩展方法
+title: "MapNavigationExtensions"
+description: "MapNavigationExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapNavigationExtensions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapNavigationExtensions
-**命名空间:** TaleWorlds.CampaignSystem
-**模块:** TaleWorlds.CampaignSystem.ViewModelCollection
-**类型:** static class
+
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class MapNavigationExtensions`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/MapNavigationExtensions.cs`
 
 ## 概述
-`MapNavigationExtensions
 
-` 是一组扩展方法，为实现了 
+`MapNavigationExtensions` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-`INavigationHandler
-
-` 接口的对象（通常是地图屏幕的 ViewModel）提供便捷的视图切换功能。它封装?获取导航元素→打开视图"的两步操作，让调用者可以通过 
-
-`handler.OpenQuests()
-
-`、`handler.OpenInventory()
-
-` 等简洁调用打开对应的游戏面板?
 ## 心智模型
-该类?
 
-`INavigationHandler
-
-` 与具体导航元素之间的适配层。`GetElement
-
-` 方法?
-
-`MapNavigationItemType
-
-` 枚举映射为字符串键（?
-
-`Party
-
-` ?
-
-`"party"
-
-`），再通过 
-
-`handler.GetElement(text)
-
-` 获取实际?
-
-`INavigationElement
-
-`。每?
-
-`OpenXxx
-
-` 方法都是?
-
-`GetElement(...).OpenView()
-
-` 的包装，可接受可选参数（如指定英雄、定居点、家族等）传给目标视图?
-## 主要属?\| 属?\| 类型 \| 说明 \|
-\|------\|------\|------\|
-\| ?\| - \| 静态扩展类，无属?\|
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要方法
+
 ### GetPermission
-`
+`public static NavigationPermissionItem GetPermission(this INavigationHandler handler, MapNavigationItemType elementType)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「permission」 的结果。
 
-`csharp
-public static NavigationPermissionItem GetPermission(this INavigationHandler handler, MapNavigationItemType elementType)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.GetPermission(handler, elementType);
+```
 
-`
-
-`
-获取指定导航类型的权限项?
 ### IsActive
-`
+`public static bool IsActive(this INavigationHandler handler, MapNavigationItemType elementType)`
 
-`
+**用途 / Purpose:** 判断当前对象是否处于 「active」 状态或条件。
 
-`csharp
-public static bool IsActive(this INavigationHandler handler, MapNavigationItemType elementType)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.IsActive(handler, elementType);
+```
 
-`
-
-`
-判断指定导航类型当前是否处于激活状态?
 ### OpenQuests
-`
+`public static void OpenQuests(this INavigationHandler handler)`
 
-`
+**用途 / Purpose:** 打开「quests」对应的资源或界面。
 
-`csharp
-public static void OpenQuests(this INavigationHandler handler)
-public static void OpenQuests(this INavigationHandler handler, QuestBase quest)
-public static void OpenQuests(this INavigationHandler handler, IssueBase issue)
-public static void OpenQuests(this INavigationHandler handler, JournalLogEntry log)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenQuests(handler);
+```
 
-`
+### OpenQuests
+`public static void OpenQuests(this INavigationHandler handler, QuestBase quest)`
 
-`
-打开任务面板。可选参数指定跳转到特定任务、问题或日志条目?
+**用途 / Purpose:** 打开「quests」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenQuests(handler, quest);
+```
+
+### OpenQuests
+`public static void OpenQuests(this INavigationHandler handler, IssueBase issue)`
+
+**用途 / Purpose:** 打开「quests」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenQuests(handler, issue);
+```
+
+### OpenQuests
+`public static void OpenQuests(this INavigationHandler handler, JournalLogEntry log)`
+
+**用途 / Purpose:** 打开「quests」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenQuests(handler, log);
+```
+
 ### OpenInventory
-`
+`public static void OpenInventory(this INavigationHandler handler)`
 
-`
+**用途 / Purpose:** 打开「inventory」对应的资源或界面。
 
-`csharp
-public static void OpenInventory(this INavigationHandler handler)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenInventory(handler);
+```
 
-`
-
-`
-打开背包面板?
 ### OpenParty
-`
+`public static void OpenParty(this INavigationHandler handler)`
 
-`
+**用途 / Purpose:** 打开「party」对应的资源或界面。
 
-`csharp
-public static void OpenParty(this INavigationHandler handler)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenParty(handler);
+```
 
-`
-
-`
-打开部队面板?
 ### OpenCharacterDeveloper
-`
+`public static void OpenCharacterDeveloper(this INavigationHandler handler)`
 
-`
+**用途 / Purpose:** 打开「character developer」对应的资源或界面。
 
-`csharp
-public static void OpenCharacterDeveloper(this INavigationHandler handler)
-public static void OpenCharacterDeveloper(this INavigationHandler handler, Hero hero)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenCharacterDeveloper(handler);
+```
 
-`
+### OpenCharacterDeveloper
+`public static void OpenCharacterDeveloper(this INavigationHandler handler, Hero hero)`
 
-`
-打开角色发展面板。可选参数指定查看特定英雄?
+**用途 / Purpose:** 打开「character developer」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenCharacterDeveloper(handler, hero);
+```
+
 ### OpenKingdom
-`
+`public static void OpenKingdom(this INavigationHandler handler)`
 
-`
+**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
 
-`csharp
-public static void OpenKingdom(this INavigationHandler handler)
-public static void OpenKingdom(this INavigationHandler handler, Army army)
-public static void OpenKingdom(this INavigationHandler handler, Settlement settlement)
-public static void OpenKingdom(this INavigationHandler handler, Clan clan)
-public static void OpenKingdom(this INavigationHandler handler, PolicyObject policy)
-public static void OpenKingdom(this INavigationHandler handler, IFaction faction)
-public static void OpenKingdom(this INavigationHandler handler, KingdomDecision decision)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenKingdom(handler);
+```
 
-`
+### OpenKingdom
+`public static void OpenKingdom(this INavigationHandler handler, Army army)`
 
-`
-打开王国面板。多种重载支持跳转到军团、定居点、家族、政策、阵营或决议详情?
+**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenKingdom(handler, army);
+```
+
+### OpenKingdom
+`public static void OpenKingdom(this INavigationHandler handler, Settlement settlement)`
+
+**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenKingdom(handler, settlement);
+```
+
+### OpenKingdom
+`public static void OpenKingdom(this INavigationHandler handler, Clan clan)`
+
+**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenKingdom(handler, clan);
+```
+
+### OpenKingdom
+`public static void OpenKingdom(this INavigationHandler handler, PolicyObject policy)`
+
+**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenKingdom(handler, policy);
+```
+
+### OpenKingdom
+`public static void OpenKingdom(this INavigationHandler handler, IFaction faction)`
+
+**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenKingdom(handler, faction);
+```
+
+### OpenKingdom
+`public static void OpenKingdom(this INavigationHandler handler, KingdomDecision decision)`
+
+**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenKingdom(handler, decision);
+```
+
 ### OpenClan
-`
+`public static void OpenClan(this INavigationHandler handler)`
 
-`
+**用途 / Purpose:** 打开「clan」对应的资源或界面。
 
-`csharp
-public static void OpenClan(this INavigationHandler handler)
-public static void OpenClan(this INavigationHandler handler, Hero hero)
-public static void OpenClan(this INavigationHandler handler, PartyBase party)
-public static void OpenClan(this INavigationHandler handler, Settlement settlement)
-public static void OpenClan(this INavigationHandler handler, Workshop workshop)
-public static void OpenClan(this INavigationHandler handler, Alley alley)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenClan(handler);
+```
 
-`
+### OpenClan
+`public static void OpenClan(this INavigationHandler handler, Hero hero)`
 
-`
-打开家族面板。重载支持跳转到英雄、部队、定居点、工坊或据点详情?
+**用途 / Purpose:** 打开「clan」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenClan(handler, hero);
+```
+
+### OpenClan
+`public static void OpenClan(this INavigationHandler handler, PartyBase party)`
+
+**用途 / Purpose:** 打开「clan」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenClan(handler, party);
+```
+
+### OpenClan
+`public static void OpenClan(this INavigationHandler handler, Settlement settlement)`
+
+**用途 / Purpose:** 打开「clan」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenClan(handler, settlement);
+```
+
+### OpenClan
+`public static void OpenClan(this INavigationHandler handler, Workshop workshop)`
+
+**用途 / Purpose:** 打开「clan」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenClan(handler, workshop);
+```
+
+### OpenClan
+`public static void OpenClan(this INavigationHandler handler, Alley alley)`
+
+**用途 / Purpose:** 打开「clan」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenClan(handler, alley);
+```
+
 ### OpenEscapeMenu
-`
+`public static void OpenEscapeMenu(this INavigationHandler handler)`
 
-`
+**用途 / Purpose:** 打开「escape menu」对应的资源或界面。
 
-`csharp
-public static void OpenEscapeMenu(this INavigationHandler handler)
-`
+```csharp
+// 静态调用，不需要实例
+MapNavigationExtensions.OpenEscapeMenu(handler);
+```
 
-`
-
-`
-打开退出菜单?
 ## 使用示例
-### 示例: 在地图屏幕中打开家族面板
-**场景**: mod 添加的自定义通知点击后需要跳转到家族面板的特定英雄?
 
-`
+```csharp
+MapNavigationExtensions.GetPermission(handler, elementType);
+```
 
-`
-
-`csharp
-public class MyMapNotificationHandler
-{
-    private INavigationHandler _navigationHandler;
-    
-    public void OnNotificationClicked(Hero targetHero)
-    {
-        // 使用扩展方法直接打开家族面板并定位到英雄
-        _navigationHandler.OpenClan(targetHero);
-    }
-    
-    public void OpenKingdomDecisions(KingdomDecision pendingDecision)
-    {
-        // 打开王国面板并跳转到指定决议
-        _navigationHandler.OpenKingdom(pendingDecision);
-    }
-}
-`
-
-`
-
-`
-**要点**: 调用方必须持有实现了 
-
-`INavigationHandler
-
-` 的对象（通常?
-
-`MapScreen
-
-` 或其 ViewModel）；所有方法都是无返回值的 fire-and-forget 调用；若导航类型不支持会触发 
-
-`Debug.FailedAssert
-
-`?
 ## 参见
-- [完整类目录](../catalog-campaign)
-- [本领域目录](../catalog-campaign)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+
+- [本区域目录](../)

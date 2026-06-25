@@ -1,13 +1,7 @@
 ---
 title: "PatrollingGuardBehavior"
+description: "Auto-generated class reference for PatrollingGuardBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PatrollingGuardBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PatrollingGuardBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,25 +23,44 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of PatrollingGuardBehavior from the subsystem API first
+PatrollingGuardBehavior patrollingGuardBehavior = ...;
+patrollingGuardBehavior.Tick(0, false);
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrollingGuardBehavior from the subsystem API first
+PatrollingGuardBehavior patrollingGuardBehavior = ...;
+var result = patrollingGuardBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrollingGuardBehavior from the subsystem API first
+PatrollingGuardBehavior patrollingGuardBehavior = ...;
+var result = patrollingGuardBehavior.GetDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PatrollingGuardBehavior();
-value.Tick(0, false);
+// Typically call this after obtaining an instance from the subsystem API
+PatrollingGuardBehavior patrollingGuardBehavior = ...;
+patrollingGuardBehavior.Tick(0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
-title: "PlayerIdExtensions__TaleWorlds_PlayerServices"
+title: "PlayerIdExtensions"
+description: "Auto-generated class reference for PlayerIdExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIdExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerIdExtensions
 
 **Namespace:** TaleWorlds.PlayerServices
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ### SupportsPlayerCard
 `public static bool SupportsPlayerCard(this PlayerIdProvidedTypes type)`
 
-**Purpose:** Handles logic related to `supports player card`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerIdExtensions.SupportsPlayerCard(type);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ PlayerIdExtensions.SupportsPlayerCard(type);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

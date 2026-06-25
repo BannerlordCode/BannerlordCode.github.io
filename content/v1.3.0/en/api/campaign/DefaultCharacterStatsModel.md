@@ -1,13 +1,7 @@
 ---
 title: "DefaultCharacterStatsModel"
+description: "Auto-generated class reference for DefaultCharacterStatsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCharacterStatsModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCharacterStatsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,17 +29,35 @@ Treat `DefaultCharacterStatsModel` as a Model-style extension point: first ident
 ### WoundedHitPointLimit
 `public override int WoundedHitPointLimit(Hero hero)`
 
-**Purpose:** Handles logic related to `wounded hit point limit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultCharacterStatsModel from the subsystem API first
+DefaultCharacterStatsModel defaultCharacterStatsModel = ...;
+var result = defaultCharacterStatsModel.WoundedHitPointLimit(hero);
+```
 
 ### GetTier
 `public override int GetTier(CharacterObject character)`
 
-**Purpose:** Gets the current value of `tier`.
+**Purpose:** Reads and returns the `tier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterStatsModel from the subsystem API first
+DefaultCharacterStatsModel defaultCharacterStatsModel = ...;
+var result = defaultCharacterStatsModel.GetTier(character);
+```
 
 ### MaxHitpoints
 `public override ExplainedNumber MaxHitpoints(CharacterObject character, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `max hitpoints`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultCharacterStatsModel from the subsystem API first
+DefaultCharacterStatsModel defaultCharacterStatsModel = ...;
+var result = defaultCharacterStatsModel.MaxHitpoints(character, false);
+```
 
 ## Usage Example
 
@@ -55,4 +67,4 @@ Game.Current.ReplaceModel<DefaultCharacterStatsModel>(new MyDefaultCharacterStat
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

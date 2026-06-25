@@ -1,13 +1,7 @@
 ---
 title: "CraftingPieceCollectionElementViewExtensions"
+description: "Auto-generated class reference for CraftingPieceCollectionElementViewExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceCollectionElementViewExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceCollectionElementViewExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetCraftingPieceFrameForInventory
 `public static MatrixFrame GetCraftingPieceFrameForInventory(this CraftingPiece craftingPiece)`
 
-**Purpose:** Gets the current value of `crafting piece frame for inventory`.
+**Purpose:** Reads and returns the `crafting piece frame for inventory` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CraftingPieceCollectionElementViewExtensions.GetCraftingPieceFrameForInventory(craftingPiece);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ CraftingPieceCollectionElementViewExtensions.GetCraftingPieceFrameForInventory(c
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

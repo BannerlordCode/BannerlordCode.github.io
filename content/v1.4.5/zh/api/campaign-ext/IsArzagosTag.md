@@ -1,20 +1,14 @@
 ---
 title: "IsArzagosTag"
+description: "IsArzagosTag 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IsArzagosTag`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IsArzagosTag
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class IsArzagosTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/IsArzagosTag.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/IsArzagosTag.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "IsArzagosTag"
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is applicable to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「applicable to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 IsArzagosTag 实例
+IsArzagosTag isArzagosTag = ...;
+var result = isArzagosTag.IsApplicableTo(character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new IsArzagosTag();
-value.IsApplicableTo(character);
+// 通常从对应子系统 API 获取实例后调用
+IsArzagosTag isArzagosTag = ...;
+isArzagosTag.IsApplicableTo(character);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

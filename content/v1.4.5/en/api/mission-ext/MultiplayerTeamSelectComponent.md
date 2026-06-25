@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerTeamSelectComponent"
+description: "Auto-generated class reference for MultiplayerTeamSelectComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTeamSelectComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTeamSelectComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTeamSelectComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerTeamSelectComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerTeamSelectComponent.cs`
 
 ## Overview
 
@@ -35,67 +29,145 @@ Treat `MultiplayerTeamSelectComponent` as a Component-style extension point: fir
 ### OnSelectingTeamDelegate
 `public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)`
 
-**Purpose:** Called when the `selecting team delegate` event is raised.
+**Purpose:** Invoked when the `selecting team delegate` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.OnSelectingTeamDelegate(disableTeams);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.OnRemoveBehavior();
+```
 
 ### SelectTeam
 `public void SelectTeam()`
 
-**Purpose:** Handles logic related to `select team`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.SelectTeam();
+```
 
 ### UpdateTeams
 `public void UpdateTeams(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**Purpose:** Updates the state or data of `teams`.
+**Purpose:** Recalculates and stores the latest representation of `teams`.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.UpdateTeams(peer, oldTeam, newTeam);
+```
 
 ### GetDisabledTeams
 `public List<Team> GetDisabledTeams()`
 
-**Purpose:** Gets the current value of `disabled teams`.
+**Purpose:** Reads and returns the `disabled teams` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+var result = multiplayerTeamSelectComponent.GetDisabledTeams();
+```
 
 ### ChangeTeamServer
 `public void ChangeTeamServer(NetworkCommunicator networkPeer, Team team)`
 
-**Purpose:** Handles logic related to `change team server`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.ChangeTeamServer(networkPeer, team);
+```
 
 ### ChangeTeam
 `public void ChangeTeam(Team team)`
 
-**Purpose:** Handles logic related to `change team`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.ChangeTeam(team);
+```
 
 ### GetPlayerCountForTeam
 `public int GetPlayerCountForTeam(Team team)`
 
-**Purpose:** Gets the current value of `player count for team`.
+**Purpose:** Reads and returns the `player count for team` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+var result = multiplayerTeamSelectComponent.GetPlayerCountForTeam(team);
+```
 
 ### GetFriendsForTeam
 `public IEnumerable<VirtualPlayer> GetFriendsForTeam(Team team)`
 
-**Purpose:** Gets the current value of `friends for team`.
+**Purpose:** Reads and returns the `friends for team` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+var result = multiplayerTeamSelectComponent.GetFriendsForTeam(team);
+```
 
 ### BalanceTeams
 `public void BalanceTeams()`
 
-**Purpose:** Handles logic related to `balance teams`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.BalanceTeams();
+```
 
 ### AutoAssignTeam
 `public void AutoAssignTeam(NetworkCommunicator peer)`
 
-**Purpose:** Handles logic related to `auto assign team`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectComponent from the subsystem API first
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.AutoAssignTeam(peer);
+```
 
 ## Usage Example
 
@@ -105,4 +177,4 @@ var component = agent.GetComponent<MultiplayerTeamSelectComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

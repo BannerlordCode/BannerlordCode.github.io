@@ -1,13 +1,7 @@
 ---
 title: "StealthPatrolPointMissionLogic"
+description: "Auto-generated class reference for StealthPatrolPointMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthPatrolPointMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthPatrolPointMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,79 +23,163 @@ Treat `StealthPatrolPointMissionLogic` as a Logic-style extension point: first i
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.AfterStart();
+```
 
 ### OnLocationCharacterAgentSpawned
 `public void OnLocationCharacterAgentSpawned(LocationCharacterAgentSpawnedMissionEvent locationCharacterAgentSpawnedEvent)`
 
-**Purpose:** Called when the `location character agent spawned` event is raised.
+**Purpose:** Invoked when the `location character agent spawned` event is raised.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.OnLocationCharacterAgentSpawned(locationCharacterAgentSpawnedEvent);
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `agent interaction` event is raised.
+**Purpose:** Invoked when the `agent interaction` event is raised.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### OnCheckpointLoadedEvent
 `public void OnCheckpointLoadedEvent(CheckpointLoadedMissionEvent checkpointLoadedMissionEvent)`
 
-**Purpose:** Called when the `checkpoint loaded event` event is raised.
+**Purpose:** Invoked when the `checkpoint loaded event` event is raised.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.OnCheckpointLoadedEvent(checkpointLoadedMissionEvent);
+```
 
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `start spawner`.
+**Purpose:** Starts the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.StartSpawner(side);
+```
 
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `stop spawner`.
+**Purpose:** Stops the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+stealthPatrolPointMissionLogic.StopSpawner(side);
+```
 
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side spawn enabled`.
+**Purpose:** Determines whether the current object is in the `side spawn enabled` state or condition.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.IsSideSpawnEnabled(side);
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side depleted`.
+**Purpose:** Determines whether the current object is in the `side depleted` state or condition.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.IsSideDepleted(side);
+```
 
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**Purpose:** Gets the current value of `reinforcement interval`.
+**Purpose:** Reads and returns the `reinforcement interval` value held by the current object.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.GetReinforcementInterval();
+```
 
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `all troops for side`.
+**Purpose:** Reads and returns the `all troops for side` value held by the current object.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.GetAllTroopsForSide(side);
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.GetNumberOfPlayerControllableTroops();
+```
 
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `spawn horses`.
+**Purpose:** Reads and returns the `spawn horses` value held by the current object.
+
+```csharp
+// Obtain an instance of StealthPatrolPointMissionLogic from the subsystem API first
+StealthPatrolPointMissionLogic stealthPatrolPointMissionLogic = ...;
+var result = stealthPatrolPointMissionLogic.GetSpawnHorses(side);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthPatrolPointMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<StealthPatrolPointMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

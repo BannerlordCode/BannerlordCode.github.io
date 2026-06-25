@@ -1,20 +1,14 @@
 ---
 title: "ScriptComponentBehavior"
+description: "Auto-generated class reference for ScriptComponentBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScriptComponentBehavior`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScriptComponentBehavior
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class ScriptComponentBehavior : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponentBehavior.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ScriptComponentBehavior.cs`
 
 ## Overview
 
@@ -36,24 +30,43 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### SetScriptComponentToTick
 `public void SetScriptComponentToTick(TickRequirement tickReq)`
 
-**Purpose:** Sets the value or state of `script component to tick`.
+**Purpose:** Assigns a new value to `script component to tick` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScriptComponentBehavior from the subsystem API first
+ScriptComponentBehavior scriptComponentBehavior = ...;
+scriptComponentBehavior.SetScriptComponentToTick(tickReq);
+```
 
 ### SetScriptComponentToTickMT
 `public void SetScriptComponentToTickMT(TickRequirement value)`
 
-**Purpose:** Sets the value or state of `script component to tick m t`.
+**Purpose:** Assigns a new value to `script component to tick m t` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScriptComponentBehavior from the subsystem API first
+ScriptComponentBehavior scriptComponentBehavior = ...;
+scriptComponentBehavior.SetScriptComponentToTickMT(value);
+```
 
 ### GetTickRequirement
 `public virtual TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of ScriptComponentBehavior from the subsystem API first
+ScriptComponentBehavior scriptComponentBehavior = ...;
+var result = scriptComponentBehavior.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomScriptComponentBehavior();
+// Typically obtained from a subsystem API or factory
+ScriptComponentBehavior instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

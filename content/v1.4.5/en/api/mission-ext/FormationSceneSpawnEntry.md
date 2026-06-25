@@ -1,20 +1,14 @@
 ---
 title: "FormationSceneSpawnEntry"
+description: "Auto-generated class reference for FormationSceneSpawnEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationSceneSpawnEntry`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationSceneSpawnEntry
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationSceneSpawnEntry`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationSceneSpawnEntry.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationSceneSpawnEntry.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FormationSceneSpawnEntry
 `public struct FormationSceneSpawnEntry(FormationClass formationClass, GameEntity spawnEntity, GameEntity reinforcementSpawnEntity)`
 
-**Purpose:** Handles logic related to `formation scene spawn entry`.
+**Purpose:** Formats `ion scene spawn entry` into a string suitable for display or storage.
+
+```csharp
+// Obtain an instance of FormationSceneSpawnEntry from the subsystem API first
+FormationSceneSpawnEntry formationSceneSpawnEntry = ...;
+var result = formationSceneSpawnEntry.FormationSceneSpawnEntry(formationClass, spawnEntity, reinforcementSpawnEntity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationSceneSpawnEntry();
-value.FormationSceneSpawnEntry(formationClass, spawnEntity, reinforcementSpawnEntity);
+// Typically call this after obtaining an instance from the subsystem API
+FormationSceneSpawnEntry formationSceneSpawnEntry = ...;
+formationSceneSpawnEntry.FormationSceneSpawnEntry(formationClass, spawnEntity, reinforcementSpawnEntity);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

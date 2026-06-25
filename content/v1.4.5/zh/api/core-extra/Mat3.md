@@ -1,20 +1,14 @@
 ---
 title: "Mat3"
+description: "Mat3 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Mat3`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Mat3
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Mat3`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Mat3.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Mat3.cs`
 
 ## 概述
 
@@ -35,210 +29,445 @@ title: "Mat3"
 ### RotateAboutSide
 `public void RotateAboutSide(float a)`
 
-**用途 / Purpose:** 处理 `rotate about side` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.RotateAboutSide(0);
+```
 
 ### RotateAboutForward
 `public void RotateAboutForward(float a)`
 
-**用途 / Purpose:** 处理 `rotate about forward` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.RotateAboutForward(0);
+```
 
 ### RotateAboutUp
 `public void RotateAboutUp(float a)`
 
-**用途 / Purpose:** 处理 `rotate about up` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.RotateAboutUp(0);
+```
 
 ### RotateAboutAnArbitraryVector
 `public void RotateAboutAnArbitraryVector(in Vec3 v, float a)`
 
-**用途 / Purpose:** 处理 `rotate about an arbitrary vector` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.RotateAboutAnArbitraryVector(v, 0);
+```
 
 ### IsOrthonormal
 `public bool IsOrthonormal()`
 
-**用途 / Purpose:** 处理 `is orthonormal` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「orthonormal」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.IsOrthonormal();
+```
 
 ### IsLeftHanded
 `public bool IsLeftHanded()`
 
-**用途 / Purpose:** 处理 `is left handed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「left handed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.IsLeftHanded();
+```
 
 ### NearlyEquals
 `public bool NearlyEquals(in Mat3 rhs, float epsilon = 1E-05f)`
 
-**用途 / Purpose:** 处理 `nearly equals` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.NearlyEquals(rhs, 0);
+```
 
 ### TransformToParent
 `public Vec3 TransformToParent(in Vec3 v)`
 
-**用途 / Purpose:** 处理 `transform to parent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.TransformToParent(v);
+```
 
 ### TransformToParent
 `public Vec2 TransformToParent(in Vec2 v)`
 
-**用途 / Purpose:** 处理 `transform to parent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.TransformToParent(v);
+```
 
 ### TransformToLocal
 `public Vec3 TransformToLocal(in Vec3 v)`
 
-**用途 / Purpose:** 处理 `transform to local` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.TransformToLocal(v);
+```
 
 ### TransformToLocal
 `public Vec2 TransformToLocal(in Vec2 v)`
 
-**用途 / Purpose:** 处理 `transform to local` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.TransformToLocal(v);
+```
 
 ### TransformToParent
 `public Mat3 TransformToParent(in Mat3 m)`
 
-**用途 / Purpose:** 处理 `transform to parent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.TransformToParent(m);
+```
 
 ### TransformToLocal
 `public Mat3 TransformToLocal(in Mat3 m)`
 
-**用途 / Purpose:** 处理 `transform to local` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.TransformToLocal(m);
+```
 
 ### Orthonormalize
 `public void Orthonormalize()`
 
-**用途 / Purpose:** 处理 `orthonormalize` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.Orthonormalize();
+```
 
 ### OrthonormalizeAccordingToForwardAndKeepUpAsZAxis
 `public void OrthonormalizeAccordingToForwardAndKeepUpAsZAxis()`
 
-**用途 / Purpose:** 处理 `orthonormalize according to forward and keep up as z axis` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.OrthonormalizeAccordingToForwardAndKeepUpAsZAxis();
+```
 
 ### GetUnitRotation
 `public Mat3 GetUnitRotation(float removedScale)`
 
-**用途 / Purpose:** 获取 `unit rotation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit rotation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.GetUnitRotation(0);
+```
 
 ### MakeUnit
 `public Vec3 MakeUnit()`
 
-**用途 / Purpose:** 处理 `make unit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.MakeUnit();
+```
 
 ### IsUnit
 `public bool IsUnit()`
 
-**用途 / Purpose:** 处理 `is unit` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「unit」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.IsUnit();
+```
 
 ### ApplyScaleLocal
 `public void ApplyScaleLocal(float scaleAmount)`
 
-**用途 / Purpose:** 将 `scale local` 应用到当前对象。
+**用途 / Purpose:** 将 「scale local」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.ApplyScaleLocal(0);
+```
 
 ### ApplyScaleLocal
 `public void ApplyScaleLocal(in Vec3 scaleAmountXYZ)`
 
-**用途 / Purpose:** 将 `scale local` 应用到当前对象。
+**用途 / Purpose:** 将 「scale local」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.ApplyScaleLocal(scaleAmountXYZ);
+```
 
 ### HasScale
 `public bool HasScale()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `scale`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「scale」。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.HasScale();
+```
 
 ### GetScaleVector
 `public Vec3 GetScaleVector()`
 
-**用途 / Purpose:** 获取 `scale vector` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scale vector」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.GetScaleVector();
+```
 
 ### GetScaleVectorSquared
 `public Vec3 GetScaleVectorSquared()`
 
-**用途 / Purpose:** 获取 `scale vector squared` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scale vector squared」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.GetScaleVectorSquared();
+```
 
 ### ToQuaternion
 `public void ToQuaternion(out Quaternion quat)`
 
-**用途 / Purpose:** 处理 `to quaternion` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.ToQuaternion(quat);
+```
 
 ### ToQuaternion
 `public Quaternion ToQuaternion()`
 
-**用途 / Purpose:** 处理 `to quaternion` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.ToQuaternion();
+```
 
 ### Lerp
 `public static Mat3 Lerp(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**用途 / Purpose:** 处理 `lerp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mat3.Lerp(m1, m2, 0);
+```
 
 ### LerpNonOrthogonal
 `public static Mat3 LerpNonOrthogonal(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**用途 / Purpose:** 处理 `lerp non orthogonal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mat3.LerpNonOrthogonal(m1, m2, 0);
+```
 
 ### Slerp
 `public static Mat3 Slerp(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**用途 / Purpose:** 处理 `slerp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mat3.Slerp(m1, m2, 0);
+```
 
 ### SlerpFPSIndependent
 `public static Mat3 SlerpFPSIndependent(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**用途 / Purpose:** 处理 `slerp f p s independent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mat3.SlerpFPSIndependent(m1, m2, 0);
+```
 
 ### CreateMat3WithForward
 `public static Mat3 CreateMat3WithForward(in Vec3 direction)`
 
-**用途 / Purpose:** 创建一个 `mat3 with forward` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mat3 with forward」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Mat3.CreateMat3WithForward(direction);
+```
 
 ### CreateDiagonalMat3
 `public static Mat3 CreateDiagonalMat3(in Vec3 diagonalData)`
 
-**用途 / Purpose:** 创建一个 `diagonal mat3` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「diagonal mat3」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Mat3.CreateDiagonalMat3(diagonalData);
+```
 
 ### GetEulerAngles
 `public Vec3 GetEulerAngles()`
 
-**用途 / Purpose:** 获取 `euler angles` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「euler angles」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.GetEulerAngles();
+```
 
 ### Transpose
 `public Mat3 Transpose()`
 
-**用途 / Purpose:** 处理 `transpose` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.Transpose();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.GetHashCode();
+```
 
 ### IsIdentity
 `public bool IsIdentity()`
 
-**用途 / Purpose:** 处理 `is identity` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「identity」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.IsIdentity();
+```
 
 ### IsZero
 `public bool IsZero()`
 
-**用途 / Purpose:** 处理 `is zero` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「zero」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.IsZero();
+```
 
 ### IsUniformScaled
 `public bool IsUniformScaled()`
 
-**用途 / Purpose:** 处理 `is uniform scaled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「uniform scaled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+var result = mat3.IsUniformScaled();
+```
 
 ### ApplyEulerAngles
 `public void ApplyEulerAngles(in Vec3 eulerAngles)`
 
-**用途 / Purpose:** 将 `euler angles` 应用到当前对象。
+**用途 / Purpose:** 将 「euler angles」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Mat3 实例
+Mat3 mat3 = ...;
+mat3.ApplyEulerAngles(eulerAngles);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Mat3();
-value.RotateAboutSide(0);
+// 通常从对应子系统 API 获取实例后调用
+Mat3 mat3 = ...;
+mat3.RotateAboutSide(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

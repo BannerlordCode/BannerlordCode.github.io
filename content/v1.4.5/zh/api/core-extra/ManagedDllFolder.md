@@ -1,20 +1,14 @@
 ---
 title: "ManagedDllFolder"
+description: "ManagedDllFolder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedDllFolder`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedDllFolder
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class ManagedDllFolder`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ManagedDllFolder.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ManagedDllFolder.cs`
 
 ## 概述
 
@@ -35,7 +29,12 @@ title: "ManagedDllFolder"
 ### OverrideManagedDllFolder
 `public static void OverrideManagedDllFolder(string overridenFolder)`
 
-**用途 / Purpose:** 处理 `override managed dll folder` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ManagedDllFolder.OverrideManagedDllFolder("example");
+```
 
 ## 使用示例
 
@@ -45,4 +44,4 @@ ManagedDllFolder.OverrideManagedDllFolder("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner"
+description: "Auto-generated class reference for GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/GangLeaderNeedsToOffloadStolenGoodsIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/GangLeaderNeedsToOffloadStolenGoodsIssueBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

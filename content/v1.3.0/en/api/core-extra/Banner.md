@@ -1,13 +1,7 @@
 ---
 title: "Banner"
+description: "Auto-generated class reference for Banner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Banner`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Banner
 
 **Namespace:** TaleWorlds.Core
@@ -37,200 +31,422 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetBannerVisual
 `public void SetBannerVisual(IBannerVisual visual)`
 
-**Purpose:** Sets the value or state of `banner visual`.
+**Purpose:** Assigns a new value to `banner visual` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.SetBannerVisual(visual);
+```
 
 ### GetBannerDataAtIndex
 `public BannerData GetBannerDataAtIndex(int index)`
 
-**Purpose:** Gets the current value of `banner data at index`.
+**Purpose:** Reads and returns the `banner data at index` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetBannerDataAtIndex(0);
+```
 
 ### GetBannerDataListCount
 `public int GetBannerDataListCount()`
 
-**Purpose:** Gets the current value of `banner data list count`.
+**Purpose:** Reads and returns the `banner data list count` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetBannerDataListCount();
+```
 
 ### IsBannerDataListEmpty
 `public bool IsBannerDataListEmpty()`
 
-**Purpose:** Handles logic related to `is banner data list empty`.
+**Purpose:** Determines whether the current object is in the `banner data list empty` state or condition.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.IsBannerDataListEmpty();
+```
 
 ### GetPrimaryColorId
 `public int GetPrimaryColorId()`
 
-**Purpose:** Gets the current value of `primary color id`.
+**Purpose:** Reads and returns the `primary color id` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetPrimaryColorId();
+```
 
 ### GetSecondaryColorId
 `public int GetSecondaryColorId()`
 
-**Purpose:** Gets the current value of `secondary color id`.
+**Purpose:** Reads and returns the `secondary color id` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetSecondaryColorId();
+```
 
 ### GetIconColorId
 `public int GetIconColorId()`
 
-**Purpose:** Gets the current value of `icon color id`.
+**Purpose:** Reads and returns the `icon color id` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetIconColorId();
+```
 
 ### GetIconSize
 `public Vec2 GetIconSize()`
 
-**Purpose:** Gets the current value of `icon size`.
+**Purpose:** Reads and returns the `icon size` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetIconSize();
+```
 
 ### SetPrimaryColorId
 `public void SetPrimaryColorId(int colorId)`
 
-**Purpose:** Sets the value or state of `primary color id`.
+**Purpose:** Assigns a new value to `primary color id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.SetPrimaryColorId(0);
+```
 
 ### SetSecondaryColorId
 `public void SetSecondaryColorId(int colorId)`
 
-**Purpose:** Sets the value or state of `secondary color id`.
+**Purpose:** Assigns a new value to `secondary color id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.SetSecondaryColorId(0);
+```
 
 ### SetIconColorId
 `public void SetIconColorId(int colorId)`
 
-**Purpose:** Sets the value or state of `icon color id`.
+**Purpose:** Assigns a new value to `icon color id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.SetIconColorId(0);
+```
 
 ### SetIconSize
 `public void SetIconSize(int newSize)`
 
-**Purpose:** Sets the value or state of `icon size`.
+**Purpose:** Assigns a new value to `icon size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.SetIconSize(0);
+```
 
 ### ChangePrimaryColor
 `public void ChangePrimaryColor(uint mainColor)`
 
-**Purpose:** Handles logic related to `change primary color`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.ChangePrimaryColor(0);
+```
 
 ### ChangeBackgroundColor
 `public void ChangeBackgroundColor(uint primaryColor, uint secondaryColor)`
 
-**Purpose:** Handles logic related to `change background color`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.ChangeBackgroundColor(0, 0);
+```
 
 ### ChangeIconColors
 `public void ChangeIconColors(uint color)`
 
-**Purpose:** Handles logic related to `change icon colors`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.ChangeIconColors(0);
+```
 
 ### RotateBackgroundToRight
 `public void RotateBackgroundToRight()`
 
-**Purpose:** Handles logic related to `rotate background to right`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.RotateBackgroundToRight();
+```
 
 ### RotateBackgroundToLeft
 `public void RotateBackgroundToLeft()`
 
-**Purpose:** Handles logic related to `rotate background to left`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.RotateBackgroundToLeft();
+```
 
 ### GetBackgroundMeshId
 `public int GetBackgroundMeshId()`
 
-**Purpose:** Gets the current value of `background mesh id`.
+**Purpose:** Reads and returns the `background mesh id` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetBackgroundMeshId();
+```
 
 ### GetIconMeshId
 `public int GetIconMeshId()`
 
-**Purpose:** Gets the current value of `icon mesh id`.
+**Purpose:** Reads and returns the `icon mesh id` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetIconMeshId();
+```
 
 ### SetBackgroundMeshId
 `public void SetBackgroundMeshId(int meshId)`
 
-**Purpose:** Sets the value or state of `background mesh id`.
+**Purpose:** Assigns a new value to `background mesh id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.SetBackgroundMeshId(0);
+```
 
 ### SetIconMeshId
 `public void SetIconMeshId(int meshId)`
 
-**Purpose:** Sets the value or state of `icon mesh id`.
+**Purpose:** Assigns a new value to `icon mesh id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.SetIconMeshId(0);
+```
 
 ### Serialize
 `public string Serialize()`
 
-**Purpose:** Handles logic related to `serialize`.
+**Purpose:** Serializes the current object into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.Serialize();
+```
 
 ### Deserialize
 `public void Deserialize(string message)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.Deserialize("example");
+```
 
 ### ClearAllIcons
 `public void ClearAllIcons()`
 
-**Purpose:** Handles logic related to `clear all icons`.
+**Purpose:** Removes all `all icons` from the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.ClearAllIcons();
+```
 
 ### AddIconData
 `public void AddIconData(BannerData iconData)`
 
 **Purpose:** Adds `icon data` to the current collection or state.
 
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.AddIconData(iconData);
+```
+
 ### AddIconData
 `public void AddIconData(BannerData iconData, int index)`
 
 **Purpose:** Adds `icon data` to the current collection or state.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.AddIconData(iconData, 0);
+```
 
 ### RemoveIconDataAtIndex
 `public void RemoveIconDataAtIndex(int index)`
 
 **Purpose:** Removes `icon data at index` from the current collection or state.
 
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+banner.RemoveIconDataAtIndex(0);
+```
+
 ### CreateRandomClanBanner
 `public static Banner CreateRandomClanBanner(int seed = -1)`
 
-**Purpose:** Creates a new `random clan banner` instance or object.
+**Purpose:** Constructs a new `random clan banner` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Banner.CreateRandomClanBanner(0);
+```
 
 ### CreateRandomBanner
 `public static Banner CreateRandomBanner()`
 
-**Purpose:** Creates a new `random banner` instance or object.
+**Purpose:** Constructs a new `random banner` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Banner.CreateRandomBanner();
+```
 
 ### CreateOneColoredEmptyBanner
 `public static Banner CreateOneColoredEmptyBanner(int colorIndex)`
 
-**Purpose:** Creates a new `one colored empty banner` instance or object.
+**Purpose:** Constructs a new `one colored empty banner` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Banner.CreateOneColoredEmptyBanner(0);
+```
 
 ### CreateOneColoredBannerWithOneIcon
 `public static Banner CreateOneColoredBannerWithOneIcon(uint backgroundColor, uint iconColor, int iconMeshId)`
 
-**Purpose:** Creates a new `one colored banner with one icon` instance or object.
+**Purpose:** Constructs a new `one colored banner with one icon` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Banner.CreateOneColoredBannerWithOneIcon(0, 0, 0);
+```
 
 ### GetPrimaryColor
 `public uint GetPrimaryColor()`
 
-**Purpose:** Gets the current value of `primary color`.
+**Purpose:** Reads and returns the `primary color` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetPrimaryColor();
+```
 
 ### GetSecondaryColor
 `public uint GetSecondaryColor()`
 
-**Purpose:** Gets the current value of `secondary color`.
+**Purpose:** Reads and returns the `secondary color` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetSecondaryColor();
+```
 
 ### GetFirstIconColor
 `public uint GetFirstIconColor()`
 
-**Purpose:** Gets the current value of `first icon color`.
+**Purpose:** Reads and returns the `first icon color` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetFirstIconColor();
+```
 
 ### GetVersionNo
 `public int GetVersionNo()`
 
-**Purpose:** Gets the current value of `version no`.
+**Purpose:** Reads and returns the `version no` value held by the current object.
+
+```csharp
+// Obtain an instance of Banner from the subsystem API first
+Banner banner = ...;
+var result = banner.GetVersionNo();
+```
 
 ### GetBannerCodeFromBannerDataList
 `public static string GetBannerCodeFromBannerDataList(MBList<BannerData> bannerDataList)`
 
-**Purpose:** Gets the current value of `banner code from banner data list`.
+**Purpose:** Reads and returns the `banner code from banner data list` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Banner.GetBannerCodeFromBannerDataList(bannerDataList);
+```
 
 ### IsValidBannerCode
 `public static bool IsValidBannerCode(string bannerCode)`
 
-**Purpose:** Handles logic related to `is valid banner code`.
+**Purpose:** Determines whether the current object is in the `valid banner code` state or condition.
+
+```csharp
+// Static call; no instance required
+Banner.IsValidBannerCode("example");
+```
 
 ### TryGetBannerDataFromCode
 `public static bool TryGetBannerDataFromCode(string bannerCode, out List<BannerData> bannerDataList)`
 
-**Purpose:** Attempts to get `get banner data from code`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get banner data from code`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+Banner.TryGetBannerDataFromCode("example", bannerDataList);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Banner();
-value.SetBannerVisual(visual);
+// Typically call this after obtaining an instance from the subsystem API
+Banner banner = ...;
+banner.SetBannerVisual(visual);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

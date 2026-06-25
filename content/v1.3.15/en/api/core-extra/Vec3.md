@@ -1,13 +1,7 @@
 ---
 title: "Vec3"
+description: "Auto-generated class reference for Vec3."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Vec3`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Vec3
 
 **Namespace:** TaleWorlds.Library
@@ -49,172 +43,364 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Abs
 `public static Vec3 Abs(Vec3 vec)`
 
-**Purpose:** Handles logic related to `abs`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.Abs(vec);
+```
 
 ### Vector3
 `public static explicit operator Vector3(Vec3 vec3)`
 
-**Purpose:** Handles logic related to `vector3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.Vector3(vec3);
+```
 
 ### DotProduct
 `public static float DotProduct(Vec3 v1, Vec3 v2)`
 
-**Purpose:** Handles logic related to `dot product`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.DotProduct(v1, v2);
+```
 
 ### Lerp
 `public static Vec3 Lerp(Vec3 v1, Vec3 v2, float alpha)`
 
-**Purpose:** Handles logic related to `lerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.Lerp(v1, v2, 0);
+```
 
 ### Slerp
 `public static Vec3 Slerp(Vec3 start, Vec3 end, float percent)`
 
-**Purpose:** Handles logic related to `slerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.Slerp(start, end, 0);
+```
 
 ### Vec3Max
 `public static Vec3 Vec3Max(Vec3 v1, Vec3 v2)`
 
-**Purpose:** Handles logic related to `vec3 max`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.Vec3Max(v1, v2);
+```
 
 ### Vec3Min
 `public static Vec3 Vec3Min(Vec3 v1, Vec3 v2)`
 
-**Purpose:** Handles logic related to `vec3 min`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.Vec3Min(v1, v2);
+```
 
 ### CrossProduct
 `public static Vec3 CrossProduct(Vec3 va, Vec3 vb)`
 
-**Purpose:** Handles logic related to `cross product`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.CrossProduct(va, vb);
+```
 
 ### ElementWiseProduct
 `public static Vec3 ElementWiseProduct(Vec3 va, Vec3 vb)`
 
-**Purpose:** Handles logic related to `element wise product`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.ElementWiseProduct(va, vb);
+```
 
 ### ElementWiseDivision
 `public static Vec3 ElementWiseDivision(Vec3 va, Vec3 vb)`
 
-**Purpose:** Handles logic related to `element wise division`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.ElementWiseDivision(va, vb);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.GetHashCode();
+```
 
 ### NormalizedCopy
 `public Vec3 NormalizedCopy()`
 
-**Purpose:** Handles logic related to `normalized copy`.
+**Purpose:** Normalizes `d copy` into a standard form or range.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.NormalizedCopy();
+```
 
 ### Normalize
 `public float Normalize()`
 
-**Purpose:** Handles logic related to `normalize`.
+**Purpose:** Normalizes the current object into a standard form or range.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.Normalize();
+```
 
 ### ClampMagnitude
 `public void ClampMagnitude(float min, float max)`
 
-**Purpose:** Handles logic related to `clamp magnitude`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+vec3.ClampMagnitude(0, 0);
+```
 
 ### ClampedCopy
 `public Vec3 ClampedCopy(float min, float max)`
 
-**Purpose:** Handles logic related to `clamped copy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.ClampedCopy(0, 0);
+```
 
 ### ClampedCopy
 `public Vec3 ClampedCopy(float min, float max, out bool valueClamped)`
 
-**Purpose:** Handles logic related to `clamped copy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.ClampedCopy(0, 0, valueClamped);
+```
 
 ### NormalizeWithoutChangingZ
 `public void NormalizeWithoutChangingZ()`
 
-**Purpose:** Handles logic related to `normalize without changing z`.
+**Purpose:** Normalizes `without changing z` into a standard form or range.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+vec3.NormalizeWithoutChangingZ();
+```
 
 ### CrossProductWithUp
 `public Vec3 CrossProductWithUp()`
 
-**Purpose:** Handles logic related to `cross product with up`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.CrossProductWithUp();
+```
 
 ### CrossProductWithUpAsLeftParameter
 `public Vec3 CrossProductWithUpAsLeftParameter()`
 
-**Purpose:** Handles logic related to `cross product with up as left parameter`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.CrossProductWithUpAsLeftParameter();
+```
 
 ### NearlyEquals
 `public bool NearlyEquals(in Vec3 v, float epsilon = 1E-05f)`
 
-**Purpose:** Handles logic related to `nearly equals`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.NearlyEquals(v, 0);
+```
 
 ### RotateAboutX
 `public void RotateAboutX(float a)`
 
-**Purpose:** Handles logic related to `rotate about x`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+vec3.RotateAboutX(0);
+```
 
 ### RotateAboutY
 `public void RotateAboutY(float a)`
 
-**Purpose:** Handles logic related to `rotate about y`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+vec3.RotateAboutY(0);
+```
 
 ### RotateAboutZ
 `public void RotateAboutZ(float a)`
 
-**Purpose:** Handles logic related to `rotate about z`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+vec3.RotateAboutZ(0);
+```
 
 ### RotateAboutAnArbitraryVector
 `public Vec3 RotateAboutAnArbitraryVector(Vec3 vec, float a)`
 
-**Purpose:** Handles logic related to `rotate about an arbitrary vector`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.RotateAboutAnArbitraryVector(vec, 0);
+```
 
 ### Reflect
 `public Vec3 Reflect(Vec3 normal)`
 
-**Purpose:** Handles logic related to `reflect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.Reflect(normal);
+```
 
 ### ProjectOnUnitVector
 `public Vec3 ProjectOnUnitVector(Vec3 ov)`
 
-**Purpose:** Handles logic related to `project on unit vector`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.ProjectOnUnitVector(ov);
+```
 
 ### DistanceSquared
 `public float DistanceSquared(Vec3 v)`
 
-**Purpose:** Handles logic related to `distance squared`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.DistanceSquared(v);
+```
 
 ### Distance
 `public float Distance(Vec3 v)`
 
-**Purpose:** Handles logic related to `distance`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.Distance(v);
+```
 
 ### RotateVectorToXYPlane
 `public Vec3 RotateVectorToXYPlane()`
 
-**Purpose:** Handles logic related to `rotate vector to x y plane`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.RotateVectorToXYPlane();
+```
 
 ### AngleBetweenTwoVectors
 `public static float AngleBetweenTwoVectors(Vec3 v1, Vec3 v2)`
 
-**Purpose:** Handles logic related to `angle between two vectors`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec3.AngleBetweenTwoVectors(v1, v2);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.ToString();
+```
 
 ### ToString
 `public string ToString(string format)`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Vec3 from the subsystem API first
+Vec3 vec3 = ...;
+var result = vec3.ToString("example");
+```
 
 ### Parse
 `public static Vec3 Parse(string input)`
 
-**Purpose:** Handles logic related to `parse`.
+**Purpose:** Parses external input into a `parse` the current system understands.
+
+```csharp
+// Static call; no instance required
+Vec3.Parse("example");
+```
 
 ## Usage Example
 
@@ -224,4 +410,4 @@ Vec3.Abs(vec);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

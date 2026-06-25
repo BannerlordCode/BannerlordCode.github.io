@@ -1,13 +1,7 @@
 ---
 title: "FireMangonel"
+description: "FireMangonel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FireMangonel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FireMangonel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ title: "FireMangonel"
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** 获取 `siege engine type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege engine type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FireMangonel 实例
+FireMangonel fireMangonel = ...;
+var result = fireMangonel.GetSiegeEngineType();
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**用途 / Purpose:** 处理 `process target value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FireMangonel 实例
+FireMangonel fireMangonel = ...;
+var result = fireMangonel.ProcessTargetValue(0, flags);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FireMangonel();
-value.GetSiegeEngineType();
+// 通常从对应子系统 API 获取实例后调用
+FireMangonel fireMangonel = ...;
+fireMangonel.GetSiegeEngineType();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

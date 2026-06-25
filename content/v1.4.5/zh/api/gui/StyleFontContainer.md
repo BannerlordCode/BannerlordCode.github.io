@@ -1,20 +1,14 @@
 ---
 title: "StyleFontContainer"
+description: "StyleFontContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StyleFontContainer`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StyleFontContainer
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class StyleFontContainer`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/StyleFontContainer.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/StyleFontContainer.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "StyleFontContainer"
 ### FontData
 `public struct FontData(Font font, float fontSize)`
 
-**用途 / Purpose:** 处理 `font data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StyleFontContainer 实例
+StyleFontContainer styleFontContainer = ...;
+var result = styleFontContainer.FontData(font, 0);
+```
 
 ### Add
 `public void Add(string style, Font font, float fontSize)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 StyleFontContainer 实例
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.Add("example", font, 0);
+```
 
 ### GetFontData
 `public FontData GetFontData(string style)`
 
-**用途 / Purpose:** 获取 `font data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「font data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StyleFontContainer 实例
+StyleFontContainer styleFontContainer = ...;
+var result = styleFontContainer.GetFontData("example");
+```
 
 ### ClearFonts
 `public void ClearFonts()`
 
-**用途 / Purpose:** 处理 `clear fonts` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「fonts」。
+
+```csharp
+// 先通过子系统 API 拿到 StyleFontContainer 实例
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.ClearFonts();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StyleFontContainer();
-value.FontData(font, 0);
+// 通常从对应子系统 API 获取实例后调用
+StyleFontContainer styleFontContainer = ...;
+styleFontContainer.FontData(font, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

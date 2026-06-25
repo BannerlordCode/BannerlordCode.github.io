@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleFormationClassSelectorItemVM"
+description: "Auto-generated class reference for OrderOfBattleFormationClassSelectorItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationClassSelectorItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationClassSelectorItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleFormationClassSelectorItemVM : SelectorItemVM`
 **Base:** `SelectorItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleFormationClassSelectorItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleFormationClassSelectorItemVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationClassSelectorItemVM from the subsystem API first
+OrderOfBattleFormationClassSelectorItemVM orderOfBattleFormationClassSelectorItemVM = ...;
+orderOfBattleFormationClassSelectorItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleFormationClassSelectorItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+OrderOfBattleFormationClassSelectorItemVM orderOfBattleFormationClassSelectorItemVM = ...;
+orderOfBattleFormationClassSelectorItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

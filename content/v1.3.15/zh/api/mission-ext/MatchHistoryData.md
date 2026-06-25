@@ -1,13 +1,7 @@
 ---
 title: "MatchHistoryData"
+description: "MatchHistoryData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MatchHistoryData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MatchHistoryData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
@@ -45,24 +39,43 @@ title: "MatchHistoryData"
 ### HasSameContentWith
 `public override bool HasSameContentWith(MultiplayerLocalData other)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `same content with`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「same content with」。
+
+```csharp
+// 先通过子系统 API 拿到 MatchHistoryData 实例
+MatchHistoryData matchHistoryData = ...;
+var result = matchHistoryData.HasSameContentWith(other);
+```
 
 ### AddOrUpdatePlayer
 `public void AddOrUpdatePlayer(string id, string username, int forcedIndex, int teamNo)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `or update player`。
+**用途 / Purpose:** 将 「or update player」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MatchHistoryData 实例
+MatchHistoryData matchHistoryData = ...;
+matchHistoryData.AddOrUpdatePlayer("example", "example", 0, 0);
+```
 
 ### TryUpdatePlayerStats
 `public bool TryUpdatePlayerStats(string id, int kill, int death, int assist)`
 
-**用途 / Purpose:** 尝试获取 `update player stats`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「update player stats」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 MatchHistoryData 实例
+MatchHistoryData matchHistoryData = ...;
+var result = matchHistoryData.TryUpdatePlayerStats("example", 0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MatchHistoryData();
+// 该数据对象通常由战役/任务 API 返回
+MatchHistoryData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

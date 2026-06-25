@@ -1,13 +1,7 @@
 ---
 title: "ColumnFormation"
+description: "Auto-generated class reference for ColumnFormation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ColumnFormation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ColumnFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -51,265 +45,572 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.Clone(formation);
+```
 
 ### DeepCopyFrom
 `public void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**Purpose:** Handles logic related to `deep copy from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.DeepCopyFrom(arrangement);
+```
 
 ### GetPlayerUnit
 `public IFormationUnit GetPlayerUnit()`
 
-**Purpose:** Gets the current value of `player unit`.
+**Purpose:** Reads and returns the `player unit` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetPlayerUnit();
+```
 
 ### GetAllUnits
 `public MBReadOnlyList<IFormationUnit> GetAllUnits()`
 
-**Purpose:** Gets the current value of `all units`.
+**Purpose:** Reads and returns the `all units` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetAllUnits();
+```
 
 ### GetAllUnits
 `public void GetAllUnits(in MBList<IFormationUnit> allUnitsListToBeFilledIn)`
 
-**Purpose:** Gets the current value of `all units`.
+**Purpose:** Reads and returns the `all units` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.GetAllUnits(allUnitsListToBeFilledIn);
+```
 
 ### GetUnpositionedUnits
 `public MBList<IFormationUnit> GetUnpositionedUnits()`
 
-**Purpose:** Gets the current value of `unpositioned units`.
+**Purpose:** Reads and returns the `unpositioned units` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnpositionedUnits();
+```
 
 ### AddUnit
 `public bool AddUnit(IFormationUnit unit)`
 
 **Purpose:** Adds `unit` to the current collection or state.
 
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.AddUnit(unit);
+```
+
 ### RemoveUnit
 `public void RemoveUnit(IFormationUnit unit)`
 
 **Purpose:** Removes `unit` from the current collection or state.
 
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.RemoveUnit(unit);
+```
+
 ### GetUnit
 `public IFormationUnit GetUnit(int fileIndex, int rankIndex)`
 
-**Purpose:** Gets the current value of `unit`.
+**Purpose:** Reads and returns the `unit` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnit(0, 0);
+```
 
 ### OnBatchRemoveStart
 `public void OnBatchRemoveStart()`
 
-**Purpose:** Called when the `batch remove start` event is raised.
+**Purpose:** Invoked when the `batch remove start` event is raised.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.OnBatchRemoveStart();
+```
 
 ### OnBatchRemoveEnd
 `public void OnBatchRemoveEnd()`
 
-**Purpose:** Called when the `batch remove end` event is raised.
+**Purpose:** Invoked when the `batch remove end` event is raised.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.OnBatchRemoveEnd();
+```
 
 ### GetLocalPositionOfUnitOrDefault
 `public Vec2? GetLocalPositionOfUnitOrDefault(int unitIndex)`
 
-**Purpose:** Gets the current value of `local position of unit or default`.
+**Purpose:** Reads and returns the `local position of unit or default` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalPositionOfUnitOrDefault(0);
+```
 
 ### GetLocalDirectionOfUnitOrDefault
 `public Vec2? GetLocalDirectionOfUnitOrDefault(int unitIndex)`
 
-**Purpose:** Gets the current value of `local direction of unit or default`.
+**Purpose:** Reads and returns the `local direction of unit or default` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalDirectionOfUnitOrDefault(0);
+```
 
 ### GetWorldPositionOfUnitOrDefault
 `public WorldPosition? GetWorldPositionOfUnitOrDefault(int unitIndex)`
 
-**Purpose:** Gets the current value of `world position of unit or default`.
+**Purpose:** Reads and returns the `world position of unit or default` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetWorldPositionOfUnitOrDefault(0);
+```
 
 ### GetLocalPositionOfUnitOrDefault
 `public Vec2? GetLocalPositionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `local position of unit or default`.
+**Purpose:** Reads and returns the `local position of unit or default` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalPositionOfUnitOrDefault(unit);
+```
 
 ### GetLocalPositionOfUnitOrDefaultWithAdjustment
 `public Vec2? GetLocalPositionOfUnitOrDefaultWithAdjustment(IFormationUnit unit, float distanceBetweenAgentsAdjustment)`
 
-**Purpose:** Gets the current value of `local position of unit or default with adjustment`.
+**Purpose:** Reads and returns the `local position of unit or default with adjustment` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalPositionOfUnitOrDefaultWithAdjustment(unit, 0);
+```
 
 ### GetWorldPositionOfUnitOrDefault
 `public WorldPosition? GetWorldPositionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `world position of unit or default`.
+**Purpose:** Reads and returns the `world position of unit or default` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetWorldPositionOfUnitOrDefault(unit);
+```
 
 ### GetLocalDirectionOfUnitOrDefault
 `public Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `local direction of unit or default`.
+**Purpose:** Reads and returns the `local direction of unit or default` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalDirectionOfUnitOrDefault(unit);
+```
 
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count)`
 
-**Purpose:** Gets the current value of `units to pop`.
+**Purpose:** Reads and returns the `units to pop` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitsToPop(0);
+```
 
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count, Vec3 targetPosition)`
 
-**Purpose:** Gets the current value of `units to pop`.
+**Purpose:** Reads and returns the `units to pop` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitsToPop(0, targetPosition);
+```
 
 ### GetUnitsToPopWithCondition
 `public IEnumerable<IFormationUnit> GetUnitsToPopWithCondition(int count, Func<IFormationUnit, bool> currentCondition)`
 
-**Purpose:** Gets the current value of `units to pop with condition`.
+**Purpose:** Reads and returns the `units to pop with condition` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitsToPopWithCondition(0, func<IFormationUnit, false);
+```
 
 ### SwitchUnitLocations
 `public void SwitchUnitLocations(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**Purpose:** Handles logic related to `switch unit locations`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.SwitchUnitLocations(firstUnit, secondUnit);
+```
 
 ### SwitchUnitLocationsWithUnpositionedUnit
 `public void SwitchUnitLocationsWithUnpositionedUnit(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**Purpose:** Handles logic related to `switch unit locations with unpositioned unit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.SwitchUnitLocationsWithUnpositionedUnit(firstUnit, secondUnit);
+```
 
 ### SwitchUnitLocationsWithBackMostUnit
 `public void SwitchUnitLocationsWithBackMostUnit(IFormationUnit unit)`
 
-**Purpose:** Handles logic related to `switch unit locations with back most unit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.SwitchUnitLocationsWithBackMostUnit(unit);
+```
 
 ### GetUnitsDistanceToFrontLine
 `public float GetUnitsDistanceToFrontLine(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `units distance to front line`.
+**Purpose:** Reads and returns the `units distance to front line` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitsDistanceToFrontLine(unit);
+```
 
 ### GetLocalDirectionOfRelativeFormationLocation
 `public Vec2? GetLocalDirectionOfRelativeFormationLocation(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `local direction of relative formation location`.
+**Purpose:** Reads and returns the `local direction of relative formation location` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalDirectionOfRelativeFormationLocation(unit);
+```
 
 ### GetLocalWallDirectionOfRelativeFormationLocation
 `public Vec2? GetLocalWallDirectionOfRelativeFormationLocation(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `local wall direction of relative formation location`.
+**Purpose:** Reads and returns the `local wall direction of relative formation location` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalWallDirectionOfRelativeFormationLocation(unit);
+```
 
 ### GetUnavailableUnitPositions
 `public IEnumerable<Vec2> GetUnavailableUnitPositions()`
 
-**Purpose:** Gets the current value of `unavailable unit positions`.
+**Purpose:** Reads and returns the `unavailable unit positions` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnavailableUnitPositions();
+```
 
 ### GetOccupationWidth
 `public float GetOccupationWidth(int unitCount)`
 
-**Purpose:** Gets the current value of `occupation width`.
+**Purpose:** Reads and returns the `occupation width` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetOccupationWidth(0);
+```
 
 ### CreateNewPosition
 `public Vec2? CreateNewPosition(int unitIndex)`
 
-**Purpose:** Creates a new `new position` instance or object.
+**Purpose:** Constructs a new `new position` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.CreateNewPosition(0);
+```
 
 ### InvalidateCacheOfUnitAux
 `public void InvalidateCacheOfUnitAux(Vec2 roundedLocalPosition)`
 
-**Purpose:** Handles logic related to `invalidate cache of unit aux`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.InvalidateCacheOfUnitAux(roundedLocalPosition);
+```
 
 ### BeforeFormationFrameChange
 `public void BeforeFormationFrameChange()`
 
-**Purpose:** Handles logic related to `before formation frame change`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.BeforeFormationFrameChange();
+```
 
 ### OnFormationFrameChanged
 `public void OnFormationFrameChanged(bool updateCachedOrderedLocalPositions = false)`
 
-**Purpose:** Called when the `formation frame changed` event is raised.
+**Purpose:** Invoked when the `formation frame changed` event is raised.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.OnFormationFrameChanged(false);
+```
 
 ### OnUnitLostMount
 `public void OnUnitLostMount(IFormationUnit unit)`
 
-**Purpose:** Called when the `unit lost mount` event is raised.
+**Purpose:** Invoked when the `unit lost mount` event is raised.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.OnUnitLostMount(unit);
+```
 
 ### IsTurnBackwardsNecessary
 `public bool IsTurnBackwardsNecessary(Vec2 previousPosition, WorldPosition? newPosition, Vec2 previousDirection, bool hasNewDirection, Vec2? newDirection)`
 
-**Purpose:** Handles logic related to `is turn backwards necessary`.
+**Purpose:** Determines whether the current object is in the `turn backwards necessary` state or condition.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.IsTurnBackwardsNecessary(previousPosition, newPosition, previousDirection, false, newDirection);
+```
 
 ### TurnBackwards
 `public void TurnBackwards()`
 
-**Purpose:** Handles logic related to `turn backwards`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.TurnBackwards();
+```
 
 ### OnFormationDispersed
 `public void OnFormationDispersed()`
 
-**Purpose:** Called when the `formation dispersed` event is raised.
+**Purpose:** Invoked when the `formation dispersed` event is raised.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.OnFormationDispersed();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.Reset();
+```
 
 ### RearrangeFrom
 `public virtual void RearrangeFrom(IFormationArrangement arrangement)`
 
-**Purpose:** Handles logic related to `rearrange from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.RearrangeFrom(arrangement);
+```
 
 ### RearrangeTo
 `public virtual void RearrangeTo(IFormationArrangement arrangement)`
 
-**Purpose:** Handles logic related to `rearrange to`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.RearrangeTo(arrangement);
+```
 
 ### RearrangeTransferUnits
 `public virtual void RearrangeTransferUnits(IFormationArrangement arrangement)`
 
-**Purpose:** Handles logic related to `rearrange transfer units`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.RearrangeTransferUnits(arrangement);
+```
 
 ### FormFromWidth
 `public void FormFromWidth(float width)`
 
-**Purpose:** Handles logic related to `form from width`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.FormFromWidth(0);
+```
 
 ### GetNeighborUnitOfLeftSide
 `public IFormationUnit GetNeighborUnitOfLeftSide(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `neighbor unit of left side`.
+**Purpose:** Reads and returns the `neighbor unit of left side` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetNeighborUnitOfLeftSide(unit);
+```
 
 ### GetNeighborUnitOfRightSide
 `public IFormationUnit GetNeighborUnitOfRightSide(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `neighbor unit of right side`.
+**Purpose:** Reads and returns the `neighbor unit of right side` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetNeighborUnitOfRightSide(unit);
+```
 
 ### ReserveMiddleFrontUnitPosition
 `public void ReserveMiddleFrontUnitPosition(IFormationUnit vanguard)`
 
-**Purpose:** Handles logic related to `reserve middle front unit position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.ReserveMiddleFrontUnitPosition(vanguard);
+```
 
 ### ReleaseMiddleFrontUnitPosition
 `public void ReleaseMiddleFrontUnitPosition()`
 
-**Purpose:** Handles logic related to `release middle front unit position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.ReleaseMiddleFrontUnitPosition();
+```
 
 ### GetLocalPositionOfReservedUnitPosition
 `public Vec2 GetLocalPositionOfReservedUnitPosition()`
 
-**Purpose:** Gets the current value of `local position of reserved unit position`.
+**Purpose:** Reads and returns the `local position of reserved unit position` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalPositionOfReservedUnitPosition();
+```
 
 ### OnTickOccasionallyOfUnit
 `public void OnTickOccasionallyOfUnit(IFormationUnit unit, bool arrangementChangeAllowed)`
 
-**Purpose:** Called when the `tick occasionally of unit` event is raised.
+**Purpose:** Invoked when the `tick occasionally of unit` event is raised.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.OnTickOccasionallyOfUnit(unit, false);
+```
 
 ### GetDirectionChangeTendencyOfUnit
 `public float GetDirectionChangeTendencyOfUnit(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `direction change tendency of unit`.
+**Purpose:** Reads and returns the `direction change tendency of unit` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetDirectionChangeTendencyOfUnit(unit);
+```
 
 ### UpdateLocalPositionErrors
 `public void UpdateLocalPositionErrors(bool recalculateErrors)`
 
-**Purpose:** Updates the state or data of `local position errors`.
+**Purpose:** Recalculates and stores the latest representation of `local position errors`.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+columnFormation.UpdateLocalPositionErrors(false);
+```
 
 ### GetUnitPositionsOnVanguardFileIndex
 `public List<Vec2> GetUnitPositionsOnVanguardFileIndex()`
 
-**Purpose:** Gets the current value of `unit positions on vanguard file index`.
+**Purpose:** Reads and returns the `unit positions on vanguard file index` value held by the current object.
+
+```csharp
+// Obtain an instance of ColumnFormation from the subsystem API first
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitPositionsOnVanguardFileIndex();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ColumnFormation();
-value.Clone(formation);
+// Typically call this after obtaining an instance from the subsystem API
+ColumnFormation columnFormation = ...;
+columnFormation.Clone(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

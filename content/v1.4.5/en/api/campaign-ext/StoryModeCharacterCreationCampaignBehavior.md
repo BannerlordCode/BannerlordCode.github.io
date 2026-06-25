@@ -1,20 +1,14 @@
 ---
 title: "StoryModeCharacterCreationCampaignBehavior"
+description: "Auto-generated class reference for StoryModeCharacterCreationCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeCharacterCreationCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeCharacterCreationCampaignBehavior
 
 **Namespace:** StoryMode.GameComponents.CampaignBehaviors
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeCharacterCreationCampaignBehavior : CampaignBehaviorBase, ICharacterCreationContentHandler`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents.CampaignBehaviors/StoryModeCharacterCreationCampaignBehavior.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents.CampaignBehaviors/StoryModeCharacterCreationCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GameComponents.CampaignBehaviors` to place it in
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of StoryModeCharacterCreationCampaignBehavior from the subsystem API first
+StoryModeCharacterCreationCampaignBehavior storyModeCharacterCreationCampaignBehavior = ...;
+storyModeCharacterCreationCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of StoryModeCharacterCreationCampaignBehavior from the subsystem API first
+StoryModeCharacterCreationCampaignBehavior storyModeCharacterCreationCampaignBehavior = ...;
+storyModeCharacterCreationCampaignBehavior.SyncData(dataStore);
+```
 
 ### InitializeCharacterCreationStages
 `public void InitializeCharacterCreationStages(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Initializes the state, resources, or bindings for `character creation stages`.
+**Purpose:** Prepares the resources, state, or bindings required by `character creation stages`.
+
+```csharp
+// Obtain an instance of StoryModeCharacterCreationCampaignBehavior from the subsystem API first
+StoryModeCharacterCreationCampaignBehavior storyModeCharacterCreationCampaignBehavior = ...;
+storyModeCharacterCreationCampaignBehavior.InitializeCharacterCreationStages(characterCreationManager);
+```
 
 ### InitializeData
 `public void InitializeData(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Initializes the state, resources, or bindings for `data`.
+**Purpose:** Prepares the resources, state, or bindings required by `data`.
+
+```csharp
+// Obtain an instance of StoryModeCharacterCreationCampaignBehavior from the subsystem API first
+StoryModeCharacterCreationCampaignBehavior storyModeCharacterCreationCampaignBehavior = ...;
+storyModeCharacterCreationCampaignBehavior.InitializeData(characterCreationManager);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StoryModeCharacterCreationCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+StoryModeCharacterCreationCampaignBehavior storyModeCharacterCreationCampaignBehavior = ...;
+storyModeCharacterCreationCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

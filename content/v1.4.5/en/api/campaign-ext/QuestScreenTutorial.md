@@ -1,20 +1,14 @@
 ---
 title: "QuestScreenTutorial"
+description: "Auto-generated class reference for QuestScreenTutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestScreenTutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestScreenTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class QuestScreenTutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/QuestScreenTutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/QuestScreenTutorial.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of QuestScreenTutorial from the subsystem API first
+QuestScreenTutorial questScreenTutorial = ...;
+var result = questScreenTutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of QuestScreenTutorial from the subsystem API first
+QuestScreenTutorial questScreenTutorial = ...;
+var result = questScreenTutorial.IsConditionsMetForActivation();
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of QuestScreenTutorial from the subsystem API first
+QuestScreenTutorial questScreenTutorial = ...;
+var result = questScreenTutorial.IsConditionsMetForCompletion();
+```
 
 ### OnTutorialContextChanged
 `public override void OnTutorialContextChanged(TutorialContextChangedEvent obj)`
 
-**Purpose:** Called when the `tutorial context changed` event is raised.
+**Purpose:** Invoked when the `tutorial context changed` event is raised.
+
+```csharp
+// Obtain an instance of QuestScreenTutorial from the subsystem API first
+QuestScreenTutorial questScreenTutorial = ...;
+questScreenTutorial.OnTutorialContextChanged(obj);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestScreenTutorial();
-value.GetTutorialsRelevantContext();
+// Typically call this after obtaining an instance from the subsystem API
+QuestScreenTutorial questScreenTutorial = ...;
+questScreenTutorial.GetTutorialsRelevantContext();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

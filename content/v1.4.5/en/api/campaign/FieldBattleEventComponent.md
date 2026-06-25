@@ -1,20 +1,14 @@
 ---
 title: "FieldBattleEventComponent"
+description: "Auto-generated class reference for FieldBattleEventComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FieldBattleEventComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FieldBattleEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FieldBattleEventComponent : MapEventComponent`
 **Base:** `MapEventComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/FieldBattleEventComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/FieldBattleEventComponent.cs`
 
 ## Overview
 
@@ -35,12 +29,22 @@ Treat `FieldBattleEventComponent` as a Component-style extension point: first id
 ### CreateFieldBattleEvent
 `public static FieldBattleEventComponent CreateFieldBattleEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Creates a new `field battle event` instance or object.
+**Purpose:** Constructs a new `field battle event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+FieldBattleEventComponent.CreateFieldBattleEvent(attackerParty, defenderParty);
+```
 
 ### CreateComponentForOldSaves
 `public static FieldBattleEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
 
-**Purpose:** Creates a new `component for old saves` instance or object.
+**Purpose:** Constructs a new `component for old saves` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+FieldBattleEventComponent.CreateComponentForOldSaves(mapEvent);
+```
 
 ## Usage Example
 
@@ -50,4 +54,4 @@ var component = agent.GetComponent<FieldBattleEventComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

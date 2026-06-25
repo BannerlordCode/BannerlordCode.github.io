@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaFilterItem"
+description: "Auto-generated class reference for EncyclopediaFilterItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaFilterItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaFilterItem
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaFilterItem`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaFilterItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaFilterItem.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ## Usage Example
 
 ```csharp
-var example = new EncyclopediaFilterItem();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaFilterItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

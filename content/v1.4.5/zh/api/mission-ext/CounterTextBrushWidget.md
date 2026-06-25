@@ -1,20 +1,14 @@
 ---
 title: "CounterTextBrushWidget"
+description: "CounterTextBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CounterTextBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CounterTextBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CounterTextBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/CounterTextBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/CounterTextBrushWidget.cs`
 
 ## 概述
 
@@ -42,19 +36,32 @@ title: "CounterTextBrushWidget"
 ### SetInitialValue
 `public void SetInitialValue(float value)`
 
-**用途 / Purpose:** 设置 `initial value` 的值或状态。
+**用途 / Purpose:** 为 「initial value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CounterTextBrushWidget 实例
+CounterTextBrushWidget counterTextBrushWidget = ...;
+counterTextBrushWidget.SetInitialValue(0);
+```
 
 ### ForceSetValue
 `public void ForceSetValue(float value)`
 
-**用途 / Purpose:** 处理 `force set value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CounterTextBrushWidget 实例
+CounterTextBrushWidget counterTextBrushWidget = ...;
+counterTextBrushWidget.ForceSetValue(0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new CounterTextBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+CounterTextBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

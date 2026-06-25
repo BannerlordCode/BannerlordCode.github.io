@@ -1,13 +1,7 @@
 ---
 title: "BanditInteractionsCampaignBehaviorTypeDefiner"
+description: "Auto-generated class reference for BanditInteractionsCampaignBehaviorTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BanditInteractionsCampaignBehaviorTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BanditInteractionsCampaignBehaviorTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-var example = new BanditInteractionsCampaignBehaviorTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+BanditInteractionsCampaignBehaviorTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

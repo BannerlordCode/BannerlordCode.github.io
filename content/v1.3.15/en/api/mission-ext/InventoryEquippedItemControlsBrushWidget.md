@@ -1,13 +1,7 @@
 ---
 title: "InventoryEquippedItemControlsBrushWidget"
+description: "Auto-generated class reference for InventoryEquippedItemControlsBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryEquippedItemControlsBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryEquippedItemControlsBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
@@ -37,24 +31,43 @@ Treat `InventoryEquippedItemControlsBrushWidget` as a Widget-style extension poi
 ### ShowPanel
 `public void ShowPanel()`
 
-**Purpose:** Handles logic related to `show panel`.
+**Purpose:** Displays the UI or element associated with `panel`.
+
+```csharp
+// Obtain an instance of InventoryEquippedItemControlsBrushWidget from the subsystem API first
+InventoryEquippedItemControlsBrushWidget inventoryEquippedItemControlsBrushWidget = ...;
+inventoryEquippedItemControlsBrushWidget.ShowPanel();
+```
 
 ### HidePanel
 `public void HidePanel()`
 
-**Purpose:** Handles logic related to `hide panel`.
+**Purpose:** Hides the UI or element associated with `panel`.
+
+```csharp
+// Obtain an instance of InventoryEquippedItemControlsBrushWidget from the subsystem API first
+InventoryEquippedItemControlsBrushWidget inventoryEquippedItemControlsBrushWidget = ...;
+inventoryEquippedItemControlsBrushWidget.HidePanel();
+```
 
 ### ButtonClickEventHandler
 `public delegate void ButtonClickEventHandler(Widget itemWidget)`
 
-**Purpose:** Handles logic related to `button click event handler`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InventoryEquippedItemControlsBrushWidget from the subsystem API first
+InventoryEquippedItemControlsBrushWidget inventoryEquippedItemControlsBrushWidget = ...;
+inventoryEquippedItemControlsBrushWidget.ButtonClickEventHandler(itemWidget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new InventoryEquippedItemControlsBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InventoryEquippedItemControlsBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

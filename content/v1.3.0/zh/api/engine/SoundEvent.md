@@ -1,13 +1,7 @@
 ---
 title: "SoundEvent"
+description: "SoundEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SoundEvent`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundEvent
 
 **Namespace:** TaleWorlds.Engine
@@ -35,145 +29,300 @@ title: "SoundEvent"
 ### GetSoundId
 `public int GetSoundId()`
 
-**用途 / Purpose:** 获取 `sound id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sound id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+var result = soundEvent.GetSoundId();
+```
 
 ### CreateEventFromString
 `public static SoundEvent CreateEventFromString(string eventId, Scene scene)`
 
-**用途 / Purpose:** 创建一个 `event from string` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「event from string」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SoundEvent.CreateEventFromString("example", scene);
+```
 
 ### SetEventMinMaxDistance
 `public void SetEventMinMaxDistance(Vec3 newRadius)`
 
-**用途 / Purpose:** 设置 `event min max distance` 的值或状态。
+**用途 / Purpose:** 为 「event min max distance」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.SetEventMinMaxDistance(newRadius);
+```
 
 ### GetEventIdFromString
 `public static int GetEventIdFromString(string name)`
 
-**用途 / Purpose:** 获取 `event id from string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「event id from string」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SoundEvent.GetEventIdFromString("example");
+```
 
 ### PlaySound2D
 `public static bool PlaySound2D(int soundCodeId)`
 
-**用途 / Purpose:** 处理 `play sound2 d` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SoundEvent.PlaySound2D(0);
+```
 
 ### PlaySound2D
 `public static bool PlaySound2D(string soundName)`
 
-**用途 / Purpose:** 处理 `play sound2 d` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SoundEvent.PlaySound2D("example");
+```
 
 ### GetTotalEventCount
 `public static int GetTotalEventCount()`
 
-**用途 / Purpose:** 获取 `total event count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total event count」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SoundEvent.GetTotalEventCount();
+```
 
 ### CreateEvent
 `public static SoundEvent CreateEvent(int soundCodeId, Scene scene)`
 
-**用途 / Purpose:** 创建一个 `event` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「event」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SoundEvent.CreateEvent(0, scene);
+```
 
 ### IsNullSoundEvent
 `public bool IsNullSoundEvent()`
 
-**用途 / Purpose:** 处理 `is null sound event` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「null sound event」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+var result = soundEvent.IsNullSoundEvent();
+```
 
 ### Play
 `public bool Play()`
 
-**用途 / Purpose:** 处理 `play` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+var result = soundEvent.Play();
+```
 
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** 处理 `pause` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.Pause();
+```
 
 ### Resume
 `public void Resume()`
 
-**用途 / Purpose:** 处理 `resume` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.Resume();
+```
 
 ### PlayExtraEvent
 `public void PlayExtraEvent(string eventName)`
 
-**用途 / Purpose:** 处理 `play extra event` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.PlayExtraEvent("example");
+```
 
 ### SetSwitch
 `public void SetSwitch(string switchGroupName, string newSwitchStateName)`
 
-**用途 / Purpose:** 设置 `switch` 的值或状态。
+**用途 / Purpose:** 为 「switch」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.SetSwitch("example", "example");
+```
 
 ### TriggerCue
 `public void TriggerCue()`
 
-**用途 / Purpose:** 处理 `trigger cue` 相关逻辑。
+**用途 / Purpose:** 触发「cue」对应的逻辑或事件。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.TriggerCue();
+```
 
 ### PlayInPosition
 `public bool PlayInPosition(Vec3 position)`
 
-**用途 / Purpose:** 处理 `play in position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+var result = soundEvent.PlayInPosition(position);
+```
 
 ### Stop
 `public void Stop()`
 
-**用途 / Purpose:** 处理 `stop` 相关逻辑。
+**用途 / Purpose:** 停止当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.Stop();
+```
 
 ### SetParameter
 `public void SetParameter(string parameterName, float value)`
 
-**用途 / Purpose:** 设置 `parameter` 的值或状态。
+**用途 / Purpose:** 为 「parameter」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.SetParameter("example", 0);
+```
 
 ### SetParameter
 `public void SetParameter(int parameterIndex, float value)`
 
-**用途 / Purpose:** 设置 `parameter` 的值或状态。
+**用途 / Purpose:** 为 「parameter」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.SetParameter(0, 0);
+```
 
 ### GetEventMinMaxDistance
 `public Vec3 GetEventMinMaxDistance()`
 
-**用途 / Purpose:** 获取 `event min max distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「event min max distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+var result = soundEvent.GetEventMinMaxDistance();
+```
 
 ### SetPosition
 `public void SetPosition(Vec3 vec)`
 
-**用途 / Purpose:** 设置 `position` 的值或状态。
+**用途 / Purpose:** 为 「position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.SetPosition(vec);
+```
 
 ### SetVelocity
 `public void SetVelocity(Vec3 vec)`
 
-**用途 / Purpose:** 设置 `velocity` 的值或状态。
+**用途 / Purpose:** 为 「velocity」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.SetVelocity(vec);
+```
 
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 处理 `release` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+soundEvent.Release();
+```
 
 ### IsPlaying
 `public bool IsPlaying()`
 
-**用途 / Purpose:** 处理 `is playing` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「playing」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+var result = soundEvent.IsPlaying();
+```
 
 ### IsPaused
 `public bool IsPaused()`
 
-**用途 / Purpose:** 处理 `is paused` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「paused」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SoundEvent 实例
+SoundEvent soundEvent = ...;
+var result = soundEvent.IsPaused();
+```
 
 ### CreateEventFromSoundBuffer
 `public static SoundEvent CreateEventFromSoundBuffer(string eventId, byte soundData, Scene scene, bool is3d, bool isBlocking)`
 
-**用途 / Purpose:** 创建一个 `event from sound buffer` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「event from sound buffer」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SoundEvent.CreateEventFromSoundBuffer("example", 0, scene, false, false);
+```
 
 ### CreateEventFromExternalFile
 `public static SoundEvent CreateEventFromExternalFile(string programmerEventName, string soundFilePath, Scene scene, bool is3d, bool isBlocking)`
 
-**用途 / Purpose:** 创建一个 `event from external file` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「event from external file」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SoundEvent.CreateEventFromExternalFile("example", "example", scene, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SoundEvent();
-value.GetSoundId();
+// 通常从对应子系统 API 获取实例后调用
+SoundEvent soundEvent = ...;
+soundEvent.GetSoundId();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

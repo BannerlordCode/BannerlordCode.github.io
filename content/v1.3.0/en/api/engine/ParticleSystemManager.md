@@ -1,13 +1,7 @@
 ---
 title: "ParticleSystemManager"
+description: "Auto-generated class reference for ParticleSystemManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ParticleSystemManager`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ParticleSystemManager
 
 **Namespace:** TaleWorlds.Engine
@@ -29,7 +23,12 @@ Treat `ParticleSystemManager` as a Manager-style extension point: first identify
 ### GetRuntimeIdByName
 `public static int GetRuntimeIdByName(string particleSystemName)`
 
-**Purpose:** Gets the current value of `runtime id by name`.
+**Purpose:** Reads and returns the `runtime id by name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ParticleSystemManager.GetRuntimeIdByName("example");
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ var manager = ParticleSystemManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

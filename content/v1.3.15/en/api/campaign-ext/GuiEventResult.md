@@ -1,18 +1,12 @@
 ---
 title: "GuiEventResult"
+description: "Auto-generated class reference for GuiEventResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GuiEventResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GuiEventResult
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum GuiEventResult`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/GuiEventResult.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var value = new GuiEventResult();
+// Obtain an instance from the relevant subsystem API
+GuiEventResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

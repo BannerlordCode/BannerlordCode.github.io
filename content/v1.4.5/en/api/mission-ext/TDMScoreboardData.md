@@ -1,20 +1,14 @@
 ---
 title: "TDMScoreboardData"
+description: "Auto-generated class reference for TDMScoreboardData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TDMScoreboardData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TDMScoreboardData
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TDMScoreboardData : IScoreboardData`
 **Base:** `IScoreboardData`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/TDMScoreboardData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/TDMScoreboardData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `TDMScoreboardData` as a Data-style extension point: first identify who cr
 ### GetScoreboardHeaders
 `public ScoreboardHeader GetScoreboardHeaders()`
 
-**Purpose:** Gets the current value of `scoreboard headers`.
+**Purpose:** Reads and returns the `scoreboard headers` value held by the current object.
+
+```csharp
+// Obtain an instance of TDMScoreboardData from the subsystem API first
+TDMScoreboardData tDMScoreboardData = ...;
+var result = tDMScoreboardData.GetScoreboardHeaders();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TDMScoreboardData();
+// This data object is usually returned by campaign/mission APIs
+TDMScoreboardData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

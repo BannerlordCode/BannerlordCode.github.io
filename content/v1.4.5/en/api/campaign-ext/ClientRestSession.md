@@ -1,20 +1,14 @@
 ---
 title: "ClientRestSession"
+description: "Auto-generated class reference for ClientRestSession."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClientRestSession`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClientRestSession
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ClientRestSession : IClientSession`
 **Base:** `IClientSession`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ClientRestSession.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ClientRestSession.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### Connect
 `public void Connect()`
 
-**Purpose:** Handles logic related to `connect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientRestSession from the subsystem API first
+ClientRestSession clientRestSession = ...;
+clientRestSession.Connect();
+```
 
 ### Disconnect
 `public void Disconnect()`
 
-**Purpose:** Handles logic related to `disconnect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientRestSession from the subsystem API first
+ClientRestSession clientRestSession = ...;
+clientRestSession.Disconnect();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClientRestSession();
-value.Connect();
+// Typically call this after obtaining an instance from the subsystem API
+ClientRestSession clientRestSession = ...;
+clientRestSession.Connect();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

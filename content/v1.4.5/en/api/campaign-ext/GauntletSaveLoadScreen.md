@@ -1,20 +1,14 @@
 ---
 title: "GauntletSaveLoadScreen"
+description: "Auto-generated class reference for GauntletSaveLoadScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletSaveLoadScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletSaveLoadScreen
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletSaveLoadScreen : ScreenBase`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletSaveLoadScreen.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletSaveLoadScreen.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new GauntletSaveLoadScreen();
+// Obtain an instance from the relevant subsystem API
+GauntletSaveLoadScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

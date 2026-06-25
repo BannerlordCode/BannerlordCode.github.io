@@ -1,20 +1,14 @@
 ---
 title: "TradeItemComponent"
+description: "Auto-generated class reference for TradeItemComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeItemComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeItemComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class TradeItemComponent : ItemComponent`
 **Base:** `ItemComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/TradeItemComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TradeItemComponent.cs`
 
 ## Overview
 
@@ -35,12 +29,24 @@ Treat `TradeItemComponent` as a Component-style extension point: first identify 
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeItemComponent from the subsystem API first
+TradeItemComponent tradeItemComponent = ...;
+var result = tradeItemComponent.GetCopy();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of TradeItemComponent from the subsystem API first
+TradeItemComponent tradeItemComponent = ...;
+tradeItemComponent.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
@@ -50,4 +56,4 @@ var component = agent.GetComponent<TradeItemComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

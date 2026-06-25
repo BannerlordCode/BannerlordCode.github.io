@@ -1,13 +1,7 @@
 ---
 title: "MBSkeletonExtensions"
+description: "Auto-generated class reference for MBSkeletonExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBSkeletonExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBSkeletonExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,67 +23,132 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateWithActionSet
 `public static Skeleton CreateWithActionSet(ref AnimationSystemData animationSystemData)`
 
-**Purpose:** Creates a new `with action set` instance or object.
+**Purpose:** Constructs a new `with action set` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.CreateWithActionSet(animationSystemData);
+```
 
 ### GetSkeletonFaceAnimationTime
 `public static float GetSkeletonFaceAnimationTime(Skeleton skeleton)`
 
-**Purpose:** Gets the current value of `skeleton face animation time`.
+**Purpose:** Reads and returns the `skeleton face animation time` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.GetSkeletonFaceAnimationTime(skeleton);
+```
 
 ### SetSkeletonFaceAnimationTime
 `public static void SetSkeletonFaceAnimationTime(Skeleton skeleton, float time)`
 
-**Purpose:** Sets the value or state of `skeleton face animation time`.
+**Purpose:** Assigns a new value to `skeleton face animation time` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.SetSkeletonFaceAnimationTime(skeleton, 0);
+```
 
 ### GetSkeletonFaceAnimationName
 `public static string GetSkeletonFaceAnimationName(Skeleton skeleton)`
 
-**Purpose:** Gets the current value of `skeleton face animation name`.
+**Purpose:** Reads and returns the `skeleton face animation name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.GetSkeletonFaceAnimationName(skeleton);
+```
 
 ### GetBoneEntitialFrameAtAnimationProgress
 `public static MatrixFrame GetBoneEntitialFrameAtAnimationProgress(this Skeleton skeleton, sbyte boneIndex, int animationIndex, float progress)`
 
-**Purpose:** Gets the current value of `bone entitial frame at animation progress`.
+**Purpose:** Reads and returns the `bone entitial frame at animation progress` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.GetBoneEntitialFrameAtAnimationProgress(skeleton, 0, 0, 0);
+```
 
 ### GetBoneEntitialFrame
 `public static MatrixFrame GetBoneEntitialFrame(this Skeleton skeleton, sbyte boneNumber, bool forceToUpdate = false)`
 
-**Purpose:** Gets the current value of `bone entitial frame`.
+**Purpose:** Reads and returns the `bone entitial frame` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.GetBoneEntitialFrame(skeleton, 0, false);
+```
 
 ### SetFacialAnimation
 `public static void SetFacialAnimation(this Skeleton skeleton, Agent.FacialAnimChannel channel, string faceAnimation, bool playSound, bool loop)`
 
-**Purpose:** Sets the value or state of `facial animation`.
+**Purpose:** Assigns a new value to `facial animation` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.SetFacialAnimation(skeleton, channel, "example", false, false);
+```
 
 ### SetAgentActionChannel
 `public static void SetAgentActionChannel(this Skeleton skeleton, int actionChannelNo, in ActionIndexCache actionIndex, float channelParameter = 0f, float blendPeriodOverride = -0.2f, bool forceFaceMorphRestart = true, float blendWithNextActionFactor = 0f)`
 
-**Purpose:** Sets the value or state of `agent action channel`.
+**Purpose:** Assigns a new value to `agent action channel` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.SetAgentActionChannel(skeleton, 0, actionIndex, 0, 0, false, 0);
+```
 
 ### DoesActionContinueWithCurrentActionAtChannel
 `public static bool DoesActionContinueWithCurrentActionAtChannel(this Skeleton skeleton, int actionChannelNo, in ActionIndexCache actionIndex)`
 
-**Purpose:** Handles logic related to `does action continue with current action at channel`.
+**Purpose:** Returns a boolean answer to whether `action continue with current action at channel` is true for the current object.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.DoesActionContinueWithCurrentActionAtChannel(skeleton, 0, actionIndex);
+```
 
 ### TickActionChannels
 `public static void TickActionChannels(this Skeleton skeleton)`
 
-**Purpose:** Handles logic related to `tick action channels`.
+**Purpose:** Advances the `action channels` state each frame or update cycle.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.TickActionChannels(skeleton);
+```
 
 ### SetAnimationAtChannel
 `public static void SetAnimationAtChannel(this Skeleton skeleton, string animationName, int channelNo, float animationSpeedMultiplier = 1f, float blendInPeriod = -1f, float startProgress = 0f)`
 
-**Purpose:** Sets the value or state of `animation at channel`.
+**Purpose:** Assigns a new value to `animation at channel` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.SetAnimationAtChannel(skeleton, "example", 0, 0, 0, 0);
+```
 
 ### SetAnimationAtChannel
 `public static void SetAnimationAtChannel(this Skeleton skeleton, int animationIndex, int channelNo, float animationSpeedMultiplier = 1f, float blendInPeriod = -1f, float startProgress = 0f)`
 
-**Purpose:** Sets the value or state of `animation at channel`.
+**Purpose:** Assigns a new value to `animation at channel` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.SetAnimationAtChannel(skeleton, 0, 0, 0, 0, 0);
+```
 
 ### GetActionAtChannel
 `public static ActionIndexCache GetActionAtChannel(this Skeleton skeleton, int channelNo)`
 
-**Purpose:** Gets the current value of `action at channel`.
+**Purpose:** Reads and returns the `action at channel` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSkeletonExtensions.GetActionAtChannel(skeleton, 0);
+```
 
 ## Usage Example
 
@@ -99,4 +158,4 @@ MBSkeletonExtensions.CreateWithActionSet(animationSystemData);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

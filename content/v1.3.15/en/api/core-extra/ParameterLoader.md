@@ -1,23 +1,18 @@
 ---
 title: "ParameterLoader"
+description: "Auto-generated class reference for ParameterLoader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ParameterLoader`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ParameterLoader
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class ParameterLoader`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Library/ParameterLoader.cs`
 
 ## Overview
 
-`ParameterLoader` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ParameterLoader` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,21 +23,29 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### LoadParametersFromClientProfile
 `public static ParameterContainer LoadParametersFromClientProfile(string configurationName)`
 
-**Purpose:** Loads `parameters from client profile` data.
+**Purpose:** Reads `parameters from client profile` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+ParameterLoader.LoadParametersFromClientProfile("example");
+```
 
 ### LoadParametersInto
 `public static void LoadParametersInto(string fileFullName, ParameterContainer parameters)`
 
-**Purpose:** Loads `parameters into` data.
+**Purpose:** Reads `parameters into` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+ParameterLoader.LoadParametersInto("example", parameters);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ParameterLoader.LoadParametersFromClientProfile("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

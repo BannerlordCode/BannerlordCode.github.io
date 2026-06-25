@@ -1,20 +1,14 @@
 ---
 title: "PreloadHelper"
+description: "Auto-generated class reference for PreloadHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PreloadHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PreloadHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PreloadHelper`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/PreloadHelper.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/PreloadHelper.cs`
 
 ## Overview
 
@@ -29,37 +23,79 @@ Treat `PreloadHelper` as a Helper-style extension point: first identify who crea
 ### PreloadCharacters
 `public void PreloadCharacters(List<BasicCharacterObject> characters)`
 
-**Purpose:** Handles logic related to `preload characters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PreloadHelper from the subsystem API first
+PreloadHelper preloadHelper = ...;
+preloadHelper.PreloadCharacters(characters);
+```
 
 ### WaitForMeshesToBeLoaded
 `public void WaitForMeshesToBeLoaded()`
 
-**Purpose:** Handles logic related to `wait for meshes to be loaded`.
+**Purpose:** Pauses the current flow until the `for meshes to be loaded` condition is met.
+
+```csharp
+// Obtain an instance of PreloadHelper from the subsystem API first
+PreloadHelper preloadHelper = ...;
+preloadHelper.WaitForMeshesToBeLoaded();
+```
 
 ### PreloadEquipments
 `public void PreloadEquipments(List<Equipment> equipments)`
 
-**Purpose:** Handles logic related to `preload equipments`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PreloadHelper from the subsystem API first
+PreloadHelper preloadHelper = ...;
+preloadHelper.PreloadEquipments(equipments);
+```
 
 ### PreloadItems
 `public void PreloadItems(List<ItemObject> items)`
 
-**Purpose:** Handles logic related to `preload items`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PreloadHelper from the subsystem API first
+PreloadHelper preloadHelper = ...;
+preloadHelper.PreloadItems(items);
+```
 
 ### PreloadEntities
 `public void PreloadEntities(List<WeakGameEntity> entities)`
 
-**Purpose:** Handles logic related to `preload entities`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PreloadHelper from the subsystem API first
+PreloadHelper preloadHelper = ...;
+preloadHelper.PreloadEntities(entities);
+```
 
 ### PreloadMeshesAndPhysics
 `public void PreloadMeshesAndPhysics()`
 
-**Purpose:** Handles logic related to `preload meshes and physics`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PreloadHelper from the subsystem API first
+PreloadHelper preloadHelper = ...;
+preloadHelper.PreloadMeshesAndPhysics();
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of PreloadHelper from the subsystem API first
+PreloadHelper preloadHelper = ...;
+preloadHelper.Clear();
+```
 
 ## Usage Example
 
@@ -69,4 +105,4 @@ PreloadHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

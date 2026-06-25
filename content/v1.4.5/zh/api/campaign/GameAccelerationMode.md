@@ -1,20 +1,14 @@
 ---
 title: "GameAccelerationMode"
+description: "GameAccelerationMode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameAccelerationMode`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameAccelerationMode
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum GameAccelerationMode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameAccelerationMode.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/GameAccelerationMode.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GameAccelerationMode"
 ## 使用示例
 
 ```csharp
-var example = new GameAccelerationMode();
+// 从对应子系统 API 获取实例
+GameAccelerationMode instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "NetworkMain"
+description: "Auto-generated class reference for NetworkMain."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NetworkMain`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NetworkMain
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class NetworkMain`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/NetworkMain.cs`
 
 ## Overview
 
-`NetworkMain` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`NetworkMain` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -36,16 +31,19 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetPeers
 `public static void SetPeers(LobbyClient gameClient, CommunityClient communityClient, CustomBattleServer customBattleServer)`
 
-**Purpose:** Sets the value or state of `peers`.
+**Purpose:** Assigns a new value to `peers` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NetworkMain.SetPeers(gameClient, communityClient, customBattleServer);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 NetworkMain.SetPeers(gameClient, communityClient, customBattleServer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

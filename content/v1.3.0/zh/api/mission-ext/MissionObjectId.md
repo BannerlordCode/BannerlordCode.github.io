@@ -1,13 +1,7 @@
 ---
 title: "MissionObjectId"
+description: "MissionObjectId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectId`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectId
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ title: "MissionObjectId"
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectId 实例
+MissionObjectId missionObjectId = ...;
+var result = missionObjectId.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectId 实例
+MissionObjectId missionObjectId = ...;
+var result = missionObjectId.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectId 实例
+MissionObjectId missionObjectId = ...;
+var result = missionObjectId.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionObjectId();
-value.Equals(obj);
+// 通常从对应子系统 API 获取实例后调用
+MissionObjectId missionObjectId = ...;
+missionObjectId.Equals(obj);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

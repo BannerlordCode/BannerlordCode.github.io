@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapOverlayView"
+description: "GauntletMapOverlayView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMapOverlayView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapOverlayView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapOverlayView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapOverlayView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapOverlayView.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "GauntletMapOverlayView"
 ### GetOverlay
 `public GameMenuOverlay GetOverlay(MapScreen.MapOverlayType mapOverlayType)`
 
-**用途 / Purpose:** 获取 `overlay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「overlay」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapOverlayView 实例
+GauntletMapOverlayView gauntletMapOverlayView = ...;
+var result = gauntletMapOverlayView.GetOverlay(mapOverlayType);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new GauntletMapOverlayView();
+// 从子系统 API 或场景中获取该视图
+GauntletMapOverlayView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

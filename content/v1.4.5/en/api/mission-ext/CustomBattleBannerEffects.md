@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleBannerEffects"
+description: "Auto-generated class reference for CustomBattleBannerEffects."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleBannerEffects`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleBannerEffects
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattleObjects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleBannerEffects`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattleObjects/CustomBattleBannerEffects.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattleObjects/CustomBattleBannerEffects.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattleObjects`
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleBannerEffects();
+// Obtain an instance from the relevant subsystem API
+CustomBattleBannerEffects instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

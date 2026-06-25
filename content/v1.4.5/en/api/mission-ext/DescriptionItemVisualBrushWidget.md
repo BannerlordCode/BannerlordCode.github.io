@@ -1,20 +1,14 @@
 ---
 title: "DescriptionItemVisualBrushWidget"
+description: "Auto-generated class reference for DescriptionItemVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DescriptionItemVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DescriptionItemVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DescriptionItemVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DescriptionItemVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DescriptionItemVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `DescriptionItemVisualBrushWidget` as a Widget-style extension point: firs
 ### DescriptionItemVisualBrushWidget
 `public class DescriptionItemVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `description item visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DescriptionItemVisualBrushWidget from the subsystem API first
+DescriptionItemVisualBrushWidget descriptionItemVisualBrushWidget = ...;
+var result = descriptionItemVisualBrushWidget.DescriptionItemVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new DescriptionItemVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DescriptionItemVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

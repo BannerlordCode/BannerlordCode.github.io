@@ -1,13 +1,7 @@
 ---
 title: "CampaignTutorial"
+description: "Auto-generated class reference for CampaignTutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignTutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignTutorial
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new CampaignTutorial();
+// Obtain an instance from the relevant subsystem API
+CampaignTutorial instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

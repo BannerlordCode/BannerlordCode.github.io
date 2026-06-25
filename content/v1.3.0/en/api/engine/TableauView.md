@@ -1,13 +1,7 @@
 ---
 title: "TableauView"
+description: "Auto-generated class reference for TableauView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TableauView`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TableauView
 
 **Namespace:** TaleWorlds.Engine
@@ -29,39 +23,74 @@ Treat `TableauView` as a View-style extension point: first identify who creates 
 ### CreateTableauView
 `public static TableauView CreateTableauView()`
 
-**Purpose:** Creates a new `tableau view` instance or object.
+**Purpose:** Constructs a new `tableau view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TableauView.CreateTableauView();
+```
 
 ### SetSortingEnabled
 `public void SetSortingEnabled(bool value)`
 
-**Purpose:** Sets the value or state of `sorting enabled`.
+**Purpose:** Assigns a new value to `sorting enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TableauView from the subsystem API first
+TableauView tableauView = ...;
+tableauView.SetSortingEnabled(false);
+```
 
 ### SetContinuousRendering
 `public void SetContinuousRendering(bool value)`
 
-**Purpose:** Sets the value or state of `continuous rendering`.
+**Purpose:** Assigns a new value to `continuous rendering` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TableauView from the subsystem API first
+TableauView tableauView = ...;
+tableauView.SetContinuousRendering(false);
+```
 
 ### SetDoNotRenderThisFrame
 `public void SetDoNotRenderThisFrame(bool value)`
 
-**Purpose:** Sets the value or state of `do not render this frame`.
+**Purpose:** Assigns a new value to `do not render this frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TableauView from the subsystem API first
+TableauView tableauView = ...;
+tableauView.SetDoNotRenderThisFrame(false);
+```
 
 ### SetDeleteAfterRendering
 `public void SetDeleteAfterRendering(bool value)`
 
-**Purpose:** Sets the value or state of `delete after rendering`.
+**Purpose:** Assigns a new value to `delete after rendering` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TableauView from the subsystem API first
+TableauView tableauView = ...;
+tableauView.SetDeleteAfterRendering(false);
+```
 
 ### AddTableau
 `public static Texture AddTableau(string name, RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, int tableauSizeX, int tableauSizeY)`
 
 **Purpose:** Adds `tableau` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+TableauView.AddTableau("example", eventHandler, objectRef, 0, 0);
+```
+
 ## Usage Example
 
 ```csharp
-var view = new TableauView();
+// Retrieve this view from the subsystem API or scene
+TableauView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

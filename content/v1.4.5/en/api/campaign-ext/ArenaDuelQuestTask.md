@@ -1,20 +1,14 @@
 ---
 title: "ArenaDuelQuestTask"
+description: "Auto-generated class reference for ArenaDuelQuestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArenaDuelQuestTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaDuelQuestTask
 
 **Namespace:** SandBox.Issues.IssueQuestTasks
 **Module:** SandBox.Issues
 **Type:** `public class ArenaDuelQuestTask : QuestTaskBase`
 **Base:** `QuestTaskBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Issues.IssueQuestTasks/ArenaDuelQuestTask.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Issues.IssueQuestTasks/ArenaDuelQuestTask.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `SandBox.Issues.IssueQuestTasks` to place it in the stack, 
 ### AfterStart
 `public void AfterStart(IMission mission)`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArenaDuelQuestTask from the subsystem API first
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.AfterStart(mission);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ArenaDuelQuestTask from the subsystem API first
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.SetReferences();
+```
 
 ### OnGameMenuOpened
 `public void OnGameMenuOpened(MenuCallbackArgs args)`
 
-**Purpose:** Called when the `game menu opened` event is raised.
+**Purpose:** Invoked when the `game menu opened` event is raised.
+
+```csharp
+// Obtain an instance of ArenaDuelQuestTask from the subsystem API first
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.OnGameMenuOpened(args);
+```
 
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**Purpose:** Handles logic related to `mission tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArenaDuelQuestTask from the subsystem API first
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.MissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArenaDuelQuestTask();
-value.AfterStart(mission);
+// Typically call this after obtaining an instance from the subsystem API
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.AfterStart(mission);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

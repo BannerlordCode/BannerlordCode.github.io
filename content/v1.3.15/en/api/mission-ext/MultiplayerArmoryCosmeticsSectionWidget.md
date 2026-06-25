@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerArmoryCosmeticsSectionWidget"
+description: "Auto-generated class reference for MultiplayerArmoryCosmeticsSectionWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerArmoryCosmeticsSectionWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerArmoryCosmeticsSectionWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
@@ -39,9 +33,10 @@ Treat `MultiplayerArmoryCosmeticsSectionWidget` as a Widget-style extension poin
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerArmoryCosmeticsSectionWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerArmoryCosmeticsSectionWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

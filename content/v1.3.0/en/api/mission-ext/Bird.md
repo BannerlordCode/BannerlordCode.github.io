@@ -1,13 +1,7 @@
 ---
 title: "Bird"
+description: "Auto-generated class reference for Bird."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Bird`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Bird
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of Bird from the subsystem API first
+Bird bird = ...;
+var result = bird.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Bird();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+Bird bird = ...;
+bird.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

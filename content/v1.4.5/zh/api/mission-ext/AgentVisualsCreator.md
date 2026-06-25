@@ -1,20 +1,14 @@
 ---
 title: "AgentVisualsCreator"
+description: "AgentVisualsCreator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentVisualsCreator`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentVisualsCreator
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentVisualsCreator : IAgentVisualCreator`
 **Base:** `IAgentVisualCreator`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisualsCreator.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisualsCreator.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "AgentVisualsCreator"
 ### Create
 `public IAgentVisual Create(AgentVisualsData data, string name, bool needBatchedVersionForWeaponMeshes, bool forceUseFaceCache)`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualsCreator 实例
+AgentVisualsCreator agentVisualsCreator = ...;
+var result = agentVisualsCreator.Create(data, "example", false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AgentVisualsCreator();
-value.Create(data, "example", false, false);
+// 通常从对应子系统 API 获取实例后调用
+AgentVisualsCreator agentVisualsCreator = ...;
+agentVisualsCreator.Create(data, "example", false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

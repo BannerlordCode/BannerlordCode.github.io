@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationNarrativeStageVM"
+description: "Auto-generated class reference for CharacterCreationNarrativeStageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationNarrativeStageVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationNarrativeStageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationNarrativeStageVM : CharacterCreationStageBaseVM`
 **Base:** `CharacterCreationStageBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationNarrativeStageVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationNarrativeStageVM.cs`
 
 ## Overview
 
@@ -39,50 +33,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### RefreshMenu
 `public void RefreshMenu()`
 
-**Purpose:** Refreshes the display or cache of `menu`.
+**Purpose:** Keeps the display or cache of `menu` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.RefreshMenu();
+```
 
 ### OnOptionSelected
 `public void OnOptionSelected(CharacterCreationOptionVM option)`
 
-**Purpose:** Called when the `option selected` event is raised.
+**Purpose:** Invoked when the `option selected` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.OnOptionSelected(option);
+```
 
 ### OnNextStage
 `public override void OnNextStage()`
 
-**Purpose:** Called when the `next stage` event is raised.
+**Purpose:** Invoked when the `next stage` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.OnNextStage();
+```
 
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**Purpose:** Called when the `previous stage` event is raised.
+**Purpose:** Invoked when the `previous stage` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.OnPreviousStage();
+```
 
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**Purpose:** Checks whether the current object can `advance to next stage`.
+**Purpose:** Checks whether the current object meets the preconditions for `advance to next stage`.
+
+```csharp
+// Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+var result = characterCreationNarrativeStageVM.CanAdvanceToNextStage();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationNarrativeStageVM from the subsystem API first
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationNarrativeStageVM();
-value.RefreshMenu();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.RefreshMenu();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

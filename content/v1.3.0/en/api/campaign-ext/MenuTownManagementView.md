@@ -1,13 +1,7 @@
 ---
 title: "MenuTownManagementView"
+description: "Auto-generated class reference for MenuTownManagementView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuTownManagementView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuTownManagementView
 
 **Namespace:** SandBox.View.Menu
@@ -27,9 +21,10 @@ Treat `MenuTownManagementView` as a View-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var view = new MenuTownManagementView();
+// Retrieve this view from the subsystem API or scene
+MenuTownManagementView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

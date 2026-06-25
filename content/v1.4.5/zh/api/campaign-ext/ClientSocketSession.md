@@ -1,20 +1,14 @@
 ---
 title: "ClientSocketSession"
+description: "ClientSocketSession 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClientSocketSession`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClientSocketSession
 
 **Namespace:** TaleWorlds.Diamond.Socket
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class ClientSocketSession : ClientsideSession, IClientSession`
 **Base:** `ClientsideSession`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Socket/ClientSocketSession.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Socket/ClientSocketSession.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ClientSocketSession"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomClientSocketSession();
+// 通常通过子系统 API 或工厂获得派生实例
+ClientSocketSession instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SaveableInterfaceAttribute"
+description: "Auto-generated class reference for SaveableInterfaceAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableInterfaceAttribute`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveableInterfaceAttribute
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveableInterfaceAttribute : Attribute`
 **Base:** `Attribute`
-**Area:** save-system
+**File:** `TaleWorlds.SaveSystem/SaveableInterfaceAttribute.cs`
 
 ## Overview
 
@@ -33,10 +27,10 @@ Treat `SaveableInterfaceAttribute` as a Attribute-style extension point: first i
 ## Usage Example
 
 ```csharp
-SaveableInterfaceAttribute implementation = GetSaveableInterfaceAttributeImplementation();
+// Usually obtained through DI or a factory method
+ISaveableInterfaceAttribute service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

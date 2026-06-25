@@ -1,18 +1,12 @@
 ---
 title: "TextureUnit"
+description: "Auto-generated class reference for TextureUnit."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextureUnit`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextureUnit
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.OpenGL
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum TextureUnit`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/TextureUnit.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` to place
 ## Usage Example
 
 ```csharp
-var value = new TextureUnit();
+// Obtain an instance from the relevant subsystem API
+TextureUnit instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

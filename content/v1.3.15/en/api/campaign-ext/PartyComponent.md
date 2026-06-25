@@ -1,13 +1,7 @@
 ---
 title: "PartyComponent"
+description: "Auto-generated class reference for PartyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -45,39 +39,76 @@ Treat `PartyComponent` as a Component-style extension point: first identify who 
 ### SetWagePaymentLimit
 `public virtual void SetWagePaymentLimit(int newLimit)`
 
-**Purpose:** Sets the value or state of `wage payment limit`.
+**Purpose:** Assigns a new value to `wage payment limit` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyComponent from the subsystem API first
+PartyComponent partyComponent = ...;
+partyComponent.SetWagePaymentLimit(0);
+```
 
 ### GetDefaultComponentBanner
 `public abstract Banner GetDefaultComponentBanner()`
 
-**Purpose:** Gets the current value of `default component banner`.
+**Purpose:** Reads and returns the `default component banner` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyComponent from the subsystem API first
+PartyComponent partyComponent = ...;
+var result = partyComponent.GetDefaultComponentBanner();
+```
 
 ### ClearCachedName
 `public virtual void ClearCachedName()`
 
-**Purpose:** Handles logic related to `clear cached name`.
+**Purpose:** Removes all `cached name` from the current object.
+
+```csharp
+// Obtain an instance of PartyComponent from the subsystem API first
+PartyComponent partyComponent = ...;
+partyComponent.ClearCachedName();
+```
 
 ### ChangePartyLeader
 `public void ChangePartyLeader(Hero newLeader)`
 
-**Purpose:** Handles logic related to `change party leader`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyComponent from the subsystem API first
+PartyComponent partyComponent = ...;
+partyComponent.ChangePartyLeader(newLeader);
+```
 
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public virtual void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**Purpose:** Gets the current value of `mount and harness visual ids for party icon`.
+**Purpose:** Reads and returns the `mount and harness visual ids for party icon` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyComponent from the subsystem API first
+PartyComponent partyComponent = ...;
+partyComponent.GetMountAndHarnessVisualIdsForPartyIcon(party, mountStringId, harnessStringId);
+```
 
 ### OnPartyComponentCreatedDelegate
 `public delegate void OnPartyComponentCreatedDelegate(MobileParty mobileParty)`
 
-**Purpose:** Called when the `party component created delegate` event is raised.
+**Purpose:** Invoked when the `party component created delegate` event is raised.
+
+```csharp
+// Obtain an instance of PartyComponent from the subsystem API first
+PartyComponent partyComponent = ...;
+partyComponent.OnPartyComponentCreatedDelegate(mobileParty);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyComponent();
+// Typically obtained from a subsystem API or factory
+PartyComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

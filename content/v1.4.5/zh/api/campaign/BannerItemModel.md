@@ -1,20 +1,14 @@
 ---
 title: "BannerItemModel"
+description: "BannerItemModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerItemModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerItemModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class BannerItemModel : MBGameModel<BannerItemModel>`
 **Base:** `MBGameModel<BannerItemModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BannerItemModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BannerItemModel.cs`
 
 ## 概述
 
@@ -29,29 +23,54 @@ title: "BannerItemModel"
 ### GetPossibleRewardBannerItems
 `public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
 
-**用途 / Purpose:** 获取 `possible reward banner items` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「possible reward banner items」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerItemModel 实例
+BannerItemModel bannerItemModel = ...;
+var result = bannerItemModel.GetPossibleRewardBannerItems();
+```
 
 ### GetPossibleRewardBannerItemsForHero
 `public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `possible reward banner items for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「possible reward banner items for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerItemModel 实例
+BannerItemModel bannerItemModel = ...;
+var result = bannerItemModel.GetPossibleRewardBannerItemsForHero(hero);
+```
 
 ### GetBannerItemLevelForHero
 `public abstract int GetBannerItemLevelForHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `banner item level for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner item level for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerItemModel 实例
+BannerItemModel bannerItemModel = ...;
+var result = bannerItemModel.GetBannerItemLevelForHero(hero);
+```
 
 ### CanBannerBeUpdated
 `public abstract bool CanBannerBeUpdated(ItemObject item)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `banner be updated`。
+**用途 / Purpose:** 检查当前对象是否满足 「banner be updated」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 BannerItemModel 实例
+BannerItemModel bannerItemModel = ...;
+var result = bannerItemModel.CanBannerBeUpdated(item);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBannerItemModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BannerItemModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

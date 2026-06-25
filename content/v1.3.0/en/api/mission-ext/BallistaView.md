@@ -1,13 +1,7 @@
 ---
 title: "BallistaView"
+description: "Auto-generated class reference for BallistaView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BallistaView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BallistaView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon
@@ -27,9 +21,10 @@ Treat `BallistaView` as a View-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var view = new BallistaView();
+// Retrieve this view from the subsystem API or scene
+BallistaView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

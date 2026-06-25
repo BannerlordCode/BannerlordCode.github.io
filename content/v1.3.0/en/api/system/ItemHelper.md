@@ -1,13 +1,7 @@
 ---
 title: "ItemHelper"
+description: "Auto-generated class reference for ItemHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemHelper
 
 **Namespace:** Helpers
@@ -29,42 +23,82 @@ Treat `ItemHelper` as a Helper-style extension point: first identify who creates
 ### IsWeaponComparableWithUsage
 `public static bool IsWeaponComparableWithUsage(ItemObject item, string comparedUsageId)`
 
-**Purpose:** Handles logic related to `is weapon comparable with usage`.
+**Purpose:** Determines whether the current object is in the `weapon comparable with usage` state or condition.
+
+```csharp
+// Static call; no instance required
+ItemHelper.IsWeaponComparableWithUsage(item, "example");
+```
 
 ### IsWeaponComparableWithUsage
 `public static bool IsWeaponComparableWithUsage(ItemObject item, string comparedUsageId, out int comparableUsageIndex)`
 
-**Purpose:** Handles logic related to `is weapon comparable with usage`.
+**Purpose:** Determines whether the current object is in the `weapon comparable with usage` state or condition.
+
+```csharp
+// Static call; no instance required
+ItemHelper.IsWeaponComparableWithUsage(item, "example", comparableUsageIndex);
+```
 
 ### CheckComparability
 `public static bool CheckComparability(ItemObject item, ItemObject comparedItem)`
 
-**Purpose:** Handles logic related to `check comparability`.
+**Purpose:** Verifies whether `comparability` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+ItemHelper.CheckComparability(item, comparedItem);
+```
 
 ### CheckComparability
 `public static bool CheckComparability(ItemObject item, ItemObject comparedItem, int usageIndex)`
 
-**Purpose:** Handles logic related to `check comparability`.
+**Purpose:** Verifies whether `comparability` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+ItemHelper.CheckComparability(item, comparedItem, 0);
+```
 
 ### GetSwingDamageText
 `public static TextObject GetSwingDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `swing damage text`.
+**Purpose:** Reads and returns the `swing damage text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemHelper.GetSwingDamageText(weapon, itemModifier);
+```
 
 ### GetMissileDamageText
 `public static TextObject GetMissileDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `missile damage text`.
+**Purpose:** Reads and returns the `missile damage text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemHelper.GetMissileDamageText(weapon, itemModifier);
+```
 
 ### GetThrustDamageText
 `public static TextObject GetThrustDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `thrust damage text`.
+**Purpose:** Reads and returns the `thrust damage text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemHelper.GetThrustDamageText(weapon, itemModifier);
+```
 
 ### NumberOfItems
 `public static TextObject NumberOfItems(int number, ItemObject item)`
 
-**Purpose:** Handles logic related to `number of items`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ItemHelper.NumberOfItems(0, item);
+```
 
 ## Usage Example
 
@@ -74,4 +108,4 @@ ItemHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

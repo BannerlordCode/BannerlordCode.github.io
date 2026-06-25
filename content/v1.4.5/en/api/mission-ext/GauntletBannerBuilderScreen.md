@@ -1,20 +1,14 @@
 ---
 title: "GauntletBannerBuilderScreen"
+description: "Auto-generated class reference for GauntletBannerBuilderScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletBannerBuilderScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletBannerBuilderScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletBannerBuilderScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletBannerBuilderScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletBannerBuilderScreen.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Exit
 `public void Exit(bool isCancel)`
 
-**Purpose:** Handles logic related to `exit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletBannerBuilderScreen from the subsystem API first
+GauntletBannerBuilderScreen gauntletBannerBuilderScreen = ...;
+gauntletBannerBuilderScreen.Exit(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletBannerBuilderScreen();
-value.Exit(false);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletBannerBuilderScreen gauntletBannerBuilderScreen = ...;
+gauntletBannerBuilderScreen.Exit(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

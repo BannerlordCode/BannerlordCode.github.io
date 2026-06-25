@@ -1,20 +1,14 @@
 ---
 title: "SPGeneralKillNotificationVM"
+description: "SPGeneralKillNotificationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPGeneralKillNotificationVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPGeneralKillNotificationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPGeneralKillNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General/SPGeneralKillNotificationVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General/SPGeneralKillNotificationVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "SPGeneralKillNotificationVM"
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SPGeneralKillNotificationVM 实例
+SPGeneralKillNotificationVM sPGeneralKillNotificationVM = ...;
+sPGeneralKillNotificationVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPGeneralKillNotificationVM();
-value.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+// 通常从对应子系统 API 获取实例后调用
+SPGeneralKillNotificationVM sPGeneralKillNotificationVM = ...;
+sPGeneralKillNotificationVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

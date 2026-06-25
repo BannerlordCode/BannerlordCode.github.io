@@ -1,13 +1,7 @@
 ---
 title: "GettingCompanionsStep2Tutorial"
+description: "Auto-generated class reference for GettingCompanionsStep2Tutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GettingCompanionsStep2Tutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GettingCompanionsStep2Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of GettingCompanionsStep2Tutorial from the subsystem API first
+GettingCompanionsStep2Tutorial gettingCompanionsStep2Tutorial = ...;
+var result = gettingCompanionsStep2Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnCharacterPortraitPopUpOpened
 `public override void OnCharacterPortraitPopUpOpened(CharacterObject obj)`
 
-**Purpose:** Called when the `character portrait pop up opened` event is raised.
+**Purpose:** Invoked when the `character portrait pop up opened` event is raised.
+
+```csharp
+// Obtain an instance of GettingCompanionsStep2Tutorial from the subsystem API first
+GettingCompanionsStep2Tutorial gettingCompanionsStep2Tutorial = ...;
+gettingCompanionsStep2Tutorial.OnCharacterPortraitPopUpOpened(obj);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of GettingCompanionsStep2Tutorial from the subsystem API first
+GettingCompanionsStep2Tutorial gettingCompanionsStep2Tutorial = ...;
+var result = gettingCompanionsStep2Tutorial.IsConditionsMetForActivation();
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of GettingCompanionsStep2Tutorial from the subsystem API first
+GettingCompanionsStep2Tutorial gettingCompanionsStep2Tutorial = ...;
+var result = gettingCompanionsStep2Tutorial.GetTutorialsRelevantContext();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GettingCompanionsStep2Tutorial();
-value.IsConditionsMetForCompletion();
+// Typically call this after obtaining an instance from the subsystem API
+GettingCompanionsStep2Tutorial gettingCompanionsStep2Tutorial = ...;
+gettingCompanionsStep2Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

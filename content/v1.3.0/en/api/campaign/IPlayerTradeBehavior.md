@@ -1,18 +1,12 @@
 ---
 title: "IPlayerTradeBehavior"
+description: "Auto-generated class reference for IPlayerTradeBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IPlayerTradeBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IPlayerTradeBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IPlayerTradeBehavior`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Inventory/IPlayerTradeBehavior.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ## Usage Example
 
 ```csharp
-IPlayerTradeBehavior implementation = GetPlayerTradeBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIPlayerTradeBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

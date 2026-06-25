@@ -1,13 +1,7 @@
 ---
 title: "BattleAgentLogic"
+description: "Auto-generated class reference for BattleAgentLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleAgentLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleAgentLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,49 +23,97 @@ Treat `BattleAgentLogic` as a Logic-style extension point: first identify who cr
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleAgentLogic from the subsystem API first
+BattleAgentLogic battleAgentLogic = ...;
+battleAgentLogic.AfterStart();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of BattleAgentLogic from the subsystem API first
+BattleAgentLogic battleAgentLogic = ...;
+battleAgentLogic.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Called when the `agent hit` event is raised.
+**Purpose:** Invoked when the `agent hit` event is raised.
+
+```csharp
+// Obtain an instance of BattleAgentLogic from the subsystem API first
+BattleAgentLogic battleAgentLogic = ...;
+battleAgentLogic.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blow, attackCollisionData);
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** Called when the `agent team changed` event is raised.
+**Purpose:** Invoked when the `agent team changed` event is raised.
+
+```csharp
+// Obtain an instance of BattleAgentLogic from the subsystem API first
+BattleAgentLogic battleAgentLogic = ...;
+battleAgentLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of BattleAgentLogic from the subsystem API first
+BattleAgentLogic battleAgentLogic = ...;
+battleAgentLogic.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of BattleAgentLogic from the subsystem API first
+BattleAgentLogic battleAgentLogic = ...;
+battleAgentLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**Purpose:** Called when the `agent fleeing` event is raised.
+**Purpose:** Invoked when the `agent fleeing` event is raised.
+
+```csharp
+// Obtain an instance of BattleAgentLogic from the subsystem API first
+BattleAgentLogic battleAgentLogic = ...;
+battleAgentLogic.OnAgentFleeing(affectedAgent);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of BattleAgentLogic from the subsystem API first
+BattleAgentLogic battleAgentLogic = ...;
+battleAgentLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleAgentLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleAgentLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

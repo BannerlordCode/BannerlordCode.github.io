@@ -1,20 +1,14 @@
 ---
 title: "SoundManager"
+description: "Auto-generated class reference for SoundManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundManager`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundManager
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class SoundManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/SoundManager.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SoundManager.cs`
 
 ## Overview
 
@@ -29,202 +23,402 @@ Treat `SoundManager` as a Manager-style extension point: first identify who crea
 ### SetListenerFrame
 `public static void SetListenerFrame(MatrixFrame frame)`
 
-**Purpose:** Sets the value or state of `listener frame`.
+**Purpose:** Assigns a new value to `listener frame` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SoundManager.SetListenerFrame(frame);
+```
 
 ### SetListenerFrame
 `public static void SetListenerFrame(MatrixFrame frame, Vec3 attenuationPosition)`
 
-**Purpose:** Sets the value or state of `listener frame`.
+**Purpose:** Assigns a new value to `listener frame` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SoundManager.SetListenerFrame(frame, attenuationPosition);
+```
 
 ### GetListenerFrame
 `public static MatrixFrame GetListenerFrame()`
 
-**Purpose:** Gets the current value of `listener frame`.
+**Purpose:** Reads and returns the `listener frame` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.GetListenerFrame();
+```
 
 ### GetAttenuationPosition
 `public static Vec3 GetAttenuationPosition()`
 
-**Purpose:** Gets the current value of `attenuation position`.
+**Purpose:** Reads and returns the `attenuation position` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.GetAttenuationPosition();
+```
 
 ### Reset
 `public static void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+SoundManager.Reset();
+```
 
 ### StartOneShotEvent
 `public static bool StartOneShotEvent(string eventFullName, in Vec3 position, string paramName, float paramValue)`
 
-**Purpose:** Handles logic related to `start one shot event`.
+**Purpose:** Starts the `one shot event` flow or state machine.
+
+```csharp
+// Static call; no instance required
+SoundManager.StartOneShotEvent("example", position, "example", 0);
+```
 
 ### StartOneShotEvent
 `public static bool StartOneShotEvent(string eventFullName, in Vec3 position)`
 
-**Purpose:** Handles logic related to `start one shot event`.
+**Purpose:** Starts the `one shot event` flow or state machine.
+
+```csharp
+// Static call; no instance required
+SoundManager.StartOneShotEvent("example", position);
+```
 
 ### StartOneShotEventWithIndex
 `public static bool StartOneShotEventWithIndex(int index, in Vec3 position)`
 
-**Purpose:** Handles logic related to `start one shot event with index`.
+**Purpose:** Starts the `one shot event with index` flow or state machine.
+
+```csharp
+// Static call; no instance required
+SoundManager.StartOneShotEventWithIndex(0, position);
+```
 
 ### SetState
 `public static void SetState(string stateGroup, string state)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SoundManager.SetState("example", "example");
+```
 
 ### CreateEvent
 `public static SoundEvent CreateEvent(string eventFullName, Scene scene)`
 
-**Purpose:** Creates a new `event` instance or object.
+**Purpose:** Constructs a new `event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SoundManager.CreateEvent("example", scene);
+```
 
 ### LoadEventFileAux
 `public static void LoadEventFileAux(string soundBank, bool decompressSamples)`
 
-**Purpose:** Loads `event file aux` data.
+**Purpose:** Reads `event file aux` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+SoundManager.LoadEventFileAux("example", false);
+```
 
 ### AddSoundClientWithId
 `public static void AddSoundClientWithId(ulong clientId)`
 
 **Purpose:** Adds `sound client with id` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+SoundManager.AddSoundClientWithId(0);
+```
+
 ### DeleteSoundClientWithId
 `public static void DeleteSoundClientWithId(ulong clientId)`
 
-**Purpose:** Handles logic related to `delete sound client with id`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.DeleteSoundClientWithId(0);
+```
 
 ### SetGlobalParameter
 `public static void SetGlobalParameter(string parameterName, float value)`
 
-**Purpose:** Sets the value or state of `global parameter`.
+**Purpose:** Assigns a new value to `global parameter` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SoundManager.SetGlobalParameter("example", 0);
+```
 
 ### GetEventGlobalIndex
 `public static int GetEventGlobalIndex(string eventFullName)`
 
-**Purpose:** Gets the current value of `event global index`.
+**Purpose:** Reads and returns the `event global index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.GetEventGlobalIndex("example");
+```
 
 ### PauseBus
 `public static void PauseBus(string busName)`
 
-**Purpose:** Handles logic related to `pause bus`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.PauseBus("example");
+```
 
 ### UnpauseBus
 `public static void UnpauseBus(string busName)`
 
-**Purpose:** Handles logic related to `unpause bus`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.UnpauseBus("example");
+```
 
 ### InitializeVoicePlayEvent
 `public static void InitializeVoicePlayEvent()`
 
-**Purpose:** Initializes the state, resources, or bindings for `voice play event`.
+**Purpose:** Prepares the resources, state, or bindings required by `voice play event`.
+
+```csharp
+// Static call; no instance required
+SoundManager.InitializeVoicePlayEvent();
+```
 
 ### CreateVoiceEvent
 `public static void CreateVoiceEvent()`
 
-**Purpose:** Creates a new `voice event` instance or object.
+**Purpose:** Constructs a new `voice event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SoundManager.CreateVoiceEvent();
+```
 
 ### DestroyVoiceEvent
 `public static void DestroyVoiceEvent(int id)`
 
-**Purpose:** Handles logic related to `destroy voice event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.DestroyVoiceEvent(0);
+```
 
 ### FinalizeVoicePlayEvent
 `public static void FinalizeVoicePlayEvent()`
 
-**Purpose:** Handles logic related to `finalize voice play event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.FinalizeVoicePlayEvent();
+```
 
 ### StartVoiceRecording
 `public static void StartVoiceRecording()`
 
-**Purpose:** Handles logic related to `start voice recording`.
+**Purpose:** Starts the `voice recording` flow or state machine.
+
+```csharp
+// Static call; no instance required
+SoundManager.StartVoiceRecording();
+```
 
 ### StopVoiceRecording
 `public static void StopVoiceRecording()`
 
-**Purpose:** Handles logic related to `stop voice recording`.
+**Purpose:** Stops the `voice recording` flow or state machine.
+
+```csharp
+// Static call; no instance required
+SoundManager.StopVoiceRecording();
+```
 
 ### GetVoiceData
 `public static void GetVoiceData(byte voiceBuffer, int chunkSize, out int readBytesLength)`
 
-**Purpose:** Gets the current value of `voice data`.
+**Purpose:** Reads and returns the `voice data` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.GetVoiceData(0, 0, readBytesLength);
+```
 
 ### UpdateVoiceToPlay
 `public static void UpdateVoiceToPlay(byte voiceBuffer, int length, int index)`
 
-**Purpose:** Updates the state or data of `voice to play`.
+**Purpose:** Recalculates and stores the latest representation of `voice to play`.
+
+```csharp
+// Static call; no instance required
+SoundManager.UpdateVoiceToPlay(0, 0, 0);
+```
 
 ### AddXBOXRemoteUser
 `public static void AddXBOXRemoteUser(ulong XUID, ulong deviceID, bool canSendMicSound, bool canSendTextSound, bool canSendText, bool canReceiveSound, bool canReceiveText)`
 
 **Purpose:** Adds `x b o x remote user` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+SoundManager.AddXBOXRemoteUser(0, 0, false, false, false, false, false);
+```
+
 ### InitializeXBOXSoundManager
 `public static void InitializeXBOXSoundManager()`
 
-**Purpose:** Initializes the state, resources, or bindings for `x b o x sound manager`.
+**Purpose:** Prepares the resources, state, or bindings required by `x b o x sound manager`.
+
+```csharp
+// Static call; no instance required
+SoundManager.InitializeXBOXSoundManager();
+```
 
 ### ApplyPushToTalk
 `public static void ApplyPushToTalk(bool pushed)`
 
-**Purpose:** Applies `push to talk` to the current object.
+**Purpose:** Applies the effect of `push to talk` to the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.ApplyPushToTalk(false);
+```
 
 ### ClearXBOXSoundManager
 `public static void ClearXBOXSoundManager()`
 
-**Purpose:** Handles logic related to `clear x b o x sound manager`.
+**Purpose:** Removes all `x b o x sound manager` from the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.ClearXBOXSoundManager();
+```
 
 ### UpdateXBOXLocalUser
 `public static void UpdateXBOXLocalUser()`
 
-**Purpose:** Updates the state or data of `x b o x local user`.
+**Purpose:** Recalculates and stores the latest representation of `x b o x local user`.
+
+```csharp
+// Static call; no instance required
+SoundManager.UpdateXBOXLocalUser();
+```
 
 ### UpdateXBOXChatCommunicationFlags
 `public static void UpdateXBOXChatCommunicationFlags(ulong XUID, bool canSendMicSound, bool canSendTextSound, bool canSendText, bool canReceiveSound, bool canReceiveText)`
 
-**Purpose:** Updates the state or data of `x b o x chat communication flags`.
+**Purpose:** Recalculates and stores the latest representation of `x b o x chat communication flags`.
+
+```csharp
+// Static call; no instance required
+SoundManager.UpdateXBOXChatCommunicationFlags(0, false, false, false, false, false);
+```
 
 ### RemoveXBOXRemoteUser
 `public static void RemoveXBOXRemoteUser(ulong XUID)`
 
 **Purpose:** Removes `x b o x remote user` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+SoundManager.RemoveXBOXRemoteUser(0);
+```
+
 ### ProcessDataToBeReceived
 `public static void ProcessDataToBeReceived(ulong senderDeviceID, byte data, uint dataSize)`
 
-**Purpose:** Handles logic related to `process data to be received`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.ProcessDataToBeReceived(0, 0, 0);
+```
 
 ### ProcessDataToBeSent
 `public static void ProcessDataToBeSent(ref int numData)`
 
-**Purpose:** Handles logic related to `process data to be sent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.ProcessDataToBeSent(numData);
+```
 
 ### HandleStateChanges
 `public static void HandleStateChanges()`
 
-**Purpose:** Handles the `state changes` event or callback.
+**Purpose:** Executes the response logic associated with `state changes`.
+
+```csharp
+// Static call; no instance required
+SoundManager.HandleStateChanges();
+```
 
 ### GetSizeOfDataToBeSentAt
 `public static void GetSizeOfDataToBeSentAt(int index, ref uint byteCount, ref uint numReceivers)`
 
-**Purpose:** Gets the current value of `size of data to be sent at`.
+**Purpose:** Reads and returns the `size of data to be sent at` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.GetSizeOfDataToBeSentAt(0, byteCount, numReceivers);
+```
 
 ### GetDataToBeSentAt
 `public static bool GetDataToBeSentAt(int index, byte buffer, ulong receivers, ref bool transportGuaranteed)`
 
-**Purpose:** Gets the current value of `data to be sent at`.
+**Purpose:** Reads and returns the `data to be sent at` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.GetDataToBeSentAt(0, 0, 0, transportGuaranteed);
+```
 
 ### ClearDataToBeSent
 `public static void ClearDataToBeSent()`
 
-**Purpose:** Handles logic related to `clear data to be sent`.
+**Purpose:** Removes all `data to be sent` from the current object.
+
+```csharp
+// Static call; no instance required
+SoundManager.ClearDataToBeSent();
+```
 
 ### CompressData
 `public static void CompressData(int clientID, byte buffer, int length, byte compressedBuffer, out int compressedBufferLength)`
 
-**Purpose:** Handles logic related to `compress data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.CompressData(0, 0, 0, 0, compressedBufferLength);
+```
 
 ### DecompressData
 `public static void DecompressData(int clientID, byte compressedBuffer, int compressedBufferLength, byte decompressedBuffer, out int decompressedBufferLength)`
 
-**Purpose:** Handles logic related to `decompress data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundManager.DecompressData(0, 0, 0, 0, decompressedBufferLength);
+```
 
 ## Usage Example
 
@@ -234,4 +428,4 @@ var manager = SoundManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

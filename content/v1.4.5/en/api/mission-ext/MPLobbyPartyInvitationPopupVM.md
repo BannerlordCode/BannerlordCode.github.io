@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyPartyInvitationPopupVM"
+description: "Auto-generated class reference for MPLobbyPartyInvitationPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyPartyInvitationPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyPartyInvitationPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyPartyInvitationPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyPartyInvitationPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyPartyInvitationPopupVM.cs`
 
 ## Overview
 
@@ -40,30 +34,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyPartyInvitationPopupVM from the subsystem API first
+MPLobbyPartyInvitationPopupVM mPLobbyPartyInvitationPopupVM = ...;
+mPLobbyPartyInvitationPopupVM.RefreshValues();
+```
 
 ### OpenWith
 `public void OpenWith(PlayerId invitingPlayerID)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPLobbyPartyInvitationPopupVM from the subsystem API first
+MPLobbyPartyInvitationPopupVM mPLobbyPartyInvitationPopupVM = ...;
+mPLobbyPartyInvitationPopupVM.OpenWith(invitingPlayerID);
+```
 
 ### Close
 `public void Close()`
 
-**Purpose:** Handles logic related to `close`.
+**Purpose:** Closes the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of MPLobbyPartyInvitationPopupVM from the subsystem API first
+MPLobbyPartyInvitationPopupVM mPLobbyPartyInvitationPopupVM = ...;
+mPLobbyPartyInvitationPopupVM.Close();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyPartyInvitationPopupVM from the subsystem API first
+MPLobbyPartyInvitationPopupVM mPLobbyPartyInvitationPopupVM = ...;
+mPLobbyPartyInvitationPopupVM.OnTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyPartyInvitationPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyPartyInvitationPopupVM mPLobbyPartyInvitationPopupVM = ...;
+mPLobbyPartyInvitationPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

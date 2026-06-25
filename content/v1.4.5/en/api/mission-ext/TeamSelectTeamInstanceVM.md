@@ -1,20 +1,14 @@
 ---
 title: "TeamSelectTeamInstanceVM"
+description: "Auto-generated class reference for TeamSelectTeamInstanceVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamSelectTeamInstanceVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamSelectTeamInstanceVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamSelectTeamInstanceVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/TeamSelectTeamInstanceVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/TeamSelectTeamInstanceVM.cs`
 
 ## Overview
 
@@ -50,35 +44,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.T
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.OnFinalize();
+```
 
 ### RefreshFriends
 `public void RefreshFriends(IEnumerable<MissionPeer> friends)`
 
-**Purpose:** Refreshes the display or cache of `friends`.
+**Purpose:** Keeps the display or cache of `friends` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.RefreshFriends(friends);
+```
 
 ### SetIsDisabled
 `public void SetIsDisabled(bool isCurrentTeam, bool disabledForBalance)`
 
-**Purpose:** Sets the value or state of `is disabled`.
+**Purpose:** Assigns a new value to `is disabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.SetIsDisabled(false, false);
+```
 
 ### ExecuteSelectTeam
 `public void ExecuteSelectTeam()`
 
-**Purpose:** Executes the `select team` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select team`.
+
+```csharp
+// Obtain an instance of TeamSelectTeamInstanceVM from the subsystem API first
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.ExecuteSelectTeam();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamSelectTeamInstanceVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

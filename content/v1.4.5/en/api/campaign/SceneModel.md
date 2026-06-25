@@ -1,20 +1,14 @@
 ---
 title: "SceneModel"
+description: "Auto-generated class reference for SceneModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SceneModel : MBGameModel<SceneModel>`
 **Base:** `MBGameModel<SceneModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SceneModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SceneModel.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `SceneModel` as a Model-style extension point: first identify who creates 
 ### GetConversationSceneForMapPosition
 `public abstract string GetConversationSceneForMapPosition(CampaignVec2 campaignPosition)`
 
-**Purpose:** Gets the current value of `conversation scene for map position`.
+**Purpose:** Reads and returns the `conversation scene for map position` value held by the current object.
+
+```csharp
+// Obtain an instance of SceneModel from the subsystem API first
+SceneModel sceneModel = ...;
+var result = sceneModel.GetConversationSceneForMapPosition(campaignPosition);
+```
 
 ### GetBattleSceneForMapPatch
 `public abstract string GetBattleSceneForMapPatch(MapPatchData mapPatch, bool isNavalEncounter)`
 
-**Purpose:** Gets the current value of `battle scene for map patch`.
+**Purpose:** Reads and returns the `battle scene for map patch` value held by the current object.
+
+```csharp
+// Obtain an instance of SceneModel from the subsystem API first
+SceneModel sceneModel = ...;
+var result = sceneModel.GetBattleSceneForMapPatch(mapPatch, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSceneModel();
+// Typically obtained from a subsystem API or factory
+SceneModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

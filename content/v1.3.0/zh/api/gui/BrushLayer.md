@@ -1,13 +1,7 @@
 ---
 title: "BrushLayer"
+description: "BrushLayer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushLayer`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushLayer
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -64,35 +58,66 @@ title: "BrushLayer"
 ### FillFrom
 `public void FillFrom(BrushLayer brushLayer)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BrushLayer 实例
+BrushLayer brushLayer = ...;
+brushLayer.FillFrom(brushLayer);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 获取 `value as float` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as float」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushLayer 实例
+BrushLayer brushLayer = ...;
+var result = brushLayer.GetValueAsFloat(propertyType);
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 获取 `value as color` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as color」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushLayer 实例
+BrushLayer brushLayer = ...;
+var result = brushLayer.GetValueAsColor(propertyType);
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 获取 `value as sprite` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as sprite」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushLayer 实例
+BrushLayer brushLayer = ...;
+var result = brushLayer.GetValueAsSprite(propertyType);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 BrushLayer 实例
+BrushLayer brushLayer = ...;
+var result = brushLayer.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrushLayer();
-value.FillFrom(brushLayer);
+// 通常从对应子系统 API 获取实例后调用
+BrushLayer brushLayer = ...;
+brushLayer.FillFrom(brushLayer);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

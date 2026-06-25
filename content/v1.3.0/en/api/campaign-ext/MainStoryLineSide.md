@@ -1,18 +1,12 @@
 ---
 title: "MainStoryLineSide"
+description: "Auto-generated class reference for MainStoryLineSide."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainStoryLineSide`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainStoryLineSide
 
 **Namespace:** StoryMode
 **Module:** StoryMode
-**Type:** `class`
+**Type:** `public enum MainStoryLineSide`
 **Base:** none
 **File:** `StoryMode/MainStoryLineSide.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ## Usage Example
 
 ```csharp
-var value = new MainStoryLineSide();
+// Obtain an instance from the relevant subsystem API
+MainStoryLineSide instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

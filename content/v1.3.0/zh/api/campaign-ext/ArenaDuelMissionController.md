@@ -1,13 +1,7 @@
 ---
 title: "ArenaDuelMissionController"
+description: "ArenaDuelMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArenaDuelMissionController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaDuelMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Arena
@@ -29,22 +23,46 @@ title: "ArenaDuelMissionController"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelMissionController 实例
+ArenaDuelMissionController arenaDuelMissionController = ...;
+arenaDuelMissionController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelMissionController 实例
+ArenaDuelMissionController arenaDuelMissionController = ...;
+arenaDuelMissionController.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelMissionController 实例
+ArenaDuelMissionController arenaDuelMissionController = ...;
+arenaDuelMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** 当 `end mission request` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelMissionController 实例
+ArenaDuelMissionController arenaDuelMissionController = ...;
+var result = arenaDuelMissionController.OnEndMissionRequest(canPlayerLeave);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ var controller = Mission.Current.GetMissionBehavior<ArenaDuelMissionController>(
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

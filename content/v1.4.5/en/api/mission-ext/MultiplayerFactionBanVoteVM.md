@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerFactionBanVoteVM"
+description: "Auto-generated class reference for MultiplayerFactionBanVoteVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerFactionBanVoteVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerFactionBanVoteVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FactionBanVote
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerFactionBanVoteVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FactionBanVote/MultiplayerFactionBanVoteVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FactionBanVote/MultiplayerFactionBanVoteVM.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerFactionBanVoteVM();
+// Obtain an instance from the relevant subsystem API
+MultiplayerFactionBanVoteVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

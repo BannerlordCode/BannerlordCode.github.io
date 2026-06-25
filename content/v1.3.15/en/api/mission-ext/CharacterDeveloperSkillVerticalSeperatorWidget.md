@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperSkillVerticalSeperatorWidget"
+description: "Auto-generated class reference for CharacterDeveloperSkillVerticalSeperatorWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperSkillVerticalSeperatorWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperSkillVerticalSeperatorWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
@@ -33,9 +27,10 @@ Treat `CharacterDeveloperSkillVerticalSeperatorWidget` as a Widget-style extensi
 ## Usage Example
 
 ```csharp
-var widget = new CharacterDeveloperSkillVerticalSeperatorWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterDeveloperSkillVerticalSeperatorWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

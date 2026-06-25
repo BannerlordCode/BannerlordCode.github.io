@@ -1,20 +1,14 @@
 ---
 title: "NativeOptions"
+description: "Auto-generated class reference for NativeOptions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeOptions`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeOptions
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
 **Type:** `public class NativeOptions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptions.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeOptions.cs`
 
 ## Overview
 
@@ -36,185 +30,362 @@ Start from namespace `TaleWorlds.Engine.Options` to place it in the stack, then 
 ### OnNativeOptionChangedDelegate
 `public delegate void OnNativeOptionChangedDelegate(NativeOptionsType changedNativeOptionsType)`
 
-**Purpose:** Called when the `native option changed delegate` event is raised.
+**Purpose:** Invoked when the `native option changed delegate` event is raised.
+
+```csharp
+// Obtain an instance of NativeOptions from the subsystem API first
+NativeOptions nativeOptions = ...;
+nativeOptions.OnNativeOptionChangedDelegate(changedNativeOptionsType);
+```
 
 ### GetGFXPresetName
 `public static string GetGFXPresetName(ConfigQuality presetIndex)`
 
-**Purpose:** Gets the current value of `g f x preset name`.
+**Purpose:** Reads and returns the `g f x preset name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetGFXPresetName(presetIndex);
+```
 
 ### IsGFXOptionChangeable
 `public static bool IsGFXOptionChangeable(ConfigQuality config)`
 
-**Purpose:** Handles logic related to `is g f x option changeable`.
+**Purpose:** Determines whether the current object is in the `g f x option changeable` state or condition.
+
+```csharp
+// Static call; no instance required
+NativeOptions.IsGFXOptionChangeable(config);
+```
 
 ### ReadRGLConfigFiles
 `public static void ReadRGLConfigFiles()`
 
-**Purpose:** Handles logic related to `read r g l config files`.
+**Purpose:** Reads the data or state of `r g l config files`.
+
+```csharp
+// Static call; no instance required
+NativeOptions.ReadRGLConfigFiles();
+```
 
 ### GetConfig
 `public static float GetConfig(NativeOptionsType type)`
 
-**Purpose:** Gets the current value of `config`.
+**Purpose:** Reads and returns the `config` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetConfig(type);
+```
 
 ### GetDefaultConfig
 `public static float GetDefaultConfig(NativeOptionsType type)`
 
-**Purpose:** Gets the current value of `default config`.
+**Purpose:** Reads and returns the `default config` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetDefaultConfig(type);
+```
 
 ### GetDefaultConfigForOverallSettings
 `public static float GetDefaultConfigForOverallSettings(NativeOptionsType type, int config)`
 
-**Purpose:** Gets the current value of `default config for overall settings`.
+**Purpose:** Reads and returns the `default config for overall settings` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetDefaultConfigForOverallSettings(type, 0);
+```
 
 ### GetGameKeys
 `public static int GetGameKeys(int keyType, int i)`
 
-**Purpose:** Gets the current value of `game keys`.
+**Purpose:** Reads and returns the `game keys` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetGameKeys(0, 0);
+```
 
 ### GetSoundDeviceName
 `public static string GetSoundDeviceName(int i)`
 
-**Purpose:** Gets the current value of `sound device name`.
+**Purpose:** Reads and returns the `sound device name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetSoundDeviceName(0);
+```
 
 ### GetMonitorDeviceName
 `public static string GetMonitorDeviceName(int i)`
 
-**Purpose:** Gets the current value of `monitor device name`.
+**Purpose:** Reads and returns the `monitor device name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetMonitorDeviceName(0);
+```
 
 ### GetVideoDeviceName
 `public static string GetVideoDeviceName(int i)`
 
-**Purpose:** Gets the current value of `video device name`.
+**Purpose:** Reads and returns the `video device name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetVideoDeviceName(0);
+```
 
 ### GetSoundDeviceCount
 `public static int GetSoundDeviceCount()`
 
-**Purpose:** Gets the current value of `sound device count`.
+**Purpose:** Reads and returns the `sound device count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetSoundDeviceCount();
+```
 
 ### GetMonitorDeviceCount
 `public static int GetMonitorDeviceCount()`
 
-**Purpose:** Gets the current value of `monitor device count`.
+**Purpose:** Reads and returns the `monitor device count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetMonitorDeviceCount();
+```
 
 ### GetVideoDeviceCount
 `public static int GetVideoDeviceCount()`
 
-**Purpose:** Gets the current value of `video device count`.
+**Purpose:** Reads and returns the `video device count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetVideoDeviceCount();
+```
 
 ### GetResolutionCount
 `public static int GetResolutionCount()`
 
-**Purpose:** Gets the current value of `resolution count`.
+**Purpose:** Reads and returns the `resolution count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetResolutionCount();
+```
 
 ### RefreshOptionsData
 `public static void RefreshOptionsData()`
 
-**Purpose:** Refreshes the display or cache of `options data`.
+**Purpose:** Keeps the display or cache of `options data` in sync with the underlying state.
+
+```csharp
+// Static call; no instance required
+NativeOptions.RefreshOptionsData();
+```
 
 ### GetRefreshRateCount
 `public static int GetRefreshRateCount()`
 
-**Purpose:** Gets the current value of `refresh rate count`.
+**Purpose:** Reads and returns the `refresh rate count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetRefreshRateCount();
+```
 
 ### GetRefreshRateAtIndex
 `public static int GetRefreshRateAtIndex(int index)`
 
-**Purpose:** Gets the current value of `refresh rate at index`.
+**Purpose:** Reads and returns the `refresh rate at index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetRefreshRateAtIndex(0);
+```
 
 ### SetCustomResolution
 `public static void SetCustomResolution(int width, int height)`
 
-**Purpose:** Sets the value or state of `custom resolution`.
+**Purpose:** Assigns a new value to `custom resolution` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NativeOptions.SetCustomResolution(0, 0);
+```
 
 ### GetResolution
 `public static void GetResolution(ref int width, ref int height)`
 
-**Purpose:** Gets the current value of `resolution`.
+**Purpose:** Reads and returns the `resolution` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetResolution(width, height);
+```
 
 ### GetDesktopResolution
 `public static void GetDesktopResolution(ref int width, ref int height)`
 
-**Purpose:** Gets the current value of `desktop resolution`.
+**Purpose:** Reads and returns the `desktop resolution` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetDesktopResolution(width, height);
+```
 
 ### GetResolutionAtIndex
 `public static Vec2 GetResolutionAtIndex(int index)`
 
-**Purpose:** Gets the current value of `resolution at index`.
+**Purpose:** Reads and returns the `resolution at index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetResolutionAtIndex(0);
+```
 
 ### GetDLSSTechnique
 `public static int GetDLSSTechnique()`
 
-**Purpose:** Gets the current value of `d l s s technique`.
+**Purpose:** Reads and returns the `d l s s technique` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetDLSSTechnique();
+```
 
 ### Is120HzAvailable
 `public static bool Is120HzAvailable()`
 
-**Purpose:** Handles logic related to `is120 hz available`.
+**Purpose:** Determines whether the current object is in the `120 hz available` state or condition.
+
+```csharp
+// Static call; no instance required
+NativeOptions.Is120HzAvailable();
+```
 
 ### GetDLSSOptionCount
 `public static int GetDLSSOptionCount()`
 
-**Purpose:** Gets the current value of `d l s s option count`.
+**Purpose:** Reads and returns the `d l s s option count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetDLSSOptionCount();
+```
 
 ### GetIsDLSSAvailable
 `public static bool GetIsDLSSAvailable()`
 
-**Purpose:** Gets the current value of `is d l s s available`.
+**Purpose:** Reads and returns the `is d l s s available` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.GetIsDLSSAvailable();
+```
 
 ### CheckGFXSupportStatus
 `public static bool CheckGFXSupportStatus(int enumType)`
 
-**Purpose:** Handles logic related to `check g f x support status`.
+**Purpose:** Verifies whether `g f x support status` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.CheckGFXSupportStatus(0);
+```
 
 ### SetConfig
 `public static void SetConfig(NativeOptionsType type, float value)`
 
-**Purpose:** Sets the value or state of `config`.
+**Purpose:** Assigns a new value to `config` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NativeOptions.SetConfig(type, 0);
+```
 
 ### ApplyConfigChanges
 `public static void ApplyConfigChanges(bool resizeWindow)`
 
-**Purpose:** Applies `config changes` to the current object.
+**Purpose:** Applies the effect of `config changes` to the current object.
+
+```csharp
+// Static call; no instance required
+NativeOptions.ApplyConfigChanges(false);
+```
 
 ### SetGameKeys
 `public static void SetGameKeys(int keyType, int index, int key)`
 
-**Purpose:** Sets the value or state of `game keys`.
+**Purpose:** Assigns a new value to `game keys` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NativeOptions.SetGameKeys(0, 0, 0);
+```
 
 ### Apply
 `public static void Apply(int texture_budget, int sharpen_amount, int hdr, int dof_mode, int motion_blur, int ssr, int size, int texture_filtering, int trail_amount, int dynamic_resolution_target)`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Static call; no instance required
+NativeOptions.Apply(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+```
 
 ### SaveConfig
 `public static SaveResult SaveConfig()`
 
-**Purpose:** Saves `config` data.
+**Purpose:** Writes `config` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+NativeOptions.SaveConfig();
+```
 
 ### SetBrightness
 `public static void SetBrightness(float gamma)`
 
-**Purpose:** Sets the value or state of `brightness`.
+**Purpose:** Assigns a new value to `brightness` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NativeOptions.SetBrightness(0);
+```
 
 ### SetDefaultGameKeys
 `public static void SetDefaultGameKeys()`
 
-**Purpose:** Sets the value or state of `default game keys`.
+**Purpose:** Assigns a new value to `default game keys` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NativeOptions.SetDefaultGameKeys();
+```
 
 ### SetDefaultGameConfig
 `public static void SetDefaultGameConfig()`
 
-**Purpose:** Sets the value or state of `default game config`.
+**Purpose:** Assigns a new value to `default game config` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NativeOptions.SetDefaultGameConfig();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NativeOptions();
-value.OnNativeOptionChangedDelegate(changedNativeOptionsType);
+// Typically call this after obtaining an instance from the subsystem API
+NativeOptions nativeOptions = ...;
+nativeOptions.OnNativeOptionChangedDelegate(changedNativeOptionsType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ILoginAccessProvider"
+description: "ILoginAccessProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ILoginAccessProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ILoginAccessProvider
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public interface ILoginAccessProvider`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ILoginAccessProvider.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ILoginAccessProvider.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ILoginAccessProvider"
 ## 使用示例
 
 ```csharp
-ILoginAccessProvider implementation = GetLoginAccessProviderImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IILoginAccessProvider service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

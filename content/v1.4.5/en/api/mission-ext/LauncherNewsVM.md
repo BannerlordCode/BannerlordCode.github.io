@@ -1,20 +1,14 @@
 ---
 title: "LauncherNewsVM"
+description: "Auto-generated class reference for LauncherNewsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherNewsVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherNewsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherNewsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherNewsVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherNewsVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Refresh
 `public void Refresh(bool isMultiplayer)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of LauncherNewsVM from the subsystem API first
+LauncherNewsVM launcherNewsVM = ...;
+launcherNewsVM.Refresh(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LauncherNewsVM();
-value.Refresh(false);
+// Typically call this after obtaining an instance from the subsystem API
+LauncherNewsVM launcherNewsVM = ...;
+launcherNewsVM.Refresh(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MessageServiceConnection"
+description: "Auto-generated class reference for MessageServiceConnection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageServiceConnection`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageServiceConnection
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class MessageServiceConnection`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/MessageServiceConnection.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageServiceConnection.cs`
 
 ## Overview
 
@@ -35,44 +29,87 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### ClosedDelegate
 `public delegate Task ClosedDelegate()`
 
-**Purpose:** Handles logic related to `closed delegate`.
+**Purpose:** Closes the resource or UI associated with `d delegate`.
+
+```csharp
+// Obtain an instance of MessageServiceConnection from the subsystem API first
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.ClosedDelegate();
+```
 
 ### StateChangedDelegate
 `public delegate void StateChangedDelegate(ConnectionState oldState, ConnectionState newState)`
 
-**Purpose:** Handles logic related to `state changed delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MessageServiceConnection from the subsystem API first
+MessageServiceConnection messageServiceConnection = ...;
+messageServiceConnection.StateChangedDelegate(oldState, newState);
+```
 
 ### SendAsync
 `public abstract Task SendAsync(string text)`
 
-**Purpose:** Handles logic related to `send async`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MessageServiceConnection from the subsystem API first
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.SendAsync("example");
+```
 
 ### Init
 `public abstract void Init(string address, string token)`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MessageServiceConnection from the subsystem API first
+MessageServiceConnection messageServiceConnection = ...;
+messageServiceConnection.Init("example", "example");
+```
 
 ### RegisterProxyClient
 `public abstract void RegisterProxyClient(string name, IMessageProxyClient playerClient)`
 
-**Purpose:** Handles logic related to `register proxy client`.
+**Purpose:** Registers `proxy client` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MessageServiceConnection from the subsystem API first
+MessageServiceConnection messageServiceConnection = ...;
+messageServiceConnection.RegisterProxyClient("example", playerClient);
+```
 
 ### StartAsync
 `public abstract Task StartAsync()`
 
-**Purpose:** Handles logic related to `start async`.
+**Purpose:** Starts the `async` flow or state machine.
+
+```csharp
+// Obtain an instance of MessageServiceConnection from the subsystem API first
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.StartAsync();
+```
 
 ### StopAsync
 `public abstract Task StopAsync()`
 
-**Purpose:** Handles logic related to `stop async`.
+**Purpose:** Stops the `async` flow or state machine.
+
+```csharp
+// Obtain an instance of MessageServiceConnection from the subsystem API first
+MessageServiceConnection messageServiceConnection = ...;
+var result = messageServiceConnection.StopAsync();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMessageServiceConnection();
+// Typically obtained from a subsystem API or factory
+MessageServiceConnection instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

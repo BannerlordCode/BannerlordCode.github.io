@@ -1,20 +1,14 @@
 ---
 title: "StoryModeManager"
+description: "StoryModeManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeManager
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class StoryModeManager`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/StoryModeManager.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/StoryModeManager.cs`
 
 ## 概述
 
@@ -42,4 +36,4 @@ var manager = StoryModeManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

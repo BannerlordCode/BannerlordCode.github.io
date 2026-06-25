@@ -1,23 +1,18 @@
 ---
 title: "IConflictResolver"
+description: "Auto-generated class reference for IConflictResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IConflictResolver`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IConflictResolver
 
 **Namespace:** TaleWorlds.SaveSystem.Resolvers
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface IConflictResolver`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Resolvers/IConflictResolver.cs`
 
 ## Overview
 
-`IConflictResolver` lives in `TaleWorlds.SaveSystem.Resolvers`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`IConflictResolver` lives in `TaleWorlds.SaveSystem.Resolvers` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -26,10 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem.Resolvers` to place it in the stack,
 ## Usage Example
 
 ```csharp
-IConflictResolver implementation = GetConflictResolverImplementation();
+// Usually obtained through DI or a factory method
+IIConflictResolver service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

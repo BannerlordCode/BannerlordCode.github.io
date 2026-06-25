@@ -1,13 +1,7 @@
 ---
 title: "MissionHideoutAmbushCinematicView"
+description: "Auto-generated class reference for MissionHideoutAmbushCinematicView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHideoutAmbushCinematicView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHideoutAmbushCinematicView
 
 **Namespace:** SandBox.View.Missions
@@ -29,19 +23,32 @@ Treat `MissionHideoutAmbushCinematicView` as a View-style extension point: first
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionHideoutAmbushCinematicView from the subsystem API first
+MissionHideoutAmbushCinematicView missionHideoutAmbushCinematicView = ...;
+missionHideoutAmbushCinematicView.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionHideoutAmbushCinematicView from the subsystem API first
+MissionHideoutAmbushCinematicView missionHideoutAmbushCinematicView = ...;
+missionHideoutAmbushCinematicView.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionHideoutAmbushCinematicView();
+// Retrieve this view from the subsystem API or scene
+MissionHideoutAmbushCinematicView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

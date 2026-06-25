@@ -1,13 +1,7 @@
 ---
 title: "DefaultMapVisibilityModel"
+description: "DefaultMapVisibilityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultMapVisibilityModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultMapVisibilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,32 +23,68 @@ title: "DefaultMapVisibilityModel"
 ### MaximumSeeingRange
 `public override float MaximumSeeingRange()`
 
-**用途 / Purpose:** 处理 `maximum seeing range` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMapVisibilityModel 实例
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.MaximumSeeingRange();
+```
 
 ### GetPartySpottingRangeBase
 `public override float GetPartySpottingRangeBase(MobileParty party)`
 
-**用途 / Purpose:** 获取 `party spotting range base` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party spotting range base」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMapVisibilityModel 实例
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetPartySpottingRangeBase(party);
+```
 
 ### GetPartySpottingRange
 `public override ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `party spotting range` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party spotting range」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMapVisibilityModel 实例
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetPartySpottingRange(party, false);
+```
 
 ### GetPartyRelativeInspectionRange
 `public override float GetPartyRelativeInspectionRange(IMapPoint party)`
 
-**用途 / Purpose:** 获取 `party relative inspection range` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party relative inspection range」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMapVisibilityModel 实例
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetPartyRelativeInspectionRange(party);
+```
 
 ### GetPartySpottingDifficulty
 `public override float GetPartySpottingDifficulty(MobileParty spottingParty, MobileParty party)`
 
-**用途 / Purpose:** 获取 `party spotting difficulty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party spotting difficulty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMapVisibilityModel 实例
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetPartySpottingDifficulty(spottingParty, party);
+```
 
 ### GetHideoutSpottingDistance
 `public override float GetHideoutSpottingDistance()`
 
-**用途 / Purpose:** 获取 `hideout spotting distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hideout spotting distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMapVisibilityModel 实例
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetHideoutSpottingDistance();
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultMapVisibilityModel>(new MyDefaultMapVisibilityM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

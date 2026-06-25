@@ -1,13 +1,7 @@
 ---
 title: "NarrativeMenuCharacter"
+description: "Auto-generated class reference for NarrativeMenuCharacter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NarrativeMenuCharacter`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NarrativeMenuCharacter
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -44,70 +38,143 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### UpdateBodyProperties
 `public void UpdateBodyProperties(BodyProperties bodyProperties, int race, bool isFemale)`
 
-**Purpose:** Updates the state or data of `body properties`.
+**Purpose:** Recalculates and stores the latest representation of `body properties`.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.UpdateBodyProperties(bodyProperties, 0, false);
+```
 
 ### SetEquipment
 `public void SetEquipment(MBEquipmentRoster equipment)`
 
-**Purpose:** Sets the value or state of `equipment`.
+**Purpose:** Assigns a new value to `equipment` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.SetEquipment(equipment);
+```
 
 ### SetAnimationId
 `public void SetAnimationId(string animationId)`
 
-**Purpose:** Sets the value or state of `animation id`.
+**Purpose:** Assigns a new value to `animation id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.SetAnimationId("example");
+```
 
 ### SetRightHandItem
 `public void SetRightHandItem(string itemId)`
 
-**Purpose:** Sets the value or state of `right hand item`.
+**Purpose:** Assigns a new value to `right hand item` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.SetRightHandItem("example");
+```
 
 ### SetLeftHandItem
 `public void SetLeftHandItem(string itemId)`
 
-**Purpose:** Sets the value or state of `left hand item`.
+**Purpose:** Assigns a new value to `left hand item` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.SetLeftHandItem("example");
+```
 
 ### EquipRightHandItemWithEquipmentIndex
 `public void EquipRightHandItemWithEquipmentIndex(EquipmentIndex item)`
 
-**Purpose:** Handles logic related to `equip right hand item with equipment index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.EquipRightHandItemWithEquipmentIndex(item);
+```
 
 ### EquipLeftHandItemWithEquipmentIndex
 `public void EquipLeftHandItemWithEquipmentIndex(EquipmentIndex item)`
 
-**Purpose:** Handles logic related to `equip left hand item with equipment index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.EquipLeftHandItemWithEquipmentIndex(item);
+```
 
 ### SetSpawnPointEntityId
 `public void SetSpawnPointEntityId(string spawnPointEntityId)`
 
-**Purpose:** Sets the value or state of `spawn point entity id`.
+**Purpose:** Assigns a new value to `spawn point entity id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.SetSpawnPointEntityId("example");
+```
 
 ### ChangeAge
 `public void ChangeAge(float age)`
 
-**Purpose:** Handles logic related to `change age`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.ChangeAge(0);
+```
 
 ### SetMountCreationKey
 `public void SetMountCreationKey(MountCreationKey mountCreationKey)`
 
-**Purpose:** Sets the value or state of `mount creation key`.
+**Purpose:** Assigns a new value to `mount creation key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.SetMountCreationKey(mountCreationKey);
+```
 
 ### SetHorseItemId
 `public void SetHorseItemId(string itemId)`
 
-**Purpose:** Sets the value or state of `horse item id`.
+**Purpose:** Assigns a new value to `horse item id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.SetHorseItemId("example");
+```
 
 ### SetHarnessItemId
 `public void SetHarnessItemId(string itemId)`
 
-**Purpose:** Sets the value or state of `harness item id`.
+**Purpose:** Assigns a new value to `harness item id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuCharacter from the subsystem API first
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.SetHarnessItemId("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NarrativeMenuCharacter();
-value.UpdateBodyProperties(bodyProperties, 0, false);
+// Typically call this after obtaining an instance from the subsystem API
+NarrativeMenuCharacter narrativeMenuCharacter = ...;
+narrativeMenuCharacter.UpdateBodyProperties(bodyProperties, 0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

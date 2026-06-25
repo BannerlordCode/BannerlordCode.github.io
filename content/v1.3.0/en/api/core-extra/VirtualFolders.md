@@ -1,13 +1,7 @@
 ---
 title: "VirtualFolders"
+description: "Auto-generated class reference for VirtualFolders."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VirtualFolders`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VirtualFolders
 
 **Namespace:** TaleWorlds.Library
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetFileContent
 `public static string GetFileContent(string filePath, Type type = null)`
 
-**Purpose:** Gets the current value of `file content`.
+**Purpose:** Reads and returns the `file content` value held by the current object.
+
+```csharp
+// Static call; no instance required
+VirtualFolders.GetFileContent("example", null);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ VirtualFolders.GetFileContent("example", null);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

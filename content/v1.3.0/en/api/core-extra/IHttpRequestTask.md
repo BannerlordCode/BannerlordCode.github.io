@@ -1,18 +1,12 @@
 ---
 title: "IHttpRequestTask"
+description: "Auto-generated class reference for IHttpRequestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IHttpRequestTask`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IHttpRequestTask
 
 **Namespace:** TaleWorlds.Library.Http
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IHttpRequestTask`
 **Base:** none
 **File:** `TaleWorlds.Library/Http/IHttpRequestTask.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.Http` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-IHttpRequestTask implementation = GetHttpRequestTaskImplementation();
+// Usually obtained through DI or a factory method
+IIHttpRequestTask service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

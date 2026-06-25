@@ -1,19 +1,14 @@
 ---
 title: "PlayerPartySuggestionData"
+description: "PlayerPartySuggestionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerPartySuggestionData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerPartySuggestionData
 
-**命名空间:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class PlayerPartySuggestionData`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class PlayerPartySuggestionData`
+**Base:** 无
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPartyPlayerSuggestionPopupVM.cs`
 
 ## 概述
 
@@ -31,36 +26,14 @@ title: "PlayerPartySuggestionData"
 | `PlayerName` | `public string PlayerName { get; }` |
 | `SuggestingPlayerId` | `public PlayerId SuggestingPlayerId { get; }` |
 | `SuggestingPlayerName` | `public string SuggestingPlayerName { get; }` |
-| `IsEnabled` | `public bool IsEnabled { get; set; }` |
-| `TitleText` | `public string TitleText { get; set; }` |
-| `DoYouWantToInviteText` | `public string DoYouWantToInviteText { get; set; }` |
-| `PlayerSuggestedText` | `public string PlayerSuggestedText { get; set; }` |
-| `SuggestedPlayer` | `public MPLobbyPlayerBaseVM SuggestedPlayer { get; set; }` |
-
-## 主要方法
-
-### RefreshValues
-`public override void RefreshValues()`
-
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
-
-### OpenWith
-`public void OpenWith(PlayerPartySuggestionData data)`
-
-**用途 / Purpose:** 处理 `open with` 相关逻辑。
-
-### Close
-`public void Close()`
-
-**用途 / Purpose:** 处理 `close` 相关逻辑。
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerPartySuggestionData();
+// 该数据对象通常由战役/任务 API 返回
+PlayerPartySuggestionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

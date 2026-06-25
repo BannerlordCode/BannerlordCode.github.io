@@ -1,20 +1,14 @@
 ---
 title: "SelectorItemVM"
+description: "Auto-generated class reference for SelectorItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectorItemVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectorItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Selector
 **Module:** TaleWorlds.Core
 **Type:** `public class SelectorItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Selector/SelectorItemVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Selector/SelectorItemVM.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Selector` to place it 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SelectorItemVM from the subsystem API first
+SelectorItemVM selectorItemVM = ...;
+selectorItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SelectorItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SelectorItemVM selectorItemVM = ...;
+selectorItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyTroopUpgradeModel"
+description: "Auto-generated class reference for PartyTroopUpgradeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTroopUpgradeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTroopUpgradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyTroopUpgradeModel : MBGameModel<PartyTroopUpgradeModel>`
 **Base:** `MBGameModel<PartyTroopUpgradeModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTroopUpgradeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTroopUpgradeModel.cs`
 
 ## Overview
 
@@ -29,49 +23,98 @@ Treat `PartyTroopUpgradeModel` as a Model-style extension point: first identify 
 ### CanPartyUpgradeTroopToTarget
 `public abstract bool CanPartyUpgradeTroopToTarget(PartyBase party, CharacterObject character, CharacterObject target)`
 
-**Purpose:** Checks whether the current object can `party upgrade troop to target`.
+**Purpose:** Checks whether the current object meets the preconditions for `party upgrade troop to target`.
+
+```csharp
+// Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
+PartyTroopUpgradeModel partyTroopUpgradeModel = ...;
+var result = partyTroopUpgradeModel.CanPartyUpgradeTroopToTarget(party, character, target);
+```
 
 ### IsTroopUpgradeable
 `public abstract bool IsTroopUpgradeable(PartyBase party, CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop upgradeable`.
+**Purpose:** Determines whether the current object is in the `troop upgradeable` state or condition.
+
+```csharp
+// Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
+PartyTroopUpgradeModel partyTroopUpgradeModel = ...;
+var result = partyTroopUpgradeModel.IsTroopUpgradeable(party, character);
+```
 
 ### DoesPartyHaveRequiredItemsForUpgrade
 `public abstract bool DoesPartyHaveRequiredItemsForUpgrade(PartyBase party, CharacterObject upgradeTarget)`
 
-**Purpose:** Handles logic related to `does party have required items for upgrade`.
+**Purpose:** Returns a boolean answer to whether `party have required items for upgrade` is true for the current object.
+
+```csharp
+// Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
+PartyTroopUpgradeModel partyTroopUpgradeModel = ...;
+var result = partyTroopUpgradeModel.DoesPartyHaveRequiredItemsForUpgrade(party, upgradeTarget);
+```
 
 ### DoesPartyHaveRequiredPerksForUpgrade
 `public abstract bool DoesPartyHaveRequiredPerksForUpgrade(PartyBase party, CharacterObject character, CharacterObject upgradeTarget, out PerkObject requiredPerk)`
 
-**Purpose:** Handles logic related to `does party have required perks for upgrade`.
+**Purpose:** Returns a boolean answer to whether `party have required perks for upgrade` is true for the current object.
+
+```csharp
+// Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
+PartyTroopUpgradeModel partyTroopUpgradeModel = ...;
+var result = partyTroopUpgradeModel.DoesPartyHaveRequiredPerksForUpgrade(party, character, upgradeTarget, requiredPerk);
+```
 
 ### GetGoldCostForUpgrade
 `public abstract ExplainedNumber GetGoldCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
 
-**Purpose:** Gets the current value of `gold cost for upgrade`.
+**Purpose:** Reads and returns the `gold cost for upgrade` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
+PartyTroopUpgradeModel partyTroopUpgradeModel = ...;
+var result = partyTroopUpgradeModel.GetGoldCostForUpgrade(party, characterObject, upgradeTarget);
+```
 
 ### GetXpCostForUpgrade
 `public abstract int GetXpCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
 
-**Purpose:** Gets the current value of `xp cost for upgrade`.
+**Purpose:** Reads and returns the `xp cost for upgrade` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
+PartyTroopUpgradeModel partyTroopUpgradeModel = ...;
+var result = partyTroopUpgradeModel.GetXpCostForUpgrade(party, characterObject, upgradeTarget);
+```
 
 ### GetSkillXpFromUpgradingTroops
 `public abstract int GetSkillXpFromUpgradingTroops(PartyBase party, CharacterObject troop, int numberOfTroops)`
 
-**Purpose:** Gets the current value of `skill xp from upgrading troops`.
+**Purpose:** Reads and returns the `skill xp from upgrading troops` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
+PartyTroopUpgradeModel partyTroopUpgradeModel = ...;
+var result = partyTroopUpgradeModel.GetSkillXpFromUpgradingTroops(party, troop, 0);
+```
 
 ### GetUpgradeChanceForTroopUpgrade
 `public abstract float GetUpgradeChanceForTroopUpgrade(PartyBase party, CharacterObject troop, int upgradeTargetIndex)`
 
-**Purpose:** Gets the current value of `upgrade chance for troop upgrade`.
+**Purpose:** Reads and returns the `upgrade chance for troop upgrade` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
+PartyTroopUpgradeModel partyTroopUpgradeModel = ...;
+var result = partyTroopUpgradeModel.GetUpgradeChanceForTroopUpgrade(party, troop, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyTroopUpgradeModel();
+// Typically obtained from a subsystem API or factory
+PartyTroopUpgradeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

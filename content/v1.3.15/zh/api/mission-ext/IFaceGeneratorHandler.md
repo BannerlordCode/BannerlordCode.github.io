@@ -1,18 +1,12 @@
 ---
 title: "IFaceGeneratorHandler"
+description: "IFaceGeneratorHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IFaceGeneratorHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IFaceGeneratorHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IFaceGeneratorHandler`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade/IFaceGeneratorHandler.cs`
 
@@ -27,9 +21,10 @@ title: "IFaceGeneratorHandler"
 ## 使用示例
 
 ```csharp
-IFaceGeneratorHandler implementation = GetFaceGeneratorHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIFaceGeneratorHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

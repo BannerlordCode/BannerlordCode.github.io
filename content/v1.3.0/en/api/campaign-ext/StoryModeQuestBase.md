@@ -1,13 +1,7 @@
 ---
 title: "StoryModeQuestBase"
+description: "Auto-generated class reference for StoryModeQuestBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeQuestBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeQuestBase
 
 **Namespace:** StoryMode
@@ -34,9 +28,10 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ## Usage Example
 
 ```csharp
-var implementation = new CustomStoryModeQuestBase();
+// Typically obtained from a subsystem API or factory
+StoryModeQuestBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

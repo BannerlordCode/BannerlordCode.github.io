@@ -1,13 +1,7 @@
 ---
 title: "RandomParticleSpawner"
+description: "Auto-generated class reference for RandomParticleSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RandomParticleSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RandomParticleSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of RandomParticleSpawner from the subsystem API first
+RandomParticleSpawner randomParticleSpawner = ...;
+var result = randomParticleSpawner.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RandomParticleSpawner();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+RandomParticleSpawner randomParticleSpawner = ...;
+randomParticleSpawner.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

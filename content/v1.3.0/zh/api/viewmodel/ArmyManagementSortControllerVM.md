@@ -1,13 +1,7 @@
 ---
 title: "ArmyManagementSortControllerVM"
+description: "ArmyManagementSortControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArmyManagementSortControllerVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyManagementSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -46,80 +40,165 @@ title: "ArmyManagementSortControllerVM"
 ### ExecuteSortByDistance
 `public void ExecuteSortByDistance()`
 
-**用途 / Purpose:** 执行 `sort by distance` 操作或流程。
+**用途 / Purpose:** 执行 「sort by distance」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByDistance();
+```
 
 ### ExecuteSortByCost
 `public void ExecuteSortByCost()`
 
-**用途 / Purpose:** 执行 `sort by cost` 操作或流程。
+**用途 / Purpose:** 执行 「sort by cost」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByCost();
+```
 
 ### ExecuteSortByStrength
 `public void ExecuteSortByStrength()`
 
-**用途 / Purpose:** 执行 `sort by strength` 操作或流程。
+**用途 / Purpose:** 执行 「sort by strength」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByStrength();
+```
 
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**用途 / Purpose:** 执行 `sort by name` 操作或流程。
+**用途 / Purpose:** 执行 「sort by name」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByName();
+```
 
 ### ExecuteSortByClan
 `public void ExecuteSortByClan()`
 
-**用途 / Purpose:** 执行 `sort by clan` 操作或流程。
+**用途 / Purpose:** 执行 「sort by clan」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByClan();
+```
 
 ### ExecuteSortByShipCount
 `public void ExecuteSortByShipCount()`
 
-**用途 / Purpose:** 执行 `sort by ship count` 操作或流程。
+**用途 / Purpose:** 执行 「sort by ship count」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByShipCount();
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 设置 `sort mode` 的值或状态。
+**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArmyManagementSortControllerVM();
-value.ExecuteSortByDistance();
+// 通常从对应子系统 API 获取实例后调用
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByDistance();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

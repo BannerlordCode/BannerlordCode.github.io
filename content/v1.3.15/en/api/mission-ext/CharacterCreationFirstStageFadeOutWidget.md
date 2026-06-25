@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationFirstStageFadeOutWidget"
+description: "Auto-generated class reference for CharacterCreationFirstStageFadeOutWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationFirstStageFadeOutWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationFirstStageFadeOutWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Culture
@@ -34,9 +28,10 @@ Treat `CharacterCreationFirstStageFadeOutWidget` as a Widget-style extension poi
 ## Usage Example
 
 ```csharp
-var widget = new CharacterCreationFirstStageFadeOutWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterCreationFirstStageFadeOutWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

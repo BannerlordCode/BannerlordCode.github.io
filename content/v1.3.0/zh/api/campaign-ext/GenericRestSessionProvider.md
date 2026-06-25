@@ -1,13 +1,7 @@
 ---
 title: "GenericRestSessionProvider"
+description: "GenericRestSessionProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenericRestSessionProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericRestSessionProvider
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
@@ -29,15 +23,22 @@ title: "GenericRestSessionProvider"
 ### CreateSession
 `public IClientSession CreateSession(T session)`
 
-**用途 / Purpose:** 创建一个 `session` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「session」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 GenericRestSessionProvider 实例
+GenericRestSessionProvider genericRestSessionProvider = ...;
+var result = genericRestSessionProvider.CreateSession(session);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GenericRestSessionProvider();
-value.CreateSession(session);
+// 通常从对应子系统 API 获取实例后调用
+GenericRestSessionProvider genericRestSessionProvider = ...;
+genericRestSessionProvider.CreateSession(session);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

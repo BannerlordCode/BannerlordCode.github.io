@@ -1,20 +1,14 @@
 ---
 title: "Highlights"
+description: "Highlights 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Highlights`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Highlights
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class Highlights`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Highlights.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Highlights.cs`
 
 ## 概述
 
@@ -29,42 +23,82 @@ title: "Highlights"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+Highlights.Initialize();
+```
 
 ### OpenGroup
 `public static void OpenGroup(string id)`
 
-**用途 / Purpose:** 处理 `open group` 相关逻辑。
+**用途 / Purpose:** 打开「group」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+Highlights.OpenGroup("example");
+```
 
 ### CloseGroup
 `public static void CloseGroup(string id, bool destroy = false)`
 
-**用途 / Purpose:** 处理 `close group` 相关逻辑。
+**用途 / Purpose:** 关闭「group」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+Highlights.CloseGroup("example", false);
+```
 
 ### SaveScreenshot
 `public static void SaveScreenshot(string highlightId, string groupId)`
 
-**用途 / Purpose:** 保存 `screenshot` 数据。
+**用途 / Purpose:** 将 「screenshot」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+Highlights.SaveScreenshot("example", "example");
+```
 
 ### SaveVideo
 `public static void SaveVideo(string highlightId, string groupId, int startDelta, int endDelta)`
 
-**用途 / Purpose:** 保存 `video` 数据。
+**用途 / Purpose:** 将 「video」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+Highlights.SaveVideo("example", "example", 0, 0);
+```
 
 ### OpenSummary
 `public static void OpenSummary(List<string> groups)`
 
-**用途 / Purpose:** 处理 `open summary` 相关逻辑。
+**用途 / Purpose:** 打开「summary」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+Highlights.OpenSummary(groups);
+```
 
 ### AddHighlight
 `public static void AddHighlight(string id, string name)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `highlight`。
+**用途 / Purpose:** 将 「highlight」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+Highlights.AddHighlight("example", "example");
+```
 
 ### RemoveHighlight
 `public static void RemoveHighlight(string id)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `highlight`。
+**用途 / Purpose:** 从当前容器或状态中移除 「highlight」。
+
+```csharp
+// 静态调用，不需要实例
+Highlights.RemoveHighlight("example");
+```
 
 ## 使用示例
 
@@ -74,4 +108,4 @@ Highlights.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

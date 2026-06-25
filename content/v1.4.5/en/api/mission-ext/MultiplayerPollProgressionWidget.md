@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPollProgressionWidget"
+description: "Auto-generated class reference for MultiplayerPollProgressionWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPollProgressionWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPollProgressionWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPollProgressionWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerPollProgressionWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerPollProgressionWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MultiplayerPollProgressionWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerPollProgressionWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerPollProgressionWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

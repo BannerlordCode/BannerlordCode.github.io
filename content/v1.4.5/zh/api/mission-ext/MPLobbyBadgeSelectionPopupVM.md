@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyBadgeSelectionPopupVM"
+description: "MPLobbyBadgeSelectionPopupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyBadgeSelectionPopupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyBadgeSelectionPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyBadgeSelectionPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyBadgeSelectionPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyBadgeSelectionPopupVM.cs`
 
 ## 概述
 
@@ -45,65 +39,132 @@ title: "MPLobbyBadgeSelectionPopupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.RefreshValues();
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**用途 / Purpose:** 刷新 `player data` 的显示或缓存。
+**用途 / Purpose:** 使 「player data」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.RefreshPlayerData(playerData);
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey inspectProgressKey)`
 
-**用途 / Purpose:** 刷新 `key bindings` 的显示或缓存。
+**用途 / Purpose:** 使 「key bindings」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.RefreshKeyBindings(inspectProgressKey);
+```
 
 ### UpdateBadges
 `public async void UpdateBadges(bool shouldClear = false)`
 
-**用途 / Purpose:** 更新 `badges` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「badges」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.UpdateBadges(false);
+```
 
 ### UpdateBadgeSelection
 `public void UpdateBadgeSelection()`
 
-**用途 / Purpose:** 更新 `badge selection` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「badge selection」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.UpdateBadgeSelection();
+```
 
 ### OnNotificationReceived
 `public void OnNotificationReceived(LobbyNotification notification)`
 
-**用途 / Purpose:** 当 `notification received` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「notification received」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.OnNotificationReceived(notification);
+```
 
 ### OnBadgeInspected
 `public void OnBadgeInspected(MPLobbyBadgeItemVM badge)`
 
-**用途 / Purpose:** 当 `badge inspected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「badge inspected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.OnBadgeInspected(badge);
+```
 
 ### Open
 `public void Open()`
 
-**用途 / Purpose:** 处理 `open` 相关逻辑。
+**用途 / Purpose:** 打开当前对象代表的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.Open();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 `close popup` 操作或流程。
+**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.ExecuteClosePopup();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyBadgeSelectionPopupVM 实例
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.SetCancelInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyBadgeSelectionPopupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "CampaignOptionItemVM"
+description: "CampaignOptionItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignOptionItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignOptionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -47,40 +41,77 @@ title: "CampaignOptionItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionItemVM 实例
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.RefreshValues();
+```
 
 ### RefreshDisabledStatus
 `public void RefreshDisabledStatus()`
 
-**用途 / Purpose:** 刷新 `disabled status` 的显示或缓存。
+**用途 / Purpose:** 使 「disabled status」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionItemVM 实例
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.RefreshDisabledStatus();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionItemVM 实例
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.ExecuteAction();
+```
 
 ### OnSelectionOptionValueChanged
 `public void OnSelectionOptionValueChanged(SelectorVM<SelectorItemVM> selector)`
 
-**用途 / Purpose:** 当 `selection option value changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「selection option value changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionItemVM 实例
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.OnSelectionOptionValueChanged(selector);
+```
 
 ### SetValue
 `public void SetValue(float value)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionItemVM 实例
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.SetValue(0);
+```
 
 ### SetOnValueChangedCallback
 `public void SetOnValueChangedCallback(Action<CampaignOptionItemVM> onValueChanged)`
 
-**用途 / Purpose:** 设置 `on value changed callback` 的值或状态。
+**用途 / Purpose:** 为 「on value changed callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionItemVM 实例
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.SetOnValueChangedCallback(onValueChanged);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CampaignOptionItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

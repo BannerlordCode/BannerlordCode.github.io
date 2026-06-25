@@ -1,20 +1,14 @@
 ---
 title: "CharacterInsultedLogEntry"
+description: "CharacterInsultedLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterInsultedLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterInsultedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterInsultedLogEntry : LogEntry, IEncyclopediaLog, IChatNotification`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/CharacterInsultedLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/CharacterInsultedLogEntry.cs`
 
 ## 概述
 
@@ -35,35 +29,66 @@ title: "CharacterInsultedLogEntry"
 ### GetHistoricComment
 `public override TextObject GetHistoricComment(Hero talkTroop)`
 
-**用途 / Purpose:** 获取 `historic comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「historic comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterInsultedLogEntry 实例
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.GetHistoricComment(talkTroop);
+```
 
 ### AsReasonForEnmity
 `public override int AsReasonForEnmity(Hero referenceHero1, Hero referenceHero2)`
 
-**用途 / Purpose:** 处理 `as reason for enmity` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterInsultedLogEntry 实例
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.AsReasonForEnmity(referenceHero1, referenceHero2);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterInsultedLogEntry 实例
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 获取 `notification text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterInsultedLogEntry 实例
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.GetNotificationText();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** 获取 `encyclopedia text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterInsultedLogEntry 实例
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.GetEncyclopediaText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterInsultedLogEntry();
-value.GetHistoricComment(talkTroop);
+// 通常从对应子系统 API 获取实例后调用
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+characterInsultedLogEntry.GetHistoricComment(talkTroop);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

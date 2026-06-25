@@ -1,20 +1,14 @@
 ---
 title: "SiegeMoraleChangeMessage"
+description: "Auto-generated class reference for SiegeMoraleChangeMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeMoraleChangeMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeMoraleChangeMessage
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SiegeMoraleChangeMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SiegeMoraleChangeMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SiegeMoraleChangeMessage.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SiegeMoraleChangeMessage();
+// Obtain an instance from the relevant subsystem API
+SiegeMoraleChangeMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

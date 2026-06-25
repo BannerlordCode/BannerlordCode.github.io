@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyRecentGameItemVM"
+description: "MPLobbyRecentGameItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyRecentGameItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyRecentGameItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyRecentGameItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGameItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGameItemVM.cs`
 
 ## 概述
 
@@ -52,25 +46,44 @@ title: "MPLobbyRecentGameItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyRecentGameItemVM 实例
+MPLobbyRecentGameItemVM mPLobbyRecentGameItemVM = ...;
+mPLobbyRecentGameItemVM.RefreshValues();
+```
 
 ### FillFrom
 `public void FillFrom(MatchHistoryData match)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyRecentGameItemVM 实例
+MPLobbyRecentGameItemVM mPLobbyRecentGameItemVM = ...;
+mPLobbyRecentGameItemVM.FillFrom(match);
+```
 
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**用途 / Purpose:** 当 `friend list updated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「friend list updated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyRecentGameItemVM 实例
+MPLobbyRecentGameItemVM mPLobbyRecentGameItemVM = ...;
+mPLobbyRecentGameItemVM.OnFriendListUpdated(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyRecentGameItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyRecentGameItemVM mPLobbyRecentGameItemVM = ...;
+mPLobbyRecentGameItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

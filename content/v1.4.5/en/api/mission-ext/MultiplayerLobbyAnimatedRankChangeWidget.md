@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyAnimatedRankChangeWidget"
+description: "Auto-generated class reference for MultiplayerLobbyAnimatedRankChangeWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyAnimatedRankChangeWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyAnimatedRankChangeWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyAnimatedRankChangeWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyAnimatedRankChangeWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyAnimatedRankChangeWidget.cs`
 
 ## Overview
 
@@ -40,14 +34,21 @@ Treat `MultiplayerLobbyAnimatedRankChangeWidget` as a Widget-style extension poi
 ### MultiplayerLobbyAnimatedRankChangeWidget
 `public class MultiplayerLobbyAnimatedRankChangeWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer lobby animated rank change widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyAnimatedRankChangeWidget from the subsystem API first
+MultiplayerLobbyAnimatedRankChangeWidget multiplayerLobbyAnimatedRankChangeWidget = ...;
+var result = multiplayerLobbyAnimatedRankChangeWidget.MultiplayerLobbyAnimatedRankChangeWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyAnimatedRankChangeWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyAnimatedRankChangeWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ShadowType"
+description: "Auto-generated class reference for ShadowType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShadowType`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShadowType
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-ShadowType example = ShadowType.Value;
+// Obtain an instance from the relevant subsystem API
+ShadowType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

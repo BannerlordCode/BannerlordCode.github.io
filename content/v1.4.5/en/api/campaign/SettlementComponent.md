@@ -1,20 +1,14 @@
 ---
 title: "SettlementComponent"
+description: "Auto-generated class reference for SettlementComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementComponent : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/SettlementComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/SettlementComponent.cs`
 
 ## Overview
 
@@ -42,74 +36,153 @@ Treat `SettlementComponent` as a Component-style extension point: first identify
 ### GetProsperityLevel
 `public virtual ProsperityLevel GetProsperityLevel()`
 
-**Purpose:** Gets the current value of `prosperity level`.
+**Purpose:** Reads and returns the `prosperity level` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+var result = settlementComponent.GetProsperityLevel();
+```
 
 ### GetDefaultComponentBanner
 `public virtual Banner GetDefaultComponentBanner()`
 
-**Purpose:** Gets the current value of `default component banner`.
+**Purpose:** Reads and returns the `default component banner` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+var result = settlementComponent.GetDefaultComponentBanner();
+```
 
 ### OnPartyEntered
 `public virtual void OnPartyEntered(MobileParty mobileParty)`
 
-**Purpose:** Called when the `party entered` event is raised.
+**Purpose:** Invoked when the `party entered` event is raised.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+settlementComponent.OnPartyEntered(mobileParty);
+```
 
 ### OnPartyLeft
 `public virtual void OnPartyLeft(MobileParty mobileParty)`
 
-**Purpose:** Called when the `party left` event is raised.
+**Purpose:** Invoked when the `party left` event is raised.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+settlementComponent.OnPartyLeft(mobileParty);
+```
 
 ### OnInit
 `public virtual void OnInit()`
 
-**Purpose:** Called when the `init` event is raised.
+**Purpose:** Invoked when the `init` event is raised.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+settlementComponent.OnInit();
+```
 
 ### OnSessionStart
 `public virtual void OnSessionStart()`
 
-**Purpose:** Called when the `session start` event is raised.
+**Purpose:** Invoked when the `session start` event is raised.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+settlementComponent.OnSessionStart();
+```
 
 ### ChangeGold
 `public void ChangeGold(int changeAmount)`
 
-**Purpose:** Handles logic related to `change gold`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+settlementComponent.ChangeGold(0);
+```
 
 ### GetNumberOfTroops
 `public int GetNumberOfTroops()`
 
-**Purpose:** Gets the current value of `number of troops`.
+**Purpose:** Reads and returns the `number of troops` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+var result = settlementComponent.GetNumberOfTroops();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+settlementComponent.Deserialize(objectManager, node);
+```
 
 ### GetItemPrice
 `public virtual int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** Gets the current value of `item price`.
+**Purpose:** Reads and returns the `item price` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+var result = settlementComponent.GetItemPrice(item, null, false);
+```
 
 ### GetItemPrice
 `public virtual int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** Gets the current value of `item price`.
+**Purpose:** Reads and returns the `item price` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+var result = settlementComponent.GetItemPrice(itemRosterElement, null, false);
+```
 
 ### OnRelatedPartyRemoved
 `public virtual void OnRelatedPartyRemoved(MobileParty mobileParty)`
 
-**Purpose:** Called when the `related party removed` event is raised.
+**Purpose:** Invoked when the `related party removed` event is raised.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+settlementComponent.OnRelatedPartyRemoved(mobileParty);
+```
 
 ### GetPrisonerHeroes
 `public List<CharacterObject> GetPrisonerHeroes()`
 
-**Purpose:** Gets the current value of `prisoner heroes`.
+**Purpose:** Reads and returns the `prisoner heroes` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementComponent from the subsystem API first
+SettlementComponent settlementComponent = ...;
+var result = settlementComponent.GetPrisonerHeroes();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementComponent();
+// Typically obtained from a subsystem API or factory
+SettlementComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

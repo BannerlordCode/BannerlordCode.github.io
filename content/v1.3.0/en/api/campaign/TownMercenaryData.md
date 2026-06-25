@@ -1,13 +1,7 @@
 ---
 title: "TownMercenaryData"
+description: "Auto-generated class reference for TownMercenaryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownMercenaryData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownMercenaryData
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -36,24 +30,43 @@ Treat `TownMercenaryData` as a Data-style extension point: first identify who cr
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**Purpose:** Handles logic related to `change mercenary type`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TownMercenaryData from the subsystem API first
+TownMercenaryData townMercenaryData = ...;
+townMercenaryData.ChangeMercenaryType(troopType, 0);
+```
 
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**Purpose:** Handles logic related to `change mercenary count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TownMercenaryData from the subsystem API first
+TownMercenaryData townMercenaryData = ...;
+townMercenaryData.ChangeMercenaryCount(0);
+```
 
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**Purpose:** Checks whether the current object has/contains `available mercenary`.
+**Purpose:** Determines whether the current object already holds `available mercenary`.
+
+```csharp
+// Obtain an instance of TownMercenaryData from the subsystem API first
+TownMercenaryData townMercenaryData = ...;
+var result = townMercenaryData.HasAvailableMercenary(occupation.NotAssigned);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TownMercenaryData();
+// This data object is usually returned by campaign/mission APIs
+TownMercenaryData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleCompositionData"
+description: "CustomBattleCompositionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleCompositionData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleCompositionData
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CustomBattleCompositionData`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleCompositionData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleCompositionData.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "CustomBattleCompositionData"
 ### CustomBattleCompositionData
 `public struct CustomBattleCompositionData(float rangedPercentage, float cavalryPercentage, float rangedCavalryPercentage)`
 
-**用途 / Purpose:** 处理 `custom battle composition data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleCompositionData 实例
+CustomBattleCompositionData customBattleCompositionData = ...;
+var result = customBattleCompositionData.CustomBattleCompositionData(0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleCompositionData();
+// 该数据对象通常由战役/任务 API 返回
+CustomBattleCompositionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

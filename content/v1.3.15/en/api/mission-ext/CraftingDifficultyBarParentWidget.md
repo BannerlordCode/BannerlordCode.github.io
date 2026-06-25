@@ -1,13 +1,7 @@
 ---
 title: "CraftingDifficultyBarParentWidget"
+description: "Auto-generated class reference for CraftingDifficultyBarParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingDifficultyBarParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingDifficultyBarParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
@@ -36,9 +30,10 @@ Treat `CraftingDifficultyBarParentWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new CraftingDifficultyBarParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingDifficultyBarParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

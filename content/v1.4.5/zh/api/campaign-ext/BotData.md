@@ -1,20 +1,14 @@
 ---
 title: "BotData"
+description: "BotData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BotData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BotData
 
-**Namespace:** NetworkMessages.FromServer
-**Module:** NetworkMessages.FromServer
-**Type:** `public sealed class BotData : GameNetworkMessage`
-**Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/BotData.cs`
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class BotData`
+**Base:** 无
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BotData.cs`
 
 ## 概述
 
@@ -28,18 +22,28 @@ title: "BotData"
 
 | Name | Signature |
 |------|-----------|
-| `Side` | `public BattleSideEnum Side { get; }` |
-| `KillCount` | `public int KillCount { get; }` |
-| `AssistCount` | `public int AssistCount { get; }` |
-| `DeathCount` | `public int DeathCount { get; }` |
-| `AliveBotCount` | `public int AliveBotCount { get; }` |
+| `IsAnyValid` | `public bool IsAnyValid { get; }` |
+
+## 主要方法
+
+### ResetKillDeathAssist
+`public void ResetKillDeathAssist()`
+
+**用途 / Purpose:** 将 「kill death assist」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BotData 实例
+BotData botData = ...;
+botData.ResetKillDeathAssist();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BotData();
+// 该数据对象通常由战役/任务 API 返回
+BotData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "SimpleMaterial"
+description: "Auto-generated class reference for SimpleMaterial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SimpleMaterial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SimpleMaterial
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -56,30 +50,55 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Reset
 `public void Reset(Texture texture = null)`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of SimpleMaterial from the subsystem API first
+SimpleMaterial simpleMaterial = ...;
+simpleMaterial.Reset(null);
+```
 
 ### GetCircularMaskingCenter
 `public Vec2 GetCircularMaskingCenter()`
 
-**Purpose:** Gets the current value of `circular masking center`.
+**Purpose:** Reads and returns the `circular masking center` value held by the current object.
+
+```csharp
+// Obtain an instance of SimpleMaterial from the subsystem API first
+SimpleMaterial simpleMaterial = ...;
+var result = simpleMaterial.GetCircularMaskingCenter();
+```
 
 ### GetOverlayStartCoordinate
 `public Vec2 GetOverlayStartCoordinate()`
 
-**Purpose:** Gets the current value of `overlay start coordinate`.
+**Purpose:** Reads and returns the `overlay start coordinate` value held by the current object.
+
+```csharp
+// Obtain an instance of SimpleMaterial from the subsystem API first
+SimpleMaterial simpleMaterial = ...;
+var result = simpleMaterial.GetOverlayStartCoordinate();
+```
 
 ### GetOverlaySize
 `public Vec2 GetOverlaySize()`
 
-**Purpose:** Gets the current value of `overlay size`.
+**Purpose:** Reads and returns the `overlay size` value held by the current object.
+
+```csharp
+// Obtain an instance of SimpleMaterial from the subsystem API first
+SimpleMaterial simpleMaterial = ...;
+var result = simpleMaterial.GetOverlaySize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SimpleMaterial();
-value.Reset(null);
+// Typically call this after obtaining an instance from the subsystem API
+SimpleMaterial simpleMaterial = ...;
+simpleMaterial.Reset(null);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

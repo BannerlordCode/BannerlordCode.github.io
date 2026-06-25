@@ -1,20 +1,14 @@
 ---
 title: "CraftingPieceImageIdentifier"
+description: "Auto-generated class reference for CraftingPieceImageIdentifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceImageIdentifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceImageIdentifier
 
 **Namespace:** TaleWorlds.Core.ImageIdentifiers
 **Module:** TaleWorlds.Core
 **Type:** `public class CraftingPieceImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/CraftingPieceImageIdentifier.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/CraftingPieceImageIdentifier.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ImageIdentifiers` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new CraftingPieceImageIdentifier();
+// Obtain an instance from the relevant subsystem API
+CraftingPieceImageIdentifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

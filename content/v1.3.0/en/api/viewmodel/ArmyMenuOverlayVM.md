@@ -1,13 +1,7 @@
 ---
 title: "ArmyMenuOverlayVM"
+description: "Auto-generated class reference for ArmyMenuOverlayVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyMenuOverlayVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyMenuOverlayVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
@@ -47,35 +41,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ArmyMenuOverlayVM from the subsystem API first
+ArmyMenuOverlayVM armyMenuOverlayVM = ...;
+armyMenuOverlayVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ArmyMenuOverlayVM from the subsystem API first
+ArmyMenuOverlayVM armyMenuOverlayVM = ...;
+armyMenuOverlayVM.OnFinalize();
+```
 
 ### OnFrameTick
 `public override void OnFrameTick(float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of ArmyMenuOverlayVM from the subsystem API first
+ArmyMenuOverlayVM armyMenuOverlayVM = ...;
+armyMenuOverlayVM.OnFrameTick(0);
+```
 
 ### Refresh
 `public sealed override void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of ArmyMenuOverlayVM from the subsystem API first
+ArmyMenuOverlayVM armyMenuOverlayVM = ...;
+armyMenuOverlayVM.Refresh();
+```
 
 ### ExecuteOpenArmyManagement
 `public void ExecuteOpenArmyManagement()`
 
-**Purpose:** Executes the `open army management` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open army management`.
+
+```csharp
+// Obtain an instance of ArmyMenuOverlayVM from the subsystem API first
+ArmyMenuOverlayVM armyMenuOverlayVM = ...;
+armyMenuOverlayVM.ExecuteOpenArmyManagement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyMenuOverlayVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyMenuOverlayVM armyMenuOverlayVM = ...;
+armyMenuOverlayVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

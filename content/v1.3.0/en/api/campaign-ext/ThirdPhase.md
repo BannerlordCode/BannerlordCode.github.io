@@ -1,13 +1,7 @@
 ---
 title: "ThirdPhase"
+description: "Auto-generated class reference for ThirdPhase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThirdPhase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThirdPhase
 
 **Namespace:** StoryMode.StoryModePhases
@@ -39,28 +33,53 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 
 **Purpose:** Adds `ally kingdom` to the current collection or state.
 
+```csharp
+// Obtain an instance of ThirdPhase from the subsystem API first
+ThirdPhase thirdPhase = ...;
+thirdPhase.AddAllyKingdom(kingdom);
+```
+
 ### AddOppositionKingdom
 `public void AddOppositionKingdom(Kingdom kingdom)`
 
 **Purpose:** Adds `opposition kingdom` to the current collection or state.
+
+```csharp
+// Obtain an instance of ThirdPhase from the subsystem API first
+ThirdPhase thirdPhase = ...;
+thirdPhase.AddOppositionKingdom(kingdom);
+```
 
 ### RemoveOppositionKingdom
 `public void RemoveOppositionKingdom(Kingdom kingdom)`
 
 **Purpose:** Removes `opposition kingdom` from the current collection or state.
 
+```csharp
+// Obtain an instance of ThirdPhase from the subsystem API first
+ThirdPhase thirdPhase = ...;
+thirdPhase.RemoveOppositionKingdom(kingdom);
+```
+
 ### CompleteThirdPhase
 `public void CompleteThirdPhase(QuestBase.QuestCompleteDetails defeatTheConspiracyQuestCompleteDetail)`
 
-**Purpose:** Handles logic related to `complete third phase`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ThirdPhase from the subsystem API first
+ThirdPhase thirdPhase = ...;
+thirdPhase.CompleteThirdPhase(defeatTheConspiracyQuestCompleteDetail);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ThirdPhase();
-value.AddAllyKingdom(kingdom);
+// Typically call this after obtaining an instance from the subsystem API
+ThirdPhase thirdPhase = ...;
+thirdPhase.AddAllyKingdom(kingdom);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

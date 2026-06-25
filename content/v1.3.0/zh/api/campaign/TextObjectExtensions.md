@@ -1,13 +1,7 @@
 ---
 title: "TextObjectExtensions"
+description: "TextObjectExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextObjectExtensions`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextObjectExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
@@ -29,12 +23,22 @@ title: "TextObjectExtensions"
 ### SetCharacterProperties
 `public static void SetCharacterProperties(this TextObject to, string tag, CharacterObject character, bool includeDetails = false)`
 
-**用途 / Purpose:** 设置 `character properties` 的值或状态。
+**用途 / Purpose:** 为 「character properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+TextObjectExtensions.SetCharacterProperties(to, "example", character, false);
+```
 
 ### SetSettlementProperties
 `public static void SetSettlementProperties(this TextObject to, Settlement settlement)`
 
-**用途 / Purpose:** 设置 `settlement properties` 的值或状态。
+**用途 / Purpose:** 为 「settlement properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+TextObjectExtensions.SetSettlementProperties(to, settlement);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ TextObjectExtensions.SetCharacterProperties(to, "example", character, false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

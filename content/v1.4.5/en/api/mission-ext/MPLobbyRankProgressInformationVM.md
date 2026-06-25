@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyRankProgressInformationVM"
+description: "Auto-generated class reference for MPLobbyRankProgressInformationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyRankProgressInformationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyRankProgressInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyRankProgressInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRankProgressInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRankProgressInformationVM.cs`
 
 ## Overview
 
@@ -49,30 +43,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyRankProgressInformationVM from the subsystem API first
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyRankProgressInformationVM from the subsystem API first
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.OnFinalize();
+```
 
 ### OpenWith
 `public void OpenWith(MPLobbyPlayerBaseVM player)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPLobbyRankProgressInformationVM from the subsystem API first
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.OpenWith(player);
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyRankProgressInformationVM from the subsystem API first
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.ExecuteClosePopup();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyRankProgressInformationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

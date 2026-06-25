@@ -1,13 +1,7 @@
 ---
 title: "BehaviorEliminateEnemyInsideCastle"
+description: "Auto-generated class reference for BehaviorEliminateEnemyInsideCastle."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorEliminateEnemyInsideCastle`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorEliminateEnemyInsideCastle
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** Called when the `valid behavior side changed` event is raised.
+**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorEliminateEnemyInsideCastle from the subsystem API first
+BehaviorEliminateEnemyInsideCastle behaviorEliminateEnemyInsideCastle = ...;
+behaviorEliminateEnemyInsideCastle.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorEliminateEnemyInsideCastle from the subsystem API first
+BehaviorEliminateEnemyInsideCastle behaviorEliminateEnemyInsideCastle = ...;
+behaviorEliminateEnemyInsideCastle.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorEliminateEnemyInsideCastle();
-value.OnValidBehaviorSideChanged();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorEliminateEnemyInsideCastle behaviorEliminateEnemyInsideCastle = ...;
+behaviorEliminateEnemyInsideCastle.OnValidBehaviorSideChanged();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

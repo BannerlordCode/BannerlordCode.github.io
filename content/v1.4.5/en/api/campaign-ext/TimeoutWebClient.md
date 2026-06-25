@@ -1,20 +1,14 @@
 ---
 title: "TimeoutWebClient"
+description: "Auto-generated class reference for TimeoutWebClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TimeoutWebClient`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TimeoutWebClient
 
 **Namespace:** TaleWorlds.PlayerServices
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class TimeoutWebClient : WebClient`
 **Base:** `WebClient`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/TimeoutWebClient.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/TimeoutWebClient.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new TimeoutWebClient();
+// Obtain an instance from the relevant subsystem API
+TimeoutWebClient instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

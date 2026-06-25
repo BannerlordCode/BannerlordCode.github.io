@@ -1,20 +1,14 @@
 ---
 title: "StoryModeGenericXpModel"
+description: "StoryModeGenericXpModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeGenericXpModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeGenericXpModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeGenericXpModel : GenericXpModel`
 **Base:** `GenericXpModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeGenericXpModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeGenericXpModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "StoryModeGenericXpModel"
 ### GetXpMultiplier
 `public override float GetXpMultiplier(Hero hero)`
 
-**用途 / Purpose:** 获取 `xp multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeGenericXpModel 实例
+StoryModeGenericXpModel storyModeGenericXpModel = ...;
+var result = storyModeGenericXpModel.GetXpMultiplier(hero);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeGenericXpModel>(new MyStoryModeGenericXpModel
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

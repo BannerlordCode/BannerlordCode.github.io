@@ -1,13 +1,7 @@
 ---
 title: "BoostCurrency"
+description: "Auto-generated class reference for BoostCurrency."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoostCurrency`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoostCurrency
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ## Usage Example
 
 ```csharp
-BoostCurrency example = BoostCurrency.Value;
+// Obtain an instance from the relevant subsystem API
+BoostCurrency instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

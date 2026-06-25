@@ -1,13 +1,7 @@
 ---
 title: "VoiceObject"
+description: "VoiceObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VoiceObject`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VoiceObject
 
 **Namespace:** TaleWorlds.Localization
@@ -35,20 +29,32 @@ title: "VoiceObject"
 ### AddVoicePaths
 `public void AddVoicePaths(XmlNode node, string modulePath)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `voice paths`。
+**用途 / Purpose:** 将 「voice paths」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceObject 实例
+VoiceObject voiceObject = ...;
+voiceObject.AddVoicePaths(node, "example");
+```
 
 ### Deserialize
 `public static VoiceObject Deserialize(XmlNode node, string modulePath)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 静态调用，不需要实例
+VoiceObject.Deserialize(node, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VoiceObject();
-value.AddVoicePaths(node, "example");
+// 通常从对应子系统 API 获取实例后调用
+VoiceObject voiceObject = ...;
+voiceObject.AddVoicePaths(node, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

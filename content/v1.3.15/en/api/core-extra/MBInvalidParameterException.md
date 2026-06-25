@@ -1,13 +1,7 @@
 ---
 title: "MBInvalidParameterException"
+description: "Auto-generated class reference for MBInvalidParameterException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBInvalidParameterException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBInvalidParameterException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBInvalidParameterException` as a Exception-style extension point: first 
 ## Usage Example
 
 ```csharp
-try { CallMBInvalidParameterException(); } catch (MBInvalidParameterException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBInvalidParameterException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

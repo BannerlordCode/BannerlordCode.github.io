@@ -1,20 +1,14 @@
 ---
 title: "GettingCompanionsStep1Tutorial"
+description: "Auto-generated class reference for GettingCompanionsStep1Tutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GettingCompanionsStep1Tutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GettingCompanionsStep1Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class GettingCompanionsStep1Tutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/GettingCompanionsStep1Tutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/GettingCompanionsStep1Tutorial.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of GettingCompanionsStep1Tutorial from the subsystem API first
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+var result = gettingCompanionsStep1Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnGameMenuOpened
 `public override void OnGameMenuOpened(MenuCallbackArgs obj)`
 
-**Purpose:** Called when the `game menu opened` event is raised.
+**Purpose:** Invoked when the `game menu opened` event is raised.
+
+```csharp
+// Obtain an instance of GettingCompanionsStep1Tutorial from the subsystem API first
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+gettingCompanionsStep1Tutorial.OnGameMenuOpened(obj);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of GettingCompanionsStep1Tutorial from the subsystem API first
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+var result = gettingCompanionsStep1Tutorial.IsConditionsMetForActivation();
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of GettingCompanionsStep1Tutorial from the subsystem API first
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+var result = gettingCompanionsStep1Tutorial.GetTutorialsRelevantContext();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GettingCompanionsStep1Tutorial();
-value.IsConditionsMetForCompletion();
+// Typically call this after obtaining an instance from the subsystem API
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+gettingCompanionsStep1Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

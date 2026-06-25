@@ -1,13 +1,7 @@
 ---
 title: "CallbackStringBufferManager"
+description: "Auto-generated class reference for CallbackStringBufferManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CallbackStringBufferManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CallbackStringBufferManager
 
 **Namespace:** TaleWorlds.DotNet
@@ -43,4 +37,4 @@ var manager = CallbackStringBufferManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

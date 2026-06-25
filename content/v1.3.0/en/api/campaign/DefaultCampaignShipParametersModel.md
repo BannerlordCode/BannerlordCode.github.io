@@ -1,13 +1,7 @@
 ---
 title: "DefaultCampaignShipParametersModel"
+description: "Auto-generated class reference for DefaultCampaignShipParametersModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCampaignShipParametersModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCampaignShipParametersModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,82 +23,178 @@ Treat `DefaultCampaignShipParametersModel` as a Model-style extension point: fir
 ### GetShipSizeWeatherFactor
 `public override float GetShipSizeWeatherFactor(ShipHull shipHull)`
 
-**Purpose:** Gets the current value of `ship size weather factor`.
+**Purpose:** Reads and returns the `ship size weather factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetShipSizeWeatherFactor(shipHull);
+```
 
 ### GetDefaultCombatFactor
 `public override float GetDefaultCombatFactor(ShipHull shipHull)`
 
-**Purpose:** Gets the current value of `default combat factor`.
+**Purpose:** Reads and returns the `default combat factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetDefaultCombatFactor(shipHull);
+```
 
 ### GetCampaignSpeedBonusFactor
 `public override float GetCampaignSpeedBonusFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `campaign speed bonus factor`.
+**Purpose:** Reads and returns the `campaign speed bonus factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetCampaignSpeedBonusFactor(ship);
+```
 
 ### GetCrewCapacityBonusFactor
 `public override float GetCrewCapacityBonusFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `crew capacity bonus factor`.
+**Purpose:** Reads and returns the `crew capacity bonus factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetCrewCapacityBonusFactor(ship);
+```
 
 ### GetShipWeightFactor
 `public override float GetShipWeightFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `ship weight factor`.
+**Purpose:** Reads and returns the `ship weight factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetShipWeightFactor(ship);
+```
 
 ### GetForwardDragFactor
 `public override float GetForwardDragFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `forward drag factor`.
+**Purpose:** Reads and returns the `forward drag factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetForwardDragFactor(ship);
+```
 
 ### GetCrewShieldHitPointsFactor
 `public override float GetCrewShieldHitPointsFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `crew shield hit points factor`.
+**Purpose:** Reads and returns the `crew shield hit points factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetCrewShieldHitPointsFactor(ship);
+```
 
 ### GetAdditionalAmmoBonus
 `public override int GetAdditionalAmmoBonus(Ship ship)`
 
-**Purpose:** Gets the current value of `additional ammo bonus`.
+**Purpose:** Reads and returns the `additional ammo bonus` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetAdditionalAmmoBonus(ship);
+```
 
 ### GetMaxOarPowerFactor
 `public override float GetMaxOarPowerFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `max oar power factor`.
+**Purpose:** Reads and returns the `max oar power factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetMaxOarPowerFactor(ship);
+```
 
 ### GetMaxOarForceFactor
 `public override float GetMaxOarForceFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `max oar force factor`.
+**Purpose:** Reads and returns the `max oar force factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetMaxOarForceFactor(ship);
+```
 
 ### GetSailForceFactor
 `public override float GetSailForceFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `sail force factor`.
+**Purpose:** Reads and returns the `sail force factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetSailForceFactor(ship);
+```
 
 ### GetCrewMeleeDamageFactor
 `public override float GetCrewMeleeDamageFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `crew melee damage factor`.
+**Purpose:** Reads and returns the `crew melee damage factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetCrewMeleeDamageFactor(ship);
+```
 
 ### GetAdditionalArcherQuivers
 `public override int GetAdditionalArcherQuivers(Ship ship)`
 
-**Purpose:** Gets the current value of `additional archer quivers`.
+**Purpose:** Reads and returns the `additional archer quivers` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetAdditionalArcherQuivers(ship);
+```
 
 ### GetAdditionalThrowingWeaponStack
 `public override int GetAdditionalThrowingWeaponStack(Ship ship)`
 
-**Purpose:** Gets the current value of `additional throwing weapon stack`.
+**Purpose:** Reads and returns the `additional throwing weapon stack` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetAdditionalThrowingWeaponStack(ship);
+```
 
 ### GetSailRotationSpeedFactor
 `public override float GetSailRotationSpeedFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `sail rotation speed factor`.
+**Purpose:** Reads and returns the `sail rotation speed factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetSailRotationSpeedFactor(ship);
+```
 
 ### GetFurlUnfurlSpeedFactor
 `public override float GetFurlUnfurlSpeedFactor(Ship ship)`
 
-**Purpose:** Gets the current value of `furl unfurl speed factor`.
+**Purpose:** Reads and returns the `furl unfurl speed factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipParametersModel from the subsystem API first
+DefaultCampaignShipParametersModel defaultCampaignShipParametersModel = ...;
+var result = defaultCampaignShipParametersModel.GetFurlUnfurlSpeedFactor(ship);
+```
 
 ## Usage Example
 
@@ -114,4 +204,4 @@ Game.Current.ReplaceModel<DefaultCampaignShipParametersModel>(new MyDefaultCampa
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

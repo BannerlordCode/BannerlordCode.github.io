@@ -1,13 +1,7 @@
 ---
 title: "GameTextManager"
+description: "Auto-generated class reference for GameTextManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameTextManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTextManager
 
 **Namespace:** TaleWorlds.Core
@@ -37,37 +31,79 @@ Treat `GameTextManager` as a Manager-style extension point: first identify who c
 ### GetGameText
 `public GameText GetGameText(string id)`
 
-**Purpose:** Gets the current value of `game text`.
+**Purpose:** Reads and returns the `game text` value held by the current object.
+
+```csharp
+// Obtain an instance of GameTextManager from the subsystem API first
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.GetGameText("example");
+```
 
 ### AddGameText
 `public GameText AddGameText(string id)`
 
 **Purpose:** Adds `game text` to the current collection or state.
 
+```csharp
+// Obtain an instance of GameTextManager from the subsystem API first
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.AddGameText("example");
+```
+
 ### TryGetText
 `public bool TryGetText(string id, string variation, out TextObject text)`
 
-**Purpose:** Attempts to get `get text`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get text`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of GameTextManager from the subsystem API first
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.TryGetText("example", "example", text);
+```
 
 ### FindText
 `public TextObject FindText(string id, string variation = null)`
 
-**Purpose:** Handles logic related to `find text`.
+**Purpose:** Looks up the matching `text` in the current collection or scope.
+
+```csharp
+// Obtain an instance of GameTextManager from the subsystem API first
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.FindText("example", "example");
+```
 
 ### FindAllTextVariations
 `public IEnumerable<TextObject> FindAllTextVariations(string id)`
 
-**Purpose:** Handles logic related to `find all text variations`.
+**Purpose:** Looks up the matching `all text variations` in the current collection or scope.
+
+```csharp
+// Obtain an instance of GameTextManager from the subsystem API first
+GameTextManager gameTextManager = ...;
+var result = gameTextManager.FindAllTextVariations("example");
+```
 
 ### LoadGameTexts
 `public void LoadGameTexts()`
 
-**Purpose:** Loads `game texts` data.
+**Purpose:** Reads `game texts` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GameTextManager from the subsystem API first
+GameTextManager gameTextManager = ...;
+gameTextManager.LoadGameTexts();
+```
 
 ### LoadDefaultTexts
 `public void LoadDefaultTexts()`
 
-**Purpose:** Loads `default texts` data.
+**Purpose:** Reads `default texts` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GameTextManager from the subsystem API first
+GameTextManager gameTextManager = ...;
+gameTextManager.LoadDefaultTexts();
+```
 
 ## Usage Example
 
@@ -77,4 +113,4 @@ var manager = GameTextManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

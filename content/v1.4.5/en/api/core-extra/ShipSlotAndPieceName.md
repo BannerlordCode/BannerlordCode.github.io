@@ -1,20 +1,14 @@
 ---
 title: "ShipSlotAndPieceName"
+description: "Auto-generated class reference for ShipSlotAndPieceName."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipSlotAndPieceName`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipSlotAndPieceName
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct ShipSlotAndPieceName`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ShipSlotAndPieceName.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipSlotAndPieceName.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ShipSlotAndPieceName
 `public struct ShipSlotAndPieceName(string slotName, string pieceName)`
 
-**Purpose:** Handles logic related to `ship slot and piece name`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ShipSlotAndPieceName from the subsystem API first
+ShipSlotAndPieceName shipSlotAndPieceName = ...;
+var result = shipSlotAndPieceName.ShipSlotAndPieceName("example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipSlotAndPieceName();
-value.ShipSlotAndPieceName("example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+ShipSlotAndPieceName shipSlotAndPieceName = ...;
+shipSlotAndPieceName.ShipSlotAndPieceName("example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

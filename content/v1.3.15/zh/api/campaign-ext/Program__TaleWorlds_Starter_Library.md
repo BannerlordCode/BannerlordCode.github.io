@@ -1,13 +1,7 @@
 ---
-title: "Program__TaleWorlds_Starter_Library"
+title: "Program"
+description: "Program 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Program`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Program
 
 **Namespace:** TaleWorlds.Starter.Library
@@ -29,7 +23,12 @@ title: "Program__TaleWorlds_Starter_Library"
 ### Main
 `public static int Main(string args)`
 
-**用途 / Purpose:** 处理 `main` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Program.Main("example");
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ Program.Main("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

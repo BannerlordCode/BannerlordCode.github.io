@@ -1,13 +1,7 @@
 ---
 title: "SandboxView"
+description: "Auto-generated class reference for SandboxView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxView
 
 **Namespace:** SandBox.View
@@ -34,9 +28,10 @@ Treat `SandboxView` as a View-style extension point: first identify who creates 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSandboxView();
+// Typically obtained from a subsystem API or factory
+SandboxView instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

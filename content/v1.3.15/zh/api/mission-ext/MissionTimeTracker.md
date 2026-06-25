@@ -1,13 +1,7 @@
 ---
 title: "MissionTimeTracker"
+description: "MissionTimeTracker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionTimeTracker`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionTimeTracker
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,25 +30,44 @@ title: "MissionTimeTracker"
 ### Tick
 `public void Tick(float seconds)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimeTracker 实例
+MissionTimeTracker missionTimeTracker = ...;
+missionTimeTracker.Tick(0);
+```
 
 ### UpdateSync
 `public void UpdateSync(float newValue)`
 
-**用途 / Purpose:** 更新 `sync` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「sync」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimeTracker 实例
+MissionTimeTracker missionTimeTracker = ...;
+missionTimeTracker.UpdateSync(0);
+```
 
 ### GetLastSyncDifference
 `public float GetLastSyncDifference()`
 
-**用途 / Purpose:** 获取 `last sync difference` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「last sync difference」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimeTracker 实例
+MissionTimeTracker missionTimeTracker = ...;
+var result = missionTimeTracker.GetLastSyncDifference();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionTimeTracker();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+MissionTimeTracker missionTimeTracker = ...;
+missionTimeTracker.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

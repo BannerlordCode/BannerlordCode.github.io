@@ -1,20 +1,14 @@
 ---
 title: "MissionOptionsUIHandler"
+description: "Auto-generated class reference for MissionOptionsUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionOptionsUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionOptionsUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionOptionsUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionOptionsUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionOptionsUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionOptionsUIHandler` as a Handler-style extension point: first identi
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionOptionsUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionOptionsUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

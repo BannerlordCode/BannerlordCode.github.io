@@ -1,20 +1,14 @@
 ---
 title: "EventType"
+description: "Auto-generated class reference for EventType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EventType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventType
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum EventType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuEventHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuEventHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ## Usage Example
 
 ```csharp
-EventType example = EventType.Value;
+// Obtain an instance from the relevant subsystem API
+EventType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ClearTheMainCampObjective"
+description: "Auto-generated class reference for ClearTheMainCampObjective."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClearTheMainCampObjective`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClearTheMainCampObjective
 
 **Namespace:** SandBox.Missions.MissionLogics.Hideout.Objectives
 **Module:** SandBox.Missions
 **Type:** `public class ClearTheMainCampObjective : MissionObjective`
 **Base:** `MissionObjective`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Hideout.Objectives/ClearTheMainCampObjective.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Hideout.Objectives/ClearTheMainCampObjective.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.Missions.MissionLogics.Hideout.Objectives` to plac
 ### GetCurrentProgress
 `public override MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**Purpose:** Gets the current value of `current progress`.
+**Purpose:** Reads and returns the `current progress` value held by the current object.
+
+```csharp
+// Obtain an instance of ClearTheMainCampObjective from the subsystem API first
+ClearTheMainCampObjective clearTheMainCampObjective = ...;
+var result = clearTheMainCampObjective.GetCurrentProgress();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClearTheMainCampObjective();
-value.GetCurrentProgress();
+// Typically call this after obtaining an instance from the subsystem API
+ClearTheMainCampObjective clearTheMainCampObjective = ...;
+clearTheMainCampObjective.GetCurrentProgress();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

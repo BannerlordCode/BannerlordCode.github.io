@@ -1,13 +1,7 @@
 ---
 title: "ToolTask"
+description: "Auto-generated class reference for ToolTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ToolTask`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ToolTask
 
 **Namespace:** TaleWorlds.MountAndBlade.SteamWorkshop
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade.SteamWorkshop` to place it in the
 ### LoadFrom
 `public abstract void LoadFrom(XmlNode xmlNode)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of ToolTask from the subsystem API first
+ToolTask toolTask = ...;
+toolTask.LoadFrom(xmlNode);
+```
 
 ### DoJob
 `public abstract void DoJob()`
 
-**Purpose:** Handles logic related to `do job`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ToolTask from the subsystem API first
+ToolTask toolTask = ...;
+toolTask.DoJob();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomToolTask();
+// Typically obtained from a subsystem API or factory
+ToolTask instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "AgentVisualHolder"
+description: "AgentVisualHolder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentVisualHolder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentVisualHolder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentVisualHolder : IAgentVisual`
 **Base:** `IAgentVisual`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVisualHolder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVisualHolder.cs`
 
 ## 概述
 
@@ -29,90 +23,187 @@ title: "AgentVisualHolder"
 ### SetAction
 `public void SetAction(in ActionIndexCache actionName, float startProgress = 0f, bool forceFaceMorphRestart = true)`
 
-**用途 / Purpose:** 设置 `action` 的值或状态。
+**用途 / Purpose:** 为 「action」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.SetAction(actionName, 0, false);
+```
 
 ### GetEntity
 `public GameEntity GetEntity()`
 
-**用途 / Purpose:** 获取 `entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+var result = agentVisualHolder.GetEntity();
+```
 
 ### GetVisuals
 `public MBAgentVisuals GetVisuals()`
 
-**用途 / Purpose:** 获取 `visuals` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visuals」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+var result = agentVisualHolder.GetVisuals();
+```
 
 ### SetFrame
 `public void SetFrame(ref MatrixFrame frame)`
 
-**用途 / Purpose:** 设置 `frame` 的值或状态。
+**用途 / Purpose:** 为 「frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.SetFrame(frame);
+```
 
 ### GetFrame
 `public MatrixFrame GetFrame()`
 
-**用途 / Purpose:** 获取 `frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+var result = agentVisualHolder.GetFrame();
+```
 
 ### GetBodyProperties
 `public BodyProperties GetBodyProperties()`
 
-**用途 / Purpose:** 获取 `body properties` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「body properties」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+var result = agentVisualHolder.GetBodyProperties();
+```
 
 ### SetBodyProperties
 `public void SetBodyProperties(BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 设置 `body properties` 的值或状态。
+**用途 / Purpose:** 为 「body properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.SetBodyProperties(bodyProperties);
+```
 
 ### GetIsFemale
 `public bool GetIsFemale()`
 
-**用途 / Purpose:** 获取 `is female` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is female」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+var result = agentVisualHolder.GetIsFemale();
+```
 
 ### GetCharacterObjectID
 `public string GetCharacterObjectID()`
 
-**用途 / Purpose:** 获取 `character object i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character object i d」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+var result = agentVisualHolder.GetCharacterObjectID();
+```
 
 ### SetCharacterObjectID
 `public void SetCharacterObjectID(string id)`
 
-**用途 / Purpose:** 设置 `character object i d` 的值或状态。
+**用途 / Purpose:** 为 「character object i d」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.SetCharacterObjectID("example");
+```
 
 ### GetEquipment
 `public Equipment GetEquipment()`
 
-**用途 / Purpose:** 获取 `equipment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+var result = agentVisualHolder.GetEquipment();
+```
 
 ### RefreshWithNewEquipment
 `public void RefreshWithNewEquipment(Equipment equipment)`
 
-**用途 / Purpose:** 刷新 `with new equipment` 的显示或缓存。
+**用途 / Purpose:** 使 「with new equipment」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.RefreshWithNewEquipment(equipment);
+```
 
 ### SetClothingColors
 `public void SetClothingColors(uint color1, uint color2)`
 
-**用途 / Purpose:** 设置 `clothing colors` 的值或状态。
+**用途 / Purpose:** 为 「clothing colors」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.SetClothingColors(0, 0);
+```
 
 ### GetClothingColors
 `public void GetClothingColors(out uint color1, out uint color2)`
 
-**用途 / Purpose:** 获取 `clothing colors` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「clothing colors」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.GetClothingColors(color1, color2);
+```
 
 ### GetCopyAgentVisualsData
 `public AgentVisualsData GetCopyAgentVisualsData()`
 
-**用途 / Purpose:** 获取 `copy agent visuals data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「copy agent visuals data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+var result = agentVisualHolder.GetCopyAgentVisualsData();
+```
 
 ### Refresh
 `public void Refresh(bool needBatchedVersionForWeaponMeshes, AgentVisualsData data, bool forceUseFaceCache = false)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 AgentVisualHolder 实例
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.Refresh(false, data, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AgentVisualHolder();
-value.SetAction(actionName, 0, false);
+// 通常从对应子系统 API 获取实例后调用
+AgentVisualHolder agentVisualHolder = ...;
+agentVisualHolder.SetAction(actionName, 0, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

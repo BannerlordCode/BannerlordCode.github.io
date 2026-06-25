@@ -1,19 +1,14 @@
 ---
 title: "MetaData"
+description: "Auto-generated class reference for MetaData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MetaData`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MetaData
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class MetaData`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/MetaData.cs`
 
 ## Overview
 
@@ -36,30 +31,53 @@ Treat `MetaData` as a Data-style extension point: first identify who creates it,
 ### Add
 `public void Add(string key, string value)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of MetaData from the subsystem API first
+MetaData metaData = ...;
+metaData.Add("example", "example");
+```
 
 ### TryGetValue
 `public bool TryGetValue(string key, out string value)`
 
-**Purpose:** Attempts to get `get value`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get value`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MetaData from the subsystem API first
+MetaData metaData = ...;
+var result = metaData.TryGetValue("example", value);
+```
 
 ### Serialize
 `public void Serialize(Stream stream)`
 
-**Purpose:** Handles logic related to `serialize`.
+**Purpose:** Serializes the current object into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of MetaData from the subsystem API first
+MetaData metaData = ...;
+metaData.Serialize(stream);
+```
 
 ### Deserialize
 `public static MetaData Deserialize(Stream stream)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Static call; no instance required
+MetaData.Deserialize(stream);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MetaData();
+// This data object is usually returned by campaign/mission APIs
+MetaData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

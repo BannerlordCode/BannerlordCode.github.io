@@ -1,18 +1,12 @@
 ---
 title: "ItemVisibility"
+description: "Auto-generated class reference for ItemVisibility."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemVisibility`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemVisibility
 
 **Namespace:** TaleWorlds.MountAndBlade.SteamWorkshop
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum ItemVisibility`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.SteamWorkshop/ItemVisibility.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.SteamWorkshop` to place it in the
 ## Usage Example
 
 ```csharp
-var value = new ItemVisibility();
+// Obtain an instance from the relevant subsystem API
+ItemVisibility instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

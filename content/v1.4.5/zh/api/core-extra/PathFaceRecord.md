@@ -1,20 +1,14 @@
 ---
 title: "PathFaceRecord"
+description: "PathFaceRecord 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PathFaceRecord`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PathFaceRecord
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PathFaceRecord`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PathFaceRecord.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PathFaceRecord.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "PathFaceRecord"
 ### PathFaceRecord
 `public struct PathFaceRecord(int index, int groupIndex, int islandIndex)`
 
-**用途 / Purpose:** 处理 `path face record` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PathFaceRecord 实例
+PathFaceRecord pathFaceRecord = ...;
+var result = pathFaceRecord.PathFaceRecord(0, 0, 0);
+```
 
 ### IsValid
 `public bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PathFaceRecord 实例
+PathFaceRecord pathFaceRecord = ...;
+var result = pathFaceRecord.IsValid();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PathFaceRecord();
-value.PathFaceRecord(0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+PathFaceRecord pathFaceRecord = ...;
+pathFaceRecord.PathFaceRecord(0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

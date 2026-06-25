@@ -1,20 +1,14 @@
 ---
 title: "CinematicBurningArrow"
+description: "CinematicBurningArrow 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CinematicBurningArrow`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CinematicBurningArrow
 
 **Namespace:** SandBox.Objects.Cinematics
 **Module:** SandBox.Objects
 **Type:** `public class CinematicBurningArrow : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Cinematics/CinematicBurningArrow.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.Cinematics/CinematicBurningArrow.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CinematicBurningArrow"
 ### StartMovement
 `public void StartMovement()`
 
-**用途 / Purpose:** 处理 `start movement` 相关逻辑。
+**用途 / Purpose:** 启动「movement」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 CinematicBurningArrow 实例
+CinematicBurningArrow cinematicBurningArrow = ...;
+cinematicBurningArrow.StartMovement();
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CinematicBurningArrow 实例
+CinematicBurningArrow cinematicBurningArrow = ...;
+var result = cinematicBurningArrow.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CinematicBurningArrow();
-value.StartMovement();
+// 通常从对应子系统 API 获取实例后调用
+CinematicBurningArrow cinematicBurningArrow = ...;
+cinematicBurningArrow.StartMovement();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

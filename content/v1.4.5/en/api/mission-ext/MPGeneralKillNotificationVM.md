@@ -1,20 +1,14 @@
 ---
 title: "MPGeneralKillNotificationVM"
+description: "Auto-generated class reference for MPGeneralKillNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPGeneralKillNotificationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPGeneralKillNotificationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPGeneralKillNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General/MPGeneralKillNotificationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General/MPGeneralKillNotificationVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, Agent assistedAgent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MPGeneralKillNotificationVM from the subsystem API first
+MPGeneralKillNotificationVM mPGeneralKillNotificationVM = ...;
+mPGeneralKillNotificationVM.OnAgentRemoved(affectedAgent, affectorAgent, assistedAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPGeneralKillNotificationVM();
-value.OnAgentRemoved(affectedAgent, affectorAgent, assistedAgent);
+// Typically call this after obtaining an instance from the subsystem API
+MPGeneralKillNotificationVM mPGeneralKillNotificationVM = ...;
+mPGeneralKillNotificationVM.OnAgentRemoved(affectedAgent, affectorAgent, assistedAgent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

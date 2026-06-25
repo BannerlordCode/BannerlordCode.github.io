@@ -1,20 +1,14 @@
 ---
 title: "ScreenFadeController"
+description: "Auto-generated class reference for ScreenFadeController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScreenFadeController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScreenFadeController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ScreenFadeController`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScreenFadeController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ScreenFadeController.cs`
 
 ## Overview
 
@@ -38,22 +32,42 @@ Treat `ScreenFadeController` as a Controller-style extension point: first identi
 ### RegisterHandler
 `public static void RegisterHandler(IScreenFadeHandler handler)`
 
-**Purpose:** Handles logic related to `register handler`.
+**Purpose:** Registers `handler` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+ScreenFadeController.RegisterHandler(handler);
+```
 
 ### BeginFadeOutAndIn
 `public static void BeginFadeOutAndIn(float fadeOutDuration = 0.5f, float blackOutDuration = 0.5f, float fadeInDuration = 0.5f)`
 
-**Purpose:** Handles logic related to `begin fade out and in`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ScreenFadeController.BeginFadeOutAndIn(0, 0, 0);
+```
 
 ### BeginFadeOut
 `public static void BeginFadeOut(float fadeOutDuration = 0.5f)`
 
-**Purpose:** Handles logic related to `begin fade out`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ScreenFadeController.BeginFadeOut(0);
+```
 
 ### BeginFadeIn
 `public static void BeginFadeIn(float fadeInDuration = 0.5f)`
 
-**Purpose:** Handles logic related to `begin fade in`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ScreenFadeController.BeginFadeIn(0);
+```
 
 ## Usage Example
 
@@ -63,4 +77,4 @@ var controller = Mission.Current.GetMissionBehavior<ScreenFadeController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

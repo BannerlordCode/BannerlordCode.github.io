@@ -1,20 +1,14 @@
 ---
 title: "ClanScreenPermissionEvent"
+description: "ClanScreenPermissionEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanScreenPermissionEvent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanScreenPermissionEvent
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
 **Module:** SandBox.View
 **Type:** `public class ClanScreenPermissionEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/ClanScreenPermissionEvent.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/ClanScreenPermissionEvent.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "ClanScreenPermissionEvent"
 ## 使用示例
 
 ```csharp
-var value = new ClanScreenPermissionEvent();
+// 从对应子系统 API 获取实例
+ClanScreenPermissionEvent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

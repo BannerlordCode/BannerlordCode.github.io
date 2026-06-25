@@ -1,18 +1,12 @@
 ---
 title: "IDataStore"
+description: "Auto-generated class reference for IDataStore."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IDataStore`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IDataStore
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IDataStore`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/IDataStore.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-IDataStore implementation = GetDataStoreImplementation();
+// Usually obtained through DI or a factory method
+IIDataStore service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

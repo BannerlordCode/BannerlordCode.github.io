@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryHeroPreviewVM"
+description: "MPArmoryHeroPreviewVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPArmoryHeroPreviewVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryHeroPreviewVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryHeroPreviewVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryHeroPreviewVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryHeroPreviewVM.cs`
 
 ## 概述
 
@@ -36,30 +30,55 @@ title: "MPArmoryHeroPreviewVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryHeroPreviewVM 实例
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.RefreshValues();
+```
 
 ### SetCharacter
 `public unsafe void SetCharacter(BasicCharacterObject character, DynamicBodyProperties dynamicBodyProperties, int race, bool isFemale)`
 
-**用途 / Purpose:** 设置 `character` 的值或状态。
+**用途 / Purpose:** 为 「character」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryHeroPreviewVM 实例
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.SetCharacter(character, dynamicBodyProperties, 0, false);
+```
 
 ### SetCharacterClass
 `public void SetCharacterClass(BasicCharacterObject classCharacter)`
 
-**用途 / Purpose:** 设置 `character class` 的值或状态。
+**用途 / Purpose:** 为 「character class」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryHeroPreviewVM 实例
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.SetCharacterClass(classCharacter);
+```
 
 ### SetCharacterPerks
 `public void SetCharacterPerks(List<IReadOnlyPerkObject> selectedPerks)`
 
-**用途 / Purpose:** 设置 `character perks` 的值或状态。
+**用途 / Purpose:** 为 「character perks」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryHeroPreviewVM 实例
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.SetCharacterPerks(selectedPerks);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPArmoryHeroPreviewVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

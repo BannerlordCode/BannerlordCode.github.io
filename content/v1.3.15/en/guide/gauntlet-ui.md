@@ -471,20 +471,21 @@ namespace MyModule.UI
 
 ## Related Documentation
 
-- [GauntletMovie API](../api/gui/GauntletMovie)
-- [GauntletSystem API](../api/gui/GauntletSystem)
-- [ScreenManager API](../api/gui/ScreenManager)
-- [ViewModel API](../api/viewmodel/ViewModel)
+- [GauntletMovie API](../api/gui/GauntletMovie/)
+- [UI / Gauntlet Area](../api/gui/)
+- [ScreenManager API](../api/gui/ScreenManager/)
+- [ViewModel Area](../api/viewmodel/)
 
 ---
 
 ## Next Section
 
-- [Mission System](./mission-system) - Learn Mission, MissionBehavior
-- [Campaign System](./campaign-system) - Learn about the Campaign game world
+- [Mission System](mission-system/) - Learn Mission, MissionBehavior
+- [Campaign System](campaign-system/) - Learn about the Campaign game world
 
 ## Usage Example
 
 ```csharp
-var example = new Gauntlet UI System();
+// Example: retrieve the top-level Gauntlet movie from the current screen
+var movie = GauntletMovieManager...;
 ```

@@ -1,20 +1,14 @@
 ---
 title: "BannerEditorView"
+description: "Auto-generated class reference for BannerEditorView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerEditorView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerEditorView
 
 **Namespace:** SandBox.GauntletUI.BannerEditor
 **Module:** SandBox.GauntletUI
 **Type:** `public class BannerEditorView`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.BannerEditor/BannerEditorView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.BannerEditor/BannerEditorView.cs`
 
 ## Overview
 
@@ -38,34 +32,65 @@ Treat `BannerEditorView` as a View-style extension point: first identify who cre
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of BannerEditorView from the subsystem API first
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.OnTick(0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of BannerEditorView from the subsystem API first
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.OnFinalize();
+```
 
 ### Exit
 `public void Exit(bool isCancel)`
 
-**Purpose:** Handles logic related to `exit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BannerEditorView from the subsystem API first
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.Exit(false);
+```
 
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**Purpose:** Called when the `deactivate` event is raised.
+**Purpose:** Invoked when the `deactivate` event is raised.
+
+```csharp
+// Obtain an instance of BannerEditorView from the subsystem API first
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.OnDeactivate();
+```
 
 ### GoToIndex
 `public void GoToIndex(int index)`
 
-**Purpose:** Handles logic related to `go to index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BannerEditorView from the subsystem API first
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.GoToIndex(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new BannerEditorView();
+// Retrieve this view from the subsystem API or scene
+BannerEditorView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

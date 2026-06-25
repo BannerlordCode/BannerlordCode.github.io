@@ -1,24 +1,18 @@
 ---
 title: "HasTableauCache"
+description: "Auto-generated class reference for HasTableauCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HasTableauCache`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HasTableauCache
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class HasTableauCache : Attribute`
 **Base:** `Attribute`
-**Area:** engine
+**File:** `TaleWorlds.Engine/HasTableauCache.cs`
 
 ## Overview
 
-`HasTableauCache` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`HasTableauCache` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -36,16 +30,19 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CollectTableauCacheTypes
 `public static void CollectTableauCacheTypes()`
 
-**Purpose:** Handles logic related to `collect tableau cache types`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HasTableauCache.CollectTableauCacheTypes();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 HasTableauCache.CollectTableauCacheTypes();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

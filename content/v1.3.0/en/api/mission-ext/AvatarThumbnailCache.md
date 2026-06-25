@@ -1,13 +1,7 @@
 ---
 title: "AvatarThumbnailCache"
+description: "Auto-generated class reference for AvatarThumbnailCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvatarThumbnailCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ## Usage Example
 
 ```csharp
-var value = new AvatarThumbnailCache();
+// Obtain an instance from the relevant subsystem API
+AvatarThumbnailCache instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

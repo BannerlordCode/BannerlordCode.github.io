@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleSideVM"
+description: "CustomBattleSideVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleSideVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleSideVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSideVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSideVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSideVM.cs`
 
 ## 概述
 
@@ -44,30 +38,55 @@ title: "CustomBattleSideVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleSideVM 实例
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.RefreshValues();
+```
 
 ### OnPlayerTypeChange
 `public void OnPlayerTypeChange(CustomBattlePlayerType playerType)`
 
-**用途 / Purpose:** 当 `player type change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player type change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleSideVM 实例
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.OnPlayerTypeChange(playerType);
+```
 
 ### UpdateCharacterVisual
 `public void UpdateCharacterVisual()`
 
-**用途 / Purpose:** 更新 `character visual` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「character visual」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleSideVM 实例
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.UpdateCharacterVisual();
+```
 
 ### Randomize
 `public void Randomize(CustomBattleSideVM oppositeSide = null)`
 
-**用途 / Purpose:** 处理 `randomize` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleSideVM 实例
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.Randomize(null);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleSideVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionViewsContainer"
+description: "MissionViewsContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionViewsContainer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionViewsContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,30 +23,55 @@ title: "MissionViewsContainer"
 ### Add
 `public void Add(MissionView missionView)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 MissionViewsContainer 实例
+MissionViewsContainer missionViewsContainer = ...;
+missionViewsContainer.Add(missionView);
+```
 
 ### Remove
 `public void Remove(MissionView missionView)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 MissionViewsContainer 实例
+MissionViewsContainer missionViewsContainer = ...;
+missionViewsContainer.Remove(missionView);
+```
 
 ### Contains
 `public bool Contains(MissionView missionView)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 MissionViewsContainer 实例
+MissionViewsContainer missionViewsContainer = ...;
+var result = missionViewsContainer.Contains(missionView);
+```
 
 ### ForEach
 `public void ForEach(Action<MissionView> action)`
 
-**用途 / Purpose:** 处理 `for each` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionViewsContainer 实例
+MissionViewsContainer missionViewsContainer = ...;
+missionViewsContainer.ForEach(action);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionViewsContainer();
-value.Add(missionView);
+// 通常从对应子系统 API 获取实例后调用
+MissionViewsContainer missionViewsContainer = ...;
+missionViewsContainer.Add(missionView);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

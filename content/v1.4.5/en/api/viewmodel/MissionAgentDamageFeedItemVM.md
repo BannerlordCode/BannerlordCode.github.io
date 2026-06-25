@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentDamageFeedItemVM"
+description: "Auto-generated class reference for MissionAgentDamageFeedItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentDamageFeedItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentDamageFeedItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentDamageFeedItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed/MissionAgentDamageFeedItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed/MissionAgentDamageFeedItemVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFee
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of MissionAgentDamageFeedItemVM from the subsystem API first
+MissionAgentDamageFeedItemVM missionAgentDamageFeedItemVM = ...;
+missionAgentDamageFeedItemVM.ExecuteRemove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentDamageFeedItemVM();
-value.ExecuteRemove();
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentDamageFeedItemVM missionAgentDamageFeedItemVM = ...;
+missionAgentDamageFeedItemVM.ExecuteRemove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

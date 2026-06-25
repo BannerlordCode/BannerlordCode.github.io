@@ -1,20 +1,14 @@
 ---
 title: "PartyTroopTupleButtonWidget"
+description: "Auto-generated class reference for PartyTroopTupleButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTroopTupleButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTroopTupleButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyTroopTupleButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyTroopTupleButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyTroopTupleButtonWidget.cs`
 
 ## Overview
 
@@ -43,9 +37,10 @@ Treat `PartyTroopTupleButtonWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new PartyTroopTupleButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyTroopTupleButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

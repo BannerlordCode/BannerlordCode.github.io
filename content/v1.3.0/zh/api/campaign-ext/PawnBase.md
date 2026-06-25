@@ -1,13 +1,7 @@
 ---
 title: "PawnBase"
+description: "PawnBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PawnBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnBase
 
 **Namespace:** SandBox.BoardGames.Pawns
@@ -46,69 +40,142 @@ title: "PawnBase"
 ### Reset
 `public virtual void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.Reset();
+```
 
 ### AddGoalPosition
 `public virtual void AddGoalPosition(Vec3 goal)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `goal position`。
+**用途 / Purpose:** 将 「goal position」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.AddGoalPosition(goal);
+```
 
 ### SetPawnAtPosition
 `public virtual void SetPawnAtPosition(Vec3 position)`
 
-**用途 / Purpose:** 设置 `pawn at position` 的值或状态。
+**用途 / Purpose:** 为 「pawn at position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.SetPawnAtPosition(position);
+```
 
 ### MovePawnToGoalPositions
 `public virtual void MovePawnToGoalPositions(bool instantMove, float speed, bool dragged = false)`
 
-**用途 / Purpose:** 处理 `move pawn to goal positions` 相关逻辑。
+**用途 / Purpose:** 移动「pawn to goal positions」到新的位置或状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.MovePawnToGoalPositions(false, 0, false);
+```
 
 ### EnableCollisionBody
 `public virtual void EnableCollisionBody()`
 
-**用途 / Purpose:** 处理 `enable collision body` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.EnableCollisionBody();
+```
 
 ### DisableCollisionBody
 `public virtual void DisableCollisionBody()`
 
-**用途 / Purpose:** 处理 `disable collision body` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.DisableCollisionBody();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.Tick(0);
+```
 
 ### MovePawnToGoalPositionsDelayed
 `public void MovePawnToGoalPositionsDelayed(bool instantMove, float speed, bool dragged, float delay)`
 
-**用途 / Purpose:** 处理 `move pawn to goal positions delayed` 相关逻辑。
+**用途 / Purpose:** 移动「pawn to goal positions delayed」到新的位置或状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.MovePawnToGoalPositionsDelayed(false, 0, false, 0);
+```
 
 ### SetPlayerOne
 `public void SetPlayerOne(bool playerOne)`
 
-**用途 / Purpose:** 设置 `player one` 的值或状态。
+**用途 / Purpose:** 为 「player one」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.SetPlayerOne(false);
+```
 
 ### ClearGoalPositions
 `public void ClearGoalPositions()`
 
-**用途 / Purpose:** 处理 `clear goal positions` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「goal positions」。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.ClearGoalPositions();
+```
 
 ### UpdatePawnPosition
 `public void UpdatePawnPosition()`
 
-**用途 / Purpose:** 更新 `pawn position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「pawn position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.UpdatePawnPosition();
+```
 
 ### PlayPawnSelectSound
 `public void PlayPawnSelectSound()`
 
-**用途 / Purpose:** 处理 `play pawn select sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PawnBase 实例
+PawnBase pawnBase = ...;
+pawnBase.PlayPawnSelectSound();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPawnBase();
+// 通常通过子系统 API 或工厂获得派生实例
+PawnBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

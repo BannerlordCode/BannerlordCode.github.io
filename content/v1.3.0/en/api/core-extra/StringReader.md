@@ -1,13 +1,7 @@
 ---
 title: "StringReader"
+description: "Auto-generated class reference for StringReader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringReader`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringReader
 
 **Namespace:** TaleWorlds.Library
@@ -35,100 +29,209 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ReadSerializableObject
 `public ISerializableObject ReadSerializableObject()`
 
-**Purpose:** Handles logic related to `read serializable object`.
+**Purpose:** Reads the data or state of `serializable object`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadSerializableObject();
+```
 
 ### ReadInt
 `public int ReadInt()`
 
-**Purpose:** Handles logic related to `read int`.
+**Purpose:** Reads the data or state of `int`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadInt();
+```
 
 ### ReadShort
 `public short ReadShort()`
 
-**Purpose:** Handles logic related to `read short`.
+**Purpose:** Reads the data or state of `short`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadShort();
+```
 
 ### ReadString
 `public string ReadString()`
 
-**Purpose:** Handles logic related to `read string`.
+**Purpose:** Reads the data or state of `string`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadString();
+```
 
 ### ReadColor
 `public Color ReadColor()`
 
-**Purpose:** Handles logic related to `read color`.
+**Purpose:** Reads the data or state of `color`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadColor();
+```
 
 ### ReadBool
 `public bool ReadBool()`
 
-**Purpose:** Handles logic related to `read bool`.
+**Purpose:** Reads the data or state of `bool`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadBool();
+```
 
 ### ReadFloat
 `public float ReadFloat()`
 
-**Purpose:** Handles logic related to `read float`.
+**Purpose:** Reads the data or state of `float`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadFloat();
+```
 
 ### ReadUInt
 `public uint ReadUInt()`
 
-**Purpose:** Handles logic related to `read u int`.
+**Purpose:** Reads the data or state of `u int`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadUInt();
+```
 
 ### ReadULong
 `public ulong ReadULong()`
 
-**Purpose:** Handles logic related to `read u long`.
+**Purpose:** Reads the data or state of `u long`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadULong();
+```
 
 ### ReadLong
 `public long ReadLong()`
 
-**Purpose:** Handles logic related to `read long`.
+**Purpose:** Reads the data or state of `long`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadLong();
+```
 
 ### ReadByte
 `public byte ReadByte()`
 
-**Purpose:** Handles logic related to `read byte`.
+**Purpose:** Reads the data or state of `byte`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadByte();
+```
 
 ### ReadBytes
 `public byte ReadBytes(int length)`
 
-**Purpose:** Handles logic related to `read bytes`.
+**Purpose:** Reads the data or state of `bytes`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadBytes(0);
+```
 
 ### ReadVec2
 `public Vec2 ReadVec2()`
 
-**Purpose:** Handles logic related to `read vec2`.
+**Purpose:** Reads the data or state of `vec2`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadVec2();
+```
 
 ### ReadVec3
 `public Vec3 ReadVec3()`
 
-**Purpose:** Handles logic related to `read vec3`.
+**Purpose:** Reads the data or state of `vec3`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadVec3();
+```
 
 ### ReadVec3Int
 `public Vec3i ReadVec3Int()`
 
-**Purpose:** Handles logic related to `read vec3 int`.
+**Purpose:** Reads the data or state of `vec3 int`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadVec3Int();
+```
 
 ### ReadSByte
 `public sbyte ReadSByte()`
 
-**Purpose:** Handles logic related to `read s byte`.
+**Purpose:** Reads the data or state of `s byte`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadSByte();
+```
 
 ### ReadUShort
 `public ushort ReadUShort()`
 
-**Purpose:** Handles logic related to `read u short`.
+**Purpose:** Reads the data or state of `u short`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadUShort();
+```
 
 ### ReadDouble
 `public double ReadDouble()`
 
-**Purpose:** Handles logic related to `read double`.
+**Purpose:** Reads the data or state of `double`.
+
+```csharp
+// Obtain an instance of StringReader from the subsystem API first
+StringReader stringReader = ...;
+var result = stringReader.ReadDouble();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StringReader();
-value.ReadSerializableObject();
+// Typically call this after obtaining an instance from the subsystem API
+StringReader stringReader = ...;
+stringReader.ReadSerializableObject();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyArmoryCosmeticItemButtonWidget"
+description: "Auto-generated class reference for MultiplayerLobbyArmoryCosmeticItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyArmoryCosmeticItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyArmoryCosmeticItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyArmoryCosmeticItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticItemButtonWidget.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Treat `MultiplayerLobbyArmoryCosmeticItemButtonWidget` as a Widget-style extensi
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyArmoryCosmeticItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyArmoryCosmeticItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "ISpottable"
+description: "Auto-generated class reference for ISpottable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISpottable`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISpottable
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ISpottable`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Settlements/ISpottable.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ## Usage Example
 
 ```csharp
-ISpottable implementation = GetSpottableImplementation();
+// Usually obtained through DI or a factory method
+IISpottable service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

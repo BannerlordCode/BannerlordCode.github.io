@@ -1,20 +1,14 @@
 ---
 title: "BotsControlledChange"
+description: "Auto-generated class reference for BotsControlledChange."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BotsControlledChange`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BotsControlledChange
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class BotsControlledChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/BotsControlledChange.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/BotsControlledChange.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new BotsControlledChange();
+// Obtain an instance from the relevant subsystem API
+BotsControlledChange instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ItemMenuVM"
+description: "Auto-generated class reference for ItemMenuVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemMenuVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemMenuVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
@@ -49,20 +43,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### SetItem
 `public void SetItem(SPItemVM item, InventoryLogic.InventorySide currentEquipmentMode, ItemVM comparedItem = null, BasicCharacterObject character = null, int alternativeUsageIndex = 0)`
 
-**Purpose:** Sets the value or state of `item`.
+**Purpose:** Assigns a new value to `item` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemMenuVM from the subsystem API first
+ItemMenuVM itemMenuVM = ...;
+itemMenuVM.SetItem(item, currentEquipmentMode, null, null, 0);
+```
 
 ### SetTransactionCost
 `public void SetTransactionCost(int getItemTotalPrice, int maxIndividualPrice)`
 
-**Purpose:** Sets the value or state of `transaction cost`.
+**Purpose:** Assigns a new value to `transaction cost` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemMenuVM from the subsystem API first
+ItemMenuVM itemMenuVM = ...;
+itemMenuVM.SetTransactionCost(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemMenuVM();
-value.SetItem(item, currentEquipmentMode, null, null, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ItemMenuVM itemMenuVM = ...;
+itemMenuVM.SetItem(item, currentEquipmentMode, null, null, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

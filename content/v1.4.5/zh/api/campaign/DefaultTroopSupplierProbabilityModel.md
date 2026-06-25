@@ -1,20 +1,14 @@
 ---
 title: "DefaultTroopSupplierProbabilityModel"
+description: "DefaultTroopSupplierProbabilityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultTroopSupplierProbabilityModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTroopSupplierProbabilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTroopSupplierProbabilityModel : TroopSupplierProbabilityModel`
 **Base:** `TroopSupplierProbabilityModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTroopSupplierProbabilityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTroopSupplierProbabilityModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultTroopSupplierProbabilityModel"
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayer, int sizeOfSide, bool forcePriorityTroops, List<(FlattenedTroopRosterElement, MapEventParty, float)> priorityList)`
 
-**用途 / Purpose:** 处理 `enqueue troop spawn probabilities according to unit spawn prioritization` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTroopSupplierProbabilityModel 实例
+DefaultTroopSupplierProbabilityModel defaultTroopSupplierProbabilityModel = ...;
+defaultTroopSupplierProbabilityModel.EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(battleParty, priorityTroops, false, 0, false, list<(FlattenedTroopRosterElement, mapEventParty, 0);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultTroopSupplierProbabilityModel>(new MyDefaultTro
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

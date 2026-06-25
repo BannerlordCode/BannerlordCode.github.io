@@ -1,13 +1,7 @@
 ---
 title: "LauncherVM"
+description: "Auto-generated class reference for LauncherVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -55,25 +49,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### ExecuteStartGame
 `public void ExecuteStartGame(int mode)`
 
-**Purpose:** Executes the `start game` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `start game`.
+
+```csharp
+// Obtain an instance of LauncherVM from the subsystem API first
+LauncherVM launcherVM = ...;
+launcherVM.ExecuteStartGame(0);
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of LauncherVM from the subsystem API first
+LauncherVM launcherVM = ...;
+launcherVM.ExecuteClose();
+```
 
 ### ExecuteMinimize
 `public void ExecuteMinimize()`
 
-**Purpose:** Executes the `minimize` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `minimize`.
+
+```csharp
+// Obtain an instance of LauncherVM from the subsystem API first
+LauncherVM launcherVM = ...;
+launcherVM.ExecuteMinimize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LauncherVM();
-value.ExecuteStartGame(0);
+// Typically call this after obtaining an instance from the subsystem API
+LauncherVM launcherVM = ...;
+launcherVM.ExecuteStartGame(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

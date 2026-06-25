@@ -1,20 +1,14 @@
 ---
 title: "FactionItemVM"
+description: "Auto-generated class reference for FactionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FactionItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FactionItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FactionItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/FactionItemVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/FactionItemVM.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.Selecti
 ## Usage Example
 
 ```csharp
-var value = new FactionItemVM();
+// Obtain an instance from the relevant subsystem API
+FactionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

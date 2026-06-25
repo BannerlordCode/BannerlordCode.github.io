@@ -1,20 +1,14 @@
 ---
 title: "ProposeCallToWarOfferNotificationItemVM"
+description: "Auto-generated class reference for ProposeCallToWarOfferNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProposeCallToWarOfferNotificationItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProposeCallToWarOfferNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ProposeCallToWarOfferNotificationItemVM : MapNotificationItemBaseVM`
 **Base:** `MapNotificationItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/ProposeCallToWarOfferNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/ProposeCallToWarOfferNotificationItemVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ProposeCallToWarOfferNotificationItemVM from the subsystem API first
+ProposeCallToWarOfferNotificationItemVM proposeCallToWarOfferNotificationItemVM = ...;
+proposeCallToWarOfferNotificationItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProposeCallToWarOfferNotificationItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+ProposeCallToWarOfferNotificationItemVM proposeCallToWarOfferNotificationItemVM = ...;
+proposeCallToWarOfferNotificationItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,70 +1,30 @@
 ---
 title: "InventoryItemType"
+description: "InventoryItemType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryItemType`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryItemType
 
-**命名空间:** Helpers
-**模块:** Helpers
-**类型:** `public enum InventoryItemType`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.MountAndBlade.Diamond
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `internal enum InventoryItemType`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade.Diamond/InventoryItemType.cs`
 
 ## 概述
 
-`InventoryItemType` 位于 `Helpers`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`InventoryItemType` 位于 `TaleWorlds.MountAndBlade.Diamond`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
-先从命名空间 `Helpers` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
-
-## 枚举值
-
-| Name |
-|------|
-| `None` |
-| `0` |
-| `Weapon` |
-| `1` |
-| `Shield` |
-| `2` |
-| `HeadArmor` |
-| `4` |
-| `BodyArmor` |
-| `8` |
-| `LegArmor` |
-| `16` |
-| `HandArmor` |
-| `32` |
-| `Horse` |
-| `64` |
-| `HorseHarness` |
-| `128` |
-| `Goods` |
-| `256` |
-| `Book` |
-| `512` |
-| `Animal` |
-| `1024` |
-| `Cape` |
-| `2048` |
-| `Banner` |
-| `4096` |
-| `HorseCategory` |
-| `192` |
+先从命名空间 `TaleWorlds.MountAndBlade.Diamond` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 使用示例
 
 ```csharp
-InventoryItemType example = InventoryItemType.None;
+// 从对应子系统 API 获取实例
+InventoryItemType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListItem"
+description: "Auto-generated class reference for EncyclopediaListItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListItem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaListItem
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaListItem();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaListItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

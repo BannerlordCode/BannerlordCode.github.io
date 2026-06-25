@@ -1,20 +1,14 @@
 ---
 title: "GetRankedLeaderboardCountMessageResult"
+description: "GetRankedLeaderboardCountMessageResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GetRankedLeaderboardCountMessageResult`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GetRankedLeaderboardCountMessageResult
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetRankedLeaderboardCountMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetRankedLeaderboardCountMessageResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetRankedLeaderboardCountMessageResult.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "GetRankedLeaderboardCountMessageResult"
 ## 使用示例
 
 ```csharp
-var example = new GetRankedLeaderboardCountMessageResult();
+// 从对应子系统 API 获取实例
+GetRankedLeaderboardCountMessageResult instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionObjectiveLogic"
+description: "MissionObjectiveLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectiveLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionObjectiveLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.MissionLogics
@@ -35,24 +29,42 @@ title: "MissionObjectiveLogic"
 ### StartObjective
 `public void StartObjective(MissionObjective objective)`
 
-**用途 / Purpose:** 处理 `start objective` 相关逻辑。
+**用途 / Purpose:** 启动「objective」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveLogic 实例
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.StartObjective(objective);
+```
 
 ### CompleteCurrentObjective
 `public void CompleteCurrentObjective()`
 
-**用途 / Purpose:** 处理 `complete current objective` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveLogic 实例
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.CompleteCurrentObjective();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveLogic 实例
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionObjectiveLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionObjectiveLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

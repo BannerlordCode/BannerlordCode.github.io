@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaPageVM"
+description: "Auto-generated class reference for EncyclopediaPageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaPageVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaPageVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/EncyclopediaPageVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/EncyclopediaPageVM.cs`
 
 ## Overview
 
@@ -40,35 +34,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### GetName
 `public virtual string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaPageVM from the subsystem API first
+EncyclopediaPageVM encyclopediaPageVM = ...;
+var result = encyclopediaPageVM.GetName();
+```
 
 ### GetNavigationBarURL
 `public virtual string GetNavigationBarURL()`
 
-**Purpose:** Gets the current value of `navigation bar u r l`.
+**Purpose:** Reads and returns the `navigation bar u r l` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaPageVM from the subsystem API first
+EncyclopediaPageVM encyclopediaPageVM = ...;
+var result = encyclopediaPageVM.GetNavigationBarURL();
+```
 
 ### Refresh
 `public virtual void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaPageVM from the subsystem API first
+EncyclopediaPageVM encyclopediaPageVM = ...;
+encyclopediaPageVM.Refresh();
+```
 
 ### OnTick
 `public virtual void OnTick()`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaPageVM from the subsystem API first
+EncyclopediaPageVM encyclopediaPageVM = ...;
+encyclopediaPageVM.OnTick();
+```
 
 ### ExecuteSwitchBookmarkedState
 `public virtual void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** Executes the `switch bookmarked state` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch bookmarked state`.
+
+```csharp
+// Obtain an instance of EncyclopediaPageVM from the subsystem API first
+EncyclopediaPageVM encyclopediaPageVM = ...;
+encyclopediaPageVM.ExecuteSwitchBookmarkedState();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaPageVM();
-value.GetName();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaPageVM encyclopediaPageVM = ...;
+encyclopediaPageVM.GetName();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

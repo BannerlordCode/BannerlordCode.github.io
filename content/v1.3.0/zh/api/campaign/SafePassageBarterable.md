@@ -1,13 +1,7 @@
 ---
 title: "SafePassageBarterable"
+description: "SafePassageBarterable 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SafePassageBarterable`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SafePassageBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
@@ -36,35 +30,66 @@ title: "SafePassageBarterable"
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**用途 / Purpose:** 获取 `unit value for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit value for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SafePassageBarterable 实例
+SafePassageBarterable safePassageBarterable = ...;
+var result = safePassageBarterable.GetUnitValueForFaction(faction);
+```
 
 ### GetPlayerStrengthRatioInEncounter
 `public float GetPlayerStrengthRatioInEncounter()`
 
-**用途 / Purpose:** 获取 `player strength ratio in encounter` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player strength ratio in encounter」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SafePassageBarterable 实例
+SafePassageBarterable safePassageBarterable = ...;
+var result = safePassageBarterable.GetPlayerStrengthRatioInEncounter();
+```
 
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**用途 / Purpose:** 处理 `is compatible` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「compatible」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SafePassageBarterable 实例
+SafePassageBarterable safePassageBarterable = ...;
+var result = safePassageBarterable.IsCompatible(barterable);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**用途 / Purpose:** 获取 `visual identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SafePassageBarterable 实例
+SafePassageBarterable safePassageBarterable = ...;
+var result = safePassageBarterable.GetVisualIdentifier();
+```
 
 ### Apply
 `public override void Apply()`
 
-**用途 / Purpose:** 将 `apply` 应用到当前对象。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
+
+```csharp
+// 先通过子系统 API 拿到 SafePassageBarterable 实例
+SafePassageBarterable safePassageBarterable = ...;
+safePassageBarterable.Apply();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SafePassageBarterable();
-value.GetUnitValueForFaction(faction);
+// 通常从对应子系统 API 获取实例后调用
+SafePassageBarterable safePassageBarterable = ...;
+safePassageBarterable.GetUnitValueForFaction(faction);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CallbackStringBufferManager"
+description: "Auto-generated class reference for CallbackStringBufferManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CallbackStringBufferManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CallbackStringBufferManager
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class CallbackStringBufferManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackStringBufferManager.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackStringBufferManager.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ var manager = CallbackStringBufferManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

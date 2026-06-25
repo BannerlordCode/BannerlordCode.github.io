@@ -1,20 +1,14 @@
 ---
 title: "SandboxApplyWeatherEffectsModel"
+description: "SandboxApplyWeatherEffectsModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxApplyWeatherEffectsModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxApplyWeatherEffectsModel
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
 **Type:** `public class SandboxApplyWeatherEffectsModel : ApplyWeatherEffectsModel`
 **Base:** `ApplyWeatherEffectsModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/SandboxApplyWeatherEffectsModel.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/SandboxApplyWeatherEffectsModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "SandboxApplyWeatherEffectsModel"
 ### ApplyWeatherEffects
 `public override void ApplyWeatherEffects()`
 
-**用途 / Purpose:** 将 `weather effects` 应用到当前对象。
+**用途 / Purpose:** 将 「weather effects」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxApplyWeatherEffectsModel 实例
+SandboxApplyWeatherEffectsModel sandboxApplyWeatherEffectsModel = ...;
+sandboxApplyWeatherEffectsModel.ApplyWeatherEffects();
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxApplyWeatherEffectsModel>(new MySandboxApplyWea
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

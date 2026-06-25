@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListFilterVM"
+description: "EncyclopediaListFilterVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListFilterVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListFilterVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaListFilterVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List/EncyclopediaListFilterVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List/EncyclopediaListFilterVM.cs`
 
 ## 概述
 
@@ -36,25 +30,44 @@ title: "EncyclopediaListFilterVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListFilterVM 实例
+EncyclopediaListFilterVM encyclopediaListFilterVM = ...;
+encyclopediaListFilterVM.RefreshValues();
+```
 
 ### CopyFilterFrom
 `public void CopyFilterFrom(Dictionary<EncyclopediaFilterItem, bool> filters)`
 
-**用途 / Purpose:** 处理 `copy filter from` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「filter from」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListFilterVM 实例
+EncyclopediaListFilterVM encyclopediaListFilterVM = ...;
+encyclopediaListFilterVM.CopyFilterFrom(dictionary<EncyclopediaFilterItem, false);
+```
 
 ### ExecuteOnFilterActivated
 `public void ExecuteOnFilterActivated()`
 
-**用途 / Purpose:** 执行 `on filter activated` 操作或流程。
+**用途 / Purpose:** 执行 「on filter activated」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListFilterVM 实例
+EncyclopediaListFilterVM encyclopediaListFilterVM = ...;
+encyclopediaListFilterVM.ExecuteOnFilterActivated();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaListFilterVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaListFilterVM encyclopediaListFilterVM = ...;
+encyclopediaListFilterVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

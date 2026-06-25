@@ -1,13 +1,7 @@
 ---
 title: "Shader"
+description: "Shader 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Shader`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Shader
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -29,52 +23,110 @@ title: "Shader"
 ### CreateShader
 `public static Shader CreateShader(GraphicsContext graphicsContext, string vertexShaderCode, string fragmentShaderCode)`
 
-**用途 / Purpose:** 创建一个 `shader` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「shader」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Shader.CreateShader(graphicsContext, "example", "example");
+```
 
 ### CompileShaders
 `public static int CompileShaders(string vertexShaderCode, string fragmentShaderCode)`
 
-**用途 / Purpose:** 处理 `compile shaders` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Shader.CompileShaders("example", "example");
+```
 
 ### SetTexture
 `public void SetTexture(string name, OpenGLTexture texture)`
 
-**用途 / Purpose:** 设置 `texture` 的值或状态。
+**用途 / Purpose:** 为 「texture」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+shader.SetTexture("example", texture);
+```
 
 ### SetColor
 `public void SetColor(string name, Color color)`
 
-**用途 / Purpose:** 设置 `color` 的值或状态。
+**用途 / Purpose:** 为 「color」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+shader.SetColor("example", color);
+```
 
 ### Use
 `public void Use()`
 
-**用途 / Purpose:** 处理 `use` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+shader.Use();
+```
 
 ### StopUsing
 `public void StopUsing()`
 
-**用途 / Purpose:** 处理 `stop using` 相关逻辑。
+**用途 / Purpose:** 停止「using」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+shader.StopUsing();
+```
 
 ### SetMatrix
 `public void SetMatrix(string name, Matrix4x4 matrix)`
 
-**用途 / Purpose:** 设置 `matrix` 的值或状态。
+**用途 / Purpose:** 为 「matrix」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+shader.SetMatrix("example", matrix);
+```
 
 ### SetBoolean
 `public void SetBoolean(string name, bool value)`
 
-**用途 / Purpose:** 设置 `boolean` 的值或状态。
+**用途 / Purpose:** 为 「boolean」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+shader.SetBoolean("example", false);
+```
 
 ### SetFloat
 `public void SetFloat(string name, float value)`
 
-**用途 / Purpose:** 设置 `float` 的值或状态。
+**用途 / Purpose:** 为 「float」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+shader.SetFloat("example", 0);
+```
 
 ### SetVector2
 `public void SetVector2(string name, Vector2 value)`
 
-**用途 / Purpose:** 设置 `vector2` 的值或状态。
+**用途 / Purpose:** 为 「vector2」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Shader 实例
+Shader shader = ...;
+shader.SetVector2("example", value);
+```
 
 ## 使用示例
 
@@ -84,4 +136,4 @@ Shader.CreateShader(graphicsContext, "example", "example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

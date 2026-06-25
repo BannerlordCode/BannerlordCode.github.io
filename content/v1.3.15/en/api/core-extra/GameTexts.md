@@ -1,23 +1,18 @@
 ---
 title: "GameTexts"
+description: "Auto-generated class reference for GameTexts."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameTexts`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameTexts
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class GameTexts`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/GameTexts.cs`
 
 ## Overview
 
-`GameTexts` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`GameTexts` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,76 +23,140 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Initialize
 `public static void Initialize(GameTextManager gameTextManager)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GameTexts.Initialize(gameTextManager);
+```
 
 ### FindText
 `public static TextObject FindText(string id, string variation = null)`
 
-**Purpose:** Handles logic related to `find text`.
+**Purpose:** Looks up the matching `text` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+GameTexts.FindText("example", "example");
+```
 
 ### TryGetText
 `public static bool TryGetText(string id, out TextObject textObject, string variation = null)`
 
-**Purpose:** Attempts to get `get text`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get text`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+GameTexts.TryGetText("example", textObject, "example");
+```
 
 ### FindAllTextVariations
 `public static IEnumerable<TextObject> FindAllTextVariations(string id)`
 
-**Purpose:** Handles logic related to `find all text variations`.
+**Purpose:** Looks up the matching `all text variations` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+GameTexts.FindAllTextVariations("example");
+```
 
 ### SetVariable
 `public static void SetVariable(string variableName, string content)`
 
-**Purpose:** Sets the value or state of `variable`.
+**Purpose:** Assigns a new value to `variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+GameTexts.SetVariable("example", "example");
+```
 
 ### SetVariable
 `public static void SetVariable(string variableName, float content)`
 
-**Purpose:** Sets the value or state of `variable`.
+**Purpose:** Assigns a new value to `variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+GameTexts.SetVariable("example", 0);
+```
 
 ### SetVariable
 `public static void SetVariable(string variableName, int content)`
 
-**Purpose:** Sets the value or state of `variable`.
+**Purpose:** Assigns a new value to `variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+GameTexts.SetVariable("example", 0);
+```
 
 ### SetVariable
 `public static void SetVariable(string variableName, TextObject content)`
 
-**Purpose:** Sets the value or state of `variable`.
+**Purpose:** Assigns a new value to `variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+GameTexts.SetVariable("example", content);
+```
 
 ### ClearInstance
 `public static void ClearInstance()`
 
-**Purpose:** Handles logic related to `clear instance`.
+**Purpose:** Removes all `instance` from the current object.
+
+```csharp
+// Static call; no instance required
+GameTexts.ClearInstance();
+```
 
 ### AddGameTextWithVariation
 `public static GameTexts.GameTextHelper AddGameTextWithVariation(string id)`
 
 **Purpose:** Adds `game text with variation` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+GameTexts.AddGameTextWithVariation("example");
+```
+
 ### Variation
 `public GameTexts.GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
-**Purpose:** Handles logic related to `variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameTexts from the subsystem API first
+GameTexts gameTexts = ...;
+var result = gameTexts.Variation("example", propertiesAndWeights);
+```
 
 ### MergeTextObjectsWithComma
 `public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
 
-**Purpose:** Handles logic related to `merge text objects with comma`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameTexts.MergeTextObjectsWithComma(textObjects, false);
+```
 
 ### MergeTextObjectsWithSymbol
 `public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
 
-**Purpose:** Handles logic related to `merge text objects with symbol`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameTexts.MergeTextObjectsWithSymbol(textObjects, symbol, null);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 GameTexts.Initialize(gameTextManager);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

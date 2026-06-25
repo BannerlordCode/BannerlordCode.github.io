@@ -1,20 +1,14 @@
 ---
 title: "TabControlWidget"
+description: "Auto-generated class reference for TabControlWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TabControlWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TabControlWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TabControlWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TabControlWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TabControlWidget.cs`
 
 ## Overview
 
@@ -38,19 +32,32 @@ Treat `TabControlWidget` as a Widget-style extension point: first identify who c
 ### OnFirstButtonClick
 `public void OnFirstButtonClick(Widget widget)`
 
-**Purpose:** Called when the `first button click` event is raised.
+**Purpose:** Invoked when the `first button click` event is raised.
+
+```csharp
+// Obtain an instance of TabControlWidget from the subsystem API first
+TabControlWidget tabControlWidget = ...;
+tabControlWidget.OnFirstButtonClick(widget);
+```
 
 ### OnSecondButtonClick
 `public void OnSecondButtonClick(Widget widget)`
 
-**Purpose:** Called when the `second button click` event is raised.
+**Purpose:** Invoked when the `second button click` event is raised.
+
+```csharp
+// Obtain an instance of TabControlWidget from the subsystem API first
+TabControlWidget tabControlWidget = ...;
+tabControlWidget.OnSecondButtonClick(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new TabControlWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TabControlWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

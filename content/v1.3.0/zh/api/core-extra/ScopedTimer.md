@@ -1,13 +1,7 @@
 ---
 title: "ScopedTimer"
+description: "ScopedTimer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScopedTimer`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScopedTimer
 
 **Namespace:** TaleWorlds.Library
@@ -29,15 +23,22 @@ title: "ScopedTimer"
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 处理 `dispose` 相关逻辑。
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 ScopedTimer 实例
+ScopedTimer scopedTimer = ...;
+scopedTimer.Dispose();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ScopedTimer();
-value.Dispose();
+// 通常从对应子系统 API 获取实例后调用
+ScopedTimer scopedTimer = ...;
+scopedTimer.Dispose();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

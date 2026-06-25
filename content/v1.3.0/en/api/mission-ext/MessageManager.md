@@ -1,13 +1,7 @@
 ---
 title: "MessageManager"
+description: "Auto-generated class reference for MessageManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,32 +23,62 @@ Treat `MessageManager` as a Manager-style extension point: first identify who cr
 ### DisplayMessage
 `public static void DisplayMessage(string message)`
 
-**Purpose:** Handles logic related to `display message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MessageManager.DisplayMessage("example");
+```
 
 ### DisplayMessage
 `public static void DisplayMessage(string message, uint color)`
 
-**Purpose:** Handles logic related to `display message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MessageManager.DisplayMessage("example", 0);
+```
 
 ### DisplayDebugMessage
 `public static void DisplayDebugMessage(string message)`
 
-**Purpose:** Handles logic related to `display debug message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MessageManager.DisplayDebugMessage("example");
+```
 
 ### DisplayMultilineMessage
 `public static void DisplayMultilineMessage(string message, uint color)`
 
-**Purpose:** Handles logic related to `display multiline message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MessageManager.DisplayMultilineMessage("example", 0);
+```
 
 ### EraseMessageLines
 `public static void EraseMessageLines()`
 
-**Purpose:** Handles logic related to `erase message lines`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MessageManager.EraseMessageLines();
+```
 
 ### SetMessageManager
 `public static void SetMessageManager(MessageManagerBase messageManager)`
 
-**Purpose:** Sets the value or state of `message manager`.
+**Purpose:** Assigns a new value to `message manager` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MessageManager.SetMessageManager(messageManager);
+```
 
 ## Usage Example
 
@@ -64,4 +88,4 @@ var manager = MessageManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

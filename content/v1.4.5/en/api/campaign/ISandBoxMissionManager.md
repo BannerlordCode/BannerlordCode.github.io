@@ -1,20 +1,14 @@
 ---
 title: "ISandBoxMissionManager"
+description: "Auto-generated class reference for ISandBoxMissionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISandBoxMissionManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISandBoxMissionManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ISandBoxMissionManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ISandBoxMissionManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ISandBoxMissionManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ISandBoxMissionManager` as a Manager-style extension point: first identif
 ## Usage Example
 
 ```csharp
-ISandBoxMissionManager implementation = GetSandBoxMissionManagerImplementation();
+// Usually obtained through DI or a factory method
+IISandBoxMissionManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

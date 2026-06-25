@@ -1,13 +1,7 @@
 ---
 title: "CharacterAttribute"
+description: "CharacterAttribute 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterAttribute`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterAttribute
 
 **Namespace:** TaleWorlds.Core
@@ -35,7 +29,13 @@ title: "CharacterAttribute"
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, TextObject abbreviation)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterAttribute 实例
+CharacterAttribute characterAttribute = ...;
+characterAttribute.Initialize(name, description, abbreviation);
+```
 
 ## 使用示例
 
@@ -46,4 +46,4 @@ public class Example { }
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

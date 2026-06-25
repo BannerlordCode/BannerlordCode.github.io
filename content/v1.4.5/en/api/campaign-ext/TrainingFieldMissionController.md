@@ -1,20 +1,14 @@
 ---
 title: "TrainingFieldMissionController"
+description: "Auto-generated class reference for TrainingFieldMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingFieldMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingFieldMissionController
 
 **Namespace:** StoryMode.Missions
 **Module:** StoryMode.Missions
 **Type:** `public class TrainingFieldMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/Storymode.Missions/TrainingFieldMissionController.cs`
+**File:** `Modules.StoryMode/StoryMode/Storymode.Missions/TrainingFieldMissionController.cs`
 
 ## Overview
 
@@ -41,87 +35,189 @@ Treat `TrainingFieldMissionController` as a Controller-style extension point: fi
 ### SetTextVariableOfName
 `public void SetTextVariableOfName(string tag, int variable)`
 
-**Purpose:** Sets the value or state of `text variable of name`.
+**Purpose:** Assigns a new value to `text variable of name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.SetTextVariableOfName("example", 0);
+```
 
 ### GetNameString
 `public string GetNameString()`
 
-**Purpose:** Gets the current value of `name string`.
+**Purpose:** Reads and returns the `name string` value held by the current object.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+var result = trainingFieldMissionController.GetNameString();
+```
 
 ### SetActive
 `public bool SetActive(bool isActive)`
 
-**Purpose:** Sets the value or state of `active`.
+**Purpose:** Assigns a new value to `active` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+var result = trainingFieldMissionController.SetActive(false);
+```
 
 ### FinishTask
 `public bool FinishTask()`
 
-**Purpose:** Handles logic related to `finish task`.
+**Purpose:** Concludes the `task` flow and performs any cleanup.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+var result = trainingFieldMissionController.FinishTask();
+```
 
 ### FinishSubTask
 `public void FinishSubTask(string subTaskName, float score)`
 
-**Purpose:** Handles logic related to `finish sub task`.
+**Purpose:** Concludes the `sub task` flow and performs any cleanup.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.FinishSubTask("example", 0);
+```
 
 ### SetAllSubTasksInactive
 `public bool SetAllSubTasksInactive()`
 
-**Purpose:** Sets the value or state of `all sub tasks inactive`.
+**Purpose:** Assigns a new value to `all sub tasks inactive` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+var result = trainingFieldMissionController.SetAllSubTasksInactive();
+```
 
 ### AddSubTask
 `public void AddSubTask(TutorialObjective newSubTask)`
 
 **Purpose:** Adds `sub task` to the current collection or state.
 
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.AddSubTask(newSubTask);
+```
+
 ### RestoreScoreFromSave
 `public void RestoreScoreFromSave(float score)`
 
-**Purpose:** Handles logic related to `restore score from save`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.RestoreScoreFromSave(0);
+```
 
 ### DelayedAction
 `public readonly struct DelayedAction(Action order, float delayTime)`
 
-**Purpose:** Handles logic related to `delayed action`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+var result = trainingFieldMissionController.DelayedAction(order, 0);
+```
 
 ### Update
 `public bool Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+var result = trainingFieldMissionController.Update();
+```
 
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.OnCreated();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.AfterStart();
+```
 
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** Called when the `rendering started` event is raised.
+**Purpose:** Invoked when the `rendering started` event is raised.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.OnRenderingStarted();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.OnMissionTick(0);
+```
 
 ### LoadCrossbowForStarting
 `public void LoadCrossbowForStarting()`
 
-**Purpose:** Loads `crossbow for starting` data.
+**Purpose:** Reads `crossbow for starting` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.LoadCrossbowForStarting();
+```
 
 ### OnAgentShootMissile
 `public override void OnAgentShootMissile(Agent shooterAgent, EquipmentIndex weaponIndex, Vec3 position, Vec3 velocity, Mat3 orientation, bool hasRigidBody, int forcedMissileIndex)`
 
-**Purpose:** Called when the `agent shoot missile` event is raised.
+**Purpose:** Invoked when the `agent shoot missile` event is raised.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.OnAgentShootMissile(shooterAgent, weaponIndex, position, velocity, orientation, false, 0);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of TrainingFieldMissionController from the subsystem API first
+TrainingFieldMissionController trainingFieldMissionController = ...;
+trainingFieldMissionController.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ## Usage Example
 
@@ -131,4 +227,4 @@ var controller = Mission.Current.GetMissionBehavior<TrainingFieldMissionControll
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

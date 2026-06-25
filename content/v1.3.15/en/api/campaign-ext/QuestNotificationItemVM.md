@@ -1,13 +1,7 @@
 ---
 title: "QuestNotificationItemVM"
+description: "Auto-generated class reference for QuestNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### ManualRefreshRelevantStatus
 `public override void ManualRefreshRelevantStatus()`
 
-**Purpose:** Handles logic related to `manual refresh relevant status`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of QuestNotificationItemVM from the subsystem API first
+QuestNotificationItemVM questNotificationItemVM = ...;
+questNotificationItemVM.ManualRefreshRelevantStatus();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestNotificationItemVM();
-value.ManualRefreshRelevantStatus();
+// Typically call this after obtaining an instance from the subsystem API
+QuestNotificationItemVM questNotificationItemVM = ...;
+questNotificationItemVM.ManualRefreshRelevantStatus();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

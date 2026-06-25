@@ -1,20 +1,14 @@
 ---
 title: "GauntletMenuOverlayBaseView"
+description: "Auto-generated class reference for GauntletMenuOverlayBaseView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMenuOverlayBaseView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuOverlayBaseView
 
 **Namespace:** SandBox.GauntletUI.Menu
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMenuOverlayBaseView : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuOverlayBaseView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuOverlayBaseView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GauntletMenuOverlayBaseView` as a View-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var view = new GauntletMenuOverlayBaseView();
+// Retrieve this view from the subsystem API or scene
+GauntletMenuOverlayBaseView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

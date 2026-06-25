@@ -1,20 +1,14 @@
 ---
 title: "MissionLocationLogic"
+description: "MissionLocationLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionLocationLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionLocationLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class MissionLocationLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionLocationLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionLocationLogic.cs`
 
 ## 概述
 
@@ -29,39 +23,75 @@ title: "MissionLocationLogic"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLocationLogic 实例
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.EarlyStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLocationLogic 实例
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLocationLogic 实例
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.OnRemoveBehavior();
+```
 
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** 当 `created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLocationLogic 实例
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.OnCreated();
+```
 
 ### SpawnCharactersAccompanyingPlayer
 `public void SpawnCharactersAccompanyingPlayer(bool noHorse)`
 
-**用途 / Purpose:** 处理 `spawn characters accompanying player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLocationLogic 实例
+MissionLocationLogic missionLocationLogic = ...;
+missionLocationLogic.SpawnCharactersAccompanyingPlayer(false);
+```
 
 ### GetSpawnFrameOfPassage
 `public MatrixFrame GetSpawnFrameOfPassage(Location location)`
 
-**用途 / Purpose:** 获取 `spawn frame of passage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn frame of passage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLocationLogic 实例
+MissionLocationLogic missionLocationLogic = ...;
+var result = missionLocationLogic.GetSpawnFrameOfPassage(location);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionLocationLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionLocationLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

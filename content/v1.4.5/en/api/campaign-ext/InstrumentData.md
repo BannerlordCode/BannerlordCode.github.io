@@ -1,20 +1,14 @@
 ---
 title: "InstrumentData"
+description: "Auto-generated class reference for InstrumentData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InstrumentData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InstrumentData
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class InstrumentData : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/InstrumentData.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/InstrumentData.cs`
 
 ## Overview
 
@@ -38,19 +32,32 @@ Treat `InstrumentData` as a Data-style extension point: first identify who creat
 ### InitializeInstrumentData
 `public void InitializeInstrumentData(string sittingAction, string standingAction, bool isDataWithoutInstrument)`
 
-**Purpose:** Initializes the state, resources, or bindings for `instrument data`.
+**Purpose:** Prepares the resources, state, or bindings required by `instrument data`.
+
+```csharp
+// Obtain an instance of InstrumentData from the subsystem API first
+InstrumentData instrumentData = ...;
+instrumentData.InitializeInstrumentData("example", "example", false);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of InstrumentData from the subsystem API first
+InstrumentData instrumentData = ...;
+instrumentData.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InstrumentData();
+// This data object is usually returned by campaign/mission APIs
+InstrumentData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LoadData"
+description: "Auto-generated class reference for LoadData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadData`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadData
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LoadData.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LoadData.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `LoadData` as a Data-style extension point: first identify who creates it,
 ## Usage Example
 
 ```csharp
-var value = new LoadData();
+// This data object is usually returned by campaign/mission APIs
+LoadData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

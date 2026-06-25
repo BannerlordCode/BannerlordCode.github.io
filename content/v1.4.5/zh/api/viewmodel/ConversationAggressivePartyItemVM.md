@@ -1,20 +1,14 @@
 ---
 title: "ConversationAggressivePartyItemVM"
+description: "ConversationAggressivePartyItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationAggressivePartyItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationAggressivePartyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ConversationAggressivePartyItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Conversation/ConversationAggressivePartyItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Conversation/ConversationAggressivePartyItemVM.cs`
 
 ## 概述
 
@@ -37,20 +31,33 @@ title: "ConversationAggressivePartyItemVM"
 ### ExecuteShowPartyTooltip
 `public void ExecuteShowPartyTooltip()`
 
-**用途 / Purpose:** 执行 `show party tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「show party tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationAggressivePartyItemVM 实例
+ConversationAggressivePartyItemVM conversationAggressivePartyItemVM = ...;
+conversationAggressivePartyItemVM.ExecuteShowPartyTooltip();
+```
 
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**用途 / Purpose:** 执行 `hide tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「hide tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationAggressivePartyItemVM 实例
+ConversationAggressivePartyItemVM conversationAggressivePartyItemVM = ...;
+conversationAggressivePartyItemVM.ExecuteHideTooltip();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ConversationAggressivePartyItemVM();
-value.ExecuteShowPartyTooltip();
+// 通常从对应子系统 API 获取实例后调用
+ConversationAggressivePartyItemVM conversationAggressivePartyItemVM = ...;
+conversationAggressivePartyItemVM.ExecuteShowPartyTooltip();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

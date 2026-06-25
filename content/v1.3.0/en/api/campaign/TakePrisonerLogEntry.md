@@ -1,13 +1,7 @@
 ---
 title: "TakePrisonerLogEntry"
+description: "Auto-generated class reference for TakePrisonerLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TakePrisonerLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TakePrisonerLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** Handles logic related to `is related to war`.
+**Purpose:** Determines whether the current object is in the `related to war` state or condition.
+
+```csharp
+// Obtain an instance of TakePrisonerLogEntry from the subsystem API first
+TakePrisonerLogEntry takePrisonerLogEntry = ...;
+var result = takePrisonerLogEntry.IsRelatedToWar(stance, effector, effected);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of TakePrisonerLogEntry from the subsystem API first
+TakePrisonerLogEntry takePrisonerLogEntry = ...;
+var result = takePrisonerLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of TakePrisonerLogEntry from the subsystem API first
+TakePrisonerLogEntry takePrisonerLogEntry = ...;
+var result = takePrisonerLogEntry.GetNotificationText();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of TakePrisonerLogEntry from the subsystem API first
+TakePrisonerLogEntry takePrisonerLogEntry = ...;
+var result = takePrisonerLogEntry.GetEncyclopediaText();
+```
 
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of TakePrisonerLogEntry from the subsystem API first
+TakePrisonerLogEntry takePrisonerLogEntry = ...;
+var result = takePrisonerLogEntry.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TakePrisonerLogEntry();
-value.IsRelatedToWar(stance, effector, effected);
+// Typically call this after obtaining an instance from the subsystem API
+TakePrisonerLogEntry takePrisonerLogEntry = ...;
+takePrisonerLogEntry.IsRelatedToWar(stance, effector, effected);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

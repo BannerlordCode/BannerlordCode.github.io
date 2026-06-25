@@ -1,13 +1,7 @@
 ---
 title: "SkillPointsContainerListPanel"
+description: "Auto-generated class reference for SkillPointsContainerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillPointsContainerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkillPointsContainerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDevel
 ## Usage Example
 
 ```csharp
-var value = new SkillPointsContainerListPanel();
+// Obtain an instance from the relevant subsystem API
+SkillPointsContainerListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

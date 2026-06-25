@@ -1,20 +1,14 @@
 ---
 title: "BoostSkillCheatGroup"
+description: "Auto-generated class reference for BoostSkillCheatGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoostSkillCheatGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoostSkillCheatGroup
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class BoostSkillCheatGroup : GameplayCheatGroup`
 **Base:** `GameplayCheatGroup`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/BoostSkillCheatGroup.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/BoostSkillCheatGroup.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of BoostSkillCheatGroup from the subsystem API first
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+boostSkillCheatGroup.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of BoostSkillCheatGroup from the subsystem API first
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+var result = boostSkillCheatGroup.GetName();
+```
 
 ### GetCheats
 `public override IEnumerable<GameplayCheatBase> GetCheats()`
 
-**Purpose:** Gets the current value of `cheats`.
+**Purpose:** Reads and returns the `cheats` value held by the current object.
+
+```csharp
+// Obtain an instance of BoostSkillCheatGroup from the subsystem API first
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+var result = boostSkillCheatGroup.GetCheats();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of BoostSkillCheatGroup from the subsystem API first
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+var result = boostSkillCheatGroup.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoostSkillCheatGroup();
-value.ExecuteCheat();
+// Typically call this after obtaining an instance from the subsystem API
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+boostSkillCheatGroup.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapSiegeMachineButtonWidget"
+description: "Auto-generated class reference for MapSiegeMachineButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeMachineButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeMachineButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapSiegeMachineButtonWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeMachineButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegeMachineButtonWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `MapSiegeMachineButtonWidget` as a Widget-style extension point: first ide
 ### MapSiegeMachineButtonWidget
 `public class MapSiegeMachineButtonWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `map siege machine button widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapSiegeMachineButtonWidget from the subsystem API first
+MapSiegeMachineButtonWidget mapSiegeMachineButtonWidget = ...;
+var result = mapSiegeMachineButtonWidget.MapSiegeMachineButtonWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MapSiegeMachineButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapSiegeMachineButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ChangePlayerCharacterAction"
+description: "Auto-generated class reference for ChangePlayerCharacterAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangePlayerCharacterAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChangePlayerCharacterAction
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ### Apply
 `public static void Apply(Hero hero)`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Static call; no instance required
+ChangePlayerCharacterAction.Apply(hero);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ ChangePlayerCharacterAction.Apply(hero);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

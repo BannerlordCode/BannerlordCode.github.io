@@ -1,20 +1,14 @@
 ---
 title: "MissionFaceCacheView"
+description: "MissionFaceCacheView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionFaceCacheView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFaceCacheView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionFaceCacheView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionFaceCacheView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionFaceCacheView.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "MissionFaceCacheView"
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFaceCacheView 实例
+MissionFaceCacheView missionFaceCacheView = ...;
+missionFaceCacheView.OnPreMissionTick(0);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFaceCacheView 实例
+MissionFaceCacheView missionFaceCacheView = ...;
+missionFaceCacheView.OnBehaviorInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFaceCacheView 实例
+MissionFaceCacheView missionFaceCacheView = ...;
+missionFaceCacheView.OnMissionScreenFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionFaceCacheView();
+// 从子系统 API 或场景中获取该视图
+MissionFaceCacheView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

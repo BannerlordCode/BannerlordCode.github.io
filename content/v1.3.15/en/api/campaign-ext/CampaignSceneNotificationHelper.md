@@ -1,13 +1,7 @@
 ---
 title: "CampaignSceneNotificationHelper"
+description: "Auto-generated class reference for CampaignSceneNotificationHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignSceneNotificationHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignSceneNotificationHelper
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -29,62 +23,122 @@ Treat `CampaignSceneNotificationHelper` as a Helper-style extension point: first
 ### GetBodyguardOfCulture
 `public static SceneNotificationData.SceneNotificationCharacter GetBodyguardOfCulture(CultureObject culture)`
 
-**Purpose:** Gets the current value of `bodyguard of culture`.
+**Purpose:** Reads and returns the `bodyguard of culture` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.GetBodyguardOfCulture(culture);
+```
 
 ### RemoveWeaponsFromEquipment
 `public static void RemoveWeaponsFromEquipment(ref Equipment equipment, bool removeHelmet = false, bool removeShoulder = false)`
 
 **Purpose:** Removes `weapons from equipment` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.RemoveWeaponsFromEquipment(equipment, false, false);
+```
+
 ### GetChildStageEquipmentIDFromCulture
 `public static string GetChildStageEquipmentIDFromCulture(CultureObject childCulture)`
 
-**Purpose:** Gets the current value of `child stage equipment i d from culture`.
+**Purpose:** Reads and returns the `child stage equipment i d from culture` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.GetChildStageEquipmentIDFromCulture(childCulture);
+```
 
 ### GetRandomTroopForCulture
 `public static CharacterObject GetRandomTroopForCulture(CultureObject culture)`
 
-**Purpose:** Gets the current value of `random troop for culture`.
+**Purpose:** Reads and returns the `random troop for culture` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.GetRandomTroopForCulture(culture);
+```
 
 ### GetMilitaryAudienceForHero
 `public static IEnumerable<Hero> GetMilitaryAudienceForHero(Hero hero, bool includeClanLeader = true, bool onlyClanMembers = false)`
 
-**Purpose:** Gets the current value of `military audience for hero`.
+**Purpose:** Reads and returns the `military audience for hero` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.GetMilitaryAudienceForHero(hero, false, false);
+```
 
 ### GetMilitaryAudienceForKingdom
 `public static IEnumerable<Hero> GetMilitaryAudienceForKingdom(Kingdom kingdom, bool includeKingdomLeader = true)`
 
-**Purpose:** Gets the current value of `military audience for kingdom`.
+**Purpose:** Reads and returns the `military audience for kingdom` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.GetMilitaryAudienceForKingdom(kingdom, false);
+```
 
 ### GetFormalDayAndSeasonText
 `public static TextObject GetFormalDayAndSeasonText(CampaignTime time)`
 
-**Purpose:** Gets the current value of `formal day and season text`.
+**Purpose:** Reads and returns the `formal day and season text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.GetFormalDayAndSeasonText(time);
+```
 
 ### GetFormalNameForKingdom
 `public static TextObject GetFormalNameForKingdom(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `formal name for kingdom`.
+**Purpose:** Reads and returns the `formal name for kingdom` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.GetFormalNameForKingdom(kingdom);
+```
 
 ### CreateNotificationCharacterFromHero
 `public static SceneNotificationData.SceneNotificationCharacter CreateNotificationCharacterFromHero(Hero hero, Equipment overridenEquipment = null, bool useCivilian = false, BodyProperties overriddenBodyProperties = default(BodyProperties), uint overriddenColor1 = 4294967295U, uint overriddenColor2 = 4294967295U, bool useHorse = false)`
 
-**Purpose:** Creates a new `notification character from hero` instance or object.
+**Purpose:** Constructs a new `notification character from hero` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.CreateNotificationCharacterFromHero(hero, null, false, default(BodyProperties), 0, 0, false);
+```
 
 ### CreateNotificationShipFromShip
 `public static SceneNotificationData.SceneNotificationShip CreateNotificationShipFromShip(Ship ship)`
 
-**Purpose:** Creates a new `notification ship from ship` instance or object.
+**Purpose:** Constructs a new `notification ship from ship` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.CreateNotificationShipFromShip(ship);
+```
 
 ### CreateNotificationShipFromShip
 `public static SceneNotificationData.SceneNotificationShip CreateNotificationShipFromShip(Ship ship, float hitPointRatio)`
 
-**Purpose:** Creates a new `notification ship from ship` instance or object.
+**Purpose:** Constructs a new `notification ship from ship` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.CreateNotificationShipFromShip(ship, 0);
+```
 
 ### GetDefaultHorseItem
 `public static ItemObject GetDefaultHorseItem()`
 
-**Purpose:** Gets the current value of `default horse item`.
+**Purpose:** Reads and returns the `default horse item` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignSceneNotificationHelper.GetDefaultHorseItem();
+```
 
 ## Usage Example
 
@@ -94,4 +148,4 @@ CampaignSceneNotificationHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

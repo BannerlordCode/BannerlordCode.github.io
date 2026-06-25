@@ -1,13 +1,7 @@
 ---
 title: "ImageIdentifierTextureProvider"
+description: "ImageIdentifierTextureProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ImageIdentifierTextureProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageIdentifierTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers
@@ -38,29 +32,54 @@ title: "ImageIdentifierTextureProvider"
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 ImageIdentifierTextureProvider 实例
+ImageIdentifierTextureProvider imageIdentifierTextureProvider = ...;
+imageIdentifierTextureProvider.Tick(0);
+```
 
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 ImageIdentifierTextureProvider 实例
+ImageIdentifierTextureProvider imageIdentifierTextureProvider = ...;
+imageIdentifierTextureProvider.Clear(false);
+```
 
 ### CreateImageWithId
 `public void CreateImageWithId(string id, string additionalArgs)`
 
-**用途 / Purpose:** 创建一个 `image with id` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「image with id」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 ImageIdentifierTextureProvider 实例
+ImageIdentifierTextureProvider imageIdentifierTextureProvider = ...;
+imageIdentifierTextureProvider.CreateImageWithId("example", "example");
+```
 
 ### ReleaseCache
 `public void ReleaseCache()`
 
-**用途 / Purpose:** 处理 `release cache` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ImageIdentifierTextureProvider 实例
+ImageIdentifierTextureProvider imageIdentifierTextureProvider = ...;
+imageIdentifierTextureProvider.ReleaseCache();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomImageIdentifierTextureProvider();
+// 通常通过子系统 API 或工厂获得派生实例
+ImageIdentifierTextureProvider instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

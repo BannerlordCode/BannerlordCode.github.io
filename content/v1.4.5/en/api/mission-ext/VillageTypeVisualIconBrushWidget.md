@@ -1,20 +1,14 @@
 ---
 title: "VillageTypeVisualIconBrushWidget"
+description: "Auto-generated class reference for VillageTypeVisualIconBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageTypeVisualIconBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageTypeVisualIconBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VillageTypeVisualIconBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.TownManagement/VillageTypeVisualIconBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.TownManagement/VillageTypeVisualIconBrushWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `VillageTypeVisualIconBrushWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new VillageTypeVisualIconBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+VillageTypeVisualIconBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

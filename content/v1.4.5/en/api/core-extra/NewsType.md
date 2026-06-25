@@ -1,20 +1,14 @@
 ---
 title: "NewsType"
+description: "Auto-generated class reference for NewsType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NewsType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NewsType
 
 **Namespace:** TaleWorlds.Library.NewsManager
 **Module:** TaleWorlds.Library
 **Type:** `public struct NewsType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.NewsManager/NewsType.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.NewsManager/NewsType.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Library.NewsManager` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var example = new NewsType();
+// Obtain an instance from the relevant subsystem API
+NewsType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

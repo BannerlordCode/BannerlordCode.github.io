@@ -1,23 +1,18 @@
 ---
 title: "Throwing"
+description: "Throwing 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Throwing`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Throwing
 
-**命名空间:** TaleWorlds.CampaignSystem.CharacterDevelopment
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public static class Throwing`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class Throwing`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## 概述
 
-`Throwing` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`Throwing` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -27,34 +22,35 @@ title: "Throwing"
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `QuickDraw` | `public static PerkObject QuickDraw { get; }` |
+| `ShieldBreaker` | `public static PerkObject ShieldBreaker { get; }` |
+| `Hunter` | `public static PerkObject Hunter { get; }` |
+| `FlexibleFighter` | `public static PerkObject FlexibleFighter { get; }` |
+| `MountedSkirmisher` | `public static PerkObject MountedSkirmisher { get; }` |
+| `PerfectTechnique` | `public static PerkObject PerfectTechnique { get; }` |
+| `RunningThrow` | `public static PerkObject RunningThrow { get; }` |
+| `KnockOff` | `public static PerkObject KnockOff { get; }` |
+| `WellPrepared` | `public static PerkObject WellPrepared { get; }` |
+| `Skirmisher` | `public static PerkObject Skirmisher { get; }` |
+| `Focus` | `public static PerkObject Focus { get; }` |
+| `LastHit` | `public static PerkObject LastHit { get; }` |
+| `HeadHunter` | `public static PerkObject HeadHunter { get; }` |
+| `SlingingCompetitions` | `public static PerkObject SlingingCompetitions { get; }` |
+| `Saddlebags` | `public static PerkObject Saddlebags { get; }` |
+| `Splinters` | `public static PerkObject Splinters { get; }` |
+| `Resourceful` | `public static PerkObject Resourceful { get; }` |
+| `LongReach` | `public static PerkObject LongReach { get; }` |
+| `WeakSpot` | `public static PerkObject WeakSpot { get; }` |
+| `Impale` | `public static PerkObject Impale { get; }` |
+| `UnstoppableForce` | `public static PerkObject UnstoppableForce { get; }` |
 
 ## 使用示例
 
 ```csharp
-var value = new Throwing();
+// 从对应子系统 API 获取实例
+Throwing instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

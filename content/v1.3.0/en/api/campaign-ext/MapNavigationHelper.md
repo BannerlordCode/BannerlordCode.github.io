@@ -1,13 +1,7 @@
 ---
 title: "MapNavigationHelper"
+description: "Auto-generated class reference for MapNavigationHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNavigationHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationHelper
 
 **Namespace:** SandBox.View.Map.Navigation
@@ -29,27 +23,52 @@ Treat `MapNavigationHelper` as a Helper-style extension point: first identify wh
 ### GetUnsavedChangedInquiry
 `public static InquiryData GetUnsavedChangedInquiry()`
 
-**Purpose:** Gets the current value of `unsaved changed inquiry`.
+**Purpose:** Reads and returns the `unsaved changed inquiry` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MapNavigationHelper.GetUnsavedChangedInquiry();
+```
 
 ### GetUnapplicableChangedInquiry
 `public static InquiryData GetUnapplicableChangedInquiry()`
 
-**Purpose:** Gets the current value of `unapplicable changed inquiry`.
+**Purpose:** Reads and returns the `unapplicable changed inquiry` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MapNavigationHelper.GetUnapplicableChangedInquiry();
+```
 
 ### IsMapTopScreen
 `public static bool IsMapTopScreen()`
 
-**Purpose:** Handles logic related to `is map top screen`.
+**Purpose:** Determines whether the current object is in the `map top screen` state or condition.
+
+```csharp
+// Static call; no instance required
+MapNavigationHelper.IsMapTopScreen();
+```
 
 ### IsNavigationBarEnabled
 `public static bool IsNavigationBarEnabled(MapNavigationHandler handler)`
 
-**Purpose:** Handles logic related to `is navigation bar enabled`.
+**Purpose:** Determines whether the current object is in the `navigation bar enabled` state or condition.
+
+```csharp
+// Static call; no instance required
+MapNavigationHelper.IsNavigationBarEnabled(handler);
+```
 
 ### ApplyCurrentChanges
 `public static void ApplyCurrentChanges()`
 
-**Purpose:** Applies `current changes` to the current object.
+**Purpose:** Applies the effect of `current changes` to the current object.
+
+```csharp
+// Static call; no instance required
+MapNavigationHelper.ApplyCurrentChanges();
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ MapNavigationHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

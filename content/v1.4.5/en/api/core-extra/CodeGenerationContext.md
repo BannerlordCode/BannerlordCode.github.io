@@ -1,20 +1,14 @@
 ---
 title: "CodeGenerationContext"
+description: "Auto-generated class reference for CodeGenerationContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CodeGenerationContext`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CodeGenerationContext
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
 **Type:** `public class CodeGenerationContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/CodeGenerationContext.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/CodeGenerationContext.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### FindOrCreateNamespace
 `public NamespaceCode FindOrCreateNamespace(string name)`
 
-**Purpose:** Handles logic related to `find or create namespace`.
+**Purpose:** Looks up the matching `or create namespace` in the current collection or scope.
+
+```csharp
+// Obtain an instance of CodeGenerationContext from the subsystem API first
+CodeGenerationContext codeGenerationContext = ...;
+var result = codeGenerationContext.FindOrCreateNamespace("example");
+```
 
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Handles logic related to `generate into`.
+**Purpose:** Generates an instance, data, or representation of `into`.
+
+```csharp
+// Obtain an instance of CodeGenerationContext from the subsystem API first
+CodeGenerationContext codeGenerationContext = ...;
+codeGenerationContext.GenerateInto(codeGenerationFile);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CodeGenerationContext();
-value.FindOrCreateNamespace("example");
+// Typically call this after obtaining an instance from the subsystem API
+CodeGenerationContext codeGenerationContext = ...;
+codeGenerationContext.FindOrCreateNamespace("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

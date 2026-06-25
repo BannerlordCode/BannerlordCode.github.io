@@ -1,13 +1,7 @@
 ---
 title: "Athletics"
+description: "Auto-generated class reference for Athletics."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Athletics`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Athletics
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -53,9 +47,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new Athletics();
+// Obtain an instance from the relevant subsystem API
+Athletics instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

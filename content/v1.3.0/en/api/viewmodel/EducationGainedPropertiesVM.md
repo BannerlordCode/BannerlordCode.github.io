@@ -1,13 +1,7 @@
 ---
 title: "EducationGainedPropertiesVM"
+description: "Auto-generated class reference for EducationGainedPropertiesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationGainedPropertiesVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationGainedPropertiesVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ## Usage Example
 
 ```csharp
-var example = new EducationGainedPropertiesVM();
+// Obtain an instance from the relevant subsystem API
+EducationGainedPropertiesVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

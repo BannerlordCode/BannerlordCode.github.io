@@ -1,13 +1,7 @@
 ---
 title: "GauntletHeirSelectionPopupView"
+description: "Auto-generated class reference for GauntletHeirSelectionPopupView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletHeirSelectionPopupView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletHeirSelectionPopupView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -27,9 +21,10 @@ Treat `GauntletHeirSelectionPopupView` as a View-style extension point: first id
 ## Usage Example
 
 ```csharp
-var view = new GauntletHeirSelectionPopupView();
+// Retrieve this view from the subsystem API or scene
+GauntletHeirSelectionPopupView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

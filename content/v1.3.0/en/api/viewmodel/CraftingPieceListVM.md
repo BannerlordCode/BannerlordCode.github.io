@@ -1,13 +1,7 @@
 ---
 title: "CraftingPieceListVM"
+description: "Auto-generated class reference for CraftingPieceListVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceListVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceListVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -39,20 +33,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of CraftingPieceListVM from the subsystem API first
+CraftingPieceListVM craftingPieceListVM = ...;
+craftingPieceListVM.ExecuteSelect();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of CraftingPieceListVM from the subsystem API first
+CraftingPieceListVM craftingPieceListVM = ...;
+craftingPieceListVM.Refresh();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingPieceListVM();
-value.ExecuteSelect();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingPieceListVM craftingPieceListVM = ...;
+craftingPieceListVM.ExecuteSelect();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

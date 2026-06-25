@@ -1,13 +1,7 @@
 ---
 title: "StoryModeViewCreator"
+description: "Auto-generated class reference for StoryModeViewCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeViewCreator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeViewCreator
 
 **Namespace:** StoryMode.View
@@ -29,7 +23,12 @@ Start from namespace `StoryMode.View` to place it in the stack, then inspect its
 ### CreateTrainingFieldObjectiveView
 `public static MissionView CreateTrainingFieldObjectiveView(Mission mission)`
 
-**Purpose:** Creates a new `training field objective view` instance or object.
+**Purpose:** Constructs a new `training field objective view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+StoryModeViewCreator.CreateTrainingFieldObjectiveView(mission);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ StoryModeViewCreator.CreateTrainingFieldObjectiveView(mission);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

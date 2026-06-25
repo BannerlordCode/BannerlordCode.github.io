@@ -1,20 +1,14 @@
 ---
 title: "RecruitmentVM"
+description: "RecruitmentVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RecruitmentVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitmentVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RecruitmentVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment/RecruitmentVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment/RecruitmentVM.cs`
 
 ## 概述
 
@@ -71,75 +65,154 @@ title: "RecruitmentVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.RefreshValues();
+```
 
 ### RefreshScreen
 `public void RefreshScreen()`
 
-**用途 / Purpose:** 刷新 `screen` 的显示或缓存。
+**用途 / Purpose:** 使 「screen」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.RefreshScreen();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 `done` 操作或流程。
+**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.ExecuteDone();
+```
 
 ### ExecuteForceQuit
 `public void ExecuteForceQuit()`
 
-**用途 / Purpose:** 执行 `force quit` 操作或流程。
+**用途 / Purpose:** 执行 「force quit」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.ExecuteForceQuit();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** 执行 `reset` 操作或流程。
+**用途 / Purpose:** 执行 「reset」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.ExecuteReset();
+```
 
 ### ExecuteRecruitAll
 `public void ExecuteRecruitAll()`
 
-**用途 / Purpose:** 执行 `recruit all` 操作或流程。
+**用途 / Purpose:** 执行 「recruit all」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.ExecuteRecruitAll();
+```
 
 ### Deactivate
 `public void Deactivate()`
 
-**用途 / Purpose:** 处理 `deactivate` 相关逻辑。
+**用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.Deactivate();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.OnFinalize();
+```
 
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**用途 / Purpose:** 设置 `get key text from key i d func` 的值或状态。
+**用途 / Purpose:** 为 「get key text from key i d func」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetDoneInputKey(hotKey);
+```
 
 ### SetRecruitAllInputKey
 `public void SetRecruitAllInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `recruit all input key` 的值或状态。
+**用途 / Purpose:** 为 「recruit all input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetRecruitAllInputKey(hotKey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `reset input key` 的值或状态。
+**用途 / Purpose:** 为 「reset input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentVM 实例
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetResetInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RecruitmentVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "SingleQueryPopUpVM"
+description: "Auto-generated class reference for SingleQueryPopUpVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleQueryPopUpVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SingleQueryPopUpVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of SingleQueryPopUpVM from the subsystem API first
+SingleQueryPopUpVM singleQueryPopUpVM = ...;
+singleQueryPopUpVM.OnTick(0);
+```
 
 ### ExecuteAffirmativeAction
 `public override void ExecuteAffirmativeAction()`
 
-**Purpose:** Executes the `affirmative action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `affirmative action`.
+
+```csharp
+// Obtain an instance of SingleQueryPopUpVM from the subsystem API first
+SingleQueryPopUpVM singleQueryPopUpVM = ...;
+singleQueryPopUpVM.ExecuteAffirmativeAction();
+```
 
 ### ExecuteNegativeAction
 `public override void ExecuteNegativeAction()`
 
-**Purpose:** Executes the `negative action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `negative action`.
+
+```csharp
+// Obtain an instance of SingleQueryPopUpVM from the subsystem API first
+SingleQueryPopUpVM singleQueryPopUpVM = ...;
+singleQueryPopUpVM.ExecuteNegativeAction();
+```
 
 ### OnClearData
 `public override void OnClearData()`
 
-**Purpose:** Called when the `clear data` event is raised.
+**Purpose:** Invoked when the `clear data` event is raised.
+
+```csharp
+// Obtain an instance of SingleQueryPopUpVM from the subsystem API first
+SingleQueryPopUpVM singleQueryPopUpVM = ...;
+singleQueryPopUpVM.OnClearData();
+```
 
 ### SetData
 `public void SetData(InquiryData data)`
 
-**Purpose:** Sets the value or state of `data`.
+**Purpose:** Assigns a new value to `data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SingleQueryPopUpVM from the subsystem API first
+SingleQueryPopUpVM singleQueryPopUpVM = ...;
+singleQueryPopUpVM.SetData(data);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SingleQueryPopUpVM();
-value.OnTick(0);
+// Typically call this after obtaining an instance from the subsystem API
+SingleQueryPopUpVM singleQueryPopUpVM = ...;
+singleQueryPopUpVM.OnTick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionScoreboardPlayerVM"
+description: "MissionScoreboardPlayerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionScoreboardPlayerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardPlayerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardPlayerVM : MPPlayerVM`
 **Base:** `MPPlayerVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardPlayerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardPlayerVM.cs`
 
 ## 概述
 
@@ -44,35 +38,66 @@ title: "MissionScoreboardPlayerVM"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.Tick(0);
+```
 
 ### UpdateAttributes
 `public void UpdateAttributes(string attributes, int score)`
 
-**用途 / Purpose:** 更新 `attributes` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「attributes」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.UpdateAttributes("example", 0);
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** 执行 `selection` 操作或流程。
+**用途 / Purpose:** 执行 「selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.ExecuteSelection();
+```
 
 ### UpdateIsMuted
 `public void UpdateIsMuted()`
 
-**用途 / Purpose:** 更新 `is muted` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「is muted」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.UpdateIsMuted();
+```
 
 ### SetMVPBadgeCount
 `public void SetMVPBadgeCount(int badgeCount)`
 
-**用途 / Purpose:** 设置 `m v p badge count` 的值或状态。
+**用途 / Purpose:** 为 「m v p badge count」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.SetMVPBadgeCount(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionScoreboardPlayerVM();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

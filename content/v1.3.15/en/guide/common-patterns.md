@@ -209,11 +209,11 @@ C:\Users\<username>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 
 ## Next Section
 
-- [Game Systems Overview](./game-systems-overview) - Learn what can be customized
-- [Troubleshooting](./troubleshooting) - Solve problems
+- [Game Systems Overview](game-systems-overview/) - Learn what can be customized
+- [Troubleshooting](troubleshooting/) - Solve problems
 
 ## Usage Example
 
 ```csharp
-var example = new Common Patterns();
+// Use the sections below to locate common patterns or issues.
 ```

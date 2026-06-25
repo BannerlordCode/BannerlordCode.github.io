@@ -1,13 +1,7 @@
 ---
 title: "PlatformInitParams"
+description: "PlatformInitParams 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlatformInitParams`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlatformInitParams
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ title: "PlatformInitParams"
 ## 使用示例
 
 ```csharp
-var value = new PlatformInitParams();
+// 从对应子系统 API 获取实例
+PlatformInitParams instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

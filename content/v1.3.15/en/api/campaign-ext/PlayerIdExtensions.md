@@ -1,23 +1,18 @@
 ---
 title: "PlayerIdExtensions"
+description: "Auto-generated class reference for PlayerIdExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIdExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerIdExtensions
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public static class PlayerIdExtensions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.Diamond/PlayerIdExtensions.cs`
 
 ## Overview
 
-`PlayerIdExtensions` lives in `TaleWorlds.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PlayerIdExtensions` lives in `TaleWorlds.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,21 +23,29 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### ConvertToPeerId
 `public static PeerId ConvertToPeerId(this PlayerId playerId)`
 
-**Purpose:** Handles logic related to `convert to peer id`.
+**Purpose:** Converts `to peer id` into another representation or type.
+
+```csharp
+// Static call; no instance required
+PlayerIdExtensions.ConvertToPeerId(playerId);
+```
 
 ### ConvertToPlayerId
 `public static PlayerId ConvertToPlayerId(this PeerId peerId)`
 
-**Purpose:** Handles logic related to `convert to player id`.
+**Purpose:** Converts `to player id` into another representation or type.
+
+```csharp
+// Static call; no instance required
+PlayerIdExtensions.ConvertToPlayerId(peerId);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 PlayerIdExtensions.ConvertToPeerId(playerId);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

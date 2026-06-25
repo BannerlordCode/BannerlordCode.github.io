@@ -1,13 +1,7 @@
 ---
 title: "StealthFailCounterMissionLogic"
+description: "Auto-generated class reference for StealthFailCounterMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthFailCounterMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthFailCounterMissionLogic
 
 **Namespace:** SandBox.Missions
@@ -29,29 +23,53 @@ Treat `StealthFailCounterMissionLogic` as a Logic-style extension point: first i
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, Agent.AIStateFlag flag)`
 
-**Purpose:** Called when the `agent alarmed state changed` event is raised.
+**Purpose:** Invoked when the `agent alarmed state changed` event is raised.
+
+```csharp
+// Obtain an instance of StealthFailCounterMissionLogic from the subsystem API first
+StealthFailCounterMissionLogic stealthFailCounterMissionLogic = ...;
+stealthFailCounterMissionLogic.OnAgentAlarmedStateChanged(agent, flag);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of StealthFailCounterMissionLogic from the subsystem API first
+StealthFailCounterMissionLogic stealthFailCounterMissionLogic = ...;
+stealthFailCounterMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of StealthFailCounterMissionLogic from the subsystem API first
+StealthFailCounterMissionLogic stealthFailCounterMissionLogic = ...;
+stealthFailCounterMissionLogic.OnMissionTick(0);
+```
 
 ### SetFailTexts
 `public void SetFailTexts(TextObject title, TextObject description)`
 
-**Purpose:** Sets the value or state of `fail texts`.
+**Purpose:** Assigns a new value to `fail texts` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StealthFailCounterMissionLogic from the subsystem API first
+StealthFailCounterMissionLogic stealthFailCounterMissionLogic = ...;
+stealthFailCounterMissionLogic.SetFailTexts(title, description);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthFailCounterMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<StealthFailCounterMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

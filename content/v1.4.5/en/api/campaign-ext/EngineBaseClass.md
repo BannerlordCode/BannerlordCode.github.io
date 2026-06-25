@@ -1,20 +1,14 @@
 ---
 title: "EngineBaseClass"
+description: "Auto-generated class reference for EngineBaseClass."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineBaseClass`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineBaseClass
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public abstract class EngineBaseClass : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineBaseClass.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineBaseClass.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEngineBaseClass();
+// Typically obtained from a subsystem API or factory
+EngineBaseClass instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

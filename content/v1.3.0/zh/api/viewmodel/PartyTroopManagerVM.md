@@ -1,13 +1,7 @@
 ---
 title: "PartyTroopManagerVM"
+description: "PartyTroopManagerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyTroopManagerVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTroopManagerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
@@ -56,59 +50,120 @@ title: "PartyTroopManagerVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.OnFinalize();
+```
 
 ### OpenPopUp
 `public virtual void OpenPopUp()`
 
-**用途 / Purpose:** 处理 `open pop up` 相关逻辑。
+**用途 / Purpose:** 打开「pop up」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.OpenPopUp();
+```
 
 ### ExecuteDone
 `public virtual void ExecuteDone()`
 
-**用途 / Purpose:** 执行 `done` 操作或流程。
+**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.ExecuteDone();
+```
 
 ### UpdateOpenButtonHint
 `public void UpdateOpenButtonHint(bool isDisabled, bool isIrrelevant, bool isUpgradesDisabled)`
 
-**用途 / Purpose:** 更新 `open button hint` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「open button hint」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.UpdateOpenButtonHint(false, false, false);
+```
 
 ### ExecuteCancel
 `public abstract void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.ExecuteCancel();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.SetDoneInputKey(hotKey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.SetCancelInputKey(hotKey);
+```
 
 ### SetPrimaryActionInputKey
 `public void SetPrimaryActionInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `primary action input key` 的值或状态。
+**用途 / Purpose:** 为 「primary action input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.SetPrimaryActionInputKey(hotKey);
+```
 
 ### SetSecondaryActionInputKey
 `public void SetSecondaryActionInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `secondary action input key` 的值或状态。
+**用途 / Purpose:** 为 「secondary action input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTroopManagerVM 实例
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.SetSecondaryActionInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyTroopManagerVM();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyTroopManagerVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

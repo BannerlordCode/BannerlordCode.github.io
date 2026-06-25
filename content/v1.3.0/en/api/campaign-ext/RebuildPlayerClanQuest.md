@@ -1,13 +1,7 @@
 ---
 title: "RebuildPlayerClanQuest"
+description: "Auto-generated class reference for RebuildPlayerClanQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RebuildPlayerClanQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RebuildPlayerClanQuest
 
 **Namespace:** StoryMode.Quests.PlayerClanQuests
@@ -33,9 +27,10 @@ Start from namespace `StoryMode.Quests.PlayerClanQuests` to place it in the stac
 ## Usage Example
 
 ```csharp
-var value = new RebuildPlayerClanQuest();
+// Obtain an instance from the relevant subsystem API
+RebuildPlayerClanQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

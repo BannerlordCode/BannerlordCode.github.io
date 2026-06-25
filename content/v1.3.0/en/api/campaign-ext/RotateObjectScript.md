@@ -1,13 +1,7 @@
 ---
 title: "RotateObjectScript"
+description: "Auto-generated class reference for RotateObjectScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RotateObjectScript`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RotateObjectScript
 
 **Namespace:** SandBox.Missions
@@ -29,15 +23,22 @@ Start from namespace `SandBox.Missions` to place it in the stack, then inspect i
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of RotateObjectScript from the subsystem API first
+RotateObjectScript rotateObjectScript = ...;
+var result = rotateObjectScript.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RotateObjectScript();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+RotateObjectScript rotateObjectScript = ...;
+rotateObjectScript.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

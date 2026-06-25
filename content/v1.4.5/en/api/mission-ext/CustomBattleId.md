@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleId"
+description: "Auto-generated class reference for CustomBattleId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleId`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleId
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CustomBattleId`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/CustomBattleId.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/CustomBattleId.cs`
 
 ## Overview
 
@@ -35,27 +29,56 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### NewGuid
 `public static CustomBattleId NewGuid()`
 
-**Purpose:** Handles logic related to `new guid`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CustomBattleId.NewGuid();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CustomBattleId from the subsystem API first
+CustomBattleId customBattleId = ...;
+var result = customBattleId.ToString();
+```
 
 ### ToByteArray
 `public byte ToByteArray()`
 
-**Purpose:** Handles logic related to `to byte array`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleId from the subsystem API first
+CustomBattleId customBattleId = ...;
+var result = customBattleId.ToByteArray();
+```
 
 ### Equals
 `public override bool Equals(object o)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of CustomBattleId from the subsystem API first
+CustomBattleId customBattleId = ...;
+var result = customBattleId.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of CustomBattleId from the subsystem API first
+CustomBattleId customBattleId = ...;
+var result = customBattleId.GetHashCode();
+```
 
 ## Usage Example
 
@@ -65,4 +88,4 @@ CustomBattleId.NewGuid();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

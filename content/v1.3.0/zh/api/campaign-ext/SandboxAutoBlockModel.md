@@ -1,13 +1,7 @@
 ---
 title: "SandboxAutoBlockModel"
+description: "SandboxAutoBlockModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxAutoBlockModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxAutoBlockModel
 
 **Namespace:** SandBox.GameComponents
@@ -29,7 +23,13 @@ title: "SandboxAutoBlockModel"
 ### GetBlockDirection
 `public override Agent.UsageDirection GetBlockDirection(Mission mission)`
 
-**用途 / Purpose:** 获取 `block direction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「block direction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxAutoBlockModel 实例
+SandboxAutoBlockModel sandboxAutoBlockModel = ...;
+var result = sandboxAutoBlockModel.GetBlockDirection(mission);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxAutoBlockModel>(new MySandboxAutoBlockModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefencePoint"
+description: "DefencePoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefencePoint`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefencePoint
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefencePoint : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefencePoint.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefencePoint.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "DefencePoint"
 ### AddDefender
 `public void AddDefender(Agent defender)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `defender`。
+**用途 / Purpose:** 将 「defender」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DefencePoint 实例
+DefencePoint defencePoint = ...;
+defencePoint.AddDefender(defender);
+```
 
 ### RemoveDefender
 `public bool RemoveDefender(Agent defender)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `defender`。
+**用途 / Purpose:** 从当前容器或状态中移除 「defender」。
+
+```csharp
+// 先通过子系统 API 拿到 DefencePoint 实例
+DefencePoint defencePoint = ...;
+var result = defencePoint.RemoveDefender(defender);
+```
 
 ### PurgeInactiveDefenders
 `public void PurgeInactiveDefenders()`
 
-**用途 / Purpose:** 处理 `purge inactive defenders` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefencePoint 实例
+DefencePoint defencePoint = ...;
+defencePoint.PurgeInactiveDefenders();
+```
 
 ### GetVacantPosition
 `public MatrixFrame GetVacantPosition(Agent a)`
 
-**用途 / Purpose:** 获取 `vacant position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「vacant position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefencePoint 实例
+DefencePoint defencePoint = ...;
+var result = defencePoint.GetVacantPosition(a);
+```
 
 ### CountOccupiedDefenderPositions
 `public int CountOccupiedDefenderPositions()`
 
-**用途 / Purpose:** 处理 `count occupied defender positions` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefencePoint 实例
+DefencePoint defencePoint = ...;
+var result = defencePoint.CountOccupiedDefenderPositions();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefencePoint();
-value.AddDefender(defender);
+// 通常从对应子系统 API 获取实例后调用
+DefencePoint defencePoint = ...;
+defencePoint.AddDefender(defender);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

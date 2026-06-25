@@ -1,20 +1,14 @@
 ---
 title: "MeetingSceneData"
+description: "Auto-generated class reference for MeetingSceneData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MeetingSceneData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MeetingSceneData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct MeetingSceneData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/MeetingSceneData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/MeetingSceneData.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MeetingSceneData` as a Data-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-var value = new MeetingSceneData();
+// This data object is usually returned by campaign/mission APIs
+MeetingSceneData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

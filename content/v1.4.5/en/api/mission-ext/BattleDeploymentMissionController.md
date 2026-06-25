@@ -1,20 +1,14 @@
 ---
 title: "BattleDeploymentMissionController"
+description: "Auto-generated class reference for BattleDeploymentMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleDeploymentMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleDeploymentMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleDeploymentMissionController : DeploymentMissionController`
 **Base:** `DeploymentMissionController`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleDeploymentMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleDeploymentMissionController.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `BattleDeploymentMissionController` as a Controller-style extension point:
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of BattleDeploymentMissionController from the subsystem API first
+BattleDeploymentMissionController battleDeploymentMissionController = ...;
+battleDeploymentMissionController.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of BattleDeploymentMissionController from the subsystem API first
+BattleDeploymentMissionController battleDeploymentMissionController = ...;
+battleDeploymentMissionController.OnRemoveBehavior();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<BattleDeploymentMissionContr
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "NumericCampaignOptionData"
+description: "NumericCampaignOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NumericCampaignOptionData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NumericCampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -37,14 +31,21 @@ title: "NumericCampaignOptionData"
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**用途 / Purpose:** 获取 `data type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「data type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NumericCampaignOptionData 实例
+NumericCampaignOptionData numericCampaignOptionData = ...;
+var result = numericCampaignOptionData.GetDataType();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NumericCampaignOptionData();
+// 该数据对象通常由战役/任务 API 返回
+NumericCampaignOptionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "AdditionType"
+description: "Auto-generated class reference for AdditionType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AdditionType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AdditionType
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-AdditionType example = AdditionType.Value;
+// Obtain an instance from the relevant subsystem API
+AdditionType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

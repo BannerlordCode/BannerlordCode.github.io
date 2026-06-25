@@ -1,20 +1,14 @@
 ---
 title: "OrderComponent"
+description: "Auto-generated class reference for OrderComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class OrderComponent`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OrderComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OrderComponent.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `OrderComponent` as a Component-style extension point: first identify who 
 ### GetDirection
 `public Vec2 GetDirection(Formation f)`
 
-**Purpose:** Gets the current value of `direction`.
+**Purpose:** Reads and returns the `direction` value held by the current object.
+
+```csharp
+// Obtain an instance of OrderComponent from the subsystem API first
+OrderComponent orderComponent = ...;
+var result = orderComponent.GetDirection(f);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomOrderComponent();
+// Typically obtained from a subsystem API or factory
+OrderComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

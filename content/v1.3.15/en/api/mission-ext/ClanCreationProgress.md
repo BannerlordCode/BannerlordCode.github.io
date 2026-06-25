@@ -1,13 +1,7 @@
 ---
 title: "ClanCreationProgress"
+description: "Auto-generated class reference for ClanCreationProgress."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanCreationProgress`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanCreationProgress
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new ClanCreationProgress();
+// Obtain an instance from the relevant subsystem API
+ClanCreationProgress instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

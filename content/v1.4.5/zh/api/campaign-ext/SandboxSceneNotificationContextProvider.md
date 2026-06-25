@@ -1,20 +1,14 @@
 ---
 title: "SandboxSceneNotificationContextProvider"
+description: "SandboxSceneNotificationContextProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxSceneNotificationContextProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxSceneNotificationContextProvider
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class SandboxSceneNotificationContextProvider : ISceneNotificationContextProvider`
 **Base:** `ISceneNotificationContextProvider`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/SandboxSceneNotificationContextProvider.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/SandboxSceneNotificationContextProvider.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "SandboxSceneNotificationContextProvider"
 ### IsContextAllowed
 `public bool IsContextAllowed(RelevantContextType relevantType)`
 
-**用途 / Purpose:** 处理 `is context allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「context allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxSceneNotificationContextProvider 实例
+SandboxSceneNotificationContextProvider sandboxSceneNotificationContextProvider = ...;
+var result = sandboxSceneNotificationContextProvider.IsContextAllowed(relevantType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SandboxSceneNotificationContextProvider();
-value.IsContextAllowed(relevantType);
+// 通常从对应子系统 API 获取实例后调用
+SandboxSceneNotificationContextProvider sandboxSceneNotificationContextProvider = ...;
+sandboxSceneNotificationContextProvider.IsContextAllowed(relevantType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

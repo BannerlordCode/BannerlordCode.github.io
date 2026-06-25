@@ -1,13 +1,7 @@
 ---
 title: "KillingBlow"
+description: "Auto-generated class reference for KillingBlow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KillingBlow`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KillingBlow
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsHeadShot
 `public bool IsHeadShot()`
 
-**Purpose:** Handles logic related to `is head shot`.
+**Purpose:** Determines whether the current object is in the `head shot` state or condition.
+
+```csharp
+// Obtain an instance of KillingBlow from the subsystem API first
+KillingBlow killingBlow = ...;
+var result = killingBlow.IsHeadShot();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KillingBlow();
-value.IsHeadShot();
+// Typically call this after obtaining an instance from the subsystem API
+KillingBlow killingBlow = ...;
+killingBlow.IsHeadShot();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

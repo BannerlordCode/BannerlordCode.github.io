@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapReadyView"
+description: "Auto-generated class reference for GauntletMapReadyView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapReadyView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapReadyView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapReadyView : MapReadyView`
 **Base:** `MapReadyView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapReadyView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapReadyView.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `GauntletMapReadyView` as a View-style extension point: first identify who
 ### SetIsMapSceneReady
 `public override void SetIsMapSceneReady(bool isReady)`
 
-**Purpose:** Sets the value or state of `is map scene ready`.
+**Purpose:** Assigns a new value to `is map scene ready` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GauntletMapReadyView from the subsystem API first
+GauntletMapReadyView gauntletMapReadyView = ...;
+gauntletMapReadyView.SetIsMapSceneReady(false);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapReadyView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapReadyView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

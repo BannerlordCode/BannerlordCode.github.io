@@ -1,13 +1,7 @@
 ---
 title: "GameText"
+description: "GameText 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameText`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameText
 
 **Namespace:** TaleWorlds.Core
@@ -37,25 +31,44 @@ title: "GameText"
 ### AddVariationWithId
 `public void AddVariationWithId(string variationId, TextObject text, List<GameTextManager.ChoiceTag> choiceTags)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `variation with id`。
+**用途 / Purpose:** 将 「variation with id」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GameText 实例
+GameText gameText = ...;
+gameText.AddVariationWithId("example", text, choiceTags);
+```
 
 ### SetVariationWithId
 `public void SetVariationWithId(string variationId, TextObject text, List<GameTextManager.ChoiceTag> choiceTags)`
 
-**用途 / Purpose:** 设置 `variation with id` 的值或状态。
+**用途 / Purpose:** 为 「variation with id」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GameText 实例
+GameText gameText = ...;
+gameText.SetVariationWithId("example", text, choiceTags);
+```
 
 ### AddVariation
 `public void AddVariation(string text, params object propertiesAndWeights)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `variation`。
+**用途 / Purpose:** 将 「variation」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GameText 实例
+GameText gameText = ...;
+gameText.AddVariation("example", propertiesAndWeights);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameText();
-value.AddVariationWithId("example", text, choiceTags);
+// 通常从对应子系统 API 获取实例后调用
+GameText gameText = ...;
+gameText.AddVariationWithId("example", text, choiceTags);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

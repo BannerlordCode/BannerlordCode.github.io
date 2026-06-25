@@ -1,18 +1,12 @@
 ---
 title: "TooltipPositioningType"
+description: "Auto-generated class reference for TooltipPositioningType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipPositioningType`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipPositioningType
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum TooltipPositioningType`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI.ExtraWidgets/TooltipPositioningType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.ExtraWidgets` to place it in the sta
 ## Usage Example
 
 ```csharp
-var example = new TooltipPositioningType();
+// Obtain an instance from the relevant subsystem API
+TooltipPositioningType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

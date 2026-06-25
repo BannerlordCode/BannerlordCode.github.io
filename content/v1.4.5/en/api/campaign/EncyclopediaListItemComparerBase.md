@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListItemComparerBase"
+description: "Auto-generated class reference for EncyclopediaListItemComparerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListItemComparerBase`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListItemComparerBase
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class EncyclopediaListItemComparerBase : IComparer<EncyclopediaListItem>`
 **Base:** `IComparer<EncyclopediaListItem>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaListItemComparerBase.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaListItemComparerBase.cs`
 
 ## Overview
 
@@ -35,34 +29,65 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ### SetSortOrder
 `public void SetSortOrder(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort order`.
+**Purpose:** Assigns a new value to `sort order` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+encyclopediaListItemComparerBase.SetSortOrder(false);
+```
 
 ### SwitchSortOrder
 `public void SwitchSortOrder()`
 
-**Purpose:** Handles logic related to `switch sort order`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+encyclopediaListItemComparerBase.SwitchSortOrder();
+```
 
 ### SetDefaultSortOrder
 `public void SetDefaultSortOrder()`
 
-**Purpose:** Sets the value or state of `default sort order`.
+**Purpose:** Assigns a new value to `default sort order` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+encyclopediaListItemComparerBase.SetDefaultSortOrder();
+```
 
 ### Compare
 `public abstract int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+var result = encyclopediaListItemComparerBase.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public abstract string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Gets the current value of `compared value text`.
+**Purpose:** Reads and returns the `compared value text` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaListItemComparerBase from the subsystem API first
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+var result = encyclopediaListItemComparerBase.GetComparedValueText(item);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncyclopediaListItemComparerBase();
+// Typically obtained from a subsystem API or factory
+EncyclopediaListItemComparerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SPScoreboardShipVM"
+description: "Auto-generated class reference for SPScoreboardShipVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPScoreboardShipVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPScoreboardShipVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
@@ -41,9 +35,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ## Usage Example
 
 ```csharp
-var value = new SPScoreboardShipVM();
+// Obtain an instance from the relevant subsystem API
+SPScoreboardShipVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

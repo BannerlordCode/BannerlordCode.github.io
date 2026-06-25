@@ -1,20 +1,14 @@
 ---
 title: "SkinVoiceType"
+description: "Auto-generated class reference for SkinVoiceType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkinVoiceType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkinVoiceType
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct SkinVoiceType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkinVoiceManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkinVoiceManager.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetName
 `public TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of SkinVoiceType from the subsystem API first
+SkinVoiceType skinVoiceType = ...;
+var result = skinVoiceType.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkinVoiceType();
-value.GetName();
+// Typically call this after obtaining an instance from the subsystem API
+SkinVoiceType skinVoiceType = ...;
+skinVoiceType.GetName();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectId"
+description: "Auto-generated class reference for MissionObjectId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectId`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectId
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MissionObjectId`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObjectId.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObjectId.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### MissionObjectId
 `public struct MissionObjectId(int id, bool createdAtRuntime = false)`
 
-**Purpose:** Handles logic related to `mission object id`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionObjectId from the subsystem API first
+MissionObjectId missionObjectId = ...;
+var result = missionObjectId.MissionObjectId(0, false);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MissionObjectId from the subsystem API first
+MissionObjectId missionObjectId = ...;
+var result = missionObjectId.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MissionObjectId from the subsystem API first
+MissionObjectId missionObjectId = ...;
+var result = missionObjectId.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MissionObjectId from the subsystem API first
+MissionObjectId missionObjectId = ...;
+var result = missionObjectId.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionObjectId();
-value.MissionObjectId(0, false);
+// Typically call this after obtaining an instance from the subsystem API
+MissionObjectId missionObjectId = ...;
+missionObjectId.MissionObjectId(0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

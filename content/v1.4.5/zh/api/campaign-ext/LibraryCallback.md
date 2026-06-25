@@ -1,20 +1,14 @@
 ---
 title: "LibraryCallback"
+description: "LibraryCallback 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LibraryCallback`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LibraryCallback
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class LibraryCallback : ManagedFromNativeCallback`
 **Base:** `ManagedFromNativeCallback`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/LibraryCallback.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/LibraryCallback.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "LibraryCallback"
 ## 使用示例
 
 ```csharp
-var example = new LibraryCallback();
+// 从对应子系统 API 获取实例
+LibraryCallback instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

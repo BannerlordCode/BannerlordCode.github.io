@@ -1,20 +1,14 @@
 ---
 title: "DataSourceProperty"
+description: "Auto-generated class reference for DataSourceProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DataSourceProperty`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DataSourceProperty
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class DataSourceProperty : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/DataSourceProperty.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/DataSourceProperty.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new DataSourceProperty();
+// Obtain an instance from the relevant subsystem API
+DataSourceProperty instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

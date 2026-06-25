@@ -1,20 +1,14 @@
 ---
 title: "TestAchievementService"
+description: "Auto-generated class reference for TestAchievementService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestAchievementService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestAchievementService
 
 **Namespace:** TaleWorlds.AchievementSystem
 **Module:** TaleWorlds.AchievementSystem
 **Type:** `public class TestAchievementService : IAchievementService`
 **Base:** `IAchievementService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.AchievementSystem/TaleWorlds.AchievementSystem/TestAchievementService.cs`
+**File:** `bin/TaleWorlds.AchievementSystem/TaleWorlds.AchievementSystem/TestAchievementService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.AchievementSystem` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new TestAchievementService();
+// Obtain an instance from the relevant subsystem API
+TestAchievementService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

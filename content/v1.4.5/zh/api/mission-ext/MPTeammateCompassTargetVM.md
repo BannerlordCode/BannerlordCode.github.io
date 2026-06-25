@@ -1,20 +1,14 @@
 ---
 title: "MPTeammateCompassTargetVM"
+description: "MPTeammateCompassTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPTeammateCompassTargetVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPTeammateCompassTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPTeammateCompassTargetVM : CompassTargetVM`
 **Base:** `CompassTargetVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/MPTeammateCompassTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/MPTeammateCompassTargetVM.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "MPTeammateCompassTargetVM"
 ### MPTeammateCompassTargetVM
 `public unsafe MPTeammateCompassTargetVM(TargetIconType iconType, uint color, uint color2, Banner banner, bool isAlly)`
 
-**用途 / Purpose:** 处理 `m p teammate compass target v m` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPTeammateCompassTargetVM 实例
+MPTeammateCompassTargetVM mPTeammateCompassTargetVM = ...;
+var result = mPTeammateCompassTargetVM.MPTeammateCompassTargetVM(iconType, 0, 0, banner, false);
+```
 
 ### RefreshTargetIconType
 `public unsafe void RefreshTargetIconType(TargetIconType targetIconType)`
 
-**用途 / Purpose:** 刷新 `target icon type` 的显示或缓存。
+**用途 / Purpose:** 使 「target icon type」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPTeammateCompassTargetVM 实例
+MPTeammateCompassTargetVM mPTeammateCompassTargetVM = ...;
+mPTeammateCompassTargetVM.RefreshTargetIconType(targetIconType);
+```
 
 ### RefreshTeam
 `public void RefreshTeam(Banner banner, bool isAlly)`
 
-**用途 / Purpose:** 刷新 `team` 的显示或缓存。
+**用途 / Purpose:** 使 「team」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPTeammateCompassTargetVM 实例
+MPTeammateCompassTargetVM mPTeammateCompassTargetVM = ...;
+mPTeammateCompassTargetVM.RefreshTeam(banner, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPTeammateCompassTargetVM();
-value.MPTeammateCompassTargetVM(iconType, 0, 0, banner, false);
+// 通常从对应子系统 API 获取实例后调用
+MPTeammateCompassTargetVM mPTeammateCompassTargetVM = ...;
+mPTeammateCompassTargetVM.MPTeammateCompassTargetVM(iconType, 0, 0, banner, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

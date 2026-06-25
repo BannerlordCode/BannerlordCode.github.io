@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerSceneNotificationContextProvider"
+description: "Auto-generated class reference for MultiplayerSceneNotificationContextProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerSceneNotificationContextProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerSceneNotificationContextProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerSceneNotificationContextProvider : ISceneNotificationContextProvider`
 **Base:** `ISceneNotificationContextProvider`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerSceneNotificationContextProvider.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerSceneNotificationContextProvider.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ### IsContextAllowed
 `public bool IsContextAllowed(RelevantContextType relevantType)`
 
-**Purpose:** Handles logic related to `is context allowed`.
+**Purpose:** Determines whether the current object is in the `context allowed` state or condition.
+
+```csharp
+// Obtain an instance of MultiplayerSceneNotificationContextProvider from the subsystem API first
+MultiplayerSceneNotificationContextProvider multiplayerSceneNotificationContextProvider = ...;
+var result = multiplayerSceneNotificationContextProvider.IsContextAllowed(relevantType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerSceneNotificationContextProvider();
-value.IsContextAllowed(relevantType);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerSceneNotificationContextProvider multiplayerSceneNotificationContextProvider = ...;
+multiplayerSceneNotificationContextProvider.IsContextAllowed(relevantType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

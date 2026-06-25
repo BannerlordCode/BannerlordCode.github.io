@@ -1,20 +1,14 @@
 ---
 title: "MissionMainAgentControlModeView"
+description: "Auto-generated class reference for MissionMainAgentControlModeView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentControlModeView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentControlModeView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMainAgentControlModeView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionMainAgentControlModeView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionMainAgentControlModeView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionMainAgentControlModeView` as a View-style extension point: first i
 ## Usage Example
 
 ```csharp
-var view = new MissionMainAgentControlModeView();
+// Retrieve this view from the subsystem API or scene
+MissionMainAgentControlModeView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

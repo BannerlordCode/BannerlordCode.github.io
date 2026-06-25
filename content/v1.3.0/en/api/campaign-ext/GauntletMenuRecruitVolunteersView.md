@@ -1,13 +1,7 @@
 ---
 title: "GauntletMenuRecruitVolunteersView"
+description: "Auto-generated class reference for GauntletMenuRecruitVolunteersView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMenuRecruitVolunteersView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuRecruitVolunteersView
 
 **Namespace:** SandBox.GauntletUI.Menu
@@ -33,9 +27,10 @@ Treat `GauntletMenuRecruitVolunteersView` as a View-style extension point: first
 ## Usage Example
 
 ```csharp
-var view = new GauntletMenuRecruitVolunteersView();
+// Retrieve this view from the subsystem API or scene
+GauntletMenuRecruitVolunteersView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

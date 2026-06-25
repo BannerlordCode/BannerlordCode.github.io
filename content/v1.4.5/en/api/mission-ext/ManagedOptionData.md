@@ -1,20 +1,14 @@
 ---
 title: "ManagedOptionData"
+description: "Auto-generated class reference for ManagedOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedOptionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedOptionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Options.ManagedOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ManagedOptionData : IOptionData`
 **Base:** `IOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedOptionData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedOptionData.cs`
 
 ## Overview
 
@@ -29,44 +23,87 @@ Treat `ManagedOptionData` as a Data-style extension point: first identify who cr
 ### GetDefaultValue
 `public virtual float GetDefaultValue()`
 
-**Purpose:** Gets the current value of `default value`.
+**Purpose:** Reads and returns the `default value` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedOptionData from the subsystem API first
+ManagedOptionData managedOptionData = ...;
+var result = managedOptionData.GetDefaultValue();
+```
 
 ### Commit
 `public void Commit()`
 
-**Purpose:** Handles logic related to `commit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ManagedOptionData from the subsystem API first
+ManagedOptionData managedOptionData = ...;
+managedOptionData.Commit();
+```
 
 ### GetValue
 `public float GetValue(bool forceRefresh)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedOptionData from the subsystem API first
+ManagedOptionData managedOptionData = ...;
+var result = managedOptionData.GetValue(false);
+```
 
 ### SetValue
 `public void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ManagedOptionData from the subsystem API first
+ManagedOptionData managedOptionData = ...;
+managedOptionData.SetValue(0);
+```
 
 ### GetOptionType
 `public object GetOptionType()`
 
-**Purpose:** Gets the current value of `option type`.
+**Purpose:** Reads and returns the `option type` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedOptionData from the subsystem API first
+ManagedOptionData managedOptionData = ...;
+var result = managedOptionData.GetOptionType();
+```
 
 ### IsNative
 `public bool IsNative()`
 
-**Purpose:** Handles logic related to `is native`.
+**Purpose:** Determines whether the current object is in the `native` state or condition.
+
+```csharp
+// Obtain an instance of ManagedOptionData from the subsystem API first
+ManagedOptionData managedOptionData = ...;
+var result = managedOptionData.IsNative();
+```
 
 ### IsAction
 `public bool IsAction()`
 
-**Purpose:** Handles logic related to `is action`.
+**Purpose:** Determines whether the current object is in the `action` state or condition.
+
+```csharp
+// Obtain an instance of ManagedOptionData from the subsystem API first
+ManagedOptionData managedOptionData = ...;
+var result = managedOptionData.IsAction();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomManagedOptionData();
+// Typically obtained from a subsystem API or factory
+ManagedOptionData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

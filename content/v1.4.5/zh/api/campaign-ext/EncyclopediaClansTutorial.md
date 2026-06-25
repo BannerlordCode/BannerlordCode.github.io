@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaClansTutorial"
+description: "EncyclopediaClansTutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaClansTutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaClansTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class EncyclopediaClansTutorial : EncyclopediaPageTutorialBase`
 **Base:** `EncyclopediaPageTutorialBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/EncyclopediaClansTutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/EncyclopediaClansTutorial.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "EncyclopediaClansTutorial"
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaClansTutorial();
+// 从对应子系统 API 获取实例
+EncyclopediaClansTutorial instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

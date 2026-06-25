@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerTeamDeathmatchClient"
+description: "Auto-generated class reference for MissionMultiplayerTeamDeathmatchClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerTeamDeathmatchClient`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerTeamDeathmatchClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,35 +32,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.OnBehaviorInitialize();
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** Called when the `gold amount changed for representative` event is raised.
+**Purpose:** Invoked when the `gold amount changed for representative` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.AfterStart();
+```
 
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**Purpose:** Gets the current value of `gold amount`.
+**Purpose:** Reads and returns the `gold amount` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+var result = missionMultiplayerTeamDeathmatchClient.GetGoldAmount();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatchClient from the subsystem API first
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.OnRemoveBehavior();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerTeamDeathmatchClient();
-value.OnBehaviorInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.OnBehaviorInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

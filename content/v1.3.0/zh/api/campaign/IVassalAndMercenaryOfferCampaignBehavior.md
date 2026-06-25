@@ -1,18 +1,12 @@
 ---
 title: "IVassalAndMercenaryOfferCampaignBehavior"
+description: "IVassalAndMercenaryOfferCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IVassalAndMercenaryOfferCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IVassalAndMercenaryOfferCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IVassalAndMercenaryOfferCampaignBehavior`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IVassalAndMercenaryOfferCampaignBehavior.cs`
 
@@ -27,9 +21,10 @@ title: "IVassalAndMercenaryOfferCampaignBehavior"
 ## 使用示例
 
 ```csharp
-IVassalAndMercenaryOfferCampaignBehavior implementation = GetVassalAndMercenaryOfferCampaignBehaviorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIVassalAndMercenaryOfferCampaignBehavior service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

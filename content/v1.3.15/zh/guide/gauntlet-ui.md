@@ -473,17 +473,17 @@ namespace MyModule.UI
 
 ## 相关文档 / Related Documentation
 
-- [GauntletMovie API](../api/gui/GauntletMovie)
-- [GauntletSystem API](../api/gui/GauntletSystem)
-- [ScreenManager API](../api/gui/ScreenManager)
-- [ViewModel API](../api/viewmodel/ViewModel)
+- [GauntletMovie API](../api/gui/GauntletMovie/)
+- [UI / Gauntlet 区域](../api/gui/)
+- [ScreenManager API](../api/gui/ScreenManager/)
+- [ViewModel 区域](../api/viewmodel/)
 
 ---
 
 ## 下一节 / Next Section
 
-- [任务系统](./mission-system) - 学习 Mission、MissionBehavior
-- [战役系统](./campaign-system) - 学习 Campaign 游戏世界
+- [任务系统](mission-system/) - 学习 Mission、MissionBehavior
+- [战役系统](campaign-system/) - 学习 Campaign 游戏世界
 
 ## 使用示例
 

@@ -1,20 +1,14 @@
 ---
 title: "AgentAlarmStateWidget"
+description: "Auto-generated class reference for AgentAlarmStateWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentAlarmStateWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentAlarmStateWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentAlarmStateWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentAlarmStateWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/AgentAlarmStateWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `AgentAlarmStateWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new AgentAlarmStateWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AgentAlarmStateWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

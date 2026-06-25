@@ -1,20 +1,14 @@
 ---
 title: "AlleyItemComparerBase"
+description: "Auto-generated class reference for AlleyItemComparerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyItemComparerBase`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyItemComparerBase
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class AlleyItemComparerBase : IComparer<ClanFinanceAlleyItemVM>`
 **Base:** `IComparer<ClanFinanceAlleyItemVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AlleyItemComparerBase from the subsystem API first
+AlleyItemComparerBase alleyItemComparerBase = ...;
+alleyItemComparerBase.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of AlleyItemComparerBase from the subsystem API first
+AlleyItemComparerBase alleyItemComparerBase = ...;
+var result = alleyItemComparerBase.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAlleyItemComparerBase();
+// Typically obtained from a subsystem API or factory
+AlleyItemComparerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

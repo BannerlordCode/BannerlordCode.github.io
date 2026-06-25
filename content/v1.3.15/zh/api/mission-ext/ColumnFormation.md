@@ -1,13 +1,7 @@
 ---
 title: "ColumnFormation"
+description: "ColumnFormation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ColumnFormation`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ColumnFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -51,265 +45,572 @@ title: "ColumnFormation"
 ### Clone
 `public IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.Clone(formation);
+```
 
 ### DeepCopyFrom
 `public void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 处理 `deep copy from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.DeepCopyFrom(arrangement);
+```
 
 ### GetPlayerUnit
 `public IFormationUnit GetPlayerUnit()`
 
-**用途 / Purpose:** 获取 `player unit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player unit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetPlayerUnit();
+```
 
 ### GetAllUnits
 `public MBReadOnlyList<IFormationUnit> GetAllUnits()`
 
-**用途 / Purpose:** 获取 `all units` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all units」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetAllUnits();
+```
 
 ### GetAllUnits
 `public void GetAllUnits(in MBList<IFormationUnit> allUnitsListToBeFilledIn)`
 
-**用途 / Purpose:** 获取 `all units` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all units」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.GetAllUnits(allUnitsListToBeFilledIn);
+```
 
 ### GetUnpositionedUnits
 `public MBList<IFormationUnit> GetUnpositionedUnits()`
 
-**用途 / Purpose:** 获取 `unpositioned units` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unpositioned units」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnpositionedUnits();
+```
 
 ### AddUnit
 `public bool AddUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `unit`。
+**用途 / Purpose:** 将 「unit」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.AddUnit(unit);
+```
 
 ### RemoveUnit
 `public void RemoveUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `unit`。
+**用途 / Purpose:** 从当前容器或状态中移除 「unit」。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.RemoveUnit(unit);
+```
 
 ### GetUnit
 `public IFormationUnit GetUnit(int fileIndex, int rankIndex)`
 
-**用途 / Purpose:** 获取 `unit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnit(0, 0);
+```
 
 ### OnBatchRemoveStart
 `public void OnBatchRemoveStart()`
 
-**用途 / Purpose:** 当 `batch remove start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「batch remove start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.OnBatchRemoveStart();
+```
 
 ### OnBatchRemoveEnd
 `public void OnBatchRemoveEnd()`
 
-**用途 / Purpose:** 当 `batch remove end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「batch remove end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.OnBatchRemoveEnd();
+```
 
 ### GetLocalPositionOfUnitOrDefault
 `public Vec2? GetLocalPositionOfUnitOrDefault(int unitIndex)`
 
-**用途 / Purpose:** 获取 `local position of unit or default` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local position of unit or default」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalPositionOfUnitOrDefault(0);
+```
 
 ### GetLocalDirectionOfUnitOrDefault
 `public Vec2? GetLocalDirectionOfUnitOrDefault(int unitIndex)`
 
-**用途 / Purpose:** 获取 `local direction of unit or default` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local direction of unit or default」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalDirectionOfUnitOrDefault(0);
+```
 
 ### GetWorldPositionOfUnitOrDefault
 `public WorldPosition? GetWorldPositionOfUnitOrDefault(int unitIndex)`
 
-**用途 / Purpose:** 获取 `world position of unit or default` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「world position of unit or default」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetWorldPositionOfUnitOrDefault(0);
+```
 
 ### GetLocalPositionOfUnitOrDefault
 `public Vec2? GetLocalPositionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `local position of unit or default` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local position of unit or default」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalPositionOfUnitOrDefault(unit);
+```
 
 ### GetLocalPositionOfUnitOrDefaultWithAdjustment
 `public Vec2? GetLocalPositionOfUnitOrDefaultWithAdjustment(IFormationUnit unit, float distanceBetweenAgentsAdjustment)`
 
-**用途 / Purpose:** 获取 `local position of unit or default with adjustment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local position of unit or default with adjustment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalPositionOfUnitOrDefaultWithAdjustment(unit, 0);
+```
 
 ### GetWorldPositionOfUnitOrDefault
 `public WorldPosition? GetWorldPositionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `world position of unit or default` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「world position of unit or default」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetWorldPositionOfUnitOrDefault(unit);
+```
 
 ### GetLocalDirectionOfUnitOrDefault
 `public Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `local direction of unit or default` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local direction of unit or default」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalDirectionOfUnitOrDefault(unit);
+```
 
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count)`
 
-**用途 / Purpose:** 获取 `units to pop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「units to pop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitsToPop(0);
+```
 
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count, Vec3 targetPosition)`
 
-**用途 / Purpose:** 获取 `units to pop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「units to pop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitsToPop(0, targetPosition);
+```
 
 ### GetUnitsToPopWithCondition
 `public IEnumerable<IFormationUnit> GetUnitsToPopWithCondition(int count, Func<IFormationUnit, bool> currentCondition)`
 
-**用途 / Purpose:** 获取 `units to pop with condition` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「units to pop with condition」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitsToPopWithCondition(0, func<IFormationUnit, false);
+```
 
 ### SwitchUnitLocations
 `public void SwitchUnitLocations(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**用途 / Purpose:** 处理 `switch unit locations` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.SwitchUnitLocations(firstUnit, secondUnit);
+```
 
 ### SwitchUnitLocationsWithUnpositionedUnit
 `public void SwitchUnitLocationsWithUnpositionedUnit(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**用途 / Purpose:** 处理 `switch unit locations with unpositioned unit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.SwitchUnitLocationsWithUnpositionedUnit(firstUnit, secondUnit);
+```
 
 ### SwitchUnitLocationsWithBackMostUnit
 `public void SwitchUnitLocationsWithBackMostUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** 处理 `switch unit locations with back most unit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.SwitchUnitLocationsWithBackMostUnit(unit);
+```
 
 ### GetUnitsDistanceToFrontLine
 `public float GetUnitsDistanceToFrontLine(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `units distance to front line` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「units distance to front line」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitsDistanceToFrontLine(unit);
+```
 
 ### GetLocalDirectionOfRelativeFormationLocation
 `public Vec2? GetLocalDirectionOfRelativeFormationLocation(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `local direction of relative formation location` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local direction of relative formation location」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalDirectionOfRelativeFormationLocation(unit);
+```
 
 ### GetLocalWallDirectionOfRelativeFormationLocation
 `public Vec2? GetLocalWallDirectionOfRelativeFormationLocation(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `local wall direction of relative formation location` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local wall direction of relative formation location」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalWallDirectionOfRelativeFormationLocation(unit);
+```
 
 ### GetUnavailableUnitPositions
 `public IEnumerable<Vec2> GetUnavailableUnitPositions()`
 
-**用途 / Purpose:** 获取 `unavailable unit positions` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unavailable unit positions」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnavailableUnitPositions();
+```
 
 ### GetOccupationWidth
 `public float GetOccupationWidth(int unitCount)`
 
-**用途 / Purpose:** 获取 `occupation width` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「occupation width」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetOccupationWidth(0);
+```
 
 ### CreateNewPosition
 `public Vec2? CreateNewPosition(int unitIndex)`
 
-**用途 / Purpose:** 创建一个 `new position` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「new position」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.CreateNewPosition(0);
+```
 
 ### InvalidateCacheOfUnitAux
 `public void InvalidateCacheOfUnitAux(Vec2 roundedLocalPosition)`
 
-**用途 / Purpose:** 处理 `invalidate cache of unit aux` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.InvalidateCacheOfUnitAux(roundedLocalPosition);
+```
 
 ### BeforeFormationFrameChange
 `public void BeforeFormationFrameChange()`
 
-**用途 / Purpose:** 处理 `before formation frame change` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.BeforeFormationFrameChange();
+```
 
 ### OnFormationFrameChanged
 `public void OnFormationFrameChanged(bool updateCachedOrderedLocalPositions = false)`
 
-**用途 / Purpose:** 当 `formation frame changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「formation frame changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.OnFormationFrameChanged(false);
+```
 
 ### OnUnitLostMount
 `public void OnUnitLostMount(IFormationUnit unit)`
 
-**用途 / Purpose:** 当 `unit lost mount` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unit lost mount」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.OnUnitLostMount(unit);
+```
 
 ### IsTurnBackwardsNecessary
 `public bool IsTurnBackwardsNecessary(Vec2 previousPosition, WorldPosition? newPosition, Vec2 previousDirection, bool hasNewDirection, Vec2? newDirection)`
 
-**用途 / Purpose:** 处理 `is turn backwards necessary` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「turn backwards necessary」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.IsTurnBackwardsNecessary(previousPosition, newPosition, previousDirection, false, newDirection);
+```
 
 ### TurnBackwards
 `public void TurnBackwards()`
 
-**用途 / Purpose:** 处理 `turn backwards` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.TurnBackwards();
+```
 
 ### OnFormationDispersed
 `public void OnFormationDispersed()`
 
-**用途 / Purpose:** 当 `formation dispersed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「formation dispersed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.OnFormationDispersed();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.Reset();
+```
 
 ### RearrangeFrom
 `public virtual void RearrangeFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 处理 `rearrange from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.RearrangeFrom(arrangement);
+```
 
 ### RearrangeTo
 `public virtual void RearrangeTo(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 处理 `rearrange to` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.RearrangeTo(arrangement);
+```
 
 ### RearrangeTransferUnits
 `public virtual void RearrangeTransferUnits(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 处理 `rearrange transfer units` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.RearrangeTransferUnits(arrangement);
+```
 
 ### FormFromWidth
 `public void FormFromWidth(float width)`
 
-**用途 / Purpose:** 处理 `form from width` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.FormFromWidth(0);
+```
 
 ### GetNeighborUnitOfLeftSide
 `public IFormationUnit GetNeighborUnitOfLeftSide(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `neighbor unit of left side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「neighbor unit of left side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetNeighborUnitOfLeftSide(unit);
+```
 
 ### GetNeighborUnitOfRightSide
 `public IFormationUnit GetNeighborUnitOfRightSide(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `neighbor unit of right side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「neighbor unit of right side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetNeighborUnitOfRightSide(unit);
+```
 
 ### ReserveMiddleFrontUnitPosition
 `public void ReserveMiddleFrontUnitPosition(IFormationUnit vanguard)`
 
-**用途 / Purpose:** 处理 `reserve middle front unit position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.ReserveMiddleFrontUnitPosition(vanguard);
+```
 
 ### ReleaseMiddleFrontUnitPosition
 `public void ReleaseMiddleFrontUnitPosition()`
 
-**用途 / Purpose:** 处理 `release middle front unit position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.ReleaseMiddleFrontUnitPosition();
+```
 
 ### GetLocalPositionOfReservedUnitPosition
 `public Vec2 GetLocalPositionOfReservedUnitPosition()`
 
-**用途 / Purpose:** 获取 `local position of reserved unit position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local position of reserved unit position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetLocalPositionOfReservedUnitPosition();
+```
 
 ### OnTickOccasionallyOfUnit
 `public void OnTickOccasionallyOfUnit(IFormationUnit unit, bool arrangementChangeAllowed)`
 
-**用途 / Purpose:** 当 `tick occasionally of unit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick occasionally of unit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.OnTickOccasionallyOfUnit(unit, false);
+```
 
 ### GetDirectionChangeTendencyOfUnit
 `public float GetDirectionChangeTendencyOfUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** 获取 `direction change tendency of unit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「direction change tendency of unit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetDirectionChangeTendencyOfUnit(unit);
+```
 
 ### UpdateLocalPositionErrors
 `public void UpdateLocalPositionErrors(bool recalculateErrors)`
 
-**用途 / Purpose:** 更新 `local position errors` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「local position errors」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+columnFormation.UpdateLocalPositionErrors(false);
+```
 
 ### GetUnitPositionsOnVanguardFileIndex
 `public List<Vec2> GetUnitPositionsOnVanguardFileIndex()`
 
-**用途 / Purpose:** 获取 `unit positions on vanguard file index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit positions on vanguard file index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ColumnFormation 实例
+ColumnFormation columnFormation = ...;
+var result = columnFormation.GetUnitPositionsOnVanguardFileIndex();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ColumnFormation();
-value.Clone(formation);
+// 通常从对应子系统 API 获取实例后调用
+ColumnFormation columnFormation = ...;
+columnFormation.Clone(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

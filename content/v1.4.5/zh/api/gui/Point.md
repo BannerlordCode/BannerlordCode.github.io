@@ -1,20 +1,14 @@
 ---
 title: "Point"
+description: "Point 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Point`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Point
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct Point`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Point.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Point.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "Point"
 ### Point
 `public struct Point(int x, int y)`
 
-**用途 / Purpose:** 处理 `point` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Point 实例
+Point point = ...;
+var result = point.Point(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Point();
-value.Point(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+Point point = ...;
+point.Point(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

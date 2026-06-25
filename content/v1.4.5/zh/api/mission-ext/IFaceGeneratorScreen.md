@@ -1,20 +1,14 @@
 ---
 title: "IFaceGeneratorScreen"
+description: "IFaceGeneratorScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IFaceGeneratorScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IFaceGeneratorScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IFaceGeneratorScreen`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/IFaceGeneratorScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/IFaceGeneratorScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IFaceGeneratorScreen"
 ## 使用示例
 
 ```csharp
-IFaceGeneratorScreen implementation = GetFaceGeneratorScreenImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIFaceGeneratorScreen service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

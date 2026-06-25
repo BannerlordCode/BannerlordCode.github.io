@@ -1,20 +1,14 @@
 ---
 title: "MountSpeedEffect"
+description: "Auto-generated class reference for MountSpeedEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountSpeedEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountSpeedEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MountSpeedEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountSpeedEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountSpeedEffect.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**Purpose:** Called when the `update` event is raised.
+**Purpose:** Invoked when the `update` event is raised.
+
+```csharp
+// Obtain an instance of MountSpeedEffect from the subsystem API first
+MountSpeedEffect mountSpeedEffect = ...;
+mountSpeedEffect.OnUpdate(agent, false);
+```
 
 ### GetMountSpeed
 `public override float GetMountSpeed()`
 
-**Purpose:** Gets the current value of `mount speed`.
+**Purpose:** Reads and returns the `mount speed` value held by the current object.
+
+```csharp
+// Obtain an instance of MountSpeedEffect from the subsystem API first
+MountSpeedEffect mountSpeedEffect = ...;
+var result = mountSpeedEffect.GetMountSpeed();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MountSpeedEffect();
-value.OnUpdate(agent, false);
+// Typically call this after obtaining an instance from the subsystem API
+MountSpeedEffect mountSpeedEffect = ...;
+mountSpeedEffect.OnUpdate(agent, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

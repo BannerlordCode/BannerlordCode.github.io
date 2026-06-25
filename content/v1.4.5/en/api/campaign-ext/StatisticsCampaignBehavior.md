@@ -1,20 +1,14 @@
 ---
 title: "StatisticsCampaignBehavior"
+description: "Auto-generated class reference for StatisticsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StatisticsCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StatisticsCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class StatisticsCampaignBehavior : CampaignBehaviorBase, IStatisticsCampaignBehavior, ICampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/StatisticsCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/StatisticsCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,220 +23,473 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.RegisterEvents();
+```
 
 ### OnDefectionPersuasionSucess
 `public void OnDefectionPersuasionSucess()`
 
-**Purpose:** Called when the `defection persuasion sucess` event is raised.
+**Purpose:** Invoked when the `defection persuasion sucess` event is raised.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.OnDefectionPersuasionSucess();
+```
 
 ### OnPlayerAcceptedRansomOffer
 `public void OnPlayerAcceptedRansomOffer(int ransomPrice)`
 
-**Purpose:** Called when the `player accepted ransom offer` event is raised.
+**Purpose:** Invoked when the `player accepted ransom offer` event is raised.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.OnPlayerAcceptedRansomOffer(0);
+```
 
 ### GetHighestTournamentRank
 `public int GetHighestTournamentRank()`
 
-**Purpose:** Gets the current value of `highest tournament rank`.
+**Purpose:** Reads and returns the `highest tournament rank` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetHighestTournamentRank();
+```
 
 ### GetNumberOfTournamentWins
 `public int GetNumberOfTournamentWins()`
 
-**Purpose:** Gets the current value of `number of tournament wins`.
+**Purpose:** Reads and returns the `number of tournament wins` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTournamentWins();
+```
 
 ### GetNumberOfChildrenBorn
 `public int GetNumberOfChildrenBorn()`
 
-**Purpose:** Gets the current value of `number of children born`.
+**Purpose:** Reads and returns the `number of children born` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfChildrenBorn();
+```
 
 ### GetNumberOfPrisonersRecruited
 `public int GetNumberOfPrisonersRecruited()`
 
-**Purpose:** Gets the current value of `number of prisoners recruited`.
+**Purpose:** Reads and returns the `number of prisoners recruited` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfPrisonersRecruited();
+```
 
 ### GetNumberOfTroopsRecruited
 `public int GetNumberOfTroopsRecruited()`
 
-**Purpose:** Gets the current value of `number of troops recruited`.
+**Purpose:** Reads and returns the `number of troops recruited` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTroopsRecruited();
+```
 
 ### GetNumberOfClansDefected
 `public int GetNumberOfClansDefected()`
 
-**Purpose:** Gets the current value of `number of clans defected`.
+**Purpose:** Reads and returns the `number of clans defected` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfClansDefected();
+```
 
 ### GetNumberOfIssuesSolved
 `public int GetNumberOfIssuesSolved()`
 
-**Purpose:** Gets the current value of `number of issues solved`.
+**Purpose:** Reads and returns the `number of issues solved` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfIssuesSolved();
+```
 
 ### GetTotalInfluenceEarned
 `public int GetTotalInfluenceEarned()`
 
-**Purpose:** Gets the current value of `total influence earned`.
+**Purpose:** Reads and returns the `total influence earned` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalInfluenceEarned();
+```
 
 ### GetTotalCrimeRatingGained
 `public int GetTotalCrimeRatingGained()`
 
-**Purpose:** Gets the current value of `total crime rating gained`.
+**Purpose:** Reads and returns the `total crime rating gained` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalCrimeRatingGained();
+```
 
 ### GetNumberOfBattlesWon
 `public int GetNumberOfBattlesWon()`
 
-**Purpose:** Gets the current value of `number of battles won`.
+**Purpose:** Reads and returns the `number of battles won` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfBattlesWon();
+```
 
 ### GetNumberOfBattlesLost
 `public int GetNumberOfBattlesLost()`
 
-**Purpose:** Gets the current value of `number of battles lost`.
+**Purpose:** Reads and returns the `number of battles lost` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfBattlesLost();
+```
 
 ### GetLargestBattleWonAsLeader
 `public int GetLargestBattleWonAsLeader()`
 
-**Purpose:** Gets the current value of `largest battle won as leader`.
+**Purpose:** Reads and returns the `largest battle won as leader` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetLargestBattleWonAsLeader();
+```
 
 ### GetLargestArmyFormedByPlayer
 `public int GetLargestArmyFormedByPlayer()`
 
-**Purpose:** Gets the current value of `largest army formed by player`.
+**Purpose:** Reads and returns the `largest army formed by player` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetLargestArmyFormedByPlayer();
+```
 
 ### GetNumberOfEnemyClansDestroyed
 `public int GetNumberOfEnemyClansDestroyed()`
 
-**Purpose:** Gets the current value of `number of enemy clans destroyed`.
+**Purpose:** Reads and returns the `number of enemy clans destroyed` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfEnemyClansDestroyed();
+```
 
 ### GetNumberOfHeroesKilledInBattle
 `public int GetNumberOfHeroesKilledInBattle()`
 
-**Purpose:** Gets the current value of `number of heroes killed in battle`.
+**Purpose:** Reads and returns the `number of heroes killed in battle` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfHeroesKilledInBattle();
+```
 
 ### GetNumberOfTroopsKnockedOrKilledAsParty
 `public int GetNumberOfTroopsKnockedOrKilledAsParty()`
 
-**Purpose:** Gets the current value of `number of troops knocked or killed as party`.
+**Purpose:** Reads and returns the `number of troops knocked or killed as party` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTroopsKnockedOrKilledAsParty();
+```
 
 ### GetNumberOfTroopsKnockedOrKilledByPlayer
 `public int GetNumberOfTroopsKnockedOrKilledByPlayer()`
 
-**Purpose:** Gets the current value of `number of troops knocked or killed by player`.
+**Purpose:** Reads and returns the `number of troops knocked or killed by player` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTroopsKnockedOrKilledByPlayer();
+```
 
 ### GetNumberOfHeroPrisonersTaken
 `public int GetNumberOfHeroPrisonersTaken()`
 
-**Purpose:** Gets the current value of `number of hero prisoners taken`.
+**Purpose:** Reads and returns the `number of hero prisoners taken` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfHeroPrisonersTaken();
+```
 
 ### GetNumberOfTroopPrisonersTaken
 `public int GetNumberOfTroopPrisonersTaken()`
 
-**Purpose:** Gets the current value of `number of troop prisoners taken`.
+**Purpose:** Reads and returns the `number of troop prisoners taken` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTroopPrisonersTaken();
+```
 
 ### GetNumberOfTownsCaptured
 `public int GetNumberOfTownsCaptured()`
 
-**Purpose:** Gets the current value of `number of towns captured`.
+**Purpose:** Reads and returns the `number of towns captured` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTownsCaptured();
+```
 
 ### GetNumberOfHideoutsCleared
 `public int GetNumberOfHideoutsCleared()`
 
-**Purpose:** Gets the current value of `number of hideouts cleared`.
+**Purpose:** Reads and returns the `number of hideouts cleared` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfHideoutsCleared();
+```
 
 ### GetNumberOfCastlesCaptured
 `public int GetNumberOfCastlesCaptured()`
 
-**Purpose:** Gets the current value of `number of castles captured`.
+**Purpose:** Reads and returns the `number of castles captured` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfCastlesCaptured();
+```
 
 ### GetNumberOfVillagesRaided
 `public int GetNumberOfVillagesRaided()`
 
-**Purpose:** Gets the current value of `number of villages raided`.
+**Purpose:** Reads and returns the `number of villages raided` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfVillagesRaided();
+```
 
 ### GetNumberOfCraftingPartsUnlocked
 `public int GetNumberOfCraftingPartsUnlocked()`
 
-**Purpose:** Gets the current value of `number of crafting parts unlocked`.
+**Purpose:** Reads and returns the `number of crafting parts unlocked` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfCraftingPartsUnlocked();
+```
 
 ### GetNumberOfWeaponsCrafted
 `public int GetNumberOfWeaponsCrafted()`
 
-**Purpose:** Gets the current value of `number of weapons crafted`.
+**Purpose:** Reads and returns the `number of weapons crafted` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfWeaponsCrafted();
+```
 
 ### GetNumberOfCraftingOrdersCompleted
 `public int GetNumberOfCraftingOrdersCompleted()`
 
-**Purpose:** Gets the current value of `number of crafting orders completed`.
+**Purpose:** Reads and returns the `number of crafting orders completed` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfCraftingOrdersCompleted();
+```
 
 ### GetNumberOfCompanionsHired
 `public int GetNumberOfCompanionsHired()`
 
-**Purpose:** Gets the current value of `number of companions hired`.
+**Purpose:** Reads and returns the `number of companions hired` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfCompanionsHired();
+```
 
 ### GetTimeSpentAsPrisoner
 `public CampaignTime GetTimeSpentAsPrisoner()`
 
-**Purpose:** Gets the current value of `time spent as prisoner`.
+**Purpose:** Reads and returns the `time spent as prisoner` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTimeSpentAsPrisoner();
+```
 
 ### GetTotalTimePlayedInSeconds
 `public ulong GetTotalTimePlayedInSeconds()`
 
-**Purpose:** Gets the current value of `total time played in seconds`.
+**Purpose:** Reads and returns the `total time played in seconds` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalTimePlayedInSeconds();
+```
 
 ### GetTotalDenarsEarned
 `public ulong GetTotalDenarsEarned()`
 
-**Purpose:** Gets the current value of `total denars earned`.
+**Purpose:** Reads and returns the `total denars earned` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalDenarsEarned();
+```
 
 ### GetDenarsEarnedFromCaravans
 `public ulong GetDenarsEarnedFromCaravans()`
 
-**Purpose:** Gets the current value of `denars earned from caravans`.
+**Purpose:** Reads and returns the `denars earned from caravans` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromCaravans();
+```
 
 ### GetDenarsEarnedFromWorkshops
 `public ulong GetDenarsEarnedFromWorkshops()`
 
-**Purpose:** Gets the current value of `denars earned from workshops`.
+**Purpose:** Reads and returns the `denars earned from workshops` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromWorkshops();
+```
 
 ### GetDenarsEarnedFromRansoms
 `public ulong GetDenarsEarnedFromRansoms()`
 
-**Purpose:** Gets the current value of `denars earned from ransoms`.
+**Purpose:** Reads and returns the `denars earned from ransoms` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromRansoms();
+```
 
 ### GetDenarsEarnedFromTaxes
 `public ulong GetDenarsEarnedFromTaxes()`
 
-**Purpose:** Gets the current value of `denars earned from taxes`.
+**Purpose:** Reads and returns the `denars earned from taxes` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromTaxes();
+```
 
 ### GetDenarsEarnedFromTributes
 `public ulong GetDenarsEarnedFromTributes()`
 
-**Purpose:** Gets the current value of `denars earned from tributes`.
+**Purpose:** Reads and returns the `denars earned from tributes` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromTributes();
+```
 
 ### GetDenarsPaidAsTributes
 `public ulong GetDenarsPaidAsTributes()`
 
-**Purpose:** Gets the current value of `denars paid as tributes`.
+**Purpose:** Reads and returns the `denars paid as tributes` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsPaidAsTributes();
+```
 
 ### GetTotalTimePlayed
 `public CampaignTime GetTotalTimePlayed()`
 
-**Purpose:** Gets the current value of `total time played`.
+**Purpose:** Reads and returns the `total time played` value held by the current object.
+
+```csharp
+// Obtain an instance of StatisticsCampaignBehavior from the subsystem API first
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalTimePlayed();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StatisticsCampaignBehavior();
-value.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+// Typically call this after obtaining an instance from the subsystem API
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

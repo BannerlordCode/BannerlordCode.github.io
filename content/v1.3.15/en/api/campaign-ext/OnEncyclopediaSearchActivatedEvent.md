@@ -1,13 +1,7 @@
 ---
 title: "OnEncyclopediaSearchActivatedEvent"
+description: "Auto-generated class reference for OnEncyclopediaSearchActivatedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OnEncyclopediaSearchActivatedEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OnEncyclopediaSearchActivatedEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-var value = new OnEncyclopediaSearchActivatedEvent();
+// Obtain an instance from the relevant subsystem API
+OnEncyclopediaSearchActivatedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

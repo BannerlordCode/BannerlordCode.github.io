@@ -1,13 +1,7 @@
 ---
 title: "CastleGateAI"
+description: "Auto-generated class reference for CastleGateAI."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CastleGateAI`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CastleGateAI
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ResetInitialGateState
 `public void ResetInitialGateState(CastleGate.GateState newInitialState)`
 
-**Purpose:** Resets `initial gate state` to its initial state.
+**Purpose:** Returns `initial gate state` to its default or initial condition.
+
+```csharp
+// Obtain an instance of CastleGateAI from the subsystem API first
+CastleGateAI castleGateAI = ...;
+castleGateAI.ResetInitialGateState(newInitialState);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CastleGateAI();
-value.ResetInitialGateState(newInitialState);
+// Typically call this after obtaining an instance from the subsystem API
+CastleGateAI castleGateAI = ...;
+castleGateAI.ResetInitialGateState(newInitialState);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

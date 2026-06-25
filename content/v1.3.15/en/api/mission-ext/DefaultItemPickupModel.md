@@ -1,13 +1,7 @@
 ---
 title: "DefaultItemPickupModel"
+description: "Auto-generated class reference for DefaultItemPickupModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultItemPickupModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultItemPickupModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,35 @@ Treat `DefaultItemPickupModel` as a Model-style extension point: first identify 
 ### GetItemScoreForAgent
 `public override float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)`
 
-**Purpose:** Gets the current value of `item score for agent`.
+**Purpose:** Reads and returns the `item score for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultItemPickupModel from the subsystem API first
+DefaultItemPickupModel defaultItemPickupModel = ...;
+var result = defaultItemPickupModel.GetItemScoreForAgent(item, agent);
+```
 
 ### IsItemAvailableForAgent
 `public override bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)`
 
-**Purpose:** Handles logic related to `is item available for agent`.
+**Purpose:** Determines whether the current object is in the `item available for agent` state or condition.
+
+```csharp
+// Obtain an instance of DefaultItemPickupModel from the subsystem API first
+DefaultItemPickupModel defaultItemPickupModel = ...;
+var result = defaultItemPickupModel.IsItemAvailableForAgent(item, agent, slotToPickUp);
+```
 
 ### IsAgentEquipmentSuitableForPickUpAvailability
 `public override bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)`
 
-**Purpose:** Handles logic related to `is agent equipment suitable for pick up availability`.
+**Purpose:** Determines whether the current object is in the `agent equipment suitable for pick up availability` state or condition.
+
+```csharp
+// Obtain an instance of DefaultItemPickupModel from the subsystem API first
+DefaultItemPickupModel defaultItemPickupModel = ...;
+var result = defaultItemPickupModel.IsAgentEquipmentSuitableForPickUpAvailability(agent);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultItemPickupModel>(new MyDefaultItemPickupModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

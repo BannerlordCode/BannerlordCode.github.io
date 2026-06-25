@@ -1,20 +1,14 @@
 ---
 title: "TroopCountEffect"
+description: "Auto-generated class reference for TroopCountEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopCountEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopCountEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TroopCountEffect : MPOnSpawnPerkEffect`
 **Base:** `MPOnSpawnPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/TroopCountEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/TroopCountEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetExtraTroopCount
 `public override int GetExtraTroopCount()`
 
-**Purpose:** Gets the current value of `extra troop count`.
+**Purpose:** Reads and returns the `extra troop count` value held by the current object.
+
+```csharp
+// Obtain an instance of TroopCountEffect from the subsystem API first
+TroopCountEffect troopCountEffect = ...;
+var result = troopCountEffect.GetExtraTroopCount();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TroopCountEffect();
-value.GetExtraTroopCount();
+// Typically call this after obtaining an instance from the subsystem API
+TroopCountEffect troopCountEffect = ...;
+troopCountEffect.GetExtraTroopCount();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

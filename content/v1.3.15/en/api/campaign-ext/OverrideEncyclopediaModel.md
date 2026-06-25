@@ -1,13 +1,7 @@
 ---
 title: "OverrideEncyclopediaModel"
+description: "Auto-generated class reference for OverrideEncyclopediaModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OverrideEncyclopediaModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OverrideEncyclopediaModel
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
@@ -32,4 +26,4 @@ Game.Current.ReplaceModel<OverrideEncyclopediaModel>(new MyOverrideEncyclopediaM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

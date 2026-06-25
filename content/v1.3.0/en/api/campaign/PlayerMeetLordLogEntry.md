@@ -1,13 +1,7 @@
 ---
 title: "PlayerMeetLordLogEntry"
+description: "Auto-generated class reference for PlayerMeetLordLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerMeetLordLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerMeetLordLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**Purpose:** Gets the current value of `importance for clan`.
+**Purpose:** Reads and returns the `importance for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of PlayerMeetLordLogEntry from the subsystem API first
+PlayerMeetLordLogEntry playerMeetLordLogEntry = ...;
+var result = playerMeetLordLogEntry.GetImportanceForClan(clan);
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of PlayerMeetLordLogEntry from the subsystem API first
+PlayerMeetLordLogEntry playerMeetLordLogEntry = ...;
+playerMeetLordLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of PlayerMeetLordLogEntry from the subsystem API first
+PlayerMeetLordLogEntry playerMeetLordLogEntry = ...;
+var result = playerMeetLordLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of PlayerMeetLordLogEntry from the subsystem API first
+PlayerMeetLordLogEntry playerMeetLordLogEntry = ...;
+var result = playerMeetLordLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerMeetLordLogEntry();
-value.GetImportanceForClan(clan);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerMeetLordLogEntry playerMeetLordLogEntry = ...;
+playerMeetLordLogEntry.GetImportanceForClan(clan);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "ViewCreator"
+description: "ViewCreator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ViewCreator`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ViewCreator
 
-**命名空间:** TaleWorlds.MountAndBlade.View
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public static class ViewCreator`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.View
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public static class ViewCreator`
+**Base:** 无
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/ViewCreator.cs`
 
 ## 概述
 
-`ViewCreator` 位于 `TaleWorlds.MountAndBlade.View`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`ViewCreator` 位于 `TaleWorlds.MountAndBlade.View`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,111 +23,249 @@ title: "ViewCreator"
 ### CreateCreditsScreen
 `public static ScreenBase CreateCreditsScreen()`
 
-**用途 / Purpose:** 创建一个 `credits screen` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「credits screen」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateCreditsScreen();
+```
 
 ### CreateOptionsScreen
 `public static ScreenBase CreateOptionsScreen(bool fromMainMenu)`
 
-**用途 / Purpose:** 创建一个 `options screen` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「options screen」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateOptionsScreen(false);
+```
 
 ### CreateMBFaceGeneratorScreen
 `public static ScreenBase CreateMBFaceGeneratorScreen(BasicCharacterObject character, bool openedFromMultiplayer = false, IFaceGeneratorCustomFilter filter = null)`
 
-**用途 / Purpose:** 创建一个 `m b face generator screen` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「m b face generator screen」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMBFaceGeneratorScreen(character, false, null);
+```
 
 ### CreateMissionAgentStatusUIHandler
 `public static MissionView CreateMissionAgentStatusUIHandler(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission agent status u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission agent status u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionAgentStatusUIHandler(null);
+```
 
 ### CreateMissionMainAgentEquipDropView
 `public static MissionView CreateMissionMainAgentEquipDropView(Mission mission)`
 
-**用途 / Purpose:** 创建一个 `mission main agent equip drop view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission main agent equip drop view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionMainAgentEquipDropView(mission);
+```
 
 ### CreateMissionSiegeEngineMarkerView
 `public static MissionView CreateMissionSiegeEngineMarkerView(Mission mission)`
 
-**用途 / Purpose:** 创建一个 `mission siege engine marker view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission siege engine marker view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionSiegeEngineMarkerView(mission);
+```
 
 ### CreateMissionMainAgentEquipmentController
 `public static MissionView CreateMissionMainAgentEquipmentController(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission main agent equipment controller` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission main agent equipment controller」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionMainAgentEquipmentController(null);
+```
 
 ### CreateMissionMainAgentCheerBarkControllerView
 `public static MissionView CreateMissionMainAgentCheerBarkControllerView(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission main agent cheer bark controller view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission main agent cheer bark controller view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionMainAgentCheerBarkControllerView(null);
+```
 
 ### CreateMissionAgentLockVisualizerView
 `public static MissionView CreateMissionAgentLockVisualizerView(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission agent lock visualizer view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission agent lock visualizer view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionAgentLockVisualizerView(null);
+```
 
 ### CreateOptionsUIHandler
 `public static MissionView CreateOptionsUIHandler()`
 
-**用途 / Purpose:** 创建一个 `options u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「options u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateOptionsUIHandler();
+```
 
 ### CreateSingleplayerMissionKillNotificationUIHandler
 `public static MissionView CreateSingleplayerMissionKillNotificationUIHandler()`
 
-**用途 / Purpose:** 创建一个 `singleplayer mission kill notification u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「singleplayer mission kill notification u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateSingleplayerMissionKillNotificationUIHandler();
+```
 
 ### CreateMissionAgentLabelUIHandler
 `public static MissionView CreateMissionAgentLabelUIHandler(Mission mission)`
 
-**用途 / Purpose:** 创建一个 `mission agent label u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission agent label u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionAgentLabelUIHandler(mission);
+```
 
 ### CreateMissionOrderUIHandler
 `public static MissionView CreateMissionOrderUIHandler(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission order u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission order u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionOrderUIHandler(null);
+```
 
 ### CreateMissionOrderOfBattleUIHandler
 `public static MissionView CreateMissionOrderOfBattleUIHandler(Mission mission, OrderOfBattleVM dataSource)`
 
-**用途 / Purpose:** 创建一个 `mission order of battle u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission order of battle u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionOrderOfBattleUIHandler(mission, dataSource);
+```
 
 ### CreateMissionSpectatorControlView
 `public static MissionView CreateMissionSpectatorControlView(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission spectator control view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission spectator control view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionSpectatorControlView(null);
+```
 
 ### CreateMissionBattleScoreUIHandler
 `public static MissionView CreateMissionBattleScoreUIHandler(Mission mission, ScoreboardBaseVM dataSource)`
 
-**用途 / Purpose:** 创建一个 `mission battle score u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission battle score u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionBattleScoreUIHandler(mission, dataSource);
+```
 
 ### CreateMissionBoundaryCrossingView
 `public static MissionView CreateMissionBoundaryCrossingView()`
 
-**用途 / Purpose:** 创建一个 `mission boundary crossing view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission boundary crossing view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionBoundaryCrossingView();
+```
 
 ### CreateMissionLeaveView
 `public static MissionView CreateMissionLeaveView()`
 
-**用途 / Purpose:** 创建一个 `mission leave view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission leave view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionLeaveView();
+```
 
 ### CreatePhotoModeView
 `public static MissionView CreatePhotoModeView()`
 
-**用途 / Purpose:** 创建一个 `photo mode view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「photo mode view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreatePhotoModeView();
+```
 
 ### CreateMissionSingleplayerEscapeMenu
 `public static MissionView CreateMissionSingleplayerEscapeMenu(bool isIronmanMode)`
 
-**用途 / Purpose:** 创建一个 `mission singleplayer escape menu` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission singleplayer escape menu」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionSingleplayerEscapeMenu(false);
+```
+
+### CreateOrderTroopPlacerView
+`public static MissionView CreateOrderTroopPlacerView(OrderController orderController)`
+
+**用途 / Purpose:** 构建一个新的 「order troop placer view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateOrderTroopPlacerView(orderController);
+```
+
+### CreateMissionFormationMarkerUIHandler
+`public static MissionView CreateMissionFormationMarkerUIHandler(Mission mission = null)`
+
+**用途 / Purpose:** 构建一个新的 「mission formation marker u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionFormationMarkerUIHandler(null);
+```
+
+### CreateMissionHintView
+`public static MissionView CreateMissionHintView(Mission mission = null)`
+
+**用途 / Purpose:** 构建一个新的 「mission hint view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionHintView(null);
+```
+
+### CreateMissionObjectiveView
+`public static MissionView CreateMissionObjectiveView(Mission mission = null)`
+
+**用途 / Purpose:** 构建一个新的 「mission objective view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ViewCreator.CreateMissionObjectiveView(null);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 ViewCreator.CreateCreditsScreen();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

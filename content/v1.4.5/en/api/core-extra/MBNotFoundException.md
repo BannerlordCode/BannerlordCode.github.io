@@ -1,20 +1,14 @@
 ---
 title: "MBNotFoundException"
+description: "Auto-generated class reference for MBNotFoundException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBNotFoundException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBNotFoundException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBNotFoundException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBNotFoundException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBNotFoundException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBNotFoundException` as a Exception-style extension point: first identify
 ## Usage Example
 
 ```csharp
-try { CallMBNotFoundException(); } catch (MBNotFoundException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBNotFoundException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

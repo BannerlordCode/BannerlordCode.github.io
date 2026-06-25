@@ -1,13 +1,7 @@
 ---
 title: "CraftingOrderPopupVM"
+description: "Auto-generated class reference for CraftingOrderPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingOrderPopupVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingOrderPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order
@@ -41,35 +35,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshOrders
 `public void RefreshOrders()`
 
-**Purpose:** Refreshes the display or cache of `orders`.
+**Purpose:** Keeps the display or cache of `orders` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingOrderPopupVM from the subsystem API first
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.RefreshOrders();
+```
 
 ### SelectOrder
 `public void SelectOrder(CraftingOrderItemVM order)`
 
-**Purpose:** Handles logic related to `select order`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CraftingOrderPopupVM from the subsystem API first
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.SelectOrder(order);
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Executes the `open popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open popup`.
+
+```csharp
+// Obtain an instance of CraftingOrderPopupVM from the subsystem API first
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.ExecuteOpenPopup();
+```
 
 ### ExecuteCloseWithoutSelection
 `public void ExecuteCloseWithoutSelection()`
 
-**Purpose:** Executes the `close without selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close without selection`.
+
+```csharp
+// Obtain an instance of CraftingOrderPopupVM from the subsystem API first
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.ExecuteCloseWithoutSelection();
+```
 
 ### Compare
 `public int Compare(CraftingOrder x, CraftingOrder y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of CraftingOrderPopupVM from the subsystem API first
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+var result = craftingOrderPopupVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingOrderPopupVM();
-value.RefreshOrders();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.RefreshOrders();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

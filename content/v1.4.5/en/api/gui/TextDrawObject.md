@@ -1,20 +1,14 @@
 ---
 title: "TextDrawObject"
+description: "Auto-generated class reference for TextDrawObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextDrawObject`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextDrawObject
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct TextDrawObject : IDrawObject`
 **Base:** `IDrawObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextDrawObject.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextDrawObject.cs`
 
 ## Overview
 
@@ -29,12 +23,23 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Create
 `public static TextDrawObject Create(float vertices, float uvs, uint indices, float text_MeshWidth, float text_MeshHeight, in Rectangle2D rectangle)`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+TextDrawObject.Create(0, 0, 0, 0, 0, rectangle);
+```
 
 ### ConvertToHashInPlace
 `public void ConvertToHashInPlace()`
 
-**Purpose:** Handles logic related to `convert to hash in place`.
+**Purpose:** Converts `to hash in place` into another representation or type.
+
+```csharp
+// Obtain an instance of TextDrawObject from the subsystem API first
+TextDrawObject textDrawObject = ...;
+textDrawObject.ConvertToHashInPlace();
+```
 
 ## Usage Example
 
@@ -44,4 +49,4 @@ TextDrawObject.Create(0, 0, 0, 0, 0, rectangle);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

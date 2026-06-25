@@ -1,13 +1,7 @@
 ---
 title: "TroopSortType"
+description: "Auto-generated class reference for TroopSortType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopSortType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopSortType
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ## Usage Example
 
 ```csharp
-TroopSortType example = TroopSortType.Value;
+// Obtain an instance from the relevant subsystem API
+TroopSortType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

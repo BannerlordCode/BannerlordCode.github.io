@@ -1,13 +1,7 @@
 ---
 title: "DefaultKingdomCreationModel"
+description: "Auto-generated class reference for DefaultKingdomCreationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultKingdomCreationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultKingdomCreationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -38,17 +32,35 @@ Treat `DefaultKingdomCreationModel` as a Model-style extension point: first iden
 ### IsPlayerKingdomCreationPossible
 `public override bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)`
 
-**Purpose:** Handles logic related to `is player kingdom creation possible`.
+**Purpose:** Determines whether the current object is in the `player kingdom creation possible` state or condition.
+
+```csharp
+// Obtain an instance of DefaultKingdomCreationModel from the subsystem API first
+DefaultKingdomCreationModel defaultKingdomCreationModel = ...;
+var result = defaultKingdomCreationModel.IsPlayerKingdomCreationPossible(explanations);
+```
 
 ### IsPlayerKingdomAbdicationPossible
 `public override bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)`
 
-**Purpose:** Handles logic related to `is player kingdom abdication possible`.
+**Purpose:** Determines whether the current object is in the `player kingdom abdication possible` state or condition.
+
+```csharp
+// Obtain an instance of DefaultKingdomCreationModel from the subsystem API first
+DefaultKingdomCreationModel defaultKingdomCreationModel = ...;
+var result = defaultKingdomCreationModel.IsPlayerKingdomAbdicationPossible(explanations);
+```
 
 ### GetAvailablePlayerKingdomCultures
 `public override IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()`
 
-**Purpose:** Gets the current value of `available player kingdom cultures`.
+**Purpose:** Reads and returns the `available player kingdom cultures` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultKingdomCreationModel from the subsystem API first
+DefaultKingdomCreationModel defaultKingdomCreationModel = ...;
+var result = defaultKingdomCreationModel.GetAvailablePlayerKingdomCultures();
+```
 
 ## Usage Example
 
@@ -58,4 +70,4 @@ Game.Current.ReplaceModel<DefaultKingdomCreationModel>(new MyDefaultKingdomCreat
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

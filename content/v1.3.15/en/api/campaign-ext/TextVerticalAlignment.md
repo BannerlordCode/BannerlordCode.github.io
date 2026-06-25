@@ -1,18 +1,12 @@
 ---
 title: "TextVerticalAlignment"
+description: "Auto-generated class reference for TextVerticalAlignment."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextVerticalAlignment`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextVerticalAlignment
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum TextVerticalAlignment`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension/TextVerticalAlignment.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new TextVerticalAlignment();
+// Obtain an instance from the relevant subsystem API
+TextVerticalAlignment instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

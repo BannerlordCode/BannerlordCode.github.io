@@ -1,20 +1,14 @@
 ---
 title: "TextMaterial"
+description: "Auto-generated class reference for TextMaterial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextMaterial`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextMaterial
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class TextMaterial : Material`
 **Base:** `Material`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextMaterial.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextMaterial.cs`
 
 ## Overview
 
@@ -51,15 +45,22 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### CopyFrom
 `public void CopyFrom(TextMaterial sourceMaterial)`
 
-**Purpose:** Handles logic related to `copy from`.
+**Purpose:** Copies the `from` state of the current object to a target.
+
+```csharp
+// Obtain an instance of TextMaterial from the subsystem API first
+TextMaterial textMaterial = ...;
+textMaterial.CopyFrom(sourceMaterial);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TextMaterial();
-value.CopyFrom(sourceMaterial);
+// Typically call this after obtaining an instance from the subsystem API
+TextMaterial textMaterial = ...;
+textMaterial.CopyFrom(sourceMaterial);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

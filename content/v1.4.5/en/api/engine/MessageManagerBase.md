@@ -1,20 +1,14 @@
 ---
 title: "MessageManagerBase"
+description: "Auto-generated class reference for MessageManagerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageManagerBase`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageManagerBase
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class MessageManagerBase : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/MessageManagerBase.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MessageManagerBase.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMessageManagerBase();
+// Typically obtained from a subsystem API or factory
+MessageManagerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

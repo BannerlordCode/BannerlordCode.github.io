@@ -1,13 +1,7 @@
 ---
 title: "DividableTask"
+description: "Auto-generated class reference for DividableTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DividableTask`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DividableTask
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ResetTaskStatus
 `public void ResetTaskStatus()`
 
-**Purpose:** Resets `task status` to its initial state.
+**Purpose:** Returns `task status` to its default or initial condition.
+
+```csharp
+// Obtain an instance of DividableTask from the subsystem API first
+DividableTask dividableTask = ...;
+dividableTask.ResetTaskStatus();
+```
 
 ### SetTaskFinished
 `public void SetTaskFinished(bool callLastAction = false)`
 
-**Purpose:** Sets the value or state of `task finished`.
+**Purpose:** Assigns a new value to `task finished` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DividableTask from the subsystem API first
+DividableTask dividableTask = ...;
+dividableTask.SetTaskFinished(false);
+```
 
 ### Update
 `public bool Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of DividableTask from the subsystem API first
+DividableTask dividableTask = ...;
+var result = dividableTask.Update();
+```
 
 ### SetLastAction
 `public void SetLastAction(Action action)`
 
-**Purpose:** Sets the value or state of `last action`.
+**Purpose:** Assigns a new value to `last action` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DividableTask from the subsystem API first
+DividableTask dividableTask = ...;
+dividableTask.SetLastAction(action);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DividableTask();
-value.ResetTaskStatus();
+// Typically call this after obtaining an instance from the subsystem API
+DividableTask dividableTask = ...;
+dividableTask.ResetTaskStatus();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

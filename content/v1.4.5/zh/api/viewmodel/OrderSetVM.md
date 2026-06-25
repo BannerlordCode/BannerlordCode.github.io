@@ -1,20 +1,14 @@
 ---
 title: "OrderSetVM"
+description: "OrderSetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderSetVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderSetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderSetVM : OrderItemBaseVM`
 **Base:** `OrderItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/OrderSetVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/OrderSetVM.cs`
 
 ## 概述
 
@@ -38,55 +32,110 @@ title: "OrderSetVM"
 ### OnOrderSetSelectionStateChangedDelegate
 `public delegate void OnOrderSetSelectionStateChangedDelegate(OrderSetVM orderSet, bool isSelected)`
 
-**用途 / Purpose:** 当 `order set selection state changed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「order set selection state changed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.OnOrderSetSelectionStateChangedDelegate(orderSet, false);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.OnFinalize();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** 执行 `select` 操作或流程。
+**用途 / Purpose:** 执行 「select」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.ExecuteSelect();
+```
 
 ### ExecuteDeSelect
 `public void ExecuteDeSelect()`
 
-**用途 / Purpose:** 执行 `de select` 操作或流程。
+**用途 / Purpose:** 执行 「de select」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.ExecuteDeSelect();
+```
 
 ### OnOrderExecuted
 `public void OnOrderExecuted(OrderItemVM order)`
 
-**用途 / Purpose:** 当 `order executed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「order executed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.OnOrderExecuted(order);
+```
 
 ### RefreshOrders
 `public void RefreshOrders()`
 
-**用途 / Purpose:** 刷新 `orders` 的显示或缓存。
+**用途 / Purpose:** 使 「orders」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.RefreshOrders();
+```
 
 ### RefreshOrderStates
 `public void RefreshOrderStates()`
 
-**用途 / Purpose:** 刷新 `order states` 的显示或缓存。
+**用途 / Purpose:** 使 「order states」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.RefreshOrderStates();
+```
 
 ### UpdateCanUseShortcuts
 `public void UpdateCanUseShortcuts(bool value)`
 
-**用途 / Purpose:** 更新 `can use shortcuts` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「can use shortcuts」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSetVM 实例
+OrderSetVM orderSetVM = ...;
+orderSetVM.UpdateCanUseShortcuts(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderSetVM();
-value.OnOrderSetSelectionStateChangedDelegate(orderSet, false);
+// 通常从对应子系统 API 获取实例后调用
+OrderSetVM orderSetVM = ...;
+orderSetVM.OnOrderSetSelectionStateChangedDelegate(orderSet, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

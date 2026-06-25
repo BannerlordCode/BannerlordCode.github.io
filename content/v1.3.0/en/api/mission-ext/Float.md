@@ -1,13 +1,7 @@
 ---
 title: "Float"
+description: "Auto-generated class reference for Float."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Float`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Float
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Gets the current value of `num bits`.
+**Purpose:** Reads and returns the `num bits` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetNumBits();
+```
 
 ### GetMaximumValue
 `public float GetMaximumValue()`
 
-**Purpose:** Gets the current value of `maximum value`.
+**Purpose:** Reads and returns the `maximum value` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetMaximumValue();
+```
 
 ### GetMinimumValue
 `public float GetMinimumValue()`
 
-**Purpose:** Gets the current value of `minimum value`.
+**Purpose:** Reads and returns the `minimum value` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetMinimumValue();
+```
 
 ### GetPrecision
 `public float GetPrecision()`
 
-**Purpose:** Gets the current value of `precision`.
+**Purpose:** Reads and returns the `precision` value held by the current object.
+
+```csharp
+// Obtain an instance of Float from the subsystem API first
+Float float = ...;
+var result = float.GetPrecision();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Float();
-value.GetNumBits();
+// Typically call this after obtaining an instance from the subsystem API
+Float float = ...;
+float.GetNumBits();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CharacterAttributeItemVM"
+description: "Auto-generated class reference for CharacterAttributeItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterAttributeItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterAttributeItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -46,40 +40,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CharacterAttributeItemVM from the subsystem API first
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.RefreshValues();
+```
 
 ### ExecuteInspectAttribute
 `public void ExecuteInspectAttribute()`
 
-**Purpose:** Executes the `inspect attribute` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `inspect attribute`.
+
+```csharp
+// Obtain an instance of CharacterAttributeItemVM from the subsystem API first
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.ExecuteInspectAttribute();
+```
 
 ### ExecuteAddAttributePoint
 `public void ExecuteAddAttributePoint()`
 
-**Purpose:** Executes the `add attribute point` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `add attribute point`.
+
+```csharp
+// Obtain an instance of CharacterAttributeItemVM from the subsystem API first
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.ExecuteAddAttributePoint();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of CharacterAttributeItemVM from the subsystem API first
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.Reset();
+```
 
 ### RefreshWithCurrentValues
 `public void RefreshWithCurrentValues()`
 
-**Purpose:** Refreshes the display or cache of `with current values`.
+**Purpose:** Keeps the display or cache of `with current values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CharacterAttributeItemVM from the subsystem API first
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.RefreshWithCurrentValues();
+```
 
 ### Commit
 `public void Commit()`
 
-**Purpose:** Handles logic related to `commit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterAttributeItemVM from the subsystem API first
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.Commit();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterAttributeItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

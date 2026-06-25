@@ -1,13 +1,7 @@
 ---
 title: "MissionArenaPracticeFightVM"
+description: "Auto-generated class reference for MissionArenaPracticeFightVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionArenaPracticeFightVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionArenaPracticeFightVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions
@@ -38,20 +32,33 @@ Start from namespace `SandBox.ViewModelCollection.Missions` to place it in the s
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionArenaPracticeFightVM from the subsystem API first
+MissionArenaPracticeFightVM missionArenaPracticeFightVM = ...;
+missionArenaPracticeFightVM.Tick();
+```
 
 ### UpdatePrizeText
 `public void UpdatePrizeText()`
 
-**Purpose:** Updates the state or data of `prize text`.
+**Purpose:** Recalculates and stores the latest representation of `prize text`.
+
+```csharp
+// Obtain an instance of MissionArenaPracticeFightVM from the subsystem API first
+MissionArenaPracticeFightVM missionArenaPracticeFightVM = ...;
+missionArenaPracticeFightVM.UpdatePrizeText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionArenaPracticeFightVM();
-value.Tick();
+// Typically call this after obtaining an instance from the subsystem API
+MissionArenaPracticeFightVM missionArenaPracticeFightVM = ...;
+missionArenaPracticeFightVM.Tick();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SceneProblemChecker"
+description: "Auto-generated class reference for SceneProblemChecker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneProblemChecker`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SceneProblemChecker
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new SceneProblemChecker();
+// Obtain an instance from the relevant subsystem API
+SceneProblemChecker instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

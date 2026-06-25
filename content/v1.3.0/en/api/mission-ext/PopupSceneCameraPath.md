@@ -1,13 +1,7 @@
 ---
 title: "PopupSceneCameraPath"
+description: "Auto-generated class reference for PopupSceneCameraPath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneCameraPath`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneCameraPath
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
@@ -29,50 +23,99 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PopupSceneCameraPath from the subsystem API first
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.Initialize();
+```
 
 ### SetInitialState
 `public void SetInitialState()`
 
-**Purpose:** Sets the value or state of `initial state`.
+**Purpose:** Assigns a new value to `initial state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneCameraPath from the subsystem API first
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.SetInitialState();
+```
 
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**Purpose:** Sets the value or state of `positive state`.
+**Purpose:** Assigns a new value to `positive state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneCameraPath from the subsystem API first
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.SetPositiveState();
+```
 
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**Purpose:** Sets the value or state of `negative state`.
+**Purpose:** Assigns a new value to `negative state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneCameraPath from the subsystem API first
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.SetNegativeState();
+```
 
 ### SetIsReady
 `public void SetIsReady(bool isReady)`
 
-**Purpose:** Sets the value or state of `is ready`.
+**Purpose:** Assigns a new value to `is ready` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneCameraPath from the subsystem API first
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.SetIsReady(false);
+```
 
 ### GetCameraFade
 `public float GetCameraFade()`
 
-**Purpose:** Gets the current value of `camera fade`.
+**Purpose:** Reads and returns the `camera fade` value held by the current object.
+
+```csharp
+// Obtain an instance of PopupSceneCameraPath from the subsystem API first
+PopupSceneCameraPath popupSceneCameraPath = ...;
+var result = popupSceneCameraPath.GetCameraFade();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PopupSceneCameraPath from the subsystem API first
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.Destroy();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of PopupSceneCameraPath from the subsystem API first
+PopupSceneCameraPath popupSceneCameraPath = ...;
+var result = popupSceneCameraPath.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PopupSceneCameraPath();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+PopupSceneCameraPath popupSceneCameraPath = ...;
+popupSceneCameraPath.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

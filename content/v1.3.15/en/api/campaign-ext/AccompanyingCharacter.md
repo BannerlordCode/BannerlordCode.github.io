@@ -1,13 +1,7 @@
 ---
 title: "AccompanyingCharacter"
+description: "Auto-generated class reference for AccompanyingCharacter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AccompanyingCharacter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AccompanyingCharacter
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
@@ -35,35 +29,66 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ### CanEnterLocation
 `public bool CanEnterLocation(Location location)`
 
-**Purpose:** Checks whether the current object can `enter location`.
+**Purpose:** Checks whether the current object meets the preconditions for `enter location`.
+
+```csharp
+// Obtain an instance of AccompanyingCharacter from the subsystem API first
+AccompanyingCharacter accompanyingCharacter = ...;
+var result = accompanyingCharacter.CanEnterLocation(location);
+```
 
 ### AllowEntranceToLocations
 `public void AllowEntranceToLocations(Func<Location, bool> predicate)`
 
-**Purpose:** Handles logic related to `allow entrance to locations`.
+**Purpose:** Permits `entrance to locations` to be enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of AccompanyingCharacter from the subsystem API first
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.AllowEntranceToLocations(func<Location, false);
+```
 
 ### DisallowEntranceToLocations
 `public void DisallowEntranceToLocations(Func<Location, bool> predicate)`
 
-**Purpose:** Handles logic related to `disallow entrance to locations`.
+**Purpose:** Prevents `entrance to locations` from being enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of AccompanyingCharacter from the subsystem API first
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.DisallowEntranceToLocations(func<Location, false);
+```
 
 ### AllowEntranceToAllLocations
 `public void AllowEntranceToAllLocations()`
 
-**Purpose:** Handles logic related to `allow entrance to all locations`.
+**Purpose:** Permits `entrance to all locations` to be enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of AccompanyingCharacter from the subsystem API first
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.AllowEntranceToAllLocations();
+```
 
 ### DisallowEntranceToAllLocations
 `public void DisallowEntranceToAllLocations()`
 
-**Purpose:** Handles logic related to `disallow entrance to all locations`.
+**Purpose:** Prevents `entrance to all locations` from being enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of AccompanyingCharacter from the subsystem API first
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.DisallowEntranceToAllLocations();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AccompanyingCharacter();
-value.CanEnterLocation(location);
+// Typically call this after obtaining an instance from the subsystem API
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.CanEnterLocation(location);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

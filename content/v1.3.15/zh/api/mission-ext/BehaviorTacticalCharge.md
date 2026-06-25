@@ -1,13 +1,7 @@
 ---
 title: "BehaviorTacticalCharge"
+description: "BehaviorTacticalCharge 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorTacticalCharge`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorTacticalCharge
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ title: "BehaviorTacticalCharge"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorTacticalCharge 实例
+BehaviorTacticalCharge behaviorTacticalCharge = ...;
+behaviorTacticalCharge.TickOccasionally();
+```
 
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**用途 / Purpose:** 获取 `behavior string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「behavior string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorTacticalCharge 实例
+BehaviorTacticalCharge behaviorTacticalCharge = ...;
+var result = behaviorTacticalCharge.GetBehaviorString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorTacticalCharge();
-value.TickOccasionally();
+// 通常从对应子系统 API 获取实例后调用
+BehaviorTacticalCharge behaviorTacticalCharge = ...;
+behaviorTacticalCharge.TickOccasionally();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

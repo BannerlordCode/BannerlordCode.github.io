@@ -1,18 +1,12 @@
 ---
 title: "ISiegeEventVisual"
+description: "ISiegeEventVisual 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ISiegeEventVisual`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISiegeEventVisual
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ISiegeEventVisual`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/Siege/ISiegeEventVisual.cs`
 
@@ -27,9 +21,10 @@ title: "ISiegeEventVisual"
 ## 使用示例
 
 ```csharp
-ISiegeEventVisual implementation = GetSiegeEventVisualImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IISiegeEventVisual service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

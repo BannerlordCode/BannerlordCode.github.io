@@ -1,20 +1,14 @@
 ---
 title: "MobilePartyAIModel"
+description: "Auto-generated class reference for MobilePartyAIModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyAIModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyAIModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class MobilePartyAIModel : MBGameModel<MobilePartyAIModel>`
 **Base:** `MBGameModel<MobilePartyAIModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MobilePartyAIModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MobilePartyAIModel.cs`
 
 ## Overview
 
@@ -45,39 +39,76 @@ Treat `MobilePartyAIModel` as a Model-style extension point: first identify who 
 ### ShouldConsiderAvoiding
 `public abstract bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
 
-**Purpose:** Handles logic related to `should consider avoiding`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyAIModel from the subsystem API first
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.ShouldConsiderAvoiding(party, targetParty);
+```
 
 ### ShouldConsiderAttacking
 `public abstract bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
 
-**Purpose:** Handles logic related to `should consider attacking`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyAIModel from the subsystem API first
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.ShouldConsiderAttacking(party, targetParty);
+```
 
 ### GetPatrolRadius
 `public abstract float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)`
 
-**Purpose:** Gets the current value of `patrol radius`.
+**Purpose:** Reads and returns the `patrol radius` value held by the current object.
+
+```csharp
+// Obtain an instance of MobilePartyAIModel from the subsystem API first
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.GetPatrolRadius(mobileParty, patrolPoint);
+```
 
 ### GetSettlementNearbyThreatAndAllyCheckRadius
 `public abstract float GetSettlementNearbyThreatAndAllyCheckRadius(Settlement settlement, bool isPort)`
 
-**Purpose:** Gets the current value of `settlement nearby threat and ally check radius`.
+**Purpose:** Reads and returns the `settlement nearby threat and ally check radius` value held by the current object.
+
+```csharp
+// Obtain an instance of MobilePartyAIModel from the subsystem API first
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.GetSettlementNearbyThreatAndAllyCheckRadius(settlement, false);
+```
 
 ### ShouldPartyCheckInitiativeBehavior
 `public abstract bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `should party check initiative behavior`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyAIModel from the subsystem API first
+MobilePartyAIModel mobilePartyAIModel = ...;
+var result = mobilePartyAIModel.ShouldPartyCheckInitiativeBehavior(mobileParty);
+```
 
 ### GetBestInitiativeBehavior
 `public abstract void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)`
 
-**Purpose:** Gets the current value of `best initiative behavior`.
+**Purpose:** Reads and returns the `best initiative behavior` value held by the current object.
+
+```csharp
+// Obtain an instance of MobilePartyAIModel from the subsystem API first
+MobilePartyAIModel mobilePartyAIModel = ...;
+mobilePartyAIModel.GetBestInitiativeBehavior(mobileParty, bestInitiativeBehavior, bestInitiativeTargetParty, bestInitiativeBehaviorScore, averageEnemyVec);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMobilePartyAIModel();
+// Typically obtained from a subsystem API or factory
+MobilePartyAIModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

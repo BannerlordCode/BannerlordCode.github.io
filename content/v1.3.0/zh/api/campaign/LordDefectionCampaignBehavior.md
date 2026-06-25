@@ -1,13 +1,7 @@
 ---
 title: "LordDefectionCampaignBehavior"
+description: "LordDefectionCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LordDefectionCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordDefectionCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,75 +23,154 @@ title: "LordDefectionCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+lordDefectionCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+lordDefectionCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+lordDefectionCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### ClearPersuasion
 `public void ClearPersuasion()`
 
-**用途 / Purpose:** 处理 `clear persuasion` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「persuasion」。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+lordDefectionCampaignBehavior.ClearPersuasion();
+```
 
 ### conversation_lord_player_has_failed_in_defection_on_condition
 `public bool conversation_lord_player_has_failed_in_defection_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_lord_player_has_failed_in_defection_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+var result = lordDefectionCampaignBehavior.conversation_lord_player_has_failed_in_defection_on_condition();
+```
 
 ### conversation_lord_recruit_check_if_reservations_met_on_condition
 `public bool conversation_lord_recruit_check_if_reservations_met_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_lord_recruit_check_if_reservations_met_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+var result = lordDefectionCampaignBehavior.conversation_lord_recruit_check_if_reservations_met_on_condition();
+```
 
 ### conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition
 `public bool conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+var result = lordDefectionCampaignBehavior.conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition();
+```
 
 ### conversation_lord_defect_to_clan_without_barter_on_consequence
 `public void conversation_lord_defect_to_clan_without_barter_on_consequence()`
 
-**用途 / Purpose:** 处理 `conversation_lord_defect_to_clan_without_barter_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+lordDefectionCampaignBehavior.conversation_lord_defect_to_clan_without_barter_on_consequence();
+```
 
 ### conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition
 `public bool conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+var result = lordDefectionCampaignBehavior.conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition();
+```
 
 ### conversation_player_is_asking_to_recruit_enemy_on_condition
 `public bool conversation_player_is_asking_to_recruit_enemy_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_player_is_asking_to_recruit_enemy_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+var result = lordDefectionCampaignBehavior.conversation_player_is_asking_to_recruit_enemy_on_condition();
+```
 
 ### conversation_player_is_asking_to_recruit_neutral_on_condition
 `public bool conversation_player_is_asking_to_recruit_neutral_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_player_is_asking_to_recruit_neutral_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+var result = lordDefectionCampaignBehavior.conversation_player_is_asking_to_recruit_neutral_on_condition();
+```
 
 ### conversation_lord_from_ruling_clan_on_condition
 `public bool conversation_lord_from_ruling_clan_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_lord_from_ruling_clan_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+var result = lordDefectionCampaignBehavior.conversation_lord_from_ruling_clan_on_condition();
+```
 
 ### conversation_lord_redirects_to_clan_leader_on_condition
 `public bool conversation_lord_redirects_to_clan_leader_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_lord_redirects_to_clan_leader_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+var result = lordDefectionCampaignBehavior.conversation_lord_redirects_to_clan_leader_on_condition();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LordDefectionCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+LordDefectionCampaignBehavior lordDefectionCampaignBehavior = ...;
+lordDefectionCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

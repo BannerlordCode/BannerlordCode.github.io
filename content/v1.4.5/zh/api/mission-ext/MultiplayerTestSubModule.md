@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerTestSubModule"
+description: "MultiplayerTestSubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerTestSubModule`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTestSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Test
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTestSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Multiplayer.Test/TaleWorlds.MountAndBlade.Multiplayer.Test/MultiplayerTestSubModule.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Multiplayer.Test/TaleWorlds.MountAndBlade.Multiplayer.Test/MultiplayerTestSubModule.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MultiplayerTestSubModule"
 ## 使用示例
 
 ```csharp
-var example = new MultiplayerTestSubModule();
+// 从对应子系统 API 获取实例
+MultiplayerTestSubModule instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

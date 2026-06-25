@@ -1,20 +1,14 @@
 ---
 title: "CompositeComponent"
+description: "Auto-generated class reference for CompositeComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompositeComponent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CompositeComponent
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class CompositeComponent : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/CompositeComponent.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/CompositeComponent.cs`
 
 ## Overview
 
@@ -36,87 +30,187 @@ Treat `CompositeComponent` as a Component-style extension point: first identify 
 ### IsNull
 `public static bool IsNull(CompositeComponent component)`
 
-**Purpose:** Handles logic related to `is null`.
+**Purpose:** Determines whether the current object is in the `null` state or condition.
+
+```csharp
+// Static call; no instance required
+CompositeComponent.IsNull(component);
+```
 
 ### CreateCompositeComponent
 `public static CompositeComponent CreateCompositeComponent()`
 
-**Purpose:** Creates a new `composite component` instance or object.
+**Purpose:** Constructs a new `composite component` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CompositeComponent.CreateCompositeComponent();
+```
 
 ### CreateCopy
 `public CompositeComponent CreateCopy()`
 
-**Purpose:** Creates a new `copy` instance or object.
+**Purpose:** Constructs a new `copy` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+var result = compositeComponent.CreateCopy();
+```
 
 ### AddComponent
 `public void AddComponent(GameEntityComponent component)`
 
 **Purpose:** Adds `component` to the current collection or state.
 
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.AddComponent(component);
+```
+
 ### AddPrefabEntity
 `public void AddPrefabEntity(string prefabName, Scene scene)`
 
 **Purpose:** Adds `prefab entity` to the current collection or state.
 
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.AddPrefabEntity("example", scene);
+```
+
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.Dispose();
+```
 
 ### GetFactor1
 `public uint GetFactor1()`
 
-**Purpose:** Gets the current value of `factor1`.
+**Purpose:** Reads and returns the `factor1` value held by the current object.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+var result = compositeComponent.GetFactor1();
+```
 
 ### GetFactor2
 `public uint GetFactor2()`
 
-**Purpose:** Gets the current value of `factor2`.
+**Purpose:** Reads and returns the `factor2` value held by the current object.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+var result = compositeComponent.GetFactor2();
+```
 
 ### SetFactor1
 `public void SetFactor1(uint factorColor1)`
 
-**Purpose:** Sets the value or state of `factor1`.
+**Purpose:** Assigns a new value to `factor1` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.SetFactor1(0);
+```
 
 ### SetFactor2
 `public void SetFactor2(uint factorColor2)`
 
-**Purpose:** Sets the value or state of `factor2`.
+**Purpose:** Assigns a new value to `factor2` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.SetFactor2(0);
+```
 
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** Sets the value or state of `vector argument`.
+**Purpose:** Assigns a new value to `vector argument` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.SetVectorArgument(0, 0, 0, 0);
+```
 
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**Purpose:** Sets the value or state of `material`.
+**Purpose:** Assigns a new value to `material` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.SetMaterial(material);
+```
 
 ### SetVisibilityMask
 `public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
 
-**Purpose:** Sets the value or state of `visibility mask`.
+**Purpose:** Assigns a new value to `visibility mask` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.SetVisibilityMask(visibilityMask);
+```
 
 ### GetFirstMetaMesh
 `public override MetaMesh GetFirstMetaMesh()`
 
-**Purpose:** Gets the current value of `first meta mesh`.
+**Purpose:** Reads and returns the `first meta mesh` value held by the current object.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+var result = compositeComponent.GetFirstMetaMesh();
+```
 
 ### AddMultiMesh
 `public void AddMultiMesh(string MultiMeshName)`
 
 **Purpose:** Adds `multi mesh` to the current collection or state.
 
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.AddMultiMesh("example");
+```
+
 ### SetVisible
 `public void SetVisible(bool visible)`
 
-**Purpose:** Sets the value or state of `visible`.
+**Purpose:** Assigns a new value to `visible` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+compositeComponent.SetVisible(false);
+```
 
 ### GetVisible
 `public bool GetVisible()`
 
-**Purpose:** Gets the current value of `visible`.
+**Purpose:** Reads and returns the `visible` value held by the current object.
+
+```csharp
+// Obtain an instance of CompositeComponent from the subsystem API first
+CompositeComponent compositeComponent = ...;
+var result = compositeComponent.GetVisible();
+```
 
 ## Usage Example
 
@@ -126,4 +220,4 @@ var component = agent.GetComponent<CompositeComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ConversationAggressivePartyItemVM"
+description: "Auto-generated class reference for ConversationAggressivePartyItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationAggressivePartyItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationAggressivePartyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ConversationAggressivePartyItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Conversation/ConversationAggressivePartyItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Conversation/ConversationAggressivePartyItemVM.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### ExecuteShowPartyTooltip
 `public void ExecuteShowPartyTooltip()`
 
-**Purpose:** Executes the `show party tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show party tooltip`.
+
+```csharp
+// Obtain an instance of ConversationAggressivePartyItemVM from the subsystem API first
+ConversationAggressivePartyItemVM conversationAggressivePartyItemVM = ...;
+conversationAggressivePartyItemVM.ExecuteShowPartyTooltip();
+```
 
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**Purpose:** Executes the `hide tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `hide tooltip`.
+
+```csharp
+// Obtain an instance of ConversationAggressivePartyItemVM from the subsystem API first
+ConversationAggressivePartyItemVM conversationAggressivePartyItemVM = ...;
+conversationAggressivePartyItemVM.ExecuteHideTooltip();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConversationAggressivePartyItemVM();
-value.ExecuteShowPartyTooltip();
+// Typically call this after obtaining an instance from the subsystem API
+ConversationAggressivePartyItemVM conversationAggressivePartyItemVM = ...;
+conversationAggressivePartyItemVM.ExecuteShowPartyTooltip();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

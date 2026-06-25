@@ -1,13 +1,7 @@
 ---
 title: "InventoryAlternativeUsageContainer"
+description: "Auto-generated class reference for InventoryAlternativeUsageContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryAlternativeUsageContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryAlternativeUsageContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
@@ -39,25 +33,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory` to 
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**Purpose:** Called when the `child selected` event is raised.
+**Purpose:** Invoked when the `child selected` event is raised.
+
+```csharp
+// Obtain an instance of InventoryAlternativeUsageContainer from the subsystem API first
+InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
+inventoryAlternativeUsageContainer.OnChildSelected(widget);
+```
 
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `drop gizmo position`.
+**Purpose:** Reads and returns the `drop gizmo position` value held by the current object.
+
+```csharp
+// Obtain an instance of InventoryAlternativeUsageContainer from the subsystem API first
+InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
+var result = inventoryAlternativeUsageContainer.GetDropGizmoPosition(draggedWidgetPosition);
+```
 
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `index for drop`.
+**Purpose:** Reads and returns the `index for drop` value held by the current object.
+
+```csharp
+// Obtain an instance of InventoryAlternativeUsageContainer from the subsystem API first
+InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
+var result = inventoryAlternativeUsageContainer.GetIndexForDrop(draggedWidgetPosition);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InventoryAlternativeUsageContainer();
-value.OnChildSelected(widget);
+// Typically call this after obtaining an instance from the subsystem API
+InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
+inventoryAlternativeUsageContainer.OnChildSelected(widget);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

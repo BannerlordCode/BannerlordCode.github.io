@@ -1,13 +1,7 @@
 ---
 title: "ConnectMessage"
+description: "Auto-generated class reference for ConnectMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConnectMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConnectMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new ConnectMessage();
+// Obtain an instance from the relevant subsystem API
+ConnectMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

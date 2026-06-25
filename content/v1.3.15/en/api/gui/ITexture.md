@@ -1,18 +1,12 @@
 ---
 title: "ITexture"
+description: "Auto-generated class reference for ITexture."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ITexture`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ITexture
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public interface ITexture`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension/ITexture.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-ITexture implementation = GetTextureImplementation();
+// Usually obtained through DI or a factory method
+IITexture service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

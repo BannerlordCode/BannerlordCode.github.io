@@ -1,18 +1,12 @@
 ---
 title: "INonReadyObjectHandler"
+description: "Auto-generated class reference for INonReadyObjectHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `INonReadyObjectHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # INonReadyObjectHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface INonReadyObjectHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/INonReadyObjectHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `INonReadyObjectHandler` as a Handler-style extension point: first identif
 ## Usage Example
 
 ```csharp
-INonReadyObjectHandler implementation = GetNonReadyObjectHandlerImplementation();
+// Usually obtained through DI or a factory method
+IINonReadyObjectHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

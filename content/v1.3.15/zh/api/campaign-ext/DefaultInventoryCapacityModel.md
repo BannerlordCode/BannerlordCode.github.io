@@ -1,13 +1,7 @@
 ---
 title: "DefaultInventoryCapacityModel"
+description: "DefaultInventoryCapacityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultInventoryCapacityModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultInventoryCapacityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,22 +23,46 @@ title: "DefaultInventoryCapacityModel"
 ### GetItemAverageWeight
 `public override int GetItemAverageWeight()`
 
-**用途 / Purpose:** 获取 `item average weight` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item average weight」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultInventoryCapacityModel 实例
+DefaultInventoryCapacityModel defaultInventoryCapacityModel = ...;
+var result = defaultInventoryCapacityModel.GetItemAverageWeight();
+```
 
 ### GetItemEffectiveWeight
 `public override float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
 
-**用途 / Purpose:** 获取 `item effective weight` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item effective weight」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultInventoryCapacityModel 实例
+DefaultInventoryCapacityModel defaultInventoryCapacityModel = ...;
+var result = defaultInventoryCapacityModel.GetItemEffectiveWeight(equipmentElement, mobileParty, false, description);
+```
 
 ### CalculateInventoryCapacity
 `public override ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalTroops = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
 
-**用途 / Purpose:** 处理 `calculate inventory capacity` 相关逻辑。
+**用途 / Purpose:** 计算「inventory capacity」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultInventoryCapacityModel 实例
+DefaultInventoryCapacityModel defaultInventoryCapacityModel = ...;
+var result = defaultInventoryCapacityModel.CalculateInventoryCapacity(mobileParty, false, false, 0, 0, 0, false);
+```
 
 ### CalculateTotalWeightCarried
 `public override ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate total weight carried` 相关逻辑。
+**用途 / Purpose:** 计算「total weight carried」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultInventoryCapacityModel 实例
+DefaultInventoryCapacityModel defaultInventoryCapacityModel = ...;
+var result = defaultInventoryCapacityModel.CalculateTotalWeightCarried(mobileParty, false, false);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultInventoryCapacityModel>(new MyDefaultInventoryC
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

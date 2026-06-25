@@ -1,20 +1,14 @@
 ---
 title: "TournamentMatchWidget"
+description: "Auto-generated class reference for TournamentMatchWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentMatchWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentMatchWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TournamentMatchWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament/TournamentMatchWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament/TournamentMatchWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `TournamentMatchWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new TournamentMatchWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TournamentMatchWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

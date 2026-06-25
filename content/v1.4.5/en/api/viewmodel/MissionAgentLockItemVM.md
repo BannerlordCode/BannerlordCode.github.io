@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentLockItemVM"
+description: "Auto-generated class reference for MissionAgentLockItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentLockItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentLockItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentLockItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionAgentLockItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionAgentLockItemVM.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### SetLockState
 `public void SetLockState(LockStates lockState)`
 
-**Purpose:** Sets the value or state of `lock state`.
+**Purpose:** Assigns a new value to `lock state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentLockItemVM from the subsystem API first
+MissionAgentLockItemVM missionAgentLockItemVM = ...;
+missionAgentLockItemVM.SetLockState(lockState);
+```
 
 ### UpdatePosition
 `public void UpdatePosition(Vec2 position)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionAgentLockItemVM from the subsystem API first
+MissionAgentLockItemVM missionAgentLockItemVM = ...;
+missionAgentLockItemVM.UpdatePosition(position);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentLockItemVM();
-value.SetLockState(lockState);
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentLockItemVM missionAgentLockItemVM = ...;
+missionAgentLockItemVM.SetLockState(lockState);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

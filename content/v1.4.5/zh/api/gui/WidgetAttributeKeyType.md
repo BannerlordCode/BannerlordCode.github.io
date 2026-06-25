@@ -1,20 +1,14 @@
 ---
 title: "WidgetAttributeKeyType"
+description: "WidgetAttributeKeyType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetAttributeKeyType`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyType
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public abstract class WidgetAttributeKeyType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeKeyType.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeKeyType.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "WidgetAttributeKeyType"
 ### CheckKeyType
 `public abstract bool CheckKeyType(string key)`
 
-**用途 / Purpose:** 处理 `check key type` 相关逻辑。
+**用途 / Purpose:** 检查「key type」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyType 实例
+WidgetAttributeKeyType widgetAttributeKeyType = ...;
+var result = widgetAttributeKeyType.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public abstract string GetKeyName(string key)`
 
-**用途 / Purpose:** 获取 `key name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「key name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyType 实例
+WidgetAttributeKeyType widgetAttributeKeyType = ...;
+var result = widgetAttributeKeyType.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public abstract string GetSerializedKey(string key)`
 
-**用途 / Purpose:** 获取 `serialized key` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「serialized key」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyType 实例
+WidgetAttributeKeyType widgetAttributeKeyType = ...;
+var result = widgetAttributeKeyType.GetSerializedKey("example");
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomWidgetAttributeKeyType();
+// 通常通过子系统 API 或工厂获得派生实例
+WidgetAttributeKeyType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

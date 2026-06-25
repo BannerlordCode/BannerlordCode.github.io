@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerSubModule"
+description: "Auto-generated class reference for MultiplayerSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerSubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerSubModule.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerSubModule.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**Purpose:** Called when the `game loaded` event is raised.
+**Purpose:** Invoked when the `game loaded` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerSubModule from the subsystem API first
+MultiplayerSubModule multiplayerSubModule = ...;
+multiplayerSubModule.OnGameLoaded(game, initializerObject);
+```
 
 ### OnInitialState
 `public override void OnInitialState()`
 
-**Purpose:** Called when the `initial state` event is raised.
+**Purpose:** Invoked when the `initial state` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerSubModule from the subsystem API first
+MultiplayerSubModule multiplayerSubModule = ...;
+multiplayerSubModule.OnInitialState();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerSubModule();
-value.OnGameLoaded(game, initializerObject);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerSubModule multiplayerSubModule = ...;
+multiplayerSubModule.OnGameLoaded(game, initializerObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

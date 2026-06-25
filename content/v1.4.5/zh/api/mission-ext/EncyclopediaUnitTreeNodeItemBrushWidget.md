@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaUnitTreeNodeItemBrushWidget"
+description: "EncyclopediaUnitTreeNodeItemBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaUnitTreeNodeItemBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaUnitTreeNodeItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaUnitTreeNodeItemBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaUnitTreeNodeItemBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaUnitTreeNodeItemBrushWidget.cs`
 
 ## 概述
 
@@ -39,14 +33,21 @@ title: "EncyclopediaUnitTreeNodeItemBrushWidget"
 ### OnListItemAdded
 `public void OnListItemAdded(Widget parentWidget, Widget addedWidget)`
 
-**用途 / Purpose:** 当 `list item added` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「list item added」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaUnitTreeNodeItemBrushWidget 实例
+EncyclopediaUnitTreeNodeItemBrushWidget encyclopediaUnitTreeNodeItemBrushWidget = ...;
+encyclopediaUnitTreeNodeItemBrushWidget.OnListItemAdded(parentWidget, addedWidget);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new EncyclopediaUnitTreeNodeItemBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+EncyclopediaUnitTreeNodeItemBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

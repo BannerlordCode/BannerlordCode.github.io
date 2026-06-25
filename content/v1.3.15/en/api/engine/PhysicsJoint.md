@@ -1,13 +1,7 @@
 ---
 title: "PhysicsJoint"
+description: "Auto-generated class reference for PhysicsJoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PhysicsJoint`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PhysicsJoint
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new PhysicsJoint();
+// Obtain an instance from the relevant subsystem API
+PhysicsJoint instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

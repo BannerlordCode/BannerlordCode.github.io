@@ -1,13 +1,7 @@
 ---
 title: "StandingPointWithWeaponRequirement"
+description: "Auto-generated class reference for StandingPointWithWeaponRequirement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandingPointWithWeaponRequirement`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandingPointWithWeaponRequirement
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,45 +23,88 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitRequiredWeaponClasses
 `public void InitRequiredWeaponClasses(WeaponClass requiredWeaponClasses)`
 
-**Purpose:** Initializes the state, resources, or bindings for `required weapon classes`.
+**Purpose:** Prepares the resources, state, or bindings required by `required weapon classes`.
+
+```csharp
+// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
+StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
+standingPointWithWeaponRequirement.InitRequiredWeaponClasses(requiredWeaponClasses);
+```
 
 ### InitRequiredWeapon
 `public void InitRequiredWeapon(ItemObject weapon)`
 
-**Purpose:** Initializes the state, resources, or bindings for `required weapon`.
+**Purpose:** Prepares the resources, state, or bindings required by `required weapon`.
+
+```csharp
+// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
+StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
+standingPointWithWeaponRequirement.InitRequiredWeapon(weapon);
+```
 
 ### InitGivenWeapon
 `public void InitGivenWeapon(ItemObject weapon)`
 
-**Purpose:** Initializes the state, resources, or bindings for `given weapon`.
+**Purpose:** Prepares the resources, state, or bindings required by `given weapon`.
+
+```csharp
+// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
+StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
+standingPointWithWeaponRequirement.InitGivenWeapon(weapon);
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
+StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
+var result = standingPointWithWeaponRequirement.IsDisabledForAgent(agent);
+```
 
 ### SetHasAlternative
 `public void SetHasAlternative(bool hasAlternative)`
 
-**Purpose:** Sets the value or state of `has alternative`.
+**Purpose:** Assigns a new value to `has alternative` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
+StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
+standingPointWithWeaponRequirement.SetHasAlternative(false);
+```
 
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**Purpose:** Checks whether the current object has/contains `alternative`.
+**Purpose:** Determines whether the current object already holds `alternative`.
+
+```csharp
+// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
+StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
+var result = standingPointWithWeaponRequirement.HasAlternative();
+```
 
 ### SetUsingBattleSide
 `public void SetUsingBattleSide(BattleSideEnum side)`
 
-**Purpose:** Sets the value or state of `using battle side`.
+**Purpose:** Assigns a new value to `using battle side` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
+StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
+standingPointWithWeaponRequirement.SetUsingBattleSide(side);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StandingPointWithWeaponRequirement();
-value.InitRequiredWeaponClasses(requiredWeaponClasses);
+// Typically call this after obtaining an instance from the subsystem API
+StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
+standingPointWithWeaponRequirement.InitRequiredWeaponClasses(requiredWeaponClasses);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

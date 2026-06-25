@@ -1,20 +1,14 @@
 ---
 title: "IChangeableScreen"
+description: "IChangeableScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IChangeableScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IChangeableScreen
 
 **Namespace:** SandBox.View
 **Module:** SandBox.View
-**Type:** `class`
+**Type:** `public interface IChangeableScreen`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View/IChangeableScreen.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View/IChangeableScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IChangeableScreen"
 ## 使用示例
 
 ```csharp
-IChangeableScreen implementation = GetChangeableScreenImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIChangeableScreen service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

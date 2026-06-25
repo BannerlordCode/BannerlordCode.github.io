@@ -1,13 +1,7 @@
 ---
 title: "MissionCameraFadeView"
+description: "Auto-generated class reference for MissionCameraFadeView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCameraFadeView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCameraFadeView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -39,34 +33,65 @@ Treat `MissionCameraFadeView` as a View-style extension point: first identify wh
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionCameraFadeView from the subsystem API first
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionCameraFadeView from the subsystem API first
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.OnMissionScreenTick(0);
+```
 
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**Purpose:** Handles logic related to `begin fade out and in`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCameraFadeView from the subsystem API first
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
+```
 
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutTime)`
 
-**Purpose:** Handles logic related to `begin fade out`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCameraFadeView from the subsystem API first
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.BeginFadeOut(0);
+```
 
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInTime)`
 
-**Purpose:** Handles logic related to `begin fade in`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCameraFadeView from the subsystem API first
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.BeginFadeIn(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionCameraFadeView();
+// Retrieve this view from the subsystem API or scene
+MissionCameraFadeView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

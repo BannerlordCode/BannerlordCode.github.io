@@ -1,20 +1,14 @@
 ---
 title: "Watchdog"
+description: "Auto-generated class reference for Watchdog."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Watchdog`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Watchdog
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class Watchdog`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Watchdog.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Watchdog.cs`
 
 ## Overview
 
@@ -29,22 +23,42 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### SetDumpDirectory
 `public static void SetDumpDirectory(string Path)`
 
-**Purpose:** Sets the value or state of `dump directory`.
+**Purpose:** Assigns a new value to `dump directory` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+Watchdog.SetDumpDirectory("example");
+```
 
 ### DetachAndClose
 `public static void DetachAndClose()`
 
-**Purpose:** Handles logic related to `detach and close`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Watchdog.DetachAndClose();
+```
 
 ### LogProperty
 `public static void LogProperty(string FileName, string GroupName, string Key, string Value)`
 
-**Purpose:** Handles logic related to `log property`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Watchdog.LogProperty("example", "example", "example", "example");
+```
 
 ### Attached
 `public static bool Attached()`
 
-**Purpose:** Handles logic related to `attached`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Watchdog.Attached();
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ Watchdog.SetDumpDirectory("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

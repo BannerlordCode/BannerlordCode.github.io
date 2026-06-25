@@ -1,20 +1,14 @@
 ---
 title: "UsableMissionObjectRecord"
+description: "Auto-generated class reference for UsableMissionObjectRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UsableMissionObjectRecord`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsableMissionObjectRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct UsableMissionObjectRecord : ISynchedMissionObjectReadableRecord`
 **Base:** `ISynchedMissionObjectReadableRecord`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableMissionObject.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableMissionObject.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of UsableMissionObjectRecord from the subsystem API first
+UsableMissionObjectRecord usableMissionObjectRecord = ...;
+var result = usableMissionObjectRecord.ReadFromNetwork(bufferReadValid);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UsableMissionObjectRecord();
-value.ReadFromNetwork(bufferReadValid);
+// Typically call this after obtaining an instance from the subsystem API
+UsableMissionObjectRecord usableMissionObjectRecord = ...;
+usableMissionObjectRecord.ReadFromNetwork(bufferReadValid);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

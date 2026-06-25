@@ -1,13 +1,7 @@
 ---
 title: "GauntletDefaultLoadingWindowManager"
+description: "Auto-generated class reference for GauntletDefaultLoadingWindowManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletDefaultLoadingWindowManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletDefaultLoadingWindowManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -29,7 +23,13 @@ Treat `GauntletDefaultLoadingWindowManager` as a Manager-style extension point: 
 ### SetCurrentModeIsMultiplayer
 `public void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**Purpose:** Sets the value or state of `current mode is multiplayer`.
+**Purpose:** Assigns a new value to `current mode is multiplayer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GauntletDefaultLoadingWindowManager from the subsystem API first
+GauntletDefaultLoadingWindowManager gauntletDefaultLoadingWindowManager = ...;
+gauntletDefaultLoadingWindowManager.SetCurrentModeIsMultiplayer(false);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var manager = GauntletDefaultLoadingWindowManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "WeaponSpawnFlags"
+description: "WeaponSpawnFlags 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponSpawnFlags`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponSpawnFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ title: "WeaponSpawnFlags"
 ## 使用示例
 
 ```csharp
-WeaponSpawnFlags example = WeaponSpawnFlags.Value;
+// 从对应子系统 API 获取实例
+WeaponSpawnFlags instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

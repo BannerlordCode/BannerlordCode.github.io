@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaPageArgs"
+description: "EncyclopediaPageArgs 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaPageArgs`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaPageArgs
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct EncyclopediaPageArgs`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/EncyclopediaPageArgs.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/EncyclopediaPageArgs.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "EncyclopediaPageArgs"
 ### EncyclopediaPageArgs
 `public struct EncyclopediaPageArgs(object o)`
 
-**用途 / Purpose:** 处理 `encyclopedia page args` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaPageArgs 实例
+EncyclopediaPageArgs encyclopediaPageArgs = ...;
+var result = encyclopediaPageArgs.EncyclopediaPageArgs(o);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaPageArgs();
-value.EncyclopediaPageArgs(o);
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaPageArgs encyclopediaPageArgs = ...;
+encyclopediaPageArgs.EncyclopediaPageArgs(o);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

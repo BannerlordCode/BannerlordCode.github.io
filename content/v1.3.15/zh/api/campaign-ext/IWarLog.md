@@ -1,18 +1,12 @@
 ---
 title: "IWarLog"
+description: "IWarLog 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IWarLog`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IWarLog
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IWarLog`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/LogEntries/IWarLog.cs`
 
@@ -27,9 +21,10 @@ title: "IWarLog"
 ## 使用示例
 
 ```csharp
-IWarLog implementation = GetWarLogImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIWarLog service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

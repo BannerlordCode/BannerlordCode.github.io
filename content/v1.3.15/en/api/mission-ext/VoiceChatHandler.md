@@ -1,13 +1,7 @@
 ---
 title: "VoiceChatHandler"
+description: "Auto-generated class reference for VoiceChatHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VoiceChatHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VoiceChatHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,59 +29,119 @@ Treat `VoiceChatHandler` as a Handler-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.OnRemoveBehavior();
+```
 
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**Purpose:** Called when the `pre display mission tick` event is raised.
+**Purpose:** Invoked when the `pre display mission tick` event is raised.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.OnPreDisplayMissionTick(0);
+```
 
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Called when the `player disconnected from server` event is raised.
+**Purpose:** Invoked when the `player disconnected from server` event is raised.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ### WriteVoiceData
 `public void WriteVoiceData(byte dataBuffer, int bufferSize)`
 
-**Purpose:** Handles logic related to `write voice data`.
+**Purpose:** Writes `voice data` to the target location.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.WriteVoiceData(0, 0);
+```
 
 ### SetReadyOnPlatform
 `public void SetReadyOnPlatform()`
 
-**Purpose:** Sets the value or state of `ready on platform`.
+**Purpose:** Assigns a new value to `ready on platform` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.SetReadyOnPlatform();
+```
 
 ### ProcessVoiceData
 `public bool ProcessVoiceData()`
 
-**Purpose:** Handles logic related to `process voice data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.ProcessVoiceData();
+```
 
 ### GetVoiceToPlayForTick
 `public Queue<short> GetVoiceToPlayForTick()`
 
-**Purpose:** Gets the current value of `voice to play for tick`.
+**Purpose:** Reads and returns the `voice to play for tick` value held by the current object.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.GetVoiceToPlayForTick();
+```
 
 ### HasAnyVoiceData
 `public bool HasAnyVoiceData()`
 
-**Purpose:** Checks whether the current object has/contains `any voice data`.
+**Purpose:** Determines whether the current object already holds `any voice data`.
+
+```csharp
+// Obtain an instance of VoiceChatHandler from the subsystem API first
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.HasAnyVoiceData();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new VoiceChatHandler());
+var behavior = Mission.Current.GetMissionBehavior<VoiceChatHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

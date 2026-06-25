@@ -1,13 +1,7 @@
 ---
 title: "OnEncyclopediaFilterActivatedEvent"
+description: "Auto-generated class reference for OnEncyclopediaFilterActivatedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OnEncyclopediaFilterActivatedEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OnEncyclopediaFilterActivatedEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-var value = new OnEncyclopediaFilterActivatedEvent();
+// Obtain an instance from the relevant subsystem API
+OnEncyclopediaFilterActivatedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

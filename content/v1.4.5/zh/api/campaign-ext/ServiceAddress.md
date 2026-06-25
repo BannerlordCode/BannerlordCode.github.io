@@ -1,20 +1,14 @@
 ---
 title: "ServiceAddress"
+description: "ServiceAddress 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ServiceAddress`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServiceAddress
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public class ServiceAddress`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddress.cs`
+**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddress.cs`
 
 ## 概述
 
@@ -36,12 +30,22 @@ title: "ServiceAddress"
 ### IsServiceAddress
 `public static bool IsServiceAddress(string address)`
 
-**用途 / Purpose:** 处理 `is service address` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「service address」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+ServiceAddress.IsServiceAddress("example");
+```
 
 ### TryGetAddressName
 `public static bool TryGetAddressName(string serviceAddress, out string addressName)`
 
-**用途 / Purpose:** 尝试获取 `get address name`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get address name」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 静态调用，不需要实例
+ServiceAddress.TryGetAddressName("example", addressName);
+```
 
 ## 使用示例
 
@@ -51,4 +55,4 @@ ServiceAddress.IsServiceAddress("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

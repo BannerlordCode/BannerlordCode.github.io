@@ -1,13 +1,7 @@
 ---
-title: "VisualState__TaleWorlds_MountAndBlade_Launcher_Library_CustomWidgets"
+title: "VisualState"
+description: "Auto-generated class reference for VisualState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VisualState
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets` t
 ## Usage Example
 
 ```csharp
-VisualState example = VisualState.Value;
+// Obtain an instance from the relevant subsystem API
+VisualState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

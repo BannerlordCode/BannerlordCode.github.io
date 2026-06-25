@@ -1,13 +1,7 @@
 ---
 title: "ClientsideSession"
+description: "ClientsideSession 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClientsideSession`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClientsideSession
 
 **Namespace:** TaleWorlds.Network
@@ -35,24 +29,43 @@ title: "ClientsideSession"
 ### Connect
 `public virtual void Connect(string ip, int port, bool useSessionThread = true)`
 
-**用途 / Purpose:** 处理 `connect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientsideSession 实例
+ClientsideSession clientsideSession = ...;
+clientsideSession.Connect("example", 0, false);
+```
 
 ### Process
 `public void Process()`
 
-**用途 / Purpose:** 处理 `process` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientsideSession 实例
+ClientsideSession clientsideSession = ...;
+clientsideSession.Process();
+```
 
 ### Tick
 `public override void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 ClientsideSession 实例
+ClientsideSession clientsideSession = ...;
+clientsideSession.Tick();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomClientsideSession();
+// 通常通过子系统 API 或工厂获得派生实例
+ClientsideSession instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

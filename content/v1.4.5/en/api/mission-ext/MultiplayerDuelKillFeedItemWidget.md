@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerDuelKillFeedItemWidget"
+description: "Auto-generated class reference for MultiplayerDuelKillFeedItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerDuelKillFeedItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerDuelKillFeedItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerDuelKillFeedItemWidget : MultiplayerGeneralKillFeedItemWidget`
 **Base:** `MultiplayerGeneralKillFeedItemWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerDuelKillFeedItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerDuelKillFeedItemWidget.cs`
 
 ## Overview
 
@@ -40,9 +34,10 @@ Treat `MultiplayerDuelKillFeedItemWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerDuelKillFeedItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerDuelKillFeedItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

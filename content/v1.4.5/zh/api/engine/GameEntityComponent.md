@@ -1,20 +1,14 @@
 ---
 title: "GameEntityComponent"
+description: "GameEntityComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameEntityComponent`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameEntityComponent
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public abstract class GameEntityComponent : NativeObject`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityComponent.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityComponent.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "GameEntityComponent"
 ### GetEntity
 `public WeakGameEntity GetEntity()`
 
-**用途 / Purpose:** 获取 `entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameEntityComponent 实例
+GameEntityComponent gameEntityComponent = ...;
+var result = gameEntityComponent.GetEntity();
+```
 
 ### GetFirstMetaMesh
 `public virtual MetaMesh GetFirstMetaMesh()`
 
-**用途 / Purpose:** 获取 `first meta mesh` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「first meta mesh」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameEntityComponent 实例
+GameEntityComponent gameEntityComponent = ...;
+var result = gameEntityComponent.GetFirstMetaMesh();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameEntityComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+GameEntityComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

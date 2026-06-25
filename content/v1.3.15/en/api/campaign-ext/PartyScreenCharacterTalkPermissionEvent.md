@@ -1,13 +1,7 @@
 ---
 title: "PartyScreenCharacterTalkPermissionEvent"
+description: "Auto-generated class reference for PartyScreenCharacterTalkPermissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyScreenCharacterTalkPermissionEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyScreenCharacterTalkPermissionEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Eve
 ## Usage Example
 
 ```csharp
-var value = new PartyScreenCharacterTalkPermissionEvent();
+// Obtain an instance from the relevant subsystem API
+PartyScreenCharacterTalkPermissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

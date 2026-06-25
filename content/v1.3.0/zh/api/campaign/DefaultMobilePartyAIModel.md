@@ -1,13 +1,7 @@
 ---
 title: "DefaultMobilePartyAIModel"
+description: "DefaultMobilePartyAIModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultMobilePartyAIModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMobilePartyAIModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -43,27 +37,57 @@ title: "DefaultMobilePartyAIModel"
 ### ShouldConsiderAttacking
 `public override bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** 处理 `should consider attacking` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+var result = defaultMobilePartyAIModel.ShouldConsiderAttacking(party, targetParty);
+```
 
 ### ShouldConsiderAvoiding
 `public override bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** 处理 `should consider avoiding` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+var result = defaultMobilePartyAIModel.ShouldConsiderAvoiding(party, targetParty);
+```
 
 ### GetPatrolRadius
 `public override float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)`
 
-**用途 / Purpose:** 获取 `patrol radius` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「patrol radius」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+var result = defaultMobilePartyAIModel.GetPatrolRadius(mobileParty, patrolPoint);
+```
 
 ### ShouldPartyCheckInitiativeBehavior
 `public override bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `should party check initiative behavior` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+var result = defaultMobilePartyAIModel.ShouldPartyCheckInitiativeBehavior(mobileParty);
+```
 
 ### GetBestInitiativeBehavior
 `public override void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)`
 
-**用途 / Purpose:** 获取 `best initiative behavior` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「best initiative behavior」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+defaultMobilePartyAIModel.GetBestInitiativeBehavior(mobileParty, bestInitiativeBehavior, bestInitiativeTargetParty, bestInitiativeBehaviorScore, averageEnemyVec);
+```
 
 ## 使用示例
 
@@ -73,4 +97,4 @@ Game.Current.ReplaceModel<DefaultMobilePartyAIModel>(new MyDefaultMobilePartyAIM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

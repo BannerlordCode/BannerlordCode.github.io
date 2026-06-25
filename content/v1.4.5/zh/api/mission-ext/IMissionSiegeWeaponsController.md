@@ -1,20 +1,14 @@
 ---
 title: "IMissionSiegeWeaponsController"
+description: "IMissionSiegeWeaponsController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IMissionSiegeWeaponsController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionSiegeWeaponsController
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMissionSiegeWeaponsController`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/IMissionSiegeWeaponsController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/IMissionSiegeWeaponsController.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IMissionSiegeWeaponsController"
 ## 使用示例
 
 ```csharp
-IMissionSiegeWeaponsController implementation = GetMissionSiegeWeaponsControllerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIMissionSiegeWeaponsController service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

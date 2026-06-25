@@ -1,18 +1,12 @@
 ---
 title: "IClientSession"
+description: "IClientSession 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IClientSession`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IClientSession
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public interface IClientSession`
 **Base:** 无
 **File:** `TaleWorlds.Diamond/IClientSession.cs`
 
@@ -27,9 +21,10 @@ title: "IClientSession"
 ## 使用示例
 
 ```csharp
-IClientSession implementation = GetClientSessionImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIClientSession service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

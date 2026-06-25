@@ -1,13 +1,7 @@
 ---
 title: "Equipment"
+description: "Equipment 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Equipment`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Equipment
 
 **Namespace:** TaleWorlds.Core
@@ -48,140 +42,292 @@ title: "Equipment"
 ### Clone
 `public Equipment Clone(bool cloneWithoutWeapons = false)`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.Clone(false);
+```
 
 ### FillFrom
 `public void FillFrom(Equipment sourceEquipment, bool useSourceEquipmentType = true)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+equipment.FillFrom(sourceEquipment, false);
+```
 
 ### Deserialize
 `public void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+equipment.Deserialize(objectManager, node);
+```
 
 ### DeserializeNode
 `public void DeserializeNode(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize node` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原出「node」。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+equipment.DeserializeNode(objectManager, node);
+```
 
 ### GetEquipmentIndexFromOldEquipmentIndexName
 `public static EquipmentIndex GetEquipmentIndexFromOldEquipmentIndexName(string oldEquipmentIndexName)`
 
-**用途 / Purpose:** 获取 `equipment index from old equipment index name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment index from old equipment index name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Equipment.GetEquipmentIndexFromOldEquipmentIndexName("example");
+```
 
 ### IsEmpty
 `public bool IsEmpty()`
 
-**用途 / Purpose:** 处理 `is empty` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「empty」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.IsEmpty();
+```
 
 ### GetTotalWeightOfArmor
 `public float GetTotalWeightOfArmor(bool forHuman)`
 
-**用途 / Purpose:** 获取 `total weight of armor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total weight of armor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetTotalWeightOfArmor(false);
+```
 
 ### GetTotalWeightOfWeapons
 `public float GetTotalWeightOfWeapons()`
 
-**用途 / Purpose:** 获取 `total weight of weapons` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total weight of weapons」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetTotalWeightOfWeapons();
+```
 
 ### GetHeadArmorSum
 `public float GetHeadArmorSum()`
 
-**用途 / Purpose:** 获取 `head armor sum` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「head armor sum」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetHeadArmorSum();
+```
 
 ### GetHumanBodyArmorSum
 `public float GetHumanBodyArmorSum()`
 
-**用途 / Purpose:** 获取 `human body armor sum` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「human body armor sum」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetHumanBodyArmorSum();
+```
 
 ### GetLegArmorSum
 `public float GetLegArmorSum()`
 
-**用途 / Purpose:** 获取 `leg armor sum` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「leg armor sum」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetLegArmorSum();
+```
 
 ### GetArmArmorSum
 `public float GetArmArmorSum()`
 
-**用途 / Purpose:** 获取 `arm armor sum` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「arm armor sum」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetArmArmorSum();
+```
 
 ### GetHorseArmorSum
 `public float GetHorseArmorSum()`
 
-**用途 / Purpose:** 获取 `horse armor sum` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「horse armor sum」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetHorseArmorSum();
+```
 
 ### GetUnderwearType
 `public Equipment.UnderwearTypes GetUnderwearType(bool isFemale)`
 
-**用途 / Purpose:** 获取 `underwear type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「underwear type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetUnderwearType(false);
+```
 
 ### HasWeapon
 `public bool HasWeapon()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `weapon`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「weapon」。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.HasWeapon();
+```
 
 ### HasWeaponOfClass
 `public bool HasWeaponOfClass(WeaponClass weaponClass)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `weapon of class`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「weapon of class」。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.HasWeaponOfClass(weaponClass);
+```
 
 ### CreateFromEquipmentCode
 `public static Equipment CreateFromEquipmentCode(string equipmentCode)`
 
-**用途 / Purpose:** 创建一个 `from equipment code` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from equipment code」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Equipment.CreateFromEquipmentCode("example");
+```
 
 ### CalculateEquipmentCode
 `public string CalculateEquipmentCode()`
 
-**用途 / Purpose:** 处理 `calculate equipment code` 相关逻辑。
+**用途 / Purpose:** 计算「equipment code」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.CalculateEquipmentCode();
+```
 
 ### AddEquipmentToSlotWithoutAgent
 `public void AddEquipmentToSlotWithoutAgent(EquipmentIndex equipmentIndex, EquipmentElement itemRosterElement)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `equipment to slot without agent`。
+**用途 / Purpose:** 将 「equipment to slot without agent」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+equipment.AddEquipmentToSlotWithoutAgent(equipmentIndex, itemRosterElement);
+```
 
 ### GetEquipmentFromSlot
 `public EquipmentElement GetEquipmentFromSlot(EquipmentIndex equipmentIndex)`
 
-**用途 / Purpose:** 获取 `equipment from slot` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment from slot」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetEquipmentFromSlot(equipmentIndex);
+```
 
 ### IsItemFitsToSlot
 `public static bool IsItemFitsToSlot(EquipmentIndex slotIndex, ItemObject item)`
 
-**用途 / Purpose:** 处理 `is item fits to slot` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「item fits to slot」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+Equipment.IsItemFitsToSlot(slotIndex, item);
+```
 
 ### GetWeaponPickUpSlotIndex
 `public EquipmentIndex GetWeaponPickUpSlotIndex(EquipmentElement itemRosterElement, bool isStuckMissile)`
 
-**用途 / Purpose:** 获取 `weapon pick up slot index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「weapon pick up slot index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.GetWeaponPickUpSlotIndex(itemRosterElement, false);
+```
 
 ### IsEquipmentEqualTo
 `public bool IsEquipmentEqualTo(Equipment other)`
 
-**用途 / Purpose:** 处理 `is equipment equal to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「equipment equal to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+var result = equipment.IsEquipmentEqualTo(other);
+```
 
 ### GetRandomEquipmentElements
 `public static Equipment GetRandomEquipmentElements(BasicCharacterObject character, bool randomEquipmentModifier, Equipment.EquipmentType equipmentType, int seed = -1)`
 
-**用途 / Purpose:** 获取 `random equipment elements` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random equipment elements」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Equipment.GetRandomEquipmentElements(character, false, equipmentType, 0);
+```
 
 ### SwapWeapons
 `public static void SwapWeapons(Equipment equipment, EquipmentIndex index1, EquipmentIndex index2)`
 
-**用途 / Purpose:** 处理 `swap weapons` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Equipment.SwapWeapons(equipment, index1, index2);
+```
 
 ### GetInitialWeaponIndicesToEquip
 `public void GetInitialWeaponIndicesToEquip(out EquipmentIndex mainHandWeaponIndex, out EquipmentIndex offHandWeaponIndex, out bool isMainHandNotUsableWithOneHand, Equipment.InitialWeaponEquipPreference initialWeaponEquipPreference = Equipment.InitialWeaponEquipPreference.Any)`
 
-**用途 / Purpose:** 获取 `initial weapon indices to equip` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial weapon indices to equip」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Equipment 实例
+Equipment equipment = ...;
+equipment.GetInitialWeaponIndicesToEquip(mainHandWeaponIndex, offHandWeaponIndex, isMainHandNotUsableWithOneHand, equipment.InitialWeaponEquipPreference.Any);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Equipment();
-value.Clone(false);
+// 通常从对应子系统 API 获取实例后调用
+Equipment equipment = ...;
+equipment.Clone(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

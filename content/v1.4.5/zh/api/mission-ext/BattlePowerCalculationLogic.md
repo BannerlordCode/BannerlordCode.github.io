@@ -1,20 +1,14 @@
 ---
 title: "BattlePowerCalculationLogic"
+description: "BattlePowerCalculationLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattlePowerCalculationLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattlePowerCalculationLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattlePowerCalculationLogic : MissionLogic, IBattlePowerCalculationLogic, IMissionBehavior`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattlePowerCalculationLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattlePowerCalculationLogic.cs`
 
 ## 概述
 
@@ -35,14 +29,20 @@ title: "BattlePowerCalculationLogic"
 ### GetTotalTeamPower
 `public float GetTotalTeamPower(Team team)`
 
-**用途 / Purpose:** 获取 `total team power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total team power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattlePowerCalculationLogic 实例
+BattlePowerCalculationLogic battlePowerCalculationLogic = ...;
+var result = battlePowerCalculationLogic.GetTotalTeamPower(team);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattlePowerCalculationLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattlePowerCalculationLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

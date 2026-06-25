@@ -1,20 +1,14 @@
 ---
 title: "EventBase"
+description: "EventBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EventBase`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventBase
 
 **Namespace:** TaleWorlds.Library.EventSystem
 **Module:** TaleWorlds.Library
 **Type:** `public class EventBase`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventBase.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.EventSystem/EventBase.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "EventBase"
 ## 使用示例
 
 ```csharp
-var example = new EventBase();
+// 从对应子系统 API 获取实例
+EventBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

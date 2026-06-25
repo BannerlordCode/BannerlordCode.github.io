@@ -1,20 +1,14 @@
 ---
 title: "ConspiracyBaseOfOperationsDiscoveredConspiracyQuest"
+description: "ConspiracyBaseOfOperationsDiscoveredConspiracyQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConspiracyBaseOfOperationsDiscoveredConspiracyQuest`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConspiracyBaseOfOperationsDiscoveredConspiracyQuest
 
 **Namespace:** StoryMode.Quests.SecondPhase.ConspiracyQuests
 **Module:** StoryMode.Quests
 **Type:** `public class ConspiracyBaseOfOperationsDiscoveredConspiracyQuest : ConspiracyQuestBase`
 **Base:** `ConspiracyQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.SecondPhase.ConspiracyQuests/ConspiracyBaseOfOperationsDiscoveredConspiracyQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.SecondPhase.ConspiracyQuests/ConspiracyBaseOfOperationsDiscoveredConspiracyQuest.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "ConspiracyBaseOfOperationsDiscoveredConspiracyQuest"
 ## 使用示例
 
 ```csharp
-var value = new ConspiracyBaseOfOperationsDiscoveredConspiracyQuest();
+// 从对应子系统 API 获取实例
+ConspiracyBaseOfOperationsDiscoveredConspiracyQuest instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

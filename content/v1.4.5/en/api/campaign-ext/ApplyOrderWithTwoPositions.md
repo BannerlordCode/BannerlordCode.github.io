@@ -1,20 +1,14 @@
 ---
 title: "ApplyOrderWithTwoPositions"
+description: "Auto-generated class reference for ApplyOrderWithTwoPositions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplyOrderWithTwoPositions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ApplyOrderWithTwoPositions
 
 **Namespace:** NetworkMessages.FromClient
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ApplyOrderWithTwoPositions : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrderWithTwoPositions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrderWithTwoPositions.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromClient` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new ApplyOrderWithTwoPositions();
+// Obtain an instance from the relevant subsystem API
+ApplyOrderWithTwoPositions instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

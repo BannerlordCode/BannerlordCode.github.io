@@ -1,23 +1,18 @@
 ---
 title: "ProximityMapSearchStruct"
+description: "Auto-generated class reference for ProximityMapSearchStruct."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProximityMapSearchStruct`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ProximityMapSearchStruct
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ProximityMapSearchStruct`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/AgentProximityMap.cs`
 
 ## Overview
 
-`ProximityMapSearchStruct` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ProximityMapSearchStruct` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,31 +24,13 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 |------|-----------|
 | `LastFoundAgent` | `public Agent LastFoundAgent { get; set; }` |
 
-## Key Methods
-
-### CanSearchRadius
-`public static bool CanSearchRadius(float searchRadius)`
-
-**Purpose:** Checks whether the current object can `search radius`.
-
-### BeginSearch
-`public static AgentProximityMap.ProximityMapSearchStruct BeginSearch(Mission mission, Vec2 searchPos, float searchRadius, bool extendRangeByBiggestAgentCollisionPadding = false)`
-
-**Purpose:** Handles logic related to `begin search`.
-
-### FindNext
-`public static void FindNext(Mission mission, ref AgentProximityMap.ProximityMapSearchStruct searchStruct)`
-
-**Purpose:** Handles logic related to `find next`.
-
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
-ProximityMapSearchStruct.CanSearchRadius(0);
+// Obtain an instance from the relevant subsystem API
+ProximityMapSearchStruct instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TokenType"
+description: "Auto-generated class reference for TokenType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TokenType`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TokenType
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-TokenType example = TokenType.Value;
+// Obtain an instance from the relevant subsystem API
+TokenType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

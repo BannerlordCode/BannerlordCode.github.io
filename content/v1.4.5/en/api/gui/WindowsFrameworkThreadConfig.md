@@ -1,20 +1,14 @@
 ---
 title: "WindowsFrameworkThreadConfig"
+description: "Auto-generated class reference for WindowsFrameworkThreadConfig."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WindowsFrameworkThreadConfig`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WindowsFrameworkThreadConfig
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum WindowsFrameworkThreadConfig`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/WindowsFrameworkThreadConfig.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/WindowsFrameworkThreadConfig.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ## Usage Example
 
 ```csharp
-var example = new WindowsFrameworkThreadConfig();
+// Obtain an instance from the relevant subsystem API
+WindowsFrameworkThreadConfig instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

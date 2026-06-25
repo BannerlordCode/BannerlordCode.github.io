@@ -1,20 +1,14 @@
 ---
 title: "DefaultBribeCalculationModel"
+description: "DefaultBribeCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultBribeCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBribeCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultBribeCalculationModel : BribeCalculationModel`
 **Base:** `BribeCalculationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBribeCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBribeCalculationModel.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "DefaultBribeCalculationModel"
 ### IsBribeNotNeededToEnterKeep
 `public override bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `is bribe not needed to enter keep` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「bribe not needed to enter keep」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBribeCalculationModel 实例
+DefaultBribeCalculationModel defaultBribeCalculationModel = ...;
+var result = defaultBribeCalculationModel.IsBribeNotNeededToEnterKeep(settlement);
+```
 
 ### IsBribeNotNeededToEnterDungeon
 `public override bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `is bribe not needed to enter dungeon` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「bribe not needed to enter dungeon」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBribeCalculationModel 实例
+DefaultBribeCalculationModel defaultBribeCalculationModel = ...;
+var result = defaultBribeCalculationModel.IsBribeNotNeededToEnterDungeon(settlement);
+```
 
 ### GetBribeToEnterLordsHall
 `public override int GetBribeToEnterLordsHall(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `bribe to enter lords hall` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bribe to enter lords hall」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBribeCalculationModel 实例
+DefaultBribeCalculationModel defaultBribeCalculationModel = ...;
+var result = defaultBribeCalculationModel.GetBribeToEnterLordsHall(settlement);
+```
 
 ### GetBribeToEnterDungeon
 `public override int GetBribeToEnterDungeon(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `bribe to enter dungeon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bribe to enter dungeon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBribeCalculationModel 实例
+DefaultBribeCalculationModel defaultBribeCalculationModel = ...;
+var result = defaultBribeCalculationModel.GetBribeToEnterDungeon(settlement);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultBribeCalculationModel>(new MyDefaultBribeCalcul
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

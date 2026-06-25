@@ -1,13 +1,7 @@
 ---
 title: "DuelTargetMarkerListPanel"
+description: "Auto-generated class reference for DuelTargetMarkerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelTargetMarkerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DuelTargetMarkerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
@@ -44,9 +38,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMa
 ## Usage Example
 
 ```csharp
-var value = new DuelTargetMarkerListPanel();
+// Obtain an instance from the relevant subsystem API
+DuelTargetMarkerListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

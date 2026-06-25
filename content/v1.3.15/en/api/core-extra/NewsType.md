@@ -1,13 +1,7 @@
 ---
 title: "NewsType"
+description: "Auto-generated class reference for NewsType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NewsType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NewsType
 
 **Namespace:** TaleWorlds.Library.NewsManager
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Library.NewsManager` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new NewsType();
+// Obtain an instance from the relevant subsystem API
+NewsType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

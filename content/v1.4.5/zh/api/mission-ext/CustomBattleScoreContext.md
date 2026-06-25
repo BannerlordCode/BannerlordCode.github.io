@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleScoreContext"
+description: "CustomBattleScoreContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleScoreContext`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleScoreContext
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.BattleScore
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleScoreContext : BattleScoreContext`
 **Base:** `BattleScoreContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.BattleScore/CustomBattleScoreContext.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.BattleScore/CustomBattleScoreContext.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CustomBattleScoreContext"
 ### GetAttackerBanner
 `public override Banner GetAttackerBanner()`
 
-**用途 / Purpose:** 获取 `attacker banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attacker banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreContext 实例
+CustomBattleScoreContext customBattleScoreContext = ...;
+var result = customBattleScoreContext.GetAttackerBanner();
+```
 
 ### GetDefenderBanner
 `public override Banner GetDefenderBanner()`
 
-**用途 / Purpose:** 获取 `defender banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「defender banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreContext 实例
+CustomBattleScoreContext customBattleScoreContext = ...;
+var result = customBattleScoreContext.GetDefenderBanner();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleScoreContext();
-value.GetAttackerBanner();
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleScoreContext customBattleScoreContext = ...;
+customBattleScoreContext.GetAttackerBanner();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

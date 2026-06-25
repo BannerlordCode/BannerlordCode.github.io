@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerTrebuchetSpawner"
+description: "Auto-generated class reference for MultiplayerTrebuchetSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTrebuchetSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTrebuchetSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ## Usage Example
 
 ```csharp
-var example = new MultiplayerTrebuchetSpawner();
+// Obtain an instance from the relevant subsystem API
+MultiplayerTrebuchetSpawner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

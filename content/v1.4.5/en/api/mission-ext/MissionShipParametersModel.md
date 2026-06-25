@@ -1,20 +1,14 @@
 ---
 title: "MissionShipParametersModel"
+description: "Auto-generated class reference for MissionShipParametersModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionShipParametersModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionShipParametersModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionShipParametersModel : MBGameModel<MissionShipParametersModel>`
 **Base:** `MBGameModel<MissionShipParametersModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionShipParametersModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionShipParametersModel.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionShipParametersModel` as a Model-style extension point: first ident
 ### CalculateMainDeckCrewSize
 `public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent formationUnit)`
 
-**Purpose:** Handles logic related to `calculate main deck crew size`.
+**Purpose:** Calculates the current value or result of `main deck crew size`.
+
+```csharp
+// Obtain an instance of MissionShipParametersModel from the subsystem API first
+MissionShipParametersModel missionShipParametersModel = ...;
+var result = missionShipParametersModel.CalculateMainDeckCrewSize(shipOrigin, formationUnit);
+```
 
 ### CalculateWindBonus
 `public abstract float CalculateWindBonus(IShipOrigin shipOrigin, Agent captain, float baseSailForceMagnitude)`
 
-**Purpose:** Handles logic related to `calculate wind bonus`.
+**Purpose:** Calculates the current value or result of `wind bonus`.
+
+```csharp
+// Obtain an instance of MissionShipParametersModel from the subsystem API first
+MissionShipParametersModel missionShipParametersModel = ...;
+var result = missionShipParametersModel.CalculateWindBonus(shipOrigin, captain, 0);
+```
 
 ### CalculateOarForceMultiplier
 `public abstract float CalculateOarForceMultiplier(Agent pilotAgent, float baseOarForce)`
 
-**Purpose:** Handles logic related to `calculate oar force multiplier`.
+**Purpose:** Calculates the current value or result of `oar force multiplier`.
+
+```csharp
+// Obtain an instance of MissionShipParametersModel from the subsystem API first
+MissionShipParametersModel missionShipParametersModel = ...;
+var result = missionShipParametersModel.CalculateOarForceMultiplier(pilotAgent, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionShipParametersModel();
+// Typically obtained from a subsystem API or factory
+MissionShipParametersModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

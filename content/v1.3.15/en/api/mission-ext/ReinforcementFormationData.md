@@ -1,19 +1,14 @@
 ---
 title: "ReinforcementFormationData"
+description: "Auto-generated class reference for ReinforcementFormationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReinforcementFormationData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ReinforcementFormationData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReinforcementFormationData`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
 
 ## Overview
 
@@ -25,53 +20,57 @@ Treat `ReinforcementFormationData` as a Data-style extension point: first identi
 
 ## Key Methods
 
-### OnMissionStart
-`public static void OnMissionStart()`
-
-**Purpose:** Called when the `mission start` event is raised.
-
-### GetReinforcementAssignments
-`public unsafe static List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
-
-**Purpose:** Gets the current value of `reinforcement assignments`.
-
-### OnMissionEnd
-`public static void OnMissionEnd()`
-
-**Purpose:** Called when the `mission end` event is raised.
-
-### Compare
-`public int Compare(MissionReinforcementsHelper.ReinforcementFormationPriority left, MissionReinforcementsHelper.ReinforcementFormationPriority right)`
-
-**Purpose:** Handles logic related to `compare`.
-
 ### Initialize
 `public void Initialize(Formation formation, uint initTime)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ReinforcementFormationData from the subsystem API first
+ReinforcementFormationData reinforcementFormationData = ...;
+reinforcementFormationData.Initialize(formation, 0);
+```
 
 ### AddProspectiveTroop
 `public void AddProspectiveTroop(FormationClass troopClass)`
 
 **Purpose:** Adds `prospective troop` to the current collection or state.
 
+```csharp
+// Obtain an instance of ReinforcementFormationData from the subsystem API first
+ReinforcementFormationData reinforcementFormationData = ...;
+reinforcementFormationData.AddProspectiveTroop(troopClass);
+```
+
 ### IsInitialized
 `public bool IsInitialized(uint initTime)`
 
-**Purpose:** Handles logic related to `is initialized`.
+**Purpose:** Determines whether the current object is in the `initialized` state or condition.
+
+```csharp
+// Obtain an instance of ReinforcementFormationData from the subsystem API first
+ReinforcementFormationData reinforcementFormationData = ...;
+var result = reinforcementFormationData.IsInitialized(0);
+```
 
 ### GetPriority
 `public MissionReinforcementsHelper.ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
 
-**Purpose:** Gets the current value of `priority`.
+**Purpose:** Reads and returns the `priority` value held by the current object.
+
+```csharp
+// Obtain an instance of ReinforcementFormationData from the subsystem API first
+ReinforcementFormationData reinforcementFormationData = ...;
+var result = reinforcementFormationData.GetPriority(troopClass);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ReinforcementFormationData();
+// This data object is usually returned by campaign/mission APIs
+ReinforcementFormationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

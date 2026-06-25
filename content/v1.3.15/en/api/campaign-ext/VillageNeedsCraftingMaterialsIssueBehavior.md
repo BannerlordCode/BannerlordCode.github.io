@@ -1,13 +1,7 @@
 ---
 title: "VillageNeedsCraftingMaterialsIssueBehavior"
+description: "Auto-generated class reference for VillageNeedsCraftingMaterialsIssueBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageNeedsCraftingMaterialsIssueBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VillageNeedsCraftingMaterialsIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -52,50 +46,99 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of VillageNeedsCraftingMaterialsIssueBehavior from the subsystem API first
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+villageNeedsCraftingMaterialsIssueBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of VillageNeedsCraftingMaterialsIssueBehavior from the subsystem API first
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+villageNeedsCraftingMaterialsIssueBehavior.SyncData(dataStore);
+```
 
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Gets the current value of `alternative solution skill`.
+**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageNeedsCraftingMaterialsIssueBehavior from the subsystem API first
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+var result = villageNeedsCraftingMaterialsIssueBehavior.GetAlternativeSolutionSkill(hero);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageNeedsCraftingMaterialsIssueBehavior from the subsystem API first
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+var result = villageNeedsCraftingMaterialsIssueBehavior.AlternativeSolutionCondition(explanation);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageNeedsCraftingMaterialsIssueBehavior from the subsystem API first
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+var result = villageNeedsCraftingMaterialsIssueBehavior.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageNeedsCraftingMaterialsIssueBehavior from the subsystem API first
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+var result = villageNeedsCraftingMaterialsIssueBehavior.GetFrequency();
+```
 
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Handles logic related to `alternative solution start consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageNeedsCraftingMaterialsIssueBehavior from the subsystem API first
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+villageNeedsCraftingMaterialsIssueBehavior.AlternativeSolutionStartConsequence();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of VillageNeedsCraftingMaterialsIssueBehavior from the subsystem API first
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+var result = villageNeedsCraftingMaterialsIssueBehavior.IssueStayAliveConditions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillageNeedsCraftingMaterialsIssueBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+VillageNeedsCraftingMaterialsIssueBehavior villageNeedsCraftingMaterialsIssueBehavior = ...;
+villageNeedsCraftingMaterialsIssueBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

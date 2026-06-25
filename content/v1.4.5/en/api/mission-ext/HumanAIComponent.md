@@ -1,20 +1,14 @@
 ---
 title: "HumanAIComponent"
+description: "Auto-generated class reference for HumanAIComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HumanAIComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HumanAIComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HumanAIComponent : AgentComponent`
 **Base:** `AgentComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanAIComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HumanAIComponent.cs`
 
 ## Overview
 
@@ -36,142 +30,310 @@ Treat `HumanAIComponent` as a Component-style extension point: first identify wh
 ### GetValueAt
 `public float GetValueAt(float x)`
 
-**Purpose:** Gets the current value of `value at`.
+**Purpose:** Reads and returns the `value at` value held by the current object.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetValueAt(0);
+```
 
 ### OverrideBehaviorParams
 `public void OverrideBehaviorParams(AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)`
 
-**Purpose:** Handles logic related to `override behavior params`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OverrideBehaviorParams(behavior, 0, 0, 0, 0, 0);
+```
 
 ### SyncBehaviorParamsIfNecessary
 `public void SyncBehaviorParamsIfNecessary()`
 
-**Purpose:** Handles logic related to `sync behavior params if necessary`.
+**Purpose:** Synchronizes `behavior params if necessary` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.SyncBehaviorParamsIfNecessary();
+```
 
 ### DisablePickUpForAgentIfNeeded
 `public void DisablePickUpForAgentIfNeeded()`
 
-**Purpose:** Handles logic related to `disable pick up for agent if needed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.DisablePickUpForAgentIfNeeded();
+```
 
 ### OnTickParallel
 `public override void OnTickParallel(float dt)`
 
-**Purpose:** Called when the `tick parallel` event is raised.
+**Purpose:** Invoked when the `tick parallel` event is raised.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnTickParallel(0);
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnAgentRemoved();
+```
 
 ### OnComponentRemoved
 `public override void OnComponentRemoved()`
 
-**Purpose:** Called when the `component removed` event is raised.
+**Purpose:** Invoked when the `component removed` event is raised.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnComponentRemoved();
+```
 
 ### IsInImportantCombatAction
 `public bool IsInImportantCombatAction()`
 
-**Purpose:** Handles logic related to `is in important combat action`.
+**Purpose:** Determines whether the current object is in the `in important combat action` state or condition.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.IsInImportantCombatAction();
+```
 
 ### GetCurrentlyMovingGameObject
 `public UsableMissionObject GetCurrentlyMovingGameObject()`
 
-**Purpose:** Gets the current value of `currently moving game object`.
+**Purpose:** Reads and returns the `currently moving game object` value held by the current object.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetCurrentlyMovingGameObject();
+```
 
 ### GetCurrentlyDefendingGameObject
 `public UsableMissionObject GetCurrentlyDefendingGameObject()`
 
-**Purpose:** Gets the current value of `currently defending game object`.
+**Purpose:** Reads and returns the `currently defending game object` value held by the current object.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetCurrentlyDefendingGameObject();
+```
 
 ### MoveToUsableGameObject
 `public void MoveToUsableGameObject(UsableMissionObject usedObject, IDetachment detachment, Agent.AIScriptedFrameFlags scriptedFrameFlags = Agent.AIScriptedFrameFlags.NoAttack)`
 
-**Purpose:** Handles logic related to `move to usable game object`.
+**Purpose:** Moves `to usable game object` to a new position or state.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.MoveToUsableGameObject(usedObject, detachment, agent.AIScriptedFrameFlags.NoAttack);
+```
 
 ### MoveToClear
 `public void MoveToClear()`
 
-**Purpose:** Handles logic related to `move to clear`.
+**Purpose:** Moves `to clear` to a new position or state.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.MoveToClear();
+```
 
 ### StartDefendingGameObject
 `public void StartDefendingGameObject(UsableMissionObject usedObject, IDetachment detachment)`
 
-**Purpose:** Handles logic related to `start defending game object`.
+**Purpose:** Starts the `defending game object` flow or state machine.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.StartDefendingGameObject(usedObject, detachment);
+```
 
 ### StopDefendingGameObject
 `public void StopDefendingGameObject()`
 
-**Purpose:** Handles logic related to `stop defending game object`.
+**Purpose:** Stops the `defending game object` flow or state machine.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.StopDefendingGameObject();
+```
 
 ### IsInterestedInAnyGameObject
 `public bool IsInterestedInAnyGameObject()`
 
-**Purpose:** Handles logic related to `is interested in any game object`.
+**Purpose:** Determines whether the current object is in the `interested in any game object` state or condition.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.IsInterestedInAnyGameObject();
+```
 
 ### IsInterestedInGameObject
 `public bool IsInterestedInGameObject(UsableMissionObject usableMissionObject)`
 
-**Purpose:** Handles logic related to `is interested in game object`.
+**Purpose:** Determines whether the current object is in the `interested in game object` state or condition.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.IsInterestedInGameObject(usableMissionObject);
+```
 
 ### FollowAgent
 `public void FollowAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `follow agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.FollowAgent(agent);
+```
 
 ### GetDesiredSpeedInFormation
 `public float GetDesiredSpeedInFormation(bool isCharging)`
 
-**Purpose:** Gets the current value of `desired speed in formation`.
+**Purpose:** Reads and returns the `desired speed in formation` value held by the current object.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetDesiredSpeedInFormation(false);
+```
 
 ### AdjustSpeedLimit
 `public void AdjustSpeedLimit(Agent agent, float desiredSpeed, bool limitIsMultiplier)`
 
-**Purpose:** Handles logic related to `adjust speed limit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.AdjustSpeedLimit(agent, 0, false);
+```
 
 ### ParallelUpdateFormationMovement
 `public void ParallelUpdateFormationMovement()`
 
-**Purpose:** Handles logic related to `parallel update formation movement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.ParallelUpdateFormationMovement();
+```
 
 ### OnRetreating
 `public override void OnRetreating()`
 
-**Purpose:** Called when the `retreating` event is raised.
+**Purpose:** Invoked when the `retreating` event is raised.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnRetreating();
+```
 
 ### OnDismount
 `public override void OnDismount(Agent mount)`
 
-**Purpose:** Called when the `dismount` event is raised.
+**Purpose:** Invoked when the `dismount` event is raised.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnDismount(mount);
+```
 
 ### SetBehaviorValueSet
 `public void SetBehaviorValueSet(BehaviorValueSet behaviorValueSet)`
 
-**Purpose:** Sets the value or state of `behavior value set`.
+**Purpose:** Assigns a new value to `behavior value set` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.SetBehaviorValueSet(behaviorValueSet);
+```
 
 ### RefreshBehaviorValues
 `public void RefreshBehaviorValues(MovementOrder.MovementOrderEnum movementOrder, ArrangementOrder.ArrangementOrderEnum arrangementOrder)`
 
-**Purpose:** Refreshes the display or cache of `behavior values`.
+**Purpose:** Keeps the display or cache of `behavior values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.RefreshBehaviorValues(movementOrder, arrangementOrder);
+```
 
 ### ForceDisablePickUpForAgent
 `public void ForceDisablePickUpForAgent()`
 
-**Purpose:** Handles logic related to `force disable pick up for agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.ForceDisablePickUpForAgent();
+```
 
 ### SetScriptedPositionAndDirectionTimed
 `public void SetScriptedPositionAndDirectionTimed(Vec2 position, float directionAsRotationInRadians, float duration)`
 
-**Purpose:** Sets the value or state of `scripted position and direction timed`.
+**Purpose:** Assigns a new value to `scripted position and direction timed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.SetScriptedPositionAndDirectionTimed(position, 0, 0);
+```
 
 ### DisableTimedScriptedMovement
 `public void DisableTimedScriptedMovement()`
 
-**Purpose:** Handles logic related to `disable timed scripted movement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.DisableTimedScriptedMovement();
+```
 
 ## Usage Example
 
@@ -181,4 +343,4 @@ var component = agent.GetComponent<HumanAIComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

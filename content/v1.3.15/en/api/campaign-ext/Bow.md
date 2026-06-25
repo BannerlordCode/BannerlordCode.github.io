@@ -1,23 +1,18 @@
 ---
 title: "Bow"
+description: "Auto-generated class reference for Bow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Bow`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Bow
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Bow`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Bow` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Bow` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
+| `BowControl` | `public static PerkObject BowControl { get; }` |
+| `DeadAim` | `public static PerkObject DeadAim { get; }` |
+| `Bodkin` | `public static PerkObject Bodkin { get; }` |
+| `RangersSwiftness` | `public static PerkObject RangersSwiftness { get; }` |
+| `RapidFire` | `public static PerkObject RapidFire { get; }` |
+| `QuickAdjustments` | `public static PerkObject QuickAdjustments { get; }` |
+| `MerryMen` | `public static PerkObject MerryMen { get; }` |
+| `MountedArchery` | `public static PerkObject MountedArchery { get; }` |
 | `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `StrongBows` | `public static PerkObject StrongBows { get; }` |
+| `Discipline` | `public static PerkObject Discipline { get; }` |
+| `HunterClan` | `public static PerkObject HunterClan { get; }` |
+| `SkirmishPhaseMaster` | `public static PerkObject SkirmishPhaseMaster { get; }` |
+| `EagleEye` | `public static PerkObject EagleEye { get; }` |
+| `BullsEye` | `public static PerkObject BullsEye { get; }` |
+| `RenownedArcher` | `public static PerkObject RenownedArcher { get; }` |
+| `HorseMaster` | `public static PerkObject HorseMaster { get; }` |
+| `DeepQuivers` | `public static PerkObject DeepQuivers { get; }` |
+| `QuickDraw` | `public static PerkObject QuickDraw { get; }` |
+| `NockingPoint` | `public static PerkObject NockingPoint { get; }` |
+| `Deadshot` | `public static PerkObject Deadshot { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Bow();
+// Obtain an instance from the relevant subsystem API
+Bow instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

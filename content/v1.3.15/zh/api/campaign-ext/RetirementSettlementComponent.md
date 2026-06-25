@@ -1,13 +1,7 @@
 ---
 title: "RetirementSettlementComponent"
+description: "RetirementSettlementComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RetirementSettlementComponent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RetirementSettlementComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -36,7 +30,13 @@ title: "RetirementSettlementComponent"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 RetirementSettlementComponent 实例
+RetirementSettlementComponent retirementSettlementComponent = ...;
+retirementSettlementComponent.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
@@ -46,4 +46,4 @@ var component = agent.GetComponent<RetirementSettlementComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

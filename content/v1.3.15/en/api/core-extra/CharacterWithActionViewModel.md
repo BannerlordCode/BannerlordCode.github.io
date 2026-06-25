@@ -1,13 +1,7 @@
 ---
 title: "CharacterWithActionViewModel"
+description: "Auto-generated class reference for CharacterWithActionViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterWithActionViewModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterWithActionViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -27,10 +21,11 @@ Treat `CharacterWithActionViewModel` as a ViewModel-style extension point: first
 ## Usage Example
 
 ```csharp
-var vm = new CharacterWithActionViewModel();
+// Bind the instance as the view-model of a movie or view
+CharacterWithActionViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

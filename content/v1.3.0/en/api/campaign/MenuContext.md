@@ -1,13 +1,7 @@
 ---
 title: "MenuContext"
+description: "Auto-generated class reference for MenuContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuContext`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuContext
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -39,100 +33,209 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.Refresh();
+```
 
 ### SwitchToMenu
 `public void SwitchToMenu(string menuId)`
 
-**Purpose:** Handles logic related to `switch to menu`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.SwitchToMenu("example");
+```
 
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.Destroy();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.OnTick(0);
+```
 
 ### OnHourlyTick
 `public void OnHourlyTick()`
 
-**Purpose:** Called when the `hourly tick` event is raised.
+**Purpose:** Invoked when the `hourly tick` event is raised.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.OnHourlyTick();
+```
 
 ### GetCurrentRepeatableObject
 `public object GetCurrentRepeatableObject()`
 
-**Purpose:** Gets the current value of `current repeatable object`.
+**Purpose:** Reads and returns the `current repeatable object` value held by the current object.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+var result = menuContext.GetCurrentRepeatableObject();
+```
 
 ### GetSelectedObject
 `public object GetSelectedObject()`
 
-**Purpose:** Gets the current value of `selected object`.
+**Purpose:** Reads and returns the `selected object` value held by the current object.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+var result = menuContext.GetSelectedObject();
+```
 
 ### GetSelectedRepeatableObject
 `public object GetSelectedRepeatableObject()`
 
-**Purpose:** Gets the current value of `selected repeatable object`.
+**Purpose:** Reads and returns the `selected repeatable object` value held by the current object.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+var result = menuContext.GetSelectedRepeatableObject();
+```
 
 ### SetRepeatObjectList
 `public void SetRepeatObjectList(IEnumerable<object> list)`
 
-**Purpose:** Sets the value or state of `repeat object list`.
+**Purpose:** Assigns a new value to `repeat object list` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.SetRepeatObjectList(list);
+```
 
 ### OnConsequence
 `public void OnConsequence(GameMenuOption gameMenuOption)`
 
-**Purpose:** Called when the `consequence` event is raised.
+**Purpose:** Invoked when the `consequence` event is raised.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.OnConsequence(gameMenuOption);
+```
 
 ### InvokeConsequence
 `public void InvokeConsequence(int index)`
 
-**Purpose:** Handles logic related to `invoke consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.InvokeConsequence(0);
+```
 
 ### SetBackgroundMeshName
 `public void SetBackgroundMeshName(string name)`
 
-**Purpose:** Sets the value or state of `background mesh name`.
+**Purpose:** Assigns a new value to `background mesh name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.SetBackgroundMeshName("example");
+```
 
 ### SetPanelSound
 `public void SetPanelSound(string panelSoundID)`
 
-**Purpose:** Sets the value or state of `panel sound`.
+**Purpose:** Assigns a new value to `panel sound` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.SetPanelSound("example");
+```
 
 ### SetAmbientSound
 `public void SetAmbientSound(string ambientSoundID)`
 
-**Purpose:** Sets the value or state of `ambient sound`.
+**Purpose:** Assigns a new value to `ambient sound` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.SetAmbientSound("example");
+```
 
 ### OpenTownManagement
 `public void OpenTownManagement()`
 
-**Purpose:** Handles logic related to `open town management`.
+**Purpose:** Opens the resource or UI associated with `town management`.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.OpenTownManagement();
+```
 
 ### OpenRecruitVolunteers
 `public void OpenRecruitVolunteers()`
 
-**Purpose:** Handles logic related to `open recruit volunteers`.
+**Purpose:** Opens the resource or UI associated with `recruit volunteers`.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.OpenRecruitVolunteers();
+```
 
 ### OpenTournamentLeaderboards
 `public void OpenTournamentLeaderboards()`
 
-**Purpose:** Handles logic related to `open tournament leaderboards`.
+**Purpose:** Opens the resource or UI associated with `tournament leaderboards`.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.OpenTournamentLeaderboards();
+```
 
 ### OpenTroopSelection
 `public void OpenTroopSelection(TroopRoster fullRoster, TroopRoster initialSelections, Func<CharacterObject, bool> canChangeStatusOfTroop, Action<TroopRoster> onDone, int maxSelectableTroopCount, int minSelectableTroopCount = 1)`
 
-**Purpose:** Handles logic related to `open troop selection`.
+**Purpose:** Opens the resource or UI associated with `troop selection`.
+
+```csharp
+// Obtain an instance of MenuContext from the subsystem API first
+MenuContext menuContext = ...;
+menuContext.OpenTroopSelection(fullRoster, initialSelections, func<CharacterObject, false, onDone, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MenuContext();
-value.Refresh();
+// Typically call this after obtaining an instance from the subsystem API
+MenuContext menuContext = ...;
+menuContext.Refresh();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

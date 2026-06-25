@@ -1,45 +1,30 @@
 ---
 title: "InputType"
+description: "Auto-generated class reference for InputType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InputType
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum InputType`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.InputSystem/Key.cs`
 
 ## Overview
 
-`InputType` lives in `TaleWorlds.InputSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`InputType` lives in `TaleWorlds.InputSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `Invalid` |
-| `1` |
-| `Keyboard` |
-| `MouseButton` |
-| `MouseWheel` |
-
 ## Usage Example
 
 ```csharp
-InputType example = InputType.Invalid;
+// Obtain an instance from the relevant subsystem API
+InputType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

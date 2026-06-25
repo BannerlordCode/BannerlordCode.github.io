@@ -1,13 +1,7 @@
 ---
 title: "SteamAccessObject"
+description: "Auto-generated class reference for SteamAccessObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamAccessObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamAccessObject
 
 **Namespace:** TaleWorlds.Diamond
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new SteamAccessObject();
+// Obtain an instance from the relevant subsystem API
+SteamAccessObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

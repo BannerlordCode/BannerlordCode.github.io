@@ -1,13 +1,7 @@
 ---
 title: "GameMenuWidget"
+description: "Auto-generated class reference for GameMenuWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu
@@ -53,19 +47,32 @@ Treat `GameMenuWidget` as a Widget-style extension point: first identify who cre
 ### UpdateOverlayState
 `public void UpdateOverlayState()`
 
-**Purpose:** Updates the state or data of `overlay state`.
+**Purpose:** Recalculates and stores the latest representation of `overlay state`.
+
+```csharp
+// Obtain an instance of GameMenuWidget from the subsystem API first
+GameMenuWidget gameMenuWidget = ...;
+gameMenuWidget.UpdateOverlayState();
+```
 
 ### OnOptionStateChanged
 `public void OnOptionStateChanged()`
 
-**Purpose:** Called when the `option state changed` event is raised.
+**Purpose:** Invoked when the `option state changed` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuWidget from the subsystem API first
+GameMenuWidget gameMenuWidget = ...;
+gameMenuWidget.OnOptionStateChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new GameMenuWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GameMenuWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

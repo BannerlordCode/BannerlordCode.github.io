@@ -1,13 +1,7 @@
 ---
 title: "CompassMarkerVM"
+description: "CompassMarkerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CompassMarkerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CompassMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass
@@ -40,15 +34,22 @@ title: "CompassMarkerVM"
 ### Refresh
 `public void Refresh(float circleX, float x, float distance)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CompassMarkerVM 实例
+CompassMarkerVM compassMarkerVM = ...;
+compassMarkerVM.Refresh(0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CompassMarkerVM();
-value.Refresh(0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+CompassMarkerVM compassMarkerVM = ...;
+compassMarkerVM.Refresh(0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

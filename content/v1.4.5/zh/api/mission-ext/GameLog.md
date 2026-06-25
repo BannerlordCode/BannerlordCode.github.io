@@ -1,20 +1,14 @@
 ---
 title: "GameLog"
+description: "GameLog 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameLog`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameLog
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameLog`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameLog.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameLog.cs`
 
 ## 概述
 
@@ -39,15 +33,22 @@ title: "GameLog"
 ### GetDataAsString
 `public string GetDataAsString()`
 
-**用途 / Purpose:** 获取 `data as string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「data as string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameLog 实例
+GameLog gameLog = ...;
+var result = gameLog.GetDataAsString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameLog();
-value.GetDataAsString();
+// 通常从对应子系统 API 获取实例后调用
+GameLog gameLog = ...;
+gameLog.GetDataAsString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

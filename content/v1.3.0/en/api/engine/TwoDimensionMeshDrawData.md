@@ -1,13 +1,7 @@
 ---
 title: "TwoDimensionMeshDrawData"
+description: "Auto-generated class reference for TwoDimensionMeshDrawData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionMeshDrawData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionMeshDrawData
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Treat `TwoDimensionMeshDrawData` as a Data-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var value = new TwoDimensionMeshDrawData();
+// This data object is usually returned by campaign/mission APIs
+TwoDimensionMeshDrawData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

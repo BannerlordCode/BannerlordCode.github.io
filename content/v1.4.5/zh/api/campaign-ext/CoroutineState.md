@@ -1,20 +1,14 @@
 ---
 title: "CoroutineState"
+description: "CoroutineState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CoroutineState`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CoroutineState
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class CoroutineState`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/CoroutineState.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/CoroutineState.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "CoroutineState"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCoroutineState();
+// 通常通过子系统 API 或工厂获得派生实例
+CoroutineState instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

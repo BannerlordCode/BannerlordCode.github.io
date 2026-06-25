@@ -1,13 +1,7 @@
 ---
 title: "CraftingSecondaryUsageItemVM"
+description: "Auto-generated class reference for CraftingSecondaryUsageItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingSecondaryUsageItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingSecondaryUsageItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of CraftingSecondaryUsageItemVM from the subsystem API first
+CraftingSecondaryUsageItemVM craftingSecondaryUsageItemVM = ...;
+craftingSecondaryUsageItemVM.ExecuteSelect();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingSecondaryUsageItemVM();
-value.ExecuteSelect();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingSecondaryUsageItemVM craftingSecondaryUsageItemVM = ...;
+craftingSecondaryUsageItemVM.ExecuteSelect();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

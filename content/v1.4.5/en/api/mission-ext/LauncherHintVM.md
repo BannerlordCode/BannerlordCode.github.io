@@ -1,20 +1,14 @@
 ---
 title: "LauncherHintVM"
+description: "Auto-generated class reference for LauncherHintVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherHintVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherHintVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherHintVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherHintVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherHintVM.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of LauncherHintVM from the subsystem API first
+LauncherHintVM launcherHintVM = ...;
+launcherHintVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of LauncherHintVM from the subsystem API first
+LauncherHintVM launcherHintVM = ...;
+launcherHintVM.ExecuteEndHint();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LauncherHintVM();
-value.ExecuteBeginHint();
+// Typically call this after obtaining an instance from the subsystem API
+LauncherHintVM launcherHintVM = ...;
+launcherHintVM.ExecuteBeginHint();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

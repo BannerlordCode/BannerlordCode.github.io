@@ -1,13 +1,7 @@
 ---
 title: "BrushRenderer"
+description: "BrushRenderer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushRenderer`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushRenderer
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -39,40 +33,77 @@ title: "BrushRenderer"
 ### Update
 `public void Update(ulong frameNumber, float globalAnimTime, float dt)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BrushRenderer 实例
+BrushRenderer brushRenderer = ...;
+brushRenderer.Update(0, 0, 0);
+```
 
 ### IsUpdateNeeded
 `public bool IsUpdateNeeded()`
 
-**用途 / Purpose:** 处理 `is update needed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「update needed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BrushRenderer 实例
+BrushRenderer brushRenderer = ...;
+var result = brushRenderer.IsUpdateNeeded();
+```
 
 ### Render
 `public void Render(TwoDimensionDrawContext drawContext, in Rectangle2D rect, float scale, float contextAlpha, Vector2 overlayOffset = default(Vector2))`
 
-**用途 / Purpose:** 处理 `render` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BrushRenderer 实例
+BrushRenderer brushRenderer = ...;
+brushRenderer.Render(drawContext, rect, 0, 0, default(Vector2));
+```
 
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** 创建一个 `text material` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「text material」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 BrushRenderer 实例
+BrushRenderer brushRenderer = ...;
+var result = brushRenderer.CreateTextMaterial(drawContext);
+```
 
 ### RestartAnimation
 `public void RestartAnimation()`
 
-**用途 / Purpose:** 处理 `restart animation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BrushRenderer 实例
+BrushRenderer brushRenderer = ...;
+brushRenderer.RestartAnimation();
+```
 
 ### SetSeed
 `public void SetSeed(int seed)`
 
-**用途 / Purpose:** 设置 `seed` 的值或状态。
+**用途 / Purpose:** 为 「seed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BrushRenderer 实例
+BrushRenderer brushRenderer = ...;
+brushRenderer.SetSeed(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrushRenderer();
-value.Update(0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+BrushRenderer brushRenderer = ...;
+brushRenderer.Update(0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

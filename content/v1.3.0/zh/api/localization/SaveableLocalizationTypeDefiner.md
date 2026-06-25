@@ -1,13 +1,7 @@
 ---
 title: "SaveableLocalizationTypeDefiner"
+description: "SaveableLocalizationTypeDefiner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveableLocalizationTypeDefiner`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableLocalizationTypeDefiner
 
 **Namespace:** TaleWorlds.Localization
@@ -27,9 +21,10 @@ title: "SaveableLocalizationTypeDefiner"
 ## 使用示例
 
 ```csharp
-var example = new SaveableLocalizationTypeDefiner();
+// 从对应子系统 API 获取实例
+SaveableLocalizationTypeDefiner instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

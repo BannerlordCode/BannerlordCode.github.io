@@ -1,20 +1,14 @@
 ---
 title: "NumericHostGameOptionDataVM"
+description: "Auto-generated class reference for NumericHostGameOptionDataVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NumericHostGameOptionDataVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NumericHostGameOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NumericHostGameOptionDataVM : GenericHostGameOptionDataVM`
 **Base:** `GenericHostGameOptionDataVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions/NumericHostGameOptionDataVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions/NumericHostGameOptionDataVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshData
 `public override void RefreshData()`
 
-**Purpose:** Refreshes the display or cache of `data`.
+**Purpose:** Keeps the display or cache of `data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of NumericHostGameOptionDataVM from the subsystem API first
+NumericHostGameOptionDataVM numericHostGameOptionDataVM = ...;
+numericHostGameOptionDataVM.RefreshData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NumericHostGameOptionDataVM();
-value.RefreshData();
+// Typically call this after obtaining an instance from the subsystem API
+NumericHostGameOptionDataVM numericHostGameOptionDataVM = ...;
+numericHostGameOptionDataVM.RefreshData();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

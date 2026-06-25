@@ -1,20 +1,14 @@
 ---
 title: "CharacterRelations"
+description: "Auto-generated class reference for CharacterRelations."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterRelations`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterRelations
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum CharacterRelations`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationCharacter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationCharacter.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ## Usage Example
 
 ```csharp
-CharacterRelations example = CharacterRelations.Value;
+// Obtain an instance from the relevant subsystem API
+CharacterRelations instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

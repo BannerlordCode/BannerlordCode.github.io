@@ -1,13 +1,7 @@
 ---
 title: "CheatsHotKeyCategory"
+description: "Auto-generated class reference for CheatsHotKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheatsHotKeyCategory`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CheatsHotKeyCategory
 
 **Namespace:** TaleWorlds.Engine.InputSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.InputSystem` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var value = new CheatsHotKeyCategory();
+// Obtain an instance from the relevant subsystem API
+CheatsHotKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

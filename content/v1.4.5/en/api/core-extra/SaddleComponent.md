@@ -1,20 +1,14 @@
 ---
 title: "SaddleComponent"
+description: "Auto-generated class reference for SaddleComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaddleComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaddleComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class SaddleComponent : ItemComponent`
 **Base:** `ItemComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SaddleComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SaddleComponent.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `SaddleComponent` as a Component-style extension point: first identify who
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Obtain an instance of SaddleComponent from the subsystem API first
+SaddleComponent saddleComponent = ...;
+var result = saddleComponent.GetCopy();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var component = agent.GetComponent<SaddleComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

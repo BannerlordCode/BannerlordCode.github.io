@@ -1,20 +1,14 @@
 ---
 title: "GameManagerComponent"
+description: "Auto-generated class reference for GameManagerComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameManagerComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameManagerComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class GameManagerComponent : IEntityComponent`
 **Base:** `IEntityComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/GameManagerComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameManagerComponent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `GameManagerComponent` as a Component-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameManagerComponent();
+// Typically obtained from a subsystem API or factory
+GameManagerComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

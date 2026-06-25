@@ -1,20 +1,14 @@
 ---
 title: "PlayerStatsTeamDeathmatch"
+description: "PlayerStatsTeamDeathmatch 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerStatsTeamDeathmatch`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerStatsTeamDeathmatch
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsTeamDeathmatch : PlayerStatsBase`
 **Base:** `PlayerStatsBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsTeamDeathmatch.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsTeamDeathmatch.cs`
 
 ## 概述
 
@@ -35,25 +29,44 @@ title: "PlayerStatsTeamDeathmatch"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int score)`
 
-**用途 / Purpose:** 处理 `fill with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsTeamDeathmatch 实例
+PlayerStatsTeamDeathmatch playerStatsTeamDeathmatch = ...;
+playerStatsTeamDeathmatch.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0);
+```
 
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `fill with new player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsTeamDeathmatch 实例
+PlayerStatsTeamDeathmatch playerStatsTeamDeathmatch = ...;
+playerStatsTeamDeathmatch.FillWithNewPlayer(playerId);
+```
 
 ### Update
 `public void Update(BattlePlayerStatsTeamDeathmatch stats, bool won)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsTeamDeathmatch 实例
+PlayerStatsTeamDeathmatch playerStatsTeamDeathmatch = ...;
+playerStatsTeamDeathmatch.Update(stats, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerStatsTeamDeathmatch();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+PlayerStatsTeamDeathmatch playerStatsTeamDeathmatch = ...;
+playerStatsTeamDeathmatch.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

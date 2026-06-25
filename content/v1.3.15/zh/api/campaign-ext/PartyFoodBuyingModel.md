@@ -1,13 +1,7 @@
 ---
 title: "PartyFoodBuyingModel"
+description: "PartyFoodBuyingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyFoodBuyingModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyFoodBuyingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -37,14 +31,21 @@ title: "PartyFoodBuyingModel"
 ### FindItemToBuy
 `public abstract void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemRosterElement, out float itemElementsPrice)`
 
-**用途 / Purpose:** 处理 `find item to buy` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「item to buy」。
+
+```csharp
+// 先通过子系统 API 拿到 PartyFoodBuyingModel 实例
+PartyFoodBuyingModel partyFoodBuyingModel = ...;
+partyFoodBuyingModel.FindItemToBuy(mobileParty, settlement, itemRosterElement, itemElementsPrice);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyFoodBuyingModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyFoodBuyingModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

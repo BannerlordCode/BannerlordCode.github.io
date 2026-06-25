@@ -1,20 +1,14 @@
 ---
 title: "OrderFormationClassVisualBrushWidget"
+description: "Auto-generated class reference for OrderFormationClassVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderFormationClassVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderFormationClassVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderFormationClassVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Order/OrderFormationClassVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Order/OrderFormationClassVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `OrderFormationClassVisualBrushWidget` as a Widget-style extension point: 
 ### OrderFormationClassVisualBrushWidget
 `public class OrderFormationClassVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `order formation class visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderFormationClassVisualBrushWidget from the subsystem API first
+OrderFormationClassVisualBrushWidget orderFormationClassVisualBrushWidget = ...;
+var result = orderFormationClassVisualBrushWidget.OrderFormationClassVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new OrderFormationClassVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderFormationClassVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ProfanityChecker"
+description: "ProfanityChecker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ProfanityChecker`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ProfanityChecker
 
 **Namespace:** TaleWorlds.Library
@@ -29,25 +23,44 @@ title: "ProfanityChecker"
 ### IsProfane
 `public bool IsProfane(string word)`
 
-**用途 / Purpose:** 处理 `is profane` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「profane」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ProfanityChecker 实例
+ProfanityChecker profanityChecker = ...;
+var result = profanityChecker.IsProfane("example");
+```
 
 ### ContainsProfanity
 `public bool ContainsProfanity(string text, ProfanityChecker.ProfanityChechkerType checkType)`
 
-**用途 / Purpose:** 处理 `contains profanity` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「profanity」。
+
+```csharp
+// 先通过子系统 API 拿到 ProfanityChecker 实例
+ProfanityChecker profanityChecker = ...;
+var result = profanityChecker.ContainsProfanity("example", checkType);
+```
 
 ### CensorText
 `public string CensorText(string text)`
 
-**用途 / Purpose:** 处理 `censor text` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ProfanityChecker 实例
+ProfanityChecker profanityChecker = ...;
+var result = profanityChecker.CensorText("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ProfanityChecker();
-value.IsProfane("example");
+// 通常从对应子系统 API 获取实例后调用
+ProfanityChecker profanityChecker = ...;
+profanityChecker.IsProfane("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

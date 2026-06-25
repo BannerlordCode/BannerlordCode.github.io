@@ -1,20 +1,14 @@
 ---
 title: "BoolBrushChangerBrushWidget"
+description: "Auto-generated class reference for BoolBrushChangerBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoolBrushChangerBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoolBrushChangerBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BoolBrushChangerBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/BoolBrushChangerBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/BoolBrushChangerBrushWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `BoolBrushChangerBrushWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new BoolBrushChangerBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BoolBrushChangerBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CraftingAvailableHeroItemVM"
+description: "Auto-generated class reference for CraftingAvailableHeroItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingAvailableHeroItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingAvailableHeroItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
@@ -45,40 +39,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshValues();
+```
 
 ### RefreshStamina
 `public void RefreshStamina()`
 
-**Purpose:** Refreshes the display or cache of `stamina`.
+**Purpose:** Keeps the display or cache of `stamina` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshStamina();
+```
 
 ### RefreshOrderAvailability
 `public void RefreshOrderAvailability(CraftingOrder order)`
 
-**Purpose:** Refreshes the display or cache of `order availability`.
+**Purpose:** Keeps the display or cache of `order availability` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshOrderAvailability(order);
+```
 
 ### RefreshSkills
 `public void RefreshSkills()`
 
-**Purpose:** Refreshes the display or cache of `skills`.
+**Purpose:** Keeps the display or cache of `skills` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshSkills();
+```
 
 ### RefreshPerks
 `public void RefreshPerks()`
 
-**Purpose:** Refreshes the display or cache of `perks`.
+**Purpose:** Keeps the display or cache of `perks` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshPerks();
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of CraftingAvailableHeroItemVM from the subsystem API first
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.ExecuteSelection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingAvailableHeroItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

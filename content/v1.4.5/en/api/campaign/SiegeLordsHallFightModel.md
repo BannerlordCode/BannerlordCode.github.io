@@ -1,20 +1,14 @@
 ---
 title: "SiegeLordsHallFightModel"
+description: "Auto-generated class reference for SiegeLordsHallFightModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeLordsHallFightModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeLordsHallFightModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SiegeLordsHallFightModel : MBGameModel<SiegeLordsHallFightModel>`
 **Base:** `MBGameModel<SiegeLordsHallFightModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SiegeLordsHallFightModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SiegeLordsHallFightModel.cs`
 
 ## Overview
 
@@ -41,14 +35,21 @@ Treat `SiegeLordsHallFightModel` as a Model-style extension point: first identif
 ### GetPriorityListForLordsHallFightMission
 `public abstract FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)`
 
-**Purpose:** Gets the current value of `priority list for lords hall fight mission`.
+**Purpose:** Reads and returns the `priority list for lords hall fight mission` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLordsHallFightModel from the subsystem API first
+SiegeLordsHallFightModel siegeLordsHallFightModel = ...;
+var result = siegeLordsHallFightModel.GetPriorityListForLordsHallFightMission(playerMapEvent, side, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSiegeLordsHallFightModel();
+// Typically obtained from a subsystem API or factory
+SiegeLordsHallFightModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

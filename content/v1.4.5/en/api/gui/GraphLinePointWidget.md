@@ -1,20 +1,14 @@
 ---
 title: "GraphLinePointWidget"
+description: "Auto-generated class reference for GraphLinePointWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GraphLinePointWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GraphLinePointWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets.Graph
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GraphLinePointWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets.Graph/GraphLinePointWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets.Graph/GraphLinePointWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `GraphLinePointWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new GraphLinePointWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GraphLinePointWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

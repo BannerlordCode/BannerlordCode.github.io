@@ -1,20 +1,14 @@
 ---
 title: "ActionSetCode"
+description: "ActionSetCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ActionSetCode`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ActionSetCode
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class ActionSetCode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ActionSetCode.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ActionSetCode.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "ActionSetCode"
 ### GenerateActionSetNameWithSuffix
 `public static string GenerateActionSetNameWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**用途 / Purpose:** 处理 `generate action set name with suffix` 相关逻辑。
+**用途 / Purpose:** 生成「action set name with suffix」的实例、数据或表示。
+
+```csharp
+// 静态调用，不需要实例
+ActionSetCode.GenerateActionSetNameWithSuffix(monster, false, "example");
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ ActionSetCode.GenerateActionSetNameWithSuffix(monster, false, "example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "TauntUsageFlag"
+description: "TauntUsageFlag 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TauntUsageFlag`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TauntUsageFlag
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `class TauntUsageFlag`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "TauntUsageFlag"
 ### Compare
 `public int Compare(TauntUsage.TauntUsageFlag x, TauntUsage.TauntUsageFlag y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 TauntUsageFlag 实例
+TauntUsageFlag tauntUsageFlag = ...;
+var result = tauntUsageFlag.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TauntUsageFlag();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+TauntUsageFlag tauntUsageFlag = ...;
+tauntUsageFlag.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "InventorySide"
+description: "Auto-generated class reference for InventorySide."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventorySide`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventorySide
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum InventorySide`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/InventoryLogic.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/InventoryLogic.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ## Usage Example
 
 ```csharp
-InventorySide example = InventorySide.Value;
+// Obtain an instance from the relevant subsystem API
+InventorySide instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

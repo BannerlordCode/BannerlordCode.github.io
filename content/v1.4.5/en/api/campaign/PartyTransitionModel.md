@@ -1,20 +1,14 @@
 ---
 title: "PartyTransitionModel"
+description: "Auto-generated class reference for PartyTransitionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTransitionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTransitionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyTransitionModel : MBGameModel<PartyTransitionModel>`
 **Base:** `MBGameModel<PartyTransitionModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTransitionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTransitionModel.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `PartyTransitionModel` as a Model-style extension point: first identify wh
 ### GetTransitionTimeForEmbarking
 `public abstract CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `transition time for embarking`.
+**Purpose:** Reads and returns the `transition time for embarking` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTransitionModel from the subsystem API first
+PartyTransitionModel partyTransitionModel = ...;
+var result = partyTransitionModel.GetTransitionTimeForEmbarking(mobileParty);
+```
 
 ### GetTransitionTimeDisembarking
 `public abstract CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `transition time disembarking`.
+**Purpose:** Reads and returns the `transition time disembarking` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTransitionModel from the subsystem API first
+PartyTransitionModel partyTransitionModel = ...;
+var result = partyTransitionModel.GetTransitionTimeDisembarking(mobileParty);
+```
 
 ### GetFleetTravelTimeToSettlement
 `public abstract CampaignTime GetFleetTravelTimeToSettlement(MobileParty mobileParty, Settlement targetSettlement)`
 
-**Purpose:** Gets the current value of `fleet travel time to settlement`.
+**Purpose:** Reads and returns the `fleet travel time to settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTransitionModel from the subsystem API first
+PartyTransitionModel partyTransitionModel = ...;
+var result = partyTransitionModel.GetFleetTravelTimeToSettlement(mobileParty, targetSettlement);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyTransitionModel();
+// Typically obtained from a subsystem API or factory
+PartyTransitionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

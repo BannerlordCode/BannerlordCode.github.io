@@ -1,13 +1,7 @@
 ---
 title: "AllianceOfferMapNotification"
+description: "Auto-generated class reference for AllianceOfferMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AllianceOfferMapNotification`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AllianceOfferMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of AllianceOfferMapNotification from the subsystem API first
+AllianceOfferMapNotification allianceOfferMapNotification = ...;
+var result = allianceOfferMapNotification.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AllianceOfferMapNotification();
-value.IsValid();
+// Typically call this after obtaining an instance from the subsystem API
+AllianceOfferMapNotification allianceOfferMapNotification = ...;
+allianceOfferMapNotification.IsValid();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

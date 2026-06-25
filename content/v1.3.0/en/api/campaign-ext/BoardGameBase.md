@@ -1,13 +1,7 @@
 ---
 title: "BoardGameBase"
+description: "Auto-generated class reference for BoardGameBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameBase
 
 **Namespace:** SandBox.BoardGames
@@ -45,124 +39,263 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### InitializeUnits
 `public abstract void InitializeUnits()`
 
-**Purpose:** Initializes the state, resources, or bindings for `units`.
+**Purpose:** Prepares the resources, state, or bindings required by `units`.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeUnits();
+```
 
 ### InitializeTiles
 `public abstract void InitializeTiles()`
 
-**Purpose:** Initializes the state, resources, or bindings for `tiles`.
+**Purpose:** Prepares the resources, state, or bindings required by `tiles`.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeTiles();
+```
 
 ### InitializeSound
 `public abstract void InitializeSound()`
 
-**Purpose:** Initializes the state, resources, or bindings for `sound`.
+**Purpose:** Prepares the resources, state, or bindings required by `sound`.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeSound();
+```
 
 ### CalculateValidMoves
 `public abstract List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** Handles logic related to `calculate valid moves`.
+**Purpose:** Calculates the current value or result of `valid moves`.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.CalculateValidMoves(pawn);
+```
 
 ### RollDice
 `public virtual void RollDice()`
 
-**Purpose:** Handles logic related to `roll dice`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.RollDice();
+```
 
 ### InitializeDiceBoard
 `public virtual void InitializeDiceBoard()`
 
-**Purpose:** Initializes the state, resources, or bindings for `dice board`.
+**Purpose:** Prepares the resources, state, or bindings required by `dice board`.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeDiceBoard();
+```
 
 ### Reset
 `public virtual void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.Reset();
+```
 
 ### InitializeCapturedUnitsZones
 `public virtual void InitializeCapturedUnitsZones()`
 
-**Purpose:** Initializes the state, resources, or bindings for `captured units zones`.
+**Purpose:** Prepares the resources, state, or bindings required by `captured units zones`.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeCapturedUnitsZones();
+```
 
 ### SetPawnCaptured
 `public virtual void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**Purpose:** Sets the value or state of `pawn captured`.
+**Purpose:** Assigns a new value to `pawn captured` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.SetPawnCaptured(pawn, false);
+```
 
 ### CalculateAllValidMoves
 `public virtual List<List<Move>> CalculateAllValidMoves(BoardGameSide side)`
 
-**Purpose:** Handles logic related to `calculate all valid moves`.
+**Purpose:** Calculates the current value or result of `all valid moves`.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.CalculateAllValidMoves(side);
+```
 
 ### SetUserRay
 `public void SetUserRay(Vec3 rayBegin, Vec3 rayEnd)`
 
-**Purpose:** Sets the value or state of `user ray`.
+**Purpose:** Assigns a new value to `user ray` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.SetUserRay(rayBegin, rayEnd);
+```
 
 ### SetStartingPlayer
 `public void SetStartingPlayer(PlayerTurn player)`
 
-**Purpose:** Sets the value or state of `starting player`.
+**Purpose:** Assigns a new value to `starting player` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.SetStartingPlayer(player);
+```
 
 ### SetGameOverInfo
 `public void SetGameOverInfo(GameOverEnum info)`
 
-**Purpose:** Sets the value or state of `game over info`.
+**Purpose:** Assigns a new value to `game over info` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.SetGameOverInfo(info);
+```
 
 ### HasMovesAvailable
 `public bool HasMovesAvailable(ref List<List<Move>> moves)`
 
-**Purpose:** Checks whether the current object has/contains `moves available`.
+**Purpose:** Determines whether the current object already holds `moves available`.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.HasMovesAvailable(moves);
+```
 
 ### GetTotalMovesAvailable
 `public int GetTotalMovesAvailable(ref List<List<Move>> moves)`
 
-**Purpose:** Gets the current value of `total moves available`.
+**Purpose:** Reads and returns the `total moves available` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetTotalMovesAvailable(moves);
+```
 
 ### PlayDiceRollSound
 `public void PlayDiceRollSound()`
 
-**Purpose:** Handles logic related to `play dice roll sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.PlayDiceRollSound();
+```
 
 ### GetPlayerOneUnitsAlive
 `public int GetPlayerOneUnitsAlive()`
 
-**Purpose:** Gets the current value of `player one units alive`.
+**Purpose:** Reads and returns the `player one units alive` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetPlayerOneUnitsAlive();
+```
 
 ### GetPlayerTwoUnitsAlive
 `public int GetPlayerTwoUnitsAlive()`
 
-**Purpose:** Gets the current value of `player two units alive`.
+**Purpose:** Reads and returns the `player two units alive` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetPlayerTwoUnitsAlive();
+```
 
 ### GetPlayerOneUnitsDead
 `public int GetPlayerOneUnitsDead()`
 
-**Purpose:** Gets the current value of `player one units dead`.
+**Purpose:** Reads and returns the `player one units dead` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetPlayerOneUnitsDead();
+```
 
 ### GetPlayerTwoUnitsDead
 `public int GetPlayerTwoUnitsDead()`
 
-**Purpose:** Gets the current value of `player two units dead`.
+**Purpose:** Reads and returns the `player two units dead` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetPlayerTwoUnitsDead();
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.Initialize();
+```
 
 ### Tick
 `public bool Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.Tick(0);
+```
 
 ### ForceDice
 `public void ForceDice(int value)`
 
-**Purpose:** Handles logic related to `force dice`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameBase from the subsystem API first
+BoardGameBase boardGameBase = ...;
+boardGameBase.ForceDice(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBoardGameBase();
+// Typically obtained from a subsystem API or factory
+BoardGameBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

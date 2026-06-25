@@ -1,13 +1,7 @@
 ---
 title: "SmugglersIssueBehavior"
+description: "Auto-generated class reference for SmugglersIssueBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SmugglersIssueBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SmugglersIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -52,50 +46,99 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of SmugglersIssueBehavior from the subsystem API first
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+smugglersIssueBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of SmugglersIssueBehavior from the subsystem API first
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+smugglersIssueBehavior.SyncData(dataStore);
+```
 
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Gets the current value of `alternative solution skill`.
+**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+
+```csharp
+// Obtain an instance of SmugglersIssueBehavior from the subsystem API first
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+var result = smugglersIssueBehavior.GetAlternativeSolutionSkill(hero);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SmugglersIssueBehavior from the subsystem API first
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+var result = smugglersIssueBehavior.AlternativeSolutionCondition(explanation);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SmugglersIssueBehavior from the subsystem API first
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+var result = smugglersIssueBehavior.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
+**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+
+```csharp
+// Obtain an instance of SmugglersIssueBehavior from the subsystem API first
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+var result = smugglersIssueBehavior.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of SmugglersIssueBehavior from the subsystem API first
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+var result = smugglersIssueBehavior.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of SmugglersIssueBehavior from the subsystem API first
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+var result = smugglersIssueBehavior.IssueStayAliveConditions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SmugglersIssueBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+SmugglersIssueBehavior smugglersIssueBehavior = ...;
+smugglersIssueBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

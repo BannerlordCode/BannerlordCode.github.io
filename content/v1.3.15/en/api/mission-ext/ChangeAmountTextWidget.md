@@ -1,13 +1,7 @@
 ---
 title: "ChangeAmountTextWidget"
+description: "Auto-generated class reference for ChangeAmountTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeAmountTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChangeAmountTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -37,9 +31,10 @@ Treat `ChangeAmountTextWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new ChangeAmountTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ChangeAmountTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ConversationAnimationToolCampaignBehavior"
+description: "Auto-generated class reference for ConversationAnimationToolCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationAnimationToolCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationAnimationToolCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class ConversationAnimationToolCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/ConversationAnimationToolCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/ConversationAnimationToolCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,25 +23,43 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ConversationAnimationToolCampaignBehavior from the subsystem API first
+ConversationAnimationToolCampaignBehavior conversationAnimationToolCampaignBehavior = ...;
+conversationAnimationToolCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ConversationAnimationToolCampaignBehavior from the subsystem API first
+ConversationAnimationToolCampaignBehavior conversationAnimationToolCampaignBehavior = ...;
+conversationAnimationToolCampaignBehavior.SyncData(dataStore);
+```
 
 ### CloseConversationAnimationTool
 `public static void CloseConversationAnimationTool()`
 
-**Purpose:** Handles logic related to `close conversation animation tool`.
+**Purpose:** Closes the resource or UI associated with `conversation animation tool`.
+
+```csharp
+// Static call; no instance required
+ConversationAnimationToolCampaignBehavior.CloseConversationAnimationTool();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConversationAnimationToolCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+ConversationAnimationToolCampaignBehavior conversationAnimationToolCampaignBehavior = ...;
+conversationAnimationToolCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

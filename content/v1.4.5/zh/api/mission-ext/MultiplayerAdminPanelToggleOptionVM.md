@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminPanelToggleOptionVM"
+description: "MultiplayerAdminPanelToggleOptionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerAdminPanelToggleOptionVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelToggleOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminPanelToggleOptionVM : MultiplayerAdminPanelOptionBaseVM`
 **Base:** `MultiplayerAdminPanelOptionBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelToggleOptionVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelToggleOptionVM.cs`
 
 ## 概述
 
@@ -36,20 +30,33 @@ title: "MultiplayerAdminPanelToggleOptionVM"
 ### UpdateValues
 `public override void UpdateValues()`
 
-**用途 / Purpose:** 更新 `values` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「values」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminPanelToggleOptionVM 实例
+MultiplayerAdminPanelToggleOptionVM multiplayerAdminPanelToggleOptionVM = ...;
+multiplayerAdminPanelToggleOptionVM.UpdateValues();
+```
 
 ### ExecuteToggle
 `public void ExecuteToggle()`
 
-**用途 / Purpose:** 执行 `toggle` 操作或流程。
+**用途 / Purpose:** 执行 「toggle」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminPanelToggleOptionVM 实例
+MultiplayerAdminPanelToggleOptionVM multiplayerAdminPanelToggleOptionVM = ...;
+multiplayerAdminPanelToggleOptionVM.ExecuteToggle();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerAdminPanelToggleOptionVM();
-value.UpdateValues();
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerAdminPanelToggleOptionVM multiplayerAdminPanelToggleOptionVM = ...;
+multiplayerAdminPanelToggleOptionVM.UpdateValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

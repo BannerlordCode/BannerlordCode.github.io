@@ -1,20 +1,14 @@
 ---
 title: "EventManager"
+description: "EventManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EventManager`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventManager
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class EventManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/EventManager.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/EventManager.cs`
 
 ## 概述
 
@@ -55,42 +49,89 @@ title: "EventManager"
 ### AddAfterFinalizedCallback
 `public void AddAfterFinalizedCallback(Action callback)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `after finalized callback`。
+**用途 / Purpose:** 将 「after finalized callback」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+eventManager.AddAfterFinalizedCallback(callback);
+```
 
 ### ClearFocus
 `public void ClearFocus()`
 
-**用途 / Purpose:** 处理 `clear focus` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「focus」。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+eventManager.ClearFocus();
+```
 
 ### IsPointInsideUsableArea
 `public bool IsPointInsideUsableArea(Vector2 p)`
 
-**用途 / Purpose:** 处理 `is point inside usable area` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「point inside usable area」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+var result = eventManager.IsPointInsideUsableArea(p);
+```
 
 ### HitTest
 `public static bool HitTest(Widget widget, Vector2 position)`
 
-**用途 / Purpose:** 处理 `hit test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+EventManager.HitTest(widget, position);
+```
 
 ### FocusTest
 `public bool FocusTest(Widget root)`
 
-**用途 / Purpose:** 处理 `focus test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+var result = eventManager.FocusTest(root);
+```
 
 ### AddLateUpdateAction
 `public void AddLateUpdateAction(Widget owner, Action<float> action, int order)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `late update action`。
+**用途 / Purpose:** 将 「late update action」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+eventManager.AddLateUpdateAction(owner, action, 0);
+```
 
 ### UpdateLayout
 `public void UpdateLayout()`
 
-**用途 / Purpose:** 更新 `layout` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「layout」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+eventManager.UpdateLayout();
+```
 
 ### GetIsHitThisFrame
 `public bool GetIsHitThisFrame()`
 
-**用途 / Purpose:** 获取 `is hit this frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is hit this frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EventManager 实例
+EventManager eventManager = ...;
+var result = eventManager.GetIsHitThisFrame();
+```
 
 ## 使用示例
 
@@ -100,4 +141,4 @@ var manager = EventManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

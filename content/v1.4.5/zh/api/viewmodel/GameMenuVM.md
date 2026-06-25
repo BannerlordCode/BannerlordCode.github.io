@@ -1,20 +1,14 @@
 ---
 title: "GameMenuVM"
+description: "GameMenuVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuVM.cs`
 
 ## 概述
 
@@ -46,65 +40,132 @@ title: "GameMenuVM"
 ### Get
 `public TItem Get()`
 
-**用途 / Purpose:** 获取 `get` 的当前值。
+**用途 / Purpose:** 读取当前对象的值或状态并返回。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+var result = gameMenuVM.Get();
+```
 
 ### Release
 `public void Release(TItem item)`
 
-**用途 / Purpose:** 处理 `release` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.Release(item);
+```
 
 ### Compare
 `public int Compare(GameMenuItemVM x, GameMenuItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+var result = gameMenuVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.RefreshValues();
+```
 
 ### SetIdleMode
 `public void SetIdleMode(bool isIdle)`
 
-**用途 / Purpose:** 设置 `idle mode` 的值或状态。
+**用途 / Purpose:** 为 「idle mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.SetIdleMode(false);
+```
 
 ### Refresh
 `public void Refresh(bool forceUpdateItems)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.Refresh(false);
+```
 
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**用途 / Purpose:** 当 `frame tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「frame tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.OnFrameTick();
+```
 
 ### UpdateMenuContext
 `public void UpdateMenuContext(MenuContext newMenuContext)`
 
-**用途 / Purpose:** 更新 `menu context` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「menu context」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.UpdateMenuContext(newMenuContext);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.OnFinalize();
+```
 
 ### SetLeaveHotKey
 `public void SetLeaveHotKey(GameKey gameKey)`
 
-**用途 / Purpose:** 设置 `leave hot key` 的值或状态。
+**用途 / Purpose:** 为 「leave hot key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.SetLeaveHotKey(gameKey);
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** 执行 `link` 操作或流程。
+**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuVM 实例
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.ExecuteLink("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameMenuVM();
-value.Get();
+// 通常从对应子系统 API 获取实例后调用
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.Get();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

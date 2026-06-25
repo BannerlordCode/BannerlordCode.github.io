@@ -1,13 +1,7 @@
 ---
 title: "SelectionData"
+description: "SelectionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SelectionData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectionData
 
 **Namespace:** TaleWorlds.Engine.Options
@@ -27,9 +21,10 @@ title: "SelectionData"
 ## 使用示例
 
 ```csharp
-var value = new SelectionData();
+// 该数据对象通常由战役/任务 API 返回
+SelectionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

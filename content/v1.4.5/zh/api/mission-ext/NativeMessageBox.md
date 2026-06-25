@@ -1,20 +1,14 @@
 ---
 title: "NativeMessageBox"
+description: "NativeMessageBox 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeMessageBox`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeMessageBox
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class NativeMessageBox`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "NativeMessageBox"
 ### Show
 `public static Result Show(string text, string caption = "Message", Buttons buttons = Buttons.OK, Icon icon = Icon.None)`
 
-**用途 / Purpose:** 处理 `show` 相关逻辑。
+**用途 / Purpose:** 显示当前对象对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+NativeMessageBox.Show("example", "example", buttons.OK, icon.None);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ NativeMessageBox.Show("example", "example", buttons.OK, icon.None);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

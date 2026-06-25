@@ -1,20 +1,14 @@
 ---
 title: "BattleResultPartyData"
+description: "BattleResultPartyData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleResultPartyData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleResultPartyData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct BattleResultPartyData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/BattleResultPartyData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/BattleResultPartyData.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "BattleResultPartyData"
 ### BattleResultPartyData
 `public struct BattleResultPartyData(PartyBase party)`
 
-**用途 / Purpose:** 处理 `battle result party data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleResultPartyData 实例
+BattleResultPartyData battleResultPartyData = ...;
+var result = battleResultPartyData.BattleResultPartyData(party);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BattleResultPartyData();
+// 该数据对象通常由战役/任务 API 返回
+BattleResultPartyData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

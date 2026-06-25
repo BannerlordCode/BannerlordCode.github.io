@@ -1,13 +1,7 @@
 ---
 title: "MBBodyProperty"
+description: "MBBodyProperty 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBBodyProperty`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBBodyProperty
 
 **Namespace:** TaleWorlds.Core
@@ -39,17 +33,34 @@ title: "MBBodyProperty"
 ### CreateFrom
 `public static MBBodyProperty CreateFrom(MBBodyProperty bodyProperty)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MBBodyProperty.CreateFrom(bodyProperty);
+```
 
 ### Init
 `public void Init(BodyProperties bodyPropertyMin, BodyProperties bodyPropertyMax)`
 
-**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MBBodyProperty 实例
+MBBodyProperty mBBodyProperty = ...;
+mBBodyProperty.Init(bodyPropertyMin, bodyPropertyMax);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBBodyProperty 实例
+MBBodyProperty mBBodyProperty = ...;
+mBBodyProperty.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
@@ -59,4 +70,4 @@ MBBodyProperty.CreateFrom(bodyProperty);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "InformationData"
+description: "Auto-generated class reference for InformationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InformationData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InformationData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class InformationData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/InformationData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/InformationData.cs`
 
 ## Overview
 
@@ -36,14 +30,21 @@ Treat `InformationData` as a Data-style extension point: first identify who crea
 ### IsValid
 `public virtual bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of InformationData from the subsystem API first
+InformationData informationData = ...;
+var result = informationData.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomInformationData();
+// Typically obtained from a subsystem API or factory
+InformationData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

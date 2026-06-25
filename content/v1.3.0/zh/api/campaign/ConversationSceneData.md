@@ -1,13 +1,7 @@
 ---
 title: "ConversationSceneData"
+description: "ConversationSceneData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationSceneData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationSceneData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -36,9 +30,10 @@ title: "ConversationSceneData"
 ## 使用示例
 
 ```csharp
-var value = new ConversationSceneData();
+// 该数据对象通常由战役/任务 API 返回
+ConversationSceneData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "MessageType"
+description: "Auto-generated class reference for MessageType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MessageType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageType
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public enum MessageType`
 **Base:** none
 **File:** `TaleWorlds.Diamond/Rest/MessageType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new MessageType();
+// Obtain an instance from the relevant subsystem API
+MessageType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

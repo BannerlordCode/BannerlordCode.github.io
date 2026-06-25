@@ -1,13 +1,7 @@
 ---
 title: "ItemRoster"
+description: "Auto-generated class reference for ItemRoster."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemRoster`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemRoster
 
 **Namespace:** TaleWorlds.CampaignSystem.Roster
@@ -45,124 +39,262 @@ Start from namespace `TaleWorlds.CampaignSystem.Roster` to place it in the stack
 ### FindIndexOfItem
 `public int FindIndexOfItem(ItemObject item)`
 
-**Purpose:** Handles logic related to `find index of item`.
+**Purpose:** Looks up the matching `index of item` in the current collection or scope.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.FindIndexOfItem(item);
+```
 
 ### FindIndex
 `public int FindIndex(Predicate<ItemObject> predicate)`
 
-**Purpose:** Handles logic related to `find index`.
+**Purpose:** Looks up the matching `index` in the current collection or scope.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.FindIndex(predicate);
+```
 
 ### FindIndexFirstAfterXthElement
 `public int FindIndexFirstAfterXthElement(Predicate<ItemObject> predicate, int x)`
 
-**Purpose:** Handles logic related to `find index first after xth element`.
+**Purpose:** Looks up the matching `index first after xth element` in the current collection or scope.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.FindIndexFirstAfterXthElement(predicate, 0);
+```
 
 ### FindIndexOfElement
 `public int FindIndexOfElement(EquipmentElement rosterElement)`
 
-**Purpose:** Handles logic related to `find index of element`.
+**Purpose:** Looks up the matching `index of element` in the current collection or scope.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.FindIndexOfElement(rosterElement);
+```
 
 ### AddToCounts
 `public int AddToCounts(ItemObject item, int number)`
 
 **Purpose:** Adds `to counts` to the current collection or state.
 
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.AddToCounts(item, 0);
+```
+
 ### AddToCounts
 `public int AddToCounts(EquipmentElement rosterElement, int number)`
 
 **Purpose:** Adds `to counts` to the current collection or state.
 
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.AddToCounts(rosterElement, 0);
+```
+
 ### GetElementCopyAtIndex
 `public ItemRosterElement GetElementCopyAtIndex(int index)`
 
-**Purpose:** Gets the current value of `element copy at index`.
+**Purpose:** Reads and returns the `element copy at index` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.GetElementCopyAtIndex(0);
+```
 
 ### GetItemAtIndex
 `public ItemObject GetItemAtIndex(int index)`
 
-**Purpose:** Gets the current value of `item at index`.
+**Purpose:** Reads and returns the `item at index` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.GetItemAtIndex(0);
+```
 
 ### GetElementNumber
 `public int GetElementNumber(int index)`
 
-**Purpose:** Gets the current value of `element number`.
+**Purpose:** Reads and returns the `element number` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.GetElementNumber(0);
+```
 
 ### GetElementUnitCost
 `public int GetElementUnitCost(int index)`
 
-**Purpose:** Gets the current value of `element unit cost`.
+**Purpose:** Reads and returns the `element unit cost` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.GetElementUnitCost(0);
+```
 
 ### GetItemNumber
 `public int GetItemNumber(ItemObject item)`
 
-**Purpose:** Gets the current value of `item number`.
+**Purpose:** Reads and returns the `item number` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.GetItemNumber(item);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+itemRoster.Clear();
+```
 
 ### RostersAreIdentical
 `public static bool RostersAreIdentical(ItemRoster a, ItemRoster b)`
 
-**Purpose:** Handles logic related to `rosters are identical`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ItemRoster.RostersAreIdentical(a, b);
+```
 
 ### GetEnumerator
 `public IEnumerator<ItemRosterElement> GetEnumerator()`
 
-**Purpose:** Gets the current value of `enumerator`.
+**Purpose:** Reads and returns the `enumerator` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.GetEnumerator();
+```
 
 ### SelectRandomIndex
 `public int SelectRandomIndex(Func<ItemRosterElement, float> weightFunction)`
 
-**Purpose:** Handles logic related to `select random index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.SelectRandomIndex(func<ItemRosterElement, 0);
+```
 
 ### RemoveIf
 `public IEnumerable<ItemRosterElement> RemoveIf(Func<ItemRosterElement, int> match)`
 
 **Purpose:** Removes `if` from the current collection or state.
 
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+var result = itemRoster.RemoveIf(func<ItemRosterElement, 0);
+```
+
 ### Add
 `public void Add(IEnumerable<ItemRosterElement> rosterElementList)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+itemRoster.Add(rosterElementList);
+```
 
 ### Add
 `public void Add(ItemRosterElement itemRosterElement)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+itemRoster.Add(itemRosterElement);
+```
 
 ### Remove
 `public void Remove(ItemRosterElement itemRosterElement)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+itemRoster.Remove(itemRosterElement);
+```
 
 ### UpdateVersion
 `public void UpdateVersion()`
 
-**Purpose:** Updates the state or data of `version`.
+**Purpose:** Recalculates and stores the latest representation of `version`.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+itemRoster.UpdateVersion();
+```
 
 ### OnLoadStarted
 `public void OnLoadStarted(MetaData metaData)`
 
-**Purpose:** Called when the `load started` event is raised.
+**Purpose:** Invoked when the `load started` event is raised.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+itemRoster.OnLoadStarted(metaData);
+```
 
 ### CalculateCachedStatsOnLoad
 `public static void CalculateCachedStatsOnLoad()`
 
-**Purpose:** Handles logic related to `calculate cached stats on load`.
+**Purpose:** Calculates the current value or result of `cached stats on load`.
+
+```csharp
+// Static call; no instance required
+ItemRoster.CalculateCachedStatsOnLoad();
+```
 
 ### RosterUpdatedEventDelegate
 `public delegate void RosterUpdatedEventDelegate(ItemRosterElement item, int count)`
 
-**Purpose:** Handles logic related to `roster updated event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemRoster from the subsystem API first
+ItemRoster itemRoster = ...;
+itemRoster.RosterUpdatedEventDelegate(item, 0);
+```
 
 ## Usage Example
 
 ```csharp
-ItemRoster example = ItemRoster.this;
+// Typically call this after obtaining an instance from the subsystem API
+ItemRoster itemRoster = ...;
+itemRoster.FindIndexOfItem(item);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

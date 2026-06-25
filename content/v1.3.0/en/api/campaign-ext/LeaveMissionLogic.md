@@ -1,13 +1,7 @@
 ---
 title: "LeaveMissionLogic"
+description: "Auto-generated class reference for LeaveMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LeaveMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LeaveMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,19 +23,31 @@ Treat `LeaveMissionLogic` as a Logic-style extension point: first identify who c
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LeaveMissionLogic from the subsystem API first
+LeaveMissionLogic leaveMissionLogic = ...;
+var result = leaveMissionLogic.MissionEnded(missionResult);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of LeaveMissionLogic from the subsystem API first
+LeaveMissionLogic leaveMissionLogic = ...;
+leaveMissionLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new LeaveMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<LeaveMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

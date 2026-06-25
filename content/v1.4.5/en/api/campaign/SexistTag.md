@@ -1,20 +1,14 @@
 ---
 title: "SexistTag"
+description: "Auto-generated class reference for SexistTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SexistTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SexistTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SexistTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/SexistTag.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/SexistTag.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of SexistTag from the subsystem API first
+SexistTag sexistTag = ...;
+var result = sexistTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SexistTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+SexistTag sexistTag = ...;
+sexistTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

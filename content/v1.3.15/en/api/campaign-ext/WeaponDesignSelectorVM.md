@@ -1,13 +1,7 @@
 ---
 title: "WeaponDesignSelectorVM"
+description: "Auto-generated class reference for WeaponDesignSelectorVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponDesignSelectorVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponDesignSelectorVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of WeaponDesignSelectorVM from the subsystem API first
+WeaponDesignSelectorVM weaponDesignSelectorVM = ...;
+weaponDesignSelectorVM.ExecuteSelect();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of WeaponDesignSelectorVM from the subsystem API first
+WeaponDesignSelectorVM weaponDesignSelectorVM = ...;
+weaponDesignSelectorVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponDesignSelectorVM();
-value.ExecuteSelect();
+// Typically call this after obtaining an instance from the subsystem API
+WeaponDesignSelectorVM weaponDesignSelectorVM = ...;
+weaponDesignSelectorVM.ExecuteSelect();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

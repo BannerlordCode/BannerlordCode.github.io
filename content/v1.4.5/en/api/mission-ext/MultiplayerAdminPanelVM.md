@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminPanelVM"
+description: "Auto-generated class reference for MultiplayerAdminPanelVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAdminPanelVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminPanelVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelVM.cs`
 
 ## Overview
 
@@ -41,35 +35,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
+MultiplayerAdminPanelVM multiplayerAdminPanelVM = ...;
+multiplayerAdminPanelVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
+MultiplayerAdminPanelVM multiplayerAdminPanelVM = ...;
+multiplayerAdminPanelVM.OnFinalize();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
+MultiplayerAdminPanelVM multiplayerAdminPanelVM = ...;
+multiplayerAdminPanelVM.OnTick(0);
+```
 
 ### ExecuteApplyChanges
 `public void ExecuteApplyChanges()`
 
-**Purpose:** Executes the `apply changes` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `apply changes`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
+MultiplayerAdminPanelVM multiplayerAdminPanelVM = ...;
+multiplayerAdminPanelVM.ExecuteApplyChanges();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelVM from the subsystem API first
+MultiplayerAdminPanelVM multiplayerAdminPanelVM = ...;
+multiplayerAdminPanelVM.ExecuteCancel();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerAdminPanelVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerAdminPanelVM multiplayerAdminPanelVM = ...;
+multiplayerAdminPanelVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

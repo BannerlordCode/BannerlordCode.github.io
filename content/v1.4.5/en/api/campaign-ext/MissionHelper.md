@@ -1,19 +1,14 @@
 ---
 title: "MissionHelper"
+description: "Auto-generated class reference for MissionHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHelper
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public static class MissionHelper`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/Sandbox/SandBoxHelpers.cs`
 
 ## Overview
 
@@ -28,67 +23,122 @@ Treat `MissionHelper` as a Helper-style extension point: first identify who crea
 ### FollowAgent
 `public static void FollowAgent(Agent agent, Agent target)`
 
-**Purpose:** Handles logic related to `follow agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.FollowAgent(agent, target);
+```
 
 ### UnfollowAgent
 `public static void UnfollowAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `unfollow agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.UnfollowAgent(agent);
+```
 
 ### FadeOutAgents
 `public static void FadeOutAgents(IEnumerable<Agent> agents, bool hideInstantly, bool hideMount)`
 
-**Purpose:** Handles logic related to `fade out agents`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.FadeOutAgents(agents, false, false);
+```
 
 ### DisableGenericMissionEventScript
 `public static void DisableGenericMissionEventScript(string triggeringObjectTag, GenericMissionEvent missionEvent)`
 
-**Purpose:** Handles logic related to `disable generic mission event script`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.DisableGenericMissionEventScript("example", missionEvent);
+```
 
 ### SpawnPlayer
 `public static void SpawnPlayer(bool civilianEquipment = false, bool noHorses = false, bool noWeapon = false, bool wieldInitialWeapons = false, string spawnTag = "")`
 
-**Purpose:** Handles logic related to `spawn player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.SpawnPlayer(false, false, false, false, "example");
+```
 
 ### SpawnPlayer
 `public static void SpawnPlayer(GameEntity spawnPosition, bool civilianEquipment = false, bool noHorses = false, bool noWeapon = false, bool wieldInitialWeapons = false)`
 
-**Purpose:** Handles logic related to `spawn player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.SpawnPlayer(spawnPosition, false, false, false, false);
+```
 
 ### SpawnHorses
 `public static List<Agent> SpawnHorses()`
 
-**Purpose:** Handles logic related to `spawn horses`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.SpawnHorses();
+```
 
 ### SpawnSheeps
 `public static void SpawnSheeps()`
 
-**Purpose:** Handles logic related to `spawn sheeps`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.SpawnSheeps();
+```
 
 ### SpawnCows
 `public static void SpawnCows()`
 
-**Purpose:** Handles logic related to `spawn cows`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.SpawnCows();
+```
 
 ### SpawnGeese
 `public static void SpawnGeese()`
 
-**Purpose:** Handles logic related to `spawn geese`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.SpawnGeese();
+```
 
 ### SpawnChicken
 `public static void SpawnChicken()`
 
-**Purpose:** Handles logic related to `spawn chicken`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionHelper.SpawnChicken();
+```
 
 ### SpawnHogs
 `public static void SpawnHogs()`
 
-**Purpose:** Handles logic related to `spawn hogs`.
+**Purpose:** Performs the operation described by this method.
 
-### GetRegionMapping
-`public static bool GetRegionMapping(PartyNavigationModel model)`
-
-**Purpose:** Gets the current value of `region mapping`.
+```csharp
+// Static call; no instance required
+MissionHelper.SpawnHogs();
+```
 
 ## Usage Example
 
@@ -98,5 +148,4 @@ MissionHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaDividerButtonWidget"
+description: "Auto-generated class reference for EncyclopediaDividerButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaDividerButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaDividerButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaDividerButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaDividerButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaDividerButtonWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `EncyclopediaDividerButtonWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaDividerButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaDividerButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

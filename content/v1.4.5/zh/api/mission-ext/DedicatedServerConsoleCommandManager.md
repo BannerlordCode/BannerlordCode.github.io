@@ -1,20 +1,14 @@
 ---
 title: "DedicatedServerConsoleCommandManager"
+description: "DedicatedServerConsoleCommandManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DedicatedServerConsoleCommandManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DedicatedServerConsoleCommandManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DedicatedServerConsoleCommandManager`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DedicatedServerConsoleCommandManager.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DedicatedServerConsoleCommandManager.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "DedicatedServerConsoleCommandManager"
 ### AddType
 `public static void AddType(Type type)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `type`。
+**用途 / Purpose:** 将 「type」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+DedicatedServerConsoleCommandManager.AddType(type);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ var manager = DedicatedServerConsoleCommandManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

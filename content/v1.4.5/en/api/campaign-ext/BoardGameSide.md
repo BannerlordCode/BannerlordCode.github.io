@@ -1,20 +1,14 @@
 ---
 title: "BoardGameSide"
+description: "Auto-generated class reference for BoardGameSide."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameSide`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameSide
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
-**Type:** `class`
+**Type:** `public enum BoardGameSide`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/BoardGameSide.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/BoardGameSide.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new BoardGameSide();
+// Obtain an instance from the relevant subsystem API
+BoardGameSide instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

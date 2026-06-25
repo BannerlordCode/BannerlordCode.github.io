@@ -1,13 +1,7 @@
 ---
 title: "TreeNodeTablut"
+description: "Auto-generated class reference for TreeNodeTablut."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TreeNodeTablut`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TreeNodeTablut
 
 **Namespace:** SandBox.BoardGames.AI
@@ -35,17 +29,34 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CreateTreeAndReturnRootNode
 `public static TreeNodeTablut CreateTreeAndReturnRootNode(BoardGameTablut.BoardInformation initialBoardState, int maxDepth)`
 
-**Purpose:** Creates a new `tree and return root node` instance or object.
+**Purpose:** Constructs a new `tree and return root node` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TreeNodeTablut.CreateTreeAndReturnRootNode(initialBoardState, 0);
+```
 
 ### GetChildWithBestScore
 `public TreeNodeTablut GetChildWithBestScore()`
 
-**Purpose:** Gets the current value of `child with best score`.
+**Purpose:** Reads and returns the `child with best score` value held by the current object.
+
+```csharp
+// Obtain an instance of TreeNodeTablut from the subsystem API first
+TreeNodeTablut treeNodeTablut = ...;
+var result = treeNodeTablut.GetChildWithBestScore();
+```
 
 ### SelectAction
 `public void SelectAction()`
 
-**Purpose:** Handles logic related to `select action`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TreeNodeTablut from the subsystem API first
+TreeNodeTablut treeNodeTablut = ...;
+treeNodeTablut.SelectAction();
+```
 
 ## Usage Example
 
@@ -55,4 +66,4 @@ TreeNodeTablut.CreateTreeAndReturnRootNode(initialBoardState, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

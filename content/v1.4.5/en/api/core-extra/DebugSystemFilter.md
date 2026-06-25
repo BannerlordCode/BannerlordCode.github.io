@@ -1,20 +1,14 @@
 ---
 title: "DebugSystemFilter"
+description: "Auto-generated class reference for DebugSystemFilter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugSystemFilter`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugSystemFilter
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public enum DebugSystemFilter : ulong`
 **Base:** `ulong`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Debug.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Debug.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-DebugSystemFilter example = DebugSystemFilter.Value;
+// Obtain an instance from the relevant subsystem API
+DebugSystemFilter instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

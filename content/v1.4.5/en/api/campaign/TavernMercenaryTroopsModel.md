@@ -1,20 +1,14 @@
 ---
 title: "TavernMercenaryTroopsModel"
+description: "Auto-generated class reference for TavernMercenaryTroopsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TavernMercenaryTroopsModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TavernMercenaryTroopsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class TavernMercenaryTroopsModel : MBGameModel<TavernMercenaryTroopsModel>`
 **Base:** `MBGameModel<TavernMercenaryTroopsModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TavernMercenaryTroopsModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TavernMercenaryTroopsModel.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `TavernMercenaryTroopsModel` as a Model-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTavernMercenaryTroopsModel();
+// Typically obtained from a subsystem API or factory
+TavernMercenaryTroopsModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

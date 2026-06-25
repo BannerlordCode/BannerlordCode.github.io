@@ -1,24 +1,18 @@
 ---
 title: "Missile"
+description: "Missile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Missile`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Missile
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class Missile : MBMissile`
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class Missile : MBMissile`
 **Base:** `MBMissile`
-**领域:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 
-`Missile` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`Missile` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,138 +22,55 @@ title: "Missile"
 
 | Name | Signature |
 |------|-----------|
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `Current` | `public static Mission Current { get; }` |
-| `SceneName` | `public string SceneName { get; }` |
-| `SceneLevels` | `public string SceneLevels { get; }` |
-| `DamageToPlayerMultiplier` | `public float DamageToPlayerMultiplier { get; }` |
-| `DamageToFriendsMultiplier` | `public float DamageToFriendsMultiplier { get; }` |
-| `DamageFromPlayerToFriendsMultiplier` | `public float DamageFromPlayerToFriendsMultiplier { get; }` |
-| `HasValidTerrainType` | `public bool HasValidTerrainType { get; }` |
-| `TerrainType` | `public TerrainType TerrainType { get; }` |
-| `Scene` | `public Scene Scene { get; }` |
-| `CustomCameraTargetLocalOffset` | `public Vec3 CustomCameraTargetLocalOffset { get; }` |
-| `CustomCameraLocalOffset` | `public Vec3 CustomCameraLocalOffset { get; }` |
-| `CustomCameraLocalOffset2` | `public Vec3 CustomCameraLocalOffset2 { get; }` |
-| `CustomCameraGlobalOffset` | `public Vec3 CustomCameraGlobalOffset { get; }` |
-| `CustomCameraLocalRotationalOffset` | `public Vec3 CustomCameraLocalRotationalOffset { get; }` |
-| `CustomCameraIgnoreCollision` | `public bool CustomCameraIgnoreCollision { get; }` |
-| `CustomCameraFovMultiplier` | `public float CustomCameraFovMultiplier { get; }` |
-| `CustomCameraFixedDistance` | `public float CustomCameraFixedDistance { get; }` |
-| `ListenerAndAttenuationPosBlendFactor` | `public float ListenerAndAttenuationPosBlendFactor { get; }` |
-| `IgnoredEntityForCamera` | `public GameEntity IgnoredEntityForCamera { get; }` |
+| `Entity` | `public GameEntity Entity { get; }` |
+| `Weapon` | `public MissionWeapon Weapon { get; }` |
+| `ShooterAgent` | `public Agent ShooterAgent { get; }` |
+| `MissionObjectToIgnore` | `public MissionObject MissionObjectToIgnore { get; }` |
+| `AlreadyHitEntityToIgnore` | `public GameEntity AlreadyHitEntityToIgnore { get; }` |
 
 ## 主要方法
 
-### AddActiveMissionObject
-`public void AddActiveMissionObject(MissionObject missionObject)`
+### CalculatePassbySoundParametersMT
+`public void CalculatePassbySoundParametersMT(ref SoundEventParameter soundEventParameter)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `active mission object`。
+**用途 / Purpose:** 计算「passby sound parameters m t」的当前值或结果。
 
-### ActivateMissionObject
-`public void ActivateMissionObject(MissionObject missionObject)`
+```csharp
+// 先通过子系统 API 拿到 Missile 实例
+Missile missile = ...;
+missile.CalculatePassbySoundParametersMT(soundEventParameter);
+```
 
-**用途 / Purpose:** 处理 `activate mission object` 相关逻辑。
+### CalculateBounceBackVelocity
+`public void CalculateBounceBackVelocity(Vec3 rotationSpeed, AttackCollisionData collisionData, out Vec3 velocity, out Vec3 angularVelocity)`
 
-### DeactivateMissionObject
-`public void DeactivateMissionObject(MissionObject missionObject)`
+**用途 / Purpose:** 计算「bounce back velocity」的当前值或结果。
 
-**用途 / Purpose:** 处理 `deactivate mission object` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 Missile 实例
+Missile missile = ...;
+missile.CalculateBounceBackVelocity(rotationSpeed, collisionData, velocity, angularVelocity);
+```
 
-### SetMissionCombatType
-`public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)`
+### PassThroughEntity
+`public void PassThroughEntity(GameEntity entity)`
 
-**用途 / Purpose:** 设置 `mission combat type` 的值或状态。
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-### ConversationCharacterChanged
-`public void ConversationCharacterChanged()`
-
-**用途 / Purpose:** 处理 `conversation character changed` 相关逻辑。
-
-### SetMissionMode
-`public void SetMissionMode(MissionMode newMode, bool atStart)`
-
-**用途 / Purpose:** 设置 `mission mode` 的值或状态。
-
-### GetAverageFps
-`public float GetAverageFps()`
-
-**用途 / Purpose:** 获取 `average fps` 的当前值。
-
-### GetFallAvoidSystemActive
-`public bool GetFallAvoidSystemActive()`
-
-**用途 / Purpose:** 获取 `fall avoid system active` 的当前值。
-
-### SetFallAvoidSystemActive
-`public void SetFallAvoidSystemActive(bool fallAvoidActive)`
-
-**用途 / Purpose:** 设置 `fall avoid system active` 的值或状态。
-
-### IsPositionInsideBoundaries
-`public bool IsPositionInsideBoundaries(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside boundaries` 相关逻辑。
-
-### IsPositionInsideHardBoundaries
-`public bool IsPositionInsideHardBoundaries(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside hard boundaries` 相关逻辑。
-
-### IsPositionInsideAnyBlockerNavMeshFace2D
-`public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside any blocker nav mesh face2 d` 相关逻辑。
-
-### IsPositionOnAnyBlockerNavMeshFace
-`public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)`
-
-**用途 / Purpose:** 处理 `is position on any blocker nav mesh face` 相关逻辑。
-
-### RayCastForClosestAgent
-`public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
-
-**用途 / Purpose:** 处理 `ray cast for closest agent` 相关逻辑。
-
-### RayCastForClosestAgentsLimbs
-`public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**用途 / Purpose:** 处理 `ray cast for closest agents limbs` 相关逻辑。
-
-### RayCastForGivenAgentsLimbs
-`public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**用途 / Purpose:** 处理 `ray cast for given agents limbs` 相关逻辑。
-
-### GetBiggestAgentCollisionPadding
-`public float GetBiggestAgentCollisionPadding()`
-
-**用途 / Purpose:** 获取 `biggest agent collision padding` 的当前值。
-
-### SetMissionCorpseFadeOutTimeInSeconds
-`public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)`
-
-**用途 / Purpose:** 设置 `mission corpse fade out time in seconds` 的值或状态。
-
-### SetOverrideCorpseCount
-`public void SetOverrideCorpseCount(int overrideCorpseCount)`
-
-**用途 / Purpose:** 设置 `override corpse count` 的值或状态。
-
-### SetReportStuckAgentsMode
-`public void SetReportStuckAgentsMode(bool value)`
-
-**用途 / Purpose:** 设置 `report stuck agents mode` 的值或状态。
+```csharp
+// 先通过子系统 API 拿到 Missile 实例
+Missile missile = ...;
+missile.PassThroughEntity(entity);
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 Missile 实例，再调用它的公开方法
-var value = new Missile();
-value.AddActiveMissionObject(missionObject);
+// 通常从对应子系统 API 获取实例后调用
+Missile missile = ...;
+missile.CalculatePassbySoundParametersMT(soundEventParameter);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

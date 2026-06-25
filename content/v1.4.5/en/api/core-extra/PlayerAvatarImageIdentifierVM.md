@@ -1,20 +1,14 @@
 ---
 title: "PlayerAvatarImageIdentifierVM"
+description: "Auto-generated class reference for PlayerAvatarImageIdentifierVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerAvatarImageIdentifierVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerAvatarImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
 **Module:** TaleWorlds.Core
 **Type:** `public class PlayerAvatarImageIdentifierVM : ImageIdentifierVM`
 **Base:** `ImageIdentifierVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/PlayerAvatarImageIdentifierVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/PlayerAvatarImageIdentifierVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ## Usage Example
 
 ```csharp
-var example = new PlayerAvatarImageIdentifierVM();
+// Obtain an instance from the relevant subsystem API
+PlayerAvatarImageIdentifierVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

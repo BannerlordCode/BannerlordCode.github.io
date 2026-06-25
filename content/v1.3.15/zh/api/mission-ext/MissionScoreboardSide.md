@@ -1,23 +1,18 @@
 ---
 title: "MissionScoreboardSide"
+description: "MissionScoreboardSide 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionScoreboardSide`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionScoreboardSide
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class MissionScoreboardSide`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MissionScoreboardSide`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
 
 ## 概述
 
-`MissionScoreboardSide` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MissionScoreboardSide` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -27,126 +22,118 @@ title: "MissionScoreboardSide"
 
 | Name | Signature |
 |------|-----------|
-| `IsOneSided` | `public bool IsOneSided { get; }` |
-| `RoundWinner` | `public BattleSideEnum RoundWinner { get; }` |
-| `Headers` | `public MissionScoreboardComponent.ScoreboardHeader Headers { get; }` |
-| `RoundWinnerList` | `public IEnumerable<BattleSideEnum> RoundWinnerList { get; }` |
-| `Sides` | `public MissionScoreboardComponent.MissionScoreboardSide Sides { get; }` |
-| `Spectators` | `public List<MissionPeer> Spectators { get; }` |
 | `CurrentPlayerCount` | `public int CurrentPlayerCount { get; }` |
 | `Players` | `public IEnumerable<MissionPeer> Players { get; }` |
 
 ## 主要方法
 
-### AfterStart
-`public override void AfterStart()`
+### AddPlayer
+`public void AddPlayer(MissionPeer peer)`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 将 「player」 添加到当前容器或状态中。
 
-### OnRemoveBehavior
-`public override void OnRemoveBehavior()`
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.AddPlayer(peer);
+```
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+### RemovePlayer
+`public void RemovePlayer(MissionPeer peer)`
 
-### ResetBotScores
-`public void ResetBotScores()`
+**用途 / Purpose:** 从当前容器或状态中移除 「player」。
 
-**用途 / Purpose:** 将 `bot scores` 重置为初始状态。
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.RemovePlayer(peer);
+```
 
-### ChangeTeamScore
-`public void ChangeTeamScore(Team team, int scoreChange)`
+### GetValuesOf
+`public string GetValuesOf(MissionPeer peer)`
 
-**用途 / Purpose:** 处理 `change team score` 相关逻辑。
+**用途 / Purpose:** 读取并返回当前对象中 「values of」 的结果。
 
-### GetSideSafe
-`public MissionScoreboardComponent.MissionScoreboardSide GetSideSafe(BattleSideEnum battleSide)`
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetValuesOf(peer);
+```
 
-**用途 / Purpose:** 获取 `side safe` 的当前值。
+### GetHeaderNames
+`public string GetHeaderNames()`
 
-### GetRoundScore
-`public int GetRoundScore(BattleSideEnum side)`
+**用途 / Purpose:** 读取并返回当前对象中 「header names」 的结果。
 
-**用途 / Purpose:** 获取 `round score` 的当前值。
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetHeaderNames();
+```
 
-### HandleServerUpdateRoundScoresMessage
-`public void HandleServerUpdateRoundScoresMessage(GameNetworkMessage baseMessage)`
+### GetHeaderIds
+`public string GetHeaderIds()`
 
-**用途 / Purpose:** 处理 `server update round scores message` 事件或回调。
+**用途 / Purpose:** 读取并返回当前对象中 「header ids」 的结果。
 
-### HandleServerSetRoundMVP
-`public void HandleServerSetRoundMVP(GameNetworkMessage baseMessage)`
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetHeaderIds();
+```
 
-**用途 / Purpose:** 处理 `server set round m v p` 事件或回调。
+### GetScore
+`public int GetScore(MissionPeer peer)`
 
-### CalculateTotalNumbers
-`public void CalculateTotalNumbers()`
+**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
 
-**用途 / Purpose:** 处理 `calculate total numbers` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.GetScore(peer);
+```
 
-### OnClearScene
-`public override void OnClearScene()`
+### UpdateHeader
+`public void UpdateHeader(MissionScoreboardComponent.ScoreboardHeader headers)`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 重新计算并更新 「header」 的最新表示。
 
-### OnPlayerConnectedToServer
-`public override void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)`
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.UpdateHeader(headers);
+```
 
-**用途 / Purpose:** 当 `player connected to server` 事件触发时调用此方法。
+### Clear
+`public void Clear()`
 
-### OnPlayerDisconnectedFromServer
-`public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
+**用途 / Purpose:** 清空当前对象中的内容。
 
-**用途 / Purpose:** 当 `player disconnected from server` 事件触发时调用此方法。
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.Clear();
+```
 
-### OnAgentBuild
-`public override void OnAgentBuild(Agent agent, Banner banner)`
+### CalculateAndGetMVPScoreWithPeer
+`public KeyValuePair<MissionPeer, int> CalculateAndGetMVPScoreWithPeer()`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 计算「and get m v p score with peer」的当前值或结果。
 
-### OnAssignPlayerAsSergeantOfFormation
-`public override void OnAssignPlayerAsSergeantOfFormation(Agent agent)`
-
-**用途 / Purpose:** 当 `assign player as sergeant of formation` 事件触发时调用此方法。
-
-### BotPropertiesChanged
-`public void BotPropertiesChanged(BattleSideEnum side)`
-
-**用途 / Purpose:** 处理 `bot properties changed` 相关逻辑。
-
-### PlayerPropertiesChanged
-`public void PlayerPropertiesChanged(NetworkCommunicator player)`
-
-**用途 / Purpose:** 处理 `player properties changed` 相关逻辑。
-
-### PlayerPropertiesChanged
-`public void PlayerPropertiesChanged(MissionPeer player)`
-
-**用途 / Purpose:** 处理 `player properties changed` 相关逻辑。
-
-### HandleServerEventBotDataMessage
-`public void HandleServerEventBotDataMessage(GameNetworkMessage baseMessage)`
-
-**用途 / Purpose:** 处理 `server event bot data message` 事件或回调。
-
-### OnRoundEnding
-`public void OnRoundEnding()`
-
-**用途 / Purpose:** 当 `round ending` 事件触发时调用此方法。
-
-### OnMultiplayerGameClientBehaviorInitialized
-`public void OnMultiplayerGameClientBehaviorInitialized(ref Action<NetworkCommunicator> onBotsControlledChanged)`
-
-**用途 / Purpose:** 当 `multiplayer game client behavior initialized` 事件触发时调用此方法。
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardSide 实例
+MissionScoreboardSide missionScoreboardSide = ...;
+var result = missionScoreboardSide.CalculateAndGetMVPScoreWithPeer();
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 MissionScoreboardSide 实例，再调用它的公开方法
-var value = new MissionScoreboardSide();
-value.AfterStart();
+// 通常从对应子系统 API 获取实例后调用
+MissionScoreboardSide missionScoreboardSide = ...;
+missionScoreboardSide.AddPlayer(peer);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

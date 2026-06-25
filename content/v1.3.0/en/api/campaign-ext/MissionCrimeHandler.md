@@ -1,13 +1,7 @@
 ---
 title: "MissionCrimeHandler"
+description: "Auto-generated class reference for MissionCrimeHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCrimeHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCrimeHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -27,9 +21,9 @@ Treat `MissionCrimeHandler` as a Handler-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionCrimeHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionCrimeHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

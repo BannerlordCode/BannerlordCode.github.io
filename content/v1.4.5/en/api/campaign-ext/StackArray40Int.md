@@ -1,20 +1,14 @@
 ---
 title: "StackArray40Int"
+description: "Auto-generated class reference for StackArray40Int."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StackArray40Int`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StackArray40Int
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public struct StackArray40Int`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineStackArray.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineStackArray.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new StackArray40Int();
+// Obtain an instance from the relevant subsystem API
+StackArray40Int instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

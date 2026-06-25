@@ -1,13 +1,7 @@
 ---
 title: "MapNotificationVM"
+description: "Auto-generated class reference for MapNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNotificationVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapNotificationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map
@@ -37,50 +31,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map` to plac
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapNotificationVM from the subsystem API first
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.RefreshValues();
+```
 
 ### RegisterMapNotificationType
 `public void RegisterMapNotificationType(Type data, Type item)`
 
-**Purpose:** Handles logic related to `register map notification type`.
+**Purpose:** Registers `map notification type` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MapNotificationVM from the subsystem API first
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.RegisterMapNotificationType(data, item);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapNotificationVM from the subsystem API first
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.OnFinalize();
+```
 
 ### OnFrameTick
 `public void OnFrameTick(float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of MapNotificationVM from the subsystem API first
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.OnFrameTick(0);
+```
 
 ### OnMenuModeTick
 `public void OnMenuModeTick(float dt)`
 
-**Purpose:** Called when the `menu mode tick` event is raised.
+**Purpose:** Invoked when the `menu mode tick` event is raised.
+
+```csharp
+// Obtain an instance of MapNotificationVM from the subsystem API first
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.OnMenuModeTick(0);
+```
 
 ### AddMapNotification
 `public void AddMapNotification(InformationData data)`
 
 **Purpose:** Adds `map notification` to the current collection or state.
 
+```csharp
+// Obtain an instance of MapNotificationVM from the subsystem API first
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.AddMapNotification(data);
+```
+
 ### RemoveAllNotifications
 `public void RemoveAllNotifications()`
 
 **Purpose:** Removes `all notifications` from the current collection or state.
 
+```csharp
+// Obtain an instance of MapNotificationVM from the subsystem API first
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.RemoveAllNotifications();
+```
+
 ### SetRemoveInputKey
 `public void SetRemoveInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `remove input key`.
+**Purpose:** Assigns a new value to `remove input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapNotificationVM from the subsystem API first
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.SetRemoveInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapNotificationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapNotificationVM mapNotificationVM = ...;
+mapNotificationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

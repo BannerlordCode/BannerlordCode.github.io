@@ -1,18 +1,20 @@
 ---
-title: Core 核心 (v1.3.0)
-description: v1.3.0 核心类
+title: "core 目录"
+description: TaleWorlds.Core 核心数据类型类参考目录
 ---
-# Core 核心 (v1.3.0)
+<!-- BEGIN SECTION INDEX -->
 
-## 心智模型
+## ↑ 上级导航
 
-先把 `Core 核心` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+- [API 参考](../)
+- [版本首页](../../)
 
-v1.3.0 核心类。完整文档见 [v1.3.15 Core](../../../../v1.3.15/zh/api/core/)。
+## ↓ 子类列表 — 按字母分组
 
-## 类 / Classes
+### M
 
-| 类 | 描述 |
-|----|------|
-| [MBSubModuleBase](./MBSubModuleBase) | 所有 mod SubModule 的基类，定义生命周期钩子 |
-| [Module](./Module) | 模块系统主协调者，控制整个生命周期 |
+- [MBSubModuleBase](./MBSubModuleBase)
+- [Module](./Module)
+
+
+<!-- END SECTION INDEX -->

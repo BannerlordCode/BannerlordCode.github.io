@@ -1,13 +1,7 @@
 ---
 title: "BodyGeneratorView"
+description: "BodyGeneratorView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BodyGeneratorView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BodyGeneratorView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator
@@ -38,44 +32,84 @@ title: "BodyGeneratorView"
 ### ResetFaceToDefault
 `public void ResetFaceToDefault()`
 
-**用途 / Purpose:** 将 `face to default` 重置为初始状态。
+**用途 / Purpose:** 将 「face to default」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BodyGeneratorView 实例
+BodyGeneratorView bodyGeneratorView = ...;
+bodyGeneratorView.ResetFaceToDefault();
+```
 
 ### FaceGenShowDebug
 `public static string FaceGenShowDebug(List<string> strings)`
 
-**用途 / Purpose:** 处理 `face gen show debug` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BodyGeneratorView.FaceGenShowDebug(strings);
+```
 
 ### FaceGenUpdateDeformKeys
 `public static string FaceGenUpdateDeformKeys(List<string> strings)`
 
-**用途 / Purpose:** 处理 `face gen update deform keys` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BodyGeneratorView.FaceGenUpdateDeformKeys(strings);
+```
 
 ### ReadyToRender
 `public bool ReadyToRender()`
 
-**用途 / Purpose:** 处理 `ready to render` 相关逻辑。
+**用途 / Purpose:** 读取「y to render」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 BodyGeneratorView 实例
+BodyGeneratorView bodyGeneratorView = ...;
+var result = bodyGeneratorView.ReadyToRender();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BodyGeneratorView 实例
+BodyGeneratorView bodyGeneratorView = ...;
+bodyGeneratorView.OnTick(0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BodyGeneratorView 实例
+BodyGeneratorView bodyGeneratorView = ...;
+bodyGeneratorView.OnFinalize();
+```
 
 ### InitCamera
 `public static MatrixFrame InitCamera(Camera camera, Vec3 cameraPosition)`
 
-**用途 / Purpose:** 初始化 `camera` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「camera」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+BodyGeneratorView.InitCamera(camera, cameraPosition);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new BodyGeneratorView();
+// 从子系统 API 或场景中获取该视图
+BodyGeneratorView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

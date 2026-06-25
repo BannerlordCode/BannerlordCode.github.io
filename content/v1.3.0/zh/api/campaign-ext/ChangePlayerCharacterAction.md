@@ -1,13 +1,7 @@
 ---
 title: "ChangePlayerCharacterAction"
+description: "ChangePlayerCharacterAction 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChangePlayerCharacterAction`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangePlayerCharacterAction
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
@@ -29,7 +23,12 @@ title: "ChangePlayerCharacterAction"
 ### Apply
 `public static void Apply(Hero hero)`
 
-**用途 / Purpose:** 将 `apply` 应用到当前对象。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
+
+```csharp
+// 静态调用，不需要实例
+ChangePlayerCharacterAction.Apply(hero);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ ChangePlayerCharacterAction.Apply(hero);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

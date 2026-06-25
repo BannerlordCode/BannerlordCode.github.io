@@ -1,13 +1,7 @@
 ---
 title: "SiegeEventManager"
+description: "SiegeEventManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeEventManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEventManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -35,17 +29,35 @@ title: "SiegeEventManager"
 ### StartSiegeEvent
 `public SiegeEvent StartSiegeEvent(Settlement settlement, MobileParty besiegerParty)`
 
-**用途 / Purpose:** 处理 `start siege event` 相关逻辑。
+**用途 / Purpose:** 启动「siege event」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEventManager 实例
+SiegeEventManager siegeEventManager = ...;
+var result = siegeEventManager.StartSiegeEvent(settlement, besiegerParty);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEventManager 实例
+SiegeEventManager siegeEventManager = ...;
+siegeEventManager.Tick(0);
+```
 
 ### OnAfterLoad
 `public void OnAfterLoad()`
 
-**用途 / Purpose:** 当 `after load` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after load」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEventManager 实例
+SiegeEventManager siegeEventManager = ...;
+siegeEventManager.OnAfterLoad();
+```
 
 ## 使用示例
 
@@ -55,4 +67,4 @@ var manager = SiegeEventManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

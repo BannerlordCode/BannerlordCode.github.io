@@ -1,20 +1,14 @@
 ---
 title: "BarberCampaignBehavior"
+description: "BarberCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BarberCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarberCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class BarberCampaignBehavior : CampaignBehaviorBase, IFacegenCampaignBehavior, ICampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "BarberCampaignBehavior"
 ### GetHaircutIndices
 `public int GetHaircutIndices(BasicCharacterObject character)`
 
-**用途 / Purpose:** 获取 `haircut indices` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「haircut indices」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarberCampaignBehavior 实例
+BarberCampaignBehavior barberCampaignBehavior = ...;
+var result = barberCampaignBehavior.GetHaircutIndices(character);
+```
 
 ### GetFacialHairIndices
 `public int GetFacialHairIndices(BasicCharacterObject character)`
 
-**用途 / Purpose:** 获取 `facial hair indices` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「facial hair indices」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarberCampaignBehavior 实例
+BarberCampaignBehavior barberCampaignBehavior = ...;
+var result = barberCampaignBehavior.GetFacialHairIndices(character);
+```
 
 ### GetAvailableStages
 `public FaceGeneratorStage GetAvailableStages()`
 
-**用途 / Purpose:** 获取 `available stages` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available stages」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarberCampaignBehavior 实例
+BarberCampaignBehavior barberCampaignBehavior = ...;
+var result = barberCampaignBehavior.GetAvailableStages();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 BarberCampaignBehavior 实例
+BarberCampaignBehavior barberCampaignBehavior = ...;
+barberCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore store)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 BarberCampaignBehavior 实例
+BarberCampaignBehavior barberCampaignBehavior = ...;
+barberCampaignBehavior.SyncData(store);
+```
 
 ### GetFaceGenFilter
 `public IFaceGeneratorCustomFilter GetFaceGenFilter()`
 
-**用途 / Purpose:** 获取 `face gen filter` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「face gen filter」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarberCampaignBehavior 实例
+BarberCampaignBehavior barberCampaignBehavior = ...;
+var result = barberCampaignBehavior.GetFaceGenFilter();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BarberCampaignBehavior();
-value.GetHaircutIndices(character);
+// 通常从对应子系统 API 获取实例后调用
+BarberCampaignBehavior barberCampaignBehavior = ...;
+barberCampaignBehavior.GetHaircutIndices(character);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

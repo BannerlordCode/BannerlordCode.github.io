@@ -1,13 +1,7 @@
 ---
 title: "MapVisibilityModel"
+description: "MapVisibilityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapVisibilityModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapVisibilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ title: "MapVisibilityModel"
 ### GetPartySpottingRangeBase
 `public abstract float GetPartySpottingRangeBase(MobileParty party)`
 
-**用途 / Purpose:** 获取 `party spotting range base` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party spotting range base」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapVisibilityModel 实例
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySpottingRangeBase(party);
+```
 
 ### GetPartySpottingRange
 `public abstract ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `party spotting range` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party spotting range」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapVisibilityModel 实例
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySpottingRange(party, false);
+```
 
 ### GetPartyRelativeInspectionRange
 `public abstract float GetPartyRelativeInspectionRange(IMapPoint party)`
 
-**用途 / Purpose:** 获取 `party relative inspection range` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party relative inspection range」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapVisibilityModel 实例
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartyRelativeInspectionRange(party);
+```
 
 ### GetPartySpottingDifficulty
 `public abstract float GetPartySpottingDifficulty(MobileParty spotterParty, MobileParty party)`
 
-**用途 / Purpose:** 获取 `party spotting difficulty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party spotting difficulty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapVisibilityModel 实例
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySpottingDifficulty(spotterParty, party);
+```
 
 ### GetHideoutSpottingDistance
 `public abstract float GetHideoutSpottingDistance()`
 
-**用途 / Purpose:** 获取 `hideout spotting distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hideout spotting distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapVisibilityModel 实例
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetHideoutSpottingDistance();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMapVisibilityModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MapVisibilityModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

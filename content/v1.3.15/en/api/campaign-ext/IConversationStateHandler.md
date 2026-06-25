@@ -1,18 +1,12 @@
 ---
 title: "IConversationStateHandler"
+description: "Auto-generated class reference for IConversationStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IConversationStateHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IConversationStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IConversationStateHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Conversation/IConversationStateHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IConversationStateHandler` as a Handler-style extension point: first iden
 ## Usage Example
 
 ```csharp
-IConversationStateHandler implementation = GetConversationStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIConversationStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

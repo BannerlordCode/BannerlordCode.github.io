@@ -1,13 +1,7 @@
 ---
 title: "Incident"
+description: "Incident 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Incident`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Incident
 
 **Namespace:** TaleWorlds.CampaignSystem.Incidents
@@ -41,50 +35,99 @@ title: "Incident"
 ### Initialize
 `public void Initialize(string title, string description, IncidentsCampaignBehaviour.IncidentTrigger trigger, IncidentsCampaignBehaviour.IncidentType type, CampaignTime cooldown, Func<TextObject, bool> condition)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Incident 实例
+Incident incident = ...;
+incident.Initialize("example", "example", trigger, type, cooldown, func<TextObject, false);
+```
 
 ### AddOption
 `public void AddOption(string text, List<IncidentEffect> effects, Incident.IncidentOptionConditionDelegate condition = null, Incident.IncidentOptionConsequenceDelegate consequence = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `option`。
+**用途 / Purpose:** 将 「option」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Incident 实例
+Incident incident = ...;
+incident.AddOption("example", effects, null, null);
+```
 
 ### CanIncidentBeInvoked
 `public bool CanIncidentBeInvoked()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `incident be invoked`。
+**用途 / Purpose:** 检查当前对象是否满足 「incident be invoked」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Incident 实例
+Incident incident = ...;
+var result = incident.CanIncidentBeInvoked();
+```
 
 ### GetOptionText
 `public TextObject GetOptionText(int index)`
 
-**用途 / Purpose:** 获取 `option text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「option text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Incident 实例
+Incident incident = ...;
+var result = incident.GetOptionText(0);
+```
 
 ### GetOptionHint
 `public List<TextObject> GetOptionHint(int index)`
 
-**用途 / Purpose:** 获取 `option hint` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「option hint」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Incident 实例
+Incident incident = ...;
+var result = incident.GetOptionHint(0);
+```
 
 ### InvokeOption
 `public List<TextObject> InvokeOption(int index)`
 
-**用途 / Purpose:** 处理 `invoke option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Incident 实例
+Incident incident = ...;
+var result = incident.InvokeOption(0);
+```
 
 ### IncidentOptionConditionDelegate
 `public delegate bool IncidentOptionConditionDelegate(TextObject text)`
 
-**用途 / Purpose:** 处理 `incident option condition delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Incident 实例
+Incident incident = ...;
+var result = incident.IncidentOptionConditionDelegate(text);
+```
 
 ### IncidentOptionConsequenceDelegate
 `public delegate void IncidentOptionConsequenceDelegate()`
 
-**用途 / Purpose:** 处理 `incident option consequence delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Incident 实例
+Incident incident = ...;
+incident.IncidentOptionConsequenceDelegate();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Incident();
-value.Initialize("example", "example", trigger, type, cooldown, func<TextObject, false);
+// 通常从对应子系统 API 获取实例后调用
+Incident incident = ...;
+incident.Initialize("example", "example", trigger, type, cooldown, func<TextObject, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

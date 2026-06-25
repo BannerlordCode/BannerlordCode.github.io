@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationFaceGeneratorView"
+description: "CharacterCreationFaceGeneratorView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationFaceGeneratorView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationFaceGeneratorView
 
 **Namespace:** SandBox.GauntletUI.CharacterCreation
@@ -29,49 +23,98 @@ title: "CharacterCreationFaceGeneratorView"
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**用途 / Purpose:** 获取 `layers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「layers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationFaceGeneratorView 实例
+CharacterCreationFaceGeneratorView characterCreationFaceGeneratorView = ...;
+var result = characterCreationFaceGeneratorView.GetLayers();
+```
 
 ### PreviousStage
 `public override void PreviousStage()`
 
-**用途 / Purpose:** 处理 `previous stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationFaceGeneratorView 实例
+CharacterCreationFaceGeneratorView characterCreationFaceGeneratorView = ...;
+characterCreationFaceGeneratorView.PreviousStage();
+```
 
 ### NextStage
 `public override void NextStage()`
 
-**用途 / Purpose:** 处理 `next stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationFaceGeneratorView 实例
+CharacterCreationFaceGeneratorView characterCreationFaceGeneratorView = ...;
+characterCreationFaceGeneratorView.NextStage();
+```
 
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationFaceGeneratorView 实例
+CharacterCreationFaceGeneratorView characterCreationFaceGeneratorView = ...;
+characterCreationFaceGeneratorView.Tick(0);
+```
 
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**用途 / Purpose:** 获取 `virtual stage count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「virtual stage count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationFaceGeneratorView 实例
+CharacterCreationFaceGeneratorView characterCreationFaceGeneratorView = ...;
+var result = characterCreationFaceGeneratorView.GetVirtualStageCount();
+```
 
 ### GoToIndex
 `public override void GoToIndex(int index)`
 
-**用途 / Purpose:** 处理 `go to index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationFaceGeneratorView 实例
+CharacterCreationFaceGeneratorView characterCreationFaceGeneratorView = ...;
+characterCreationFaceGeneratorView.GoToIndex(0);
+```
 
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**用途 / Purpose:** 加载 `escape menu movie` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「escape menu movie」。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationFaceGeneratorView 实例
+CharacterCreationFaceGeneratorView characterCreationFaceGeneratorView = ...;
+characterCreationFaceGeneratorView.LoadEscapeMenuMovie();
+```
 
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**用途 / Purpose:** 处理 `release escape menu movie` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationFaceGeneratorView 实例
+CharacterCreationFaceGeneratorView characterCreationFaceGeneratorView = ...;
+characterCreationFaceGeneratorView.ReleaseEscapeMenuMovie();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new CharacterCreationFaceGeneratorView();
+// 从子系统 API 或场景中获取该视图
+CharacterCreationFaceGeneratorView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

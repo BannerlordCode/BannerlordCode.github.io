@@ -1,23 +1,18 @@
 ---
 title: "PointOfInterestScorePair"
+description: "PointOfInterestScorePair 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PointOfInterestScorePair`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PointOfInterestScorePair
 
-**命名空间:** SandBox.Missions.MissionLogics
-**模块:** SandBox.Missions
-**类型:** `public class PointOfInterestScorePair`
-**领域:** campaign-ext
+**Namespace:** SandBox.Missions.MissionLogics
+**Module:** SandBox.Missions
+**Type:** `public class PointOfInterestScorePair`
+**Base:** 无
+**File:** `SandBox/Missions/MissionLogics/MissionPathGenerationLogic.cs`
 
 ## 概述
 
-`PointOfInterestScorePair` 位于 `SandBox.Missions.MissionLogics`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`PointOfInterestScorePair` 位于 `SandBox.Missions.MissionLogics`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -31,115 +26,80 @@ title: "PointOfInterestScorePair"
 
 ## 主要方法
 
-### OnObjectUsed
-`public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
+### Clone
+`public MissionPathGenerationLogic.PointOfInterestScorePair Clone()`
 
-**用途 / Purpose:** 当 `object used` 事件触发时调用此方法。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
-### InitializeBehavior
-`public void InitializeBehavior()`
+```csharp
+// 先通过子系统 API 拿到 PointOfInterestScorePair 实例
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.Clone();
+```
 
-**用途 / Purpose:** 初始化 `behavior` 的状态、资源或绑定。
+### AddToData
+`public void AddToData(MissionPathGenerationLogic.PointOfInterestBaseData pointOfInterestToAdd)`
 
-### OnMissionTick
-`public override void OnMissionTick(float dt)`
+**用途 / Purpose:** 将 「to data」 添加到当前容器或状态中。
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+```csharp
+// 先通过子系统 API 拿到 PointOfInterestScorePair 实例
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.AddToData(pointOfInterestToAdd);
+```
 
-### GetAllPossiblePaths
-`public List<MissionPathGenerationLogic.PointOfInterestScorePair> GetAllPossiblePaths()`
+### IsDataEqualTo
+`public bool IsDataEqualTo(MissionPathGenerationLogic.PointOfInterestScorePair other, MissionPathGenerationLogic.PointOfInterestBaseData newDataToAdd)`
 
-**用途 / Purpose:** 获取 `all possible paths` 的当前值。
+**用途 / Purpose:** 判断当前对象是否处于 「data equal to」 状态或条件。
 
-### IsOnLeftSide
-`public bool IsOnLeftSide(Vec2 lineA, Vec2 lineB, Vec2 point)`
+```csharp
+// 先通过子系统 API 拿到 PointOfInterestScorePair 实例
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsDataEqualTo(other, newDataToAdd);
+```
 
-**用途 / Purpose:** 处理 `is on left side` 相关逻辑。
+### IsBetterThan
+`public bool IsBetterThan(MissionPathGenerationLogic.PointOfInterestScorePair other)`
 
-### ReverseClone
-`public MissionPathGenerationLogic.NavigationPathData ReverseClone()`
+**用途 / Purpose:** 判断当前对象是否处于 「better than」 状态或条件。
 
-**用途 / Purpose:** 处理 `reverse clone` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 PointOfInterestScorePair 实例
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsBetterThan(other);
+```
 
-### InitializeUsablePoints
-`public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
+### IsSufficient
+`public bool IsSufficient()`
 
-**用途 / Purpose:** 初始化 `usable points` 的状态、资源或绑定。
+**用途 / Purpose:** 判断当前对象是否处于 「sufficient」 状态或条件。
 
-### GetPointOfInterestType
-`public abstract MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
+```csharp
+// 先通过子系统 API 拿到 PointOfInterestScorePair 实例
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsSufficient();
+```
 
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
+### ReOrderDataAccordingToPathRatios
+`public void ReOrderDataAccordingToPathRatios()`
 
-### GetPositionAndRadiusPairs
-`public abstract List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-**用途 / Purpose:** 获取 `position and radius pairs` 的当前值。
-
-### IsInRadius
-`public abstract bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public abstract float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### GetPositionAndRadiusPairs
-`public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
-
-**用途 / Purpose:** 获取 `position and radius pairs` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### GetPositionAndRadiusPairs
-`public override List<ValueTuple<Vec2, float>> GetPositionAndRadiusPairs()`
-
-**用途 / Purpose:** 获取 `position and radius pairs` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(MissionPathGenerationLogic.PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override MissionPathGenerationLogic.PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
+```csharp
+// 先通过子系统 API 拿到 PointOfInterestScorePair 实例
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.ReOrderDataAccordingToPathRatios();
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 PointOfInterestScorePair 实例，再调用它的公开方法
-var value = new PointOfInterestScorePair();
-value.OnObjectUsed(userAgent, usedObject);
+// 通常从对应子系统 API 获取实例后调用
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.Clone();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "HeroRelatedIssueCoolDownData"
+description: "HeroRelatedIssueCoolDownData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroRelatedIssueCoolDownData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroRelatedIssueCoolDownData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -29,19 +23,32 @@ title: "HeroRelatedIssueCoolDownData"
 ### IsRelatedTo
 `public override bool IsRelatedTo(object obj)`
 
-**用途 / Purpose:** 处理 `is related to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 HeroRelatedIssueCoolDownData 实例
+HeroRelatedIssueCoolDownData heroRelatedIssueCoolDownData = ...;
+var result = heroRelatedIssueCoolDownData.IsRelatedTo(obj);
+```
 
 ### IsValid
 `public override bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 HeroRelatedIssueCoolDownData 实例
+HeroRelatedIssueCoolDownData heroRelatedIssueCoolDownData = ...;
+var result = heroRelatedIssueCoolDownData.IsValid();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HeroRelatedIssueCoolDownData();
+// 该数据对象通常由战役/任务 API 返回
+HeroRelatedIssueCoolDownData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleVM"
+description: "Auto-generated class reference for CustomBattleVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleVM.cs`
 
 ## Overview
 
@@ -55,65 +49,132 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### SetActiveState
 `public void SetActiveState(bool isActive)`
 
-**Purpose:** Sets the value or state of `active state`.
+**Purpose:** Assigns a new value to `active state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.SetActiveState(false);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.RefreshValues();
+```
 
 ### ExecuteBack
 `public void ExecuteBack()`
 
-**Purpose:** Executes the `back` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `back`.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.ExecuteBack();
+```
 
 ### ExecuteStart
 `public void ExecuteStart()`
 
-**Purpose:** Executes the `start` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `start`.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.ExecuteStart();
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** Executes the `randomize` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `randomize`.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.ExecuteRandomize();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.OnFinalize();
+```
 
 ### ExecuteSwitchToNextCustomBattle
 `public void ExecuteSwitchToNextCustomBattle()`
 
-**Purpose:** Executes the `switch to next custom battle` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch to next custom battle`.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.ExecuteSwitchToNextCustomBattle();
+```
 
 ### SetStartInputKey
 `public void SetStartInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `start input key`.
+**Purpose:** Assigns a new value to `start input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.SetStartInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.SetCancelInputKey(hotkey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.SetResetInputKey(hotkey);
+```
 
 ### SetRandomizeInputKey
 `public void SetRandomizeInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `randomize input key`.
+**Purpose:** Assigns a new value to `randomize input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleVM from the subsystem API first
+CustomBattleVM customBattleVM = ...;
+customBattleVM.SetRandomizeInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleVM();
-value.SetActiveState(false);
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleVM customBattleVM = ...;
+customBattleVM.SetActiveState(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

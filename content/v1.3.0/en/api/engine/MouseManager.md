@@ -1,13 +1,7 @@
 ---
 title: "MouseManager"
+description: "Auto-generated class reference for MouseManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MouseManager`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MouseManager
 
 **Namespace:** TaleWorlds.Engine
@@ -29,32 +23,62 @@ Treat `MouseManager` as a Manager-style extension point: first identify who crea
 ### ActivateMouseCursor
 `public static void ActivateMouseCursor(CursorType mouseId)`
 
-**Purpose:** Handles logic related to `activate mouse cursor`.
+**Purpose:** Activates the resource, state, or feature associated with `mouse cursor`.
+
+```csharp
+// Static call; no instance required
+MouseManager.ActivateMouseCursor(mouseId);
+```
 
 ### SetMouseCursor
 `public static void SetMouseCursor(CursorType mouseId, string mousePath)`
 
-**Purpose:** Sets the value or state of `mouse cursor`.
+**Purpose:** Assigns a new value to `mouse cursor` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MouseManager.SetMouseCursor(mouseId, "example");
+```
 
 ### ShowCursor
 `public static void ShowCursor(bool show)`
 
-**Purpose:** Handles logic related to `show cursor`.
+**Purpose:** Displays the UI or element associated with `cursor`.
+
+```csharp
+// Static call; no instance required
+MouseManager.ShowCursor(false);
+```
 
 ### LockCursorAtCurrentPosition
 `public static void LockCursorAtCurrentPosition(bool lockCursor)`
 
-**Purpose:** Handles logic related to `lock cursor at current position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MouseManager.LockCursorAtCurrentPosition(false);
+```
 
 ### LockCursorAtPosition
 `public static void LockCursorAtPosition(float x, float y)`
 
-**Purpose:** Handles logic related to `lock cursor at position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MouseManager.LockCursorAtPosition(0, 0);
+```
 
 ### UnlockCursor
 `public static void UnlockCursor()`
 
-**Purpose:** Handles logic related to `unlock cursor`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MouseManager.UnlockCursor();
+```
 
 ## Usage Example
 
@@ -64,4 +88,4 @@ var manager = MouseManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

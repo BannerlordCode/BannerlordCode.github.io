@@ -1,13 +1,7 @@
 ---
 title: "CheerActionGroupEnum"
+description: "Auto-generated class reference for CheerActionGroupEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheerActionGroupEnum`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheerActionGroupEnum
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-CheerActionGroupEnum example = CheerActionGroupEnum.Value;
+// Obtain an instance from the relevant subsystem API
+CheerActionGroupEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

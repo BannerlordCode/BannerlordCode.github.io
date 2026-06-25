@@ -1,13 +1,7 @@
 ---
 title: "MBCharacterSkills"
+description: "Auto-generated class reference for MBCharacterSkills."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBCharacterSkills`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBCharacterSkills
 
 **Namespace:** TaleWorlds.Core
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MBCharacterSkills from the subsystem API first
+MBCharacterSkills mBCharacterSkills = ...;
+mBCharacterSkills.Init(objectManager, node);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of MBCharacterSkills from the subsystem API first
+MBCharacterSkills mBCharacterSkills = ...;
+mBCharacterSkills.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBCharacterSkills();
-value.Init(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+MBCharacterSkills mBCharacterSkills = ...;
+mBCharacterSkills.Init(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

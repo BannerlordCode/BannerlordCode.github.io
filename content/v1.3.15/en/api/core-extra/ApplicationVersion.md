@@ -1,23 +1,18 @@
 ---
 title: "ApplicationVersion"
+description: "Auto-generated class reference for ApplicationVersion."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplicationVersion`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ApplicationVersion
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct ApplicationVersion`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Library/ApplicationVersion.cs`
 
 ## Overview
 
-`ApplicationVersion` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ApplicationVersion` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,61 +33,115 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### FromParametersFile
 `public static ApplicationVersion FromParametersFile(string customParameterFilePath = null)`
 
-**Purpose:** Handles logic related to `from parameters file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ApplicationVersion.FromParametersFile("example");
+```
 
 ### FromString
 `public static ApplicationVersion FromString(string versionAsString, int defaultChangeSet = 0)`
 
-**Purpose:** Handles logic related to `from string`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ApplicationVersion.FromString("example", 0);
+```
 
 ### IsSame
 `public bool IsSame(ApplicationVersion other, bool checkChangeSet)`
 
-**Purpose:** Handles logic related to `is same`.
+**Purpose:** Determines whether the current object is in the `same` state or condition.
+
+```csharp
+// Obtain an instance of ApplicationVersion from the subsystem API first
+ApplicationVersion applicationVersion = ...;
+var result = applicationVersion.IsSame(other, false);
+```
 
 ### IsOlderThan
 `public bool IsOlderThan(ApplicationVersion other)`
 
-**Purpose:** Handles logic related to `is older than`.
+**Purpose:** Determines whether the current object is in the `older than` state or condition.
+
+```csharp
+// Obtain an instance of ApplicationVersion from the subsystem API first
+ApplicationVersion applicationVersion = ...;
+var result = applicationVersion.IsOlderThan(other);
+```
 
 ### IsNewerThan
 `public bool IsNewerThan(ApplicationVersion other)`
 
-**Purpose:** Handles logic related to `is newer than`.
+**Purpose:** Determines whether the current object is in the `newer than` state or condition.
+
+```csharp
+// Obtain an instance of ApplicationVersion from the subsystem API first
+ApplicationVersion applicationVersion = ...;
+var result = applicationVersion.IsNewerThan(other);
+```
 
 ### ApplicationVersionTypeFromString
 `public static ApplicationVersionType ApplicationVersionTypeFromString(string applicationVersionTypeAsString)`
 
-**Purpose:** Handles logic related to `application version type from string`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ApplicationVersion.ApplicationVersionTypeFromString("example");
+```
 
 ### GetPrefix
 `public static string GetPrefix(ApplicationVersionType applicationVersionType)`
 
-**Purpose:** Gets the current value of `prefix`.
+**Purpose:** Reads and returns the `prefix` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ApplicationVersion.GetPrefix(applicationVersionType);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ApplicationVersion from the subsystem API first
+ApplicationVersion applicationVersion = ...;
+var result = applicationVersion.ToString();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of ApplicationVersion from the subsystem API first
+ApplicationVersion applicationVersion = ...;
+var result = applicationVersion.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of ApplicationVersion from the subsystem API first
+ApplicationVersion applicationVersion = ...;
+var result = applicationVersion.Equals(obj);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ApplicationVersion.FromParametersFile("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

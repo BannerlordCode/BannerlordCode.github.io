@@ -1,13 +1,7 @@
 ---
 title: "DefaultCrimeModel"
+description: "DefaultCrimeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultCrimeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCrimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,47 +29,101 @@ title: "DefaultCrimeModel"
 ### DoesPlayerHaveAnyCrimeRating
 `public override bool DoesPlayerHaveAnyCrimeRating(IFaction faction)`
 
-**用途 / Purpose:** 处理 `does player have any crime rating` 相关逻辑。
+**用途 / Purpose:** 返回「player have any crime rating」对当前对象是否成立的布尔结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.DoesPlayerHaveAnyCrimeRating(faction);
+```
 
 ### IsPlayerCrimeRatingSevere
 `public override bool IsPlayerCrimeRatingSevere(IFaction faction)`
 
-**用途 / Purpose:** 处理 `is player crime rating severe` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player crime rating severe」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.IsPlayerCrimeRatingSevere(faction);
+```
 
 ### IsPlayerCrimeRatingModerate
 `public override bool IsPlayerCrimeRatingModerate(IFaction faction)`
 
-**用途 / Purpose:** 处理 `is player crime rating moderate` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player crime rating moderate」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.IsPlayerCrimeRatingModerate(faction);
+```
 
 ### IsPlayerCrimeRatingMild
 `public override bool IsPlayerCrimeRatingMild(IFaction faction)`
 
-**用途 / Purpose:** 处理 `is player crime rating mild` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player crime rating mild」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.IsPlayerCrimeRatingMild(faction);
+```
 
 ### GetCost
 `public override float GetCost(IFaction faction, CrimeModel.PaymentMethod paymentMethod, float minimumCrimeRating)`
 
-**用途 / Purpose:** 获取 `cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.GetCost(faction, paymentMethod, 0);
+```
 
 ### GetDailyCrimeRatingChange
 `public override ExplainedNumber GetDailyCrimeRatingChange(IFaction faction, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `daily crime rating change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily crime rating change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.GetDailyCrimeRatingChange(faction, false);
+```
 
 ### GetMaxCrimeRating
 `public override float GetMaxCrimeRating()`
 
-**用途 / Purpose:** 获取 `max crime rating` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max crime rating」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.GetMaxCrimeRating();
+```
 
 ### GetMinAcceptableCrimeRating
 `public override float GetMinAcceptableCrimeRating(IFaction faction)`
 
-**用途 / Purpose:** 获取 `min acceptable crime rating` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「min acceptable crime rating」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.GetMinAcceptableCrimeRating(faction);
+```
 
 ### GetCrimeRatingAfterPunishment
 `public override float GetCrimeRatingAfterPunishment()`
 
-**用途 / Purpose:** 获取 `crime rating after punishment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「crime rating after punishment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCrimeModel 实例
+DefaultCrimeModel defaultCrimeModel = ...;
+var result = defaultCrimeModel.GetCrimeRatingAfterPunishment();
+```
 
 ## 使用示例
 
@@ -85,4 +133,4 @@ Game.Current.ReplaceModel<DefaultCrimeModel>(new MyDefaultCrimeModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

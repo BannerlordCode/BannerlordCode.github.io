@@ -1,18 +1,12 @@
 ---
 title: "EndCaptivityDetail"
+description: "Auto-generated class reference for EndCaptivityDetail."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EndCaptivityDetail`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EndCaptivityDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum EndCaptivityDetail`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Actions/EndCaptivityDetail.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ## Usage Example
 
 ```csharp
-var value = new EndCaptivityDetail();
+// Obtain an instance from the relevant subsystem API
+EndCaptivityDetail instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

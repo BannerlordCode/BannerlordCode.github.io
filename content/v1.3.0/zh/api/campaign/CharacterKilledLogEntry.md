@@ -1,13 +1,7 @@
 ---
 title: "CharacterKilledLogEntry"
+description: "CharacterKilledLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterKilledLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterKilledLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -37,40 +31,77 @@ title: "CharacterKilledLogEntry"
 ### AsReasonForEnmity
 `public override int AsReasonForEnmity(Hero potentialKiller, Hero potentialRelative)`
 
-**用途 / Purpose:** 处理 `as reason for enmity` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterKilledLogEntry 实例
+CharacterKilledLogEntry characterKilledLogEntry = ...;
+var result = characterKilledLogEntry.AsReasonForEnmity(potentialKiller, potentialRelative);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterKilledLogEntry 实例
+CharacterKilledLogEntry characterKilledLogEntry = ...;
+var result = characterKilledLogEntry.ToString();
+```
 
 ### GetHistoricComment
 `public override TextObject GetHistoricComment(Hero talkTroop)`
 
-**用途 / Purpose:** 获取 `historic comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「historic comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterKilledLogEntry 实例
+CharacterKilledLogEntry characterKilledLogEntry = ...;
+var result = characterKilledLogEntry.GetHistoricComment(talkTroop);
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 获取 `notification text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterKilledLogEntry 实例
+CharacterKilledLogEntry characterKilledLogEntry = ...;
+var result = characterKilledLogEntry.GetNotificationText();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** 获取 `encyclopedia text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterKilledLogEntry 实例
+CharacterKilledLogEntry characterKilledLogEntry = ...;
+var result = characterKilledLogEntry.GetEncyclopediaText();
+```
 
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**用途 / Purpose:** 处理 `is related to war` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related to war」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterKilledLogEntry 实例
+CharacterKilledLogEntry characterKilledLogEntry = ...;
+var result = characterKilledLogEntry.IsRelatedToWar(stance, effector, effected);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterKilledLogEntry();
-value.AsReasonForEnmity(potentialKiller, potentialRelative);
+// 通常从对应子系统 API 获取实例后调用
+CharacterKilledLogEntry characterKilledLogEntry = ...;
+characterKilledLogEntry.AsReasonForEnmity(potentialKiller, potentialRelative);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

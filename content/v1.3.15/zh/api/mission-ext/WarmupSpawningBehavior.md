@@ -1,13 +1,7 @@
 ---
 title: "WarmupSpawningBehavior"
+description: "WarmupSpawningBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WarmupSpawningBehavior`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WarmupSpawningBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,30 +23,55 @@ title: "WarmupSpawningBehavior"
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WarmupSpawningBehavior 实例
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+warmupSpawningBehavior.OnTick(0);
+```
 
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**用途 / Purpose:** 处理 `allow early agent visuals despawning` 相关逻辑。
+**用途 / Purpose:** 允许当前对象启用或执行「early agent visuals despawning」。
+
+```csharp
+// 先通过子系统 API 拿到 WarmupSpawningBehavior 实例
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+var result = warmupSpawningBehavior.AllowEarlyAgentVisualsDespawning(lobbyPeer);
+```
 
 ### GetMaximumReSpawnPeriodForPeer
 `public override int GetMaximumReSpawnPeriodForPeer(MissionPeer peer)`
 
-**用途 / Purpose:** 获取 `maximum re spawn period for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum re spawn period for peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WarmupSpawningBehavior 实例
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+var result = warmupSpawningBehavior.GetMaximumReSpawnPeriodForPeer(peer);
+```
 
 ### Clear
 `public override void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 WarmupSpawningBehavior 实例
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+warmupSpawningBehavior.Clear();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WarmupSpawningBehavior();
-value.OnTick(0);
+// 通常从对应子系统 API 获取实例后调用
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+warmupSpawningBehavior.OnTick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

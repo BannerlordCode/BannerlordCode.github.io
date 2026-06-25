@@ -1,13 +1,7 @@
 ---
 title: "OverrideView"
+description: "Auto-generated class reference for OverrideView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OverrideView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OverrideView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -33,9 +27,10 @@ Treat `OverrideView` as a View-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var view = new OverrideView();
+// Retrieve this view from the subsystem API or scene
+OverrideView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

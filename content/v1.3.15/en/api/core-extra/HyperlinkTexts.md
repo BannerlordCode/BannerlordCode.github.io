@@ -1,23 +1,18 @@
 ---
 title: "HyperlinkTexts"
+description: "Auto-generated class reference for HyperlinkTexts."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HyperlinkTexts`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HyperlinkTexts
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class HyperlinkTexts`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/HyperlinkTexts.cs`
 
 ## Overview
 
-`HyperlinkTexts` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`HyperlinkTexts` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,61 +23,109 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetSettlementHyperlinkText
 `public static TextObject GetSettlementHyperlinkText(string link, TextObject settlementName)`
 
-**Purpose:** Gets the current value of `settlement hyperlink text`.
+**Purpose:** Reads and returns the `settlement hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetSettlementHyperlinkText("example", settlementName);
+```
 
 ### GetKingdomHyperlinkText
 `public static TextObject GetKingdomHyperlinkText(string link, TextObject kingdomName)`
 
-**Purpose:** Gets the current value of `kingdom hyperlink text`.
+**Purpose:** Reads and returns the `kingdom hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetKingdomHyperlinkText("example", kingdomName);
+```
 
 ### GetHeroHyperlinkText
 `public static TextObject GetHeroHyperlinkText(string link, TextObject heroName)`
 
-**Purpose:** Gets the current value of `hero hyperlink text`.
+**Purpose:** Reads and returns the `hero hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetHeroHyperlinkText("example", heroName);
+```
 
 ### GetConceptHyperlinkText
 `public static TextObject GetConceptHyperlinkText(string link, TextObject conceptName)`
 
-**Purpose:** Gets the current value of `concept hyperlink text`.
+**Purpose:** Reads and returns the `concept hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetConceptHyperlinkText("example", conceptName);
+```
 
 ### GetClanHyperlinkText
 `public static TextObject GetClanHyperlinkText(string link, TextObject clanName)`
 
-**Purpose:** Gets the current value of `clan hyperlink text`.
+**Purpose:** Reads and returns the `clan hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetClanHyperlinkText("example", clanName);
+```
 
 ### GetShipHyperlinkText
 `public static TextObject GetShipHyperlinkText(string link, TextObject shipHullName)`
 
-**Purpose:** Gets the current value of `ship hyperlink text`.
+**Purpose:** Reads and returns the `ship hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetShipHyperlinkText("example", shipHullName);
+```
 
 ### GetUnitHyperlinkText
 `public static TextObject GetUnitHyperlinkText(string link, TextObject unitName)`
 
-**Purpose:** Gets the current value of `unit hyperlink text`.
+**Purpose:** Reads and returns the `unit hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetUnitHyperlinkText("example", unitName);
+```
 
 ### GetGenericHyperlinkText
 `public static string GetGenericHyperlinkText(string link, string name)`
 
-**Purpose:** Gets the current value of `generic hyperlink text`.
+**Purpose:** Reads and returns the `generic hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetGenericHyperlinkText("example", "example");
+```
 
 ### GetGenericImageText
 `public static string GetGenericImageText(string meshId, int extend = 0)`
 
-**Purpose:** Gets the current value of `generic image text`.
+**Purpose:** Reads and returns the `generic image text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetGenericImageText("example", 0);
+```
 
 ### GetKeyHyperlinkText
 `public static string GetKeyHyperlinkText(string keyID, float overrideExtendScale = 1f)`
 
-**Purpose:** Gets the current value of `key hyperlink text`.
+**Purpose:** Reads and returns the `key hyperlink text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HyperlinkTexts.GetKeyHyperlinkText("example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 HyperlinkTexts.GetSettlementHyperlinkText("example", settlementName);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

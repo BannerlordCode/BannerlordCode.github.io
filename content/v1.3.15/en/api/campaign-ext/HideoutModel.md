@@ -1,13 +1,7 @@
 ---
 title: "HideoutModel"
+description: "Auto-generated class reference for HideoutModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -37,14 +31,21 @@ Treat `HideoutModel` as a Model-style extension point: first identify who create
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public abstract float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**Purpose:** Gets the current value of `roguery xp gain on hideout mission end`.
+**Purpose:** Reads and returns the `roguery xp gain on hideout mission end` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutModel from the subsystem API first
+HideoutModel hideoutModel = ...;
+var result = hideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomHideoutModel();
+// Typically obtained from a subsystem API or factory
+HideoutModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

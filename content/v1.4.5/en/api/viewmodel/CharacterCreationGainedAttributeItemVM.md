@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationGainedAttributeItemVM"
+description: "Auto-generated class reference for CharacterCreationGainedAttributeItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationGainedAttributeItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationGainedAttributeItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationGainedAttributeItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationGainedAttributeItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationGainedAttributeItemVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### SetValue
 `public void SetValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationGainedAttributeItemVM from the subsystem API first
+CharacterCreationGainedAttributeItemVM characterCreationGainedAttributeItemVM = ...;
+characterCreationGainedAttributeItemVM.SetValue(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationGainedAttributeItemVM();
-value.SetValue(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationGainedAttributeItemVM characterCreationGainedAttributeItemVM = ...;
+characterCreationGainedAttributeItemVM.SetValue(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

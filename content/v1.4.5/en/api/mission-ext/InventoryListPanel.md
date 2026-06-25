@@ -1,20 +1,14 @@
 ---
 title: "InventoryListPanel"
+description: "Auto-generated class reference for InventoryListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryListPanel : NavigatableListPanel`
 **Base:** `NavigatableListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryListPanel.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory` to 
 ## Usage Example
 
 ```csharp
-var example = new InventoryListPanel();
+// Obtain an instance from the relevant subsystem API
+InventoryListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

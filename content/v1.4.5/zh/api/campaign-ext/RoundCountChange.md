@@ -1,20 +1,14 @@
 ---
 title: "RoundCountChange"
+description: "RoundCountChange 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RoundCountChange`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RoundCountChange
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RoundCountChange : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RoundCountChange.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RoundCountChange.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "RoundCountChange"
 ## 使用示例
 
 ```csharp
-var example = new RoundCountChange();
+// 从对应子系统 API 获取实例
+RoundCountChange instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

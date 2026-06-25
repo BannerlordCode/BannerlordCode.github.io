@@ -1,20 +1,14 @@
 ---
 title: "MissionFormationTargetSelectionHandler"
+description: "MissionFormationTargetSelectionHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionFormationTargetSelectionHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFormationTargetSelectionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionFormationTargetSelectionHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionFormationTargetSelectionHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionFormationTargetSelectionHandler.cs`
 
 ## 概述
 
@@ -29,24 +23,42 @@ title: "MissionFormationTargetSelectionHandler"
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre display mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre display mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例
+MissionFormationTargetSelectionHandler missionFormationTargetSelectionHandler = ...;
+missionFormationTargetSelectionHandler.OnPreDisplayMissionTick(0);
+```
 
 ### SetIsFormationTargetingDisabled
 `public void SetIsFormationTargetingDisabled(bool isDisabled)`
 
-**用途 / Purpose:** 设置 `is formation targeting disabled` 的值或状态。
+**用途 / Purpose:** 为 「is formation targeting disabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例
+MissionFormationTargetSelectionHandler missionFormationTargetSelectionHandler = ...;
+missionFormationTargetSelectionHandler.SetIsFormationTargetingDisabled(false);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例
+MissionFormationTargetSelectionHandler missionFormationTargetSelectionHandler = ...;
+missionFormationTargetSelectionHandler.OnRemoveBehavior();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionFormationTargetSelectionHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionFormationTargetSelectionHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

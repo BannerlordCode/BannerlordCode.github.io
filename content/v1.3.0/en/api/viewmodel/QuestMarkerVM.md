@@ -1,13 +1,7 @@
 ---
 title: "QuestMarkerVM"
+description: "Auto-generated class reference for QuestMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestMarkerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestMarkerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -40,15 +34,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of QuestMarkerVM from the subsystem API first
+QuestMarkerVM questMarkerVM = ...;
+questMarkerVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestMarkerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+QuestMarkerVM questMarkerVM = ...;
+questMarkerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

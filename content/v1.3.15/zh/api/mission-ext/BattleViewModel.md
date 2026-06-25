@@ -1,13 +1,7 @@
 ---
 title: "BattleViewModel"
+description: "BattleViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleViewModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleViewModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -33,10 +27,11 @@ title: "BattleViewModel"
 ## 使用示例
 
 ```csharp
-var vm = new BattleViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+BattleViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

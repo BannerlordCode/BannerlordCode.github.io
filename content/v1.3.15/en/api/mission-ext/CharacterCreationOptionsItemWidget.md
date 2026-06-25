@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationOptionsItemWidget"
+description: "Auto-generated class reference for CharacterCreationOptionsItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationOptionsItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationOptionsItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Options
@@ -37,9 +31,10 @@ Treat `CharacterCreationOptionsItemWidget` as a Widget-style extension point: fi
 ## Usage Example
 
 ```csharp
-var widget = new CharacterCreationOptionsItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterCreationOptionsItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

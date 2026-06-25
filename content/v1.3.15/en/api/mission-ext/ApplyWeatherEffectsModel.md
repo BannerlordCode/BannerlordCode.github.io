@@ -1,13 +1,7 @@
 ---
 title: "ApplyWeatherEffectsModel"
+description: "Auto-generated class reference for ApplyWeatherEffectsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplyWeatherEffectsModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ApplyWeatherEffectsModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `ApplyWeatherEffectsModel` as a Model-style extension point: first identif
 ### ApplyWeatherEffects
 `public abstract void ApplyWeatherEffects()`
 
-**Purpose:** Applies `weather effects` to the current object.
+**Purpose:** Applies the effect of `weather effects` to the current object.
+
+```csharp
+// Obtain an instance of ApplyWeatherEffectsModel from the subsystem API first
+ApplyWeatherEffectsModel applyWeatherEffectsModel = ...;
+applyWeatherEffectsModel.ApplyWeatherEffects();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomApplyWeatherEffectsModel();
+// Typically obtained from a subsystem API or factory
+ApplyWeatherEffectsModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

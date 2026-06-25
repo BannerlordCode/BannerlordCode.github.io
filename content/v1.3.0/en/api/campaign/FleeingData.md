@@ -1,13 +1,7 @@
 ---
 title: "FleeingData"
+description: "Auto-generated class reference for FleeingData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FleeingData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FleeingData
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -29,14 +23,21 @@ Treat `FleeingData` as a Data-style extension point: first identify who creates 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of FleeingData from the subsystem API first
+FleeingData fleeingData = ...;
+fleeingData.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FleeingData();
+// This data object is usually returned by campaign/mission APIs
+FleeingData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

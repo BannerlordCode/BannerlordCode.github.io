@@ -1,13 +1,7 @@
 ---
 title: "ItemPlacementComparer"
+description: "Auto-generated class reference for ItemPlacementComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemPlacementComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemPlacementComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tou
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemPlacementComparer from the subsystem API first
+ItemPlacementComparer itemPlacementComparer = ...;
+var result = itemPlacementComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemPlacementComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemPlacementComparer itemPlacementComparer = ...;
+itemPlacementComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

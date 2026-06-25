@@ -1,23 +1,18 @@
 ---
 title: "IConflictResolver"
+description: "IConflictResolver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IConflictResolver`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IConflictResolver
 
-**命名空间:** TaleWorlds.SaveSystem.Resolvers
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public interface IConflictResolver`
-**领域:** save-system
+**Namespace:** TaleWorlds.SaveSystem.Resolvers
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public interface IConflictResolver`
+**Base:** 无
+**File:** `TaleWorlds.SaveSystem/Resolvers/IConflictResolver.cs`
 
 ## 概述
 
-`IConflictResolver` 位于 `TaleWorlds.SaveSystem.Resolvers`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`IConflictResolver` 位于 `TaleWorlds.SaveSystem.Resolvers`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -26,10 +21,10 @@ title: "IConflictResolver"
 ## 使用示例
 
 ```csharp
-IConflictResolver implementation = GetConflictResolverImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIConflictResolver service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

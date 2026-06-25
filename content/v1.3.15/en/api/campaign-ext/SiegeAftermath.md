@@ -1,42 +1,34 @@
 ---
 title: "SiegeAftermath"
+description: "Auto-generated campaign action reference for SiegeAftermath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeAftermath`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeAftermath
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public static class SiegeAftermath`
-**Area:** campaign-ext
+**Type:** static class
+**File:** `TaleWorlds.CampaignSystem/Actions/SiegeAftermathAction.cs`
 
-## Overview
+SiegeAftermath is a set of static methods that trigger "SiegeAftermath" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
 
-`SiegeAftermath` lives in `TaleWorlds.CampaignSystem.Actions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+## Methods
 
-## Mental Model
+### ApplyAftermath
 
-Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+```csharp
+public static void ApplyAftermath(MobileParty attackerParty, Settlement settlement, SiegeAftermathAction.SiegeAftermath aftermathType, Clan previousSettlementOwner, Dictionary<MobileParty, float> partyContributions)
+```
 
-## Enum Values
-
-| Name |
-|------|
-| `Devastate` |
-| `Pillage` |
+**Purpose:** aftermath.
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeAftermath();
+// Trigger this action from a mod
+SiegeAftermath.ApplyAftermath(attackerParty, settlement, aftermathType, previousSettlementOwner, dictionary<MobileParty, 100);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

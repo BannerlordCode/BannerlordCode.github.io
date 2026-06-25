@@ -1,13 +1,7 @@
 ---
 title: "BrushFactory"
+description: "Auto-generated class reference for BrushFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushFactory`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BrushFactory
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of BrushFactory from the subsystem API first
+BrushFactory brushFactory = ...;
+brushFactory.Initialize();
+```
 
 ### LoadBrushFile
 `public void LoadBrushFile(string name)`
 
-**Purpose:** Loads `brush file` data.
+**Purpose:** Reads `brush file` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of BrushFactory from the subsystem API first
+BrushFactory brushFactory = ...;
+brushFactory.LoadBrushFile("example");
+```
 
 ### GetBrush
 `public Brush GetBrush(string name)`
 
-**Purpose:** Gets the current value of `brush`.
+**Purpose:** Reads and returns the `brush` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushFactory from the subsystem API first
+BrushFactory brushFactory = ...;
+var result = brushFactory.GetBrush("example");
+```
 
 ### SaveBrushAs
 `public bool SaveBrushAs(string name, Brush brush)`
 
-**Purpose:** Saves `brush as` data.
+**Purpose:** Writes `brush as` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of BrushFactory from the subsystem API first
+BrushFactory brushFactory = ...;
+var result = brushFactory.SaveBrushAs("example", brush);
+```
 
 ### CheckForUpdates
 `public void CheckForUpdates()`
 
-**Purpose:** Handles logic related to `check for updates`.
+**Purpose:** Verifies whether `for updates` holds true for the current object.
+
+```csharp
+// Obtain an instance of BrushFactory from the subsystem API first
+BrushFactory brushFactory = ...;
+brushFactory.CheckForUpdates();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushFactory();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+BrushFactory brushFactory = ...;
+brushFactory.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LocalizedTextManager"
+description: "LocalizedTextManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LocalizedTextManager`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocalizedTextManager
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public static class LocalizedTextManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/LocalizedTextManager.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/LocalizedTextManager.cs`
 
 ## 概述
 
@@ -29,82 +23,162 @@ title: "LocalizedTextManager"
 ### GetTranslatedText
 `public static string GetTranslatedText(string languageId, string id)`
 
-**用途 / Purpose:** 获取 `translated text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「translated text」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.GetTranslatedText("example", "example");
+```
 
 ### GetLanguageIds
 `public static List<string> GetLanguageIds(bool developmentMode)`
 
-**用途 / Purpose:** 获取 `language ids` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「language ids」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.GetLanguageIds(false);
+```
 
 ### GetLanguageTitle
 `public static string GetLanguageTitle(string id)`
 
-**用途 / Purpose:** 获取 `language title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「language title」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.GetLanguageTitle("example");
+```
 
 ### CreateTextProcessorForLanguage
 `public static LanguageSpecificTextProcessor CreateTextProcessorForLanguage(string id)`
 
-**用途 / Purpose:** 创建一个 `text processor for language` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「text processor for language」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.CreateTextProcessorForLanguage("example");
+```
 
 ### AddLanguageTest
 `public static void AddLanguageTest(string id, string processor)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `language test`。
+**用途 / Purpose:** 将 「language test」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.AddLanguageTest("example", "example");
+```
 
 ### GetLanguageIndex
 `public static int GetLanguageIndex(string id)`
 
-**用途 / Purpose:** 获取 `language index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「language index」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.GetLanguageIndex("example");
+```
 
 ### LoadLocalizationXmls
 `public static void LoadLocalizationXmls(string loadedModules)`
 
-**用途 / Purpose:** 加载 `localization xmls` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「localization xmls」。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.LoadLocalizationXmls("example");
+```
 
 ### AddLocalizationXml
 `public static void AddLocalizationXml(string newModule)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `localization xml`。
+**用途 / Purpose:** 将 「localization xml」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.AddLocalizationXml("example");
+```
 
 ### GetDateFormattedByLanguage
 `public static string GetDateFormattedByLanguage(string languageCode, DateTime dateTime)`
 
-**用途 / Purpose:** 获取 `date formatted by language` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「date formatted by language」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.GetDateFormattedByLanguage("example", dateTime);
+```
 
 ### GetTimeFormattedByLanguage
 `public static string GetTimeFormattedByLanguage(string languageCode, DateTime dateTime)`
 
-**用途 / Purpose:** 获取 `time formatted by language` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「time formatted by language」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.GetTimeFormattedByLanguage("example", dateTime);
+```
 
 ### GetSubtitleExtensionOfLanguage
 `public static string GetSubtitleExtensionOfLanguage(string languageId)`
 
-**用途 / Purpose:** 获取 `subtitle extension of language` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「subtitle extension of language」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.GetSubtitleExtensionOfLanguage("example");
+```
 
 ### GetLocalizationCodeOfISOLanguageCode
 `public static string GetLocalizationCodeOfISOLanguageCode(string isoLanguageCode)`
 
-**用途 / Purpose:** 获取 `localization code of i s o language code` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「localization code of i s o language code」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.GetLocalizationCodeOfISOLanguageCode("example");
+```
 
 ### ChangeLanguage
 `public static string ChangeLanguage(List<string> strings)`
 
-**用途 / Purpose:** 处理 `change language` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.ChangeLanguage(strings);
+```
 
 ### ReloadTexts
 `public static string ReloadTexts(List<string> strings)`
 
-**用途 / Purpose:** 处理 `reload texts` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.ReloadTexts(strings);
+```
 
 ### CheckValidity
 `public static string CheckValidity(List<string> strings)`
 
-**用途 / Purpose:** 处理 `check validity` 相关逻辑。
+**用途 / Purpose:** 检查「validity」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.CheckValidity(strings);
+```
 
 ### CheckValidity
 `public static bool CheckValidity(string id, string text, out string errorLine)`
 
-**用途 / Purpose:** 处理 `check validity` 相关逻辑。
+**用途 / Purpose:** 检查「validity」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+LocalizedTextManager.CheckValidity("example", "example", errorLine);
+```
 
 ## 使用示例
 
@@ -114,4 +188,4 @@ var manager = LocalizedTextManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ClanPartyItemVM"
+description: "Auto-generated class reference for ClanPartyItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanPartyItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanPartyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -89,35 +83,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanPartyItemVM from the subsystem API first
+ClanPartyItemVM clanPartyItemVM = ...;
+clanPartyItemVM.RefreshValues();
+```
 
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Updates the state or data of `properties`.
+**Purpose:** Recalculates and stores the latest representation of `properties`.
+
+```csharp
+// Obtain an instance of ClanPartyItemVM from the subsystem API first
+ClanPartyItemVM clanPartyItemVM = ...;
+clanPartyItemVM.UpdateProperties();
+```
 
 ### OnPartySelection
 `public void OnPartySelection()`
 
-**Purpose:** Called when the `party selection` event is raised.
+**Purpose:** Invoked when the `party selection` event is raised.
+
+```csharp
+// Obtain an instance of ClanPartyItemVM from the subsystem API first
+ClanPartyItemVM clanPartyItemVM = ...;
+clanPartyItemVM.OnPartySelection();
+```
 
 ### ExecuteChangeLeader
 `public void ExecuteChangeLeader()`
 
-**Purpose:** Executes the `change leader` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `change leader`.
+
+```csharp
+// Obtain an instance of ClanPartyItemVM from the subsystem API first
+ClanPartyItemVM clanPartyItemVM = ...;
+clanPartyItemVM.ExecuteChangeLeader();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanPartyItemVM from the subsystem API first
+ClanPartyItemVM clanPartyItemVM = ...;
+clanPartyItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanPartyItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanPartyItemVM clanPartyItemVM = ...;
+clanPartyItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

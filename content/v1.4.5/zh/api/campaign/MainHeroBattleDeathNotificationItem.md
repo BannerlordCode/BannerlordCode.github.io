@@ -1,20 +1,14 @@
 ---
 title: "MainHeroBattleDeathNotificationItem"
+description: "MainHeroBattleDeathNotificationItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MainHeroBattleDeathNotificationItem`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainHeroBattleDeathNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MainHeroBattleDeathNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/MainHeroBattleDeathNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/MainHeroBattleDeathNotificationItem.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "MainHeroBattleDeathNotificationItem"
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**用途 / Purpose:** 获取 `scene notification characters` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene notification characters」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MainHeroBattleDeathNotificationItem 实例
+MainHeroBattleDeathNotificationItem mainHeroBattleDeathNotificationItem = ...;
+var result = mainHeroBattleDeathNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MainHeroBattleDeathNotificationItem();
-value.GetSceneNotificationCharacters();
+// 通常从对应子系统 API 获取实例后调用
+MainHeroBattleDeathNotificationItem mainHeroBattleDeathNotificationItem = ...;
+mainHeroBattleDeathNotificationItem.GetSceneNotificationCharacters();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

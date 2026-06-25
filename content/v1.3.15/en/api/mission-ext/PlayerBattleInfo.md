@@ -1,13 +1,7 @@
 ---
 title: "PlayerBattleInfo"
+description: "Auto-generated class reference for PlayerBattleInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerBattleInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerBattleInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -42,35 +36,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### Flee
 `public void Flee()`
 
-**Purpose:** Handles logic related to `flee`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerBattleInfo from the subsystem API first
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.Flee();
+```
 
 ### Disconnect
 `public void Disconnect()`
 
-**Purpose:** Handles logic related to `disconnect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerBattleInfo from the subsystem API first
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.Disconnect();
+```
 
 ### Initialize
 `public void Initialize(int peerIndex)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PlayerBattleInfo from the subsystem API first
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.Initialize(0);
+```
 
 ### RejoinBattle
 `public void RejoinBattle(int teamNo)`
 
-**Purpose:** Handles logic related to `rejoin battle`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerBattleInfo from the subsystem API first
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.RejoinBattle(0);
+```
 
 ### Clone
 `public PlayerBattleInfo Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of PlayerBattleInfo from the subsystem API first
+PlayerBattleInfo playerBattleInfo = ...;
+var result = playerBattleInfo.Clone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerBattleInfo();
-value.Flee();
+// Typically call this after obtaining an instance from the subsystem API
+PlayerBattleInfo playerBattleInfo = ...;
+playerBattleInfo.Flee();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

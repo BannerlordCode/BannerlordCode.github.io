@@ -1,13 +1,7 @@
 ---
 title: "GangLeaderNeedsSpecialWeaponsIssueQuest"
+description: "Auto-generated class reference for GangLeaderNeedsSpecialWeaponsIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GangLeaderNeedsSpecialWeaponsIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GangLeaderNeedsSpecialWeaponsIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsSpecialWeaponsIssueQuest from the subsystem API first
+GangLeaderNeedsSpecialWeaponsIssueQuest gangLeaderNeedsSpecialWeaponsIssueQuest = ...;
+gangLeaderNeedsSpecialWeaponsIssueQuest.OnFailed();
+```
 
 ### OnCanceled
 `public override void OnCanceled()`
 
-**Purpose:** Called when the `canceled` event is raised.
+**Purpose:** Invoked when the `canceled` event is raised.
+
+```csharp
+// Obtain an instance of GangLeaderNeedsSpecialWeaponsIssueQuest from the subsystem API first
+GangLeaderNeedsSpecialWeaponsIssueQuest gangLeaderNeedsSpecialWeaponsIssueQuest = ...;
+gangLeaderNeedsSpecialWeaponsIssueQuest.OnCanceled();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GangLeaderNeedsSpecialWeaponsIssueQuest();
-value.OnFailed();
+// Typically call this after obtaining an instance from the subsystem API
+GangLeaderNeedsSpecialWeaponsIssueQuest gangLeaderNeedsSpecialWeaponsIssueQuest = ...;
+gangLeaderNeedsSpecialWeaponsIssueQuest.OnFailed();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

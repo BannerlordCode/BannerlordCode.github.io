@@ -1,20 +1,14 @@
 ---
 title: "ItemGarrisonComparer"
+description: "Auto-generated class reference for ItemGarrisonComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemGarrisonComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemGarrisonComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemGarrisonComparer : ItemComparerBase`
 **Base:** `ItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementSortControllerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemGarrisonComparer from the subsystem API first
+ItemGarrisonComparer itemGarrisonComparer = ...;
+var result = itemGarrisonComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemGarrisonComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemGarrisonComparer itemGarrisonComparer = ...;
+itemGarrisonComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

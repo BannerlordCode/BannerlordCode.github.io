@@ -1,13 +1,7 @@
 ---
 title: "MissionAudienceHandler"
+description: "MissionAudienceHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAudienceHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAudienceHandler
 
 **Namespace:** SandBox.View.Missions
@@ -29,39 +23,75 @@ title: "MissionAudienceHandler"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAudienceHandler 实例
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.EarlyStart();
+```
 
 ### OnInit
 `public void OnInit()`
 
-**用途 / Purpose:** 当 `init` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「init」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAudienceHandler 实例
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnInit();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAudienceHandler 实例
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAudienceHandler 实例
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnMissionTick(0);
+```
 
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**用途 / Purpose:** 当 `mission mode change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission mode change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAudienceHandler 实例
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnMissionModeChange(oldMissionMode, false);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAudienceHandler 实例
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnMissionScreenFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAudienceHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionAudienceHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

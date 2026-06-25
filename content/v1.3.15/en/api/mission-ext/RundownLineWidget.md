@@ -1,13 +1,7 @@
 ---
 title: "RundownLineWidget"
+description: "Auto-generated class reference for RundownLineWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RundownLineWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RundownLineWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip
@@ -37,14 +31,21 @@ Treat `RundownLineWidget` as a Widget-style extension point: first identify who 
 ### RefreshValueOffset
 `public void RefreshValueOffset(float columnWidth)`
 
-**Purpose:** Refreshes the display or cache of `value offset`.
+**Purpose:** Keeps the display or cache of `value offset` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RundownLineWidget from the subsystem API first
+RundownLineWidget rundownLineWidget = ...;
+rundownLineWidget.RefreshValueOffset(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new RundownLineWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+RundownLineWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

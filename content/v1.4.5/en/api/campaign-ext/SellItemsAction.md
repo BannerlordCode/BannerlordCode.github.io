@@ -1,23 +1,13 @@
 ---
 title: "SellItemsAction"
+description: "Auto-generated campaign action reference for SellItemsAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SellItemsAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SellItemsAction
-
-## Mental Model
-
-Treat `SellItemsAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** static class
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/SellItemsAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/SellItemsAction.cs`
 
 SellItemsAction is a set of static methods that trigger "SellItems" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
 
@@ -29,7 +19,7 @@ SellItemsAction is a set of static methods that trigger "SellItems" in the campa
 public static void Apply(PartyBase receiverParty, PartyBase payerParty, ItemRosterElement subject, int number, Settlement currentSettlement = null)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -40,5 +30,5 @@ SellItemsAction.Apply(receiverParty, payerParty, subject, 100, null);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

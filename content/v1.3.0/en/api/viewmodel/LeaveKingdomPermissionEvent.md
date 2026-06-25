@@ -1,13 +1,7 @@
 ---
 title: "LeaveKingdomPermissionEvent"
+description: "Auto-generated class reference for LeaveKingdomPermissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LeaveKingdomPermissionEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LeaveKingdomPermissionEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var example = new LeaveKingdomPermissionEvent();
+// Obtain an instance from the relevant subsystem API
+LeaveKingdomPermissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

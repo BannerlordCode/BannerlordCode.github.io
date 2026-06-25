@@ -1,13 +1,7 @@
 ---
 title: "TournamentRound"
+description: "Auto-generated class reference for TournamentRound."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentRound`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TournamentRound
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**Purpose:** Called when the `match ended` event is raised.
+**Purpose:** Invoked when the `match ended` event is raised.
+
+```csharp
+// Obtain an instance of TournamentRound from the subsystem API first
+TournamentRound tournamentRound = ...;
+tournamentRound.OnMatchEnded();
+```
 
 ### EndMatch
 `public void EndMatch()`
 
-**Purpose:** Handles logic related to `end match`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentRound from the subsystem API first
+TournamentRound tournamentRound = ...;
+tournamentRound.EndMatch();
+```
 
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant, bool firstTime = false)`
 
 **Purpose:** Adds `participant` to the current collection or state.
 
+```csharp
+// Obtain an instance of TournamentRound from the subsystem API first
+TournamentRound tournamentRound = ...;
+tournamentRound.AddParticipant(participant, false);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new TournamentRound();
-value.OnMatchEnded();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentRound tournamentRound = ...;
+tournamentRound.OnMatchEnded();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

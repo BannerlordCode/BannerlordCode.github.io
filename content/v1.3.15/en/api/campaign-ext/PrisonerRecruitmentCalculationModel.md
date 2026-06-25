@@ -1,13 +1,7 @@
 ---
 title: "PrisonerRecruitmentCalculationModel"
+description: "Auto-generated class reference for PrisonerRecruitmentCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrisonerRecruitmentCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PrisonerRecruitmentCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,39 +23,76 @@ Treat `PrisonerRecruitmentCalculationModel` as a Model-style extension point: fi
 ### GetConformityNeededToRecruitPrisoner
 `public abstract int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**Purpose:** Gets the current value of `conformity needed to recruit prisoner`.
+**Purpose:** Reads and returns the `conformity needed to recruit prisoner` value held by the current object.
+
+```csharp
+// Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
+PrisonerRecruitmentCalculationModel prisonerRecruitmentCalculationModel = ...;
+var result = prisonerRecruitmentCalculationModel.GetConformityNeededToRecruitPrisoner(character);
+```
 
 ### GetConformityChangePerHour
 `public abstract ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)`
 
-**Purpose:** Gets the current value of `conformity change per hour`.
+**Purpose:** Reads and returns the `conformity change per hour` value held by the current object.
+
+```csharp
+// Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
+PrisonerRecruitmentCalculationModel prisonerRecruitmentCalculationModel = ...;
+var result = prisonerRecruitmentCalculationModel.GetConformityChangePerHour(party, character);
+```
 
 ### GetPrisonerRecruitmentMoraleEffect
 `public abstract int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**Purpose:** Gets the current value of `prisoner recruitment morale effect`.
+**Purpose:** Reads and returns the `prisoner recruitment morale effect` value held by the current object.
+
+```csharp
+// Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
+PrisonerRecruitmentCalculationModel prisonerRecruitmentCalculationModel = ...;
+var result = prisonerRecruitmentCalculationModel.GetPrisonerRecruitmentMoraleEffect(party, character, 0);
+```
 
 ### IsPrisonerRecruitable
 `public abstract bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**Purpose:** Handles logic related to `is prisoner recruitable`.
+**Purpose:** Determines whether the current object is in the `prisoner recruitable` state or condition.
+
+```csharp
+// Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
+PrisonerRecruitmentCalculationModel prisonerRecruitmentCalculationModel = ...;
+var result = prisonerRecruitmentCalculationModel.IsPrisonerRecruitable(party, character, conformityNeeded);
+```
 
 ### ShouldPartyRecruitPrisoners
 `public abstract bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**Purpose:** Handles logic related to `should party recruit prisoners`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
+PrisonerRecruitmentCalculationModel prisonerRecruitmentCalculationModel = ...;
+var result = prisonerRecruitmentCalculationModel.ShouldPartyRecruitPrisoners(party);
+```
 
 ### CalculateRecruitableNumber
 `public abstract int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
 
-**Purpose:** Handles logic related to `calculate recruitable number`.
+**Purpose:** Calculates the current value or result of `recruitable number`.
+
+```csharp
+// Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
+PrisonerRecruitmentCalculationModel prisonerRecruitmentCalculationModel = ...;
+var result = prisonerRecruitmentCalculationModel.CalculateRecruitableNumber(party, character);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPrisonerRecruitmentCalculationModel();
+// Typically obtained from a subsystem API or factory
+PrisonerRecruitmentCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

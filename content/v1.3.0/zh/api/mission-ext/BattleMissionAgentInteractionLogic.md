@@ -1,13 +1,7 @@
 ---
 title: "BattleMissionAgentInteractionLogic"
+description: "BattleMissionAgentInteractionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleMissionAgentInteractionLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleMissionAgentInteractionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic
@@ -29,14 +23,20 @@ title: "BattleMissionAgentInteractionLogic"
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 处理 `is there agent action` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BattleMissionAgentInteractionLogic 实例
+BattleMissionAgentInteractionLogic battleMissionAgentInteractionLogic = ...;
+var result = battleMissionAgentInteractionLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleMissionAgentInteractionLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleMissionAgentInteractionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

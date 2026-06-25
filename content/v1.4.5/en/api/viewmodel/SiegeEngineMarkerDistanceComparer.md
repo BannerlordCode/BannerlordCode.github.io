@@ -1,20 +1,14 @@
 ---
 title: "SiegeEngineMarkerDistanceComparer"
+description: "Auto-generated class reference for SiegeEngineMarkerDistanceComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEngineMarkerDistanceComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineMarkerDistanceComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeEngineMarkerDistanceComparer : IComparer<MissionSiegeEngineMarkerTargetVM>`
 **Base:** `IComparer<MissionSiegeEngineMarkerTargetVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### Compare
 `public int Compare(MissionSiegeEngineMarkerTargetVM x, MissionSiegeEngineMarkerTargetVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SiegeEngineMarkerDistanceComparer from the subsystem API first
+SiegeEngineMarkerDistanceComparer siegeEngineMarkerDistanceComparer = ...;
+var result = siegeEngineMarkerDistanceComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeEngineMarkerDistanceComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+SiegeEngineMarkerDistanceComparer siegeEngineMarkerDistanceComparer = ...;
+siegeEngineMarkerDistanceComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

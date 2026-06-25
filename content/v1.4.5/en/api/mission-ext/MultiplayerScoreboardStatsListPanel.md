@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerScoreboardStatsListPanel"
+description: "Auto-generated class reference for MultiplayerScoreboardStatsListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerScoreboardStatsListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardStatsListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerScoreboardStatsListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardStatsListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardStatsListPanel.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Sc
 ## Usage Example
 
 ```csharp
-var example = new MultiplayerScoreboardStatsListPanel();
+// Obtain an instance from the relevant subsystem API
+MultiplayerScoreboardStatsListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

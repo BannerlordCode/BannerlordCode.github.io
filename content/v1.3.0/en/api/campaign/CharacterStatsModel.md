@@ -1,13 +1,7 @@
 ---
 title: "CharacterStatsModel"
+description: "Auto-generated class reference for CharacterStatsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterStatsModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterStatsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,24 +29,43 @@ Treat `CharacterStatsModel` as a Model-style extension point: first identify who
 ### MaxHitpoints
 `public abstract ExplainedNumber MaxHitpoints(CharacterObject character, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `max hitpoints`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterStatsModel from the subsystem API first
+CharacterStatsModel characterStatsModel = ...;
+var result = characterStatsModel.MaxHitpoints(character, false);
+```
 
 ### GetTier
 `public abstract int GetTier(CharacterObject character)`
 
-**Purpose:** Gets the current value of `tier`.
+**Purpose:** Reads and returns the `tier` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterStatsModel from the subsystem API first
+CharacterStatsModel characterStatsModel = ...;
+var result = characterStatsModel.GetTier(character);
+```
 
 ### WoundedHitPointLimit
 `public abstract int WoundedHitPointLimit(Hero hero)`
 
-**Purpose:** Handles logic related to `wounded hit point limit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterStatsModel from the subsystem API first
+CharacterStatsModel characterStatsModel = ...;
+var result = characterStatsModel.WoundedHitPointLimit(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCharacterStatsModel();
+// Typically obtained from a subsystem API or factory
+CharacterStatsModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

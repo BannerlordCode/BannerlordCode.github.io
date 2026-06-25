@@ -1,20 +1,14 @@
 ---
 title: "CruelTag"
+description: "Auto-generated class reference for CruelTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CruelTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CruelTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CruelTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/CruelTag.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/CruelTag.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of CruelTag from the subsystem API first
+CruelTag cruelTag = ...;
+var result = cruelTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CruelTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+CruelTag cruelTag = ...;
+cruelTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

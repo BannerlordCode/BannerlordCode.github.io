@@ -1,13 +1,7 @@
 ---
 title: "WarmupSpawningBehavior"
+description: "Auto-generated class reference for WarmupSpawningBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WarmupSpawningBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WarmupSpawningBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of WarmupSpawningBehavior from the subsystem API first
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+warmupSpawningBehavior.OnTick(0);
+```
 
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**Purpose:** Handles logic related to `allow early agent visuals despawning`.
+**Purpose:** Permits `early agent visuals despawning` to be enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of WarmupSpawningBehavior from the subsystem API first
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+var result = warmupSpawningBehavior.AllowEarlyAgentVisualsDespawning(lobbyPeer);
+```
 
 ### GetMaximumReSpawnPeriodForPeer
 `public override int GetMaximumReSpawnPeriodForPeer(MissionPeer peer)`
 
-**Purpose:** Gets the current value of `maximum re spawn period for peer`.
+**Purpose:** Reads and returns the `maximum re spawn period for peer` value held by the current object.
+
+```csharp
+// Obtain an instance of WarmupSpawningBehavior from the subsystem API first
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+var result = warmupSpawningBehavior.GetMaximumReSpawnPeriodForPeer(peer);
+```
 
 ### Clear
 `public override void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of WarmupSpawningBehavior from the subsystem API first
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+warmupSpawningBehavior.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WarmupSpawningBehavior();
-value.OnTick(0);
+// Typically call this after obtaining an instance from the subsystem API
+WarmupSpawningBehavior warmupSpawningBehavior = ...;
+warmupSpawningBehavior.OnTick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

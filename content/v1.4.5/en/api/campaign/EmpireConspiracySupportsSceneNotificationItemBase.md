@@ -1,20 +1,14 @@
 ---
 title: "EmpireConspiracySupportsSceneNotificationItemBase"
+description: "Auto-generated class reference for EmpireConspiracySupportsSceneNotificationItemBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EmpireConspiracySupportsSceneNotificationItemBase`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EmpireConspiracySupportsSceneNotificationItemBase
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class EmpireConspiracySupportsSceneNotificationItemBase : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/EmpireConspiracySupportsSceneNotificationItemBase.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/EmpireConspiracySupportsSceneNotificationItemBase.cs`
 
 ## Overview
 
@@ -35,19 +29,32 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetBanners
 `public override Banner GetBanners()`
 
-**Purpose:** Gets the current value of `banners`.
+**Purpose:** Reads and returns the `banners` value held by the current object.
+
+```csharp
+// Obtain an instance of EmpireConspiracySupportsSceneNotificationItemBase from the subsystem API first
+EmpireConspiracySupportsSceneNotificationItemBase empireConspiracySupportsSceneNotificationItemBase = ...;
+var result = empireConspiracySupportsSceneNotificationItemBase.GetBanners();
+```
 
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of EmpireConspiracySupportsSceneNotificationItemBase from the subsystem API first
+EmpireConspiracySupportsSceneNotificationItemBase empireConspiracySupportsSceneNotificationItemBase = ...;
+var result = empireConspiracySupportsSceneNotificationItemBase.GetSceneNotificationCharacters();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEmpireConspiracySupportsSceneNotificationItemBase();
+// Typically obtained from a subsystem API or factory
+EmpireConspiracySupportsSceneNotificationItemBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

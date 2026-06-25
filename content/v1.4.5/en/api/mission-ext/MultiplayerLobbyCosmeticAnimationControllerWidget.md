@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyCosmeticAnimationControllerWidget"
+description: "Auto-generated class reference for MultiplayerLobbyCosmeticAnimationControllerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyCosmeticAnimationControllerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyCosmeticAnimationControllerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyCosmeticAnimationControllerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyCosmeticAnimationControllerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyCosmeticAnimationControllerWidget.cs`
 
 ## Overview
 
@@ -43,9 +37,10 @@ Treat `MultiplayerLobbyCosmeticAnimationControllerWidget` as a Widget-style exte
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyCosmeticAnimationControllerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyCosmeticAnimationControllerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

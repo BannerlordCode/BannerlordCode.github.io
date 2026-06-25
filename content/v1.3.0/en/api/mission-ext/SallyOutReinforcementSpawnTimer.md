@@ -1,13 +1,7 @@
 ---
 title: "SallyOutReinforcementSpawnTimer"
+description: "Auto-generated class reference for SallyOutReinforcementSpawnTimer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SallyOutReinforcementSpawnTimer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SallyOutReinforcementSpawnTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public bool Check(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of SallyOutReinforcementSpawnTimer from the subsystem API first
+SallyOutReinforcementSpawnTimer sallyOutReinforcementSpawnTimer = ...;
+var result = sallyOutReinforcementSpawnTimer.Check(side);
+```
 
 ### ResetTimer
 `public void ResetTimer(BattleSideEnum side)`
 
-**Purpose:** Resets `timer` to its initial state.
+**Purpose:** Returns `timer` to its default or initial condition.
+
+```csharp
+// Obtain an instance of SallyOutReinforcementSpawnTimer from the subsystem API first
+SallyOutReinforcementSpawnTimer sallyOutReinforcementSpawnTimer = ...;
+sallyOutReinforcementSpawnTimer.ResetTimer(side);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SallyOutReinforcementSpawnTimer();
-value.Check(side);
+// Typically call this after obtaining an instance from the subsystem API
+SallyOutReinforcementSpawnTimer sallyOutReinforcementSpawnTimer = ...;
+sallyOutReinforcementSpawnTimer.Check(side);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

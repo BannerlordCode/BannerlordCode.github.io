@@ -1,20 +1,14 @@
 ---
 title: "SPScoreboardPartyVM"
+description: "SPScoreboardPartyVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPScoreboardPartyVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPScoreboardPartyVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPScoreboardPartyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardPartyVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardPartyVM.cs`
 
 ## 概述
 
@@ -39,35 +33,66 @@ title: "SPScoreboardPartyVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+sPScoreboardPartyVM.RefreshValues();
+```
 
 ### UpdateScores
 `public void UpdateScores(BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**用途 / Purpose:** 更新 `scores` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「scores」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+sPScoreboardPartyVM.UpdateScores(character, 0, 0, 0, 0, 0, 0);
+```
 
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**用途 / Purpose:** 更新 `hero skills` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「hero skills」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+sPScoreboardPartyVM.UpdateHeroSkills(heroCharacter, upgradedSkill);
+```
 
 ### GetUnitAddIfNotExists
 `public SPScoreboardUnitVM GetUnitAddIfNotExists(BasicCharacterObject character)`
 
-**用途 / Purpose:** 获取 `unit add if not exists` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit add if not exists」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+var result = sPScoreboardPartyVM.GetUnitAddIfNotExists(character);
+```
 
 ### GetUnit
 `public SPScoreboardUnitVM GetUnit(BasicCharacterObject character)`
 
-**用途 / Purpose:** 获取 `unit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardPartyVM 实例
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+var result = sPScoreboardPartyVM.GetUnit(character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPScoreboardPartyVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+sPScoreboardPartyVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

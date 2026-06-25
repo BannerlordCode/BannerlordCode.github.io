@@ -1,20 +1,14 @@
 ---
 title: "ManagedFromNativeCallback"
+description: "Auto-generated class reference for ManagedFromNativeCallback."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedFromNativeCallback`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedFromNativeCallback
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ManagedFromNativeCallback : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedFromNativeCallback.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedFromNativeCallback.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new ManagedFromNativeCallback();
+// Obtain an instance from the relevant subsystem API
+ManagedFromNativeCallback instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeKeyTypeHint"
+description: "Auto-generated class reference for WidgetAttributeKeyTypeHint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeKeyTypeHint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeHint
 
 **Namespace:** TaleWorlds.GauntletUI.TooltipExtensions
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.TooltipExtensions` to place it in th
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**Purpose:** Handles logic related to `check key type`.
+**Purpose:** Verifies whether `key type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeHint from the subsystem API first
+WidgetAttributeKeyTypeHint widgetAttributeKeyTypeHint = ...;
+var result = widgetAttributeKeyTypeHint.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**Purpose:** Gets the current value of `key name`.
+**Purpose:** Reads and returns the `key name` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeHint from the subsystem API first
+WidgetAttributeKeyTypeHint widgetAttributeKeyTypeHint = ...;
+var result = widgetAttributeKeyTypeHint.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**Purpose:** Gets the current value of `serialized key`.
+**Purpose:** Reads and returns the `serialized key` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeHint from the subsystem API first
+WidgetAttributeKeyTypeHint widgetAttributeKeyTypeHint = ...;
+var result = widgetAttributeKeyTypeHint.GetSerializedKey("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeKeyTypeHint();
-value.CheckKeyType("example");
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeKeyTypeHint widgetAttributeKeyTypeHint = ...;
+widgetAttributeKeyTypeHint.CheckKeyType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "CheckPoint"
+description: "Auto-generated class reference for CheckPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheckPoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheckPoint
 
 **Namespace:** SandBox.Tournaments.MissionLogics
 **Module:** SandBox.Tournaments
 **Type:** `public class CheckPoint`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments.MissionLogics/TownHorseRaceMissionController.cs`
 
 ## Overview
 
-`CheckPoint` lives in `SandBox.Tournaments.MissionLogics`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CheckPoint` lives in `SandBox.Tournaments.MissionLogics` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,64 +23,50 @@ Start from namespace `SandBox.Tournaments.MissionLogics` to place it in the stac
 | Name | Signature |
 |------|-----------|
 | `Name` | `public string Name { get; }` |
-| `CheckPoints` | `public List<CheckPoint> CheckPoints { get; }` |
 
 ## Key Methods
 
 ### GetBestTargetPosition
 `public Vec3 GetBestTargetPosition()`
 
-**Purpose:** Gets the current value of `best target position`.
+**Purpose:** Reads and returns the `best target position` value held by the current object.
+
+```csharp
+// Obtain an instance of CheckPoint from the subsystem API first
+CheckPoint checkPoint = ...;
+var result = checkPoint.GetBestTargetPosition();
+```
 
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
 **Purpose:** Adds `to check list` to the current collection or state.
 
+```csharp
+// Obtain an instance of CheckPoint from the subsystem API first
+CheckPoint checkPoint = ...;
+checkPoint.AddToCheckList(agent);
+```
+
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
 **Purpose:** Removes `from check list` from the current collection or state.
 
-### AfterStart
-`public override void AfterStart()`
-
-**Purpose:** Handles logic related to `after start`.
-
-### OnMissionTick
-`public override void OnMissionTick(float dt)`
-
-**Purpose:** Called when the `mission tick` event is raised.
-
-### StartMatch
-`public void StartMatch(TournamentMatch match, bool isLastRound)`
-
-**Purpose:** Handles logic related to `start match`.
-
-### SkipMatch
-`public void SkipMatch(TournamentMatch match)`
-
-**Purpose:** Handles logic related to `skip match`.
-
-### IsMatchEnded
-`public bool IsMatchEnded()`
-
-**Purpose:** Handles logic related to `is match ended`.
-
-### OnMatchEnded
-`public void OnMatchEnded()`
-
-**Purpose:** Called when the `match ended` event is raised.
+```csharp
+// Obtain an instance of CheckPoint from the subsystem API first
+CheckPoint checkPoint = ...;
+checkPoint.RemoveFromCheckList(agent);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a CheckPoint instance from game state, then call one of its public methods
-var value = new CheckPoint();
-value.GetBestTargetPosition();
+// Typically call this after obtaining an instance from the subsystem API
+CheckPoint checkPoint = ...;
+checkPoint.GetBestTargetPosition();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

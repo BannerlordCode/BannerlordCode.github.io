@@ -1,20 +1,14 @@
 ---
 title: "CommentSection"
+description: "CommentSection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommentSection`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommentSection
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
 **Type:** `public class CommentSection`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/CommentSection.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/CommentSection.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CommentSection"
 ### AddCommentLine
 `public void AddCommentLine(string line)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `comment line`。
+**用途 / Purpose:** 将 「comment line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CommentSection 实例
+CommentSection commentSection = ...;
+commentSection.AddCommentLine("example");
+```
 
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 处理 `generate into` 相关逻辑。
+**用途 / Purpose:** 生成「into」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 CommentSection 实例
+CommentSection commentSection = ...;
+commentSection.GenerateInto(codeGenerationFile);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CommentSection();
-value.AddCommentLine("example");
+// 通常从对应子系统 API 获取实例后调用
+CommentSection commentSection = ...;
+commentSection.AddCommentLine("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

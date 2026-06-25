@@ -1,13 +1,7 @@
 ---
 title: "PatrolArea"
+description: "Auto-generated class reference for PatrolArea."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PatrolArea`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PatrolArea
 
 **Namespace:** SandBox.Objects.Usables
@@ -29,30 +23,55 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrolArea from the subsystem API first
+PatrolArea patrolArea = ...;
+var result = patrolArea.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrolArea from the subsystem API first
+PatrolArea patrolArea = ...;
+var result = patrolArea.GetDescriptionText(gameEntity);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of PatrolArea from the subsystem API first
+PatrolArea patrolArea = ...;
+var result = patrolArea.CreateAIBehaviorObject();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrolArea from the subsystem API first
+PatrolArea patrolArea = ...;
+var result = patrolArea.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PatrolArea();
-value.GetActionTextForStandingPoint(usableGameObject);
+// Typically call this after obtaining an instance from the subsystem API
+PatrolArea patrolArea = ...;
+patrolArea.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

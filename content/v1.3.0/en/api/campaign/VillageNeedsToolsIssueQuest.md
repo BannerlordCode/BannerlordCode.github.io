@@ -1,13 +1,7 @@
 ---
 title: "VillageNeedsToolsIssueQuest"
+description: "Auto-generated class reference for VillageNeedsToolsIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageNeedsToolsIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageNeedsToolsIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,20 +30,32 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of VillageNeedsToolsIssueQuest from the subsystem API first
+VillageNeedsToolsIssueQuest villageNeedsToolsIssueQuest = ...;
+villageNeedsToolsIssueQuest.OnFailed();
+```
 
 ### GiveTradeOrExchangeRewardToMainParty
 `public static void GiveTradeOrExchangeRewardToMainParty(Hero questGiver, int gold, ItemObject exchangeItem, int exchangeItemCount)`
 
-**Purpose:** Handles logic related to `give trade or exchange reward to main party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+VillageNeedsToolsIssueQuest.GiveTradeOrExchangeRewardToMainParty(questGiver, 0, exchangeItem, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillageNeedsToolsIssueQuest();
-value.OnFailed();
+// Typically call this after obtaining an instance from the subsystem API
+VillageNeedsToolsIssueQuest villageNeedsToolsIssueQuest = ...;
+villageNeedsToolsIssueQuest.OnFailed();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

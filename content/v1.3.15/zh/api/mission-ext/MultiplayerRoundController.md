@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerRoundController"
+description: "MultiplayerRoundController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerRoundController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerRoundController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -42,27 +36,57 @@ title: "MultiplayerRoundController"
 ### EnableEquipmentUpdate
 `public void EnableEquipmentUpdate()`
 
-**用途 / Purpose:** 处理 `enable equipment update` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerRoundController 实例
+MultiplayerRoundController multiplayerRoundController = ...;
+multiplayerRoundController.EnableEquipmentUpdate();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerRoundController 实例
+MultiplayerRoundController multiplayerRoundController = ...;
+multiplayerRoundController.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerRoundController 实例
+MultiplayerRoundController multiplayerRoundController = ...;
+multiplayerRoundController.OnRemoveBehavior();
+```
 
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre display mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre display mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerRoundController 实例
+MultiplayerRoundController multiplayerRoundController = ...;
+multiplayerRoundController.OnPreDisplayMissionTick(0);
+```
 
 ### HandleClientEventCultureSelect
 `public bool HandleClientEventCultureSelect(NetworkCommunicator peer, CultureVoteClient message)`
 
-**用途 / Purpose:** 处理 `client event culture select` 事件或回调。
+**用途 / Purpose:** 执行与 「client event culture select」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerRoundController 实例
+MultiplayerRoundController multiplayerRoundController = ...;
+var result = multiplayerRoundController.HandleClientEventCultureSelect(peer, message);
+```
 
 ## 使用示例
 
@@ -72,4 +96,4 @@ var controller = Mission.Current.GetMissionBehavior<MultiplayerRoundController>(
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "DevelopmentQueueVisualIconWidget"
+description: "Auto-generated class reference for DevelopmentQueueVisualIconWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DevelopmentQueueVisualIconWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DevelopmentQueueVisualIconWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DevelopmentQueueVisualIconWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentQueueVisualIconWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentQueueVisualIconWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `DevelopmentQueueVisualIconWidget` as a Widget-style extension point: firs
 ### DevelopmentQueueVisualIconWidget
 `public class DevelopmentQueueVisualIconWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `development queue visual icon widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DevelopmentQueueVisualIconWidget from the subsystem API first
+DevelopmentQueueVisualIconWidget developmentQueueVisualIconWidget = ...;
+var result = developmentQueueVisualIconWidget.DevelopmentQueueVisualIconWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new DevelopmentQueueVisualIconWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DevelopmentQueueVisualIconWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

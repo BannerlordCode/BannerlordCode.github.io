@@ -1,20 +1,14 @@
 ---
 title: "NativeObjectArray"
+description: "NativeObjectArray 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeObjectArray`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeObjectArray
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public sealed class NativeObjectArray : NativeObject, IEnumerable<NativeObject>, IEnumerable`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeObjectArray.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeObjectArray.cs`
 
 ## 概述
 
@@ -29,29 +23,52 @@ title: "NativeObjectArray"
 ### Create
 `public static NativeObjectArray Create()`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 静态调用，不需要实例
+NativeObjectArray.Create();
+```
 
 ### GetElementAt
 `public NativeObject GetElementAt(int index)`
 
-**用途 / Purpose:** 获取 `element at` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「element at」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeObjectArray 实例
+NativeObjectArray nativeObjectArray = ...;
+var result = nativeObjectArray.GetElementAt(0);
+```
 
 ### AddElement
 `public void AddElement(NativeObject nativeObject)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `element`。
+**用途 / Purpose:** 将 「element」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 NativeObjectArray 实例
+NativeObjectArray nativeObjectArray = ...;
+nativeObjectArray.AddElement(nativeObject);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 NativeObjectArray 实例
+NativeObjectArray nativeObjectArray = ...;
+nativeObjectArray.Clear();
+```
 
 ## 使用示例
 
 ```csharp
-NativeObjectArray example = NativeObjectArray.Value;
+NativeObjectArray.Create();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

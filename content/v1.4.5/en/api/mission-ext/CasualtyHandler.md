@@ -1,20 +1,14 @@
 ---
 title: "CasualtyHandler"
+description: "Auto-generated class reference for CasualtyHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CasualtyHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CasualtyHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CasualtyHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CasualtyHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CasualtyHandler.cs`
 
 ## Overview
 
@@ -29,29 +23,53 @@ Treat `CasualtyHandler` as a Handler-style extension point: first identify who c
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of CasualtyHandler from the subsystem API first
+CasualtyHandler casualtyHandler = ...;
+casualtyHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**Purpose:** Called when the `agent fleeing` event is raised.
+**Purpose:** Invoked when the `agent fleeing` event is raised.
+
+```csharp
+// Obtain an instance of CasualtyHandler from the subsystem API first
+CasualtyHandler casualtyHandler = ...;
+casualtyHandler.OnAgentFleeing(affectedAgent);
+```
 
 ### GetCasualtyCountOfFormation
 `public int GetCasualtyCountOfFormation(Formation formation)`
 
-**Purpose:** Gets the current value of `casualty count of formation`.
+**Purpose:** Reads and returns the `casualty count of formation` value held by the current object.
+
+```csharp
+// Obtain an instance of CasualtyHandler from the subsystem API first
+CasualtyHandler casualtyHandler = ...;
+var result = casualtyHandler.GetCasualtyCountOfFormation(formation);
+```
 
 ### GetCasualtyPowerLossOfFormation
 `public float GetCasualtyPowerLossOfFormation(Formation formation)`
 
-**Purpose:** Gets the current value of `casualty power loss of formation`.
+**Purpose:** Reads and returns the `casualty power loss of formation` value held by the current object.
+
+```csharp
+// Obtain an instance of CasualtyHandler from the subsystem API first
+CasualtyHandler casualtyHandler = ...;
+var result = casualtyHandler.GetCasualtyPowerLossOfFormation(formation);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CasualtyHandler());
+var behavior = Mission.Current.GetMissionBehavior<CasualtyHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CommentOnLeaveFactionBehavior"
+description: "Auto-generated class reference for CommentOnLeaveFactionBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommentOnLeaveFactionBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommentOnLeaveFactionBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CommentOnLeaveFactionBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors/CommentOnLeaveFactionBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors/CommentOnLeaveFactionBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehavio
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CommentOnLeaveFactionBehavior from the subsystem API first
+CommentOnLeaveFactionBehavior commentOnLeaveFactionBehavior = ...;
+commentOnLeaveFactionBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CommentOnLeaveFactionBehavior from the subsystem API first
+CommentOnLeaveFactionBehavior commentOnLeaveFactionBehavior = ...;
+commentOnLeaveFactionBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommentOnLeaveFactionBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+CommentOnLeaveFactionBehavior commentOnLeaveFactionBehavior = ...;
+commentOnLeaveFactionBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

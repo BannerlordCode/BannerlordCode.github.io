@@ -1,20 +1,14 @@
 ---
 title: "GauntletInitialScreen"
+description: "Auto-generated class reference for GauntletInitialScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletInitialScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletInitialScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletInitialScreen : MBInitialScreenBase, IChatLogHandlerScreen`
 **Base:** `MBInitialScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletInitialScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletInitialScreen.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### TryUpdateChatLogLayerParameters
 `public void TryUpdateChatLogLayerParameters(ref bool isTeamChatAvailable, ref bool inputEnabled, ref bool isToggleChatHintAvailable, ref bool isMouseVisible, ref InputContext inputContext)`
 
-**Purpose:** Attempts to get `update chat log layer parameters`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `update chat log layer parameters`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of GauntletInitialScreen from the subsystem API first
+GauntletInitialScreen gauntletInitialScreen = ...;
+gauntletInitialScreen.TryUpdateChatLogLayerParameters(isTeamChatAvailable, inputEnabled, isToggleChatHintAvailable, isMouseVisible, inputContext);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletInitialScreen();
-value.TryUpdateChatLogLayerParameters(isTeamChatAvailable, inputEnabled, isToggleChatHintAvailable, isMouseVisible, inputContext);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletInitialScreen gauntletInitialScreen = ...;
+gauntletInitialScreen.TryUpdateChatLogLayerParameters(isTeamChatAvailable, inputEnabled, isToggleChatHintAvailable, isMouseVisible, inputContext);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

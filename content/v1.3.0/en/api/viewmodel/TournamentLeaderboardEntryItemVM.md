@@ -1,13 +1,7 @@
 ---
 title: "TournamentLeaderboardEntryItemVM"
+description: "Auto-generated class reference for TournamentLeaderboardEntryItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentLeaderboardEntryItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentLeaderboardEntryItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
@@ -45,15 +39,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tou
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TournamentLeaderboardEntryItemVM from the subsystem API first
+TournamentLeaderboardEntryItemVM tournamentLeaderboardEntryItemVM = ...;
+tournamentLeaderboardEntryItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentLeaderboardEntryItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentLeaderboardEntryItemVM tournamentLeaderboardEntryItemVM = ...;
+tournamentLeaderboardEntryItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

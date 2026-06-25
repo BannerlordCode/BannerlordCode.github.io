@@ -1,13 +1,7 @@
 ---
 title: "CombatLogData"
+description: "Auto-generated class reference for CombatLogData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatLogData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CombatLogData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,19 +30,32 @@ Treat `CombatLogData` as a Data-style extension point: first identify who create
 ### GetLogString
 `public List<ValueTuple<string, uint>> GetLogString()`
 
-**Purpose:** Gets the current value of `log string`.
+**Purpose:** Reads and returns the `log string` value held by the current object.
+
+```csharp
+// Obtain an instance of CombatLogData from the subsystem API first
+CombatLogData combatLogData = ...;
+var result = combatLogData.GetLogString();
+```
 
 ### SetVictimAgent
 `public void SetVictimAgent(Agent victimAgent)`
 
-**Purpose:** Sets the value or state of `victim agent`.
+**Purpose:** Assigns a new value to `victim agent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CombatLogData from the subsystem API first
+CombatLogData combatLogData = ...;
+combatLogData.SetVictimAgent(victimAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CombatLogData();
+// This data object is usually returned by campaign/mission APIs
+CombatLogData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

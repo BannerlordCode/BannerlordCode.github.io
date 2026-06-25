@@ -1,13 +1,7 @@
 ---
 title: "PartyPlayerInLobbyClient"
+description: "PartyPlayerInLobbyClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyPlayerInLobbyClient`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyPlayerInLobbyClient
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -38,25 +32,44 @@ title: "PartyPlayerInLobbyClient"
 ### SetAtParty
 `public void SetAtParty()`
 
-**用途 / Purpose:** 设置 `at party` 的值或状态。
+**用途 / Purpose:** 为 「at party」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerInLobbyClient 实例
+PartyPlayerInLobbyClient partyPlayerInLobbyClient = ...;
+partyPlayerInLobbyClient.SetAtParty();
+```
 
 ### SetLeader
 `public void SetLeader()`
 
-**用途 / Purpose:** 设置 `leader` 的值或状态。
+**用途 / Purpose:** 为 「leader」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerInLobbyClient 实例
+PartyPlayerInLobbyClient partyPlayerInLobbyClient = ...;
+partyPlayerInLobbyClient.SetLeader();
+```
 
 ### SetMember
 `public void SetMember()`
 
-**用途 / Purpose:** 设置 `member` 的值或状态。
+**用途 / Purpose:** 为 「member」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyPlayerInLobbyClient 实例
+PartyPlayerInLobbyClient partyPlayerInLobbyClient = ...;
+partyPlayerInLobbyClient.SetMember();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyPlayerInLobbyClient();
-value.SetAtParty();
+// 通常从对应子系统 API 获取实例后调用
+PartyPlayerInLobbyClient partyPlayerInLobbyClient = ...;
+partyPlayerInLobbyClient.SetAtParty();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

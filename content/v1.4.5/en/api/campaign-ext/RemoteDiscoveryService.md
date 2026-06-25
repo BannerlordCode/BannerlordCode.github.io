@@ -1,20 +1,14 @@
 ---
 title: "RemoteDiscoveryService"
+description: "Auto-generated class reference for RemoteDiscoveryService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemoteDiscoveryService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemoteDiscoveryService
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public class RemoteDiscoveryService : IDiscoveryService`
 **Base:** `IDiscoveryService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/RemoteDiscoveryService.cs`
+**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/RemoteDiscoveryService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ServiceDiscovery.Client` to place it in the sta
 ## Usage Example
 
 ```csharp
-var example = new RemoteDiscoveryService();
+// Obtain an instance from the relevant subsystem API
+RemoteDiscoveryService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

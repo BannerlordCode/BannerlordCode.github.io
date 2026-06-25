@@ -1,13 +1,7 @@
 ---
 title: "DialogHelper"
+description: "Auto-generated class reference for DialogHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DialogHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DialogHelper
 
 **Namespace:** Helpers
@@ -29,7 +23,12 @@ Treat `DialogHelper` as a Helper-style extension point: first identify who creat
 ### SetDialogString
 `public static void SetDialogString(string stringVariable, string gameTextId)`
 
-**Purpose:** Sets the value or state of `dialog string`.
+**Purpose:** Assigns a new value to `dialog string` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+DialogHelper.SetDialogString("example", "example");
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ DialogHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

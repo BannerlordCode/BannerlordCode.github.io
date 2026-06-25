@@ -1,13 +1,7 @@
 ---
 title: "AlleyLeaderDiedMapNotificationItemVM"
+description: "Auto-generated class reference for AlleyLeaderDiedMapNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyLeaderDiedMapNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AlleyLeaderDiedMapNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ## Usage Example
 
 ```csharp
-var value = new AlleyLeaderDiedMapNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+AlleyLeaderDiedMapNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

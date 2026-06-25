@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerTeamSelectComponent"
+description: "MultiplayerTeamSelectComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerTeamSelectComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTeamSelectComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,67 +29,145 @@ title: "MultiplayerTeamSelectComponent"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.OnRemoveBehavior();
+```
 
 ### SelectTeam
 `public void SelectTeam()`
 
-**用途 / Purpose:** 处理 `select team` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.SelectTeam();
+```
 
 ### UpdateTeams
 `public void UpdateTeams(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**用途 / Purpose:** 更新 `teams` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「teams」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.UpdateTeams(peer, oldTeam, newTeam);
+```
 
 ### GetDisabledTeams
 `public List<Team> GetDisabledTeams()`
 
-**用途 / Purpose:** 获取 `disabled teams` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「disabled teams」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+var result = multiplayerTeamSelectComponent.GetDisabledTeams();
+```
 
 ### ChangeTeamServer
 `public void ChangeTeamServer(NetworkCommunicator networkPeer, Team team)`
 
-**用途 / Purpose:** 处理 `change team server` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.ChangeTeamServer(networkPeer, team);
+```
 
 ### ChangeTeam
 `public void ChangeTeam(Team team)`
 
-**用途 / Purpose:** 处理 `change team` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.ChangeTeam(team);
+```
 
 ### GetPlayerCountForTeam
 `public int GetPlayerCountForTeam(Team team)`
 
-**用途 / Purpose:** 获取 `player count for team` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player count for team」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+var result = multiplayerTeamSelectComponent.GetPlayerCountForTeam(team);
+```
 
 ### GetFriendsForTeam
 `public IEnumerable<VirtualPlayer> GetFriendsForTeam(Team team)`
 
-**用途 / Purpose:** 获取 `friends for team` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「friends for team」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+var result = multiplayerTeamSelectComponent.GetFriendsForTeam(team);
+```
 
 ### BalanceTeams
 `public void BalanceTeams()`
 
-**用途 / Purpose:** 处理 `balance teams` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.BalanceTeams();
+```
 
 ### AutoAssignTeam
 `public void AutoAssignTeam(NetworkCommunicator peer)`
 
-**用途 / Purpose:** 处理 `auto assign team` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.AutoAssignTeam(peer);
+```
 
 ### OnSelectingTeamDelegate
 `public delegate void OnSelectingTeamDelegate(List<Team> disableTeams)`
 
-**用途 / Purpose:** 当 `selecting team delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「selecting team delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
+MultiplayerTeamSelectComponent multiplayerTeamSelectComponent = ...;
+multiplayerTeamSelectComponent.OnSelectingTeamDelegate(disableTeams);
+```
 
 ## 使用示例
 
@@ -105,4 +177,4 @@ var component = agent.GetComponent<MultiplayerTeamSelectComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyPartyPlayerVM"
+description: "MPLobbyPartyPlayerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyPartyPlayerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyPartyPlayerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyPartyPlayerVM : MPLobbyPlayerBaseVM`
 **Base:** `MPLobbyPlayerBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPartyPlayerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPartyPlayerVM.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "MPLobbyPartyPlayerVM"
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyPartyPlayerVM();
+// 从对应子系统 API 获取实例
+MPLobbyPartyPlayerVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

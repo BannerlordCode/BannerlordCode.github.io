@@ -1,13 +1,7 @@
 ---
 title: "TWSharedMutex"
+description: "Auto-generated class reference for TWSharedMutex."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TWSharedMutex`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TWSharedMutex
 
 **Namespace:** TaleWorlds.Library
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### EnterReadLock
 `public void EnterReadLock()`
 
-**Purpose:** Handles logic related to `enter read lock`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TWSharedMutex from the subsystem API first
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.EnterReadLock();
+```
 
 ### EnterWriteLock
 `public void EnterWriteLock()`
 
-**Purpose:** Handles logic related to `enter write lock`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TWSharedMutex from the subsystem API first
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.EnterWriteLock();
+```
 
 ### ExitReadLock
 `public void ExitReadLock()`
 
-**Purpose:** Handles logic related to `exit read lock`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TWSharedMutex from the subsystem API first
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.ExitReadLock();
+```
 
 ### ExitWriteLock
 `public void ExitWriteLock()`
 
-**Purpose:** Handles logic related to `exit write lock`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TWSharedMutex from the subsystem API first
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.ExitWriteLock();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TWSharedMutex();
-value.EnterReadLock();
+// Typically call this after obtaining an instance from the subsystem API
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.EnterReadLock();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

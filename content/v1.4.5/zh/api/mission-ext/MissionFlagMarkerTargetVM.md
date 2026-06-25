@@ -1,20 +1,14 @@
 ---
 title: "MissionFlagMarkerTargetVM"
+description: "MissionFlagMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionFlagMarkerTargetVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFlagMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionFlagMarkerTargetVM : MissionMarkerTargetVM`
 **Base:** `MissionMarkerTargetVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionFlagMarkerTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionFlagMarkerTargetVM.cs`
 
 ## 概述
 
@@ -40,25 +34,44 @@ title: "MissionFlagMarkerTargetVM"
 ### UpdateScreenPosition
 `public override void UpdateScreenPosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `screen position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「screen position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFlagMarkerTargetVM 实例
+MissionFlagMarkerTargetVM missionFlagMarkerTargetVM = ...;
+missionFlagMarkerTargetVM.UpdateScreenPosition(missionCamera);
+```
 
 ### OnOwnerChanged
 `public void OnOwnerChanged(Team team)`
 
-**用途 / Purpose:** 当 `owner changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「owner changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFlagMarkerTargetVM 实例
+MissionFlagMarkerTargetVM missionFlagMarkerTargetVM = ...;
+missionFlagMarkerTargetVM.OnOwnerChanged(team);
+```
 
 ### OnRemainingMoraleChanged
 `public void OnRemainingMoraleChanged(int remainingMorale)`
 
-**用途 / Purpose:** 当 `remaining morale changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remaining morale changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFlagMarkerTargetVM 实例
+MissionFlagMarkerTargetVM missionFlagMarkerTargetVM = ...;
+missionFlagMarkerTargetVM.OnRemainingMoraleChanged(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionFlagMarkerTargetVM();
-value.UpdateScreenPosition(missionCamera);
+// 通常从对应子系统 API 获取实例后调用
+MissionFlagMarkerTargetVM missionFlagMarkerTargetVM = ...;
+missionFlagMarkerTargetVM.UpdateScreenPosition(missionCamera);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "PremadeGameType"
+description: "PremadeGameType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PremadeGameType`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PremadeGameType
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum PremadeGameType`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade.Diamond/PremadeGameType.cs`
 
@@ -27,9 +21,10 @@ title: "PremadeGameType"
 ## 使用示例
 
 ```csharp
-var value = new PremadeGameType();
+// 从对应子系统 API 获取实例
+PremadeGameType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

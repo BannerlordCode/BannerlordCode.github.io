@@ -1,20 +1,14 @@
 ---
 title: "EditableTextWidget"
+description: "EditableTextWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EditableTextWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditableTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class EditableTextWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/EditableTextWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/EditableTextWidget.cs`
 
 ## 概述
 
@@ -40,19 +34,32 @@ title: "EditableTextWidget"
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**用途 / Purpose:** 处理 `input` 事件或回调。
+**用途 / Purpose:** 执行与 「input」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 EditableTextWidget 实例
+EditableTextWidget editableTextWidget = ...;
+editableTextWidget.HandleInput(lastKeysPressed);
+```
 
 ### SetAllText
 `public virtual void SetAllText(string text)`
 
-**用途 / Purpose:** 设置 `all text` 的值或状态。
+**用途 / Purpose:** 为 「all text」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EditableTextWidget 实例
+EditableTextWidget editableTextWidget = ...;
+editableTextWidget.SetAllText("example");
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new EditableTextWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+EditableTextWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

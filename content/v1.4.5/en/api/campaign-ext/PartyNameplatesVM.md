@@ -1,20 +1,14 @@
 ---
 title: "PartyNameplatesVM"
+description: "Auto-generated class reference for PartyNameplatesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyNameplatesVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyNameplatesVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PartyNameplatesVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/PartyNameplatesVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/PartyNameplatesVM.cs`
 
 ## Overview
 
@@ -36,45 +30,88 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### Compare
 `public int Compare(PartyNameplateVM x, PartyNameplateVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of PartyNameplatesVM from the subsystem API first
+PartyNameplatesVM partyNameplatesVM = ...;
+var result = partyNameplatesVM.Compare(x, y);
+```
 
 ### Get
 `public PartyNameplateVM Get()`
 
-**Purpose:** Gets the current value of `get`.
+**Purpose:** Reads the current object's value or state and returns it.
+
+```csharp
+// Obtain an instance of PartyNameplatesVM from the subsystem API first
+PartyNameplatesVM partyNameplatesVM = ...;
+var result = partyNameplatesVM.Get();
+```
 
 ### Release
 `public void Release(PartyNameplateVM nameplate)`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyNameplatesVM from the subsystem API first
+PartyNameplatesVM partyNameplatesVM = ...;
+partyNameplatesVM.Release(nameplate);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyNameplatesVM from the subsystem API first
+PartyNameplatesVM partyNameplatesVM = ...;
+partyNameplatesVM.RefreshValues();
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PartyNameplatesVM from the subsystem API first
+PartyNameplatesVM partyNameplatesVM = ...;
+partyNameplatesVM.Initialize();
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of PartyNameplatesVM from the subsystem API first
+PartyNameplatesVM partyNameplatesVM = ...;
+partyNameplatesVM.Update();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of PartyNameplatesVM from the subsystem API first
+PartyNameplatesVM partyNameplatesVM = ...;
+partyNameplatesVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyNameplatesVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+PartyNameplatesVM partyNameplatesVM = ...;
+partyNameplatesVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

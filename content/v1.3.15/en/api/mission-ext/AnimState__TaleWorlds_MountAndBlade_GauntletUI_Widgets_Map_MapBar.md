@@ -1,13 +1,7 @@
 ---
-title: "AnimState__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Map_MapBar"
+title: "AnimState"
+description: "Auto-generated class reference for AnimState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AnimState
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar` to
 ## Usage Example
 
 ```csharp
-AnimState example = AnimState.Value;
+// Obtain an instance from the relevant subsystem API
+AnimState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "RestObjectRequestMessage"
+description: "Auto-generated class reference for RestObjectRequestMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RestObjectRequestMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestObjectRequestMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new RestObjectRequestMessage();
+// Obtain an instance from the relevant subsystem API
+RestObjectRequestMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

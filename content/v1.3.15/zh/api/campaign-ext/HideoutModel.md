@@ -1,13 +1,7 @@
 ---
 title: "HideoutModel"
+description: "HideoutModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HideoutModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -37,14 +31,21 @@ title: "HideoutModel"
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public abstract float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**用途 / Purpose:** 获取 `roguery xp gain on hideout mission end` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「roguery xp gain on hideout mission end」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutModel 实例
+HideoutModel hideoutModel = ...;
+var result = hideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomHideoutModel();
+// 通常通过子系统 API 或工厂获得派生实例
+HideoutModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

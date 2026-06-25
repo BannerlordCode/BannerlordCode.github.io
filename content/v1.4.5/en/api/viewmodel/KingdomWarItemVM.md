@@ -1,20 +1,14 @@
 ---
 title: "KingdomWarItemVM"
+description: "Auto-generated class reference for KingdomWarItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomWarItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomWarItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomWarItemVM : KingdomDiplomacyItemVM`
 **Base:** `KingdomDiplomacyItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomWarItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomWarItemVM.cs`
 
 ## Overview
 
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomWarItemVM from the subsystem API first
+KingdomWarItemVM kingdomWarItemVM = ...;
+kingdomWarItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomWarItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomWarItemVM kingdomWarItemVM = ...;
+kingdomWarItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

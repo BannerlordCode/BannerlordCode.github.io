@@ -1,20 +1,14 @@
 ---
 title: "EditorAttribute"
+description: "Auto-generated class reference for EditorAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditorAttribute`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditorAttribute
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class EditorAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/EditorAttribute.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/EditorAttribute.cs`
 
 ## Overview
 
@@ -33,4 +27,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

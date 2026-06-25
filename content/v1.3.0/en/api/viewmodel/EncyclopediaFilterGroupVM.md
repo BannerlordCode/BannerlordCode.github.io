@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaFilterGroupVM"
+description: "Auto-generated class reference for EncyclopediaFilterGroupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaFilterGroupVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaFilterGroupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaFilterGroupVM from the subsystem API first
+EncyclopediaFilterGroupVM encyclopediaFilterGroupVM = ...;
+encyclopediaFilterGroupVM.RefreshValues();
+```
 
 ### CopyFiltersFrom
 `public void CopyFiltersFrom(Dictionary<EncyclopediaFilterItem, bool> filters)`
 
-**Purpose:** Handles logic related to `copy filters from`.
+**Purpose:** Copies the `filters from` state of the current object to a target.
+
+```csharp
+// Obtain an instance of EncyclopediaFilterGroupVM from the subsystem API first
+EncyclopediaFilterGroupVM encyclopediaFilterGroupVM = ...;
+encyclopediaFilterGroupVM.CopyFiltersFrom(dictionary<EncyclopediaFilterItem, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaFilterGroupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaFilterGroupVM encyclopediaFilterGroupVM = ...;
+encyclopediaFilterGroupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

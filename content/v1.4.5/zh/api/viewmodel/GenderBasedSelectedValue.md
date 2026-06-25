@@ -1,20 +1,14 @@
 ---
 title: "GenderBasedSelectedValue"
+description: "GenderBasedSelectedValue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenderBasedSelectedValue`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenderBasedSelectedValue
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct GenderBasedSelectedValue`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "GenderBasedSelectedValue"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenderBasedSelectedValue 实例
+GenderBasedSelectedValue genderBasedSelectedValue = ...;
+genderBasedSelectedValue.Reset();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GenderBasedSelectedValue();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+GenderBasedSelectedValue genderBasedSelectedValue = ...;
+genderBasedSelectedValue.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

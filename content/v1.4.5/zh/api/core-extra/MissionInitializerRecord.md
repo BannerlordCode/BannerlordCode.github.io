@@ -1,20 +1,14 @@
 ---
 title: "MissionInitializerRecord"
+description: "MissionInitializerRecord 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionInitializerRecord`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionInitializerRecord
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct MissionInitializerRecord`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MissionInitializerRecord.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionInitializerRecord.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MissionInitializerRecord"
 ### MissionInitializerRecord
 `public struct MissionInitializerRecord(string name)`
 
-**用途 / Purpose:** 处理 `mission initializer record` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionInitializerRecord 实例
+MissionInitializerRecord missionInitializerRecord = ...;
+var result = missionInitializerRecord.MissionInitializerRecord("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionInitializerRecord();
-value.MissionInitializerRecord("example");
+// 通常从对应子系统 API 获取实例后调用
+MissionInitializerRecord missionInitializerRecord = ...;
+missionInitializerRecord.MissionInitializerRecord("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

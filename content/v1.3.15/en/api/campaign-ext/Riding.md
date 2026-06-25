@@ -1,23 +1,18 @@
 ---
 title: "Riding"
+description: "Auto-generated class reference for Riding."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Riding`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Riding
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Riding`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Riding` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Riding` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,34 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `FullSpeed` | `public static PerkObject FullSpeed { get; }` |
+| `NimbleSteed` | `public static PerkObject NimbleSteed { get; }` |
+| `WellStraped` | `public static PerkObject WellStraped { get; }` |
+| `Veterinary` | `public static PerkObject Veterinary { get; }` |
+| `NomadicTraditions` | `public static PerkObject NomadicTraditions { get; }` |
+| `DeeperSacks` | `public static PerkObject DeeperSacks { get; }` |
+| `Sagittarius` | `public static PerkObject Sagittarius { get; }` |
+| `SweepingWind` | `public static PerkObject SweepingWind { get; }` |
+| `ReliefForce` | `public static PerkObject ReliefForce { get; }` |
+| `MountedWarrior` | `public static PerkObject MountedWarrior { get; }` |
+| `HorseArcher` | `public static PerkObject HorseArcher { get; }` |
+| `Shepherd` | `public static PerkObject Shepherd { get; }` |
+| `Breeder` | `public static PerkObject Breeder { get; }` |
+| `ThunderousCharge` | `public static PerkObject ThunderousCharge { get; }` |
+| `AnnoyingBuzz` | `public static PerkObject AnnoyingBuzz { get; }` |
+| `MountedPatrols` | `public static PerkObject MountedPatrols { get; }` |
+| `CavalryTactics` | `public static PerkObject CavalryTactics { get; }` |
+| `DauntlessSteed` | `public static PerkObject DauntlessSteed { get; }` |
+| `ToughSteed` | `public static PerkObject ToughSteed { get; }` |
+| `TheWayOfTheSaddle` | `public static PerkObject TheWayOfTheSaddle { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Riding();
+// Obtain an instance from the relevant subsystem API
+Riding instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

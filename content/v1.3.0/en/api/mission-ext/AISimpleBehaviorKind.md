@@ -1,13 +1,7 @@
 ---
 title: "AISimpleBehaviorKind"
+description: "Auto-generated class reference for AISimpleBehaviorKind."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AISimpleBehaviorKind`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AISimpleBehaviorKind
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-AISimpleBehaviorKind example = AISimpleBehaviorKind.Value;
+// Obtain an instance from the relevant subsystem API
+AISimpleBehaviorKind instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

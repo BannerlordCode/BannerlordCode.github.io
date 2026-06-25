@@ -1,24 +1,18 @@
 ---
 title: "TeamCollection"
+description: "Auto-generated class reference for TeamCollection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamCollection`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TeamCollection
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class TeamCollection : List<Team>`
 **Base:** `List<Team>`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## Overview
 
-`TeamCollection` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TeamCollection` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,138 +22,79 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 | Name | Signature |
 |------|-----------|
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `Current` | `public static Mission Current { get; }` |
-| `SceneName` | `public string SceneName { get; }` |
-| `SceneLevels` | `public string SceneLevels { get; }` |
-| `DamageToPlayerMultiplier` | `public float DamageToPlayerMultiplier { get; }` |
-| `DamageToFriendsMultiplier` | `public float DamageToFriendsMultiplier { get; }` |
-| `DamageFromPlayerToFriendsMultiplier` | `public float DamageFromPlayerToFriendsMultiplier { get; }` |
-| `HasValidTerrainType` | `public bool HasValidTerrainType { get; }` |
-| `TerrainType` | `public TerrainType TerrainType { get; }` |
-| `Scene` | `public Scene Scene { get; }` |
-| `CustomCameraTargetLocalOffset` | `public Vec3 CustomCameraTargetLocalOffset { get; }` |
-| `CustomCameraLocalOffset` | `public Vec3 CustomCameraLocalOffset { get; }` |
-| `CustomCameraLocalOffset2` | `public Vec3 CustomCameraLocalOffset2 { get; }` |
-| `CustomCameraGlobalOffset` | `public Vec3 CustomCameraGlobalOffset { get; }` |
-| `CustomCameraLocalRotationalOffset` | `public Vec3 CustomCameraLocalRotationalOffset { get; }` |
-| `CustomCameraIgnoreCollision` | `public bool CustomCameraIgnoreCollision { get; }` |
-| `CustomCameraFovMultiplier` | `public float CustomCameraFovMultiplier { get; }` |
-| `CustomCameraFixedDistance` | `public float CustomCameraFixedDistance { get; }` |
-| `ListenerAndAttenuationPosBlendFactor` | `public float ListenerAndAttenuationPosBlendFactor { get; }` |
-| `IgnoredEntityForCamera` | `public GameEntity IgnoredEntityForCamera { get; }` |
+| `Attacker` | `public Team Attacker { get; }` |
+| `Defender` | `public Team Defender { get; }` |
+| `AttackerAlly` | `public Team AttackerAlly { get; }` |
+| `DefenderAlly` | `public Team DefenderAlly { get; }` |
+| `Player` | `public Team Player { get; set; }` |
+| `PlayerEnemy` | `public Team PlayerEnemy { get; }` |
+| `PlayerAlly` | `public Team PlayerAlly { get; }` |
 
 ## Key Methods
 
-### AddActiveMissionObject
-`public void AddActiveMissionObject(MissionObject missionObject)`
+### Add
+`public new void Add(Team t)`
 
-**Purpose:** Adds `active mission object` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
 
-### ActivateMissionObject
-`public void ActivateMissionObject(MissionObject missionObject)`
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+teamCollection.Add(t);
+```
 
-**Purpose:** Handles logic related to `activate mission object`.
+### Add
+`public Team Add(BattleSideEnum side, uint color = 4294967295U, uint color2 = 4294967295U, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)`
 
-### DeactivateMissionObject
-`public void DeactivateMissionObject(MissionObject missionObject)`
+**Purpose:** Adds an item to the current collection or state.
 
-**Purpose:** Handles logic related to `deactivate mission object`.
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+var result = teamCollection.Add(side, 0, 0, null, false, false, false);
+```
 
-### SetMissionCombatType
-`public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)`
+### Find
+`public Team Find(MBTeam mbTeam)`
 
-**Purpose:** Sets the value or state of `mission combat type`.
+**Purpose:** Finds the matching entry in the current collection or scope.
 
-### ConversationCharacterChanged
-`public void ConversationCharacterChanged()`
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+var result = teamCollection.Find(mbTeam);
+```
 
-**Purpose:** Handles logic related to `conversation character changed`.
+### ClearResources
+`public void ClearResources()`
 
-### SetMissionMode
-`public void SetMissionMode(MissionMode newMode, bool atStart)`
+**Purpose:** Removes all `resources` from the current object.
 
-**Purpose:** Sets the value or state of `mission mode`.
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+teamCollection.ClearResources();
+```
 
-### GetAverageFps
-`public float GetAverageFps()`
+### Clear
+`public new void Clear()`
 
-**Purpose:** Gets the current value of `average fps`.
+**Purpose:** Removes all content from the current object.
 
-### GetFallAvoidSystemActive
-`public bool GetFallAvoidSystemActive()`
-
-**Purpose:** Gets the current value of `fall avoid system active`.
-
-### SetFallAvoidSystemActive
-`public void SetFallAvoidSystemActive(bool fallAvoidActive)`
-
-**Purpose:** Sets the value or state of `fall avoid system active`.
-
-### IsPositionInsideBoundaries
-`public bool IsPositionInsideBoundaries(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside boundaries`.
-
-### IsPositionInsideHardBoundaries
-`public bool IsPositionInsideHardBoundaries(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside hard boundaries`.
-
-### IsPositionInsideAnyBlockerNavMeshFace2D
-`public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside any blocker nav mesh face2 d`.
-
-### IsPositionOnAnyBlockerNavMeshFace
-`public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)`
-
-**Purpose:** Handles logic related to `is position on any blocker nav mesh face`.
-
-### RayCastForClosestAgent
-`public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
-
-**Purpose:** Handles logic related to `ray cast for closest agent`.
-
-### RayCastForClosestAgentsLimbs
-`public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**Purpose:** Handles logic related to `ray cast for closest agents limbs`.
-
-### RayCastForGivenAgentsLimbs
-`public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**Purpose:** Handles logic related to `ray cast for given agents limbs`.
-
-### GetBiggestAgentCollisionPadding
-`public float GetBiggestAgentCollisionPadding()`
-
-**Purpose:** Gets the current value of `biggest agent collision padding`.
-
-### SetMissionCorpseFadeOutTimeInSeconds
-`public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)`
-
-**Purpose:** Sets the value or state of `mission corpse fade out time in seconds`.
-
-### SetOverrideCorpseCount
-`public void SetOverrideCorpseCount(int overrideCorpseCount)`
-
-**Purpose:** Sets the value or state of `override corpse count`.
-
-### SetReportStuckAgentsMode
-`public void SetReportStuckAgentsMode(bool value)`
-
-**Purpose:** Sets the value or state of `report stuck agents mode`.
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+teamCollection.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a TeamCollection instance from game state, then call one of its public methods
-var value = new TeamCollection();
-value.AddActiveMissionObject(missionObject);
+// Typically call this after obtaining an instance from the subsystem API
+TeamCollection teamCollection = ...;
+teamCollection.Add(t);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

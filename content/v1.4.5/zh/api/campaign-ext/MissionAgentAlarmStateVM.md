@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentAlarmStateVM"
+description: "MissionAgentAlarmStateVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentAlarmStateVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentAlarmStateVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionAgentAlarmStateVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionAgentAlarmStateVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionAgentAlarmStateVM.cs`
 
 ## 概述
 
@@ -36,40 +30,77 @@ title: "MissionAgentAlarmStateVM"
 ### Initialize
 `public void Initialize(Mission mission, Camera camera)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
+MissionAgentAlarmStateVM missionAgentAlarmStateVM = ...;
+missionAgentAlarmStateVM.Initialize(mission, camera);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
+MissionAgentAlarmStateVM missionAgentAlarmStateVM = ...;
+missionAgentAlarmStateVM.OnFinalize();
+```
 
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
+MissionAgentAlarmStateVM missionAgentAlarmStateVM = ...;
+missionAgentAlarmStateVM.Update();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
+MissionAgentAlarmStateVM missionAgentAlarmStateVM = ...;
+missionAgentAlarmStateVM.OnAgentRemoved(agent);
+```
 
 ### OnAgentBuild
 `public void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
+MissionAgentAlarmStateVM missionAgentAlarmStateVM = ...;
+missionAgentAlarmStateVM.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentTeamChanged
 `public void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**用途 / Purpose:** 当 `agent team changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent team changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentAlarmStateVM 实例
+MissionAgentAlarmStateVM missionAgentAlarmStateVM = ...;
+missionAgentAlarmStateVM.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionAgentAlarmStateVM();
-value.Initialize(mission, camera);
+// 通常从对应子系统 API 获取实例后调用
+MissionAgentAlarmStateVM missionAgentAlarmStateVM = ...;
+missionAgentAlarmStateVM.Initialize(mission, camera);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "AudioProperty"
+description: "AudioProperty 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AudioProperty`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AudioProperty
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -37,15 +31,22 @@ title: "AudioProperty"
 ### FillFrom
 `public void FillFrom(AudioProperty audioProperty)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AudioProperty 实例
+AudioProperty audioProperty = ...;
+audioProperty.FillFrom(audioProperty);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AudioProperty();
-value.FillFrom(audioProperty);
+// 通常从对应子系统 API 获取实例后调用
+AudioProperty audioProperty = ...;
+audioProperty.FillFrom(audioProperty);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

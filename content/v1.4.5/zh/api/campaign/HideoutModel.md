@@ -1,20 +1,14 @@
 ---
 title: "HideoutModel"
+description: "HideoutModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HideoutModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class HideoutModel : MBGameModel<HideoutModel>`
 **Base:** `MBGameModel<HideoutModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HideoutModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HideoutModel.cs`
 
 ## 概述
 
@@ -37,24 +31,43 @@ title: "HideoutModel"
 ### GetRogueryXpGainAsGhost
 `public abstract float GetRogueryXpGainAsGhost()`
 
-**用途 / Purpose:** 获取 `roguery xp gain as ghost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「roguery xp gain as ghost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutModel 实例
+HideoutModel hideoutModel = ...;
+var result = hideoutModel.GetRogueryXpGainAsGhost();
+```
 
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public abstract float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**用途 / Purpose:** 获取 `roguery xp gain on hideout mission end` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「roguery xp gain on hideout mission end」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutModel 实例
+HideoutModel hideoutModel = ...;
+var result = hideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
+```
 
 ### GetSendTroopsSuccessChance
 `public abstract float GetSendTroopsSuccessChance(Hideout hideout)`
 
-**用途 / Purpose:** 获取 `send troops success chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「send troops success chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutModel 实例
+HideoutModel hideoutModel = ...;
+var result = hideoutModel.GetSendTroopsSuccessChance(hideout);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomHideoutModel();
+// 通常通过子系统 API 或工厂获得派生实例
+HideoutModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

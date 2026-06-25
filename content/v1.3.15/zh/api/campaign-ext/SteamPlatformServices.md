@@ -1,13 +1,7 @@
 ---
 title: "SteamPlatformServices"
+description: "SteamPlatformServices 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SteamPlatformServices`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SteamPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService.Steam
@@ -29,15 +23,22 @@ title: "SteamPlatformServices"
 ### ClearAvatarCache
 `public void ClearAvatarCache()`
 
-**用途 / Purpose:** 处理 `clear avatar cache` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「avatar cache」。
+
+```csharp
+// 先通过子系统 API 拿到 SteamPlatformServices 实例
+SteamPlatformServices steamPlatformServices = ...;
+steamPlatformServices.ClearAvatarCache();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SteamPlatformServices();
-value.ClearAvatarCache();
+// 通常从对应子系统 API 获取实例后调用
+SteamPlatformServices steamPlatformServices = ...;
+steamPlatformServices.ClearAvatarCache();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

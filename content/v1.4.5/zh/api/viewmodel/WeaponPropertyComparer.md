@@ -1,20 +1,14 @@
 ---
 title: "WeaponPropertyComparer"
+description: "WeaponPropertyComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponPropertyComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponPropertyComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WeaponPropertyComparer : IComparer<CraftingListPropertyItem>`
 **Base:** `IComparer<CraftingListPropertyItem>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "WeaponPropertyComparer"
 ### Compare
 `public int Compare(CraftingListPropertyItem x, CraftingListPropertyItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponPropertyComparer 实例
+WeaponPropertyComparer weaponPropertyComparer = ...;
+var result = weaponPropertyComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeaponPropertyComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+WeaponPropertyComparer weaponPropertyComparer = ...;
+weaponPropertyComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

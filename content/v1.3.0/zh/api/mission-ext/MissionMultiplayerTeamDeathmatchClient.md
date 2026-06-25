@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerTeamDeathmatchClient"
+description: "MissionMultiplayerTeamDeathmatchClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerTeamDeathmatchClient`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerTeamDeathmatchClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,35 +32,66 @@ title: "MissionMultiplayerTeamDeathmatchClient"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.OnBehaviorInitialize();
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**用途 / Purpose:** 当 `gold amount changed for representative` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「gold amount changed for representative」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.AfterStart();
+```
 
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**用途 / Purpose:** 获取 `gold amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+var result = missionMultiplayerTeamDeathmatchClient.GetGoldAmount();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.OnRemoveBehavior();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMultiplayerTeamDeathmatchClient();
-value.OnBehaviorInitialize();
+// 通常从对应子系统 API 获取实例后调用
+MissionMultiplayerTeamDeathmatchClient missionMultiplayerTeamDeathmatchClient = ...;
+missionMultiplayerTeamDeathmatchClient.OnBehaviorInitialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

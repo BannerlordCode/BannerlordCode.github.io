@@ -1,24 +1,18 @@
 ---
 title: "EntryId"
+description: "EntryId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EntryId`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EntryId
 
-**命名空间:** TaleWorlds.SaveSystem
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public struct EntryId : IEquatable<EntryId>`
+**Namespace:** TaleWorlds.SaveSystem
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public struct EntryId : IEquatable<EntryId>`
 **Base:** `IEquatable<EntryId>`
-**领域:** save-system
+**File:** `TaleWorlds.SaveSystem/EntryId.cs`
 
 ## 概述
 
-`EntryId` 位于 `TaleWorlds.SaveSystem`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`EntryId` 位于 `TaleWorlds.SaveSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -36,27 +30,44 @@ title: "EntryId"
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 EntryId 实例
+EntryId entryId = ...;
+var result = entryId.Equals(obj);
+```
 
 ### Equals
 `public bool Equals(EntryId other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 EntryId 实例
+EntryId entryId = ...;
+var result = entryId.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 EntryId 实例
+EntryId entryId = ...;
+var result = entryId.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 EntryId 实例，再调用它的公开方法
-var value = new EntryId();
-value.Equals(obj);
+// 通常从对应子系统 API 获取实例后调用
+EntryId entryId = ...;
+entryId.Equals(obj);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

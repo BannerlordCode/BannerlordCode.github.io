@@ -1,13 +1,7 @@
 ---
 title: "Add1000GoldCheat"
+description: "Add1000GoldCheat 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Add1000GoldCheat`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Add1000GoldCheat
 
 **Namespace:** SandBox
@@ -29,20 +23,33 @@ title: "Add1000GoldCheat"
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**用途 / Purpose:** 执行 `cheat` 操作或流程。
+**用途 / Purpose:** 执行 「cheat」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 Add1000GoldCheat 实例
+Add1000GoldCheat add1000GoldCheat = ...;
+add1000GoldCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Add1000GoldCheat 实例
+Add1000GoldCheat add1000GoldCheat = ...;
+var result = add1000GoldCheat.GetName();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Add1000GoldCheat();
-value.ExecuteCheat();
+// 通常从对应子系统 API 获取实例后调用
+Add1000GoldCheat add1000GoldCheat = ...;
+add1000GoldCheat.ExecuteCheat();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

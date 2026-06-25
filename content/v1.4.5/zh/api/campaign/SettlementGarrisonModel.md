@@ -1,20 +1,14 @@
 ---
 title: "SettlementGarrisonModel"
+description: "SettlementGarrisonModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementGarrisonModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementGarrisonModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementGarrisonModel : MBGameModel<SettlementGarrisonModel>`
 **Base:** `MBGameModel<SettlementGarrisonModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementGarrisonModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementGarrisonModel.cs`
 
 ## 概述
 
@@ -29,34 +23,65 @@ title: "SettlementGarrisonModel"
 ### GetMaximumDailyAutoRecruitmentCount
 `public abstract int GetMaximumDailyAutoRecruitmentCount(Town town)`
 
-**用途 / Purpose:** 获取 `maximum daily auto recruitment count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum daily auto recruitment count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementGarrisonModel 实例
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.GetMaximumDailyAutoRecruitmentCount(town);
+```
 
 ### CalculateBaseGarrisonChange
 `public abstract ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate base garrison change` 相关逻辑。
+**用途 / Purpose:** 计算「base garrison change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementGarrisonModel 实例
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.CalculateBaseGarrisonChange(settlement, false);
+```
 
 ### FindNumberOfTroopsToTakeFromGarrison
 `public abstract int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float idealGarrisonStrengthPerWalledCenter = 0f)`
 
-**用途 / Purpose:** 处理 `find number of troops to take from garrison` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「number of troops to take from garrison」。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementGarrisonModel 实例
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.FindNumberOfTroopsToTakeFromGarrison(mobileParty, settlement, 0);
+```
 
 ### FindNumberOfTroopsToLeaveToGarrison
 `public abstract int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** 处理 `find number of troops to leave to garrison` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「number of troops to leave to garrison」。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementGarrisonModel 实例
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.FindNumberOfTroopsToLeaveToGarrison(mobileParty, settlement);
+```
 
 ### GetMaximumDailyRepairAmount
 `public abstract float GetMaximumDailyRepairAmount(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `maximum daily repair amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum daily repair amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementGarrisonModel 实例
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.GetMaximumDailyRepairAmount(settlement);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementGarrisonModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementGarrisonModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

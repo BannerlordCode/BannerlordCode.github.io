@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleAgentOrigin"
+description: "Auto-generated class reference for CustomBattleAgentOrigin."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleAgentOrigin`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleAgentOrigin
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleAgentOrigin : IAgentOriginBase`
 **Base:** `IAgentOriginBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentOrigin.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentOrigin.cs`
 
 ## Overview
 
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetWounded
 `public void SetWounded()`
 
-**Purpose:** Sets the value or state of `wounded`.
+**Purpose:** Assigns a new value to `wounded` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
+CustomBattleAgentOrigin customBattleAgentOrigin = ...;
+customBattleAgentOrigin.SetWounded();
+```
 
 ### SetKilled
 `public void SetKilled()`
 
-**Purpose:** Sets the value or state of `killed`.
+**Purpose:** Assigns a new value to `killed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
+CustomBattleAgentOrigin customBattleAgentOrigin = ...;
+customBattleAgentOrigin.SetKilled();
+```
 
 ### SetRouted
 `public void SetRouted(bool isOrderRetreat)`
 
-**Purpose:** Sets the value or state of `routed`.
+**Purpose:** Assigns a new value to `routed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
+CustomBattleAgentOrigin customBattleAgentOrigin = ...;
+customBattleAgentOrigin.SetRouted(false);
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(float agentHealth)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
+CustomBattleAgentOrigin customBattleAgentOrigin = ...;
+customBattleAgentOrigin.OnAgentRemoved(0);
+```
 
 ### SetBanner
 `public void SetBanner(Banner banner)`
 
-**Purpose:** Sets the value or state of `banner`.
+**Purpose:** Assigns a new value to `banner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleAgentOrigin from the subsystem API first
+CustomBattleAgentOrigin customBattleAgentOrigin = ...;
+customBattleAgentOrigin.SetBanner(banner);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleAgentOrigin();
-value.SetWounded();
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleAgentOrigin customBattleAgentOrigin = ...;
+customBattleAgentOrigin.SetWounded();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

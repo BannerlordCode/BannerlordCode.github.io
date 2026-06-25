@@ -1,13 +1,7 @@
 ---
 title: "CampaignOptionsControllerVM"
+description: "CampaignOptionsControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignOptionsControllerVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignOptionsControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -35,20 +29,33 @@ title: "CampaignOptionsControllerVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionsControllerVM 实例
+CampaignOptionsControllerVM campaignOptionsControllerVM = ...;
+campaignOptionsControllerVM.OnFinalize();
+```
 
 ### Compare
 `public int Compare(CampaignOptionItemVM x, CampaignOptionItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionsControllerVM 实例
+CampaignOptionsControllerVM campaignOptionsControllerVM = ...;
+var result = campaignOptionsControllerVM.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CampaignOptionsControllerVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+CampaignOptionsControllerVM campaignOptionsControllerVM = ...;
+campaignOptionsControllerVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

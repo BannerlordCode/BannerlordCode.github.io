@@ -1,13 +1,7 @@
 ---
 title: "DefaultBuildingTypes"
+description: "Auto-generated class reference for DefaultBuildingTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBuildingTypes`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBuildingTypes
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Buildings
@@ -63,9 +57,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ## Usage Example
 
 ```csharp
-var example = new DefaultBuildingTypes();
+// Obtain an instance from the relevant subsystem API
+DefaultBuildingTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

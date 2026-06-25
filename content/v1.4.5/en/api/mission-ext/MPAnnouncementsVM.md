@@ -1,20 +1,14 @@
 ---
 title: "MPAnnouncementsVM"
+description: "Auto-generated class reference for MPAnnouncementsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPAnnouncementsVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPAnnouncementsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPAnnouncementsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPAnnouncementsVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPAnnouncementsVM.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPAnnouncementsVM from the subsystem API first
+MPAnnouncementsVM mPAnnouncementsVM = ...;
+mPAnnouncementsVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPAnnouncementsVM from the subsystem API first
+MPAnnouncementsVM mPAnnouncementsVM = ...;
+mPAnnouncementsVM.OnTick(0);
+```
 
 ### UpdateAnnouncements
 `public async void UpdateAnnouncements()`
 
-**Purpose:** Updates the state or data of `announcements`.
+**Purpose:** Recalculates and stores the latest representation of `announcements`.
+
+```csharp
+// Obtain an instance of MPAnnouncementsVM from the subsystem API first
+MPAnnouncementsVM mPAnnouncementsVM = ...;
+mPAnnouncementsVM.UpdateAnnouncements();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPAnnouncementsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPAnnouncementsVM mPAnnouncementsVM = ...;
+mPAnnouncementsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

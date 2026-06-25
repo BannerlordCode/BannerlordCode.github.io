@@ -1,18 +1,12 @@
 ---
 title: "GameTypeLoadingStates"
+description: "Auto-generated class reference for GameTypeLoadingStates."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameTypeLoadingStates`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameTypeLoadingStates
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum GameTypeLoadingStates`
 **Base:** none
 **File:** `TaleWorlds.Core/GameTypeLoadingStates.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new GameTypeLoadingStates();
+// Obtain an instance from the relevant subsystem API
+GameTypeLoadingStates instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

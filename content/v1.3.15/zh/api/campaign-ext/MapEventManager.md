@@ -1,13 +1,7 @@
 ---
 title: "MapEventManager"
+description: "MapEventManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapEventManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapEventManager
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -35,42 +29,90 @@ title: "MapEventManager"
 ### OnMapEventCreated
 `public void OnMapEventCreated(MapEvent mapEvent)`
 
-**用途 / Purpose:** 当 `map event created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map event created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventManager 实例
+MapEventManager mapEventManager = ...;
+mapEventManager.OnMapEventCreated(mapEvent);
+```
 
 ### GetMapEvent
 `public MapEvent GetMapEvent(int attackerPartyIndex)`
 
-**用途 / Purpose:** 获取 `map event` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「map event」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventManager 实例
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.GetMapEvent(0);
+```
 
 ### GetMapEventsBetweenFactions
 `public List<MapEvent> GetMapEventsBetweenFactions(IFaction faction1, IFaction faction2)`
 
-**用途 / Purpose:** 获取 `map events between factions` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「map events between factions」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventManager 实例
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.GetMapEventsBetweenFactions(faction1, faction2);
+```
 
 ### FinalizePlayerMapEvent
 `public void FinalizePlayerMapEvent(MapEvent mapEvent = null)`
 
-**用途 / Purpose:** 处理 `finalize player map event` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventManager 实例
+MapEventManager mapEventManager = ...;
+mapEventManager.FinalizePlayerMapEvent(null);
+```
 
 ### StartSiegeMapEvent
 `public MapEvent StartSiegeMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** 处理 `start siege map event` 相关逻辑。
+**用途 / Purpose:** 启动「siege map event」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventManager 实例
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.StartSiegeMapEvent(attackerParty, defenderParty);
+```
 
 ### StartSallyOutMapEvent
 `public MapEvent StartSallyOutMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** 处理 `start sally out map event` 相关逻辑。
+**用途 / Purpose:** 启动「sally out map event」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventManager 实例
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.StartSallyOutMapEvent(attackerParty, defenderParty);
+```
 
 ### StartSiegeOutsideMapEvent
 `public MapEvent StartSiegeOutsideMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** 处理 `start siege outside map event` 相关逻辑。
+**用途 / Purpose:** 启动「siege outside map event」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventManager 实例
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.StartSiegeOutsideMapEvent(attackerParty, defenderParty);
+```
 
 ### StartBlockadeBattleMapEvent
 `public MapEvent StartBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** 处理 `start blockade battle map event` 相关逻辑。
+**用途 / Purpose:** 启动「blockade battle map event」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventManager 实例
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.StartBlockadeBattleMapEvent(attackerParty, defenderParty);
+```
 
 ## 使用示例
 
@@ -80,4 +122,4 @@ var manager = MapEventManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

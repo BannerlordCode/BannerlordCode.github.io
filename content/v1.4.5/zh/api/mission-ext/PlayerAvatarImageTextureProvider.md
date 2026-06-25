@@ -1,20 +1,14 @@
 ---
 title: "PlayerAvatarImageTextureProvider"
+description: "PlayerAvatarImageTextureProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerAvatarImageTextureProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerAvatarImageTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerAvatarImageTextureProvider : ImageIdentifierTextureProvider`
 **Base:** `ImageIdentifierTextureProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers/PlayerAvatarImageTextureProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers/PlayerAvatarImageTextureProvider.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "PlayerAvatarImageTextureProvider"
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerAvatarImageTextureProvider 实例
+PlayerAvatarImageTextureProvider playerAvatarImageTextureProvider = ...;
+playerAvatarImageTextureProvider.Tick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerAvatarImageTextureProvider();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+PlayerAvatarImageTextureProvider playerAvatarImageTextureProvider = ...;
+playerAvatarImageTextureProvider.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

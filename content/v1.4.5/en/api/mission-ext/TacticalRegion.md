@@ -1,20 +1,14 @@
 ---
 title: "TacticalRegion"
+description: "Auto-generated class reference for TacticalRegion."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticalRegion`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticalRegion
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticalRegion : MissionObject`
 **Base:** `MissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticalRegion.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticalRegion.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TacticalRegion from the subsystem API first
+TacticalRegion tacticalRegion = ...;
+tacticalRegion.AfterMissionStart();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticalRegion();
-value.AfterMissionStart();
+// Typically call this after obtaining an instance from the subsystem API
+TacticalRegion tacticalRegion = ...;
+tacticalRegion.AfterMissionStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

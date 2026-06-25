@@ -1,20 +1,14 @@
 ---
 title: "BattleHighlightsController"
+description: "BattleHighlightsController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleHighlightsController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleHighlightsController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleHighlightsController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleHighlightsController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleHighlightsController.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "BattleHighlightsController"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleHighlightsController 实例
+BattleHighlightsController battleHighlightsController = ...;
+battleHighlightsController.AfterStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleHighlightsController 实例
+BattleHighlightsController battleHighlightsController = ...;
+battleHighlightsController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<BattleHighlightsController>(
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

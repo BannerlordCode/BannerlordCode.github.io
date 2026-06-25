@@ -1,20 +1,14 @@
 ---
 title: "StoryModeGauntletUISubModule"
+description: "StoryModeGauntletUISubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeGauntletUISubModule`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeGauntletUISubModule
 
 **Namespace:** StoryMode.GauntletUI
 **Module:** StoryMode.GauntletUI
 **Type:** `public class StoryModeGauntletUISubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI/StoryModeGauntletUISubModule.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI/StoryModeGauntletUISubModule.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "StoryModeGauntletUISubModule"
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**用途 / Purpose:** 当 `game initialization finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game initialization finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeGauntletUISubModule 实例
+StoryModeGauntletUISubModule storyModeGauntletUISubModule = ...;
+storyModeGauntletUISubModule.OnGameInitializationFinished(game);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeGauntletUISubModule 实例
+StoryModeGauntletUISubModule storyModeGauntletUISubModule = ...;
+storyModeGauntletUISubModule.OnGameEnd(game);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StoryModeGauntletUISubModule();
-value.OnGameInitializationFinished(game);
+// 通常从对应子系统 API 获取实例后调用
+StoryModeGauntletUISubModule storyModeGauntletUISubModule = ...;
+storyModeGauntletUISubModule.OnGameInitializationFinished(game);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

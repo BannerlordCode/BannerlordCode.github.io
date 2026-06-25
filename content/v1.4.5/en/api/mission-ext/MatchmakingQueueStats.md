@@ -1,20 +1,14 @@
 ---
 title: "MatchmakingQueueStats"
+description: "Auto-generated class reference for MatchmakingQueueStats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatchmakingQueueStats`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatchmakingQueueStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingQueueStats`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueStats.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueStats.cs`
 
 ## Overview
 
@@ -39,28 +33,53 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 
 **Purpose:** Adds `region stats` to the current collection or state.
 
+```csharp
+// Obtain an instance of MatchmakingQueueStats from the subsystem API first
+MatchmakingQueueStats matchmakingQueueStats = ...;
+matchmakingQueueStats.AddRegionStats(matchmakingQueueRegionStats);
+```
+
 ### GetRegionStats
 `public MatchmakingQueueRegionStats GetRegionStats(string region)`
 
-**Purpose:** Gets the current value of `region stats`.
+**Purpose:** Reads and returns the `region stats` value held by the current object.
+
+```csharp
+// Obtain an instance of MatchmakingQueueStats from the subsystem API first
+MatchmakingQueueStats matchmakingQueueStats = ...;
+var result = matchmakingQueueStats.GetRegionStats("example");
+```
 
 ### GetQueueCountOf
 `public int GetQueueCountOf(string region, string gameTypes)`
 
-**Purpose:** Gets the current value of `queue count of`.
+**Purpose:** Reads and returns the `queue count of` value held by the current object.
+
+```csharp
+// Obtain an instance of MatchmakingQueueStats from the subsystem API first
+MatchmakingQueueStats matchmakingQueueStats = ...;
+var result = matchmakingQueueStats.GetQueueCountOf("example", "example");
+```
 
 ### GetRegionNames
 `public string GetRegionNames()`
 
-**Purpose:** Gets the current value of `region names`.
+**Purpose:** Reads and returns the `region names` value held by the current object.
+
+```csharp
+// Obtain an instance of MatchmakingQueueStats from the subsystem API first
+MatchmakingQueueStats matchmakingQueueStats = ...;
+var result = matchmakingQueueStats.GetRegionNames();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MatchmakingQueueStats();
-value.AddRegionStats(matchmakingQueueRegionStats);
+// Typically call this after obtaining an instance from the subsystem API
+MatchmakingQueueStats matchmakingQueueStats = ...;
+matchmakingQueueStats.AddRegionStats(matchmakingQueueRegionStats);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "JoinCustomGameResultMessage"
+description: "Auto-generated class reference for JoinCustomGameResultMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JoinCustomGameResultMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoinCustomGameResultMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class JoinCustomGameResultMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinCustomGameResultMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinCustomGameResultMessage.cs`
 
 ## Overview
 
@@ -39,12 +33,22 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ### CreateSuccess
 `public static JoinCustomGameResultMessage CreateSuccess(JoinGameData joinGameData, string matchId, bool isAdmin)`
 
-**Purpose:** Creates a new `success` instance or object.
+**Purpose:** Constructs a new `success` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+JoinCustomGameResultMessage.CreateSuccess(joinGameData, "example", false);
+```
 
 ### CreateFailed
 `public static JoinCustomGameResultMessage CreateFailed(CustomGameJoinResponse response)`
 
-**Purpose:** Creates a new `failed` instance or object.
+**Purpose:** Constructs a new `failed` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+JoinCustomGameResultMessage.CreateFailed(response);
+```
 
 ## Usage Example
 
@@ -54,4 +58,4 @@ JoinCustomGameResultMessage.CreateSuccess(joinGameData, "example", false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "KingdomDecisionPermissionModel"
+description: "Auto-generated class reference for KingdomDecisionPermissionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDecisionPermissionModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomDecisionPermissionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,44 +23,87 @@ Treat `KingdomDecisionPermissionModel` as a Model-style extension point: first i
 ### IsPolicyDecisionAllowed
 `public abstract bool IsPolicyDecisionAllowed(PolicyObject policy)`
 
-**Purpose:** Handles logic related to `is policy decision allowed`.
+**Purpose:** Determines whether the current object is in the `policy decision allowed` state or condition.
+
+```csharp
+// Obtain an instance of KingdomDecisionPermissionModel from the subsystem API first
+KingdomDecisionPermissionModel kingdomDecisionPermissionModel = ...;
+var result = kingdomDecisionPermissionModel.IsPolicyDecisionAllowed(policy);
+```
 
 ### IsWarDecisionAllowedBetweenKingdoms
 `public abstract bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Handles logic related to `is war decision allowed between kingdoms`.
+**Purpose:** Determines whether the current object is in the `war decision allowed between kingdoms` state or condition.
+
+```csharp
+// Obtain an instance of KingdomDecisionPermissionModel from the subsystem API first
+KingdomDecisionPermissionModel kingdomDecisionPermissionModel = ...;
+var result = kingdomDecisionPermissionModel.IsWarDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ### IsPeaceDecisionAllowedBetweenKingdoms
 `public abstract bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Handles logic related to `is peace decision allowed between kingdoms`.
+**Purpose:** Determines whether the current object is in the `peace decision allowed between kingdoms` state or condition.
+
+```csharp
+// Obtain an instance of KingdomDecisionPermissionModel from the subsystem API first
+KingdomDecisionPermissionModel kingdomDecisionPermissionModel = ...;
+var result = kingdomDecisionPermissionModel.IsPeaceDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ### IsStartAllianceDecisionAllowedBetweenKingdoms
 `public abstract bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Handles logic related to `is start alliance decision allowed between kingdoms`.
+**Purpose:** Determines whether the current object is in the `start alliance decision allowed between kingdoms` state or condition.
+
+```csharp
+// Obtain an instance of KingdomDecisionPermissionModel from the subsystem API first
+KingdomDecisionPermissionModel kingdomDecisionPermissionModel = ...;
+var result = kingdomDecisionPermissionModel.IsStartAllianceDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ### IsAnnexationDecisionAllowed
 `public abstract bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)`
 
-**Purpose:** Handles logic related to `is annexation decision allowed`.
+**Purpose:** Determines whether the current object is in the `annexation decision allowed` state or condition.
+
+```csharp
+// Obtain an instance of KingdomDecisionPermissionModel from the subsystem API first
+KingdomDecisionPermissionModel kingdomDecisionPermissionModel = ...;
+var result = kingdomDecisionPermissionModel.IsAnnexationDecisionAllowed(annexedSettlement);
+```
 
 ### IsExpulsionDecisionAllowed
 `public abstract bool IsExpulsionDecisionAllowed(Clan expelledClan)`
 
-**Purpose:** Handles logic related to `is expulsion decision allowed`.
+**Purpose:** Determines whether the current object is in the `expulsion decision allowed` state or condition.
+
+```csharp
+// Obtain an instance of KingdomDecisionPermissionModel from the subsystem API first
+KingdomDecisionPermissionModel kingdomDecisionPermissionModel = ...;
+var result = kingdomDecisionPermissionModel.IsExpulsionDecisionAllowed(expelledClan);
+```
 
 ### IsKingSelectionDecisionAllowed
 `public abstract bool IsKingSelectionDecisionAllowed(Kingdom kingdom)`
 
-**Purpose:** Handles logic related to `is king selection decision allowed`.
+**Purpose:** Determines whether the current object is in the `king selection decision allowed` state or condition.
+
+```csharp
+// Obtain an instance of KingdomDecisionPermissionModel from the subsystem API first
+KingdomDecisionPermissionModel kingdomDecisionPermissionModel = ...;
+var result = kingdomDecisionPermissionModel.IsKingSelectionDecisionAllowed(kingdom);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomKingdomDecisionPermissionModel();
+// Typically obtained from a subsystem API or factory
+KingdomDecisionPermissionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

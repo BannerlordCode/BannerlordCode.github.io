@@ -1,20 +1,14 @@
 ---
 title: "GeneratedPrefabInstantiationResult"
+description: "GeneratedPrefabInstantiationResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GeneratedPrefabInstantiationResult`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GeneratedPrefabInstantiationResult
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GeneratedPrefabInstantiationResult`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/GeneratedPrefabInstantiationResult.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/GeneratedPrefabInstantiationResult.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "GeneratedPrefabInstantiationResult"
 ### AddData
 `public void AddData(string tag, object data)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `data`。
+**用途 / Purpose:** 将 「data」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GeneratedPrefabInstantiationResult 实例
+GeneratedPrefabInstantiationResult generatedPrefabInstantiationResult = ...;
+generatedPrefabInstantiationResult.AddData("example", data);
+```
 
 ### GetExtensionData
 `public object GetExtensionData(string tag)`
 
-**用途 / Purpose:** 获取 `extension data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「extension data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GeneratedPrefabInstantiationResult 实例
+GeneratedPrefabInstantiationResult generatedPrefabInstantiationResult = ...;
+var result = generatedPrefabInstantiationResult.GetExtensionData("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GeneratedPrefabInstantiationResult();
-value.AddData("example", data);
+// 通常从对应子系统 API 获取实例后调用
+GeneratedPrefabInstantiationResult generatedPrefabInstantiationResult = ...;
+generatedPrefabInstantiationResult.AddData("example", data);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

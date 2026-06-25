@@ -1,13 +1,7 @@
 ---
 title: "JavelinBarrel"
+description: "JavelinBarrel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `JavelinBarrel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # JavelinBarrel
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
@@ -29,15 +23,22 @@ title: "JavelinBarrel"
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 JavelinBarrel 实例
+JavelinBarrel javelinBarrel = ...;
+var result = javelinBarrel.GetDescriptionText(gameEntity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new JavelinBarrel();
-value.GetDescriptionText(gameEntity);
+// 通常从对应子系统 API 获取实例后调用
+JavelinBarrel javelinBarrel = ...;
+javelinBarrel.GetDescriptionText(gameEntity);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

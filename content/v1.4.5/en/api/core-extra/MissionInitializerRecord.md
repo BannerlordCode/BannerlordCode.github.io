@@ -1,20 +1,14 @@
 ---
 title: "MissionInitializerRecord"
+description: "Auto-generated class reference for MissionInitializerRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionInitializerRecord`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionInitializerRecord
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct MissionInitializerRecord`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MissionInitializerRecord.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionInitializerRecord.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### MissionInitializerRecord
 `public struct MissionInitializerRecord(string name)`
 
-**Purpose:** Handles logic related to `mission initializer record`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionInitializerRecord from the subsystem API first
+MissionInitializerRecord missionInitializerRecord = ...;
+var result = missionInitializerRecord.MissionInitializerRecord("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionInitializerRecord();
-value.MissionInitializerRecord("example");
+// Typically call this after obtaining an instance from the subsystem API
+MissionInitializerRecord missionInitializerRecord = ...;
+missionInitializerRecord.MissionInitializerRecord("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PopupSceneSkeletonAnimationScript"
+description: "Auto-generated class reference for PopupSceneSkeletonAnimationScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneSkeletonAnimationScript`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneSkeletonAnimationScript
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PopupSceneSkeletonAnimationScript from the subsystem API first
+PopupSceneSkeletonAnimationScript popupSceneSkeletonAnimationScript = ...;
+popupSceneSkeletonAnimationScript.Initialize();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of PopupSceneSkeletonAnimationScript from the subsystem API first
+PopupSceneSkeletonAnimationScript popupSceneSkeletonAnimationScript = ...;
+var result = popupSceneSkeletonAnimationScript.GetTickRequirement();
+```
 
 ### SetState
 `public void SetState(int state)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopupSceneSkeletonAnimationScript from the subsystem API first
+PopupSceneSkeletonAnimationScript popupSceneSkeletonAnimationScript = ...;
+popupSceneSkeletonAnimationScript.SetState(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PopupSceneSkeletonAnimationScript();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+PopupSceneSkeletonAnimationScript popupSceneSkeletonAnimationScript = ...;
+popupSceneSkeletonAnimationScript.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "Building"
+description: "Auto-generated class reference for Building."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Building`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Building
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Buildings
@@ -39,45 +33,88 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Building from the subsystem API first
+Building building = ...;
+var result = building.GetHashCode();
+```
 
 ### GetConstructionCost
 `public int GetConstructionCost()`
 
-**Purpose:** Gets the current value of `construction cost`.
+**Purpose:** Reads and returns the `construction cost` value held by the current object.
+
+```csharp
+// Obtain an instance of Building from the subsystem API first
+Building building = ...;
+var result = building.GetConstructionCost();
+```
 
 ### LevelUp
 `public void LevelUp()`
 
-**Purpose:** Handles logic related to `level up`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Building from the subsystem API first
+Building building = ...;
+building.LevelUp();
+```
 
 ### LevelDown
 `public void LevelDown()`
 
-**Purpose:** Handles logic related to `level down`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Building from the subsystem API first
+Building building = ...;
+building.LevelDown();
+```
 
 ### HitPointChanged
 `public void HitPointChanged(float change)`
 
-**Purpose:** Handles logic related to `hit point changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Building from the subsystem API first
+Building building = ...;
+building.HitPointChanged(0);
+```
 
 ### AddEffectOfBuilding
 `public void AddEffectOfBuilding(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)`
 
 **Purpose:** Adds `effect of building` to the current collection or state.
 
+```csharp
+// Obtain an instance of Building from the subsystem API first
+Building building = ...;
+building.AddEffectOfBuilding(buildingEffect, result);
+```
+
 ### GetBonusExplanation
 `public TextObject GetBonusExplanation()`
 
-**Purpose:** Gets the current value of `bonus explanation`.
+**Purpose:** Reads and returns the `bonus explanation` value held by the current object.
+
+```csharp
+// Obtain an instance of Building from the subsystem API first
+Building building = ...;
+var result = building.GetBonusExplanation();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Building();
-value.GetHashCode();
+// Typically call this after obtaining an instance from the subsystem API
+Building building = ...;
+building.GetHashCode();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

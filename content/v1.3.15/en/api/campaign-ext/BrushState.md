@@ -1,13 +1,7 @@
 ---
 title: "BrushState"
+description: "Auto-generated class reference for BrushState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BrushState
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -29,55 +23,110 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(Style style)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+brushState.FillFrom(style);
+```
 
 ### LerpFrom
 `public void LerpFrom(BrushState start, Style end, float ratio)`
 
-**Purpose:** Handles logic related to `lerp from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+brushState.LerpFrom(start, end, 0);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as float`.
+**Purpose:** Reads and returns the `value as float` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+var result = brushState.GetValueAsFloat(propertyType);
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as color`.
+**Purpose:** Reads and returns the `value as color` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+var result = brushState.GetValueAsColor(propertyType);
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as sprite`.
+**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+var result = brushState.GetValueAsSprite(propertyType);
+```
 
 ### SetValueAsFloat
 `public void SetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType, float value)`
 
-**Purpose:** Sets the value or state of `value as float`.
+**Purpose:** Assigns a new value to `value as float` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+brushState.SetValueAsFloat(propertyType, 0);
+```
 
 ### SetValueAsColor
 `public void SetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType, in Color value)`
 
-**Purpose:** Sets the value or state of `value as color`.
+**Purpose:** Assigns a new value to `value as color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+brushState.SetValueAsColor(propertyType, value);
+```
 
 ### SetValueAsSprite
 `public void SetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType, Sprite value)`
 
-**Purpose:** Sets the value or state of `value as sprite`.
+**Purpose:** Assigns a new value to `value as sprite` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+brushState.SetValueAsSprite(propertyType, value);
+```
 
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Creates a new `text material` instance or object.
+**Purpose:** Constructs a new `text material` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of BrushState from the subsystem API first
+BrushState brushState = ...;
+var result = brushState.CreateTextMaterial(drawContext);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushState();
-value.FillFrom(style);
+// Typically call this after obtaining an instance from the subsystem API
+BrushState brushState = ...;
+brushState.FillFrom(style);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

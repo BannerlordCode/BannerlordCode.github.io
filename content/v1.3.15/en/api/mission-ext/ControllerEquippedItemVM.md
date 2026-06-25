@@ -1,13 +1,7 @@
 ---
 title: "ControllerEquippedItemVM"
+description: "Auto-generated class reference for ControllerEquippedItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ControllerEquippedItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ControllerEquippedItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ControllerEquippedItemVM from the subsystem API first
+ControllerEquippedItemVM controllerEquippedItemVM = ...;
+controllerEquippedItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ControllerEquippedItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+ControllerEquippedItemVM controllerEquippedItemVM = ...;
+controllerEquippedItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

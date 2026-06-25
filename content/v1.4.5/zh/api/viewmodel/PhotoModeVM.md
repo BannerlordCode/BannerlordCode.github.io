@@ -1,20 +1,14 @@
 ---
 title: "PhotoModeVM"
+description: "PhotoModeVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PhotoModeVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PhotoModeVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PhotoModeVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/PhotoModeVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/PhotoModeVM.cs`
 
 ## 概述
 
@@ -42,65 +36,132 @@ title: "PhotoModeVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.RefreshValues();
+```
 
 ### AddTakePictureKey
 `public void AddTakePictureKey(GameKey key)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `take picture key`。
+**用途 / Purpose:** 将 「take picture key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.AddTakePictureKey(key);
+```
 
 ### AddFasterCameraKey
 `public void AddFasterCameraKey(HotKey hotkey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `faster camera key`。
+**用途 / Purpose:** 将 「faster camera key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.AddFasterCameraKey(hotkey);
+```
 
 ### AddKey
 `public void AddKey(GameKey key)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `key`。
+**用途 / Purpose:** 将 「key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.AddKey(key);
+```
 
 ### AddHotkey
 `public void AddHotkey(HotKey hotkey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `hotkey`。
+**用途 / Purpose:** 将 「hotkey」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.AddHotkey(hotkey);
+```
 
 ### AddHotkeyWithForcedName
 `public void AddHotkeyWithForcedName(HotKey hotkey, TextObject forcedName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `hotkey with forced name`。
+**用途 / Purpose:** 将 「hotkey with forced name」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.AddHotkeyWithForcedName(hotkey, forcedName);
+```
 
 ### AddConsoleTakePictureKey
 `public void AddConsoleTakePictureKey(string keyID, TextObject forcedName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `console take picture key`。
+**用途 / Purpose:** 将 「console take picture key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.AddConsoleTakePictureKey("example", forcedName);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.OnFinalize();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.Reset();
+```
 
 ### UpdateTakePictureKeyVisibility
 `public void UpdateTakePictureKeyVisibility(bool canTakePicture)`
 
-**用途 / Purpose:** 更新 `take picture key visibility` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「take picture key visibility」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.UpdateTakePictureKeyVisibility(false);
+```
 
 ### UpdateFasterCameraKeyVisibility
 `public void UpdateFasterCameraKeyVisibility(bool canMoveCamera)`
 
-**用途 / Purpose:** 更新 `faster camera key visibility` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「faster camera key visibility」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PhotoModeVM 实例
+PhotoModeVM photoModeVM = ...;
+photoModeVM.UpdateFasterCameraKeyVisibility(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PhotoModeVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+PhotoModeVM photoModeVM = ...;
+photoModeVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "EducationState"
+description: "Auto-generated class reference for EducationState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EducationState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var value = new EducationState();
+// Obtain an instance from the relevant subsystem API
+EducationState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

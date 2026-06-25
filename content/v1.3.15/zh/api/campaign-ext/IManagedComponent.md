@@ -1,18 +1,12 @@
 ---
 title: "IManagedComponent"
+description: "IManagedComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IManagedComponent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IManagedComponent
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** `class`
+**Type:** `public interface IManagedComponent`
 **Base:** 无
 **File:** `TaleWorlds.DotNet/IManagedComponent.cs`
 
@@ -27,9 +21,10 @@ title: "IManagedComponent"
 ## 使用示例
 
 ```csharp
-IManagedComponent implementation = GetManagedComponentImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIManagedComponent service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

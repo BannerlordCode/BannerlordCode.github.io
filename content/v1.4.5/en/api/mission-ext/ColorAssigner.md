@@ -1,20 +1,14 @@
 ---
 title: "ColorAssigner"
+description: "Auto-generated class reference for ColorAssigner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ColorAssigner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ColorAssigner
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ColorAssigner : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ColorAssigner.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ColorAssigner.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetColor
 `public void SetColor(WeakGameEntity entity)`
 
-**Purpose:** Sets the value or state of `color`.
+**Purpose:** Assigns a new value to `color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ColorAssigner from the subsystem API first
+ColorAssigner colorAssigner = ...;
+colorAssigner.SetColor(entity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ColorAssigner();
-value.SetColor(entity);
+// Typically call this after obtaining an instance from the subsystem API
+ColorAssigner colorAssigner = ...;
+colorAssigner.SetColor(entity);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

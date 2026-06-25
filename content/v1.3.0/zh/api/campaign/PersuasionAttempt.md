@@ -1,13 +1,7 @@
 ---
 title: "PersuasionAttempt"
+description: "PersuasionAttempt 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PersuasionAttempt`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionAttempt
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
@@ -29,20 +23,33 @@ title: "PersuasionAttempt"
 ### IsSuccesful
 `public bool IsSuccesful()`
 
-**用途 / Purpose:** 处理 `is succesful` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「succesful」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionAttempt 实例
+PersuasionAttempt persuasionAttempt = ...;
+var result = persuasionAttempt.IsSuccesful();
+```
 
 ### Matches
 `public bool Matches(Hero targetHero, int reservationType)`
 
-**用途 / Purpose:** 处理 `matches` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionAttempt 实例
+PersuasionAttempt persuasionAttempt = ...;
+var result = persuasionAttempt.Matches(targetHero, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PersuasionAttempt();
-value.IsSuccesful();
+// 通常从对应子系统 API 获取实例后调用
+PersuasionAttempt persuasionAttempt = ...;
+persuasionAttempt.IsSuccesful();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

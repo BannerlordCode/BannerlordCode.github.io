@@ -1,13 +1,7 @@
 ---
 title: "BannerEditorVM"
+description: "BannerEditorVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerEditorVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerEditorVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -65,75 +59,154 @@ title: "BannerEditorVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.RefreshValues();
+```
 
 ### RefreshSelectedColorsAndSigils
 `public void RefreshSelectedColorsAndSigils()`
 
-**用途 / Purpose:** 刷新 `selected colors and sigils` 的显示或缓存。
+**用途 / Purpose:** 使 「selected colors and sigils」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.RefreshSelectedColorsAndSigils();
+```
 
 ### SetClanRelatedRules
 `public void SetClanRelatedRules(bool canChangeBackgroundColor)`
 
-**用途 / Purpose:** 设置 `clan related rules` 的值或状态。
+**用途 / Purpose:** 为 「clan related rules」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.SetClanRelatedRules(false);
+```
 
 ### ExecuteSwitchColors
 `public void ExecuteSwitchColors()`
 
-**用途 / Purpose:** 执行 `switch colors` 操作或流程。
+**用途 / Purpose:** 执行 「switch colors」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.ExecuteSwitchColors();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 `done` 操作或流程。
+**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.ExecuteDone();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.ExecuteCancel();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.SetDoneInputKey(hotKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.AddCameraControlInputKey(hotKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.AddCameraControlInputKey(gameKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.AddCameraControlInputKey(gameAxisKey, keyName);
+```
 
 ### ExecuteGoToIndex
 `public void ExecuteGoToIndex(int index)`
 
-**用途 / Purpose:** 执行 `go to index` 操作或流程。
+**用途 / Purpose:** 执行 「go to index」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorVM 实例
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.ExecuteGoToIndex(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerEditorVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+BannerEditorVM bannerEditorVM = ...;
+bannerEditorVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

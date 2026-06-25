@@ -1,20 +1,14 @@
 ---
 title: "IncidentHelper"
+description: "Auto-generated class reference for IncidentHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IncidentHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IncidentHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class IncidentHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/IncidentHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/IncidentHelper.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ IncidentHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

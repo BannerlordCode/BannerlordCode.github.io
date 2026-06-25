@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletArenaPracticeFightView"
+description: "MissionGauntletArenaPracticeFightView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletArenaPracticeFightView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletArenaPracticeFightView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletArenaPracticeFightView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletArenaPracticeFightView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletArenaPracticeFightView.cs`
 
 ## 概述
 
@@ -29,34 +23,65 @@ title: "MissionGauntletArenaPracticeFightView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletArenaPracticeFightView 实例
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletArenaPracticeFightView 实例
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletArenaPracticeFightView 实例
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnMissionScreenFinalize();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletArenaPracticeFightView 实例
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletArenaPracticeFightView 实例
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletArenaPracticeFightView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletArenaPracticeFightView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

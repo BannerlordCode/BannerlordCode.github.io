@@ -1,13 +1,7 @@
 ---
 title: "StanceLink"
+description: "Auto-generated class reference for StanceLink."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StanceLink`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StanceLink
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -52,45 +46,88 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GetCasualties
 `public int GetCasualties(IFaction faction)`
 
-**Purpose:** Gets the current value of `casualties`.
+**Purpose:** Reads and returns the `casualties` value held by the current object.
+
+```csharp
+// Obtain an instance of StanceLink from the subsystem API first
+StanceLink stanceLink = ...;
+var result = stanceLink.GetCasualties(faction);
+```
 
 ### GetSuccessfulSieges
 `public int GetSuccessfulSieges(IFaction faction)`
 
-**Purpose:** Gets the current value of `successful sieges`.
+**Purpose:** Reads and returns the `successful sieges` value held by the current object.
+
+```csharp
+// Obtain an instance of StanceLink from the subsystem API first
+StanceLink stanceLink = ...;
+var result = stanceLink.GetSuccessfulSieges(faction);
+```
 
 ### GetSuccessfulRaids
 `public int GetSuccessfulRaids(IFaction faction)`
 
-**Purpose:** Gets the current value of `successful raids`.
+**Purpose:** Reads and returns the `successful raids` value held by the current object.
+
+```csharp
+// Obtain an instance of StanceLink from the subsystem API first
+StanceLink stanceLink = ...;
+var result = stanceLink.GetSuccessfulRaids(faction);
+```
 
 ### GetTotalTributePaid
 `public int GetTotalTributePaid(IFaction faction)`
 
-**Purpose:** Gets the current value of `total tribute paid`.
+**Purpose:** Reads and returns the `total tribute paid` value held by the current object.
+
+```csharp
+// Obtain an instance of StanceLink from the subsystem API first
+StanceLink stanceLink = ...;
+var result = stanceLink.GetTotalTributePaid(faction);
+```
 
 ### GetSuccessfulTownSieges
 `public int GetSuccessfulTownSieges(IFaction faction)`
 
-**Purpose:** Gets the current value of `successful town sieges`.
+**Purpose:** Reads and returns the `successful town sieges` value held by the current object.
+
+```csharp
+// Obtain an instance of StanceLink from the subsystem API first
+StanceLink stanceLink = ...;
+var result = stanceLink.GetSuccessfulTownSieges(faction);
+```
 
 ### GetDailyTributePaid
 `public int GetDailyTributePaid(IFaction faction)`
 
-**Purpose:** Gets the current value of `daily tribute paid`.
+**Purpose:** Reads and returns the `daily tribute paid` value held by the current object.
+
+```csharp
+// Obtain an instance of StanceLink from the subsystem API first
+StanceLink stanceLink = ...;
+var result = stanceLink.GetDailyTributePaid(faction);
+```
 
 ### SetDailyTributePaid
 `public void SetDailyTributePaid(IFaction payer, int dailyTribute)`
 
-**Purpose:** Sets the value or state of `daily tribute paid`.
+**Purpose:** Assigns a new value to `daily tribute paid` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StanceLink from the subsystem API first
+StanceLink stanceLink = ...;
+stanceLink.SetDailyTributePaid(payer, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StanceLink();
-value.GetCasualties(faction);
+// Typically call this after obtaining an instance from the subsystem API
+StanceLink stanceLink = ...;
+stanceLink.GetCasualties(faction);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

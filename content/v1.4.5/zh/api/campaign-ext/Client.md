@@ -1,20 +1,14 @@
 ---
 title: "Client"
+description: "Client 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Client`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Client
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class Client<T> : DiamondClientApplicationObject, IClient where T : Client<T>`
 **Base:** `DiamondClientApplicationObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/Client.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/Client.cs`
 
 ## 概述
 
@@ -36,39 +30,76 @@ title: "Client"
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Client 实例
+Client client = ...;
+client.Update();
+```
 
 ### HandleMessage
 `public void HandleMessage(Message message)`
 
-**用途 / Purpose:** 处理 `message` 事件或回调。
+**用途 / Purpose:** 执行与 「message」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 Client 实例
+Client client = ...;
+client.HandleMessage(message);
+```
 
 ### OnConnected
 `public virtual void OnConnected()`
 
-**用途 / Purpose:** 当 `connected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「connected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Client 实例
+Client client = ...;
+client.OnConnected();
+```
 
 ### OnCantConnect
 `public virtual void OnCantConnect()`
 
-**用途 / Purpose:** 当 `cant connect` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「cant connect」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Client 实例
+Client client = ...;
+client.OnCantConnect();
+```
 
 ### OnDisconnected
 `public virtual void OnDisconnected()`
 
-**用途 / Purpose:** 当 `disconnected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「disconnected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Client 实例
+Client client = ...;
+client.OnDisconnected();
+```
 
 ### CheckConnection
 `public Task<bool> CheckConnection()`
 
-**用途 / Purpose:** 处理 `check connection` 相关逻辑。
+**用途 / Purpose:** 检查「connection」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 Client 实例
+Client client = ...;
+var result = client.CheckConnection();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomClient();
+// 通常通过子系统 API 或工厂获得派生实例
+Client instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

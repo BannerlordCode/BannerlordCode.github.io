@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerStarter"
+description: "Auto-generated class reference for MultiplayerStarter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerStarter`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerStarter
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerStarter`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerStarter.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerStarter.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### LoadXMLFromFile
 `public void LoadXMLFromFile(string xmlPath, string xsdPath)`
 
-**Purpose:** Loads `x m l from file` data.
+**Purpose:** Reads `x m l from file` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of MultiplayerStarter from the subsystem API first
+MultiplayerStarter multiplayerStarter = ...;
+multiplayerStarter.LoadXMLFromFile("example", "example");
+```
 
 ### ClearEmptyObjects
 `public void ClearEmptyObjects()`
 
-**Purpose:** Handles logic related to `clear empty objects`.
+**Purpose:** Removes all `empty objects` from the current object.
+
+```csharp
+// Obtain an instance of MultiplayerStarter from the subsystem API first
+MultiplayerStarter multiplayerStarter = ...;
+multiplayerStarter.ClearEmptyObjects();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerStarter();
-value.LoadXMLFromFile("example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerStarter multiplayerStarter = ...;
+multiplayerStarter.LoadXMLFromFile("example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

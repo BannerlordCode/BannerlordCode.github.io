@@ -1,13 +1,7 @@
 ---
 title: "PinnedArrayData"
+description: "Auto-generated class reference for PinnedArrayData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PinnedArrayData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PinnedArrayData
 
 **Namespace:** TaleWorlds.Library
@@ -39,19 +33,31 @@ Treat `PinnedArrayData` as a Data-style extension point: first identify who crea
 ### CheckIfTypeRequiresManualPinning
 `public static bool CheckIfTypeRequiresManualPinning(Type type)`
 
-**Purpose:** Handles logic related to `check if type requires manual pinning`.
+**Purpose:** Verifies whether `if type requires manual pinning` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+PinnedArrayData.CheckIfTypeRequiresManualPinning(type);
+```
 
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of PinnedArrayData from the subsystem API first
+PinnedArrayData pinnedArrayData = ...;
+pinnedArrayData.Dispose();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PinnedArrayData();
+// This data object is usually returned by campaign/mission APIs
+PinnedArrayData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

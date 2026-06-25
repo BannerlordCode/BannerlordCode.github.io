@@ -1,23 +1,18 @@
 ---
 title: "Crafting"
+description: "Auto-generated class reference for Crafting."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Crafting`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Crafting
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Crafting`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Crafting` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Crafting` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,34 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `IronMaker` | `public static PerkObject IronMaker { get; }` |
+| `CharcoalMaker` | `public static PerkObject CharcoalMaker { get; }` |
+| `SteelMaker` | `public static PerkObject SteelMaker { get; }` |
+| `SteelMaker2` | `public static PerkObject SteelMaker2 { get; }` |
+| `SteelMaker3` | `public static PerkObject SteelMaker3 { get; }` |
+| `CuriousSmelter` | `public static PerkObject CuriousSmelter { get; }` |
+| `CuriousSmith` | `public static PerkObject CuriousSmith { get; }` |
+| `PracticalRefiner` | `public static PerkObject PracticalRefiner { get; }` |
+| `PracticalSmelter` | `public static PerkObject PracticalSmelter { get; }` |
+| `PracticalSmith` | `public static PerkObject PracticalSmith { get; }` |
+| `ArtisanSmith` | `public static PerkObject ArtisanSmith { get; }` |
+| `ExperiencedSmith` | `public static PerkObject ExperiencedSmith { get; }` |
+| `MasterSmith` | `public static PerkObject MasterSmith { get; }` |
+| `LegendarySmith` | `public static PerkObject LegendarySmith { get; }` |
+| `VigorousSmith` | `public static PerkObject VigorousSmith { get; }` |
+| `StrongSmith` | `public static PerkObject StrongSmith { get; }` |
+| `EnduringSmith` | `public static PerkObject EnduringSmith { get; }` |
+| `WeaponMasterSmith` | `public static PerkObject WeaponMasterSmith { get; }` |
+| `SharpenedEdge` | `public static PerkObject SharpenedEdge { get; }` |
+| `SharpenedTip` | `public static PerkObject SharpenedTip { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Crafting();
+// Obtain an instance from the relevant subsystem API
+Crafting instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

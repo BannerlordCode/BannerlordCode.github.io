@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementValueModel"
+description: "Auto-generated class reference for DefaultSettlementValueModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementValueModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementValueModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementValueModel : SettlementValueModel`
 **Base:** `SettlementValueModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementValueModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementValueModel.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `DefaultSettlementValueModel` as a Model-style extension point: first iden
 ### FindMostSuitableHomeSettlement
 `public override Settlement FindMostSuitableHomeSettlement(Clan clan)`
 
-**Purpose:** Handles logic related to `find most suitable home settlement`.
+**Purpose:** Looks up the matching `most suitable home settlement` in the current collection or scope.
+
+```csharp
+// Obtain an instance of DefaultSettlementValueModel from the subsystem API first
+DefaultSettlementValueModel defaultSettlementValueModel = ...;
+var result = defaultSettlementValueModel.FindMostSuitableHomeSettlement(clan);
+```
 
 ### CalculateSettlementBaseValue
 `public override float CalculateSettlementBaseValue(Settlement settlement)`
 
-**Purpose:** Handles logic related to `calculate settlement base value`.
+**Purpose:** Calculates the current value or result of `settlement base value`.
+
+```csharp
+// Obtain an instance of DefaultSettlementValueModel from the subsystem API first
+DefaultSettlementValueModel defaultSettlementValueModel = ...;
+var result = defaultSettlementValueModel.CalculateSettlementBaseValue(settlement);
+```
 
 ### CalculateSettlementValueForFaction
 `public override float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
 
-**Purpose:** Handles logic related to `calculate settlement value for faction`.
+**Purpose:** Calculates the current value or result of `settlement value for faction`.
+
+```csharp
+// Obtain an instance of DefaultSettlementValueModel from the subsystem API first
+DefaultSettlementValueModel defaultSettlementValueModel = ...;
+var result = defaultSettlementValueModel.CalculateSettlementValueForFaction(settlement, faction);
+```
 
 ### CalculateSettlementValueForEnemyHero
 `public override float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
 
-**Purpose:** Handles logic related to `calculate settlement value for enemy hero`.
+**Purpose:** Calculates the current value or result of `settlement value for enemy hero`.
+
+```csharp
+// Obtain an instance of DefaultSettlementValueModel from the subsystem API first
+DefaultSettlementValueModel defaultSettlementValueModel = ...;
+var result = defaultSettlementValueModel.CalculateSettlementValueForEnemyHero(settlement, hero);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultSettlementValueModel>(new MyDefaultSettlementVa
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

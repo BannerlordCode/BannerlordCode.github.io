@@ -1,20 +1,14 @@
 ---
 title: "TacticComponent"
+description: "TacticComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TacticComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class TacticComponent`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticComponent.cs`
 
 ## 概述
 
@@ -35,24 +29,42 @@ title: "TacticComponent"
 ### TickOccasionally
 `public virtual void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TacticComponent 实例
+TacticComponent tacticComponent = ...;
+tacticComponent.TickOccasionally();
+```
 
 ### ResetTactic
 `public void ResetTactic()`
 
-**用途 / Purpose:** 将 `tactic` 重置为初始状态。
+**用途 / Purpose:** 将 「tactic」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 TacticComponent 实例
+TacticComponent tacticComponent = ...;
+tacticComponent.ResetTactic();
+```
 
 ### SetDefaultBehaviorWeights
 `public static void SetDefaultBehaviorWeights(Formation f)`
 
-**用途 / Purpose:** 设置 `default behavior weights` 的值或状态。
+**用途 / Purpose:** 为 「default behavior weights」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+TacticComponent.SetDefaultBehaviorWeights(f);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTacticComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+TacticComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

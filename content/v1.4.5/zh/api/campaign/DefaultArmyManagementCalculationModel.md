@@ -1,20 +1,14 @@
 ---
 title: "DefaultArmyManagementCalculationModel"
+description: "DefaultArmyManagementCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultArmyManagementCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultArmyManagementCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultArmyManagementCalculationModel : ArmyManagementCalculationModel`
 **Base:** `ArmyManagementCalculationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultArmyManagementCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultArmyManagementCalculationModel.cs`
 
 ## 概述
 
@@ -29,57 +23,123 @@ title: "DefaultArmyManagementCalculationModel"
 ### DailyBeingAtArmyInfluenceAward
 `public override float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)`
 
-**用途 / Purpose:** 处理 `daily being at army influence award` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.DailyBeingAtArmyInfluenceAward(armyMemberParty);
+```
 
 ### CalculatePartyInfluenceCost
 `public override int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)`
 
-**用途 / Purpose:** 处理 `calculate party influence cost` 相关逻辑。
+**用途 / Purpose:** 计算「party influence cost」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.CalculatePartyInfluenceCost(armyLeaderParty, party);
+```
 
 ### CanLordCreateArmy
 `public override bool CanLordCreateArmy(MobileParty mobileParty, out MBList<MobileParty> possibleArmyMembers)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `lord create army`。
+**用途 / Purpose:** 检查当前对象是否满足 「lord create army」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.CanLordCreateArmy(mobileParty, possibleArmyMembers);
+```
 
 ### CalculateTotalInfluenceCost
 `public override int CalculateTotalInfluenceCost(Army army, float percentage)`
 
-**用途 / Purpose:** 处理 `calculate total influence cost` 相关逻辑。
+**用途 / Purpose:** 计算「total influence cost」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.CalculateTotalInfluenceCost(army, 0);
+```
 
 ### GetPartySizeScore
 `public override float GetPartySizeScore(MobileParty party)`
 
-**用途 / Purpose:** 获取 `party size score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party size score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.GetPartySizeScore(party);
+```
 
 ### CalculateDailyCohesionChange
 `public override ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate daily cohesion change` 相关逻辑。
+**用途 / Purpose:** 计算「daily cohesion change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.CalculateDailyCohesionChange(army, false);
+```
 
 ### CalculateNewCohesion
 `public override int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)`
 
-**用途 / Purpose:** 处理 `calculate new cohesion` 相关逻辑。
+**用途 / Purpose:** 计算「new cohesion」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.CalculateNewCohesion(army, newParty, 0, 0);
+```
 
 ### GetCohesionBoostInfluenceCost
 `public override int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
 
-**用途 / Purpose:** 获取 `cohesion boost influence cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cohesion boost influence cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.GetCohesionBoostInfluenceCost(army, 0);
+```
 
 ### GetPartyRelation
 `public override int GetPartyRelation(Hero hero)`
 
-**用途 / Purpose:** 获取 `party relation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party relation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.GetPartyRelation(hero);
+```
 
 ### CanPlayerCreateArmy
 `public override bool CanPlayerCreateArmy(out TextObject disabledReason)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `player create army`。
+**用途 / Purpose:** 检查当前对象是否满足 「player create army」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.CanPlayerCreateArmy(disabledReason);
+```
 
 ### CheckPartyEligibility
 `public override bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `check party eligibility` 相关逻辑。
+**用途 / Purpose:** 检查「party eligibility」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultArmyManagementCalculationModel 实例
+DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
+var result = defaultArmyManagementCalculationModel.CheckPartyEligibility(party, explanation);
+```
 
 ## 使用示例
 
@@ -89,4 +149,4 @@ Game.Current.ReplaceModel<DefaultArmyManagementCalculationModel>(new MyDefaultAr
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

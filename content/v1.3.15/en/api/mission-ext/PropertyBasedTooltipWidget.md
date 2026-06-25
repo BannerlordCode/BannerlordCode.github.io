@@ -1,13 +1,7 @@
 ---
 title: "PropertyBasedTooltipWidget"
+description: "Auto-generated class reference for PropertyBasedTooltipWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyBasedTooltipWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PropertyBasedTooltipWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information
@@ -41,9 +35,10 @@ Treat `PropertyBasedTooltipWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new PropertyBasedTooltipWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PropertyBasedTooltipWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

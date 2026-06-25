@@ -1,20 +1,14 @@
 ---
 title: "CampaignAgentComponent"
+description: "Auto-generated class reference for CampaignAgentComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignAgentComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignAgentComponent
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class CampaignAgentComponent : AgentComponent`
 **Base:** `AgentComponent`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/CampaignAgentComponent.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/CampaignAgentComponent.cs`
 
 ## Overview
 
@@ -36,37 +30,79 @@ Treat `CampaignAgentComponent` as a Component-style extension point: first ident
 ### CreateAgentNavigator
 `public AgentNavigator CreateAgentNavigator(LocationCharacter locationCharacter)`
 
-**Purpose:** Creates a new `agent navigator` instance or object.
+**Purpose:** Constructs a new `agent navigator` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CampaignAgentComponent from the subsystem API first
+CampaignAgentComponent campaignAgentComponent = ...;
+var result = campaignAgentComponent.CreateAgentNavigator(locationCharacter);
+```
 
 ### CreateAgentNavigator
 `public AgentNavigator CreateAgentNavigator()`
 
-**Purpose:** Creates a new `agent navigator` instance or object.
+**Purpose:** Constructs a new `agent navigator` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CampaignAgentComponent from the subsystem API first
+CampaignAgentComponent campaignAgentComponent = ...;
+var result = campaignAgentComponent.CreateAgentNavigator();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of CampaignAgentComponent from the subsystem API first
+CampaignAgentComponent campaignAgentComponent = ...;
+campaignAgentComponent.OnAgentRemoved(agent);
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of CampaignAgentComponent from the subsystem API first
+CampaignAgentComponent campaignAgentComponent = ...;
+campaignAgentComponent.OnTick(0);
+```
 
 ### GetMoraleDecreaseConstant
 `public override float GetMoraleDecreaseConstant()`
 
-**Purpose:** Gets the current value of `morale decrease constant`.
+**Purpose:** Reads and returns the `morale decrease constant` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignAgentComponent from the subsystem API first
+CampaignAgentComponent campaignAgentComponent = ...;
+var result = campaignAgentComponent.GetMoraleDecreaseConstant();
+```
 
 ### GetMoraleAddition
 `public override float GetMoraleAddition()`
 
-**Purpose:** Gets the current value of `morale addition`.
+**Purpose:** Reads and returns the `morale addition` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignAgentComponent from the subsystem API first
+CampaignAgentComponent campaignAgentComponent = ...;
+var result = campaignAgentComponent.GetMoraleAddition();
+```
 
 ### OnStopUsingGameObject
 `public override void OnStopUsingGameObject()`
 
-**Purpose:** Called when the `stop using game object` event is raised.
+**Purpose:** Invoked when the `stop using game object` event is raised.
+
+```csharp
+// Obtain an instance of CampaignAgentComponent from the subsystem API first
+CampaignAgentComponent campaignAgentComponent = ...;
+campaignAgentComponent.OnStopUsingGameObject();
+```
 
 ## Usage Example
 
@@ -76,4 +112,4 @@ var component = agent.GetComponent<CampaignAgentComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

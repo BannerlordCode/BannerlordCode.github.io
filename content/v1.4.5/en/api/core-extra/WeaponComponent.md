@@ -1,20 +1,14 @@
 ---
 title: "WeaponComponent"
+description: "Auto-generated class reference for WeaponComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class WeaponComponent : ItemComponent`
 **Base:** `ItemComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponent.cs`
 
 ## Overview
 
@@ -31,20 +25,44 @@ Treat `WeaponComponent` as a Component-style extension point: first identify who
 
 **Purpose:** Adds `weapon` to the current collection or state.
 
+```csharp
+// Obtain an instance of WeaponComponent from the subsystem API first
+WeaponComponent weaponComponent = ...;
+weaponComponent.AddWeapon(weaponComponentData, itemModifierGroup);
+```
+
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Obtain an instance of WeaponComponent from the subsystem API first
+WeaponComponent weaponComponent = ...;
+var result = weaponComponent.GetCopy();
+```
 
 ### GetItemType
 `public ItemObject.ItemTypeEnum GetItemType()`
 
-**Purpose:** Gets the current value of `item type`.
+**Purpose:** Reads and returns the `item type` value held by the current object.
+
+```csharp
+// Obtain an instance of WeaponComponent from the subsystem API first
+WeaponComponent weaponComponent = ...;
+var result = weaponComponent.GetItemType();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of WeaponComponent from the subsystem API first
+WeaponComponent weaponComponent = ...;
+weaponComponent.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var component = agent.GetComponent<WeaponComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

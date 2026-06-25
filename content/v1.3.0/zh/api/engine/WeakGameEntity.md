@@ -1,13 +1,7 @@
 ---
 title: "WeakGameEntity"
+description: "WeakGameEntity 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeakGameEntity`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeakGameEntity
 
 **Namespace:** TaleWorlds.Engine
@@ -56,1025 +50,2244 @@ title: "WeakGameEntity"
 ### Invalidate
 `public void Invalidate()`
 
-**用途 / Purpose:** 处理 `invalidate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.Invalidate();
+```
 
 ### GetScenePointer
 `public UIntPtr GetScenePointer()`
 
-**用途 / Purpose:** 获取 `scene pointer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene pointer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetScenePointer();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ToString();
+```
 
 ### ClearEntityComponents
 `public void ClearEntityComponents(bool resetAll, bool removeScripts, bool deleteChildEntities)`
 
-**用途 / Purpose:** 处理 `clear entity components` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「entity components」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ClearEntityComponents(false, false, false);
+```
 
 ### ClearComponents
 `public void ClearComponents()`
 
-**用途 / Purpose:** 处理 `clear components` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「components」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ClearComponents();
+```
 
 ### ClearOnlyOwnComponents
 `public void ClearOnlyOwnComponents()`
 
-**用途 / Purpose:** 处理 `clear only own components` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「only own components」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ClearOnlyOwnComponents();
+```
 
 ### CheckResources
 `public bool CheckResources(bool addToQueue, bool checkFaceResources)`
 
-**用途 / Purpose:** 处理 `check resources` 相关逻辑。
+**用途 / Purpose:** 检查「resources」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CheckResources(false, false);
+```
 
 ### SetMobility
 `public void SetMobility(GameEntity.Mobility mobility)`
 
-**用途 / Purpose:** 设置 `mobility` 的值或状态。
+**用途 / Purpose:** 为 「mobility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetMobility(mobility);
+```
 
 ### GetMobility
 `public GameEntity.Mobility GetMobility()`
 
-**用途 / Purpose:** 获取 `mobility` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mobility」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetMobility();
+```
 
 ### AddMesh
 `public void AddMesh(Mesh mesh, bool recomputeBoundingBox = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `mesh`。
+**用途 / Purpose:** 将 「mesh」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMesh(mesh, false);
+```
 
 ### AddMultiMeshToSkeleton
 `public void AddMultiMeshToSkeleton(MetaMesh metaMesh)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `multi mesh to skeleton`。
+**用途 / Purpose:** 将 「multi mesh to skeleton」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMultiMeshToSkeleton(metaMesh);
+```
 
 ### AddMultiMeshToSkeletonBone
 `public void AddMultiMeshToSkeletonBone(MetaMesh metaMesh, sbyte boneIndex)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `multi mesh to skeleton bone`。
+**用途 / Purpose:** 将 「multi mesh to skeleton bone」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMultiMeshToSkeletonBone(metaMesh, 0);
+```
 
 ### SetColorToAllMeshesWithTagRecursive
 `public void SetColorToAllMeshesWithTagRecursive(uint color, string tag)`
 
-**用途 / Purpose:** 设置 `color to all meshes with tag recursive` 的值或状态。
+**用途 / Purpose:** 为 「color to all meshes with tag recursive」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetColorToAllMeshesWithTagRecursive(0, "example");
+```
 
 ### GetAllMeshesWithTag
 `public IEnumerable<Mesh> GetAllMeshesWithTag(string tag)`
 
-**用途 / Purpose:** 获取 `all meshes with tag` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all meshes with tag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetAllMeshesWithTag("example");
+```
 
 ### SetName
 `public void SetName(string name)`
 
-**用途 / Purpose:** 设置 `name` 的值或状态。
+**用途 / Purpose:** 为 「name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetName("example");
+```
 
 ### SetEntityFlags
 `public void SetEntityFlags(EntityFlags flags)`
 
-**用途 / Purpose:** 设置 `entity flags` 的值或状态。
+**用途 / Purpose:** 为 「entity flags」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetEntityFlags(flags);
+```
 
 ### SetEntityVisibilityFlags
 `public void SetEntityVisibilityFlags(EntityVisibilityFlags flags)`
 
-**用途 / Purpose:** 设置 `entity visibility flags` 的值或状态。
+**用途 / Purpose:** 为 「entity visibility flags」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetEntityVisibilityFlags(flags);
+```
 
 ### GetPhysicsMaterial
 `public PhysicsMaterial GetPhysicsMaterial()`
 
-**用途 / Purpose:** 获取 `physics material` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「physics material」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetPhysicsMaterial();
+```
 
 ### SetBodyFlags
 `public void SetBodyFlags(BodyFlags flags)`
 
-**用途 / Purpose:** 设置 `body flags` 的值或状态。
+**用途 / Purpose:** 为 「body flags」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetBodyFlags(flags);
+```
 
 ### SetBodyFlagsRecursive
 `public void SetBodyFlagsRecursive(BodyFlags bodyFlags)`
 
-**用途 / Purpose:** 设置 `body flags recursive` 的值或状态。
+**用途 / Purpose:** 为 「body flags recursive」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetBodyFlagsRecursive(bodyFlags);
+```
 
 ### AddBodyFlags
 `public void AddBodyFlags(BodyFlags bodyFlags, bool applyToChildren = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `body flags`。
+**用途 / Purpose:** 将 「body flags」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddBodyFlags(bodyFlags, false);
+```
 
 ### RemoveBodyFlags
 `public void RemoveBodyFlags(BodyFlags bodyFlags, bool applyToChildren = true)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `body flags`。
+**用途 / Purpose:** 从当前容器或状态中移除 「body flags」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveBodyFlags(bodyFlags, false);
+```
 
 ### SetLocalPosition
 `public void SetLocalPosition(Vec3 position)`
 
-**用途 / Purpose:** 设置 `local position` 的值或状态。
+**用途 / Purpose:** 为 「local position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetLocalPosition(position);
+```
 
 ### SetGlobalPosition
 `public void SetGlobalPosition(Vec3 position)`
 
-**用途 / Purpose:** 设置 `global position` 的值或状态。
+**用途 / Purpose:** 为 「global position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetGlobalPosition(position);
+```
 
 ### SetColor
 `public void SetColor(uint color1, uint color2, string meshTag)`
 
-**用途 / Purpose:** 设置 `color` 的值或状态。
+**用途 / Purpose:** 为 「color」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetColor(0, 0, "example");
+```
 
 ### GetFactorColor
 `public uint GetFactorColor()`
 
-**用途 / Purpose:** 获取 `factor color` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「factor color」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFactorColor();
+```
 
 ### SetFactorColor
 `public void SetFactorColor(uint color)`
 
-**用途 / Purpose:** 设置 `factor color` 的值或状态。
+**用途 / Purpose:** 为 「factor color」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetFactorColor(0);
+```
 
 ### SetAsReplayEntity
 `public void SetAsReplayEntity()`
 
-**用途 / Purpose:** 设置 `as replay entity` 的值或状态。
+**用途 / Purpose:** 为 「as replay entity」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAsReplayEntity();
+```
 
 ### SetClothMaxDistanceMultiplier
 `public void SetClothMaxDistanceMultiplier(float multiplier)`
 
-**用途 / Purpose:** 设置 `cloth max distance multiplier` 的值或状态。
+**用途 / Purpose:** 为 「cloth max distance multiplier」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetClothMaxDistanceMultiplier(0);
+```
 
 ### RemoveMultiMeshFromSkeleton
 `public void RemoveMultiMeshFromSkeleton(MetaMesh metaMesh)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `multi mesh from skeleton`。
+**用途 / Purpose:** 从当前容器或状态中移除 「multi mesh from skeleton」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveMultiMeshFromSkeleton(metaMesh);
+```
 
 ### RemoveMultiMeshFromSkeletonBone
 `public void RemoveMultiMeshFromSkeletonBone(MetaMesh metaMesh, sbyte boneIndex)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `multi mesh from skeleton bone`。
+**用途 / Purpose:** 从当前容器或状态中移除 「multi mesh from skeleton bone」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveMultiMeshFromSkeletonBone(metaMesh, 0);
+```
 
 ### RemoveComponentWithMesh
 `public bool RemoveComponentWithMesh(Mesh mesh)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `component with mesh`。
+**用途 / Purpose:** 从当前容器或状态中移除 「component with mesh」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RemoveComponentWithMesh(mesh);
+```
 
 ### AddComponent
 `public void AddComponent(GameEntityComponent component)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `component`。
+**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddComponent(component);
+```
 
 ### HasComponent
 `public bool HasComponent(GameEntityComponent component)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `component`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「component」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasComponent(component);
+```
 
 ### IsInEditorScene
 `public bool IsInEditorScene()`
 
-**用途 / Purpose:** 处理 `is in editor scene` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「in editor scene」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsInEditorScene();
+```
 
 ### RemoveComponent
 `public bool RemoveComponent(GameEntityComponent component)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `component`。
+**用途 / Purpose:** 从当前容器或状态中移除 「component」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RemoveComponent(component);
+```
 
 ### GetGuid
 `public string GetGuid()`
 
-**用途 / Purpose:** 获取 `guid` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「guid」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGuid();
+```
 
 ### IsGuidValid
 `public bool IsGuidValid()`
 
-**用途 / Purpose:** 处理 `is guid valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「guid valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsGuidValid();
+```
 
 ### SetEnforcedMaximumLodLevel
 `public void SetEnforcedMaximumLodLevel(int lodLevel)`
 
-**用途 / Purpose:** 设置 `enforced maximum lod level` 的值或状态。
+**用途 / Purpose:** 为 「enforced maximum lod level」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetEnforcedMaximumLodLevel(0);
+```
 
 ### GetLodLevelForDistanceSq
 `public float GetLodLevelForDistanceSq(float distSq)`
 
-**用途 / Purpose:** 获取 `lod level for distance sq` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「lod level for distance sq」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLodLevelForDistanceSq(0);
+```
 
 ### GetQuickBoneEntitialFrame
 `public void GetQuickBoneEntitialFrame(sbyte index, out MatrixFrame frame)`
 
-**用途 / Purpose:** 获取 `quick bone entitial frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「quick bone entitial frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetQuickBoneEntitialFrame(0, frame);
+```
 
 ### UpdateVisibilityMask
 `public void UpdateVisibilityMask()`
 
-**用途 / Purpose:** 更新 `visibility mask` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「visibility mask」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateVisibilityMask();
+```
 
 ### CallScriptCallbacks
 `public void CallScriptCallbacks(bool registerScriptComponents)`
 
-**用途 / Purpose:** 处理 `call script callbacks` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.CallScriptCallbacks(false);
+```
 
 ### IsGhostObject
 `public bool IsGhostObject()`
 
-**用途 / Purpose:** 处理 `is ghost object` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ghost object」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsGhostObject();
+```
 
 ### CreateAndAddScriptComponent
 `public void CreateAndAddScriptComponent(string name, bool callScriptCallbacks)`
 
-**用途 / Purpose:** 创建一个 `and add script component` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「and add script component」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.CreateAndAddScriptComponent("example", false);
+```
 
 ### RemoveScriptComponent
 `public void RemoveScriptComponent(UIntPtr scriptComponent, int removeReason)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `script component`。
+**用途 / Purpose:** 从当前容器或状态中移除 「script component」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveScriptComponent(scriptComponent, 0);
+```
 
 ### SetEntityEnvMapVisibility
 `public void SetEntityEnvMapVisibility(bool value)`
 
-**用途 / Purpose:** 设置 `entity env map visibility` 的值或状态。
+**用途 / Purpose:** 为 「entity env map visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetEntityEnvMapVisibility(false);
+```
 
 ### HasScene
 `public bool HasScene()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `scene`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「scene」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasScene();
+```
 
 ### HasScriptComponent
 `public bool HasScriptComponent(string scName)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `script component`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「script component」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasScriptComponent("example");
+```
 
 ### GetScriptComponents
 `public IEnumerable<ScriptComponentBehavior> GetScriptComponents()`
 
-**用途 / Purpose:** 获取 `script components` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「script components」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetScriptComponents();
+```
 
 ### HasScriptOfType
 `public bool HasScriptOfType(Type t)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `script of type`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「script of type」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasScriptOfType(t);
+```
 
 ### GetFirstChildEntityWithTag
 `public WeakGameEntity GetFirstChildEntityWithTag(string tag)`
 
-**用途 / Purpose:** 获取 `first child entity with tag` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「first child entity with tag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFirstChildEntityWithTag("example");
+```
 
 ### SetAlpha
 `public void SetAlpha(float alpha)`
 
-**用途 / Purpose:** 设置 `alpha` 的值或状态。
+**用途 / Purpose:** 为 「alpha」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAlpha(0);
+```
 
 ### SetVisibilityExcludeParents
 `public void SetVisibilityExcludeParents(bool visible)`
 
-**用途 / Purpose:** 设置 `visibility exclude parents` 的值或状态。
+**用途 / Purpose:** 为 「visibility exclude parents」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetVisibilityExcludeParents(false);
+```
 
 ### SetReadyToRender
 `public void SetReadyToRender(bool ready)`
 
-**用途 / Purpose:** 设置 `ready to render` 的值或状态。
+**用途 / Purpose:** 为 「ready to render」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetReadyToRender(false);
+```
 
 ### GetVisibilityExcludeParents
 `public bool GetVisibilityExcludeParents()`
 
-**用途 / Purpose:** 获取 `visibility exclude parents` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visibility exclude parents」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetVisibilityExcludeParents();
+```
 
 ### IsVisibleIncludeParents
 `public bool IsVisibleIncludeParents()`
 
-**用途 / Purpose:** 处理 `is visible include parents` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「visible include parents」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsVisibleIncludeParents();
+```
 
 ### GetVisibilityLevelMaskIncludingParents
 `public uint GetVisibilityLevelMaskIncludingParents()`
 
-**用途 / Purpose:** 获取 `visibility level mask including parents` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visibility level mask including parents」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetVisibilityLevelMaskIncludingParents();
+```
 
 ### GetEditModeLevelVisibility
 `public bool GetEditModeLevelVisibility()`
 
-**用途 / Purpose:** 获取 `edit mode level visibility` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「edit mode level visibility」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetEditModeLevelVisibility();
+```
 
 ### Remove
 `public void Remove(int removeReason)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.Remove(0);
+```
 
 ### SetUpgradeLevelMask
 `public void SetUpgradeLevelMask(GameEntity.UpgradeLevelMask mask)`
 
-**用途 / Purpose:** 设置 `upgrade level mask` 的值或状态。
+**用途 / Purpose:** 为 「upgrade level mask」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetUpgradeLevelMask(mask);
+```
 
 ### GetUpgradeLevelMask
 `public GameEntity.UpgradeLevelMask GetUpgradeLevelMask()`
 
-**用途 / Purpose:** 获取 `upgrade level mask` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「upgrade level mask」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetUpgradeLevelMask();
+```
 
 ### GetUpgradeLevelMaskCumulative
 `public GameEntity.UpgradeLevelMask GetUpgradeLevelMaskCumulative()`
 
-**用途 / Purpose:** 获取 `upgrade level mask cumulative` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「upgrade level mask cumulative」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetUpgradeLevelMaskCumulative();
+```
 
 ### GetUpgradeLevelOfEntity
 `public int GetUpgradeLevelOfEntity()`
 
-**用途 / Purpose:** 获取 `upgrade level of entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「upgrade level of entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetUpgradeLevelOfEntity();
+```
 
 ### GetOldPrefabName
 `public string GetOldPrefabName()`
 
-**用途 / Purpose:** 获取 `old prefab name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「old prefab name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetOldPrefabName();
+```
 
 ### GetPrefabName
 `public string GetPrefabName()`
 
-**用途 / Purpose:** 获取 `prefab name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「prefab name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetPrefabName();
+```
 
 ### RefreshMeshesToRenderToHullWater
 `public void RefreshMeshesToRenderToHullWater(UIntPtr visualRecord, string entityTag)`
 
-**用途 / Purpose:** 刷新 `meshes to render to hull water` 的显示或缓存。
+**用途 / Purpose:** 使 「meshes to render to hull water」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RefreshMeshesToRenderToHullWater(visualRecord, "example");
+```
 
 ### SetVisualRecordWakeParams
 `public void SetVisualRecordWakeParams(UIntPtr visualRecord, Vec3 wakeParams)`
 
-**用途 / Purpose:** 设置 `visual record wake params` 的值或状态。
+**用途 / Purpose:** 为 「visual record wake params」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetVisualRecordWakeParams(visualRecord, wakeParams);
+```
 
 ### ChangeResolutionMultiplierOfWaterVisual
 `public void ChangeResolutionMultiplierOfWaterVisual(UIntPtr visualRecord, float multiplier, in Vec3 waterEffectsBB)`
 
-**用途 / Purpose:** 处理 `change resolution multiplier of water visual` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ChangeResolutionMultiplierOfWaterVisual(visualRecord, 0, waterEffectsBB);
+```
 
 ### ResetHullWater
 `public void ResetHullWater(UIntPtr visualRecord)`
 
-**用途 / Purpose:** 将 `hull water` 重置为初始状态。
+**用途 / Purpose:** 将 「hull water」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ResetHullWater(visualRecord);
+```
 
 ### SetWaterVisualRecordFrameAndDt
 `public void SetWaterVisualRecordFrameAndDt(UIntPtr visualRecord, MatrixFrame frame, float dt)`
 
-**用途 / Purpose:** 设置 `water visual record frame and dt` 的值或状态。
+**用途 / Purpose:** 为 「water visual record frame and dt」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetWaterVisualRecordFrameAndDt(visualRecord, frame, 0);
+```
 
 ### AddSplashPositionToWaterVisualRecord
 `public void AddSplashPositionToWaterVisualRecord(UIntPtr visualRecord, Vec3 position)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `splash position to water visual record`。
+**用途 / Purpose:** 将 「splash position to water visual record」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddSplashPositionToWaterVisualRecord(visualRecord, position);
+```
 
 ### UpdateHullWaterEffectFrames
 `public void UpdateHullWaterEffectFrames(UIntPtr visualRecord)`
 
-**用途 / Purpose:** 更新 `hull water effect frames` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「hull water effect frames」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateHullWaterEffectFrames(visualRecord);
+```
 
 ### CopyScriptComponentFromAnotherEntity
 `public void CopyScriptComponentFromAnotherEntity(GameEntity otherEntity, string scriptName)`
 
-**用途 / Purpose:** 处理 `copy script component from another entity` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「script component from another entity」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.CopyScriptComponentFromAnotherEntity(otherEntity, "example");
+```
 
 ### SetFrame
 `public void SetFrame(ref MatrixFrame frame, bool isTeleportation = true)`
 
-**用途 / Purpose:** 设置 `frame` 的值或状态。
+**用途 / Purpose:** 为 「frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetFrame(frame, false);
+```
 
 ### SetLocalFrame
 `public void SetLocalFrame(ref MatrixFrame frame, bool isTeleportation = true)`
 
-**用途 / Purpose:** 设置 `local frame` 的值或状态。
+**用途 / Purpose:** 为 「local frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetLocalFrame(frame, false);
+```
 
 ### SetClothComponentKeepState
 `public void SetClothComponentKeepState(MetaMesh metaMesh, bool state)`
 
-**用途 / Purpose:** 设置 `cloth component keep state` 的值或状态。
+**用途 / Purpose:** 为 「cloth component keep state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetClothComponentKeepState(metaMesh, false);
+```
 
 ### SetClothComponentKeepStateOfAllMeshes
 `public void SetClothComponentKeepStateOfAllMeshes(bool state)`
 
-**用途 / Purpose:** 设置 `cloth component keep state of all meshes` 的值或状态。
+**用途 / Purpose:** 为 「cloth component keep state of all meshes」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetClothComponentKeepStateOfAllMeshes(false);
+```
 
 ### SetPreviousFrameInvalid
 `public void SetPreviousFrameInvalid()`
 
-**用途 / Purpose:** 设置 `previous frame invalid` 的值或状态。
+**用途 / Purpose:** 为 「previous frame invalid」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetPreviousFrameInvalid();
+```
 
 ### GetFrame
 `public MatrixFrame GetFrame()`
 
-**用途 / Purpose:** 获取 `frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFrame();
+```
 
 ### GetLocalFrame
 `public void GetLocalFrame(out MatrixFrame frame)`
 
-**用途 / Purpose:** 获取 `local frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetLocalFrame(frame);
+```
 
 ### HasBatchedKinematicPhysicsFlag
 `public bool HasBatchedKinematicPhysicsFlag()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `batched kinematic physics flag`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「batched kinematic physics flag」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasBatchedKinematicPhysicsFlag();
+```
 
 ### HasBatchedRayCastPhysicsFlag
 `public bool HasBatchedRayCastPhysicsFlag()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `batched ray cast physics flag`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「batched ray cast physics flag」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasBatchedRayCastPhysicsFlag();
+```
 
 ### GetLocalFrame
 `public MatrixFrame GetLocalFrame()`
 
-**用途 / Purpose:** 获取 `local frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLocalFrame();
+```
 
 ### GetGlobalFrame
 `public MatrixFrame GetGlobalFrame()`
 
-**用途 / Purpose:** 获取 `global frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalFrame();
+```
 
 ### SetWaterSDFClipData
 `public void SetWaterSDFClipData(int slotIndex, in MatrixFrame frame, bool visibility)`
 
-**用途 / Purpose:** 设置 `water s d f clip data` 的值或状态。
+**用途 / Purpose:** 为 「water s d f clip data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetWaterSDFClipData(0, frame, false);
+```
 
 ### RegisterWaterSDFClip
 `public int RegisterWaterSDFClip(Texture sdfTexture)`
 
-**用途 / Purpose:** 处理 `register water s d f clip` 相关逻辑。
+**用途 / Purpose:** 将「water s d f clip」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RegisterWaterSDFClip(sdfTexture);
+```
 
 ### DeRegisterWaterSDFClip
 `public void DeRegisterWaterSDFClip(int slot)`
 
-**用途 / Purpose:** 处理 `de register water s d f clip` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.DeRegisterWaterSDFClip(0);
+```
 
 ### GetGlobalFrameImpreciseForFixedTick
 `public MatrixFrame GetGlobalFrameImpreciseForFixedTick()`
 
-**用途 / Purpose:** 获取 `global frame imprecise for fixed tick` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global frame imprecise for fixed tick」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalFrameImpreciseForFixedTick();
+```
 
 ### ComputePreciseGlobalFrameForFixedTickSlow
 `public MatrixFrame ComputePreciseGlobalFrameForFixedTickSlow()`
 
-**用途 / Purpose:** 处理 `compute precise global frame for fixed tick slow` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ComputePreciseGlobalFrameForFixedTickSlow();
+```
 
 ### SetGlobalFrame
 `public void SetGlobalFrame(in MatrixFrame frame, bool isTeleportation = true)`
 
-**用途 / Purpose:** 设置 `global frame` 的值或状态。
+**用途 / Purpose:** 为 「global frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetGlobalFrame(frame, false);
+```
 
 ### GetPreviousGlobalFrame
 `public MatrixFrame GetPreviousGlobalFrame()`
 
-**用途 / Purpose:** 获取 `previous global frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「previous global frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetPreviousGlobalFrame();
+```
 
 ### GetBodyWorldTransform
 `public MatrixFrame GetBodyWorldTransform()`
 
-**用途 / Purpose:** 获取 `body world transform` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「body world transform」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBodyWorldTransform();
+```
 
 ### UpdateTriadFrameForEditor
 `public void UpdateTriadFrameForEditor()`
 
-**用途 / Purpose:** 更新 `triad frame for editor` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「triad frame for editor」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateTriadFrameForEditor();
+```
 
 ### UpdateTriadFrameForEditorForAllChildren
 `public void UpdateTriadFrameForEditorForAllChildren()`
 
-**用途 / Purpose:** 更新 `triad frame for editor for all children` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「triad frame for editor for all children」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateTriadFrameForEditorForAllChildren();
+```
 
 ### GetGlobalScale
 `public Vec3 GetGlobalScale()`
 
-**用途 / Purpose:** 获取 `global scale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global scale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalScale();
+```
 
 ### GetLocalScale
 `public Vec3 GetLocalScale()`
 
-**用途 / Purpose:** 获取 `local scale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local scale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLocalScale();
+```
 
 ### SetAnimationSoundActivation
 `public void SetAnimationSoundActivation(bool activate)`
 
-**用途 / Purpose:** 设置 `animation sound activation` 的值或状态。
+**用途 / Purpose:** 为 「animation sound activation」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAnimationSoundActivation(false);
+```
 
 ### CopyComponentsToSkeleton
 `public void CopyComponentsToSkeleton()`
 
-**用途 / Purpose:** 处理 `copy components to skeleton` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「components to skeleton」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.CopyComponentsToSkeleton();
+```
 
 ### AddMeshToBone
 `public void AddMeshToBone(sbyte boneIndex, Mesh mesh)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `mesh to bone`。
+**用途 / Purpose:** 将 「mesh to bone」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMeshToBone(0, mesh);
+```
 
 ### ActivateRagdoll
 `public void ActivateRagdoll()`
 
-**用途 / Purpose:** 处理 `activate ragdoll` 相关逻辑。
+**用途 / Purpose:** 激活「ragdoll」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ActivateRagdoll();
+```
 
 ### PauseSkeletonAnimation
 `public void PauseSkeletonAnimation()`
 
-**用途 / Purpose:** 处理 `pause skeleton animation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.PauseSkeletonAnimation();
+```
 
 ### ResumeSkeletonAnimation
 `public void ResumeSkeletonAnimation()`
 
-**用途 / Purpose:** 处理 `resume skeleton animation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ResumeSkeletonAnimation();
+```
 
 ### IsSkeletonAnimationPaused
 `public bool IsSkeletonAnimationPaused()`
 
-**用途 / Purpose:** 处理 `is skeleton animation paused` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「skeleton animation paused」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsSkeletonAnimationPaused();
+```
 
 ### GetBoneCount
 `public sbyte GetBoneCount()`
 
-**用途 / Purpose:** 获取 `bone count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bone count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoneCount();
+```
 
 ### GetWaterLevelAtPosition
 `public float GetWaterLevelAtPosition(Vec2 position, bool useWaterRenderer, bool checkWaterBodyEntities)`
 
-**用途 / Purpose:** 获取 `water level at position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「water level at position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetWaterLevelAtPosition(position, false, false);
+```
 
 ### GetBoneEntitialFrameWithIndex
 `public MatrixFrame GetBoneEntitialFrameWithIndex(sbyte boneIndex)`
 
-**用途 / Purpose:** 获取 `bone entitial frame with index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bone entitial frame with index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoneEntitialFrameWithIndex(0);
+```
 
 ### GetBoneEntitialFrameWithName
 `public MatrixFrame GetBoneEntitialFrameWithName(string boneName)`
 
-**用途 / Purpose:** 获取 `bone entitial frame with name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bone entitial frame with name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoneEntitialFrameWithName("example");
+```
 
 ### AddTag
 `public void AddTag(string tag)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tag`。
+**用途 / Purpose:** 将 「tag」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddTag("example");
+```
 
 ### RemoveTag
 `public void RemoveTag(string tag)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `tag`。
+**用途 / Purpose:** 从当前容器或状态中移除 「tag」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveTag("example");
+```
 
 ### HasTag
 `public bool HasTag(string tag)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `tag`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「tag」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasTag("example");
+```
 
 ### AddChild
 `public void AddChild(WeakGameEntity gameEntity, bool autoLocalizeFrame = false)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `child`。
+**用途 / Purpose:** 将 「child」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddChild(gameEntity, false);
+```
 
 ### RemoveChild
 `public void RemoveChild(WeakGameEntity childEntity, bool keepPhysics, bool keepScenePointer, bool callScriptCallbacks, int removeReason)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `child`。
+**用途 / Purpose:** 从当前容器或状态中移除 「child」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveChild(childEntity, false, false, false, 0);
+```
 
 ### BreakPrefab
 `public void BreakPrefab()`
 
-**用途 / Purpose:** 处理 `break prefab` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.BreakPrefab();
+```
 
 ### GetChild
 `public WeakGameEntity GetChild(int index)`
 
-**用途 / Purpose:** 获取 `child` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「child」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetChild(0);
+```
 
 ### HasComplexAnimTree
 `public bool HasComplexAnimTree()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `complex anim tree`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「complex anim tree」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasComplexAnimTree();
+```
 
 ### AddMultiMesh
 `public void AddMultiMesh(MetaMesh metaMesh, bool updateVisMask = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `multi mesh`。
+**用途 / Purpose:** 将 「multi mesh」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMultiMesh(metaMesh, false);
+```
 
 ### RemoveMultiMesh
 `public bool RemoveMultiMesh(MetaMesh metaMesh)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `multi mesh`。
+**用途 / Purpose:** 从当前容器或状态中移除 「multi mesh」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RemoveMultiMesh(metaMesh);
+```
 
 ### GetComponentCount
 `public int GetComponentCount(GameEntity.ComponentType componentType)`
 
-**用途 / Purpose:** 获取 `component count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「component count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetComponentCount(componentType);
+```
 
 ### AddAllMeshesOfGameEntity
 `public void AddAllMeshesOfGameEntity(GameEntity gameEntity)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `all meshes of game entity`。
+**用途 / Purpose:** 将 「all meshes of game entity」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddAllMeshesOfGameEntity(gameEntity);
+```
 
 ### SetFrameChanged
 `public void SetFrameChanged()`
 
-**用途 / Purpose:** 设置 `frame changed` 的值或状态。
+**用途 / Purpose:** 为 「frame changed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetFrameChanged();
+```
 
 ### GetComponentAtIndex
 `public GameEntityComponent GetComponentAtIndex(int index, GameEntity.ComponentType componentType)`
 
-**用途 / Purpose:** 获取 `component at index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「component at index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetComponentAtIndex(0, componentType);
+```
 
 ### GetMetaMesh
 `public MetaMesh GetMetaMesh(int metaMeshIndex)`
 
-**用途 / Purpose:** 获取 `meta mesh` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「meta mesh」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetMetaMesh(0);
+```
 
 ### GetClothSimulator
 `public ClothSimulatorComponent GetClothSimulator(int clothSimulatorIndex)`
 
-**用途 / Purpose:** 获取 `cloth simulator` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cloth simulator」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetClothSimulator(0);
+```
 
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**用途 / Purpose:** 设置 `vector argument` 的值或状态。
+**用途 / Purpose:** 为 「vector argument」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetVectorArgument(0, 0, 0, 0);
+```
 
 ### SetMaterialForAllMeshes
 `public void SetMaterialForAllMeshes(Material material)`
 
-**用途 / Purpose:** 设置 `material for all meshes` 的值或状态。
+**用途 / Purpose:** 为 「material for all meshes」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetMaterialForAllMeshes(material);
+```
 
 ### AddLight
 `public bool AddLight(Light light)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `light`。
+**用途 / Purpose:** 将 「light」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.AddLight(light);
+```
 
 ### GetLight
 `public Light GetLight()`
 
-**用途 / Purpose:** 获取 `light` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「light」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLight();
+```
 
 ### AddParticleSystemComponent
 `public void AddParticleSystemComponent(string particleid)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `particle system component`。
+**用途 / Purpose:** 将 「particle system component」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddParticleSystemComponent("example");
+```
 
 ### RemoveAllParticleSystems
 `public void RemoveAllParticleSystems()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `all particle systems`。
+**用途 / Purpose:** 从当前容器或状态中移除 「all particle systems」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveAllParticleSystems();
+```
 
 ### CheckPointWithOrientedBoundingBox
 `public bool CheckPointWithOrientedBoundingBox(Vec3 point)`
 
-**用途 / Purpose:** 处理 `check point with oriented bounding box` 相关逻辑。
+**用途 / Purpose:** 检查「point with oriented bounding box」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CheckPointWithOrientedBoundingBox(point);
+```
 
 ### PauseParticleSystem
 `public void PauseParticleSystem(bool doChildren)`
 
-**用途 / Purpose:** 处理 `pause particle system` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.PauseParticleSystem(false);
+```
 
 ### ResumeParticleSystem
 `public void ResumeParticleSystem(bool doChildren)`
 
-**用途 / Purpose:** 处理 `resume particle system` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ResumeParticleSystem(false);
+```
 
 ### BurstEntityParticle
 `public void BurstEntityParticle(bool doChildren)`
 
-**用途 / Purpose:** 处理 `burst entity particle` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.BurstEntityParticle(false);
+```
 
 ### SetRuntimeEmissionRateMultiplier
 `public void SetRuntimeEmissionRateMultiplier(float emissionRateMultiplier)`
 
-**用途 / Purpose:** 设置 `runtime emission rate multiplier` 的值或状态。
+**用途 / Purpose:** 为 「runtime emission rate multiplier」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetRuntimeEmissionRateMultiplier(0);
+```
 
 ### GetLocalBoundingBox
 `public BoundingBox GetLocalBoundingBox()`
 
-**用途 / Purpose:** 获取 `local bounding box` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「local bounding box」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLocalBoundingBox();
+```
 
 ### GetGlobalBoundingBox
 `public BoundingBox GetGlobalBoundingBox()`
 
-**用途 / Purpose:** 获取 `global bounding box` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global bounding box」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalBoundingBox();
+```
 
 ### GetBoundingBoxMin
 `public Vec3 GetBoundingBoxMin()`
 
-**用途 / Purpose:** 获取 `bounding box min` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bounding box min」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoundingBoxMin();
+```
 
 ### SetHasCustomBoundingBoxValidationSystem
 `public void SetHasCustomBoundingBoxValidationSystem(bool hasCustomBoundingBox)`
 
-**用途 / Purpose:** 设置 `has custom bounding box validation system` 的值或状态。
+**用途 / Purpose:** 为 「has custom bounding box validation system」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetHasCustomBoundingBoxValidationSystem(false);
+```
 
 ### ValidateBoundingBox
 `public void ValidateBoundingBox()`
 
-**用途 / Purpose:** 处理 `validate bounding box` 相关逻辑。
+**用途 / Purpose:** 检查「bounding box」是否满足约束条件，通常返回布尔值。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ValidateBoundingBox();
+```
 
 ### GetBoundingBoxMax
 `public Vec3 GetBoundingBoxMax()`
 
-**用途 / Purpose:** 获取 `bounding box max` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bounding box max」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoundingBoxMax();
+```
 
 ### UpdateGlobalBounds
 `public void UpdateGlobalBounds()`
 
-**用途 / Purpose:** 更新 `global bounds` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「global bounds」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateGlobalBounds();
+```
 
 ### RecomputeBoundingBox
 `public void RecomputeBoundingBox()`
 
-**用途 / Purpose:** 处理 `recompute bounding box` 相关逻辑。
+**用途 / Purpose:** 重新执行「bounding box」相关的计算并返回结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RecomputeBoundingBox();
+```
 
 ### GetBoundingBoxRadius
 `public float GetBoundingBoxRadius()`
 
-**用途 / Purpose:** 获取 `bounding box radius` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bounding box radius」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoundingBoxRadius();
+```
 
 ### SetBoundingboxDirty
 `public void SetBoundingboxDirty()`
 
-**用途 / Purpose:** 设置 `boundingbox dirty` 的值或状态。
+**用途 / Purpose:** 为 「boundingbox dirty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetBoundingboxDirty();
+```
 
 ### SetContourColor
 `public void SetContourColor(uint? color, bool alwaysVisible = true)`
 
-**用途 / Purpose:** 设置 `contour color` 的值或状态。
+**用途 / Purpose:** 为 「contour color」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetContourColor(0, false);
+```
 
 ### GetPhysicsBoundingBoxMax
 `public Vec3 GetPhysicsBoundingBoxMax()`
 
-**用途 / Purpose:** 获取 `physics bounding box max` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「physics bounding box max」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetPhysicsBoundingBoxMax();
+```
 
 ### GetPhysicsBoundingBoxMin
 `public Vec3 GetPhysicsBoundingBoxMin()`
 
-**用途 / Purpose:** 获取 `physics bounding box min` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「physics bounding box min」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetPhysicsBoundingBoxMin();
+```
 
 ### GetHasFrameChanged
 `public bool GetHasFrameChanged()`
 
-**用途 / Purpose:** 获取 `has frame changed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「has frame changed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetHasFrameChanged();
+```
 
 ### GetFirstMesh
 `public Mesh GetFirstMesh()`
 
-**用途 / Purpose:** 获取 `first mesh` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「first mesh」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFirstMesh();
+```
 
 ### GetAttachedNavmeshFaceCount
 `public int GetAttachedNavmeshFaceCount()`
 
-**用途 / Purpose:** 获取 `attached navmesh face count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attached navmesh face count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetAttachedNavmeshFaceCount();
+```
 
 ### GetAttachedNavmeshFaceRecords
 `public void GetAttachedNavmeshFaceRecords(PathFaceRecord faceRecords)`
 
-**用途 / Purpose:** 获取 `attached navmesh face records` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attached navmesh face records」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetAttachedNavmeshFaceRecords(faceRecords);
+```
 
 ### GetAttachedNavmeshFaceVertexIndices
 `public void GetAttachedNavmeshFaceVertexIndices(in PathFaceRecord faceRecord, int indices)`
 
-**用途 / Purpose:** 获取 `attached navmesh face vertex indices` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attached navmesh face vertex indices」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetAttachedNavmeshFaceVertexIndices(faceRecord, 0);
+```
 
 ### SetCustomVertexPositionEnabled
 `public void SetCustomVertexPositionEnabled(bool customVertexPositionEnabled)`
 
-**用途 / Purpose:** 设置 `custom vertex position enabled` 的值或状态。
+**用途 / Purpose:** 为 「custom vertex position enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetCustomVertexPositionEnabled(false);
+```
 
 ### SetPositionsForAttachedNavmeshVertices
 `public void SetPositionsForAttachedNavmeshVertices(int vertices, int indexCount, Vec3 positions)`
 
-**用途 / Purpose:** 设置 `positions for attached navmesh vertices` 的值或状态。
+**用途 / Purpose:** 为 「positions for attached navmesh vertices」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetPositionsForAttachedNavmeshVertices(0, 0, positions);
+```
 
 ### SetExternalReferencesUsage
 `public void SetExternalReferencesUsage(bool value)`
 
-**用途 / Purpose:** 设置 `external references usage` 的值或状态。
+**用途 / Purpose:** 为 「external references usage」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetExternalReferencesUsage(false);
+```
 
 ### SetMorphFrameOfComponents
 `public void SetMorphFrameOfComponents(float value)`
 
-**用途 / Purpose:** 设置 `morph frame of components` 的值或状态。
+**用途 / Purpose:** 为 「morph frame of components」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetMorphFrameOfComponents(0);
+```
 
 ### AddEditDataUserToAllMeshes
 `public void AddEditDataUserToAllMeshes(bool entityComponents, bool skeletonComponents)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `edit data user to all meshes`。
+**用途 / Purpose:** 将 「edit data user to all meshes」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddEditDataUserToAllMeshes(false, false);
+```
 
 ### ReleaseEditDataUserToAllMeshes
 `public void ReleaseEditDataUserToAllMeshes(bool entityComponents, bool skeletonComponents)`
 
-**用途 / Purpose:** 处理 `release edit data user to all meshes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ReleaseEditDataUserToAllMeshes(false, false);
+```
 
 ### GetCameraParamsFromCameraScript
 `public void GetCameraParamsFromCameraScript(Camera cam, ref Vec3 dofParams)`
 
-**用途 / Purpose:** 获取 `camera params from camera script` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「camera params from camera script」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetCameraParamsFromCameraScript(cam, dofParams);
+```
 
 ### GetMeshBendedFrame
 `public void GetMeshBendedFrame(MatrixFrame worldSpacePosition, ref MatrixFrame output)`
 
-**用途 / Purpose:** 获取 `mesh bended frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mesh bended frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetMeshBendedFrame(worldSpacePosition, output);
+```
 
 ### ComputeTrajectoryVolume
 `public void ComputeTrajectoryVolume(float missileSpeed, float verticalAngleMaxInDegrees, float verticalAngleMinInDegrees, float horizontalAngleRangeInDegrees, float airFrictionConstant)`
 
-**用途 / Purpose:** 处理 `compute trajectory volume` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ComputeTrajectoryVolume(0, 0, 0, 0, 0);
+```
 
 ### SetAnimTreeChannelParameterForceUpdate
 `public void SetAnimTreeChannelParameterForceUpdate(float phase, int channelNo)`
 
-**用途 / Purpose:** 设置 `anim tree channel parameter force update` 的值或状态。
+**用途 / Purpose:** 为 「anim tree channel parameter force update」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAnimTreeChannelParameterForceUpdate(0, 0);
+```
 
 ### ChangeMetaMeshOrRemoveItIfNotExists
 `public void ChangeMetaMeshOrRemoveItIfNotExists(MetaMesh entityMetaMesh, MetaMesh newMetaMesh)`
 
-**用途 / Purpose:** 处理 `change meta mesh or remove it if not exists` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ChangeMetaMeshOrRemoveItIfNotExists(entityMetaMesh, newMetaMesh);
+```
 
 ### SetUpdateValidtyOnFrameChangedOfFacesWithId
 `public void SetUpdateValidtyOnFrameChangedOfFacesWithId(int faceGroupId, bool updateValidity)`
 
-**用途 / Purpose:** 设置 `update validty on frame changed of faces with id` 的值或状态。
+**用途 / Purpose:** 为 「update validty on frame changed of faces with id」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetUpdateValidtyOnFrameChangedOfFacesWithId(0, false);
+```
 
 ### AttachNavigationMeshFaces
 `public void AttachNavigationMeshFaces(int faceGroupId, bool isConnected, bool isBlocker = false, bool autoLocalize = false, bool finalizeBlockerConvexHullComputation = false, bool updateEntityFrame = true)`
 
-**用途 / Purpose:** 处理 `attach navigation mesh faces` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AttachNavigationMeshFaces(0, false, false, false, false, false);
+```
 
 ### DetachAllAttachedNavigationMeshFaces
 `public void DetachAllAttachedNavigationMeshFaces()`
 
-**用途 / Purpose:** 处理 `detach all attached navigation mesh faces` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.DetachAllAttachedNavigationMeshFaces();
+```
 
 ### UpdateAttachedNavigationMeshFaces
 `public void UpdateAttachedNavigationMeshFaces()`
 
-**用途 / Purpose:** 更新 `attached navigation mesh faces` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「attached navigation mesh faces」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateAttachedNavigationMeshFaces();
+```
 
 ### RemoveSkeleton
 `public void RemoveSkeleton()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `skeleton`。
+**用途 / Purpose:** 从当前容器或状态中移除 「skeleton」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveSkeleton();
+```
 
 ### RemoveAllChildren
 `public void RemoveAllChildren()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `all children`。
+**用途 / Purpose:** 从当前容器或状态中移除 「all children」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveAllChildren();
+```
 
 ### GetChildren
 `public IEnumerable<WeakGameEntity> GetChildren()`
 
-**用途 / Purpose:** 获取 `children` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「children」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetChildren();
+```
 
 ### GetEntityAndChildren
 `public IEnumerable<WeakGameEntity> GetEntityAndChildren()`
 
-**用途 / Purpose:** 获取 `entity and children` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「entity and children」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetEntityAndChildren();
+```
 
 ### GetChildrenRecursive
 `public void GetChildrenRecursive(ref List<WeakGameEntity> children)`
 
-**用途 / Purpose:** 获取 `children recursive` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「children recursive」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetChildrenRecursive(children);
+```
 
 ### GetChildrenWithTagRecursive
 `public void GetChildrenWithTagRecursive(List<WeakGameEntity> children, string tag)`
 
-**用途 / Purpose:** 获取 `children with tag recursive` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「children with tag recursive」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetChildrenWithTagRecursive(children, "example");
+```
 
 ### IsSelectedOnEditor
 `public bool IsSelectedOnEditor()`
 
-**用途 / Purpose:** 处理 `is selected on editor` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「selected on editor」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsSelectedOnEditor();
+```
 
 ### SelectEntityOnEditor
 `public void SelectEntityOnEditor()`
 
-**用途 / Purpose:** 处理 `select entity on editor` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SelectEntityOnEditor();
+```
 
 ### DeselectEntityOnEditor
 `public void DeselectEntityOnEditor()`
 
-**用途 / Purpose:** 处理 `deselect entity on editor` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.DeselectEntityOnEditor();
+```
 
 ### SetAsPredisplayEntity
 `public void SetAsPredisplayEntity()`
 
-**用途 / Purpose:** 设置 `as predisplay entity` 的值或状态。
+**用途 / Purpose:** 为 「as predisplay entity」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAsPredisplayEntity();
+```
 
 ### RemoveFromPredisplayEntity
 `public void RemoveFromPredisplayEntity()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `from predisplay entity`。
+**用途 / Purpose:** 从当前容器或状态中移除 「from predisplay entity」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveFromPredisplayEntity();
+```
 
 ### SetNativeScriptComponentVariable
 `public void SetNativeScriptComponentVariable(string className, string fieldName, ref ScriptComponentFieldHolder data, RglScriptFieldType variableType)`
 
-**用途 / Purpose:** 设置 `native script component variable` 的值或状态。
+**用途 / Purpose:** 为 「native script component variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetNativeScriptComponentVariable("example", "example", data, variableType);
+```
 
 ### SetManualGlobalBoundingBox
 `public void SetManualGlobalBoundingBox(Vec3 boundingBoxStartGlobal, Vec3 boundingBoxEndGlobal)`
 
-**用途 / Purpose:** 设置 `manual global bounding box` 的值或状态。
+**用途 / Purpose:** 为 「manual global bounding box」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetManualGlobalBoundingBox(boundingBoxStartGlobal, boundingBoxEndGlobal);
+```
 
 ### RayHitEntityWithNormal
 `public bool RayHitEntityWithNormal(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref Vec3 resultNormal, ref float resultLength)`
 
-**用途 / Purpose:** 处理 `ray hit entity with normal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RayHitEntityWithNormal(rayOrigin, rayDirection, 0, resultNormal, resultLength);
+```
 
 ### RayHitEntity
 `public bool RayHitEntity(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref float resultLength)`
 
-**用途 / Purpose:** 处理 `ray hit entity` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RayHitEntity(rayOrigin, rayDirection, 0, resultLength);
+```
 
 ### GetNativeScriptComponentVariable
 `public void GetNativeScriptComponentVariable(string className, string fieldName, ref ScriptComponentFieldHolder data, RglScriptFieldType variableType)`
 
-**用途 / Purpose:** 获取 `native script component variable` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「native script component variable」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetNativeScriptComponentVariable("example", "example", data, variableType);
+```
 
 ### SetCustomClipPlane
 `public void SetCustomClipPlane(Vec3 clipPosition, Vec3 clipNormal)`
 
-**用途 / Purpose:** 设置 `custom clip plane` 的值或状态。
+**用途 / Purpose:** 为 「custom clip plane」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetCustomClipPlane(clipPosition, clipNormal);
+```
 
 ### GetBoundingBoxLongestHalfDimension
 `public float GetBoundingBoxLongestHalfDimension()`
 
-**用途 / Purpose:** 获取 `bounding box longest half dimension` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bounding box longest half dimension」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoundingBoxLongestHalfDimension();
+```
 
 ### ComputeBoundingBoxFromLongestHalfDimension
 `public BoundingBox ComputeBoundingBoxFromLongestHalfDimension(float longestHalfDimensionCoefficient)`
 
-**用途 / Purpose:** 处理 `compute bounding box from longest half dimension` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ComputeBoundingBoxFromLongestHalfDimension(0);
+```
 
 ### ComputeBoundingBoxIncludeChildren
 `public BoundingBox ComputeBoundingBoxIncludeChildren()`
 
-**用途 / Purpose:** 处理 `compute bounding box include children` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ComputeBoundingBoxIncludeChildren();
+```
 
 ### SetManualLocalBoundingBox
 `public void SetManualLocalBoundingBox(in BoundingBox boundingBox)`
 
-**用途 / Purpose:** 设置 `manual local bounding box` 的值或状态。
+**用途 / Purpose:** 为 「manual local bounding box」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetManualLocalBoundingBox(boundingBox);
+```
 
 ### RelaxLocalBoundingBox
 `public void RelaxLocalBoundingBox(in BoundingBox boundingBox)`
 
-**用途 / Purpose:** 处理 `relax local bounding box` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RelaxLocalBoundingBox(boundingBox);
+```
 
 ### SetCullMode
 `public void SetCullMode(MBMeshCullingMode cullMode)`
 
-**用途 / Purpose:** 设置 `cull mode` 的值或状态。
+**用途 / Purpose:** 为 「cull mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetCullMode(cullMode);
+```
 
 ### GetFirstChildEntityWithTagRecursive
 `public WeakGameEntity GetFirstChildEntityWithTagRecursive(string tag)`
 
-**用途 / Purpose:** 获取 `first child entity with tag recursive` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「first child entity with tag recursive」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFirstChildEntityWithTagRecursive("example");
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetHashCode();
+```
 
 ### CollectChildrenEntitiesWithTag
 `public List<WeakGameEntity> CollectChildrenEntitiesWithTag(string tag)`
 
-**用途 / Purpose:** 处理 `collect children entities with tag` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CollectChildrenEntitiesWithTag("example");
+```
 
 ### CollectChildrenEntitiesWithTagAsEnumarable
 `public IEnumerable<WeakGameEntity> CollectChildrenEntitiesWithTagAsEnumarable(string tag)`
 
-**用途 / Purpose:** 处理 `collect children entities with tag as enumarable` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CollectChildrenEntitiesWithTagAsEnumarable("example");
+```
 
 ### SetDoNotCheckVisibility
 `public void SetDoNotCheckVisibility(bool value)`
 
-**用途 / Purpose:** 设置 `do not check visibility` 的值或状态。
+**用途 / Purpose:** 为 「do not check visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetDoNotCheckVisibility(false);
+```
 
 ### SetBoneFrameToAllMeshes
 `public void SetBoneFrameToAllMeshes(int boneIndex, in MatrixFrame frame)`
 
-**用途 / Purpose:** 设置 `bone frame to all meshes` 的值或状态。
+**用途 / Purpose:** 为 「bone frame to all meshes」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetBoneFrameToAllMeshes(0, frame);
+```
 
 ### GetGlobalWindStrengthVectorOfScene
 `public Vec2 GetGlobalWindStrengthVectorOfScene()`
 
-**用途 / Purpose:** 获取 `global wind strength vector of scene` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global wind strength vector of scene」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalWindStrengthVectorOfScene();
+```
 
 ### GetGlobalWindVelocityOfScene
 `public Vec2 GetGlobalWindVelocityOfScene()`
 
-**用途 / Purpose:** 获取 `global wind velocity of scene` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global wind velocity of scene」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalWindVelocityOfScene();
+```
 
 ### GetLastFinalRenderCameraPositionOfScene
 `public Vec3 GetLastFinalRenderCameraPositionOfScene()`
 
-**用途 / Purpose:** 获取 `last final render camera position of scene` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「last final render camera position of scene」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLastFinalRenderCameraPositionOfScene();
+```
 
 ### SetForceDecalsToRender
 `public void SetForceDecalsToRender(bool value)`
 
-**用途 / Purpose:** 设置 `force decals to render` 的值或状态。
+**用途 / Purpose:** 为 「force decals to render」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetForceDecalsToRender(false);
+```
 
 ### SetForceNotAffectedBySeason
 `public void SetForceNotAffectedBySeason(bool value)`
 
-**用途 / Purpose:** 设置 `force not affected by season` 的值或状态。
+**用途 / Purpose:** 为 「force not affected by season」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetForceNotAffectedBySeason(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeakGameEntity();
-value.Invalidate();
+// 通常从对应子系统 API 获取实例后调用
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.Invalidate();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

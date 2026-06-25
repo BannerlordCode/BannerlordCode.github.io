@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyShipLimitModel"
+description: "Auto-generated class reference for DefaultPartyShipLimitModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyShipLimitModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyShipLimitModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ Treat `DefaultPartyShipLimitModel` as a Model-style extension point: first ident
 ### GetIdealShipNumber
 `public override int GetIdealShipNumber(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `ideal ship number`.
+**Purpose:** Reads and returns the `ideal ship number` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyShipLimitModel from the subsystem API first
+DefaultPartyShipLimitModel defaultPartyShipLimitModel = ...;
+var result = defaultPartyShipLimitModel.GetIdealShipNumber(mobileParty);
+```
 
 ### GetIdealShipNumber
 `public override int GetIdealShipNumber(Clan clan)`
 
-**Purpose:** Gets the current value of `ideal ship number`.
+**Purpose:** Reads and returns the `ideal ship number` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyShipLimitModel from the subsystem API first
+DefaultPartyShipLimitModel defaultPartyShipLimitModel = ...;
+var result = defaultPartyShipLimitModel.GetIdealShipNumber(clan);
+```
 
 ### GetShipPriority
 `public override float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)`
 
-**Purpose:** Gets the current value of `ship priority`.
+**Purpose:** Reads and returns the `ship priority` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyShipLimitModel from the subsystem API first
+DefaultPartyShipLimitModel defaultPartyShipLimitModel = ...;
+var result = defaultPartyShipLimitModel.GetShipPriority(mobileParty, ship, false);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPartyShipLimitModel>(new MyDefaultPartyShipLimi
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "InformationManager"
+description: "Auto-generated class reference for InformationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InformationManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InformationManager
 
 **Namespace:** TaleWorlds.Library
@@ -35,87 +29,172 @@ Treat `InformationManager` as a Manager-style extension point: first identify wh
 ### DisplayMessage
 `public static void DisplayMessage(InformationMessage message)`
 
-**Purpose:** Handles logic related to `display message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+InformationManager.DisplayMessage(message);
+```
 
 ### HideAllMessages
 `public static void HideAllMessages()`
 
-**Purpose:** Handles logic related to `hide all messages`.
+**Purpose:** Hides the UI or element associated with `all messages`.
+
+```csharp
+// Static call; no instance required
+InformationManager.HideAllMessages();
+```
 
 ### ClearAllMessages
 `public static void ClearAllMessages()`
 
-**Purpose:** Handles logic related to `clear all messages`.
+**Purpose:** Removes all `all messages` from the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.ClearAllMessages();
+```
 
 ### AddSystemNotification
 `public static void AddSystemNotification(string message)`
 
 **Purpose:** Adds `system notification` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+InformationManager.AddSystemNotification("example");
+```
+
 ### ShowTooltip
 `public static void ShowTooltip(Type type, params object args)`
 
-**Purpose:** Handles logic related to `show tooltip`.
+**Purpose:** Displays the UI or element associated with `tooltip`.
+
+```csharp
+// Static call; no instance required
+InformationManager.ShowTooltip(type, args);
+```
 
 ### HideTooltip
 `public static void HideTooltip()`
 
-**Purpose:** Handles logic related to `hide tooltip`.
+**Purpose:** Hides the UI or element associated with `tooltip`.
+
+```csharp
+// Static call; no instance required
+InformationManager.HideTooltip();
+```
 
 ### ShowInquiry
 `public static void ShowInquiry(InquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**Purpose:** Handles logic related to `show inquiry`.
+**Purpose:** Displays the UI or element associated with `inquiry`.
+
+```csharp
+// Static call; no instance required
+InformationManager.ShowInquiry(data, false, false);
+```
 
 ### ShowTextInquiry
 `public static void ShowTextInquiry(TextInquiryData textData, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**Purpose:** Handles logic related to `show text inquiry`.
+**Purpose:** Displays the UI or element associated with `text inquiry`.
+
+```csharp
+// Static call; no instance required
+InformationManager.ShowTextInquiry(textData, false, false);
+```
 
 ### HideInquiry
 `public static void HideInquiry()`
 
-**Purpose:** Handles logic related to `hide inquiry`.
+**Purpose:** Hides the UI or element associated with `inquiry`.
+
+```csharp
+// Static call; no instance required
+InformationManager.HideInquiry();
+```
 
 ### RegisterIsAnyTooltipActiveCallback
 `public static void RegisterIsAnyTooltipActiveCallback(Func<bool> callback)`
 
-**Purpose:** Handles logic related to `register is any tooltip active callback`.
+**Purpose:** Registers `is any tooltip active callback` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+InformationManager.RegisterIsAnyTooltipActiveCallback(callback);
+```
 
 ### UnregisterIsAnyTooltipActiveCallback
 `public static void UnregisterIsAnyTooltipActiveCallback(Func<bool> callback)`
 
-**Purpose:** Handles logic related to `unregister is any tooltip active callback`.
+**Purpose:** Unregisters `is any tooltip active callback` from the current system.
+
+```csharp
+// Static call; no instance required
+InformationManager.UnregisterIsAnyTooltipActiveCallback(callback);
+```
 
 ### RegisterIsAnyTooltipExtendedCallback
 `public static void RegisterIsAnyTooltipExtendedCallback(Func<bool> callback)`
 
-**Purpose:** Handles logic related to `register is any tooltip extended callback`.
+**Purpose:** Registers `is any tooltip extended callback` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+InformationManager.RegisterIsAnyTooltipExtendedCallback(callback);
+```
 
 ### UnregisterIsAnyTooltipExtendedCallback
 `public static void UnregisterIsAnyTooltipExtendedCallback(Func<bool> callback)`
 
-**Purpose:** Handles logic related to `unregister is any tooltip extended callback`.
+**Purpose:** Unregisters `is any tooltip extended callback` from the current system.
+
+```csharp
+// Static call; no instance required
+InformationManager.UnregisterIsAnyTooltipExtendedCallback(callback);
+```
 
 ### GetIsAnyTooltipActive
 `public static bool GetIsAnyTooltipActive()`
 
-**Purpose:** Gets the current value of `is any tooltip active`.
+**Purpose:** Reads and returns the `is any tooltip active` value held by the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.GetIsAnyTooltipActive();
+```
 
 ### GetIsAnyTooltipExtended
 `public static bool GetIsAnyTooltipExtended()`
 
-**Purpose:** Gets the current value of `is any tooltip extended`.
+**Purpose:** Reads and returns the `is any tooltip extended` value held by the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.GetIsAnyTooltipExtended();
+```
 
 ### GetIsAnyTooltipActiveAndExtended
 `public static bool GetIsAnyTooltipActiveAndExtended()`
 
-**Purpose:** Gets the current value of `is any tooltip active and extended`.
+**Purpose:** Reads and returns the `is any tooltip active and extended` value held by the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.GetIsAnyTooltipActiveAndExtended();
+```
 
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.Clear();
+```
 
 ## Usage Example
 
@@ -125,4 +204,4 @@ var manager = InformationManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

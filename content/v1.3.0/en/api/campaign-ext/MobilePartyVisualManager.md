@@ -1,13 +1,7 @@
 ---
 title: "MobilePartyVisualManager"
+description: "Auto-generated class reference for MobilePartyVisualManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyVisualManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyVisualManager
 
 **Namespace:** SandBox.View.Map.Managers
@@ -35,27 +29,57 @@ Treat `MobilePartyVisualManager` as a Manager-style extension point: first ident
 ### OnTick
 `public override void OnTick(float realDt, float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MobilePartyVisualManager from the subsystem API first
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+mobilePartyVisualManager.OnTick(0, 0);
+```
 
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** Called when the `visual tick` event is raised.
+**Purpose:** Invoked when the `visual tick` event is raised.
+
+```csharp
+// Obtain an instance of MobilePartyVisualManager from the subsystem API first
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+mobilePartyVisualManager.OnVisualTick(screen, 0, 0);
+```
 
 ### OnVisualIntersected
 `public override void OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, float closestDistanceSquared, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**Purpose:** Called when the `visual intersected` event is raised.
+**Purpose:** Invoked when the `visual intersected` event is raised.
+
+```csharp
+// Obtain an instance of MobilePartyVisualManager from the subsystem API first
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+mobilePartyVisualManager.OnVisualIntersected(mouseRay, intersectedEntityIDs, intersectionInfos, 0, worldMouseNear, worldMouseFar, terrainIntersectionPoint, 0, hoveredVisual, selectedVisual);
+```
 
 ### GetVisualOfEntity
 `public override MapEntityVisual<PartyBase> GetVisualOfEntity(PartyBase partyBase)`
 
-**Purpose:** Gets the current value of `visual of entity`.
+**Purpose:** Reads and returns the `visual of entity` value held by the current object.
+
+```csharp
+// Obtain an instance of MobilePartyVisualManager from the subsystem API first
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+var result = mobilePartyVisualManager.GetVisualOfEntity(partyBase);
+```
 
 ### GetPartyVisual
 `public MobilePartyVisual GetPartyVisual(PartyBase partyBase)`
 
-**Purpose:** Gets the current value of `party visual`.
+**Purpose:** Reads and returns the `party visual` value held by the current object.
+
+```csharp
+// Obtain an instance of MobilePartyVisualManager from the subsystem API first
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+var result = mobilePartyVisualManager.GetPartyVisual(partyBase);
+```
 
 ## Usage Example
 
@@ -65,4 +89,4 @@ var manager = MobilePartyVisualManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

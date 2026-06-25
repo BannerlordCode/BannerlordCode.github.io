@@ -1,20 +1,14 @@
 ---
 title: "TextToken"
+description: "TextToken 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextToken`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextToken
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class TextToken`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextToken.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextToken.cs`
 
 ## 概述
 
@@ -39,57 +33,112 @@ title: "TextToken"
 ### CreateEmptyCharacter
 `public static TextToken CreateEmptyCharacter()`
 
-**用途 / Purpose:** 创建一个 `empty character` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「empty character」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateEmptyCharacter();
+```
 
 ### CreateZeroWidthSpaceCharacter
 `public static TextToken CreateZeroWidthSpaceCharacter()`
 
-**用途 / Purpose:** 创建一个 `zero width space character` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「zero width space character」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateZeroWidthSpaceCharacter();
+```
 
 ### CreateNonBreakingSpaceCharacter
 `public static TextToken CreateNonBreakingSpaceCharacter()`
 
-**用途 / Purpose:** 创建一个 `non breaking space character` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「non breaking space character」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateNonBreakingSpaceCharacter();
+```
 
 ### CreateWordJoinerCharacter
 `public static TextToken CreateWordJoinerCharacter()`
 
-**用途 / Purpose:** 创建一个 `word joiner character` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「word joiner character」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateWordJoinerCharacter();
+```
 
 ### CreateNewLine
 `public static TextToken CreateNewLine()`
 
-**用途 / Purpose:** 创建一个 `new line` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「new line」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateNewLine();
+```
 
 ### CreateTab
 `public static TextToken CreateTab()`
 
-**用途 / Purpose:** 创建一个 `tab` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「tab」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateTab();
+```
 
 ### CreateCharacter
 `public static TextToken CreateCharacter(char character)`
 
-**用途 / Purpose:** 创建一个 `character` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「character」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateCharacter(character);
+```
 
 ### CreateTag
 `public static TextToken CreateTag(RichTextTag tag)`
 
-**用途 / Purpose:** 创建一个 `tag` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「tag」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateTag(tag);
+```
 
 ### CreateCharacterCannotEndLineWith
 `public static TextToken CreateCharacterCannotEndLineWith(char character)`
 
-**用途 / Purpose:** 创建一个 `character cannot end line with` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「character cannot end line with」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateCharacterCannotEndLineWith(character);
+```
 
 ### CreateCharacterCannotStartLineWith
 `public static TextToken CreateCharacterCannotStartLineWith(char character)`
 
-**用途 / Purpose:** 创建一个 `character cannot start line with` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「character cannot start line with」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateCharacterCannotStartLineWith(character);
+```
 
 ### CreateTokenArrayFromWord
 `public static List<TextToken> CreateTokenArrayFromWord(string word)`
 
-**用途 / Purpose:** 创建一个 `token array from word` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「token array from word」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TextToken.CreateTokenArrayFromWord("example");
+```
 
 ## 使用示例
 
@@ -99,4 +148,4 @@ TextToken.CreateEmptyCharacter();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

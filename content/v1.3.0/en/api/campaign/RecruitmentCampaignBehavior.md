@@ -1,13 +1,7 @@
 ---
 title: "RecruitmentCampaignBehavior"
+description: "Auto-generated class reference for RecruitmentCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitmentCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitmentCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -36,50 +30,99 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetMercenaryData
 `public RecruitmentCampaignBehavior.TownMercenaryData GetMercenaryData(Town town)`
 
-**Purpose:** Gets the current value of `mercenary data`.
+**Purpose:** Reads and returns the `mercenary data` value held by the current object.
+
+```csharp
+// Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+var result = recruitmentCampaignBehavior.GetMercenaryData(town);
+```
 
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `hourly tick party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.HourlyTickParty(mobileParty);
+```
 
 ### OnBeforeSettlementEntered
 `public void OnBeforeSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Called when the `before settlement entered` event is raised.
+**Purpose:** Invoked when the `before settlement entered` event is raised.
+
+```csharp
+// Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.OnBeforeSettlementEntered(mobileParty, settlement, hero);
+```
 
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**Purpose:** Handles logic related to `change mercenary type`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.ChangeMercenaryType(troopType, 0);
+```
 
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**Purpose:** Handles logic related to `change mercenary count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.ChangeMercenaryCount(0);
+```
 
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**Purpose:** Checks whether the current object has/contains `available mercenary`.
+**Purpose:** Determines whether the current object already holds `available mercenary`.
+
+```csharp
+// Obtain an instance of RecruitmentCampaignBehavior from the subsystem API first
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+var result = recruitmentCampaignBehavior.HasAvailableMercenary(occupation.NotAssigned);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RecruitmentCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

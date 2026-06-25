@@ -1,0 +1,30 @@
+---
+title: "LibraryInterfaceBase"
+description: "Auto-generated class reference for LibraryInterfaceBase."
+---
+# LibraryInterfaceBase
+
+**Namespace:** TaleWorlds.DotNet
+**Module:** TaleWorlds.DotNet
+**Type:** `internal class LibraryInterfaceBase : Attribute`
+**Base:** `Attribute`
+**File:** `TaleWorlds.DotNet/LibraryInterfaceBase.cs`
+
+## Overview
+
+`LibraryInterfaceBase` lives in `TaleWorlds.DotNet` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Usage Example
+
+```csharp
+// Usually obtained through DI or a factory method
+ILibraryInterfaceBase service = ...;
+```
+
+## See Also
+
+- [Area Index](../)

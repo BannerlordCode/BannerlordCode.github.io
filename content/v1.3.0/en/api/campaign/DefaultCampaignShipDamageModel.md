@@ -1,13 +1,7 @@
 ---
 title: "DefaultCampaignShipDamageModel"
+description: "Auto-generated class reference for DefaultCampaignShipDamageModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCampaignShipDamageModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCampaignShipDamageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ Treat `DefaultCampaignShipDamageModel` as a Model-style extension point: first i
 ### GetHourlyShipDamage
 `public override int GetHourlyShipDamage(MobileParty owner, Ship ship)`
 
-**Purpose:** Gets the current value of `hourly ship damage`.
+**Purpose:** Reads and returns the `hourly ship damage` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipDamageModel from the subsystem API first
+DefaultCampaignShipDamageModel defaultCampaignShipDamageModel = ...;
+var result = defaultCampaignShipDamageModel.GetHourlyShipDamage(owner, ship);
+```
 
 ### GetEstimatedSafeSailDuration
 `public override float GetEstimatedSafeSailDuration(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `estimated safe sail duration`.
+**Purpose:** Reads and returns the `estimated safe sail duration` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipDamageModel from the subsystem API first
+DefaultCampaignShipDamageModel defaultCampaignShipDamageModel = ...;
+var result = defaultCampaignShipDamageModel.GetEstimatedSafeSailDuration(mobileParty);
+```
 
 ### GetShipDamage
 `public override float GetShipDamage(Ship ship, float rawDamage)`
 
-**Purpose:** Gets the current value of `ship damage`.
+**Purpose:** Reads and returns the `ship damage` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignShipDamageModel from the subsystem API first
+DefaultCampaignShipDamageModel defaultCampaignShipDamageModel = ...;
+var result = defaultCampaignShipDamageModel.GetShipDamage(ship, 0);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultCampaignShipDamageModel>(new MyDefaultCampaignS
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

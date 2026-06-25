@@ -1,13 +1,7 @@
 ---
 title: "ParameterLoader"
+description: "ParameterLoader 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ParameterLoader`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ParameterLoader
 
 **Namespace:** TaleWorlds.Library
@@ -29,12 +23,22 @@ title: "ParameterLoader"
 ### LoadParametersFromClientProfile
 `public static ParameterContainer LoadParametersFromClientProfile(string configurationName)`
 
-**用途 / Purpose:** 加载 `parameters from client profile` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「parameters from client profile」。
+
+```csharp
+// 静态调用，不需要实例
+ParameterLoader.LoadParametersFromClientProfile("example");
+```
 
 ### LoadParametersInto
 `public static void LoadParametersInto(string fileFullName, ParameterContainer parameters)`
 
-**用途 / Purpose:** 加载 `parameters into` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「parameters into」。
+
+```csharp
+// 静态调用，不需要实例
+ParameterLoader.LoadParametersInto("example", parameters);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ ParameterLoader.LoadParametersFromClientProfile("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MapParleyAnimationVM"
+description: "Auto-generated class reference for MapParleyAnimationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapParleyAnimationVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapParleyAnimationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.Parley
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.Parley` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapParleyAnimationVM from the subsystem API first
+MapParleyAnimationVM mapParleyAnimationVM = ...;
+mapParleyAnimationVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapParleyAnimationVM from the subsystem API first
+MapParleyAnimationVM mapParleyAnimationVM = ...;
+mapParleyAnimationVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapParleyAnimationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapParleyAnimationVM mapParleyAnimationVM = ...;
+mapParleyAnimationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

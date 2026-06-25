@@ -1,20 +1,14 @@
 ---
 title: "GauntletMenuBaseView"
+description: "Auto-generated class reference for GauntletMenuBaseView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMenuBaseView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuBaseView
 
 **Namespace:** SandBox.GauntletUI.Menu
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMenuBaseView : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuBaseView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuBaseView.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `GauntletMenuBaseView` as a View-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var view = new GauntletMenuBaseView();
+// Retrieve this view from the subsystem API or scene
+GauntletMenuBaseView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

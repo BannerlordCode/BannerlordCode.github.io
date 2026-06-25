@@ -1,13 +1,7 @@
 ---
 title: "StandingPointWithTeamLimit"
+description: "Auto-generated class reference for StandingPointWithTeamLimit."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandingPointWithTeamLimit`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StandingPointWithTeamLimit
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of StandingPointWithTeamLimit from the subsystem API first
+StandingPointWithTeamLimit standingPointWithTeamLimit = ...;
+var result = standingPointWithTeamLimit.IsDisabledForAgent(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StandingPointWithTeamLimit();
-value.IsDisabledForAgent(agent);
+// Typically call this after obtaining an instance from the subsystem API
+StandingPointWithTeamLimit standingPointWithTeamLimit = ...;
+standingPointWithTeamLimit.IsDisabledForAgent(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

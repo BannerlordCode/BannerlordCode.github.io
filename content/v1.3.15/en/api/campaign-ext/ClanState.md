@@ -1,13 +1,7 @@
 ---
 title: "ClanState"
+description: "Auto-generated class reference for ClanState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -39,9 +33,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var value = new ClanState();
+// Obtain an instance from the relevant subsystem API
+ClanState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

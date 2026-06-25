@@ -1,13 +1,7 @@
 ---
 title: "LoginResult"
+description: "Auto-generated class reference for LoginResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoginResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoginResult
 
 **Namespace:** TaleWorlds.Diamond
@@ -39,9 +33,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new LoginResult();
+// Obtain an instance from the relevant subsystem API
+LoginResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

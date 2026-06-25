@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleSceneNotificationContextProvider"
+description: "CustomBattleSceneNotificationContextProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleSceneNotificationContextProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleSceneNotificationContextProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSceneNotificationContextProvider : ISceneNotificationContextProvider`
 **Base:** `ISceneNotificationContextProvider`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSceneNotificationContextProvider.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSceneNotificationContextProvider.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "CustomBattleSceneNotificationContextProvider"
 ### IsContextAllowed
 `public bool IsContextAllowed(RelevantContextType relevantType)`
 
-**用途 / Purpose:** 处理 `is context allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「context allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleSceneNotificationContextProvider 实例
+CustomBattleSceneNotificationContextProvider customBattleSceneNotificationContextProvider = ...;
+var result = customBattleSceneNotificationContextProvider.IsContextAllowed(relevantType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleSceneNotificationContextProvider();
-value.IsContextAllowed(relevantType);
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleSceneNotificationContextProvider customBattleSceneNotificationContextProvider = ...;
+customBattleSceneNotificationContextProvider.IsContextAllowed(relevantType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "RaidAnEnemyTerritoryIssueTypeDefiner"
+description: "Auto-generated class reference for RaidAnEnemyTerritoryIssueTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RaidAnEnemyTerritoryIssueTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RaidAnEnemyTerritoryIssueTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RaidAnEnemyTerritoryIssueTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RaidAnEnemyTerritoryIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RaidAnEnemyTerritoryIssueBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new RaidAnEnemyTerritoryIssueTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+RaidAnEnemyTerritoryIssueTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

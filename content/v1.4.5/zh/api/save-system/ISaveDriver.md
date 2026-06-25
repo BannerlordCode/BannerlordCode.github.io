@@ -1,20 +1,14 @@
 ---
 title: "ISaveDriver"
+description: "ISaveDriver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ISaveDriver`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISaveDriver
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface ISaveDriver`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ISaveDriver.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/ISaveDriver.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ISaveDriver"
 ## 使用示例
 
 ```csharp
-ISaveDriver implementation = GetSaveDriverImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IISaveDriver service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

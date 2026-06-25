@@ -1,20 +1,14 @@
 ---
 title: "ClientSocketSession"
+description: "Auto-generated class reference for ClientSocketSession."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClientSocketSession`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClientSocketSession
 
 **Namespace:** TaleWorlds.Diamond.Socket
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class ClientSocketSession : ClientsideSession, IClientSession`
 **Base:** `ClientsideSession`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Socket/ClientSocketSession.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Socket/ClientSocketSession.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.Socket` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomClientSocketSession();
+// Typically obtained from a subsystem API or factory
+ClientSocketSession instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

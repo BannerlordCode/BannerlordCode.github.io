@@ -1,20 +1,14 @@
 ---
 title: "BrushLayerAnimation"
+description: "BrushLayerAnimation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushLayerAnimation`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushLayerAnimation
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class BrushLayerAnimation`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushLayerAnimation.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushLayerAnimation.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "BrushLayerAnimation"
 ### AddAnimationProperty
 `public void AddAnimationProperty(BrushAnimationProperty property)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `animation property`。
+**用途 / Purpose:** 将 「animation property」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BrushLayerAnimation 实例
+BrushLayerAnimation brushLayerAnimation = ...;
+brushLayerAnimation.AddAnimationProperty(property);
+```
 
 ### Clone
 `public BrushLayerAnimation Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 BrushLayerAnimation 实例
+BrushLayerAnimation brushLayerAnimation = ...;
+var result = brushLayerAnimation.Clone();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrushLayerAnimation();
-value.AddAnimationProperty(property);
+// 通常从对应子系统 API 获取实例后调用
+BrushLayerAnimation brushLayerAnimation = ...;
+brushLayerAnimation.AddAnimationProperty(property);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

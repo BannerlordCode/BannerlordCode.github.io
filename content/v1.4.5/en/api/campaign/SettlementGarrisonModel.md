@@ -1,20 +1,14 @@
 ---
 title: "SettlementGarrisonModel"
+description: "Auto-generated class reference for SettlementGarrisonModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementGarrisonModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementGarrisonModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementGarrisonModel : MBGameModel<SettlementGarrisonModel>`
 **Base:** `MBGameModel<SettlementGarrisonModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementGarrisonModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementGarrisonModel.cs`
 
 ## Overview
 
@@ -29,34 +23,65 @@ Treat `SettlementGarrisonModel` as a Model-style extension point: first identify
 ### GetMaximumDailyAutoRecruitmentCount
 `public abstract int GetMaximumDailyAutoRecruitmentCount(Town town)`
 
-**Purpose:** Gets the current value of `maximum daily auto recruitment count`.
+**Purpose:** Reads and returns the `maximum daily auto recruitment count` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementGarrisonModel from the subsystem API first
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.GetMaximumDailyAutoRecruitmentCount(town);
+```
 
 ### CalculateBaseGarrisonChange
 `public abstract ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate base garrison change`.
+**Purpose:** Calculates the current value or result of `base garrison change`.
+
+```csharp
+// Obtain an instance of SettlementGarrisonModel from the subsystem API first
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.CalculateBaseGarrisonChange(settlement, false);
+```
 
 ### FindNumberOfTroopsToTakeFromGarrison
 `public abstract int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float idealGarrisonStrengthPerWalledCenter = 0f)`
 
-**Purpose:** Handles logic related to `find number of troops to take from garrison`.
+**Purpose:** Looks up the matching `number of troops to take from garrison` in the current collection or scope.
+
+```csharp
+// Obtain an instance of SettlementGarrisonModel from the subsystem API first
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.FindNumberOfTroopsToTakeFromGarrison(mobileParty, settlement, 0);
+```
 
 ### FindNumberOfTroopsToLeaveToGarrison
 `public abstract int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Handles logic related to `find number of troops to leave to garrison`.
+**Purpose:** Looks up the matching `number of troops to leave to garrison` in the current collection or scope.
+
+```csharp
+// Obtain an instance of SettlementGarrisonModel from the subsystem API first
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.FindNumberOfTroopsToLeaveToGarrison(mobileParty, settlement);
+```
 
 ### GetMaximumDailyRepairAmount
 `public abstract float GetMaximumDailyRepairAmount(Settlement settlement)`
 
-**Purpose:** Gets the current value of `maximum daily repair amount`.
+**Purpose:** Reads and returns the `maximum daily repair amount` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementGarrisonModel from the subsystem API first
+SettlementGarrisonModel settlementGarrisonModel = ...;
+var result = settlementGarrisonModel.GetMaximumDailyRepairAmount(settlement);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementGarrisonModel();
+// Typically obtained from a subsystem API or factory
+SettlementGarrisonModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

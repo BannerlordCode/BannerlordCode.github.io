@@ -1,20 +1,14 @@
 ---
 title: "CharacterRelationManager"
+description: "Auto-generated class reference for CharacterRelationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterRelationManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterRelationManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterRelationManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterRelationManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterRelationManager.cs`
 
 ## Overview
 
@@ -29,42 +23,88 @@ Treat `CharacterRelationManager` as a Manager-style extension point: first ident
 ### GetRelation
 `public int GetRelation(Hero hero1, Hero hero2)`
 
-**Purpose:** Gets the current value of `relation`.
+**Purpose:** Reads and returns the `relation` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterRelationManager from the subsystem API first
+CharacterRelationManager characterRelationManager = ...;
+var result = characterRelationManager.GetRelation(hero1, hero2);
+```
 
 ### SetRelation
 `public void SetRelation(Hero hero1, Hero hero2, int value)`
 
-**Purpose:** Sets the value or state of `relation`.
+**Purpose:** Assigns a new value to `relation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterRelationManager from the subsystem API first
+CharacterRelationManager characterRelationManager = ...;
+characterRelationManager.SetRelation(hero1, hero2, 0);
+```
 
 ### Remove
 `public void Remove(Hero hero)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of CharacterRelationManager from the subsystem API first
+CharacterRelationManager characterRelationManager = ...;
+characterRelationManager.Remove(hero);
+```
 
 ### ClearOldData
 `public void ClearOldData()`
 
-**Purpose:** Handles logic related to `clear old data`.
+**Purpose:** Removes all `old data` from the current object.
+
+```csharp
+// Obtain an instance of CharacterRelationManager from the subsystem API first
+CharacterRelationManager characterRelationManager = ...;
+characterRelationManager.ClearOldData();
+```
 
 ### GetHeroRelation
 `public static int GetHeroRelation(Hero hero1, Hero hero2)`
 
-**Purpose:** Gets the current value of `hero relation`.
+**Purpose:** Reads and returns the `hero relation` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterRelationManager.GetHeroRelation(hero1, hero2);
+```
 
 ### SetHeroRelation
 `public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
 
-**Purpose:** Sets the value or state of `hero relation`.
+**Purpose:** Assigns a new value to `hero relation` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+CharacterRelationManager.SetHeroRelation(hero1, hero2, 0);
+```
 
 ### AfterLoad
 `public void AfterLoad()`
 
-**Purpose:** Handles logic related to `after load`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterRelationManager from the subsystem API first
+CharacterRelationManager characterRelationManager = ...;
+characterRelationManager.AfterLoad();
+```
 
 ### RemoveHero
 `public void RemoveHero(Hero deadHero)`
 
 **Purpose:** Removes `hero` from the current collection or state.
+
+```csharp
+// Obtain an instance of CharacterRelationManager from the subsystem API first
+CharacterRelationManager characterRelationManager = ...;
+characterRelationManager.RemoveHero(deadHero);
+```
 
 ## Usage Example
 
@@ -74,4 +114,4 @@ var manager = CharacterRelationManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TransformedBoundingBoxPointsContainer"
+description: "Auto-generated class reference for TransformedBoundingBoxPointsContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransformedBoundingBoxPointsContainer`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransformedBoundingBoxPointsContainer
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct TransformedBoundingBoxPointsContainer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/BoundingBox.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/BoundingBox.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new TransformedBoundingBoxPointsContainer();
+// Obtain an instance from the relevant subsystem API
+TransformedBoundingBoxPointsContainer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

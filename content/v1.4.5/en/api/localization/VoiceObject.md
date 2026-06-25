@@ -1,20 +1,14 @@
 ---
 title: "VoiceObject"
+description: "Auto-generated class reference for VoiceObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VoiceObject`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VoiceObject
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class VoiceObject`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/VoiceObject.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/VoiceObject.cs`
 
 ## Overview
 
@@ -31,18 +25,30 @@ Start from namespace `TaleWorlds.Localization` to place it in the stack, then in
 
 **Purpose:** Adds `voice paths` to the current collection or state.
 
+```csharp
+// Obtain an instance of VoiceObject from the subsystem API first
+VoiceObject voiceObject = ...;
+voiceObject.AddVoicePaths(node, "example");
+```
+
 ### Deserialize
 `public static VoiceObject Deserialize(XmlNode node, string modulePath)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Static call; no instance required
+VoiceObject.Deserialize(node, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VoiceObject();
-value.AddVoicePaths(node, "example");
+// Typically call this after obtaining an instance from the subsystem API
+VoiceObject voiceObject = ...;
+voiceObject.AddVoicePaths(node, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

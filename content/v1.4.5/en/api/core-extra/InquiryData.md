@@ -1,20 +1,14 @@
 ---
 title: "InquiryData"
+description: "Auto-generated class reference for InquiryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InquiryData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InquiryData
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class InquiryData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/InquiryData.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InquiryData.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `InquiryData` as a Data-style extension point: first identify who creates 
 ### SetText
 `public void SetText(string text)`
 
-**Purpose:** Sets the value or state of `text`.
+**Purpose:** Assigns a new value to `text` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of InquiryData from the subsystem API first
+InquiryData inquiryData = ...;
+inquiryData.SetText("example");
+```
 
 ### SetTitleText
 `public void SetTitleText(string titleText)`
 
-**Purpose:** Sets the value or state of `title text`.
+**Purpose:** Assigns a new value to `title text` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of InquiryData from the subsystem API first
+InquiryData inquiryData = ...;
+inquiryData.SetTitleText("example");
+```
 
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of InquiryData from the subsystem API first
+InquiryData inquiryData = ...;
+var result = inquiryData.HasSameContentWith(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InquiryData();
+// This data object is usually returned by campaign/mission APIs
+InquiryData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

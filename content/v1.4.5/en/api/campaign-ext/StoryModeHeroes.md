@@ -1,20 +1,14 @@
 ---
 title: "StoryModeHeroes"
+description: "Auto-generated class reference for StoryModeHeroes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeHeroes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeHeroes
 
 **Namespace:** StoryMode.StoryModeObjects
 **Module:** StoryMode.StoryModeObjects
 **Type:** `public class StoryModeHeroes`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.StoryModeObjects/StoryModeHeroes.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.StoryModeObjects/StoryModeHeroes.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.StoryModeObjects` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var value = new StoryModeHeroes();
+// Obtain an instance from the relevant subsystem API
+StoryModeHeroes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

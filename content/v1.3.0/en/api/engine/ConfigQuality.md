@@ -1,13 +1,7 @@
 ---
 title: "ConfigQuality"
+description: "Auto-generated class reference for ConfigQuality."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConfigQuality`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConfigQuality
 
 **Namespace:** TaleWorlds.Engine.Options
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.Options` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-ConfigQuality example = ConfigQuality.Value;
+// Obtain an instance from the relevant subsystem API
+ConfigQuality instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

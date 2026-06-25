@@ -1,20 +1,14 @@
 ---
 title: "EngineExtensions"
+description: "EngineExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EngineExtensions`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineExtensions
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class EngineExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineExtensions.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineExtensions.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "EngineExtensions"
 ### ToWorldPosition
 `public static WorldPosition ToWorldPosition(this Vec3 vec3, Scene scene)`
 
-**用途 / Purpose:** 处理 `to world position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+EngineExtensions.ToWorldPosition(vec3, scene);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ EngineExtensions.ToWorldPosition(vec3, scene);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

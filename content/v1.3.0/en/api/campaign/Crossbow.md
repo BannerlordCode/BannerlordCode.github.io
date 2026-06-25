@@ -1,13 +1,7 @@
 ---
 title: "Crossbow"
+description: "Auto-generated class reference for Crossbow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Crossbow`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Crossbow
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -53,9 +47,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new Crossbow();
+// Obtain an instance from the relevant subsystem API
+Crossbow instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletSingleplayerEscapeMenu"
+description: "Auto-generated class reference for MissionGauntletSingleplayerEscapeMenu."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletSingleplayerEscapeMenu`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletSingleplayerEscapeMenu
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSingleplayerEscapeMenu from the subsystem API first
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSingleplayerEscapeMenu from the subsystem API first
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnMissionScreenFinalize();
+```
 
 ### OnFocusChangeOnGameWindow
 `public override void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**Purpose:** Called when the `focus change on game window` event is raised.
+**Purpose:** Invoked when the `focus change on game window` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSingleplayerEscapeMenu from the subsystem API first
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnFocusChangeOnGameWindow(false);
+```
 
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** Called when the `scene rendering started` event is raised.
+**Purpose:** Invoked when the `scene rendering started` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSingleplayerEscapeMenu from the subsystem API first
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnSceneRenderingStarted();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletSingleplayerEscapeMenu();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletSingleplayerEscapeMenu missionGauntletSingleplayerEscapeMenu = ...;
+missionGauntletSingleplayerEscapeMenu.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

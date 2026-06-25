@@ -1,20 +1,14 @@
 ---
 title: "DefaultAllianceModel"
+description: "Auto-generated class reference for DefaultAllianceModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultAllianceModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultAllianceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultAllianceModel : AllianceModel`
 **Base:** `AllianceModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAllianceModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAllianceModel.cs`
 
 ## Overview
 
@@ -29,57 +23,123 @@ Treat `DefaultAllianceModel` as a Model-style extension point: first identify wh
 ### GetCallToWarCost
 `public override int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**Purpose:** Gets the current value of `call to war cost`.
+**Purpose:** Reads and returns the `call to war cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetCallToWarCost(callingKingdom, calledKingdom, kingdomToCallToWarAgainst);
+```
 
 ### GetScoreOfStartingAlliance
 `public override ExplainedNumber GetScoreOfStartingAlliance(Kingdom querierKingdom, Kingdom queriedKingdom, out TextObject explanationText, bool includeDescription = false)`
 
-**Purpose:** Gets the current value of `score of starting alliance`.
+**Purpose:** Reads and returns the `score of starting alliance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetScoreOfStartingAlliance(querierKingdom, queriedKingdom, explanationText, false);
+```
 
 ### GetSupportScoreOfStartingAllianceForClan
 `public override float GetSupportScoreOfStartingAllianceForClan(Kingdom querierKingdom, Kingdom queriedKingdom, Clan evaluatingClan, out TextObject explanationText, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `support score of starting alliance for clan`.
+**Purpose:** Reads and returns the `support score of starting alliance for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetSupportScoreOfStartingAllianceForClan(querierKingdom, queriedKingdom, evaluatingClan, explanationText, false);
+```
 
 ### CanMakeAlliance
 `public override bool CanMakeAlliance(Kingdom kingdom, Kingdom targetKingdom, IFaction evaluatingFaction, out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Checks whether the current object can `make alliance`.
+**Purpose:** Checks whether the current object meets the preconditions for `make alliance`.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.CanMakeAlliance(kingdom, targetKingdom, evaluatingFaction, reason, false);
+```
 
 ### GetInfluenceCostOfProposingStartingAlliance
 `public override int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
 
-**Purpose:** Gets the current value of `influence cost of proposing starting alliance`.
+**Purpose:** Reads and returns the `influence cost of proposing starting alliance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetInfluenceCostOfProposingStartingAlliance(proposingClan);
+```
 
 ### GetScoreOfCallingToWar
 `public override float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**Purpose:** Gets the current value of `score of calling to war`.
+**Purpose:** Reads and returns the `score of calling to war` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetScoreOfCallingToWar(callingKingdom, calledKingdom, kingdomToCallToWarAgainst, evaluatingFaction, reason);
+```
 
 ### GetScoreOfJoiningWar
 `public override float GetScoreOfJoiningWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**Purpose:** Gets the current value of `score of joining war`.
+**Purpose:** Reads and returns the `score of joining war` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetScoreOfJoiningWar(callingKingdom, calledKingdom, kingdomToCallToWarAgainst, evaluatingFaction, reason);
+```
 
 ### GetInfluenceCostOfCallingToWar
 `public override int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
 
-**Purpose:** Gets the current value of `influence cost of calling to war`.
+**Purpose:** Reads and returns the `influence cost of calling to war` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetInfluenceCostOfCallingToWar(proposingClan);
+```
 
 ### GetAllianceFactorForDeclaringWar
 `public override float GetAllianceFactorForDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar)`
 
-**Purpose:** Gets the current value of `alliance factor for declaring war`.
+**Purpose:** Reads and returns the `alliance factor for declaring war` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetAllianceFactorForDeclaringWar(factionDeclaresWar, factionDeclaredWar);
+```
 
 ### GetAllianceFactorForDeclaringPeace
 `public override float GetAllianceFactorForDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
 
-**Purpose:** Gets the current value of `alliance factor for declaring peace`.
+**Purpose:** Reads and returns the `alliance factor for declaring peace` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetAllianceFactorForDeclaringPeace(factionDeclaresPeace, factionDeclaredPeace);
+```
 
 ### GetProposerClanForAllianceDecision
 `public override Clan GetProposerClanForAllianceDecision(Kingdom proposerKingdom, Kingdom proposedKingdom)`
 
-**Purpose:** Gets the current value of `proposer clan for alliance decision`.
+**Purpose:** Reads and returns the `proposer clan for alliance decision` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAllianceModel from the subsystem API first
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetProposerClanForAllianceDecision(proposerKingdom, proposedKingdom);
+```
 
 ## Usage Example
 
@@ -89,4 +149,4 @@ Game.Current.ReplaceModel<DefaultAllianceModel>(new MyDefaultAllianceModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

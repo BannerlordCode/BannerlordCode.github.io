@@ -1,13 +1,7 @@
 ---
 title: "ReinforcementSpawnMethod"
+description: "Auto-generated class reference for ReinforcementSpawnMethod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReinforcementSpawnMethod`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReinforcementSpawnMethod
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-ReinforcementSpawnMethod example = ReinforcementSpawnMethod.Value;
+// Obtain an instance from the relevant subsystem API
+ReinforcementSpawnMethod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CommandLineFunctionality"
+description: "CommandLineFunctionality 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommandLineFunctionality`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommandLineFunctionality
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class CommandLineFunctionality`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/CommandLineFunctionality.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/CommandLineFunctionality.cs`
 
 ## 概述
 
@@ -29,35 +23,62 @@ title: "CommandLineFunctionality"
 ### Call
 `public string Call(List<string> objects)`
 
-**用途 / Purpose:** 处理 `call` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CommandLineFunctionality 实例
+CommandLineFunctionality commandLineFunctionality = ...;
+var result = commandLineFunctionality.Call(objects);
+```
 
 ### CollectCommandLineFunctions
 `public static List<string> CollectCommandLineFunctions()`
 
-**用途 / Purpose:** 处理 `collect command line functions` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CommandLineFunctionality.CollectCommandLineFunctions();
+```
 
 ### HasFunctionForCommand
 `public static bool HasFunctionForCommand(string command)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `function for command`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「function for command」。
+
+```csharp
+// 静态调用，不需要实例
+CommandLineFunctionality.HasFunctionForCommand("example");
+```
 
 ### CallFunction
 `public static string CallFunction(string concatName, string concatArguments, out bool found)`
 
-**用途 / Purpose:** 处理 `call function` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CommandLineFunctionality.CallFunction("example", "example", found);
+```
 
 ### CallFunction
 `public static string CallFunction(string concatName, List<string> argList, out bool found)`
 
-**用途 / Purpose:** 处理 `call function` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CommandLineFunctionality.CallFunction("example", argList, found);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CommandLineFunctionality();
-value.Call(objects);
+// 通常从对应子系统 API 获取实例后调用
+CommandLineFunctionality commandLineFunctionality = ...;
+commandLineFunctionality.Call(objects);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

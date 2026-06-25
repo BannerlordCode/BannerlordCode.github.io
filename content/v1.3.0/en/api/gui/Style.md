@@ -1,13 +1,7 @@
 ---
 title: "Style"
+description: "Auto-generated class reference for Style."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Style`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Style
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -57,65 +51,132 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(Style style)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+style.FillFrom(style);
+```
 
 ### AddLayer
 `public void AddLayer(StyleLayer layer)`
 
 **Purpose:** Adds `layer` to the current collection or state.
 
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+style.AddLayer(layer);
+```
+
 ### RemoveLayer
 `public void RemoveLayer(string layerName)`
 
 **Purpose:** Removes `layer` from the current collection or state.
 
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+style.RemoveLayer("example");
+```
+
 ### GetLayer
 `public StyleLayer GetLayer(int index)`
 
-**Purpose:** Gets the current value of `layer`.
+**Purpose:** Reads and returns the `layer` value held by the current object.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+var result = style.GetLayer(0);
+```
 
 ### GetLayer
 `public StyleLayer GetLayer(string name)`
 
-**Purpose:** Gets the current value of `layer`.
+**Purpose:** Reads and returns the `layer` value held by the current object.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+var result = style.GetLayer("example");
+```
 
 ### GetLayers
 `public StyleLayer GetLayers()`
 
-**Purpose:** Gets the current value of `layers`.
+**Purpose:** Reads and returns the `layers` value held by the current object.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+var result = style.GetLayers();
+```
 
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Creates a new `text material` instance or object.
+**Purpose:** Constructs a new `text material` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+var result = style.CreateTextMaterial(drawContext);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as float`.
+**Purpose:** Reads and returns the `value as float` value held by the current object.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+var result = style.GetValueAsFloat(propertyType);
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as color`.
+**Purpose:** Reads and returns the `value as color` value held by the current object.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+var result = style.GetValueAsColor(propertyType);
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as sprite`.
+**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+var result = style.GetValueAsSprite(propertyType);
+```
 
 ### SetAsDefaultStyle
 `public void SetAsDefaultStyle()`
 
-**Purpose:** Sets the value or state of `as default style`.
+**Purpose:** Assigns a new value to `as default style` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Style from the subsystem API first
+Style style = ...;
+style.SetAsDefaultStyle();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Style();
-value.FillFrom(style);
+// Typically call this after obtaining an instance from the subsystem API
+Style style = ...;
+style.FillFrom(style);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

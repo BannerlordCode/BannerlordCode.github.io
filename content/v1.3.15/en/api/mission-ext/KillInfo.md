@@ -1,68 +1,30 @@
 ---
 title: "KillInfo"
+description: "Auto-generated class reference for KillInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KillInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KillInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum KillInfo : sbyte`
 **Base:** `sbyte`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/Agent.cs`
 
 ## Overview
 
-`KillInfo` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`KillInfo` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `Invalid` |
-| `1` |
-| `Headshot` |
-| `CouchedLance` |
-| `Punch` |
-| `MountHit` |
-| `Bow` |
-| `Crossbow` |
-| `ThrowingAxe` |
-| `ThrowingKnife` |
-| `Javelin` |
-| `Stone` |
-| `Pistol` |
-| `Musket` |
-| `OneHandedSword` |
-| `TwoHandedSword` |
-| `OneHandedAxe` |
-| `TwoHandedAxe` |
-| `Mace` |
-| `Spear` |
-| `Morningstar` |
-| `Maul` |
-| `Backstabbed` |
-| `Gravity` |
-| `ShieldBash` |
-| `WeaponBash` |
-| `Kick` |
-
 ## Usage Example
 
 ```csharp
-KillInfo example = KillInfo.Invalid;
+// Obtain an instance from the relevant subsystem API
+KillInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "EmptyImageIdentifier"
+description: "Auto-generated class reference for EmptyImageIdentifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EmptyImageIdentifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EmptyImageIdentifier
 
 **Namespace:** TaleWorlds.Core.ImageIdentifiers
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ImageIdentifiers` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new EmptyImageIdentifier();
+// Obtain an instance from the relevant subsystem API
+EmptyImageIdentifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaShipPageVM"
+description: "Auto-generated class reference for EncyclopediaShipPageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaShipPageVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaShipPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -43,35 +37,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaShipPageVM from the subsystem API first
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+encyclopediaShipPageVM.RefreshValues();
+```
 
 ### GetName
 `public override string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaShipPageVM from the subsystem API first
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+var result = encyclopediaShipPageVM.GetName();
+```
 
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** Gets the current value of `navigation bar u r l`.
+**Purpose:** Reads and returns the `navigation bar u r l` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaShipPageVM from the subsystem API first
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+var result = encyclopediaShipPageVM.GetNavigationBarURL();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of EncyclopediaShipPageVM from the subsystem API first
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+encyclopediaShipPageVM.ExecuteLink("example");
+```
 
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** Executes the `switch bookmarked state` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch bookmarked state`.
+
+```csharp
+// Obtain an instance of EncyclopediaShipPageVM from the subsystem API first
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+encyclopediaShipPageVM.ExecuteSwitchBookmarkedState();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaShipPageVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaShipPageVM encyclopediaShipPageVM = ...;
+encyclopediaShipPageVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

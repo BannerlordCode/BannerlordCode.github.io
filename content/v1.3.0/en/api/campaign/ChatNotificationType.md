@@ -1,18 +1,12 @@
 ---
 title: "ChatNotificationType"
+description: "Auto-generated class reference for ChatNotificationType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChatNotificationType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatNotificationType
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum ChatNotificationType`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/LogEntries/ChatNotificationType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ## Usage Example
 
 ```csharp
-var example = new ChatNotificationType();
+// Obtain an instance from the relevant subsystem API
+ChatNotificationType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

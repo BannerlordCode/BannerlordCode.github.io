@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeKeyTypeCommandParameter"
+description: "Auto-generated class reference for WidgetAttributeKeyTypeCommandParameter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeKeyTypeCommandParameter`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeCommandParameter
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**Purpose:** Handles logic related to `check key type`.
+**Purpose:** Verifies whether `key type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeCommandParameter from the subsystem API first
+WidgetAttributeKeyTypeCommandParameter widgetAttributeKeyTypeCommandParameter = ...;
+var result = widgetAttributeKeyTypeCommandParameter.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**Purpose:** Gets the current value of `key name`.
+**Purpose:** Reads and returns the `key name` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeCommandParameter from the subsystem API first
+WidgetAttributeKeyTypeCommandParameter widgetAttributeKeyTypeCommandParameter = ...;
+var result = widgetAttributeKeyTypeCommandParameter.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**Purpose:** Gets the current value of `serialized key`.
+**Purpose:** Reads and returns the `serialized key` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeCommandParameter from the subsystem API first
+WidgetAttributeKeyTypeCommandParameter widgetAttributeKeyTypeCommandParameter = ...;
+var result = widgetAttributeKeyTypeCommandParameter.GetSerializedKey("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeKeyTypeCommandParameter();
-value.CheckKeyType("example");
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeKeyTypeCommandParameter widgetAttributeKeyTypeCommandParameter = ...;
+widgetAttributeKeyTypeCommandParameter.CheckKeyType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

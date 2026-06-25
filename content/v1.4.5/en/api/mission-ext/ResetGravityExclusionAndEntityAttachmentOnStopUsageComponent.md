@@ -1,20 +1,14 @@
 ---
 title: "ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent"
+description: "Auto-generated class reference for ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ var component = agent.GetComponent<ResetGravityExclusionAndEntityAttachmentOnSto
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

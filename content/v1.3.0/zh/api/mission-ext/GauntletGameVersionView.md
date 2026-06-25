@@ -1,13 +1,7 @@
 ---
 title: "GauntletGameVersionView"
+description: "GauntletGameVersionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletGameVersionView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletGameVersionView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -35,29 +29,50 @@ title: "GauntletGameVersionView"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+GauntletGameVersionView.Initialize();
+```
 
 ### Refresh
 `public static void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 静态调用，不需要实例
+GauntletGameVersionView.Refresh();
+```
 
 ### AddModuleVersionInfo
 `public static void AddModuleVersionInfo(string title, string versionStr)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `module version info`。
+**用途 / Purpose:** 将 「module version info」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+GauntletGameVersionView.AddModuleVersionInfo("example", "example");
+```
 
 ### RemoveModuleVersionInfo
 `public static void RemoveModuleVersionInfo(string title)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `module version info`。
+**用途 / Purpose:** 从当前容器或状态中移除 「module version info」。
+
+```csharp
+// 静态调用，不需要实例
+GauntletGameVersionView.RemoveModuleVersionInfo("example");
+```
 
 ## 使用示例
 
 ```csharp
-var view = new GauntletGameVersionView();
+// 从子系统 API 或场景中获取该视图
+GauntletGameVersionView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

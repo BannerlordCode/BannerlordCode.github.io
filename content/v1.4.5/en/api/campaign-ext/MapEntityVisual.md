@@ -1,20 +1,14 @@
 ---
 title: "MapEntityVisual"
+description: "Auto-generated class reference for MapEntityVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEntityVisual`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEntityVisual
 
 **Namespace:** SandBox.View.Map.Visuals
 **Module:** SandBox.View
 **Type:** `public abstract class MapEntityVisual`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Visuals/MapEntityVisual.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Visuals/MapEntityVisual.cs`
 
 ## Overview
 
@@ -32,71 +26,137 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 | `AttachedTo` | `public abstract MapEntityVisual AttachedTo { get; set; }` |
 | `CircleLocalFrame` | `public virtual MatrixFrame CircleLocalFrame { get; set; }` |
 | `BearingRotation` | `public virtual float BearingRotation { get; }` |
-| `MapEntity` | `public T MapEntity { get; }` |
 
 ## Key Methods
 
 ### OnMapClick
 `public abstract bool OnMapClick(bool followModifierUsed)`
 
-**Purpose:** Called when the `map click` event is raised.
+**Purpose:** Invoked when the `map click` event is raised.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+var result = mapEntityVisual.OnMapClick(false);
+```
 
 ### OnHover
 `public abstract void OnHover()`
 
-**Purpose:** Called when the `hover` event is raised.
+**Purpose:** Invoked when the `hover` event is raised.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+mapEntityVisual.OnHover();
+```
 
 ### OnOpenEncyclopedia
 `public abstract void OnOpenEncyclopedia()`
 
-**Purpose:** Called when the `open encyclopedia` event is raised.
+**Purpose:** Invoked when the `open encyclopedia` event is raised.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+mapEntityVisual.OnOpenEncyclopedia();
+```
 
 ### IsVisibleOrFadingOut
 `public abstract bool IsVisibleOrFadingOut()`
 
-**Purpose:** Handles logic related to `is visible or fading out`.
+**Purpose:** Determines whether the current object is in the `visible or fading out` state or condition.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+var result = mapEntityVisual.IsVisibleOrFadingOut();
+```
 
 ### GetVisualPosition
 `public abstract Vec3 GetVisualPosition()`
 
-**Purpose:** Gets the current value of `visual position`.
+**Purpose:** Reads and returns the `visual position` value held by the current object.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+var result = mapEntityVisual.GetVisualPosition();
+```
 
 ### ReleaseResources
 `public virtual void ReleaseResources()`
 
-**Purpose:** Handles logic related to `release resources`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+mapEntityVisual.ReleaseResources();
+```
 
 ### OnHoverEnd
 `public virtual void OnHoverEnd()`
 
-**Purpose:** Called when the `hover end` event is raised.
+**Purpose:** Invoked when the `hover end` event is raised.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+mapEntityVisual.OnHoverEnd();
+```
 
 ### OnTrackAction
 `public virtual void OnTrackAction()`
 
-**Purpose:** Called when the `track action` event is raised.
+**Purpose:** Invoked when the `track action` event is raised.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+mapEntityVisual.OnTrackAction();
+```
 
 ### IsEnemyOf
 `public virtual bool IsEnemyOf(IFaction faction)`
 
-**Purpose:** Handles logic related to `is enemy of`.
+**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+var result = mapEntityVisual.IsEnemyOf(faction);
+```
 
 ### IsAllyOf
 `public virtual bool IsAllyOf(IFaction faction)`
 
-**Purpose:** Handles logic related to `is ally of`.
+**Purpose:** Determines whether the current object is in the `ally of` state or condition.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+var result = mapEntityVisual.IsAllyOf(faction);
+```
 
 ### IsInSameFaction
 `public virtual bool IsInSameFaction(IFaction faction)`
 
-**Purpose:** Handles logic related to `is in same faction`.
+**Purpose:** Determines whether the current object is in the `in same faction` state or condition.
+
+```csharp
+// Obtain an instance of MapEntityVisual from the subsystem API first
+MapEntityVisual mapEntityVisual = ...;
+var result = mapEntityVisual.IsInSameFaction(faction);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapEntityVisual();
+// Typically obtained from a subsystem API or factory
+MapEntityVisual instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultHeirSelectionCalculationModel"
+description: "Auto-generated class reference for DefaultHeirSelectionCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultHeirSelectionCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultHeirSelectionCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,7 +29,13 @@ Treat `DefaultHeirSelectionCalculationModel` as a Model-style extension point: f
 ### CalculateHeirSelectionPoint
 `public override int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
 
-**Purpose:** Handles logic related to `calculate heir selection point`.
+**Purpose:** Calculates the current value or result of `heir selection point`.
+
+```csharp
+// Obtain an instance of DefaultHeirSelectionCalculationModel from the subsystem API first
+DefaultHeirSelectionCalculationModel defaultHeirSelectionCalculationModel = ...;
+var result = defaultHeirSelectionCalculationModel.CalculateHeirSelectionPoint(candidateHeir, deadHero, maxSkillHero);
+```
 
 ## Usage Example
 
@@ -45,4 +45,4 @@ Game.Current.ReplaceModel<DefaultHeirSelectionCalculationModel>(new MyDefaultHei
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

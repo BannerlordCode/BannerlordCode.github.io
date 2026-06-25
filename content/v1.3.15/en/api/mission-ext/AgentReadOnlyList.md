@@ -1,13 +1,7 @@
 ---
 title: "AgentReadOnlyList"
+description: "Auto-generated class reference for AgentReadOnlyList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentReadOnlyList`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentReadOnlyList
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions` to place it in the stac
 ## Usage Example
 
 ```csharp
-var value = new AgentReadOnlyList();
+// Obtain an instance from the relevant subsystem API
+AgentReadOnlyList instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

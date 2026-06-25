@@ -1,13 +1,7 @@
 ---
 title: "StandingPointWithVolumeBox"
+description: "StandingPointWithVolumeBox 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StandingPointWithVolumeBox`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandingPointWithVolumeBox
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,15 +29,22 @@ title: "StandingPointWithVolumeBox"
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `is disabled for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointWithVolumeBox 实例
+StandingPointWithVolumeBox standingPointWithVolumeBox = ...;
+var result = standingPointWithVolumeBox.IsDisabledForAgent(agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StandingPointWithVolumeBox();
-value.IsDisabledForAgent(agent);
+// 通常从对应子系统 API 获取实例后调用
+StandingPointWithVolumeBox standingPointWithVolumeBox = ...;
+standingPointWithVolumeBox.IsDisabledForAgent(agent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

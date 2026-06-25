@@ -1,20 +1,14 @@
 ---
 title: "SkillObject"
+description: "SkillObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SkillObject`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillObject
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class SkillObject : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SkillObject.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SkillObject.cs`
 
 ## 概述
 
@@ -36,20 +30,33 @@ title: "SkillObject"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 SkillObject 实例
+SkillObject skillObject = ...;
+var result = skillObject.ToString();
+```
 
 ### Initialize
 `public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute attributes)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SkillObject 实例
+SkillObject skillObject = ...;
+var result = skillObject.Initialize(name, description, attributes);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SkillObject();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+SkillObject skillObject = ...;
+skillObject.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

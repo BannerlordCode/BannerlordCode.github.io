@@ -1,13 +1,7 @@
 ---
 title: "BannerSmallThumbnailCreationData"
+description: "Auto-generated class reference for BannerSmallThumbnailCreationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerSmallThumbnailCreationData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerSmallThumbnailCreationData
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -27,9 +21,10 @@ Treat `BannerSmallThumbnailCreationData` as a Data-style extension point: first 
 ## Usage Example
 
 ```csharp
-var value = new BannerSmallThumbnailCreationData();
+// This data object is usually returned by campaign/mission APIs
+BannerSmallThumbnailCreationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

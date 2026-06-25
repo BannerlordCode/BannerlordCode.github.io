@@ -1,20 +1,14 @@
 ---
 title: "LobbyNotification"
+description: "Auto-generated class reference for LobbyNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyNotification`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyNotification
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyNotification`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyNotification.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyNotification.cs`
 
 ## Overview
 
@@ -39,20 +33,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetParametersAsString
 `public string GetParametersAsString()`
 
-**Purpose:** Gets the current value of `parameters as string`.
+**Purpose:** Reads and returns the `parameters as string` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyNotification from the subsystem API first
+LobbyNotification lobbyNotification = ...;
+var result = lobbyNotification.GetParametersAsString();
+```
 
 ### GetTextObjectOfMessage
 `public TextObject GetTextObjectOfMessage()`
 
-**Purpose:** Gets the current value of `text object of message`.
+**Purpose:** Reads and returns the `text object of message` value held by the current object.
+
+```csharp
+// Obtain an instance of LobbyNotification from the subsystem API first
+LobbyNotification lobbyNotification = ...;
+var result = lobbyNotification.GetTextObjectOfMessage();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LobbyNotification();
-value.GetParametersAsString();
+// Typically call this after obtaining an instance from the subsystem API
+LobbyNotification lobbyNotification = ...;
+lobbyNotification.GetParametersAsString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

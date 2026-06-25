@@ -1,13 +1,7 @@
 ---
 title: "OrderTroopItemVM"
+description: "Auto-generated class reference for OrderTroopItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderTroopItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderTroopItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -51,60 +45,121 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.OnFinalize();
+```
 
 ### OnFormationAgentRemoved
 `public void OnFormationAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `formation agent removed` event is raised.
+**Purpose:** Invoked when the `formation agent removed` event is raised.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.OnFormationAgentRemoved(agent);
+```
 
 ### UpdateVisuals
 `public virtual void UpdateVisuals()`
 
-**Purpose:** Updates the state or data of `visuals`.
+**Purpose:** Recalculates and stores the latest representation of `visuals`.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.UpdateVisuals();
+```
 
 ### Update
 `public virtual void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.Update();
+```
 
 ### UpdateSelectionKeyInfo
 `public void UpdateSelectionKeyInfo()`
 
-**Purpose:** Updates the state or data of `selection key info`.
+**Purpose:** Recalculates and stores the latest representation of `selection key info`.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.UpdateSelectionKeyInfo();
+```
 
 ### SetFormationClassFromFormation
 `public bool SetFormationClassFromFormation(Formation formation)`
 
-**Purpose:** Sets the value or state of `formation class from formation`.
+**Purpose:** Assigns a new value to `formation class from formation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+var result = orderTroopItemVM.SetFormationClassFromFormation(formation);
+```
 
 ### UpdateFilterData
 `public void UpdateFilterData(List<FormationFilterType> usedFilters)`
 
-**Purpose:** Updates the state or data of `filter data`.
+**Purpose:** Recalculates and stores the latest representation of `filter data`.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.UpdateFilterData(usedFilters);
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.ExecuteAction();
+```
 
 ### RefreshTargetedOrderVisual
 `public virtual void RefreshTargetedOrderVisual()`
 
-**Purpose:** Refreshes the display or cache of `targeted order visual`.
+**Purpose:** Keeps the display or cache of `targeted order visual` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.RefreshTargetedOrderVisual();
+```
 
 ### GetVisibleNameOfFormationForMessage
 `public virtual TextObject GetVisibleNameOfFormationForMessage()`
 
-**Purpose:** Gets the current value of `visible name of formation for message`.
+**Purpose:** Reads and returns the `visible name of formation for message` value held by the current object.
+
+```csharp
+// Obtain an instance of OrderTroopItemVM from the subsystem API first
+OrderTroopItemVM orderTroopItemVM = ...;
+var result = orderTroopItemVM.GetVisibleNameOfFormationForMessage();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderTroopItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+OrderTroopItemVM orderTroopItemVM = ...;
+orderTroopItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

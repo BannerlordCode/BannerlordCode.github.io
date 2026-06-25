@@ -1,13 +1,7 @@
 ---
 title: "BehaviorDefendCastleKeyPosition"
+description: "Auto-generated class reference for BehaviorDefendCastleKeyPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorDefendCastleKeyPosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorDefendCastleKeyPosition
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorDefendCastleKeyPosition from the subsystem API first
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+var result = behaviorDefendCastleKeyPosition.GetBehaviorString();
+```
 
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** Called when the `valid behavior side changed` event is raised.
+**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorDefendCastleKeyPosition from the subsystem API first
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorDefendCastleKeyPosition from the subsystem API first
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.TickOccasionally();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorDefendCastleKeyPosition from the subsystem API first
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.OnDeploymentFinished();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorDefendCastleKeyPosition();
-value.GetBehaviorString();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.GetBehaviorString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

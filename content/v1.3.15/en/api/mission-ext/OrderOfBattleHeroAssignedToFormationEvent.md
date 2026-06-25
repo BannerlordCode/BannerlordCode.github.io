@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleHeroAssignedToFormationEvent"
+description: "Auto-generated class reference for OrderOfBattleHeroAssignedToFormationEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleHeroAssignedToFormationEvent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHeroAssignedToFormationEvent
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleHeroAssignedToFormationEvent();
+// Obtain an instance from the relevant subsystem API
+OrderOfBattleHeroAssignedToFormationEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

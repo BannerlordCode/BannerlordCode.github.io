@@ -1,20 +1,14 @@
 ---
 title: "WeatherNode"
+description: "WeatherNode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeatherNode`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeatherNode
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WeatherNode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/WeatherNode.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/WeatherNode.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "WeatherNode"
 ### SetVisualDirty
 `public void SetVisualDirty()`
 
-**用途 / Purpose:** 设置 `visual dirty` 的值或状态。
+**用途 / Purpose:** 为 「visual dirty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeatherNode 实例
+WeatherNode weatherNode = ...;
+weatherNode.SetVisualDirty();
+```
 
 ### OnVisualUpdated
 `public void OnVisualUpdated()`
 
-**用途 / Purpose:** 当 `visual updated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「visual updated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WeatherNode 实例
+WeatherNode weatherNode = ...;
+weatherNode.OnVisualUpdated();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeatherNode();
-value.SetVisualDirty();
+// 通常从对应子系统 API 获取实例后调用
+WeatherNode weatherNode = ...;
+weatherNode.SetVisualDirty();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

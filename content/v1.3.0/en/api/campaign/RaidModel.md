@@ -1,13 +1,7 @@
 ---
 title: "RaidModel"
+description: "Auto-generated class reference for RaidModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RaidModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RaidModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,19 +29,32 @@ Treat `RaidModel` as a Model-style extension point: first identify who creates i
 ### GetCommonLootItemScores
 `public abstract MBReadOnlyList<ValueTuple<ItemObject, float>> GetCommonLootItemScores()`
 
-**Purpose:** Gets the current value of `common loot item scores`.
+**Purpose:** Reads and returns the `common loot item scores` value held by the current object.
+
+```csharp
+// Obtain an instance of RaidModel from the subsystem API first
+RaidModel raidModel = ...;
+var result = raidModel.GetCommonLootItemScores();
+```
 
 ### CalculateHitDamage
 `public abstract ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**Purpose:** Handles logic related to `calculate hit damage`.
+**Purpose:** Calculates the current value or result of `hit damage`.
+
+```csharp
+// Obtain an instance of RaidModel from the subsystem API first
+RaidModel raidModel = ...;
+var result = raidModel.CalculateHitDamage(attackerSide, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRaidModel();
+// Typically obtained from a subsystem API or factory
+RaidModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

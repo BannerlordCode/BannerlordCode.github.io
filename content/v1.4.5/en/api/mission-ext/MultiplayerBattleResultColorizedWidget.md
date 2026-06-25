@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerBattleResultColorizedWidget"
+description: "Auto-generated class reference for MultiplayerBattleResultColorizedWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerBattleResultColorizedWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleResultColorizedWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleResultColorizedWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerBattleResultColorizedWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerBattleResultColorizedWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `MultiplayerBattleResultColorizedWidget` as a Widget-style extension point
 ### MultiplayerBattleResultColorizedWidget
 `public class MultiplayerBattleResultColorizedWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer battle result colorized widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerBattleResultColorizedWidget from the subsystem API first
+MultiplayerBattleResultColorizedWidget multiplayerBattleResultColorizedWidget = ...;
+var result = multiplayerBattleResultColorizedWidget.MultiplayerBattleResultColorizedWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerBattleResultColorizedWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerBattleResultColorizedWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

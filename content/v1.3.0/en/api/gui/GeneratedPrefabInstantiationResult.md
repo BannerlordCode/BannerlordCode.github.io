@@ -1,13 +1,7 @@
 ---
 title: "GeneratedPrefabInstantiationResult"
+description: "Auto-generated class reference for GeneratedPrefabInstantiationResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GeneratedPrefabInstantiationResult`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GeneratedPrefabInstantiationResult
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -37,18 +31,31 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 
 **Purpose:** Adds `data` to the current collection or state.
 
+```csharp
+// Obtain an instance of GeneratedPrefabInstantiationResult from the subsystem API first
+GeneratedPrefabInstantiationResult generatedPrefabInstantiationResult = ...;
+generatedPrefabInstantiationResult.AddData("example", data);
+```
+
 ### GetExtensionData
 `public object GetExtensionData(string tag)`
 
-**Purpose:** Gets the current value of `extension data`.
+**Purpose:** Reads and returns the `extension data` value held by the current object.
+
+```csharp
+// Obtain an instance of GeneratedPrefabInstantiationResult from the subsystem API first
+GeneratedPrefabInstantiationResult generatedPrefabInstantiationResult = ...;
+var result = generatedPrefabInstantiationResult.GetExtensionData("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GeneratedPrefabInstantiationResult();
-value.AddData("example", data);
+// Typically call this after obtaining an instance from the subsystem API
+GeneratedPrefabInstantiationResult generatedPrefabInstantiationResult = ...;
+generatedPrefabInstantiationResult.AddData("example", data);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

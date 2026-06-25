@@ -1,20 +1,14 @@
 ---
 title: "ModuleExtensions"
+description: "Auto-generated class reference for ModuleExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ModuleExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ModuleExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ModuleExtensions.cs`
 
 ## Overview
 
@@ -29,22 +23,42 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetUsedMachines
 `public static IEnumerable<UsableMachine> GetUsedMachines(this Formation formation)`
 
-**Purpose:** Gets the current value of `used machines`.
+**Purpose:** Reads and returns the `used machines` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleExtensions.GetUsedMachines(formation);
+```
 
 ### StartUsingMachine
 `public static void StartUsingMachine(this Formation formation, UsableMachine usable, bool isPlayerOrder = false)`
 
-**Purpose:** Handles logic related to `start using machine`.
+**Purpose:** Starts the `using machine` flow or state machine.
+
+```csharp
+// Static call; no instance required
+ModuleExtensions.StartUsingMachine(formation, usable, false);
+```
 
 ### StopUsingMachine
 `public static void StopUsingMachine(this Formation formation, UsableMachine usable, bool isPlayerOrder = false)`
 
-**Purpose:** Handles logic related to `stop using machine`.
+**Purpose:** Stops the `using machine` flow or state machine.
+
+```csharp
+// Static call; no instance required
+ModuleExtensions.StopUsingMachine(formation, usable, false);
+```
 
 ### ToWorldPosition
 `public static WorldPosition ToWorldPosition(this Vec3 rawPosition)`
 
-**Purpose:** Handles logic related to `to world position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ModuleExtensions.ToWorldPosition(rawPosition);
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ ModuleExtensions.GetUsedMachines(formation);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

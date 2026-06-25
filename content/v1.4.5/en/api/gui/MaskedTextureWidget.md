@@ -1,20 +1,14 @@
 ---
 title: "MaskedTextureWidget"
+description: "Auto-generated class reference for MaskedTextureWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MaskedTextureWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MaskedTextureWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class MaskedTextureWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/MaskedTextureWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/MaskedTextureWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `MaskedTextureWidget` as a Widget-style extension point: first identify wh
 ### OnClearTextureProvider
 `public override void OnClearTextureProvider()`
 
-**Purpose:** Called when the `clear texture provider` event is raised.
+**Purpose:** Invoked when the `clear texture provider` event is raised.
+
+```csharp
+// Obtain an instance of MaskedTextureWidget from the subsystem API first
+MaskedTextureWidget maskedTextureWidget = ...;
+maskedTextureWidget.OnClearTextureProvider();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MaskedTextureWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MaskedTextureWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

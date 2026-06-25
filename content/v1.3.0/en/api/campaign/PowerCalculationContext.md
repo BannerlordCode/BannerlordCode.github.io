@@ -1,13 +1,7 @@
 ---
 title: "PowerCalculationContext"
+description: "Auto-generated class reference for PowerCalculationContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PowerCalculationContext`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PowerCalculationContext
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ## Usage Example
 
 ```csharp
-PowerCalculationContext example = PowerCalculationContext.Value;
+// Obtain an instance from the relevant subsystem API
+PowerCalculationContext instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

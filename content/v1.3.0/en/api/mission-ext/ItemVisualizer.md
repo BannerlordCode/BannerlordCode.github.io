@@ -1,13 +1,7 @@
 ---
 title: "ItemVisualizer"
+description: "Auto-generated class reference for ItemVisualizer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemVisualizer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemVisualizer
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var value = new ItemVisualizer();
+// Obtain an instance from the relevant subsystem API
+ItemVisualizer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

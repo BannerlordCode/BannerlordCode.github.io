@@ -1,13 +1,7 @@
 ---
 title: "SoundtrackInfo"
+description: "Auto-generated class reference for SoundtrackInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundtrackInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SoundtrackInfo
 
 **Namespace:** psai.net
@@ -27,9 +21,10 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var value = new SoundtrackInfo();
+// Obtain an instance from the relevant subsystem API
+SoundtrackInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

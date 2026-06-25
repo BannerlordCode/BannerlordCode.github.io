@@ -1,20 +1,14 @@
 ---
 title: "Highlights"
+description: "Auto-generated class reference for Highlights."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Highlights`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Highlights
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class Highlights`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Highlights.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Highlights.cs`
 
 ## Overview
 
@@ -29,42 +23,82 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+Highlights.Initialize();
+```
 
 ### OpenGroup
 `public static void OpenGroup(string id)`
 
-**Purpose:** Handles logic related to `open group`.
+**Purpose:** Opens the resource or UI associated with `group`.
+
+```csharp
+// Static call; no instance required
+Highlights.OpenGroup("example");
+```
 
 ### CloseGroup
 `public static void CloseGroup(string id, bool destroy = false)`
 
-**Purpose:** Handles logic related to `close group`.
+**Purpose:** Closes the resource or UI associated with `group`.
+
+```csharp
+// Static call; no instance required
+Highlights.CloseGroup("example", false);
+```
 
 ### SaveScreenshot
 `public static void SaveScreenshot(string highlightId, string groupId)`
 
-**Purpose:** Saves `screenshot` data.
+**Purpose:** Writes `screenshot` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+Highlights.SaveScreenshot("example", "example");
+```
 
 ### SaveVideo
 `public static void SaveVideo(string highlightId, string groupId, int startDelta, int endDelta)`
 
-**Purpose:** Saves `video` data.
+**Purpose:** Writes `video` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+Highlights.SaveVideo("example", "example", 0, 0);
+```
 
 ### OpenSummary
 `public static void OpenSummary(List<string> groups)`
 
-**Purpose:** Handles logic related to `open summary`.
+**Purpose:** Opens the resource or UI associated with `summary`.
+
+```csharp
+// Static call; no instance required
+Highlights.OpenSummary(groups);
+```
 
 ### AddHighlight
 `public static void AddHighlight(string id, string name)`
 
 **Purpose:** Adds `highlight` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+Highlights.AddHighlight("example", "example");
+```
+
 ### RemoveHighlight
 `public static void RemoveHighlight(string id)`
 
 **Purpose:** Removes `highlight` from the current collection or state.
+
+```csharp
+// Static call; no instance required
+Highlights.RemoveHighlight("example");
+```
 
 ## Usage Example
 
@@ -74,4 +108,4 @@ Highlights.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

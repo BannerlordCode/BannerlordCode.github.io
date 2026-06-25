@@ -1,20 +1,14 @@
 ---
 title: "Screen"
+description: "Auto-generated class reference for Screen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Screen`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Screen
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class Screen`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Screen.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Screen.cs`
 
 ## Overview
 
@@ -39,7 +33,12 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetMouseVisible
 `public static bool GetMouseVisible()`
 
-**Purpose:** Gets the current value of `mouse visible`.
+**Purpose:** Reads and returns the `mouse visible` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Screen.GetMouseVisible();
+```
 
 ## Usage Example
 
@@ -49,4 +48,4 @@ Screen.GetMouseVisible();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

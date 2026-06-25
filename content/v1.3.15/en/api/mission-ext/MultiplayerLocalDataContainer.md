@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLocalDataContainer"
+description: "Auto-generated class reference for MultiplayerLocalDataContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLocalDataContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLocalDataContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby
@@ -31,47 +25,93 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby` to place it in the
 
 **Purpose:** Adds `entry` to the current collection or state.
 
+```csharp
+// Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+multiplayerLocalDataContainer.AddEntry(item);
+```
+
 ### InsertEntry
 `public void InsertEntry(T item, int index)`
 
-**Purpose:** Handles logic related to `insert entry`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+multiplayerLocalDataContainer.InsertEntry(item, 0);
+```
 
 ### RemoveEntry
 `public void RemoveEntry(T item)`
 
 **Purpose:** Removes `entry` from the current collection or state.
 
+```csharp
+// Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+multiplayerLocalDataContainer.RemoveEntry(item);
+```
+
 ### GetEntries
 `public MBReadOnlyList<T> GetEntries()`
 
-**Purpose:** Gets the current value of `entries`.
+**Purpose:** Reads and returns the `entries` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+var result = multiplayerLocalDataContainer.GetEntries();
+```
 
 ### CreateAsAdd
 `public static MultiplayerLocalDataContainer<T>.ContainerOperation CreateAsAdd(T item)`
 
-**Purpose:** Creates a new `as add` instance or object.
+**Purpose:** Constructs a new `as add` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerLocalDataContainer.CreateAsAdd(item);
+```
 
 ### CreateAsRemove
 `public static MultiplayerLocalDataContainer<T>.ContainerOperation CreateAsRemove(T item)`
 
-**Purpose:** Creates a new `as remove` instance or object.
+**Purpose:** Constructs a new `as remove` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerLocalDataContainer.CreateAsRemove(item);
+```
 
 ### CreateAsInsert
 `public static MultiplayerLocalDataContainer<T>.ContainerOperation CreateAsInsert(T item, int index)`
 
-**Purpose:** Creates a new `as insert` instance or object.
+**Purpose:** Constructs a new `as insert` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerLocalDataContainer.CreateAsInsert(item, 0);
+```
 
 ### Compare
 `public int Compare(MultiplayerLocalDataContainer<T>.ContainerOperation x, MultiplayerLocalDataContainer<T>.ContainerOperation y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+var result = multiplayerLocalDataContainer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMultiplayerLocalDataContainer();
+// Typically obtained from a subsystem API or factory
+MultiplayerLocalDataContainer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,50 +1,30 @@
 ---
 title: "RomanceLevelEnum"
+description: "Auto-generated class reference for RomanceLevelEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RomanceLevelEnum`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RomanceLevelEnum
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum RomanceLevelEnum`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Romance.cs`
 
 ## Overview
 
-`RomanceLevelEnum` lives in `TaleWorlds.CampaignSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`RomanceLevelEnum` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `Ended` |
-| `2` |
-| `Rejection` |
-| `Untested` |
-| `FailedInCompatibility` |
-| `FailedInPracticalities` |
-| `MatchMadeByFamily` |
-| `CourtshipStarted` |
-| `CoupleDecidedThatTheyAreCompatible` |
-| `CoupleAgreedOnMarriage` |
-
 ## Usage Example
 
 ```csharp
-RomanceLevelEnum example = RomanceLevelEnum.Ended;
+// Obtain an instance from the relevant subsystem API
+RomanceLevelEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

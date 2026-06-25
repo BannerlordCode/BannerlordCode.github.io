@@ -1,23 +1,18 @@
 ---
 title: "SaveCodeGenerationContext"
+description: "SaveCodeGenerationContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveCodeGenerationContext`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveCodeGenerationContext
 
-**命名空间:** TaleWorlds.SaveSystem.Definition
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public class SaveCodeGenerationContext`
-**领域:** save-system
+**Namespace:** TaleWorlds.SaveSystem.Definition
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class SaveCodeGenerationContext`
+**Base:** 无
+**File:** `TaleWorlds.SaveSystem/Definition/SaveCodeGenerationContext.cs`
 
 ## 概述
 
-`SaveCodeGenerationContext` 位于 `TaleWorlds.SaveSystem.Definition`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`SaveCodeGenerationContext` 位于 `TaleWorlds.SaveSystem.Definition`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,17 +23,22 @@ title: "SaveCodeGenerationContext"
 ### AddAssembly
 `public void AddAssembly(Assembly assembly, string defaultNamespace, string location, string fileName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `assembly`。
+**用途 / Purpose:** 将 「assembly」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveCodeGenerationContext 实例
+SaveCodeGenerationContext saveCodeGenerationContext = ...;
+saveCodeGenerationContext.AddAssembly(assembly, "example", "example", "example");
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 SaveCodeGenerationContext 实例，再调用它的公开方法
-var value = new SaveCodeGenerationContext();
-value.AddAssembly(assembly, "example", "example", "example");
+// 通常从对应子系统 API 获取实例后调用
+SaveCodeGenerationContext saveCodeGenerationContext = ...;
+saveCodeGenerationContext.AddAssembly(assembly, "example", "example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameModels"
+description: "Auto-generated class reference for GameModels."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameModels`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameModels
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -155,9 +149,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new GameModels();
+// Obtain an instance from the relevant subsystem API
+GameModels instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

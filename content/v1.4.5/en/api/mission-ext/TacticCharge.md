@@ -1,20 +1,14 @@
 ---
 title: "TacticCharge"
+description: "Auto-generated class reference for TacticCharge."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticCharge`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticCharge
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticCharge : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticCharge.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticCharge.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticCharge from the subsystem API first
+TacticCharge tacticCharge = ...;
+tacticCharge.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticCharge();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+TacticCharge tacticCharge = ...;
+tacticCharge.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

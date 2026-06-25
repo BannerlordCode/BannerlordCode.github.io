@@ -1,13 +1,7 @@
 ---
 title: "MapConversationTableauData"
+description: "MapConversationTableauData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapConversationTableauData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationTableauData
 
 **Namespace:** SandBox.View.Map
@@ -43,14 +37,20 @@ title: "MapConversationTableauData"
 ### CreateFrom
 `public static MapConversationTableauData CreateFrom(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, TerrainType terrainType, float timeOfDay, bool isCurrentTerrainUnderSnow, Settlement settlement, string locationId, bool isRaining, bool isSnowing)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MapConversationTableauData.CreateFrom(playerCharacterData, conversationPartnerData, terrainType, 0, false, settlement, "example", false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapConversationTableauData();
+// 该数据对象通常由战役/任务 API 返回
+MapConversationTableauData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

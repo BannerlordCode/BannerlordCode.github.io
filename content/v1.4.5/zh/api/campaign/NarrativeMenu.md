@@ -1,20 +1,14 @@
 ---
 title: "NarrativeMenu"
+description: "NarrativeMenu 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NarrativeMenu`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NarrativeMenu
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class NarrativeMenu`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/NarrativeMenu.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/NarrativeMenu.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "NarrativeMenu"
 ### GetNarrativeMenuCharacterArgsDelegate
 `public delegate List<NarrativeMenuCharacterArgs> GetNarrativeMenuCharacterArgsDelegate(CultureObject culture, string occupationType, CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 获取 `narrative menu character args delegate` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「narrative menu character args delegate」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenu 实例
+NarrativeMenu narrativeMenu = ...;
+var result = narrativeMenu.GetNarrativeMenuCharacterArgsDelegate(culture, "example", characterCreationManager);
+```
 
 ### AddNarrativeMenuOption
 `public void AddNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `narrative menu option`。
+**用途 / Purpose:** 将 「narrative menu option」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenu 实例
+NarrativeMenu narrativeMenu = ...;
+narrativeMenu.AddNarrativeMenuOption(narrativeMenuOption);
+```
 
 ### RemoveNarrativeMenuOption
 `public void RemoveNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `narrative menu option`。
+**用途 / Purpose:** 从当前容器或状态中移除 「narrative menu option」。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenu 实例
+NarrativeMenu narrativeMenu = ...;
+narrativeMenu.RemoveNarrativeMenuOption(narrativeMenuOption);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NarrativeMenu();
-value.GetNarrativeMenuCharacterArgsDelegate(culture, "example", characterCreationManager);
+// 通常从对应子系统 API 获取实例后调用
+NarrativeMenu narrativeMenu = ...;
+narrativeMenu.GetNarrativeMenuCharacterArgsDelegate(culture, "example", characterCreationManager);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

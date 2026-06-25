@@ -1,20 +1,14 @@
 ---
 title: "SetPrisonerFreeBarterable"
+description: "SetPrisonerFreeBarterable 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SetPrisonerFreeBarterable`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetPrisonerFreeBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SetPrisonerFreeBarterable : Barterable`
 **Base:** `Barterable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/SetPrisonerFreeBarterable.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/SetPrisonerFreeBarterable.cs`
 
 ## 概述
 
@@ -35,30 +29,55 @@ title: "SetPrisonerFreeBarterable"
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**用途 / Purpose:** 获取 `unit value for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit value for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SetPrisonerFreeBarterable 实例
+SetPrisonerFreeBarterable setPrisonerFreeBarterable = ...;
+var result = setPrisonerFreeBarterable.GetUnitValueForFaction(faction);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**用途 / Purpose:** 获取 `visual identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SetPrisonerFreeBarterable 实例
+SetPrisonerFreeBarterable setPrisonerFreeBarterable = ...;
+var result = setPrisonerFreeBarterable.GetVisualIdentifier();
+```
 
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**用途 / Purpose:** 获取 `encyclopedia link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SetPrisonerFreeBarterable 实例
+SetPrisonerFreeBarterable setPrisonerFreeBarterable = ...;
+var result = setPrisonerFreeBarterable.GetEncyclopediaLink();
+```
 
 ### Apply
 `public override void Apply()`
 
-**用途 / Purpose:** 将 `apply` 应用到当前对象。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
+
+```csharp
+// 先通过子系统 API 拿到 SetPrisonerFreeBarterable 实例
+SetPrisonerFreeBarterable setPrisonerFreeBarterable = ...;
+setPrisonerFreeBarterable.Apply();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SetPrisonerFreeBarterable();
-value.GetUnitValueForFaction(faction);
+// 通常从对应子系统 API 获取实例后调用
+SetPrisonerFreeBarterable setPrisonerFreeBarterable = ...;
+setPrisonerFreeBarterable.GetUnitValueForFaction(faction);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

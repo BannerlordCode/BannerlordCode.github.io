@@ -1,13 +1,7 @@
 ---
 title: "TransferCommand"
+description: "TransferCommand 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TransferCommand`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransferCommand
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
@@ -43,7 +37,12 @@ title: "TransferCommand"
 ### Transfer
 `public static TransferCommand Transfer(int amount, InventoryLogic.InventorySide fromSide, InventoryLogic.InventorySide toSide, ItemRosterElement elementToTransfer, EquipmentIndex fromEquipmentIndex, EquipmentIndex toEquipmentIndex, CharacterObject character)`
 
-**用途 / Purpose:** 处理 `transfer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TransferCommand.Transfer(0, fromSide, toSide, elementToTransfer, fromEquipmentIndex, toEquipmentIndex, character);
+```
 
 ## 使用示例
 
@@ -53,4 +52,4 @@ TransferCommand.Transfer(0, fromSide, toSide, elementToTransfer, fromEquipmentIn
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

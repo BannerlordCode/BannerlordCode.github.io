@@ -1,13 +1,7 @@
 ---
 title: "TalkToNpcQuestTask"
+description: "Auto-generated class reference for TalkToNpcQuestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TalkToNpcQuestTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TalkToNpcQuestTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### IsTaskCharacter
 `public bool IsTaskCharacter()`
 
-**Purpose:** Handles logic related to `is task character`.
+**Purpose:** Determines whether the current object is in the `task character` state or condition.
+
+```csharp
+// Obtain an instance of TalkToNpcQuestTask from the subsystem API first
+TalkToNpcQuestTask talkToNpcQuestTask = ...;
+var result = talkToNpcQuestTask.IsTaskCharacter();
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TalkToNpcQuestTask from the subsystem API first
+TalkToNpcQuestTask talkToNpcQuestTask = ...;
+talkToNpcQuestTask.SetReferences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TalkToNpcQuestTask();
-value.IsTaskCharacter();
+// Typically call this after obtaining an instance from the subsystem API
+TalkToNpcQuestTask talkToNpcQuestTask = ...;
+talkToNpcQuestTask.IsTaskCharacter();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "WeakNativeObjectReference"
+description: "WeakNativeObjectReference 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeakNativeObjectReference`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeakNativeObjectReference
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** `public sealed class WeakNativeObjectReference`
+**Type:** `public sealed class WeakNativeObjectReference<T>`
 **Base:** 无
-**File:** `TaleWorlds.DotNet/WeakNativeObjectReference.cs`
+**File:** `TaleWorlds.DotNet/WeakNativeObjectReference.2.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "WeakNativeObjectReference"
 ### ManualInvalidate
 `public void ManualInvalidate()`
 
-**用途 / Purpose:** 处理 `manual invalidate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakNativeObjectReference 实例
+WeakNativeObjectReference weakNativeObjectReference = ...;
+weakNativeObjectReference.ManualInvalidate();
+```
 
 ### GetNativeObject
 `public NativeObject GetNativeObject()`
 
-**用途 / Purpose:** 获取 `native object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「native object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakNativeObjectReference 实例
+WeakNativeObjectReference weakNativeObjectReference = ...;
+var result = weakNativeObjectReference.GetNativeObject();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeakNativeObjectReference();
-value.ManualInvalidate();
+// 通常从对应子系统 API 获取实例后调用
+WeakNativeObjectReference weakNativeObjectReference = ...;
+weakNativeObjectReference.ManualInvalidate();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

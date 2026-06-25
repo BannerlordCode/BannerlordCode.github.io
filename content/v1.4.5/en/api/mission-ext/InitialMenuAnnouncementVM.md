@@ -1,20 +1,14 @@
 ---
 title: "InitialMenuAnnouncementVM"
+description: "Auto-generated class reference for InitialMenuAnnouncementVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialMenuAnnouncementVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialMenuAnnouncementVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InitialMenuAnnouncementVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu/InitialMenuAnnouncementVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu/InitialMenuAnnouncementVM.cs`
 
 ## Overview
 
@@ -40,25 +34,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu` 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of InitialMenuAnnouncementVM from the subsystem API first
+InitialMenuAnnouncementVM initialMenuAnnouncementVM = ...;
+initialMenuAnnouncementVM.Tick();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of InitialMenuAnnouncementVM from the subsystem API first
+InitialMenuAnnouncementVM initialMenuAnnouncementVM = ...;
+initialMenuAnnouncementVM.Refresh();
+```
 
 ### ExecuteNavigateToLink
 `public void ExecuteNavigateToLink()`
 
-**Purpose:** Executes the `navigate to link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `navigate to link`.
+
+```csharp
+// Obtain an instance of InitialMenuAnnouncementVM from the subsystem API first
+InitialMenuAnnouncementVM initialMenuAnnouncementVM = ...;
+initialMenuAnnouncementVM.ExecuteNavigateToLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InitialMenuAnnouncementVM();
-value.Tick();
+// Typically call this after obtaining an instance from the subsystem API
+InitialMenuAnnouncementVM initialMenuAnnouncementVM = ...;
+initialMenuAnnouncementVM.Tick();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

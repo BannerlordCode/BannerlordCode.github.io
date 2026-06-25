@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapConversationBarterView"
+description: "Auto-generated class reference for GauntletMapConversationBarterView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapConversationBarterView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapConversationBarterView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapConversationBarterView`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapConversationBarterView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapConversationBarterView.cs`
 
 ## Overview
 
@@ -36,39 +30,76 @@ Treat `GauntletMapConversationBarterView` as a View-style extension point: first
 ### OnBarterActiveStateChanged
 `public delegate void OnBarterActiveStateChanged(bool isBarterActive)`
 
-**Purpose:** Called when the `barter active state changed` event is raised.
+**Purpose:** Invoked when the `barter active state changed` event is raised.
+
+```csharp
+// Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.OnBarterActiveStateChanged(false);
+```
 
 ### CreateBarterView
 `public void CreateBarterView(BarterData args)`
 
-**Purpose:** Creates a new `barter view` instance or object.
+**Purpose:** Constructs a new `barter view` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.CreateBarterView(args);
+```
 
 ### DestroyBarterView
 `public void DestroyBarterView()`
 
-**Purpose:** Handles logic related to `destroy barter view`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.DestroyBarterView();
+```
 
 ### Activate
 `public void Activate()`
 
-**Purpose:** Handles logic related to `activate`.
+**Purpose:** Activates the resource, state, or feature represented by the current object.
+
+```csharp
+// Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.Activate();
+```
 
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** Handles logic related to `deactivate`.
+**Purpose:** Deactivates the resource, state, or feature represented by the current object.
+
+```csharp
+// Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.Deactivate();
+```
 
 ### TickInput
 `public void TickInput()`
 
-**Purpose:** Handles logic related to `tick input`.
+**Purpose:** Advances the `input` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of GauntletMapConversationBarterView from the subsystem API first
+GauntletMapConversationBarterView gauntletMapConversationBarterView = ...;
+gauntletMapConversationBarterView.TickInput();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapConversationBarterView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapConversationBarterView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

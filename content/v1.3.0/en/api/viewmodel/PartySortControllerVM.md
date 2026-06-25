@@ -1,13 +1,7 @@
 ---
 title: "PartySortControllerVM"
+description: "Auto-generated class reference for PartySortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartySortControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartySortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### SelectSortType
 `public void SelectSortType(PartyScreenLogic.TroopSortType sortType)`
 
-**Purpose:** Handles logic related to `select sort type`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartySortControllerVM from the subsystem API first
+PartySortControllerVM partySortControllerVM = ...;
+partySortControllerVM.SelectSortType(sortType);
+```
 
 ### SortWith
 `public void SortWith(PartyScreenLogic.TroopSortType sortType, bool isAscending)`
 
-**Purpose:** Handles logic related to `sort with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartySortControllerVM from the subsystem API first
+PartySortControllerVM partySortControllerVM = ...;
+partySortControllerVM.SortWith(sortType, false);
+```
 
 ### ExecuteToggleOrder
 `public void ExecuteToggleOrder()`
 
-**Purpose:** Executes the `toggle order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle order`.
+
+```csharp
+// Obtain an instance of PartySortControllerVM from the subsystem API first
+PartySortControllerVM partySortControllerVM = ...;
+partySortControllerVM.ExecuteToggleOrder();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartySortControllerVM();
-value.SelectSortType(sortType);
+// Typically call this after obtaining an instance from the subsystem API
+PartySortControllerVM partySortControllerVM = ...;
+partySortControllerVM.SelectSortType(sortType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

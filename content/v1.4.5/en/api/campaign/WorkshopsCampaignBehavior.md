@@ -1,20 +1,14 @@
 ---
 title: "WorkshopsCampaignBehavior"
+description: "Auto-generated class reference for WorkshopsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorkshopsCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopsCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WorkshopsCampaignBehavior : CampaignBehaviorBase, IWorkshopWarehouseCampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/WorkshopsCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/WorkshopsCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+var result = workshopsCampaignBehavior.ToString();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+workshopsCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+workshopsCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetWarehouseItemRosterWeight
 `public float GetWarehouseItemRosterWeight(Settlement settlement)`
 
-**Purpose:** Gets the current value of `warehouse item roster weight`.
+**Purpose:** Reads and returns the `warehouse item roster weight` value held by the current object.
+
+```csharp
+// Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+var result = workshopsCampaignBehavior.GetWarehouseItemRosterWeight(settlement);
+```
 
 ### TransferWarehouseToPlayerParty
 `public void TransferWarehouseToPlayerParty(Settlement settlement)`
 
-**Purpose:** Handles logic related to `transfer warehouse to player party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+workshopsCampaignBehavior.TransferWarehouseToPlayerParty(settlement);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WorkshopsCampaignBehavior();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+WorkshopsCampaignBehavior workshopsCampaignBehavior = ...;
+workshopsCampaignBehavior.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

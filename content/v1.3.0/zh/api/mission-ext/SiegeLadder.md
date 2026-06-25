@@ -1,13 +1,7 @@
 ---
 title: "SiegeLadder"
+description: "SiegeLadder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeLadder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeLadder
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -51,105 +45,220 @@ title: "SiegeLadder"
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** 获取 `siege engine type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege engine type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetSiegeEngineType();
+```
 
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `order` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetOrder(side);
+```
 
 ### HasCompletedAction
 `public bool HasCompletedAction()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `completed action`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「completed action」。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.HasCompletedAction();
+```
 
 ### IsDisabledForBattleSide
 `public override bool IsDisabledForBattleSide(BattleSideEnum sideEnum)`
 
-**用途 / Purpose:** 处理 `is disabled for battle side` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for battle side」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.IsDisabledForBattleSide(sideEnum);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetTickRequirement();
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** 创建一个 `a i behavior object` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「a i behavior object」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.CreateAIBehaviorObject();
+```
 
 ### SetUpStateVisibility
 `public void SetUpStateVisibility(bool isVisible)`
 
-**用途 / Purpose:** 设置 `up state visibility` 的值或状态。
+**用途 / Purpose:** 为 「up state visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+siegeLadder.SetUpStateVisibility(false);
+```
 
 ### SetAbilityOfFaces
 `public override void SetAbilityOfFaces(bool enabled)`
 
-**用途 / Purpose:** 设置 `ability of faces` 的值或状态。
+**用途 / Purpose:** 为 「ability of faces」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+siegeLadder.SetAbilityOfFaces(false);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**用途 / Purpose:** 处理 `write to network` 相关逻辑。
+**用途 / Purpose:** 将「to network」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+siegeLadder.WriteToNetwork();
+```
 
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**用途 / Purpose:** 获取 `target flags` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target flags」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetTargetFlags();
+```
 
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**用途 / Purpose:** 获取 `target value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetTargetValue(weaponPos);
+```
 
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**用途 / Purpose:** 设置 `spawned from spawner` 的值或状态。
+**用途 / Purpose:** 为 「spawned from spawner」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+siegeLadder.SetSpawnedFromSpawner();
+```
 
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord)`
 
-**用途 / Purpose:** 当 `after read from network` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after read from network」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+siegeLadder.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord);
+```
 
 ### AssignParametersFromSpawner
 `public void AssignParametersFromSpawner(string sideTag, string targetWallSegment, int onWallNavMeshId, float downStateRotationRadian, float upperStateRotationRadian, string barrierTagToRemove, string indestructibleMerlonsTag)`
 
-**用途 / Purpose:** 处理 `assign parameters from spawner` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+siegeLadder.AssignParametersFromSpawner("example", "example", 0, 0, 0, "example", "example");
+```
 
 ### GetNavmeshFaceIds
 `public bool GetNavmeshFaceIds(out List<int> navmeshFaceIds)`
 
-**用途 / Purpose:** 获取 `navmesh face ids` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「navmesh face ids」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetNavmeshFaceIds(navmeshFaceIds);
+```
 
 ### OnFormationFrameChanged
 `public void OnFormationFrameChanged(Agent agent, bool hasFrame, WorldPosition position)`
 
-**用途 / Purpose:** 当 `formation frame changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「formation frame changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+siegeLadder.OnFormationFrameChanged(agent, false, position);
+```
 
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 处理 `read from network` 相关逻辑。
+**用途 / Purpose:** 读取「from network」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadder 实例
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.ReadFromNetwork(bufferReadValid);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeLadder();
-value.GetSiegeEngineType();
+// 通常从对应子系统 API 获取实例后调用
+SiegeLadder siegeLadder = ...;
+siegeLadder.GetSiegeEngineType();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SingleVisualOrderSet"
+description: "Auto-generated class reference for SingleVisualOrderSet."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleVisualOrderSet`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SingleVisualOrderSet
 
 **Namespace:** TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SingleVisualOrderSet : VisualOrderSet`
 **Base:** `VisualOrderSet`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets/SingleVisualOrderSet.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets/SingleVisualOrderSet.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets` to p
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of SingleVisualOrderSet from the subsystem API first
+SingleVisualOrderSet singleVisualOrderSet = ...;
+var result = singleVisualOrderSet.GetName(orderController);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SingleVisualOrderSet();
-value.GetName(orderController);
+// Typically call this after obtaining an instance from the subsystem API
+SingleVisualOrderSet singleVisualOrderSet = ...;
+singleVisualOrderSet.GetName(orderController);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

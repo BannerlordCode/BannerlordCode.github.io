@@ -1,20 +1,14 @@
 ---
 title: "CachedDataAttribute"
+description: "Auto-generated class reference for CachedDataAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CachedDataAttribute`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CachedDataAttribute
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class CachedDataAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/CachedDataAttribute.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/CachedDataAttribute.cs`
 
 ## Overview
 
@@ -33,4 +27,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

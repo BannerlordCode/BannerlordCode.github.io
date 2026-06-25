@@ -1,20 +1,14 @@
 ---
 title: "MBBoundaryCollection"
+description: "Auto-generated class reference for MBBoundaryCollection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBBoundaryCollection`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBBoundaryCollection
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBBoundaryCollection : IDictionary<string, ICollection<Vec2>>, ICollection<KeyValuePair<string, ICollection<Vec2>>>, IEnumerable<KeyValuePair<string, ICollection<Vec2>>>, IEnumerable, INotifyCollectionChanged`
 **Base:** `IDictionary<string`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
 
 ## Overview
 
@@ -37,74 +31,154 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetEnumerator
 `public IEnumerator<KeyValuePair<string, ICollection<Vec2>>> GetEnumerator()`
 
-**Purpose:** Gets the current value of `enumerator`.
+**Purpose:** Reads and returns the `enumerator` value held by the current object.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.GetEnumerator();
+```
 
 ### GetBoundaryRadius
 `public float GetBoundaryRadius(string name)`
 
-**Purpose:** Gets the current value of `boundary radius`.
+**Purpose:** Reads and returns the `boundary radius` value held by the current object.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.GetBoundaryRadius("example");
+```
 
 ### GetOrientedBoundariesBox
 `public void GetOrientedBoundariesBox(out Vec2 boxMinimum, out Vec2 boxMaximum, float rotationInRadians = 0f)`
 
-**Purpose:** Gets the current value of `oriented boundaries box`.
+**Purpose:** Reads and returns the `oriented boundaries box` value held by the current object.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.GetOrientedBoundariesBox(boxMinimum, boxMaximum, 0);
+```
 
 ### Add
 `public void Add(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add(keyValuePair<string, item);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Clear();
+```
 
 ### Contains
 `public bool Contains(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Contains(keyValuePair<string, item);
+```
 
 ### CopyTo
 `public void CopyTo(KeyValuePair<string, ICollection<Vec2>> array, int arrayIndex)`
 
-**Purpose:** Handles logic related to `copy to`.
+**Purpose:** Copies the `to` state of the current object to a target.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.CopyTo(keyValuePair<string, array, 0);
+```
 
 ### Remove
 `public bool Remove(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Remove(keyValuePair<string, item);
+```
 
 ### Add
 `public void Add(string name, ICollection<Vec2> points)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add("example", points);
+```
 
 ### Add
 `public void Add(string name, ICollection<Vec2> points, bool isAllowanceInside)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add("example", points, false);
+```
 
 ### ContainsKey
 `public bool ContainsKey(string name)`
 
-**Purpose:** Handles logic related to `contains key`.
+**Purpose:** Indicates whether the current object contains `key`.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.ContainsKey("example");
+```
 
 ### Remove
 `public bool Remove(string name)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Remove("example");
+```
 
 ### TryGetValue
 `public bool TryGetValue(string name, out ICollection<Vec2> points)`
 
-**Purpose:** Attempts to get `get value`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get value`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.TryGetValue("example", points);
+```
 
 ## Usage Example
 
 ```csharp
-MBBoundaryCollection example = MBBoundaryCollection.Keys;
+// Typically call this after obtaining an instance from the subsystem API
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.GetEnumerator();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionQuestConversationHandler"
+description: "Auto-generated class reference for MissionQuestConversationHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionQuestConversationHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionQuestConversationHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionQuestConversationHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionQuestConversationHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionQuestConversationHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `MissionQuestConversationHandler` as a Handler-style extension point: firs
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionQuestConversationHandler from the subsystem API first
+MissionQuestConversationHandler missionQuestConversationHandler = ...;
+missionQuestConversationHandler.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionQuestConversationHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionQuestConversationHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

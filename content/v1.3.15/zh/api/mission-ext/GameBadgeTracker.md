@@ -1,13 +1,7 @@
 ---
 title: "GameBadgeTracker"
+description: "GameBadgeTracker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameBadgeTracker`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameBadgeTracker
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
@@ -29,24 +23,43 @@ title: "GameBadgeTracker"
 ### OnPlayerJoin
 `public virtual void OnPlayerJoin(PlayerData playerData)`
 
-**用途 / Purpose:** 当 `player join` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player join」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameBadgeTracker 实例
+GameBadgeTracker gameBadgeTracker = ...;
+gameBadgeTracker.OnPlayerJoin(playerData);
+```
 
 ### OnKill
 `public virtual void OnKill(KillData killData)`
 
-**用途 / Purpose:** 当 `kill` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「kill」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameBadgeTracker 实例
+GameBadgeTracker gameBadgeTracker = ...;
+gameBadgeTracker.OnKill(killData);
+```
 
 ### OnStartingNextBattle
 `public virtual void OnStartingNextBattle()`
 
-**用途 / Purpose:** 当 `starting next battle` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「starting next battle」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameBadgeTracker 实例
+GameBadgeTracker gameBadgeTracker = ...;
+gameBadgeTracker.OnStartingNextBattle();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameBadgeTracker();
+// 通常通过子系统 API 或工厂获得派生实例
+GameBadgeTracker instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

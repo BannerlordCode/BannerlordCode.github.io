@@ -1,13 +1,7 @@
 ---
 title: "BehaviorDefendCastleKeyPosition"
+description: "BehaviorDefendCastleKeyPosition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorDefendCastleKeyPosition`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorDefendCastleKeyPosition
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,35 +29,66 @@ title: "BehaviorDefendCastleKeyPosition"
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**用途 / Purpose:** 获取 `behavior string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「behavior string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorDefendCastleKeyPosition 实例
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+var result = behaviorDefendCastleKeyPosition.GetBehaviorString();
+```
 
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**用途 / Purpose:** 当 `valid behavior side changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「valid behavior side changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorDefendCastleKeyPosition 实例
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorDefendCastleKeyPosition 实例
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.TickOccasionally();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorDefendCastleKeyPosition 实例
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.OnDeploymentFinished();
+```
 
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**用途 / Purpose:** 将 `behavior` 重置为初始状态。
+**用途 / Purpose:** 将 「behavior」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorDefendCastleKeyPosition 实例
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.ResetBehavior();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorDefendCastleKeyPosition();
-value.GetBehaviorString();
+// 通常从对应子系统 API 获取实例后调用
+BehaviorDefendCastleKeyPosition behaviorDefendCastleKeyPosition = ...;
+behaviorDefendCastleKeyPosition.GetBehaviorString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

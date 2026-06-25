@@ -1,13 +1,7 @@
 ---
 title: "ScreenManagerEngineConnection"
+description: "Auto-generated class reference for ScreenManagerEngineConnection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScreenManagerEngineConnection`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScreenManagerEngineConnection
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new ScreenManagerEngineConnection();
+// Obtain an instance from the relevant subsystem API
+ScreenManagerEngineConnection instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

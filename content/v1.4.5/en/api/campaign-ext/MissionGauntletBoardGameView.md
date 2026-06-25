@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletBoardGameView"
+description: "Auto-generated class reference for MissionGauntletBoardGameView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletBoardGameView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletBoardGameView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletBoardGameView : MissionView, IBoardGameHandler`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletBoardGameView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletBoardGameView.cs`
 
 ## Overview
 
@@ -36,44 +30,87 @@ Treat `MissionGauntletBoardGameView` as a View-style extension point: first iden
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenActivate
 `public override void OnMissionScreenActivate()`
 
-**Purpose:** Called when the `mission screen activate` event is raised.
+**Purpose:** Invoked when the `mission screen activate` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnMissionScreenActivate();
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+var result = missionGauntletBoardGameView.OnEscape();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnMissionScreenFinalize();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoardGameView from the subsystem API first
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletBoardGameView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletBoardGameView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

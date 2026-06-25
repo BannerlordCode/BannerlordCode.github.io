@@ -1,13 +1,7 @@
 ---
 title: "KingdomNavigationElement"
+description: "Auto-generated class reference for KingdomNavigationElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomNavigationElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
@@ -38,20 +32,33 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ### OpenView
 `public override void OpenView()`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of KingdomNavigationElement from the subsystem API first
+KingdomNavigationElement kingdomNavigationElement = ...;
+kingdomNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of KingdomNavigationElement from the subsystem API first
+KingdomNavigationElement kingdomNavigationElement = ...;
+kingdomNavigationElement.OpenView(parameters);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomNavigationElement();
-value.OpenView();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomNavigationElement kingdomNavigationElement = ...;
+kingdomNavigationElement.OpenView();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

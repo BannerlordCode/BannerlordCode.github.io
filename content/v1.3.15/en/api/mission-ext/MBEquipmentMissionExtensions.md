@@ -1,23 +1,18 @@
 ---
 title: "MBEquipmentMissionExtensions"
+description: "Auto-generated class reference for MBEquipmentMissionExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBEquipmentMissionExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBEquipmentMissionExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBEquipmentMissionExtensions`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MBEquipmentMissionExtensions.cs`
 
 ## Overview
 
-`MBEquipmentMissionExtensions` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBEquipmentMissionExtensions` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSkinMeshesMask
 `public static SkinMask GetSkinMeshesMask(this Equipment equipment)`
 
-**Purpose:** Gets the current value of `skin meshes mask`.
+**Purpose:** Reads and returns the `skin meshes mask` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBEquipmentMissionExtensions.GetSkinMeshesMask(equipment);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBEquipmentMissionExtensions.GetSkinMeshesMask(equipment);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

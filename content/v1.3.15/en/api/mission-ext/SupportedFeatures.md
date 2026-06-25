@@ -1,13 +1,7 @@
 ---
 title: "SupportedFeatures"
+description: "Auto-generated class reference for SupportedFeatures."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SupportedFeatures`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SupportedFeatures
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SupportsFeatures
 `public bool SupportsFeatures(Features feature)`
 
-**Purpose:** Handles logic related to `supports features`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SupportedFeatures from the subsystem API first
+SupportedFeatures supportedFeatures = ...;
+var result = supportedFeatures.SupportsFeatures(feature);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SupportedFeatures();
-value.SupportsFeatures(feature);
+// Typically call this after obtaining an instance from the subsystem API
+SupportedFeatures supportedFeatures = ...;
+supportedFeatures.SupportsFeatures(feature);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

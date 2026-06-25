@@ -1,20 +1,14 @@
 ---
 title: "BadgeManager"
+description: "BadgeManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BadgeManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BadgeManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class BadgeManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/BadgeManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/BadgeManager.cs`
 
 ## 概述
 
@@ -36,37 +30,72 @@ title: "BadgeManager"
 ### InitializeWithXML
 `public static void InitializeWithXML(string xmlPath)`
 
-**用途 / Purpose:** 初始化 `with x m l` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「with x m l」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+BadgeManager.InitializeWithXML("example");
+```
 
 ### OnFinalize
 `public static void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+BadgeManager.OnFinalize();
+```
 
 ### GetByIndex
 `public static Badge GetByIndex(int index)`
 
-**用途 / Purpose:** 获取 `by index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「by index」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BadgeManager.GetByIndex(0);
+```
 
 ### GetById
 `public static Badge GetById(string id)`
 
-**用途 / Purpose:** 获取 `by id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「by id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BadgeManager.GetById("example");
+```
 
 ### GetByType
 `public static List<Badge> GetByType(BadgeType type)`
 
-**用途 / Purpose:** 获取 `by type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「by type」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BadgeManager.GetByType(type);
+```
 
 ### GetBadgeConditionValue
 `public static string GetBadgeConditionValue(this PlayerData playerData, BadgeCondition condition)`
 
-**用途 / Purpose:** 获取 `badge condition value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「badge condition value」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BadgeManager.GetBadgeConditionValue(playerData, condition);
+```
 
 ### GetBadgeConditionNumericValue
 `public static int GetBadgeConditionNumericValue(this PlayerData playerData, BadgeCondition condition)`
 
-**用途 / Purpose:** 获取 `badge condition numeric value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「badge condition numeric value」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BadgeManager.GetBadgeConditionNumericValue(playerData, condition);
+```
 
 ## 使用示例
 
@@ -76,4 +105,4 @@ var manager = BadgeManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

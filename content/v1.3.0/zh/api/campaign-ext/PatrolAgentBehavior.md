@@ -1,13 +1,7 @@
 ---
 title: "PatrolAgentBehavior"
+description: "PatrolAgentBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PatrolAgentBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PatrolAgentBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,30 +23,55 @@ title: "PatrolAgentBehavior"
 ### SetDynamicPatrolArea
 `public void SetDynamicPatrolArea(GameEntity parentPatrolPoint)`
 
-**用途 / Purpose:** 设置 `dynamic patrol area` 的值或状态。
+**用途 / Purpose:** 为 「dynamic patrol area」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolAgentBehavior 实例
+PatrolAgentBehavior patrolAgentBehavior = ...;
+patrolAgentBehavior.SetDynamicPatrolArea(parentPatrolPoint);
+```
 
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolAgentBehavior 实例
+PatrolAgentBehavior patrolAgentBehavior = ...;
+patrolAgentBehavior.Tick(0, false);
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `availability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolAgentBehavior 实例
+PatrolAgentBehavior patrolAgentBehavior = ...;
+var result = patrolAgentBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 获取 `debug info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolAgentBehavior 实例
+PatrolAgentBehavior patrolAgentBehavior = ...;
+var result = patrolAgentBehavior.GetDebugInfo();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PatrolAgentBehavior();
-value.SetDynamicPatrolArea(parentPatrolPoint);
+// 通常从对应子系统 API 获取实例后调用
+PatrolAgentBehavior patrolAgentBehavior = ...;
+patrolAgentBehavior.SetDynamicPatrolArea(parentPatrolPoint);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

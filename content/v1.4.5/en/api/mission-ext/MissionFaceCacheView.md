@@ -1,20 +1,14 @@
 ---
 title: "MissionFaceCacheView"
+description: "Auto-generated class reference for MissionFaceCacheView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionFaceCacheView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFaceCacheView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionFaceCacheView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionFaceCacheView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionFaceCacheView.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionFaceCacheView` as a View-style extension point: first identify who
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionFaceCacheView from the subsystem API first
+MissionFaceCacheView missionFaceCacheView = ...;
+missionFaceCacheView.OnPreMissionTick(0);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionFaceCacheView from the subsystem API first
+MissionFaceCacheView missionFaceCacheView = ...;
+missionFaceCacheView.OnBehaviorInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionFaceCacheView from the subsystem API first
+MissionFaceCacheView missionFaceCacheView = ...;
+missionFaceCacheView.OnMissionScreenFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionFaceCacheView();
+// Retrieve this view from the subsystem API or scene
+MissionFaceCacheView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

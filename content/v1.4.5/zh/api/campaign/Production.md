@@ -1,20 +1,14 @@
 ---
 title: "Production"
+description: "Production 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Production`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Production
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Workshops
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct Production`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/WorkshopType.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/WorkshopType.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "Production"
 ### Production
 `public struct Production(float conversionSpeed)`
 
-**用途 / Purpose:** 处理 `production` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Production 实例
+Production production = ...;
+var result = production.Production(0);
+```
 
 ### AddInput
 `public void AddInput(ItemCategory item, int count = 1)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `input`。
+**用途 / Purpose:** 将 「input」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Production 实例
+Production production = ...;
+production.AddInput(item, 0);
+```
 
 ### AddOutput
 `public void AddOutput(ItemCategory outputCategory, int outputCount)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `output`。
+**用途 / Purpose:** 将 「output」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Production 实例
+Production production = ...;
+production.AddOutput(outputCategory, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Production 实例
+Production production = ...;
+var result = production.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Production();
-value.Production(0);
+// 通常从对应子系统 API 获取实例后调用
+Production production = ...;
+production.Production(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

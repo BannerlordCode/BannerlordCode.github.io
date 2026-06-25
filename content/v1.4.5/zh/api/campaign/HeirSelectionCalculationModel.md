@@ -1,20 +1,14 @@
 ---
 title: "HeirSelectionCalculationModel"
+description: "HeirSelectionCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeirSelectionCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeirSelectionCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class HeirSelectionCalculationModel : MBGameModel<HeirSelectionCalculationModel>`
 **Base:** `MBGameModel<HeirSelectionCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HeirSelectionCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HeirSelectionCalculationModel.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "HeirSelectionCalculationModel"
 ### CalculateHeirSelectionPoint
 `public abstract int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
 
-**用途 / Purpose:** 处理 `calculate heir selection point` 相关逻辑。
+**用途 / Purpose:** 计算「heir selection point」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeirSelectionCalculationModel 实例
+HeirSelectionCalculationModel heirSelectionCalculationModel = ...;
+var result = heirSelectionCalculationModel.CalculateHeirSelectionPoint(candidateHeir, deadHero, maxSkillHero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomHeirSelectionCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+HeirSelectionCalculationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

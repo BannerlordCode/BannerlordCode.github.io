@@ -1,20 +1,14 @@
 ---
 title: "MBBindingList"
+description: "MBBindingList 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBBindingList`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBBindingList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class MBBindingList<T> : Collection<T>, IMBBindingList, IList, ICollection, IEnumerable`
 **Base:** `Collection<T>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBBindingList.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBBindingList.cs`
 
 ## 概述
 
@@ -35,29 +29,55 @@ title: "MBBindingList"
 ### Sort
 `public void Sort()`
 
-**用途 / Purpose:** 处理 `sort` 相关逻辑。
+**用途 / Purpose:** 对当前对象中的内容进行排序。
+
+```csharp
+// 先通过子系统 API 拿到 MBBindingList 实例
+MBBindingList mBBindingList = ...;
+mBBindingList.Sort();
+```
 
 ### Sort
 `public void Sort(IComparer<T> comparer)`
 
-**用途 / Purpose:** 处理 `sort` 相关逻辑。
+**用途 / Purpose:** 对当前对象中的内容进行排序。
+
+```csharp
+// 先通过子系统 API 拿到 MBBindingList 实例
+MBBindingList mBBindingList = ...;
+mBBindingList.Sort(comparer);
+```
 
 ### IsOrdered
 `public bool IsOrdered(IComparer<T> comparer)`
 
-**用途 / Purpose:** 处理 `is ordered` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ordered」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MBBindingList 实例
+MBBindingList mBBindingList = ...;
+var result = mBBindingList.IsOrdered(comparer);
+```
 
 ### ApplyActionOnAllItems
 `public void ApplyActionOnAllItems(Action<T> action)`
 
-**用途 / Purpose:** 将 `action on all items` 应用到当前对象。
+**用途 / Purpose:** 将 「action on all items」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBBindingList 实例
+MBBindingList mBBindingList = ...;
+mBBindingList.ApplyActionOnAllItems(action);
+```
 
 ## 使用示例
 
 ```csharp
-MBBindingList example = MBBindingList.ListChanged;
+// 通常从对应子系统 API 获取实例后调用
+MBBindingList mBBindingList = ...;
+mBBindingList.Sort();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

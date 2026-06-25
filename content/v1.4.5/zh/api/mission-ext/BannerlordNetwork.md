@@ -1,20 +1,14 @@
 ---
 title: "BannerlordNetwork"
+description: "BannerlordNetwork 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerlordNetwork`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordNetwork
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class BannerlordNetwork`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordNetwork.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordNetwork.cs`
 
 ## 概述
 
@@ -35,17 +29,32 @@ title: "BannerlordNetwork"
 ### CreateServerPeer
 `public static void CreateServerPeer()`
 
-**用途 / Purpose:** 创建一个 `server peer` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「server peer」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordNetwork.CreateServerPeer();
+```
 
 ### StartMultiplayerLobbyMission
 `public static void StartMultiplayerLobbyMission(LobbyMissionType lobbyMissionType)`
 
-**用途 / Purpose:** 处理 `start multiplayer lobby mission` 相关逻辑。
+**用途 / Purpose:** 启动「multiplayer lobby mission」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordNetwork.StartMultiplayerLobbyMission(lobbyMissionType);
+```
 
 ### EndMultiplayerLobbyMission
 `public static void EndMultiplayerLobbyMission()`
 
-**用途 / Purpose:** 处理 `end multiplayer lobby mission` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordNetwork.EndMultiplayerLobbyMission();
+```
 
 ## 使用示例
 
@@ -55,4 +64,4 @@ BannerlordNetwork.CreateServerPeer();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

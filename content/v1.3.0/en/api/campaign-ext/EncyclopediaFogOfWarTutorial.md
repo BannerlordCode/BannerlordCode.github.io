@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaFogOfWarTutorial"
+description: "Auto-generated class reference for EncyclopediaFogOfWarTutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaFogOfWarTutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaFogOfWarTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaFogOfWarTutorial from the subsystem API first
+EncyclopediaFogOfWarTutorial encyclopediaFogOfWarTutorial = ...;
+var result = encyclopediaFogOfWarTutorial.GetTutorialsRelevantContext();
+```
 
 ### OnTutorialContextChanged
 `public override void OnTutorialContextChanged(TutorialContextChangedEvent evnt)`
 
-**Purpose:** Called when the `tutorial context changed` event is raised.
+**Purpose:** Invoked when the `tutorial context changed` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaFogOfWarTutorial from the subsystem API first
+EncyclopediaFogOfWarTutorial encyclopediaFogOfWarTutorial = ...;
+encyclopediaFogOfWarTutorial.OnTutorialContextChanged(evnt);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of EncyclopediaFogOfWarTutorial from the subsystem API first
+EncyclopediaFogOfWarTutorial encyclopediaFogOfWarTutorial = ...;
+var result = encyclopediaFogOfWarTutorial.IsConditionsMetForActivation();
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of EncyclopediaFogOfWarTutorial from the subsystem API first
+EncyclopediaFogOfWarTutorial encyclopediaFogOfWarTutorial = ...;
+var result = encyclopediaFogOfWarTutorial.IsConditionsMetForCompletion();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaFogOfWarTutorial();
-value.GetTutorialsRelevantContext();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaFogOfWarTutorial encyclopediaFogOfWarTutorial = ...;
+encyclopediaFogOfWarTutorial.GetTutorialsRelevantContext();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

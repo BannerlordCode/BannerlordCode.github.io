@@ -1,20 +1,14 @@
 ---
 title: "BannerBuilderColorSelectionVM"
+description: "BannerBuilderColorSelectionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerBuilderColorSelectionVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerBuilderColorSelectionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerBuilderColorSelectionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderColorSelectionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderColorSelectionVM.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "BannerBuilderColorSelectionVM"
 ### EnableWith
 `public void EnableWith(int selectedColorID, Action<BannerBuilderColorItemVM> onSelection)`
 
-**用途 / Purpose:** 处理 `enable with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderColorSelectionVM 实例
+BannerBuilderColorSelectionVM bannerBuilderColorSelectionVM = ...;
+bannerBuilderColorSelectionVM.EnableWith(0, onSelection);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerBuilderColorSelectionVM();
-value.EnableWith(0, onSelection);
+// 通常从对应子系统 API 获取实例后调用
+BannerBuilderColorSelectionVM bannerBuilderColorSelectionVM = ...;
+bannerBuilderColorSelectionVM.EnableWith(0, onSelection);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

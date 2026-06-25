@@ -1,13 +1,7 @@
 ---
 title: "BannerTableauTextureProvider"
+description: "Auto-generated class reference for BannerTableauTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerTableauTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerTableauTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders
@@ -42,25 +36,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders` to p
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of BannerTableauTextureProvider from the subsystem API first
+BannerTableauTextureProvider bannerTableauTextureProvider = ...;
+bannerTableauTextureProvider.Clear(false);
+```
 
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BannerTableauTextureProvider from the subsystem API first
+BannerTableauTextureProvider bannerTableauTextureProvider = ...;
+bannerTableauTextureProvider.SetTargetSize(0, 0);
+```
 
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of BannerTableauTextureProvider from the subsystem API first
+BannerTableauTextureProvider bannerTableauTextureProvider = ...;
+bannerTableauTextureProvider.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerTableauTextureProvider();
-value.Clear(false);
+// Typically call this after obtaining an instance from the subsystem API
+BannerTableauTextureProvider bannerTableauTextureProvider = ...;
+bannerTableauTextureProvider.Clear(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

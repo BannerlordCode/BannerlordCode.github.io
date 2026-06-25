@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementEconomyModel"
+description: "Auto-generated class reference for DefaultSettlementEconomyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementEconomyModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementEconomyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementEconomyModel : SettlementEconomyModel`
 **Base:** `SettlementEconomyModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementEconomyModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementEconomyModel.cs`
 
 ## Overview
 
@@ -29,32 +23,68 @@ Treat `DefaultSettlementEconomyModel` as a Model-style extension point: first id
 ### GetValueOfCategory
 `public int GetValueOfCategory(ItemCategory category)`
 
-**Purpose:** Gets the current value of `value of category`.
+**Purpose:** Reads and returns the `value of category` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetValueOfCategory(category);
+```
 
 ### GetDailyDemandForCategory
 `public override float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity)`
 
-**Purpose:** Gets the current value of `daily demand for category`.
+**Purpose:** Reads and returns the `daily demand for category` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetDailyDemandForCategory(town, category, 0);
+```
 
 ### GetTownGoldChange
 `public override int GetTownGoldChange(Town town)`
 
-**Purpose:** Gets the current value of `town gold change`.
+**Purpose:** Reads and returns the `town gold change` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetTownGoldChange(town);
+```
 
 ### CalculateDailySettlementBudgetForItemCategory
 `public override float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
 
-**Purpose:** Handles logic related to `calculate daily settlement budget for item category`.
+**Purpose:** Calculates the current value or result of `daily settlement budget for item category`.
+
+```csharp
+// Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.CalculateDailySettlementBudgetForItemCategory(town, 0, category);
+```
 
 ### GetDemandChangeFromValue
 `public override float GetDemandChangeFromValue(float purchaseValue)`
 
-**Purpose:** Gets the current value of `demand change from value`.
+**Purpose:** Reads and returns the `demand change from value` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetDemandChangeFromValue(0);
+```
 
 ### GetEstimatedDemandForCategory
 `public override float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
 
-**Purpose:** Gets the current value of `estimated demand for category`.
+**Purpose:** Reads and returns the `estimated demand for category` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementEconomyModel from the subsystem API first
+DefaultSettlementEconomyModel defaultSettlementEconomyModel = ...;
+var result = defaultSettlementEconomyModel.GetEstimatedDemandForCategory(town, itemData, category);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultSettlementEconomyModel>(new MyDefaultSettlement
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

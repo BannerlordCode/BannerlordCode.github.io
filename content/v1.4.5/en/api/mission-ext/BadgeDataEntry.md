@@ -1,20 +1,14 @@
 ---
 title: "BadgeDataEntry"
+description: "Auto-generated class reference for BadgeDataEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BadgeDataEntry`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BadgeDataEntry
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BadgeDataEntry`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BadgeDataEntry.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BadgeDataEntry.cs`
 
 ## Overview
 
@@ -38,7 +32,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### ToList
 `public static List<BadgeDataEntry> ToList(Dictionary<(PlayerId, string, string), int> dictionary)`
 
-**Purpose:** Handles logic related to `to list`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BadgeDataEntry.ToList(dictionary<(PlayerId, "example", "example", 0);
+```
 
 ## Usage Example
 
@@ -48,4 +47,4 @@ BadgeDataEntry.ToList(dictionary<(PlayerId, "example", "example", 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

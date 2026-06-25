@@ -1,13 +1,7 @@
 ---
 title: "ArtisanCantSellProductsAtAFairPriceIssueQuest"
+description: "Auto-generated class reference for ArtisanCantSellProductsAtAFairPriceIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArtisanCantSellProductsAtAFairPriceIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArtisanCantSellProductsAtAFairPriceIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of ArtisanCantSellProductsAtAFairPriceIssueQuest from the subsystem API first
+ArtisanCantSellProductsAtAFairPriceIssueQuest artisanCantSellProductsAtAFairPriceIssueQuest = ...;
+artisanCantSellProductsAtAFairPriceIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of ArtisanCantSellProductsAtAFairPriceIssueQuest from the subsystem API first
+ArtisanCantSellProductsAtAFairPriceIssueQuest artisanCantSellProductsAtAFairPriceIssueQuest = ...;
+artisanCantSellProductsAtAFairPriceIssueQuest.OnFailed();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArtisanCantSellProductsAtAFairPriceIssueQuest();
-value.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+// Typically call this after obtaining an instance from the subsystem API
+ArtisanCantSellProductsAtAFairPriceIssueQuest artisanCantSellProductsAtAFairPriceIssueQuest = ...;
+artisanCantSellProductsAtAFairPriceIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

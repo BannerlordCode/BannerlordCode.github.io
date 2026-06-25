@@ -1,23 +1,18 @@
 ---
 title: "SessionKey"
+description: "Auto-generated class reference for SessionKey."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SessionKey`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SessionKey
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public struct SessionKey`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.Diamond/SessionKey.cs`
 
 ## Overview
 
-`SessionKey` lives in `TaleWorlds.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SessionKey` lives in `TaleWorlds.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,36 +30,63 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### NewGuid
 `public static SessionKey NewGuid()`
 
-**Purpose:** Handles logic related to `new guid`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SessionKey.NewGuid();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SessionKey from the subsystem API first
+SessionKey sessionKey = ...;
+var result = sessionKey.ToString();
+```
 
 ### ToByteArray
 `public byte ToByteArray()`
 
-**Purpose:** Handles logic related to `to byte array`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SessionKey from the subsystem API first
+SessionKey sessionKey = ...;
+var result = sessionKey.ToByteArray();
+```
 
 ### Equals
 `public override bool Equals(object o)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of SessionKey from the subsystem API first
+SessionKey sessionKey = ...;
+var result = sessionKey.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of SessionKey from the subsystem API first
+SessionKey sessionKey = ...;
+var result = sessionKey.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 SessionKey.NewGuid();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

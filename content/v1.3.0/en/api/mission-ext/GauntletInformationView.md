@@ -1,13 +1,7 @@
 ---
 title: "GauntletInformationView"
+description: "Auto-generated class reference for GauntletInformationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletInformationView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletInformationView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -29,14 +23,20 @@ Treat `GauntletInformationView` as a View-style extension point: first identify 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletInformationView.Initialize();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletInformationView();
+// Retrieve this view from the subsystem API or scene
+GauntletInformationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

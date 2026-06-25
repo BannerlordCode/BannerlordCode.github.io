@@ -1,13 +1,7 @@
 ---
 title: "StringWriter"
+description: "StringWriter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StringWriter`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StringWriter
 
 **Namespace:** TaleWorlds.Library
@@ -35,100 +29,209 @@ title: "StringWriter"
 ### WriteSerializableObject
 `public void WriteSerializableObject(ISerializableObject serializableObject)`
 
-**用途 / Purpose:** 处理 `write serializable object` 相关逻辑。
+**用途 / Purpose:** 将「serializable object」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteSerializableObject(serializableObject);
+```
 
 ### WriteByte
 `public void WriteByte(byte value)`
 
-**用途 / Purpose:** 处理 `write byte` 相关逻辑。
+**用途 / Purpose:** 将「byte」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteByte(0);
+```
 
 ### WriteBytes
 `public void WriteBytes(byte bytes)`
 
-**用途 / Purpose:** 处理 `write bytes` 相关逻辑。
+**用途 / Purpose:** 将「bytes」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteBytes(0);
+```
 
 ### WriteInt
 `public void WriteInt(int value)`
 
-**用途 / Purpose:** 处理 `write int` 相关逻辑。
+**用途 / Purpose:** 将「int」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteInt(0);
+```
 
 ### WriteShort
 `public void WriteShort(short value)`
 
-**用途 / Purpose:** 处理 `write short` 相关逻辑。
+**用途 / Purpose:** 将「short」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteShort(0);
+```
 
 ### WriteString
 `public void WriteString(string value)`
 
-**用途 / Purpose:** 处理 `write string` 相关逻辑。
+**用途 / Purpose:** 将「string」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteString("example");
+```
 
 ### WriteColor
 `public void WriteColor(Color value)`
 
-**用途 / Purpose:** 处理 `write color` 相关逻辑。
+**用途 / Purpose:** 将「color」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteColor(value);
+```
 
 ### WriteBool
 `public void WriteBool(bool value)`
 
-**用途 / Purpose:** 处理 `write bool` 相关逻辑。
+**用途 / Purpose:** 将「bool」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteBool(false);
+```
 
 ### WriteFloat
 `public void WriteFloat(float value)`
 
-**用途 / Purpose:** 处理 `write float` 相关逻辑。
+**用途 / Purpose:** 将「float」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteFloat(0);
+```
 
 ### WriteUInt
 `public void WriteUInt(uint value)`
 
-**用途 / Purpose:** 处理 `write u int` 相关逻辑。
+**用途 / Purpose:** 将「u int」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteUInt(0);
+```
 
 ### WriteULong
 `public void WriteULong(ulong value)`
 
-**用途 / Purpose:** 处理 `write u long` 相关逻辑。
+**用途 / Purpose:** 将「u long」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteULong(0);
+```
 
 ### WriteLong
 `public void WriteLong(long value)`
 
-**用途 / Purpose:** 处理 `write long` 相关逻辑。
+**用途 / Purpose:** 将「long」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteLong(0);
+```
 
 ### WriteVec2
 `public void WriteVec2(Vec2 vec2)`
 
-**用途 / Purpose:** 处理 `write vec2` 相关逻辑。
+**用途 / Purpose:** 将「vec2」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteVec2(vec2);
+```
 
 ### WriteVec3
 `public void WriteVec3(Vec3 vec3)`
 
-**用途 / Purpose:** 处理 `write vec3` 相关逻辑。
+**用途 / Purpose:** 将「vec3」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteVec3(vec3);
+```
 
 ### WriteVec3Int
 `public void WriteVec3Int(Vec3i vec3)`
 
-**用途 / Purpose:** 处理 `write vec3 int` 相关逻辑。
+**用途 / Purpose:** 将「vec3 int」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteVec3Int(vec3);
+```
 
 ### WriteSByte
 `public void WriteSByte(sbyte value)`
 
-**用途 / Purpose:** 处理 `write s byte` 相关逻辑。
+**用途 / Purpose:** 将「s byte」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteSByte(0);
+```
 
 ### WriteUShort
 `public void WriteUShort(ushort value)`
 
-**用途 / Purpose:** 处理 `write u short` 相关逻辑。
+**用途 / Purpose:** 将「u short」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteUShort(0);
+```
 
 ### WriteDouble
 `public void WriteDouble(double value)`
 
-**用途 / Purpose:** 处理 `write double` 相关逻辑。
+**用途 / Purpose:** 将「double」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StringWriter 实例
+StringWriter stringWriter = ...;
+stringWriter.WriteDouble(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StringWriter();
-value.WriteSerializableObject(serializableObject);
+// 通常从对应子系统 API 获取实例后调用
+StringWriter stringWriter = ...;
+stringWriter.WriteSerializableObject(serializableObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

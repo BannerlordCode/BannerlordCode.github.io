@@ -1,13 +1,7 @@
 ---
 title: "OtherMissionViews"
+description: "OtherMissionViews 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OtherMissionViews`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OtherMissionViews
 
 **Namespace:** SandBox.View.Missions
@@ -29,7 +23,12 @@ title: "OtherMissionViews"
 ### OpenBattleChallengeMission
 `public static MissionView OpenBattleChallengeMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open battle challenge mission` 相关逻辑。
+**用途 / Purpose:** 打开「battle challenge mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+OtherMissionViews.OpenBattleChallengeMission(mission);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ OtherMissionViews.OpenBattleChallengeMission(mission);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

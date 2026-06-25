@@ -1,20 +1,14 @@
 ---
 title: "FireTrebuchet"
+description: "FireTrebuchet 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FireTrebuchet`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FireTrebuchet
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FireTrebuchet : Trebuchet`
 **Base:** `Trebuchet`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/FireTrebuchet.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/FireTrebuchet.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "FireTrebuchet"
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** 获取 `siege engine type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege engine type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FireTrebuchet 实例
+FireTrebuchet fireTrebuchet = ...;
+var result = fireTrebuchet.GetSiegeEngineType();
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**用途 / Purpose:** 处理 `process target value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FireTrebuchet 实例
+FireTrebuchet fireTrebuchet = ...;
+var result = fireTrebuchet.ProcessTargetValue(0, flags);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FireTrebuchet();
-value.GetSiegeEngineType();
+// 通常从对应子系统 API 获取实例后调用
+FireTrebuchet fireTrebuchet = ...;
+fireTrebuchet.GetSiegeEngineType();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

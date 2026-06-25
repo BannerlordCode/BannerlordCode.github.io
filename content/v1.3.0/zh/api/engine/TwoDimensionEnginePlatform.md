@@ -1,13 +1,7 @@
 ---
 title: "TwoDimensionEnginePlatform"
+description: "TwoDimensionEnginePlatform 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TwoDimensionEnginePlatform`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionEnginePlatform
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -29,25 +23,44 @@ title: "TwoDimensionEnginePlatform"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionEnginePlatform 实例
+TwoDimensionEnginePlatform twoDimensionEnginePlatform = ...;
+twoDimensionEnginePlatform.Reset();
+```
 
 ### Equals
 `public bool Equals(TwoDimensionEnginePlatform.MaterialTuple other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionEnginePlatform 实例
+TwoDimensionEnginePlatform twoDimensionEnginePlatform = ...;
+var result = twoDimensionEnginePlatform.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionEnginePlatform 实例
+TwoDimensionEnginePlatform twoDimensionEnginePlatform = ...;
+var result = twoDimensionEnginePlatform.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TwoDimensionEnginePlatform();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+TwoDimensionEnginePlatform twoDimensionEnginePlatform = ...;
+twoDimensionEnginePlatform.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "BehaviorShootFromCastleWalls"
+description: "Auto-generated class reference for BehaviorShootFromCastleWalls."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorShootFromCastleWalls`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorShootFromCastleWalls
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorShootFromCastleWalls : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorShootFromCastleWalls.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorShootFromCastleWalls.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorShootFromCastleWalls from the subsystem API first
+BehaviorShootFromCastleWalls behaviorShootFromCastleWalls = ...;
+behaviorShootFromCastleWalls.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorShootFromCastleWalls();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorShootFromCastleWalls behaviorShootFromCastleWalls = ...;
+behaviorShootFromCastleWalls.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

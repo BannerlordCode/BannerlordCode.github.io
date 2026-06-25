@@ -1,13 +1,7 @@
 ---
 title: "PsaiInfo"
+description: "PsaiInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PsaiInfo`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PsaiInfo
 
 **Namespace:** psai.net
@@ -45,9 +39,10 @@ title: "PsaiInfo"
 ## 使用示例
 
 ```csharp
-var value = new PsaiInfo();
+// 从对应子系统 API 获取实例
+PsaiInfo instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

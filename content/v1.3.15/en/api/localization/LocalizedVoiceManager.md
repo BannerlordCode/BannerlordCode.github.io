@@ -1,19 +1,14 @@
 ---
 title: "LocalizedVoiceManager"
+description: "Auto-generated class reference for LocalizedVoiceManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocalizedVoiceManager`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LocalizedVoiceManager
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public static class LocalizedVoiceManager`
-**Area:** localization
+**Base:** none
+**File:** `TaleWorlds.Localization/LocalizedVoiceManager.cs`
 
 ## Overview
 
@@ -28,12 +23,22 @@ Treat `LocalizedVoiceManager` as a Manager-style extension point: first identify
 ### GetLocalizedVoice
 `public static VoiceObject GetLocalizedVoice(string id)`
 
-**Purpose:** Gets the current value of `localized voice`.
+**Purpose:** Reads and returns the `localized voice` value held by the current object.
+
+```csharp
+// Static call; no instance required
+LocalizedVoiceManager.GetLocalizedVoice("example");
+```
 
 ### GetVoiceLanguageIds
 `public static List<string> GetVoiceLanguageIds()`
 
-**Purpose:** Gets the current value of `voice language ids`.
+**Purpose:** Reads and returns the `voice language ids` value held by the current object.
+
+```csharp
+// Static call; no instance required
+LocalizedVoiceManager.GetVoiceLanguageIds();
+```
 
 ## Usage Example
 
@@ -43,5 +48,4 @@ var manager = LocalizedVoiceManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

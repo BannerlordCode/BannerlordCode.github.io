@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyAnnouncementIconBrushWidget"
+description: "MultiplayerLobbyAnnouncementIconBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerLobbyAnnouncementIconBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyAnnouncementIconBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Home
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyAnnouncementIconBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Home/MultiplayerLobbyAnnouncementIconBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Home/MultiplayerLobbyAnnouncementIconBrushWidget.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "MultiplayerLobbyAnnouncementIconBrushWidget"
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerLobbyAnnouncementIconBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerLobbyAnnouncementIconBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

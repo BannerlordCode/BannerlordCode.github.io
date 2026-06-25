@@ -1,23 +1,18 @@
 ---
 title: "SandBoxMissions"
+description: "Auto-generated class reference for SandBoxMissions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxMissions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxMissions
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public static class SandBoxMissions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/Sandbox/SandBoxMissions.cs`
 
 ## Overview
 
-`SandBoxMissions` lives in `SandBox`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SandBoxMissions` lives in `SandBox` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,111 +23,339 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### CreateSandBoxMissionInitializerRecord
 `public static MissionInitializerRecord CreateSandBoxMissionInitializerRecord(string sceneName, string sceneLevels, bool doNotUseLoadingScreen, DecalAtlasGroup decalAtlasGroup)`
 
-**Purpose:** Creates a new `sand box mission initializer record` instance or object.
+**Purpose:** Constructs a new `sand box mission initializer record` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.CreateSandBoxMissionInitializerRecord("example", "example", false, decalAtlasGroup);
+```
 
 ### CreateSandBoxTrainingMissionInitializerRecord
 `public static MissionInitializerRecord CreateSandBoxTrainingMissionInitializerRecord(string sceneName, string sceneLevels = "", bool doNotUseLoadingScreen = false)`
 
-**Purpose:** Creates a new `sand box training mission initializer record` instance or object.
+**Purpose:** Constructs a new `sand box training mission initializer record` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.CreateSandBoxTrainingMissionInitializerRecord("example", "example", false);
+```
 
 ### OpenTownCenterMission
 `public static Mission OpenTownCenterMission(string scene, int townUpgradeLevel, Location location, CharacterObject talkToChar, string playerSpawnTag)`
 
-**Purpose:** Handles logic related to `open town center mission`.
+**Purpose:** Opens the resource or UI associated with `town center mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenTownCenterMission("example", 0, location, talkToChar, "example");
+```
 
 ### OpenTownCenterMission
 `public static Mission OpenTownCenterMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar, string playerSpawnTag)`
 
-**Purpose:** Handles logic related to `open town center mission`.
+**Purpose:** Opens the resource or UI associated with `town center mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenTownCenterMission("example", "example", location, talkToChar, "example");
+```
 
 ### OpenTownCenterShadowATargetMission
 `public static Mission OpenTownCenterShadowATargetMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar, string playerSpawnTag)`
 
-**Purpose:** Handles logic related to `open town center shadow a target mission`.
+**Purpose:** Opens the resource or UI associated with `town center shadow a target mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenTownCenterShadowATargetMission("example", "example", location, talkToChar, "example");
+```
 
 ### OpenCastleCourtyardMission
 `public static Mission OpenCastleCourtyardMission(string scene, int castleUpgradeLevel, Location location, CharacterObject talkToChar)`
 
-**Purpose:** Handles logic related to `open castle courtyard mission`.
+**Purpose:** Opens the resource or UI associated with `castle courtyard mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenCastleCourtyardMission("example", 0, location, talkToChar);
+```
 
 ### OpenCastleCourtyardMission
 `public static Mission OpenCastleCourtyardMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar)`
 
-**Purpose:** Handles logic related to `open castle courtyard mission`.
+**Purpose:** Opens the resource or UI associated with `castle courtyard mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenCastleCourtyardMission("example", "example", location, talkToChar);
+```
 
 ### OpenIndoorMission
 `public static Mission OpenIndoorMission(string scene, int townUpgradeLevel, Location location, CharacterObject talkToChar)`
 
-**Purpose:** Handles logic related to `open indoor mission`.
+**Purpose:** Opens the resource or UI associated with `indoor mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenIndoorMission("example", 0, location, talkToChar);
+```
 
 ### OpenIndoorMission
 `public static Mission OpenIndoorMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = "")`
 
-**Purpose:** Handles logic related to `open indoor mission`.
+**Purpose:** Opens the resource or UI associated with `indoor mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenIndoorMission("example", location, null, "example");
+```
 
 ### OpenPrisonBreakMission
 `public static Mission OpenPrisonBreakMission(string scene, Location location, CharacterObject prisonerCharacter)`
 
-**Purpose:** Handles logic related to `open prison break mission`.
+**Purpose:** Opens the resource or UI associated with `prison break mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenPrisonBreakMission("example", location, prisonerCharacter);
+```
 
 ### OpenVillageMission
 `public static Mission OpenVillageMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null)`
 
-**Purpose:** Handles logic related to `open village mission`.
+**Purpose:** Opens the resource or UI associated with `village mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenVillageMission("example", location, null, "example");
+```
 
 ### OpenArenaStartMission
 `public static Mission OpenArenaStartMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = "")`
 
-**Purpose:** Handles logic related to `open arena start mission`.
+**Purpose:** Opens the resource or UI associated with `arena start mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenArenaStartMission("example", location, null, "example");
+```
 
 ### OpenRetirementMission
 `public static Mission OpenRetirementMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null, string unconsciousMenuId = "")`
 
-**Purpose:** Handles logic related to `open retirement mission`.
+**Purpose:** Opens the resource or UI associated with `retirement mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenRetirementMission("example", location, null, "example", "example");
+```
 
 ### OpenArenaDuelMission
 `public static Mission OpenArenaDuelMission(string scene, Location location, CharacterObject duelCharacter, bool requireCivilianEquipment, bool spawnBOthSidesWithHorse, Action<CharacterObject> onDuelEnd, float customAgentHealth, string sceneLevels = "")`
 
-**Purpose:** Handles logic related to `open arena duel mission`.
+**Purpose:** Opens the resource or UI associated with `arena duel mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenArenaDuelMission("example", location, duelCharacter, false, false, onDuelEnd, 0, "example");
+```
 
 ### OpenArenaDuelMission
 `public static Mission OpenArenaDuelMission(string scene, Location location)`
 
-**Purpose:** Handles logic related to `open arena duel mission`.
+**Purpose:** Opens the resource or UI associated with `arena duel mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenArenaDuelMission("example", location);
+```
 
 ### OpenBattleMission
 `public static Mission OpenBattleMission(MissionInitializerRecord rec)`
 
-**Purpose:** Handles logic related to `open battle mission`.
+**Purpose:** Opens the resource or UI associated with `battle mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenBattleMission(rec);
+```
 
 ### OpenCaravanBattleMission
 `public static Mission OpenCaravanBattleMission(MissionInitializerRecord rec, bool isCaravan)`
 
-**Purpose:** Handles logic related to `open caravan battle mission`.
+**Purpose:** Opens the resource or UI associated with `caravan battle mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenCaravanBattleMission(rec, false);
+```
 
 ### OpenAlleyFightMission
 `public static Mission OpenAlleyFightMission(MissionInitializerRecord rec, Location location, TroopRoster playerSideTroops, TroopRoster rivalSideTroops)`
 
-**Purpose:** Handles logic related to `open alley fight mission`.
+**Purpose:** Opens the resource or UI associated with `alley fight mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenAlleyFightMission(rec, location, playerSideTroops, rivalSideTroops);
+```
 
 ### OpenCombatMissionWithDialogue
 `public static Mission OpenCombatMissionWithDialogue(MissionInitializerRecord rec, CharacterObject characterToTalkTo)`
 
-**Purpose:** Handles logic related to `open combat mission with dialogue`.
+**Purpose:** Opens the resource or UI associated with `combat mission with dialogue`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenCombatMissionWithDialogue(rec, characterToTalkTo);
+```
 
 ### OpenBattleMissionWhileEnteringSettlement
 `public static Mission OpenBattleMissionWhileEnteringSettlement(string scene, int upgradeLevel, int numberOfMaxTroopToBeSpawnedForPlayer, int numberOfMaxTroopToBeSpawnedForOpponent)`
 
-**Purpose:** Handles logic related to `open battle mission while entering settlement`.
+**Purpose:** Opens the resource or UI associated with `battle mission while entering settlement`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenBattleMissionWhileEnteringSettlement("example", 0, 0, 0);
+```
+
+### OpenBattleMission
+`public static Mission OpenBattleMission(string scene, bool usesTownDecalAtlas, string sceneLevels)`
+
+**Purpose:** Opens the resource or UI associated with `battle mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenBattleMission("example", false, "example");
+```
+
+### OpenAlleyFightMission
+`public static Mission OpenAlleyFightMission(string scene, int upgradeLevel, Location location, TroopRoster playerSideTroops, TroopRoster rivalSideTroops)`
+
+**Purpose:** Opens the resource or UI associated with `alley fight mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenAlleyFightMission("example", 0, location, playerSideTroops, rivalSideTroops);
+```
+
+### OpenCombatMissionWithDialogue
+`public static Mission OpenCombatMissionWithDialogue(string scene, CharacterObject characterToTalkTo, int upgradeLevel)`
+
+**Purpose:** Opens the resource or UI associated with `combat mission with dialogue`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenCombatMissionWithDialogue("example", characterToTalkTo, 0);
+```
+
+### OpenHideoutBattleMission
+`public static Mission OpenHideoutBattleMission(string scene, FlattenedTroopRoster playerTroops, bool isTutorial)`
+
+**Purpose:** Opens the resource or UI associated with `hideout battle mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenHideoutBattleMission("example", playerTroops, false);
+```
+
+### OpenHideoutAmbushMission
+`public static Mission OpenHideoutAmbushMission(string sceneName, FlattenedTroopRoster playerTroops, Location location)`
+
+**Purpose:** Opens the resource or UI associated with `hideout ambush mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenHideoutAmbushMission("example", playerTroops, location);
+```
+
+### OpenCampMission
+`public static Mission OpenCampMission(string scene)`
+
+**Purpose:** Opens the resource or UI associated with `camp mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenCampMission("example");
+```
+
+### OpenSiegeMissionWithDeployment
+`public static Mission OpenSiegeMissionWithDeployment(string scene, float wallHitPointPercentages, bool hasAnySiegeTower, List<MissionSiegeWeapon> siegeWeaponsOfAttackers, List<MissionSiegeWeapon> siegeWeaponsOfDefenders, bool isPlayerAttacker, int sceneUpgradeLevel = 0, bool isSallyOut = false, bool isReliefForceAttack = false)`
+
+**Purpose:** Opens the resource or UI associated with `siege mission with deployment`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenSiegeMissionWithDeployment("example", 0, false, siegeWeaponsOfAttackers, siegeWeaponsOfDefenders, false, 0, false, false);
+```
+
+### OpenSiegeMissionNoDeployment
+`public static Mission OpenSiegeMissionNoDeployment(string scene, bool isSallyOut = false, bool isReliefForceAttack = false)`
+
+**Purpose:** Opens the resource or UI associated with `siege mission no deployment`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenSiegeMissionNoDeployment("example", false, false);
+```
+
+### OpenSiegeLordsHallFightMission
+`public static Mission OpenSiegeLordsHallFightMission(string scene, FlattenedTroopRoster attackerPriorityList)`
+
+**Purpose:** Opens the resource or UI associated with `siege lords hall fight mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenSiegeLordsHallFightMission("example", attackerPriorityList);
+```
+
+### OpenConversationMission
+`public static Mission OpenConversationMission(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, string specialScene = "", string sceneLevels = "", bool isMultiAgentConversation = false)`
+
+**Purpose:** Opens the resource or UI associated with `conversation mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenConversationMission(playerCharacterData, conversationPartnerData, "example", "example", false);
+```
+
+### OpenMeetingMission
+`public static Mission OpenMeetingMission(string scene, CharacterObject character)`
+
+**Purpose:** Opens the resource or UI associated with `meeting mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenMeetingMission("example", character);
+```
+
+### OpenDisguiseMission
+`public static Mission OpenDisguiseMission(string scene, bool willSetUpContact, Location fromLocation, string sceneLevels = null)`
+
+**Purpose:** Opens the resource or UI associated with `disguise mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenDisguiseMission("example", false, fromLocation, "example");
+```
+
+### OpenSimpleMountedPlayerMission
+`public static Mission OpenSimpleMountedPlayerMission(string scene, string sceneLevels)`
+
+**Purpose:** Opens the resource or UI associated with `simple mounted player mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissions.OpenSimpleMountedPlayerMission("example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 SandBoxMissions.CreateSandBoxMissionInitializerRecord("example", "example", false, decalAtlasGroup);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

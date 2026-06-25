@@ -1,13 +1,7 @@
 ---
 title: "ParameterFile"
+description: "Auto-generated class reference for ParameterFile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ParameterFile`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ParameterFile
 
 **Namespace:** TaleWorlds.Library
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CheckIfNeedsToBeRefreshed
 `public bool CheckIfNeedsToBeRefreshed()`
 
-**Purpose:** Handles logic related to `check if needs to be refreshed`.
+**Purpose:** Verifies whether `if needs to be refreshed` holds true for the current object.
+
+```csharp
+// Obtain an instance of ParameterFile from the subsystem API first
+ParameterFile parameterFile = ...;
+var result = parameterFile.CheckIfNeedsToBeRefreshed();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of ParameterFile from the subsystem API first
+ParameterFile parameterFile = ...;
+parameterFile.Refresh();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ParameterFile();
-value.CheckIfNeedsToBeRefreshed();
+// Typically call this after obtaining an instance from the subsystem API
+ParameterFile parameterFile = ...;
+parameterFile.CheckIfNeedsToBeRefreshed();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

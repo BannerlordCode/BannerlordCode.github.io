@@ -1,13 +1,7 @@
 ---
 title: "PartyTrainingModel"
+description: "PartyTrainingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyTrainingModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyTrainingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,29 +23,54 @@ title: "PartyTrainingModel"
 ### GenerateSharedXp
 `public abstract int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `generate shared xp` 相关逻辑。
+**用途 / Purpose:** 生成「shared xp」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTrainingModel 实例
+PartyTrainingModel partyTrainingModel = ...;
+var result = partyTrainingModel.GenerateSharedXp(troop, 0, mobileParty);
+```
 
 ### CalculateXpGainFromBattles
 `public abstract ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
 
-**用途 / Purpose:** 处理 `calculate xp gain from battles` 相关逻辑。
+**用途 / Purpose:** 计算「xp gain from battles」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTrainingModel 实例
+PartyTrainingModel partyTrainingModel = ...;
+var result = partyTrainingModel.CalculateXpGainFromBattles(troopRosterElement, party);
+```
 
 ### GetXpReward
 `public abstract int GetXpReward(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `xp reward` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp reward」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTrainingModel 实例
+PartyTrainingModel partyTrainingModel = ...;
+var result = partyTrainingModel.GetXpReward(character);
+```
 
 ### GetEffectiveDailyExperience
 `public abstract ExplainedNumber GetEffectiveDailyExperience(MobileParty party, TroopRosterElement troop)`
 
-**用途 / Purpose:** 获取 `effective daily experience` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「effective daily experience」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTrainingModel 实例
+PartyTrainingModel partyTrainingModel = ...;
+var result = partyTrainingModel.GetEffectiveDailyExperience(party, troop);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyTrainingModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyTrainingModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

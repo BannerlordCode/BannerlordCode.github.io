@@ -1,13 +1,7 @@
 ---
 title: "MapConversationView"
+description: "Auto-generated class reference for MapConversationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MapConversationView` as a View-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var view = new MapConversationView();
+// Retrieve this view from the subsystem API or scene
+MapConversationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

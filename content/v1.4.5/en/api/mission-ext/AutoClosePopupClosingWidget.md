@@ -1,20 +1,14 @@
 ---
 title: "AutoClosePopupClosingWidget"
+description: "Auto-generated class reference for AutoClosePopupClosingWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AutoClosePopupClosingWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AutoClosePopupClosingWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AutoClosePopupClosingWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/AutoClosePopupClosingWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/AutoClosePopupClosingWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `AutoClosePopupClosingWidget` as a Widget-style extension point: first ide
 ### ShouldClosePopup
 `public bool ShouldClosePopup()`
 
-**Purpose:** Handles logic related to `should close popup`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AutoClosePopupClosingWidget from the subsystem API first
+AutoClosePopupClosingWidget autoClosePopupClosingWidget = ...;
+var result = autoClosePopupClosingWidget.ShouldClosePopup();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new AutoClosePopupClosingWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AutoClosePopupClosingWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

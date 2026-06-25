@@ -1,13 +1,7 @@
 ---
 title: "PlayerStatsBase"
+description: "Auto-generated class reference for PlayerStatsBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerStatsBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerStatsBase
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -43,20 +37,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount)`
 
-**Purpose:** Handles logic related to `fill with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerStatsBase from the subsystem API first
+PlayerStatsBase playerStatsBase = ...;
+playerStatsBase.FillWith(playerId, 0, 0, 0, 0, 0, 0);
+```
 
 ### Update
 `public virtual void Update(BattlePlayerStatsBase battleStats, bool won)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of PlayerStatsBase from the subsystem API first
+PlayerStatsBase playerStatsBase = ...;
+playerStatsBase.Update(battleStats, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerStatsBase();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerStatsBase playerStatsBase = ...;
+playerStatsBase.FillWith(playerId, 0, 0, 0, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

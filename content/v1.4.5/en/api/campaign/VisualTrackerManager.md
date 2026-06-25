@@ -1,20 +1,14 @@
 ---
 title: "VisualTrackerManager"
+description: "Auto-generated class reference for VisualTrackerManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualTrackerManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualTrackerManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class VisualTrackerManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/VisualTrackerManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/VisualTrackerManager.cs`
 
 ## Overview
 
@@ -35,22 +29,46 @@ Treat `VisualTrackerManager` as a Manager-style extension point: first identify 
 ### RegisterObject
 `public void RegisterObject(ITrackableCampaignObject trackableObject)`
 
-**Purpose:** Handles logic related to `register object`.
+**Purpose:** Registers `object` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of VisualTrackerManager from the subsystem API first
+VisualTrackerManager visualTrackerManager = ...;
+visualTrackerManager.RegisterObject(trackableObject);
+```
 
 ### CheckTracked
 `public bool CheckTracked(ITrackableBase trackableObject)`
 
-**Purpose:** Handles logic related to `check tracked`.
+**Purpose:** Verifies whether `tracked` holds true for the current object.
+
+```csharp
+// Obtain an instance of VisualTrackerManager from the subsystem API first
+VisualTrackerManager visualTrackerManager = ...;
+var result = visualTrackerManager.CheckTracked(trackableObject);
+```
 
 ### RemoveTrackedObject
 `public void RemoveTrackedObject(ITrackableBase trackableObject, bool forceRemove = false)`
 
 **Purpose:** Removes `tracked object` from the current collection or state.
 
+```csharp
+// Obtain an instance of VisualTrackerManager from the subsystem API first
+VisualTrackerManager visualTrackerManager = ...;
+visualTrackerManager.RemoveTrackedObject(trackableObject, false);
+```
+
 ### SetDirty
 `public void SetDirty()`
 
-**Purpose:** Sets the value or state of `dirty`.
+**Purpose:** Assigns a new value to `dirty` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VisualTrackerManager from the subsystem API first
+VisualTrackerManager visualTrackerManager = ...;
+visualTrackerManager.SetDirty();
+```
 
 ## Usage Example
 
@@ -60,4 +78,4 @@ var manager = VisualTrackerManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

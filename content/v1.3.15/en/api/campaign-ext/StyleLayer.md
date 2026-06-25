@@ -1,24 +1,18 @@
 ---
 title: "StyleLayer"
+description: "Auto-generated class reference for StyleLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StyleLayer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StyleLayer
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class StyleLayer : IBrushLayerData, IDataSource`
 **Base:** `IBrushLayerData`
-**Area:** campaign-ext
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/StyleLayer.cs`
 
 ## Overview
 
-`StyleLayer` lives in `TaleWorlds.GauntletUI`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StyleLayer` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -48,47 +42,94 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 | `Rotation` | `public float Rotation { get; set; }` |
 | `ExtendLeft` | `public float ExtendLeft { get; set; }` |
 | `ExtendRight` | `public float ExtendRight { get; set; }` |
+| `ExtendTop` | `public float ExtendTop { get; set; }` |
+| `ExtendBottom` | `public float ExtendBottom { get; set; }` |
+| `OverridenWidth` | `public float OverridenWidth { get; set; }` |
+| `OverridenHeight` | `public float OverridenHeight { get; set; }` |
+| `WidthPolicy` | `public BrushLayerSizePolicy WidthPolicy { get; set; }` |
+| `HeightPolicy` | `public BrushLayerSizePolicy HeightPolicy { get; set; }` |
+| `HorizontalFlip` | `public bool HorizontalFlip { get; set; }` |
+| `VerticalFlip` | `public bool VerticalFlip { get; set; }` |
+| `OverlayMethod` | `public BrushOverlayMethod OverlayMethod { get; set; }` |
+| `OverlaySprite` | `public Sprite OverlaySprite { get; set; }` |
+| `OverlayXOffset` | `public float OverlayXOffset { get; set; }` |
+| `OverlayYOffset` | `public float OverlayYOffset { get; set; }` |
+| `UseRandomBaseOverlayXOffset` | `public bool UseRandomBaseOverlayXOffset { get; set; }` |
+| `UseRandomBaseOverlayYOffset` | `public bool UseRandomBaseOverlayYOffset { get; set; }` |
 
 ## Key Methods
 
 ### CreateFrom
 `public static StyleLayer CreateFrom(StyleLayer source)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+StyleLayer.CreateFrom(source);
+```
 
 ### FillFrom
 `public void FillFrom(StyleLayer source)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+styleLayer.FillFrom(source);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as float`.
+**Purpose:** Reads and returns the `value as float` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsFloat(propertyType);
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as color`.
+**Purpose:** Reads and returns the `value as color` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsColor(propertyType);
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as sprite`.
+**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsSprite(propertyType);
+```
 
 ### GetIsValueChanged
 `public bool GetIsValueChanged(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `is value changed`.
+**Purpose:** Reads and returns the `is value changed` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetIsValueChanged(propertyType);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 StyleLayer.CreateFrom(source);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

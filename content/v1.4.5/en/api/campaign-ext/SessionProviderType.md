@@ -1,20 +1,14 @@
 ---
 title: "SessionProviderType"
+description: "Auto-generated class reference for SessionProviderType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SessionProviderType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SessionProviderType
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public enum SessionProviderType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/SessionProviderType.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/SessionProviderType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ## Usage Example
 
 ```csharp
-var example = new SessionProviderType();
+// Obtain an instance from the relevant subsystem API
+SessionProviderType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

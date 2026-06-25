@@ -1,20 +1,14 @@
 ---
 title: "FormationFocusedMarkerWidget"
+description: "Auto-generated class reference for FormationFocusedMarkerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationFocusedMarkerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationFocusedMarkerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationFocusedMarkerWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/FormationFocusedMarkerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/FormationFocusedMarkerWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `FormationFocusedMarkerWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new FormationFocusedMarkerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FormationFocusedMarkerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

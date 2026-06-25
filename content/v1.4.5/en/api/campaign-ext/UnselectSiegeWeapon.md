@@ -1,20 +1,14 @@
 ---
 title: "UnselectSiegeWeapon"
+description: "Auto-generated class reference for UnselectSiegeWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UnselectSiegeWeapon`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UnselectSiegeWeapon
 
 **Namespace:** NetworkMessages.FromClient
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class UnselectSiegeWeapon : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/UnselectSiegeWeapon.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/UnselectSiegeWeapon.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `NetworkMessages.FromClient` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new UnselectSiegeWeapon();
+// Obtain an instance from the relevant subsystem API
+UnselectSiegeWeapon instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

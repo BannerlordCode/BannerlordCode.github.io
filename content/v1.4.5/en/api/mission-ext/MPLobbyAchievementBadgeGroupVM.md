@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyAchievementBadgeGroupVM"
+description: "Auto-generated class reference for MPLobbyAchievementBadgeGroupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyAchievementBadgeGroupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyAchievementBadgeGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyAchievementBadgeGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyAchievementBadgeGroupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyAchievementBadgeGroupVM.cs`
 
 ## Overview
 
@@ -40,30 +34,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyAchievementBadgeGroupVM from the subsystem API first
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.RefreshValues();
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey inspectProgressKey)`
 
-**Purpose:** Refreshes the display or cache of `key bindings`.
+**Purpose:** Keeps the display or cache of `key bindings` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyAchievementBadgeGroupVM from the subsystem API first
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.RefreshKeyBindings(inspectProgressKey);
+```
 
 ### OnGroupBadgeAdded
 `public void OnGroupBadgeAdded(MPLobbyBadgeItemVM badgeItem)`
 
-**Purpose:** Called when the `group badge added` event is raised.
+**Purpose:** Invoked when the `group badge added` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyAchievementBadgeGroupVM from the subsystem API first
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.OnGroupBadgeAdded(badgeItem);
+```
 
 ### UpdateBadgeSelection
 `public void UpdateBadgeSelection()`
 
-**Purpose:** Updates the state or data of `badge selection`.
+**Purpose:** Recalculates and stores the latest representation of `badge selection`.
+
+```csharp
+// Obtain an instance of MPLobbyAchievementBadgeGroupVM from the subsystem API first
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.UpdateBadgeSelection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyAchievementBadgeGroupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

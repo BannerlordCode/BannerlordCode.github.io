@@ -1,20 +1,14 @@
 ---
 title: "BannerlordFriendListService"
+description: "BannerlordFriendListService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerlordFriendListService`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordFriendListService
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerlordFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordFriendListService.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordFriendListService.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "BannerlordFriendListService"
 ### OnFriendListReceived
 `public void OnFriendListReceived(FriendInfo friends)`
 
-**用途 / Purpose:** 当 `friend list received` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「friend list received」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerlordFriendListService 实例
+BannerlordFriendListService bannerlordFriendListService = ...;
+bannerlordFriendListService.OnFriendListReceived(friends);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerlordFriendListService();
-value.OnFriendListReceived(friends);
+// 通常从对应子系统 API 获取实例后调用
+BannerlordFriendListService bannerlordFriendListService = ...;
+bannerlordFriendListService.OnFriendListReceived(friends);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

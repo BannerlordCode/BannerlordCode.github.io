@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerBattleSpawnModel"
+description: "Auto-generated class reference for MultiplayerBattleSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerBattleSpawnModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleSpawnModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,12 +23,24 @@ Treat `MultiplayerBattleSpawnModel` as a Model-style extension point: first iden
 ### GetInitialSpawnAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Gets the current value of `initial spawn assignments`.
+**Purpose:** Reads and returns the `initial spawn assignments` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleSpawnModel from the subsystem API first
+MultiplayerBattleSpawnModel multiplayerBattleSpawnModel = ...;
+var result = multiplayerBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+```
 
 ### GetReinforcementAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Gets the current value of `reinforcement assignments`.
+**Purpose:** Reads and returns the `reinforcement assignments` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleSpawnModel from the subsystem API first
+MultiplayerBattleSpawnModel multiplayerBattleSpawnModel = ...;
+var result = multiplayerBattleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<MultiplayerBattleSpawnModel>(new MyMultiplayerBattleSp
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "WaitForSpecialCase"
+description: "WaitForSpecialCase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WaitForSpecialCase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WaitForSpecialCase
 
 **Namespace:** TaleWorlds.Network
@@ -29,15 +23,22 @@ title: "WaitForSpecialCase"
 ### IsConditionSatisfiedDelegate
 `public delegate bool IsConditionSatisfiedDelegate()`
 
-**用途 / Purpose:** 处理 `is condition satisfied delegate` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「condition satisfied delegate」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WaitForSpecialCase 实例
+WaitForSpecialCase waitForSpecialCase = ...;
+var result = waitForSpecialCase.IsConditionSatisfiedDelegate();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WaitForSpecialCase();
-value.IsConditionSatisfiedDelegate();
+// 通常从对应子系统 API 获取实例后调用
+WaitForSpecialCase waitForSpecialCase = ...;
+waitForSpecialCase.IsConditionSatisfiedDelegate();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

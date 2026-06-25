@@ -1,13 +1,7 @@
 ---
 title: "LanguageSpecificTextProcessor"
+description: "LanguageSpecificTextProcessor 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LanguageSpecificTextProcessor`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LanguageSpecificTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
@@ -35,24 +29,43 @@ title: "LanguageSpecificTextProcessor"
 ### ProcessToken
 `public abstract void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** 处理 `process token` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LanguageSpecificTextProcessor 实例
+LanguageSpecificTextProcessor languageSpecificTextProcessor = ...;
+languageSpecificTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### ClearTemporaryData
 `public abstract void ClearTemporaryData()`
 
-**用途 / Purpose:** 处理 `clear temporary data` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「temporary data」。
+
+```csharp
+// 先通过子系统 API 拿到 LanguageSpecificTextProcessor 实例
+LanguageSpecificTextProcessor languageSpecificTextProcessor = ...;
+languageSpecificTextProcessor.ClearTemporaryData();
+```
 
 ### Process
 `public string Process(string text)`
 
-**用途 / Purpose:** 处理 `process` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LanguageSpecificTextProcessor 实例
+LanguageSpecificTextProcessor languageSpecificTextProcessor = ...;
+var result = languageSpecificTextProcessor.Process("example");
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomLanguageSpecificTextProcessor();
+// 通常通过子系统 API 或工厂获得派生实例
+LanguageSpecificTextProcessor instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

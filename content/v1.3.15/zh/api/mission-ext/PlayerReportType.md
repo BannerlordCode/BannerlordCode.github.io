@@ -1,18 +1,12 @@
 ---
 title: "PlayerReportType"
+description: "PlayerReportType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerReportType`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerReportType
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum PlayerReportType`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade.Diamond/PlayerReportType.cs`
 
@@ -27,9 +21,10 @@ title: "PlayerReportType"
 ## 使用示例
 
 ```csharp
-var value = new PlayerReportType();
+// 从对应子系统 API 获取实例
+PlayerReportType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

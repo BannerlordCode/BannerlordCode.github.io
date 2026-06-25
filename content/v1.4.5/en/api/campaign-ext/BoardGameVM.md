@@ -1,20 +1,14 @@
 ---
 title: "BoardGameVM"
+description: "Auto-generated class reference for BoardGameVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameVM
 
 **Namespace:** SandBox.ViewModelCollection.BoardGame
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class BoardGameVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.BoardGame/BoardGameVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.BoardGame/BoardGameVM.cs`
 
 ## Overview
 
@@ -45,50 +39,99 @@ Start from namespace `SandBox.ViewModelCollection.BoardGame` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BoardGameVM from the subsystem API first
+BoardGameVM boardGameVM = ...;
+boardGameVM.RefreshValues();
+```
 
 ### Activate
 `public void Activate()`
 
-**Purpose:** Handles logic related to `activate`.
+**Purpose:** Activates the resource, state, or feature represented by the current object.
+
+```csharp
+// Obtain an instance of BoardGameVM from the subsystem API first
+BoardGameVM boardGameVM = ...;
+boardGameVM.Activate();
+```
 
 ### DiceRoll
 `public void DiceRoll(int roll)`
 
-**Purpose:** Handles logic related to `dice roll`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameVM from the subsystem API first
+BoardGameVM boardGameVM = ...;
+boardGameVM.DiceRoll(0);
+```
 
 ### SwitchTurns
 `public void SwitchTurns()`
 
-**Purpose:** Handles logic related to `switch turns`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameVM from the subsystem API first
+BoardGameVM boardGameVM = ...;
+boardGameVM.SwitchTurns();
+```
 
 ### ExecuteRoll
 `public void ExecuteRoll()`
 
-**Purpose:** Executes the `roll` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `roll`.
+
+```csharp
+// Obtain an instance of BoardGameVM from the subsystem API first
+BoardGameVM boardGameVM = ...;
+boardGameVM.ExecuteRoll();
+```
 
 ### ExecuteForfeit
 `public void ExecuteForfeit()`
 
-**Purpose:** Executes the `forfeit` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `forfeit`.
+
+```csharp
+// Obtain an instance of BoardGameVM from the subsystem API first
+BoardGameVM boardGameVM = ...;
+boardGameVM.ExecuteForfeit();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of BoardGameVM from the subsystem API first
+BoardGameVM boardGameVM = ...;
+boardGameVM.OnFinalize();
+```
 
 ### SetRollDiceKey
 `public void SetRollDiceKey(HotKey key)`
 
-**Purpose:** Sets the value or state of `roll dice key`.
+**Purpose:** Assigns a new value to `roll dice key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameVM from the subsystem API first
+BoardGameVM boardGameVM = ...;
+boardGameVM.SetRollDiceKey(key);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameVM boardGameVM = ...;
+boardGameVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionTextMeshDrawData"
+description: "Auto-generated class reference for TwoDimensionTextMeshDrawData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionTextMeshDrawData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionTextMeshDrawData
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct TwoDimensionTextMeshDrawData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionTextMeshDrawData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionTextMeshDrawData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `TwoDimensionTextMeshDrawData` as a Data-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var value = new TwoDimensionTextMeshDrawData();
+// This data object is usually returned by campaign/mission APIs
+TwoDimensionTextMeshDrawData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

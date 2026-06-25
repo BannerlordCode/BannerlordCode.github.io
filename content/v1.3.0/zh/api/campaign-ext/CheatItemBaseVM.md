@@ -1,13 +1,7 @@
 ---
 title: "CheatItemBaseVM"
+description: "CheatItemBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CheatItemBaseVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheatItemBaseVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Cheat
@@ -35,14 +29,21 @@ title: "CheatItemBaseVM"
 ### ExecuteAction
 `public abstract void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CheatItemBaseVM 实例
+CheatItemBaseVM cheatItemBaseVM = ...;
+cheatItemBaseVM.ExecuteAction();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCheatItemBaseVM();
+// 通常通过子系统 API 或工厂获得派生实例
+CheatItemBaseVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

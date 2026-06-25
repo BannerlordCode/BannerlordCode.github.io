@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerFactionBannerWidget"
+description: "Auto-generated class reference for MultiplayerFactionBannerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerFactionBannerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerFactionBannerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerFactionBannerWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerFactionBannerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerFactionBannerWidget.cs`
 
 ## Overview
 
@@ -39,14 +33,21 @@ Treat `MultiplayerFactionBannerWidget` as a Widget-style extension point: first 
 ### MultiplayerFactionBannerWidget
 `public class MultiplayerFactionBannerWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer faction banner widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerFactionBannerWidget from the subsystem API first
+MultiplayerFactionBannerWidget multiplayerFactionBannerWidget = ...;
+var result = multiplayerFactionBannerWidget.MultiplayerFactionBannerWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerFactionBannerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerFactionBannerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,22 +1,20 @@
 ---
-title: Core / Core 核心
-description: TaleWorlds.Core core classes / Core classes
+title: "core index"
+description: Core data types class reference index
 ---
-# Core / Core 核心
+<!-- BEGIN SECTION INDEX -->
 
-## Mental Model
+## Parent Navigation
 
-Treat `Core` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+- [API Reference](../)
+- [Version Home](../../)
 
-v1.3.15 Core module documentation.
+## Child Classes — Alphabetical
 
-核心模块文档。
+### M
 
-## Files / 文件
+- [MBSubModuleBase](./MBSubModuleBase)
+- [Module](./Module)
 
-| File / 文件 | Description / 描述 |
-|------------|-------------------|
-| [MBObjectBase.md](./MBObjectBase) | Object base class |
-| [MBObjectManager.md](./MBObjectManager) | Object manager |
-| [MBSubModuleBase.md](./MBSubModuleBase) | SubModule entry class |
-| [Module.md](./Module) | Module class |
+
+<!-- END SECTION INDEX -->

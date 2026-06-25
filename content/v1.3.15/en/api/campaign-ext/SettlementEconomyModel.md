@@ -1,13 +1,7 @@
 ---
 title: "SettlementEconomyModel"
+description: "Auto-generated class reference for SettlementEconomyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementEconomyModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementEconomyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,39 +23,76 @@ Treat `SettlementEconomyModel` as a Model-style extension point: first identify 
 ### GetEstimatedDemandForCategory
 `public abstract float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
 
-**Purpose:** Gets the current value of `estimated demand for category`.
+**Purpose:** Reads and returns the `estimated demand for category` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementEconomyModel from the subsystem API first
+SettlementEconomyModel settlementEconomyModel = ...;
+var result = settlementEconomyModel.GetEstimatedDemandForCategory(town, itemData, category);
+```
 
 ### GetDailyDemandForCategory
 `public abstract float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity = 0)`
 
-**Purpose:** Gets the current value of `daily demand for category`.
+**Purpose:** Reads and returns the `daily demand for category` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementEconomyModel from the subsystem API first
+SettlementEconomyModel settlementEconomyModel = ...;
+var result = settlementEconomyModel.GetDailyDemandForCategory(town, category, 0);
+```
 
 ### GetDemandChangeFromValue
 `public abstract float GetDemandChangeFromValue(float purchaseValue)`
 
-**Purpose:** Gets the current value of `demand change from value`.
+**Purpose:** Reads and returns the `demand change from value` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementEconomyModel from the subsystem API first
+SettlementEconomyModel settlementEconomyModel = ...;
+var result = settlementEconomyModel.GetDemandChangeFromValue(0);
+```
 
 ### GetSupplyDemandForCategory
 `public abstract ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)`
 
-**Purpose:** Gets the current value of `supply demand for category`.
+**Purpose:** Reads and returns the `supply demand for category` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementEconomyModel from the subsystem API first
+SettlementEconomyModel settlementEconomyModel = ...;
+var result = settlementEconomyModel.GetSupplyDemandForCategory(town, category, 0, 0, 0, 0);
+```
 
 ### GetTownGoldChange
 `public abstract int GetTownGoldChange(Town town)`
 
-**Purpose:** Gets the current value of `town gold change`.
+**Purpose:** Reads and returns the `town gold change` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementEconomyModel from the subsystem API first
+SettlementEconomyModel settlementEconomyModel = ...;
+var result = settlementEconomyModel.GetTownGoldChange(town);
+```
 
 ### CalculateDailySettlementBudgetForItemCategory
 `public abstract float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
 
-**Purpose:** Handles logic related to `calculate daily settlement budget for item category`.
+**Purpose:** Calculates the current value or result of `daily settlement budget for item category`.
+
+```csharp
+// Obtain an instance of SettlementEconomyModel from the subsystem API first
+SettlementEconomyModel settlementEconomyModel = ...;
+var result = settlementEconomyModel.CalculateDailySettlementBudgetForItemCategory(town, 0, category);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementEconomyModel();
+// Typically obtained from a subsystem API or factory
+SettlementEconomyModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GOGAccessObject"
+description: "Auto-generated class reference for GOGAccessObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GOGAccessObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GOGAccessObject
 
 **Namespace:** TaleWorlds.Diamond
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new GOGAccessObject();
+// Obtain an instance from the relevant subsystem API
+GOGAccessObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

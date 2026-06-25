@@ -1,20 +1,14 @@
 ---
 title: "MissionMatchHistoryComponent"
+description: "MissionMatchHistoryComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMatchHistoryComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMatchHistoryComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMatchHistoryComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MissionMatchHistoryComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MissionMatchHistoryComponent.cs`
 
 ## 概述
 
@@ -29,22 +23,45 @@ title: "MissionMatchHistoryComponent"
 ### CreateIfConditionsAreMet
 `public static MissionMatchHistoryComponent CreateIfConditionsAreMet()`
 
-**用途 / Purpose:** 创建一个 `if conditions are met` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「if conditions are met」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionMatchHistoryComponent.CreateIfConditionsAreMet();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMatchHistoryComponent 实例
+MissionMatchHistoryComponent missionMatchHistoryComponent = ...;
+missionMatchHistoryComponent.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMatchHistoryComponent 实例
+MissionMatchHistoryComponent missionMatchHistoryComponent = ...;
+missionMatchHistoryComponent.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMatchHistoryComponent 实例
+MissionMatchHistoryComponent missionMatchHistoryComponent = ...;
+missionMatchHistoryComponent.OnRemoveBehavior();
+```
 
 ## 使用示例
 
@@ -54,4 +71,4 @@ var component = agent.GetComponent<MissionMatchHistoryComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionPlayerMovementFlagsChangeEvent"
+description: "Auto-generated class reference for MissionPlayerMovementFlagsChangeEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionPlayerMovementFlagsChangeEvent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionPlayerMovementFlagsChangeEvent
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews` to place it in
 ## Usage Example
 
 ```csharp
-var value = new MissionPlayerMovementFlagsChangeEvent();
+// Obtain an instance from the relevant subsystem API
+MissionPlayerMovementFlagsChangeEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ChangeCulture"
+description: "Auto-generated class reference for ChangeCulture."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeCulture`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeCulture
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ChangeCulture : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ChangeCulture.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ChangeCulture.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new ChangeCulture();
+// Obtain an instance from the relevant subsystem API
+ChangeCulture instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

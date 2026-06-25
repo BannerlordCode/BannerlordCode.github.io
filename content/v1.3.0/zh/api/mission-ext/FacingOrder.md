@@ -1,13 +1,7 @@
 ---
 title: "FacingOrder"
+description: "FacingOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FacingOrder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FacingOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,22 +29,45 @@ title: "FacingOrder"
 ### FacingOrderLookAtDirection
 `public static FacingOrder FacingOrderLookAtDirection(Vec2 direction)`
 
-**用途 / Purpose:** 处理 `facing order look at direction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+FacingOrder.FacingOrderLookAtDirection(direction);
+```
 
 ### GetDirection
 `public Vec2 GetDirection(Formation f, Agent targetAgent = null)`
 
-**用途 / Purpose:** 获取 `direction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「direction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FacingOrder 实例
+FacingOrder facingOrder = ...;
+var result = facingOrder.GetDirection(f, null);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 FacingOrder 实例
+FacingOrder facingOrder = ...;
+var result = facingOrder.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 FacingOrder 实例
+FacingOrder facingOrder = ...;
+var result = facingOrder.GetHashCode();
+```
 
 ## 使用示例
 
@@ -60,4 +77,4 @@ FacingOrder.FacingOrderLookAtDirection(direction);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

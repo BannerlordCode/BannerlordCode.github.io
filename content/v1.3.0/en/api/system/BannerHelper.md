@@ -1,13 +1,7 @@
 ---
 title: "BannerHelper"
+description: "Auto-generated class reference for BannerHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ Treat `BannerHelper` as a Helper-style extension point: first identify who creat
 ### GetRandomBannerItemForHero
 `public static ItemObject GetRandomBannerItemForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `random banner item for hero`.
+**Purpose:** Reads and returns the `random banner item for hero` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerHelper.GetRandomBannerItemForHero(hero);
+```
 
 ### AddBannerBonusForBanner
 `public static void AddBannerBonusForBanner(BannerEffect bannerEffect, BannerComponent bannerComponent, ref ExplainedNumber bonuses)`
 
 **Purpose:** Adds `banner bonus for banner` to the current collection or state.
+
+```csharp
+// Static call; no instance required
+BannerHelper.AddBannerBonusForBanner(bannerEffect, bannerComponent, bonuses);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ BannerHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

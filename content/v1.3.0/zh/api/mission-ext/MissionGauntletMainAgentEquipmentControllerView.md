@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletMainAgentEquipmentControllerView"
+description: "MissionGauntletMainAgentEquipmentControllerView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletMainAgentEquipmentControllerView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMainAgentEquipmentControllerView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
@@ -29,44 +23,87 @@ title: "MissionGauntletMainAgentEquipmentControllerView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
+MissionGauntletMainAgentEquipmentControllerView missionGauntletMainAgentEquipmentControllerView = ...;
+missionGauntletMainAgentEquipmentControllerView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
+MissionGauntletMainAgentEquipmentControllerView missionGauntletMainAgentEquipmentControllerView = ...;
+missionGauntletMainAgentEquipmentControllerView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
+MissionGauntletMainAgentEquipmentControllerView missionGauntletMainAgentEquipmentControllerView = ...;
+missionGauntletMainAgentEquipmentControllerView.OnMissionScreenTick(0);
+```
 
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** 当 `focus gained` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus gained」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
+MissionGauntletMainAgentEquipmentControllerView missionGauntletMainAgentEquipmentControllerView = ...;
+missionGauntletMainAgentEquipmentControllerView.OnFocusGained(agent, focusableObject, false);
+```
 
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** 当 `focus lost` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus lost」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
+MissionGauntletMainAgentEquipmentControllerView missionGauntletMainAgentEquipmentControllerView = ...;
+missionGauntletMainAgentEquipmentControllerView.OnFocusLost(agent, focusableObject);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
+MissionGauntletMainAgentEquipmentControllerView missionGauntletMainAgentEquipmentControllerView = ...;
+missionGauntletMainAgentEquipmentControllerView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMainAgentEquipmentControllerView 实例
+MissionGauntletMainAgentEquipmentControllerView missionGauntletMainAgentEquipmentControllerView = ...;
+missionGauntletMainAgentEquipmentControllerView.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletMainAgentEquipmentControllerView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletMainAgentEquipmentControllerView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

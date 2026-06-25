@@ -1,13 +1,7 @@
 ---
 title: "DefaultHeroDeathProbabilityCalculationModel"
+description: "DefaultHeroDeathProbabilityCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultHeroDeathProbabilityCalculationModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultHeroDeathProbabilityCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ title: "DefaultHeroDeathProbabilityCalculationModel"
 ### CalculateHeroDeathProbability
 `public override float CalculateHeroDeathProbability(Hero hero)`
 
-**用途 / Purpose:** 处理 `calculate hero death probability` 相关逻辑。
+**用途 / Purpose:** 计算「hero death probability」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultHeroDeathProbabilityCalculationModel 实例
+DefaultHeroDeathProbabilityCalculationModel defaultHeroDeathProbabilityCalculationModel = ...;
+var result = defaultHeroDeathProbabilityCalculationModel.CalculateHeroDeathProbability(hero);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultHeroDeathProbabilityCalculationModel>(new MyDef
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

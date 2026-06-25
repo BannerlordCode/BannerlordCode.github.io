@@ -1,20 +1,14 @@
 ---
 title: "CoroutineManager"
+description: "Auto-generated class reference for CoroutineManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CoroutineManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CoroutineManager
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class CoroutineManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/CoroutineManager.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/CoroutineManager.cs`
 
 ## Overview
 
@@ -37,10 +31,22 @@ Treat `CoroutineManager` as a Manager-style extension point: first identify who 
 
 **Purpose:** Adds `coroutine` to the current collection or state.
 
+```csharp
+// Obtain an instance of CoroutineManager from the subsystem API first
+CoroutineManager coroutineManager = ...;
+coroutineManager.AddCoroutine(coroutineMethod);
+```
+
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of CoroutineManager from the subsystem API first
+CoroutineManager coroutineManager = ...;
+coroutineManager.Tick();
+```
 
 ## Usage Example
 
@@ -50,4 +56,4 @@ var manager = CoroutineManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

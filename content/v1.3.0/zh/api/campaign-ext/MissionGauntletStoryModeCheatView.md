@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletStoryModeCheatView"
+description: "MissionGauntletStoryModeCheatView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletStoryModeCheatView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletStoryModeCheatView
 
 **Namespace:** SandBox.GauntletUI.Missions
@@ -29,34 +23,65 @@ title: "MissionGauntletStoryModeCheatView"
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
+MissionGauntletStoryModeCheatView missionGauntletStoryModeCheatView = ...;
+missionGauntletStoryModeCheatView.OnMissionScreenFinalize();
+```
 
 ### GetIsCheatsAvailable
 `public override bool GetIsCheatsAvailable()`
 
-**用途 / Purpose:** 获取 `is cheats available` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is cheats available」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
+MissionGauntletStoryModeCheatView missionGauntletStoryModeCheatView = ...;
+var result = missionGauntletStoryModeCheatView.GetIsCheatsAvailable();
+```
 
 ### InitializeScreen
 `public override void InitializeScreen()`
 
-**用途 / Purpose:** 初始化 `screen` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「screen」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
+MissionGauntletStoryModeCheatView missionGauntletStoryModeCheatView = ...;
+missionGauntletStoryModeCheatView.InitializeScreen();
+```
 
 ### FinalizeScreen
 `public override void FinalizeScreen()`
 
-**用途 / Purpose:** 处理 `finalize screen` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
+MissionGauntletStoryModeCheatView missionGauntletStoryModeCheatView = ...;
+missionGauntletStoryModeCheatView.FinalizeScreen();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
+MissionGauntletStoryModeCheatView missionGauntletStoryModeCheatView = ...;
+missionGauntletStoryModeCheatView.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletStoryModeCheatView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletStoryModeCheatView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

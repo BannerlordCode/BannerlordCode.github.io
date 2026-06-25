@@ -1,13 +1,7 @@
 ---
 title: "WeatherNode"
+description: "Auto-generated class reference for WeatherNode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeatherNode`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeatherNode
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, t
 ### SetVisualDirty
 `public void SetVisualDirty()`
 
-**Purpose:** Sets the value or state of `visual dirty`.
+**Purpose:** Assigns a new value to `visual dirty` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WeatherNode from the subsystem API first
+WeatherNode weatherNode = ...;
+weatherNode.SetVisualDirty();
+```
 
 ### OnVisualUpdated
 `public void OnVisualUpdated()`
 
-**Purpose:** Called when the `visual updated` event is raised.
+**Purpose:** Invoked when the `visual updated` event is raised.
+
+```csharp
+// Obtain an instance of WeatherNode from the subsystem API first
+WeatherNode weatherNode = ...;
+weatherNode.OnVisualUpdated();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeatherNode();
-value.SetVisualDirty();
+// Typically call this after obtaining an instance from the subsystem API
+WeatherNode weatherNode = ...;
+weatherNode.SetVisualDirty();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

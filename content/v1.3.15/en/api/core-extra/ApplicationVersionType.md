@@ -1,18 +1,12 @@
 ---
 title: "ApplicationVersionType"
+description: "Auto-generated class reference for ApplicationVersionType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplicationVersionType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ApplicationVersionType
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public enum ApplicationVersionType`
 **Base:** none
 **File:** `TaleWorlds.Library/ApplicationVersionType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new ApplicationVersionType();
+// Obtain an instance from the relevant subsystem API
+ApplicationVersionType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

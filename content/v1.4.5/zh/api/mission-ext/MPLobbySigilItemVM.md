@@ -1,20 +1,14 @@
 ---
 title: "MPLobbySigilItemVM"
+description: "MPLobbySigilItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbySigilItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbySigilItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbySigilItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbySigilItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbySigilItemVM.cs`
 
 ## 概述
 
@@ -37,25 +31,44 @@ title: "MPLobbySigilItemVM"
 ### RefreshWith
 `public void RefreshWith(int iconID)`
 
-**用途 / Purpose:** 刷新 `with` 的显示或缓存。
+**用途 / Purpose:** 使 「with」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbySigilItemVM 实例
+MPLobbySigilItemVM mPLobbySigilItemVM = ...;
+mPLobbySigilItemVM.RefreshWith(0);
+```
 
 ### RefreshWith
 `public void RefreshWith(Banner banner)`
 
-**用途 / Purpose:** 刷新 `with` 的显示或缓存。
+**用途 / Purpose:** 使 「with」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbySigilItemVM 实例
+MPLobbySigilItemVM mPLobbySigilItemVM = ...;
+mPLobbySigilItemVM.RefreshWith(banner);
+```
 
 ### RefreshWith
 `public void RefreshWith(string bannerCode)`
 
-**用途 / Purpose:** 刷新 `with` 的显示或缓存。
+**用途 / Purpose:** 使 「with」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbySigilItemVM 实例
+MPLobbySigilItemVM mPLobbySigilItemVM = ...;
+mPLobbySigilItemVM.RefreshWith("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbySigilItemVM();
-value.RefreshWith(0);
+// 通常从对应子系统 API 获取实例后调用
+MPLobbySigilItemVM mPLobbySigilItemVM = ...;
+mPLobbySigilItemVM.RefreshWith(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MBObjectManager"
+description: "Auto-generated class reference for MBObjectManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBObjectManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBObjectManager
 
 **Namespace:** TaleWorlds.ObjectSystem
@@ -37,197 +31,421 @@ Treat `MBObjectManager` as a Manager-style extension point: first identify who c
 ### Init
 `public static MBObjectManager Init()`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.Init();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.Destroy();
+```
 
 ### HasType
 `public bool HasType(Type type)`
 
-**Purpose:** Checks whether the current object has/contains `type`.
+**Purpose:** Determines whether the current object already holds `type`.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.HasType(type);
+```
 
 ### FindRegisteredClassPrefix
 `public string FindRegisteredClassPrefix(Type type)`
 
-**Purpose:** Handles logic related to `find registered class prefix`.
+**Purpose:** Looks up the matching `registered class prefix` in the current collection or scope.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.FindRegisteredClassPrefix(type);
+```
 
 ### FindRegisteredType
 `public Type FindRegisteredType(string classPrefix)`
 
-**Purpose:** Handles logic related to `find registered type`.
+**Purpose:** Looks up the matching `registered type` in the current collection or scope.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.FindRegisteredType("example");
+```
 
 ### UnregisterObject
 `public void UnregisterObject(MBObjectBase obj)`
 
-**Purpose:** Handles logic related to `unregister object`.
+**Purpose:** Unregisters `object` from the current system.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.UnregisterObject(obj);
+```
 
 ### RemoveTemporaryTypes
 `public void RemoveTemporaryTypes()`
 
 **Purpose:** Removes `temporary types` from the current collection or state.
 
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.RemoveTemporaryTypes();
+```
+
 ### PreAfterLoad
 `public void PreAfterLoad()`
 
-**Purpose:** Handles logic related to `pre after load`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.PreAfterLoad();
+```
 
 ### AfterLoad
 `public void AfterLoad()`
 
-**Purpose:** Handles logic related to `after load`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.AfterLoad();
+```
 
 ### GetObject
 `public MBObjectBase GetObject(MBGUID objectId)`
 
-**Purpose:** Gets the current value of `object`.
+**Purpose:** Reads and returns the `object` value held by the current object.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.GetObject(objectId);
+```
 
 ### GetObject
 `public MBObjectBase GetObject(string typeName, string objectName)`
 
-**Purpose:** Gets the current value of `object`.
+**Purpose:** Reads and returns the `object` value held by the current object.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.GetObject("example", "example");
+```
 
 ### CreateObjectTypeList
 `public IList<MBObjectBase> CreateObjectTypeList(Type objectClassType)`
 
-**Purpose:** Creates a new `object type list` instance or object.
+**Purpose:** Constructs a new `object type list` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.CreateObjectTypeList(objectClassType);
+```
 
 ### LoadXML
 `public void LoadXML(string id, bool isDevelopment, string gameType, bool skipXmlFilterForEditor = false)`
 
-**Purpose:** Loads `x m l` data.
+**Purpose:** Reads `x m l` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.LoadXML("example", false, "example", false);
+```
 
 ### MergeElementAttributes
 `public static bool MergeElementAttributes(XElement element1, XElement element2)`
 
-**Purpose:** Handles logic related to `merge element attributes`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.MergeElementAttributes(element1, element2);
+```
 
 ### MergeElements
 `public static void MergeElements(XElement element1, XElement element2, string xsdPath)`
 
-**Purpose:** Handles logic related to `merge elements`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.MergeElements(element1, element2, "example");
+```
 
 ### GetMergedXmlForManaged
 `public static XmlDocument GetMergedXmlForManaged(string id, bool skipValidation, bool ignoreGameTypeInclusionCheck = true, string gameType = "")`
 
-**Purpose:** Gets the current value of `merged xml for managed`.
+**Purpose:** Reads and returns the `merged xml for managed` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.GetMergedXmlForManaged("example", false, false, "example");
+```
 
 ### GetMergedXmlForNative
 `public static XmlDocument GetMergedXmlForNative(string id, out List<string> usedPaths)`
 
-**Purpose:** Gets the current value of `merged xml for native`.
+**Purpose:** Reads and returns the `merged xml for native` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.GetMergedXmlForNative("example", usedPaths);
+```
 
 ### CreateMergedXmlFile
 `public static XmlDocument CreateMergedXmlFile(List<Tuple<string, string>> toBeMerged, List<string> xsltList, bool skipValidation)`
 
-**Purpose:** Creates a new `merged xml file` instance or object.
+**Purpose:** Constructs a new `merged xml file` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.CreateMergedXmlFile(list<Tuple<string, "example", xsltList, false);
+```
 
 ### ApplyXslt
 `public static XmlDocument ApplyXslt(string xsltPath, XmlDocument baseDocument)`
 
-**Purpose:** Applies `xslt` to the current object.
+**Purpose:** Applies the effect of `xslt` to the current object.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.ApplyXslt("example", baseDocument);
+```
 
 ### MergeTwoXmls
 `public static XmlDocument MergeTwoXmls(XmlDocument xmlDocument1, XmlDocument xmlDocument2, string xsdPath, bool keepDuplicates)`
 
-**Purpose:** Handles logic related to `merge two xmls`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.MergeTwoXmls(xmlDocument1, xmlDocument2, "example", false);
+```
 
 ### ToXDocument
 `public static XDocument ToXDocument(XmlDocument xmlDocument)`
 
-**Purpose:** Handles logic related to `to x document`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.ToXDocument(xmlDocument);
+```
 
 ### ToXmlDocument
 `public static XmlDocument ToXmlDocument(XDocument xDocument)`
 
-**Purpose:** Handles logic related to `to xml document`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBObjectManager.ToXmlDocument(xDocument);
+```
 
 ### LoadOneXmlFromFile
 `public void LoadOneXmlFromFile(string xmlPath, string xsdPath, bool skipValidation = false)`
 
-**Purpose:** Loads `one xml from file` data.
+**Purpose:** Reads `one xml from file` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.LoadOneXmlFromFile("example", "example", false);
+```
 
 ### LoadXMLFromFileSkipValidation
 `public XmlDocument LoadXMLFromFileSkipValidation(string xmlPath, string xsdPath)`
 
-**Purpose:** Loads `x m l from file skip validation` data.
+**Purpose:** Reads `x m l from file skip validation` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.LoadXMLFromFileSkipValidation("example", "example");
+```
 
 ### LoadXml
 `public void LoadXml(XmlDocument doc, bool isDevelopment = false)`
 
-**Purpose:** Loads `xml` data.
+**Purpose:** Reads `xml` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.LoadXml(doc, false);
+```
 
 ### CreateObjectFromXmlNode
 `public MBObjectBase CreateObjectFromXmlNode(XmlNode node)`
 
-**Purpose:** Creates a new `object from xml node` instance or object.
+**Purpose:** Constructs a new `object from xml node` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.CreateObjectFromXmlNode(node);
+```
 
 ### CreateObjectFromXmlNode
 `public MBObjectBase CreateObjectFromXmlNode(XmlNode node, string typeName)`
 
-**Purpose:** Creates a new `object from xml node` instance or object.
+**Purpose:** Constructs a new `object from xml node` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.CreateObjectFromXmlNode(node, "example");
+```
 
 ### CreateObjectWithoutDeserialize
 `public MBObjectBase CreateObjectWithoutDeserialize(XmlNode node)`
 
-**Purpose:** Creates a new `object without deserialize` instance or object.
+**Purpose:** Constructs a new `object without deserialize` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.CreateObjectWithoutDeserialize(node);
+```
 
 ### UnregisterNonReadyObjects
 `public void UnregisterNonReadyObjects()`
 
-**Purpose:** Handles logic related to `unregister non ready objects`.
+**Purpose:** Unregisters `non ready objects` from the current system.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.UnregisterNonReadyObjects();
+```
 
 ### ClearAllObjects
 `public void ClearAllObjects()`
 
-**Purpose:** Handles logic related to `clear all objects`.
+**Purpose:** Removes all `all objects` from the current object.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.ClearAllObjects();
+```
 
 ### ClearAllObjectsWithType
 `public void ClearAllObjectsWithType(Type type)`
 
-**Purpose:** Handles logic related to `clear all objects with type`.
+**Purpose:** Removes all `all objects with type` from the current object.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.ClearAllObjectsWithType(type);
+```
 
 ### ReadObjectReferenceFromXml
 `public MBObjectBase ReadObjectReferenceFromXml(string attributeName, Type objectType, XmlNode node)`
 
-**Purpose:** Handles logic related to `read object reference from xml`.
+**Purpose:** Reads the data or state of `object reference from xml`.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.ReadObjectReferenceFromXml("example", objectType, node);
+```
 
 ### DebugPrint
 `public void DebugPrint(PrintOutputDelegate printOutput)`
 
-**Purpose:** Handles logic related to `debug print`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.DebugPrint(printOutput);
+```
 
 ### AddHandler
 `public void AddHandler(IObjectManagerHandler handler)`
 
 **Purpose:** Adds `handler` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.AddHandler(handler);
+```
+
 ### RemoveHandler
 `public void RemoveHandler(IObjectManagerHandler handler)`
 
 **Purpose:** Removes `handler` from the current collection or state.
 
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.RemoveHandler(handler);
+```
+
 ### DebugDump
 `public string DebugDump()`
 
-**Purpose:** Handles logic related to `debug dump`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.DebugDump();
+```
 
 ### ReInitialize
 `public void ReInitialize()`
 
-**Purpose:** Handles logic related to `re initialize`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+mBObjectManager.ReInitialize();
+```
 
 ### GetObjectTypeIds
 `public string GetObjectTypeIds()`
 
-**Purpose:** Gets the current value of `object type ids`.
+**Purpose:** Reads and returns the `object type ids` value held by the current object.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.GetObjectTypeIds();
+```
 
 ### GetMBObject
 `public MBObjectBase GetMBObject(MBGUID objId)`
 
-**Purpose:** Gets the current value of `m b object`.
+**Purpose:** Reads and returns the `m b object` value held by the current object.
+
+```csharp
+// Obtain an instance of MBObjectManager from the subsystem API first
+MBObjectManager mBObjectManager = ...;
+var result = mBObjectManager.GetMBObject(objId);
+```
 
 ## Usage Example
 
@@ -237,4 +455,4 @@ var manager = MBObjectManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

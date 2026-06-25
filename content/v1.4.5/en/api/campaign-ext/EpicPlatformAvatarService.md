@@ -1,20 +1,14 @@
 ---
 title: "EpicPlatformAvatarService"
+description: "Auto-generated class reference for EpicPlatformAvatarService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EpicPlatformAvatarService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EpicPlatformAvatarService
 
 **Namespace:** TaleWorlds.PlatformService.Epic
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class EpicPlatformAvatarService : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicPlatformAvatarService.cs`
+**File:** `bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicPlatformAvatarService.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.PlatformService.Epic` to place it in the stack,
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `player avatar`.
+**Purpose:** Reads and returns the `player avatar` value held by the current object.
+
+```csharp
+// Obtain an instance of EpicPlatformAvatarService from the subsystem API first
+EpicPlatformAvatarService epicPlatformAvatarService = ...;
+var result = epicPlatformAvatarService.GetPlayerAvatar(playerId);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of EpicPlatformAvatarService from the subsystem API first
+EpicPlatformAvatarService epicPlatformAvatarService = ...;
+epicPlatformAvatarService.Initialize();
+```
 
 ### IsInitialized
 `public bool IsInitialized()`
 
-**Purpose:** Handles logic related to `is initialized`.
+**Purpose:** Determines whether the current object is in the `initialized` state or condition.
+
+```csharp
+// Obtain an instance of EpicPlatformAvatarService from the subsystem API first
+EpicPlatformAvatarService epicPlatformAvatarService = ...;
+var result = epicPlatformAvatarService.IsInitialized();
+```
 
 ### ClearCache
 `public void ClearCache()`
 
-**Purpose:** Handles logic related to `clear cache`.
+**Purpose:** Removes all `cache` from the current object.
+
+```csharp
+// Obtain an instance of EpicPlatformAvatarService from the subsystem API first
+EpicPlatformAvatarService epicPlatformAvatarService = ...;
+epicPlatformAvatarService.ClearCache();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of EpicPlatformAvatarService from the subsystem API first
+EpicPlatformAvatarService epicPlatformAvatarService = ...;
+epicPlatformAvatarService.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EpicPlatformAvatarService();
-value.GetPlayerAvatar(playerId);
+// Typically call this after obtaining an instance from the subsystem API
+EpicPlatformAvatarService epicPlatformAvatarService = ...;
+epicPlatformAvatarService.GetPlayerAvatar(playerId);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

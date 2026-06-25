@@ -1,13 +1,7 @@
 ---
 title: "MissionSuspicionFillerBrushWidget"
+description: "Auto-generated class reference for MissionSuspicionFillerBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSuspicionFillerBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionSuspicionFillerBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Disguise
@@ -36,9 +30,10 @@ Treat `MissionSuspicionFillerBrushWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new MissionSuspicionFillerBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MissionSuspicionFillerBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

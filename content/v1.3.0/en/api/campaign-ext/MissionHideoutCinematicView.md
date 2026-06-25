@@ -1,13 +1,7 @@
 ---
 title: "MissionHideoutCinematicView"
+description: "Auto-generated class reference for MissionHideoutCinematicView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHideoutCinematicView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHideoutCinematicView
 
 **Namespace:** SandBox.View.Missions
@@ -29,14 +23,21 @@ Treat `MissionHideoutCinematicView` as a View-style extension point: first ident
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionHideoutCinematicView from the subsystem API first
+MissionHideoutCinematicView missionHideoutCinematicView = ...;
+missionHideoutCinematicView.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionHideoutCinematicView();
+// Retrieve this view from the subsystem API or scene
+MissionHideoutCinematicView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CampaignData"
+description: "Auto-generated class reference for CampaignData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -33,9 +27,10 @@ Treat `CampaignData` as a Data-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var value = new CampaignData();
+// This data object is usually returned by campaign/mission APIs
+CampaignData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

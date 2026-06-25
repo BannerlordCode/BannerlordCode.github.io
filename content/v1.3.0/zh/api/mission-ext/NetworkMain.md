@@ -1,13 +1,7 @@
 ---
 title: "NetworkMain"
+description: "NetworkMain 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NetworkMain`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NetworkMain
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,7 +31,12 @@ title: "NetworkMain"
 ### SetPeers
 `public static void SetPeers(LobbyClient gameClient, CommunityClient communityClient, CustomBattleServer customBattleServer)`
 
-**用途 / Purpose:** 设置 `peers` 的值或状态。
+**用途 / Purpose:** 为 「peers」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+NetworkMain.SetPeers(gameClient, communityClient, customBattleServer);
+```
 
 ## 使用示例
 
@@ -47,4 +46,4 @@ NetworkMain.SetPeers(gameClient, communityClient, customBattleServer);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

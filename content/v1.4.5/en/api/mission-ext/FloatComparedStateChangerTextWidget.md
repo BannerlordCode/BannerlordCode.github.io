@@ -1,20 +1,14 @@
 ---
 title: "FloatComparedStateChangerTextWidget"
+description: "Auto-generated class reference for FloatComparedStateChangerTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FloatComparedStateChangerTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FloatComparedStateChangerTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FloatComparedStateChangerTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/FloatComparedStateChangerTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/FloatComparedStateChangerTextWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `FloatComparedStateChangerTextWidget` as a Widget-style extension point: f
 ## Usage Example
 
 ```csharp
-var widget = new FloatComparedStateChangerTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FloatComparedStateChangerTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

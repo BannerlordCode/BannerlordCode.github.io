@@ -1,13 +1,7 @@
 ---
 title: "ItemCollectionElementMissionExtensions"
+description: "Auto-generated class reference for ItemCollectionElementMissionExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemCollectionElementMissionExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCollectionElementMissionExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetItemHolsterIndices
 `public static StackArray.StackArray4Int GetItemHolsterIndices(this ItemObject item)`
 
-**Purpose:** Gets the current value of `item holster indices`.
+**Purpose:** Reads and returns the `item holster indices` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementMissionExtensions.GetItemHolsterIndices(item);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ ItemCollectionElementMissionExtensions.GetItemHolsterIndices(item);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

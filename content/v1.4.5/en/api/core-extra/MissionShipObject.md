@@ -1,20 +1,14 @@
 ---
 title: "MissionShipObject"
+description: "Auto-generated class reference for MissionShipObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionShipObject`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionShipObject
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MissionShipObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MissionShipObject.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionShipObject.cs`
 
 ## Overview
 
@@ -66,20 +60,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetPhysicsReference
 `public void SetPhysicsReference(ShipPhysicsReference physicsReference)`
 
-**Purpose:** Sets the value or state of `physics reference`.
+**Purpose:** Assigns a new value to `physics reference` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionShipObject from the subsystem API first
+MissionShipObject missionShipObject = ...;
+missionShipObject.SetPhysicsReference(physicsReference);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of MissionShipObject from the subsystem API first
+MissionShipObject missionShipObject = ...;
+missionShipObject.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionShipObject();
-value.SetPhysicsReference(physicsReference);
+// Typically call this after obtaining an instance from the subsystem API
+MissionShipObject missionShipObject = ...;
+missionShipObject.SetPhysicsReference(physicsReference);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

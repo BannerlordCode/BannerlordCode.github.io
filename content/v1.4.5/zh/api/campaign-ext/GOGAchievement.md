@@ -1,20 +1,14 @@
 ---
 title: "GOGAchievement"
+description: "GOGAchievement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GOGAchievement`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GOGAchievement
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GOGAchievement`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGAchievement.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGAchievement.cs`
 
 ## 概述
 
@@ -37,9 +31,10 @@ title: "GOGAchievement"
 ## 使用示例
 
 ```csharp
-var example = new GOGAchievement();
+// 从对应子系统 API 获取实例
+GOGAchievement instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

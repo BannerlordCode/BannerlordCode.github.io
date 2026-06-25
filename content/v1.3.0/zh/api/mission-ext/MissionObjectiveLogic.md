@@ -1,13 +1,7 @@
 ---
 title: "MissionObjectiveLogic"
+description: "MissionObjectiveLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectiveLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.MissionLogics
@@ -35,34 +29,64 @@ title: "MissionObjectiveLogic"
 ### EnqueueObjective
 `public void EnqueueObjective(MissionObjective objective)`
 
-**用途 / Purpose:** 处理 `enqueue objective` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveLogic 实例
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.EnqueueObjective(objective);
+```
 
 ### RemoveObjectiveFromQueue
 `public void RemoveObjectiveFromQueue(string objectiveId)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `objective from queue`。
+**用途 / Purpose:** 从当前容器或状态中移除 「objective from queue」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveLogic 实例
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.RemoveObjectiveFromQueue("example");
+```
 
 ### RemoveObjectiveFromQueue
 `public void RemoveObjectiveFromQueue(MissionObjective objective)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `objective from queue`。
+**用途 / Purpose:** 从当前容器或状态中移除 「objective from queue」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveLogic 实例
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.RemoveObjectiveFromQueue(objective);
+```
 
 ### GetCurrentObjective
 `public MissionObjective GetCurrentObjective()`
 
-**用途 / Purpose:** 获取 `current objective` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current objective」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveLogic 实例
+MissionObjectiveLogic missionObjectiveLogic = ...;
+var result = missionObjectiveLogic.GetCurrentObjective();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveLogic 实例
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionObjectiveLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionObjectiveLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

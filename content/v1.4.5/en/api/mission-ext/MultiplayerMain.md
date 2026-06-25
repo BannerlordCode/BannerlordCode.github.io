@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerMain"
+description: "Auto-generated class reference for MultiplayerMain."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerMain`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMain
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerMain`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerMain.cs`
 
 ## Overview
 
-`MultiplayerMain` lives in `TaleWorlds.MountAndBlade.Multiplayer`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MultiplayerMain` lives in `TaleWorlds.MountAndBlade.Multiplayer` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,61 +29,109 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### Initialize
 `public static void Initialize(IGameNetworkHandler gameNetworkHandler)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.Initialize(gameNetworkHandler);
+```
 
 ### InitializeAsDedicatedServer
 `public static void InitializeAsDedicatedServer(IGameNetworkHandler gameNetworkHandler)`
 
-**Purpose:** Initializes the state, resources, or bindings for `as dedicated server`.
+**Purpose:** Prepares the resources, state, or bindings required by `as dedicated server`.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.InitializeAsDedicatedServer(gameNetworkHandler);
+```
 
 ### GetAvailableRankedGameModes
 `public static MultiplayerGameType GetAvailableRankedGameModes()`
 
-**Purpose:** Gets the current value of `available ranked game modes`.
+**Purpose:** Reads and returns the `available ranked game modes` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.GetAvailableRankedGameModes();
+```
 
 ### GetAvailableCustomGameModes
 `public static MultiplayerGameType GetAvailableCustomGameModes()`
 
-**Purpose:** Gets the current value of `available custom game modes`.
+**Purpose:** Reads and returns the `available custom game modes` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.GetAvailableCustomGameModes();
+```
 
 ### GetAvailableQuickPlayGameModes
 `public static MultiplayerGameType GetAvailableQuickPlayGameModes()`
 
-**Purpose:** Gets the current value of `available quick play game modes`.
+**Purpose:** Reads and returns the `available quick play game modes` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.GetAvailableQuickPlayGameModes();
+```
 
 ### GetAvailableMatchmakerRegions
 `public static string GetAvailableMatchmakerRegions()`
 
-**Purpose:** Gets the current value of `available matchmaker regions`.
+**Purpose:** Reads and returns the `available matchmaker regions` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.GetAvailableMatchmakerRegions();
+```
 
 ### GetUserDefaultRegion
 `public static string GetUserDefaultRegion()`
 
-**Purpose:** Gets the current value of `user default region`.
+**Purpose:** Reads and returns the `user default region` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.GetUserDefaultRegion();
+```
 
 ### GetUserCurrentRegion
 `public static string GetUserCurrentRegion()`
 
-**Purpose:** Gets the current value of `user current region`.
+**Purpose:** Reads and returns the `user current region` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.GetUserCurrentRegion();
+```
 
 ### GetUserSelectedGameTypes
 `public static string GetUserSelectedGameTypes()`
 
-**Purpose:** Gets the current value of `user selected game types`.
+**Purpose:** Reads and returns the `user selected game types` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.GetUserSelectedGameTypes();
+```
 
 ### GetDedicatedCustomServerAuthToken
 `public static string GetDedicatedCustomServerAuthToken(List<string> strings)`
 
-**Purpose:** Gets the current value of `dedicated custom server auth token`.
+**Purpose:** Reads and returns the `dedicated custom server auth token` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerMain.GetDedicatedCustomServerAuthToken(strings);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MultiplayerMain.Initialize(gameNetworkHandler);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

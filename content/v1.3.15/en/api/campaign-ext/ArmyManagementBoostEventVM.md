@@ -1,13 +1,7 @@
 ---
 title: "ArmyManagementBoostEventVM"
+description: "Auto-generated class reference for ArmyManagementBoostEventVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyManagementBoostEventVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ArmyManagementBoostEventVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ArmyManagementBoostEventVM from the subsystem API first
+ArmyManagementBoostEventVM armyManagementBoostEventVM = ...;
+armyManagementBoostEventVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyManagementBoostEventVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyManagementBoostEventVM armyManagementBoostEventVM = ...;
+armyManagementBoostEventVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

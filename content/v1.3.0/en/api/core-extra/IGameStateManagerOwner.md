@@ -1,18 +1,12 @@
 ---
 title: "IGameStateManagerOwner"
+description: "Auto-generated class reference for IGameStateManagerOwner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGameStateManagerOwner`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IGameStateManagerOwner
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IGameStateManagerOwner`
 **Base:** none
 **File:** `TaleWorlds.Core/IGameStateManagerOwner.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IGameStateManagerOwner implementation = GetGameStateManagerOwnerImplementation();
+// Usually obtained through DI or a factory method
+IIGameStateManagerOwner service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

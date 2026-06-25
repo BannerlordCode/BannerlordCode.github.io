@@ -1,20 +1,14 @@
 ---
 title: "StealthAreaMissionLogic"
+description: "StealthAreaMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthAreaMissionLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthAreaMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class StealthAreaMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/StealthAreaMissionLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/StealthAreaMissionLogic.cs`
 
 ## 概述
 
@@ -35,54 +29,108 @@ title: "StealthAreaMissionLogic"
 ### SpawnReinforcementAllyTroopsDelegate
 `public delegate MBList<Agent> SpawnReinforcementAllyTroopsDelegate(StealthAreaData triggeredStealthAreaData, StealthAreaMarker stealthAreaMarker)`
 
-**用途 / Purpose:** 处理 `spawn reinforcement ally troops delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+var result = stealthAreaMissionLogic.SpawnReinforcementAllyTroopsDelegate(triggeredStealthAreaData, stealthAreaMarker);
+```
 
 ### IsSentry
 `public bool IsSentry(Agent agent)`
 
-**用途 / Purpose:** 处理 `is sentry` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「sentry」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+var result = stealthAreaMissionLogic.IsSentry(agent);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnBehaviorInitialize();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**用途 / Purpose:** 当 `agent team changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent team changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**用途 / Purpose:** 当 `object used` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「object used」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+stealthAreaMissionLogic.OnObjectUsed(userAgent, usedObject);
+```
 
 ### CheckIfAllStealthAreasAreTriggered
 `public bool CheckIfAllStealthAreasAreTriggered()`
 
-**用途 / Purpose:** 处理 `check if all stealth areas are triggered` 相关逻辑。
+**用途 / Purpose:** 检查「if all stealth areas are triggered」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+var result = stealthAreaMissionLogic.CheckIfAllStealthAreasAreTriggered();
+```
 
 ### CheckIfAllStealthAreasReinforcementsAreCalled
 `public bool CheckIfAllStealthAreasReinforcementsAreCalled()`
 
-**用途 / Purpose:** 处理 `check if all stealth areas reinforcements are called` 相关逻辑。
+**用途 / Purpose:** 检查「if all stealth areas reinforcements are called」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 StealthAreaMissionLogic 实例
+StealthAreaMissionLogic stealthAreaMissionLogic = ...;
+var result = stealthAreaMissionLogic.CheckIfAllStealthAreasReinforcementsAreCalled();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthAreaMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<StealthAreaMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

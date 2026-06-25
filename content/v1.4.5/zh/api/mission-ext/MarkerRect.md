@@ -1,20 +1,14 @@
 ---
 title: "MarkerRect"
+description: "MarkerRect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MarkerRect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarkerRect
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MarkerRect`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/MarkerRect.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/MarkerRect.cs`
 
 ## 概述
 
@@ -38,25 +32,44 @@ title: "MarkerRect"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MarkerRect 实例
+MarkerRect markerRect = ...;
+markerRect.Reset();
+```
 
 ### UpdatePoints
 `public void UpdatePoints(float left, float right, float top, float bottom)`
 
-**用途 / Purpose:** 更新 `points` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「points」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MarkerRect 实例
+MarkerRect markerRect = ...;
+markerRect.UpdatePoints(0, 0, 0, 0);
+```
 
 ### IsOverlapping
 `public bool IsOverlapping(MarkerRect other)`
 
-**用途 / Purpose:** 处理 `is overlapping` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「overlapping」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MarkerRect 实例
+MarkerRect markerRect = ...;
+var result = markerRect.IsOverlapping(other);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MarkerRect();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+MarkerRect markerRect = ...;
+markerRect.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerSpectatorHUDVM"
+description: "Auto-generated class reference for MissionMultiplayerSpectatorHUDVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerSpectatorHUDVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerSpectatorHUDVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerSpectatorHUDVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/MissionMultiplayerSpectatorHUDVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/MissionMultiplayerSpectatorHUDVM.cs`
 
 ## Overview
 
@@ -52,20 +46,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.H
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSpectatorHUDVM from the subsystem API first
+MissionMultiplayerSpectatorHUDVM missionMultiplayerSpectatorHUDVM = ...;
+missionMultiplayerSpectatorHUDVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSpectatorHUDVM from the subsystem API first
+MissionMultiplayerSpectatorHUDVM missionMultiplayerSpectatorHUDVM = ...;
+missionMultiplayerSpectatorHUDVM.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerSpectatorHUDVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerSpectatorHUDVM missionMultiplayerSpectatorHUDVM = ...;
+missionMultiplayerSpectatorHUDVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

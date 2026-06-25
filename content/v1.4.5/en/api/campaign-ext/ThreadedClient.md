@@ -1,20 +1,14 @@
 ---
 title: "ThreadedClient"
+description: "Auto-generated class reference for ThreadedClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThreadedClient`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThreadedClient
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ThreadedClient : IClient`
 **Base:** `IClient`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClient.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClient.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ThreadedClient from the subsystem API first
+ThreadedClient threadedClient = ...;
+threadedClient.Tick();
+```
 
 ### CheckConnection
 `public Task<bool> CheckConnection()`
 
-**Purpose:** Handles logic related to `check connection`.
+**Purpose:** Verifies whether `connection` holds true for the current object.
+
+```csharp
+// Obtain an instance of ThreadedClient from the subsystem API first
+ThreadedClient threadedClient = ...;
+var result = threadedClient.CheckConnection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ThreadedClient();
-value.Tick();
+// Typically call this after obtaining an instance from the subsystem API
+ThreadedClient threadedClient = ...;
+threadedClient.Tick();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

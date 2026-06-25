@@ -1,13 +1,7 @@
 ---
 title: "DefaultIncidentModel"
+description: "DefaultIncidentModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultIncidentModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultIncidentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,27 +23,57 @@ title: "DefaultIncidentModel"
 ### GetMinGlobalCooldownTime
 `public override CampaignTime GetMinGlobalCooldownTime()`
 
-**用途 / Purpose:** 获取 `min global cooldown time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「min global cooldown time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIncidentModel 实例
+DefaultIncidentModel defaultIncidentModel = ...;
+var result = defaultIncidentModel.GetMinGlobalCooldownTime();
+```
 
 ### GetMaxGlobalCooldownTime
 `public override CampaignTime GetMaxGlobalCooldownTime()`
 
-**用途 / Purpose:** 获取 `max global cooldown time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max global cooldown time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIncidentModel 实例
+DefaultIncidentModel defaultIncidentModel = ...;
+var result = defaultIncidentModel.GetMaxGlobalCooldownTime();
+```
 
 ### GetIncidentTriggerGlobalProbability
 `public override float GetIncidentTriggerGlobalProbability()`
 
-**用途 / Purpose:** 获取 `incident trigger global probability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「incident trigger global probability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIncidentModel 实例
+DefaultIncidentModel defaultIncidentModel = ...;
+var result = defaultIncidentModel.GetIncidentTriggerGlobalProbability();
+```
 
 ### GetIncidentTriggerProbabilityDuringSiege
 `public override float GetIncidentTriggerProbabilityDuringSiege()`
 
-**用途 / Purpose:** 获取 `incident trigger probability during siege` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「incident trigger probability during siege」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIncidentModel 实例
+DefaultIncidentModel defaultIncidentModel = ...;
+var result = defaultIncidentModel.GetIncidentTriggerProbabilityDuringSiege();
+```
 
 ### GetIncidentTriggerProbabilityDuringWait
 `public override float GetIncidentTriggerProbabilityDuringWait()`
 
-**用途 / Purpose:** 获取 `incident trigger probability during wait` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「incident trigger probability during wait」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIncidentModel 实例
+DefaultIncidentModel defaultIncidentModel = ...;
+var result = defaultIncidentModel.GetIncidentTriggerProbabilityDuringWait();
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultIncidentModel>(new MyDefaultIncidentModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -60,7 +60,7 @@ v1.3.0 的代码在 v1.3.15 可能需要修改：
 ## 相关文档 / Related Documentation
 
 - [版本差异](./#版本差异)
-- [v1.3.15 故障排除](../../../v1.3.15/zh/guide/troubleshooting)
+- [v1.3.15 故障排除](../../../v1.3.15/zh/guide/troubleshooting/)
 
 ## 使用示例
 

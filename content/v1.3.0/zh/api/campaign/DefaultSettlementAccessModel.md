@@ -1,13 +1,7 @@
 ---
 title: "DefaultSettlementAccessModel"
+description: "DefaultSettlementAccessModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSettlementAccessModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementAccessModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,32 +23,68 @@ title: "DefaultSettlementAccessModel"
 ### CanMainHeroEnterSettlement
 `public override void CanMainHeroEnterSettlement(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero enter settlement`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero enter settlement」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementAccessModel 实例
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+defaultSettlementAccessModel.CanMainHeroEnterSettlement(settlement, accessDetails);
+```
 
 ### CanMainHeroEnterDungeon
 `public override void CanMainHeroEnterDungeon(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero enter dungeon`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero enter dungeon」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementAccessModel 实例
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+defaultSettlementAccessModel.CanMainHeroEnterDungeon(settlement, accessDetails);
+```
 
 ### CanMainHeroEnterLordsHall
 `public override void CanMainHeroEnterLordsHall(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero enter lords hall`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero enter lords hall」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementAccessModel 实例
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+defaultSettlementAccessModel.CanMainHeroEnterLordsHall(settlement, accessDetails);
+```
 
 ### CanMainHeroAccessLocation
 `public override bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero access location`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero access location」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementAccessModel 实例
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+var result = defaultSettlementAccessModel.CanMainHeroAccessLocation(settlement, "example", disableOption, disabledText);
+```
 
 ### IsRequestMeetingOptionAvailable
 `public override bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 处理 `is request meeting option available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「request meeting option available」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementAccessModel 实例
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+var result = defaultSettlementAccessModel.IsRequestMeetingOptionAvailable(settlement, disableOption, disabledText);
+```
 
 ### CanMainHeroDoSettlementAction
 `public override bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero do settlement action`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero do settlement action」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementAccessModel 实例
+DefaultSettlementAccessModel defaultSettlementAccessModel = ...;
+var result = defaultSettlementAccessModel.CanMainHeroDoSettlementAction(settlement, settlementAction, disableOption, disabledText);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultSettlementAccessModel>(new MyDefaultSettlementA
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

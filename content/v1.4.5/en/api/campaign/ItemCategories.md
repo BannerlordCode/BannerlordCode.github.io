@@ -1,20 +1,14 @@
 ---
 title: "ItemCategories"
+description: "Auto-generated class reference for ItemCategories."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemCategories`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCategories
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class ItemCategories`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/ItemCategories.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/ItemCategories.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ## Usage Example
 
 ```csharp
-var example = new ItemCategories();
+// Obtain an instance from the relevant subsystem API
+ItemCategories instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

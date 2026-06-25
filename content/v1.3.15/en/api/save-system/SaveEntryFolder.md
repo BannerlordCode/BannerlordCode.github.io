@@ -1,23 +1,18 @@
 ---
 title: "SaveEntryFolder"
+description: "Auto-generated class reference for SaveEntryFolder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveEntryFolder`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveEntryFolder
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveEntryFolder`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/SaveEntryFolder.cs`
 
 ## Overview
 
-`SaveEntryFolder` lives in `TaleWorlds.SaveSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SaveEntryFolder` lives in `TaleWorlds.SaveSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,42 +33,76 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### GetAllEntries
 `public List<SaveEntry> GetAllEntries()`
 
-**Purpose:** Gets the current value of `all entries`.
+**Purpose:** Reads and returns the `all entries` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveEntryFolder from the subsystem API first
+SaveEntryFolder saveEntryFolder = ...;
+var result = saveEntryFolder.GetAllEntries();
+```
 
 ### CreateRootFolder
 `public static SaveEntryFolder CreateRootFolder()`
 
-**Purpose:** Creates a new `root folder` instance or object.
+**Purpose:** Constructs a new `root folder` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SaveEntryFolder.CreateRootFolder();
+```
 
 ### AddEntry
 `public void AddEntry(SaveEntry saveEntry)`
 
 **Purpose:** Adds `entry` to the current collection or state.
 
+```csharp
+// Obtain an instance of SaveEntryFolder from the subsystem API first
+SaveEntryFolder saveEntryFolder = ...;
+saveEntryFolder.AddEntry(saveEntry);
+```
+
 ### GetEntry
 `public SaveEntry GetEntry(EntryId entryId)`
 
-**Purpose:** Gets the current value of `entry`.
+**Purpose:** Reads and returns the `entry` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveEntryFolder from the subsystem API first
+SaveEntryFolder saveEntryFolder = ...;
+var result = saveEntryFolder.GetEntry(entryId);
+```
 
 ### AddChildFolderEntry
 `public void AddChildFolderEntry(SaveEntryFolder saveEntryFolder)`
 
 **Purpose:** Adds `child folder entry` to the current collection or state.
 
+```csharp
+// Obtain an instance of SaveEntryFolder from the subsystem API first
+SaveEntryFolder saveEntryFolder = ...;
+saveEntryFolder.AddChildFolderEntry(saveEntryFolder);
+```
+
 ### CreateEntry
 `public SaveEntry CreateEntry(EntryId entryId)`
 
-**Purpose:** Creates a new `entry` instance or object.
+**Purpose:** Constructs a new `entry` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of SaveEntryFolder from the subsystem API first
+SaveEntryFolder saveEntryFolder = ...;
+var result = saveEntryFolder.CreateEntry(entryId);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a SaveEntryFolder instance from game state, then call one of its public methods
-var value = new SaveEntryFolder();
-value.GetAllEntries();
+// Typically call this after obtaining an instance from the subsystem API
+SaveEntryFolder saveEntryFolder = ...;
+saveEntryFolder.GetAllEntries();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

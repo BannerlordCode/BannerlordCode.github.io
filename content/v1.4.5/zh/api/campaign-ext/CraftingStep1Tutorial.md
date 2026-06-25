@@ -1,20 +1,14 @@
 ---
 title: "CraftingStep1Tutorial"
+description: "CraftingStep1Tutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingStep1Tutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingStep1Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class CraftingStep1Tutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/CraftingStep1Tutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/CraftingStep1Tutorial.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "CraftingStep1Tutorial"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
+CraftingStep1Tutorial craftingStep1Tutorial = ...;
+var result = craftingStep1Tutorial.GetTutorialsRelevantContext();
+```
 
 ### OnCraftingWeaponClassSelectionOpened
 `public override void OnCraftingWeaponClassSelectionOpened(CraftingWeaponClassSelectionOpenedEvent obj)`
 
-**用途 / Purpose:** 当 `crafting weapon class selection opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting weapon class selection opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
+CraftingStep1Tutorial craftingStep1Tutorial = ...;
+craftingStep1Tutorial.OnCraftingWeaponClassSelectionOpened(obj);
+```
 
 ### OnCraftingOrderSelectionOpened
 `public override void OnCraftingOrderSelectionOpened(CraftingOrderSelectionOpenedEvent obj)`
 
-**用途 / Purpose:** 当 `crafting order selection opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting order selection opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
+CraftingStep1Tutorial craftingStep1Tutorial = ...;
+craftingStep1Tutorial.OnCraftingOrderSelectionOpened(obj);
+```
 
 ### OnCraftingOnWeaponResultPopupOpened
 `public override void OnCraftingOnWeaponResultPopupOpened(CraftingWeaponResultPopupToggledEvent obj)`
 
-**用途 / Purpose:** 当 `crafting on weapon result popup opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting on weapon result popup opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
+CraftingStep1Tutorial craftingStep1Tutorial = ...;
+craftingStep1Tutorial.OnCraftingOnWeaponResultPopupOpened(obj);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
+CraftingStep1Tutorial craftingStep1Tutorial = ...;
+var result = craftingStep1Tutorial.IsConditionsMetForActivation();
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
+CraftingStep1Tutorial craftingStep1Tutorial = ...;
+var result = craftingStep1Tutorial.IsConditionsMetForCompletion();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CraftingStep1Tutorial();
-value.GetTutorialsRelevantContext();
+// 通常从对应子系统 API 获取实例后调用
+CraftingStep1Tutorial craftingStep1Tutorial = ...;
+craftingStep1Tutorial.GetTutorialsRelevantContext();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

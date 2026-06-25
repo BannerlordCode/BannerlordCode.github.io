@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPlayerContextMenuHelper"
+description: "Auto-generated class reference for MultiplayerPlayerContextMenuHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPlayerContextMenuHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPlayerContextMenuHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerPlayerContextMenuHelper`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPlayerContextMenuHelper.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPlayerContextMenuHelper.cs`
 
 ## Overview
 
@@ -31,10 +25,20 @@ Treat `MultiplayerPlayerContextMenuHelper` as a Helper-style extension point: fi
 
 **Purpose:** Adds `lobby view profile options` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+MultiplayerPlayerContextMenuHelper.AddLobbyViewProfileOptions(player, contextMenuOptions);
+```
+
 ### AddMissionViewProfileOptions
 `public static void AddMissionViewProfileOptions(MPPlayerVM player, MBBindingList<StringPairItemWithActionVM> contextMenuOptions)`
 
 **Purpose:** Adds `mission view profile options` to the current collection or state.
+
+```csharp
+// Static call; no instance required
+MultiplayerPlayerContextMenuHelper.AddMissionViewProfileOptions(player, contextMenuOptions);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ MultiplayerPlayerContextMenuHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

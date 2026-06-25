@@ -1,20 +1,14 @@
 ---
 title: "BaseNetworkComponentData"
+description: "Auto-generated class reference for BaseNetworkComponentData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BaseNetworkComponentData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BaseNetworkComponentData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BaseNetworkComponentData : UdpNetworkComponent`
 **Base:** `UdpNetworkComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BaseNetworkComponentData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BaseNetworkComponentData.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `BaseNetworkComponentData` as a Data-style extension point: first identify
 ### UpdateCurrentBattleIndex
 `public void UpdateCurrentBattleIndex(int currentBattleIndex)`
 
-**Purpose:** Updates the state or data of `current battle index`.
+**Purpose:** Recalculates and stores the latest representation of `current battle index`.
+
+```csharp
+// Obtain an instance of BaseNetworkComponentData from the subsystem API first
+BaseNetworkComponentData baseNetworkComponentData = ...;
+baseNetworkComponentData.UpdateCurrentBattleIndex(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BaseNetworkComponentData();
+// This data object is usually returned by campaign/mission APIs
+BaseNetworkComponentData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

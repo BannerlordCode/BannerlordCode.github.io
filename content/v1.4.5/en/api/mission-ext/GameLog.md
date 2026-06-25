@@ -1,20 +1,14 @@
 ---
 title: "GameLog"
+description: "Auto-generated class reference for GameLog."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameLog`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameLog
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameLog`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameLog.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameLog.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetDataAsString
 `public string GetDataAsString()`
 
-**Purpose:** Gets the current value of `data as string`.
+**Purpose:** Reads and returns the `data as string` value held by the current object.
+
+```csharp
+// Obtain an instance of GameLog from the subsystem API first
+GameLog gameLog = ...;
+var result = gameLog.GetDataAsString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameLog();
-value.GetDataAsString();
+// Typically call this after obtaining an instance from the subsystem API
+GameLog gameLog = ...;
+gameLog.GetDataAsString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "InquiryData"
+description: "InquiryData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InquiryData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InquiryData
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class InquiryData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/InquiryData.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InquiryData.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "InquiryData"
 ### SetText
 `public void SetText(string text)`
 
-**用途 / Purpose:** 设置 `text` 的值或状态。
+**用途 / Purpose:** 为 「text」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 InquiryData 实例
+InquiryData inquiryData = ...;
+inquiryData.SetText("example");
+```
 
 ### SetTitleText
 `public void SetTitleText(string titleText)`
 
-**用途 / Purpose:** 设置 `title text` 的值或状态。
+**用途 / Purpose:** 为 「title text」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 InquiryData 实例
+InquiryData inquiryData = ...;
+inquiryData.SetTitleText("example");
+```
 
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `same content with`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「same content with」。
+
+```csharp
+// 先通过子系统 API 拿到 InquiryData 实例
+InquiryData inquiryData = ...;
+var result = inquiryData.HasSameContentWith(other);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InquiryData();
+// 该数据对象通常由战役/任务 API 返回
+InquiryData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

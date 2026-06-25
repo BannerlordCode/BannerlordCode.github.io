@@ -1,13 +1,7 @@
 ---
 title: "MBInvalidReferenceException"
+description: "Auto-generated class reference for MBInvalidReferenceException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBInvalidReferenceException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBInvalidReferenceException
 
 **Namespace:** TaleWorlds.ObjectSystem
@@ -27,9 +21,10 @@ Treat `MBInvalidReferenceException` as a Exception-style extension point: first 
 ## Usage Example
 
 ```csharp
-try { CallMBInvalidReferenceException(); } catch (MBInvalidReferenceException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBInvalidReferenceException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

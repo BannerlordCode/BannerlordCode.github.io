@@ -1,20 +1,14 @@
 ---
 title: "VoiceOverModel"
+description: "VoiceOverModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VoiceOverModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VoiceOverModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class VoiceOverModel : MBGameModel<VoiceOverModel>`
 **Base:** `MBGameModel<VoiceOverModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VoiceOverModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VoiceOverModel.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "VoiceOverModel"
 ### GetSoundPathForCharacter
 `public abstract string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**用途 / Purpose:** 获取 `sound path for character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sound path for character」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceOverModel 实例
+VoiceOverModel voiceOverModel = ...;
+var result = voiceOverModel.GetSoundPathForCharacter(character, voiceObject);
+```
 
 ### GetAccentClass
 `public abstract string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**用途 / Purpose:** 获取 `accent class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「accent class」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceOverModel 实例
+VoiceOverModel voiceOverModel = ...;
+var result = voiceOverModel.GetAccentClass(culture, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomVoiceOverModel();
+// 通常通过子系统 API 或工厂获得派生实例
+VoiceOverModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

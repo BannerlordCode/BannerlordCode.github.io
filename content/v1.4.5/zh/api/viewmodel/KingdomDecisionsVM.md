@@ -1,20 +1,14 @@
 ---
 title: "KingdomDecisionsVM"
+description: "KingdomDecisionsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomDecisionsVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDecisionsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomDecisionsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions/KingdomDecisionsVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions/KingdomDecisionsVM.cs`
 
 ## 概述
 
@@ -40,45 +34,88 @@ title: "KingdomDecisionsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionsVM 实例
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.RefreshValues();
+```
 
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**用途 / Purpose:** 当 `frame tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「frame tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionsVM 实例
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.OnFrameTick();
+```
 
 ### HandleNextDecision
 `public void HandleNextDecision()`
 
-**用途 / Purpose:** 处理 `next decision` 事件或回调。
+**用途 / Purpose:** 执行与 「next decision」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionsVM 实例
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.HandleNextDecision();
+```
 
 ### HandleDecision
 `public void HandleDecision(KingdomDecision curDecision)`
 
-**用途 / Purpose:** 处理 `decision` 事件或回调。
+**用途 / Purpose:** 执行与 「decision」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionsVM 实例
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.HandleDecision(curDecision);
+```
 
 ### RefreshWith
 `public void RefreshWith(KingdomDecision decision)`
 
-**用途 / Purpose:** 刷新 `with` 的显示或缓存。
+**用途 / Purpose:** 使 「with」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionsVM 实例
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.RefreshWith(decision);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionsVM 实例
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDecisionsVM 实例
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.SetDoneInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomDecisionsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

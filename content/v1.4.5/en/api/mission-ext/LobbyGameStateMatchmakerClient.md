@@ -1,20 +1,14 @@
 ---
 title: "LobbyGameStateMatchmakerClient"
+description: "Auto-generated class reference for LobbyGameStateMatchmakerClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyGameStateMatchmakerClient`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyGameStateMatchmakerClient
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class LobbyGameStateMatchmakerClient : LobbyGameState`
 **Base:** `LobbyGameState`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameStateMatchmakerClient.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameStateMatchmakerClient.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetStartingParameters
 `public void SetStartingParameters(LobbyGameClientHandler lobbyGameClientHandler, int playerIndex, int sessionKey, string address, int assignedPort, string multiplayerGameType, string scene)`
 
-**Purpose:** Sets the value or state of `starting parameters`.
+**Purpose:** Assigns a new value to `starting parameters` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LobbyGameStateMatchmakerClient from the subsystem API first
+LobbyGameStateMatchmakerClient lobbyGameStateMatchmakerClient = ...;
+lobbyGameStateMatchmakerClient.SetStartingParameters(lobbyGameClientHandler, 0, 0, "example", 0, "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LobbyGameStateMatchmakerClient();
-value.SetStartingParameters(lobbyGameClientHandler, 0, 0, "example", 0, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+LobbyGameStateMatchmakerClient lobbyGameStateMatchmakerClient = ...;
+lobbyGameStateMatchmakerClient.SetStartingParameters(lobbyGameClientHandler, 0, 0, "example", 0, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

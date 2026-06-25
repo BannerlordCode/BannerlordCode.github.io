@@ -1,13 +1,7 @@
 ---
 title: "NativeConfig"
+description: "NativeConfig 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeConfig`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeConfig
 
 **Namespace:** TaleWorlds.Engine
@@ -52,12 +46,22 @@ title: "NativeConfig"
 ### OnConfigChanged
 `public static void OnConfigChanged()`
 
-**用途 / Purpose:** 当 `config changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「config changed」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+NativeConfig.OnConfigChanged();
+```
 
 ### SetAutoConfigWrtHardware
 `public static void SetAutoConfigWrtHardware()`
 
-**用途 / Purpose:** 设置 `auto config wrt hardware` 的值或状态。
+**用途 / Purpose:** 为 「auto config wrt hardware」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+NativeConfig.SetAutoConfigWrtHardware();
+```
 
 ## 使用示例
 
@@ -67,4 +71,4 @@ NativeConfig.OnConfigChanged();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

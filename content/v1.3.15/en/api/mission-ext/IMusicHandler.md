@@ -1,18 +1,12 @@
 ---
 title: "IMusicHandler"
+description: "Auto-generated class reference for IMusicHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMusicHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMusicHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMusicHandler`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IMusicHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IMusicHandler` as a Handler-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-IMusicHandler implementation = GetMusicHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIMusicHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

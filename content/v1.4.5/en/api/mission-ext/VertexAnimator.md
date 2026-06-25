@@ -1,20 +1,14 @@
 ---
 title: "VertexAnimator"
+description: "Auto-generated class reference for VertexAnimator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VertexAnimator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VertexAnimator
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VertexAnimator : SynchedMissionObject`
 **Base:** `SynchedMissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VertexAnimator.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VertexAnimator.cs`
 
 ## Overview
 
@@ -38,75 +32,154 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+var result = vertexAnimator.ReadFromNetwork(bufferReadValid);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+var result = vertexAnimator.GetTickRequirement();
+```
 
 ### PlayOnce
 `public void PlayOnce()`
 
-**Purpose:** Handles logic related to `play once`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.PlayOnce();
+```
 
 ### Pause
 `public void Pause()`
 
-**Purpose:** Handles logic related to `pause`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.Pause();
+```
 
 ### Play
 `public void Play()`
 
-**Purpose:** Handles logic related to `play`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.Play();
+```
 
 ### Resume
 `public void Resume()`
 
-**Purpose:** Handles logic related to `resume`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.Resume();
+```
 
 ### Stop
 `public void Stop()`
 
-**Purpose:** Handles logic related to `stop`.
+**Purpose:** Stops the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.Stop();
+```
 
 ### StopAndGoToEnd
 `public void StopAndGoToEnd()`
 
-**Purpose:** Handles logic related to `stop and go to end`.
+**Purpose:** Stops the `and go to end` flow or state machine.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.StopAndGoToEnd();
+```
 
 ### SetAnimation
 `public void SetAnimation(int beginKey, int endKey, float speed)`
 
-**Purpose:** Sets the value or state of `animation`.
+**Purpose:** Assigns a new value to `animation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.SetAnimation(0, 0, 0);
+```
 
 ### SetAnimationSynched
 `public void SetAnimationSynched(int beginKey, int endKey, float speed)`
 
-**Purpose:** Sets the value or state of `animation synched`.
+**Purpose:** Assigns a new value to `animation synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.SetAnimationSynched(0, 0, 0);
+```
 
 ### SetProgressSynched
 `public void SetProgressSynched(float value)`
 
-**Purpose:** Sets the value or state of `progress synched`.
+**Purpose:** Assigns a new value to `progress synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.SetProgressSynched(0);
+```
 
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** Handles logic related to `write to network`.
+**Purpose:** Writes `to network` to the target location.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.WriteToNetwork();
+```
 
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**Purpose:** Called when the `after read from network` event is raised.
+**Purpose:** Invoked when the `after read from network` event is raised.
+
+```csharp
+// Obtain an instance of VertexAnimator from the subsystem API first
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VertexAnimator();
-value.ReadFromNetwork(bufferReadValid);
+// Typically call this after obtaining an instance from the subsystem API
+VertexAnimator vertexAnimator = ...;
+vertexAnimator.ReadFromNetwork(bufferReadValid);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

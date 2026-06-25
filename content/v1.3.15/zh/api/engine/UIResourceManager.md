@@ -1,13 +1,7 @@
 ---
 title: "UIResourceManager"
+description: "UIResourceManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UIResourceManager`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UIResourceManager
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -40,32 +34,62 @@ title: "UIResourceManager"
 ### Refresh
 `public static void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 静态调用，不需要实例
+UIResourceManager.Refresh();
+```
 
 ### GetSpriteCategory
 `public static SpriteCategory GetSpriteCategory(string spriteCategoryName)`
 
-**用途 / Purpose:** 获取 `sprite category` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sprite category」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+UIResourceManager.GetSpriteCategory("example");
+```
 
 ### LoadSpriteCategory
 `public static SpriteCategory LoadSpriteCategory(string spriteCategoryName)`
 
-**用途 / Purpose:** 加载 `sprite category` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「sprite category」。
+
+```csharp
+// 静态调用，不需要实例
+UIResourceManager.LoadSpriteCategory("example");
+```
 
 ### Update
 `public static void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 静态调用，不需要实例
+UIResourceManager.Update();
+```
 
 ### OnLanguageChange
 `public static void OnLanguageChange(string newLanguageCode)`
 
-**用途 / Purpose:** 当 `language change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「language change」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+UIResourceManager.OnLanguageChange("example");
+```
 
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 静态调用，不需要实例
+UIResourceManager.Clear();
+```
 
 ## 使用示例
 
@@ -75,4 +99,4 @@ var manager = UIResourceManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

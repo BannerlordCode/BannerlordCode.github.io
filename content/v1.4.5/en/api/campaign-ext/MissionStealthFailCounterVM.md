@@ -1,20 +1,14 @@
 ---
 title: "MissionStealthFailCounterVM"
+description: "Auto-generated class reference for MissionStealthFailCounterVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionStealthFailCounterVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionStealthFailCounterVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionStealthFailCounterVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout/MissionStealthFailCounterVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout/MissionStealthFailCounterVM.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hi
 ### UpdateFailCounter
 `public void UpdateFailCounter(float failCounterElapsedTime, float failCounterMaxTime, bool isStealthFailCounterMissionLogicActive)`
 
-**Purpose:** Updates the state or data of `fail counter`.
+**Purpose:** Recalculates and stores the latest representation of `fail counter`.
+
+```csharp
+// Obtain an instance of MissionStealthFailCounterVM from the subsystem API first
+MissionStealthFailCounterVM missionStealthFailCounterVM = ...;
+missionStealthFailCounterVM.UpdateFailCounter(0, 0, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionStealthFailCounterVM();
-value.UpdateFailCounter(0, 0, false);
+// Typically call this after obtaining an instance from the subsystem API
+MissionStealthFailCounterVM missionStealthFailCounterVM = ...;
+missionStealthFailCounterVM.UpdateFailCounter(0, 0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ThemeInfo"
+description: "ThemeInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ThemeInfo`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ThemeInfo
 
 **Namespace:** psai.net
@@ -29,15 +23,22 @@ title: "ThemeInfo"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 ThemeInfo 实例
+ThemeInfo themeInfo = ...;
+var result = themeInfo.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ThemeInfo();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+ThemeInfo themeInfo = ...;
+themeInfo.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "TwoDimensionPlatform"
+description: "Auto-generated class reference for TwoDimensionPlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionPlatform`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TwoDimensionPlatform
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ## Usage Example
 
 ```csharp
-var value = new TwoDimensionPlatform();
+// Obtain an instance from the relevant subsystem API
+TwoDimensionPlatform instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

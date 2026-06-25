@@ -1,20 +1,14 @@
 ---
 title: "SettlementMenuPartyCharacterListsButtonWidget"
+description: "Auto-generated class reference for SettlementMenuPartyCharacterListsButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementMenuPartyCharacterListsButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementMenuPartyCharacterListsButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementMenuPartyCharacterListsButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu/SettlementMenuPartyCharacterListsButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu/SettlementMenuPartyCharacterListsButtonWidget.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Treat `SettlementMenuPartyCharacterListsButtonWidget` as a Widget-style extensio
 ## Usage Example
 
 ```csharp
-var widget = new SettlementMenuPartyCharacterListsButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SettlementMenuPartyCharacterListsButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ServerInfoMessageExtensions"
+description: "Auto-generated class reference for ServerInfoMessageExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServerInfoMessageExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServerInfoMessageExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ServerInfoMessageExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ServerInfoMessageExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ServerInfoMessageExtensions.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetDescription
 `public static TextObject GetDescription(this SystemMessage message)`
 
-**Purpose:** Gets the current value of `description`.
+**Purpose:** Reads and returns the `description` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ServerInfoMessageExtensions.GetDescription(message);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ ServerInfoMessageExtensions.GetDescription(message);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

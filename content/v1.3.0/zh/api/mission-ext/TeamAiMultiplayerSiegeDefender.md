@@ -1,13 +1,7 @@
 ---
 title: "TeamAiMultiplayerSiegeDefender"
+description: "TeamAiMultiplayerSiegeDefender 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamAiMultiplayerSiegeDefender`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamAiMultiplayerSiegeDefender
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ title: "TeamAiMultiplayerSiegeDefender"
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**用途 / Purpose:** 当 `unit added to formation for the first time` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unit added to formation for the first time」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAiMultiplayerSiegeDefender 实例
+TeamAiMultiplayerSiegeDefender teamAiMultiplayerSiegeDefender = ...;
+teamAiMultiplayerSiegeDefender.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamAiMultiplayerSiegeDefender();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// 通常从对应子系统 API 获取实例后调用
+TeamAiMultiplayerSiegeDefender teamAiMultiplayerSiegeDefender = ...;
+teamAiMultiplayerSiegeDefender.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MainHeroSaveVisualSupplier"
+description: "Auto-generated class reference for MainHeroSaveVisualSupplier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainHeroSaveVisualSupplier`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainHeroSaveVisualSupplier
 
 **Namespace:** SandBox.View
@@ -27,9 +21,10 @@ Start from namespace `SandBox.View` to place it in the stack, then inspect its p
 ## Usage Example
 
 ```csharp
-var value = new MainHeroSaveVisualSupplier();
+// Obtain an instance from the relevant subsystem API
+MainHeroSaveVisualSupplier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

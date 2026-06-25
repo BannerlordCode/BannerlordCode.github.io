@@ -1,13 +1,7 @@
 ---
 title: "DelayedTeleportationModel"
+description: "Auto-generated class reference for DelayedTeleportationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DelayedTeleportationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DelayedTeleportationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,19 +29,32 @@ Treat `DelayedTeleportationModel` as a Model-style extension point: first identi
 ### GetTeleportationDelayAsHours
 `public abstract ExplainedNumber GetTeleportationDelayAsHours(Hero teleportingHero, PartyBase target)`
 
-**Purpose:** Gets the current value of `teleportation delay as hours`.
+**Purpose:** Reads and returns the `teleportation delay as hours` value held by the current object.
+
+```csharp
+// Obtain an instance of DelayedTeleportationModel from the subsystem API first
+DelayedTeleportationModel delayedTeleportationModel = ...;
+var result = delayedTeleportationModel.GetTeleportationDelayAsHours(teleportingHero, target);
+```
 
 ### CanPerformImmediateTeleport
 `public abstract bool CanPerformImmediateTeleport(Hero hero, MobileParty targetMobileParty, Settlement targetSettlement)`
 
-**Purpose:** Checks whether the current object can `perform immediate teleport`.
+**Purpose:** Checks whether the current object meets the preconditions for `perform immediate teleport`.
+
+```csharp
+// Obtain an instance of DelayedTeleportationModel from the subsystem API first
+DelayedTeleportationModel delayedTeleportationModel = ...;
+var result = delayedTeleportationModel.CanPerformImmediateTeleport(hero, targetMobileParty, targetSettlement);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDelayedTeleportationModel();
+// Typically obtained from a subsystem API or factory
+DelayedTeleportationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

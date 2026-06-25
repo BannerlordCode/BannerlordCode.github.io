@@ -1,13 +1,7 @@
 ---
 title: "MapSettlementNameplateView"
+description: "Auto-generated class reference for MapSettlementNameplateView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSettlementNameplateView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSettlementNameplateView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MapSettlementNameplateView` as a View-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var view = new MapSettlementNameplateView();
+// Retrieve this view from the subsystem API or scene
+MapSettlementNameplateView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

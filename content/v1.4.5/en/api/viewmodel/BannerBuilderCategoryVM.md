@@ -1,20 +1,14 @@
 ---
 title: "BannerBuilderCategoryVM"
+description: "Auto-generated class reference for BannerBuilderCategoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerBuilderCategoryVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerBuilderCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerBuilderCategoryVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderCategoryVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderCategoryVM.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BannerBuilderCategoryVM from the subsystem API first
+BannerBuilderCategoryVM bannerBuilderCategoryVM = ...;
+bannerBuilderCategoryVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerBuilderCategoryVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+BannerBuilderCategoryVM bannerBuilderCategoryVM = ...;
+bannerBuilderCategoryVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

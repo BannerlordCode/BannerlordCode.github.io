@@ -1,20 +1,14 @@
 ---
 title: "EngineClass"
+description: "Auto-generated class reference for EngineClass."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineClass`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineClass
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class EngineClass : EngineBaseClass`
 **Base:** `EngineBaseClass`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineClass.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineClass.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new EngineClass();
+// Obtain an instance from the relevant subsystem API
+EngineClass instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

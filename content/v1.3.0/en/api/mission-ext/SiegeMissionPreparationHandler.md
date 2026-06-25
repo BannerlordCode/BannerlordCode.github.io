@@ -1,13 +1,7 @@
 ---
 title: "SiegeMissionPreparationHandler"
+description: "Auto-generated class reference for SiegeMissionPreparationHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeMissionPreparationHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeMissionPreparationHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,20 @@ Treat `SiegeMissionPreparationHandler` as a Handler-style extension point: first
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of SiegeMissionPreparationHandler from the subsystem API first
+SiegeMissionPreparationHandler siegeMissionPreparationHandler = ...;
+siegeMissionPreparationHandler.OnBehaviorInitialize();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SiegeMissionPreparationHandler());
+var behavior = Mission.Current.GetMissionBehavior<SiegeMissionPreparationHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

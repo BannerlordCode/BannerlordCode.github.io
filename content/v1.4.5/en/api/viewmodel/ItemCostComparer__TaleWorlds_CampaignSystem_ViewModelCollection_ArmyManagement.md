@@ -1,20 +1,14 @@
 ---
-title: "ItemCostComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ArmyManagement"
+title: "ItemCostComparer"
+description: "Auto-generated class reference for ItemCostComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemCostComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCostComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemCostComparer : ItemComparerBase`
 **Base:** `ItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementSortControllerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemCostComparer from the subsystem API first
+ItemCostComparer itemCostComparer = ...;
+var result = itemCostComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemCostComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemCostComparer itemCostComparer = ...;
+itemCostComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

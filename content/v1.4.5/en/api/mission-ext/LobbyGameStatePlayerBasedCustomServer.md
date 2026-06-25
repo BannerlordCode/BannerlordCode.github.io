@@ -1,20 +1,14 @@
 ---
 title: "LobbyGameStatePlayerBasedCustomServer"
+description: "Auto-generated class reference for LobbyGameStatePlayerBasedCustomServer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyGameStatePlayerBasedCustomServer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyGameStatePlayerBasedCustomServer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class LobbyGameStatePlayerBasedCustomServer : LobbyGameState`
 **Base:** `LobbyGameState`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameStatePlayerBasedCustomServer.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameStatePlayerBasedCustomServer.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetStartingParameters
 `public void SetStartingParameters(LobbyGameClientHandler lobbyGameClientHandler)`
 
-**Purpose:** Sets the value or state of `starting parameters`.
+**Purpose:** Assigns a new value to `starting parameters` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LobbyGameStatePlayerBasedCustomServer from the subsystem API first
+LobbyGameStatePlayerBasedCustomServer lobbyGameStatePlayerBasedCustomServer = ...;
+lobbyGameStatePlayerBasedCustomServer.SetStartingParameters(lobbyGameClientHandler);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LobbyGameStatePlayerBasedCustomServer();
-value.SetStartingParameters(lobbyGameClientHandler);
+// Typically call this after obtaining an instance from the subsystem API
+LobbyGameStatePlayerBasedCustomServer lobbyGameStatePlayerBasedCustomServer = ...;
+lobbyGameStatePlayerBasedCustomServer.SetStartingParameters(lobbyGameClientHandler);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

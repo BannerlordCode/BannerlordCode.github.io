@@ -1,19 +1,14 @@
 ---
 title: "ChatLineData"
+description: "ChatLineData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChatLineData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatLineData
 
-**命名空间:** TaleWorlds.MountAndBlade.GauntletUI
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public struct ChatLineData`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public struct ChatLineData`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade.GauntletUI/ChatLogMessageManager.cs`
 
 ## 概述
 
@@ -23,20 +18,13 @@ title: "ChatLineData"
 
 把 `ChatLineData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
-## 主要方法
-
-### Update
-`public void Update()`
-
-**用途 / Purpose:** 更新 `update` 的状态或数据。
-
 ## 使用示例
 
 ```csharp
-var value = new ChatLineData();
+// 该数据对象通常由战役/任务 API 返回
+ChatLineData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

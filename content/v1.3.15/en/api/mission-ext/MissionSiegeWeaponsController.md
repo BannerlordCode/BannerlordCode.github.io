@@ -1,13 +1,7 @@
 ---
 title: "MissionSiegeWeaponsController"
+description: "Auto-generated class reference for MissionSiegeWeaponsController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeWeaponsController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionSiegeWeaponsController
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions
@@ -29,27 +23,56 @@ Treat `MissionSiegeWeaponsController` as a Controller-style extension point: fir
 ### GetMaxDeployableWeaponCount
 `public int GetMaxDeployableWeaponCount(Type t)`
 
-**Purpose:** Gets the current value of `max deployable weapon count`.
+**Purpose:** Reads and returns the `max deployable weapon count` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionSiegeWeaponsController from the subsystem API first
+MissionSiegeWeaponsController missionSiegeWeaponsController = ...;
+var result = missionSiegeWeaponsController.GetMaxDeployableWeaponCount(t);
+```
 
 ### GetSiegeWeapons
 `public IEnumerable<IMissionSiegeWeapon> GetSiegeWeapons()`
 
-**Purpose:** Gets the current value of `siege weapons`.
+**Purpose:** Reads and returns the `siege weapons` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionSiegeWeaponsController from the subsystem API first
+MissionSiegeWeaponsController missionSiegeWeaponsController = ...;
+var result = missionSiegeWeaponsController.GetSiegeWeapons();
+```
 
 ### OnWeaponDeployed
 `public void OnWeaponDeployed(SiegeWeapon missionWeapon)`
 
-**Purpose:** Called when the `weapon deployed` event is raised.
+**Purpose:** Invoked when the `weapon deployed` event is raised.
+
+```csharp
+// Obtain an instance of MissionSiegeWeaponsController from the subsystem API first
+MissionSiegeWeaponsController missionSiegeWeaponsController = ...;
+missionSiegeWeaponsController.OnWeaponDeployed(missionWeapon);
+```
 
 ### OnWeaponUndeployed
 `public void OnWeaponUndeployed(SiegeWeapon missionWeapon)`
 
-**Purpose:** Called when the `weapon undeployed` event is raised.
+**Purpose:** Invoked when the `weapon undeployed` event is raised.
+
+```csharp
+// Obtain an instance of MissionSiegeWeaponsController from the subsystem API first
+MissionSiegeWeaponsController missionSiegeWeaponsController = ...;
+missionSiegeWeaponsController.OnWeaponUndeployed(missionWeapon);
+```
 
 ### GetWeaponType
 `public static Type GetWeaponType(ScriptComponentBehavior weapon)`
 
-**Purpose:** Gets the current value of `weapon type`.
+**Purpose:** Reads and returns the `weapon type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionSiegeWeaponsController.GetWeaponType(weapon);
+```
 
 ## Usage Example
 
@@ -59,4 +82,4 @@ var controller = Mission.Current.GetMissionBehavior<MissionSiegeWeaponsControlle
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

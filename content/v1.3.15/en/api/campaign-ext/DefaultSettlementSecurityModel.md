@@ -1,13 +1,7 @@
 ---
 title: "DefaultSettlementSecurityModel"
+description: "Auto-generated class reference for DefaultSettlementSecurityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementSecurityModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultSettlementSecurityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -50,27 +44,57 @@ Treat `DefaultSettlementSecurityModel` as a Model-style extension point: first i
 ### CalculateSecurityChange
 `public override ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate security change`.
+**Purpose:** Calculates the current value or result of `security change`.
+
+```csharp
+// Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
+DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
+var result = defaultSettlementSecurityModel.CalculateSecurityChange(town, false);
+```
 
 ### GetLootedNearbyPartySecurityEffect
 `public override float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**Purpose:** Gets the current value of `looted nearby party security effect`.
+**Purpose:** Reads and returns the `looted nearby party security effect` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
+DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
+var result = defaultSettlementSecurityModel.GetLootedNearbyPartySecurityEffect(town, 0);
+```
 
 ### GetNearbyBanditPartyDefeatedSecurityEffect
 `public override float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**Purpose:** Gets the current value of `nearby bandit party defeated security effect`.
+**Purpose:** Reads and returns the `nearby bandit party defeated security effect` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
+DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
+var result = defaultSettlementSecurityModel.GetNearbyBanditPartyDefeatedSecurityEffect(town, 0);
+```
 
 ### CalculateGoldGainDueToHighSecurity
 `public override void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Handles logic related to `calculate gold gain due to high security`.
+**Purpose:** Calculates the current value or result of `gold gain due to high security`.
+
+```csharp
+// Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
+DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
+defaultSettlementSecurityModel.CalculateGoldGainDueToHighSecurity(town, explainedNumber);
+```
 
 ### CalculateGoldCutDueToLowSecurity
 `public override void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Handles logic related to `calculate gold cut due to low security`.
+**Purpose:** Calculates the current value or result of `gold cut due to low security`.
+
+```csharp
+// Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
+DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
+defaultSettlementSecurityModel.CalculateGoldCutDueToLowSecurity(town, explainedNumber);
+```
 
 ## Usage Example
 
@@ -80,4 +104,4 @@ Game.Current.ReplaceModel<DefaultSettlementSecurityModel>(new MyDefaultSettlemen
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyAfterBattleExperiencePanelWidget"
+description: "Auto-generated class reference for MultiplayerLobbyAfterBattleExperiencePanelWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyAfterBattleExperiencePanelWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyAfterBattleExperiencePanelWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
@@ -39,19 +33,32 @@ Treat `MultiplayerLobbyAfterBattleExperiencePanelWidget` as a Widget-style exten
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Handles logic related to `start animation`.
+**Purpose:** Starts the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyAfterBattleExperiencePanelWidget from the subsystem API first
+MultiplayerLobbyAfterBattleExperiencePanelWidget multiplayerLobbyAfterBattleExperiencePanelWidget = ...;
+multiplayerLobbyAfterBattleExperiencePanelWidget.StartAnimation();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyAfterBattleExperiencePanelWidget from the subsystem API first
+MultiplayerLobbyAfterBattleExperiencePanelWidget multiplayerLobbyAfterBattleExperiencePanelWidget = ...;
+multiplayerLobbyAfterBattleExperiencePanelWidget.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyAfterBattleExperiencePanelWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyAfterBattleExperiencePanelWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

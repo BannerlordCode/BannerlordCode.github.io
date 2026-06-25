@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyLeaderboardPlayerItemVM"
+description: "MPLobbyLeaderboardPlayerItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyLeaderboardPlayerItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyLeaderboardPlayerItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyLeaderboardPlayerItemVM : MPLobbyPlayerBaseVM`
 **Base:** `MPLobbyPlayerBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyLeaderboardPlayerItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyLeaderboardPlayerItemVM.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "MPLobbyLeaderboardPlayerItemVM"
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyLeaderboardPlayerItemVM();
+// 从对应子系统 API 获取实例
+MPLobbyLeaderboardPlayerItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

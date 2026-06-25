@@ -1,13 +1,7 @@
 ---
 title: "UIColors"
+description: "Auto-generated class reference for UIColors."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UIColors`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UIColors
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ## Usage Example
 
 ```csharp
-var value = new UIColors();
+// Obtain an instance from the relevant subsystem API
+UIColors instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

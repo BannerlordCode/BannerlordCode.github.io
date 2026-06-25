@@ -1,13 +1,7 @@
 ---
 title: "DefaultCharacterDevelopmentModel"
+description: "Auto-generated class reference for DefaultCharacterDevelopmentModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCharacterDevelopmentModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCharacterDevelopmentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -42,62 +36,134 @@ Treat `DefaultCharacterDevelopmentModel` as a Model-style extension point: first
 ### SkillsRequiredForLevel
 `public override int SkillsRequiredForLevel(int level)`
 
-**Purpose:** Handles logic related to `skills required for level`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.SkillsRequiredForLevel(0);
+```
 
 ### GetMaxSkillPoint
 `public override int GetMaxSkillPoint()`
 
-**Purpose:** Gets the current value of `max skill point`.
+**Purpose:** Reads and returns the `max skill point` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetMaxSkillPoint();
+```
 
 ### GetXpRequiredForSkillLevel
 `public override int GetXpRequiredForSkillLevel(int skillLevel)`
 
-**Purpose:** Gets the current value of `xp required for skill level`.
+**Purpose:** Reads and returns the `xp required for skill level` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetXpRequiredForSkillLevel(0);
+```
 
 ### GetSkillLevelChange
 `public override int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)`
 
-**Purpose:** Gets the current value of `skill level change`.
+**Purpose:** Reads and returns the `skill level change` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetSkillLevelChange(hero, skill, 0);
+```
 
 ### GetXpAmountForSkillLevelChange
 `public override int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)`
 
-**Purpose:** Gets the current value of `xp amount for skill level change`.
+**Purpose:** Reads and returns the `xp amount for skill level change` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetXpAmountForSkillLevelChange(hero, skill, 0);
+```
 
 ### GetTraitLevelForTraitXp
 `public override void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int xpValue, out int traitLevel, out int clampedTraitXp)`
 
-**Purpose:** Gets the current value of `trait level for trait xp`.
+**Purpose:** Reads and returns the `trait level for trait xp` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+defaultCharacterDevelopmentModel.GetTraitLevelForTraitXp(hero, trait, 0, traitLevel, clampedTraitXp);
+```
 
 ### GetTraitXpRequiredForTraitLevel
 `public override int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)`
 
-**Purpose:** Gets the current value of `trait xp required for trait level`.
+**Purpose:** Reads and returns the `trait xp required for trait level` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetTraitXpRequiredForTraitLevel(trait, 0);
+```
 
 ### CalculateLearningLimit
 `public override ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate learning limit`.
+**Purpose:** Calculates the current value or result of `learning limit`.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.CalculateLearningLimit(characterAttributes, 0, skill, false);
+```
 
 ### CalculateLearningRate
 `public override ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate learning rate`.
+**Purpose:** Calculates the current value or result of `learning rate`.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.CalculateLearningRate(characterAttributes, 0, 0, skill, false);
+```
 
 ### GetNextSkillToAddFocus
 `public override SkillObject GetNextSkillToAddFocus(Hero hero)`
 
-**Purpose:** Gets the current value of `next skill to add focus`.
+**Purpose:** Reads and returns the `next skill to add focus` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetNextSkillToAddFocus(hero);
+```
 
 ### GetNextAttributeToUpgrade
 `public override CharacterAttribute GetNextAttributeToUpgrade(Hero hero)`
 
-**Purpose:** Gets the current value of `next attribute to upgrade`.
+**Purpose:** Reads and returns the `next attribute to upgrade` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetNextAttributeToUpgrade(hero);
+```
 
 ### GetNextPerkToChoose
 `public override PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)`
 
-**Purpose:** Gets the current value of `next perk to choose`.
+**Purpose:** Reads and returns the `next perk to choose` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCharacterDevelopmentModel from the subsystem API first
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetNextPerkToChoose(hero, perk);
+```
 
 ## Usage Example
 
@@ -107,4 +173,4 @@ Game.Current.ReplaceModel<DefaultCharacterDevelopmentModel>(new MyDefaultCharact
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

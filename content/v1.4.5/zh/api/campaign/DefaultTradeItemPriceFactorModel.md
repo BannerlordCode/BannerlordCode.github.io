@@ -1,20 +1,14 @@
 ---
 title: "DefaultTradeItemPriceFactorModel"
+description: "DefaultTradeItemPriceFactorModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultTradeItemPriceFactorModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTradeItemPriceFactorModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTradeItemPriceFactorModel : TradeItemPriceFactorModel`
 **Base:** `TradeItemPriceFactorModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTradeItemPriceFactorModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTradeItemPriceFactorModel.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "DefaultTradeItemPriceFactorModel"
 ### GetTradePenalty
 `public override float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)`
 
-**用途 / Purpose:** 获取 `trade penalty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trade penalty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeItemPriceFactorModel 实例
+DefaultTradeItemPriceFactorModel defaultTradeItemPriceFactorModel = ...;
+var result = defaultTradeItemPriceFactorModel.GetTradePenalty(item, clientParty, merchant, false, 0, 0, 0);
+```
 
 ### GetBasePriceFactor
 `public override float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)`
 
-**用途 / Purpose:** 获取 `base price factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「base price factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeItemPriceFactorModel 实例
+DefaultTradeItemPriceFactorModel defaultTradeItemPriceFactorModel = ...;
+var result = defaultTradeItemPriceFactorModel.GetBasePriceFactor(itemCategory, 0, 0, 0, false, 0);
+```
 
 ### GetPrice
 `public override int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)`
 
-**用途 / Purpose:** 获取 `price` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「price」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeItemPriceFactorModel 实例
+DefaultTradeItemPriceFactorModel defaultTradeItemPriceFactorModel = ...;
+var result = defaultTradeItemPriceFactorModel.GetPrice(itemRosterElement, clientParty, merchant, false, 0, 0, 0);
+```
 
 ### GetTheoreticalMaxItemMarketValue
 `public override int GetTheoreticalMaxItemMarketValue(ItemObject item)`
 
-**用途 / Purpose:** 获取 `theoretical max item market value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「theoretical max item market value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeItemPriceFactorModel 实例
+DefaultTradeItemPriceFactorModel defaultTradeItemPriceFactorModel = ...;
+var result = defaultTradeItemPriceFactorModel.GetTheoreticalMaxItemMarketValue(item);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultTradeItemPriceFactorModel>(new MyDefaultTradeIt
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

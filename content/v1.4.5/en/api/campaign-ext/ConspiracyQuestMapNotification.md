@@ -1,20 +1,14 @@
 ---
 title: "ConspiracyQuestMapNotification"
+description: "Auto-generated class reference for ConspiracyQuestMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConspiracyQuestMapNotification`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConspiracyQuestMapNotification
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class ConspiracyQuestMapNotification : InformationData`
 **Base:** `InformationData`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/ConspiracyQuestMapNotification.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/ConspiracyQuestMapNotification.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ## Usage Example
 
 ```csharp
-var value = new ConspiracyQuestMapNotification();
+// Obtain an instance from the relevant subsystem API
+ConspiracyQuestMapNotification instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

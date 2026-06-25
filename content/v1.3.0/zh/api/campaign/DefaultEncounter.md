@@ -1,13 +1,7 @@
 ---
 title: "DefaultEncounter"
+description: "DefaultEncounter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEncounter`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers
@@ -29,47 +23,92 @@ title: "DefaultEncounter"
 ### game_menu_taken_prisoner_ui_on_init
 `public static void game_menu_taken_prisoner_ui_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_taken_prisoner_ui_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_taken_prisoner_ui_on_init(args);
+```
 
 ### game_menu_defeat_and_taken_prisoner_ui_on_init
 `public static void game_menu_defeat_and_taken_prisoner_ui_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_defeat_and_taken_prisoner_ui_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_defeat_and_taken_prisoner_ui_on_init(args);
+```
 
 ### game_menu_taken_prisoner_town_ui_on_init
 `public static void game_menu_taken_prisoner_town_ui_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_taken_prisoner_town_ui_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_taken_prisoner_town_ui_on_init(args);
+```
 
 ### game_menu_town_menu_on_init
 `public static void game_menu_town_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_town_menu_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_town_menu_on_init(args);
+```
 
 ### game_menu_attackers_left_on_init
 `public static void game_menu_attackers_left_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_attackers_left_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_attackers_left_on_init(args);
+```
 
 ### game_menu_new_game_begin_on_init
 `public static void game_menu_new_game_begin_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_new_game_begin_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_new_game_begin_on_init(args);
+```
 
 ### game_menu_kingdom_mno_call_to_arms_on_consequence
 `public static void game_menu_kingdom_mno_call_to_arms_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_kingdom_mno_call_to_arms_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_kingdom_mno_call_to_arms_on_consequence(args);
+```
 
 ### game_menu_encyclopedia_on_consequence
 `public static void game_menu_encyclopedia_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_encyclopedia_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_encyclopedia_on_consequence(args);
+```
 
 ### game_menu_town_menu_request_meeting_on_init
 `public static void game_menu_town_menu_request_meeting_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_town_menu_request_meeting_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DefaultEncounter.game_menu_town_menu_request_meeting_on_init(args);
+```
 
 ## 使用示例
 
@@ -79,4 +118,4 @@ DefaultEncounter.game_menu_taken_prisoner_ui_on_init(args);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

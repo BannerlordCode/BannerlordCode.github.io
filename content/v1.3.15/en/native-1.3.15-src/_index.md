@@ -145,5 +145,28 @@ The decompiled source preserves some engine type names as strings. These are use
 ## Usage Example
 
 ```csharp
-var example = new Native 1.3.15 Source Reference();
+// Example: check native export signatures before using P/Invoke.
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Child Pages
+
+- [Complete Function Catalog](./COMPLETE-FUNCTIONS)
+- [COMPLETE-TYPES](./COMPLETE-TYPES)
+- [Engine Core](./engine-core)
+- [Exports and Managed Bridge](./exports-and-bridge)
+- [任务系统 / Mission System](./mission)
+- [动画系统 / Animation System](./animation)
+- [场景系统 / Scene System](./scene)
+- [工具函数 / Utilities](./utilities)
+- [渲染系统 / Rendering System](./rendering)
+- [物理引擎 / Physics Engine](./physics)
+- [网络系统 / Network System](./network)
+- [音频系统 / Audio System](./audio)
+
+<!-- END SECTION INDEX -->

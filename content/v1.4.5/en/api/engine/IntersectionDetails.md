@@ -1,20 +1,14 @@
 ---
 title: "IntersectionDetails"
+description: "Auto-generated class reference for IntersectionDetails."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntersectionDetails`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IntersectionDetails
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/IntersectionDetails.cs`
+**Type:** `public enum IntersectionDetails : uint`
+**Base:** `uint`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/IntersectionDetails.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new IntersectionDetails();
+// Obtain an instance from the relevant subsystem API
+IntersectionDetails instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

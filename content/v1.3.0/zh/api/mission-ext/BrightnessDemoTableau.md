@@ -1,13 +1,7 @@
 ---
 title: "BrightnessDemoTableau"
+description: "BrightnessDemoTableau 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrightnessDemoTableau`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrightnessDemoTableau
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
@@ -35,35 +29,66 @@ title: "BrightnessDemoTableau"
 ### SetDemoType
 `public void SetDemoType(int demoType)`
 
-**用途 / Purpose:** 设置 `demo type` 的值或状态。
+**用途 / Purpose:** 为 「demo type」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessDemoTableau 实例
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.SetDemoType(0);
+```
 
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** 设置 `target size` 的值或状态。
+**用途 / Purpose:** 为 「target size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessDemoTableau 实例
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.SetTargetSize(0, 0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessDemoTableau 实例
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.OnFinalize();
+```
 
 ### SetScene
 `public void SetScene()`
 
-**用途 / Purpose:** 设置 `scene` 的值或状态。
+**用途 / Purpose:** 为 「scene」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessDemoTableau 实例
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.SetScene();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessDemoTableau 实例
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.OnTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrightnessDemoTableau();
-value.SetDemoType(0);
+// 通常从对应子系统 API 获取实例后调用
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.SetDemoType(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

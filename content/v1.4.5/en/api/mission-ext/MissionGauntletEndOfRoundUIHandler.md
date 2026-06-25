@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletEndOfRoundUIHandler"
+description: "Auto-generated class reference for MissionGauntletEndOfRoundUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletEndOfRoundUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletEndOfRoundUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletEndOfRoundUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletEndOfRoundUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletEndOfRoundUIHandler.cs`
 
 ## Overview
 
@@ -29,19 +23,31 @@ Treat `MissionGauntletEndOfRoundUIHandler` as a Handler-style extension point: f
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletEndOfRoundUIHandler from the subsystem API first
+MissionGauntletEndOfRoundUIHandler missionGauntletEndOfRoundUIHandler = ...;
+missionGauntletEndOfRoundUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletEndOfRoundUIHandler from the subsystem API first
+MissionGauntletEndOfRoundUIHandler missionGauntletEndOfRoundUIHandler = ...;
+missionGauntletEndOfRoundUIHandler.OnMissionScreenFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletEndOfRoundUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletEndOfRoundUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

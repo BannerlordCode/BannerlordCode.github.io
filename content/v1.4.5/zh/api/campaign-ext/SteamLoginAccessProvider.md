@@ -1,20 +1,14 @@
 ---
 title: "SteamLoginAccessProvider"
+description: "SteamLoginAccessProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SteamLoginAccessProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamLoginAccessProvider
 
 **Namespace:** TaleWorlds.Diamond.AccessProvider.Steam
 **Module:** TaleWorlds.Diamond
 **Type:** `public class SteamLoginAccessProvider : ILoginAccessProvider`
 **Base:** `ILoginAccessProvider`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond.AccessProvider.Steam/TaleWorlds.Diamond.AccessProvider.Steam/SteamLoginAccessProvider.cs`
+**File:** `bin/TaleWorlds.Diamond.AccessProvider.Steam/TaleWorlds.Diamond.AccessProvider.Steam/SteamLoginAccessProvider.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "SteamLoginAccessProvider"
 ## 使用示例
 
 ```csharp
-var example = new SteamLoginAccessProvider();
+// 从对应子系统 API 获取实例
+SteamLoginAccessProvider instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

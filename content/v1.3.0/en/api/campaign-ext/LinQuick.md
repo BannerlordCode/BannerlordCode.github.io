@@ -1,13 +1,7 @@
 ---
 title: "LinQuick"
+description: "Auto-generated class reference for LinQuick."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LinQuick`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LinQuick
 
 **Namespace:** TaleWorlds.LinQuick
@@ -29,27 +23,52 @@ Start from namespace `TaleWorlds.LinQuick` to place it in the stack, then inspec
 ### AverageQ
 `public static float AverageQ(this float source)`
 
-**Purpose:** Handles logic related to `average q`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LinQuick.AverageQ(source);
+```
 
 ### AverageQ
 `public static float AverageQ(this IEnumerable<float> source)`
 
-**Purpose:** Handles logic related to `average q`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LinQuick.AverageQ(source);
+```
 
 ### MaxQ
 `public static int MaxQ(this int source)`
 
-**Purpose:** Handles logic related to `max q`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LinQuick.MaxQ(source);
+```
 
 ### MaxQ
 `public static int MaxQ(this List<int> source)`
 
-**Purpose:** Handles logic related to `max q`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LinQuick.MaxQ(source);
+```
 
 ### MaxQ
 `public static int MaxQ(this IReadOnlyList<int> source)`
 
-**Purpose:** Handles logic related to `max q`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LinQuick.MaxQ(source);
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ LinQuick.AverageQ(source);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

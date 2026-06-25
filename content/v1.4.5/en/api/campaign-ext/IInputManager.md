@@ -1,20 +1,14 @@
 ---
 title: "IInputManager"
+description: "Auto-generated class reference for IInputManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IInputManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IInputManager
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public interface IInputManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/IInputManager.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/IInputManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IInputManager` as a Manager-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-IInputManager implementation = GetInputManagerImplementation();
+// Usually obtained through DI or a factory method
+IIInputManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticItemBaseVM"
+description: "MPArmoryCosmeticItemBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPArmoryCosmeticItemBaseVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticItemBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPArmoryCosmeticItemBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticItemBaseVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticItemBaseVM.cs`
 
 ## 概述
 
@@ -51,44 +45,87 @@ title: "MPArmoryCosmeticItemBaseVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.OnFinalize();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.ExecuteAction();
+```
 
 ### ExecutePreview
 `public void ExecutePreview()`
 
-**用途 / Purpose:** 执行 `preview` 操作或流程。
+**用途 / Purpose:** 执行 「preview」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.ExecutePreview();
+```
 
 ### ExecuteEnableActions
 `public void ExecuteEnableActions()`
 
-**用途 / Purpose:** 执行 `enable actions` 操作或流程。
+**用途 / Purpose:** 执行 「enable actions」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.ExecuteEnableActions();
+```
 
 ### ExecuteDisableActions
 `public void ExecuteDisableActions()`
 
-**用途 / Purpose:** 执行 `disable actions` 操作或流程。
+**用途 / Purpose:** 执行 「disable actions」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.ExecuteDisableActions();
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey actionKey, HotKey previewKey)`
 
-**用途 / Purpose:** 刷新 `key bindings` 的显示或缓存。
+**用途 / Purpose:** 使 「key bindings」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticItemBaseVM 实例
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.RefreshKeyBindings(actionKey, previewKey);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMPArmoryCosmeticItemBaseVM();
+// 通常通过子系统 API 或工厂获得派生实例
+MPArmoryCosmeticItemBaseVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

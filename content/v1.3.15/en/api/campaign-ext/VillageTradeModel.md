@@ -1,13 +1,7 @@
 ---
 title: "VillageTradeModel"
+description: "Auto-generated class reference for VillageTradeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageTradeModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VillageTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ Treat `VillageTradeModel` as a Model-style extension point: first identify who c
 ### TradeBoundDistanceLimitAsDays
 `public abstract float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)`
 
-**Purpose:** Handles logic related to `trade bound distance limit as days`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageTradeModel from the subsystem API first
+VillageTradeModel villageTradeModel = ...;
+var result = villageTradeModel.TradeBoundDistanceLimitAsDays(navigationType);
+```
 
 ### GetTradeBoundToAssignForVillage
 `public abstract Settlement GetTradeBoundToAssignForVillage(Village village)`
 
-**Purpose:** Gets the current value of `trade bound to assign for village`.
+**Purpose:** Reads and returns the `trade bound to assign for village` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageTradeModel from the subsystem API first
+VillageTradeModel villageTradeModel = ...;
+var result = villageTradeModel.GetTradeBoundToAssignForVillage(village);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomVillageTradeModel();
+// Typically obtained from a subsystem API or factory
+VillageTradeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

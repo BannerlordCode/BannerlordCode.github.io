@@ -1,20 +1,14 @@
 ---
 title: "MapAnchorTrackerWidget"
+description: "Auto-generated class reference for MapAnchorTrackerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapAnchorTrackerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapAnchorTrackerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapAnchorTrackerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map/MapAnchorTrackerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map/MapAnchorTrackerWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `MapAnchorTrackerWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new MapAnchorTrackerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapAnchorTrackerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

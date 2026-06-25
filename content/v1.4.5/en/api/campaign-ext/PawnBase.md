@@ -1,20 +1,14 @@
 ---
 title: "PawnBase"
+description: "Auto-generated class reference for PawnBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PawnBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnBase
 
 **Namespace:** SandBox.BoardGames.Pawns
 **Module:** SandBox.BoardGames
 **Type:** `public abstract class PawnBase`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Pawns/PawnBase.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Pawns/PawnBase.cs`
 
 ## Overview
 
@@ -46,69 +40,142 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public virtual void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.Reset();
+```
 
 ### AddGoalPosition
 `public virtual void AddGoalPosition(Vec3 goal)`
 
 **Purpose:** Adds `goal position` to the current collection or state.
 
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.AddGoalPosition(goal);
+```
+
 ### SetPawnAtPosition
 `public virtual void SetPawnAtPosition(Vec3 position)`
 
-**Purpose:** Sets the value or state of `pawn at position`.
+**Purpose:** Assigns a new value to `pawn at position` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.SetPawnAtPosition(position);
+```
 
 ### MovePawnToGoalPositions
 `public virtual void MovePawnToGoalPositions(bool instantMove, float speed, bool dragged = false)`
 
-**Purpose:** Handles logic related to `move pawn to goal positions`.
+**Purpose:** Moves `pawn to goal positions` to a new position or state.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.MovePawnToGoalPositions(false, 0, false);
+```
 
 ### EnableCollisionBody
 `public virtual void EnableCollisionBody()`
 
-**Purpose:** Handles logic related to `enable collision body`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.EnableCollisionBody();
+```
 
 ### DisableCollisionBody
 `public virtual void DisableCollisionBody()`
 
-**Purpose:** Handles logic related to `disable collision body`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.DisableCollisionBody();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.Tick(0);
+```
 
 ### MovePawnToGoalPositionsDelayed
 `public void MovePawnToGoalPositionsDelayed(bool instantMove, float speed, bool dragged, float delay)`
 
-**Purpose:** Handles logic related to `move pawn to goal positions delayed`.
+**Purpose:** Moves `pawn to goal positions delayed` to a new position or state.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.MovePawnToGoalPositionsDelayed(false, 0, false, 0);
+```
 
 ### SetPlayerOne
 `public void SetPlayerOne(bool playerOne)`
 
-**Purpose:** Sets the value or state of `player one`.
+**Purpose:** Assigns a new value to `player one` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.SetPlayerOne(false);
+```
 
 ### ClearGoalPositions
 `public void ClearGoalPositions()`
 
-**Purpose:** Handles logic related to `clear goal positions`.
+**Purpose:** Removes all `goal positions` from the current object.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.ClearGoalPositions();
+```
 
 ### UpdatePawnPosition
 `public void UpdatePawnPosition()`
 
-**Purpose:** Updates the state or data of `pawn position`.
+**Purpose:** Recalculates and stores the latest representation of `pawn position`.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.UpdatePawnPosition();
+```
 
 ### PlayPawnSelectSound
 `public void PlayPawnSelectSound()`
 
-**Purpose:** Handles logic related to `play pawn select sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PawnBase from the subsystem API first
+PawnBase pawnBase = ...;
+pawnBase.PlayPawnSelectSound();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPawnBase();
+// Typically obtained from a subsystem API or factory
+PawnBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

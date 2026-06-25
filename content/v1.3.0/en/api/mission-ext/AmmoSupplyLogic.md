@@ -1,13 +1,7 @@
 ---
 title: "AmmoSupplyLogic"
+description: "Auto-generated class reference for AmmoSupplyLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AmmoSupplyLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AmmoSupplyLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic
@@ -29,19 +23,31 @@ Treat `AmmoSupplyLogic` as a Logic-style extension point: first identify who cre
 ### IsAgentEligibleForAmmoSupply
 `public bool IsAgentEligibleForAmmoSupply(Agent agent)`
 
-**Purpose:** Handles logic related to `is agent eligible for ammo supply`.
+**Purpose:** Determines whether the current object is in the `agent eligible for ammo supply` state or condition.
+
+```csharp
+// Obtain an instance of AmmoSupplyLogic from the subsystem API first
+AmmoSupplyLogic ammoSupplyLogic = ...;
+var result = ammoSupplyLogic.IsAgentEligibleForAmmoSupply(agent);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of AmmoSupplyLogic from the subsystem API first
+AmmoSupplyLogic ammoSupplyLogic = ...;
+ammoSupplyLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AmmoSupplyLogic());
+var behavior = Mission.Current.GetMissionBehavior<AmmoSupplyLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

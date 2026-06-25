@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleCombatant"
+description: "CustomBattleCombatant 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleCombatant`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleCombatant
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -45,25 +39,44 @@ title: "CustomBattleCombatant"
 ### GetTacticsSkillAmount
 `public int GetTacticsSkillAmount()`
 
-**用途 / Purpose:** 获取 `tactics skill amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tactics skill amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleCombatant 实例
+CustomBattleCombatant customBattleCombatant = ...;
+var result = customBattleCombatant.GetTacticsSkillAmount();
+```
 
 ### AddCharacter
 `public void AddCharacter(BasicCharacterObject characterObject, int number)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `character`。
+**用途 / Purpose:** 将 「character」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleCombatant 实例
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.AddCharacter(characterObject, 0);
+```
 
 ### SetGeneral
 `public void SetGeneral(BasicCharacterObject generalCharacter)`
 
-**用途 / Purpose:** 设置 `general` 的值或状态。
+**用途 / Purpose:** 为 「general」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleCombatant 实例
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.SetGeneral(generalCharacter);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleCombatant();
-value.GetTacticsSkillAmount();
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.GetTacticsSkillAmount();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

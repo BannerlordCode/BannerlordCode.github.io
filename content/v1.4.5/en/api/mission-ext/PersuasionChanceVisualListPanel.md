@@ -1,20 +1,14 @@
 ---
 title: "PersuasionChanceVisualListPanel"
+description: "Auto-generated class reference for PersuasionChanceVisualListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionChanceVisualListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionChanceVisualListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Conversation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PersuasionChanceVisualListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Conversation/PersuasionChanceVisualListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Conversation/PersuasionChanceVisualListPanel.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Conver
 ## Usage Example
 
 ```csharp
-var example = new PersuasionChanceVisualListPanel();
+// Obtain an instance from the relevant subsystem API
+PersuasionChanceVisualListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

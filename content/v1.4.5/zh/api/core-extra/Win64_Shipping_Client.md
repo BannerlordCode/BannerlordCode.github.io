@@ -1,20 +1,14 @@
 ---
 title: "Win64_Shipping_Client"
+description: "Win64_Shipping_Client 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Win64_Shipping_Client`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Win64_Shipping_Client
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class Win64_Shipping_Client`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFolders.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFolders.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "Win64_Shipping_Client"
 ### GetFileContent
 `public static string GetFileContent(string filePath, Type type = null)`
 
-**用途 / Purpose:** 获取 `file content` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file content」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Win64_Shipping_Client.GetFileContent("example", null);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ Win64_Shipping_Client.GetFileContent("example", null);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

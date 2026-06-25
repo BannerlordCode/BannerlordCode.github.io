@@ -1,13 +1,7 @@
 ---
 title: "PropertyChangedWithDoubleValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithDoubleValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithDoubleValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithDoubleValueEventArgs
 
 **Namespace:** TaleWorlds.Library
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithDoubleValueEventArgs();
+// Obtain an instance from the relevant subsystem API
+PropertyChangedWithDoubleValueEventArgs instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

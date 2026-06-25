@@ -1,13 +1,7 @@
 ---
 title: "VertexArrayObject"
+description: "Auto-generated class reference for VertexArrayObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VertexArrayObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VertexArrayObject
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -29,45 +23,85 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### LoadVertexData
 `public void LoadVertexData(float vertices)`
 
-**Purpose:** Loads `vertex data` data.
+**Purpose:** Reads `vertex data` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of VertexArrayObject from the subsystem API first
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.LoadVertexData(0);
+```
 
 ### LoadUVData
 `public void LoadUVData(float uvs)`
 
-**Purpose:** Loads `u v data` data.
+**Purpose:** Reads `u v data` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of VertexArrayObject from the subsystem API first
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.LoadUVData(0);
+```
 
 ### LoadIndexData
 `public void LoadIndexData(uint indices)`
 
-**Purpose:** Loads `index data` data.
+**Purpose:** Reads `index data` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of VertexArrayObject from the subsystem API first
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.LoadIndexData(0);
+```
 
 ### Bind
 `public void Bind()`
 
-**Purpose:** Handles logic related to `bind`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VertexArrayObject from the subsystem API first
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.Bind();
+```
 
 ### UnBind
 `public static void UnBind()`
 
-**Purpose:** Handles logic related to `un bind`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+VertexArrayObject.UnBind();
+```
 
 ### Create
 `public static VertexArrayObject Create()`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+VertexArrayObject.Create();
+```
 
 ### CreateWithUVBuffer
 `public static VertexArrayObject CreateWithUVBuffer()`
 
-**Purpose:** Creates a new `with u v buffer` instance or object.
+**Purpose:** Constructs a new `with u v buffer` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+VertexArrayObject.CreateWithUVBuffer();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VertexArrayObject();
-value.LoadVertexData(0);
+// Typically call this after obtaining an instance from the subsystem API
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.LoadVertexData(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

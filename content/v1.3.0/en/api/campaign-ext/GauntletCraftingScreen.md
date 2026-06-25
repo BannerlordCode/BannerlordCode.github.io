@@ -1,13 +1,7 @@
 ---
 title: "GauntletCraftingScreen"
+description: "Auto-generated class reference for GauntletCraftingScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletCraftingScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletCraftingScreen
 
 **Namespace:** SandBox.GauntletUI
@@ -29,25 +23,44 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of GauntletCraftingScreen from the subsystem API first
+GauntletCraftingScreen gauntletCraftingScreen = ...;
+gauntletCraftingScreen.Initialize();
+```
 
 ### OnCraftingLogicInitialized
 `public void OnCraftingLogicInitialized()`
 
-**Purpose:** Called when the `crafting logic initialized` event is raised.
+**Purpose:** Invoked when the `crafting logic initialized` event is raised.
+
+```csharp
+// Obtain an instance of GauntletCraftingScreen from the subsystem API first
+GauntletCraftingScreen gauntletCraftingScreen = ...;
+gauntletCraftingScreen.OnCraftingLogicInitialized();
+```
 
 ### OnCraftingLogicRefreshed
 `public void OnCraftingLogicRefreshed()`
 
-**Purpose:** Called when the `crafting logic refreshed` event is raised.
+**Purpose:** Invoked when the `crafting logic refreshed` event is raised.
+
+```csharp
+// Obtain an instance of GauntletCraftingScreen from the subsystem API first
+GauntletCraftingScreen gauntletCraftingScreen = ...;
+gauntletCraftingScreen.OnCraftingLogicRefreshed();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletCraftingScreen();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+GauntletCraftingScreen gauntletCraftingScreen = ...;
+gauntletCraftingScreen.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

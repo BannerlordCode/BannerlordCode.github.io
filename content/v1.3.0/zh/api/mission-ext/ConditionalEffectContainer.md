@@ -1,13 +1,7 @@
 ---
 title: "ConditionalEffectContainer"
+description: "ConditionalEffectContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConditionalEffectContainer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConditionalEffectContainer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,25 +29,44 @@ title: "ConditionalEffectContainer"
 ### GetState
 `public bool GetState(MPConditionalEffect conditionalEffect, Agent agent)`
 
-**用途 / Purpose:** 获取 `state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ConditionalEffectContainer 实例
+ConditionalEffectContainer conditionalEffectContainer = ...;
+var result = conditionalEffectContainer.GetState(conditionalEffect, agent);
+```
 
 ### SetState
 `public void SetState(MPConditionalEffect conditionalEffect, Agent agent, bool state)`
 
-**用途 / Purpose:** 设置 `state` 的值或状态。
+**用途 / Purpose:** 为 「state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ConditionalEffectContainer 实例
+ConditionalEffectContainer conditionalEffectContainer = ...;
+conditionalEffectContainer.SetState(conditionalEffect, agent, false);
+```
 
 ### ResetStates
 `public void ResetStates()`
 
-**用途 / Purpose:** 将 `states` 重置为初始状态。
+**用途 / Purpose:** 将 「states」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 ConditionalEffectContainer 实例
+ConditionalEffectContainer conditionalEffectContainer = ...;
+conditionalEffectContainer.ResetStates();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ConditionalEffectContainer();
-value.GetState(conditionalEffect, agent);
+// 通常从对应子系统 API 获取实例后调用
+ConditionalEffectContainer conditionalEffectContainer = ...;
+conditionalEffectContainer.GetState(conditionalEffect, agent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

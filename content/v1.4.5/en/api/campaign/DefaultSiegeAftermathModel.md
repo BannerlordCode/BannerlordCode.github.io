@@ -1,20 +1,14 @@
 ---
 title: "DefaultSiegeAftermathModel"
+description: "Auto-generated class reference for DefaultSiegeAftermathModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSiegeAftermathModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeAftermathModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSiegeAftermathModel : SiegeAftermathModel`
 **Base:** `SiegeAftermathModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeAftermathModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeAftermathModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultSiegeAftermathModel` as a Model-style extension point: first ident
 ### GetSiegeAftermathTraitXpChangeForPlayer
 `public override int GetSiegeAftermathTraitXpChangeForPlayer(TraitObject trait, Settlement devastatedSettlement, SiegeAftermathAction.SiegeAftermath aftermathType)`
 
-**Purpose:** Gets the current value of `siege aftermath trait xp change for player`.
+**Purpose:** Reads and returns the `siege aftermath trait xp change for player` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeAftermathModel from the subsystem API first
+DefaultSiegeAftermathModel defaultSiegeAftermathModel = ...;
+var result = defaultSiegeAftermathModel.GetSiegeAftermathTraitXpChangeForPlayer(trait, devastatedSettlement, aftermathType);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultSiegeAftermathModel>(new MyDefaultSiegeAftermat
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

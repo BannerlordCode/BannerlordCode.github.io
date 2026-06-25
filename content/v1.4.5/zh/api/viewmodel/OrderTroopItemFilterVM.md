@@ -1,20 +1,14 @@
 ---
 title: "OrderTroopItemFilterVM"
+description: "OrderTroopItemFilterVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderTroopItemFilterVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTroopItemFilterVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderTroopItemFilterVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/OrderTroopItemFilterVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/OrderTroopItemFilterVM.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "OrderTroopItemFilterVM"
 ## 使用示例
 
 ```csharp
-var example = new OrderTroopItemFilterVM();
+// 从对应子系统 API 获取实例
+OrderTroopItemFilterVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

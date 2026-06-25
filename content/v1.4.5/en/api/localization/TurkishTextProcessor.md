@@ -1,20 +1,14 @@
 ---
 title: "TurkishTextProcessor"
+description: "Auto-generated class reference for TurkishTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TurkishTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TurkishTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
 **Module:** TaleWorlds.Localization
 **Type:** `public class TurkishTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor.LanguageProcessors/TurkishTextProcessor.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor.LanguageProcessors/TurkishTextProcessor.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TurkishTextProcessor from the subsystem API first
+TurkishTextProcessor turkishTextProcessor = ...;
+turkishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of TurkishTextProcessor from the subsystem API first
+TurkishTextProcessor turkishTextProcessor = ...;
+turkishTextProcessor.ClearTemporaryData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TurkishTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+TurkishTextProcessor turkishTextProcessor = ...;
+turkishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

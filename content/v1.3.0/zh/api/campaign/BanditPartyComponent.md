@@ -1,13 +1,7 @@
 ---
 title: "BanditPartyComponent"
+description: "BanditPartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BanditPartyComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BanditPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -39,32 +33,64 @@ title: "BanditPartyComponent"
 ### CreateBanditParty
 `public static MobileParty CreateBanditParty(string stringId, Clan clan, Hideout hideout, bool isBossParty)`
 
-**用途 / Purpose:** 创建一个 `bandit party` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「bandit party」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+BanditPartyComponent.CreateBanditParty("example", clan, hideout, false);
+```
 
 ### ConvertPartyToBanditParty
 `public static void ConvertPartyToBanditParty(MobileParty mobileParty, Clan clan, Hideout hideout, bool isBossParty)`
 
-**用途 / Purpose:** 处理 `convert party to bandit party` 相关逻辑。
+**用途 / Purpose:** 把「party to bandit party」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+BanditPartyComponent.ConvertPartyToBanditParty(mobileParty, clan, hideout, false);
+```
 
 ### CreateLooterParty
 `public static MobileParty CreateLooterParty(string stringId, Clan clan, Settlement relatedSettlement, bool isBossParty)`
 
-**用途 / Purpose:** 创建一个 `looter party` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「looter party」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+BanditPartyComponent.CreateLooterParty("example", clan, relatedSettlement, false);
+```
 
 ### ConvertPartyToLooterParty
 `public static void ConvertPartyToLooterParty(MobileParty mobileParty, Clan clan, Settlement relatedSettlement)`
 
-**用途 / Purpose:** 处理 `convert party to looter party` 相关逻辑。
+**用途 / Purpose:** 把「party to looter party」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+BanditPartyComponent.ConvertPartyToLooterParty(mobileParty, clan, relatedSettlement);
+```
 
 ### SetHomeHideout
 `public void SetHomeHideout(Hideout hideout)`
 
-**用途 / Purpose:** 设置 `home hideout` 的值或状态。
+**用途 / Purpose:** 为 「home hideout」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BanditPartyComponent 实例
+BanditPartyComponent banditPartyComponent = ...;
+banditPartyComponent.SetHomeHideout(hideout);
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** 处理 `clear cached name` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「cached name」。
+
+```csharp
+// 先通过子系统 API 拿到 BanditPartyComponent 实例
+BanditPartyComponent banditPartyComponent = ...;
+banditPartyComponent.ClearCachedName();
+```
 
 ## 使用示例
 
@@ -74,4 +100,4 @@ var component = agent.GetComponent<BanditPartyComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

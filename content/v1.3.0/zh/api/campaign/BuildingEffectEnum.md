@@ -1,18 +1,12 @@
 ---
 title: "BuildingEffectEnum"
+description: "BuildingEffectEnum 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BuildingEffectEnum`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingEffectEnum
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Buildings
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum BuildingEffectEnum`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/Settlements/Buildings/BuildingEffectEnum.cs`
 
@@ -27,9 +21,10 @@ title: "BuildingEffectEnum"
 ## 使用示例
 
 ```csharp
-var example = new BuildingEffectEnum();
+// 从对应子系统 API 获取实例
+BuildingEffectEnum instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

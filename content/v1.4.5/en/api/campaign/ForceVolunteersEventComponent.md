@@ -1,20 +1,14 @@
 ---
 title: "ForceVolunteersEventComponent"
+description: "Auto-generated class reference for ForceVolunteersEventComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ForceVolunteersEventComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ForceVolunteersEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ForceVolunteersEventComponent : MapEventComponent`
 **Base:** `MapEventComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/ForceVolunteersEventComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/ForceVolunteersEventComponent.cs`
 
 ## Overview
 
@@ -35,12 +29,22 @@ Treat `ForceVolunteersEventComponent` as a Component-style extension point: firs
 ### CreateForceSuppliesEvent
 `public static ForceVolunteersEventComponent CreateForceSuppliesEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Creates a new `force supplies event` instance or object.
+**Purpose:** Constructs a new `force supplies event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ForceVolunteersEventComponent.CreateForceSuppliesEvent(attackerParty, defenderParty);
+```
 
 ### CreateComponentForOldSaves
 `public static ForceVolunteersEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
 
-**Purpose:** Creates a new `component for old saves` instance or object.
+**Purpose:** Constructs a new `component for old saves` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ForceVolunteersEventComponent.CreateComponentForOldSaves(mapEvent);
+```
 
 ## Usage Example
 
@@ -50,4 +54,4 @@ var component = agent.GetComponent<ForceVolunteersEventComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

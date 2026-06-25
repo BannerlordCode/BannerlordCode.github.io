@@ -1,20 +1,14 @@
 ---
 title: "MapSelectionGroupVM"
+description: "MapSelectionGroupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapSelectionGroupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSelectionGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapSelectionGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/MapSelectionGroupVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/MapSelectionGroupVM.cs`
 
 ## 概述
 
@@ -55,30 +49,55 @@ title: "MapSelectionGroupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapSelectionGroupVM 实例
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.RefreshValues();
+```
 
 ### ExecuteSallyOutChange
 `public void ExecuteSallyOutChange()`
 
-**用途 / Purpose:** 执行 `sally out change` 操作或流程。
+**用途 / Purpose:** 执行 「sally out change」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapSelectionGroupVM 实例
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.ExecuteSallyOutChange();
+```
 
 ### OnGameTypeChange
 `public void OnGameTypeChange(string gameTypeStringId)`
 
-**用途 / Purpose:** 当 `game type change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game type change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapSelectionGroupVM 实例
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.OnGameTypeChange("example");
+```
 
 ### RandomizeAll
 `public void RandomizeAll()`
 
-**用途 / Purpose:** 处理 `randomize all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapSelectionGroupVM 实例
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.RandomizeAll();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapSelectionGroupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

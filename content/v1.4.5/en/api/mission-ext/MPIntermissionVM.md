@@ -1,20 +1,14 @@
 ---
 title: "MPIntermissionVM"
+description: "Auto-generated class reference for MPIntermissionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPIntermissionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPIntermissionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Intermission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPIntermissionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Intermission/MPIntermissionVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Intermission/MPIntermissionVM.cs`
 
 ## Overview
 
@@ -63,30 +57,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.I
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPIntermissionVM from the subsystem API first
+MPIntermissionVM mPIntermissionVM = ...;
+mPIntermissionVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MPIntermissionVM from the subsystem API first
+MPIntermissionVM mPIntermissionVM = ...;
+mPIntermissionVM.Tick();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPIntermissionVM from the subsystem API first
+MPIntermissionVM mPIntermissionVM = ...;
+mPIntermissionVM.OnFinalize();
+```
 
 ### ExecuteQuitServer
 `public void ExecuteQuitServer()`
 
-**Purpose:** Executes the `quit server` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `quit server`.
+
+```csharp
+// Obtain an instance of MPIntermissionVM from the subsystem API first
+MPIntermissionVM mPIntermissionVM = ...;
+mPIntermissionVM.ExecuteQuitServer();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPIntermissionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPIntermissionVM mPIntermissionVM = ...;
+mPIntermissionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

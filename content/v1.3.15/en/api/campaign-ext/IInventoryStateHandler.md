@@ -1,18 +1,12 @@
 ---
 title: "IInventoryStateHandler"
+description: "Auto-generated class reference for IInventoryStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IInventoryStateHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IInventoryStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IInventoryStateHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/IInventoryStateHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IInventoryStateHandler` as a Handler-style extension point: first identif
 ## Usage Example
 
 ```csharp
-IInventoryStateHandler implementation = GetInventoryStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIInventoryStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CommunityClientOnlineLobbyGameHandler"
+description: "Auto-generated class reference for CommunityClientOnlineLobbyGameHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommunityClientOnlineLobbyGameHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommunityClientOnlineLobbyGameHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CommunityClientOnlineLobbyGameHandler : ICommunityClientHandler`
 **Base:** `ICommunityClientHandler`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/CommunityClientOnlineLobbyGameHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/CommunityClientOnlineLobbyGameHandler.cs`
 
 ## Overview
 
@@ -33,9 +27,9 @@ Treat `CommunityClientOnlineLobbyGameHandler` as a Handler-style extension point
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CommunityClientOnlineLobbyGameHandler());
+var behavior = Mission.Current.GetMissionBehavior<CommunityClientOnlineLobbyGameHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

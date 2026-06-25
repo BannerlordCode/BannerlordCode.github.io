@@ -1,13 +1,7 @@
 ---
 title: "DynamicObjectAnimationPoint"
+description: "DynamicObjectAnimationPoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DynamicObjectAnimationPoint`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DynamicObjectAnimationPoint
 
 **Namespace:** SandBox.Objects.AnimationPoints
@@ -38,70 +32,143 @@ title: "DynamicObjectAnimationPoint"
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.GetTickRequirement();
+```
 
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**用途 / Purpose:** 处理 `is usable by agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「usable by agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.IsUsableByAgent(userAgent);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `use` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.OnUse(userAgent, 0);
+```
 
 ### GetUserFrameForAgent
 `public override WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**用途 / Purpose:** 获取 `user frame for agent` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「user frame for agent」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.GetUserFrameForAgent(agent);
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `is disabled for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.IsDisabledForAgent(agent);
+```
 
 ### SimulateTick
 `public override void SimulateTick(float dt)`
 
-**用途 / Purpose:** 处理 `simulate tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.SimulateTick(0);
+```
 
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `alternative`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「alternative」。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.HasAlternative();
+```
 
 ### OnUserConversationStart
 `public override void OnUserConversationStart()`
 
-**用途 / Purpose:** 当 `user conversation start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「user conversation start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.OnUserConversationStart();
+```
 
 ### OnUserConversationEnd
 `public override void OnUserConversationEnd()`
 
-**用途 / Purpose:** 当 `user conversation end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「user conversation end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.OnUserConversationEnd();
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** 当 `use stopped` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use stopped」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### SetAgentItemsVisibility
 `public void SetAgentItemsVisibility(bool isVisible)`
 
-**用途 / Purpose:** 设置 `agent items visibility` 的值或状态。
+**用途 / Purpose:** 为 「agent items visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.SetAgentItemsVisibility(false);
+```
 
 ### IsRotationCorrectDuringUsage
 `public bool IsRotationCorrectDuringUsage()`
 
-**用途 / Purpose:** 处理 `is rotation correct during usage` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「rotation correct during usage」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DynamicObjectAnimationPoint 实例
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.IsRotationCorrectDuringUsage();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DynamicObjectAnimationPoint();
-value.GetTickRequirement();
+// 通常从对应子系统 API 获取实例后调用
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.GetTickRequirement();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

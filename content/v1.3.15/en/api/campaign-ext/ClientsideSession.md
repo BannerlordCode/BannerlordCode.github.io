@@ -1,13 +1,7 @@
 ---
 title: "ClientsideSession"
+description: "Auto-generated class reference for ClientsideSession."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClientsideSession`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClientsideSession
 
 **Namespace:** TaleWorlds.Network
@@ -35,24 +29,43 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Connect
 `public virtual void Connect(string ip, int port, bool useSessionThread = true)`
 
-**Purpose:** Handles logic related to `connect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientsideSession from the subsystem API first
+ClientsideSession clientsideSession = ...;
+clientsideSession.Connect("example", 0, false);
+```
 
 ### Process
 `public void Process()`
 
-**Purpose:** Handles logic related to `process`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientsideSession from the subsystem API first
+ClientsideSession clientsideSession = ...;
+clientsideSession.Process();
+```
 
 ### Tick
 `public override void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ClientsideSession from the subsystem API first
+ClientsideSession clientsideSession = ...;
+clientsideSession.Tick();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomClientsideSession();
+// Typically obtained from a subsystem API or factory
+ClientsideSession instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

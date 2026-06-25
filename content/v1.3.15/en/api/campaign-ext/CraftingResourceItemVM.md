@@ -1,13 +1,7 @@
 ---
 title: "CraftingResourceItemVM"
+description: "Auto-generated class reference for CraftingResourceItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingResourceItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingResourceItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
@@ -41,9 +35,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ## Usage Example
 
 ```csharp
-var value = new CraftingResourceItemVM();
+// Obtain an instance from the relevant subsystem API
+CraftingResourceItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

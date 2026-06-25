@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardShipsNavigatableGridWidget"
+description: "Auto-generated class reference for ScoreboardShipsNavigatableGridWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardShipsNavigatableGridWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardShipsNavigatableGridWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardShipsNavigatableGridWidget : NavigatableGridWidget`
 **Base:** `NavigatableGridWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardShipsNavigatableGridWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardShipsNavigatableGridWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `ScoreboardShipsNavigatableGridWidget` as a Widget-style extension point: 
 ## Usage Example
 
 ```csharp
-var widget = new ScoreboardShipsNavigatableGridWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScoreboardShipsNavigatableGridWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

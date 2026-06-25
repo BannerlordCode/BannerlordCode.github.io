@@ -1,20 +1,14 @@
 ---
 title: "ItemFoodComparer"
+description: "Auto-generated class reference for ItemFoodComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemFoodComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemFoodComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemFoodComparer : ItemComparerBase`
 **Base:** `ItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementSortControllerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemFoodComparer from the subsystem API first
+ItemFoodComparer itemFoodComparer = ...;
+var result = itemFoodComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemFoodComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemFoodComparer itemFoodComparer = ...;
+itemFoodComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

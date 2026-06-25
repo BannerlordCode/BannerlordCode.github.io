@@ -1,20 +1,14 @@
 ---
 title: "KingSelectionDecisionItemVM"
+description: "Auto-generated class reference for KingSelectionDecisionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingSelectionDecisionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingSelectionDecisionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingSelectionDecisionItemVM : DecisionItemBaseVM`
 **Base:** `DecisionItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/KingSelectionDecisionItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/KingSelectionDecisionItemVM.cs`
 
 ## Overview
 
@@ -43,9 +37,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var example = new KingSelectionDecisionItemVM();
+// Obtain an instance from the relevant subsystem API
+KingSelectionDecisionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

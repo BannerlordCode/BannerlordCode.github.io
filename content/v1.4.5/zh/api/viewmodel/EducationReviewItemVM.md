@@ -1,20 +1,14 @@
 ---
 title: "EducationReviewItemVM"
+description: "EducationReviewItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EducationReviewItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationReviewItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationReviewItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationReviewItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationReviewItemVM.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "EducationReviewItemVM"
 ### UpdateWith
 `public void UpdateWith(string gainText)`
 
-**用途 / Purpose:** 更新 `with` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「with」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 EducationReviewItemVM 实例
+EducationReviewItemVM educationReviewItemVM = ...;
+educationReviewItemVM.UpdateWith("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EducationReviewItemVM();
-value.UpdateWith("example");
+// 通常从对应子系统 API 获取实例后调用
+EducationReviewItemVM educationReviewItemVM = ...;
+educationReviewItemVM.UpdateWith("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "OverruleInfluenceLogEntry"
+description: "OverruleInfluenceLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OverruleInfluenceLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OverruleInfluenceLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class OverruleInfluenceLogEntry : LogEntry`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/OverruleInfluenceLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/OverruleInfluenceLogEntry.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "OverruleInfluenceLogEntry"
 ### GetHistoricComment
 `public override TextObject GetHistoricComment(Hero talkTroop)`
 
-**用途 / Purpose:** 获取 `historic comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「historic comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 OverruleInfluenceLogEntry 实例
+OverruleInfluenceLogEntry overruleInfluenceLogEntry = ...;
+var result = overruleInfluenceLogEntry.GetHistoricComment(talkTroop);
+```
 
 ### GetValueAsPoliticsAbuseOfPower
 `public override int GetValueAsPoliticsAbuseOfPower(Hero referenceTroop, Hero liege)`
 
-**用途 / Purpose:** 获取 `value as politics abuse of power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as politics abuse of power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 OverruleInfluenceLogEntry 实例
+OverruleInfluenceLogEntry overruleInfluenceLogEntry = ...;
+var result = overruleInfluenceLogEntry.GetValueAsPoliticsAbuseOfPower(referenceTroop, liege);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 OverruleInfluenceLogEntry 实例
+OverruleInfluenceLogEntry overruleInfluenceLogEntry = ...;
+var result = overruleInfluenceLogEntry.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OverruleInfluenceLogEntry();
-value.GetHistoricComment(talkTroop);
+// 通常从对应子系统 API 获取实例后调用
+OverruleInfluenceLogEntry overruleInfluenceLogEntry = ...;
+overruleInfluenceLogEntry.GetHistoricComment(talkTroop);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

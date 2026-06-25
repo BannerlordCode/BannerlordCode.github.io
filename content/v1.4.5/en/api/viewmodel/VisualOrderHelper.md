@@ -1,20 +1,14 @@
 ---
 title: "VisualOrderHelper"
+description: "Auto-generated class reference for VisualOrderHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualOrderHelper`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualOrderHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class VisualOrderHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderHelper.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderHelper.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Treat `VisualOrderHelper` as a Helper-style extension point: first identify who 
 ### DoesFormationHaveOrderType
 `public static bool DoesFormationHaveOrderType(Formation formation, OrderType type)`
 
-**Purpose:** Handles logic related to `does formation have order type`.
+**Purpose:** Returns a boolean answer to whether `formation have order type` is true for the current object.
+
+```csharp
+// Static call; no instance required
+VisualOrderHelper.DoesFormationHaveOrderType(formation, type);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ VisualOrderHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

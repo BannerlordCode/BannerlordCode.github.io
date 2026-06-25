@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationReviewStageVM"
+description: "Auto-generated class reference for CharacterCreationReviewStageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationReviewStageVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationReviewStageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
@@ -44,60 +38,121 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### ExecuteRandomizeName
 `public void ExecuteRandomizeName()`
 
-**Purpose:** Executes the `randomize name` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `randomize name`.
+
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.ExecuteRandomizeName();
+```
 
 ### OnNextStage
 `public override void OnNextStage()`
 
-**Purpose:** Called when the `next stage` event is raised.
+**Purpose:** Invoked when the `next stage` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.OnNextStage();
+```
 
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**Purpose:** Called when the `previous stage` event is raised.
+**Purpose:** Invoked when the `previous stage` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.OnPreviousStage();
+```
 
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**Purpose:** Checks whether the current object can `advance to next stage`.
+**Purpose:** Checks whether the current object meets the preconditions for `advance to next stage`.
+
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+var result = characterCreationReviewStageVM.CanAdvanceToNextStage();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.SetDoneInputKey(hotKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
 **Purpose:** Adds `camera control input key` to the current collection or state.
 
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.AddCameraControlInputKey(hotKey);
+```
+
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
 **Purpose:** Adds `camera control input key` to the current collection or state.
+
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.AddCameraControlInputKey(gameKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
 
 **Purpose:** Adds `camera control input key` to the current collection or state.
 
+```csharp
+// Obtain an instance of CharacterCreationReviewStageVM from the subsystem API first
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.AddCameraControlInputKey(gameAxisKey, keyName);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationReviewStageVM();
-value.ExecuteRandomizeName();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationReviewStageVM characterCreationReviewStageVM = ...;
+characterCreationReviewStageVM.ExecuteRandomizeName();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

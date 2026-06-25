@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerOptionsAccessMode"
+description: "Auto-generated class reference for MultiplayerOptionsAccessMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerOptionsAccessMode`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerOptionsAccessMode
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-MultiplayerOptionsAccessMode example = MultiplayerOptionsAccessMode.Value;
+// Obtain an instance from the relevant subsystem API
+MultiplayerOptionsAccessMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

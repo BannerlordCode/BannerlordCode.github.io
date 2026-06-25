@@ -1,24 +1,18 @@
 ---
 title: "MPRandomOnSpawnPerkEffect"
+description: "Auto-generated class reference for MPRandomOnSpawnPerkEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPRandomOnSpawnPerkEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPRandomOnSpawnPerkEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPRandomOnSpawnPerkEffect : MPOnSpawnPerkEffectBase`
 **Base:** `MPOnSpawnPerkEffectBase`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/MPRandomOnSpawnPerkEffect.cs`
 
 ## Overview
 
-`MPRandomOnSpawnPerkEffect` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MPRandomOnSpawnPerkEffect` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,15 +23,20 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateFrom
 `public static MPRandomOnSpawnPerkEffect CreateFrom(XmlNode node)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MPRandomOnSpawnPerkEffect.CreateFrom(node);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPRandomOnSpawnPerkEffect();
+// Typically obtained from a subsystem API or factory
+MPRandomOnSpawnPerkEffect instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

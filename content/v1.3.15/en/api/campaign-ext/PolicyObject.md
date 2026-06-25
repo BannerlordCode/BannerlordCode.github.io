@@ -1,61 +1,66 @@
 ---
 title: "PolicyObject"
+description: "Auto-generated class reference for PolicyObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PolicyObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PolicyObject
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** public sealed class PolicyObject : PropertyObject
+**Type:** `public sealed class PolicyObject : PropertyObject`
 **Base:** `PropertyObject`
 **File:** `TaleWorlds.CampaignSystem/PolicyObject.cs`
 
 ## Overview
 
-`PolicyObject` represents a kingdom policy (an active/inactive law affecting kingdom mechanics). All policies are available via the static `All` list and are typically referenced from XML. Mods query active policies on a kingdom (`Kingdom.ActivePolicies`) and add/remove them to change kingdom behavior.
+`PolicyObject` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `PolicyObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `All` | `public static MBReadOnlyList<PolicyObject> All { get { return Campaign.Current.AllPolicies; }` |
+| `All` | `public static MBReadOnlyList<PolicyObject> All { get; }` |
+| `SecondaryEffects` | `public TextObject SecondaryEffects { get; }` |
+| `AuthoritarianWeight` | `public float AuthoritarianWeight { get; }` |
+| `OligarchicWeight` | `public float OligarchicWeight { get; }` |
+| `EgalitarianWeight` | `public float EgalitarianWeight { get; }` |
+| `LogEntryDescription` | `public TextObject LogEntryDescription { get; }` |
 
 ## Key Methods
 
 ### Initialize
+`public void Initialize(TextObject name, TextObject description, TextObject logEntryDescription, TextObject secondaryEffects, float authoritarianWeight, float oligarchyWeight, float egalitarianWeight)`
+
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
 ```csharp
-public void Initialize(TextObject name, TextObject description, TextObject logEntryDescription, TextObject secondaryEffects, float authoritarianWeight, float oligarchyWeight, float egalitarianWeight)
+// Obtain an instance of PolicyObject from the subsystem API first
+PolicyObject policyObject = ...;
+policyObject.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
 ```
 
 ### ToString
+`public override string ToString()`
+
+**Purpose:** Returns a human-readable string representation of the current object.
+
 ```csharp
-public override string ToString()
+// Obtain an instance of PolicyObject from the subsystem API first
+PolicyObject policyObject = ...;
+var result = policyObject.ToString();
 ```
 
 ## Usage Example
 
 ```csharp
-// Find a policy by id and check whether the player's kingdom has it active
-PolicyObject policy = PolicyObject.All.FirstOrDefault(p => p.StringId == "demesne_rights");
-Kingdom k = Clan.PlayerClan.Kingdom;
-if (policy != null && k != null)
-{
-    bool active = k.ActivePolicies.Contains(policy);
-    InformationManager.DisplayMessage(new InformationMessage(
-        $"{policy.Name} is {(active ? "active" : "inactive")} in {k.Name}"));
-}
+// Typically call this after obtaining an instance from the subsystem API
+PolicyObject policyObject = ...;
+policyObject.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

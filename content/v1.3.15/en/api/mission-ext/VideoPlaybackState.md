@@ -1,13 +1,7 @@
 ---
 title: "VideoPlaybackState"
+description: "Auto-generated class reference for VideoPlaybackState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VideoPlaybackState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VideoPlaybackState
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -39,30 +33,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetStartingParameters
 `public void SetStartingParameters(string videoPath, string audioPath, string subtitleFileBasePath, float frameRate = 30f, bool canUserSkip = true)`
 
-**Purpose:** Sets the value or state of `starting parameters`.
+**Purpose:** Assigns a new value to `starting parameters` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VideoPlaybackState from the subsystem API first
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.SetStartingParameters("example", "example", "example", 0, false);
+```
 
 ### SetOnVideoFinisedDelegate
 `public void SetOnVideoFinisedDelegate(Action onVideoFinised)`
 
-**Purpose:** Sets the value or state of `on video finised delegate`.
+**Purpose:** Assigns a new value to `on video finised delegate` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VideoPlaybackState from the subsystem API first
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.SetOnVideoFinisedDelegate(onVideoFinised);
+```
 
 ### OnVideoStarted
 `public void OnVideoStarted()`
 
-**Purpose:** Called when the `video started` event is raised.
+**Purpose:** Invoked when the `video started` event is raised.
+
+```csharp
+// Obtain an instance of VideoPlaybackState from the subsystem API first
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.OnVideoStarted();
+```
 
 ### OnVideoFinished
 `public void OnVideoFinished()`
 
-**Purpose:** Called when the `video finished` event is raised.
+**Purpose:** Invoked when the `video finished` event is raised.
+
+```csharp
+// Obtain an instance of VideoPlaybackState from the subsystem API first
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.OnVideoFinished();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VideoPlaybackState();
-value.SetStartingParameters("example", "example", "example", 0, false);
+// Typically call this after obtaining an instance from the subsystem API
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.SetStartingParameters("example", "example", "example", 0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

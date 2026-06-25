@@ -1,13 +1,7 @@
 ---
 title: "ConversationItemVM"
+description: "Auto-generated class reference for ConversationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
@@ -41,30 +35,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ConversationItemVM from the subsystem API first
+ConversationItemVM conversationItemVM = ...;
+conversationItemVM.RefreshValues();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of ConversationItemVM from the subsystem API first
+ConversationItemVM conversationItemVM = ...;
+conversationItemVM.ExecuteAction();
+```
 
 ### SetCurrentAnswer
 `public void SetCurrentAnswer()`
 
-**Purpose:** Sets the value or state of `current answer`.
+**Purpose:** Assigns a new value to `current answer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ConversationItemVM from the subsystem API first
+ConversationItemVM conversationItemVM = ...;
+conversationItemVM.SetCurrentAnswer();
+```
 
 ### ResetCurrentAnswer
 `public void ResetCurrentAnswer()`
 
-**Purpose:** Resets `current answer` to its initial state.
+**Purpose:** Returns `current answer` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ConversationItemVM from the subsystem API first
+ConversationItemVM conversationItemVM = ...;
+conversationItemVM.ResetCurrentAnswer();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConversationItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ConversationItemVM conversationItemVM = ...;
+conversationItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MapTimeControlVM"
+description: "Auto-generated class reference for MapTimeControlVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapTimeControlVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapTimeControlVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
@@ -58,40 +52,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapTimeControlVM from the subsystem API first
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapTimeControlVM from the subsystem API first
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapTimeControlVM from the subsystem API first
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.Tick();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of MapTimeControlVM from the subsystem API first
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.Refresh();
+```
 
 ### ExecuteTimeControlChange
 `public void ExecuteTimeControlChange(int selectedTimeSpeed)`
 
-**Purpose:** Executes the `time control change` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `time control change`.
+
+```csharp
+// Obtain an instance of MapTimeControlVM from the subsystem API first
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.ExecuteTimeControlChange(0);
+```
 
 ### ExecuteResetCamera
 `public void ExecuteResetCamera()`
 
-**Purpose:** Executes the `reset camera` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset camera`.
+
+```csharp
+// Obtain an instance of MapTimeControlVM from the subsystem API first
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.ExecuteResetCamera();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapTimeControlVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

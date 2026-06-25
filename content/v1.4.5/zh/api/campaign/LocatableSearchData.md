@@ -1,20 +1,14 @@
 ---
 title: "LocatableSearchData"
+description: "LocatableSearchData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LocatableSearchData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocatableSearchData
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct LocatableSearchData<T>`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/LocatableSearchData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/LocatableSearchData.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "LocatableSearchData"
 ## 使用示例
 
 ```csharp
-var value = new LocatableSearchData();
+// 该数据对象通常由战役/任务 API 返回
+LocatableSearchData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

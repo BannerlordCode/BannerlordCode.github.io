@@ -1,20 +1,14 @@
 ---
 title: "DialogFlow"
+description: "DialogFlow 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DialogFlow`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DialogFlow
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DialogFlow`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/DialogFlow.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/DialogFlow.cs`
 
 ## 概述
 
@@ -29,175 +23,373 @@ title: "DialogFlow"
 ### Variation
 `public DialogFlow Variation(string text, params object propertiesAndWeights)`
 
-**用途 / Purpose:** 处理 `variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Variation("example", propertiesAndWeights);
+```
 
 ### Variation
 `public DialogFlow Variation(TextObject text, params object propertiesAndWeights)`
 
-**用途 / Purpose:** 处理 `variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Variation(text, propertiesAndWeights);
+```
 
 ### NpcLine
 `public DialogFlow NpcLine(string npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `npc line` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLine("example", null, null, "example", "example");
+```
 
 ### NpcLine
 `public DialogFlow NpcLine(TextObject npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `npc line` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLine(npcText, null, null, "example", "example");
+```
 
 ### NpcLineWithVariation
 `public DialogFlow NpcLineWithVariation(string npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `npc line with variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLineWithVariation("example", null, null, "example", "example");
+```
 
 ### NpcLineWithVariation
 `public DialogFlow NpcLineWithVariation(TextObject npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `npc line with variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLineWithVariation(npcText, null, null, "example", "example");
+```
 
 ### PlayerLine
 `public DialogFlow PlayerLine(string playerText, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `player line` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerLine("example", null, "example", "example");
+```
 
 ### PlayerLine
 `public DialogFlow PlayerLine(TextObject playerText, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `player line` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerLine(playerText, null, "example", "example");
+```
 
 ### BeginPlayerOptions
 `public DialogFlow BeginPlayerOptions(string inputToken = null, bool optionUsedOnce = false)`
 
-**用途 / Purpose:** 处理 `begin player options` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.BeginPlayerOptions("example", false);
+```
 
 ### BeginNpcOptions
 `public DialogFlow BeginNpcOptions(string inputToken = null, bool optionUsedOnce = false)`
 
-**用途 / Purpose:** 处理 `begin npc options` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.BeginNpcOptions("example", false);
+```
 
 ### PlayerOption
 `public DialogFlow PlayerOption(string text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `player option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerOption("example", null, "example", "example");
+```
 
 ### PlayerOption
 `public DialogFlow PlayerOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `player option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerOption(text, null, "example", "example");
+```
 
 ### PlayerSpecialOption
 `public DialogFlow PlayerSpecialOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `player special option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerSpecialOption(text, null, "example", "example");
+```
 
 ### PlayerRepeatableOption
 `public DialogFlow PlayerRepeatableOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `player repeatable option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerRepeatableOption(text, null, "example", "example");
+```
 
 ### NpcOption
 `public DialogFlow NpcOption(string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `npc option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOption("example", conditionDelegate, null, null, "example", "example");
+```
 
 ### NpcOption
 `public DialogFlow NpcOption(TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `npc option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOption(text, conditionDelegate, null, null, "example", "example");
+```
 
 ### NpcOptionWithVariation
 `public DialogFlow NpcOptionWithVariation(string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `npc option with variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOptionWithVariation("example", conditionDelegate, null, null, "example", "example");
+```
 
 ### NpcOptionWithVariation
 `public DialogFlow NpcOptionWithVariation(TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)`
 
-**用途 / Purpose:** 处理 `npc option with variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOptionWithVariation(text, conditionDelegate, null, null, "example", "example");
+```
 
 ### EndPlayerOptions
 `public DialogFlow EndPlayerOptions()`
 
-**用途 / Purpose:** 处理 `end player options` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.EndPlayerOptions();
+```
 
 ### EndNpcOptions
 `public DialogFlow EndNpcOptions()`
 
-**用途 / Purpose:** 处理 `end npc options` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.EndNpcOptions();
+```
 
 ### Condition
 `public DialogFlow Condition(ConversationSentence.OnConditionDelegate conditionDelegate)`
 
-**用途 / Purpose:** 处理 `condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Condition(conditionDelegate);
+```
 
 ### ClickableCondition
 `public DialogFlow ClickableCondition(ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate)`
 
-**用途 / Purpose:** 处理 `clickable condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.ClickableCondition(clickableConditionDelegate);
+```
 
 ### Consequence
 `public DialogFlow Consequence(ConversationSentence.OnConsequenceDelegate consequenceDelegate)`
 
-**用途 / Purpose:** 处理 `consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Consequence(consequenceDelegate);
+```
 
 ### CreateDialogFlow
 `public static DialogFlow CreateDialogFlow(string inputToken = null, int priority = 100)`
 
-**用途 / Purpose:** 创建一个 `dialog flow` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「dialog flow」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+DialogFlow.CreateDialogFlow("example", 0);
+```
 
 ### NpcDefaultOption
 `public DialogFlow NpcDefaultOption(string text)`
 
-**用途 / Purpose:** 处理 `npc default option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcDefaultOption("example");
+```
 
 ### GenerateToken
 `public DialogFlow GenerateToken(out string token)`
 
-**用途 / Purpose:** 处理 `generate token` 相关逻辑。
+**用途 / Purpose:** 生成「token」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GenerateToken(token);
+```
 
 ### GotoDialogState
 `public DialogFlow GotoDialogState(string input)`
 
-**用途 / Purpose:** 处理 `goto dialog state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GotoDialogState("example");
+```
 
 ### GotoDialogStateBranched
 `public DialogFlow GotoDialogStateBranched(string input, ConversationSentence.OnConditionDelegate conditionDelegate, string alternative)`
 
-**用途 / Purpose:** 处理 `goto dialog state branched` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GotoDialogStateBranched("example", conditionDelegate, "example");
+```
 
 ### GetOutputToken
 `public DialogFlow GetOutputToken(out string oState)`
 
-**用途 / Purpose:** 获取 `output token` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「output token」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GetOutputToken(oState);
+```
 
 ### GoBackToDialogState
 `public DialogFlow GoBackToDialogState(string iState)`
 
-**用途 / Purpose:** 处理 `go back to dialog state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GoBackToDialogState("example");
+```
 
 ### CloseDialog
 `public DialogFlow CloseDialog()`
 
-**用途 / Purpose:** 处理 `close dialog` 相关逻辑。
+**用途 / Purpose:** 关闭「dialog」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.CloseDialog();
+```
 
 ### AddPlayerLine
 `public ConversationSentence AddPlayerLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, object relatedObject, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnPersuasionOptionDelegate persuasionOptionDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `player line`。
+**用途 / Purpose:** 将 「player line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.AddPlayerLine("example", "example", "example", "example", conditionDelegate, consequenceDelegate, relatedObject, 0, null, null, null, null);
+```
 
 ### AddDialogLine
 `public ConversationSentence AddDialogLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, object relatedObject, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `dialog line`。
+**用途 / Purpose:** 将 「dialog line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.AddDialogLine("example", "example", "example", "example", conditionDelegate, consequenceDelegate, relatedObject, 0, null, null, null);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DialogFlow();
-value.Variation("example", propertiesAndWeights);
+// 通常从对应子系统 API 获取实例后调用
+DialogFlow dialogFlow = ...;
+dialogFlow.Variation("example", propertiesAndWeights);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

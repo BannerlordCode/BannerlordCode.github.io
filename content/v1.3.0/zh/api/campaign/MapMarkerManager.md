@@ -1,13 +1,7 @@
 ---
 title: "MapMarkerManager"
+description: "MapMarkerManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapMarkerManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapMarkerManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
@@ -35,22 +29,46 @@ title: "MapMarkerManager"
 ### CreateMapMarker
 `public MapMarker CreateMapMarker(Banner banner, TextObject name, Vec3 position, bool isVisibleOnMap, string questId)`
 
-**用途 / Purpose:** 创建一个 `map marker` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「map marker」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 MapMarkerManager 实例
+MapMarkerManager mapMarkerManager = ...;
+var result = mapMarkerManager.CreateMapMarker(banner, name, position, false, "example");
+```
 
 ### RemoveMapMarker
 `public void RemoveMapMarker(MapMarker mapMarker)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `map marker`。
+**用途 / Purpose:** 从当前容器或状态中移除 「map marker」。
+
+```csharp
+// 先通过子系统 API 拿到 MapMarkerManager 实例
+MapMarkerManager mapMarkerManager = ...;
+mapMarkerManager.RemoveMapMarker(mapMarker);
+```
 
 ### RemoveAllMapMarkersByQuestId
 `public void RemoveAllMapMarkersByQuestId(string questId)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `all map markers by quest id`。
+**用途 / Purpose:** 从当前容器或状态中移除 「all map markers by quest id」。
+
+```csharp
+// 先通过子系统 API 拿到 MapMarkerManager 实例
+MapMarkerManager mapMarkerManager = ...;
+mapMarkerManager.RemoveAllMapMarkersByQuestId("example");
+```
 
 ### GetMapMarkersByQuestId
 `public IEnumerable<MapMarker> GetMapMarkersByQuestId(string questId)`
 
-**用途 / Purpose:** 获取 `map markers by quest id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「map markers by quest id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapMarkerManager 实例
+MapMarkerManager mapMarkerManager = ...;
+var result = mapMarkerManager.GetMapMarkersByQuestId("example");
+```
 
 ## 使用示例
 
@@ -60,4 +78,4 @@ var manager = MapMarkerManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

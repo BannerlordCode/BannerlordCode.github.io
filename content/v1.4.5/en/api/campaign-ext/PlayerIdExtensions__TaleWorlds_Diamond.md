@@ -1,20 +1,14 @@
 ---
-title: "PlayerIdExtensions__TaleWorlds_Diamond"
+title: "PlayerIdExtensions"
+description: "Auto-generated class reference for PlayerIdExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIdExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerIdExtensions
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public static class PlayerIdExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/PlayerIdExtensions.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/PlayerIdExtensions.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### ConvertToPeerId
 `public static PeerId ConvertToPeerId(this PlayerId playerId)`
 
-**Purpose:** Handles logic related to `convert to peer id`.
+**Purpose:** Converts `to peer id` into another representation or type.
+
+```csharp
+// Static call; no instance required
+PlayerIdExtensions.ConvertToPeerId(playerId);
+```
 
 ### ConvertToPlayerId
 `public static PlayerId ConvertToPlayerId(this PeerId peerId)`
 
-**Purpose:** Handles logic related to `convert to player id`.
+**Purpose:** Converts `to player id` into another representation or type.
+
+```csharp
+// Static call; no instance required
+PlayerIdExtensions.ConvertToPlayerId(peerId);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ PlayerIdExtensions.ConvertToPeerId(playerId);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

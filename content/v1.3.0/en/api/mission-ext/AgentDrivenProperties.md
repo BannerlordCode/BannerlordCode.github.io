@@ -1,13 +1,7 @@
 ---
 title: "AgentDrivenProperties"
+description: "Auto-generated class reference for AgentDrivenProperties."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentDrivenProperties`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentDrivenProperties
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -126,20 +120,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetStat
 `public float GetStat(DrivenProperty propertyEnum)`
 
-**Purpose:** Gets the current value of `stat`.
+**Purpose:** Reads and returns the `stat` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentDrivenProperties from the subsystem API first
+AgentDrivenProperties agentDrivenProperties = ...;
+var result = agentDrivenProperties.GetStat(propertyEnum);
+```
 
 ### SetStat
 `public void SetStat(DrivenProperty propertyEnum, float value)`
 
-**Purpose:** Sets the value or state of `stat`.
+**Purpose:** Assigns a new value to `stat` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentDrivenProperties from the subsystem API first
+AgentDrivenProperties agentDrivenProperties = ...;
+agentDrivenProperties.SetStat(propertyEnum, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AgentDrivenProperties();
-value.GetStat(propertyEnum);
+// Typically call this after obtaining an instance from the subsystem API
+AgentDrivenProperties agentDrivenProperties = ...;
+agentDrivenProperties.GetStat(propertyEnum);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

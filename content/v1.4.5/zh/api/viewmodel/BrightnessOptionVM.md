@@ -1,20 +1,14 @@
 ---
 title: "BrightnessOptionVM"
+description: "BrightnessOptionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrightnessOptionVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrightnessOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BrightnessOptionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/BrightnessOptionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/BrightnessOptionVM.cs`
 
 ## 概述
 
@@ -47,35 +41,66 @@ title: "BrightnessOptionVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessOptionVM 实例
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.RefreshValues();
+```
 
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**用途 / Purpose:** 执行 `confirm` 操作或流程。
+**用途 / Purpose:** 执行 「confirm」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessOptionVM 实例
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.ExecuteConfirm();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessOptionVM 实例
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.ExecuteCancel();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessOptionVM 实例
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.SetCancelInputKey(hotkey);
+```
 
 ### SetConfirmInputKey
 `public void SetConfirmInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `confirm input key` 的值或状态。
+**用途 / Purpose:** 为 「confirm input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BrightnessOptionVM 实例
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.SetConfirmInputKey(hotkey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrightnessOptionVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+BrightnessOptionVM brightnessOptionVM = ...;
+brightnessOptionVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

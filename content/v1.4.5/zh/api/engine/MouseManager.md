@@ -1,20 +1,14 @@
 ---
 title: "MouseManager"
+description: "MouseManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MouseManager`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MouseManager
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class MouseManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/MouseManager.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MouseManager.cs`
 
 ## 概述
 
@@ -29,32 +23,62 @@ title: "MouseManager"
 ### ActivateMouseCursor
 `public static void ActivateMouseCursor(CursorType mouseId)`
 
-**用途 / Purpose:** 处理 `activate mouse cursor` 相关逻辑。
+**用途 / Purpose:** 激活「mouse cursor」对应的资源、状态或功能。
+
+```csharp
+// 静态调用，不需要实例
+MouseManager.ActivateMouseCursor(mouseId);
+```
 
 ### SetMouseCursor
 `public static void SetMouseCursor(CursorType mouseId, string mousePath)`
 
-**用途 / Purpose:** 设置 `mouse cursor` 的值或状态。
+**用途 / Purpose:** 为 「mouse cursor」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MouseManager.SetMouseCursor(mouseId, "example");
+```
 
 ### ShowCursor
 `public static void ShowCursor(bool show)`
 
-**用途 / Purpose:** 处理 `show cursor` 相关逻辑。
+**用途 / Purpose:** 显示「cursor」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+MouseManager.ShowCursor(false);
+```
 
 ### LockCursorAtCurrentPosition
 `public static void LockCursorAtCurrentPosition(bool lockCursor)`
 
-**用途 / Purpose:** 处理 `lock cursor at current position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MouseManager.LockCursorAtCurrentPosition(false);
+```
 
 ### LockCursorAtPosition
 `public static void LockCursorAtPosition(float x, float y)`
 
-**用途 / Purpose:** 处理 `lock cursor at position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MouseManager.LockCursorAtPosition(0, 0);
+```
 
 ### UnlockCursor
 `public static void UnlockCursor()`
 
-**用途 / Purpose:** 处理 `unlock cursor` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MouseManager.UnlockCursor();
+```
 
 ## 使用示例
 
@@ -64,4 +88,4 @@ var manager = MouseManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

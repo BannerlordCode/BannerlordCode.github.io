@@ -1,13 +1,7 @@
 ---
 title: "LocationItemSpawnHandler"
+description: "Auto-generated class reference for LocationItemSpawnHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationItemSpawnHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationItemSpawnHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,19 +23,31 @@ Treat `LocationItemSpawnHandler` as a Handler-style extension point: first ident
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LocationItemSpawnHandler from the subsystem API first
+LocationItemSpawnHandler locationItemSpawnHandler = ...;
+locationItemSpawnHandler.AfterStart();
+```
 
 ### OnEntityRemoved
 `public override void OnEntityRemoved(GameEntity entity)`
 
-**Purpose:** Called when the `entity removed` event is raised.
+**Purpose:** Invoked when the `entity removed` event is raised.
+
+```csharp
+// Obtain an instance of LocationItemSpawnHandler from the subsystem API first
+LocationItemSpawnHandler locationItemSpawnHandler = ...;
+locationItemSpawnHandler.OnEntityRemoved(entity);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new LocationItemSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<LocationItemSpawnHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TournamentLeaderboardVM"
+description: "Auto-generated class reference for TournamentLeaderboardVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentLeaderboardVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentLeaderboardVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TournamentLeaderboardVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard/TournamentLeaderboardVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard/TournamentLeaderboardVM.cs`
 
 ## Overview
 
@@ -43,30 +37,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tou
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TournamentLeaderboardVM from the subsystem API first
+TournamentLeaderboardVM tournamentLeaderboardVM = ...;
+tournamentLeaderboardVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of TournamentLeaderboardVM from the subsystem API first
+TournamentLeaderboardVM tournamentLeaderboardVM = ...;
+tournamentLeaderboardVM.OnFinalize();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of TournamentLeaderboardVM from the subsystem API first
+TournamentLeaderboardVM tournamentLeaderboardVM = ...;
+tournamentLeaderboardVM.ExecuteDone();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TournamentLeaderboardVM from the subsystem API first
+TournamentLeaderboardVM tournamentLeaderboardVM = ...;
+tournamentLeaderboardVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentLeaderboardVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentLeaderboardVM tournamentLeaderboardVM = ...;
+tournamentLeaderboardVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

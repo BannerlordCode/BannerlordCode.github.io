@@ -1,20 +1,14 @@
 ---
 title: "SingleplayerBattleSceneData"
+description: "Auto-generated class reference for SingleplayerBattleSceneData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleplayerBattleSceneData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SingleplayerBattleSceneData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct SingleplayerBattleSceneData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SingleplayerBattleSceneData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SingleplayerBattleSceneData.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Treat `SingleplayerBattleSceneData` as a Data-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var value = new SingleplayerBattleSceneData();
+// This data object is usually returned by campaign/mission APIs
+SingleplayerBattleSceneData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

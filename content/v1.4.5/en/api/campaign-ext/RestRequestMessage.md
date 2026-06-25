@@ -1,20 +1,14 @@
 ---
 title: "RestRequestMessage"
+description: "Auto-generated class reference for RestRequestMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RestRequestMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestRequestMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class RestRequestMessage : RestData`
 **Base:** `RestData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestRequestMessage.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestRequestMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRestRequestMessage();
+// Typically obtained from a subsystem API or factory
+RestRequestMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

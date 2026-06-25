@@ -1,20 +1,14 @@
 ---
 title: "StonePileAI"
+description: "StonePileAI 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StonePileAI`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StonePileAI
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StonePileAI : UsableMachineAIBase`
 **Base:** `UsableMachineAIBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePileAI.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePileAI.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "StonePileAI"
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(StonePile usableMachine, StandingPoint standingPoint, List<Agent> agents, List<Agent> usedAgents)`
 
-**用途 / Purpose:** 获取 `suitable agent for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「suitable agent for standing point」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+StonePileAI.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, agents, usedAgents);
+```
 
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(StonePile stonePile, StandingPoint standingPoint, List<(Agent, float)> agents, List<Agent> usedAgents, float weight)`
 
-**用途 / Purpose:** 获取 `suitable agent for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「suitable agent for standing point」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+StonePileAI.GetSuitableAgentForStandingPoint(stonePile, standingPoint, list<(Agent, 0, usedAgents, 0);
+```
 
 ### IsAgentAssignable
 `public static bool IsAgentAssignable(Agent agent)`
 
-**用途 / Purpose:** 处理 `is agent assignable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「agent assignable」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+StonePileAI.IsAgentAssignable(agent);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ StonePileAI.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, agent
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

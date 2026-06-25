@@ -1,13 +1,7 @@
 ---
 title: "GauntletCharacterDeveloperScreen"
+description: "Auto-generated class reference for GauntletCharacterDeveloperScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletCharacterDeveloperScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletCharacterDeveloperScreen
 
 **Namespace:** SandBox.GauntletUI
@@ -27,9 +21,10 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new GauntletCharacterDeveloperScreen();
+// Obtain an instance from the relevant subsystem API
+GauntletCharacterDeveloperScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

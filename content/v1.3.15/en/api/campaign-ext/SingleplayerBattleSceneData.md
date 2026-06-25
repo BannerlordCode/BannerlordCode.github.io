@@ -1,13 +1,7 @@
 ---
 title: "SingleplayerBattleSceneData"
+description: "Auto-generated class reference for SingleplayerBattleSceneData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleplayerBattleSceneData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SingleplayerBattleSceneData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -38,9 +32,10 @@ Treat `SingleplayerBattleSceneData` as a Data-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var value = new SingleplayerBattleSceneData();
+// This data object is usually returned by campaign/mission APIs
+SingleplayerBattleSceneData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

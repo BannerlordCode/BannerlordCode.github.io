@@ -1,20 +1,14 @@
 ---
 title: "BattleScoreContext"
+description: "Auto-generated class reference for BattleScoreContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleScoreContext`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleScoreContext
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.BattleScore
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BattleScoreContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.BattleScore/BattleScoreContext.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.BattleScore/BattleScoreContext.cs`
 
 ## Overview
 
@@ -35,19 +29,32 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.BattleScore` to place it
 ### GetAttackerBanner
 `public abstract Banner GetAttackerBanner()`
 
-**Purpose:** Gets the current value of `attacker banner`.
+**Purpose:** Reads and returns the `attacker banner` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleScoreContext from the subsystem API first
+BattleScoreContext battleScoreContext = ...;
+var result = battleScoreContext.GetAttackerBanner();
+```
 
 ### GetDefenderBanner
 `public abstract Banner GetDefenderBanner()`
 
-**Purpose:** Gets the current value of `defender banner`.
+**Purpose:** Reads and returns the `defender banner` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleScoreContext from the subsystem API first
+BattleScoreContext battleScoreContext = ...;
+var result = battleScoreContext.GetDefenderBanner();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBattleScoreContext();
+// Typically obtained from a subsystem API or factory
+BattleScoreContext instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

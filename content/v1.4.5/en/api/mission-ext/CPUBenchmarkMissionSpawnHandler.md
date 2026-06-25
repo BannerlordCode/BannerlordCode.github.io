@@ -1,20 +1,14 @@
 ---
 title: "CPUBenchmarkMissionSpawnHandler"
+description: "Auto-generated class reference for CPUBenchmarkMissionSpawnHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CPUBenchmarkMissionSpawnHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CPUBenchmarkMissionSpawnHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CPUBenchmarkMissionSpawnHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CPUBenchmarkMissionSpawnHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CPUBenchmarkMissionSpawnHandler.cs`
 
 ## Overview
 
@@ -29,19 +23,31 @@ Treat `CPUBenchmarkMissionSpawnHandler` as a Handler-style extension point: firs
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of CPUBenchmarkMissionSpawnHandler from the subsystem API first
+CPUBenchmarkMissionSpawnHandler cPUBenchmarkMissionSpawnHandler = ...;
+cPUBenchmarkMissionSpawnHandler.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CPUBenchmarkMissionSpawnHandler from the subsystem API first
+CPUBenchmarkMissionSpawnHandler cPUBenchmarkMissionSpawnHandler = ...;
+cPUBenchmarkMissionSpawnHandler.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CPUBenchmarkMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<CPUBenchmarkMissionSpawnHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

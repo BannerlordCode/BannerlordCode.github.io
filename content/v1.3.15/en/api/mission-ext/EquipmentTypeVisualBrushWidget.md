@@ -1,13 +1,7 @@
 ---
 title: "EquipmentTypeVisualBrushWidget"
+description: "Auto-generated class reference for EquipmentTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EquipmentTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EquipmentTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -33,9 +27,10 @@ Treat `EquipmentTypeVisualBrushWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new EquipmentTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EquipmentTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

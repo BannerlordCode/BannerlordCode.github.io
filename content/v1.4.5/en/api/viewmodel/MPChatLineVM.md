@@ -1,20 +1,14 @@
 ---
 title: "MPChatLineVM"
+description: "Auto-generated class reference for MPChatLineVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPChatLineVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPChatLineVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPChatLineVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer/MPChatLineVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer/MPChatLineVM.cs`
 
 ## Overview
 
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer` 
 ### HandleFading
 `public void HandleFading(float dt)`
 
-**Purpose:** Handles the `fading` event or callback.
+**Purpose:** Executes the response logic associated with `fading`.
+
+```csharp
+// Obtain an instance of MPChatLineVM from the subsystem API first
+MPChatLineVM mPChatLineVM = ...;
+mPChatLineVM.HandleFading(0);
+```
 
 ### ForceInvisible
 `public void ForceInvisible()`
 
-**Purpose:** Handles logic related to `force invisible`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPChatLineVM from the subsystem API first
+MPChatLineVM mPChatLineVM = ...;
+mPChatLineVM.ForceInvisible();
+```
 
 ### ToggleForceVisible
 `public void ToggleForceVisible(bool visible)`
 
-**Purpose:** Handles logic related to `toggle force visible`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPChatLineVM from the subsystem API first
+MPChatLineVM mPChatLineVM = ...;
+mPChatLineVM.ToggleForceVisible(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPChatLineVM();
-value.HandleFading(0);
+// Typically call this after obtaining an instance from the subsystem API
+MPChatLineVM mPChatLineVM = ...;
+mPChatLineVM.HandleFading(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

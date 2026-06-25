@@ -1,20 +1,14 @@
 ---
 title: "PlayerIdProvidedTypes"
+description: "PlayerIdProvidedTypes 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerIdProvidedTypes`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerIdProvidedTypes
 
 **Namespace:** TaleWorlds.PlayerServices
 **Module:** TaleWorlds.PlayerServices
-**Type:** `class`
+**Type:** `public enum PlayerIdProvidedTypes`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerIdProvidedTypes.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerIdProvidedTypes.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "PlayerIdProvidedTypes"
 ## 使用示例
 
 ```csharp
-var example = new PlayerIdProvidedTypes();
+// 从对应子系统 API 获取实例
+PlayerIdProvidedTypes instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

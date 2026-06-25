@@ -1,20 +1,14 @@
 ---
 title: "HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner"
+description: "Auto-generated class reference for HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/HeadmanVillageNeedsDraughtAnimalsIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/HeadmanVillageNeedsDraughtAnimalsIssueBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

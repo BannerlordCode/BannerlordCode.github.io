@@ -1,18 +1,12 @@
 ---
 title: "MeshTopology"
+description: "Auto-generated class reference for MeshTopology."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MeshTopology`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MeshTopology
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum MeshTopology`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension/MeshTopology.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new MeshTopology();
+// Obtain an instance from the relevant subsystem API
+MeshTopology instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

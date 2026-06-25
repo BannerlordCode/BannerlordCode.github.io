@@ -1,13 +1,7 @@
 ---
 title: "StoryModeIncidentModel"
+description: "Auto-generated class reference for StoryModeIncidentModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeIncidentModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeIncidentModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,27 +23,57 @@ Treat `StoryModeIncidentModel` as a Model-style extension point: first identify 
 ### GetMinGlobalCooldownTime
 `public override CampaignTime GetMinGlobalCooldownTime()`
 
-**Purpose:** Gets the current value of `min global cooldown time`.
+**Purpose:** Reads and returns the `min global cooldown time` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeIncidentModel from the subsystem API first
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetMinGlobalCooldownTime();
+```
 
 ### GetMaxGlobalCooldownTime
 `public override CampaignTime GetMaxGlobalCooldownTime()`
 
-**Purpose:** Gets the current value of `max global cooldown time`.
+**Purpose:** Reads and returns the `max global cooldown time` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeIncidentModel from the subsystem API first
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetMaxGlobalCooldownTime();
+```
 
 ### GetIncidentTriggerGlobalProbability
 `public override float GetIncidentTriggerGlobalProbability()`
 
-**Purpose:** Gets the current value of `incident trigger global probability`.
+**Purpose:** Reads and returns the `incident trigger global probability` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeIncidentModel from the subsystem API first
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetIncidentTriggerGlobalProbability();
+```
 
 ### GetIncidentTriggerProbabilityDuringSiege
 `public override float GetIncidentTriggerProbabilityDuringSiege()`
 
-**Purpose:** Gets the current value of `incident trigger probability during siege`.
+**Purpose:** Reads and returns the `incident trigger probability during siege` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeIncidentModel from the subsystem API first
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetIncidentTriggerProbabilityDuringSiege();
+```
 
 ### GetIncidentTriggerProbabilityDuringWait
 `public override float GetIncidentTriggerProbabilityDuringWait()`
 
-**Purpose:** Gets the current value of `incident trigger probability during wait`.
+**Purpose:** Reads and returns the `incident trigger probability during wait` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeIncidentModel from the subsystem API first
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetIncidentTriggerProbabilityDuringWait();
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<StoryModeIncidentModel>(new MyStoryModeIncidentModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

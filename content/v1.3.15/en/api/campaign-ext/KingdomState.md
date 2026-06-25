@@ -1,13 +1,7 @@
 ---
 title: "KingdomState"
+description: "Auto-generated class reference for KingdomState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -40,9 +34,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var value = new KingdomState();
+// Obtain an instance from the relevant subsystem API
+KingdomState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

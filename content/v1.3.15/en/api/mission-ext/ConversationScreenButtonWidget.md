@@ -1,13 +1,7 @@
 ---
 title: "ConversationScreenButtonWidget"
+description: "Auto-generated class reference for ConversationScreenButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationScreenButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConversationScreenButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
@@ -35,9 +29,10 @@ Treat `ConversationScreenButtonWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new ConversationScreenButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ConversationScreenButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

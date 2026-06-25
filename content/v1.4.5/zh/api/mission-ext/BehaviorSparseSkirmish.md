@@ -1,20 +1,14 @@
 ---
 title: "BehaviorSparseSkirmish"
+description: "BehaviorSparseSkirmish 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorSparseSkirmish`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorSparseSkirmish
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSparseSkirmish : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSparseSkirmish.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSparseSkirmish.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "BehaviorSparseSkirmish"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorSparseSkirmish 实例
+BehaviorSparseSkirmish behaviorSparseSkirmish = ...;
+behaviorSparseSkirmish.TickOccasionally();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorSparseSkirmish();
-value.TickOccasionally();
+// 通常从对应子系统 API 获取实例后调用
+BehaviorSparseSkirmish behaviorSparseSkirmish = ...;
+behaviorSparseSkirmish.TickOccasionally();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

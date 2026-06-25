@@ -1,20 +1,14 @@
 ---
 title: "MapNotificationItemBaseVM"
+description: "Auto-generated class reference for MapNotificationItemBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNotificationItemBaseVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNotificationItemBaseVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MapNotificationItemBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/MapNotificationItemBaseVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/MapNotificationItemBaseVM.cs`
 
 ## Overview
 
@@ -43,55 +37,110 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.RefreshValues();
+```
 
 ### SetNavigationHandler
 `public void SetNavigationHandler(INavigationHandler navigationHandler)`
 
-**Purpose:** Sets the value or state of `navigation handler`.
+**Purpose:** Assigns a new value to `navigation handler` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.SetNavigationHandler(navigationHandler);
+```
 
 ### SetFastMoveCameraToPosition
 `public void SetFastMoveCameraToPosition(Action<CampaignVec2> fastMoveCameraToPosition)`
 
-**Purpose:** Sets the value or state of `fast move camera to position`.
+**Purpose:** Assigns a new value to `fast move camera to position` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.SetFastMoveCameraToPosition(fastMoveCameraToPosition);
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.ExecuteAction();
+```
 
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.ExecuteRemove();
+```
 
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** Executes the `set focused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set focused`.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.ExecuteSetFocused();
+```
 
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** Executes the `set unfocused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set unfocused`.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.ExecuteSetUnfocused();
+```
 
 ### ManualRefreshRelevantStatus
 `public virtual void ManualRefreshRelevantStatus()`
 
-**Purpose:** Handles logic related to `manual refresh relevant status`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.ManualRefreshRelevantStatus();
+```
 
 ### SetRemoveInputKey
 `public void SetRemoveInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `remove input key`.
+**Purpose:** Assigns a new value to `remove input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.SetRemoveInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapNotificationItemBaseVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapNotificationItemBaseVM mapNotificationItemBaseVM = ...;
+mapNotificationItemBaseVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

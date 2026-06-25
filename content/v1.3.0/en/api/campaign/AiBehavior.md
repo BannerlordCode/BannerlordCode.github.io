@@ -1,18 +1,12 @@
 ---
 title: "AiBehavior"
+description: "Auto-generated class reference for AiBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AiBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AiBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum AiBehavior`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Party/AiBehavior.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new AiBehavior();
+// Obtain an instance from the relevant subsystem API
+AiBehavior instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

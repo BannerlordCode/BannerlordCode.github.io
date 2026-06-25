@@ -1,20 +1,14 @@
 ---
 title: "TextureWidget"
+description: "TextureWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextureWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextureWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class TextureWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/TextureWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/TextureWidget.cs`
 
 ## 概述
 
@@ -39,14 +33,21 @@ title: "TextureWidget"
 ### OnClearTextureProvider
 `public virtual void OnClearTextureProvider()`
 
-**用途 / Purpose:** 当 `clear texture provider` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear texture provider」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TextureWidget 实例
+TextureWidget textureWidget = ...;
+textureWidget.OnClearTextureProvider();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new TextureWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+TextureWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

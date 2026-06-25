@@ -1,20 +1,14 @@
 ---
 title: "BitmapFontCharacter"
+description: "Auto-generated class reference for BitmapFontCharacter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BitmapFontCharacter`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BitmapFontCharacter
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct BitmapFontCharacter`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/BitmapFontCharacter.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/BitmapFontCharacter.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new BitmapFontCharacter();
+// Obtain an instance from the relevant subsystem API
+BitmapFontCharacter instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

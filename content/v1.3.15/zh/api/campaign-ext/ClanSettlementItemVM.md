@@ -1,13 +1,7 @@
 ---
 title: "ClanSettlementItemVM"
+description: "ClanSettlementItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanSettlementItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanSettlementItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -53,40 +47,77 @@ title: "ClanSettlementItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSettlementItemVM 实例
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.RefreshValues();
+```
 
 ### OnSettlementSelection
 `public void OnSettlementSelection()`
 
-**用途 / Purpose:** 当 `settlement selection` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「settlement selection」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSettlementItemVM 实例
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.OnSettlementSelection();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** 执行 `link` 操作或流程。
+**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSettlementItemVM 实例
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.ExecuteLink();
+```
 
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**用途 / Purpose:** 执行 `close tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「close tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSettlementItemVM 实例
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.ExecuteCloseTooltip();
+```
 
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**用途 / Purpose:** 执行 `open tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「open tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSettlementItemVM 实例
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.ExecuteOpenTooltip();
+```
 
 ### ExecuteSendMembers
 `public void ExecuteSendMembers()`
 
-**用途 / Purpose:** 执行 `send members` 操作或流程。
+**用途 / Purpose:** 执行 「send members」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSettlementItemVM 实例
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.ExecuteSendMembers();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanSettlementItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

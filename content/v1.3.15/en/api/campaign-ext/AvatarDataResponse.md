@@ -1,13 +1,7 @@
 ---
 title: "AvatarDataResponse"
+description: "Auto-generated class reference for AvatarDataResponse."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvatarDataResponse`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AvatarDataResponse
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.PlayerServices.Avatar` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new AvatarDataResponse();
+// Obtain an instance from the relevant subsystem API
+AvatarDataResponse instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

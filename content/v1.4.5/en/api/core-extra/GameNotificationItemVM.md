@@ -1,20 +1,14 @@
 ---
 title: "GameNotificationItemVM"
+description: "Auto-generated class reference for GameNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameNotificationItemVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameNotificationItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public class GameNotificationItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/GameNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/GameNotificationItemVM.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ## Usage Example
 
 ```csharp
-var example = new GameNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+GameNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

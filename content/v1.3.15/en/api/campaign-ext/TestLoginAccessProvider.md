@@ -1,24 +1,18 @@
 ---
 title: "TestLoginAccessProvider"
+description: "Auto-generated class reference for TestLoginAccessProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestLoginAccessProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TestLoginAccessProvider
 
 **Namespace:** TaleWorlds.Diamond.AccessProvider.Test
 **Module:** TaleWorlds.Diamond
 **Type:** `public class TestLoginAccessProvider : ILoginAccessProvider`
 **Base:** `ILoginAccessProvider`
-**Area:** campaign-ext
+**File:** `TaleWorlds.Diamond.AccessProvider.Test/TestLoginAccessProvider.cs`
 
 ## Overview
 
-`TestLoginAccessProvider` lives in `TaleWorlds.Diamond.AccessProvider.Test`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TestLoginAccessProvider` lives in `TaleWorlds.Diamond.AccessProvider.Test` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,21 +23,29 @@ Start from namespace `TaleWorlds.Diamond.AccessProvider.Test` to place it in the
 ### GetInt64HashCode
 `public static ulong GetInt64HashCode(string strText)`
 
-**Purpose:** Gets the current value of `int64 hash code`.
+**Purpose:** Reads and returns the `int64 hash code` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TestLoginAccessProvider.GetInt64HashCode("example");
+```
 
 ### GetPlayerIdFromUserName
 `public static PlayerId GetPlayerIdFromUserName(string userName)`
 
-**Purpose:** Gets the current value of `player id from user name`.
+**Purpose:** Reads and returns the `player id from user name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TestLoginAccessProvider.GetPlayerIdFromUserName("example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TestLoginAccessProvider.GetInt64HashCode("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

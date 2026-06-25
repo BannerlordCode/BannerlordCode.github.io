@@ -1,20 +1,14 @@
 ---
 title: "BirthAndDeathOptionsProvider"
+description: "Auto-generated class reference for BirthAndDeathOptionsProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BirthAndDeathOptionsProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BirthAndDeathOptionsProvider
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BirthAndDeathOptionsProvider : ICampaignOptionProvider`
 **Base:** `ICampaignOptionProvider`
-**File:** `Bannerlord.Source/Modules.BirthAndDeath/TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath/BirthAndDeathOptionsProvider.cs`
+**File:** `Modules.BirthAndDeath/TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath/BirthAndDeathOptionsProvider.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeat
 ### GetGameplayCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**Purpose:** Gets the current value of `gameplay campaign options`.
+**Purpose:** Reads and returns the `gameplay campaign options` value held by the current object.
+
+```csharp
+// Obtain an instance of BirthAndDeathOptionsProvider from the subsystem API first
+BirthAndDeathOptionsProvider birthAndDeathOptionsProvider = ...;
+var result = birthAndDeathOptionsProvider.GetGameplayCampaignOptions();
+```
 
 ### GetCharacterCreationCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**Purpose:** Gets the current value of `character creation campaign options`.
+**Purpose:** Reads and returns the `character creation campaign options` value held by the current object.
+
+```csharp
+// Obtain an instance of BirthAndDeathOptionsProvider from the subsystem API first
+BirthAndDeathOptionsProvider birthAndDeathOptionsProvider = ...;
+var result = birthAndDeathOptionsProvider.GetCharacterCreationCampaignOptions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BirthAndDeathOptionsProvider();
-value.GetGameplayCampaignOptions();
+// Typically call this after obtaining an instance from the subsystem API
+BirthAndDeathOptionsProvider birthAndDeathOptionsProvider = ...;
+birthAndDeathOptionsProvider.GetGameplayCampaignOptions();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

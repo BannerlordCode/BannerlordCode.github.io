@@ -1,13 +1,7 @@
 ---
 title: "StyleLayer"
+description: "StyleLayer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StyleLayer`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StyleLayer
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -65,32 +59,67 @@ title: "StyleLayer"
 ### CreateFrom
 `public static StyleLayer CreateFrom(StyleLayer source)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+StyleLayer.CreateFrom(source);
+```
 
 ### FillFrom
 `public void FillFrom(StyleLayer source)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StyleLayer 实例
+StyleLayer styleLayer = ...;
+styleLayer.FillFrom(source);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 获取 `value as float` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as float」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StyleLayer 实例
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsFloat(propertyType);
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 获取 `value as color` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as color」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StyleLayer 实例
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsColor(propertyType);
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 获取 `value as sprite` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as sprite」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StyleLayer 实例
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsSprite(propertyType);
+```
 
 ### GetIsValueChanged
 `public bool GetIsValueChanged(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 获取 `is value changed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is value changed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StyleLayer 实例
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetIsValueChanged(propertyType);
+```
 
 ## 使用示例
 
@@ -100,4 +129,4 @@ StyleLayer.CreateFrom(source);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

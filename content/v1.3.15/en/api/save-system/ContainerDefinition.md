@@ -1,24 +1,18 @@
 ---
 title: "ContainerDefinition"
+description: "Auto-generated class reference for ContainerDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContainerDefinition`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ContainerDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**Area:** save-system
+**File:** `TaleWorlds.SaveSystem/Definition/ContainerDefinition.cs`
 
 ## Overview
 
-`ContainerDefinition` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ContainerDefinition` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -37,17 +31,22 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate, bool hasNoChildObject)`
 
-**Purpose:** Initializes the state, resources, or bindings for `for auto generation`.
+**Purpose:** Prepares the resources, state, or bindings required by `for auto generation`.
+
+```csharp
+// Obtain an instance of ContainerDefinition from the subsystem API first
+ContainerDefinition containerDefinition = ...;
+containerDefinition.InitializeForAutoGeneration(collectObjectsDelegate, false);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a ContainerDefinition instance from game state, then call one of its public methods
-var value = new ContainerDefinition();
-value.InitializeForAutoGeneration(collectObjectsDelegate, false);
+// Typically call this after obtaining an instance from the subsystem API
+ContainerDefinition containerDefinition = ...;
+containerDefinition.InitializeForAutoGeneration(collectObjectsDelegate, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

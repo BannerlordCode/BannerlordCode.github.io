@@ -1,13 +1,7 @@
 ---
 title: "AgentInteractionInterfaceVM"
+description: "Auto-generated class reference for AgentInteractionInterfaceVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentInteractionInterfaceVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentInteractionInterfaceVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction
@@ -45,59 +39,120 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Inte
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.OnFinalize();
+```
 
 ### OnFocusedHealthChanged
 `public void OnFocusedHealthChanged(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**Purpose:** Called when the `focused health changed` event is raised.
+**Purpose:** Invoked when the `focused health changed` event is raised.
+
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.OnFocusedHealthChanged(focusable, 0, false);
+```
 
 ### OnActiveMissionHintChanged
 `public void OnActiveMissionHintChanged(MissionHint previousHint, MissionHint newHint)`
 
-**Purpose:** Called when the `active mission hint changed` event is raised.
+**Purpose:** Invoked when the `active mission hint changed` event is raised.
+
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.OnActiveMissionHintChanged(previousHint, newHint);
+```
 
 ### AddSecondaryMessage
 `public void AddSecondaryMessage(MissionInteractionItemBaseVM message)`
 
 **Purpose:** Adds `secondary message` to the current collection or state.
 
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.AddSecondaryMessage(message);
+```
+
 ### RemoveSecondaryMessage
 `public bool RemoveSecondaryMessage(MissionInteractionItemBaseVM message)`
 
 **Purpose:** Removes `secondary message` from the current collection or state.
 
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+var result = agentInteractionInterfaceVM.RemoveSecondaryMessage(message);
+```
+
 ### HasSecondaryInteractionMessage
 `public bool HasSecondaryInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**Purpose:** Checks whether the current object has/contains `secondary interaction message`.
+**Purpose:** Determines whether the current object already holds `secondary interaction message`.
+
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+var result = agentInteractionInterfaceVM.HasSecondaryInteractionMessage(message);
+```
 
 ### ResetFocus
 `public void ResetFocus()`
 
-**Purpose:** Resets `focus` to its initial state.
+**Purpose:** Returns `focus` to its default or initial condition.
+
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.ResetFocus();
+```
 
 ### SetForcedInteractionTexts
 `public void SetForcedInteractionTexts(TextObject text1, bool isDisabled1, TextObject text2, bool isDisabled2)`
 
-**Purpose:** Sets the value or state of `forced interaction texts`.
+**Purpose:** Assigns a new value to `forced interaction texts` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.SetForcedInteractionTexts(text1, false, text2, false);
+```
 
 ### ClearForcedInteractionTexts
 `public void ClearForcedInteractionTexts()`
 
-**Purpose:** Handles logic related to `clear forced interaction texts`.
+**Purpose:** Removes all `forced interaction texts` from the current object.
+
+```csharp
+// Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.ClearForcedInteractionTexts();
+```
 
 ## Usage Example
 
 ```csharp
-AgentInteractionInterfaceVM implementation = GetAgentInteractionInterfaceVMImplementation();
+// Usually obtained through DI or a factory method
+IAgentInteractionInterfaceVM service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

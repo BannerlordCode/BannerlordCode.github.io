@@ -1,13 +1,7 @@
 ---
 title: "AesHelper"
+description: "AesHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AesHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AesHelper
 
 **Namespace:** TaleWorlds.Diamond
@@ -29,12 +23,22 @@ title: "AesHelper"
 ### Encrypt
 `public static byte Encrypt(byte plainData, byte key, byte initializationVector)`
 
-**用途 / Purpose:** 处理 `encrypt` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+AesHelper.Encrypt(0, 0, 0);
+```
 
 ### Decrypt
 `public static byte Decrypt(byte encrypted, byte key, byte initializationVector)`
 
-**用途 / Purpose:** 处理 `decrypt` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+AesHelper.Decrypt(0, 0, 0);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ AesHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "TooltipPropertyFlags"
+description: "Auto-generated class reference for TooltipPropertyFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipPropertyFlags`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipPropertyFlags
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public enum TooltipPropertyFlags`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/TooltipProperty.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/TooltipProperty.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ## Usage Example
 
 ```csharp
-TooltipPropertyFlags example = TooltipPropertyFlags.Value;
+// Obtain an instance from the relevant subsystem API
+TooltipPropertyFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

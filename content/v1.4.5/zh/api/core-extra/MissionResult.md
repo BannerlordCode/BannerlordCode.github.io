@@ -1,20 +1,14 @@
 ---
 title: "MissionResult"
+description: "MissionResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionResult`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionResult
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MissionResult`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MissionResult.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionResult.cs`
 
 ## 概述
 
@@ -39,17 +33,32 @@ title: "MissionResult"
 ### CreateSuccessful
 `public static MissionResult CreateSuccessful(IMission mission, bool enemyRetreated = false)`
 
-**用途 / Purpose:** 创建一个 `successful` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「successful」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionResult.CreateSuccessful(mission, false);
+```
 
 ### CreateDefeated
 `public static MissionResult CreateDefeated(IMission mission)`
 
-**用途 / Purpose:** 创建一个 `defeated` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「defeated」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionResult.CreateDefeated(mission);
+```
 
 ### CreateDefenderPushedBack
 `public static MissionResult CreateDefenderPushedBack()`
 
-**用途 / Purpose:** 创建一个 `defender pushed back` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「defender pushed back」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionResult.CreateDefenderPushedBack();
+```
 
 ## 使用示例
 
@@ -59,4 +68,4 @@ MissionResult.CreateSuccessful(mission, false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

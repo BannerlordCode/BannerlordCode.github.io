@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletMainAgentEquipDropView"
+description: "Auto-generated class reference for MissionGauntletMainAgentEquipDropView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMainAgentEquipDropView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMainAgentEquipDropView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
@@ -29,44 +23,87 @@ Treat `MissionGauntletMainAgentEquipDropView` as a View-style extension point: f
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentEquipDropView from the subsystem API first
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentEquipDropView from the subsystem API first
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentEquipDropView from the subsystem API first
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentEquipDropView from the subsystem API first
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnMissionScreenTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentEquipDropView from the subsystem API first
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentEquipDropView from the subsystem API first
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMainAgentEquipDropView from the subsystem API first
+MissionGauntletMainAgentEquipDropView missionGauntletMainAgentEquipDropView = ...;
+missionGauntletMainAgentEquipDropView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletMainAgentEquipDropView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletMainAgentEquipDropView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

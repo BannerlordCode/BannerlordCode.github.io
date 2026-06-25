@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerVoiceChatUIHandler"
+description: "Auto-generated class reference for MissionMultiplayerVoiceChatUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerVoiceChatUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerVoiceChatUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerVoiceChatUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerVoiceChatUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerVoiceChatUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionMultiplayerVoiceChatUIHandler` as a Handler-style extension point:
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionMultiplayerVoiceChatUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionMultiplayerVoiceChatUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

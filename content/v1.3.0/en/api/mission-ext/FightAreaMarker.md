@@ -1,13 +1,7 @@
 ---
 title: "FightAreaMarker"
+description: "Auto-generated class reference for FightAreaMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FightAreaMarker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FightAreaMarker
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### GetAgentsInRange
 `public IEnumerable<Agent> GetAgentsInRange(Team team, bool humanOnly = true)`
 
-**Purpose:** Gets the current value of `agents in range`.
+**Purpose:** Reads and returns the `agents in range` value held by the current object.
+
+```csharp
+// Obtain an instance of FightAreaMarker from the subsystem API first
+FightAreaMarker fightAreaMarker = ...;
+var result = fightAreaMarker.GetAgentsInRange(team, false);
+```
 
 ### GetAgentsInRange
 `public IEnumerable<Agent> GetAgentsInRange(BattleSideEnum side, bool humanOnly = true)`
 
-**Purpose:** Gets the current value of `agents in range`.
+**Purpose:** Reads and returns the `agents in range` value held by the current object.
+
+```csharp
+// Obtain an instance of FightAreaMarker from the subsystem API first
+FightAreaMarker fightAreaMarker = ...;
+var result = fightAreaMarker.GetAgentsInRange(side, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FightAreaMarker();
-value.GetAgentsInRange(team, false);
+// Typically call this after obtaining an instance from the subsystem API
+FightAreaMarker fightAreaMarker = ...;
+fightAreaMarker.GetAgentsInRange(team, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

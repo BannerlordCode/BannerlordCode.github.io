@@ -1,13 +1,7 @@
 ---
 title: "CampaignPeriodicEventManager"
+description: "CampaignPeriodicEventManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignPeriodicEventManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignPeriodicEventManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,12 +23,23 @@ title: "CampaignPeriodicEventManager"
 ### CreatePeriodicEvent
 `public static MBCampaignEvent CreatePeriodicEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
 
-**用途 / Purpose:** 创建一个 `periodic event` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「periodic event」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CampaignPeriodicEventManager.CreatePeriodicEvent(triggerPeriod, initialWait);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignPeriodicEventManager 实例
+CampaignPeriodicEventManager campaignPeriodicEventManager = ...;
+var result = campaignPeriodicEventManager.ToString();
+```
 
 ## 使用示例
 
@@ -44,4 +49,4 @@ var manager = CampaignPeriodicEventManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

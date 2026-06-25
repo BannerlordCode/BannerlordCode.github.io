@@ -1,13 +1,7 @@
 ---
 title: "Polearm"
+description: "Auto-generated class reference for Polearm."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Polearm`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Polearm
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -53,9 +47,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new Polearm();
+// Obtain an instance from the relevant subsystem API
+Polearm instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryHeroPerkSelectionVM"
+description: "Auto-generated class reference for MPArmoryHeroPerkSelectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryHeroPerkSelectionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryHeroPerkSelectionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryHeroPerkSelectionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryHeroPerkSelectionVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryHeroPerkSelectionVM.cs`
 
 ## Overview
 
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryHeroPerkSelectionVM from the subsystem API first
+MPArmoryHeroPerkSelectionVM mPArmoryHeroPerkSelectionVM = ...;
+mPArmoryHeroPerkSelectionVM.RefreshValues();
+```
 
 ### RefreshPerksListWithHero
 `public void RefreshPerksListWithHero(MPHeroClass heroClass)`
 
-**Purpose:** Refreshes the display or cache of `perks list with hero`.
+**Purpose:** Keeps the display or cache of `perks list with hero` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryHeroPerkSelectionVM from the subsystem API first
+MPArmoryHeroPerkSelectionVM mPArmoryHeroPerkSelectionVM = ...;
+mPArmoryHeroPerkSelectionVM.RefreshPerksListWithHero(heroClass);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPArmoryHeroPerkSelectionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPArmoryHeroPerkSelectionVM mPArmoryHeroPerkSelectionVM = ...;
+mPArmoryHeroPerkSelectionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

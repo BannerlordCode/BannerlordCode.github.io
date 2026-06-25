@@ -1,13 +1,7 @@
 ---
 title: "DeathOldAgeSceneNotificationItem"
+description: "Auto-generated class reference for DeathOldAgeSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeathOldAgeSceneNotificationItem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DeathOldAgeSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetBanners
 `public override Banner GetBanners()`
 
-**Purpose:** Gets the current value of `banners`.
+**Purpose:** Reads and returns the `banners` value held by the current object.
+
+```csharp
+// Obtain an instance of DeathOldAgeSceneNotificationItem from the subsystem API first
+DeathOldAgeSceneNotificationItem deathOldAgeSceneNotificationItem = ...;
+var result = deathOldAgeSceneNotificationItem.GetBanners();
+```
 
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of DeathOldAgeSceneNotificationItem from the subsystem API first
+DeathOldAgeSceneNotificationItem deathOldAgeSceneNotificationItem = ...;
+var result = deathOldAgeSceneNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DeathOldAgeSceneNotificationItem();
-value.GetBanners();
+// Typically call this after obtaining an instance from the subsystem API
+DeathOldAgeSceneNotificationItem deathOldAgeSceneNotificationItem = ...;
+deathOldAgeSceneNotificationItem.GetBanners();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

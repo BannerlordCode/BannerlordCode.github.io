@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerGlobalMutedPlayersManager"
+description: "Auto-generated class reference for MultiplayerGlobalMutedPlayersManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerGlobalMutedPlayersManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGlobalMutedPlayersManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerGlobalMutedPlayersManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGlobalMutedPlayersManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGlobalMutedPlayersManager.cs`
 
 ## Overview
 
@@ -29,22 +23,42 @@ Treat `MultiplayerGlobalMutedPlayersManager` as a Manager-style extension point:
 ### MutePlayer
 `public static void MutePlayer(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `mute player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MultiplayerGlobalMutedPlayersManager.MutePlayer(playerId);
+```
 
 ### UnmutePlayer
 `public static void UnmutePlayer(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `unmute player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MultiplayerGlobalMutedPlayersManager.UnmutePlayer(playerId);
+```
 
 ### IsUserMuted
 `public static bool IsUserMuted(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `is user muted`.
+**Purpose:** Determines whether the current object is in the `user muted` state or condition.
+
+```csharp
+// Static call; no instance required
+MultiplayerGlobalMutedPlayersManager.IsUserMuted(playerId);
+```
 
 ### ClearMutedPlayers
 `public static void ClearMutedPlayers()`
 
-**Purpose:** Handles logic related to `clear muted players`.
+**Purpose:** Removes all `muted players` from the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerGlobalMutedPlayersManager.ClearMutedPlayers();
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ var manager = MultiplayerGlobalMutedPlayersManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

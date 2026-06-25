@@ -1,13 +1,7 @@
 ---
 title: "SallyOutEndLogic"
+description: "Auto-generated class reference for SallyOutEndLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SallyOutEndLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SallyOutEndLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,19 +29,31 @@ Treat `SallyOutEndLogic` as a Logic-style extension point: first identify who cr
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutEndLogic from the subsystem API first
+SallyOutEndLogic sallyOutEndLogic = ...;
+sallyOutEndLogic.OnMissionTick(0);
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SallyOutEndLogic from the subsystem API first
+SallyOutEndLogic sallyOutEndLogic = ...;
+var result = sallyOutEndLogic.MissionEnded(missionResult);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SallyOutEndLogic());
+var behavior = Mission.Current.GetMissionBehavior<SallyOutEndLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

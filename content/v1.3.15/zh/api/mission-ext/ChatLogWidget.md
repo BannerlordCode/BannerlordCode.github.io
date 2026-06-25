@@ -1,13 +1,7 @@
 ---
 title: "ChatLogWidget"
+description: "ChatLogWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChatLogWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChatLogWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat
@@ -47,19 +41,32 @@ title: "ChatLogWidget"
 ### RegisterMultiLineElement
 `public void RegisterMultiLineElement(ChatCollapsableListPanel element)`
 
-**用途 / Purpose:** 处理 `register multi line element` 相关逻辑。
+**用途 / Purpose:** 将「multi line element」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 ChatLogWidget 实例
+ChatLogWidget chatLogWidget = ...;
+chatLogWidget.RegisterMultiLineElement(element);
+```
 
 ### RemoveMultiLineElement
 `public void RemoveMultiLineElement(ChatCollapsableListPanel element)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `multi line element`。
+**用途 / Purpose:** 从当前容器或状态中移除 「multi line element」。
+
+```csharp
+// 先通过子系统 API 拿到 ChatLogWidget 实例
+ChatLogWidget chatLogWidget = ...;
+chatLogWidget.RemoveMultiLineElement(element);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ChatLogWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ChatLogWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

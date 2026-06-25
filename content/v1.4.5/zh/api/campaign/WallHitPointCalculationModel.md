@@ -1,20 +1,14 @@
 ---
 title: "WallHitPointCalculationModel"
+description: "WallHitPointCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WallHitPointCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WallHitPointCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class WallHitPointCalculationModel : MBGameModel<WallHitPointCalculationModel>`
 **Base:** `MBGameModel<WallHitPointCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/WallHitPointCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/WallHitPointCalculationModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "WallHitPointCalculationModel"
 ### CalculateMaximumWallHitPoint
 `public abstract float CalculateMaximumWallHitPoint(Town town)`
 
-**用途 / Purpose:** 处理 `calculate maximum wall hit point` 相关逻辑。
+**用途 / Purpose:** 计算「maximum wall hit point」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 WallHitPointCalculationModel 实例
+WallHitPointCalculationModel wallHitPointCalculationModel = ...;
+var result = wallHitPointCalculationModel.CalculateMaximumWallHitPoint(town);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomWallHitPointCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+WallHitPointCalculationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

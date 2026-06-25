@@ -1,20 +1,14 @@
 ---
 title: "CampaignMapConversation"
+description: "CampaignMapConversation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignMapConversation`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignMapConversation
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class CampaignMapConversation`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/CampaignMapConversation.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/CampaignMapConversation.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "CampaignMapConversation"
 ### OpenConversation
 `public static void OpenConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**用途 / Purpose:** 处理 `open conversation` 相关逻辑。
+**用途 / Purpose:** 打开「conversation」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+CampaignMapConversation.OpenConversation(playerCharacterData, conversationPartnerData);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ CampaignMapConversation.OpenConversation(playerCharacterData, conversationPartne
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "GauntletMenuTournamentLeaderboardView"
+description: "Auto-generated class reference for GauntletMenuTournamentLeaderboardView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMenuTournamentLeaderboardView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuTournamentLeaderboardView
 
 **Namespace:** SandBox.GauntletUI.Menu
@@ -27,9 +21,10 @@ Treat `GauntletMenuTournamentLeaderboardView` as a View-style extension point: f
 ## Usage Example
 
 ```csharp
-var view = new GauntletMenuTournamentLeaderboardView();
+// Retrieve this view from the subsystem API or scene
+GauntletMenuTournamentLeaderboardView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameModelsManager"
+description: "Auto-generated class reference for GameModelsManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameModelsManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameModelsManager
 
 **Namespace:** TaleWorlds.Core
@@ -29,14 +23,21 @@ Treat `GameModelsManager` as a Manager-style extension point: first identify who
 ### GetGameModels
 `public MBReadOnlyList<GameModel> GetGameModels()`
 
-**Purpose:** Gets the current value of `game models`.
+**Purpose:** Reads and returns the `game models` value held by the current object.
+
+```csharp
+// Obtain an instance of GameModelsManager from the subsystem API first
+GameModelsManager gameModelsManager = ...;
+var result = gameModelsManager.GetGameModels();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameModelsManager();
+// Typically obtained from a subsystem API or factory
+GameModelsManager instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

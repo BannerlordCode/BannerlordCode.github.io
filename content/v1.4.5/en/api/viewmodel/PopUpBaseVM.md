@@ -1,20 +1,14 @@
 ---
 title: "PopUpBaseVM"
+description: "Auto-generated class reference for PopUpBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopUpBaseVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopUpBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class PopUpBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries/PopUpBaseVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries/PopUpBaseVM.cs`
 
 ## Overview
 
@@ -46,54 +40,109 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to
 ### ExecuteAffirmativeAction
 `public abstract void ExecuteAffirmativeAction()`
 
-**Purpose:** Executes the `affirmative action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `affirmative action`.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.ExecuteAffirmativeAction();
+```
 
 ### ExecuteNegativeAction
 `public abstract void ExecuteNegativeAction()`
 
-**Purpose:** Executes the `negative action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `negative action`.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.ExecuteNegativeAction();
+```
 
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.OnTick(0);
+```
 
 ### OnClearData
 `public virtual void OnClearData()`
 
-**Purpose:** Called when the `clear data` event is raised.
+**Purpose:** Invoked when the `clear data` event is raised.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.OnClearData();
+```
 
 ### ForceRefreshKeyVisuals
 `public void ForceRefreshKeyVisuals()`
 
-**Purpose:** Handles logic related to `force refresh key visuals`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.ForceRefreshKeyVisuals();
+```
 
 ### CloseQuery
 `public void CloseQuery()`
 
-**Purpose:** Handles logic related to `close query`.
+**Purpose:** Closes the resource or UI associated with `query`.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.CloseQuery();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PopUpBaseVM from the subsystem API first
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPopUpBaseVM();
+// Typically obtained from a subsystem API or factory
+PopUpBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

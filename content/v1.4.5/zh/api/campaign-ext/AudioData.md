@@ -1,20 +1,14 @@
 ---
 title: "AudioData"
+description: "AudioData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AudioData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AudioData
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public class AudioData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/AudioData.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/AudioData.cs`
 
 ## 概述
 
@@ -29,29 +23,54 @@ title: "AudioData"
 ### GetFullLengthInMilliseconds
 `public int GetFullLengthInMilliseconds()`
 
-**用途 / Purpose:** 获取 `full length in milliseconds` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「full length in milliseconds」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AudioData 实例
+AudioData audioData = ...;
+var result = audioData.GetFullLengthInMilliseconds();
+```
 
 ### GetPreBeatZoneInMilliseconds
 `public int GetPreBeatZoneInMilliseconds()`
 
-**用途 / Purpose:** 获取 `pre beat zone in milliseconds` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「pre beat zone in milliseconds」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AudioData 实例
+AudioData audioData = ...;
+var result = audioData.GetPreBeatZoneInMilliseconds();
+```
 
 ### GetPostBeatZoneInMilliseconds
 `public int GetPostBeatZoneInMilliseconds()`
 
-**用途 / Purpose:** 获取 `post beat zone in milliseconds` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「post beat zone in milliseconds」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AudioData 实例
+AudioData audioData = ...;
+var result = audioData.GetPostBeatZoneInMilliseconds();
+```
 
 ### GetSampleCountByMilliseconds
 `public int GetSampleCountByMilliseconds(int milliSeconds)`
 
-**用途 / Purpose:** 获取 `sample count by milliseconds` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sample count by milliseconds」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AudioData 实例
+AudioData audioData = ...;
+var result = audioData.GetSampleCountByMilliseconds(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AudioData();
+// 该数据对象通常由战役/任务 API 返回
+AudioData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

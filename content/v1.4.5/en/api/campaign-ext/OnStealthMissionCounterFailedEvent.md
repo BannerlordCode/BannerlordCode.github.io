@@ -1,20 +1,14 @@
 ---
 title: "OnStealthMissionCounterFailedEvent"
+description: "Auto-generated class reference for OnStealthMissionCounterFailedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OnStealthMissionCounterFailedEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OnStealthMissionCounterFailedEvent
 
 **Namespace:** SandBox.Missions
 **Module:** SandBox.Missions
 **Type:** `public class OnStealthMissionCounterFailedEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions/OnStealthMissionCounterFailedEvent.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions/OnStealthMissionCounterFailedEvent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Missions` to place it in the stack, then inspect i
 ## Usage Example
 
 ```csharp
-var value = new OnStealthMissionCounterFailedEvent();
+// Obtain an instance from the relevant subsystem API
+OnStealthMissionCounterFailedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

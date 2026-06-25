@@ -1,13 +1,7 @@
 ---
 title: "SandboxBattleInitializationModel"
+description: "Auto-generated class reference for SandboxBattleInitializationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxBattleInitializationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxBattleInitializationModel
 
 **Namespace:** SandBox.GameComponents
@@ -29,7 +23,13 @@ Treat `SandboxBattleInitializationModel` as a Model-style extension point: first
 ### GetAllAvailableTroopTypes
 `public override List<FormationClass> GetAllAvailableTroopTypes()`
 
-**Purpose:** Gets the current value of `all available troop types`.
+**Purpose:** Reads and returns the `all available troop types` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxBattleInitializationModel from the subsystem API first
+SandboxBattleInitializationModel sandboxBattleInitializationModel = ...;
+var result = sandboxBattleInitializationModel.GetAllAvailableTroopTypes();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxBattleInitializationModel>(new MySandboxBattleI
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

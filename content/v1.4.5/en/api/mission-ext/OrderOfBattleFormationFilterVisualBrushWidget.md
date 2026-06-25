@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleFormationFilterVisualBrushWidget"
+description: "Auto-generated class reference for OrderOfBattleFormationFilterVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationFilterVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationFilterVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleFormationFilterVisualBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleFormationFilterVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleFormationFilterVisualBrushWidget.cs`
 
 ## Overview
 
@@ -40,9 +34,10 @@ Treat `OrderOfBattleFormationFilterVisualBrushWidget` as a Widget-style extensio
 ## Usage Example
 
 ```csharp
-var widget = new OrderOfBattleFormationFilterVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderOfBattleFormationFilterVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

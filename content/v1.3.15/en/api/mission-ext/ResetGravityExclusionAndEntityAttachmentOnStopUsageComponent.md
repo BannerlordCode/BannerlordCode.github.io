@@ -1,13 +1,7 @@
 ---
 title: "ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent"
+description: "Auto-generated class reference for ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -32,4 +26,4 @@ var component = agent.GetComponent<ResetGravityExclusionAndEntityAttachmentOnSto
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

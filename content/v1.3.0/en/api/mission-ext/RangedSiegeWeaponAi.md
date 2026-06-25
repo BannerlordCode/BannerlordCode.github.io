@@ -1,13 +1,7 @@
 ---
 title: "RangedSiegeWeaponAi"
+description: "Auto-generated class reference for RangedSiegeWeaponAi."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RangedSiegeWeaponAi`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedSiegeWeaponAi
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,49 +23,96 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FindNextTarget
 `public void FindNextTarget()`
 
-**Purpose:** Handles logic related to `find next target`.
+**Purpose:** Looks up the matching `next target` in the current collection or scope.
+
+```csharp
+// Obtain an instance of RangedSiegeWeaponAi from the subsystem API first
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+rangedSiegeWeaponAi.FindNextTarget();
+```
 
 ### PrepareTargetFromTask
 `public Threat PrepareTargetFromTask()`
 
-**Purpose:** Handles logic related to `prepare target from task`.
+**Purpose:** Finishes prerequisite setup for the upcoming `target from task` operation.
+
+```csharp
+// Obtain an instance of RangedSiegeWeaponAi from the subsystem API first
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+var result = rangedSiegeWeaponAi.PrepareTargetFromTask();
+```
 
 ### UpdateThreatSeekerTask
 `public bool UpdateThreatSeekerTask()`
 
-**Purpose:** Updates the state or data of `threat seeker task`.
+**Purpose:** Recalculates and stores the latest representation of `threat seeker task`.
+
+```csharp
+// Obtain an instance of RangedSiegeWeaponAi from the subsystem API first
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+var result = rangedSiegeWeaponAi.UpdateThreatSeekerTask();
+```
 
 ### PrepareThreatSeekerTask
 `public void PrepareThreatSeekerTask(Action lastAction)`
 
-**Purpose:** Handles logic related to `prepare threat seeker task`.
+**Purpose:** Finishes prerequisite setup for the upcoming `threat seeker task` operation.
+
+```csharp
+// Obtain an instance of RangedSiegeWeaponAi from the subsystem API first
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+rangedSiegeWeaponAi.PrepareThreatSeekerTask(lastAction);
+```
 
 ### Release
 `public void Release()`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RangedSiegeWeaponAi from the subsystem API first
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+rangedSiegeWeaponAi.Release();
+```
 
 ### GetAllThreats
 `public List<Threat> GetAllThreats()`
 
-**Purpose:** Gets the current value of `all threats`.
+**Purpose:** Reads and returns the `all threats` value held by the current object.
+
+```csharp
+// Obtain an instance of RangedSiegeWeaponAi from the subsystem API first
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+var result = rangedSiegeWeaponAi.GetAllThreats();
+```
 
 ### GetTargetFlagsOfFormation
 `public static TargetFlags GetTargetFlagsOfFormation()`
 
-**Purpose:** Gets the current value of `target flags of formation`.
+**Purpose:** Reads and returns the `target flags of formation` value held by the current object.
+
+```csharp
+// Static call; no instance required
+RangedSiegeWeaponAi.GetTargetFlagsOfFormation();
+```
 
 ### GetMaxThreat
 `public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)`
 
-**Purpose:** Gets the current value of `max threat`.
+**Purpose:** Reads and returns the `max threat` value held by the current object.
+
+```csharp
+// Static call; no instance required
+RangedSiegeWeaponAi.GetMaxThreat(castleKeyPositions);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRangedSiegeWeaponAi();
+// Typically obtained from a subsystem API or factory
+RangedSiegeWeaponAi instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

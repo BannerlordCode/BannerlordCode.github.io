@@ -1,20 +1,14 @@
 ---
 title: "PlayerConnectionInfo"
+description: "Auto-generated class reference for PlayerConnectionInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerConnectionInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerConnectionInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerConnectionInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PlayerConnectionInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PlayerConnectionInfo.cs`
 
 ## Overview
 
@@ -39,13 +33,20 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Adds `parameter` to the current collection or state.
 
+```csharp
+// Obtain an instance of PlayerConnectionInfo from the subsystem API first
+PlayerConnectionInfo playerConnectionInfo = ...;
+playerConnectionInfo.AddParameter("example", parameter);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new PlayerConnectionInfo();
-value.AddParameter("example", parameter);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerConnectionInfo playerConnectionInfo = ...;
+playerConnectionInfo.AddParameter("example", parameter);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

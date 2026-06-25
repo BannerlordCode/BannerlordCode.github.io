@@ -1,13 +1,7 @@
 ---
 title: "BehaviorProtectFlank"
+description: "Auto-generated class reference for BehaviorProtectFlank."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorProtectFlank`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorProtectFlank
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** Called when the `valid behavior side changed` event is raised.
+**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorProtectFlank from the subsystem API first
+BehaviorProtectFlank behaviorProtectFlank = ...;
+behaviorProtectFlank.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorProtectFlank from the subsystem API first
+BehaviorProtectFlank behaviorProtectFlank = ...;
+behaviorProtectFlank.TickOccasionally();
+```
 
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorProtectFlank from the subsystem API first
+BehaviorProtectFlank behaviorProtectFlank = ...;
+var result = behaviorProtectFlank.GetBehaviorString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorProtectFlank();
-value.OnValidBehaviorSideChanged();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorProtectFlank behaviorProtectFlank = ...;
+behaviorProtectFlank.OnValidBehaviorSideChanged();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

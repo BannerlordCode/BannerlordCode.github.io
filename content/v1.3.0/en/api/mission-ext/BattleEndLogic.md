@@ -1,13 +1,7 @@
 ---
 title: "BattleEndLogic"
+description: "Auto-generated class reference for BattleEndLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleEndLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleEndLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,49 +31,97 @@ Treat `BattleEndLogic` as a Logic-style extension point: first identify who crea
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of BattleEndLogic from the subsystem API first
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of BattleEndLogic from the subsystem API first
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of BattleEndLogic from the subsystem API first
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleEndLogic from the subsystem API first
+BattleEndLogic battleEndLogic = ...;
+var result = battleEndLogic.MissionEnded(missionResult);
+```
 
 ### ChangeCanCheckForEndCondition
 `public void ChangeCanCheckForEndCondition(bool canCheckForEndCondition)`
 
-**Purpose:** Handles logic related to `change can check for end condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleEndLogic from the subsystem API first
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.ChangeCanCheckForEndCondition(false);
+```
 
 ### TryExit
 `public BattleEndLogic.ExitResult TryExit()`
 
-**Purpose:** Attempts to get `exit`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `exit`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of BattleEndLogic from the subsystem API first
+BattleEndLogic battleEndLogic = ...;
+var result = battleEndLogic.TryExit();
+```
 
 ### EnableEnemyDefenderPullBack
 `public void EnableEnemyDefenderPullBack(int neededTroopNumber)`
 
-**Purpose:** Handles logic related to `enable enemy defender pull back`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleEndLogic from the subsystem API first
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.EnableEnemyDefenderPullBack(0);
+```
 
 ### SetNotificationDisabled
 `public void SetNotificationDisabled(bool value)`
 
-**Purpose:** Sets the value or state of `notification disabled`.
+**Purpose:** Assigns a new value to `notification disabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BattleEndLogic from the subsystem API first
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.SetNotificationDisabled(false);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleEndLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleEndLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

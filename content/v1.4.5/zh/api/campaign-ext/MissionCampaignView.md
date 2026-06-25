@@ -1,20 +1,14 @@
 ---
 title: "MissionCampaignView"
+description: "MissionCampaignView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionCampaignView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCampaignView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionCampaignView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionCampaignView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionCampaignView.cs`
 
 ## 概述
 
@@ -29,29 +23,53 @@ title: "MissionCampaignView"
 ### OnMissionScreenPreLoad
 `public override void OnMissionScreenPreLoad()`
 
-**用途 / Purpose:** 当 `mission screen pre load` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen pre load」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCampaignView 实例
+MissionCampaignView missionCampaignView = ...;
+missionCampaignView.OnMissionScreenPreLoad();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCampaignView 实例
+MissionCampaignView missionCampaignView = ...;
+missionCampaignView.OnMissionScreenFinalize();
+```
 
 ### GetFaceAndHelmetInfoOfFollowedAgent
 `public static string GetFaceAndHelmetInfoOfFollowedAgent(List<string> strings)`
 
-**用途 / Purpose:** 获取 `face and helmet info of followed agent` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「face and helmet info of followed agent」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionCampaignView.GetFaceAndHelmetInfoOfFollowedAgent(strings);
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCampaignView 实例
+MissionCampaignView missionCampaignView = ...;
+missionCampaignView.EarlyStart();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionCampaignView();
+// 从子系统 API 或场景中获取该视图
+MissionCampaignView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

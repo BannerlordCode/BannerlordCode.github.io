@@ -1,20 +1,14 @@
 ---
 title: "GoldGainOnAssistEffect"
+description: "Auto-generated class reference for GoldGainOnAssistEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GoldGainOnAssistEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GoldGainOnAssistEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GoldGainOnAssistEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldGainOnAssistEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldGainOnAssistEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetGoldOnAssist
 `public override int GetGoldOnAssist()`
 
-**Purpose:** Gets the current value of `gold on assist`.
+**Purpose:** Reads and returns the `gold on assist` value held by the current object.
+
+```csharp
+// Obtain an instance of GoldGainOnAssistEffect from the subsystem API first
+GoldGainOnAssistEffect goldGainOnAssistEffect = ...;
+var result = goldGainOnAssistEffect.GetGoldOnAssist();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GoldGainOnAssistEffect();
-value.GetGoldOnAssist();
+// Typically call this after obtaining an instance from the subsystem API
+GoldGainOnAssistEffect goldGainOnAssistEffect = ...;
+goldGainOnAssistEffect.GetGoldOnAssist();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "EngineMethod"
+description: "Auto-generated class reference for EngineMethod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineMethod`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EngineMethod
 
 **Namespace:** TaleWorlds.Library
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new EngineMethod();
+// Obtain an instance from the relevant subsystem API
+EngineMethod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GauntletBarberScreen"
+description: "GauntletBarberScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletBarberScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletBarberScreen
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletBarberScreen : ScreenBase, IGameStateListener, IFaceGeneratorScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletBarberScreen.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletBarberScreen.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "GauntletBarberScreen"
 ### OnExit
 `public void OnExit()`
 
-**用途 / Purpose:** 当 `exit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「exit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletBarberScreen 实例
+GauntletBarberScreen gauntletBarberScreen = ...;
+gauntletBarberScreen.OnExit();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletBarberScreen();
-value.OnExit();
+// 通常从对应子系统 API 获取实例后调用
+GauntletBarberScreen gauntletBarberScreen = ...;
+gauntletBarberScreen.OnExit();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

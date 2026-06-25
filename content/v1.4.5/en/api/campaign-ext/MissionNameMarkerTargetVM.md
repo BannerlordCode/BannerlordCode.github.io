@@ -1,20 +1,14 @@
 ---
 title: "MissionNameMarkerTargetVM"
+description: "Auto-generated class reference for MissionNameMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNameMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public abstract class MissionNameMarkerTargetVM<T> : MissionNameMarkerTargetBaseVM`
 **Base:** `MissionNameMarkerTargetBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerTargetVM.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### Equals
 `public override bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MissionNameMarkerTargetVM from the subsystem API first
+MissionNameMarkerTargetVM missionNameMarkerTargetVM = ...;
+var result = missionNameMarkerTargetVM.Equals(other);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionNameMarkerTargetVM();
+// Typically obtained from a subsystem API or factory
+MissionNameMarkerTargetVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

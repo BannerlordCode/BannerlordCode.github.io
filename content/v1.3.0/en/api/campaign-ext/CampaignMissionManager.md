@@ -1,13 +1,7 @@
 ---
 title: "CampaignMissionManager"
+description: "Auto-generated class reference for CampaignMissionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignMissionManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignMissionManager
 
 **Namespace:** SandBox
@@ -29,22 +23,46 @@ Treat `CampaignMissionManager` as a Manager-style extension point: first identif
 ### OpenArenaDuelMission
 `public IMission OpenArenaDuelMission(string scene, Location location, CharacterObject duelCharacter, bool requireCivilianEquipment, bool spawnBOthSidesWithHorse, Action<CharacterObject> onDuelEndAction, float customAgentHealth)`
 
-**Purpose:** Handles logic related to `open arena duel mission`.
+**Purpose:** Opens the resource or UI associated with `arena duel mission`.
+
+```csharp
+// Obtain an instance of CampaignMissionManager from the subsystem API first
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenArenaDuelMission("example", location, duelCharacter, false, false, onDuelEndAction, 0);
+```
 
 ### OpenDisguiseMission
 `public IMission OpenDisguiseMission(string scene, bool willSetUpContact, string sceneLevels, Location fromLocation)`
 
-**Purpose:** Handles logic related to `open disguise mission`.
+**Purpose:** Opens the resource or UI associated with `disguise mission`.
+
+```csharp
+// Obtain an instance of CampaignMissionManager from the subsystem API first
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenDisguiseMission("example", false, "example", fromLocation);
+```
 
 ### OpenNavalBattleMission
 `public IMission OpenNavalBattleMission(MissionInitializerRecord rec)`
 
-**Purpose:** Handles logic related to `open naval battle mission`.
+**Purpose:** Opens the resource or UI associated with `naval battle mission`.
+
+```csharp
+// Obtain an instance of CampaignMissionManager from the subsystem API first
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenNavalBattleMission(rec);
+```
 
 ### OpenNavalSetPieceBattleMission
 `public IMission OpenNavalSetPieceBattleMission(MissionInitializerRecord rec, MBList<IShipOrigin> playerShips, MBList<IShipOrigin> playerAllyShips, MBList<IShipOrigin> enemyShips)`
 
-**Purpose:** Handles logic related to `open naval set piece battle mission`.
+**Purpose:** Opens the resource or UI associated with `naval set piece battle mission`.
+
+```csharp
+// Obtain an instance of CampaignMissionManager from the subsystem API first
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenNavalSetPieceBattleMission(rec, playerShips, playerAllyShips, enemyShips);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var manager = CampaignMissionManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ActionCampaignOptionData"
+description: "ActionCampaignOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ActionCampaignOptionData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ActionCampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -29,19 +23,32 @@ title: "ActionCampaignOptionData"
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**用途 / Purpose:** 获取 `data type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「data type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ActionCampaignOptionData 实例
+ActionCampaignOptionData actionCampaignOptionData = ...;
+var result = actionCampaignOptionData.GetDataType();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ActionCampaignOptionData 实例
+ActionCampaignOptionData actionCampaignOptionData = ...;
+actionCampaignOptionData.ExecuteAction();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ActionCampaignOptionData();
+// 该数据对象通常由战役/任务 API 返回
+ActionCampaignOptionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

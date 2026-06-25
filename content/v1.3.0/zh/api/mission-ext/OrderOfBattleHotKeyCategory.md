@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleHotKeyCategory"
+description: "OrderOfBattleHotKeyCategory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderOfBattleHotKeyCategory`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHotKeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade.GameKeyCategory
@@ -27,9 +21,10 @@ title: "OrderOfBattleHotKeyCategory"
 ## 使用示例
 
 ```csharp
-var example = new OrderOfBattleHotKeyCategory();
+// 从对应子系统 API 获取实例
+OrderOfBattleHotKeyCategory instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

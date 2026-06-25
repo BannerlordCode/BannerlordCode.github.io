@@ -1,23 +1,18 @@
 ---
 title: "ClanHomeInfo"
+description: "Auto-generated class reference for ClanHomeInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanHomeInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanHomeInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanHomeInfo`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanHomeInfo.cs`
 
 ## Overview
 
-`ClanHomeInfo` lives in `TaleWorlds.MountAndBlade.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ClanHomeInfo` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -39,31 +34,49 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CreateInClanInfo
 `public static ClanHomeInfo CreateInClanInfo(ClanInfo clanInfo, ClanPlayerInfo clanPlayerInfos)`
 
-**Purpose:** Creates a new `in clan info` instance or object.
+**Purpose:** Constructs a new `in clan info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ClanHomeInfo.CreateInClanInfo(clanInfo, clanPlayerInfos);
+```
 
 ### CreateCanCreateClanInfo
 `public static ClanHomeInfo CreateCanCreateClanInfo()`
 
-**Purpose:** Creates a new `can create clan info` instance or object.
+**Purpose:** Constructs a new `can create clan info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ClanHomeInfo.CreateCanCreateClanInfo();
+```
 
 ### CreateCantCreateClanInfo
 `public static ClanHomeInfo CreateCantCreateClanInfo(NotEnoughPlayersInfo notEnoughPlayersInfo, PlayerNotEligibleInfo playerNotEligibleInfos)`
 
-**Purpose:** Creates a new `cant create clan info` instance or object.
+**Purpose:** Constructs a new `cant create clan info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ClanHomeInfo.CreateCantCreateClanInfo(notEnoughPlayersInfo, playerNotEligibleInfos);
+```
 
 ### CreateInvalidStateClanInfo
 `public static ClanHomeInfo CreateInvalidStateClanInfo()`
 
-**Purpose:** Creates a new `invalid state clan info` instance or object.
+**Purpose:** Constructs a new `invalid state clan info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ClanHomeInfo.CreateInvalidStateClanInfo();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ClanHomeInfo.CreateInClanInfo(clanInfo, clanPlayerInfos);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

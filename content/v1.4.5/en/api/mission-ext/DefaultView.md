@@ -1,20 +1,14 @@
 ---
 title: "DefaultView"
+description: "Auto-generated class reference for DefaultView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultView : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/DefaultView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/DefaultView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `DefaultView` as a View-style extension point: first identify who creates 
 ## Usage Example
 
 ```csharp
-var view = new DefaultView();
+// Retrieve this view from the subsystem API or scene
+DefaultView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

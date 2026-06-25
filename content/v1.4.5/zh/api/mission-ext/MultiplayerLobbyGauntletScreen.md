@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyGauntletScreen"
+description: "MultiplayerLobbyGauntletScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerLobbyGauntletScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyGauntletScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyGauntletScreen : ScreenBase, IGameStateListener, ILobbyStateHandler, IChatLogHandlerScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerLobbyGauntletScreen.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerLobbyGauntletScreen.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "MultiplayerLobbyGauntletScreen"
 ### OnBattleServerInformationReceived
 `public void OnBattleServerInformationReceived(BattleServerInformationForClient battleServerInformation)`
 
-**用途 / Purpose:** 当 `battle server information received` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「battle server information received」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLobbyGauntletScreen 实例
+MultiplayerLobbyGauntletScreen multiplayerLobbyGauntletScreen = ...;
+multiplayerLobbyGauntletScreen.OnBattleServerInformationReceived(battleServerInformation);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerLobbyGauntletScreen();
-value.OnBattleServerInformationReceived(battleServerInformation);
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerLobbyGauntletScreen multiplayerLobbyGauntletScreen = ...;
+multiplayerLobbyGauntletScreen.OnBattleServerInformationReceived(battleServerInformation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

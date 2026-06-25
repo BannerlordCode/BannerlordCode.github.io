@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletFormationMarker"
+description: "MissionGauntletFormationMarker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletFormationMarker`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletFormationMarker
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletFormationMarker : MissionBattleUIBaseView`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletFormationMarker.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletFormationMarker.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "MissionGauntletFormationMarker"
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletFormationMarker 实例
+MissionGauntletFormationMarker missionGauntletFormationMarker = ...;
+missionGauntletFormationMarker.OnMissionScreenTick(0);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletFormationMarker 实例
+MissionGauntletFormationMarker missionGauntletFormationMarker = ...;
+missionGauntletFormationMarker.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletFormationMarker 实例
+MissionGauntletFormationMarker missionGauntletFormationMarker = ...;
+missionGauntletFormationMarker.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionGauntletFormationMarker();
-value.OnMissionScreenTick(0);
+// 通常从对应子系统 API 获取实例后调用
+MissionGauntletFormationMarker missionGauntletFormationMarker = ...;
+missionGauntletFormationMarker.OnMissionScreenTick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBMethodNameNotFoundException"
+description: "Auto-generated class reference for MBMethodNameNotFoundException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMethodNameNotFoundException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBMethodNameNotFoundException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBMethodNameNotFoundException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBMethodNameNotFoundException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBMethodNameNotFoundException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBMethodNameNotFoundException` as a Exception-style extension point: firs
 ## Usage Example
 
 ```csharp
-try { CallMBMethodNameNotFoundException(); } catch (MBMethodNameNotFoundException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBMethodNameNotFoundException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

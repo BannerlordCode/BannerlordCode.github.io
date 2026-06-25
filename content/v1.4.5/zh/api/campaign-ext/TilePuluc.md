@@ -1,20 +1,14 @@
 ---
 title: "TilePuluc"
+description: "TilePuluc 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TilePuluc`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TilePuluc
 
 **Namespace:** SandBox.BoardGames.Tiles
 **Module:** SandBox.BoardGames
 **Type:** `public class TilePuluc : Tile1D`
 **Base:** `Tile1D`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/TilePuluc.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/TilePuluc.cs`
 
 ## 概述
 
@@ -38,15 +32,22 @@ title: "TilePuluc"
 ### UpdateTilePosition
 `public void UpdateTilePosition()`
 
-**用途 / Purpose:** 更新 `tile position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「tile position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 TilePuluc 实例
+TilePuluc tilePuluc = ...;
+tilePuluc.UpdateTilePosition();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TilePuluc();
-value.UpdateTilePosition();
+// 通常从对应子系统 API 获取实例后调用
+TilePuluc tilePuluc = ...;
+tilePuluc.UpdateTilePosition();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

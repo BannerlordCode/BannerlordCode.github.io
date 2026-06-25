@@ -1,23 +1,18 @@
 ---
 title: "DebugSiegeBehavior"
+description: "Auto-generated class reference for DebugSiegeBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugSiegeBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DebugSiegeBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugSiegeBehavior`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/DebugSiegeBehavior.cs`
 
 ## Overview
 
-`DebugSiegeBehavior` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`DebugSiegeBehavior` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SiegeDebug
 `public static void SiegeDebug(UsableMachine usableMachine)`
 
-**Purpose:** Handles logic related to `siege debug`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugSiegeBehavior.SiegeDebug(usableMachine);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 DebugSiegeBehavior.SiegeDebug(usableMachine);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

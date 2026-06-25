@@ -1,13 +1,7 @@
 ---
 title: "SupporterItemIncomeComparer"
+description: "Auto-generated class reference for SupporterItemIncomeComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SupporterItemIncomeComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SupporterItemIncomeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public override int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SupporterItemIncomeComparer from the subsystem API first
+SupporterItemIncomeComparer supporterItemIncomeComparer = ...;
+var result = supporterItemIncomeComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SupporterItemIncomeComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+SupporterItemIncomeComparer supporterItemIncomeComparer = ...;
+supporterItemIncomeComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

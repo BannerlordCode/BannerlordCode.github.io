@@ -1,13 +1,7 @@
 ---
 title: "GamepadOptionCategoryVM"
+description: "Auto-generated class reference for GamepadOptionCategoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadOptionCategoryVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GamepadOptionCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GamepadOptions
@@ -43,20 +37,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.G
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GamepadOptionCategoryVM from the subsystem API first
+GamepadOptionCategoryVM gamepadOptionCategoryVM = ...;
+gamepadOptionCategoryVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GamepadOptionCategoryVM from the subsystem API first
+GamepadOptionCategoryVM gamepadOptionCategoryVM = ...;
+gamepadOptionCategoryVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GamepadOptionCategoryVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GamepadOptionCategoryVM gamepadOptionCategoryVM = ...;
+gamepadOptionCategoryVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

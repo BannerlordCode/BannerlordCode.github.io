@@ -1,20 +1,14 @@
 ---
 title: "CheckpointArea"
+description: "Auto-generated class reference for CheckpointArea."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheckpointArea`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheckpointArea
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class CheckpointArea : VolumeBox`
 **Base:** `VolumeBox`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/CheckpointArea.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/CheckpointArea.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CheckpointArea from the subsystem API first
+CheckpointArea checkpointArea = ...;
+checkpointArea.AfterMissionStart();
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of CheckpointArea from the subsystem API first
+CheckpointArea checkpointArea = ...;
+var result = checkpointArea.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CheckpointArea();
-value.AfterMissionStart();
+// Typically call this after obtaining an instance from the subsystem API
+CheckpointArea checkpointArea = ...;
+checkpointArea.AfterMissionStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

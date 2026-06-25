@@ -1,13 +1,7 @@
 ---
 title: "BehaviorEliminateEnemyInsideCastle"
+description: "BehaviorEliminateEnemyInsideCastle 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorEliminateEnemyInsideCastle`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorEliminateEnemyInsideCastle
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ title: "BehaviorEliminateEnemyInsideCastle"
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**用途 / Purpose:** 当 `valid behavior side changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「valid behavior side changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorEliminateEnemyInsideCastle 实例
+BehaviorEliminateEnemyInsideCastle behaviorEliminateEnemyInsideCastle = ...;
+behaviorEliminateEnemyInsideCastle.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorEliminateEnemyInsideCastle 实例
+BehaviorEliminateEnemyInsideCastle behaviorEliminateEnemyInsideCastle = ...;
+behaviorEliminateEnemyInsideCastle.TickOccasionally();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorEliminateEnemyInsideCastle();
-value.OnValidBehaviorSideChanged();
+// 通常从对应子系统 API 获取实例后调用
+BehaviorEliminateEnemyInsideCastle behaviorEliminateEnemyInsideCastle = ...;
+behaviorEliminateEnemyInsideCastle.OnValidBehaviorSideChanged();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

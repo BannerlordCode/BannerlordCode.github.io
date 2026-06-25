@@ -1,19 +1,14 @@
 ---
 title: "ChatLineData"
+description: "Auto-generated class reference for ChatLineData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChatLineData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatLineData
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ChatLineData`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.GauntletUI/ChatLogMessageManager.cs`
 
 ## Overview
 
@@ -23,20 +18,13 @@ title: "ChatLineData"
 
 Treat `ChatLineData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
-## Key Methods
-
-### Update
-`public void Update()`
-
-**Purpose:** Updates the state or data of `update`.
-
 ## Usage Example
 
 ```csharp
-var value = new ChatLineData();
+// This data object is usually returned by campaign/mission APIs
+ChatLineData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

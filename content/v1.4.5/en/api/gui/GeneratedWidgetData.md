@@ -1,20 +1,14 @@
 ---
 title: "GeneratedWidgetData"
+description: "Auto-generated class reference for GeneratedWidgetData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GeneratedWidgetData`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GeneratedWidgetData
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GeneratedWidgetData : WidgetComponent`
 **Base:** `WidgetComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/GeneratedWidgetData.cs`
+**File:** `bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/GeneratedWidgetData.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `GeneratedWidgetData` as a Data-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var value = new GeneratedWidgetData();
+// This data object is usually returned by campaign/mission APIs
+GeneratedWidgetData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MessageProxy"
+description: "MessageProxy 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageProxy`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MessageProxy
 
 **Namespace:** TaleWorlds.Network
@@ -29,14 +23,21 @@ title: "MessageProxy"
 ### Invoke
 `public abstract Task Invoke(string methodName, params object args)`
 
-**用途 / Purpose:** 处理 `invoke` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MessageProxy 实例
+MessageProxy messageProxy = ...;
+var result = messageProxy.Invoke("example", args);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMessageProxy();
+// 通常通过子系统 API 或工厂获得派生实例
+MessageProxy instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

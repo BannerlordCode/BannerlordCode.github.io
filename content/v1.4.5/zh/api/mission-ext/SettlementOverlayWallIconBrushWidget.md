@@ -1,20 +1,14 @@
 ---
 title: "SettlementOverlayWallIconBrushWidget"
+description: "SettlementOverlayWallIconBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementOverlayWallIconBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementOverlayWallIconBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementOverlayWallIconBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/SettlementOverlayWallIconBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/SettlementOverlayWallIconBrushWidget.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "SettlementOverlayWallIconBrushWidget"
 ## 使用示例
 
 ```csharp
-var widget = new SettlementOverlayWallIconBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+SettlementOverlayWallIconBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

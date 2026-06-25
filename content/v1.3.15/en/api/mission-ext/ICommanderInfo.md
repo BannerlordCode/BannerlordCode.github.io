@@ -1,19 +1,13 @@
 ---
 title: "ICommanderInfo"
+description: "Auto-generated class reference for ICommanderInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICommanderInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICommanderInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
+**Type:** `public interface ICommanderInfo : IMissionBehavior`
+**Base:** `IMissionBehavior`
 **File:** `TaleWorlds.MountAndBlade/ICommanderInfo.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-ICommanderInfo implementation = GetCommanderInfoImplementation();
+// Usually obtained through DI or a factory method
+IICommanderInfo service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

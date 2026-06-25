@@ -1,19 +1,13 @@
 ---
 title: "IFacegenCampaignBehavior"
+description: "IFacegenCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IFacegenCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IFacegenCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** 无
+**Type:** `public interface IFacegenCampaignBehavior : ICampaignBehavior`
+**Base:** `ICampaignBehavior`
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IFacegenCampaignBehavior.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "IFacegenCampaignBehavior"
 ## 使用示例
 
 ```csharp
-IFacegenCampaignBehavior implementation = GetFacegenCampaignBehaviorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIFacegenCampaignBehavior service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

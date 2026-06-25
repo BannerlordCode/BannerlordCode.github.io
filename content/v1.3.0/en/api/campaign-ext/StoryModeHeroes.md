@@ -1,13 +1,7 @@
 ---
 title: "StoryModeHeroes"
+description: "Auto-generated class reference for StoryModeHeroes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeHeroes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeHeroes
 
 **Namespace:** StoryMode.StoryModeObjects
@@ -42,9 +36,10 @@ Start from namespace `StoryMode.StoryModeObjects` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var value = new StoryModeHeroes();
+// Obtain an instance from the relevant subsystem API
+StoryModeHeroes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

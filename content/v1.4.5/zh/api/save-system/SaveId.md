@@ -1,20 +1,14 @@
 ---
 title: "SaveId"
+description: "SaveId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveId`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveId
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public abstract class SaveId`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveId.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveId.cs`
 
 ## 概述
 
@@ -29,39 +23,75 @@ title: "SaveId"
 ### GetStringId
 `public abstract string GetStringId()`
 
-**用途 / Purpose:** 获取 `string id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveId 实例
+SaveId saveId = ...;
+var result = saveId.GetStringId();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 SaveId 实例
+SaveId saveId = ...;
+var result = saveId.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 SaveId 实例
+SaveId saveId = ...;
+var result = saveId.Equals(obj);
+```
 
 ### WriteTo
 `public abstract void WriteTo(IWriter writer)`
 
-**用途 / Purpose:** 处理 `write to` 相关逻辑。
+**用途 / Purpose:** 将「to」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 SaveId 实例
+SaveId saveId = ...;
+saveId.WriteTo(writer);
+```
 
 ### ReadSaveIdFrom
 `public static SaveId ReadSaveIdFrom(IReader reader)`
 
-**用途 / Purpose:** 处理 `read save id from` 相关逻辑。
+**用途 / Purpose:** 读取「save id from」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+SaveId.ReadSaveIdFrom(reader);
+```
 
 ### GetSizeInBytes
 `public abstract int GetSizeInBytes()`
 
-**用途 / Purpose:** 获取 `size in bytes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「size in bytes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveId 实例
+SaveId saveId = ...;
+var result = saveId.GetSizeInBytes();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSaveId();
+// 通常通过子系统 API 或工厂获得派生实例
+SaveId instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

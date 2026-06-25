@@ -1,20 +1,14 @@
 ---
 title: "EncounterModel"
+description: "EncounterModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncounterModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncounterModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class EncounterModel : MBGameModel<EncounterModel>`
 **Base:** `MBGameModel<EncounterModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/EncounterModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/EncounterModel.cs`
 
 ## 概述
 
@@ -45,84 +39,175 @@ title: "EncounterModel"
 ### IsEncounterExemptFromHostileActions
 `public abstract bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)`
 
-**用途 / Purpose:** 处理 `is encounter exempt from hostile actions` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「encounter exempt from hostile actions」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.IsEncounterExemptFromHostileActions(side1, side2);
+```
 
 ### CanMainHeroDoParleyWithParty
 `public abstract bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero do parley with party`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero do parley with party」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.CanMainHeroDoParleyWithParty(partyBase, explanation);
+```
 
 ### GetLeaderOfSiegeEvent
 `public abstract Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `leader of siege event` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「leader of siege event」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetLeaderOfSiegeEvent(siegeEvent, side);
+```
 
 ### GetLeaderOfMapEvent
 `public abstract Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `leader of map event` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「leader of map event」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetLeaderOfMapEvent(mapEvent, side);
+```
 
 ### GetCharacterSergeantScore
 `public abstract int GetCharacterSergeantScore(Hero hero)`
 
-**用途 / Purpose:** 获取 `character sergeant score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character sergeant score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetCharacterSergeantScore(hero);
+```
 
 ### GetDefenderPartiesOfSettlement
 `public abstract IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)`
 
-**用途 / Purpose:** 获取 `defender parties of settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「defender parties of settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetDefenderPartiesOfSettlement(settlement, mapEventType);
+```
 
 ### GetNextDefenderPartyOfSettlement
 `public abstract PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)`
 
-**用途 / Purpose:** 获取 `next defender party of settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next defender party of settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetNextDefenderPartyOfSettlement(settlement, partyIndex, mapEventType);
+```
 
 ### CreateMapEventComponentForEncounter
 `public abstract MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 创建一个 `map event component for encounter` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「map event component for encounter」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.CreateMapEventComponentForEncounter(attackerParty, defenderParty, battleType);
+```
 
 ### GetBribeChance
 `public abstract ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)`
 
-**用途 / Purpose:** 获取 `bribe chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bribe chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetBribeChance(defenderParty, attackerParty);
+```
 
 ### GetSurrenderChance
 `public abstract float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)`
 
-**用途 / Purpose:** 获取 `surrender chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「surrender chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetSurrenderChance(defenderParty, attackerParty);
+```
 
 ### GetMapEventSideRunAwayChance
 `public abstract float GetMapEventSideRunAwayChance(MapEventSide mapEventside)`
 
-**用途 / Purpose:** 获取 `map event side run away chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「map event side run away chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetMapEventSideRunAwayChance(mapEventside);
+```
 
 ### FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter
 `public abstract void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
 
-**用途 / Purpose:** 处理 `find non attached npc parties who will join player encounter` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「non attached npc parties who will join player encounter」。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+encounterModel.FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(partiesToJoinPlayerSide, partiesToJoinEnemySide);
+```
 
 ### CanPlayerForceBanditsToJoin
 `public abstract bool CanPlayerForceBanditsToJoin(out TextObject explanation)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `player force bandits to join`。
+**用途 / Purpose:** 检查当前对象是否满足 「player force bandits to join」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.CanPlayerForceBanditsToJoin(explanation);
+```
 
 ### IsPartyUnderPlayerCommand
 `public abstract bool IsPartyUnderPlayerCommand(PartyBase party)`
 
-**用途 / Purpose:** 处理 `is party under player command` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「party under player command」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.IsPartyUnderPlayerCommand(party);
+```
 
 ### GetPartiesToTeleportOnMapEventFinalize
 `public abstract MBReadOnlyList<MobileParty> GetPartiesToTeleportOnMapEventFinalize(MapEvent mapEvent)`
 
-**用途 / Purpose:** 获取 `parties to teleport on map event finalize` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「parties to teleport on map event finalize」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncounterModel 实例
+EncounterModel encounterModel = ...;
+var result = encounterModel.GetPartiesToTeleportOnMapEventFinalize(mapEvent);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEncounterModel();
+// 通常通过子系统 API 或工厂获得派生实例
+EncounterModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

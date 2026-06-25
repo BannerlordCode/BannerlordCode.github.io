@@ -1,20 +1,14 @@
 ---
 title: "DedicatedServerConsoleCommandManager"
+description: "Auto-generated class reference for DedicatedServerConsoleCommandManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DedicatedServerConsoleCommandManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DedicatedServerConsoleCommandManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DedicatedServerConsoleCommandManager`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DedicatedServerConsoleCommandManager.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DedicatedServerConsoleCommandManager.cs`
 
 ## Overview
 
@@ -31,6 +25,11 @@ Treat `DedicatedServerConsoleCommandManager` as a Manager-style extension point:
 
 **Purpose:** Adds `type` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+DedicatedServerConsoleCommandManager.AddType(type);
+```
+
 ## Usage Example
 
 ```csharp
@@ -39,4 +38,4 @@ var manager = DedicatedServerConsoleCommandManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "OptionsGamepadKeyLocationWidget"
+description: "Auto-generated class reference for OptionsGamepadKeyLocationWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsGamepadKeyLocationWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionsGamepadKeyLocationWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsGamepadKeyLocationWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad/OptionsGamepadKeyLocationWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad/OptionsGamepadKeyLocationWidget.cs`
 
 ## Overview
 
@@ -41,9 +35,10 @@ Treat `OptionsGamepadKeyLocationWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new OptionsGamepadKeyLocationWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OptionsGamepadKeyLocationWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

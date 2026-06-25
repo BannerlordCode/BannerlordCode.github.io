@@ -1,13 +1,7 @@
 ---
 title: "MapCameraFadeView"
+description: "MapCameraFadeView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapCameraFadeView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapCameraFadeView
 
 **Namespace:** SandBox.View.Map
@@ -39,24 +33,43 @@ title: "MapCameraFadeView"
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**用途 / Purpose:** 处理 `begin fade out and in` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraFadeView 实例
+MapCameraFadeView mapCameraFadeView = ...;
+mapCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
+```
 
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutTime)`
 
-**用途 / Purpose:** 处理 `begin fade out` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraFadeView 实例
+MapCameraFadeView mapCameraFadeView = ...;
+mapCameraFadeView.BeginFadeOut(0);
+```
 
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInTime)`
 
-**用途 / Purpose:** 处理 `begin fade in` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraFadeView 实例
+MapCameraFadeView mapCameraFadeView = ...;
+mapCameraFadeView.BeginFadeIn(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MapCameraFadeView();
+// 从子系统 API 或场景中获取该视图
+MapCameraFadeView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

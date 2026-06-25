@@ -1,13 +1,7 @@
 ---
 title: "BehaviorData"
+description: "Auto-generated class reference for BehaviorData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Treat `BehaviorData` as a Data-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var value = new BehaviorData();
+// This data object is usually returned by campaign/mission APIs
+BehaviorData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

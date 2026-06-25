@@ -1,18 +1,12 @@
 ---
 title: "InputLayout"
+description: "Auto-generated class reference for InputLayout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputLayout`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputLayout
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
+**Type:** `public enum InputLayout`
 **Base:** none
 **File:** `TaleWorlds.Engine/InputLayout.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new InputLayout();
+// Obtain an instance from the relevant subsystem API
+InputLayout instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
-title: "Parameters__TaleWorlds_MountAndBlade_Diamond"
+title: "Parameters"
+description: "Auto-generated class reference for Parameters."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Parameters`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Parameters
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new Parameters();
+// Obtain an instance from the relevant subsystem API
+Parameters instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

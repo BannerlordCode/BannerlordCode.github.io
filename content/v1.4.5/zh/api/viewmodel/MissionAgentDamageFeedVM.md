@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentDamageFeedVM"
+description: "MissionAgentDamageFeedVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentDamageFeedVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentDamageFeedVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentDamageFeedVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed/MissionAgentDamageFeedVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed/MissionAgentDamageFeedVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "MissionAgentDamageFeedVM"
 ### OnMainAgentHit
 `public void OnMainAgentHit(float damage)`
 
-**用途 / Purpose:** 当 `main agent hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「main agent hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentDamageFeedVM 实例
+MissionAgentDamageFeedVM missionAgentDamageFeedVM = ...;
+missionAgentDamageFeedVM.OnMainAgentHit(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionAgentDamageFeedVM();
-value.OnMainAgentHit(0);
+// 通常从对应子系统 API 获取实例后调用
+MissionAgentDamageFeedVM missionAgentDamageFeedVM = ...;
+missionAgentDamageFeedVM.OnMainAgentHit(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

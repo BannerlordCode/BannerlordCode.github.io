@@ -1,23 +1,18 @@
 ---
 title: "GameServerEntry"
+description: "Auto-generated class reference for GameServerEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameServerEntry`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameServerEntry
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameServerEntry`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/GameServerEntry.cs`
 
 ## Overview
 
-`GameServerEntry` lives in `TaleWorlds.MountAndBlade.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`GameServerEntry` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -47,22 +42,26 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 | `HostId` | `public PlayerId HostId { get; }` |
 | `HostName` | `public string HostName { get; }` |
 | `LoadedModules` | `public List<ModuleInfoModel> LoadedModules { get; }` |
+| `AllowsOptionalModules` | `public bool AllowsOptionalModules { get; }` |
 
 ## Key Methods
 
 ### FilterGameServerEntriesBasedOnCrossplay
 `public static void FilterGameServerEntriesBasedOnCrossplay(ref List<GameServerEntry> serverList, bool hasCrossplayPrivilege)`
 
-**Purpose:** Handles logic related to `filter game server entries based on crossplay`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameServerEntry.FilterGameServerEntriesBasedOnCrossplay(serverList, false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 GameServerEntry.FilterGameServerEntriesBasedOnCrossplay(serverList, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

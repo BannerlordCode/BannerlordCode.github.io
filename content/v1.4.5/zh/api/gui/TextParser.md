@@ -1,20 +1,14 @@
 ---
 title: "TextParser"
+description: "TextParser 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextParser`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextParser
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public static class TextParser`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextParser.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextParser.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "TextParser"
 ### Parse
 `public static List<TextToken> Parse(string text, ILanguage currentLanguage)`
 
-**用途 / Purpose:** 处理 `parse` 相关逻辑。
+**用途 / Purpose:** 将外部输入解析为当前系统可识别的「parse」。
+
+```csharp
+// 静态调用，不需要实例
+TextParser.Parse("example", currentLanguage);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ TextParser.Parse("example", currentLanguage);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

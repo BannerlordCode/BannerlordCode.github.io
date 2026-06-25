@@ -1,20 +1,14 @@
 ---
 title: "MaterialValueOffsetTextWidget"
+description: "Auto-generated class reference for MaterialValueOffsetTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MaterialValueOffsetTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MaterialValueOffsetTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MaterialValueOffsetTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MaterialValueOffsetTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MaterialValueOffsetTextWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `MaterialValueOffsetTextWidget` as a Widget-style extension point: first i
 ## Usage Example
 
 ```csharp
-var widget = new MaterialValueOffsetTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MaterialValueOffsetTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

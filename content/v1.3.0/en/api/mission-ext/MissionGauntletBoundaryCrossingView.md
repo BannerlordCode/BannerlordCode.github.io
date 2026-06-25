@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletBoundaryCrossingView"
+description: "Auto-generated class reference for MissionGauntletBoundaryCrossingView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletBoundaryCrossingView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletBoundaryCrossingView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
@@ -29,19 +23,32 @@ Treat `MissionGauntletBoundaryCrossingView` as a View-style extension point: fir
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoundaryCrossingView from the subsystem API first
+MissionGauntletBoundaryCrossingView missionGauntletBoundaryCrossingView = ...;
+missionGauntletBoundaryCrossingView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBoundaryCrossingView from the subsystem API first
+MissionGauntletBoundaryCrossingView missionGauntletBoundaryCrossingView = ...;
+missionGauntletBoundaryCrossingView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletBoundaryCrossingView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletBoundaryCrossingView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

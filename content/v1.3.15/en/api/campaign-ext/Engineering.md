@@ -1,23 +1,18 @@
 ---
 title: "Engineering"
+description: "Auto-generated class reference for Engineering."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Engineering`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Engineering
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Engineering`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Engineering` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Engineering` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `Scaffolds` | `public static PerkObject Scaffolds { get; }` |
+| `TorsionEngines` | `public static PerkObject TorsionEngines { get; }` |
+| `SiegeWorks` | `public static PerkObject SiegeWorks { get; }` |
+| `DungeonArchitect` | `public static PerkObject DungeonArchitect { get; }` |
+| `Carpenters` | `public static PerkObject Carpenters { get; }` |
+| `MilitaryPlanner` | `public static PerkObject MilitaryPlanner { get; }` |
+| `WallBreaker` | `public static PerkObject WallBreaker { get; }` |
+| `DreadfulSieger` | `public static PerkObject DreadfulSieger { get; }` |
+| `Salvager` | `public static PerkObject Salvager { get; }` |
+| `Foreman` | `public static PerkObject Foreman { get; }` |
+| `Stonecutters` | `public static PerkObject Stonecutters { get; }` |
+| `SiegeEngineer` | `public static PerkObject SiegeEngineer { get; }` |
+| `CampBuilding` | `public static PerkObject CampBuilding { get; }` |
+| `Battlements` | `public static PerkObject Battlements { get; }` |
+| `EngineeringGuilds` | `public static PerkObject EngineeringGuilds { get; }` |
+| `Apprenticeship` | `public static PerkObject Apprenticeship { get; }` |
+| `Metallurgy` | `public static PerkObject Metallurgy { get; }` |
+| `ImprovedTools` | `public static PerkObject ImprovedTools { get; }` |
+| `Clockwork` | `public static PerkObject Clockwork { get; }` |
+| `ArchitecturalCommisions` | `public static PerkObject ArchitecturalCommisions { get; }` |
+| `Masterwork` | `public static PerkObject Masterwork { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Engineering();
+// Obtain an instance from the relevant subsystem API
+Engineering instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

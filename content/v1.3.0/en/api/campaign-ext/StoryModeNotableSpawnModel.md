@@ -1,13 +1,7 @@
 ---
 title: "StoryModeNotableSpawnModel"
+description: "Auto-generated class reference for StoryModeNotableSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeNotableSpawnModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeNotableSpawnModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,7 +23,13 @@ Treat `StoryModeNotableSpawnModel` as a Model-style extension point: first ident
 ### GetTargetNotableCountForSettlement
 `public override int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`
 
-**Purpose:** Gets the current value of `target notable count for settlement`.
+**Purpose:** Reads and returns the `target notable count for settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeNotableSpawnModel from the subsystem API first
+StoryModeNotableSpawnModel storyModeNotableSpawnModel = ...;
+var result = storyModeNotableSpawnModel.GetTargetNotableCountForSettlement(settlement, occupation);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeNotableSpawnModel>(new MyStoryModeNotableSpaw
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

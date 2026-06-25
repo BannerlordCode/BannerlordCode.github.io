@@ -1,13 +1,7 @@
 ---
 title: "SingleQueryParentWidget"
+description: "Auto-generated class reference for SingleQueryParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleQueryParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SingleQueryParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Popup
@@ -34,9 +28,10 @@ Treat `SingleQueryParentWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new SingleQueryParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SingleQueryParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

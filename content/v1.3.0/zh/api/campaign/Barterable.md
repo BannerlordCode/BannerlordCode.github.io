@@ -1,13 +1,7 @@
 ---
 title: "Barterable"
+description: "Barterable 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Barterable`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Barterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
@@ -45,59 +39,120 @@ title: "Barterable"
 ### GetValueForFaction
 `public int GetValueForFaction(IFaction faction)`
 
-**用途 / Purpose:** 获取 `value for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+var result = barterable.GetValueForFaction(faction);
+```
 
 ### CheckBarterLink
 `public virtual void CheckBarterLink(Barterable linkedBarterable)`
 
-**用途 / Purpose:** 处理 `check barter link` 相关逻辑。
+**用途 / Purpose:** 检查「barter link」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+barterable.CheckBarterLink(linkedBarterable);
+```
 
 ### GetUnitValueForFaction
 `public abstract int GetUnitValueForFaction(IFaction faction)`
 
-**用途 / Purpose:** 获取 `unit value for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit value for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+var result = barterable.GetUnitValueForFaction(faction);
+```
 
 ### SetIsOffered
 `public void SetIsOffered(bool value)`
 
-**用途 / Purpose:** 设置 `is offered` 的值或状态。
+**用途 / Purpose:** 为 「is offered」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+barterable.SetIsOffered(false);
+```
 
 ### AddBarterLink
 `public void AddBarterLink(Barterable barterable)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `barter link`。
+**用途 / Purpose:** 将 「barter link」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+barterable.AddBarterLink(barterable);
+```
 
 ### Initialize
 `public void Initialize(BarterGroup barterGroup, bool isContextDependent)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+barterable.Initialize(barterGroup, false);
+```
 
 ### IsCompatible
 `public virtual bool IsCompatible(Barterable barterable)`
 
-**用途 / Purpose:** 处理 `is compatible` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「compatible」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+var result = barterable.IsCompatible(barterable);
+```
 
 ### GetVisualIdentifier
 `public abstract ImageIdentifier GetVisualIdentifier()`
 
-**用途 / Purpose:** 获取 `visual identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+var result = barterable.GetVisualIdentifier();
+```
 
 ### GetEncyclopediaLink
 `public virtual string GetEncyclopediaLink()`
 
-**用途 / Purpose:** 获取 `encyclopedia link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+var result = barterable.GetEncyclopediaLink();
+```
 
 ### Apply
 `public abstract void Apply()`
 
-**用途 / Purpose:** 将 `apply` 应用到当前对象。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
+
+```csharp
+// 先通过子系统 API 拿到 Barterable 实例
+Barterable barterable = ...;
+barterable.Apply();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBarterable();
+// 通常通过子系统 API 或工厂获得派生实例
+Barterable instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

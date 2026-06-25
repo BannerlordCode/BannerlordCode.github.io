@@ -1,13 +1,7 @@
 ---
 title: "LauncherHintTriggerWidget"
+description: "Auto-generated class reference for LauncherHintTriggerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherHintTriggerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherHintTriggerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
@@ -27,9 +21,10 @@ Treat `LauncherHintTriggerWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new LauncherHintTriggerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+LauncherHintTriggerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

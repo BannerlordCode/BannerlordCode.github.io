@@ -1,20 +1,14 @@
 ---
 title: "AvatarThumbnailCache"
+description: "AvatarThumbnailCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AvatarThumbnailCache`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AvatarThumbnailCache : ThumbnailCache<AvatarThumbnailCreationData>`
 **Base:** `ThumbnailCache<AvatarThumbnailCreationData>`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/AvatarThumbnailCache.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/AvatarThumbnailCache.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "AvatarThumbnailCache"
 ### FlushCache
 `public void FlushCache()`
 
-**用途 / Purpose:** 处理 `flush cache` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AvatarThumbnailCache 实例
+AvatarThumbnailCache avatarThumbnailCache = ...;
+avatarThumbnailCache.FlushCache();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AvatarThumbnailCache();
-value.FlushCache();
+// 通常从对应子系统 API 获取实例后调用
+AvatarThumbnailCache avatarThumbnailCache = ...;
+avatarThumbnailCache.FlushCache();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

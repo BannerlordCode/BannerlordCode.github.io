@@ -1,20 +1,14 @@
 ---
 title: "TutorialPhase"
+description: "Auto-generated class reference for TutorialPhase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialPhase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialPhase
 
 **Namespace:** StoryMode.StoryModePhases
 **Module:** StoryMode.StoryModePhases
 **Type:** `public class TutorialPhase`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.StoryModePhases/TutorialPhase.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.StoryModePhases/TutorialPhase.cs`
 
 ## Overview
 
@@ -41,60 +35,121 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 ### PlayerTalkedWithBrotherForTheFirstTime
 `public void PlayerTalkedWithBrotherForTheFirstTime()`
 
-**Purpose:** Handles logic related to `player talked with brother for the first time`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.PlayerTalkedWithBrotherForTheFirstTime();
+```
 
 ### SetLockTutorialVillageEnter
 `public void SetLockTutorialVillageEnter(bool value)`
 
-**Purpose:** Sets the value or state of `lock tutorial village enter`.
+**Purpose:** Assigns a new value to `lock tutorial village enter` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.SetLockTutorialVillageEnter(false);
+```
 
 ### CompleteTutorial
 `public void CompleteTutorial(bool isSkipped)`
 
-**Purpose:** Handles logic related to `complete tutorial`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.CompleteTutorial(false);
+```
 
 ### SetTutorialFocusSettlement
 `public void SetTutorialFocusSettlement(Settlement settlement)`
 
-**Purpose:** Sets the value or state of `tutorial focus settlement`.
+**Purpose:** Assigns a new value to `tutorial focus settlement` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.SetTutorialFocusSettlement(settlement);
+```
 
 ### RemoveTutorialFocusSettlement
 `public void RemoveTutorialFocusSettlement()`
 
 **Purpose:** Removes `tutorial focus settlement` from the current collection or state.
 
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.RemoveTutorialFocusSettlement();
+```
+
 ### RemoveTutorialFocusMobileParty
 `public void RemoveTutorialFocusMobileParty()`
 
 **Purpose:** Removes `tutorial focus mobile party` from the current collection or state.
 
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.RemoveTutorialFocusMobileParty();
+```
+
 ### PrepareRecruitOptionForTutorial
 `public void PrepareRecruitOptionForTutorial()`
 
-**Purpose:** Handles logic related to `prepare recruit option for tutorial`.
+**Purpose:** Finishes prerequisite setup for the upcoming `recruit option for tutorial` operation.
+
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.PrepareRecruitOptionForTutorial();
+```
 
 ### GetAndPrepareBuyProductsOptionForTutorial
 `public ItemRoster GetAndPrepareBuyProductsOptionForTutorial(Village village)`
 
-**Purpose:** Gets the current value of `and prepare buy products option for tutorial`.
+**Purpose:** Reads and returns the `and prepare buy products option for tutorial` value held by the current object.
+
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+var result = tutorialPhase.GetAndPrepareBuyProductsOptionForTutorial(village);
+```
 
 ### SetTutorialQuestPhase
 `public void SetTutorialQuestPhase(TutorialQuestPhase tutorialQuestPhase)`
 
-**Purpose:** Sets the value or state of `tutorial quest phase`.
+**Purpose:** Assigns a new value to `tutorial quest phase` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.SetTutorialQuestPhase(tutorialQuestPhase);
+```
 
 ### InitializeTutorialVillageItemRoster
 `public void InitializeTutorialVillageItemRoster()`
 
-**Purpose:** Initializes the state, resources, or bindings for `tutorial village item roster`.
+**Purpose:** Prepares the resources, state, or bindings required by `tutorial village item roster`.
+
+```csharp
+// Obtain an instance of TutorialPhase from the subsystem API first
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.InitializeTutorialVillageItemRoster();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TutorialPhase();
-value.PlayerTalkedWithBrotherForTheFirstTime();
+// Typically call this after obtaining an instance from the subsystem API
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.PlayerTalkedWithBrotherForTheFirstTime();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

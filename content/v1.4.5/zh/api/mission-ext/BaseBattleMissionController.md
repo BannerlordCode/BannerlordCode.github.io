@@ -1,20 +1,14 @@
 ---
 title: "BaseBattleMissionController"
+description: "BaseBattleMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BaseBattleMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BaseBattleMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BaseBattleMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BaseBattleMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BaseBattleMissionController.cs`
 
 ## 概述
 
@@ -29,44 +23,87 @@ title: "BaseBattleMissionController"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BaseBattleMissionController 实例
+BaseBattleMissionController baseBattleMissionController = ...;
+baseBattleMissionController.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BaseBattleMissionController 实例
+BaseBattleMissionController baseBattleMissionController = ...;
+baseBattleMissionController.AfterStart();
+```
 
 ### GetTeamAI
 `public virtual TeamAIComponent GetTeamAI(Team team, float thinkTimerTime = 5f, float applyTimerTime = 1f)`
 
-**用途 / Purpose:** 获取 `team a i` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「team a i」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BaseBattleMissionController 实例
+BaseBattleMissionController baseBattleMissionController = ...;
+var result = baseBattleMissionController.GetTeamAI(team, 0, 0);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BaseBattleMissionController 实例
+BaseBattleMissionController baseBattleMissionController = ...;
+baseBattleMissionController.OnMissionTick(0);
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** 处理 `mission ended` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BaseBattleMissionController 实例
+BaseBattleMissionController baseBattleMissionController = ...;
+var result = baseBattleMissionController.MissionEnded(missionResult);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** 当 `end mission request` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BaseBattleMissionController 实例
+BaseBattleMissionController baseBattleMissionController = ...;
+var result = baseBattleMissionController.OnEndMissionRequest(canPlayerLeave);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BaseBattleMissionController 实例
+BaseBattleMissionController baseBattleMissionController = ...;
+baseBattleMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBaseBattleMissionController();
+// 通常通过子系统 API 或工厂获得派生实例
+BaseBattleMissionController instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementProsperityModel"
+description: "Auto-generated class reference for DefaultSettlementProsperityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementProsperityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementProsperityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementProsperityModel : SettlementProsperityModel`
 **Base:** `SettlementProsperityModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementProsperityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementProsperityModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DefaultSettlementProsperityModel` as a Model-style extension point: first
 ### CalculateProsperityChange
 `public override ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate prosperity change`.
+**Purpose:** Calculates the current value or result of `prosperity change`.
+
+```csharp
+// Obtain an instance of DefaultSettlementProsperityModel from the subsystem API first
+DefaultSettlementProsperityModel defaultSettlementProsperityModel = ...;
+var result = defaultSettlementProsperityModel.CalculateProsperityChange(fortification, false);
+```
 
 ### CalculateHearthChange
 `public override ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate hearth change`.
+**Purpose:** Calculates the current value or result of `hearth change`.
+
+```csharp
+// Obtain an instance of DefaultSettlementProsperityModel from the subsystem API first
+DefaultSettlementProsperityModel defaultSettlementProsperityModel = ...;
+var result = defaultSettlementProsperityModel.CalculateHearthChange(village, false);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultSettlementProsperityModel>(new MyDefaultSettlem
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

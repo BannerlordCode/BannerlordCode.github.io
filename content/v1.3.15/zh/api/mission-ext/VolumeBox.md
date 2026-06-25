@@ -1,13 +1,7 @@
 ---
 title: "VolumeBox"
+description: "VolumeBox 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VolumeBox`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VolumeBox
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,40 +23,77 @@ title: "VolumeBox"
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `to check list`。
+**用途 / Purpose:** 将 「to check list」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 VolumeBox 实例
+VolumeBox volumeBox = ...;
+volumeBox.AddToCheckList(agent);
+```
 
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `from check list`。
+**用途 / Purpose:** 从当前容器或状态中移除 「from check list」。
+
+```csharp
+// 先通过子系统 API 拿到 VolumeBox 实例
+VolumeBox volumeBox = ...;
+volumeBox.RemoveFromCheckList(agent);
+```
 
 ### SetIsOccupiedDelegate
 `public void SetIsOccupiedDelegate(VolumeBox.VolumeBoxDelegate volumeBoxDelegate)`
 
-**用途 / Purpose:** 设置 `is occupied delegate` 的值或状态。
+**用途 / Purpose:** 为 「is occupied delegate」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VolumeBox 实例
+VolumeBox volumeBox = ...;
+volumeBox.SetIsOccupiedDelegate(volumeBoxDelegate);
+```
 
 ### HasAgentsInAttackerSide
 `public bool HasAgentsInAttackerSide()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `agents in attacker side`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「agents in attacker side」。
+
+```csharp
+// 先通过子系统 API 拿到 VolumeBox 实例
+VolumeBox volumeBox = ...;
+var result = volumeBox.HasAgentsInAttackerSide();
+```
 
 ### IsPointIn
 `public bool IsPointIn(Vec3 point)`
 
-**用途 / Purpose:** 处理 `is point in` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「point in」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 VolumeBox 实例
+VolumeBox volumeBox = ...;
+var result = volumeBox.IsPointIn(point);
+```
 
 ### VolumeBoxDelegate
 `public delegate void VolumeBoxDelegate(VolumeBox volumeBox, List<Agent> agentsInVolume)`
 
-**用途 / Purpose:** 处理 `volume box delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VolumeBox 实例
+VolumeBox volumeBox = ...;
+volumeBox.VolumeBoxDelegate(volumeBox, agentsInVolume);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VolumeBox();
-value.AddToCheckList(agent);
+// 通常从对应子系统 API 获取实例后调用
+VolumeBox volumeBox = ...;
+volumeBox.AddToCheckList(agent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

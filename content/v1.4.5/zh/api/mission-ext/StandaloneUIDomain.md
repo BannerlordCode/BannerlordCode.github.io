@@ -1,20 +1,14 @@
 ---
 title: "StandaloneUIDomain"
+description: "StandaloneUIDomain 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StandaloneUIDomain`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandaloneUIDomain
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StandaloneUIDomain : FrameworkDomain`
 **Base:** `FrameworkDomain`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/StandaloneUIDomain.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/StandaloneUIDomain.cs`
 
 ## 概述
 
@@ -36,20 +30,33 @@ title: "StandaloneUIDomain"
 ### Update
 `public override void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 StandaloneUIDomain 实例
+StandaloneUIDomain standaloneUIDomain = ...;
+standaloneUIDomain.Update();
+```
 
 ### Destroy
 `public override void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StandaloneUIDomain 实例
+StandaloneUIDomain standaloneUIDomain = ...;
+standaloneUIDomain.Destroy();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StandaloneUIDomain();
-value.Update();
+// 通常从对应子系统 API 获取实例后调用
+StandaloneUIDomain standaloneUIDomain = ...;
+standaloneUIDomain.Update();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

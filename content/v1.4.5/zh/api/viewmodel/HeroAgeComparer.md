@@ -1,20 +1,14 @@
 ---
 title: "HeroAgeComparer"
+description: "HeroAgeComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroAgeComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroAgeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeroAgeComparer : IComparer<HeroVM>`
 **Base:** `IComparer<HeroVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/HeroAgeComparer.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/HeroAgeComparer.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "HeroAgeComparer"
 ## 使用示例
 
 ```csharp
-var example = new HeroAgeComparer();
+// 从对应子系统 API 获取实例
+HeroAgeComparer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

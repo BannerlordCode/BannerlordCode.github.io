@@ -1,23 +1,18 @@
 ---
 title: "BattleSideEnumExtensions"
+description: "BattleSideEnumExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleSideEnumExtensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleSideEnumExtensions
 
-**命名空间:** TaleWorlds.Core
-**模块:** TaleWorlds.Core
-**类型:** `public static class BattleSideEnumExtensions`
-**领域:** core-extra
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public static class BattleSideEnumExtensions`
+**Base:** 无
+**File:** `TaleWorlds.Core/BattleSideEnumExtensions.cs`
 
 ## 概述
 
-`BattleSideEnumExtensions` 位于 `TaleWorlds.Core`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`BattleSideEnumExtensions` 位于 `TaleWorlds.Core`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,15 +23,19 @@ title: "BattleSideEnumExtensions"
 ### IsValid
 `public static bool IsValid(this BattleSideEnum battleSide)`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+BattleSideEnumExtensions.IsValid(battleSide);
+```
 
 ## 使用示例
 
 ```csharp
-BattleSideEnumExtensions example = BattleSideEnumExtensions.Value;
+BattleSideEnumExtensions.IsValid(battleSide);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-core)
+- [本区域目录](../)

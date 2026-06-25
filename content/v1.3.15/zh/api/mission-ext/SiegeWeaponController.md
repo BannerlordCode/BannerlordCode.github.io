@@ -1,13 +1,7 @@
 ---
 title: "SiegeWeaponController"
+description: "SiegeWeaponController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeWeaponController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeWeaponController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,62 +29,128 @@ title: "SiegeWeaponController"
 ### Select
 `public void Select(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 处理 `select` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeWeaponController 实例
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.Select(weapon);
+```
 
 ### ClearSelectedWeapons
 `public void ClearSelectedWeapons()`
 
-**用途 / Purpose:** 处理 `clear selected weapons` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「selected weapons」。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeWeaponController 实例
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.ClearSelectedWeapons();
+```
 
 ### Deselect
 `public void Deselect(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 处理 `deselect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeWeaponController 实例
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.Deselect(weapon);
+```
 
 ### SelectAll
 `public void SelectAll()`
 
-**用途 / Purpose:** 处理 `select all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeWeaponController 实例
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.SelectAll();
+```
 
 ### IsWeaponSelectable
 `public static bool IsWeaponSelectable(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 处理 `is weapon selectable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「weapon selectable」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+SiegeWeaponController.IsWeaponSelectable(weapon);
+```
 
 ### GetActiveOrderOf
 `public static SiegeWeaponOrderType GetActiveOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 获取 `active order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SiegeWeaponController.GetActiveOrderOf(weapon);
+```
 
 ### GetActiveMovementOrderOf
 `public static SiegeWeaponOrderType GetActiveMovementOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 获取 `active movement order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active movement order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SiegeWeaponController.GetActiveMovementOrderOf(weapon);
+```
 
 ### GetActiveFacingOrderOf
 `public static SiegeWeaponOrderType GetActiveFacingOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 获取 `active facing order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active facing order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SiegeWeaponController.GetActiveFacingOrderOf(weapon);
+```
 
 ### GetActiveFiringOrderOf
 `public static SiegeWeaponOrderType GetActiveFiringOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 获取 `active firing order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active firing order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SiegeWeaponController.GetActiveFiringOrderOf(weapon);
+```
 
 ### GetActiveAIControlOrderOf
 `public static SiegeWeaponOrderType GetActiveAIControlOrderOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 获取 `active a i control order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active a i control order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SiegeWeaponController.GetActiveAIControlOrderOf(weapon);
+```
 
 ### SetOrder
 `public void SetOrder(SiegeWeaponOrderType order)`
 
-**用途 / Purpose:** 设置 `order` 的值或状态。
+**用途 / Purpose:** 为 「order」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeWeaponController 实例
+SiegeWeaponController siegeWeaponController = ...;
+siegeWeaponController.SetOrder(order);
+```
 
 ### GetShortcutIndexOf
 `public int GetShortcutIndexOf(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 获取 `shortcut index of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「shortcut index of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeWeaponController 实例
+SiegeWeaponController siegeWeaponController = ...;
+var result = siegeWeaponController.GetShortcutIndexOf(weapon);
+```
 
 ## 使用示例
 
@@ -100,4 +160,4 @@ var controller = Mission.Current.GetMissionBehavior<SiegeWeaponController>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

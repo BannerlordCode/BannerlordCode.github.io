@@ -1,104 +1,150 @@
 ---
 title: "AgentVictoryLogic"
+description: "Auto-generated class reference for AgentVictoryLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentVictoryLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentVictoryLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** public class AgentVictoryLogic : MissionLogic
+**Type:** `public class AgentVictoryLogic : MissionLogic`
 **Base:** `MissionLogic`
 **File:** `TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
 
 ## Overview
 
-`AgentVictoryLogic` is a mission logic that drives agent victory cheers and reactions after a side wins a battle. Configure the winning side's behavior via `SetCheerActionGroup` and `SetCheerReactionTimerSettings`. Cleared on scene clear / agent removal.
+`AgentVictoryLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
 
 ## Mental Model
 
-Treat `AgentVictoryLogic` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `AgentVictoryLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `CheerActionGroup` | `public AgentVictoryLogic.CheerActionGroupEnum CheerActionGroup { get { return this._cheerActionGroup; }` |
-| `CheerReactionTimerData` | `public AgentVictoryLogic.CheerReactionTimeSettings CheerReactionTimerData { get { return this._cheerReactionTimerData; }` |
+| `CheerActionGroup` | `public AgentVictoryLogic.CheerActionGroupEnum CheerActionGroup { get; }` |
+| `CheerReactionTimerData` | `public AgentVictoryLogic.CheerReactionTimeSettings CheerReactionTimerData { get; }` |
+| `GotOrderRecently` | `public bool GotOrderRecently { get; }` |
+| `IsCheeringPaused` | `public bool IsCheeringPaused { get; }` |
 
 ## Key Methods
 
 ### AfterStart
+`public override void AfterStart()`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public override void AfterStart()
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.AfterStart();
 ```
 
 ### SetCheerActionGroup
+`public void SetCheerActionGroup(AgentVictoryLogic.CheerActionGroupEnum cheerActionGroup = AgentVictoryLogic.CheerActionGroupEnum.None)`
+
+**Purpose:** Assigns a new value to `cheer action group` and updates the object's internal state.
+
 ```csharp
-public void SetCheerActionGroup(AgentVictoryLogic.CheerActionGroupEnum cheerActionGroup = AgentVictoryLogic.CheerActionGroupEnum.None)
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetCheerActionGroup(agentVictoryLogic.CheerActionGroupEnum.None);
 ```
 
 ### SetCheerReactionTimerSettings
+`public void SetCheerReactionTimerSettings(float minDuration = 1f, float maxDuration = 8f)`
+
+**Purpose:** Assigns a new value to `cheer reaction timer settings` and updates the object's internal state.
+
 ```csharp
-public void SetCheerReactionTimerSettings(float minDuration = 1f, float maxDuration = 8f)
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetCheerReactionTimerSettings(0, 0);
 ```
 
 ### OnClearScene
+`public override void OnClearScene()`
+
+**Purpose:** Invoked when the `clear scene` event is raised.
+
 ```csharp
-public override void OnClearScene()
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnClearScene();
 ```
 
 ### OnAgentRemoved
+`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+
+**Purpose:** Invoked when the `agent removed` event is raised.
+
 ```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
 ```
 
 ### OnMissionTick
+`public override void OnMissionTick(float dt)`
+
+**Purpose:** Invoked when the `mission tick` event is raised.
+
 ```csharp
-public override void OnMissionTick(float dt)
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OnMissionTick(0);
 ```
 
 ### SetTimersOfVictoryReactionsOnBattleEnd
+`public void SetTimersOfVictoryReactionsOnBattleEnd(BattleSideEnum side)`
+
+**Purpose:** Assigns a new value to `timers of victory reactions on battle end` and updates the object's internal state.
+
 ```csharp
-public void SetTimersOfVictoryReactionsOnBattleEnd(BattleSideEnum side)
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnBattleEnd(side);
 ```
 
 ### SetTimersOfVictoryReactionsOnRetreat
+`public void SetTimersOfVictoryReactionsOnRetreat(BattleSideEnum side)`
+
+**Purpose:** Assigns a new value to `timers of victory reactions on retreat` and updates the object's internal state.
+
 ```csharp
-public void SetTimersOfVictoryReactionsOnRetreat(BattleSideEnum side)
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnRetreat(side);
 ```
 
 ### SetTimersOfVictoryReactionsOnTournamentVictoryForAgent
+`public void SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(Agent agent, float minStartTime, float maxStartTime)`
+
+**Purpose:** Assigns a new value to `timers of victory reactions on tournament victory for agent` and updates the object's internal state.
+
 ```csharp
-public void SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(Agent agent, float minStartTime, float maxStartTime)
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(agent, 0, 0);
 ```
 
 ### OrderReceived
+`public void OrderReceived()`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public void OrderReceived()
+// Obtain an instance of AgentVictoryLogic from the subsystem API first
+AgentVictoryLogic agentVictoryLogic = ...;
+agentVictoryLogic.OrderReceived();
 ```
 
 ## Usage Example
 
 ```csharp
-// After deciding a winner, make the surviving side cheer
-var victoryLogic = Mission.Current.GetMissionBehavior<AgentVictoryLogic>();
-if (victoryLogic != null)
-{
-    victoryLogic.SetCheerActionGroup(AgentVictoryLogic.CheerActionGroupEnum.Cheer);
-    victoryLogic.SetCheerReactionTimerSettings(new AgentVictoryLogic.CheerReactionTimeSettings
-    {
-        MinReactionTime = 1.5f,
-        MaxReactionTime = 4f
-    });
-}
+var behavior = Mission.Current.GetMissionBehavior<AgentVictoryLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

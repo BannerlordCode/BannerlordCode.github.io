@@ -1,20 +1,14 @@
 ---
 title: "ValuationModel"
+description: "ValuationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ValuationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ValuationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ValuationModel : MBGameModel<ValuationModel>`
 **Base:** `MBGameModel<ValuationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ValuationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ValuationModel.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "ValuationModel"
 ### GetValueOfTroop
 `public abstract float GetValueOfTroop(CharacterObject troop)`
 
-**用途 / Purpose:** 获取 `value of troop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of troop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ValuationModel 实例
+ValuationModel valuationModel = ...;
+var result = valuationModel.GetValueOfTroop(troop);
+```
 
 ### GetMilitaryValueOfParty
 `public abstract float GetMilitaryValueOfParty(MobileParty party)`
 
-**用途 / Purpose:** 获取 `military value of party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「military value of party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ValuationModel 实例
+ValuationModel valuationModel = ...;
+var result = valuationModel.GetMilitaryValueOfParty(party);
+```
 
 ### GetValueOfHero
 `public abstract float GetValueOfHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `value of hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ValuationModel 实例
+ValuationModel valuationModel = ...;
+var result = valuationModel.GetValueOfHero(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomValuationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ValuationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "BrightnessDemoTableau"
+description: "Auto-generated class reference for BrightnessDemoTableau."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrightnessDemoTableau`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrightnessDemoTableau
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
@@ -35,35 +29,66 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### SetDemoType
 `public void SetDemoType(int demoType)`
 
-**Purpose:** Sets the value or state of `demo type`.
+**Purpose:** Assigns a new value to `demo type` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrightnessDemoTableau from the subsystem API first
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.SetDemoType(0);
+```
 
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrightnessDemoTableau from the subsystem API first
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.SetTargetSize(0, 0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of BrightnessDemoTableau from the subsystem API first
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.OnFinalize();
+```
 
 ### SetScene
 `public void SetScene()`
 
-**Purpose:** Sets the value or state of `scene`.
+**Purpose:** Assigns a new value to `scene` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrightnessDemoTableau from the subsystem API first
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.SetScene();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of BrightnessDemoTableau from the subsystem API first
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.OnTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrightnessDemoTableau();
-value.SetDemoType(0);
+// Typically call this after obtaining an instance from the subsystem API
+BrightnessDemoTableau brightnessDemoTableau = ...;
+brightnessDemoTableau.SetDemoType(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

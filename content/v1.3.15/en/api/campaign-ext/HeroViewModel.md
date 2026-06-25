@@ -1,13 +1,7 @@
 ---
 title: "HeroViewModel"
+description: "Auto-generated class reference for HeroViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroViewModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HeroViewModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -35,25 +29,44 @@ Treat `HeroViewModel` as a ViewModel-style extension point: first identify who c
 ### SetEquipment
 `public override void SetEquipment(Equipment equipment)`
 
-**Purpose:** Sets the value or state of `equipment`.
+**Purpose:** Assigns a new value to `equipment` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeroViewModel from the subsystem API first
+HeroViewModel heroViewModel = ...;
+heroViewModel.SetEquipment(equipment);
+```
 
 ### FillFrom
 `public void FillFrom(Hero hero, int seed = -1, bool useCivilian = false, bool useCharacteristicIdleAction = false)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HeroViewModel from the subsystem API first
+HeroViewModel heroViewModel = ...;
+heroViewModel.FillFrom(hero, 0, false, false);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of HeroViewModel from the subsystem API first
+HeroViewModel heroViewModel = ...;
+heroViewModel.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var vm = new HeroViewModel();
+// Bind the instance as the view-model of a movie or view
+HeroViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

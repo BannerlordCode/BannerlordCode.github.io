@@ -1,20 +1,14 @@
 ---
 title: "SteamAvatarService"
+description: "Auto-generated class reference for SteamAvatarService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamAvatarService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamAvatarService
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class SteamAvatarService : ApiAvatarServiceBase`
 **Base:** `ApiAvatarServiceBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/SteamAvatarService.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/SteamAvatarService.cs`
 
 ## Overview
 
@@ -48,9 +42,10 @@ Start from namespace `TaleWorlds.PlayerServices.Avatar` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new SteamAvatarService();
+// Obtain an instance from the relevant subsystem API
+SteamAvatarService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

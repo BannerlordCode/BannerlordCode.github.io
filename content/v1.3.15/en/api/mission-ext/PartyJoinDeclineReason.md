@@ -1,18 +1,12 @@
 ---
 title: "PartyJoinDeclineReason"
+description: "Auto-generated class reference for PartyJoinDeclineReason."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyJoinDeclineReason`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyJoinDeclineReason
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum PartyJoinDeclineReason`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/PartyJoinDeclineReason.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new PartyJoinDeclineReason();
+// Obtain an instance from the relevant subsystem API
+PartyJoinDeclineReason instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

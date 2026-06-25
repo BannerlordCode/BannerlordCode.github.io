@@ -1,13 +1,7 @@
 ---
 title: "TileBase"
+description: "Auto-generated class reference for TileBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TileBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TileBase
 
 **Namespace:** SandBox.BoardGames.Tiles
@@ -36,24 +30,43 @@ Start from namespace `SandBox.BoardGames.Tiles` to place it in the stack, then i
 ### Reset
 `public virtual void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of TileBase from the subsystem API first
+TileBase tileBase = ...;
+tileBase.Reset();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TileBase from the subsystem API first
+TileBase tileBase = ...;
+tileBase.Tick(0);
+```
 
 ### SetVisibility
 `public void SetVisibility(bool isVisible)`
 
-**Purpose:** Sets the value or state of `visibility`.
+**Purpose:** Assigns a new value to `visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TileBase from the subsystem API first
+TileBase tileBase = ...;
+tileBase.SetVisibility(false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTileBase();
+// Typically obtained from a subsystem API or factory
+TileBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

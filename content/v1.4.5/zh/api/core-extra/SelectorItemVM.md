@@ -1,20 +1,14 @@
 ---
 title: "SelectorItemVM"
+description: "SelectorItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SelectorItemVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectorItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Selector
 **Module:** TaleWorlds.Core
 **Type:** `public class SelectorItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Selector/SelectorItemVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Selector/SelectorItemVM.cs`
 
 ## 概述
 
@@ -38,15 +32,22 @@ title: "SelectorItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorItemVM 实例
+SelectorItemVM selectorItemVM = ...;
+selectorItemVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SelectorItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SelectorItemVM selectorItemVM = ...;
+selectorItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

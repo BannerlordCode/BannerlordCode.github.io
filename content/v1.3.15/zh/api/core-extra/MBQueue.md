@@ -1,13 +1,7 @@
 ---
 title: "MBQueue"
+description: "MBQueue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBQueue`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBQueue
 
 **Namespace:** TaleWorlds.Library
@@ -29,15 +23,22 @@ title: "MBQueue"
 ### Remove
 `public bool Remove(T item)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 MBQueue 实例
+MBQueue mBQueue = ...;
+var result = mBQueue.Remove(item);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBQueue();
-value.Remove(item);
+// 通常从对应子系统 API 获取实例后调用
+MBQueue mBQueue = ...;
+mBQueue.Remove(item);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

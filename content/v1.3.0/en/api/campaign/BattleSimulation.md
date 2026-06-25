@@ -1,13 +1,7 @@
 ---
 title: "BattleSimulation"
+description: "Auto-generated class reference for BattleSimulation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSimulation`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSimulation
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -38,65 +32,132 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Play
 `public void Play()`
 
-**Purpose:** Handles logic related to `play`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.Play();
+```
 
 ### FastForward
 `public void FastForward()`
 
-**Purpose:** Handles logic related to `fast forward`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.FastForward();
+```
 
 ### Skip
 `public void Skip()`
 
-**Purpose:** Handles logic related to `skip`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.Skip();
+```
 
 ### Pause
 `public void Pause()`
 
-**Purpose:** Handles logic related to `pause`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.Pause();
+```
 
 ### OnReturn
 `public void OnReturn()`
 
-**Purpose:** Called when the `return` event is raised.
+**Purpose:** Invoked when the `return` event is raised.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.OnReturn();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.Tick(0);
+```
 
 ### ResetSimulation
 `public void ResetSimulation()`
 
-**Purpose:** Resets `simulation` to its initial state.
+**Purpose:** Returns `simulation` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.ResetSimulation();
+```
 
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberKilled = 0, int numberWounded = 0, int numberRouted = 0, int killCount = 0, int numberReadyToUpgrade = 0)`
 
-**Purpose:** Handles logic related to `troop number changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.TroopNumberChanged(side, battleCombatant, character, 0, 0, 0, 0, 0, 0);
+```
 
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject skill)`
 
-**Purpose:** Handles logic related to `hero skill increased`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.HeroSkillIncreased(side, battleCombatant, heroCharacter, skill);
+```
 
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**Purpose:** Handles logic related to `battle results ready`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.BattleResultsReady();
+```
 
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**Purpose:** Handles logic related to `troop side changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleSimulation from the subsystem API first
+BattleSimulation battleSimulation = ...;
+battleSimulation.TroopSideChanged(prevSide, newSide, battleCombatant, character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattleSimulation();
-value.Play();
+// Typically call this after obtaining an instance from the subsystem API
+BattleSimulation battleSimulation = ...;
+battleSimulation.Play();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

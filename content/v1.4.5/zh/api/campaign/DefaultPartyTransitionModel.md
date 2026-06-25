@@ -1,20 +1,14 @@
 ---
 title: "DefaultPartyTransitionModel"
+description: "DefaultPartyTransitionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyTransitionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyTransitionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPartyTransitionModel : PartyTransitionModel`
 **Base:** `PartyTransitionModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyTransitionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyTransitionModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultPartyTransitionModel"
 ### GetFleetTravelTimeToSettlement
 `public override CampaignTime GetFleetTravelTimeToSettlement(MobileParty mobileParty, Settlement targetSettlement)`
 
-**用途 / Purpose:** 获取 `fleet travel time to settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「fleet travel time to settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetFleetTravelTimeToSettlement(mobileParty, targetSettlement);
+```
 
 ### GetTransitionTimeDisembarking
 `public override CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `transition time disembarking` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「transition time disembarking」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetTransitionTimeDisembarking(mobileParty);
+```
 
 ### GetTransitionTimeForEmbarking
 `public override CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `transition time for embarking` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「transition time for embarking」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTransitionModel 实例
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetTransitionTimeForEmbarking(mobileParty);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPartyTransitionModel>(new MyDefaultPartyTransit
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

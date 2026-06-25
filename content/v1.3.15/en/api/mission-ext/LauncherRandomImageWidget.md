@@ -1,13 +1,7 @@
 ---
 title: "LauncherRandomImageWidget"
+description: "Auto-generated class reference for LauncherRandomImageWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherRandomImageWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherRandomImageWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
@@ -34,9 +28,10 @@ Treat `LauncherRandomImageWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new LauncherRandomImageWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+LauncherRandomImageWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

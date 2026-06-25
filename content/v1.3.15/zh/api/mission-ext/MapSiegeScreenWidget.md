@@ -1,13 +1,7 @@
 ---
 title: "MapSiegeScreenWidget"
+description: "MapSiegeScreenWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapSiegeScreenWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapSiegeScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
@@ -35,14 +29,21 @@ title: "MapSiegeScreenWidget"
 ### SetCurrentButton
 `public void SetCurrentButton(MapSiegeMachineButtonWidget button)`
 
-**用途 / Purpose:** 设置 `current button` 的值或状态。
+**用途 / Purpose:** 为 「current button」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeScreenWidget 实例
+MapSiegeScreenWidget mapSiegeScreenWidget = ...;
+mapSiegeScreenWidget.SetCurrentButton(button);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MapSiegeScreenWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MapSiegeScreenWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

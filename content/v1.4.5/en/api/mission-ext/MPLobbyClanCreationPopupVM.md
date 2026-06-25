@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanCreationPopupVM"
+description: "Auto-generated class reference for MPLobbyClanCreationPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanCreationPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanCreationPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanCreationPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanCreationPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanCreationPopupVM.cs`
 
 ## Overview
 
@@ -55,55 +49,110 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.RefreshValues();
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Executes the `open popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.ExecuteClosePopup();
+```
 
 ### UpdateFactionErrorText
 `public void UpdateFactionErrorText()`
 
-**Purpose:** Updates the state or data of `faction error text`.
+**Purpose:** Recalculates and stores the latest representation of `faction error text`.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.UpdateFactionErrorText();
+```
 
 ### UpdateSigilIconErrorText
 `public void UpdateSigilIconErrorText()`
 
-**Purpose:** Updates the state or data of `sigil icon error text`.
+**Purpose:** Recalculates and stores the latest representation of `sigil icon error text`.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.UpdateSigilIconErrorText();
+```
 
 ### UpdateConfirmation
 `public void UpdateConfirmation(PlayerId playerId, ClanCreationAnswer answer)`
 
-**Purpose:** Updates the state or data of `confirmation`.
+**Purpose:** Recalculates and stores the latest representation of `confirmation`.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.UpdateConfirmation(playerId, answer);
+```
 
 ### ExecuteSwitchToWaiting
 `public void ExecuteSwitchToWaiting()`
 
-**Purpose:** Executes the `switch to waiting` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch to waiting`.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.ExecuteSwitchToWaiting();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.SetCancelInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanCreationPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanCreationPopupVM mPLobbyClanCreationPopupVM = ...;
+mPLobbyClanCreationPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

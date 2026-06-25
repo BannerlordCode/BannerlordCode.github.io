@@ -1,20 +1,14 @@
 ---
 title: "MetaDataExtensions"
+description: "Auto-generated class reference for MetaDataExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MetaDataExtensions`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MetaDataExtensions
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public static class MetaDataExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/MetaDataExtensions.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/MetaDataExtensions.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### GetApplicationVersion
 `public static ApplicationVersion GetApplicationVersion(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `application version`.
+**Purpose:** Reads and returns the `application version` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetApplicationVersion(metaData);
+```
 
 ### GetNewGameVersion
 `public static ApplicationVersion GetNewGameVersion(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `new game version`.
+**Purpose:** Reads and returns the `new game version` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetNewGameVersion(metaData);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ MetaDataExtensions.GetApplicationVersion(metaData);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

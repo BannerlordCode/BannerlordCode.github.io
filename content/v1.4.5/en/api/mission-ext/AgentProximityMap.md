@@ -1,20 +1,14 @@
 ---
 title: "AgentProximityMap"
+description: "Auto-generated class reference for AgentProximityMap."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentProximityMap`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentProximityMap
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentProximityMap`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentProximityMap.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentProximityMap.cs`
 
 ## Overview
 
@@ -35,17 +29,32 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CanSearchRadius
 `public static bool CanSearchRadius(float searchRadius)`
 
-**Purpose:** Checks whether the current object can `search radius`.
+**Purpose:** Checks whether the current object meets the preconditions for `search radius`.
+
+```csharp
+// Static call; no instance required
+AgentProximityMap.CanSearchRadius(0);
+```
 
 ### BeginSearch
 `public static ProximityMapSearchStruct BeginSearch(Mission mission, Vec2 searchPos, float searchRadius, bool extendRangeByBiggestAgentCollisionPadding = false)`
 
-**Purpose:** Handles logic related to `begin search`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+AgentProximityMap.BeginSearch(mission, searchPos, 0, false);
+```
 
 ### FindNext
 `public static void FindNext(Mission mission, ref ProximityMapSearchStruct searchStruct)`
 
-**Purpose:** Handles logic related to `find next`.
+**Purpose:** Looks up the matching `next` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+AgentProximityMap.FindNext(mission, searchStruct);
+```
 
 ## Usage Example
 
@@ -55,4 +64,4 @@ AgentProximityMap.CanSearchRadius(0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

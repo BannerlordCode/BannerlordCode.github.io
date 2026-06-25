@@ -1,20 +1,14 @@
 ---
 title: "SkillObjectComparer"
+description: "Auto-generated class reference for SkillObjectComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillObjectComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillObjectComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SkillObjectComparer : IComparer<SkillObject>`
 **Base:** `IComparer<SkillObject>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignUIHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignUIHelper.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Compare
 `public int Compare(SkillObject x, SkillObject y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SkillObjectComparer from the subsystem API first
+SkillObjectComparer skillObjectComparer = ...;
+var result = skillObjectComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkillObjectComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+SkillObjectComparer skillObjectComparer = ...;
+skillObjectComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

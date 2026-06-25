@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerGameModeBaseClient"
+description: "MissionMultiplayerGameModeBaseClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerGameModeBaseClient`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerGameModeBaseClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -51,54 +45,109 @@ title: "MissionMultiplayerGameModeBaseClient"
 ### GetGoldAmount
 `public abstract int GetGoldAmount()`
 
-**用途 / Purpose:** 获取 `gold amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.GetGoldAmount();
+```
 
 ### GetMissionCameraLockMode
 `public virtual SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-**用途 / Purpose:** 获取 `mission camera lock mode` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission camera lock mode」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.GetMissionCameraLockMode(false);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+missionMultiplayerGameModeBaseClient.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+missionMultiplayerGameModeBaseClient.EarlyStart();
+```
 
 ### CheckTimer
 `public bool CheckTimer(out int remainingTime, out int remainingWarningTime, bool forceUpdate = false)`
 
-**用途 / Purpose:** 处理 `check timer` 相关逻辑。
+**用途 / Purpose:** 检查「timer」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.CheckTimer(remainingTime, remainingWarningTime, false);
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public abstract void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**用途 / Purpose:** 当 `gold amount changed for representative` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「gold amount changed for representative」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+missionMultiplayerGameModeBaseClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### CanRequestTroopChange
 `public virtual bool CanRequestTroopChange()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `request troop change`。
+**用途 / Purpose:** 检查当前对象是否满足 「request troop change」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.CanRequestTroopChange();
+```
 
 ### CanRequestCultureChange
 `public virtual bool CanRequestCultureChange()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `request culture change`。
+**用途 / Purpose:** 检查当前对象是否满足 「request culture change」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.CanRequestCultureChange();
+```
 
 ### IsClassAvailable
 `public bool IsClassAvailable(MultiplayerClassDivisions.MPHeroClass heroClass)`
 
-**用途 / Purpose:** 处理 `is class available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「class available」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBaseClient 实例
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.IsClassAvailable(heroClass);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionMultiplayerGameModeBaseClient();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionMultiplayerGameModeBaseClient instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

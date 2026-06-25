@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletConversationView"
+description: "Auto-generated class reference for MissionGauntletConversationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletConversationView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletConversationView
 
 **Namespace:** SandBox.GauntletUI.Missions
@@ -35,34 +29,65 @@ Treat `MissionGauntletConversationView` as a View-style extension point: first i
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletConversationView from the subsystem API first
+MissionGauntletConversationView missionGauntletConversationView = ...;
+missionGauntletConversationView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletConversationView from the subsystem API first
+MissionGauntletConversationView missionGauntletConversationView = ...;
+missionGauntletConversationView.OnMissionScreenFinalize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletConversationView from the subsystem API first
+MissionGauntletConversationView missionGauntletConversationView = ...;
+missionGauntletConversationView.EarlyStart();
+```
 
 ### OnMissionScreenActivate
 `public override void OnMissionScreenActivate()`
 
-**Purpose:** Called when the `mission screen activate` event is raised.
+**Purpose:** Invoked when the `mission screen activate` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletConversationView from the subsystem API first
+MissionGauntletConversationView missionGauntletConversationView = ...;
+missionGauntletConversationView.OnMissionScreenActivate();
+```
 
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**Purpose:** Called when the `mission mode change` event is raised.
+**Purpose:** Invoked when the `mission mode change` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletConversationView from the subsystem API first
+MissionGauntletConversationView missionGauntletConversationView = ...;
+missionGauntletConversationView.OnMissionModeChange(oldMissionMode, false);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletConversationView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletConversationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

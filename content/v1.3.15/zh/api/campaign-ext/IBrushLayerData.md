@@ -1,18 +1,12 @@
 ---
 title: "IBrushLayerData"
+description: "IBrushLayerData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IBrushLayerData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IBrushLayerData
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface IBrushLayerData`
 **Base:** 无
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/IBrushLayerData.cs`
 
@@ -27,9 +21,10 @@ title: "IBrushLayerData"
 ## 使用示例
 
 ```csharp
-IBrushLayerData implementation = GetBrushLayerDataImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIBrushLayerData service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

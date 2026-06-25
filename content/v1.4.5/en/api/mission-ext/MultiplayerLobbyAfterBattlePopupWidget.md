@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyAfterBattlePopupWidget"
+description: "Auto-generated class reference for MultiplayerLobbyAfterBattlePopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyAfterBattlePopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyAfterBattlePopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyAfterBattlePopupWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyAfterBattlePopupWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby/MultiplayerLobbyAfterBattlePopupWidget.cs`
 
 ## Overview
 
@@ -41,14 +35,21 @@ Treat `MultiplayerLobbyAfterBattlePopupWidget` as a Widget-style extension point
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Handles logic related to `start animation`.
+**Purpose:** Starts the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyAfterBattlePopupWidget from the subsystem API first
+MultiplayerLobbyAfterBattlePopupWidget multiplayerLobbyAfterBattlePopupWidget = ...;
+multiplayerLobbyAfterBattlePopupWidget.StartAnimation();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyAfterBattlePopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyAfterBattlePopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

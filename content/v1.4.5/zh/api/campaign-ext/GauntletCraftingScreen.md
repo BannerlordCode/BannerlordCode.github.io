@@ -1,20 +1,14 @@
 ---
 title: "GauntletCraftingScreen"
+description: "GauntletCraftingScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletCraftingScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletCraftingScreen
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletCraftingScreen : ScreenBase, ICraftingStateHandler, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletCraftingScreen.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletCraftingScreen.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "GauntletCraftingScreen"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletCraftingScreen 实例
+GauntletCraftingScreen gauntletCraftingScreen = ...;
+gauntletCraftingScreen.Initialize();
+```
 
 ### OnCraftingLogicInitialized
 `public void OnCraftingLogicInitialized()`
 
-**用途 / Purpose:** 当 `crafting logic initialized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting logic initialized」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletCraftingScreen 实例
+GauntletCraftingScreen gauntletCraftingScreen = ...;
+gauntletCraftingScreen.OnCraftingLogicInitialized();
+```
 
 ### OnCraftingLogicRefreshed
 `public void OnCraftingLogicRefreshed()`
 
-**用途 / Purpose:** 当 `crafting logic refreshed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「crafting logic refreshed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletCraftingScreen 实例
+GauntletCraftingScreen gauntletCraftingScreen = ...;
+gauntletCraftingScreen.OnCraftingLogicRefreshed();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletCraftingScreen();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+GauntletCraftingScreen gauntletCraftingScreen = ...;
+gauntletCraftingScreen.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

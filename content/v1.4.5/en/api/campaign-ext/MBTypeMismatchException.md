@@ -1,20 +1,14 @@
 ---
 title: "MBTypeMismatchException"
+description: "Auto-generated class reference for MBTypeMismatchException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTypeMismatchException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTypeMismatchException
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBTypeMismatchException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBTypeMismatchException.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBTypeMismatchException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBTypeMismatchException` as a Exception-style extension point: first iden
 ## Usage Example
 
 ```csharp
-try { CallMBTypeMismatchException(); } catch (MBTypeMismatchException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBTypeMismatchException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

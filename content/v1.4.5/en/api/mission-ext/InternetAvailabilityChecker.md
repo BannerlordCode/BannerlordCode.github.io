@@ -1,20 +1,14 @@
 ---
 title: "InternetAvailabilityChecker"
+description: "Auto-generated class reference for InternetAvailabilityChecker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InternetAvailabilityChecker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InternetAvailabilityChecker
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class InternetAvailabilityChecker`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/InternetAvailabilityChecker.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/InternetAvailabilityChecker.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ## Usage Example
 
 ```csharp
-var value = new InternetAvailabilityChecker();
+// Obtain an instance from the relevant subsystem API
+InternetAvailabilityChecker instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SupportedFactionDefeatedSceneNotificationItem"
+description: "SupportedFactionDefeatedSceneNotificationItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SupportedFactionDefeatedSceneNotificationItem`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SupportedFactionDefeatedSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -38,15 +32,22 @@ title: "SupportedFactionDefeatedSceneNotificationItem"
 ### GetBanners
 `public override Banner GetBanners()`
 
-**用途 / Purpose:** 获取 `banners` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banners」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SupportedFactionDefeatedSceneNotificationItem 实例
+SupportedFactionDefeatedSceneNotificationItem supportedFactionDefeatedSceneNotificationItem = ...;
+var result = supportedFactionDefeatedSceneNotificationItem.GetBanners();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SupportedFactionDefeatedSceneNotificationItem();
-value.GetBanners();
+// 通常从对应子系统 API 获取实例后调用
+SupportedFactionDefeatedSceneNotificationItem supportedFactionDefeatedSceneNotificationItem = ...;
+supportedFactionDefeatedSceneNotificationItem.GetBanners();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

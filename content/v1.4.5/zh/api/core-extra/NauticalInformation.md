@@ -1,20 +1,14 @@
 ---
 title: "NauticalInformation"
+description: "NauticalInformation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NauticalInformation`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NauticalInformation
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct NauticalInformation`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/NauticalInformation.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/NauticalInformation.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "NauticalInformation"
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**用途 / Purpose:** 处理 `deserialize from` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原出「from」。
+
+```csharp
+// 先通过子系统 API 拿到 NauticalInformation 实例
+NauticalInformation nauticalInformation = ...;
+nauticalInformation.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**用途 / Purpose:** 处理 `serialize to` 相关逻辑。
+**用途 / Purpose:** 将「to」序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 NauticalInformation 实例
+NauticalInformation nauticalInformation = ...;
+nauticalInformation.SerializeTo(writer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NauticalInformation();
-value.DeserializeFrom(reader);
+// 通常从对应子系统 API 获取实例后调用
+NauticalInformation nauticalInformation = ...;
+nauticalInformation.DeserializeFrom(reader);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

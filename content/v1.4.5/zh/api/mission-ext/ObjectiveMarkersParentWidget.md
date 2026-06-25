@@ -1,20 +1,14 @@
 ---
 title: "ObjectiveMarkersParentWidget"
+description: "ObjectiveMarkersParentWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ObjectiveMarkersParentWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ObjectiveMarkersParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ObjectiveMarkersParentWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/ObjectiveMarkersParentWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/ObjectiveMarkersParentWidget.cs`
 
 ## 概述
 
@@ -39,19 +33,32 @@ title: "ObjectiveMarkersParentWidget"
 ### Compare
 `public int Compare(ObjectiveMarkerWidget x, ObjectiveMarkerWidget y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectiveMarkersParentWidget 实例
+ObjectiveMarkersParentWidget objectiveMarkersParentWidget = ...;
+var result = objectiveMarkersParentWidget.Compare(x, y);
+```
 
 ### Compare
 `public int Compare(Widget x, Widget y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectiveMarkersParentWidget 实例
+ObjectiveMarkersParentWidget objectiveMarkersParentWidget = ...;
+var result = objectiveMarkersParentWidget.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ObjectiveMarkersParentWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ObjectiveMarkersParentWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

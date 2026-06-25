@@ -1,13 +1,7 @@
 ---
 title: "MissionBoardGameDebugHandler"
+description: "Auto-generated class reference for MissionBoardGameDebugHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBoardGameDebugHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoardGameDebugHandler
 
 **Namespace:** SandBox.BoardGames.MissionLogics
@@ -27,9 +21,9 @@ Treat `MissionBoardGameDebugHandler` as a Handler-style extension point: first i
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBoardGameDebugHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionBoardGameDebugHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

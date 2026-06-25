@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerViewSubModule"
+description: "Auto-generated class reference for MultiplayerViewSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerViewSubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerViewSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerViewSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View/MultiplayerViewSubModule.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View/MultiplayerViewSubModule.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.View` to place it in 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerViewSubModule();
+// Obtain an instance from the relevant subsystem API
+MultiplayerViewSubModule instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

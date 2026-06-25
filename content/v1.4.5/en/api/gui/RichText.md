@@ -1,20 +1,14 @@
 ---
 title: "RichText"
+description: "Auto-generated class reference for RichText."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichText`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RichText
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class RichText : IText`
 **Base:** `IText`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichText.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichText.cs`
 
 ## Overview
 
@@ -42,40 +36,77 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Update
 `public virtual void Update(float dt, SpriteData spriteData, Vector2 focusPosition, bool focus, bool isFixedWidth, bool isFixedHeight, float renderScale)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of RichText from the subsystem API first
+RichText richText = ...;
+richText.Update(0, spriteData, focusPosition, false, false, false, 0);
+```
 
 ### SetAllDirty
 `public void SetAllDirty()`
 
-**Purpose:** Sets the value or state of `all dirty`.
+**Purpose:** Assigns a new value to `all dirty` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RichText from the subsystem API first
+RichText richText = ...;
+richText.SetAllDirty();
+```
 
 ### GetPreferredSize
 `public Vector2 GetPreferredSize(bool fixedWidth, float widthSize, bool fixedHeight, float heightSize, SpriteData spriteData, float renderScale)`
 
-**Purpose:** Gets the current value of `preferred size`.
+**Purpose:** Reads and returns the `preferred size` value held by the current object.
+
+```csharp
+// Obtain an instance of RichText from the subsystem API first
+RichText richText = ...;
+var result = richText.GetPreferredSize(false, 0, false, 0, spriteData, 0);
+```
 
 ### CalculateTextOutput
 `public void CalculateTextOutput(float width, float height, SpriteData spriteData, float renderScale)`
 
-**Purpose:** Handles logic related to `calculate text output`.
+**Purpose:** Calculates the current value or result of `text output`.
+
+```csharp
+// Obtain an instance of RichText from the subsystem API first
+RichText richText = ...;
+richText.CalculateTextOutput(0, 0, spriteData, 0);
+```
 
 ### UpdateSize
 `public void UpdateSize(int width, int height)`
 
-**Purpose:** Updates the state or data of `size`.
+**Purpose:** Recalculates and stores the latest representation of `size`.
+
+```csharp
+// Obtain an instance of RichText from the subsystem API first
+RichText richText = ...;
+richText.UpdateSize(0, 0);
+```
 
 ### GetParts
 `public List<RichTextPart> GetParts()`
 
-**Purpose:** Gets the current value of `parts`.
+**Purpose:** Reads and returns the `parts` value held by the current object.
+
+```csharp
+// Obtain an instance of RichText from the subsystem API first
+RichText richText = ...;
+var result = richText.GetParts();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RichText();
-value.Update(0, spriteData, focusPosition, false, false, false, 0);
+// Typically call this after obtaining an instance from the subsystem API
+RichText richText = ...;
+richText.Update(0, spriteData, focusPosition, false, false, false, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

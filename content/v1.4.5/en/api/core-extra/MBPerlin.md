@@ -1,20 +1,14 @@
 ---
 title: "MBPerlin"
+description: "Auto-generated class reference for MBPerlin."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBPerlin`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBPerlin
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBPerlin`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBPerlin.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBPerlin.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Noise
 `public static float Noise(float x, float y, float z)`
 
-**Purpose:** Handles logic related to `noise`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBPerlin.Noise(0, 0, 0);
+```
 
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float t)`
 
-**Purpose:** Handles logic related to `noise vec3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBPerlin.NoiseVec3(0);
+```
 
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float x, float y, float z)`
 
-**Purpose:** Handles logic related to `noise vec3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBPerlin.NoiseVec3(0, 0, 0);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ MBPerlin.Noise(0, 0, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

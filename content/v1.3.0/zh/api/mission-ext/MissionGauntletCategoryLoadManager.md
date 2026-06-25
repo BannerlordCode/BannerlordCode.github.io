@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletCategoryLoadManager"
+description: "MissionGauntletCategoryLoadManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletCategoryLoadManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletCategoryLoadManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
@@ -29,17 +23,35 @@ title: "MissionGauntletCategoryLoadManager"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletCategoryLoadManager 实例
+MissionGauntletCategoryLoadManager missionGauntletCategoryLoadManager = ...;
+missionGauntletCategoryLoadManager.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletCategoryLoadManager 实例
+MissionGauntletCategoryLoadManager missionGauntletCategoryLoadManager = ...;
+missionGauntletCategoryLoadManager.OnMissionScreenFinalize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletCategoryLoadManager 实例
+MissionGauntletCategoryLoadManager missionGauntletCategoryLoadManager = ...;
+missionGauntletCategoryLoadManager.OnMissionTick(0);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ var manager = MissionGauntletCategoryLoadManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

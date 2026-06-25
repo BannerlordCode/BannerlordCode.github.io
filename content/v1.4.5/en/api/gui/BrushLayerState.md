@@ -1,20 +1,14 @@
 ---
 title: "BrushLayerState"
+description: "Auto-generated class reference for BrushLayerState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushLayerState`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushLayerState
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public struct BrushLayerState : IBrushAnimationState, IDataSource`
 **Base:** `IBrushAnimationState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushLayerState.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushLayerState.cs`
 
 ## Overview
 
@@ -29,55 +23,109 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(IBrushLayerData styleLayer)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BrushLayerState from the subsystem API first
+BrushLayerState brushLayerState = ...;
+brushLayerState.FillFrom(styleLayer);
+```
 
 ### LerpFrom
 `public void LerpFrom(BrushLayerState start, IBrushLayerData end, float ratio)`
 
-**Purpose:** Handles logic related to `lerp from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BrushLayerState from the subsystem API first
+BrushLayerState brushLayerState = ...;
+brushLayerState.LerpFrom(start, end, 0);
+```
 
 ### SetValueAsFloat
 `public void SetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType, float value)`
 
-**Purpose:** Sets the value or state of `value as float`.
+**Purpose:** Assigns a new value to `value as float` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushLayerState from the subsystem API first
+BrushLayerState brushLayerState = ...;
+brushLayerState.SetValueAsFloat(propertyType, 0);
+```
 
 ### SetValueAsColor
 `public void SetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType, in Color value)`
 
-**Purpose:** Sets the value or state of `value as color`.
+**Purpose:** Assigns a new value to `value as color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushLayerState from the subsystem API first
+BrushLayerState brushLayerState = ...;
+brushLayerState.SetValueAsColor(propertyType, value);
+```
 
 ### SetValueAsSprite
 `public void SetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType, Sprite value)`
 
-**Purpose:** Sets the value or state of `value as sprite`.
+**Purpose:** Assigns a new value to `value as sprite` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushLayerState from the subsystem API first
+BrushLayerState brushLayerState = ...;
+brushLayerState.SetValueAsSprite(propertyType, value);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as float`.
+**Purpose:** Reads and returns the `value as float` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushLayerState from the subsystem API first
+BrushLayerState brushLayerState = ...;
+var result = brushLayerState.GetValueAsFloat(propertyType);
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as color`.
+**Purpose:** Reads and returns the `value as color` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushLayerState from the subsystem API first
+BrushLayerState brushLayerState = ...;
+var result = brushLayerState.GetValueAsColor(propertyType);
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as sprite`.
+**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushLayerState from the subsystem API first
+BrushLayerState brushLayerState = ...;
+var result = brushLayerState.GetValueAsSprite(propertyType);
+```
 
 ### SetValueAsLerpOfValues
 `public static void SetValueAsLerpOfValues(ref BrushLayerState currentState, in BrushAnimationKeyFrame startValue, in BrushAnimationKeyFrame endValue, BrushAnimationProperty.BrushAnimationPropertyType propertyType, float ratio)`
 
-**Purpose:** Sets the value or state of `value as lerp of values`.
+**Purpose:** Assigns a new value to `value as lerp of values` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+BrushLayerState.SetValueAsLerpOfValues(currentState, startValue, endValue, propertyType, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushLayerState();
-value.FillFrom(styleLayer);
+// Typically call this after obtaining an instance from the subsystem API
+BrushLayerState brushLayerState = ...;
+brushLayerState.FillFrom(styleLayer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SaveId"
+description: "Auto-generated class reference for SaveId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveId`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveId
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public abstract class SaveId`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveId.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/SaveId.cs`
 
 ## Overview
 
@@ -29,39 +23,75 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetStringId
 `public abstract string GetStringId()`
 
-**Purpose:** Gets the current value of `string id`.
+**Purpose:** Reads and returns the `string id` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveId from the subsystem API first
+SaveId saveId = ...;
+var result = saveId.GetStringId();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of SaveId from the subsystem API first
+SaveId saveId = ...;
+var result = saveId.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of SaveId from the subsystem API first
+SaveId saveId = ...;
+var result = saveId.Equals(obj);
+```
 
 ### WriteTo
 `public abstract void WriteTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `write to`.
+**Purpose:** Writes `to` to the target location.
+
+```csharp
+// Obtain an instance of SaveId from the subsystem API first
+SaveId saveId = ...;
+saveId.WriteTo(writer);
+```
 
 ### ReadSaveIdFrom
 `public static SaveId ReadSaveIdFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `read save id from`.
+**Purpose:** Reads the data or state of `save id from`.
+
+```csharp
+// Static call; no instance required
+SaveId.ReadSaveIdFrom(reader);
+```
 
 ### GetSizeInBytes
 `public abstract int GetSizeInBytes()`
 
-**Purpose:** Gets the current value of `size in bytes`.
+**Purpose:** Reads and returns the `size in bytes` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveId from the subsystem API first
+SaveId saveId = ...;
+var result = saveId.GetSizeInBytes();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSaveId();
+// Typically obtained from a subsystem API or factory
+SaveId instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

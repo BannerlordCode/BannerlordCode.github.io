@@ -1,13 +1,7 @@
 ---
 title: "TeleportationCampaignBehaviorTypeDefiner"
+description: "TeleportationCampaignBehaviorTypeDefiner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeleportationCampaignBehaviorTypeDefiner`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeleportationCampaignBehaviorTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -27,9 +21,10 @@ title: "TeleportationCampaignBehaviorTypeDefiner"
 ## 使用示例
 
 ```csharp
-var example = new TeleportationCampaignBehaviorTypeDefiner();
+// 从对应子系统 API 获取实例
+TeleportationCampaignBehaviorTypeDefiner instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

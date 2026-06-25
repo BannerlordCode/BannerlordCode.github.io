@@ -1,13 +1,7 @@
 ---
 title: "TooltipPropertyWidget"
+description: "Auto-generated class reference for TooltipPropertyWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipPropertyWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TooltipPropertyWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information
@@ -60,19 +54,32 @@ Treat `TooltipPropertyWidget` as a Widget-style extension point: first identify 
 ### SetBattleScope
 `public void SetBattleScope(bool battleScope)`
 
-**Purpose:** Sets the value or state of `battle scope`.
+**Purpose:** Assigns a new value to `battle scope` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TooltipPropertyWidget from the subsystem API first
+TooltipPropertyWidget tooltipPropertyWidget = ...;
+tooltipPropertyWidget.SetBattleScope(false);
+```
 
 ### RefreshSize
 `public void RefreshSize(bool inBattleScope, float battleScopeSize, float maxValueLabelSizeX, float maxDefinitionLabelSizeX, Brush definitionRelationBrush = null, Brush valueRelationBrush = null)`
 
-**Purpose:** Refreshes the display or cache of `size`.
+**Purpose:** Keeps the display or cache of `size` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TooltipPropertyWidget from the subsystem API first
+TooltipPropertyWidget tooltipPropertyWidget = ...;
+tooltipPropertyWidget.RefreshSize(false, 0, 0, 0, null, null);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new TooltipPropertyWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TooltipPropertyWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

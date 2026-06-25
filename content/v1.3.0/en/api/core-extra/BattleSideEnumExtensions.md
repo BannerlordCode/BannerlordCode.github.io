@@ -1,13 +1,7 @@
 ---
 title: "BattleSideEnumExtensions"
+description: "Auto-generated class reference for BattleSideEnumExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSideEnumExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSideEnumExtensions
 
 **Namespace:** TaleWorlds.Core
@@ -29,14 +23,19 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsValid
 `public static bool IsValid(this BattleSideEnum battleSide)`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Static call; no instance required
+BattleSideEnumExtensions.IsValid(battleSide);
+```
 
 ## Usage Example
 
 ```csharp
-BattleSideEnumExtensions example = BattleSideEnumExtensions.Value;
+BattleSideEnumExtensions.IsValid(battleSide);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

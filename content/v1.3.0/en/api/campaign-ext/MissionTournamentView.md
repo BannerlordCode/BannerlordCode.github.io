@@ -1,13 +1,7 @@
 ---
 title: "MissionTournamentView"
+description: "Auto-generated class reference for MissionTournamentView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionTournamentView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTournamentView
 
 **Namespace:** SandBox.View.Missions.Tournaments
@@ -27,9 +21,10 @@ Treat `MissionTournamentView` as a View-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var view = new MissionTournamentView();
+// Retrieve this view from the subsystem API or scene
+MissionTournamentView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

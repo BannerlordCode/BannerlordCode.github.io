@@ -1,20 +1,14 @@
 ---
 title: "WorldFrame"
+description: "WorldFrame 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WorldFrame`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorldFrame
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct WorldFrame`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldFrame.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldFrame.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "WorldFrame"
 ### WorldFrame
 `public struct WorldFrame(Mat3 rotation, WorldPosition origin)`
 
-**用途 / Purpose:** 处理 `world frame` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorldFrame 实例
+WorldFrame worldFrame = ...;
+var result = worldFrame.WorldFrame(rotation, origin);
+```
 
 ### ToGroundMatrixFrame
 `public MatrixFrame ToGroundMatrixFrame()`
 
-**用途 / Purpose:** 处理 `to ground matrix frame` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorldFrame 实例
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToGroundMatrixFrame();
+```
 
 ### ToGroundMatrixFrameMT
 `public MatrixFrame ToGroundMatrixFrameMT()`
 
-**用途 / Purpose:** 处理 `to ground matrix frame m t` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorldFrame 实例
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToGroundMatrixFrameMT();
+```
 
 ### ToNavMeshMatrixFrame
 `public MatrixFrame ToNavMeshMatrixFrame()`
 
-**用途 / Purpose:** 处理 `to nav mesh matrix frame` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorldFrame 实例
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToNavMeshMatrixFrame();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WorldFrame();
-value.WorldFrame(rotation, origin);
+// 通常从对应子系统 API 获取实例后调用
+WorldFrame worldFrame = ...;
+worldFrame.WorldFrame(rotation, origin);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,24 +1,18 @@
 ---
 title: "Missile"
+description: "Auto-generated class reference for Missile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Missile`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Missile
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Missile : MBMissile`
 **Base:** `MBMissile`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## Overview
 
-`Missile` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Missile` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,138 +22,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 | Name | Signature |
 |------|-----------|
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `Current` | `public static Mission Current { get; }` |
-| `SceneName` | `public string SceneName { get; }` |
-| `SceneLevels` | `public string SceneLevels { get; }` |
-| `DamageToPlayerMultiplier` | `public float DamageToPlayerMultiplier { get; }` |
-| `DamageToFriendsMultiplier` | `public float DamageToFriendsMultiplier { get; }` |
-| `DamageFromPlayerToFriendsMultiplier` | `public float DamageFromPlayerToFriendsMultiplier { get; }` |
-| `HasValidTerrainType` | `public bool HasValidTerrainType { get; }` |
-| `TerrainType` | `public TerrainType TerrainType { get; }` |
-| `Scene` | `public Scene Scene { get; }` |
-| `CustomCameraTargetLocalOffset` | `public Vec3 CustomCameraTargetLocalOffset { get; }` |
-| `CustomCameraLocalOffset` | `public Vec3 CustomCameraLocalOffset { get; }` |
-| `CustomCameraLocalOffset2` | `public Vec3 CustomCameraLocalOffset2 { get; }` |
-| `CustomCameraGlobalOffset` | `public Vec3 CustomCameraGlobalOffset { get; }` |
-| `CustomCameraLocalRotationalOffset` | `public Vec3 CustomCameraLocalRotationalOffset { get; }` |
-| `CustomCameraIgnoreCollision` | `public bool CustomCameraIgnoreCollision { get; }` |
-| `CustomCameraFovMultiplier` | `public float CustomCameraFovMultiplier { get; }` |
-| `CustomCameraFixedDistance` | `public float CustomCameraFixedDistance { get; }` |
-| `ListenerAndAttenuationPosBlendFactor` | `public float ListenerAndAttenuationPosBlendFactor { get; }` |
-| `IgnoredEntityForCamera` | `public GameEntity IgnoredEntityForCamera { get; }` |
+| `Entity` | `public GameEntity Entity { get; }` |
+| `Weapon` | `public MissionWeapon Weapon { get; }` |
+| `ShooterAgent` | `public Agent ShooterAgent { get; }` |
+| `MissionObjectToIgnore` | `public MissionObject MissionObjectToIgnore { get; }` |
+| `AlreadyHitEntityToIgnore` | `public GameEntity AlreadyHitEntityToIgnore { get; }` |
 
 ## Key Methods
 
-### AddActiveMissionObject
-`public void AddActiveMissionObject(MissionObject missionObject)`
+### CalculatePassbySoundParametersMT
+`public void CalculatePassbySoundParametersMT(ref SoundEventParameter soundEventParameter)`
 
-**Purpose:** Adds `active mission object` to the current collection or state.
+**Purpose:** Calculates the current value or result of `passby sound parameters m t`.
 
-### ActivateMissionObject
-`public void ActivateMissionObject(MissionObject missionObject)`
+```csharp
+// Obtain an instance of Missile from the subsystem API first
+Missile missile = ...;
+missile.CalculatePassbySoundParametersMT(soundEventParameter);
+```
 
-**Purpose:** Handles logic related to `activate mission object`.
+### CalculateBounceBackVelocity
+`public void CalculateBounceBackVelocity(Vec3 rotationSpeed, AttackCollisionData collisionData, out Vec3 velocity, out Vec3 angularVelocity)`
 
-### DeactivateMissionObject
-`public void DeactivateMissionObject(MissionObject missionObject)`
+**Purpose:** Calculates the current value or result of `bounce back velocity`.
 
-**Purpose:** Handles logic related to `deactivate mission object`.
+```csharp
+// Obtain an instance of Missile from the subsystem API first
+Missile missile = ...;
+missile.CalculateBounceBackVelocity(rotationSpeed, collisionData, velocity, angularVelocity);
+```
 
-### SetMissionCombatType
-`public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)`
+### PassThroughEntity
+`public void PassThroughEntity(GameEntity entity)`
 
-**Purpose:** Sets the value or state of `mission combat type`.
+**Purpose:** Performs the operation described by this method.
 
-### ConversationCharacterChanged
-`public void ConversationCharacterChanged()`
-
-**Purpose:** Handles logic related to `conversation character changed`.
-
-### SetMissionMode
-`public void SetMissionMode(MissionMode newMode, bool atStart)`
-
-**Purpose:** Sets the value or state of `mission mode`.
-
-### GetAverageFps
-`public float GetAverageFps()`
-
-**Purpose:** Gets the current value of `average fps`.
-
-### GetFallAvoidSystemActive
-`public bool GetFallAvoidSystemActive()`
-
-**Purpose:** Gets the current value of `fall avoid system active`.
-
-### SetFallAvoidSystemActive
-`public void SetFallAvoidSystemActive(bool fallAvoidActive)`
-
-**Purpose:** Sets the value or state of `fall avoid system active`.
-
-### IsPositionInsideBoundaries
-`public bool IsPositionInsideBoundaries(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside boundaries`.
-
-### IsPositionInsideHardBoundaries
-`public bool IsPositionInsideHardBoundaries(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside hard boundaries`.
-
-### IsPositionInsideAnyBlockerNavMeshFace2D
-`public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside any blocker nav mesh face2 d`.
-
-### IsPositionOnAnyBlockerNavMeshFace
-`public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)`
-
-**Purpose:** Handles logic related to `is position on any blocker nav mesh face`.
-
-### RayCastForClosestAgent
-`public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
-
-**Purpose:** Handles logic related to `ray cast for closest agent`.
-
-### RayCastForClosestAgentsLimbs
-`public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**Purpose:** Handles logic related to `ray cast for closest agents limbs`.
-
-### RayCastForGivenAgentsLimbs
-`public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**Purpose:** Handles logic related to `ray cast for given agents limbs`.
-
-### GetBiggestAgentCollisionPadding
-`public float GetBiggestAgentCollisionPadding()`
-
-**Purpose:** Gets the current value of `biggest agent collision padding`.
-
-### SetMissionCorpseFadeOutTimeInSeconds
-`public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)`
-
-**Purpose:** Sets the value or state of `mission corpse fade out time in seconds`.
-
-### SetOverrideCorpseCount
-`public void SetOverrideCorpseCount(int overrideCorpseCount)`
-
-**Purpose:** Sets the value or state of `override corpse count`.
-
-### SetReportStuckAgentsMode
-`public void SetReportStuckAgentsMode(bool value)`
-
-**Purpose:** Sets the value or state of `report stuck agents mode`.
+```csharp
+// Obtain an instance of Missile from the subsystem API first
+Missile missile = ...;
+missile.PassThroughEntity(entity);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a Missile instance from game state, then call one of its public methods
-var value = new Missile();
-value.AddActiveMissionObject(missionObject);
+// Typically call this after obtaining an instance from the subsystem API
+Missile missile = ...;
+missile.CalculatePassbySoundParametersMT(soundEventParameter);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

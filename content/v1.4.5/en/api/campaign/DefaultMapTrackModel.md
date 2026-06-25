@@ -1,20 +1,14 @@
 ---
 title: "DefaultMapTrackModel"
+description: "Auto-generated class reference for DefaultMapTrackModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMapTrackModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMapTrackModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultMapTrackModel : MapTrackModel`
 **Base:** `MapTrackModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultMapTrackModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultMapTrackModel.cs`
 
 ## Overview
 
@@ -29,47 +23,101 @@ Treat `DefaultMapTrackModel` as a Model-style extension point: first identify wh
 ### GetMaxTrackSpottingDistanceForMainParty
 `public override float GetMaxTrackSpottingDistanceForMainParty()`
 
-**Purpose:** Gets the current value of `max track spotting distance for main party`.
+**Purpose:** Reads and returns the `max track spotting distance for main party` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.GetMaxTrackSpottingDistanceForMainParty();
+```
 
 ### CanPartyLeaveTrack
 `public override bool CanPartyLeaveTrack(MobileParty mobileParty)`
 
-**Purpose:** Checks whether the current object can `party leave track`.
+**Purpose:** Checks whether the current object meets the preconditions for `party leave track`.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.CanPartyLeaveTrack(mobileParty);
+```
 
 ### GetTrackLife
 `public override int GetTrackLife(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `track life`.
+**Purpose:** Reads and returns the `track life` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.GetTrackLife(mobileParty);
+```
 
 ### GetTrackDetectionDifficultyForMainParty
 `public override float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)`
 
-**Purpose:** Gets the current value of `track detection difficulty for main party`.
+**Purpose:** Reads and returns the `track detection difficulty for main party` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.GetTrackDetectionDifficultyForMainParty(track, 0);
+```
 
 ### GetSkillFromTrackDetected
 `public override float GetSkillFromTrackDetected(Track track)`
 
-**Purpose:** Gets the current value of `skill from track detected`.
+**Purpose:** Reads and returns the `skill from track detected` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.GetSkillFromTrackDetected(track);
+```
 
 ### GetSkipTrackChance
 `public override float GetSkipTrackChance(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `skip track chance`.
+**Purpose:** Reads and returns the `skip track chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.GetSkipTrackChance(mobileParty);
+```
 
 ### TrackTitle
 `public override TextObject TrackTitle(Track track)`
 
-**Purpose:** Handles logic related to `track title`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.TrackTitle(track);
+```
 
 ### GetTrackColor
 `public override uint GetTrackColor(Track track)`
 
-**Purpose:** Gets the current value of `track color`.
+**Purpose:** Reads and returns the `track color` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.GetTrackColor(track);
+```
 
 ### GetTrackScale
 `public override float GetTrackScale(Track track)`
 
-**Purpose:** Gets the current value of `track scale`.
+**Purpose:** Reads and returns the `track scale` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapTrackModel from the subsystem API first
+DefaultMapTrackModel defaultMapTrackModel = ...;
+var result = defaultMapTrackModel.GetTrackScale(track);
+```
 
 ## Usage Example
 
@@ -79,4 +127,4 @@ Game.Current.ReplaceModel<DefaultMapTrackModel>(new MyDefaultMapTrackModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

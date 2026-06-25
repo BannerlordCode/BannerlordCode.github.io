@@ -1,13 +1,7 @@
 ---
 title: "PartyPlayerInLobbyClient"
+description: "Auto-generated class reference for PartyPlayerInLobbyClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyPlayerInLobbyClient`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyPlayerInLobbyClient
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SetAtParty
 `public void SetAtParty()`
 
-**Purpose:** Sets the value or state of `at party`.
+**Purpose:** Assigns a new value to `at party` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyPlayerInLobbyClient from the subsystem API first
+PartyPlayerInLobbyClient partyPlayerInLobbyClient = ...;
+partyPlayerInLobbyClient.SetAtParty();
+```
 
 ### SetLeader
 `public void SetLeader()`
 
-**Purpose:** Sets the value or state of `leader`.
+**Purpose:** Assigns a new value to `leader` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyPlayerInLobbyClient from the subsystem API first
+PartyPlayerInLobbyClient partyPlayerInLobbyClient = ...;
+partyPlayerInLobbyClient.SetLeader();
+```
 
 ### SetMember
 `public void SetMember()`
 
-**Purpose:** Sets the value or state of `member`.
+**Purpose:** Assigns a new value to `member` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyPlayerInLobbyClient from the subsystem API first
+PartyPlayerInLobbyClient partyPlayerInLobbyClient = ...;
+partyPlayerInLobbyClient.SetMember();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyPlayerInLobbyClient();
-value.SetAtParty();
+// Typically call this after obtaining an instance from the subsystem API
+PartyPlayerInLobbyClient partyPlayerInLobbyClient = ...;
+partyPlayerInLobbyClient.SetAtParty();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ThreadedClient"
+description: "ThreadedClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ThreadedClient`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThreadedClient
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ThreadedClient : IClient`
 **Base:** `IClient`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClient.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/ThreadedClient.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "ThreadedClient"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 ThreadedClient 实例
+ThreadedClient threadedClient = ...;
+threadedClient.Tick();
+```
 
 ### CheckConnection
 `public Task<bool> CheckConnection()`
 
-**用途 / Purpose:** 处理 `check connection` 相关逻辑。
+**用途 / Purpose:** 检查「connection」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 ThreadedClient 实例
+ThreadedClient threadedClient = ...;
+var result = threadedClient.CheckConnection();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ThreadedClient();
-value.Tick();
+// 通常从对应子系统 API 获取实例后调用
+ThreadedClient threadedClient = ...;
+threadedClient.Tick();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

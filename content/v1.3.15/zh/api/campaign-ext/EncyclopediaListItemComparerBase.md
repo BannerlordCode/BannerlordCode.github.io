@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListItemComparerBase"
+description: "EncyclopediaListItemComparerBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListItemComparerBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaListItemComparerBase
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
@@ -35,34 +29,65 @@ title: "EncyclopediaListItemComparerBase"
 ### SetSortOrder
 `public void SetSortOrder(bool isAscending)`
 
-**用途 / Purpose:** 设置 `sort order` 的值或状态。
+**用途 / Purpose:** 为 「sort order」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+encyclopediaListItemComparerBase.SetSortOrder(false);
+```
 
 ### SwitchSortOrder
 `public void SwitchSortOrder()`
 
-**用途 / Purpose:** 处理 `switch sort order` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+encyclopediaListItemComparerBase.SwitchSortOrder();
+```
 
 ### SetDefaultSortOrder
 `public void SetDefaultSortOrder()`
 
-**用途 / Purpose:** 设置 `default sort order` 的值或状态。
+**用途 / Purpose:** 为 「default sort order」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+encyclopediaListItemComparerBase.SetDefaultSortOrder();
+```
 
 ### Compare
 `public abstract int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+var result = encyclopediaListItemComparerBase.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public abstract string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListItemComparerBase 实例
+EncyclopediaListItemComparerBase encyclopediaListItemComparerBase = ...;
+var result = encyclopediaListItemComparerBase.GetComparedValueText(item);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEncyclopediaListItemComparerBase();
+// 通常通过子系统 API 或工厂获得派生实例
+EncyclopediaListItemComparerBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

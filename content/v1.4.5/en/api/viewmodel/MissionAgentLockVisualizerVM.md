@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentLockVisualizerVM"
+description: "Auto-generated class reference for MissionAgentLockVisualizerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentLockVisualizerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentLockVisualizerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentLockVisualizerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionAgentLockVisualizerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionAgentLockVisualizerVM.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### OnActiveLockAgentChange
 `public void OnActiveLockAgentChange(Agent oldAgent, Agent newAgent)`
 
-**Purpose:** Called when the `active lock agent change` event is raised.
+**Purpose:** Invoked when the `active lock agent change` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLockVisualizerVM from the subsystem API first
+MissionAgentLockVisualizerVM missionAgentLockVisualizerVM = ...;
+missionAgentLockVisualizerVM.OnActiveLockAgentChange(oldAgent, newAgent);
+```
 
 ### OnPossibleLockAgentChange
 `public void OnPossibleLockAgentChange(Agent oldPossibleAgent, Agent newPossibleAgent)`
 
-**Purpose:** Called when the `possible lock agent change` event is raised.
+**Purpose:** Invoked when the `possible lock agent change` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentLockVisualizerVM from the subsystem API first
+MissionAgentLockVisualizerVM missionAgentLockVisualizerVM = ...;
+missionAgentLockVisualizerVM.OnPossibleLockAgentChange(oldPossibleAgent, newPossibleAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentLockVisualizerVM();
-value.OnActiveLockAgentChange(oldAgent, newAgent);
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentLockVisualizerVM missionAgentLockVisualizerVM = ...;
+missionAgentLockVisualizerVM.OnActiveLockAgentChange(oldAgent, newAgent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

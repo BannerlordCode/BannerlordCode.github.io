@@ -1,20 +1,14 @@
 ---
 title: "ReplayMissionLogic"
+description: "Auto-generated class reference for ReplayMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReplayMissionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReplayMissionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReplayMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ReplayMissionLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ReplayMissionLogic.cs`
 
 ## Overview
 
@@ -35,19 +29,31 @@ Treat `ReplayMissionLogic` as a Logic-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of ReplayMissionLogic from the subsystem API first
+ReplayMissionLogic replayMissionLogic = ...;
+replayMissionLogic.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of ReplayMissionLogic from the subsystem API first
+ReplayMissionLogic replayMissionLogic = ...;
+replayMissionLogic.OnRemoveBehavior();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ReplayMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<ReplayMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

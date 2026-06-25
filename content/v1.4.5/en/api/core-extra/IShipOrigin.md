@@ -1,20 +1,14 @@
 ---
 title: "IShipOrigin"
+description: "Auto-generated class reference for IShipOrigin."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IShipOrigin`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IShipOrigin
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IShipOrigin`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IShipOrigin.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IShipOrigin.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IShipOrigin implementation = GetShipOriginImplementation();
+// Usually obtained through DI or a factory method
+IIShipOrigin service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

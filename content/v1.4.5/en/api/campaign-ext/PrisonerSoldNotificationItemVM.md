@@ -1,20 +1,14 @@
 ---
 title: "PrisonerSoldNotificationItemVM"
+description: "Auto-generated class reference for PrisonerSoldNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrisonerSoldNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrisonerSoldNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PrisonerSoldNotificationItemVM : SettlementNotificationItemBaseVM`
 **Base:** `SettlementNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/PrisonerSoldNotificationItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/PrisonerSoldNotificationItemVM.cs`
 
 ## Overview
 
@@ -37,13 +31,20 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 
 **Purpose:** Adds `new prisoners` to the current collection or state.
 
+```csharp
+// Obtain an instance of PrisonerSoldNotificationItemVM from the subsystem API first
+PrisonerSoldNotificationItemVM prisonerSoldNotificationItemVM = ...;
+prisonerSoldNotificationItemVM.AddNewPrisoners(newPrisoners);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new PrisonerSoldNotificationItemVM();
-value.AddNewPrisoners(newPrisoners);
+// Typically call this after obtaining an instance from the subsystem API
+PrisonerSoldNotificationItemVM prisonerSoldNotificationItemVM = ...;
+prisonerSoldNotificationItemVM.AddNewPrisoners(newPrisoners);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

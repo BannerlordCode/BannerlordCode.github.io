@@ -1,20 +1,14 @@
 ---
 title: "LobbyGameStatePlayerBasedCustomServer"
+description: "LobbyGameStatePlayerBasedCustomServer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LobbyGameStatePlayerBasedCustomServer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyGameStatePlayerBasedCustomServer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class LobbyGameStatePlayerBasedCustomServer : LobbyGameState`
 **Base:** `LobbyGameState`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameStatePlayerBasedCustomServer.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/LobbyGameStatePlayerBasedCustomServer.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "LobbyGameStatePlayerBasedCustomServer"
 ### SetStartingParameters
 `public void SetStartingParameters(LobbyGameClientHandler lobbyGameClientHandler)`
 
-**用途 / Purpose:** 设置 `starting parameters` 的值或状态。
+**用途 / Purpose:** 为 「starting parameters」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyGameStatePlayerBasedCustomServer 实例
+LobbyGameStatePlayerBasedCustomServer lobbyGameStatePlayerBasedCustomServer = ...;
+lobbyGameStatePlayerBasedCustomServer.SetStartingParameters(lobbyGameClientHandler);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LobbyGameStatePlayerBasedCustomServer();
-value.SetStartingParameters(lobbyGameClientHandler);
+// 通常从对应子系统 API 获取实例后调用
+LobbyGameStatePlayerBasedCustomServer lobbyGameStatePlayerBasedCustomServer = ...;
+lobbyGameStatePlayerBasedCustomServer.SetStartingParameters(lobbyGameClientHandler);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

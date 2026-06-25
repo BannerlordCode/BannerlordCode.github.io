@@ -1,20 +1,14 @@
 ---
 title: "MilitiaPartyComponent"
+description: "Auto-generated class reference for MilitiaPartyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MilitiaPartyComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MilitiaPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MilitiaPartyComponent : PartyComponent`
 **Base:** `PartyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/MilitiaPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/MilitiaPartyComponent.cs`
 
 ## Overview
 
@@ -36,27 +30,55 @@ Treat `MilitiaPartyComponent` as a Component-style extension point: first identi
 ### InitializeMilitiaPartyProperties
 `public void InitializeMilitiaPartyProperties(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Initializes the state, resources, or bindings for `militia party properties`.
+**Purpose:** Prepares the resources, state, or bindings required by `militia party properties`.
+
+```csharp
+// Obtain an instance of MilitiaPartyComponent from the subsystem API first
+MilitiaPartyComponent militiaPartyComponent = ...;
+militiaPartyComponent.InitializeMilitiaPartyProperties(mobileParty, settlement);
+```
 
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Gets the current value of `default component banner`.
+**Purpose:** Reads and returns the `default component banner` value held by the current object.
+
+```csharp
+// Obtain an instance of MilitiaPartyComponent from the subsystem API first
+MilitiaPartyComponent militiaPartyComponent = ...;
+var result = militiaPartyComponent.GetDefaultComponentBanner();
+```
 
 ### CreateMilitiaParty
 `public static MobileParty CreateMilitiaParty(string stringId, Settlement settlement)`
 
-**Purpose:** Creates a new `militia party` instance or object.
+**Purpose:** Constructs a new `militia party` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MilitiaPartyComponent.CreateMilitiaParty("example", settlement);
+```
 
 ### ConvertPartyToMilitiaParty
 `public static void ConvertPartyToMilitiaParty(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Handles logic related to `convert party to militia party`.
+**Purpose:** Converts `party to militia party` into another representation or type.
+
+```csharp
+// Static call; no instance required
+MilitiaPartyComponent.ConvertPartyToMilitiaParty(mobileParty, settlement);
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** Handles logic related to `clear cached name`.
+**Purpose:** Removes all `cached name` from the current object.
+
+```csharp
+// Obtain an instance of MilitiaPartyComponent from the subsystem API first
+MilitiaPartyComponent militiaPartyComponent = ...;
+militiaPartyComponent.ClearCachedName();
+```
 
 ## Usage Example
 
@@ -66,4 +88,4 @@ var component = agent.GetComponent<MilitiaPartyComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

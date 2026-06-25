@@ -86,5 +86,5 @@ This page compares the accessible API of `Hero` across **1.3.0 / 1.3.15 / 1.4.5*
 ## Usage Example
 
 ```csharp
-var example = new Hero();
+// Compare class APIs across versions using the notes above.
 ```

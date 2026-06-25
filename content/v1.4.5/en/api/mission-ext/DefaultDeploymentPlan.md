@@ -1,20 +1,14 @@
 ---
 title: "DefaultDeploymentPlan"
+description: "Auto-generated class reference for DefaultDeploymentPlan."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultDeploymentPlan`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultDeploymentPlan
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultDeploymentPlan`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultDeploymentPlan.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultDeploymentPlan.cs`
 
 ## Overview
 
@@ -41,72 +35,153 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateInitialPlan
 `public static DefaultDeploymentPlan CreateInitialPlan(Mission mission, Team team)`
 
-**Purpose:** Creates a new `initial plan` instance or object.
+**Purpose:** Constructs a new `initial plan` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+DefaultDeploymentPlan.CreateInitialPlan(mission, team);
+```
 
 ### CreateReinforcementPlan
 `public static DefaultDeploymentPlan CreateReinforcementPlan(Mission mission, Team team)`
 
-**Purpose:** Creates a new `reinforcement plan` instance or object.
+**Purpose:** Constructs a new `reinforcement plan` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+DefaultDeploymentPlan.CreateReinforcementPlan(mission, team);
+```
 
 ### CreateReinforcementPlanWithSpawnPath
 `public static DefaultDeploymentPlan CreateReinforcementPlanWithSpawnPath(Mission mission, Team team, SpawnPathData spawnPathData)`
 
-**Purpose:** Creates a new `reinforcement plan with spawn path` instance or object.
+**Purpose:** Constructs a new `reinforcement plan with spawn path` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+DefaultDeploymentPlan.CreateReinforcementPlanWithSpawnPath(mission, team, spawnPathData);
+```
 
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool value)`
 
-**Purpose:** Sets the value or state of `spawn with horses`.
+**Purpose:** Assigns a new value to `spawn with horses` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+defaultDeploymentPlan.SetSpawnWithHorses(false);
+```
 
 ### MakeDeploymentPlan
 `public void MakeDeploymentPlan(float spawnPathOffset = 0f, float targetOffset = 0f, FormationSceneSpawnEntry formationSceneSpawnEntries = null)`
 
-**Purpose:** Handles logic related to `make deployment plan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+defaultDeploymentPlan.MakeDeploymentPlan(0, 0, null);
+```
 
 ### ClearPlan
 `public void ClearPlan()`
 
-**Purpose:** Handles logic related to `clear plan`.
+**Purpose:** Removes all `plan` from the current object.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+defaultDeploymentPlan.ClearPlan();
+```
 
 ### ClearAddedTroops
 `public void ClearAddedTroops()`
 
-**Purpose:** Handles logic related to `clear added troops`.
+**Purpose:** Removes all `added troops` from the current object.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+defaultDeploymentPlan.ClearAddedTroops();
+```
 
 ### AddTroops
 `public void AddTroops(FormationClass formationClass, int footTroopCount, int mountedTroopCount)`
 
 **Purpose:** Adds `troops` to the current collection or state.
 
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+defaultDeploymentPlan.AddTroops(formationClass, 0, 0);
+```
+
 ### GetFormationPlan
 `public DefaultFormationDeploymentPlan GetFormationPlan(FormationClass fClass)`
 
-**Purpose:** Gets the current value of `formation plan`.
+**Purpose:** Reads and returns the `formation plan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+var result = defaultDeploymentPlan.GetFormationPlan(fClass);
+```
 
 ### GetFormationDeploymentFrame
 `public bool GetFormationDeploymentFrame(FormationClass fClass, out MatrixFrame frame)`
 
-**Purpose:** Gets the current value of `formation deployment frame`.
+**Purpose:** Reads and returns the `formation deployment frame` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+var result = defaultDeploymentPlan.GetFormationDeploymentFrame(fClass, frame);
+```
 
 ### GetFirstValidFormationDeploymentFrame
 `public bool GetFirstValidFormationDeploymentFrame(out MatrixFrame frame)`
 
-**Purpose:** Gets the current value of `first valid formation deployment frame`.
+**Purpose:** Reads and returns the `first valid formation deployment frame` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+var result = defaultDeploymentPlan.GetFirstValidFormationDeploymentFrame(frame);
+```
 
 ### IsPlanSuitableForFormations
 `public bool IsPlanSuitableForFormations((int, int) troopDataPerFormationClass)`
 
-**Purpose:** Handles logic related to `is plan suitable for formations`.
+**Purpose:** Determines whether the current object is in the `plan suitable for formations` state or condition.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+var result = defaultDeploymentPlan.IsPlanSuitableForFormations((int, 0);
+```
 
 ### UpdateSafetyScore
 `public void UpdateSafetyScore()`
 
-**Purpose:** Updates the state or data of `safety score`.
+**Purpose:** Recalculates and stores the latest representation of `safety score`.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+defaultDeploymentPlan.UpdateSafetyScore();
+```
 
 ### GetFrameFromFormationSpawnEntity
 `public WorldFrame GetFrameFromFormationSpawnEntity(GameEntity formationSpawnEntity, float depthOffset = 0f)`
 
-**Purpose:** Gets the current value of `frame from formation spawn entity`.
+**Purpose:** Reads and returns the `frame from formation spawn entity` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDeploymentPlan from the subsystem API first
+DefaultDeploymentPlan defaultDeploymentPlan = ...;
+var result = defaultDeploymentPlan.GetFrameFromFormationSpawnEntity(formationSpawnEntity, 0);
+```
 
 ## Usage Example
 
@@ -116,4 +191,4 @@ DefaultDeploymentPlan.CreateInitialPlan(mission, team);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

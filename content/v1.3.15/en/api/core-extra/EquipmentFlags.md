@@ -1,19 +1,13 @@
 ---
 title: "EquipmentFlags"
+description: "Auto-generated class reference for EquipmentFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EquipmentFlags`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EquipmentFlags
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
-**Base:** none
+**Type:** `public enum EquipmentFlags : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.Core/EquipmentFlags.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new EquipmentFlags();
+// Obtain an instance from the relevant subsystem API
+EquipmentFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

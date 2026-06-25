@@ -1,20 +1,14 @@
 ---
 title: "MPCombatPerkEffect"
+description: "MPCombatPerkEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPCombatPerkEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPCombatPerkEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPCombatPerkEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MPCombatPerkEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MPCombatPerkEffect.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MPCombatPerkEffect"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMPCombatPerkEffect();
+// 通常通过子系统 API 或工厂获得派生实例
+MPCombatPerkEffect instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

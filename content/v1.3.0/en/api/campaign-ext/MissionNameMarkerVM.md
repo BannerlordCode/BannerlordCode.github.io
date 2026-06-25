@@ -1,13 +1,7 @@
 ---
 title: "MissionNameMarkerVM"
+description: "Auto-generated class reference for MissionNameMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNameMarkerVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
@@ -37,35 +31,66 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionNameMarkerVM from the subsystem API first
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionNameMarkerVM from the subsystem API first
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionNameMarkerVM from the subsystem API first
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.Tick(0);
+```
 
 ### SetTargetsDirty
 `public void SetTargetsDirty()`
 
-**Purpose:** Sets the value or state of `targets dirty`.
+**Purpose:** Assigns a new value to `targets dirty` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionNameMarkerVM from the subsystem API first
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.SetTargetsDirty();
+```
 
 ### Compare
 `public int Compare(MissionNameMarkerTargetBaseVM x, MissionNameMarkerTargetBaseVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionNameMarkerVM from the subsystem API first
+MissionNameMarkerVM missionNameMarkerVM = ...;
+var result = missionNameMarkerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionNameMarkerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

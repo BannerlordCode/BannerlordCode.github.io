@@ -1,13 +1,7 @@
 ---
 title: "LongInteger"
+description: "Auto-generated class reference for LongInteger."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LongInteger`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LongInteger
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Gets the current value of `num bits`.
+**Purpose:** Reads and returns the `num bits` value held by the current object.
+
+```csharp
+// Obtain an instance of LongInteger from the subsystem API first
+LongInteger longInteger = ...;
+var result = longInteger.GetNumBits();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LongInteger();
-value.GetNumBits();
+// Typically call this after obtaining an instance from the subsystem API
+LongInteger longInteger = ...;
+longInteger.GetNumBits();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

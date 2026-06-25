@@ -1,20 +1,14 @@
 ---
 title: "OrderTroopItemFormationClassVM"
+description: "Auto-generated class reference for OrderTroopItemFormationClassVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderTroopItemFormationClassVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTroopItemFormationClassVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderTroopItemFormationClassVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/OrderTroopItemFormationClassVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/OrderTroopItemFormationClassVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### UpdateTroopCount
 `public void UpdateTroopCount()`
 
-**Purpose:** Updates the state or data of `troop count`.
+**Purpose:** Recalculates and stores the latest representation of `troop count`.
+
+```csharp
+// Obtain an instance of OrderTroopItemFormationClassVM from the subsystem API first
+OrderTroopItemFormationClassVM orderTroopItemFormationClassVM = ...;
+orderTroopItemFormationClassVM.UpdateTroopCount();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderTroopItemFormationClassVM();
-value.UpdateTroopCount();
+// Typically call this after obtaining an instance from the subsystem API
+OrderTroopItemFormationClassVM orderTroopItemFormationClassVM = ...;
+orderTroopItemFormationClassVM.UpdateTroopCount();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

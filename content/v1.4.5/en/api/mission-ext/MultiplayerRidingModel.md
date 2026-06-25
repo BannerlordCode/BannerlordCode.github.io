@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerRidingModel"
+description: "Auto-generated class reference for MultiplayerRidingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerRidingModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerRidingModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerRidingModel : RidingModel`
 **Base:** `RidingModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerRidingModel.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerRidingModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `MultiplayerRidingModel` as a Model-style extension point: first identify 
 ### CalculateAcceleration
 `public override float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
 
-**Purpose:** Handles logic related to `calculate acceleration`.
+**Purpose:** Calculates the current value or result of `acceleration`.
+
+```csharp
+// Obtain an instance of MultiplayerRidingModel from the subsystem API first
+MultiplayerRidingModel multiplayerRidingModel = ...;
+var result = multiplayerRidingModel.CalculateAcceleration(mountElement, harnessElement, 0);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<MultiplayerRidingModel>(new MyMultiplayerRidingModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

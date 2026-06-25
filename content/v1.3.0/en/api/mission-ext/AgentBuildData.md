@@ -1,13 +1,7 @@
 ---
 title: "AgentBuildData"
+description: "Auto-generated class reference for AgentBuildData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentBuildData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentBuildData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -79,209 +73,450 @@ Treat `AgentBuildData` as a Data-style extension point: first identify who creat
 ### Character
 `public AgentBuildData Character(BasicCharacterObject characterObject)`
 
-**Purpose:** Handles logic related to `character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Character(characterObject);
+```
 
 ### Controller
 `public AgentBuildData Controller(AgentControllerType controller)`
 
-**Purpose:** Handles logic related to `controller`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Controller(controller);
+```
 
 ### Team
 `public AgentBuildData Team(Team team)`
 
-**Purpose:** Handles logic related to `team`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Team(team);
+```
 
 ### IsReinforcement
 `public AgentBuildData IsReinforcement(bool isReinforcement)`
 
-**Purpose:** Handles logic related to `is reinforcement`.
+**Purpose:** Determines whether the current object is in the `reinforcement` state or condition.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.IsReinforcement(false);
+```
 
 ### SpawnsIntoOwnFormation
 `public AgentBuildData SpawnsIntoOwnFormation(bool spawnIntoOwnFormation)`
 
-**Purpose:** Handles logic related to `spawns into own formation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.SpawnsIntoOwnFormation(false);
+```
 
 ### SpawnsUsingOwnTroopClass
 `public AgentBuildData SpawnsUsingOwnTroopClass(bool spawnUsingOwnTroopClass)`
 
-**Purpose:** Handles logic related to `spawns using own troop class`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.SpawnsUsingOwnTroopClass(false);
+```
 
 ### MakeUnitStandOutOfFormationDistance
 `public AgentBuildData MakeUnitStandOutOfFormationDistance(float makeUnitStandOutDistance)`
 
-**Purpose:** Handles logic related to `make unit stand out of formation distance`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MakeUnitStandOutOfFormationDistance(0);
+```
 
 ### InitialPosition
 `public AgentBuildData InitialPosition(in Vec3 position)`
 
-**Purpose:** Initializes the state, resources, or bindings for `ial position`.
+**Purpose:** Prepares the resources, state, or bindings required by `ial position`.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.InitialPosition(position);
+```
 
 ### InitialDirection
 `public AgentBuildData InitialDirection(in Vec2 direction)`
 
-**Purpose:** Initializes the state, resources, or bindings for `ial direction`.
+**Purpose:** Prepares the resources, state, or bindings required by `ial direction`.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.InitialDirection(direction);
+```
 
 ### InitialFrameFromSpawnPointEntity
 `public AgentBuildData InitialFrameFromSpawnPointEntity(GameEntity entity)`
 
-**Purpose:** Initializes the state, resources, or bindings for `ial frame from spawn point entity`.
+**Purpose:** Prepares the resources, state, or bindings required by `ial frame from spawn point entity`.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.InitialFrameFromSpawnPointEntity(entity);
+```
 
 ### InitialFrameFromSpawnPointEntity
 `public AgentBuildData InitialFrameFromSpawnPointEntity(WeakGameEntity entity)`
 
-**Purpose:** Initializes the state, resources, or bindings for `ial frame from spawn point entity`.
+**Purpose:** Prepares the resources, state, or bindings required by `ial frame from spawn point entity`.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.InitialFrameFromSpawnPointEntity(entity);
+```
 
 ### Formation
 `public AgentBuildData Formation(Formation formation)`
 
-**Purpose:** Handles logic related to `formation`.
+**Purpose:** Formats `ion` into a string suitable for display or storage.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Formation(formation);
+```
 
 ### Monster
 `public AgentBuildData Monster(Monster monster)`
 
-**Purpose:** Handles logic related to `monster`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Monster(monster);
+```
 
 ### VisualsIndex
 `public AgentBuildData VisualsIndex(int index)`
 
-**Purpose:** Handles logic related to `visuals index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.VisualsIndex(0);
+```
 
 ### Equipment
 `public AgentBuildData Equipment(Equipment equipment)`
 
-**Purpose:** Handles logic related to `equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Equipment(equipment);
+```
 
 ### MissionEquipment
 `public AgentBuildData MissionEquipment(MissionEquipment missionEquipment)`
 
-**Purpose:** Handles logic related to `mission equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MissionEquipment(missionEquipment);
+```
 
 ### EquipmentSeed
 `public AgentBuildData EquipmentSeed(int seed)`
 
-**Purpose:** Handles logic related to `equipment seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.EquipmentSeed(0);
+```
 
 ### NoHorses
 `public AgentBuildData NoHorses(bool noHorses)`
 
-**Purpose:** Handles logic related to `no horses`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.NoHorses(false);
+```
 
 ### NoWeapons
 `public AgentBuildData NoWeapons(bool noWeapons)`
 
-**Purpose:** Handles logic related to `no weapons`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.NoWeapons(false);
+```
 
 ### NoArmor
 `public AgentBuildData NoArmor(bool noArmor)`
 
-**Purpose:** Handles logic related to `no armor`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.NoArmor(false);
+```
 
 ### FixedEquipment
 `public AgentBuildData FixedEquipment(bool fixedEquipment)`
 
-**Purpose:** Handles logic related to `fixed equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.FixedEquipment(false);
+```
 
 ### CivilianEquipment
 `public AgentBuildData CivilianEquipment(bool civilianEquipment)`
 
-**Purpose:** Handles logic related to `civilian equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.CivilianEquipment(false);
+```
 
 ### ClothingColor1
 `public AgentBuildData ClothingColor1(uint color)`
 
-**Purpose:** Handles logic related to `clothing color1`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.ClothingColor1(0);
+```
 
 ### ClothingColor2
 `public AgentBuildData ClothingColor2(uint color)`
 
-**Purpose:** Handles logic related to `clothing color2`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.ClothingColor2(0);
+```
 
 ### MissionPeer
 `public AgentBuildData MissionPeer(MissionPeer missionPeer)`
 
-**Purpose:** Handles logic related to `mission peer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MissionPeer(missionPeer);
+```
 
 ### OwningMissionPeer
 `public AgentBuildData OwningMissionPeer(MissionPeer missionPeer)`
 
-**Purpose:** Handles logic related to `owning mission peer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.OwningMissionPeer(missionPeer);
+```
 
 ### BodyProperties
 `public AgentBuildData BodyProperties(BodyProperties bodyProperties)`
 
-**Purpose:** Handles logic related to `body properties`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.BodyProperties(bodyProperties);
+```
 
 ### Age
 `public AgentBuildData Age(int age)`
 
-**Purpose:** Handles logic related to `age`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Age(0);
+```
 
 ### TroopOrigin
 `public AgentBuildData TroopOrigin(IAgentOriginBase troopOrigin)`
 
-**Purpose:** Handles logic related to `troop origin`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.TroopOrigin(troopOrigin);
+```
 
 ### IsFemale
 `public AgentBuildData IsFemale(bool isFemale)`
 
-**Purpose:** Handles logic related to `is female`.
+**Purpose:** Determines whether the current object is in the `female` state or condition.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.IsFemale(false);
+```
 
 ### Race
 `public AgentBuildData Race(int race)`
 
-**Purpose:** Handles logic related to `race`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Race(0);
+```
 
 ### MountKey
 `public AgentBuildData MountKey(string mountKey)`
 
-**Purpose:** Handles logic related to `mount key`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MountKey("example");
+```
 
 ### Index
 `public AgentBuildData Index(int index)`
 
-**Purpose:** Handles logic related to `index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Index(0);
+```
 
 ### MountIndex
 `public AgentBuildData MountIndex(int mountIndex)`
 
-**Purpose:** Handles logic related to `mount index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MountIndex(0);
+```
 
 ### Banner
 `public AgentBuildData Banner(Banner banner)`
 
-**Purpose:** Handles logic related to `banner`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Banner(banner);
+```
 
 ### BannerItem
 `public AgentBuildData BannerItem(ItemObject bannerItem)`
 
-**Purpose:** Handles logic related to `banner item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.BannerItem(bannerItem);
+```
 
 ### BannerReplacementWeaponItem
 `public AgentBuildData BannerReplacementWeaponItem(ItemObject weaponItem)`
 
-**Purpose:** Handles logic related to `banner replacement weapon item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.BannerReplacementWeaponItem(weaponItem);
+```
 
 ### FormationTroopSpawnCount
 `public AgentBuildData FormationTroopSpawnCount(int formationTroopCount)`
 
-**Purpose:** Handles logic related to `formation troop spawn count`.
+**Purpose:** Formats `ion troop spawn count` into a string suitable for display or storage.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.FormationTroopSpawnCount(0);
+```
 
 ### FormationTroopSpawnIndex
 `public AgentBuildData FormationTroopSpawnIndex(int formationTroopIndex)`
 
-**Purpose:** Handles logic related to `formation troop spawn index`.
+**Purpose:** Formats `ion troop spawn index` into a string suitable for display or storage.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.FormationTroopSpawnIndex(0);
+```
 
 ### CanSpawnOutsideOfMissionBoundary
 `public AgentBuildData CanSpawnOutsideOfMissionBoundary(bool canSpawn)`
 
-**Purpose:** Checks whether the current object can `spawn outside of mission boundary`.
+**Purpose:** Checks whether the current object meets the preconditions for `spawn outside of mission boundary`.
+
+```csharp
+// Obtain an instance of AgentBuildData from the subsystem API first
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.CanSpawnOutsideOfMissionBoundary(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AgentBuildData();
+// This data object is usually returned by campaign/mission APIs
+AgentBuildData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "VirtualFileAttribute"
+description: "Auto-generated class reference for VirtualFileAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VirtualFileAttribute`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VirtualFileAttribute
 
 **Namespace:** TaleWorlds.Library
@@ -40,4 +34,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

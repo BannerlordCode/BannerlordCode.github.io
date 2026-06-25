@@ -1,13 +1,7 @@
 ---
 title: "MissionScoreUIHandler"
+description: "Auto-generated class reference for MissionScoreUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionScoreUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -29,19 +23,31 @@ Treat `MissionScoreUIHandler` as a Handler-style extension point: first identify
 ### SetName
 `public void SetName(string name, int index)`
 
-**Purpose:** Sets the value or state of `name`.
+**Purpose:** Assigns a new value to `name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScoreUIHandler from the subsystem API first
+MissionScoreUIHandler missionScoreUIHandler = ...;
+missionScoreUIHandler.SetName("example", 0);
+```
 
 ### SaveScore
 `public void SaveScore(int score, int index)`
 
-**Purpose:** Saves `score` data.
+**Purpose:** Writes `score` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of MissionScoreUIHandler from the subsystem API first
+MissionScoreUIHandler missionScoreUIHandler = ...;
+missionScoreUIHandler.SaveScore(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionScoreUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionScoreUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

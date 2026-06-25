@@ -1,20 +1,14 @@
 ---
 title: "AgentReadOnlyList"
+description: "Auto-generated class reference for AgentReadOnlyList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentReadOnlyList`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentReadOnlyList
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentReadOnlyList : MBReadOnlyList<Agent>`
 **Base:** `MBReadOnlyList<Agent>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/AgentReadOnlyList.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/AgentReadOnlyList.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new AgentReadOnlyList();
+// Obtain an instance from the relevant subsystem API
+AgentReadOnlyList instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

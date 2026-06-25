@@ -1,20 +1,14 @@
 ---
 title: "InformationRestrictionModel"
+description: "Auto-generated class reference for InformationRestrictionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InformationRestrictionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InformationRestrictionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class InformationRestrictionModel : MBGameModel<InformationRestrictionModel>`
 **Base:** `MBGameModel<InformationRestrictionModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/InformationRestrictionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/InformationRestrictionModel.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `InformationRestrictionModel` as a Model-style extension point: first iden
 ### DoesPlayerKnowDetailsOf
 `public abstract bool DoesPlayerKnowDetailsOf(Settlement settlement)`
 
-**Purpose:** Handles logic related to `does player know details of`.
+**Purpose:** Returns a boolean answer to whether `player know details of` is true for the current object.
+
+```csharp
+// Obtain an instance of InformationRestrictionModel from the subsystem API first
+InformationRestrictionModel informationRestrictionModel = ...;
+var result = informationRestrictionModel.DoesPlayerKnowDetailsOf(settlement);
+```
 
 ### DoesPlayerKnowDetailsOf
 `public abstract bool DoesPlayerKnowDetailsOf(Hero hero)`
 
-**Purpose:** Handles logic related to `does player know details of`.
+**Purpose:** Returns a boolean answer to whether `player know details of` is true for the current object.
+
+```csharp
+// Obtain an instance of InformationRestrictionModel from the subsystem API first
+InformationRestrictionModel informationRestrictionModel = ...;
+var result = informationRestrictionModel.DoesPlayerKnowDetailsOf(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomInformationRestrictionModel();
+// Typically obtained from a subsystem API or factory
+InformationRestrictionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

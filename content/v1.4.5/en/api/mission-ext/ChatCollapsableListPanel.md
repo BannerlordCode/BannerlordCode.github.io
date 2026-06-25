@@ -1,20 +1,14 @@
 ---
 title: "ChatCollapsableListPanel"
+description: "Auto-generated class reference for ChatCollapsableListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChatCollapsableListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatCollapsableListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ChatCollapsableListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatCollapsableListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatCollapsableListPanel.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat` to place
 ## Usage Example
 
 ```csharp
-var example = new ChatCollapsableListPanel();
+// Obtain an instance from the relevant subsystem API
+ChatCollapsableListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

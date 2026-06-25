@@ -1,20 +1,14 @@
 ---
 title: "SkillPointsContainerListPanel"
+description: "Auto-generated class reference for SkillPointsContainerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillPointsContainerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillPointsContainerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SkillPointsContainerListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/SkillPointsContainerListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/SkillPointsContainerListPanel.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDevel
 ## Usage Example
 
 ```csharp
-var example = new SkillPointsContainerListPanel();
+// Obtain an instance from the relevant subsystem API
+SkillPointsContainerListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

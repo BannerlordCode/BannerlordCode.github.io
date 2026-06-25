@@ -1,20 +1,14 @@
 ---
 title: "UpdateCustomGameData"
+description: "Auto-generated class reference for UpdateCustomGameData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UpdateCustomGameData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpdateCustomGameData
 
 **Namespace:** Messages.FromCustomBattleServer.ToCustomBattleServerManager
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class UpdateCustomGameData : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/UpdateCustomGameData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/UpdateCustomGameData.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `UpdateCustomGameData` as a Data-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var value = new UpdateCustomGameData();
+// This data object is usually returned by campaign/mission APIs
+UpdateCustomGameData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

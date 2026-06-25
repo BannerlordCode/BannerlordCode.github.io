@@ -1,20 +1,14 @@
 ---
 title: "ActionSetCode"
+description: "Auto-generated class reference for ActionSetCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActionSetCode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ActionSetCode
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class ActionSetCode`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ActionSetCode.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ActionSetCode.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GenerateActionSetNameWithSuffix
 `public static string GenerateActionSetNameWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**Purpose:** Handles logic related to `generate action set name with suffix`.
+**Purpose:** Generates an instance, data, or representation of `action set name with suffix`.
+
+```csharp
+// Static call; no instance required
+ActionSetCode.GenerateActionSetNameWithSuffix(monster, false, "example");
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ ActionSetCode.GenerateActionSetNameWithSuffix(monster, false, "example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

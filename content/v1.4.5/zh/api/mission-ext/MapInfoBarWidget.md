@@ -1,20 +1,14 @@
 ---
 title: "MapInfoBarWidget"
+description: "MapInfoBarWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapInfoBarWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapInfoBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapInfoBarWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapInfoBarWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapInfoBarWidget.cs`
 
 ## 概述
 
@@ -36,14 +30,21 @@ title: "MapInfoBarWidget"
 ### MapBarExtendStateChangeEvent
 `public delegate void MapBarExtendStateChangeEvent(bool newState)`
 
-**用途 / Purpose:** 处理 `map bar extend state change event` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapInfoBarWidget 实例
+MapInfoBarWidget mapInfoBarWidget = ...;
+mapInfoBarWidget.MapBarExtendStateChangeEvent(false);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MapInfoBarWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MapInfoBarWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

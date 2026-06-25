@@ -1,23 +1,18 @@
 ---
 title: "MapNavigationExtensions"
+description: "Auto-generated class reference for MapNavigationExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNavigationExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapNavigationExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class MapNavigationExtensions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/MapNavigationExtensions.cs`
 
 ## Overview
 
-`MapNavigationExtensions` lives in `TaleWorlds.CampaignSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MapNavigationExtensions` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,111 +23,249 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GetPermission
 `public static NavigationPermissionItem GetPermission(this INavigationHandler handler, MapNavigationItemType elementType)`
 
-**Purpose:** Gets the current value of `permission`.
+**Purpose:** Reads and returns the `permission` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.GetPermission(handler, elementType);
+```
 
 ### IsActive
 `public static bool IsActive(this INavigationHandler handler, MapNavigationItemType elementType)`
 
-**Purpose:** Handles logic related to `is active`.
+**Purpose:** Determines whether the current object is in the `active` state or condition.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.IsActive(handler, elementType);
+```
 
 ### OpenQuests
 `public static void OpenQuests(this INavigationHandler handler)`
 
-**Purpose:** Handles logic related to `open quests`.
+**Purpose:** Opens the resource or UI associated with `quests`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenQuests(handler);
+```
 
 ### OpenQuests
 `public static void OpenQuests(this INavigationHandler handler, QuestBase quest)`
 
-**Purpose:** Handles logic related to `open quests`.
+**Purpose:** Opens the resource or UI associated with `quests`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenQuests(handler, quest);
+```
 
 ### OpenQuests
 `public static void OpenQuests(this INavigationHandler handler, IssueBase issue)`
 
-**Purpose:** Handles logic related to `open quests`.
+**Purpose:** Opens the resource or UI associated with `quests`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenQuests(handler, issue);
+```
 
 ### OpenQuests
 `public static void OpenQuests(this INavigationHandler handler, JournalLogEntry log)`
 
-**Purpose:** Handles logic related to `open quests`.
+**Purpose:** Opens the resource or UI associated with `quests`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenQuests(handler, log);
+```
 
 ### OpenInventory
 `public static void OpenInventory(this INavigationHandler handler)`
 
-**Purpose:** Handles logic related to `open inventory`.
+**Purpose:** Opens the resource or UI associated with `inventory`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenInventory(handler);
+```
 
 ### OpenParty
 `public static void OpenParty(this INavigationHandler handler)`
 
-**Purpose:** Handles logic related to `open party`.
+**Purpose:** Opens the resource or UI associated with `party`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenParty(handler);
+```
 
 ### OpenCharacterDeveloper
 `public static void OpenCharacterDeveloper(this INavigationHandler handler)`
 
-**Purpose:** Handles logic related to `open character developer`.
+**Purpose:** Opens the resource or UI associated with `character developer`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenCharacterDeveloper(handler);
+```
 
 ### OpenCharacterDeveloper
 `public static void OpenCharacterDeveloper(this INavigationHandler handler, Hero hero)`
 
-**Purpose:** Handles logic related to `open character developer`.
+**Purpose:** Opens the resource or UI associated with `character developer`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenCharacterDeveloper(handler, hero);
+```
 
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler)`
 
-**Purpose:** Handles logic related to `open kingdom`.
+**Purpose:** Opens the resource or UI associated with `kingdom`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenKingdom(handler);
+```
 
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, Army army)`
 
-**Purpose:** Handles logic related to `open kingdom`.
+**Purpose:** Opens the resource or UI associated with `kingdom`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenKingdom(handler, army);
+```
 
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, Settlement settlement)`
 
-**Purpose:** Handles logic related to `open kingdom`.
+**Purpose:** Opens the resource or UI associated with `kingdom`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenKingdom(handler, settlement);
+```
 
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, Clan clan)`
 
-**Purpose:** Handles logic related to `open kingdom`.
+**Purpose:** Opens the resource or UI associated with `kingdom`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenKingdom(handler, clan);
+```
 
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, PolicyObject policy)`
 
-**Purpose:** Handles logic related to `open kingdom`.
+**Purpose:** Opens the resource or UI associated with `kingdom`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenKingdom(handler, policy);
+```
 
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, IFaction faction)`
 
-**Purpose:** Handles logic related to `open kingdom`.
+**Purpose:** Opens the resource or UI associated with `kingdom`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenKingdom(handler, faction);
+```
 
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, KingdomDecision decision)`
 
-**Purpose:** Handles logic related to `open kingdom`.
+**Purpose:** Opens the resource or UI associated with `kingdom`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenKingdom(handler, decision);
+```
 
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler)`
 
-**Purpose:** Handles logic related to `open clan`.
+**Purpose:** Opens the resource or UI associated with `clan`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenClan(handler);
+```
 
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler, Hero hero)`
 
-**Purpose:** Handles logic related to `open clan`.
+**Purpose:** Opens the resource or UI associated with `clan`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenClan(handler, hero);
+```
 
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler, PartyBase party)`
 
-**Purpose:** Handles logic related to `open clan`.
+**Purpose:** Opens the resource or UI associated with `clan`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenClan(handler, party);
+```
+
+### OpenClan
+`public static void OpenClan(this INavigationHandler handler, Settlement settlement)`
+
+**Purpose:** Opens the resource or UI associated with `clan`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenClan(handler, settlement);
+```
+
+### OpenClan
+`public static void OpenClan(this INavigationHandler handler, Workshop workshop)`
+
+**Purpose:** Opens the resource or UI associated with `clan`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenClan(handler, workshop);
+```
+
+### OpenClan
+`public static void OpenClan(this INavigationHandler handler, Alley alley)`
+
+**Purpose:** Opens the resource or UI associated with `clan`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenClan(handler, alley);
+```
+
+### OpenEscapeMenu
+`public static void OpenEscapeMenu(this INavigationHandler handler)`
+
+**Purpose:** Opens the resource or UI associated with `escape menu`.
+
+```csharp
+// Static call; no instance required
+MapNavigationExtensions.OpenEscapeMenu(handler);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MapNavigationExtensions.GetPermission(handler, elementType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

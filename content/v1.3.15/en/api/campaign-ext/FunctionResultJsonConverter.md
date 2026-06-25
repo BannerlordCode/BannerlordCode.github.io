@@ -1,13 +1,7 @@
 ---
 title: "FunctionResultJsonConverter"
+description: "Auto-generated class reference for FunctionResultJsonConverter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FunctionResultJsonConverter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FunctionResultJsonConverter
 
 **Namespace:** TaleWorlds.Diamond
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**Purpose:** Checks whether the current object can `convert`.
+**Purpose:** Checks whether the current object meets the preconditions for `convert`.
+
+```csharp
+// Obtain an instance of FunctionResultJsonConverter from the subsystem API first
+FunctionResultJsonConverter functionResultJsonConverter = ...;
+var result = functionResultJsonConverter.CanConvert(objectType);
+```
 
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `read json`.
+**Purpose:** Reads the data or state of `json`.
+
+```csharp
+// Obtain an instance of FunctionResultJsonConverter from the subsystem API first
+FunctionResultJsonConverter functionResultJsonConverter = ...;
+var result = functionResultJsonConverter.ReadJson(reader, objectType, existingValue, serializer);
+```
 
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `write json`.
+**Purpose:** Writes `json` to the target location.
+
+```csharp
+// Obtain an instance of FunctionResultJsonConverter from the subsystem API first
+FunctionResultJsonConverter functionResultJsonConverter = ...;
+functionResultJsonConverter.WriteJson(writer, value, serializer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FunctionResultJsonConverter();
-value.CanConvert(objectType);
+// Typically call this after obtaining an instance from the subsystem API
+FunctionResultJsonConverter functionResultJsonConverter = ...;
+functionResultJsonConverter.CanConvert(objectType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

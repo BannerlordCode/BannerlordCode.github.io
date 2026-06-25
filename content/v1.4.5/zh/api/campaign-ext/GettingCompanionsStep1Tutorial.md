@@ -1,20 +1,14 @@
 ---
 title: "GettingCompanionsStep1Tutorial"
+description: "GettingCompanionsStep1Tutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GettingCompanionsStep1Tutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GettingCompanionsStep1Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class GettingCompanionsStep1Tutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/GettingCompanionsStep1Tutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/GettingCompanionsStep1Tutorial.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "GettingCompanionsStep1Tutorial"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 GettingCompanionsStep1Tutorial 实例
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+var result = gettingCompanionsStep1Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnGameMenuOpened
 `public override void OnGameMenuOpened(MenuCallbackArgs obj)`
 
-**用途 / Purpose:** 当 `game menu opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game menu opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GettingCompanionsStep1Tutorial 实例
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+gettingCompanionsStep1Tutorial.OnGameMenuOpened(obj);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 GettingCompanionsStep1Tutorial 实例
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+var result = gettingCompanionsStep1Tutorial.IsConditionsMetForActivation();
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GettingCompanionsStep1Tutorial 实例
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+var result = gettingCompanionsStep1Tutorial.GetTutorialsRelevantContext();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GettingCompanionsStep1Tutorial();
-value.IsConditionsMetForCompletion();
+// 通常从对应子系统 API 获取实例后调用
+GettingCompanionsStep1Tutorial gettingCompanionsStep1Tutorial = ...;
+gettingCompanionsStep1Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

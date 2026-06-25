@@ -1,20 +1,14 @@
 ---
 title: "HeroVM"
+description: "HeroVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeroVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/HeroVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/HeroVM.cs`
 
 ## 概述
 
@@ -43,35 +37,65 @@ title: "HeroVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 HeroVM 实例
+HeroVM heroVM = ...;
+heroVM.RefreshValues();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** 执行 `link` 操作或流程。
+**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HeroVM 实例
+HeroVM heroVM = ...;
+heroVM.ExecuteLink();
+```
 
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 `begin hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HeroVM 实例
+HeroVM heroVM = ...;
+heroVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HeroVM 实例
+HeroVM heroVM = ...;
+heroVM.ExecuteEndHint();
+```
 
 ### GetRelation
 `public static int GetRelation(Hero hero)`
 
-**用途 / Purpose:** 获取 `relation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+HeroVM.GetRelation(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HeroVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+HeroVM heroVM = ...;
+heroVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

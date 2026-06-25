@@ -1,20 +1,14 @@
 ---
 title: "TileBaseInformation"
+description: "TileBaseInformation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TileBaseInformation`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TileBaseInformation
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
 **Type:** `public struct TileBaseInformation`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/TileBaseInformation.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/TileBaseInformation.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "TileBaseInformation"
 ### TileBaseInformation
 `public struct TileBaseInformation(ref PawnBase pawnOnTile)`
 
-**用途 / Purpose:** 处理 `tile base information` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TileBaseInformation 实例
+TileBaseInformation tileBaseInformation = ...;
+var result = tileBaseInformation.TileBaseInformation(pawnOnTile);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TileBaseInformation();
-value.TileBaseInformation(pawnOnTile);
+// 通常从对应子系统 API 获取实例后调用
+TileBaseInformation tileBaseInformation = ...;
+tileBaseInformation.TileBaseInformation(pawnOnTile);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

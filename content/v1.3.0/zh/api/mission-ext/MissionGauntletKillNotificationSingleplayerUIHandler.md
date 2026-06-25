@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletKillNotificationSingleplayerUIHandler"
+description: "MissionGauntletKillNotificationSingleplayerUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletKillNotificationSingleplayerUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletKillNotificationSingleplayerUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
@@ -29,34 +23,64 @@ title: "MissionGauntletKillNotificationSingleplayerUIHandler"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletKillNotificationSingleplayerUIHandler 实例
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletKillNotificationSingleplayerUIHandler 实例
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletKillNotificationSingleplayerUIHandler 实例
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletKillNotificationSingleplayerUIHandler 实例
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletKillNotificationSingleplayerUIHandler 实例
+MissionGauntletKillNotificationSingleplayerUIHandler missionGauntletKillNotificationSingleplayerUIHandler = ...;
+missionGauntletKillNotificationSingleplayerUIHandler.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletKillNotificationSingleplayerUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletKillNotificationSingleplayerUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

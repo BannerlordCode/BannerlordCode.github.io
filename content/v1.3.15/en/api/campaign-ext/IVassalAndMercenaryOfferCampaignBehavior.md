@@ -1,18 +1,12 @@
 ---
 title: "IVassalAndMercenaryOfferCampaignBehavior"
+description: "Auto-generated class reference for IVassalAndMercenaryOfferCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IVassalAndMercenaryOfferCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IVassalAndMercenaryOfferCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IVassalAndMercenaryOfferCampaignBehavior`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IVassalAndMercenaryOfferCampaignBehavior.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IVassalAndMercenaryOfferCampaignBehavior implementation = GetVassalAndMercenaryOfferCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIVassalAndMercenaryOfferCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DateRange"
+description: "DateRange 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DateRange`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DateRange
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class DateRange`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/DateRange.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/DateRange.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "DateRange"
 ## 使用示例
 
 ```csharp
-var example = new DateRange();
+// 从对应子系统 API 获取实例
+DateRange instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

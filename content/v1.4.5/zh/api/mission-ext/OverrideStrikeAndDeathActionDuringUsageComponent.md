@@ -1,20 +1,14 @@
 ---
 title: "OverrideStrikeAndDeathActionDuringUsageComponent"
+description: "OverrideStrikeAndDeathActionDuringUsageComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OverrideStrikeAndDeathActionDuringUsageComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OverrideStrikeAndDeathActionDuringUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OverrideStrikeAndDeathActionDuringUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OverrideStrikeAndDeathActionDuringUsageComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OverrideStrikeAndDeathActionDuringUsageComponent.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ var component = agent.GetComponent<OverrideStrikeAndDeathActionDuringUsageCompon
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

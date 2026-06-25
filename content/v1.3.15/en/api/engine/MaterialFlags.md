@@ -1,19 +1,13 @@
 ---
 title: "MaterialFlags"
+description: "Auto-generated class reference for MaterialFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MaterialFlags`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MaterialFlags
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
+**Type:** `public enum MaterialFlags : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.Engine/MaterialFlags.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new MaterialFlags();
+// Obtain an instance from the relevant subsystem API
+MaterialFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

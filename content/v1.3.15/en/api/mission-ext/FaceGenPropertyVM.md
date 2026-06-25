@@ -1,13 +1,7 @@
 ---
 title: "FaceGenPropertyVM"
+description: "Auto-generated class reference for FaceGenPropertyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGenPropertyVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FaceGenPropertyVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
@@ -42,30 +36,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of FaceGenPropertyVM from the subsystem API first
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.Reset();
+```
 
 ### Randomize
 `public void Randomize()`
 
-**Purpose:** Handles logic related to `randomize`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FaceGenPropertyVM from the subsystem API first
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.Randomize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of FaceGenPropertyVM from the subsystem API first
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.RefreshValues();
+```
 
 ### AddCommand
 `public void AddCommand()`
 
 **Purpose:** Adds `command` to the current collection or state.
 
+```csharp
+// Obtain an instance of FaceGenPropertyVM from the subsystem API first
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.AddCommand();
+```
+
 ## Usage Example
 
 ```csharp
-var value = new FaceGenPropertyVM();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

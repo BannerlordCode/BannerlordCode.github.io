@@ -1,20 +1,14 @@
 ---
 title: "GameOverStatCategoryVM"
+description: "Auto-generated class reference for GameOverStatCategoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverStatCategoryVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverStatCategoryVM
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class GameOverStatCategoryVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/GameOverStatCategoryVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/GameOverStatCategoryVM.cs`
 
 ## Overview
 
@@ -38,20 +32,33 @@ Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameOverStatCategoryVM from the subsystem API first
+GameOverStatCategoryVM gameOverStatCategoryVM = ...;
+gameOverStatCategoryVM.RefreshValues();
+```
 
 ### ExecuteSelectCategory
 `public void ExecuteSelectCategory()`
 
-**Purpose:** Executes the `select category` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select category`.
+
+```csharp
+// Obtain an instance of GameOverStatCategoryVM from the subsystem API first
+GameOverStatCategoryVM gameOverStatCategoryVM = ...;
+gameOverStatCategoryVM.ExecuteSelectCategory();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameOverStatCategoryVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameOverStatCategoryVM gameOverStatCategoryVM = ...;
+gameOverStatCategoryVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

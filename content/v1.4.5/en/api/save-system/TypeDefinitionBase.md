@@ -1,20 +1,14 @@
 ---
 title: "TypeDefinitionBase"
+description: "Auto-generated class reference for TypeDefinitionBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TypeDefinitionBase`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TypeDefinitionBase
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class TypeDefinitionBase`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/TypeDefinitionBase.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/TypeDefinitionBase.cs`
 
 ## Overview
 
@@ -37,7 +31,12 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetClassLevel
 `public static byte GetClassLevel(Type type)`
 
-**Purpose:** Gets the current value of `class level`.
+**Purpose:** Reads and returns the `class level` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TypeDefinitionBase.GetClassLevel(type);
+```
 
 ## Usage Example
 
@@ -47,4 +46,4 @@ TypeDefinitionBase.GetClassLevel(type);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

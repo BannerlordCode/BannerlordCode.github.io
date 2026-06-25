@@ -1,20 +1,14 @@
 ---
 title: "CraftingOrderItemVM"
+description: "Auto-generated class reference for CraftingOrderItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingOrderItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingOrderItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingOrderItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order/CraftingOrderItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order/CraftingOrderItemVM.cs`
 
 ## Overview
 
@@ -50,25 +44,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshStats
 `public void RefreshStats()`
 
-**Purpose:** Refreshes the display or cache of `stats`.
+**Purpose:** Keeps the display or cache of `stats` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingOrderItemVM from the subsystem API first
+CraftingOrderItemVM craftingOrderItemVM = ...;
+craftingOrderItemVM.RefreshStats();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingOrderItemVM from the subsystem API first
+CraftingOrderItemVM craftingOrderItemVM = ...;
+craftingOrderItemVM.RefreshValues();
+```
 
 ### ExecuteSelectOrder
 `public void ExecuteSelectOrder()`
 
-**Purpose:** Executes the `select order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select order`.
+
+```csharp
+// Obtain an instance of CraftingOrderItemVM from the subsystem API first
+CraftingOrderItemVM craftingOrderItemVM = ...;
+craftingOrderItemVM.ExecuteSelectOrder();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingOrderItemVM();
-value.RefreshStats();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingOrderItemVM craftingOrderItemVM = ...;
+craftingOrderItemVM.RefreshStats();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

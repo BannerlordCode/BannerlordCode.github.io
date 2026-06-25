@@ -1,20 +1,14 @@
 ---
 title: "DefeatCharacterLogEntry"
+description: "Auto-generated class reference for DefeatCharacterLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefeatCharacterLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefeatCharacterLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefeatCharacterLogEntry : LogEntry`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/DefeatCharacterLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/DefeatCharacterLogEntry.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**Purpose:** Gets the current value of `importance for clan`.
+**Purpose:** Reads and returns the `importance for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefeatCharacterLogEntry from the subsystem API first
+DefeatCharacterLogEntry defeatCharacterLogEntry = ...;
+var result = defeatCharacterLogEntry.GetImportanceForClan(clan);
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of DefeatCharacterLogEntry from the subsystem API first
+DefeatCharacterLogEntry defeatCharacterLogEntry = ...;
+defeatCharacterLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of DefeatCharacterLogEntry from the subsystem API first
+DefeatCharacterLogEntry defeatCharacterLogEntry = ...;
+var result = defeatCharacterLogEntry.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefeatCharacterLogEntry();
-value.GetImportanceForClan(clan);
+// Typically call this after obtaining an instance from the subsystem API
+DefeatCharacterLogEntry defeatCharacterLogEntry = ...;
+defeatCharacterLogEntry.GetImportanceForClan(clan);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

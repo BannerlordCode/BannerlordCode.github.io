@@ -1,20 +1,14 @@
 ---
 title: "BinaryWriter"
+description: "BinaryWriter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BinaryWriter`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BinaryWriter
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class BinaryWriter : IWriter`
 **Base:** `IWriter`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/BinaryWriter.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/BinaryWriter.cs`
 
 ## 概述
 
@@ -29,135 +23,286 @@ title: "BinaryWriter"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.Clear();
+```
 
 ### EnsureLength
 `public void EnsureLength(int added)`
 
-**用途 / Purpose:** 处理 `ensure length` 相关逻辑。
+**用途 / Purpose:** 确保「length」处于预期状态，必要时进行初始化或修正。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.EnsureLength(0);
+```
 
 ### WriteSerializableObject
 `public void WriteSerializableObject(ISerializableObject serializableObject)`
 
-**用途 / Purpose:** 处理 `write serializable object` 相关逻辑。
+**用途 / Purpose:** 将「serializable object」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteSerializableObject(serializableObject);
+```
 
 ### WriteByte
 `public void WriteByte(byte value)`
 
-**用途 / Purpose:** 处理 `write byte` 相关逻辑。
+**用途 / Purpose:** 将「byte」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteByte(0);
+```
 
 ### WriteBytes
 `public void WriteBytes(byte bytes)`
 
-**用途 / Purpose:** 处理 `write bytes` 相关逻辑。
+**用途 / Purpose:** 将「bytes」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteBytes(0);
+```
 
 ### Write3ByteInt
 `public void Write3ByteInt(int value)`
 
-**用途 / Purpose:** 处理 `write3 byte int` 相关逻辑。
+**用途 / Purpose:** 将「3 byte int」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.Write3ByteInt(0);
+```
 
 ### WriteInt
 `public void WriteInt(int value)`
 
-**用途 / Purpose:** 处理 `write int` 相关逻辑。
+**用途 / Purpose:** 将「int」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteInt(0);
+```
 
 ### WriteShort
 `public void WriteShort(short value)`
 
-**用途 / Purpose:** 处理 `write short` 相关逻辑。
+**用途 / Purpose:** 将「short」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteShort(0);
+```
 
 ### WriteString
 `public void WriteString(string value)`
 
-**用途 / Purpose:** 处理 `write string` 相关逻辑。
+**用途 / Purpose:** 将「string」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteString("example");
+```
 
 ### WriteFloats
 `public void WriteFloats(float value, int count)`
 
-**用途 / Purpose:** 处理 `write floats` 相关逻辑。
+**用途 / Purpose:** 将「floats」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteFloats(0, 0);
+```
 
 ### WriteShorts
 `public void WriteShorts(short value, int count)`
 
-**用途 / Purpose:** 处理 `write shorts` 相关逻辑。
+**用途 / Purpose:** 将「shorts」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteShorts(0, 0);
+```
 
 ### WriteColor
 `public void WriteColor(Color value)`
 
-**用途 / Purpose:** 处理 `write color` 相关逻辑。
+**用途 / Purpose:** 将「color」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteColor(value);
+```
 
 ### WriteBool
 `public void WriteBool(bool value)`
 
-**用途 / Purpose:** 处理 `write bool` 相关逻辑。
+**用途 / Purpose:** 将「bool」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteBool(false);
+```
 
 ### WriteFloat
 `public void WriteFloat(float value)`
 
-**用途 / Purpose:** 处理 `write float` 相关逻辑。
+**用途 / Purpose:** 将「float」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteFloat(0);
+```
 
 ### WriteUInt
 `public void WriteUInt(uint value)`
 
-**用途 / Purpose:** 处理 `write u int` 相关逻辑。
+**用途 / Purpose:** 将「u int」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteUInt(0);
+```
 
 ### WriteULong
 `public void WriteULong(ulong value)`
 
-**用途 / Purpose:** 处理 `write u long` 相关逻辑。
+**用途 / Purpose:** 将「u long」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteULong(0);
+```
 
 ### WriteLong
 `public void WriteLong(long value)`
 
-**用途 / Purpose:** 处理 `write long` 相关逻辑。
+**用途 / Purpose:** 将「long」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteLong(0);
+```
 
 ### WriteVec2
 `public void WriteVec2(Vec2 vec2)`
 
-**用途 / Purpose:** 处理 `write vec2` 相关逻辑。
+**用途 / Purpose:** 将「vec2」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteVec2(vec2);
+```
 
 ### WriteVec3
 `public void WriteVec3(Vec3 vec3)`
 
-**用途 / Purpose:** 处理 `write vec3` 相关逻辑。
+**用途 / Purpose:** 将「vec3」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteVec3(vec3);
+```
 
 ### WriteVec3Int
 `public void WriteVec3Int(Vec3i vec3)`
 
-**用途 / Purpose:** 处理 `write vec3 int` 相关逻辑。
+**用途 / Purpose:** 将「vec3 int」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteVec3Int(vec3);
+```
 
 ### WriteSByte
 `public void WriteSByte(sbyte value)`
 
-**用途 / Purpose:** 处理 `write s byte` 相关逻辑。
+**用途 / Purpose:** 将「s byte」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteSByte(0);
+```
 
 ### WriteUShort
 `public void WriteUShort(ushort value)`
 
-**用途 / Purpose:** 处理 `write u short` 相关逻辑。
+**用途 / Purpose:** 将「u short」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteUShort(0);
+```
 
 ### WriteDouble
 `public void WriteDouble(double value)`
 
-**用途 / Purpose:** 处理 `write double` 相关逻辑。
+**用途 / Purpose:** 将「double」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteDouble(0);
+```
 
 ### AppendData
 `public void AppendData(BinaryWriter writer)`
 
-**用途 / Purpose:** 处理 `append data` 相关逻辑。
+**用途 / Purpose:** 将「data」追加到当前集合或序列末尾。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+binaryWriter.AppendData(writer);
+```
 
 ### GetFinalData
 `public byte GetFinalData()`
 
-**用途 / Purpose:** 获取 `final data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「final data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BinaryWriter 实例
+BinaryWriter binaryWriter = ...;
+var result = binaryWriter.GetFinalData();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BinaryWriter();
-value.Clear();
+// 通常从对应子系统 API 获取实例后调用
+BinaryWriter binaryWriter = ...;
+binaryWriter.Clear();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

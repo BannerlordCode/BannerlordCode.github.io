@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentWalkModeControllerVM"
+description: "Auto-generated class reference for MissionMainAgentWalkModeControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentWalkModeControllerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMainAgentWalkModeControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode
@@ -37,45 +31,88 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode`
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentWalkModeControllerVM from the subsystem API first
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.OnFinalize();
+```
 
 ### AddWalkMode
 `public void AddWalkMode(string typeId, TextObject name, MissionMainAgentWalkModeControllerVM.GetIsWalkModeActivatedDelegate getIsActive, MissionMainAgentWalkModeControllerVM.SetIsWalkModeActivatedDelegate setIsActive, MissionMainAgentWalkModeControllerVM.GetCanChangeWalkModeActivatedDelegate canChangeActive, HotKey hotKey, bool isHotkeyConsoleOnly)`
 
 **Purpose:** Adds `walk mode` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionMainAgentWalkModeControllerVM from the subsystem API first
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.AddWalkMode("example", name, getIsActive, setIsActive, canChangeActive, hotKey, false);
+```
+
 ### AddWalkMode
 `public void AddWalkMode(string typeId, TextObject name, MissionMainAgentWalkModeControllerVM.GetIsWalkModeActivatedDelegate getIsActive, MissionMainAgentWalkModeControllerVM.SetIsWalkModeActivatedDelegate setIsActive, MissionMainAgentWalkModeControllerVM.GetCanChangeWalkModeActivatedDelegate canChangeActive, GameKey hotKey, bool isHotkeyConsoleOnly)`
 
 **Purpose:** Adds `walk mode` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionMainAgentWalkModeControllerVM from the subsystem API first
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.AddWalkMode("example", name, getIsActive, setIsActive, canChangeActive, hotKey, false);
+```
+
 ### SetEnabled
 `public void SetEnabled(bool isEnabled)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionMainAgentWalkModeControllerVM from the subsystem API first
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.SetEnabled(false);
+```
 
 ### GetIsWalkModeActivatedDelegate
 `public delegate bool GetIsWalkModeActivatedDelegate()`
 
-**Purpose:** Gets the current value of `is walk mode activated delegate`.
+**Purpose:** Reads and returns the `is walk mode activated delegate` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMainAgentWalkModeControllerVM from the subsystem API first
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+var result = missionMainAgentWalkModeControllerVM.GetIsWalkModeActivatedDelegate();
+```
 
 ### SetIsWalkModeActivatedDelegate
 `public delegate void SetIsWalkModeActivatedDelegate(bool value)`
 
-**Purpose:** Sets the value or state of `is walk mode activated delegate`.
+**Purpose:** Assigns a new value to `is walk mode activated delegate` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionMainAgentWalkModeControllerVM from the subsystem API first
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.SetIsWalkModeActivatedDelegate(false);
+```
 
 ### GetCanChangeWalkModeActivatedDelegate
 `public delegate bool GetCanChangeWalkModeActivatedDelegate()`
 
-**Purpose:** Gets the current value of `can change walk mode activated delegate`.
+**Purpose:** Reads and returns the `can change walk mode activated delegate` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMainAgentWalkModeControllerVM from the subsystem API first
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+var result = missionMainAgentWalkModeControllerVM.GetCanChangeWalkModeActivatedDelegate();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMainAgentWalkModeControllerVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DrivenPropertyOnSpawnEffect"
+description: "Auto-generated class reference for DrivenPropertyOnSpawnEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DrivenPropertyOnSpawnEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DrivenPropertyOnSpawnEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DrivenPropertyOnSpawnEffect : MPOnSpawnPerkEffect`
 **Base:** `MPOnSpawnPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DrivenPropertyOnSpawnEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DrivenPropertyOnSpawnEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetDrivenPropertyBonusOnSpawn
 `public override float GetDrivenPropertyBonusOnSpawn(bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Gets the current value of `driven property bonus on spawn`.
+**Purpose:** Reads and returns the `driven property bonus on spawn` value held by the current object.
+
+```csharp
+// Obtain an instance of DrivenPropertyOnSpawnEffect from the subsystem API first
+DrivenPropertyOnSpawnEffect drivenPropertyOnSpawnEffect = ...;
+var result = drivenPropertyOnSpawnEffect.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DrivenPropertyOnSpawnEffect();
-value.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
+// Typically call this after obtaining an instance from the subsystem API
+DrivenPropertyOnSpawnEffect drivenPropertyOnSpawnEffect = ...;
+drivenPropertyOnSpawnEffect.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

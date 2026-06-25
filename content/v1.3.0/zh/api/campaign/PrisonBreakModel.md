@@ -1,13 +1,7 @@
 ---
 title: "PrisonBreakModel"
+description: "PrisonBreakModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrisonBreakModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrisonBreakModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ title: "PrisonBreakModel"
 ### GetNumberOfGuardsToSpawn
 `public abstract int GetNumberOfGuardsToSpawn(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `number of guards to spawn` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of guards to spawn」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakModel 实例
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.GetNumberOfGuardsToSpawn(settlement);
+```
 
 ### CanPlayerStagePrisonBreak
 `public abstract bool CanPlayerStagePrisonBreak(Settlement settlement)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `player stage prison break`。
+**用途 / Purpose:** 检查当前对象是否满足 「player stage prison break」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakModel 实例
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.CanPlayerStagePrisonBreak(settlement);
+```
 
 ### GetPrisonBreakStartCost
 `public abstract int GetPrisonBreakStartCost(Hero prisonerHero)`
 
-**用途 / Purpose:** 获取 `prison break start cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「prison break start cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakModel 实例
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.GetPrisonBreakStartCost(prisonerHero);
+```
 
 ### GetRelationRewardOnPrisonBreak
 `public abstract int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
 
-**用途 / Purpose:** 获取 `relation reward on prison break` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation reward on prison break」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakModel 实例
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.GetRelationRewardOnPrisonBreak(prisonerHero);
+```
 
 ### GetRogueryRewardOnPrisonBreak
 `public abstract float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
 
-**用途 / Purpose:** 获取 `roguery reward on prison break` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「roguery reward on prison break」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakModel 实例
+PrisonBreakModel prisonBreakModel = ...;
+var result = prisonBreakModel.GetRogueryRewardOnPrisonBreak(prisonerHero, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPrisonBreakModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PrisonBreakModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

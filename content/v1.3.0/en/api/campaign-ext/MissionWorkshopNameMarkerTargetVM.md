@@ -1,13 +1,7 @@
 ---
 title: "MissionWorkshopNameMarkerTargetVM"
+description: "Auto-generated class reference for MissionWorkshopNameMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionWorkshopNameMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionWorkshopNameMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
@@ -29,15 +23,22 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets` t
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionWorkshopNameMarkerTargetVM from the subsystem API first
+MissionWorkshopNameMarkerTargetVM missionWorkshopNameMarkerTargetVM = ...;
+missionWorkshopNameMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionWorkshopNameMarkerTargetVM();
-value.UpdatePosition(missionCamera);
+// Typically call this after obtaining an instance from the subsystem API
+MissionWorkshopNameMarkerTargetVM missionWorkshopNameMarkerTargetVM = ...;
+missionWorkshopNameMarkerTargetVM.UpdatePosition(missionCamera);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

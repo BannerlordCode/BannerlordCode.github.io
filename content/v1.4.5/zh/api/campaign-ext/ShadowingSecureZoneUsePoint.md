@@ -1,20 +1,14 @@
 ---
 title: "ShadowingSecureZoneUsePoint"
+description: "ShadowingSecureZoneUsePoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShadowingSecureZoneUsePoint`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShadowingSecureZoneUsePoint
 
 **Namespace:** SandBox.Objects.Usables
 **Module:** SandBox.Objects
 **Type:** `public class ShadowingSecureZoneUsePoint : UsableMissionObject`
 **Base:** `UsableMissionObject`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Usables/ShadowingSecureZoneUsePoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.Usables/ShadowingSecureZoneUsePoint.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "ShadowingSecureZoneUsePoint"
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShadowingSecureZoneUsePoint 实例
+ShadowingSecureZoneUsePoint shadowingSecureZoneUsePoint = ...;
+var result = shadowingSecureZoneUsePoint.GetDescriptionText(gameEntity);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `use` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ShadowingSecureZoneUsePoint 实例
+ShadowingSecureZoneUsePoint shadowingSecureZoneUsePoint = ...;
+shadowingSecureZoneUsePoint.OnUse(userAgent, 0);
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** 当 `use stopped` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use stopped」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ShadowingSecureZoneUsePoint 实例
+ShadowingSecureZoneUsePoint shadowingSecureZoneUsePoint = ...;
+shadowingSecureZoneUsePoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `is disabled for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ShadowingSecureZoneUsePoint 实例
+ShadowingSecureZoneUsePoint shadowingSecureZoneUsePoint = ...;
+var result = shadowingSecureZoneUsePoint.IsDisabledForAgent(agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ShadowingSecureZoneUsePoint();
-value.GetDescriptionText(gameEntity);
+// 通常从对应子系统 API 获取实例后调用
+ShadowingSecureZoneUsePoint shadowingSecureZoneUsePoint = ...;
+shadowingSecureZoneUsePoint.GetDescriptionText(gameEntity);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

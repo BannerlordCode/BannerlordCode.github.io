@@ -1,18 +1,12 @@
 ---
 title: "ICaptivityCampaignBehavior"
+description: "Auto-generated class reference for ICaptivityCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICaptivityCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICaptivityCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICaptivityCampaignBehavior`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/ICaptivityCampaignBehavior.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-ICaptivityCampaignBehavior implementation = GetCaptivityCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IICaptivityCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

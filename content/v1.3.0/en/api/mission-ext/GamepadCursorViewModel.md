@@ -1,13 +1,7 @@
 ---
 title: "GamepadCursorViewModel"
+description: "Auto-generated class reference for GamepadCursorViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadCursorViewModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GamepadCursorViewModel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -36,10 +30,11 @@ Treat `GamepadCursorViewModel` as a ViewModel-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var vm = new GamepadCursorViewModel();
+// Bind the instance as the view-model of a movie or view
+GamepadCursorViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "IssueCoolDownData"
+description: "IssueCoolDownData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IssueCoolDownData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IssueCoolDownData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -29,19 +23,32 @@ title: "IssueCoolDownData"
 ### IsValid
 `public virtual bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 IssueCoolDownData 实例
+IssueCoolDownData issueCoolDownData = ...;
+var result = issueCoolDownData.IsValid();
+```
 
 ### IsRelatedTo
 `public abstract bool IsRelatedTo(object obj)`
 
-**用途 / Purpose:** 处理 `is related to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 IssueCoolDownData 实例
+IssueCoolDownData issueCoolDownData = ...;
+var result = issueCoolDownData.IsRelatedTo(obj);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomIssueCoolDownData();
+// 通常通过子系统 API 或工厂获得派生实例
+IssueCoolDownData instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

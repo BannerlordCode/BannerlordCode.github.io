@@ -1,13 +1,7 @@
 ---
 title: "ChatBox"
+description: "ChatBox 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChatBox`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChatBox
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,110 +31,228 @@ title: "ChatBox"
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**用途 / Purpose:** 当 `before save` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「before save」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.OnBeforeSave();
+```
 
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**用途 / Purpose:** 当 `after save` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after save」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.OnAfterSave();
+```
 
 ### SendMessageToAll
 `public void SendMessageToAll(string message)`
 
-**用途 / Purpose:** 处理 `send message to all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.SendMessageToAll("example");
+```
 
 ### SendMessageToAll
 `public void SendMessageToAll(string message, List<VirtualPlayer> receiverList)`
 
-**用途 / Purpose:** 处理 `send message to all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.SendMessageToAll("example", receiverList);
+```
 
 ### SendMessageToTeam
 `public void SendMessageToTeam(string message)`
 
-**用途 / Purpose:** 处理 `send message to team` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.SendMessageToTeam("example");
+```
 
 ### SendMessageToTeam
 `public void SendMessageToTeam(string message, List<VirtualPlayer> receiverList)`
 
-**用途 / Purpose:** 处理 `send message to team` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.SendMessageToTeam("example", receiverList);
+```
 
 ### SendMessageToWhisperTarget
 `public void SendMessageToWhisperTarget(string message, string platformName, string whisperTarget)`
 
-**用途 / Purpose:** 处理 `send message to whisper target` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.SendMessageToWhisperTarget("example", "example", "example");
+```
 
 ### ServerSendServerMessageToEveryone
 `public static void ServerSendServerMessageToEveryone(string message)`
 
-**用途 / Purpose:** 处理 `server send server message to everyone` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ChatBox.ServerSendServerMessageToEveryone("example");
+```
 
 ### ResetMuteList
 `public void ResetMuteList()`
 
-**用途 / Purpose:** 将 `mute list` 重置为初始状态。
+**用途 / Purpose:** 将 「mute list」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.ResetMuteList();
+```
 
 ### AddWhisperMessage
 `public static void AddWhisperMessage(string fromUserName, string messageBody)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `whisper message`。
+**用途 / Purpose:** 将 「whisper message」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+ChatBox.AddWhisperMessage("example", "example");
+```
 
 ### AddErrorWhisperMessage
 `public static void AddErrorWhisperMessage(string toUserName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `error whisper message`。
+**用途 / Purpose:** 将 「error whisper message」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+ChatBox.AddErrorWhisperMessage("example");
+```
 
 ### SetPlayerMuted
 `public void SetPlayerMuted(PlayerId playerID, bool isMuted)`
 
-**用途 / Purpose:** 设置 `player muted` 的值或状态。
+**用途 / Purpose:** 为 「player muted」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.SetPlayerMuted(playerID, false);
+```
 
 ### SetPlayerMutedFromPlatform
 `public void SetPlayerMutedFromPlatform(PlayerId playerID, bool isMuted)`
 
-**用途 / Purpose:** 设置 `player muted from platform` 的值或状态。
+**用途 / Purpose:** 为 「player muted from platform」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.SetPlayerMutedFromPlatform(playerID, false);
+```
 
 ### IsPlayerMuted
 `public bool IsPlayerMuted(PlayerId player)`
 
-**用途 / Purpose:** 处理 `is player muted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player muted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+var result = chatBox.IsPlayerMuted(player);
+```
 
 ### IsPlayerMutedFromPlatform
 `public bool IsPlayerMutedFromPlatform(PlayerId player)`
 
-**用途 / Purpose:** 处理 `is player muted from platform` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player muted from platform」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+var result = chatBox.IsPlayerMutedFromPlatform(player);
+```
 
 ### IsPlayerMutedFromGame
 `public bool IsPlayerMutedFromGame(PlayerId player)`
 
-**用途 / Purpose:** 处理 `is player muted from game` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player muted from game」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+var result = chatBox.IsPlayerMutedFromGame(player);
+```
 
 ### SetChatFilterLists
 `public void SetChatFilterLists(string profanityList, string allowList)`
 
-**用途 / Purpose:** 设置 `chat filter lists` 的值或状态。
+**用途 / Purpose:** 为 「chat filter lists」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.SetChatFilterLists("example", "example");
+```
 
 ### InitializeForMultiplayer
 `public void InitializeForMultiplayer()`
 
-**用途 / Purpose:** 初始化 `for multiplayer` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「for multiplayer」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.InitializeForMultiplayer();
+```
 
 ### InitializeForSinglePlayer
 `public void InitializeForSinglePlayer()`
 
-**用途 / Purpose:** 初始化 `for single player` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「for single player」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.InitializeForSinglePlayer();
+```
 
 ### OnLogin
 `public void OnLogin()`
 
-**用途 / Purpose:** 当 `login` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「login」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ChatBox 实例
+ChatBox chatBox = ...;
+chatBox.OnLogin();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ChatBox();
-value.OnBeforeSave();
+// 通常从对应子系统 API 获取实例后调用
+ChatBox chatBox = ...;
+chatBox.OnBeforeSave();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

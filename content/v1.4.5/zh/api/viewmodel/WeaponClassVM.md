@@ -1,20 +1,14 @@
 ---
 title: "WeaponClassVM"
+description: "WeaponClassVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponClassVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponClassVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WeaponClassVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponClassVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponClassVM.cs`
 
 ## 概述
 
@@ -43,30 +37,55 @@ title: "WeaponClassVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassVM 实例
+WeaponClassVM weaponClassVM = ...;
+weaponClassVM.RefreshValues();
+```
 
 ### RegisterSelectedPiece
 `public void RegisterSelectedPiece(CraftingPiece.PieceTypes type, string pieceID)`
 
-**用途 / Purpose:** 处理 `register selected piece` 相关逻辑。
+**用途 / Purpose:** 将「selected piece」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassVM 实例
+WeaponClassVM weaponClassVM = ...;
+weaponClassVM.RegisterSelectedPiece(type, "example");
+```
 
 ### GetSelectedPieceData
 `public string GetSelectedPieceData(CraftingPiece.PieceTypes type)`
 
-**用途 / Purpose:** 获取 `selected piece data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selected piece data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassVM 实例
+WeaponClassVM weaponClassVM = ...;
+var result = weaponClassVM.GetSelectedPieceData(type);
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** 执行 `select` 操作或流程。
+**用途 / Purpose:** 执行 「select」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponClassVM 实例
+WeaponClassVM weaponClassVM = ...;
+weaponClassVM.ExecuteSelect();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeaponClassVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+WeaponClassVM weaponClassVM = ...;
+weaponClassVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

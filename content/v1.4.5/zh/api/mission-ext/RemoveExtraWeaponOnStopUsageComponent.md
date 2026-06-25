@@ -1,20 +1,14 @@
 ---
 title: "RemoveExtraWeaponOnStopUsageComponent"
+description: "RemoveExtraWeaponOnStopUsageComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RemoveExtraWeaponOnStopUsageComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemoveExtraWeaponOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RemoveExtraWeaponOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/RemoveExtraWeaponOnStopUsageComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/RemoveExtraWeaponOnStopUsageComponent.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ var component = agent.GetComponent<RemoveExtraWeaponOnStopUsageComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

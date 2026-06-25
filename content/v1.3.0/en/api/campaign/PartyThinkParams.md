@@ -1,13 +1,7 @@
 ---
 title: "PartyThinkParams"
+description: "Auto-generated class reference for PartyThinkParams."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyThinkParams`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyThinkParams
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -36,40 +30,77 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Reset
 `public void Reset(MobileParty mobileParty)`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of PartyThinkParams from the subsystem API first
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.Reset(mobileParty);
+```
 
 ### Initialization
 `public void Initialization()`
 
-**Purpose:** Initializes the state, resources, or bindings for `ialization`.
+**Purpose:** Prepares the resources, state, or bindings required by `ialization`.
+
+```csharp
+// Obtain an instance of PartyThinkParams from the subsystem API first
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.Initialization();
+```
 
 ### AddPotentialArmyMember
 `public void AddPotentialArmyMember(MobileParty armyMember)`
 
 **Purpose:** Adds `potential army member` to the current collection or state.
 
+```csharp
+// Obtain an instance of PartyThinkParams from the subsystem API first
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.AddPotentialArmyMember(armyMember);
+```
+
 ### TryGetBehaviorScore
 `public bool TryGetBehaviorScore(in AIBehaviorData aiBehaviorData, out float score)`
 
-**Purpose:** Attempts to get `get behavior score`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get behavior score`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of PartyThinkParams from the subsystem API first
+PartyThinkParams partyThinkParams = ...;
+var result = partyThinkParams.TryGetBehaviorScore(aiBehaviorData, score);
+```
 
 ### SetBehaviorScore
 `public void SetBehaviorScore(in AIBehaviorData aiBehaviorData, float score)`
 
-**Purpose:** Sets the value or state of `behavior score`.
+**Purpose:** Assigns a new value to `behavior score` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyThinkParams from the subsystem API first
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.SetBehaviorScore(aiBehaviorData, 0);
+```
 
 ### AddBehaviorScore
 `public void AddBehaviorScore(in ValueTuple<AIBehaviorData, float> value)`
 
 **Purpose:** Adds `behavior score` to the current collection or state.
 
+```csharp
+// Obtain an instance of PartyThinkParams from the subsystem API first
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.AddBehaviorScore(valueTuple<AIBehaviorData, 0);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new PartyThinkParams();
-value.Reset(mobileParty);
+// Typically call this after obtaining an instance from the subsystem API
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.Reset(mobileParty);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

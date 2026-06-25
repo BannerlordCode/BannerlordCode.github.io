@@ -1,20 +1,14 @@
 ---
 title: "GauntletMovieIdentifier"
+description: "Auto-generated class reference for GauntletMovieIdentifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMovieIdentifier`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMovieIdentifier
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
 **Module:** TaleWorlds.Engine
 **Type:** `public class GauntletMovieIdentifier`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/GauntletMovieIdentifier.cs`
+**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/GauntletMovieIdentifier.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new GauntletMovieIdentifier();
+// Obtain an instance from the relevant subsystem API
+GauntletMovieIdentifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

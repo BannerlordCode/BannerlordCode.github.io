@@ -1,13 +1,7 @@
 ---
 title: "RichTextException"
+description: "Auto-generated class reference for RichTextException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichTextException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RichTextException
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -27,9 +21,10 @@ Treat `RichTextException` as a Exception-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-try { CallRichTextException(); } catch (RichTextException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (RichTextException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

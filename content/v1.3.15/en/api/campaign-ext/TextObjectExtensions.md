@@ -1,23 +1,18 @@
 ---
 title: "TextObjectExtensions"
+description: "Auto-generated class reference for TextObjectExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextObjectExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextObjectExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class TextObjectExtensions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Extensions/TextObjectExtensions.cs`
 
 ## Overview
 
-`TextObjectExtensions` lives in `TaleWorlds.CampaignSystem.Extensions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TextObjectExtensions` lives in `TaleWorlds.CampaignSystem.Extensions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,21 +23,29 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### SetCharacterProperties
 `public static void SetCharacterProperties(this TextObject to, string tag, CharacterObject character, bool includeDetails = false)`
 
-**Purpose:** Sets the value or state of `character properties`.
+**Purpose:** Assigns a new value to `character properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+TextObjectExtensions.SetCharacterProperties(to, "example", character, false);
+```
 
 ### SetSettlementProperties
 `public static void SetSettlementProperties(this TextObject to, Settlement settlement)`
 
-**Purpose:** Sets the value or state of `settlement properties`.
+**Purpose:** Assigns a new value to `settlement properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+TextObjectExtensions.SetSettlementProperties(to, settlement);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TextObjectExtensions.SetCharacterProperties(to, "example", character, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

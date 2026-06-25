@@ -1,13 +1,7 @@
 ---
 title: "MatrixFrame"
+description: "MatrixFrame 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MatrixFrame`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatrixFrame
 
 **Namespace:** TaleWorlds.Library
@@ -40,155 +34,325 @@ title: "MatrixFrame"
 ### TransformToParent
 `public Vec3 TransformToParent(in Vec3 v)`
 
-**用途 / Purpose:** 处理 `transform to parent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(v);
+```
 
 ### TransformToParent
 `public Vec2 TransformToParent(in Vec2 v)`
 
-**用途 / Purpose:** 处理 `transform to parent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(v);
+```
 
 ### TransformToLocal
 `public Vec3 TransformToLocal(in Vec3 v)`
 
-**用途 / Purpose:** 处理 `transform to local` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocal(v);
+```
 
 ### TransformToLocalNonUnit
 `public Vec3 TransformToLocalNonUnit(in Vec3 v)`
 
-**用途 / Purpose:** 处理 `transform to local non unit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonUnit(v);
+```
 
 ### NearlyEquals
 `public bool NearlyEquals(MatrixFrame rhs, float epsilon = 1E-05f)`
 
-**用途 / Purpose:** 处理 `nearly equals` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.NearlyEquals(rhs, 0);
+```
 
 ### TransformToLocalNonOrthogonal
 `public Vec3 TransformToLocalNonOrthogonal(in Vec3 v)`
 
-**用途 / Purpose:** 处理 `transform to local non orthogonal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonOrthogonal(v);
+```
 
 ### TransformToLocalNonOrthogonal
 `public MatrixFrame TransformToLocalNonOrthogonal(in MatrixFrame frame)`
 
-**用途 / Purpose:** 处理 `transform to local non orthogonal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonOrthogonal(frame);
+```
 
 ### Lerp
 `public static MatrixFrame Lerp(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
 
-**用途 / Purpose:** 处理 `lerp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MatrixFrame.Lerp(m1, m2, 0);
+```
 
 ### LerpNonOrthogonal
 `public static MatrixFrame LerpNonOrthogonal(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
 
-**用途 / Purpose:** 处理 `lerp non orthogonal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MatrixFrame.LerpNonOrthogonal(m1, m2, 0);
+```
 
 ### Slerp
 `public static MatrixFrame Slerp(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
 
-**用途 / Purpose:** 处理 `slerp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MatrixFrame.Slerp(m1, m2, 0);
+```
 
 ### TransformToParent
 `public MatrixFrame TransformToParent(in MatrixFrame m)`
 
-**用途 / Purpose:** 处理 `transform to parent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(m);
+```
 
 ### TransformToLocal
 `public MatrixFrame TransformToLocal(in MatrixFrame m)`
 
-**用途 / Purpose:** 处理 `transform to local` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocal(m);
+```
 
 ### TransformToParentWithW
 `public Vec3 TransformToParentWithW(Vec3 _s)`
 
-**用途 / Purpose:** 处理 `transform to parent with w` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParentWithW(_s);
+```
 
 ### GetUnitRotFrame
 `public MatrixFrame GetUnitRotFrame(float removedScale)`
 
-**用途 / Purpose:** 获取 `unit rot frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit rot frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetUnitRotFrame(0);
+```
 
 ### InverseFast
 `public MatrixFrame InverseFast()`
 
-**用途 / Purpose:** 处理 `inverse fast` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.InverseFast();
+```
 
 ### Inverse
 `public MatrixFrame Inverse()`
 
-**用途 / Purpose:** 处理 `inverse` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Inverse();
+```
 
 ### Determinant4X4
 `public float Determinant4X4()`
 
-**用途 / Purpose:** 处理 `determinant4 x4` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Determinant4X4();
+```
 
 ### Rotate
 `public void Rotate(float radian, in Vec3 axis)`
 
-**用途 / Purpose:** 处理 `rotate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+matrixFrame.Rotate(0, axis);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetHashCode();
+```
 
 ### Strafe
 `public MatrixFrame Strafe(float a)`
 
-**用途 / Purpose:** 处理 `strafe` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Strafe(0);
+```
 
 ### Advance
 `public MatrixFrame Advance(float a)`
 
-**用途 / Purpose:** 处理 `advance` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Advance(0);
+```
 
 ### Elevate
 `public MatrixFrame Elevate(float a)`
 
-**用途 / Purpose:** 处理 `elevate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Elevate(0);
+```
 
 ### Scale
 `public void Scale(in Vec3 scalingVector)`
 
-**用途 / Purpose:** 处理 `scale` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+matrixFrame.Scale(scalingVector);
+```
 
 ### GetScale
 `public Vec3 GetScale()`
 
-**用途 / Purpose:** 获取 `scale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetScale();
+```
 
 ### CreateLookAt
 `public static MatrixFrame CreateLookAt(in Vec3 position, in Vec3 target, in Vec3 upVector)`
 
-**用途 / Purpose:** 创建一个 `look at` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「look at」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MatrixFrame.CreateLookAt(position, target, upVector);
+```
 
 ### CenterFrameOfTwoPoints
 `public static MatrixFrame CenterFrameOfTwoPoints(in Vec3 p1, in Vec3 p2, Vec3 upVector)`
 
-**用途 / Purpose:** 处理 `center frame of two points` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MatrixFrame.CenterFrameOfTwoPoints(p1, p2, upVector);
+```
 
 ### Fill
 `public void Fill()`
 
-**用途 / Purpose:** 处理 `fill` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatrixFrame 实例
+MatrixFrame matrixFrame = ...;
+matrixFrame.Fill();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MatrixFrame();
-value.TransformToParent(v);
+// 通常从对应子系统 API 获取实例后调用
+MatrixFrame matrixFrame = ...;
+matrixFrame.TransformToParent(v);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

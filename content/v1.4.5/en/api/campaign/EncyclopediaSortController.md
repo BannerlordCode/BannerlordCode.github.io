@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaSortController"
+description: "Auto-generated class reference for EncyclopediaSortController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaSortController`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaSortController
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaSortController`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaSortController.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaSortController.cs`
 
 ## Overview
 
@@ -39,4 +33,4 @@ var controller = Mission.Current.GetMissionBehavior<EncyclopediaSortController>(
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

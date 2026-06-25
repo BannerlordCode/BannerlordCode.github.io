@@ -1,20 +1,14 @@
 ---
 title: "BoardGameAIKonane"
+description: "Auto-generated class reference for BoardGameAIKonane."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameAIKonane`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIKonane
 
 **Namespace:** SandBox.BoardGames.AI
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGameAIKonane : BoardGameAIBase`
 **Base:** `BoardGameAIBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAIKonane.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAIKonane.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate movement stage move`.
+**Purpose:** Calculates the current value or result of `movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAIKonane from the subsystem API first
+BoardGameAIKonane boardGameAIKonane = ...;
+var result = boardGameAIKonane.CalculateMovementStageMove();
+```
 
 ### CalculatePreMovementStageMove
 `public override Move CalculatePreMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate pre movement stage move`.
+**Purpose:** Calculates the current value or result of `pre movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAIKonane from the subsystem API first
+BoardGameAIKonane boardGameAIKonane = ...;
+var result = boardGameAIKonane.CalculatePreMovementStageMove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameAIKonane();
-value.CalculateMovementStageMove();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameAIKonane boardGameAIKonane = ...;
+boardGameAIKonane.CalculateMovementStageMove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

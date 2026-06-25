@@ -1,20 +1,14 @@
 ---
 title: "MetaDataExtensions"
+description: "Auto-generated class reference for MetaDataExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MetaDataExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MetaDataExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class MetaDataExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MetaDataExtensions.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MetaDataExtensions.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetCreationTime
 `public static DateTime GetCreationTime(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `creation time`.
+**Purpose:** Reads and returns the `creation time` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetCreationTime(metaData);
+```
 
 ### GetModules
 `public static string GetModules(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `modules`.
+**Purpose:** Reads and returns the `modules` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetModules(metaData);
+```
 
 ### GetModuleVersion
 `public static ApplicationVersion GetModuleVersion(this MetaData metaData, string moduleName)`
 
-**Purpose:** Gets the current value of `module version`.
+**Purpose:** Reads and returns the `module version` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetModuleVersion(metaData, "example");
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ MetaDataExtensions.GetCreationTime(metaData);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

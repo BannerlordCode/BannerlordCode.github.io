@@ -1,13 +1,7 @@
 ---
 title: "CommunityClient"
+description: "Auto-generated class reference for CommunityClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommunityClient`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommunityClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### QuitFromGame
 `public void QuitFromGame()`
 
-**Purpose:** Handles logic related to `quit from game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CommunityClient from the subsystem API first
+CommunityClient communityClient = ...;
+communityClient.QuitFromGame();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommunityClient();
-value.QuitFromGame();
+// Typically call this after obtaining an instance from the subsystem API
+CommunityClient communityClient = ...;
+communityClient.QuitFromGame();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

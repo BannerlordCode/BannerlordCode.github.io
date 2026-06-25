@@ -1,13 +1,7 @@
 ---
 title: "ItemTableauTextureProvider"
+description: "Auto-generated class reference for ItemTableauTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemTableauTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemTableauTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders
@@ -45,25 +39,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders` to p
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of ItemTableauTextureProvider from the subsystem API first
+ItemTableauTextureProvider itemTableauTextureProvider = ...;
+itemTableauTextureProvider.Clear(false);
+```
 
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemTableauTextureProvider from the subsystem API first
+ItemTableauTextureProvider itemTableauTextureProvider = ...;
+itemTableauTextureProvider.SetTargetSize(0, 0);
+```
 
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ItemTableauTextureProvider from the subsystem API first
+ItemTableauTextureProvider itemTableauTextureProvider = ...;
+itemTableauTextureProvider.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemTableauTextureProvider();
-value.Clear(false);
+// Typically call this after obtaining an instance from the subsystem API
+ItemTableauTextureProvider itemTableauTextureProvider = ...;
+itemTableauTextureProvider.Clear(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ScoreboardSkillItemHoverToggleWidget"
+description: "Auto-generated class reference for ScoreboardSkillItemHoverToggleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardSkillItemHoverToggleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScoreboardSkillItemHoverToggleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
@@ -36,14 +30,21 @@ Treat `ScoreboardSkillItemHoverToggleWidget` as a Widget-style extension point: 
 ### GetAllSkillWidgets
 `public List<Widget> GetAllSkillWidgets()`
 
-**Purpose:** Gets the current value of `all skill widgets`.
+**Purpose:** Reads and returns the `all skill widgets` value held by the current object.
+
+```csharp
+// Obtain an instance of ScoreboardSkillItemHoverToggleWidget from the subsystem API first
+ScoreboardSkillItemHoverToggleWidget scoreboardSkillItemHoverToggleWidget = ...;
+var result = scoreboardSkillItemHoverToggleWidget.GetAllSkillWidgets();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ScoreboardSkillItemHoverToggleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScoreboardSkillItemHoverToggleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

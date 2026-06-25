@@ -1,20 +1,14 @@
 ---
 title: "GauntletCharacterDeveloperScreen"
+description: "GauntletCharacterDeveloperScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletCharacterDeveloperScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletCharacterDeveloperScreen
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletCharacterDeveloperScreen : ScreenBase, IGameStateListener, IChangeableScreen, ICharacterDeveloperStateHandler`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletCharacterDeveloperScreen.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletCharacterDeveloperScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GauntletCharacterDeveloperScreen"
 ## 使用示例
 
 ```csharp
-var value = new GauntletCharacterDeveloperScreen();
+// 从对应子系统 API 获取实例
+GauntletCharacterDeveloperScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

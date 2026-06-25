@@ -1,20 +1,14 @@
 ---
 title: "ItemDiscardModel"
+description: "Auto-generated class reference for ItemDiscardModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemDiscardModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemDiscardModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ItemDiscardModel : MBGameModel<ItemDiscardModel>`
 **Base:** `MBGameModel<ItemDiscardModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ItemDiscardModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ItemDiscardModel.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `ItemDiscardModel` as a Model-style extension point: first identify who cr
 ### GetXpBonusForDiscardingItems
 `public abstract int GetXpBonusForDiscardingItems(ItemRoster itemRoster)`
 
-**Purpose:** Gets the current value of `xp bonus for discarding items`.
+**Purpose:** Reads and returns the `xp bonus for discarding items` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemDiscardModel from the subsystem API first
+ItemDiscardModel itemDiscardModel = ...;
+var result = itemDiscardModel.GetXpBonusForDiscardingItems(itemRoster);
+```
 
 ### GetXpBonusForDiscardingItem
 `public abstract int GetXpBonusForDiscardingItem(ItemObject item, int amount = 1)`
 
-**Purpose:** Gets the current value of `xp bonus for discarding item`.
+**Purpose:** Reads and returns the `xp bonus for discarding item` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemDiscardModel from the subsystem API first
+ItemDiscardModel itemDiscardModel = ...;
+var result = itemDiscardModel.GetXpBonusForDiscardingItem(item, 0);
+```
 
 ### PlayerCanDonateItem
 `public abstract bool PlayerCanDonateItem(ItemObject item)`
 
-**Purpose:** Handles logic related to `player can donate item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemDiscardModel from the subsystem API first
+ItemDiscardModel itemDiscardModel = ...;
+var result = itemDiscardModel.PlayerCanDonateItem(item);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomItemDiscardModel();
+// Typically obtained from a subsystem API or factory
+ItemDiscardModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

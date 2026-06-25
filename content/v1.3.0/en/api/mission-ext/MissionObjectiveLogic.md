@@ -1,13 +1,7 @@
 ---
 title: "MissionObjectiveLogic"
+description: "Auto-generated class reference for MissionObjectiveLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.MissionLogics
@@ -35,34 +29,64 @@ Treat `MissionObjectiveLogic` as a Logic-style extension point: first identify w
 ### EnqueueObjective
 `public void EnqueueObjective(MissionObjective objective)`
 
-**Purpose:** Handles logic related to `enqueue objective`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionObjectiveLogic from the subsystem API first
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.EnqueueObjective(objective);
+```
 
 ### RemoveObjectiveFromQueue
 `public void RemoveObjectiveFromQueue(string objectiveId)`
 
 **Purpose:** Removes `objective from queue` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionObjectiveLogic from the subsystem API first
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.RemoveObjectiveFromQueue("example");
+```
+
 ### RemoveObjectiveFromQueue
 `public void RemoveObjectiveFromQueue(MissionObjective objective)`
 
 **Purpose:** Removes `objective from queue` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionObjectiveLogic from the subsystem API first
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.RemoveObjectiveFromQueue(objective);
+```
+
 ### GetCurrentObjective
 `public MissionObjective GetCurrentObjective()`
 
-**Purpose:** Gets the current value of `current objective`.
+**Purpose:** Reads and returns the `current objective` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionObjectiveLogic from the subsystem API first
+MissionObjectiveLogic missionObjectiveLogic = ...;
+var result = missionObjectiveLogic.GetCurrentObjective();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionObjectiveLogic from the subsystem API first
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionObjectiveLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionObjectiveLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

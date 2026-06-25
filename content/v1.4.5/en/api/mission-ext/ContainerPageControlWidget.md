@@ -1,20 +1,14 @@
 ---
 title: "ContainerPageControlWidget"
+description: "Auto-generated class reference for ContainerPageControlWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContainerPageControlWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerPageControlWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ContainerPageControlWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ContainerPageControlWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ContainerPageControlWidget.cs`
 
 ## Overview
 
@@ -40,9 +34,10 @@ Treat `ContainerPageControlWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new ContainerPageControlWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ContainerPageControlWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

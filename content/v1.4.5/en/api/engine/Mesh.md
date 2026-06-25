@@ -1,20 +1,14 @@
 ---
 title: "Mesh"
+description: "Auto-generated class reference for Mesh."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Mesh`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Mesh
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Mesh : Resource`
 **Base:** `Resource`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Mesh.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Mesh.cs`
 
 ## Overview
 
@@ -41,287 +35,625 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateMeshWithMaterial
 `public static Mesh CreateMeshWithMaterial(Material material)`
 
-**Purpose:** Creates a new `mesh with material` instance or object.
+**Purpose:** Constructs a new `mesh with material` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Mesh.CreateMeshWithMaterial(material);
+```
 
 ### CreateMesh
 `public static Mesh CreateMesh(bool editable = true)`
 
-**Purpose:** Creates a new `mesh` instance or object.
+**Purpose:** Constructs a new `mesh` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Mesh.CreateMesh(false);
+```
 
 ### GetBaseMesh
 `public Mesh GetBaseMesh()`
 
-**Purpose:** Gets the current value of `base mesh`.
+**Purpose:** Reads and returns the `base mesh` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetBaseMesh();
+```
 
 ### GetFromResource
 `public static Mesh GetFromResource(string meshName)`
 
-**Purpose:** Gets the current value of `from resource`.
+**Purpose:** Reads and returns the `from resource` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Mesh.GetFromResource("example");
+```
 
 ### GetRandomMeshWithVdecl
 `public static Mesh GetRandomMeshWithVdecl(int inputLayout)`
 
-**Purpose:** Gets the current value of `random mesh with vdecl`.
+**Purpose:** Reads and returns the `random mesh with vdecl` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Mesh.GetRandomMeshWithVdecl(0);
+```
 
 ### SetColorAndStroke
 `public void SetColorAndStroke(uint color, uint strokeColor, bool drawStroke)`
 
-**Purpose:** Sets the value or state of `color and stroke`.
+**Purpose:** Assigns a new value to `color and stroke` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetColorAndStroke(0, 0, false);
+```
 
 ### SetMeshRenderOrder
 `public void SetMeshRenderOrder(int renderOrder)`
 
-**Purpose:** Sets the value or state of `mesh render order`.
+**Purpose:** Assigns a new value to `mesh render order` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetMeshRenderOrder(0);
+```
 
 ### HasTag
 `public bool HasTag(string str)`
 
-**Purpose:** Checks whether the current object has/contains `tag`.
+**Purpose:** Determines whether the current object already holds `tag`.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.HasTag("example");
+```
 
 ### CreateCopy
 `public Mesh CreateCopy()`
 
-**Purpose:** Creates a new `copy` instance or object.
+**Purpose:** Constructs a new `copy` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.CreateCopy();
+```
 
 ### SetMaterial
 `public void SetMaterial(string newMaterialName)`
 
-**Purpose:** Sets the value or state of `material`.
+**Purpose:** Assigns a new value to `material` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetMaterial("example");
+```
 
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** Sets the value or state of `vector argument`.
+**Purpose:** Assigns a new value to `vector argument` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetVectorArgument(0, 0, 0, 0);
+```
 
 ### SetVectorArgument2
 `public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** Sets the value or state of `vector argument2`.
+**Purpose:** Assigns a new value to `vector argument2` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetVectorArgument2(0, 0, 0, 0);
+```
 
 ### GetVectorArgument
 `public Vec3 GetVectorArgument()`
 
-**Purpose:** Gets the current value of `vector argument`.
+**Purpose:** Reads and returns the `vector argument` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetVectorArgument();
+```
 
 ### GetVectorArgument2
 `public Vec3 GetVectorArgument2()`
 
-**Purpose:** Gets the current value of `vector argument2`.
+**Purpose:** Reads and returns the `vector argument2` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetVectorArgument2();
+```
 
 ### SetupAdditionalBoneBuffer
 `public void SetupAdditionalBoneBuffer(int numBones)`
 
-**Purpose:** Sets the value or state of `up additional bone buffer`.
+**Purpose:** Assigns a new value to `up additional bone buffer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetupAdditionalBoneBuffer(0);
+```
 
 ### SetAdditionalBoneFrame
 `public void SetAdditionalBoneFrame(int boneIndex, in MatrixFrame frame)`
 
-**Purpose:** Sets the value or state of `additional bone frame`.
+**Purpose:** Assigns a new value to `additional bone frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetAdditionalBoneFrame(0, frame);
+```
 
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**Purpose:** Sets the value or state of `material`.
+**Purpose:** Assigns a new value to `material` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetMaterial(material);
+```
 
 ### GetMaterial
 `public Material GetMaterial()`
 
-**Purpose:** Gets the current value of `material`.
+**Purpose:** Reads and returns the `material` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetMaterial();
+```
 
 ### GetSecondMaterial
 `public Material GetSecondMaterial()`
 
-**Purpose:** Gets the current value of `second material`.
+**Purpose:** Reads and returns the `second material` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetSecondMaterial();
+```
 
 ### AddFaceCorner
 `public int AddFaceCorner(Vec3 position, Vec3 normal, Vec2 uvCoord, uint color, UIntPtr lockHandle)`
 
 **Purpose:** Adds `face corner` to the current collection or state.
 
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.AddFaceCorner(position, normal, uvCoord, 0, lockHandle);
+```
+
 ### AddFace
 `public int AddFace(int patchNode0, int patchNode1, int patchNode2, UIntPtr lockHandle)`
 
 **Purpose:** Adds `face` to the current collection or state.
 
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.AddFace(0, 0, 0, lockHandle);
+```
+
 ### ClearMesh
 `public void ClearMesh()`
 
-**Purpose:** Handles logic related to `clear mesh`.
+**Purpose:** Removes all `mesh` from the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.ClearMesh();
+```
 
 ### SetColorAlpha
 `public void SetColorAlpha(uint newAlpha)`
 
-**Purpose:** Sets the value or state of `color alpha`.
+**Purpose:** Assigns a new value to `color alpha` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetColorAlpha(0);
+```
 
 ### GetFaceCount
 `public uint GetFaceCount()`
 
-**Purpose:** Gets the current value of `face count`.
+**Purpose:** Reads and returns the `face count` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetFaceCount();
+```
 
 ### GetFaceCornerCount
 `public uint GetFaceCornerCount()`
 
-**Purpose:** Gets the current value of `face corner count`.
+**Purpose:** Reads and returns the `face corner count` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetFaceCornerCount();
+```
 
 ### ComputeNormals
 `public void ComputeNormals()`
 
-**Purpose:** Handles logic related to `compute normals`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.ComputeNormals();
+```
 
 ### ComputeTangents
 `public void ComputeTangents()`
 
-**Purpose:** Handles logic related to `compute tangents`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.ComputeTangents();
+```
 
 ### AddMesh
 `public void AddMesh(string meshResourceName, MatrixFrame meshFrame)`
 
 **Purpose:** Adds `mesh` to the current collection or state.
 
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.AddMesh("example", meshFrame);
+```
+
 ### AddMesh
 `public void AddMesh(Mesh mesh, MatrixFrame meshFrame)`
 
 **Purpose:** Adds `mesh` to the current collection or state.
 
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.AddMesh(mesh, meshFrame);
+```
+
 ### GetLocalFrame
 `public MatrixFrame GetLocalFrame()`
 
-**Purpose:** Gets the current value of `local frame`.
+**Purpose:** Reads and returns the `local frame` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetLocalFrame();
+```
 
 ### SetLocalFrame
 `public void SetLocalFrame(MatrixFrame meshFrame)`
 
-**Purpose:** Sets the value or state of `local frame`.
+**Purpose:** Assigns a new value to `local frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetLocalFrame(meshFrame);
+```
 
 ### SetVisibilityMask
 `public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
 
-**Purpose:** Sets the value or state of `visibility mask`.
+**Purpose:** Assigns a new value to `visibility mask` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetVisibilityMask(visibilityMask);
+```
 
 ### UpdateBoundingBox
 `public void UpdateBoundingBox()`
 
-**Purpose:** Updates the state or data of `bounding box`.
+**Purpose:** Recalculates and stores the latest representation of `bounding box`.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.UpdateBoundingBox();
+```
 
 ### SetAsNotEffectedBySeason
 `public void SetAsNotEffectedBySeason()`
 
-**Purpose:** Sets the value or state of `as not effected by season`.
+**Purpose:** Assigns a new value to `as not effected by season` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetAsNotEffectedBySeason();
+```
 
 ### GetBoundingBoxWidth
 `public float GetBoundingBoxWidth()`
 
-**Purpose:** Gets the current value of `bounding box width`.
+**Purpose:** Reads and returns the `bounding box width` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetBoundingBoxWidth();
+```
 
 ### GetBoundingBoxHeight
 `public float GetBoundingBoxHeight()`
 
-**Purpose:** Gets the current value of `bounding box height`.
+**Purpose:** Reads and returns the `bounding box height` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetBoundingBoxHeight();
+```
 
 ### GetBoundingBoxMin
 `public Vec3 GetBoundingBoxMin()`
 
-**Purpose:** Gets the current value of `bounding box min`.
+**Purpose:** Reads and returns the `bounding box min` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetBoundingBoxMin();
+```
 
 ### GetBoundingBoxMax
 `public Vec3 GetBoundingBoxMax()`
 
-**Purpose:** Gets the current value of `bounding box max`.
+**Purpose:** Reads and returns the `bounding box max` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetBoundingBoxMax();
+```
 
 ### AddTriangle
 `public void AddTriangle(Vec3 p1, Vec3 p2, Vec3 p3, Vec2 uv1, Vec2 uv2, Vec2 uv3, uint color, UIntPtr lockHandle)`
 
 **Purpose:** Adds `triangle` to the current collection or state.
 
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.AddTriangle(p1, p2, p3, uv1, uv2, uv3, 0, lockHandle);
+```
+
 ### AddTriangleWithVertexColors
 `public void AddTriangleWithVertexColors(Vec3 p1, Vec3 p2, Vec3 p3, Vec2 uv1, Vec2 uv2, Vec2 uv3, uint c1, uint c2, uint c3, UIntPtr lockHandle)`
 
 **Purpose:** Adds `triangle with vertex colors` to the current collection or state.
 
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.AddTriangleWithVertexColors(p1, p2, p3, uv1, uv2, uv3, 0, 0, 0, lockHandle);
+```
+
 ### HintIndicesDynamic
 `public void HintIndicesDynamic()`
 
-**Purpose:** Handles logic related to `hint indices dynamic`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.HintIndicesDynamic();
+```
 
 ### HintVerticesDynamic
 `public void HintVerticesDynamic()`
 
-**Purpose:** Handles logic related to `hint vertices dynamic`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.HintVerticesDynamic();
+```
 
 ### RecomputeBoundingBox
 `public void RecomputeBoundingBox()`
 
-**Purpose:** Handles logic related to `recompute bounding box`.
+**Purpose:** Recomputes `bounding box` and returns the result.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.RecomputeBoundingBox();
+```
 
 ### SetEditDataFaceCornerVertexColor
 `public void SetEditDataFaceCornerVertexColor(int index, uint color)`
 
-**Purpose:** Sets the value or state of `edit data face corner vertex color`.
+**Purpose:** Assigns a new value to `edit data face corner vertex color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetEditDataFaceCornerVertexColor(0, 0);
+```
 
 ### GetEditDataFaceCornerVertexColor
 `public uint GetEditDataFaceCornerVertexColor(int index)`
 
-**Purpose:** Gets the current value of `edit data face corner vertex color`.
+**Purpose:** Reads and returns the `edit data face corner vertex color` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetEditDataFaceCornerVertexColor(0);
+```
 
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**Purpose:** Handles logic related to `preload for rendering`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.PreloadForRendering();
+```
 
 ### SetContourColor
 `public void SetContourColor(Vec3 color, bool alwaysVisible, bool maskMesh)`
 
-**Purpose:** Sets the value or state of `contour color`.
+**Purpose:** Assigns a new value to `contour color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetContourColor(color, false, false);
+```
 
 ### DisableContour
 `public void DisableContour()`
 
-**Purpose:** Handles logic related to `disable contour`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.DisableContour();
+```
 
 ### SetExternalBoundingBox
 `public void SetExternalBoundingBox(BoundingBox bbox)`
 
-**Purpose:** Sets the value or state of `external bounding box`.
+**Purpose:** Assigns a new value to `external bounding box` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetExternalBoundingBox(bbox);
+```
 
 ### AddEditDataUser
 `public void AddEditDataUser()`
 
 **Purpose:** Adds `edit data user` to the current collection or state.
 
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.AddEditDataUser();
+```
+
 ### ReleaseEditDataUser
 `public void ReleaseEditDataUser()`
 
-**Purpose:** Handles logic related to `release edit data user`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.ReleaseEditDataUser();
+```
 
 ### SetEditDataPolicy
 `public void SetEditDataPolicy(EditDataPolicy policy)`
 
-**Purpose:** Sets the value or state of `edit data policy`.
+**Purpose:** Assigns a new value to `edit data policy` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetEditDataPolicy(policy);
+```
 
 ### LockEditDataWrite
 `public UIntPtr LockEditDataWrite()`
 
-**Purpose:** Handles logic related to `lock edit data write`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.LockEditDataWrite();
+```
 
 ### UnlockEditDataWrite
 `public void UnlockEditDataWrite(UIntPtr handle)`
 
-**Purpose:** Handles logic related to `unlock edit data write`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.UnlockEditDataWrite(handle);
+```
 
 ### SetCustomClipPlane
 `public void SetCustomClipPlane(Vec3 clipPlanePosition, Vec3 clipPlaneNormal, int planeIndex)`
 
-**Purpose:** Sets the value or state of `custom clip plane`.
+**Purpose:** Assigns a new value to `custom clip plane` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+mesh.SetCustomClipPlane(clipPlanePosition, clipPlaneNormal, 0);
+```
 
 ### GetClothLinearVelocityMultiplier
 `public float GetClothLinearVelocityMultiplier()`
 
-**Purpose:** Gets the current value of `cloth linear velocity multiplier`.
+**Purpose:** Reads and returns the `cloth linear velocity multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.GetClothLinearVelocityMultiplier();
+```
 
 ### HasCloth
 `public bool HasCloth()`
 
-**Purpose:** Checks whether the current object has/contains `cloth`.
+**Purpose:** Determines whether the current object already holds `cloth`.
+
+```csharp
+// Obtain an instance of Mesh from the subsystem API first
+Mesh mesh = ...;
+var result = mesh.HasCloth();
+```
 
 ## Usage Example
 
@@ -331,4 +663,4 @@ Mesh.CreateMeshWithMaterial(material);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

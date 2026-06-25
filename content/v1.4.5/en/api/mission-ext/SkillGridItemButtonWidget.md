@@ -1,20 +1,14 @@
 ---
 title: "SkillGridItemButtonWidget"
+description: "Auto-generated class reference for SkillGridItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillGridItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillGridItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SkillGridItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/SkillGridItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/SkillGridItemButtonWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `SkillGridItemButtonWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new SkillGridItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SkillGridItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

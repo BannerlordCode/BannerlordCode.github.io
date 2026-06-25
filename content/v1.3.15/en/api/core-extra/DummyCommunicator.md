@@ -1,13 +1,7 @@
 ---
 title: "DummyCommunicator"
+description: "Auto-generated class reference for DummyCommunicator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DummyCommunicator`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DummyCommunicator
 
 **Namespace:** TaleWorlds.Core
@@ -39,35 +33,64 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### OnSynchronizeComponentTo
 `public void OnSynchronizeComponentTo(VirtualPlayer peer, PeerComponent component)`
 
-**Purpose:** Called when the `synchronize component to` event is raised.
+**Purpose:** Invoked when the `synchronize component to` event is raised.
+
+```csharp
+// Obtain an instance of DummyCommunicator from the subsystem API first
+DummyCommunicator dummyCommunicator = ...;
+dummyCommunicator.OnSynchronizeComponentTo(peer, component);
+```
 
 ### OnAddComponent
 `public void OnAddComponent(PeerComponent component)`
 
-**Purpose:** Called when the `add component` event is raised.
+**Purpose:** Invoked when the `add component` event is raised.
+
+```csharp
+// Obtain an instance of DummyCommunicator from the subsystem API first
+DummyCommunicator dummyCommunicator = ...;
+dummyCommunicator.OnAddComponent(component);
+```
 
 ### OnRemoveComponent
 `public void OnRemoveComponent(PeerComponent component)`
 
-**Purpose:** Called when the `remove component` event is raised.
+**Purpose:** Invoked when the `remove component` event is raised.
+
+```csharp
+// Obtain an instance of DummyCommunicator from the subsystem API first
+DummyCommunicator dummyCommunicator = ...;
+dummyCommunicator.OnRemoveComponent(component);
+```
 
 ### CreateAsServer
 `public static DummyCommunicator CreateAsServer(int index, string name)`
 
-**Purpose:** Creates a new `as server` instance or object.
+**Purpose:** Constructs a new `as server` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+DummyCommunicator.CreateAsServer(0, "example");
+```
 
 ### CreateAsClient
 `public static DummyCommunicator CreateAsClient(string name, int index)`
 
-**Purpose:** Creates a new `as client` instance or object.
+**Purpose:** Constructs a new `as client` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+DummyCommunicator.CreateAsClient("example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DummyCommunicator();
-value.OnSynchronizeComponentTo(peer, component);
+// Typically call this after obtaining an instance from the subsystem API
+DummyCommunicator dummyCommunicator = ...;
+dummyCommunicator.OnSynchronizeComponentTo(peer, component);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

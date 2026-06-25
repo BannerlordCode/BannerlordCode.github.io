@@ -1,20 +1,14 @@
 ---
 title: "PlayerFledBattleAnswerMessage"
+description: "Auto-generated class reference for PlayerFledBattleAnswerMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerFledBattleAnswerMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerFledBattleAnswerMessage
 
 **Namespace:** Messages.FromBattleServer.ToBattleServerManager
 **Module:** Messages.FromBattleServer
 **Type:** `public class PlayerFledBattleAnswerMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/PlayerFledBattleAnswerMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/PlayerFledBattleAnswerMessage.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `Messages.FromBattleServer.ToBattleServerManager` to place 
 ## Usage Example
 
 ```csharp
-var example = new PlayerFledBattleAnswerMessage();
+// Obtain an instance from the relevant subsystem API
+PlayerFledBattleAnswerMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

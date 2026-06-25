@@ -1,20 +1,14 @@
 ---
 title: "SkillVM"
+description: "Auto-generated class reference for SkillVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SkillVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/SkillVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/SkillVM.cs`
 
 ## Overview
 
@@ -66,75 +60,154 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.RefreshValues();
+```
 
 ### InitializeValues
 `public void InitializeValues()`
 
-**Purpose:** Initializes the state, resources, or bindings for `values`.
+**Purpose:** Prepares the resources, state, or bindings required by `values`.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.InitializeValues();
+```
 
 ### RefreshWithCurrentValues
 `public void RefreshWithCurrentValues()`
 
-**Purpose:** Refreshes the display or cache of `with current values`.
+**Purpose:** Keeps the display or cache of `with current values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.RefreshWithCurrentValues();
+```
 
 ### CreateLists
 `public void CreateLists()`
 
-**Purpose:** Creates a new `lists` instance or object.
+**Purpose:** Constructs a new `lists` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.CreateLists();
+```
 
 ### RefreshLists
 `public void RefreshLists(SkillObject skill = null)`
 
-**Purpose:** Refreshes the display or cache of `lists`.
+**Purpose:** Keeps the display or cache of `lists` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.RefreshLists(null);
+```
 
 ### RefreshCanAddFocus
 `public void RefreshCanAddFocus()`
 
-**Purpose:** Refreshes the display or cache of `can add focus`.
+**Purpose:** Keeps the display or cache of `can add focus` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.RefreshCanAddFocus();
+```
 
 ### ExecuteAddFocus
 `public void ExecuteAddFocus()`
 
-**Purpose:** Executes the `add focus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `add focus`.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.ExecuteAddFocus();
+```
 
 ### ExecuteShowFocusConcept
 `public void ExecuteShowFocusConcept()`
 
-**Purpose:** Executes the `show focus concept` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show focus concept`.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.ExecuteShowFocusConcept();
+```
 
 ### ExecuteShowSkillConcept
 `public void ExecuteShowSkillConcept()`
 
-**Purpose:** Executes the `show skill concept` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show skill concept`.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.ExecuteShowSkillConcept();
+```
 
 ### ExecuteInspect
 `public void ExecuteInspect()`
 
-**Purpose:** Executes the `inspect` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `inspect`.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.ExecuteInspect();
+```
 
 ### ResetChanges
 `public void ResetChanges()`
 
-**Purpose:** Resets `changes` to its initial state.
+**Purpose:** Returns `changes` to its default or initial condition.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.ResetChanges();
+```
 
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**Purpose:** Handles logic related to `is there any changes`.
+**Purpose:** Determines whether the current object is in the `there any changes` state or condition.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+var result = skillVM.IsThereAnyChanges();
+```
 
 ### ApplyChanges
 `public void ApplyChanges()`
 
-**Purpose:** Applies `changes` to the current object.
+**Purpose:** Applies the effect of `changes` to the current object.
+
+```csharp
+// Obtain an instance of SkillVM from the subsystem API first
+SkillVM skillVM = ...;
+skillVM.ApplyChanges();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkillVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SkillVM skillVM = ...;
+skillVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

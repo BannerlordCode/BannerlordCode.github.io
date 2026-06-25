@@ -1,20 +1,14 @@
 ---
 title: "WeaponFlags"
+description: "WeaponFlags 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponFlags`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponFlags
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
-**Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/WeaponFlags.cs`
+**Type:** `public enum WeaponFlags : ulong`
+**Base:** `ulong`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponFlags.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "WeaponFlags"
 ## 使用示例
 
 ```csharp
-var example = new WeaponFlags();
+// 从对应子系统 API 获取实例
+WeaponFlags instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

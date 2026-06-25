@@ -1,20 +1,14 @@
 ---
 title: "ItemCategorySelector"
+description: "Auto-generated class reference for ItemCategorySelector."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemCategorySelector`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCategorySelector
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ItemCategorySelector : MBGameModel<ItemCategorySelector>`
 **Base:** `MBGameModel<ItemCategorySelector>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemCategorySelector.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemCategorySelector.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetItemCategoryForItem
 `public abstract ItemCategory GetItemCategoryForItem(ItemObject itemObject)`
 
-**Purpose:** Gets the current value of `item category for item`.
+**Purpose:** Reads and returns the `item category for item` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemCategorySelector from the subsystem API first
+ItemCategorySelector itemCategorySelector = ...;
+var result = itemCategorySelector.GetItemCategoryForItem(itemObject);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomItemCategorySelector();
+// Typically obtained from a subsystem API or factory
+ItemCategorySelector instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

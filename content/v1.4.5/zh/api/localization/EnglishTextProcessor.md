@@ -1,20 +1,14 @@
 ---
 title: "EnglishTextProcessor"
+description: "EnglishTextProcessor 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EnglishTextProcessor`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EnglishTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
 **Module:** TaleWorlds.Localization
 **Type:** `public class EnglishTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor.LanguageProcessors/EnglishTextProcessor.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor.LanguageProcessors/EnglishTextProcessor.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "EnglishTextProcessor"
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** 处理 `process token` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EnglishTextProcessor 实例
+EnglishTextProcessor englishTextProcessor = ...;
+englishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**用途 / Purpose:** 处理 `clear temporary data` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「temporary data」。
+
+```csharp
+// 先通过子系统 API 拿到 EnglishTextProcessor 实例
+EnglishTextProcessor englishTextProcessor = ...;
+englishTextProcessor.ClearTemporaryData();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EnglishTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// 通常从对应子系统 API 获取实例后调用
+EnglishTextProcessor englishTextProcessor = ...;
+englishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

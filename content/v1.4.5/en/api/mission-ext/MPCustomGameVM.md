@@ -1,20 +1,14 @@
 ---
 title: "MPCustomGameVM"
+description: "Auto-generated class reference for MPCustomGameVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPCustomGameVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPCustomGameVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPCustomGameVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameVM.cs`
 
 ## Overview
 
@@ -68,65 +62,132 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.OnFinalize();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.OnTick(0);
+```
 
 ### SetPremadeGameList
 `public void SetPremadeGameList(PremadeGameEntry entries)`
 
-**Purpose:** Sets the value or state of `premade game list`.
+**Purpose:** Assigns a new value to `premade game list` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.SetPremadeGameList(entries);
+```
 
 ### SetCustomGameServerList
 `public void SetCustomGameServerList(AvailableCustomGames availableCustomGames)`
 
-**Purpose:** Sets the value or state of `custom game server list`.
+**Purpose:** Assigns a new value to `custom game server list` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.SetCustomGameServerList(availableCustomGames);
+```
 
 ### ExecuteRefresh
 `public async void ExecuteRefresh()`
 
-**Purpose:** Executes the `refresh` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `refresh`.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.ExecuteRefresh();
+```
 
 ### ExecuteJoinSelectedGame
 `public void ExecuteJoinSelectedGame()`
 
-**Purpose:** Executes the `join selected game` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `join selected game`.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.ExecuteJoinSelectedGame();
+```
 
 ### OnJoinGame
 `public void OnJoinGame(MPCustomGameItemVM gameItem)`
 
-**Purpose:** Called when the `join game` event is raised.
+**Purpose:** Invoked when the `join game` event is raised.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.OnJoinGame(gameItem);
+```
 
 ### ExecuteOpenCreateGamePanel
 `public void ExecuteOpenCreateGamePanel()`
 
-**Purpose:** Executes the `open create game panel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open create game panel`.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.ExecuteOpenCreateGamePanel();
+```
 
 ### ExecuteCloseCreateGamePanel
 `public void ExecuteCloseCreateGamePanel()`
 
-**Purpose:** Executes the `close create game panel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close create game panel`.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.ExecuteCloseCreateGamePanel();
+```
 
 ### SetRefreshInputKey
 `public void SetRefreshInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `refresh input key`.
+**Purpose:** Assigns a new value to `refresh input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPCustomGameVM from the subsystem API first
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.SetRefreshInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPCustomGameVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

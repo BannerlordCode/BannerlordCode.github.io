@@ -1,13 +1,7 @@
 ---
 title: "MapTracksCampaignBehavior"
+description: "MapTracksCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapTracksCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapTracksCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -36,55 +30,110 @@ title: "MapTracksCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.SyncData(dataStore);
+```
 
 ### IsTrackDropped
 `public bool IsTrackDropped(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `is track dropped` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「track dropped」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+var result = mapTracksCampaignBehavior.IsTrackDropped(mobileParty);
+```
 
 ### AddTrack
 `public void AddTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `track`。
+**用途 / Purpose:** 将 「track」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.AddTrack(party, trackPosition, trackDirection);
+```
 
 ### AddMapArrow
 `public void AddMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `map arrow`。
+**用途 / Purpose:** 将 「map arrow」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.AddMapArrow(pointerName, trackPosition, trackDirection, 0);
+```
 
 ### RequestTrack
 `public Track RequestTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
-**用途 / Purpose:** 处理 `request track` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+var result = mapTracksCampaignBehavior.RequestTrack(party, trackPosition, trackDirection);
+```
 
 ### RequestMapArrow
 `public Track RequestMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
-**用途 / Purpose:** 处理 `request map arrow` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+var result = mapTracksCampaignBehavior.RequestMapArrow(pointerName, trackPosition, trackDirection, 0);
+```
 
 ### ReleaseTrack
 `public void ReleaseTrack(Track track)`
 
-**用途 / Purpose:** 处理 `release track` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.ReleaseTrack(track);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+var result = mapTracksCampaignBehavior.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapTracksCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+MapTracksCampaignBehavior mapTracksCampaignBehavior = ...;
+mapTracksCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

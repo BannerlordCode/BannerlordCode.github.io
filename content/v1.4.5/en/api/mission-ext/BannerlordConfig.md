@@ -1,20 +1,14 @@
 ---
 title: "BannerlordConfig"
+description: "Auto-generated class reference for BannerlordConfig."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerlordConfig`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordConfig
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class BannerlordConfig`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordConfig.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordConfig.cs`
 
 ## Overview
 
@@ -91,55 +85,102 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsValidValue
 `public bool IsValidValue(int value)`
 
-**Purpose:** Handles logic related to `is valid value`.
+**Purpose:** Determines whether the current object is in the `valid value` state or condition.
+
+```csharp
+// Obtain an instance of BannerlordConfig from the subsystem API first
+BannerlordConfig bannerlordConfig = ...;
+var result = bannerlordConfig.IsValidValue(0);
+```
 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.Initialize();
+```
 
 ### Save
 `public static SaveResult Save()`
 
-**Purpose:** Saves `save` data.
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.Save();
+```
 
 ### GetDamageToPlayerMultiplier
 `public static float GetDamageToPlayerMultiplier()`
 
-**Purpose:** Gets the current value of `damage to player multiplier`.
+**Purpose:** Reads and returns the `damage to player multiplier` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetDamageToPlayerMultiplier();
+```
 
 ### GetRealBattleSize
 `public static int GetRealBattleSize()`
 
-**Purpose:** Gets the current value of `real battle size`.
+**Purpose:** Reads and returns the `real battle size` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetRealBattleSize();
+```
 
 ### GetRealBattleSizeForSiege
 `public static int GetRealBattleSizeForSiege()`
 
-**Purpose:** Gets the current value of `real battle size for siege`.
+**Purpose:** Reads and returns the `real battle size for siege` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetRealBattleSizeForSiege();
+```
 
 ### GetRealBattleSizeForNaval
 `public static int GetRealBattleSizeForNaval()`
 
-**Purpose:** Gets the current value of `real battle size for naval`.
+**Purpose:** Reads and returns the `real battle size for naval` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetRealBattleSizeForNaval();
+```
 
 ### GetReinforcementWaveCount
 `public static int GetReinforcementWaveCount()`
 
-**Purpose:** Gets the current value of `reinforcement wave count`.
+**Purpose:** Reads and returns the `reinforcement wave count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetReinforcementWaveCount();
+```
 
 ### GetRealBattleSizeForSallyOut
 `public static int GetRealBattleSizeForSallyOut()`
 
-**Purpose:** Gets the current value of `real battle size for sally out`.
+**Purpose:** Reads and returns the `real battle size for sally out` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordConfig.GetRealBattleSizeForSallyOut();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerlordConfig();
-value.IsValidValue(0);
+// Typically call this after obtaining an instance from the subsystem API
+BannerlordConfig bannerlordConfig = ...;
+bannerlordConfig.IsValidValue(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

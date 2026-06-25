@@ -1,20 +1,14 @@
 ---
 title: "MBTypeNotRegisteredException"
+description: "Auto-generated class reference for MBTypeNotRegisteredException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTypeNotRegisteredException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTypeNotRegisteredException
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBTypeNotRegisteredException : ObjectSystemException`
 **Base:** `ObjectSystemException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBTypeNotRegisteredException.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBTypeNotRegisteredException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBTypeNotRegisteredException` as a Exception-style extension point: first
 ## Usage Example
 
 ```csharp
-try { CallMBTypeNotRegisteredException(); } catch (MBTypeNotRegisteredException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBTypeNotRegisteredException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

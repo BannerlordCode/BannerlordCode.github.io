@@ -1,18 +1,12 @@
 ---
 title: "CustomGameJoinResponse"
+description: "Auto-generated class reference for CustomGameJoinResponse."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomGameJoinResponse`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomGameJoinResponse
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum CustomGameJoinResponse`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/CustomGameJoinResponse.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new CustomGameJoinResponse();
+// Obtain an instance from the relevant subsystem API
+CustomGameJoinResponse instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

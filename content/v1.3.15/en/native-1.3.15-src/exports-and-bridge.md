@@ -20,7 +20,7 @@ This page focuses on the connection points between `TaleWorlds.Native.dll` v1.3.
 | `WotsMainNativeSDLL` | 30 | `TaleWorlds.Native.dll.h:2478` | `TaleWorlds.Native.dll.c:81586` | Native SDLL entry |
 | `WotsMainSDLL` | 31 | `TaleWorlds.Native.dll.h:2477` | `TaleWorlds.Native.dll.c:81569` | Entry imported by managed `MBDotNet.WotsMainDotNet` |
 
-`WotsMainSDLL` is the most visible entry point from managed startup code. In [LibraryApplicationInterface](../native/LibraryApplicationInterface), `MBDotNet.WotsMainDotNet` binds to it through `DllImport("TaleWorlds.Native.dll", EntryPoint = "WotsMainSDLL")`.
+`WotsMainSDLL` is the most visible entry point from managed startup code. In [LibraryApplicationInterface](../native/LibraryApplicationInterface/), `MBDotNet.WotsMainDotNet` binds to it through `DllImport("TaleWorlds.Native.dll", EntryPoint = "WotsMainSDLL")`.
 
 ## Callback Registration Exports
 
@@ -78,7 +78,7 @@ The `ftdn*` names are the clearest native type-name anchors for managed `NativeO
 | `ftdnNative_object_array` | `TaleWorlds.Native.dll.c:81300`, `1319828`, `1320048` | `NativeObjectArray` / `INativeObjectArray` |
 | `ftdnNative_string` | `TaleWorlds.Native.dll.c:81319`, `1319926`, `1320072` | `NativeString` / `INativeString` |
 
-The managed `[EngineClass("ftdnNative_array")]` attributes are covered in [EngineClass and EngineMethod](../native/EngineMethod). On the decompiled side, these strings and vftable writes help trace object creation, reference counting, and cross-boundary return values.
+The managed `[EngineClass("ftdnNative_array")]` attributes are covered in [EngineClass and EngineMethod](../native/EngineMethod/). On the decompiled side, these strings and vftable writes help trace object creation, reference counting, and cross-boundary return values.
 
 ## Script Component Bridge
 
@@ -86,18 +86,18 @@ The managed `[EngineClass("ftdnNative_array")]` attributes are covered in [Engin
 |---------------|--------------------------|-------|
 | `rglNative_script_component` | `TaleWorlds.Native.dll.c:73039`, `700152`, `700178`, `721195` | Native script component type in the scene object/component system |
 
-This type belongs near `rglScript_component` and `rglManaged_script_component` in the scene script-component family. See [Scene](./scene).
+This type belongs near `rglScript_component` and `rglManaged_script_component` in the scene script-component family. See [Scene](scene/).
 
 ## Mapping To Managed Native Reference
 
 | Managed page | Native-side anchor |
 |--------------|--------------------|
-| [NativeObject](../native/NativeObject) | `IManaged` reference counting, `EngineClass` type registration, and `ftdn*` native objects |
-| [INativeArray](../native/INativeArray) | `ftdnNative_array` strings, vftable writes, and `create/get_data_*` methods |
-| [INativeString](../native/INativeString) | `ftdnNative_string` strings and string helper paths |
-| [INativeObjectArray](../native/INativeObjectArray) | `ftdnNative_object_array` strings and object-array methods |
-| [LibraryApplicationInterface](../native/LibraryApplicationInterface) | `pass_managed_library_callback_method_pointers` and `ScriptingInterfaceObjects.SetFunctionPointer` |
-| [EngineMethod](../native/EngineMethod) | Mapping between `[EngineMethod]` names and native registration/callback tables |
+| [NativeObject](../native/NativeObject/) | `IManaged` reference counting, `EngineClass` type registration, and `ftdn*` native objects |
+| [INativeArray](../native/INativeArray/) | `ftdnNative_array` strings, vftable writes, and `create/get_data_*` methods |
+| [INativeString](../native/INativeString/) | `ftdnNative_string` strings and string helper paths |
+| [INativeObjectArray](../native/INativeObjectArray/) | `ftdnNative_object_array` strings and object-array methods |
+| [LibraryApplicationInterface](../native/LibraryApplicationInterface/) | `pass_managed_library_callback_method_pointers` and `ScriptingInterfaceObjects.SetFunctionPointer` |
+| [EngineMethod](../native/EngineMethod/) | Mapping between `[EngineMethod]` names and native registration/callback tables |
 
 ## Useful Investigation Anchors
 
@@ -118,5 +118,5 @@ This type belongs near `rglScript_component` and `rglManaged_script_component` i
 ## Usage Example
 
 ```csharp
-var example = new Exports and Managed Bridge();
+// Example: check native export signatures before using P/Invoke.
 ```

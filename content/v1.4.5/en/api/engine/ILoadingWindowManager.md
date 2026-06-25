@@ -1,20 +1,14 @@
 ---
 title: "ILoadingWindowManager"
+description: "Auto-generated class reference for ILoadingWindowManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ILoadingWindowManager`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ILoadingWindowManager
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
+**Type:** `public interface ILoadingWindowManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/ILoadingWindowManager.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ILoadingWindowManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ILoadingWindowManager` as a Manager-style extension point: first identify
 ## Usage Example
 
 ```csharp
-ILoadingWindowManager implementation = GetLoadingWindowManagerImplementation();
+// Usually obtained through DI or a factory method
+IILoadingWindowManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "EncumbranceEffect"
+description: "Auto-generated class reference for EncumbranceEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncumbranceEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncumbranceEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncumbranceEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/EncumbranceEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/EncumbranceEffect.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**Purpose:** Called when the `update` event is raised.
+**Purpose:** Invoked when the `update` event is raised.
+
+```csharp
+// Obtain an instance of EncumbranceEffect from the subsystem API first
+EncumbranceEffect encumbranceEffect = ...;
+encumbranceEffect.OnUpdate(agent, false);
+```
 
 ### GetEncumbrance
 `public override float GetEncumbrance(bool isOnBody)`
 
-**Purpose:** Gets the current value of `encumbrance`.
+**Purpose:** Reads and returns the `encumbrance` value held by the current object.
+
+```csharp
+// Obtain an instance of EncumbranceEffect from the subsystem API first
+EncumbranceEffect encumbranceEffect = ...;
+var result = encumbranceEffect.GetEncumbrance(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncumbranceEffect();
-value.OnUpdate(agent, false);
+// Typically call this after obtaining an instance from the subsystem API
+EncumbranceEffect encumbranceEffect = ...;
+encumbranceEffect.OnUpdate(agent, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

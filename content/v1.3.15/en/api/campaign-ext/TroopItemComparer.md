@@ -1,13 +1,7 @@
 ---
 title: "TroopItemComparer"
+description: "Auto-generated class reference for TroopItemComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopItemComparer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TroopItemComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tro
 ### Compare
 `public int Compare(TroopSelectionItemVM x, TroopSelectionItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of TroopItemComparer from the subsystem API first
+TroopItemComparer troopItemComparer = ...;
+var result = troopItemComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TroopItemComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+TroopItemComparer troopItemComparer = ...;
+troopItemComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "LordsHallFightMissionController"
+description: "Auto-generated class reference for LordsHallFightMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LordsHallFightMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LordsHallFightMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers
@@ -41,112 +35,244 @@ Treat `LordsHallFightMissionController` as a Controller-style extension point: f
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnBehaviorInitialize();
+```
 
 ### OnMissionStateFinalized
 `public override void OnMissionStateFinalized()`
 
-**Purpose:** Called when the `mission state finalized` event is raised.
+**Purpose:** Invoked when the `mission state finalized` event is raised.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnMissionStateFinalized();
+```
 
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnCreated();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `start spawner`.
+**Purpose:** Starts the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.StartSpawner(side);
+```
 
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `stop spawner`.
+**Purpose:** Stops the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.StopSpawner(side);
+```
 
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side spawn enabled`.
+**Purpose:** Determines whether the current object is in the `side spawn enabled` state or condition.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.IsSideSpawnEnabled(side);
+```
 
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**Purpose:** Gets the current value of `reinforcement interval`.
+**Purpose:** Reads and returns the `reinforcement interval` value held by the current object.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetReinforcementInterval();
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side depleted`.
+**Purpose:** Determines whether the current object is in the `side depleted` state or condition.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.IsSideDepleted(side);
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetNumberOfPlayerControllableTroops();
+```
 
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `all troops for side`.
+**Purpose:** Reads and returns the `all troops for side` value held by the current object.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetAllTroopsForSide(side);
+```
 
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `spawn horses`.
+**Purpose:** Reads and returns the `spawn horses` value held by the current object.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetSpawnHorses(side);
+```
 
 ### SpawnTroops
 `public void SpawnTroops(Dictionary<int, Dictionary<int, LordsHallFightMissionController.AreaData>> areaMarkerDictionary, int spawnCount)`
 
-**Purpose:** Handles logic related to `spawn troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SpawnTroops(dictionary<int, dictionary<int, areaMarkerDictionary, 0);
+```
 
 ### SpawnTroops
 `public void SpawnTroops(int spawnCount, bool isReinforcement)`
 
-**Purpose:** Handles logic related to `spawn troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SpawnTroops(0, false);
+```
 
 ### SetSpawnTroops
 `public void SetSpawnTroops(bool spawnTroops)`
 
-**Purpose:** Sets the value or state of `spawn troops`.
+**Purpose:** Assigns a new value to `spawn troops` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SetSpawnTroops(false);
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** Gets the current value of `all troops`.
+**Purpose:** Reads and returns the `all troops` value held by the current object.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetAllTroops();
+```
 
 ### GetAvailableMachines
 `public IEnumerable<LordsHallFightMissionController.AreaEntityData> GetAvailableMachines(bool isArcher)`
 
-**Purpose:** Gets the current value of `available machines`.
+**Purpose:** Reads and returns the `available machines` value held by the current object.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetAvailableMachines(false);
+```
 
 ### AddAreaMarker
 `public void AddAreaMarker(FightAreaMarker marker)`
 
 **Purpose:** Adds `area marker` to the current collection or state.
 
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.AddAreaMarker(marker);
+```
+
 ### FindAgentMachine
 `public LordsHallFightMissionController.AreaEntityData FindAgentMachine(Agent agent)`
 
-**Purpose:** Handles logic related to `find agent machine`.
+**Purpose:** Looks up the matching `agent machine` in the current collection or scope.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.FindAgentMachine(agent);
+```
 
 ### AssignAgent
 `public void AssignAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `assign agent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.AssignAgent(agent);
+```
 
 ### StopUse
 `public void StopUse()`
 
-**Purpose:** Handles logic related to `stop use`.
+**Purpose:** Stops the `use` flow or state machine.
+
+```csharp
+// Obtain an instance of LordsHallFightMissionController from the subsystem API first
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.StopUse();
+```
 
 ## Usage Example
 
@@ -156,4 +282,4 @@ var controller = Mission.Current.GetMissionBehavior<LordsHallFightMissionControl
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

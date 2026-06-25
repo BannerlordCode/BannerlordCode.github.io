@@ -1,13 +1,7 @@
 ---
 title: "BarterSide"
+description: "Auto-generated class reference for BarterSide."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterSide`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterSide
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ## Usage Example
 
 ```csharp
-BarterSide example = BarterSide.Value;
+// Obtain an instance from the relevant subsystem API
+BarterSide instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

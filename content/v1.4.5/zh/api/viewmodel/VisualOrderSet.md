@@ -1,20 +1,14 @@
 ---
 title: "VisualOrderSet"
+description: "VisualOrderSet 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualOrderSet`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualOrderSet
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class VisualOrderSet`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderSet.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderSet.cs`
 
 ## 概述
 
@@ -38,29 +32,54 @@ title: "VisualOrderSet"
 ### GetName
 `public abstract TextObject GetName(OrderController orderController)`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrderSet 实例
+VisualOrderSet visualOrderSet = ...;
+var result = visualOrderSet.GetName(orderController);
+```
 
 ### AddOrder
 `public void AddOrder(VisualOrder order)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `order`。
+**用途 / Purpose:** 将 「order」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrderSet 实例
+VisualOrderSet visualOrderSet = ...;
+visualOrderSet.AddOrder(order);
+```
 
 ### RemoveOrder
 `public void RemoveOrder(VisualOrder order)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `order`。
+**用途 / Purpose:** 从当前容器或状态中移除 「order」。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrderSet 实例
+VisualOrderSet visualOrderSet = ...;
+visualOrderSet.RemoveOrder(order);
+```
 
 ### ClearOrders
 `public void ClearOrders()`
 
-**用途 / Purpose:** 处理 `clear orders` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「orders」。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrderSet 实例
+VisualOrderSet visualOrderSet = ...;
+visualOrderSet.ClearOrders();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomVisualOrderSet();
+// 通常通过子系统 API 或工厂获得派生实例
+VisualOrderSet instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DeploymentHandler"
+description: "Auto-generated class reference for DeploymentHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeploymentHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DeploymentHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,54 +29,109 @@ Treat `DeploymentHandler` as a Handler-style extension point: first identify who
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.OnRemoveBehavior();
+```
 
 ### OnBattleSideDeployed
 `public override void OnBattleSideDeployed(BattleSideEnum side)`
 
-**Purpose:** Called when the `battle side deployed` event is raised.
+**Purpose:** Invoked when the `battle side deployed` event is raised.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.OnBattleSideDeployed(side);
+```
 
 ### AutoDeployTeamUsingDeploymentPlan
 `public abstract void AutoDeployTeamUsingDeploymentPlan(Team playerTeam)`
 
-**Purpose:** Handles logic related to `auto deploy team using deployment plan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.AutoDeployTeamUsingDeploymentPlan(playerTeam);
+```
 
 ### ForceUpdateAllUnits
 `public abstract void ForceUpdateAllUnits()`
 
-**Purpose:** Handles logic related to `force update all units`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.ForceUpdateAllUnits();
+```
 
 ### FinishDeployment
 `public virtual void FinishDeployment()`
 
-**Purpose:** Handles logic related to `finish deployment`.
+**Purpose:** Concludes the `deployment` flow and performs any cleanup.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.FinishDeployment();
+```
 
 ### InitializeDeploymentPoints
 `public void InitializeDeploymentPoints()`
 
-**Purpose:** Initializes the state, resources, or bindings for `deployment points`.
+**Purpose:** Prepares the resources, state, or bindings required by `deployment points`.
+
+```csharp
+// Obtain an instance of DeploymentHandler from the subsystem API first
+DeploymentHandler deploymentHandler = ...;
+deploymentHandler.InitializeDeploymentPoints();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDeploymentHandler();
+// Typically obtained from a subsystem API or factory
+DeploymentHandler instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

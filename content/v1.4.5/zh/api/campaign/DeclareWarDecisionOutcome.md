@@ -1,20 +1,14 @@
 ---
 title: "DeclareWarDecisionOutcome"
+description: "DeclareWarDecisionOutcome 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DeclareWarDecisionOutcome`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeclareWarDecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DeclareWarDecisionOutcome : DecisionOutcome`
 **Base:** `DecisionOutcome`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/DeclareWarDecision.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/DeclareWarDecision.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "DeclareWarDecisionOutcome"
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** 获取 `decision title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DeclareWarDecisionOutcome 实例
+DeclareWarDecisionOutcome declareWarDecisionOutcome = ...;
+var result = declareWarDecisionOutcome.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** 获取 `decision description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DeclareWarDecisionOutcome 实例
+DeclareWarDecisionOutcome declareWarDecisionOutcome = ...;
+var result = declareWarDecisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**用途 / Purpose:** 获取 `decision link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DeclareWarDecisionOutcome 实例
+DeclareWarDecisionOutcome declareWarDecisionOutcome = ...;
+var result = declareWarDecisionOutcome.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** 获取 `decision image identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DeclareWarDecisionOutcome 实例
+DeclareWarDecisionOutcome declareWarDecisionOutcome = ...;
+var result = declareWarDecisionOutcome.GetDecisionImageIdentifier();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DeclareWarDecisionOutcome();
-value.GetDecisionTitle();
+// 通常从对应子系统 API 获取实例后调用
+DeclareWarDecisionOutcome declareWarDecisionOutcome = ...;
+declareWarDecisionOutcome.GetDecisionTitle();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MobilePartyMoraleModel"
+description: "Auto-generated class reference for MobilePartyMoraleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyMoraleModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyMoraleModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ Treat `MobilePartyMoraleModel` as a Model-style extension point: first identify 
 ### CalculateMoraleChange
 `public abstract float CalculateMoraleChange(MobileParty party)`
 
-**Purpose:** Handles logic related to `calculate morale change`.
+**Purpose:** Calculates the current value or result of `morale change`.
+
+```csharp
+// Obtain an instance of MobilePartyMoraleModel from the subsystem API first
+MobilePartyMoraleModel mobilePartyMoraleModel = ...;
+var result = mobilePartyMoraleModel.CalculateMoraleChange(party);
+```
 
 ### GetMoraleTooltipText
 `public abstract TextObject GetMoraleTooltipText(MobileParty party)`
 
-**Purpose:** Gets the current value of `morale tooltip text`.
+**Purpose:** Reads and returns the `morale tooltip text` value held by the current object.
+
+```csharp
+// Obtain an instance of MobilePartyMoraleModel from the subsystem API first
+MobilePartyMoraleModel mobilePartyMoraleModel = ...;
+var result = mobilePartyMoraleModel.GetMoraleTooltipText(party);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMobilePartyMoraleModel();
+// Typically obtained from a subsystem API or factory
+MobilePartyMoraleModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

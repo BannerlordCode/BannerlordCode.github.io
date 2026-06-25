@@ -1,13 +1,7 @@
 ---
 title: "IssueQuestLogEntry"
+description: "Auto-generated class reference for IssueQuestLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IssueQuestLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IssueQuestLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of IssueQuestLogEntry from the subsystem API first
+IssueQuestLogEntry issueQuestLogEntry = ...;
+issueQuestLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IssueQuestLogEntry();
-value.GetConversationScoreAndComment(talkTroop, false, comment, score);
+// Typically call this after obtaining an instance from the subsystem API
+IssueQuestLogEntry issueQuestLogEntry = ...;
+issueQuestLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

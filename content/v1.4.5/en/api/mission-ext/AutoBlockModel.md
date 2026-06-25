@@ -1,20 +1,14 @@
 ---
 title: "AutoBlockModel"
+description: "Auto-generated class reference for AutoBlockModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AutoBlockModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AutoBlockModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class AutoBlockModel : MBGameModel<AutoBlockModel>`
 **Base:** `MBGameModel<AutoBlockModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AutoBlockModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AutoBlockModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `AutoBlockModel` as a Model-style extension point: first identify who crea
 ### GetBlockDirection
 `public abstract Agent.UsageDirection GetBlockDirection(Mission mission)`
 
-**Purpose:** Gets the current value of `block direction`.
+**Purpose:** Reads and returns the `block direction` value held by the current object.
+
+```csharp
+// Obtain an instance of AutoBlockModel from the subsystem API first
+AutoBlockModel autoBlockModel = ...;
+var result = autoBlockModel.GetBlockDirection(mission);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAutoBlockModel();
+// Typically obtained from a subsystem API or factory
+AutoBlockModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

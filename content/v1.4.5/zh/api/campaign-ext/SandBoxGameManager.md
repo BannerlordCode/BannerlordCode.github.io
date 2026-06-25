@@ -1,20 +1,14 @@
 ---
 title: "SandBoxGameManager"
+description: "SandBoxGameManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxGameManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxGameManager
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class SandBoxGameManager : MBGameManager`
 **Base:** `MBGameManager`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/SandBoxGameManager.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/SandBoxGameManager.cs`
 
 ## 概述
 
@@ -36,22 +30,46 @@ title: "SandBoxGameManager"
 ### CampaignCreatorDelegate
 `public delegate Campaign CampaignCreatorDelegate()`
 
-**用途 / Purpose:** 处理 `campaign creator delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxGameManager 实例
+SandBoxGameManager sandBoxGameManager = ...;
+var result = sandBoxGameManager.CampaignCreatorDelegate();
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxGameManager 实例
+SandBoxGameManager sandBoxGameManager = ...;
+sandBoxGameManager.OnGameEnd(game);
+```
 
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**用途 / Purpose:** 当 `after campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxGameManager 实例
+SandBoxGameManager sandBoxGameManager = ...;
+sandBoxGameManager.OnAfterCampaignStart(game);
+```
 
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**用途 / Purpose:** 当 `load finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「load finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxGameManager 实例
+SandBoxGameManager sandBoxGameManager = ...;
+sandBoxGameManager.OnLoadFinished();
+```
 
 ## 使用示例
 
@@ -61,4 +79,4 @@ var manager = SandBoxGameManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

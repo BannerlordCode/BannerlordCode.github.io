@@ -1,20 +1,14 @@
 ---
 title: "VideoPlaybackVM"
+description: "Auto-generated class reference for VideoPlaybackVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VideoPlaybackVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VideoPlaybackVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VideoPlaybackVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback/VideoPlaybackVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback/VideoPlaybackVM.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback
 ### Tick
 `public void Tick(float totalElapsedTimeInVideoInSeconds)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of VideoPlaybackVM from the subsystem API first
+VideoPlaybackVM videoPlaybackVM = ...;
+videoPlaybackVM.Tick(0);
+```
 
 ### GetItemInTimeframe
 `public SRTHelper.SubtitleItem GetItemInTimeframe(float timeInSecondsInVideo)`
 
-**Purpose:** Gets the current value of `item in timeframe`.
+**Purpose:** Reads and returns the `item in timeframe` value held by the current object.
+
+```csharp
+// Obtain an instance of VideoPlaybackVM from the subsystem API first
+VideoPlaybackVM videoPlaybackVM = ...;
+var result = videoPlaybackVM.GetItemInTimeframe(0);
+```
 
 ### SetSubtitles
 `public void SetSubtitles(List<SRTHelper.SubtitleItem> lines)`
 
-**Purpose:** Sets the value or state of `subtitles`.
+**Purpose:** Assigns a new value to `subtitles` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of VideoPlaybackVM from the subsystem API first
+VideoPlaybackVM videoPlaybackVM = ...;
+videoPlaybackVM.SetSubtitles(lines);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VideoPlaybackVM();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+VideoPlaybackVM videoPlaybackVM = ...;
+videoPlaybackVM.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

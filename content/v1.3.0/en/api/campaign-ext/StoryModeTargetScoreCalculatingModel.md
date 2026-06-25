@@ -1,13 +1,7 @@
 ---
 title: "StoryModeTargetScoreCalculatingModel"
+description: "Auto-generated class reference for StoryModeTargetScoreCalculatingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeTargetScoreCalculatingModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeTargetScoreCalculatingModel
 
 **Namespace:** StoryMode.GameComponents
@@ -39,22 +33,46 @@ Treat `StoryModeTargetScoreCalculatingModel` as a Model-style extension point: f
 ### GetPatrollingFactor
 `public override float GetPatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Gets the current value of `patrolling factor`.
+**Purpose:** Reads and returns the `patrolling factor` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
+StoryModeTargetScoreCalculatingModel storyModeTargetScoreCalculatingModel = ...;
+var result = storyModeTargetScoreCalculatingModel.GetPatrollingFactor(false);
+```
 
 ### CalculatePatrollingScoreForSettlement
 `public override float CalculatePatrollingScoreForSettlement(Settlement settlement, bool isFromPort, MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `calculate patrolling score for settlement`.
+**Purpose:** Calculates the current value or result of `patrolling score for settlement`.
+
+```csharp
+// Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
+StoryModeTargetScoreCalculatingModel storyModeTargetScoreCalculatingModel = ...;
+var result = storyModeTargetScoreCalculatingModel.CalculatePatrollingScoreForSettlement(settlement, false, mobileParty);
+```
 
 ### CurrentObjectiveValue
 `public override float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `current objective value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
+StoryModeTargetScoreCalculatingModel storyModeTargetScoreCalculatingModel = ...;
+var result = storyModeTargetScoreCalculatingModel.CurrentObjectiveValue(mobileParty);
+```
 
 ### GetTargetScoreForFaction
 `public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**Purpose:** Gets the current value of `target score for faction`.
+**Purpose:** Reads and returns the `target score for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
+StoryModeTargetScoreCalculatingModel storyModeTargetScoreCalculatingModel = ...;
+var result = storyModeTargetScoreCalculatingModel.GetTargetScoreForFaction(targetSettlement, missionType, mobileParty, 0);
+```
 
 ## Usage Example
 
@@ -64,4 +82,4 @@ Game.Current.ReplaceModel<StoryModeTargetScoreCalculatingModel>(new MyStoryModeT
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

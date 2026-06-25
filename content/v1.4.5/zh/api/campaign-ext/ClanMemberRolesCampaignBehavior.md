@@ -1,20 +1,14 @@
 ---
 title: "ClanMemberRolesCampaignBehavior"
+description: "ClanMemberRolesCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanMemberRolesCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanMemberRolesCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class ClanMemberRolesCampaignBehavior : CampaignBehaviorBase, IMissionPlayerFollowerHandler`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/ClanMemberRolesCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/ClanMemberRolesCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "ClanMemberRolesCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberRolesCampaignBehavior 实例
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+clanMemberRolesCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberRolesCampaignBehavior 实例
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+clanMemberRolesCampaignBehavior.SyncData(dataStore);
+```
 
 ### IsFollowingPlayer
 `public bool IsFollowingPlayer(Hero hero)`
 
-**用途 / Purpose:** 处理 `is following player` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「following player」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberRolesCampaignBehavior 实例
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+var result = clanMemberRolesCampaignBehavior.IsFollowingPlayer(hero);
+```
 
 ### RemoveFollowingHero
 `public void RemoveFollowingHero(Hero hero)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `following hero`。
+**用途 / Purpose:** 从当前容器或状态中移除 「following hero」。
+
+```csharp
+// 先通过子系统 API 拿到 ClanMemberRolesCampaignBehavior 实例
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+clanMemberRolesCampaignBehavior.RemoveFollowingHero(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanMemberRolesCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+clanMemberRolesCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

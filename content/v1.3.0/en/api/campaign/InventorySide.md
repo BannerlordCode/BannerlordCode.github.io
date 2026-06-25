@@ -1,13 +1,7 @@
 ---
 title: "InventorySide"
+description: "Auto-generated class reference for InventorySide."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventorySide`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventorySide
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ## Usage Example
 
 ```csharp
-InventorySide example = InventorySide.Value;
+// Obtain an instance from the relevant subsystem API
+InventorySide instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

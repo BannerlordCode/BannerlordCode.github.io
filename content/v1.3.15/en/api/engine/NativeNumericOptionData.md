@@ -1,13 +1,7 @@
 ---
 title: "NativeNumericOptionData"
+description: "Auto-generated class reference for NativeNumericOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeNumericOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NativeNumericOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
@@ -29,34 +23,65 @@ Treat `NativeNumericOptionData` as a Data-style extension point: first identify 
 ### GetMinValue
 `public float GetMinValue()`
 
-**Purpose:** Gets the current value of `min value`.
+**Purpose:** Reads and returns the `min value` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeNumericOptionData from the subsystem API first
+NativeNumericOptionData nativeNumericOptionData = ...;
+var result = nativeNumericOptionData.GetMinValue();
+```
 
 ### GetMaxValue
 `public float GetMaxValue()`
 
-**Purpose:** Gets the current value of `max value`.
+**Purpose:** Reads and returns the `max value` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeNumericOptionData from the subsystem API first
+NativeNumericOptionData nativeNumericOptionData = ...;
+var result = nativeNumericOptionData.GetMaxValue();
+```
 
 ### GetIsDiscrete
 `public bool GetIsDiscrete()`
 
-**Purpose:** Gets the current value of `is discrete`.
+**Purpose:** Reads and returns the `is discrete` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeNumericOptionData from the subsystem API first
+NativeNumericOptionData nativeNumericOptionData = ...;
+var result = nativeNumericOptionData.GetIsDiscrete();
+```
 
 ### GetDiscreteIncrementInterval
 `public int GetDiscreteIncrementInterval()`
 
-**Purpose:** Gets the current value of `discrete increment interval`.
+**Purpose:** Reads and returns the `discrete increment interval` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeNumericOptionData from the subsystem API first
+NativeNumericOptionData nativeNumericOptionData = ...;
+var result = nativeNumericOptionData.GetDiscreteIncrementInterval();
+```
 
 ### GetShouldUpdateContinuously
 `public bool GetShouldUpdateContinuously()`
 
-**Purpose:** Gets the current value of `should update continuously`.
+**Purpose:** Reads and returns the `should update continuously` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeNumericOptionData from the subsystem API first
+NativeNumericOptionData nativeNumericOptionData = ...;
+var result = nativeNumericOptionData.GetShouldUpdateContinuously();
+```
 
 ## Usage Example
 
 ```csharp
-NativeNumericOptionData example = NativeNumericOptionData.Value;
+// This data object is usually returned by campaign/mission APIs
+NativeNumericOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

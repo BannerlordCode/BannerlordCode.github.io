@@ -1,20 +1,14 @@
 ---
 title: "QuestTaskBase"
+description: "QuestTaskBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QuestTaskBase`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestTaskBase
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class QuestTaskBase`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/QuestTaskBase.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/QuestTaskBase.cs`
 
 ## 概述
 
@@ -36,35 +30,66 @@ title: "QuestTaskBase"
 ### Finish
 `public void Finish(FinishStates finishState)`
 
-**用途 / Purpose:** 处理 `finish` 相关逻辑。
+**用途 / Purpose:** 结束当前对象的流程并执行必要的收尾工作。
+
+```csharp
+// 先通过子系统 API 拿到 QuestTaskBase 实例
+QuestTaskBase questTaskBase = ...;
+questTaskBase.Finish(finishState);
+```
 
 ### AddTaskDialogs
 `public void AddTaskDialogs()`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `task dialogs`。
+**用途 / Purpose:** 将 「task dialogs」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 QuestTaskBase 实例
+QuestTaskBase questTaskBase = ...;
+questTaskBase.AddTaskDialogs();
+```
 
 ### SetReferences
 `public virtual void SetReferences()`
 
-**用途 / Purpose:** 设置 `references` 的值或状态。
+**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 QuestTaskBase 实例
+QuestTaskBase questTaskBase = ...;
+questTaskBase.SetReferences();
+```
 
 ### AddTaskDialogOnGameLoaded
 `public void AddTaskDialogOnGameLoaded(DialogFlow dialogFlow)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `task dialog on game loaded`。
+**用途 / Purpose:** 将 「task dialog on game loaded」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 QuestTaskBase 实例
+QuestTaskBase questTaskBase = ...;
+questTaskBase.AddTaskDialogOnGameLoaded(dialogFlow);
+```
 
 ### AddTaskBehaviorsOnGameLoad
 `public void AddTaskBehaviorsOnGameLoad(Action onSucceededAction = null, Action onFailedAction = null, Action onCanceledAction = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `task behaviors on game load`。
+**用途 / Purpose:** 将 「task behaviors on game load」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 QuestTaskBase 实例
+QuestTaskBase questTaskBase = ...;
+questTaskBase.AddTaskBehaviorsOnGameLoad(null, null, null);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new QuestTaskBase();
-value.Finish(finishState);
+// 通常从对应子系统 API 获取实例后调用
+QuestTaskBase questTaskBase = ...;
+questTaskBase.Finish(finishState);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

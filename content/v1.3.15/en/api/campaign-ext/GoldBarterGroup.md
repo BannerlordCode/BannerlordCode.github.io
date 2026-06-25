@@ -1,13 +1,7 @@
 ---
 title: "GoldBarterGroup"
+description: "Auto-generated class reference for GoldBarterGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GoldBarterGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GoldBarterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem` to place it in the
 ## Usage Example
 
 ```csharp
-var value = new GoldBarterGroup();
+// Obtain an instance from the relevant subsystem API
+GoldBarterGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

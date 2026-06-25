@@ -1,13 +1,7 @@
 ---
 title: "SiegeLadderSpawner"
+description: "SiegeLadderSpawner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeLadderSpawner`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeLadderSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -36,15 +30,22 @@ title: "SiegeLadderSpawner"
 ### AssignParameters
 `public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**用途 / Purpose:** 处理 `assign parameters` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeLadderSpawner 实例
+SiegeLadderSpawner siegeLadderSpawner = ...;
+siegeLadderSpawner.AssignParameters(_spawnerMissionHelper);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeLadderSpawner();
-value.AssignParameters(_spawnerMissionHelper);
+// 通常从对应子系统 API 获取实例后调用
+SiegeLadderSpawner siegeLadderSpawner = ...;
+siegeLadderSpawner.AssignParameters(_spawnerMissionHelper);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

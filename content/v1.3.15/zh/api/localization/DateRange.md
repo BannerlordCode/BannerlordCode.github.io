@@ -1,23 +1,18 @@
 ---
 title: "DateRange"
+description: "DateRange 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DateRange`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DateRange
 
-**命名空间:** TaleWorlds.Localization
-**模块:** TaleWorlds.Localization
-**类型:** `public class DateRange`
-**领域:** localization
+**Namespace:** TaleWorlds.Localization
+**Module:** TaleWorlds.Localization
+**Type:** `public class DateRange`
+**Base:** 无
+**File:** `TaleWorlds.Localization/DateRange.cs`
 
 ## 概述
 
-`DateRange` 位于 `TaleWorlds.Localization`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`DateRange` 位于 `TaleWorlds.Localization`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -33,10 +28,10 @@ title: "DateRange"
 ## 使用示例
 
 ```csharp
-var value = new DateRange();
+// 从对应子系统 API 获取实例
+DateRange instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-localization)
+- [本区域目录](../)

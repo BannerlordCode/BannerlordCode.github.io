@@ -1,20 +1,14 @@
 ---
 title: "StealthBox"
+description: "StealthBox 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthBox`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthBox
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StealthBox : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/StealthBox.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/StealthBox.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "StealthBox"
 ### IsPointInside
 `public bool IsPointInside(Vec3 point)`
 
-**用途 / Purpose:** 处理 `is point inside` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「point inside」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthBox 实例
+StealthBox stealthBox = ...;
+var result = stealthBox.IsPointInside(point);
+```
 
 ### IsAgentInside
 `public bool IsAgentInside(Agent agent)`
 
-**用途 / Purpose:** 处理 `is agent inside` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「agent inside」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthBox 实例
+StealthBox stealthBox = ...;
+var result = stealthBox.IsAgentInside(agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StealthBox();
-value.IsPointInside(point);
+// 通常从对应子系统 API 获取实例后调用
+StealthBox stealthBox = ...;
+stealthBox.IsPointInside(point);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

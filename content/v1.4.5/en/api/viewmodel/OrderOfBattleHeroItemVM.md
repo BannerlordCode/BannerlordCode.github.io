@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleHeroItemVM"
+description: "Auto-generated class reference for OrderOfBattleHeroItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleHeroItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHeroItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleHeroItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleHeroItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleHeroItemVM.cs`
 
 ## Overview
 
@@ -50,40 +44,77 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### SetInitialFormation
 `public void SetInitialFormation(OrderOfBattleFormationItemVM formation)`
 
-**Purpose:** Sets the value or state of `initial formation`.
+**Purpose:** Assigns a new value to `initial formation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.SetInitialFormation(formation);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.RefreshValues();
+```
 
 ### OnAssignmentRemoved
 `public void OnAssignmentRemoved()`
 
-**Purpose:** Called when the `assignment removed` event is raised.
+**Purpose:** Invoked when the `assignment removed` event is raised.
+
+```csharp
+// Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.OnAssignmentRemoved();
+```
 
 ### RefreshInformation
 `public void RefreshInformation()`
 
-**Purpose:** Refreshes the display or cache of `information`.
+**Purpose:** Keeps the display or cache of `information` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.RefreshInformation();
+```
 
 ### RefreshAssignmentInfo
 `public void RefreshAssignmentInfo()`
 
-**Purpose:** Refreshes the display or cache of `assignment info`.
+**Purpose:** Keeps the display or cache of `assignment info` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.RefreshAssignmentInfo();
+```
 
 ### SetIsPreAssigned
 `public void SetIsPreAssigned(bool isPreAssigned)`
 
-**Purpose:** Sets the value or state of `is pre assigned`.
+**Purpose:** Assigns a new value to `is pre assigned` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.SetIsPreAssigned(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleHeroItemVM();
-value.SetInitialFormation(formation);
+// Typically call this after obtaining an instance from the subsystem API
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.SetInitialFormation(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

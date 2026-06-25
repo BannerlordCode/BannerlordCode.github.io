@@ -1,13 +1,7 @@
 ---
 title: "PreloadState"
+description: "Auto-generated class reference for PreloadState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PreloadState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PreloadState
 
 **Namespace:** Sandbox.View.GameStates
@@ -27,9 +21,10 @@ Start from namespace `Sandbox.View.GameStates` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new PreloadState();
+// Obtain an instance from the relevant subsystem API
+PreloadState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

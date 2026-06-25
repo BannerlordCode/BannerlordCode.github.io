@@ -1,13 +1,7 @@
 ---
 title: "ScissorTestInfo"
+description: "Auto-generated class reference for ScissorTestInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScissorTestInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScissorTestInfo
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### ReduceToIntersection
 `public void ReduceToIntersection(ScissorTestInfo other)`
 
-**Purpose:** Handles logic related to `reduce to intersection`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScissorTestInfo from the subsystem API first
+ScissorTestInfo scissorTestInfo = ...;
+scissorTestInfo.ReduceToIntersection(other);
+```
 
 ### GetSimpleRectangle
 `public SimpleRectangle GetSimpleRectangle()`
 
-**Purpose:** Gets the current value of `simple rectangle`.
+**Purpose:** Reads and returns the `simple rectangle` value held by the current object.
+
+```csharp
+// Obtain an instance of ScissorTestInfo from the subsystem API first
+ScissorTestInfo scissorTestInfo = ...;
+var result = scissorTestInfo.GetSimpleRectangle();
+```
 
 ### IsCollide
 `public bool IsCollide(in Rectangle2D other)`
 
-**Purpose:** Handles logic related to `is collide`.
+**Purpose:** Determines whether the current object is in the `collide` state or condition.
+
+```csharp
+// Obtain an instance of ScissorTestInfo from the subsystem API first
+ScissorTestInfo scissorTestInfo = ...;
+var result = scissorTestInfo.IsCollide(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScissorTestInfo();
-value.ReduceToIntersection(other);
+// Typically call this after obtaining an instance from the subsystem API
+ScissorTestInfo scissorTestInfo = ...;
+scissorTestInfo.ReduceToIntersection(other);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

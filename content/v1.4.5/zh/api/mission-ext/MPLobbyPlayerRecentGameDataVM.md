@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyPlayerRecentGameDataVM"
+description: "MPLobbyPlayerRecentGameDataVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyPlayerRecentGameDataVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyPlayerRecentGameDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyPlayerRecentGameDataVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPlayerRecentGameDataVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPlayerRecentGameDataVM.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "MPLobbyPlayerRecentGameDataVM"
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyPlayerRecentGameDataVM();
+// 从对应子系统 API 获取实例
+MPLobbyPlayerRecentGameDataVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

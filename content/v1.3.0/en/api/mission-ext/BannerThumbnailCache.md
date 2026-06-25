@@ -1,13 +1,7 @@
 ---
 title: "BannerThumbnailCache"
+description: "Auto-generated class reference for BannerThumbnailCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerThumbnailCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -29,19 +23,30 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateDefaultBannerCamera
 `public static Camera CreateDefaultBannerCamera()`
 
-**Purpose:** Creates a new `default banner camera` instance or object.
+**Purpose:** Constructs a new `default banner camera` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BannerThumbnailCache.CreateDefaultBannerCamera();
+```
 
 ### CreateNineGridBannerCamera
 `public static Camera CreateNineGridBannerCamera()`
 
-**Purpose:** Creates a new `nine grid banner camera` instance or object.
+**Purpose:** Constructs a new `nine grid banner camera` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BannerThumbnailCache.CreateNineGridBannerCamera();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBannerThumbnailCache();
+// Typically obtained from a subsystem API or factory
+BannerThumbnailCache instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

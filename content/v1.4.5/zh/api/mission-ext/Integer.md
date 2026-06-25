@@ -1,20 +1,14 @@
 ---
 title: "Integer"
+description: "Integer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Integer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Integer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct Integer`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "Integer"
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 获取 `num bits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Integer 实例
+Integer integer = ...;
+var result = integer.GetNumBits();
+```
 
 ### GetMaximumValue
 `public int GetMaximumValue()`
 
-**用途 / Purpose:** 获取 `maximum value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Integer 实例
+Integer integer = ...;
+var result = integer.GetMaximumValue();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Integer();
-value.GetNumBits();
+// 通常从对应子系统 API 获取实例后调用
+Integer integer = ...;
+integer.GetNumBits();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

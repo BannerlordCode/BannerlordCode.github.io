@@ -1,20 +1,14 @@
 ---
 title: "DefaultInventoryCapacityModel"
+description: "Auto-generated class reference for DefaultInventoryCapacityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultInventoryCapacityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultInventoryCapacityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultInventoryCapacityModel : InventoryCapacityModel`
 **Base:** `InventoryCapacityModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultInventoryCapacityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultInventoryCapacityModel.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `DefaultInventoryCapacityModel` as a Model-style extension point: first id
 ### GetItemAverageWeight
 `public override int GetItemAverageWeight()`
 
-**Purpose:** Gets the current value of `item average weight`.
+**Purpose:** Reads and returns the `item average weight` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultInventoryCapacityModel from the subsystem API first
+DefaultInventoryCapacityModel defaultInventoryCapacityModel = ...;
+var result = defaultInventoryCapacityModel.GetItemAverageWeight();
+```
 
 ### GetItemEffectiveWeight
 `public override float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
 
-**Purpose:** Gets the current value of `item effective weight`.
+**Purpose:** Reads and returns the `item effective weight` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultInventoryCapacityModel from the subsystem API first
+DefaultInventoryCapacityModel defaultInventoryCapacityModel = ...;
+var result = defaultInventoryCapacityModel.GetItemEffectiveWeight(equipmentElement, mobileParty, false, description);
+```
 
 ### CalculateInventoryCapacity
 `public override ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalTroops = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
 
-**Purpose:** Handles logic related to `calculate inventory capacity`.
+**Purpose:** Calculates the current value or result of `inventory capacity`.
+
+```csharp
+// Obtain an instance of DefaultInventoryCapacityModel from the subsystem API first
+DefaultInventoryCapacityModel defaultInventoryCapacityModel = ...;
+var result = defaultInventoryCapacityModel.CalculateInventoryCapacity(mobileParty, false, false, 0, 0, 0, false);
+```
 
 ### CalculateTotalWeightCarried
 `public override ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate total weight carried`.
+**Purpose:** Calculates the current value or result of `total weight carried`.
+
+```csharp
+// Obtain an instance of DefaultInventoryCapacityModel from the subsystem API first
+DefaultInventoryCapacityModel defaultInventoryCapacityModel = ...;
+var result = defaultInventoryCapacityModel.CalculateTotalWeightCarried(mobileParty, false, false);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultInventoryCapacityModel>(new MyDefaultInventoryC
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

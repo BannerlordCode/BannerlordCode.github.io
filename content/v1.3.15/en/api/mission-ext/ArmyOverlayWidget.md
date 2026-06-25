@@ -1,13 +1,7 @@
 ---
 title: "ArmyOverlayWidget"
+description: "Auto-generated class reference for ArmyOverlayWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyOverlayWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ArmyOverlayWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay
@@ -37,9 +31,10 @@ Treat `ArmyOverlayWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new ArmyOverlayWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ArmyOverlayWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

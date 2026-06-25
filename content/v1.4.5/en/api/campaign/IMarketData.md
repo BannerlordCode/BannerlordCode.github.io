@@ -1,20 +1,14 @@
 ---
 title: "IMarketData"
+description: "Auto-generated class reference for IMarketData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMarketData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMarketData
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMarketData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/IMarketData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements/IMarketData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IMarketData` as a Data-style extension point: first identify who creates 
 ## Usage Example
 
 ```csharp
-IMarketData implementation = GetMarketDataImplementation();
+// Usually obtained through DI or a factory method
+IIMarketData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

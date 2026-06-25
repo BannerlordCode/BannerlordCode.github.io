@@ -1,20 +1,14 @@
 ---
 title: "SmeltingItemVM"
+description: "Auto-generated class reference for SmeltingItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SmeltingItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SmeltingItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SmeltingItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting/SmeltingItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting/SmeltingItemVM.cs`
 
 ## Overview
 
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SmeltingItemVM from the subsystem API first
+SmeltingItemVM smeltingItemVM = ...;
+smeltingItemVM.RefreshValues();
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of SmeltingItemVM from the subsystem API first
+SmeltingItemVM smeltingItemVM = ...;
+smeltingItemVM.ExecuteSelection();
+```
 
 ### ExecuteShowItemTooltip
 `public void ExecuteShowItemTooltip()`
 
-**Purpose:** Executes the `show item tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show item tooltip`.
+
+```csharp
+// Obtain an instance of SmeltingItemVM from the subsystem API first
+SmeltingItemVM smeltingItemVM = ...;
+smeltingItemVM.ExecuteShowItemTooltip();
+```
 
 ### ExecuteHideItemTooltip
 `public void ExecuteHideItemTooltip()`
 
-**Purpose:** Executes the `hide item tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `hide item tooltip`.
+
+```csharp
+// Obtain an instance of SmeltingItemVM from the subsystem API first
+SmeltingItemVM smeltingItemVM = ...;
+smeltingItemVM.ExecuteHideItemTooltip();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SmeltingItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SmeltingItemVM smeltingItemVM = ...;
+smeltingItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

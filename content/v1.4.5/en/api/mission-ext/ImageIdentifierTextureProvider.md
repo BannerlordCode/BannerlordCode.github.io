@@ -1,20 +1,14 @@
 ---
 title: "ImageIdentifierTextureProvider"
+description: "Auto-generated class reference for ImageIdentifierTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageIdentifierTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageIdentifierTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ImageIdentifierTextureProvider : TextureProvider, IDisposable`
 **Base:** `TextureProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers/ImageIdentifierTextureProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers/ImageIdentifierTextureProvider.cs`
 
 ## Overview
 
@@ -38,24 +32,43 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.Image
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ImageIdentifierTextureProvider from the subsystem API first
+ImageIdentifierTextureProvider imageIdentifierTextureProvider = ...;
+imageIdentifierTextureProvider.Tick(0);
+```
 
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of ImageIdentifierTextureProvider from the subsystem API first
+ImageIdentifierTextureProvider imageIdentifierTextureProvider = ...;
+imageIdentifierTextureProvider.Clear(false);
+```
 
 ### CreateImageWithId
 `public void CreateImageWithId(string id, string additionalArgs)`
 
-**Purpose:** Creates a new `image with id` instance or object.
+**Purpose:** Constructs a new `image with id` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of ImageIdentifierTextureProvider from the subsystem API first
+ImageIdentifierTextureProvider imageIdentifierTextureProvider = ...;
+imageIdentifierTextureProvider.CreateImageWithId("example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomImageIdentifierTextureProvider();
+// Typically obtained from a subsystem API or factory
+ImageIdentifierTextureProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

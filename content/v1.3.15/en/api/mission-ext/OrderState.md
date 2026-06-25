@@ -1,18 +1,12 @@
 ---
 title: "OrderState"
+description: "Auto-generated class reference for OrderState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderState
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum OrderState`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Order/Visual/OrderState.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ## Usage Example
 
 ```csharp
-var value = new OrderState();
+// Obtain an instance from the relevant subsystem API
+OrderState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

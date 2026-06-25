@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerRoundComponent"
+description: "Auto-generated class reference for MultiplayerRoundComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerRoundComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerRoundComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,7 +34,13 @@ Treat `MultiplayerRoundComponent` as a Component-style extension point: first id
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerRoundComponent from the subsystem API first
+MultiplayerRoundComponent multiplayerRoundComponent = ...;
+multiplayerRoundComponent.AfterStart();
+```
 
 ## Usage Example
 
@@ -50,4 +50,4 @@ var component = agent.GetComponent<MultiplayerRoundComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

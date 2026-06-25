@@ -1,20 +1,14 @@
 ---
 title: "BannerPersistentTextureCache"
+description: "BannerPersistentTextureCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerPersistentTextureCache`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerPersistentTextureCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerPersistentTextureCache : ThumbnailCache<BannerTextureCreationData>`
 **Base:** `ThumbnailCache<BannerTextureCreationData>`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerPersistentTextureCache.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerPersistentTextureCache.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "BannerPersistentTextureCache"
 ### FlushCache
 `public void FlushCache()`
 
-**用途 / Purpose:** 处理 `flush cache` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerPersistentTextureCache 实例
+BannerPersistentTextureCache bannerPersistentTextureCache = ...;
+bannerPersistentTextureCache.FlushCache();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerPersistentTextureCache();
-value.FlushCache();
+// 通常从对应子系统 API 获取实例后调用
+BannerPersistentTextureCache bannerPersistentTextureCache = ...;
+bannerPersistentTextureCache.FlushCache();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

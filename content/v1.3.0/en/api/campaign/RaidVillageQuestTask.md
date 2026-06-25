@@ -1,13 +1,7 @@
 ---
 title: "RaidVillageQuestTask"
+description: "Auto-generated class reference for RaidVillageQuestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RaidVillageQuestTask`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RaidVillageQuestTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnVillageLooted
 `public void OnVillageLooted(Village village)`
 
-**Purpose:** Called when the `village looted` event is raised.
+**Purpose:** Invoked when the `village looted` event is raised.
+
+```csharp
+// Obtain an instance of RaidVillageQuestTask from the subsystem API first
+RaidVillageQuestTask raidVillageQuestTask = ...;
+raidVillageQuestTask.OnVillageLooted(village);
+```
 
 ### OnClanChangedKingdom
 `public void OnClanChangedKingdom(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, ChangeKingdomAction.ChangeKingdomActionDetail detail, bool showNotification)`
 
-**Purpose:** Called when the `clan changed kingdom` event is raised.
+**Purpose:** Invoked when the `clan changed kingdom` event is raised.
+
+```csharp
+// Obtain an instance of RaidVillageQuestTask from the subsystem API first
+RaidVillageQuestTask raidVillageQuestTask = ...;
+raidVillageQuestTask.OnClanChangedKingdom(clan, oldKingdom, newKingdom, detail, true);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RaidVillageQuestTask from the subsystem API first
+RaidVillageQuestTask raidVillageQuestTask = ...;
+raidVillageQuestTask.SetReferences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RaidVillageQuestTask();
-value.OnVillageLooted(village);
+// Typically call this after obtaining an instance from the subsystem API
+RaidVillageQuestTask raidVillageQuestTask = ...;
+raidVillageQuestTask.OnVillageLooted(village);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

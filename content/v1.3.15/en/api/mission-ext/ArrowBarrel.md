@@ -1,13 +1,7 @@
 ---
 title: "ArrowBarrel"
+description: "Auto-generated class reference for ArrowBarrel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArrowBarrel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ArrowBarrel
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Usables` to place it in t
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of ArrowBarrel from the subsystem API first
+ArrowBarrel arrowBarrel = ...;
+var result = arrowBarrel.GetDescriptionText(gameEntity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArrowBarrel();
-value.GetDescriptionText(gameEntity);
+// Typically call this after obtaining an instance from the subsystem API
+ArrowBarrel arrowBarrel = ...;
+arrowBarrel.GetDescriptionText(gameEntity);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

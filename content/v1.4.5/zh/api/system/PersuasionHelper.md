@@ -1,20 +1,14 @@
 ---
 title: "PersuasionHelper"
+description: "PersuasionHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PersuasionHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class PersuasionHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/PersuasionHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/PersuasionHelper.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "PersuasionHelper"
 ### ShowSuccess
 `public static TextObject ShowSuccess(PersuasionOptionArgs optionArgs, bool showToPlayer = true)`
 
-**用途 / Purpose:** 处理 `show success` 相关逻辑。
+**用途 / Purpose:** 显示「success」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+PersuasionHelper.ShowSuccess(optionArgs, false);
+```
 
 ### GetDefaultPersuasionOptionReaction
 `public static TextObject GetDefaultPersuasionOptionReaction(PersuasionOptionResult optionResult)`
 
-**用途 / Purpose:** 获取 `default persuasion option reaction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default persuasion option reaction」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PersuasionHelper.GetDefaultPersuasionOptionReaction(optionResult);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ PersuasionHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

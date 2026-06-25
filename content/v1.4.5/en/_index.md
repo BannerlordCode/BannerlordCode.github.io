@@ -51,5 +51,18 @@ bannerlord-1.4.5/Bannerlord.Source/
 ## Usage Example
 
 ```csharp
-var example = new Bannerlord v1.4.5();
+// Use the navigation below to explore guides, API reference, and architecture.
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Content Navigation
+
+- [API Reference](./api/) — Complete API reference catalog for Bannerlord SDK
+- [v1.4.5 Architecture](./architecture/) — Module structure and developer entry points for Bannerlord v1.4.5
+
+<!-- END SECTION INDEX -->

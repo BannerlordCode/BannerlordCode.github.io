@@ -1,20 +1,14 @@
 ---
 title: "TileMuTorere"
+description: "Auto-generated class reference for TileMuTorere."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TileMuTorere`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TileMuTorere
 
 **Namespace:** SandBox.BoardGames.Tiles
 **Module:** SandBox.BoardGames
 **Type:** `public class TileMuTorere : Tile1D`
 **Base:** `Tile1D`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/TileMuTorere.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/TileMuTorere.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `SandBox.BoardGames.Tiles` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new TileMuTorere();
+// Obtain an instance from the relevant subsystem API
+TileMuTorere instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

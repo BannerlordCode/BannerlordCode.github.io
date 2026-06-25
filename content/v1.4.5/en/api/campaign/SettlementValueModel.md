@@ -1,20 +1,14 @@
 ---
 title: "SettlementValueModel"
+description: "Auto-generated class reference for SettlementValueModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementValueModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementValueModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementValueModel : MBGameModel<SettlementValueModel>`
 **Base:** `MBGameModel<SettlementValueModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementValueModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementValueModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `SettlementValueModel` as a Model-style extension point: first identify wh
 ### FindMostSuitableHomeSettlement
 `public abstract Settlement FindMostSuitableHomeSettlement(Clan clan)`
 
-**Purpose:** Handles logic related to `find most suitable home settlement`.
+**Purpose:** Looks up the matching `most suitable home settlement` in the current collection or scope.
+
+```csharp
+// Obtain an instance of SettlementValueModel from the subsystem API first
+SettlementValueModel settlementValueModel = ...;
+var result = settlementValueModel.FindMostSuitableHomeSettlement(clan);
+```
 
 ### CalculateSettlementValueForFaction
 `public abstract float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
 
-**Purpose:** Handles logic related to `calculate settlement value for faction`.
+**Purpose:** Calculates the current value or result of `settlement value for faction`.
+
+```csharp
+// Obtain an instance of SettlementValueModel from the subsystem API first
+SettlementValueModel settlementValueModel = ...;
+var result = settlementValueModel.CalculateSettlementValueForFaction(settlement, faction);
+```
 
 ### CalculateSettlementBaseValue
 `public abstract float CalculateSettlementBaseValue(Settlement settlement)`
 
-**Purpose:** Handles logic related to `calculate settlement base value`.
+**Purpose:** Calculates the current value or result of `settlement base value`.
+
+```csharp
+// Obtain an instance of SettlementValueModel from the subsystem API first
+SettlementValueModel settlementValueModel = ...;
+var result = settlementValueModel.CalculateSettlementBaseValue(settlement);
+```
 
 ### CalculateSettlementValueForEnemyHero
 `public abstract float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
 
-**Purpose:** Handles logic related to `calculate settlement value for enemy hero`.
+**Purpose:** Calculates the current value or result of `settlement value for enemy hero`.
+
+```csharp
+// Obtain an instance of SettlementValueModel from the subsystem API first
+SettlementValueModel settlementValueModel = ...;
+var result = settlementValueModel.CalculateSettlementValueForEnemyHero(settlement, hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementValueModel();
+// Typically obtained from a subsystem API or factory
+SettlementValueModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

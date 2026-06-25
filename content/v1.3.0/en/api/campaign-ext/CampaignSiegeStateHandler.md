@@ -1,13 +1,7 @@
 ---
 title: "CampaignSiegeStateHandler"
+description: "Auto-generated class reference for CampaignSiegeStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignSiegeStateHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignSiegeStateHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -37,24 +31,42 @@ Treat `CampaignSiegeStateHandler` as a Handler-style extension point: first iden
 ### OnRetreatMission
 `public override void OnRetreatMission()`
 
-**Purpose:** Called when the `retreat mission` event is raised.
+**Purpose:** Invoked when the `retreat mission` event is raised.
+
+```csharp
+// Obtain an instance of CampaignSiegeStateHandler from the subsystem API first
+CampaignSiegeStateHandler campaignSiegeStateHandler = ...;
+campaignSiegeStateHandler.OnRetreatMission();
+```
 
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**Purpose:** Called when the `mission result ready` event is raised.
+**Purpose:** Invoked when the `mission result ready` event is raised.
+
+```csharp
+// Obtain an instance of CampaignSiegeStateHandler from the subsystem API first
+CampaignSiegeStateHandler campaignSiegeStateHandler = ...;
+campaignSiegeStateHandler.OnMissionResultReady(missionResult);
+```
 
 ### OnSurrenderMission
 `public override void OnSurrenderMission()`
 
-**Purpose:** Called when the `surrender mission` event is raised.
+**Purpose:** Invoked when the `surrender mission` event is raised.
+
+```csharp
+// Obtain an instance of CampaignSiegeStateHandler from the subsystem API first
+CampaignSiegeStateHandler campaignSiegeStateHandler = ...;
+campaignSiegeStateHandler.OnSurrenderMission();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CampaignSiegeStateHandler());
+var behavior = Mission.Current.GetMissionBehavior<CampaignSiegeStateHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

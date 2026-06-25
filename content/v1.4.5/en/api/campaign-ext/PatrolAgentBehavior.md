@@ -1,20 +1,14 @@
 ---
 title: "PatrolAgentBehavior"
+description: "Auto-generated class reference for PatrolAgentBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PatrolAgentBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PatrolAgentBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class PatrolAgentBehavior : AgentBehavior`
 **Base:** `AgentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/PatrolAgentBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/PatrolAgentBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### SetDynamicPatrolArea
 `public void SetDynamicPatrolArea(GameEntity parentPatrolPoint)`
 
-**Purpose:** Sets the value or state of `dynamic patrol area`.
+**Purpose:** Assigns a new value to `dynamic patrol area` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PatrolAgentBehavior from the subsystem API first
+PatrolAgentBehavior patrolAgentBehavior = ...;
+patrolAgentBehavior.SetDynamicPatrolArea(parentPatrolPoint);
+```
 
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of PatrolAgentBehavior from the subsystem API first
+PatrolAgentBehavior patrolAgentBehavior = ...;
+patrolAgentBehavior.Tick(0, false);
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrolAgentBehavior from the subsystem API first
+PatrolAgentBehavior patrolAgentBehavior = ...;
+var result = patrolAgentBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrolAgentBehavior from the subsystem API first
+PatrolAgentBehavior patrolAgentBehavior = ...;
+var result = patrolAgentBehavior.GetDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PatrolAgentBehavior();
-value.SetDynamicPatrolArea(parentPatrolPoint);
+// Typically call this after obtaining an instance from the subsystem API
+PatrolAgentBehavior patrolAgentBehavior = ...;
+patrolAgentBehavior.SetDynamicPatrolArea(parentPatrolPoint);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

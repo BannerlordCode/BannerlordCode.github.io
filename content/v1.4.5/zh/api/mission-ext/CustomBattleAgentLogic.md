@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleAgentLogic"
+description: "CustomBattleAgentLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleAgentLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleAgentLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleAgentLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentLogic.cs`
 
 ## 概述
 
@@ -29,19 +23,31 @@ title: "CustomBattleAgentLogic"
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** 当 `agent hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentLogic 实例
+CustomBattleAgentLogic customBattleAgentLogic = ...;
+customBattleAgentLogic.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, blow, attackCollisionData);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentLogic 实例
+CustomBattleAgentLogic customBattleAgentLogic = ...;
+customBattleAgentLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CustomBattleAgentLogic());
+var behavior = Mission.Current.GetMissionBehavior<CustomBattleAgentLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

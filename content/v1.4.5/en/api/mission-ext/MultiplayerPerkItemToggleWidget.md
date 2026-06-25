@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPerkItemToggleWidget"
+description: "Auto-generated class reference for MultiplayerPerkItemToggleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPerkItemToggleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPerkItemToggleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPerkItemToggleWidget : ToggleButtonWidget`
 **Base:** `ToggleButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks/MultiplayerPerkItemToggleWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Perks/MultiplayerPerkItemToggleWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `MultiplayerPerkItemToggleWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerPerkItemToggleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerPerkItemToggleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ClassConfiguration"
+description: "Auto-generated class reference for ClassConfiguration."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClassConfiguration`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClassConfiguration
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ClassConfiguration`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### ClassConfiguration
 `public struct ClassConfiguration(int formationIndex, DeploymentFormationClass formationClass)`
 
-**Purpose:** Handles logic related to `class configuration`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClassConfiguration from the subsystem API first
+ClassConfiguration classConfiguration = ...;
+var result = classConfiguration.ClassConfiguration(0, formationClass);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClassConfiguration();
-value.ClassConfiguration(0, formationClass);
+// Typically call this after obtaining an instance from the subsystem API
+ClassConfiguration classConfiguration = ...;
+classConfiguration.ClassConfiguration(0, formationClass);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyQueryPopupVM"
+description: "MPLobbyQueryPopupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyQueryPopupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyQueryPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyQueryPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup/MPLobbyQueryPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup/MPLobbyQueryPopupVM.cs`
 
 ## 概述
 
@@ -40,45 +34,88 @@ title: "MPLobbyQueryPopupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.RefreshValues();
+```
 
 ### ShowMessage
 `public void ShowMessage(TextObject title, TextObject message)`
 
-**用途 / Purpose:** 处理 `show message` 相关逻辑。
+**用途 / Purpose:** 显示「message」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.ShowMessage(title, message);
+```
 
 ### ShowInquiry
 `public void ShowInquiry(TextObject title, TextObject message, Action onAccepted, Action onDeclined)`
 
-**用途 / Purpose:** 处理 `show inquiry` 相关逻辑。
+**用途 / Purpose:** 显示「inquiry」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.ShowInquiry(title, message, onAccepted, onDeclined);
+```
 
 ### ExecuteAccept
 `public void ExecuteAccept()`
 
-**用途 / Purpose:** 执行 `accept` 操作或流程。
+**用途 / Purpose:** 执行 「accept」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.ExecuteAccept();
+```
 
 ### ExecuteDecline
 `public void ExecuteDecline()`
 
-**用途 / Purpose:** 执行 `decline` 操作或流程。
+**用途 / Purpose:** 执行 「decline」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.ExecuteDecline();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyQueryPopupVM 实例
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.SetCancelInputKey(hotkey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyQueryPopupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

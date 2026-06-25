@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryClassStatsVM"
+description: "MPArmoryClassStatsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPArmoryClassStatsVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryClassStatsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryClassStatsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryClassStatsVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryClassStatsVM.cs`
 
 ## 概述
 
@@ -40,20 +34,33 @@ title: "MPArmoryClassStatsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryClassStatsVM 实例
+MPArmoryClassStatsVM mPArmoryClassStatsVM = ...;
+mPArmoryClassStatsVM.RefreshValues();
+```
 
 ### RefreshWith
 `public void RefreshWith(MPHeroClass heroClass)`
 
-**用途 / Purpose:** 刷新 `with` 的显示或缓存。
+**用途 / Purpose:** 使 「with」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryClassStatsVM 实例
+MPArmoryClassStatsVM mPArmoryClassStatsVM = ...;
+mPArmoryClassStatsVM.RefreshWith(heroClass);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPArmoryClassStatsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPArmoryClassStatsVM mPArmoryClassStatsVM = ...;
+mPArmoryClassStatsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

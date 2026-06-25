@@ -1,20 +1,14 @@
 ---
 title: "BarterItemVM"
+description: "Auto-generated class reference for BarterItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Barter
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BarterItemVM : EncyclopediaLinkVM`
 **Base:** `EncyclopediaLinkVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterItemVM.cs`
 
 ## Overview
 
@@ -47,40 +41,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Barter` to p
 ### BarterTransferEventDelegate
 `public delegate void BarterTransferEventDelegate(BarterItemVM itemVM, bool transferAll)`
 
-**Purpose:** Handles logic related to `barter transfer event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BarterItemVM from the subsystem API first
+BarterItemVM barterItemVM = ...;
+barterItemVM.BarterTransferEventDelegate(itemVM, false);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BarterItemVM from the subsystem API first
+BarterItemVM barterItemVM = ...;
+barterItemVM.RefreshValues();
+```
 
 ### RefreshCompabilityWithItem
 `public void RefreshCompabilityWithItem(BarterItemVM item, bool isItemGotOffered)`
 
-**Purpose:** Refreshes the display or cache of `compability with item`.
+**Purpose:** Keeps the display or cache of `compability with item` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BarterItemVM from the subsystem API first
+BarterItemVM barterItemVM = ...;
+barterItemVM.RefreshCompabilityWithItem(item, false);
+```
 
 ### ExecuteAddOffered
 `public void ExecuteAddOffered()`
 
-**Purpose:** Executes the `add offered` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `add offered`.
+
+```csharp
+// Obtain an instance of BarterItemVM from the subsystem API first
+BarterItemVM barterItemVM = ...;
+barterItemVM.ExecuteAddOffered();
+```
 
 ### ExecuteRemoveOffered
 `public void ExecuteRemoveOffered()`
 
-**Purpose:** Executes the `remove offered` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove offered`.
+
+```csharp
+// Obtain an instance of BarterItemVM from the subsystem API first
+BarterItemVM barterItemVM = ...;
+barterItemVM.ExecuteRemoveOffered();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of BarterItemVM from the subsystem API first
+BarterItemVM barterItemVM = ...;
+barterItemVM.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BarterItemVM();
-value.BarterTransferEventDelegate(itemVM, false);
+// Typically call this after obtaining an instance from the subsystem API
+BarterItemVM barterItemVM = ...;
+barterItemVM.BarterTransferEventDelegate(itemVM, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

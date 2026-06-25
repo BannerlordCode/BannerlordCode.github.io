@@ -1,20 +1,14 @@
 ---
 title: "AnimatedBasicAreaIndicator"
+description: "Auto-generated class reference for AnimatedBasicAreaIndicator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimatedBasicAreaIndicator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimatedBasicAreaIndicator
 
 **Namespace:** SandBox.Objects.AreaMarkers
 **Module:** SandBox.Objects
 **Type:** `public class AnimatedBasicAreaIndicator : AreaMarker`
 **Base:** `AreaMarker`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/AnimatedBasicAreaIndicator.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/AnimatedBasicAreaIndicator.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### SetIsActive
 `public void SetIsActive(bool isActive)`
 
-**Purpose:** Sets the value or state of `is active`.
+**Purpose:** Assigns a new value to `is active` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AnimatedBasicAreaIndicator from the subsystem API first
+AnimatedBasicAreaIndicator animatedBasicAreaIndicator = ...;
+animatedBasicAreaIndicator.SetIsActive(false);
+```
 
 ### SetOverriddenName
 `public void SetOverriddenName(TextObject name)`
 
-**Purpose:** Sets the value or state of `overridden name`.
+**Purpose:** Assigns a new value to `overridden name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AnimatedBasicAreaIndicator from the subsystem API first
+AnimatedBasicAreaIndicator animatedBasicAreaIndicator = ...;
+animatedBasicAreaIndicator.SetOverriddenName(name);
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of AnimatedBasicAreaIndicator from the subsystem API first
+AnimatedBasicAreaIndicator animatedBasicAreaIndicator = ...;
+var result = animatedBasicAreaIndicator.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AnimatedBasicAreaIndicator();
-value.SetIsActive(false);
+// Typically call this after obtaining an instance from the subsystem API
+AnimatedBasicAreaIndicator animatedBasicAreaIndicator = ...;
+animatedBasicAreaIndicator.SetIsActive(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

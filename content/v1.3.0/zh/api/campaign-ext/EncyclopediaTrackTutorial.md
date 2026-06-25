@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaTrackTutorial"
+description: "EncyclopediaTrackTutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaTrackTutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaTrackTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,25 +23,44 @@ title: "EncyclopediaTrackTutorial"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaTrackTutorial 实例
+EncyclopediaTrackTutorial encyclopediaTrackTutorial = ...;
+var result = encyclopediaTrackTutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaTrackTutorial 实例
+EncyclopediaTrackTutorial encyclopediaTrackTutorial = ...;
+var result = encyclopediaTrackTutorial.IsConditionsMetForActivation();
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaTrackTutorial 实例
+EncyclopediaTrackTutorial encyclopediaTrackTutorial = ...;
+var result = encyclopediaTrackTutorial.IsConditionsMetForCompletion();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaTrackTutorial();
-value.GetTutorialsRelevantContext();
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaTrackTutorial encyclopediaTrackTutorial = ...;
+encyclopediaTrackTutorial.GetTutorialsRelevantContext();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

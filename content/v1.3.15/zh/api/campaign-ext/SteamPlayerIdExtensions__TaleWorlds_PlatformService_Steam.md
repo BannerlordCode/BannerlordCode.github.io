@@ -1,13 +1,7 @@
 ---
-title: "SteamPlayerIdExtensions__TaleWorlds_PlatformService_Steam"
+title: "SteamPlayerIdExtensions"
+description: "SteamPlayerIdExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SteamPlayerIdExtensions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SteamPlayerIdExtensions
 
 **Namespace:** TaleWorlds.PlatformService.Steam
@@ -29,17 +23,32 @@ title: "SteamPlayerIdExtensions__TaleWorlds_PlatformService_Steam"
 ### ToPlayerId
 `public static PlayerId ToPlayerId(this CSteamID steamId)`
 
-**用途 / Purpose:** 处理 `to player id` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SteamPlayerIdExtensions.ToPlayerId(steamId);
+```
 
 ### ToSteamId
 `public static CSteamID ToSteamId(this PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `to steam id` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SteamPlayerIdExtensions.ToSteamId(playerId);
+```
 
 ### IsValidSteamId
 `public static bool IsValidSteamId(this PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `is valid steam id` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid steam id」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+SteamPlayerIdExtensions.IsValidSteamId(playerId);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ SteamPlayerIdExtensions.ToPlayerId(steamId);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

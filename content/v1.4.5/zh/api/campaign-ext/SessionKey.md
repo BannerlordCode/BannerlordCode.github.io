@@ -1,20 +1,14 @@
 ---
 title: "SessionKey"
+description: "SessionKey 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SessionKey`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SessionKey
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public struct SessionKey`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/SessionKey.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/SessionKey.cs`
 
 ## 概述
 
@@ -29,27 +23,56 @@ title: "SessionKey"
 ### NewGuid
 `public static SessionKey NewGuid()`
 
-**用途 / Purpose:** 处理 `new guid` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SessionKey.NewGuid();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 SessionKey 实例
+SessionKey sessionKey = ...;
+var result = sessionKey.ToString();
+```
 
 ### ToByteArray
 `public byte ToByteArray()`
 
-**用途 / Purpose:** 处理 `to byte array` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SessionKey 实例
+SessionKey sessionKey = ...;
+var result = sessionKey.ToByteArray();
+```
 
 ### Equals
 `public override bool Equals(object o)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 SessionKey 实例
+SessionKey sessionKey = ...;
+var result = sessionKey.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 SessionKey 实例
+SessionKey sessionKey = ...;
+var result = sessionKey.GetHashCode();
+```
 
 ## 使用示例
 
@@ -59,4 +82,4 @@ SessionKey.NewGuid();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

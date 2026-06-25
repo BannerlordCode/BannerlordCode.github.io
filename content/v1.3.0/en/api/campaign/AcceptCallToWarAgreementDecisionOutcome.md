@@ -1,13 +1,7 @@
 ---
 title: "AcceptCallToWarAgreementDecisionOutcome"
+description: "Auto-generated class reference for AcceptCallToWarAgreementDecisionOutcome."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AcceptCallToWarAgreementDecisionOutcome`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AcceptCallToWarAgreementDecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Gets the current value of `decision title`.
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of AcceptCallToWarAgreementDecisionOutcome from the subsystem API first
+AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgreementDecisionOutcome = ...;
+var result = acceptCallToWarAgreementDecisionOutcome.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Gets the current value of `decision description`.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of AcceptCallToWarAgreementDecisionOutcome from the subsystem API first
+AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgreementDecisionOutcome = ...;
+var result = acceptCallToWarAgreementDecisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `decision link`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of AcceptCallToWarAgreementDecisionOutcome from the subsystem API first
+AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgreementDecisionOutcome = ...;
+var result = acceptCallToWarAgreementDecisionOutcome.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Gets the current value of `decision image identifier`.
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of AcceptCallToWarAgreementDecisionOutcome from the subsystem API first
+AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgreementDecisionOutcome = ...;
+var result = acceptCallToWarAgreementDecisionOutcome.GetDecisionImageIdentifier();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AcceptCallToWarAgreementDecisionOutcome();
-value.GetDecisionTitle();
+// Typically call this after obtaining an instance from the subsystem API
+AcceptCallToWarAgreementDecisionOutcome acceptCallToWarAgreementDecisionOutcome = ...;
+acceptCallToWarAgreementDecisionOutcome.GetDecisionTitle();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

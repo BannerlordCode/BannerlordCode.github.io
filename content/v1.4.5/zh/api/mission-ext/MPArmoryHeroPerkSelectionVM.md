@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryHeroPerkSelectionVM"
+description: "MPArmoryHeroPerkSelectionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPArmoryHeroPerkSelectionVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryHeroPerkSelectionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryHeroPerkSelectionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryHeroPerkSelectionVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryHeroPerkSelectionVM.cs`
 
 ## 概述
 
@@ -38,20 +32,33 @@ title: "MPArmoryHeroPerkSelectionVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryHeroPerkSelectionVM 实例
+MPArmoryHeroPerkSelectionVM mPArmoryHeroPerkSelectionVM = ...;
+mPArmoryHeroPerkSelectionVM.RefreshValues();
+```
 
 ### RefreshPerksListWithHero
 `public void RefreshPerksListWithHero(MPHeroClass heroClass)`
 
-**用途 / Purpose:** 刷新 `perks list with hero` 的显示或缓存。
+**用途 / Purpose:** 使 「perks list with hero」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryHeroPerkSelectionVM 实例
+MPArmoryHeroPerkSelectionVM mPArmoryHeroPerkSelectionVM = ...;
+mPArmoryHeroPerkSelectionVM.RefreshPerksListWithHero(heroClass);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPArmoryHeroPerkSelectionVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPArmoryHeroPerkSelectionVM mPArmoryHeroPerkSelectionVM = ...;
+mPArmoryHeroPerkSelectionVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

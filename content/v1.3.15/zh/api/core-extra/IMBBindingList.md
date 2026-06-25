@@ -1,19 +1,13 @@
 ---
 title: "IMBBindingList"
+description: "IMBBindingList 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IMBBindingList`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMBBindingList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
-**Base:** 无
+**Type:** `public interface IMBBindingList : IList, ICollection, IEnumerable`
+**Base:** `IList`
 **File:** `TaleWorlds.Library/IMBBindingList.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "IMBBindingList"
 ## 使用示例
 
 ```csharp
-IMBBindingList implementation = GetMBBindingListImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIMBBindingList service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SiegeEventManager"
+description: "Auto-generated class reference for SiegeEventManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEventManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEventManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SiegeEventManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Siege/SiegeEventManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Siege/SiegeEventManager.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `SiegeEventManager` as a Manager-style extension point: first identify who
 ### StartSiegeEvent
 `public SiegeEvent StartSiegeEvent(Settlement settlement, MobileParty besiegerParty)`
 
-**Purpose:** Handles logic related to `start siege event`.
+**Purpose:** Starts the `siege event` flow or state machine.
+
+```csharp
+// Obtain an instance of SiegeEventManager from the subsystem API first
+SiegeEventManager siegeEventManager = ...;
+var result = siegeEventManager.StartSiegeEvent(settlement, besiegerParty);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SiegeEventManager from the subsystem API first
+SiegeEventManager siegeEventManager = ...;
+siegeEventManager.Tick(0);
+```
 
 ### OnAfterLoad
 `public void OnAfterLoad()`
 
-**Purpose:** Called when the `after load` event is raised.
+**Purpose:** Invoked when the `after load` event is raised.
+
+```csharp
+// Obtain an instance of SiegeEventManager from the subsystem API first
+SiegeEventManager siegeEventManager = ...;
+siegeEventManager.OnAfterLoad();
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var manager = SiegeEventManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

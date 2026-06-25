@@ -1,20 +1,14 @@
 ---
 title: "BanditSpawnCampaignBehavior"
+description: "BanditSpawnCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BanditSpawnCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BanditSpawnCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BanditSpawnCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BanditSpawnCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/BanditSpawnCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,50 +23,99 @@ title: "BanditSpawnCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.SyncData(dataStore);
+```
 
 ### InitializeInitialHideouts
 `public void InitializeInitialHideouts()`
 
-**用途 / Purpose:** 初始化 `initial hideouts` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「initial hideouts」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.InitializeInitialHideouts();
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** 当 `settlement entered` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「settlement entered」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 处理 `daily tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.DailyTick();
+```
 
 ### AddBanditToHideout
 `public MobileParty AddBanditToHideout(Hideout hideoutComponent, PartyTemplateObject overridenPartyTemplate = null, bool isBanditBossParty = false)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `bandit to hideout`。
+**用途 / Purpose:** 将 「bandit to hideout」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+var result = banditSpawnCampaignBehavior.AddBanditToHideout(hideoutComponent, null, false);
+```
 
 ### SpawnBanditsAroundHideoutAtNewGame
 `public void SpawnBanditsAroundHideoutAtNewGame()`
 
-**用途 / Purpose:** 处理 `spawn bandits around hideout at new game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.SpawnBanditsAroundHideoutAtNewGame();
+```
 
 ### SpawnLootersAtNewGame
 `public void SpawnLootersAtNewGame()`
 
-**用途 / Purpose:** 处理 `spawn looters at new game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.SpawnLootersAtNewGame();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BanditSpawnCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+BanditSpawnCampaignBehavior banditSpawnCampaignBehavior = ...;
+banditSpawnCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

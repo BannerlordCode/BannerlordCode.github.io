@@ -1,20 +1,14 @@
 ---
 title: "IBooleanOptionData"
+description: "Auto-generated class reference for IBooleanOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBooleanOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBooleanOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/IBooleanOptionData.cs`
+**Type:** `public interface IBooleanOptionData : IOptionData`
+**Base:** `IOptionData`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/IBooleanOptionData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IBooleanOptionData` as a Data-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-IBooleanOptionData implementation = GetBooleanOptionDataImplementation();
+// Usually obtained through DI or a factory method
+IIBooleanOptionData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBObjectManagerExtensions"
+description: "MBObjectManagerExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBObjectManagerExtensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBObjectManagerExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBObjectManagerExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBObjectManagerExtensions.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBObjectManagerExtensions.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "MBObjectManagerExtensions"
 ### LoadXML
 `public static void LoadXML(this MBObjectManager objectManager, string id, bool skipXmlFilterForEditor = false)`
 
-**用途 / Purpose:** 加载 `x m l` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「x m l」。
+
+```csharp
+// 静态调用，不需要实例
+MBObjectManagerExtensions.LoadXML(objectManager, "example", false);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ MBObjectManagerExtensions.LoadXML(objectManager, "example", false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

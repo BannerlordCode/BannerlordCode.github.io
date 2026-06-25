@@ -1,13 +1,7 @@
 ---
 title: "SettlementSecurityModel"
+description: "SettlementSecurityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementSecurityModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementSecurityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -50,34 +44,65 @@ title: "SettlementSecurityModel"
 ### GetLootedNearbyPartySecurityEffect
 `public abstract float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**用途 / Purpose:** 获取 `looted nearby party security effect` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「looted nearby party security effect」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementSecurityModel 实例
+SettlementSecurityModel settlementSecurityModel = ...;
+var result = settlementSecurityModel.GetLootedNearbyPartySecurityEffect(town, 0);
+```
 
 ### CalculateSecurityChange
 `public abstract ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate security change` 相关逻辑。
+**用途 / Purpose:** 计算「security change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementSecurityModel 实例
+SettlementSecurityModel settlementSecurityModel = ...;
+var result = settlementSecurityModel.CalculateSecurityChange(town, false);
+```
 
 ### GetNearbyBanditPartyDefeatedSecurityEffect
 `public abstract float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**用途 / Purpose:** 获取 `nearby bandit party defeated security effect` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「nearby bandit party defeated security effect」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementSecurityModel 实例
+SettlementSecurityModel settlementSecurityModel = ...;
+var result = settlementSecurityModel.GetNearbyBanditPartyDefeatedSecurityEffect(town, 0);
+```
 
 ### CalculateGoldGainDueToHighSecurity
 `public abstract void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 处理 `calculate gold gain due to high security` 相关逻辑。
+**用途 / Purpose:** 计算「gold gain due to high security」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementSecurityModel 实例
+SettlementSecurityModel settlementSecurityModel = ...;
+settlementSecurityModel.CalculateGoldGainDueToHighSecurity(town, explainedNumber);
+```
 
 ### CalculateGoldCutDueToLowSecurity
 `public abstract void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 处理 `calculate gold cut due to low security` 相关逻辑。
+**用途 / Purpose:** 计算「gold cut due to low security」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementSecurityModel 实例
+SettlementSecurityModel settlementSecurityModel = ...;
+settlementSecurityModel.CalculateGoldCutDueToLowSecurity(town, explainedNumber);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementSecurityModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementSecurityModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

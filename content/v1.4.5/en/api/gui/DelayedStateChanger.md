@@ -1,20 +1,14 @@
 ---
 title: "DelayedStateChanger"
+description: "Auto-generated class reference for DelayedStateChanger."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DelayedStateChanger`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DelayedStateChanger
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class DelayedStateChanger : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/DelayedStateChanger.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/DelayedStateChanger.cs`
 
 ## Overview
 
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.GauntletUI.ExtraWidgets` to place it in the sta
 ### Start
 `public void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of DelayedStateChanger from the subsystem API first
+DelayedStateChanger delayedStateChanger = ...;
+delayedStateChanger.Start();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DelayedStateChanger();
-value.Start();
+// Typically call this after obtaining an instance from the subsystem API
+DelayedStateChanger delayedStateChanger = ...;
+delayedStateChanger.Start();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

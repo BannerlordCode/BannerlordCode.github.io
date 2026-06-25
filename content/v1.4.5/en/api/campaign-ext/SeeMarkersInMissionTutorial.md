@@ -1,20 +1,14 @@
 ---
 title: "SeeMarkersInMissionTutorial"
+description: "Auto-generated class reference for SeeMarkersInMissionTutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SeeMarkersInMissionTutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SeeMarkersInMissionTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class SeeMarkersInMissionTutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/SeeMarkersInMissionTutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/SeeMarkersInMissionTutorial.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of SeeMarkersInMissionTutorial from the subsystem API first
+SeeMarkersInMissionTutorial seeMarkersInMissionTutorial = ...;
+var result = seeMarkersInMissionTutorial.IsConditionsMetForCompletion();
+```
 
 ### OnMissionNameMarkerToggled
 `public override void OnMissionNameMarkerToggled(MissionNameMarkerToggleEvent obj)`
 
-**Purpose:** Called when the `mission name marker toggled` event is raised.
+**Purpose:** Invoked when the `mission name marker toggled` event is raised.
+
+```csharp
+// Obtain an instance of SeeMarkersInMissionTutorial from the subsystem API first
+SeeMarkersInMissionTutorial seeMarkersInMissionTutorial = ...;
+seeMarkersInMissionTutorial.OnMissionNameMarkerToggled(obj);
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of SeeMarkersInMissionTutorial from the subsystem API first
+SeeMarkersInMissionTutorial seeMarkersInMissionTutorial = ...;
+var result = seeMarkersInMissionTutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of SeeMarkersInMissionTutorial from the subsystem API first
+SeeMarkersInMissionTutorial seeMarkersInMissionTutorial = ...;
+var result = seeMarkersInMissionTutorial.IsConditionsMetForActivation();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SeeMarkersInMissionTutorial();
-value.IsConditionsMetForCompletion();
+// Typically call this after obtaining an instance from the subsystem API
+SeeMarkersInMissionTutorial seeMarkersInMissionTutorial = ...;
+seeMarkersInMissionTutorial.IsConditionsMetForCompletion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ResourceTextureProvider"
+description: "Auto-generated class reference for ResourceTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ResourceTextureProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ResourceTextureProvider
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var value = new ResourceTextureProvider();
+// Obtain an instance from the relevant subsystem API
+ResourceTextureProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

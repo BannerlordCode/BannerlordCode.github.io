@@ -1,20 +1,14 @@
 ---
 title: "WorkshopType"
+description: "Auto-generated class reference for WorkshopType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorkshopType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopType
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Workshops
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class WorkshopType : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/WorkshopType.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Workshops/WorkshopType.cs`
 
 ## Overview
 
@@ -47,60 +41,119 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Workshops` to place 
 ### Production
 `public struct Production(float conversionSpeed)`
 
-**Purpose:** Handles logic related to `production`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorkshopType from the subsystem API first
+WorkshopType workshopType = ...;
+var result = workshopType.Production(0);
+```
 
 ### AddInput
 `public void AddInput(ItemCategory item, int count = 1)`
 
 **Purpose:** Adds `input` to the current collection or state.
 
+```csharp
+// Obtain an instance of WorkshopType from the subsystem API first
+WorkshopType workshopType = ...;
+workshopType.AddInput(item, 0);
+```
+
 ### AddOutput
 `public void AddOutput(ItemCategory outputCategory, int outputCount)`
 
 **Purpose:** Adds `output` to the current collection or state.
 
+```csharp
+// Obtain an instance of WorkshopType from the subsystem API first
+WorkshopType workshopType = ...;
+workshopType.AddOutput(outputCategory, 0);
+```
+
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of WorkshopType from the subsystem API first
+WorkshopType workshopType = ...;
+var result = workshopType.ToString();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of WorkshopType from the subsystem API first
+WorkshopType workshopType = ...;
+var result = workshopType.GetName();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of WorkshopType from the subsystem API first
+WorkshopType workshopType = ...;
+var result = workshopType.ToString();
+```
 
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of WorkshopType from the subsystem API first
+WorkshopType workshopType = ...;
+workshopType.Initialize();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of WorkshopType from the subsystem API first
+WorkshopType workshopType = ...;
+workshopType.Deserialize(objectManager, node);
+```
 
 ### Find
 `public static WorkshopType Find(string idString)`
 
-**Purpose:** Handles logic related to `find`.
+**Purpose:** Finds the matching entry in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+WorkshopType.Find("example");
+```
 
 ### FindFirst
 `public static WorkshopType FindFirst(Func<WorkshopType, bool> predicate)`
 
-**Purpose:** Handles logic related to `find first`.
+**Purpose:** Looks up the matching `first` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+WorkshopType.FindFirst(func<WorkshopType, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WorkshopType();
-value.Production(0);
+// Typically call this after obtaining an instance from the subsystem API
+WorkshopType workshopType = ...;
+workshopType.Production(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

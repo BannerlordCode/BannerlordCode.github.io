@@ -1,13 +1,7 @@
 ---
 title: "PawnSeega"
+description: "Auto-generated class reference for PawnSeega."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PawnSeega`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnSeega
 
 **Namespace:** SandBox.BoardGames.Pawns
@@ -38,25 +32,44 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of PawnSeega from the subsystem API first
+PawnSeega pawnSeega = ...;
+pawnSeega.Reset();
+```
 
 ### UpdateMoveBackAvailable
 `public void UpdateMoveBackAvailable()`
 
-**Purpose:** Updates the state or data of `move back available`.
+**Purpose:** Recalculates and stores the latest representation of `move back available`.
+
+```csharp
+// Obtain an instance of PawnSeega from the subsystem API first
+PawnSeega pawnSeega = ...;
+pawnSeega.UpdateMoveBackAvailable();
+```
 
 ### AISetMovedThisTurn
 `public void AISetMovedThisTurn(bool moved)`
 
-**Purpose:** Handles logic related to `a i set moved this turn`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PawnSeega from the subsystem API first
+PawnSeega pawnSeega = ...;
+pawnSeega.AISetMovedThisTurn(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PawnSeega();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+PawnSeega pawnSeega = ...;
+pawnSeega.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

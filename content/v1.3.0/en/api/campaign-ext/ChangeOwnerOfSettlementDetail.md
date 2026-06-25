@@ -1,13 +1,7 @@
 ---
 title: "ChangeOwnerOfSettlementDetail"
+description: "Auto-generated class reference for ChangeOwnerOfSettlementDetail."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeOwnerOfSettlementDetail`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeOwnerOfSettlementDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ## Usage Example
 
 ```csharp
-ChangeOwnerOfSettlementDetail example = ChangeOwnerOfSettlementDetail.Value;
+// Obtain an instance from the relevant subsystem API
+ChangeOwnerOfSettlementDetail instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

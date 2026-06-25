@@ -1,13 +1,7 @@
 ---
 title: "ConversationTokens"
+description: "Auto-generated class reference for ConversationTokens."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationTokens`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationTokens
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ## Usage Example
 
 ```csharp
-var example = new ConversationTokens();
+// Obtain an instance from the relevant subsystem API
+ConversationTokens instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

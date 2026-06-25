@@ -1,13 +1,7 @@
 ---
 title: "DefaultSiegeEventModel"
+description: "Auto-generated class reference for DefaultSiegeEventModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSiegeEventModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeEventModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,117 +23,255 @@ Treat `DefaultSiegeEventModel` as a Model-style extension point: first identify 
 ### GetSiegeEngineMapPrefabName
 `public override string GetSiegeEngineMapPrefabName(SiegeEngineType type, int wallLevel, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `siege engine map prefab name`.
+**Purpose:** Reads and returns the `siege engine map prefab name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineMapPrefabName(type, 0, side);
+```
 
 ### GetSiegeEngineMapProjectilePrefabName
 `public override string GetSiegeEngineMapProjectilePrefabName(SiegeEngineType type)`
 
-**Purpose:** Gets the current value of `siege engine map projectile prefab name`.
+**Purpose:** Reads and returns the `siege engine map projectile prefab name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineMapProjectilePrefabName(type);
+```
 
 ### GetSiegeEngineMapReloadAnimationName
 `public override string GetSiegeEngineMapReloadAnimationName(SiegeEngineType type, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `siege engine map reload animation name`.
+**Purpose:** Reads and returns the `siege engine map reload animation name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineMapReloadAnimationName(type, side);
+```
 
 ### GetSiegeEngineMapFireAnimationName
 `public override string GetSiegeEngineMapFireAnimationName(SiegeEngineType type, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `siege engine map fire animation name`.
+**Purpose:** Reads and returns the `siege engine map fire animation name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineMapFireAnimationName(type, side);
+```
 
 ### GetSiegeEngineMapProjectileBoneIndex
 `public override sbyte GetSiegeEngineMapProjectileBoneIndex(SiegeEngineType type, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `siege engine map projectile bone index`.
+**Purpose:** Reads and returns the `siege engine map projectile bone index` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineMapProjectileBoneIndex(type, side);
+```
 
 ### GetEffectiveSiegePartyForSide
 `public override MobileParty GetEffectiveSiegePartyForSide(SiegeEvent siegeEvent, BattleSideEnum battleSide)`
 
-**Purpose:** Gets the current value of `effective siege party for side`.
+**Purpose:** Reads and returns the `effective siege party for side` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetEffectiveSiegePartyForSide(siegeEvent, battleSide);
+```
 
 ### GetCasualtyChance
 `public override float GetCasualtyChance(MobileParty siegeParty, SiegeEvent siegeEvent, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `casualty chance`.
+**Purpose:** Reads and returns the `casualty chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetCasualtyChance(siegeParty, siegeEvent, side);
+```
 
 ### GetSiegeEngineDestructionCasualties
 `public override int GetSiegeEngineDestructionCasualties(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType destroyedSiegeEngine)`
 
-**Purpose:** Gets the current value of `siege engine destruction casualties`.
+**Purpose:** Reads and returns the `siege engine destruction casualties` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineDestructionCasualties(siegeEvent, side, destroyedSiegeEngine);
+```
 
 ### GetColleteralDamageCasualties
 `public override int GetColleteralDamageCasualties(SiegeEngineType siegeEngineType, MobileParty party)`
 
-**Purpose:** Gets the current value of `colleteral damage casualties`.
+**Purpose:** Reads and returns the `colleteral damage casualties` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetColleteralDamageCasualties(siegeEngineType, party);
+```
 
 ### GetSiegeEngineHitChance
 `public override float GetSiegeEngineHitChance(SiegeEngineType siegeEngineType, BattleSideEnum battleSide, SiegeBombardTargets target, Town town)`
 
-**Purpose:** Gets the current value of `siege engine hit chance`.
+**Purpose:** Reads and returns the `siege engine hit chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineHitChance(siegeEngineType, battleSide, target, town);
+```
 
 ### GetSiegeStrategyScore
 `public override float GetSiegeStrategyScore(SiegeEvent siege, BattleSideEnum side, SiegeStrategy strategy)`
 
-**Purpose:** Gets the current value of `siege strategy score`.
+**Purpose:** Reads and returns the `siege strategy score` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeStrategyScore(siege, side, strategy);
+```
 
 ### GetConstructionProgressPerHour
 `public override float GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side)`
 
-**Purpose:** Gets the current value of `construction progress per hour`.
+**Purpose:** Reads and returns the `construction progress per hour` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetConstructionProgressPerHour(type, siegeEvent, side);
+```
 
 ### GetAvailableManDayPower
 `public override float GetAvailableManDayPower(ISiegeEventSide side)`
 
-**Purpose:** Gets the current value of `available man day power`.
+**Purpose:** Reads and returns the `available man day power` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetAvailableManDayPower(side);
+```
 
 ### GetPrebuiltSiegeEnginesOfSettlement
 `public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSettlement(Settlement settlement)`
 
-**Purpose:** Gets the current value of `prebuilt siege engines of settlement`.
+**Purpose:** Reads and returns the `prebuilt siege engines of settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetPrebuiltSiegeEnginesOfSettlement(settlement);
+```
 
 ### GetPrebuiltSiegeEnginesOfSiegeCamp
 `public override IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSiegeCamp(BesiegerCamp besiegerCamp)`
 
-**Purpose:** Gets the current value of `prebuilt siege engines of siege camp`.
+**Purpose:** Reads and returns the `prebuilt siege engines of siege camp` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetPrebuiltSiegeEnginesOfSiegeCamp(besiegerCamp);
+```
 
 ### GetSiegeEngineHitPoints
 `public override float GetSiegeEngineHitPoints(SiegeEvent siegeEvent, SiegeEngineType siegeEngine, BattleSideEnum battleSide)`
 
-**Purpose:** Gets the current value of `siege engine hit points`.
+**Purpose:** Reads and returns the `siege engine hit points` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineHitPoints(siegeEvent, siegeEngine, battleSide);
+```
 
 ### GetSiegeEngineDamage
 `public override float GetSiegeEngineDamage(SiegeEvent siegeEvent, BattleSideEnum battleSide, SiegeEngineType siegeEngine, SiegeBombardTargets target)`
 
-**Purpose:** Gets the current value of `siege engine damage`.
+**Purpose:** Reads and returns the `siege engine damage` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetSiegeEngineDamage(siegeEvent, battleSide, siegeEngine, target);
+```
 
 ### GetRangedSiegeEngineReloadTime
 `public override int GetRangedSiegeEngineReloadTime(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType siegeEngine)`
 
-**Purpose:** Gets the current value of `ranged siege engine reload time`.
+**Purpose:** Reads and returns the `ranged siege engine reload time` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetRangedSiegeEngineReloadTime(siegeEvent, side, siegeEngine);
+```
 
 ### GetAvailableAttackerRangedSiegeEngines
 `public override IEnumerable<SiegeEngineType> GetAvailableAttackerRangedSiegeEngines(PartyBase party)`
 
-**Purpose:** Gets the current value of `available attacker ranged siege engines`.
+**Purpose:** Reads and returns the `available attacker ranged siege engines` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetAvailableAttackerRangedSiegeEngines(party);
+```
 
 ### GetAvailableDefenderSiegeEngines
 `public override IEnumerable<SiegeEngineType> GetAvailableDefenderSiegeEngines(PartyBase party)`
 
-**Purpose:** Gets the current value of `available defender siege engines`.
+**Purpose:** Reads and returns the `available defender siege engines` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetAvailableDefenderSiegeEngines(party);
+```
 
 ### GetAvailableAttackerRamSiegeEngines
 `public override IEnumerable<SiegeEngineType> GetAvailableAttackerRamSiegeEngines(PartyBase party)`
 
-**Purpose:** Gets the current value of `available attacker ram siege engines`.
+**Purpose:** Reads and returns the `available attacker ram siege engines` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetAvailableAttackerRamSiegeEngines(party);
+```
 
 ### GetAvailableAttackerTowerSiegeEngines
 `public override IEnumerable<SiegeEngineType> GetAvailableAttackerTowerSiegeEngines(PartyBase party)`
 
-**Purpose:** Gets the current value of `available attacker tower siege engines`.
+**Purpose:** Reads and returns the `available attacker tower siege engines` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetAvailableAttackerTowerSiegeEngines(party);
+```
 
 ### GetPriorityTroopsForSallyOutAmbush
 `public override FlattenedTroopRoster GetPriorityTroopsForSallyOutAmbush()`
 
-**Purpose:** Gets the current value of `priority troops for sally out ambush`.
+**Purpose:** Reads and returns the `priority troops for sally out ambush` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeEventModel from the subsystem API first
+DefaultSiegeEventModel defaultSiegeEventModel = ...;
+var result = defaultSiegeEventModel.GetPriorityTroopsForSallyOutAmbush();
+```
 
 ## Usage Example
 
@@ -149,4 +281,4 @@ Game.Current.ReplaceModel<DefaultSiegeEventModel>(new MyDefaultSiegeEventModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

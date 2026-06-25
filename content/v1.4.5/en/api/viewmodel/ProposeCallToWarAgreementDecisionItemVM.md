@@ -1,20 +1,14 @@
 ---
 title: "ProposeCallToWarAgreementDecisionItemVM"
+description: "Auto-generated class reference for ProposeCallToWarAgreementDecisionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProposeCallToWarAgreementDecisionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProposeCallToWarAgreementDecisionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ProposeCallToWarAgreementDecisionItemVM : DecisionItemBaseVM`
 **Base:** `DecisionItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/ProposeCallToWarAgreementDecisionItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/ProposeCallToWarAgreementDecisionItemVM.cs`
 
 ## Overview
 
@@ -42,9 +36,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var example = new ProposeCallToWarAgreementDecisionItemVM();
+// Obtain an instance from the relevant subsystem API
+ProposeCallToWarAgreementDecisionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

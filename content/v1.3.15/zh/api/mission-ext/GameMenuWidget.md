@@ -1,13 +1,7 @@
 ---
 title: "GameMenuWidget"
+description: "GameMenuWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameMenu
@@ -53,19 +47,32 @@ title: "GameMenuWidget"
 ### UpdateOverlayState
 `public void UpdateOverlayState()`
 
-**用途 / Purpose:** 更新 `overlay state` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「overlay state」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuWidget 实例
+GameMenuWidget gameMenuWidget = ...;
+gameMenuWidget.UpdateOverlayState();
+```
 
 ### OnOptionStateChanged
 `public void OnOptionStateChanged()`
 
-**用途 / Purpose:** 当 `option state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「option state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuWidget 实例
+GameMenuWidget gameMenuWidget = ...;
+gameMenuWidget.OnOptionStateChanged();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new GameMenuWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+GameMenuWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

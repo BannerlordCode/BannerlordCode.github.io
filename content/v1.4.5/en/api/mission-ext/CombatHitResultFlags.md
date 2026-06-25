@@ -1,20 +1,14 @@
 ---
 title: "CombatHitResultFlags"
+description: "Auto-generated class reference for CombatHitResultFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatHitResultFlags`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatHitResultFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatHitResultFlags.cs`
+**Type:** `public enum CombatHitResultFlags : byte`
+**Base:** `byte`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatHitResultFlags.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new CombatHitResultFlags();
+// Obtain an instance from the relevant subsystem API
+CombatHitResultFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

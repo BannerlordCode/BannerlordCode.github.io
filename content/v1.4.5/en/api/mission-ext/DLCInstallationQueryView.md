@@ -1,20 +1,14 @@
 ---
 title: "DLCInstallationQueryView"
+description: "Auto-generated class reference for DLCInstallationQueryView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DLCInstallationQueryView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DLCInstallationQueryView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DLCInstallationQueryView`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/DLCInstallationQueryView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/DLCInstallationQueryView.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `DLCInstallationQueryView` as a View-style extension point: first identify
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of DLCInstallationQueryView from the subsystem API first
+DLCInstallationQueryView dLCInstallationQueryView = ...;
+dLCInstallationQueryView.Initialize();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of DLCInstallationQueryView from the subsystem API first
+DLCInstallationQueryView dLCInstallationQueryView = ...;
+dLCInstallationQueryView.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new DLCInstallationQueryView();
+// Retrieve this view from the subsystem API or scene
+DLCInstallationQueryView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

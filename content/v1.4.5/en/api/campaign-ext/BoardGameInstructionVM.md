@@ -1,20 +1,14 @@
 ---
 title: "BoardGameInstructionVM"
+description: "Auto-generated class reference for BoardGameInstructionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameInstructionVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameInstructionVM
 
 **Namespace:** SandBox.ViewModelCollection.BoardGame
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class BoardGameInstructionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.BoardGame/BoardGameInstructionVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.BoardGame/BoardGameInstructionVM.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `SandBox.ViewModelCollection.BoardGame` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BoardGameInstructionVM from the subsystem API first
+BoardGameInstructionVM boardGameInstructionVM = ...;
+boardGameInstructionVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameInstructionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameInstructionVM boardGameInstructionVM = ...;
+boardGameInstructionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ClanInfo"
+description: "Auto-generated class reference for ClanInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ClanInfo.cs`
 
 ## Overview
 
@@ -42,7 +36,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CreateUnavailableClanInfo
 `public static ClanInfo CreateUnavailableClanInfo()`
 
-**Purpose:** Creates a new `unavailable clan info` instance or object.
+**Purpose:** Constructs a new `unavailable clan info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+ClanInfo.CreateUnavailableClanInfo();
+```
 
 ## Usage Example
 
@@ -52,4 +51,4 @@ ClanInfo.CreateUnavailableClanInfo();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

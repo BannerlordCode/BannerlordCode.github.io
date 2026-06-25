@@ -1,13 +1,7 @@
 ---
 title: "MissionRepresentativeBase"
+description: "Auto-generated class reference for MissionRepresentativeBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionRepresentativeBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionRepresentativeBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,29 +31,54 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetAgent
 `public void SetAgent(Agent agent)`
 
-**Purpose:** Sets the value or state of `agent`.
+**Purpose:** Assigns a new value to `agent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionRepresentativeBase from the subsystem API first
+MissionRepresentativeBase missionRepresentativeBase = ...;
+missionRepresentativeBase.SetAgent(agent);
+```
 
 ### OnAgentSpawned
 `public virtual void OnAgentSpawned()`
 
-**Purpose:** Called when the `agent spawned` event is raised.
+**Purpose:** Invoked when the `agent spawned` event is raised.
+
+```csharp
+// Obtain an instance of MissionRepresentativeBase from the subsystem API first
+MissionRepresentativeBase missionRepresentativeBase = ...;
+missionRepresentativeBase.OnAgentSpawned();
+```
 
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionRepresentativeBase from the subsystem API first
+MissionRepresentativeBase missionRepresentativeBase = ...;
+missionRepresentativeBase.Tick(0);
+```
 
 ### UpdateGold
 `public void UpdateGold(int gold)`
 
-**Purpose:** Updates the state or data of `gold`.
+**Purpose:** Recalculates and stores the latest representation of `gold`.
+
+```csharp
+// Obtain an instance of MissionRepresentativeBase from the subsystem API first
+MissionRepresentativeBase missionRepresentativeBase = ...;
+missionRepresentativeBase.UpdateGold(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionRepresentativeBase();
+// Typically obtained from a subsystem API or factory
+MissionRepresentativeBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ArmyDispersionReasonEnumResolver"
+description: "Auto-generated class reference for ArmyDispersionReasonEnumResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyDispersionReasonEnumResolver`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyDispersionReasonEnumResolver
 
 **Namespace:** TaleWorlds.CampaignSystem.SaveCompability
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ArmyDispersionReasonEnumResolver : IEnumResolver`
 **Base:** `IEnumResolver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/ArmyDispersionReasonEnumResolver.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/ArmyDispersionReasonEnumResolver.cs`
 
 ## Overview
 
@@ -29,14 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SaveCompability` to place it in 
 ### ResolveObject
 `public string ResolveObject(string originalObject)`
 
-**Purpose:** Handles logic related to `resolve object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArmyDispersionReasonEnumResolver from the subsystem API first
+ArmyDispersionReasonEnumResolver armyDispersionReasonEnumResolver = ...;
+var result = armyDispersionReasonEnumResolver.ResolveObject("example");
+```
 
 ## Usage Example
 
 ```csharp
-ArmyDispersionReasonEnumResolver example = ArmyDispersionReasonEnumResolver.Value;
+// Typically call this after obtaining an instance from the subsystem API
+ArmyDispersionReasonEnumResolver armyDispersionReasonEnumResolver = ...;
+armyDispersionReasonEnumResolver.ResolveObject("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

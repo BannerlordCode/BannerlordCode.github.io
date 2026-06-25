@@ -1,20 +1,14 @@
 ---
 title: "MissionFocusableObjectInformationProvider"
+description: "Auto-generated class reference for MissionFocusableObjectInformationProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionFocusableObjectInformationProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFocusableObjectInformationProvider
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionFocusableObjectInformationProvider`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionFocusableObjectInformationProvider.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionFocusableObjectInformationProvider.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionFocusableObjectInformationProvider from the subsystem API first
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.OnFinalize();
+```
 
 ### AddInfoCallback
 `public void AddInfoCallback(GetFocusableObjectInteractionTextsDelegate callback)`
 
 **Purpose:** Adds `info callback` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionFocusableObjectInformationProvider from the subsystem API first
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.AddInfoCallback(callback);
+```
+
 ### RemoveInfoCallback
 `public void RemoveInfoCallback(GetFocusableObjectInteractionTextsDelegate callback)`
 
 **Purpose:** Removes `info callback` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionFocusableObjectInformationProvider from the subsystem API first
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.RemoveInfoCallback(callback);
+```
+
 ### GetInteractionTexts
 `public void GetInteractionTexts(Agent requesterAgent, IFocusable focusable, bool isInteractable, out FocusableObjectInformation focusableObjectInformation)`
 
-**Purpose:** Gets the current value of `interaction texts`.
+**Purpose:** Reads and returns the `interaction texts` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionFocusableObjectInformationProvider from the subsystem API first
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.GetInteractionTexts(requesterAgent, focusable, false, focusableObjectInformation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionFocusableObjectInformationProvider();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "IAdminPanelNumericOption"
+description: "Auto-generated class reference for IAdminPanelNumericOption."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAdminPanelNumericOption`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IAdminPanelNumericOption
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Admin
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelNumericOption.cs`
+**Type:** `public interface IAdminPanelNumericOption : IAdminPanelOption<int>, IAdminPanelOption`
+**Base:** `IAdminPanelOption<int>`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelNumericOption.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in
 ## Usage Example
 
 ```csharp
-IAdminPanelNumericOption implementation = GetAdminPanelNumericOptionImplementation();
+// Usually obtained through DI or a factory method
+IIAdminPanelNumericOption service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BannerExtensions"
+description: "Auto-generated class reference for BannerExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerExtensions
 
 **Namespace:** TaleWorlds.Core
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsContentsSameWith
 `public static bool IsContentsSameWith(this Banner banner, Banner otherBanner)`
 
-**Purpose:** Handles logic related to `is contents same with`.
+**Purpose:** Determines whether the current object is in the `contents same with` state or condition.
+
+```csharp
+// Static call; no instance required
+BannerExtensions.IsContentsSameWith(banner, otherBanner);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ BannerExtensions.IsContentsSameWith(banner, otherBanner);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

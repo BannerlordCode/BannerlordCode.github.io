@@ -1,13 +1,7 @@
 ---
 title: "ToggleStateButtonWidget"
+description: "Auto-generated class reference for ToggleStateButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ToggleStateButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ToggleStateButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -35,9 +29,10 @@ Treat `ToggleStateButtonWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new ToggleStateButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ToggleStateButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

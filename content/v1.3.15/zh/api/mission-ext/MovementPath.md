@@ -1,13 +1,7 @@
 ---
 title: "MovementPath"
+description: "MovementPath 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MovementPath`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MovementPath
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,15 +31,22 @@ title: "MovementPath"
 ### TickDebug
 `public void TickDebug(Vec2 position)`
 
-**用途 / Purpose:** 处理 `tick debug` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「debug」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MovementPath 实例
+MovementPath movementPath = ...;
+movementPath.TickDebug(position);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MovementPath();
-value.TickDebug(position);
+// 通常从对应子系统 API 获取实例后调用
+MovementPath movementPath = ...;
+movementPath.TickDebug(position);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "BuildingModel"
+description: "BuildingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BuildingModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ title: "BuildingModel"
 ### CanAddBuildingTypeToTown
 `public abstract bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `add building type to town`。
+**用途 / Purpose:** 检查当前对象是否满足 「add building type to town」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 BuildingModel 实例
+BuildingModel buildingModel = ...;
+var result = buildingModel.CanAddBuildingTypeToTown(buildingType, town);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBuildingModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BuildingModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

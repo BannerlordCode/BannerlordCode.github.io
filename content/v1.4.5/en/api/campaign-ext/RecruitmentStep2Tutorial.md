@@ -1,20 +1,14 @@
 ---
 title: "RecruitmentStep2Tutorial"
+description: "Auto-generated class reference for RecruitmentStep2Tutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitmentStep2Tutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitmentStep2Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class RecruitmentStep2Tutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/RecruitmentStep2Tutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/RecruitmentStep2Tutorial.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of RecruitmentStep2Tutorial from the subsystem API first
+RecruitmentStep2Tutorial recruitmentStep2Tutorial = ...;
+var result = recruitmentStep2Tutorial.IsConditionsMetForCompletion();
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of RecruitmentStep2Tutorial from the subsystem API first
+RecruitmentStep2Tutorial recruitmentStep2Tutorial = ...;
+var result = recruitmentStep2Tutorial.GetTutorialsRelevantContext();
+```
 
 ### OnPlayerRecruitedUnit
 `public override void OnPlayerRecruitedUnit(CharacterObject obj, int count)`
 
-**Purpose:** Called when the `player recruited unit` event is raised.
+**Purpose:** Invoked when the `player recruited unit` event is raised.
+
+```csharp
+// Obtain an instance of RecruitmentStep2Tutorial from the subsystem API first
+RecruitmentStep2Tutorial recruitmentStep2Tutorial = ...;
+recruitmentStep2Tutorial.OnPlayerRecruitedUnit(obj, 0);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of RecruitmentStep2Tutorial from the subsystem API first
+RecruitmentStep2Tutorial recruitmentStep2Tutorial = ...;
+var result = recruitmentStep2Tutorial.IsConditionsMetForActivation();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RecruitmentStep2Tutorial();
-value.IsConditionsMetForCompletion();
+// Typically call this after obtaining an instance from the subsystem API
+RecruitmentStep2Tutorial recruitmentStep2Tutorial = ...;
+recruitmentStep2Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

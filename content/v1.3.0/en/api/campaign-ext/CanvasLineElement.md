@@ -1,13 +1,7 @@
 ---
 title: "CanvasLineElement"
+description: "Auto-generated class reference for CanvasLineElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CanvasLineElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasLineElement
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCanvasLineElement();
+// Typically obtained from a subsystem API or factory
+CanvasLineElement instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ItemPreviewVM"
+description: "Auto-generated class reference for ItemPreviewVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemPreviewVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemPreviewVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemPreviewVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/ItemPreviewVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/ItemPreviewVM.cs`
 
 ## Overview
 
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ItemPreviewVM from the subsystem API first
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.OnFinalize();
+```
 
 ### Open
 `public void Open(EquipmentElement item)`
 
-**Purpose:** Handles logic related to `open`.
+**Purpose:** Opens the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of ItemPreviewVM from the subsystem API first
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.Open(item);
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of ItemPreviewVM from the subsystem API first
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.ExecuteClose();
+```
 
 ### Close
 `public void Close()`
 
-**Purpose:** Handles logic related to `close`.
+**Purpose:** Closes the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of ItemPreviewVM from the subsystem API first
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.Close();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemPreviewVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

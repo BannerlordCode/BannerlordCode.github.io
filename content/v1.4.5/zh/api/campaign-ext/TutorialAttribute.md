@@ -1,20 +1,14 @@
 ---
 title: "TutorialAttribute"
+description: "TutorialAttribute 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TutorialAttribute`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialAttribute
 
 **Namespace:** SandBox.GauntletUI.Tutorial
 **Module:** SandBox.GauntletUI
 **Type:** `public class TutorialAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Tutorial/TutorialAttribute.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Tutorial/TutorialAttribute.cs`
 
 ## 概述
 
@@ -33,4 +27,4 @@ public class Example { }
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

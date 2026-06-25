@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaData"
+description: "EncyclopediaData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaData
 
 **Namespace:** SandBox.GauntletUI.Encyclopedia
 **Module:** SandBox.GauntletUI
 **Type:** `public class EncyclopediaData`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Encyclopedia/EncyclopediaData.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Encyclopedia/EncyclopediaData.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "EncyclopediaData"
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaData 实例
+EncyclopediaData encyclopediaData = ...;
+encyclopediaData.OnFinalize();
+```
 
 ### CloseEncyclopedia
 `public void CloseEncyclopedia()`
 
-**用途 / Purpose:** 处理 `close encyclopedia` 相关逻辑。
+**用途 / Purpose:** 关闭「encyclopedia」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaData 实例
+EncyclopediaData encyclopediaData = ...;
+encyclopediaData.CloseEncyclopedia();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaData();
+// 该数据对象通常由战役/任务 API 返回
+EncyclopediaData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

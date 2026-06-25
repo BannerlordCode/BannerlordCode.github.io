@@ -1,13 +1,7 @@
 ---
 title: "Equipment"
+description: "Auto-generated class reference for Equipment."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Equipment`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Equipment
 
 **Namespace:** TaleWorlds.Core
@@ -48,140 +42,292 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Clone
 `public Equipment Clone(bool cloneWithoutWeapons = false)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.Clone(false);
+```
 
 ### FillFrom
 `public void FillFrom(Equipment sourceEquipment, bool useSourceEquipmentType = true)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+equipment.FillFrom(sourceEquipment, false);
+```
 
 ### Deserialize
 `public void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+equipment.Deserialize(objectManager, node);
+```
 
 ### DeserializeNode
 `public void DeserializeNode(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize node`.
+**Purpose:** Restores `node` from serialized data.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+equipment.DeserializeNode(objectManager, node);
+```
 
 ### GetEquipmentIndexFromOldEquipmentIndexName
 `public static EquipmentIndex GetEquipmentIndexFromOldEquipmentIndexName(string oldEquipmentIndexName)`
 
-**Purpose:** Gets the current value of `equipment index from old equipment index name`.
+**Purpose:** Reads and returns the `equipment index from old equipment index name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Equipment.GetEquipmentIndexFromOldEquipmentIndexName("example");
+```
 
 ### IsEmpty
 `public bool IsEmpty()`
 
-**Purpose:** Handles logic related to `is empty`.
+**Purpose:** Determines whether the current object is in the `empty` state or condition.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.IsEmpty();
+```
 
 ### GetTotalWeightOfArmor
 `public float GetTotalWeightOfArmor(bool forHuman)`
 
-**Purpose:** Gets the current value of `total weight of armor`.
+**Purpose:** Reads and returns the `total weight of armor` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetTotalWeightOfArmor(false);
+```
 
 ### GetTotalWeightOfWeapons
 `public float GetTotalWeightOfWeapons()`
 
-**Purpose:** Gets the current value of `total weight of weapons`.
+**Purpose:** Reads and returns the `total weight of weapons` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetTotalWeightOfWeapons();
+```
 
 ### GetHeadArmorSum
 `public float GetHeadArmorSum()`
 
-**Purpose:** Gets the current value of `head armor sum`.
+**Purpose:** Reads and returns the `head armor sum` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetHeadArmorSum();
+```
 
 ### GetHumanBodyArmorSum
 `public float GetHumanBodyArmorSum()`
 
-**Purpose:** Gets the current value of `human body armor sum`.
+**Purpose:** Reads and returns the `human body armor sum` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetHumanBodyArmorSum();
+```
 
 ### GetLegArmorSum
 `public float GetLegArmorSum()`
 
-**Purpose:** Gets the current value of `leg armor sum`.
+**Purpose:** Reads and returns the `leg armor sum` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetLegArmorSum();
+```
 
 ### GetArmArmorSum
 `public float GetArmArmorSum()`
 
-**Purpose:** Gets the current value of `arm armor sum`.
+**Purpose:** Reads and returns the `arm armor sum` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetArmArmorSum();
+```
 
 ### GetHorseArmorSum
 `public float GetHorseArmorSum()`
 
-**Purpose:** Gets the current value of `horse armor sum`.
+**Purpose:** Reads and returns the `horse armor sum` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetHorseArmorSum();
+```
 
 ### GetUnderwearType
 `public Equipment.UnderwearTypes GetUnderwearType(bool isFemale)`
 
-**Purpose:** Gets the current value of `underwear type`.
+**Purpose:** Reads and returns the `underwear type` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetUnderwearType(false);
+```
 
 ### HasWeapon
 `public bool HasWeapon()`
 
-**Purpose:** Checks whether the current object has/contains `weapon`.
+**Purpose:** Determines whether the current object already holds `weapon`.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.HasWeapon();
+```
 
 ### HasWeaponOfClass
 `public bool HasWeaponOfClass(WeaponClass weaponClass)`
 
-**Purpose:** Checks whether the current object has/contains `weapon of class`.
+**Purpose:** Determines whether the current object already holds `weapon of class`.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.HasWeaponOfClass(weaponClass);
+```
 
 ### CreateFromEquipmentCode
 `public static Equipment CreateFromEquipmentCode(string equipmentCode)`
 
-**Purpose:** Creates a new `from equipment code` instance or object.
+**Purpose:** Constructs a new `from equipment code` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Equipment.CreateFromEquipmentCode("example");
+```
 
 ### CalculateEquipmentCode
 `public string CalculateEquipmentCode()`
 
-**Purpose:** Handles logic related to `calculate equipment code`.
+**Purpose:** Calculates the current value or result of `equipment code`.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.CalculateEquipmentCode();
+```
 
 ### AddEquipmentToSlotWithoutAgent
 `public void AddEquipmentToSlotWithoutAgent(EquipmentIndex equipmentIndex, EquipmentElement itemRosterElement)`
 
 **Purpose:** Adds `equipment to slot without agent` to the current collection or state.
 
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+equipment.AddEquipmentToSlotWithoutAgent(equipmentIndex, itemRosterElement);
+```
+
 ### GetEquipmentFromSlot
 `public EquipmentElement GetEquipmentFromSlot(EquipmentIndex equipmentIndex)`
 
-**Purpose:** Gets the current value of `equipment from slot`.
+**Purpose:** Reads and returns the `equipment from slot` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetEquipmentFromSlot(equipmentIndex);
+```
 
 ### IsItemFitsToSlot
 `public static bool IsItemFitsToSlot(EquipmentIndex slotIndex, ItemObject item)`
 
-**Purpose:** Handles logic related to `is item fits to slot`.
+**Purpose:** Determines whether the current object is in the `item fits to slot` state or condition.
+
+```csharp
+// Static call; no instance required
+Equipment.IsItemFitsToSlot(slotIndex, item);
+```
 
 ### GetWeaponPickUpSlotIndex
 `public EquipmentIndex GetWeaponPickUpSlotIndex(EquipmentElement itemRosterElement, bool isStuckMissile)`
 
-**Purpose:** Gets the current value of `weapon pick up slot index`.
+**Purpose:** Reads and returns the `weapon pick up slot index` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.GetWeaponPickUpSlotIndex(itemRosterElement, false);
+```
 
 ### IsEquipmentEqualTo
 `public bool IsEquipmentEqualTo(Equipment other)`
 
-**Purpose:** Handles logic related to `is equipment equal to`.
+**Purpose:** Determines whether the current object is in the `equipment equal to` state or condition.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+var result = equipment.IsEquipmentEqualTo(other);
+```
 
 ### GetRandomEquipmentElements
 `public static Equipment GetRandomEquipmentElements(BasicCharacterObject character, bool randomEquipmentModifier, Equipment.EquipmentType equipmentType, int seed = -1)`
 
-**Purpose:** Gets the current value of `random equipment elements`.
+**Purpose:** Reads and returns the `random equipment elements` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Equipment.GetRandomEquipmentElements(character, false, equipmentType, 0);
+```
 
 ### SwapWeapons
 `public static void SwapWeapons(Equipment equipment, EquipmentIndex index1, EquipmentIndex index2)`
 
-**Purpose:** Handles logic related to `swap weapons`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Equipment.SwapWeapons(equipment, index1, index2);
+```
 
 ### GetInitialWeaponIndicesToEquip
 `public void GetInitialWeaponIndicesToEquip(out EquipmentIndex mainHandWeaponIndex, out EquipmentIndex offHandWeaponIndex, out bool isMainHandNotUsableWithOneHand, Equipment.InitialWeaponEquipPreference initialWeaponEquipPreference = Equipment.InitialWeaponEquipPreference.Any)`
 
-**Purpose:** Gets the current value of `initial weapon indices to equip`.
+**Purpose:** Reads and returns the `initial weapon indices to equip` value held by the current object.
+
+```csharp
+// Obtain an instance of Equipment from the subsystem API first
+Equipment equipment = ...;
+equipment.GetInitialWeaponIndicesToEquip(mainHandWeaponIndex, offHandWeaponIndex, isMainHandNotUsableWithOneHand, equipment.InitialWeaponEquipPreference.Any);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Equipment();
-value.Clone(false);
+// Typically call this after obtaining an instance from the subsystem API
+Equipment equipment = ...;
+equipment.Clone(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

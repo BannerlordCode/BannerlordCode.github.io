@@ -1,20 +1,14 @@
 ---
 title: "CultureTrait"
+description: "Auto-generated class reference for CultureTrait."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CultureTrait`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CultureTrait
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CultureTrait : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CultureTrait.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CultureTrait.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, string asdf)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of CultureTrait from the subsystem API first
+CultureTrait cultureTrait = ...;
+cultureTrait.Initialize(name, description, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CultureTrait();
-value.Initialize(name, description, "example");
+// Typically call this after obtaining an instance from the subsystem API
+CultureTrait cultureTrait = ...;
+cultureTrait.Initialize(name, description, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

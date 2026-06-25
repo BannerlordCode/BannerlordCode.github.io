@@ -1,20 +1,14 @@
 ---
-title: "HideoutBattleEndState__StoryMode_Quests_TutorialPhase"
+title: "HideoutBattleEndState"
+description: "Auto-generated class reference for HideoutBattleEndState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutBattleEndState`
-- [← Area / Back to gameplay](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutBattleEndState
 
 **Namespace:** StoryMode.Quests.TutorialPhase
 **Module:** StoryMode.Quests
 **Type:** `public enum HideoutBattleEndState`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/FindHideoutTutorialQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/FindHideoutTutorialQuest.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-HideoutBattleEndState example = HideoutBattleEndState.Value;
+// Obtain an instance from the relevant subsystem API
+HideoutBattleEndState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

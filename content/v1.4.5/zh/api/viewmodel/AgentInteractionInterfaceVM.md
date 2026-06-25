@@ -1,20 +1,14 @@
 ---
 title: "AgentInteractionInterfaceVM"
+description: "AgentInteractionInterfaceVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentInteractionInterfaceVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentInteractionInterfaceVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentInteractionInterfaceVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction/AgentInteractionInterfaceVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction/AgentInteractionInterfaceVM.cs`
 
 ## 概述
 
@@ -45,59 +39,120 @@ title: "AgentInteractionInterfaceVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.OnFinalize();
+```
 
 ### OnFocusedHealthChanged
 `public void OnFocusedHealthChanged(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**用途 / Purpose:** 当 `focused health changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focused health changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.OnFocusedHealthChanged(focusable, 0, false);
+```
 
 ### OnActiveMissionHintChanged
 `public void OnActiveMissionHintChanged(MissionHint previousHint, MissionHint newHint)`
 
-**用途 / Purpose:** 当 `active mission hint changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「active mission hint changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.OnActiveMissionHintChanged(previousHint, newHint);
+```
 
 ### AddSecondaryMessage
 `public void AddSecondaryMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `secondary message`。
+**用途 / Purpose:** 将 「secondary message」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.AddSecondaryMessage(message);
+```
 
 ### RemoveSecondaryMessage
 `public bool RemoveSecondaryMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `secondary message`。
+**用途 / Purpose:** 从当前容器或状态中移除 「secondary message」。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+var result = agentInteractionInterfaceVM.RemoveSecondaryMessage(message);
+```
 
 ### HasSecondaryInteractionMessage
 `public bool HasSecondaryInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `secondary interaction message`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「secondary interaction message」。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+var result = agentInteractionInterfaceVM.HasSecondaryInteractionMessage(message);
+```
 
 ### ResetFocus
 `public void ResetFocus()`
 
-**用途 / Purpose:** 将 `focus` 重置为初始状态。
+**用途 / Purpose:** 将 「focus」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.ResetFocus();
+```
 
 ### SetForcedInteractionTexts
 `public void SetForcedInteractionTexts(TextObject text1, bool isDisabled1, TextObject text2, bool isDisabled2)`
 
-**用途 / Purpose:** 设置 `forced interaction texts` 的值或状态。
+**用途 / Purpose:** 为 「forced interaction texts」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.SetForcedInteractionTexts(text1, false, text2, false);
+```
 
 ### ClearForcedInteractionTexts
 `public void ClearForcedInteractionTexts()`
 
-**用途 / Purpose:** 处理 `clear forced interaction texts` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「forced interaction texts」。
+
+```csharp
+// 先通过子系统 API 拿到 AgentInteractionInterfaceVM 实例
+AgentInteractionInterfaceVM agentInteractionInterfaceVM = ...;
+agentInteractionInterfaceVM.ClearForcedInteractionTexts();
+```
 
 ## 使用示例
 
 ```csharp
-AgentInteractionInterfaceVM implementation = GetAgentInteractionInterfaceVMImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IAgentInteractionInterfaceVM service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

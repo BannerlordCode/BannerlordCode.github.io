@@ -1,20 +1,14 @@
 ---
 title: "SkyInformation"
+description: "Auto-generated class reference for SkyInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkyInformation`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkyInformation
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct SkyInformation`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SkyInformation.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SkyInformation.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `deserialize from`.
+**Purpose:** Restores `from` from serialized data.
+
+```csharp
+// Obtain an instance of SkyInformation from the subsystem API first
+SkyInformation skyInformation = ...;
+skyInformation.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `serialize to`.
+**Purpose:** Serializes `to` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of SkyInformation from the subsystem API first
+SkyInformation skyInformation = ...;
+skyInformation.SerializeTo(writer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkyInformation();
-value.DeserializeFrom(reader);
+// Typically call this after obtaining an instance from the subsystem API
+SkyInformation skyInformation = ...;
+skyInformation.DeserializeFrom(reader);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

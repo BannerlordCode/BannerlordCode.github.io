@@ -1,18 +1,12 @@
 ---
 title: "IConfigurationManager"
+description: "Auto-generated class reference for IConfigurationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IConfigurationManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IConfigurationManager
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IConfigurationManager`
 **Base:** none
 **File:** `TaleWorlds.Library/IConfigurationManager.cs`
 
@@ -27,9 +21,10 @@ Treat `IConfigurationManager` as a Manager-style extension point: first identify
 ## Usage Example
 
 ```csharp
-IConfigurationManager implementation = GetConfigurationManagerImplementation();
+// Usually obtained through DI or a factory method
+IIConfigurationManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

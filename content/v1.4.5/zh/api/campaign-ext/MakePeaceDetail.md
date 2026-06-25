@@ -1,20 +1,14 @@
 ---
 title: "MakePeaceDetail"
+description: "MakePeaceDetail 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MakePeaceDetail`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MakePeaceDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum MakePeaceDetail`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/MakePeaceAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/MakePeaceAction.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MakePeaceDetail"
 ## 使用示例
 
 ```csharp
-MakePeaceDetail example = MakePeaceDetail.Value;
+// 从对应子系统 API 获取实例
+MakePeaceDetail instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultWallHitPointCalculationModel"
+description: "Auto-generated class reference for DefaultWallHitPointCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultWallHitPointCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultWallHitPointCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultWallHitPointCalculationModel` as a Model-style extension point: fi
 ### CalculateMaximumWallHitPoint
 `public override float CalculateMaximumWallHitPoint(Town town)`
 
-**Purpose:** Handles logic related to `calculate maximum wall hit point`.
+**Purpose:** Calculates the current value or result of `maximum wall hit point`.
+
+```csharp
+// Obtain an instance of DefaultWallHitPointCalculationModel from the subsystem API first
+DefaultWallHitPointCalculationModel defaultWallHitPointCalculationModel = ...;
+var result = defaultWallHitPointCalculationModel.CalculateMaximumWallHitPoint(town);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultWallHitPointCalculationModel>(new MyDefaultWall
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GauntletUISubModule"
+description: "GauntletUISubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletUISubModule`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletUISubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -35,30 +29,53 @@ title: "GauntletUISubModule"
 ### OnMultiplayerGameStart
 `public override void OnMultiplayerGameStart(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `multiplayer game start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「multiplayer game start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletUISubModule 实例
+GauntletUISubModule gauntletUISubModule = ...;
+gauntletUISubModule.OnMultiplayerGameStart(game, starterObject);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletUISubModule 实例
+GauntletUISubModule gauntletUISubModule = ...;
+gauntletUISubModule.OnGameEnd(game);
+```
 
 ### ClearChatLog
 `public static string ClearChatLog(List<string> strings)`
 
-**用途 / Purpose:** 处理 `clear chat log` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「chat log」。
+
+```csharp
+// 静态调用，不需要实例
+GauntletUISubModule.ClearChatLog(strings);
+```
 
 ### SetCanFocusWhileInMission
 `public static string SetCanFocusWhileInMission(List<string> strings)`
 
-**用途 / Purpose:** 设置 `can focus while in mission` 的值或状态。
+**用途 / Purpose:** 为 「can focus while in mission」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+GauntletUISubModule.SetCanFocusWhileInMission(strings);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletUISubModule();
-value.OnMultiplayerGameStart(game, starterObject);
+// 通常从对应子系统 API 获取实例后调用
+GauntletUISubModule gauntletUISubModule = ...;
+gauntletUISubModule.OnMultiplayerGameStart(game, starterObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

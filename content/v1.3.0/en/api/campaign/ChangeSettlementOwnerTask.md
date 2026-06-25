@@ -1,13 +1,7 @@
 ---
 title: "ChangeSettlementOwnerTask"
+description: "Auto-generated class reference for ChangeSettlementOwnerTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeSettlementOwnerTask`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeSettlementOwnerTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)`
 
-**Purpose:** Called when the `settlement owner changed` event is raised.
+**Purpose:** Invoked when the `settlement owner changed` event is raised.
+
+```csharp
+// Obtain an instance of ChangeSettlementOwnerTask from the subsystem API first
+ChangeSettlementOwnerTask changeSettlementOwnerTask = ...;
+changeSettlementOwnerTask.OnSettlementOwnerChanged(settlement, false, newOwner, oldOwner, capturerHero, detail);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ChangeSettlementOwnerTask from the subsystem API first
+ChangeSettlementOwnerTask changeSettlementOwnerTask = ...;
+changeSettlementOwnerTask.SetReferences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ChangeSettlementOwnerTask();
-value.OnSettlementOwnerChanged(settlement, false, newOwner, oldOwner, capturerHero, detail);
+// Typically call this after obtaining an instance from the subsystem API
+ChangeSettlementOwnerTask changeSettlementOwnerTask = ...;
+changeSettlementOwnerTask.OnSettlementOwnerChanged(settlement, false, newOwner, oldOwner, capturerHero, detail);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ViewCreatorManager"
+description: "Auto-generated class reference for ViewCreatorManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ViewCreatorManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ViewCreatorManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -32,4 +26,4 @@ var manager = ViewCreatorManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

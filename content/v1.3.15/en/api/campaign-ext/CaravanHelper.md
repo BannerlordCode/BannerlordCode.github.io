@@ -1,13 +1,7 @@
 ---
 title: "CaravanHelper"
+description: "Auto-generated class reference for CaravanHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaravanHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CaravanHelper
 
 **Namespace:** Helpers
@@ -29,7 +23,12 @@ Treat `CaravanHelper` as a Helper-style extension point: first identify who crea
 ### GetRandomCaravanTemplate
 `public static PartyTemplateObject GetRandomCaravanTemplate(CultureObject culture, bool isElite, bool isLand)`
 
-**Purpose:** Gets the current value of `random caravan template`.
+**Purpose:** Reads and returns the `random caravan template` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CaravanHelper.GetRandomCaravanTemplate(culture, false, false);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ CaravanHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "IEncyclopediaLog"
+description: "IEncyclopediaLog 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IEncyclopediaLog`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IEncyclopediaLog
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IEncyclopediaLog`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/LogEntries/IEncyclopediaLog.cs`
 
@@ -27,9 +21,10 @@ title: "IEncyclopediaLog"
 ## 使用示例
 
 ```csharp
-IEncyclopediaLog implementation = GetEncyclopediaLogImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIEncyclopediaLog service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

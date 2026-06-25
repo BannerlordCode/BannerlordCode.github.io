@@ -1,20 +1,14 @@
 ---
 title: "IBoardGameHandler"
+description: "Auto-generated class reference for IBoardGameHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBoardGameHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBoardGameHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IBoardGameHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers/IBoardGameHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers/IBoardGameHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IBoardGameHandler` as a Handler-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-IBoardGameHandler implementation = GetBoardGameHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIBoardGameHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

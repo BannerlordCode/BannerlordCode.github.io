@@ -1,20 +1,14 @@
 ---
 title: "Mathf"
+description: "Mathf 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Mathf`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Mathf
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public static class Mathf`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Mathf.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Mathf.cs`
 
 ## 概述
 
@@ -29,92 +23,182 @@ title: "Mathf"
 ### Sqrt
 `public static float Sqrt(float f)`
 
-**用途 / Purpose:** 处理 `sqrt` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Sqrt(0);
+```
 
 ### Abs
 `public static float Abs(float f)`
 
-**用途 / Purpose:** 处理 `abs` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Abs(0);
+```
 
 ### Floor
 `public static float Floor(float f)`
 
-**用途 / Purpose:** 处理 `floor` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Floor(0);
+```
 
 ### Cos
 `public static float Cos(float radian)`
 
-**用途 / Purpose:** 处理 `cos` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Cos(0);
+```
 
 ### Sin
 `public static float Sin(float radian)`
 
-**用途 / Purpose:** 处理 `sin` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Sin(0);
+```
 
 ### Acos
 `public static float Acos(float f)`
 
-**用途 / Purpose:** 处理 `acos` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Acos(0);
+```
 
 ### Atan2
 `public static float Atan2(float y, float x)`
 
-**用途 / Purpose:** 处理 `atan2` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Atan2(0, 0);
+```
 
 ### Clamp
 `public static float Clamp(float value, float min, float max)`
 
-**用途 / Purpose:** 处理 `clamp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Clamp(0, 0, 0);
+```
 
 ### Clamp
 `public static int Clamp(int value, int min, int max)`
 
-**用途 / Purpose:** 处理 `clamp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Clamp(0, 0, 0);
+```
 
 ### Min
 `public static float Min(float a, float b)`
 
-**用途 / Purpose:** 处理 `min` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Min(0, 0);
+```
 
 ### Max
 `public static float Max(float a, float b)`
 
-**用途 / Purpose:** 处理 `max` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Max(0, 0);
+```
 
 ### IsZero
 `public static bool IsZero(float f)`
 
-**用途 / Purpose:** 处理 `is zero` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「zero」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.IsZero(0);
+```
 
 ### IsZero
 `public static bool IsZero(Vector2 vector2)`
 
-**用途 / Purpose:** 处理 `is zero` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「zero」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.IsZero(vector2);
+```
 
 ### Sign
 `public static float Sign(float f)`
 
-**用途 / Purpose:** 处理 `sign` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Sign(0);
+```
 
 ### Ceil
 `public static float Ceil(float f)`
 
-**用途 / Purpose:** 处理 `ceil` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Ceil(0);
+```
 
 ### Round
 `public static float Round(float f)`
 
-**用途 / Purpose:** 处理 `round` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Round(0);
+```
 
 ### Lerp
 `public static float Lerp(float start, float end, float amount)`
 
-**用途 / Purpose:** 处理 `lerp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.Lerp(0, 0, 0);
+```
 
 ### GetClosestPointInLineSegmentToLine
 `public static Vec3 GetClosestPointInLineSegmentToLine(Vec3 linePosition, Vec3 lineDirection, Vec3 lineSegmentBegin, Vec3 lineSegmentEnd)`
 
-**用途 / Purpose:** 获取 `closest point in line segment to line` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「closest point in line segment to line」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Mathf.GetClosestPointInLineSegmentToLine(linePosition, lineDirection, lineSegmentBegin, lineSegmentEnd);
+```
 
 ## 使用示例
 
@@ -124,4 +208,4 @@ Mathf.Sqrt(0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

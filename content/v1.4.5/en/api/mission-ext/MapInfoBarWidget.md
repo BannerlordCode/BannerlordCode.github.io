@@ -1,20 +1,14 @@
 ---
 title: "MapInfoBarWidget"
+description: "Auto-generated class reference for MapInfoBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapInfoBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapInfoBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapInfoBarWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapInfoBarWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar/MapInfoBarWidget.cs`
 
 ## Overview
 
@@ -36,14 +30,21 @@ Treat `MapInfoBarWidget` as a Widget-style extension point: first identify who c
 ### MapBarExtendStateChangeEvent
 `public delegate void MapBarExtendStateChangeEvent(bool newState)`
 
-**Purpose:** Handles logic related to `map bar extend state change event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapInfoBarWidget from the subsystem API first
+MapInfoBarWidget mapInfoBarWidget = ...;
+mapInfoBarWidget.MapBarExtendStateChangeEvent(false);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MapInfoBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapInfoBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

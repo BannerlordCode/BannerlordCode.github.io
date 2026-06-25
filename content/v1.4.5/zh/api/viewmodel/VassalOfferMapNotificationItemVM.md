@@ -1,20 +1,14 @@
 ---
 title: "VassalOfferMapNotificationItemVM"
+description: "VassalOfferMapNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VassalOfferMapNotificationItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VassalOfferMapNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class VassalOfferMapNotificationItemVM : MapNotificationItemBaseVM`
 **Base:** `MapNotificationItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/VassalOfferMapNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes/VassalOfferMapNotificationItemVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "VassalOfferMapNotificationItemVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VassalOfferMapNotificationItemVM 实例
+VassalOfferMapNotificationItemVM vassalOfferMapNotificationItemVM = ...;
+vassalOfferMapNotificationItemVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VassalOfferMapNotificationItemVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+VassalOfferMapNotificationItemVM vassalOfferMapNotificationItemVM = ...;
+vassalOfferMapNotificationItemVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

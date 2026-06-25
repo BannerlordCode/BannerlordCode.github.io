@@ -1,13 +1,7 @@
 ---
 title: "SiegeEngineTypes"
+description: "Auto-generated class reference for SiegeEngineTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEngineTypes`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineTypes
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ## Usage Example
 
 ```csharp
-var example = new SiegeEngineTypes();
+// Obtain an instance from the relevant subsystem API
+SiegeEngineTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ColorAssigner"
+description: "ColorAssigner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ColorAssigner`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ColorAssigner
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ColorAssigner : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ColorAssigner.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ColorAssigner.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ColorAssigner"
 ### SetColor
 `public void SetColor(WeakGameEntity entity)`
 
-**用途 / Purpose:** 设置 `color` 的值或状态。
+**用途 / Purpose:** 为 「color」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ColorAssigner 实例
+ColorAssigner colorAssigner = ...;
+colorAssigner.SetColor(entity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ColorAssigner();
-value.SetColor(entity);
+// 通常从对应子系统 API 获取实例后调用
+ColorAssigner colorAssigner = ...;
+colorAssigner.SetColor(entity);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

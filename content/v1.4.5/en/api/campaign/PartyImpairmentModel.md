@@ -1,20 +1,14 @@
 ---
 title: "PartyImpairmentModel"
+description: "Auto-generated class reference for PartyImpairmentModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyImpairmentModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyImpairmentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyImpairmentModel : MBGameModel<PartyImpairmentModel>`
 **Base:** `MBGameModel<PartyImpairmentModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyImpairmentModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyImpairmentModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `PartyImpairmentModel` as a Model-style extension point: first identify wh
 ### GetDisorganizedStateDuration
 `public abstract ExplainedNumber GetDisorganizedStateDuration(MobileParty party)`
 
-**Purpose:** Gets the current value of `disorganized state duration`.
+**Purpose:** Reads and returns the `disorganized state duration` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyImpairmentModel from the subsystem API first
+PartyImpairmentModel partyImpairmentModel = ...;
+var result = partyImpairmentModel.GetDisorganizedStateDuration(party);
+```
 
 ### GetVulnerabilityStateDuration
 `public abstract float GetVulnerabilityStateDuration(PartyBase party)`
 
-**Purpose:** Gets the current value of `vulnerability state duration`.
+**Purpose:** Reads and returns the `vulnerability state duration` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyImpairmentModel from the subsystem API first
+PartyImpairmentModel partyImpairmentModel = ...;
+var result = partyImpairmentModel.GetVulnerabilityStateDuration(party);
+```
 
 ### GetSiegeExpectedVulnerabilityTime
 `public abstract float GetSiegeExpectedVulnerabilityTime()`
 
-**Purpose:** Gets the current value of `siege expected vulnerability time`.
+**Purpose:** Reads and returns the `siege expected vulnerability time` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyImpairmentModel from the subsystem API first
+PartyImpairmentModel partyImpairmentModel = ...;
+var result = partyImpairmentModel.GetSiegeExpectedVulnerabilityTime();
+```
 
 ### CanGetDisorganized
 `public abstract bool CanGetDisorganized(PartyBase partyBase)`
 
-**Purpose:** Checks whether the current object can `get disorganized`.
+**Purpose:** Checks whether the current object meets the preconditions for `get disorganized`.
+
+```csharp
+// Obtain an instance of PartyImpairmentModel from the subsystem API first
+PartyImpairmentModel partyImpairmentModel = ...;
+var result = partyImpairmentModel.CanGetDisorganized(partyBase);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyImpairmentModel();
+// Typically obtained from a subsystem API or factory
+PartyImpairmentModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

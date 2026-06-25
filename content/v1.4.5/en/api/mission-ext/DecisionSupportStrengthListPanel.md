@@ -1,20 +1,14 @@
 ---
 title: "DecisionSupportStrengthListPanel"
+description: "Auto-generated class reference for DecisionSupportStrengthListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DecisionSupportStrengthListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DecisionSupportStrengthListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DecisionSupportStrengthListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/DecisionSupportStrengthListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/DecisionSupportStrengthListPanel.cs`
 
 ## Overview
 
@@ -43,9 +37,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom` to pl
 ## Usage Example
 
 ```csharp
-var example = new DecisionSupportStrengthListPanel();
+// Obtain an instance from the relevant subsystem API
+DecisionSupportStrengthListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

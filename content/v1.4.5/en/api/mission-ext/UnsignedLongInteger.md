@@ -1,20 +1,14 @@
 ---
 title: "UnsignedLongInteger"
+description: "Auto-generated class reference for UnsignedLongInteger."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UnsignedLongInteger`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UnsignedLongInteger
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct UnsignedLongInteger`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Gets the current value of `num bits`.
+**Purpose:** Reads and returns the `num bits` value held by the current object.
+
+```csharp
+// Obtain an instance of UnsignedLongInteger from the subsystem API first
+UnsignedLongInteger unsignedLongInteger = ...;
+var result = unsignedLongInteger.GetNumBits();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UnsignedLongInteger();
-value.GetNumBits();
+// Typically call this after obtaining an instance from the subsystem API
+UnsignedLongInteger unsignedLongInteger = ...;
+unsignedLongInteger.GetNumBits();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

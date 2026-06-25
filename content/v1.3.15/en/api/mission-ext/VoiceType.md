@@ -1,60 +1,30 @@
 ---
 title: "VoiceType"
+description: "Auto-generated class reference for VoiceType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VoiceType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VoiceType
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class VoiceType`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/SkinVoiceManager.cs`
 
 ## Overview
 
-`VoiceType` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`VoiceType` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `TypeID` | `public string TypeID { get; }` |
-| `Index` | `public int Index { get; }` |
-
-## Key Methods
-
-### GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName
-`public static int GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(string className)`
-
-**Purpose:** Gets the current value of `voice definition count with monster sound and collision info class name`.
-
-### GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName
-`public static void GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(string className, int definitionIndices)`
-
-**Purpose:** Gets the current value of `voice definition list with monster sound and collision info class name`.
-
-### GetName
-`public TextObject GetName()`
-
-**Purpose:** Gets the current value of `name`.
-
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
-VoiceType.GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName("example");
+// Obtain an instance from the relevant subsystem API
+VoiceType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

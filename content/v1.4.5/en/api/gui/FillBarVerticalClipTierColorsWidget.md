@@ -1,20 +1,14 @@
 ---
 title: "FillBarVerticalClipTierColorsWidget"
+description: "Auto-generated class reference for FillBarVerticalClipTierColorsWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillBarVerticalClipTierColorsWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FillBarVerticalClipTierColorsWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class FillBarVerticalClipTierColorsWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarVerticalClipTierColorsWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarVerticalClipTierColorsWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `FillBarVerticalClipTierColorsWidget` as a Widget-style extension point: f
 ### FillBarVerticalClipTierColorsWidget
 `public class FillBarVerticalClipTierColorsWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `fill bar vertical clip tier colors widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FillBarVerticalClipTierColorsWidget from the subsystem API first
+FillBarVerticalClipTierColorsWidget fillBarVerticalClipTierColorsWidget = ...;
+var result = fillBarVerticalClipTierColorsWidget.FillBarVerticalClipTierColorsWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new FillBarVerticalClipTierColorsWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FillBarVerticalClipTierColorsWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

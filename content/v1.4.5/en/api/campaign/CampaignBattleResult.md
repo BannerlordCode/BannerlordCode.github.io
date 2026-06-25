@@ -1,20 +1,14 @@
 ---
 title: "CampaignBattleResult"
+description: "Auto-generated class reference for CampaignBattleResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignBattleResult`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignBattleResult
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignBattleResult`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/CampaignBattleResult.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/CampaignBattleResult.cs`
 
 ## Overview
 
@@ -39,7 +33,12 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ### GetResult
 `public static CampaignBattleResult GetResult(BattleState winnerSide, bool enemyRetreated = false)`
 
-**Purpose:** Gets the current value of `result`.
+**Purpose:** Reads and returns the `result` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignBattleResult.GetResult(winnerSide, false);
+```
 
 ## Usage Example
 
@@ -49,4 +48,4 @@ CampaignBattleResult.GetResult(winnerSide, false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

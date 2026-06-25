@@ -1,20 +1,14 @@
 ---
 title: "SPScoreboardPartyVM"
+description: "Auto-generated class reference for SPScoreboardPartyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPScoreboardPartyVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPScoreboardPartyVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPScoreboardPartyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardPartyVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardPartyVM.cs`
 
 ## Overview
 
@@ -39,35 +33,66 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SPScoreboardPartyVM from the subsystem API first
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+sPScoreboardPartyVM.RefreshValues();
+```
 
 ### UpdateScores
 `public void UpdateScores(BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**Purpose:** Updates the state or data of `scores`.
+**Purpose:** Recalculates and stores the latest representation of `scores`.
+
+```csharp
+// Obtain an instance of SPScoreboardPartyVM from the subsystem API first
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+sPScoreboardPartyVM.UpdateScores(character, 0, 0, 0, 0, 0, 0);
+```
 
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**Purpose:** Updates the state or data of `hero skills`.
+**Purpose:** Recalculates and stores the latest representation of `hero skills`.
+
+```csharp
+// Obtain an instance of SPScoreboardPartyVM from the subsystem API first
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+sPScoreboardPartyVM.UpdateHeroSkills(heroCharacter, upgradedSkill);
+```
 
 ### GetUnitAddIfNotExists
 `public SPScoreboardUnitVM GetUnitAddIfNotExists(BasicCharacterObject character)`
 
-**Purpose:** Gets the current value of `unit add if not exists`.
+**Purpose:** Reads and returns the `unit add if not exists` value held by the current object.
+
+```csharp
+// Obtain an instance of SPScoreboardPartyVM from the subsystem API first
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+var result = sPScoreboardPartyVM.GetUnitAddIfNotExists(character);
+```
 
 ### GetUnit
 `public SPScoreboardUnitVM GetUnit(BasicCharacterObject character)`
 
-**Purpose:** Gets the current value of `unit`.
+**Purpose:** Reads and returns the `unit` value held by the current object.
+
+```csharp
+// Obtain an instance of SPScoreboardPartyVM from the subsystem API first
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+var result = sPScoreboardPartyVM.GetUnit(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPScoreboardPartyVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SPScoreboardPartyVM sPScoreboardPartyVM = ...;
+sPScoreboardPartyVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MessageManager"
+description: "MessageManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MessageManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,32 +23,62 @@ title: "MessageManager"
 ### DisplayMessage
 `public static void DisplayMessage(string message)`
 
-**用途 / Purpose:** 处理 `display message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MessageManager.DisplayMessage("example");
+```
 
 ### DisplayMessage
 `public static void DisplayMessage(string message, uint color)`
 
-**用途 / Purpose:** 处理 `display message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MessageManager.DisplayMessage("example", 0);
+```
 
 ### DisplayDebugMessage
 `public static void DisplayDebugMessage(string message)`
 
-**用途 / Purpose:** 处理 `display debug message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MessageManager.DisplayDebugMessage("example");
+```
 
 ### DisplayMultilineMessage
 `public static void DisplayMultilineMessage(string message, uint color)`
 
-**用途 / Purpose:** 处理 `display multiline message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MessageManager.DisplayMultilineMessage("example", 0);
+```
 
 ### EraseMessageLines
 `public static void EraseMessageLines()`
 
-**用途 / Purpose:** 处理 `erase message lines` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MessageManager.EraseMessageLines();
+```
 
 ### SetMessageManager
 `public static void SetMessageManager(MessageManagerBase messageManager)`
 
-**用途 / Purpose:** 设置 `message manager` 的值或状态。
+**用途 / Purpose:** 为 「message manager」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MessageManager.SetMessageManager(messageManager);
+```
 
 ## 使用示例
 
@@ -64,4 +88,4 @@ var manager = MessageManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

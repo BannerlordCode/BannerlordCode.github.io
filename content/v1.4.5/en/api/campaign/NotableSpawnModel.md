@@ -1,20 +1,14 @@
 ---
 title: "NotableSpawnModel"
+description: "Auto-generated class reference for NotableSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NotableSpawnModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotableSpawnModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class NotableSpawnModel : MBGameModel<NotableSpawnModel>`
 **Base:** `MBGameModel<NotableSpawnModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/NotableSpawnModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/NotableSpawnModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `NotableSpawnModel` as a Model-style extension point: first identify who c
 ### GetTargetNotableCountForSettlement
 `public abstract int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`
 
-**Purpose:** Gets the current value of `target notable count for settlement`.
+**Purpose:** Reads and returns the `target notable count for settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of NotableSpawnModel from the subsystem API first
+NotableSpawnModel notableSpawnModel = ...;
+var result = notableSpawnModel.GetTargetNotableCountForSettlement(settlement, occupation);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomNotableSpawnModel();
+// Typically obtained from a subsystem API or factory
+NotableSpawnModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

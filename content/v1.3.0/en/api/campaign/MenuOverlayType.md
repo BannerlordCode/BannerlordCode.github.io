@@ -1,13 +1,7 @@
 ---
 title: "MenuOverlayType"
+description: "Auto-generated class reference for MenuOverlayType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuOverlayType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuOverlayType
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ## Usage Example
 
 ```csharp
-MenuOverlayType example = MenuOverlayType.Value;
+// Obtain an instance from the relevant subsystem API
+MenuOverlayType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

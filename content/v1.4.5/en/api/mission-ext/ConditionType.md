@@ -1,20 +1,14 @@
 ---
 title: "ConditionType"
+description: "Auto-generated class reference for ConditionType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConditionType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConditionType
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum ConditionType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/ConditionType.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/ConditionType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ## Usage Example
 
 ```csharp
-var example = new ConditionType();
+// Obtain an instance from the relevant subsystem API
+ConditionType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

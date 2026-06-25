@@ -1,13 +1,7 @@
 ---
 title: "AgentBehaviorGroup"
+description: "AgentBehaviorGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentBehaviorGroup`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentBehaviorGroup
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -38,49 +32,98 @@ title: "AgentBehaviorGroup"
 ### DisableScriptedBehavior
 `public void DisableScriptedBehavior()`
 
-**用途 / Purpose:** 处理 `disable scripted behavior` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorGroup 实例
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.DisableScriptedBehavior();
+```
 
 ### DisableAllBehaviors
 `public void DisableAllBehaviors()`
 
-**用途 / Purpose:** 处理 `disable all behaviors` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorGroup 实例
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.DisableAllBehaviors();
+```
 
 ### GetActiveBehavior
 `public AgentBehavior GetActiveBehavior()`
 
-**用途 / Purpose:** 获取 `active behavior` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active behavior」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorGroup 实例
+AgentBehaviorGroup agentBehaviorGroup = ...;
+var result = agentBehaviorGroup.GetActiveBehavior();
+```
 
 ### Tick
 `public virtual void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorGroup 实例
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.Tick(0, false);
+```
 
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**用途 / Purpose:** 处理 `conversation tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorGroup 实例
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.ConversationTick();
+```
 
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorGroup 实例
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.OnAgentRemoved(agent);
+```
 
 ### GetScore
 `public virtual float GetScore(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorGroup 实例
+AgentBehaviorGroup agentBehaviorGroup = ...;
+var result = agentBehaviorGroup.GetScore(false);
+```
 
 ### ForceThink
 `public virtual void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 处理 `force think` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorGroup 实例
+AgentBehaviorGroup agentBehaviorGroup = ...;
+agentBehaviorGroup.ForceThink(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomAgentBehaviorGroup();
+// 通常通过子系统 API 或工厂获得派生实例
+AgentBehaviorGroup instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

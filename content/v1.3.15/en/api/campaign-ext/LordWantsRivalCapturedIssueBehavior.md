@@ -1,13 +1,7 @@
 ---
 title: "LordWantsRivalCapturedIssueBehavior"
+description: "Auto-generated class reference for LordWantsRivalCapturedIssueBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LordWantsRivalCapturedIssueBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LordWantsRivalCapturedIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -44,35 +38,66 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of LordWantsRivalCapturedIssueBehavior from the subsystem API first
+LordWantsRivalCapturedIssueBehavior lordWantsRivalCapturedIssueBehavior = ...;
+lordWantsRivalCapturedIssueBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of LordWantsRivalCapturedIssueBehavior from the subsystem API first
+LordWantsRivalCapturedIssueBehavior lordWantsRivalCapturedIssueBehavior = ...;
+lordWantsRivalCapturedIssueBehavior.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of LordWantsRivalCapturedIssueBehavior from the subsystem API first
+LordWantsRivalCapturedIssueBehavior lordWantsRivalCapturedIssueBehavior = ...;
+lordWantsRivalCapturedIssueBehavior.OnCheckForIssue(hero);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of LordWantsRivalCapturedIssueBehavior from the subsystem API first
+LordWantsRivalCapturedIssueBehavior lordWantsRivalCapturedIssueBehavior = ...;
+var result = lordWantsRivalCapturedIssueBehavior.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of LordWantsRivalCapturedIssueBehavior from the subsystem API first
+LordWantsRivalCapturedIssueBehavior lordWantsRivalCapturedIssueBehavior = ...;
+var result = lordWantsRivalCapturedIssueBehavior.IssueStayAliveConditions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LordWantsRivalCapturedIssueBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+LordWantsRivalCapturedIssueBehavior lordWantsRivalCapturedIssueBehavior = ...;
+lordWantsRivalCapturedIssueBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

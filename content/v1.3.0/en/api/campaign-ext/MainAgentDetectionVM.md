@@ -1,13 +1,7 @@
 ---
 title: "MainAgentDetectionVM"
+description: "Auto-generated class reference for MainAgentDetectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainAgentDetectionVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainAgentDetectionVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.MainAgentDetection
@@ -41,20 +35,33 @@ Start from namespace `SandBox.ViewModelCollection.Missions.MainAgentDetection` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MainAgentDetectionVM from the subsystem API first
+MainAgentDetectionVM mainAgentDetectionVM = ...;
+mainAgentDetectionVM.RefreshValues();
+```
 
 ### UpdateDetectionValues
 `public void UpdateDetectionValues(float minDetectionLevel, float maxDetectionLevel, float currentDetectionLevel)`
 
-**Purpose:** Updates the state or data of `detection values`.
+**Purpose:** Recalculates and stores the latest representation of `detection values`.
+
+```csharp
+// Obtain an instance of MainAgentDetectionVM from the subsystem API first
+MainAgentDetectionVM mainAgentDetectionVM = ...;
+mainAgentDetectionVM.UpdateDetectionValues(0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MainAgentDetectionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MainAgentDetectionVM mainAgentDetectionVM = ...;
+mainAgentDetectionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

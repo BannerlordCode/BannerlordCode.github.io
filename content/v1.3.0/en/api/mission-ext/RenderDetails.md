@@ -1,13 +1,7 @@
 ---
 title: "RenderDetails"
+description: "Auto-generated class reference for RenderDetails."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RenderDetails`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RenderDetails
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ## Usage Example
 
 ```csharp
-var value = new RenderDetails();
+// Obtain an instance from the relevant subsystem API
+RenderDetails instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "HttpHelper"
+description: "Auto-generated class reference for HttpHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HttpHelper`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HttpHelper
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class HttpHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/HttpHelper.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/HttpHelper.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Treat `HttpHelper` as a Helper-style extension point: first identify who creates
 ### DownloadStringTaskAsync
 `public static Task<string> DownloadStringTaskAsync(string url)`
 
-**Purpose:** Handles logic related to `download string task async`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HttpHelper.DownloadStringTaskAsync("example");
+```
 
 ### DownloadDataTaskAsync
 `public static Task<byte > DownloadDataTaskAsync(string url)`
 
-**Purpose:** Handles logic related to `download data task async`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HttpHelper.DownloadDataTaskAsync("example");
+```
 
 ### PostStringAsync
 `public static Task<string> PostStringAsync(string url, string postData, string mediaType = "application/json")`
 
-**Purpose:** Handles logic related to `post string async`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HttpHelper.PostStringAsync("example", "example", "example");
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ HttpHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

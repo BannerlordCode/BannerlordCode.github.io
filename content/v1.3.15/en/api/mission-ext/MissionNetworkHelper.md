@@ -1,19 +1,14 @@
 ---
 title: "MissionNetworkHelper"
+description: "Auto-generated class reference for MissionNetworkHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNetworkHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionNetworkHelper
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MissionNetworkHelper`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## Overview
 
@@ -23,132 +18,57 @@ title: "MissionNetworkHelper"
 
 Treat `MissionNetworkHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `Current` | `public static Mission Current { get; }` |
-| `SceneName` | `public string SceneName { get; }` |
-| `SceneLevels` | `public string SceneLevels { get; }` |
-| `DamageToPlayerMultiplier` | `public float DamageToPlayerMultiplier { get; }` |
-| `DamageToFriendsMultiplier` | `public float DamageToFriendsMultiplier { get; }` |
-| `DamageFromPlayerToFriendsMultiplier` | `public float DamageFromPlayerToFriendsMultiplier { get; }` |
-| `HasValidTerrainType` | `public bool HasValidTerrainType { get; }` |
-| `TerrainType` | `public TerrainType TerrainType { get; }` |
-| `Scene` | `public Scene Scene { get; }` |
-| `CustomCameraTargetLocalOffset` | `public Vec3 CustomCameraTargetLocalOffset { get; }` |
-| `CustomCameraLocalOffset` | `public Vec3 CustomCameraLocalOffset { get; }` |
-| `CustomCameraLocalOffset2` | `public Vec3 CustomCameraLocalOffset2 { get; }` |
-| `CustomCameraGlobalOffset` | `public Vec3 CustomCameraGlobalOffset { get; }` |
-| `CustomCameraLocalRotationalOffset` | `public Vec3 CustomCameraLocalRotationalOffset { get; }` |
-| `CustomCameraIgnoreCollision` | `public bool CustomCameraIgnoreCollision { get; }` |
-| `CustomCameraFovMultiplier` | `public float CustomCameraFovMultiplier { get; }` |
-| `CustomCameraFixedDistance` | `public float CustomCameraFixedDistance { get; }` |
-| `ListenerAndAttenuationPosBlendFactor` | `public float ListenerAndAttenuationPosBlendFactor { get; }` |
-| `IgnoredEntityForCamera` | `public GameEntity IgnoredEntityForCamera { get; }` |
-
 ## Key Methods
 
-### AddActiveMissionObject
-`public void AddActiveMissionObject(MissionObject missionObject)`
+### GetAgentFromIndex
+`public static Agent GetAgentFromIndex(int agentIndex, bool canBeNull = false)`
 
-**Purpose:** Adds `active mission object` to the current collection or state.
+**Purpose:** Reads and returns the `agent from index` value held by the current object.
 
-### ActivateMissionObject
-`public void ActivateMissionObject(MissionObject missionObject)`
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetAgentFromIndex(0, false);
+```
 
-**Purpose:** Handles logic related to `activate mission object`.
+### GetMBTeamFromTeamIndex
+`public static MBTeam GetMBTeamFromTeamIndex(int teamIndex)`
 
-### DeactivateMissionObject
-`public void DeactivateMissionObject(MissionObject missionObject)`
+**Purpose:** Reads and returns the `m b team from team index` value held by the current object.
 
-**Purpose:** Handles logic related to `deactivate mission object`.
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetMBTeamFromTeamIndex(0);
+```
 
-### SetMissionCombatType
-`public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)`
+### GetTeamFromTeamIndex
+`public static Team GetTeamFromTeamIndex(int teamIndex)`
 
-**Purpose:** Sets the value or state of `mission combat type`.
+**Purpose:** Reads and returns the `team from team index` value held by the current object.
 
-### ConversationCharacterChanged
-`public void ConversationCharacterChanged()`
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetTeamFromTeamIndex(0);
+```
 
-**Purpose:** Handles logic related to `conversation character changed`.
+### GetMissionObjectFromMissionObjectId
+`public static MissionObject GetMissionObjectFromMissionObjectId(MissionObjectId missionObjectId)`
 
-### SetMissionMode
-`public void SetMissionMode(MissionMode newMode, bool atStart)`
+**Purpose:** Reads and returns the `mission object from mission object id` value held by the current object.
 
-**Purpose:** Sets the value or state of `mission mode`.
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetMissionObjectFromMissionObjectId(missionObjectId);
+```
 
-### GetAverageFps
-`public float GetAverageFps()`
+### GetCombatLogDataForCombatLogNetworkMessage
+`public static CombatLogData GetCombatLogDataForCombatLogNetworkMessage(CombatLogNetworkMessage message)`
 
-**Purpose:** Gets the current value of `average fps`.
+**Purpose:** Reads and returns the `combat log data for combat log network message` value held by the current object.
 
-### GetFallAvoidSystemActive
-`public bool GetFallAvoidSystemActive()`
-
-**Purpose:** Gets the current value of `fall avoid system active`.
-
-### SetFallAvoidSystemActive
-`public void SetFallAvoidSystemActive(bool fallAvoidActive)`
-
-**Purpose:** Sets the value or state of `fall avoid system active`.
-
-### IsPositionInsideBoundaries
-`public bool IsPositionInsideBoundaries(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside boundaries`.
-
-### IsPositionInsideHardBoundaries
-`public bool IsPositionInsideHardBoundaries(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside hard boundaries`.
-
-### IsPositionInsideAnyBlockerNavMeshFace2D
-`public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)`
-
-**Purpose:** Handles logic related to `is position inside any blocker nav mesh face2 d`.
-
-### IsPositionOnAnyBlockerNavMeshFace
-`public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)`
-
-**Purpose:** Handles logic related to `is position on any blocker nav mesh face`.
-
-### RayCastForClosestAgent
-`public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
-
-**Purpose:** Handles logic related to `ray cast for closest agent`.
-
-### RayCastForClosestAgentsLimbs
-`public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**Purpose:** Handles logic related to `ray cast for closest agents limbs`.
-
-### RayCastForGivenAgentsLimbs
-`public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**Purpose:** Handles logic related to `ray cast for given agents limbs`.
-
-### GetBiggestAgentCollisionPadding
-`public float GetBiggestAgentCollisionPadding()`
-
-**Purpose:** Gets the current value of `biggest agent collision padding`.
-
-### SetMissionCorpseFadeOutTimeInSeconds
-`public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)`
-
-**Purpose:** Sets the value or state of `mission corpse fade out time in seconds`.
-
-### SetOverrideCorpseCount
-`public void SetOverrideCorpseCount(int overrideCorpseCount)`
-
-**Purpose:** Sets the value or state of `override corpse count`.
-
-### SetReportStuckAgentsMode
-`public void SetReportStuckAgentsMode(bool value)`
-
-**Purpose:** Sets the value or state of `report stuck agents mode`.
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetCombatLogDataForCombatLogNetworkMessage(message);
+```
 
 ## Usage Example
 
@@ -158,5 +78,4 @@ MissionNetworkHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

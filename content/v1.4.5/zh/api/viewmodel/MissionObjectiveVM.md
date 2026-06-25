@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveVM"
+description: "MissionObjectiveVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectiveVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionObjectiveVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective/MissionObjectiveVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective/MissionObjectiveVM.cs`
 
 ## 概述
 
@@ -47,30 +41,55 @@ title: "MissionObjectiveVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveVM 实例
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveVM 实例
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.OnFinalize();
+```
 
 ### UpdateObjective
 `public void UpdateObjective(MissionObjective objective)`
 
-**用途 / Purpose:** 更新 `objective` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「objective」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveVM 实例
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.UpdateObjective(objective);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveVM 实例
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.Tick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionObjectiveVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DebugSystemFilter"
+description: "Auto-generated class reference for DebugSystemFilter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugSystemFilter`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugSystemFilter
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-DebugSystemFilter example = DebugSystemFilter.Value;
+// Obtain an instance from the relevant subsystem API
+DebugSystemFilter instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

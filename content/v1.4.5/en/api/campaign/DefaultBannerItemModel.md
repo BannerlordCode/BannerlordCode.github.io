@@ -1,20 +1,14 @@
 ---
 title: "DefaultBannerItemModel"
+description: "Auto-generated class reference for DefaultBannerItemModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBannerItemModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBannerItemModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultBannerItemModel : BannerItemModel`
 **Base:** `BannerItemModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBannerItemModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBannerItemModel.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `DefaultBannerItemModel` as a Model-style extension point: first identify 
 ### GetPossibleRewardBannerItems
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
 
-**Purpose:** Gets the current value of `possible reward banner items`.
+**Purpose:** Reads and returns the `possible reward banner items` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBannerItemModel from the subsystem API first
+DefaultBannerItemModel defaultBannerItemModel = ...;
+var result = defaultBannerItemModel.GetPossibleRewardBannerItems();
+```
 
 ### GetPossibleRewardBannerItemsForHero
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `possible reward banner items for hero`.
+**Purpose:** Reads and returns the `possible reward banner items for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBannerItemModel from the subsystem API first
+DefaultBannerItemModel defaultBannerItemModel = ...;
+var result = defaultBannerItemModel.GetPossibleRewardBannerItemsForHero(hero);
+```
 
 ### GetBannerItemLevelForHero
 `public override int GetBannerItemLevelForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `banner item level for hero`.
+**Purpose:** Reads and returns the `banner item level for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBannerItemModel from the subsystem API first
+DefaultBannerItemModel defaultBannerItemModel = ...;
+var result = defaultBannerItemModel.GetBannerItemLevelForHero(hero);
+```
 
 ### CanBannerBeUpdated
 `public override bool CanBannerBeUpdated(ItemObject item)`
 
-**Purpose:** Checks whether the current object can `banner be updated`.
+**Purpose:** Checks whether the current object meets the preconditions for `banner be updated`.
+
+```csharp
+// Obtain an instance of DefaultBannerItemModel from the subsystem API first
+DefaultBannerItemModel defaultBannerItemModel = ...;
+var result = defaultBannerItemModel.CanBannerBeUpdated(item);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultBannerItemModel>(new MyDefaultBannerItemModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

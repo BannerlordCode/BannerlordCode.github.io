@@ -1,13 +1,7 @@
 ---
 title: "DefaultSiegeEngineCalculationModel"
+description: "Auto-generated class reference for DefaultSiegeEngineCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSiegeEngineCalculationModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeEngineCalculationModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,17 +23,35 @@ Treat `DefaultSiegeEngineCalculationModel` as a Model-style extension point: fir
 ### CalculateReloadSpeed
 `public override float CalculateReloadSpeed(Agent userAgent, float baseSpeed)`
 
-**Purpose:** Handles logic related to `calculate reload speed`.
+**Purpose:** Calculates the current value or result of `reload speed`.
+
+```csharp
+// Obtain an instance of DefaultSiegeEngineCalculationModel from the subsystem API first
+DefaultSiegeEngineCalculationModel defaultSiegeEngineCalculationModel = ...;
+var result = defaultSiegeEngineCalculationModel.CalculateReloadSpeed(userAgent, 0);
+```
 
 ### CalculateShipSiegeWeaponAmmoCount
 `public override int CalculateShipSiegeWeaponAmmoCount(IShipOrigin shipOrigin, Agent captain, RangedSiegeWeapon weapon)`
 
-**Purpose:** Handles logic related to `calculate ship siege weapon ammo count`.
+**Purpose:** Calculates the current value or result of `ship siege weapon ammo count`.
+
+```csharp
+// Obtain an instance of DefaultSiegeEngineCalculationModel from the subsystem API first
+DefaultSiegeEngineCalculationModel defaultSiegeEngineCalculationModel = ...;
+var result = defaultSiegeEngineCalculationModel.CalculateShipSiegeWeaponAmmoCount(shipOrigin, captain, weapon);
+```
 
 ### CalculateDamage
 `public override int CalculateDamage(Agent attackerAgent, float baseDamage)`
 
-**Purpose:** Handles logic related to `calculate damage`.
+**Purpose:** Calculates the current value or result of `damage`.
+
+```csharp
+// Obtain an instance of DefaultSiegeEngineCalculationModel from the subsystem API first
+DefaultSiegeEngineCalculationModel defaultSiegeEngineCalculationModel = ...;
+var result = defaultSiegeEngineCalculationModel.CalculateDamage(attackerAgent, 0);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultSiegeEngineCalculationModel>(new MyDefaultSiege
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

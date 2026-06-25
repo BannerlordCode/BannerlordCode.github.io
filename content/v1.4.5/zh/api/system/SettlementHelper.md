@@ -1,20 +1,14 @@
 ---
 title: "SettlementHelper"
+description: "SettlementHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class SettlementHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/SettlementHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/SettlementHelper.cs`
 
 ## 概述
 
@@ -29,132 +23,262 @@ title: "SettlementHelper"
 ### GetRandomStuff
 `public static string GetRandomStuff(bool isFemale)`
 
-**用途 / Purpose:** 获取 `random stuff` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random stuff」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.GetRandomStuff(false);
+```
 
 ### FindNearestSettlementToSettlement
 `public static Settlement FindNearestSettlementToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest settlement to settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest settlement to settlement」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestSettlementToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestSettlementToMobileParty
 `public static Settlement FindNearestSettlementToMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest settlement to mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest settlement to mobile party」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestSettlementToMobileParty(mobileParty, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestSettlementToPoint
 `public static Settlement FindNearestSettlementToPoint(in CampaignVec2 point, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest settlement to point` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest settlement to point」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestSettlementToPoint(point, func<Settlement, false);
+```
 
 ### FindNearestHideoutToSettlement
 `public static Hideout FindNearestHideoutToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest hideout to settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest hideout to settlement」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestHideoutToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestHideoutToMobileParty
 `public static Hideout FindNearestHideoutToMobileParty(MobileParty fromMobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest hideout to mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest hideout to mobile party」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestHideoutToMobileParty(fromMobileParty, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestTownToSettlement
 `public static Town FindNearestTownToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest town to settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest town to settlement」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestTownToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestTownToMobileParty
 `public static Town FindNearestTownToMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest town to mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest town to mobile party」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestTownToMobileParty(mobileParty, navCapabilities, func<Settlement, false);
+```
 
 ### FindNextSettlementAroundMobileParty
 `public static int FindNextSettlementAroundMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, float maxDistance, int lastIndex, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find next settlement around mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「next settlement around mobile party」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNextSettlementAroundMobileParty(mobileParty, navCapabilities, 0, 0, func<Settlement, false);
+```
 
 ### FindNearestCastleToSettlement
 `public static Settlement FindNearestCastleToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest castle to settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest castle to settlement」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestCastleToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestCastleToMobileParty
 `public static Settlement FindNearestCastleToMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest castle to mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest castle to mobile party」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestCastleToMobileParty(mobileParty, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestFortificationToSettlement
 `public static Settlement FindNearestFortificationToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest fortification to settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest fortification to settlement」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestFortificationToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestFortificationToMobileParty
 `public static Settlement FindNearestFortificationToMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest fortification to mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest fortification to mobile party」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestFortificationToMobileParty(mobileParty, navCapabilities, func<Settlement, false);
+```
 
 ### FindFurthestFortificationToSettlement
 `public static Settlement FindFurthestFortificationToSettlement(MBReadOnlyList<Town> candidates, MobileParty.NavigationType navCapabilities, Settlement fromSettlement, out float furthestDistance)`
 
-**用途 / Purpose:** 处理 `find furthest fortification to settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「furthest fortification to settlement」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindFurthestFortificationToSettlement(candidates, navCapabilities, fromSettlement, furthestDistance);
+```
 
 ### FindNearestVillageToSettlement
 `public static Village FindNearestVillageToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest village to settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest village to settlement」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestVillageToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
+```
 
 ### FindNearestVillageToMobileParty
 `public static Village FindNearestVillageToMobileParty(MobileParty fromParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find nearest village to mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「nearest village to mobile party」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindNearestVillageToMobileParty(fromParty, navCapabilities, func<Settlement, false);
+```
 
 ### FindRandomSettlement
 `public static Settlement FindRandomSettlement(Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find random settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「random settlement」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindRandomSettlement(func<Settlement, false);
+```
 
 ### FindRandomHideout
 `public static Settlement FindRandomHideout(Func<Settlement, bool> condition = null)`
 
-**用途 / Purpose:** 处理 `find random hideout` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「random hideout」。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.FindRandomHideout(func<Settlement, false);
+```
 
 ### TakeEnemyVillagersOutsideSettlements
 `public static void TakeEnemyVillagersOutsideSettlements(Settlement settlementWhichChangedFaction)`
 
-**用途 / Purpose:** 处理 `take enemy villagers outside settlements` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.TakeEnemyVillagersOutsideSettlements(settlementWhichChangedFaction);
+```
 
 ### GetRandomTown
 `public static Settlement GetRandomTown(Clan fromFaction = null)`
 
-**用途 / Purpose:** 获取 `random town` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random town」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.GetRandomTown(null);
+```
 
 ### GetBestSettlementToSpawnAround
 `public static Settlement GetBestSettlementToSpawnAround(Hero hero)`
 
-**用途 / Purpose:** 获取 `best settlement to spawn around` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「best settlement to spawn around」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.GetBestSettlementToSpawnAround(hero);
+```
 
 ### GetAllHeroesOfSettlement
 `public static IEnumerable<Hero> GetAllHeroesOfSettlement(Settlement settlement, bool includePrisoners)`
 
-**用途 / Purpose:** 获取 `all heroes of settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all heroes of settlement」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.GetAllHeroesOfSettlement(settlement, false);
+```
 
 ### IsGarrisonStarving
 `public static bool IsGarrisonStarving(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `is garrison starving` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「garrison starving」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.IsGarrisonStarving(settlement);
+```
 
 ### SpawnNotablesIfNeeded
 `public static void SpawnNotablesIfNeeded(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `spawn notables if needed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.SpawnNotablesIfNeeded(settlement);
+```
 
 ### GetGarrisonChangeExplainedNumber
 `public static ExplainedNumber GetGarrisonChangeExplainedNumber(Town town)`
 
-**用途 / Purpose:** 获取 `garrison change explained number` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「garrison change explained number」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.GetGarrisonChangeExplainedNumber(town);
+```
 
 ### GetNeighborScoreForConsideringClan
 `public static float GetNeighborScoreForConsideringClan(Settlement settlement, Clan consideringClan)`
 
-**用途 / Purpose:** 获取 `neighbor score for considering clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「neighbor score for considering clan」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SettlementHelper.GetNeighborScoreForConsideringClan(settlement, consideringClan);
+```
 
 ## 使用示例
 
@@ -164,4 +288,4 @@ SettlementHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

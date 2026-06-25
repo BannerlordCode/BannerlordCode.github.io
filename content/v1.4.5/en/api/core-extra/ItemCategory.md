@@ -1,20 +1,14 @@
 ---
 title: "ItemCategory"
+description: "Auto-generated class reference for ItemCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemCategory`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCategory
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class ItemCategory : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemCategory.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemCategory.cs`
 
 ## Overview
 
@@ -42,25 +36,44 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### InitializeObject
 `public ItemCategory InitializeObject(bool isTradeGood = false, int baseDemand = 0, int luxuryDemand = 0, Property properties = Property.None, ItemCategory canSubstitute = null, float substitutionFactor = 0f, bool isAnimal = false, bool isValid = true)`
 
-**Purpose:** Initializes the state, resources, or bindings for `object`.
+**Purpose:** Prepares the resources, state, or bindings required by `object`.
+
+```csharp
+// Obtain an instance of ItemCategory from the subsystem API first
+ItemCategory itemCategory = ...;
+var result = itemCategory.InitializeObject(false, 0, 0, property.None, null, 0, false, false);
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemCategory from the subsystem API first
+ItemCategory itemCategory = ...;
+var result = itemCategory.GetName();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ItemCategory from the subsystem API first
+ItemCategory itemCategory = ...;
+var result = itemCategory.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemCategory();
-value.InitializeObject(false, 0, 0, property.None, null, 0, false, false);
+// Typically call this after obtaining an instance from the subsystem API
+ItemCategory itemCategory = ...;
+itemCategory.InitializeObject(false, 0, 0, property.None, null, 0, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MenuTournamentLeaderboardView"
+description: "Auto-generated class reference for MenuTournamentLeaderboardView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuTournamentLeaderboardView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuTournamentLeaderboardView
 
 **Namespace:** SandBox.View.Menu
@@ -27,9 +21,10 @@ Treat `MenuTournamentLeaderboardView` as a View-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var view = new MenuTournamentLeaderboardView();
+// Retrieve this view from the subsystem API or scene
+MenuTournamentLeaderboardView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

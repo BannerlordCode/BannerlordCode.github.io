@@ -1,13 +1,7 @@
 ---
 title: "SPGeneralKillNotificationItemVM"
+description: "Auto-generated class reference for SPGeneralKillNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPGeneralKillNotificationItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPGeneralKillNotificationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General
@@ -44,15 +38,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of SPGeneralKillNotificationItemVM from the subsystem API first
+SPGeneralKillNotificationItemVM sPGeneralKillNotificationItemVM = ...;
+sPGeneralKillNotificationItemVM.ExecuteRemove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPGeneralKillNotificationItemVM();
-value.ExecuteRemove();
+// Typically call this after obtaining an instance from the subsystem API
+SPGeneralKillNotificationItemVM sPGeneralKillNotificationItemVM = ...;
+sPGeneralKillNotificationItemVM.ExecuteRemove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

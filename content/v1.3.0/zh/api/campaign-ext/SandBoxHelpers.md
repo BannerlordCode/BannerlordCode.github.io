@@ -1,13 +1,7 @@
 ---
 title: "SandBoxHelpers"
+description: "SandBoxHelpers 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxHelpers`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxHelpers
 
 **Namespace:** SandBox
@@ -29,67 +23,132 @@ title: "SandBoxHelpers"
 ### FollowAgent
 `public static void FollowAgent(Agent agent, Agent target)`
 
-**用途 / Purpose:** 处理 `follow agent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.FollowAgent(agent, target);
+```
 
 ### UnfollowAgent
 `public static void UnfollowAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `unfollow agent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.UnfollowAgent(agent);
+```
 
 ### FadeOutAgents
 `public static void FadeOutAgents(IEnumerable<Agent> agents, bool hideInstantly, bool hideMount)`
 
-**用途 / Purpose:** 处理 `fade out agents` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.FadeOutAgents(agents, false, false);
+```
 
 ### DisableGenericMissionEventScript
 `public static void DisableGenericMissionEventScript(string triggeringObjectTag, GenericMissionEvent missionEvent)`
 
-**用途 / Purpose:** 处理 `disable generic mission event script` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.DisableGenericMissionEventScript("example", missionEvent);
+```
 
 ### SpawnPlayer
 `public static void SpawnPlayer(bool civilianEquipment = false, bool noHorses = false, bool noWeapon = false, bool wieldInitialWeapons = false, string spawnTag = "")`
 
-**用途 / Purpose:** 处理 `spawn player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.SpawnPlayer(false, false, false, false, "example");
+```
 
 ### SpawnPlayer
 `public static void SpawnPlayer(GameEntity spawnPosition, bool civilianEquipment = false, bool noHorses = false, bool noWeapon = false, bool wieldInitialWeapons = false)`
 
-**用途 / Purpose:** 处理 `spawn player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.SpawnPlayer(spawnPosition, false, false, false, false);
+```
 
 ### SpawnHorses
 `public static List<Agent> SpawnHorses()`
 
-**用途 / Purpose:** 处理 `spawn horses` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.SpawnHorses();
+```
 
 ### SpawnSheeps
 `public static void SpawnSheeps()`
 
-**用途 / Purpose:** 处理 `spawn sheeps` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.SpawnSheeps();
+```
 
 ### SpawnCows
 `public static void SpawnCows()`
 
-**用途 / Purpose:** 处理 `spawn cows` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.SpawnCows();
+```
 
 ### SpawnGeese
 `public static void SpawnGeese()`
 
-**用途 / Purpose:** 处理 `spawn geese` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.SpawnGeese();
+```
 
 ### SpawnChicken
 `public static void SpawnChicken()`
 
-**用途 / Purpose:** 处理 `spawn chicken` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.SpawnChicken();
+```
 
 ### SpawnHogs
 `public static void SpawnHogs()`
 
-**用途 / Purpose:** 处理 `spawn hogs` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.SpawnHogs();
+```
 
 ### GetRegionMapping
 `public static bool GetRegionMapping(PartyNavigationModel model)`
 
-**用途 / Purpose:** 获取 `region mapping` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「region mapping」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxHelpers.GetRegionMapping(model);
+```
 
 ## 使用示例
 
@@ -99,4 +158,4 @@ SandBoxHelpers.FollowAgent(agent, target);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

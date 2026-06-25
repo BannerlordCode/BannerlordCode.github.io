@@ -1,18 +1,12 @@
 ---
 title: "ICharacterCreationContentHandler"
+description: "Auto-generated class reference for ICharacterCreationContentHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICharacterCreationContentHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICharacterCreationContentHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICharacterCreationContentHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CharacterCreationContent/ICharacterCreationContentHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `ICharacterCreationContentHandler` as a Handler-style extension point: fir
 ## Usage Example
 
 ```csharp
-ICharacterCreationContentHandler implementation = GetCharacterCreationContentHandlerImplementation();
+// Usually obtained through DI or a factory method
+IICharacterCreationContentHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

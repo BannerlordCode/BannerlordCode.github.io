@@ -1,19 +1,14 @@
 ---
 title: "HealthDropData"
+description: "HealthDropData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HealthDropData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HealthDropData
 
-**命名空间:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class HealthDropData`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class HealthDropData`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/Mission/AgentHealthWidget.cs`
 
 ## 概述
 
@@ -23,24 +18,13 @@ title: "HealthDropData"
 
 把 `HealthDropData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `Health` | `public int Health { get; set; }` |
-| `MaxHealth` | `public int MaxHealth { get; set; }` |
-| `HealthBar` | `public FillBarWidget HealthBar { get; set; }` |
-| `HealthDropContainer` | `public Widget HealthDropContainer { get; set; }` |
-| `HealthDropBrush` | `public Brush HealthDropBrush { get; set; }` |
-| `ShowHealthBar` | `public bool ShowHealthBar { get; set; }` |
-
 ## 使用示例
 
 ```csharp
-var value = new HealthDropData();
+// 该数据对象通常由战役/任务 API 返回
+HealthDropData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "RidingModel"
+description: "Auto-generated class reference for RidingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RidingModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RidingModel
 
 **Namespace:** TaleWorlds.Core
@@ -29,14 +23,21 @@ Treat `RidingModel` as a Model-style extension point: first identify who creates
 ### CalculateAcceleration
 `public abstract float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
 
-**Purpose:** Handles logic related to `calculate acceleration`.
+**Purpose:** Calculates the current value or result of `acceleration`.
+
+```csharp
+// Obtain an instance of RidingModel from the subsystem API first
+RidingModel ridingModel = ...;
+var result = ridingModel.CalculateAcceleration(mountElement, harnessElement, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRidingModel();
+// Typically obtained from a subsystem API or factory
+RidingModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

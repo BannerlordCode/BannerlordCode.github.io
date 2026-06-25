@@ -1,20 +1,14 @@
 ---
 title: "MountHealthRecoveryEffect"
+description: "Auto-generated class reference for MountHealthRecoveryEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountHealthRecoveryEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountHealthRecoveryEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MountHealthRecoveryEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountHealthRecoveryEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountHealthRecoveryEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnTick
 `public override void OnTick(Agent agent, int tickCount)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MountHealthRecoveryEffect from the subsystem API first
+MountHealthRecoveryEffect mountHealthRecoveryEffect = ...;
+mountHealthRecoveryEffect.OnTick(agent, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MountHealthRecoveryEffect();
-value.OnTick(agent, 0);
+// Typically call this after obtaining an instance from the subsystem API
+MountHealthRecoveryEffect mountHealthRecoveryEffect = ...;
+mountHealthRecoveryEffect.OnTick(agent, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CanvasElement"
+description: "Auto-generated class reference for CanvasElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CanvasElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasElement
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -40,19 +34,32 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public virtual void LoadFrom(XmlNode canvasImageNode)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CanvasElement from the subsystem API first
+CanvasElement canvasElement = ...;
+canvasElement.LoadFrom(canvasImageNode);
+```
 
 ### GetMarginSize
 `public override Vector2 GetMarginSize()`
 
-**Purpose:** Gets the current value of `margin size`.
+**Purpose:** Reads and returns the `margin size` value held by the current object.
+
+```csharp
+// Obtain an instance of CanvasElement from the subsystem API first
+CanvasElement canvasElement = ...;
+var result = canvasElement.GetMarginSize();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCanvasElement();
+// Typically obtained from a subsystem API or factory
+CanvasElement instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

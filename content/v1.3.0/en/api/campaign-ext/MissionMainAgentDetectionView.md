@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentDetectionView"
+description: "Auto-generated class reference for MissionMainAgentDetectionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentDetectionView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentDetectionView
 
 **Namespace:** SandBox.View.Missions
@@ -27,9 +21,10 @@ Treat `MissionMainAgentDetectionView` as a View-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var view = new MissionMainAgentDetectionView();
+// Retrieve this view from the subsystem API or scene
+MissionMainAgentDetectionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

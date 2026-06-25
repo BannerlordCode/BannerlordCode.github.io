@@ -1,13 +1,7 @@
 ---
 title: "DefaultClanPoliticsModel"
+description: "Auto-generated class reference for DefaultClanPoliticsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultClanPoliticsModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultClanPoliticsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,27 +23,57 @@ Treat `DefaultClanPoliticsModel` as a Model-style extension point: first identif
 ### CalculateInfluenceChange
 `public override ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate influence change`.
+**Purpose:** Calculates the current value or result of `influence change`.
+
+```csharp
+// Obtain an instance of DefaultClanPoliticsModel from the subsystem API first
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.CalculateInfluenceChange(clan, false);
+```
 
 ### CalculateSupportForPolicyInClan
 `public override float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)`
 
-**Purpose:** Handles logic related to `calculate support for policy in clan`.
+**Purpose:** Calculates the current value or result of `support for policy in clan`.
+
+```csharp
+// Obtain an instance of DefaultClanPoliticsModel from the subsystem API first
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.CalculateSupportForPolicyInClan(clan, policy);
+```
 
 ### CalculateRelationshipChangeWithSponsor
 `public override float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)`
 
-**Purpose:** Handles logic related to `calculate relationship change with sponsor`.
+**Purpose:** Calculates the current value or result of `relationship change with sponsor`.
+
+```csharp
+// Obtain an instance of DefaultClanPoliticsModel from the subsystem API first
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.CalculateRelationshipChangeWithSponsor(clan, sponsorClan);
+```
 
 ### GetInfluenceRequiredToOverrideKingdomDecision
 `public override int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)`
 
-**Purpose:** Gets the current value of `influence required to override kingdom decision`.
+**Purpose:** Reads and returns the `influence required to override kingdom decision` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultClanPoliticsModel from the subsystem API first
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.GetInfluenceRequiredToOverrideKingdomDecision(popularOption, overridingOption, decision);
+```
 
 ### CanHeroBeGovernor
 `public override bool CanHeroBeGovernor(Hero hero)`
 
-**Purpose:** Checks whether the current object can `hero be governor`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero be governor`.
+
+```csharp
+// Obtain an instance of DefaultClanPoliticsModel from the subsystem API first
+DefaultClanPoliticsModel defaultClanPoliticsModel = ...;
+var result = defaultClanPoliticsModel.CanHeroBeGovernor(hero);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultClanPoliticsModel>(new MyDefaultClanPoliticsMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

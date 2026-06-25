@@ -1,13 +1,7 @@
 ---
 title: "QuestsVM"
+description: "Auto-generated class reference for QuestsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestsVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -56,50 +50,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of QuestsVM from the subsystem API first
+QuestsVM questsVM = ...;
+questsVM.RefreshValues();
+```
 
 ### ExecuteOpenQuestGiverEncyclopedia
 `public void ExecuteOpenQuestGiverEncyclopedia()`
 
-**Purpose:** Executes the `open quest giver encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open quest giver encyclopedia`.
+
+```csharp
+// Obtain an instance of QuestsVM from the subsystem API first
+QuestsVM questsVM = ...;
+questsVM.ExecuteOpenQuestGiverEncyclopedia();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of QuestsVM from the subsystem API first
+QuestsVM questsVM = ...;
+questsVM.ExecuteClose();
+```
 
 ### SetSelectedIssue
 `public void SetSelectedIssue(IssueBase issue)`
 
-**Purpose:** Sets the value or state of `selected issue`.
+**Purpose:** Assigns a new value to `selected issue` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of QuestsVM from the subsystem API first
+QuestsVM questsVM = ...;
+questsVM.SetSelectedIssue(issue);
+```
 
 ### SetSelectedQuest
 `public void SetSelectedQuest(QuestBase quest)`
 
-**Purpose:** Sets the value or state of `selected quest`.
+**Purpose:** Assigns a new value to `selected quest` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of QuestsVM from the subsystem API first
+QuestsVM questsVM = ...;
+questsVM.SetSelectedQuest(quest);
+```
 
 ### SetSelectedLog
 `public void SetSelectedLog(JournalLogEntry log)`
 
-**Purpose:** Sets the value or state of `selected log`.
+**Purpose:** Assigns a new value to `selected log` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of QuestsVM from the subsystem API first
+QuestsVM questsVM = ...;
+questsVM.SetSelectedLog(log);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of QuestsVM from the subsystem API first
+QuestsVM questsVM = ...;
+questsVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of QuestsVM from the subsystem API first
+QuestsVM questsVM = ...;
+questsVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+QuestsVM questsVM = ...;
+questsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

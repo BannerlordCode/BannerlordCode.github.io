@@ -1,13 +1,7 @@
 ---
 title: "RefinementVM"
+description: "RefinementVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RefinementVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RefinementVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Refinement
@@ -38,25 +32,44 @@ title: "RefinementVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RefinementVM 实例
+RefinementVM refinementVM = ...;
+refinementVM.RefreshValues();
+```
 
 ### ExecuteSelectedRefinement
 `public void ExecuteSelectedRefinement(Hero currentCraftingHero)`
 
-**用途 / Purpose:** 执行 `selected refinement` 操作或流程。
+**用途 / Purpose:** 执行 「selected refinement」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RefinementVM 实例
+RefinementVM refinementVM = ...;
+refinementVM.ExecuteSelectedRefinement(currentCraftingHero);
+```
 
 ### RefreshRefinementActionsList
 `public void RefreshRefinementActionsList(Hero craftingHero)`
 
-**用途 / Purpose:** 刷新 `refinement actions list` 的显示或缓存。
+**用途 / Purpose:** 使 「refinement actions list」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RefinementVM 实例
+RefinementVM refinementVM = ...;
+refinementVM.RefreshRefinementActionsList(craftingHero);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RefinementVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+RefinementVM refinementVM = ...;
+refinementVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MPPerksAgentComponent"
+description: "Auto-generated class reference for MPPerksAgentComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerksAgentComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPPerksAgentComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,27 +23,57 @@ Treat `MPPerksAgentComponent` as a Component-style extension point: first identi
 ### OnMount
 `public override void OnMount(Agent mount)`
 
-**Purpose:** Called when the `mount` event is raised.
+**Purpose:** Invoked when the `mount` event is raised.
+
+```csharp
+// Obtain an instance of MPPerksAgentComponent from the subsystem API first
+MPPerksAgentComponent mPPerksAgentComponent = ...;
+mPPerksAgentComponent.OnMount(mount);
+```
 
 ### OnDismount
 `public override void OnDismount(Agent mount)`
 
-**Purpose:** Called when the `dismount` event is raised.
+**Purpose:** Invoked when the `dismount` event is raised.
+
+```csharp
+// Obtain an instance of MPPerksAgentComponent from the subsystem API first
+MPPerksAgentComponent mPPerksAgentComponent = ...;
+mPPerksAgentComponent.OnDismount(mount);
+```
 
 ### OnItemPickup
 `public override void OnItemPickup(SpawnedItemEntity item)`
 
-**Purpose:** Called when the `item pickup` event is raised.
+**Purpose:** Invoked when the `item pickup` event is raised.
+
+```csharp
+// Obtain an instance of MPPerksAgentComponent from the subsystem API first
+MPPerksAgentComponent mPPerksAgentComponent = ...;
+mPPerksAgentComponent.OnItemPickup(item);
+```
 
 ### OnWeaponDrop
 `public override void OnWeaponDrop(MissionWeapon droppedWeapon)`
 
-**Purpose:** Called when the `weapon drop` event is raised.
+**Purpose:** Invoked when the `weapon drop` event is raised.
+
+```csharp
+// Obtain an instance of MPPerksAgentComponent from the subsystem API first
+MPPerksAgentComponent mPPerksAgentComponent = ...;
+mPPerksAgentComponent.OnWeaponDrop(droppedWeapon);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MPPerksAgentComponent from the subsystem API first
+MPPerksAgentComponent mPPerksAgentComponent = ...;
+mPPerksAgentComponent.OnAgentRemoved();
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ var component = agent.GetComponent<MPPerksAgentComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

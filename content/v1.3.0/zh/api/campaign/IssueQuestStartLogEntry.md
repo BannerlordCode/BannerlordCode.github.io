@@ -1,13 +1,7 @@
 ---
 title: "IssueQuestStartLogEntry"
+description: "IssueQuestStartLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IssueQuestStartLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IssueQuestStartLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,15 +29,22 @@ title: "IssueQuestStartLogEntry"
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**用途 / Purpose:** 获取 `conversation score and comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation score and comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 IssueQuestStartLogEntry 实例
+IssueQuestStartLogEntry issueQuestStartLogEntry = ...;
+issueQuestStartLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new IssueQuestStartLogEntry();
-value.GetConversationScoreAndComment(talkTroop, false, comment, score);
+// 通常从对应子系统 API 获取实例后调用
+IssueQuestStartLogEntry issueQuestStartLogEntry = ...;
+issueQuestStartLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

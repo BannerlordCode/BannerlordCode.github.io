@@ -1,13 +1,7 @@
 ---
 title: "BattleServer"
+description: "Auto-generated class reference for BattleServer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleServer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleServer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -51,120 +45,253 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### Initialize
 `public void Initialize(IBattleServerSessionHandler handler)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.Initialize(handler);
+```
 
 ### SetBadgeComponent
 `public void SetBadgeComponent(IBadgeComponent badgeComponent)`
 
-**Purpose:** Sets the value or state of `badge component`.
+**Purpose:** Assigns a new value to `badge component` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.SetBadgeComponent(badgeComponent);
+```
 
 ### StartServer
 `public void StartServer()`
 
-**Purpose:** Handles logic related to `start server`.
+**Purpose:** Starts the `server` flow or state machine.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.StartServer();
+```
 
 ### OnConnected
 `public override void OnConnected()`
 
-**Purpose:** Called when the `connected` event is raised.
+**Purpose:** Invoked when the `connected` event is raised.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.OnConnected();
+```
 
 ### OnCantConnect
 `public override void OnCantConnect()`
 
-**Purpose:** Called when the `cant connect` event is raised.
+**Purpose:** Invoked when the `cant connect` event is raised.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.OnCantConnect();
+```
 
 ### OnDisconnected
 `public override void OnDisconnected()`
 
-**Purpose:** Called when the `disconnected` event is raised.
+**Purpose:** Invoked when the `disconnected` event is raised.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.OnDisconnected();
+```
 
 ### BeginEndMission
 `public void BeginEndMission()`
 
-**Purpose:** Handles logic related to `begin end mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.BeginEndMission();
+```
 
 ### EndMission
 `public void EndMission(BattleResult battleResult, GameLog gameLogs, int gameTime, Dictionary<int, int> teamScores, Dictionary<PlayerId, int> playerScores)`
 
-**Purpose:** Handles logic related to `end mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.EndMission(battleResult, gameLogs, 0, dictionary<int, 0, dictionary<PlayerId, 0);
+```
 
 ### BattleCancelledForPlayerLeaving
 `public void BattleCancelledForPlayerLeaving(PlayerId leaverID)`
 
-**Purpose:** Handles logic related to `battle cancelled for player leaving`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.BattleCancelledForPlayerLeaving(leaverID);
+```
 
 ### BattleStarted
 `public void BattleStarted(BattleResult battleResult)`
 
-**Purpose:** Handles logic related to `battle started`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.BattleStarted(battleResult);
+```
 
 ### UpdateBattleStats
 `public void UpdateBattleStats(BattleResult battleResult, Dictionary<int, int> teamScores)`
 
-**Purpose:** Updates the state or data of `battle stats`.
+**Purpose:** Recalculates and stores the latest representation of `battle stats`.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.UpdateBattleStats(battleResult, dictionary<int, 0);
+```
 
 ### DoNotAcceptNewPlayers
 `public void DoNotAcceptNewPlayers()`
 
-**Purpose:** Handles logic related to `do not accept new players`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.DoNotAcceptNewPlayers();
+```
 
 ### OnWarmupEnded
 `public void OnWarmupEnded()`
 
-**Purpose:** Called when the `warmup ended` event is raised.
+**Purpose:** Invoked when the `warmup ended` event is raised.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.OnWarmupEnded();
+```
 
 ### OnPlayerSpawned
 `public void OnPlayerSpawned(PlayerId playerId)`
 
-**Purpose:** Called when the `player spawned` event is raised.
+**Purpose:** Invoked when the `player spawned` event is raised.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.OnPlayerSpawned(playerId);
+```
 
 ### GetPeer
 `public BattlePeer GetPeer(string name)`
 
-**Purpose:** Gets the current value of `peer`.
+**Purpose:** Reads and returns the `peer` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+var result = battleServer.GetPeer("example");
+```
 
 ### GetPeer
 `public BattlePeer GetPeer(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `peer`.
+**Purpose:** Reads and returns the `peer` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+var result = battleServer.GetPeer(playerId);
+```
 
 ### GetPlayerParty
 `public Guid GetPlayerParty(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `player party`.
+**Purpose:** Reads and returns the `player party` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+var result = battleServer.GetPlayerParty(playerId);
+```
 
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerId, DisconnectType disconnectType, BattleResult battleResult)`
 
-**Purpose:** Handles the `player disconnect` event or callback.
+**Purpose:** Executes the response logic associated with `player disconnect`.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.HandlePlayerDisconnect(playerId, disconnectType, battleResult);
+```
 
 ### InformGameServerReady
 `public void InformGameServerReady()`
 
-**Purpose:** Handles logic related to `inform game server ready`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.InformGameServerReady();
+```
 
 ### OnFriendlyHit
 `public void OnFriendlyHit(int round, PlayerId hitter, PlayerId victim, float damage)`
 
-**Purpose:** Called when the `friendly hit` event is raised.
+**Purpose:** Invoked when the `friendly hit` event is raised.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.OnFriendlyHit(0, hitter, victim, 0);
+```
 
 ### OnFriendlyKill
 `public void OnFriendlyKill(int round, PlayerId killer, PlayerId victim)`
 
-**Purpose:** Called when the `friendly kill` event is raised.
+**Purpose:** Invoked when the `friendly kill` event is raised.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+battleServer.OnFriendlyKill(0, killer, victim);
+```
 
 ### AllPlayersConnected
 `public bool AllPlayersConnected()`
 
-**Purpose:** Handles logic related to `all players connected`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleServer from the subsystem API first
+BattleServer battleServer = ...;
+var result = battleServer.AllPlayersConnected();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattleServer();
-value.Initialize(handler);
+// Typically call this after obtaining an instance from the subsystem API
+BattleServer battleServer = ...;
+battleServer.Initialize(handler);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

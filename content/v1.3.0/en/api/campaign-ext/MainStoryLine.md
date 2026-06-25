@@ -1,13 +1,7 @@
 ---
 title: "MainStoryLine"
+description: "Auto-generated class reference for MainStoryLine."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainStoryLine`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainStoryLine
 
 **Namespace:** StoryMode
@@ -46,55 +40,110 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### OnSessionLaunched
 `public void OnSessionLaunched()`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.OnSessionLaunched();
+```
 
 ### SetTutorialScores
 `public void SetTutorialScores(Dictionary<string, float> scores)`
 
-**Purpose:** Sets the value or state of `tutorial scores`.
+**Purpose:** Assigns a new value to `tutorial scores` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.SetTutorialScores(dictionary<string, 0);
+```
 
 ### GetTutorialScores
 `public Dictionary<string, float> GetTutorialScores()`
 
-**Purpose:** Gets the current value of `tutorial scores`.
+**Purpose:** Reads and returns the `tutorial scores` value held by the current object.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+var result = mainStoryLine.GetTutorialScores();
+```
 
 ### SetStoryLineSide
 `public void SetStoryLineSide(MainStoryLineSide side)`
 
-**Purpose:** Sets the value or state of `story line side`.
+**Purpose:** Assigns a new value to `story line side` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.SetStoryLineSide(side);
+```
 
 ### SetMentorSettlements
 `public void SetMentorSettlements(Settlement imperialMentorSettlement, Settlement antiImperialMentorSettlement)`
 
-**Purpose:** Sets the value or state of `mentor settlements`.
+**Purpose:** Assigns a new value to `mentor settlements` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.SetMentorSettlements(imperialMentorSettlement, antiImperialMentorSettlement);
+```
 
 ### CompleteTutorialPhase
 `public void CompleteTutorialPhase(bool isSkipped)`
 
-**Purpose:** Handles logic related to `complete tutorial phase`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.CompleteTutorialPhase(false);
+```
 
 ### CompleteFirstPhase
 `public void CompleteFirstPhase()`
 
-**Purpose:** Handles logic related to `complete first phase`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.CompleteFirstPhase();
+```
 
 ### CompleteSecondPhase
 `public void CompleteSecondPhase()`
 
-**Purpose:** Handles logic related to `complete second phase`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.CompleteSecondPhase();
+```
 
 ### CancelSecondAndThirdPhase
 `public void CancelSecondAndThirdPhase()`
 
-**Purpose:** Checks whether the current object can `cel second and third phase`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel second and third phase`.
+
+```csharp
+// Obtain an instance of MainStoryLine from the subsystem API first
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.CancelSecondAndThirdPhase();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MainStoryLine();
-value.OnSessionLaunched();
+// Typically call this after obtaining an instance from the subsystem API
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.OnSessionLaunched();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

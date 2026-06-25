@@ -1,13 +1,7 @@
 ---
 title: "Items"
+description: "Auto-generated class reference for Items."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Items`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Items
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ## Usage Example
 
 ```csharp
-var example = new Items();
+// Obtain an instance from the relevant subsystem API
+Items instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

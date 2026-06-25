@@ -1,20 +1,14 @@
 ---
 title: "Camera"
+description: "Camera 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Camera`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Camera
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class Camera : NativeObject`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Camera.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Camera.cs`
 
 ## 概述
 
@@ -37,107 +31,230 @@ title: "Camera"
 ### CreateCamera
 `public static Camera CreateCamera()`
 
-**用途 / Purpose:** 创建一个 `camera` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「camera」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Camera.CreateCamera();
+```
 
 ### ReleaseCamera
 `public void ReleaseCamera()`
 
-**用途 / Purpose:** 处理 `release camera` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.ReleaseCamera();
+```
 
 ### ReleaseCameraEntity
 `public void ReleaseCameraEntity()`
 
-**用途 / Purpose:** 处理 `release camera entity` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.ReleaseCameraEntity();
+```
 
 ### LookAt
 `public void LookAt(Vec3 position, Vec3 target, Vec3 upVector)`
 
-**用途 / Purpose:** 处理 `look at` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.LookAt(position, target, upVector);
+```
 
 ### ScreenSpaceRayProjection
 `public void ScreenSpaceRayProjection(Vec2 screenPosition, ref Vec3 rayBegin, ref Vec3 rayEnd)`
 
-**用途 / Purpose:** 处理 `screen space ray projection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.ScreenSpaceRayProjection(screenPosition, rayBegin, rayEnd);
+```
 
 ### CheckEntityVisibility
 `public bool CheckEntityVisibility(GameEntity entity)`
 
-**用途 / Purpose:** 处理 `check entity visibility` 相关逻辑。
+**用途 / Purpose:** 检查「entity visibility」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+var result = camera.CheckEntityVisibility(entity);
+```
 
 ### SetViewVolume
 `public void SetViewVolume(bool perspective, float dLeft, float dRight, float dBottom, float dTop, float dNear, float dFar)`
 
-**用途 / Purpose:** 设置 `view volume` 的值或状态。
+**用途 / Purpose:** 为 「view volume」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.SetViewVolume(false, 0, 0, 0, 0, 0, 0);
+```
 
 ### GetNearPlanePointsStatic
 `public static void GetNearPlanePointsStatic(ref MatrixFrame cameraFrame, float verticalFov, float aspectRatioXY, float newDNear, float newDFar, Vec3 nearPlanePoints)`
 
-**用途 / Purpose:** 获取 `near plane points static` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「near plane points static」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Camera.GetNearPlanePointsStatic(cameraFrame, 0, 0, 0, 0, nearPlanePoints);
+```
 
 ### GetNearPlanePoints
 `public void GetNearPlanePoints(Vec3 nearPlanePoints)`
 
-**用途 / Purpose:** 获取 `near plane points` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「near plane points」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.GetNearPlanePoints(nearPlanePoints);
+```
 
 ### SetFovVertical
 `public void SetFovVertical(float verticalFov, float aspectRatioXY, float newDNear, float newDFar)`
 
-**用途 / Purpose:** 设置 `fov vertical` 的值或状态。
+**用途 / Purpose:** 为 「fov vertical」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.SetFovVertical(0, 0, 0, 0);
+```
 
 ### SetFovHorizontal
 `public void SetFovHorizontal(float horizontalFov, float aspectRatioXY, float newDNear, float newDFar)`
 
-**用途 / Purpose:** 设置 `fov horizontal` 的值或状态。
+**用途 / Purpose:** 为 「fov horizontal」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.SetFovHorizontal(0, 0, 0, 0);
+```
 
 ### GetViewProjMatrix
 `public void GetViewProjMatrix(ref MatrixFrame viewProj)`
 
-**用途 / Purpose:** 获取 `view proj matrix` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「view proj matrix」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.GetViewProjMatrix(viewProj);
+```
 
 ### GetFovVertical
 `public float GetFovVertical()`
 
-**用途 / Purpose:** 获取 `fov vertical` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「fov vertical」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+var result = camera.GetFovVertical();
+```
 
 ### GetFovHorizontal
 `public float GetFovHorizontal()`
 
-**用途 / Purpose:** 获取 `fov horizontal` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「fov horizontal」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+var result = camera.GetFovHorizontal();
+```
 
 ### GetAspectRatio
 `public float GetAspectRatio()`
 
-**用途 / Purpose:** 获取 `aspect ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「aspect ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+var result = camera.GetAspectRatio();
+```
 
 ### FillParametersFrom
 `public void FillParametersFrom(Camera otherCamera)`
 
-**用途 / Purpose:** 处理 `fill parameters from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.FillParametersFrom(otherCamera);
+```
 
 ### RenderFrustrum
 `public void RenderFrustrum()`
 
-**用途 / Purpose:** 处理 `render frustrum` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.RenderFrustrum();
+```
 
 ### ViewportPointToWorldRay
 `public void ViewportPointToWorldRay(ref Vec3 rayBegin, ref Vec3 rayEnd, Vec2 viewportPoint)`
 
-**用途 / Purpose:** 处理 `viewport point to world ray` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+camera.ViewportPointToWorldRay(rayBegin, rayEnd, viewportPoint);
+```
 
 ### WorldPointToViewPortPoint
 `public Vec3 WorldPointToViewPortPoint(ref Vec3 worldPoint)`
 
-**用途 / Purpose:** 处理 `world point to view port point` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+var result = camera.WorldPointToViewPortPoint(worldPoint);
+```
 
 ### EnclosesPoint
 `public bool EnclosesPoint(Vec3 pointInWorldSpace)`
 
-**用途 / Purpose:** 处理 `encloses point` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Camera 实例
+Camera camera = ...;
+var result = camera.EnclosesPoint(pointInWorldSpace);
+```
 
 ### ConstructCameraFromPositionElevationBearing
 `public static MatrixFrame ConstructCameraFromPositionElevationBearing(Vec3 position, float elevation, float bearing)`
 
-**用途 / Purpose:** 处理 `construct camera from position elevation bearing` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Camera.ConstructCameraFromPositionElevationBearing(position, 0, 0);
+```
 
 ## 使用示例
 
@@ -147,4 +264,4 @@ Camera.CreateCamera();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

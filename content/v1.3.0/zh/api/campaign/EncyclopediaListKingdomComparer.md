@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListKingdomComparer"
+description: "EncyclopediaListKingdomComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListKingdomComparer`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListKingdomComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,14 +23,21 @@ title: "EncyclopediaListKingdomComparer"
 ### CompareKingdoms
 `public int CompareKingdoms(EncyclopediaListItem x, EncyclopediaListItem y, Func<Kingdom, Kingdom, int> comparison)`
 
-**用途 / Purpose:** 处理 `compare kingdoms` 相关逻辑。
+**用途 / Purpose:** 比较两个「kingdoms」对象并返回大小/顺序结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListKingdomComparer 实例
+EncyclopediaListKingdomComparer encyclopediaListKingdomComparer = ...;
+var result = encyclopediaListKingdomComparer.CompareKingdoms(x, y, func<Kingdom, kingdom, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEncyclopediaListKingdomComparer();
+// 通常通过子系统 API 或工厂获得派生实例
+EncyclopediaListKingdomComparer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

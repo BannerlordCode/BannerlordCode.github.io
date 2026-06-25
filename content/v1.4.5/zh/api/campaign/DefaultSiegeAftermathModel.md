@@ -1,20 +1,14 @@
 ---
 title: "DefaultSiegeAftermathModel"
+description: "DefaultSiegeAftermathModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSiegeAftermathModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeAftermathModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSiegeAftermathModel : SiegeAftermathModel`
 **Base:** `SiegeAftermathModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeAftermathModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeAftermathModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultSiegeAftermathModel"
 ### GetSiegeAftermathTraitXpChangeForPlayer
 `public override int GetSiegeAftermathTraitXpChangeForPlayer(TraitObject trait, Settlement devastatedSettlement, SiegeAftermathAction.SiegeAftermath aftermathType)`
 
-**用途 / Purpose:** 获取 `siege aftermath trait xp change for player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege aftermath trait xp change for player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSiegeAftermathModel 实例
+DefaultSiegeAftermathModel defaultSiegeAftermathModel = ...;
+var result = defaultSiegeAftermathModel.GetSiegeAftermathTraitXpChangeForPlayer(trait, devastatedSettlement, aftermathType);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultSiegeAftermathModel>(new MyDefaultSiegeAftermat
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

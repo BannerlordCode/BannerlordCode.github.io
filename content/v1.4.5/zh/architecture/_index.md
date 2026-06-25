@@ -14,7 +14,7 @@ description: Bannerlord v1.4.5 的模块结构与开发者入口
 
 - [🏠 v1.4.5 首页](../)
 - [🗂️ API 目录](../api/)
-- [📋 完整类目录](../api/catalog)
+- [📋 完整类目录](../api/)
 - [🔀 跨版本类对比](../../../versions/)
 - [⭐ v1.3.15 规范版 SDK 总览](../../../v1.3.15/zh/architecture/sdk-overview)
 
@@ -31,3 +31,15 @@ description: Bannerlord v1.4.5 的模块结构与开发者入口
 2. 进入 [API 目录](../api/) 找到当前子系统。
 3. 通过类页 breadcrumb 返回 area / api / version 入口。
 4. 若要评估迁移成本，再看 [跨版本类对比](../../../versions/)。
+
+<!-- BEGIN SECTION INDEX -->
+
+## ↑ 上级导航
+
+- [版本首页](../)
+
+## ↓ 子页面目录
+
+_暂无子页面。_
+
+<!-- END SECTION INDEX -->

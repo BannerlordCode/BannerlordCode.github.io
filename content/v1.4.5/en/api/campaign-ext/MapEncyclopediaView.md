@@ -1,20 +1,14 @@
 ---
 title: "MapEncyclopediaView"
+description: "Auto-generated class reference for MapEncyclopediaView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEncyclopediaView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEncyclopediaView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapEncyclopediaView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapEncyclopediaView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapEncyclopediaView.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MapEncyclopediaView` as a View-style extension point: first identify who 
 ### CloseEncyclopedia
 `public virtual void CloseEncyclopedia()`
 
-**Purpose:** Handles logic related to `close encyclopedia`.
+**Purpose:** Closes the resource or UI associated with `encyclopedia`.
+
+```csharp
+// Obtain an instance of MapEncyclopediaView from the subsystem API first
+MapEncyclopediaView mapEncyclopediaView = ...;
+mapEncyclopediaView.CloseEncyclopedia();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MapEncyclopediaView();
+// Retrieve this view from the subsystem API or scene
+MapEncyclopediaView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

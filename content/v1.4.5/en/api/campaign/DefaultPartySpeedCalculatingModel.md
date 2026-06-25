@@ -1,20 +1,14 @@
 ---
 title: "DefaultPartySpeedCalculatingModel"
+description: "Auto-generated class reference for DefaultPartySpeedCalculatingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartySpeedCalculatingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartySpeedCalculatingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPartySpeedCalculatingModel : PartySpeedModel`
 **Base:** `PartySpeedModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartySpeedCalculatingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartySpeedCalculatingModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DefaultPartySpeedCalculatingModel` as a Model-style extension point: firs
 ### CalculateBaseSpeed
 `public override ExplainedNumber CalculateBaseSpeed(MobileParty mobileParty, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
 
-**Purpose:** Handles logic related to `calculate base speed`.
+**Purpose:** Calculates the current value or result of `base speed`.
+
+```csharp
+// Obtain an instance of DefaultPartySpeedCalculatingModel from the subsystem API first
+DefaultPartySpeedCalculatingModel defaultPartySpeedCalculatingModel = ...;
+var result = defaultPartySpeedCalculatingModel.CalculateBaseSpeed(mobileParty, false, 0, 0);
+```
 
 ### CalculateFinalSpeed
 `public override ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
 
-**Purpose:** Handles logic related to `calculate final speed`.
+**Purpose:** Calculates the current value or result of `final speed`.
+
+```csharp
+// Obtain an instance of DefaultPartySpeedCalculatingModel from the subsystem API first
+DefaultPartySpeedCalculatingModel defaultPartySpeedCalculatingModel = ...;
+var result = defaultPartySpeedCalculatingModel.CalculateFinalSpeed(mobileParty, finalSpeed);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultPartySpeedCalculatingModel>(new MyDefaultPartyS
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

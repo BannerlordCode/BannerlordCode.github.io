@@ -1,13 +1,7 @@
 ---
 title: "RangedSiegeWeaponViewController"
+description: "RangedSiegeWeaponViewController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RangedSiegeWeaponViewController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedSiegeWeaponViewController
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon
@@ -29,7 +23,13 @@ title: "RangedSiegeWeaponViewController"
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**用途 / Purpose:** 当 `object used` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「object used」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponViewController 实例
+RangedSiegeWeaponViewController rangedSiegeWeaponViewController = ...;
+rangedSiegeWeaponViewController.OnObjectUsed(userAgent, usedObject);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<RangedSiegeWeaponViewControl
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultStrikeMagnitudeModel"
+description: "Auto-generated class reference for DefaultStrikeMagnitudeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultStrikeMagnitudeModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultStrikeMagnitudeModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,37 +23,79 @@ Treat `DefaultStrikeMagnitudeModel` as a Model-style extension point: first iden
 ### CalculateStrikeMagnitudeForMissile
 `public override float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for missile`.
+**Purpose:** Calculates the current value or result of `strike magnitude for missile`.
+
+```csharp
+// Obtain an instance of DefaultStrikeMagnitudeModel from the subsystem API first
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateStrikeMagnitudeForMissile(attackInformation, collisionData, weapon, 0);
+```
 
 ### CalculateStrikeMagnitudeForSwing
 `public override float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for swing`.
+**Purpose:** Calculates the current value or result of `strike magnitude for swing`.
+
+```csharp
+// Obtain an instance of DefaultStrikeMagnitudeModel from the subsystem API first
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateStrikeMagnitudeForSwing(attackInformation, collisionData, weapon, 0, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public override float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for unarmed attack`.
+**Purpose:** Calculates the current value or result of `strike magnitude for unarmed attack`.
+
+```csharp
+// Obtain an instance of DefaultStrikeMagnitudeModel from the subsystem API first
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateStrikeMagnitudeForUnarmedAttack(attackInformation, collisionData, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForThrust
 `public override float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustWeaponSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for thrust`.
+**Purpose:** Calculates the current value or result of `strike magnitude for thrust`.
+
+```csharp
+// Obtain an instance of DefaultStrikeMagnitudeModel from the subsystem API first
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateStrikeMagnitudeForThrust(attackInformation, collisionData, weapon, 0, 0, false);
+```
 
 ### ComputeRawDamage
 `public override float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**Purpose:** Handles logic related to `compute raw damage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultStrikeMagnitudeModel from the subsystem API first
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.ComputeRawDamage(damageType, 0, 0, 0);
+```
 
 ### GetBluntDamageFactorByDamageType
 `public override float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `blunt damage factor by damage type`.
+**Purpose:** Reads and returns the `blunt damage factor by damage type` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultStrikeMagnitudeModel from the subsystem API first
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.GetBluntDamageFactorByDamageType(damageType);
+```
 
 ### CalculateHorseArcheryFactor
 `public override float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**Purpose:** Handles logic related to `calculate horse archery factor`.
+**Purpose:** Calculates the current value or result of `horse archery factor`.
+
+```csharp
+// Obtain an instance of DefaultStrikeMagnitudeModel from the subsystem API first
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateHorseArcheryFactor(characterObject);
+```
 
 ## Usage Example
 
@@ -69,4 +105,4 @@ Game.Current.ReplaceModel<DefaultStrikeMagnitudeModel>(new MyDefaultStrikeMagnit
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

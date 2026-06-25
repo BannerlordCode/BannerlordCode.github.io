@@ -1,13 +1,7 @@
 ---
 title: "VolunteerModel"
+description: "VolunteerModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VolunteerModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VolunteerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,34 +29,65 @@ title: "VolunteerModel"
 ### MaximumIndexHeroCanRecruitFromHero
 `public abstract int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
 
-**用途 / Purpose:** 处理 `maximum index hero can recruit from hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VolunteerModel 实例
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.MaximumIndexHeroCanRecruitFromHero(buyerHero, sellerHero, 0);
+```
 
 ### MaximumIndexGarrisonCanRecruitFromHero
 `public abstract int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
 
-**用途 / Purpose:** 处理 `maximum index garrison can recruit from hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VolunteerModel 实例
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.MaximumIndexGarrisonCanRecruitFromHero(settlement, sellerHero);
+```
 
 ### GetDailyVolunteerProductionProbability
 `public abstract float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
 
-**用途 / Purpose:** 获取 `daily volunteer production probability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily volunteer production probability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VolunteerModel 实例
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.GetDailyVolunteerProductionProbability(hero, 0, settlement);
+```
 
 ### GetBasicVolunteer
 `public abstract CharacterObject GetBasicVolunteer(Hero hero)`
 
-**用途 / Purpose:** 获取 `basic volunteer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「basic volunteer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VolunteerModel 实例
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.GetBasicVolunteer(hero);
+```
 
 ### CanHaveRecruits
 `public abstract bool CanHaveRecruits(Hero hero)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `have recruits`。
+**用途 / Purpose:** 检查当前对象是否满足 「have recruits」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 VolunteerModel 实例
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.CanHaveRecruits(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomVolunteerModel();
+// 通常通过子系统 API 或工厂获得派生实例
+VolunteerModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

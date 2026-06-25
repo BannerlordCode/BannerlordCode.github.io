@@ -1,20 +1,14 @@
 ---
 title: "GauntletPartyScreen"
+description: "GauntletPartyScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletPartyScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletPartyScreen
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletPartyScreen : ScreenBase, IGameStateListener, IChangeableScreen, IPartyScreenLogicHandler, IPartyScreenPrisonHandler, IPartyScreenTroopHandler`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletPartyScreen.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletPartyScreen.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "GauntletPartyScreen"
 ### RequestUserInput
 `public void RequestUserInput(string text, Action accept, Action cancel)`
 
-**用途 / Purpose:** 处理 `request user input` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletPartyScreen 实例
+GauntletPartyScreen gauntletPartyScreen = ...;
+gauntletPartyScreen.RequestUserInput("example", accept, cancel);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletPartyScreen();
-value.RequestUserInput("example", accept, cancel);
+// 通常从对应子系统 API 获取实例后调用
+GauntletPartyScreen gauntletPartyScreen = ...;
+gauntletPartyScreen.RequestUserInput("example", accept, cancel);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

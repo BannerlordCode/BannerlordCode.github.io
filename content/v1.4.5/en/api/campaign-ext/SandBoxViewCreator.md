@@ -1,23 +1,18 @@
 ---
 title: "SandBoxViewCreator"
+description: "Auto-generated class reference for SandBoxViewCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxViewCreator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewCreator
 
 **Namespace:** SandBox.View
 **Module:** SandBox.View
 **Type:** `public static class SandBoxViewCreator`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox.View/SandBox.View/SandBoxViewCreator.cs`
 
 ## Overview
 
-`SandBoxViewCreator` lives in `SandBox.View`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SandBoxViewCreator` lives in `SandBox.View` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,71 +23,129 @@ Start from namespace `SandBox.View` to place it in the stack, then inspect its p
 ### CreateSaveLoadScreen
 `public static ScreenBase CreateSaveLoadScreen(bool isSaving)`
 
-**Purpose:** Creates a new `save load screen` instance or object.
+**Purpose:** Constructs a new `save load screen` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateSaveLoadScreen(false);
+```
 
 ### CreateMissionCraftingView
 `public static MissionView CreateMissionCraftingView()`
 
-**Purpose:** Creates a new `mission crafting view` instance or object.
+**Purpose:** Constructs a new `mission crafting view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionCraftingView();
+```
 
 ### CreateMissionNameMarkerUIHandler
 `public static MissionView CreateMissionNameMarkerUIHandler(Mission mission = null)`
 
-**Purpose:** Creates a new `mission name marker u i handler` instance or object.
+**Purpose:** Constructs a new `mission name marker u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionNameMarkerUIHandler(null);
+```
 
 ### CreateMissionConversationView
 `public static MissionView CreateMissionConversationView(Mission mission)`
 
-**Purpose:** Creates a new `mission conversation view` instance or object.
+**Purpose:** Constructs a new `mission conversation view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionConversationView(mission);
+```
 
 ### CreateMissionBarterView
 `public static MissionView CreateMissionBarterView()`
 
-**Purpose:** Creates a new `mission barter view` instance or object.
+**Purpose:** Constructs a new `mission barter view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionBarterView();
+```
 
 ### CreateMissionAgentAlarmStateView
 `public static MissionView CreateMissionAgentAlarmStateView(Mission mission = null)`
 
-**Purpose:** Creates a new `mission agent alarm state view` instance or object.
+**Purpose:** Constructs a new `mission agent alarm state view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionAgentAlarmStateView(null);
+```
 
 ### CreateMissionMainAgentDetectionView
 `public static MissionView CreateMissionMainAgentDetectionView(Mission mission = null)`
 
-**Purpose:** Creates a new `mission main agent detection view` instance or object.
+**Purpose:** Constructs a new `mission main agent detection view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionMainAgentDetectionView(null);
+```
 
 ### CreateMissionStealthFailCounter
 `public static MissionView CreateMissionStealthFailCounter(Mission mission = null)`
 
-**Purpose:** Creates a new `mission stealth fail counter` instance or object.
+**Purpose:** Constructs a new `mission stealth fail counter` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionStealthFailCounter(null);
+```
 
 ### CreateMissionTournamentView
 `public static MissionView CreateMissionTournamentView()`
 
-**Purpose:** Creates a new `mission tournament view` instance or object.
+**Purpose:** Constructs a new `mission tournament view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionTournamentView();
+```
 
 ### CreateMissionQuestBarView
 `public static MissionView CreateMissionQuestBarView()`
 
-**Purpose:** Creates a new `mission quest bar view` instance or object.
+**Purpose:** Constructs a new `mission quest bar view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionQuestBarView();
+```
 
 ### CreateBoardGameView
 `public static MissionView CreateBoardGameView()`
 
-**Purpose:** Creates a new `board game view` instance or object.
+**Purpose:** Constructs a new `board game view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateBoardGameView();
+```
 
 ### CreateMissionArenaPracticeFightView
 `public static MissionView CreateMissionArenaPracticeFightView()`
 
-**Purpose:** Creates a new `mission arena practice fight view` instance or object.
+**Purpose:** Constructs a new `mission arena practice fight view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCreator.CreateMissionArenaPracticeFightView();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 SandBoxViewCreator.CreateSaveLoadScreen(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

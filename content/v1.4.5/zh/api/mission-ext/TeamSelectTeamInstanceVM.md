@@ -1,20 +1,14 @@
 ---
 title: "TeamSelectTeamInstanceVM"
+description: "TeamSelectTeamInstanceVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamSelectTeamInstanceVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamSelectTeamInstanceVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamSelectTeamInstanceVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/TeamSelectTeamInstanceVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/TeamSelectTeamInstanceVM.cs`
 
 ## 概述
 
@@ -50,35 +44,66 @@ title: "TeamSelectTeamInstanceVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TeamSelectTeamInstanceVM 实例
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamSelectTeamInstanceVM 实例
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.OnFinalize();
+```
 
 ### RefreshFriends
 `public void RefreshFriends(IEnumerable<MissionPeer> friends)`
 
-**用途 / Purpose:** 刷新 `friends` 的显示或缓存。
+**用途 / Purpose:** 使 「friends」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TeamSelectTeamInstanceVM 实例
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.RefreshFriends(friends);
+```
 
 ### SetIsDisabled
 `public void SetIsDisabled(bool isCurrentTeam, bool disabledForBalance)`
 
-**用途 / Purpose:** 设置 `is disabled` 的值或状态。
+**用途 / Purpose:** 为 「is disabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TeamSelectTeamInstanceVM 实例
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.SetIsDisabled(false, false);
+```
 
 ### ExecuteSelectTeam
 `public void ExecuteSelectTeam()`
 
-**用途 / Purpose:** 执行 `select team` 操作或流程。
+**用途 / Purpose:** 执行 「select team」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TeamSelectTeamInstanceVM 实例
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.ExecuteSelectTeam();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamSelectTeamInstanceVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+TeamSelectTeamInstanceVM teamSelectTeamInstanceVM = ...;
+teamSelectTeamInstanceVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

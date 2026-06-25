@@ -1,13 +1,7 @@
 ---
 title: "MissionHintLogic"
+description: "Auto-generated class reference for MissionHintLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHintLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHintLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.MissionLogics
@@ -35,19 +29,31 @@ Treat `MissionHintLogic` as a Logic-style extension point: first identify who cr
 ### SetActiveHint
 `public void SetActiveHint(MissionHint hint)`
 
-**Purpose:** Sets the value or state of `active hint`.
+**Purpose:** Assigns a new value to `active hint` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionHintLogic from the subsystem API first
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.SetActiveHint(hint);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MissionHintLogic from the subsystem API first
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionHintLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionHintLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

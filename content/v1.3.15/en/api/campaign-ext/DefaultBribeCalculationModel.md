@@ -1,13 +1,7 @@
 ---
 title: "DefaultBribeCalculationModel"
+description: "Auto-generated class reference for DefaultBribeCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBribeCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultBribeCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,22 +23,46 @@ Treat `DefaultBribeCalculationModel` as a Model-style extension point: first ide
 ### IsBribeNotNeededToEnterKeep
 `public override bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
 
-**Purpose:** Handles logic related to `is bribe not needed to enter keep`.
+**Purpose:** Determines whether the current object is in the `bribe not needed to enter keep` state or condition.
+
+```csharp
+// Obtain an instance of DefaultBribeCalculationModel from the subsystem API first
+DefaultBribeCalculationModel defaultBribeCalculationModel = ...;
+var result = defaultBribeCalculationModel.IsBribeNotNeededToEnterKeep(settlement);
+```
 
 ### IsBribeNotNeededToEnterDungeon
 `public override bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
 
-**Purpose:** Handles logic related to `is bribe not needed to enter dungeon`.
+**Purpose:** Determines whether the current object is in the `bribe not needed to enter dungeon` state or condition.
+
+```csharp
+// Obtain an instance of DefaultBribeCalculationModel from the subsystem API first
+DefaultBribeCalculationModel defaultBribeCalculationModel = ...;
+var result = defaultBribeCalculationModel.IsBribeNotNeededToEnterDungeon(settlement);
+```
 
 ### GetBribeToEnterLordsHall
 `public override int GetBribeToEnterLordsHall(Settlement settlement)`
 
-**Purpose:** Gets the current value of `bribe to enter lords hall`.
+**Purpose:** Reads and returns the `bribe to enter lords hall` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBribeCalculationModel from the subsystem API first
+DefaultBribeCalculationModel defaultBribeCalculationModel = ...;
+var result = defaultBribeCalculationModel.GetBribeToEnterLordsHall(settlement);
+```
 
 ### GetBribeToEnterDungeon
 `public override int GetBribeToEnterDungeon(Settlement settlement)`
 
-**Purpose:** Gets the current value of `bribe to enter dungeon`.
+**Purpose:** Reads and returns the `bribe to enter dungeon` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBribeCalculationModel from the subsystem API first
+DefaultBribeCalculationModel defaultBribeCalculationModel = ...;
+var result = defaultBribeCalculationModel.GetBribeToEnterDungeon(settlement);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultBribeCalculationModel>(new MyDefaultBribeCalcul
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

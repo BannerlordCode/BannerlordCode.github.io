@@ -1,13 +1,7 @@
 ---
 title: "CaravanTransactionNotificationItemVM"
+description: "Auto-generated class reference for CaravanTransactionNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaravanTransactionNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaravanTransactionNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
@@ -37,13 +31,20 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 
 **Purpose:** Adds `new items` to the current collection or state.
 
+```csharp
+// Obtain an instance of CaravanTransactionNotificationItemVM from the subsystem API first
+CaravanTransactionNotificationItemVM caravanTransactionNotificationItemVM = ...;
+caravanTransactionNotificationItemVM.AddNewItems(list<ValueTuple<EquipmentElement, 0);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new CaravanTransactionNotificationItemVM();
-value.AddNewItems(list<ValueTuple<EquipmentElement, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CaravanTransactionNotificationItemVM caravanTransactionNotificationItemVM = ...;
+caravanTransactionNotificationItemVM.AddNewItems(list<ValueTuple<EquipmentElement, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CharacterStatsModel"
+description: "CharacterStatsModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterStatsModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterStatsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,24 +29,43 @@ title: "CharacterStatsModel"
 ### MaxHitpoints
 `public abstract ExplainedNumber MaxHitpoints(CharacterObject character, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `max hitpoints` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterStatsModel 实例
+CharacterStatsModel characterStatsModel = ...;
+var result = characterStatsModel.MaxHitpoints(character, false);
+```
 
 ### GetTier
 `public abstract int GetTier(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterStatsModel 实例
+CharacterStatsModel characterStatsModel = ...;
+var result = characterStatsModel.GetTier(character);
+```
 
 ### WoundedHitPointLimit
 `public abstract int WoundedHitPointLimit(Hero hero)`
 
-**用途 / Purpose:** 处理 `wounded hit point limit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterStatsModel 实例
+CharacterStatsModel characterStatsModel = ...;
+var result = characterStatsModel.WoundedHitPointLimit(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCharacterStatsModel();
+// 通常通过子系统 API 或工厂获得派生实例
+CharacterStatsModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

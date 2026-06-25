@@ -1,20 +1,14 @@
 ---
 title: "FormationConfiguration"
+description: "Auto-generated class reference for FormationConfiguration."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationConfiguration`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationConfiguration
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationConfiguration`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### FormationConfiguration
 `public struct FormationConfiguration(int formationIndex, List<FormationFilterType> filters)`
 
-**Purpose:** Handles logic related to `formation configuration`.
+**Purpose:** Formats `ion configuration` into a string suitable for display or storage.
+
+```csharp
+// Obtain an instance of FormationConfiguration from the subsystem API first
+FormationConfiguration formationConfiguration = ...;
+var result = formationConfiguration.FormationConfiguration(0, filters);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationConfiguration();
-value.FormationConfiguration(0, filters);
+// Typically call this after obtaining an instance from the subsystem API
+FormationConfiguration formationConfiguration = ...;
+formationConfiguration.FormationConfiguration(0, filters);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

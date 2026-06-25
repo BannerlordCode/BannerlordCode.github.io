@@ -1,20 +1,14 @@
 ---
 title: "AvatarDataResponse"
+description: "Auto-generated class reference for AvatarDataResponse."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvatarDataResponse`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarDataResponse
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class AvatarDataResponse`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarDataResponse.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarDataResponse.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.PlayerServices.Avatar` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new AvatarDataResponse();
+// Obtain an instance from the relevant subsystem API
+AvatarDataResponse instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

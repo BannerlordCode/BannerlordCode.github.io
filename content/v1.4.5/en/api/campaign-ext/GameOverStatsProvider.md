@@ -1,20 +1,14 @@
 ---
 title: "GameOverStatsProvider"
+description: "Auto-generated class reference for GameOverStatsProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverStatsProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverStatsProvider
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class GameOverStatsProvider`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/GameOverStatsProvider.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/GameOverStatsProvider.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the s
 ### GetGameOverStats
 `public IEnumerable<StatCategory> GetGameOverStats()`
 
-**Purpose:** Gets the current value of `game over stats`.
+**Purpose:** Reads and returns the `game over stats` value held by the current object.
+
+```csharp
+// Obtain an instance of GameOverStatsProvider from the subsystem API first
+GameOverStatsProvider gameOverStatsProvider = ...;
+var result = gameOverStatsProvider.GetGameOverStats();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameOverStatsProvider();
-value.GetGameOverStats();
+// Typically call this after obtaining an instance from the subsystem API
+GameOverStatsProvider gameOverStatsProvider = ...;
+gameOverStatsProvider.GetGameOverStats();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

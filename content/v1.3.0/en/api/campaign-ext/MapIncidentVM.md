@@ -1,13 +1,7 @@
 ---
 title: "MapIncidentVM"
+description: "Auto-generated class reference for MapIncidentVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapIncidentVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapIncidentVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Incidents
@@ -47,30 +41,55 @@ Start from namespace `SandBox.ViewModelCollection.Map.Incidents` to place it in 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapIncidentVM from the subsystem API first
+MapIncidentVM mapIncidentVM = ...;
+mapIncidentVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapIncidentVM from the subsystem API first
+MapIncidentVM mapIncidentVM = ...;
+mapIncidentVM.OnFinalize();
+```
 
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**Purpose:** Executes the `confirm` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `confirm`.
+
+```csharp
+// Obtain an instance of MapIncidentVM from the subsystem API first
+MapIncidentVM mapIncidentVM = ...;
+mapIncidentVM.ExecuteConfirm();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapIncidentVM from the subsystem API first
+MapIncidentVM mapIncidentVM = ...;
+mapIncidentVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapIncidentVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapIncidentVM mapIncidentVM = ...;
+mapIncidentVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

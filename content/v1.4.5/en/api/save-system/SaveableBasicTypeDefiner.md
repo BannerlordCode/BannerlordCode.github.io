@@ -1,20 +1,14 @@
 ---
 title: "SaveableBasicTypeDefiner"
+description: "Auto-generated class reference for SaveableBasicTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableBasicTypeDefiner`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableBasicTypeDefiner
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveableBasicTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableBasicTypeDefiner.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveableBasicTypeDefiner.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new SaveableBasicTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SaveableBasicTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

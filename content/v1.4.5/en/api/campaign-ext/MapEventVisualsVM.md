@@ -1,20 +1,14 @@
 ---
 title: "MapEventVisualsVM"
+description: "Auto-generated class reference for MapEventVisualsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventVisualsVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventVisualsVM
 
 **Namespace:** SandBox.ViewModelCollection.Map
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MapEventVisualsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map/MapEventVisualsVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map/MapEventVisualsVM.cs`
 
 ## Overview
 
@@ -35,30 +29,55 @@ Start from namespace `SandBox.ViewModelCollection.Map` to place it in the stack,
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of MapEventVisualsVM from the subsystem API first
+MapEventVisualsVM mapEventVisualsVM = ...;
+mapEventVisualsVM.Update(0);
+```
 
 ### OnMapEventVisibilityChanged
 `public void OnMapEventVisibilityChanged(MapEvent mapEvent)`
 
-**Purpose:** Called when the `map event visibility changed` event is raised.
+**Purpose:** Invoked when the `map event visibility changed` event is raised.
+
+```csharp
+// Obtain an instance of MapEventVisualsVM from the subsystem API first
+MapEventVisualsVM mapEventVisualsVM = ...;
+mapEventVisualsVM.OnMapEventVisibilityChanged(mapEvent);
+```
 
 ### OnMapEventStarted
 `public void OnMapEventStarted(MapEvent mapEvent)`
 
-**Purpose:** Called when the `map event started` event is raised.
+**Purpose:** Invoked when the `map event started` event is raised.
+
+```csharp
+// Obtain an instance of MapEventVisualsVM from the subsystem API first
+MapEventVisualsVM mapEventVisualsVM = ...;
+mapEventVisualsVM.OnMapEventStarted(mapEvent);
+```
 
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**Purpose:** Called when the `map event ended` event is raised.
+**Purpose:** Invoked when the `map event ended` event is raised.
+
+```csharp
+// Obtain an instance of MapEventVisualsVM from the subsystem API first
+MapEventVisualsVM mapEventVisualsVM = ...;
+mapEventVisualsVM.OnMapEventEnded(mapEvent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapEventVisualsVM();
-value.Update(0);
+// Typically call this after obtaining an instance from the subsystem API
+MapEventVisualsVM mapEventVisualsVM = ...;
+mapEventVisualsVM.Update(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

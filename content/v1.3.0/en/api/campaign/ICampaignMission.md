@@ -1,18 +1,12 @@
 ---
 title: "ICampaignMission"
+description: "Auto-generated class reference for ICampaignMission."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICampaignMission`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICampaignMission
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICampaignMission`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/ICampaignMission.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-ICampaignMission implementation = GetCampaignMissionImplementation();
+// Usually obtained through DI or a factory method
+IICampaignMission service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

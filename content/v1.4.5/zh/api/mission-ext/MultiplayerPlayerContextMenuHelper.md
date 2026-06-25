@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPlayerContextMenuHelper"
+description: "MultiplayerPlayerContextMenuHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerPlayerContextMenuHelper`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPlayerContextMenuHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerPlayerContextMenuHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPlayerContextMenuHelper.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPlayerContextMenuHelper.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "MultiplayerPlayerContextMenuHelper"
 ### AddLobbyViewProfileOptions
 `public static void AddLobbyViewProfileOptions(MPLobbyPlayerBaseVM player, MBBindingList<StringPairItemWithActionVM> contextMenuOptions)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `lobby view profile options`。
+**用途 / Purpose:** 将 「lobby view profile options」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerPlayerContextMenuHelper.AddLobbyViewProfileOptions(player, contextMenuOptions);
+```
 
 ### AddMissionViewProfileOptions
 `public static void AddMissionViewProfileOptions(MPPlayerVM player, MBBindingList<StringPairItemWithActionVM> contextMenuOptions)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `mission view profile options`。
+**用途 / Purpose:** 将 「mission view profile options」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerPlayerContextMenuHelper.AddMissionViewProfileOptions(player, contextMenuOptions);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ MultiplayerPlayerContextMenuHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultSmithingModel"
+description: "Auto-generated class reference for DefaultSmithingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSmithingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSmithingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSmithingModel : SmithingModel`
 **Base:** `SmithingModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSmithingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSmithingModel.cs`
 
 ## Overview
 
@@ -29,87 +23,189 @@ Treat `DefaultSmithingModel` as a Model-style extension point: first identify wh
 ### GetCraftingPartDifficulty
 `public override int GetCraftingPartDifficulty(CraftingPiece craftingPiece)`
 
-**Purpose:** Gets the current value of `crafting part difficulty`.
+**Purpose:** Reads and returns the `crafting part difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetCraftingPartDifficulty(craftingPiece);
+```
 
 ### CalculateWeaponDesignDifficulty
 `public override int CalculateWeaponDesignDifficulty(WeaponDesign weaponDesign)`
 
-**Purpose:** Handles logic related to `calculate weapon design difficulty`.
+**Purpose:** Calculates the current value or result of `weapon design difficulty`.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.CalculateWeaponDesignDifficulty(weaponDesign);
+```
 
 ### GetCraftedWeaponModifier
 `public override ItemModifier GetCraftedWeaponModifier(WeaponDesign weaponDesign, Hero hero)`
 
-**Purpose:** Gets the current value of `crafted weapon modifier`.
+**Purpose:** Reads and returns the `crafted weapon modifier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetCraftedWeaponModifier(weaponDesign, hero);
+```
 
 ### GetRefiningFormulas
 `public override IEnumerable<Crafting.RefiningFormula> GetRefiningFormulas(Hero weaponsmith)`
 
-**Purpose:** Gets the current value of `refining formulas`.
+**Purpose:** Reads and returns the `refining formulas` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetRefiningFormulas(weaponsmith);
+```
 
 ### GetSkillXpForRefining
 `public override int GetSkillXpForRefining(ref Crafting.RefiningFormula refineFormula)`
 
-**Purpose:** Gets the current value of `skill xp for refining`.
+**Purpose:** Reads and returns the `skill xp for refining` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetSkillXpForRefining(refineFormula);
+```
 
 ### GetSkillXpForSmelting
 `public override int GetSkillXpForSmelting(ItemObject item)`
 
-**Purpose:** Gets the current value of `skill xp for smelting`.
+**Purpose:** Reads and returns the `skill xp for smelting` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetSkillXpForSmelting(item);
+```
 
 ### GetSkillXpForSmithingInFreeBuildMode
 `public override int GetSkillXpForSmithingInFreeBuildMode(ItemObject item)`
 
-**Purpose:** Gets the current value of `skill xp for smithing in free build mode`.
+**Purpose:** Reads and returns the `skill xp for smithing in free build mode` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetSkillXpForSmithingInFreeBuildMode(item);
+```
 
 ### GetSkillXpForSmithingInCraftingOrderMode
 `public override int GetSkillXpForSmithingInCraftingOrderMode(ItemObject item)`
 
-**Purpose:** Gets the current value of `skill xp for smithing in crafting order mode`.
+**Purpose:** Reads and returns the `skill xp for smithing in crafting order mode` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetSkillXpForSmithingInCraftingOrderMode(item);
+```
 
 ### GetEnergyCostForRefining
 `public override int GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero)`
 
-**Purpose:** Gets the current value of `energy cost for refining`.
+**Purpose:** Reads and returns the `energy cost for refining` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetEnergyCostForRefining(refineFormula, hero);
+```
 
 ### GetEnergyCostForSmithing
 `public override int GetEnergyCostForSmithing(ItemObject item, Hero hero)`
 
-**Purpose:** Gets the current value of `energy cost for smithing`.
+**Purpose:** Reads and returns the `energy cost for smithing` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetEnergyCostForSmithing(item, hero);
+```
 
 ### GetEnergyCostForSmelting
 `public override int GetEnergyCostForSmelting(ItemObject item, Hero hero)`
 
-**Purpose:** Gets the current value of `energy cost for smelting`.
+**Purpose:** Reads and returns the `energy cost for smelting` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetEnergyCostForSmelting(item, hero);
+```
 
 ### GetCraftingMaterialItem
 `public override ItemObject GetCraftingMaterialItem(CraftingMaterials craftingMaterial)`
 
-**Purpose:** Gets the current value of `crafting material item`.
+**Purpose:** Reads and returns the `crafting material item` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetCraftingMaterialItem(craftingMaterial);
+```
 
 ### GetSmeltingOutputForItem
 `public override int GetSmeltingOutputForItem(ItemObject item)`
 
-**Purpose:** Gets the current value of `smelting output for item`.
+**Purpose:** Reads and returns the `smelting output for item` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetSmeltingOutputForItem(item);
+```
 
 ### GetSmithingCostsForWeaponDesign
 `public override int GetSmithingCostsForWeaponDesign(WeaponDesign weaponDesign)`
 
-**Purpose:** Gets the current value of `smithing costs for weapon design`.
+**Purpose:** Reads and returns the `smithing costs for weapon design` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetSmithingCostsForWeaponDesign(weaponDesign);
+```
 
 ### ResearchPointsNeedForNewPart
 `public override float ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)`
 
-**Purpose:** Handles logic related to `research points need for new part`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.ResearchPointsNeedForNewPart(0, 0);
+```
 
 ### GetPartResearchGainForSmeltingItem
 `public override int GetPartResearchGainForSmeltingItem(ItemObject item, Hero hero)`
 
-**Purpose:** Gets the current value of `part research gain for smelting item`.
+**Purpose:** Reads and returns the `part research gain for smelting item` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetPartResearchGainForSmeltingItem(item, hero);
+```
 
 ### GetPartResearchGainForSmithingItem
 `public override int GetPartResearchGainForSmithingItem(ItemObject item, Hero hero, bool isFreeBuild)`
 
-**Purpose:** Gets the current value of `part research gain for smithing item`.
+**Purpose:** Reads and returns the `part research gain for smithing item` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSmithingModel from the subsystem API first
+DefaultSmithingModel defaultSmithingModel = ...;
+var result = defaultSmithingModel.GetPartResearchGainForSmithingItem(item, hero, false);
+```
 
 ## Usage Example
 
@@ -119,4 +215,4 @@ Game.Current.ReplaceModel<DefaultSmithingModel>(new MyDefaultSmithingModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

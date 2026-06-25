@@ -1,13 +1,7 @@
 ---
 title: "GameServerProperties"
+description: "Auto-generated class reference for GameServerProperties."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameServerProperties`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameServerProperties
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -54,15 +48,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CheckAndReplaceProxyAddress
 `public void CheckAndReplaceProxyAddress(IReadOnlyDictionary<string, string> proxyAddressMap)`
 
-**Purpose:** Handles logic related to `check and replace proxy address`.
+**Purpose:** Verifies whether `and replace proxy address` holds true for the current object.
+
+```csharp
+// Obtain an instance of GameServerProperties from the subsystem API first
+GameServerProperties gameServerProperties = ...;
+gameServerProperties.CheckAndReplaceProxyAddress(iReadOnlyDictionary<string, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameServerProperties();
-value.CheckAndReplaceProxyAddress(iReadOnlyDictionary<string, "example");
+// Typically call this after obtaining an instance from the subsystem API
+GameServerProperties gameServerProperties = ...;
+gameServerProperties.CheckAndReplaceProxyAddress(iReadOnlyDictionary<string, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

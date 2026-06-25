@@ -1,20 +1,14 @@
 ---
 title: "BattleSideSpawnPathSelector"
+description: "Auto-generated class reference for BattleSideSpawnPathSelector."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSideSpawnPathSelector`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSideSpawnPathSelector
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleSideSpawnPathSelector`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleSideSpawnPathSelector.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleSideSpawnPathSelector.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### HasReinforcementPath
 `public bool HasReinforcementPath(Path path)`
 
-**Purpose:** Checks whether the current object has/contains `reinforcement path`.
+**Purpose:** Determines whether the current object already holds `reinforcement path`.
+
+```csharp
+// Obtain an instance of BattleSideSpawnPathSelector from the subsystem API first
+BattleSideSpawnPathSelector battleSideSpawnPathSelector = ...;
+var result = battleSideSpawnPathSelector.HasReinforcementPath(path);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattleSideSpawnPathSelector();
-value.HasReinforcementPath(path);
+// Typically call this after obtaining an instance from the subsystem API
+BattleSideSpawnPathSelector battleSideSpawnPathSelector = ...;
+battleSideSpawnPathSelector.HasReinforcementPath(path);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

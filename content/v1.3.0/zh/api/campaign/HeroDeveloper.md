@@ -1,14 +1,7 @@
 ---
 title: "HeroDeveloper"
+description: "HeroDeveloper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroDeveloper`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-- [🔀 跨版本对比 /versions/HeroDeveloper](/versions/HeroDeveloper)
-<!-- END BREADCRUMB -->
 # HeroDeveloper
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -40,130 +33,275 @@ title: "HeroDeveloper"
 ### GetSkillXpProgress
 `public int GetSkillXpProgress(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `skill xp progress` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill xp progress」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.GetSkillXpProgress(skill);
+```
 
 ### GetSkillXp
 `public float GetSkillXp(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `skill xp` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill xp」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.GetSkillXp(skill);
+```
 
 ### ClearUnspentPoints
 `public void ClearUnspentPoints()`
 
-**用途 / Purpose:** 处理 `clear unspent points` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「unspent points」。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.ClearUnspentPoints();
+```
 
 ### ClearHero
 `public void ClearHero()`
 
-**用途 / Purpose:** 处理 `clear hero` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「hero」。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.ClearHero();
+```
 
 ### InitializeHeroDeveloper
 `public void InitializeHeroDeveloper()`
 
-**用途 / Purpose:** 初始化 `hero developer` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「hero developer」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.InitializeHeroDeveloper();
+```
 
 ### DevelopCharacterStats
 `public void DevelopCharacterStats()`
 
-**用途 / Purpose:** 处理 `develop character stats` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.DevelopCharacterStats();
+```
 
 ### GetTotalSkillPoints
 `public int GetTotalSkillPoints()`
 
-**用途 / Purpose:** 获取 `total skill points` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total skill points」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.GetTotalSkillPoints();
+```
 
 ### ChangeSkillLevel
 `public void ChangeSkillLevel(SkillObject skill, int changeAmount, bool shouldNotify = true)`
 
-**用途 / Purpose:** 处理 `change skill level` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.ChangeSkillLevel(skill, 0, false);
+```
 
 ### SetInitialSkillLevel
 `public void SetInitialSkillLevel(SkillObject skill, int newSkillValue)`
 
-**用途 / Purpose:** 设置 `initial skill level` 的值或状态。
+**用途 / Purpose:** 为 「initial skill level」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.SetInitialSkillLevel(skill, 0);
+```
 
 ### AddSkillXp
 `public void AddSkillXp(SkillObject skill, float rawXp, bool isAffectedByFocusFactor = true, bool shouldNotify = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `skill xp`。
+**用途 / Purpose:** 将 「skill xp」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.AddSkillXp(skill, 0, false, false);
+```
 
 ### GetFocusFactor
 `public float GetFocusFactor(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `focus factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「focus factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.GetFocusFactor(skill);
+```
 
 ### SetInitialLevel
 `public void SetInitialLevel(int level)`
 
-**用途 / Purpose:** 设置 `initial level` 的值或状态。
+**用途 / Purpose:** 为 「initial level」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.SetInitialLevel(0);
+```
 
 ### AddPerk
 `public void AddPerk(PerkObject perk)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `perk`。
+**用途 / Purpose:** 将 「perk」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.AddPerk(perk);
+```
 
 ### GetXpRequiredForLevel
 `public int GetXpRequiredForLevel(int level)`
 
-**用途 / Purpose:** 获取 `xp required for level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp required for level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.GetXpRequiredForLevel(0);
+```
 
 ### RemoveAttribute
 `public void RemoveAttribute(CharacterAttribute attrib, int changeAmount)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `attribute`。
+**用途 / Purpose:** 从当前容器或状态中移除 「attribute」。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.RemoveAttribute(attrib, 0);
+```
 
 ### AddAttribute
 `public void AddAttribute(CharacterAttribute attrib, int changeAmount, bool checkUnspentPoints = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `attribute`。
+**用途 / Purpose:** 将 「attribute」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.AddAttribute(attrib, 0, false);
+```
 
 ### AddFocus
 `public void AddFocus(SkillObject skill, int changeAmount, bool checkUnspentFocusPoints = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `focus`。
+**用途 / Purpose:** 将 「focus」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.AddFocus(skill, 0, false);
+```
 
 ### RemoveFocus
 `public void RemoveFocus(SkillObject skill, int changeAmount)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `focus`。
+**用途 / Purpose:** 从当前容器或状态中移除 「focus」。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.RemoveFocus(skill, 0);
+```
 
 ### CanAddFocusToSkill
 `public bool CanAddFocusToSkill(SkillObject skill)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `add focus to skill`。
+**用途 / Purpose:** 检查当前对象是否满足 「add focus to skill」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.CanAddFocusToSkill(skill);
+```
 
 ### GetRequiredFocusPointsToAddFocus
 `public int GetRequiredFocusPointsToAddFocus(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `required focus points to add focus` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「required focus points to add focus」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.GetRequiredFocusPointsToAddFocus(skill);
+```
 
 ### GetFocus
 `public int GetFocus(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `focus` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「focus」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.GetFocus(skill);
+```
 
 ### GetPerkValue
 `public bool GetPerkValue(PerkObject perk)`
 
-**用途 / Purpose:** 获取 `perk value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「perk value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+var result = heroDeveloper.GetPerkValue(perk);
+```
 
 ### InitializeSkillXp
 `public void InitializeSkillXp(SkillObject skill)`
 
-**用途 / Purpose:** 初始化 `skill xp` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「skill xp」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.InitializeSkillXp(skill);
+```
 
 ### AfterLoad
 `public void AfterLoad()`
 
-**用途 / Purpose:** 处理 `after load` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HeroDeveloper 实例
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.AfterLoad();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HeroDeveloper();
-value.GetSkillXpProgress(skill);
+// 通常从对应子系统 API 获取实例后调用
+HeroDeveloper heroDeveloper = ...;
+heroDeveloper.GetSkillXpProgress(skill);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

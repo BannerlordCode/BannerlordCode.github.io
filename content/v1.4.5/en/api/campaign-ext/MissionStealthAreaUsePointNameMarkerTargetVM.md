@@ -1,20 +1,14 @@
 ---
 title: "MissionStealthAreaUsePointNameMarkerTargetVM"
+description: "Auto-generated class reference for MissionStealthAreaUsePointNameMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionStealthAreaUsePointNameMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionStealthAreaUsePointNameMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionStealthAreaUsePointNameMarkerTargetVM : MissionNameMarkerTargetBaseVM`
 **Base:** `MissionNameMarkerTargetBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout/MissionStealthAreaUsePointNameMarkerTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout/MissionStealthAreaUsePointNameMarkerTargetVM.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hi
 ### Equals
 `public override bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MissionStealthAreaUsePointNameMarkerTargetVM from the subsystem API first
+MissionStealthAreaUsePointNameMarkerTargetVM missionStealthAreaUsePointNameMarkerTargetVM = ...;
+var result = missionStealthAreaUsePointNameMarkerTargetVM.Equals(other);
+```
 
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionStealthAreaUsePointNameMarkerTargetVM from the subsystem API first
+MissionStealthAreaUsePointNameMarkerTargetVM missionStealthAreaUsePointNameMarkerTargetVM = ...;
+missionStealthAreaUsePointNameMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionStealthAreaUsePointNameMarkerTargetVM();
-value.Equals(other);
+// Typically call this after obtaining an instance from the subsystem API
+MissionStealthAreaUsePointNameMarkerTargetVM missionStealthAreaUsePointNameMarkerTargetVM = ...;
+missionStealthAreaUsePointNameMarkerTargetVM.Equals(other);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,53 +1,109 @@
 ---
 title: "MBCommon"
+description: "MBCommon 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBCommon / 通用工具`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
-# MBCommon / 通用工具
+# MBCommon
+
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MBCommon`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/MBCommon.cs`
+
+## 概述
+
+`MBCommon` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
-先把 `MBCommon` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-**Namespace**: TaleWorlds.MountAndBlade
-**File**: `bannerlord-1.3.15/TaleWorlds.MountAndBlade/MBCommon.cs`
-**Purpose**: 游戏引擎通用工具类 / Game engine common utilities
+## 主要属性
 
-## 概述 / Overview
+| Name | Signature |
+|------|-----------|
+| `CurrentGameType` | `public static MBCommon.GameType CurrentGameType { get; set; }` |
+| `IsDebugMode` | `public static bool IsDebugMode { get; }` |
+| `IsPaused` | `public static bool IsPaused { get; }` |
 
-`MBCommon` 提供游戏引擎级别的通用功能，包括暂停状态管理和时间控制。
+## 主要方法
 
-`MBCommon` provides game engine-level common functionality including pause state management and time control.
+### PauseGameEngine
+`public static void PauseGameEngine()`
 
-## 属性 / Properties
-
-\| Property \| Type \| Description \|
-\|----------\|------\|-------------\|
-\| IsPaused \| bool \| 游戏是否暂停 / Whether game is paused \|
-
-## 方法 / Methods
-
-\| Method \| Signature \| Description \|
-\|--------\|-----------\|-------------\|
-\| Pause \| `static void Pause()` \| 暂停游戏 / Pause game \|
-\| Resume \| `static void Resume()` \| 恢复游戏 / Resume game \|
-
-## 代码示例 / Code Example
+**用途 / Purpose:** 执行此方法所描述的操作。
 
 ```csharp
-bool wasPaused = MBCommon.IsPaused;
-MBCommon.Pause();
-// Do something
-MBCommon.Resume();
+// 静态调用，不需要实例
+MBCommon.PauseGameEngine();
+```
+
+### UnPauseGameEngine
+`public static void UnPauseGameEngine()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.UnPauseGameEngine();
+```
+
+### GetApplicationTime
+`public static float GetApplicationTime()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「application time」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.GetApplicationTime();
+```
+
+### GetTotalMissionTime
+`public static float GetTotalMissionTime()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「total mission time」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.GetTotalMissionTime();
+```
+
+### FixSkeletons
+`public static void FixSkeletons()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.FixSkeletons();
+```
+
+### CheckResourceModifications
+`public static void CheckResourceModifications()`
+
+**用途 / Purpose:** 检查「resource modifications」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.CheckResourceModifications();
+```
+
+### Hash
+`public static int Hash(int i, object o)`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 「h」。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.Hash(0, o);
 ```
 
 ## 使用示例
 
 ```csharp
-var example = new MBCommon();
+MBCommon.PauseGameEngine();
 ```
+
+## 参见
+
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapNavigationHelper"
+description: "MapNavigationHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapNavigationHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationHelper
 
 **Namespace:** SandBox.View.Map.Navigation
 **Module:** SandBox.View
 **Type:** `public static class MapNavigationHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation/MapNavigationHelper.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation/MapNavigationHelper.cs`
 
 ## 概述
 
@@ -29,27 +23,52 @@ title: "MapNavigationHelper"
 ### GetUnsavedChangedInquiry
 `public static InquiryData GetUnsavedChangedInquiry(Action openNewScreenAction)`
 
-**用途 / Purpose:** 获取 `unsaved changed inquiry` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unsaved changed inquiry」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationHelper.GetUnsavedChangedInquiry(openNewScreenAction);
+```
 
 ### GetUnapplicableChangedInquiry
 `public static InquiryData GetUnapplicableChangedInquiry()`
 
-**用途 / Purpose:** 获取 `unapplicable changed inquiry` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unapplicable changed inquiry」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationHelper.GetUnapplicableChangedInquiry();
+```
 
 ### IsMapTopScreen
 `public static bool IsMapTopScreen()`
 
-**用途 / Purpose:** 处理 `is map top screen` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「map top screen」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationHelper.IsMapTopScreen();
+```
 
 ### IsNavigationBarEnabled
 `public static bool IsNavigationBarEnabled(MapNavigationHandler handler)`
 
-**用途 / Purpose:** 处理 `is navigation bar enabled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「navigation bar enabled」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationHelper.IsNavigationBarEnabled(handler);
+```
 
 ### SwitchToANewScreen
 `public static void SwitchToANewScreen(Action openNewScreenAction)`
 
-**用途 / Purpose:** 处理 `switch to a new screen` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MapNavigationHelper.SwitchToANewScreen(openNewScreenAction);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ MapNavigationHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

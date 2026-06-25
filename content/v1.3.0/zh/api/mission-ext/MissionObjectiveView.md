@@ -1,13 +1,7 @@
 ---
 title: "MissionObjectiveView"
+description: "MissionObjectiveView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectiveView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -27,9 +21,10 @@ title: "MissionObjectiveView"
 ## 使用示例
 
 ```csharp
-var view = new MissionObjectiveView();
+// 从子系统 API 或场景中获取该视图
+MissionObjectiveView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

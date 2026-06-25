@@ -1,13 +1,7 @@
 ---
 title: "DefaultMissionNameMarkerHandler"
+description: "Auto-generated class reference for DefaultMissionNameMarkerHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMissionNameMarkerHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMissionNameMarkerHandler
 
 **Namespace:** SandBox.View.Missions.NameMarkers
@@ -29,14 +23,20 @@ Treat `DefaultMissionNameMarkerHandler` as a Handler-style extension point: firs
 ### CreateMarkers
 `public override void CreateMarkers(List<MissionNameMarkerTargetBaseVM> markers)`
 
-**Purpose:** Creates a new `markers` instance or object.
+**Purpose:** Constructs a new `markers` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of DefaultMissionNameMarkerHandler from the subsystem API first
+DefaultMissionNameMarkerHandler defaultMissionNameMarkerHandler = ...;
+defaultMissionNameMarkerHandler.CreateMarkers(markers);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new DefaultMissionNameMarkerHandler());
+var behavior = Mission.Current.GetMissionBehavior<DefaultMissionNameMarkerHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

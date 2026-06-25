@@ -1,13 +1,7 @@
 ---
 title: "MissionRepresentativeBase"
+description: "MissionRepresentativeBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionRepresentativeBase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionRepresentativeBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,29 +31,54 @@ title: "MissionRepresentativeBase"
 ### SetAgent
 `public void SetAgent(Agent agent)`
 
-**用途 / Purpose:** 设置 `agent` 的值或状态。
+**用途 / Purpose:** 为 「agent」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRepresentativeBase 实例
+MissionRepresentativeBase missionRepresentativeBase = ...;
+missionRepresentativeBase.SetAgent(agent);
+```
 
 ### OnAgentSpawned
 `public virtual void OnAgentSpawned()`
 
-**用途 / Purpose:** 当 `agent spawned` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent spawned」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRepresentativeBase 实例
+MissionRepresentativeBase missionRepresentativeBase = ...;
+missionRepresentativeBase.OnAgentSpawned();
+```
 
 ### Tick
 `public virtual void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRepresentativeBase 实例
+MissionRepresentativeBase missionRepresentativeBase = ...;
+missionRepresentativeBase.Tick(0);
+```
 
 ### UpdateGold
 `public void UpdateGold(int gold)`
 
-**用途 / Purpose:** 更新 `gold` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「gold」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRepresentativeBase 实例
+MissionRepresentativeBase missionRepresentativeBase = ...;
+missionRepresentativeBase.UpdateGold(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionRepresentativeBase();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionRepresentativeBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

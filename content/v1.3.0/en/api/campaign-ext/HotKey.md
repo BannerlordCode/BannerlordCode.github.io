@@ -1,13 +1,7 @@
 ---
 title: "HotKey"
+description: "Auto-generated class reference for HotKey."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HotKey`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HotKey
 
 **Namespace:** TaleWorlds.InputSystem
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### HasModifier
 `public bool HasModifier(HotKey.Modifiers modifier)`
 
-**Purpose:** Checks whether the current object has/contains `modifier`.
+**Purpose:** Determines whether the current object already holds `modifier`.
+
+```csharp
+// Obtain an instance of HotKey from the subsystem API first
+HotKey hotKey = ...;
+var result = hotKey.HasModifier(modifier);
+```
 
 ### HasSameModifiers
 `public bool HasSameModifiers(HotKey other)`
 
-**Purpose:** Checks whether the current object has/contains `same modifiers`.
+**Purpose:** Determines whether the current object already holds `same modifiers`.
+
+```csharp
+// Obtain an instance of HotKey from the subsystem API first
+HotKey hotKey = ...;
+var result = hotKey.HasSameModifiers(other);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of HotKey from the subsystem API first
+HotKey hotKey = ...;
+var result = hotKey.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of HotKey from the subsystem API first
+HotKey hotKey = ...;
+var result = hotKey.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of HotKey from the subsystem API first
+HotKey hotKey = ...;
+var result = hotKey.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HotKey();
-value.HasModifier(modifier);
+// Typically call this after obtaining an instance from the subsystem API
+HotKey hotKey = ...;
+hotKey.HasModifier(modifier);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

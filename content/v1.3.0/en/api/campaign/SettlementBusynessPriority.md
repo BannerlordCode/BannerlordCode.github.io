@@ -1,18 +1,12 @@
 ---
 title: "SettlementBusynessPriority"
+description: "Auto-generated class reference for SettlementBusynessPriority."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementBusynessPriority`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementBusynessPriority
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum SettlementBusynessPriority`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/SettlementBusynessPriority.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new SettlementBusynessPriority();
+// Obtain an instance from the relevant subsystem API
+SettlementBusynessPriority instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

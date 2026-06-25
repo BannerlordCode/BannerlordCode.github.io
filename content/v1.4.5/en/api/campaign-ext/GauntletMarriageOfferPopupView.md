@@ -1,20 +1,14 @@
 ---
 title: "GauntletMarriageOfferPopupView"
+description: "Auto-generated class reference for GauntletMarriageOfferPopupView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMarriageOfferPopupView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMarriageOfferPopupView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMarriageOfferPopupView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMarriageOfferPopupView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMarriageOfferPopupView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GauntletMarriageOfferPopupView` as a View-style extension point: first id
 ## Usage Example
 
 ```csharp
-var view = new GauntletMarriageOfferPopupView();
+// Retrieve this view from the subsystem API or scene
+GauntletMarriageOfferPopupView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

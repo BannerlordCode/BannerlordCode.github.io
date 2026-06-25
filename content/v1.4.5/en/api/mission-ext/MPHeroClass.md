@@ -1,20 +1,14 @@
 ---
 title: "MPHeroClass"
+description: "Auto-generated class reference for MPHeroClass."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPHeroClass`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPHeroClass
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPHeroClass : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
 
 ## Overview
 
@@ -60,35 +54,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.GetHashCode();
+```
 
 ### GetAllAvailablePerksForListIndex
 `public List<IReadOnlyPerkObject> GetAllAvailablePerksForListIndex(int index, string forcedForGameMode = null)`
 
-**Purpose:** Gets the current value of `all available perks for list index`.
+**Purpose:** Reads and returns the `all available perks for list index` value held by the current object.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.GetAllAvailablePerksForListIndex(0, "example");
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+mPHeroClass.Deserialize(objectManager, node);
+```
 
 ### IsTroopCharacter
 `public bool IsTroopCharacter(BasicCharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop character`.
+**Purpose:** Determines whether the current object is in the `troop character` state or condition.
+
+```csharp
+// Obtain an instance of MPHeroClass from the subsystem API first
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.IsTroopCharacter(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPHeroClass();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+MPHeroClass mPHeroClass = ...;
+mPHeroClass.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

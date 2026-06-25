@@ -1,20 +1,14 @@
 ---
 title: "SaveableStoryModeTypeDefiner"
+description: "Auto-generated class reference for SaveableStoryModeTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableStoryModeTypeDefiner`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableStoryModeTypeDefiner
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class SaveableStoryModeTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/SaveableStoryModeTypeDefiner.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/SaveableStoryModeTypeDefiner.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ## Usage Example
 
 ```csharp
-var value = new SaveableStoryModeTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SaveableStoryModeTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

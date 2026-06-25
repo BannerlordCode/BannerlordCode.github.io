@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapBasicView"
+description: "Auto-generated class reference for GauntletMapBasicView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapBasicView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapBasicView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapBasicView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapBasicView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapBasicView.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `GauntletMapBasicView` as a View-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapBasicView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapBasicView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

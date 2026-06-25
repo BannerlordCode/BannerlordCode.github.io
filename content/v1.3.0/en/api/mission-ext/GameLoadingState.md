@@ -1,13 +1,7 @@
 ---
 title: "GameLoadingState"
+description: "Auto-generated class reference for GameLoadingState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameLoadingState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameLoadingState
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetLoadingParameters
 `public void SetLoadingParameters(MBGameManager gameLoader)`
 
-**Purpose:** Sets the value or state of `loading parameters`.
+**Purpose:** Assigns a new value to `loading parameters` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameLoadingState from the subsystem API first
+GameLoadingState gameLoadingState = ...;
+gameLoadingState.SetLoadingParameters(gameLoader);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameLoadingState();
-value.SetLoadingParameters(gameLoader);
+// Typically call this after obtaining an instance from the subsystem API
+GameLoadingState gameLoadingState = ...;
+gameLoadingState.SetLoadingParameters(gameLoader);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LobbyClientConnectResult"
+description: "LobbyClientConnectResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LobbyClientConnectResult`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyClientConnectResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyClientConnectResult`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClientConnectResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClientConnectResult.cs`
 
 ## 概述
 
@@ -36,7 +30,12 @@ title: "LobbyClientConnectResult"
 ### FromServerConnectResult
 `public static LobbyClientConnectResult FromServerConnectResult(string errorCode, Dictionary<string, string> parameters)`
 
-**用途 / Purpose:** 处理 `from server connect result` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LobbyClientConnectResult.FromServerConnectResult("example", dictionary<string, "example");
+```
 
 ## 使用示例
 
@@ -46,4 +45,4 @@ LobbyClientConnectResult.FromServerConnectResult("example", dictionary<string, "
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultVassalRewardsModel"
+description: "Auto-generated class reference for DefaultVassalRewardsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultVassalRewardsModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultVassalRewardsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -36,12 +30,24 @@ Treat `DefaultVassalRewardsModel` as a Model-style extension point: first identi
 ### GetEquipmentRewardsForJoiningKingdom
 `public override ItemRoster GetEquipmentRewardsForJoiningKingdom(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `equipment rewards for joining kingdom`.
+**Purpose:** Reads and returns the `equipment rewards for joining kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultVassalRewardsModel from the subsystem API first
+DefaultVassalRewardsModel defaultVassalRewardsModel = ...;
+var result = defaultVassalRewardsModel.GetEquipmentRewardsForJoiningKingdom(kingdom);
+```
 
 ### GetTroopRewardsForJoiningKingdom
 `public override TroopRoster GetTroopRewardsForJoiningKingdom(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `troop rewards for joining kingdom`.
+**Purpose:** Reads and returns the `troop rewards for joining kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultVassalRewardsModel from the subsystem API first
+DefaultVassalRewardsModel defaultVassalRewardsModel = ...;
+var result = defaultVassalRewardsModel.GetTroopRewardsForJoiningKingdom(kingdom);
+```
 
 ## Usage Example
 
@@ -51,4 +57,4 @@ Game.Current.ReplaceModel<DefaultVassalRewardsModel>(new MyDefaultVassalRewardsM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

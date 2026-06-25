@@ -1,13 +1,7 @@
 ---
 title: "ConversationMission"
+description: "Auto-generated class reference for ConversationMission."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationMission`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationMission
 
 **Namespace:** SandBox.Conversation
@@ -37,7 +31,12 @@ Start from namespace `SandBox.Conversation` to place it in the stack, then inspe
 ### StartConversationWithAgent
 `public static void StartConversationWithAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `start conversation with agent`.
+**Purpose:** Starts the `conversation with agent` flow or state machine.
+
+```csharp
+// Static call; no instance required
+ConversationMission.StartConversationWithAgent(agent);
+```
 
 ## Usage Example
 
@@ -47,4 +46,4 @@ ConversationMission.StartConversationWithAgent(agent);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

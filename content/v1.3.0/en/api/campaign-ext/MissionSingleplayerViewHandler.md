@@ -1,13 +1,7 @@
 ---
 title: "MissionSingleplayerViewHandler"
+description: "Auto-generated class reference for MissionSingleplayerViewHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSingleplayerViewHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSingleplayerViewHandler
 
 **Namespace:** SandBox.View.Missions
@@ -29,19 +23,31 @@ Treat `MissionSingleplayerViewHandler` as a Handler-style extension point: first
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionSingleplayerViewHandler from the subsystem API first
+MissionSingleplayerViewHandler missionSingleplayerViewHandler = ...;
+missionSingleplayerViewHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionSingleplayerViewHandler from the subsystem API first
+MissionSingleplayerViewHandler missionSingleplayerViewHandler = ...;
+missionSingleplayerViewHandler.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionSingleplayerViewHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionSingleplayerViewHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

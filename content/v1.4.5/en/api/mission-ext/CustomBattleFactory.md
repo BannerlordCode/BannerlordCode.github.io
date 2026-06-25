@@ -1,23 +1,18 @@
 ---
 title: "CustomBattleFactory"
+description: "Auto-generated class reference for CustomBattleFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleFactory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleFactory
 
 **Namespace:** TaleWorlds.MountAndBlade.View.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CustomBattleFactory`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.CustomBattle/CustomBattleFactory.cs`
 
 ## Overview
 
-`CustomBattleFactory` lives in `TaleWorlds.MountAndBlade.View.CustomBattle`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CustomBattleFactory` lives in `TaleWorlds.MountAndBlade.View.CustomBattle` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,31 +23,49 @@ Start from namespace `TaleWorlds.MountAndBlade.View.CustomBattle` to place it in
 ### StartCustomBattle
 `public static void StartCustomBattle()`
 
-**Purpose:** Handles logic related to `start custom battle`.
+**Purpose:** Starts the `custom battle` flow or state machine.
+
+```csharp
+// Static call; no instance required
+CustomBattleFactory.StartCustomBattle();
+```
 
 ### GetProviderCount
 `public static int GetProviderCount()`
 
-**Purpose:** Gets the current value of `provider count`.
+**Purpose:** Reads and returns the `provider count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CustomBattleFactory.GetProviderCount();
+```
 
 ### CollectProviders
 `public static List<ICustomBattleProvider> CollectProviders()`
 
-**Purpose:** Handles logic related to `collect providers`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CustomBattleFactory.CollectProviders();
+```
 
 ### CollectNextProvider
 `public static ICustomBattleProvider CollectNextProvider(Type currentProviderType)`
 
-**Purpose:** Handles logic related to `collect next provider`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CustomBattleFactory.CollectNextProvider(currentProviderType);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CustomBattleFactory.StartCustomBattle();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

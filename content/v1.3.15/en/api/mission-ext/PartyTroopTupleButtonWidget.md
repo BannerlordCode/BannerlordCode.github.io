@@ -1,13 +1,7 @@
 ---
 title: "PartyTroopTupleButtonWidget"
+description: "Auto-generated class reference for PartyTroopTupleButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTroopTupleButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyTroopTupleButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
@@ -43,9 +37,10 @@ Treat `PartyTroopTupleButtonWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new PartyTroopTupleButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyTroopTupleButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

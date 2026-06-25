@@ -1,20 +1,14 @@
 ---
 title: "Tile"
+description: "Auto-generated class reference for Tile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Tile`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Tile
 
 **Namespace:** SandBox.BoardGames.Objects
 **Module:** SandBox.BoardGames
 **Type:** `public class Tile : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Objects/Tile.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Objects/Tile.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.BoardGames.Objects` to place it in the stack, then
 ### SetVisibility
 `public void SetVisibility(bool visible)`
 
-**Purpose:** Sets the value or state of `visibility`.
+**Purpose:** Assigns a new value to `visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Tile from the subsystem API first
+Tile tile = ...;
+tile.SetVisibility(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Tile();
-value.SetVisibility(false);
+// Typically call this after obtaining an instance from the subsystem API
+Tile tile = ...;
+tile.SetVisibility(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

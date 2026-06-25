@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminInformationVM"
+description: "MultiplayerAdminInformationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerAdminInformationVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerAdminInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerAdminInformationVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "MultiplayerAdminInformationVM"
 ### OnNewMessageReceived
 `public void OnNewMessageReceived(string message)`
 
-**用途 / Purpose:** 当 `new message received` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「new message received」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAdminInformationVM 实例
+MultiplayerAdminInformationVM multiplayerAdminInformationVM = ...;
+multiplayerAdminInformationVM.OnNewMessageReceived("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerAdminInformationVM();
-value.OnNewMessageReceived("example");
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerAdminInformationVM multiplayerAdminInformationVM = ...;
+multiplayerAdminInformationVM.OnNewMessageReceived("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

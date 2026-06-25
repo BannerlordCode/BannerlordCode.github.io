@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplatePartyMarkerItemVM"
+description: "SettlementNameplatePartyMarkerItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNameplatePartyMarkerItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplatePartyMarkerItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -38,9 +32,10 @@ title: "SettlementNameplatePartyMarkerItemVM"
 ## 使用示例
 
 ```csharp
-var value = new SettlementNameplatePartyMarkerItemVM();
+// 从对应子系统 API 获取实例
+SettlementNameplatePartyMarkerItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

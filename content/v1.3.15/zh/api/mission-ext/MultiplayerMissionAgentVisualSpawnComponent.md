@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerMissionAgentVisualSpawnComponent"
+description: "MultiplayerMissionAgentVisualSpawnComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerMissionAgentVisualSpawnComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionAgentVisualSpawnComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,32 +23,68 @@ title: "MultiplayerMissionAgentVisualSpawnComponent"
 ### SpawnAgentVisualsForPeer
 `public void SpawnAgentVisualsForPeer(MissionPeer missionPeer, AgentBuildData buildData, int selectedEquipmentSetIndex = -1, bool isBot = false, int totalTroopCount = 0)`
 
-**用途 / Purpose:** 处理 `spawn agent visuals for peer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.SpawnAgentVisualsForPeer(missionPeer, buildData, 0, false, 0);
+```
 
 ### RemoveAgentVisuals
 `public void RemoveAgentVisuals(MissionPeer missionPeer, bool sync = false)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `agent visuals`。
+**用途 / Purpose:** 从当前容器或状态中移除 「agent visuals」。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.RemoveAgentVisuals(missionPeer, false);
+```
 
 ### OnMyAgentSpawned
 `public void OnMyAgentSpawned()`
 
-**用途 / Purpose:** 当 `my agent spawned` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「my agent spawned」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.OnMyAgentSpawned();
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.OnPreMissionTick(0);
+```
 
 ### GetSpawnPointFrameForPlayer
 `public MatrixFrame GetSpawnPointFrameForPlayer(VirtualPlayer player, BattleSideEnum side, int agentVisualIndex, int totalTroopCount, bool isMounted = false)`
 
-**用途 / Purpose:** 获取 `spawn point frame for player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn point frame for player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+var result = multiplayerMissionAgentVisualSpawnComponent.GetSpawnPointFrameForPlayer(player, side, 0, 0, false);
+```
 
 ### FreeSpawnPointFromPlayer
 `public void FreeSpawnPointFromPlayer(VirtualPlayer player)`
 
-**用途 / Purpose:** 处理 `free spawn point from player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.FreeSpawnPointFromPlayer(player);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ var component = agent.GetComponent<MultiplayerMissionAgentVisualSpawnComponent>(
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

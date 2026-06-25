@@ -1,13 +1,7 @@
 ---
 title: "GauntletMovie"
+description: "GauntletMovie 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMovie`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMovie
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -42,40 +36,76 @@ title: "GauntletMovie"
 ### RefreshDataSource
 `public void RefreshDataSource(IViewModel dataSourve)`
 
-**用途 / Purpose:** 刷新 `data source` 的显示或缓存。
+**用途 / Purpose:** 使 「data source」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshDataSource(dataSourve);
+```
 
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 处理 `release` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.Release();
+```
 
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.Update();
+```
 
 ### Load
 `public static IGauntletMovie Load(UIContext context, WidgetFactory widgetFactory, string movieName, IViewModel datasource, bool doNotUseGeneratedPrefabs, bool hotReloadEnabled)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 静态调用，不需要实例
+GauntletMovie.Load(context, widgetFactory, "example", datasource, false, false);
+```
 
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**用途 / Purpose:** 刷新 `binding with children` 的显示或缓存。
+**用途 / Purpose:** 使 「binding with children」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshBindingWithChildren();
+```
 
 ### FindViewOf
 `public GauntletView FindViewOf(Widget widget)`
 
-**用途 / Purpose:** 处理 `find view of` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「view of」。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMovie 实例
+GauntletMovie gauntletMovie = ...;
+var result = gauntletMovie.FindViewOf(widget);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletMovie();
-value.RefreshDataSource(dataSourve);
+// 通常从对应子系统 API 获取实例后调用
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshDataSource(dataSourve);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

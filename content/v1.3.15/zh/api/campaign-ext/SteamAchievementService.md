@@ -1,13 +1,7 @@
 ---
 title: "SteamAchievementService"
+description: "SteamAchievementService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SteamAchievementService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SteamAchievementService
 
 **Namespace:** TaleWorlds.PlatformService.Steam
@@ -29,20 +23,33 @@ title: "SteamAchievementService"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 SteamAchievementService 实例
+SteamAchievementService steamAchievementService = ...;
+steamAchievementService.Tick(0);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SteamAchievementService 实例
+SteamAchievementService steamAchievementService = ...;
+steamAchievementService.Initialize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SteamAchievementService();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+SteamAchievementService steamAchievementService = ...;
+steamAchievementService.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

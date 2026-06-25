@@ -1,20 +1,14 @@
 ---
 title: "ItemComparer"
+description: "Auto-generated class reference for ItemComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ItemComparer : IComparer<SPItemVM>`
 **Base:** `IComparer<SPItemVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/SPInventorySortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/SPInventorySortControllerVM.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemComparer from the subsystem API first
+ItemComparer itemComparer = ...;
+itemComparer.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemComparer from the subsystem API first
+ItemComparer itemComparer = ...;
+var result = itemComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomItemComparer();
+// Typically obtained from a subsystem API or factory
+ItemComparer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "WidgetAttributeTemplate"
+description: "WidgetAttributeTemplate 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetAttributeTemplate`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeTemplate
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetAttributeTemplate`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeTemplate.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeTemplate.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "WidgetAttributeTemplate"
 ## 使用示例
 
 ```csharp
-var example = new WidgetAttributeTemplate();
+// 从对应子系统 API 获取实例
+WidgetAttributeTemplate instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

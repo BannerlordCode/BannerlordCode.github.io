@@ -1,23 +1,18 @@
 ---
 title: "MBEquipmentRosterExtensions"
+description: "MBEquipmentRosterExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBEquipmentRosterExtensions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBEquipmentRosterExtensions
 
-**命名空间:** TaleWorlds.CampaignSystem.Extensions
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public static class MBEquipmentRosterExtensions`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.Extensions
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class MBEquipmentRosterExtensions`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Extensions/MBEquipmentRosterExtensions.cs`
 
 ## 概述
 
-`MBEquipmentRosterExtensions` 位于 `TaleWorlds.CampaignSystem.Extensions`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MBEquipmentRosterExtensions` 位于 `TaleWorlds.CampaignSystem.Extensions`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -34,36 +29,59 @@ title: "MBEquipmentRosterExtensions"
 ### GetCivilianEquipments
 `public static IEnumerable<Equipment> GetCivilianEquipments(this MBEquipmentRoster instance)`
 
-**用途 / Purpose:** 获取 `civilian equipments` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「civilian equipments」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBEquipmentRosterExtensions.GetCivilianEquipments(instance);
+```
 
 ### GetStealthEquipments
 `public static IEnumerable<Equipment> GetStealthEquipments(this MBEquipmentRoster instance)`
 
-**用途 / Purpose:** 获取 `stealth equipments` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stealth equipments」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBEquipmentRosterExtensions.GetStealthEquipments(instance);
+```
 
 ### GetBattleEquipments
 `public static IEnumerable<Equipment> GetBattleEquipments(this MBEquipmentRoster instance)`
 
-**用途 / Purpose:** 获取 `battle equipments` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle equipments」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBEquipmentRosterExtensions.GetBattleEquipments(instance);
+```
 
 ### GetRandomCivilianEquipment
 `public static Equipment GetRandomCivilianEquipment(this MBEquipmentRoster instance)`
 
-**用途 / Purpose:** 获取 `random civilian equipment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random civilian equipment」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBEquipmentRosterExtensions.GetRandomCivilianEquipment(instance);
+```
 
 ### GetRandomStealthEquipment
 `public static Equipment GetRandomStealthEquipment(this MBEquipmentRoster instance)`
 
-**用途 / Purpose:** 获取 `random stealth equipment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random stealth equipment」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBEquipmentRosterExtensions.GetRandomStealthEquipment(instance);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 MBEquipmentRosterExtensions.GetCivilianEquipments(instance);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

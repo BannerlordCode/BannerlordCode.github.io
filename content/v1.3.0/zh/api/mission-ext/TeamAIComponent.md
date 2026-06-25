@@ -1,13 +1,7 @@
 ---
 title: "TeamAIComponent"
+description: "TeamAIComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamAIComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamAIComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -41,104 +35,219 @@ title: "TeamAIComponent"
 ### AddStrategicArea
 `public void AddStrategicArea(StrategicArea strategicArea)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `strategic area`。
+**用途 / Purpose:** 将 「strategic area」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.AddStrategicArea(strategicArea);
+```
 
 ### RemoveStrategicArea
 `public void RemoveStrategicArea(StrategicArea strategicArea)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `strategic area`。
+**用途 / Purpose:** 从当前容器或状态中移除 「strategic area」。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.RemoveStrategicArea(strategicArea);
+```
 
 ### RemoveAllStrategicAreas
 `public void RemoveAllStrategicAreas()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `all strategic areas`。
+**用途 / Purpose:** 从当前容器或状态中移除 「all strategic areas」。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.RemoveAllStrategicAreas();
+```
 
 ### AddTacticOption
 `public void AddTacticOption(TacticComponent tacticOption)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tactic option`。
+**用途 / Purpose:** 将 「tactic option」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.AddTacticOption(tacticOption);
+```
 
 ### RemoveTacticOption
 `public void RemoveTacticOption(Type tacticType)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `tactic option`。
+**用途 / Purpose:** 从当前容器或状态中移除 「tactic option」。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.RemoveTacticOption(tacticType);
+```
 
 ### ClearTacticOptions
 `public void ClearTacticOptions()`
 
-**用途 / Purpose:** 处理 `clear tactic options` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「tactic options」。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.ClearTacticOptions();
+```
 
 ### AssertTeam
 `public void AssertTeam(Team team)`
 
-**用途 / Purpose:** 处理 `assert team` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.AssertTeam(team);
+```
 
 ### NotifyTacticalDecision
 `public void NotifyTacticalDecision(in TacticalDecision decision)`
 
-**用途 / Purpose:** 处理 `notify tactical decision` 相关逻辑。
+**用途 / Purpose:** 通知相关对象「tactical decision」已经发生。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.NotifyTacticalDecision(decision);
+```
 
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnDeploymentFinished();
+```
 
 ### OnFormationFrameChanged
 `public virtual void OnFormationFrameChanged(Agent agent, bool isFrameEnabled, WorldPosition frame)`
 
-**用途 / Purpose:** 当 `formation frame changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「formation frame changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnFormationFrameChanged(agent, false, frame);
+```
 
 ### OnMissionEnded
 `public virtual void OnMissionEnded()`
 
-**用途 / Purpose:** 当 `mission ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnMissionEnded();
+```
 
 ### ResetTacticalPositions
 `public void ResetTacticalPositions()`
 
-**用途 / Purpose:** 将 `tactical positions` 重置为初始状态。
+**用途 / Purpose:** 将 「tactical positions」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.ResetTacticalPositions();
+```
 
 ### ResetTactic
 `public void ResetTactic(bool keepCurrentTactic = true)`
 
-**用途 / Purpose:** 将 `tactic` 重置为初始状态。
+**用途 / Purpose:** 将 「tactic」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.ResetTactic(false);
+```
 
 ### CheckIsDefenseApplicable
 `public void CheckIsDefenseApplicable()`
 
-**用途 / Purpose:** 处理 `check is defense applicable` 相关逻辑。
+**用途 / Purpose:** 检查「is defense applicable」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.CheckIsDefenseApplicable();
+```
 
 ### OnTacticAppliedForFirstTime
 `public void OnTacticAppliedForFirstTime()`
 
-**用途 / Purpose:** 当 `tactic applied for first time` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tactic applied for first time」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnTacticAppliedForFirstTime();
+```
 
 ### TickOccasionally
 `public void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.TickOccasionally();
+```
 
 ### IsCurrentTactic
 `public bool IsCurrentTactic(TacticComponent tactic)`
 
-**用途 / Purpose:** 处理 `is current tactic` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「current tactic」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+var result = teamAIComponent.IsCurrentTactic(tactic);
+```
 
 ### OnUnitAddedToFormationForTheFirstTime
 `public abstract void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**用途 / Purpose:** 当 `unit added to formation for the first time` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unit added to formation for the first time」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ### TacticalDecisionDelegate
 `public delegate void TacticalDecisionDelegate(in TacticalDecision decision)`
 
-**用途 / Purpose:** 处理 `tactical decision delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TeamAIComponent 实例
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.TacticalDecisionDelegate(decision);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTeamAIComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+TeamAIComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

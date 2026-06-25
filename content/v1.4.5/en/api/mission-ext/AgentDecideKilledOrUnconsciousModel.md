@@ -1,20 +1,14 @@
 ---
 title: "AgentDecideKilledOrUnconsciousModel"
+description: "Auto-generated class reference for AgentDecideKilledOrUnconsciousModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentDecideKilledOrUnconsciousModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentDecideKilledOrUnconsciousModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class AgentDecideKilledOrUnconsciousModel : MBGameModel<AgentDecideKilledOrUnconsciousModel>`
 **Base:** `MBGameModel<AgentDecideKilledOrUnconsciousModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AgentDecideKilledOrUnconsciousModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AgentDecideKilledOrUnconsciousModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `AgentDecideKilledOrUnconsciousModel` as a Model-style extension point: fi
 ### GetAgentStateProbability
 `public abstract float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**Purpose:** Gets the current value of `agent state probability`.
+**Purpose:** Reads and returns the `agent state probability` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentDecideKilledOrUnconsciousModel from the subsystem API first
+AgentDecideKilledOrUnconsciousModel agentDecideKilledOrUnconsciousModel = ...;
+var result = agentDecideKilledOrUnconsciousModel.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, weaponFlags, useSurgeryProbability);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAgentDecideKilledOrUnconsciousModel();
+// Typically obtained from a subsystem API or factory
+AgentDecideKilledOrUnconsciousModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

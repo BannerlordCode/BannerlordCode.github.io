@@ -1,13 +1,7 @@
 ---
 title: "AnimalSpawnSettings"
+description: "Auto-generated class reference for AnimalSpawnSettings."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimalSpawnSettings`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimalSpawnSettings
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### CheckAndSetAnimalAgentFlags
 `public static void CheckAndSetAnimalAgentFlags(GameEntity spawnEntity, Agent animalAgent)`
 
-**Purpose:** Handles logic related to `check and set animal agent flags`.
+**Purpose:** Verifies whether `and set animal agent flags` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+AnimalSpawnSettings.CheckAndSetAnimalAgentFlags(spawnEntity, animalAgent);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ AnimalSpawnSettings.CheckAndSetAnimalAgentFlags(spawnEntity, animalAgent);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

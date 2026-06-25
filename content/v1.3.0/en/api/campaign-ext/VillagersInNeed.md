@@ -1,13 +1,7 @@
 ---
 title: "VillagersInNeed"
+description: "Auto-generated class reference for VillagersInNeed."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillagersInNeed`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillagersInNeed
 
 **Namespace:** StoryMode.Quests.TutorialPhase
@@ -36,20 +30,33 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ### OnRescueMissionFailed
 `public void OnRescueMissionFailed()`
 
-**Purpose:** Called when the `rescue mission failed` event is raised.
+**Purpose:** Invoked when the `rescue mission failed` event is raised.
+
+```csharp
+// Obtain an instance of VillagersInNeed from the subsystem API first
+VillagersInNeed villagersInNeed = ...;
+villagersInNeed.OnRescueMissionFailed();
+```
 
 ### OnHeadmanRescued
 `public void OnHeadmanRescued()`
 
-**Purpose:** Called when the `headman rescued` event is raised.
+**Purpose:** Invoked when the `headman rescued` event is raised.
+
+```csharp
+// Obtain an instance of VillagersInNeed from the subsystem API first
+VillagersInNeed villagersInNeed = ...;
+villagersInNeed.OnHeadmanRescued();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillagersInNeed();
-value.OnRescueMissionFailed();
+// Typically call this after obtaining an instance from the subsystem API
+VillagersInNeed villagersInNeed = ...;
+villagersInNeed.OnRescueMissionFailed();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

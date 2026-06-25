@@ -1,20 +1,14 @@
 ---
 title: "CaravansCampaignBehavior"
+description: "CaravansCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CaravansCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaravansCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CaravansCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CaravansCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CaravansCampaignBehavior.cs`
 
 ## 概述
 
@@ -35,75 +29,154 @@ title: "CaravansCampaignBehavior"
 ### OnSellAction
 `public void OnSellAction(Settlement soldSettlement, int sellPrice)`
 
-**用途 / Purpose:** 当 `sell action` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「sell action」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSellAction(soldSettlement, 0);
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.Reset();
+```
 
 ### CreateNewLog
 `public TradeActionLog CreateNewLog(Settlement boughtSettlement, int buyPrice, ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** 创建一个 `new log` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「new log」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+var result = caravansCampaignBehavior.CreateNewLog(boughtSettlement, 0, itemRosterElement);
+```
 
 ### ReleaseLog
 `public void ReleaseLog(TradeActionLog log)`
 
-**用途 / Purpose:** 处理 `release log` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.ReleaseLog(log);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+var result = caravansCampaignBehavior.ToString();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### SpawnCaravan
 `public void SpawnCaravan(Hero hero, bool initialSpawn = false)`
 
-**用途 / Purpose:** 处理 `spawn caravan` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.SpawnCaravan(hero, false);
+```
 
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 处理 `daily tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.DailyTick();
+```
 
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `hourly tick party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.HourlyTickParty(mobileParty);
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** 当 `settlement entered` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「settlement entered」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** 当 `settlement left` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「settlement left」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSettlementLeft(mobileParty, settlement);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CaravansCampaignBehavior();
-value.OnSellAction(soldSettlement, 0);
+// 通常从对应子系统 API 获取实例后调用
+CaravansCampaignBehavior caravansCampaignBehavior = ...;
+caravansCampaignBehavior.OnSellAction(soldSettlement, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

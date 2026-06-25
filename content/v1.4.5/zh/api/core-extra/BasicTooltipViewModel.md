@@ -1,20 +1,14 @@
 ---
 title: "BasicTooltipViewModel"
+description: "BasicTooltipViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BasicTooltipViewModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicTooltipViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public class BasicTooltipViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/BasicTooltipViewModel.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/BasicTooltipViewModel.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "BasicTooltipViewModel"
 ### SetToolipCallback
 `public void SetToolipCallback(Func<List<TooltipProperty>> tooltipPropertiesDelegate)`
 
-**用途 / Purpose:** 设置 `toolip callback` 的值或状态。
+**用途 / Purpose:** 为 「toolip callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BasicTooltipViewModel 实例
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.SetToolipCallback(tooltipPropertiesDelegate);
+```
 
 ### SetGenericTooltipCallback
 `public void SetGenericTooltipCallback(Action preBuiltTooltipCallback)`
 
-**用途 / Purpose:** 设置 `generic tooltip callback` 的值或状态。
+**用途 / Purpose:** 为 「generic tooltip callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BasicTooltipViewModel 实例
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.SetGenericTooltipCallback(preBuiltTooltipCallback);
+```
 
 ### SetHintCallback
 `public void SetHintCallback(Func<string> hintProperty)`
 
-**用途 / Purpose:** 设置 `hint callback` 的值或状态。
+**用途 / Purpose:** 为 「hint callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BasicTooltipViewModel 实例
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.SetHintCallback(hintProperty);
+```
 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 `begin hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BasicTooltipViewModel 实例
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BasicTooltipViewModel 实例
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.ExecuteEndHint();
+```
 
 ## 使用示例
 
 ```csharp
-var vm = new BasicTooltipViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+BasicTooltipViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

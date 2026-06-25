@@ -1,18 +1,12 @@
 ---
 title: "CampaignOptionsDifficultyPresets"
+description: "Auto-generated class reference for CampaignOptionsDifficultyPresets."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignOptionsDifficultyPresets`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignOptionsDifficultyPresets
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum CampaignOptionsDifficultyPresets`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/CampaignOptionsDifficultyPresets.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ## Usage Example
 
 ```csharp
-var value = new CampaignOptionsDifficultyPresets();
+// Obtain an instance from the relevant subsystem API
+CampaignOptionsDifficultyPresets instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

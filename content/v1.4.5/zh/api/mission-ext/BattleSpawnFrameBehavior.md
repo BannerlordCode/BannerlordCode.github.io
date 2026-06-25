@@ -1,20 +1,14 @@
 ---
 title: "BattleSpawnFrameBehavior"
+description: "BattleSpawnFrameBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleSpawnFrameBehavior`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleSpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/BattleSpawnFrameBehavior.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/BattleSpawnFrameBehavior.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "BattleSpawnFrameBehavior"
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnFrameBehavior 实例
+BattleSpawnFrameBehavior battleSpawnFrameBehavior = ...;
+battleSpawnFrameBehavior.Initialize();
+```
 
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**用途 / Purpose:** 获取 `spawn frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnFrameBehavior 实例
+BattleSpawnFrameBehavior battleSpawnFrameBehavior = ...;
+var result = battleSpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BattleSpawnFrameBehavior();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+BattleSpawnFrameBehavior battleSpawnFrameBehavior = ...;
+battleSpawnFrameBehavior.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

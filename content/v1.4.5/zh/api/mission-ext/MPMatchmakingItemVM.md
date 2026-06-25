@@ -1,20 +1,14 @@
 ---
 title: "MPMatchmakingItemVM"
+description: "MPMatchmakingItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPMatchmakingItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPMatchmakingItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPMatchmakingItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame/MPMatchmakingItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame/MPMatchmakingItemVM.cs`
 
 ## 概述
 
@@ -38,20 +32,33 @@ title: "MPMatchmakingItemVM"
 ### MPMatchmakingItemVM
 `public unsafe MPMatchmakingItemVM(MultiplayerGameType type)`
 
-**用途 / Purpose:** 处理 `m p matchmaking item v m` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingItemVM 实例
+MPMatchmakingItemVM mPMatchmakingItemVM = ...;
+var result = mPMatchmakingItemVM.MPMatchmakingItemVM(type);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingItemVM 实例
+MPMatchmakingItemVM mPMatchmakingItemVM = ...;
+mPMatchmakingItemVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPMatchmakingItemVM();
-value.MPMatchmakingItemVM(type);
+// 通常从对应子系统 API 获取实例后调用
+MPMatchmakingItemVM mPMatchmakingItemVM = ...;
+mPMatchmakingItemVM.MPMatchmakingItemVM(type);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

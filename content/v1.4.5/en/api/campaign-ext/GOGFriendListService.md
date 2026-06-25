@@ -1,20 +1,14 @@
 ---
 title: "GOGFriendListService"
+description: "Auto-generated class reference for GOGFriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GOGFriendListService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GOGFriendListService
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GOGFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGFriendListService.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGFriendListService.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### RequestFriendList
 `public void RequestFriendList()`
 
-**Purpose:** Handles logic related to `request friend list`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GOGFriendListService from the subsystem API first
+GOGFriendListService gOGFriendListService = ...;
+gOGFriendListService.RequestFriendList();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GOGFriendListService();
-value.RequestFriendList();
+// Typically call this after obtaining an instance from the subsystem API
+GOGFriendListService gOGFriendListService = ...;
+gOGFriendListService.RequestFriendList();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

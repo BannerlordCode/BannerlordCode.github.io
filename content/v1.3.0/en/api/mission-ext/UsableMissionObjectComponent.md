@@ -1,13 +1,7 @@
 ---
 title: "UsableMissionObjectComponent"
+description: "Auto-generated class reference for UsableMissionObjectComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UsableMissionObjectComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsableMissionObjectComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,21 @@ Treat `UsableMissionObjectComponent` as a Component-style extension point: first
 ### IsOnTickRequired
 `public virtual bool IsOnTickRequired()`
 
-**Purpose:** Handles logic related to `is on tick required`.
+**Purpose:** Determines whether the current object is in the `on tick required` state or condition.
+
+```csharp
+// Obtain an instance of UsableMissionObjectComponent from the subsystem API first
+UsableMissionObjectComponent usableMissionObjectComponent = ...;
+var result = usableMissionObjectComponent.IsOnTickRequired();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomUsableMissionObjectComponent();
+// Typically obtained from a subsystem API or factory
+UsableMissionObjectComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

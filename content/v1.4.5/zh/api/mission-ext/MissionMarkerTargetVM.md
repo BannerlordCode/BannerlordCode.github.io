@@ -1,20 +1,14 @@
 ---
 title: "MissionMarkerTargetVM"
+description: "MissionMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMarkerTargetVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionMarkerTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionMarkerTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionMarkerTargetVM.cs`
 
 ## 概述
 
@@ -43,14 +37,21 @@ title: "MissionMarkerTargetVM"
 ### UpdateScreenPosition
 `public virtual void UpdateScreenPosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `screen position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「screen position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMarkerTargetVM 实例
+MissionMarkerTargetVM missionMarkerTargetVM = ...;
+missionMarkerTargetVM.UpdateScreenPosition(missionCamera);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionMarkerTargetVM();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionMarkerTargetVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

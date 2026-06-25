@@ -1,13 +1,7 @@
 ---
 title: "FullScreenNoticeVM"
+description: "Auto-generated class reference for FullScreenNoticeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FullScreenNoticeVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FullScreenNoticeVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
@@ -39,30 +33,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of FullScreenNoticeVM from the subsystem API first
+FullScreenNoticeVM fullScreenNoticeVM = ...;
+fullScreenNoticeVM.RefreshValues();
+```
 
 ### ExecuteCloseNotice
 `public void ExecuteCloseNotice()`
 
-**Purpose:** Executes the `close notice` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close notice`.
+
+```csharp
+// Obtain an instance of FullScreenNoticeVM from the subsystem API first
+FullScreenNoticeVM fullScreenNoticeVM = ...;
+fullScreenNoticeVM.ExecuteCloseNotice();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of FullScreenNoticeVM from the subsystem API first
+FullScreenNoticeVM fullScreenNoticeVM = ...;
+fullScreenNoticeVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of FullScreenNoticeVM from the subsystem API first
+FullScreenNoticeVM fullScreenNoticeVM = ...;
+fullScreenNoticeVM.SetDoneInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FullScreenNoticeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+FullScreenNoticeVM fullScreenNoticeVM = ...;
+fullScreenNoticeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

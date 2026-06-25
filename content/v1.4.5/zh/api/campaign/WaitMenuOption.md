@@ -1,20 +1,14 @@
 ---
 title: "WaitMenuOption"
+description: "WaitMenuOption 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WaitMenuOption`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WaitMenuOption
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WaitMenuOption`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/WaitMenuOption.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/WaitMenuOption.cs`
 
 ## 概述
 
@@ -35,35 +29,66 @@ title: "WaitMenuOption"
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 当 `condition delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「condition delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WaitMenuOption 实例
+WaitMenuOption waitMenuOption = ...;
+var result = waitMenuOption.OnConditionDelegate(args);
+```
 
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 当 `consequence delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「consequence delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WaitMenuOption 实例
+WaitMenuOption waitMenuOption = ...;
+waitMenuOption.OnConsequenceDelegate(args);
+```
 
 ### GetConditionsHold
 `public bool GetConditionsHold(Game game, MapState mapState)`
 
-**用途 / Purpose:** 获取 `conditions hold` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conditions hold」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WaitMenuOption 实例
+WaitMenuOption waitMenuOption = ...;
+var result = waitMenuOption.GetConditionsHold(game, mapState);
+```
 
 ### RunConsequence
 `public void RunConsequence(Game game, MapState mapState)`
 
-**用途 / Purpose:** 处理 `run consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WaitMenuOption 实例
+WaitMenuOption waitMenuOption = ...;
+waitMenuOption.RunConsequence(game, mapState);
+```
 
 ### Deserialize
 `public void Deserialize(XmlNode node, Type typeOfWaitMenusCallbacks)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 WaitMenuOption 实例
+WaitMenuOption waitMenuOption = ...;
+waitMenuOption.Deserialize(node, typeOfWaitMenusCallbacks);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WaitMenuOption();
-value.OnConditionDelegate(args);
+// 通常从对应子系统 API 获取实例后调用
+WaitMenuOption waitMenuOption = ...;
+waitMenuOption.OnConditionDelegate(args);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

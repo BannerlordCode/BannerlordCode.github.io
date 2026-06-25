@@ -1,13 +1,7 @@
 ---
 title: "MapSiegeVM"
+description: "Auto-generated class reference for MapSiegeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeVM
 
 **Namespace:** SandBox.ViewModelCollection.MapSiege
@@ -39,30 +33,55 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapSiegeVM from the subsystem API first
+MapSiegeVM mapSiegeVM = ...;
+mapSiegeVM.RefreshValues();
+```
 
 ### OnSelectionFromScene
 `public void OnSelectionFromScene(MatrixFrame frameOfEngine)`
 
-**Purpose:** Called when the `selection from scene` event is raised.
+**Purpose:** Invoked when the `selection from scene` event is raised.
+
+```csharp
+// Obtain an instance of MapSiegeVM from the subsystem API first
+MapSiegeVM mapSiegeVM = ...;
+mapSiegeVM.OnSelectionFromScene(frameOfEngine);
+```
 
 ### Update
 `public void Update(float mapCameraDistanceValue)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of MapSiegeVM from the subsystem API first
+MapSiegeVM mapSiegeVM = ...;
+mapSiegeVM.Update(0);
+```
 
 ### Compare
 `public int Compare(MapSiegePOIVM x, MapSiegePOIVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MapSiegeVM from the subsystem API first
+MapSiegeVM mapSiegeVM = ...;
+var result = mapSiegeVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapSiegeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapSiegeVM mapSiegeVM = ...;
+mapSiegeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyPlayerBaseVM"
+description: "MPLobbyPlayerBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyPlayerBaseVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyPlayerBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyPlayerBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPlayerBaseVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPlayerBaseVM.cs`
 
 ## 概述
 
@@ -102,130 +96,275 @@ title: "MPLobbyPlayerBaseVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.RefreshValues();
+```
 
 ### RefreshSelectableGameTypes
 `public void RefreshSelectableGameTypes(bool isRankedOnly, Action<string> onRefreshed, string initialGameTypeID = "")`
 
-**用途 / Purpose:** 刷新 `selectable game types` 的显示或缓存。
+**用途 / Purpose:** 使 「selectable game types」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.RefreshSelectableGameTypes(false, onRefreshed, "example");
+```
 
 ### UpdatePlayerState
 `public void UpdatePlayerState(AnotherPlayerData playerData)`
 
-**用途 / Purpose:** 更新 `player state` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「player state」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdatePlayerState(playerData);
+```
 
 ### UpdateWith
 `public virtual void UpdateWith(PlayerData playerData)`
 
-**用途 / Purpose:** 更新 `with` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「with」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateWith(playerData);
+```
 
 ### UpdateNameAndAvatar
 `public void UpdateNameAndAvatar(bool forceUpdate = false)`
 
-**用途 / Purpose:** 更新 `name and avatar` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「name and avatar」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateNameAndAvatar(false);
+```
 
 ### OnStatusChanged
 `public void OnStatusChanged(OnlineStatus status, bool isInGameStatusActive)`
 
-**用途 / Purpose:** 当 `status changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「status changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.OnStatusChanged(status, false);
+```
 
 ### SetOnInvite
 `public void SetOnInvite(Action<PlayerId> onInvite)`
 
-**用途 / Purpose:** 设置 `on invite` 的值或状态。
+**用途 / Purpose:** 为 「on invite」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.SetOnInvite(onInvite);
+```
 
 ### UpdateStats
 `public async void UpdateStats(Action onDone)`
 
-**用途 / Purpose:** 更新 `stats` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「stats」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateStats(onDone);
+```
 
 ### UpdateExperienceData
 `public void UpdateExperienceData()`
 
-**用途 / Purpose:** 更新 `experience data` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「experience data」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateExperienceData();
+```
 
 ### UpdateRating
 `public async void UpdateRating(Action onDone)`
 
-**用途 / Purpose:** 更新 `rating` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「rating」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateRating(onDone);
+```
 
 ### UpdateDisplayedRankInfo
 `public void UpdateDisplayedRankInfo(string gameType)`
 
-**用途 / Purpose:** 更新 `displayed rank info` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「displayed rank info」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateDisplayedRankInfo("example");
+```
 
 ### UpdateClanInfo
 `public async void UpdateClanInfo()`
 
-**用途 / Purpose:** 更新 `clan info` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「clan info」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateClanInfo();
+```
 
 ### FilterStatsForGameMode
 `public void FilterStatsForGameMode(string gameModeCode)`
 
-**用途 / Purpose:** 处理 `filter stats for game mode` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.FilterStatsForGameMode("example");
+```
 
 ### RefreshCharacterVisual
 `public unsafe void RefreshCharacterVisual()`
 
-**用途 / Purpose:** 刷新 `character visual` 的显示或缓存。
+**用途 / Purpose:** 使 「character visual」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.RefreshCharacterVisual();
+```
 
 ### ExecuteSelectPlayer
 `public void ExecuteSelectPlayer()`
 
-**用途 / Purpose:** 执行 `select player` 操作或流程。
+**用途 / Purpose:** 执行 「select player」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteSelectPlayer();
+```
 
 ### ExecuteInviteToParty
 `public void ExecuteInviteToParty()`
 
-**用途 / Purpose:** 执行 `invite to party` 操作或流程。
+**用途 / Purpose:** 执行 「invite to party」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteInviteToParty();
+```
 
 ### ExecuteInviteToClan
 `public void ExecuteInviteToClan()`
 
-**用途 / Purpose:** 执行 `invite to clan` 操作或流程。
+**用途 / Purpose:** 执行 「invite to clan」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteInviteToClan();
+```
 
 ### ExecuteKickFromParty
 `public void ExecuteKickFromParty()`
 
-**用途 / Purpose:** 执行 `kick from party` 操作或流程。
+**用途 / Purpose:** 执行 「kick from party」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteKickFromParty();
+```
 
 ### ExecuteAcceptFriendRequest
 `public void ExecuteAcceptFriendRequest()`
 
-**用途 / Purpose:** 执行 `accept friend request` 操作或流程。
+**用途 / Purpose:** 执行 「accept friend request」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteAcceptFriendRequest();
+```
 
 ### ExecuteDeclineFriendRequest
 `public void ExecuteDeclineFriendRequest()`
 
-**用途 / Purpose:** 执行 `decline friend request` 操作或流程。
+**用途 / Purpose:** 执行 「decline friend request」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteDeclineFriendRequest();
+```
 
 ### ExecuteCancelPendingFriendRequest
 `public void ExecuteCancelPendingFriendRequest()`
 
-**用途 / Purpose:** 执行 `cancel pending friend request` 操作或流程。
+**用途 / Purpose:** 执行 「cancel pending friend request」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteCancelPendingFriendRequest();
+```
 
 ### ExecuteRemoveFriend
 `public void ExecuteRemoveFriend()`
 
-**用途 / Purpose:** 执行 `remove friend` 操作或流程。
+**用途 / Purpose:** 执行 「remove friend」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteRemoveFriend();
+```
 
 ### ExecuteCopyBannerlordID
 `public void ExecuteCopyBannerlordID()`
 
-**用途 / Purpose:** 执行 `copy bannerlord i d` 操作或流程。
+**用途 / Purpose:** 执行 「copy bannerlord i d」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteCopyBannerlordID();
+```
 
 ### ExecuteShowProfile
 `public void ExecuteShowProfile()`
 
-**用途 / Purpose:** 执行 `show profile` 操作或流程。
+**用途 / Purpose:** 执行 「show profile」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyPlayerBaseVM 实例
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteShowProfile();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyPlayerBaseVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

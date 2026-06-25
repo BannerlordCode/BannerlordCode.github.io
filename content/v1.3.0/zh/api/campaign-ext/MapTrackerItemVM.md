@@ -1,20 +1,14 @@
 ---
 title: "MapTrackerItemVM"
+description: "MapTrackerItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapTrackerItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapTrackerItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.Tracker
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class MapTrackerItemVM<T> : MapTrackerItemVM where T : ITrackableCampaignObject`
-**Base:** `MapTrackerItemVM where T : ITrackableCampaignObject`
-**File:** `SandBox.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Map/Tracker/MapTrackerItemVM.cs`
+**Type:** `public abstract class MapTrackerItemVM : ViewModel`
+**Base:** `ViewModel`
+**File:** `SandBox.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/Map/Tracker/MapTrackerItemVM.2.cs`
 
 ## 概述
 
@@ -28,14 +22,102 @@ title: "MapTrackerItemVM"
 
 | Name | Signature |
 |------|-----------|
-| `TrackedObject` | `public new T TrackedObject { get; }` |
+| `IsTracked` | `public bool IsTracked { get; set; }` |
+| `CanToggleTrack` | `public bool CanToggleTrack { get; set; }` |
+| `IsEnabled` | `public bool IsEnabled { get; set; }` |
+| `IsBehind` | `public bool IsBehind { get; set; }` |
+| `Name` | `public string Name { get; set; }` |
+| `TrackerType` | `public string TrackerType { get; set; }` |
+| `PartyPosition` | `public Vec2 PartyPosition { get; set; }` |
+| `FactionVisual` | `public BannerImageIdentifierVM FactionVisual { get; set; }` |
+| `Quests` | `public MBBindingList<QuestMarkerVM> Quests { get; set; }` |
+
+## 主要方法
+
+### UpdateProperties
+`public void UpdateProperties()`
+
+**用途 / Purpose:** 重新计算并更新 「properties」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerItemVM 实例
+MapTrackerItemVM mapTrackerItemVM = ...;
+mapTrackerItemVM.UpdateProperties();
+```
+
+### UpdatePosition
+`public void UpdatePosition(float screenX, float screenY, float screenW)`
+
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerItemVM 实例
+MapTrackerItemVM mapTrackerItemVM = ...;
+mapTrackerItemVM.UpdatePosition(0, 0, 0);
+```
+
+### ExecuteToggleTrack
+`public void ExecuteToggleTrack()`
+
+**用途 / Purpose:** 执行 「toggle track」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerItemVM 实例
+MapTrackerItemVM mapTrackerItemVM = ...;
+mapTrackerItemVM.ExecuteToggleTrack();
+```
+
+### ExecuteGoToPosition
+`public void ExecuteGoToPosition()`
+
+**用途 / Purpose:** 执行 「go to position」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerItemVM 实例
+MapTrackerItemVM mapTrackerItemVM = ...;
+mapTrackerItemVM.ExecuteGoToPosition();
+```
+
+### ExecuteShowTooltip
+`public void ExecuteShowTooltip()`
+
+**用途 / Purpose:** 执行 「show tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerItemVM 实例
+MapTrackerItemVM mapTrackerItemVM = ...;
+mapTrackerItemVM.ExecuteShowTooltip();
+```
+
+### ExecuteHideTooltip
+`public void ExecuteHideTooltip()`
+
+**用途 / Purpose:** 执行 「hide tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerItemVM 实例
+MapTrackerItemVM mapTrackerItemVM = ...;
+mapTrackerItemVM.ExecuteHideTooltip();
+```
+
+### RefreshBinding
+`public void RefreshBinding()`
+
+**用途 / Purpose:** 使 「binding」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerItemVM 实例
+MapTrackerItemVM mapTrackerItemVM = ...;
+mapTrackerItemVM.RefreshBinding();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMapTrackerItemVM();
+// 通常通过子系统 API 或工厂获得派生实例
+MapTrackerItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

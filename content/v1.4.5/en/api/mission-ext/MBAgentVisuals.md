@@ -1,20 +1,14 @@
 ---
 title: "MBAgentVisuals"
+description: "Auto-generated class reference for MBAgentVisuals."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBAgentVisuals`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBAgentVisuals
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MBAgentVisuals : NativeObject`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBAgentVisuals.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBAgentVisuals.cs`
 
 ## Overview
 
@@ -29,332 +23,725 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateAgentVisuals
 `public static MBAgentVisuals CreateAgentVisuals(Scene scene, string ownerName, Vec3 eyeOffset)`
 
-**Purpose:** Creates a new `agent visuals` instance or object.
+**Purpose:** Constructs a new `agent visuals` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MBAgentVisuals.CreateAgentVisuals(scene, "example", eyeOffset);
+```
 
 ### Tick
 `public void Tick(MBAgentVisuals parentAgentVisuals, float dt, bool entityMoving, float speed)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.Tick(parentAgentVisuals, 0, false, 0);
+```
 
 ### GetGlobalFrame
 `public MatrixFrame GetGlobalFrame()`
 
-**Purpose:** Gets the current value of `global frame`.
+**Purpose:** Reads and returns the `global frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetGlobalFrame();
+```
 
 ### GetFrame
 `public MatrixFrame GetFrame()`
 
-**Purpose:** Gets the current value of `frame`.
+**Purpose:** Reads and returns the `frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetFrame();
+```
 
 ### GetEntity
 `public GameEntity GetEntity()`
 
-**Purpose:** Gets the current value of `entity`.
+**Purpose:** Reads and returns the `entity` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetEntity();
+```
 
 ### GetWeakEntity
 `public WeakGameEntity GetWeakEntity()`
 
-**Purpose:** Gets the current value of `weak entity`.
+**Purpose:** Reads and returns the `weak entity` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetWeakEntity();
+```
 
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.IsValid();
+```
 
 ### GetGlobalStableEyePoint
 `public Vec3 GetGlobalStableEyePoint(bool isHumanoid)`
 
-**Purpose:** Gets the current value of `global stable eye point`.
+**Purpose:** Reads and returns the `global stable eye point` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetGlobalStableEyePoint(false);
+```
 
 ### GetGlobalStableNeckPoint
 `public Vec3 GetGlobalStableNeckPoint(bool isHumanoid)`
 
-**Purpose:** Gets the current value of `global stable neck point`.
+**Purpose:** Reads and returns the `global stable neck point` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetGlobalStableNeckPoint(false);
+```
 
 ### GetBoneEntitialFrame
 `public MatrixFrame GetBoneEntitialFrame(sbyte bone, bool useBoneMapping)`
 
-**Purpose:** Gets the current value of `bone entitial frame`.
+**Purpose:** Reads and returns the `bone entitial frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetBoneEntitialFrame(0, false);
+```
 
 ### SetAttachedPositionForMeshAfterAnimationPostIntegrate
 `public void SetAttachedPositionForMeshAfterAnimationPostIntegrate(WeakGameEntity ropeEntity, sbyte bone)`
 
-**Purpose:** Sets the value or state of `attached position for mesh after animation post integrate`.
+**Purpose:** Assigns a new value to `attached position for mesh after animation post integrate` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetAttachedPositionForMeshAfterAnimationPostIntegrate(ropeEntity, 0);
+```
 
 ### GetCurrentHeadLookDirection
 `public Vec3 GetCurrentHeadLookDirection()`
 
-**Purpose:** Gets the current value of `current head look direction`.
+**Purpose:** Reads and returns the `current head look direction` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetCurrentHeadLookDirection();
+```
 
 ### GetMovementMode
 `public HumanWalkingMovementMode GetMovementMode()`
 
-**Purpose:** Gets the current value of `movement mode`.
+**Purpose:** Reads and returns the `movement mode` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetMovementMode();
+```
 
 ### GetVisualStrengthOfAgentVisual
 `public float GetVisualStrengthOfAgentVisual(MBAgentVisuals targetAgentVisual, Mission mission, float ambientLightStrength, float sunMoonLightStrength, int agentIndexToIgnore)`
 
-**Purpose:** Gets the current value of `visual strength of agent visual`.
+**Purpose:** Reads and returns the `visual strength of agent visual` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetVisualStrengthOfAgentVisual(targetAgentVisual, mission, 0, 0, 0);
+```
 
 ### GetCurrentRagdollState
 `public RagdollState GetCurrentRagdollState()`
 
-**Purpose:** Gets the current value of `current ragdoll state`.
+**Purpose:** Reads and returns the `current ragdoll state` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetCurrentRagdollState();
+```
 
 ### GetRealBoneIndex
 `public sbyte GetRealBoneIndex(HumanBone boneType)`
 
-**Purpose:** Gets the current value of `real bone index`.
+**Purpose:** Reads and returns the `real bone index` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetRealBoneIndex(boneType);
+```
 
 ### AddPrefabToAgentVisualBoneByBoneType
 `public CompositeComponent AddPrefabToAgentVisualBoneByBoneType(string prefabName, HumanBone boneType)`
 
 **Purpose:** Adds `prefab to agent visual bone by bone type` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.AddPrefabToAgentVisualBoneByBoneType("example", boneType);
+```
+
 ### AddPrefabToAgentVisualBoneByRealBoneIndex
 `public CompositeComponent AddPrefabToAgentVisualBoneByRealBoneIndex(string prefabName, sbyte realBoneIndex)`
 
 **Purpose:** Adds `prefab to agent visual bone by real bone index` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.AddPrefabToAgentVisualBoneByRealBoneIndex("example", 0);
+```
+
 ### GetAttachedWeaponEntity
 `public GameEntity GetAttachedWeaponEntity(int attachedWeaponIndex)`
 
-**Purpose:** Gets the current value of `attached weapon entity`.
+**Purpose:** Reads and returns the `attached weapon entity` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetAttachedWeaponEntity(0);
+```
 
 ### SetFrame
 `public void SetFrame(ref MatrixFrame frame)`
 
-**Purpose:** Sets the value or state of `frame`.
+**Purpose:** Assigns a new value to `frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetFrame(frame);
+```
 
 ### SetEntity
 `public void SetEntity(GameEntity value)`
 
-**Purpose:** Sets the value or state of `entity`.
+**Purpose:** Assigns a new value to `entity` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetEntity(value);
+```
 
 ### FillEntityWithBodyMeshesWithoutAgentVisuals
 `public static void FillEntityWithBodyMeshesWithoutAgentVisuals(GameEntity entity, SkinGenerationParams skinParams, BodyProperties bodyProperties, MetaMesh glovesMesh)`
 
-**Purpose:** Handles logic related to `fill entity with body meshes without agent visuals`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBAgentVisuals.FillEntityWithBodyMeshesWithoutAgentVisuals(entity, skinParams, bodyProperties, glovesMesh);
+```
 
 ### GetBoneTypeData
 `public BoneBodyTypeData GetBoneTypeData(sbyte boneIndex)`
 
-**Purpose:** Gets the current value of `bone type data`.
+**Purpose:** Reads and returns the `bone type data` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetBoneTypeData(0);
+```
 
 ### GetSkeleton
 `public Skeleton GetSkeleton()`
 
-**Purpose:** Gets the current value of `skeleton`.
+**Purpose:** Reads and returns the `skeleton` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetSkeleton();
+```
 
 ### SetSkeleton
 `public void SetSkeleton(Skeleton newSkeleton)`
 
-**Purpose:** Sets the value or state of `skeleton`.
+**Purpose:** Assigns a new value to `skeleton` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetSkeleton(newSkeleton);
+```
 
 ### CreateParticleSystemAttachedToBone
 `public void CreateParticleSystemAttachedToBone(string particleName, sbyte boneIndex, ref MatrixFrame boneLocalParticleFrame)`
 
-**Purpose:** Creates a new `particle system attached to bone` instance or object.
+**Purpose:** Constructs a new `particle system attached to bone` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.CreateParticleSystemAttachedToBone("example", 0, boneLocalParticleFrame);
+```
 
 ### CreateParticleSystemAttachedToBone
 `public void CreateParticleSystemAttachedToBone(int runtimeParticleindex, sbyte boneIndex, ref MatrixFrame boneLocalParticleFrame)`
 
-**Purpose:** Creates a new `particle system attached to bone` instance or object.
+**Purpose:** Constructs a new `particle system attached to bone` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.CreateParticleSystemAttachedToBone(0, 0, boneLocalParticleFrame);
+```
 
 ### SetVisible
 `public void SetVisible(bool value)`
 
-**Purpose:** Sets the value or state of `visible`.
+**Purpose:** Assigns a new value to `visible` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetVisible(false);
+```
 
 ### GetVisible
 `public bool GetVisible()`
 
-**Purpose:** Gets the current value of `visible`.
+**Purpose:** Reads and returns the `visible` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetVisible();
+```
 
 ### AddChildEntity
 `public void AddChildEntity(GameEntity entity)`
 
 **Purpose:** Adds `child entity` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddChildEntity(entity);
+```
+
 ### SetClothWindToWeaponAtIndex
 `public void SetClothWindToWeaponAtIndex(Vec3 windVector, bool isLocal, EquipmentIndex weaponIndex)`
 
-**Purpose:** Sets the value or state of `cloth wind to weapon at index`.
+**Purpose:** Assigns a new value to `cloth wind to weapon at index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetClothWindToWeaponAtIndex(windVector, false, weaponIndex);
+```
 
 ### RemoveChildEntity
 `public void RemoveChildEntity(GameEntity entity, int removeReason)`
 
 **Purpose:** Removes `child entity` from the current collection or state.
 
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.RemoveChildEntity(entity, 0);
+```
+
 ### CheckResources
 `public bool CheckResources(bool addToQueue)`
 
-**Purpose:** Handles logic related to `check resources`.
+**Purpose:** Verifies whether `resources` holds true for the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.CheckResources(false);
+```
 
 ### AddSkinMeshes
 `public void AddSkinMeshes(SkinGenerationParams skinParams, BodyProperties bodyProperties, bool useGPUMorph, bool useFaceCache)`
 
 **Purpose:** Adds `skin meshes` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddSkinMeshes(skinParams, bodyProperties, false, false);
+```
+
 ### SetFaceGenerationParams
 `public void SetFaceGenerationParams(FaceGenerationParams faceGenerationParams)`
 
-**Purpose:** Sets the value or state of `face generation params`.
+**Purpose:** Assigns a new value to `face generation params` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetFaceGenerationParams(faceGenerationParams);
+```
 
 ### SetLodAtlasShadingIndex
 `public void SetLodAtlasShadingIndex(int index, bool useTeamColor, uint teamColor1, uint teamColor2)`
 
-**Purpose:** Sets the value or state of `lod atlas shading index`.
+**Purpose:** Assigns a new value to `lod atlas shading index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetLodAtlasShadingIndex(0, false, 0, 0);
+```
 
 ### ClearVisualComponents
 `public void ClearVisualComponents(bool removeSkeleton, bool removeLabel = true)`
 
-**Purpose:** Handles logic related to `clear visual components`.
+**Purpose:** Removes all `visual components` from the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ClearVisualComponents(false, false);
+```
 
 ### LazyUpdateAgentRendererData
 `public void LazyUpdateAgentRendererData()`
 
-**Purpose:** Handles logic related to `lazy update agent renderer data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.LazyUpdateAgentRendererData();
+```
 
 ### AddMultiMesh
 `public void AddMultiMesh(MetaMesh metaMesh, BodyMeshTypes bodyMeshIndex)`
 
 **Purpose:** Adds `multi mesh` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddMultiMesh(metaMesh, bodyMeshIndex);
+```
+
 ### ApplySkeletonScale
 `public void ApplySkeletonScale(Vec3 mountSitBoneScale, float mountRadiusAdder, sbyte boneIndices, Vec3 boneScales)`
 
-**Purpose:** Applies `skeleton scale` to the current object.
+**Purpose:** Applies the effect of `skeleton scale` to the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ApplySkeletonScale(mountSitBoneScale, 0, 0, boneScales);
+```
 
 ### UpdateSkeletonScale
 `public void UpdateSkeletonScale(int bodyDeformType)`
 
-**Purpose:** Updates the state or data of `skeleton scale`.
+**Purpose:** Recalculates and stores the latest representation of `skeleton scale`.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.UpdateSkeletonScale(0);
+```
 
 ### AddHorseReinsClothMesh
 `public void AddHorseReinsClothMesh(MetaMesh reinMesh, MetaMesh ropeMesh)`
 
 **Purpose:** Adds `horse reins cloth mesh` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddHorseReinsClothMesh(reinMesh, ropeMesh);
+```
+
 ### BatchLastLodMeshes
 `public void BatchLastLodMeshes()`
 
-**Purpose:** Handles logic related to `batch last lod meshes`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.BatchLastLodMeshes();
+```
 
 ### AddWeaponToAgentEntity
 `public void AddWeaponToAgentEntity(int slotIndex, in WeaponData weaponData, WeaponStatsData weaponStatsData, in WeaponData ammoWeaponData, WeaponStatsData ammoWeaponStatsData, GameEntity cachedEntity)`
 
 **Purpose:** Adds `weapon to agent entity` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddWeaponToAgentEntity(0, weaponData, weaponStatsData, ammoWeaponData, ammoWeaponStatsData, cachedEntity);
+```
+
 ### UpdateQuiverMeshesWithoutAgent
 `public void UpdateQuiverMeshesWithoutAgent(int weaponIndex, int ammoCount)`
 
-**Purpose:** Updates the state or data of `quiver meshes without agent`.
+**Purpose:** Recalculates and stores the latest representation of `quiver meshes without agent`.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.UpdateQuiverMeshesWithoutAgent(0, 0);
+```
 
 ### SetWieldedWeaponIndices
 `public void SetWieldedWeaponIndices(int slotIndexRightHand, int slotIndexLeftHand)`
 
-**Purpose:** Sets the value or state of `wielded weapon indices`.
+**Purpose:** Assigns a new value to `wielded weapon indices` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetWieldedWeaponIndices(0, 0);
+```
 
 ### ClearAllWeaponMeshes
 `public void ClearAllWeaponMeshes()`
 
-**Purpose:** Handles logic related to `clear all weapon meshes`.
+**Purpose:** Removes all `all weapon meshes` from the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ClearAllWeaponMeshes();
+```
 
 ### ClearWeaponMeshes
 `public void ClearWeaponMeshes(EquipmentIndex index)`
 
-**Purpose:** Handles logic related to `clear weapon meshes`.
+**Purpose:** Removes all `weapon meshes` from the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ClearWeaponMeshes(index);
+```
 
 ### MakeVoice
 `public void MakeVoice(int voiceId, Vec3 position)`
 
-**Purpose:** Handles logic related to `make voice`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.MakeVoice(0, position);
+```
 
 ### SetSetupMorphNode
 `public void SetSetupMorphNode(bool value)`
 
-**Purpose:** Sets the value or state of `setup morph node`.
+**Purpose:** Assigns a new value to `setup morph node` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetSetupMorphNode(false);
+```
 
 ### UseScaledWeapons
 `public void UseScaledWeapons(bool value)`
 
-**Purpose:** Handles logic related to `use scaled weapons`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.UseScaledWeapons(false);
+```
 
 ### SetClothComponentKeepStateOfAllMeshes
 `public void SetClothComponentKeepStateOfAllMeshes(bool keepState)`
 
-**Purpose:** Sets the value or state of `cloth component keep state of all meshes`.
+**Purpose:** Assigns a new value to `cloth component keep state of all meshes` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetClothComponentKeepStateOfAllMeshes(false);
+```
 
 ### GetFacegenScalingMatrix
 `public MatrixFrame GetFacegenScalingMatrix()`
 
-**Purpose:** Gets the current value of `facegen scaling matrix`.
+**Purpose:** Reads and returns the `facegen scaling matrix` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetFacegenScalingMatrix();
+```
 
 ### ReplaceMeshWithMesh
 `public void ReplaceMeshWithMesh(MetaMesh oldMetaMesh, MetaMesh newMetaMesh, BodyMeshTypes bodyMeshIndex)`
 
-**Purpose:** Handles logic related to `replace mesh with mesh`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ReplaceMeshWithMesh(oldMetaMesh, newMetaMesh, bodyMeshIndex);
+```
 
 ### SetAgentActionChannel
 `public void SetAgentActionChannel(int actionChannelNo, int actionIndex, float channelParameter = 0f, float blendPeriodOverride = -0.2f, bool forceFaceMorphRestart = true, float blendWithNextActionFactor = 0f)`
 
-**Purpose:** Sets the value or state of `agent action channel`.
+**Purpose:** Assigns a new value to `agent action channel` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetAgentActionChannel(0, 0, 0, 0, false, 0);
+```
 
 ### SetVoiceDefinitionIndex
 `public void SetVoiceDefinitionIndex(int voiceDefinitionIndex, float voicePitch)`
 
-**Purpose:** Sets the value or state of `voice definition index`.
+**Purpose:** Assigns a new value to `voice definition index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetVoiceDefinitionIndex(0, 0);
+```
 
 ### StartRhubarbRecord
 `public void StartRhubarbRecord(string path, int soundId)`
 
-**Purpose:** Handles logic related to `start rhubarb record`.
+**Purpose:** Starts the `rhubarb record` flow or state machine.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.StartRhubarbRecord("example", 0);
+```
 
 ### SetContourColor
 `public void SetContourColor(uint? color, bool alwaysVisible = true)`
 
-**Purpose:** Sets the value or state of `contour color`.
+**Purpose:** Assigns a new value to `contour color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetContourColor(0, false);
+```
 
 ### SetEnableOcclusionCulling
 `public void SetEnableOcclusionCulling(bool enable)`
 
-**Purpose:** Sets the value or state of `enable occlusion culling`.
+**Purpose:** Assigns a new value to `enable occlusion culling` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetEnableOcclusionCulling(false);
+```
 
 ### SetAgentLodZeroOrMax
 `public void SetAgentLodZeroOrMax(bool makeZero)`
 
-**Purpose:** Sets the value or state of `agent lod zero or max`.
+**Purpose:** Assigns a new value to `agent lod zero or max` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetAgentLodZeroOrMax(false);
+```
 
 ### SetAgentLocalSpeed
 `public void SetAgentLocalSpeed(Vec2 speed)`
 
-**Purpose:** Sets the value or state of `agent local speed`.
+**Purpose:** Assigns a new value to `agent local speed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetAgentLocalSpeed(speed);
+```
 
 ### SetLookDirection
 `public void SetLookDirection(Vec3 direction)`
 
-**Purpose:** Sets the value or state of `look direction`.
+**Purpose:** Assigns a new value to `look direction` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetLookDirection(direction);
+```
 
 ### GetBodyMeshIndex
 `public static BodyMeshTypes GetBodyMeshIndex(EquipmentIndex equipmentIndex)`
 
-**Purpose:** Gets the current value of `body mesh index`.
+**Purpose:** Reads and returns the `body mesh index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAgentVisuals.GetBodyMeshIndex(equipmentIndex);
+```
 
 ### GetBoneEntitialFrameAtAnimationProgress
 `public MatrixFrame GetBoneEntitialFrameAtAnimationProgress(sbyte boneIndex, int animationIndex, float progress)`
 
-**Purpose:** Gets the current value of `bone entitial frame at animation progress`.
+**Purpose:** Reads and returns the `bone entitial frame at animation progress` value held by the current object.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetBoneEntitialFrameAtAnimationProgress(0, 0, 0);
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.Reset();
+```
 
 ### ResetNextFrame
 `public void ResetNextFrame()`
 
-**Purpose:** Resets `next frame` to its initial state.
+**Purpose:** Returns `next frame` to its default or initial condition.
+
+```csharp
+// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ResetNextFrame();
+```
 
 ## Usage Example
 
@@ -364,4 +751,4 @@ MBAgentVisuals.CreateAgentVisuals(scene, "example", eyeOffset);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

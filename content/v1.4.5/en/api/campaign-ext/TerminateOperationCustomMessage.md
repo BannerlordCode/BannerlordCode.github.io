@@ -1,20 +1,14 @@
 ---
 title: "TerminateOperationCustomMessage"
+description: "Auto-generated class reference for TerminateOperationCustomMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TerminateOperationCustomMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TerminateOperationCustomMessage
 
 **Namespace:** Messages.FromCustomBattleServerManager.ToCustomBattleServer
 **Module:** Messages.FromCustomBattleServerManager
 **Type:** `public class TerminateOperationCustomMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/TerminateOperationCustomMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/TerminateOperationCustomMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Messages.FromCustomBattleServerManager.ToCustomBattleServe
 ## Usage Example
 
 ```csharp
-var example = new TerminateOperationCustomMessage();
+// Obtain an instance from the relevant subsystem API
+TerminateOperationCustomMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

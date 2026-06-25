@@ -1,20 +1,14 @@
 ---
 title: "ClanLordStatusItemVM"
+description: "ClanLordStatusItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanLordStatusItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanLordStatusItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanLordStatusItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanLordStatusItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanLordStatusItemVM.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "ClanLordStatusItemVM"
 ## 使用示例
 
 ```csharp
-var example = new ClanLordStatusItemVM();
+// 从对应子系统 API 获取实例
+ClanLordStatusItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

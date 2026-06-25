@@ -1,13 +1,7 @@
 ---
 title: "ClanNavigationElement"
+description: "Auto-generated class reference for ClanNavigationElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanNavigationElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
@@ -38,25 +32,44 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ### OpenView
 `public override void OpenView()`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of ClanNavigationElement from the subsystem API first
+ClanNavigationElement clanNavigationElement = ...;
+clanNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of ClanNavigationElement from the subsystem API first
+ClanNavigationElement clanNavigationElement = ...;
+clanNavigationElement.OpenView(parameters);
+```
 
 ### OnClanScreenPermission
 `public void OnClanScreenPermission(bool isAvailable, TextObject reasonString)`
 
-**Purpose:** Called when the `clan screen permission` event is raised.
+**Purpose:** Invoked when the `clan screen permission` event is raised.
+
+```csharp
+// Obtain an instance of ClanNavigationElement from the subsystem API first
+ClanNavigationElement clanNavigationElement = ...;
+clanNavigationElement.OnClanScreenPermission(false, reasonString);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanNavigationElement();
-value.OpenView();
+// Typically call this after obtaining an instance from the subsystem API
+ClanNavigationElement clanNavigationElement = ...;
+clanNavigationElement.OpenView();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

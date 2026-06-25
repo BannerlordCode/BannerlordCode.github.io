@@ -1,13 +1,7 @@
 ---
 title: "ClientRestSession"
+description: "ClientRestSession 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClientRestSession`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClientRestSession
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -36,20 +30,33 @@ title: "ClientRestSession"
 ### Connect
 `public void Connect()`
 
-**用途 / Purpose:** 处理 `connect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientRestSession 实例
+ClientRestSession clientRestSession = ...;
+clientRestSession.Connect();
+```
 
 ### Disconnect
 `public void Disconnect()`
 
-**用途 / Purpose:** 处理 `disconnect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientRestSession 实例
+ClientRestSession clientRestSession = ...;
+clientRestSession.Disconnect();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClientRestSession();
-value.Connect();
+// 通常从对应子系统 API 获取实例后调用
+ClientRestSession clientRestSession = ...;
+clientRestSession.Connect();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

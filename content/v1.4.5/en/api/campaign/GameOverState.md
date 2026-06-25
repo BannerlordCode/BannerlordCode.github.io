@@ -1,20 +1,14 @@
 ---
 title: "GameOverState"
+description: "Auto-generated class reference for GameOverState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameOverState : TaleWorlds.Core.GameState`
 **Base:** `TaleWorlds.Core.GameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/GameOverState.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/GameOverState.cs`
 
 ## Overview
 
@@ -36,17 +30,32 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### CreateForVictory
 `public static GameOverState CreateForVictory()`
 
-**Purpose:** Creates a new `for victory` instance or object.
+**Purpose:** Constructs a new `for victory` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+GameOverState.CreateForVictory();
+```
 
 ### CreateForRetirement
 `public static GameOverState CreateForRetirement()`
 
-**Purpose:** Creates a new `for retirement` instance or object.
+**Purpose:** Constructs a new `for retirement` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+GameOverState.CreateForRetirement();
+```
 
 ### CreateForClanDestroyed
 `public static GameOverState CreateForClanDestroyed()`
 
-**Purpose:** Creates a new `for clan destroyed` instance or object.
+**Purpose:** Constructs a new `for clan destroyed` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+GameOverState.CreateForClanDestroyed();
+```
 
 ## Usage Example
 
@@ -56,4 +65,4 @@ GameOverState.CreateForVictory();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

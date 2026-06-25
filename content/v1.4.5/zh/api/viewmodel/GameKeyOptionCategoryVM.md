@@ -1,20 +1,14 @@
 ---
 title: "GameKeyOptionCategoryVM"
+description: "GameKeyOptionCategoryVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameKeyOptionCategoryVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyOptionCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameKeyOptionCategoryVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys/GameKeyOptionCategoryVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys/GameKeyOptionCategoryVM.cs`
 
 ## 概述
 
@@ -39,45 +33,88 @@ title: "GameKeyOptionCategoryVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
+GameKeyOptionCategoryVM gameKeyOptionCategoryVM = ...;
+gameKeyOptionCategoryVM.RefreshValues();
+```
 
 ### IsChanged
 `public bool IsChanged()`
 
-**用途 / Purpose:** 处理 `is changed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「changed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
+GameKeyOptionCategoryVM gameKeyOptionCategoryVM = ...;
+var result = gameKeyOptionCategoryVM.IsChanged();
+```
 
 ### ExecuteResetToDefault
 `public void ExecuteResetToDefault()`
 
-**用途 / Purpose:** 执行 `reset to default` 操作或流程。
+**用途 / Purpose:** 执行 「reset to default」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
+GameKeyOptionCategoryVM gameKeyOptionCategoryVM = ...;
+gameKeyOptionCategoryVM.ExecuteResetToDefault();
+```
 
 ### OnDone
 `public void OnDone()`
 
-**用途 / Purpose:** 当 `done` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「done」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
+GameKeyOptionCategoryVM gameKeyOptionCategoryVM = ...;
+gameKeyOptionCategoryVM.OnDone();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
+GameKeyOptionCategoryVM gameKeyOptionCategoryVM = ...;
+gameKeyOptionCategoryVM.OnFinalize();
+```
 
 ### Cancel
 `public void Cancel()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `cel`。
+**用途 / Purpose:** 检查当前对象是否满足 「cel」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
+GameKeyOptionCategoryVM gameKeyOptionCategoryVM = ...;
+gameKeyOptionCategoryVM.Cancel();
+```
 
 ### ApplyValues
 `public void ApplyValues()`
 
-**用途 / Purpose:** 将 `values` 应用到当前对象。
+**用途 / Purpose:** 将 「values」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
+GameKeyOptionCategoryVM gameKeyOptionCategoryVM = ...;
+gameKeyOptionCategoryVM.ApplyValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameKeyOptionCategoryVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+GameKeyOptionCategoryVM gameKeyOptionCategoryVM = ...;
+gameKeyOptionCategoryVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,24 +1,18 @@
 ---
 title: "AsyncTask"
+description: "Auto-generated class reference for AsyncTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AsyncTask`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AsyncTask
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class AsyncTask : NativeObject, ITask`
 **Base:** `NativeObject`
-**Area:** engine
+**File:** `TaleWorlds.Engine/AsyncTask.cs`
 
 ## Overview
 
-`AsyncTask` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`AsyncTask` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,16 +23,19 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateWithDelegate
 `public static AsyncTask CreateWithDelegate(ManagedDelegate function, bool isBackground)`
 
-**Purpose:** Creates a new `with delegate` instance or object.
+**Purpose:** Constructs a new `with delegate` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+AsyncTask.CreateWithDelegate(function, false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 AsyncTask.CreateWithDelegate(function, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

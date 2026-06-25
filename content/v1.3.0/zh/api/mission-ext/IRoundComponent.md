@@ -1,19 +1,13 @@
 ---
 title: "IRoundComponent"
+description: "IRoundComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IRoundComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IRoundComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** 无
+**Type:** `public interface IRoundComponent : IMissionBehavior`
+**Base:** `IMissionBehavior`
 **File:** `TaleWorlds.MountAndBlade/IRoundComponent.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "IRoundComponent"
 ## 使用示例
 
 ```csharp
-IRoundComponent implementation = GetRoundComponentImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIRoundComponent service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

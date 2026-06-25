@@ -1,13 +1,7 @@
 ---
 title: "DefaultMinorFactionsModel"
+description: "DefaultMinorFactionsModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultMinorFactionsModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMinorFactionsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -36,7 +30,13 @@ title: "DefaultMinorFactionsModel"
 ### GetMercenaryAwardFactorToJoinKingdom
 `public override int GetMercenaryAwardFactorToJoinKingdom(Clan mercenaryClan, Kingdom kingdom, bool neededAmountForClanToJoinCalculation = false)`
 
-**用途 / Purpose:** 获取 `mercenary award factor to join kingdom` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mercenary award factor to join kingdom」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMinorFactionsModel 实例
+DefaultMinorFactionsModel defaultMinorFactionsModel = ...;
+var result = defaultMinorFactionsModel.GetMercenaryAwardFactorToJoinKingdom(mercenaryClan, kingdom, false);
+```
 
 ## 使用示例
 
@@ -46,4 +46,4 @@ Game.Current.ReplaceModel<DefaultMinorFactionsModel>(new MyDefaultMinorFactionsM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

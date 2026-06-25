@@ -1,13 +1,7 @@
 ---
 title: "SiegeLadderAI"
+description: "Auto-generated class reference for SiegeLadderAI."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeLadderAI`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeLadderAI
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new SiegeLadderAI();
+// Obtain an instance from the relevant subsystem API
+SiegeLadderAI instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

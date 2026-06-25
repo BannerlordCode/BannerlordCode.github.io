@@ -1,20 +1,14 @@
 ---
 title: "GameTypeRankInfo"
+description: "Auto-generated class reference for GameTypeRankInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameTypeRankInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTypeRankInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Ranked
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameTypeRankInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/GameTypeRankInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/GameTypeRankInfo.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Ranked` to place it in th
 ## Usage Example
 
 ```csharp
-var example = new GameTypeRankInfo();
+// Obtain an instance from the relevant subsystem API
+GameTypeRankInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

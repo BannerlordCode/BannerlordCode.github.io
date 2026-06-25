@@ -1,20 +1,14 @@
 ---
 title: "PermaMuteList"
+description: "Auto-generated class reference for PermaMuteList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PermaMuteList`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PermaMuteList
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class PermaMuteList`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PermaMuteList.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PermaMuteList.cs`
 
 ## Overview
 
@@ -35,32 +29,62 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### SetPermanentMuteAvailableCallback
 `public static void SetPermanentMuteAvailableCallback(Func<bool> getPermanentMuteAvailable)`
 
-**Purpose:** Sets the value or state of `permanent mute available callback`.
+**Purpose:** Assigns a new value to `permanent mute available callback` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.SetPermanentMuteAvailableCallback(getPermanentMuteAvailable);
+```
 
 ### LoadMutedPlayers
 `public static async Task LoadMutedPlayers(PlayerId currentPlayerId)`
 
-**Purpose:** Loads `muted players` data.
+**Purpose:** Reads `muted players` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.LoadMutedPlayers(currentPlayerId);
+```
 
 ### SaveMutedPlayers
 `public static async void SaveMutedPlayers()`
 
-**Purpose:** Saves `muted players` data.
+**Purpose:** Writes `muted players` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.SaveMutedPlayers();
+```
 
 ### IsPlayerMuted
 `public static bool IsPlayerMuted(PlayerId player)`
 
-**Purpose:** Handles logic related to `is player muted`.
+**Purpose:** Determines whether the current object is in the `player muted` state or condition.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.IsPlayerMuted(player);
+```
 
 ### MutePlayer
 `public static void MutePlayer(PlayerId player, string name)`
 
-**Purpose:** Handles logic related to `mute player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.MutePlayer(player, "example");
+```
 
 ### RemoveMutedPlayer
 `public static void RemoveMutedPlayer(PlayerId player)`
 
 **Purpose:** Removes `muted player` from the current collection or state.
+
+```csharp
+// Static call; no instance required
+PermaMuteList.RemoveMutedPlayer(player);
+```
 
 ## Usage Example
 
@@ -70,4 +94,4 @@ PermaMuteList.SetPermanentMuteAvailableCallback(getPermanentMuteAvailable);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

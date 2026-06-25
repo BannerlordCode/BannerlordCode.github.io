@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletSingleplayerOrderUIHandler"
+description: "MissionGauntletSingleplayerOrderUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletSingleplayerOrderUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletSingleplayerOrderUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletSingleplayerOrderUIHandler : GauntletOrderUIHandler, ISiegeDeploymentView`
 **Base:** `GauntletOrderUIHandler`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSingleplayerOrderUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSingleplayerOrderUIHandler.cs`
 
 ## 概述
 
@@ -37,54 +31,108 @@ title: "MissionGauntletSingleplayerOrderUIHandler"
 ### OnConversationBegin
 `public override void OnConversationBegin()`
 
-**用途 / Purpose:** 当 `conversation begin` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「conversation begin」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.OnConversationBegin();
+```
 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnAutoDeploy
 `public void OnAutoDeploy()`
 
-**用途 / Purpose:** 当 `auto deploy` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「auto deploy」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.OnAutoDeploy();
+```
 
 ### OnBeginMission
 `public void OnBeginMission()`
 
-**用途 / Purpose:** 当 `begin mission` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「begin mission」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.OnBeginMission();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.OnDeploymentFinished();
+```
 
 ### OnAfterDeploymentFinished
 `public override void OnAfterDeploymentFinished()`
 
-**用途 / Purpose:** 当 `after deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.OnAfterDeploymentFinished();
+```
 
 ### ClearFormationSelection
 `public void ClearFormationSelection()`
 
-**用途 / Purpose:** 处理 `clear formation selection` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「formation selection」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.ClearFormationSelection();
+```
 
 ### OnFiltersSet
 `public void OnFiltersSet(List<FormationConfiguration> filterData)`
 
-**用途 / Purpose:** 当 `filters set` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「filters set」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSingleplayerOrderUIHandler 实例
+MissionGauntletSingleplayerOrderUIHandler missionGauntletSingleplayerOrderUIHandler = ...;
+missionGauntletSingleplayerOrderUIHandler.OnFiltersSet(filterData);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletSingleplayerOrderUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletSingleplayerOrderUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

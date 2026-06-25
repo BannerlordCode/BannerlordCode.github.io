@@ -1,13 +1,7 @@
 ---
 title: "GameVersionVM"
+description: "Auto-generated class reference for GameVersionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameVersionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameVersionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameVersionVM from the subsystem API first
+GameVersionVM gameVersionVM = ...;
+gameVersionVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameVersionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameVersionVM gameVersionVM = ...;
+gameVersionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

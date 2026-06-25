@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleFactory"
+description: "Auto-generated class reference for CustomBattleFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleFactory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleFactory
 
 **Namespace:** TaleWorlds.MountAndBlade.View.CustomBattle
@@ -29,22 +23,42 @@ Start from namespace `TaleWorlds.MountAndBlade.View.CustomBattle` to place it in
 ### StartCustomBattle
 `public static void StartCustomBattle()`
 
-**Purpose:** Handles logic related to `start custom battle`.
+**Purpose:** Starts the `custom battle` flow or state machine.
+
+```csharp
+// Static call; no instance required
+CustomBattleFactory.StartCustomBattle();
+```
 
 ### GetProviderCount
 `public static int GetProviderCount()`
 
-**Purpose:** Gets the current value of `provider count`.
+**Purpose:** Reads and returns the `provider count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CustomBattleFactory.GetProviderCount();
+```
 
 ### CollectProviders
 `public static List<ICustomBattleProvider> CollectProviders()`
 
-**Purpose:** Handles logic related to `collect providers`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CustomBattleFactory.CollectProviders();
+```
 
 ### CollectNextProvider
 `public static ICustomBattleProvider CollectNextProvider(Type currentProviderType)`
 
-**Purpose:** Handles logic related to `collect next provider`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CustomBattleFactory.CollectNextProvider(currentProviderType);
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ CustomBattleFactory.StartCustomBattle();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

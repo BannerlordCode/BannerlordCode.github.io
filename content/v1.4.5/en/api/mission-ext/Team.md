@@ -1,20 +1,14 @@
 ---
 title: "Team"
+description: "Auto-generated class reference for Team."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Team`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Team
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Team : IMissionTeam`
 **Base:** `IMissionTeam`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Team.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Team.cs`
 
 ## Overview
 
@@ -57,205 +51,437 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetCustomOrderController
 `public void SetCustomOrderController(OrderController customMasterOrderController, OrderController customPlayerOrderController)`
 
-**Purpose:** Sets the value or state of `custom order controller`.
+**Purpose:** Assigns a new value to `custom order controller` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.SetCustomOrderController(customMasterOrderController, customPlayerOrderController);
+```
 
 ### UpdateCachedEnemyDataForFleeing
 `public void UpdateCachedEnemyDataForFleeing()`
 
-**Purpose:** Updates the state or data of `cached enemy data for fleeing`.
+**Purpose:** Recalculates and stores the latest representation of `cached enemy data for fleeing`.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.UpdateCachedEnemyDataForFleeing();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.Reset();
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.Clear();
+```
 
 ### DoesFirstFormationClassContainSecond
 `public static bool DoesFirstFormationClassContainSecond(FormationClass f1, FormationClass f2)`
 
-**Purpose:** Handles logic related to `does first formation class contain second`.
+**Purpose:** Returns a boolean answer to whether `first formation class contain second` is true for the current object.
+
+```csharp
+// Static call; no instance required
+Team.DoesFirstFormationClassContainSecond(f1, f2);
+```
 
 ### GetFormationFormationClass
 `public static FormationClass GetFormationFormationClass(Formation f)`
 
-**Purpose:** Gets the current value of `formation formation class`.
+**Purpose:** Reads and returns the `formation formation class` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Team.GetFormationFormationClass(f);
+```
 
 ### GetPlayerTeamFormationClass
 `public static FormationClass GetPlayerTeamFormationClass(Agent mainAgent)`
 
-**Purpose:** Gets the current value of `player team formation class`.
+**Purpose:** Reads and returns the `player team formation class` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Team.GetPlayerTeamFormationClass(mainAgent);
+```
 
 ### AssignPlayerAsSergeantOfFormation
 `public void AssignPlayerAsSergeantOfFormation(MissionPeer peer, FormationClass formationClass)`
 
-**Purpose:** Handles logic related to `assign player as sergeant of formation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.AssignPlayerAsSergeantOfFormation(peer, formationClass);
+```
 
 ### AddTacticOption
 `public void AddTacticOption(TacticComponent tacticOption)`
 
 **Purpose:** Adds `tactic option` to the current collection or state.
 
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.AddTacticOption(tacticOption);
+```
+
 ### RemoveTacticOption
 `public void RemoveTacticOption(Type tacticType)`
 
 **Purpose:** Removes `tactic option` from the current collection or state.
 
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.RemoveTacticOption(tacticType);
+```
+
 ### ClearTacticOptions
 `public void ClearTacticOptions()`
 
-**Purpose:** Handles logic related to `clear tactic options`.
+**Purpose:** Removes all `tactic options` from the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.ClearTacticOptions();
+```
 
 ### ResetTactic
 `public void ResetTactic()`
 
-**Purpose:** Resets `tactic` to its initial state.
+**Purpose:** Returns `tactic` to its default or initial condition.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.ResetTactic();
+```
 
 ### AddTeamAI
 `public void AddTeamAI(TeamAIComponent teamAI, bool forceNotAIControlled = false)`
 
 **Purpose:** Adds `team a i` to the current collection or state.
 
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.AddTeamAI(teamAI, false);
+```
+
 ### DelegateCommandToAI
 `public void DelegateCommandToAI()`
 
-**Purpose:** Handles logic related to `delegate command to a i`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.DelegateCommandToAI();
+```
 
 ### RearrangeFormationsAccordingToFilter
 `public void RearrangeFormationsAccordingToFilter(List<(Formation formation, int troopCount, TroopTraitsMask troopFilter, List<Agent> excludedAgents)> MassTransferData)`
 
-**Purpose:** Handles logic related to `rearrange formations according to filter`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.RearrangeFormationsAccordingToFilter(formation, 0, troopFilter, massTransferData);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.Tick(0);
+```
 
 ### GetFormation
 `public Formation GetFormation(FormationClass formationIndex)`
 
-**Purpose:** Gets the current value of `formation`.
+**Purpose:** Reads and returns the `formation` value held by the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.GetFormation(formationIndex);
+```
 
 ### SetIsEnemyOf
 `public void SetIsEnemyOf(Team otherTeam, bool isEnemyOf)`
 
-**Purpose:** Sets the value or state of `is enemy of`.
+**Purpose:** Assigns a new value to `is enemy of` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.SetIsEnemyOf(otherTeam, false);
+```
 
 ### IsEnemyOf
 `public bool IsEnemyOf(Team otherTeam)`
 
-**Purpose:** Handles logic related to `is enemy of`.
+**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.IsEnemyOf(otherTeam);
+```
 
 ### IsFriendOf
 `public bool IsFriendOf(Team otherTeam)`
 
-**Purpose:** Handles logic related to `is friend of`.
+**Purpose:** Determines whether the current object is in the `friend of` state or condition.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.IsFriendOf(otherTeam);
+```
 
 ### AddAgentToTeam
 `public void AddAgentToTeam(Agent unit)`
 
 **Purpose:** Adds `agent to team` to the current collection or state.
 
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.AddAgentToTeam(unit);
+```
+
 ### RemoveAgentFromTeam
 `public void RemoveAgentFromTeam(Agent unit)`
 
 **Purpose:** Removes `agent from team` from the current collection or state.
 
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.RemoveAgentFromTeam(unit);
+```
+
 ### DeactivateAgent
 `public void DeactivateAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `deactivate agent`.
+**Purpose:** Deactivates the resource, state, or feature associated with `agent`.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.DeactivateAgent(agent);
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.OnAgentRemoved(agent);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.ToString();
+```
 
 ### OnMissionEnded
 `public void OnMissionEnded()`
 
-**Purpose:** Called when the `mission ended` event is raised.
+**Purpose:** Invoked when the `mission ended` event is raised.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.OnMissionEnded();
+```
 
 ### TriggerOnFormationsChanged
 `public void TriggerOnFormationsChanged(Formation formation)`
 
-**Purpose:** Handles logic related to `trigger on formations changed`.
+**Purpose:** Triggers the logic or event associated with `on formations changed`.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.TriggerOnFormationsChanged(formation);
+```
 
 ### TriggerOnFormationsChangedInDeployment
 `public void TriggerOnFormationsChangedInDeployment()`
 
-**Purpose:** Handles logic related to `trigger on formations changed in deployment`.
+**Purpose:** Triggers the logic or event associated with `on formations changed in deployment`.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.TriggerOnFormationsChangedInDeployment();
+```
 
 ### GetOrderControllerOf
 `public OrderController GetOrderControllerOf(Agent agent)`
 
-**Purpose:** Gets the current value of `order controller of`.
+**Purpose:** Reads and returns the `order controller of` value held by the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.GetOrderControllerOf(agent);
+```
 
 ### SetPlayerRole
 `public void SetPlayerRole(bool isPlayerGeneral, bool isPlayerSergeant)`
 
-**Purpose:** Sets the value or state of `player role`.
+**Purpose:** Assigns a new value to `player role` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.SetPlayerRole(false, false);
+```
 
 ### HasAnyEnemyTeamsWithAgents
 `public bool HasAnyEnemyTeamsWithAgents(bool ignoreMountedAgents)`
 
-**Purpose:** Checks whether the current object has/contains `any enemy teams with agents`.
+**Purpose:** Determines whether the current object already holds `any enemy teams with agents`.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.HasAnyEnemyTeamsWithAgents(false);
+```
 
 ### HasAnyFormationsIncludingSpecialThatIsNotEmpty
 `public bool HasAnyFormationsIncludingSpecialThatIsNotEmpty()`
 
-**Purpose:** Checks whether the current object has/contains `any formations including special that is not empty`.
+**Purpose:** Determines whether the current object already holds `any formations including special that is not empty`.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.HasAnyFormationsIncludingSpecialThatIsNotEmpty();
+```
 
 ### GetFormationCount
 `public int GetFormationCount()`
 
-**Purpose:** Gets the current value of `formation count`.
+**Purpose:** Reads and returns the `formation count` value held by the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.GetFormationCount();
+```
 
 ### GetAIControlledFormationCount
 `public int GetAIControlledFormationCount()`
 
-**Purpose:** Gets the current value of `a i controlled formation count`.
+**Purpose:** Reads and returns the `a i controlled formation count` value held by the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.GetAIControlledFormationCount();
+```
 
 ### GetAveragePositionOfEnemies
 `public Vec2 GetAveragePositionOfEnemies()`
 
-**Purpose:** Gets the current value of `average position of enemies`.
+**Purpose:** Reads and returns the `average position of enemies` value held by the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.GetAveragePositionOfEnemies();
+```
 
 ### GetAveragePosition
 `public Vec2 GetAveragePosition()`
 
-**Purpose:** Gets the current value of `average position`.
+**Purpose:** Reads and returns the `average position` value held by the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.GetAveragePosition();
+```
 
 ### GetMedianPosition
 `public WorldPosition GetMedianPosition(Vec2 averagePosition)`
 
-**Purpose:** Gets the current value of `median position`.
+**Purpose:** Reads and returns the `median position` value held by the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.GetMedianPosition(averagePosition);
+```
 
 ### GetWeightedAverageOfEnemies
 `public Vec2 GetWeightedAverageOfEnemies(Vec2 basePoint)`
 
-**Purpose:** Gets the current value of `weighted average of enemies`.
+**Purpose:** Reads and returns the `weighted average of enemies` value held by the current object.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+var result = team.GetWeightedAverageOfEnemies(basePoint);
+```
 
 ### DisableDetachmentTicking
 `public void DisableDetachmentTicking()`
 
-**Purpose:** Handles logic related to `disable detachment ticking`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Team from the subsystem API first
+Team team = ...;
+team.DisableDetachmentTicking();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Team();
-value.SetCustomOrderController(customMasterOrderController, customPlayerOrderController);
+// Typically call this after obtaining an instance from the subsystem API
+Team team = ...;
+team.SetCustomOrderController(customMasterOrderController, customPlayerOrderController);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

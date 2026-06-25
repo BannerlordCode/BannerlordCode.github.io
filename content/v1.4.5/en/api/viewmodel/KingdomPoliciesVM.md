@@ -1,20 +1,14 @@
 ---
 title: "KingdomPoliciesVM"
+description: "Auto-generated class reference for KingdomPoliciesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomPoliciesVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomPoliciesVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Policies
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomPoliciesVM : KingdomCategoryVM`
 **Base:** `KingdomCategoryVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Policies/KingdomPoliciesVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Policies/KingdomPoliciesVM.cs`
 
 ## Overview
 
@@ -56,25 +50,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomPoliciesVM from the subsystem API first
+KingdomPoliciesVM kingdomPoliciesVM = ...;
+kingdomPoliciesVM.RefreshValues();
+```
 
 ### SelectPolicy
 `public void SelectPolicy(PolicyObject policy)`
 
-**Purpose:** Handles logic related to `select policy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomPoliciesVM from the subsystem API first
+KingdomPoliciesVM kingdomPoliciesVM = ...;
+kingdomPoliciesVM.SelectPolicy(policy);
+```
 
 ### RefreshPolicyList
 `public void RefreshPolicyList()`
 
-**Purpose:** Refreshes the display or cache of `policy list`.
+**Purpose:** Keeps the display or cache of `policy list` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomPoliciesVM from the subsystem API first
+KingdomPoliciesVM kingdomPoliciesVM = ...;
+kingdomPoliciesVM.RefreshPolicyList();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomPoliciesVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomPoliciesVM kingdomPoliciesVM = ...;
+kingdomPoliciesVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

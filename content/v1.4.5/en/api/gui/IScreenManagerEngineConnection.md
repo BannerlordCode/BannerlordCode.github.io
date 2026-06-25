@@ -1,20 +1,14 @@
 ---
 title: "IScreenManagerEngineConnection"
+description: "Auto-generated class reference for IScreenManagerEngineConnection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IScreenManagerEngineConnection`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IScreenManagerEngineConnection
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
-**Type:** `class`
+**Type:** `public interface IScreenManagerEngineConnection`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/IScreenManagerEngineConnection.cs`
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/IScreenManagerEngineConnection.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-IScreenManagerEngineConnection implementation = GetScreenManagerEngineConnectionImplementation();
+// Usually obtained through DI or a factory method
+IIScreenManagerEngineConnection service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

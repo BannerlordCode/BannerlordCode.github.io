@@ -1,13 +1,7 @@
 ---
 title: "ShipCostModel"
+description: "ShipCostModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipCostModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipCostModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ title: "ShipCostModel"
 ### GetShipTradeValue
 `public abstract float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**用途 / Purpose:** 获取 `ship trade value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship trade value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShipCostModel 实例
+ShipCostModel shipCostModel = ...;
+var result = shipCostModel.GetShipTradeValue(ship, seller, buyer);
+```
 
 ### GetShipRepairCost
 `public abstract float GetShipRepairCost(Ship ship)`
 
-**用途 / Purpose:** 获取 `ship repair cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship repair cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShipCostModel 实例
+ShipCostModel shipCostModel = ...;
+var result = shipCostModel.GetShipRepairCost(ship);
+```
 
 ### GetShipUpgradeCost
 `public abstract int GetShipUpgradeCost(Hero owner, Ship ship, ShipUpgradePiece piece)`
 
-**用途 / Purpose:** 获取 `ship upgrade cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship upgrade cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShipCostModel 实例
+ShipCostModel shipCostModel = ...;
+var result = shipCostModel.GetShipUpgradeCost(owner, ship, piece);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomShipCostModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ShipCostModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

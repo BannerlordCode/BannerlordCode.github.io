@@ -1,13 +1,7 @@
 ---
 title: "CheatItemBaseVM"
+description: "Auto-generated class reference for CheatItemBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheatItemBaseVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheatItemBaseVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Cheat
@@ -35,14 +29,21 @@ Start from namespace `SandBox.ViewModelCollection.Map.Cheat` to place it in the 
 ### ExecuteAction
 `public abstract void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of CheatItemBaseVM from the subsystem API first
+CheatItemBaseVM cheatItemBaseVM = ...;
+cheatItemBaseVM.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCheatItemBaseVM();
+// Typically obtained from a subsystem API or factory
+CheatItemBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "LauncherPlatform"
+description: "Auto-generated class reference for LauncherPlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherPlatform`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherPlatform
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class LauncherPlatform`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherPlatform.cs`
 
 ## Overview
 
-`LauncherPlatform` lives in `TaleWorlds.MountAndBlade.Launcher.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LauncherPlatform` lives in `TaleWorlds.MountAndBlade.Launcher.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,26 +29,39 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Initialize
 `public static void Initialize(List<string> args)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+LauncherPlatform.Initialize(args);
+```
 
 ### Destroy
 `public static void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LauncherPlatform.Destroy();
+```
 
 ### SetLauncherMode
 `public static void SetLauncherMode(bool isLauncherModeActive)`
 
-**Purpose:** Sets the value or state of `launcher mode`.
+**Purpose:** Assigns a new value to `launcher mode` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+LauncherPlatform.SetLauncherMode(false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 LauncherPlatform.Initialize(args);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

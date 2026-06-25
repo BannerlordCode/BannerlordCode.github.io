@@ -1,20 +1,14 @@
 ---
 title: "DimensionSyncWidget"
+description: "Auto-generated class reference for DimensionSyncWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DimensionSyncWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DimensionSyncWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DimensionSyncWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DimensionSyncWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DimensionSyncWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `DimensionSyncWidget` as a Widget-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var widget = new DimensionSyncWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DimensionSyncWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

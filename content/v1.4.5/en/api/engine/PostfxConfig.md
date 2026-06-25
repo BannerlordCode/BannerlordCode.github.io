@@ -1,20 +1,14 @@
 ---
 title: "PostfxConfig"
+description: "Auto-generated class reference for PostfxConfig."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PostfxConfig`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PostfxConfig
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public enum PostfxConfig : uint`
 **Base:** `uint`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/View.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/View.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-PostfxConfig example = PostfxConfig.Value;
+// Obtain an instance from the relevant subsystem API
+PostfxConfig instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

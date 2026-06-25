@@ -1,20 +1,14 @@
 ---
 title: "MapConversationScreenButtonWidget"
+description: "Auto-generated class reference for MapConversationScreenButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationScreenButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationScreenButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapConversation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapConversationScreenButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapConversation/MapConversationScreenButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapConversation/MapConversationScreenButtonWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MapConversationScreenButtonWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new MapConversationScreenButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapConversationScreenButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

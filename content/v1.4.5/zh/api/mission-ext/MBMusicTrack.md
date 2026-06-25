@@ -1,20 +1,14 @@
 ---
 title: "MBMusicTrack"
+description: "MBMusicTrack 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBMusicTrack`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBMusicTrack
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MBMusicTrack`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBMusicTrack.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBMusicTrack.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "MBMusicTrack"
 ### Equals
 `public bool Equals(MBMusicTrack obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MBMusicTrack 实例
+MBMusicTrack mBMusicTrack = ...;
+var result = mBMusicTrack.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MBMusicTrack 实例
+MBMusicTrack mBMusicTrack = ...;
+var result = mBMusicTrack.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBMusicTrack();
-value.Equals(obj);
+// 通常从对应子系统 API 获取实例后调用
+MBMusicTrack mBMusicTrack = ...;
+mBMusicTrack.Equals(obj);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

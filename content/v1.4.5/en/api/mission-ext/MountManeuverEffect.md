@@ -1,20 +1,14 @@
 ---
 title: "MountManeuverEffect"
+description: "Auto-generated class reference for MountManeuverEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountManeuverEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountManeuverEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MountManeuverEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountManeuverEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountManeuverEffect.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**Purpose:** Called when the `update` event is raised.
+**Purpose:** Invoked when the `update` event is raised.
+
+```csharp
+// Obtain an instance of MountManeuverEffect from the subsystem API first
+MountManeuverEffect mountManeuverEffect = ...;
+mountManeuverEffect.OnUpdate(agent, false);
+```
 
 ### GetMountManeuver
 `public override float GetMountManeuver()`
 
-**Purpose:** Gets the current value of `mount maneuver`.
+**Purpose:** Reads and returns the `mount maneuver` value held by the current object.
+
+```csharp
+// Obtain an instance of MountManeuverEffect from the subsystem API first
+MountManeuverEffect mountManeuverEffect = ...;
+var result = mountManeuverEffect.GetMountManeuver();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MountManeuverEffect();
-value.OnUpdate(agent, false);
+// Typically call this after obtaining an instance from the subsystem API
+MountManeuverEffect mountManeuverEffect = ...;
+mountManeuverEffect.OnUpdate(agent, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

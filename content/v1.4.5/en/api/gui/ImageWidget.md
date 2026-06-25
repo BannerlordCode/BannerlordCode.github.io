@@ -1,20 +1,14 @@
 ---
 title: "ImageWidget"
+description: "Auto-generated class reference for ImageWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ImageWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ImageWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ImageWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `ImageWidget` as a Widget-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var widget = new ImageWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ImageWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

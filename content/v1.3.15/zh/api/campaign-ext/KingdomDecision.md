@@ -1,547 +1,376 @@
 ---
 title: "KingdomDecision"
+description: "KingdomDecision 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomDecision`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomDecision
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
-**Type:** public abstract class KingdomDecision
-**Base:** ?**File:** 
-
-`TaleWorlds.CampaignSystem/Election/KingdomDecision.cs
-
-`
+**Type:** `public abstract class KingdomDecision`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Election/KingdomDecision.cs`
 
 ## 概述
 
-`KingdomDecision
+`KingdomDecision` 位于 `TaleWorlds.CampaignSystem.Election`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-` 是王国级表决决策的抽象基类（政策、宣战、吞并、选王等）。一个决策有 
-
-`ProposerClan
-
-`、`Kingdom
-
-`、`TriggerTime
-
-`，并跟踪是否?
-
-`IsEnforced
-
-` / 
-
-`PlayerExamined
-
-`。mod 继承它添加自定义王国决策，重?
-
-`IsKingsVoteAllowed
-
-`、`DetermineCalculators
-
-`、`OnDecisionConcluded
-
-`?
-## 
 ## 心智模型
 
-先把 `KingdomDecision` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
-主要属?
-\| Name \| Signature \|
-\|------\|-----------\|
-\| 
+先从命名空间 `TaleWorlds.CampaignSystem.Election` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-`Kingdom
+## 主要属性
 
-` \| 
-
-`public Kingdom Kingdom { get { return this._kingdom ?? this.ProposerClan.Kingdom; }
-
-` \|
-\| 
-
-`IsEnforced
-
-` \| 
-
-`public bool IsEnforced { get { return this._isEnforced; }
-
-` \|
-\| 
-
-`PlayerExamined
-
-` \| 
-
-`public bool PlayerExamined { get { return this._playerExamined; }
-
-` \|
-\| 
-
-`NotifyPlayer
-
-` \| 
-
-`public bool NotifyPlayer { get { return this._notifyPlayer \|\| this.IsEnforced; }
-
-` \|
-\| 
-
-`IsPlayerParticipant
-
-` \| 
-
-`public bool IsPlayerParticipant { get { return this.Kingdom == Clan.PlayerClan.Kingdom && !Clan.PlayerClan.IsUnderMercenaryService; }
-
-` \|
-\| 
-
-`TriggerTime
-
-` \| 
-
-`public CampaignTime TriggerTime { get; protected set; }
-
-` \|
-\| 
-
-`IsKingsVoteAllowed
-
-` \| 
-
-`public virtual bool IsKingsVoteAllowed { get { return true; }
-
-` \|
-\| 
-
-`NeedsPlayerResolution
-
-` \| 
-
-`public bool NeedsPlayerResolution { get { return this.Kingdom == Clan.PlayerClan.Kingdom && (this.IsEnforced \|\| (this.TriggerTime.IsPast && this.Kingdom.RulingClan == Clan.PlayerClan)); }
-
-` \|
+| Name | Signature |
+|------|-----------|
+| `Kingdom` | `public Kingdom Kingdom { get; }` |
+| `ProposerClan` | `public Clan ProposerClan { get; }` |
+| `IsEnforced` | `public bool IsEnforced { get; set; }` |
+| `PlayerExamined` | `public bool PlayerExamined { get; set; }` |
+| `NotifyPlayer` | `public bool NotifyPlayer { get; set; }` |
+| `IsPlayerParticipant` | `public bool IsPlayerParticipant { get; set; }` |
+| `TriggerTime` | `public CampaignTime TriggerTime { get; set; }` |
+| `IsKingsVoteAllowed` | `public virtual bool IsKingsVoteAllowed { get; }` |
+| `NeedsPlayerResolution` | `public bool NeedsPlayerResolution { get; }` |
 
 ## 主要方法
 
 ### IsAllowed
-`
+`public abstract bool IsAllowed()`
 
-`
+**用途 / Purpose:** 判断当前对象是否处于 「allowed」 状态或条件。
 
-`csharp
-public abstract bool IsAllowed()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.IsAllowed();
+```
 
 ### GetInfluenceCost
-`
+`public int GetInfluenceCost(Clan sponsorClan)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「influence cost」 的结果。
 
-`csharp
-public int GetInfluenceCost(Clan sponsorClan)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetInfluenceCost(sponsorClan);
+```
 
 ### GetProposalInfluenceCost
-`
+`public abstract int GetProposalInfluenceCost()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「proposal influence cost」 的结果。
 
-`csharp
-public abstract int GetProposalInfluenceCost()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetProposalInfluenceCost();
+```
 
 ### GetGeneralTitle
-`
+`public abstract TextObject GetGeneralTitle()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「general title」 的结果。
 
-`csharp
-public abstract TextObject GetGeneralTitle()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetGeneralTitle();
+```
 
 ### GetSupportTitle
-`
+`public abstract TextObject GetSupportTitle()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「support title」 的结果。
 
-`csharp
-public abstract TextObject GetSupportTitle()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetSupportTitle();
+```
 
 ### GetChooseTitle
-`
+`public abstract TextObject GetChooseTitle()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「choose title」 的结果。
 
-`csharp
-public abstract TextObject GetChooseTitle()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetChooseTitle();
+```
 
 ### GetSupportDescription
-`
+`public abstract TextObject GetSupportDescription()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「support description」 的结果。
 
-`csharp
-public abstract TextObject GetSupportDescription()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetSupportDescription();
+```
 
 ### GetChooseDescription
-`
+`public abstract TextObject GetChooseDescription()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「choose description」 的结果。
 
-`csharp
-public abstract TextObject GetChooseDescription()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetChooseDescription();
+```
 
 ### CalculateMeritOfOutcome
-`
+`public virtual float CalculateMeritOfOutcome(DecisionOutcome candidateOutcome)`
 
-`
+**用途 / Purpose:** 计算「merit of outcome」的当前值或结果。
 
-`csharp
-public virtual float CalculateMeritOfOutcome(DecisionOutcome candidateOutcome)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.CalculateMeritOfOutcome(candidateOutcome);
+```
 
 ### DetermineInitialCandidates
-`
+`public abstract IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-`
+**用途 / Purpose:** 根据当前状态判定「initial candidates」的结果。
 
-`csharp
-public abstract IEnumerable&lt;DecisionOutcome&gt; DetermineInitialCandidates()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.DetermineInitialCandidates();
+```
 
 ### NarrowDownCandidates
-`
+`public MBList<DecisionOutcome> NarrowDownCandidates(MBList<DecisionOutcome> initialCandidates, int maxCandidateCount)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public MBList&lt;DecisionOutcome&gt; NarrowDownCandidates(MBList&lt;DecisionOutcome&gt; initialCandidates, int maxCandidateCount)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.NarrowDownCandidates(initialCandidates, 0);
+```
 
 ### DetermineChooser
-`
+`public abstract Clan DetermineChooser()`
 
-`
+**用途 / Purpose:** 根据当前状态判定「chooser」的结果。
 
-`csharp
-public abstract Clan DetermineChooser()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.DetermineChooser();
+```
 
 ### DetermineSupporters
-`
+`public IEnumerable<Supporter> DetermineSupporters()`
 
-`
+**用途 / Purpose:** 根据当前状态判定「supporters」的结果。
 
-`csharp
-public IEnumerable&lt;Supporter&gt; DetermineSupporters()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.DetermineSupporters();
+```
 
 ### CanMakeDecision
-`
+`public virtual bool CanMakeDecision(out TextObject reason, bool includeReason = false)`
 
-`
+**用途 / Purpose:** 检查当前对象是否满足 「make decision」 的前置条件。
 
-`csharp
-public virtual bool CanMakeDecision(out TextObject reason, bool includeReason = false)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.CanMakeDecision(reason, false);
+```
 
 ### ShouldBeCancelled
-`
+`public bool ShouldBeCancelled()`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public bool ShouldBeCancelled()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.ShouldBeCancelled();
+```
 
 ### DetermineSupportOption
-`
+`public DecisionOutcome DetermineSupportOption(Supporter supporter, MBReadOnlyList<DecisionOutcome> possibleOutcomes, out Supporter.SupportWeights supportWeightOfSelectedOutcome, bool calculateRelationshipEffect)`
 
-`
+**用途 / Purpose:** 根据当前状态判定「support option」的结果。
 
-`csharp
-public DecisionOutcome DetermineSupportOption(Supporter supporter, MBReadOnlyList&lt;DecisionOutcome&gt; possibleOutcomes, out Supporter.SupportWeights supportWeightOfSelectedOutcome, bool calculateRelationshipEffect)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.DetermineSupportOption(supporter, possibleOutcomes, supportWeightOfSelectedOutcome, false);
+```
 
 ### DetermineSupport
-`
+`public abstract float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-`
+**用途 / Purpose:** 根据当前状态判定「support」的结果。
 
-`csharp
-public abstract float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.DetermineSupport(clan, possibleOutcome);
+```
 
 ### DetermineSponsors
-`
+`public abstract void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-`
+**用途 / Purpose:** 根据当前状态判定「sponsors」的结果。
 
-`csharp
-public abstract void DetermineSponsors(MBReadOnlyList&lt;DecisionOutcome&gt; possibleOutcomes)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+kingdomDecision.DetermineSponsors(possibleOutcomes);
+```
 
 ### ApplyChosenOutcome
-`
+`public abstract void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-`
+**用途 / Purpose:** 将 「chosen outcome」 的效果应用到当前对象。
 
-`csharp
-public abstract void ApplyChosenOutcome(DecisionOutcome chosenOutcome)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+kingdomDecision.ApplyChosenOutcome(chosenOutcome);
+```
 
 ### GetInfluenceCost
-`
+`public int GetInfluenceCost(DecisionOutcome decisionOutcome, Clan clan, Supporter.SupportWeights supportWeight)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「influence cost」 的结果。
 
-`csharp
-public int GetInfluenceCost(DecisionOutcome decisionOutcome, Clan clan, Supporter.SupportWeights supportWeight)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetInfluenceCost(decisionOutcome, clan, supportWeight);
+```
 
 ### GetSecondaryEffects
-`
+`public abstract TextObject GetSecondaryEffects()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「secondary effects」 的结果。
 
-`csharp
-public abstract TextObject GetSecondaryEffects()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetSecondaryEffects();
+```
 
 ### ApplySecondaryEffects
-`
+`public abstract void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-`
+**用途 / Purpose:** 将 「secondary effects」 的效果应用到当前对象。
 
-`csharp
-public abstract void ApplySecondaryEffects(MBReadOnlyList&lt;DecisionOutcome&gt; possibleOutcomes, DecisionOutcome chosenOutcome)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+kingdomDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutcome);
+```
 
 ### GetChosenOutcomeText
-`
+`public abstract TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「chosen outcome text」 的结果。
 
-`csharp
-public abstract TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, false);
+```
 
 ### SortDecisionOutcomes
-`
+`public MBList<DecisionOutcome> SortDecisionOutcomes(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`csharp
-public MBList&lt;DecisionOutcome&gt; SortDecisionOutcomes(MBReadOnlyList&lt;DecisionOutcome&gt; possibleOutcomes)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.SortDecisionOutcomes(possibleOutcomes);
+```
 
 ### GetQueriedDecisionOutcome
-`
+`public abstract DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「queried decision outcome」 的结果。
 
-`csharp
-public abstract DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList&lt;DecisionOutcome&gt; possibleOutcomes)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetQueriedDecisionOutcome(possibleOutcomes);
+```
 
 ### IsSingleClanDecision
-`
+`public bool IsSingleClanDecision()`
 
-`
+**用途 / Purpose:** 判断当前对象是否处于 「single clan decision」 状态或条件。
 
-`csharp
-public bool IsSingleClanDecision()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.IsSingleClanDecision();
+```
 
 ### CalculateRelationshipEffectWithSponsor
-`
+`public virtual float CalculateRelationshipEffectWithSponsor(Clan clan)`
 
-`
+**用途 / Purpose:** 计算「relationship effect with sponsor」的当前值或结果。
 
-`csharp
-public virtual float CalculateRelationshipEffectWithSponsor(Clan clan)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.CalculateRelationshipEffectWithSponsor(clan);
+```
 
 ### GetInfluenceCostOfSupport
-`
+`public int GetInfluenceCostOfSupport(Clan clan, Supporter.SupportWeights supportWeight)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「influence cost of support」 的结果。
 
-`csharp
-public int GetInfluenceCostOfSupport(Clan clan, Supporter.SupportWeights supportWeight)
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetInfluenceCostOfSupport(clan, supportWeight);
+```
 
 ### OnShowDecision
-`
+`public virtual bool OnShowDecision()`
 
-`
+**用途 / Purpose:** 在 「show decision」 事件触发时调用此回调。
 
-`csharp
-public virtual bool OnShowDecision()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.OnShowDecision();
+```
 
 ### GetFollowUpDecision
-`
+`public virtual KingdomDecision GetFollowUpDecision()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「follow up decision」 的结果。
 
-`csharp
-public virtual KingdomDecision GetFollowUpDecision()
-`
-
-`
-
-`
+```csharp
+// 先通过子系统 API 拿到 KingdomDecision 实例
+KingdomDecision kingdomDecision = ...;
+var result = kingdomDecision.GetFollowUpDecision();
+```
 
 ## 使用示例
 
-`
-
-`
-
-`csharp
-// 提交一个自定义王国决策供表?public class MyKingdomDecision : KingdomDecision
-{
-    public MyKingdomDecision(Clan proposerClan) : base(proposerClan) { }
-    public override bool IsKingsVoteAllowed =&gt; false;
-    // 重写 DetermineCalculators(...) ?OnDecisionConcluded(...)
-}
-
-// 触发?if (Clan.PlayerClan.Kingdom != null)
-    Clan.PlayerClan.Kingdom.AddDecision(new MyKingdomDecision(Clan.PlayerClan), notifyPlayer: true);
-`
-
-`
-
-`
+```csharp
+// 通常通过子系统 API 或工厂获得派生实例
+KingdomDecision instance = ...;
+```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

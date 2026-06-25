@@ -1,19 +1,14 @@
 ---
 title: "NavigationPathData"
+description: "NavigationPathData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NavigationPathData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationPathData
 
-**命名空间:** SandBox.Missions.MissionLogics
-**模块:** SandBox.Missions
-**类型:** `public class NavigationPathData`
-**领域:** campaign-ext
+**Namespace:** SandBox.Missions.MissionLogics
+**Module:** SandBox.Missions
+**Type:** `public class NavigationPathData`
+**Base:** 无
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionPathGenerationLogic.cs`
 
 ## 概述
 
@@ -28,110 +23,32 @@ title: "NavigationPathData"
 ### ReverseClone
 `public NavigationPathData ReverseClone()`
 
-**用途 / Purpose:** 处理 `reverse clone` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationPathData 实例
+NavigationPathData navigationPathData = ...;
+var result = navigationPathData.ReverseClone();
+```
 
 ### InitializeUsablePoints
 `public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
 
-**用途 / Purpose:** 初始化 `usable points` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「usable points」 初始化必要的资源、状态或绑定。
 
-### GetPointOfInterestType
-`public abstract PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public abstract bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public abstract float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### Clone
-`public PointOfInterestScorePair Clone()`
-
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
-
-### AddToData
-`public void AddToData(PointOfInterestBaseData pointOfInterestToAdd)`
-
-**用途 / Purpose:** 向当前集合/状态中添加 `to data`。
-
-### IsDataEqualTo
-`public bool IsDataEqualTo(PointOfInterestScorePair other, PointOfInterestBaseData newDataToAdd)`
-
-**用途 / Purpose:** 处理 `is data equal to` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 NavigationPathData 实例
+NavigationPathData navigationPathData = ...;
+navigationPathData.InitializeUsablePoints(allUsableMachines);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NavigationPathData();
+// 该数据对象通常由战役/任务 API 返回
+NavigationPathData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

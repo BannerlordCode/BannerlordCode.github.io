@@ -1,20 +1,14 @@
 ---
 title: "EpicFriendListService"
+description: "Auto-generated class reference for EpicFriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EpicFriendListService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EpicFriendListService
 
 **Namespace:** TaleWorlds.PlatformService.Epic
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class EpicFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicFriendListService.cs`
+**File:** `bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicFriendListService.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.PlatformService.Epic` to place it in the stack,
 ### UserStatusChanged
 `public void UserStatusChanged(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `user status changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EpicFriendListService from the subsystem API first
+EpicFriendListService epicFriendListService = ...;
+epicFriendListService.UserStatusChanged(playerId);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EpicFriendListService();
-value.UserStatusChanged(playerId);
+// Typically call this after obtaining an instance from the subsystem API
+EpicFriendListService epicFriendListService = ...;
+epicFriendListService.UserStatusChanged(playerId);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

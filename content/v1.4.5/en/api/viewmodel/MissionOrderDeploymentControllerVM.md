@@ -1,20 +1,14 @@
 ---
 title: "MissionOrderDeploymentControllerVM"
+description: "Auto-generated class reference for MissionOrderDeploymentControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionOrderDeploymentControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionOrderDeploymentControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionOrderDeploymentControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderDeploymentControllerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderDeploymentControllerVM.cs`
 
 ## Overview
 
@@ -38,80 +32,165 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### SetMissionParameters
 `public void SetMissionParameters(Camera deploymentCamera, List<DeploymentPoint> deploymentPoints)`
 
-**Purpose:** Sets the value or state of `mission parameters`.
+**Purpose:** Assigns a new value to `mission parameters` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.SetMissionParameters(deploymentCamera, deploymentPoints);
+```
 
 ### SetCallbacks
 `public void SetCallbacks(MissionOrderCallbacks callbacks)`
 
-**Purpose:** Sets the value or state of `callbacks`.
+**Purpose:** Assigns a new value to `callbacks` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.SetCallbacks(callbacks);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.RefreshValues();
+```
 
 ### OnRefreshSelectedDeploymentPoint
 `public void OnRefreshSelectedDeploymentPoint(DeploymentSiegeMachineVM item)`
 
-**Purpose:** Called when the `refresh selected deployment point` event is raised.
+**Purpose:** Invoked when the `refresh selected deployment point` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnRefreshSelectedDeploymentPoint(item);
+```
 
 ### OnEntityHover
 `public void OnEntityHover(WeakGameEntity hoveredEntity)`
 
-**Purpose:** Called when the `entity hover` event is raised.
+**Purpose:** Invoked when the `entity hover` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnEntityHover(hoveredEntity);
+```
 
 ### OnEntityHover
 `public void OnEntityHover(DeploymentPoint deploymentPoint)`
 
-**Purpose:** Called when the `entity hover` event is raised.
+**Purpose:** Invoked when the `entity hover` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnEntityHover(deploymentPoint);
+```
 
 ### OnEntitySelect
 `public void OnEntitySelect(WeakGameEntity selectedEntity)`
 
-**Purpose:** Called when the `entity select` event is raised.
+**Purpose:** Invoked when the `entity select` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnEntitySelect(selectedEntity);
+```
 
 ### RefreshSelectedDeploymentPoint
 `public void RefreshSelectedDeploymentPoint(DeploymentPoint selectedDeploymentPoint)`
 
-**Purpose:** Refreshes the display or cache of `selected deployment point`.
+**Purpose:** Keeps the display or cache of `selected deployment point` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.RefreshSelectedDeploymentPoint(selectedDeploymentPoint);
+```
 
 ### ExecuteCancelSelectedDeploymentPoint
 `public void ExecuteCancelSelectedDeploymentPoint()`
 
-**Purpose:** Executes the `cancel selected deployment point` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel selected deployment point`.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.ExecuteCancelSelectedDeploymentPoint();
+```
 
 ### ExecuteBeginMission
 `public void ExecuteBeginMission()`
 
-**Purpose:** Executes the `begin mission` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin mission`.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.ExecuteBeginMission();
+```
 
 ### ExecuteAutoDeploy
 `public void ExecuteAutoDeploy()`
 
-**Purpose:** Executes the `auto deploy` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `auto deploy`.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.ExecuteAutoDeploy();
+```
 
 ### ExecuteDeployPlayerSide
 `public void ExecuteDeployPlayerSide()`
 
-**Purpose:** Executes the `deploy player side` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `deploy player side`.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.ExecuteDeployPlayerSide();
+```
 
 ### FinalizeDeployment
 `public void FinalizeDeployment()`
 
-**Purpose:** Handles logic related to `finalize deployment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.FinalizeDeployment();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionOrderDeploymentControllerVM();
-value.SetMissionParameters(deploymentCamera, deploymentPoints);
+// Typically call this after obtaining an instance from the subsystem API
+MissionOrderDeploymentControllerVM missionOrderDeploymentControllerVM = ...;
+missionOrderDeploymentControllerVM.SetMissionParameters(deploymentCamera, deploymentPoints);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

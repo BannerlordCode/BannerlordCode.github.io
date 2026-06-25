@@ -1,13 +1,7 @@
 ---
 title: "TransposedLineFormation"
+description: "TransposedLineFormation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TransposedLineFormation`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransposedLineFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,20 +30,33 @@ title: "TransposedLineFormation"
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 TransposedLineFormation 实例
+TransposedLineFormation transposedLineFormation = ...;
+var result = transposedLineFormation.Clone(formation);
+```
 
 ### RearrangeFrom
 `public override void RearrangeFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 处理 `rearrange from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TransposedLineFormation 实例
+TransposedLineFormation transposedLineFormation = ...;
+transposedLineFormation.RearrangeFrom(arrangement);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TransposedLineFormation();
-value.Clone(formation);
+// 通常从对应子系统 API 获取实例后调用
+TransposedLineFormation transposedLineFormation = ...;
+transposedLineFormation.Clone(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ArenaPracticeFightMissionController"
+description: "Auto-generated class reference for ArenaPracticeFightMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArenaPracticeFightMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaPracticeFightMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Arena
@@ -40,42 +34,89 @@ Treat `ArenaPracticeFightMissionController` as a Controller-style extension poin
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
+ArenaPracticeFightMissionController arenaPracticeFightMissionController = ...;
+arenaPracticeFightMissionController.AfterStart();
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
+ArenaPracticeFightMissionController arenaPracticeFightMissionController = ...;
+arenaPracticeFightMissionController.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
+ArenaPracticeFightMissionController arenaPracticeFightMissionController = ...;
+arenaPracticeFightMissionController.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
+ArenaPracticeFightMissionController arenaPracticeFightMissionController = ...;
+arenaPracticeFightMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
+ArenaPracticeFightMissionController arenaPracticeFightMissionController = ...;
+var result = arenaPracticeFightMissionController.MissionEnded(missionResult);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
+ArenaPracticeFightMissionController arenaPracticeFightMissionController = ...;
+var result = arenaPracticeFightMissionController.OnEndMissionRequest(canPlayerLeave);
+```
 
 ### StartPlayerPractice
 `public void StartPlayerPractice()`
 
-**Purpose:** Handles logic related to `start player practice`.
+**Purpose:** Starts the `player practice` flow or state machine.
+
+```csharp
+// Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
+ArenaPracticeFightMissionController arenaPracticeFightMissionController = ...;
+arenaPracticeFightMissionController.StartPlayerPractice();
+```
 
 ### GetParticipantCharacters
 `public static List<CharacterObject> GetParticipantCharacters(Settlement settlement)`
 
-**Purpose:** Gets the current value of `participant characters`.
+**Purpose:** Reads and returns the `participant characters` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ArenaPracticeFightMissionController.GetParticipantCharacters(settlement);
+```
 
 ## Usage Example
 
@@ -85,4 +126,4 @@ var controller = Mission.Current.GetMissionBehavior<ArenaPracticeFightMissionCon
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

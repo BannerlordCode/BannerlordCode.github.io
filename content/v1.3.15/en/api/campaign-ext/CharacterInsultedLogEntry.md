@@ -1,13 +1,7 @@
 ---
 title: "CharacterInsultedLogEntry"
+description: "Auto-generated class reference for CharacterInsultedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterInsultedLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterInsultedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetHistoricComment
 `public override TextObject GetHistoricComment(Hero talkTroop)`
 
-**Purpose:** Gets the current value of `historic comment`.
+**Purpose:** Reads and returns the `historic comment` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.GetHistoricComment(talkTroop);
+```
 
 ### AsReasonForEnmity
 `public override int AsReasonForEnmity(Hero referenceHero1, Hero referenceHero2)`
 
-**Purpose:** Handles logic related to `as reason for enmity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.AsReasonForEnmity(referenceHero1, referenceHero2);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.GetNotificationText();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterInsultedLogEntry from the subsystem API first
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+var result = characterInsultedLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterInsultedLogEntry();
-value.GetHistoricComment(talkTroop);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterInsultedLogEntry characterInsultedLogEntry = ...;
+characterInsultedLogEntry.GetHistoricComment(talkTroop);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

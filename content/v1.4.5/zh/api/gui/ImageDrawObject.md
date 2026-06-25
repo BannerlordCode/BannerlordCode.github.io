@@ -1,20 +1,14 @@
 ---
 title: "ImageDrawObject"
+description: "ImageDrawObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ImageDrawObject`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageDrawObject
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct ImageDrawObject : IDrawObject`
 **Base:** `IDrawObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ImageDrawObject.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ImageDrawObject.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "ImageDrawObject"
 ### Create
 `public static ImageDrawObject Create(in Rectangle2D rectangle, in Vec2 uvMin, in Vec2 uvMax)`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 静态调用，不需要实例
+ImageDrawObject.Create(rectangle, uvMin, uvMax);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ ImageDrawObject.Create(rectangle, uvMin, uvMax);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

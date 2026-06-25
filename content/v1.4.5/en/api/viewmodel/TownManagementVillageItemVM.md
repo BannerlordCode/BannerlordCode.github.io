@@ -1,20 +1,14 @@
 ---
 title: "TownManagementVillageItemVM"
+description: "Auto-generated class reference for TownManagementVillageItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownManagementVillageItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownManagementVillageItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TownManagementVillageItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementVillageItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementVillageItemVM.cs`
 
 ## Overview
 
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TownManagementVillageItemVM from the subsystem API first
+TownManagementVillageItemVM townManagementVillageItemVM = ...;
+townManagementVillageItemVM.RefreshValues();
+```
 
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**Purpose:** Executes the `show tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show tooltip`.
+
+```csharp
+// Obtain an instance of TownManagementVillageItemVM from the subsystem API first
+TownManagementVillageItemVM townManagementVillageItemVM = ...;
+townManagementVillageItemVM.ExecuteShowTooltip();
+```
 
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**Purpose:** Executes the `hide tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `hide tooltip`.
+
+```csharp
+// Obtain an instance of TownManagementVillageItemVM from the subsystem API first
+TownManagementVillageItemVM townManagementVillageItemVM = ...;
+townManagementVillageItemVM.ExecuteHideTooltip();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TownManagementVillageItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TownManagementVillageItemVM townManagementVillageItemVM = ...;
+townManagementVillageItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

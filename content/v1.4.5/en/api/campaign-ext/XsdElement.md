@@ -1,20 +1,14 @@
 ---
 title: "XsdElement"
+description: "Auto-generated class reference for XsdElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `XsdElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # XsdElement
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public struct XsdElement`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/XmlResource.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/XmlResource.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### XsdElement
 `public struct XsdElement(string xPath, bool alwaysPreferMerge)`
 
-**Purpose:** Handles logic related to `xsd element`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of XsdElement from the subsystem API first
+XsdElement xsdElement = ...;
+var result = xsdElement.XsdElement("example", false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new XsdElement();
-value.XsdElement("example", false);
+// Typically call this after obtaining an instance from the subsystem API
+XsdElement xsdElement = ...;
+xsdElement.XsdElement("example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

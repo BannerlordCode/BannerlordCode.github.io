@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyMatchmakingScreenWidget"
+description: "Auto-generated class reference for MultiplayerLobbyMatchmakingScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyMatchmakingScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyMatchmakingScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Matchmaking
@@ -41,14 +35,21 @@ Treat `MultiplayerLobbyMatchmakingScreenWidget` as a Widget-style extension poin
 ### LobbyStateChanged
 `public void LobbyStateChanged(bool isSearchRequested, bool isSearching, bool isMatchmakingEnabled, bool isCustomBattleEnabled, bool isPartyLeader, bool isInParty)`
 
-**Purpose:** Handles logic related to `lobby state changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyMatchmakingScreenWidget from the subsystem API first
+MultiplayerLobbyMatchmakingScreenWidget multiplayerLobbyMatchmakingScreenWidget = ...;
+multiplayerLobbyMatchmakingScreenWidget.LobbyStateChanged(false, false, false, false, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyMatchmakingScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyMatchmakingScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

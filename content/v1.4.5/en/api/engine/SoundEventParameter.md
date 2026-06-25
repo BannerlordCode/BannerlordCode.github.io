@@ -1,20 +1,14 @@
 ---
 title: "SoundEventParameter"
+description: "Auto-generated class reference for SoundEventParameter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundEventParameter`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundEventParameter
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SoundEventParameter`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/SoundEventParameter.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SoundEventParameter.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### SoundEventParameter
 `public struct SoundEventParameter(string paramName, float value)`
 
-**Purpose:** Handles logic related to `sound event parameter`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundEventParameter from the subsystem API first
+SoundEventParameter soundEventParameter = ...;
+var result = soundEventParameter.SoundEventParameter("example", 0);
+```
 
 ### Update
 `public void Update(string paramName, float value)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of SoundEventParameter from the subsystem API first
+SoundEventParameter soundEventParameter = ...;
+soundEventParameter.Update("example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SoundEventParameter();
-value.SoundEventParameter("example", 0);
+// Typically call this after obtaining an instance from the subsystem API
+SoundEventParameter soundEventParameter = ...;
+soundEventParameter.SoundEventParameter("example", 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

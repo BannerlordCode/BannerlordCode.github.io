@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerEndOfRoundSideVM"
+description: "Auto-generated class reference for MultiplayerEndOfRoundSideVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerEndOfRoundSideVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerEndOfRoundSideVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerEndOfRoundSideVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound/MultiplayerEndOfRoundSideVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound/MultiplayerEndOfRoundSideVM.cs`
 
 ## Overview
 
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.E
 ### SetData
 `public void SetData(BasicCultureObject culture, int score, bool isWinner, MultiplayerCultureColorInfo cultureColors)`
 
-**Purpose:** Sets the value or state of `data`.
+**Purpose:** Assigns a new value to `data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfRoundSideVM from the subsystem API first
+MultiplayerEndOfRoundSideVM multiplayerEndOfRoundSideVM = ...;
+multiplayerEndOfRoundSideVM.SetData(culture, 0, false, cultureColors);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfRoundSideVM from the subsystem API first
+MultiplayerEndOfRoundSideVM multiplayerEndOfRoundSideVM = ...;
+multiplayerEndOfRoundSideVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerEndOfRoundSideVM();
-value.SetData(culture, 0, false, cultureColors);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerEndOfRoundSideVM multiplayerEndOfRoundSideVM = ...;
+multiplayerEndOfRoundSideVM.SetData(culture, 0, false, cultureColors);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

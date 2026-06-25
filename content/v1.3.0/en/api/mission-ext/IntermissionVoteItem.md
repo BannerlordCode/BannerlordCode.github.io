@@ -1,13 +1,7 @@
 ---
 title: "IntermissionVoteItem"
+description: "Auto-generated class reference for IntermissionVoteItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntermissionVoteItem`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IntermissionVoteItem
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetVoteCount
 `public void SetVoteCount(int voteCount)`
 
-**Purpose:** Sets the value or state of `vote count`.
+**Purpose:** Assigns a new value to `vote count` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of IntermissionVoteItem from the subsystem API first
+IntermissionVoteItem intermissionVoteItem = ...;
+intermissionVoteItem.SetVoteCount(0);
+```
 
 ### IncreaseVoteCount
 `public void IncreaseVoteCount(int incrementAmount)`
 
-**Purpose:** Handles logic related to `increase vote count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IntermissionVoteItem from the subsystem API first
+IntermissionVoteItem intermissionVoteItem = ...;
+intermissionVoteItem.IncreaseVoteCount(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IntermissionVoteItem();
-value.SetVoteCount(0);
+// Typically call this after obtaining an instance from the subsystem API
+IntermissionVoteItem intermissionVoteItem = ...;
+intermissionVoteItem.SetVoteCount(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

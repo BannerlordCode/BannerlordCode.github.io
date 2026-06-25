@@ -1,13 +1,7 @@
 ---
 title: "MBMethodNameNotFoundException"
+description: "Auto-generated class reference for MBMethodNameNotFoundException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMethodNameNotFoundException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBMethodNameNotFoundException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBMethodNameNotFoundException` as a Exception-style extension point: firs
 ## Usage Example
 
 ```csharp
-try { CallMBMethodNameNotFoundException(); } catch (MBMethodNameNotFoundException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBMethodNameNotFoundException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

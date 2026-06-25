@@ -1,20 +1,14 @@
 ---
 title: "AgentBehavior"
+description: "Auto-generated class reference for AgentBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public abstract class AgentBehavior`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AgentBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AgentBehavior.cs`
 
 ## Overview
 
@@ -36,49 +30,98 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### GetAvailability
 `public virtual float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentBehavior from the subsystem API first
+AgentBehavior agentBehavior = ...;
+var result = agentBehavior.GetAvailability(false);
+```
 
 ### Tick
 `public virtual void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of AgentBehavior from the subsystem API first
+AgentBehavior agentBehavior = ...;
+agentBehavior.Tick(0, false);
+```
 
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**Purpose:** Handles logic related to `conversation tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentBehavior from the subsystem API first
+AgentBehavior agentBehavior = ...;
+agentBehavior.ConversationTick();
+```
 
 ### CheckStartWithBehavior
 `public virtual bool CheckStartWithBehavior()`
 
-**Purpose:** Handles logic related to `check start with behavior`.
+**Purpose:** Verifies whether `start with behavior` holds true for the current object.
+
+```csharp
+// Obtain an instance of AgentBehavior from the subsystem API first
+AgentBehavior agentBehavior = ...;
+var result = agentBehavior.CheckStartWithBehavior();
+```
 
 ### OnSpecialTargetChanged
 `public virtual void OnSpecialTargetChanged()`
 
-**Purpose:** Called when the `special target changed` event is raised.
+**Purpose:** Invoked when the `special target changed` event is raised.
+
+```csharp
+// Obtain an instance of AgentBehavior from the subsystem API first
+AgentBehavior agentBehavior = ...;
+agentBehavior.OnSpecialTargetChanged();
+```
 
 ### SetCustomWanderTarget
 `public virtual void SetCustomWanderTarget(UsableMachine customUsableMachine)`
 
-**Purpose:** Sets the value or state of `custom wander target`.
+**Purpose:** Assigns a new value to `custom wander target` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentBehavior from the subsystem API first
+AgentBehavior agentBehavior = ...;
+agentBehavior.SetCustomWanderTarget(customUsableMachine);
+```
 
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of AgentBehavior from the subsystem API first
+AgentBehavior agentBehavior = ...;
+agentBehavior.OnAgentRemoved(agent);
+```
 
 ### GetDebugInfo
 `public abstract string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentBehavior from the subsystem API first
+AgentBehavior agentBehavior = ...;
+var result = agentBehavior.GetDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAgentBehavior();
+// Typically obtained from a subsystem API or factory
+AgentBehavior instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

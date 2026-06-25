@@ -1,20 +1,14 @@
 ---
 title: "AttackEntityOrderSecondaryDetachment"
+description: "Auto-generated class reference for AttackEntityOrderSecondaryDetachment."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AttackEntityOrderSecondaryDetachment`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AttackEntityOrderSecondaryDetachment
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AttackEntityOrderSecondaryDetachment`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AttackEntityOrderSecondaryDetachment.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AttackEntityOrderSecondaryDetachment.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public void TickOccasionally(Formation formation)`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of AttackEntityOrderSecondaryDetachment from the subsystem API first
+AttackEntityOrderSecondaryDetachment attackEntityOrderSecondaryDetachment = ...;
+attackEntityOrderSecondaryDetachment.TickOccasionally(formation);
+```
 
 ### Disband
 `public void Disband(Formation formation)`
 
-**Purpose:** Handles logic related to `disband`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AttackEntityOrderSecondaryDetachment from the subsystem API first
+AttackEntityOrderSecondaryDetachment attackEntityOrderSecondaryDetachment = ...;
+attackEntityOrderSecondaryDetachment.Disband(formation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AttackEntityOrderSecondaryDetachment();
-value.TickOccasionally(formation);
+// Typically call this after obtaining an instance from the subsystem API
+AttackEntityOrderSecondaryDetachment attackEntityOrderSecondaryDetachment = ...;
+attackEntityOrderSecondaryDetachment.TickOccasionally(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

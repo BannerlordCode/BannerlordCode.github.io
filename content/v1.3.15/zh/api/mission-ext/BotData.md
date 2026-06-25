@@ -1,13 +1,7 @@
 ---
 title: "BotData"
+description: "BotData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BotData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BotData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,14 +30,21 @@ title: "BotData"
 ### ResetKillDeathAssist
 `public void ResetKillDeathAssist()`
 
-**用途 / Purpose:** 将 `kill death assist` 重置为初始状态。
+**用途 / Purpose:** 将 「kill death assist」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BotData 实例
+BotData botData = ...;
+botData.ResetKillDeathAssist();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BotData();
+// 该数据对象通常由战役/任务 API 返回
+BotData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

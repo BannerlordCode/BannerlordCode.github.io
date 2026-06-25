@@ -1,13 +1,7 @@
 ---
 title: "BannerlordCustomWidgetManager"
+description: "Auto-generated class reference for BannerlordCustomWidgetManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerlordCustomWidgetManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerlordCustomWidgetManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -29,7 +23,12 @@ Treat `BannerlordCustomWidgetManager` as a Manager-style extension point: first 
 ### TouchAssembly
 `public static void TouchAssembly()`
 
-**Purpose:** Handles logic related to `touch assembly`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BannerlordCustomWidgetManager.TouchAssembly();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ var manager = BannerlordCustomWidgetManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

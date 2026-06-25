@@ -1,20 +1,14 @@
 ---
 title: "ArmyManagementBoostEventVM"
+description: "ArmyManagementBoostEventVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArmyManagementBoostEventVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyManagementBoostEventVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ArmyManagementBoostEventVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementBoostEventVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementBoostEventVM.cs`
 
 ## 概述
 
@@ -41,15 +35,22 @@ title: "ArmyManagementBoostEventVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyManagementBoostEventVM 实例
+ArmyManagementBoostEventVM armyManagementBoostEventVM = ...;
+armyManagementBoostEventVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArmyManagementBoostEventVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ArmyManagementBoostEventVM armyManagementBoostEventVM = ...;
+armyManagementBoostEventVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

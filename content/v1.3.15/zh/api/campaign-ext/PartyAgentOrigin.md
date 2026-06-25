@@ -1,13 +1,7 @@
 ---
 title: "PartyAgentOrigin"
+description: "PartyAgentOrigin 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyAgentOrigin`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyAgentOrigin
 
 **Namespace:** TaleWorlds.CampaignSystem.AgentOrigins
@@ -44,35 +38,66 @@ title: "PartyAgentOrigin"
 ### SetWounded
 `public void SetWounded()`
 
-**用途 / Purpose:** 设置 `wounded` 的值或状态。
+**用途 / Purpose:** 为 「wounded」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyAgentOrigin 实例
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetWounded();
+```
 
 ### SetKilled
 `public void SetKilled()`
 
-**用途 / Purpose:** 设置 `killed` 的值或状态。
+**用途 / Purpose:** 为 「killed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyAgentOrigin 实例
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetKilled();
+```
 
 ### SetRouted
 `public void SetRouted(bool isOrderRetreat)`
 
-**用途 / Purpose:** 设置 `routed` 的值或状态。
+**用途 / Purpose:** 为 「routed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyAgentOrigin 实例
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetRouted(false);
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(float agentHealth)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyAgentOrigin 实例
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.OnAgentRemoved(0);
+```
 
 ### SetBanner
 `public void SetBanner(Banner banner)`
 
-**用途 / Purpose:** 设置 `banner` 的值或状态。
+**用途 / Purpose:** 为 「banner」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyAgentOrigin 实例
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetBanner(banner);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyAgentOrigin();
-value.SetWounded();
+// 通常从对应子系统 API 获取实例后调用
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetWounded();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

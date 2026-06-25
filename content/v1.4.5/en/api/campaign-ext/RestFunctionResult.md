@@ -1,20 +1,14 @@
 ---
 title: "RestFunctionResult"
+description: "Auto-generated class reference for RestFunctionResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RestFunctionResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestFunctionResult
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class RestFunctionResult : RestData`
 **Base:** `RestData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestFunctionResult.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestFunctionResult.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### GetFunctionResult
 `public abstract FunctionResult GetFunctionResult()`
 
-**Purpose:** Gets the current value of `function result`.
+**Purpose:** Reads and returns the `function result` value held by the current object.
+
+```csharp
+// Obtain an instance of RestFunctionResult from the subsystem API first
+RestFunctionResult restFunctionResult = ...;
+var result = restFunctionResult.GetFunctionResult();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRestFunctionResult();
+// Typically obtained from a subsystem API or factory
+RestFunctionResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

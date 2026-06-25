@@ -1,13 +1,7 @@
 ---
 title: "TroopSacrificeModel"
+description: "Auto-generated class reference for TroopSacrificeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopSacrificeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopSacrificeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,34 +30,65 @@ Treat `TroopSacrificeModel` as a Model-style extension point: first identify who
 ### GetLostTroopCountForBreakingInBesiegedSettlement
 `public abstract ExplainedNumber GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent)`
 
-**Purpose:** Gets the current value of `lost troop count for breaking in besieged settlement`.
+**Purpose:** Reads and returns the `lost troop count for breaking in besieged settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of TroopSacrificeModel from the subsystem API first
+TroopSacrificeModel troopSacrificeModel = ...;
+var result = troopSacrificeModel.GetLostTroopCountForBreakingInBesiegedSettlement(party, siegeEvent);
+```
 
 ### GetLostTroopCountForBreakingOutOfBesiegedSettlement
 `public abstract ExplainedNumber GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, bool isBreakingOutFromPort)`
 
-**Purpose:** Gets the current value of `lost troop count for breaking out of besieged settlement`.
+**Purpose:** Reads and returns the `lost troop count for breaking out of besieged settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of TroopSacrificeModel from the subsystem API first
+TroopSacrificeModel troopSacrificeModel = ...;
+var result = troopSacrificeModel.GetLostTroopCountForBreakingOutOfBesiegedSettlement(party, siegeEvent, false);
+```
 
 ### GetNumberOfTroopsSacrificedForTryingToGetAway
 `public abstract int GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent)`
 
-**Purpose:** Gets the current value of `number of troops sacrificed for trying to get away`.
+**Purpose:** Reads and returns the `number of troops sacrificed for trying to get away` value held by the current object.
+
+```csharp
+// Obtain an instance of TroopSacrificeModel from the subsystem API first
+TroopSacrificeModel troopSacrificeModel = ...;
+var result = troopSacrificeModel.GetNumberOfTroopsSacrificedForTryingToGetAway(playerBattleSide, mapEvent);
+```
 
 ### GetShipsToSacrificeForTryingToGetAway
 `public abstract void GetShipsToSacrificeForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent, out MBList<Ship> shipsToCapture, out Ship shipToTakeDamage, out float damageToApplyForLastShip)`
 
-**Purpose:** Gets the current value of `ships to sacrifice for trying to get away`.
+**Purpose:** Reads and returns the `ships to sacrifice for trying to get away` value held by the current object.
+
+```csharp
+// Obtain an instance of TroopSacrificeModel from the subsystem API first
+TroopSacrificeModel troopSacrificeModel = ...;
+troopSacrificeModel.GetShipsToSacrificeForTryingToGetAway(playerBattleSide, mapEvent, shipsToCapture, shipToTakeDamage, damageToApplyForLastShip);
+```
 
 ### CanPlayerGetAwayFromEncounter
 `public abstract bool CanPlayerGetAwayFromEncounter(out TextObject explanation)`
 
-**Purpose:** Checks whether the current object can `player get away from encounter`.
+**Purpose:** Checks whether the current object meets the preconditions for `player get away from encounter`.
+
+```csharp
+// Obtain an instance of TroopSacrificeModel from the subsystem API first
+TroopSacrificeModel troopSacrificeModel = ...;
+var result = troopSacrificeModel.CanPlayerGetAwayFromEncounter(explanation);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTroopSacrificeModel();
+// Typically obtained from a subsystem API or factory
+TroopSacrificeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

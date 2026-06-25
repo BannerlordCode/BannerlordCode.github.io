@@ -86,5 +86,5 @@ This page compares the accessible API of `HeroDeveloper` across **1.3.0 / 1.3.15
 ## Usage Example
 
 ```csharp
-var example = new HeroDeveloper();
+// Compare class APIs across versions using the notes above.
 ```

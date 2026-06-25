@@ -1,20 +1,14 @@
 ---
 title: "ISceneNotificationContextProvider"
+description: "ISceneNotificationContextProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ISceneNotificationContextProvider`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISceneNotificationContextProvider
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface ISceneNotificationContextProvider`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ISceneNotificationContextProvider.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ISceneNotificationContextProvider.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ISceneNotificationContextProvider"
 ## 使用示例
 
 ```csharp
-ISceneNotificationContextProvider implementation = GetSceneNotificationContextProviderImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IISceneNotificationContextProvider service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

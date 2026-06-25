@@ -1,13 +1,7 @@
 ---
 title: "ChangeCommonAreaOwnerQuestTask"
+description: "ChangeCommonAreaOwnerQuestTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChangeCommonAreaOwnerQuestTask`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeCommonAreaOwnerQuestTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
@@ -29,20 +23,33 @@ title: "ChangeCommonAreaOwnerQuestTask"
 ### OnCommonAreaOwnerChanged
 `public void OnCommonAreaOwnerChanged(Alley alley, Hero newOwner, Hero oldOwner)`
 
-**用途 / Purpose:** 当 `common area owner changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「common area owner changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ChangeCommonAreaOwnerQuestTask 实例
+ChangeCommonAreaOwnerQuestTask changeCommonAreaOwnerQuestTask = ...;
+changeCommonAreaOwnerQuestTask.OnCommonAreaOwnerChanged(alley, newOwner, oldOwner);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 设置 `references` 的值或状态。
+**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ChangeCommonAreaOwnerQuestTask 实例
+ChangeCommonAreaOwnerQuestTask changeCommonAreaOwnerQuestTask = ...;
+changeCommonAreaOwnerQuestTask.SetReferences();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ChangeCommonAreaOwnerQuestTask();
-value.OnCommonAreaOwnerChanged(alley, newOwner, oldOwner);
+// 通常从对应子系统 API 获取实例后调用
+ChangeCommonAreaOwnerQuestTask changeCommonAreaOwnerQuestTask = ...;
+changeCommonAreaOwnerQuestTask.OnCommonAreaOwnerChanged(alley, newOwner, oldOwner);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,14 +1,7 @@
 ---
 title: "KingdomManager"
+description: "KingdomManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-- [🔀 跨版本对比 /versions/KingdomManager](/versions/KingdomManager)
-<!-- END BREADCRUMB -->
 # KingdomManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -30,47 +23,101 @@ title: "KingdomManager"
 ### OnSessionStart
 `public void OnSessionStart()`
 
-**用途 / Purpose:** 当 `session start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+kingdomManager.OnSessionStart();
+```
 
 ### CreateKingdom
 `public void CreateKingdom(TextObject kingdomName, TextObject informalName, CultureObject culture, Clan founderClan, MBReadOnlyList<PolicyObject> initialPolicies = null, TextObject encyclopediaText = null, TextObject encyclopediaTitle = null, TextObject encyclopediaRulerTitle = null)`
 
-**用途 / Purpose:** 创建一个 `kingdom` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「kingdom」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+kingdomManager.CreateKingdom(kingdomName, informalName, culture, founderClan, null, null, null, null);
+```
 
 ### AbdicateTheThrone
 `public void AbdicateTheThrone(Kingdom kingdom)`
 
-**用途 / Purpose:** 处理 `abdicate the throne` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+kingdomManager.AbdicateTheThrone(kingdom);
+```
 
 ### RaidCompleted
 `public void RaidCompleted(BattleSideEnum winnerSide, RaidEventComponent raidEvent)`
 
-**用途 / Purpose:** 处理 `raid completed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+kingdomManager.RaidCompleted(winnerSide, raidEvent);
+```
 
 ### SiegeCompleted
 `public void SiegeCompleted(Settlement settlement, MobileParty capturerParty, bool isWin, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 处理 `siege completed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+kingdomManager.SiegeCompleted(settlement, capturerParty, false, battleType);
+```
 
 ### RelinquishSettlementOwnership
 `public void RelinquishSettlementOwnership(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `relinquish settlement ownership` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+kingdomManager.RelinquishSettlementOwnership(settlement);
+```
 
 ### GiftSettlementOwnership
 `public void GiftSettlementOwnership(Settlement settlement, Clan receiverClan)`
 
-**用途 / Purpose:** 处理 `gift settlement ownership` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+kingdomManager.GiftSettlementOwnership(settlement, receiverClan);
+```
 
 ### GetEligibleClansForSettlementOwnershipGift
 `public IEnumerable<Clan> GetEligibleClansForSettlementOwnershipGift(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `eligible clans for settlement ownership gift` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「eligible clans for settlement ownership gift」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+var result = kingdomManager.GetEligibleClansForSettlementOwnershipGift(settlement);
+```
 
 ### GetMercenaryWageAmount
 `public int GetMercenaryWageAmount(Hero hero)`
 
-**用途 / Purpose:** 获取 `mercenary wage amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mercenary wage amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManager 实例
+KingdomManager kingdomManager = ...;
+var result = kingdomManager.GetMercenaryWageAmount(hero);
+```
 
 ## 使用示例
 
@@ -80,4 +127,4 @@ var manager = KingdomManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

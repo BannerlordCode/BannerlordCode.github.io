@@ -1,20 +1,14 @@
 ---
 title: "ItemShipCountComparer"
+description: "ItemShipCountComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemShipCountComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemShipCountComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemShipCountComparer : ItemComparerBase`
 **Base:** `ItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanPartiesSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanPartiesSortControllerVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ItemShipCountComparer"
 ### Compare
 `public override int Compare(ClanPartyItemVM x, ClanPartyItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ItemShipCountComparer 实例
+ItemShipCountComparer itemShipCountComparer = ...;
+var result = itemShipCountComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemShipCountComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+ItemShipCountComparer itemShipCountComparer = ...;
+itemShipCountComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

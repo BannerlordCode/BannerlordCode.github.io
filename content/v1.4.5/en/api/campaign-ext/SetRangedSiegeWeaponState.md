@@ -1,20 +1,14 @@
 ---
 title: "SetRangedSiegeWeaponState"
+description: "Auto-generated class reference for SetRangedSiegeWeaponState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SetRangedSiegeWeaponState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetRangedSiegeWeaponState
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetRangedSiegeWeaponState : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetRangedSiegeWeaponState.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetRangedSiegeWeaponState.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SetRangedSiegeWeaponState();
+// Obtain an instance from the relevant subsystem API
+SetRangedSiegeWeaponState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

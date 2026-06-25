@@ -1,13 +1,7 @@
 ---
-title: "WatchTypes__TaleWorlds_MountAndBlade_GauntletUI_Widgets"
+title: "WatchTypes"
+description: "WatchTypes 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WatchTypes`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WatchTypes
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -27,9 +21,10 @@ title: "WatchTypes__TaleWorlds_MountAndBlade_GauntletUI_Widgets"
 ## 使用示例
 
 ```csharp
-WatchTypes example = WatchTypes.Value;
+// 从对应子系统 API 获取实例
+WatchTypes instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "VisualCreator"
+description: "VisualCreator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualCreator`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualCreator
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,15 +29,22 @@ title: "VisualCreator"
 ### CreateMapEventVisual
 `public IMapEventVisual CreateMapEventVisual(MapEvent mapEvent)`
 
-**用途 / Purpose:** 创建一个 `map event visual` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「map event visual」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 VisualCreator 实例
+VisualCreator visualCreator = ...;
+var result = visualCreator.CreateMapEventVisual(mapEvent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VisualCreator();
-value.CreateMapEventVisual(mapEvent);
+// 通常从对应子系统 API 获取实例后调用
+VisualCreator visualCreator = ...;
+visualCreator.CreateMapEventVisual(mapEvent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

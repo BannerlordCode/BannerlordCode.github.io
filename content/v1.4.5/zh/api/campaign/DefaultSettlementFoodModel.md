@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementFoodModel"
+description: "DefaultSettlementFoodModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSettlementFoodModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementFoodModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementFoodModel : SettlementFoodModel`
 **Base:** `SettlementFoodModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementFoodModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementFoodModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultSettlementFoodModel"
 ### CalculateTownFoodStocksChange
 `public override ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate town food stocks change` 相关逻辑。
+**用途 / Purpose:** 计算「town food stocks change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSettlementFoodModel 实例
+DefaultSettlementFoodModel defaultSettlementFoodModel = ...;
+var result = defaultSettlementFoodModel.CalculateTownFoodStocksChange(town, false, false);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultSettlementFoodModel>(new MyDefaultSettlementFoo
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

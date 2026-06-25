@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationState"
+description: "Auto-generated class reference for CharacterCreationState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationState
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationState : PlayerGameState`
 **Base:** `PlayerGameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationState.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationState.cs`
 
 ## Overview
 
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### FinalizeCharacterCreationState
 `public void FinalizeCharacterCreationState()`
 
-**Purpose:** Handles logic related to `finalize character creation state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationState from the subsystem API first
+CharacterCreationState characterCreationState = ...;
+characterCreationState.FinalizeCharacterCreationState();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of CharacterCreationState from the subsystem API first
+CharacterCreationState characterCreationState = ...;
+characterCreationState.Refresh();
+```
 
 ### OnStageActivated
 `public void OnStageActivated(CharacterCreationStageBase stage)`
 
-**Purpose:** Called when the `stage activated` event is raised.
+**Purpose:** Invoked when the `stage activated` event is raised.
+
+```csharp
+// Obtain an instance of CharacterCreationState from the subsystem API first
+CharacterCreationState characterCreationState = ...;
+characterCreationState.OnStageActivated(stage);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationState();
-value.FinalizeCharacterCreationState();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationState characterCreationState = ...;
+characterCreationState.FinalizeCharacterCreationState();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

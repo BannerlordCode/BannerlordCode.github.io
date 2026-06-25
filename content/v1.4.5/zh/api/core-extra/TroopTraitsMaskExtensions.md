@@ -1,20 +1,14 @@
 ---
 title: "TroopTraitsMaskExtensions"
+description: "TroopTraitsMaskExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TroopTraitsMaskExtensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopTraitsMaskExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class TroopTraitsMaskExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/TroopTraitsMaskExtensions.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TroopTraitsMaskExtensions.cs`
 
 ## 概述
 
@@ -29,62 +23,122 @@ title: "TroopTraitsMaskExtensions"
 ### HasMelee
 `public static bool HasMelee(this TroopTraitsMask troopTraitsMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `melee`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「melee」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasMelee(troopTraitsMask);
+```
 
 ### HasRanged
 `public static bool HasRanged(this TroopTraitsMask troopTraitsMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `ranged`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「ranged」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasRanged(troopTraitsMask);
+```
 
 ### HasMount
 `public static bool HasMount(this TroopTraitsMask troopTraitsMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `mount`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「mount」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasMount(troopTraitsMask);
+```
 
 ### HasArmor
 `public static bool HasArmor(this TroopTraitsMask troopTraitsMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `armor`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「armor」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasArmor(troopTraitsMask);
+```
 
 ### HasThrown
 `public static bool HasThrown(this TroopTraitsMask troopTraitsMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `thrown`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「thrown」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasThrown(troopTraitsMask);
+```
 
 ### HasSpear
 `public static bool HasSpear(this TroopTraitsMask troopTraitsMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `spear`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「spear」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasSpear(troopTraitsMask);
+```
 
 ### HasShield
 `public static bool HasShield(this TroopTraitsMask troopTraitsMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `shield`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「shield」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasShield(troopTraitsMask);
+```
 
 ### HasLowTier
 `public static bool HasLowTier(this TroopTraitsMask troopFilterMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `low tier`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「low tier」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasLowTier(troopFilterMask);
+```
 
 ### HasHighTier
 `public static bool HasHighTier(this TroopTraitsMask troopFilterMask)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `high tier`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「high tier」。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.HasHighTier(troopFilterMask);
+```
 
 ### GetTroopTraitsText
 `public static string GetTroopTraitsText(this TroopTraitsMask troopTraitsMask)`
 
-**用途 / Purpose:** 获取 `troop traits text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop traits text」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.GetTroopTraitsText(troopTraitsMask);
+```
 
 ### GetTraitsFilterText
 `public static string GetTraitsFilterText(this TroopTraitsMask troopTraitsFilter)`
 
-**用途 / Purpose:** 获取 `traits filter text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「traits filter text」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.GetTraitsFilterText(troopTraitsFilter);
+```
 
 ### GetClassFilterText
 `public static string GetClassFilterText(this TroopTraitsMask troopTraitsFilter)`
 
-**用途 / Purpose:** 获取 `class filter text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「class filter text」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TroopTraitsMaskExtensions.GetClassFilterText(troopTraitsFilter);
+```
 
 ## 使用示例
 
@@ -94,4 +148,4 @@ TroopTraitsMaskExtensions.HasMelee(troopTraitsMask);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

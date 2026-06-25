@@ -1,20 +1,14 @@
 ---
 title: "DefaultBuildingEffectModel"
+description: "Auto-generated class reference for DefaultBuildingEffectModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBuildingEffectModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBuildingEffectModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultBuildingEffectModel : BuildingEffectModel`
 **Base:** `BuildingEffectModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingEffectModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingEffectModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultBuildingEffectModel` as a Model-style extension point: first ident
 ### GetBuildingEffect
 `public override ExplainedNumber GetBuildingEffect(Building building, BuildingEffectEnum effect)`
 
-**Purpose:** Gets the current value of `building effect`.
+**Purpose:** Reads and returns the `building effect` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBuildingEffectModel from the subsystem API first
+DefaultBuildingEffectModel defaultBuildingEffectModel = ...;
+var result = defaultBuildingEffectModel.GetBuildingEffect(building, effect);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultBuildingEffectModel>(new MyDefaultBuildingEffec
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

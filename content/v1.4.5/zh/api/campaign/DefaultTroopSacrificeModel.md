@@ -1,20 +1,14 @@
 ---
 title: "DefaultTroopSacrificeModel"
+description: "DefaultTroopSacrificeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultTroopSacrificeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTroopSacrificeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTroopSacrificeModel : TroopSacrificeModel`
 **Base:** `TroopSacrificeModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTroopSacrificeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTroopSacrificeModel.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "DefaultTroopSacrificeModel"
 ### GetLostTroopCountForBreakingInBesiegedSettlement
 `public override ExplainedNumber GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent)`
 
-**用途 / Purpose:** 获取 `lost troop count for breaking in besieged settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「lost troop count for breaking in besieged settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTroopSacrificeModel 实例
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+var result = defaultTroopSacrificeModel.GetLostTroopCountForBreakingInBesiegedSettlement(party, siegeEvent);
+```
 
 ### GetLostTroopCountForBreakingOutOfBesiegedSettlement
 `public override ExplainedNumber GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, bool isBreakingOutFromPort)`
 
-**用途 / Purpose:** 获取 `lost troop count for breaking out of besieged settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「lost troop count for breaking out of besieged settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTroopSacrificeModel 实例
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+var result = defaultTroopSacrificeModel.GetLostTroopCountForBreakingOutOfBesiegedSettlement(party, siegeEvent, false);
+```
 
 ### GetNumberOfTroopsSacrificedForTryingToGetAway
 `public override int GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent)`
 
-**用途 / Purpose:** 获取 `number of troops sacrificed for trying to get away` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of troops sacrificed for trying to get away」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTroopSacrificeModel 实例
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+var result = defaultTroopSacrificeModel.GetNumberOfTroopsSacrificedForTryingToGetAway(playerBattleSide, mapEvent);
+```
 
 ### CanPlayerGetAwayFromEncounter
 `public override bool CanPlayerGetAwayFromEncounter(out TextObject explanation)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `player get away from encounter`。
+**用途 / Purpose:** 检查当前对象是否满足 「player get away from encounter」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTroopSacrificeModel 实例
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+var result = defaultTroopSacrificeModel.CanPlayerGetAwayFromEncounter(explanation);
+```
 
 ### GetShipsToSacrificeForTryingToGetAway
 `public override void GetShipsToSacrificeForTryingToGetAway(BattleSideEnum playerBattleSide, MapEvent mapEvent, out MBList<Ship> shipsToCapture, out Ship shipToTakeDamage, out float damageToApplyForLastShip)`
 
-**用途 / Purpose:** 获取 `ships to sacrifice for trying to get away` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ships to sacrifice for trying to get away」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTroopSacrificeModel 实例
+DefaultTroopSacrificeModel defaultTroopSacrificeModel = ...;
+defaultTroopSacrificeModel.GetShipsToSacrificeForTryingToGetAway(playerBattleSide, mapEvent, shipsToCapture, shipToTakeDamage, damageToApplyForLastShip);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultTroopSacrificeModel>(new MyDefaultTroopSacrific
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

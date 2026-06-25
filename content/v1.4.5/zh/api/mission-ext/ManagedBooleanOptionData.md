@@ -1,20 +1,14 @@
 ---
 title: "ManagedBooleanOptionData"
+description: "ManagedBooleanOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedBooleanOptionData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedBooleanOptionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Options.ManagedOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ManagedBooleanOptionData : ManagedOptionData, IBooleanOptionData, IOptionData`
 **Base:** `ManagedOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedBooleanOptionData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options.ManagedOptions/ManagedBooleanOptionData.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ManagedBooleanOptionData"
 ## 使用示例
 
 ```csharp
-var value = new ManagedBooleanOptionData();
+// 该数据对象通常由战役/任务 API 返回
+ManagedBooleanOptionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

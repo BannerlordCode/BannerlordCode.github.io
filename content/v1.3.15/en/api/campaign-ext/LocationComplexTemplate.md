@@ -1,13 +1,7 @@
 ---
 title: "LocationComplexTemplate"
+description: "Auto-generated class reference for LocationComplexTemplate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationComplexTemplate`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LocationComplexTemplate
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of LocationComplexTemplate from the subsystem API first
+LocationComplexTemplate locationComplexTemplate = ...;
+locationComplexTemplate.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LocationComplexTemplate();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+LocationComplexTemplate locationComplexTemplate = ...;
+locationComplexTemplate.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

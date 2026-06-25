@@ -1,20 +1,14 @@
 ---
 title: "DefaultRomanceModel"
+description: "DefaultRomanceModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultRomanceModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultRomanceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultRomanceModel : RomanceModel`
 **Base:** `RomanceModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultRomanceModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultRomanceModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultRomanceModel"
 ### GetAttractionValuePercentage
 `public override int GetAttractionValuePercentage(Hero potentiallyInterestedCharacter, Hero heroOfInterest)`
 
-**用途 / Purpose:** 获取 `attraction value percentage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attraction value percentage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultRomanceModel 实例
+DefaultRomanceModel defaultRomanceModel = ...;
+var result = defaultRomanceModel.GetAttractionValuePercentage(potentiallyInterestedCharacter, heroOfInterest);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultRomanceModel>(new MyDefaultRomanceModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

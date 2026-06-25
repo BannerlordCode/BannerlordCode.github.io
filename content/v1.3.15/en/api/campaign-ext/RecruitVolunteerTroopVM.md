@@ -1,13 +1,7 @@
 ---
 title: "RecruitVolunteerTroopVM"
+description: "Auto-generated class reference for RecruitVolunteerTroopVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitVolunteerTroopVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RecruitVolunteerTroopVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
@@ -46,50 +40,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Rec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.RefreshValues();
+```
 
 ### ExecuteRecruit
 `public void ExecuteRecruit()`
 
-**Purpose:** Executes the `recruit` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `recruit`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteRecruit();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Executes the `open encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteOpenEncyclopedia();
+```
 
 ### ExecuteRemoveFromCart
 `public void ExecuteRemoveFromCart()`
 
-**Purpose:** Executes the `remove from cart` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove from cart`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteRemoveFromCart();
+```
 
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteEndHint();
+```
 
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**Purpose:** Executes the `focus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focus`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteFocus();
+```
 
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**Purpose:** Executes the `unfocus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `unfocus`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerTroopVM from the subsystem API first
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteUnfocus();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RecruitVolunteerTroopVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

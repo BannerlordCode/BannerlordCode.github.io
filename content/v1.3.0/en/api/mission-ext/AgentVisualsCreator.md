@@ -1,13 +1,7 @@
 ---
 title: "AgentVisualsCreator"
+description: "Auto-generated class reference for AgentVisualsCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentVisualsCreator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentVisualsCreator
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### Create
 `public IAgentVisual Create(AgentVisualsData data, string name, bool needBatchedVersionForWeaponMeshes, bool forceUseFaceCache)`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Obtain an instance of AgentVisualsCreator from the subsystem API first
+AgentVisualsCreator agentVisualsCreator = ...;
+var result = agentVisualsCreator.Create(data, "example", false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AgentVisualsCreator();
-value.Create(data, "example", false, false);
+// Typically call this after obtaining an instance from the subsystem API
+AgentVisualsCreator agentVisualsCreator = ...;
+agentVisualsCreator.Create(data, "example", false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

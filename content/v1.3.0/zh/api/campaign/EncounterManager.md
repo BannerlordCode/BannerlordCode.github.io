@@ -1,13 +1,7 @@
 ---
 title: "EncounterManager"
+description: "EncounterManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncounterManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncounterManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,22 +29,42 @@ title: "EncounterManager"
 ### Tick
 `public static void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 静态调用，不需要实例
+EncounterManager.Tick(0);
+```
 
 ### HandleEncounterForMobileParty
 `public static void HandleEncounterForMobileParty(MobileParty mobileParty, float dt)`
 
-**用途 / Purpose:** 处理 `encounter for mobile party` 事件或回调。
+**用途 / Purpose:** 执行与 「encounter for mobile party」 相关的响应逻辑。
+
+```csharp
+// 静态调用，不需要实例
+EncounterManager.HandleEncounterForMobileParty(mobileParty, 0);
+```
 
 ### StartPartyEncounter
 `public static void StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** 处理 `start party encounter` 相关逻辑。
+**用途 / Purpose:** 启动「party encounter」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+EncounterManager.StartPartyEncounter(attackerParty, defenderParty);
+```
 
 ### StartSettlementEncounter
 `public static void StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
 
-**用途 / Purpose:** 处理 `start settlement encounter` 相关逻辑。
+**用途 / Purpose:** 启动「settlement encounter」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+EncounterManager.StartSettlementEncounter(attackerParty, settlement);
+```
 
 ## 使用示例
 
@@ -60,4 +74,4 @@ var manager = EncounterManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

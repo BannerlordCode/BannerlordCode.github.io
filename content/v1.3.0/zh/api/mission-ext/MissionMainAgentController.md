@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentController"
+description: "MissionMainAgentController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMainAgentController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentController
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -39,77 +33,167 @@ title: "MissionMainAgentController"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.EarlyStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnMissionScreenFinalize();
+```
 
 ### IsReady
 `public override bool IsReady()`
 
-**用途 / Purpose:** 处理 `is ready` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ready」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+var result = missionMainAgentController.IsReady();
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnPreMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**用途 / Purpose:** 当 `agent deleted` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent deleted」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnAgentDeleted(affectedAgent);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnClearScene();
+```
 
 ### BreakAgentVisualsInvulnerability
 `public void BreakAgentVisualsInvulnerability()`
 
-**用途 / Purpose:** 处理 `break agent visuals invulnerability` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.BreakAgentVisualsInvulnerability();
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 处理 `is there agent action` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+var result = missionMainAgentController.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### Disable
 `public void Disable()`
 
-**用途 / Purpose:** 处理 `disable` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.Disable();
+```
 
 ### Enable
 `public void Enable()`
 
-**用途 / Purpose:** 处理 `enable` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.Enable();
+```
 
 ### OnWeaponUsageToggleRequested
 `public void OnWeaponUsageToggleRequested()`
 
-**用途 / Purpose:** 当 `weapon usage toggle requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「weapon usage toggle requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnWeaponUsageToggleRequested();
+```
 
 ### AddOverrideControlsForFrame
 `public void AddOverrideControlsForFrame(MissionMainAgentController.OverrideMainAgentControlFlag overrideFlag)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `override controls for frame`。
+**用途 / Purpose:** 将 「override controls for frame」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.AddOverrideControlsForFrame(overrideFlag);
+```
 
 ### OnLockedAgentChangedDelegate
 `public delegate void OnLockedAgentChangedDelegate(Agent newAgent)`
 
-**用途 / Purpose:** 当 `locked agent changed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「locked agent changed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnLockedAgentChangedDelegate(newAgent);
+```
 
 ### OnPotentialLockedAgentChangedDelegate
 `public delegate void OnPotentialLockedAgentChangedDelegate(Agent newPotentialAgent)`
 
-**用途 / Purpose:** 当 `potential locked agent changed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「potential locked agent changed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentController 实例
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnPotentialLockedAgentChangedDelegate(newPotentialAgent);
+```
 
 ## 使用示例
 
@@ -119,4 +203,4 @@ var controller = Mission.Current.GetMissionBehavior<MissionMainAgentController>(
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

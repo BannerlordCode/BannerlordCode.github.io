@@ -1,20 +1,14 @@
 ---
 title: "BoostCohesionPopupWidget"
+description: "Auto-generated class reference for BoostCohesionPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoostCohesionPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoostCohesionPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GatherArmy
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BoostCohesionPopupWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GatherArmy/BoostCohesionPopupWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GatherArmy/BoostCohesionPopupWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `BoostCohesionPopupWidget` as a Widget-style extension point: first identi
 ### ClosePopup
 `public void ClosePopup(Widget widget)`
 
-**Purpose:** Handles logic related to `close popup`.
+**Purpose:** Closes the resource or UI associated with `popup`.
+
+```csharp
+// Obtain an instance of BoostCohesionPopupWidget from the subsystem API first
+BoostCohesionPopupWidget boostCohesionPopupWidget = ...;
+boostCohesionPopupWidget.ClosePopup(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new BoostCohesionPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BoostCohesionPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

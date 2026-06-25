@@ -1,13 +1,7 @@
 ---
 title: "PlayerInfo"
+description: "Auto-generated class reference for PlayerInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place
 ### HasSameContentWith
 `public bool HasSameContentWith(PlayerInfo other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of PlayerInfo from the subsystem API first
+PlayerInfo playerInfo = ...;
+var result = playerInfo.HasSameContentWith(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerInfo();
-value.HasSameContentWith(other);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerInfo playerInfo = ...;
+playerInfo.HasSameContentWith(other);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TacticComponent"
+description: "Auto-generated class reference for TacticComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TacticComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,24 +29,42 @@ Treat `TacticComponent` as a Component-style extension point: first identify who
 ### TickOccasionally
 `public virtual void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticComponent from the subsystem API first
+TacticComponent tacticComponent = ...;
+tacticComponent.TickOccasionally();
+```
 
 ### ResetTactic
 `public void ResetTactic()`
 
-**Purpose:** Resets `tactic` to its initial state.
+**Purpose:** Returns `tactic` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TacticComponent from the subsystem API first
+TacticComponent tacticComponent = ...;
+tacticComponent.ResetTactic();
+```
 
 ### SetDefaultBehaviorWeights
 `public static void SetDefaultBehaviorWeights(Formation f)`
 
-**Purpose:** Sets the value or state of `default behavior weights`.
+**Purpose:** Assigns a new value to `default behavior weights` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+TacticComponent.SetDefaultBehaviorWeights(f);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTacticComponent();
+// Typically obtained from a subsystem API or factory
+TacticComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CraftingHistoryVM"
+description: "Auto-generated class reference for CraftingHistoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingHistoryVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingHistoryVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingHistoryVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/CraftingHistoryVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/CraftingHistoryVM.cs`
 
 ## Overview
 
@@ -46,50 +40,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingHistoryVM from the subsystem API first
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CraftingHistoryVM from the subsystem API first
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.OnFinalize();
+```
 
 ### RefreshAvailability
 `public void RefreshAvailability()`
 
-**Purpose:** Refreshes the display or cache of `availability`.
+**Purpose:** Keeps the display or cache of `availability` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingHistoryVM from the subsystem API first
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.RefreshAvailability();
+```
 
 ### ExecuteOpen
 `public void ExecuteOpen()`
 
-**Purpose:** Executes the `open` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open`.
+
+```csharp
+// Obtain an instance of CraftingHistoryVM from the subsystem API first
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.ExecuteOpen();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of CraftingHistoryVM from the subsystem API first
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.ExecuteCancel();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of CraftingHistoryVM from the subsystem API first
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.ExecuteDone();
+```
 
 ### SetDoneKey
 `public void SetDoneKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done key`.
+**Purpose:** Assigns a new value to `done key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingHistoryVM from the subsystem API first
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.SetDoneKey(hotkey);
+```
 
 ### SetCancelKey
 `public void SetCancelKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel key`.
+**Purpose:** Assigns a new value to `cancel key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingHistoryVM from the subsystem API first
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.SetCancelKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingHistoryVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingHistoryVM craftingHistoryVM = ...;
+craftingHistoryVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

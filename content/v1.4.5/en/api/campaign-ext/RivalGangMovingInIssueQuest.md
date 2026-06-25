@@ -1,24 +1,18 @@
 ---
 title: "RivalGangMovingInIssueQuest"
+description: "Auto-generated class reference for RivalGangMovingInIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RivalGangMovingInIssueQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RivalGangMovingInIssueQuest
 
 **Namespace:** SandBox.Issues
 **Module:** SandBox.Issues
 **Type:** `public class RivalGangMovingInIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**Area:** campaign-ext
+**File:** `Modules.SandBox/SandBox/SandBox.Issues/RivalGangMovingInIssueBehavior.cs`
 
 ## Overview
 
-`RivalGangMovingInIssueQuest` lives in `SandBox.Issues`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`RivalGangMovingInIssueQuest` lives in `SandBox.Issues` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,76 +22,40 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 
 | Name | Signature |
 |------|-----------|
-| `IssueAlternativeSolutionSuccessLog` | `public override TextObject IssueAlternativeSolutionSuccessLog { get; }` |
-| `RivalGangLeader` | `public Hero RivalGangLeader { get; }` |
-| `IssueBriefByIssueGiver` | `public override TextObject IssueBriefByIssueGiver { get; }` |
-| `IssueQuestSolutionExplanationByIssueGiver` | `public override TextObject IssueQuestSolutionExplanationByIssueGiver { get; }` |
-| `IssueAlternativeSolutionExplanationByIssueGiver` | `public override TextObject IssueAlternativeSolutionExplanationByIssueGiver { get; }` |
-| `Title` | `public override TextObject Title { get; }` |
-| `IssueAsRumorInSettlement` | `public override TextObject IssueAsRumorInSettlement { get; }` |
 | `Title` | `public override TextObject Title { get; }` |
 
 ## Key Methods
 
-### OnHeroCanHaveCampaignIssuesInfoIsRequested
-`public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
-
-### AlternativeSolutionCondition
-`public override bool AlternativeSolutionCondition(out TextObject explanation)`
-
-**Purpose:** Handles logic related to `alternative solution condition`.
-
-### DoTroopsSatisfyAlternativeSolution
-`public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
-
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
-
-### IsTroopTypeNeededByAlternativeSolution
-`public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
-
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
-
-### GetFrequency
-`public override IssueFrequency GetFrequency()`
-
-**Purpose:** Gets the current value of `frequency`.
-
-### IssueStayAliveConditions
-`public override bool IssueStayAliveConditions()`
-
-**Purpose:** Handles logic related to `issue stay alive conditions`.
-
 ### OnHeroCanDieInfoIsRequested
 `public override void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterActionDetail causeOfDeath, ref bool result)`
 
-**Purpose:** Called when the `hero can die info is requested` event is raised.
+**Purpose:** Invoked when the `hero can die info is requested` event is raised.
+
+```csharp
+// Obtain an instance of RivalGangMovingInIssueQuest from the subsystem API first
+RivalGangMovingInIssueQuest rivalGangMovingInIssueQuest = ...;
+rivalGangMovingInIssueQuest.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
 
-### RegisterEvents
-`public override void RegisterEvents()`
-
-**Purpose:** Handles logic related to `register events`.
-
-### SyncData
-`public override void SyncData(IDataStore dataStore)`
-
-**Purpose:** Handles logic related to `sync data`.
+```csharp
+// Obtain an instance of RivalGangMovingInIssueQuest from the subsystem API first
+RivalGangMovingInIssueQuest rivalGangMovingInIssueQuest = ...;
+rivalGangMovingInIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a RivalGangMovingInIssueQuest instance from game state, then call one of its public methods
-var value = new RivalGangMovingInIssueQuest();
-value.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+// Typically call this after obtaining an instance from the subsystem API
+RivalGangMovingInIssueQuest rivalGangMovingInIssueQuest = ...;
+rivalGangMovingInIssueQuest.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SavedGameVM"
+description: "Auto-generated class reference for SavedGameVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SavedGameVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SavedGameVM
 
 **Namespace:** SandBox.ViewModelCollection.SaveLoad
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SavedGameVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SavedGameVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SavedGameVM.cs`
 
 ## Overview
 
@@ -63,35 +57,66 @@ Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SavedGameVM from the subsystem API first
+SavedGameVM savedGameVM = ...;
+savedGameVM.RefreshValues();
+```
 
 ### ExecuteSaveLoad
 `public void ExecuteSaveLoad()`
 
-**Purpose:** Executes the `save load` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `save load`.
+
+```csharp
+// Obtain an instance of SavedGameVM from the subsystem API first
+SavedGameVM savedGameVM = ...;
+savedGameVM.ExecuteSaveLoad();
+```
 
 ### ExecuteUpdate
 `public void ExecuteUpdate()`
 
-**Purpose:** Executes the `update` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `update`.
+
+```csharp
+// Obtain an instance of SavedGameVM from the subsystem API first
+SavedGameVM savedGameVM = ...;
+savedGameVM.ExecuteUpdate();
+```
 
 ### ExecuteDelete
 `public void ExecuteDelete()`
 
-**Purpose:** Executes the `delete` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `delete`.
+
+```csharp
+// Obtain an instance of SavedGameVM from the subsystem API first
+SavedGameVM savedGameVM = ...;
+savedGameVM.ExecuteDelete();
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of SavedGameVM from the subsystem API first
+SavedGameVM savedGameVM = ...;
+savedGameVM.ExecuteSelection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SavedGameVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SavedGameVM savedGameVM = ...;
+savedGameVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

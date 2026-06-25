@@ -1,20 +1,14 @@
 ---
 title: "GauntletInformationView"
+description: "Auto-generated class reference for GauntletInformationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletInformationView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletInformationView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletInformationView : GlobalLayer`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletInformationView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletInformationView.cs`
 
 ## Overview
 
@@ -29,19 +23,30 @@ Treat `GauntletInformationView` as a View-style extension point: first identify 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletInformationView.Initialize();
+```
 
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Static call; no instance required
+GauntletInformationView.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletInformationView();
+// Retrieve this view from the subsystem API or scene
+GauntletInformationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

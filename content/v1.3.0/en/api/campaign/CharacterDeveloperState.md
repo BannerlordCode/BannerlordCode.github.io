@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperState"
+description: "Auto-generated class reference for CharacterDeveloperState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var example = new CharacterDeveloperState();
+// Obtain an instance from the relevant subsystem API
+CharacterDeveloperState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

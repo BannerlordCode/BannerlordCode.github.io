@@ -1,20 +1,14 @@
 ---
 title: "PartyWageModel"
+description: "Auto-generated class reference for PartyWageModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyWageModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyWageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyWageModel : MBGameModel<PartyWageModel>`
 **Base:** `MBGameModel<PartyWageModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyWageModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyWageModel.cs`
 
 ## Overview
 
@@ -35,24 +29,43 @@ Treat `PartyWageModel` as a Model-style extension point: first identify who crea
 ### GetCharacterWage
 `public abstract int GetCharacterWage(CharacterObject character)`
 
-**Purpose:** Gets the current value of `character wage`.
+**Purpose:** Reads and returns the `character wage` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyWageModel from the subsystem API first
+PartyWageModel partyWageModel = ...;
+var result = partyWageModel.GetCharacterWage(character);
+```
 
 ### GetTotalWage
 `public abstract ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `total wage`.
+**Purpose:** Reads and returns the `total wage` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyWageModel from the subsystem API first
+PartyWageModel partyWageModel = ...;
+var result = partyWageModel.GetTotalWage(mobileParty, troopRoster, false);
+```
 
 ### GetTroopRecruitmentCost
 `public abstract ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**Purpose:** Gets the current value of `troop recruitment cost`.
+**Purpose:** Reads and returns the `troop recruitment cost` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyWageModel from the subsystem API first
+PartyWageModel partyWageModel = ...;
+var result = partyWageModel.GetTroopRecruitmentCost(troop, buyerHero, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyWageModel();
+// Typically obtained from a subsystem API or factory
+PartyWageModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PurchaseGrainTutorialQuest"
+description: "Auto-generated class reference for PurchaseGrainTutorialQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PurchaseGrainTutorialQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PurchaseGrainTutorialQuest
 
 **Namespace:** StoryMode.Quests.TutorialPhase
 **Module:** StoryMode.Quests
 **Type:** `public class PurchaseGrainTutorialQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/PurchaseGrainTutorialQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/PurchaseGrainTutorialQuest.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new PurchaseGrainTutorialQuest();
+// Obtain an instance from the relevant subsystem API
+PurchaseGrainTutorialQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

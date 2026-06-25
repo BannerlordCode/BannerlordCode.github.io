@@ -1,20 +1,14 @@
 ---
 title: "CallbackDebugTool"
+description: "CallbackDebugTool 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CallbackDebugTool`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CallbackDebugTool
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class CallbackDebugTool`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackDebugTool.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackDebugTool.cs`
 
 ## 概述
 
@@ -29,22 +23,42 @@ title: "CallbackDebugTool"
 ### AddLog
 `public static void AddLog( string memberName = "")`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `log`。
+**用途 / Purpose:** 将 「log」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CallbackDebugTool.AddLog("example");
+```
 
 ### FrameEnd
 `public static void FrameEnd()`
 
-**用途 / Purpose:** 处理 `frame end` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CallbackDebugTool.FrameEnd();
+```
 
 ### Reset
 `public static void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 静态调用，不需要实例
+CallbackDebugTool.Reset();
+```
 
 ### ShowResults
 `public static string ShowResults()`
 
-**用途 / Purpose:** 处理 `show results` 相关逻辑。
+**用途 / Purpose:** 显示「results」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+CallbackDebugTool.ShowResults();
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ CallbackDebugTool.AddLog("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

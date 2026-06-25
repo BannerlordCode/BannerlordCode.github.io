@@ -1,13 +1,7 @@
 ---
 title: "MultiSelectionInquiryData"
+description: "Auto-generated class reference for MultiSelectionInquiryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiSelectionInquiryData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiSelectionInquiryData
 
 **Namespace:** TaleWorlds.Core
@@ -29,14 +23,21 @@ Treat `MultiSelectionInquiryData` as a Data-style extension point: first identif
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of MultiSelectionInquiryData from the subsystem API first
+MultiSelectionInquiryData multiSelectionInquiryData = ...;
+var result = multiSelectionInquiryData.HasSameContentWith(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiSelectionInquiryData();
+// This data object is usually returned by campaign/mission APIs
+MultiSelectionInquiryData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

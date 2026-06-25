@@ -1,18 +1,12 @@
 ---
 title: "IMonsterMissionData"
+description: "Auto-generated class reference for IMonsterMissionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMonsterMissionData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMonsterMissionData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IMonsterMissionData`
 **Base:** none
 **File:** `TaleWorlds.Core/IMonsterMissionData.cs`
 
@@ -27,9 +21,10 @@ Treat `IMonsterMissionData` as a Data-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-IMonsterMissionData implementation = GetMonsterMissionDataImplementation();
+// Usually obtained through DI or a factory method
+IIMonsterMissionData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

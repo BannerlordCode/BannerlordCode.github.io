@@ -1,18 +1,12 @@
 ---
 title: "IMissionProgressTracker"
+description: "Auto-generated class reference for IMissionProgressTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionProgressTracker`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionProgressTracker
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
-**Type:** `class`
+**Type:** `public interface IMissionProgressTracker`
 **Base:** none
 **File:** `SandBox/Missions/MissionLogics/IMissionProgressTracker.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-IMissionProgressTracker implementation = GetMissionProgressTrackerImplementation();
+// Usually obtained through DI or a factory method
+IIMissionProgressTracker service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

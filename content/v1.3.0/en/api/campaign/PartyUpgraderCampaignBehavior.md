@@ -1,13 +1,7 @@
 ---
 title: "PartyUpgraderCampaignBehavior"
+description: "Auto-generated class reference for PartyUpgraderCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyUpgraderCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyUpgraderCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PartyUpgraderCampaignBehavior from the subsystem API first
+PartyUpgraderCampaignBehavior partyUpgraderCampaignBehavior = ...;
+partyUpgraderCampaignBehavior.RegisterEvents();
+```
 
 ### DailyTickParty
 `public void DailyTickParty(MobileParty party)`
 
-**Purpose:** Handles logic related to `daily tick party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyUpgraderCampaignBehavior from the subsystem API first
+PartyUpgraderCampaignBehavior partyUpgraderCampaignBehavior = ...;
+partyUpgraderCampaignBehavior.DailyTickParty(party);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PartyUpgraderCampaignBehavior from the subsystem API first
+PartyUpgraderCampaignBehavior partyUpgraderCampaignBehavior = ...;
+partyUpgraderCampaignBehavior.SyncData(dataStore);
+```
 
 ### UpgradeReadyTroops
 `public void UpgradeReadyTroops(PartyBase party)`
 
-**Purpose:** Handles logic related to `upgrade ready troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyUpgraderCampaignBehavior from the subsystem API first
+PartyUpgraderCampaignBehavior partyUpgraderCampaignBehavior = ...;
+partyUpgraderCampaignBehavior.UpgradeReadyTroops(party);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyUpgraderCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PartyUpgraderCampaignBehavior partyUpgraderCampaignBehavior = ...;
+partyUpgraderCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

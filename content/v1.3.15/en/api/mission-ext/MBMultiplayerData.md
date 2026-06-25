@@ -1,13 +1,7 @@
 ---
 title: "MBMultiplayerData"
+description: "Auto-generated class reference for MBMultiplayerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMultiplayerData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBMultiplayerData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,54 +29,101 @@ Treat `MBMultiplayerData` as a Data-style extension point: first identify who cr
 ### GetServerId
 `public static string GetServerId()`
 
-**Purpose:** Gets the current value of `server id`.
+**Purpose:** Reads and returns the `server id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMultiplayerData.GetServerId();
+```
 
 ### GetServerName
 `public static string GetServerName()`
 
-**Purpose:** Gets the current value of `server name`.
+**Purpose:** Reads and returns the `server name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMultiplayerData.GetServerName();
+```
 
 ### GetGameModule
 `public static string GetGameModule()`
 
-**Purpose:** Gets the current value of `game module`.
+**Purpose:** Reads and returns the `game module` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMultiplayerData.GetGameModule();
+```
 
 ### GetGameType
 `public static string GetGameType()`
 
-**Purpose:** Gets the current value of `game type`.
+**Purpose:** Reads and returns the `game type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMultiplayerData.GetGameType();
+```
 
 ### GetMap
 `public static string GetMap()`
 
-**Purpose:** Gets the current value of `map`.
+**Purpose:** Reads and returns the `map` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMultiplayerData.GetMap();
+```
 
 ### GetCurrentPlayerCount
 `public static int GetCurrentPlayerCount()`
 
-**Purpose:** Gets the current value of `current player count`.
+**Purpose:** Reads and returns the `current player count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMultiplayerData.GetCurrentPlayerCount();
+```
 
 ### GetPlayerCountLimit
 `public static int GetPlayerCountLimit()`
 
-**Purpose:** Gets the current value of `player count limit`.
+**Purpose:** Reads and returns the `player count limit` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMultiplayerData.GetPlayerCountLimit();
+```
 
 ### UpdateGameServerInfo
 `public static void UpdateGameServerInfo(string id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
 
-**Purpose:** Updates the state or data of `game server info`.
+**Purpose:** Recalculates and stores the latest representation of `game server info`.
+
+```csharp
+// Static call; no instance required
+MBMultiplayerData.UpdateGameServerInfo("example", "example", "example", "example", "example", 0, 0, "example", 0);
+```
 
 ### GameServerInfoReceivedDelegate
 `public delegate void GameServerInfoReceivedDelegate(CustomBattleId id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
 
-**Purpose:** Handles logic related to `game server info received delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBMultiplayerData from the subsystem API first
+MBMultiplayerData mBMultiplayerData = ...;
+mBMultiplayerData.GameServerInfoReceivedDelegate(id, "example", "example", "example", "example", 0, 0, "example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBMultiplayerData();
+// This data object is usually returned by campaign/mission APIs
+MBMultiplayerData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

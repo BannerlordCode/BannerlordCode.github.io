@@ -1,20 +1,14 @@
 ---
 title: "NewsItem"
+description: "Auto-generated class reference for NewsItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NewsItem`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NewsItem
 
 **Namespace:** TaleWorlds.Library.NewsManager
 **Module:** TaleWorlds.Library
 **Type:** `public struct NewsItem`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.NewsManager/NewsItem.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.NewsManager/NewsItem.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.Library.NewsManager` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var example = new NewsItem();
+// Obtain an instance from the relevant subsystem API
+NewsItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

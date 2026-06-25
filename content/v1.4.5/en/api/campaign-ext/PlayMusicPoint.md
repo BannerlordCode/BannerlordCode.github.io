@@ -1,20 +1,14 @@
 ---
 title: "PlayMusicPoint"
+description: "Auto-generated class reference for PlayMusicPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayMusicPoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayMusicPoint
 
 **Namespace:** SandBox.Objects.AnimationPoints
 **Module:** SandBox.Objects
 **Type:** `public class PlayMusicPoint : AnimationPoint`
 **Base:** `AnimationPoint`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/PlayMusicPoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/PlayMusicPoint.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `SandBox.Objects.AnimationPoints` to place it in the stack,
 ### StartLoop
 `public void StartLoop(SoundEvent trackEvent)`
 
-**Purpose:** Handles logic related to `start loop`.
+**Purpose:** Starts the `loop` flow or state machine.
+
+```csharp
+// Obtain an instance of PlayMusicPoint from the subsystem API first
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.StartLoop(trackEvent);
+```
 
 ### EndLoop
 `public void EndLoop()`
 
-**Purpose:** Handles logic related to `end loop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayMusicPoint from the subsystem API first
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.EndLoop();
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of PlayMusicPoint from the subsystem API first
+PlayMusicPoint playMusicPoint = ...;
+var result = playMusicPoint.GetTickRequirement();
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Called when the `use stopped` event is raised.
+**Purpose:** Invoked when the `use stopped` event is raised.
+
+```csharp
+// Obtain an instance of PlayMusicPoint from the subsystem API first
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### ChangeInstrument
 `public void ChangeInstrument(Tuple<InstrumentData, float> instrument)`
 
-**Purpose:** Handles logic related to `change instrument`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayMusicPoint from the subsystem API first
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.ChangeInstrument(tuple<InstrumentData, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayMusicPoint();
-value.StartLoop(trackEvent);
+// Typically call this after obtaining an instance from the subsystem API
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.StartLoop(trackEvent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

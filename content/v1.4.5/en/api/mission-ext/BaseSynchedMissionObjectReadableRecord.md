@@ -1,20 +1,14 @@
 ---
 title: "BaseSynchedMissionObjectReadableRecord"
+description: "Auto-generated class reference for BaseSynchedMissionObjectReadableRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BaseSynchedMissionObjectReadableRecord`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BaseSynchedMissionObjectReadableRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BaseSynchedMissionObjectReadableRecord`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BaseSynchedMissionObjectReadableRecord.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BaseSynchedMissionObjectReadableRecord.cs`
 
 ## Overview
 
@@ -50,20 +44,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of BaseSynchedMissionObjectReadableRecord from the subsystem API first
+BaseSynchedMissionObjectReadableRecord baseSynchedMissionObjectReadableRecord = ...;
+var result = baseSynchedMissionObjectReadableRecord.ReadFromNetwork(bufferReadValid);
+```
 
 ### SetSetVisibilityExcludeParents
 `public void SetSetVisibilityExcludeParents(bool visible)`
 
-**Purpose:** Sets the value or state of `set visibility exclude parents`.
+**Purpose:** Assigns a new value to `set visibility exclude parents` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BaseSynchedMissionObjectReadableRecord from the subsystem API first
+BaseSynchedMissionObjectReadableRecord baseSynchedMissionObjectReadableRecord = ...;
+baseSynchedMissionObjectReadableRecord.SetSetVisibilityExcludeParents(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BaseSynchedMissionObjectReadableRecord();
-value.ReadFromNetwork(bufferReadValid);
+// Typically call this after obtaining an instance from the subsystem API
+BaseSynchedMissionObjectReadableRecord baseSynchedMissionObjectReadableRecord = ...;
+baseSynchedMissionObjectReadableRecord.ReadFromNetwork(bufferReadValid);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

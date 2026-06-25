@@ -1,13 +1,7 @@
 ---
 title: "BehaviorComponent"
+description: "Auto-generated class reference for BehaviorComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,74 +34,153 @@ Treat `BehaviorComponent` as a Component-style extension point: first identify w
 ### OnBehaviorCanceled
 `public virtual void OnBehaviorCanceled()`
 
-**Purpose:** Called when the `behavior canceled` event is raised.
+**Purpose:** Invoked when the `behavior canceled` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnBehaviorCanceled();
+```
 
 ### OnLostAIControl
 `public virtual void OnLostAIControl()`
 
-**Purpose:** Called when the `lost a i control` event is raised.
+**Purpose:** Invoked when the `lost a i control` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnLostAIControl();
+```
 
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnAgentRemoved(agent);
+```
 
 ### RemindSergeantPlayer
 `public void RemindSergeantPlayer()`
 
-**Purpose:** Handles logic related to `remind sergeant player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.RemindSergeantPlayer();
+```
 
 ### TickOccasionally
 `public virtual void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.TickOccasionally();
+```
 
 ### GetAIWeight
 `public float GetAIWeight()`
 
-**Purpose:** Gets the current value of `a i weight`.
+**Purpose:** Reads and returns the `a i weight` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+var result = behaviorComponent.GetAIWeight();
+```
 
 ### ResetBehavior
 `public virtual void ResetBehavior()`
 
-**Purpose:** Resets `behavior` to its initial state.
+**Purpose:** Returns `behavior` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.ResetBehavior();
+```
 
 ### GetBehaviorString
 `public virtual TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+var result = behaviorComponent.GetBehaviorString();
+```
 
 ### OnValidBehaviorSideChanged
 `public virtual void OnValidBehaviorSideChanged()`
 
-**Purpose:** Called when the `valid behavior side changed` event is raised.
+**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnValidBehaviorSideChanged();
+```
 
 ### PrecalculateMovementOrder
 `public void PrecalculateMovementOrder()`
 
-**Purpose:** Handles logic related to `precalculate movement order`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.PrecalculateMovementOrder();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+var result = behaviorComponent.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+var result = behaviorComponent.GetHashCode();
+```
 
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorComponent from the subsystem API first
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnDeploymentFinished();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBehaviorComponent();
+// Typically obtained from a subsystem API or factory
+BehaviorComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

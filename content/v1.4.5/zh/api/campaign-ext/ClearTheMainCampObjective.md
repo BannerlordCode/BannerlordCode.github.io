@@ -1,20 +1,14 @@
 ---
 title: "ClearTheMainCampObjective"
+description: "ClearTheMainCampObjective 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClearTheMainCampObjective`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClearTheMainCampObjective
 
 **Namespace:** SandBox.Missions.MissionLogics.Hideout.Objectives
 **Module:** SandBox.Missions
 **Type:** `public class ClearTheMainCampObjective : MissionObjective`
 **Base:** `MissionObjective`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Hideout.Objectives/ClearTheMainCampObjective.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Hideout.Objectives/ClearTheMainCampObjective.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ClearTheMainCampObjective"
 ### GetCurrentProgress
 `public override MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**用途 / Purpose:** 获取 `current progress` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current progress」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClearTheMainCampObjective 实例
+ClearTheMainCampObjective clearTheMainCampObjective = ...;
+var result = clearTheMainCampObjective.GetCurrentProgress();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClearTheMainCampObjective();
-value.GetCurrentProgress();
+// 通常从对应子系统 API 获取实例后调用
+ClearTheMainCampObjective clearTheMainCampObjective = ...;
+clearTheMainCampObjective.GetCurrentProgress();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

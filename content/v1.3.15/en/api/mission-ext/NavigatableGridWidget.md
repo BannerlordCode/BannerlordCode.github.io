@@ -1,13 +1,7 @@
 ---
 title: "NavigatableGridWidget"
+description: "Auto-generated class reference for NavigatableGridWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavigatableGridWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NavigatableGridWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -42,9 +36,10 @@ Treat `NavigatableGridWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new NavigatableGridWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+NavigatableGridWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PlayerEncounter"
+description: "Auto-generated class reference for PlayerEncounter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerEncounter`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerEncounter`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/PlayerEncounter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/PlayerEncounter.cs`
 
 ## Overview
 
@@ -59,195 +53,393 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ### OnLoad
 `public void OnLoad()`
 
-**Purpose:** Called when the `load` event is raised.
+**Purpose:** Invoked when the `load` event is raised.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.OnLoad();
+```
 
 ### RestartPlayerEncounter
 `public static void RestartPlayerEncounter(PartyBase defenderParty, PartyBase attackerParty, bool forcePlayerOutFromSettlement = true, bool isPlayerEncounterRestartedForRaid = false)`
 
-**Purpose:** Handles logic related to `restart player encounter`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.RestartPlayerEncounter(defenderParty, attackerParty, false, false);
+```
 
 ### Init
 `public static void Init()`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.Init();
+```
 
 ### SetupFields
 `public void SetupFields(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Sets the value or state of `up fields`.
+**Purpose:** Assigns a new value to `up fields` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetupFields(attackerParty, defenderParty);
+```
 
 ### IsNavalEncounter
 `public static bool IsNavalEncounter()`
 
-**Purpose:** Handles logic related to `is naval encounter`.
+**Purpose:** Determines whether the current object is in the `naval encounter` state or condition.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.IsNavalEncounter();
+```
 
 ### StartBattle
 `public static MapEvent StartBattle()`
 
-**Purpose:** Handles logic related to `start battle`.
+**Purpose:** Starts the `battle` flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.StartBattle();
+```
 
 ### JoinBattle
 `public static void JoinBattle(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `join battle`.
+**Purpose:** Joins several `battle` items into a single whole.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.JoinBattle(side);
+```
 
 ### Start
 `public static void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.Start();
+```
 
 ### ProtectPlayerSide
 `public static void ProtectPlayerSide(float hoursToProtect = 1f)`
 
-**Purpose:** Handles logic related to `protect player side`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.ProtectPlayerSide(0);
+```
 
 ### Finish
 `public static void Finish(bool forcePlayerOutFromSettlement = true)`
 
-**Purpose:** Handles logic related to `finish`.
+**Purpose:** Concludes the current object's flow and performs any cleanup.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.Finish(false);
+```
 
 ### EndBattleByCheat
 `public static void EndBattleByCheat(bool playerWon)`
 
-**Purpose:** Handles logic related to `end battle by cheat`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.EndBattleByCheat(false);
+```
 
 ### Update
 `public static void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.Update();
+```
 
 ### DoMeeting
 `public static void DoMeeting()`
 
-**Purpose:** Handles logic related to `do meeting`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.DoMeeting();
+```
 
 ### SetMeetingDone
 `public static void SetMeetingDone()`
 
-**Purpose:** Sets the value or state of `meeting done`.
+**Purpose:** Assigns a new value to `meeting done` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.SetMeetingDone();
+```
 
 ### SetMeetingFalseForCompanion
 `public void SetMeetingFalseForCompanion()`
 
-**Purpose:** Sets the value or state of `meeting false for companion`.
+**Purpose:** Assigns a new value to `meeting false for companion` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetMeetingFalseForCompanion();
+```
 
 ### CheckIfLeadingAvaliable
 `public static bool CheckIfLeadingAvaliable()`
 
-**Purpose:** Handles logic related to `check if leading avaliable`.
+**Purpose:** Verifies whether `if leading avaliable` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.CheckIfLeadingAvaliable();
+```
 
 ### GetLeadingHero
 `public static Hero GetLeadingHero()`
 
-**Purpose:** Gets the current value of `leading hero`.
+**Purpose:** Reads and returns the `leading hero` value held by the current object.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.GetLeadingHero();
+```
 
 ### SetPlayerVictorious
 `public static void SetPlayerVictorious()`
 
-**Purpose:** Sets the value or state of `player victorious`.
+**Purpose:** Assigns a new value to `player victorious` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.SetPlayerVictorious();
+```
 
 ### SetIsSallyOutAmbush
 `public void SetIsSallyOutAmbush(bool value)`
 
-**Purpose:** Sets the value or state of `is sally out ambush`.
+**Purpose:** Assigns a new value to `is sally out ambush` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetIsSallyOutAmbush(false);
+```
 
 ### SetIsBlockadeAttack
 `public void SetIsBlockadeAttack(bool value)`
 
-**Purpose:** Sets the value or state of `is blockade attack`.
+**Purpose:** Assigns a new value to `is blockade attack` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetIsBlockadeAttack(false);
+```
 
 ### SetIsBlockadeSallyOutAttack
 `public void SetIsBlockadeSallyOutAttack(bool value)`
 
-**Purpose:** Sets the value or state of `is blockade sally out attack`.
+**Purpose:** Assigns a new value to `is blockade sally out attack` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetIsBlockadeSallyOutAttack(false);
+```
 
 ### SetPlayerSiegeInterruptedByEnemyDefection
 `public void SetPlayerSiegeInterruptedByEnemyDefection()`
 
-**Purpose:** Sets the value or state of `player siege interrupted by enemy defection`.
+**Purpose:** Assigns a new value to `player siege interrupted by enemy defection` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetPlayerSiegeInterruptedByEnemyDefection();
+```
 
 ### SetPlayerSiegeContinueWithDefenderPullBack
 `public static void SetPlayerSiegeContinueWithDefenderPullBack()`
 
-**Purpose:** Sets the value or state of `player siege continue with defender pull back`.
+**Purpose:** Assigns a new value to `player siege continue with defender pull back` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.SetPlayerSiegeContinueWithDefenderPullBack();
+```
 
 ### StartAttackMission
 `public static void StartAttackMission()`
 
-**Purpose:** Handles logic related to `start attack mission`.
+**Purpose:** Starts the `attack mission` flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.StartAttackMission();
+```
 
 ### FinalizeBattle
 `public void FinalizeBattle()`
 
-**Purpose:** Handles logic related to `finalize battle`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.FinalizeBattle();
+```
 
 ### FindNonAttachedNpcPartiesWhoWillJoinEvent
 `public void FindNonAttachedNpcPartiesWhoWillJoinEvent(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
 
-**Purpose:** Handles logic related to `find non attached npc parties who will join event`.
+**Purpose:** Looks up the matching `non attached npc parties who will join event` in the current collection or scope.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.FindNonAttachedNpcPartiesWhoWillJoinEvent(partiesToJoinPlayerSide, partiesToJoinEnemySide);
+```
 
 ### FindAllNpcPartiesWhoWillJoinEvent
 `public void FindAllNpcPartiesWhoWillJoinEvent(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
 
-**Purpose:** Handles logic related to `find all npc parties who will join event`.
+**Purpose:** Looks up the matching `all npc parties who will join event` in the current collection or scope.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.FindAllNpcPartiesWhoWillJoinEvent(partiesToJoinPlayerSide, partiesToJoinEnemySide);
+```
 
 ### EnterSettlement
 `public static void EnterSettlement()`
 
-**Purpose:** Handles logic related to `enter settlement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.EnterSettlement();
+```
 
 ### LeaveBattle
 `public static void LeaveBattle()`
 
-**Purpose:** Handles logic related to `leave battle`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.LeaveBattle();
+```
 
 ### LeaveSettlement
 `public static void LeaveSettlement()`
 
-**Purpose:** Handles logic related to `leave settlement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.LeaveSettlement();
+```
 
 ### InitSimulation
 `public static void InitSimulation(FlattenedTroopRoster selectedTroopsForPlayerSide, FlattenedTroopRoster selectedTroopsForOtherSide)`
 
-**Purpose:** Initializes the state, resources, or bindings for `simulation`.
+**Purpose:** Prepares the resources, state, or bindings required by `simulation`.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.InitSimulation(selectedTroopsForPlayerSide, selectedTroopsForOtherSide);
+```
 
 ### InterruptEncounter
 `public void InterruptEncounter(string encounterInterrupedType)`
 
-**Purpose:** Handles logic related to `interrupt encounter`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.InterruptEncounter("example");
+```
 
 ### StartSiegeAmbushMission
 `public static void StartSiegeAmbushMission()`
 
-**Purpose:** Handles logic related to `start siege ambush mission`.
+**Purpose:** Starts the `siege ambush mission` flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.StartSiegeAmbushMission();
+```
 
 ### StartVillageBattleMission
 `public static void StartVillageBattleMission()`
 
-**Purpose:** Handles logic related to `start village battle mission`.
+**Purpose:** Starts the `village battle mission` flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.StartVillageBattleMission();
+```
 
 ### StartCombatMissionWithDialogueInTownCenter
 `public static void StartCombatMissionWithDialogueInTownCenter(CharacterObject characterToTalkTo)`
 
-**Purpose:** Handles logic related to `start combat mission with dialogue in town center`.
+**Purpose:** Starts the `combat mission with dialogue in town center` flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.StartCombatMissionWithDialogueInTownCenter(characterToTalkTo);
+```
 
 ### StartHostileAction
 `public static void StartHostileAction()`
 
-**Purpose:** Handles logic related to `start hostile action`.
+**Purpose:** Starts the `hostile action` flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerEncounter.StartHostileAction();
+```
 
 ### GetBattleRewards
 `public void GetBattleRewards(out ExplainedNumber renownChange, out ExplainedNumber influenceChange, out ExplainedNumber moraleChange, out float playerEarnedLootRate, out Figurehead playerEarnedFigurehead)`
 
-**Purpose:** Gets the current value of `battle rewards`.
+**Purpose:** Reads and returns the `battle rewards` value held by the current object.
+
+```csharp
+// Obtain an instance of PlayerEncounter from the subsystem API first
+PlayerEncounter playerEncounter = ...;
+playerEncounter.GetBattleRewards(renownChange, influenceChange, moraleChange, playerEarnedLootRate, playerEarnedFigurehead);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerEncounter();
-value.OnLoad();
+// Typically call this after obtaining an instance from the subsystem API
+PlayerEncounter playerEncounter = ...;
+playerEncounter.OnLoad();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

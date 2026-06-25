@@ -1,20 +1,14 @@
 ---
 title: "StoryModeQuestBase"
+description: "StoryModeQuestBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeQuestBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeQuestBase
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public abstract class StoryModeQuestBase : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/StoryModeQuestBase.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/StoryModeQuestBase.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "StoryModeQuestBase"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomStoryModeQuestBase();
+// 通常通过子系统 API 或工厂获得派生实例
+StoryModeQuestBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

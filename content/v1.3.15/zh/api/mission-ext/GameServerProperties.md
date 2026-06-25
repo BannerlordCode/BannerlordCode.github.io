@@ -1,13 +1,7 @@
 ---
 title: "GameServerProperties"
+description: "GameServerProperties 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameServerProperties`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameServerProperties
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -54,15 +48,22 @@ title: "GameServerProperties"
 ### CheckAndReplaceProxyAddress
 `public void CheckAndReplaceProxyAddress(IReadOnlyDictionary<string, string> proxyAddressMap)`
 
-**用途 / Purpose:** 处理 `check and replace proxy address` 相关逻辑。
+**用途 / Purpose:** 检查「and replace proxy address」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 GameServerProperties 实例
+GameServerProperties gameServerProperties = ...;
+gameServerProperties.CheckAndReplaceProxyAddress(iReadOnlyDictionary<string, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameServerProperties();
-value.CheckAndReplaceProxyAddress(iReadOnlyDictionary<string, "example");
+// 通常从对应子系统 API 获取实例后调用
+GameServerProperties gameServerProperties = ...;
+gameServerProperties.CheckAndReplaceProxyAddress(iReadOnlyDictionary<string, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

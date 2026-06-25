@@ -1,13 +1,7 @@
 ---
 title: "TavernEmployeesCampaignBehavior"
+description: "Auto-generated class reference for TavernEmployeesCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TavernEmployeesCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TavernEmployeesCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
@@ -29,40 +23,77 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.SyncData(dataStore);
+```
 
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Handles logic related to `daily tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.DailyTick();
+```
 
 ### WeeklyTick
 `public void WeeklyTick()`
 
-**Purpose:** Handles logic related to `weekly tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.WeeklyTick();
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### OnMissionStarted
 `public void OnMissionStarted(IMission mission)`
 
-**Purpose:** Called when the `mission started` event is raised.
+**Purpose:** Invoked when the `mission started` event is raised.
+
+```csharp
+// Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.OnMissionStarted(mission);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TavernEmployeesCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

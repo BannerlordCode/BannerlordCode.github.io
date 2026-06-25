@@ -1,13 +1,7 @@
 ---
 title: "MapSiegeMachineButtonWidget"
+description: "Auto-generated class reference for MapSiegeMachineButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeMachineButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapSiegeMachineButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
@@ -35,9 +29,10 @@ Treat `MapSiegeMachineButtonWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new MapSiegeMachineButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapSiegeMachineButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

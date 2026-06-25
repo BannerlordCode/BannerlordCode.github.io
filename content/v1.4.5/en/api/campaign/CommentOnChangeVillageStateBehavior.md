@@ -1,20 +1,14 @@
 ---
 title: "CommentOnChangeVillageStateBehavior"
+description: "Auto-generated class reference for CommentOnChangeVillageStateBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommentOnChangeVillageStateBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommentOnChangeVillageStateBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CommentOnChangeVillageStateBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors/CommentOnChangeVillageStateBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors/CommentOnChangeVillageStateBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehavio
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CommentOnChangeVillageStateBehavior from the subsystem API first
+CommentOnChangeVillageStateBehavior commentOnChangeVillageStateBehavior = ...;
+commentOnChangeVillageStateBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CommentOnChangeVillageStateBehavior from the subsystem API first
+CommentOnChangeVillageStateBehavior commentOnChangeVillageStateBehavior = ...;
+commentOnChangeVillageStateBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommentOnChangeVillageStateBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+CommentOnChangeVillageStateBehavior commentOnChangeVillageStateBehavior = ...;
+commentOnChangeVillageStateBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

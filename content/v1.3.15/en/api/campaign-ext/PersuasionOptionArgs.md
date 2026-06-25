@@ -1,13 +1,7 @@
 ---
 title: "PersuasionOptionArgs"
+description: "Auto-generated class reference for PersuasionOptionArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionOptionArgs`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PersuasionOptionArgs
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ### BlockTheOption
 `public void BlockTheOption(bool isBlocked)`
 
-**Purpose:** Handles logic related to `block the option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PersuasionOptionArgs from the subsystem API first
+PersuasionOptionArgs persuasionOptionArgs = ...;
+persuasionOptionArgs.BlockTheOption(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PersuasionOptionArgs();
-value.BlockTheOption(false);
+// Typically call this after obtaining an instance from the subsystem API
+PersuasionOptionArgs persuasionOptionArgs = ...;
+persuasionOptionArgs.BlockTheOption(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

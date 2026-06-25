@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerBattleMoraleModel"
+description: "MultiplayerBattleMoraleModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerBattleMoraleModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleMoraleModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleMoraleModel : BattleMoraleModel`
 **Base:** `BattleMoraleModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleMoraleModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleMoraleModel.cs`
 
 ## 概述
 
@@ -29,42 +23,90 @@ title: "MultiplayerBattleMoraleModel"
 ### CalculateMoraleChangeToCharacter
 `public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
 
-**用途 / Purpose:** 处理 `calculate morale change to character` 相关逻辑。
+**用途 / Purpose:** 计算「morale change to character」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0);
+```
 
 ### GetEffectiveInitialMorale
 `public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
 
-**用途 / Purpose:** 获取 `effective initial morale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「effective initial morale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.GetEffectiveInitialMorale(agent, 0);
+```
 
 ### CanPanicDueToMorale
 `public override bool CanPanicDueToMorale(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `panic due to morale`。
+**用途 / Purpose:** 检查当前对象是否满足 「panic due to morale」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CanPanicDueToMorale(agent);
+```
 
 ### CalculateCasualtiesFactor
 `public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
 
-**用途 / Purpose:** 处理 `calculate casualties factor` 相关逻辑。
+**用途 / Purpose:** 计算「casualties factor」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateCasualtiesFactor(battleSide);
+```
 
 ### GetAverageMorale
 `public override float GetAverageMorale(Formation formation)`
 
-**用途 / Purpose:** 获取 `average morale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「average morale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.GetAverageMorale(formation);
+```
 
 ### CalculateMoraleChangeOnShipSunk
 `public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
 
-**用途 / Purpose:** 处理 `calculate morale change on ship sunk` 相关逻辑。
+**用途 / Purpose:** 计算「morale change on ship sunk」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin);
+```
 
 ### CalculateMoraleOnRamming
 `public override float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)`
 
-**用途 / Purpose:** 处理 `calculate morale on ramming` 相关逻辑。
+**用途 / Purpose:** 计算「morale on ramming」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMoraleOnRamming(agent, rammingShip, rammedShip);
+```
 
 ### CalculateMoraleOnShipsConnected
 `public override float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)`
 
-**用途 / Purpose:** 处理 `calculate morale on ships connected` 相关逻辑。
+**用途 / Purpose:** 计算「morale on ships connected」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMoraleModel 实例
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMoraleOnShipsConnected(agent, ownerShip, targetShip);
+```
 
 ## 使用示例
 
@@ -74,4 +116,4 @@ Game.Current.ReplaceModel<MultiplayerBattleMoraleModel>(new MyMultiplayerBattleM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

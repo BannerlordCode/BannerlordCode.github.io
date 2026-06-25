@@ -1,13 +1,7 @@
 ---
 title: "LocationCharacterAgentSpawnedMissionEvent"
+description: "Auto-generated class reference for LocationCharacterAgentSpawnedMissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationCharacterAgentSpawnedMissionEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationCharacterAgentSpawnedMissionEvent
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new LocationCharacterAgentSpawnedMissionEvent();
+// Obtain an instance from the relevant subsystem API
+LocationCharacterAgentSpawnedMissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

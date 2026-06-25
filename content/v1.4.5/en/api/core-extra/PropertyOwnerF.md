@@ -1,20 +1,14 @@
 ---
 title: "PropertyOwnerF"
+description: "Auto-generated class reference for PropertyOwnerF."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyOwnerF`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyOwnerF
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class PropertyOwnerF<T> : IReadOnlyPropertyOwnerF<T> where T : MBObjectBase`
 **Base:** `IReadOnlyPropertyOwnerF<T> where T : MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/PropertyOwnerF.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/PropertyOwnerF.cs`
 
 ## Overview
 
@@ -29,45 +23,88 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetPropertyValue
 `public void SetPropertyValue(T attribute, float value)`
 
-**Purpose:** Sets the value or state of `property value`.
+**Purpose:** Assigns a new value to `property value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PropertyOwnerF from the subsystem API first
+PropertyOwnerF propertyOwnerF = ...;
+propertyOwnerF.SetPropertyValue(attribute, 0);
+```
 
 ### GetPropertyValue
 `public float GetPropertyValue(T attribute)`
 
-**Purpose:** Gets the current value of `property value`.
+**Purpose:** Reads and returns the `property value` value held by the current object.
+
+```csharp
+// Obtain an instance of PropertyOwnerF from the subsystem API first
+PropertyOwnerF propertyOwnerF = ...;
+var result = propertyOwnerF.GetPropertyValue(attribute);
+```
 
 ### HasProperty
 `public bool HasProperty(T attribute)`
 
-**Purpose:** Checks whether the current object has/contains `property`.
+**Purpose:** Determines whether the current object already holds `property`.
+
+```csharp
+// Obtain an instance of PropertyOwnerF from the subsystem API first
+PropertyOwnerF propertyOwnerF = ...;
+var result = propertyOwnerF.HasProperty(attribute);
+```
 
 ### ClearAllProperty
 `public void ClearAllProperty()`
 
-**Purpose:** Handles logic related to `clear all property`.
+**Purpose:** Removes all `all property` from the current object.
+
+```csharp
+// Obtain an instance of PropertyOwnerF from the subsystem API first
+PropertyOwnerF propertyOwnerF = ...;
+propertyOwnerF.ClearAllProperty();
+```
 
 ### GetProperties
 `public MBList<T> GetProperties()`
 
-**Purpose:** Gets the current value of `properties`.
+**Purpose:** Reads and returns the `properties` value held by the current object.
+
+```csharp
+// Obtain an instance of PropertyOwnerF from the subsystem API first
+PropertyOwnerF propertyOwnerF = ...;
+var result = propertyOwnerF.GetProperties();
+```
 
 ### Serialize
 `public void Serialize(XmlWriter writer)`
 
-**Purpose:** Handles logic related to `serialize`.
+**Purpose:** Serializes the current object into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of PropertyOwnerF from the subsystem API first
+PropertyOwnerF propertyOwnerF = ...;
+propertyOwnerF.Serialize(writer);
+```
 
 ### Deserialize
 `public void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of PropertyOwnerF from the subsystem API first
+PropertyOwnerF propertyOwnerF = ...;
+propertyOwnerF.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyOwnerF();
-value.SetPropertyValue(attribute, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PropertyOwnerF propertyOwnerF = ...;
+propertyOwnerF.SetPropertyValue(attribute, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

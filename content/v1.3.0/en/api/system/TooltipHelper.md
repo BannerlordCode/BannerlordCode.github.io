@@ -1,13 +1,7 @@
 ---
 title: "TooltipHelper"
+description: "Auto-generated class reference for TooltipHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ Treat `TooltipHelper` as a Helper-style extension point: first identify who crea
 ### GetSendTroopsPowerContextTooltipForMapEvent
 `public static TextObject GetSendTroopsPowerContextTooltipForMapEvent()`
 
-**Purpose:** Gets the current value of `send troops power context tooltip for map event`.
+**Purpose:** Reads and returns the `send troops power context tooltip for map event` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TooltipHelper.GetSendTroopsPowerContextTooltipForMapEvent();
+```
 
 ### GetSendTroopsPowerContextTooltipForSiege
 `public static TextObject GetSendTroopsPowerContextTooltipForSiege()`
 
-**Purpose:** Gets the current value of `send troops power context tooltip for siege`.
+**Purpose:** Reads and returns the `send troops power context tooltip for siege` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TooltipHelper.GetSendTroopsPowerContextTooltipForSiege();
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ TooltipHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

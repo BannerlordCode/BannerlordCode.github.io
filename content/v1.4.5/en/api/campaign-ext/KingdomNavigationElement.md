@@ -1,20 +1,14 @@
 ---
 title: "KingdomNavigationElement"
+description: "Auto-generated class reference for KingdomNavigationElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomNavigationElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
 **Module:** SandBox.View
 **Type:** `public class KingdomNavigationElement : MapNavigationElementBase`
 **Base:** `MapNavigationElementBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/KingdomNavigationElement.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/KingdomNavigationElement.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ### OpenView
 `public override void OpenView()`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of KingdomNavigationElement from the subsystem API first
+KingdomNavigationElement kingdomNavigationElement = ...;
+kingdomNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of KingdomNavigationElement from the subsystem API first
+KingdomNavigationElement kingdomNavigationElement = ...;
+kingdomNavigationElement.OpenView(parameters);
+```
 
 ### GoToLink
 `public override void GoToLink()`
 
-**Purpose:** Handles logic related to `go to link`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomNavigationElement from the subsystem API first
+KingdomNavigationElement kingdomNavigationElement = ...;
+kingdomNavigationElement.GoToLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomNavigationElement();
-value.OpenView();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomNavigationElement kingdomNavigationElement = ...;
+kingdomNavigationElement.OpenView();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

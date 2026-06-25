@@ -1,13 +1,7 @@
 ---
 title: "MBTooManyRegisteredTypesException"
+description: "Auto-generated class reference for MBTooManyRegisteredTypesException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTooManyRegisteredTypesException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBTooManyRegisteredTypesException
 
 **Namespace:** TaleWorlds.ObjectSystem
@@ -27,9 +21,10 @@ Treat `MBTooManyRegisteredTypesException` as a Exception-style extension point: 
 ## Usage Example
 
 ```csharp
-try { CallMBTooManyRegisteredTypesException(); } catch (MBTooManyRegisteredTypesException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBTooManyRegisteredTypesException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

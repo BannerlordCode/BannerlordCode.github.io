@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerOrderUIHandler"
+description: "MissionGauntletMultiplayerOrderUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletMultiplayerOrderUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerOrderUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerOrderUIHandler : GauntletOrderUIHandler`
 **Base:** `GauntletOrderUIHandler`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerOrderUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerOrderUIHandler.cs`
 
 ## 概述
 
@@ -35,44 +29,86 @@ title: "MissionGauntletMultiplayerOrderUIHandler"
 ### IsReady
 `public override bool IsReady()`
 
-**用途 / Purpose:** 处理 `is ready` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ready」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerOrderUIHandler 实例
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+var result = missionGauntletMultiplayerOrderUIHandler.IsReady();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerOrderUIHandler 实例
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.AfterStart();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerOrderUIHandler 实例
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerOrderUIHandler 实例
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerOrderUIHandler 实例
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.OnMissionScreenFinalize();
+```
 
 ### InitializeInADisgustingManner
 `public void InitializeInADisgustingManner()`
 
-**用途 / Purpose:** 初始化 `in a disgusting manner` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「in a disgusting manner」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerOrderUIHandler 实例
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.InitializeInADisgustingManner();
+```
 
 ### ValidateInADisgustingManner
 `public void ValidateInADisgustingManner()`
 
-**用途 / Purpose:** 处理 `validate in a disgusting manner` 相关逻辑。
+**用途 / Purpose:** 检查「in a disgusting manner」是否满足约束条件，通常返回布尔值。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerOrderUIHandler 实例
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.ValidateInADisgustingManner();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletMultiplayerOrderUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletMultiplayerOrderUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

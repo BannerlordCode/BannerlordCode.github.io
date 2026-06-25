@@ -1,20 +1,14 @@
 ---
 title: "HealthRecoveryEffect"
+description: "HealthRecoveryEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HealthRecoveryEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HealthRecoveryEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HealthRecoveryEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/HealthRecoveryEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/HealthRecoveryEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "HealthRecoveryEffect"
 ### OnTick
 `public override void OnTick(Agent agent, int tickCount)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HealthRecoveryEffect 实例
+HealthRecoveryEffect healthRecoveryEffect = ...;
+healthRecoveryEffect.OnTick(agent, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HealthRecoveryEffect();
-value.OnTick(agent, 0);
+// 通常从对应子系统 API 获取实例后调用
+HealthRecoveryEffect healthRecoveryEffect = ...;
+healthRecoveryEffect.OnTick(agent, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

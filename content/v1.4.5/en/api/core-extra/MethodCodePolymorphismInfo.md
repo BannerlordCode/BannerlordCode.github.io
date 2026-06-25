@@ -1,20 +1,14 @@
 ---
 title: "MethodCodePolymorphismInfo"
+description: "Auto-generated class reference for MethodCodePolymorphismInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MethodCodePolymorphismInfo`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MethodCodePolymorphismInfo
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public enum MethodCodePolymorphismInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/MethodCodePolymorphismInfo.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/MethodCodePolymorphismInfo.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new MethodCodePolymorphismInfo();
+// Obtain an instance from the relevant subsystem API
+MethodCodePolymorphismInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

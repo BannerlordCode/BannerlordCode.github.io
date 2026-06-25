@@ -1,20 +1,14 @@
 ---
 title: "GauntletQueryManager"
+description: "GauntletQueryManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletQueryManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletQueryManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletQueryManager : GlobalLayer`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletQueryManager.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletQueryManager.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "GauntletQueryManager"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletQueryManager 实例
+GauntletQueryManager gauntletQueryManager = ...;
+gauntletQueryManager.Initialize();
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var manager = GauntletQueryManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

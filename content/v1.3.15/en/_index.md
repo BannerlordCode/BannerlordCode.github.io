@@ -41,5 +41,22 @@ Welcome to the Bannerlord v1.3.15 modding documentation (English).
 ## Usage Example
 
 ```csharp
-var example = new Bannerlord v1.3.15();
+// Use the navigation below to explore guides, API reference, and architecture.
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Content Navigation
+
+- [API Reference](./api/) — Complete API reference catalog for Bannerlord SDK
+- [Architecture](./architecture/) — Bannerlord SDK architecture hub — module map, loading flow, save internals, version delta
+- [Getting Started Guide](./guide/) — Quick start guide for Bannerlord modding
+- [Native Reference](./native/) — Complete documentation for interacting with native C++ engine via P/Invoke
+- [Native 1.3.15 Source Reference](./native-1.3.15-src/) — Decompiled source reference for TaleWorlds.Native.dll v1.3.15
+- [XML Reference](./xml-reference/) — Complete XML configuration reference
+
+<!-- END SECTION INDEX -->

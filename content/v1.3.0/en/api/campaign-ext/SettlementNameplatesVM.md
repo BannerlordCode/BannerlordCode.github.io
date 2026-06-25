@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplatesVM"
+description: "Auto-generated class reference for SettlementNameplatesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplatesVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplatesVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -35,30 +29,55 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.RefreshValues();
+```
 
 ### Initialize
 `public void Initialize(IEnumerable<Tuple<Settlement, GameEntity>> settlements)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.Initialize(iEnumerable<Tuple<Settlement, settlements);
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.Update();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNameplatesVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

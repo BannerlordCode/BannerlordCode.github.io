@@ -1,13 +1,7 @@
 ---
 title: "BrushAnimationKeyFrame"
+description: "BrushAnimationKeyFrame 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushAnimationKeyFrame`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BrushAnimationKeyFrame
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -36,55 +30,110 @@ title: "BrushAnimationKeyFrame"
 ### InitializeAsFloat
 `public void InitializeAsFloat(float time, float value)`
 
-**用途 / Purpose:** 初始化 `as float` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「as float」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeAsFloat(0, 0);
+```
 
 ### InitializeAsColor
 `public void InitializeAsColor(float time, Color value)`
 
-**用途 / Purpose:** 初始化 `as color` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「as color」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeAsColor(0, value);
+```
 
 ### InitializeAsSprite
 `public void InitializeAsSprite(float time, Sprite value)`
 
-**用途 / Purpose:** 初始化 `as sprite` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「as sprite」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeAsSprite(0, value);
+```
 
 ### InitializeIndex
 `public void InitializeIndex(int index)`
 
-**用途 / Purpose:** 初始化 `index` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「index」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeIndex(0);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat()`
 
-**用途 / Purpose:** 获取 `value as float` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as float」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.GetValueAsFloat();
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor()`
 
-**用途 / Purpose:** 获取 `value as color` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as color」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.GetValueAsColor();
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite()`
 
-**用途 / Purpose:** 获取 `value as sprite` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as sprite」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.GetValueAsSprite();
+```
 
 ### GetValueAsObject
 `public object GetValueAsObject()`
 
-**用途 / Purpose:** 获取 `value as object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value as object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.GetValueAsObject();
+```
 
 ### Clone
 `public BrushAnimationKeyFrame Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 BrushAnimationKeyFrame 实例
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+var result = brushAnimationKeyFrame.Clone();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrushAnimationKeyFrame();
-value.InitializeAsFloat(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+BrushAnimationKeyFrame brushAnimationKeyFrame = ...;
+brushAnimationKeyFrame.InitializeAsFloat(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

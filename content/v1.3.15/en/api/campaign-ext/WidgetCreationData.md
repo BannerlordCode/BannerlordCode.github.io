@@ -1,13 +1,7 @@
 ---
 title: "WidgetCreationData"
+description: "Auto-generated class reference for WidgetCreationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetCreationData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetCreationData
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -42,17 +36,30 @@ Treat `WidgetCreationData` as a Data-style extension point: first identify who c
 
 **Purpose:** Adds `extension data` to the current collection or state.
 
+```csharp
+// Obtain an instance of WidgetCreationData from the subsystem API first
+WidgetCreationData widgetCreationData = ...;
+widgetCreationData.AddExtensionData("example", data);
+```
+
 ### AddExtensionData
 `public void AddExtensionData(object data)`
 
 **Purpose:** Adds `extension data` to the current collection or state.
 
+```csharp
+// Obtain an instance of WidgetCreationData from the subsystem API first
+WidgetCreationData widgetCreationData = ...;
+widgetCreationData.AddExtensionData(data);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new WidgetCreationData();
+// This data object is usually returned by campaign/mission APIs
+WidgetCreationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

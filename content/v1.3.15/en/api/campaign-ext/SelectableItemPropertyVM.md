@@ -1,13 +1,7 @@
 ---
 title: "SelectableItemPropertyVM"
+description: "Auto-generated class reference for SelectableItemPropertyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectableItemPropertyVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SelectableItemPropertyVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -40,15 +34,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SelectableItemPropertyVM from the subsystem API first
+SelectableItemPropertyVM selectableItemPropertyVM = ...;
+selectableItemPropertyVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SelectableItemPropertyVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SelectableItemPropertyVM selectableItemPropertyVM = ...;
+selectableItemPropertyVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

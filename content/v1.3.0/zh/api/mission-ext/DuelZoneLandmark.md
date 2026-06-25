@@ -1,13 +1,7 @@
 ---
 title: "DuelZoneLandmark"
+description: "DuelZoneLandmark 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DuelZoneLandmark`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelZoneLandmark
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,30 +29,55 @@ title: "DuelZoneLandmark"
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**用途 / Purpose:** 当 `focus gain` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus gain」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelZoneLandmark 实例
+DuelZoneLandmark duelZoneLandmark = ...;
+duelZoneLandmark.OnFocusGain(userAgent);
+```
 
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**用途 / Purpose:** 当 `focus lose` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus lose」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelZoneLandmark 实例
+DuelZoneLandmark duelZoneLandmark = ...;
+duelZoneLandmark.OnFocusLose(userAgent);
+```
 
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**用途 / Purpose:** 获取 `info text for being not interactable` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「info text for being not interactable」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DuelZoneLandmark 实例
+DuelZoneLandmark duelZoneLandmark = ...;
+var result = duelZoneLandmark.GetInfoTextForBeingNotInteractable(userAgent);
+```
 
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DuelZoneLandmark 实例
+DuelZoneLandmark duelZoneLandmark = ...;
+var result = duelZoneLandmark.GetDescriptionText(gameEntity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DuelZoneLandmark();
-value.OnFocusGain(userAgent);
+// 通常从对应子系统 API 获取实例后调用
+DuelZoneLandmark duelZoneLandmark = ...;
+duelZoneLandmark.OnFocusGain(userAgent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

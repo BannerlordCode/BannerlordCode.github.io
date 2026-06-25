@@ -1,20 +1,14 @@
 ---
 title: "PartyScreenData"
+description: "PartyScreenData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyScreenData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyScreenData
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyScreenData : IEnumerable<(TroopRosterElement, bool)>, IEnumerable`
 **Base:** `IEnumerable<(TroopRosterElement`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenData.cs`
 
 ## 概述
 
@@ -38,54 +32,109 @@ title: "PartyScreenData"
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+var result = partyScreenData.GetHashCode();
+```
 
 ### InitializeCopyFrom
 `public void InitializeCopyFrom(PartyBase rightParty, PartyBase leftParty)`
 
-**用途 / Purpose:** 初始化 `copy from` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「copy from」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+partyScreenData.InitializeCopyFrom(rightParty, leftParty);
+```
 
 ### CopyFromPartyAndRoster
 `public void CopyFromPartyAndRoster(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty)`
 
-**用途 / Purpose:** 处理 `copy from party and roster` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「from party and roster」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+partyScreenData.CopyFromPartyAndRoster(rightPartyMemberRoster, rightPartyPrisonerRoster, leftPartyMemberRoster, leftPartyPrisonerRoster, rightParty);
+```
 
 ### CopyFromScreenData
 `public void CopyFromScreenData(PartyScreenData data)`
 
-**用途 / Purpose:** 处理 `copy from screen data` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「from screen data」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+partyScreenData.CopyFromScreenData(data);
+```
 
 ### BindRostersFrom
 `public void BindRostersFrom(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty, PartyBase leftParty)`
 
-**用途 / Purpose:** 处理 `bind rosters from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+partyScreenData.BindRostersFrom(rightPartyMemberRoster, rightPartyPrisonerRoster, leftPartyMemberRoster, leftPartyPrisonerRoster, rightParty, leftParty);
+```
 
 ### ResetUsing
 `public void ResetUsing(PartyScreenData partyScreenData)`
 
-**用途 / Purpose:** 将 `using` 重置为初始状态。
+**用途 / Purpose:** 将 「using」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+partyScreenData.ResetUsing(partyScreenData);
+```
 
 ### IsThereAnyTroopTradeDifferenceBetween
 `public bool IsThereAnyTroopTradeDifferenceBetween(PartyScreenData other)`
 
-**用途 / Purpose:** 处理 `is there any troop trade difference between` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there any troop trade difference between」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+var result = partyScreenData.IsThereAnyTroopTradeDifferenceBetween(other);
+```
 
 ### GetTroopTradeDifferencesFromTo
 `public List<TroopTradeDifference> GetTroopTradeDifferencesFromTo(PartyScreenData toPartyScreenData, PartyScreenLogic.PartyRosterSide side = PartyScreenLogic.PartyRosterSide.None)`
 
-**用途 / Purpose:** 获取 `troop trade differences from to` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop trade differences from to」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+var result = partyScreenData.GetTroopTradeDifferencesFromTo(toPartyScreenData, partyScreenLogic.PartyRosterSide.None);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 PartyScreenData 实例
+PartyScreenData partyScreenData = ...;
+var result = partyScreenData.Equals(obj);
+```
 
 ## 使用示例
 
 ```csharp
-PartyScreenData example = PartyScreenData.RightParty;
+// 该数据对象通常由战役/任务 API 返回
+PartyScreenData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "Music"
+description: "Auto-generated class reference for Music."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Music`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Music
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class Music`
-**Area:** engine
+**Base:** none
+**File:** `TaleWorlds.Engine/Music.cs`
 
 ## Overview
 
-`Music` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Music` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,61 +23,109 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetFreeMusicChannelIndex
 `public static int GetFreeMusicChannelIndex()`
 
-**Purpose:** Gets the current value of `free music channel index`.
+**Purpose:** Reads and returns the `free music channel index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Music.GetFreeMusicChannelIndex();
+```
 
 ### LoadClip
 `public static void LoadClip(int index, string pathToClip)`
 
-**Purpose:** Loads `clip` data.
+**Purpose:** Reads `clip` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+Music.LoadClip(0, "example");
+```
 
 ### UnloadClip
 `public static void UnloadClip(int index)`
 
-**Purpose:** Handles logic related to `unload clip`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Music.UnloadClip(0);
+```
 
 ### IsClipLoaded
 `public static bool IsClipLoaded(int index)`
 
-**Purpose:** Handles logic related to `is clip loaded`.
+**Purpose:** Determines whether the current object is in the `clip loaded` state or condition.
+
+```csharp
+// Static call; no instance required
+Music.IsClipLoaded(0);
+```
 
 ### PlayMusic
 `public static void PlayMusic(int index)`
 
-**Purpose:** Handles logic related to `play music`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Music.PlayMusic(0);
+```
 
 ### PlayDelayed
 `public static void PlayDelayed(int index, int deltaMilliseconds)`
 
-**Purpose:** Handles logic related to `play delayed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Music.PlayDelayed(0, 0);
+```
 
 ### IsMusicPlaying
 `public static bool IsMusicPlaying(int index)`
 
-**Purpose:** Handles logic related to `is music playing`.
+**Purpose:** Determines whether the current object is in the `music playing` state or condition.
+
+```csharp
+// Static call; no instance required
+Music.IsMusicPlaying(0);
+```
 
 ### PauseMusic
 `public static void PauseMusic(int index)`
 
-**Purpose:** Handles logic related to `pause music`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Music.PauseMusic(0);
+```
 
 ### StopMusic
 `public static void StopMusic(int index)`
 
-**Purpose:** Handles logic related to `stop music`.
+**Purpose:** Stops the `music` flow or state machine.
+
+```csharp
+// Static call; no instance required
+Music.StopMusic(0);
+```
 
 ### SetVolume
 `public static void SetVolume(int index, float volume)`
 
-**Purpose:** Sets the value or state of `volume`.
+**Purpose:** Assigns a new value to `volume` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+Music.SetVolume(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 Music.GetFreeMusicChannelIndex();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

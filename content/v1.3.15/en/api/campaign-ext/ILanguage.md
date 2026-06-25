@@ -1,18 +1,12 @@
 ---
 title: "ILanguage"
+description: "Auto-generated class reference for ILanguage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ILanguage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ILanguage
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public interface ILanguage`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension/ILanguage.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-ILanguage implementation = GetLanguageImplementation();
+// Usually obtained through DI or a factory method
+IILanguage service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

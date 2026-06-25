@@ -1,13 +1,7 @@
 ---
 title: "DefaultEmissaryModel"
+description: "DefaultEmissaryModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEmissaryModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEmissaryModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,7 +29,13 @@ title: "DefaultEmissaryModel"
 ### IsEmissary
 `public override bool IsEmissary(Hero hero)`
 
-**用途 / Purpose:** 处理 `is emissary` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「emissary」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEmissaryModel 实例
+DefaultEmissaryModel defaultEmissaryModel = ...;
+var result = defaultEmissaryModel.IsEmissary(hero);
+```
 
 ## 使用示例
 
@@ -45,4 +45,4 @@ Game.Current.ReplaceModel<DefaultEmissaryModel>(new MyDefaultEmissaryModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

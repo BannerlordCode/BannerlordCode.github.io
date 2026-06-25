@@ -1,20 +1,14 @@
 ---
 title: "DefaultSiegeLordsHallFightModel"
+description: "Auto-generated class reference for DefaultSiegeLordsHallFightModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSiegeLordsHallFightModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeLordsHallFightModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSiegeLordsHallFightModel : SiegeLordsHallFightModel`
 **Base:** `SiegeLordsHallFightModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeLordsHallFightModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeLordsHallFightModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultSiegeLordsHallFightModel` as a Model-style extension point: first 
 ### GetPriorityListForLordsHallFightMission
 `public override FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)`
 
-**Purpose:** Gets the current value of `priority list for lords hall fight mission`.
+**Purpose:** Reads and returns the `priority list for lords hall fight mission` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeLordsHallFightModel from the subsystem API first
+DefaultSiegeLordsHallFightModel defaultSiegeLordsHallFightModel = ...;
+var result = defaultSiegeLordsHallFightModel.GetPriorityListForLordsHallFightMission(playerMapEvent, side, 0);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultSiegeLordsHallFightModel>(new MyDefaultSiegeLor
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

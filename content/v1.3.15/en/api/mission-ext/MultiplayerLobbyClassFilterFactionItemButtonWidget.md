@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyClassFilterFactionItemButtonWidget"
+description: "Auto-generated class reference for MultiplayerLobbyClassFilterFactionItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyClassFilterFactionItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyClassFilterFactionItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
@@ -34,9 +28,10 @@ Treat `MultiplayerLobbyClassFilterFactionItemButtonWidget` as a Widget-style ext
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyClassFilterFactionItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyClassFilterFactionItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

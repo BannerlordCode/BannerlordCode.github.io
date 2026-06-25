@@ -1,20 +1,14 @@
 ---
 title: "ContainerPageControlButtonListWidget"
+description: "Auto-generated class reference for ContainerPageControlButtonListWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContainerPageControlButtonListWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerPageControlButtonListWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ContainerPageControlButtonListWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ContainerPageControlButtonListWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ContainerPageControlButtonListWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `ContainerPageControlButtonListWidget` as a Widget-style extension point: 
 ### ContainerPageControlButtonListWidget
 `public class ContainerPageControlButtonListWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `container page control button list widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ContainerPageControlButtonListWidget from the subsystem API first
+ContainerPageControlButtonListWidget containerPageControlButtonListWidget = ...;
+var result = containerPageControlButtonListWidget.ContainerPageControlButtonListWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ContainerPageControlButtonListWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ContainerPageControlButtonListWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "InputHostGameOptionDataVM"
+description: "InputHostGameOptionDataVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InputHostGameOptionDataVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputHostGameOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InputHostGameOptionDataVM : GenericHostGameOptionDataVM`
 **Base:** `GenericHostGameOptionDataVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions/InputHostGameOptionDataVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions/InputHostGameOptionDataVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "InputHostGameOptionDataVM"
 ### RefreshData
 `public override void RefreshData()`
 
-**用途 / Purpose:** 刷新 `data` 的显示或缓存。
+**用途 / Purpose:** 使 「data」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 InputHostGameOptionDataVM 实例
+InputHostGameOptionDataVM inputHostGameOptionDataVM = ...;
+inputHostGameOptionDataVM.RefreshData();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InputHostGameOptionDataVM();
-value.RefreshData();
+// 通常从对应子系统 API 获取实例后调用
+InputHostGameOptionDataVM inputHostGameOptionDataVM = ...;
+inputHostGameOptionDataVM.RefreshData();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

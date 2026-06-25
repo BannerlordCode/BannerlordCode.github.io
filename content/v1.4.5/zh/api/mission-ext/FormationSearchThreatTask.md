@@ -1,20 +1,14 @@
 ---
 title: "FormationSearchThreatTask"
+description: "FormationSearchThreatTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationSearchThreatTask`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationSearchThreatTask
 
 **Namespace:** TaleWorlds.MountAndBlade.DividableTasks
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationSearchThreatTask : DividableTask`
 **Base:** `DividableTask`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.DividableTasks/FormationSearchThreatTask.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.DividableTasks/FormationSearchThreatTask.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "FormationSearchThreatTask"
 ### Prepare
 `public void Prepare(Formation formation, RangedSiegeWeapon weapon)`
 
-**用途 / Purpose:** 处理 `prepare` 相关逻辑。
+**用途 / Purpose:** 完成当前对象操作所需的前置准备。
+
+```csharp
+// 先通过子系统 API 拿到 FormationSearchThreatTask 实例
+FormationSearchThreatTask formationSearchThreatTask = ...;
+formationSearchThreatTask.Prepare(formation, weapon);
+```
 
 ### GetResult
 `public bool GetResult(out Agent targetAgent)`
 
-**用途 / Purpose:** 获取 `result` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「result」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FormationSearchThreatTask 实例
+FormationSearchThreatTask formationSearchThreatTask = ...;
+var result = formationSearchThreatTask.GetResult(targetAgent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FormationSearchThreatTask();
-value.Prepare(formation, weapon);
+// 通常从对应子系统 API 获取实例后调用
+FormationSearchThreatTask formationSearchThreatTask = ...;
+formationSearchThreatTask.Prepare(formation, weapon);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

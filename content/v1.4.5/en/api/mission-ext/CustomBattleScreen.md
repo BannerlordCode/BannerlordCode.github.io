@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleScreen"
+description: "Auto-generated class reference for CustomBattleScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleScreen.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleScreen.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### UpdateLayout
 `public override void UpdateLayout()`
 
-**Purpose:** Updates the state or data of `layout`.
+**Purpose:** Recalculates and stores the latest representation of `layout`.
+
+```csharp
+// Obtain an instance of CustomBattleScreen from the subsystem API first
+CustomBattleScreen customBattleScreen = ...;
+customBattleScreen.UpdateLayout();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleScreen();
-value.UpdateLayout();
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleScreen customBattleScreen = ...;
+customBattleScreen.UpdateLayout();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

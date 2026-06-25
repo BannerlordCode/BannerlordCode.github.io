@@ -1,13 +1,7 @@
 ---
 title: "BrushWidget"
+description: "Auto-generated class reference for BrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BrushWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -38,29 +32,54 @@ Treat `BrushWidget` as a Widget-style extension point: first identify who create
 ### UpdateBrushes
 `public override void UpdateBrushes(float dt)`
 
-**Purpose:** Updates the state or data of `brushes`.
+**Purpose:** Recalculates and stores the latest representation of `brushes`.
+
+```csharp
+// Obtain an instance of BrushWidget from the subsystem API first
+BrushWidget brushWidget = ...;
+brushWidget.UpdateBrushes(0);
+```
 
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushWidget from the subsystem API first
+BrushWidget brushWidget = ...;
+brushWidget.SetState("example");
+```
 
 ### UpdateAnimationPropertiesSubTask
 `public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**Purpose:** Updates the state or data of `animation properties sub task`.
+**Purpose:** Recalculates and stores the latest representation of `animation properties sub task`.
+
+```csharp
+// Obtain an instance of BrushWidget from the subsystem API first
+BrushWidget brushWidget = ...;
+brushWidget.UpdateAnimationPropertiesSubTask(0);
+```
 
 ### OnBrushChanged
 `public virtual void OnBrushChanged()`
 
-**Purpose:** Called when the `brush changed` event is raised.
+**Purpose:** Invoked when the `brush changed` event is raised.
+
+```csharp
+// Obtain an instance of BrushWidget from the subsystem API first
+BrushWidget brushWidget = ...;
+brushWidget.OnBrushChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new BrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

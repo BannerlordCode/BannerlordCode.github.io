@@ -1,13 +1,7 @@
 ---
 title: "AnotherPlayerData"
+description: "Auto-generated class reference for AnotherPlayerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnotherPlayerData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AnotherPlayerData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -34,9 +28,10 @@ Treat `AnotherPlayerData` as a Data-style extension point: first identify who cr
 ## Usage Example
 
 ```csharp
-var value = new AnotherPlayerData();
+// This data object is usually returned by campaign/mission APIs
+AnotherPlayerData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

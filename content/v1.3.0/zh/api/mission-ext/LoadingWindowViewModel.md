@@ -1,13 +1,7 @@
 ---
 title: "LoadingWindowViewModel"
+description: "LoadingWindowViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LoadingWindowViewModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadingWindowViewModel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -43,25 +37,44 @@ title: "LoadingWindowViewModel"
 ### SetTotalGenericImageCount
 `public void SetTotalGenericImageCount(int totalGenericImageCount)`
 
-**用途 / Purpose:** 设置 `total generic image count` 的值或状态。
+**用途 / Purpose:** 为 「total generic image count」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LoadingWindowViewModel 实例
+LoadingWindowViewModel loadingWindowViewModel = ...;
+loadingWindowViewModel.SetTotalGenericImageCount(0);
+```
 
 ### UnloadImageDelegate
 `public delegate void UnloadImageDelegate(int index)`
 
-**用途 / Purpose:** 处理 `unload image delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LoadingWindowViewModel 实例
+LoadingWindowViewModel loadingWindowViewModel = ...;
+loadingWindowViewModel.UnloadImageDelegate(0);
+```
 
 ### LoadImageDelegate
 `public delegate void LoadImageDelegate(int index, out string imageName)`
 
-**用途 / Purpose:** 加载 `image delegate` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「image delegate」。
+
+```csharp
+// 先通过子系统 API 拿到 LoadingWindowViewModel 实例
+LoadingWindowViewModel loadingWindowViewModel = ...;
+loadingWindowViewModel.LoadImageDelegate(0, imageName);
+```
 
 ## 使用示例
 
 ```csharp
-var vm = new LoadingWindowViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+LoadingWindowViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

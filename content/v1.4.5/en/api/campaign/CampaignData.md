@@ -1,20 +1,14 @@
 ---
 title: "CampaignData"
+description: "Auto-generated class reference for CampaignData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class CampaignData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `CampaignData` as a Data-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var value = new CampaignData();
+// This data object is usually returned by campaign/mission APIs
+CampaignData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

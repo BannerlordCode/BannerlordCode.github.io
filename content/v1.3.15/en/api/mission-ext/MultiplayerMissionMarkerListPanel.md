@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerMissionMarkerListPanel"
+description: "Auto-generated class reference for MultiplayerMissionMarkerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerMissionMarkerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionMarkerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker
@@ -45,9 +39,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMa
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerMissionMarkerListPanel();
+// Obtain an instance from the relevant subsystem API
+MultiplayerMissionMarkerListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

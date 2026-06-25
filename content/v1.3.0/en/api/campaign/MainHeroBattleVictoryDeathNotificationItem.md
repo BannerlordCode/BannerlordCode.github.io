@@ -1,13 +1,7 @@
 ---
 title: "MainHeroBattleVictoryDeathNotificationItem"
+description: "Auto-generated class reference for MainHeroBattleVictoryDeathNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainHeroBattleVictoryDeathNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainHeroBattleVictoryDeathNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of MainHeroBattleVictoryDeathNotificationItem from the subsystem API first
+MainHeroBattleVictoryDeathNotificationItem mainHeroBattleVictoryDeathNotificationItem = ...;
+var result = mainHeroBattleVictoryDeathNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MainHeroBattleVictoryDeathNotificationItem();
-value.GetSceneNotificationCharacters();
+// Typically call this after obtaining an instance from the subsystem API
+MainHeroBattleVictoryDeathNotificationItem mainHeroBattleVictoryDeathNotificationItem = ...;
+mainHeroBattleVictoryDeathNotificationItem.GetSceneNotificationCharacters();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

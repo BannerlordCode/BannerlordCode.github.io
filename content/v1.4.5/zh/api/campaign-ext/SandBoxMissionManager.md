@@ -1,20 +1,14 @@
 ---
 title: "SandBoxMissionManager"
+description: "SandBoxMissionManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxMissionManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxMissionManager
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class SandBoxMissionManager : ISandBoxMissionManager`
 **Base:** `ISandBoxMissionManager`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/SandBoxMissionManager.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/SandBoxMissionManager.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "SandBoxMissionManager"
 ### OpenTournamentFightMission
 `public IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament fight mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament fight mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxMissionManager 实例
+SandBoxMissionManager sandBoxMissionManager = ...;
+var result = sandBoxMissionManager.OpenTournamentFightMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentHorseRaceMission
 `public IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament horse race mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament horse race mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxMissionManager 实例
+SandBoxMissionManager sandBoxMissionManager = ...;
+var result = sandBoxMissionManager.OpenTournamentHorseRaceMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentJoustingMission
 `public IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament jousting mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament jousting mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxMissionManager 实例
+SandBoxMissionManager sandBoxMissionManager = ...;
+var result = sandBoxMissionManager.OpenTournamentJoustingMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentArcheryMission
 `public IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament archery mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament archery mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxMissionManager 实例
+SandBoxMissionManager sandBoxMissionManager = ...;
+var result = sandBoxMissionManager.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ var manager = SandBoxMissionManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

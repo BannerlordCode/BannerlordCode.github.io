@@ -1,20 +1,14 @@
 ---
 title: "PlayerStatsBase"
+description: "PlayerStatsBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerStatsBase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerStatsBase
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsBase`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsBase.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsBase.cs`
 
 ## 概述
 
@@ -42,20 +36,33 @@ title: "PlayerStatsBase"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount)`
 
-**用途 / Purpose:** 处理 `fill with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsBase 实例
+PlayerStatsBase playerStatsBase = ...;
+playerStatsBase.FillWith(playerId, 0, 0, 0, 0, 0, 0);
+```
 
 ### Update
 `public virtual void Update(BattlePlayerStatsBase battleStats, bool won)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsBase 实例
+PlayerStatsBase playerStatsBase = ...;
+playerStatsBase.Update(battleStats, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerStatsBase();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+PlayerStatsBase playerStatsBase = ...;
+playerStatsBase.FillWith(playerId, 0, 0, 0, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

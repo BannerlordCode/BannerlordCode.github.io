@@ -1,13 +1,7 @@
 ---
 title: "DefaultDelayedTeleportationModel"
+description: "DefaultDelayedTeleportationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultDelayedTeleportationModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultDelayedTeleportationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,12 +29,24 @@ title: "DefaultDelayedTeleportationModel"
 ### GetTeleportationDelayAsHours
 `public override ExplainedNumber GetTeleportationDelayAsHours(Hero teleportingHero, PartyBase target)`
 
-**用途 / Purpose:** 获取 `teleportation delay as hours` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「teleportation delay as hours」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultDelayedTeleportationModel 实例
+DefaultDelayedTeleportationModel defaultDelayedTeleportationModel = ...;
+var result = defaultDelayedTeleportationModel.GetTeleportationDelayAsHours(teleportingHero, target);
+```
 
 ### CanPerformImmediateTeleport
 `public override bool CanPerformImmediateTeleport(Hero hero, MobileParty targetMobileParty, Settlement targetSettlement)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `perform immediate teleport`。
+**用途 / Purpose:** 检查当前对象是否满足 「perform immediate teleport」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultDelayedTeleportationModel 实例
+DefaultDelayedTeleportationModel defaultDelayedTeleportationModel = ...;
+var result = defaultDelayedTeleportationModel.CanPerformImmediateTeleport(hero, targetMobileParty, targetSettlement);
+```
 
 ## 使用示例
 
@@ -50,4 +56,4 @@ Game.Current.ReplaceModel<DefaultDelayedTeleportationModel>(new MyDefaultDelayed
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

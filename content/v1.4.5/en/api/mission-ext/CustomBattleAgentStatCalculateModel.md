@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleAgentStatCalculateModel"
+description: "Auto-generated class reference for CustomBattleAgentStatCalculateModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleAgentStatCalculateModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleAgentStatCalculateModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleAgentStatCalculateModel : AgentStatCalculateModel`
 **Base:** `AgentStatCalculateModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentStatCalculateModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleAgentStatCalculateModel.cs`
 
 ## Overview
 
@@ -29,62 +23,134 @@ Treat `CustomBattleAgentStatCalculateModel` as a Model-style extension point: fi
 ### GetDifficultyModifier
 `public override float GetDifficultyModifier()`
 
-**Purpose:** Gets the current value of `difficulty modifier`.
+**Purpose:** Reads and returns the `difficulty modifier` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetDifficultyModifier();
+```
 
 ### CanAgentRideMount
 `public override bool CanAgentRideMount(Agent agent, Agent targetMount)`
 
-**Purpose:** Checks whether the current object can `agent ride mount`.
+**Purpose:** Checks whether the current object meets the preconditions for `agent ride mount`.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.CanAgentRideMount(agent, targetMount);
+```
 
 ### InitializeAgentStats
 `public override void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
 
-**Purpose:** Initializes the state, resources, or bindings for `agent stats`.
+**Purpose:** Prepares the resources, state, or bindings required by `agent stats`.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+customBattleAgentStatCalculateModel.InitializeAgentStats(agent, spawnEquipment, agentDrivenProperties, agentBuildData);
+```
 
 ### UpdateAgentStats
 `public override void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
 
-**Purpose:** Updates the state or data of `agent stats`.
+**Purpose:** Recalculates and stores the latest representation of `agent stats`.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+customBattleAgentStatCalculateModel.UpdateAgentStats(agent, agentDrivenProperties);
+```
 
 ### GetWeaponDamageMultiplier
 `public override float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**Purpose:** Gets the current value of `weapon damage multiplier`.
+**Purpose:** Reads and returns the `weapon damage multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetWeaponDamageMultiplier(agent, weapon);
+```
 
 ### GetEquipmentStealthBonus
 `public override float GetEquipmentStealthBonus(Agent agent)`
 
-**Purpose:** Gets the current value of `equipment stealth bonus`.
+**Purpose:** Reads and returns the `equipment stealth bonus` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetEquipmentStealthBonus(agent);
+```
 
 ### GetSneakAttackMultiplier
 `public override float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**Purpose:** Gets the current value of `sneak attack multiplier`.
+**Purpose:** Reads and returns the `sneak attack multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetSneakAttackMultiplier(agent, weapon);
+```
 
 ### GetKnockBackResistance
 `public override float GetKnockBackResistance(Agent agent)`
 
-**Purpose:** Gets the current value of `knock back resistance`.
+**Purpose:** Reads and returns the `knock back resistance` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetKnockBackResistance(agent);
+```
 
 ### GetKnockDownResistance
 `public override float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)`
 
-**Purpose:** Gets the current value of `knock down resistance`.
+**Purpose:** Reads and returns the `knock down resistance` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetKnockDownResistance(agent, strikeType.Invalid);
+```
 
 ### GetDismountResistance
 `public override float GetDismountResistance(Agent agent)`
 
-**Purpose:** Gets the current value of `dismount resistance`.
+**Purpose:** Reads and returns the `dismount resistance` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetDismountResistance(agent);
+```
 
 ### GetWeaponInaccuracy
 `public override float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
 
-**Purpose:** Gets the current value of `weapon inaccuracy`.
+**Purpose:** Reads and returns the `weapon inaccuracy` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetWeaponInaccuracy(agent, weapon, 0);
+```
 
 ### GetBreatheHoldMaxDuration
 `public override float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
 
-**Purpose:** Gets the current value of `breathe hold max duration`.
+**Purpose:** Reads and returns the `breathe hold max duration` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAgentStatCalculateModel from the subsystem API first
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetBreatheHoldMaxDuration(agent, 0);
+```
 
 ## Usage Example
 
@@ -94,4 +160,4 @@ Game.Current.ReplaceModel<CustomBattleAgentStatCalculateModel>(new MyCustomBattl
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

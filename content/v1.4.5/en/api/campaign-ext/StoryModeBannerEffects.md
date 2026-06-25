@@ -1,20 +1,14 @@
 ---
 title: "StoryModeBannerEffects"
+description: "Auto-generated class reference for StoryModeBannerEffects."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeBannerEffects`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeBannerEffects
 
 **Namespace:** StoryMode.StoryModeObjects
 **Module:** StoryMode.StoryModeObjects
 **Type:** `public class StoryModeBannerEffects`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.StoryModeObjects/StoryModeBannerEffects.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.StoryModeObjects/StoryModeBannerEffects.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.StoryModeObjects` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var value = new StoryModeBannerEffects();
+// Obtain an instance from the relevant subsystem API
+StoryModeBannerEffects instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

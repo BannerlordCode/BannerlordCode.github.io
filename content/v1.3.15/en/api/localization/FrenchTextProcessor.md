@@ -1,24 +1,18 @@
 ---
 title: "FrenchTextProcessor"
+description: "Auto-generated class reference for FrenchTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FrenchTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FrenchTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
 **Module:** TaleWorlds.Localization
 **Type:** `public class FrenchTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**Area:** localization
+**File:** `TaleWorlds.Localization/TextProcessor/LanguageProcessors/FrenchTextProcessor.cs`
 
 ## Overview
 
-`FrenchTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`FrenchTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,29 +23,28 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 | Name | Signature |
 |------|-----------|
 | `WordGroups` | `public static Dictionary<string, ValueTuple<string, int, bool>> WordGroups { get; }` |
-| `CultureInfoForLanguage` | `public override CultureInfo CultureInfoForLanguage { get; }` |
 
 ## Key Methods
 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
 
-### ClearTemporaryData
-`public override void ClearTemporaryData()`
-
-**Purpose:** Handles logic related to `clear temporary data`.
+```csharp
+// Obtain an instance of FrenchTextProcessor from the subsystem API first
+FrenchTextProcessor frenchTextProcessor = ...;
+frenchTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a FrenchTextProcessor instance from game state, then call one of its public methods
-var value = new FrenchTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+FrenchTextProcessor frenchTextProcessor = ...;
+frenchTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

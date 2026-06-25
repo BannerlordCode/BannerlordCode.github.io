@@ -1,20 +1,14 @@
 ---
 title: "AutoHideZeroTextWidget"
+description: "Auto-generated class reference for AutoHideZeroTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AutoHideZeroTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AutoHideZeroTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AutoHideZeroTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/AutoHideZeroTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/AutoHideZeroTextWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `AutoHideZeroTextWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new AutoHideZeroTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AutoHideZeroTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

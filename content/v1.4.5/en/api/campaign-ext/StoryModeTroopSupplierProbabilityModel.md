@@ -1,20 +1,14 @@
 ---
 title: "StoryModeTroopSupplierProbabilityModel"
+description: "Auto-generated class reference for StoryModeTroopSupplierProbabilityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeTroopSupplierProbabilityModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeTroopSupplierProbabilityModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeTroopSupplierProbabilityModel : TroopSupplierProbabilityModel`
 **Base:** `TroopSupplierProbabilityModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeTroopSupplierProbabilityModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeTroopSupplierProbabilityModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `StoryModeTroopSupplierProbabilityModel` as a Model-style extension point:
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayers, int sizeOfSide, bool forcePriorityTroops, List<(FlattenedTroopRosterElement, MapEventParty, float)> priorityList)`
 
-**Purpose:** Handles logic related to `enqueue troop spawn probabilities according to unit spawn prioritization`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StoryModeTroopSupplierProbabilityModel from the subsystem API first
+StoryModeTroopSupplierProbabilityModel storyModeTroopSupplierProbabilityModel = ...;
+storyModeTroopSupplierProbabilityModel.EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(battleParty, priorityTroops, false, 0, false, list<(FlattenedTroopRosterElement, mapEventParty, 0);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeTroopSupplierProbabilityModel>(new MyStoryMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

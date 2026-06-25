@@ -1,20 +1,14 @@
 ---
 title: "KingdomCardItemContainerWidget"
+description: "KingdomCardItemContainerWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomCardItemContainerWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomCardItemContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KingdomCardItemContainerWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomCardItemContainerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomCardItemContainerWidget.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "KingdomCardItemContainerWidget"
 ### KingdomCardItemContainerWidget
 `public class KingdomCardItemContainerWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `kingdom card item container widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomCardItemContainerWidget 实例
+KingdomCardItemContainerWidget kingdomCardItemContainerWidget = ...;
+var result = kingdomCardItemContainerWidget.KingdomCardItemContainerWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new KingdomCardItemContainerWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+KingdomCardItemContainerWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

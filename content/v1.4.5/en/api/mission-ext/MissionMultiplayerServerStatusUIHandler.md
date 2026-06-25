@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerServerStatusUIHandler"
+description: "Auto-generated class reference for MissionMultiplayerServerStatusUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerServerStatusUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerServerStatusUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerServerStatusUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerServerStatusUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerServerStatusUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionMultiplayerServerStatusUIHandler` as a Handler-style extension poi
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionMultiplayerServerStatusUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionMultiplayerServerStatusUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

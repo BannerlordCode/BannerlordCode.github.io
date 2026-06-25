@@ -1,20 +1,14 @@
 ---
 title: "UdpNetworkComponent"
+description: "Auto-generated class reference for UdpNetworkComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UdpNetworkComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UdpNetworkComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class UdpNetworkComponent : IUdpNetworkHandler`
 **Base:** `IUdpNetworkHandler`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UdpNetworkComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UdpNetworkComponent.cs`
 
 ## Overview
 
@@ -29,74 +23,153 @@ Treat `UdpNetworkComponent` as a Component-style extension point: first identify
 ### OnUdpNetworkHandlerClose
 `public virtual void OnUdpNetworkHandlerClose()`
 
-**Purpose:** Called when the `udp network handler close` event is raised.
+**Purpose:** Invoked when the `udp network handler close` event is raised.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.OnUdpNetworkHandlerClose();
+```
 
 ### OnUdpNetworkHandlerTick
 `public virtual void OnUdpNetworkHandlerTick(float dt)`
 
-**Purpose:** Called when the `udp network handler tick` event is raised.
+**Purpose:** Invoked when the `udp network handler tick` event is raised.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.OnUdpNetworkHandlerTick(0);
+```
 
 ### HandleNewClientConnect
 `public virtual void HandleNewClientConnect(PlayerConnectionInfo clientConnectionInfo)`
 
-**Purpose:** Handles the `new client connect` event or callback.
+**Purpose:** Executes the response logic associated with `new client connect`.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.HandleNewClientConnect(clientConnectionInfo);
+```
 
 ### HandleEarlyNewClientAfterLoadingFinished
 `public virtual void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `early new client after loading finished` event or callback.
+**Purpose:** Executes the response logic associated with `early new client after loading finished`.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.HandleEarlyNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandleNewClientAfterLoadingFinished
 `public virtual void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `new client after loading finished` event or callback.
+**Purpose:** Executes the response logic associated with `new client after loading finished`.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.HandleNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandleLateNewClientAfterLoadingFinished
 `public virtual void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `late new client after loading finished` event or callback.
+**Purpose:** Executes the response logic associated with `late new client after loading finished`.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.HandleLateNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandleNewClientAfterSynchronized
 `public virtual void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `new client after synchronized` event or callback.
+**Purpose:** Executes the response logic associated with `new client after synchronized`.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.HandleNewClientAfterSynchronized(networkPeer);
+```
 
 ### HandleLateNewClientAfterSynchronized
 `public virtual void HandleLateNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `late new client after synchronized` event or callback.
+**Purpose:** Executes the response logic associated with `late new client after synchronized`.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.HandleLateNewClientAfterSynchronized(networkPeer);
+```
 
 ### OnEveryoneUnSynchronized
 `public virtual void OnEveryoneUnSynchronized()`
 
-**Purpose:** Called when the `everyone un synchronized` event is raised.
+**Purpose:** Invoked when the `everyone un synchronized` event is raised.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.OnEveryoneUnSynchronized();
+```
 
 ### HandleEarlyPlayerDisconnect
 `public void HandleEarlyPlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `early player disconnect` event or callback.
+**Purpose:** Executes the response logic associated with `early player disconnect`.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.HandleEarlyPlayerDisconnect(networkPeer);
+```
 
 ### HandlePlayerDisconnect
 `public virtual void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `player disconnect` event or callback.
+**Purpose:** Executes the response logic associated with `player disconnect`.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.HandlePlayerDisconnect(networkPeer);
+```
 
 ### OnPlayerDisconnectedFromServer
 `public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Called when the `player disconnected from server` event is raised.
+**Purpose:** Invoked when the `player disconnected from server` event is raised.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ### OnDisconnectedFromServer
 `public virtual void OnDisconnectedFromServer()`
 
-**Purpose:** Called when the `disconnected from server` event is raised.
+**Purpose:** Invoked when the `disconnected from server` event is raised.
+
+```csharp
+// Obtain an instance of UdpNetworkComponent from the subsystem API first
+UdpNetworkComponent udpNetworkComponent = ...;
+udpNetworkComponent.OnDisconnectedFromServer();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomUdpNetworkComponent();
+// Typically obtained from a subsystem API or factory
+UdpNetworkComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

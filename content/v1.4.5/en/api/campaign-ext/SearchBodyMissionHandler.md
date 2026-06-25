@@ -1,20 +1,14 @@
 ---
 title: "SearchBodyMissionHandler"
+description: "Auto-generated class reference for SearchBodyMissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SearchBodyMissionHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SearchBodyMissionHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class SearchBodyMissionHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SearchBodyMissionHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SearchBodyMissionHandler.cs`
 
 ## Overview
 
@@ -29,19 +23,31 @@ Treat `SearchBodyMissionHandler` as a Handler-style extension point: first ident
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `agent interaction` event is raised.
+**Purpose:** Invoked when the `agent interaction` event is raised.
+
+```csharp
+// Obtain an instance of SearchBodyMissionHandler from the subsystem API first
+SearchBodyMissionHandler searchBodyMissionHandler = ...;
+searchBodyMissionHandler.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of SearchBodyMissionHandler from the subsystem API first
+SearchBodyMissionHandler searchBodyMissionHandler = ...;
+var result = searchBodyMissionHandler.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SearchBodyMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<SearchBodyMissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

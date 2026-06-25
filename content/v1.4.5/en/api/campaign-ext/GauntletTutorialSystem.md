@@ -1,24 +1,18 @@
 ---
 title: "GauntletTutorialSystem"
+description: "Auto-generated class reference for GauntletTutorialSystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletTutorialSystem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletTutorialSystem
 
 **Namespace:** SandBox.GauntletUI.Tutorial
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletTutorialSystem : GlobalLayer`
 **Base:** `GlobalLayer`
-**Area:** campaign-ext
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Tutorial/GauntletTutorialSystem.cs`
 
 ## Overview
 
-`GauntletTutorialSystem` lives in `SandBox.GauntletUI.Tutorial`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`GauntletTutorialSystem` lives in `SandBox.GauntletUI.Tutorial` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -37,21 +31,29 @@ Start from namespace `SandBox.GauntletUI.Tutorial` to place it in the stack, the
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Static call; no instance required
+GauntletTutorialSystem.OnInitialize();
+```
 
 ### OnUnload
 `public static void OnUnload()`
 
-**Purpose:** Called when the `unload` event is raised.
+**Purpose:** Invoked when the `unload` event is raised.
+
+```csharp
+// Static call; no instance required
+GauntletTutorialSystem.OnUnload();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 GauntletTutorialSystem.OnInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

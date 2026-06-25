@@ -1,20 +1,14 @@
 ---
 title: "GameServerEntry"
+description: "Auto-generated class reference for GameServerEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameServerEntry`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameServerEntry
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameServerEntry`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameServerEntry.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/GameServerEntry.cs`
 
 ## Overview
 
@@ -55,7 +49,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FilterGameServerEntriesBasedOnCrossplay
 `public static void FilterGameServerEntriesBasedOnCrossplay(ref List<GameServerEntry> serverList, bool hasCrossplayPrivilege)`
 
-**Purpose:** Handles logic related to `filter game server entries based on crossplay`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameServerEntry.FilterGameServerEntriesBasedOnCrossplay(serverList, false);
+```
 
 ## Usage Example
 
@@ -65,4 +64,4 @@ GameServerEntry.FilterGameServerEntriesBasedOnCrossplay(serverList, false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

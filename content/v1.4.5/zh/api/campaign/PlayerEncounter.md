@@ -1,20 +1,14 @@
 ---
 title: "PlayerEncounter"
+description: "PlayerEncounter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerEncounter`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerEncounter`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/PlayerEncounter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/PlayerEncounter.cs`
 
 ## 概述
 
@@ -59,195 +53,393 @@ title: "PlayerEncounter"
 ### OnLoad
 `public void OnLoad()`
 
-**用途 / Purpose:** 当 `load` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「load」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.OnLoad();
+```
 
 ### RestartPlayerEncounter
 `public static void RestartPlayerEncounter(PartyBase defenderParty, PartyBase attackerParty, bool forcePlayerOutFromSettlement = true, bool isPlayerEncounterRestartedForRaid = false)`
 
-**用途 / Purpose:** 处理 `restart player encounter` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.RestartPlayerEncounter(defenderParty, attackerParty, false, false);
+```
 
 ### Init
 `public static void Init()`
 
-**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.Init();
+```
 
 ### SetupFields
 `public void SetupFields(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** 设置 `up fields` 的值或状态。
+**用途 / Purpose:** 为 「up fields」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetupFields(attackerParty, defenderParty);
+```
 
 ### IsNavalEncounter
 `public static bool IsNavalEncounter()`
 
-**用途 / Purpose:** 处理 `is naval encounter` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「naval encounter」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.IsNavalEncounter();
+```
 
 ### StartBattle
 `public static MapEvent StartBattle()`
 
-**用途 / Purpose:** 处理 `start battle` 相关逻辑。
+**用途 / Purpose:** 启动「battle」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.StartBattle();
+```
 
 ### JoinBattle
 `public static void JoinBattle(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `join battle` 相关逻辑。
+**用途 / Purpose:** 把若干「battle」连接成一个整体。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.JoinBattle(side);
+```
 
 ### Start
 `public static void Start()`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.Start();
+```
 
 ### ProtectPlayerSide
 `public static void ProtectPlayerSide(float hoursToProtect = 1f)`
 
-**用途 / Purpose:** 处理 `protect player side` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.ProtectPlayerSide(0);
+```
 
 ### Finish
 `public static void Finish(bool forcePlayerOutFromSettlement = true)`
 
-**用途 / Purpose:** 处理 `finish` 相关逻辑。
+**用途 / Purpose:** 结束当前对象的流程并执行必要的收尾工作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.Finish(false);
+```
 
 ### EndBattleByCheat
 `public static void EndBattleByCheat(bool playerWon)`
 
-**用途 / Purpose:** 处理 `end battle by cheat` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.EndBattleByCheat(false);
+```
 
 ### Update
 `public static void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.Update();
+```
 
 ### DoMeeting
 `public static void DoMeeting()`
 
-**用途 / Purpose:** 处理 `do meeting` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.DoMeeting();
+```
 
 ### SetMeetingDone
 `public static void SetMeetingDone()`
 
-**用途 / Purpose:** 设置 `meeting done` 的值或状态。
+**用途 / Purpose:** 为 「meeting done」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.SetMeetingDone();
+```
 
 ### SetMeetingFalseForCompanion
 `public void SetMeetingFalseForCompanion()`
 
-**用途 / Purpose:** 设置 `meeting false for companion` 的值或状态。
+**用途 / Purpose:** 为 「meeting false for companion」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetMeetingFalseForCompanion();
+```
 
 ### CheckIfLeadingAvaliable
 `public static bool CheckIfLeadingAvaliable()`
 
-**用途 / Purpose:** 处理 `check if leading avaliable` 相关逻辑。
+**用途 / Purpose:** 检查「if leading avaliable」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.CheckIfLeadingAvaliable();
+```
 
 ### GetLeadingHero
 `public static Hero GetLeadingHero()`
 
-**用途 / Purpose:** 获取 `leading hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「leading hero」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.GetLeadingHero();
+```
 
 ### SetPlayerVictorious
 `public static void SetPlayerVictorious()`
 
-**用途 / Purpose:** 设置 `player victorious` 的值或状态。
+**用途 / Purpose:** 为 「player victorious」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.SetPlayerVictorious();
+```
 
 ### SetIsSallyOutAmbush
 `public void SetIsSallyOutAmbush(bool value)`
 
-**用途 / Purpose:** 设置 `is sally out ambush` 的值或状态。
+**用途 / Purpose:** 为 「is sally out ambush」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetIsSallyOutAmbush(false);
+```
 
 ### SetIsBlockadeAttack
 `public void SetIsBlockadeAttack(bool value)`
 
-**用途 / Purpose:** 设置 `is blockade attack` 的值或状态。
+**用途 / Purpose:** 为 「is blockade attack」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetIsBlockadeAttack(false);
+```
 
 ### SetIsBlockadeSallyOutAttack
 `public void SetIsBlockadeSallyOutAttack(bool value)`
 
-**用途 / Purpose:** 设置 `is blockade sally out attack` 的值或状态。
+**用途 / Purpose:** 为 「is blockade sally out attack」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetIsBlockadeSallyOutAttack(false);
+```
 
 ### SetPlayerSiegeInterruptedByEnemyDefection
 `public void SetPlayerSiegeInterruptedByEnemyDefection()`
 
-**用途 / Purpose:** 设置 `player siege interrupted by enemy defection` 的值或状态。
+**用途 / Purpose:** 为 「player siege interrupted by enemy defection」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.SetPlayerSiegeInterruptedByEnemyDefection();
+```
 
 ### SetPlayerSiegeContinueWithDefenderPullBack
 `public static void SetPlayerSiegeContinueWithDefenderPullBack()`
 
-**用途 / Purpose:** 设置 `player siege continue with defender pull back` 的值或状态。
+**用途 / Purpose:** 为 「player siege continue with defender pull back」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.SetPlayerSiegeContinueWithDefenderPullBack();
+```
 
 ### StartAttackMission
 `public static void StartAttackMission()`
 
-**用途 / Purpose:** 处理 `start attack mission` 相关逻辑。
+**用途 / Purpose:** 启动「attack mission」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.StartAttackMission();
+```
 
 ### FinalizeBattle
 `public void FinalizeBattle()`
 
-**用途 / Purpose:** 处理 `finalize battle` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.FinalizeBattle();
+```
 
 ### FindNonAttachedNpcPartiesWhoWillJoinEvent
 `public void FindNonAttachedNpcPartiesWhoWillJoinEvent(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
 
-**用途 / Purpose:** 处理 `find non attached npc parties who will join event` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「non attached npc parties who will join event」。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.FindNonAttachedNpcPartiesWhoWillJoinEvent(partiesToJoinPlayerSide, partiesToJoinEnemySide);
+```
 
 ### FindAllNpcPartiesWhoWillJoinEvent
 `public void FindAllNpcPartiesWhoWillJoinEvent(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
 
-**用途 / Purpose:** 处理 `find all npc parties who will join event` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all npc parties who will join event」。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.FindAllNpcPartiesWhoWillJoinEvent(partiesToJoinPlayerSide, partiesToJoinEnemySide);
+```
 
 ### EnterSettlement
 `public static void EnterSettlement()`
 
-**用途 / Purpose:** 处理 `enter settlement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.EnterSettlement();
+```
 
 ### LeaveBattle
 `public static void LeaveBattle()`
 
-**用途 / Purpose:** 处理 `leave battle` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.LeaveBattle();
+```
 
 ### LeaveSettlement
 `public static void LeaveSettlement()`
 
-**用途 / Purpose:** 处理 `leave settlement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.LeaveSettlement();
+```
 
 ### InitSimulation
 `public static void InitSimulation(FlattenedTroopRoster selectedTroopsForPlayerSide, FlattenedTroopRoster selectedTroopsForOtherSide)`
 
-**用途 / Purpose:** 初始化 `simulation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「simulation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.InitSimulation(selectedTroopsForPlayerSide, selectedTroopsForOtherSide);
+```
 
 ### InterruptEncounter
 `public void InterruptEncounter(string encounterInterrupedType)`
 
-**用途 / Purpose:** 处理 `interrupt encounter` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.InterruptEncounter("example");
+```
 
 ### StartSiegeAmbushMission
 `public static void StartSiegeAmbushMission()`
 
-**用途 / Purpose:** 处理 `start siege ambush mission` 相关逻辑。
+**用途 / Purpose:** 启动「siege ambush mission」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.StartSiegeAmbushMission();
+```
 
 ### StartVillageBattleMission
 `public static void StartVillageBattleMission()`
 
-**用途 / Purpose:** 处理 `start village battle mission` 相关逻辑。
+**用途 / Purpose:** 启动「village battle mission」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.StartVillageBattleMission();
+```
 
 ### StartCombatMissionWithDialogueInTownCenter
 `public static void StartCombatMissionWithDialogueInTownCenter(CharacterObject characterToTalkTo)`
 
-**用途 / Purpose:** 处理 `start combat mission with dialogue in town center` 相关逻辑。
+**用途 / Purpose:** 启动「combat mission with dialogue in town center」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.StartCombatMissionWithDialogueInTownCenter(characterToTalkTo);
+```
 
 ### StartHostileAction
 `public static void StartHostileAction()`
 
-**用途 / Purpose:** 处理 `start hostile action` 相关逻辑。
+**用途 / Purpose:** 启动「hostile action」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerEncounter.StartHostileAction();
+```
 
 ### GetBattleRewards
 `public void GetBattleRewards(out ExplainedNumber renownChange, out ExplainedNumber influenceChange, out ExplainedNumber moraleChange, out float playerEarnedLootRate, out Figurehead playerEarnedFigurehead)`
 
-**用途 / Purpose:** 获取 `battle rewards` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle rewards」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerEncounter 实例
+PlayerEncounter playerEncounter = ...;
+playerEncounter.GetBattleRewards(renownChange, influenceChange, moraleChange, playerEarnedLootRate, playerEarnedFigurehead);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerEncounter();
-value.OnLoad();
+// 通常从对应子系统 API 获取实例后调用
+PlayerEncounter playerEncounter = ...;
+playerEncounter.OnLoad();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

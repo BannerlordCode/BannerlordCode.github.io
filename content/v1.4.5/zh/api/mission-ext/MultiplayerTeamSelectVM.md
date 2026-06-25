@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerTeamSelectVM"
+description: "MultiplayerTeamSelectVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerTeamSelectVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTeamSelectVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTeamSelectVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/MultiplayerTeamSelectVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/MultiplayerTeamSelectVM.cs`
 
 ## 概述
 
@@ -43,45 +37,88 @@ title: "MultiplayerTeamSelectVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.Tick(0);
+```
 
 ### RefreshDisabledTeams
 `public void RefreshDisabledTeams(List<Team> disabledTeams)`
 
-**用途 / Purpose:** 刷新 `disabled teams` 的显示或缓存。
+**用途 / Purpose:** 使 「disabled teams」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshDisabledTeams(disabledTeams);
+```
 
 ### RefreshPlayerAndBotCount
 `public void RefreshPlayerAndBotCount(int playersCountOne, int playersCountTwo, int botsCountOne, int botsCountTwo)`
 
-**用途 / Purpose:** 刷新 `player and bot count` 的显示或缓存。
+**用途 / Purpose:** 使 「player and bot count」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshPlayerAndBotCount(0, 0, 0, 0);
+```
 
 ### RefreshFriendsPerTeam
 `public void RefreshFriendsPerTeam(IEnumerable<MissionPeer> friendsTeamOne, IEnumerable<MissionPeer> friendsTeamTwo)`
 
-**用途 / Purpose:** 刷新 `friends per team` 的显示或缓存。
+**用途 / Purpose:** 使 「friends per team」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshFriendsPerTeam(friendsTeamOne, friendsTeamTwo);
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.ExecuteCancel();
+```
 
 ### ExecuteAutoAssign
 `public void ExecuteAutoAssign()`
 
-**用途 / Purpose:** 执行 `auto assign` 操作或流程。
+**用途 / Purpose:** 执行 「auto assign」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTeamSelectVM 实例
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.ExecuteAutoAssign();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerTeamSelectVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

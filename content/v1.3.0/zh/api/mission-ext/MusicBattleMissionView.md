@@ -1,13 +1,7 @@
 ---
 title: "MusicBattleMissionView"
+description: "MusicBattleMissionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MusicBattleMissionView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicBattleMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Sound
@@ -29,29 +23,54 @@ title: "MusicBattleMissionView"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MusicBattleMissionView 实例
+MusicBattleMissionView musicBattleMissionView = ...;
+musicBattleMissionView.OnBehaviorInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MusicBattleMissionView 实例
+MusicBattleMissionView musicBattleMissionView = ...;
+musicBattleMissionView.OnMissionScreenFinalize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MusicBattleMissionView 实例
+MusicBattleMissionView musicBattleMissionView = ...;
+musicBattleMissionView.AfterStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MusicBattleMissionView 实例
+MusicBattleMissionView musicBattleMissionView = ...;
+musicBattleMissionView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MusicBattleMissionView();
+// 从子系统 API 或场景中获取该视图
+MusicBattleMissionView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

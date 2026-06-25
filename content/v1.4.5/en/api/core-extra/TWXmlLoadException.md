@@ -1,20 +1,14 @@
 ---
 title: "TWXmlLoadException"
+description: "Auto-generated class reference for TWXmlLoadException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TWXmlLoadException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TWXmlLoadException
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class TWXmlLoadException : TWException`
 **Base:** `TWException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TWXmlLoadException.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWXmlLoadException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `TWXmlLoadException` as a Exception-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-try { CallTWXmlLoadException(); } catch (TWXmlLoadException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (TWXmlLoadException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

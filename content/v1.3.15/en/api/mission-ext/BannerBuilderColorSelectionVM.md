@@ -1,13 +1,7 @@
 ---
 title: "BannerBuilderColorSelectionVM"
+description: "Auto-generated class reference for BannerBuilderColorSelectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerBuilderColorSelectionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerBuilderColorSelectionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### EnableWith
 `public void EnableWith(int selectedColorID, Action<BannerBuilderColorItemVM> onSelection)`
 
-**Purpose:** Handles logic related to `enable with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BannerBuilderColorSelectionVM from the subsystem API first
+BannerBuilderColorSelectionVM bannerBuilderColorSelectionVM = ...;
+bannerBuilderColorSelectionVM.EnableWith(0, onSelection);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerBuilderColorSelectionVM();
-value.EnableWith(0, onSelection);
+// Typically call this after obtaining an instance from the subsystem API
+BannerBuilderColorSelectionVM bannerBuilderColorSelectionVM = ...;
+bannerBuilderColorSelectionVM.EnableWith(0, onSelection);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

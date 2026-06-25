@@ -1,13 +1,7 @@
 ---
 title: "MBCharacterSkills"
+description: "MBCharacterSkills 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBCharacterSkills`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBCharacterSkills
 
 **Namespace:** TaleWorlds.Core
@@ -35,20 +29,33 @@ title: "MBCharacterSkills"
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MBCharacterSkills 实例
+MBCharacterSkills mBCharacterSkills = ...;
+mBCharacterSkills.Init(objectManager, node);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBCharacterSkills 实例
+MBCharacterSkills mBCharacterSkills = ...;
+mBCharacterSkills.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBCharacterSkills();
-value.Init(objectManager, node);
+// 通常从对应子系统 API 获取实例后调用
+MBCharacterSkills mBCharacterSkills = ...;
+mBCharacterSkills.Init(objectManager, node);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

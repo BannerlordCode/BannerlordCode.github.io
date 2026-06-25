@@ -1,13 +1,7 @@
 ---
 title: "SaveableSandBoxTypeDefiner"
+description: "Auto-generated class reference for SaveableSandBoxTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableSandBoxTypeDefiner`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableSandBoxTypeDefiner
 
 **Namespace:** SandBox
@@ -27,9 +21,10 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-var value = new SaveableSandBoxTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SaveableSandBoxTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

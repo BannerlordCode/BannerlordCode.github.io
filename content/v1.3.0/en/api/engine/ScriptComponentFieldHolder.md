@@ -1,13 +1,7 @@
 ---
 title: "ScriptComponentFieldHolder"
+description: "Auto-generated class reference for ScriptComponentFieldHolder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScriptComponentFieldHolder`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScriptComponentFieldHolder
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new ScriptComponentFieldHolder();
+// Obtain an instance from the relevant subsystem API
+ScriptComponentFieldHolder instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

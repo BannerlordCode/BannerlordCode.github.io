@@ -1,19 +1,14 @@
 ---
 title: "UsableMachineData"
+description: "UsableMachineData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UsableMachineData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsableMachineData
 
-**命名空间:** SandBox.Missions.MissionLogics
-**模块:** SandBox.Missions
-**类型:** `public class UsableMachineData`
-**领域:** campaign-ext
+**Namespace:** SandBox.Missions.MissionLogics
+**Module:** SandBox.Missions
+**Type:** `public class UsableMachineData`
+**Base:** 无
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionPathGenerationLogic.cs`
 
 ## 概述
 
@@ -23,115 +18,13 @@ title: "UsableMachineData"
 
 把 `UsableMachineData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
-## 主要方法
-
-### ReverseClone
-`public NavigationPathData ReverseClone()`
-
-**用途 / Purpose:** 处理 `reverse clone` 相关逻辑。
-
-### InitializeUsablePoints
-`public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
-
-**用途 / Purpose:** 初始化 `usable points` 的状态、资源或绑定。
-
-### GetPointOfInterestType
-`public abstract PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public abstract bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public abstract float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### Clone
-`public PointOfInterestScorePair Clone()`
-
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
-
-### AddToData
-`public void AddToData(PointOfInterestBaseData pointOfInterestToAdd)`
-
-**用途 / Purpose:** 向当前集合/状态中添加 `to data`。
-
-### IsDataEqualTo
-`public bool IsDataEqualTo(PointOfInterestScorePair other, PointOfInterestBaseData newDataToAdd)`
-
-**用途 / Purpose:** 处理 `is data equal to` 相关逻辑。
-
 ## 使用示例
 
 ```csharp
-var value = new UsableMachineData();
+// 该数据对象通常由战役/任务 API 返回
+UsableMachineData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "EventManager"
+description: "Auto-generated class reference for EventManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EventManager`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventManager
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class EventManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/EventManager.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/EventManager.cs`
 
 ## Overview
 
@@ -57,40 +51,87 @@ Treat `EventManager` as a Manager-style extension point: first identify who crea
 
 **Purpose:** Adds `after finalized callback` to the current collection or state.
 
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+eventManager.AddAfterFinalizedCallback(callback);
+```
+
 ### ClearFocus
 `public void ClearFocus()`
 
-**Purpose:** Handles logic related to `clear focus`.
+**Purpose:** Removes all `focus` from the current object.
+
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+eventManager.ClearFocus();
+```
 
 ### IsPointInsideUsableArea
 `public bool IsPointInsideUsableArea(Vector2 p)`
 
-**Purpose:** Handles logic related to `is point inside usable area`.
+**Purpose:** Determines whether the current object is in the `point inside usable area` state or condition.
+
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+var result = eventManager.IsPointInsideUsableArea(p);
+```
 
 ### HitTest
 `public static bool HitTest(Widget widget, Vector2 position)`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EventManager.HitTest(widget, position);
+```
 
 ### FocusTest
 `public bool FocusTest(Widget root)`
 
-**Purpose:** Handles logic related to `focus test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+var result = eventManager.FocusTest(root);
+```
 
 ### AddLateUpdateAction
 `public void AddLateUpdateAction(Widget owner, Action<float> action, int order)`
 
 **Purpose:** Adds `late update action` to the current collection or state.
 
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+eventManager.AddLateUpdateAction(owner, action, 0);
+```
+
 ### UpdateLayout
 `public void UpdateLayout()`
 
-**Purpose:** Updates the state or data of `layout`.
+**Purpose:** Recalculates and stores the latest representation of `layout`.
+
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+eventManager.UpdateLayout();
+```
 
 ### GetIsHitThisFrame
 `public bool GetIsHitThisFrame()`
 
-**Purpose:** Gets the current value of `is hit this frame`.
+**Purpose:** Reads and returns the `is hit this frame` value held by the current object.
+
+```csharp
+// Obtain an instance of EventManager from the subsystem API first
+EventManager eventManager = ...;
+var result = eventManager.GetIsHitThisFrame();
+```
 
 ## Usage Example
 
@@ -100,4 +141,4 @@ var manager = EventManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

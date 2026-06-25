@@ -1,20 +1,14 @@
 ---
 title: "CampaignBattleResult"
+description: "CampaignBattleResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignBattleResult`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignBattleResult
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignBattleResult`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/CampaignBattleResult.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/CampaignBattleResult.cs`
 
 ## 概述
 
@@ -39,7 +33,12 @@ title: "CampaignBattleResult"
 ### GetResult
 `public static CampaignBattleResult GetResult(BattleState winnerSide, bool enemyRetreated = false)`
 
-**用途 / Purpose:** 获取 `result` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「result」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CampaignBattleResult.GetResult(winnerSide, false);
+```
 
 ## 使用示例
 
@@ -49,4 +48,4 @@ CampaignBattleResult.GetResult(winnerSide, false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

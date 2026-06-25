@@ -1,20 +1,14 @@
 ---
 title: "WidgetComponent"
+description: "Auto-generated class reference for WidgetComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetComponent`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetComponent
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public abstract class WidgetComponent`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/WidgetComponent.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/WidgetComponent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `WidgetComponent` as a Component-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var implementation = new CustomWidgetComponent();
+// Typically obtained from a subsystem API or factory
+WidgetComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

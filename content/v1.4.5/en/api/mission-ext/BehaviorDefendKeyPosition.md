@@ -1,20 +1,14 @@
 ---
 title: "BehaviorDefendKeyPosition"
+description: "Auto-generated class reference for BehaviorDefendKeyPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorDefendKeyPosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorDefendKeyPosition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorDefendKeyPosition : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefendKeyPosition.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefendKeyPosition.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorDefendKeyPosition from the subsystem API first
+BehaviorDefendKeyPosition behaviorDefendKeyPosition = ...;
+behaviorDefendKeyPosition.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorDefendKeyPosition();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorDefendKeyPosition behaviorDefendKeyPosition = ...;
+behaviorDefendKeyPosition.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "InitialMenuOptionVM"
+description: "Auto-generated class reference for InitialMenuOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialMenuOptionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialMenuOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InitialMenuOptionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu/InitialMenuOptionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu/InitialMenuOptionVM.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu` 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of InitialMenuOptionVM from the subsystem API first
+InitialMenuOptionVM initialMenuOptionVM = ...;
+initialMenuOptionVM.ExecuteAction();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of InitialMenuOptionVM from the subsystem API first
+InitialMenuOptionVM initialMenuOptionVM = ...;
+initialMenuOptionVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InitialMenuOptionVM();
-value.ExecuteAction();
+// Typically call this after obtaining an instance from the subsystem API
+InitialMenuOptionVM initialMenuOptionVM = ...;
+initialMenuOptionVM.ExecuteAction();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

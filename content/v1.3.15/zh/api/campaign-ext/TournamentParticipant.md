@@ -1,13 +1,7 @@
 ---
 title: "TournamentParticipant"
+description: "TournamentParticipant 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentParticipant`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TournamentParticipant
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -41,25 +35,44 @@ title: "TournamentParticipant"
 ### SetTeam
 `public void SetTeam(TournamentTeam team)`
 
-**用途 / Purpose:** 设置 `team` 的值或状态。
+**用途 / Purpose:** 为 「team」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentParticipant 实例
+TournamentParticipant tournamentParticipant = ...;
+tournamentParticipant.SetTeam(team);
+```
 
 ### AddScore
 `public int AddScore(int score)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `score`。
+**用途 / Purpose:** 将 「score」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentParticipant 实例
+TournamentParticipant tournamentParticipant = ...;
+var result = tournamentParticipant.AddScore(0);
+```
 
 ### ResetScore
 `public void ResetScore()`
 
-**用途 / Purpose:** 将 `score` 重置为初始状态。
+**用途 / Purpose:** 将 「score」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentParticipant 实例
+TournamentParticipant tournamentParticipant = ...;
+tournamentParticipant.ResetScore();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TournamentParticipant();
-value.SetTeam(team);
+// 通常从对应子系统 API 获取实例后调用
+TournamentParticipant tournamentParticipant = ...;
+tournamentParticipant.SetTeam(team);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

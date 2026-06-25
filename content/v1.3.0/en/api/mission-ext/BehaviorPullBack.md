@@ -1,13 +1,7 @@
 ---
 title: "BehaviorPullBack"
+description: "Auto-generated class reference for BehaviorPullBack."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorPullBack`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorPullBack
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorPullBack from the subsystem API first
+BehaviorPullBack behaviorPullBack = ...;
+behaviorPullBack.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorPullBack();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorPullBack behaviorPullBack = ...;
+behaviorPullBack.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

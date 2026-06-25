@@ -1,13 +1,7 @@
 ---
 title: "BesiegerCamp"
+description: "BesiegerCamp 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BesiegerCamp`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BesiegerCamp
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -44,85 +38,176 @@ title: "BesiegerCamp"
 ### GetInvolvedPartiesForEventType
 `public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**用途 / Purpose:** 获取 `involved parties for event type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「involved parties for event type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+var result = besiegerCamp.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
+```
 
 ### GetNextInvolvedPartyForEventType
 `public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**用途 / Purpose:** 获取 `next involved party for event type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next involved party for event type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+var result = besiegerCamp.GetNextInvolvedPartyForEventType(partyIndex, mapEvent.BattleTypes.Siege);
+```
 
 ### HasInvolvedPartyForEventType
 `public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `involved party for event type`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「involved party for event type」。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+var result = besiegerCamp.HasInvolvedPartyForEventType(party, mapEvent.BattleTypes.Siege);
+```
 
 ### IsBesiegerSideParty
 `public bool IsBesiegerSideParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `is besieger side party` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「besieger side party」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+var result = besiegerCamp.IsBesiegerSideParty(mobileParty);
+```
 
 ### InitializeSiegeEventSide
 `public void InitializeSiegeEventSide()`
 
-**用途 / Purpose:** 初始化 `siege event side` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「siege event side」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.InitializeSiegeEventSide();
+```
 
 ### OnTroopsKilledOnSide
 `public void OnTroopsKilledOnSide(int killCount)`
 
-**用途 / Purpose:** 当 `troops killed on side` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troops killed on side」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.OnTroopsKilledOnSide(0);
+```
 
 ### SetSiegeStrategy
 `public void SetSiegeStrategy(SiegeStrategy strategy)`
 
-**用途 / Purpose:** 设置 `siege strategy` 的值或状态。
+**用途 / Purpose:** 为 「siege strategy」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.SetSiegeStrategy(strategy);
+```
 
 ### RemoveAllSiegeParties
 `public void RemoveAllSiegeParties()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `all siege parties`。
+**用途 / Purpose:** 从当前容器或状态中移除 「all siege parties」。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.RemoveAllSiegeParties();
+```
 
 ### AddSiegeEngineMissile
 `public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `siege engine missile`。
+**用途 / Purpose:** 将 「siege engine missile」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.AddSiegeEngineMissile(missile);
+```
 
 ### RemoveDeprecatedMissiles
 `public void RemoveDeprecatedMissiles()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `deprecated missiles`。
+**用途 / Purpose:** 从当前容器或状态中移除 「deprecated missiles」。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.RemoveDeprecatedMissiles();
+```
 
 ### BombardHitWalls
 `public void BombardHitWalls(SiegeEngineType attackerEngineType, int wallIndex)`
 
-**用途 / Purpose:** 处理 `bombard hit walls` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.BombardHitWalls(attackerEngineType, 0);
+```
 
 ### GetAttackTarget
 `public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)`
 
-**用途 / Purpose:** 获取 `attack target` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attack target」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.GetAttackTarget(siegeEventSide, siegeEngine, 0, targetType, targetIndex);
+```
 
 ### FinalizeSiegeEvent
 `public void FinalizeSiegeEvent()`
 
-**用途 / Purpose:** 处理 `finalize siege event` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.FinalizeSiegeEvent();
+```
 
 ### OnAfterLoad
 `public void OnAfterLoad()`
 
-**用途 / Purpose:** 当 `after load` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after load」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.OnAfterLoad();
+```
 
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**用途 / Purpose:** 设置 `position after map change` 的值或状态。
+**用途 / Purpose:** 为 「position after map change」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BesiegerCamp 实例
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.SetPositionAfterMapChange(newPosition);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BesiegerCamp();
-value.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
+// 通常从对应子系统 API 获取实例后调用
+BesiegerCamp besiegerCamp = ...;
+besiegerCamp.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MusicSilencedMissionView"
+description: "MusicSilencedMissionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MusicSilencedMissionView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicSilencedMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Sound
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MusicSilencedMissionView : MissionView, IMusicHandler`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Sound/MusicSilencedMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Sound/MusicSilencedMissionView.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "MusicSilencedMissionView"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MusicSilencedMissionView 实例
+MusicSilencedMissionView musicSilencedMissionView = ...;
+musicSilencedMissionView.OnBehaviorInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MusicSilencedMissionView 实例
+MusicSilencedMissionView musicSilencedMissionView = ...;
+musicSilencedMissionView.OnMissionScreenFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MusicSilencedMissionView();
+// 从子系统 API 或场景中获取该视图
+MusicSilencedMissionView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

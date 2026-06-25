@@ -1,20 +1,14 @@
 ---
 title: "SandboxAgentDecideKilledOrUnconsciousModel"
+description: "Auto-generated class reference for SandboxAgentDecideKilledOrUnconsciousModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxAgentDecideKilledOrUnconsciousModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxAgentDecideKilledOrUnconsciousModel
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
 **Type:** `public class SandboxAgentDecideKilledOrUnconsciousModel : AgentDecideKilledOrUnconsciousModel`
 **Base:** `AgentDecideKilledOrUnconsciousModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/SandboxAgentDecideKilledOrUnconsciousModel.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/SandboxAgentDecideKilledOrUnconsciousModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `SandboxAgentDecideKilledOrUnconsciousModel` as a Model-style extension po
 ### GetAgentStateProbability
 `public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**Purpose:** Gets the current value of `agent state probability`.
+**Purpose:** Reads and returns the `agent state probability` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxAgentDecideKilledOrUnconsciousModel from the subsystem API first
+SandboxAgentDecideKilledOrUnconsciousModel sandboxAgentDecideKilledOrUnconsciousModel = ...;
+var result = sandboxAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, weaponFlags, useSurgeryProbability);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxAgentDecideKilledOrUnconsciousModel>(new MySand
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

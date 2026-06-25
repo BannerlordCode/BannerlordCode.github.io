@@ -1,20 +1,14 @@
 ---
 title: "DeploymentMissionView"
+description: "Auto-generated class reference for DeploymentMissionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeploymentMissionView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeploymentMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DeploymentMissionView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/DeploymentMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/DeploymentMissionView.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `DeploymentMissionView` as a View-style extension point: first identify wh
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentMissionView from the subsystem API first
+DeploymentMissionView deploymentMissionView = ...;
+deploymentMissionView.AfterStart();
+```
 
 ### OnDeploymentPlanMade
 `public override void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**Purpose:** Called when the `deployment plan made` event is raised.
+**Purpose:** Invoked when the `deployment plan made` event is raised.
+
+```csharp
+// Obtain an instance of DeploymentMissionView from the subsystem API first
+DeploymentMissionView deploymentMissionView = ...;
+deploymentMissionView.OnDeploymentPlanMade(team, false);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of DeploymentMissionView from the subsystem API first
+DeploymentMissionView deploymentMissionView = ...;
+deploymentMissionView.OnDeploymentFinished();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new DeploymentMissionView();
+// Retrieve this view from the subsystem API or scene
+DeploymentMissionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

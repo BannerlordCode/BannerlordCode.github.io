@@ -1,20 +1,14 @@
 ---
 title: "MapGamepadEffectsView"
+description: "Auto-generated class reference for MapGamepadEffectsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapGamepadEffectsView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapGamepadEffectsView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapGamepadEffectsView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapGamepadEffectsView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapGamepadEffectsView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MapGamepadEffectsView` as a View-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var view = new MapGamepadEffectsView();
+// Retrieve this view from the subsystem API or scene
+MapGamepadEffectsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

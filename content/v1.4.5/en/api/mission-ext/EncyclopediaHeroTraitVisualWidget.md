@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaHeroTraitVisualWidget"
+description: "Auto-generated class reference for EncyclopediaHeroTraitVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaHeroTraitVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaHeroTraitVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaHeroTraitVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaHeroTraitVisualWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaHeroTraitVisualWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `EncyclopediaHeroTraitVisualWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaHeroTraitVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaHeroTraitVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

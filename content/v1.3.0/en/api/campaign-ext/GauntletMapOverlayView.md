@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapOverlayView"
+description: "Auto-generated class reference for GauntletMapOverlayView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapOverlayView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapOverlayView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -35,14 +29,21 @@ Treat `GauntletMapOverlayView` as a View-style extension point: first identify w
 ### GetOverlay
 `public GameMenuOverlay GetOverlay(MapScreen.MapOverlayType mapOverlayType)`
 
-**Purpose:** Gets the current value of `overlay`.
+**Purpose:** Reads and returns the `overlay` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletMapOverlayView from the subsystem API first
+GauntletMapOverlayView gauntletMapOverlayView = ...;
+var result = gauntletMapOverlayView.GetOverlay(mapOverlayType);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapOverlayView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapOverlayView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "WeaponComponentData"
+description: "Auto-generated class reference for WeaponComponentData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponComponentData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponComponentData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class WeaponComponentData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponentData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponComponentData.cs`
 
 ## Overview
 
@@ -73,49 +67,96 @@ Treat `WeaponComponentData` as a Data-style extension point: first identify who 
 ### Init
 `public void Init(string weaponUsageName, string physicsMaterial, string itemUsage, DamageTypes thrustDamageType, DamageTypes swingDamageType, int bodyArmor, int weaponLength, float weaponBalance, float inertia, float centerOfMass, int handling, float swingDamageFactor, float thrustDamageFactor, short maxDataValue, string passBySoundCode, int accuracy, int missileSpeed, MatrixFrame stickingFrame, WeaponClass ammoClass, float sweetSpot, int swingSpeed, int swingDamage, int thrustSpeed, int thrustDamage, Vec3 rotationSpeed, WeaponTiers tier, short reloadPhaseCount)`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of WeaponComponentData from the subsystem API first
+WeaponComponentData weaponComponentData = ...;
+weaponComponentData.Init("example", "example", "example", thrustDamageType, swingDamageType, 0, 0, 0, 0, 0, 0, 0, 0, 0, "example", 0, 0, stickingFrame, ammoClass, 0, 0, 0, 0, 0, rotationSpeed, tier, 0);
+```
 
 ### SetFrame
 `public void SetFrame(MatrixFrame frame)`
 
-**Purpose:** Sets the value or state of `frame`.
+**Purpose:** Assigns a new value to `frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WeaponComponentData from the subsystem API first
+WeaponComponentData weaponComponentData = ...;
+weaponComponentData.SetFrame(frame);
+```
 
 ### SetAmmoOffset
 `public void SetAmmoOffset(Vec3 ammoOffset)`
 
-**Purpose:** Sets the value or state of `ammo offset`.
+**Purpose:** Assigns a new value to `ammo offset` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WeaponComponentData from the subsystem API first
+WeaponComponentData weaponComponentData = ...;
+weaponComponentData.SetAmmoOffset(ammoOffset);
+```
 
 ### GetRelevantSkillFromWeaponClass
 `public static SkillObject GetRelevantSkillFromWeaponClass(WeaponClass weaponClass)`
 
-**Purpose:** Gets the current value of `relevant skill from weapon class`.
+**Purpose:** Reads and returns the `relevant skill from weapon class` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentData.GetRelevantSkillFromWeaponClass(weaponClass);
+```
 
 ### GetItemTypeFromWeaponClass
 `public static ItemObject.ItemTypeEnum GetItemTypeFromWeaponClass(WeaponClass weaponClass)`
 
-**Purpose:** Gets the current value of `item type from weapon class`.
+**Purpose:** Reads and returns the `item type from weapon class` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentData.GetItemTypeFromWeaponClass(weaponClass);
+```
 
 ### Deserialize
 `public void Deserialize(ItemObject item, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of WeaponComponentData from the subsystem API first
+WeaponComponentData weaponComponentData = ...;
+weaponComponentData.Deserialize(item, node);
+```
 
 ### GetRealWeaponLength
 `public float GetRealWeaponLength()`
 
-**Purpose:** Gets the current value of `real weapon length`.
+**Purpose:** Reads and returns the `real weapon length` value held by the current object.
+
+```csharp
+// Obtain an instance of WeaponComponentData from the subsystem API first
+WeaponComponentData weaponComponentData = ...;
+var result = weaponComponentData.GetRealWeaponLength();
+```
 
 ### GetMissileStartingFrame
 `public MatrixFrame GetMissileStartingFrame()`
 
-**Purpose:** Gets the current value of `missile starting frame`.
+**Purpose:** Reads and returns the `missile starting frame` value held by the current object.
+
+```csharp
+// Obtain an instance of WeaponComponentData from the subsystem API first
+WeaponComponentData weaponComponentData = ...;
+var result = weaponComponentData.GetMissileStartingFrame();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponComponentData();
+// This data object is usually returned by campaign/mission APIs
+WeaponComponentData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

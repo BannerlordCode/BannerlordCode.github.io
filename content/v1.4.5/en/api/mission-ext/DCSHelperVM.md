@@ -1,20 +1,14 @@
 ---
 title: "DCSHelperVM"
+description: "Auto-generated class reference for DCSHelperVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DCSHelperVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DCSHelperVM
 
 **Namespace:** TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DCSHelperVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/DCSHelperVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/DCSHelperVM.cs`
 
 ## Overview
 
@@ -59,65 +53,132 @@ Start from namespace `TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelpe
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.Refresh();
+```
 
 ### GetPanelSubtitle
 `public string GetPanelSubtitle(string serverName)`
 
-**Purpose:** Gets the current value of `panel subtitle`.
+**Purpose:** Reads and returns the `panel subtitle` value held by the current object.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetPanelSubtitle("example");
+```
 
 ### GetProgressCounter
 `public string GetProgressCounter(int downloadedCount, int totalCount)`
 
-**Purpose:** Gets the current value of `progress counter`.
+**Purpose:** Reads and returns the `progress counter` value held by the current object.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetProgressCounter(0, 0);
+```
 
 ### GetDownloadCompleteMessageSingular
 `public string GetDownloadCompleteMessageSingular(string mapName)`
 
-**Purpose:** Gets the current value of `download complete message singular`.
+**Purpose:** Reads and returns the `download complete message singular` value held by the current object.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetDownloadCompleteMessageSingular("example");
+```
 
 ### GetDownloadCompleteMessagePlural
 `public string GetDownloadCompleteMessagePlural(int mapCount)`
 
-**Purpose:** Gets the current value of `download complete message plural`.
+**Purpose:** Reads and returns the `download complete message plural` value held by the current object.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetDownloadCompleteMessagePlural(0);
+```
 
 ### GetReplacementConfirmationMessage
 `public string GetReplacementConfirmationMessage(string mapName)`
 
-**Purpose:** Gets the current value of `replacement confirmation message`.
+**Purpose:** Reads and returns the `replacement confirmation message` value held by the current object.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.GetReplacementConfirmationMessage("example");
+```
 
 ### OpenPopup
 `public async Task OpenPopup()`
 
-**Purpose:** Handles logic related to `open popup`.
+**Purpose:** Opens the resource or UI associated with `popup`.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.OpenPopup();
+```
 
 ### ExecuteDownloadMap
 `public async Task ExecuteDownloadMap()`
 
-**Purpose:** Executes the `download map` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `download map`.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+var result = dCSHelperVM.ExecuteDownloadMap();
+```
 
 ### ExecuteCloseOrCancel
 `public void ExecuteCloseOrCancel()`
 
-**Purpose:** Executes the `close or cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close or cancel`.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.ExecuteCloseOrCancel();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.ExecuteClosePopup();
+```
 
 ### ExecuteCancelDownload
 `public void ExecuteCancelDownload()`
 
-**Purpose:** Executes the `cancel download` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel download`.
+
+```csharp
+// Obtain an instance of DCSHelperVM from the subsystem API first
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.ExecuteCancelDownload();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DCSHelperVM();
-value.Refresh();
+// Typically call this after obtaining an instance from the subsystem API
+DCSHelperVM dCSHelperVM = ...;
+dCSHelperVM.Refresh();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

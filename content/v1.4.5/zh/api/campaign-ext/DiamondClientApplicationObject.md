@@ -1,20 +1,14 @@
 ---
 title: "DiamondClientApplicationObject"
+description: "DiamondClientApplicationObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DiamondClientApplicationObject`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DiamondClientApplicationObject
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class DiamondClientApplicationObject`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/DiamondClientApplicationObject.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/DiamondClientApplicationObject.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "DiamondClientApplicationObject"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDiamondClientApplicationObject();
+// 通常通过子系统 API 或工厂获得派生实例
+DiamondClientApplicationObject instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

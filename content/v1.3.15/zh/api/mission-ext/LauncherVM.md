@@ -1,13 +1,7 @@
 ---
 title: "LauncherVM"
+description: "LauncherVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LauncherVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -55,25 +49,44 @@ title: "LauncherVM"
 ### ExecuteStartGame
 `public void ExecuteStartGame(int mode)`
 
-**用途 / Purpose:** 执行 `start game` 操作或流程。
+**用途 / Purpose:** 执行 「start game」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherVM 实例
+LauncherVM launcherVM = ...;
+launcherVM.ExecuteStartGame(0);
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 `close` 操作或流程。
+**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherVM 实例
+LauncherVM launcherVM = ...;
+launcherVM.ExecuteClose();
+```
 
 ### ExecuteMinimize
 `public void ExecuteMinimize()`
 
-**用途 / Purpose:** 执行 `minimize` 操作或流程。
+**用途 / Purpose:** 执行 「minimize」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherVM 实例
+LauncherVM launcherVM = ...;
+launcherVM.ExecuteMinimize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LauncherVM();
-value.ExecuteStartGame(0);
+// 通常从对应子系统 API 获取实例后调用
+LauncherVM launcherVM = ...;
+launcherVM.ExecuteStartGame(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

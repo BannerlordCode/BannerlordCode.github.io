@@ -1,18 +1,12 @@
 ---
 title: "Features"
+description: "Features 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Features`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Features
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum Features`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade.Diamond/Features.cs`
 
@@ -27,9 +21,10 @@ title: "Features"
 ## 使用示例
 
 ```csharp
-var value = new Features();
+// 从对应子系统 API 获取实例
+Features instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerPracticeMissionViews"
+description: "Auto-generated class reference for MultiplayerPracticeMissionViews."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPracticeMissionViews`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPracticeMissionViews
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerPracticeMissionViews`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerPracticeMissionViews.cs`
 
 ## Overview
 
-`MultiplayerPracticeMissionViews` lives in `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MultiplayerPracticeMissionViews` lives in `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews` to
 ### OpenMultiplayerPracticeMission
 `public static MissionView OpenMultiplayerPracticeMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open multiplayer practice mission`.
+**Purpose:** Opens the resource or UI associated with `multiplayer practice mission`.
+
+```csharp
+// Static call; no instance required
+MultiplayerPracticeMissionViews.OpenMultiplayerPracticeMission(mission);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MultiplayerPracticeMissionViews.OpenMultiplayerPracticeMission(mission);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

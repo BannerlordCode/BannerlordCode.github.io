@@ -1,13 +1,7 @@
 ---
 title: "ActivityManager"
+description: "Auto-generated class reference for ActivityManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActivityManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ActivityManager
 
 **Namespace:** TaleWorlds.ActivitySystem
@@ -35,27 +29,52 @@ Treat `ActivityManager` as a Manager-style extension point: first identify who c
 ### StartActivity
 `public static bool StartActivity(string activityId)`
 
-**Purpose:** Handles logic related to `start activity`.
+**Purpose:** Starts the `activity` flow or state machine.
+
+```csharp
+// Static call; no instance required
+ActivityManager.StartActivity("example");
+```
 
 ### EndActivity
 `public static bool EndActivity(string activityId, ActivityOutcome outcome)`
 
-**Purpose:** Handles logic related to `end activity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ActivityManager.EndActivity("example", outcome);
+```
 
 ### SetActivityAvailability
 `public static bool SetActivityAvailability(string activityId, bool isAvailable)`
 
-**Purpose:** Sets the value or state of `activity availability`.
+**Purpose:** Assigns a new value to `activity availability` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+ActivityManager.SetActivityAvailability("example", false);
+```
 
 ### GetActivity
 `public static Task<Activity> GetActivity(string activityId)`
 
-**Purpose:** Gets the current value of `activity`.
+**Purpose:** Reads and returns the `activity` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ActivityManager.GetActivity("example");
+```
 
 ### GetActivityTransition
 `public static ActivityTransition GetActivityTransition(string activityId)`
 
-**Purpose:** Gets the current value of `activity transition`.
+**Purpose:** Reads and returns the `activity transition` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ActivityManager.GetActivityTransition("example");
+```
 
 ## Usage Example
 
@@ -65,4 +84,4 @@ var manager = ActivityManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

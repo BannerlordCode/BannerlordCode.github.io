@@ -1,20 +1,14 @@
 ---
 title: "ClanFinanceModel"
+description: "ClanFinanceModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanFinanceModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ClanFinanceModel : MBGameModel<ClanFinanceModel>`
 **Base:** `MBGameModel<ClanFinanceModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanFinanceModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanFinanceModel.cs`
 
 ## 概述
 
@@ -35,59 +29,120 @@ title: "ClanFinanceModel"
 ### CalculateClanGoldChange
 `public abstract ExplainedNumber CalculateClanGoldChange(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**用途 / Purpose:** 处理 `calculate clan gold change` 相关逻辑。
+**用途 / Purpose:** 计算「clan gold change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateClanGoldChange(clan, false, false, false);
+```
 
 ### CalculateClanIncome
 `public abstract ExplainedNumber CalculateClanIncome(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**用途 / Purpose:** 处理 `calculate clan income` 相关逻辑。
+**用途 / Purpose:** 计算「clan income」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateClanIncome(clan, false, false, false);
+```
 
 ### CalculateClanExpenses
 `public abstract ExplainedNumber CalculateClanExpenses(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**用途 / Purpose:** 处理 `calculate clan expenses` 相关逻辑。
+**用途 / Purpose:** 计算「clan expenses」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateClanExpenses(clan, false, false, false);
+```
 
 ### CalculateTownIncomeFromTariffs
 `public abstract ExplainedNumber CalculateTownIncomeFromTariffs(Clan clan, Town town, bool applyWithdrawals = false)`
 
-**用途 / Purpose:** 处理 `calculate town income from tariffs` 相关逻辑。
+**用途 / Purpose:** 计算「town income from tariffs」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateTownIncomeFromTariffs(clan, town, false);
+```
 
 ### CalculateTownIncomeFromProjects
 `public abstract int CalculateTownIncomeFromProjects(Town town)`
 
-**用途 / Purpose:** 处理 `calculate town income from projects` 相关逻辑。
+**用途 / Purpose:** 计算「town income from projects」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateTownIncomeFromProjects(town);
+```
 
 ### CalculateNotableDailyGoldChange
 `public abstract int CalculateNotableDailyGoldChange(Hero hero, bool applyWithdrawals)`
 
-**用途 / Purpose:** 处理 `calculate notable daily gold change` 相关逻辑。
+**用途 / Purpose:** 计算「notable daily gold change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateNotableDailyGoldChange(hero, false);
+```
 
 ### CalculateVillageIncome
 `public abstract int CalculateVillageIncome(Clan clan, Village village, bool applyWithdrawals = false)`
 
-**用途 / Purpose:** 处理 `calculate village income` 相关逻辑。
+**用途 / Purpose:** 计算「village income」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateVillageIncome(clan, village, false);
+```
 
 ### CalculateOwnerIncomeFromCaravan
 `public abstract int CalculateOwnerIncomeFromCaravan(MobileParty caravan)`
 
-**用途 / Purpose:** 处理 `calculate owner income from caravan` 相关逻辑。
+**用途 / Purpose:** 计算「owner income from caravan」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateOwnerIncomeFromCaravan(caravan);
+```
 
 ### CalculateOwnerIncomeFromWorkshop
 `public abstract int CalculateOwnerIncomeFromWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 处理 `calculate owner income from workshop` 相关逻辑。
+**用途 / Purpose:** 计算「owner income from workshop」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.CalculateOwnerIncomeFromWorkshop(workshop);
+```
 
 ### RevenueSmoothenFraction
 `public abstract float RevenueSmoothenFraction()`
 
-**用途 / Purpose:** 处理 `revenue smoothen fraction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFinanceModel 实例
+ClanFinanceModel clanFinanceModel = ...;
+var result = clanFinanceModel.RevenueSmoothenFraction();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomClanFinanceModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ClanFinanceModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerItemTestMissionController"
+description: "Auto-generated class reference for MultiplayerItemTestMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerItemTestMissionController`
-- [← Area / Back to gameplay](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerItemTestMissionController
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class MultiplayerItemTestMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/SandBox/MultiplayerItemTestMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/SandBox/MultiplayerItemTestMissionController.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `MultiplayerItemTestMissionController` as a Controller-style extension poi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerItemTestMissionController from the subsystem API first
+MultiplayerItemTestMissionController multiplayerItemTestMissionController = ...;
+multiplayerItemTestMissionController.AfterStart();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<MultiplayerItemTestMissionCo
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

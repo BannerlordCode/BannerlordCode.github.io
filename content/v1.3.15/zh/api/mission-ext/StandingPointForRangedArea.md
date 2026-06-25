@@ -1,13 +1,7 @@
 ---
 title: "StandingPointForRangedArea"
+description: "StandingPointForRangedArea 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StandingPointForRangedArea`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StandingPointForRangedArea
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,30 +29,55 @@ title: "StandingPointForRangedArea"
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `is disabled for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointForRangedArea 实例
+StandingPointForRangedArea standingPointForRangedArea = ...;
+var result = standingPointForRangedArea.IsDisabledForAgent(agent);
+```
 
 ### GetUsageScoreForAgent
 `public override float GetUsageScoreForAgent(Agent agent)`
 
-**用途 / Purpose:** 获取 `usage score for agent` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「usage score for agent」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointForRangedArea 实例
+StandingPointForRangedArea standingPointForRangedArea = ...;
+var result = standingPointForRangedArea.GetUsageScoreForAgent(agent);
+```
 
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `alternative`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「alternative」。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointForRangedArea 实例
+StandingPointForRangedArea standingPointForRangedArea = ...;
+var result = standingPointForRangedArea.HasAlternative();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointForRangedArea 实例
+StandingPointForRangedArea standingPointForRangedArea = ...;
+var result = standingPointForRangedArea.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StandingPointForRangedArea();
-value.IsDisabledForAgent(agent);
+// 通常从对应子系统 API 获取实例后调用
+StandingPointForRangedArea standingPointForRangedArea = ...;
+standingPointForRangedArea.IsDisabledForAgent(agent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

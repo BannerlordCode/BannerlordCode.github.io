@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaTroopTreeNodeVM"
+description: "Auto-generated class reference for EncyclopediaTroopTreeNodeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaTroopTreeNodeVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaTroopTreeNodeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaTroopTreeNodeVM from the subsystem API first
+EncyclopediaTroopTreeNodeVM encyclopediaTroopTreeNodeVM = ...;
+encyclopediaTroopTreeNodeVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaTroopTreeNodeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaTroopTreeNodeVM encyclopediaTroopTreeNodeVM = ...;
+encyclopediaTroopTreeNodeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

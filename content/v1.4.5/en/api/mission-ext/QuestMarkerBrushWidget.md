@@ -1,20 +1,14 @@
 ---
 title: "QuestMarkerBrushWidget"
+description: "Auto-generated class reference for QuestMarkerBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestMarkerBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestMarkerBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class QuestMarkerBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest/QuestMarkerBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest/QuestMarkerBrushWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `QuestMarkerBrushWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new QuestMarkerBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+QuestMarkerBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

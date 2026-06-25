@@ -1,20 +1,14 @@
 ---
 title: "TargetScoreCalculatingModel"
+description: "Auto-generated class reference for TargetScoreCalculatingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TargetScoreCalculatingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TargetScoreCalculatingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class TargetScoreCalculatingModel : MBGameModel<TargetScoreCalculatingModel>`
 **Base:** `MBGameModel<TargetScoreCalculatingModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TargetScoreCalculatingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TargetScoreCalculatingModel.cs`
 
 ## Overview
 
@@ -39,39 +33,76 @@ Treat `TargetScoreCalculatingModel` as a Model-style extension point: first iden
 ### GetDefensivePatrollingFactor
 `public abstract float GetDefensivePatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Gets the current value of `defensive patrolling factor`.
+**Purpose:** Reads and returns the `defensive patrolling factor` value held by the current object.
+
+```csharp
+// Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.GetDefensivePatrollingFactor(false);
+```
 
 ### GetOffensivePatrollingFactor
 `public abstract float GetOffensivePatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Gets the current value of `offensive patrolling factor`.
+**Purpose:** Reads and returns the `offensive patrolling factor` value held by the current object.
+
+```csharp
+// Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.GetOffensivePatrollingFactor(false);
+```
 
 ### GetTargetScoreForFaction
 `public abstract float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**Purpose:** Gets the current value of `target score for faction`.
+**Purpose:** Reads and returns the `target score for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.GetTargetScoreForFaction(targetSettlement, missionType, mobileParty, 0);
+```
 
 ### CalculateDefensivePatrollingScoreForSettlement
 `public abstract float CalculateDefensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `calculate defensive patrolling score for settlement`.
+**Purpose:** Calculates the current value or result of `defensive patrolling score for settlement`.
+
+```csharp
+// Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.CalculateDefensivePatrollingScoreForSettlement(settlement, false, mobileParty);
+```
 
 ### CalculateOffensivePatrollingScoreForSettlement
 `public abstract float CalculateOffensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `calculate offensive patrolling score for settlement`.
+**Purpose:** Calculates the current value or result of `offensive patrolling score for settlement`.
+
+```csharp
+// Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.CalculateOffensivePatrollingScoreForSettlement(settlement, false, mobileParty);
+```
 
 ### CurrentObjectiveValue
 `public abstract float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `current objective value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TargetScoreCalculatingModel from the subsystem API first
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.CurrentObjectiveValue(mobileParty);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTargetScoreCalculatingModel();
+// Typically obtained from a subsystem API or factory
+TargetScoreCalculatingModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

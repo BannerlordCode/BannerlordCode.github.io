@@ -1,19 +1,43 @@
 ---
 title: "WallHitPointCalculationModel"
+description: "WallHitPointCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WallHitPointCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
+# WallHitPointCalculationModel
+
+**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public abstract class WallHitPointCalculationModel : MBGameModel<WallHitPointCalculationModel>`
+**Base:** `MBGameModel<WallHitPointCalculationModel>`
+**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/WallHitPointCalculationModel.cs`
+
+## 概述
+
+`WallHitPointCalculationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
 ## 心智模型
 
-先把 `WallHitPointCalculationModel` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+把 `WallHitPointCalculationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### CalculateMaximumWallHitPoint
+`public abstract float CalculateMaximumWallHitPoint(Town town)`
+
+**用途 / Purpose:** 计算「maximum wall hit point」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 WallHitPointCalculationModel 实例
+WallHitPointCalculationModel wallHitPointCalculationModel = ...;
+var result = wallHitPointCalculationModel.CalculateMaximumWallHitPoint(town);
+```
 
 ## 使用示例
 
 ```csharp
-var example = new WallHitPointCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+WallHitPointCalculationModel instance = ...;
 ```
+
+## 参见
+
+- [本区域目录](../)

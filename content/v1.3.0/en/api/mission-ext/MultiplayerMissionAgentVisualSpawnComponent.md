@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerMissionAgentVisualSpawnComponent"
+description: "Auto-generated class reference for MultiplayerMissionAgentVisualSpawnComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerMissionAgentVisualSpawnComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionAgentVisualSpawnComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,32 +23,68 @@ Treat `MultiplayerMissionAgentVisualSpawnComponent` as a Component-style extensi
 ### SpawnAgentVisualsForPeer
 `public void SpawnAgentVisualsForPeer(MissionPeer missionPeer, AgentBuildData buildData, int selectedEquipmentSetIndex = -1, bool isBot = false, int totalTroopCount = 0)`
 
-**Purpose:** Handles logic related to `spawn agent visuals for peer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.SpawnAgentVisualsForPeer(missionPeer, buildData, 0, false, 0);
+```
 
 ### RemoveAgentVisuals
 `public void RemoveAgentVisuals(MissionPeer missionPeer, bool sync = false)`
 
 **Purpose:** Removes `agent visuals` from the current collection or state.
 
+```csharp
+// Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.RemoveAgentVisuals(missionPeer, false);
+```
+
 ### OnMyAgentSpawned
 `public void OnMyAgentSpawned()`
 
-**Purpose:** Called when the `my agent spawned` event is raised.
+**Purpose:** Invoked when the `my agent spawned` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.OnMyAgentSpawned();
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.OnPreMissionTick(0);
+```
 
 ### GetSpawnPointFrameForPlayer
 `public MatrixFrame GetSpawnPointFrameForPlayer(VirtualPlayer player, BattleSideEnum side, int agentVisualIndex, int totalTroopCount, bool isMounted = false)`
 
-**Purpose:** Gets the current value of `spawn point frame for player`.
+**Purpose:** Reads and returns the `spawn point frame for player` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+var result = multiplayerMissionAgentVisualSpawnComponent.GetSpawnPointFrameForPlayer(player, side, 0, 0, false);
+```
 
 ### FreeSpawnPointFromPlayer
 `public void FreeSpawnPointFromPlayer(VirtualPlayer player)`
 
-**Purpose:** Handles logic related to `free spawn point from player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerMissionAgentVisualSpawnComponent from the subsystem API first
+MultiplayerMissionAgentVisualSpawnComponent multiplayerMissionAgentVisualSpawnComponent = ...;
+multiplayerMissionAgentVisualSpawnComponent.FreeSpawnPointFromPlayer(player);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ var component = agent.GetComponent<MultiplayerMissionAgentVisualSpawnComponent>(
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

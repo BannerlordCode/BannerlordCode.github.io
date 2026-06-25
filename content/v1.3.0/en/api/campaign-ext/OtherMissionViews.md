@@ -1,13 +1,7 @@
 ---
 title: "OtherMissionViews"
+description: "Auto-generated class reference for OtherMissionViews."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OtherMissionViews`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OtherMissionViews
 
 **Namespace:** SandBox.View.Missions
@@ -29,7 +23,12 @@ Start from namespace `SandBox.View.Missions` to place it in the stack, then insp
 ### OpenBattleChallengeMission
 `public static MissionView OpenBattleChallengeMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open battle challenge mission`.
+**Purpose:** Opens the resource or UI associated with `battle challenge mission`.
+
+```csharp
+// Static call; no instance required
+OtherMissionViews.OpenBattleChallengeMission(mission);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ OtherMissionViews.OpenBattleChallengeMission(mission);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "StackArray4Bool"
+description: "Auto-generated class reference for StackArray4Bool."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StackArray4Bool`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StackArray4Bool
 
 **Namespace:** TaleWorlds.Core
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new StackArray4Bool();
+// Obtain an instance from the relevant subsystem API
+StackArray4Bool instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

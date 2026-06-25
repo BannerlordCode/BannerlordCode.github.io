@@ -17,3 +17,15 @@ For v1.3.0 XML configuration reference and bug analysis see v1.3.15:
 
 - [v1.3.0 Home](../)
 - [v1.3.15 docs (recommended)](../../../v1.3.15/en/)
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Child Pages
+
+_No child pages yet._
+
+<!-- END SECTION INDEX -->

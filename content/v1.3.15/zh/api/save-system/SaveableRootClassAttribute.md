@@ -1,20 +1,14 @@
 ---
 title: "SaveableRootClassAttribute"
+description: "SaveableRootClassAttribute 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveableRootClassAttribute`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveableRootClassAttribute
 
-**命名空间:** TaleWorlds.SaveSystem
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public class SaveableRootClassAttribute : Attribute`
+**Namespace:** TaleWorlds.SaveSystem
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class SaveableRootClassAttribute : Attribute`
 **Base:** `Attribute`
-**领域:** save-system
+**File:** `TaleWorlds.SaveSystem/SaveableRootClassAttribute.cs`
 
 ## 概述
 
@@ -39,5 +33,4 @@ public class Example { }
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "BrushListPanel"
+description: "BrushListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushListPanel`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushListPanel
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class BrushListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushListPanel.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushListPanel.cs`
 
 ## 概述
 
@@ -38,30 +32,55 @@ title: "BrushListPanel"
 ### UpdateBrushes
 `public override void UpdateBrushes(float dt)`
 
-**用途 / Purpose:** 更新 `brushes` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「brushes」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BrushListPanel 实例
+BrushListPanel brushListPanel = ...;
+brushListPanel.UpdateBrushes(0);
+```
 
 ### SetState
 `public override void SetState(string stateName)`
 
-**用途 / Purpose:** 设置 `state` 的值或状态。
+**用途 / Purpose:** 为 「state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BrushListPanel 实例
+BrushListPanel brushListPanel = ...;
+brushListPanel.SetState("example");
+```
 
 ### UpdateAnimationPropertiesSubTask
 `public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**用途 / Purpose:** 更新 `animation properties sub task` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「animation properties sub task」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BrushListPanel 实例
+BrushListPanel brushListPanel = ...;
+brushListPanel.UpdateAnimationPropertiesSubTask(0);
+```
 
 ### OnBrushChanged
 `public virtual void OnBrushChanged()`
 
-**用途 / Purpose:** 当 `brush changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「brush changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BrushListPanel 实例
+BrushListPanel brushListPanel = ...;
+brushListPanel.OnBrushChanged();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BrushListPanel();
-value.UpdateBrushes(0);
+// 通常从对应子系统 API 获取实例后调用
+BrushListPanel brushListPanel = ...;
+brushListPanel.UpdateBrushes(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

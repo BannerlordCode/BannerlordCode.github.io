@@ -1,20 +1,14 @@
 ---
 title: "Incident"
+description: "Auto-generated class reference for Incident."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Incident`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Incident
 
 **Namespace:** TaleWorlds.CampaignSystem.Incidents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Incident : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Incidents/Incident.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Incidents/Incident.cs`
 
 ## Overview
 
@@ -39,50 +33,99 @@ Start from namespace `TaleWorlds.CampaignSystem.Incidents` to place it in the st
 ### IncidentOptionConditionDelegate
 `public delegate bool IncidentOptionConditionDelegate(TextObject text)`
 
-**Purpose:** Handles logic related to `incident option condition delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Incident from the subsystem API first
+Incident incident = ...;
+var result = incident.IncidentOptionConditionDelegate(text);
+```
 
 ### IncidentOptionConsequenceDelegate
 `public delegate void IncidentOptionConsequenceDelegate()`
 
-**Purpose:** Handles logic related to `incident option consequence delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Incident from the subsystem API first
+Incident incident = ...;
+incident.IncidentOptionConsequenceDelegate();
+```
 
 ### Initialize
 `public void Initialize(string title, string description, IncidentsCampaignBehaviour.IncidentTrigger trigger, IncidentsCampaignBehaviour.IncidentType type, CampaignTime cooldown, Func<TextObject, bool> condition)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of Incident from the subsystem API first
+Incident incident = ...;
+incident.Initialize("example", "example", trigger, type, cooldown, func<TextObject, false);
+```
 
 ### AddOption
 `public void AddOption(string text, List<IncidentEffect> effects, IncidentOptionConditionDelegate condition = null, IncidentOptionConsequenceDelegate consequence = null)`
 
 **Purpose:** Adds `option` to the current collection or state.
 
+```csharp
+// Obtain an instance of Incident from the subsystem API first
+Incident incident = ...;
+incident.AddOption("example", effects, null, null);
+```
+
 ### CanIncidentBeInvoked
 `public bool CanIncidentBeInvoked()`
 
-**Purpose:** Checks whether the current object can `incident be invoked`.
+**Purpose:** Checks whether the current object meets the preconditions for `incident be invoked`.
+
+```csharp
+// Obtain an instance of Incident from the subsystem API first
+Incident incident = ...;
+var result = incident.CanIncidentBeInvoked();
+```
 
 ### GetOptionText
 `public TextObject GetOptionText(int index)`
 
-**Purpose:** Gets the current value of `option text`.
+**Purpose:** Reads and returns the `option text` value held by the current object.
+
+```csharp
+// Obtain an instance of Incident from the subsystem API first
+Incident incident = ...;
+var result = incident.GetOptionText(0);
+```
 
 ### GetOptionHint
 `public List<TextObject> GetOptionHint(int index)`
 
-**Purpose:** Gets the current value of `option hint`.
+**Purpose:** Reads and returns the `option hint` value held by the current object.
+
+```csharp
+// Obtain an instance of Incident from the subsystem API first
+Incident incident = ...;
+var result = incident.GetOptionHint(0);
+```
 
 ### InvokeOption
 `public List<TextObject> InvokeOption(int index)`
 
-**Purpose:** Handles logic related to `invoke option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Incident from the subsystem API first
+Incident incident = ...;
+var result = incident.InvokeOption(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Incident();
-value.IncidentOptionConditionDelegate(text);
+// Typically call this after obtaining an instance from the subsystem API
+Incident incident = ...;
+incident.IncidentOptionConditionDelegate(text);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

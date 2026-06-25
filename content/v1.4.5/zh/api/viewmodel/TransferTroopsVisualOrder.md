@@ -1,20 +1,14 @@
 ---
 title: "TransferTroopsVisualOrder"
+description: "TransferTroopsVisualOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TransferTroopsVisualOrder`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransferTroopsVisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TransferTroopsVisualOrder : VisualOrder`
 **Base:** `VisualOrder`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/TransferTroopsVisualOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/TransferTroopsVisualOrder.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "TransferTroopsVisualOrder"
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 执行 `order` 操作或流程。
+**用途 / Purpose:** 执行 「order」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TransferTroopsVisualOrder 实例
+TransferTroopsVisualOrder transferTroopsVisualOrder = ...;
+transferTroopsVisualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TransferTroopsVisualOrder 实例
+TransferTroopsVisualOrder transferTroopsVisualOrder = ...;
+var result = transferTroopsVisualOrder.GetName(orderController);
+```
 
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**用途 / Purpose:** 处理 `is targeted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「targeted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TransferTroopsVisualOrder 实例
+TransferTroopsVisualOrder transferTroopsVisualOrder = ...;
+var result = transferTroopsVisualOrder.IsTargeted();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TransferTroopsVisualOrder();
-value.ExecuteOrder(orderController, executionParameters);
+// 通常从对应子系统 API 获取实例后调用
+TransferTroopsVisualOrder transferTroopsVisualOrder = ...;
+transferTroopsVisualOrder.ExecuteOrder(orderController, executionParameters);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

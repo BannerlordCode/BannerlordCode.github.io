@@ -1,13 +1,7 @@
 ---
 title: "CraftingCardHighlightBrushWidget"
+description: "Auto-generated class reference for CraftingCardHighlightBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingCardHighlightBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingCardHighlightBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
@@ -27,9 +21,10 @@ Treat `CraftingCardHighlightBrushWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new CraftingCardHighlightBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingCardHighlightBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

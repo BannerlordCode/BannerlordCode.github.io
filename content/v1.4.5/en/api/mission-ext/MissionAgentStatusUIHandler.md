@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentStatusUIHandler"
+description: "Auto-generated class reference for MissionAgentStatusUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentStatusUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentStatusUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentStatusUIHandler : MissionBattleUIBaseView, IInteractionInterfaceHandler`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionAgentStatusUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionAgentStatusUIHandler.cs`
 
 ## Overview
 
@@ -31,22 +25,41 @@ Treat `MissionAgentStatusUIHandler` as a Handler-style extension point: first id
 
 **Purpose:** Adds `interaction message` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionAgentStatusUIHandler from the subsystem API first
+MissionAgentStatusUIHandler missionAgentStatusUIHandler = ...;
+missionAgentStatusUIHandler.AddInteractionMessage(message);
+```
+
 ### RemoveInteractionMessage
 `public virtual void RemoveInteractionMessage(MissionInteractionItemBaseVM message)`
 
 **Purpose:** Removes `interaction message` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionAgentStatusUIHandler from the subsystem API first
+MissionAgentStatusUIHandler missionAgentStatusUIHandler = ...;
+missionAgentStatusUIHandler.RemoveInteractionMessage(message);
+```
+
 ### HasInteractionMessage
 `public virtual bool HasInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**Purpose:** Checks whether the current object has/contains `interaction message`.
+**Purpose:** Determines whether the current object already holds `interaction message`.
+
+```csharp
+// Obtain an instance of MissionAgentStatusUIHandler from the subsystem API first
+MissionAgentStatusUIHandler missionAgentStatusUIHandler = ...;
+var result = missionAgentStatusUIHandler.HasInteractionMessage(message);
+```
 
 ## Usage Example
 
 ```csharp
-MissionAgentStatusUIHandler implementation = GetMissionAgentStatusUIHandlerImplementation();
+// Usually obtained through DI or a factory method
+IMissionAgentStatusUIHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

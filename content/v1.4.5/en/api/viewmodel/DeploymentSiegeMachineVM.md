@@ -1,20 +1,14 @@
 ---
 title: "DeploymentSiegeMachineVM"
+description: "Auto-generated class reference for DeploymentSiegeMachineVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeploymentSiegeMachineVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeploymentSiegeMachineVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DeploymentSiegeMachineVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/DeploymentSiegeMachineVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/DeploymentSiegeMachineVM.cs`
 
 ## Overview
 
@@ -44,50 +38,99 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.RefreshValues();
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.Update();
+```
 
 ### CalculatePosition
 `public void CalculatePosition()`
 
-**Purpose:** Handles logic related to `calculate position`.
+**Purpose:** Calculates the current value or result of `position`.
+
+```csharp
+// Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.CalculatePosition();
+```
 
 ### RefreshPosition
 `public void RefreshPosition()`
 
-**Purpose:** Refreshes the display or cache of `position`.
+**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.RefreshPosition();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.ExecuteAction();
+```
 
 ### ExecuteFocusBegin
 `public void ExecuteFocusBegin()`
 
-**Purpose:** Executes the `focus begin` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focus begin`.
+
+```csharp
+// Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.ExecuteFocusBegin();
+```
 
 ### ExecuteFocusEnd
 `public void ExecuteFocusEnd()`
 
-**Purpose:** Executes the `focus end` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focus end`.
+
+```csharp
+// Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.ExecuteFocusEnd();
+```
 
 ### RefreshWithDeployedWeapon
 `public void RefreshWithDeployedWeapon()`
 
-**Purpose:** Refreshes the display or cache of `with deployed weapon`.
+**Purpose:** Keeps the display or cache of `with deployed weapon` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.RefreshWithDeployedWeapon();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DeploymentSiegeMachineVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+DeploymentSiegeMachineVM deploymentSiegeMachineVM = ...;
+deploymentSiegeMachineVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

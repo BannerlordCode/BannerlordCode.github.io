@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListItem"
+description: "Auto-generated class reference for EncyclopediaListItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListItem
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct EncyclopediaListItem`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaListItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaListItem.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ### EncyclopediaListItem
 `public struct EncyclopediaListItem(object obj, string name, string description, string id, string typeName, bool playerCanSeeValues, Action onShowTooltip = null)`
 
-**Purpose:** Handles logic related to `encyclopedia list item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EncyclopediaListItem from the subsystem API first
+EncyclopediaListItem encyclopediaListItem = ...;
+var result = encyclopediaListItem.EncyclopediaListItem(obj, "example", "example", "example", "example", false, null);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaListItem();
-value.EncyclopediaListItem(obj, "example", "example", "example", "example", false, null);
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaListItem encyclopediaListItem = ...;
+encyclopediaListItem.EncyclopediaListItem(obj, "example", "example", "example", "example", false, null);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

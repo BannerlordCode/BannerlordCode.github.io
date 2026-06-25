@@ -1,20 +1,14 @@
 ---
 title: "OptionsVM"
+description: "Auto-generated class reference for OptionsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/OptionsVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/OptionsVM.cs`
 
 ## Overview
 
@@ -52,95 +46,198 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.RefreshValues();
+```
 
 ### ExecuteCloseOptions
 `public void ExecuteCloseOptions()`
 
-**Purpose:** Executes the `close options` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close options`.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.ExecuteCloseOptions();
+```
 
 ### GetActiveCategory
 `public ViewModel GetActiveCategory()`
 
-**Purpose:** Gets the current value of `active category`.
+**Purpose:** Reads and returns the `active category` value held by the current object.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+var result = optionsVM.GetActiveCategory();
+```
 
 ### GetIndexOfCategory
 `public int GetIndexOfCategory(ViewModel categoryVM)`
 
-**Purpose:** Gets the current value of `index of category`.
+**Purpose:** Reads and returns the `index of category` value held by the current object.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+var result = optionsVM.GetIndexOfCategory(categoryVM);
+```
 
 ### GetConfig
 `public float GetConfig(IOptionData data)`
 
-**Purpose:** Gets the current value of `config`.
+**Purpose:** Reads and returns the `config` value held by the current object.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+var result = optionsVM.GetConfig(data);
+```
 
 ### SetConfig
 `public void SetConfig(IOptionData data, float val)`
 
-**Purpose:** Sets the value or state of `config`.
+**Purpose:** Assigns a new value to `config` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetConfig(data, 0);
+```
 
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**Purpose:** Handles logic related to `select previous category`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SelectPreviousCategory();
+```
 
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**Purpose:** Handles logic related to `select next category`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SelectNextCategory();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.OnFinalize();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.ExecuteCancel();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.ExecuteDone();
+```
 
 ### IsOptionsChanged
 `public bool IsOptionsChanged()`
 
-**Purpose:** Handles logic related to `is options changed`.
+**Purpose:** Determines whether the current object is in the `options changed` state or condition.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+var result = optionsVM.IsOptionsChanged();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetCancelInputKey(hotkey);
+```
 
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `previous tab input key`.
+**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetPreviousTabInputKey(hotkey);
+```
 
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `next tab input key`.
+**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetNextTabInputKey(hotkey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetResetInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OptionsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+OptionsVM optionsVM = ...;
+optionsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

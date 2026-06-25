@@ -1,20 +1,14 @@
 ---
 title: "RestObjectRequestMessage"
+description: "RestObjectRequestMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RestObjectRequestMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestObjectRequestMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public class RestObjectRequestMessage : RestRequestMessage`
 **Base:** `RestRequestMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestObjectRequestMessage.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestObjectRequestMessage.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "RestObjectRequestMessage"
 ## 使用示例
 
 ```csharp
-var example = new RestObjectRequestMessage();
+// 从对应子系统 API 获取实例
+RestObjectRequestMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

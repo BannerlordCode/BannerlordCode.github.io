@@ -1,20 +1,14 @@
 ---
 title: "SelectorVM"
+description: "SelectorVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SelectorVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectorVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Selector
 **Module:** TaleWorlds.Core
 **Type:** `public class SelectorVM<T> : ViewModel where T : SelectorItemVM`
 **Base:** `ViewModel where T : SelectorItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Selector/SelectorVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Selector/SelectorVM.cs`
 
 ## 概述
 
@@ -38,60 +32,121 @@ title: "SelectorVM"
 ### Refresh
 `public void Refresh(IEnumerable<string> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.Refresh(list, 0, onChange);
+```
 
 ### Refresh
 `public void Refresh(IEnumerable<TextObject> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.Refresh(list, 0, onChange);
+```
 
 ### Refresh
 `public void Refresh(IEnumerable<T> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.Refresh(list, 0, onChange);
+```
 
 ### SetOnChangeAction
 `public void SetOnChangeAction(Action<SelectorVM<T>> onChange)`
 
-**用途 / Purpose:** 设置 `on change action` 的值或状态。
+**用途 / Purpose:** 为 「on change action」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.SetOnChangeAction(onChange);
+```
 
 ### AddItem
 `public void AddItem(T item)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `item`。
+**用途 / Purpose:** 将 「item」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.AddItem(item);
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**用途 / Purpose:** 执行 `randomize` 操作或流程。
+**用途 / Purpose:** 执行 「randomize」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.ExecuteRandomize();
+```
 
 ### ExecuteSelectNextItem
 `public void ExecuteSelectNextItem()`
 
-**用途 / Purpose:** 执行 `select next item` 操作或流程。
+**用途 / Purpose:** 执行 「select next item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.ExecuteSelectNextItem();
+```
 
 ### ExecuteSelectPreviousItem
 `public void ExecuteSelectPreviousItem()`
 
-**用途 / Purpose:** 执行 `select previous item` 操作或流程。
+**用途 / Purpose:** 执行 「select previous item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.ExecuteSelectPreviousItem();
+```
 
 ### GetCurrentItem
 `public T GetCurrentItem()`
 
-**用途 / Purpose:** 获取 `current item` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current item」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+var result = selectorVM.GetCurrentItem();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SelectorVM 实例
+SelectorVM selectorVM = ...;
+selectorVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SelectorVM();
-value.Refresh(list, 0, onChange);
+// 通常从对应子系统 API 获取实例后调用
+SelectorVM selectorVM = ...;
+selectorVM.Refresh(list, 0, onChange);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MainHeroNavalBattleDeathNotificationItem"
+description: "Auto-generated class reference for MainHeroNavalBattleDeathNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainHeroNavalBattleDeathNotificationItem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainHeroNavalBattleDeathNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of MainHeroNavalBattleDeathNotificationItem from the subsystem API first
+MainHeroNavalBattleDeathNotificationItem mainHeroNavalBattleDeathNotificationItem = ...;
+var result = mainHeroNavalBattleDeathNotificationItem.GetSceneNotificationCharacters();
+```
 
 ### GetShips
 `public override SceneNotificationData.SceneNotificationShip GetShips()`
 
-**Purpose:** Gets the current value of `ships`.
+**Purpose:** Reads and returns the `ships` value held by the current object.
+
+```csharp
+// Obtain an instance of MainHeroNavalBattleDeathNotificationItem from the subsystem API first
+MainHeroNavalBattleDeathNotificationItem mainHeroNavalBattleDeathNotificationItem = ...;
+var result = mainHeroNavalBattleDeathNotificationItem.GetShips();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MainHeroNavalBattleDeathNotificationItem();
-value.GetSceneNotificationCharacters();
+// Typically call this after obtaining an instance from the subsystem API
+MainHeroNavalBattleDeathNotificationItem mainHeroNavalBattleDeathNotificationItem = ...;
+mainHeroNavalBattleDeathNotificationItem.GetSceneNotificationCharacters();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MBWindowManager"
+description: "Auto-generated class reference for MBWindowManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBWindowManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBWindowManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,37 +23,72 @@ Treat `MBWindowManager` as a Manager-style extension point: first identify who c
 ### WorldToScreen
 `public static float WorldToScreen(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**Purpose:** Handles logic related to `world to screen`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBWindowManager.WorldToScreen(camera, worldSpacePosition, screenX, screenY, w);
+```
 
 ### WorldToScreenInsideUsableArea
 `public static float WorldToScreenInsideUsableArea(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**Purpose:** Handles logic related to `world to screen inside usable area`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBWindowManager.WorldToScreenInsideUsableArea(camera, worldSpacePosition, screenX, screenY, w);
+```
 
 ### WorldToScreenWithFixedZ
 `public static float WorldToScreenWithFixedZ(Camera camera, Vec3 cameraPosition, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**Purpose:** Handles logic related to `world to screen with fixed z`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBWindowManager.WorldToScreenWithFixedZ(camera, cameraPosition, worldSpacePosition, screenX, screenY, w);
+```
 
 ### ScreenToWorld
 `public static void ScreenToWorld(Camera camera, float screenX, float screenY, float w, ref Vec3 worldSpacePosition)`
 
-**Purpose:** Handles logic related to `screen to world`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBWindowManager.ScreenToWorld(camera, 0, 0, 0, worldSpacePosition);
+```
 
 ### GetScreenResolution
 `public static Vec2 GetScreenResolution()`
 
-**Purpose:** Gets the current value of `screen resolution`.
+**Purpose:** Reads and returns the `screen resolution` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBWindowManager.GetScreenResolution();
+```
 
 ### PreDisplay
 `public static void PreDisplay()`
 
-**Purpose:** Handles logic related to `pre display`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBWindowManager.PreDisplay();
+```
 
 ### DontChangeCursorPos
 `public static void DontChangeCursorPos()`
 
-**Purpose:** Handles logic related to `dont change cursor pos`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBWindowManager.DontChangeCursorPos();
+```
 
 ## Usage Example
 
@@ -69,4 +98,4 @@ var manager = MBWindowManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

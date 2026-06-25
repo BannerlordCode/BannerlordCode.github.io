@@ -1,13 +1,7 @@
 ---
 title: "FactionManager"
+description: "Auto-generated class reference for FactionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FactionManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FactionManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,32 +29,62 @@ Treat `FactionManager` as a Manager-style extension point: first identify who cr
 ### DeclareWar
 `public static void DeclareWar(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Handles logic related to `declare war`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+FactionManager.DeclareWar(faction1, faction2);
+```
 
 ### SetNeutral
 `public static void SetNeutral(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Sets the value or state of `neutral`.
+**Purpose:** Assigns a new value to `neutral` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+FactionManager.SetNeutral(faction1, faction2);
+```
 
 ### IsAtWarAgainstFaction
 `public static bool IsAtWarAgainstFaction(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Handles logic related to `is at war against faction`.
+**Purpose:** Determines whether the current object is in the `at war against faction` state or condition.
+
+```csharp
+// Static call; no instance required
+FactionManager.IsAtWarAgainstFaction(faction1, faction2);
+```
 
 ### IsAtConstantWarAgainstFaction
 `public static bool IsAtConstantWarAgainstFaction(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Handles logic related to `is at constant war against faction`.
+**Purpose:** Determines whether the current object is in the `at constant war against faction` state or condition.
+
+```csharp
+// Static call; no instance required
+FactionManager.IsAtConstantWarAgainstFaction(faction1, faction2);
+```
 
 ### IsNeutralWithFaction
 `public static bool IsNeutralWithFaction(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Handles logic related to `is neutral with faction`.
+**Purpose:** Determines whether the current object is in the `neutral with faction` state or condition.
+
+```csharp
+// Static call; no instance required
+FactionManager.IsNeutralWithFaction(faction1, faction2);
+```
 
 ### GetRelationBetweenClans
 `public static int GetRelationBetweenClans(Clan clan1, Clan clan2)`
 
-**Purpose:** Gets the current value of `relation between clans`.
+**Purpose:** Reads and returns the `relation between clans` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FactionManager.GetRelationBetweenClans(clan1, clan2);
+```
 
 ## Usage Example
 
@@ -70,4 +94,4 @@ var manager = FactionManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

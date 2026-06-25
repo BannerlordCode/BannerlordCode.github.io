@@ -1,20 +1,14 @@
 ---
 title: "OwnedFlagCountCondition"
+description: "OwnedFlagCountCondition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OwnedFlagCountCondition`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OwnedFlagCountCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OwnedFlagCountCondition : MPPerkCondition<MissionMultiplayerFlagDomination>`
 **Base:** `MPPerkCondition<MissionMultiplayerFlagDomination>`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/OwnedFlagCountCondition.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/OwnedFlagCountCondition.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "OwnedFlagCountCondition"
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 OwnedFlagCountCondition 实例
+OwnedFlagCountCondition ownedFlagCountCondition = ...;
+var result = ownedFlagCountCondition.Check(peer);
+```
 
 ### Check
 `public override bool Check(Agent agent)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 OwnedFlagCountCondition 实例
+OwnedFlagCountCondition ownedFlagCountCondition = ...;
+var result = ownedFlagCountCondition.Check(agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OwnedFlagCountCondition();
-value.Check(peer);
+// 通常从对应子系统 API 获取实例后调用
+OwnedFlagCountCondition ownedFlagCountCondition = ...;
+ownedFlagCountCondition.Check(peer);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CrimeCampaignBehavior"
+description: "CrimeCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CrimeCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CrimeCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CrimeCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CrimeCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CrimeCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,105 +23,203 @@ title: "CrimeCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeCampaignBehavior 实例
+CrimeCampaignBehavior crimeCampaignBehavior = ...;
+crimeCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 CrimeCampaignBehavior 实例
+CrimeCampaignBehavior crimeCampaignBehavior = ...;
+crimeCampaignBehavior.SyncData(dataStore);
+```
 
 ### game_menu_town_criminal_on_init
 `public static void game_menu_town_criminal_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_town_criminal_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.game_menu_town_criminal_on_init(args);
+```
 
 ### town_inside_criminal_on_init
 `public static void town_inside_criminal_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `town_inside_criminal_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.town_inside_criminal_on_init(args);
+```
 
 ### town_discuss_criminal_surrender_on_init
 `public static void town_discuss_criminal_surrender_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `town_discuss_criminal_surrender_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.town_discuss_criminal_surrender_on_init(args);
+```
 
 ### criminal_inside_menu_pay_by_punishment_on_condition
 `public static bool criminal_inside_menu_pay_by_punishment_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_pay_by_punishment_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_pay_by_punishment_on_condition(args);
+```
 
 ### criminal_inside_menu_pay_by_punishment_on_consequence
 `public static void criminal_inside_menu_pay_by_punishment_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_pay_by_punishment_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_pay_by_punishment_on_consequence(args);
+```
 
 ### criminal_inside_menu_give_money_on_condition
 `public static bool criminal_inside_menu_give_money_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_give_money_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_give_money_on_condition(args);
+```
 
 ### criminal_inside_menu_give_money_on_consequence
 `public static void criminal_inside_menu_give_money_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_give_money_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_give_money_on_consequence(args);
+```
 
 ### criminal_inside_menu_give_influence_on_condition
 `public static bool criminal_inside_menu_give_influence_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_give_influence_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_give_influence_on_condition(args);
+```
 
 ### criminal_inside_menu_give_influence_on_consequence
 `public static void criminal_inside_menu_give_influence_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_give_influence_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_give_influence_on_consequence(args);
+```
 
 ### criminal_inside_menu_give_punishment_and_money_on_condition
 `public static bool criminal_inside_menu_give_punishment_and_money_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_give_punishment_and_money_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_give_punishment_and_money_on_condition(args);
+```
 
 ### criminal_inside_menu_give_punishment_and_money_on_consequence
 `public static void criminal_inside_menu_give_punishment_and_money_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_give_punishment_and_money_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_give_punishment_and_money_on_consequence(args);
+```
 
 ### criminal_inside_menu_give_your_life_on_condition
 `public static bool criminal_inside_menu_give_your_life_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_give_your_life_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_give_your_life_on_condition(args);
+```
 
 ### criminal_inside_menu_give_your_life_on_consequence
 `public static void criminal_inside_menu_give_your_life_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_give_your_life_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_give_your_life_on_consequence(args);
+```
 
 ### criminal_inside_menu_ignore_charges_on_condition
 `public static bool criminal_inside_menu_ignore_charges_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_ignore_charges_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_ignore_charges_on_condition(args);
+```
 
 ### criminal_inside_menu_ignore_charges_on_consequence
 `public static void criminal_inside_menu_ignore_charges_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `criminal_inside_menu_ignore_charges_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.criminal_inside_menu_ignore_charges_on_consequence(args);
+```
 
 ### town_discuss_criminal_surrender_back_on_consequence
 `public static void town_discuss_criminal_surrender_back_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `town_discuss_criminal_surrender_back_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.town_discuss_criminal_surrender_back_on_consequence(args);
+```
 
 ### town_discuss_criminal_surrender_on_condition
 `public static bool town_discuss_criminal_surrender_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `town_discuss_criminal_surrender_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CrimeCampaignBehavior.town_discuss_criminal_surrender_on_condition(args);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CrimeCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+CrimeCampaignBehavior crimeCampaignBehavior = ...;
+crimeCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

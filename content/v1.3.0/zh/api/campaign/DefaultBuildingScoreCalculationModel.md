@@ -1,13 +1,7 @@
 ---
 title: "DefaultBuildingScoreCalculationModel"
+description: "DefaultBuildingScoreCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultBuildingScoreCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBuildingScoreCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,12 +23,24 @@ title: "DefaultBuildingScoreCalculationModel"
 ### GetNextDailyBuilding
 `public override Building GetNextDailyBuilding(Town town)`
 
-**用途 / Purpose:** 获取 `next daily building` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next daily building」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBuildingScoreCalculationModel 实例
+DefaultBuildingScoreCalculationModel defaultBuildingScoreCalculationModel = ...;
+var result = defaultBuildingScoreCalculationModel.GetNextDailyBuilding(town);
+```
 
 ### GetNextBuilding
 `public override Building GetNextBuilding(Town town)`
 
-**用途 / Purpose:** 获取 `next building` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next building」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBuildingScoreCalculationModel 实例
+DefaultBuildingScoreCalculationModel defaultBuildingScoreCalculationModel = ...;
+var result = defaultBuildingScoreCalculationModel.GetNextBuilding(town);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultBuildingScoreCalculationModel>(new MyDefaultBui
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

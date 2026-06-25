@@ -1,13 +1,7 @@
 ---
 title: "BindingListFloatItem"
+description: "Auto-generated class reference for BindingListFloatItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BindingListFloatItem`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BindingListFloatItem
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ## Usage Example
 
 ```csharp
-var value = new BindingListFloatItem();
+// Obtain an instance from the relevant subsystem API
+BindingListFloatItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

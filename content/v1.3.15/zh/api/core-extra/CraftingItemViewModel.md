@@ -1,13 +1,7 @@
 ---
 title: "CraftingItemViewModel"
+description: "CraftingItemViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingItemViewModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingItemViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -36,20 +30,33 @@ title: "CraftingItemViewModel"
 ### GetWeaponClass
 `public WeaponClass GetWeaponClass()`
 
-**用途 / Purpose:** 获取 `weapon class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「weapon class」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingItemViewModel 实例
+CraftingItemViewModel craftingItemViewModel = ...;
+var result = craftingItemViewModel.GetWeaponClass();
+```
 
 ### SetCraftingData
 `public void SetCraftingData(WeaponClass weaponClass, WeaponDesignElement craftingPieces)`
 
-**用途 / Purpose:** 设置 `crafting data` 的值或状态。
+**用途 / Purpose:** 为 「crafting data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingItemViewModel 实例
+CraftingItemViewModel craftingItemViewModel = ...;
+craftingItemViewModel.SetCraftingData(weaponClass, craftingPieces);
+```
 
 ## 使用示例
 
 ```csharp
-var vm = new CraftingItemViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+CraftingItemViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

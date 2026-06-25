@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletAdminPanel"
+description: "MissionGauntletAdminPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletAdminPanel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletAdminPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletAdminPanel : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletAdminPanel.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletAdminPanel.cs`
 
 ## 概述
 
@@ -29,60 +23,121 @@ title: "MissionGauntletAdminPanel"
 ### CreateOptionProviderDelegeate
 `public delegate IAdminPanelOptionProvider CreateOptionProviderDelegeate()`
 
-**用途 / Purpose:** 创建一个 `option provider delegeate` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「option provider delegeate」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+var result = missionGauntletAdminPanel.CreateOptionProviderDelegeate();
+```
 
 ### CreateOptionViewModelDelegate
 `public delegate MultiplayerAdminPanelOptionBaseVM CreateOptionViewModelDelegate(IAdminPanelOption option)`
 
-**用途 / Purpose:** 创建一个 `option view model delegate` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「option view model delegate」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+var result = missionGauntletAdminPanel.CreateOptionViewModelDelegate(option);
+```
 
 ### CreateActionViewModelDelegate
 `public delegate MultiplayerAdminPanelOptionBaseVM CreateActionViewModelDelegate(IAdminPanelAction action)`
 
-**用途 / Purpose:** 创建一个 `action view model delegate` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「action view model delegate」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+var result = missionGauntletAdminPanel.CreateActionViewModelDelegate(action);
+```
 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.OnMissionScreenFinalize();
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+var result = missionGauntletAdminPanel.OnEscape();
+```
 
 ### AddOptionProviderCreator
 `public void AddOptionProviderCreator(CreateOptionProviderDelegeate creator)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `option provider creator`。
+**用途 / Purpose:** 将 「option provider creator」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.AddOptionProviderCreator(creator);
+```
 
 ### AddOptionViewModelCreator
 `public void AddOptionViewModelCreator(CreateOptionViewModelDelegate creator)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `option view model creator`。
+**用途 / Purpose:** 将 「option view model creator」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.AddOptionViewModelCreator(creator);
+```
 
 ### AddActionViewModelCreator
 `public void AddActionViewModelCreator(CreateActionViewModelDelegate creator)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `action view model creator`。
+**用途 / Purpose:** 将 「action view model creator」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.AddActionViewModelCreator(creator);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionGauntletAdminPanel();
-value.CreateOptionProviderDelegeate();
+// 通常从对应子系统 API 获取实例后调用
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.CreateOptionProviderDelegeate();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

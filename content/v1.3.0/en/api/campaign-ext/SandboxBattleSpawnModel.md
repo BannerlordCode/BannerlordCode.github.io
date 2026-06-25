@@ -1,13 +1,7 @@
 ---
 title: "SandboxBattleSpawnModel"
+description: "Auto-generated class reference for SandboxBattleSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxBattleSpawnModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxBattleSpawnModel
 
 **Namespace:** SandBox.GameComponents
@@ -29,22 +23,46 @@ Treat `SandboxBattleSpawnModel` as a Model-style extension point: first identify
 ### OnMissionStart
 `public override void OnMissionStart()`
 
-**Purpose:** Called when the `mission start` event is raised.
+**Purpose:** Invoked when the `mission start` event is raised.
+
+```csharp
+// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
+SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
+sandboxBattleSpawnModel.OnMissionStart();
+```
 
 ### OnMissionEnd
 `public override void OnMissionEnd()`
 
-**Purpose:** Called when the `mission end` event is raised.
+**Purpose:** Invoked when the `mission end` event is raised.
+
+```csharp
+// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
+SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
+sandboxBattleSpawnModel.OnMissionEnd();
+```
 
 ### GetInitialSpawnAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Gets the current value of `initial spawn assignments`.
+**Purpose:** Reads and returns the `initial spawn assignments` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
+SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
+var result = sandboxBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+```
 
 ### GetReinforcementAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Gets the current value of `reinforcement assignments`.
+**Purpose:** Reads and returns the `reinforcement assignments` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
+SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
+var result = sandboxBattleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<SandboxBattleSpawnModel>(new MySandboxBattleSpawnModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

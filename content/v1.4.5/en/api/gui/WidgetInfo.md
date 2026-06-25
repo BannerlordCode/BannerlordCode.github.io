@@ -1,20 +1,14 @@
 ---
 title: "WidgetInfo"
+description: "Auto-generated class reference for WidgetInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetInfo`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetInfo
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/WidgetInfo.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/WidgetInfo.cs`
 
 ## Overview
 
@@ -40,17 +34,32 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Refresh
 `public static void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Static call; no instance required
+WidgetInfo.Refresh();
+```
 
 ### GetWidgetInfo
 `public static WidgetInfo GetWidgetInfo(Type type)`
 
-**Purpose:** Gets the current value of `widget info`.
+**Purpose:** Reads and returns the `widget info` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WidgetInfo.GetWidgetInfo(type);
+```
 
 ### GetWidgetInfos
 `public static WidgetInfo GetWidgetInfos()`
 
-**Purpose:** Gets the current value of `widget infos`.
+**Purpose:** Reads and returns the `widget infos` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WidgetInfo.GetWidgetInfos();
+```
 
 ## Usage Example
 
@@ -60,4 +69,4 @@ WidgetInfo.Refresh();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

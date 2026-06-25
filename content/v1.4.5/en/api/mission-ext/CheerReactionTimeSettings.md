@@ -1,20 +1,14 @@
 ---
 title: "CheerReactionTimeSettings"
+description: "Auto-generated class reference for CheerReactionTimeSettings."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheerReactionTimeSettings`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheerReactionTimeSettings
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CheerReactionTimeSettings`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CheerReactionTimeSettings
 `public struct CheerReactionTimeSettings(float minDuration, float maxDuration)`
 
-**Purpose:** Handles logic related to `cheer reaction time settings`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CheerReactionTimeSettings from the subsystem API first
+CheerReactionTimeSettings cheerReactionTimeSettings = ...;
+var result = cheerReactionTimeSettings.CheerReactionTimeSettings(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CheerReactionTimeSettings();
-value.CheerReactionTimeSettings(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CheerReactionTimeSettings cheerReactionTimeSettings = ...;
+cheerReactionTimeSettings.CheerReactionTimeSettings(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

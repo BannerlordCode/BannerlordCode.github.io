@@ -1,13 +1,7 @@
 ---
 title: "MapConversationAgent"
+description: "Auto-generated class reference for MapConversationAgent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationAgent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationAgent
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
@@ -39,30 +33,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ### IsEnemyOf
 `public bool IsEnemyOf(IAgent agent)`
 
-**Purpose:** Handles logic related to `is enemy of`.
+**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+
+```csharp
+// Obtain an instance of MapConversationAgent from the subsystem API first
+MapConversationAgent mapConversationAgent = ...;
+var result = mapConversationAgent.IsEnemyOf(agent);
+```
 
 ### IsFriendOf
 `public bool IsFriendOf(IAgent agent)`
 
-**Purpose:** Handles logic related to `is friend of`.
+**Purpose:** Determines whether the current object is in the `friend of` state or condition.
+
+```csharp
+// Obtain an instance of MapConversationAgent from the subsystem API first
+MapConversationAgent mapConversationAgent = ...;
+var result = mapConversationAgent.IsFriendOf(agent);
+```
 
 ### IsActive
 `public bool IsActive()`
 
-**Purpose:** Handles logic related to `is active`.
+**Purpose:** Determines whether the current object is in the `active` state or condition.
+
+```csharp
+// Obtain an instance of MapConversationAgent from the subsystem API first
+MapConversationAgent mapConversationAgent = ...;
+var result = mapConversationAgent.IsActive();
+```
 
 ### SetAsConversationAgent
 `public void SetAsConversationAgent(bool set)`
 
-**Purpose:** Sets the value or state of `as conversation agent`.
+**Purpose:** Assigns a new value to `as conversation agent` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationAgent from the subsystem API first
+MapConversationAgent mapConversationAgent = ...;
+mapConversationAgent.SetAsConversationAgent(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapConversationAgent();
-value.IsEnemyOf(agent);
+// Typically call this after obtaining an instance from the subsystem API
+MapConversationAgent mapConversationAgent = ...;
+mapConversationAgent.IsEnemyOf(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SkillObject"
+description: "Auto-generated class reference for SkillObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillObject`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillObject
 
 **Namespace:** TaleWorlds.Core
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SkillObject from the subsystem API first
+SkillObject skillObject = ...;
+var result = skillObject.ToString();
+```
 
 ### Initialize
 `public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute attributes)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SkillObject from the subsystem API first
+SkillObject skillObject = ...;
+var result = skillObject.Initialize(name, description, attributes);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkillObject();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+SkillObject skillObject = ...;
+skillObject.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

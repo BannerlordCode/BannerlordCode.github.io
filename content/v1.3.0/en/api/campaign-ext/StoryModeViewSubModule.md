@@ -1,13 +1,7 @@
 ---
 title: "StoryModeViewSubModule"
+description: "Auto-generated class reference for StoryModeViewSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeViewSubModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeViewSubModule
 
 **Namespace:** StoryMode.View
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.View` to place it in the stack, then inspect its
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** Called when the `game initialization finished` event is raised.
+**Purpose:** Invoked when the `game initialization finished` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeViewSubModule from the subsystem API first
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnGameInitializationFinished(game);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeViewSubModule from the subsystem API first
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnGameEnd(game);
+```
 
 ### OnSubModuleDeactivated
 `public override void OnSubModuleDeactivated()`
 
-**Purpose:** Called when the `sub module deactivated` event is raised.
+**Purpose:** Invoked when the `sub module deactivated` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeViewSubModule from the subsystem API first
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnSubModuleDeactivated();
+```
 
 ### OnSubModuleActivated
 `public override void OnSubModuleActivated()`
 
-**Purpose:** Called when the `sub module activated` event is raised.
+**Purpose:** Invoked when the `sub module activated` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeViewSubModule from the subsystem API first
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnSubModuleActivated();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StoryModeViewSubModule();
-value.OnGameInitializationFinished(game);
+// Typically call this after obtaining an instance from the subsystem API
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnGameInitializationFinished(game);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

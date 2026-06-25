@@ -1,20 +1,14 @@
 ---
 title: "Integer"
+description: "Auto-generated class reference for Integer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Integer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Integer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct Integer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Gets the current value of `num bits`.
+**Purpose:** Reads and returns the `num bits` value held by the current object.
+
+```csharp
+// Obtain an instance of Integer from the subsystem API first
+Integer integer = ...;
+var result = integer.GetNumBits();
+```
 
 ### GetMaximumValue
 `public int GetMaximumValue()`
 
-**Purpose:** Gets the current value of `maximum value`.
+**Purpose:** Reads and returns the `maximum value` value held by the current object.
+
+```csharp
+// Obtain an instance of Integer from the subsystem API first
+Integer integer = ...;
+var result = integer.GetMaximumValue();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Integer();
-value.GetNumBits();
+// Typically call this after obtaining an instance from the subsystem API
+Integer integer = ...;
+integer.GetNumBits();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

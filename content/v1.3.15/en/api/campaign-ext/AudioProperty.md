@@ -1,13 +1,7 @@
 ---
 title: "AudioProperty"
+description: "Auto-generated class reference for AudioProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AudioProperty`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AudioProperty
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(AudioProperty audioProperty)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AudioProperty from the subsystem API first
+AudioProperty audioProperty = ...;
+audioProperty.FillFrom(audioProperty);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AudioProperty();
-value.FillFrom(audioProperty);
+// Typically call this after obtaining an instance from the subsystem API
+AudioProperty audioProperty = ...;
+audioProperty.FillFrom(audioProperty);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

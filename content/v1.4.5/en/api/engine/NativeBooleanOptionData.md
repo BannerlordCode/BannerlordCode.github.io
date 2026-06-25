@@ -1,20 +1,14 @@
 ---
 title: "NativeBooleanOptionData"
+description: "Auto-generated class reference for NativeBooleanOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeBooleanOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeBooleanOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
 **Type:** `public class NativeBooleanOptionData : NativeOptionData, IBooleanOptionData, IOptionData`
 **Base:** `NativeOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeBooleanOptionData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeBooleanOptionData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `NativeBooleanOptionData` as a Data-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var value = new NativeBooleanOptionData();
+// This data object is usually returned by campaign/mission APIs
+NativeBooleanOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

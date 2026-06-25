@@ -1,20 +1,14 @@
 ---
 title: "MBList"
+description: "Auto-generated class reference for MBList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBList`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class MBList<T> : MBReadOnlyList<T>`
 **Base:** `MBReadOnlyList<T>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBList.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBList.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new MBList();
+// Obtain an instance from the relevant subsystem API
+MBList instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SceneNotificationDescriptionTextWidget"
+description: "Auto-generated class reference for SceneNotificationDescriptionTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneNotificationDescriptionTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneNotificationDescriptionTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SceneNotificationDescriptionTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SceneNotificationDescriptionTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SceneNotificationDescriptionTextWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `SceneNotificationDescriptionTextWidget` as a Widget-style extension point
 ## Usage Example
 
 ```csharp
-var widget = new SceneNotificationDescriptionTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SceneNotificationDescriptionTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionCrimeHandler"
+description: "MissionCrimeHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionCrimeHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCrimeHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class MissionCrimeHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionCrimeHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionCrimeHandler.cs`
 
 ## 概述
 
@@ -27,9 +21,9 @@ title: "MissionCrimeHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionCrimeHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionCrimeHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

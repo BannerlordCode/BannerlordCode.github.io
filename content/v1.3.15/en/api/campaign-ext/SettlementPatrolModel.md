@@ -1,13 +1,7 @@
 ---
 title: "SettlementPatrolModel"
+description: "Auto-generated class reference for SettlementPatrolModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementPatrolModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementPatrolModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ Treat `SettlementPatrolModel` as a Model-style extension point: first identify w
 ### GetPatrolPartySpawnDuration
 `public abstract CampaignTime GetPatrolPartySpawnDuration(Settlement settlement, bool naval)`
 
-**Purpose:** Gets the current value of `patrol party spawn duration`.
+**Purpose:** Reads and returns the `patrol party spawn duration` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementPatrolModel from the subsystem API first
+SettlementPatrolModel settlementPatrolModel = ...;
+var result = settlementPatrolModel.GetPatrolPartySpawnDuration(settlement, false);
+```
 
 ### CanSettlementHavePatrolParties
 `public abstract bool CanSettlementHavePatrolParties(Settlement settlement, bool naval)`
 
-**Purpose:** Checks whether the current object can `settlement have patrol parties`.
+**Purpose:** Checks whether the current object meets the preconditions for `settlement have patrol parties`.
+
+```csharp
+// Obtain an instance of SettlementPatrolModel from the subsystem API first
+SettlementPatrolModel settlementPatrolModel = ...;
+var result = settlementPatrolModel.CanSettlementHavePatrolParties(settlement, false);
+```
 
 ### GetPartyTemplateForPatrolParty
 `public abstract PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement, bool naval)`
 
-**Purpose:** Gets the current value of `party template for patrol party`.
+**Purpose:** Reads and returns the `party template for patrol party` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementPatrolModel from the subsystem API first
+SettlementPatrolModel settlementPatrolModel = ...;
+var result = settlementPatrolModel.GetPartyTemplateForPatrolParty(settlement, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementPatrolModel();
+// Typically obtained from a subsystem API or factory
+SettlementPatrolModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

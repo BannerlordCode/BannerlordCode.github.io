@@ -1,20 +1,14 @@
 ---
 title: "StonePile"
+description: "StonePile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StonePile`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StonePile
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StonePile : UsableMachine, IDetachment`
 **Base:** `UsableMachine`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePile.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StonePile.cs`
 
 ## 概述
 
@@ -38,65 +32,132 @@ title: "StonePile"
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 处理 `read from network` 相关逻辑。
+**用途 / Purpose:** 读取「from network」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.ReadFromNetwork(bufferReadValid);
+```
 
 ### CanUseAttackEntity
 `public bool CanUseAttackEntity()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `use attack entity`。
+**用途 / Purpose:** 检查当前对象是否满足 「use attack entity」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.CanUseAttackEntity();
+```
 
 ### SetAmmo
 `public void SetAmmo(int ammoLeft)`
 
-**用途 / Purpose:** 设置 `ammo` 的值或状态。
+**用途 / Purpose:** 为 「ammo」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+stonePile.SetAmmo(0);
+```
 
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 处理 `after mission start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+stonePile.AfterMissionStart();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.GetDescriptionText(gameEntity);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** 创建一个 `a i behavior object` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「a i behavior object」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.CreateAIBehaviorObject();
+```
 
 ### IsInRangeToCheckAlternativePoints
 `public override bool IsInRangeToCheckAlternativePoints(Agent agent)`
 
-**用途 / Purpose:** 处理 `is in range to check alternative points` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「in range to check alternative points」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.IsInRangeToCheckAlternativePoints(agent);
+```
 
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**用途 / Purpose:** 获取 `best point alternative to` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「best point alternative to」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.GetBestPointAlternativeTo(standingPoint, agent);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+var result = stonePile.GetTickRequirement();
+```
 
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**用途 / Purpose:** 处理 `write to network` 相关逻辑。
+**用途 / Purpose:** 将「to network」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 StonePile 实例
+StonePile stonePile = ...;
+stonePile.WriteToNetwork();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StonePile();
-value.ReadFromNetwork(bufferReadValid);
+// 通常从对应子系统 API 获取实例后调用
+StonePile stonePile = ...;
+stonePile.ReadFromNetwork(bufferReadValid);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

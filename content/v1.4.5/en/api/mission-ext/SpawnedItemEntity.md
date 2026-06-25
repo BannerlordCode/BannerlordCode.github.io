@@ -1,20 +1,14 @@
 ---
 title: "SpawnedItemEntity"
+description: "Auto-generated class reference for SpawnedItemEntity."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnedItemEntity`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnedItemEntity
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnedItemEntity : UsableMissionObject`
 **Base:** `UsableMissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnedItemEntity.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SpawnedItemEntity.cs`
 
 ## Overview
 
@@ -37,100 +31,209 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetActionMessage
 `public TextObject GetActionMessage(ItemObject weaponToReplaceWith, bool fillUp)`
 
-**Purpose:** Gets the current value of `action message`.
+**Purpose:** Reads and returns the `action message` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetActionMessage(weaponToReplaceWith, false);
+```
 
 ### GetDescriptionMessage
 `public TextObject GetDescriptionMessage(bool fillUp)`
 
-**Purpose:** Gets the current value of `description message`.
+**Purpose:** Reads and returns the `description message` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetDescriptionMessage(false);
+```
 
 ### Initialize
 `public void Initialize(MissionWeapon weapon, bool hasLifeTime, Mission.WeaponSpawnFlags spawnFlags, in Vec3 fakeSimulationVelocity, bool spawnedOnACorpse = false)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.Initialize(weapon, false, spawnFlags, fakeSimulationVelocity, false);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetTickRequirement();
+```
 
 ### AttachWeaponToWeapon
 `public void AttachWeaponToWeapon(MissionWeapon attachedWeapon, ref MatrixFrame attachLocalFrame)`
 
-**Purpose:** Handles logic related to `attach weapon to weapon`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.AttachWeaponToWeapon(attachedWeapon, attachLocalFrame);
+```
 
 ### IsReadyToBeDeleted
 `public bool IsReadyToBeDeleted()`
 
-**Purpose:** Handles logic related to `is ready to be deleted`.
+**Purpose:** Determines whether the current object is in the `ready to be deleted` state or condition.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsReadyToBeDeleted();
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Called when the `use stopped` event is raised.
+**Purpose:** Invoked when the `use stopped` event is raised.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.OnUseStopped(userAgent, false, 0);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.OnUse(userAgent, 0);
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsDisabledForAgent(agent);
+```
 
 ### IsStuckMissile
 `public bool IsStuckMissile()`
 
-**Purpose:** Handles logic related to `is stuck missile`.
+**Purpose:** Determines whether the current object is in the `stuck missile` state or condition.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsStuckMissile();
+```
 
 ### IsQuiverAndNotEmpty
 `public bool IsQuiverAndNotEmpty()`
 
-**Purpose:** Handles logic related to `is quiver and not empty`.
+**Purpose:** Determines whether the current object is in the `quiver and not empty` state or condition.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsQuiverAndNotEmpty();
+```
 
 ### IsBanner
 `public bool IsBanner()`
 
-**Purpose:** Handles logic related to `is banner`.
+**Purpose:** Determines whether the current object is in the `banner` state or condition.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsBanner();
+```
 
 ### GetInfoTextForBeingNotInteractable
 `public override TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**Purpose:** Gets the current value of `info text for being not interactable`.
+**Purpose:** Reads and returns the `info text for being not interactable` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetInfoTextForBeingNotInteractable(userAgent);
+```
 
 ### StopPhysicsAndSetFrameForClient
 `public void StopPhysicsAndSetFrameForClient(MatrixFrame frame, GameEntity parent)`
 
-**Purpose:** Handles logic related to `stop physics and set frame for client`.
+**Purpose:** Stops the `physics and set frame for client` flow or state machine.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.StopPhysicsAndSetFrameForClient(frame, parent);
+```
 
 ### ConsumeWeaponAmount
 `public void ConsumeWeaponAmount(short consumedAmount)`
 
-**Purpose:** Handles logic related to `consume weapon amount`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.ConsumeWeaponAmount(0);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetDescriptionText(gameEntity);
+```
 
 ### RequestDeletionOnNextTick
 `public void RequestDeletionOnNextTick()`
 
-**Purpose:** Handles logic related to `request deletion on next tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.RequestDeletionOnNextTick();
+```
 
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**Purpose:** Called when the `after read from network` event is raised.
+**Purpose:** Invoked when the `after read from network` event is raised.
+
+```csharp
+// Obtain an instance of SpawnedItemEntity from the subsystem API first
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpawnedItemEntity();
-value.GetActionMessage(weaponToReplaceWith, false);
+// Typically call this after obtaining an instance from the subsystem API
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.GetActionMessage(weaponToReplaceWith, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "IncrementalTimer"
+description: "Auto-generated class reference for IncrementalTimer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IncrementalTimer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IncrementalTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public bool Check()`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of IncrementalTimer from the subsystem API first
+IncrementalTimer incrementalTimer = ...;
+var result = incrementalTimer.Check();
+```
 
 ### HasEnded
 `public bool HasEnded()`
 
-**Purpose:** Checks whether the current object has/contains `ended`.
+**Purpose:** Determines whether the current object already holds `ended`.
+
+```csharp
+// Obtain an instance of IncrementalTimer from the subsystem API first
+IncrementalTimer incrementalTimer = ...;
+var result = incrementalTimer.HasEnded();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IncrementalTimer();
-value.Check();
+// Typically call this after obtaining an instance from the subsystem API
+IncrementalTimer incrementalTimer = ...;
+incrementalTimer.Check();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

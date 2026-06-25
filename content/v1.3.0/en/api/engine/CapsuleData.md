@@ -1,13 +1,7 @@
 ---
 title: "CapsuleData"
+description: "Auto-generated class reference for CapsuleData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CapsuleData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CapsuleData
 
 **Namespace:** TaleWorlds.Engine
@@ -37,19 +31,32 @@ Treat `CapsuleData` as a Data-style extension point: first identify who creates 
 ### GetBoxMin
 `public Vec3 GetBoxMin()`
 
-**Purpose:** Gets the current value of `box min`.
+**Purpose:** Reads and returns the `box min` value held by the current object.
+
+```csharp
+// Obtain an instance of CapsuleData from the subsystem API first
+CapsuleData capsuleData = ...;
+var result = capsuleData.GetBoxMin();
+```
 
 ### GetBoxMax
 `public Vec3 GetBoxMax()`
 
-**Purpose:** Gets the current value of `box max`.
+**Purpose:** Reads and returns the `box max` value held by the current object.
+
+```csharp
+// Obtain an instance of CapsuleData from the subsystem API first
+CapsuleData capsuleData = ...;
+var result = capsuleData.GetBoxMax();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CapsuleData();
+// This data object is usually returned by campaign/mission APIs
+CapsuleData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

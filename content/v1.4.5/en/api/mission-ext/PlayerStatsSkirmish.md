@@ -1,20 +1,14 @@
 ---
 title: "PlayerStatsSkirmish"
+description: "Auto-generated class reference for PlayerStatsSkirmish."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerStatsSkirmish`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerStatsSkirmish
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsSkirmish : PlayerStatsRanked`
 **Base:** `PlayerStatsRanked`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsSkirmish.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsSkirmish.cs`
 
 ## Overview
 
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int rating, int ratingDeviation, string rank, bool evaluating, int evaluationMatchesPlayedCount, int mvps, int score)`
 
-**Purpose:** Handles logic related to `fill with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerStatsSkirmish from the subsystem API first
+PlayerStatsSkirmish playerStatsSkirmish = ...;
+playerStatsSkirmish.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0);
+```
 
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId, int defaultRating, int defaultRatingDeviation)`
 
-**Purpose:** Handles logic related to `fill with new player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerStatsSkirmish from the subsystem API first
+PlayerStatsSkirmish playerStatsSkirmish = ...;
+playerStatsSkirmish.FillWithNewPlayer(playerId, 0, 0);
+```
 
 ### Update
 `public void Update(BattlePlayerStatsSkirmish stats, bool won)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of PlayerStatsSkirmish from the subsystem API first
+PlayerStatsSkirmish playerStatsSkirmish = ...;
+playerStatsSkirmish.Update(stats, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerStatsSkirmish();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerStatsSkirmish playerStatsSkirmish = ...;
+playerStatsSkirmish.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

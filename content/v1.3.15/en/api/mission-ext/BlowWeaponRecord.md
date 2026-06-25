@@ -1,13 +1,7 @@
 ---
 title: "BlowWeaponRecord"
+description: "Auto-generated class reference for BlowWeaponRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BlowWeaponRecord`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BlowWeaponRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FillAsMeleeBlow
 `public void FillAsMeleeBlow(ItemObject item, WeaponComponentData weaponComponentData, int affectorWeaponSlot, sbyte weaponAttachBoneIndex)`
 
-**Purpose:** Handles logic related to `fill as melee blow`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BlowWeaponRecord from the subsystem API first
+BlowWeaponRecord blowWeaponRecord = ...;
+blowWeaponRecord.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
+```
 
 ### FillAsMissileBlow
 `public void FillAsMissileBlow(ItemObject item, WeaponComponentData weaponComponentData, int missileIndex, sbyte weaponAttachBoneIndex, Vec3 startingPosition, Vec3 currentPosition, Vec3 velocity)`
 
-**Purpose:** Handles logic related to `fill as missile blow`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BlowWeaponRecord from the subsystem API first
+BlowWeaponRecord blowWeaponRecord = ...;
+blowWeaponRecord.FillAsMissileBlow(item, weaponComponentData, 0, 0, startingPosition, currentPosition, velocity);
+```
 
 ### HasWeapon
 `public bool HasWeapon()`
 
-**Purpose:** Checks whether the current object has/contains `weapon`.
+**Purpose:** Determines whether the current object already holds `weapon`.
+
+```csharp
+// Obtain an instance of BlowWeaponRecord from the subsystem API first
+BlowWeaponRecord blowWeaponRecord = ...;
+var result = blowWeaponRecord.HasWeapon();
+```
 
 ### GetHitSound
 `public int GetHitSound(bool isOwnerHumanoid, bool isCriticalBlow, bool isLowBlow, bool isNonTipThrust, AgentAttackType attackType, DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `hit sound`.
+**Purpose:** Reads and returns the `hit sound` value held by the current object.
+
+```csharp
+// Obtain an instance of BlowWeaponRecord from the subsystem API first
+BlowWeaponRecord blowWeaponRecord = ...;
+var result = blowWeaponRecord.GetHitSound(false, false, false, false, attackType, damageType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BlowWeaponRecord();
-value.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+BlowWeaponRecord blowWeaponRecord = ...;
+blowWeaponRecord.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

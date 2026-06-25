@@ -1,18 +1,12 @@
 ---
 title: "IFaceGen"
+description: "Auto-generated class reference for IFaceGen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IFaceGen`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IFaceGen
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IFaceGen`
 **Base:** none
 **File:** `TaleWorlds.Core/IFaceGen.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IFaceGen implementation = GetFaceGenImplementation();
+// Usually obtained through DI or a factory method
+IIFaceGen service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

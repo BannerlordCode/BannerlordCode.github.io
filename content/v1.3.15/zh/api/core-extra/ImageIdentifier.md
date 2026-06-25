@@ -1,13 +1,7 @@
 ---
 title: "ImageIdentifier"
+description: "ImageIdentifier 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ImageIdentifier`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ImageIdentifier
 
 **Namespace:** TaleWorlds.Core.ImageIdentifiers
@@ -37,14 +31,21 @@ title: "ImageIdentifier"
 ### Equals
 `public bool Equals(ImageIdentifier other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 ImageIdentifier 实例
+ImageIdentifier imageIdentifier = ...;
+var result = imageIdentifier.Equals(other);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomImageIdentifier();
+// 通常通过子系统 API 或工厂获得派生实例
+ImageIdentifier instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

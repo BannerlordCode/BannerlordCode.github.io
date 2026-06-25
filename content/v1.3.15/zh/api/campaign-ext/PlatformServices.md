@@ -1,23 +1,18 @@
 ---
 title: "PlatformServices"
+description: "PlatformServices 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlatformServices`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlatformServices
 
-**命名空间:** TaleWorlds.PlatformService
-**模块:** TaleWorlds.PlatformService
-**类型:** `public class PlatformServices`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.PlatformService
+**Module:** TaleWorlds.PlatformService
+**Type:** `public class PlatformServices`
+**Base:** 无
+**File:** `TaleWorlds.PlatformService/PlatformServices.cs`
 
 ## 概述
 
-`PlatformServices` 位于 `TaleWorlds.PlatformService`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`PlatformServices` 位于 `TaleWorlds.PlatformService`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -42,76 +37,139 @@ title: "PlatformServices"
 ### Setup
 `public static void Setup(IPlatformServices platformServices)`
 
-**用途 / Purpose:** 设置 `up` 的值或状态。
+**用途 / Purpose:** 为 「up」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.Setup(platformServices);
+```
 
 ### Initialize
 `public static bool Initialize(IFriendListService additionalFriendListServices)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.Initialize(additionalFriendListServices);
+```
 
 ### Terminate
 `public static void Terminate()`
 
-**用途 / Purpose:** 处理 `terminate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.Terminate();
+```
 
 ### ConnectionStateChanged
 `public static void ConnectionStateChanged(bool isAuthenticated)`
 
-**用途 / Purpose:** 处理 `connection state changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.ConnectionStateChanged(false);
+```
 
 ### MultiplayerGameStateChanged
 `public static void MultiplayerGameStateChanged(bool isPlaying)`
 
-**用途 / Purpose:** 处理 `multiplayer game state changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.MultiplayerGameStateChanged(false);
+```
 
 ### LobbyClientStateChanged
 `public static void LobbyClientStateChanged(bool atLobby, bool isPartyLeaderOrSolo)`
 
-**用途 / Purpose:** 处理 `lobby client state changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.LobbyClientStateChanged(false, false);
+```
 
 ### FireOnSessionInvitationAccepted
 `public static void FireOnSessionInvitationAccepted(SessionInvitationType sessionInvitationType)`
 
-**用途 / Purpose:** 处理 `fire on session invitation accepted` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.FireOnSessionInvitationAccepted(sessionInvitationType);
+```
 
 ### FireOnPlatformRequestedMultiplayer
 `public static void FireOnPlatformRequestedMultiplayer()`
 
-**用途 / Purpose:** 处理 `fire on platform requested multiplayer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.FireOnPlatformRequestedMultiplayer();
+```
 
 ### OnSessionInvitationHandled
 `public static void OnSessionInvitationHandled()`
 
-**用途 / Purpose:** 当 `session invitation handled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session invitation handled」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.OnSessionInvitationHandled();
+```
 
 ### OnPlatformMultiplayerRequestHandled
 `public static void OnPlatformMultiplayerRequestHandled()`
 
-**用途 / Purpose:** 当 `platform multiplayer request handled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「platform multiplayer request handled」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.OnPlatformMultiplayerRequestHandled();
+```
 
 ### SetIsPlatformRequestedContinueGame
 `public static void SetIsPlatformRequestedContinueGame(bool isRequested)`
 
-**用途 / Purpose:** 设置 `is platform requested continue game` 的值或状态。
+**用途 / Purpose:** 为 「is platform requested continue game」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.SetIsPlatformRequestedContinueGame(false);
+```
 
 ### FilterString
 `public static Task<string> FilterString(string content, string defaultContent)`
 
-**用途 / Purpose:** 处理 `filter string` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.FilterString("example", "example");
+```
 
 ### TriggerInvitation
 `public static string TriggerInvitation(List<string> strings)`
 
-**用途 / Purpose:** 处理 `trigger invitation` 相关逻辑。
+**用途 / Purpose:** 触发「invitation」对应的逻辑或事件。
+
+```csharp
+// 静态调用，不需要实例
+PlatformServices.TriggerInvitation(strings);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 PlatformServices.Setup(platformServices);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

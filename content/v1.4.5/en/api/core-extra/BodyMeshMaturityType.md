@@ -1,20 +1,14 @@
 ---
 title: "BodyMeshMaturityType"
+description: "Auto-generated class reference for BodyMeshMaturityType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BodyMeshMaturityType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BodyMeshMaturityType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum BodyMeshMaturityType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BodyMeshMaturityType.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BodyMeshMaturityType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new BodyMeshMaturityType();
+// Obtain an instance from the relevant subsystem API
+BodyMeshMaturityType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

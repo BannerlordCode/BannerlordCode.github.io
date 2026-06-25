@@ -1,20 +1,14 @@
 ---
 title: "TownManagementReserveControlVM"
+description: "Auto-generated class reference for TownManagementReserveControlVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownManagementReserveControlVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownManagementReserveControlVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TownManagementReserveControlVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementReserveControlVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement/TownManagementReserveControlVM.cs`
 
 ## Overview
 
@@ -42,25 +36,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TownManagementReserveControlVM from the subsystem API first
+TownManagementReserveControlVM townManagementReserveControlVM = ...;
+townManagementReserveControlVM.RefreshValues();
+```
 
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**Purpose:** Executes the `confirm` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `confirm`.
+
+```csharp
+// Obtain an instance of TownManagementReserveControlVM from the subsystem API first
+TownManagementReserveControlVM townManagementReserveControlVM = ...;
+townManagementReserveControlVM.ExecuteConfirm();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of TownManagementReserveControlVM from the subsystem API first
+TownManagementReserveControlVM townManagementReserveControlVM = ...;
+townManagementReserveControlVM.ExecuteCancel();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TownManagementReserveControlVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TownManagementReserveControlVM townManagementReserveControlVM = ...;
+townManagementReserveControlVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

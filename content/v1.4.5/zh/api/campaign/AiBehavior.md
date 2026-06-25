@@ -1,20 +1,14 @@
 ---
 title: "AiBehavior"
+description: "AiBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AiBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AiBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum AiBehavior`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/AiBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/AiBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "AiBehavior"
 ## 使用示例
 
 ```csharp
-var example = new AiBehavior();
+// 从对应子系统 API 获取实例
+AiBehavior instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MapConversationTableauWidget"
+description: "Auto-generated class reference for MapConversationTableauWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationTableauWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapConversationTableauWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapConversation
@@ -35,14 +29,21 @@ Treat `MapConversationTableauWidget` as a Widget-style extension point: first id
 ### OnClearTextureProvider
 `public override void OnClearTextureProvider()`
 
-**Purpose:** Called when the `clear texture provider` event is raised.
+**Purpose:** Invoked when the `clear texture provider` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationTableauWidget from the subsystem API first
+MapConversationTableauWidget mapConversationTableauWidget = ...;
+mapConversationTableauWidget.OnClearTextureProvider();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MapConversationTableauWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapConversationTableauWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

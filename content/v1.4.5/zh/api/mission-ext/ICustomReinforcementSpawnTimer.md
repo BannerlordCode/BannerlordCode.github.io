@@ -1,20 +1,14 @@
 ---
 title: "ICustomReinforcementSpawnTimer"
+description: "ICustomReinforcementSpawnTimer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICustomReinforcementSpawnTimer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICustomReinforcementSpawnTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ICustomReinforcementSpawnTimer`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICustomReinforcementSpawnTimer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ICustomReinforcementSpawnTimer.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ICustomReinforcementSpawnTimer"
 ## 使用示例
 
 ```csharp
-ICustomReinforcementSpawnTimer implementation = GetCustomReinforcementSpawnTimerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICustomReinforcementSpawnTimer service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

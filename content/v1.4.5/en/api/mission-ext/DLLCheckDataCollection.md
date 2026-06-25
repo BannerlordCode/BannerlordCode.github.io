@@ -1,20 +1,14 @@
 ---
 title: "DLLCheckDataCollection"
+description: "Auto-generated class reference for DLLCheckDataCollection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DLLCheckDataCollection`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DLLCheckDataCollection
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DLLCheckDataCollection`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/DLLCheckDataCollection.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/DLLCheckDataCollection.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library.UserDatas` to pl
 ## Usage Example
 
 ```csharp
-var example = new DLLCheckDataCollection();
+// Obtain an instance from the relevant subsystem API
+DLLCheckDataCollection instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ShipSlot"
+description: "Auto-generated class reference for ShipSlot."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipSlot`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipSlot
 
 **Namespace:** TaleWorlds.Core
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### AfterRegister
 `public override void AfterRegister()`
 
-**Purpose:** Handles logic related to `after register`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ShipSlot from the subsystem API first
+ShipSlot shipSlot = ...;
+shipSlot.AfterRegister();
+```
 
 ### AddMatchingPiece
 `public void AddMatchingPiece(ShipUpgradePiece upgradePiece)`
 
 **Purpose:** Adds `matching piece` to the current collection or state.
 
+```csharp
+// Obtain an instance of ShipSlot from the subsystem API first
+ShipSlot shipSlot = ...;
+shipSlot.AddMatchingPiece(upgradePiece);
+```
+
 ### GetSlotTypeName
 `public TextObject GetSlotTypeName()`
 
-**Purpose:** Gets the current value of `slot type name`.
+**Purpose:** Reads and returns the `slot type name` value held by the current object.
+
+```csharp
+// Obtain an instance of ShipSlot from the subsystem API first
+ShipSlot shipSlot = ...;
+var result = shipSlot.GetSlotTypeName();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ShipSlot from the subsystem API first
+ShipSlot shipSlot = ...;
+shipSlot.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipSlot();
-value.AfterRegister();
+// Typically call this after obtaining an instance from the subsystem API
+ShipSlot shipSlot = ...;
+shipSlot.AfterRegister();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

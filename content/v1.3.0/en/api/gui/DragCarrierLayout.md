@@ -1,13 +1,7 @@
 ---
 title: "DragCarrierLayout"
+description: "Auto-generated class reference for DragCarrierLayout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DragCarrierLayout`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DragCarrierLayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new DragCarrierLayout();
+// Obtain an instance from the relevant subsystem API
+DragCarrierLayout instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "KillingBlow"
+description: "KillingBlow 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KillingBlow`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KillingBlow
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct KillingBlow`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/KillingBlow.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/KillingBlow.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "KillingBlow"
 ### KillingBlow
 `public struct KillingBlow(Blow b, Vec3 ragdollImpulsePoint, Vec3 ragdollImpulseAmount, int deathAction, int weaponItemKind, Agent.KillInfo overrideKillInfo = Agent.KillInfo.Invalid)`
 
-**用途 / Purpose:** 处理 `killing blow` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KillingBlow 实例
+KillingBlow killingBlow = ...;
+var result = killingBlow.KillingBlow(b, ragdollImpulsePoint, ragdollImpulseAmount, 0, 0, agent.KillInfo.Invalid);
+```
 
 ### IsHeadShot
 `public bool IsHeadShot()`
 
-**用途 / Purpose:** 处理 `is head shot` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「head shot」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 KillingBlow 实例
+KillingBlow killingBlow = ...;
+var result = killingBlow.IsHeadShot();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KillingBlow();
-value.KillingBlow(b, ragdollImpulsePoint, ragdollImpulseAmount, 0, 0, agent.KillInfo.Invalid);
+// 通常从对应子系统 API 获取实例后调用
+KillingBlow killingBlow = ...;
+killingBlow.KillingBlow(b, ragdollImpulsePoint, ragdollImpulseAmount, 0, 0, agent.KillInfo.Invalid);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

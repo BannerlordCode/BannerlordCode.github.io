@@ -1,20 +1,14 @@
 ---
 title: "GameKeyDefinition"
+description: "GameKeyDefinition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameKeyDefinition`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyDefinition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum GameKeyDefinition`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyDefinition.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameKeyDefinition.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GameKeyDefinition"
 ## 使用示例
 
 ```csharp
-var example = new GameKeyDefinition();
+// 从对应子系统 API 获取实例
+GameKeyDefinition instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

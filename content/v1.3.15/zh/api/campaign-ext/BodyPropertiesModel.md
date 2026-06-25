@@ -1,13 +1,7 @@
 ---
 title: "BodyPropertiesModel"
+description: "BodyPropertiesModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BodyPropertiesModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BodyPropertiesModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ title: "BodyPropertiesModel"
 ### GetHairIndicesForCulture
 `public abstract int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** 获取 `hair indices for culture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hair indices for culture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BodyPropertiesModel 实例
+BodyPropertiesModel bodyPropertiesModel = ...;
+var result = bodyPropertiesModel.GetHairIndicesForCulture(0, 0, 0, culture);
+```
 
 ### GetBeardIndicesForCulture
 `public abstract int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** 获取 `beard indices for culture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「beard indices for culture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BodyPropertiesModel 实例
+BodyPropertiesModel bodyPropertiesModel = ...;
+var result = bodyPropertiesModel.GetBeardIndicesForCulture(0, 0, 0, culture);
+```
 
 ### GetTattooIndicesForCulture
 `public abstract int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** 获取 `tattoo indices for culture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tattoo indices for culture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BodyPropertiesModel 实例
+BodyPropertiesModel bodyPropertiesModel = ...;
+var result = bodyPropertiesModel.GetTattooIndicesForCulture(0, 0, 0, culture);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBodyPropertiesModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BodyPropertiesModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

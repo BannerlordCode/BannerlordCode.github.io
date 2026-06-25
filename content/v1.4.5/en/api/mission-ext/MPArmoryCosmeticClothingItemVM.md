@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticClothingItemVM"
+description: "Auto-generated class reference for MPArmoryCosmeticClothingItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryCosmeticClothingItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticClothingItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryCosmeticClothingItemVM : MPArmoryCosmeticItemBaseVM`
 **Base:** `MPArmoryCosmeticItemBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticClothingItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticClothingItemVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticClothingItemVM from the subsystem API first
+MPArmoryCosmeticClothingItemVM mPArmoryCosmeticClothingItemVM = ...;
+mPArmoryCosmeticClothingItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPArmoryCosmeticClothingItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPArmoryCosmeticClothingItemVM mPArmoryCosmeticClothingItemVM = ...;
+mPArmoryCosmeticClothingItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TownHorseRaceMissionController"
+description: "TownHorseRaceMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TownHorseRaceMissionController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownHorseRaceMissionController
 
 **Namespace:** SandBox.Tournaments.MissionLogics
@@ -36,47 +30,101 @@ title: "TownHorseRaceMissionController"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.OnMissionTick(0);
+```
 
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**用途 / Purpose:** 处理 `start match` 相关逻辑。
+**用途 / Purpose:** 启动「match」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.StartMatch(match, false);
+```
 
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**用途 / Purpose:** 处理 `skip match` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.SkipMatch(match);
+```
 
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**用途 / Purpose:** 处理 `is match ended` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「match ended」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+var result = townHorseRaceMissionController.IsMatchEnded();
+```
 
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**用途 / Purpose:** 当 `match ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「match ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.OnMatchEnded();
+```
 
 ### GetBestTargetPosition
 `public Vec3 GetBestTargetPosition()`
 
-**用途 / Purpose:** 获取 `best target position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「best target position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+var result = townHorseRaceMissionController.GetBestTargetPosition();
+```
 
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `to check list`。
+**用途 / Purpose:** 将 「to check list」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.AddToCheckList(agent);
+```
 
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `from check list`。
+**用途 / Purpose:** 从当前容器或状态中移除 「from check list」。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceMissionController 实例
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.RemoveFromCheckList(agent);
+```
 
 ## 使用示例
 
@@ -86,4 +134,4 @@ var controller = Mission.Current.GetMissionBehavior<TownHorseRaceMissionControll
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

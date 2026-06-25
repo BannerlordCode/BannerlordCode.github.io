@@ -1,20 +1,14 @@
 ---
 title: "FaceGeneratorScreen"
+description: "Auto-generated class reference for FaceGeneratorScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGeneratorScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGeneratorScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FaceGeneratorScreen : ScreenBase, IFaceGeneratorScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/FaceGeneratorScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/FaceGeneratorScreen.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new FaceGeneratorScreen();
+// Obtain an instance from the relevant subsystem API
+FaceGeneratorScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

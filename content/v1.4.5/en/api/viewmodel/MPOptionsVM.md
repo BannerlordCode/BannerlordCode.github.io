@@ -1,20 +1,14 @@
 ---
 title: "MPOptionsVM"
+description: "Auto-generated class reference for MPOptionsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPOptionsVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPOptionsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPOptionsVM : OptionsVM`
 **Base:** `OptionsVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/MPOptionsVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/MPOptionsVM.cs`
 
 ## Overview
 
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPOptionsVM from the subsystem API first
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.RefreshValues();
+```
 
 ### ExecuteCancel
 `public new void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of MPOptionsVM from the subsystem API first
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.ExecuteCancel();
+```
 
 ### ExecuteApply
 `public void ExecuteApply()`
 
-**Purpose:** Executes the `apply` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `apply`.
+
+```csharp
+// Obtain an instance of MPOptionsVM from the subsystem API first
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.ExecuteApply();
+```
 
 ### ForceCancel
 `public void ForceCancel()`
 
-**Purpose:** Handles logic related to `force cancel`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPOptionsVM from the subsystem API first
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.ForceCancel();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPOptionsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPOptionsVM mPOptionsVM = ...;
+mPOptionsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

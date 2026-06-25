@@ -1,13 +1,7 @@
 ---
 title: "DefaultFleetManagementModel"
+description: "DefaultFleetManagementModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultFleetManagementModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultFleetManagementModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,12 +29,24 @@ title: "DefaultFleetManagementModel"
 ### CanTroopsReturn
 `public override bool CanTroopsReturn()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `troops return`。
+**用途 / Purpose:** 检查当前对象是否满足 「troops return」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultFleetManagementModel 实例
+DefaultFleetManagementModel defaultFleetManagementModel = ...;
+var result = defaultFleetManagementModel.CanTroopsReturn();
+```
 
 ### GetReturnTimeForTroops
 `public override CampaignTime GetReturnTimeForTroops(Ship ship)`
 
-**用途 / Purpose:** 获取 `return time for troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「return time for troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultFleetManagementModel 实例
+DefaultFleetManagementModel defaultFleetManagementModel = ...;
+var result = defaultFleetManagementModel.GetReturnTimeForTroops(ship);
+```
 
 ## 使用示例
 
@@ -50,4 +56,4 @@ Game.Current.ReplaceModel<DefaultFleetManagementModel>(new MyDefaultFleetManagem
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

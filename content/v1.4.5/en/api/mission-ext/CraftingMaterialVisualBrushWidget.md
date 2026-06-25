@@ -1,20 +1,14 @@
 ---
 title: "CraftingMaterialVisualBrushWidget"
+description: "Auto-generated class reference for CraftingMaterialVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingMaterialVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingMaterialVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingMaterialVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingMaterialVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingMaterialVisualBrushWidget.cs`
 
 ## Overview
 
@@ -36,14 +30,21 @@ Treat `CraftingMaterialVisualBrushWidget` as a Widget-style extension point: fir
 ### CraftingMaterialVisualBrushWidget
 `public class CraftingMaterialVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `crafting material visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CraftingMaterialVisualBrushWidget from the subsystem API first
+CraftingMaterialVisualBrushWidget craftingMaterialVisualBrushWidget = ...;
+var result = craftingMaterialVisualBrushWidget.CraftingMaterialVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CraftingMaterialVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingMaterialVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionSiegeEngineMarkerVM"
+description: "Auto-generated class reference for MissionSiegeEngineMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeEngineMarkerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeEngineMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSiegeEngineMarkerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerVM.cs`
 
 ## Overview
 
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### Compare
 `public int Compare(MissionSiegeEngineMarkerTargetVM x, MissionSiegeEngineMarkerTargetVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+var result = missionSiegeEngineMarkerVM.Compare(x, y);
+```
 
 ### InitializeWith
 `public void InitializeWith(List<SiegeWeapon> siegeEngines)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with`.
+**Purpose:** Prepares the resources, state, or bindings required by `with`.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+missionSiegeEngineMarkerVM.InitializeWith(siegeEngines);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+missionSiegeEngineMarkerVM.Tick(0);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+missionSiegeEngineMarkerVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionSiegeEngineMarkerVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MissionSiegeEngineMarkerVM missionSiegeEngineMarkerVM = ...;
+missionSiegeEngineMarkerVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

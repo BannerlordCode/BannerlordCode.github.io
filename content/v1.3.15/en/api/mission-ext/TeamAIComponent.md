@@ -1,13 +1,7 @@
 ---
 title: "TeamAIComponent"
+description: "Auto-generated class reference for TeamAIComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamAIComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TeamAIComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -43,102 +37,217 @@ Treat `TeamAIComponent` as a Component-style extension point: first identify who
 
 **Purpose:** Adds `strategic area` to the current collection or state.
 
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.AddStrategicArea(strategicArea);
+```
+
 ### RemoveStrategicArea
 `public void RemoveStrategicArea(StrategicArea strategicArea)`
 
 **Purpose:** Removes `strategic area` from the current collection or state.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.RemoveStrategicArea(strategicArea);
+```
 
 ### RemoveAllStrategicAreas
 `public void RemoveAllStrategicAreas()`
 
 **Purpose:** Removes `all strategic areas` from the current collection or state.
 
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.RemoveAllStrategicAreas();
+```
+
 ### AddTacticOption
 `public void AddTacticOption(TacticComponent tacticOption)`
 
 **Purpose:** Adds `tactic option` to the current collection or state.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.AddTacticOption(tacticOption);
+```
 
 ### RemoveTacticOption
 `public void RemoveTacticOption(Type tacticType)`
 
 **Purpose:** Removes `tactic option` from the current collection or state.
 
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.RemoveTacticOption(tacticType);
+```
+
 ### ClearTacticOptions
 `public void ClearTacticOptions()`
 
-**Purpose:** Handles logic related to `clear tactic options`.
+**Purpose:** Removes all `tactic options` from the current object.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.ClearTacticOptions();
+```
 
 ### AssertTeam
 `public void AssertTeam(Team team)`
 
-**Purpose:** Handles logic related to `assert team`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.AssertTeam(team);
+```
 
 ### NotifyTacticalDecision
 `public void NotifyTacticalDecision(in TacticalDecision decision)`
 
-**Purpose:** Handles logic related to `notify tactical decision`.
+**Purpose:** Notifies interested objects that `tactical decision` has occurred.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.NotifyTacticalDecision(decision);
+```
 
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnDeploymentFinished();
+```
 
 ### OnFormationFrameChanged
 `public virtual void OnFormationFrameChanged(Agent agent, bool isFrameEnabled, WorldPosition frame)`
 
-**Purpose:** Called when the `formation frame changed` event is raised.
+**Purpose:** Invoked when the `formation frame changed` event is raised.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnFormationFrameChanged(agent, false, frame);
+```
 
 ### OnMissionEnded
 `public virtual void OnMissionEnded()`
 
-**Purpose:** Called when the `mission ended` event is raised.
+**Purpose:** Invoked when the `mission ended` event is raised.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnMissionEnded();
+```
 
 ### ResetTacticalPositions
 `public void ResetTacticalPositions()`
 
-**Purpose:** Resets `tactical positions` to its initial state.
+**Purpose:** Returns `tactical positions` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.ResetTacticalPositions();
+```
 
 ### ResetTactic
 `public void ResetTactic(bool keepCurrentTactic = true)`
 
-**Purpose:** Resets `tactic` to its initial state.
+**Purpose:** Returns `tactic` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.ResetTactic(false);
+```
 
 ### CheckIsDefenseApplicable
 `public void CheckIsDefenseApplicable()`
 
-**Purpose:** Handles logic related to `check is defense applicable`.
+**Purpose:** Verifies whether `is defense applicable` holds true for the current object.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.CheckIsDefenseApplicable();
+```
 
 ### OnTacticAppliedForFirstTime
 `public void OnTacticAppliedForFirstTime()`
 
-**Purpose:** Called when the `tactic applied for first time` event is raised.
+**Purpose:** Invoked when the `tactic applied for first time` event is raised.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnTacticAppliedForFirstTime();
+```
 
 ### TickOccasionally
 `public void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.TickOccasionally();
+```
 
 ### IsCurrentTactic
 `public bool IsCurrentTactic(TacticComponent tactic)`
 
-**Purpose:** Handles logic related to `is current tactic`.
+**Purpose:** Determines whether the current object is in the `current tactic` state or condition.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+var result = teamAIComponent.IsCurrentTactic(tactic);
+```
 
 ### OnUnitAddedToFormationForTheFirstTime
 `public abstract void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Called when the `unit added to formation for the first time` event is raised.
+**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ### TacticalDecisionDelegate
 `public delegate void TacticalDecisionDelegate(in TacticalDecision decision)`
 
-**Purpose:** Handles logic related to `tactical decision delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TeamAIComponent from the subsystem API first
+TeamAIComponent teamAIComponent = ...;
+teamAIComponent.TacticalDecisionDelegate(decision);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTeamAIComponent();
+// Typically obtained from a subsystem API or factory
+TeamAIComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

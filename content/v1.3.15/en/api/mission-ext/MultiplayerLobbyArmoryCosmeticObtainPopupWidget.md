@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyArmoryCosmeticObtainPopupWidget"
+description: "Auto-generated class reference for MultiplayerLobbyArmoryCosmeticObtainPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyArmoryCosmeticObtainPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyArmoryCosmeticObtainPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
@@ -40,9 +34,10 @@ Treat `MultiplayerLobbyArmoryCosmeticObtainPopupWidget` as a Widget-style extens
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyArmoryCosmeticObtainPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyArmoryCosmeticObtainPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

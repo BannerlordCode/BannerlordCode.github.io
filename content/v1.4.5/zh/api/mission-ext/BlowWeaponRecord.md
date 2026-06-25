@@ -1,20 +1,14 @@
 ---
 title: "BlowWeaponRecord"
+description: "BlowWeaponRecord 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BlowWeaponRecord`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BlowWeaponRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BlowWeaponRecord`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BlowWeaponRecord.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BlowWeaponRecord.cs`
 
 ## 概述
 
@@ -36,30 +30,55 @@ title: "BlowWeaponRecord"
 ### FillAsMeleeBlow
 `public void FillAsMeleeBlow(ItemObject item, WeaponComponentData weaponComponentData, int affectorWeaponSlot, sbyte weaponAttachBoneIndex)`
 
-**用途 / Purpose:** 处理 `fill as melee blow` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BlowWeaponRecord 实例
+BlowWeaponRecord blowWeaponRecord = ...;
+blowWeaponRecord.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
+```
 
 ### FillAsMissileBlow
 `public void FillAsMissileBlow(ItemObject item, WeaponComponentData weaponComponentData, int missileIndex, sbyte weaponAttachBoneIndex, Vec3 startingPosition, Vec3 currentPosition, Vec3 velocity)`
 
-**用途 / Purpose:** 处理 `fill as missile blow` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BlowWeaponRecord 实例
+BlowWeaponRecord blowWeaponRecord = ...;
+blowWeaponRecord.FillAsMissileBlow(item, weaponComponentData, 0, 0, startingPosition, currentPosition, velocity);
+```
 
 ### HasWeapon
 `public bool HasWeapon()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `weapon`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「weapon」。
+
+```csharp
+// 先通过子系统 API 拿到 BlowWeaponRecord 实例
+BlowWeaponRecord blowWeaponRecord = ...;
+var result = blowWeaponRecord.HasWeapon();
+```
 
 ### GetHitSound
 `public int GetHitSound(bool isOwnerHumanoid, bool isCriticalBlow, bool isLowBlow, bool isNonTipThrust, AgentAttackType attackType, DamageTypes damageType)`
 
-**用途 / Purpose:** 获取 `hit sound` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hit sound」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BlowWeaponRecord 实例
+BlowWeaponRecord blowWeaponRecord = ...;
+var result = blowWeaponRecord.GetHitSound(false, false, false, false, attackType, damageType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BlowWeaponRecord();
-value.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+BlowWeaponRecord blowWeaponRecord = ...;
+blowWeaponRecord.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

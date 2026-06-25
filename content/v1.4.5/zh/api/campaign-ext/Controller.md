@@ -1,20 +1,14 @@
 ---
 title: "Controller"
+description: "Controller 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Controller`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Controller
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class Controller`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/Controller.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/Controller.cs`
 
 ## 概述
 
@@ -29,27 +23,52 @@ title: "Controller"
 ### OverrideManagedDllFolder
 `public static void OverrideManagedDllFolder(IntPtr overridenFolderAsPointer)`
 
-**用途 / Purpose:** 处理 `override managed dll folder` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Controller.OverrideManagedDllFolder(overridenFolderAsPointer);
+```
 
 ### LoadOnCurrentApplicationDomain
 `public static void LoadOnCurrentApplicationDomain(IntPtr gameDllNameAsPointer, IntPtr gameTypeNameAsPointer, int currentEngineAsInteger, int currentPlatformAsInteger)`
 
-**用途 / Purpose:** 加载 `on current application domain` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「on current application domain」。
+
+```csharp
+// 静态调用，不需要实例
+Controller.LoadOnCurrentApplicationDomain(gameDllNameAsPointer, gameTypeNameAsPointer, 0, 0);
+```
 
 ### SetEngineMethodsAsMono
 `public static void SetEngineMethodsAsMono(IntPtr passControllerMethods, IntPtr passManagedInitializeMethod, IntPtr passManagedCallbackMethod)`
 
-**用途 / Purpose:** 设置 `engine methods as mono` 的值或状态。
+**用途 / Purpose:** 为 「engine methods as mono」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+Controller.SetEngineMethodsAsMono(passControllerMethods, passManagedInitializeMethod, passManagedCallbackMethod);
+```
 
 ### SetEngineMethodsAsHostedDotNetCore
 `public static void SetEngineMethodsAsHostedDotNetCore(IntPtr passControllerMethods, IntPtr passManagedInitializeMethod, IntPtr passManagedCallbackMethod)`
 
-**用途 / Purpose:** 设置 `engine methods as hosted dot net core` 的值或状态。
+**用途 / Purpose:** 为 「engine methods as hosted dot net core」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+Controller.SetEngineMethodsAsHostedDotNetCore(passControllerMethods, passManagedInitializeMethod, passManagedCallbackMethod);
+```
 
 ### SetEngineMethodsAsDotNet
 `public static void SetEngineMethodsAsDotNet(Delegate passControllerMethods, Delegate passManagedInitializeMethod, Delegate passManagedCallbackMethod)`
 
-**用途 / Purpose:** 设置 `engine methods as dot net` 的值或状态。
+**用途 / Purpose:** 为 「engine methods as dot net」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+Controller.SetEngineMethodsAsDotNet(passControllerMethods, passManagedInitializeMethod, passManagedCallbackMethod);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ Controller.OverrideManagedDllFolder(overridenFolderAsPointer);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

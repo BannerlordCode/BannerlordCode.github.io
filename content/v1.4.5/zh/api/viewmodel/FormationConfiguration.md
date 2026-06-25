@@ -1,20 +1,14 @@
 ---
 title: "FormationConfiguration"
+description: "FormationConfiguration 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationConfiguration`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationConfiguration
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationConfiguration`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "FormationConfiguration"
 ### FormationConfiguration
 `public struct FormationConfiguration(int formationIndex, List<FormationFilterType> filters)`
 
-**用途 / Purpose:** 处理 `formation configuration` 相关逻辑。
+**用途 / Purpose:** 将「ion configuration」格式化为适合显示或存储的字符串。
+
+```csharp
+// 先通过子系统 API 拿到 FormationConfiguration 实例
+FormationConfiguration formationConfiguration = ...;
+var result = formationConfiguration.FormationConfiguration(0, filters);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FormationConfiguration();
-value.FormationConfiguration(0, filters);
+// 通常从对应子系统 API 获取实例后调用
+FormationConfiguration formationConfiguration = ...;
+formationConfiguration.FormationConfiguration(0, filters);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

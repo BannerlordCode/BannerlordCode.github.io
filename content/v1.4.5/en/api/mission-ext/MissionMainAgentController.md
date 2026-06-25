@@ -1,20 +1,14 @@
 ---
 title: "MissionMainAgentController"
+description: "Auto-generated class reference for MissionMainAgentController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentController
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMainAgentController : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionMainAgentController.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionMainAgentController.cs`
 
 ## Overview
 
@@ -39,77 +33,167 @@ Treat `MissionMainAgentController` as a Controller-style extension point: first 
 ### OnLockedAgentChangedDelegate
 `public delegate void OnLockedAgentChangedDelegate(Agent newAgent)`
 
-**Purpose:** Called when the `locked agent changed delegate` event is raised.
+**Purpose:** Invoked when the `locked agent changed delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnLockedAgentChangedDelegate(newAgent);
+```
 
 ### OnPotentialLockedAgentChangedDelegate
 `public delegate void OnPotentialLockedAgentChangedDelegate(Agent newPotentialAgent)`
 
-**Purpose:** Called when the `potential locked agent changed delegate` event is raised.
+**Purpose:** Invoked when the `potential locked agent changed delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnPotentialLockedAgentChangedDelegate(newPotentialAgent);
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.EarlyStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnMissionScreenFinalize();
+```
 
 ### IsReady
 `public override bool IsReady()`
 
-**Purpose:** Handles logic related to `is ready`.
+**Purpose:** Determines whether the current object is in the `ready` state or condition.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+var result = missionMainAgentController.IsReady();
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnPreMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**Purpose:** Called when the `agent deleted` event is raised.
+**Purpose:** Invoked when the `agent deleted` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnAgentDeleted(affectedAgent);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnClearScene();
+```
 
 ### BreakAgentVisualsInvulnerability
 `public void BreakAgentVisualsInvulnerability()`
 
-**Purpose:** Handles logic related to `break agent visuals invulnerability`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.BreakAgentVisualsInvulnerability();
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+var result = missionMainAgentController.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### Disable
 `public void Disable()`
 
-**Purpose:** Handles logic related to `disable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.Disable();
+```
 
 ### Enable
 `public void Enable()`
 
-**Purpose:** Handles logic related to `enable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.Enable();
+```
 
 ### OnWeaponUsageToggleRequested
 `public void OnWeaponUsageToggleRequested()`
 
-**Purpose:** Called when the `weapon usage toggle requested` event is raised.
+**Purpose:** Invoked when the `weapon usage toggle requested` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.OnWeaponUsageToggleRequested();
+```
 
 ### AddOverrideControlsForFrame
 `public void AddOverrideControlsForFrame(OverrideMainAgentControlFlag overrideFlag)`
 
 **Purpose:** Adds `override controls for frame` to the current collection or state.
+
+```csharp
+// Obtain an instance of MissionMainAgentController from the subsystem API first
+MissionMainAgentController missionMainAgentController = ...;
+missionMainAgentController.AddOverrideControlsForFrame(overrideFlag);
+```
 
 ## Usage Example
 
@@ -119,4 +203,4 @@ var controller = Mission.Current.GetMissionBehavior<MissionMainAgentController>(
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ShipHelper"
+description: "ShipHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class ShipHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/ShipHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/ShipHelper.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "ShipHelper"
 ### GetShipBanner
 `public static Banner GetShipBanner(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**用途 / Purpose:** 获取 `ship banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship banner」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ShipHelper.GetShipBanner(shipOrigin, null);
+```
 
 ### GetShipBanner
 `public static Banner GetShipBanner(PartyBase party = null)`
 
-**用途 / Purpose:** 获取 `ship banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship banner」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ShipHelper.GetShipBanner(null);
+```
 
 ### GetOrderedNavalRaidShipsOfPlayerParty
 `public static List<Ship> GetOrderedNavalRaidShipsOfPlayerParty()`
 
-**用途 / Purpose:** 获取 `ordered naval raid ships of player party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ordered naval raid ships of player party」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ShipHelper.GetOrderedNavalRaidShipsOfPlayerParty();
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ ShipHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

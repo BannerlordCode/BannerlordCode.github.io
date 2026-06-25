@@ -1,23 +1,18 @@
 ---
 title: "ItemObjectExtensions"
+description: "Auto-generated class reference for ItemObjectExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemObjectExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemObjectExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class ItemObjectExtensions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Extensions/ItemObjectExtensions.cs`
 
 ## Overview
 
-`ItemObjectExtensions` lives in `TaleWorlds.CampaignSystem.Extensions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ItemObjectExtensions` lives in `TaleWorlds.CampaignSystem.Extensions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### GetItemCategory
 `public static ItemCategory GetItemCategory(this ItemObject item)`
 
-**Purpose:** Gets the current value of `item category`.
+**Purpose:** Reads and returns the `item category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObjectExtensions.GetItemCategory(item);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ItemObjectExtensions.GetItemCategory(item);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ObjectSystemException"
+description: "Auto-generated class reference for ObjectSystemException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ObjectSystemException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ObjectSystemException
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class ObjectSystemException : Exception`
 **Base:** `Exception`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/ObjectSystemException.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/ObjectSystemException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ObjectSystemException` as a Exception-style extension point: first identi
 ## Usage Example
 
 ```csharp
-try { CallObjectSystemException(); } catch (ObjectSystemException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (ObjectSystemException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

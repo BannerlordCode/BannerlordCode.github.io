@@ -1,20 +1,14 @@
 ---
 title: "ArmorEffect"
+description: "Auto-generated class reference for ArmorEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmorEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmorEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArmorEffect : MPOnSpawnPerkEffect`
 **Base:** `MPOnSpawnPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ArmorEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ArmorEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetDrivenPropertyBonusOnSpawn
 `public override float GetDrivenPropertyBonusOnSpawn(bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Gets the current value of `driven property bonus on spawn`.
+**Purpose:** Reads and returns the `driven property bonus on spawn` value held by the current object.
+
+```csharp
+// Obtain an instance of ArmorEffect from the subsystem API first
+ArmorEffect armorEffect = ...;
+var result = armorEffect.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmorEffect();
-value.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ArmorEffect armorEffect = ...;
+armorEffect.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "ICustomBattleProvider"
+description: "Auto-generated class reference for ICustomBattleProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICustomBattleProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICustomBattleProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.View.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ICustomBattleProvider`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/CustomBattle/ICustomBattleProvider.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.CustomBattle` to place it in
 ## Usage Example
 
 ```csharp
-ICustomBattleProvider implementation = GetCustomBattleProviderImplementation();
+// Usually obtained through DI or a factory method
+IICustomBattleProvider service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

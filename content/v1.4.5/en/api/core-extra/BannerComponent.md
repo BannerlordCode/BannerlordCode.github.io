@@ -1,20 +1,14 @@
 ---
 title: "BannerComponent"
+description: "Auto-generated class reference for BannerComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerComponent : WeaponComponent`
 **Base:** `WeaponComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BannerComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerComponent.cs`
 
 ## Overview
 
@@ -36,17 +30,35 @@ Treat `BannerComponent` as a Component-style extension point: first identify who
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerComponent from the subsystem API first
+BannerComponent bannerComponent = ...;
+var result = bannerComponent.GetCopy();
+```
 
 ### GetBannerEffectBonus
 `public float GetBannerEffectBonus()`
 
-**Purpose:** Gets the current value of `banner effect bonus`.
+**Purpose:** Reads and returns the `banner effect bonus` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerComponent from the subsystem API first
+BannerComponent bannerComponent = ...;
+var result = bannerComponent.GetBannerEffectBonus();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of BannerComponent from the subsystem API first
+BannerComponent bannerComponent = ...;
+bannerComponent.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
@@ -56,4 +68,4 @@ var component = agent.GetComponent<BannerComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

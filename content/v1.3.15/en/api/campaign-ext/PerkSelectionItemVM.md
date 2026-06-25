@@ -1,13 +1,7 @@
 ---
 title: "PerkSelectionItemVM"
+description: "Auto-generated class reference for PerkSelectionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkSelectionItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerkSelectionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PerkSelectionItemVM from the subsystem API first
+PerkSelectionItemVM perkSelectionItemVM = ...;
+perkSelectionItemVM.RefreshValues();
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of PerkSelectionItemVM from the subsystem API first
+PerkSelectionItemVM perkSelectionItemVM = ...;
+perkSelectionItemVM.ExecuteSelection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PerkSelectionItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+PerkSelectionItemVM perkSelectionItemVM = ...;
+perkSelectionItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

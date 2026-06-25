@@ -1,20 +1,14 @@
 ---
 title: "RemoveExtraWeaponOnStopUsageComponent"
+description: "Auto-generated class reference for RemoveExtraWeaponOnStopUsageComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemoveExtraWeaponOnStopUsageComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemoveExtraWeaponOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RemoveExtraWeaponOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/RemoveExtraWeaponOnStopUsageComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/RemoveExtraWeaponOnStopUsageComponent.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ var component = agent.GetComponent<RemoveExtraWeaponOnStopUsageComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

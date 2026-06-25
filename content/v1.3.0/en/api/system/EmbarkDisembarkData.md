@@ -1,13 +1,7 @@
 ---
 title: "EmbarkDisembarkData"
+description: "Auto-generated class reference for EmbarkDisembarkData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EmbarkDisembarkData`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EmbarkDisembarkData
 
 **Namespace:** Helpers
@@ -27,9 +21,10 @@ Treat `EmbarkDisembarkData` as a Data-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var value = new EmbarkDisembarkData();
+// This data object is usually returned by campaign/mission APIs
+EmbarkDisembarkData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

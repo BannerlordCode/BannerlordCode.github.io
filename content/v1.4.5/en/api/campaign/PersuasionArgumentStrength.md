@@ -1,20 +1,14 @@
 ---
 title: "PersuasionArgumentStrength"
+description: "Auto-generated class reference for PersuasionArgumentStrength."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionArgumentStrength`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionArgumentStrength
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum PersuasionArgumentStrength`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/PersuasionArgumentStrength.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/PersuasionArgumentStrength.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ## Usage Example
 
 ```csharp
-var example = new PersuasionArgumentStrength();
+// Obtain an instance from the relevant subsystem API
+PersuasionArgumentStrength instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

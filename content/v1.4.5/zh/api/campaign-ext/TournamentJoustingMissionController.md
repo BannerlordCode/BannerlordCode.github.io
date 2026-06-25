@@ -1,20 +1,14 @@
 ---
 title: "TournamentJoustingMissionController"
+description: "TournamentJoustingMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentJoustingMissionController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentJoustingMissionController
 
 **Namespace:** SandBox.Tournaments.MissionLogics
 **Module:** SandBox.Tournaments
 **Type:** `public class TournamentJoustingMissionController : MissionLogic, ITournamentGameBehavior`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Tournaments.MissionLogics/TournamentJoustingMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments.MissionLogics/TournamentJoustingMissionController.cs`
 
 ## 概述
 
@@ -29,62 +23,134 @@ title: "TournamentJoustingMissionController"
 ### JoustingEventDelegate
 `public delegate void JoustingEventDelegate(Agent affectedAgent, Agent affectorAgent)`
 
-**用途 / Purpose:** 处理 `jousting event delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.JoustingEventDelegate(affectedAgent, affectorAgent);
+```
 
 ### JoustingAgentStateChangedEventDelegate
 `public delegate void JoustingAgentStateChangedEventDelegate(Agent agent, JoustingAgentController.JoustingAgentState state)`
 
-**用途 / Purpose:** 处理 `jousting agent state changed event delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.JoustingAgentStateChangedEventDelegate(agent, state);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.AfterStart();
+```
 
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**用途 / Purpose:** 处理 `start match` 相关逻辑。
+**用途 / Purpose:** 启动「match」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.StartMatch(match, false);
+```
 
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**用途 / Purpose:** 处理 `skip match` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.SkipMatch(match);
+```
 
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**用途 / Purpose:** 处理 `is match ended` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「match ended」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+var result = tournamentJoustingMissionController.IsMatchEnded();
+```
 
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**用途 / Purpose:** 当 `match ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「match ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnMatchEnded();
+```
 
 ### IsAgentInTheTrack
 `public bool IsAgentInTheTrack(Agent agent, bool inCurrentTrack = true)`
 
-**用途 / Purpose:** 处理 `is agent in the track` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「agent in the track」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+var result = tournamentJoustingMissionController.IsAgentInTheTrack(agent, false);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnMissionTick(0);
+```
 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** 当 `agent hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blow, attackCollisionData);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnJoustingAgentStateChanged
 `public void OnJoustingAgentStateChanged(Agent agent, JoustingAgentController.JoustingAgentState state)`
 
-**用途 / Purpose:** 当 `jousting agent state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「jousting agent state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnJoustingAgentStateChanged(agent, state);
+```
 
 ## 使用示例
 
@@ -94,4 +160,4 @@ var controller = Mission.Current.GetMissionBehavior<TournamentJoustingMissionCon
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

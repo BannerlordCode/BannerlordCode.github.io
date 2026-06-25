@@ -1,13 +1,7 @@
 ---
 title: "MPCombatPerkHandler"
+description: "Auto-generated class reference for MPCombatPerkHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPCombatPerkHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPCombatPerkHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,9 @@ Treat `MPCombatPerkHandler` as a Handler-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MPCombatPerkHandler());
+var behavior = Mission.Current.GetMissionBehavior<MPCombatPerkHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PeaceNotificationItemVM"
+description: "PeaceNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PeaceNotificationItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeaceNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -29,15 +23,22 @@ title: "PeaceNotificationItemVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PeaceNotificationItemVM 实例
+PeaceNotificationItemVM peaceNotificationItemVM = ...;
+peaceNotificationItemVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PeaceNotificationItemVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+PeaceNotificationItemVM peaceNotificationItemVM = ...;
+peaceNotificationItemVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

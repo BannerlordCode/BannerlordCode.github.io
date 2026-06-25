@@ -1,20 +1,14 @@
 ---
 title: "InitializeLobbyPeer"
+description: "InitializeLobbyPeer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InitializeLobbyPeer`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitializeLobbyPeer
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class InitializeLobbyPeer : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/InitializeLobbyPeer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/InitializeLobbyPeer.cs`
 
 ## 概述
 
@@ -39,9 +33,10 @@ title: "InitializeLobbyPeer"
 ## 使用示例
 
 ```csharp
-var example = new InitializeLobbyPeer();
+// 从对应子系统 API 获取实例
+InitializeLobbyPeer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

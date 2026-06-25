@@ -1,13 +1,7 @@
 ---
 title: "MapEventParty"
+description: "MapEventParty 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapEventParty`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventParty
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -51,70 +45,143 @@ title: "MapEventParty"
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.Update();
+```
 
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** 当 `troop killed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop killed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.OnTroopKilled(troopSeed);
+```
 
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** 当 `troop wounded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop wounded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.OnTroopWounded(troopSeed);
+```
 
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** 当 `troop routed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop routed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.OnTroopRouted(troopSeed);
+```
 
 ### OnShipSunk
 `public void OnShipSunk(Ship ship)`
 
-**用途 / Purpose:** 当 `ship sunk` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「ship sunk」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.OnShipSunk(ship);
+```
 
 ### OnShipDamaged
 `public void OnShipDamaged(Ship ship, SiegeEngineType siegeEngine, int damage)`
 
-**用途 / Purpose:** 当 `ship damaged` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「ship damaged」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.OnShipDamaged(ship, siegeEngine, 0);
+```
 
 ### OnShipScoreHit
 `public void OnShipScoreHit(Ship ship, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)`
 
-**用途 / Purpose:** 当 `ship score hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「ship score hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.OnShipScoreHit(ship, struckShip, siegeEngine, 0, false);
+```
 
 ### GetTroop
 `public CharacterObject GetTroop(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** 获取 `troop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+var result = mapEventParty.GetTroop(troopSeed);
+```
 
 ### GetTroopState
 `public RosterTroopState GetTroopState(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** 获取 `troop state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+var result = mapEventParty.GetTroopState(troopSeed);
+```
 
 ### OnRoundEnd
 `public void OnRoundEnd(BattleSideEnum partySide, BattleSideEnum roundWinner)`
 
-**用途 / Purpose:** 当 `round end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「round end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.OnRoundEnd(partySide, roundWinner);
+```
 
 ### OnTroopScoreHit
 `public void OnTroopScoreHit(UniqueTroopDescriptor attackerTroopDesc, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)`
 
-**用途 / Purpose:** 当 `troop score hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop score hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.OnTroopScoreHit(attackerTroopDesc, attackedTroop, 0, false, false, attackerWeapon, false);
+```
 
 ### CommitXpGain
 `public void CommitXpGain()`
 
-**用途 / Purpose:** 处理 `commit xp gain` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventParty 实例
+MapEventParty mapEventParty = ...;
+mapEventParty.CommitXpGain();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapEventParty();
-value.Update();
+// 通常从对应子系统 API 获取实例后调用
+MapEventParty mapEventParty = ...;
+mapEventParty.Update();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

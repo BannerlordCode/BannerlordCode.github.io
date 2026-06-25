@@ -1,20 +1,14 @@
 ---
 title: "SizePolicy"
+description: "SizePolicy 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SizePolicy`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SizePolicy
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum SizePolicy`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/SizePolicy.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/SizePolicy.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "SizePolicy"
 ## 使用示例
 
 ```csharp
-var example = new SizePolicy();
+// 从对应子系统 API 获取实例
+SizePolicy instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

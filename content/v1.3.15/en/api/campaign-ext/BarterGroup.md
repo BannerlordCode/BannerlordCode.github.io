@@ -1,13 +1,7 @@
 ---
 title: "BarterGroup"
+description: "Auto-generated class reference for BarterGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BarterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem` to place it in the
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBarterGroup();
+// Typically obtained from a subsystem API or factory
+BarterGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

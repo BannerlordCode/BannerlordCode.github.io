@@ -1,20 +1,14 @@
 ---
 title: "DedicatedCustomServerClientHelperSubModule"
+description: "Auto-generated class reference for DedicatedCustomServerClientHelperSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DedicatedCustomServerClientHelperSubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DedicatedCustomServerClientHelperSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DedicatedCustomServerClientHelperSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/DedicatedCustomServerClientHelperSubModule.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/DedicatedCustomServerClientHelperSubModule.cs`
 
 ## Overview
 
@@ -29,85 +23,173 @@ Start from namespace `TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelpe
 ### OnActivate
 `public void OnActivate()`
 
-**Purpose:** Called when the `activate` event is raised.
+**Purpose:** Invoked when the `activate` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnActivate();
+```
 
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**Purpose:** Called when the `deactivate` event is raised.
+**Purpose:** Invoked when the `deactivate` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnDeactivate();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnFinalize();
+```
 
 ### OnInitialize
 `public void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnInitialize();
+```
 
 ### OnCreateState
 `public void OnCreateState(GameState gameState)`
 
-**Purpose:** Called when the `create state` event is raised.
+**Purpose:** Invoked when the `create state` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnCreateState(gameState);
+```
 
 ### OnPopState
 `public void OnPopState(GameState gameState)`
 
-**Purpose:** Called when the `pop state` event is raised.
+**Purpose:** Invoked when the `pop state` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnPopState(gameState);
+```
 
 ### OnPushState
 `public void OnPushState(GameState gameState, bool isTopGameState)`
 
-**Purpose:** Called when the `push state` event is raised.
+**Purpose:** Invoked when the `push state` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnPushState(gameState, false);
+```
 
 ### OnCleanStates
 `public void OnCleanStates()`
 
-**Purpose:** Called when the `clean states` event is raised.
+**Purpose:** Invoked when the `clean states` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnCleanStates();
+```
 
 ### OnSavedGameLoadFinished
 `public void OnSavedGameLoadFinished()`
 
-**Purpose:** Called when the `saved game load finished` event is raised.
+**Purpose:** Invoked when the `saved game load finished` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnSavedGameLoadFinished();
+```
 
 ### OnMultiplayerGameStart
 `public override void OnMultiplayerGameStart(Game game, object _)`
 
-**Purpose:** Called when the `multiplayer game start` event is raised.
+**Purpose:** Invoked when the `multiplayer game start` event is raised.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnMultiplayerGameStart(game, _);
+```
 
 ### DownloadMapFromHost
 `public async Task DownloadMapFromHost(string hostAddress, string mapName, bool replaceExisting = false, IProgress<ProgressUpdate> progress = null, CancellationToken cancellationToken = default(CancellationToken))`
 
-**Purpose:** Handles logic related to `download map from host`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+var result = dedicatedCustomServerClientHelperSubModule.DownloadMapFromHost("example", "example", false, null, default(CancellationToken));
+```
 
 ### GetMapListFromHost
 `public async Task<MapListResponse> GetMapListFromHost(string hostAddress)`
 
-**Purpose:** Gets the current value of `map list from host`.
+**Purpose:** Reads and returns the `map list from host` value held by the current object.
+
+```csharp
+// Obtain an instance of DedicatedCustomServerClientHelperSubModule from the subsystem API first
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+var result = dedicatedCustomServerClientHelperSubModule.GetMapListFromHost("example");
+```
 
 ### DownloadMapCommand
 `public static string DownloadMapCommand(List<string> strings)`
 
-**Purpose:** Handles logic related to `download map command`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DedicatedCustomServerClientHelperSubModule.DownloadMapCommand(strings);
+```
 
 ### GetMapListCommand
 `public static string GetMapListCommand(List<string> strings)`
 
-**Purpose:** Gets the current value of `map list command`.
+**Purpose:** Reads and returns the `map list command` value held by the current object.
+
+```csharp
+// Static call; no instance required
+DedicatedCustomServerClientHelperSubModule.GetMapListCommand(strings);
+```
 
 ### OpenDownloadPanel
 `public static string OpenDownloadPanel(List<string> strings)`
 
-**Purpose:** Handles logic related to `open download panel`.
+**Purpose:** Opens the resource or UI associated with `download panel`.
+
+```csharp
+// Static call; no instance required
+DedicatedCustomServerClientHelperSubModule.OpenDownloadPanel(strings);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DedicatedCustomServerClientHelperSubModule();
-value.OnActivate();
+// Typically call this after obtaining an instance from the subsystem API
+DedicatedCustomServerClientHelperSubModule dedicatedCustomServerClientHelperSubModule = ...;
+dedicatedCustomServerClientHelperSubModule.OnActivate();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

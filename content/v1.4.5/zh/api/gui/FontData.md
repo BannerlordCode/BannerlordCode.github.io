@@ -1,20 +1,14 @@
 ---
 title: "FontData"
+description: "FontData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FontData`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FontData
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct FontData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/StyleFontContainer.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/StyleFontContainer.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "FontData"
 ### FontData
 `public struct FontData(Font font, float fontSize)`
 
-**用途 / Purpose:** 处理 `font data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FontData 实例
+FontData fontData = ...;
+var result = fontData.FontData(font, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FontData();
+// 该数据对象通常由战役/任务 API 返回
+FontData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

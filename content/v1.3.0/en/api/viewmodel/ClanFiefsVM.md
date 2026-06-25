@@ -1,13 +1,7 @@
 ---
 title: "ClanFiefsVM"
+description: "Auto-generated class reference for ClanFiefsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFiefsVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFiefsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -51,35 +45,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanFiefsVM from the subsystem API first
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanFiefsVM from the subsystem API first
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.OnFinalize();
+```
 
 ### RefreshAllLists
 `public void RefreshAllLists()`
 
-**Purpose:** Refreshes the display or cache of `all lists`.
+**Purpose:** Keeps the display or cache of `all lists` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanFiefsVM from the subsystem API first
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.RefreshAllLists();
+```
 
 ### SelectFief
 `public void SelectFief(Settlement settlement)`
 
-**Purpose:** Handles logic related to `select fief`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanFiefsVM from the subsystem API first
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.SelectFief(settlement);
+```
 
 ### ExecuteAssignGovernor
 `public void ExecuteAssignGovernor()`
 
-**Purpose:** Executes the `assign governor` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `assign governor`.
+
+```csharp
+// Obtain an instance of ClanFiefsVM from the subsystem API first
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.ExecuteAssignGovernor();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanFiefsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanFiefsVM clanFiefsVM = ...;
+clanFiefsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CommunityClientOnlineLobbyGameHandler"
+description: "CommunityClientOnlineLobbyGameHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommunityClientOnlineLobbyGameHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommunityClientOnlineLobbyGameHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CommunityClientOnlineLobbyGameHandler : ICommunityClientHandler`
 **Base:** `ICommunityClientHandler`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/CommunityClientOnlineLobbyGameHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/CommunityClientOnlineLobbyGameHandler.cs`
 
 ## 概述
 
@@ -33,9 +27,9 @@ title: "CommunityClientOnlineLobbyGameHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CommunityClientOnlineLobbyGameHandler());
+var behavior = Mission.Current.GetMissionBehavior<CommunityClientOnlineLobbyGameHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "TransferCommandResult"
+description: "Auto-generated class reference for TransferCommandResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransferCommandResult`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransferCommandResult
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TransferCommandResult`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/TransferCommandResult.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/TransferCommandResult.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ## Usage Example
 
 ```csharp
-var example = new TransferCommandResult();
+// Obtain an instance from the relevant subsystem API
+TransferCommandResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

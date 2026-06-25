@@ -1,20 +1,14 @@
 ---
 title: "TextGrammarProcessor"
+description: "Auto-generated class reference for TextGrammarProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextGrammarProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextGrammarProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
 **Module:** TaleWorlds.Localization
 **Type:** `public static class TextGrammarProcessor`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TextGrammarProcessor.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TextGrammarProcessor.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### Process
 `public static string Process(MBTextModel dataRepresentation, TextProcessingContext textContext, TextObject parent = null)`
 
-**Purpose:** Handles logic related to `process`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TextGrammarProcessor.Process(dataRepresentation, textContext, null);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ TextGrammarProcessor.Process(dataRepresentation, textContext, null);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

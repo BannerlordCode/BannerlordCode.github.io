@@ -1,20 +1,14 @@
 ---
 title: "TooltipProperty"
+description: "TooltipProperty 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TooltipProperty`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipProperty
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public class TooltipProperty : ViewModel, ISerializableObject`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/TooltipProperty.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/TooltipProperty.cs`
 
 ## 概述
 
@@ -41,30 +35,55 @@ title: "TooltipProperty"
 ### RefreshValue
 `public void RefreshValue()`
 
-**用途 / Purpose:** 刷新 `value` 的显示或缓存。
+**用途 / Purpose:** 使 「value」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TooltipProperty 实例
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.RefreshValue();
+```
 
 ### RefreshDefinition
 `public void RefreshDefinition()`
 
-**用途 / Purpose:** 刷新 `definition` 的显示或缓存。
+**用途 / Purpose:** 使 「definition」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TooltipProperty 实例
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.RefreshDefinition();
+```
 
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**用途 / Purpose:** 处理 `deserialize from` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原出「from」。
+
+```csharp
+// 先通过子系统 API 拿到 TooltipProperty 实例
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**用途 / Purpose:** 处理 `serialize to` 相关逻辑。
+**用途 / Purpose:** 将「to」序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 TooltipProperty 实例
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.SerializeTo(writer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TooltipProperty();
-value.RefreshValue();
+// 通常从对应子系统 API 获取实例后调用
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.RefreshValue();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

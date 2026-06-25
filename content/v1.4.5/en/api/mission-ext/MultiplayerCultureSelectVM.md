@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerCultureSelectVM"
+description: "Auto-generated class reference for MultiplayerCultureSelectVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerCultureSelectVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerCultureSelectVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerCultureSelectVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/MultiplayerCultureSelectVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/MultiplayerCultureSelectVM.cs`
 
 ## Overview
 
@@ -44,25 +38,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.T
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerCultureSelectVM from the subsystem API first
+MultiplayerCultureSelectVM multiplayerCultureSelectVM = ...;
+multiplayerCultureSelectVM.RefreshValues();
+```
 
 ### ExecuteSelectCulture
 `public void ExecuteSelectCulture(int cultureIndex)`
 
-**Purpose:** Executes the `select culture` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select culture`.
+
+```csharp
+// Obtain an instance of MultiplayerCultureSelectVM from the subsystem API first
+MultiplayerCultureSelectVM multiplayerCultureSelectVM = ...;
+multiplayerCultureSelectVM.ExecuteSelectCulture(0);
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of MultiplayerCultureSelectVM from the subsystem API first
+MultiplayerCultureSelectVM multiplayerCultureSelectVM = ...;
+multiplayerCultureSelectVM.ExecuteClose();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerCultureSelectVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerCultureSelectVM multiplayerCultureSelectVM = ...;
+multiplayerCultureSelectVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

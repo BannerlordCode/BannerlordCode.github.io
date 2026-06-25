@@ -1,13 +1,7 @@
 ---
 title: "CustomWidgetType"
+description: "Auto-generated class reference for CustomWidgetType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomWidgetType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomWidgetType
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CheckForUpdate
 `public bool CheckForUpdate()`
 
-**Purpose:** Handles logic related to `check for update`.
+**Purpose:** Verifies whether `for update` holds true for the current object.
+
+```csharp
+// Obtain an instance of CustomWidgetType from the subsystem API first
+CustomWidgetType customWidgetType = ...;
+var result = customWidgetType.CheckForUpdate();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomWidgetType();
-value.CheckForUpdate();
+// Typically call this after obtaining an instance from the subsystem API
+CustomWidgetType customWidgetType = ...;
+customWidgetType.CheckForUpdate();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

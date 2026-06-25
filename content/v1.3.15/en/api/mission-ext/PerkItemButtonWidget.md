@@ -1,13 +1,7 @@
 ---
 title: "PerkItemButtonWidget"
+description: "Auto-generated class reference for PerkItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerkItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
@@ -43,9 +37,10 @@ Treat `PerkItemButtonWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new PerkItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PerkItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

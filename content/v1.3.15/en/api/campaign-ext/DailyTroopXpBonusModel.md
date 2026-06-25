@@ -1,13 +1,7 @@
 ---
 title: "DailyTroopXpBonusModel"
+description: "Auto-generated class reference for DailyTroopXpBonusModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DailyTroopXpBonusModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DailyTroopXpBonusModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ Treat `DailyTroopXpBonusModel` as a Model-style extension point: first identify 
 ### CalculateDailyTroopXpBonus
 `public abstract int CalculateDailyTroopXpBonus(Town town)`
 
-**Purpose:** Handles logic related to `calculate daily troop xp bonus`.
+**Purpose:** Calculates the current value or result of `daily troop xp bonus`.
+
+```csharp
+// Obtain an instance of DailyTroopXpBonusModel from the subsystem API first
+DailyTroopXpBonusModel dailyTroopXpBonusModel = ...;
+var result = dailyTroopXpBonusModel.CalculateDailyTroopXpBonus(town);
+```
 
 ### CalculateGarrisonXpBonusMultiplier
 `public abstract float CalculateGarrisonXpBonusMultiplier(Town town)`
 
-**Purpose:** Handles logic related to `calculate garrison xp bonus multiplier`.
+**Purpose:** Calculates the current value or result of `garrison xp bonus multiplier`.
+
+```csharp
+// Obtain an instance of DailyTroopXpBonusModel from the subsystem API first
+DailyTroopXpBonusModel dailyTroopXpBonusModel = ...;
+var result = dailyTroopXpBonusModel.CalculateGarrisonXpBonusMultiplier(town);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDailyTroopXpBonusModel();
+// Typically obtained from a subsystem API or factory
+DailyTroopXpBonusModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

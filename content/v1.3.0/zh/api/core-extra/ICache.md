@@ -1,18 +1,12 @@
 ---
 title: "ICache"
+description: "ICache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICache`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICache
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface ICache`
 **Base:** 无
 **File:** `TaleWorlds.Library/ICache.cs`
 
@@ -27,9 +21,10 @@ title: "ICache"
 ## 使用示例
 
 ```csharp
-ICache implementation = GetCacheImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICache service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

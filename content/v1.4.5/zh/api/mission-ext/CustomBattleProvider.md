@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleProvider"
+description: "CustomBattleProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleProvider : ICustomBattleProvider`
 **Base:** `ICustomBattleProvider`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleProvider.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleProvider.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CustomBattleProvider"
 ### StartCustomBattle
 `public void StartCustomBattle()`
 
-**用途 / Purpose:** 处理 `start custom battle` 相关逻辑。
+**用途 / Purpose:** 启动「custom battle」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleProvider 实例
+CustomBattleProvider customBattleProvider = ...;
+customBattleProvider.StartCustomBattle();
+```
 
 ### GetName
 `public TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleProvider 实例
+CustomBattleProvider customBattleProvider = ...;
+var result = customBattleProvider.GetName();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleProvider();
-value.StartCustomBattle();
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleProvider customBattleProvider = ...;
+customBattleProvider.StartCustomBattle();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentEquipDropView"
+description: "Auto-generated class reference for MissionMainAgentEquipDropView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentEquipDropView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentEquipDropView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -27,9 +21,10 @@ Treat `MissionMainAgentEquipDropView` as a View-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var view = new MissionMainAgentEquipDropView();
+// Retrieve this view from the subsystem API or scene
+MissionMainAgentEquipDropView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

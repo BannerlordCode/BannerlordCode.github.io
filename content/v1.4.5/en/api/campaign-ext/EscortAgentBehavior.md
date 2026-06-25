@@ -1,20 +1,14 @@
 ---
 title: "EscortAgentBehavior"
+description: "Auto-generated class reference for EscortAgentBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EscortAgentBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EscortAgentBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class EscortAgentBehavior : AgentBehavior`
 **Base:** `AgentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/EscortAgentBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/EscortAgentBehavior.cs`
 
 ## Overview
 
@@ -29,65 +23,129 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### OnTargetReachedDelegate
 `public delegate bool OnTargetReachedDelegate(Agent agent, ref Agent escortedAgent, ref Agent targetAgent, ref UsableMachine targetMachine, ref Vec3? targetPosition)`
 
-**Purpose:** Called when the `target reached delegate` event is raised.
+**Purpose:** Invoked when the `target reached delegate` event is raised.
+
+```csharp
+// Obtain an instance of EscortAgentBehavior from the subsystem API first
+EscortAgentBehavior escortAgentBehavior = ...;
+var result = escortAgentBehavior.OnTargetReachedDelegate(agent, escortedAgent, targetAgent, targetMachine, targetPosition);
+```
 
 ### Initialize
 `public void Initialize(Agent escortedAgent, Agent targetAgent, OnTargetReachedDelegate onTargetReached = null)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of EscortAgentBehavior from the subsystem API first
+EscortAgentBehavior escortAgentBehavior = ...;
+escortAgentBehavior.Initialize(escortedAgent, targetAgent, null);
+```
 
 ### Initialize
 `public void Initialize(Agent escortedAgent, UsableMachine targetMachine, OnTargetReachedDelegate onTargetReached = null)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of EscortAgentBehavior from the subsystem API first
+EscortAgentBehavior escortAgentBehavior = ...;
+escortAgentBehavior.Initialize(escortedAgent, targetMachine, null);
+```
 
 ### Initialize
 `public void Initialize(Agent escortedAgent, Vec3? targetPosition, OnTargetReachedDelegate onTargetReached = null)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of EscortAgentBehavior from the subsystem API first
+EscortAgentBehavior escortAgentBehavior = ...;
+escortAgentBehavior.Initialize(escortedAgent, targetPosition, null);
+```
 
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of EscortAgentBehavior from the subsystem API first
+EscortAgentBehavior escortAgentBehavior = ...;
+escortAgentBehavior.Tick(0, false);
+```
 
 ### IsEscortFinished
 `public bool IsEscortFinished()`
 
-**Purpose:** Handles logic related to `is escort finished`.
+**Purpose:** Determines whether the current object is in the `escort finished` state or condition.
+
+```csharp
+// Obtain an instance of EscortAgentBehavior from the subsystem API first
+EscortAgentBehavior escortAgentBehavior = ...;
+var result = escortAgentBehavior.IsEscortFinished();
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of EscortAgentBehavior from the subsystem API first
+EscortAgentBehavior escortAgentBehavior = ...;
+var result = escortAgentBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of EscortAgentBehavior from the subsystem API first
+EscortAgentBehavior escortAgentBehavior = ...;
+var result = escortAgentBehavior.GetDebugInfo();
+```
 
 ### AddEscortAgentBehavior
 `public static void AddEscortAgentBehavior(Agent ownerAgent, Agent targetAgent, OnTargetReachedDelegate onTargetReached)`
 
 **Purpose:** Adds `escort agent behavior` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+EscortAgentBehavior.AddEscortAgentBehavior(ownerAgent, targetAgent, onTargetReached);
+```
+
 ### RemoveEscortBehaviorOfAgent
 `public static void RemoveEscortBehaviorOfAgent(Agent ownerAgent)`
 
 **Purpose:** Removes `escort behavior of agent` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+EscortAgentBehavior.RemoveEscortBehaviorOfAgent(ownerAgent);
+```
+
 ### CheckIfAgentIsEscortedBy
 `public static bool CheckIfAgentIsEscortedBy(Agent ownerAgent, Agent escortedAgent)`
 
-**Purpose:** Handles logic related to `check if agent is escorted by`.
+**Purpose:** Verifies whether `if agent is escorted by` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+EscortAgentBehavior.CheckIfAgentIsEscortedBy(ownerAgent, escortedAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EscortAgentBehavior();
-value.OnTargetReachedDelegate(agent, escortedAgent, targetAgent, targetMachine, targetPosition);
+// Typically call this after obtaining an instance from the subsystem API
+EscortAgentBehavior escortAgentBehavior = ...;
+escortAgentBehavior.OnTargetReachedDelegate(agent, escortedAgent, targetAgent, targetMachine, targetPosition);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CraftingState"
+description: "CraftingState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingState`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingState : TaleWorlds.Core.GameState`
 **Base:** `TaleWorlds.Core.GameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/CraftingState.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/CraftingState.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "CraftingState"
 ### InitializeLogic
 `public void InitializeLogic(Crafting newCraftingLogic, bool isReplacingWeaponClass = false)`
 
-**用途 / Purpose:** 初始化 `logic` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「logic」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingState 实例
+CraftingState craftingState = ...;
+craftingState.InitializeLogic(newCraftingLogic, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CraftingState();
-value.InitializeLogic(newCraftingLogic, false);
+// 通常从对应子系统 API 获取实例后调用
+CraftingState craftingState = ...;
+craftingState.InitializeLogic(newCraftingLogic, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

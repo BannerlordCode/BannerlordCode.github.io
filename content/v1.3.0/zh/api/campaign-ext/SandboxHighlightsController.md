@@ -1,13 +1,7 @@
 ---
 title: "SandboxHighlightsController"
+description: "SandboxHighlightsController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxHighlightsController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxHighlightsController
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,12 +23,24 @@ title: "SandboxHighlightsController"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxHighlightsController 实例
+SandboxHighlightsController sandboxHighlightsController = ...;
+sandboxHighlightsController.AfterStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxHighlightsController 实例
+SandboxHighlightsController sandboxHighlightsController = ...;
+sandboxHighlightsController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<SandboxHighlightsController>
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

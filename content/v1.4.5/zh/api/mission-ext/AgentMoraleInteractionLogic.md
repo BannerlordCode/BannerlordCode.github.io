@@ -1,20 +1,14 @@
 ---
 title: "AgentMoraleInteractionLogic"
+description: "AgentMoraleInteractionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentMoraleInteractionLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentMoraleInteractionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentMoraleInteractionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic/AgentMoraleInteractionLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic/AgentMoraleInteractionLogic.cs`
 
 ## 概述
 
@@ -29,19 +23,31 @@ title: "AgentMoraleInteractionLogic"
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentMoraleInteractionLogic 实例
+AgentMoraleInteractionLogic agentMoraleInteractionLogic = ...;
+agentMoraleInteractionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**用途 / Purpose:** 当 `agent fleeing` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent fleeing」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentMoraleInteractionLogic 实例
+AgentMoraleInteractionLogic agentMoraleInteractionLogic = ...;
+agentMoraleInteractionLogic.OnAgentFleeing(affectedAgent);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AgentMoraleInteractionLogic());
+var behavior = Mission.Current.GetMissionBehavior<AgentMoraleInteractionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

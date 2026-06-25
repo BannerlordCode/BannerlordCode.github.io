@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeKeyType"
+description: "Auto-generated class reference for WidgetAttributeKeyType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeKeyType`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyType
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,24 +23,43 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CheckKeyType
 `public abstract bool CheckKeyType(string key)`
 
-**Purpose:** Handles logic related to `check key type`.
+**Purpose:** Verifies whether `key type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyType from the subsystem API first
+WidgetAttributeKeyType widgetAttributeKeyType = ...;
+var result = widgetAttributeKeyType.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public abstract string GetKeyName(string key)`
 
-**Purpose:** Gets the current value of `key name`.
+**Purpose:** Reads and returns the `key name` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyType from the subsystem API first
+WidgetAttributeKeyType widgetAttributeKeyType = ...;
+var result = widgetAttributeKeyType.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public abstract string GetSerializedKey(string key)`
 
-**Purpose:** Gets the current value of `serialized key`.
+**Purpose:** Reads and returns the `serialized key` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyType from the subsystem API first
+WidgetAttributeKeyType widgetAttributeKeyType = ...;
+var result = widgetAttributeKeyType.GetSerializedKey("example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomWidgetAttributeKeyType();
+// Typically obtained from a subsystem API or factory
+WidgetAttributeKeyType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

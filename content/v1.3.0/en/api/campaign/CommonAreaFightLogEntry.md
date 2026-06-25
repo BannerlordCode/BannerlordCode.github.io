@@ -1,13 +1,7 @@
 ---
 title: "CommonAreaFightLogEntry"
+description: "Auto-generated class reference for CommonAreaFightLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommonAreaFightLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommonAreaFightLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CommonAreaFightLogEntry from the subsystem API first
+CommonAreaFightLogEntry commonAreaFightLogEntry = ...;
+var result = commonAreaFightLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of CommonAreaFightLogEntry from the subsystem API first
+CommonAreaFightLogEntry commonAreaFightLogEntry = ...;
+var result = commonAreaFightLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommonAreaFightLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+CommonAreaFightLogEntry commonAreaFightLogEntry = ...;
+commonAreaFightLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionNameMarkerTargetBaseVM"
+description: "MissionNameMarkerTargetBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNameMarkerTargetBaseVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerTargetBaseVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public abstract class MissionNameMarkerTargetBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerTargetBaseVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerTargetBaseVM.cs`
 
 ## 概述
 
@@ -46,29 +40,54 @@ title: "MissionNameMarkerTargetBaseVM"
 ### UpdatePosition
 `public abstract void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerTargetBaseVM 实例
+MissionNameMarkerTargetBaseVM missionNameMarkerTargetBaseVM = ...;
+missionNameMarkerTargetBaseVM.UpdatePosition(missionCamera);
+```
 
 ### Equals
 `public abstract bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerTargetBaseVM 实例
+MissionNameMarkerTargetBaseVM missionNameMarkerTargetBaseVM = ...;
+var result = missionNameMarkerTargetBaseVM.Equals(other);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerTargetBaseVM 实例
+MissionNameMarkerTargetBaseVM missionNameMarkerTargetBaseVM = ...;
+missionNameMarkerTargetBaseVM.RefreshValues();
+```
 
 ### SetEnabledState
 `public void SetEnabledState(bool enabled)`
 
-**用途 / Purpose:** 设置 `enabled state` 的值或状态。
+**用途 / Purpose:** 为 「enabled state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerTargetBaseVM 实例
+MissionNameMarkerTargetBaseVM missionNameMarkerTargetBaseVM = ...;
+missionNameMarkerTargetBaseVM.SetEnabledState(false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionNameMarkerTargetBaseVM();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionNameMarkerTargetBaseVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

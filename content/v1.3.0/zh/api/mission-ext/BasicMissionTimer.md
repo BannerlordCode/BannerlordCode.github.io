@@ -1,13 +1,7 @@
 ---
 title: "BasicMissionTimer"
+description: "BasicMissionTimer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BasicMissionTimer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicMissionTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ title: "BasicMissionTimer"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BasicMissionTimer 实例
+BasicMissionTimer basicMissionTimer = ...;
+basicMissionTimer.Reset();
+```
 
 ### Set
 `public void Set(float newElapsedTime)`
 
-**用途 / Purpose:** 设置 `set` 的值或状态。
+**用途 / Purpose:** 为当前对象的属性或状态赋新值。
+
+```csharp
+// 先通过子系统 API 拿到 BasicMissionTimer 实例
+BasicMissionTimer basicMissionTimer = ...;
+basicMissionTimer.Set(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BasicMissionTimer();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+BasicMissionTimer basicMissionTimer = ...;
+basicMissionTimer.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

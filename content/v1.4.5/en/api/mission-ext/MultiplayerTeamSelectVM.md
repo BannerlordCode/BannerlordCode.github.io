@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerTeamSelectVM"
+description: "Auto-generated class reference for MultiplayerTeamSelectVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTeamSelectVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTeamSelectVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTeamSelectVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/MultiplayerTeamSelectVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/MultiplayerTeamSelectVM.cs`
 
 ## Overview
 
@@ -43,45 +37,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.T
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.Tick(0);
+```
 
 ### RefreshDisabledTeams
 `public void RefreshDisabledTeams(List<Team> disabledTeams)`
 
-**Purpose:** Refreshes the display or cache of `disabled teams`.
+**Purpose:** Keeps the display or cache of `disabled teams` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshDisabledTeams(disabledTeams);
+```
 
 ### RefreshPlayerAndBotCount
 `public void RefreshPlayerAndBotCount(int playersCountOne, int playersCountTwo, int botsCountOne, int botsCountTwo)`
 
-**Purpose:** Refreshes the display or cache of `player and bot count`.
+**Purpose:** Keeps the display or cache of `player and bot count` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshPlayerAndBotCount(0, 0, 0, 0);
+```
 
 ### RefreshFriendsPerTeam
 `public void RefreshFriendsPerTeam(IEnumerable<MissionPeer> friendsTeamOne, IEnumerable<MissionPeer> friendsTeamTwo)`
 
-**Purpose:** Refreshes the display or cache of `friends per team`.
+**Purpose:** Keeps the display or cache of `friends per team` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshFriendsPerTeam(friendsTeamOne, friendsTeamTwo);
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.ExecuteCancel();
+```
 
 ### ExecuteAutoAssign
 `public void ExecuteAutoAssign()`
 
-**Purpose:** Executes the `auto assign` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `auto assign`.
+
+```csharp
+// Obtain an instance of MultiplayerTeamSelectVM from the subsystem API first
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.ExecuteAutoAssign();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerTeamSelectVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerTeamSelectVM multiplayerTeamSelectVM = ...;
+multiplayerTeamSelectVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

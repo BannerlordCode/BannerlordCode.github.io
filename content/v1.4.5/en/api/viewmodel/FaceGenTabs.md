@@ -1,20 +1,14 @@
 ---
 title: "FaceGenTabs"
+description: "Auto-generated class reference for FaceGenTabs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGenTabs`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGenTabs
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum FaceGenTabs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenVM.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 ## Usage Example
 
 ```csharp
-FaceGenTabs example = FaceGenTabs.Value;
+// Obtain an instance from the relevant subsystem API
+FaceGenTabs instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

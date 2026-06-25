@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationStageViewBase"
+description: "CharacterCreationStageViewBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationStageViewBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationStageViewBase
 
 **Namespace:** SandBox.View.CharacterCreation
@@ -29,64 +23,131 @@ title: "CharacterCreationStageViewBase"
 ### SetGenericScene
 `public virtual void SetGenericScene(Scene scene)`
 
-**用途 / Purpose:** 设置 `generic scene` 的值或状态。
+**用途 / Purpose:** 为 「generic scene」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+characterCreationStageViewBase.SetGenericScene(scene);
+```
 
 ### GetLayers
 `public abstract IEnumerable<ScreenLayer> GetLayers()`
 
-**用途 / Purpose:** 获取 `layers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「layers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+var result = characterCreationStageViewBase.GetLayers();
+```
 
 ### NextStage
 `public abstract void NextStage()`
 
-**用途 / Purpose:** 处理 `next stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+characterCreationStageViewBase.NextStage();
+```
 
 ### PreviousStage
 `public abstract void PreviousStage()`
 
-**用途 / Purpose:** 处理 `previous stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+characterCreationStageViewBase.PreviousStage();
+```
 
 ### Tick
 `public virtual void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+characterCreationStageViewBase.Tick(0);
+```
 
 ### GetVirtualStageCount
 `public abstract int GetVirtualStageCount()`
 
-**用途 / Purpose:** 获取 `virtual stage count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「virtual stage count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+var result = characterCreationStageViewBase.GetVirtualStageCount();
+```
 
 ### GoToIndex
 `public virtual void GoToIndex(int index)`
 
-**用途 / Purpose:** 处理 `go to index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+characterCreationStageViewBase.GoToIndex(0);
+```
 
 ### LoadEscapeMenuMovie
 `public abstract void LoadEscapeMenuMovie()`
 
-**用途 / Purpose:** 加载 `escape menu movie` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「escape menu movie」。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+characterCreationStageViewBase.LoadEscapeMenuMovie();
+```
 
 ### ReleaseEscapeMenuMovie
 `public abstract void ReleaseEscapeMenuMovie()`
 
-**用途 / Purpose:** 处理 `release escape menu movie` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+characterCreationStageViewBase.ReleaseEscapeMenuMovie();
+```
 
 ### HandleEscapeMenu
 `public void HandleEscapeMenu(CharacterCreationStageViewBase view, ScreenLayer screenLayer)`
 
-**用途 / Purpose:** 处理 `escape menu` 事件或回调。
+**用途 / Purpose:** 执行与 「escape menu」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+characterCreationStageViewBase.HandleEscapeMenu(view, screenLayer);
+```
 
 ### GetEscapeMenuItems
 `public List<EscapeMenuItemVM> GetEscapeMenuItems(CharacterCreationStageViewBase view)`
 
-**用途 / Purpose:** 获取 `escape menu items` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「escape menu items」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
+CharacterCreationStageViewBase characterCreationStageViewBase = ...;
+var result = characterCreationStageViewBase.GetEscapeMenuItems(view);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCharacterCreationStageViewBase();
+// 通常通过子系统 API 或工厂获得派生实例
+CharacterCreationStageViewBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "TestContext"
+description: "TestContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TestContext`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestContext
 
 **Namespace:** TaleWorlds.Library
@@ -29,30 +23,55 @@ title: "TestContext"
 ### RunTestAux
 `public void RunTestAux(string commandLine)`
 
-**用途 / Purpose:** 处理 `run test aux` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TestContext 实例
+TestContext testContext = ...;
+testContext.RunTestAux("example");
+```
 
 ### OnApplicationTick
 `public void OnApplicationTick(float dt)`
 
-**用途 / Purpose:** 当 `application tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「application tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TestContext 实例
+TestContext testContext = ...;
+testContext.OnApplicationTick(0);
+```
 
 ### TickTest
 `public void TickTest(float dt)`
 
-**用途 / Purpose:** 处理 `tick test` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「test」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TestContext 实例
+TestContext testContext = ...;
+testContext.TickTest(0);
+```
 
 ### FinalizeContext
 `public void FinalizeContext()`
 
-**用途 / Purpose:** 处理 `finalize context` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TestContext 实例
+TestContext testContext = ...;
+testContext.FinalizeContext();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TestContext();
-value.RunTestAux("example");
+// 通常从对应子系统 API 获取实例后调用
+TestContext testContext = ...;
+testContext.RunTestAux("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

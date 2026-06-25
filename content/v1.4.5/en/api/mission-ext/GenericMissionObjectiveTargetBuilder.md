@@ -1,20 +1,14 @@
 ---
 title: "GenericMissionObjectiveTargetBuilder"
+description: "Auto-generated class reference for GenericMissionObjectiveTargetBuilder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericMissionObjectiveTargetBuilder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericMissionObjectiveTargetBuilder
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct GenericMissionObjectiveTargetBuilder<T>`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjective.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjective.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it 
 ### SetIsActiveCallback
 `public GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
 
-**Purpose:** Sets the value or state of `is active callback`.
+**Purpose:** Assigns a new value to `is active callback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GenericMissionObjectiveTargetBuilder from the subsystem API first
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+var result = genericMissionObjectiveTargetBuilder.SetIsActiveCallback(func<T, false);
+```
 
 ### SetGetGlobalPositionCallback
 `public GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
 
-**Purpose:** Sets the value or state of `get global position callback`.
+**Purpose:** Assigns a new value to `get global position callback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GenericMissionObjectiveTargetBuilder from the subsystem API first
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+var result = genericMissionObjectiveTargetBuilder.SetGetGlobalPositionCallback(func<T, callback);
+```
 
 ### SetGetNameCallback
 `public GenericMissionObjectiveTargetBuilder<T> SetGetNameCallback(Func<T, TextObject> callback)`
 
-**Purpose:** Sets the value or state of `get name callback`.
+**Purpose:** Assigns a new value to `get name callback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GenericMissionObjectiveTargetBuilder from the subsystem API first
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+var result = genericMissionObjectiveTargetBuilder.SetGetNameCallback(func<T, callback);
+```
 
 ### Build
 `public MissionObjectiveTarget<T> Build()`
 
-**Purpose:** Handles logic related to `build`.
+**Purpose:** Builds an instance or representation of the current object.
+
+```csharp
+// Obtain an instance of GenericMissionObjectiveTargetBuilder from the subsystem API first
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+var result = genericMissionObjectiveTargetBuilder.Build();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GenericMissionObjectiveTargetBuilder();
-value.SetIsActiveCallback(func<T, false);
+// Typically call this after obtaining an instance from the subsystem API
+GenericMissionObjectiveTargetBuilder genericMissionObjectiveTargetBuilder = ...;
+genericMissionObjectiveTargetBuilder.SetIsActiveCallback(func<T, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

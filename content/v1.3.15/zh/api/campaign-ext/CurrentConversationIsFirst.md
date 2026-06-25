@@ -1,13 +1,7 @@
 ---
 title: "CurrentConversationIsFirst"
+description: "CurrentConversationIsFirst 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CurrentConversationIsFirst`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CurrentConversationIsFirst
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ title: "CurrentConversationIsFirst"
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is applicable to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「applicable to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CurrentConversationIsFirst 实例
+CurrentConversationIsFirst currentConversationIsFirst = ...;
+var result = currentConversationIsFirst.IsApplicableTo(character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CurrentConversationIsFirst();
-value.IsApplicableTo(character);
+// 通常从对应子系统 API 获取实例后调用
+CurrentConversationIsFirst currentConversationIsFirst = ...;
+currentConversationIsFirst.IsApplicableTo(character);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

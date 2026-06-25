@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPlayerBadgeVisualWidget"
+description: "MultiplayerPlayerBadgeVisualWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerPlayerBadgeVisualWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPlayerBadgeVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPlayerBadgeVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerPlayerBadgeVisualWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerPlayerBadgeVisualWidget.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "MultiplayerPlayerBadgeVisualWidget"
 ### SetForcedSize
 `public void SetForcedSize(float width, float height)`
 
-**用途 / Purpose:** 设置 `forced size` 的值或状态。
+**用途 / Purpose:** 为 「forced size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPlayerBadgeVisualWidget 实例
+MultiplayerPlayerBadgeVisualWidget multiplayerPlayerBadgeVisualWidget = ...;
+multiplayerPlayerBadgeVisualWidget.SetForcedSize(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerPlayerBadgeVisualWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerPlayerBadgeVisualWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

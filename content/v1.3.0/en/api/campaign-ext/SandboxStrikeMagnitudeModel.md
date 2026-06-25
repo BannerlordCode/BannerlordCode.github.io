@@ -1,13 +1,7 @@
 ---
 title: "SandboxStrikeMagnitudeModel"
+description: "Auto-generated class reference for SandboxStrikeMagnitudeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxStrikeMagnitudeModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxStrikeMagnitudeModel
 
 **Namespace:** SandBox.GameComponents
@@ -29,42 +23,90 @@ Treat `SandboxStrikeMagnitudeModel` as a Model-style extension point: first iden
 ### CalculateHorseArcheryFactor
 `public override float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**Purpose:** Handles logic related to `calculate horse archery factor`.
+**Purpose:** Calculates the current value or result of `horse archery factor`.
+
+```csharp
+// Obtain an instance of SandboxStrikeMagnitudeModel from the subsystem API first
+SandboxStrikeMagnitudeModel sandboxStrikeMagnitudeModel = ...;
+var result = sandboxStrikeMagnitudeModel.CalculateHorseArcheryFactor(characterObject);
+```
 
 ### CalculateStrikeMagnitudeForMissile
 `public override float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for missile`.
+**Purpose:** Calculates the current value or result of `strike magnitude for missile`.
+
+```csharp
+// Obtain an instance of SandboxStrikeMagnitudeModel from the subsystem API first
+SandboxStrikeMagnitudeModel sandboxStrikeMagnitudeModel = ...;
+var result = sandboxStrikeMagnitudeModel.CalculateStrikeMagnitudeForMissile(attackInformation, collisionData, weapon, 0);
+```
 
 ### CalculateStrikeMagnitudeForSwing
 `public override float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for swing`.
+**Purpose:** Calculates the current value or result of `strike magnitude for swing`.
+
+```csharp
+// Obtain an instance of SandboxStrikeMagnitudeModel from the subsystem API first
+SandboxStrikeMagnitudeModel sandboxStrikeMagnitudeModel = ...;
+var result = sandboxStrikeMagnitudeModel.CalculateStrikeMagnitudeForSwing(attackInformation, collisionData, weapon, 0, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public override float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for unarmed attack`.
+**Purpose:** Calculates the current value or result of `strike magnitude for unarmed attack`.
+
+```csharp
+// Obtain an instance of SandboxStrikeMagnitudeModel from the subsystem API first
+SandboxStrikeMagnitudeModel sandboxStrikeMagnitudeModel = ...;
+var result = sandboxStrikeMagnitudeModel.CalculateStrikeMagnitudeForUnarmedAttack(attackInformation, collisionData, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForThrust
 `public override float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustWeaponSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**Purpose:** Handles logic related to `calculate strike magnitude for thrust`.
+**Purpose:** Calculates the current value or result of `strike magnitude for thrust`.
+
+```csharp
+// Obtain an instance of SandboxStrikeMagnitudeModel from the subsystem API first
+SandboxStrikeMagnitudeModel sandboxStrikeMagnitudeModel = ...;
+var result = sandboxStrikeMagnitudeModel.CalculateStrikeMagnitudeForThrust(attackInformation, collisionData, weapon, 0, 0, false);
+```
 
 ### ComputeRawDamage
 `public override float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**Purpose:** Handles logic related to `compute raw damage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SandboxStrikeMagnitudeModel from the subsystem API first
+SandboxStrikeMagnitudeModel sandboxStrikeMagnitudeModel = ...;
+var result = sandboxStrikeMagnitudeModel.ComputeRawDamage(damageType, 0, 0, 0);
+```
 
 ### GetBluntDamageFactorByDamageType
 `public override float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**Purpose:** Gets the current value of `blunt damage factor by damage type`.
+**Purpose:** Reads and returns the `blunt damage factor by damage type` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxStrikeMagnitudeModel from the subsystem API first
+SandboxStrikeMagnitudeModel sandboxStrikeMagnitudeModel = ...;
+var result = sandboxStrikeMagnitudeModel.GetBluntDamageFactorByDamageType(damageType);
+```
 
 ### CalculateAdjustedArmorForBlow
 `public override float CalculateAdjustedArmorForBlow(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseArmor, BasicCharacterObject attackerCharacter, BasicCharacterObject attackerCaptainCharacter, BasicCharacterObject victimCharacter, BasicCharacterObject victimCaptainCharacter, WeaponComponentData weaponComponent)`
 
-**Purpose:** Handles logic related to `calculate adjusted armor for blow`.
+**Purpose:** Calculates the current value or result of `adjusted armor for blow`.
+
+```csharp
+// Obtain an instance of SandboxStrikeMagnitudeModel from the subsystem API first
+SandboxStrikeMagnitudeModel sandboxStrikeMagnitudeModel = ...;
+var result = sandboxStrikeMagnitudeModel.CalculateAdjustedArmorForBlow(attackInformation, collisionData, 0, attackerCharacter, attackerCaptainCharacter, victimCharacter, victimCaptainCharacter, weaponComponent);
+```
 
 ## Usage Example
 
@@ -74,4 +116,4 @@ Game.Current.ReplaceModel<SandboxStrikeMagnitudeModel>(new MySandboxStrikeMagnit
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

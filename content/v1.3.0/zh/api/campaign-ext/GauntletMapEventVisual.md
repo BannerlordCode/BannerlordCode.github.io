@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapEventVisual"
+description: "GauntletMapEventVisual 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMapEventVisual`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapEventVisual
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -37,25 +31,44 @@ title: "GauntletMapEventVisual"
 ### Initialize
 `public void Initialize(CampaignVec2 position, int battleSizeValue, bool isVisible)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapEventVisual 实例
+GauntletMapEventVisual gauntletMapEventVisual = ...;
+gauntletMapEventVisual.Initialize(position, 0, false);
+```
 
 ### OnMapEventEnd
 `public void OnMapEventEnd()`
 
-**用途 / Purpose:** 当 `map event end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map event end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapEventVisual 实例
+GauntletMapEventVisual gauntletMapEventVisual = ...;
+gauntletMapEventVisual.OnMapEventEnd();
+```
 
 ### SetVisibility
 `public void SetVisibility(bool isVisible)`
 
-**用途 / Purpose:** 设置 `visibility` 的值或状态。
+**用途 / Purpose:** 为 「visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapEventVisual 实例
+GauntletMapEventVisual gauntletMapEventVisual = ...;
+gauntletMapEventVisual.SetVisibility(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletMapEventVisual();
-value.Initialize(position, 0, false);
+// 通常从对应子系统 API 获取实例后调用
+GauntletMapEventVisual gauntletMapEventVisual = ...;
+gauntletMapEventVisual.Initialize(position, 0, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

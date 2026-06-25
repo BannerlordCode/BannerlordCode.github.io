@@ -1,13 +1,7 @@
 ---
 title: "CharacterImageIdentifierVM"
+description: "Auto-generated class reference for CharacterImageIdentifierVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterImageIdentifierVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ## Usage Example
 
 ```csharp
-var value = new CharacterImageIdentifierVM();
+// Obtain an instance from the relevant subsystem API
+CharacterImageIdentifierVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

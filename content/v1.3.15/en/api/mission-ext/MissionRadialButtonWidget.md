@@ -1,13 +1,7 @@
 ---
 title: "MissionRadialButtonWidget"
+description: "Auto-generated class reference for MissionRadialButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionRadialButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionRadialButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Radial
@@ -29,19 +23,32 @@ Treat `MissionRadialButtonWidget` as a Widget-style extension point: first ident
 ### ExecuteFocused
 `public void ExecuteFocused()`
 
-**Purpose:** Executes the `focused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focused`.
+
+```csharp
+// Obtain an instance of MissionRadialButtonWidget from the subsystem API first
+MissionRadialButtonWidget missionRadialButtonWidget = ...;
+missionRadialButtonWidget.ExecuteFocused();
+```
 
 ### ExecuteUnfocused
 `public void ExecuteUnfocused()`
 
-**Purpose:** Executes the `unfocused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `unfocused`.
+
+```csharp
+// Obtain an instance of MissionRadialButtonWidget from the subsystem API first
+MissionRadialButtonWidget missionRadialButtonWidget = ...;
+missionRadialButtonWidget.ExecuteUnfocused();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MissionRadialButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MissionRadialButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

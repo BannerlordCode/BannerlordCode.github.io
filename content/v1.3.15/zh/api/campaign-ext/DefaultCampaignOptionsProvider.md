@@ -1,13 +1,7 @@
 ---
 title: "DefaultCampaignOptionsProvider"
+description: "DefaultCampaignOptionsProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultCampaignOptionsProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultCampaignOptionsProvider
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -29,20 +23,33 @@ title: "DefaultCampaignOptionsProvider"
 ### GetGameplayCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**用途 / Purpose:** 获取 `gameplay campaign options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gameplay campaign options」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCampaignOptionsProvider 实例
+DefaultCampaignOptionsProvider defaultCampaignOptionsProvider = ...;
+var result = defaultCampaignOptionsProvider.GetGameplayCampaignOptions();
+```
 
 ### GetCharacterCreationCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**用途 / Purpose:** 获取 `character creation campaign options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character creation campaign options」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCampaignOptionsProvider 实例
+DefaultCampaignOptionsProvider defaultCampaignOptionsProvider = ...;
+var result = defaultCampaignOptionsProvider.GetCharacterCreationCampaignOptions();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultCampaignOptionsProvider();
-value.GetGameplayCampaignOptions();
+// 通常从对应子系统 API 获取实例后调用
+DefaultCampaignOptionsProvider defaultCampaignOptionsProvider = ...;
+defaultCampaignOptionsProvider.GetGameplayCampaignOptions();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

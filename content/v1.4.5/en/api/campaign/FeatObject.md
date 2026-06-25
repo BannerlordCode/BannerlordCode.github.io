@@ -1,20 +1,14 @@
 ---
 title: "FeatObject"
+description: "Auto-generated class reference for FeatObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FeatObject`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FeatObject
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class FeatObject : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/FeatObject.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/FeatObject.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ### Initialize
 `public void Initialize(string name, string description, float effectBonus, bool isPositiveEffect, AdditionType incrementType)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of FeatObject from the subsystem API first
+FeatObject featObject = ...;
+featObject.Initialize("example", "example", 0, false, incrementType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FeatObject();
-value.Initialize("example", "example", 0, false, incrementType);
+// Typically call this after obtaining an instance from the subsystem API
+FeatObject featObject = ...;
+featObject.Initialize("example", "example", 0, false, incrementType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

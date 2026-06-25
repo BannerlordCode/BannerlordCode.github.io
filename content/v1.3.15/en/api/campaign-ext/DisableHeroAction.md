@@ -1,18 +1,8 @@
 ---
 title: "DisableHeroAction"
+description: "Auto-generated campaign action reference for DisableHeroAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisableHeroAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DisableHeroAction
-
-## Mental Model
-
-Treat `DisableHeroAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -29,7 +19,7 @@ DisableHeroAction is a set of static methods that trigger "DisableHero" in the c
 public static void Apply(Hero hero)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -40,5 +30,5 @@ DisableHeroAction.Apply(hero);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

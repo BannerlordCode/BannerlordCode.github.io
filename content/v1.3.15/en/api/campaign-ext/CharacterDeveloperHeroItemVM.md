@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperHeroItemVM"
+description: "Auto-generated class reference for CharacterDeveloperHeroItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperHeroItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperHeroItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -61,80 +55,165 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.RefreshValues();
+```
 
 ### ExecuteStopInspectingCurrentAttribute
 `public void ExecuteStopInspectingCurrentAttribute()`
 
-**Purpose:** Executes the `stop inspecting current attribute` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `stop inspecting current attribute`.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.ExecuteStopInspectingCurrentAttribute();
+```
 
 ### RefreshCharacterValues
 `public void RefreshCharacterValues()`
 
-**Purpose:** Refreshes the display or cache of `character values`.
+**Purpose:** Keeps the display or cache of `character values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.RefreshCharacterValues();
+```
 
 ### RefreshPerksOfSkill
 `public void RefreshPerksOfSkill(SkillObject skill)`
 
-**Purpose:** Refreshes the display or cache of `perks of skill`.
+**Purpose:** Keeps the display or cache of `perks of skill` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.RefreshPerksOfSkill(skill);
+```
 
 ### ResetChanges
 `public void ResetChanges(bool isCancel)`
 
-**Purpose:** Resets `changes` to its initial state.
+**Purpose:** Returns `changes` to its default or initial condition.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.ResetChanges(false);
+```
 
 ### ApplyChanges
 `public void ApplyChanges()`
 
-**Purpose:** Applies `changes` to the current object.
+**Purpose:** Applies the effect of `changes` to the current object.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.ApplyChanges();
+```
 
 ### SetCurrentSkill
 `public void SetCurrentSkill(SkillVM skill)`
 
-**Purpose:** Sets the value or state of `current skill`.
+**Purpose:** Assigns a new value to `current skill` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.SetCurrentSkill(skill);
+```
 
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**Purpose:** Handles logic related to `is there any changes`.
+**Purpose:** Determines whether the current object is in the `there any changes` state or condition.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.IsThereAnyChanges();
+```
 
 ### GetRequiredFocusPointsToAddFocusWithCurrentFocus
 `public int GetRequiredFocusPointsToAddFocusWithCurrentFocus(SkillObject skill)`
 
-**Purpose:** Gets the current value of `required focus points to add focus with current focus`.
+**Purpose:** Reads and returns the `required focus points to add focus with current focus` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.GetRequiredFocusPointsToAddFocusWithCurrentFocus(skill);
+```
 
 ### CanAddFocusToSkillWithFocusAmount
 `public bool CanAddFocusToSkillWithFocusAmount(int currentFocusAmount)`
 
-**Purpose:** Checks whether the current object can `add focus to skill with focus amount`.
+**Purpose:** Checks whether the current object meets the preconditions for `add focus to skill with focus amount`.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.CanAddFocusToSkillWithFocusAmount(0);
+```
 
 ### IsSkillMaxAmongOtherSkills
 `public bool IsSkillMaxAmongOtherSkills(SkillVM skill)`
 
-**Purpose:** Handles logic related to `is skill max among other skills`.
+**Purpose:** Determines whether the current object is in the `skill max among other skills` state or condition.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.IsSkillMaxAmongOtherSkills(skill);
+```
 
 ### GetNameWithNumOfUnopenedPerks
 `public string GetNameWithNumOfUnopenedPerks()`
 
-**Purpose:** Gets the current value of `name with num of unopened perks`.
+**Purpose:** Reads and returns the `name with num of unopened perks` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.GetNameWithNumOfUnopenedPerks();
+```
 
 ### GetNumberOfUnselectedPerks
 `public int GetNumberOfUnselectedPerks()`
 
-**Purpose:** Gets the current value of `number of unselected perks`.
+**Purpose:** Reads and returns the `number of unselected perks` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.GetNumberOfUnselectedPerks();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CharacterDeveloperHeroItemVM from the subsystem API first
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterDeveloperHeroItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

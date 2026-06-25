@@ -1,13 +1,7 @@
 ---
 title: "BannerIconGroup"
+description: "BannerIconGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerIconGroup`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerIconGroup
 
 **Namespace:** TaleWorlds.Core
@@ -37,20 +31,33 @@ title: "BannerIconGroup"
 ### Deserialize
 `public void Deserialize(XmlNode xmlNode, MBList<BannerIconGroup> previouslyAddedGroups)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 BannerIconGroup 实例
+BannerIconGroup bannerIconGroup = ...;
+bannerIconGroup.Deserialize(xmlNode, previouslyAddedGroups);
+```
 
 ### Merge
 `public void Merge(BannerIconGroup otherGroup)`
 
-**用途 / Purpose:** 处理 `merge` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerIconGroup 实例
+BannerIconGroup bannerIconGroup = ...;
+bannerIconGroup.Merge(otherGroup);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerIconGroup();
-value.Deserialize(xmlNode, previouslyAddedGroups);
+// 通常从对应子系统 API 获取实例后调用
+BannerIconGroup bannerIconGroup = ...;
+bannerIconGroup.Deserialize(xmlNode, previouslyAddedGroups);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

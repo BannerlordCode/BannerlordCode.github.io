@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaManager"
+description: "EncyclopediaManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
@@ -35,37 +29,79 @@ title: "EncyclopediaManager"
 ### CreateEncyclopediaPages
 `public void CreateEncyclopediaPages()`
 
-**用途 / Purpose:** 创建一个 `encyclopedia pages` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「encyclopedia pages」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaManager 实例
+EncyclopediaManager encyclopediaManager = ...;
+encyclopediaManager.CreateEncyclopediaPages();
+```
 
 ### GetEncyclopediaPages
 `public IEnumerable<EncyclopediaPage> GetEncyclopediaPages()`
 
-**用途 / Purpose:** 获取 `encyclopedia pages` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia pages」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaManager 实例
+EncyclopediaManager encyclopediaManager = ...;
+var result = encyclopediaManager.GetEncyclopediaPages();
+```
 
 ### GetPageOf
 `public EncyclopediaPage GetPageOf(Type type)`
 
-**用途 / Purpose:** 获取 `page of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「page of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaManager 实例
+EncyclopediaManager encyclopediaManager = ...;
+var result = encyclopediaManager.GetPageOf(type);
+```
 
 ### GetIdentifier
 `public string GetIdentifier(Type type)`
 
-**用途 / Purpose:** 获取 `identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaManager 实例
+EncyclopediaManager encyclopediaManager = ...;
+var result = encyclopediaManager.GetIdentifier(type);
+```
 
 ### GoToLink
 `public void GoToLink(string pageType, string stringID)`
 
-**用途 / Purpose:** 处理 `go to link` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaManager 实例
+EncyclopediaManager encyclopediaManager = ...;
+encyclopediaManager.GoToLink("example", "example");
+```
 
 ### GoToLink
 `public void GoToLink(string link)`
 
-**用途 / Purpose:** 处理 `go to link` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaManager 实例
+EncyclopediaManager encyclopediaManager = ...;
+encyclopediaManager.GoToLink("example");
+```
 
 ### SetLinkCallback
 `public void SetLinkCallback(Action<string, object> ExecuteLink)`
 
-**用途 / Purpose:** 设置 `link callback` 的值或状态。
+**用途 / Purpose:** 为 「link callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaManager 实例
+EncyclopediaManager encyclopediaManager = ...;
+encyclopediaManager.SetLinkCallback(action<string, executeLink);
+```
 
 ## 使用示例
 
@@ -75,4 +111,4 @@ var manager = EncyclopediaManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

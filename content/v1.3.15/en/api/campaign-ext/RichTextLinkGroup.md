@@ -1,13 +1,7 @@
 ---
 title: "RichTextLinkGroup"
+description: "Auto-generated class reference for RichTextLinkGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichTextLinkGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RichTextLinkGroup
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new RichTextLinkGroup();
+// Obtain an instance from the relevant subsystem API
+RichTextLinkGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

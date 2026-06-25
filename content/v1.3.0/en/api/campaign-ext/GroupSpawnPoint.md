@@ -1,13 +1,7 @@
 ---
 title: "GroupSpawnPoint"
+description: "Auto-generated class reference for GroupSpawnPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GroupSpawnPoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GroupSpawnPoint
 
 **Namespace:** SandBox.Objects
@@ -33,9 +27,10 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new GroupSpawnPoint();
+// Obtain an instance from the relevant subsystem API
+GroupSpawnPoint instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

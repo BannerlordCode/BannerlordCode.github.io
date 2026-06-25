@@ -1,13 +1,7 @@
 ---
 title: "InventoryData"
+description: "InventoryData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -35,19 +29,32 @@ title: "InventoryData"
 ### GetItemWithIndex
 `public ItemData GetItemWithIndex(int itemIndex)`
 
-**用途 / Purpose:** 获取 `item with index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item with index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryData 实例
+InventoryData inventoryData = ...;
+var result = inventoryData.GetItemWithIndex(0);
+```
 
 ### DebugPrint
 `public void DebugPrint()`
 
-**用途 / Purpose:** 处理 `debug print` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryData 实例
+InventoryData inventoryData = ...;
+inventoryData.DebugPrint();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InventoryData();
+// 该数据对象通常由战役/任务 API 返回
+InventoryData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

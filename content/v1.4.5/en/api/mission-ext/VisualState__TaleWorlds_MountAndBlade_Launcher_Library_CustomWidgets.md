@@ -1,20 +1,14 @@
 ---
-title: "VisualState__TaleWorlds_MountAndBlade_Launcher_Library_CustomWidgets"
+title: "VisualState"
+description: "Auto-generated class reference for VisualState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualState
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum VisualState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherCircleLoadingAnimWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherCircleLoadingAnimWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets` t
 ## Usage Example
 
 ```csharp
-VisualState example = VisualState.Value;
+// Obtain an instance from the relevant subsystem API
+VisualState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

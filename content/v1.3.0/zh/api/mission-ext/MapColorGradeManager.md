@@ -1,13 +1,7 @@
 ---
 title: "MapColorGradeManager"
+description: "MapColorGradeManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapColorGradeManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapColorGradeManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
@@ -29,17 +23,35 @@ title: "MapColorGradeManager"
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapColorGradeManager 实例
+MapColorGradeManager mapColorGradeManager = ...;
+var result = mapColorGradeManager.GetTickRequirement();
+```
 
 ### ApplyAtmosphere
 `public void ApplyAtmosphere(bool forceLoadTextures)`
 
-**用途 / Purpose:** 将 `atmosphere` 应用到当前对象。
+**用途 / Purpose:** 将 「atmosphere」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MapColorGradeManager 实例
+MapColorGradeManager mapColorGradeManager = ...;
+mapColorGradeManager.ApplyAtmosphere(false);
+```
 
 ### ApplyColorGrade
 `public void ApplyColorGrade(float dt)`
 
-**用途 / Purpose:** 将 `color grade` 应用到当前对象。
+**用途 / Purpose:** 将 「color grade」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MapColorGradeManager 实例
+MapColorGradeManager mapColorGradeManager = ...;
+mapColorGradeManager.ApplyColorGrade(0);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ var manager = MapColorGradeManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

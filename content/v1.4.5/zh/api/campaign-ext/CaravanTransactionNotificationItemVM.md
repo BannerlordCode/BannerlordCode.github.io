@@ -1,20 +1,14 @@
 ---
 title: "CaravanTransactionNotificationItemVM"
+description: "CaravanTransactionNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CaravanTransactionNotificationItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaravanTransactionNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class CaravanTransactionNotificationItemVM : SettlementNotificationItemBaseVM`
 **Base:** `SettlementNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/CaravanTransactionNotificationItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/CaravanTransactionNotificationItemVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "CaravanTransactionNotificationItemVM"
 ### AddNewItems
 `public void AddNewItems(List<(EquipmentElement, int)> newItems)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `new items`。
+**用途 / Purpose:** 将 「new items」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CaravanTransactionNotificationItemVM 实例
+CaravanTransactionNotificationItemVM caravanTransactionNotificationItemVM = ...;
+caravanTransactionNotificationItemVM.AddNewItems(list<(EquipmentElement, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CaravanTransactionNotificationItemVM();
-value.AddNewItems(list<(EquipmentElement, 0);
+// 通常从对应子系统 API 获取实例后调用
+CaravanTransactionNotificationItemVM caravanTransactionNotificationItemVM = ...;
+caravanTransactionNotificationItemVM.AddNewItems(list<(EquipmentElement, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

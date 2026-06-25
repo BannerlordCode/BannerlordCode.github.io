@@ -1,20 +1,14 @@
 ---
 title: "CameraJumpScript"
+description: "Auto-generated class reference for CameraJumpScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CameraJumpScript`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CameraJumpScript
 
 **Namespace:** SandBox.Missions
 **Module:** SandBox.Missions
 **Type:** `public class CameraJumpScript : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions/CameraJumpScript.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions/CameraJumpScript.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.Missions` to place it in the stack, then inspect i
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of CameraJumpScript from the subsystem API first
+CameraJumpScript cameraJumpScript = ...;
+var result = cameraJumpScript.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CameraJumpScript();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+CameraJumpScript cameraJumpScript = ...;
+cameraJumpScript.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "KingdomManagementVM"
+description: "KingdomManagementVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomManagementVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomManagementVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomManagementVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement/KingdomManagementVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement/KingdomManagementVM.cs`
 
 ## 概述
 
@@ -62,90 +56,187 @@ title: "KingdomManagementVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.RefreshValues();
+```
 
 ### OnRefresh
 `public void OnRefresh()`
 
-**用途 / Purpose:** 当 `refresh` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「refresh」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.OnRefresh();
+```
 
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**用途 / Purpose:** 当 `frame tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「frame tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.OnFrameTick();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 `close` 操作或流程。
+**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.ExecuteClose();
+```
 
 ### SelectArmy
 `public void SelectArmy(Army army)`
 
-**用途 / Purpose:** 处理 `select army` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectArmy(army);
+```
 
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `select settlement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectSettlement(settlement);
+```
 
 ### SelectClan
 `public void SelectClan(Clan clan)`
 
-**用途 / Purpose:** 处理 `select clan` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectClan(clan);
+```
 
 ### SelectPolicy
 `public void SelectPolicy(PolicyObject policy)`
 
-**用途 / Purpose:** 处理 `select policy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectPolicy(policy);
+```
 
 ### SelectKingdom
 `public void SelectKingdom(Kingdom kingdom)`
 
-**用途 / Purpose:** 处理 `select kingdom` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectKingdom(kingdom);
+```
 
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**用途 / Purpose:** 处理 `select previous category` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectPreviousCategory();
+```
 
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**用途 / Purpose:** 处理 `select next category` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectNextCategory();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SetCancelInputKey(hotkey);
+```
 
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `previous tab input key` 的值或状态。
+**用途 / Purpose:** 为 「previous tab input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SetPreviousTabInputKey(hotkey);
+```
 
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `next tab input key` 的值或状态。
+**用途 / Purpose:** 为 「next tab input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomManagementVM 实例
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SetNextTabInputKey(hotkey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomManagementVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

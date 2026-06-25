@@ -1,13 +1,7 @@
 ---
 title: "DictionaryByType"
+description: "Auto-generated class reference for DictionaryByType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DictionaryByType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DictionaryByType
 
 **Namespace:** TaleWorlds.Library.EventSystem
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library.EventSystem` to place it in the stack, 
 ### GetClone
 `public IDictionary<Type, object> GetClone()`
 
-**Purpose:** Gets the current value of `clone`.
+**Purpose:** Reads and returns the `clone` value held by the current object.
+
+```csharp
+// Obtain an instance of DictionaryByType from the subsystem API first
+DictionaryByType dictionaryByType = ...;
+var result = dictionaryByType.GetClone();
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of DictionaryByType from the subsystem API first
+DictionaryByType dictionaryByType = ...;
+dictionaryByType.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DictionaryByType();
-value.GetClone();
+// Typically call this after obtaining an instance from the subsystem API
+DictionaryByType dictionaryByType = ...;
+dictionaryByType.GetClone();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

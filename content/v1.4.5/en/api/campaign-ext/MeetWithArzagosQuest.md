@@ -1,20 +1,14 @@
 ---
 title: "MeetWithArzagosQuest"
+description: "Auto-generated class reference for MeetWithArzagosQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MeetWithArzagosQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MeetWithArzagosQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
 **Module:** StoryMode.Quests
 **Type:** `public class MeetWithArzagosQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/MeetWithArzagosQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/MeetWithArzagosQuest.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `StoryMode.Quests.FirstPhase` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new MeetWithArzagosQuest();
+// Obtain an instance from the relevant subsystem API
+MeetWithArzagosQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

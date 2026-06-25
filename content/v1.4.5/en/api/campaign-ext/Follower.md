@@ -1,20 +1,14 @@
 ---
 title: "Follower"
+description: "Auto-generated class reference for Follower."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Follower`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Follower
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public struct Follower`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/Follower.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/Follower.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var example = new Follower();
+// Obtain an instance from the relevant subsystem API
+Follower instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

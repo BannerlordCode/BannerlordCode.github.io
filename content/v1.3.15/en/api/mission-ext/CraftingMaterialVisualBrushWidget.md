@@ -1,13 +1,7 @@
 ---
 title: "CraftingMaterialVisualBrushWidget"
+description: "Auto-generated class reference for CraftingMaterialVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingMaterialVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingMaterialVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
@@ -34,9 +28,10 @@ Treat `CraftingMaterialVisualBrushWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new CraftingMaterialVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingMaterialVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PublishedLobbyNewsArticle"
+description: "Auto-generated class reference for PublishedLobbyNewsArticle."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PublishedLobbyNewsArticle`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PublishedLobbyNewsArticle
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new PublishedLobbyNewsArticle();
+// Obtain an instance from the relevant subsystem API
+PublishedLobbyNewsArticle instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

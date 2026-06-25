@@ -1,20 +1,14 @@
 ---
 title: "NavigationAutoScrollWidget"
+description: "Auto-generated class reference for NavigationAutoScrollWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavigationAutoScrollWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationAutoScrollWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NavigationAutoScrollWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigationAutoScrollWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NavigationAutoScrollWidget.cs`
 
 ## Overview
 
@@ -40,9 +34,10 @@ Treat `NavigationAutoScrollWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new NavigationAutoScrollWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+NavigationAutoScrollWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

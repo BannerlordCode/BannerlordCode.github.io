@@ -1,20 +1,14 @@
 ---
 title: "MarriageOfferMapNotification"
+description: "MarriageOfferMapNotification 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MarriageOfferMapNotification`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageOfferMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MarriageOfferMapNotification : InformationData`
 **Base:** `InformationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/MarriageOfferMapNotification.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/MarriageOfferMapNotification.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "MarriageOfferMapNotification"
 ### IsValid
 `public override bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageOfferMapNotification 实例
+MarriageOfferMapNotification marriageOfferMapNotification = ...;
+var result = marriageOfferMapNotification.IsValid();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MarriageOfferMapNotification();
-value.IsValid();
+// 通常从对应子系统 API 获取实例后调用
+MarriageOfferMapNotification marriageOfferMapNotification = ...;
+marriageOfferMapNotification.IsValid();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

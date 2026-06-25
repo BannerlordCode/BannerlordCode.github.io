@@ -1,50 +1,55 @@
 ---
 title: "HintViewModel"
+description: "HintViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HintViewModel`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HintViewModel
 
-**命名空间:** TaleWorlds.Core.ViewModelCollection.Information
-**模块:** TaleWorlds.Core
-**类型:** `public class HintViewModel : ViewModel`
+**Namespace:** TaleWorlds.Core.ViewModelCollection.Information
+**Module:** TaleWorlds.Core
+**Type:** `public class HintViewModel : ViewModel`
+**Base:** `ViewModel`
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/HintViewModel.cs`
 
 ## 概述
 
-`HintViewModel` 是 UI 提示（hint / tooltip）层的轻量 ViewModel。它的职责很明确：把一段可本地化的提示文本以及相关显隐状态暴露给 Gauntlet 绑定层，让界面在悬停或聚焦时显示正确提示。
+`HintViewModel` 是一个 Gauntlet ViewModel——C# 逻辑与 UI 之间的数据绑定桥梁。mod 常通过它暴露状态、命令和列表项给界面。
 
 ## 心智模型
 
-把 `HintViewModel` 当作“单一提示气泡的数据源”来看：界面层负责决定什么时候显示提示，而这个 ViewModel 负责携带提示内容、更新绑定状态，并通过 `ViewModel` 的通知机制把变化推给界面。
-
-## 主要属性
-
-### HintText
-`public TextObject HintText { get; set; }`
-
-**用途 / Purpose:** 保存当前提示文本，通常由调用方在创建 ViewModel 时传入。
+把 `HintViewModel` 当作一个 ViewModel 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
 ## 主要方法
 
-### RefreshValues
-`public override void RefreshValues()`
+### ExecuteBeginHint
+`public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 当语言切换或 UI 需要重新拉取本地化文本时，刷新绑定值。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HintViewModel 实例
+HintViewModel hintViewModel = ...;
+hintViewModel.ExecuteBeginHint();
+```
+
+### ExecuteEndHint
+`public void ExecuteEndHint()`
+
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HintViewModel 实例
+HintViewModel hintViewModel = ...;
+hintViewModel.ExecuteEndHint();
+```
 
 ## 使用示例
 
 ```csharp
-HintViewModel hint = new HintViewModel();
-hint.HintText = new TextObject("{=my_mod_hint}This action consumes 10 stamina.");
-hint.RefreshValues();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+HintViewModel vm = ...;
+movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [ViewModel](./ViewModel)
-- [DataSourceProperty](./DataSourceProperty)
+- [本区域目录](../)

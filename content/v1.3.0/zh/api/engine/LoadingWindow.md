@@ -1,13 +1,7 @@
 ---
 title: "LoadingWindow"
+description: "LoadingWindow 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LoadingWindow`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadingWindow
 
 **Namespace:** TaleWorlds.Engine
@@ -36,22 +30,42 @@ title: "LoadingWindow"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+LoadingWindow.Initialize();
+```
 
 ### Destroy
 `public static void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LoadingWindow.Destroy();
+```
 
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 处理 `disable global loading window` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LoadingWindow.DisableGlobalLoadingWindow();
+```
 
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 处理 `enable global loading window` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LoadingWindow.EnableGlobalLoadingWindow();
+```
 
 ## 使用示例
 
@@ -61,4 +75,4 @@ LoadingWindow.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

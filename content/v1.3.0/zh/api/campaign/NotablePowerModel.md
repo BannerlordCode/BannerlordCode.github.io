@@ -1,13 +1,7 @@
 ---
 title: "NotablePowerModel"
+description: "NotablePowerModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NotablePowerModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotablePowerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,34 +30,65 @@ title: "NotablePowerModel"
 ### CalculateDailyPowerChangeForHero
 `public abstract ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate daily power change for hero` 相关逻辑。
+**用途 / Purpose:** 计算「daily power change for hero」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 NotablePowerModel 实例
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.CalculateDailyPowerChangeForHero(hero, false);
+```
 
 ### GetPowerRankName
 `public abstract TextObject GetPowerRankName(Hero hero)`
 
-**用途 / Purpose:** 获取 `power rank name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「power rank name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NotablePowerModel 实例
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.GetPowerRankName(hero);
+```
 
 ### GetInfluenceBonusToClan
 `public abstract float GetInfluenceBonusToClan(Hero hero)`
 
-**用途 / Purpose:** 获取 `influence bonus to clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence bonus to clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NotablePowerModel 实例
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.GetInfluenceBonusToClan(hero);
+```
 
 ### GetInitialPower
 `public abstract int GetInitialPower(Hero hero)`
 
-**用途 / Purpose:** 获取 `initial power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NotablePowerModel 实例
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.GetInitialPower(hero);
+```
 
 ### GetInitialNotableSupporterCost
 `public abstract int GetInitialNotableSupporterCost(Hero hero)`
 
-**用途 / Purpose:** 获取 `initial notable supporter cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial notable supporter cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NotablePowerModel 实例
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.GetInitialNotableSupporterCost(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomNotablePowerModel();
+// 通常通过子系统 API 或工厂获得派生实例
+NotablePowerModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

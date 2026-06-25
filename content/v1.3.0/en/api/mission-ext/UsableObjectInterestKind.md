@@ -1,13 +1,7 @@
 ---
 title: "UsableObjectInterestKind"
+description: "Auto-generated class reference for UsableObjectInterestKind."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UsableObjectInterestKind`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsableObjectInterestKind
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-UsableObjectInterestKind example = UsableObjectInterestKind.Value;
+// Obtain an instance from the relevant subsystem API
+UsableObjectInterestKind instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

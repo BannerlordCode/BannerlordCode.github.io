@@ -1,23 +1,18 @@
 ---
 title: "Scouting"
+description: "Auto-generated class reference for Scouting."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Scouting`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Scouting
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Scouting`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Scouting` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Scouting` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `DayTraveler` | `public static PerkObject DayTraveler { get; }` |
+| `Pathfinder` | `public static PerkObject Pathfinder { get; }` |
+| `NightRunner` | `public static PerkObject NightRunner { get; }` |
+| `WaterDiviner` | `public static PerkObject WaterDiviner { get; }` |
+| `ForestKin` | `public static PerkObject ForestKin { get; }` |
+| `DesertBorn` | `public static PerkObject DesertBorn { get; }` |
+| `ForcedMarch` | `public static PerkObject ForcedMarch { get; }` |
+| `Unburdened` | `public static PerkObject Unburdened { get; }` |
+| `Tracker` | `public static PerkObject Tracker { get; }` |
+| `Ranger` | `public static PerkObject Ranger { get; }` |
+| `MountedScouts` | `public static PerkObject MountedScouts { get; }` |
+| `Patrols` | `public static PerkObject Patrols { get; }` |
+| `Foragers` | `public static PerkObject Foragers { get; }` |
+| `BeastWhisperer` | `public static PerkObject BeastWhisperer { get; }` |
+| `VillageNetwork` | `public static PerkObject VillageNetwork { get; }` |
+| `RumourNetwork` | `public static PerkObject RumourNetwork { get; }` |
+| `VantagePoint` | `public static PerkObject VantagePoint { get; }` |
+| `KeenSight` | `public static PerkObject KeenSight { get; }` |
+| `Vanguard` | `public static PerkObject Vanguard { get; }` |
+| `Rearguard` | `public static PerkObject Rearguard { get; }` |
+| `UncannyInsight` | `public static PerkObject UncannyInsight { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Scouting();
+// Obtain an instance from the relevant subsystem API
+Scouting instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MountDamageEffect"
+description: "MountDamageEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MountDamageEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountDamageEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MountDamageEffect : MPCombatPerkEffect`
 **Base:** `MPCombatPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountDamageEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountDamageEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MountDamageEffect"
 ### GetMountDamage
 `public override float GetMountDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**用途 / Purpose:** 获取 `mount damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mount damage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MountDamageEffect 实例
+MountDamageEffect mountDamageEffect = ...;
+var result = mountDamageEffect.GetMountDamage(attackerWeapon, damageType, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MountDamageEffect();
-value.GetMountDamage(attackerWeapon, damageType, false);
+// 通常从对应子系统 API 获取实例后调用
+MountDamageEffect mountDamageEffect = ...;
+mountDamageEffect.GetMountDamage(attackerWeapon, damageType, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

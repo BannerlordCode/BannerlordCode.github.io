@@ -1,13 +1,7 @@
 ---
 title: "NavigationMeshDeactivator"
+description: "NavigationMeshDeactivator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NavigationMeshDeactivator`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationMeshDeactivator
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Objects
@@ -29,20 +23,33 @@ title: "NavigationMeshDeactivator"
 ### DisableAssignedFaces
 `public void DisableAssignedFaces(Scene scene)`
 
-**用途 / Purpose:** 处理 `disable assigned faces` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationMeshDeactivator 实例
+NavigationMeshDeactivator navigationMeshDeactivator = ...;
+navigationMeshDeactivator.DisableAssignedFaces(scene);
+```
 
 ### EnableAssignedFaces
 `public void EnableAssignedFaces(Scene scene)`
 
-**用途 / Purpose:** 处理 `enable assigned faces` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationMeshDeactivator 实例
+NavigationMeshDeactivator navigationMeshDeactivator = ...;
+navigationMeshDeactivator.EnableAssignedFaces(scene);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NavigationMeshDeactivator();
-value.DisableAssignedFaces(scene);
+// 通常从对应子系统 API 获取实例后调用
+NavigationMeshDeactivator navigationMeshDeactivator = ...;
+navigationMeshDeactivator.DisableAssignedFaces(scene);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

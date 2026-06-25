@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationClanNamingStageVM"
+description: "CharacterCreationClanNamingStageVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationClanNamingStageVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationClanNamingStageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationClanNamingStageVM : CharacterCreationStageBaseVM`
 **Base:** `CharacterCreationStageBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationClanNamingStageVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationClanNamingStageVM.cs`
 
 ## 概述
 
@@ -45,60 +39,121 @@ title: "CharacterCreationClanNamingStageVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.RefreshValues();
+```
 
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `advance to next stage`。
+**用途 / Purpose:** 检查当前对象是否满足 「advance to next stage」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+var result = characterCreationClanNamingStageVM.CanAdvanceToNextStage();
+```
 
 ### OnNextStage
 `public override void OnNextStage()`
 
-**用途 / Purpose:** 当 `next stage` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「next stage」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.OnNextStage();
+```
 
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**用途 / Purpose:** 当 `previous stage` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「previous stage」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.OnPreviousStage();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.SetDoneInputKey(hotKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.AddCameraControlInputKey(hotKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.AddCameraControlInputKey(gameKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `camera control input key`。
+**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.AddCameraControlInputKey(gameAxisKey, keyName);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterCreationClanNamingStageVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CharacterCreationClanNamingStageVM characterCreationClanNamingStageVM = ...;
+characterCreationClanNamingStageVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

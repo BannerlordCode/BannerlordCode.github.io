@@ -1,13 +1,7 @@
 ---
 title: "ItemCollectionElementViewExtensions"
+description: "Auto-generated class reference for ItemCollectionElementViewExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemCollectionElementViewExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCollectionElementViewExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,77 +23,152 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetMaterialCacheID
 `public static string GetMaterialCacheID(object o)`
 
-**Purpose:** Gets the current value of `material cache i d`.
+**Purpose:** Reads and returns the `material cache i d` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetMaterialCacheID(o);
+```
 
 ### GetMultiMesh
 `public static MetaMesh GetMultiMesh(this ItemObject item, bool isFemale, bool hasGloves, bool needBatchedVersion)`
 
-**Purpose:** Gets the current value of `multi mesh`.
+**Purpose:** Reads and returns the `multi mesh` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetMultiMesh(item, false, false, false);
+```
 
 ### GetMultiMesh
 `public static MetaMesh GetMultiMesh(this EquipmentElement equipmentElement, bool isFemale, bool hasGloves, bool needBatchedVersion)`
 
-**Purpose:** Gets the current value of `multi mesh`.
+**Purpose:** Reads and returns the `multi mesh` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetMultiMesh(equipmentElement, false, false, false);
+```
 
 ### GetMultiMesh
 `public static MetaMesh GetMultiMesh(this MissionWeapon weapon, bool isFemale, bool hasGloves, bool needBatchedVersion)`
 
-**Purpose:** Gets the current value of `multi mesh`.
+**Purpose:** Reads and returns the `multi mesh` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetMultiMesh(weapon, false, false, false);
+```
 
 ### GetItemMeshForInventory
 `public static MetaMesh GetItemMeshForInventory(this ItemRosterElement rosterElement, bool isFemale = false)`
 
-**Purpose:** Gets the current value of `item mesh for inventory`.
+**Purpose:** Reads and returns the `item mesh for inventory` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetItemMeshForInventory(rosterElement, false);
+```
 
 ### GetHolsterMeshCopy
 `public static MetaMesh GetHolsterMeshCopy(this ItemObject item)`
 
-**Purpose:** Gets the current value of `holster mesh copy`.
+**Purpose:** Reads and returns the `holster mesh copy` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetHolsterMeshCopy(item);
+```
 
 ### GetHolsterMeshIfExists
 `public static MetaMesh GetHolsterMeshIfExists(this ItemObject item)`
 
-**Purpose:** Gets the current value of `holster mesh if exists`.
+**Purpose:** Reads and returns the `holster mesh if exists` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetHolsterMeshIfExists(item);
+```
 
 ### GetHolsterWithWeaponMeshCopy
 `public static MetaMesh GetHolsterWithWeaponMeshCopy(this ItemObject item, bool needBatchedVersion)`
 
-**Purpose:** Gets the current value of `holster with weapon mesh copy`.
+**Purpose:** Reads and returns the `holster with weapon mesh copy` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetHolsterWithWeaponMeshCopy(item, false);
+```
 
 ### GetHolsterWithWeaponMeshIfExists
 `public static MetaMesh GetHolsterWithWeaponMeshIfExists(this ItemObject item)`
 
-**Purpose:** Gets the current value of `holster with weapon mesh if exists`.
+**Purpose:** Reads and returns the `holster with weapon mesh if exists` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetHolsterWithWeaponMeshIfExists(item);
+```
 
 ### GetFlyingMeshCopy
 `public static MetaMesh GetFlyingMeshCopy(this ItemObject item, bool needBatchedVersion)`
 
-**Purpose:** Gets the current value of `flying mesh copy`.
+**Purpose:** Reads and returns the `flying mesh copy` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetFlyingMeshCopy(item, false);
+```
 
 ### GetFlyingMeshIfExists
 `public static MetaMesh GetFlyingMeshIfExists(this ItemObject item)`
 
-**Purpose:** Gets the current value of `flying mesh if exists`.
+**Purpose:** Reads and returns the `flying mesh if exists` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetFlyingMeshIfExists(item);
+```
 
 ### GetCameraFrameForInventory
 `public static MatrixFrame GetCameraFrameForInventory(this ItemRosterElement itemRosterElement)`
 
-**Purpose:** Gets the current value of `camera frame for inventory`.
+**Purpose:** Reads and returns the `camera frame for inventory` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetCameraFrameForInventory(itemRosterElement);
+```
 
 ### GetItemFrameForInventory
 `public static MatrixFrame GetItemFrameForInventory(this ItemRosterElement itemRosterElement)`
 
-**Purpose:** Gets the current value of `item frame for inventory`.
+**Purpose:** Reads and returns the `item frame for inventory` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetItemFrameForInventory(itemRosterElement);
+```
 
 ### GetItemFrameForItemTooltip
 `public static MatrixFrame GetItemFrameForItemTooltip(this ItemRosterElement itemRosterElement)`
 
-**Purpose:** Gets the current value of `item frame for item tooltip`.
+**Purpose:** Reads and returns the `item frame for item tooltip` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.GetItemFrameForItemTooltip(itemRosterElement);
+```
 
 ### OnGetWeaponData
 `public static void OnGetWeaponData(ref WeaponData weaponData, MissionWeapon weapon, bool isFemale, Banner banner, bool needBatchedVersion)`
 
-**Purpose:** Called when the `get weapon data` event is raised.
+**Purpose:** Invoked when the `get weapon data` event is raised.
+
+```csharp
+// Static call; no instance required
+ItemCollectionElementViewExtensions.OnGetWeaponData(weaponData, weapon, false, banner, false);
+```
 
 ## Usage Example
 
@@ -109,4 +178,4 @@ ItemCollectionElementViewExtensions.GetMaterialCacheID(o);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

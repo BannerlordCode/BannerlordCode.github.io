@@ -1,20 +1,14 @@
 ---
 title: "IDiscoveryService"
+description: "IDiscoveryService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IDiscoveryService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IDiscoveryService
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
-**Type:** `class`
+**Type:** `public interface IDiscoveryService`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/IDiscoveryService.cs`
+**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/IDiscoveryService.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IDiscoveryService"
 ## 使用示例
 
 ```csharp
-IDiscoveryService implementation = GetDiscoveryServiceImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIDiscoveryService service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

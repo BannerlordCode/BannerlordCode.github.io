@@ -1,23 +1,18 @@
 ---
 title: "AnimationInterpolation"
+description: "Auto-generated class reference for AnimationInterpolation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimationInterpolation`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AnimationInterpolation
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public static class AnimationInterpolation`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/AnimationInterpolation.cs`
 
 ## Overview
 
-`AnimationInterpolation` lives in `TaleWorlds.GauntletUI`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`AnimationInterpolation` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,31 +23,52 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Ease
 `public static float Ease(AnimationInterpolation.Type type, AnimationInterpolation.Function function, float ratio)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+AnimationInterpolation.Ease(type, function, 0);
+```
 
 ### Ease
 `public float Ease(AnimationInterpolation.Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ### Ease
 `public float Ease(AnimationInterpolation.Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ### Ease
 `public float Ease(AnimationInterpolation.Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 AnimationInterpolation.Ease(type, function, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

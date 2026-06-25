@@ -1,13 +1,7 @@
 ---
 title: "PartyLeaderChangeNotification"
+description: "Auto-generated class reference for PartyLeaderChangeNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyLeaderChangeNotification`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyLeaderChangeNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of PartyLeaderChangeNotification from the subsystem API first
+PartyLeaderChangeNotification partyLeaderChangeNotification = ...;
+var result = partyLeaderChangeNotification.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyLeaderChangeNotification();
-value.IsValid();
+// Typically call this after obtaining an instance from the subsystem API
+PartyLeaderChangeNotification partyLeaderChangeNotification = ...;
+partyLeaderChangeNotification.IsValid();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

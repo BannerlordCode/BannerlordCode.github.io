@@ -1,13 +1,7 @@
 ---
 title: "SpawnerBase"
+description: "Auto-generated class reference for SpawnerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnerBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpawnerBase
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ### AssignParameters
 `public virtual void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**Purpose:** Handles logic related to `assign parameters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnerBase from the subsystem API first
+SpawnerBase spawnerBase = ...;
+spawnerBase.AssignParameters(_spawnerMissionHelper);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpawnerBase();
-value.AssignParameters(_spawnerMissionHelper);
+// Typically call this after obtaining an instance from the subsystem API
+SpawnerBase spawnerBase = ...;
+spawnerBase.AssignParameters(_spawnerMissionHelper);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

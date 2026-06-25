@@ -1,13 +1,7 @@
 ---
 title: "TooltipBaseVM"
+description: "Auto-generated class reference for TooltipBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipBaseVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipBaseVM
 
 **Namespace:** TaleWorlds.Library
@@ -36,19 +30,32 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of TooltipBaseVM from the subsystem API first
+TooltipBaseVM tooltipBaseVM = ...;
+tooltipBaseVM.OnFinalize();
+```
 
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TooltipBaseVM from the subsystem API first
+TooltipBaseVM tooltipBaseVM = ...;
+tooltipBaseVM.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTooltipBaseVM();
+// Typically obtained from a subsystem API or factory
+TooltipBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

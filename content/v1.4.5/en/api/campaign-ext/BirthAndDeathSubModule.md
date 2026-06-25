@@ -1,20 +1,14 @@
 ---
 title: "BirthAndDeathSubModule"
+description: "Auto-generated class reference for BirthAndDeathSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BirthAndDeathSubModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BirthAndDeathSubModule
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BirthAndDeathSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.BirthAndDeath/TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath/BirthAndDeathSubModule.cs`
+**File:** `Modules.BirthAndDeath/TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath/BirthAndDeathSubModule.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeat
 ## Usage Example
 
 ```csharp
-var value = new BirthAndDeathSubModule();
+// Obtain an instance from the relevant subsystem API
+BirthAndDeathSubModule instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

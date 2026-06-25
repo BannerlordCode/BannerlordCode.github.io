@@ -1,20 +1,14 @@
 ---
 title: "VisualOrderProvider"
+description: "Auto-generated class reference for VisualOrderProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualOrderProvider`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualOrderProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class VisualOrderProvider`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderProvider.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderProvider.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### IsAvailable
 `public abstract bool IsAvailable()`
 
-**Purpose:** Handles logic related to `is available`.
+**Purpose:** Determines whether the current object is in the `available` state or condition.
+
+```csharp
+// Obtain an instance of VisualOrderProvider from the subsystem API first
+VisualOrderProvider visualOrderProvider = ...;
+var result = visualOrderProvider.IsAvailable();
+```
 
 ### GetOrders
 `public abstract MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**Purpose:** Gets the current value of `orders`.
+**Purpose:** Reads and returns the `orders` value held by the current object.
+
+```csharp
+// Obtain an instance of VisualOrderProvider from the subsystem API first
+VisualOrderProvider visualOrderProvider = ...;
+var result = visualOrderProvider.GetOrders();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomVisualOrderProvider();
+// Typically obtained from a subsystem API or factory
+VisualOrderProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

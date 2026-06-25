@@ -1,18 +1,12 @@
 ---
 title: "IRandomOwner"
+description: "Auto-generated class reference for IRandomOwner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IRandomOwner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IRandomOwner
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IRandomOwner`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/IRandomOwner.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-IRandomOwner implementation = GetRandomOwnerImplementation();
+// Usually obtained through DI or a factory method
+IIRandomOwner service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

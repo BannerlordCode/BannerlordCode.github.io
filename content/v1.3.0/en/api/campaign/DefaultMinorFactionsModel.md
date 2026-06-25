@@ -1,13 +1,7 @@
 ---
 title: "DefaultMinorFactionsModel"
+description: "Auto-generated class reference for DefaultMinorFactionsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMinorFactionsModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMinorFactionsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -36,7 +30,13 @@ Treat `DefaultMinorFactionsModel` as a Model-style extension point: first identi
 ### GetMercenaryAwardFactorToJoinKingdom
 `public override int GetMercenaryAwardFactorToJoinKingdom(Clan mercenaryClan, Kingdom kingdom, bool neededAmountForClanToJoinCalculation = false)`
 
-**Purpose:** Gets the current value of `mercenary award factor to join kingdom`.
+**Purpose:** Reads and returns the `mercenary award factor to join kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMinorFactionsModel from the subsystem API first
+DefaultMinorFactionsModel defaultMinorFactionsModel = ...;
+var result = defaultMinorFactionsModel.GetMercenaryAwardFactorToJoinKingdom(mercenaryClan, kingdom, false);
+```
 
 ## Usage Example
 
@@ -46,4 +46,4 @@ Game.Current.ReplaceModel<DefaultMinorFactionsModel>(new MyDefaultMinorFactionsM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

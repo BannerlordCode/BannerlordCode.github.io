@@ -1,13 +1,7 @@
 ---
 title: "MBFastRandom"
+description: "MBFastRandom 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBFastRandom`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBFastRandom
 
 **Namespace:** TaleWorlds.Core
@@ -29,50 +23,99 @@ title: "MBFastRandom"
 ### SetSeed
 `public void SetSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 设置 `seed` 的值或状态。
+**用途 / Purpose:** 为 「seed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandom 实例
+MBFastRandom mBFastRandom = ...;
+mBFastRandom.SetSeed(0, 0);
+```
 
 ### Next
 `public int Next()`
 
-**用途 / Purpose:** 处理 `next` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandom 实例
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.Next();
+```
 
 ### Next
 `public int Next(int maxValue)`
 
-**用途 / Purpose:** 处理 `next` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandom 实例
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.Next(0);
+```
 
 ### Next
 `public int Next(int minValue, int maxValue)`
 
-**用途 / Purpose:** 处理 `next` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandom 实例
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.Next(0, 0);
+```
 
 ### NextDouble
 `public double NextDouble()`
 
-**用途 / Purpose:** 处理 `next double` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandom 实例
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.NextDouble();
+```
 
 ### NextFloat
 `public float NextFloat()`
 
-**用途 / Purpose:** 处理 `next float` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandom 实例
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.NextFloat();
+```
 
 ### NextFloatRanged
 `public float NextFloatRanged(float minVal, float maxVal)`
 
-**用途 / Purpose:** 处理 `next float ranged` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandom 实例
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.NextFloatRanged(0, 0);
+```
 
 ### NextBytes
 `public void NextBytes(byte buffer)`
 
-**用途 / Purpose:** 处理 `next bytes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandom 实例
+MBFastRandom mBFastRandom = ...;
+mBFastRandom.NextBytes(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBFastRandom();
-value.SetSeed(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+MBFastRandom mBFastRandom = ...;
+mBFastRandom.SetSeed(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

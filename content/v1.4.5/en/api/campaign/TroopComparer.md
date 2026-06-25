@@ -1,20 +1,14 @@
 ---
 title: "TroopComparer"
+description: "Auto-generated class reference for TroopComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopComparer`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class TroopComparer : IComparer<TroopRosterElement>`
 **Base:** `IComparer<TroopRosterElement>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenLogic.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenLogic.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### SetIsAscending
 `public void SetIsAscending(bool isAscending)`
 
-**Purpose:** Sets the value or state of `is ascending`.
+**Purpose:** Assigns a new value to `is ascending` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TroopComparer from the subsystem API first
+TroopComparer troopComparer = ...;
+troopComparer.SetIsAscending(false);
+```
 
 ### Compare
 `public int Compare(TroopRosterElement x, TroopRosterElement y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of TroopComparer from the subsystem API first
+TroopComparer troopComparer = ...;
+var result = troopComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTroopComparer();
+// Typically obtained from a subsystem API or factory
+TroopComparer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

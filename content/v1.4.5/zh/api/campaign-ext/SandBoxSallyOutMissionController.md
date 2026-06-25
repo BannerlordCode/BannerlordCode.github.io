@@ -1,20 +1,14 @@
 ---
 title: "SandBoxSallyOutMissionController"
+description: "SandBoxSallyOutMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxSallyOutMissionController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSallyOutMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class SandBoxSallyOutMissionController : SallyOutMissionController`
 **Base:** `SallyOutMissionController`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SandBoxSallyOutMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SandBoxSallyOutMissionController.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "SandBoxSallyOutMissionController"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSallyOutMissionController 实例
+SandBoxSallyOutMissionController sandBoxSallyOutMissionController = ...;
+sandBoxSallyOutMissionController.OnBehaviorInitialize();
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<SandBoxSallyOutMissionContro
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

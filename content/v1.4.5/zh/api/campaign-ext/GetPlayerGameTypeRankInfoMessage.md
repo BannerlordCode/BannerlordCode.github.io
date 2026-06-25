@@ -1,20 +1,14 @@
 ---
 title: "GetPlayerGameTypeRankInfoMessage"
+description: "GetPlayerGameTypeRankInfoMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GetPlayerGameTypeRankInfoMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GetPlayerGameTypeRankInfoMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class GetPlayerGameTypeRankInfoMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetPlayerGameTypeRankInfoMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/GetPlayerGameTypeRankInfoMessage.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "GetPlayerGameTypeRankInfoMessage"
 ## 使用示例
 
 ```csharp
-var example = new GetPlayerGameTypeRankInfoMessage();
+// 从对应子系统 API 获取实例
+GetPlayerGameTypeRankInfoMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

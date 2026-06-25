@@ -1,20 +1,14 @@
 ---
 title: "ClanVariablesCampaignBehavior"
+description: "Auto-generated class reference for ClanVariablesCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanVariablesCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanVariablesCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanVariablesCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/ClanVariablesCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/ClanVariablesCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ClanVariablesCampaignBehavior from the subsystem API first
+ClanVariablesCampaignBehavior clanVariablesCampaignBehavior = ...;
+clanVariablesCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ClanVariablesCampaignBehavior from the subsystem API first
+ClanVariablesCampaignBehavior clanVariablesCampaignBehavior = ...;
+clanVariablesCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)`
 
-**Purpose:** Called when the `settlement owner changed` event is raised.
+**Purpose:** Invoked when the `settlement owner changed` event is raised.
+
+```csharp
+// Obtain an instance of ClanVariablesCampaignBehavior from the subsystem API first
+ClanVariablesCampaignBehavior clanVariablesCampaignBehavior = ...;
+clanVariablesCampaignBehavior.OnSettlementOwnerChanged(settlement, false, newOwner, oldOwner, capturerHero, detail);
+```
 
 ### OnNewGameCreated
 `public void OnNewGameCreated(CampaignGameStarter starter)`
 
-**Purpose:** Called when the `new game created` event is raised.
+**Purpose:** Invoked when the `new game created` event is raised.
+
+```csharp
+// Obtain an instance of ClanVariablesCampaignBehavior from the subsystem API first
+ClanVariablesCampaignBehavior clanVariablesCampaignBehavior = ...;
+clanVariablesCampaignBehavior.OnNewGameCreated(starter);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanVariablesCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+ClanVariablesCampaignBehavior clanVariablesCampaignBehavior = ...;
+clanVariablesCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

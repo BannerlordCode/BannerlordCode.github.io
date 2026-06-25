@@ -1,20 +1,14 @@
 ---
 title: "UsableMachineAIBase"
+description: "Auto-generated class reference for UsableMachineAIBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UsableMachineAIBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsableMachineAIBase
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class UsableMachineAIBase`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableMachineAIBase.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableMachineAIBase.cs`
 
 ## Overview
 
@@ -29,34 +23,63 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Tick
 `public void Tick(Agent agentToCompareTo, Formation formationToCompareTo, Team potentialUsersTeam, float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of UsableMachineAIBase from the subsystem API first
+UsableMachineAIBase usableMachineAIBase = ...;
+usableMachineAIBase.Tick(agentToCompareTo, formationToCompareTo, potentialUsersTeam, 0);
+```
 
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(UsableMachine usableMachine, StandingPoint standingPoint, IEnumerable<Agent> agents, List<Agent> usedAgents)`
 
-**Purpose:** Gets the current value of `suitable agent for standing point`.
+**Purpose:** Reads and returns the `suitable agent for standing point` value held by the current object.
+
+```csharp
+// Static call; no instance required
+UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, agents, usedAgents);
+```
 
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(UsableMachine usableMachine, StandingPoint standingPoint, List<(Agent, float)> agents, List<Agent> usedAgents, float weight)`
 
-**Purpose:** Gets the current value of `suitable agent for standing point`.
+**Purpose:** Reads and returns the `suitable agent for standing point` value held by the current object.
+
+```csharp
+// Static call; no instance required
+UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, list<(Agent, 0, usedAgents, 0);
+```
 
 ### TeleportUserAgentsToMachine
 `public virtual void TeleportUserAgentsToMachine(List<Agent> agentList)`
 
-**Purpose:** Handles logic related to `teleport user agents to machine`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of UsableMachineAIBase from the subsystem API first
+UsableMachineAIBase usableMachineAIBase = ...;
+usableMachineAIBase.TeleportUserAgentsToMachine(agentList);
+```
 
 ### StopUsingStandingPoint
 `public void StopUsingStandingPoint(StandingPoint standingPoint)`
 
-**Purpose:** Handles logic related to `stop using standing point`.
+**Purpose:** Stops the `using standing point` flow or state machine.
+
+```csharp
+// Obtain an instance of UsableMachineAIBase from the subsystem API first
+UsableMachineAIBase usableMachineAIBase = ...;
+usableMachineAIBase.StopUsingStandingPoint(standingPoint);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomUsableMachineAIBase();
+// Typically obtained from a subsystem API or factory
+UsableMachineAIBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

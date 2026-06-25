@@ -1,13 +1,7 @@
 ---
 title: "DLLResult"
+description: "Auto-generated class reference for DLLResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DLLResult`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DLLResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ## Usage Example
 
 ```csharp
-var value = new DLLResult();
+// Obtain an instance from the relevant subsystem API
+DLLResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

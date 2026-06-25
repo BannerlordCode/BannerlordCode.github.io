@@ -1,13 +1,7 @@
 ---
 title: "CombatLogData"
+description: "CombatLogData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CombatLogData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CombatLogData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,19 +30,32 @@ title: "CombatLogData"
 ### GetLogString
 `public List<ValueTuple<string, uint>> GetLogString()`
 
-**用途 / Purpose:** 获取 `log string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「log string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CombatLogData 实例
+CombatLogData combatLogData = ...;
+var result = combatLogData.GetLogString();
+```
 
 ### SetVictimAgent
 `public void SetVictimAgent(Agent victimAgent)`
 
-**用途 / Purpose:** 设置 `victim agent` 的值或状态。
+**用途 / Purpose:** 为 「victim agent」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CombatLogData 实例
+CombatLogData combatLogData = ...;
+combatLogData.SetVictimAgent(victimAgent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CombatLogData();
+// 该数据对象通常由战役/任务 API 返回
+CombatLogData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

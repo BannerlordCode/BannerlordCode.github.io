@@ -1,20 +1,14 @@
 ---
 title: "DefaultRaidModel"
+description: "DefaultRaidModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultRaidModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultRaidModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultRaidModel : RaidModel`
 **Base:** `RaidModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultRaidModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultRaidModel.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "DefaultRaidModel"
 ### CalculateHitDamage
 `public override ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**用途 / Purpose:** 处理 `calculate hit damage` 相关逻辑。
+**用途 / Purpose:** 计算「hit damage」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultRaidModel 实例
+DefaultRaidModel defaultRaidModel = ...;
+var result = defaultRaidModel.CalculateHitDamage(attackerSide, 0);
+```
 
 ### GetRaidLootMultiplier
 `public override ExplainedNumber GetRaidLootMultiplier(PartyBase receivingParty)`
 
-**用途 / Purpose:** 获取 `raid loot multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「raid loot multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultRaidModel 实例
+DefaultRaidModel defaultRaidModel = ...;
+var result = defaultRaidModel.GetRaidLootMultiplier(receivingParty);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultRaidModel>(new MyDefaultRaidModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

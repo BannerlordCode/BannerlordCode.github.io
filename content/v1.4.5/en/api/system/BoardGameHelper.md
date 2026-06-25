@@ -1,20 +1,14 @@
 ---
 title: "BoardGameHelper"
+description: "Auto-generated class reference for BoardGameHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class BoardGameHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/BoardGameHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/BoardGameHelper.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ BoardGameHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

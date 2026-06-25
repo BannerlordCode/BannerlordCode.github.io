@@ -1,19 +1,13 @@
 ---
 title: "FloaterVolumeDynamicUpAxis"
+description: "Auto-generated class reference for FloaterVolumeDynamicUpAxis."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FloaterVolumeDynamicUpAxis`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FloaterVolumeDynamicUpAxis
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
+**Type:** `public enum FloaterVolumeDynamicUpAxis : byte`
+**Base:** `byte`
 **File:** `TaleWorlds.Engine/FloaterVolumeDynamicUpAxis.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new FloaterVolumeDynamicUpAxis();
+// Obtain an instance from the relevant subsystem API
+FloaterVolumeDynamicUpAxis instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

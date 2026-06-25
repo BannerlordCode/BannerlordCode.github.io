@@ -1,13 +1,7 @@
 ---
 title: "DebugHotKeyCategory"
+description: "Auto-generated class reference for DebugHotKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugHotKeyCategory`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DebugHotKeyCategory
 
 **Namespace:** TaleWorlds.Engine.InputSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.InputSystem` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var value = new DebugHotKeyCategory();
+// Obtain an instance from the relevant subsystem API
+DebugHotKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "IMapScene"
+description: "Auto-generated class reference for IMapScene."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMapScene`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMapScene
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMapScene`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Map/IMapScene.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-IMapScene implementation = GetMapSceneImplementation();
+// Usually obtained through DI or a factory method
+IIMapScene service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

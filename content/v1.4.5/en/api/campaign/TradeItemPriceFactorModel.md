@@ -1,20 +1,14 @@
 ---
 title: "TradeItemPriceFactorModel"
+description: "Auto-generated class reference for TradeItemPriceFactorModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeItemPriceFactorModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeItemPriceFactorModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class TradeItemPriceFactorModel : MBGameModel<TradeItemPriceFactorModel>`
 **Base:** `MBGameModel<TradeItemPriceFactorModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TradeItemPriceFactorModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TradeItemPriceFactorModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `TradeItemPriceFactorModel` as a Model-style extension point: first identi
 ### GetTradePenalty
 `public abstract float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)`
 
-**Purpose:** Gets the current value of `trade penalty`.
+**Purpose:** Reads and returns the `trade penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeItemPriceFactorModel from the subsystem API first
+TradeItemPriceFactorModel tradeItemPriceFactorModel = ...;
+var result = tradeItemPriceFactorModel.GetTradePenalty(item, clientParty, merchant, false, 0, 0, 0);
+```
 
 ### GetBasePriceFactor
 `public abstract float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)`
 
-**Purpose:** Gets the current value of `base price factor`.
+**Purpose:** Reads and returns the `base price factor` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeItemPriceFactorModel from the subsystem API first
+TradeItemPriceFactorModel tradeItemPriceFactorModel = ...;
+var result = tradeItemPriceFactorModel.GetBasePriceFactor(itemCategory, 0, 0, 0, false, 0);
+```
 
 ### GetPrice
 `public abstract int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)`
 
-**Purpose:** Gets the current value of `price`.
+**Purpose:** Reads and returns the `price` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeItemPriceFactorModel from the subsystem API first
+TradeItemPriceFactorModel tradeItemPriceFactorModel = ...;
+var result = tradeItemPriceFactorModel.GetPrice(itemRosterElement, clientParty, merchant, false, 0, 0, 0);
+```
 
 ### GetTheoreticalMaxItemMarketValue
 `public abstract int GetTheoreticalMaxItemMarketValue(ItemObject item)`
 
-**Purpose:** Gets the current value of `theoretical max item market value`.
+**Purpose:** Reads and returns the `theoretical max item market value` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeItemPriceFactorModel from the subsystem API first
+TradeItemPriceFactorModel tradeItemPriceFactorModel = ...;
+var result = tradeItemPriceFactorModel.GetTheoreticalMaxItemMarketValue(item);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTradeItemPriceFactorModel();
+// Typically obtained from a subsystem API or factory
+TradeItemPriceFactorModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

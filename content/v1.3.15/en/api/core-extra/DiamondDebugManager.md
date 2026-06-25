@@ -1,13 +1,7 @@
 ---
 title: "DiamondDebugManager"
+description: "Auto-generated class reference for DiamondDebugManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DiamondDebugManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DiamondDebugManager
 
 **Namespace:** TaleWorlds.Library
@@ -29,7 +23,13 @@ Treat `DiamondDebugManager` as a Manager-style extension point: first identify w
 ### GetLogLevel
 `public int GetLogLevel()`
 
-**Purpose:** Gets the current value of `log level`.
+**Purpose:** Reads and returns the `log level` value held by the current object.
+
+```csharp
+// Obtain an instance of DiamondDebugManager from the subsystem API first
+DiamondDebugManager diamondDebugManager = ...;
+var result = diamondDebugManager.GetLogLevel();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var manager = DiamondDebugManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

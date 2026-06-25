@@ -1,13 +1,7 @@
 ---
-title: "Extensions__TaleWorlds_Engine_GauntletUI"
+title: "Extensions"
+description: "Auto-generated class reference for Extensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Extensions`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Extensions
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### Load
 `public static void Load(this SpriteCategory category)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+Extensions.Load(category);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ Extensions.Load(category);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

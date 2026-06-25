@@ -1,23 +1,18 @@
 ---
 title: "ClientApplicationConfiguration"
+description: "Auto-generated class reference for ClientApplicationConfiguration."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClientApplicationConfiguration`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClientApplicationConfiguration
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ClientApplicationConfiguration`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.Diamond/ClientApplication/ClientApplicationConfiguration.cs`
 
 ## Overview
 
-`ClientApplicationConfiguration` lives in `TaleWorlds.Diamond.ClientApplication`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ClientApplicationConfiguration` lives in `TaleWorlds.Diamond.ClientApplication` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,31 +33,51 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ### GetDefaultConfigurationFromFile
 `public static string GetDefaultConfigurationFromFile()`
 
-**Purpose:** Gets the current value of `default configuration from file`.
+**Purpose:** Reads and returns the `default configuration from file` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
+```
 
 ### SetDefaultConfigurationCategory
 `public static void SetDefaultConfigurationCategory(string category)`
 
-**Purpose:** Sets the value or state of `default configuration category`.
+**Purpose:** Assigns a new value to `default configuration category` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+ClientApplicationConfiguration.SetDefaultConfigurationCategory("example");
+```
 
 ### FillFrom
 `public void FillFrom(string configurationName)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientApplicationConfiguration from the subsystem API first
+ClientApplicationConfiguration clientApplicationConfiguration = ...;
+clientApplicationConfiguration.FillFrom("example");
+```
 
 ### FillFrom
 `public void FillFrom(string configurationCategory, string configurationName)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientApplicationConfiguration from the subsystem API first
+ClientApplicationConfiguration clientApplicationConfiguration = ...;
+clientApplicationConfiguration.FillFrom("example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

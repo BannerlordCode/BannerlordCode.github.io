@@ -1,19 +1,13 @@
 ---
 title: "IVehicleHandler"
+description: "Auto-generated class reference for IVehicleHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IVehicleHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IVehicleHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
+**Type:** `public interface IVehicleHandler : IMissionBehavior`
+**Base:** `IMissionBehavior`
 **File:** `TaleWorlds.MountAndBlade/IVehicleHandler.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Treat `IVehicleHandler` as a Handler-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-IVehicleHandler implementation = GetVehicleHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIVehicleHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

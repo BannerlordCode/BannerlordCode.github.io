@@ -1,20 +1,14 @@
 ---
 title: "FlagDominationSpawnFrameBehavior"
+description: "Auto-generated class reference for FlagDominationSpawnFrameBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FlagDominationSpawnFrameBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FlagDominationSpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FlagDominationSpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FlagDominationSpawnFrameBehavior.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FlagDominationSpawnFrameBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of FlagDominationSpawnFrameBehavior from the subsystem API first
+FlagDominationSpawnFrameBehavior flagDominationSpawnFrameBehavior = ...;
+flagDominationSpawnFrameBehavior.Initialize();
+```
 
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of FlagDominationSpawnFrameBehavior from the subsystem API first
+FlagDominationSpawnFrameBehavior flagDominationSpawnFrameBehavior = ...;
+var result = flagDominationSpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FlagDominationSpawnFrameBehavior();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+FlagDominationSpawnFrameBehavior flagDominationSpawnFrameBehavior = ...;
+flagDominationSpawnFrameBehavior.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

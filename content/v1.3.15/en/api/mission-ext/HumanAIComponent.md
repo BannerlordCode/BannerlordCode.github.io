@@ -1,191 +1,348 @@
 ---
 title: "HumanAIComponent"
+description: "Auto-generated class reference for HumanAIComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HumanAIComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HumanAIComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** public class HumanAIComponent : AgentComponent
+**Type:** `public class HumanAIComponent : AgentComponent`
 **Base:** `AgentComponent`
 **File:** `TaleWorlds.MountAndBlade/HumanAIComponent.cs`
 
 ## Overview
 
-`HumanAIComponent` is the AI driver attached to human (NPC) agents. It owns behavior parameters, scripted movement frames (`HasTimedScriptedFrame`), and defending/useable-object interest state. Mods use it to override AI behavior params or place an agent at a scripted frame (e.g. a guard post).
+`HumanAIComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
 
 ## Mental Model
 
-Treat `HumanAIComponent` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `HumanAIComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
 | Name | Signature |
 |------|-----------|
-| `ShouldCatchUpWithFormation` | `public bool ShouldCatchUpWithFormation { get { return this._shouldCatchUpWithFormation; }` |
-| `IsDefending` | `public bool IsDefending { get { return this._objectInterestKind == HumanAIComponent.UsableObjectInterestKind.Defending; }` |
-| `HasTimedScriptedFrame` | `public bool HasTimedScriptedFrame { get { return this._scriptedFrameTimer > 0f; }` |
+| `FollowedAgent` | `public Agent FollowedAgent { get; }` |
+| `ShouldCatchUpWithFormation` | `public bool ShouldCatchUpWithFormation { get; }` |
+| `IsDefending` | `public bool IsDefending { get; }` |
+| `HasTimedScriptedFrame` | `public bool HasTimedScriptedFrame { get; }` |
 
 ## Key Methods
 
 ### OverrideBehaviorParams
+`public void OverrideBehaviorParams(HumanAIComponent.AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public void OverrideBehaviorParams(HumanAIComponent.AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OverrideBehaviorParams(behavior, 0, 0, 0, 0, 0);
 ```
 
 ### SyncBehaviorParamsIfNecessary
+`public void SyncBehaviorParamsIfNecessary()`
+
+**Purpose:** Synchronizes `behavior params if necessary` across the relevant contexts or systems.
+
 ```csharp
-public void SyncBehaviorParamsIfNecessary()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.SyncBehaviorParamsIfNecessary();
 ```
 
 ### DisablePickUpForAgentIfNeeded
+`public void DisablePickUpForAgentIfNeeded()`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public void DisablePickUpForAgentIfNeeded()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.DisablePickUpForAgentIfNeeded();
 ```
 
 ### OnTickParallel
+`public override void OnTickParallel(float dt)`
+
+**Purpose:** Invoked when the `tick parallel` event is raised.
+
 ```csharp
-public override void OnTickParallel(float dt)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnTickParallel(0);
 ```
 
 ### OnTick
+`public override void OnTick(float dt)`
+
+**Purpose:** Invoked when the `tick` event is raised.
+
 ```csharp
-public override void OnTick(float dt)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnTick(0);
 ```
 
 ### OnAgentRemoved
+`public override void OnAgentRemoved()`
+
+**Purpose:** Invoked when the `agent removed` event is raised.
+
 ```csharp
-public override void OnAgentRemoved()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnAgentRemoved();
 ```
 
 ### OnComponentRemoved
+`public override void OnComponentRemoved()`
+
+**Purpose:** Invoked when the `component removed` event is raised.
+
 ```csharp
-public override void OnComponentRemoved()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnComponentRemoved();
 ```
 
 ### IsInImportantCombatAction
+`public bool IsInImportantCombatAction()`
+
+**Purpose:** Determines whether the current object is in the `in important combat action` state or condition.
+
 ```csharp
-public bool IsInImportantCombatAction()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.IsInImportantCombatAction();
 ```
 
 ### GetCurrentlyMovingGameObject
+`public UsableMissionObject GetCurrentlyMovingGameObject()`
+
+**Purpose:** Reads and returns the `currently moving game object` value held by the current object.
+
 ```csharp
-public UsableMissionObject GetCurrentlyMovingGameObject()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetCurrentlyMovingGameObject();
 ```
 
 ### GetCurrentlyDefendingGameObject
+`public UsableMissionObject GetCurrentlyDefendingGameObject()`
+
+**Purpose:** Reads and returns the `currently defending game object` value held by the current object.
+
 ```csharp
-public UsableMissionObject GetCurrentlyDefendingGameObject()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetCurrentlyDefendingGameObject();
 ```
 
 ### MoveToUsableGameObject
+`public void MoveToUsableGameObject(UsableMissionObject usedObject, IDetachment detachment, Agent.AIScriptedFrameFlags scriptedFrameFlags = Agent.AIScriptedFrameFlags.NoAttack)`
+
+**Purpose:** Moves `to usable game object` to a new position or state.
+
 ```csharp
-public void MoveToUsableGameObject(UsableMissionObject usedObject, IDetachment detachment, Agent.AIScriptedFrameFlags scriptedFrameFlags = Agent.AIScriptedFrameFlags.NoAttack)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.MoveToUsableGameObject(usedObject, detachment, agent.AIScriptedFrameFlags.NoAttack);
 ```
 
 ### MoveToClear
+`public void MoveToClear()`
+
+**Purpose:** Moves `to clear` to a new position or state.
+
 ```csharp
-public void MoveToClear()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.MoveToClear();
 ```
 
 ### StartDefendingGameObject
+`public void StartDefendingGameObject(UsableMissionObject usedObject, IDetachment detachment)`
+
+**Purpose:** Starts the `defending game object` flow or state machine.
+
 ```csharp
-public void StartDefendingGameObject(UsableMissionObject usedObject, IDetachment detachment)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.StartDefendingGameObject(usedObject, detachment);
 ```
 
 ### StopDefendingGameObject
+`public void StopDefendingGameObject()`
+
+**Purpose:** Stops the `defending game object` flow or state machine.
+
 ```csharp
-public void StopDefendingGameObject()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.StopDefendingGameObject();
 ```
 
 ### IsInterestedInAnyGameObject
+`public bool IsInterestedInAnyGameObject()`
+
+**Purpose:** Determines whether the current object is in the `interested in any game object` state or condition.
+
 ```csharp
-public bool IsInterestedInAnyGameObject()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.IsInterestedInAnyGameObject();
 ```
 
 ### IsInterestedInGameObject
+`public bool IsInterestedInGameObject(UsableMissionObject usableMissionObject)`
+
+**Purpose:** Determines whether the current object is in the `interested in game object` state or condition.
+
 ```csharp
-public bool IsInterestedInGameObject(UsableMissionObject usableMissionObject)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.IsInterestedInGameObject(usableMissionObject);
 ```
 
 ### FollowAgent
+`public void FollowAgent(Agent agent)`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public void FollowAgent(Agent agent)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.FollowAgent(agent);
 ```
 
 ### GetDesiredSpeedInFormation
+`public float GetDesiredSpeedInFormation(bool isCharging)`
+
+**Purpose:** Reads and returns the `desired speed in formation` value held by the current object.
+
 ```csharp
-public float GetDesiredSpeedInFormation(bool isCharging)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetDesiredSpeedInFormation(false);
 ```
 
 ### AdjustSpeedLimit
+`public void AdjustSpeedLimit(Agent agent, float desiredSpeed, bool limitIsMultiplier)`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public void AdjustSpeedLimit(Agent agent, float desiredSpeed, bool limitIsMultiplier)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.AdjustSpeedLimit(agent, 0, false);
 ```
 
 ### ParallelUpdateFormationMovement
+`public unsafe void ParallelUpdateFormationMovement()`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public unsafe void ParallelUpdateFormationMovement()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.ParallelUpdateFormationMovement();
 ```
 
 ### OnRetreating
+`public override void OnRetreating()`
+
+**Purpose:** Invoked when the `retreating` event is raised.
+
 ```csharp
-public override void OnRetreating()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnRetreating();
 ```
 
 ### OnDismount
+`public override void OnDismount(Agent mount)`
+
+**Purpose:** Invoked when the `dismount` event is raised.
+
 ```csharp
-public override void OnDismount(Agent mount)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.OnDismount(mount);
 ```
 
 ### SetBehaviorValueSet
+`public void SetBehaviorValueSet(HumanAIComponent.BehaviorValueSet behaviorValueSet)`
+
+**Purpose:** Assigns a new value to `behavior value set` and updates the object's internal state.
+
 ```csharp
-public void SetBehaviorValueSet(HumanAIComponent.BehaviorValueSet behaviorValueSet)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.SetBehaviorValueSet(behaviorValueSet);
 ```
 
 ### RefreshBehaviorValues
+`public void RefreshBehaviorValues(MovementOrder.MovementOrderEnum movementOrder, ArrangementOrder.ArrangementOrderEnum arrangementOrder)`
+
+**Purpose:** Keeps the display or cache of `behavior values` in sync with the underlying state.
+
 ```csharp
-public void RefreshBehaviorValues(MovementOrder.MovementOrderEnum movementOrder, ArrangementOrder.ArrangementOrderEnum arrangementOrder)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.RefreshBehaviorValues(movementOrder, arrangementOrder);
 ```
 
 ### ForceDisablePickUpForAgent
+`public void ForceDisablePickUpForAgent()`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public void ForceDisablePickUpForAgent()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.ForceDisablePickUpForAgent();
 ```
 
 ### SetScriptedPositionAndDirectionTimed
+`public void SetScriptedPositionAndDirectionTimed(Vec2 position, float directionAsRotationInRadians, float duration)`
+
+**Purpose:** Assigns a new value to `scripted position and direction timed` and updates the object's internal state.
+
 ```csharp
-public void SetScriptedPositionAndDirectionTimed(Vec2 position, float directionAsRotationInRadians, float duration)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.SetScriptedPositionAndDirectionTimed(position, 0, 0);
 ```
 
 ### DisableTimedScriptedMovement
+`public void DisableTimedScriptedMovement()`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public void DisableTimedScriptedMovement()
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+humanAIComponent.DisableTimedScriptedMovement();
 ```
 
 ### GetValueAt
+`public float GetValueAt(float x)`
+
+**Purpose:** Reads and returns the `value at` value held by the current object.
+
 ```csharp
-public float GetValueAt(float x)
+// Obtain an instance of HumanAIComponent from the subsystem API first
+HumanAIComponent humanAIComponent = ...;
+var result = humanAIComponent.GetValueAt(0);
 ```
 
 ## Usage Example
 
 ```csharp
-// Park a guard NPC at a scripted frame (facing a door) for a timed duration
-HumanAIComponent ai = agent.HumanAIComponent;
-if (ai != null)
-{
-    ai.OverrideBehaviorParams(/* your params */);
-    ai.SetScriptedFrame(ref targetFrame, /* duration */ 60f, /* turn to target */ true);
-}
+var component = agent.GetComponent<HumanAIComponent>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

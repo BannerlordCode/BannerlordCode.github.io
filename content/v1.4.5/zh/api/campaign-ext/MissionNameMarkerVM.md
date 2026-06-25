@@ -1,20 +1,14 @@
 ---
 title: "MissionNameMarkerVM"
+description: "MissionNameMarkerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNameMarkerVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionNameMarkerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerVM.cs`
 
 ## 概述
 
@@ -37,35 +31,66 @@ title: "MissionNameMarkerVM"
 ### Compare
 `public int Compare(MissionNameMarkerTargetBaseVM x, MissionNameMarkerTargetBaseVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerVM 实例
+MissionNameMarkerVM missionNameMarkerVM = ...;
+var result = missionNameMarkerVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerVM 实例
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerVM 实例
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerVM 实例
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.Tick(0);
+```
 
 ### SetTargetsDirty
 `public void SetTargetsDirty()`
 
-**用途 / Purpose:** 设置 `targets dirty` 的值或状态。
+**用途 / Purpose:** 为 「targets dirty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerVM 实例
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.SetTargetsDirty();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionNameMarkerVM();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+MissionNameMarkerVM missionNameMarkerVM = ...;
+missionNameMarkerVM.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

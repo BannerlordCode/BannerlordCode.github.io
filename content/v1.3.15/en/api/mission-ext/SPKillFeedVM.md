@@ -1,13 +1,7 @@
 ---
 title: "SPKillFeedVM"
+description: "Auto-generated class reference for SPKillFeedVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPKillFeedVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPKillFeedVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed`
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of SPKillFeedVM from the subsystem API first
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+```
 
 ### OnPersonalKill
 `public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-**Purpose:** Called when the `personal kill` event is raised.
+**Purpose:** Invoked when the `personal kill` event is raised.
+
+```csharp
+// Obtain an instance of SPKillFeedVM from the subsystem API first
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnPersonalKill(0, false, false, false, "example", false);
+```
 
 ### OnPersonalDamage
 `public void OnPersonalDamage(int totalDamage, bool isVictimAgentMount, bool isFriendlyFire, string victimAgentName)`
 
-**Purpose:** Called when the `personal damage` event is raised.
+**Purpose:** Invoked when the `personal damage` event is raised.
+
+```csharp
+// Obtain an instance of SPKillFeedVM from the subsystem API first
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnPersonalDamage(0, false, false, "example");
+```
 
 ### OnPersonalMessage
 `public void OnPersonalMessage(string message)`
 
-**Purpose:** Called when the `personal message` event is raised.
+**Purpose:** Invoked when the `personal message` event is raised.
+
+```csharp
+// Obtain an instance of SPKillFeedVM from the subsystem API first
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnPersonalMessage("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPKillFeedVM();
-value.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+// Typically call this after obtaining an instance from the subsystem API
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

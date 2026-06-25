@@ -1,20 +1,14 @@
 ---
 title: "MPPlayerVM"
+description: "MPPlayerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPPlayerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPlayerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPlayerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MPPlayerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MPPlayerVM.cs`
 
 ## 概述
 
@@ -48,60 +42,121 @@ title: "MPPlayerVM"
 ### UpdateDisabled
 `public void UpdateDisabled()`
 
-**用途 / Purpose:** 更新 `disabled` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「disabled」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.UpdateDisabled();
+```
 
 ### RefreshDivision
 `public void RefreshDivision(bool useCultureColors = false)`
 
-**用途 / Purpose:** 刷新 `division` 的显示或缓存。
+**用途 / Purpose:** 使 「division」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshDivision(false);
+```
 
 ### RefreshGold
 `public void RefreshGold()`
 
-**用途 / Purpose:** 刷新 `gold` 的显示或缓存。
+**用途 / Purpose:** 使 「gold」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshGold();
+```
 
 ### RefreshTeam
 `public void RefreshTeam()`
 
-**用途 / Purpose:** 刷新 `team` 的显示或缓存。
+**用途 / Purpose:** 使 「team」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshTeam();
+```
 
 ### RefreshProperties
 `public void RefreshProperties()`
 
-**用途 / Purpose:** 刷新 `properties` 的显示或缓存。
+**用途 / Purpose:** 使 「properties」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshProperties();
+```
 
 ### RefreshPreview
 `public void RefreshPreview(BasicCharacterObject character, DynamicBodyProperties dynamicBodyProperties, bool isFemale)`
 
-**用途 / Purpose:** 刷新 `preview` 的显示或缓存。
+**用途 / Purpose:** 使 「preview」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshPreview(character, dynamicBodyProperties, false);
+```
 
 ### RefreshActivePerks
 `public void RefreshActivePerks()`
 
-**用途 / Purpose:** 刷新 `active perks` 的显示或缓存。
+**用途 / Purpose:** 使 「active perks」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshActivePerks();
+```
 
 ### RefreshAvatar
 `public void RefreshAvatar()`
 
-**用途 / Purpose:** 刷新 `avatar` 的显示或缓存。
+**用途 / Purpose:** 使 「avatar」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshAvatar();
+```
 
 ### ExecuteFocusBegin
 `public void ExecuteFocusBegin()`
 
-**用途 / Purpose:** 执行 `focus begin` 操作或流程。
+**用途 / Purpose:** 执行 「focus begin」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.ExecuteFocusBegin();
+```
 
 ### ExecuteFocusEnd
 `public void ExecuteFocusEnd()`
 
-**用途 / Purpose:** 执行 `focus end` 操作或流程。
+**用途 / Purpose:** 执行 「focus end」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPPlayerVM 实例
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.ExecuteFocusEnd();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPPlayerVM();
-value.UpdateDisabled();
+// 通常从对应子系统 API 获取实例后调用
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.UpdateDisabled();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

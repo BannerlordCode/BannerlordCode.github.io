@@ -1,20 +1,14 @@
 ---
 title: "ProfileSelectionState"
+description: "ProfileSelectionState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ProfileSelectionState`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProfileSelectionState
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ProfileSelectionState : GameState`
 **Base:** `GameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ProfileSelectionState.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ProfileSelectionState.cs`
 
 ## 概述
 
@@ -35,25 +29,44 @@ title: "ProfileSelectionState"
 ### OnProfileSelectionEvent
 `public delegate void OnProfileSelectionEvent()`
 
-**用途 / Purpose:** 当 `profile selection event` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「profile selection event」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ProfileSelectionState 实例
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.OnProfileSelectionEvent();
+```
 
 ### OnProfileSelected
 `public void OnProfileSelected()`
 
-**用途 / Purpose:** 当 `profile selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「profile selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ProfileSelectionState 实例
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.OnProfileSelected();
+```
 
 ### StartGame
 `public void StartGame()`
 
-**用途 / Purpose:** 处理 `start game` 相关逻辑。
+**用途 / Purpose:** 启动「game」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 ProfileSelectionState 实例
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.StartGame();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ProfileSelectionState();
-value.OnProfileSelectionEvent();
+// 通常从对应子系统 API 获取实例后调用
+ProfileSelectionState profileSelectionState = ...;
+profileSelectionState.OnProfileSelectionEvent();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

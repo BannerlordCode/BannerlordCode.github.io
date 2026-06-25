@@ -1,20 +1,14 @@
 ---
 title: "PrisonBreakMissionController"
+description: "Auto-generated class reference for PrisonBreakMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrisonBreakMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrisonBreakMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Towns
 **Module:** SandBox.Missions
 **Type:** `public class PrisonBreakMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/PrisonBreakMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/PrisonBreakMissionController.cs`
 
 ## Overview
 
@@ -29,52 +23,112 @@ Treat `PrisonBreakMissionController` as a Controller-style extension point: firs
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnCreated();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.AfterStart();
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `agent interaction` event is raised.
+**Purpose:** Invoked when the `agent interaction` event is raised.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+var result = prisonBreakMissionController.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, AIStateFlag flag)`
 
-**Purpose:** Called when the `agent alarmed state changed` event is raised.
+**Purpose:** Invoked when the `agent alarmed state changed` event is raised.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnAgentAlarmedStateChanged(agent, flag);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+var result = prisonBreakMissionController.OnEndMissionRequest(canLeave);
+```
 
 ### OnStealthMissionCounterFailed
 `public void OnStealthMissionCounterFailed(OnStealthMissionCounterFailedEvent obj)`
 
-**Purpose:** Called when the `stealth mission counter failed` event is raised.
+**Purpose:** Invoked when the `stealth mission counter failed` event is raised.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnStealthMissionCounterFailed(obj);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of PrisonBreakMissionController from the subsystem API first
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnMissionTick(0);
+```
 
 ## Usage Example
 
@@ -84,4 +138,4 @@ var controller = Mission.Current.GetMissionBehavior<PrisonBreakMissionController
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

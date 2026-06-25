@@ -1,20 +1,14 @@
 ---
 title: "FriendListService"
+description: "Auto-generated class reference for FriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FriendListService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FriendListService
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
 **Type:** `public static class FriendListService`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/FriendListService.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/FriendListService.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ### GetAllFriendsInAllPlatforms
 `public static IEnumerable<PlayerId> GetAllFriendsInAllPlatforms()`
 
-**Purpose:** Gets the current value of `all friends in all platforms`.
+**Purpose:** Reads and returns the `all friends in all platforms` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FriendListService.GetAllFriendsInAllPlatforms();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ FriendListService.GetAllFriendsInAllPlatforms();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

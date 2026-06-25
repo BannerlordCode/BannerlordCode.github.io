@@ -1,13 +1,7 @@
 ---
 title: "TestScript"
+description: "Auto-generated class reference for TestScript."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestScript`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestScript
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,12 +23,23 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetIntegerFromStringEnd
 `public static int GetIntegerFromStringEnd(string str)`
 
-**Purpose:** Gets the current value of `integer from string end`.
+**Purpose:** Reads and returns the `integer from string end` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TestScript.GetIntegerFromStringEnd("example");
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of TestScript from the subsystem API first
+TestScript testScript = ...;
+var result = testScript.GetTickRequirement();
+```
 
 ## Usage Example
 
@@ -44,4 +49,4 @@ TestScript.GetIntegerFromStringEnd("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

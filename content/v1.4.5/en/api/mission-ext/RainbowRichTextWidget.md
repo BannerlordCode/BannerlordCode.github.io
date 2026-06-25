@@ -1,20 +1,14 @@
 ---
 title: "RainbowRichTextWidget"
+description: "Auto-generated class reference for RainbowRichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RainbowRichTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RainbowRichTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RainbowRichTextWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/RainbowRichTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/RainbowRichTextWidget.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `RainbowRichTextWidget` as a Widget-style extension point: first identify 
 ### RainbowRichTextWidget
 `public class RainbowRichTextWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `rainbow rich text widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RainbowRichTextWidget from the subsystem API first
+RainbowRichTextWidget rainbowRichTextWidget = ...;
+var result = rainbowRichTextWidget.RainbowRichTextWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new RainbowRichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+RainbowRichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

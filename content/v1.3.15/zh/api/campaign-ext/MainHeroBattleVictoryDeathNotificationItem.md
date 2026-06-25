@@ -1,13 +1,7 @@
 ---
 title: "MainHeroBattleVictoryDeathNotificationItem"
+description: "MainHeroBattleVictoryDeathNotificationItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MainHeroBattleVictoryDeathNotificationItem`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MainHeroBattleVictoryDeathNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -38,15 +32,22 @@ title: "MainHeroBattleVictoryDeathNotificationItem"
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**用途 / Purpose:** 获取 `scene notification characters` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene notification characters」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MainHeroBattleVictoryDeathNotificationItem 实例
+MainHeroBattleVictoryDeathNotificationItem mainHeroBattleVictoryDeathNotificationItem = ...;
+var result = mainHeroBattleVictoryDeathNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MainHeroBattleVictoryDeathNotificationItem();
-value.GetSceneNotificationCharacters();
+// 通常从对应子系统 API 获取实例后调用
+MainHeroBattleVictoryDeathNotificationItem mainHeroBattleVictoryDeathNotificationItem = ...;
+mainHeroBattleVictoryDeathNotificationItem.GetSceneNotificationCharacters();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MonoPInvokeCallbackAttribute"
+description: "Auto-generated class reference for MonoPInvokeCallbackAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MonoPInvokeCallbackAttribute`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MonoPInvokeCallbackAttribute
 
 **Namespace:** (global)
 **Module:** (global)
 **Type:** `public class MonoPInvokeCallbackAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/GalaxyCSharp/MonoPInvokeCallbackAttribute.cs`
+**File:** `bin/TaleWorlds.DotNet/MonoPInvokeCallbackAttribute.cs`
 
 ## Overview
 
@@ -33,4 +27,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

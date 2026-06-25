@@ -1,20 +1,14 @@
 ---
 title: "MBInitialScreenBase"
+description: "Auto-generated class reference for MBInitialScreenBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBInitialScreenBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBInitialScreenBase
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBInitialScreenBase : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBInitialScreenBase.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBInitialScreenBase.cs`
 
 ## Overview
 
@@ -29,22 +23,43 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### DoExitButtonAction
 `public static void DoExitButtonAction()`
 
-**Purpose:** Handles logic related to `do exit button action`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBInitialScreenBase.DoExitButtonAction();
+```
 
 ### StartedRendering
 `public bool StartedRendering()`
 
-**Purpose:** Handles logic related to `started rendering`.
+**Purpose:** Starts the `ed rendering` flow or state machine.
+
+```csharp
+// Obtain an instance of MBInitialScreenBase from the subsystem API first
+MBInitialScreenBase mBInitialScreenBase = ...;
+var result = mBInitialScreenBase.StartedRendering();
+```
 
 ### OnEditModeEnterPress
 `public static void OnEditModeEnterPress()`
 
-**Purpose:** Called when the `edit mode enter press` event is raised.
+**Purpose:** Invoked when the `edit mode enter press` event is raised.
+
+```csharp
+// Static call; no instance required
+MBInitialScreenBase.OnEditModeEnterPress();
+```
 
 ### OnEditModeEnterRelease
 `public static void OnEditModeEnterRelease()`
 
-**Purpose:** Called when the `edit mode enter release` event is raised.
+**Purpose:** Invoked when the `edit mode enter release` event is raised.
+
+```csharp
+// Static call; no instance required
+MBInitialScreenBase.OnEditModeEnterRelease();
+```
 
 ## Usage Example
 
@@ -54,4 +69,4 @@ MBInitialScreenBase.DoExitButtonAction();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

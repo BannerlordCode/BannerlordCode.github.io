@@ -1,18 +1,12 @@
 ---
 title: "CursorType"
+description: "Auto-generated class reference for CursorType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CursorType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CursorType
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
-**Type:** `class`
+**Type:** `public enum CursorType`
 **Base:** none
 **File:** `TaleWorlds.ScreenSystem/CursorType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new CursorType();
+// Obtain an instance from the relevant subsystem API
+CursorType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

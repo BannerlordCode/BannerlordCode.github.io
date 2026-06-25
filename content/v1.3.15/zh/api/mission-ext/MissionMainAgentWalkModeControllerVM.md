@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentWalkModeControllerVM"
+description: "MissionMainAgentWalkModeControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMainAgentWalkModeControllerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMainAgentWalkModeControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode
@@ -37,45 +31,88 @@ title: "MissionMainAgentWalkModeControllerVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentWalkModeControllerVM 实例
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.OnFinalize();
+```
 
 ### AddWalkMode
 `public void AddWalkMode(string typeId, TextObject name, MissionMainAgentWalkModeControllerVM.GetIsWalkModeActivatedDelegate getIsActive, MissionMainAgentWalkModeControllerVM.SetIsWalkModeActivatedDelegate setIsActive, MissionMainAgentWalkModeControllerVM.GetCanChangeWalkModeActivatedDelegate canChangeActive, HotKey hotKey, bool isHotkeyConsoleOnly)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `walk mode`。
+**用途 / Purpose:** 将 「walk mode」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentWalkModeControllerVM 实例
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.AddWalkMode("example", name, getIsActive, setIsActive, canChangeActive, hotKey, false);
+```
 
 ### AddWalkMode
 `public void AddWalkMode(string typeId, TextObject name, MissionMainAgentWalkModeControllerVM.GetIsWalkModeActivatedDelegate getIsActive, MissionMainAgentWalkModeControllerVM.SetIsWalkModeActivatedDelegate setIsActive, MissionMainAgentWalkModeControllerVM.GetCanChangeWalkModeActivatedDelegate canChangeActive, GameKey hotKey, bool isHotkeyConsoleOnly)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `walk mode`。
+**用途 / Purpose:** 将 「walk mode」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentWalkModeControllerVM 实例
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.AddWalkMode("example", name, getIsActive, setIsActive, canChangeActive, hotKey, false);
+```
 
 ### SetEnabled
 `public void SetEnabled(bool isEnabled)`
 
-**用途 / Purpose:** 设置 `enabled` 的值或状态。
+**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentWalkModeControllerVM 实例
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.SetEnabled(false);
+```
 
 ### GetIsWalkModeActivatedDelegate
 `public delegate bool GetIsWalkModeActivatedDelegate()`
 
-**用途 / Purpose:** 获取 `is walk mode activated delegate` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is walk mode activated delegate」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentWalkModeControllerVM 实例
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+var result = missionMainAgentWalkModeControllerVM.GetIsWalkModeActivatedDelegate();
+```
 
 ### SetIsWalkModeActivatedDelegate
 `public delegate void SetIsWalkModeActivatedDelegate(bool value)`
 
-**用途 / Purpose:** 设置 `is walk mode activated delegate` 的值或状态。
+**用途 / Purpose:** 为 「is walk mode activated delegate」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentWalkModeControllerVM 实例
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.SetIsWalkModeActivatedDelegate(false);
+```
 
 ### GetCanChangeWalkModeActivatedDelegate
 `public delegate bool GetCanChangeWalkModeActivatedDelegate()`
 
-**用途 / Purpose:** 获取 `can change walk mode activated delegate` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「can change walk mode activated delegate」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentWalkModeControllerVM 实例
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+var result = missionMainAgentWalkModeControllerVM.GetCanChangeWalkModeActivatedDelegate();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMainAgentWalkModeControllerVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+MissionMainAgentWalkModeControllerVM missionMainAgentWalkModeControllerVM = ...;
+missionMainAgentWalkModeControllerVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

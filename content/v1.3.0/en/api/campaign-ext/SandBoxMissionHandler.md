@@ -1,13 +1,7 @@
 ---
 title: "SandBoxMissionHandler"
+description: "Auto-generated class reference for SandBoxMissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxMissionHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxMissionHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,14 +23,20 @@ Treat `SandBoxMissionHandler` as a Handler-style extension point: first identify
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxMissionHandler from the subsystem API first
+SandBoxMissionHandler sandBoxMissionHandler = ...;
+sandBoxMissionHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SandBoxMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<SandBoxMissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

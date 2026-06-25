@@ -1,13 +1,7 @@
 ---
 title: "PlayerIsKinTag"
+description: "Auto-generated class reference for PlayerIsKinTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIsKinTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerIsKinTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of PlayerIsKinTag from the subsystem API first
+PlayerIsKinTag playerIsKinTag = ...;
+var result = playerIsKinTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerIsKinTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerIsKinTag playerIsKinTag = ...;
+playerIsKinTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TooltipHelper"
+description: "TooltipHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TooltipHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TooltipHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ title: "TooltipHelper"
 ### GetSendTroopsPowerContextTooltipForMapEvent
 `public static TextObject GetSendTroopsPowerContextTooltipForMapEvent()`
 
-**用途 / Purpose:** 获取 `send troops power context tooltip for map event` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「send troops power context tooltip for map event」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TooltipHelper.GetSendTroopsPowerContextTooltipForMapEvent();
+```
 
 ### GetSendTroopsPowerContextTooltipForSiege
 `public static TextObject GetSendTroopsPowerContextTooltipForSiege()`
 
-**用途 / Purpose:** 获取 `send troops power context tooltip for siege` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「send troops power context tooltip for siege」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TooltipHelper.GetSendTroopsPowerContextTooltipForSiege();
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ TooltipHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

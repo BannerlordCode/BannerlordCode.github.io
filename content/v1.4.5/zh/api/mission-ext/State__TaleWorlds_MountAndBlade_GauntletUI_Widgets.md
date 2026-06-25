@@ -1,20 +1,14 @@
 ---
-title: "State__TaleWorlds_MountAndBlade_GauntletUI_Widgets"
+title: "State"
+description: "State 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `State`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # State
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum State`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SettlementStatTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/SettlementStatTextWidget.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "State__TaleWorlds_MountAndBlade_GauntletUI_Widgets"
 ## 使用示例
 
 ```csharp
-State example = State.Value;
+// 从对应子系统 API 获取实例
+State instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

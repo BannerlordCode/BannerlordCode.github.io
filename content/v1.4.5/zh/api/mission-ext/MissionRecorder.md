@@ -1,20 +1,14 @@
 ---
 title: "MissionRecorder"
+description: "MissionRecorder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionRecorder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionRecorder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionRecorder`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionRecorder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionRecorder.cs`
 
 ## 概述
 
@@ -29,75 +23,149 @@ title: "MissionRecorder"
 ### RestartRecord
 `public void RestartRecord()`
 
-**用途 / Purpose:** 处理 `restart record` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRecorder 实例
+MissionRecorder missionRecorder = ...;
+missionRecorder.RestartRecord();
+```
 
 ### ProcessRecordUntilTime
 `public void ProcessRecordUntilTime(float time)`
 
-**用途 / Purpose:** 处理 `process record until time` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRecorder 实例
+MissionRecorder missionRecorder = ...;
+missionRecorder.ProcessRecordUntilTime(0);
+```
 
 ### IsEndOfRecord
 `public bool IsEndOfRecord()`
 
-**用途 / Purpose:** 处理 `is end of record` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「end of record」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRecorder 实例
+MissionRecorder missionRecorder = ...;
+var result = missionRecorder.IsEndOfRecord();
+```
 
 ### StartRecording
 `public void StartRecording()`
 
-**用途 / Purpose:** 处理 `start recording` 相关逻辑。
+**用途 / Purpose:** 启动「recording」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRecorder 实例
+MissionRecorder missionRecorder = ...;
+missionRecorder.StartRecording();
+```
 
 ### RecordCurrentState
 `public void RecordCurrentState()`
 
-**用途 / Purpose:** 处理 `record current state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRecorder 实例
+MissionRecorder missionRecorder = ...;
+missionRecorder.RecordCurrentState();
+```
 
 ### BackupRecordToFile
 `public void BackupRecordToFile(string fileName, string gameType, string sceneLevels)`
 
-**用途 / Purpose:** 处理 `backup record to file` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRecorder 实例
+MissionRecorder missionRecorder = ...;
+missionRecorder.BackupRecordToFile("example", "example", "example");
+```
 
 ### RestoreRecordFromFile
 `public void RestoreRecordFromFile(string fileName)`
 
-**用途 / Purpose:** 处理 `restore record from file` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRecorder 实例
+MissionRecorder missionRecorder = ...;
+missionRecorder.RestoreRecordFromFile("example");
+```
 
 ### ClearRecordBuffers
 `public void ClearRecordBuffers()`
 
-**用途 / Purpose:** 处理 `clear record buffers` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「record buffers」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionRecorder 实例
+MissionRecorder missionRecorder = ...;
+missionRecorder.ClearRecordBuffers();
+```
 
 ### GetSceneNameForReplay
 `public static string GetSceneNameForReplay(PlatformFilePath fileName)`
 
-**用途 / Purpose:** 获取 `scene name for replay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene name for replay」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionRecorder.GetSceneNameForReplay(fileName);
+```
 
 ### GetGameTypeForReplay
 `public static string GetGameTypeForReplay(PlatformFilePath fileName)`
 
-**用途 / Purpose:** 获取 `game type for replay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「game type for replay」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionRecorder.GetGameTypeForReplay(fileName);
+```
 
 ### GetSceneLevelsForReplay
 `public static string GetSceneLevelsForReplay(PlatformFilePath fileName)`
 
-**用途 / Purpose:** 获取 `scene levels for replay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene levels for replay」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionRecorder.GetSceneLevelsForReplay(fileName);
+```
 
 ### GetAtmosphereNameForReplay
 `public static string GetAtmosphereNameForReplay(PlatformFilePath fileName)`
 
-**用途 / Purpose:** 获取 `atmosphere name for replay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「atmosphere name for replay」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionRecorder.GetAtmosphereNameForReplay(fileName);
+```
 
 ### GetAtmosphereSeasonForReplay
 `public static int GetAtmosphereSeasonForReplay(PlatformFilePath fileName)`
 
-**用途 / Purpose:** 获取 `atmosphere season for replay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「atmosphere season for replay」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionRecorder.GetAtmosphereSeasonForReplay(fileName);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionRecorder();
-value.RestartRecord();
+// 通常从对应子系统 API 获取实例后调用
+MissionRecorder missionRecorder = ...;
+missionRecorder.RestartRecord();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

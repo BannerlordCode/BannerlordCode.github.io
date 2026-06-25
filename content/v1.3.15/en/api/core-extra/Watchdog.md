@@ -1,23 +1,18 @@
 ---
 title: "Watchdog"
+description: "Auto-generated class reference for Watchdog."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Watchdog`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Watchdog
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class Watchdog`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Library/Watchdog.cs`
 
 ## Overview
 
-`Watchdog` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Watchdog` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,31 +23,49 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### SetDumpDirectory
 `public static void SetDumpDirectory(string Path)`
 
-**Purpose:** Sets the value or state of `dump directory`.
+**Purpose:** Assigns a new value to `dump directory` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+Watchdog.SetDumpDirectory("example");
+```
 
 ### DetachAndClose
 `public static void DetachAndClose()`
 
-**Purpose:** Handles logic related to `detach and close`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Watchdog.DetachAndClose();
+```
 
 ### LogProperty
 `public static void LogProperty(string FileName, string GroupName, string Key, string Value)`
 
-**Purpose:** Handles logic related to `log property`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Watchdog.LogProperty("example", "example", "example", "example");
+```
 
 ### Attached
 `public static bool Attached()`
 
-**Purpose:** Handles logic related to `attached`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Watchdog.Attached();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 Watchdog.SetDumpDirectory("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "WeaponDesignSelectorVM"
+description: "WeaponDesignSelectorVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponDesignSelectorVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponDesignSelectorVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WeaponDesignSelectorVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignSelectorVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignSelectorVM.cs`
 
 ## 概述
 
@@ -40,20 +34,33 @@ title: "WeaponDesignSelectorVM"
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** 执行 `select` 操作或流程。
+**用途 / Purpose:** 执行 「select」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignSelectorVM 实例
+WeaponDesignSelectorVM weaponDesignSelectorVM = ...;
+weaponDesignSelectorVM.ExecuteSelect();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignSelectorVM 实例
+WeaponDesignSelectorVM weaponDesignSelectorVM = ...;
+weaponDesignSelectorVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeaponDesignSelectorVM();
-value.ExecuteSelect();
+// 通常从对应子系统 API 获取实例后调用
+WeaponDesignSelectorVM weaponDesignSelectorVM = ...;
+weaponDesignSelectorVM.ExecuteSelect();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

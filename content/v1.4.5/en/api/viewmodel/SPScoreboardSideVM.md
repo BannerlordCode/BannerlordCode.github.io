@@ -1,20 +1,14 @@
 ---
 title: "SPScoreboardSideVM"
+description: "Auto-generated class reference for SPScoreboardSideVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPScoreboardSideVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPScoreboardSideVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPScoreboardSideVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSideVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSideVM.cs`
 
 ## Overview
 
@@ -45,50 +39,99 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SPScoreboardSideVM from the subsystem API first
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.RefreshValues();
+```
 
 ### UpdateScores
 `public void UpdateScores(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**Purpose:** Updates the state or data of `scores`.
+**Purpose:** Recalculates and stores the latest representation of `scores`.
+
+```csharp
+// Obtain an instance of SPScoreboardSideVM from the subsystem API first
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.UpdateScores(battleCombatant, false, character, 0, 0, 0, 0, 0, 0);
+```
 
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**Purpose:** Updates the state or data of `hero skills`.
+**Purpose:** Recalculates and stores the latest representation of `hero skills`.
+
+```csharp
+// Obtain an instance of SPScoreboardSideVM from the subsystem API first
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.UpdateHeroSkills(battleCombatant, false, heroCharacter, upgradedSkill);
+```
 
 ### GetPartyAddIfNotExists
 `public SPScoreboardPartyVM GetPartyAddIfNotExists(IBattleCombatant battleCombatant, bool isPlayerParty)`
 
-**Purpose:** Gets the current value of `party add if not exists`.
+**Purpose:** Reads and returns the `party add if not exists` value held by the current object.
+
+```csharp
+// Obtain an instance of SPScoreboardSideVM from the subsystem API first
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+var result = sPScoreboardSideVM.GetPartyAddIfNotExists(battleCombatant, false);
+```
 
 ### GetParty
 `public SPScoreboardPartyVM GetParty(IBattleCombatant battleCombatant)`
 
-**Purpose:** Gets the current value of `party`.
+**Purpose:** Reads and returns the `party` value held by the current object.
+
+```csharp
+// Obtain an instance of SPScoreboardSideVM from the subsystem API first
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+var result = sPScoreboardSideVM.GetParty(battleCombatant);
+```
 
 ### RemoveTroop
 `public SPScoreboardStatsVM RemoveTroop(IBattleCombatant battleCombatant, BasicCharacterObject troop)`
 
 **Purpose:** Removes `troop` from the current collection or state.
 
+```csharp
+// Obtain an instance of SPScoreboardSideVM from the subsystem API first
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+var result = sPScoreboardSideVM.RemoveTroop(battleCombatant, troop);
+```
+
 ### AddTroop
 `public void AddTroop(IBattleCombatant battleCombatant, BasicCharacterObject currentTroop, SPScoreboardStatsVM scoreToBringOver)`
 
 **Purpose:** Adds `troop` to the current collection or state.
 
+```csharp
+// Obtain an instance of SPScoreboardSideVM from the subsystem API first
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.AddTroop(battleCombatant, currentTroop, scoreToBringOver);
+```
+
 ### GetShipAddIfNotExists
 `public SPScoreboardShipVM GetShipAddIfNotExists(IShipOrigin ship, string shipType, IBattleCombatant owner, TeamSideEnum teamSideEnum)`
 
-**Purpose:** Gets the current value of `ship add if not exists`.
+**Purpose:** Reads and returns the `ship add if not exists` value held by the current object.
+
+```csharp
+// Obtain an instance of SPScoreboardSideVM from the subsystem API first
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+var result = sPScoreboardSideVM.GetShipAddIfNotExists(ship, "example", owner, teamSideEnum);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPScoreboardSideVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SPScoreboardSideVM sPScoreboardSideVM = ...;
+sPScoreboardSideVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

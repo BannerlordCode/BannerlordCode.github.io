@@ -1,23 +1,18 @@
 ---
 title: "TextProcessingContext"
+description: "Auto-generated class reference for TextProcessingContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextProcessingContext`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextProcessingContext
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
 **Module:** TaleWorlds.Localization
 **Type:** `public class TextProcessingContext`
-**Area:** localization
+**Base:** none
+**File:** `TaleWorlds.Localization/TextProcessor/TextProcessingContext.cs`
 
 ## Overview
 
-`TextProcessingContext` lives in `TaleWorlds.Localization.TextProcessor`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TextProcessingContext` lives in `TaleWorlds.Localization.TextProcessor` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,37 +23,66 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### SetFunction
 `public void SetFunction(string functionName, MBTextModel functionBody)`
 
-**Purpose:** Sets the value or state of `function`.
+**Purpose:** Assigns a new value to `function` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+textProcessingContext.SetFunction("example", functionBody);
+```
 
 ### ResetFunctions
 `public void ResetFunctions()`
 
-**Purpose:** Resets `functions` to its initial state.
+**Purpose:** Returns `functions` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+textProcessingContext.ResetFunctions();
+```
 
 ### GetFunctionBody
 `public MBTextModel GetFunctionBody(string functionName)`
 
-**Purpose:** Gets the current value of `function body`.
+**Purpose:** Reads and returns the `function body` value held by the current object.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+var result = textProcessingContext.GetFunctionBody("example");
+```
 
 ### GetFunctionParam
 `public TextObject GetFunctionParam(string rawValue)`
 
-**Purpose:** Gets the current value of `function param`.
+**Purpose:** Reads and returns the `function param` value held by the current object.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+var result = textProcessingContext.GetFunctionParam("example");
+```
 
 ### GetFunctionParamWithoutEvaluate
 `public TextObject GetFunctionParamWithoutEvaluate(string rawValue)`
 
-**Purpose:** Gets the current value of `function param without evaluate`.
+**Purpose:** Reads and returns the `function param without evaluate` value held by the current object.
+
+```csharp
+// Obtain an instance of TextProcessingContext from the subsystem API first
+TextProcessingContext textProcessingContext = ...;
+var result = textProcessingContext.GetFunctionParamWithoutEvaluate("example");
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a TextProcessingContext instance from game state, then call one of its public methods
-var value = new TextProcessingContext();
-value.SetFunction("example", functionBody);
+// Typically call this after obtaining an instance from the subsystem API
+TextProcessingContext textProcessingContext = ...;
+textProcessingContext.SetFunction("example", functionBody);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

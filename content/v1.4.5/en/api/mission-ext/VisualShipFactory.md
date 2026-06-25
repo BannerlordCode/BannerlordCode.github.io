@@ -1,20 +1,14 @@
 ---
 title: "VisualShipFactory"
+description: "Auto-generated class reference for VisualShipFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualShipFactory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualShipFactory
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VisualShipFactory`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VisualShipFactory.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VisualShipFactory.cs`
 
 ## Overview
 
@@ -29,27 +23,52 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitializeShipEntityCache
 `public static void InitializeShipEntityCache(Scene scene)`
 
-**Purpose:** Initializes the state, resources, or bindings for `ship entity cache`.
+**Purpose:** Prepares the resources, state, or bindings required by `ship entity cache`.
+
+```csharp
+// Static call; no instance required
+VisualShipFactory.InitializeShipEntityCache(scene);
+```
 
 ### DeregisterVisualShipCache
 `public static void DeregisterVisualShipCache()`
 
-**Purpose:** Handles logic related to `deregister visual ship cache`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+VisualShipFactory.DeregisterVisualShipCache();
+```
 
 ### CreateVisualShip
 `public static GameEntity CreateVisualShip(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, float hitPointRatio, uint sailColor1 = uint.MaxValue, uint sailColor2 = uint.MaxValue, bool createPhysics = false)`
 
-**Purpose:** Creates a new `visual ship` instance or object.
+**Purpose:** Constructs a new `visual ship` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+VisualShipFactory.CreateVisualShip("example", scene, upgrades, 0, 0, 0, 0, false);
+```
 
 ### CreateVisualShipForCampaign
 `public static GameEntity CreateVisualShipForCampaign(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, string shipCustomSailPatternId, uint sailColor1 = uint.MaxValue, uint sailColor2 = uint.MaxValue)`
 
-**Purpose:** Creates a new `visual ship for campaign` instance or object.
+**Purpose:** Constructs a new `visual ship for campaign` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+VisualShipFactory.CreateVisualShipForCampaign("example", scene, upgrades, 0, "example", 0, 0);
+```
 
 ### RefreshUpgrades
 `public static void RefreshUpgrades(WeakGameEntity shipEntity, List<ShipVisualSlotInfo> upgrades)`
 
-**Purpose:** Refreshes the display or cache of `upgrades`.
+**Purpose:** Keeps the display or cache of `upgrades` in sync with the underlying state.
+
+```csharp
+// Static call; no instance required
+VisualShipFactory.RefreshUpgrades(shipEntity, upgrades);
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ VisualShipFactory.InitializeShipEntityCache(scene);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

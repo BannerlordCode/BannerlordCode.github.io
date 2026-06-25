@@ -1,13 +1,7 @@
 ---
 title: "BehaviorDefendSiegeWeapon"
+description: "Auto-generated class reference for BehaviorDefendSiegeWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorDefendSiegeWeapon`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorDefendSiegeWeapon
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetDefensePositionFromTactic
 `public void SetDefensePositionFromTactic(WorldPosition defensePosition)`
 
-**Purpose:** Sets the value or state of `defense position from tactic`.
+**Purpose:** Assigns a new value to `defense position from tactic` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
+BehaviorDefendSiegeWeapon behaviorDefendSiegeWeapon = ...;
+behaviorDefendSiegeWeapon.SetDefensePositionFromTactic(defensePosition);
+```
 
 ### SetDefendedSiegeWeaponFromTactic
 `public void SetDefendedSiegeWeaponFromTactic(SiegeWeapon siegeWeapon)`
 
-**Purpose:** Sets the value or state of `defended siege weapon from tactic`.
+**Purpose:** Assigns a new value to `defended siege weapon from tactic` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
+BehaviorDefendSiegeWeapon behaviorDefendSiegeWeapon = ...;
+behaviorDefendSiegeWeapon.SetDefendedSiegeWeaponFromTactic(siegeWeapon);
+```
 
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
+BehaviorDefendSiegeWeapon behaviorDefendSiegeWeapon = ...;
+var result = behaviorDefendSiegeWeapon.GetBehaviorString();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
+BehaviorDefendSiegeWeapon behaviorDefendSiegeWeapon = ...;
+behaviorDefendSiegeWeapon.TickOccasionally();
+```
 
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**Purpose:** Resets `behavior` to its initial state.
+**Purpose:** Returns `behavior` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
+BehaviorDefendSiegeWeapon behaviorDefendSiegeWeapon = ...;
+behaviorDefendSiegeWeapon.ResetBehavior();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorDefendSiegeWeapon();
-value.SetDefensePositionFromTactic(defensePosition);
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorDefendSiegeWeapon behaviorDefendSiegeWeapon = ...;
+behaviorDefendSiegeWeapon.SetDefensePositionFromTactic(defensePosition);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

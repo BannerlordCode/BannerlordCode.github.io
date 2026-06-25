@@ -1,20 +1,14 @@
 ---
 title: "ImageFitTypes"
+description: "Auto-generated class reference for ImageFitTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageFitTypes`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageFitTypes
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public enum ImageFitTypes : byte`
 **Base:** `byte`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-ImageFitTypes example = ImageFitTypes.Value;
+// Obtain an instance from the relevant subsystem API
+ImageFitTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

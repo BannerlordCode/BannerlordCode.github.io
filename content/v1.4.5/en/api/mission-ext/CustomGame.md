@@ -1,20 +1,14 @@
 ---
 title: "CustomGame"
+description: "Auto-generated class reference for CustomGame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomGame`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomGame
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomGame : GameType`
 **Base:** `GameType`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomGame.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomGame.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### OnDestroy
 `public override void OnDestroy()`
 
-**Purpose:** Called when the `destroy` event is raised.
+**Purpose:** Invoked when the `destroy` event is raised.
+
+```csharp
+// Obtain an instance of CustomGame from the subsystem API first
+CustomGame customGame = ...;
+customGame.OnDestroy();
+```
 
 ### OnStateChanged
 `public override void OnStateChanged(GameState oldState)`
 
-**Purpose:** Called when the `state changed` event is raised.
+**Purpose:** Invoked when the `state changed` event is raised.
+
+```csharp
+// Obtain an instance of CustomGame from the subsystem API first
+CustomGame customGame = ...;
+customGame.OnStateChanged(oldState);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomGame();
-value.OnDestroy();
+// Typically call this after obtaining an instance from the subsystem API
+CustomGame customGame = ...;
+customGame.OnDestroy();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

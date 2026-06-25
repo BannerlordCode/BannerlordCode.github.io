@@ -1,20 +1,14 @@
 ---
 title: "SaveEntry"
+description: "Auto-generated class reference for SaveEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveEntry`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveEntry
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveEntry`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntry.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntry.cs`
 
 ## Overview
 
@@ -36,22 +30,44 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### CreateFrom
 `public static SaveEntry CreateFrom(int entryFolderId, EntryId entryId, byte data)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SaveEntry.CreateFrom(0, entryId, 0);
+```
 
 ### CreateNew
 `public static SaveEntry CreateNew(SaveEntryFolder parentFolder, EntryId entryId)`
 
-**Purpose:** Creates a new `new` instance or object.
+**Purpose:** Constructs a new `new` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SaveEntry.CreateNew(parentFolder, entryId);
+```
 
 ### GetBinaryReader
 `public BinaryReader GetBinaryReader()`
 
-**Purpose:** Gets the current value of `binary reader`.
+**Purpose:** Reads and returns the `binary reader` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveEntry from the subsystem API first
+SaveEntry saveEntry = ...;
+var result = saveEntry.GetBinaryReader();
+```
 
 ### FillFrom
 `public void FillFrom(BinaryWriter writer)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SaveEntry from the subsystem API first
+SaveEntry saveEntry = ...;
+saveEntry.FillFrom(writer);
+```
 
 ## Usage Example
 
@@ -61,4 +77,4 @@ SaveEntry.CreateFrom(0, entryId, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

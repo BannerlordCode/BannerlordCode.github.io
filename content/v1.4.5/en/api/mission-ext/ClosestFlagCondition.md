@@ -1,20 +1,14 @@
 ---
 title: "ClosestFlagCondition"
+description: "Auto-generated class reference for ClosestFlagCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClosestFlagCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClosestFlagCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClosestFlagCondition : MPPerkCondition<MissionMultiplayerFlagDomination>`
 **Base:** `MPPerkCondition<MissionMultiplayerFlagDomination>`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/ClosestFlagCondition.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/ClosestFlagCondition.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of ClosestFlagCondition from the subsystem API first
+ClosestFlagCondition closestFlagCondition = ...;
+var result = closestFlagCondition.Check(peer);
+```
 
 ### Check
 `public override bool Check(Agent agent)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of ClosestFlagCondition from the subsystem API first
+ClosestFlagCondition closestFlagCondition = ...;
+var result = closestFlagCondition.Check(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClosestFlagCondition();
-value.Check(peer);
+// Typically call this after obtaining an instance from the subsystem API
+ClosestFlagCondition closestFlagCondition = ...;
+closestFlagCondition.Check(peer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

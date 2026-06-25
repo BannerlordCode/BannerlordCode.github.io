@@ -1,20 +1,14 @@
 ---
 title: "TrackedObject"
+description: "Auto-generated class reference for TrackedObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrackedObject`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrackedObject
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TrackedObject`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/TrackedObject.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/TrackedObject.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Compare
 `public bool Compare(TrackedObject obj)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of TrackedObject from the subsystem API first
+TrackedObject trackedObject = ...;
+var result = trackedObject.Compare(obj);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrackedObject();
-value.Compare(obj);
+// Typically call this after obtaining an instance from the subsystem API
+TrackedObject trackedObject = ...;
+trackedObject.Compare(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

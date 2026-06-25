@@ -1,13 +1,7 @@
 ---
 title: "CharacterSpawner"
+description: "Auto-generated class reference for CharacterSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### SetCreateFaceImmediately
 `public void SetCreateFaceImmediately(bool value)`
 
-**Purpose:** Sets the value or state of `create face immediately`.
+**Purpose:** Assigns a new value to `create face immediately` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterSpawner from the subsystem API first
+CharacterSpawner characterSpawner = ...;
+characterSpawner.SetCreateFaceImmediately(false);
+```
 
 ### SetClothColors
 `public void SetClothColors(uint color1, uint color2)`
 
-**Purpose:** Sets the value or state of `cloth colors`.
+**Purpose:** Assigns a new value to `cloth colors` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterSpawner from the subsystem API first
+CharacterSpawner characterSpawner = ...;
+characterSpawner.SetClothColors(0, 0);
+```
 
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**Purpose:** Handles logic related to `spawn character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterSpawner from the subsystem API first
+CharacterSpawner characterSpawner = ...;
+characterSpawner.SpawnCharacter();
+```
 
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode, bool useBodyProperties = false)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with character`.
+**Purpose:** Prepares the resources, state, or bindings required by `with character`.
+
+```csharp
+// Obtain an instance of CharacterSpawner from the subsystem API first
+CharacterSpawner characterSpawner = ...;
+characterSpawner.InitWithCharacter(characterCode, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterSpawner();
-value.SetCreateFaceImmediately(false);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterSpawner characterSpawner = ...;
+characterSpawner.SetCreateFaceImmediately(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

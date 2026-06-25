@@ -1,13 +1,7 @@
 ---
 title: "QuestsState"
+description: "Auto-generated class reference for QuestsState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestsState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestsState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var value = new QuestsState();
+// Obtain an instance from the relevant subsystem API
+QuestsState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

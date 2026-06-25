@@ -1,13 +1,7 @@
 ---
 title: "AmmoBarrelBase"
+description: "Auto-generated class reference for AmmoBarrelBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AmmoBarrelBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AmmoBarrelBase
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
@@ -29,34 +23,65 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Usables` to place it in t
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of AmmoBarrelBase from the subsystem API first
+AmmoBarrelBase ammoBarrelBase = ...;
+ammoBarrelBase.OnDeploymentFinished();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of AmmoBarrelBase from the subsystem API first
+AmmoBarrelBase ammoBarrelBase = ...;
+var result = ammoBarrelBase.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public abstract override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of AmmoBarrelBase from the subsystem API first
+AmmoBarrelBase ammoBarrelBase = ...;
+var result = ammoBarrelBase.GetDescriptionText(gameEntity);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of AmmoBarrelBase from the subsystem API first
+AmmoBarrelBase ammoBarrelBase = ...;
+var result = ammoBarrelBase.GetTickRequirement();
+```
 
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `order`.
+**Purpose:** Reads and returns the `order` value held by the current object.
+
+```csharp
+// Obtain an instance of AmmoBarrelBase from the subsystem API first
+AmmoBarrelBase ammoBarrelBase = ...;
+var result = ammoBarrelBase.GetOrder(side);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAmmoBarrelBase();
+// Typically obtained from a subsystem API or factory
+AmmoBarrelBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

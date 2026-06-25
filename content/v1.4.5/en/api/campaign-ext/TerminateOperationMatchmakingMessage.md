@@ -1,20 +1,14 @@
 ---
 title: "TerminateOperationMatchmakingMessage"
+description: "Auto-generated class reference for TerminateOperationMatchmakingMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TerminateOperationMatchmakingMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TerminateOperationMatchmakingMessage
 
 **Namespace:** Messages.FromBattleServerManager.ToBattleServer
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class TerminateOperationMatchmakingMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/TerminateOperationMatchmakingMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/TerminateOperationMatchmakingMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Messages.FromBattleServerManager.ToBattleServer` to place 
 ## Usage Example
 
 ```csharp
-var example = new TerminateOperationMatchmakingMessage();
+// Obtain an instance from the relevant subsystem API
+TerminateOperationMatchmakingMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

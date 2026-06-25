@@ -1,18 +1,12 @@
 ---
 title: "ICameraModeLogic"
+description: "Auto-generated class reference for ICameraModeLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICameraModeLogic`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICameraModeLogic
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface ICameraModeLogic`
 **Base:** none
 **File:** `TaleWorlds.Core/ICameraModeLogic.cs`
 
@@ -27,9 +21,10 @@ Treat `ICameraModeLogic` as a Logic-style extension point: first identify who cr
 ## Usage Example
 
 ```csharp
-ICameraModeLogic implementation = GetCameraModeLogicImplementation();
+// Usually obtained through DI or a factory method
+IICameraModeLogic service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

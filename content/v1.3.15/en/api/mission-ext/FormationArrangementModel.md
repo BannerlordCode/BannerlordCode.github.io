@@ -1,13 +1,7 @@
 ---
 title: "FormationArrangementModel"
+description: "Auto-generated class reference for FormationArrangementModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationArrangementModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FormationArrangementModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -36,14 +30,21 @@ Treat `FormationArrangementModel` as a Model-style extension point: first identi
 ### GetBannerBearerPositions
 `public abstract List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
-**Purpose:** Gets the current value of `banner bearer positions`.
+**Purpose:** Reads and returns the `banner bearer positions` value held by the current object.
+
+```csharp
+// Obtain an instance of FormationArrangementModel from the subsystem API first
+FormationArrangementModel formationArrangementModel = ...;
+var result = formationArrangementModel.GetBannerBearerPositions(formation, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomFormationArrangementModel();
+// Typically obtained from a subsystem API or factory
+FormationArrangementModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

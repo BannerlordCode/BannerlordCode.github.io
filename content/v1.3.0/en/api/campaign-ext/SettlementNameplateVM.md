@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplateVM"
+description: "Auto-generated class reference for SettlementNameplateVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -49,95 +43,198 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshValues();
+```
 
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**Purpose:** Refreshes the display or cache of `dynamic properties`.
+**Purpose:** Keeps the display or cache of `dynamic properties` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshRelationStatus
 `public override void RefreshRelationStatus()`
 
-**Purpose:** Refreshes the display or cache of `relation status`.
+**Purpose:** Keeps the display or cache of `relation status` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshRelationStatus();
+```
 
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**Purpose:** Refreshes the display or cache of `position`.
+**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshPosition();
+```
 
 ### RefreshTutorialStatus
 `public override void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**Purpose:** Refreshes the display or cache of `tutorial status`.
+**Purpose:** Keeps the display or cache of `tutorial status` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshTutorialStatus("example");
+```
 
 ### OnSiegeEventStartedOnSettlement
 `public void OnSiegeEventStartedOnSettlement(SiegeEvent siegeEvent)`
 
-**Purpose:** Called when the `siege event started on settlement` event is raised.
+**Purpose:** Invoked when the `siege event started on settlement` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnSiegeEventStartedOnSettlement(siegeEvent);
+```
 
 ### OnSiegeEventEndedOnSettlement
 `public void OnSiegeEventEndedOnSettlement(SiegeEvent siegeEvent)`
 
-**Purpose:** Called when the `siege event ended on settlement` event is raised.
+**Purpose:** Invoked when the `siege event ended on settlement` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnSiegeEventEndedOnSettlement(siegeEvent);
+```
 
 ### OnMapEventStartedOnSettlement
 `public void OnMapEventStartedOnSettlement(MapEvent mapEvent)`
 
-**Purpose:** Called when the `map event started on settlement` event is raised.
+**Purpose:** Invoked when the `map event started on settlement` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnMapEventStartedOnSettlement(mapEvent);
+```
 
 ### OnMapEventEndedOnSettlement
 `public void OnMapEventEndedOnSettlement()`
 
-**Purpose:** Called when the `map event ended on settlement` event is raised.
+**Purpose:** Invoked when the `map event ended on settlement` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnMapEventEndedOnSettlement();
+```
 
 ### OnRebelliousClanFormed
 `public void OnRebelliousClanFormed(Clan clan)`
 
-**Purpose:** Called when the `rebellious clan formed` event is raised.
+**Purpose:** Invoked when the `rebellious clan formed` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnRebelliousClanFormed(clan);
+```
 
 ### OnRebelliousClanDisbanded
 `public void OnRebelliousClanDisbanded(Clan clan)`
 
-**Purpose:** Called when the `rebellious clan disbanded` event is raised.
+**Purpose:** Invoked when the `rebellious clan disbanded` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnRebelliousClanDisbanded(clan);
+```
 
 ### UpdateNameplateMT
 `public void UpdateNameplateMT(Vec3 cameraPosition)`
 
-**Purpose:** Updates the state or data of `nameplate m t`.
+**Purpose:** Recalculates and stores the latest representation of `nameplate m t`.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.UpdateNameplateMT(cameraPosition);
+```
 
 ### RefreshBindValues
 `public void RefreshBindValues()`
 
-**Purpose:** Refreshes the display or cache of `bind values`.
+**Purpose:** Keeps the display or cache of `bind values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshBindValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnFinalize();
+```
 
 ### ExecuteTrack
 `public void ExecuteTrack()`
 
-**Purpose:** Executes the `track` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `track`.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.ExecuteTrack();
+```
 
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**Purpose:** Executes the `set camera position` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set camera position`.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.ExecuteSetCameraPosition();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Executes the `open encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+
+```csharp
+// Obtain an instance of SettlementNameplateVM from the subsystem API first
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.ExecuteOpenEncyclopedia();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNameplateVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

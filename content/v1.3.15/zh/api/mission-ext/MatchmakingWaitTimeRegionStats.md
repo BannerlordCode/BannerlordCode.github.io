@@ -1,13 +1,7 @@
 ---
 title: "MatchmakingWaitTimeRegionStats"
+description: "MatchmakingWaitTimeRegionStats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MatchmakingWaitTimeRegionStats`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MatchmakingWaitTimeRegionStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -35,25 +29,44 @@ title: "MatchmakingWaitTimeRegionStats"
 ### SetGameTypeAverage
 `public void SetGameTypeAverage(string gameType, WaitTimeStatType statType, int average)`
 
-**用途 / Purpose:** 设置 `game type average` 的值或状态。
+**用途 / Purpose:** 为 「game type average」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingWaitTimeRegionStats 实例
+MatchmakingWaitTimeRegionStats matchmakingWaitTimeRegionStats = ...;
+matchmakingWaitTimeRegionStats.SetGameTypeAverage("example", statType, 0);
+```
 
 ### HasStatsForGameType
 `public bool HasStatsForGameType(string gameType)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `stats for game type`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「stats for game type」。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingWaitTimeRegionStats 实例
+MatchmakingWaitTimeRegionStats matchmakingWaitTimeRegionStats = ...;
+var result = matchmakingWaitTimeRegionStats.HasStatsForGameType("example");
+```
 
 ### GetWaitTime
 `public int GetWaitTime(string gameType, WaitTimeStatType statType)`
 
-**用途 / Purpose:** 获取 `wait time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「wait time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingWaitTimeRegionStats 实例
+MatchmakingWaitTimeRegionStats matchmakingWaitTimeRegionStats = ...;
+var result = matchmakingWaitTimeRegionStats.GetWaitTime("example", statType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MatchmakingWaitTimeRegionStats();
-value.SetGameTypeAverage("example", statType, 0);
+// 通常从对应子系统 API 获取实例后调用
+MatchmakingWaitTimeRegionStats matchmakingWaitTimeRegionStats = ...;
+matchmakingWaitTimeRegionStats.SetGameTypeAverage("example", statType, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

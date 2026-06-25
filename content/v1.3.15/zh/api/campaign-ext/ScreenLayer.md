@@ -1,13 +1,7 @@
 ---
 title: "ScreenLayer"
+description: "ScreenLayer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScreenLayer`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScreenLayer
 
 **Namespace:** TaleWorlds.ScreenSystem
@@ -47,64 +41,131 @@ title: "ScreenLayer"
 ### DrawDebugInfo
 `public virtual void DrawDebugInfo()`
 
-**用途 / Purpose:** 处理 `draw debug info` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+screenLayer.DrawDebugInfo();
+```
 
 ### EarlyProcessEvents
 `public virtual void EarlyProcessEvents(InputType handledInputs)`
 
-**用途 / Purpose:** 处理 `early process events` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+screenLayer.EarlyProcessEvents(handledInputs);
+```
 
 ### ProcessEvents
 `public virtual void ProcessEvents()`
 
-**用途 / Purpose:** 处理 `process events` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+screenLayer.ProcessEvents();
+```
 
 ### HitTest
 `public virtual bool HitTest(Vector2 position)`
 
-**用途 / Purpose:** 处理 `hit test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+var result = screenLayer.HitTest(position);
+```
 
 ### HitTest
 `public virtual bool HitTest()`
 
-**用途 / Purpose:** 处理 `hit test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+var result = screenLayer.HitTest();
+```
 
 ### FocusTest
 `public virtual bool FocusTest()`
 
-**用途 / Purpose:** 处理 `focus test` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+var result = screenLayer.FocusTest();
+```
 
 ### IsFocusedOnInput
 `public virtual bool IsFocusedOnInput()`
 
-**用途 / Purpose:** 处理 `is focused on input` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「focused on input」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+var result = screenLayer.IsFocusedOnInput();
+```
 
 ### OnOnScreenKeyboardDone
 `public virtual void OnOnScreenKeyboardDone(string inputText)`
 
-**用途 / Purpose:** 当 `on screen keyboard done` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「on screen keyboard done」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+screenLayer.OnOnScreenKeyboardDone("example");
+```
 
 ### OnOnScreenKeyboardCanceled
 `public virtual void OnOnScreenKeyboardCanceled()`
 
-**用途 / Purpose:** 当 `on screen keyboard canceled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「on screen keyboard canceled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+screenLayer.OnOnScreenKeyboardCanceled();
+```
 
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+var result = screenLayer.CompareTo(obj);
+```
 
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**用途 / Purpose:** 更新 `layout` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「layout」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ScreenLayer 实例
+ScreenLayer screenLayer = ...;
+screenLayer.UpdateLayout();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomScreenLayer();
+// 通常通过子系统 API 或工厂获得派生实例
+ScreenLayer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "SquareFormation"
+description: "Auto-generated class reference for SquareFormation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SquareFormation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SquareFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,50 +32,99 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of SquareFormation from the subsystem API first
+SquareFormation squareFormation = ...;
+var result = squareFormation.Clone(formation);
+```
 
 ### DeepCopyFrom
 `public override void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**Purpose:** Handles logic related to `deep copy from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SquareFormation from the subsystem API first
+SquareFormation squareFormation = ...;
+squareFormation.DeepCopyFrom(arrangement);
+```
 
 ### FormFromBorderSideWidth
 `public void FormFromBorderSideWidth(float borderSideWidth)`
 
-**Purpose:** Handles logic related to `form from border side width`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SquareFormation from the subsystem API first
+SquareFormation squareFormation = ...;
+squareFormation.FormFromBorderSideWidth(0);
+```
 
 ### FormFromBorderUnitCountPerSide
 `public void FormFromBorderUnitCountPerSide(int unitCountPerSide)`
 
-**Purpose:** Handles logic related to `form from border unit count per side`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SquareFormation from the subsystem API first
+SquareFormation squareFormation = ...;
+squareFormation.FormFromBorderUnitCountPerSide(0);
+```
 
 ### GetUnitsPerSideFromRankCount
 `public int GetUnitsPerSideFromRankCount(int rankCount)`
 
-**Purpose:** Gets the current value of `units per side from rank count`.
+**Purpose:** Reads and returns the `units per side from rank count` value held by the current object.
+
+```csharp
+// Obtain an instance of SquareFormation from the subsystem API first
+SquareFormation squareFormation = ...;
+var result = squareFormation.GetUnitsPerSideFromRankCount(0);
+```
 
 ### FormFromRankCount
 `public void FormFromRankCount(int rankCount)`
 
-**Purpose:** Handles logic related to `form from rank count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SquareFormation from the subsystem API first
+SquareFormation squareFormation = ...;
+squareFormation.FormFromRankCount(0);
+```
 
 ### GetLocalDirectionOfUnitOrDefault
 `public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `local direction of unit or default`.
+**Purpose:** Reads and returns the `local direction of unit or default` value held by the current object.
+
+```csharp
+// Obtain an instance of SquareFormation from the subsystem API first
+SquareFormation squareFormation = ...;
+var result = squareFormation.GetLocalDirectionOfUnitOrDefault(unit);
+```
 
 ### TurnBackwards
 `public override void TurnBackwards()`
 
-**Purpose:** Handles logic related to `turn backwards`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SquareFormation from the subsystem API first
+SquareFormation squareFormation = ...;
+squareFormation.TurnBackwards();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SquareFormation();
-value.Clone(formation);
+// Typically call this after obtaining an instance from the subsystem API
+SquareFormation squareFormation = ...;
+squareFormation.Clone(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

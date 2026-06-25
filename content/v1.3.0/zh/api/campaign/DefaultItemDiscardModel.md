@@ -1,13 +1,7 @@
 ---
 title: "DefaultItemDiscardModel"
+description: "DefaultItemDiscardModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultItemDiscardModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultItemDiscardModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ title: "DefaultItemDiscardModel"
 ### PlayerCanDonateItem
 `public override bool PlayerCanDonateItem(ItemObject item)`
 
-**用途 / Purpose:** 处理 `player can donate item` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemDiscardModel 实例
+DefaultItemDiscardModel defaultItemDiscardModel = ...;
+var result = defaultItemDiscardModel.PlayerCanDonateItem(item);
+```
 
 ### GetXpBonusForDiscardingItem
 `public override int GetXpBonusForDiscardingItem(ItemObject item, int amount = 1)`
 
-**用途 / Purpose:** 获取 `xp bonus for discarding item` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp bonus for discarding item」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemDiscardModel 实例
+DefaultItemDiscardModel defaultItemDiscardModel = ...;
+var result = defaultItemDiscardModel.GetXpBonusForDiscardingItem(item, 0);
+```
 
 ### GetXpBonusForDiscardingItems
 `public override int GetXpBonusForDiscardingItems(ItemRoster itemRoster)`
 
-**用途 / Purpose:** 获取 `xp bonus for discarding items` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp bonus for discarding items」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemDiscardModel 实例
+DefaultItemDiscardModel defaultItemDiscardModel = ...;
+var result = defaultItemDiscardModel.GetXpBonusForDiscardingItems(itemRoster);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultItemDiscardModel>(new MyDefaultItemDiscardModel
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

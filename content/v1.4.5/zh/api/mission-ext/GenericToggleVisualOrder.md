@@ -1,20 +1,14 @@
 ---
 title: "GenericToggleVisualOrder"
+description: "GenericToggleVisualOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenericToggleVisualOrder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericToggleVisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.Default.Orders.ToggleOrders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GenericToggleVisualOrder : VisualOrder`
 **Base:** `VisualOrder`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.Default.Orders.ToggleOrders/GenericToggleVisualOrder.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.Default.Orders.ToggleOrders/GenericToggleVisualOrder.cs`
 
 ## 概述
 
@@ -36,25 +30,44 @@ title: "GenericToggleVisualOrder"
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GenericToggleVisualOrder 实例
+GenericToggleVisualOrder genericToggleVisualOrder = ...;
+var result = genericToggleVisualOrder.GetName(orderController);
+```
 
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**用途 / Purpose:** 处理 `is targeted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「targeted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 GenericToggleVisualOrder 实例
+GenericToggleVisualOrder genericToggleVisualOrder = ...;
+var result = genericToggleVisualOrder.IsTargeted();
+```
 
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 执行 `order` 操作或流程。
+**用途 / Purpose:** 执行 「order」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GenericToggleVisualOrder 实例
+GenericToggleVisualOrder genericToggleVisualOrder = ...;
+genericToggleVisualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GenericToggleVisualOrder();
-value.GetName(orderController);
+// 通常从对应子系统 API 获取实例后调用
+GenericToggleVisualOrder genericToggleVisualOrder = ...;
+genericToggleVisualOrder.GetName(orderController);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

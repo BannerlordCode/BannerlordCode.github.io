@@ -1,13 +1,7 @@
 ---
 title: "PerkHelper"
+description: "PerkHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PerkHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerkHelper
 
 **Namespace:** Helpers
@@ -29,57 +23,112 @@ title: "PerkHelper"
 ### GetCaptainPerksForTroopUsages
 `public static IEnumerable<PerkObject> GetCaptainPerksForTroopUsages(TroopUsageFlags troopUsageFlags)`
 
-**用途 / Purpose:** 获取 `captain perks for troop usages` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「captain perks for troop usages」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.GetCaptainPerksForTroopUsages(troopUsageFlags);
+```
 
 ### PlayerHasAnyItemDonationPerk
 `public static bool PlayerHasAnyItemDonationPerk()`
 
-**用途 / Purpose:** 处理 `player has any item donation perk` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.PlayerHasAnyItemDonationPerk();
+```
 
 ### AddPerkBonusForParty
 `public static void AddPerkBonusForParty(PerkObject perk, MobileParty party, bool isPrimaryBonus, ref ExplainedNumber stat, bool shouldApplyNavalMultiplier = false)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `perk bonus for party`。
+**用途 / Purpose:** 将 「perk bonus for party」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.AddPerkBonusForParty(perk, party, false, stat, false);
+```
 
 ### AddPerkBonusForCharacter
 `public static void AddPerkBonusForCharacter(PerkObject perk, CharacterObject character, bool isPrimaryBonus, ref ExplainedNumber bonuses, bool shouldApplyNavalMultiplier = false)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `perk bonus for character`。
+**用途 / Purpose:** 将 「perk bonus for character」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.AddPerkBonusForCharacter(perk, character, false, bonuses, false);
+```
 
 ### AddEpicPerkBonusForCharacter
 `public static void AddEpicPerkBonusForCharacter(PerkObject perk, CharacterObject character, SkillObject skillType, bool applyPrimaryBonus, ref ExplainedNumber bonuses, int skillRequired, bool shouldApplyNavalMultiplier = false)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `epic perk bonus for character`。
+**用途 / Purpose:** 将 「epic perk bonus for character」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.AddEpicPerkBonusForCharacter(perk, character, skillType, false, bonuses, 0, false);
+```
 
 ### AddPerkBonusFromCaptain
 `public static void AddPerkBonusFromCaptain(PerkObject perk, CharacterObject captainCharacter, ref ExplainedNumber bonuses)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `perk bonus from captain`。
+**用途 / Purpose:** 将 「perk bonus from captain」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.AddPerkBonusFromCaptain(perk, captainCharacter, bonuses);
+```
 
 ### AddPerkBonusForTown
 `public static void AddPerkBonusForTown(PerkObject perk, Town town, ref ExplainedNumber bonuses)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `perk bonus for town`。
+**用途 / Purpose:** 将 「perk bonus for town」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.AddPerkBonusForTown(perk, town, bonuses);
+```
 
 ### GetPerkValueForTown
 `public static bool GetPerkValueForTown(PerkObject perk, Town town)`
 
-**用途 / Purpose:** 获取 `perk value for town` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「perk value for town」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.GetPerkValueForTown(perk, town);
+```
 
 ### GetGovernorPerksForHero
 `public static List<PerkObject> GetGovernorPerksForHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `governor perks for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「governor perks for hero」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.GetGovernorPerksForHero(hero);
+```
 
 ### GetGovernorEngineeringSkillEffectForHero
 `public static ValueTuple<TextObject, TextObject> GetGovernorEngineeringSkillEffectForHero(Hero governor)`
 
-**用途 / Purpose:** 获取 `governor engineering skill effect for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「governor engineering skill effect for hero」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.GetGovernorEngineeringSkillEffectForHero(governor);
+```
 
 ### AvailablePerkCountOfHero
 `public static int AvailablePerkCountOfHero(Hero hero)`
 
-**用途 / Purpose:** 处理 `available perk count of hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PerkHelper.AvailablePerkCountOfHero(hero);
+```
 
 ## 使用示例
 
@@ -89,4 +138,4 @@ PerkHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

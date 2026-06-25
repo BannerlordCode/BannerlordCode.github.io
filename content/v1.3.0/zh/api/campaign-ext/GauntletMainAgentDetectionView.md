@@ -1,13 +1,7 @@
 ---
 title: "GauntletMainAgentDetectionView"
+description: "GauntletMainAgentDetectionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMainAgentDetectionView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMainAgentDetectionView
 
 **Namespace:** Sandobx.GauntletUI.Missions
@@ -29,29 +23,54 @@ title: "GauntletMainAgentDetectionView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMainAgentDetectionView 实例
+GauntletMainAgentDetectionView gauntletMainAgentDetectionView = ...;
+gauntletMainAgentDetectionView.OnMissionScreenInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMainAgentDetectionView 实例
+GauntletMainAgentDetectionView gauntletMainAgentDetectionView = ...;
+gauntletMainAgentDetectionView.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMainAgentDetectionView 实例
+GauntletMainAgentDetectionView gauntletMainAgentDetectionView = ...;
+gauntletMainAgentDetectionView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMainAgentDetectionView 实例
+GauntletMainAgentDetectionView gauntletMainAgentDetectionView = ...;
+gauntletMainAgentDetectionView.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new GauntletMainAgentDetectionView();
+// 从子系统 API 或场景中获取该视图
+GauntletMainAgentDetectionView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

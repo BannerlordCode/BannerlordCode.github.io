@@ -1,20 +1,14 @@
 ---
 title: "VisualOrderFactory"
+description: "VisualOrderFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualOrderFactory`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualOrderFactory
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class VisualOrderFactory`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderFactory.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderFactory.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "VisualOrderFactory"
 ### RegisterProvider
 `public static void RegisterProvider(VisualOrderProvider provider)`
 
-**用途 / Purpose:** 处理 `register provider` 相关逻辑。
+**用途 / Purpose:** 将「provider」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 静态调用，不需要实例
+VisualOrderFactory.RegisterProvider(provider);
+```
 
 ### UnregisterProvider
 `public static void UnregisterProvider(VisualOrderProvider provider)`
 
-**用途 / Purpose:** 处理 `unregister provider` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「provider」。
+
+```csharp
+// 静态调用，不需要实例
+VisualOrderFactory.UnregisterProvider(provider);
+```
 
 ### GetOrders
 `public static MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**用途 / Purpose:** 获取 `orders` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「orders」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+VisualOrderFactory.GetOrders();
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ VisualOrderFactory.RegisterProvider(provider);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

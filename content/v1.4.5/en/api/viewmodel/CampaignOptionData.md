@@ -1,20 +1,14 @@
 ---
 title: "CampaignOptionData"
+description: "Auto-generated class reference for CampaignOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignOptionData`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CampaignOptionData : ICampaignOptionData`
 **Base:** `ICampaignOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionData.cs`
 
 ## Overview
 
@@ -29,74 +23,151 @@ Treat `CampaignOptionData` as a Data-style extension point: first identify who c
 ### GetNameOfOption
 `public static TextObject GetNameOfOption(string optionIdentifier)`
 
-**Purpose:** Gets the current value of `name of option`.
+**Purpose:** Reads and returns the `name of option` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignOptionData.GetNameOfOption("example");
+```
 
 ### GetDescriptionOfOption
 `public static TextObject GetDescriptionOfOption(string optionIdentifier)`
 
-**Purpose:** Gets the current value of `description of option`.
+**Purpose:** Reads and returns the `description of option` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignOptionData.GetDescriptionOfOption("example");
+```
 
 ### GetPriorityIndex
 `public int GetPriorityIndex()`
 
-**Purpose:** Gets the current value of `priority index`.
+**Purpose:** Reads and returns the `priority index` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetPriorityIndex();
+```
 
 ### GetDataType
 `public abstract CampaignOptionDataType GetDataType()`
 
-**Purpose:** Gets the current value of `data type`.
+**Purpose:** Reads and returns the `data type` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetDataType();
+```
 
 ### IsRelatedToDifficultyPreset
 `public bool IsRelatedToDifficultyPreset()`
 
-**Purpose:** Handles logic related to `is related to difficulty preset`.
+**Purpose:** Determines whether the current object is in the `related to difficulty preset` state or condition.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.IsRelatedToDifficultyPreset();
+```
 
 ### GetValueFromDifficultyPreset
 `public float GetValueFromDifficultyPreset(CampaignOptionsDifficultyPresets preset)`
 
-**Purpose:** Gets the current value of `value from difficulty preset`.
+**Purpose:** Reads and returns the `value from difficulty preset` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetValueFromDifficultyPreset(preset);
+```
 
 ### GetIsDisabledWithReason
 `public CampaignOptionDisableStatus GetIsDisabledWithReason()`
 
-**Purpose:** Gets the current value of `is disabled with reason`.
+**Purpose:** Reads and returns the `is disabled with reason` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetIsDisabledWithReason();
+```
 
 ### GetIdentifier
 `public string GetIdentifier()`
 
-**Purpose:** Gets the current value of `identifier`.
+**Purpose:** Reads and returns the `identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetIdentifier();
+```
 
 ### GetEnableState
 `public CampaignOptionEnableState GetEnableState()`
 
-**Purpose:** Gets the current value of `enable state`.
+**Purpose:** Reads and returns the `enable state` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetEnableState();
+```
 
 ### GetName
 `public string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetName();
+```
 
 ### GetDescription
 `public string GetDescription()`
 
-**Purpose:** Gets the current value of `description`.
+**Purpose:** Reads and returns the `description` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetDescription();
+```
 
 ### GetValue
 `public float GetValue()`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetValue();
+```
 
 ### SetValue
 `public void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CampaignOptionData from the subsystem API first
+CampaignOptionData campaignOptionData = ...;
+campaignOptionData.SetValue(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCampaignOptionData();
+// Typically obtained from a subsystem API or factory
+CampaignOptionData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

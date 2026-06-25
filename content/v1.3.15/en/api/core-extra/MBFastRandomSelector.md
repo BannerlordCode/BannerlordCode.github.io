@@ -1,13 +1,7 @@
 ---
 title: "MBFastRandomSelector"
+description: "Auto-generated class reference for MBFastRandomSelector."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBFastRandomSelector`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBFastRandomSelector
 
 **Namespace:** TaleWorlds.Core
@@ -35,30 +29,55 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Initialize
 `public void Initialize(MBReadOnlyList<T> list)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Initialize(list);
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Reset();
+```
 
 ### Pack
 `public void Pack()`
 
-**Purpose:** Handles logic related to `pack`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Pack();
+```
 
 ### SelectRandom
 `public bool SelectRandom(out T selection, Predicate<T> conditions = null)`
 
-**Purpose:** Handles logic related to `select random`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+var result = mBFastRandomSelector.SelectRandom(selection, null);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBFastRandomSelector();
-value.Initialize(list);
+// Typically call this after obtaining an instance from the subsystem API
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Initialize(list);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

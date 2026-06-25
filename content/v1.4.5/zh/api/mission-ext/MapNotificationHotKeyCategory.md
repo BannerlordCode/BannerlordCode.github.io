@@ -1,20 +1,14 @@
 ---
 title: "MapNotificationHotKeyCategory"
+description: "MapNotificationHotKeyCategory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapNotificationHotKeyCategory`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNotificationHotKeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MapNotificationHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MapNotificationHotKeyCategory.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MapNotificationHotKeyCategory.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MapNotificationHotKeyCategory"
 ## 使用示例
 
 ```csharp
-var example = new MapNotificationHotKeyCategory();
+// 从对应子系统 API 获取实例
+MapNotificationHotKeyCategory instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithBoolValueEventArgs"
+description: "PropertyChangedWithBoolValueEventArgs 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PropertyChangedWithBoolValueEventArgs`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithBoolValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithBoolValueEventArgs`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithBoolValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithBoolValueEventArgs.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "PropertyChangedWithBoolValueEventArgs"
 ### PropertyChangedWithBoolValueEventArgs
 `public struct PropertyChangedWithBoolValueEventArgs(string propertyName, bool value)`
 
-**用途 / Purpose:** 处理 `property changed with bool value event args` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PropertyChangedWithBoolValueEventArgs 实例
+PropertyChangedWithBoolValueEventArgs propertyChangedWithBoolValueEventArgs = ...;
+var result = propertyChangedWithBoolValueEventArgs.PropertyChangedWithBoolValueEventArgs("example", false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PropertyChangedWithBoolValueEventArgs();
-value.PropertyChangedWithBoolValueEventArgs("example", false);
+// 通常从对应子系统 API 获取实例后调用
+PropertyChangedWithBoolValueEventArgs propertyChangedWithBoolValueEventArgs = ...;
+propertyChangedWithBoolValueEventArgs.PropertyChangedWithBoolValueEventArgs("example", false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

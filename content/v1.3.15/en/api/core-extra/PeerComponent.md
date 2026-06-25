@@ -1,13 +1,7 @@
 ---
 title: "PeerComponent"
+description: "Auto-generated class reference for PeerComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PeerComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PeerComponent
 
 **Namespace:** TaleWorlds.Core
@@ -38,24 +32,43 @@ Treat `PeerComponent` as a Component-style extension point: first identify who c
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PeerComponent from the subsystem API first
+PeerComponent peerComponent = ...;
+peerComponent.Initialize();
+```
 
 ### OnInitialize
 `public virtual void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Obtain an instance of PeerComponent from the subsystem API first
+PeerComponent peerComponent = ...;
+peerComponent.OnInitialize();
+```
 
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of PeerComponent from the subsystem API first
+PeerComponent peerComponent = ...;
+peerComponent.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPeerComponent();
+// Typically obtained from a subsystem API or factory
+PeerComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticItemBaseVM"
+description: "Auto-generated class reference for MPArmoryCosmeticItemBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryCosmeticItemBaseVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticItemBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPArmoryCosmeticItemBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticItemBaseVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticItemBaseVM.cs`
 
 ## Overview
 
@@ -51,44 +45,87 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.OnFinalize();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.ExecuteAction();
+```
 
 ### ExecutePreview
 `public void ExecutePreview()`
 
-**Purpose:** Executes the `preview` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `preview`.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.ExecutePreview();
+```
 
 ### ExecuteEnableActions
 `public void ExecuteEnableActions()`
 
-**Purpose:** Executes the `enable actions` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `enable actions`.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.ExecuteEnableActions();
+```
 
 ### ExecuteDisableActions
 `public void ExecuteDisableActions()`
 
-**Purpose:** Executes the `disable actions` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `disable actions`.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.ExecuteDisableActions();
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey actionKey, HotKey previewKey)`
 
-**Purpose:** Refreshes the display or cache of `key bindings`.
+**Purpose:** Keeps the display or cache of `key bindings` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticItemBaseVM from the subsystem API first
+MPArmoryCosmeticItemBaseVM mPArmoryCosmeticItemBaseVM = ...;
+mPArmoryCosmeticItemBaseVM.RefreshKeyBindings(actionKey, previewKey);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPArmoryCosmeticItemBaseVM();
+// Typically obtained from a subsystem API or factory
+MPArmoryCosmeticItemBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

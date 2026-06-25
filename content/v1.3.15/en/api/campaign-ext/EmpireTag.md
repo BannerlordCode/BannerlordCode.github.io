@@ -1,13 +1,7 @@
 ---
 title: "EmpireTag"
+description: "Auto-generated class reference for EmpireTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EmpireTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EmpireTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of EmpireTag from the subsystem API first
+EmpireTag empireTag = ...;
+var result = empireTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EmpireTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+EmpireTag empireTag = ...;
+empireTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

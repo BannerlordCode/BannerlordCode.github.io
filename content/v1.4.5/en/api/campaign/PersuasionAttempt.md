@@ -1,20 +1,14 @@
 ---
 title: "PersuasionAttempt"
+description: "Auto-generated class reference for PersuasionAttempt."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionAttempt`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionAttempt
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PersuasionAttempt`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/PersuasionAttempt.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/PersuasionAttempt.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ### IsSuccesful
 `public bool IsSuccesful()`
 
-**Purpose:** Handles logic related to `is succesful`.
+**Purpose:** Determines whether the current object is in the `succesful` state or condition.
+
+```csharp
+// Obtain an instance of PersuasionAttempt from the subsystem API first
+PersuasionAttempt persuasionAttempt = ...;
+var result = persuasionAttempt.IsSuccesful();
+```
 
 ### Matches
 `public bool Matches(Hero targetHero, int reservationType)`
 
-**Purpose:** Handles logic related to `matches`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PersuasionAttempt from the subsystem API first
+PersuasionAttempt persuasionAttempt = ...;
+var result = persuasionAttempt.Matches(targetHero, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PersuasionAttempt();
-value.IsSuccesful();
+// Typically call this after obtaining an instance from the subsystem API
+PersuasionAttempt persuasionAttempt = ...;
+persuasionAttempt.IsSuccesful();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

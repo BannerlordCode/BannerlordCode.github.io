@@ -1,20 +1,14 @@
 ---
 title: "SaveManager"
+description: "Auto-generated class reference for SaveManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveManager`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveManager
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public static class SaveManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveManager.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveManager.cs`
 
 ## Overview
 
@@ -29,37 +23,72 @@ Treat `SaveManager` as a Manager-style extension point: first identify who creat
 ### InitializeGlobalDefinitionContext
 `public static void InitializeGlobalDefinitionContext()`
 
-**Purpose:** Initializes the state, resources, or bindings for `global definition context`.
+**Purpose:** Prepares the resources, state, or bindings required by `global definition context`.
+
+```csharp
+// Static call; no instance required
+SaveManager.InitializeGlobalDefinitionContext();
+```
 
 ### CheckSaveableTypes
 `public static List<Type> CheckSaveableTypes()`
 
-**Purpose:** Handles logic related to `check saveable types`.
+**Purpose:** Verifies whether `saveable types` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+SaveManager.CheckSaveableTypes();
+```
 
 ### Save
 `public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`
 
-**Purpose:** Saves `save` data.
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+SaveManager.Save(target, metaData, "example", driver);
+```
 
 ### ShouldResolveConflicts
 `public static bool ShouldResolveConflicts()`
 
-**Purpose:** Handles logic related to `should resolve conflicts`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SaveManager.ShouldResolveConflicts();
+```
 
 ### LoadMetaData
 `public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`
 
-**Purpose:** Loads `meta data` data.
+**Purpose:** Reads `meta data` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+SaveManager.LoadMetaData("example", driver);
+```
 
 ### Load
 `public static LoadResult Load(string saveName, ISaveDriver driver)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+SaveManager.Load("example", driver);
+```
 
 ### Load
 `public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+SaveManager.Load("example", driver, false);
+```
 
 ## Usage Example
 
@@ -69,4 +98,4 @@ var manager = SaveManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

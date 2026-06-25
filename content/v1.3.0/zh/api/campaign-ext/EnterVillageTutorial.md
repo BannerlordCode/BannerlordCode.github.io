@@ -1,13 +1,7 @@
 ---
 title: "EnterVillageTutorial"
+description: "EnterVillageTutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EnterVillageTutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EnterVillageTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ title: "EnterVillageTutorial"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EnterVillageTutorial 实例
+EnterVillageTutorial enterVillageTutorial = ...;
+var result = enterVillageTutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EnterVillageTutorial 实例
+EnterVillageTutorial enterVillageTutorial = ...;
+var result = enterVillageTutorial.IsConditionsMetForActivation();
+```
 
 ### OnGameMenuOptionSelected
 `public override void OnGameMenuOptionSelected(GameMenuOption obj)`
 
-**用途 / Purpose:** 当 `game menu option selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game menu option selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 EnterVillageTutorial 实例
+EnterVillageTutorial enterVillageTutorial = ...;
+enterVillageTutorial.OnGameMenuOptionSelected(obj);
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EnterVillageTutorial 实例
+EnterVillageTutorial enterVillageTutorial = ...;
+var result = enterVillageTutorial.IsConditionsMetForCompletion();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EnterVillageTutorial();
-value.GetTutorialsRelevantContext();
+// 通常从对应子系统 API 获取实例后调用
+EnterVillageTutorial enterVillageTutorial = ...;
+enterVillageTutorial.GetTutorialsRelevantContext();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

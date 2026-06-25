@@ -1,13 +1,7 @@
 ---
 title: "GameMenuOverlayFactory"
+description: "GameMenuOverlayFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuOverlayFactory`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuOverlayFactory
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
@@ -29,17 +23,32 @@ title: "GameMenuOverlayFactory"
 ### RegisterProvider
 `public static void RegisterProvider(IGameMenuOverlayProvider provider)`
 
-**用途 / Purpose:** 处理 `register provider` 相关逻辑。
+**用途 / Purpose:** 将「provider」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 静态调用，不需要实例
+GameMenuOverlayFactory.RegisterProvider(provider);
+```
 
 ### UnregisterProvider
 `public static void UnregisterProvider(IGameMenuOverlayProvider provider)`
 
-**用途 / Purpose:** 处理 `unregister provider` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「provider」。
+
+```csharp
+// 静态调用，不需要实例
+GameMenuOverlayFactory.UnregisterProvider(provider);
+```
 
 ### GetOverlay
 `public static GameMenuOverlay GetOverlay(GameMenu.MenuOverlayType menuOverlayType)`
 
-**用途 / Purpose:** 获取 `overlay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「overlay」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+GameMenuOverlayFactory.GetOverlay(menuOverlayType);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ GameMenuOverlayFactory.RegisterProvider(provider);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

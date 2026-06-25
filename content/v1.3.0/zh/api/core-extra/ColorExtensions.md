@@ -1,13 +1,7 @@
 ---
 title: "ColorExtensions"
+description: "ColorExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ColorExtensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ColorExtensions
 
 **Namespace:** TaleWorlds.Library
@@ -29,7 +23,12 @@ title: "ColorExtensions"
 ### AddFactorInHSB
 `public static Color AddFactorInHSB(this Color rgbColor, float hueDifference, float saturationDifference, float brighnessDifference)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `factor in h s b`。
+**用途 / Purpose:** 将 「factor in h s b」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+ColorExtensions.AddFactorInHSB(rgbColor, 0, 0, 0);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ ColorExtensions.AddFactorInHSB(rgbColor, 0, 0, 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

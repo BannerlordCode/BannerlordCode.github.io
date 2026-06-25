@@ -1,20 +1,14 @@
 ---
 title: "GOGPlatformServices"
+description: "Auto-generated class reference for GOGPlatformServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GOGPlatformServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GOGPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GOGPlatformServices : IPlatformServices`
 **Base:** `IPlatformServices`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGPlatformServices.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGPlatformServices.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var example = new GOGPlatformServices();
+// Obtain an instance from the relevant subsystem API
+GOGPlatformServices instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ChatMultiLineElement"
+description: "ChatMultiLineElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChatMultiLineElement`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatMultiLineElement
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ChatMultiLineElement`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatLogItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatLogItemWidget.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ChatMultiLineElement"
 ### ChatMultiLineElement
 `public struct ChatMultiLineElement(string line, int identModifier)`
 
-**用途 / Purpose:** 处理 `chat multi line element` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ChatMultiLineElement 实例
+ChatMultiLineElement chatMultiLineElement = ...;
+var result = chatMultiLineElement.ChatMultiLineElement("example", 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ChatMultiLineElement();
-value.ChatMultiLineElement("example", 0);
+// 通常从对应子系统 API 获取实例后调用
+ChatMultiLineElement chatMultiLineElement = ...;
+chatMultiLineElement.ChatMultiLineElement("example", 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

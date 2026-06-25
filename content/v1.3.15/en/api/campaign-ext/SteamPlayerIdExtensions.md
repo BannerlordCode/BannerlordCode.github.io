@@ -1,23 +1,18 @@
 ---
 title: "SteamPlayerIdExtensions"
+description: "Auto-generated class reference for SteamPlayerIdExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamPlayerIdExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SteamPlayerIdExtensions
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public static class SteamPlayerIdExtensions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.PlatformService.GOG/SteamPlayerIdExtensions.cs`
 
 ## Overview
 
-`SteamPlayerIdExtensions` lives in `TaleWorlds.PlatformService.GOG`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SteamPlayerIdExtensions` lives in `TaleWorlds.PlatformService.GOG` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,26 +23,39 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### ToPlayerId
 `public static PlayerId ToPlayerId(this GalaxyID galaxyID)`
 
-**Purpose:** Handles logic related to `to player id`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SteamPlayerIdExtensions.ToPlayerId(galaxyID);
+```
 
 ### ToGOGID
 `public static GalaxyID ToGOGID(this PlayerId playerId)`
 
-**Purpose:** Handles logic related to `to g o g i d`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SteamPlayerIdExtensions.ToGOGID(playerId);
+```
 
 ### IsValidGOGId
 `public static bool IsValidGOGId(this PlayerId playerId)`
 
-**Purpose:** Handles logic related to `is valid g o g id`.
+**Purpose:** Determines whether the current object is in the `valid g o g id` state or condition.
+
+```csharp
+// Static call; no instance required
+SteamPlayerIdExtensions.IsValidGOGId(playerId);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 SteamPlayerIdExtensions.ToPlayerId(galaxyID);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "EngineController"
+description: "EngineController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EngineController`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineController
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class EngineController`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineController.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineController.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "EngineController"
 ### GetVersionStr
 `public static string GetVersionStr()`
 
-**用途 / Purpose:** 获取 `version str` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「version str」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+EngineController.GetVersionStr();
+```
 
 ### GetApplicationPlatformName
 `public static string GetApplicationPlatformName()`
 
-**用途 / Purpose:** 获取 `application platform name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「application platform name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+EngineController.GetApplicationPlatformName();
+```
 
 ### GetModulesVersionStr
 `public static string GetModulesVersionStr()`
 
-**用途 / Purpose:** 获取 `modules version str` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modules version str」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+EngineController.GetModulesVersionStr();
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ var controller = Mission.Current.GetMissionBehavior<EngineController>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

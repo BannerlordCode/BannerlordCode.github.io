@@ -1,20 +1,14 @@
 ---
 title: "MissionCustomBattlePreloadView"
+description: "Auto-generated class reference for MissionCustomBattlePreloadView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCustomBattlePreloadView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCustomBattlePreloadView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionCustomBattlePreloadView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionCustomBattlePreloadView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionCustomBattlePreloadView.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionCustomBattlePreloadView` as a View-style extension point: first id
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionCustomBattlePreloadView from the subsystem API first
+MissionCustomBattlePreloadView missionCustomBattlePreloadView = ...;
+missionCustomBattlePreloadView.OnPreMissionTick(0);
+```
 
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** Called when the `scene rendering started` event is raised.
+**Purpose:** Invoked when the `scene rendering started` event is raised.
+
+```csharp
+// Obtain an instance of MissionCustomBattlePreloadView from the subsystem API first
+MissionCustomBattlePreloadView missionCustomBattlePreloadView = ...;
+missionCustomBattlePreloadView.OnSceneRenderingStarted();
+```
 
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** Called when the `mission state deactivated` event is raised.
+**Purpose:** Invoked when the `mission state deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionCustomBattlePreloadView from the subsystem API first
+MissionCustomBattlePreloadView missionCustomBattlePreloadView = ...;
+missionCustomBattlePreloadView.OnMissionStateDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionCustomBattlePreloadView();
+// Retrieve this view from the subsystem API or scene
+MissionCustomBattlePreloadView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

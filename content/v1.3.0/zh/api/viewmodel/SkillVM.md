@@ -1,13 +1,7 @@
 ---
 title: "SkillVM"
+description: "SkillVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SkillVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -65,75 +59,154 @@ title: "SkillVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.RefreshValues();
+```
 
 ### InitializeValues
 `public void InitializeValues()`
 
-**用途 / Purpose:** 初始化 `values` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「values」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.InitializeValues();
+```
 
 ### RefreshWithCurrentValues
 `public void RefreshWithCurrentValues()`
 
-**用途 / Purpose:** 刷新 `with current values` 的显示或缓存。
+**用途 / Purpose:** 使 「with current values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.RefreshWithCurrentValues();
+```
 
 ### CreateLists
 `public void CreateLists()`
 
-**用途 / Purpose:** 创建一个 `lists` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「lists」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.CreateLists();
+```
 
 ### RefreshLists
 `public void RefreshLists(SkillObject skill = null)`
 
-**用途 / Purpose:** 刷新 `lists` 的显示或缓存。
+**用途 / Purpose:** 使 「lists」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.RefreshLists(null);
+```
 
 ### RefreshCanAddFocus
 `public void RefreshCanAddFocus()`
 
-**用途 / Purpose:** 刷新 `can add focus` 的显示或缓存。
+**用途 / Purpose:** 使 「can add focus」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.RefreshCanAddFocus();
+```
 
 ### ExecuteAddFocus
 `public void ExecuteAddFocus()`
 
-**用途 / Purpose:** 执行 `add focus` 操作或流程。
+**用途 / Purpose:** 执行 「add focus」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.ExecuteAddFocus();
+```
 
 ### ExecuteShowFocusConcept
 `public void ExecuteShowFocusConcept()`
 
-**用途 / Purpose:** 执行 `show focus concept` 操作或流程。
+**用途 / Purpose:** 执行 「show focus concept」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.ExecuteShowFocusConcept();
+```
 
 ### ExecuteShowSkillConcept
 `public void ExecuteShowSkillConcept()`
 
-**用途 / Purpose:** 执行 `show skill concept` 操作或流程。
+**用途 / Purpose:** 执行 「show skill concept」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.ExecuteShowSkillConcept();
+```
 
 ### ExecuteInspect
 `public void ExecuteInspect()`
 
-**用途 / Purpose:** 执行 `inspect` 操作或流程。
+**用途 / Purpose:** 执行 「inspect」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.ExecuteInspect();
+```
 
 ### ResetChanges
 `public void ResetChanges()`
 
-**用途 / Purpose:** 将 `changes` 重置为初始状态。
+**用途 / Purpose:** 将 「changes」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.ResetChanges();
+```
 
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**用途 / Purpose:** 处理 `is there any changes` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there any changes」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+var result = skillVM.IsThereAnyChanges();
+```
 
 ### ApplyChanges
 `public void ApplyChanges()`
 
-**用途 / Purpose:** 将 `changes` 应用到当前对象。
+**用途 / Purpose:** 将 「changes」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 SkillVM 实例
+SkillVM skillVM = ...;
+skillVM.ApplyChanges();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SkillVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SkillVM skillVM = ...;
+skillVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

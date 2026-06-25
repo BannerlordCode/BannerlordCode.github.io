@@ -1,13 +1,7 @@
 ---
 title: "GauntletMenuRecruitVolunteersView"
+description: "GauntletMenuRecruitVolunteersView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMenuRecruitVolunteersView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuRecruitVolunteersView
 
 **Namespace:** SandBox.GauntletUI.Menu
@@ -33,9 +27,10 @@ title: "GauntletMenuRecruitVolunteersView"
 ## 使用示例
 
 ```csharp
-var view = new GauntletMenuRecruitVolunteersView();
+// 从子系统 API 或场景中获取该视图
+GauntletMenuRecruitVolunteersView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

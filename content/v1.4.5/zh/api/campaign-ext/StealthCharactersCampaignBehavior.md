@@ -1,20 +1,14 @@
 ---
 title: "StealthCharactersCampaignBehavior"
+description: "StealthCharactersCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthCharactersCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthCharactersCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class StealthCharactersCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/StealthCharactersCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/StealthCharactersCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "StealthCharactersCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 StealthCharactersCampaignBehavior 实例
+StealthCharactersCampaignBehavior stealthCharactersCampaignBehavior = ...;
+stealthCharactersCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 StealthCharactersCampaignBehavior 实例
+StealthCharactersCampaignBehavior stealthCharactersCampaignBehavior = ...;
+stealthCharactersCampaignBehavior.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StealthCharactersCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+StealthCharactersCampaignBehavior stealthCharactersCampaignBehavior = ...;
+stealthCharactersCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

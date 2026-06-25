@@ -1,13 +1,7 @@
 ---
 title: "LobbyNetworkComponent"
+description: "Auto-generated class reference for LobbyNetworkComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyNetworkComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LobbyNetworkComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,27 +23,57 @@ Treat `LobbyNetworkComponent` as a Component-style extension point: first identi
 ### HandleEarlyNewClientAfterLoadingFinished
 `public override void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `early new client after loading finished` event or callback.
+**Purpose:** Executes the response logic associated with `early new client after loading finished`.
+
+```csharp
+// Obtain an instance of LobbyNetworkComponent from the subsystem API first
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.HandleEarlyNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandleNewClientAfterLoadingFinished
 `public override void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `new client after loading finished` event or callback.
+**Purpose:** Executes the response logic associated with `new client after loading finished`.
+
+```csharp
+// Obtain an instance of LobbyNetworkComponent from the subsystem API first
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.HandleNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandleLateNewClientAfterLoadingFinished
 `public override void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `late new client after loading finished` event or callback.
+**Purpose:** Executes the response logic associated with `late new client after loading finished`.
+
+```csharp
+// Obtain an instance of LobbyNetworkComponent from the subsystem API first
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.HandleLateNewClientAfterLoadingFinished(networkPeer);
+```
 
 ### HandlePlayerDisconnect
 `public override void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles the `player disconnect` event or callback.
+**Purpose:** Executes the response logic associated with `player disconnect`.
+
+```csharp
+// Obtain an instance of LobbyNetworkComponent from the subsystem API first
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.HandlePlayerDisconnect(networkPeer);
+```
 
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**Purpose:** Called when the `udp network handler tick` event is raised.
+**Purpose:** Invoked when the `udp network handler tick` event is raised.
+
+```csharp
+// Obtain an instance of LobbyNetworkComponent from the subsystem API first
+LobbyNetworkComponent lobbyNetworkComponent = ...;
+lobbyNetworkComponent.OnUdpNetworkHandlerTick(0);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ var component = agent.GetComponent<LobbyNetworkComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

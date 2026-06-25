@@ -1,20 +1,14 @@
 ---
 title: "HotKey"
+description: "HotKey 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HotKey`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HotKey
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public class HotKey`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/HotKey.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/HotKey.cs`
 
 ## 概述
 
@@ -36,35 +30,66 @@ title: "HotKey"
 ### HasModifier
 `public bool HasModifier(Modifiers modifier)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `modifier`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「modifier」。
+
+```csharp
+// 先通过子系统 API 拿到 HotKey 实例
+HotKey hotKey = ...;
+var result = hotKey.HasModifier(modifier);
+```
 
 ### HasSameModifiers
 `public bool HasSameModifiers(HotKey other)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `same modifiers`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「same modifiers」。
+
+```csharp
+// 先通过子系统 API 拿到 HotKey 实例
+HotKey hotKey = ...;
+var result = hotKey.HasSameModifiers(other);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 HotKey 实例
+HotKey hotKey = ...;
+var result = hotKey.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 HotKey 实例
+HotKey hotKey = ...;
+var result = hotKey.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 HotKey 实例
+HotKey hotKey = ...;
+var result = hotKey.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HotKey();
-value.HasModifier(modifier);
+// 通常从对应子系统 API 获取实例后调用
+HotKey hotKey = ...;
+hotKey.HasModifier(modifier);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultEncyclopediaConceptPage"
+description: "DefaultEncyclopediaConceptPage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEncyclopediaConceptPage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultEncyclopediaConceptPage
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,35 +23,66 @@ title: "DefaultEncyclopediaConceptPage"
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「view fully qualified name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.GetViewFullyQualifiedName();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.GetName();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.GetDescriptionText();
+```
 
 ### GetStringID
 `public override string GetStringID()`
 
-**用途 / Purpose:** 获取 `string i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string i d」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.GetStringID();
+```
 
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid encyclopedia item」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaConceptPage 实例
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+var result = defaultEncyclopediaConceptPage.IsValidEncyclopediaItem(o);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultEncyclopediaConceptPage();
-value.GetViewFullyQualifiedName();
+// 通常从对应子系统 API 获取实例后调用
+DefaultEncyclopediaConceptPage defaultEncyclopediaConceptPage = ...;
+defaultEncyclopediaConceptPage.GetViewFullyQualifiedName();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

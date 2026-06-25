@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyProfileScreenWidget"
+description: "Auto-generated class reference for MultiplayerLobbyProfileScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyProfileScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyProfileScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
@@ -38,14 +32,21 @@ Treat `MultiplayerLobbyProfileScreenWidget` as a Widget-style extension point: f
 ### LobbyStateChanged
 `public void LobbyStateChanged(bool isSearchRequested, bool isSearching, bool isMatchmakingEnabled, bool isCustomBattleEnabled, bool isPartyLeader, bool isInParty)`
 
-**Purpose:** Handles logic related to `lobby state changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyProfileScreenWidget from the subsystem API first
+MultiplayerLobbyProfileScreenWidget multiplayerLobbyProfileScreenWidget = ...;
+multiplayerLobbyProfileScreenWidget.LobbyStateChanged(false, false, false, false, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyProfileScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyProfileScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

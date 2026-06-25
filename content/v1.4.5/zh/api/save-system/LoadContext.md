@@ -1,20 +1,14 @@
 ---
 title: "LoadContext"
+description: "LoadContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LoadContext`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadContext
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadContext`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadContext.cs`
 
 ## 概述
 
@@ -37,35 +31,65 @@ title: "LoadContext"
 ### Load
 `public bool Load(LoadData loadData, bool loadAsLateInitialize)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 先通过子系统 API 拿到 LoadContext 实例
+LoadContext loadContext = ...;
+var result = loadContext.Load(loadData, false);
+```
 
 ### TryConvertType
 `public static bool TryConvertType(Type sourceType, Type targetType, ref object data)`
 
-**用途 / Purpose:** 尝试获取 `convert type`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「convert type」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 静态调用，不需要实例
+LoadContext.TryConvertType(sourceType, targetType, data);
+```
 
 ### GetObjectWithId
 `public ObjectHeaderLoadData GetObjectWithId(int id)`
 
-**用途 / Purpose:** 获取 `object with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LoadContext 实例
+LoadContext loadContext = ...;
+var result = loadContext.GetObjectWithId(0);
+```
 
 ### GetContainerWithId
 `public ContainerHeaderLoadData GetContainerWithId(int id)`
 
-**用途 / Purpose:** 获取 `container with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LoadContext 实例
+LoadContext loadContext = ...;
+var result = loadContext.GetContainerWithId(0);
+```
 
 ### GetStringWithId
 `public string GetStringWithId(int id)`
 
-**用途 / Purpose:** 获取 `string with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LoadContext 实例
+LoadContext loadContext = ...;
+var result = loadContext.GetStringWithId(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LoadContext();
-value.Load(loadData, false);
+// 通常从对应子系统 API 获取实例后调用
+LoadContext loadContext = ...;
+loadContext.Load(loadData, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

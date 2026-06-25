@@ -1,20 +1,14 @@
 ---
 title: "WeatherEventEffectOnTerrain"
+description: "Auto-generated class reference for WeatherEventEffectOnTerrain."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeatherEventEffectOnTerrain`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeatherEventEffectOnTerrain
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum WeatherEventEffectOnTerrain`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MapWeatherModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MapWeatherModel.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ComponentInterfaces` to place it
 ## Usage Example
 
 ```csharp
-WeatherEventEffectOnTerrain example = WeatherEventEffectOnTerrain.Value;
+// Obtain an instance from the relevant subsystem API
+WeatherEventEffectOnTerrain instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GarrisonPartyComponent"
+description: "GarrisonPartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GarrisonPartyComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GarrisonPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GarrisonPartyComponent : PartyComponent`
 **Base:** `PartyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/GarrisonPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/GarrisonPartyComponent.cs`
 
 ## 概述
 
@@ -36,32 +30,66 @@ title: "GarrisonPartyComponent"
 ### InitializeGarrisonPartyProperties
 `public void InitializeGarrisonPartyProperties(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** 初始化 `garrison party properties` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「garrison party properties」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonPartyComponent 实例
+GarrisonPartyComponent garrisonPartyComponent = ...;
+garrisonPartyComponent.InitializeGarrisonPartyProperties(mobileParty, settlement);
+```
 
 ### CreateGarrisonParty
 `public static MobileParty CreateGarrisonParty(string stringId, Settlement settlement)`
 
-**用途 / Purpose:** 创建一个 `garrison party` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「garrison party」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+GarrisonPartyComponent.CreateGarrisonParty("example", settlement);
+```
 
 ### ConvertPartyToGarrisonParty
 `public static void ConvertPartyToGarrisonParty(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** 处理 `convert party to garrison party` 相关逻辑。
+**用途 / Purpose:** 把「party to garrison party」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+GarrisonPartyComponent.ConvertPartyToGarrisonParty(mobileParty, settlement);
+```
 
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** 获取 `default component banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default component banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonPartyComponent 实例
+GarrisonPartyComponent garrisonPartyComponent = ...;
+var result = garrisonPartyComponent.GetDefaultComponentBanner();
+```
 
 ### SetWagePaymentLimit
 `public override void SetWagePaymentLimit(int newLimit)`
 
-**用途 / Purpose:** 设置 `wage payment limit` 的值或状态。
+**用途 / Purpose:** 为 「wage payment limit」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonPartyComponent 实例
+GarrisonPartyComponent garrisonPartyComponent = ...;
+garrisonPartyComponent.SetWagePaymentLimit(0);
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** 处理 `clear cached name` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「cached name」。
+
+```csharp
+// 先通过子系统 API 拿到 GarrisonPartyComponent 实例
+GarrisonPartyComponent garrisonPartyComponent = ...;
+garrisonPartyComponent.ClearCachedName();
+```
 
 ## 使用示例
 
@@ -71,4 +99,4 @@ var component = agent.GetComponent<GarrisonPartyComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

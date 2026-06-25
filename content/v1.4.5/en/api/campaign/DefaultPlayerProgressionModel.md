@@ -1,20 +1,14 @@
 ---
 title: "DefaultPlayerProgressionModel"
+description: "Auto-generated class reference for DefaultPlayerProgressionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPlayerProgressionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPlayerProgressionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPlayerProgressionModel : PlayerProgressionModel`
 **Base:** `PlayerProgressionModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPlayerProgressionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPlayerProgressionModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultPlayerProgressionModel` as a Model-style extension point: first id
 ### GetPlayerProgress
 `public override float GetPlayerProgress()`
 
-**Purpose:** Gets the current value of `player progress`.
+**Purpose:** Reads and returns the `player progress` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPlayerProgressionModel from the subsystem API first
+DefaultPlayerProgressionModel defaultPlayerProgressionModel = ...;
+var result = defaultPlayerProgressionModel.GetPlayerProgress();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultPlayerProgressionModel>(new MyDefaultPlayerProg
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

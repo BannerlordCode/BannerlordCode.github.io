@@ -1,13 +1,7 @@
 ---
 title: "SettlementOverlayLeaveCharacterPermissionEvent"
+description: "Auto-generated class reference for SettlementOverlayLeaveCharacterPermissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementOverlayLeaveCharacterPermissionEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementOverlayLeaveCharacterPermissionEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Eve
 ## Usage Example
 
 ```csharp
-var example = new SettlementOverlayLeaveCharacterPermissionEvent();
+// Obtain an instance from the relevant subsystem API
+SettlementOverlayLeaveCharacterPermissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

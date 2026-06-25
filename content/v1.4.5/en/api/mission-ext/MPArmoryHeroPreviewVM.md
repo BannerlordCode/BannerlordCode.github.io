@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryHeroPreviewVM"
+description: "Auto-generated class reference for MPArmoryHeroPreviewVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryHeroPreviewVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryHeroPreviewVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryHeroPreviewVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryHeroPreviewVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryHeroPreviewVM.cs`
 
 ## Overview
 
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryHeroPreviewVM from the subsystem API first
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.RefreshValues();
+```
 
 ### SetCharacter
 `public unsafe void SetCharacter(BasicCharacterObject character, DynamicBodyProperties dynamicBodyProperties, int race, bool isFemale)`
 
-**Purpose:** Sets the value or state of `character`.
+**Purpose:** Assigns a new value to `character` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPArmoryHeroPreviewVM from the subsystem API first
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.SetCharacter(character, dynamicBodyProperties, 0, false);
+```
 
 ### SetCharacterClass
 `public void SetCharacterClass(BasicCharacterObject classCharacter)`
 
-**Purpose:** Sets the value or state of `character class`.
+**Purpose:** Assigns a new value to `character class` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPArmoryHeroPreviewVM from the subsystem API first
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.SetCharacterClass(classCharacter);
+```
 
 ### SetCharacterPerks
 `public void SetCharacterPerks(List<IReadOnlyPerkObject> selectedPerks)`
 
-**Purpose:** Sets the value or state of `character perks`.
+**Purpose:** Assigns a new value to `character perks` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPArmoryHeroPreviewVM from the subsystem API first
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.SetCharacterPerks(selectedPerks);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPArmoryHeroPreviewVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPArmoryHeroPreviewVM mPArmoryHeroPreviewVM = ...;
+mPArmoryHeroPreviewVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

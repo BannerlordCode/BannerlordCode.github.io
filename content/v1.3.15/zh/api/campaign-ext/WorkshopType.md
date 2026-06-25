@@ -1,13 +1,7 @@
 ---
 title: "WorkshopType"
+description: "WorkshopType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WorkshopType`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WorkshopType
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Workshops
@@ -52,55 +46,108 @@ title: "WorkshopType"
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopType 实例
+WorkshopType workshopType = ...;
+var result = workshopType.GetName();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopType 实例
+WorkshopType workshopType = ...;
+var result = workshopType.ToString();
+```
 
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopType 实例
+WorkshopType workshopType = ...;
+workshopType.Initialize();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopType 实例
+WorkshopType workshopType = ...;
+workshopType.Deserialize(objectManager, node);
+```
 
 ### Find
 `public static WorkshopType Find(string idString)`
 
-**用途 / Purpose:** 处理 `find` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找匹配项。
+
+```csharp
+// 静态调用，不需要实例
+WorkshopType.Find("example");
+```
 
 ### FindFirst
 `public static WorkshopType FindFirst(Func<WorkshopType, bool> predicate)`
 
-**用途 / Purpose:** 处理 `find first` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「first」。
+
+```csharp
+// 静态调用，不需要实例
+WorkshopType.FindFirst(func<WorkshopType, false);
+```
 
 ### AddInput
 `public void AddInput(ItemCategory item, int count = 1)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `input`。
+**用途 / Purpose:** 将 「input」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopType 实例
+WorkshopType workshopType = ...;
+workshopType.AddInput(item, 0);
+```
 
 ### AddOutput
 `public void AddOutput(ItemCategory outputCategory, int outputCount)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `output`。
+**用途 / Purpose:** 将 「output」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopType 实例
+WorkshopType workshopType = ...;
+workshopType.AddOutput(outputCategory, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopType 实例
+WorkshopType workshopType = ...;
+var result = workshopType.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WorkshopType();
-value.GetName();
+// 通常从对应子系统 API 获取实例后调用
+WorkshopType workshopType = ...;
+workshopType.GetName();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

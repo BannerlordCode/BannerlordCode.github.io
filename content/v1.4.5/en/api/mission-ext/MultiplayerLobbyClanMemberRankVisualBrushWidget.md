@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyClanMemberRankVisualBrushWidget"
+description: "Auto-generated class reference for MultiplayerLobbyClanMemberRankVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyClanMemberRankVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyClanMemberRankVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyClanMemberRankVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Clan/MultiplayerLobbyClanMemberRankVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Clan/MultiplayerLobbyClanMemberRankVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MultiplayerLobbyClanMemberRankVisualBrushWidget` as a Widget-style extens
 ### MultiplayerLobbyClanMemberRankVisualBrushWidget
 `public class MultiplayerLobbyClanMemberRankVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer lobby clan member rank visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyClanMemberRankVisualBrushWidget from the subsystem API first
+MultiplayerLobbyClanMemberRankVisualBrushWidget multiplayerLobbyClanMemberRankVisualBrushWidget = ...;
+var result = multiplayerLobbyClanMemberRankVisualBrushWidget.MultiplayerLobbyClanMemberRankVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyClanMemberRankVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyClanMemberRankVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

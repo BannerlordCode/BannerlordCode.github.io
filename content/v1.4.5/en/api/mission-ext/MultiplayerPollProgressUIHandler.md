@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPollProgressUIHandler"
+description: "Auto-generated class reference for MultiplayerPollProgressUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPollProgressUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPollProgressUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPollProgressUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerPollProgressUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerPollProgressUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MultiplayerPollProgressUIHandler` as a Handler-style extension point: fir
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerPollProgressUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerPollProgressUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

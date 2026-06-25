@@ -1,13 +1,7 @@
 ---
 title: "StringWriter"
+description: "Auto-generated class reference for StringWriter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringWriter`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StringWriter
 
 **Namespace:** TaleWorlds.Library
@@ -35,100 +29,209 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### WriteSerializableObject
 `public void WriteSerializableObject(ISerializableObject serializableObject)`
 
-**Purpose:** Handles logic related to `write serializable object`.
+**Purpose:** Writes `serializable object` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteSerializableObject(serializableObject);
+```
 
 ### WriteByte
 `public void WriteByte(byte value)`
 
-**Purpose:** Handles logic related to `write byte`.
+**Purpose:** Writes `byte` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteByte(0);
+```
 
 ### WriteBytes
 `public void WriteBytes(byte bytes)`
 
-**Purpose:** Handles logic related to `write bytes`.
+**Purpose:** Writes `bytes` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteBytes(0);
+```
 
 ### WriteInt
 `public void WriteInt(int value)`
 
-**Purpose:** Handles logic related to `write int`.
+**Purpose:** Writes `int` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteInt(0);
+```
 
 ### WriteShort
 `public void WriteShort(short value)`
 
-**Purpose:** Handles logic related to `write short`.
+**Purpose:** Writes `short` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteShort(0);
+```
 
 ### WriteString
 `public void WriteString(string value)`
 
-**Purpose:** Handles logic related to `write string`.
+**Purpose:** Writes `string` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteString("example");
+```
 
 ### WriteColor
 `public void WriteColor(Color value)`
 
-**Purpose:** Handles logic related to `write color`.
+**Purpose:** Writes `color` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteColor(value);
+```
 
 ### WriteBool
 `public void WriteBool(bool value)`
 
-**Purpose:** Handles logic related to `write bool`.
+**Purpose:** Writes `bool` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteBool(false);
+```
 
 ### WriteFloat
 `public void WriteFloat(float value)`
 
-**Purpose:** Handles logic related to `write float`.
+**Purpose:** Writes `float` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteFloat(0);
+```
 
 ### WriteUInt
 `public void WriteUInt(uint value)`
 
-**Purpose:** Handles logic related to `write u int`.
+**Purpose:** Writes `u int` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteUInt(0);
+```
 
 ### WriteULong
 `public void WriteULong(ulong value)`
 
-**Purpose:** Handles logic related to `write u long`.
+**Purpose:** Writes `u long` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteULong(0);
+```
 
 ### WriteLong
 `public void WriteLong(long value)`
 
-**Purpose:** Handles logic related to `write long`.
+**Purpose:** Writes `long` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteLong(0);
+```
 
 ### WriteVec2
 `public void WriteVec2(Vec2 vec2)`
 
-**Purpose:** Handles logic related to `write vec2`.
+**Purpose:** Writes `vec2` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteVec2(vec2);
+```
 
 ### WriteVec3
 `public void WriteVec3(Vec3 vec3)`
 
-**Purpose:** Handles logic related to `write vec3`.
+**Purpose:** Writes `vec3` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteVec3(vec3);
+```
 
 ### WriteVec3Int
 `public void WriteVec3Int(Vec3i vec3)`
 
-**Purpose:** Handles logic related to `write vec3 int`.
+**Purpose:** Writes `vec3 int` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteVec3Int(vec3);
+```
 
 ### WriteSByte
 `public void WriteSByte(sbyte value)`
 
-**Purpose:** Handles logic related to `write s byte`.
+**Purpose:** Writes `s byte` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteSByte(0);
+```
 
 ### WriteUShort
 `public void WriteUShort(ushort value)`
 
-**Purpose:** Handles logic related to `write u short`.
+**Purpose:** Writes `u short` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteUShort(0);
+```
 
 ### WriteDouble
 `public void WriteDouble(double value)`
 
-**Purpose:** Handles logic related to `write double`.
+**Purpose:** Writes `double` to the target location.
+
+```csharp
+// Obtain an instance of StringWriter from the subsystem API first
+StringWriter stringWriter = ...;
+stringWriter.WriteDouble(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StringWriter();
-value.WriteSerializableObject(serializableObject);
+// Typically call this after obtaining an instance from the subsystem API
+StringWriter stringWriter = ...;
+stringWriter.WriteSerializableObject(serializableObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionDuelPeerMarkerVM"
+description: "MissionDuelPeerMarkerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionDuelPeerMarkerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDuelPeerMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionDuelPeerMarkerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MissionDuelPeerMarkerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MissionDuelPeerMarkerVM.cs`
 
 ## 概述
 
@@ -52,50 +46,99 @@ title: "MissionDuelPeerMarkerVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.OnTick(0);
+```
 
 ### UpdateScreenPosition
 `public void UpdateScreenPosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `screen position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「screen position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.UpdateScreenPosition(missionCamera);
+```
 
 ### UpdateBounty
 `public void UpdateBounty()`
 
-**用途 / Purpose:** 更新 `bounty` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「bounty」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.UpdateBounty();
+```
 
 ### OnDuelStarted
 `public void OnDuelStarted()`
 
-**用途 / Purpose:** 当 `duel started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「duel started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.OnDuelStarted();
+```
 
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**用途 / Purpose:** 当 `duel ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「duel ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.OnDuelEnded();
+```
 
 ### UpdateCurentDuelStatus
 `public void UpdateCurentDuelStatus(bool isInDuel)`
 
-**用途 / Purpose:** 更新 `curent duel status` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「curent duel status」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.UpdateCurentDuelStatus(false);
+```
 
 ### RefreshPerkSelection
 `public void RefreshPerkSelection()`
 
-**用途 / Purpose:** 刷新 `perk selection` 的显示或缓存。
+**用途 / Purpose:** 使 「perk selection」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.RefreshPerkSelection();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionDuelPeerMarkerVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MissionDuelPeerMarkerVM missionDuelPeerMarkerVM = ...;
+missionDuelPeerMarkerVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

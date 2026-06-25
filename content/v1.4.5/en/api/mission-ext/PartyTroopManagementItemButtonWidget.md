@@ -1,20 +1,14 @@
 ---
 title: "PartyTroopManagementItemButtonWidget"
+description: "Auto-generated class reference for PartyTroopManagementItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTroopManagementItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTroopManagementItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyTroopManagementItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyTroopManagementItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyTroopManagementItemButtonWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `PartyTroopManagementItemButtonWidget` as a Widget-style extension point: 
 ### GetActionButtonAtIndex
 `public Widget GetActionButtonAtIndex(int index)`
 
-**Purpose:** Gets the current value of `action button at index`.
+**Purpose:** Reads and returns the `action button at index` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTroopManagementItemButtonWidget from the subsystem API first
+PartyTroopManagementItemButtonWidget partyTroopManagementItemButtonWidget = ...;
+var result = partyTroopManagementItemButtonWidget.GetActionButtonAtIndex(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new PartyTroopManagementItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyTroopManagementItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBEquipmentRoster"
+description: "MBEquipmentRoster 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBEquipmentRoster`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBEquipmentRoster
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBEquipmentRoster : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBEquipmentRoster.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBEquipmentRoster.cs`
 
 ## 概述
 
@@ -38,40 +32,77 @@ title: "MBEquipmentRoster"
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MBEquipmentRoster 实例
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.Init(objectManager, node);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBEquipmentRoster 实例
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.Deserialize(objectManager, node);
+```
 
 ### AddEquipmentRoster
 `public void AddEquipmentRoster(MBEquipmentRoster equipmentRoster, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `equipment roster`。
+**用途 / Purpose:** 将 「equipment roster」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MBEquipmentRoster 实例
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.AddEquipmentRoster(equipmentRoster, equipmentType);
+```
 
 ### AddOverriddenEquipments
 `public void AddOverriddenEquipments(MBObjectManager objectManager, List<XmlNode> overridenEquipmentSlots)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `overridden equipments`。
+**用途 / Purpose:** 将 「overridden equipments」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MBEquipmentRoster 实例
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.AddOverriddenEquipments(objectManager, overridenEquipmentSlots);
+```
 
 ### OrderEquipments
 `public void OrderEquipments()`
 
-**用途 / Purpose:** 处理 `order equipments` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBEquipmentRoster 实例
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.OrderEquipments();
+```
 
 ### InitializeDefaultEquipment
 `public void InitializeDefaultEquipment(string equipmentName)`
 
-**用途 / Purpose:** 初始化 `default equipment` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「default equipment」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MBEquipmentRoster 实例
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.InitializeDefaultEquipment("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBEquipmentRoster();
-value.Init(objectManager, node);
+// 通常从对应子系统 API 获取实例后调用
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.Init(objectManager, node);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

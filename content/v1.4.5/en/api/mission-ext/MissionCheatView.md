@@ -1,20 +1,14 @@
 ---
 title: "MissionCheatView"
+description: "Auto-generated class reference for MissionCheatView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCheatView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCheatView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionCheatView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionCheatView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionCheatView.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionCheatView` as a View-style extension point: first identify who cre
 ### GetIsCheatsAvailable
 `public abstract bool GetIsCheatsAvailable()`
 
-**Purpose:** Gets the current value of `is cheats available`.
+**Purpose:** Reads and returns the `is cheats available` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionCheatView from the subsystem API first
+MissionCheatView missionCheatView = ...;
+var result = missionCheatView.GetIsCheatsAvailable();
+```
 
 ### InitializeScreen
 `public abstract void InitializeScreen()`
 
-**Purpose:** Initializes the state, resources, or bindings for `screen`.
+**Purpose:** Prepares the resources, state, or bindings required by `screen`.
+
+```csharp
+// Obtain an instance of MissionCheatView from the subsystem API first
+MissionCheatView missionCheatView = ...;
+missionCheatView.InitializeScreen();
+```
 
 ### FinalizeScreen
 `public abstract void FinalizeScreen()`
 
-**Purpose:** Handles logic related to `finalize screen`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCheatView from the subsystem API first
+MissionCheatView missionCheatView = ...;
+missionCheatView.FinalizeScreen();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionCheatView();
+// Typically obtained from a subsystem API or factory
+MissionCheatView instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

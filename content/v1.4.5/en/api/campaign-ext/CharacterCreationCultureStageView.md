@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationCultureStageView"
+description: "Auto-generated class reference for CharacterCreationCultureStageView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationCultureStageView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationCultureStageView
 
 **Namespace:** SandBox.GauntletUI.CharacterCreation
 **Module:** SandBox.GauntletUI
 **Type:** `public class CharacterCreationCultureStageView : CharacterCreationStageViewBase`
 **Base:** `CharacterCreationStageViewBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.CharacterCreation/CharacterCreationCultureStageView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.CharacterCreation/CharacterCreationCultureStageView.cs`
 
 ## Overview
 
@@ -29,44 +23,87 @@ Treat `CharacterCreationCultureStageView` as a View-style extension point: first
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
+CharacterCreationCultureStageView characterCreationCultureStageView = ...;
+characterCreationCultureStageView.Tick(0);
+```
 
 ### NextStage
 `public override void NextStage()`
 
-**Purpose:** Handles logic related to `next stage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
+CharacterCreationCultureStageView characterCreationCultureStageView = ...;
+characterCreationCultureStageView.NextStage();
+```
 
 ### PreviousStage
 `public override void PreviousStage()`
 
-**Purpose:** Handles logic related to `previous stage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
+CharacterCreationCultureStageView characterCreationCultureStageView = ...;
+characterCreationCultureStageView.PreviousStage();
+```
 
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**Purpose:** Gets the current value of `virtual stage count`.
+**Purpose:** Reads and returns the `virtual stage count` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
+CharacterCreationCultureStageView characterCreationCultureStageView = ...;
+var result = characterCreationCultureStageView.GetVirtualStageCount();
+```
 
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**Purpose:** Gets the current value of `layers`.
+**Purpose:** Reads and returns the `layers` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
+CharacterCreationCultureStageView characterCreationCultureStageView = ...;
+var result = characterCreationCultureStageView.GetLayers();
+```
 
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**Purpose:** Loads `escape menu movie` data.
+**Purpose:** Reads `escape menu movie` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
+CharacterCreationCultureStageView characterCreationCultureStageView = ...;
+characterCreationCultureStageView.LoadEscapeMenuMovie();
+```
 
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**Purpose:** Handles logic related to `release escape menu movie`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
+CharacterCreationCultureStageView characterCreationCultureStageView = ...;
+characterCreationCultureStageView.ReleaseEscapeMenuMovie();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new CharacterCreationCultureStageView();
+// Retrieve this view from the subsystem API or scene
+CharacterCreationCultureStageView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultEncyclopediaShipPage"
+description: "DefaultEncyclopediaShipPage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEncyclopediaShipPage`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEncyclopediaShipPage
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultEncyclopediaShipPage : EncyclopediaPage`
 **Base:** `EncyclopediaPage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaShipPage.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaShipPage.cs`
 
 ## 概述
 
@@ -29,70 +23,143 @@ title: "DefaultEncyclopediaShipPage"
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.GetComparedValueText(item);
+```
 
 ### IsRelevant
 `public override bool IsRelevant()`
 
-**用途 / Purpose:** 处理 `is relevant` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「relevant」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.IsRelevant();
+```
 
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「view fully qualified name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.GetViewFullyQualifiedName();
+```
 
 ### GetStringID
 `public override string GetStringID()`
 
-**用途 / Purpose:** 获取 `string i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string i d」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.GetStringID();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.GetName();
+```
 
 ### GetObject
 `public override MBObjectBase GetObject(string typeName, string stringID)`
 
-**用途 / Purpose:** 获取 `object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.GetObject("example", "example");
+```
 
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid encyclopedia item」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+var result = defaultEncyclopediaShipPage.IsValidEncyclopediaItem(o);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultEncyclopediaShipPage();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+DefaultEncyclopediaShipPage defaultEncyclopediaShipPage = ...;
+defaultEncyclopediaShipPage.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ThemeInfo"
+description: "Auto-generated class reference for ThemeInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThemeInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThemeInfo
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public class ThemeInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/ThemeInfo.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/ThemeInfo.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ThemeInfo from the subsystem API first
+ThemeInfo themeInfo = ...;
+var result = themeInfo.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ThemeInfo();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+ThemeInfo themeInfo = ...;
+themeInfo.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

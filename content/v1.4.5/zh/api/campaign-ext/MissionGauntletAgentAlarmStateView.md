@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletAgentAlarmStateView"
+description: "MissionGauntletAgentAlarmStateView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletAgentAlarmStateView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletAgentAlarmStateView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletAgentAlarmStateView : MissionAgentAlarmStateView`
 **Base:** `MissionAgentAlarmStateView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletAgentAlarmStateView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletAgentAlarmStateView.cs`
 
 ## 概述
 
@@ -29,39 +23,76 @@ title: "MissionGauntletAgentAlarmStateView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAgentAlarmStateView 实例
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAgentAlarmStateView 实例
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnMissionScreenFinalize();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAgentAlarmStateView 实例
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**用途 / Purpose:** 当 `agent team changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent team changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAgentAlarmStateView 实例
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAgentAlarmStateView 实例
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAgentAlarmStateView 实例
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletAgentAlarmStateView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletAgentAlarmStateView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

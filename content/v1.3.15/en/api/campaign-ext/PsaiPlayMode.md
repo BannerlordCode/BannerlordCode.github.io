@@ -1,18 +1,12 @@
 ---
 title: "PsaiPlayMode"
+description: "Auto-generated class reference for PsaiPlayMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PsaiPlayMode`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PsaiPlayMode
 
 **Namespace:** psai.net
 **Module:** psai.net
-**Type:** `class`
+**Type:** `public enum PsaiPlayMode`
 **Base:** none
 **File:** `TaleWorlds.PSAI/net/PsaiPlayMode.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var value = new PsaiPlayMode();
+// Obtain an instance from the relevant subsystem API
+PsaiPlayMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

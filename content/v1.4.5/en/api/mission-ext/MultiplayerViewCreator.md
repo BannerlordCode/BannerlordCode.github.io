@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerViewCreator"
+description: "Auto-generated class reference for MultiplayerViewCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerViewCreator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerViewCreator
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerViewCreator`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerViewCreator.cs`
 
 ## Overview
 
-`MultiplayerViewCreator` lives in `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MultiplayerViewCreator` lives in `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,111 +23,209 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews` to
 ### CreateMissionMultiplayerPreloadView
 `public static MissionView CreateMissionMultiplayerPreloadView(Mission mission = null)`
 
-**Purpose:** Creates a new `mission multiplayer preload view` instance or object.
+**Purpose:** Constructs a new `mission multiplayer preload view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMissionMultiplayerPreloadView(null);
+```
 
 ### CreateMissionScoreBoardUIHandler
 `public static MissionView CreateMissionScoreBoardUIHandler(Mission mission, bool isSingleTeam)`
 
-**Purpose:** Creates a new `mission score board u i handler` instance or object.
+**Purpose:** Constructs a new `mission score board u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMissionScoreBoardUIHandler(mission, false);
+```
 
 ### CreateMultiplayerEndOfRoundUIHandler
 `public static MissionView CreateMultiplayerEndOfRoundUIHandler()`
 
-**Purpose:** Creates a new `multiplayer end of round u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer end of round u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerEndOfRoundUIHandler();
+```
 
 ### CreateMultiplayerTeamSelectUIHandler
 `public static MissionView CreateMultiplayerTeamSelectUIHandler()`
 
-**Purpose:** Creates a new `multiplayer team select u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer team select u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerTeamSelectUIHandler();
+```
 
 ### CreateMultiplayerCultureSelectUIHandler
 `public static MissionView CreateMultiplayerCultureSelectUIHandler()`
 
-**Purpose:** Creates a new `multiplayer culture select u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer culture select u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerCultureSelectUIHandler();
+```
 
 ### CreateLobbyEquipmentUIHandler
 `public static MissionView CreateLobbyEquipmentUIHandler()`
 
-**Purpose:** Creates a new `lobby equipment u i handler` instance or object.
+**Purpose:** Constructs a new `lobby equipment u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateLobbyEquipmentUIHandler();
+```
 
 ### CreatePollProgressUIHandler
 `public static MissionView CreatePollProgressUIHandler()`
 
-**Purpose:** Creates a new `poll progress u i handler` instance or object.
+**Purpose:** Constructs a new `poll progress u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreatePollProgressUIHandler();
+```
 
 ### CreateMissionMultiplayerEscapeMenu
 `public static MissionView CreateMissionMultiplayerEscapeMenu(string gameType)`
 
-**Purpose:** Creates a new `mission multiplayer escape menu` instance or object.
+**Purpose:** Constructs a new `mission multiplayer escape menu` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMissionMultiplayerEscapeMenu("example");
+```
 
 ### CreateMissionMultiplayerPracticeEscapeMenu
 `public static MissionView CreateMissionMultiplayerPracticeEscapeMenu()`
 
-**Purpose:** Creates a new `mission multiplayer practice escape menu` instance or object.
+**Purpose:** Constructs a new `mission multiplayer practice escape menu` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMissionMultiplayerPracticeEscapeMenu();
+```
 
 ### CreateMissionKillNotificationUIHandler
 `public static MissionView CreateMissionKillNotificationUIHandler()`
 
-**Purpose:** Creates a new `mission kill notification u i handler` instance or object.
+**Purpose:** Constructs a new `mission kill notification u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMissionKillNotificationUIHandler();
+```
 
 ### CreateMissionServerStatusUIHandler
 `public static MissionView CreateMissionServerStatusUIHandler()`
 
-**Purpose:** Creates a new `mission server status u i handler` instance or object.
+**Purpose:** Constructs a new `mission server status u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMissionServerStatusUIHandler();
+```
 
 ### CreateMultiplayerAdminPanelUIHandler
 `public static MissionView CreateMultiplayerAdminPanelUIHandler()`
 
-**Purpose:** Creates a new `multiplayer admin panel u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer admin panel u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerAdminPanelUIHandler();
+```
 
 ### CreateMultiplayerFactionBanVoteUIHandler
 `public static MissionView CreateMultiplayerFactionBanVoteUIHandler()`
 
-**Purpose:** Creates a new `multiplayer faction ban vote u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer faction ban vote u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerFactionBanVoteUIHandler();
+```
 
 ### CreateMultiplayerMissionHUDExtensionUIHandler
 `public static MissionView CreateMultiplayerMissionHUDExtensionUIHandler()`
 
-**Purpose:** Creates a new `multiplayer mission h u d extension u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer mission h u d extension u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerMissionHUDExtensionUIHandler();
+```
 
 ### CreateMultiplayerMissionVoiceChatUIHandler
 `public static MissionView CreateMultiplayerMissionVoiceChatUIHandler()`
 
-**Purpose:** Creates a new `multiplayer mission voice chat u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer mission voice chat u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerMissionVoiceChatUIHandler();
+```
 
 ### CreateMultiplayerMissionOrderUIHandler
 `public static MissionView CreateMultiplayerMissionOrderUIHandler(Mission mission = null)`
 
-**Purpose:** Creates a new `multiplayer mission order u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer mission order u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerMissionOrderUIHandler(null);
+```
 
 ### CreateMultiplayerMissionDeathCardUIHandler
 `public static MissionView CreateMultiplayerMissionDeathCardUIHandler(Mission mission = null)`
 
-**Purpose:** Creates a new `multiplayer mission death card u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer mission death card u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerMissionDeathCardUIHandler(null);
+```
 
 ### CreateMissionMultiplayerDuelUI
 `public static MissionView CreateMissionMultiplayerDuelUI()`
 
-**Purpose:** Creates a new `mission multiplayer duel u i` instance or object.
+**Purpose:** Constructs a new `mission multiplayer duel u i` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMissionMultiplayerDuelUI();
+```
 
 ### CreateMultiplayerEndOfBattleUIHandler
 `public static MissionView CreateMultiplayerEndOfBattleUIHandler()`
 
-**Purpose:** Creates a new `multiplayer end of battle u i handler` instance or object.
+**Purpose:** Constructs a new `multiplayer end of battle u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMultiplayerEndOfBattleUIHandler();
+```
 
 ### CreateMissionFlagMarkerUIHandler
 `public static MissionView CreateMissionFlagMarkerUIHandler()`
 
-**Purpose:** Creates a new `mission flag marker u i handler` instance or object.
+**Purpose:** Constructs a new `mission flag marker u i handler` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MultiplayerViewCreator.CreateMissionFlagMarkerUIHandler();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MultiplayerViewCreator.CreateMissionMultiplayerPreloadView(null);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

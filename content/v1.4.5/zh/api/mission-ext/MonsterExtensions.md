@@ -1,20 +1,14 @@
 ---
 title: "MonsterExtensions"
+description: "MonsterExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MonsterExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MonsterExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MonsterExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MonsterExtensions.cs`
 
 ## 概述
 
@@ -29,22 +23,42 @@ title: "MonsterExtensions"
 ### FillAnimationSystemData
 `public static AnimationSystemData FillAnimationSystemData(this Monster monster, float stepSize, bool hasClippingPlane, bool isFemale)`
 
-**用途 / Purpose:** 处理 `fill animation system data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MonsterExtensions.FillAnimationSystemData(monster, 0, false, false);
+```
 
 ### FillAnimationSystemData
 `public static AnimationSystemData FillAnimationSystemData(this Monster monster, MBActionSet actionSet, float stepSize, bool hasClippingPlane)`
 
-**用途 / Purpose:** 处理 `fill animation system data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MonsterExtensions.FillAnimationSystemData(monster, actionSet, 0, false);
+```
 
 ### FillCapsuleData
 `public static AgentCapsuleData FillCapsuleData(this Monster monster)`
 
-**用途 / Purpose:** 处理 `fill capsule data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MonsterExtensions.FillCapsuleData(monster);
+```
 
 ### FillSpawnData
 `public static AgentSpawnData FillSpawnData(this Monster monster, ItemObject mountItem)`
 
-**用途 / Purpose:** 处理 `fill spawn data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MonsterExtensions.FillSpawnData(monster, mountItem);
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ MonsterExtensions.FillAnimationSystemData(monster, 0, false, false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

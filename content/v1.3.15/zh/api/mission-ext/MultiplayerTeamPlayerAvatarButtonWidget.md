@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerTeamPlayerAvatarButtonWidget"
+description: "MultiplayerTeamPlayerAvatarButtonWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerTeamPlayerAvatarButtonWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerTeamPlayerAvatarButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
@@ -35,9 +29,10 @@ title: "MultiplayerTeamPlayerAvatarButtonWidget"
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerTeamPlayerAvatarButtonWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerTeamPlayerAvatarButtonWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

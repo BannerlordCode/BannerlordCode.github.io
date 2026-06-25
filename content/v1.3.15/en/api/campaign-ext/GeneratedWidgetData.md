@@ -1,13 +1,7 @@
 ---
 title: "GeneratedWidgetData"
+description: "Auto-generated class reference for GeneratedWidgetData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GeneratedWidgetData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GeneratedWidgetData
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -33,9 +27,10 @@ Treat `GeneratedWidgetData` as a Data-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var value = new GeneratedWidgetData();
+// This data object is usually returned by campaign/mission APIs
+GeneratedWidgetData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

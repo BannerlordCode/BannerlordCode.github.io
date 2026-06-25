@@ -1,18 +1,12 @@
 ---
 title: "MultiplayerPollRejectReason"
+description: "Auto-generated class reference for MultiplayerPollRejectReason."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPollRejectReason`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPollRejectReason
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum MultiplayerPollRejectReason`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/MultiplayerPollRejectReason.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new MultiplayerPollRejectReason();
+// Obtain an instance from the relevant subsystem API
+MultiplayerPollRejectReason instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

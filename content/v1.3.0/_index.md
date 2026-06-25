@@ -30,5 +30,14 @@ Welcome to the Bannerlord v1.3.0 modding documentation.
 ## Usage Example
 
 ```csharp
-var example = new Bannerlord v1.3.0();
+// Use the navigation below to explore guides, API reference, and architecture.
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## 语言选择 / Select Language
+
+- [English Documentation](./en/)
+- [中文文档 / Chinese Documentation](./zh/)
+
+<!-- END SECTION INDEX -->

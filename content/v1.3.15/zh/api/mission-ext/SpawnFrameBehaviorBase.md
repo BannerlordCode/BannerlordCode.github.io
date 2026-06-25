@@ -1,13 +1,7 @@
 ---
 title: "SpawnFrameBehaviorBase"
+description: "SpawnFrameBehaviorBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SpawnFrameBehaviorBase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpawnFrameBehaviorBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,34 +23,64 @@ title: "SpawnFrameBehaviorBase"
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+spawnFrameBehaviorBase.Initialize();
+```
 
 ### GetSpawnFrame
 `public abstract MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**用途 / Purpose:** 获取 `spawn frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+var result = spawnFrameBehaviorBase.GetSpawnFrame(team, false, false);
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+spawnFrameBehaviorBase.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### CreateDecreasingCache
 `public static SpawnFrameBehaviorBase.WeightCache CreateDecreasingCache()`
 
-**用途 / Purpose:** 创建一个 `decreasing cache` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「decreasing cache」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SpawnFrameBehaviorBase.CreateDecreasingCache();
+```
 
 ### CheckAndInsertNewValueIfLower
 `public bool CheckAndInsertNewValueIfLower(float value, out float valueDifference)`
 
-**用途 / Purpose:** 处理 `check and insert new value if lower` 相关逻辑。
+**用途 / Purpose:** 检查「and insert new value if lower」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnFrameBehaviorBase 实例
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+var result = spawnFrameBehaviorBase.CheckAndInsertNewValueIfLower(0, valueDifference);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSpawnFrameBehaviorBase();
+// 通常通过子系统 API 或工厂获得派生实例
+SpawnFrameBehaviorBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

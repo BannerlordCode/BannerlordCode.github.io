@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletFormationMarker"
+description: "Auto-generated class reference for MissionGauntletFormationMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletFormationMarker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletFormationMarker
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletFormationMarker : MissionBattleUIBaseView`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletFormationMarker.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletFormationMarker.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletFormationMarker from the subsystem API first
+MissionGauntletFormationMarker missionGauntletFormationMarker = ...;
+missionGauntletFormationMarker.OnMissionScreenTick(0);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletFormationMarker from the subsystem API first
+MissionGauntletFormationMarker missionGauntletFormationMarker = ...;
+missionGauntletFormationMarker.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletFormationMarker from the subsystem API first
+MissionGauntletFormationMarker missionGauntletFormationMarker = ...;
+missionGauntletFormationMarker.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletFormationMarker();
-value.OnMissionScreenTick(0);
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletFormationMarker missionGauntletFormationMarker = ...;
+missionGauntletFormationMarker.OnMissionScreenTick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CraftingListPropertyItem"
+description: "Auto-generated class reference for CraftingListPropertyItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingListPropertyItem`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingListPropertyItem
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
@@ -46,15 +40,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingListPropertyItem from the subsystem API first
+CraftingListPropertyItem craftingListPropertyItem = ...;
+craftingListPropertyItem.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingListPropertyItem();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingListPropertyItem craftingListPropertyItem = ...;
+craftingListPropertyItem.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CampaignTimeModel"
+description: "Auto-generated class reference for CampaignTimeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignTimeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignTimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -43,9 +37,10 @@ Treat `CampaignTimeModel` as a Model-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCampaignTimeModel();
+// Typically obtained from a subsystem API or factory
+CampaignTimeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

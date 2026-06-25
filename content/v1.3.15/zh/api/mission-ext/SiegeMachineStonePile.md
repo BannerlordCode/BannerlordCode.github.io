@@ -1,13 +1,7 @@
 ---
 title: "SiegeMachineStonePile"
+description: "SiegeMachineStonePile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeMachineStonePile`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeMachineStonePile
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
@@ -29,30 +23,55 @@ title: "SiegeMachineStonePile"
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeMachineStonePile 实例
+SiegeMachineStonePile siegeMachineStonePile = ...;
+var result = siegeMachineStonePile.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeMachineStonePile 实例
+SiegeMachineStonePile siegeMachineStonePile = ...;
+var result = siegeMachineStonePile.GetDescriptionText(gameEntity);
+```
 
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**用途 / Purpose:** 设置 `spawned from spawner` 的值或状态。
+**用途 / Purpose:** 为 「spawned from spawner」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeMachineStonePile 实例
+SiegeMachineStonePile siegeMachineStonePile = ...;
+siegeMachineStonePile.SetSpawnedFromSpawner();
+```
 
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `order` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeMachineStonePile 实例
+SiegeMachineStonePile siegeMachineStonePile = ...;
+var result = siegeMachineStonePile.GetOrder(side);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeMachineStonePile();
-value.GetActionTextForStandingPoint(usableGameObject);
+// 通常从对应子系统 API 获取实例后调用
+SiegeMachineStonePile siegeMachineStonePile = ...;
+siegeMachineStonePile.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

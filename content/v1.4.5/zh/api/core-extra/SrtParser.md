@@ -1,20 +1,14 @@
 ---
 title: "SrtParser"
+description: "SrtParser 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SrtParser`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SrtParser
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class SrtParser`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "SrtParser"
 ### ParseStream
 `public static List<SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
-**用途 / Purpose:** 处理 `parse stream` 相关逻辑。
+**用途 / Purpose:** 将外部输入解析为当前系统可识别的「stream」。
+
+```csharp
+// 静态调用，不需要实例
+SrtParser.ParseStream(subtitleStream, encoding);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ SrtParser.ParseStream(subtitleStream, encoding);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

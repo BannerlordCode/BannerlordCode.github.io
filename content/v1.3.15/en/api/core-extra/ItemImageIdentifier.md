@@ -1,13 +1,7 @@
 ---
 title: "ItemImageIdentifier"
+description: "Auto-generated class reference for ItemImageIdentifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemImageIdentifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemImageIdentifier
 
 **Namespace:** TaleWorlds.Core.ImageIdentifiers
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ImageIdentifiers` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new ItemImageIdentifier();
+// Obtain an instance from the relevant subsystem API
+ItemImageIdentifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

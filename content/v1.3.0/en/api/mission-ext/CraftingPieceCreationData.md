@@ -1,13 +1,7 @@
 ---
 title: "CraftingPieceCreationData"
+description: "Auto-generated class reference for CraftingPieceCreationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceCreationData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceCreationData
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -35,9 +29,10 @@ Treat `CraftingPieceCreationData` as a Data-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var value = new CraftingPieceCreationData();
+// This data object is usually returned by campaign/mission APIs
+CraftingPieceCreationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

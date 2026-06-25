@@ -1,23 +1,18 @@
 ---
 title: "StoryModeViewCreator"
+description: "Auto-generated class reference for StoryModeViewCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeViewCreator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeViewCreator
 
 **Namespace:** StoryMode.View
 **Module:** StoryMode.View
 **Type:** `public static class StoryModeViewCreator`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.StoryMode/StoryMode.View/StoryMode.View/StoryModeViewCreator.cs`
 
 ## Overview
 
-`StoryModeViewCreator` lives in `StoryMode.View`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StoryModeViewCreator` lives in `StoryMode.View` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `StoryMode.View` to place it in the stack, then inspect its
 ### CreateTrainingFieldObjectiveView
 `public static MissionView CreateTrainingFieldObjectiveView(Mission mission)`
 
-**Purpose:** Creates a new `training field objective view` instance or object.
+**Purpose:** Constructs a new `training field objective view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+StoryModeViewCreator.CreateTrainingFieldObjectiveView(mission);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 StoryModeViewCreator.CreateTrainingFieldObjectiveView(mission);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

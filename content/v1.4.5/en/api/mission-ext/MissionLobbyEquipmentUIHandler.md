@@ -1,20 +1,14 @@
 ---
 title: "MissionLobbyEquipmentUIHandler"
+description: "Auto-generated class reference for MissionLobbyEquipmentUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLobbyEquipmentUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionLobbyEquipmentUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionLobbyEquipmentUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionLobbyEquipmentUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionLobbyEquipmentUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionLobbyEquipmentUIHandler` as a Handler-style extension point: first
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionLobbyEquipmentUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionLobbyEquipmentUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

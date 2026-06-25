@@ -1,13 +1,7 @@
 ---
 title: "VolunteerModel"
+description: "Auto-generated class reference for VolunteerModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VolunteerModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VolunteerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,34 +29,65 @@ Treat `VolunteerModel` as a Model-style extension point: first identify who crea
 ### MaximumIndexHeroCanRecruitFromHero
 `public abstract int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
 
-**Purpose:** Handles logic related to `maximum index hero can recruit from hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VolunteerModel from the subsystem API first
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.MaximumIndexHeroCanRecruitFromHero(buyerHero, sellerHero, 0);
+```
 
 ### MaximumIndexGarrisonCanRecruitFromHero
 `public abstract int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
 
-**Purpose:** Handles logic related to `maximum index garrison can recruit from hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VolunteerModel from the subsystem API first
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.MaximumIndexGarrisonCanRecruitFromHero(settlement, sellerHero);
+```
 
 ### GetDailyVolunteerProductionProbability
 `public abstract float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
 
-**Purpose:** Gets the current value of `daily volunteer production probability`.
+**Purpose:** Reads and returns the `daily volunteer production probability` value held by the current object.
+
+```csharp
+// Obtain an instance of VolunteerModel from the subsystem API first
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.GetDailyVolunteerProductionProbability(hero, 0, settlement);
+```
 
 ### GetBasicVolunteer
 `public abstract CharacterObject GetBasicVolunteer(Hero hero)`
 
-**Purpose:** Gets the current value of `basic volunteer`.
+**Purpose:** Reads and returns the `basic volunteer` value held by the current object.
+
+```csharp
+// Obtain an instance of VolunteerModel from the subsystem API first
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.GetBasicVolunteer(hero);
+```
 
 ### CanHaveRecruits
 `public abstract bool CanHaveRecruits(Hero hero)`
 
-**Purpose:** Checks whether the current object can `have recruits`.
+**Purpose:** Checks whether the current object meets the preconditions for `have recruits`.
+
+```csharp
+// Obtain an instance of VolunteerModel from the subsystem API first
+VolunteerModel volunteerModel = ...;
+var result = volunteerModel.CanHaveRecruits(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomVolunteerModel();
+// Typically obtained from a subsystem API or factory
+VolunteerModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

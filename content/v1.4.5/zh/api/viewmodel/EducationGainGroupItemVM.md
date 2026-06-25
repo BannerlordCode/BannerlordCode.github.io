@@ -1,20 +1,14 @@
 ---
 title: "EducationGainGroupItemVM"
+description: "EducationGainGroupItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EducationGainGroupItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationGainGroupItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationGainGroupItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainGroupItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainGroupItemVM.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "EducationGainGroupItemVM"
 ### ResetValues
 `public void ResetValues()`
 
-**用途 / Purpose:** 将 `values` 重置为初始状态。
+**用途 / Purpose:** 将 「values」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 EducationGainGroupItemVM 实例
+EducationGainGroupItemVM educationGainGroupItemVM = ...;
+educationGainGroupItemVM.ResetValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EducationGainGroupItemVM();
-value.ResetValues();
+// 通常从对应子系统 API 获取实例后调用
+EducationGainGroupItemVM educationGainGroupItemVM = ...;
+educationGainGroupItemVM.ResetValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

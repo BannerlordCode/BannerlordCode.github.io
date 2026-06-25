@@ -1,13 +1,7 @@
 ---
 title: "TacticalPosition"
+description: "Auto-generated class reference for TacticalPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticalPosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticalPosition
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -44,20 +38,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TacticalPosition from the subsystem API first
+TacticalPosition tacticalPosition = ...;
+tacticalPosition.AfterMissionStart();
+```
 
 ### SetWidth
 `public void SetWidth(float width)`
 
-**Purpose:** Sets the value or state of `width`.
+**Purpose:** Assigns a new value to `width` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TacticalPosition from the subsystem API first
+TacticalPosition tacticalPosition = ...;
+tacticalPosition.SetWidth(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticalPosition();
-value.AfterMissionStart();
+// Typically call this after obtaining an instance from the subsystem API
+TacticalPosition tacticalPosition = ...;
+tacticalPosition.AfterMissionStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

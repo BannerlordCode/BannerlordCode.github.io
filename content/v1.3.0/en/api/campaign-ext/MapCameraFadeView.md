@@ -1,13 +1,7 @@
 ---
 title: "MapCameraFadeView"
+description: "Auto-generated class reference for MapCameraFadeView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapCameraFadeView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapCameraFadeView
 
 **Namespace:** SandBox.View.Map
@@ -39,24 +33,43 @@ Treat `MapCameraFadeView` as a View-style extension point: first identify who cr
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**Purpose:** Handles logic related to `begin fade out and in`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapCameraFadeView from the subsystem API first
+MapCameraFadeView mapCameraFadeView = ...;
+mapCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
+```
 
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutTime)`
 
-**Purpose:** Handles logic related to `begin fade out`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapCameraFadeView from the subsystem API first
+MapCameraFadeView mapCameraFadeView = ...;
+mapCameraFadeView.BeginFadeOut(0);
+```
 
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInTime)`
 
-**Purpose:** Handles logic related to `begin fade in`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapCameraFadeView from the subsystem API first
+MapCameraFadeView mapCameraFadeView = ...;
+mapCameraFadeView.BeginFadeIn(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MapCameraFadeView();
+// Retrieve this view from the subsystem API or scene
+MapCameraFadeView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

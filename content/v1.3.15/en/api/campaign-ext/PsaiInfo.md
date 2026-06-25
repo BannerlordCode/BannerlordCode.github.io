@@ -1,13 +1,7 @@
 ---
 title: "PsaiInfo"
+description: "Auto-generated class reference for PsaiInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PsaiInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PsaiInfo
 
 **Namespace:** psai.net
@@ -45,9 +39,10 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var value = new PsaiInfo();
+// Obtain an instance from the relevant subsystem API
+PsaiInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

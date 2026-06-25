@@ -1,20 +1,14 @@
 ---
 title: "FavoriteServerData"
+description: "Auto-generated class reference for FavoriteServerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FavoriteServerData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FavoriteServerData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FavoriteServerData : MultiplayerLocalData`
 **Base:** `MultiplayerLocalData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/FavoriteServerData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/FavoriteServerData.cs`
 
 ## Overview
 
@@ -38,24 +32,42 @@ Treat `FavoriteServerData` as a Data-style extension point: first identify who c
 ### CreateFrom
 `public static FavoriteServerData CreateFrom(GameServerEntry serverEntry)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+FavoriteServerData.CreateFrom(serverEntry);
+```
 
 ### HasSameContentWith
 `public override bool HasSameContentWith(MultiplayerLocalData other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of FavoriteServerData from the subsystem API first
+FavoriteServerData favoriteServerData = ...;
+var result = favoriteServerData.HasSameContentWith(other);
+```
 
 ### HasSameContentWith
 `public bool HasSameContentWith(GameServerEntry serverEntry)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of FavoriteServerData from the subsystem API first
+FavoriteServerData favoriteServerData = ...;
+var result = favoriteServerData.HasSameContentWith(serverEntry);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FavoriteServerData();
+// This data object is usually returned by campaign/mission APIs
+FavoriteServerData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

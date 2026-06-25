@@ -1,20 +1,14 @@
 ---
 title: "Move"
+description: "Auto-generated class reference for Move."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Move`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Move
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
 **Type:** `public struct Move`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/Move.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/Move.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new Move();
+// Obtain an instance from the relevant subsystem API
+Move instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

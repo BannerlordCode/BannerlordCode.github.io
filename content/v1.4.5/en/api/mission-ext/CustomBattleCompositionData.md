@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleCompositionData"
+description: "Auto-generated class reference for CustomBattleCompositionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleCompositionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleCompositionData
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CustomBattleCompositionData`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleCompositionData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleCompositionData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `CustomBattleCompositionData` as a Data-style extension point: first ident
 ### CustomBattleCompositionData
 `public struct CustomBattleCompositionData(float rangedPercentage, float cavalryPercentage, float rangedCavalryPercentage)`
 
-**Purpose:** Handles logic related to `custom battle composition data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleCompositionData from the subsystem API first
+CustomBattleCompositionData customBattleCompositionData = ...;
+var result = customBattleCompositionData.CustomBattleCompositionData(0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleCompositionData();
+// This data object is usually returned by campaign/mission APIs
+CustomBattleCompositionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerVoiceChatVM"
+description: "Auto-generated class reference for MultiplayerVoiceChatVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerVoiceChatVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerVoiceChatVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerVoiceChatVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerVoiceChatVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerVoiceChatVM.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerVoiceChatVM from the subsystem API first
+MultiplayerVoiceChatVM multiplayerVoiceChatVM = ...;
+multiplayerVoiceChatVM.OnFinalize();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerVoiceChatVM from the subsystem API first
+MultiplayerVoiceChatVM multiplayerVoiceChatVM = ...;
+multiplayerVoiceChatVM.OnTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerVoiceChatVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerVoiceChatVM multiplayerVoiceChatVM = ...;
+multiplayerVoiceChatVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

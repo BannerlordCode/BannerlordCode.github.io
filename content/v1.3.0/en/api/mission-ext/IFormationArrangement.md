@@ -1,18 +1,12 @@
 ---
 title: "IFormationArrangement"
+description: "Auto-generated class reference for IFormationArrangement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IFormationArrangement`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IFormationArrangement
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IFormationArrangement`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IFormationArrangement.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IFormationArrangement implementation = GetFormationArrangementImplementation();
+// Usually obtained through DI or a factory method
+IIFormationArrangement service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

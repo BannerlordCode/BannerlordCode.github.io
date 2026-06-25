@@ -1,13 +1,7 @@
 ---
 title: "GauntletInventoryScreen"
+description: "Auto-generated class reference for GauntletInventoryScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletInventoryScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletInventoryScreen
 
 **Namespace:** SandBox.GauntletUI
@@ -35,65 +29,132 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### ExecuteLootingScript
 `public void ExecuteLootingScript()`
 
-**Purpose:** Executes the `looting script` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `looting script`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteLootingScript();
+```
 
 ### ExecuteSellAllLoot
 `public void ExecuteSellAllLoot()`
 
-**Purpose:** Executes the `sell all loot` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sell all loot`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteSellAllLoot();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteCancel();
+```
 
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**Purpose:** Executes the `confirm` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `confirm`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteConfirm();
+```
 
 ### ExecuteSwitchToPreviousTab
 `public void ExecuteSwitchToPreviousTab()`
 
-**Purpose:** Executes the `switch to previous tab` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch to previous tab`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteSwitchToPreviousTab();
+```
 
 ### ExecuteSwitchToNextTab
 `public void ExecuteSwitchToNextTab()`
 
-**Purpose:** Executes the `switch to next tab` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch to next tab`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteSwitchToNextTab();
+```
 
 ### ExecuteBuySingle
 `public void ExecuteBuySingle()`
 
-**Purpose:** Executes the `buy single` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `buy single`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteBuySingle();
+```
 
 ### ExecuteSellSingle
 `public void ExecuteSellSingle()`
 
-**Purpose:** Executes the `sell single` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sell single`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteSellSingle();
+```
 
 ### ExecuteTakeAll
 `public void ExecuteTakeAll()`
 
-**Purpose:** Executes the `take all` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `take all`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteTakeAll();
+```
 
 ### ExecuteGiveAll
 `public void ExecuteGiveAll()`
 
-**Purpose:** Executes the `give all` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `give all`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteGiveAll();
+```
 
 ### ExecuteBuyConsumableItem
 `public void ExecuteBuyConsumableItem()`
 
-**Purpose:** Executes the `buy consumable item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `buy consumable item`.
+
+```csharp
+// Obtain an instance of GauntletInventoryScreen from the subsystem API first
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteBuyConsumableItem();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletInventoryScreen();
-value.ExecuteLootingScript();
+// Typically call this after obtaining an instance from the subsystem API
+GauntletInventoryScreen gauntletInventoryScreen = ...;
+gauntletInventoryScreen.ExecuteLootingScript();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

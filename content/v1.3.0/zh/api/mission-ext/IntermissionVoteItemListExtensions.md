@@ -1,13 +1,7 @@
 ---
 title: "IntermissionVoteItemListExtensions"
+description: "IntermissionVoteItemListExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IntermissionVoteItemListExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IntermissionVoteItemListExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,32 @@ title: "IntermissionVoteItemListExtensions"
 ### ContainsItem
 `public static bool ContainsItem(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**用途 / Purpose:** 处理 `contains item` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「item」。
+
+```csharp
+// 静态调用，不需要实例
+IntermissionVoteItemListExtensions.ContainsItem(intermissionVoteItems, "example");
+```
 
 ### Add
 `public static IntermissionVoteItem Add(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 静态调用，不需要实例
+IntermissionVoteItemListExtensions.Add(intermissionVoteItems, "example");
+```
 
 ### GetItem
 `public static IntermissionVoteItem GetItem(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**用途 / Purpose:** 获取 `item` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+IntermissionVoteItemListExtensions.GetItem(intermissionVoteItems, "example");
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ IntermissionVoteItemListExtensions.ContainsItem(intermissionVoteItems, "example"
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

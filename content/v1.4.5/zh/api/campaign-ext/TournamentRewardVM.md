@@ -1,20 +1,14 @@
 ---
 title: "TournamentRewardVM"
+description: "TournamentRewardVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentRewardVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentRewardVM
 
 **Namespace:** SandBox.ViewModelCollection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TournamentRewardVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/TournamentRewardVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/TournamentRewardVM.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "TournamentRewardVM"
 ## 使用示例
 
 ```csharp
-var value = new TournamentRewardVM();
+// 从对应子系统 API 获取实例
+TournamentRewardVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

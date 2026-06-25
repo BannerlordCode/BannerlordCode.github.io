@@ -1,20 +1,14 @@
 ---
 title: "KillingBlow"
+description: "Auto-generated class reference for KillingBlow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KillingBlow`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KillingBlow
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct KillingBlow`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/KillingBlow.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/KillingBlow.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### KillingBlow
 `public struct KillingBlow(Blow b, Vec3 ragdollImpulsePoint, Vec3 ragdollImpulseAmount, int deathAction, int weaponItemKind, Agent.KillInfo overrideKillInfo = Agent.KillInfo.Invalid)`
 
-**Purpose:** Handles logic related to `killing blow`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KillingBlow from the subsystem API first
+KillingBlow killingBlow = ...;
+var result = killingBlow.KillingBlow(b, ragdollImpulsePoint, ragdollImpulseAmount, 0, 0, agent.KillInfo.Invalid);
+```
 
 ### IsHeadShot
 `public bool IsHeadShot()`
 
-**Purpose:** Handles logic related to `is head shot`.
+**Purpose:** Determines whether the current object is in the `head shot` state or condition.
+
+```csharp
+// Obtain an instance of KillingBlow from the subsystem API first
+KillingBlow killingBlow = ...;
+var result = killingBlow.IsHeadShot();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KillingBlow();
-value.KillingBlow(b, ragdollImpulsePoint, ragdollImpulseAmount, 0, 0, agent.KillInfo.Invalid);
+// Typically call this after obtaining an instance from the subsystem API
+KillingBlow killingBlow = ...;
+killingBlow.KillingBlow(b, ragdollImpulsePoint, ragdollImpulseAmount, 0, 0, agent.KillInfo.Invalid);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

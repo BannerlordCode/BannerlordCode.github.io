@@ -1,13 +1,7 @@
 ---
 title: "InitialMenuVM"
+description: "Auto-generated class reference for InitialMenuVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialMenuVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InitialMenuVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of InitialMenuVM from the subsystem API first
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.RefreshValues();
+```
 
 ### RefreshMenuOptions
 `public void RefreshMenuOptions()`
 
-**Purpose:** Refreshes the display or cache of `menu options`.
+**Purpose:** Keeps the display or cache of `menu options` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of InitialMenuVM from the subsystem API first
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.RefreshMenuOptions();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of InitialMenuVM from the subsystem API first
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.OnFinalize();
+```
 
 ### ExecuteNavigateToDLCStorePage
 `public void ExecuteNavigateToDLCStorePage()`
 
-**Purpose:** Executes the `navigate to d l c store page` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `navigate to d l c store page`.
+
+```csharp
+// Obtain an instance of InitialMenuVM from the subsystem API first
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.ExecuteNavigateToDLCStorePage();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InitialMenuVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+InitialMenuVM initialMenuVM = ...;
+initialMenuVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

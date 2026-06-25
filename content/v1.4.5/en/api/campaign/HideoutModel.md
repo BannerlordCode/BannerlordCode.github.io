@@ -1,20 +1,14 @@
 ---
 title: "HideoutModel"
+description: "Auto-generated class reference for HideoutModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class HideoutModel : MBGameModel<HideoutModel>`
 **Base:** `MBGameModel<HideoutModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HideoutModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HideoutModel.cs`
 
 ## Overview
 
@@ -37,24 +31,43 @@ Treat `HideoutModel` as a Model-style extension point: first identify who create
 ### GetRogueryXpGainAsGhost
 `public abstract float GetRogueryXpGainAsGhost()`
 
-**Purpose:** Gets the current value of `roguery xp gain as ghost`.
+**Purpose:** Reads and returns the `roguery xp gain as ghost` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutModel from the subsystem API first
+HideoutModel hideoutModel = ...;
+var result = hideoutModel.GetRogueryXpGainAsGhost();
+```
 
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public abstract float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**Purpose:** Gets the current value of `roguery xp gain on hideout mission end`.
+**Purpose:** Reads and returns the `roguery xp gain on hideout mission end` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutModel from the subsystem API first
+HideoutModel hideoutModel = ...;
+var result = hideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
+```
 
 ### GetSendTroopsSuccessChance
 `public abstract float GetSendTroopsSuccessChance(Hideout hideout)`
 
-**Purpose:** Gets the current value of `send troops success chance`.
+**Purpose:** Reads and returns the `send troops success chance` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutModel from the subsystem API first
+HideoutModel hideoutModel = ...;
+var result = hideoutModel.GetSendTroopsSuccessChance(hideout);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomHideoutModel();
+// Typically obtained from a subsystem API or factory
+HideoutModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

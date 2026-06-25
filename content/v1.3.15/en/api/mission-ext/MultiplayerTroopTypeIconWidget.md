@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerTroopTypeIconWidget"
+description: "Auto-generated class reference for MultiplayerTroopTypeIconWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTroopTypeIconWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerTroopTypeIconWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
@@ -36,9 +30,10 @@ Treat `MultiplayerTroopTypeIconWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerTroopTypeIconWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerTroopTypeIconWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

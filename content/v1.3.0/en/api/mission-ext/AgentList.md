@@ -1,13 +1,7 @@
 ---
 title: "AgentList"
+description: "Auto-generated class reference for AgentList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentList`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentList
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new AgentList();
+// Obtain an instance from the relevant subsystem API
+AgentList instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

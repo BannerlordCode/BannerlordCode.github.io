@@ -1,13 +1,7 @@
 ---
 title: "StoryModePartyWageModel"
+description: "Auto-generated class reference for StoryModePartyWageModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModePartyWageModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModePartyWageModel
 
 **Namespace:** StoryMode.GameComponents
@@ -35,17 +29,35 @@ Treat `StoryModePartyWageModel` as a Model-style extension point: first identify
 ### GetCharacterWage
 `public override int GetCharacterWage(CharacterObject character)`
 
-**Purpose:** Gets the current value of `character wage`.
+**Purpose:** Reads and returns the `character wage` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartyWageModel from the subsystem API first
+StoryModePartyWageModel storyModePartyWageModel = ...;
+var result = storyModePartyWageModel.GetCharacterWage(character);
+```
 
 ### GetTotalWage
 `public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `total wage`.
+**Purpose:** Reads and returns the `total wage` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartyWageModel from the subsystem API first
+StoryModePartyWageModel storyModePartyWageModel = ...;
+var result = storyModePartyWageModel.GetTotalWage(mobileParty, troopRoster, false);
+```
 
 ### GetTroopRecruitmentCost
 `public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**Purpose:** Gets the current value of `troop recruitment cost`.
+**Purpose:** Reads and returns the `troop recruitment cost` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartyWageModel from the subsystem API first
+StoryModePartyWageModel storyModePartyWageModel = ...;
+var result = storyModePartyWageModel.GetTroopRecruitmentCost(troop, buyerHero, false);
+```
 
 ## Usage Example
 
@@ -55,4 +67,4 @@ Game.Current.ReplaceModel<StoryModePartyWageModel>(new MyStoryModePartyWageModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

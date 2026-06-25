@@ -1,13 +1,7 @@
 ---
 title: "RecruitmentVM"
+description: "Auto-generated class reference for RecruitmentVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitmentVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitmentVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
@@ -71,75 +65,154 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Rec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.RefreshValues();
+```
 
 ### RefreshScreen
 `public void RefreshScreen()`
 
-**Purpose:** Refreshes the display or cache of `screen`.
+**Purpose:** Keeps the display or cache of `screen` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.RefreshScreen();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.ExecuteDone();
+```
 
 ### ExecuteForceQuit
 `public void ExecuteForceQuit()`
 
-**Purpose:** Executes the `force quit` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `force quit`.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.ExecuteForceQuit();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Executes the `reset` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset`.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.ExecuteReset();
+```
 
 ### ExecuteRecruitAll
 `public void ExecuteRecruitAll()`
 
-**Purpose:** Executes the `recruit all` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `recruit all`.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.ExecuteRecruitAll();
+```
 
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** Handles logic related to `deactivate`.
+**Purpose:** Deactivates the resource, state, or feature represented by the current object.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.Deactivate();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.OnFinalize();
+```
 
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**Purpose:** Sets the value or state of `get key text from key i d func`.
+**Purpose:** Assigns a new value to `get key text from key i d func` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetDoneInputKey(hotKey);
+```
 
 ### SetRecruitAllInputKey
 `public void SetRecruitAllInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `recruit all input key`.
+**Purpose:** Assigns a new value to `recruit all input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetRecruitAllInputKey(hotKey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RecruitmentVM from the subsystem API first
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.SetResetInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RecruitmentVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+RecruitmentVM recruitmentVM = ...;
+recruitmentVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

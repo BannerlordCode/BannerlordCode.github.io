@@ -1,13 +1,7 @@
 ---
 title: "DumpIntegrityCampaignBehavior"
+description: "Auto-generated class reference for DumpIntegrityCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DumpIntegrityCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DumpIntegrityCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
@@ -29,25 +23,43 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of DumpIntegrityCampaignBehavior from the subsystem API first
+DumpIntegrityCampaignBehavior dumpIntegrityCampaignBehavior = ...;
+dumpIntegrityCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of DumpIntegrityCampaignBehavior from the subsystem API first
+DumpIntegrityCampaignBehavior dumpIntegrityCampaignBehavior = ...;
+dumpIntegrityCampaignBehavior.RegisterEvents();
+```
 
 ### IsGameIntegrityAchieved
 `public static bool IsGameIntegrityAchieved(out TextObject reason)`
 
-**Purpose:** Handles logic related to `is game integrity achieved`.
+**Purpose:** Determines whether the current object is in the `game integrity achieved` state or condition.
+
+```csharp
+// Static call; no instance required
+DumpIntegrityCampaignBehavior.IsGameIntegrityAchieved(reason);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DumpIntegrityCampaignBehavior();
-value.SyncData(dataStore);
+// Typically call this after obtaining an instance from the subsystem API
+DumpIntegrityCampaignBehavior dumpIntegrityCampaignBehavior = ...;
+dumpIntegrityCampaignBehavior.SyncData(dataStore);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

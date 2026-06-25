@@ -1,13 +1,7 @@
 ---
 title: "ScoreboardHeader"
+description: "Auto-generated class reference for ScoreboardHeader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardHeader`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardHeader
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
 
-**Purpose:** Gets the current value of `value of`.
+**Purpose:** Reads and returns the `value of` value held by the current object.
+
+```csharp
+// Obtain an instance of ScoreboardHeader from the subsystem API first
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.GetValueOf(missionPeer);
+```
 
 ### GetValueOf
 `public string GetValueOf(BotData botData)`
 
-**Purpose:** Gets the current value of `value of`.
+**Purpose:** Reads and returns the `value of` value held by the current object.
+
+```csharp
+// Obtain an instance of ScoreboardHeader from the subsystem API first
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.GetValueOf(botData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScoreboardHeader();
-value.GetValueOf(missionPeer);
+// Typically call this after obtaining an instance from the subsystem API
+ScoreboardHeader scoreboardHeader = ...;
+scoreboardHeader.GetValueOf(missionPeer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerSiegeClient"
+description: "Auto-generated class reference for MissionMultiplayerSiegeClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerSiegeClient`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerSiegeClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,65 +34,132 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.AfterStart();
+```
 
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**Purpose:** Gets the current value of `gold amount`.
+**Purpose:** Reads and returns the `gold amount` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+var result = missionMultiplayerSiegeClient.GetGoldAmount();
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** Called when the `gold amount changed for representative` event is raised.
+**Purpose:** Invoked when the `gold amount changed for representative` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### OnNumberOfFlagsChanged
 `public void OnNumberOfFlagsChanged()`
 
-**Purpose:** Called when the `number of flags changed` event is raised.
+**Purpose:** Invoked when the `number of flags changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnNumberOfFlagsChanged();
+```
 
 ### OnCapturePointOwnerChanged
 `public void OnCapturePointOwnerChanged(FlagCapturePoint flagCapturePoint, Team ownerTeam)`
 
-**Purpose:** Called when the `capture point owner changed` event is raised.
+**Purpose:** Invoked when the `capture point owner changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnCapturePointOwnerChanged(flagCapturePoint, ownerTeam);
+```
 
 ### OnMoraleChanged
 `public void OnMoraleChanged(int attackerMorale, int defenderMorale, int capturePointRemainingMoraleGains)`
 
-**Purpose:** Called when the `morale changed` event is raised.
+**Purpose:** Invoked when the `morale changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnMoraleChanged(0, 0, 0);
+```
 
 ### GetFlagOwner
 `public Team GetFlagOwner(FlagCapturePoint flag)`
 
-**Purpose:** Gets the current value of `flag owner`.
+**Purpose:** Reads and returns the `flag owner` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+var result = missionMultiplayerSiegeClient.GetFlagOwner(flag);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnRemoveBehavior();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnMissionTick(0);
+```
 
 ### GetSiegeMissiles
 `public List<ItemObject> GetSiegeMissiles()`
 
-**Purpose:** Gets the current value of `siege missiles`.
+**Purpose:** Reads and returns the `siege missiles` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiegeClient from the subsystem API first
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+var result = missionMultiplayerSiegeClient.GetSiegeMissiles();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerSiegeClient();
-value.OnBehaviorInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnBehaviorInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

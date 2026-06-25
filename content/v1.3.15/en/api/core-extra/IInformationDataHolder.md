@@ -1,18 +1,12 @@
 ---
 title: "IInformationDataHolder"
+description: "Auto-generated class reference for IInformationDataHolder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IInformationDataHolder`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IInformationDataHolder
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IInformationDataHolder`
 **Base:** none
 **File:** `TaleWorlds.Core/IInformationDataHolder.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IInformationDataHolder implementation = GetInformationDataHolderImplementation();
+// Usually obtained through DI or a factory method
+IIInformationDataHolder service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

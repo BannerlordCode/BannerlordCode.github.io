@@ -1,20 +1,14 @@
 ---
 title: "MissionSiegeEngineMarkerWidget"
+description: "Auto-generated class reference for MissionSiegeEngineMarkerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeEngineMarkerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeEngineMarkerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSiegeEngineMarkerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/MissionSiegeEngineMarkerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/MissionSiegeEngineMarkerWidget.cs`
 
 ## Overview
 
@@ -41,9 +35,10 @@ Treat `MissionSiegeEngineMarkerWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new MissionSiegeEngineMarkerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MissionSiegeEngineMarkerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

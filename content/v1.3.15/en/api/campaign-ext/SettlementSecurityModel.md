@@ -1,13 +1,7 @@
 ---
 title: "SettlementSecurityModel"
+description: "Auto-generated class reference for SettlementSecurityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementSecurityModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementSecurityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -50,34 +44,65 @@ Treat `SettlementSecurityModel` as a Model-style extension point: first identify
 ### GetLootedNearbyPartySecurityEffect
 `public abstract float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**Purpose:** Gets the current value of `looted nearby party security effect`.
+**Purpose:** Reads and returns the `looted nearby party security effect` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementSecurityModel from the subsystem API first
+SettlementSecurityModel settlementSecurityModel = ...;
+var result = settlementSecurityModel.GetLootedNearbyPartySecurityEffect(town, 0);
+```
 
 ### CalculateSecurityChange
 `public abstract ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate security change`.
+**Purpose:** Calculates the current value or result of `security change`.
+
+```csharp
+// Obtain an instance of SettlementSecurityModel from the subsystem API first
+SettlementSecurityModel settlementSecurityModel = ...;
+var result = settlementSecurityModel.CalculateSecurityChange(town, false);
+```
 
 ### GetNearbyBanditPartyDefeatedSecurityEffect
 `public abstract float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**Purpose:** Gets the current value of `nearby bandit party defeated security effect`.
+**Purpose:** Reads and returns the `nearby bandit party defeated security effect` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementSecurityModel from the subsystem API first
+SettlementSecurityModel settlementSecurityModel = ...;
+var result = settlementSecurityModel.GetNearbyBanditPartyDefeatedSecurityEffect(town, 0);
+```
 
 ### CalculateGoldGainDueToHighSecurity
 `public abstract void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Handles logic related to `calculate gold gain due to high security`.
+**Purpose:** Calculates the current value or result of `gold gain due to high security`.
+
+```csharp
+// Obtain an instance of SettlementSecurityModel from the subsystem API first
+SettlementSecurityModel settlementSecurityModel = ...;
+settlementSecurityModel.CalculateGoldGainDueToHighSecurity(town, explainedNumber);
+```
 
 ### CalculateGoldCutDueToLowSecurity
 `public abstract void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Handles logic related to `calculate gold cut due to low security`.
+**Purpose:** Calculates the current value or result of `gold cut due to low security`.
+
+```csharp
+// Obtain an instance of SettlementSecurityModel from the subsystem API first
+SettlementSecurityModel settlementSecurityModel = ...;
+settlementSecurityModel.CalculateGoldCutDueToLowSecurity(town, explainedNumber);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementSecurityModel();
+// Typically obtained from a subsystem API or factory
+SettlementSecurityModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

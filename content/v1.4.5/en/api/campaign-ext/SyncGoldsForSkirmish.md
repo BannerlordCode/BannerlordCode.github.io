@@ -1,20 +1,14 @@
 ---
 title: "SyncGoldsForSkirmish"
+description: "Auto-generated class reference for SyncGoldsForSkirmish."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SyncGoldsForSkirmish`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SyncGoldsForSkirmish
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SyncGoldsForSkirmish : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncGoldsForSkirmish.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncGoldsForSkirmish.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SyncGoldsForSkirmish();
+// Obtain an instance from the relevant subsystem API
+SyncGoldsForSkirmish instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultWorkshopModel"
+description: "Auto-generated class reference for DefaultWorkshopModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultWorkshopModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultWorkshopModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -41,42 +35,90 @@ Treat `DefaultWorkshopModel` as a Model-style extension point: first identify wh
 ### GetEffectiveConversionSpeedOfProduction
 `public override ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescription)`
 
-**Purpose:** Gets the current value of `effective conversion speed of production`.
+**Purpose:** Reads and returns the `effective conversion speed of production` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultWorkshopModel from the subsystem API first
+DefaultWorkshopModel defaultWorkshopModel = ...;
+var result = defaultWorkshopModel.GetEffectiveConversionSpeedOfProduction(workshop, 0, false);
+```
 
 ### GetMaxWorkshopCountForClanTier
 `public override int GetMaxWorkshopCountForClanTier(int tier)`
 
-**Purpose:** Gets the current value of `max workshop count for clan tier`.
+**Purpose:** Reads and returns the `max workshop count for clan tier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultWorkshopModel from the subsystem API first
+DefaultWorkshopModel defaultWorkshopModel = ...;
+var result = defaultWorkshopModel.GetMaxWorkshopCountForClanTier(0);
+```
 
 ### GetCostForPlayer
 `public override int GetCostForPlayer(Workshop workshop)`
 
-**Purpose:** Gets the current value of `cost for player`.
+**Purpose:** Reads and returns the `cost for player` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultWorkshopModel from the subsystem API first
+DefaultWorkshopModel defaultWorkshopModel = ...;
+var result = defaultWorkshopModel.GetCostForPlayer(workshop);
+```
 
 ### GetCostForNotable
 `public override int GetCostForNotable(Workshop workshop)`
 
-**Purpose:** Gets the current value of `cost for notable`.
+**Purpose:** Reads and returns the `cost for notable` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultWorkshopModel from the subsystem API first
+DefaultWorkshopModel defaultWorkshopModel = ...;
+var result = defaultWorkshopModel.GetCostForNotable(workshop);
+```
 
 ### GetNotableOwnerForWorkshop
 `public override Hero GetNotableOwnerForWorkshop(Workshop workshop)`
 
-**Purpose:** Gets the current value of `notable owner for workshop`.
+**Purpose:** Reads and returns the `notable owner for workshop` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultWorkshopModel from the subsystem API first
+DefaultWorkshopModel defaultWorkshopModel = ...;
+var result = defaultWorkshopModel.GetNotableOwnerForWorkshop(workshop);
+```
 
 ### GetConvertProductionCost
 `public override int GetConvertProductionCost(WorkshopType workshopType)`
 
-**Purpose:** Gets the current value of `convert production cost`.
+**Purpose:** Reads and returns the `convert production cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultWorkshopModel from the subsystem API first
+DefaultWorkshopModel defaultWorkshopModel = ...;
+var result = defaultWorkshopModel.GetConvertProductionCost(workshopType);
+```
 
 ### CanPlayerSellWorkshop
 `public override bool CanPlayerSellWorkshop(Workshop workshop, out TextObject explanation)`
 
-**Purpose:** Checks whether the current object can `player sell workshop`.
+**Purpose:** Checks whether the current object meets the preconditions for `player sell workshop`.
+
+```csharp
+// Obtain an instance of DefaultWorkshopModel from the subsystem API first
+DefaultWorkshopModel defaultWorkshopModel = ...;
+var result = defaultWorkshopModel.CanPlayerSellWorkshop(workshop, explanation);
+```
 
 ### GetTradeXpPerWarehouseProduction
 `public override float GetTradeXpPerWarehouseProduction(EquipmentElement production)`
 
-**Purpose:** Gets the current value of `trade xp per warehouse production`.
+**Purpose:** Reads and returns the `trade xp per warehouse production` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultWorkshopModel from the subsystem API first
+DefaultWorkshopModel defaultWorkshopModel = ...;
+var result = defaultWorkshopModel.GetTradeXpPerWarehouseProduction(production);
+```
 
 ## Usage Example
 
@@ -86,4 +128,4 @@ Game.Current.ReplaceModel<DefaultWorkshopModel>(new MyDefaultWorkshopModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,24 +1,18 @@
 ---
 title: "GauntletSceneNotification"
+description: "Auto-generated class reference for GauntletSceneNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletSceneNotification`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletSceneNotification
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.SceneNotification
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletSceneNotification : GlobalLayer`
 **Base:** `GlobalLayer`
-**Area:** mission-ext
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.SceneNotification/GauntletSceneNotification.cs`
 
 ## Overview
 
-`GauntletSceneNotification` lives in `TaleWorlds.MountAndBlade.GauntletUI.SceneNotification`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`GauntletSceneNotification` lives in `TaleWorlds.MountAndBlade.GauntletUI.SceneNotification` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,31 +29,52 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.SceneNotification` to 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletSceneNotification.Initialize();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GauntletSceneNotification from the subsystem API first
+GauntletSceneNotification gauntletSceneNotification = ...;
+gauntletSceneNotification.OnFinalize();
+```
 
 ### RegisterContextProvider
 `public void RegisterContextProvider(ISceneNotificationContextProvider provider)`
 
-**Purpose:** Handles logic related to `register context provider`.
+**Purpose:** Registers `context provider` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GauntletSceneNotification from the subsystem API first
+GauntletSceneNotification gauntletSceneNotification = ...;
+gauntletSceneNotification.RegisterContextProvider(provider);
+```
 
 ### RemoveContextProvider
 `public bool RemoveContextProvider(ISceneNotificationContextProvider provider)`
 
 **Purpose:** Removes `context provider` from the current collection or state.
 
+```csharp
+// Obtain an instance of GauntletSceneNotification from the subsystem API first
+GauntletSceneNotification gauntletSceneNotification = ...;
+var result = gauntletSceneNotification.RemoveContextProvider(provider);
+```
+
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 GauntletSceneNotification.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

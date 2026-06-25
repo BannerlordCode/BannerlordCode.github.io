@@ -1,13 +1,7 @@
 ---
 title: "CompassMarker"
+description: "Auto-generated class reference for CompassMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompassMarker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CompassMarker
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new CompassMarker();
+// Obtain an instance from the relevant subsystem API
+CompassMarker instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

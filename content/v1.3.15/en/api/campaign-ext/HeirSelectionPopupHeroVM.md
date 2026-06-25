@@ -1,13 +1,7 @@
 ---
 title: "HeirSelectionPopupHeroVM"
+description: "Auto-generated class reference for HeirSelectionPopupHeroVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeirSelectionPopupHeroVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HeirSelectionPopupHeroVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.HeirSelectionPopup
@@ -47,20 +41,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.HeirSele
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of HeirSelectionPopupHeroVM from the subsystem API first
+HeirSelectionPopupHeroVM heirSelectionPopupHeroVM = ...;
+heirSelectionPopupHeroVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of HeirSelectionPopupHeroVM from the subsystem API first
+HeirSelectionPopupHeroVM heirSelectionPopupHeroVM = ...;
+heirSelectionPopupHeroVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeirSelectionPopupHeroVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+HeirSelectionPopupHeroVM heirSelectionPopupHeroVM = ...;
+heirSelectionPopupHeroVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

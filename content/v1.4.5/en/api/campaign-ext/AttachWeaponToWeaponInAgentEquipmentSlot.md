@@ -1,20 +1,14 @@
 ---
 title: "AttachWeaponToWeaponInAgentEquipmentSlot"
+description: "Auto-generated class reference for AttachWeaponToWeaponInAgentEquipmentSlot."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AttachWeaponToWeaponInAgentEquipmentSlot`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AttachWeaponToWeaponInAgentEquipmentSlot
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AttachWeaponToWeaponInAgentEquipmentSlot : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AttachWeaponToWeaponInAgentEquipmentSlot.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AttachWeaponToWeaponInAgentEquipmentSlot.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new AttachWeaponToWeaponInAgentEquipmentSlot();
+// Obtain an instance from the relevant subsystem API
+AttachWeaponToWeaponInAgentEquipmentSlot instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

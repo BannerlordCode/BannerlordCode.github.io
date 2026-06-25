@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryClothingCosmeticCategoryVM"
+description: "MPArmoryClothingCosmeticCategoryVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPArmoryClothingCosmeticCategoryVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryClothingCosmeticCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryClothingCosmeticCategoryVM : MPArmoryCosmeticCategoryBaseVM`
 **Base:** `MPArmoryCosmeticCategoryBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory/MPArmoryClothingCosmeticCategoryVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory/MPArmoryClothingCosmeticCategoryVM.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "MPArmoryClothingCosmeticCategoryVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryClothingCosmeticCategoryVM 实例
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.RefreshValues();
+```
 
 ### SetDefaultEquipments
 `public void SetDefaultEquipments(Equipment equipment)`
 
-**用途 / Purpose:** 设置 `default equipments` 的值或状态。
+**用途 / Purpose:** 为 「default equipments」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryClothingCosmeticCategoryVM 实例
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.SetDefaultEquipments(equipment);
+```
 
 ### ReplaceCosmeticWithDefaultItem
 `public void ReplaceCosmeticWithDefaultItem(MPArmoryCosmeticClothingItemVM cosmetic, MPArmoryCosmeticsVM.ClothingCategory clothingCategory, MPHeroClass selectedClass, List<string> ownedCosmetics)`
 
-**用途 / Purpose:** 处理 `replace cosmetic with default item` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryClothingCosmeticCategoryVM 实例
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.ReplaceCosmeticWithDefaultItem(cosmetic, clothingCategory, selectedClass, ownedCosmetics);
+```
 
 ### OnEquipmentRefreshed
 `public void OnEquipmentRefreshed(EquipmentIndex equipmentIndex)`
 
-**用途 / Purpose:** 当 `equipment refreshed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「equipment refreshed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryClothingCosmeticCategoryVM 实例
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.OnEquipmentRefreshed(equipmentIndex);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPArmoryClothingCosmeticCategoryVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

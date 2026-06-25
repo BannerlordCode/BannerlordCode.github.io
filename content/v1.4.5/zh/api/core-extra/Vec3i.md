@@ -1,20 +1,14 @@
 ---
 title: "Vec3i"
+description: "Vec3i 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Vec3i`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Vec3i
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Vec3i`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Vec3i.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Vec3i.cs`
 
 ## 概述
 
@@ -35,35 +29,66 @@ title: "Vec3i"
 ### Vec3i
 `public struct Vec3i(int x = 0, int y = 0, int z = 0)`
 
-**用途 / Purpose:** 处理 `vec3i` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Vec3i 实例
+Vec3i vec3i = ...;
+var result = vec3i.Vec3i(0, 0, 0);
+```
 
 ### ToVec3
 `public Vec3 ToVec3()`
 
-**用途 / Purpose:** 处理 `to vec3` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Vec3i 实例
+Vec3i vec3i = ...;
+var result = vec3i.ToVec3();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 Vec3i 实例
+Vec3i vec3i = ...;
+var result = vec3i.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 Vec3i 实例
+Vec3i vec3i = ...;
+var result = vec3i.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Vec3i 实例
+Vec3i vec3i = ...;
+var result = vec3i.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Vec3i();
-value.Vec3i(0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+Vec3i vec3i = ...;
+vec3i.Vec3i(0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

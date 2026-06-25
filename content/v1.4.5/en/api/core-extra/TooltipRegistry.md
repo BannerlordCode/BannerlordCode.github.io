@@ -1,20 +1,14 @@
 ---
 title: "TooltipRegistry"
+description: "Auto-generated class reference for TooltipRegistry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipRegistry`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipRegistry
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct TooltipRegistry`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/InformationManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InformationManager.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### TooltipRegistry
 `public struct TooltipRegistry(Type tooltipType, object onRefreshData, string movieName)`
 
-**Purpose:** Handles logic related to `tooltip registry`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TooltipRegistry from the subsystem API first
+TooltipRegistry tooltipRegistry = ...;
+var result = tooltipRegistry.TooltipRegistry(tooltipType, onRefreshData, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TooltipRegistry();
-value.TooltipRegistry(tooltipType, onRefreshData, "example");
+// Typically call this after obtaining an instance from the subsystem API
+TooltipRegistry tooltipRegistry = ...;
+tooltipRegistry.TooltipRegistry(tooltipType, onRefreshData, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

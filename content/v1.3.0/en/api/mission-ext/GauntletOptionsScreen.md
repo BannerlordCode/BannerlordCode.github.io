@@ -1,13 +1,7 @@
 ---
 title: "GauntletOptionsScreen"
+description: "Auto-generated class reference for GauntletOptionsScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletOptionsScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletOptionsScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ## Usage Example
 
 ```csharp
-var value = new GauntletOptionsScreen();
+// Obtain an instance from the relevant subsystem API
+GauntletOptionsScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

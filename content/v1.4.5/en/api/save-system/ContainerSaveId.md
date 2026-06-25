@@ -1,20 +1,14 @@
 ---
 title: "ContainerSaveId"
+description: "Auto-generated class reference for ContainerSaveId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContainerSaveId`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerSaveId
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerSaveId : SaveId`
 **Base:** `SaveId`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerSaveId.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerSaveId.cs`
 
 ## Overview
 
@@ -37,30 +31,54 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetStringId
 `public override string GetStringId()`
 
-**Purpose:** Gets the current value of `string id`.
+**Purpose:** Reads and returns the `string id` value held by the current object.
+
+```csharp
+// Obtain an instance of ContainerSaveId from the subsystem API first
+ContainerSaveId containerSaveId = ...;
+var result = containerSaveId.GetStringId();
+```
 
 ### WriteTo
 `public override void WriteTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `write to`.
+**Purpose:** Writes `to` to the target location.
+
+```csharp
+// Obtain an instance of ContainerSaveId from the subsystem API first
+ContainerSaveId containerSaveId = ...;
+containerSaveId.WriteTo(writer);
+```
 
 ### ReadFrom
 `public static ContainerSaveId ReadFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `read from`.
+**Purpose:** Reads the data or state of `from`.
+
+```csharp
+// Static call; no instance required
+ContainerSaveId.ReadFrom(reader);
+```
 
 ### GetSizeInBytes
 `public override int GetSizeInBytes()`
 
-**Purpose:** Gets the current value of `size in bytes`.
+**Purpose:** Reads and returns the `size in bytes` value held by the current object.
+
+```csharp
+// Obtain an instance of ContainerSaveId from the subsystem API first
+ContainerSaveId containerSaveId = ...;
+var result = containerSaveId.GetSizeInBytes();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ContainerSaveId();
-value.GetStringId();
+// Typically call this after obtaining an instance from the subsystem API
+ContainerSaveId containerSaveId = ...;
+containerSaveId.GetStringId();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

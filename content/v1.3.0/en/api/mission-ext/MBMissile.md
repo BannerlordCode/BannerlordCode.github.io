@@ -1,13 +1,7 @@
 ---
 title: "MBMissile"
+description: "Auto-generated class reference for MBMissile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMissile`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBMissile
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,34 +29,65 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** Gets the current value of `position`.
+**Purpose:** Reads and returns the `position` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMissile from the subsystem API first
+MBMissile mBMissile = ...;
+var result = mBMissile.GetPosition();
+```
 
 ### GetOldPosition
 `public Vec3 GetOldPosition()`
 
-**Purpose:** Gets the current value of `old position`.
+**Purpose:** Reads and returns the `old position` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMissile from the subsystem API first
+MBMissile mBMissile = ...;
+var result = mBMissile.GetOldPosition();
+```
 
 ### GetVelocity
 `public Vec3 GetVelocity()`
 
-**Purpose:** Gets the current value of `velocity`.
+**Purpose:** Reads and returns the `velocity` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMissile from the subsystem API first
+MBMissile mBMissile = ...;
+var result = mBMissile.GetVelocity();
+```
 
 ### SetVelocity
 `public void SetVelocity(in Vec3 velocity)`
 
-**Purpose:** Sets the value or state of `velocity`.
+**Purpose:** Assigns a new value to `velocity` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBMissile from the subsystem API first
+MBMissile mBMissile = ...;
+mBMissile.SetVelocity(velocity);
+```
 
 ### GetHasRigidBody
 `public bool GetHasRigidBody()`
 
-**Purpose:** Gets the current value of `has rigid body`.
+**Purpose:** Reads and returns the `has rigid body` value held by the current object.
+
+```csharp
+// Obtain an instance of MBMissile from the subsystem API first
+MBMissile mBMissile = ...;
+var result = mBMissile.GetHasRigidBody();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMBMissile();
+// Typically obtained from a subsystem API or factory
+MBMissile instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

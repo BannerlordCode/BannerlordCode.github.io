@@ -1,20 +1,14 @@
 ---
 title: "MissionNameMarkerTargetBaseVM"
+description: "Auto-generated class reference for MissionNameMarkerTargetBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNameMarkerTargetBaseVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerTargetBaseVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public abstract class MissionNameMarkerTargetBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerTargetBaseVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerTargetBaseVM.cs`
 
 ## Overview
 
@@ -46,29 +40,54 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### UpdatePosition
 `public abstract void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionNameMarkerTargetBaseVM from the subsystem API first
+MissionNameMarkerTargetBaseVM missionNameMarkerTargetBaseVM = ...;
+missionNameMarkerTargetBaseVM.UpdatePosition(missionCamera);
+```
 
 ### Equals
 `public abstract bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MissionNameMarkerTargetBaseVM from the subsystem API first
+MissionNameMarkerTargetBaseVM missionNameMarkerTargetBaseVM = ...;
+var result = missionNameMarkerTargetBaseVM.Equals(other);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionNameMarkerTargetBaseVM from the subsystem API first
+MissionNameMarkerTargetBaseVM missionNameMarkerTargetBaseVM = ...;
+missionNameMarkerTargetBaseVM.RefreshValues();
+```
 
 ### SetEnabledState
 `public void SetEnabledState(bool enabled)`
 
-**Purpose:** Sets the value or state of `enabled state`.
+**Purpose:** Assigns a new value to `enabled state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionNameMarkerTargetBaseVM from the subsystem API first
+MissionNameMarkerTargetBaseVM missionNameMarkerTargetBaseVM = ...;
+missionNameMarkerTargetBaseVM.SetEnabledState(false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionNameMarkerTargetBaseVM();
+// Typically obtained from a subsystem API or factory
+MissionNameMarkerTargetBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

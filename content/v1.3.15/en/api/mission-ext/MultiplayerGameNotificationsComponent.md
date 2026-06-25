@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerGameNotificationsComponent"
+description: "Auto-generated class reference for MultiplayerGameNotificationsComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerGameNotificationsComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerGameNotificationsComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,62 +29,134 @@ Treat `MultiplayerGameNotificationsComponent` as a Component-style extension poi
 ### WarmupEnding
 `public void WarmupEnding()`
 
-**Purpose:** Handles logic related to `warmup ending`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.WarmupEnding();
+```
 
 ### GameOver
 `public void GameOver(Team winnerTeam)`
 
-**Purpose:** Handles logic related to `game over`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.GameOver(winnerTeam);
+```
 
 ### PreparationStarted
 `public void PreparationStarted()`
 
-**Purpose:** Handles logic related to `preparation started`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.PreparationStarted();
+```
 
 ### FlagsXRemoved
 `public void FlagsXRemoved(FlagCapturePoint removedFlag)`
 
-**Purpose:** Handles logic related to `flags x removed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FlagsXRemoved(removedFlag);
+```
 
 ### FlagXRemaining
 `public void FlagXRemaining(FlagCapturePoint remainingFlag)`
 
-**Purpose:** Handles logic related to `flag x remaining`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FlagXRemaining(remainingFlag);
+```
 
 ### FlagsWillBeRemovedInXSeconds
 `public void FlagsWillBeRemovedInXSeconds(int timeLeft)`
 
-**Purpose:** Handles logic related to `flags will be removed in x seconds`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FlagsWillBeRemovedInXSeconds(0);
+```
 
 ### FlagXCapturedByTeamX
 `public void FlagXCapturedByTeamX(SynchedMissionObject flag, Team capturingTeam)`
 
-**Purpose:** Handles logic related to `flag x captured by team x`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FlagXCapturedByTeamX(flag, capturingTeam);
+```
 
 ### GoldCarriedFromPreviousRound
 `public void GoldCarriedFromPreviousRound(int carriedGoldAmount, NetworkCommunicator syncToPeer)`
 
-**Purpose:** Handles logic related to `gold carried from previous round`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.GoldCarriedFromPreviousRound(0, syncToPeer);
+```
 
 ### PlayerIsInactive
 `public void PlayerIsInactive(NetworkCommunicator peer)`
 
-**Purpose:** Handles logic related to `player is inactive`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.PlayerIsInactive(peer);
+```
 
 ### FormationAutoFollowEnforced
 `public void FormationAutoFollowEnforced(NetworkCommunicator peer)`
 
-**Purpose:** Handles logic related to `formation auto follow enforced`.
+**Purpose:** Formats `ion auto follow enforced` into a string suitable for display or storage.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FormationAutoFollowEnforced(peer);
+```
 
 ### PollRejected
 `public void PollRejected(MultiplayerPollRejectReason reason)`
 
-**Purpose:** Handles logic related to `poll rejected`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.PollRejected(reason);
+```
 
 ### PlayerKicked
 `public void PlayerKicked(NetworkCommunicator kickedPeer)`
 
-**Purpose:** Handles logic related to `player kicked`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.PlayerKicked(kickedPeer);
+```
 
 ## Usage Example
 
@@ -100,4 +166,4 @@ var component = agent.GetComponent<MultiplayerGameNotificationsComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

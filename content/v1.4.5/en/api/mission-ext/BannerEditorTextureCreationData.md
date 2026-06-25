@@ -1,20 +1,14 @@
 ---
 title: "BannerEditorTextureCreationData"
+description: "Auto-generated class reference for BannerEditorTextureCreationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerEditorTextureCreationData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerEditorTextureCreationData
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerEditorTextureCreationData : BannerThumbnailCreationBaseData`
 **Base:** `BannerThumbnailCreationBaseData`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerEditorTextureCreationData.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerEditorTextureCreationData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `BannerEditorTextureCreationData` as a Data-style extension point: first i
 ## Usage Example
 
 ```csharp
-var value = new BannerEditorTextureCreationData();
+// This data object is usually returned by campaign/mission APIs
+BannerEditorTextureCreationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

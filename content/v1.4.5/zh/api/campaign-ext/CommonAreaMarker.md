@@ -1,20 +1,14 @@
 ---
 title: "CommonAreaMarker"
+description: "CommonAreaMarker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommonAreaMarker`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommonAreaMarker
 
 **Namespace:** SandBox.Objects.AreaMarkers
 **Module:** SandBox.Objects
 **Type:** `public class CommonAreaMarker : AreaMarker`
 **Base:** `AreaMarker`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/CommonAreaMarker.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/CommonAreaMarker.cs`
 
 ## 概述
 
@@ -36,25 +30,44 @@ title: "CommonAreaMarker"
 ### GetUsableMachinesInRange
 `public override List<UsableMachine> GetUsableMachinesInRange(string excludeTag = null)`
 
-**用途 / Purpose:** 获取 `usable machines in range` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「usable machines in range」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAreaMarker 实例
+CommonAreaMarker commonAreaMarker = ...;
+var result = commonAreaMarker.GetUsableMachinesInRange("example");
+```
 
 ### GetAlley
 `public Alley GetAlley()`
 
-**用途 / Purpose:** 获取 `alley` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「alley」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAreaMarker 实例
+CommonAreaMarker commonAreaMarker = ...;
+var result = commonAreaMarker.GetAlley();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAreaMarker 实例
+CommonAreaMarker commonAreaMarker = ...;
+var result = commonAreaMarker.GetName();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CommonAreaMarker();
-value.GetUsableMachinesInRange("example");
+// 通常从对应子系统 API 获取实例后调用
+CommonAreaMarker commonAreaMarker = ...;
+commonAreaMarker.GetUsableMachinesInRange("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

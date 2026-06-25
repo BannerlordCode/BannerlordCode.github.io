@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyRankItemButtonWidget"
+description: "Auto-generated class reference for MultiplayerLobbyRankItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyRankItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyRankItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
@@ -33,9 +27,10 @@ Treat `MultiplayerLobbyRankItemButtonWidget` as a Widget-style extension point: 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyRankItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyRankItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

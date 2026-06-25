@@ -1,24 +1,18 @@
 ---
 title: "MultiplayerReportPlayerScreen"
+description: "Auto-generated class reference for MultiplayerReportPlayerScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerReportPlayerScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerReportPlayerScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerReportPlayerScreen : GlobalLayer`
 **Base:** `GlobalLayer`
-**Area:** mission-ext
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerReportPlayerScreen.cs`
 
 ## Overview
 
-`MultiplayerReportPlayerScreen` lives in `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MultiplayerReportPlayerScreen` lives in `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,21 +29,29 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Static call; no instance required
+MultiplayerReportPlayerScreen.OnInitialize();
+```
 
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Static call; no instance required
+MultiplayerReportPlayerScreen.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MultiplayerReportPlayerScreen.OnInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

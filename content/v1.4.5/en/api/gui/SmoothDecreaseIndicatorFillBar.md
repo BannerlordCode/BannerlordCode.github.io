@@ -1,20 +1,14 @@
 ---
 title: "SmoothDecreaseIndicatorFillBar"
+description: "Auto-generated class reference for SmoothDecreaseIndicatorFillBar."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SmoothDecreaseIndicatorFillBar`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SmoothDecreaseIndicatorFillBar
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class SmoothDecreaseIndicatorFillBar`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/SmoothDecreaseIndicatorFillBar.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/SmoothDecreaseIndicatorFillBar.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.GauntletUI.ExtraWidgets` to place it in the sta
 ### SmoothDecreaseIndicatorFillBar
 `public class SmoothDecreaseIndicatorFillBar(UIContext context)`
 
-**Purpose:** Handles logic related to `smooth decrease indicator fill bar`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SmoothDecreaseIndicatorFillBar from the subsystem API first
+SmoothDecreaseIndicatorFillBar smoothDecreaseIndicatorFillBar = ...;
+var result = smoothDecreaseIndicatorFillBar.SmoothDecreaseIndicatorFillBar(context);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SmoothDecreaseIndicatorFillBar();
-value.SmoothDecreaseIndicatorFillBar(context);
+// Typically call this after obtaining an instance from the subsystem API
+SmoothDecreaseIndicatorFillBar smoothDecreaseIndicatorFillBar = ...;
+smoothDecreaseIndicatorFillBar.SmoothDecreaseIndicatorFillBar(context);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

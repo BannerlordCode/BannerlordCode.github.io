@@ -1,13 +1,7 @@
 ---
 title: "BattleResultVM"
+description: "Auto-generated class reference for BattleResultVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleResultVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleResultVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the st
 ## Usage Example
 
 ```csharp
-var value = new BattleResultVM();
+// Obtain an instance from the relevant subsystem API
+BattleResultVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

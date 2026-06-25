@@ -1,13 +1,7 @@
 ---
 title: "TrajectoryVisualizer"
+description: "Auto-generated class reference for TrajectoryVisualizer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrajectoryVisualizer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrajectoryVisualizer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetTrajectoryParams
 `public void SetTrajectoryParams(Vec3 missileShootingPositionOffset, float missileSpeed, float verticalAngleMinInDegrees, float verticalAngleMaxInDegrees, float horizontalAngleRangeInDegrees, float airFrictionConstant)`
 
-**Purpose:** Sets the value or state of `trajectory params`.
+**Purpose:** Assigns a new value to `trajectory params` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TrajectoryVisualizer from the subsystem API first
+TrajectoryVisualizer trajectoryVisualizer = ...;
+trajectoryVisualizer.SetTrajectoryParams(missileShootingPositionOffset, 0, 0, 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrajectoryVisualizer();
-value.SetTrajectoryParams(missileShootingPositionOffset, 0, 0, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+TrajectoryVisualizer trajectoryVisualizer = ...;
+trajectoryVisualizer.SetTrajectoryParams(missileShootingPositionOffset, 0, 0, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

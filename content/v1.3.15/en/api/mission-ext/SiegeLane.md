@@ -1,13 +1,7 @@
 ---
 title: "SiegeLane"
+description: "Auto-generated class reference for SiegeLane."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeLane`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeLane
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -43,85 +37,176 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CalculateIsLaneUnusable
 `public bool CalculateIsLaneUnusable()`
 
-**Purpose:** Handles logic related to `calculate is lane unusable`.
+**Purpose:** Calculates the current value or result of `is lane unusable`.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+var result = siegeLane.CalculateIsLaneUnusable();
+```
 
 ### GetLastAssignedFormation
 `public Formation GetLastAssignedFormation(int teamIndex)`
 
-**Purpose:** Gets the current value of `last assigned formation`.
+**Purpose:** Reads and returns the `last assigned formation` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+var result = siegeLane.GetLastAssignedFormation(0);
+```
 
 ### SetLaneState
 `public void SetLaneState(SiegeLane.LaneStateEnum newLaneState)`
 
-**Purpose:** Sets the value or state of `lane state`.
+**Purpose:** Assigns a new value to `lane state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+siegeLane.SetLaneState(newLaneState);
+```
 
 ### SetLastAssignedFormation
 `public void SetLastAssignedFormation(int teamIndex, Formation formation)`
 
-**Purpose:** Sets the value or state of `last assigned formation`.
+**Purpose:** Assigns a new value to `last assigned formation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+siegeLane.SetLastAssignedFormation(0, formation);
+```
 
 ### SetSiegeQuerySystem
 `public void SetSiegeQuerySystem(SiegeQuerySystem siegeQuerySystem)`
 
-**Purpose:** Sets the value or state of `siege query system`.
+**Purpose:** Assigns a new value to `siege query system` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+siegeLane.SetSiegeQuerySystem(siegeQuerySystem);
+```
 
 ### CalculateLaneCapacity
 `public float CalculateLaneCapacity()`
 
-**Purpose:** Handles logic related to `calculate lane capacity`.
+**Purpose:** Calculates the current value or result of `lane capacity`.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+var result = siegeLane.CalculateLaneCapacity();
+```
 
 ### GetDefenseState
 `public SiegeLane.LaneDefenseStates GetDefenseState()`
 
-**Purpose:** Gets the current value of `defense state`.
+**Purpose:** Reads and returns the `defense state` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+var result = siegeLane.GetDefenseState();
+```
 
 ### IsUnderAttack
 `public bool IsUnderAttack()`
 
-**Purpose:** Handles logic related to `is under attack`.
+**Purpose:** Determines whether the current object is in the `under attack` state or condition.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+var result = siegeLane.IsUnderAttack();
+```
 
 ### IsDefended
 `public bool IsDefended()`
 
-**Purpose:** Handles logic related to `is defended`.
+**Purpose:** Determines whether the current object is in the `defended` state or condition.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+var result = siegeLane.IsDefended();
+```
 
 ### DetermineLaneState
 `public void DetermineLaneState()`
 
-**Purpose:** Handles logic related to `determine lane state`.
+**Purpose:** Determines the result of `lane state` based on the current state.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+siegeLane.DetermineLaneState();
+```
 
 ### GetCurrentAttackerPosition
 `public WorldPosition GetCurrentAttackerPosition()`
 
-**Purpose:** Gets the current value of `current attacker position`.
+**Purpose:** Reads and returns the `current attacker position` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+var result = siegeLane.GetCurrentAttackerPosition();
+```
 
 ### DetermineOrigins
 `public void DetermineOrigins()`
 
-**Purpose:** Handles logic related to `determine origins`.
+**Purpose:** Determines the result of `origins` based on the current state.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+siegeLane.DetermineOrigins();
+```
 
 ### RefreshLane
 `public void RefreshLane()`
 
-**Purpose:** Refreshes the display or cache of `lane`.
+**Purpose:** Keeps the display or cache of `lane` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+siegeLane.RefreshLane();
+```
 
 ### SetPrimarySiegeWeapons
 `public void SetPrimarySiegeWeapons(List<IPrimarySiegeWeapon> primarySiegeWeapons)`
 
-**Purpose:** Sets the value or state of `primary siege weapons`.
+**Purpose:** Assigns a new value to `primary siege weapons` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+siegeLane.SetPrimarySiegeWeapons(primarySiegeWeapons);
+```
 
 ### SetDefensePoints
 `public void SetDefensePoints(List<ICastleKeyPosition> defensePoints)`
 
-**Purpose:** Sets the value or state of `defense points`.
+**Purpose:** Assigns a new value to `defense points` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeLane from the subsystem API first
+SiegeLane siegeLane = ...;
+siegeLane.SetDefensePoints(defensePoints);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeLane();
-value.CalculateIsLaneUnusable();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeLane siegeLane = ...;
+siegeLane.CalculateIsLaneUnusable();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

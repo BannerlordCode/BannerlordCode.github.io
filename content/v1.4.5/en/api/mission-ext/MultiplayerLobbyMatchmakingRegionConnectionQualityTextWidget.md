@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget"
+description: "Auto-generated class reference for MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Matchmaking
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget : TextWidget`
 **Base:** `TextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Matchmaking/MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Matchmaking/MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget` as a Widget
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyMatchmakingRegionConnectionQualityTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

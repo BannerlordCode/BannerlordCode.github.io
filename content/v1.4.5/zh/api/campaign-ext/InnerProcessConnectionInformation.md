@@ -1,20 +1,14 @@
 ---
 title: "InnerProcessConnectionInformation"
+description: "InnerProcessConnectionInformation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InnerProcessConnectionInformation`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InnerProcessConnectionInformation
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public sealed class InnerProcessConnectionInformation : IConnectionInformation`
 **Base:** `IConnectionInformation`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/InnerProcessConnectionInformation.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/InnerProcessConnectionInformation.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "InnerProcessConnectionInformation"
 ## 使用示例
 
 ```csharp
-var example = new InnerProcessConnectionInformation();
+// 从对应子系统 API 获取实例
+InnerProcessConnectionInformation instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

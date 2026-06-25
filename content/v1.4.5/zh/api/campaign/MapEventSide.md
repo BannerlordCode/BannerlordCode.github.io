@@ -1,20 +1,14 @@
 ---
 title: "MapEventSide"
+description: "MapEventSide 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapEventSide`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventSide
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MapEventSide`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventSide.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventSide.cs`
 
 ## 概述
 
@@ -40,200 +34,428 @@ title: "MapEventSide"
 ### GetTroops
 `public IReadOnlyList<UniqueTroopDescriptor> GetTroops()`
 
-**用途 / Purpose:** 获取 `troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetTroops();
+```
 
 ### GetTotalHealthyHeroCountOfSide
 `public int GetTotalHealthyHeroCountOfSide()`
 
-**用途 / Purpose:** 获取 `total healthy hero count of side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total healthy hero count of side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetTotalHealthyHeroCountOfSide();
+```
 
 ### CountTroops
 `public int CountTroops(Func<FlattenedTroopRosterElement, bool> pred)`
 
-**用途 / Purpose:** 处理 `count troops` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.CountTroops(func<FlattenedTroopRosterElement, false);
+```
 
 ### GetTotalHealthyTroopCountOfSide
 `public int GetTotalHealthyTroopCountOfSide()`
 
-**用途 / Purpose:** 获取 `total healthy troop count of side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total healthy troop count of side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetTotalHealthyTroopCountOfSide();
+```
 
 ### RecalculateMemberCountOfSide
 `public int RecalculateMemberCountOfSide()`
 
-**用途 / Purpose:** 处理 `recalculate member count of side` 相关逻辑。
+**用途 / Purpose:** 重新计算「member count of side」以反映最新状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.RecalculateMemberCountOfSide();
+```
 
 ### RecalculateStrengthOfSide
 `public float RecalculateStrengthOfSide()`
 
-**用途 / Purpose:** 处理 `recalculate strength of side` 相关逻辑。
+**用途 / Purpose:** 重新计算「strength of side」以反映最新状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.RecalculateStrengthOfSide();
+```
 
 ### IsMainPartyAmongParties
 `public bool IsMainPartyAmongParties()`
 
-**用途 / Purpose:** 处理 `is main party among parties` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「main party among parties」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.IsMainPartyAmongParties();
+```
 
 ### CalculateRenownAndInfluenceValuesOnPartyInvolved
 `public void CalculateRenownAndInfluenceValuesOnPartyInvolved(float strengthOfSide)`
 
-**用途 / Purpose:** 处理 `calculate renown and influence values on party involved` 相关逻辑。
+**用途 / Purpose:** 计算「renown and influence values on party involved」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CalculateRenownAndInfluenceValuesOnPartyInvolved(0);
+```
 
 ### GetSideMorale
 `public float GetSideMorale()`
 
-**用途 / Purpose:** 获取 `side morale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「side morale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetSideMorale();
+```
 
 ### HandleMapEventEnd
 `public void HandleMapEventEnd()`
 
-**用途 / Purpose:** 处理 `map event end` 事件或回调。
+**用途 / Purpose:** 执行与 「map event end」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.HandleMapEventEnd();
+```
 
 ### AddHeroDamage
 `public static void AddHeroDamage(Hero character, int damage)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `hero damage`。
+**用途 / Purpose:** 将 「hero damage」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MapEventSide.AddHeroDamage(character, 0);
+```
 
 ### AllocateShips
 `public void AllocateShips()`
 
-**用途 / Purpose:** 处理 `allocate ships` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.AllocateShips();
+```
 
 ### AllocateSiegeEngines
 `public void AllocateSiegeEngines()`
 
-**用途 / Purpose:** 处理 `allocate siege engines` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.AllocateSiegeEngines();
+```
 
 ### AllocateTroops
 `public void AllocateTroops(ref List<UniqueTroopDescriptor> troopsList, int numberToAllocate, Func<UniqueTroopDescriptor, MapEventParty, bool> customAllocationConditions = null)`
 
-**用途 / Purpose:** 处理 `allocate troops` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.AllocateTroops(troopsList, 0, func<UniqueTroopDescriptor, mapEventParty, false);
+```
 
 ### GetAllTroops
 `public void GetAllTroops(ref List<UniqueTroopDescriptor> troopsList)`
 
-**用途 / Purpose:** 获取 `all troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.GetAllTroops(troopsList);
+```
 
 ### GetAllocatedTroop
 `public CharacterObject GetAllocatedTroop(UniqueTroopDescriptor troopDesc0)`
 
-**用途 / Purpose:** 获取 `allocated troop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「allocated troop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetAllocatedTroop(troopDesc0);
+```
 
 ### GetReadyTroop
 `public CharacterObject GetReadyTroop(UniqueTroopDescriptor troopDesc0)`
 
-**用途 / Purpose:** 获取 `ready troop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ready troop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetReadyTroop(troopDesc0);
+```
 
 ### GetAllocatedTroopParty
 `public PartyBase GetAllocatedTroopParty(UniqueTroopDescriptor troopDescriptor)`
 
-**用途 / Purpose:** 获取 `allocated troop party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「allocated troop party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetAllocatedTroopParty(troopDescriptor);
+```
 
 ### GetReadyTroopParty
 `public PartyBase GetReadyTroopParty(UniqueTroopDescriptor troopDescriptor)`
 
-**用途 / Purpose:** 获取 `ready troop party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ready troop party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetReadyTroopParty(troopDescriptor);
+```
 
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopDesc1)`
 
-**用途 / Purpose:** 当 `troop wounded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop wounded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnTroopWounded(troopDesc1);
+```
 
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopDesc1)`
 
-**用途 / Purpose:** 当 `troop killed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop killed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnTroopKilled(troopDesc1);
+```
 
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopDesc1, bool isOrderRetreat)`
 
-**用途 / Purpose:** 当 `troop routed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop routed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnTroopRouted(troopDesc1, false);
+```
 
 ### OnTroopScoreHit
 `public void OnTroopScoreHit(UniqueTroopDescriptor troopDesc1, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)`
 
-**用途 / Purpose:** 当 `troop score hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop score hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnTroopScoreHit(troopDesc1, attackedTroop, 0, false, false, attackerWeapon, false);
+```
 
 ### OnShipScoreHit
 `public void OnShipScoreHit(Ship strikerShip, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)`
 
-**用途 / Purpose:** 当 `ship score hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「ship score hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnShipScoreHit(strikerShip, struckShip, siegeEngine, 0, false);
+```
 
 ### OnShipDamaged
 `public void OnShipDamaged(Ship struckShip, SiegeEngineType siegeEngine, int damage)`
 
-**用途 / Purpose:** 当 `ship damaged` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「ship damaged」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnShipDamaged(struckShip, siegeEngine, 0);
+```
 
 ### MakeReadyForSimulation
 `public void MakeReadyForSimulation(FlattenedTroopRoster priorTroops, int sizeOfSide)`
 
-**用途 / Purpose:** 处理 `make ready for simulation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.MakeReadyForSimulation(priorTroops, 0);
+```
 
 ### MakeReadyForMission
 `public void MakeReadyForMission(FlattenedTroopRoster priorTroops)`
 
-**用途 / Purpose:** 处理 `make ready for mission` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.MakeReadyForMission(priorTroops);
+```
 
 ### EndSimulation
 `public void EndSimulation()`
 
-**用途 / Purpose:** 处理 `end simulation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.EndSimulation();
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.Clear();
+```
 
 ### SelectRandomSimulationTroop
 `public UniqueTroopDescriptor SelectRandomSimulationTroop()`
 
-**用途 / Purpose:** 处理 `select random simulation troop` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.SelectRandomSimulationTroop();
+```
 
 ### GetRandomSimulationShip
 `public Ship GetRandomSimulationShip()`
 
-**用途 / Purpose:** 获取 `random simulation ship` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random simulation ship」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetRandomSimulationShip();
+```
 
 ### Surrender
 `public void Surrender()`
 
-**用途 / Purpose:** 处理 `surrender` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.Surrender();
+```
 
 ### Route
 `public void Route()`
 
-**用途 / Purpose:** 处理 `route` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.Route();
+```
 
 ### CommitXpGains
 `public void CommitXpGains()`
 
-**用途 / Purpose:** 处理 `commit xp gains` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitXpGains();
+```
 
 ### CommitRenownChanges
 `public void CommitRenownChanges()`
 
-**用途 / Purpose:** 处理 `commit renown changes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitRenownChanges();
+```
 
 ### CommitInfluenceChanges
 `public void CommitInfluenceChanges()`
 
-**用途 / Purpose:** 处理 `commit influence changes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitInfluenceChanges();
+```
 
 ### CommitMoraleChanges
 `public void CommitMoraleChanges()`
 
-**用途 / Purpose:** 处理 `commit morale changes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitMoraleChanges();
+```
 
 ### CommitGoldChanges
 `public void CommitGoldChanges()`
 
-**用途 / Purpose:** 处理 `commit gold changes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitGoldChanges();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapEventSide();
-value.GetTroops();
+// 通常从对应子系统 API 获取实例后调用
+MapEventSide mapEventSide = ...;
+mapEventSide.GetTroops();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

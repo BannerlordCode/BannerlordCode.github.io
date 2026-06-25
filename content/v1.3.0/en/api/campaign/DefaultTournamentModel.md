@@ -1,13 +1,7 @@
 ---
 title: "DefaultTournamentModel"
+description: "Auto-generated class reference for DefaultTournamentModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTournamentModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTournamentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,57 +23,123 @@ Treat `DefaultTournamentModel` as a Model-style extension point: first identify 
 ### CreateTournament
 `public override TournamentGame CreateTournament(Town town)`
 
-**Purpose:** Creates a new `tournament` instance or object.
+**Purpose:** Constructs a new `tournament` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.CreateTournament(town);
+```
 
 ### GetTournamentStartChance
 `public override float GetTournamentStartChance(Town town)`
 
-**Purpose:** Gets the current value of `tournament start chance`.
+**Purpose:** Reads and returns the `tournament start chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetTournamentStartChance(town);
+```
 
 ### GetNumLeaderboardVictoriesAtGameStart
 `public override int GetNumLeaderboardVictoriesAtGameStart()`
 
-**Purpose:** Gets the current value of `num leaderboard victories at game start`.
+**Purpose:** Reads and returns the `num leaderboard victories at game start` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetNumLeaderboardVictoriesAtGameStart();
+```
 
 ### GetTournamentEndChance
 `public override float GetTournamentEndChance(TournamentGame tournament)`
 
-**Purpose:** Gets the current value of `tournament end chance`.
+**Purpose:** Reads and returns the `tournament end chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetTournamentEndChance(tournament);
+```
 
 ### GetTournamentSimulationScore
 `public override float GetTournamentSimulationScore(CharacterObject character)`
 
-**Purpose:** Gets the current value of `tournament simulation score`.
+**Purpose:** Reads and returns the `tournament simulation score` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetTournamentSimulationScore(character);
+```
 
 ### GetRenownReward
 `public override int GetRenownReward(Hero winner, Town town)`
 
-**Purpose:** Gets the current value of `renown reward`.
+**Purpose:** Reads and returns the `renown reward` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetRenownReward(winner, town);
+```
 
 ### GetInfluenceReward
 `public override int GetInfluenceReward(Hero winner, Town town)`
 
-**Purpose:** Gets the current value of `influence reward`.
+**Purpose:** Reads and returns the `influence reward` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetInfluenceReward(winner, town);
+```
 
 ### GetSkillXpGainFromTournament
 `public override ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)`
 
-**Purpose:** Gets the current value of `skill xp gain from tournament`.
+**Purpose:** Reads and returns the `skill xp gain from tournament` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetSkillXpGainFromTournament(town);
+```
 
 ### GetParticipantArmor
 `public override Equipment GetParticipantArmor(CharacterObject participant)`
 
-**Purpose:** Gets the current value of `participant armor`.
+**Purpose:** Reads and returns the `participant armor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetParticipantArmor(participant);
+```
 
 ### GetRegularRewardItems
 `public override MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
 
-**Purpose:** Gets the current value of `regular reward items`.
+**Purpose:** Reads and returns the `regular reward items` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetRegularRewardItems(town, 0, 0);
+```
 
 ### GetEliteRewardItems
 `public override MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
 
-**Purpose:** Gets the current value of `elite reward items`.
+**Purpose:** Reads and returns the `elite reward items` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTournamentModel from the subsystem API first
+DefaultTournamentModel defaultTournamentModel = ...;
+var result = defaultTournamentModel.GetEliteRewardItems(town, 0, 0);
+```
 
 ## Usage Example
 
@@ -89,4 +149,4 @@ Game.Current.ReplaceModel<DefaultTournamentModel>(new MyDefaultTournamentModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

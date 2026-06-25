@@ -1,13 +1,7 @@
 ---
 title: "EpicPlatformServices"
+description: "Auto-generated class reference for EpicPlatformServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EpicPlatformServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EpicPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService.Epic
@@ -58,35 +52,66 @@ Start from namespace `TaleWorlds.PlatformService.Epic` to place it in the stack,
 ### Initialize
 `public bool Initialize(IFriendListService additionalFriendListServices)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of EpicPlatformServices from the subsystem API first
+EpicPlatformServices epicPlatformServices = ...;
+var result = epicPlatformServices.Initialize(additionalFriendListServices);
+```
 
 ### Terminate
 `public void Terminate()`
 
-**Purpose:** Handles logic related to `terminate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EpicPlatformServices from the subsystem API first
+EpicPlatformServices epicPlatformServices = ...;
+epicPlatformServices.Terminate();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of EpicPlatformServices from the subsystem API first
+EpicPlatformServices epicPlatformServices = ...;
+epicPlatformServices.Tick(0);
+```
 
 ### QueryDefinitions
 `public void QueryDefinitions()`
 
-**Purpose:** Handles logic related to `query definitions`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EpicPlatformServices from the subsystem API first
+EpicPlatformServices epicPlatformServices = ...;
+epicPlatformServices.QueryDefinitions();
+```
 
 ### ShowGamepadTextInput
 `public bool ShowGamepadTextInput(string descriptionText, string existingText, uint maxChars, bool isObfuscated)`
 
-**Purpose:** Handles logic related to `show gamepad text input`.
+**Purpose:** Displays the UI or element associated with `gamepad text input`.
+
+```csharp
+// Obtain an instance of EpicPlatformServices from the subsystem API first
+EpicPlatformServices epicPlatformServices = ...;
+var result = epicPlatformServices.ShowGamepadTextInput("example", "example", 0, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EpicPlatformServices();
-value.Initialize(additionalFriendListServices);
+// Typically call this after obtaining an instance from the subsystem API
+EpicPlatformServices epicPlatformServices = ...;
+epicPlatformServices.Initialize(additionalFriendListServices);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

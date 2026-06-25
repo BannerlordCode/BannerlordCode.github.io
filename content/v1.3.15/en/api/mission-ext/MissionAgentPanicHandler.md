@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentPanicHandler"
+description: "Auto-generated class reference for MissionAgentPanicHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentPanicHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionAgentPanicHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,24 +23,42 @@ Treat `MissionAgentPanicHandler` as a Handler-style extension point: first ident
 ### OnAgentPanicked
 `public override void OnAgentPanicked(Agent agent)`
 
-**Purpose:** Called when the `agent panicked` event is raised.
+**Purpose:** Invoked when the `agent panicked` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentPanicHandler from the subsystem API first
+MissionAgentPanicHandler missionAgentPanicHandler = ...;
+missionAgentPanicHandler.OnAgentPanicked(agent);
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentPanicHandler from the subsystem API first
+MissionAgentPanicHandler missionAgentPanicHandler = ...;
+missionAgentPanicHandler.OnPreMissionTick(0);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentPanicHandler from the subsystem API first
+MissionAgentPanicHandler missionAgentPanicHandler = ...;
+missionAgentPanicHandler.OnRemoveBehavior();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAgentPanicHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionAgentPanicHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

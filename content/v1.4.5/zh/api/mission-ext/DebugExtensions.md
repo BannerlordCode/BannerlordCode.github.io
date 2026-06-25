@@ -1,20 +1,14 @@
 ---
 title: "DebugExtensions"
+description: "DebugExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DebugExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugExtensions.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "DebugExtensions"
 ### RenderDebugCircleOnTerrain
 `public static void RenderDebugCircleOnTerrain(Scene scene, MatrixFrame frame, float radius, uint color, bool depthCheck = true, bool isDotted = false)`
 
-**用途 / Purpose:** 处理 `render debug circle on terrain` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugExtensions.RenderDebugCircleOnTerrain(scene, frame, 0, 0, false, false);
+```
 
 ### RenderDebugArcOnTerrain
 `public static void RenderDebugArcOnTerrain(Scene scene, MatrixFrame frame, float radius, float beginAngle, float endAngle, uint color, bool depthCheck = true, bool isDotted = false)`
 
-**用途 / Purpose:** 处理 `render debug arc on terrain` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugExtensions.RenderDebugArcOnTerrain(scene, frame, 0, 0, 0, 0, false, false);
+```
 
 ### RenderDebugLineOnTerrain
 `public static void RenderDebugLineOnTerrain(Scene scene, Vec3 position, Vec3 direction, uint color, bool depthCheck = true, float time = 0f, bool isDotted = false, float pointDensity = 1f)`
 
-**用途 / Purpose:** 处理 `render debug line on terrain` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugExtensions.RenderDebugLineOnTerrain(scene, position, direction, 0, false, 0, false, 0);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ DebugExtensions.RenderDebugCircleOnTerrain(scene, frame, 0, 0, false, false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

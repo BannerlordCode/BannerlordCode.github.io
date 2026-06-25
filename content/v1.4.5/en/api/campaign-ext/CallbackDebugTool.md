@@ -1,20 +1,14 @@
 ---
 title: "CallbackDebugTool"
+description: "Auto-generated class reference for CallbackDebugTool."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CallbackDebugTool`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CallbackDebugTool
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class CallbackDebugTool`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackDebugTool.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/CallbackDebugTool.cs`
 
 ## Overview
 
@@ -31,20 +25,40 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 
 **Purpose:** Adds `log` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+CallbackDebugTool.AddLog("example");
+```
+
 ### FrameEnd
 `public static void FrameEnd()`
 
-**Purpose:** Handles logic related to `frame end`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CallbackDebugTool.FrameEnd();
+```
 
 ### Reset
 `public static void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+CallbackDebugTool.Reset();
+```
 
 ### ShowResults
 `public static string ShowResults()`
 
-**Purpose:** Handles logic related to `show results`.
+**Purpose:** Displays the UI or element associated with `results`.
+
+```csharp
+// Static call; no instance required
+CallbackDebugTool.ShowResults();
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ CallbackDebugTool.AddLog("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,24 +1,18 @@
 ---
 title: "MBInitialScreenBase"
+description: "Auto-generated class reference for MBInitialScreenBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBInitialScreenBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBInitialScreenBase
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBInitialScreenBase : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/MBInitialScreenBase.cs`
 
 ## Overview
 
-`MBInitialScreenBase` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBInitialScreenBase` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,31 +23,50 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### DoExitButtonAction
 `public static void DoExitButtonAction()`
 
-**Purpose:** Handles logic related to `do exit button action`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBInitialScreenBase.DoExitButtonAction();
+```
 
 ### StartedRendering
 `public bool StartedRendering()`
 
-**Purpose:** Handles logic related to `started rendering`.
+**Purpose:** Starts the `ed rendering` flow or state machine.
+
+```csharp
+// Obtain an instance of MBInitialScreenBase from the subsystem API first
+MBInitialScreenBase mBInitialScreenBase = ...;
+var result = mBInitialScreenBase.StartedRendering();
+```
 
 ### OnEditModeEnterPress
 `public static void OnEditModeEnterPress()`
 
-**Purpose:** Called when the `edit mode enter press` event is raised.
+**Purpose:** Invoked when the `edit mode enter press` event is raised.
+
+```csharp
+// Static call; no instance required
+MBInitialScreenBase.OnEditModeEnterPress();
+```
 
 ### OnEditModeEnterRelease
 `public static void OnEditModeEnterRelease()`
 
-**Purpose:** Called when the `edit mode enter release` event is raised.
+**Purpose:** Invoked when the `edit mode enter release` event is raised.
+
+```csharp
+// Static call; no instance required
+MBInitialScreenBase.OnEditModeEnterRelease();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBInitialScreenBase.DoExitButtonAction();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

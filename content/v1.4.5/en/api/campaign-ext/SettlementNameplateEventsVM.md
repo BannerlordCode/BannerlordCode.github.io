@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplateEventsVM"
+description: "Auto-generated class reference for SettlementNameplateEventsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateEventsVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateEventsVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SettlementNameplateEventsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplateEventsVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplateEventsVM.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SettlementNameplateEventsVM from the subsystem API first
+SettlementNameplateEventsVM settlementNameplateEventsVM = ...;
+settlementNameplateEventsVM.Tick();
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of SettlementNameplateEventsVM from the subsystem API first
+SettlementNameplateEventsVM settlementNameplateEventsVM = ...;
+settlementNameplateEventsVM.RegisterEvents();
+```
 
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**Purpose:** Handles logic related to `unload events`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SettlementNameplateEventsVM from the subsystem API first
+SettlementNameplateEventsVM settlementNameplateEventsVM = ...;
+settlementNameplateEventsVM.UnloadEvents();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNameplateEventsVM();
-value.Tick();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementNameplateEventsVM settlementNameplateEventsVM = ...;
+settlementNameplateEventsVM.Tick();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

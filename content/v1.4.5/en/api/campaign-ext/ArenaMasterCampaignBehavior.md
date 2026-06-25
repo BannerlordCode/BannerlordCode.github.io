@@ -1,20 +1,14 @@
 ---
 title: "ArenaMasterCampaignBehavior"
+description: "Auto-generated class reference for ArenaMasterCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArenaMasterCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaMasterCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class ArenaMasterCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/ArenaMasterCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/ArenaMasterCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,45 +23,85 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ArenaMasterCampaignBehavior from the subsystem API first
+ArenaMasterCampaignBehavior arenaMasterCampaignBehavior = ...;
+arenaMasterCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ArenaMasterCampaignBehavior from the subsystem API first
+ArenaMasterCampaignBehavior arenaMasterCampaignBehavior = ...;
+arenaMasterCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of ArenaMasterCampaignBehavior from the subsystem API first
+ArenaMasterCampaignBehavior arenaMasterCampaignBehavior = ...;
+arenaMasterCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Called when the `settlement entered` event is raised.
+**Purpose:** Invoked when the `settlement entered` event is raised.
+
+```csharp
+// Obtain an instance of ArenaMasterCampaignBehavior from the subsystem API first
+ArenaMasterCampaignBehavior arenaMasterCampaignBehavior = ...;
+arenaMasterCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ### conversation_tournament_soon_on_condition
 `public static bool conversation_tournament_soon_on_condition()`
 
-**Purpose:** Handles logic related to `conversation_tournament_soon_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ArenaMasterCampaignBehavior.conversation_tournament_soon_on_condition();
+```
 
 ### conversation_arena_join_tournament_on_consequence
 `public static void conversation_arena_join_tournament_on_consequence()`
 
-**Purpose:** Handles logic related to `conversation_arena_join_tournament_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ArenaMasterCampaignBehavior.conversation_arena_join_tournament_on_consequence();
+```
 
 ### conversation_arena_join_fight_on_consequence
 `public static void conversation_arena_join_fight_on_consequence()`
 
-**Purpose:** Handles logic related to `conversation_arena_join_fight_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ArenaMasterCampaignBehavior.conversation_arena_join_fight_on_consequence();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArenaMasterCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+ArenaMasterCampaignBehavior arenaMasterCampaignBehavior = ...;
+arenaMasterCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

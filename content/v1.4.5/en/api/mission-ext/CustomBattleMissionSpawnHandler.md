@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleMissionSpawnHandler"
+description: "Auto-generated class reference for CustomBattleMissionSpawnHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleMissionSpawnHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleMissionSpawnHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionSpawnHandlers
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleMissionSpawnHandler : CustomMissionSpawnHandler`
 **Base:** `CustomMissionSpawnHandler`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomBattleMissionSpawnHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomBattleMissionSpawnHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `CustomBattleMissionSpawnHandler` as a Handler-style extension point: firs
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleMissionSpawnHandler from the subsystem API first
+CustomBattleMissionSpawnHandler customBattleMissionSpawnHandler = ...;
+customBattleMissionSpawnHandler.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CustomBattleMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<CustomBattleMissionSpawnHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

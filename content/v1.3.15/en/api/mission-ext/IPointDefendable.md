@@ -1,18 +1,12 @@
 ---
 title: "IPointDefendable"
+description: "Auto-generated class reference for IPointDefendable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IPointDefendable`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IPointDefendable
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IPointDefendable`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IPointDefendable.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IPointDefendable implementation = GetPointDefendableImplementation();
+// Usually obtained through DI or a factory method
+IIPointDefendable service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

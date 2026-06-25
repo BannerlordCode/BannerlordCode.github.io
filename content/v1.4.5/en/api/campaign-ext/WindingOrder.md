@@ -1,20 +1,14 @@
 ---
 title: "WindingOrder"
+description: "Auto-generated class reference for WindingOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WindingOrder`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WindingOrder
 
 **Namespace:** (global)
 **Module:** (global)
-**Type:** `class`
+**Type:** `public enum WindingOrder`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/WindingOrder.cs`
+**File:** `bin/TaleWorlds.Library/WindingOrder.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `(global)` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var example = new WindingOrder();
+// Obtain an instance from the relevant subsystem API
+WindingOrder instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

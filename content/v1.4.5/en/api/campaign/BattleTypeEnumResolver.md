@@ -1,20 +1,14 @@
 ---
 title: "BattleTypeEnumResolver"
+description: "Auto-generated class reference for BattleTypeEnumResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleTypeEnumResolver`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleTypeEnumResolver
 
 **Namespace:** TaleWorlds.CampaignSystem.SaveCompability
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BattleTypeEnumResolver : IEnumResolver`
 **Base:** `IEnumResolver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/BattleTypeEnumResolver.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/BattleTypeEnumResolver.cs`
 
 ## Overview
 
@@ -29,14 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SaveCompability` to place it in 
 ### ResolveObject
 `public string ResolveObject(string originalObject)`
 
-**Purpose:** Handles logic related to `resolve object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleTypeEnumResolver from the subsystem API first
+BattleTypeEnumResolver battleTypeEnumResolver = ...;
+var result = battleTypeEnumResolver.ResolveObject("example");
+```
 
 ## Usage Example
 
 ```csharp
-BattleTypeEnumResolver example = BattleTypeEnumResolver.Value;
+// Typically call this after obtaining an instance from the subsystem API
+BattleTypeEnumResolver battleTypeEnumResolver = ...;
+battleTypeEnumResolver.ResolveObject("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

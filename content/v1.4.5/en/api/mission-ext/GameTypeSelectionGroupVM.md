@@ -1,20 +1,14 @@
 ---
 title: "GameTypeSelectionGroupVM"
+description: "Auto-generated class reference for GameTypeSelectionGroupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameTypeSelectionGroupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTypeSelectionGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameTypeSelectionGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/GameTypeSelectionGroupVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/GameTypeSelectionGroupVM.cs`
 
 ## Overview
 
@@ -43,20 +37,33 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameTypeSelectionGroupVM from the subsystem API first
+GameTypeSelectionGroupVM gameTypeSelectionGroupVM = ...;
+gameTypeSelectionGroupVM.RefreshValues();
+```
 
 ### RandomizeAll
 `public void RandomizeAll()`
 
-**Purpose:** Handles logic related to `randomize all`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameTypeSelectionGroupVM from the subsystem API first
+GameTypeSelectionGroupVM gameTypeSelectionGroupVM = ...;
+gameTypeSelectionGroupVM.RandomizeAll();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameTypeSelectionGroupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameTypeSelectionGroupVM gameTypeSelectionGroupVM = ...;
+gameTypeSelectionGroupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

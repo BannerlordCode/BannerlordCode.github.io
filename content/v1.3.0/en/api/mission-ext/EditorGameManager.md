@@ -1,13 +1,7 @@
 ---
 title: "EditorGameManager"
+description: "Auto-generated class reference for EditorGameManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditorGameManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditorGameManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,12 +23,24 @@ Treat `EditorGameManager` as a Manager-style extension point: first identify who
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**Purpose:** Called when the `after campaign start` event is raised.
+**Purpose:** Invoked when the `after campaign start` event is raised.
+
+```csharp
+// Obtain an instance of EditorGameManager from the subsystem API first
+EditorGameManager editorGameManager = ...;
+editorGameManager.OnAfterCampaignStart(game);
+```
 
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** Called when the `load finished` event is raised.
+**Purpose:** Invoked when the `load finished` event is raised.
+
+```csharp
+// Obtain an instance of EditorGameManager from the subsystem API first
+EditorGameManager editorGameManager = ...;
+editorGameManager.OnLoadFinished();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = EditorGameManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

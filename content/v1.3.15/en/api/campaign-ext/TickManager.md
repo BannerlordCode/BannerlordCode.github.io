@@ -1,13 +1,7 @@
 ---
 title: "TickManager"
+description: "Auto-generated class reference for TickManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TickManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TickManager
 
 **Namespace:** TaleWorlds.Network
@@ -29,12 +23,24 @@ Treat `TickManager` as a Manager-style extension point: first identify who creat
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TickManager from the subsystem API first
+TickManager tickManager = ...;
+tickManager.Tick();
+```
 
 ### TickDelegate
 `public delegate void TickDelegate()`
 
-**Purpose:** Handles logic related to `tick delegate`.
+**Purpose:** Advances the `delegate` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TickManager from the subsystem API first
+TickManager tickManager = ...;
+tickManager.TickDelegate();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = TickManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

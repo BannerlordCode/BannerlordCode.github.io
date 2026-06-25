@@ -1,20 +1,14 @@
 ---
 title: "TooltipPositioningType"
+description: "TooltipPositioningType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TooltipPositioningType`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipPositioningType
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum TooltipPositioningType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/TooltipPositioningType.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/TooltipPositioningType.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "TooltipPositioningType"
 ## 使用示例
 
 ```csharp
-var example = new TooltipPositioningType();
+// 从对应子系统 API 获取实例
+TooltipPositioningType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

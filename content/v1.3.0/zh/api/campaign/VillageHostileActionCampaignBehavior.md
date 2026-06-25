@@ -1,13 +1,7 @@
 ---
 title: "VillageHostileActionCampaignBehavior"
+description: "VillageHostileActionCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VillageHostileActionCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageHostileActionCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,55 +23,104 @@ title: "VillageHostileActionCampaignBehavior"
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 VillageHostileActionCampaignBehavior 实例
+VillageHostileActionCampaignBehavior villageHostileActionCampaignBehavior = ...;
+villageHostileActionCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 VillageHostileActionCampaignBehavior 实例
+VillageHostileActionCampaignBehavior villageHostileActionCampaignBehavior = ...;
+villageHostileActionCampaignBehavior.RegisterEvents();
+```
 
 ### AddGameMenus
 `public void AddGameMenus(CampaignGameStarter campaignGameSystemStarter)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `game menus`。
+**用途 / Purpose:** 将 「game menus」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 VillageHostileActionCampaignBehavior 实例
+VillageHostileActionCampaignBehavior villageHostileActionCampaignBehavior = ...;
+villageHostileActionCampaignBehavior.AddGameMenus(campaignGameSystemStarter);
+```
 
 ### hostile_action_village_on_init
 `public static void hostile_action_village_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `hostile_action_village_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+VillageHostileActionCampaignBehavior.hostile_action_village_on_init(args);
+```
 
 ### wait_menu_raiding_village_on_tick
 `public static void wait_menu_raiding_village_on_tick(MenuCallbackArgs args, CampaignTime dt)`
 
-**用途 / Purpose:** 处理 `wait_menu_raiding_village_on_tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+VillageHostileActionCampaignBehavior.wait_menu_raiding_village_on_tick(args, dt);
+```
 
 ### wait_menu_start_raiding_on_condition
 `public static bool wait_menu_start_raiding_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `wait_menu_start_raiding_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+VillageHostileActionCampaignBehavior.wait_menu_start_raiding_on_condition(args);
+```
 
 ### wait_menu_end_raiding_on_consequence
 `public static void wait_menu_end_raiding_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `wait_menu_end_raiding_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+VillageHostileActionCampaignBehavior.wait_menu_end_raiding_on_consequence(args);
+```
 
 ### game_menu_village_raid_ended_menu_sound_on_init
 `public static void game_menu_village_raid_ended_menu_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_village_raid_ended_menu_sound_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+VillageHostileActionCampaignBehavior.game_menu_village_raid_ended_menu_sound_on_init(args);
+```
 
 ### game_menu_village_menu_on_init
 `public static void game_menu_village_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_village_menu_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+VillageHostileActionCampaignBehavior.game_menu_village_menu_on_init(args);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VillageHostileActionCampaignBehavior();
-value.SyncData(dataStore);
+// 通常从对应子系统 API 获取实例后调用
+VillageHostileActionCampaignBehavior villageHostileActionCampaignBehavior = ...;
+villageHostileActionCampaignBehavior.SyncData(dataStore);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

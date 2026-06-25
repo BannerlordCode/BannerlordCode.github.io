@@ -1,13 +1,7 @@
 ---
 title: "BodyGenerator"
+description: "BodyGenerator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BodyGenerator`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BodyGenerator
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,25 +29,44 @@ title: "BodyGenerator"
 ### InitBodyGenerator
 `public FaceGenerationParams InitBodyGenerator(bool isDressed)`
 
-**用途 / Purpose:** 初始化 `body generator` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「body generator」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BodyGenerator 实例
+BodyGenerator bodyGenerator = ...;
+var result = bodyGenerator.InitBodyGenerator(false);
+```
 
 ### RefreshFace
 `public void RefreshFace(FaceGenerationParams faceGenerationParams, bool hasEquipment)`
 
-**用途 / Purpose:** 刷新 `face` 的显示或缓存。
+**用途 / Purpose:** 使 「face」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BodyGenerator 实例
+BodyGenerator bodyGenerator = ...;
+bodyGenerator.RefreshFace(faceGenerationParams, false);
+```
 
 ### SaveCurrentCharacter
 `public void SaveCurrentCharacter()`
 
-**用途 / Purpose:** 保存 `current character` 数据。
+**用途 / Purpose:** 将 「current character」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 BodyGenerator 实例
+BodyGenerator bodyGenerator = ...;
+bodyGenerator.SaveCurrentCharacter();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BodyGenerator();
-value.InitBodyGenerator(false);
+// 通常从对应子系统 API 获取实例后调用
+BodyGenerator bodyGenerator = ...;
+bodyGenerator.InitBodyGenerator(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

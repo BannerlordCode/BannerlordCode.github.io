@@ -1,13 +1,7 @@
 ---
 title: "OrderFlag"
+description: "Auto-generated class reference for OrderFlag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderFlag`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderFlag
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Order
@@ -39,35 +33,65 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Order` to place
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of OrderFlag from the subsystem API first
+OrderFlag orderFlag = ...;
+orderFlag.Tick(0);
+```
 
 ### SetArrowVisibility
 `public void SetArrowVisibility(bool isVisible, Vec2 arrowDirection)`
 
-**Purpose:** Sets the value or state of `arrow visibility`.
+**Purpose:** Assigns a new value to `arrow visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderFlag from the subsystem API first
+OrderFlag orderFlag = ...;
+orderFlag.SetArrowVisibility(false, arrowDirection);
+```
 
 ### IsPositionOnValidGround
 `public virtual bool IsPositionOnValidGround(WorldPosition worldPosition)`
 
-**Purpose:** Handles logic related to `is position on valid ground`.
+**Purpose:** Determines whether the current object is in the `position on valid ground` state or condition.
+
+```csharp
+// Obtain an instance of OrderFlag from the subsystem API first
+OrderFlag orderFlag = ...;
+var result = orderFlag.IsPositionOnValidGround(worldPosition);
+```
 
 ### IsOrderPositionValid
 `public static bool IsOrderPositionValid(WorldPosition orderPosition)`
 
-**Purpose:** Handles logic related to `is order position valid`.
+**Purpose:** Determines whether the current object is in the `order position valid` state or condition.
+
+```csharp
+// Static call; no instance required
+OrderFlag.IsOrderPositionValid(orderPosition);
+```
 
 ### SetWidthVisibility
 `public void SetWidthVisibility(bool isVisible, float width)`
 
-**Purpose:** Sets the value or state of `width visibility`.
+**Purpose:** Assigns a new value to `width visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderFlag from the subsystem API first
+OrderFlag orderFlag = ...;
+orderFlag.SetWidthVisibility(false, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderFlag();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+OrderFlag orderFlag = ...;
+orderFlag.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

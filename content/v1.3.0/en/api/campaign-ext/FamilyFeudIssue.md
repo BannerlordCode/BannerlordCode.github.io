@@ -1,23 +1,18 @@
 ---
 title: "FamilyFeudIssue"
+description: "Auto-generated class reference for FamilyFeudIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FamilyFeudIssue`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FamilyFeudIssue
 
 **Namespace:** SandBox.Issues
 **Module:** SandBox.Issues
 **Type:** `public class FamilyFeudIssue`
-**Area:** campaign-ext
+**Base:** none
+**File:** `SandBox/Issues/FamilyFeudIssueBehavior.cs`
 
 ## Overview
 
-`FamilyFeudIssue` lives in `SandBox.Issues`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`FamilyFeudIssue` lives in `SandBox.Issues` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -47,118 +42,270 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 | `IssueLordSolutionCounterOfferAcceptByPlayer` | `public override TextObject IssueLordSolutionCounterOfferAcceptByPlayer { get; }` |
 | `IssueLordSolutionCounterOfferAcceptResponseByOtherNpc` | `public override TextObject IssueLordSolutionCounterOfferAcceptResponseByOtherNpc { get; }` |
 | `IssueLordSolutionCounterOfferDeclineByPlayer` | `public override TextObject IssueLordSolutionCounterOfferDeclineByPlayer { get; }` |
+| `IssueLordSolutionCounterOfferDeclineResponseByOtherNpc` | `public override TextObject IssueLordSolutionCounterOfferDeclineResponseByOtherNpc { get; }` |
+| `IssueQuestSolutionAcceptByPlayer` | `public override TextObject IssueQuestSolutionAcceptByPlayer { get; }` |
+| `Title` | `public override TextObject Title { get; }` |
+| `Description` | `public override TextObject Description { get; }` |
+| `IssueAlternativeSolutionAcceptByPlayer` | `public override TextObject IssueAlternativeSolutionAcceptByPlayer { get; }` |
+| `IssueDiscussAlternativeSolution` | `public override TextObject IssueDiscussAlternativeSolution { get; }` |
+| `IssueAlternativeSolutionResponseByIssueGiver` | `public override TextObject IssueAlternativeSolutionResponseByIssueGiver { get; }` |
+| `IssueAsRumorInSettlement` | `public override TextObject IssueAsRumorInSettlement { get; }` |
+| `IssueAlternativeSolutionSuccessLog` | `public override TextObject IssueAlternativeSolutionSuccessLog { get; }` |
+| `IsRemainingTimeHidden` | `public override bool IsRemainingTimeHidden { get; }` |
+| `Title` | `public override TextObject Title { get; }` |
 
 ## Key Methods
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.RegisterEvents();
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.SyncData(dataStore);
+```
 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Called when the `agent hit` event is raised.
+**Purpose:** Invoked when the `agent hit` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, blow, attackCollisionData);
+```
 
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have party role or be governor info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can lead party info is requested` event is raised.
+**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Gets the current value of `alternative solution skill`.
+**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.GetAlternativeSolutionSkill(hero);
+```
 
 ### LordSolutionCondition
 `public override bool LordSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `lord solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.LordSolutionCondition(explanation);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
+**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+var result = familyFeudIssue.IssueStayAliveConditions();
+```
 
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have party role or be governor info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can lead party info is requested` event is raised.
+**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnMissionStarted
 `public void OnMissionStarted(IMission iMission)`
 
-**Purpose:** Called when the `mission started` event is raised.
+**Purpose:** Invoked when the `mission started` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnMissionStarted(iMission);
+```
+
+### OnSettlementLeft
+`public void OnSettlementLeft(MobileParty party, Settlement settlement)`
+
+**Purpose:** Invoked when the `settlement left` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnSettlementLeft(party, settlement);
+```
+
+### OnBeforeMissionOpened
+`public void OnBeforeMissionOpened()`
+
+**Purpose:** Invoked when the `before mission opened` event is raised.
+
+```csharp
+// Obtain an instance of FamilyFeudIssue from the subsystem API first
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.OnBeforeMissionOpened();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a FamilyFeudIssue instance from game state, then call one of its public methods
-var value = new FamilyFeudIssue();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+FamilyFeudIssue familyFeudIssue = ...;
+familyFeudIssue.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "StringOptionDataVM"
+description: "Auto-generated class reference for StringOptionDataVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringOptionDataVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StringOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
@@ -35,55 +29,110 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### UpdateData
 `public override void UpdateData(bool initialUpdate)`
 
-**Purpose:** Updates the state or data of `data`.
+**Purpose:** Recalculates and stores the latest representation of `data`.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.UpdateData(false);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.RefreshValues();
+```
 
 ### UpdateValue
 `public void UpdateValue(SelectorVM<SelectorItemVM> selector)`
 
-**Purpose:** Updates the state or data of `value`.
+**Purpose:** Recalculates and stores the latest representation of `value`.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.UpdateValue(selector);
+```
 
 ### UpdateValue
 `public override void UpdateValue()`
 
-**Purpose:** Updates the state or data of `value`.
+**Purpose:** Recalculates and stores the latest representation of `value`.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.UpdateValue();
+```
 
 ### Cancel
 `public override void Cancel()`
 
-**Purpose:** Checks whether the current object can `cel`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel`.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.Cancel();
+```
 
 ### SetValue
 `public override void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.SetValue(0);
+```
 
 ### ResetData
 `public override void ResetData()`
 
-**Purpose:** Resets `data` to its initial state.
+**Purpose:** Returns `data` to its default or initial condition.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.ResetData();
+```
 
 ### IsChanged
 `public override bool IsChanged()`
 
-**Purpose:** Handles logic related to `is changed`.
+**Purpose:** Determines whether the current object is in the `changed` state or condition.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+var result = stringOptionDataVM.IsChanged();
+```
 
 ### ApplyValue
 `public override void ApplyValue()`
 
-**Purpose:** Applies `value` to the current object.
+**Purpose:** Applies the effect of `value` to the current object.
+
+```csharp
+// Obtain an instance of StringOptionDataVM from the subsystem API first
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.ApplyValue();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StringOptionDataVM();
-value.UpdateData(false);
+// Typically call this after obtaining an instance from the subsystem API
+StringOptionDataVM stringOptionDataVM = ...;
+stringOptionDataVM.UpdateData(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

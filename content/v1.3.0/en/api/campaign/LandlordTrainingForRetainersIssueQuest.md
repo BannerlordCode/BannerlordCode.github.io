@@ -1,13 +1,7 @@
 ---
 title: "LandlordTrainingForRetainersIssueQuest"
+description: "Auto-generated class reference for LandlordTrainingForRetainersIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LandlordTrainingForRetainersIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LandlordTrainingForRetainersIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new LandlordTrainingForRetainersIssueQuest();
+// Obtain an instance from the relevant subsystem API
+LandlordTrainingForRetainersIssueQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

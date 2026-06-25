@@ -1,20 +1,14 @@
 ---
 title: "StreamHelpers"
+description: "Auto-generated class reference for StreamHelpers."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StreamHelpers`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StreamHelpers
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class StreamHelpers`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CopyStream
 `public static Stream CopyStream(Stream inputStream)`
 
-**Purpose:** Handles logic related to `copy stream`.
+**Purpose:** Copies the `stream` state of the current object to a target.
+
+```csharp
+// Static call; no instance required
+StreamHelpers.CopyStream(inputStream);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ StreamHelpers.CopyStream(inputStream);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

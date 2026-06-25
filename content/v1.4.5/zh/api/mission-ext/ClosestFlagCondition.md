@@ -1,20 +1,14 @@
 ---
 title: "ClosestFlagCondition"
+description: "ClosestFlagCondition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClosestFlagCondition`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClosestFlagCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClosestFlagCondition : MPPerkCondition<MissionMultiplayerFlagDomination>`
 **Base:** `MPPerkCondition<MissionMultiplayerFlagDomination>`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/ClosestFlagCondition.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/ClosestFlagCondition.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "ClosestFlagCondition"
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 ClosestFlagCondition 实例
+ClosestFlagCondition closestFlagCondition = ...;
+var result = closestFlagCondition.Check(peer);
+```
 
 ### Check
 `public override bool Check(Agent agent)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 ClosestFlagCondition 实例
+ClosestFlagCondition closestFlagCondition = ...;
+var result = closestFlagCondition.Check(agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClosestFlagCondition();
-value.Check(peer);
+// 通常从对应子系统 API 获取实例后调用
+ClosestFlagCondition closestFlagCondition = ...;
+closestFlagCondition.Check(peer);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

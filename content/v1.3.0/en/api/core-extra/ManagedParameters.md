@@ -1,13 +1,7 @@
 ---
 title: "ManagedParameters"
+description: "Auto-generated class reference for ManagedParameters."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedParameters`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedParameters
 
 **Namespace:** TaleWorlds.Core
@@ -35,22 +29,44 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetParameter
 `public static float GetParameter(ManagedParametersEnum managedParameterType)`
 
-**Purpose:** Gets the current value of `parameter`.
+**Purpose:** Reads and returns the `parameter` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ManagedParameters.GetParameter(managedParameterType);
+```
 
 ### SetParameter
 `public static void SetParameter(ManagedParametersEnum managedParameterType, float newValue)`
 
-**Purpose:** Sets the value or state of `parameter`.
+**Purpose:** Assigns a new value to `parameter` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+ManagedParameters.SetParameter(managedParameterType, 0);
+```
 
 ### Initialize
 `public void Initialize(string relativeXmlPath)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ManagedParameters from the subsystem API first
+ManagedParameters managedParameters = ...;
+managedParameters.Initialize("example");
+```
 
 ### GetManagedParameter
 `public float GetManagedParameter(ManagedParametersEnum managedParameterEnum)`
 
-**Purpose:** Gets the current value of `managed parameter`.
+**Purpose:** Reads and returns the `managed parameter` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedParameters from the subsystem API first
+ManagedParameters managedParameters = ...;
+var result = managedParameters.GetManagedParameter(managedParameterEnum);
+```
 
 ## Usage Example
 
@@ -60,4 +76,4 @@ ManagedParameters.GetParameter(managedParameterType);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

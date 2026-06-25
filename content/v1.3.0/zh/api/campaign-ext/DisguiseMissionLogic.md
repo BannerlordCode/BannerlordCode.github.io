@@ -1,13 +1,7 @@
 ---
 title: "DisguiseMissionLogic"
+description: "DisguiseMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DisguiseMissionLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisguiseMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -39,79 +33,163 @@ title: "DisguiseMissionLogic"
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** 当 `created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+disguiseMissionLogic.OnCreated();
+```
 
 ### GetSpawnFrameOfPassage
 `public MatrixFrame GetSpawnFrameOfPassage(Location location)`
 
-**用途 / Purpose:** 获取 `spawn frame of passage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn frame of passage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.GetSpawnFrameOfPassage(location);
+```
 
 ### IsContactAgentTracked
 `public bool IsContactAgentTracked(Agent agent)`
 
-**用途 / Purpose:** 处理 `is contact agent tracked` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「contact agent tracked」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.IsContactAgentTracked(agent);
+```
 
 ### CanCommonAreaFightBeTriggered
 `public bool CanCommonAreaFightBeTriggered()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `common area fight be triggered`。
+**用途 / Purpose:** 检查当前对象是否满足 「common area fight be triggered」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.CanCommonAreaFightBeTriggered();
+```
 
 ### IsOnLeftSide
 `public bool IsOnLeftSide(Vec2 lineA, Vec2 lineB, Vec2 point)`
 
-**用途 / Purpose:** 处理 `is on left side` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「on left side」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.IsOnLeftSide(lineA, lineB, point);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+disguiseMissionLogic.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+disguiseMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### SpawnDisguiseMissionAgentInternal
 `public Agent SpawnDisguiseMissionAgentInternal(CharacterObject agentCharacter, Vec3 initialPosition, Vec2 initialDirection, string actionSetId, bool isEnemy = true)`
 
-**用途 / Purpose:** 处理 `spawn disguise mission agent internal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.SpawnDisguiseMissionAgentInternal(agentCharacter, initialPosition, initialDirection, "example", false);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+disguiseMissionLogic.OnMissionTick(0);
+```
 
 ### GetAgentOffenseInfo
 `public DisguiseMissionLogic.ShadowingAgentOffenseInfo GetAgentOffenseInfo(Agent agent)`
 
-**用途 / Purpose:** 获取 `agent offense info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「agent offense info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.GetAgentOffenseInfo(agent);
+```
 
 ### IsAgentInDetectionRadius
 `public bool IsAgentInDetectionRadius(Agent offenderAgent, Agent detectorAgent)`
 
-**用途 / Purpose:** 处理 `is agent in detection radius` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「agent in detection radius」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.IsAgentInDetectionRadius(offenderAgent, detectorAgent);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** 当 `end mission request` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.OnEndMissionRequest(canPlayerLeave);
+```
 
 ### OnCollectPlayerEventControlFlags
 `public Agent.EventControlFlag OnCollectPlayerEventControlFlags()`
 
-**用途 / Purpose:** 当 `collect player event control flags` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「collect player event control flags」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+var result = disguiseMissionLogic.OnCollectPlayerEventControlFlags();
+```
 
 ### SetCanPlayerCameraSeeTheAgent
 `public void SetCanPlayerCameraSeeTheAgent(bool value)`
 
-**用途 / Purpose:** 设置 `can player camera see the agent` 的值或状态。
+**用途 / Purpose:** 为 「can player camera see the agent」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseMissionLogic 实例
+DisguiseMissionLogic disguiseMissionLogic = ...;
+disguiseMissionLogic.SetCanPlayerCameraSeeTheAgent(false);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new DisguiseMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<DisguiseMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

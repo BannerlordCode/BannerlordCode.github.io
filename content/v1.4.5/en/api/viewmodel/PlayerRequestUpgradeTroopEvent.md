@@ -1,20 +1,14 @@
 ---
 title: "PlayerRequestUpgradeTroopEvent"
+description: "Auto-generated class reference for PlayerRequestUpgradeTroopEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerRequestUpgradeTroopEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerRequestUpgradeTroopEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerRequestUpgradeTroopEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PlayerRequestUpgradeTroopEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PlayerRequestUpgradeTroopEvent.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ## Usage Example
 
 ```csharp
-var example = new PlayerRequestUpgradeTroopEvent();
+// Obtain an instance from the relevant subsystem API
+PlayerRequestUpgradeTroopEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

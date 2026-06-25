@@ -1,20 +1,14 @@
 ---
 title: "ArenaDuelQuestTask"
+description: "ArenaDuelQuestTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArenaDuelQuestTask`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaDuelQuestTask
 
 **Namespace:** SandBox.Issues.IssueQuestTasks
 **Module:** SandBox.Issues
 **Type:** `public class ArenaDuelQuestTask : QuestTaskBase`
 **Base:** `QuestTaskBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Issues.IssueQuestTasks/ArenaDuelQuestTask.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Issues.IssueQuestTasks/ArenaDuelQuestTask.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "ArenaDuelQuestTask"
 ### AfterStart
 `public void AfterStart(IMission mission)`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelQuestTask 实例
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.AfterStart(mission);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 设置 `references` 的值或状态。
+**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelQuestTask 实例
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.SetReferences();
+```
 
 ### OnGameMenuOpened
 `public void OnGameMenuOpened(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 当 `game menu opened` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game menu opened」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelQuestTask 实例
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.OnGameMenuOpened(args);
+```
 
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**用途 / Purpose:** 处理 `mission tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArenaDuelQuestTask 实例
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.MissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArenaDuelQuestTask();
-value.AfterStart(mission);
+// 通常从对应子系统 API 获取实例后调用
+ArenaDuelQuestTask arenaDuelQuestTask = ...;
+arenaDuelQuestTask.AfterStart(mission);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

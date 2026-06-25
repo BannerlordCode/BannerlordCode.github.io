@@ -1,20 +1,14 @@
 ---
 title: "HTMLDebugCategory"
+description: "Auto-generated class reference for HTMLDebugCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HTMLDebugCategory`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HTMLDebugCategory
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public enum HTMLDebugCategory`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/HTMLDebugCategory.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/HTMLDebugCategory.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new HTMLDebugCategory();
+// Obtain an instance from the relevant subsystem API
+HTMLDebugCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

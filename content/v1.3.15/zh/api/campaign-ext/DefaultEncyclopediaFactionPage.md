@@ -1,13 +1,7 @@
 ---
 title: "DefaultEncyclopediaFactionPage"
+description: "DefaultEncyclopediaFactionPage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEncyclopediaFactionPage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultEncyclopediaFactionPage
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,75 +23,154 @@ title: "DefaultEncyclopediaFactionPage"
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「view fully qualified name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.GetViewFullyQualifiedName();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.GetName();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.GetDescriptionText();
+```
 
 ### GetStringID
 `public override string GetStringID()`
 
-**用途 / Purpose:** 获取 `string i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string i d」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.GetStringID();
+```
 
 ### GetObject
 `public override MBObjectBase GetObject(string typeName, string stringID)`
 
-**用途 / Purpose:** 获取 `object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.GetObject("example", "example");
+```
 
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid encyclopedia item」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.IsValidEncyclopediaItem(o);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.GetComparedValueText(item);
+```
 
 ### CompareKingdoms
 `public int CompareKingdoms(EncyclopediaListItem x, EncyclopediaListItem y, Func<Kingdom, Kingdom, int> comparison)`
 
-**用途 / Purpose:** 处理 `compare kingdoms` 相关逻辑。
+**用途 / Purpose:** 比较两个「kingdoms」对象并返回大小/顺序结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaFactionPage 实例
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+var result = defaultEncyclopediaFactionPage.CompareKingdoms(x, y, func<Kingdom, kingdom, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultEncyclopediaFactionPage();
-value.GetViewFullyQualifiedName();
+// 通常从对应子系统 API 获取实例后调用
+DefaultEncyclopediaFactionPage defaultEncyclopediaFactionPage = ...;
+defaultEncyclopediaFactionPage.GetViewFullyQualifiedName();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

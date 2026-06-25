@@ -1,23 +1,18 @@
 ---
 title: "SaveOutput"
+description: "Auto-generated class reference for SaveOutput."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveOutput`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveOutput
 
 **Namespace:** TaleWorlds.SaveSystem.Save
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveOutput`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Save/SaveOutput.cs`
 
 ## Overview
 
-`SaveOutput` lives in `TaleWorlds.SaveSystem.Save`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SaveOutput` lives in `TaleWorlds.SaveSystem.Save` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,17 +33,22 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### PrintStatus
 `public void PrintStatus()`
 
-**Purpose:** Handles logic related to `print status`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SaveOutput from the subsystem API first
+SaveOutput saveOutput = ...;
+saveOutput.PrintStatus();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a SaveOutput instance from game state, then call one of its public methods
-var value = new SaveOutput();
-value.PrintStatus();
+// Typically call this after obtaining an instance from the subsystem API
+SaveOutput saveOutput = ...;
+saveOutput.PrintStatus();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

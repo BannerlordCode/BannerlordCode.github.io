@@ -1,13 +1,7 @@
 ---
 title: "InterruptingBehaviorGroup"
+description: "InterruptingBehaviorGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InterruptingBehaviorGroup`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InterruptingBehaviorGroup
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,25 +23,44 @@ title: "InterruptingBehaviorGroup"
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+interruptingBehaviorGroup.Tick(0, false);
+```
 
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+var result = interruptingBehaviorGroup.GetScore(false);
+```
 
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 处理 `force think` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+interruptingBehaviorGroup.ForceThink(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InterruptingBehaviorGroup();
-value.Tick(0, false);
+// 通常从对应子系统 API 获取实例后调用
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+interruptingBehaviorGroup.Tick(0, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

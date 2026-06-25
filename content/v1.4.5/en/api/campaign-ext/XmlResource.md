@@ -1,20 +1,14 @@
 ---
 title: "XmlResource"
+description: "Auto-generated class reference for XmlResource."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `XmlResource`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # XmlResource
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public static class XmlResource`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/XmlResource.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/XmlResource.cs`
 
 ## Overview
 
@@ -29,40 +23,72 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### XsdElement
 `public struct XsdElement(string xPath, bool alwaysPreferMerge)`
 
-**Purpose:** Handles logic related to `xsd element`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of XmlResource from the subsystem API first
+XmlResource xmlResource = ...;
+var result = xmlResource.XsdElement("example", false);
+```
 
 ### ReadXsdFileAndExtractInformation
 `public static void ReadXsdFileAndExtractInformation(string xsdFilePath)`
 
-**Purpose:** Handles logic related to `read xsd file and extract information`.
+**Purpose:** Reads the data or state of `xsd file and extract information`.
+
+```csharp
+// Static call; no instance required
+XmlResource.ReadXsdFileAndExtractInformation("example");
+```
 
 ### GetFullXPathOfElement
 `public static string GetFullXPathOfElement(XElement element, bool isXsd = true)`
 
-**Purpose:** Gets the current value of `full x path of element`.
+**Purpose:** Reads and returns the `full x path of element` value held by the current object.
+
+```csharp
+// Static call; no instance required
+XmlResource.GetFullXPathOfElement(element, false);
+```
 
 ### InitializeXmlInformationList
 `public static void InitializeXmlInformationList(List<MbObjectXmlInformation> xmlInformation)`
 
-**Purpose:** Initializes the state, resources, or bindings for `xml information list`.
+**Purpose:** Prepares the resources, state, or bindings required by `xml information list`.
+
+```csharp
+// Static call; no instance required
+XmlResource.InitializeXmlInformationList(xmlInformation);
+```
 
 ### GetMbprojxmls
 `public static void GetMbprojxmls(string moduleName)`
 
-**Purpose:** Gets the current value of `mbprojxmls`.
+**Purpose:** Reads and returns the `mbprojxmls` value held by the current object.
+
+```csharp
+// Static call; no instance required
+XmlResource.GetMbprojxmls("example");
+```
 
 ### GetXmlListAndApply
 `public static void GetXmlListAndApply(string moduleName)`
 
-**Purpose:** Gets the current value of `xml list and apply`.
+**Purpose:** Reads and returns the `xml list and apply` value held by the current object.
+
+```csharp
+// Static call; no instance required
+XmlResource.GetXmlListAndApply("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new XmlResource();
-value.XsdElement("example", false);
+// Typically call this after obtaining an instance from the subsystem API
+XmlResource xmlResource = ...;
+xmlResource.XsdElement("example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

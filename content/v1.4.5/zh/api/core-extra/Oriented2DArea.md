@@ -1,20 +1,14 @@
 ---
 title: "Oriented2DArea"
+description: "Oriented2DArea 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Oriented2DArea`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Oriented2DArea
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Oriented2DArea`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Oriented2DArea.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Oriented2DArea.cs`
 
 ## 概述
 
@@ -42,35 +36,66 @@ title: "Oriented2DArea"
 ### SetGlobalCenter
 `public void SetGlobalCenter(in Vec2 globalCenter)`
 
-**用途 / Purpose:** 设置 `global center` 的值或状态。
+**用途 / Purpose:** 为 「global center」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetGlobalCenter(globalCenter);
+```
 
 ### SetLocalDimensions
 `public void SetLocalDimensions(in Vec2 localDimensions)`
 
-**用途 / Purpose:** 设置 `local dimensions` 的值或状态。
+**用途 / Purpose:** 为 「local dimensions」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetLocalDimensions(localDimensions);
+```
 
 ### Overlaps
 `public bool Overlaps(in Oriented2DArea otherArea, float clearanceMargin)`
 
-**用途 / Purpose:** 处理 `overlaps` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.Overlaps(otherArea, 0);
+```
 
 ### Intersects
 `public bool Intersects(in LineSegment2D line, float clearanceMargin)`
 
-**用途 / Purpose:** 处理 `intersects` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.Intersects(line, 0);
+```
 
 ### GetCorners
 `public Corners GetCorners()`
 
-**用途 / Purpose:** 获取 `corners` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「corners」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Oriented2DArea 实例
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.GetCorners();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Oriented2DArea();
-value.SetGlobalCenter(globalCenter);
+// 通常从对应子系统 API 获取实例后调用
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetGlobalCenter(globalCenter);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

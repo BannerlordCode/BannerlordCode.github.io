@@ -1,13 +1,7 @@
 ---
 title: "ShipStatModel"
+description: "Auto-generated class reference for ShipStatModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipStatModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipStatModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `ShipStatModel` as a Model-style extension point: first identify who creat
 ### GetShipFlagshipScore
 `public abstract float GetShipFlagshipScore(Ship ship)`
 
-**Purpose:** Gets the current value of `ship flagship score`.
+**Purpose:** Reads and returns the `ship flagship score` value held by the current object.
+
+```csharp
+// Obtain an instance of ShipStatModel from the subsystem API first
+ShipStatModel shipStatModel = ...;
+var result = shipStatModel.GetShipFlagshipScore(ship);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomShipStatModel();
+// Typically obtained from a subsystem API or factory
+ShipStatModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

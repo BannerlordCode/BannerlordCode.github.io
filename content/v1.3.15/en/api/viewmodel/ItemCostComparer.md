@@ -1,13 +1,7 @@
 ---
 title: "ItemCostComparer"
+description: "Auto-generated class reference for ItemCostComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemCostComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemCostComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemCostComparer from the subsystem API first
+ItemCostComparer itemCostComparer = ...;
+var result = itemCostComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemCostComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemCostComparer itemCostComparer = ...;
+itemCostComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

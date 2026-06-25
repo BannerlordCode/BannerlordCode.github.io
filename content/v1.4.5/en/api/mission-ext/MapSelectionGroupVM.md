@@ -1,20 +1,14 @@
 ---
 title: "MapSelectionGroupVM"
+description: "Auto-generated class reference for MapSelectionGroupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSelectionGroupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSelectionGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapSelectionGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/MapSelectionGroupVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/MapSelectionGroupVM.cs`
 
 ## Overview
 
@@ -55,30 +49,55 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapSelectionGroupVM from the subsystem API first
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.RefreshValues();
+```
 
 ### ExecuteSallyOutChange
 `public void ExecuteSallyOutChange()`
 
-**Purpose:** Executes the `sally out change` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sally out change`.
+
+```csharp
+// Obtain an instance of MapSelectionGroupVM from the subsystem API first
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.ExecuteSallyOutChange();
+```
 
 ### OnGameTypeChange
 `public void OnGameTypeChange(string gameTypeStringId)`
 
-**Purpose:** Called when the `game type change` event is raised.
+**Purpose:** Invoked when the `game type change` event is raised.
+
+```csharp
+// Obtain an instance of MapSelectionGroupVM from the subsystem API first
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.OnGameTypeChange("example");
+```
 
 ### RandomizeAll
 `public void RandomizeAll()`
 
-**Purpose:** Handles logic related to `randomize all`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapSelectionGroupVM from the subsystem API first
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.RandomizeAll();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapSelectionGroupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapSelectionGroupVM mapSelectionGroupVM = ...;
+mapSelectionGroupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

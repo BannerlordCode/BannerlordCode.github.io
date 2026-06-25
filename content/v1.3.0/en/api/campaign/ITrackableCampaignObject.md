@@ -1,19 +1,13 @@
 ---
 title: "ITrackableCampaignObject"
+description: "Auto-generated class reference for ITrackableCampaignObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ITrackableCampaignObject`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ITrackableCampaignObject
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
+**Type:** `public interface ITrackableCampaignObject : ITrackableBase`
+**Base:** `ITrackableBase`
 **File:** `TaleWorlds.CampaignSystem/ITrackableCampaignObject.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-ITrackableCampaignObject implementation = GetTrackableCampaignObjectImplementation();
+// Usually obtained through DI or a factory method
+IITrackableCampaignObject service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

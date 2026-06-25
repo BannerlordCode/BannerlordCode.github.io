@@ -1,13 +1,7 @@
 ---
 title: "RaidModel"
+description: "RaidModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RaidModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RaidModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,19 +29,32 @@ title: "RaidModel"
 ### GetCommonLootItemScores
 `public abstract MBReadOnlyList<ValueTuple<ItemObject, float>> GetCommonLootItemScores()`
 
-**用途 / Purpose:** 获取 `common loot item scores` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「common loot item scores」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RaidModel 实例
+RaidModel raidModel = ...;
+var result = raidModel.GetCommonLootItemScores();
+```
 
 ### CalculateHitDamage
 `public abstract ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**用途 / Purpose:** 处理 `calculate hit damage` 相关逻辑。
+**用途 / Purpose:** 计算「hit damage」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 RaidModel 实例
+RaidModel raidModel = ...;
+var result = raidModel.CalculateHitDamage(attackerSide, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomRaidModel();
+// 通常通过子系统 API 或工厂获得派生实例
+RaidModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MobilePartyVisualManager"
+description: "MobilePartyVisualManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MobilePartyVisualManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyVisualManager
 
 **Namespace:** SandBox.View.Map.Managers
 **Module:** SandBox.View
 **Type:** `public class MobilePartyVisualManager : EntityVisualManagerBase<PartyBase>`
 **Base:** `EntityVisualManagerBase<PartyBase>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/MobilePartyVisualManager.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/MobilePartyVisualManager.cs`
 
 ## 概述
 
@@ -29,32 +23,68 @@ title: "MobilePartyVisualManager"
 ### OnTick
 `public override void OnTick(float realDt, float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisualManager 实例
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+mobilePartyVisualManager.OnTick(0, 0);
+```
 
 ### ClearVisualMemory
 `public override void ClearVisualMemory()`
 
-**用途 / Purpose:** 处理 `clear visual memory` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「visual memory」。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisualManager 实例
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+mobilePartyVisualManager.ClearVisualMemory();
+```
 
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**用途 / Purpose:** 当 `visual tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「visual tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisualManager 实例
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+mobilePartyVisualManager.OnVisualTick(screen, 0, 0);
+```
 
 ### OnVisualIntersected
 `public override bool OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**用途 / Purpose:** 当 `visual intersected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「visual intersected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisualManager 实例
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+var result = mobilePartyVisualManager.OnVisualIntersected(mouseRay, intersectedEntityIDs, intersectionInfos, 0, worldMouseNear, worldMouseFar, terrainIntersectionPoint, hoveredVisual, selectedVisual);
+```
 
 ### GetVisualOfEntity
 `public override MapEntityVisual<PartyBase> GetVisualOfEntity(PartyBase partyBase)`
 
-**用途 / Purpose:** 获取 `visual of entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual of entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisualManager 实例
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+var result = mobilePartyVisualManager.GetVisualOfEntity(partyBase);
+```
 
 ### GetPartyVisual
 `public MobilePartyVisual GetPartyVisual(PartyBase partyBase)`
 
-**用途 / Purpose:** 获取 `party visual` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party visual」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisualManager 实例
+MobilePartyVisualManager mobilePartyVisualManager = ...;
+var result = mobilePartyVisualManager.GetPartyVisual(partyBase);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ var manager = MobilePartyVisualManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "HeroDeveloperResolver"
+description: "Auto-generated class reference for HeroDeveloperResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroDeveloperResolver`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroDeveloperResolver
 
 **Namespace:** TaleWorlds.CampaignSystem.SaveCompability
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeroDeveloperResolver : IConflictResolver`
 **Base:** `IConflictResolver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/HeroDeveloperResolver.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SaveCompability/HeroDeveloperResolver.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.SaveCompability` to place it in 
 ### IsApplicable
 `public bool IsApplicable(ApplicationVersion version)`
 
-**Purpose:** Handles logic related to `is applicable`.
+**Purpose:** Determines whether the current object is in the `applicable` state or condition.
+
+```csharp
+// Obtain an instance of HeroDeveloperResolver from the subsystem API first
+HeroDeveloperResolver heroDeveloperResolver = ...;
+var result = heroDeveloperResolver.IsApplicable(version);
+```
 
 ### GetFieldMemberWithId
 `public MemberTypeId GetFieldMemberWithId(MemberTypeId memberTypeId)`
 
-**Purpose:** Gets the current value of `field member with id`.
+**Purpose:** Reads and returns the `field member with id` value held by the current object.
+
+```csharp
+// Obtain an instance of HeroDeveloperResolver from the subsystem API first
+HeroDeveloperResolver heroDeveloperResolver = ...;
+var result = heroDeveloperResolver.GetFieldMemberWithId(memberTypeId);
+```
 
 ### GetNewType
 `public Type GetNewType()`
 
-**Purpose:** Gets the current value of `new type`.
+**Purpose:** Reads and returns the `new type` value held by the current object.
+
+```csharp
+// Obtain an instance of HeroDeveloperResolver from the subsystem API first
+HeroDeveloperResolver heroDeveloperResolver = ...;
+var result = heroDeveloperResolver.GetNewType();
+```
 
 ### GetPropertyMemberWithId
 `public MemberTypeId GetPropertyMemberWithId(MemberTypeId memberTypeId)`
 
-**Purpose:** Gets the current value of `property member with id`.
+**Purpose:** Reads and returns the `property member with id` value held by the current object.
+
+```csharp
+// Obtain an instance of HeroDeveloperResolver from the subsystem API first
+HeroDeveloperResolver heroDeveloperResolver = ...;
+var result = heroDeveloperResolver.GetPropertyMemberWithId(memberTypeId);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeroDeveloperResolver();
-value.IsApplicable(version);
+// Typically call this after obtaining an instance from the subsystem API
+HeroDeveloperResolver heroDeveloperResolver = ...;
+heroDeveloperResolver.IsApplicable(version);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

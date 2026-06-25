@@ -1,20 +1,14 @@
 ---
 title: "SyncObjectHitpoints"
+description: "Auto-generated class reference for SyncObjectHitpoints."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SyncObjectHitpoints`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SyncObjectHitpoints
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SyncObjectHitpoints : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncObjectHitpoints.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncObjectHitpoints.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SyncObjectHitpoints();
+// Obtain an instance from the relevant subsystem API
+SyncObjectHitpoints instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ChatCollapsableListPanel"
+description: "ChatCollapsableListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChatCollapsableListPanel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChatCollapsableListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat
@@ -36,9 +30,10 @@ title: "ChatCollapsableListPanel"
 ## 使用示例
 
 ```csharp
-var value = new ChatCollapsableListPanel();
+// 从对应子系统 API 获取实例
+ChatCollapsableListPanel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

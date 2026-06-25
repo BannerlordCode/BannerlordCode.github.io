@@ -1,13 +1,7 @@
 ---
 title: "BuildingType"
+description: "Auto-generated class reference for BuildingType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingType
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Buildings
@@ -43,60 +37,121 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+var result = buildingType.GetName();
+```
 
 ### Initialize
 `public void Initialize(TextObject name, TextObject explanation, int productionCosts, Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float> effects, bool isMilitaryProject, float varianceChance, int startLevel = 0)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+buildingType.Initialize(name, explanation, 0, tuple<BuildingEffectEnum, buildingEffectIncrementType, 0, 0, 0, false, 0, 0);
+```
 
 ### InitializeDailyProject
 `public void InitializeDailyProject(TextObject name, TextObject explanation, Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float> effects)`
 
-**Purpose:** Initializes the state, resources, or bindings for `daily project`.
+**Purpose:** Prepares the resources, state, or bindings required by `daily project`.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+buildingType.InitializeDailyProject(name, explanation, tuple<BuildingEffectEnum, buildingEffectIncrementType, 0, 0, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+var result = buildingType.ToString();
+```
 
 ### GetProductionCost
 `public int GetProductionCost(int level)`
 
-**Purpose:** Gets the current value of `production cost`.
+**Purpose:** Reads and returns the `production cost` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+var result = buildingType.GetProductionCost(0);
+```
 
 ### GetBaseBuildingEffectAmount
 `public float GetBaseBuildingEffectAmount(BuildingEffectEnum effect, int level)`
 
-**Purpose:** Gets the current value of `base building effect amount`.
+**Purpose:** Reads and returns the `base building effect amount` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+var result = buildingType.GetBaseBuildingEffectAmount(effect, 0);
+```
 
 ### HasEffect
 `public bool HasEffect(BuildingEffectEnum effect)`
 
-**Purpose:** Checks whether the current object has/contains `effect`.
+**Purpose:** Determines whether the current object already holds `effect`.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+var result = buildingType.HasEffect(effect);
+```
 
 ### GetExplanationAtLevel
 `public TextObject GetExplanationAtLevel(int level)`
 
-**Purpose:** Gets the current value of `explanation at level`.
+**Purpose:** Reads and returns the `explanation at level` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+var result = buildingType.GetExplanationAtLevel(0);
+```
 
 ### GetBuildingEffectType
 `public BuildingEffectIncrementType GetBuildingEffectType(BuildingEffectEnum effect)`
 
-**Purpose:** Gets the current value of `building effect type`.
+**Purpose:** Reads and returns the `building effect type` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+var result = buildingType.GetBuildingEffectType(effect);
+```
 
 ### GetEffectValue
 `public float GetEffectValue(int i)`
 
-**Purpose:** Gets the current value of `effect value`.
+**Purpose:** Reads and returns the `effect value` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingType from the subsystem API first
+BuildingType buildingType = ...;
+var result = buildingType.GetEffectValue(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BuildingType();
-value.GetName();
+// Typically call this after obtaining an instance from the subsystem API
+BuildingType buildingType = ...;
+buildingType.GetName();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

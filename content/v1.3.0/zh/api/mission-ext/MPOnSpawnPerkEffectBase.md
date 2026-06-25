@@ -1,13 +1,7 @@
 ---
 title: "MPOnSpawnPerkEffectBase"
+description: "MPOnSpawnPerkEffectBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPOnSpawnPerkEffectBase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPOnSpawnPerkEffectBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,34 +23,65 @@ title: "MPOnSpawnPerkEffectBase"
 ### GetTroopCountMultiplier
 `public virtual float GetTroopCountMultiplier()`
 
-**用途 / Purpose:** 获取 `troop count multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop count multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetTroopCountMultiplier();
+```
 
 ### GetExtraTroopCount
 `public virtual int GetExtraTroopCount()`
 
-**用途 / Purpose:** 获取 `extra troop count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「extra troop count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetExtraTroopCount();
+```
 
 ### GetAlternativeEquipments
 `public virtual List<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isPlayer, List<ValueTuple<EquipmentIndex, EquipmentElement>> alternativeEquipments, bool getAll = false)`
 
-**用途 / Purpose:** 获取 `alternative equipments` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「alternative equipments」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetAlternativeEquipments(false, list<ValueTuple<EquipmentIndex, alternativeEquipments, false);
+```
 
 ### GetDrivenPropertyBonusOnSpawn
 `public virtual float GetDrivenPropertyBonusOnSpawn(bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**用途 / Purpose:** 获取 `driven property bonus on spawn` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「driven property bonus on spawn」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
+```
 
 ### GetHitpoints
 `public virtual float GetHitpoints(bool isPlayer)`
 
-**用途 / Purpose:** 获取 `hitpoints` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hitpoints」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetHitpoints(false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMPOnSpawnPerkEffectBase();
+// 通常通过子系统 API 或工厂获得派生实例
+MPOnSpawnPerkEffectBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

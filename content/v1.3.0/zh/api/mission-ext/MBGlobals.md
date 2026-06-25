@@ -1,13 +1,7 @@
 ---
 title: "MBGlobals"
+description: "MBGlobals 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBGlobals`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBGlobals
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,32 @@ title: "MBGlobals"
 ### InitializeReferences
 `public static void InitializeReferences()`
 
-**用途 / Purpose:** 初始化 `references` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「references」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+MBGlobals.InitializeReferences();
+```
 
 ### GetActionSetWithSuffix
 `public static MBActionSet GetActionSetWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**用途 / Purpose:** 获取 `action set with suffix` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action set with suffix」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBGlobals.GetActionSetWithSuffix(monster, false, "example");
+```
 
 ### GetActionSet
 `public static MBActionSet GetActionSet(string actionSetCode)`
 
-**用途 / Purpose:** 获取 `action set` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action set」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBGlobals.GetActionSet("example");
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ MBGlobals.InitializeReferences();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

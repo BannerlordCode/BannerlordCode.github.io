@@ -1,20 +1,14 @@
 ---
 title: "ArmyOverlayCohesionFillBarWidget"
+description: "Auto-generated class reference for ArmyOverlayCohesionFillBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyOverlayCohesionFillBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyOverlayCohesionFillBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArmyOverlayCohesionFillBarWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay/ArmyOverlayCohesionFillBarWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Menu.Overlay/ArmyOverlayCohesionFillBarWidget.cs`
 
 ## Overview
 
@@ -36,14 +30,21 @@ Treat `ArmyOverlayCohesionFillBarWidget` as a Widget-style extension point: firs
 ### ArmyOverlayCohesionFillBarWidget
 `public class ArmyOverlayCohesionFillBarWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `army overlay cohesion fill bar widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArmyOverlayCohesionFillBarWidget from the subsystem API first
+ArmyOverlayCohesionFillBarWidget armyOverlayCohesionFillBarWidget = ...;
+var result = armyOverlayCohesionFillBarWidget.ArmyOverlayCohesionFillBarWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ArmyOverlayCohesionFillBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ArmyOverlayCohesionFillBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

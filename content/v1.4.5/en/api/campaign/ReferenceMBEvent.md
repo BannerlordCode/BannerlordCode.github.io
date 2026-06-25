@@ -1,20 +1,14 @@
 ---
 title: "ReferenceMBEvent"
+description: "Auto-generated class reference for ReferenceMBEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReferenceMBEvent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReferenceMBEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ReferenceMBEvent<T1> : ReferenceIMBEvent<T1>, IMbEventBase`
 **Base:** `ReferenceIMBEvent<T1>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ReferenceMBEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ReferenceMBEvent.cs`
 
 ## Overview
 
@@ -31,53 +25,42 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 
 **Purpose:** Adds `non serialized listener` to the current collection or state.
 
+```csharp
+// Obtain an instance of ReferenceMBEvent from the subsystem API first
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.AddNonSerializedListener(owner, action);
+```
+
 ### Invoke
 `public void Invoke(ref T1 t1)`
 
-**Purpose:** Handles logic related to `invoke`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ReferenceMBEvent from the subsystem API first
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.Invoke(t1);
+```
 
 ### ClearListeners
 `public void ClearListeners(object o)`
 
-**Purpose:** Handles logic related to `clear listeners`.
+**Purpose:** Removes all `listeners` from the current object.
 
-### AddNonSerializedListener
-`public void AddNonSerializedListener(object owner, ReferenceAction<T1, T2> action)`
-
-**Purpose:** Adds `non serialized listener` to the current collection or state.
-
-### Invoke
-`public void Invoke(T1 t1, ref T2 t2)`
-
-**Purpose:** Handles logic related to `invoke`.
-
-### ClearListeners
-`public void ClearListeners(object o)`
-
-**Purpose:** Handles logic related to `clear listeners`.
-
-### AddNonSerializedListener
-`public void AddNonSerializedListener(object owner, ReferenceAction<T1, T2, T3> action)`
-
-**Purpose:** Adds `non serialized listener` to the current collection or state.
-
-### Invoke
-`public void Invoke(T1 t1, T2 t2, ref T3 t3)`
-
-**Purpose:** Handles logic related to `invoke`.
-
-### ClearListeners
-`public void ClearListeners(object o)`
-
-**Purpose:** Handles logic related to `clear listeners`.
+```csharp
+// Obtain an instance of ReferenceMBEvent from the subsystem API first
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.ClearListeners(o);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ReferenceMBEvent();
-value.AddNonSerializedListener(owner, action);
+// Typically call this after obtaining an instance from the subsystem API
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.AddNonSerializedListener(owner, action);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

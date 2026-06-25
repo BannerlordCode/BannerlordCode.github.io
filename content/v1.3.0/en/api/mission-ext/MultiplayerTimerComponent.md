@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerTimerComponent"
+description: "Auto-generated class reference for MultiplayerTimerComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTimerComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTimerComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,27 +29,57 @@ Treat `MultiplayerTimerComponent` as a Component-style extension point: first id
 ### StartTimerAsServer
 `public void StartTimerAsServer(float duration)`
 
-**Purpose:** Handles logic related to `start timer as server`.
+**Purpose:** Starts the `timer as server` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerTimerComponent from the subsystem API first
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+multiplayerTimerComponent.StartTimerAsServer(0);
+```
 
 ### StartTimerAsClient
 `public void StartTimerAsClient(float startTime, float duration)`
 
-**Purpose:** Handles logic related to `start timer as client`.
+**Purpose:** Starts the `timer as client` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerTimerComponent from the subsystem API first
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+multiplayerTimerComponent.StartTimerAsClient(0, 0);
+```
 
 ### GetRemainingTime
 `public float GetRemainingTime(bool isSynched)`
 
-**Purpose:** Gets the current value of `remaining time`.
+**Purpose:** Reads and returns the `remaining time` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerTimerComponent from the subsystem API first
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+var result = multiplayerTimerComponent.GetRemainingTime(false);
+```
 
 ### CheckIfTimerPassed
 `public bool CheckIfTimerPassed()`
 
-**Purpose:** Handles logic related to `check if timer passed`.
+**Purpose:** Verifies whether `if timer passed` holds true for the current object.
+
+```csharp
+// Obtain an instance of MultiplayerTimerComponent from the subsystem API first
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+var result = multiplayerTimerComponent.CheckIfTimerPassed();
+```
 
 ### GetCurrentTimerStartTime
 `public MissionTime GetCurrentTimerStartTime()`
 
-**Purpose:** Gets the current value of `current timer start time`.
+**Purpose:** Reads and returns the `current timer start time` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerTimerComponent from the subsystem API first
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+var result = multiplayerTimerComponent.GetCurrentTimerStartTime();
+```
 
 ## Usage Example
 
@@ -65,4 +89,4 @@ var component = agent.GetComponent<MultiplayerTimerComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

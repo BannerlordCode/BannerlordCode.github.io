@@ -1,20 +1,14 @@
 ---
 title: "SkeinFormation"
+description: "Auto-generated class reference for SkeinFormation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkeinFormation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkeinFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SkeinFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkeinFormation.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SkeinFormation.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of SkeinFormation from the subsystem API first
+SkeinFormation skeinFormation = ...;
+var result = skeinFormation.Clone(formation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkeinFormation();
-value.Clone(formation);
+// Typically call this after obtaining an instance from the subsystem API
+SkeinFormation skeinFormation = ...;
+skeinFormation.Clone(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

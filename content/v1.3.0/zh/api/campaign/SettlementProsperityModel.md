@@ -1,13 +1,7 @@
 ---
 title: "SettlementProsperityModel"
+description: "SettlementProsperityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementProsperityModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementProsperityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ title: "SettlementProsperityModel"
 ### CalculateProsperityChange
 `public abstract ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate prosperity change` 相关逻辑。
+**用途 / Purpose:** 计算「prosperity change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementProsperityModel 实例
+SettlementProsperityModel settlementProsperityModel = ...;
+var result = settlementProsperityModel.CalculateProsperityChange(fortification, false);
+```
 
 ### CalculateHearthChange
 `public abstract ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate hearth change` 相关逻辑。
+**用途 / Purpose:** 计算「hearth change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementProsperityModel 实例
+SettlementProsperityModel settlementProsperityModel = ...;
+var result = settlementProsperityModel.CalculateHearthChange(village, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementProsperityModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementProsperityModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

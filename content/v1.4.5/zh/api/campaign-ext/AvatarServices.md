@@ -1,20 +1,14 @@
 ---
 title: "AvatarServices"
+description: "AvatarServices 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AvatarServices`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarServices
 
 **Namespace:** TaleWorlds.Avatar.PlayerServices
 **Module:** TaleWorlds.Avatar
 **Type:** `public static class AvatarServices`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.Avatar.PlayerServices/AvatarServices.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.Avatar.PlayerServices/AvatarServices.cs`
 
 ## 概述
 
@@ -35,27 +29,52 @@ title: "AvatarServices"
 ### GetForcedAvatarIndexOfPlayer
 `public static int GetForcedAvatarIndexOfPlayer(PlayerId playerID)`
 
-**用途 / Purpose:** 获取 `forced avatar index of player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「forced avatar index of player」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AvatarServices.GetForcedAvatarIndexOfPlayer(playerID);
+```
 
 ### UpdateAvatarServices
 `public static void UpdateAvatarServices(float dt)`
 
-**用途 / Purpose:** 更新 `avatar services` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「avatar services」 的最新表示。
+
+```csharp
+// 静态调用，不需要实例
+AvatarServices.UpdateAvatarServices(0);
+```
 
 ### GetPlayerAvatar
 `public static AvatarDataResponse GetPlayerAvatar(PlayerId playerId, int forcedIndex)`
 
-**用途 / Purpose:** 获取 `player avatar` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player avatar」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AvatarServices.GetPlayerAvatar(playerId, 0);
+```
 
 ### AddAvatarService
 `public static void AddAvatarService(PlayerIdProvidedTypes type, IAvatarService avatarService)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `avatar service`。
+**用途 / Purpose:** 将 「avatar service」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+AvatarServices.AddAvatarService(type, avatarService);
+```
 
 ### ClearAvatarCaches
 `public static void ClearAvatarCaches()`
 
-**用途 / Purpose:** 处理 `clear avatar caches` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「avatar caches」。
+
+```csharp
+// 静态调用，不需要实例
+AvatarServices.ClearAvatarCaches();
+```
 
 ## 使用示例
 
@@ -65,4 +84,4 @@ AvatarServices.GetForcedAvatarIndexOfPlayer(playerID);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

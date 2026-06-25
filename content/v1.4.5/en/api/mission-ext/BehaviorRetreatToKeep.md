@@ -1,20 +1,14 @@
 ---
 title: "BehaviorRetreatToKeep"
+description: "Auto-generated class reference for BehaviorRetreatToKeep."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorRetreatToKeep`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorRetreatToKeep
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorRetreatToKeep : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorRetreatToKeep.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorRetreatToKeep.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorRetreatToKeep from the subsystem API first
+BehaviorRetreatToKeep behaviorRetreatToKeep = ...;
+behaviorRetreatToKeep.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorRetreatToKeep();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorRetreatToKeep behaviorRetreatToKeep = ...;
+behaviorRetreatToKeep.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

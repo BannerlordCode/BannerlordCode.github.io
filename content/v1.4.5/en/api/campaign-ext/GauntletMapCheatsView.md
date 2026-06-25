@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapCheatsView"
+description: "Auto-generated class reference for GauntletMapCheatsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapCheatsView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapCheatsView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapCheatsView : MapCheatsView`
 **Base:** `MapCheatsView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapCheatsView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapCheatsView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GauntletMapCheatsView` as a View-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapCheatsView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapCheatsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

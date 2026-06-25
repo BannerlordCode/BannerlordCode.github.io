@@ -1,13 +1,7 @@
 ---
 title: "WeaponSpawner"
+description: "Auto-generated class reference for WeaponSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SpawnWeapon
 `public void SpawnWeapon()`
 
-**Purpose:** Handles logic related to `spawn weapon`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WeaponSpawner from the subsystem API first
+WeaponSpawner weaponSpawner = ...;
+weaponSpawner.SpawnWeapon();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponSpawner();
-value.SpawnWeapon();
+// Typically call this after obtaining an instance from the subsystem API
+WeaponSpawner weaponSpawner = ...;
+weaponSpawner.SpawnWeapon();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

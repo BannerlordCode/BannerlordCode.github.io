@@ -1,18 +1,12 @@
 ---
 title: "PlayerEncounterState"
+description: "Auto-generated class reference for PlayerEncounterState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerEncounterState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerEncounterState
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum PlayerEncounterState`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Encounters/PlayerEncounterState.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ## Usage Example
 
 ```csharp
-var value = new PlayerEncounterState();
+// Obtain an instance from the relevant subsystem API
+PlayerEncounterState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

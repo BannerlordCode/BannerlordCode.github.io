@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletDuelUI"
+description: "MissionGauntletDuelUI 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletDuelUI`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletDuelUI
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletDuelUI : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletDuelUI.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletDuelUI.cs`
 
 ## 概述
 
@@ -29,50 +23,99 @@ title: "MissionGauntletDuelUI"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnMissionScreenTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnAgentBuild(agent, banner);
+```
 
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** 当 `focus gained` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus gained」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnFocusGained(agent, focusableObject, false);
+```
 
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** 当 `focus lost` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus lost」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnFocusLost(agent, focusableObject);
+```
 
 ### OnPeerEquipmentIndexRefreshed
 `public void OnPeerEquipmentIndexRefreshed(MissionPeer peer, int equipmentSetIndex)`
 
-**用途 / Purpose:** 当 `peer equipment index refreshed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「peer equipment index refreshed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletDuelUI 实例
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnPeerEquipmentIndexRefreshed(peer, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionGauntletDuelUI();
-value.OnMissionScreenInitialize();
+// 通常从对应子系统 API 获取实例后调用
+MissionGauntletDuelUI missionGauntletDuelUI = ...;
+missionGauntletDuelUI.OnMissionScreenInitialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

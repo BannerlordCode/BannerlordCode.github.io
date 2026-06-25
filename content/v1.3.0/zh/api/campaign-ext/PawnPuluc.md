@@ -1,13 +1,7 @@
 ---
 title: "PawnPuluc"
+description: "PawnPuluc 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PawnPuluc`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnPuluc
 
 **Namespace:** SandBox.BoardGames.Pawns
@@ -40,45 +34,88 @@ title: "PawnPuluc"
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnPuluc 实例
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.Reset();
+```
 
 ### AddGoalPosition
 `public override void AddGoalPosition(Vec3 goal)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `goal position`。
+**用途 / Purpose:** 将 「goal position」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PawnPuluc 实例
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.AddGoalPosition(goal);
+```
 
 ### MovePawnToGoalPositions
 `public override void MovePawnToGoalPositions(bool instantMove, float speed, bool dragged = false)`
 
-**用途 / Purpose:** 处理 `move pawn to goal positions` 相关逻辑。
+**用途 / Purpose:** 移动「pawn to goal positions」到新的位置或状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnPuluc 实例
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.MovePawnToGoalPositions(false, 0, false);
+```
 
 ### SetPawnAtPosition
 `public override void SetPawnAtPosition(Vec3 position)`
 
-**用途 / Purpose:** 设置 `pawn at position` 的值或状态。
+**用途 / Purpose:** 为 「pawn at position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnPuluc 实例
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.SetPawnAtPosition(position);
+```
 
 ### EnableCollisionBody
 `public override void EnableCollisionBody()`
 
-**用途 / Purpose:** 处理 `enable collision body` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PawnPuluc 实例
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.EnableCollisionBody();
+```
 
 ### DisableCollisionBody
 `public override void DisableCollisionBody()`
 
-**用途 / Purpose:** 处理 `disable collision body` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PawnPuluc 实例
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.DisableCollisionBody();
+```
 
 ### MovePawnBackToSpawn
 `public void MovePawnBackToSpawn(bool instantMove, float speed, bool fake = false)`
 
-**用途 / Purpose:** 处理 `move pawn back to spawn` 相关逻辑。
+**用途 / Purpose:** 移动「pawn back to spawn」到新的位置或状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnPuluc 实例
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.MovePawnBackToSpawn(false, 0, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PawnPuluc();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

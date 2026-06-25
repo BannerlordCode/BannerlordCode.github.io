@@ -1,13 +1,7 @@
 ---
 title: "PartyAddedToArmyByPlayerEvent"
+description: "Auto-generated class reference for PartyAddedToArmyByPlayerEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyAddedToArmyByPlayerEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyAddedToArmyByPlayerEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ## Usage Example
 
 ```csharp
-var example = new PartyAddedToArmyByPlayerEvent();
+// Obtain an instance from the relevant subsystem API
+PartyAddedToArmyByPlayerEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

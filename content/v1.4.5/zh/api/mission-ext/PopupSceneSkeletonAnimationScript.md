@@ -1,20 +1,14 @@
 ---
 title: "PopupSceneSkeletonAnimationScript"
+description: "PopupSceneSkeletonAnimationScript 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PopupSceneSkeletonAnimationScript`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneSkeletonAnimationScript
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PopupSceneSkeletonAnimationScript : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/PopupSceneSkeletonAnimationScript.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/PopupSceneSkeletonAnimationScript.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "PopupSceneSkeletonAnimationScript"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSkeletonAnimationScript 实例
+PopupSceneSkeletonAnimationScript popupSceneSkeletonAnimationScript = ...;
+popupSceneSkeletonAnimationScript.Initialize();
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSkeletonAnimationScript 实例
+PopupSceneSkeletonAnimationScript popupSceneSkeletonAnimationScript = ...;
+var result = popupSceneSkeletonAnimationScript.GetTickRequirement();
+```
 
 ### SetState
 `public void SetState(int state)`
 
-**用途 / Purpose:** 设置 `state` 的值或状态。
+**用途 / Purpose:** 为 「state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSkeletonAnimationScript 实例
+PopupSceneSkeletonAnimationScript popupSceneSkeletonAnimationScript = ...;
+popupSceneSkeletonAnimationScript.SetState(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PopupSceneSkeletonAnimationScript();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+PopupSceneSkeletonAnimationScript popupSceneSkeletonAnimationScript = ...;
+popupSceneSkeletonAnimationScript.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

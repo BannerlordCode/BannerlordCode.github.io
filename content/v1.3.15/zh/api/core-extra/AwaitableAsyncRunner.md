@@ -1,13 +1,7 @@
 ---
 title: "AwaitableAsyncRunner"
+description: "AwaitableAsyncRunner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AwaitableAsyncRunner`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AwaitableAsyncRunner
 
 **Namespace:** TaleWorlds.Library
@@ -29,19 +23,32 @@ title: "AwaitableAsyncRunner"
 ### RunAsync
 `public abstract Task RunAsync()`
 
-**用途 / Purpose:** 处理 `run async` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AwaitableAsyncRunner 实例
+AwaitableAsyncRunner awaitableAsyncRunner = ...;
+var result = awaitableAsyncRunner.RunAsync();
+```
 
 ### OnTick
 `public abstract void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AwaitableAsyncRunner 实例
+AwaitableAsyncRunner awaitableAsyncRunner = ...;
+awaitableAsyncRunner.OnTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomAwaitableAsyncRunner();
+// 通常通过子系统 API 或工厂获得派生实例
+AwaitableAsyncRunner instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

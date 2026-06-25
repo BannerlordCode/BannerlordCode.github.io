@@ -1,13 +1,7 @@
 ---
 title: "PropertyType"
+description: "Auto-generated class reference for PropertyType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyType`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ## Usage Example
 
 ```csharp
-PropertyType example = PropertyType.Value;
+// Obtain an instance from the relevant subsystem API
+PropertyType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

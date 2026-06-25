@@ -1,20 +1,14 @@
 ---
 title: "DefaultLayerSpriteChangerBrushWidget"
+description: "DefaultLayerSpriteChangerBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultLayerSpriteChangerBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultLayerSpriteChangerBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultLayerSpriteChangerBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DefaultLayerSpriteChangerBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/DefaultLayerSpriteChangerBrushWidget.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "DefaultLayerSpriteChangerBrushWidget"
 ## 使用示例
 
 ```csharp
-var widget = new DefaultLayerSpriteChangerBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+DefaultLayerSpriteChangerBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

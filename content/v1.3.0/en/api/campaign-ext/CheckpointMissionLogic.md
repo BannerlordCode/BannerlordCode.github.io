@@ -1,13 +1,7 @@
 ---
 title: "CheckpointMissionLogic"
+description: "Auto-generated class reference for CheckpointMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheckpointMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheckpointMissionLogic
 
 **Namespace:** SandBox.Missions
@@ -29,39 +23,75 @@ Treat `CheckpointMissionLogic` as a Logic-style extension point: first identify 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CheckpointMissionLogic from the subsystem API first
+CheckpointMissionLogic checkpointMissionLogic = ...;
+checkpointMissionLogic.EarlyStart();
+```
 
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** Called when the `rendering started` event is raised.
+**Purpose:** Invoked when the `rendering started` event is raised.
+
+```csharp
+// Obtain an instance of CheckpointMissionLogic from the subsystem API first
+CheckpointMissionLogic checkpointMissionLogic = ...;
+checkpointMissionLogic.OnRenderingStarted();
+```
 
 ### OnEarlyAgentRemoved
 `public override void OnEarlyAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `early agent removed` event is raised.
+**Purpose:** Invoked when the `early agent removed` event is raised.
+
+```csharp
+// Obtain an instance of CheckpointMissionLogic from the subsystem API first
+CheckpointMissionLogic checkpointMissionLogic = ...;
+checkpointMissionLogic.OnEarlyAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of CheckpointMissionLogic from the subsystem API first
+CheckpointMissionLogic checkpointMissionLogic = ...;
+checkpointMissionLogic.OnMissionTick(0);
+```
 
 ### OnCheckpointUsed
 `public void OnCheckpointUsed(int checkpointUniqueId)`
 
-**Purpose:** Called when the `checkpoint used` event is raised.
+**Purpose:** Invoked when the `checkpoint used` event is raised.
+
+```csharp
+// Obtain an instance of CheckpointMissionLogic from the subsystem API first
+CheckpointMissionLogic checkpointMissionLogic = ...;
+checkpointMissionLogic.OnCheckpointUsed(0);
+```
 
 ### RegisterAgent
 `public void RegisterAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `register agent`.
+**Purpose:** Registers `agent` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CheckpointMissionLogic from the subsystem API first
+CheckpointMissionLogic checkpointMissionLogic = ...;
+checkpointMissionLogic.RegisterAgent(agent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CheckpointMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<CheckpointMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

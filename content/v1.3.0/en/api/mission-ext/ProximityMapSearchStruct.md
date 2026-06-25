@@ -1,13 +1,7 @@
 ---
 title: "ProximityMapSearchStruct"
+description: "Auto-generated class reference for ProximityMapSearchStruct."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProximityMapSearchStruct`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProximityMapSearchStruct
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new ProximityMapSearchStruct();
+// Obtain an instance from the relevant subsystem API
+ProximityMapSearchStruct instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

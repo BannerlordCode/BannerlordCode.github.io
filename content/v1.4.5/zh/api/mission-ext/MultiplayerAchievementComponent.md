@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAchievementComponent"
+description: "MultiplayerAchievementComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerAchievementComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAchievementComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAchievementComponent : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerAchievementComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerAchievementComponent.cs`
 
 ## 概述
 
@@ -29,37 +23,79 @@ title: "MultiplayerAchievementComponent"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.EarlyStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnMissionTick(0);
+```
 
 ### OnAgentMount
 `public override void OnAgentMount(Agent agent)`
 
-**用途 / Purpose:** 当 `agent mount` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent mount」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnAgentMount(agent);
+```
 
 ### OnAgentDismount
 `public override void OnAgentDismount(Agent agent)`
 
-**用途 / Purpose:** 当 `agent dismount` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent dismount」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnAgentDismount(agent);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
+MultiplayerAchievementComponent multiplayerAchievementComponent = ...;
+multiplayerAchievementComponent.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ## 使用示例
 
@@ -69,4 +105,4 @@ var component = agent.GetComponent<MultiplayerAchievementComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

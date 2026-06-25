@@ -1,20 +1,14 @@
 ---
 title: "NetworkMessageHandlerRegistererContainer"
+description: "Auto-generated class reference for NetworkMessageHandlerRegistererContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NetworkMessageHandlerRegistererContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NetworkMessageHandlerRegistererContainer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NetworkMessageHandlerRegistererContainer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### RegisterMessages
 `public void RegisterMessages()`
 
-**Purpose:** Handles logic related to `register messages`.
+**Purpose:** Registers `messages` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of NetworkMessageHandlerRegistererContainer from the subsystem API first
+NetworkMessageHandlerRegistererContainer networkMessageHandlerRegistererContainer = ...;
+networkMessageHandlerRegistererContainer.RegisterMessages();
+```
 
 ### UnregisterMessages
 `public void UnregisterMessages()`
 
-**Purpose:** Handles logic related to `unregister messages`.
+**Purpose:** Unregisters `messages` from the current system.
+
+```csharp
+// Obtain an instance of NetworkMessageHandlerRegistererContainer from the subsystem API first
+NetworkMessageHandlerRegistererContainer networkMessageHandlerRegistererContainer = ...;
+networkMessageHandlerRegistererContainer.UnregisterMessages();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NetworkMessageHandlerRegistererContainer();
-value.RegisterMessages();
+// Typically call this after obtaining an instance from the subsystem API
+NetworkMessageHandlerRegistererContainer networkMessageHandlerRegistererContainer = ...;
+networkMessageHandlerRegistererContainer.RegisterMessages();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

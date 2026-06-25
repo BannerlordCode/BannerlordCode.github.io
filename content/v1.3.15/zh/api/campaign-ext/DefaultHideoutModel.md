@@ -1,13 +1,7 @@
 ---
 title: "DefaultHideoutModel"
+description: "DefaultHideoutModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultHideoutModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultHideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -37,7 +31,13 @@ title: "DefaultHideoutModel"
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public override float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**用途 / Purpose:** 获取 `roguery xp gain on hideout mission end` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「roguery xp gain on hideout mission end」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultHideoutModel 实例
+DefaultHideoutModel defaultHideoutModel = ...;
+var result = defaultHideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
+```
 
 ## 使用示例
 
@@ -47,4 +47,4 @@ Game.Current.ReplaceModel<DefaultHideoutModel>(new MyDefaultHideoutModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

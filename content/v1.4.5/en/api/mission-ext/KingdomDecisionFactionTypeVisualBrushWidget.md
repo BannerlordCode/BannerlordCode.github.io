@@ -1,20 +1,14 @@
 ---
 title: "KingdomDecisionFactionTypeVisualBrushWidget"
+description: "Auto-generated class reference for KingdomDecisionFactionTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDecisionFactionTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDecisionFactionTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KingdomDecisionFactionTypeVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomDecisionFactionTypeVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomDecisionFactionTypeVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `KingdomDecisionFactionTypeVisualBrushWidget` as a Widget-style extension 
 ### KingdomDecisionFactionTypeVisualBrushWidget
 `public class KingdomDecisionFactionTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `kingdom decision faction type visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomDecisionFactionTypeVisualBrushWidget from the subsystem API first
+KingdomDecisionFactionTypeVisualBrushWidget kingdomDecisionFactionTypeVisualBrushWidget = ...;
+var result = kingdomDecisionFactionTypeVisualBrushWidget.KingdomDecisionFactionTypeVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new KingdomDecisionFactionTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+KingdomDecisionFactionTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "LoginErrorCode"
+description: "Auto-generated class reference for LoginErrorCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoginErrorCode`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LoginErrorCode
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public enum LoginErrorCode`
 **Base:** none
 **File:** `TaleWorlds.Diamond/LoginErrorCode.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new LoginErrorCode();
+// Obtain an instance from the relevant subsystem API
+LoginErrorCode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

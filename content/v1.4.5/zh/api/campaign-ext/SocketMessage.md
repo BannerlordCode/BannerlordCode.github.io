@@ -1,20 +1,14 @@
 ---
 title: "SocketMessage"
+description: "SocketMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SocketMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SocketMessage
 
 **Namespace:** TaleWorlds.Diamond.Socket
 **Module:** TaleWorlds.Diamond
 **Type:** `public class SocketMessage : MessageContract`
 **Base:** `MessageContract`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Socket/SocketMessage.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Socket/SocketMessage.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "SocketMessage"
 ### SerializeToNetworkMessage
 `public override void SerializeToNetworkMessage(INetworkMessageWriter networkMessage)`
 
-**用途 / Purpose:** 处理 `serialize to network message` 相关逻辑。
+**用途 / Purpose:** 将「to network message」序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 SocketMessage 实例
+SocketMessage socketMessage = ...;
+socketMessage.SerializeToNetworkMessage(networkMessage);
+```
 
 ### DeserializeFromNetworkMessage
 `public override void DeserializeFromNetworkMessage(INetworkMessageReader networkMessage)`
 
-**用途 / Purpose:** 处理 `deserialize from network message` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原出「from network message」。
+
+```csharp
+// 先通过子系统 API 拿到 SocketMessage 实例
+SocketMessage socketMessage = ...;
+socketMessage.DeserializeFromNetworkMessage(networkMessage);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SocketMessage();
-value.SerializeToNetworkMessage(networkMessage);
+// 通常从对应子系统 API 获取实例后调用
+SocketMessage socketMessage = ...;
+socketMessage.SerializeToNetworkMessage(networkMessage);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

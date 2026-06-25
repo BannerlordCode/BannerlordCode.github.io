@@ -1,13 +1,7 @@
 ---
 title: "MBObjectBase"
+description: "MBObjectBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBObjectBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBObjectBase
 
 **Namespace:** TaleWorlds.ObjectSystem
@@ -38,60 +32,121 @@ title: "MBObjectBase"
 ### AfterInitialized
 `public void AfterInitialized()`
 
-**用途 / Purpose:** 处理 `after initialized` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.AfterInitialized();
+```
 
 ### AfterRegister
 `public virtual void AfterRegister()`
 
-**用途 / Purpose:** 处理 `after register` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.AfterRegister();
+```
 
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.Initialize();
+```
 
 ### Deserialize
 `public virtual void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.Deserialize(objectManager, node);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+var result = mBObjectBase.GetHashCode();
+```
 
 ### GetName
 `public virtual TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+var result = mBObjectBase.GetName();
+```
 
 ### PreAfterLoadInternal
 `public void PreAfterLoadInternal()`
 
-**用途 / Purpose:** 处理 `pre after load internal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.PreAfterLoadInternal();
+```
 
 ### AfterLoadInternal
 `public void AfterLoadInternal()`
 
-**用途 / Purpose:** 处理 `after load internal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.AfterLoadInternal();
+```
 
 ### OnRegistered
 `public void OnRegistered()`
 
-**用途 / Purpose:** 当 `registered` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「registered」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.OnRegistered();
+```
 
 ### OnUnregistered
 `public void OnUnregistered()`
 
-**用途 / Purpose:** 当 `unregistered` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unregistered」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MBObjectBase 实例
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.OnUnregistered();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBObjectBase();
-value.AfterInitialized();
+// 通常从对应子系统 API 获取实例后调用
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.AfterInitialized();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

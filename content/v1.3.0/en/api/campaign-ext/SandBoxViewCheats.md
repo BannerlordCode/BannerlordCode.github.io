@@ -1,13 +1,7 @@
 ---
 title: "SandBoxViewCheats"
+description: "Auto-generated class reference for SandBoxViewCheats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxViewCheats`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewCheats
 
 **Namespace:** SandBox.View
@@ -29,42 +23,82 @@ Start from namespace `SandBox.View` to place it in the stack, then inspect its p
 ### KillHero
 `public static string KillHero(List<string> strings)`
 
-**Purpose:** Handles logic related to `kill hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCheats.KillHero(strings);
+```
 
 ### FocusTournament
 `public static string FocusTournament(List<string> strings)`
 
-**Purpose:** Handles logic related to `focus tournament`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCheats.FocusTournament(strings);
+```
 
 ### MakeClanMercenaryOfKingdom
 `public static string MakeClanMercenaryOfKingdom(List<string> strings)`
 
-**Purpose:** Handles logic related to `make clan mercenary of kingdom`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCheats.MakeClanMercenaryOfKingdom(strings);
+```
 
 ### FocusHostileArmy
 `public static string FocusHostileArmy(List<string> strings)`
 
-**Purpose:** Handles logic related to `focus hostile army`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCheats.FocusHostileArmy(strings);
+```
 
 ### FocusMobileParty
 `public static string FocusMobileParty(List<string> strings)`
 
-**Purpose:** Handles logic related to `focus mobile party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCheats.FocusMobileParty(strings);
+```
 
 ### FocusHero
 `public static string FocusHero(List<string> strings)`
 
-**Purpose:** Handles logic related to `focus hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCheats.FocusHero(strings);
+```
 
 ### FocusInfestedHideout
 `public static string FocusInfestedHideout(List<string> strings)`
 
-**Purpose:** Handles logic related to `focus infested hideout`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCheats.FocusInfestedHideout(strings);
+```
 
 ### FocusIssues
 `public static string FocusIssues(List<string> strings)`
 
-**Purpose:** Handles logic related to `focus issues`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SandBoxViewCheats.FocusIssues(strings);
+```
 
 ## Usage Example
 
@@ -74,4 +108,4 @@ SandBoxViewCheats.KillHero(strings);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SpriteGeneric"
+description: "Auto-generated class reference for SpriteGeneric."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpriteGeneric`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpriteGeneric
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### GetMinUvs
 `public override Vec2 GetMinUvs()`
 
-**Purpose:** Gets the current value of `min uvs`.
+**Purpose:** Reads and returns the `min uvs` value held by the current object.
+
+```csharp
+// Obtain an instance of SpriteGeneric from the subsystem API first
+SpriteGeneric spriteGeneric = ...;
+var result = spriteGeneric.GetMinUvs();
+```
 
 ### GetMaxUvs
 `public override Vec2 GetMaxUvs()`
 
-**Purpose:** Gets the current value of `max uvs`.
+**Purpose:** Reads and returns the `max uvs` value held by the current object.
+
+```csharp
+// Obtain an instance of SpriteGeneric from the subsystem API first
+SpriteGeneric spriteGeneric = ...;
+var result = spriteGeneric.GetMaxUvs();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpriteGeneric();
-value.GetMinUvs();
+// Typically call this after obtaining an instance from the subsystem API
+SpriteGeneric spriteGeneric = ...;
+spriteGeneric.GetMinUvs();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

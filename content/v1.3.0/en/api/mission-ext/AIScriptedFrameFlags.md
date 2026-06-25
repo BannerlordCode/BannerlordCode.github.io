@@ -1,13 +1,7 @@
 ---
 title: "AIScriptedFrameFlags"
+description: "Auto-generated class reference for AIScriptedFrameFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AIScriptedFrameFlags`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AIScriptedFrameFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-AIScriptedFrameFlags example = AIScriptedFrameFlags.Value;
+// Obtain an instance from the relevant subsystem API
+AIScriptedFrameFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

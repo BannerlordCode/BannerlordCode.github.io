@@ -1,20 +1,14 @@
 ---
 title: "TestFriendListService"
+description: "Auto-generated class reference for TestFriendListService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestFriendListService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestFriendListService
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class TestFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/TestFriendListService.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/TestFriendListService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new TestFriendListService();
+// Obtain an instance from the relevant subsystem API
+TestFriendListService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ServersideSessionManager"
+description: "ServersideSessionManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ServersideSessionManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServersideSessionManager
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class ServersideSessionManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/ServersideSessionManager.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/ServersideSessionManager.cs`
 
 ## 概述
 
@@ -35,24 +29,43 @@ title: "ServersideSessionManager"
 ### Activate
 `public void Activate(ushort port, ThreadType threadType = ThreadType.Single, int readWriteThreadCount = 1)`
 
-**用途 / Purpose:** 处理 `activate` 相关逻辑。
+**用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 ServersideSessionManager 实例
+ServersideSessionManager serversideSessionManager = ...;
+serversideSessionManager.Activate(0, threadType.Single, 0);
+```
 
 ### GetPeer
 `public ServersideSession GetPeer(int peerIndex)`
 
-**用途 / Purpose:** 获取 `peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ServersideSessionManager 实例
+ServersideSessionManager serversideSessionManager = ...;
+var result = serversideSessionManager.GetPeer(0);
+```
 
 ### Tick
 `public virtual void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 ServersideSessionManager 实例
+ServersideSessionManager serversideSessionManager = ...;
+serversideSessionManager.Tick();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomServersideSessionManager();
+// 通常通过子系统 API 或工厂获得派生实例
+ServersideSessionManager instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

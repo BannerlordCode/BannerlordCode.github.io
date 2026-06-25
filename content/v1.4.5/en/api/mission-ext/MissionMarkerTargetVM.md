@@ -1,20 +1,14 @@
 ---
 title: "MissionMarkerTargetVM"
+description: "Auto-generated class reference for MissionMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMarkerTargetVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionMarkerTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionMarkerTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionMarkerTargetVM.cs`
 
 ## Overview
 
@@ -43,14 +37,21 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### UpdateScreenPosition
 `public virtual void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `screen position`.
+**Purpose:** Recalculates and stores the latest representation of `screen position`.
+
+```csharp
+// Obtain an instance of MissionMarkerTargetVM from the subsystem API first
+MissionMarkerTargetVM missionMarkerTargetVM = ...;
+missionMarkerTargetVM.UpdateScreenPosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionMarkerTargetVM();
+// Typically obtained from a subsystem API or factory
+MissionMarkerTargetVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

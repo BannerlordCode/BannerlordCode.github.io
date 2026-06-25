@@ -1,13 +1,7 @@
 ---
 title: "FormationSearchThreatTask"
+description: "Auto-generated class reference for FormationSearchThreatTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationSearchThreatTask`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FormationSearchThreatTask
 
 **Namespace:** TaleWorlds.MountAndBlade.DividableTasks
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.DividableTasks` to place it in th
 ### Prepare
 `public void Prepare(Formation formation, RangedSiegeWeapon weapon)`
 
-**Purpose:** Handles logic related to `prepare`.
+**Purpose:** Finishes prerequisite setup for the current object's operation.
+
+```csharp
+// Obtain an instance of FormationSearchThreatTask from the subsystem API first
+FormationSearchThreatTask formationSearchThreatTask = ...;
+formationSearchThreatTask.Prepare(formation, weapon);
+```
 
 ### GetResult
 `public bool GetResult(out Agent targetAgent)`
 
-**Purpose:** Gets the current value of `result`.
+**Purpose:** Reads and returns the `result` value held by the current object.
+
+```csharp
+// Obtain an instance of FormationSearchThreatTask from the subsystem API first
+FormationSearchThreatTask formationSearchThreatTask = ...;
+var result = formationSearchThreatTask.GetResult(targetAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationSearchThreatTask();
-value.Prepare(formation, weapon);
+// Typically call this after obtaining an instance from the subsystem API
+FormationSearchThreatTask formationSearchThreatTask = ...;
+formationSearchThreatTask.Prepare(formation, weapon);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

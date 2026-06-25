@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticsVM"
+description: "MPArmoryCosmeticsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPArmoryCosmeticsVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryCosmeticsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryCosmeticsVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryCosmeticsVM.cs`
 
 ## 概述
 
@@ -56,90 +50,187 @@ title: "MPArmoryCosmeticsVM"
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 设置 `sort mode` 的值或状态。
+**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.OnFinalize();
+```
 
 ### OnTick
 `public async void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.OnTick(0);
+```
 
 ### RefreshAvailableCategoriesBy
 `public void RefreshAvailableCategoriesBy(CosmeticType type)`
 
-**用途 / Purpose:** 刷新 `available categories by` 的显示或缓存。
+**用途 / Purpose:** 使 「available categories by」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshAvailableCategoriesBy(type);
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**用途 / Purpose:** 刷新 `player data` 的显示或缓存。
+**用途 / Purpose:** 使 「player data」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshPlayerData(playerData);
+```
 
 ### RefreshCosmeticInfoFromNetwork
 `public void RefreshCosmeticInfoFromNetwork()`
 
-**用途 / Purpose:** 刷新 `cosmetic info from network` 的显示或缓存。
+**用途 / Purpose:** 使 「cosmetic info from network」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshCosmeticInfoFromNetwork();
+```
 
 ### RefreshSelectedClass
 `public void RefreshSelectedClass(MPHeroClass selectedClass, List<IReadOnlyPerkObject> selectedPerks)`
 
-**用途 / Purpose:** 刷新 `selected class` 的显示或缓存。
+**用途 / Purpose:** 使 「selected class」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshSelectedClass(selectedClass, selectedPerks);
+```
 
 ### ClearTauntSelections
 `public void ClearTauntSelections()`
 
-**用途 / Purpose:** 处理 `clear taunt selections` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「taunt selections」。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.ClearTauntSelections();
+```
 
 ### OnItemObtained
 `public void OnItemObtained(string cosmeticID, int finalLoot)`
 
-**用途 / Purpose:** 当 `item obtained` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「item obtained」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.OnItemObtained("example", 0);
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey actionKey, HotKey previewKey)`
 
-**用途 / Purpose:** 刷新 `key bindings` 的显示或缓存。
+**用途 / Purpose:** 使 「key bindings」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryCosmeticsVM 实例
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshKeyBindings(actionKey, previewKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPArmoryCosmeticsVM();
-value.SetSortMode(false);
+// 通常从对应子系统 API 获取实例后调用
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.SetSortMode(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

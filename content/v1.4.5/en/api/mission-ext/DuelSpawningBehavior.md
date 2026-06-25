@@ -1,20 +1,14 @@
 ---
 title: "DuelSpawningBehavior"
+description: "Auto-generated class reference for DuelSpawningBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelSpawningBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelSpawningBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DuelSpawningBehavior : SpawningBehaviorBase`
 **Base:** `SpawningBehaviorBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DuelSpawningBehavior.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/DuelSpawningBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public override void Initialize(SpawnComponent spawnComponent)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of DuelSpawningBehavior from the subsystem API first
+DuelSpawningBehavior duelSpawningBehavior = ...;
+duelSpawningBehavior.Initialize(spawnComponent);
+```
 
 ### Clear
 `public override void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of DuelSpawningBehavior from the subsystem API first
+DuelSpawningBehavior duelSpawningBehavior = ...;
+duelSpawningBehavior.Clear();
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of DuelSpawningBehavior from the subsystem API first
+DuelSpawningBehavior duelSpawningBehavior = ...;
+duelSpawningBehavior.OnTick(0);
+```
 
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer missionPeer)`
 
-**Purpose:** Handles logic related to `allow early agent visuals despawning`.
+**Purpose:** Permits `early agent visuals despawning` to be enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of DuelSpawningBehavior from the subsystem API first
+DuelSpawningBehavior duelSpawningBehavior = ...;
+var result = duelSpawningBehavior.AllowEarlyAgentVisualsDespawning(missionPeer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DuelSpawningBehavior();
-value.Initialize(spawnComponent);
+// Typically call this after obtaining an instance from the subsystem API
+DuelSpawningBehavior duelSpawningBehavior = ...;
+duelSpawningBehavior.Initialize(spawnComponent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

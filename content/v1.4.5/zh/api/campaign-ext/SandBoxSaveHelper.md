@@ -1,20 +1,14 @@
 ---
 title: "SandBoxSaveHelper"
+description: "SandBoxSaveHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxSaveHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSaveHelper
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public static class SandBoxSaveHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/SandBoxSaveHelper.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/SandBoxSaveHelper.cs`
 
 ## 概述
 
@@ -29,27 +23,53 @@ title: "SandBoxSaveHelper"
 ### ModuleCheckResult
 `public readonly struct ModuleCheckResult(string moduleId, ModuleCheckResultType type)`
 
-**用途 / Purpose:** 处理 `module check result` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSaveHelper 实例
+SandBoxSaveHelper sandBoxSaveHelper = ...;
+var result = sandBoxSaveHelper.ModuleCheckResult("example", type);
+```
 
 ### TryLoadSave
 `public static void TryLoadSave(SaveGameFileInfo saveInfo, Action<LoadResult> onStartGame, Action onCancel = null)`
 
-**用途 / Purpose:** 尝试获取 `load save`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「load save」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxSaveHelper.TryLoadSave(saveInfo, onStartGame, null);
+```
 
 ### CheckMetaDataCompatibilityErrors
 `public static MBReadOnlyList<ModuleCheckResult> CheckMetaDataCompatibilityErrors(MetaData fileMetaData)`
 
-**用途 / Purpose:** 处理 `check meta data compatibility errors` 相关逻辑。
+**用途 / Purpose:** 检查「meta data compatibility errors」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxSaveHelper.CheckMetaDataCompatibilityErrors(fileMetaData);
+```
 
 ### GetIsDisabledWithReason
 `public unsafe static bool GetIsDisabledWithReason(SaveGameFileInfo saveGameFileInfo, out TextObject reason)`
 
-**用途 / Purpose:** 获取 `is disabled with reason` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is disabled with reason」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxSaveHelper.GetIsDisabledWithReason(saveGameFileInfo, reason);
+```
 
 ### GetModuleNameFromModuleId
 `public static string GetModuleNameFromModuleId(string id)`
 
-**用途 / Purpose:** 获取 `module name from module id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「module name from module id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxSaveHelper.GetModuleNameFromModuleId("example");
+```
 
 ## 使用示例
 
@@ -59,4 +79,4 @@ SandBoxSaveHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

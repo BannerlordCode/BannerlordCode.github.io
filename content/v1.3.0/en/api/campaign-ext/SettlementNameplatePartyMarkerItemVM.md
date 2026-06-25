@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplatePartyMarkerItemVM"
+description: "Auto-generated class reference for SettlementNameplatePartyMarkerItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplatePartyMarkerItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplatePartyMarkerItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -38,9 +32,10 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNameplatePartyMarkerItemVM();
+// Obtain an instance from the relevant subsystem API
+SettlementNameplatePartyMarkerItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

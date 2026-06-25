@@ -1,13 +1,7 @@
 ---
 title: "Material"
+description: "Auto-generated class reference for Material."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Material`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Material
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMaterial();
+// Typically obtained from a subsystem API or factory
+Material instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

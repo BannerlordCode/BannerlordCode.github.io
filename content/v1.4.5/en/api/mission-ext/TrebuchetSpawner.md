@@ -1,20 +1,14 @@
 ---
 title: "TrebuchetSpawner"
+description: "Auto-generated class reference for TrebuchetSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrebuchetSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrebuchetSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TrebuchetSpawner : SpawnerBase`
 **Base:** `SpawnerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrebuchetSpawner.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrebuchetSpawner.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AssignParameters
 `public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**Purpose:** Handles logic related to `assign parameters`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TrebuchetSpawner from the subsystem API first
+TrebuchetSpawner trebuchetSpawner = ...;
+trebuchetSpawner.AssignParameters(_spawnerMissionHelper);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrebuchetSpawner();
-value.AssignParameters(_spawnerMissionHelper);
+// Typically call this after obtaining an instance from the subsystem API
+TrebuchetSpawner trebuchetSpawner = ...;
+trebuchetSpawner.AssignParameters(_spawnerMissionHelper);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

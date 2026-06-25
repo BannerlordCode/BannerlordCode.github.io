@@ -1,13 +1,7 @@
 ---
 title: "PlayerSelectedAKingdomDecisionOptionEvent"
+description: "Auto-generated class reference for PlayerSelectedAKingdomDecisionOptionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerSelectedAKingdomDecisionOptionEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerSelectedAKingdomDecisionOptionEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ## Usage Example
 
 ```csharp
-var value = new PlayerSelectedAKingdomDecisionOptionEvent();
+// Obtain an instance from the relevant subsystem API
+PlayerSelectedAKingdomDecisionOptionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletAgentAlarmStateView"
+description: "Auto-generated class reference for MissionGauntletAgentAlarmStateView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletAgentAlarmStateView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletAgentAlarmStateView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletAgentAlarmStateView : MissionAgentAlarmStateView`
 **Base:** `MissionAgentAlarmStateView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletAgentAlarmStateView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletAgentAlarmStateView.cs`
 
 ## Overview
 
@@ -29,39 +23,76 @@ Treat `MissionGauntletAgentAlarmStateView` as a View-style extension point: firs
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnMissionScreenFinalize();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** Called when the `agent team changed` event is raised.
+**Purpose:** Invoked when the `agent team changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentAlarmStateView from the subsystem API first
+MissionGauntletAgentAlarmStateView missionGauntletAgentAlarmStateView = ...;
+missionGauntletAgentAlarmStateView.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletAgentAlarmStateView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletAgentAlarmStateView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "NewBornSceneNotificationItem"
+description: "Auto-generated class reference for NewBornSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NewBornSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NewBornSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of NewBornSceneNotificationItem from the subsystem API first
+NewBornSceneNotificationItem newBornSceneNotificationItem = ...;
+var result = newBornSceneNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NewBornSceneNotificationItem();
-value.GetSceneNotificationCharacters();
+// Typically call this after obtaining an instance from the subsystem API
+NewBornSceneNotificationItem newBornSceneNotificationItem = ...;
+newBornSceneNotificationItem.GetSceneNotificationCharacters();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

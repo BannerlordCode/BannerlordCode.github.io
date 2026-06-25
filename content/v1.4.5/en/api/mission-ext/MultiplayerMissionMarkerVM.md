@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerMissionMarkerVM"
+description: "Auto-generated class reference for MultiplayerMissionMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerMissionMarkerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMissionMarkerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker/MultiplayerMissionMarkerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker/MultiplayerMissionMarkerVM.cs`
 
 ## Overview
 
@@ -39,30 +33,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### Compare
 `public int Compare(MissionMarkerTargetVM x, MissionMarkerTargetVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MultiplayerMissionMarkerVM from the subsystem API first
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+var result = multiplayerMissionMarkerVM.Compare(x, y);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerMissionMarkerVM from the subsystem API first
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+multiplayerMissionMarkerVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MultiplayerMissionMarkerVM from the subsystem API first
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+multiplayerMissionMarkerVM.Tick(0);
+```
 
 ### OnRemoveAlwaysVisibleMarker
 `public void OnRemoveAlwaysVisibleMarker(MissionAlwaysVisibleMarkerTargetVM marker)`
 
-**Purpose:** Called when the `remove always visible marker` event is raised.
+**Purpose:** Invoked when the `remove always visible marker` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerMissionMarkerVM from the subsystem API first
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+multiplayerMissionMarkerVM.OnRemoveAlwaysVisibleMarker(marker);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerMissionMarkerVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+multiplayerMissionMarkerVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

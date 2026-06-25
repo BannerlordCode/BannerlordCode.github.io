@@ -1,20 +1,14 @@
 ---
 title: "ItemComponent"
+description: "Auto-generated class reference for ItemComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ItemComponent : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemComponent.cs`
 
 ## Overview
 
@@ -36,19 +30,32 @@ Treat `ItemComponent` as a Component-style extension point: first identify who c
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ItemComponent from the subsystem API first
+ItemComponent itemComponent = ...;
+itemComponent.Deserialize(objectManager, node);
+```
 
 ### GetCopy
 `public abstract ItemComponent GetCopy()`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemComponent from the subsystem API first
+ItemComponent itemComponent = ...;
+var result = itemComponent.GetCopy();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomItemComponent();
+// Typically obtained from a subsystem API or factory
+ItemComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

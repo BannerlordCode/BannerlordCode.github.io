@@ -1,13 +1,7 @@
 ---
 title: "CompressionInfo"
+description: "CompressionInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CompressionInfo`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CompressionInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,55 +29,110 @@ title: "CompressionInfo"
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 获取 `num bits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetNumBits();
+```
 
 ### GetMaximumValue
 `public int GetMaximumValue()`
 
-**用途 / Purpose:** 获取 `maximum value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetMaximumValue();
+```
 
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 获取 `num bits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetNumBits();
+```
 
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 获取 `num bits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetNumBits();
+```
 
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 获取 `num bits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetNumBits();
+```
 
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 获取 `num bits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetNumBits();
+```
 
 ### GetMaximumValue
 `public float GetMaximumValue()`
 
-**用途 / Purpose:** 获取 `maximum value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetMaximumValue();
+```
 
 ### GetMinimumValue
 `public float GetMinimumValue()`
 
-**用途 / Purpose:** 获取 `minimum value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「minimum value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetMinimumValue();
+```
 
 ### GetPrecision
 `public float GetPrecision()`
 
-**用途 / Purpose:** 获取 `precision` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「precision」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CompressionInfo 实例
+CompressionInfo compressionInfo = ...;
+var result = compressionInfo.GetPrecision();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CompressionInfo();
-value.GetNumBits();
+// 通常从对应子系统 API 获取实例后调用
+CompressionInfo compressionInfo = ...;
+compressionInfo.GetNumBits();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

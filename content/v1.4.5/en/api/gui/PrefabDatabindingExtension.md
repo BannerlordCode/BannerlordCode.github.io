@@ -1,20 +1,14 @@
 ---
 title: "PrefabDatabindingExtension"
+description: "Auto-generated class reference for PrefabDatabindingExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrefabDatabindingExtension`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrefabDatabindingExtension
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class PrefabDatabindingExtension : PrefabExtension`
 **Base:** `PrefabExtension`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/PrefabDatabindingExtension.cs`
+**File:** `bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/PrefabDatabindingExtension.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new PrefabDatabindingExtension();
+// Obtain an instance from the relevant subsystem API
+PrefabDatabindingExtension instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

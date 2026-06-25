@@ -1,13 +1,7 @@
 ---
 title: "LauncherHintVM"
+description: "LauncherHintVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LauncherHintVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherHintVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -35,20 +29,33 @@ title: "LauncherHintVM"
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 `begin hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherHintVM 实例
+LauncherHintVM launcherHintVM = ...;
+launcherHintVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherHintVM 实例
+LauncherHintVM launcherHintVM = ...;
+launcherHintVM.ExecuteEndHint();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LauncherHintVM();
-value.ExecuteBeginHint();
+// 通常从对应子系统 API 获取实例后调用
+LauncherHintVM launcherHintVM = ...;
+launcherHintVM.ExecuteBeginHint();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

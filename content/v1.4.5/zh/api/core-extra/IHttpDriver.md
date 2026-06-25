@@ -1,20 +1,14 @@
 ---
 title: "IHttpDriver"
+description: "IHttpDriver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IHttpDriver`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IHttpDriver
 
 **Namespace:** TaleWorlds.Library.Http
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IHttpDriver`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.Http/IHttpDriver.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/IHttpDriver.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IHttpDriver"
 ## 使用示例
 
 ```csharp
-IHttpDriver implementation = GetHttpDriverImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIHttpDriver service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

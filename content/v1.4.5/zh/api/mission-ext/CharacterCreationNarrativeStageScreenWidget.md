@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationNarrativeStageScreenWidget"
+description: "CharacterCreationNarrativeStageScreenWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationNarrativeStageScreenWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationNarrativeStageScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterCreationNarrativeStageScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation/CharacterCreationNarrativeStageScreenWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation/CharacterCreationNarrativeStageScreenWidget.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "CharacterCreationNarrativeStageScreenWidget"
 ## 使用示例
 
 ```csharp
-var widget = new CharacterCreationNarrativeStageScreenWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+CharacterCreationNarrativeStageScreenWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

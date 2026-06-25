@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerMissionServerStatusVM"
+description: "Auto-generated class reference for MultiplayerMissionServerStatusVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerMissionServerStatusVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionServerStatusVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMissionServerStatusVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerMissionServerStatusVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerMissionServerStatusVM.cs`
 
 ## Overview
 
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### UpdatePacketLossRatio
 `public void UpdatePacketLossRatio(float v)`
 
-**Purpose:** Updates the state or data of `packet loss ratio`.
+**Purpose:** Recalculates and stores the latest representation of `packet loss ratio`.
+
+```csharp
+// Obtain an instance of MultiplayerMissionServerStatusVM from the subsystem API first
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.UpdatePacketLossRatio(0);
+```
 
 ### UpdatePeerPing
 `public void UpdatePeerPing(double averagePingInMilliseconds)`
 
-**Purpose:** Updates the state or data of `peer ping`.
+**Purpose:** Recalculates and stores the latest representation of `peer ping`.
+
+```csharp
+// Obtain an instance of MultiplayerMissionServerStatusVM from the subsystem API first
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.UpdatePeerPing(0);
+```
 
 ### UpdateServerPerformanceState
 `public void UpdateServerPerformanceState(ServerPerformanceState serverPerformanceState)`
 
-**Purpose:** Updates the state or data of `server performance state`.
+**Purpose:** Recalculates and stores the latest representation of `server performance state`.
+
+```csharp
+// Obtain an instance of MultiplayerMissionServerStatusVM from the subsystem API first
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.UpdateServerPerformanceState(serverPerformanceState);
+```
 
 ### ResetStates
 `public void ResetStates()`
 
-**Purpose:** Resets `states` to its initial state.
+**Purpose:** Returns `states` to its default or initial condition.
+
+```csharp
+// Obtain an instance of MultiplayerMissionServerStatusVM from the subsystem API first
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.ResetStates();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerMissionServerStatusVM();
-value.UpdatePacketLossRatio(0);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.UpdatePacketLossRatio(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "QuestProgressVisualWidget"
+description: "Auto-generated class reference for QuestProgressVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestProgressVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestProgressVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class QuestProgressVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest/QuestProgressVisualWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest/QuestProgressVisualWidget.cs`
 
 ## Overview
 
@@ -41,9 +35,10 @@ Treat `QuestProgressVisualWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new QuestProgressVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+QuestProgressVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

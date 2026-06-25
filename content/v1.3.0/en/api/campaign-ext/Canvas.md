@@ -1,13 +1,7 @@
 ---
 title: "Canvas"
+description: "Auto-generated class reference for Canvas."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Canvas`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Canvas
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -35,35 +29,66 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public void LoadFrom(XmlNode canvasNode)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of Canvas from the subsystem API first
+Canvas canvas = ...;
+canvas.LoadFrom(canvasNode);
+```
 
 ### Update
 `public void Update(float scale)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of Canvas from the subsystem API first
+Canvas canvas = ...;
+canvas.Update(0);
+```
 
 ### DoMeasure
 `public void DoMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**Purpose:** Handles logic related to `do measure`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Canvas from the subsystem API first
+Canvas canvas = ...;
+canvas.DoMeasure(false, false, 0, 0);
+```
 
 ### DoLayout
 `public void DoLayout()`
 
-**Purpose:** Handles logic related to `do layout`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Canvas from the subsystem API first
+Canvas canvas = ...;
+canvas.DoLayout();
+```
 
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Handles logic related to `do render`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Canvas from the subsystem API first
+Canvas canvas = ...;
+canvas.DoRender(globalPosition, drawContext);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Canvas();
-value.LoadFrom(canvasNode);
+// Typically call this after obtaining an instance from the subsystem API
+Canvas canvas = ...;
+canvas.LoadFrom(canvasNode);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

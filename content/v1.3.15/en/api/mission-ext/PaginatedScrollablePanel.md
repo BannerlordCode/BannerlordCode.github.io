@@ -1,13 +1,7 @@
 ---
 title: "PaginatedScrollablePanel"
+description: "Auto-generated class reference for PaginatedScrollablePanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PaginatedScrollablePanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PaginatedScrollablePanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -40,9 +34,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets` to place it i
 ## Usage Example
 
 ```csharp
-var value = new PaginatedScrollablePanel();
+// Obtain an instance from the relevant subsystem API
+PaginatedScrollablePanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

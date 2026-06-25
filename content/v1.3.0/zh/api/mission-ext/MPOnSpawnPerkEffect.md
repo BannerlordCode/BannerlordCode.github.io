@@ -1,13 +1,7 @@
 ---
 title: "MPOnSpawnPerkEffect"
+description: "MPOnSpawnPerkEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPOnSpawnPerkEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPOnSpawnPerkEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,20 @@ title: "MPOnSpawnPerkEffect"
 ### CreateFrom
 `public static MPOnSpawnPerkEffect CreateFrom(XmlNode node)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MPOnSpawnPerkEffect.CreateFrom(node);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMPOnSpawnPerkEffect();
+// 通常通过子系统 API 或工厂获得派生实例
+MPOnSpawnPerkEffect instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

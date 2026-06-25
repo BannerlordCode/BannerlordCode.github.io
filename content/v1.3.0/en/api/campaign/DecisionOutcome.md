@@ -1,13 +1,7 @@
 ---
 title: "DecisionOutcome"
+description: "Auto-generated class reference for DecisionOutcome."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DecisionOutcome`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -41,44 +35,87 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public abstract TextObject GetDecisionTitle()`
 
-**Purpose:** Gets the current value of `decision title`.
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of DecisionOutcome from the subsystem API first
+DecisionOutcome decisionOutcome = ...;
+var result = decisionOutcome.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public abstract TextObject GetDecisionDescription()`
 
-**Purpose:** Gets the current value of `decision description`.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of DecisionOutcome from the subsystem API first
+DecisionOutcome decisionOutcome = ...;
+var result = decisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public abstract string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `decision link`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of DecisionOutcome from the subsystem API first
+DecisionOutcome decisionOutcome = ...;
+var result = decisionOutcome.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public abstract ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Gets the current value of `decision image identifier`.
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of DecisionOutcome from the subsystem API first
+DecisionOutcome decisionOutcome = ...;
+var result = decisionOutcome.GetDecisionImageIdentifier();
+```
 
 ### AddSupport
 `public void AddSupport(Supporter supporter)`
 
 **Purpose:** Adds `support` to the current collection or state.
 
+```csharp
+// Obtain an instance of DecisionOutcome from the subsystem API first
+DecisionOutcome decisionOutcome = ...;
+decisionOutcome.AddSupport(supporter);
+```
+
 ### ResetSupport
 `public void ResetSupport(Supporter supporter)`
 
-**Purpose:** Resets `support` to its initial state.
+**Purpose:** Returns `support` to its default or initial condition.
+
+```csharp
+// Obtain an instance of DecisionOutcome from the subsystem API first
+DecisionOutcome decisionOutcome = ...;
+decisionOutcome.ResetSupport(supporter);
+```
 
 ### SetSponsor
 `public void SetSponsor(Clan sponsorClan)`
 
-**Purpose:** Sets the value or state of `sponsor`.
+**Purpose:** Assigns a new value to `sponsor` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DecisionOutcome from the subsystem API first
+DecisionOutcome decisionOutcome = ...;
+decisionOutcome.SetSponsor(sponsorClan);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDecisionOutcome();
+// Typically obtained from a subsystem API or factory
+DecisionOutcome instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

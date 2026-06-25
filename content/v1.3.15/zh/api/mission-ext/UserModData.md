@@ -1,13 +1,7 @@
 ---
 title: "UserModData"
+description: "UserModData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UserModData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UserModData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
@@ -37,14 +31,21 @@ title: "UserModData"
 ### IsUpdatedToBeDefault
 `public bool IsUpdatedToBeDefault(ModuleInfo module)`
 
-**用途 / Purpose:** 处理 `is updated to be default` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「updated to be default」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 UserModData 实例
+UserModData userModData = ...;
+var result = userModData.IsUpdatedToBeDefault(module);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new UserModData();
+// 该数据对象通常由战役/任务 API 返回
+UserModData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

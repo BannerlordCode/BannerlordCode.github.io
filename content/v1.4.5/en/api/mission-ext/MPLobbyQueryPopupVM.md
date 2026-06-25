@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyQueryPopupVM"
+description: "Auto-generated class reference for MPLobbyQueryPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyQueryPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyQueryPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyQueryPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup/MPLobbyQueryPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Popup/MPLobbyQueryPopupVM.cs`
 
 ## Overview
 
@@ -40,45 +34,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.RefreshValues();
+```
 
 ### ShowMessage
 `public void ShowMessage(TextObject title, TextObject message)`
 
-**Purpose:** Handles logic related to `show message`.
+**Purpose:** Displays the UI or element associated with `message`.
+
+```csharp
+// Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.ShowMessage(title, message);
+```
 
 ### ShowInquiry
 `public void ShowInquiry(TextObject title, TextObject message, Action onAccepted, Action onDeclined)`
 
-**Purpose:** Handles logic related to `show inquiry`.
+**Purpose:** Displays the UI or element associated with `inquiry`.
+
+```csharp
+// Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.ShowInquiry(title, message, onAccepted, onDeclined);
+```
 
 ### ExecuteAccept
 `public void ExecuteAccept()`
 
-**Purpose:** Executes the `accept` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `accept`.
+
+```csharp
+// Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.ExecuteAccept();
+```
 
 ### ExecuteDecline
 `public void ExecuteDecline()`
 
-**Purpose:** Executes the `decline` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `decline`.
+
+```csharp
+// Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.ExecuteDecline();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyQueryPopupVM from the subsystem API first
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.SetCancelInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyQueryPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyQueryPopupVM mPLobbyQueryPopupVM = ...;
+mPLobbyQueryPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPracticeMissionComponent"
+description: "Auto-generated class reference for MultiplayerPracticeMissionComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPracticeMissionComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPracticeMissionComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPracticeMissionComponent : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Missions/MultiplayerPracticeMissionComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Missions/MultiplayerPracticeMissionComponent.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `MultiplayerPracticeMissionComponent` as a Component-style extension point
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerPracticeMissionComponent from the subsystem API first
+MultiplayerPracticeMissionComponent multiplayerPracticeMissionComponent = ...;
+multiplayerPracticeMissionComponent.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerPracticeMissionComponent from the subsystem API first
+MultiplayerPracticeMissionComponent multiplayerPracticeMissionComponent = ...;
+multiplayerPracticeMissionComponent.OnMissionTick(0);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var component = agent.GetComponent<MultiplayerPracticeMissionComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "IGauntletMapEventVisualHandler"
+description: "Auto-generated class reference for IGauntletMapEventVisualHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGauntletMapEventVisualHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IGauntletMapEventVisualHandler
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
-**Type:** `class`
+**Type:** `public interface IGauntletMapEventVisualHandler`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/IGauntletMapEventVisualHandler.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/IGauntletMapEventVisualHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IGauntletMapEventVisualHandler` as a Handler-style extension point: first
 ## Usage Example
 
 ```csharp
-IGauntletMapEventVisualHandler implementation = GetGauntletMapEventVisualHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIGauntletMapEventVisualHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

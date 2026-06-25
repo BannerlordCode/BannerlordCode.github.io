@@ -1,20 +1,14 @@
 ---
 title: "TavernEmployeesCampaignBehavior"
+description: "TavernEmployeesCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TavernEmployeesCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TavernEmployeesCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class TavernEmployeesCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/TavernEmployeesCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/TavernEmployeesCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,45 +23,88 @@ title: "TavernEmployeesCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 TavernEmployeesCampaignBehavior 实例
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 TavernEmployeesCampaignBehavior 实例
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.SyncData(dataStore);
+```
 
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 处理 `daily tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TavernEmployeesCampaignBehavior 实例
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.DailyTick();
+```
 
 ### WeeklyTick
 `public void WeeklyTick()`
 
-**用途 / Purpose:** 处理 `weekly tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TavernEmployeesCampaignBehavior 实例
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.WeeklyTick();
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TavernEmployeesCampaignBehavior 实例
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### OnMissionStarted
 `public void OnMissionStarted(IMission mission)`
 
-**用途 / Purpose:** 当 `mission started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TavernEmployeesCampaignBehavior 实例
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.OnMissionStarted(mission);
+```
 
 ### FindCompanionWithType
 `public void FindCompanionWithType(PartyRole role)`
 
-**用途 / Purpose:** 处理 `find companion with type` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「companion with type」。
+
+```csharp
+// 先通过子系统 API 拿到 TavernEmployeesCampaignBehavior 实例
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.FindCompanionWithType(role);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TavernEmployeesCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+TavernEmployeesCampaignBehavior tavernEmployeesCampaignBehavior = ...;
+tavernEmployeesCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

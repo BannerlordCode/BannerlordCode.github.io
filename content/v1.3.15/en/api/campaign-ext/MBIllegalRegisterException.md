@@ -1,13 +1,7 @@
 ---
 title: "MBIllegalRegisterException"
+description: "Auto-generated class reference for MBIllegalRegisterException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBIllegalRegisterException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBIllegalRegisterException
 
 **Namespace:** TaleWorlds.ObjectSystem
@@ -27,9 +21,10 @@ Treat `MBIllegalRegisterException` as a Exception-style extension point: first i
 ## Usage Example
 
 ```csharp
-try { CallMBIllegalRegisterException(); } catch (MBIllegalRegisterException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBIllegalRegisterException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

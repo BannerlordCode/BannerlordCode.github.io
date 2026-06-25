@@ -1,13 +1,7 @@
 ---
 title: "GauntletMenuTownManagementView"
+description: "Auto-generated class reference for GauntletMenuTownManagementView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMenuTownManagementView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuTownManagementView
 
 **Namespace:** SandBox.GauntletUI.Menu
@@ -27,9 +21,10 @@ Treat `GauntletMenuTownManagementView` as a View-style extension point: first id
 ## Usage Example
 
 ```csharp
-var view = new GauntletMenuTownManagementView();
+// Retrieve this view from the subsystem API or scene
+GauntletMenuTownManagementView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

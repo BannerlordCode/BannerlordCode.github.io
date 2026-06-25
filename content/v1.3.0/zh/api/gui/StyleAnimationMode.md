@@ -1,18 +1,12 @@
 ---
 title: "StyleAnimationMode"
+description: "StyleAnimationMode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StyleAnimationMode`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StyleAnimationMode
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum StyleAnimationMode`
 **Base:** 无
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/StyleAnimationMode.cs`
 
@@ -27,9 +21,10 @@ title: "StyleAnimationMode"
 ## 使用示例
 
 ```csharp
-var example = new StyleAnimationMode();
+// 从对应子系统 API 获取实例
+StyleAnimationMode instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

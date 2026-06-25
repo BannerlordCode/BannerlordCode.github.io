@@ -1,20 +1,14 @@
 ---
 title: "IGeneratedUIPrefabCreator"
+description: "IGeneratedUIPrefabCreator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IGeneratedUIPrefabCreator`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IGeneratedUIPrefabCreator
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface IGeneratedUIPrefabCreator`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/IGeneratedUIPrefabCreator.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/IGeneratedUIPrefabCreator.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IGeneratedUIPrefabCreator"
 ## 使用示例
 
 ```csharp
-IGeneratedUIPrefabCreator implementation = GetGeneratedUIPrefabCreatorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIGeneratedUIPrefabCreator service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

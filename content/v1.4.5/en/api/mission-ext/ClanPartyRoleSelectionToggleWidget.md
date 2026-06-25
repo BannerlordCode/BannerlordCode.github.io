@@ -1,20 +1,14 @@
 ---
 title: "ClanPartyRoleSelectionToggleWidget"
+description: "Auto-generated class reference for ClanPartyRoleSelectionToggleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanPartyRoleSelectionToggleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanPartyRoleSelectionToggleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanPartyRoleSelectionToggleWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanPartyRoleSelectionToggleWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanPartyRoleSelectionToggleWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `ClanPartyRoleSelectionToggleWidget` as a Widget-style extension point: fi
 ## Usage Example
 
 ```csharp
-var widget = new ClanPartyRoleSelectionToggleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClanPartyRoleSelectionToggleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

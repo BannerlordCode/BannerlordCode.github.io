@@ -1,20 +1,14 @@
 ---
 title: "LordNeedsHorsesIssueQuest"
+description: "LordNeedsHorsesIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LordNeedsHorsesIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordNeedsHorsesIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LordNeedsHorsesIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LordNeedsHorsesIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LordNeedsHorsesIssueBehavior.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "LordNeedsHorsesIssueQuest"
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** 当 `failed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordNeedsHorsesIssueQuest 实例
+LordNeedsHorsesIssueQuest lordNeedsHorsesIssueQuest = ...;
+lordNeedsHorsesIssueQuest.OnFailed();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LordNeedsHorsesIssueQuest();
-value.OnFailed();
+// 通常从对应子系统 API 获取实例后调用
+LordNeedsHorsesIssueQuest lordNeedsHorsesIssueQuest = ...;
+lordNeedsHorsesIssueQuest.OnFailed();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "IScreenFadeHandler"
+description: "Auto-generated class reference for IScreenFadeHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IScreenFadeHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IScreenFadeHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IScreenFadeHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IScreenFadeHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IScreenFadeHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IScreenFadeHandler` as a Handler-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-IScreenFadeHandler implementation = GetScreenFadeHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIScreenFadeHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

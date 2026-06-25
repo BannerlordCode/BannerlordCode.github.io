@@ -1,13 +1,7 @@
 ---
 title: "MapParleyAnimationView"
+description: "Auto-generated class reference for MapParleyAnimationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapParleyAnimationView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapParleyAnimationView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MapParleyAnimationView` as a View-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var view = new MapParleyAnimationView();
+// Retrieve this view from the subsystem API or scene
+MapParleyAnimationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

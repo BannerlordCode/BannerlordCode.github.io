@@ -1,5 +1,6 @@
 ---
 title: Bannerlord Modding Wiki
+description: Bannerlord Modding SDK Documentation — bilingual module architecture guide and API reference
 extra:
   layout: home
   titleTemplate: false
@@ -80,5 +81,16 @@ Treat `Bannerlord Modding Wiki` as an entry point or data node for this subsyste
 ## Usage Example
 
 ```csharp
-var example = new Bannerlord Modding Wiki();
+// Pick a version from the top navigation: v1.3.15, v1.3.0, or v1.4.5.
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## 站点栏目 / Site Sections
+
+- [Bannerlord v1.3.0 文档 / Bannerlord v1.3.0 Documentation](./v1.3.0/)
+- [Bannerlord v1.3.15 文档 / Bannerlord v1.3.15 Documentation](./v1.3.15/)
+- [Bannerlord v1.4.5](./v1.4.5/)
+- [跨版本类对比 / Cross-Version Class Comparison](./versions/)
+
+<!-- END SECTION INDEX -->

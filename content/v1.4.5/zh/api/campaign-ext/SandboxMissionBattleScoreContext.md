@@ -1,20 +1,14 @@
 ---
 title: "SandboxMissionBattleScoreContext"
+description: "SandboxMissionBattleScoreContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxMissionBattleScoreContext`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxMissionBattleScoreContext
 
 **Namespace:** SandBox.Missions.BattleScore
 **Module:** SandBox.Missions
 **Type:** `public class SandboxMissionBattleScoreContext : BattleScoreContext`
 **Base:** `BattleScoreContext`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.BattleScore/SandboxMissionBattleScoreContext.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.BattleScore/SandboxMissionBattleScoreContext.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "SandboxMissionBattleScoreContext"
 ### GetAttackerBanner
 `public override Banner GetAttackerBanner()`
 
-**用途 / Purpose:** 获取 `attacker banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attacker banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxMissionBattleScoreContext 实例
+SandboxMissionBattleScoreContext sandboxMissionBattleScoreContext = ...;
+var result = sandboxMissionBattleScoreContext.GetAttackerBanner();
+```
 
 ### GetDefenderBanner
 `public override Banner GetDefenderBanner()`
 
-**用途 / Purpose:** 获取 `defender banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「defender banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxMissionBattleScoreContext 实例
+SandboxMissionBattleScoreContext sandboxMissionBattleScoreContext = ...;
+var result = sandboxMissionBattleScoreContext.GetDefenderBanner();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SandboxMissionBattleScoreContext();
-value.GetAttackerBanner();
+// 通常从对应子系统 API 获取实例后调用
+SandboxMissionBattleScoreContext sandboxMissionBattleScoreContext = ...;
+sandboxMissionBattleScoreContext.GetAttackerBanner();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

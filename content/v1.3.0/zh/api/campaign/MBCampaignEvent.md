@@ -1,13 +1,7 @@
 ---
 title: "MBCampaignEvent"
+description: "MBCampaignEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBCampaignEvent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBCampaignEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -37,40 +31,77 @@ title: "MBCampaignEvent"
 ### AddHandler
 `public void AddHandler(MBCampaignEvent.CampaignEventDelegate gameEventDelegate)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `handler`。
+**用途 / Purpose:** 将 「handler」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MBCampaignEvent 实例
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.AddHandler(gameEventDelegate);
+```
 
 ### RunHandlers
 `public void RunHandlers(params object delegateParams)`
 
-**用途 / Purpose:** 处理 `run handlers` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBCampaignEvent 实例
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.RunHandlers(delegateParams);
+```
 
 ### Unregister
 `public void Unregister(object instance)`
 
-**用途 / Purpose:** 处理 `unregister` 相关逻辑。
+**用途 / Purpose:** 从当前系统注销当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBCampaignEvent 实例
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.Unregister(instance);
+```
 
 ### CheckUpdate
 `public void CheckUpdate()`
 
-**用途 / Purpose:** 处理 `check update` 相关逻辑。
+**用途 / Purpose:** 检查「update」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MBCampaignEvent 实例
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.CheckUpdate();
+```
 
 ### DeletePeriodicEvent
 `public void DeletePeriodicEvent()`
 
-**用途 / Purpose:** 处理 `delete periodic event` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBCampaignEvent 实例
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.DeletePeriodicEvent();
+```
 
 ### CampaignEventDelegate
 `public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)`
 
-**用途 / Purpose:** 处理 `campaign event delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBCampaignEvent 实例
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.CampaignEventDelegate(campaignEvent, delegateParams);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBCampaignEvent();
-value.AddHandler(gameEventDelegate);
+// 通常从对应子系统 API 获取实例后调用
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.AddHandler(gameEventDelegate);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

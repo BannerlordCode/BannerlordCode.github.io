@@ -1,13 +1,7 @@
 ---
 title: "MenuView"
+description: "Auto-generated class reference for MenuView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuView
 
 **Namespace:** SandBox.View.Menu
@@ -35,9 +29,10 @@ Treat `MenuView` as a View-style extension point: first identify who creates it,
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMenuView();
+// Typically obtained from a subsystem API or factory
+MenuView instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

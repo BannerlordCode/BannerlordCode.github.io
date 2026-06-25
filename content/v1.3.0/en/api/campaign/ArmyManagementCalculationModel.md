@@ -1,13 +1,7 @@
 ---
 title: "ArmyManagementCalculationModel"
+description: "Auto-generated class reference for ArmyManagementCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyManagementCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyManagementCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -42,64 +36,131 @@ Treat `ArmyManagementCalculationModel` as a Model-style extension point: first i
 ### CanPlayerCreateArmy
 `public abstract bool CanPlayerCreateArmy(out TextObject disabledReason)`
 
-**Purpose:** Checks whether the current object can `player create army`.
+**Purpose:** Checks whether the current object meets the preconditions for `player create army`.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CanPlayerCreateArmy(disabledReason);
+```
 
 ### CalculatePartyInfluenceCost
 `public abstract int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)`
 
-**Purpose:** Handles logic related to `calculate party influence cost`.
+**Purpose:** Calculates the current value or result of `party influence cost`.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CalculatePartyInfluenceCost(armyLeaderParty, party);
+```
 
 ### DailyBeingAtArmyInfluenceAward
 `public abstract float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)`
 
-**Purpose:** Handles logic related to `daily being at army influence award`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.DailyBeingAtArmyInfluenceAward(armyMemberParty);
+```
 
 ### GetMobilePartiesToCallToArmy
 `public abstract List<MobileParty> GetMobilePartiesToCallToArmy(MobileParty leaderParty)`
 
-**Purpose:** Gets the current value of `mobile parties to call to army`.
+**Purpose:** Reads and returns the `mobile parties to call to army` value held by the current object.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.GetMobilePartiesToCallToArmy(leaderParty);
+```
 
 ### CalculateTotalInfluenceCost
 `public abstract int CalculateTotalInfluenceCost(Army army, float percentage)`
 
-**Purpose:** Handles logic related to `calculate total influence cost`.
+**Purpose:** Calculates the current value or result of `total influence cost`.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CalculateTotalInfluenceCost(army, 0);
+```
 
 ### GetPartySizeScore
 `public abstract float GetPartySizeScore(MobileParty party)`
 
-**Purpose:** Gets the current value of `party size score`.
+**Purpose:** Reads and returns the `party size score` value held by the current object.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.GetPartySizeScore(party);
+```
 
 ### CheckPartyEligibility
 `public abstract bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `check party eligibility`.
+**Purpose:** Verifies whether `party eligibility` holds true for the current object.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CheckPartyEligibility(party, explanation);
+```
 
 ### GetPartyRelation
 `public abstract int GetPartyRelation(Hero hero)`
 
-**Purpose:** Gets the current value of `party relation`.
+**Purpose:** Reads and returns the `party relation` value held by the current object.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.GetPartyRelation(hero);
+```
 
 ### CalculateDailyCohesionChange
 `public abstract ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate daily cohesion change`.
+**Purpose:** Calculates the current value or result of `daily cohesion change`.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CalculateDailyCohesionChange(army, false);
+```
 
 ### CalculateNewCohesion
 `public abstract int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)`
 
-**Purpose:** Handles logic related to `calculate new cohesion`.
+**Purpose:** Calculates the current value or result of `new cohesion`.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.CalculateNewCohesion(army, newParty, 0, 0);
+```
 
 ### GetCohesionBoostInfluenceCost
 `public abstract int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
 
-**Purpose:** Gets the current value of `cohesion boost influence cost`.
+**Purpose:** Reads and returns the `cohesion boost influence cost` value held by the current object.
+
+```csharp
+// Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
+ArmyManagementCalculationModel armyManagementCalculationModel = ...;
+var result = armyManagementCalculationModel.GetCohesionBoostInfluenceCost(army, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomArmyManagementCalculationModel();
+// Typically obtained from a subsystem API or factory
+ArmyManagementCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

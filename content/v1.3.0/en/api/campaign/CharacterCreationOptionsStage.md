@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationOptionsStage"
+description: "Auto-generated class reference for CharacterCreationOptionsStage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationOptionsStage`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationOptionsStage
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ## Usage Example
 
 ```csharp
-var example = new CharacterCreationOptionsStage();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationOptionsStage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

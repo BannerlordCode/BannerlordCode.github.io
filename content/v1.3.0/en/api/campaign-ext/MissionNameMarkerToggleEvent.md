@@ -1,13 +1,7 @@
 ---
 title: "MissionNameMarkerToggleEvent"
+description: "Auto-generated class reference for MissionNameMarkerToggleEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNameMarkerToggleEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerToggleEvent
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
@@ -33,9 +27,10 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ## Usage Example
 
 ```csharp
-var value = new MissionNameMarkerToggleEvent();
+// Obtain an instance from the relevant subsystem API
+MissionNameMarkerToggleEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

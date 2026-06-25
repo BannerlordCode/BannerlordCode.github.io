@@ -1,13 +1,7 @@
 ---
 title: "SkinVoiceManager"
+description: "Auto-generated class reference for SkinVoiceManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkinVoiceManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkinVoiceManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,17 +30,33 @@ Treat `SkinVoiceManager` as a Manager-style extension point: first identify who 
 ### GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName
 `public static int GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(string className)`
 
-**Purpose:** Gets the current value of `voice definition count with monster sound and collision info class name`.
+**Purpose:** Reads and returns the `voice definition count with monster sound and collision info class name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SkinVoiceManager.GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName("example");
+```
 
 ### GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName
 `public static void GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(string className, int definitionIndices)`
 
-**Purpose:** Gets the current value of `voice definition list with monster sound and collision info class name`.
+**Purpose:** Reads and returns the `voice definition list with monster sound and collision info class name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SkinVoiceManager.GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName("example", 0);
+```
 
 ### GetName
 `public TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of SkinVoiceManager from the subsystem API first
+SkinVoiceManager skinVoiceManager = ...;
+var result = skinVoiceManager.GetName();
+```
 
 ## Usage Example
 
@@ -56,4 +66,4 @@ var manager = SkinVoiceManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

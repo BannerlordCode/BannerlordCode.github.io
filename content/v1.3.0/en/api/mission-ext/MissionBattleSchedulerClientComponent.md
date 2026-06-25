@@ -1,13 +1,7 @@
 ---
 title: "MissionBattleSchedulerClientComponent"
+description: "Auto-generated class reference for MissionBattleSchedulerClientComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBattleSchedulerClientComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBattleSchedulerClientComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,13 @@ Treat `MissionBattleSchedulerClientComponent` as a Component-style extension poi
 ### QuitMission
 `public override void QuitMission()`
 
-**Purpose:** Handles logic related to `quit mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBattleSchedulerClientComponent from the subsystem API first
+MissionBattleSchedulerClientComponent missionBattleSchedulerClientComponent = ...;
+missionBattleSchedulerClientComponent.QuitMission();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var component = agent.GetComponent<MissionBattleSchedulerClientComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BarterVM"
+description: "Auto-generated class reference for BarterVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Barter
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BarterVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterVM.cs`
 
 ## Overview
 
@@ -70,110 +64,231 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Barter` to p
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.OnFinalize();
+```
 
 ### OnInitialized
 `public void OnInitialized()`
 
-**Purpose:** Called when the `initialized` event is raised.
+**Purpose:** Invoked when the `initialized` event is raised.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.OnInitialized();
+```
 
 ### ExecuteTransferAllLeftFief
 `public void ExecuteTransferAllLeftFief()`
 
-**Purpose:** Executes the `transfer all left fief` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all left fief`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllLeftFief();
+```
 
 ### ExecuteAutoBalance
 `public void ExecuteAutoBalance()`
 
-**Purpose:** Executes the `auto balance` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `auto balance`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteAutoBalance();
+```
 
 ### ExecuteTransferAllLeftItem
 `public void ExecuteTransferAllLeftItem()`
 
-**Purpose:** Executes the `transfer all left item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all left item`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllLeftItem();
+```
 
 ### ExecuteTransferAllLeftPrisoner
 `public void ExecuteTransferAllLeftPrisoner()`
 
-**Purpose:** Executes the `transfer all left prisoner` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all left prisoner`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllLeftPrisoner();
+```
 
 ### ExecuteTransferAllLeftOther
 `public void ExecuteTransferAllLeftOther()`
 
-**Purpose:** Executes the `transfer all left other` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all left other`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllLeftOther();
+```
 
 ### ExecuteTransferAllRightFief
 `public void ExecuteTransferAllRightFief()`
 
-**Purpose:** Executes the `transfer all right fief` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all right fief`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllRightFief();
+```
 
 ### ExecuteTransferAllRightItem
 `public void ExecuteTransferAllRightItem()`
 
-**Purpose:** Executes the `transfer all right item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all right item`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllRightItem();
+```
 
 ### ExecuteTransferAllRightPrisoner
 `public void ExecuteTransferAllRightPrisoner()`
 
-**Purpose:** Executes the `transfer all right prisoner` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all right prisoner`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllRightPrisoner();
+```
 
 ### ExecuteTransferAllRightOther
 `public void ExecuteTransferAllRightOther()`
 
-**Purpose:** Executes the `transfer all right other` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `transfer all right other`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllRightOther();
+```
 
 ### ExecuteOffer
 `public void ExecuteOffer()`
 
-**Purpose:** Executes the `offer` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `offer`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteOffer();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteCancel();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Executes the `reset` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.ExecuteReset();
+```
 
 ### OnTransferItem
 `public void OnTransferItem(Barterable barter, bool isTransferrable)`
 
-**Purpose:** Called when the `transfer item` event is raised.
+**Purpose:** Invoked when the `transfer item` event is raised.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.OnTransferItem(barter, false);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.SetResetInputKey(hotkey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.SetCancelInputKey(hotkey);
+```
 
 ### InitializeStaticContent
 `public void InitializeStaticContent()`
 
-**Purpose:** Initializes the state, resources, or bindings for `static content`.
+**Purpose:** Prepares the resources, state, or bindings required by `static content`.
+
+```csharp
+// Obtain an instance of BarterVM from the subsystem API first
+BarterVM barterVM = ...;
+barterVM.InitializeStaticContent();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BarterVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+BarterVM barterVM = ...;
+barterVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

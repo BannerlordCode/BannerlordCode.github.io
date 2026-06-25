@@ -1,13 +1,7 @@
 ---
 title: "SpawnedItemEntity"
+description: "SpawnedItemEntity 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SpawnedItemEntity`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnedItemEntity
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -39,95 +33,198 @@ title: "SpawnedItemEntity"
 ### GetActionMessage
 `public TextObject GetActionMessage(ItemObject weaponToReplaceWith, bool fillUp)`
 
-**用途 / Purpose:** 获取 `action message` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action message」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetActionMessage(weaponToReplaceWith, false);
+```
 
 ### GetDescriptionMessage
 `public TextObject GetDescriptionMessage(bool fillUp)`
 
-**用途 / Purpose:** 获取 `description message` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description message」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetDescriptionMessage(false);
+```
 
 ### Initialize
 `public void Initialize(MissionWeapon weapon, bool hasLifeTime, Mission.WeaponSpawnFlags spawnFlags, in Vec3 fakeSimulationVelocity)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.Initialize(weapon, false, spawnFlags, fakeSimulationVelocity);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetTickRequirement();
+```
 
 ### AttachWeaponToWeapon
 `public void AttachWeaponToWeapon(MissionWeapon attachedWeapon, ref MatrixFrame attachLocalFrame)`
 
-**用途 / Purpose:** 处理 `attach weapon to weapon` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.AttachWeaponToWeapon(attachedWeapon, attachLocalFrame);
+```
 
 ### IsReadyToBeDeleted
 `public bool IsReadyToBeDeleted()`
 
-**用途 / Purpose:** 处理 `is ready to be deleted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ready to be deleted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsReadyToBeDeleted();
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** 当 `use stopped` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use stopped」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.OnUseStopped(userAgent, false, 0);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `use` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.OnUse(userAgent, 0);
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `is disabled for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsDisabledForAgent(agent);
+```
 
 ### IsStuckMissile
 `public bool IsStuckMissile()`
 
-**用途 / Purpose:** 处理 `is stuck missile` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「stuck missile」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsStuckMissile();
+```
 
 ### IsQuiverAndNotEmpty
 `public bool IsQuiverAndNotEmpty()`
 
-**用途 / Purpose:** 处理 `is quiver and not empty` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「quiver and not empty」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsQuiverAndNotEmpty();
+```
 
 ### IsBanner
 `public bool IsBanner()`
 
-**用途 / Purpose:** 处理 `is banner` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「banner」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.IsBanner();
+```
 
 ### GetInfoTextForBeingNotInteractable
 `public override TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**用途 / Purpose:** 获取 `info text for being not interactable` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「info text for being not interactable」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetInfoTextForBeingNotInteractable(userAgent);
+```
 
 ### StopPhysicsAndSetFrameForClient
 `public void StopPhysicsAndSetFrameForClient(MatrixFrame frame, GameEntity parent)`
 
-**用途 / Purpose:** 处理 `stop physics and set frame for client` 相关逻辑。
+**用途 / Purpose:** 停止「physics and set frame for client」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.StopPhysicsAndSetFrameForClient(frame, parent);
+```
 
 ### ConsumeWeaponAmount
 `public void ConsumeWeaponAmount(short consumedAmount)`
 
-**用途 / Purpose:** 处理 `consume weapon amount` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.ConsumeWeaponAmount(0);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+var result = spawnedItemEntity.GetDescriptionText(gameEntity);
+```
 
 ### RequestDeletionOnNextTick
 `public void RequestDeletionOnNextTick()`
 
-**用途 / Purpose:** 处理 `request deletion on next tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnedItemEntity 实例
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.RequestDeletionOnNextTick();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SpawnedItemEntity();
-value.GetActionMessage(weaponToReplaceWith, false);
+// 通常从对应子系统 API 获取实例后调用
+SpawnedItemEntity spawnedItemEntity = ...;
+spawnedItemEntity.GetActionMessage(weaponToReplaceWith, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

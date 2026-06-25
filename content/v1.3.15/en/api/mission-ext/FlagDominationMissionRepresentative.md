@@ -1,13 +1,7 @@
 ---
 title: "FlagDominationMissionRepresentative"
+description: "Auto-generated class reference for FlagDominationMissionRepresentative."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FlagDominationMissionRepresentative`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FlagDominationMissionRepresentative
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionRepresentatives
@@ -29,40 +23,77 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ### GetGoldAmountForVisual
 `public int GetGoldAmountForVisual()`
 
-**Purpose:** Gets the current value of `gold amount for visual`.
+**Purpose:** Reads and returns the `gold amount for visual` value held by the current object.
+
+```csharp
+// Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.GetGoldAmountForVisual();
+```
 
 ### UpdateSelectedClassServer
 `public void UpdateSelectedClassServer(Agent agent)`
 
-**Purpose:** Updates the state or data of `selected class server`.
+**Purpose:** Recalculates and stores the latest representation of `selected class server`.
+
+```csharp
+// Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+flagDominationMissionRepresentative.UpdateSelectedClassServer(agent);
+```
 
 ### CheckIfSurvivedLastRoundAndReset
 `public bool CheckIfSurvivedLastRoundAndReset()`
 
-**Purpose:** Handles logic related to `check if survived last round and reset`.
+**Purpose:** Verifies whether `if survived last round and reset` holds true for the current object.
+
+```csharp
+// Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.CheckIfSurvivedLastRoundAndReset();
+```
 
 ### GetGoldGainsFromKillData
 `public int GetGoldGainsFromKillData(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isFriendly)`
 
-**Purpose:** Gets the current value of `gold gains from kill data`.
+**Purpose:** Reads and returns the `gold gains from kill data` value held by the current object.
+
+```csharp
+// Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.GetGoldGainsFromKillData(killerPerkHandler, assistingHitterPerkHandler, victimClass, false, false);
+```
 
 ### GetGoldGainFromKillDataAndUpdateFlags
 `public int GetGoldGainFromKillDataAndUpdateFlags(MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist)`
 
-**Purpose:** Gets the current value of `gold gain from kill data and update flags`.
+**Purpose:** Reads and returns the `gold gain from kill data and update flags` value held by the current object.
+
+```csharp
+// Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.GetGoldGainFromKillDataAndUpdateFlags(victimClass, false);
+```
 
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**Purpose:** Gets the current value of `gold gains from ally death reward`.
+**Purpose:** Reads and returns the `gold gains from ally death reward` value held by the current object.
+
+```csharp
+// Obtain an instance of FlagDominationMissionRepresentative from the subsystem API first
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+var result = flagDominationMissionRepresentative.GetGoldGainsFromAllyDeathReward(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FlagDominationMissionRepresentative();
-value.GetGoldAmountForVisual();
+// Typically call this after obtaining an instance from the subsystem API
+FlagDominationMissionRepresentative flagDominationMissionRepresentative = ...;
+flagDominationMissionRepresentative.GetGoldAmountForVisual();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

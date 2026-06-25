@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplateItemWidget"
+description: "Auto-generated class reference for SettlementNameplateItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementNameplateItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
@@ -45,14 +39,21 @@ Treat `SettlementNameplateItemWidget` as a Widget-style extension point: first i
 ### ParallelUpdate
 `public void ParallelUpdate(float dt)`
 
-**Purpose:** Handles logic related to `parallel update`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SettlementNameplateItemWidget from the subsystem API first
+SettlementNameplateItemWidget settlementNameplateItemWidget = ...;
+settlementNameplateItemWidget.ParallelUpdate(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new SettlementNameplateItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SettlementNameplateItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

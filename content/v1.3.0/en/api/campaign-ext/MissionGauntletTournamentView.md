@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletTournamentView"
+description: "Auto-generated class reference for MissionGauntletTournamentView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletTournamentView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletTournamentView
 
 **Namespace:** SandBox.GauntletUI.Missions
@@ -29,49 +23,98 @@ Treat `MissionGauntletTournamentView` as a View-style extension point: first ide
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTournamentView from the subsystem API first
+MissionGauntletTournamentView missionGauntletTournamentView = ...;
+missionGauntletTournamentView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTournamentView from the subsystem API first
+MissionGauntletTournamentView missionGauntletTournamentView = ...;
+missionGauntletTournamentView.OnMissionScreenFinalize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletTournamentView from the subsystem API first
+MissionGauntletTournamentView missionGauntletTournamentView = ...;
+missionGauntletTournamentView.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTournamentView from the subsystem API first
+MissionGauntletTournamentView missionGauntletTournamentView = ...;
+missionGauntletTournamentView.OnMissionTick(0);
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** Handles logic related to `is opening escape menu on focus change allowed`.
+**Purpose:** Determines whether the current object is in the `opening escape menu on focus change allowed` state or condition.
+
+```csharp
+// Obtain an instance of MissionGauntletTournamentView from the subsystem API first
+MissionGauntletTournamentView missionGauntletTournamentView = ...;
+var result = missionGauntletTournamentView.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTournamentView from the subsystem API first
+MissionGauntletTournamentView missionGauntletTournamentView = ...;
+missionGauntletTournamentView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTournamentView from the subsystem API first
+MissionGauntletTournamentView missionGauntletTournamentView = ...;
+missionGauntletTournamentView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTournamentView from the subsystem API first
+MissionGauntletTournamentView missionGauntletTournamentView = ...;
+missionGauntletTournamentView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletTournamentView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletTournamentView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

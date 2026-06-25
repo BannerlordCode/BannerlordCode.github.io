@@ -1,20 +1,14 @@
 ---
 title: "MPOnSpawnPerkEffect"
+description: "Auto-generated class reference for MPOnSpawnPerkEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPOnSpawnPerkEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPOnSpawnPerkEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPOnSpawnPerkEffect : MPOnSpawnPerkEffectBase`
 **Base:** `MPOnSpawnPerkEffectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPOnSpawnPerkEffect.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPOnSpawnPerkEffect.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateFrom
 `public static MPOnSpawnPerkEffect CreateFrom(XmlNode node)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MPOnSpawnPerkEffect.CreateFrom(node);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPOnSpawnPerkEffect();
+// Typically obtained from a subsystem API or factory
+MPOnSpawnPerkEffect instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

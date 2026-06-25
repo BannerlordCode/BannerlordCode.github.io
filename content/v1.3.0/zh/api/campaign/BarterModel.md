@@ -1,13 +1,7 @@
 ---
 title: "BarterModel"
+description: "BarterModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BarterModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,19 +30,32 @@ title: "BarterModel"
 ### CalculateOverpayRelationIncreaseCosts
 `public abstract int CalculateOverpayRelationIncreaseCosts(Hero hero, float overpayAmount)`
 
-**用途 / Purpose:** 处理 `calculate overpay relation increase costs` 相关逻辑。
+**用途 / Purpose:** 计算「overpay relation increase costs」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarterModel 实例
+BarterModel barterModel = ...;
+var result = barterModel.CalculateOverpayRelationIncreaseCosts(hero, 0);
+```
 
 ### GetBarterPenalty
 `public abstract ExplainedNumber GetBarterPenalty(IFaction faction, ItemBarterable itemBarterable, Hero otherHero, PartyBase otherParty)`
 
-**用途 / Purpose:** 获取 `barter penalty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「barter penalty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarterModel 实例
+BarterModel barterModel = ...;
+var result = barterModel.GetBarterPenalty(faction, itemBarterable, otherHero, otherParty);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBarterModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BarterModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

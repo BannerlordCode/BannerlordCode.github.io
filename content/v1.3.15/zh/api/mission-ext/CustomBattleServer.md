@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleServer"
+description: "CustomBattleServer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleServer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleServer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -44,105 +38,220 @@ title: "CustomBattleServer"
 ### SetBadgeComponent
 `public void SetBadgeComponent(IBadgeComponent badgeComponent)`
 
-**用途 / Purpose:** 设置 `badge component` 的值或状态。
+**用途 / Purpose:** 为 「badge component」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.SetBadgeComponent(badgeComponent);
+```
 
 ### Connect
 `public void Connect(ICustomBattleServerSessionHandler handler, string authToken, bool isSinglePlatformServer, string loadedModuleIDs, bool allowsOptionalModules, bool isPlayerHosted)`
 
-**用途 / Purpose:** 处理 `connect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.Connect(handler, "example", false, "example", false, false);
+```
 
 ### OnConnected
 `public override void OnConnected()`
 
-**用途 / Purpose:** 当 `connected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「connected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.OnConnected();
+```
 
 ### OnCantConnect
 `public override void OnCantConnect()`
 
-**用途 / Purpose:** 当 `cant connect` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「cant connect」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.OnCantConnect();
+```
 
 ### OnDisconnected
 `public override void OnDisconnected()`
 
-**用途 / Purpose:** 当 `disconnected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「disconnected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.OnDisconnected();
+```
 
 ### OnPlayerDisconnectedFromLobbyMessage
 `public void OnPlayerDisconnectedFromLobbyMessage(PlayerDisconnectedFromLobbyMessage message)`
 
-**用途 / Purpose:** 当 `player disconnected from lobby message` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player disconnected from lobby message」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.OnPlayerDisconnectedFromLobbyMessage(message);
+```
 
 ### ResponseCustomGameClientConnection
 `public void ResponseCustomGameClientConnection(PlayerJoinGameResponseDataFromHost playerJoinData)`
 
-**用途 / Purpose:** 处理 `response custom game client connection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.ResponseCustomGameClientConnection(playerJoinData);
+```
 
 ### RegisterGame
 `public Task RegisterGame(string gameModule, string gameType, string serverName, int maxPlayerCount, string scene, string uniqueSceneId, int port, string region, string gamePassword, string adminPassword, int permission)`
 
-**用途 / Purpose:** 处理 `register game` 相关逻辑。
+**用途 / Purpose:** 将「game」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+var result = customBattleServer.RegisterGame("example", "example", "example", 0, "example", "example", 0, "example", "example", "example", 0);
+```
 
 ### RegisterGame
 `public Task RegisterGame(int gameDefinitionId, string gameModule, string gameType, string serverName, int maxPlayerCount, string scene, string uniqueSceneId, int port, string region, string gamePassword, string adminPassword, int permission, string overriddenIP)`
 
-**用途 / Purpose:** 处理 `register game` 相关逻辑。
+**用途 / Purpose:** 将「game」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+var result = customBattleServer.RegisterGame(0, "example", "example", "example", 0, "example", "example", 0, "example", "example", "example", 0, "example");
+```
 
 ### UpdateCustomGameData
 `public void UpdateCustomGameData(string newGameType, string newMap, int newCount)`
 
-**用途 / Purpose:** 更新 `custom game data` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「custom game data」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.UpdateCustomGameData("example", "example", 0);
+```
 
 ### KickPlayer
 `public void KickPlayer(PlayerId id, bool banPlayer)`
 
-**用途 / Purpose:** 处理 `kick player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.KickPlayer(id, false);
+```
 
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerId, DisconnectType disconnectType)`
 
-**用途 / Purpose:** 处理 `player disconnect` 事件或回调。
+**用途 / Purpose:** 执行与 「player disconnect」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.HandlePlayerDisconnect(playerId, disconnectType);
+```
 
 ### FinishAsIdle
 `public void FinishAsIdle(GameLog gameLogs)`
 
-**用途 / Purpose:** 处理 `finish as idle` 相关逻辑。
+**用途 / Purpose:** 结束「as idle」流程并执行必要的收尾工作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.FinishAsIdle(gameLogs);
+```
 
 ### FinishGame
 `public void FinishGame(GameLog gameLogs)`
 
-**用途 / Purpose:** 处理 `finish game` 相关逻辑。
+**用途 / Purpose:** 结束「game」流程并执行必要的收尾工作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.FinishGame(gameLogs);
+```
 
 ### UpdateGameProperties
 `public void UpdateGameProperties(string gameType, string scene, string uniqueSceneId)`
 
-**用途 / Purpose:** 更新 `game properties` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「game properties」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.UpdateGameProperties("example", "example", "example");
+```
 
 ### BeforeStartingNextBattle
 `public void BeforeStartingNextBattle(GameLog gameLogs)`
 
-**用途 / Purpose:** 处理 `before starting next battle` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.BeforeStartingNextBattle(gameLogs);
+```
 
 ### BattleStarted
 `public void BattleStarted(Dictionary<PlayerId, int> playerTeams, string cultureTeam1, string cultureTeam2)`
 
-**用途 / Purpose:** 处理 `battle started` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.BattleStarted(dictionary<PlayerId, 0, "example", "example");
+```
 
 ### BattleFinished
 `public void BattleFinished(BattleResult battleResult, Dictionary<int, int> teamScores, Dictionary<PlayerId, int> playerScores)`
 
-**用途 / Purpose:** 处理 `battle finished` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.BattleFinished(battleResult, dictionary<int, 0, dictionary<PlayerId, 0);
+```
 
 ### UpdateBattleStats
 `public void UpdateBattleStats(BattleResult battleResult, Dictionary<int, int> teamScores, Dictionary<PlayerId, int> playerScores)`
 
-**用途 / Purpose:** 更新 `battle stats` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「battle stats」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleServer 实例
+CustomBattleServer customBattleServer = ...;
+customBattleServer.UpdateBattleStats(battleResult, dictionary<int, 0, dictionary<PlayerId, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleServer();
-value.SetBadgeComponent(badgeComponent);
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleServer customBattleServer = ...;
+customBattleServer.SetBadgeComponent(badgeComponent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

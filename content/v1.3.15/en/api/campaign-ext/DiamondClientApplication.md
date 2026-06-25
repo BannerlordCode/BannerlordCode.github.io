@@ -1,13 +1,7 @@
 ---
 title: "DiamondClientApplication"
+description: "Auto-generated class reference for DiamondClientApplication."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DiamondClientApplication`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DiamondClientApplication
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ### GetObject
 `public object GetObject(string name)`
 
-**Purpose:** Gets the current value of `object`.
+**Purpose:** Reads and returns the `object` value held by the current object.
+
+```csharp
+// Obtain an instance of DiamondClientApplication from the subsystem API first
+DiamondClientApplication diamondClientApplication = ...;
+var result = diamondClientApplication.GetObject("example");
+```
 
 ### AddObject
 `public void AddObject(string name, DiamondClientApplicationObject applicationObject)`
 
 **Purpose:** Adds `object` to the current collection or state.
 
+```csharp
+// Obtain an instance of DiamondClientApplication from the subsystem API first
+DiamondClientApplication diamondClientApplication = ...;
+diamondClientApplication.AddObject("example", applicationObject);
+```
+
 ### Initialize
 `public void Initialize(ClientApplicationConfiguration applicationConfiguration)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of DiamondClientApplication from the subsystem API first
+DiamondClientApplication diamondClientApplication = ...;
+diamondClientApplication.Initialize(applicationConfiguration);
+```
 
 ### CreateClientSessionProvider
 `public object CreateClientSessionProvider(string clientName, Type clientType, SessionProviderType sessionProviderType, ParameterContainer parameters)`
 
-**Purpose:** Creates a new `client session provider` instance or object.
+**Purpose:** Constructs a new `client session provider` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of DiamondClientApplication from the subsystem API first
+DiamondClientApplication diamondClientApplication = ...;
+var result = diamondClientApplication.CreateClientSessionProvider("example", clientType, sessionProviderType, parameters);
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of DiamondClientApplication from the subsystem API first
+DiamondClientApplication diamondClientApplication = ...;
+diamondClientApplication.Update();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DiamondClientApplication();
-value.GetObject("example");
+// Typically call this after obtaining an instance from the subsystem API
+DiamondClientApplication diamondClientApplication = ...;
+diamondClientApplication.GetObject("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

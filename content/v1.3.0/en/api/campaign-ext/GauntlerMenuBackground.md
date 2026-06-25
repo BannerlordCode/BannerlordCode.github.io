@@ -1,13 +1,7 @@
 ---
 title: "GauntlerMenuBackground"
+description: "Auto-generated class reference for GauntlerMenuBackground."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntlerMenuBackground`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntlerMenuBackground
 
 **Namespace:** SandBox.GauntletUI.Menu
@@ -27,9 +21,10 @@ Start from namespace `SandBox.GauntletUI.Menu` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new GauntlerMenuBackground();
+// Obtain an instance from the relevant subsystem API
+GauntlerMenuBackground instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

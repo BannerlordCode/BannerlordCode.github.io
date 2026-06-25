@@ -1,20 +1,14 @@
 ---
 title: "DuelMatchVM"
+description: "DuelMatchVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DuelMatchVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelMatchVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DuelMatchVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/DuelMatchVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/DuelMatchVM.cs`
 
 ## 概述
 
@@ -45,40 +39,77 @@ title: "DuelMatchVM"
 ### OnDuelPrepStarted
 `public void OnDuelPrepStarted(MissionPeer opponentPeer, int prepDuration)`
 
-**用途 / Purpose:** 当 `duel prep started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「duel prep started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMatchVM 实例
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnDuelPrepStarted(opponentPeer, 0);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMatchVM 实例
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.Tick(0);
+```
 
 ### OnDuelStarted
 `public void OnDuelStarted(MissionPeer firstPeer, MissionPeer secondPeer, int arenaType)`
 
-**用途 / Purpose:** 当 `duel started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「duel started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMatchVM 实例
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnDuelStarted(firstPeer, secondPeer, 0);
+```
 
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**用途 / Purpose:** 当 `duel ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「duel ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMatchVM 实例
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnDuelEnded();
+```
 
 ### OnPeerScored
 `public void OnPeerScored(MissionPeer peer)`
 
-**用途 / Purpose:** 当 `peer scored` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「peer scored」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMatchVM 实例
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnPeerScored(peer);
+```
 
 ### RefreshNames
 `public void RefreshNames(bool changeGenericNames = false)`
 
-**用途 / Purpose:** 刷新 `names` 的显示或缓存。
+**用途 / Purpose:** 使 「names」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMatchVM 实例
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.RefreshNames(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DuelMatchVM();
-value.OnDuelPrepStarted(opponentPeer, 0);
+// 通常从对应子系统 API 获取实例后调用
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnDuelPrepStarted(opponentPeer, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

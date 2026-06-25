@@ -1,23 +1,18 @@
 ---
 title: "TransferCommand"
+description: "Auto-generated class reference for TransferCommand."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransferCommand`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TransferCommand
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct TransferCommand`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Inventory/TransferCommand.cs`
 
 ## Overview
 
-`TransferCommand` lives in `TaleWorlds.CampaignSystem.Inventory`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TransferCommand` lives in `TaleWorlds.CampaignSystem.Inventory` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -42,16 +37,19 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ### Transfer
 `public static TransferCommand Transfer(int amount, InventoryLogic.InventorySide fromSide, InventoryLogic.InventorySide toSide, ItemRosterElement elementToTransfer, EquipmentIndex fromEquipmentIndex, EquipmentIndex toEquipmentIndex, CharacterObject character)`
 
-**Purpose:** Handles logic related to `transfer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TransferCommand.Transfer(0, fromSide, toSide, elementToTransfer, fromEquipmentIndex, toEquipmentIndex, character);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TransferCommand.Transfer(0, fromSide, toSide, elementToTransfer, fromEquipmentIndex, toEquipmentIndex, character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

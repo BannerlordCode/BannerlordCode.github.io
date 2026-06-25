@@ -1,13 +1,7 @@
 ---
 title: "AlleyHelper"
+description: "Auto-generated class reference for AlleyHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ Treat `AlleyHelper` as a Helper-style extension point: first identify who create
 ### OpenScreenForManagingAlley
 `public static void OpenScreenForManagingAlley(TroopRoster leftMemberRoster, PartyPresentationDoneButtonDelegate onDoneButtonClicked, TextObject leftText, PartyPresentationCancelButtonDelegate onCancelButtonClicked = null)`
 
-**Purpose:** Handles logic related to `open screen for managing alley`.
+**Purpose:** Opens the resource or UI associated with `screen for managing alley`.
+
+```csharp
+// Static call; no instance required
+AlleyHelper.OpenScreenForManagingAlley(leftMemberRoster, onDoneButtonClicked, leftText, null);
+```
 
 ### CreateMultiSelectionInquiryForSelectingClanMemberToAlley
 `public static void CreateMultiSelectionInquiryForSelectingClanMemberToAlley(Alley alley, Action<List<InquiryElement>> affirmativeAction, Action<List<InquiryElement>> negativeAction)`
 
-**Purpose:** Creates a new `multi selection inquiry for selecting clan member to alley` instance or object.
+**Purpose:** Constructs a new `multi selection inquiry for selecting clan member to alley` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+AlleyHelper.CreateMultiSelectionInquiryForSelectingClanMemberToAlley(alley, affirmativeAction, negativeAction);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ AlleyHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

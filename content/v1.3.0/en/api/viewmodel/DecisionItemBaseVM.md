@@ -1,13 +1,7 @@
 ---
 title: "DecisionItemBaseVM"
+description: "Auto-generated class reference for DecisionItemBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DecisionItemBaseVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DecisionItemBaseVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
@@ -50,30 +44,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of DecisionItemBaseVM from the subsystem API first
+DecisionItemBaseVM decisionItemBaseVM = ...;
+decisionItemBaseVM.RefreshValues();
+```
 
 ### ExecuteFinalSelection
 `public void ExecuteFinalSelection()`
 
-**Purpose:** Executes the `final selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `final selection`.
+
+```csharp
+// Obtain an instance of DecisionItemBaseVM from the subsystem API first
+DecisionItemBaseVM decisionItemBaseVM = ...;
+decisionItemBaseVM.ExecuteFinalSelection();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of DecisionItemBaseVM from the subsystem API first
+DecisionItemBaseVM decisionItemBaseVM = ...;
+decisionItemBaseVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(InputKeyItemVM inputKeyItemVM)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DecisionItemBaseVM from the subsystem API first
+DecisionItemBaseVM decisionItemBaseVM = ...;
+decisionItemBaseVM.SetDoneInputKey(inputKeyItemVM);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DecisionItemBaseVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+DecisionItemBaseVM decisionItemBaseVM = ...;
+decisionItemBaseVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

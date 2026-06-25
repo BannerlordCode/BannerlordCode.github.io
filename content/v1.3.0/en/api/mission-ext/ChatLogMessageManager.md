@@ -1,13 +1,7 @@
 ---
 title: "ChatLogMessageManager"
+description: "Auto-generated class reference for ChatLogMessageManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChatLogMessageManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatLogMessageManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -29,7 +23,13 @@ Treat `ChatLogMessageManager` as a Manager-style extension point: first identify
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of ChatLogMessageManager from the subsystem API first
+ChatLogMessageManager chatLogMessageManager = ...;
+chatLogMessageManager.Update();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var manager = ChatLogMessageManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

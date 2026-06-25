@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaFilterGroup"
+description: "Auto-generated class reference for EncyclopediaFilterGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaFilterGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaFilterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaFilterGroup();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaFilterGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

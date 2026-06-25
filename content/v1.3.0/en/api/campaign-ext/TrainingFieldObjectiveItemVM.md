@@ -1,13 +1,7 @@
 ---
 title: "TrainingFieldObjectiveItemVM"
+description: "Auto-generated class reference for TrainingFieldObjectiveItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingFieldObjectiveItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingFieldObjectiveItemVM
 
 **Namespace:** StoryMode.ViewModelCollection.Missions
@@ -38,20 +32,32 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectiveItemVM from the subsystem API first
+TrainingFieldObjectiveItemVM trainingFieldObjectiveItemVM = ...;
+trainingFieldObjectiveItemVM.RefreshValues();
+```
 
 ### CreateFromObjective
 `public static TrainingFieldObjectiveItemVM CreateFromObjective(TrainingFieldMissionController.TutorialObjective objective)`
 
-**Purpose:** Creates a new `from objective` instance or object.
+**Purpose:** Constructs a new `from objective` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TrainingFieldObjectiveItemVM.CreateFromObjective(objective);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrainingFieldObjectiveItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TrainingFieldObjectiveItemVM trainingFieldObjectiveItemVM = ...;
+trainingFieldObjectiveItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

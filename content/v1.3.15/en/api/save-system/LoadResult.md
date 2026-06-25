@@ -1,23 +1,18 @@
 ---
 title: "LoadResult"
+description: "Auto-generated class reference for LoadResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadResult`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LoadResult
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadResult`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Load/LoadResult.cs`
 
 ## Overview
 
-`LoadResult` lives in `TaleWorlds.SaveSystem.Load`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LoadResult` lives in `TaleWorlds.SaveSystem.Load` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -37,22 +32,33 @@ Start from namespace `TaleWorlds.SaveSystem.Load` to place it in the stack, then
 ### InitializeObjects
 `public void InitializeObjects()`
 
-**Purpose:** Initializes the state, resources, or bindings for `objects`.
+**Purpose:** Prepares the resources, state, or bindings required by `objects`.
+
+```csharp
+// Obtain an instance of LoadResult from the subsystem API first
+LoadResult loadResult = ...;
+loadResult.InitializeObjects();
+```
 
 ### AfterInitializeObjects
 `public void AfterInitializeObjects()`
 
-**Purpose:** Handles logic related to `after initialize objects`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LoadResult from the subsystem API first
+LoadResult loadResult = ...;
+loadResult.AfterInitializeObjects();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a LoadResult instance from game state, then call one of its public methods
-var value = new LoadResult();
-value.InitializeObjects();
+// Typically call this after obtaining an instance from the subsystem API
+LoadResult loadResult = ...;
+loadResult.InitializeObjects();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

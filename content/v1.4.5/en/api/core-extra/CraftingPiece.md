@@ -1,20 +1,14 @@
 ---
 title: "CraftingPiece"
+description: "Auto-generated class reference for CraftingPiece."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPiece`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPiece
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class CraftingPiece : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/CraftingPiece.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CraftingPiece.cs`
 
 ## Overview
 
@@ -66,12 +60,23 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetInvalidCraftingPiece
 `public static CraftingPiece GetInvalidCraftingPiece(PieceTypes pieceType)`
 
-**Purpose:** Gets the current value of `invalid crafting piece`.
+**Purpose:** Reads and returns the `invalid crafting piece` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CraftingPiece.GetInvalidCraftingPiece(pieceType);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of CraftingPiece from the subsystem API first
+CraftingPiece craftingPiece = ...;
+craftingPiece.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
@@ -81,4 +86,4 @@ CraftingPiece.GetInvalidCraftingPiece(pieceType);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

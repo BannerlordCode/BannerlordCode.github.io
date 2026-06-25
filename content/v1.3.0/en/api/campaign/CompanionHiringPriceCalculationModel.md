@@ -1,13 +1,7 @@
 ---
 title: "CompanionHiringPriceCalculationModel"
+description: "Auto-generated class reference for CompanionHiringPriceCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompanionHiringPriceCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CompanionHiringPriceCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `CompanionHiringPriceCalculationModel` as a Model-style extension point: f
 ### GetCompanionHiringPrice
 `public abstract int GetCompanionHiringPrice(Hero companion)`
 
-**Purpose:** Gets the current value of `companion hiring price`.
+**Purpose:** Reads and returns the `companion hiring price` value held by the current object.
+
+```csharp
+// Obtain an instance of CompanionHiringPriceCalculationModel from the subsystem API first
+CompanionHiringPriceCalculationModel companionHiringPriceCalculationModel = ...;
+var result = companionHiringPriceCalculationModel.GetCompanionHiringPrice(companion);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCompanionHiringPriceCalculationModel();
+// Typically obtained from a subsystem API or factory
+CompanionHiringPriceCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

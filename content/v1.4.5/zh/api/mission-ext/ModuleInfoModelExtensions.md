@@ -1,20 +1,14 @@
 ---
 title: "ModuleInfoModelExtensions"
+description: "ModuleInfoModelExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ModuleInfoModelExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleInfoModelExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ModuleInfoModelExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ModuleInfoModelExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ModuleInfoModelExtensions.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "ModuleInfoModelExtensions"
 ### IsCompatibleWith
 `public static bool IsCompatibleWith(this IEnumerable<ModuleInfoModel> a, IEnumerable<ModuleInfoModel> b, bool allowOptionalModules)`
 
-**用途 / Purpose:** 处理 `is compatible with` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「compatible with」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+ModuleInfoModelExtensions.IsCompatibleWith(a, b, false);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ ModuleInfoModelExtensions.IsCompatibleWith(a, b, false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

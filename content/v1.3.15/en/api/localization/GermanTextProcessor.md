@@ -1,24 +1,18 @@
 ---
 title: "GermanTextProcessor"
+description: "Auto-generated class reference for GermanTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GermanTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GermanTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
 **Module:** TaleWorlds.Localization
 **Type:** `public class GermanTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**Area:** localization
+**File:** `TaleWorlds.Localization/TextProcessor/LanguageProcessors/GermanTextProcessor.cs`
 
 ## Overview
 
-`GermanTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`GermanTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,22 +29,33 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of GermanTextProcessor from the subsystem API first
+GermanTextProcessor germanTextProcessor = ...;
+germanTextProcessor.ClearTemporaryData();
+```
 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GermanTextProcessor from the subsystem API first
+GermanTextProcessor germanTextProcessor = ...;
+germanTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a GermanTextProcessor instance from game state, then call one of its public methods
-var value = new GermanTextProcessor();
-value.ClearTemporaryData();
+// Typically call this after obtaining an instance from the subsystem API
+GermanTextProcessor germanTextProcessor = ...;
+germanTextProcessor.ClearTemporaryData();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

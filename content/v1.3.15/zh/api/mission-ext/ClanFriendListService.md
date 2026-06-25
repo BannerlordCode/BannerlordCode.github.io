@@ -1,13 +1,7 @@
 ---
 title: "ClanFriendListService"
+description: "ClanFriendListService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanFriendListService`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanFriendListService
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,30 +23,55 @@ title: "ClanFriendListService"
 ### GetUserWithName
 `public Task<PlayerId> GetUserWithName(string name)`
 
-**用途 / Purpose:** 获取 `user with name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「user with name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFriendListService 实例
+ClanFriendListService clanFriendListService = ...;
+var result = clanFriendListService.GetUserWithName("example");
+```
 
 ### GetPendingRequests
 `public IEnumerable<PlayerId> GetPendingRequests()`
 
-**用途 / Purpose:** 获取 `pending requests` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「pending requests」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFriendListService 实例
+ClanFriendListService clanFriendListService = ...;
+var result = clanFriendListService.GetPendingRequests();
+```
 
 ### GetReceivedRequests
 `public IEnumerable<PlayerId> GetReceivedRequests()`
 
-**用途 / Purpose:** 获取 `received requests` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「received requests」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFriendListService 实例
+ClanFriendListService clanFriendListService = ...;
+var result = clanFriendListService.GetReceivedRequests();
+```
 
 ### OnClanInfoChanged
 `public void OnClanInfoChanged(List<ClanPlayerInfo> playerInfosInClan)`
 
-**用途 / Purpose:** 当 `clan info changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clan info changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanFriendListService 实例
+ClanFriendListService clanFriendListService = ...;
+clanFriendListService.OnClanInfoChanged(playerInfosInClan);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanFriendListService();
-value.GetUserWithName("example");
+// 通常从对应子系统 API 获取实例后调用
+ClanFriendListService clanFriendListService = ...;
+clanFriendListService.GetUserWithName("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

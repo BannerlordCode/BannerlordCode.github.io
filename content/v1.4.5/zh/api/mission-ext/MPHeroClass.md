@@ -1,20 +1,14 @@
 ---
 title: "MPHeroClass"
+description: "MPHeroClass 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPHeroClass`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPHeroClass
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPHeroClass : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
 
 ## 概述
 
@@ -60,35 +54,66 @@ title: "MPHeroClass"
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MPHeroClass 实例
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MPHeroClass 实例
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.GetHashCode();
+```
 
 ### GetAllAvailablePerksForListIndex
 `public List<IReadOnlyPerkObject> GetAllAvailablePerksForListIndex(int index, string forcedForGameMode = null)`
 
-**用途 / Purpose:** 获取 `all available perks for list index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all available perks for list index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPHeroClass 实例
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.GetAllAvailablePerksForListIndex(0, "example");
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MPHeroClass 实例
+MPHeroClass mPHeroClass = ...;
+mPHeroClass.Deserialize(objectManager, node);
+```
 
 ### IsTroopCharacter
 `public bool IsTroopCharacter(BasicCharacterObject character)`
 
-**用途 / Purpose:** 处理 `is troop character` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「troop character」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MPHeroClass 实例
+MPHeroClass mPHeroClass = ...;
+var result = mPHeroClass.IsTroopCharacter(character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPHeroClass();
-value.Equals(obj);
+// 通常从对应子系统 API 获取实例后调用
+MPHeroClass mPHeroClass = ...;
+mPHeroClass.Equals(obj);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

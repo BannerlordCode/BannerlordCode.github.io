@@ -1,13 +1,7 @@
 ---
 title: "VillageStates"
+description: "Auto-generated class reference for VillageStates."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageStates`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageStates
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ## Usage Example
 
 ```csharp
-VillageStates example = VillageStates.Value;
+// Obtain an instance from the relevant subsystem API
+VillageStates instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

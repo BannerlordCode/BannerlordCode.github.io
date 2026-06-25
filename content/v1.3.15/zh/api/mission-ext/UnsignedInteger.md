@@ -1,95 +1,44 @@
 ---
 title: "UnsignedInteger"
+description: "UnsignedInteger 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UnsignedInteger`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UnsignedInteger
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public struct UnsignedInteger`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public struct UnsignedInteger`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## 概述
 
-`UnsignedInteger` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`UnsignedInteger` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
-
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `FullPrecision` | `public static CompressionInfo.Float FullPrecision { get; }` |
 
 ## 主要方法
 
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 获取 `num bits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
 
-### GetMaximumValue
-`public int GetMaximumValue()`
-
-**用途 / Purpose:** 获取 `maximum value` 的当前值。
-
-### GetNumBits
-`public int GetNumBits()`
-
-**用途 / Purpose:** 获取 `num bits` 的当前值。
-
-### GetNumBits
-`public int GetNumBits()`
-
-**用途 / Purpose:** 获取 `num bits` 的当前值。
-
-### GetNumBits
-`public int GetNumBits()`
-
-**用途 / Purpose:** 获取 `num bits` 的当前值。
-
-### GetNumBits
-`public int GetNumBits()`
-
-**用途 / Purpose:** 获取 `num bits` 的当前值。
-
-### GetMaximumValue
-`public float GetMaximumValue()`
-
-**用途 / Purpose:** 获取 `maximum value` 的当前值。
-
-### GetMinimumValue
-`public float GetMinimumValue()`
-
-**用途 / Purpose:** 获取 `minimum value` 的当前值。
-
-### GetPrecision
-`public float GetPrecision()`
-
-**用途 / Purpose:** 获取 `precision` 的当前值。
-
-### ClampValueAccordingToLimits
-`public void ClampValueAccordingToLimits(ref float x)`
-
-**用途 / Purpose:** 处理 `clamp value according to limits` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 UnsignedInteger 实例
+UnsignedInteger unsignedInteger = ...;
+var result = unsignedInteger.GetNumBits();
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 UnsignedInteger 实例，再调用它的公开方法
-var value = new UnsignedInteger();
-value.GetNumBits();
+// 通常从对应子系统 API 获取实例后调用
+UnsignedInteger unsignedInteger = ...;
+unsignedInteger.GetNumBits();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

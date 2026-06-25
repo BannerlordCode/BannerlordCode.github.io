@@ -1,13 +1,7 @@
 ---
 title: "GOGAchievement"
+description: "Auto-generated class reference for GOGAchievement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GOGAchievement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GOGAchievement
 
 **Namespace:** TaleWorlds.PlatformService.GOG
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new GOGAchievement();
+// Obtain an instance from the relevant subsystem API
+GOGAchievement instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

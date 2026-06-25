@@ -1,20 +1,14 @@
 ---
 title: "Color"
+description: "Auto-generated class reference for Color."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Color`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Color
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Color`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Color.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Color.cs`
 
 ## Overview
 
@@ -29,85 +23,169 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Color
 `public struct Color(float red, float green, float blue, float alpha = 1f)`
 
-**Purpose:** Handles logic related to `color`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Color from the subsystem API first
+Color color = ...;
+var result = color.Color(0, 0, 0, 0);
+```
 
 ### ToVector3
 `public Vector3 ToVector3()`
 
-**Purpose:** Handles logic related to `to vector3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Color from the subsystem API first
+Color color = ...;
+var result = color.ToVector3();
+```
 
 ### ToVec3
 `public Vec3 ToVec3()`
 
-**Purpose:** Handles logic related to `to vec3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Color from the subsystem API first
+Color color = ...;
+var result = color.ToVec3();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Color from the subsystem API first
+Color color = ...;
+var result = color.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Color from the subsystem API first
+Color color = ...;
+var result = color.Equals(obj);
+```
 
 ### FromVector3
 `public static Color FromVector3(Vector3 vector3)`
 
-**Purpose:** Handles logic related to `from vector3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Color.FromVector3(vector3);
+```
 
 ### FromVector3
 `public static Color FromVector3(Vec3 vector3)`
 
-**Purpose:** Handles logic related to `from vector3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Color.FromVector3(vector3);
+```
 
 ### Length
 `public float Length()`
 
-**Purpose:** Handles logic related to `length`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Color from the subsystem API first
+Color color = ...;
+var result = color.Length();
+```
 
 ### ToUnsignedInteger
 `public uint ToUnsignedInteger()`
 
-**Purpose:** Handles logic related to `to unsigned integer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Color from the subsystem API first
+Color color = ...;
+var result = color.ToUnsignedInteger();
+```
 
 ### FromUint
 `public static Color FromUint(uint color)`
 
-**Purpose:** Handles logic related to `from uint`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Color.FromUint(0);
+```
 
 ### FromHSV
 `public static Color FromHSV(float h, float s, float v)`
 
-**Purpose:** Handles logic related to `from h s v`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Color.FromHSV(0, 0, 0);
+```
 
 ### ConvertStringToColor
 `public static Color ConvertStringToColor(string color)`
 
-**Purpose:** Handles logic related to `convert string to color`.
+**Purpose:** Converts `string to color` into another representation or type.
+
+```csharp
+// Static call; no instance required
+Color.ConvertStringToColor("example");
+```
 
 ### Lerp
 `public static Color Lerp(Color start, Color end, float ratio)`
 
-**Purpose:** Handles logic related to `lerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Color.Lerp(start, end, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Color from the subsystem API first
+Color color = ...;
+var result = color.ToString();
+```
 
 ### UIntToColorString
 `public static string UIntToColorString(uint color)`
 
-**Purpose:** Handles logic related to `u int to color string`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Color.UIntToColorString(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Color();
-value.Color(0, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+Color color = ...;
+color.Color(0, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

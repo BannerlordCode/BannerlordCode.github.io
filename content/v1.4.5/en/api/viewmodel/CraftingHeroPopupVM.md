@@ -1,20 +1,14 @@
 ---
 title: "CraftingHeroPopupVM"
+description: "Auto-generated class reference for CraftingHeroPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingHeroPopupVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingHeroPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingHeroPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting/CraftingHeroPopupVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting/CraftingHeroPopupVM.cs`
 
 ## Overview
 
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Executes the `open popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open popup`.
+
+```csharp
+// Obtain an instance of CraftingHeroPopupVM from the subsystem API first
+CraftingHeroPopupVM craftingHeroPopupVM = ...;
+craftingHeroPopupVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of CraftingHeroPopupVM from the subsystem API first
+CraftingHeroPopupVM craftingHeroPopupVM = ...;
+craftingHeroPopupVM.ExecuteClosePopup();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CraftingHeroPopupVM from the subsystem API first
+CraftingHeroPopupVM craftingHeroPopupVM = ...;
+craftingHeroPopupVM.OnFinalize();
+```
 
 ### SetExitInputKey
 `public void SetExitInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `exit input key`.
+**Purpose:** Assigns a new value to `exit input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingHeroPopupVM from the subsystem API first
+CraftingHeroPopupVM craftingHeroPopupVM = ...;
+craftingHeroPopupVM.SetExitInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingHeroPopupVM();
-value.ExecuteOpenPopup();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingHeroPopupVM craftingHeroPopupVM = ...;
+craftingHeroPopupVM.ExecuteOpenPopup();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

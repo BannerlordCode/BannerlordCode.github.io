@@ -1,13 +1,7 @@
 ---
 title: "GauntletMovieIdentifier"
+description: "Auto-generated class reference for GauntletMovieIdentifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMovieIdentifier`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMovieIdentifier
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new GauntletMovieIdentifier();
+// Obtain an instance from the relevant subsystem API
+GauntletMovieIdentifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

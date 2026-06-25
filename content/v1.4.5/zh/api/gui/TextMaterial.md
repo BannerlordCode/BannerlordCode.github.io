@@ -1,20 +1,14 @@
 ---
 title: "TextMaterial"
+description: "TextMaterial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextMaterial`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextMaterial
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class TextMaterial : Material`
 **Base:** `Material`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextMaterial.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextMaterial.cs`
 
 ## 概述
 
@@ -51,15 +45,22 @@ title: "TextMaterial"
 ### CopyFrom
 `public void CopyFrom(TextMaterial sourceMaterial)`
 
-**用途 / Purpose:** 处理 `copy from` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「from」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 TextMaterial 实例
+TextMaterial textMaterial = ...;
+textMaterial.CopyFrom(sourceMaterial);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TextMaterial();
-value.CopyFrom(sourceMaterial);
+// 通常从对应子系统 API 获取实例后调用
+TextMaterial textMaterial = ...;
+textMaterial.CopyFrom(sourceMaterial);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

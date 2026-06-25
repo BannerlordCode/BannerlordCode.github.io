@@ -1,13 +1,7 @@
 ---
 title: "CharacterDebugSpawner"
+description: "Auto-generated class reference for CharacterDebugSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDebugSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDebugSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### SetClothColors
 `public void SetClothColors(uint color1, uint color2)`
 
-**Purpose:** Sets the value or state of `cloth colors`.
+**Purpose:** Assigns a new value to `cloth colors` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterDebugSpawner from the subsystem API first
+CharacterDebugSpawner characterDebugSpawner = ...;
+characterDebugSpawner.SetClothColors(0, 0);
+```
 
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**Purpose:** Handles logic related to `spawn character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterDebugSpawner from the subsystem API first
+CharacterDebugSpawner characterDebugSpawner = ...;
+characterDebugSpawner.SpawnCharacter();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of CharacterDebugSpawner from the subsystem API first
+CharacterDebugSpawner characterDebugSpawner = ...;
+characterDebugSpawner.Reset();
+```
 
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with character`.
+**Purpose:** Prepares the resources, state, or bindings required by `with character`.
+
+```csharp
+// Obtain an instance of CharacterDebugSpawner from the subsystem API first
+CharacterDebugSpawner characterDebugSpawner = ...;
+characterDebugSpawner.InitWithCharacter(characterCode);
+```
 
 ### WieldWeapon
 `public void WieldWeapon(CharacterCode characterCode)`
 
-**Purpose:** Handles logic related to `wield weapon`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterDebugSpawner from the subsystem API first
+CharacterDebugSpawner characterDebugSpawner = ...;
+characterDebugSpawner.WieldWeapon(characterCode);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterDebugSpawner();
-value.SetClothColors(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterDebugSpawner characterDebugSpawner = ...;
+characterDebugSpawner.SetClothColors(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionCaravanOrVillagerTacticsHandler"
+description: "Auto-generated class reference for MissionCaravanOrVillagerTacticsHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCaravanOrVillagerTacticsHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCaravanOrVillagerTacticsHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,14 +23,20 @@ Treat `MissionCaravanOrVillagerTacticsHandler` as a Handler-style extension poin
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCaravanOrVillagerTacticsHandler from the subsystem API first
+MissionCaravanOrVillagerTacticsHandler missionCaravanOrVillagerTacticsHandler = ...;
+missionCaravanOrVillagerTacticsHandler.EarlyStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionCaravanOrVillagerTacticsHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionCaravanOrVillagerTacticsHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

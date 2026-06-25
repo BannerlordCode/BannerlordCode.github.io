@@ -1,13 +1,7 @@
 ---
 title: "VolumeDataForSubmergeComputation"
+description: "Auto-generated class reference for VolumeDataForSubmergeComputation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VolumeDataForSubmergeComputation`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VolumeDataForSubmergeComputation
 
 **Namespace:** TaleWorlds.Engine
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new VolumeDataForSubmergeComputation();
+// Obtain an instance from the relevant subsystem API
+VolumeDataForSubmergeComputation instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

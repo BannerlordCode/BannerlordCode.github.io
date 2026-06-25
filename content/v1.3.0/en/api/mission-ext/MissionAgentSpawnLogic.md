@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentSpawnLogic"
+description: "Auto-generated class reference for MissionAgentSpawnLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentSpawnLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentSpawnLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -59,184 +53,394 @@ Treat `MissionAgentSpawnLogic` as a Logic-style extension point: first identify 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.AfterStart();
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetNumberOfPlayerControllableTroops();
+```
 
 ### InitWithSinglePhase
 `public void InitWithSinglePhase(int defenderTotalSpawn, int attackerTotalSpawn, int defenderInitialSpawn, int attackerInitialSpawn, bool spawnDefenders, bool spawnAttackers, in MissionSpawnSettings spawnSettings)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with single phase`.
+**Purpose:** Prepares the resources, state, or bindings required by `with single phase`.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.InitWithSinglePhase(0, 0, 0, 0, false, false, spawnSettings);
+```
 
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `all troops for side`.
+**Purpose:** Reads and returns the `all troops for side` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetAllTroopsForSide(side);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnMissionTick(0);
+```
 
 ### SetCustomReinforcementSpawnTimer
 `public void SetCustomReinforcementSpawnTimer(ICustomReinforcementSpawnTimer timer)`
 
-**Purpose:** Sets the value or state of `custom reinforcement spawn timer`.
+**Purpose:** Assigns a new value to `custom reinforcement spawn timer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetCustomReinforcementSpawnTimer(timer);
+```
 
 ### SetSpawnTroops
 `public void SetSpawnTroops(BattleSideEnum side, bool spawnTroops, bool enforceSpawning = false)`
 
-**Purpose:** Sets the value or state of `spawn troops`.
+**Purpose:** Assigns a new value to `spawn troops` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetSpawnTroops(side, false, false);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnBehaviorInitialize();
+```
 
 ### SetSpawnHorses
 `public void SetSpawnHorses(BattleSideEnum side, bool spawnHorses)`
 
-**Purpose:** Sets the value or state of `spawn horses`.
+**Purpose:** Assigns a new value to `spawn horses` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetSpawnHorses(side, false);
+```
 
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `start spawner`.
+**Purpose:** Starts the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.StartSpawner(side);
+```
 
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `stop spawner`.
+**Purpose:** Stops the `spawner` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.StopSpawner(side);
+```
 
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side spawn enabled`.
+**Purpose:** Determines whether the current object is in the `side spawn enabled` state or condition.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.IsSideSpawnEnabled(side);
+```
 
 ### OnSideDeploymentOver
 `public void OnSideDeploymentOver(BattleSideEnum battleSide)`
 
-**Purpose:** Called when the `side deployment over` event is raised.
+**Purpose:** Invoked when the `side deployment over` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnSideDeploymentOver(battleSide);
+```
 
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**Purpose:** Gets the current value of `reinforcement interval`.
+**Purpose:** Reads and returns the `reinforcement interval` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetReinforcementInterval();
+```
 
 ### SetReinforcementsSpawnEnabled
 `public void SetReinforcementsSpawnEnabled(bool value, bool resetTimers = true)`
 
-**Purpose:** Sets the value or state of `reinforcements spawn enabled`.
+**Purpose:** Assigns a new value to `reinforcements spawn enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetReinforcementsSpawnEnabled(false, false);
+```
 
 ### GetTotalNumberOfTroopsForSide
 `public int GetTotalNumberOfTroopsForSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `total number of troops for side`.
+**Purpose:** Reads and returns the `total number of troops for side` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetTotalNumberOfTroopsForSide(side);
+```
 
 ### GetGeneralCharacterOfSide
 `public BasicCharacterObject GetGeneralCharacterOfSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `general character of side`.
+**Purpose:** Reads and returns the `general character of side` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetGeneralCharacterOfSide(side);
+```
 
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `spawn horses`.
+**Purpose:** Reads and returns the `spawn horses` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetSpawnHorses(side);
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side depleted`.
+**Purpose:** Determines whether the current object is in the `side depleted` state or condition.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.IsSideDepleted(side);
+```
 
 ### AddPhaseChangeAction
 `public void AddPhaseChangeAction(BattleSideEnum side, MissionAgentSpawnLogic.OnPhaseChangedDelegate onPhaseChanged)`
 
 **Purpose:** Adds `phase change action` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.AddPhaseChangeAction(side, onPhaseChanged);
+```
+
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetNumberOfPlayerControllableTroops();
+```
 
 ### TryReinforcementSpawn
 `public int TryReinforcementSpawn()`
 
-**Purpose:** Attempts to get `reinforcement spawn`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `reinforcement spawn`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.TryReinforcementSpawn();
+```
 
 ### GetTeamFormationsSpawnData
 `public void GetTeamFormationsSpawnData( { "team", "formationSpawnData" })`
 
-**Purpose:** Gets the current value of `team formations spawn data`.
+**Purpose:** Reads and returns the `team formations spawn data` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.GetTeamFormationsSpawnData("team", });
+```
 
 ### ReserveTroops
 `public void ReserveTroops(int number)`
 
-**Purpose:** Handles logic related to `reserve troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.ReserveTroops(0);
+```
 
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**Purpose:** Gets the current value of `general character`.
+**Purpose:** Reads and returns the `general character` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetGeneralCharacter();
+```
 
 ### CheckReinforcementBatch
 `public unsafe bool CheckReinforcementBatch()`
 
-**Purpose:** Handles logic related to `check reinforcement batch`.
+**Purpose:** Verifies whether `reinforcement batch` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.CheckReinforcementBatch();
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** Gets the current value of `all troops`.
+**Purpose:** Reads and returns the `all troops` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetAllTroops();
+```
 
 ### SpawnTroops
 `public int SpawnTroops(int number, bool isReinforcement)`
 
-**Purpose:** Handles logic related to `spawn troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.SpawnTroops(0, false);
+```
 
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool spawnWithHorses)`
 
-**Purpose:** Sets the value or state of `spawn with horses`.
+**Purpose:** Assigns a new value to `spawn with horses` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetSpawnWithHorses(false);
+```
 
 ### SetBannerBearerLogic
 `public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)`
 
-**Purpose:** Sets the value or state of `banner bearer logic`.
+**Purpose:** Assigns a new value to `banner bearer logic` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetBannerBearerLogic(bannerBearerLogic);
+```
 
 ### SetReinforcementsNotifiedOnLastBatch
 `public void SetReinforcementsNotifiedOnLastBatch(bool value)`
 
-**Purpose:** Sets the value or state of `reinforcements notified on last batch`.
+**Purpose:** Assigns a new value to `reinforcements notified on last batch` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetReinforcementsNotifiedOnLastBatch(false);
+```
 
 ### SetSpawnTroops
 `public void SetSpawnTroops(bool spawnTroops)`
 
-**Purpose:** Sets the value or state of `spawn troops`.
+**Purpose:** Assigns a new value to `spawn troops` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetSpawnTroops(false);
+```
 
 ### OnInitialSpawnOver
 `public void OnInitialSpawnOver()`
 
-**Purpose:** Called when the `initial spawn over` event is raised.
+**Purpose:** Invoked when the `initial spawn over` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnInitialSpawnOver();
+```
 
 ### OnInitialTroopsSpawned
 `public void OnInitialTroopsSpawned()`
 
-**Purpose:** Called when the `initial troops spawned` event is raised.
+**Purpose:** Invoked when the `initial troops spawned` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnInitialTroopsSpawned();
+```
 
 ### OnPhaseChangedDelegate
 `public delegate void OnPhaseChangedDelegate()`
 
-**Purpose:** Called when the `phase changed delegate` event is raised.
+**Purpose:** Invoked when the `phase changed delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnPhaseChangedDelegate();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAgentSpawnLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionAgentSpawnLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

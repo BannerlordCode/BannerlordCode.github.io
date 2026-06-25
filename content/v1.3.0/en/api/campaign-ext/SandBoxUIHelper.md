@@ -1,13 +1,7 @@
 ---
 title: "SandBoxUIHelper"
+description: "Auto-generated class reference for SandBoxUIHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxUIHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxUIHelper
 
 **Namespace:** SandBox.ViewModelCollection
@@ -29,112 +23,222 @@ Treat `SandBoxUIHelper` as a Helper-style extension point: first identify who cr
 ### GetExplainedNumberTooltip
 `public static List<TooltipProperty> GetExplainedNumberTooltip(ref ExplainedNumber explanation)`
 
-**Purpose:** Gets the current value of `explained number tooltip`.
+**Purpose:** Reads and returns the `explained number tooltip` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetExplainedNumberTooltip(explanation);
+```
 
 ### GetBattleLootAwardTooltip
 `public static List<TooltipProperty> GetBattleLootAwardTooltip(float lootPercentage)`
 
-**Purpose:** Gets the current value of `battle loot award tooltip`.
+**Purpose:** Reads and returns the `battle loot award tooltip` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetBattleLootAwardTooltip(0);
+```
 
 ### GetFigureheadTooltip
 `public static List<TooltipProperty> GetFigureheadTooltip(Figurehead figurehead)`
 
-**Purpose:** Gets the current value of `figurehead tooltip`.
+**Purpose:** Reads and returns the `figurehead tooltip` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetFigureheadTooltip(figurehead);
+```
 
 ### GetSkillEffectText
 `public static string GetSkillEffectText(SkillEffect effect, int skillLevel)`
 
-**Purpose:** Gets the current value of `skill effect text`.
+**Purpose:** Reads and returns the `skill effect text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetSkillEffectText(effect, 0);
+```
 
 ### GetRecruitNotificationText
 `public static string GetRecruitNotificationText(int recruitmentAmount)`
 
-**Purpose:** Gets the current value of `recruit notification text`.
+**Purpose:** Reads and returns the `recruit notification text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetRecruitNotificationText(0);
+```
 
 ### GetItemSoldNotificationText
 `public static string GetItemSoldNotificationText(ItemRosterElement item, int itemAmount, bool fromHeroToSettlement)`
 
-**Purpose:** Gets the current value of `item sold notification text`.
+**Purpose:** Reads and returns the `item sold notification text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetItemSoldNotificationText(item, 0, false);
+```
 
 ### GetShipSoldNotificationText
 `public static string GetShipSoldNotificationText(Ship ship, int itemAmount, bool fromHeroToSettlement)`
 
-**Purpose:** Gets the current value of `ship sold notification text`.
+**Purpose:** Reads and returns the `ship sold notification text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetShipSoldNotificationText(ship, 0, false);
+```
 
 ### GetTroopGivenToSettlementNotificationText
 `public static string GetTroopGivenToSettlementNotificationText(int givenAmount)`
 
-**Purpose:** Gets the current value of `troop given to settlement notification text`.
+**Purpose:** Reads and returns the `troop given to settlement notification text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetTroopGivenToSettlementNotificationText(0);
+```
 
 ### GetSiegeEngineInProgressTooltip
 `public static List<TooltipProperty> GetSiegeEngineInProgressTooltip(SiegeEvent.SiegeEngineConstructionProgress engineInProgress)`
 
-**Purpose:** Gets the current value of `siege engine in progress tooltip`.
+**Purpose:** Reads and returns the `siege engine in progress tooltip` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetSiegeEngineInProgressTooltip(engineInProgress);
+```
 
 ### GetSiegeEngineTooltip
 `public static List<TooltipProperty> GetSiegeEngineTooltip(SiegeEngineType engine)`
 
-**Purpose:** Gets the current value of `siege engine tooltip`.
+**Purpose:** Reads and returns the `siege engine tooltip` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetSiegeEngineTooltip(engine);
+```
 
 ### GetWallSectionTooltip
 `public static List<TooltipProperty> GetWallSectionTooltip(Settlement settlement, int wallIndex)`
 
-**Purpose:** Gets the current value of `wall section tooltip`.
+**Purpose:** Reads and returns the `wall section tooltip` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetWallSectionTooltip(settlement, 0);
+```
 
 ### GetPrisonersSoldNotificationText
 `public static string GetPrisonersSoldNotificationText(int soldPrisonerAmount)`
 
-**Purpose:** Gets the current value of `prisoners sold notification text`.
+**Purpose:** Reads and returns the `prisoners sold notification text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetPrisonersSoldNotificationText(0);
+```
 
 ### GetPartyHealthyCount
 `public static int GetPartyHealthyCount(MobileParty party)`
 
-**Purpose:** Gets the current value of `party healthy count`.
+**Purpose:** Reads and returns the `party healthy count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetPartyHealthyCount(party);
+```
 
 ### GetPartyWoundedText
 `public static string GetPartyWoundedText(int woundedAmount)`
 
-**Purpose:** Gets the current value of `party wounded text`.
+**Purpose:** Reads and returns the `party wounded text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetPartyWoundedText(0);
+```
 
 ### GetPartyPrisonerText
 `public static string GetPartyPrisonerText(int prisonerAmount)`
 
-**Purpose:** Gets the current value of `party prisoner text`.
+**Purpose:** Reads and returns the `party prisoner text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetPartyPrisonerText(0);
+```
 
 ### GetAllWoundedMembersAmount
 `public static int GetAllWoundedMembersAmount(MobileParty party)`
 
-**Purpose:** Gets the current value of `all wounded members amount`.
+**Purpose:** Reads and returns the `all wounded members amount` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetAllWoundedMembersAmount(party);
+```
 
 ### GetAllPrisonerMembersAmount
 `public static int GetAllPrisonerMembersAmount(MobileParty party)`
 
-**Purpose:** Gets the current value of `all prisoner members amount`.
+**Purpose:** Reads and returns the `all prisoner members amount` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetAllPrisonerMembersAmount(party);
+```
 
 ### GetCharacterCode
 `public static CharacterCode GetCharacterCode(CharacterObject character, bool useCivilian = false)`
 
-**Purpose:** Gets the current value of `character code`.
+**Purpose:** Reads and returns the `character code` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetCharacterCode(character, false);
+```
 
 ### IsHeroInformationHidden
 `public static bool IsHeroInformationHidden(Hero hero, out TextObject disableReason)`
 
-**Purpose:** Handles logic related to `is hero information hidden`.
+**Purpose:** Determines whether the current object is in the `hero information hidden` state or condition.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.IsHeroInformationHidden(hero, disableReason);
+```
 
 ### GetMapEventVisualTypeFromMapEvent
 `public static SandBoxUIHelper.MapEventVisualTypes GetMapEventVisualTypeFromMapEvent(MapEvent mapEvent)`
 
-**Purpose:** Gets the current value of `map event visual type from map event`.
+**Purpose:** Reads and returns the `map event visual type from map event` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.GetMapEventVisualTypeFromMapEvent(mapEvent);
+```
 
 ### IsAgentInVisibilityRangeApproximate
 `public static bool IsAgentInVisibilityRangeApproximate(Agent seerAgent, Agent seenAgent)`
 
-**Purpose:** Handles logic related to `is agent in visibility range approximate`.
+**Purpose:** Determines whether the current object is in the `agent in visibility range approximate` state or condition.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.IsAgentInVisibilityRangeApproximate(seerAgent, seenAgent);
+```
 
 ### CanAgentBeAlarmed
 `public static bool CanAgentBeAlarmed(Agent agent)`
 
-**Purpose:** Checks whether the current object can `agent be alarmed`.
+**Purpose:** Checks whether the current object meets the preconditions for `agent be alarmed`.
+
+```csharp
+// Static call; no instance required
+SandBoxUIHelper.CanAgentBeAlarmed(agent);
+```
 
 ## Usage Example
 
@@ -144,4 +248,4 @@ SandBoxUIHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

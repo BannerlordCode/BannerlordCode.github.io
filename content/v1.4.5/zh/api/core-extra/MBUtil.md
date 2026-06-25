@@ -1,20 +1,14 @@
 ---
 title: "MBUtil"
+description: "MBUtil 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBUtil`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBUtil
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class MBUtil`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBUtil.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBUtil.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "MBUtil"
 ### DirectoryCopy
 `public static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)`
 
-**用途 / Purpose:** 处理 `directory copy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBUtil.DirectoryCopy("example", "example", false);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ MBUtil.DirectoryCopy("example", "example", false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

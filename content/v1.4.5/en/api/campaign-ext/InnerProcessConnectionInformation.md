@@ -1,20 +1,14 @@
 ---
 title: "InnerProcessConnectionInformation"
+description: "Auto-generated class reference for InnerProcessConnectionInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InnerProcessConnectionInformation`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InnerProcessConnectionInformation
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public sealed class InnerProcessConnectionInformation : IConnectionInformation`
 **Base:** `IConnectionInformation`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/InnerProcessConnectionInformation.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/InnerProcessConnectionInformation.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new InnerProcessConnectionInformation();
+// Obtain an instance from the relevant subsystem API
+InnerProcessConnectionInformation instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

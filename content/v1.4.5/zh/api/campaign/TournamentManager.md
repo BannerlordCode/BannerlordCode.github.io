@@ -1,20 +1,14 @@
 ---
 title: "TournamentManager"
+description: "TournamentManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentManager
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TournamentManager : ITournamentManager`
 **Base:** `ITournamentManager`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/TournamentManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TournamentGames/TournamentManager.cs`
 
 ## 概述
 
@@ -29,82 +23,178 @@ title: "TournamentManager"
 ### AddTournament
 `public void AddTournament(TournamentGame game)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tournament`。
+**用途 / Purpose:** 将 「tournament」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.AddTournament(game);
+```
 
 ### RemoveTournament
 `public void RemoveTournament(TournamentGame game)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `tournament`。
+**用途 / Purpose:** 从当前容器或状态中移除 「tournament」。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.RemoveTournament(game);
+```
 
 ### GetTournamentGame
 `public TournamentGame GetTournamentGame(Town town)`
 
-**用途 / Purpose:** 获取 `tournament game` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tournament game」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+var result = tournamentManager.GetTournamentGame(town);
+```
 
 ### OnPlayerJoinMatch
 `public void OnPlayerJoinMatch(Type gameType)`
 
-**用途 / Purpose:** 当 `player join match` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player join match」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.OnPlayerJoinMatch(gameType);
+```
 
 ### OnPlayerJoinTournament
 `public void OnPlayerJoinTournament(Type gameType, Settlement settlement)`
 
-**用途 / Purpose:** 当 `player join tournament` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player join tournament」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.OnPlayerJoinTournament(gameType, settlement);
+```
 
 ### OnPlayerWatchTournament
 `public void OnPlayerWatchTournament(Type gameType, Settlement settlement)`
 
-**用途 / Purpose:** 当 `player watch tournament` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player watch tournament」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.OnPlayerWatchTournament(gameType, settlement);
+```
 
 ### OnPlayerWinMatch
 `public void OnPlayerWinMatch(Type gameType)`
 
-**用途 / Purpose:** 当 `player win match` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player win match」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.OnPlayerWinMatch(gameType);
+```
 
 ### OnPlayerWinTournament
 `public void OnPlayerWinTournament(Type gameType)`
 
-**用途 / Purpose:** 当 `player win tournament` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player win tournament」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.OnPlayerWinTournament(gameType);
+```
 
 ### GetLeaderboard
 `public List<KeyValuePair<Hero, int>> GetLeaderboard()`
 
-**用途 / Purpose:** 获取 `leaderboard` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「leaderboard」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+var result = tournamentManager.GetLeaderboard();
+```
 
 ### GetLeaderBoardRank
 `public int GetLeaderBoardRank(Hero hero)`
 
-**用途 / Purpose:** 获取 `leader board rank` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「leader board rank」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+var result = tournamentManager.GetLeaderBoardRank(hero);
+```
 
 ### GetLeaderBoardLeader
 `public Hero GetLeaderBoardLeader()`
 
-**用途 / Purpose:** 获取 `leader board leader` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「leader board leader」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+var result = tournamentManager.GetLeaderBoardLeader();
+```
 
 ### InitializeLeaderboardEntry
 `public void InitializeLeaderboardEntry(Hero hero, int initialVictories = 0)`
 
-**用途 / Purpose:** 初始化 `leaderboard entry` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「leaderboard entry」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.InitializeLeaderboardEntry(hero, 0);
+```
 
 ### AddLeaderboardEntry
 `public void AddLeaderboardEntry(Hero hero)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `leaderboard entry`。
+**用途 / Purpose:** 将 「leaderboard entry」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.AddLeaderboardEntry(hero);
+```
 
 ### DeleteLeaderboardEntry
 `public void DeleteLeaderboardEntry(Hero hero)`
 
-**用途 / Purpose:** 处理 `delete leaderboard entry` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.DeleteLeaderboardEntry(hero);
+```
 
 ### ResolveTournament
 `public void ResolveTournament(TournamentGame tournament, Town town)`
 
-**用途 / Purpose:** 处理 `resolve tournament` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.ResolveTournament(tournament, town);
+```
 
 ### GivePrizeToWinner
 `public void GivePrizeToWinner(TournamentGame tournament, Hero winner, bool isPlayerParticipated)`
 
-**用途 / Purpose:** 处理 `give prize to winner` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentManager 实例
+TournamentManager tournamentManager = ...;
+tournamentManager.GivePrizeToWinner(tournament, winner, false);
+```
 
 ## 使用示例
 
@@ -114,4 +204,4 @@ var manager = TournamentManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

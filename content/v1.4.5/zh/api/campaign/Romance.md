@@ -1,20 +1,14 @@
 ---
 title: "Romance"
+description: "Romance 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Romance`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Romance
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Romance`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Romance.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Romance.cs`
 
 ## 概述
 
@@ -29,30 +23,52 @@ title: "Romance"
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**用途 / Purpose:** 处理 `partner` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Romance 实例
+Romance romance = ...;
+var result = romance.Partner(hero);
+```
 
 ### GetCourtedHeroInOtherClan
 `public static Hero GetCourtedHeroInOtherClan(Hero person1, Hero person2)`
 
-**用途 / Purpose:** 获取 `courted hero in other clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「courted hero in other clan」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Romance.GetCourtedHeroInOtherClan(person1, person2);
+```
 
 ### GetRomanticLevel
 `public static RomanceLevelEnum GetRomanticLevel(Hero person1, Hero person2)`
 
-**用途 / Purpose:** 获取 `romantic level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「romantic level」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Romance.GetRomanticLevel(person1, person2);
+```
 
 ### GetRomanticState
 `public static RomanticState GetRomanticState(Hero person1, Hero person2)`
 
-**用途 / Purpose:** 获取 `romantic state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「romantic state」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Romance.GetRomanticState(person1, person2);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Romance();
-value.Partner(hero);
+// 通常从对应子系统 API 获取实例后调用
+Romance romance = ...;
+romance.Partner(hero);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

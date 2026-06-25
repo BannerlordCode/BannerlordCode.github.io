@@ -1,13 +1,7 @@
 ---
 title: "MissionScoreUIHandler"
+description: "MissionScoreUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionScoreUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -29,19 +23,31 @@ title: "MissionScoreUIHandler"
 ### SetName
 `public void SetName(string name, int index)`
 
-**用途 / Purpose:** 设置 `name` 的值或状态。
+**用途 / Purpose:** 为 「name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreUIHandler 实例
+MissionScoreUIHandler missionScoreUIHandler = ...;
+missionScoreUIHandler.SetName("example", 0);
+```
 
 ### SaveScore
 `public void SaveScore(int score, int index)`
 
-**用途 / Purpose:** 保存 `score` 数据。
+**用途 / Purpose:** 将 「score」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreUIHandler 实例
+MissionScoreUIHandler missionScoreUIHandler = ...;
+missionScoreUIHandler.SaveScore(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionScoreUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionScoreUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

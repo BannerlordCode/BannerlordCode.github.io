@@ -1,95 +1,55 @@
 ---
 title: "Integer"
+description: "Auto-generated class reference for Integer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Integer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Integer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct Integer`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/CompressionInfo.cs`
 
 ## Overview
 
-`Integer` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Integer` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
-
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `FullPrecision` | `public static CompressionInfo.Float FullPrecision { get; }` |
 
 ## Key Methods
 
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Gets the current value of `num bits`.
+**Purpose:** Reads and returns the `num bits` value held by the current object.
+
+```csharp
+// Obtain an instance of Integer from the subsystem API first
+Integer integer = ...;
+var result = integer.GetNumBits();
+```
 
 ### GetMaximumValue
 `public int GetMaximumValue()`
 
-**Purpose:** Gets the current value of `maximum value`.
+**Purpose:** Reads and returns the `maximum value` value held by the current object.
 
-### GetNumBits
-`public int GetNumBits()`
-
-**Purpose:** Gets the current value of `num bits`.
-
-### GetNumBits
-`public int GetNumBits()`
-
-**Purpose:** Gets the current value of `num bits`.
-
-### GetNumBits
-`public int GetNumBits()`
-
-**Purpose:** Gets the current value of `num bits`.
-
-### GetNumBits
-`public int GetNumBits()`
-
-**Purpose:** Gets the current value of `num bits`.
-
-### GetMaximumValue
-`public float GetMaximumValue()`
-
-**Purpose:** Gets the current value of `maximum value`.
-
-### GetMinimumValue
-`public float GetMinimumValue()`
-
-**Purpose:** Gets the current value of `minimum value`.
-
-### GetPrecision
-`public float GetPrecision()`
-
-**Purpose:** Gets the current value of `precision`.
-
-### ClampValueAccordingToLimits
-`public void ClampValueAccordingToLimits(ref float x)`
-
-**Purpose:** Handles logic related to `clamp value according to limits`.
+```csharp
+// Obtain an instance of Integer from the subsystem API first
+Integer integer = ...;
+var result = integer.GetMaximumValue();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a Integer instance from game state, then call one of its public methods
-var value = new Integer();
-value.GetNumBits();
+// Typically call this after obtaining an instance from the subsystem API
+Integer integer = ...;
+integer.GetNumBits();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

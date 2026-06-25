@@ -1,20 +1,14 @@
 ---
 title: "IMission"
+description: "IMission 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IMission`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMission
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IMission`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IMission.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IMission.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IMission"
 ## 使用示例
 
 ```csharp
-IMission implementation = GetMissionImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIMission service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

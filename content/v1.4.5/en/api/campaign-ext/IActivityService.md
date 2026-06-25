@@ -1,20 +1,14 @@
 ---
 title: "IActivityService"
+description: "Auto-generated class reference for IActivityService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IActivityService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IActivityService
 
 **Namespace:** TaleWorlds.ActivitySystem
 **Module:** TaleWorlds.ActivitySystem
-**Type:** `class`
+**Type:** `public interface IActivityService`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/IActivityService.cs`
+**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/IActivityService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ActivitySystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-IActivityService implementation = GetActivityServiceImplementation();
+// Usually obtained through DI or a factory method
+IIActivityService service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

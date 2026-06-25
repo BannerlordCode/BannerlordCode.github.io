@@ -1,20 +1,14 @@
 ---
 title: "IReadOnlyPropertyOwnerF"
+description: "Auto-generated class reference for IReadOnlyPropertyOwnerF."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IReadOnlyPropertyOwnerF`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IReadOnlyPropertyOwnerF
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IReadOnlyPropertyOwnerF<T>`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IReadOnlyPropertyOwnerF.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IReadOnlyPropertyOwnerF.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IReadOnlyPropertyOwnerF implementation = GetReadOnlyPropertyOwnerFImplementation();
+// Usually obtained through DI or a factory method
+IIReadOnlyPropertyOwnerF service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

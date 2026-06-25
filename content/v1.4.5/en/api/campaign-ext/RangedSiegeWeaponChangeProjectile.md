@@ -1,20 +1,14 @@
 ---
 title: "RangedSiegeWeaponChangeProjectile"
+description: "Auto-generated class reference for RangedSiegeWeaponChangeProjectile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RangedSiegeWeaponChangeProjectile`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedSiegeWeaponChangeProjectile
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RangedSiegeWeaponChangeProjectile : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RangedSiegeWeaponChangeProjectile.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RangedSiegeWeaponChangeProjectile.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new RangedSiegeWeaponChangeProjectile();
+// Obtain an instance from the relevant subsystem API
+RangedSiegeWeaponChangeProjectile instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

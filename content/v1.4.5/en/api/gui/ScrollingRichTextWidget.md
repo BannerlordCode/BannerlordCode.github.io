@@ -1,20 +1,14 @@
 ---
 title: "ScrollingRichTextWidget"
+description: "Auto-generated class reference for ScrollingRichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScrollingRichTextWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScrollingRichTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ScrollingRichTextWidget : RichTextWidget`
 **Base:** `RichTextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/ScrollingRichTextWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/ScrollingRichTextWidget.cs`
 
 ## Overview
 
@@ -40,14 +34,21 @@ Treat `ScrollingRichTextWidget` as a Widget-style extension point: first identif
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**Purpose:** Called when the `brush changed` event is raised.
+**Purpose:** Invoked when the `brush changed` event is raised.
+
+```csharp
+// Obtain an instance of ScrollingRichTextWidget from the subsystem API first
+ScrollingRichTextWidget scrollingRichTextWidget = ...;
+scrollingRichTextWidget.OnBrushChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ScrollingRichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScrollingRichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

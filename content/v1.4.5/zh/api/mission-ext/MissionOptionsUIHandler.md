@@ -1,20 +1,14 @@
 ---
 title: "MissionOptionsUIHandler"
+description: "MissionOptionsUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionOptionsUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionOptionsUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionOptionsUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionOptionsUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionOptionsUIHandler.cs`
 
 ## 概述
 
@@ -27,9 +21,9 @@ title: "MissionOptionsUIHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionOptionsUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionOptionsUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

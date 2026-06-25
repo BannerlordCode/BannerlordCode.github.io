@@ -1,20 +1,14 @@
 ---
 title: "CommanderInfoVM"
+description: "Auto-generated class reference for CommanderInfoVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommanderInfoVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommanderInfoVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CommanderInfoVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/CommanderInfoVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/CommanderInfoVM.cs`
 
 ## Overview
 
@@ -53,35 +47,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.H
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CommanderInfoVM from the subsystem API first
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.OnFinalize();
+```
 
 ### UpdateWarmupDependentFlags
 `public void UpdateWarmupDependentFlags(bool isInWarmup)`
 
-**Purpose:** Updates the state or data of `warmup dependent flags`.
+**Purpose:** Recalculates and stores the latest representation of `warmup dependent flags`.
+
+```csharp
+// Obtain an instance of CommanderInfoVM from the subsystem API first
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.UpdateWarmupDependentFlags(false);
+```
 
 ### OnUpdateMorale
 `public void OnUpdateMorale(BattleSideEnum side, float morale)`
 
-**Purpose:** Called when the `update morale` event is raised.
+**Purpose:** Invoked when the `update morale` event is raised.
+
+```csharp
+// Obtain an instance of CommanderInfoVM from the subsystem API first
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.OnUpdateMorale(side, 0);
+```
 
 ### OnTeamChanged
 `public void OnTeamChanged()`
 
-**Purpose:** Called when the `team changed` event is raised.
+**Purpose:** Invoked when the `team changed` event is raised.
+
+```csharp
+// Obtain an instance of CommanderInfoVM from the subsystem API first
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.OnTeamChanged();
+```
 
 ### RefreshColors
 `public void RefreshColors(string allyTeamColor, string allyTeamColorSecondary, string enemyTeamColor, string enemyTeamColorSecondary)`
 
-**Purpose:** Refreshes the display or cache of `colors`.
+**Purpose:** Keeps the display or cache of `colors` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CommanderInfoVM from the subsystem API first
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.RefreshColors("example", "example", "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommanderInfoVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

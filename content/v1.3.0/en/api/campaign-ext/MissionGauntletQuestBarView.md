@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletQuestBarView"
+description: "Auto-generated class reference for MissionGauntletQuestBarView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletQuestBarView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletQuestBarView
 
 **Namespace:** SandBox.GauntletUI.Missions
@@ -29,24 +23,43 @@ Treat `MissionGauntletQuestBarView` as a View-style extension point: first ident
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletQuestBarView from the subsystem API first
+MissionGauntletQuestBarView missionGauntletQuestBarView = ...;
+missionGauntletQuestBarView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletQuestBarView from the subsystem API first
+MissionGauntletQuestBarView missionGauntletQuestBarView = ...;
+missionGauntletQuestBarView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletQuestBarView from the subsystem API first
+MissionGauntletQuestBarView missionGauntletQuestBarView = ...;
+missionGauntletQuestBarView.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletQuestBarView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletQuestBarView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

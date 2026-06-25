@@ -1,13 +1,7 @@
 ---
 title: "SandBoxMissionManager"
+description: "Auto-generated class reference for SandBoxMissionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxMissionManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxMissionManager
 
 **Namespace:** SandBox
@@ -29,22 +23,46 @@ Treat `SandBoxMissionManager` as a Manager-style extension point: first identify
 ### OpenTournamentFightMission
 `public IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament fight mission`.
+**Purpose:** Opens the resource or UI associated with `tournament fight mission`.
+
+```csharp
+// Obtain an instance of SandBoxMissionManager from the subsystem API first
+SandBoxMissionManager sandBoxMissionManager = ...;
+var result = sandBoxMissionManager.OpenTournamentFightMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentHorseRaceMission
 `public IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament horse race mission`.
+**Purpose:** Opens the resource or UI associated with `tournament horse race mission`.
+
+```csharp
+// Obtain an instance of SandBoxMissionManager from the subsystem API first
+SandBoxMissionManager sandBoxMissionManager = ...;
+var result = sandBoxMissionManager.OpenTournamentHorseRaceMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentJoustingMission
 `public IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament jousting mission`.
+**Purpose:** Opens the resource or UI associated with `tournament jousting mission`.
+
+```csharp
+// Obtain an instance of SandBoxMissionManager from the subsystem API first
+SandBoxMissionManager sandBoxMissionManager = ...;
+var result = sandBoxMissionManager.OpenTournamentJoustingMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentArcheryMission
 `public IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament archery mission`.
+**Purpose:** Opens the resource or UI associated with `tournament archery mission`.
+
+```csharp
+// Obtain an instance of SandBoxMissionManager from the subsystem API first
+SandBoxMissionManager sandBoxMissionManager = ...;
+var result = sandBoxMissionManager.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var manager = SandBoxMissionManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

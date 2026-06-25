@@ -1,13 +1,7 @@
 ---
 title: "DefaultBuildingEffectModel"
+description: "DefaultBuildingEffectModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultBuildingEffectModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultBuildingEffectModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ title: "DefaultBuildingEffectModel"
 ### GetBuildingEffect
 `public override ExplainedNumber GetBuildingEffect(Building building, BuildingEffectEnum effect)`
 
-**用途 / Purpose:** 获取 `building effect` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「building effect」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBuildingEffectModel 实例
+DefaultBuildingEffectModel defaultBuildingEffectModel = ...;
+var result = defaultBuildingEffectModel.GetBuildingEffect(building, effect);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultBuildingEffectModel>(new MyDefaultBuildingEffec
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

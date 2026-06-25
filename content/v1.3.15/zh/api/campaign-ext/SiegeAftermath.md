@@ -1,42 +1,34 @@
 ---
 title: "SiegeAftermath"
+description: "SiegeAftermath 的自动生成战役动作参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeAftermath`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeAftermath
 
-**命名空间:** TaleWorlds.CampaignSystem.Actions
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public static class SiegeAftermath`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.Actions
+**Module:** TaleWorlds.CampaignSystem
+**Type:** static class
+**File:** `TaleWorlds.CampaignSystem/Actions/SiegeAftermathAction.cs`
 
-## 概述
+SiegeAftermath 是一组静态方法，用于在战役中以特定原因触发"SiegeAftermath"。modder通过调用其 `Apply*` 方法改变游戏状态（每种原因一个重载）。
 
-`SiegeAftermath` 位于 `TaleWorlds.CampaignSystem.Actions`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+## 方法
 
-## 心智模型
+### ApplyAftermath
 
-先从命名空间 `TaleWorlds.CampaignSystem.Actions` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+```csharp
+public static void ApplyAftermath(MobileParty attackerParty, Settlement settlement, SiegeAftermathAction.SiegeAftermath aftermathType, Clan previousSettlementOwner, Dictionary<MobileParty, float> partyContributions)
+```
 
-## 枚举值
-
-| Name |
-|------|
-| `Devastate` |
-| `Pillage` |
+**用途 / Purpose:** aftermath。
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeAftermath();
+// 在 mod 中触发一次该动作
+SiegeAftermath.ApplyAftermath(attackerParty, settlement, aftermathType, previousSettlementOwner, dictionary<MobileParty, 100);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)
+- [战役系统](../campaign/)

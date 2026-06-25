@@ -1,23 +1,18 @@
 ---
 title: "LegacyGameDataDeserializer"
+description: "Auto-generated class reference for LegacyGameDataDeserializer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LegacyGameDataDeserializer`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LegacyGameDataDeserializer
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public static class LegacyGameDataDeserializer`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/LegacyGameDataDeserializer.cs`
 
 ## Overview
 
-`LegacyGameDataDeserializer` lives in `TaleWorlds.SaveSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LegacyGameDataDeserializer` lives in `TaleWorlds.SaveSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### Deserialize
 `public static GameData Deserialize(Stream stream)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Static call; no instance required
+LegacyGameDataDeserializer.Deserialize(stream);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 LegacyGameDataDeserializer.Deserialize(stream);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

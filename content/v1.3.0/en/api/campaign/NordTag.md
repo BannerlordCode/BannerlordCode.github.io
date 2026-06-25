@@ -1,13 +1,7 @@
 ---
 title: "NordTag"
+description: "Auto-generated class reference for NordTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NordTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NordTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of NordTag from the subsystem API first
+NordTag nordTag = ...;
+var result = nordTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NordTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+NordTag nordTag = ...;
+nordTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

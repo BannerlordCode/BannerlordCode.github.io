@@ -1,20 +1,14 @@
 ---
 title: "BlendFunction"
+description: "Auto-generated class reference for BlendFunction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BlendFunction`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BlendFunction
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct BlendFunction`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/BlendFunction.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/BlendFunction.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### BlendFunction
 `public struct BlendFunction(AlphaFormatFlags op, byte flags, byte alpha, AlphaFormatFlags format)`
 
-**Purpose:** Handles logic related to `blend function`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BlendFunction from the subsystem API first
+BlendFunction blendFunction = ...;
+var result = blendFunction.BlendFunction(op, 0, 0, format);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BlendFunction();
-value.BlendFunction(op, 0, 0, format);
+// Typically call this after obtaining an instance from the subsystem API
+BlendFunction blendFunction = ...;
+blendFunction.BlendFunction(op, 0, 0, format);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

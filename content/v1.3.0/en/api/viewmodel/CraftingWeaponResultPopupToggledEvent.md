@@ -1,13 +1,7 @@
 ---
 title: "CraftingWeaponResultPopupToggledEvent"
+description: "Auto-generated class reference for CraftingWeaponResultPopupToggledEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingWeaponResultPopupToggledEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingWeaponResultPopupToggledEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ## Usage Example
 
 ```csharp
-var example = new CraftingWeaponResultPopupToggledEvent();
+// Obtain an instance from the relevant subsystem API
+CraftingWeaponResultPopupToggledEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "JoinGameData"
+description: "Auto-generated class reference for JoinGameData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JoinGameData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoinGameData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class JoinGameData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/JoinGameData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/JoinGameData.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `JoinGameData` as a Data-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var value = new JoinGameData();
+// This data object is usually returned by campaign/mission APIs
+JoinGameData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

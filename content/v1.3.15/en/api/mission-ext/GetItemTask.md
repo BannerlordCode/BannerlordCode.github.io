@@ -1,13 +1,7 @@
 ---
 title: "GetItemTask"
+description: "Auto-generated class reference for GetItemTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GetItemTask`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GetItemTask
 
 **Namespace:** TaleWorlds.MountAndBlade.SteamWorkshop
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.SteamWorkshop` to place it in the
 ### LoadFrom
 `public override void LoadFrom(XmlNode xmlNode)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GetItemTask from the subsystem API first
+GetItemTask getItemTask = ...;
+getItemTask.LoadFrom(xmlNode);
+```
 
 ### DoJob
 `public override void DoJob()`
 
-**Purpose:** Handles logic related to `do job`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GetItemTask from the subsystem API first
+GetItemTask getItemTask = ...;
+getItemTask.DoJob();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GetItemTask();
-value.LoadFrom(xmlNode);
+// Typically call this after obtaining an instance from the subsystem API
+GetItemTask getItemTask = ...;
+getItemTask.LoadFrom(xmlNode);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

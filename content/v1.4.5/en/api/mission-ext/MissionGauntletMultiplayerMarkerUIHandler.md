@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerMarkerUIHandler"
+description: "Auto-generated class reference for MissionGauntletMultiplayerMarkerUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMultiplayerMarkerUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerMarkerUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerMarkerUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerMarkerUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerMarkerUIHandler.cs`
 
 ## Overview
 
@@ -29,24 +23,42 @@ Treat `MissionGauntletMultiplayerMarkerUIHandler` as a Handler-style extension p
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerMarkerUIHandler from the subsystem API first
+MissionGauntletMultiplayerMarkerUIHandler missionGauntletMultiplayerMarkerUIHandler = ...;
+missionGauntletMultiplayerMarkerUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerMarkerUIHandler from the subsystem API first
+MissionGauntletMultiplayerMarkerUIHandler missionGauntletMultiplayerMarkerUIHandler = ...;
+missionGauntletMultiplayerMarkerUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerMarkerUIHandler from the subsystem API first
+MissionGauntletMultiplayerMarkerUIHandler missionGauntletMultiplayerMarkerUIHandler = ...;
+missionGauntletMultiplayerMarkerUIHandler.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletMultiplayerMarkerUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletMultiplayerMarkerUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

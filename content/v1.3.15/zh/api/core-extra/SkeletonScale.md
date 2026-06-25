@@ -1,13 +1,7 @@
 ---
 title: "SkeletonScale"
+description: "SkeletonScale 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SkeletonScale`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkeletonScale
 
 **Namespace:** TaleWorlds.Core
@@ -40,20 +34,33 @@ title: "SkeletonScale"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 SkeletonScale 实例
+SkeletonScale skeletonScale = ...;
+skeletonScale.Deserialize(objectManager, node);
+```
 
 ### SetBoneIndices
 `public void SetBoneIndices(sbyte boneIndices)`
 
-**用途 / Purpose:** 设置 `bone indices` 的值或状态。
+**用途 / Purpose:** 为 「bone indices」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SkeletonScale 实例
+SkeletonScale skeletonScale = ...;
+skeletonScale.SetBoneIndices(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SkeletonScale();
-value.Deserialize(objectManager, node);
+// 通常从对应子系统 API 获取实例后调用
+SkeletonScale skeletonScale = ...;
+skeletonScale.Deserialize(objectManager, node);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

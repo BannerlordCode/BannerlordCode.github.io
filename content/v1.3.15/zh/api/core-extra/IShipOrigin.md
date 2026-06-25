@@ -1,18 +1,12 @@
 ---
 title: "IShipOrigin"
+description: "IShipOrigin 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IShipOrigin`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IShipOrigin
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IShipOrigin`
 **Base:** 无
 **File:** `TaleWorlds.Core/IShipOrigin.cs`
 
@@ -27,9 +21,10 @@ title: "IShipOrigin"
 ## 使用示例
 
 ```csharp
-IShipOrigin implementation = GetShipOriginImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIShipOrigin service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ITrackableCampaignObject"
+description: "ITrackableCampaignObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ITrackableCampaignObject`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ITrackableCampaignObject
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ITrackableCampaignObject.cs`
+**Type:** `public interface ITrackableCampaignObject : ITrackableBase`
+**Base:** `ITrackableBase`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ITrackableCampaignObject.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ITrackableCampaignObject"
 ## 使用示例
 
 ```csharp
-ITrackableCampaignObject implementation = GetTrackableCampaignObjectImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IITrackableCampaignObject service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

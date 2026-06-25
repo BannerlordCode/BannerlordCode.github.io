@@ -1,13 +1,7 @@
 ---
 title: "MBArrayList"
+description: "Auto-generated class reference for MBArrayList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBArrayList`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBArrayList
 
 **Namespace:** TaleWorlds.Library
@@ -40,49 +34,99 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### IndexOf
 `public int IndexOf(T item)`
 
-**Purpose:** Handles logic related to `index of`.
+**Purpose:** Finds the position index of the specified content in the current object.
+
+```csharp
+// Obtain an instance of MBArrayList from the subsystem API first
+MBArrayList mBArrayList = ...;
+var result = mBArrayList.IndexOf(item);
+```
 
 ### Contains
 `public bool Contains(T item)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of MBArrayList from the subsystem API first
+MBArrayList mBArrayList = ...;
+var result = mBArrayList.Contains(item);
+```
 
 ### GetEnumerator
 `public IEnumerator<T> GetEnumerator()`
 
-**Purpose:** Gets the current value of `enumerator`.
+**Purpose:** Reads and returns the `enumerator` value held by the current object.
+
+```csharp
+// Obtain an instance of MBArrayList from the subsystem API first
+MBArrayList mBArrayList = ...;
+var result = mBArrayList.GetEnumerator();
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MBArrayList from the subsystem API first
+MBArrayList mBArrayList = ...;
+mBArrayList.Clear();
+```
 
 ### Add
 `public void Add(T item)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of MBArrayList from the subsystem API first
+MBArrayList mBArrayList = ...;
+mBArrayList.Add(item);
+```
 
 ### AddRange
 `public void AddRange(IEnumerable<T> list)`
 
 **Purpose:** Adds `range` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBArrayList from the subsystem API first
+MBArrayList mBArrayList = ...;
+mBArrayList.AddRange(list);
+```
+
 ### Remove
 `public bool Remove(T item)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of MBArrayList from the subsystem API first
+MBArrayList mBArrayList = ...;
+var result = mBArrayList.Remove(item);
+```
 
 ### CopyTo
 `public void CopyTo(Array array, int index)`
 
-**Purpose:** Handles logic related to `copy to`.
+**Purpose:** Copies the `to` state of the current object to a target.
+
+```csharp
+// Obtain an instance of MBArrayList from the subsystem API first
+MBArrayList mBArrayList = ...;
+mBArrayList.CopyTo(array, 0);
+```
 
 ## Usage Example
 
 ```csharp
-MBArrayList example = MBArrayList.Count;
+// Typically call this after obtaining an instance from the subsystem API
+MBArrayList mBArrayList = ...;
+mBArrayList.IndexOf(item);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

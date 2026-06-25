@@ -1,13 +1,7 @@
 ---
-title: "ImageSizePolicies__TaleWorlds_MountAndBlade_Launcher_Library_CustomWidgets"
+title: "ImageSizePolicies"
+description: "Auto-generated class reference for ImageSizePolicies."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageSizePolicies`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ImageSizePolicies
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets` t
 ## Usage Example
 
 ```csharp
-ImageSizePolicies example = ImageSizePolicies.Value;
+// Obtain an instance from the relevant subsystem API
+ImageSizePolicies instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

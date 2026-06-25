@@ -1,20 +1,14 @@
 ---
 title: "GameMenuItemVM"
+description: "Auto-generated class reference for GameMenuItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuItemVM.cs`
 
 ## Overview
 
@@ -50,40 +44,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to
 ### InitializeWith
 `public void InitializeWith(in GameMenuItemCreationData data)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with`.
+**Purpose:** Prepares the resources, state, or bindings required by `with`.
+
+```csharp
+// Obtain an instance of GameMenuItemVM from the subsystem API first
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.InitializeWith(data);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuItemVM from the subsystem API first
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.RefreshValues();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of GameMenuItemVM from the subsystem API first
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.ExecuteAction();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuItemVM from the subsystem API first
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.OnFinalize();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuItemVM from the subsystem API first
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.Refresh();
+```
 
 ### UpdateWith
 `public void UpdateWith(GameMenuItemVM newItem)`
 
-**Purpose:** Updates the state or data of `with`.
+**Purpose:** Recalculates and stores the latest representation of `with`.
+
+```csharp
+// Obtain an instance of GameMenuItemVM from the subsystem API first
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.UpdateWith(newItem);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuItemVM();
-value.InitializeWith(data);
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.InitializeWith(data);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SkillObjectData"
+description: "SkillObjectData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SkillObjectData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillObjectData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SkillObjectData : PropertyObjectData`
 **Base:** `PropertyObjectData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterData.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "SkillObjectData"
 ## 使用示例
 
 ```csharp
-var value = new SkillObjectData();
+// 该数据对象通常由战役/任务 API 返回
+SkillObjectData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

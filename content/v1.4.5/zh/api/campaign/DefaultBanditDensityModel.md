@@ -1,20 +1,14 @@
 ---
 title: "DefaultBanditDensityModel"
+description: "DefaultBanditDensityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultBanditDensityModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBanditDensityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultBanditDensityModel : BanditDensityModel`
 **Base:** `BanditDensityModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBanditDensityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBanditDensityModel.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "DefaultBanditDensityModel"
 ### GetMinimumTroopCountForHideoutMission
 `public override int GetMinimumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
 
-**用途 / Purpose:** 获取 `minimum troop count for hideout mission` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「minimum troop count for hideout mission」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBanditDensityModel 实例
+DefaultBanditDensityModel defaultBanditDensityModel = ...;
+var result = defaultBanditDensityModel.GetMinimumTroopCountForHideoutMission(party, false);
+```
 
 ### GetMaxSupportedNumberOfLootersForClan
 `public override int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
 
-**用途 / Purpose:** 获取 `max supported number of looters for clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max supported number of looters for clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBanditDensityModel 实例
+DefaultBanditDensityModel defaultBanditDensityModel = ...;
+var result = defaultBanditDensityModel.GetMaxSupportedNumberOfLootersForClan(clan);
+```
 
 ### GetMaximumTroopCountForHideoutMission
 `public override int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
 
-**用途 / Purpose:** 获取 `maximum troop count for hideout mission` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum troop count for hideout mission」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBanditDensityModel 实例
+DefaultBanditDensityModel defaultBanditDensityModel = ...;
+var result = defaultBanditDensityModel.GetMaximumTroopCountForHideoutMission(party, false);
+```
 
 ### IsPositionInsideNavalSafeZone
 `public override bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
 
-**用途 / Purpose:** 处理 `is position inside naval safe zone` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「position inside naval safe zone」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBanditDensityModel 实例
+DefaultBanditDensityModel defaultBanditDensityModel = ...;
+var result = defaultBanditDensityModel.IsPositionInsideNavalSafeZone(position);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultBanditDensityModel>(new MyDefaultBanditDensityM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

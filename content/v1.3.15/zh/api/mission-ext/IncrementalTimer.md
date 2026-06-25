@@ -1,13 +1,7 @@
 ---
 title: "IncrementalTimer"
+description: "IncrementalTimer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IncrementalTimer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IncrementalTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ title: "IncrementalTimer"
 ### Check
 `public bool Check()`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 IncrementalTimer 实例
+IncrementalTimer incrementalTimer = ...;
+var result = incrementalTimer.Check();
+```
 
 ### HasEnded
 `public bool HasEnded()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `ended`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「ended」。
+
+```csharp
+// 先通过子系统 API 拿到 IncrementalTimer 实例
+IncrementalTimer incrementalTimer = ...;
+var result = incrementalTimer.HasEnded();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new IncrementalTimer();
-value.Check();
+// 通常从对应子系统 API 获取实例后调用
+IncrementalTimer incrementalTimer = ...;
+incrementalTimer.Check();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

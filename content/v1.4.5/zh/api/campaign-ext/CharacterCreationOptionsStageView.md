@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationOptionsStageView"
+description: "CharacterCreationOptionsStageView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationOptionsStageView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationOptionsStageView
 
 **Namespace:** SandBox.GauntletUI.CharacterCreation
 **Module:** SandBox.GauntletUI
 **Type:** `public class CharacterCreationOptionsStageView : CharacterCreationStageViewBase`
 **Base:** `CharacterCreationStageViewBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.CharacterCreation/CharacterCreationOptionsStageView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.CharacterCreation/CharacterCreationOptionsStageView.cs`
 
 ## 概述
 
@@ -35,49 +29,98 @@ title: "CharacterCreationOptionsStageView"
 ### SetGenericScene
 `public override void SetGenericScene(Scene scene)`
 
-**用途 / Purpose:** 设置 `generic scene` 的值或状态。
+**用途 / Purpose:** 为 「generic scene」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationOptionsStageView 实例
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.SetGenericScene(scene);
+```
 
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationOptionsStageView 实例
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.Tick(0);
+```
 
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**用途 / Purpose:** 获取 `layers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「layers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationOptionsStageView 实例
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+var result = characterCreationOptionsStageView.GetLayers();
+```
 
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**用途 / Purpose:** 获取 `virtual stage count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「virtual stage count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationOptionsStageView 实例
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+var result = characterCreationOptionsStageView.GetVirtualStageCount();
+```
 
 ### NextStage
 `public override void NextStage()`
 
-**用途 / Purpose:** 处理 `next stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationOptionsStageView 实例
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.NextStage();
+```
 
 ### PreviousStage
 `public override void PreviousStage()`
 
-**用途 / Purpose:** 处理 `previous stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationOptionsStageView 实例
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.PreviousStage();
+```
 
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**用途 / Purpose:** 加载 `escape menu movie` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「escape menu movie」。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationOptionsStageView 实例
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.LoadEscapeMenuMovie();
+```
 
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**用途 / Purpose:** 处理 `release escape menu movie` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationOptionsStageView 实例
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.ReleaseEscapeMenuMovie();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new CharacterCreationOptionsStageView();
+// 从子系统 API 或场景中获取该视图
+CharacterCreationOptionsStageView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

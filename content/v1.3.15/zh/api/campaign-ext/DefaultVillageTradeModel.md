@@ -1,13 +1,7 @@
 ---
 title: "DefaultVillageTradeModel"
+description: "DefaultVillageTradeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultVillageTradeModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultVillageTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,12 +23,24 @@ title: "DefaultVillageTradeModel"
 ### TradeBoundDistanceLimitAsDays
 `public override float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 处理 `trade bound distance limit as days` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVillageTradeModel 实例
+DefaultVillageTradeModel defaultVillageTradeModel = ...;
+var result = defaultVillageTradeModel.TradeBoundDistanceLimitAsDays(navigationType);
+```
 
 ### GetTradeBoundToAssignForVillage
 `public override Settlement GetTradeBoundToAssignForVillage(Village village)`
 
-**用途 / Purpose:** 获取 `trade bound to assign for village` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trade bound to assign for village」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVillageTradeModel 实例
+DefaultVillageTradeModel defaultVillageTradeModel = ...;
+var result = defaultVillageTradeModel.GetTradeBoundToAssignForVillage(village);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultVillageTradeModel>(new MyDefaultVillageTradeMod
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

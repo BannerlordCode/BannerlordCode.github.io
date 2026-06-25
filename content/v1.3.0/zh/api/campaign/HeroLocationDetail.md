@@ -1,13 +1,7 @@
 ---
 title: "HeroLocationDetail"
+description: "HeroLocationDetail 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroLocationDetail`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroLocationDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -27,9 +21,10 @@ title: "HeroLocationDetail"
 ## 使用示例
 
 ```csharp
-HeroLocationDetail example = HeroLocationDetail.Value;
+// 从对应子系统 API 获取实例
+HeroLocationDetail instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

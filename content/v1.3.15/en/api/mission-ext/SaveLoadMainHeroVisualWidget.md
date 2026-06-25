@@ -1,13 +1,7 @@
 ---
 title: "SaveLoadMainHeroVisualWidget"
+description: "Auto-generated class reference for SaveLoadMainHeroVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveLoadMainHeroVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveLoadMainHeroVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.SaveLoad
@@ -35,9 +29,10 @@ Treat `SaveLoadMainHeroVisualWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new SaveLoadMainHeroVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SaveLoadMainHeroVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

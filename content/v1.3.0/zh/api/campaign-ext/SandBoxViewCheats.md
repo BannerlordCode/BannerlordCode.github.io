@@ -1,13 +1,7 @@
 ---
 title: "SandBoxViewCheats"
+description: "SandBoxViewCheats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxViewCheats`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewCheats
 
 **Namespace:** SandBox.View
@@ -29,42 +23,82 @@ title: "SandBoxViewCheats"
 ### KillHero
 `public static string KillHero(List<string> strings)`
 
-**用途 / Purpose:** 处理 `kill hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCheats.KillHero(strings);
+```
 
 ### FocusTournament
 `public static string FocusTournament(List<string> strings)`
 
-**用途 / Purpose:** 处理 `focus tournament` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCheats.FocusTournament(strings);
+```
 
 ### MakeClanMercenaryOfKingdom
 `public static string MakeClanMercenaryOfKingdom(List<string> strings)`
 
-**用途 / Purpose:** 处理 `make clan mercenary of kingdom` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCheats.MakeClanMercenaryOfKingdom(strings);
+```
 
 ### FocusHostileArmy
 `public static string FocusHostileArmy(List<string> strings)`
 
-**用途 / Purpose:** 处理 `focus hostile army` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCheats.FocusHostileArmy(strings);
+```
 
 ### FocusMobileParty
 `public static string FocusMobileParty(List<string> strings)`
 
-**用途 / Purpose:** 处理 `focus mobile party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCheats.FocusMobileParty(strings);
+```
 
 ### FocusHero
 `public static string FocusHero(List<string> strings)`
 
-**用途 / Purpose:** 处理 `focus hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCheats.FocusHero(strings);
+```
 
 ### FocusInfestedHideout
 `public static string FocusInfestedHideout(List<string> strings)`
 
-**用途 / Purpose:** 处理 `focus infested hideout` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCheats.FocusInfestedHideout(strings);
+```
 
 ### FocusIssues
 `public static string FocusIssues(List<string> strings)`
 
-**用途 / Purpose:** 处理 `focus issues` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCheats.FocusIssues(strings);
+```
 
 ## 使用示例
 
@@ -74,4 +108,4 @@ SandBoxViewCheats.KillHero(strings);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "IssueSolvedByLordNotificationItemVM"
+description: "Auto-generated class reference for IssueSolvedByLordNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IssueSolvedByLordNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IssueSolvedByLordNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ## Usage Example
 
 ```csharp
-var value = new IssueSolvedByLordNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+IssueSolvedByLordNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

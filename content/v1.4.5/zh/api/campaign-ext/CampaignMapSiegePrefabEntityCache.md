@@ -1,20 +1,14 @@
 ---
 title: "CampaignMapSiegePrefabEntityCache"
+description: "CampaignMapSiegePrefabEntityCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignMapSiegePrefabEntityCache`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignMapSiegePrefabEntityCache
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class CampaignMapSiegePrefabEntityCache : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/CampaignMapSiegePrefabEntityCache.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/CampaignMapSiegePrefabEntityCache.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CampaignMapSiegePrefabEntityCache"
 ### GetLaunchEntitialFrameForSiegeEngine
 `public MatrixFrame GetLaunchEntitialFrameForSiegeEngine(SiegeEngineType type, BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `launch entitial frame for siege engine` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「launch entitial frame for siege engine」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignMapSiegePrefabEntityCache 实例
+CampaignMapSiegePrefabEntityCache campaignMapSiegePrefabEntityCache = ...;
+var result = campaignMapSiegePrefabEntityCache.GetLaunchEntitialFrameForSiegeEngine(type, side);
+```
 
 ### GetScaleForSiegeEngine
 `public Vec3 GetScaleForSiegeEngine(SiegeEngineType type, BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `scale for siege engine` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scale for siege engine」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignMapSiegePrefabEntityCache 实例
+CampaignMapSiegePrefabEntityCache campaignMapSiegePrefabEntityCache = ...;
+var result = campaignMapSiegePrefabEntityCache.GetScaleForSiegeEngine(type, side);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CampaignMapSiegePrefabEntityCache();
-value.GetLaunchEntitialFrameForSiegeEngine(type, side);
+// 通常从对应子系统 API 获取实例后调用
+CampaignMapSiegePrefabEntityCache campaignMapSiegePrefabEntityCache = ...;
+campaignMapSiegePrefabEntityCache.GetLaunchEntitialFrameForSiegeEngine(type, side);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

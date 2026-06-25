@@ -1,23 +1,18 @@
 ---
 title: "BannerlordNetwork"
+description: "Auto-generated class reference for BannerlordNetwork."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerlordNetwork`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerlordNetwork
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class BannerlordNetwork`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/BannerlordNetwork.cs`
 
 ## Overview
 
-`BannerlordNetwork` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`BannerlordNetwork` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,26 +29,39 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateServerPeer
 `public static void CreateServerPeer()`
 
-**Purpose:** Creates a new `server peer` instance or object.
+**Purpose:** Constructs a new `server peer` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BannerlordNetwork.CreateServerPeer();
+```
 
 ### StartMultiplayerLobbyMission
 `public static void StartMultiplayerLobbyMission(LobbyMissionType lobbyMissionType)`
 
-**Purpose:** Handles logic related to `start multiplayer lobby mission`.
+**Purpose:** Starts the `multiplayer lobby mission` flow or state machine.
+
+```csharp
+// Static call; no instance required
+BannerlordNetwork.StartMultiplayerLobbyMission(lobbyMissionType);
+```
 
 ### EndMultiplayerLobbyMission
 `public static void EndMultiplayerLobbyMission()`
 
-**Purpose:** Handles logic related to `end multiplayer lobby mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BannerlordNetwork.EndMultiplayerLobbyMission();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 BannerlordNetwork.CreateServerPeer();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

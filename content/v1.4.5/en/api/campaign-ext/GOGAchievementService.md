@@ -1,20 +1,14 @@
 ---
 title: "GOGAchievementService"
+description: "Auto-generated class reference for GOGAchievementService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GOGAchievementService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GOGAchievementService
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GOGAchievementService : IAchievementService`
 **Base:** `IAchievementService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGAchievementService.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGAchievementService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var example = new GOGAchievementService();
+// Obtain an instance from the relevant subsystem API
+GOGAchievementService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

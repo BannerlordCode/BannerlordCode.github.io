@@ -1,20 +1,14 @@
 ---
-title: "DescriptionType__TaleWorlds_CampaignSystem_ViewModelCollection_Encyclopedia"
+title: "DescriptionType"
+description: "DescriptionType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DescriptionType`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DescriptionType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum DescriptionType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaSettlementPageStatItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaSettlementPageStatItemVM.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "DescriptionType__TaleWorlds_CampaignSystem_ViewModelCollection_Encyclope
 ## 使用示例
 
 ```csharp
-DescriptionType example = DescriptionType.Value;
+// 从对应子系统 API 获取实例
+DescriptionType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

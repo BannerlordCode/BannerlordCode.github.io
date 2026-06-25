@@ -1,13 +1,7 @@
 ---
 title: "UserModData"
+description: "Auto-generated class reference for UserModData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UserModData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UserModData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
@@ -37,14 +31,21 @@ Treat `UserModData` as a Data-style extension point: first identify who creates 
 ### IsUpdatedToBeDefault
 `public bool IsUpdatedToBeDefault(ModuleInfo module)`
 
-**Purpose:** Handles logic related to `is updated to be default`.
+**Purpose:** Determines whether the current object is in the `updated to be default` state or condition.
+
+```csharp
+// Obtain an instance of UserModData from the subsystem API first
+UserModData userModData = ...;
+var result = userModData.IsUpdatedToBeDefault(module);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UserModData();
+// This data object is usually returned by campaign/mission APIs
+UserModData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

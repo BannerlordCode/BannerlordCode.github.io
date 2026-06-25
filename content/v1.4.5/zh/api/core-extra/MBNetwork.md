@@ -1,20 +1,14 @@
 ---
 title: "MBNetwork"
+description: "MBNetwork 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBNetwork`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBNetwork
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBNetwork`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBNetwork.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBNetwork.cs`
 
 ## 概述
 
@@ -36,7 +30,12 @@ title: "MBNetwork"
 ### Initialize
 `public static void Initialize(INetworkCommunication networkCommunication)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+MBNetwork.Initialize(networkCommunication);
+```
 
 ## 使用示例
 
@@ -46,4 +45,4 @@ MBNetwork.Initialize(networkCommunication);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

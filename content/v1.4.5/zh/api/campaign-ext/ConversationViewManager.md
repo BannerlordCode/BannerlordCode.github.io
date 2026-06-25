@@ -1,20 +1,14 @@
 ---
 title: "ConversationViewManager"
+description: "ConversationViewManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationViewManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationViewManager
 
 **Namespace:** SandBox.View.Conversation
 **Module:** SandBox.View
 **Type:** `public class ConversationViewManager`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Conversation/ConversationViewManager.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Conversation/ConversationViewManager.cs`
 
 ## 概述
 
@@ -32,4 +26,4 @@ var manager = ConversationViewManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "Ship"
+description: "Ship 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Ship`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Ship
 
 **Namespace:** TaleWorlds.CampaignSystem.Naval
@@ -71,80 +65,165 @@ title: "Ship"
 ### ChangeFigurehead
 `public void ChangeFigurehead(Figurehead figurehead)`
 
-**用途 / Purpose:** 处理 `change figurehead` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.ChangeFigurehead(figurehead);
+```
 
 ### GetPieceAtSlot
 `public ShipUpgradePiece GetPieceAtSlot(string slotTag)`
 
-**用途 / Purpose:** 获取 `piece at slot` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「piece at slot」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetPieceAtSlot("example");
+```
 
 ### SetPieceAtSlot
 `public void SetPieceAtSlot(string slotTag, ShipUpgradePiece upgradePiece)`
 
-**用途 / Purpose:** 设置 `piece at slot` 的值或状态。
+**用途 / Purpose:** 为 「piece at slot」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.SetPieceAtSlot("example", upgradePiece);
+```
 
 ### HasSlot
 `public bool HasSlot(string slotTag)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `slot`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「slot」。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.HasSlot("example");
+```
 
 ### SetName
 `public void SetName(TextObject name)`
 
-**用途 / Purpose:** 设置 `name` 的值或状态。
+**用途 / Purpose:** 为 「name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.SetName(name);
+```
 
 ### GetCampaignSpeed
 `public float GetCampaignSpeed()`
 
-**用途 / Purpose:** 获取 `campaign speed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「campaign speed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetCampaignSpeed();
+```
 
 ### AddToAvailablePieces
 `public void AddToAvailablePieces(ShipUpgradePiece upgradePiece)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `to available pieces`。
+**用途 / Purpose:** 将 「to available pieces」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.AddToAvailablePieces(upgradePiece);
+```
 
 ### RemoveFromAvailablePieces
 `public void RemoveFromAvailablePieces(ShipUpgradePiece upgradePiece)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `from available pieces`。
+**用途 / Purpose:** 从当前容器或状态中移除 「from available pieces」。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.RemoveFromAvailablePieces(upgradePiece);
+```
 
 ### GetSiegeEngines
 `public MBList<SiegeEngineType> GetSiegeEngines()`
 
-**用途 / Purpose:** 获取 `siege engines` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege engines」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetSiegeEngines();
+```
 
 ### ResetReservedUpgradePieces
 `public void ResetReservedUpgradePieces()`
 
-**用途 / Purpose:** 将 `reserved upgrade pieces` 重置为初始状态。
+**用途 / Purpose:** 将 「reserved upgrade pieces」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.ResetReservedUpgradePieces();
+```
 
 ### UpdateVersionNo
 `public void UpdateVersionNo()`
 
-**用途 / Purpose:** 更新 `version no` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「version no」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.UpdateVersionNo();
+```
 
 ### GetCombatFactor
 `public float GetCombatFactor()`
 
-**用途 / Purpose:** 获取 `combat factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「combat factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetCombatFactor();
+```
 
 ### OnShipDamaged
 `public void OnShipDamaged(float rawDamage, out float modifiedDamage)`
 
-**用途 / Purpose:** 当 `ship damaged` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「ship damaged」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.OnShipDamaged(0, modifiedDamage);
+```
 
 ### GetShipVisualSlotInfos
 `public List<ShipVisualSlotInfo> GetShipVisualSlotInfos()`
 
-**用途 / Purpose:** 获取 `ship visual slot infos` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship visual slot infos」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetShipVisualSlotInfos();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Ship();
-value.ChangeFigurehead(figurehead);
+// 通常从对应子系统 API 获取实例后调用
+Ship ship = ...;
+ship.ChangeFigurehead(figurehead);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

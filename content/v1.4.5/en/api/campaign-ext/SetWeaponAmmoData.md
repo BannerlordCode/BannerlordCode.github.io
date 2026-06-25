@@ -1,20 +1,14 @@
 ---
 title: "SetWeaponAmmoData"
+description: "Auto-generated class reference for SetWeaponAmmoData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SetWeaponAmmoData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetWeaponAmmoData
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetWeaponAmmoData : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetWeaponAmmoData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetWeaponAmmoData.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `SetWeaponAmmoData` as a Data-style extension point: first identify who cr
 ## Usage Example
 
 ```csharp
-var value = new SetWeaponAmmoData();
+// This data object is usually returned by campaign/mission APIs
+SetWeaponAmmoData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

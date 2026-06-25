@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerDeathCardWidget"
+description: "Auto-generated class reference for MultiplayerDeathCardWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerDeathCardWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerDeathCardWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
@@ -44,9 +38,10 @@ Treat `MultiplayerDeathCardWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerDeathCardWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerDeathCardWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

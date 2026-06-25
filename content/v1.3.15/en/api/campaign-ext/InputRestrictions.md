@@ -1,13 +1,7 @@
 ---
 title: "InputRestrictions"
+description: "Auto-generated class reference for InputRestrictions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputRestrictions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InputRestrictions
 
 **Namespace:** TaleWorlds.ScreenSystem
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ### SetMouseVisibility
 `public void SetMouseVisibility(bool isVisible)`
 
-**Purpose:** Sets the value or state of `mouse visibility`.
+**Purpose:** Assigns a new value to `mouse visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of InputRestrictions from the subsystem API first
+InputRestrictions inputRestrictions = ...;
+inputRestrictions.SetMouseVisibility(false);
+```
 
 ### SetInputRestrictions
 `public void SetInputRestrictions(bool isMouseVisible = true, InputUsageMask mask = InputUsageMask.All)`
 
-**Purpose:** Sets the value or state of `input restrictions`.
+**Purpose:** Assigns a new value to `input restrictions` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of InputRestrictions from the subsystem API first
+InputRestrictions inputRestrictions = ...;
+inputRestrictions.SetInputRestrictions(false, inputUsageMask.All);
+```
 
 ### ResetInputRestrictions
 `public void ResetInputRestrictions()`
 
-**Purpose:** Resets `input restrictions` to its initial state.
+**Purpose:** Returns `input restrictions` to its default or initial condition.
+
+```csharp
+// Obtain an instance of InputRestrictions from the subsystem API first
+InputRestrictions inputRestrictions = ...;
+inputRestrictions.ResetInputRestrictions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InputRestrictions();
-value.SetMouseVisibility(false);
+// Typically call this after obtaining an instance from the subsystem API
+InputRestrictions inputRestrictions = ...;
+inputRestrictions.SetMouseVisibility(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

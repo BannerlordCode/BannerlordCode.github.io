@@ -1,13 +1,7 @@
 ---
 title: "GameMenuItemProgressVM"
+description: "Auto-generated class reference for GameMenuItemProgressVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuItemProgressVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuItemProgressVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to
 ### InitializeWith
 `public void InitializeWith(MenuContext context, int virtualIndex)`
 
-**Purpose:** Initializes the state, resources, or bindings for `with`.
+**Purpose:** Prepares the resources, state, or bindings required by `with`.
+
+```csharp
+// Obtain an instance of GameMenuItemProgressVM from the subsystem API first
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.InitializeWith(context, 0);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuItemProgressVM from the subsystem API first
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick()`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuItemProgressVM from the subsystem API first
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.OnTick();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuItemProgressVM();
-value.InitializeWith(context, 0);
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.InitializeWith(context, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

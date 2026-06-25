@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerScoreboardAnimatedFillBarWidget"
+description: "MultiplayerScoreboardAnimatedFillBarWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerScoreboardAnimatedFillBarWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardAnimatedFillBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
@@ -39,24 +33,43 @@ title: "MultiplayerScoreboardAnimatedFillBarWidget"
 ### StartAnimation
 `public void StartAnimation()`
 
-**用途 / Purpose:** 处理 `start animation` 相关逻辑。
+**用途 / Purpose:** 启动「animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerScoreboardAnimatedFillBarWidget 实例
+MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
+multiplayerScoreboardAnimatedFillBarWidget.StartAnimation();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerScoreboardAnimatedFillBarWidget 实例
+MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
+multiplayerScoreboardAnimatedFillBarWidget.Reset();
+```
 
 ### FullFillFinishedHandler
 `public delegate void FullFillFinishedHandler()`
 
-**用途 / Purpose:** 处理 `full fill finished handler` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerScoreboardAnimatedFillBarWidget 实例
+MultiplayerScoreboardAnimatedFillBarWidget multiplayerScoreboardAnimatedFillBarWidget = ...;
+multiplayerScoreboardAnimatedFillBarWidget.FullFillFinishedHandler();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerScoreboardAnimatedFillBarWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerScoreboardAnimatedFillBarWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

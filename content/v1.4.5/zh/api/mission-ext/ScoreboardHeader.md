@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardHeader"
+description: "ScoreboardHeader 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScoreboardHeader`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardHeader
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ScoreboardHeader`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "ScoreboardHeader"
 ### ScoreboardHeader
 `public struct ScoreboardHeader(string id, Func<MissionPeer, string> playerGetterFunc, Func<BotData, string> botGetterFunc)`
 
-**用途 / Purpose:** 处理 `scoreboard header` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardHeader 实例
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
+```
 
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 获取 `value of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardHeader 实例
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.GetValueOf(missionPeer);
+```
 
 ### GetValueOf
 `public string GetValueOf(BotData botData)`
 
-**用途 / Purpose:** 获取 `value of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardHeader 实例
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.GetValueOf(botData);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ScoreboardHeader();
-value.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
+// 通常从对应子系统 API 获取实例后调用
+ScoreboardHeader scoreboardHeader = ...;
+scoreboardHeader.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

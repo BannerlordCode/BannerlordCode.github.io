@@ -1,13 +1,7 @@
 ---
 title: "GameMenuManager"
+description: "Auto-generated class reference for GameMenuManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuManager
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
@@ -36,149 +30,317 @@ Treat `GameMenuManager` as a Manager-style extension point: first identify who c
 ### SetNextMenu
 `public void SetNextMenu(string name)`
 
-**Purpose:** Sets the value or state of `next menu`.
+**Purpose:** Assigns a new value to `next menu` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.SetNextMenu("example");
+```
 
 ### ExitToLast
 `public void ExitToLast()`
 
-**Purpose:** Handles logic related to `exit to last`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.ExitToLast();
+```
 
 ### SetCurrentRepeatableIndex
 `public void SetCurrentRepeatableIndex(MenuContext menuContext, int index)`
 
-**Purpose:** Sets the value or state of `current repeatable index`.
+**Purpose:** Assigns a new value to `current repeatable index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.SetCurrentRepeatableIndex(menuContext, 0);
+```
 
 ### GetMenuOptionConditionsHold
 `public bool GetMenuOptionConditionsHold(MenuContext menuContext, int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option conditions hold`.
+**Purpose:** Reads and returns the `menu option conditions hold` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetMenuOptionConditionsHold(menuContext, 0);
+```
 
 ### RefreshMenuOptions
 `public void RefreshMenuOptions(MenuContext menuContext)`
 
-**Purpose:** Refreshes the display or cache of `menu options`.
+**Purpose:** Keeps the display or cache of `menu options` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.RefreshMenuOptions(menuContext);
+```
 
 ### RefreshMenuOptionConditions
 `public void RefreshMenuOptionConditions(MenuContext menuContext)`
 
-**Purpose:** Refreshes the display or cache of `menu option conditions`.
+**Purpose:** Keeps the display or cache of `menu option conditions` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.RefreshMenuOptionConditions(menuContext);
+```
 
 ### GetMenuOptionIdString
 `public string GetMenuOptionIdString(MenuContext menuContext, int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option id string`.
+**Purpose:** Reads and returns the `menu option id string` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetMenuOptionIdString(menuContext, 0);
+```
 
 ### RunConsequencesOfMenuOption
 `public void RunConsequencesOfMenuOption(MenuContext menuContext, int menuItemNumber)`
 
-**Purpose:** Handles logic related to `run consequences of menu option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.RunConsequencesOfMenuOption(menuContext, 0);
+```
 
 ### GetVirtualMenuOptionTooltip
 `public TextObject GetVirtualMenuOptionTooltip(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual menu option tooltip`.
+**Purpose:** Reads and returns the `virtual menu option tooltip` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuOptionTooltip(menuContext, 0);
+```
 
 ### GetMenuOverlayType
 `public GameMenu.MenuOverlayType GetMenuOverlayType(MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `menu overlay type`.
+**Purpose:** Reads and returns the `menu overlay type` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetMenuOverlayType(menuContext);
+```
 
 ### GetVirtualMenuOptionText
 `public TextObject GetVirtualMenuOptionText(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual menu option text`.
+**Purpose:** Reads and returns the `virtual menu option text` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuOptionText(menuContext, 0);
+```
 
 ### GetVirtualGameMenuOption
 `public GameMenuOption GetVirtualGameMenuOption(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual game menu option`.
+**Purpose:** Reads and returns the `virtual game menu option` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualGameMenuOption(menuContext, 0);
+```
 
 ### GetVirtualMenuOptionText2
 `public TextObject GetVirtualMenuOptionText2(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual menu option text2`.
+**Purpose:** Reads and returns the `virtual menu option text2` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuOptionText2(menuContext, 0);
+```
 
 ### GetVirtualMenuProgress
 `public float GetVirtualMenuProgress(MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `virtual menu progress`.
+**Purpose:** Reads and returns the `virtual menu progress` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuProgress(menuContext);
+```
 
 ### GetVirtualMenuAndOptionType
 `public GameMenu.MenuAndOptionType GetVirtualMenuAndOptionType(MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `virtual menu and option type`.
+**Purpose:** Reads and returns the `virtual menu and option type` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuAndOptionType(menuContext);
+```
 
 ### GetVirtualMenuIsWaitActive
 `public bool GetVirtualMenuIsWaitActive(MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `virtual menu is wait active`.
+**Purpose:** Reads and returns the `virtual menu is wait active` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuIsWaitActive(menuContext);
+```
 
 ### GetVirtualMenuTargetWaitHours
 `public float GetVirtualMenuTargetWaitHours(MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `virtual menu target wait hours`.
+**Purpose:** Reads and returns the `virtual menu target wait hours` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuTargetWaitHours(menuContext);
+```
 
 ### GetVirtualMenuOptionIsEnabled
 `public bool GetVirtualMenuOptionIsEnabled(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual menu option is enabled`.
+**Purpose:** Reads and returns the `virtual menu option is enabled` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuOptionIsEnabled(menuContext, 0);
+```
 
 ### GetVirtualMenuOptionAmount
 `public int GetVirtualMenuOptionAmount(MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `virtual menu option amount`.
+**Purpose:** Reads and returns the `virtual menu option amount` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuOptionAmount(menuContext);
+```
 
 ### GetVirtualMenuOptionIsLeave
 `public bool GetVirtualMenuOptionIsLeave(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual menu option is leave`.
+**Purpose:** Reads and returns the `virtual menu option is leave` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuOptionIsLeave(menuContext, 0);
+```
 
 ### GetLeaveMenuOption
 `public GameMenuOption GetLeaveMenuOption(MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `leave menu option`.
+**Purpose:** Reads and returns the `leave menu option` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetLeaveMenuOption(menuContext);
+```
 
 ### GetVirtualMenuOptionConditionsHold
 `public bool GetVirtualMenuOptionConditionsHold(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual menu option conditions hold`.
+**Purpose:** Reads and returns the `virtual menu option conditions hold` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetVirtualMenuOptionConditionsHold(menuContext, 0);
+```
 
 ### OnFrameTick
 `public void OnFrameTick(MenuContext menuContext, float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.OnFrameTick(menuContext, 0);
+```
 
 ### GetMenuText
 `public TextObject GetMenuText(MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `menu text`.
+**Purpose:** Reads and returns the `menu text` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetMenuText(menuContext);
+```
 
 ### AddGameMenu
 `public void AddGameMenu(GameMenu gameMenu)`
 
 **Purpose:** Adds `game menu` to the current collection or state.
 
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.AddGameMenu(gameMenu);
+```
+
 ### RemoveRelatedGameMenus
 `public void RemoveRelatedGameMenus(object relatedObject)`
 
 **Purpose:** Removes `related game menus` from the current collection or state.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.RemoveRelatedGameMenus(relatedObject);
+```
 
 ### RemoveRelatedGameMenuOptions
 `public void RemoveRelatedGameMenuOptions(object relatedObject)`
 
 **Purpose:** Removes `related game menu options` from the current collection or state.
 
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+gameMenuManager.RemoveRelatedGameMenuOptions(relatedObject);
+```
+
 ### GetGameMenu
 `public GameMenu GetGameMenu(string menuId)`
 
-**Purpose:** Gets the current value of `game menu`.
+**Purpose:** Reads and returns the `game menu` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuManager from the subsystem API first
+GameMenuManager gameMenuManager = ...;
+var result = gameMenuManager.GetGameMenu("example");
+```
 
 ## Usage Example
 
 ```csharp
-GameMenuManager example = GameMenuManager.NextGameMenuId;
+var manager = GameMenuManager.Current;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

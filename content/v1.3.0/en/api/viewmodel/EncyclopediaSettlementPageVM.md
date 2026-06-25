@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaSettlementPageVM"
+description: "Auto-generated class reference for EncyclopediaSettlementPageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaSettlementPageVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaSettlementPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -60,50 +54,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaSettlementPageVM from the subsystem API first
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+encyclopediaSettlementPageVM.RefreshValues();
+```
 
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaSettlementPageVM from the subsystem API first
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+encyclopediaSettlementPageVM.Refresh();
+```
 
 ### GetName
 `public override string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaSettlementPageVM from the subsystem API first
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+var result = encyclopediaSettlementPageVM.GetName();
+```
 
 ### ExecuteTrack
 `public void ExecuteTrack()`
 
-**Purpose:** Executes the `track` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `track`.
+
+```csharp
+// Obtain an instance of EncyclopediaSettlementPageVM from the subsystem API first
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+encyclopediaSettlementPageVM.ExecuteTrack();
+```
 
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** Gets the current value of `navigation bar u r l`.
+**Purpose:** Reads and returns the `navigation bar u r l` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaSettlementPageVM from the subsystem API first
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+var result = encyclopediaSettlementPageVM.GetNavigationBarURL();
+```
 
 ### ExecuteBoundSettlementLink
 `public void ExecuteBoundSettlementLink()`
 
-**Purpose:** Executes the `bound settlement link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `bound settlement link`.
+
+```csharp
+// Obtain an instance of EncyclopediaSettlementPageVM from the subsystem API first
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+encyclopediaSettlementPageVM.ExecuteBoundSettlementLink();
+```
 
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** Executes the `switch bookmarked state` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch bookmarked state`.
+
+```csharp
+// Obtain an instance of EncyclopediaSettlementPageVM from the subsystem API first
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+encyclopediaSettlementPageVM.ExecuteSwitchBookmarkedState();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaSettlementPageVM from the subsystem API first
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+encyclopediaSettlementPageVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaSettlementPageVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaSettlementPageVM encyclopediaSettlementPageVM = ...;
+encyclopediaSettlementPageVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SaveableLocalizationTypeDefiner"
+description: "SaveableLocalizationTypeDefiner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveableLocalizationTypeDefiner`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableLocalizationTypeDefiner
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/SaveableLocalizationTypeDefiner.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/SaveableLocalizationTypeDefiner.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "SaveableLocalizationTypeDefiner"
 ## 使用示例
 
 ```csharp
-var example = new SaveableLocalizationTypeDefiner();
+// 从对应子系统 API 获取实例
+SaveableLocalizationTypeDefiner instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

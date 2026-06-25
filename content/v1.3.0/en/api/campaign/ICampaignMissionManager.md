@@ -1,13 +1,7 @@
 ---
 title: "ICampaignMissionManager"
+description: "Auto-generated class reference for ICampaignMissionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICampaignMissionManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICampaignMissionManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Treat `ICampaignMissionManager` as a Manager-style extension point: first identi
 ## Usage Example
 
 ```csharp
-ICampaignMissionManager implementation = GetCampaignMissionManagerImplementation();
+// Usually obtained through DI or a factory method
+IICampaignMissionManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

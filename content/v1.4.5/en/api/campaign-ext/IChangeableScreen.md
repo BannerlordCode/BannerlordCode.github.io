@@ -1,20 +1,14 @@
 ---
 title: "IChangeableScreen"
+description: "Auto-generated class reference for IChangeableScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IChangeableScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IChangeableScreen
 
 **Namespace:** SandBox.View
 **Module:** SandBox.View
-**Type:** `class`
+**Type:** `public interface IChangeableScreen`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View/IChangeableScreen.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View/IChangeableScreen.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.View` to place it in the stack, then inspect its p
 ## Usage Example
 
 ```csharp
-IChangeableScreen implementation = GetChangeableScreenImplementation();
+// Usually obtained through DI or a factory method
+IIChangeableScreen service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

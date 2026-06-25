@@ -1,19 +1,13 @@
 ---
 title: "EntityVisibilityFlags"
+description: "EntityVisibilityFlags 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EntityVisibilityFlags`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EntityVisibilityFlags
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** 无
+**Type:** `public enum EntityVisibilityFlags : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.Engine/EntityVisibilityFlags.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "EntityVisibilityFlags"
 ## 使用示例
 
 ```csharp
-var value = new EntityVisibilityFlags();
+// 从对应子系统 API 获取实例
+EntityVisibilityFlags instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

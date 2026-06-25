@@ -1,13 +1,7 @@
 ---
 title: "CraftingOrder"
+description: "CraftingOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingOrder`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingOrder
 
 **Namespace:** TaleWorlds.CampaignSystem.CraftingSystem
@@ -36,50 +30,99 @@ title: "CraftingOrder"
 ### InitializeCraftingOrderOnLoad
 `public void InitializeCraftingOrderOnLoad()`
 
-**用途 / Purpose:** 初始化 `crafting order on load` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「crafting order on load」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrder 实例
+CraftingOrder craftingOrder = ...;
+craftingOrder.InitializeCraftingOrderOnLoad();
+```
 
 ### IsPreCraftedWeaponDesignValid
 `public bool IsPreCraftedWeaponDesignValid()`
 
-**用途 / Purpose:** 处理 `is pre crafted weapon design valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「pre crafted weapon design valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrder 实例
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.IsPreCraftedWeaponDesignValid();
+```
 
 ### GetStatWeapon
 `public WeaponComponentData GetStatWeapon()`
 
-**用途 / Purpose:** 获取 `stat weapon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stat weapon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrder 实例
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.GetStatWeapon();
+```
 
 ### IsOrderAvailableForHero
 `public bool IsOrderAvailableForHero(Hero hero)`
 
-**用途 / Purpose:** 处理 `is order available for hero` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「order available for hero」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrder 实例
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.IsOrderAvailableForHero(hero);
+```
 
 ### CanHeroCompleteOrder
 `public bool CanHeroCompleteOrder(Hero hero, ItemObject craftDesignItem)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero complete order`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero complete order」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrder 实例
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.CanHeroCompleteOrder(hero, craftDesignItem);
+```
 
 ### GetOrderExperience
 `public float GetOrderExperience(ItemObject craftedItem, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `order experience` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order experience」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrder 实例
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.GetOrderExperience(craftedItem, itemModifier);
+```
 
 ### CheckForBonusesAndPenalties
 `public void CheckForBonusesAndPenalties(ItemObject craftedItem, ItemModifier itemModifier, out float craftedStatsSum, out float requiredStatsSum, out bool thrustDamageCheck, out bool swingDamageCheck)`
 
-**用途 / Purpose:** 处理 `check for bonuses and penalties` 相关逻辑。
+**用途 / Purpose:** 检查「for bonuses and penalties」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrder 实例
+CraftingOrder craftingOrder = ...;
+craftingOrder.CheckForBonusesAndPenalties(craftedItem, itemModifier, craftedStatsSum, requiredStatsSum, thrustDamageCheck, swingDamageCheck);
+```
 
 ### GetStatDataForItem
 `public List<CraftingStatData> GetStatDataForItem(ItemObject itemObject, out WeaponComponentData weapon)`
 
-**用途 / Purpose:** 获取 `stat data for item` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stat data for item」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrder 实例
+CraftingOrder craftingOrder = ...;
+var result = craftingOrder.GetStatDataForItem(itemObject, weapon);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CraftingOrder();
-value.InitializeCraftingOrderOnLoad();
+// 通常从对应子系统 API 获取实例后调用
+CraftingOrder craftingOrder = ...;
+craftingOrder.InitializeCraftingOrderOnLoad();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

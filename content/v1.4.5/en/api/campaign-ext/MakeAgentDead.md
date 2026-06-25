@@ -1,20 +1,14 @@
 ---
 title: "MakeAgentDead"
+description: "Auto-generated class reference for MakeAgentDead."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MakeAgentDead`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MakeAgentDead
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class MakeAgentDead : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MakeAgentDead.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/MakeAgentDead.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new MakeAgentDead();
+// Obtain an instance from the relevant subsystem API
+MakeAgentDead instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

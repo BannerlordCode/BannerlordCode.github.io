@@ -1,13 +1,7 @@
 ---
 title: "TextureWidget"
+description: "Auto-generated class reference for TextureWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextureWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextureWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -39,14 +33,21 @@ Treat `TextureWidget` as a Widget-style extension point: first identify who crea
 ### OnClearTextureProvider
 `public virtual void OnClearTextureProvider()`
 
-**Purpose:** Called when the `clear texture provider` event is raised.
+**Purpose:** Invoked when the `clear texture provider` event is raised.
+
+```csharp
+// Obtain an instance of TextureWidget from the subsystem API first
+TextureWidget textureWidget = ...;
+textureWidget.OnClearTextureProvider();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new TextureWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TextureWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

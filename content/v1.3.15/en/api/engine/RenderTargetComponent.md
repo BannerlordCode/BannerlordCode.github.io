@@ -1,13 +1,7 @@
 ---
 title: "RenderTargetComponent"
+description: "Auto-generated class reference for RenderTargetComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RenderTargetComponent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RenderTargetComponent
 
 **Namespace:** TaleWorlds.Engine
@@ -36,7 +30,13 @@ Treat `RenderTargetComponent` as a Component-style extension point: first identi
 ### TextureUpdateEventHandler
 `public delegate void TextureUpdateEventHandler(Texture sender, EventArgs e)`
 
-**Purpose:** Handles logic related to `texture update event handler`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RenderTargetComponent from the subsystem API first
+RenderTargetComponent renderTargetComponent = ...;
+renderTargetComponent.TextureUpdateEventHandler(sender, e);
+```
 
 ## Usage Example
 
@@ -46,4 +46,4 @@ var component = agent.GetComponent<RenderTargetComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

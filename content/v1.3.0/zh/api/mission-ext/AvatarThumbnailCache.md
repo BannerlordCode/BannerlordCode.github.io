@@ -1,13 +1,7 @@
 ---
 title: "AvatarThumbnailCache"
+description: "AvatarThumbnailCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AvatarThumbnailCache`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -27,9 +21,10 @@ title: "AvatarThumbnailCache"
 ## 使用示例
 
 ```csharp
-var value = new AvatarThumbnailCache();
+// 从对应子系统 API 获取实例
+AvatarThumbnailCache instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

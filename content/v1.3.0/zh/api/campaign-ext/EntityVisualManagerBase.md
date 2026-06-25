@@ -1,20 +1,14 @@
 ---
 title: "EntityVisualManagerBase"
+description: "EntityVisualManagerBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EntityVisualManagerBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EntityVisualManagerBase
 
 **Namespace:** SandBox.View.Map.Managers
 **Module:** SandBox.View
-**Type:** `public abstract class EntityVisualManagerBase : CampaignEntityVisualComponent`
-**Base:** `CampaignEntityVisualComponent`
-**File:** `SandBox.View/Map/Managers/EntityVisualManagerBase.cs`
+**Type:** `public abstract class EntityVisualManagerBase<TEntity> : EntityVisualManagerBase`
+**Base:** `EntityVisualManagerBase`
+**File:** `SandBox.View/Map/Managers/EntityVisualManagerBase.2.cs`
 
 ## 概述
 
@@ -24,18 +18,36 @@ title: "EntityVisualManagerBase"
 
 先从命名空间 `SandBox.View.Map.Managers` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要属性
+## 主要方法
 
-| Name | Signature |
-|------|-----------|
-| `MapScene` | `public Scene MapScene { get; }` |
+### GetVisualOfEntity
+`public abstract MapEntityVisual<TEntity> GetVisualOfEntity(TEntity entity)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「visual of entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EntityVisualManagerBase 实例
+EntityVisualManagerBase entityVisualManagerBase = ...;
+var result = entityVisualManagerBase.GetVisualOfEntity(entity);
+```
+
+### GetEntityVisualManagerBase
+`public static EntityVisualManagerBase<TEntity> GetEntityVisualManagerBase()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「entity visual manager base」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+EntityVisualManagerBase.GetEntityVisualManagerBase();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEntityVisualManagerBase();
+// 通常通过子系统 API 或工厂获得派生实例
+EntityVisualManagerBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

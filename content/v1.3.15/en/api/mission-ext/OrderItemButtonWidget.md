@@ -1,13 +1,7 @@
 ---
 title: "OrderItemButtonWidget"
+description: "Auto-generated class reference for OrderItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
@@ -34,9 +28,10 @@ Treat `OrderItemButtonWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new OrderItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

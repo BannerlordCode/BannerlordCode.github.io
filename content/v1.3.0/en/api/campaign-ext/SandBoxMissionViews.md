@@ -1,13 +1,7 @@
 ---
 title: "SandBoxMissionViews"
+description: "Auto-generated class reference for SandBoxMissionViews."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxMissionViews`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxMissionViews
 
 **Namespace:** SandBox.View.Missions
@@ -29,182 +23,362 @@ Start from namespace `SandBox.View.Missions` to place it in the stack, then insp
 ### OpenTownCenterMission
 `public static MissionView OpenTownCenterMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open town center mission`.
+**Purpose:** Opens the resource or UI associated with `town center mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenTownCenterMission(mission);
+```
 
 ### OpenFacialAnimationTest
 `public static MissionView OpenFacialAnimationTest(Mission mission)`
 
-**Purpose:** Handles logic related to `open facial animation test`.
+**Purpose:** Opens the resource or UI associated with `facial animation test`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenFacialAnimationTest(mission);
+```
 
 ### OpenTavernMission
 `public static MissionView OpenTavernMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open tavern mission`.
+**Purpose:** Opens the resource or UI associated with `tavern mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenTavernMission(mission);
+```
 
 ### OpenPrisonBreakMission
 `public static MissionView OpenPrisonBreakMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open prison break mission`.
+**Purpose:** Opens the resource or UI associated with `prison break mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenPrisonBreakMission(mission);
+```
 
 ### OpenVillageMission
 `public static MissionView OpenVillageMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open village mission`.
+**Purpose:** Opens the resource or UI associated with `village mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenVillageMission(mission);
+```
 
 ### OpenRetirementMission
 `public static MissionView OpenRetirementMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open retirement mission`.
+**Purpose:** Opens the resource or UI associated with `retirement mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenRetirementMission(mission);
+```
 
 ### OpenArenaStartMission
 `public static MissionView OpenArenaStartMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open arena start mission`.
+**Purpose:** Opens the resource or UI associated with `arena start mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenArenaStartMission(mission);
+```
 
 ### OpenArenaDuelMission
 `public static MissionView OpenArenaDuelMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open arena duel mission`.
+**Purpose:** Opens the resource or UI associated with `arena duel mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenArenaDuelMission(mission);
+```
 
 ### OpenTownMerchantMission
 `public static MissionView OpenTownMerchantMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open town merchant mission`.
+**Purpose:** Opens the resource or UI associated with `town merchant mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenTownMerchantMission(mission);
+```
 
 ### OpenAlleyMission
 `public static MissionView OpenAlleyMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open alley mission`.
+**Purpose:** Opens the resource or UI associated with `alley mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenAlleyMission(mission);
+```
 
 ### OpenSneakTeam3Mission
 `public static MissionView OpenSneakTeam3Mission(Mission mission)`
 
-**Purpose:** Handles logic related to `open sneak team3 mission`.
+**Purpose:** Opens the resource or UI associated with `sneak team3 mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenSneakTeam3Mission(mission);
+```
 
 ### OpenSimpleMountedPlayerMission
 `public static MissionView OpenSimpleMountedPlayerMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open simple mounted player mission`.
+**Purpose:** Opens the resource or UI associated with `simple mounted player mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenSimpleMountedPlayerMission(mission);
+```
 
 ### OpenBattleMission
 `public static MissionView OpenBattleMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open battle mission`.
+**Purpose:** Opens the resource or UI associated with `battle mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenBattleMission(mission);
+```
 
 ### OpenAlleyFightMission
 `public static MissionView OpenAlleyFightMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open alley fight mission`.
+**Purpose:** Opens the resource or UI associated with `alley fight mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenAlleyFightMission(mission);
+```
 
 ### OpenHideoutBattleMission
 `public static MissionView OpenHideoutBattleMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open hideout battle mission`.
+**Purpose:** Opens the resource or UI associated with `hideout battle mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenHideoutBattleMission(mission);
+```
 
 ### OpenHideoutAmbushMission
 `public static MissionView OpenHideoutAmbushMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open hideout ambush mission`.
+**Purpose:** Opens the resource or UI associated with `hideout ambush mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenHideoutAmbushMission(mission);
+```
 
 ### OpenBattleMissionWhileEnteringSettlement
 `public static MissionView OpenBattleMissionWhileEnteringSettlement(Mission mission)`
 
-**Purpose:** Handles logic related to `open battle mission while entering settlement`.
+**Purpose:** Opens the resource or UI associated with `battle mission while entering settlement`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenBattleMissionWhileEnteringSettlement(mission);
+```
 
 ### OpenCombatMissionWithDialogue
 `public static MissionView OpenCombatMissionWithDialogue(Mission mission)`
 
-**Purpose:** Handles logic related to `open combat mission with dialogue`.
+**Purpose:** Opens the resource or UI associated with `combat mission with dialogue`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenCombatMissionWithDialogue(mission);
+```
 
 ### OpenTestSiegeEngineMission
 `public static MissionView OpenTestSiegeEngineMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open test siege engine mission`.
+**Purpose:** Opens the resource or UI associated with `test siege engine mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenTestSiegeEngineMission(mission);
+```
 
 ### OpenCustomCameraMission
 `public static MissionView OpenCustomCameraMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open custom camera mission`.
+**Purpose:** Opens the resource or UI associated with `custom camera mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenCustomCameraMission(mission);
+```
 
 ### OpenAmbushBattleMission
 `public static MissionView OpenAmbushBattleMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open ambush battle mission`.
+**Purpose:** Opens the resource or UI associated with `ambush battle mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenAmbushBattleMission(mission);
+```
 
 ### OpenCampMission
 `public static MissionView OpenCampMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open camp mission`.
+**Purpose:** Opens the resource or UI associated with `camp mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenCampMission(mission);
+```
 
 ### OpenSiegeMissionWithDeployment
 `public static MissionView OpenSiegeMissionWithDeployment(Mission mission)`
 
-**Purpose:** Handles logic related to `open siege mission with deployment`.
+**Purpose:** Opens the resource or UI associated with `siege mission with deployment`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenSiegeMissionWithDeployment(mission);
+```
 
 ### OpenSiegeMissionNoDeployment
 `public static MissionView OpenSiegeMissionNoDeployment(Mission mission)`
 
-**Purpose:** Handles logic related to `open siege mission no deployment`.
+**Purpose:** Opens the resource or UI associated with `siege mission no deployment`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenSiegeMissionNoDeployment(mission);
+```
 
 ### OpenSiegeLordsHallFightMission
 `public static MissionView OpenSiegeLordsHallFightMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open siege lords hall fight mission`.
+**Purpose:** Opens the resource or UI associated with `siege lords hall fight mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenSiegeLordsHallFightMission(mission);
+```
 
 ### OpenSiegeMission
 `public static MissionView OpenSiegeMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open siege mission`.
+**Purpose:** Opens the resource or UI associated with `siege mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenSiegeMission(mission);
+```
 
 ### OpenSiegeMissionForTutorial
 `public static MissionView OpenSiegeMissionForTutorial(Mission mission)`
 
-**Purpose:** Handles logic related to `open siege mission for tutorial`.
+**Purpose:** Opens the resource or UI associated with `siege mission for tutorial`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenSiegeMissionForTutorial(mission);
+```
 
 ### OpenFormationTestMission
 `public static MissionView OpenFormationTestMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open formation test mission`.
+**Purpose:** Opens the resource or UI associated with `formation test mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenFormationTestMission(mission);
+```
 
 ### OpenVillageBattleMission
 `public static MissionView OpenVillageBattleMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open village battle mission`.
+**Purpose:** Opens the resource or UI associated with `village battle mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenVillageBattleMission(mission);
+```
 
 ### OpenSettlementTestMission
 `public static MissionView OpenSettlementTestMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open settlement test mission`.
+**Purpose:** Opens the resource or UI associated with `settlement test mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenSettlementTestMission(mission);
+```
 
 ### OpenEquipmentTestMission
 `public static MissionView OpenEquipmentTestMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open equipment test mission`.
+**Purpose:** Opens the resource or UI associated with `equipment test mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenEquipmentTestMission(mission);
+```
 
 ### OpenFacialAnimTestMission
 `public static MissionView OpenFacialAnimTestMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open facial anim test mission`.
+**Purpose:** Opens the resource or UI associated with `facial anim test mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenFacialAnimTestMission(mission);
+```
 
 ### OpenEquipItemToolMission
 `public static MissionView OpenEquipItemToolMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open equip item tool mission`.
+**Purpose:** Opens the resource or UI associated with `equip item tool mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenEquipItemToolMission(mission);
+```
 
 ### OpenConversationMission
 `public static MissionView OpenConversationMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open conversation mission`.
+**Purpose:** Opens the resource or UI associated with `conversation mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenConversationMission(mission);
+```
 
 ### OpenShadowingATargetMission
 `public static MissionView OpenShadowingATargetMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open shadowing a target mission`.
+**Purpose:** Opens the resource or UI associated with `shadowing a target mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenShadowingATargetMission(mission);
+```
 
 ### OpenDisguiseMission
 `public static MissionView OpenDisguiseMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open disguise mission`.
+**Purpose:** Opens the resource or UI associated with `disguise mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMissionViews.OpenDisguiseMission(mission);
+```
 
 ## Usage Example
 
@@ -214,4 +388,4 @@ SandBoxMissionViews.OpenTownCenterMission(mission);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

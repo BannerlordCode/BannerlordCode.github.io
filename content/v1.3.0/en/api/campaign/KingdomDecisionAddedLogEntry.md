@@ -1,13 +1,7 @@
 ---
 title: "KingdomDecisionAddedLogEntry"
+description: "Auto-generated class reference for KingdomDecisionAddedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDecisionAddedLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDecisionAddedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of KingdomDecisionAddedLogEntry from the subsystem API first
+KingdomDecisionAddedLogEntry kingdomDecisionAddedLogEntry = ...;
+var result = kingdomDecisionAddedLogEntry.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomDecisionAddedLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomDecisionAddedLogEntry kingdomDecisionAddedLogEntry = ...;
+kingdomDecisionAddedLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

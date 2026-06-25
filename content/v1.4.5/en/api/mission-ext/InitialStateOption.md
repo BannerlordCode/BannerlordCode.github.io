@@ -1,20 +1,14 @@
 ---
 title: "InitialStateOption"
+description: "Auto-generated class reference for InitialStateOption."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialStateOption`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialStateOption
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InitialStateOption`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/InitialStateOption.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/InitialStateOption.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### DoAction
 `public void DoAction()`
 
-**Purpose:** Handles logic related to `do action`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InitialStateOption from the subsystem API first
+InitialStateOption initialStateOption = ...;
+initialStateOption.DoAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InitialStateOption();
-value.DoAction();
+// Typically call this after obtaining an instance from the subsystem API
+InitialStateOption initialStateOption = ...;
+initialStateOption.DoAction();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

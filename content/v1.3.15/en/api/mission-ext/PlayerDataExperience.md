@@ -1,23 +1,18 @@
 ---
 title: "PlayerDataExperience"
+description: "Auto-generated class reference for PlayerDataExperience."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerDataExperience`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerDataExperience
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct PlayerDataExperience`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/PlayerDataExperience.cs`
 
 ## Overview
 
-`PlayerDataExperience` lives in `TaleWorlds.MountAndBlade.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PlayerDataExperience` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -37,26 +32,39 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CalculateLevelFromExperience
 `public static int CalculateLevelFromExperience(int experience)`
 
-**Purpose:** Handles logic related to `calculate level from experience`.
+**Purpose:** Calculates the current value or result of `level from experience`.
+
+```csharp
+// Static call; no instance required
+PlayerDataExperience.CalculateLevelFromExperience(0);
+```
 
 ### CalculateExperienceFromLevel
 `public static int CalculateExperienceFromLevel(int level)`
 
-**Purpose:** Handles logic related to `calculate experience from level`.
+**Purpose:** Calculates the current value or result of `experience from level`.
+
+```csharp
+// Static call; no instance required
+PlayerDataExperience.CalculateExperienceFromLevel(0);
+```
 
 ### ExperienceRequiredForLevel
 `public static int ExperienceRequiredForLevel(int level)`
 
-**Purpose:** Handles logic related to `experience required for level`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerDataExperience.ExperienceRequiredForLevel(0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 PlayerDataExperience.CalculateLevelFromExperience(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

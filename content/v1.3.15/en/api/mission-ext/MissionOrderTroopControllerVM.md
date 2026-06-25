@@ -1,13 +1,7 @@
 ---
 title: "MissionOrderTroopControllerVM"
+description: "Auto-generated class reference for MissionOrderTroopControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionOrderTroopControllerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionOrderTroopControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -54,155 +48,330 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnFinalize();
+```
 
 ### ExecuteSelectAll
 `public void ExecuteSelectAll()`
 
-**Purpose:** Executes the `select all` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select all`.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.ExecuteSelectAll();
+```
 
 ### ExecuteSelectTransferTroop
 `public void ExecuteSelectTransferTroop(OrderTroopItemVM targetTroop)`
 
-**Purpose:** Executes the `select transfer troop` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select transfer troop`.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.ExecuteSelectTransferTroop(targetTroop);
+```
 
 ### ExecuteConfirmTransfer
 `public void ExecuteConfirmTransfer()`
 
-**Purpose:** Executes the `confirm transfer` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `confirm transfer`.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.ExecuteConfirmTransfer();
+```
 
 ### ExecuteCancelTransfer
 `public void ExecuteCancelTransfer()`
 
-**Purpose:** Executes the `cancel transfer` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel transfer`.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.ExecuteCancelTransfer();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Executes the `reset` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset`.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.ExecuteReset();
+```
 
 ### SetTroopActiveOrders
 `public void SetTroopActiveOrders(OrderTroopItemVM item)`
 
-**Purpose:** Sets the value or state of `troop active orders`.
+**Purpose:** Assigns a new value to `troop active orders` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.SetTroopActiveOrders(item);
+```
 
 ### SelectAllFormations
 `public virtual void SelectAllFormations(bool uiFeedback = true)`
 
-**Purpose:** Handles logic related to `select all formations`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.SelectAllFormations(false);
+```
 
 ### AddSelectedFormation
 `public virtual void AddSelectedFormation(OrderTroopItemVM item)`
 
 **Purpose:** Adds `selected formation` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.AddSelectedFormation(item);
+```
+
 ### SetSelectedFormation
 `public void SetSelectedFormation(OrderTroopItemVM item)`
 
-**Purpose:** Sets the value or state of `selected formation`.
+**Purpose:** Assigns a new value to `selected formation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.SetSelectedFormation(item);
+```
 
 ### OnDeselectFormation
 `public void OnDeselectFormation(int index)`
 
-**Purpose:** Called when the `deselect formation` event is raised.
+**Purpose:** Invoked when the `deselect formation` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnDeselectFormation(0);
+```
 
 ### OnDeselectFormation
 `public void OnDeselectFormation(OrderTroopItemVM item)`
 
-**Purpose:** Called when the `deselect formation` event is raised.
+**Purpose:** Invoked when the `deselect formation` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnDeselectFormation(item);
+```
 
 ### OnSelectFormation
 `public void OnSelectFormation(OrderTroopItemVM item)`
 
-**Purpose:** Called when the `select formation` event is raised.
+**Purpose:** Invoked when the `select formation` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnSelectFormation(item);
+```
 
 ### UpdateTroops
 `public void UpdateTroops()`
 
-**Purpose:** Updates the state or data of `troops`.
+**Purpose:** Recalculates and stores the latest representation of `troops`.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.UpdateTroops();
+```
 
 ### AddTroops
 `public void AddTroops(Agent agent)`
 
 **Purpose:** Adds `troops` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.AddTroops(agent);
+```
+
 ### RemoveTroops
 `public void RemoveTroops(Agent agent)`
 
 **Purpose:** Removes `troops` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.RemoveTroops(agent);
+```
+
 ### OnTroopOrderIssued
 `public void OnTroopOrderIssued(List<OrderTroopItemVM> selectedFormations, OrderItemVM orderItem)`
 
-**Purpose:** Called when the `troop order issued` event is raised.
+**Purpose:** Invoked when the `troop order issued` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnTroopOrderIssued(selectedFormations, orderItem);
+```
 
 ### IntervalUpdate
 `public void IntervalUpdate()`
 
-**Purpose:** Handles logic related to `interval update`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.IntervalUpdate();
+```
 
 ### RefreshTroopFormationTargetVisuals
 `public void RefreshTroopFormationTargetVisuals()`
 
-**Purpose:** Refreshes the display or cache of `troop formation target visuals`.
+**Purpose:** Keeps the display or cache of `troop formation target visuals` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.RefreshTroopFormationTargetVisuals();
+```
 
 ### OnSelectFormationWithIndex
 `public void OnSelectFormationWithIndex(int formationTroopIndex)`
 
-**Purpose:** Called when the `select formation with index` event is raised.
+**Purpose:** Invoked when the `select formation with index` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnSelectFormationWithIndex(0);
+```
 
 ### SetCurrentActiveOrders
 `public void SetCurrentActiveOrders()`
 
-**Purpose:** Sets the value or state of `current active orders`.
+**Purpose:** Assigns a new value to `current active orders` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.SetCurrentActiveOrders();
+```
 
 ### OnFiltersSet
 `public void OnFiltersSet(List<MissionOrderVM.FormationConfiguration> filterData)`
 
-**Purpose:** Called when the `filters set` event is raised.
+**Purpose:** Invoked when the `filters set` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnFiltersSet(filterData);
+```
 
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnDeploymentFinished();
+```
 
 ### OnAfterDeploymentFinished
 `public void OnAfterDeploymentFinished()`
 
-**Purpose:** Called when the `after deployment finished` event is raised.
+**Purpose:** Invoked when the `after deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.OnAfterDeploymentFinished();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.SetDoneInputKey(hotKey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.SetCancelInputKey(hotKey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.SetResetInputKey(hotKey);
+```
 
 ### Compare
 `public int Compare(OrderTroopItemVM x, OrderTroopItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionOrderTroopControllerVM from the subsystem API first
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+var result = missionOrderTroopControllerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionOrderTroopControllerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionOrderTroopControllerVM missionOrderTroopControllerVM = ...;
+missionOrderTroopControllerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

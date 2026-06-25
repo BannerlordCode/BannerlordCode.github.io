@@ -1,20 +1,14 @@
 ---
 title: "ConversationAnimData"
+description: "Auto-generated class reference for ConversationAnimData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationAnimData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationAnimData
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ConversationAnimData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationAnimData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationAnimData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ConversationAnimData` as a Data-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var value = new ConversationAnimData();
+// This data object is usually returned by campaign/mission APIs
+ConversationAnimData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "Skills"
+description: "Skills 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Skills`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Skills
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Skills`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/Skills.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/Skills.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "Skills"
 ### GetSkill
 `public static SkillObject GetSkill(int i)`
 
-**用途 / Purpose:** 获取 `skill` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Skills.GetSkill(0);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ Skills.GetSkill(0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

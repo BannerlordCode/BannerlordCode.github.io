@@ -1,20 +1,14 @@
 ---
 title: "IChatHandler"
+description: "Auto-generated class reference for IChatHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IChatHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IChatHandler
 
 **Namespace:** (global)
 **Module:** (global)
-**Type:** `class`
+**Type:** `public interface IChatHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/IChatHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/IChatHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IChatHandler` as a Handler-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-IChatHandler implementation = GetChatHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIChatHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SaveContext"
+description: "SaveContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveContext`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveContext
 
 **Namespace:** TaleWorlds.SaveSystem.Save
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveContext : ISaveContext`
 **Base:** `ISaveContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/SaveContext.cs`
 
 ## 概述
 
@@ -37,70 +31,141 @@ title: "SaveContext"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.ToString();
+```
 
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**用途 / Purpose:** 保存 `statistics` 数据。
+**用途 / Purpose:** 将 「statistics」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+```
 
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**用途 / Purpose:** 获取 `container size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container size」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerSize("example");
+```
 
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**用途 / Purpose:** 获取 `type keys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「type keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetTypeKeys();
+```
 
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**用途 / Purpose:** 获取 `container keys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerKeys();
+```
 
 ### GetStatistics
 `public static SaveStatistics GetStatistics()`
 
-**用途 / Purpose:** 获取 `statistics` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「statistics」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SaveContext.GetStatistics();
+```
 
 ### AddOrGetStringId
 `public int AddOrGetStringId(string text)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `or get string id`。
+**用途 / Purpose:** 将 「or get string id」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.AddOrGetStringId("example");
+```
 
 ### GetObjectId
 `public int GetObjectId(object target)`
 
-**用途 / Purpose:** 获取 `object id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetObjectId(target);
+```
 
 ### GetContainerId
 `public int GetContainerId(object target)`
 
-**用途 / Purpose:** 获取 `container id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerId(target);
+```
 
 ### GetStringId
 `public int GetStringId(string target)`
 
-**用途 / Purpose:** 获取 `string id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.GetStringId("example");
+```
 
 ### GetStringSizeInBytes
 `public static int GetStringSizeInBytes(string text)`
 
-**用途 / Purpose:** 获取 `string size in bytes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string size in bytes」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SaveContext.GetStringSizeInBytes("example");
+```
 
 ### Save
 `public bool Save(object target, MetaData metaData, out string errorMessage)`
 
-**用途 / Purpose:** 保存 `save` 数据。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveContext 实例
+SaveContext saveContext = ...;
+var result = saveContext.Save(target, metaData, errorMessage);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SaveContext();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+SaveContext saveContext = ...;
+saveContext.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

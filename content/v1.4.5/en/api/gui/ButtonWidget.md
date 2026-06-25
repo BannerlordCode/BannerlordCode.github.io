@@ -1,20 +1,14 @@
 ---
 title: "ButtonWidget"
+description: "Auto-generated class reference for ButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ButtonWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ButtonWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ButtonWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ButtonWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ButtonWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `ButtonWidget` as a Widget-style extension point: first identify who creat
 ## Usage Example
 
 ```csharp
-var widget = new ButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionNameMarkerUIHandler"
+description: "MissionNameMarkerUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNameMarkerUIHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerUIHandler
 
 **Namespace:** SandBox.View.Missions.NameMarkers
 **Module:** SandBox.View
 **Type:** `public class MissionNameMarkerUIHandler : MissionBattleUIBaseView`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions.NameMarkers/MissionNameMarkerUIHandler.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions.NameMarkers/MissionNameMarkerUIHandler.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "MissionNameMarkerUIHandler"
 ### SetMarkersDirty
 `public virtual void SetMarkersDirty()`
 
-**用途 / Purpose:** 设置 `markers dirty` 的值或状态。
+**用途 / Purpose:** 为 「markers dirty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerUIHandler 实例
+MissionNameMarkerUIHandler missionNameMarkerUIHandler = ...;
+missionNameMarkerUIHandler.SetMarkersDirty();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionNameMarkerUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionNameMarkerUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

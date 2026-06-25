@@ -1,13 +1,7 @@
 ---
 title: "TournamentTeam"
+description: "TournamentTeam 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentTeam`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TournamentTeam
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -40,20 +34,33 @@ title: "TournamentTeam"
 ### IsParticipantRequired
 `public bool IsParticipantRequired()`
 
-**用途 / Purpose:** 处理 `is participant required` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「participant required」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentTeam 实例
+TournamentTeam tournamentTeam = ...;
+var result = tournamentTeam.IsParticipantRequired();
+```
 
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `participant`。
+**用途 / Purpose:** 将 「participant」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentTeam 实例
+TournamentTeam tournamentTeam = ...;
+tournamentTeam.AddParticipant(participant);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TournamentTeam();
-value.IsParticipantRequired();
+// 通常从对应子系统 API 获取实例后调用
+TournamentTeam tournamentTeam = ...;
+tournamentTeam.IsParticipantRequired();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

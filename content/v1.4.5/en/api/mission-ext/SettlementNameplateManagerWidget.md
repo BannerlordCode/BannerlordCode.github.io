@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplateManagerWidget"
+description: "Auto-generated class reference for SettlementNameplateManagerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateManagerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateManagerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementNameplateManagerWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateManagerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateManagerWidget.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `SettlementNameplateManagerWidget` as a Widget-style extension point: firs
 ### SettlementNameplateManagerWidget
 `public class SettlementNameplateManagerWidget(UIContext context)`
 
-**Purpose:** Sets the value or state of `tlement nameplate manager widget`.
+**Purpose:** Assigns a new value to `tlement nameplate manager widget` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SettlementNameplateManagerWidget from the subsystem API first
+SettlementNameplateManagerWidget settlementNameplateManagerWidget = ...;
+var result = settlementNameplateManagerWidget.SettlementNameplateManagerWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new SettlementNameplateManagerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SettlementNameplateManagerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

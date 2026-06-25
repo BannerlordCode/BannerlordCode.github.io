@@ -1,20 +1,14 @@
 ---
 title: "ShipTemplateStack"
+description: "ShipTemplateStack 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipTemplateStack`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipTemplateStack
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct ShipTemplateStack`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/ShipTemplateStack.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/ShipTemplateStack.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ShipTemplateStack"
 ### ShipTemplateStack
 `public struct ShipTemplateStack(ShipHull shipHull, int minValue, int maxValue)`
 
-**用途 / Purpose:** 处理 `ship template stack` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ShipTemplateStack 实例
+ShipTemplateStack shipTemplateStack = ...;
+var result = shipTemplateStack.ShipTemplateStack(shipHull, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ShipTemplateStack();
-value.ShipTemplateStack(shipHull, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+ShipTemplateStack shipTemplateStack = ...;
+shipTemplateStack.ShipTemplateStack(shipHull, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

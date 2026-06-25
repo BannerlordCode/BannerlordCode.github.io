@@ -1,24 +1,18 @@
 ---
 title: "FieldDefinition"
+description: "Auto-generated class reference for FieldDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FieldDefinition`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FieldDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class FieldDefinition : MemberDefinition`
 **Base:** `MemberDefinition`
-**Area:** save-system
+**File:** `TaleWorlds.SaveSystem/Definition/FieldDefinition.cs`
 
 ## Overview
 
-`FieldDefinition` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`FieldDefinition` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -37,27 +31,44 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetMemberType
 `public override Type GetMemberType()`
 
-**Purpose:** Gets the current value of `member type`.
+**Purpose:** Reads and returns the `member type` value held by the current object.
+
+```csharp
+// Obtain an instance of FieldDefinition from the subsystem API first
+FieldDefinition fieldDefinition = ...;
+var result = fieldDefinition.GetMemberType();
+```
 
 ### GetValue
 `public override object GetValue(object target)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of FieldDefinition from the subsystem API first
+FieldDefinition fieldDefinition = ...;
+var result = fieldDefinition.GetValue(target);
+```
 
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(GetFieldValueDelegate getFieldValueMethod)`
 
-**Purpose:** Initializes the state, resources, or bindings for `for auto generation`.
+**Purpose:** Prepares the resources, state, or bindings required by `for auto generation`.
+
+```csharp
+// Obtain an instance of FieldDefinition from the subsystem API first
+FieldDefinition fieldDefinition = ...;
+fieldDefinition.InitializeForAutoGeneration(getFieldValueMethod);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a FieldDefinition instance from game state, then call one of its public methods
-var value = new FieldDefinition();
-value.GetMemberType();
+// Typically call this after obtaining an instance from the subsystem API
+FieldDefinition fieldDefinition = ...;
+fieldDefinition.GetMemberType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

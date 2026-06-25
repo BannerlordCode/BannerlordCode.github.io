@@ -1,13 +1,7 @@
 ---
 title: "StoryModeEncounterGameMenuModel"
+description: "Auto-generated class reference for StoryModeEncounterGameMenuModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeEncounterGameMenuModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeEncounterGameMenuModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,34 +23,64 @@ Treat `StoryModeEncounterGameMenuModel` as a Model-style extension point: first 
 ### GetEncounterMenu
 `public override string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
 
-**Purpose:** Gets the current value of `encounter menu`.
+**Purpose:** Reads and returns the `encounter menu` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeEncounterGameMenuModel from the subsystem API first
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.GetEncounterMenu(attackerParty, defenderParty, startBattle, joinBattle);
+```
 
 ### GetGenericStateMenu
 `public override string GetGenericStateMenu()`
 
-**Purpose:** Gets the current value of `generic state menu`.
+**Purpose:** Reads and returns the `generic state menu` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeEncounterGameMenuModel from the subsystem API first
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.GetGenericStateMenu();
+```
 
 ### GetNewPartyJoinMenu
 `public override string GetNewPartyJoinMenu(MobileParty newParty)`
 
-**Purpose:** Gets the current value of `new party join menu`.
+**Purpose:** Reads and returns the `new party join menu` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeEncounterGameMenuModel from the subsystem API first
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.GetNewPartyJoinMenu(newParty);
+```
 
 ### GetRaidCompleteMenu
 `public override string GetRaidCompleteMenu()`
 
-**Purpose:** Gets the current value of `raid complete menu`.
+**Purpose:** Reads and returns the `raid complete menu` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeEncounterGameMenuModel from the subsystem API first
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.GetRaidCompleteMenu();
+```
 
 ### IsPlunderMenu
 `public override bool IsPlunderMenu(string menuId)`
 
-**Purpose:** Handles logic related to `is plunder menu`.
+**Purpose:** Determines whether the current object is in the `plunder menu` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeEncounterGameMenuModel from the subsystem API first
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.IsPlunderMenu("example");
+```
 
 ## Usage Example
 
 ```csharp
-StoryModeEncounterGameMenuModel example = StoryModeEncounterGameMenuModel.Value;
+Game.Current.ReplaceModel<StoryModeEncounterGameMenuModel>(new MyStoryModeEncounterGameMenuModel());
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

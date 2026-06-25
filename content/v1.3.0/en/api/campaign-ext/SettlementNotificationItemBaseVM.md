@@ -1,13 +1,7 @@
 ---
 title: "SettlementNotificationItemBaseVM"
+description: "Auto-generated class reference for SettlementNotificationItemBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNotificationItemBaseVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNotificationItemBaseVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications
@@ -39,15 +33,22 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of SettlementNotificationItemBaseVM from the subsystem API first
+SettlementNotificationItemBaseVM settlementNotificationItemBaseVM = ...;
+settlementNotificationItemBaseVM.ExecuteRemove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNotificationItemBaseVM();
-value.ExecuteRemove();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementNotificationItemBaseVM settlementNotificationItemBaseVM = ...;
+settlementNotificationItemBaseVM.ExecuteRemove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

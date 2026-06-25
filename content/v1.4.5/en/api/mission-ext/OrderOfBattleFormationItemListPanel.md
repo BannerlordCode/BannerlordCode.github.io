@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleFormationItemListPanel"
+description: "Auto-generated class reference for OrderOfBattleFormationItemListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationItemListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationItemListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleFormationItemListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleFormationItemListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleFormationItemListPanel.cs`
 
 ## Overview
 
@@ -40,9 +34,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderO
 ## Usage Example
 
 ```csharp
-var example = new OrderOfBattleFormationItemListPanel();
+// Obtain an instance from the relevant subsystem API
+OrderOfBattleFormationItemListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

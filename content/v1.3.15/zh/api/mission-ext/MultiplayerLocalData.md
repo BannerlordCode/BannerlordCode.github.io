@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLocalData"
+description: "MultiplayerLocalData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerLocalData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLocalData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby
@@ -29,14 +23,21 @@ title: "MultiplayerLocalData"
 ### HasSameContentWith
 `public abstract bool HasSameContentWith(MultiplayerLocalData other)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `same content with`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「same content with」。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLocalData 实例
+MultiplayerLocalData multiplayerLocalData = ...;
+var result = multiplayerLocalData.HasSameContentWith(other);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMultiplayerLocalData();
+// 通常通过子系统 API 或工厂获得派生实例
+MultiplayerLocalData instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "Difficulty"
+description: "Auto-generated class reference for Difficulty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Difficulty`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Difficulty
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-Difficulty example = Difficulty.Value;
+// Obtain an instance from the relevant subsystem API
+Difficulty instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

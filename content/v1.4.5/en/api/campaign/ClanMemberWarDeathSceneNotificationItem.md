@@ -1,20 +1,14 @@
 ---
 title: "ClanMemberWarDeathSceneNotificationItem"
+description: "Auto-generated class reference for ClanMemberWarDeathSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanMemberWarDeathSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanMemberWarDeathSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanMemberWarDeathSceneNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/ClanMemberWarDeathSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/ClanMemberWarDeathSceneNotificationItem.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetBanners
 `public override Banner GetBanners()`
 
-**Purpose:** Gets the current value of `banners`.
+**Purpose:** Reads and returns the `banners` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanMemberWarDeathSceneNotificationItem from the subsystem API first
+ClanMemberWarDeathSceneNotificationItem clanMemberWarDeathSceneNotificationItem = ...;
+var result = clanMemberWarDeathSceneNotificationItem.GetBanners();
+```
 
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanMemberWarDeathSceneNotificationItem from the subsystem API first
+ClanMemberWarDeathSceneNotificationItem clanMemberWarDeathSceneNotificationItem = ...;
+var result = clanMemberWarDeathSceneNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanMemberWarDeathSceneNotificationItem();
-value.GetBanners();
+// Typically call this after obtaining an instance from the subsystem API
+ClanMemberWarDeathSceneNotificationItem clanMemberWarDeathSceneNotificationItem = ...;
+clanMemberWarDeathSceneNotificationItem.GetBanners();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

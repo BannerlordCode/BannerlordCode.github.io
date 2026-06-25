@@ -1,13 +1,7 @@
 ---
 title: "ServiceResolvedAddress"
+description: "Auto-generated class reference for ServiceResolvedAddress."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServiceResolvedAddress`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServiceResolvedAddress
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.ServiceDiscovery.Client` to place it in the sta
 ## Usage Example
 
 ```csharp
-var value = new ServiceResolvedAddress();
+// Obtain an instance from the relevant subsystem API
+ServiceResolvedAddress instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

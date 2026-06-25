@@ -1,20 +1,14 @@
 ---
 title: "OptionsItemWidget"
+description: "Auto-generated class reference for OptionsItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionsItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsItemWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options/OptionsItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options/OptionsItemWidget.cs`
 
 ## Overview
 
@@ -47,14 +41,21 @@ Treat `OptionsItemWidget` as a Widget-style extension point: first identify who 
 ### SetCurrentScreenWidget
 `public void SetCurrentScreenWidget(OptionsScreenWidget screenWidget)`
 
-**Purpose:** Sets the value or state of `current screen widget`.
+**Purpose:** Assigns a new value to `current screen widget` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OptionsItemWidget from the subsystem API first
+OptionsItemWidget optionsItemWidget = ...;
+optionsItemWidget.SetCurrentScreenWidget(screenWidget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new OptionsItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OptionsItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

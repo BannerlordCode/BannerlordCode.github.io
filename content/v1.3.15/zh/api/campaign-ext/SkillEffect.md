@@ -1,13 +1,7 @@
 ---
 title: "SkillEffect"
+description: "SkillEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SkillEffect`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkillEffect
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -38,20 +32,33 @@ title: "SkillEffect"
 ### Initialize
 `public void Initialize(TextObject description, SkillObject effectedSkill, PartyRole role, float bonus, EffectIncrementType incrementType, float baseValue = 0f, float limitMin = -3.4028235E+38f, float limitMax = 3.4028235E+38f)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SkillEffect 实例
+SkillEffect skillEffect = ...;
+skillEffect.Initialize(description, effectedSkill, role, 0, incrementType, 0, 0, 0);
+```
 
 ### GetSkillEffectValue
 `public float GetSkillEffectValue(int skillLevel)`
 
-**用途 / Purpose:** 获取 `skill effect value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill effect value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SkillEffect 实例
+SkillEffect skillEffect = ...;
+var result = skillEffect.GetSkillEffectValue(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SkillEffect();
-value.Initialize(description, effectedSkill, role, 0, incrementType, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+SkillEffect skillEffect = ...;
+skillEffect.Initialize(description, effectedSkill, role, 0, incrementType, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

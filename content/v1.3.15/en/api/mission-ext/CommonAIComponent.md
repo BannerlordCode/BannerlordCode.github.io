@@ -1,13 +1,7 @@
 ---
 title: "CommonAIComponent"
+description: "Auto-generated class reference for CommonAIComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommonAIComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CommonAIComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,52 +34,112 @@ Treat `CommonAIComponent` as a Component-style extension point: first identify w
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.Initialize();
+```
 
 ### OnTickParallel
 `public override void OnTickParallel(float dt)`
 
-**Purpose:** Called when the `tick parallel` event is raised.
+**Purpose:** Invoked when the `tick parallel` event is raised.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnTickParallel(0);
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnTick(0);
+```
 
 ### Panic
 `public void Panic()`
 
-**Purpose:** Handles logic related to `panic`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.Panic();
+```
 
 ### Retreat
 `public void Retreat(bool useCachingSystem = false)`
 
-**Purpose:** Handles logic related to `retreat`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.Retreat(false);
+```
 
 ### StopRetreating
 `public void StopRetreating()`
 
-**Purpose:** Handles logic related to `stop retreating`.
+**Purpose:** Stops the `retreating` flow or state machine.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.StopRetreating();
+```
 
 ### CanPanic
 `public bool CanPanic()`
 
-**Purpose:** Checks whether the current object can `panic`.
+**Purpose:** Checks whether the current object meets the preconditions for `panic`.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+var result = commonAIComponent.CanPanic();
+```
 
 ### OnHit
 `public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)`
 
-**Purpose:** Called when the `hit` event is raised.
+**Purpose:** Invoked when the `hit` event is raised.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnHit(affectorAgent, 0, affectorWeapon, b, collisionData);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnAgentRemoved();
+```
 
 ### OnComponentRemoved
 `public override void OnComponentRemoved()`
 
-**Purpose:** Called when the `component removed` event is raised.
+**Purpose:** Invoked when the `component removed` event is raised.
+
+```csharp
+// Obtain an instance of CommonAIComponent from the subsystem API first
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnComponentRemoved();
+```
 
 ## Usage Example
 
@@ -95,4 +149,4 @@ var component = agent.GetComponent<CommonAIComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

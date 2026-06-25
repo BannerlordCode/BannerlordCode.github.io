@@ -1,13 +1,7 @@
 ---
 title: "DetachmentData"
+description: "DetachmentData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DetachmentData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DetachmentData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,19 +29,32 @@ title: "DetachmentData"
 ### IsPrecalculated
 `public bool IsPrecalculated()`
 
-**用途 / Purpose:** 处理 `is precalculated` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「precalculated」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentData 实例
+DetachmentData detachmentData = ...;
+var result = detachmentData.IsPrecalculated();
+```
 
 ### RemoveScoreOfAgent
 `public void RemoveScoreOfAgent(Agent agent)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `score of agent`。
+**用途 / Purpose:** 从当前容器或状态中移除 「score of agent」。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentData 实例
+DetachmentData detachmentData = ...;
+detachmentData.RemoveScoreOfAgent(agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DetachmentData();
+// 该数据对象通常由战役/任务 API 返回
+DetachmentData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "AgentOriginUtilities"
+description: "AgentOriginUtilities 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentOriginUtilities`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentOriginUtilities
 
-**命名空间:** TaleWorlds.Core
-**模块:** TaleWorlds.Core
-**类型:** `public class AgentOriginUtilities`
-**领域:** core-extra
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public class AgentOriginUtilities`
+**Base:** 无
+**File:** `TaleWorlds.Core/AgentOriginUtilities.cs`
 
 ## 概述
 
-`AgentOriginUtilities` 位于 `TaleWorlds.Core`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`AgentOriginUtilities` 位于 `TaleWorlds.Core`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,21 +23,29 @@ title: "AgentOriginUtilities"
 ### GetDefaultTraitsMask
 `public static TroopTraitsMask GetDefaultTraitsMask(IAgentOriginBase origin)`
 
-**用途 / Purpose:** 获取 `default traits mask` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default traits mask」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AgentOriginUtilities.GetDefaultTraitsMask(origin);
+```
 
 ### GetDefaultTroopTraits
 `public static void GetDefaultTroopTraits(BasicCharacterObject troop, out bool hasThrownWeapon, out bool hasSpear, out bool hasShield, out bool hasHeavyArmor)`
 
-**用途 / Purpose:** 获取 `default troop traits` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default troop traits」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AgentOriginUtilities.GetDefaultTroopTraits(troop, hasThrownWeapon, hasSpear, hasShield, hasHeavyArmor);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 AgentOriginUtilities.GetDefaultTraitsMask(origin);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-core)
+- [本区域目录](../)

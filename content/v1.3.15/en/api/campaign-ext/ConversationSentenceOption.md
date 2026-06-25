@@ -1,13 +1,7 @@
 ---
 title: "ConversationSentenceOption"
+description: "Auto-generated class reference for ConversationSentenceOption."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationSentenceOption`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConversationSentenceOption
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ## Usage Example
 
 ```csharp
-var value = new ConversationSentenceOption();
+// Obtain an instance from the relevant subsystem API
+ConversationSentenceOption instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

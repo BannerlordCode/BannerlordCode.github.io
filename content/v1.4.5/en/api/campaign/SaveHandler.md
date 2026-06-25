@@ -1,20 +1,14 @@
 ---
 title: "SaveHandler"
+description: "Auto-generated class reference for SaveHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveHandler
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SaveHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SaveHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SaveHandler.cs`
 
 ## Overview
 
@@ -35,39 +29,75 @@ Treat `SaveHandler` as a Handler-style extension point: first identify who creat
 ### QuickSaveCurrentGame
 `public void QuickSaveCurrentGame()`
 
-**Purpose:** Handles logic related to `quick save current game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SaveHandler from the subsystem API first
+SaveHandler saveHandler = ...;
+saveHandler.QuickSaveCurrentGame();
+```
 
 ### SaveAs
 `public void SaveAs(string saveName)`
 
-**Purpose:** Saves `as` data.
+**Purpose:** Writes `as` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SaveHandler from the subsystem API first
+SaveHandler saveHandler = ...;
+saveHandler.SaveAs("example");
+```
 
 ### CampaignTick
 `public void CampaignTick()`
 
-**Purpose:** Handles logic related to `campaign tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SaveHandler from the subsystem API first
+SaveHandler saveHandler = ...;
+saveHandler.CampaignTick();
+```
 
 ### SignalAutoSave
 `public void SignalAutoSave()`
 
-**Purpose:** Handles logic related to `signal auto save`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SaveHandler from the subsystem API first
+SaveHandler saveHandler = ...;
+saveHandler.SignalAutoSave();
+```
 
 ### ForceAutoSave
 `public void ForceAutoSave()`
 
-**Purpose:** Handles logic related to `force auto save`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SaveHandler from the subsystem API first
+SaveHandler saveHandler = ...;
+saveHandler.ForceAutoSave();
+```
 
 ### GetSaveMetaData
 `public CampaignSaveMetaDataArgs GetSaveMetaData()`
 
-**Purpose:** Gets the current value of `save meta data`.
+**Purpose:** Reads and returns the `save meta data` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveHandler from the subsystem API first
+SaveHandler saveHandler = ...;
+var result = saveHandler.GetSaveMetaData();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SaveHandler());
+var behavior = Mission.Current.GetMissionBehavior<SaveHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

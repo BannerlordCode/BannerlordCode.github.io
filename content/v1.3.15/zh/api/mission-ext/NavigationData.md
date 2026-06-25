@@ -1,13 +1,7 @@
 ---
 title: "NavigationData"
+description: "NavigationData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NavigationData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NavigationData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,21 @@ title: "NavigationData"
 ### TickDebug
 `public void TickDebug()`
 
-**用途 / Purpose:** 处理 `tick debug` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「debug」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationData 实例
+NavigationData navigationData = ...;
+navigationData.TickDebug();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NavigationData();
+// 该数据对象通常由战役/任务 API 返回
+NavigationData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

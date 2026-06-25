@@ -1,13 +1,7 @@
 ---
 title: "BannerLargeThumbnailCache"
+description: "Auto-generated class reference for BannerLargeThumbnailCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerLargeThumbnailCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerLargeThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateTexture
 `public override Texture CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Creates a new `texture` instance or object.
+**Purpose:** Constructs a new `texture` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of BannerLargeThumbnailCache from the subsystem API first
+BannerLargeThumbnailCache bannerLargeThumbnailCache = ...;
+var result = bannerLargeThumbnailCache.CreateTexture(thumbnailCreationData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerLargeThumbnailCache();
-value.CreateTexture(thumbnailCreationData);
+// Typically call this after obtaining an instance from the subsystem API
+BannerLargeThumbnailCache bannerLargeThumbnailCache = ...;
+bannerLargeThumbnailCache.CreateTexture(thumbnailCreationData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

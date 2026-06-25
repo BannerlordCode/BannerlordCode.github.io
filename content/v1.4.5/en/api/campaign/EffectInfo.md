@@ -1,20 +1,14 @@
 ---
 title: "EffectInfo"
+description: "Auto-generated class reference for EffectInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EffectInfo`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EffectInfo
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Buildings
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct EffectInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingType.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Buildings/BuildingType.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ### GetEffectValue
 `public float GetEffectValue(int i)`
 
-**Purpose:** Gets the current value of `effect value`.
+**Purpose:** Reads and returns the `effect value` value held by the current object.
+
+```csharp
+// Obtain an instance of EffectInfo from the subsystem API first
+EffectInfo effectInfo = ...;
+var result = effectInfo.GetEffectValue(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EffectInfo();
-value.GetEffectValue(0);
+// Typically call this after obtaining an instance from the subsystem API
+EffectInfo effectInfo = ...;
+effectInfo.GetEffectValue(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

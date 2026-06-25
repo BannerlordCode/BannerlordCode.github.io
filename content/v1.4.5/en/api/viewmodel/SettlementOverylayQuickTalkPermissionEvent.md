@@ -1,20 +1,14 @@
 ---
 title: "SettlementOverylayQuickTalkPermissionEvent"
+description: "Auto-generated class reference for SettlementOverylayQuickTalkPermissionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementOverylayQuickTalkPermissionEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementOverylayQuickTalkPermissionEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SettlementOverylayQuickTalkPermissionEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events/SettlementOverylayQuickTalkPermissionEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events/SettlementOverylayQuickTalkPermissionEvent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Eve
 ## Usage Example
 
 ```csharp
-var example = new SettlementOverylayQuickTalkPermissionEvent();
+// Obtain an instance from the relevant subsystem API
+SettlementOverylayQuickTalkPermissionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

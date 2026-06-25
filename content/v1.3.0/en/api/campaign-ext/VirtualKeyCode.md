@@ -1,18 +1,12 @@
 ---
 title: "VirtualKeyCode"
+description: "Auto-generated class reference for VirtualKeyCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VirtualKeyCode`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VirtualKeyCode
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public enum VirtualKeyCode`
 **Base:** none
 **File:** `TaleWorlds.InputSystem/VirtualKeyCode.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ## Usage Example
 
 ```csharp
-var example = new VirtualKeyCode();
+// Obtain an instance from the relevant subsystem API
+VirtualKeyCode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

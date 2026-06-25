@@ -1,13 +1,7 @@
 ---
 title: "VassalAndMercenaryOfferCampaignBehavior"
+description: "VassalAndMercenaryOfferCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VassalAndMercenaryOfferCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VassalAndMercenaryOfferCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,35 +23,66 @@ title: "VassalAndMercenaryOfferCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 VassalAndMercenaryOfferCampaignBehavior 实例
+VassalAndMercenaryOfferCampaignBehavior vassalAndMercenaryOfferCampaignBehavior = ...;
+vassalAndMercenaryOfferCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 VassalAndMercenaryOfferCampaignBehavior 实例
+VassalAndMercenaryOfferCampaignBehavior vassalAndMercenaryOfferCampaignBehavior = ...;
+vassalAndMercenaryOfferCampaignBehavior.SyncData(dataStore);
+```
 
 ### CancelVassalOrMercenaryServiceOffer
 `public void CancelVassalOrMercenaryServiceOffer(Kingdom kingdom)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `cel vassal or mercenary service offer`。
+**用途 / Purpose:** 检查当前对象是否满足 「cel vassal or mercenary service offer」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 VassalAndMercenaryOfferCampaignBehavior 实例
+VassalAndMercenaryOfferCampaignBehavior vassalAndMercenaryOfferCampaignBehavior = ...;
+vassalAndMercenaryOfferCampaignBehavior.CancelVassalOrMercenaryServiceOffer(kingdom);
+```
 
 ### CreateMercenaryOffer
 `public void CreateMercenaryOffer(Kingdom kingdom)`
 
-**用途 / Purpose:** 创建一个 `mercenary offer` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mercenary offer」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 VassalAndMercenaryOfferCampaignBehavior 实例
+VassalAndMercenaryOfferCampaignBehavior vassalAndMercenaryOfferCampaignBehavior = ...;
+vassalAndMercenaryOfferCampaignBehavior.CreateMercenaryOffer(kingdom);
+```
 
 ### CreateVassalOffer
 `public void CreateVassalOffer(Kingdom kingdom)`
 
-**用途 / Purpose:** 创建一个 `vassal offer` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「vassal offer」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 VassalAndMercenaryOfferCampaignBehavior 实例
+VassalAndMercenaryOfferCampaignBehavior vassalAndMercenaryOfferCampaignBehavior = ...;
+vassalAndMercenaryOfferCampaignBehavior.CreateVassalOffer(kingdom);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VassalAndMercenaryOfferCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+VassalAndMercenaryOfferCampaignBehavior vassalAndMercenaryOfferCampaignBehavior = ...;
+vassalAndMercenaryOfferCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

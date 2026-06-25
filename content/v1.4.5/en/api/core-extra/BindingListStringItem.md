@@ -1,20 +1,14 @@
 ---
 title: "BindingListStringItem"
+description: "Auto-generated class reference for BindingListStringItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BindingListStringItem`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BindingListStringItem
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
 **Module:** TaleWorlds.Core
 **Type:** `public class BindingListStringItem : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/BindingListStringItem.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/BindingListStringItem.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ## Usage Example
 
 ```csharp
-var example = new BindingListStringItem();
+// Obtain an instance from the relevant subsystem API
+BindingListStringItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

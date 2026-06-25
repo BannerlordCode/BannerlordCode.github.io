@@ -1,13 +1,7 @@
 ---
 title: "TimeoutWebClient"
+description: "Auto-generated class reference for TimeoutWebClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TimeoutWebClient`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TimeoutWebClient
 
 **Namespace:** TaleWorlds.PlayerServices
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new TimeoutWebClient();
+// Obtain an instance from the relevant subsystem API
+TimeoutWebClient instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

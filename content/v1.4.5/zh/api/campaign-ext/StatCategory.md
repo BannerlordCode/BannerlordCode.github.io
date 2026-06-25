@@ -1,20 +1,14 @@
 ---
 title: "StatCategory"
+description: "StatCategory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StatCategory`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StatCategory
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class StatCategory`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/StatCategory.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/StatCategory.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "StatCategory"
 ## 使用示例
 
 ```csharp
-var value = new StatCategory();
+// 从对应子系统 API 获取实例
+StatCategory instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

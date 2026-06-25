@@ -1,13 +1,7 @@
 ---
 title: "ObjectiveMarkerWidget"
+description: "ObjectiveMarkerWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ObjectiveMarkerWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ObjectiveMarkerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
@@ -56,19 +50,32 @@ title: "ObjectiveMarkerWidget"
 ### Update
 `public void Update(float dt)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectiveMarkerWidget 实例
+ObjectiveMarkerWidget objectiveMarkerWidget = ...;
+objectiveMarkerWidget.Update(0);
+```
 
 ### UpdateRectangle
 `public void UpdateRectangle()`
 
-**用途 / Purpose:** 更新 `rectangle` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「rectangle」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ObjectiveMarkerWidget 实例
+ObjectiveMarkerWidget objectiveMarkerWidget = ...;
+objectiveMarkerWidget.UpdateRectangle();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ObjectiveMarkerWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ObjectiveMarkerWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

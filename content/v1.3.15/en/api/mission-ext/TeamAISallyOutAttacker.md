@@ -1,13 +1,7 @@
 ---
 title: "TeamAISallyOutAttacker"
+description: "Auto-generated class reference for TeamAISallyOutAttacker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamAISallyOutAttacker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TeamAISallyOutAttacker
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Called when the `unit added to formation for the first time` event is raised.
+**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+
+```csharp
+// Obtain an instance of TeamAISallyOutAttacker from the subsystem API first
+TeamAISallyOutAttacker teamAISallyOutAttacker = ...;
+teamAISallyOutAttacker.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of TeamAISallyOutAttacker from the subsystem API first
+TeamAISallyOutAttacker teamAISallyOutAttacker = ...;
+teamAISallyOutAttacker.OnDeploymentFinished();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamAISallyOutAttacker();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// Typically call this after obtaining an instance from the subsystem API
+TeamAISallyOutAttacker teamAISallyOutAttacker = ...;
+teamAISallyOutAttacker.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

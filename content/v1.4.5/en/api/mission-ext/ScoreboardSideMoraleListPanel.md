@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardSideMoraleListPanel"
+description: "Auto-generated class reference for ScoreboardSideMoraleListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardSideMoraleListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardSideMoraleListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardSideMoraleListPanel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardSideMoraleListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardSideMoraleListPanel.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard` to
 ### ScoreboardSideMoraleListPanel
 `public class ScoreboardSideMoraleListPanel(UIContext context)`
 
-**Purpose:** Handles logic related to `scoreboard side morale list panel`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScoreboardSideMoraleListPanel from the subsystem API first
+ScoreboardSideMoraleListPanel scoreboardSideMoraleListPanel = ...;
+var result = scoreboardSideMoraleListPanel.ScoreboardSideMoraleListPanel(context);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScoreboardSideMoraleListPanel();
-value.ScoreboardSideMoraleListPanel(context);
+// Typically call this after obtaining an instance from the subsystem API
+ScoreboardSideMoraleListPanel scoreboardSideMoraleListPanel = ...;
+scoreboardSideMoraleListPanel.ScoreboardSideMoraleListPanel(context);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

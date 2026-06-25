@@ -1,13 +1,7 @@
 ---
 title: "DefaultMobilePartyAIModel"
+description: "Auto-generated class reference for DefaultMobilePartyAIModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMobilePartyAIModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMobilePartyAIModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -43,27 +37,57 @@ Treat `DefaultMobilePartyAIModel` as a Model-style extension point: first identi
 ### ShouldConsiderAttacking
 `public override bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
 
-**Purpose:** Handles logic related to `should consider attacking`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+var result = defaultMobilePartyAIModel.ShouldConsiderAttacking(party, targetParty);
+```
 
 ### ShouldConsiderAvoiding
 `public override bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
 
-**Purpose:** Handles logic related to `should consider avoiding`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+var result = defaultMobilePartyAIModel.ShouldConsiderAvoiding(party, targetParty);
+```
 
 ### GetPatrolRadius
 `public override float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)`
 
-**Purpose:** Gets the current value of `patrol radius`.
+**Purpose:** Reads and returns the `patrol radius` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+var result = defaultMobilePartyAIModel.GetPatrolRadius(mobileParty, patrolPoint);
+```
 
 ### ShouldPartyCheckInitiativeBehavior
 `public override bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `should party check initiative behavior`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+var result = defaultMobilePartyAIModel.ShouldPartyCheckInitiativeBehavior(mobileParty);
+```
 
 ### GetBestInitiativeBehavior
 `public override void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)`
 
-**Purpose:** Gets the current value of `best initiative behavior`.
+**Purpose:** Reads and returns the `best initiative behavior` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMobilePartyAIModel from the subsystem API first
+DefaultMobilePartyAIModel defaultMobilePartyAIModel = ...;
+defaultMobilePartyAIModel.GetBestInitiativeBehavior(mobileParty, bestInitiativeBehavior, bestInitiativeTargetParty, bestInitiativeBehaviorScore, averageEnemyVec);
+```
 
 ## Usage Example
 
@@ -73,4 +97,4 @@ Game.Current.ReplaceModel<DefaultMobilePartyAIModel>(new MyDefaultMobilePartyAIM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

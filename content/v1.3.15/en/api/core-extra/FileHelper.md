@@ -1,13 +1,7 @@
 ---
 title: "FileHelper"
+description: "Auto-generated class reference for FileHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FileHelper`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FileHelper
 
 **Namespace:** TaleWorlds.Library
@@ -29,82 +23,162 @@ Treat `FileHelper` as a Helper-style extension point: first identify who creates
 ### SaveFile
 `public static SaveResult SaveFile(PlatformFilePath path, byte data)`
 
-**Purpose:** Saves `file` data.
+**Purpose:** Writes `file` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+FileHelper.SaveFile(path, 0);
+```
 
 ### SaveFileString
 `public static SaveResult SaveFileString(PlatformFilePath path, string data)`
 
-**Purpose:** Saves `file string` data.
+**Purpose:** Writes `file string` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+FileHelper.SaveFileString(path, "example");
+```
 
 ### GetFileFullPath
 `public static string GetFileFullPath(PlatformFilePath path)`
 
-**Purpose:** Gets the current value of `file full path`.
+**Purpose:** Reads and returns the `file full path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FileHelper.GetFileFullPath(path);
+```
 
 ### AppendLineToFileString
 `public static SaveResult AppendLineToFileString(PlatformFilePath path, string data)`
 
-**Purpose:** Handles logic related to `append line to file string`.
+**Purpose:** Appends `line to file string` to the end of the current collection or sequence.
+
+```csharp
+// Static call; no instance required
+FileHelper.AppendLineToFileString(path, "example");
+```
 
 ### SaveFileAsync
 `public static Task<SaveResult> SaveFileAsync(PlatformFilePath path, byte data)`
 
-**Purpose:** Saves `file async` data.
+**Purpose:** Writes `file async` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+FileHelper.SaveFileAsync(path, 0);
+```
 
 ### SaveFileStringAsync
 `public static Task<SaveResult> SaveFileStringAsync(PlatformFilePath path, string data)`
 
-**Purpose:** Saves `file string async` data.
+**Purpose:** Writes `file string async` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+FileHelper.SaveFileStringAsync(path, "example");
+```
 
 ### GetError
 `public static string GetError()`
 
-**Purpose:** Gets the current value of `error`.
+**Purpose:** Reads and returns the `error` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FileHelper.GetError();
+```
 
 ### FileExists
 `public static bool FileExists(PlatformFilePath path)`
 
-**Purpose:** Handles logic related to `file exists`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+FileHelper.FileExists(path);
+```
 
 ### GetFileContentStringAsync
 `public static Task<string> GetFileContentStringAsync(PlatformFilePath path)`
 
-**Purpose:** Gets the current value of `file content string async`.
+**Purpose:** Reads and returns the `file content string async` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FileHelper.GetFileContentStringAsync(path);
+```
 
 ### GetFileContentString
 `public static string GetFileContentString(PlatformFilePath path)`
 
-**Purpose:** Gets the current value of `file content string`.
+**Purpose:** Reads and returns the `file content string` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FileHelper.GetFileContentString(path);
+```
 
 ### DeleteFile
 `public static void DeleteFile(PlatformFilePath path)`
 
-**Purpose:** Handles logic related to `delete file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+FileHelper.DeleteFile(path);
+```
 
 ### GetFiles
 `public static PlatformFilePath GetFiles(PlatformDirectoryPath path, string searchPattern, SearchOption searchOption)`
 
-**Purpose:** Gets the current value of `files`.
+**Purpose:** Reads and returns the `files` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FileHelper.GetFiles(path, "example", searchOption);
+```
 
 ### GetFileContent
 `public static byte GetFileContent(PlatformFilePath filePath)`
 
-**Purpose:** Gets the current value of `file content`.
+**Purpose:** Reads and returns the `file content` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FileHelper.GetFileContent(filePath);
+```
 
 ### GetMetaDataContent
 `public static byte GetMetaDataContent(PlatformFilePath filePath)`
 
-**Purpose:** Gets the current value of `meta data content`.
+**Purpose:** Reads and returns the `meta data content` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FileHelper.GetMetaDataContent(filePath);
+```
 
 ### CopyFile
 `public static void CopyFile(PlatformFilePath source, PlatformFilePath target)`
 
-**Purpose:** Handles logic related to `copy file`.
+**Purpose:** Copies the `file` state of the current object to a target.
+
+```csharp
+// Static call; no instance required
+FileHelper.CopyFile(source, target);
+```
 
 ### CopyDirectory
 `public static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)`
 
-**Purpose:** Handles logic related to `copy directory`.
+**Purpose:** Copies the `directory` state of the current object to a target.
+
+```csharp
+// Static call; no instance required
+FileHelper.CopyDirectory("example", "example", false);
+```
 
 ## Usage Example
 
@@ -114,4 +188,4 @@ FileHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

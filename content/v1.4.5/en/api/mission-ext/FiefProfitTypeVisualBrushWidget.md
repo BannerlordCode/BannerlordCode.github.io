@@ -1,20 +1,14 @@
 ---
 title: "FiefProfitTypeVisualBrushWidget"
+description: "Auto-generated class reference for FiefProfitTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FiefProfitTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FiefProfitTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FiefProfitTypeVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/FiefProfitTypeVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/FiefProfitTypeVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `FiefProfitTypeVisualBrushWidget` as a Widget-style extension point: first
 ### FiefProfitTypeVisualBrushWidget
 `public class FiefProfitTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `fief profit type visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FiefProfitTypeVisualBrushWidget from the subsystem API first
+FiefProfitTypeVisualBrushWidget fiefProfitTypeVisualBrushWidget = ...;
+var result = fiefProfitTypeVisualBrushWidget.FiefProfitTypeVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new FiefProfitTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FiefProfitTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

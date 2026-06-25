@@ -1,20 +1,14 @@
 ---
 title: "PlayerDisconnectedFromLobbyMessage"
+description: "Auto-generated class reference for PlayerDisconnectedFromLobbyMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerDisconnectedFromLobbyMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerDisconnectedFromLobbyMessage
 
 **Namespace:** Messages.FromCustomBattleServerManager.ToCustomBattleServer
 **Module:** Messages.FromCustomBattleServerManager
 **Type:** `public class PlayerDisconnectedFromLobbyMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/PlayerDisconnectedFromLobbyMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/PlayerDisconnectedFromLobbyMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromCustomBattleServerManager.ToCustomBattleServe
 ## Usage Example
 
 ```csharp
-var example = new PlayerDisconnectedFromLobbyMessage();
+// Obtain an instance from the relevant subsystem API
+PlayerDisconnectedFromLobbyMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

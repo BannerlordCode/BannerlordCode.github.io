@@ -1,20 +1,14 @@
 ---
 title: "BoardGameAITablut"
+description: "BoardGameAITablut 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameAITablut`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAITablut
 
 **Namespace:** SandBox.BoardGames.AI
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGameAITablut : BoardGameAIBase`
 **Base:** `BoardGameAIBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAITablut.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAITablut.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "BoardGameAITablut"
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAITablut 实例
+BoardGameAITablut boardGameAITablut = ...;
+boardGameAITablut.Initialize();
+```
 
 ### OnSetGameOver
 `public override void OnSetGameOver()`
 
-**用途 / Purpose:** 当 `set game over` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「set game over」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAITablut 实例
+BoardGameAITablut boardGameAITablut = ...;
+boardGameAITablut.OnSetGameOver();
+```
 
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAITablut 实例
+BoardGameAITablut boardGameAITablut = ...;
+var result = boardGameAITablut.CalculateMovementStageMove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameAITablut();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+BoardGameAITablut boardGameAITablut = ...;
+boardGameAITablut.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MainAgentControlModeParentWidget"
+description: "Auto-generated class reference for MainAgentControlModeParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainAgentControlModeParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MainAgentControlModeParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.MainAgentControlMode
@@ -38,9 +32,10 @@ Treat `MainAgentControlModeParentWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new MainAgentControlModeParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MainAgentControlModeParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

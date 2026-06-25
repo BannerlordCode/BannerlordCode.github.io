@@ -371,21 +371,22 @@ public class MySaveableData
 
 ## Related API
 
-- [Campaign API](../api/campaign-ext/Campaign)
-- [MobileParty API](../api/campaign/MobileParty)
-- [Kingdom API](../api/campaign/Kingdom)
-- [Clan API](../api/campaign/Clan)
-- [Settlement API](../api/campaign-ext/Settlement)
+- [Campaign API](../api/campaign/Campaign/)
+- [MobileParty API](../api/campaign/MobileParty/)
+- [Kingdom API](../api/campaign/Kingdom/)
+- [Clan API](../api/campaign/Clan/)
+- [Settlement API](../api/campaign/Settlement/)
 
 ---
 
 ## Next Section
 
-- [Save System](./save-system-guide) - Ensure your data saves correctly
-- [Mission System](./mission-system) - Customize battles
+- [Save System](save-system-guide/) - Ensure your data saves correctly
+- [Mission System](mission-system/) - Customize battles
 
 ## Usage Example
 
 ```csharp
-var example = new Campaign System();
+// Example: access the current campaign entry point
+Campaign campaign = Campaign.Current;
 ```

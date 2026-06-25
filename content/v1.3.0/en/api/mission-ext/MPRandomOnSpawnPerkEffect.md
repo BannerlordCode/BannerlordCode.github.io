@@ -1,13 +1,7 @@
 ---
 title: "MPRandomOnSpawnPerkEffect"
+description: "Auto-generated class reference for MPRandomOnSpawnPerkEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPRandomOnSpawnPerkEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPRandomOnSpawnPerkEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,20 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateFrom
 `public static MPRandomOnSpawnPerkEffect CreateFrom(XmlNode node)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MPRandomOnSpawnPerkEffect.CreateFrom(node);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPRandomOnSpawnPerkEffect();
+// Typically obtained from a subsystem API or factory
+MPRandomOnSpawnPerkEffect instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

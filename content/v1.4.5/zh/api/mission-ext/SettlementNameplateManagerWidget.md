@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplateManagerWidget"
+description: "SettlementNameplateManagerWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNameplateManagerWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateManagerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementNameplateManagerWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateManagerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateManagerWidget.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "SettlementNameplateManagerWidget"
 ### SettlementNameplateManagerWidget
 `public class SettlementNameplateManagerWidget(UIContext context)`
 
-**用途 / Purpose:** 设置 `tlement nameplate manager widget` 的值或状态。
+**用途 / Purpose:** 为 「tlement nameplate manager widget」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateManagerWidget 实例
+SettlementNameplateManagerWidget settlementNameplateManagerWidget = ...;
+var result = settlementNameplateManagerWidget.SettlementNameplateManagerWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new SettlementNameplateManagerWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+SettlementNameplateManagerWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

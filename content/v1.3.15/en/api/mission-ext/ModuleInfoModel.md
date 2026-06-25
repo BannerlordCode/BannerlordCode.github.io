@@ -1,13 +1,7 @@
 ---
 title: "ModuleInfoModel"
+description: "Auto-generated class reference for ModuleInfoModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleInfoModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ModuleInfoModel
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -39,22 +33,44 @@ Treat `ModuleInfoModel` as a Model-style extension point: first identify who cre
 ### ShouldIncludeInSession
 `public static bool ShouldIncludeInSession(ModuleInfo moduleInfo)`
 
-**Purpose:** Handles logic related to `should include in session`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ModuleInfoModel.ShouldIncludeInSession(moduleInfo);
+```
 
 ### TryCreateForSession
 `public static bool TryCreateForSession(ModuleInfo moduleInfo, out ModuleInfoModel moduleInfoModel)`
 
-**Purpose:** Attempts to get `create for session`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `create for session`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+ModuleInfoModel.TryCreateForSession(moduleInfo, moduleInfoModel);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of ModuleInfoModel from the subsystem API first
+ModuleInfoModel moduleInfoModel = ...;
+var result = moduleInfoModel.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of ModuleInfoModel from the subsystem API first
+ModuleInfoModel moduleInfoModel = ...;
+var result = moduleInfoModel.GetHashCode();
+```
 
 ## Usage Example
 
@@ -64,4 +80,4 @@ Game.Current.ReplaceModel<ModuleInfoModel>(new MyModuleInfoModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

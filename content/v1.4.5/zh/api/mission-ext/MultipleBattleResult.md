@@ -1,20 +1,14 @@
 ---
 title: "MultipleBattleResult"
+description: "MultipleBattleResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultipleBattleResult`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultipleBattleResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultipleBattleResult`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MultipleBattleResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MultipleBattleResult.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "MultipleBattleResult"
 ### CreateNewBattleResult
 `public void CreateNewBattleResult(string gameType)`
 
-**用途 / Purpose:** 创建一个 `new battle result` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「new battle result」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 MultipleBattleResult 实例
+MultipleBattleResult multipleBattleResult = ...;
+multipleBattleResult.CreateNewBattleResult("example");
+```
 
 ### GetCurrentBattleResult
 `public BattleResult GetCurrentBattleResult()`
 
-**用途 / Purpose:** 获取 `current battle result` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current battle result」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultipleBattleResult 实例
+MultipleBattleResult multipleBattleResult = ...;
+var result = multipleBattleResult.GetCurrentBattleResult();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultipleBattleResult();
-value.CreateNewBattleResult("example");
+// 通常从对应子系统 API 获取实例后调用
+MultipleBattleResult multipleBattleResult = ...;
+multipleBattleResult.CreateNewBattleResult("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

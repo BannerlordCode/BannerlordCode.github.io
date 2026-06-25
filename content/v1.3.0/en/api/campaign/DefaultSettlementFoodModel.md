@@ -1,13 +1,7 @@
 ---
 title: "DefaultSettlementFoodModel"
+description: "Auto-generated class reference for DefaultSettlementFoodModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementFoodModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementFoodModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -38,7 +32,13 @@ Treat `DefaultSettlementFoodModel` as a Model-style extension point: first ident
 ### CalculateTownFoodStocksChange
 `public override ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate town food stocks change`.
+**Purpose:** Calculates the current value or result of `town food stocks change`.
+
+```csharp
+// Obtain an instance of DefaultSettlementFoodModel from the subsystem API first
+DefaultSettlementFoodModel defaultSettlementFoodModel = ...;
+var result = defaultSettlementFoodModel.CalculateTownFoodStocksChange(town, false, false);
+```
 
 ## Usage Example
 
@@ -48,4 +48,4 @@ Game.Current.ReplaceModel<DefaultSettlementFoodModel>(new MyDefaultSettlementFoo
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

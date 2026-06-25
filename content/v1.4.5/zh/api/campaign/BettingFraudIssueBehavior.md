@@ -1,20 +1,14 @@
 ---
 title: "BettingFraudIssueBehavior"
+description: "BettingFraudIssueBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BettingFraudIssueBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BettingFraudIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BettingFraudIssueBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/BettingFraudIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/BettingFraudIssueBehavior.cs`
 
 ## 概述
 
@@ -35,30 +29,55 @@ title: "BettingFraudIssueBehavior"
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 获取 `frequency` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BettingFraudIssueBehavior 实例
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+var result = bettingFraudIssueBehavior.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
+**用途 / Purpose:** 创建或发起「stay alive conditions」。
+
+```csharp
+// 先通过子系统 API 拿到 BettingFraudIssueBehavior 实例
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+var result = bettingFraudIssueBehavior.IssueStayAliveConditions();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 BettingFraudIssueBehavior 实例
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+bettingFraudIssueBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 BettingFraudIssueBehavior 实例
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+bettingFraudIssueBehavior.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BettingFraudIssueBehavior();
-value.GetFrequency();
+// 通常从对应子系统 API 获取实例后调用
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+bettingFraudIssueBehavior.GetFrequency();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

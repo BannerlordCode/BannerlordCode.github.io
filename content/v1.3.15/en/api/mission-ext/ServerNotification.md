@@ -1,13 +1,7 @@
 ---
 title: "ServerNotification"
+description: "Auto-generated class reference for ServerNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServerNotification`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServerNotification
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetTextObjectOfMessage
 `public TextObject GetTextObjectOfMessage()`
 
-**Purpose:** Gets the current value of `text object of message`.
+**Purpose:** Reads and returns the `text object of message` value held by the current object.
+
+```csharp
+// Obtain an instance of ServerNotification from the subsystem API first
+ServerNotification serverNotification = ...;
+var result = serverNotification.GetTextObjectOfMessage();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ServerNotification();
-value.GetTextObjectOfMessage();
+// Typically call this after obtaining an instance from the subsystem API
+ServerNotification serverNotification = ...;
+serverNotification.GetTextObjectOfMessage();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "EavesdroppingMissionLogic"
+description: "Auto-generated class reference for EavesdroppingMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EavesdroppingMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EavesdroppingMissionLogic
 
 **Namespace:** SandBox.Missions
@@ -29,19 +23,31 @@ Treat `EavesdroppingMissionLogic` as a Logic-style extension point: first identi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EavesdroppingMissionLogic from the subsystem API first
+EavesdroppingMissionLogic eavesdroppingMissionLogic = ...;
+eavesdroppingMissionLogic.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of EavesdroppingMissionLogic from the subsystem API first
+EavesdroppingMissionLogic eavesdroppingMissionLogic = ...;
+eavesdroppingMissionLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new EavesdroppingMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<EavesdroppingMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

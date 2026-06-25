@@ -1,20 +1,14 @@
 ---
 title: "JoustingAgentController"
+description: "Auto-generated class reference for JoustingAgentController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JoustingAgentController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoustingAgentController
 
 **Namespace:** SandBox.Tournaments.AgentControllers
 **Module:** SandBox.Tournaments
 **Type:** `public class JoustingAgentController : AgentController`
 **Base:** `AgentController`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Tournaments.AgentControllers/JoustingAgentController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments.AgentControllers/JoustingAgentController.cs`
 
 ## Overview
 
@@ -38,27 +32,57 @@ Treat `JoustingAgentController` as a Controller-style extension point: first ide
 ### OnInitialize
 `public override void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Obtain an instance of JoustingAgentController from the subsystem API first
+JoustingAgentController joustingAgentController = ...;
+joustingAgentController.OnInitialize();
+```
 
 ### UpdateState
 `public void UpdateState()`
 
-**Purpose:** Updates the state or data of `state`.
+**Purpose:** Recalculates and stores the latest representation of `state`.
+
+```csharp
+// Obtain an instance of JoustingAgentController from the subsystem API first
+JoustingAgentController joustingAgentController = ...;
+joustingAgentController.UpdateState();
+```
 
 ### PrepareAgentToSwordDuel
 `public void PrepareAgentToSwordDuel()`
 
-**Purpose:** Handles logic related to `prepare agent to sword duel`.
+**Purpose:** Finishes prerequisite setup for the upcoming `agent to sword duel` operation.
+
+```csharp
+// Obtain an instance of JoustingAgentController from the subsystem API first
+JoustingAgentController joustingAgentController = ...;
+joustingAgentController.PrepareAgentToSwordDuel();
+```
 
 ### PrepareEquipmentsForSwordDuel
 `public void PrepareEquipmentsForSwordDuel()`
 
-**Purpose:** Handles logic related to `prepare equipments for sword duel`.
+**Purpose:** Finishes prerequisite setup for the upcoming `equipments for sword duel` operation.
+
+```csharp
+// Obtain an instance of JoustingAgentController from the subsystem API first
+JoustingAgentController joustingAgentController = ...;
+joustingAgentController.PrepareEquipmentsForSwordDuel();
+```
 
 ### IsRiding
 `public bool IsRiding()`
 
-**Purpose:** Handles logic related to `is riding`.
+**Purpose:** Determines whether the current object is in the `riding` state or condition.
+
+```csharp
+// Obtain an instance of JoustingAgentController from the subsystem API first
+JoustingAgentController joustingAgentController = ...;
+var result = joustingAgentController.IsRiding();
+```
 
 ## Usage Example
 
@@ -68,4 +92,4 @@ var controller = Mission.Current.GetMissionBehavior<JoustingAgentController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

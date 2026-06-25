@@ -1,13 +1,7 @@
 ---
 title: "WidgetInstantiationResult"
+description: "Auto-generated class reference for WidgetInstantiationResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetInstantiationResult`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetInstantiationResult
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -40,23 +34,42 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 
 **Purpose:** Adds `extension data` to the current collection or state.
 
+```csharp
+// Obtain an instance of WidgetInstantiationResult from the subsystem API first
+WidgetInstantiationResult widgetInstantiationResult = ...;
+widgetInstantiationResult.AddExtensionData("example", data, false);
+```
+
 ### AddExtensionData
 `public void AddExtensionData(object data, bool passToChildWidgetCreation = false)`
 
 **Purpose:** Adds `extension data` to the current collection or state.
 
+```csharp
+// Obtain an instance of WidgetInstantiationResult from the subsystem API first
+WidgetInstantiationResult widgetInstantiationResult = ...;
+widgetInstantiationResult.AddExtensionData(data, false);
+```
+
 ### GetLogicalOrDefaultChildrenLocation
 `public WidgetInstantiationResult GetLogicalOrDefaultChildrenLocation()`
 
-**Purpose:** Gets the current value of `logical or default children location`.
+**Purpose:** Reads and returns the `logical or default children location` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetInstantiationResult from the subsystem API first
+WidgetInstantiationResult widgetInstantiationResult = ...;
+var result = widgetInstantiationResult.GetLogicalOrDefaultChildrenLocation();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetInstantiationResult();
-value.AddExtensionData("example", data, false);
+// Typically call this after obtaining an instance from the subsystem API
+WidgetInstantiationResult widgetInstantiationResult = ...;
+widgetInstantiationResult.AddExtensionData("example", data, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

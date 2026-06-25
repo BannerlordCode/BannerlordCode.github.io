@@ -1,13 +1,7 @@
 ---
 title: "PlayerBattleEndedLogEntry"
+description: "PlayerBattleEndedLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerBattleEndedLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerBattleEndedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -39,30 +33,55 @@ title: "PlayerBattleEndedLogEntry"
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**用途 / Purpose:** 获取 `importance for clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「importance for clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleEndedLogEntry 实例
+PlayerBattleEndedLogEntry playerBattleEndedLogEntry = ...;
+var result = playerBattleEndedLogEntry.GetImportanceForClan(clan);
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**用途 / Purpose:** 获取 `conversation score and comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation score and comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleEndedLogEntry 实例
+PlayerBattleEndedLogEntry playerBattleEndedLogEntry = ...;
+playerBattleEndedLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleEndedLogEntry 实例
+PlayerBattleEndedLogEntry playerBattleEndedLogEntry = ...;
+var result = playerBattleEndedLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 获取 `notification text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerBattleEndedLogEntry 实例
+PlayerBattleEndedLogEntry playerBattleEndedLogEntry = ...;
+var result = playerBattleEndedLogEntry.GetNotificationText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerBattleEndedLogEntry();
-value.GetImportanceForClan(clan);
+// 通常从对应子系统 API 获取实例后调用
+PlayerBattleEndedLogEntry playerBattleEndedLogEntry = ...;
+playerBattleEndedLogEntry.GetImportanceForClan(clan);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

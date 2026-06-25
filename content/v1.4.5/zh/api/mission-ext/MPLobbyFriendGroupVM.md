@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyFriendGroupVM"
+description: "MPLobbyFriendGroupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyFriendGroupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyFriendGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyFriendGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyFriendGroupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyFriendGroupVM.cs`
 
 ## 概述
 
@@ -37,35 +31,66 @@ title: "MPLobbyFriendGroupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
+MPLobbyFriendGroupVM mPLobbyFriendGroupVM = ...;
+mPLobbyFriendGroupVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
+MPLobbyFriendGroupVM mPLobbyFriendGroupVM = ...;
+mPLobbyFriendGroupVM.Tick();
+```
 
 ### ClearFriends
 `public void ClearFriends()`
 
-**用途 / Purpose:** 处理 `clear friends` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「friends」。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
+MPLobbyFriendGroupVM mPLobbyFriendGroupVM = ...;
+mPLobbyFriendGroupVM.ClearFriends();
+```
 
 ### AddFriend
 `public void AddFriend(MPLobbyFriendItemVM player)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `friend`。
+**用途 / Purpose:** 将 「friend」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
+MPLobbyFriendGroupVM mPLobbyFriendGroupVM = ...;
+mPLobbyFriendGroupVM.AddFriend(player);
+```
 
 ### RemoveFriend
 `public void RemoveFriend(MPLobbyFriendItemVM player)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `friend`。
+**用途 / Purpose:** 从当前容器或状态中移除 「friend」。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendGroupVM 实例
+MPLobbyFriendGroupVM mPLobbyFriendGroupVM = ...;
+mPLobbyFriendGroupVM.RemoveFriend(player);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyFriendGroupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyFriendGroupVM mPLobbyFriendGroupVM = ...;
+mPLobbyFriendGroupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

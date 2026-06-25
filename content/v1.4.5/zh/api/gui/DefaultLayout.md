@@ -1,20 +1,14 @@
 ---
 title: "DefaultLayout"
+description: "DefaultLayout 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultLayout`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultLayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class DefaultLayout : ILayout`
 **Base:** `ILayout`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/DefaultLayout.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/DefaultLayout.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "DefaultLayout"
 ## 使用示例
 
 ```csharp
-var example = new DefaultLayout();
+// 从对应子系统 API 获取实例
+DefaultLayout instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

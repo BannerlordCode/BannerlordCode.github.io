@@ -1,18 +1,12 @@
 ---
 title: "ImportanceEnum"
+description: "Auto-generated class reference for ImportanceEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImportanceEnum`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImportanceEnum
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum ImportanceEnum`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/LogEntries/ImportanceEnum.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ## Usage Example
 
 ```csharp
-var example = new ImportanceEnum();
+// Obtain an instance from the relevant subsystem API
+ImportanceEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

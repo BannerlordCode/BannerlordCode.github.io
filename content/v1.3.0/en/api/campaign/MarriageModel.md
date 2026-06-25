@@ -1,13 +1,7 @@
 ---
 title: "MarriageModel"
+description: "Auto-generated class reference for MarriageModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarriageModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,49 +30,98 @@ Treat `MarriageModel` as a Model-style extension point: first identify who creat
 ### IsCoupleSuitableForMarriage
 `public abstract bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)`
 
-**Purpose:** Handles logic related to `is couple suitable for marriage`.
+**Purpose:** Determines whether the current object is in the `couple suitable for marriage` state or condition.
+
+```csharp
+// Obtain an instance of MarriageModel from the subsystem API first
+MarriageModel marriageModel = ...;
+var result = marriageModel.IsCoupleSuitableForMarriage(firstHero, secondHero);
+```
 
 ### GetEffectiveRelationIncrease
 `public abstract int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)`
 
-**Purpose:** Gets the current value of `effective relation increase`.
+**Purpose:** Reads and returns the `effective relation increase` value held by the current object.
+
+```csharp
+// Obtain an instance of MarriageModel from the subsystem API first
+MarriageModel marriageModel = ...;
+var result = marriageModel.GetEffectiveRelationIncrease(firstHero, secondHero);
+```
 
 ### GetClanAfterMarriage
 `public abstract Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)`
 
-**Purpose:** Gets the current value of `clan after marriage`.
+**Purpose:** Reads and returns the `clan after marriage` value held by the current object.
+
+```csharp
+// Obtain an instance of MarriageModel from the subsystem API first
+MarriageModel marriageModel = ...;
+var result = marriageModel.GetClanAfterMarriage(firstHero, secondHero);
+```
 
 ### IsSuitableForMarriage
 `public abstract bool IsSuitableForMarriage(Hero hero)`
 
-**Purpose:** Handles logic related to `is suitable for marriage`.
+**Purpose:** Determines whether the current object is in the `suitable for marriage` state or condition.
+
+```csharp
+// Obtain an instance of MarriageModel from the subsystem API first
+MarriageModel marriageModel = ...;
+var result = marriageModel.IsSuitableForMarriage(hero);
+```
 
 ### IsClanSuitableForMarriage
 `public abstract bool IsClanSuitableForMarriage(Clan clan)`
 
-**Purpose:** Handles logic related to `is clan suitable for marriage`.
+**Purpose:** Determines whether the current object is in the `clan suitable for marriage` state or condition.
+
+```csharp
+// Obtain an instance of MarriageModel from the subsystem API first
+MarriageModel marriageModel = ...;
+var result = marriageModel.IsClanSuitableForMarriage(clan);
+```
 
 ### NpcCoupleMarriageChance
 `public abstract float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)`
 
-**Purpose:** Handles logic related to `npc couple marriage chance`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MarriageModel from the subsystem API first
+MarriageModel marriageModel = ...;
+var result = marriageModel.NpcCoupleMarriageChance(firstHero, secondHero);
+```
 
 ### ShouldNpcMarriageBetweenClansBeAllowed
 `public abstract bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)`
 
-**Purpose:** Handles logic related to `should npc marriage between clans be allowed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MarriageModel from the subsystem API first
+MarriageModel marriageModel = ...;
+var result = marriageModel.ShouldNpcMarriageBetweenClansBeAllowed(consideringClan, targetClan);
+```
 
 ### GetAdultChildrenSuitableForMarriage
 `public abstract List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)`
 
-**Purpose:** Gets the current value of `adult children suitable for marriage`.
+**Purpose:** Reads and returns the `adult children suitable for marriage` value held by the current object.
+
+```csharp
+// Obtain an instance of MarriageModel from the subsystem API first
+MarriageModel marriageModel = ...;
+var result = marriageModel.GetAdultChildrenSuitableForMarriage(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMarriageModel();
+// Typically obtained from a subsystem API or factory
+MarriageModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPGeneralKillNotificationItemVM"
+description: "Auto-generated class reference for MPGeneralKillNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPGeneralKillNotificationItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPGeneralKillNotificationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPGeneralKillNotificationItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General/MPGeneralKillNotificationItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.General/MPGeneralKillNotificationItemVM.cs`
 
 ## Overview
 
@@ -51,25 +45,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### InitProperties
 `public unsafe virtual void InitProperties(Agent affectedAgent, Agent affectorAgent)`
 
-**Purpose:** Initializes the state, resources, or bindings for `properties`.
+**Purpose:** Prepares the resources, state, or bindings required by `properties`.
+
+```csharp
+// Obtain an instance of MPGeneralKillNotificationItemVM from the subsystem API first
+MPGeneralKillNotificationItemVM mPGeneralKillNotificationItemVM = ...;
+mPGeneralKillNotificationItemVM.InitProperties(affectedAgent, affectorAgent);
+```
 
 ### InitDeathProperties
 `public void InitDeathProperties(Agent affectedAgent, Agent affectorAgent, Agent assistedAgent)`
 
-**Purpose:** Initializes the state, resources, or bindings for `death properties`.
+**Purpose:** Prepares the resources, state, or bindings required by `death properties`.
+
+```csharp
+// Obtain an instance of MPGeneralKillNotificationItemVM from the subsystem API first
+MPGeneralKillNotificationItemVM mPGeneralKillNotificationItemVM = ...;
+mPGeneralKillNotificationItemVM.InitDeathProperties(affectedAgent, affectorAgent, assistedAgent);
+```
 
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of MPGeneralKillNotificationItemVM from the subsystem API first
+MPGeneralKillNotificationItemVM mPGeneralKillNotificationItemVM = ...;
+mPGeneralKillNotificationItemVM.ExecuteRemove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPGeneralKillNotificationItemVM();
-value.InitProperties(affectedAgent, affectorAgent);
+// Typically call this after obtaining an instance from the subsystem API
+MPGeneralKillNotificationItemVM mPGeneralKillNotificationItemVM = ...;
+mPGeneralKillNotificationItemVM.InitProperties(affectedAgent, affectorAgent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

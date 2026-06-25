@@ -1,20 +1,14 @@
 ---
 title: "ParallaxContainerWidget"
+description: "Auto-generated class reference for ParallaxContainerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ParallaxContainerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ParallaxContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ParallaxContainerWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ParallaxContainerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ParallaxContainerWidget.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `ParallaxContainerWidget` as a Widget-style extension point: first identif
 ### ParallaxContainerWidget
 `public class ParallaxContainerWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `parallax container widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ParallaxContainerWidget from the subsystem API first
+ParallaxContainerWidget parallaxContainerWidget = ...;
+var result = parallaxContainerWidget.ParallaxContainerWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ParallaxContainerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ParallaxContainerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "FlagCapturePoint"
+description: "FlagCapturePoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FlagCapturePoint`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FlagCapturePoint
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
@@ -39,65 +33,132 @@ title: "FlagCapturePoint"
 ### ResetPointAsServer
 `public void ResetPointAsServer(uint defaultColor, uint defaultColor2)`
 
-**用途 / Purpose:** 将 `point as server` 重置为初始状态。
+**用途 / Purpose:** 将 「point as server」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.ResetPointAsServer(0, 0);
+```
 
 ### RemovePointAsServer
 `public void RemovePointAsServer()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `point as server`。
+**用途 / Purpose:** 从当前容器或状态中移除 「point as server」。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.RemovePointAsServer();
+```
 
 ### OnAfterTick
 `public void OnAfterTick(bool canOwnershipChange, out bool ownerTeamChanged)`
 
-**用途 / Purpose:** 当 `after tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.OnAfterTick(false, ownerTeamChanged);
+```
 
 ### SetMoveFlag
 `public void SetMoveFlag(CaptureTheFlagFlagDirection directionTo, float speedMultiplier = 1f)`
 
-**用途 / Purpose:** 设置 `move flag` 的值或状态。
+**用途 / Purpose:** 为 「move flag」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.SetMoveFlag(directionTo, 0);
+```
 
 ### ChangeMovementSpeed
 `public void ChangeMovementSpeed(float speedMultiplier)`
 
-**用途 / Purpose:** 处理 `change movement speed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.ChangeMovementSpeed(0);
+```
 
 ### SetMoveNone
 `public void SetMoveNone()`
 
-**用途 / Purpose:** 设置 `move none` 的值或状态。
+**用途 / Purpose:** 为 「move none」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.SetMoveNone();
+```
 
 ### SetVisibleWithAllSynched
 `public void SetVisibleWithAllSynched(bool value, bool forceChildrenVisible = false)`
 
-**用途 / Purpose:** 设置 `visible with all synched` 的值或状态。
+**用途 / Purpose:** 为 「visible with all synched」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.SetVisibleWithAllSynched(false, false);
+```
 
 ### SetTeamColorsWithAllSynched
 `public void SetTeamColorsWithAllSynched(uint color, uint color2)`
 
-**用途 / Purpose:** 设置 `team colors with all synched` 的值或状态。
+**用途 / Purpose:** 为 「team colors with all synched」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.SetTeamColorsWithAllSynched(0, 0);
+```
 
 ### GetFlagColor
 `public uint GetFlagColor()`
 
-**用途 / Purpose:** 获取 `flag color` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flag color」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+var result = flagCapturePoint.GetFlagColor();
+```
 
 ### GetFlagColor2
 `public uint GetFlagColor2()`
 
-**用途 / Purpose:** 获取 `flag color2` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flag color2」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+var result = flagCapturePoint.GetFlagColor2();
+```
 
 ### GetFlagProgress
 `public float GetFlagProgress()`
 
-**用途 / Purpose:** 获取 `flag progress` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flag progress」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FlagCapturePoint 实例
+FlagCapturePoint flagCapturePoint = ...;
+var result = flagCapturePoint.GetFlagProgress();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FlagCapturePoint();
-value.ResetPointAsServer(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+FlagCapturePoint flagCapturePoint = ...;
+flagCapturePoint.ResetPointAsServer(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

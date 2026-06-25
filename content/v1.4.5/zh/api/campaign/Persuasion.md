@@ -1,20 +1,14 @@
 ---
 title: "Persuasion"
+description: "Persuasion 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Persuasion`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Persuasion
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Persuasion`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/Persuasion.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/Persuasion.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "Persuasion"
 ### CommitProgress
 `public void CommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
 
-**用途 / Purpose:** 处理 `commit progress` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Persuasion 实例
+Persuasion persuasion = ...;
+persuasion.CommitProgress(persuasionOptionArgs);
+```
 
 ### GetChosenOptions
 `public IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetChosenOptions()`
 
-**用途 / Purpose:** 获取 `chosen options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「chosen options」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Persuasion 实例
+Persuasion persuasion = ...;
+var result = persuasion.GetChosenOptions();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Persuasion();
-value.CommitProgress(persuasionOptionArgs);
+// 通常从对应子系统 API 获取实例后调用
+Persuasion persuasion = ...;
+persuasion.CommitProgress(persuasionOptionArgs);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

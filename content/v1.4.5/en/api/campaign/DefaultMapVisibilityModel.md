@@ -1,20 +1,14 @@
 ---
 title: "DefaultMapVisibilityModel"
+description: "Auto-generated class reference for DefaultMapVisibilityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMapVisibilityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMapVisibilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultMapVisibilityModel : MapVisibilityModel`
 **Base:** `MapVisibilityModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultMapVisibilityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultMapVisibilityModel.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `DefaultMapVisibilityModel` as a Model-style extension point: first identi
 ### MaximumSeeingRange
 `public override float MaximumSeeingRange()`
 
-**Purpose:** Handles logic related to `maximum seeing range`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.MaximumSeeingRange();
+```
 
 ### GetPartySeeingRangeBase
 `public override float GetPartySeeingRangeBase(MobileParty party)`
 
-**Purpose:** Gets the current value of `party seeing range base`.
+**Purpose:** Reads and returns the `party seeing range base` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetPartySeeingRangeBase(party);
+```
 
 ### GetPartySpottingRange
 `public override ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `party spotting range`.
+**Purpose:** Reads and returns the `party spotting range` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetPartySpottingRange(party, false);
+```
 
 ### GetPartySpottingRatioForMainPartySeeingRange
 `public override float GetPartySpottingRatioForMainPartySeeingRange(MobileParty party)`
 
-**Purpose:** Gets the current value of `party spotting ratio for main party seeing range`.
+**Purpose:** Reads and returns the `party spotting ratio for main party seeing range` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetPartySpottingRatioForMainPartySeeingRange(party);
+```
 
 ### GetHideoutSpottingDistance
 `public override float GetHideoutSpottingDistance()`
 
-**Purpose:** Gets the current value of `hideout spotting distance`.
+**Purpose:** Reads and returns the `hideout spotting distance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
+DefaultMapVisibilityModel defaultMapVisibilityModel = ...;
+var result = defaultMapVisibilityModel.GetHideoutSpottingDistance();
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultMapVisibilityModel>(new MyDefaultMapVisibilityM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

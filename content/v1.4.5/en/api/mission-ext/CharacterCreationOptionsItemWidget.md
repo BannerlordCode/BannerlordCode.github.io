@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationOptionsItemWidget"
+description: "Auto-generated class reference for CharacterCreationOptionsItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationOptionsItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationOptionsItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Options
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterCreationOptionsItemWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Options/CharacterCreationOptionsItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Options/CharacterCreationOptionsItemWidget.cs`
 
 ## Overview
 
@@ -39,14 +33,21 @@ Treat `CharacterCreationOptionsItemWidget` as a Widget-style extension point: fi
 ### CharacterCreationOptionsItemWidget
 `public class CharacterCreationOptionsItemWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `character creation options item widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsItemWidget from the subsystem API first
+CharacterCreationOptionsItemWidget characterCreationOptionsItemWidget = ...;
+var result = characterCreationOptionsItemWidget.CharacterCreationOptionsItemWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CharacterCreationOptionsItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterCreationOptionsItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

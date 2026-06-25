@@ -1,13 +1,7 @@
 ---
 title: "MaterialProperty"
+description: "Auto-generated class reference for MaterialProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MaterialProperty`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MaterialProperty
 
 **Namespace:** TaleWorlds.Core
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new MaterialProperty();
+// Obtain an instance from the relevant subsystem API
+MaterialProperty instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

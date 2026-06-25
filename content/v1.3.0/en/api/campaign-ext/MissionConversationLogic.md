@@ -1,13 +1,7 @@
 ---
 title: "MissionConversationLogic"
+description: "Auto-generated class reference for MissionConversationLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionConversationLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionConversationLogic
 
 **Namespace:** SandBox.Conversation.MissionLogics
@@ -39,74 +33,152 @@ Treat `MissionConversationLogic` as a Logic-style extension point: first identif
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnRemoveBehavior();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnAgentBuild(agent, banner);
+```
 
 ### SetSpawnArea
 `public void SetSpawnArea(Alley alley)`
 
-**Purpose:** Sets the value or state of `spawn area`.
+**Purpose:** Assigns a new value to `spawn area` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.SetSpawnArea(alley);
+```
 
 ### SetSpawnArea
 `public void SetSpawnArea(Workshop workshop)`
 
-**Purpose:** Sets the value or state of `spawn area`.
+**Purpose:** Assigns a new value to `spawn area` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.SetSpawnArea(workshop);
+```
 
 ### SetSpawnArea
 `public void SetSpawnArea(string customTag)`
 
-**Purpose:** Sets the value or state of `spawn area`.
+**Purpose:** Assigns a new value to `spawn area` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.SetSpawnArea("example");
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnMissionTick(0);
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.EarlyStart();
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `agent interaction` event is raised.
+**Purpose:** Invoked when the `agent interaction` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### StartConversation
 `public void StartConversation(Agent agent, bool setActionsInstantly, bool isInitialization = false)`
 
-**Purpose:** Handles logic related to `start conversation`.
+**Purpose:** Starts the `conversation` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.StartConversation(agent, false, false);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+var result = missionConversationLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** Called when the `rendering started` event is raised.
+**Purpose:** Invoked when the `rendering started` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnRenderingStarted();
+```
 
 ### DisableStartConversation
 `public void DisableStartConversation(bool isDisabled)`
 
-**Purpose:** Handles logic related to `disable start conversation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionConversationLogic from the subsystem API first
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.DisableStartConversation(false);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionConversationLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionConversationLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

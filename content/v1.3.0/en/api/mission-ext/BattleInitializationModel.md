@@ -1,13 +1,7 @@
 ---
 title: "BattleInitializationModel"
+description: "Auto-generated class reference for BattleInitializationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleInitializationModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleInitializationModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,29 +23,54 @@ Treat `BattleInitializationModel` as a Model-style extension point: first identi
 ### GetAllAvailableTroopTypes
 `public abstract List<FormationClass> GetAllAvailableTroopTypes()`
 
-**Purpose:** Gets the current value of `all available troop types`.
+**Purpose:** Reads and returns the `all available troop types` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleInitializationModel from the subsystem API first
+BattleInitializationModel battleInitializationModel = ...;
+var result = battleInitializationModel.GetAllAvailableTroopTypes();
+```
 
 ### CanPlayerSideDeployWithOrderOfBattle
 `public bool CanPlayerSideDeployWithOrderOfBattle()`
 
-**Purpose:** Checks whether the current object can `player side deploy with order of battle`.
+**Purpose:** Checks whether the current object meets the preconditions for `player side deploy with order of battle`.
+
+```csharp
+// Obtain an instance of BattleInitializationModel from the subsystem API first
+BattleInitializationModel battleInitializationModel = ...;
+var result = battleInitializationModel.CanPlayerSideDeployWithOrderOfBattle();
+```
 
 ### InitializeModel
 `public void InitializeModel()`
 
-**Purpose:** Initializes the state, resources, or bindings for `model`.
+**Purpose:** Prepares the resources, state, or bindings required by `model`.
+
+```csharp
+// Obtain an instance of BattleInitializationModel from the subsystem API first
+BattleInitializationModel battleInitializationModel = ...;
+battleInitializationModel.InitializeModel();
+```
 
 ### FinalizeModel
 `public void FinalizeModel()`
 
-**Purpose:** Handles logic related to `finalize model`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleInitializationModel from the subsystem API first
+BattleInitializationModel battleInitializationModel = ...;
+battleInitializationModel.FinalizeModel();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBattleInitializationModel();
+// Typically obtained from a subsystem API or factory
+BattleInitializationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

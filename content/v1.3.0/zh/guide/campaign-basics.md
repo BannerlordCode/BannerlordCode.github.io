@@ -10,7 +10,7 @@ description: v1.3.0 MobileParty、Kingdom 入门 / v1.3.0 MobileParty, Kingdom i
 
 **v1.3.0 版本**
 
-> 注意：本页面介绍 v1.3.0 的 Campaign 系统基础。v1.3.15 有更多功能。如需完整内容，请查看 [v1.3.15 Campaign 系统](../../../v1.3.15/zh/guide/campaign-system)。
+> 注意：本页面介绍 v1.3.0 的 Campaign 系统基础。v1.3.15 有更多功能。如需完整内容，请查看 [v1.3.15 Campaign 系统](../../../v1.3.15/zh/guide/campaign-system/)。
 
 ## 概述 / Overview
 
@@ -91,7 +91,7 @@ Town nearestTown = Settlement.FindNearestTown(position);
 
 ## 相关文档 / Related Documentation
 
-- [v1.3.15 Campaign 系统](../../../v1.3.15/zh/guide/campaign-system)
+- [v1.3.15 Campaign 系统](../../../v1.3.15/zh/guide/campaign-system/)
 - [API 参考](../api/campaign/)
 
 ## 使用示例

@@ -1,20 +1,14 @@
 ---
 title: "CustomGameBannedPlayerManager"
+description: "Auto-generated class reference for CustomGameBannedPlayerManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomGameBannedPlayerManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomGameBannedPlayerManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CustomGameBannedPlayerManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomGameBannedPlayerManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomGameBannedPlayerManager.cs`
 
 ## Overview
 
@@ -38,10 +32,20 @@ Treat `CustomGameBannedPlayerManager` as a Manager-style extension point: first 
 
 **Purpose:** Adds `banned player` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+CustomGameBannedPlayerManager.AddBannedPlayer(playerId, 0);
+```
+
 ### IsUserBanned
 `public static bool IsUserBanned(PlayerId playerId)`
 
-**Purpose:** Handles logic related to `is user banned`.
+**Purpose:** Determines whether the current object is in the `user banned` state or condition.
+
+```csharp
+// Static call; no instance required
+CustomGameBannedPlayerManager.IsUserBanned(playerId);
+```
 
 ## Usage Example
 
@@ -51,4 +55,4 @@ var manager = CustomGameBannedPlayerManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

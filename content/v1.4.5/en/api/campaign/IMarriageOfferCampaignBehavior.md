@@ -1,20 +1,14 @@
 ---
 title: "IMarriageOfferCampaignBehavior"
+description: "Auto-generated class reference for IMarriageOfferCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMarriageOfferCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMarriageOfferCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/IMarriageOfferCampaignBehavior.cs`
+**Type:** `public interface IMarriageOfferCampaignBehavior : ICampaignBehavior`
+**Base:** `ICampaignBehavior`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/IMarriageOfferCampaignBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IMarriageOfferCampaignBehavior implementation = GetMarriageOfferCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIMarriageOfferCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

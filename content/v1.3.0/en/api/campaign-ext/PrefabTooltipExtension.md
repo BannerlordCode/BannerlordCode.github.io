@@ -1,13 +1,7 @@
 ---
 title: "PrefabTooltipExtension"
+description: "Auto-generated class reference for PrefabTooltipExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrefabTooltipExtension`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrefabTooltipExtension
 
 **Namespace:** TaleWorlds.GauntletUI.TooltipExtensions
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.TooltipExtensions` to place it in th
 ## Usage Example
 
 ```csharp
-var value = new PrefabTooltipExtension();
+// Obtain an instance from the relevant subsystem API
+PrefabTooltipExtension instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "KingdomPolicyDecisionItemVM"
+description: "KingdomPolicyDecisionItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomPolicyDecisionItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomPolicyDecisionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomPolicyDecisionItemVM`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/KingdomPolicyDecisionItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes/KingdomPolicyDecisionItemVM.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "KingdomPolicyDecisionItemVM"
 ## 使用示例
 
 ```csharp
-var example = new KingdomPolicyDecisionItemVM();
+// 从对应子系统 API 获取实例
+KingdomPolicyDecisionItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

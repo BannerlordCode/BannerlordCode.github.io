@@ -1,13 +1,7 @@
 ---
 title: "StackLayout"
+description: "Auto-generated class reference for StackLayout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StackLayout`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StackLayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ### GetItemDescription
 `public ContainerItemDescription GetItemDescription(Widget owner, Widget child, int childIndex)`
 
-**Purpose:** Gets the current value of `item description`.
+**Purpose:** Reads and returns the `item description` value held by the current object.
+
+```csharp
+// Obtain an instance of StackLayout from the subsystem API first
+StackLayout stackLayout = ...;
+var result = stackLayout.GetItemDescription(owner, child, 0);
+```
 
 ### MeasureChildren
 `public Vector2 MeasureChildren(Widget widget, Vector2 measureSpec, SpriteData spriteData, float renderScale)`
 
-**Purpose:** Handles logic related to `measure children`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StackLayout from the subsystem API first
+StackLayout stackLayout = ...;
+var result = stackLayout.MeasureChildren(widget, measureSpec, spriteData, 0);
+```
 
 ### OnLayout
 `public void OnLayout(Widget widget, float left, float bottom, float right, float top)`
 
-**Purpose:** Called when the `layout` event is raised.
+**Purpose:** Invoked when the `layout` event is raised.
+
+```csharp
+// Obtain an instance of StackLayout from the subsystem API first
+StackLayout stackLayout = ...;
+stackLayout.OnLayout(widget, 0, 0, 0, 0);
+```
 
 ### GetIndexForDrop
 `public int GetIndexForDrop(Container widget, Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `index for drop`.
+**Purpose:** Reads and returns the `index for drop` value held by the current object.
+
+```csharp
+// Obtain an instance of StackLayout from the subsystem API first
+StackLayout stackLayout = ...;
+var result = stackLayout.GetIndexForDrop(widget, draggedWidgetPosition);
+```
 
 ### GetDropGizmoPosition
 `public Vector2 GetDropGizmoPosition(Container widget, Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `drop gizmo position`.
+**Purpose:** Reads and returns the `drop gizmo position` value held by the current object.
+
+```csharp
+// Obtain an instance of StackLayout from the subsystem API first
+StackLayout stackLayout = ...;
+var result = stackLayout.GetDropGizmoPosition(widget, draggedWidgetPosition);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StackLayout();
-value.GetItemDescription(owner, child, 0);
+// Typically call this after obtaining an instance from the subsystem API
+StackLayout stackLayout = ...;
+stackLayout.GetItemDescription(owner, child, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

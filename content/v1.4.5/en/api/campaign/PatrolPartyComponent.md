@@ -1,20 +1,14 @@
 ---
 title: "PatrolPartyComponent"
+description: "Auto-generated class reference for PatrolPartyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PatrolPartyComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PatrolPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PatrolPartyComponent : PartyComponent`
 **Base:** `PartyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/PatrolPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/PatrolPartyComponent.cs`
 
 ## Overview
 
@@ -35,17 +29,34 @@ Treat `PatrolPartyComponent` as a Component-style extension point: first identif
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Gets the current value of `default component banner`.
+**Purpose:** Reads and returns the `default component banner` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrolPartyComponent from the subsystem API first
+PatrolPartyComponent patrolPartyComponent = ...;
+var result = patrolPartyComponent.GetDefaultComponentBanner();
+```
 
 ### CreatePatrolParty
 `public static MobileParty CreatePatrolParty(string stringId, CampaignVec2 position, float spawnRadius, Settlement homeSettlement, PartyTemplateObject template)`
 
-**Purpose:** Creates a new `patrol party` instance or object.
+**Purpose:** Constructs a new `patrol party` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+PatrolPartyComponent.CreatePatrolParty("example", position, 0, homeSettlement, template);
+```
 
 ### SortRoster
 `public void SortRoster()`
 
-**Purpose:** Handles logic related to `sort roster`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PatrolPartyComponent from the subsystem API first
+PatrolPartyComponent patrolPartyComponent = ...;
+patrolPartyComponent.SortRoster();
+```
 
 ## Usage Example
 
@@ -55,4 +66,4 @@ var component = agent.GetComponent<PatrolPartyComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

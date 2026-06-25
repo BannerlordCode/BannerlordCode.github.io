@@ -1,13 +1,7 @@
 ---
 title: "GameOverState"
+description: "GameOverState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameOverState`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -37,17 +31,32 @@ title: "GameOverState"
 ### CreateForVictory
 `public static GameOverState CreateForVictory()`
 
-**用途 / Purpose:** 创建一个 `for victory` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「for victory」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+GameOverState.CreateForVictory();
+```
 
 ### CreateForRetirement
 `public static GameOverState CreateForRetirement()`
 
-**用途 / Purpose:** 创建一个 `for retirement` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「for retirement」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+GameOverState.CreateForRetirement();
+```
 
 ### CreateForClanDestroyed
 `public static GameOverState CreateForClanDestroyed()`
 
-**用途 / Purpose:** 创建一个 `for clan destroyed` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「for clan destroyed」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+GameOverState.CreateForClanDestroyed();
+```
 
 ## 使用示例
 
@@ -57,4 +66,4 @@ GameOverState.CreateForVictory();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

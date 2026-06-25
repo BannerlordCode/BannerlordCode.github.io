@@ -1,20 +1,14 @@
 ---
 title: "InputLayout"
+description: "InputLayout 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InputLayout`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputLayout
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
+**Type:** `public enum InputLayout`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/InputLayout.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/InputLayout.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "InputLayout"
 ## 使用示例
 
 ```csharp
-var example = new InputLayout();
+// 从对应子系统 API 获取实例
+InputLayout instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

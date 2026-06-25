@@ -1,20 +1,14 @@
 ---
 title: "StringItemWithActionVM"
+description: "StringItemWithActionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StringItemWithActionVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringItemWithActionVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
 **Module:** TaleWorlds.Core
 **Type:** `public class StringItemWithActionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringItemWithActionVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringItemWithActionVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "StringItemWithActionVM"
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 StringItemWithActionVM 实例
+StringItemWithActionVM stringItemWithActionVM = ...;
+stringItemWithActionVM.ExecuteAction();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StringItemWithActionVM();
-value.ExecuteAction();
+// 通常从对应子系统 API 获取实例后调用
+StringItemWithActionVM stringItemWithActionVM = ...;
+stringItemWithActionVM.ExecuteAction();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "Shader"
+description: "Auto-generated class reference for Shader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Shader`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Shader
 
 **Namespace:** TaleWorlds.Engine
@@ -35,12 +29,23 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetFromResource
 `public static Shader GetFromResource(string shaderName)`
 
-**Purpose:** Gets the current value of `from resource`.
+**Purpose:** Reads and returns the `from resource` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Shader.GetFromResource("example");
+```
 
 ### GetMaterialShaderFlagMask
 `public ulong GetMaterialShaderFlagMask(string flagName, bool showErrors = true)`
 
-**Purpose:** Gets the current value of `material shader flag mask`.
+**Purpose:** Reads and returns the `material shader flag mask` value held by the current object.
+
+```csharp
+// Obtain an instance of Shader from the subsystem API first
+Shader shader = ...;
+var result = shader.GetMaterialShaderFlagMask("example", false);
+```
 
 ## Usage Example
 
@@ -50,4 +55,4 @@ Shader.GetFromResource("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

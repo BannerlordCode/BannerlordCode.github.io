@@ -1,20 +1,14 @@
 ---
 title: "SettlementClaimantPreliminaryOutcome"
+description: "Auto-generated class reference for SettlementClaimantPreliminaryOutcome."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementClaimantPreliminaryOutcome`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementClaimantPreliminaryOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SettlementClaimantPreliminaryOutcome : DecisionOutcome`
 **Base:** `DecisionOutcome`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/SettlementClaimantPreliminaryDecision.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/SettlementClaimantPreliminaryDecision.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Gets the current value of `decision title`.
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementClaimantPreliminaryOutcome from the subsystem API first
+SettlementClaimantPreliminaryOutcome settlementClaimantPreliminaryOutcome = ...;
+var result = settlementClaimantPreliminaryOutcome.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Gets the current value of `decision description`.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementClaimantPreliminaryOutcome from the subsystem API first
+SettlementClaimantPreliminaryOutcome settlementClaimantPreliminaryOutcome = ...;
+var result = settlementClaimantPreliminaryOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `decision link`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementClaimantPreliminaryOutcome from the subsystem API first
+SettlementClaimantPreliminaryOutcome settlementClaimantPreliminaryOutcome = ...;
+var result = settlementClaimantPreliminaryOutcome.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Gets the current value of `decision image identifier`.
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementClaimantPreliminaryOutcome from the subsystem API first
+SettlementClaimantPreliminaryOutcome settlementClaimantPreliminaryOutcome = ...;
+var result = settlementClaimantPreliminaryOutcome.GetDecisionImageIdentifier();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementClaimantPreliminaryOutcome();
-value.GetDecisionTitle();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementClaimantPreliminaryOutcome settlementClaimantPreliminaryOutcome = ...;
+settlementClaimantPreliminaryOutcome.GetDecisionTitle();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

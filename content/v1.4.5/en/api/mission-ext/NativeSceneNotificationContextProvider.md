@@ -1,20 +1,14 @@
 ---
 title: "NativeSceneNotificationContextProvider"
+description: "Auto-generated class reference for NativeSceneNotificationContextProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeSceneNotificationContextProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeSceneNotificationContextProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.SceneNotification
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NativeSceneNotificationContextProvider : ISceneNotificationContextProvider`
 **Base:** `ISceneNotificationContextProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.SceneNotification/NativeSceneNotificationContextProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.SceneNotification/NativeSceneNotificationContextProvider.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.SceneNotification` to 
 ### IsContextAllowed
 `public bool IsContextAllowed(RelevantContextType relevantType)`
 
-**Purpose:** Handles logic related to `is context allowed`.
+**Purpose:** Determines whether the current object is in the `context allowed` state or condition.
+
+```csharp
+// Obtain an instance of NativeSceneNotificationContextProvider from the subsystem API first
+NativeSceneNotificationContextProvider nativeSceneNotificationContextProvider = ...;
+var result = nativeSceneNotificationContextProvider.IsContextAllowed(relevantType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NativeSceneNotificationContextProvider();
-value.IsContextAllowed(relevantType);
+// Typically call this after obtaining an instance from the subsystem API
+NativeSceneNotificationContextProvider nativeSceneNotificationContextProvider = ...;
+nativeSceneNotificationContextProvider.IsContextAllowed(relevantType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

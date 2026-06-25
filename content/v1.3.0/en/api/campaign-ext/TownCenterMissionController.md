@@ -1,13 +1,7 @@
 ---
 title: "TownCenterMissionController"
+description: "Auto-generated class reference for TownCenterMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownCenterMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownCenterMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Towns
@@ -29,12 +23,24 @@ Treat `TownCenterMissionController` as a Controller-style extension point: first
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of TownCenterMissionController from the subsystem API first
+TownCenterMissionController townCenterMissionController = ...;
+townCenterMissionController.OnCreated();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TownCenterMissionController from the subsystem API first
+TownCenterMissionController townCenterMissionController = ...;
+townCenterMissionController.AfterStart();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<TownCenterMissionController>
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

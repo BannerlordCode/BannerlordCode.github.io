@@ -1,13 +1,7 @@
 ---
 title: "MissionFacialAnimationHandler"
+description: "Auto-generated class reference for MissionFacialAnimationHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionFacialAnimationHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFacialAnimationHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers
@@ -29,24 +23,42 @@ Treat `MissionFacialAnimationHandler` as a Handler-style extension point: first 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionFacialAnimationHandler from the subsystem API first
+MissionFacialAnimationHandler missionFacialAnimationHandler = ...;
+missionFacialAnimationHandler.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionFacialAnimationHandler from the subsystem API first
+MissionFacialAnimationHandler missionFacialAnimationHandler = ...;
+missionFacialAnimationHandler.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionFacialAnimationHandler from the subsystem API first
+MissionFacialAnimationHandler missionFacialAnimationHandler = ...;
+missionFacialAnimationHandler.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionFacialAnimationHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionFacialAnimationHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

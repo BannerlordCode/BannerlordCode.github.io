@@ -1,20 +1,14 @@
 ---
 title: "RangedHeadShotDamageEffect"
+description: "Auto-generated class reference for RangedHeadShotDamageEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RangedHeadShotDamageEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedHeadShotDamageEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RangedHeadShotDamageEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/RangedHeadShotDamageEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/RangedHeadShotDamageEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetRangedHeadShotDamage
 `public override float GetRangedHeadShotDamage()`
 
-**Purpose:** Gets the current value of `ranged head shot damage`.
+**Purpose:** Reads and returns the `ranged head shot damage` value held by the current object.
+
+```csharp
+// Obtain an instance of RangedHeadShotDamageEffect from the subsystem API first
+RangedHeadShotDamageEffect rangedHeadShotDamageEffect = ...;
+var result = rangedHeadShotDamageEffect.GetRangedHeadShotDamage();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RangedHeadShotDamageEffect();
-value.GetRangedHeadShotDamage();
+// Typically call this after obtaining an instance from the subsystem API
+RangedHeadShotDamageEffect rangedHeadShotDamageEffect = ...;
+rangedHeadShotDamageEffect.GetRangedHeadShotDamage();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

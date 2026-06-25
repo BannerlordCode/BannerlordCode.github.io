@@ -1,20 +1,14 @@
 ---
 title: "ShipVisual"
+description: "Auto-generated class reference for ShipVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipVisual`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipVisual
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ShipVisual : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/ShipVisual.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/ShipVisual.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### Initialize
 `public void Initialize(int seed, string customSailPatternId = "")`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ShipVisual from the subsystem API first
+ShipVisual shipVisual = ...;
+shipVisual.Initialize(0, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipVisual();
-value.Initialize(0, "example");
+// Typically call this after obtaining an instance from the subsystem API
+ShipVisual shipVisual = ...;
+shipVisual.Initialize(0, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

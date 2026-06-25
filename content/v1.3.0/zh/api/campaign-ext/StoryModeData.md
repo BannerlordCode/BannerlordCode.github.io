@@ -1,13 +1,7 @@
 ---
 title: "StoryModeData"
+description: "StoryModeData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeData
 
 **Namespace:** StoryMode
@@ -43,19 +37,30 @@ title: "StoryModeData"
 ### OnGameEnd
 `public static void OnGameEnd()`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+StoryModeData.OnGameEnd();
+```
 
 ### IsKingdomImperial
 `public static bool IsKingdomImperial(Kingdom kingdomToCheck)`
 
-**用途 / Purpose:** 处理 `is kingdom imperial` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「kingdom imperial」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+StoryModeData.IsKingdomImperial(kingdomToCheck);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StoryModeData();
+// 该数据对象通常由战役/任务 API 返回
+StoryModeData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ChangeCommonAreaOwnerQuestTask"
+description: "Auto-generated class reference for ChangeCommonAreaOwnerQuestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeCommonAreaOwnerQuestTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChangeCommonAreaOwnerQuestTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues.IssueQuestTasks` to place
 ### OnCommonAreaOwnerChanged
 `public void OnCommonAreaOwnerChanged(Alley alley, Hero newOwner, Hero oldOwner)`
 
-**Purpose:** Called when the `common area owner changed` event is raised.
+**Purpose:** Invoked when the `common area owner changed` event is raised.
+
+```csharp
+// Obtain an instance of ChangeCommonAreaOwnerQuestTask from the subsystem API first
+ChangeCommonAreaOwnerQuestTask changeCommonAreaOwnerQuestTask = ...;
+changeCommonAreaOwnerQuestTask.OnCommonAreaOwnerChanged(alley, newOwner, oldOwner);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ChangeCommonAreaOwnerQuestTask from the subsystem API first
+ChangeCommonAreaOwnerQuestTask changeCommonAreaOwnerQuestTask = ...;
+changeCommonAreaOwnerQuestTask.SetReferences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ChangeCommonAreaOwnerQuestTask();
-value.OnCommonAreaOwnerChanged(alley, newOwner, oldOwner);
+// Typically call this after obtaining an instance from the subsystem API
+ChangeCommonAreaOwnerQuestTask changeCommonAreaOwnerQuestTask = ...;
+changeCommonAreaOwnerQuestTask.OnCommonAreaOwnerChanged(alley, newOwner, oldOwner);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

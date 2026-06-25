@@ -1,13 +1,7 @@
 ---
 title: "VisualTrackerMissionBehavior"
+description: "VisualTrackerMissionBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualTrackerMissionBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualTrackerMissionBehavior
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,45 +23,88 @@ title: "VisualTrackerMissionBehavior"
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**用途 / Purpose:** 当 `agent created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnAgentCreated(agent);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnMissionTick(0);
+```
 
 ### RegisterLocalOnlyObject
 `public void RegisterLocalOnlyObject(ITrackableBase obj)`
 
-**用途 / Purpose:** 处理 `register local only object` 相关逻辑。
+**用途 / Purpose:** 将「local only object」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.RegisterLocalOnlyObject(obj);
+```
 
 ### GetCompassTargets
 `public override List<CompassItemUpdateParams> GetCompassTargets()`
 
-**用途 / Purpose:** 获取 `compass targets` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compass targets」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+var result = visualTrackerMissionBehavior.GetCompassTargets();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**用途 / Purpose:** 当 `agent deleted` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent deleted」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnAgentDeleted(affectedAgent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VisualTrackerMissionBehavior();
-value.OnAgentCreated(agent);
+// 通常从对应子系统 API 获取实例后调用
+VisualTrackerMissionBehavior visualTrackerMissionBehavior = ...;
+visualTrackerMissionBehavior.OnAgentCreated(agent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

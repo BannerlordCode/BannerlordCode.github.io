@@ -1,13 +1,7 @@
 ---
 title: "BitmapInfo"
+description: "Auto-generated class reference for BitmapInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BitmapInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BitmapInfo
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ## Usage Example
 
 ```csharp
-var value = new BitmapInfo();
+// Obtain an instance from the relevant subsystem API
+BitmapInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

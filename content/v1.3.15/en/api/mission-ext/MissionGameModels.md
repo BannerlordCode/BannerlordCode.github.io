@@ -1,24 +1,18 @@
 ---
 title: "MissionGameModels"
+description: "Auto-generated class reference for MissionGameModels."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGameModels`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionGameModels
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MissionGameModels : GameModelsManager`
 **Base:** `GameModelsManager`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/MissionGameModels.cs`
 
 ## Overview
 
-`MissionGameModels` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MissionGameModels` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -51,16 +45,19 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Static call; no instance required
+MissionGameModels.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MissionGameModels.Clear();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SmugglersIssue"
+description: "SmugglersIssue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SmugglersIssue`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SmugglersIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SmugglersIssue`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/SmugglersIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/SmugglersIssueBehavior.cs`
 
 ## 概述
 
@@ -42,45 +36,88 @@ title: "SmugglersIssue"
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `alternative solution condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SmugglersIssue 实例
+SmugglersIssue smugglersIssue = ...;
+var result = smugglersIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `do troops satisfy alternative solution` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SmugglersIssue 实例
+SmugglersIssue smugglersIssue = ...;
+var result = smugglersIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is troop type needed by alternative solution` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「troop type needed by alternative solution」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SmugglersIssue 实例
+SmugglersIssue smugglersIssue = ...;
+var result = smugglersIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 获取 `frequency` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SmugglersIssue 实例
+SmugglersIssue smugglersIssue = ...;
+var result = smugglersIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
+**用途 / Purpose:** 创建或发起「stay alive conditions」。
+
+```csharp
+// 先通过子系统 API 拿到 SmugglersIssue 实例
+SmugglersIssue smugglersIssue = ...;
+var result = smugglersIssue.IssueStayAliveConditions();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 SmugglersIssue 实例
+SmugglersIssue smugglersIssue = ...;
+smugglersIssue.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 SmugglersIssue 实例
+SmugglersIssue smugglersIssue = ...;
+smugglersIssue.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SmugglersIssue();
-value.AlternativeSolutionCondition(explanation);
+// 通常从对应子系统 API 获取实例后调用
+SmugglersIssue smugglersIssue = ...;
+smugglersIssue.AlternativeSolutionCondition(explanation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

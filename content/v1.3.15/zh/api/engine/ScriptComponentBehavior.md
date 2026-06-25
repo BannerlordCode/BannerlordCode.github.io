@@ -1,13 +1,7 @@
 ---
 title: "ScriptComponentBehavior"
+description: "ScriptComponentBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScriptComponentBehavior`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScriptComponentBehavior
 
 **Namespace:** TaleWorlds.Engine
@@ -37,24 +31,43 @@ title: "ScriptComponentBehavior"
 ### SetScriptComponentToTick
 `public void SetScriptComponentToTick(ScriptComponentBehavior.TickRequirement tickReq)`
 
-**用途 / Purpose:** 设置 `script component to tick` 的值或状态。
+**用途 / Purpose:** 为 「script component to tick」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptComponentBehavior 实例
+ScriptComponentBehavior scriptComponentBehavior = ...;
+scriptComponentBehavior.SetScriptComponentToTick(tickReq);
+```
 
 ### SetScriptComponentToTickMT
 `public void SetScriptComponentToTickMT(ScriptComponentBehavior.TickRequirement value)`
 
-**用途 / Purpose:** 设置 `script component to tick m t` 的值或状态。
+**用途 / Purpose:** 为 「script component to tick m t」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptComponentBehavior 实例
+ScriptComponentBehavior scriptComponentBehavior = ...;
+scriptComponentBehavior.SetScriptComponentToTickMT(value);
+```
 
 ### GetTickRequirement
 `public virtual ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptComponentBehavior 实例
+ScriptComponentBehavior scriptComponentBehavior = ...;
+var result = scriptComponentBehavior.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomScriptComponentBehavior();
+// 通常通过子系统 API 或工厂获得派生实例
+ScriptComponentBehavior instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

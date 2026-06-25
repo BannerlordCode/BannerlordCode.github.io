@@ -1,20 +1,14 @@
 ---
 title: "DestroyRaidersConspiracyQuest"
+description: "Auto-generated class reference for DestroyRaidersConspiracyQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DestroyRaidersConspiracyQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DestroyRaidersConspiracyQuest
 
 **Namespace:** StoryMode.Quests.SecondPhase.ConspiracyQuests
 **Module:** StoryMode.Quests
 **Type:** `public class DestroyRaidersConspiracyQuest : ConspiracyQuestBase`
 **Base:** `ConspiracyQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.SecondPhase.ConspiracyQuests/DestroyRaidersConspiracyQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.SecondPhase.ConspiracyQuests/DestroyRaidersConspiracyQuest.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `StoryMode.Quests.SecondPhase.ConspiracyQuests` to place it
 ## Usage Example
 
 ```csharp
-var value = new DestroyRaidersConspiracyQuest();
+// Obtain an instance from the relevant subsystem API
+DestroyRaidersConspiracyQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

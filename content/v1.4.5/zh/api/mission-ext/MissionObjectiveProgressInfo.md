@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveProgressInfo"
+description: "MissionObjectiveProgressInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectiveProgressInfo`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveProgressInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MissionObjectiveProgressInfo`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjectiveProgressInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjectiveProgressInfo.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MissionObjectiveProgressInfo"
 ## 使用示例
 
 ```csharp
-var example = new MissionObjectiveProgressInfo();
+// 从对应子系统 API 获取实例
+MissionObjectiveProgressInfo instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

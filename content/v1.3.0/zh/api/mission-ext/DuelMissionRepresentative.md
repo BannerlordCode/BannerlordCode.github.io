@@ -1,13 +1,7 @@
 ---
 title: "DuelMissionRepresentative"
+description: "DuelMissionRepresentative 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DuelMissionRepresentative`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelMissionRepresentative
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionRepresentatives
@@ -37,65 +31,132 @@ title: "DuelMissionRepresentative"
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.Initialize();
+```
 
 ### AddRemoveMessageHandlers
 `public void AddRemoveMessageHandlers(GameNetwork.NetworkMessageHandlerRegisterer.RegisterMode mode)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `remove message handlers`。
+**用途 / Purpose:** 将 「remove message handlers」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.AddRemoveMessageHandlers(mode);
+```
 
 ### OnInteraction
 `public void OnInteraction()`
 
-**用途 / Purpose:** 当 `interaction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「interaction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnInteraction();
+```
 
 ### DuelRequested
 `public void DuelRequested(Agent requesterAgent, TroopType selectedAreaTroopType)`
 
-**用途 / Purpose:** 处理 `duel requested` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.DuelRequested(requesterAgent, selectedAreaTroopType);
+```
 
 ### CheckHasRequestFromAndRemoveRequestIfNeeded
 `public bool CheckHasRequestFromAndRemoveRequestIfNeeded(MissionPeer requestOwner)`
 
-**用途 / Purpose:** 处理 `check has request from and remove request if needed` 相关逻辑。
+**用途 / Purpose:** 检查「has request from and remove request if needed」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+var result = duelMissionRepresentative.CheckHasRequestFromAndRemoveRequestIfNeeded(requestOwner);
+```
 
 ### OnDuelPreparation
 `public void OnDuelPreparation(MissionPeer requesterPeer, MissionPeer requesteePeer)`
 
-**用途 / Purpose:** 当 `duel preparation` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「duel preparation」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnDuelPreparation(requesterPeer, requesteePeer);
+```
 
 ### OnObjectFocused
 `public void OnObjectFocused(IFocusable focusedObject)`
 
-**用途 / Purpose:** 当 `object focused` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「object focused」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnObjectFocused(focusedObject);
+```
 
 ### OnObjectFocusLost
 `public void OnObjectFocusLost()`
 
-**用途 / Purpose:** 当 `object focus lost` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「object focus lost」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnObjectFocusLost();
+```
 
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**用途 / Purpose:** 当 `agent spawned` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent spawned」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnAgentSpawned();
+```
 
 ### ResetBountyAndNumberOfWins
 `public void ResetBountyAndNumberOfWins()`
 
-**用途 / Purpose:** 将 `bounty and number of wins` 重置为初始状态。
+**用途 / Purpose:** 将 「bounty and number of wins」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.ResetBountyAndNumberOfWins();
+```
 
 ### OnDuelWon
 `public void OnDuelWon(float gainedScore)`
 
-**用途 / Purpose:** 当 `duel won` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「duel won」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DuelMissionRepresentative 实例
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnDuelWon(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DuelMissionRepresentative();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

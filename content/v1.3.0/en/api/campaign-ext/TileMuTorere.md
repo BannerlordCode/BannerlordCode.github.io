@@ -1,13 +1,7 @@
 ---
 title: "TileMuTorere"
+description: "Auto-generated class reference for TileMuTorere."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TileMuTorere`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TileMuTorere
 
 **Namespace:** SandBox.BoardGames.Tiles
@@ -34,9 +28,10 @@ Start from namespace `SandBox.BoardGames.Tiles` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new TileMuTorere();
+// Obtain an instance from the relevant subsystem API
+TileMuTorere instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

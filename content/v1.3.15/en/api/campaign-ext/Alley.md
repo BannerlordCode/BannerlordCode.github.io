@@ -1,13 +1,7 @@
 ---
 title: "Alley"
+description: "Auto-generated class reference for Alley."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Alley`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Alley
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -39,20 +33,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### SetOwner
 `public void SetOwner(Hero newOwner)`
 
-**Purpose:** Sets the value or state of `owner`.
+**Purpose:** Assigns a new value to `owner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Alley from the subsystem API first
+Alley alley = ...;
+alley.SetOwner(newOwner);
+```
 
 ### Initialize
 `public void Initialize(Settlement settlement, string tag, TextObject name)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of Alley from the subsystem API first
+Alley alley = ...;
+alley.Initialize(settlement, "example", name);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Alley();
-value.SetOwner(newOwner);
+// Typically call this after obtaining an instance from the subsystem API
+Alley alley = ...;
+alley.SetOwner(newOwner);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "StealthMissionUIHandler"
+description: "Auto-generated class reference for StealthMissionUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthMissionUIHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthMissionUIHandler
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class StealthMissionUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/StealthMissionUIHandler.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/StealthMissionUIHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `StealthMissionUIHandler` as a Handler-style extension point: first identi
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** Called when the `object used` event is raised.
+**Purpose:** Invoked when the `object used` event is raised.
+
+```csharp
+// Obtain an instance of StealthMissionUIHandler from the subsystem API first
+StealthMissionUIHandler stealthMissionUIHandler = ...;
+stealthMissionUIHandler.OnObjectUsed(userAgent, usedObject);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthMissionUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<StealthMissionUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

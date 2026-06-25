@@ -1,20 +1,14 @@
 ---
 title: "CraftedWeaponDesignResultListPanel"
+description: "Auto-generated class reference for CraftedWeaponDesignResultListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftedWeaponDesignResultListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftedWeaponDesignResultListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftedWeaponDesignResultListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftedWeaponDesignResultListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftedWeaponDesignResultListPanel.cs`
 
 ## Overview
 
@@ -47,9 +41,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting` to p
 ## Usage Example
 
 ```csharp
-var example = new CraftedWeaponDesignResultListPanel();
+// Obtain an instance from the relevant subsystem API
+CraftedWeaponDesignResultListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

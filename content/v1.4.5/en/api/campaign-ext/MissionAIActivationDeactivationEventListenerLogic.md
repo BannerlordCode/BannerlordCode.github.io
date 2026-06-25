@@ -1,20 +1,14 @@
 ---
 title: "MissionAIActivationDeactivationEventListenerLogic"
+description: "Auto-generated class reference for MissionAIActivationDeactivationEventListenerLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAIActivationDeactivationEventListenerLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAIActivationDeactivationEventListenerLogic
 
 **Namespace:** SandBox.Missions.MissionEvents
 **Module:** SandBox.Missions
 **Type:** `public class MissionAIActivationDeactivationEventListenerLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionEvents/MissionAIActivationDeactivationEventListenerLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionEvents/MissionAIActivationDeactivationEventListenerLogic.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionAIActivationDeactivationEventListenerLogic` as a Logic-style exten
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAIActivationDeactivationEventListenerLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionAIActivationDeactivationEventListenerLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

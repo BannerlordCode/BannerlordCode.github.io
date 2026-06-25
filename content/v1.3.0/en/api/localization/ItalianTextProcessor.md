@@ -1,13 +1,7 @@
 ---
 title: "ItalianTextProcessor"
+description: "Auto-generated class reference for ItalianTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItalianTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItalianTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
@@ -29,27 +23,28 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 | Name | Signature |
 |------|-----------|
 | `WordGroups` | `public static Dictionary<string, ValueTuple<string, int>> WordGroups { get; }` |
-| `CultureInfoForLanguage` | `public override CultureInfo CultureInfoForLanguage { get; }` |
 
 ## Key Methods
 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
 
-### ClearTemporaryData
-`public override void ClearTemporaryData()`
-
-**Purpose:** Handles logic related to `clear temporary data`.
+```csharp
+// Obtain an instance of ItalianTextProcessor from the subsystem API first
+ItalianTextProcessor italianTextProcessor = ...;
+italianTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItalianTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+ItalianTextProcessor italianTextProcessor = ...;
+italianTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

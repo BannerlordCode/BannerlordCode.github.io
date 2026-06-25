@@ -1,20 +1,14 @@
 ---
 title: "Texture"
+description: "Texture 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Texture`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Texture
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class Texture`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Texture.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Texture.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "Texture"
 ### IsLoaded
 `public bool IsLoaded()`
 
-**用途 / Purpose:** 处理 `is loaded` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「loaded」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Texture 实例
+Texture texture = ...;
+var result = texture.IsLoaded();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Texture();
-value.IsLoaded();
+// 通常从对应子系统 API 获取实例后调用
+Texture texture = ...;
+texture.IsLoaded();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

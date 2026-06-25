@@ -1,13 +1,7 @@
 ---
 title: "WeaponClassVM"
+description: "Auto-generated class reference for WeaponClassVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponClassVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponClassVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -43,30 +37,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of WeaponClassVM from the subsystem API first
+WeaponClassVM weaponClassVM = ...;
+weaponClassVM.RefreshValues();
+```
 
 ### RegisterSelectedPiece
 `public void RegisterSelectedPiece(CraftingPiece.PieceTypes type, string pieceID)`
 
-**Purpose:** Handles logic related to `register selected piece`.
+**Purpose:** Registers `selected piece` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of WeaponClassVM from the subsystem API first
+WeaponClassVM weaponClassVM = ...;
+weaponClassVM.RegisterSelectedPiece(type, "example");
+```
 
 ### GetSelectedPieceData
 `public string GetSelectedPieceData(CraftingPiece.PieceTypes type)`
 
-**Purpose:** Gets the current value of `selected piece data`.
+**Purpose:** Reads and returns the `selected piece data` value held by the current object.
+
+```csharp
+// Obtain an instance of WeaponClassVM from the subsystem API first
+WeaponClassVM weaponClassVM = ...;
+var result = weaponClassVM.GetSelectedPieceData(type);
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of WeaponClassVM from the subsystem API first
+WeaponClassVM weaponClassVM = ...;
+weaponClassVM.ExecuteSelect();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponClassVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+WeaponClassVM weaponClassVM = ...;
+weaponClassVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

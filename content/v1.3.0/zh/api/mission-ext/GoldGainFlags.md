@@ -1,19 +1,13 @@
 ---
 title: "GoldGainFlags"
+description: "GoldGainFlags 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GoldGainFlags`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GoldGainFlags
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** 无
+**Type:** `public enum GoldGainFlags : ushort`
+**Base:** `ushort`
 **File:** `TaleWorlds.MountAndBlade/GoldGainFlags.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "GoldGainFlags"
 ## 使用示例
 
 ```csharp
-var example = new GoldGainFlags();
+// 从对应子系统 API 获取实例
+GoldGainFlags instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

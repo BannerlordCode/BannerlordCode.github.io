@@ -1,13 +1,7 @@
 ---
-title: "State__TaleWorlds_MountAndBlade_GauntletUI_Widgets"
+title: "State"
+description: "Auto-generated class reference for State."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `State`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # State
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets` to place it i
 ## Usage Example
 
 ```csharp
-State example = State.Value;
+// Obtain an instance from the relevant subsystem API
+State instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

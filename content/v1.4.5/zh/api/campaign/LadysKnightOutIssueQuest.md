@@ -1,20 +1,14 @@
 ---
 title: "LadysKnightOutIssueQuest"
+description: "LadysKnightOutIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LadysKnightOutIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LadysKnightOutIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LadysKnightOutIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LadysKnightOutIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LadysKnightOutIssueBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "LadysKnightOutIssueQuest"
 ## 使用示例
 
 ```csharp
-var example = new LadysKnightOutIssueQuest();
+// 从对应子系统 API 获取实例
+LadysKnightOutIssueQuest instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

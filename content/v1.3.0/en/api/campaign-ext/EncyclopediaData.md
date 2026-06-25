@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaData"
+description: "Auto-generated class reference for EncyclopediaData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaData
 
 **Namespace:** SandBox.GauntletUI.Encyclopedia
@@ -29,19 +23,32 @@ Treat `EncyclopediaData` as a Data-style extension point: first identify who cre
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaData from the subsystem API first
+EncyclopediaData encyclopediaData = ...;
+encyclopediaData.OnFinalize();
+```
 
 ### CloseEncyclopedia
 `public void CloseEncyclopedia()`
 
-**Purpose:** Handles logic related to `close encyclopedia`.
+**Purpose:** Closes the resource or UI associated with `encyclopedia`.
+
+```csharp
+// Obtain an instance of EncyclopediaData from the subsystem API first
+EncyclopediaData encyclopediaData = ...;
+encyclopediaData.CloseEncyclopedia();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaData();
+// This data object is usually returned by campaign/mission APIs
+EncyclopediaData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

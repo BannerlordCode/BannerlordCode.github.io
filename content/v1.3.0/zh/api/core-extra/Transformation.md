@@ -1,13 +1,7 @@
 ---
 title: "Transformation"
+description: "Transformation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Transformation`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Transformation
 
 **Namespace:** TaleWorlds.Library
@@ -36,62 +30,132 @@ title: "Transformation"
 ### CreateFromMatrixFrame
 `public static Transformation CreateFromMatrixFrame(MatrixFrame matrixFrame)`
 
-**用途 / Purpose:** 创建一个 `from matrix frame` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from matrix frame」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Transformation.CreateFromMatrixFrame(matrixFrame);
+```
 
 ### HasNegativeScale
 `public bool HasNegativeScale()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `negative scale`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「negative scale」。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+var result = transformation.HasNegativeScale();
+```
 
 ### CreateFromRotation
 `public static Transformation CreateFromRotation(Mat3 rotation)`
 
-**用途 / Purpose:** 创建一个 `from rotation` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from rotation」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Transformation.CreateFromRotation(rotation);
+```
 
 ### TransformToParent
 `public Vec3 TransformToParent(Vec3 v)`
 
-**用途 / Purpose:** 处理 `transform to parent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+var result = transformation.TransformToParent(v);
+```
 
 ### TransformToParent
 `public Transformation TransformToParent(Transformation t)`
 
-**用途 / Purpose:** 处理 `transform to parent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+var result = transformation.TransformToParent(t);
+```
 
 ### TransformToLocal
 `public Vec3 TransformToLocal(Vec3 v)`
 
-**用途 / Purpose:** 处理 `transform to local` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+var result = transformation.TransformToLocal(v);
+```
 
 ### TransformToLocal
 `public Transformation TransformToLocal(Transformation t)`
 
-**用途 / Purpose:** 处理 `transform to local` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+var result = transformation.TransformToLocal(t);
+```
 
 ### Rotate
 `public void Rotate(float radian, Vec3 axis)`
 
-**用途 / Purpose:** 处理 `rotate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+transformation.Rotate(0, axis);
+```
 
 ### ApplyScale
 `public void ApplyScale(Vec3 vec3)`
 
-**用途 / Purpose:** 将 `scale` 应用到当前对象。
+**用途 / Purpose:** 将 「scale」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+transformation.ApplyScale(vec3);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+var result = transformation.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+var result = transformation.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Transformation 实例
+Transformation transformation = ...;
+var result = transformation.ToString();
+```
 
 ## 使用示例
 
@@ -101,4 +165,4 @@ Transformation.CreateFromMatrixFrame(matrixFrame);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerPracticeEscapeMenu"
+description: "Auto-generated class reference for MissionGauntletMultiplayerPracticeEscapeMenu."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMultiplayerPracticeEscapeMenu`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerPracticeEscapeMenu
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerPracticeEscapeMenu : MissionGauntletEscapeMenuBase`
 **Base:** `MissionGauntletEscapeMenuBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerPracticeEscapeMenu.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerPracticeEscapeMenu.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerPracticeEscapeMenu from the subsystem API first
+MissionGauntletMultiplayerPracticeEscapeMenu missionGauntletMultiplayerPracticeEscapeMenu = ...;
+missionGauntletMultiplayerPracticeEscapeMenu.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerPracticeEscapeMenu from the subsystem API first
+MissionGauntletMultiplayerPracticeEscapeMenu missionGauntletMultiplayerPracticeEscapeMenu = ...;
+missionGauntletMultiplayerPracticeEscapeMenu.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletMultiplayerPracticeEscapeMenu();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletMultiplayerPracticeEscapeMenu missionGauntletMultiplayerPracticeEscapeMenu = ...;
+missionGauntletMultiplayerPracticeEscapeMenu.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

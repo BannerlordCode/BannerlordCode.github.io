@@ -1,20 +1,14 @@
 ---
 title: "EducationReviewItemVM"
+description: "Auto-generated class reference for EducationReviewItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationReviewItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationReviewItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationReviewItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationReviewItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationReviewItemVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### UpdateWith
 `public void UpdateWith(string gainText)`
 
-**Purpose:** Updates the state or data of `with`.
+**Purpose:** Recalculates and stores the latest representation of `with`.
+
+```csharp
+// Obtain an instance of EducationReviewItemVM from the subsystem API first
+EducationReviewItemVM educationReviewItemVM = ...;
+educationReviewItemVM.UpdateWith("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationReviewItemVM();
-value.UpdateWith("example");
+// Typically call this after obtaining an instance from the subsystem API
+EducationReviewItemVM educationReviewItemVM = ...;
+educationReviewItemVM.UpdateWith("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

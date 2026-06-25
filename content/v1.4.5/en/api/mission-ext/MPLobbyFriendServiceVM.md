@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyFriendServiceVM"
+description: "Auto-generated class reference for MPLobbyFriendServiceVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyFriendServiceVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyFriendServiceVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyFriendServiceVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyFriendServiceVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyFriendServiceVM.cs`
 
 ## Overview
 
@@ -47,50 +41,99 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### Compare
 `public int Compare(MPLobbyPlayerBaseVM x, MPLobbyPlayerBaseVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPLobbyFriendServiceVM from the subsystem API first
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+var result = mPLobbyFriendServiceVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyFriendServiceVM from the subsystem API first
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+mPLobbyFriendServiceVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyFriendServiceVM from the subsystem API first
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+mPLobbyFriendServiceVM.OnFinalize();
+```
 
 ### OnStateActivate
 `public void OnStateActivate()`
 
-**Purpose:** Called when the `state activate` event is raised.
+**Purpose:** Invoked when the `state activate` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyFriendServiceVM from the subsystem API first
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+mPLobbyFriendServiceVM.OnStateActivate();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyFriendServiceVM from the subsystem API first
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+mPLobbyFriendServiceVM.OnTick(0);
+```
 
 ### ForceRefresh
 `public void ForceRefresh()`
 
-**Purpose:** Handles logic related to `force refresh`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPLobbyFriendServiceVM from the subsystem API first
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+mPLobbyFriendServiceVM.ForceRefresh();
+```
 
 ### UpdateCanInviteOtherPlayersToParty
 `public void UpdateCanInviteOtherPlayersToParty()`
 
-**Purpose:** Updates the state or data of `can invite other players to party`.
+**Purpose:** Recalculates and stores the latest representation of `can invite other players to party`.
+
+```csharp
+// Obtain an instance of MPLobbyFriendServiceVM from the subsystem API first
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+mPLobbyFriendServiceVM.UpdateCanInviteOtherPlayersToParty();
+```
 
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool updateForced = false)`
 
-**Purpose:** Called when the `friend list updated` event is raised.
+**Purpose:** Invoked when the `friend list updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyFriendServiceVM from the subsystem API first
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+mPLobbyFriendServiceVM.OnFriendListUpdated(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyFriendServiceVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyFriendServiceVM mPLobbyFriendServiceVM = ...;
+mPLobbyFriendServiceVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

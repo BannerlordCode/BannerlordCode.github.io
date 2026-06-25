@@ -1,20 +1,14 @@
 ---
 title: "BaseNetworkComponent"
+description: "BaseNetworkComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BaseNetworkComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BaseNetworkComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.NetworkComponents
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BaseNetworkComponent : UdpNetworkComponent`
 **Base:** `UdpNetworkComponent`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.NetworkComponents/BaseNetworkComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.NetworkComponents/BaseNetworkComponent.cs`
 
 ## 概述
 
@@ -37,42 +31,90 @@ title: "BaseNetworkComponent"
 ### WelcomeMessageReceivedDelegate
 `public delegate void WelcomeMessageReceivedDelegate(string messageText)`
 
-**用途 / Purpose:** 处理 `welcome message received delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponent 实例
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.WelcomeMessageReceivedDelegate("example");
+```
 
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**用途 / Purpose:** 当 `udp network handler tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「udp network handler tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponent 实例
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.OnUdpNetworkHandlerTick(0);
+```
 
 ### HandleNewClientConnect
 `public override void HandleNewClientConnect(PlayerConnectionInfo playerConnectionInfo)`
 
-**用途 / Purpose:** 处理 `new client connect` 事件或回调。
+**用途 / Purpose:** 执行与 「new client connect」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponent 实例
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.HandleNewClientConnect(playerConnectionInfo);
+```
 
 ### HandlePlayerDisconnect
 `public override void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 处理 `player disconnect` 事件或回调。
+**用途 / Purpose:** 执行与 「player disconnect」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponent 实例
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.HandlePlayerDisconnect(networkPeer);
+```
 
 ### IntermissionCastVote
 `public void IntermissionCastVote(string itemID, int voteCount)`
 
-**用途 / Purpose:** 处理 `intermission cast vote` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponent 实例
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.IntermissionCastVote("example", 0);
+```
 
 ### HandleNewClientAfterSynchronized
 `public override void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 处理 `new client after synchronized` 事件或回调。
+**用途 / Purpose:** 执行与 「new client after synchronized」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponent 实例
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.HandleNewClientAfterSynchronized(networkPeer);
+```
 
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**用途 / Purpose:** 当 `udp network handler close` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「udp network handler close」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponent 实例
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.OnUdpNetworkHandlerClose();
+```
 
 ### SetDisplayingWelcomeMessage
 `public void SetDisplayingWelcomeMessage(bool displaying)`
 
-**用途 / Purpose:** 设置 `displaying welcome message` 的值或状态。
+**用途 / Purpose:** 为 「displaying welcome message」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BaseNetworkComponent 实例
+BaseNetworkComponent baseNetworkComponent = ...;
+baseNetworkComponent.SetDisplayingWelcomeMessage(false);
+```
 
 ## 使用示例
 
@@ -82,4 +124,4 @@ var component = agent.GetComponent<BaseNetworkComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

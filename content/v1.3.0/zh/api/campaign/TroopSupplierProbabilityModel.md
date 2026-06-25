@@ -1,13 +1,7 @@
 ---
 title: "TroopSupplierProbabilityModel"
+description: "TroopSupplierProbabilityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TroopSupplierProbabilityModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopSupplierProbabilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ title: "TroopSupplierProbabilityModel"
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public abstract void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayers, int sizeOfSide, bool forcePriorityTroops, List<ValueTuple<FlattenedTroopRosterElement, MapEventParty, float>> priorityList)`
 
-**用途 / Purpose:** 处理 `enqueue troop spawn probabilities according to unit spawn prioritization` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TroopSupplierProbabilityModel 实例
+TroopSupplierProbabilityModel troopSupplierProbabilityModel = ...;
+troopSupplierProbabilityModel.EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(battleParty, priorityTroops, false, 0, false, list<ValueTuple<FlattenedTroopRosterElement, mapEventParty, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTroopSupplierProbabilityModel();
+// 通常通过子系统 API 或工厂获得派生实例
+TroopSupplierProbabilityModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

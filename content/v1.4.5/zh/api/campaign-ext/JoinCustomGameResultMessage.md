@@ -1,20 +1,14 @@
 ---
 title: "JoinCustomGameResultMessage"
+description: "JoinCustomGameResultMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `JoinCustomGameResultMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoinCustomGameResultMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class JoinCustomGameResultMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinCustomGameResultMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinCustomGameResultMessage.cs`
 
 ## 概述
 
@@ -39,12 +33,22 @@ title: "JoinCustomGameResultMessage"
 ### CreateSuccess
 `public static JoinCustomGameResultMessage CreateSuccess(JoinGameData joinGameData, string matchId, bool isAdmin)`
 
-**用途 / Purpose:** 创建一个 `success` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「success」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+JoinCustomGameResultMessage.CreateSuccess(joinGameData, "example", false);
+```
 
 ### CreateFailed
 `public static JoinCustomGameResultMessage CreateFailed(CustomGameJoinResponse response)`
 
-**用途 / Purpose:** 创建一个 `failed` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「failed」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+JoinCustomGameResultMessage.CreateFailed(response);
+```
 
 ## 使用示例
 
@@ -54,4 +58,4 @@ JoinCustomGameResultMessage.CreateSuccess(joinGameData, "example", false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

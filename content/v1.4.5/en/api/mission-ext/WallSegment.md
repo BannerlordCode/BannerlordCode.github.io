@@ -1,20 +1,14 @@
 ---
 title: "WallSegment"
+description: "Auto-generated class reference for WallSegment."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WallSegment`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WallSegment
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class WallSegment : SynchedMissionObject, IPointDefendable, ICastleKeyPosition`
 **Base:** `SynchedMissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WallSegment.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WallSegment.cs`
 
 ## Overview
 
@@ -44,20 +38,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** Gets the current value of `position`.
+**Purpose:** Reads and returns the `position` value held by the current object.
+
+```csharp
+// Obtain an instance of WallSegment from the subsystem API first
+WallSegment wallSegment = ...;
+var result = wallSegment.GetPosition();
+```
 
 ### OnChooseUsedWallSegment
 `public void OnChooseUsedWallSegment(bool isBroken)`
 
-**Purpose:** Called when the `choose used wall segment` event is raised.
+**Purpose:** Invoked when the `choose used wall segment` event is raised.
+
+```csharp
+// Obtain an instance of WallSegment from the subsystem API first
+WallSegment wallSegment = ...;
+wallSegment.OnChooseUsedWallSegment(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WallSegment();
-value.GetPosition();
+// Typically call this after obtaining an instance from the subsystem API
+WallSegment wallSegment = ...;
+wallSegment.GetPosition();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

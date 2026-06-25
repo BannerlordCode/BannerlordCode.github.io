@@ -1,20 +1,14 @@
 ---
 title: "StoryModeViewSubModule"
+description: "StoryModeViewSubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeViewSubModule`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeViewSubModule
 
 **Namespace:** StoryMode.View
 **Module:** StoryMode.View
 **Type:** `public class StoryModeViewSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.View/StoryMode.View/StoryModeViewSubModule.cs`
+**File:** `Modules.StoryMode/StoryMode.View/StoryMode.View/StoryModeViewSubModule.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "StoryModeViewSubModule"
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**用途 / Purpose:** 当 `game initialization finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game initialization finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeViewSubModule 实例
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnGameInitializationFinished(game);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeViewSubModule 实例
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnGameEnd(game);
+```
 
 ### OnSubModuleDeactivated
 `public override void OnSubModuleDeactivated()`
 
-**用途 / Purpose:** 当 `sub module deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「sub module deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeViewSubModule 实例
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnSubModuleDeactivated();
+```
 
 ### OnSubModuleActivated
 `public override void OnSubModuleActivated()`
 
-**用途 / Purpose:** 当 `sub module activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「sub module activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeViewSubModule 实例
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnSubModuleActivated();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StoryModeViewSubModule();
-value.OnGameInitializationFinished(game);
+// 通常从对应子系统 API 获取实例后调用
+StoryModeViewSubModule storyModeViewSubModule = ...;
+storyModeViewSubModule.OnGameInitializationFinished(game);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

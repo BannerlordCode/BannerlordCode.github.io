@@ -1,20 +1,14 @@
 ---
 title: "ConsoleMatchStartEndHandler"
+description: "ConsoleMatchStartEndHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConsoleMatchStartEndHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConsoleMatchStartEndHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConsoleMatchStartEndHandler : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/ConsoleMatchStartEndHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/ConsoleMatchStartEndHandler.cs`
 
 ## 概述
 
@@ -29,29 +23,53 @@ title: "ConsoleMatchStartEndHandler"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConsoleMatchStartEndHandler 实例
+ConsoleMatchStartEndHandler consoleMatchStartEndHandler = ...;
+consoleMatchStartEndHandler.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConsoleMatchStartEndHandler 实例
+ConsoleMatchStartEndHandler consoleMatchStartEndHandler = ...;
+consoleMatchStartEndHandler.OnRemoveBehavior();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConsoleMatchStartEndHandler 实例
+ConsoleMatchStartEndHandler consoleMatchStartEndHandler = ...;
+consoleMatchStartEndHandler.OnAgentBuild(agent, banner);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ConsoleMatchStartEndHandler 实例
+ConsoleMatchStartEndHandler consoleMatchStartEndHandler = ...;
+consoleMatchStartEndHandler.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ConsoleMatchStartEndHandler());
+var behavior = Mission.Current.GetMissionBehavior<ConsoleMatchStartEndHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

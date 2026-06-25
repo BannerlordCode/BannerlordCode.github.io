@@ -1,20 +1,14 @@
 ---
 title: "TeleportationCampaignBehavior"
+description: "Auto-generated class reference for TeleportationCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeleportationCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeleportationCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TeleportationCampaignBehavior : CampaignBehaviorBase, ITeleportationCampaignBehavior, ICampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TeleportationCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TeleportationCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TeleportationCampaignBehavior from the subsystem API first
+TeleportationCampaignBehavior teleportationCampaignBehavior = ...;
+teleportationCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of TeleportationCampaignBehavior from the subsystem API first
+TeleportationCampaignBehavior teleportationCampaignBehavior = ...;
+teleportationCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetTargetOfTeleportingHero
 `public bool GetTargetOfTeleportingHero(Hero teleportingHero, out bool isGovernor, out bool isPartyLeader, out IMapPoint target)`
 
-**Purpose:** Gets the current value of `target of teleporting hero`.
+**Purpose:** Reads and returns the `target of teleporting hero` value held by the current object.
+
+```csharp
+// Obtain an instance of TeleportationCampaignBehavior from the subsystem API first
+TeleportationCampaignBehavior teleportationCampaignBehavior = ...;
+var result = teleportationCampaignBehavior.GetTargetOfTeleportingHero(teleportingHero, isGovernor, isPartyLeader, target);
+```
 
 ### GetHeroArrivalTimeToDestination
 `public CampaignTime GetHeroArrivalTimeToDestination(Hero teleportingHero)`
 
-**Purpose:** Gets the current value of `hero arrival time to destination`.
+**Purpose:** Reads and returns the `hero arrival time to destination` value held by the current object.
+
+```csharp
+// Obtain an instance of TeleportationCampaignBehavior from the subsystem API first
+TeleportationCampaignBehavior teleportationCampaignBehavior = ...;
+var result = teleportationCampaignBehavior.GetHeroArrivalTimeToDestination(teleportingHero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeleportationCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+TeleportationCampaignBehavior teleportationCampaignBehavior = ...;
+teleportationCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

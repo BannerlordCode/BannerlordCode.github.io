@@ -1,18 +1,12 @@
 ---
 title: "MBMouseButtonState"
+description: "Auto-generated class reference for MBMouseButtonState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMouseButtonState`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBMouseButtonState
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
+**Type:** `public enum MBMouseButtonState`
 **Base:** none
 **File:** `TaleWorlds.Engine/MBMouseButtonState.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new MBMouseButtonState();
+// Obtain an instance from the relevant subsystem API
+MBMouseButtonState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

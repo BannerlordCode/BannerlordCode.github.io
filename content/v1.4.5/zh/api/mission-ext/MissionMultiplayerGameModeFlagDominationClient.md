@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerGameModeFlagDominationClient"
+description: "MissionMultiplayerGameModeFlagDominationClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerGameModeFlagDominationClient`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerGameModeFlagDominationClient
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerGameModeFlagDominationClient : MissionMultiplayerGameModeBaseClient, ICommanderInfo, IMissionBehavior`
 **Base:** `MissionMultiplayerGameModeBaseClient`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerGameModeFlagDominationClient.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerGameModeFlagDominationClient.cs`
 
 ## 概述
 
@@ -35,100 +29,209 @@ title: "MissionMultiplayerGameModeFlagDominationClient"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnRemoveBehavior();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.AfterStart();
+```
 
 ### OnPreparationEnded
 `public void OnPreparationEnded()`
 
-**用途 / Purpose:** 当 `preparation ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「preparation ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnPreparationEnded();
+```
 
 ### GetMissionCameraLockMode
 `public override SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-**用途 / Purpose:** 获取 `mission camera lock mode` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission camera lock mode」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+var result = missionMultiplayerGameModeFlagDominationClient.GetMissionCameraLockMode(false);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnClearScene();
+```
 
 ### GetFlagOwner
 `public Team GetFlagOwner(FlagCapturePoint flag)`
 
-**用途 / Purpose:** 获取 `flag owner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flag owner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+var result = missionMultiplayerGameModeFlagDominationClient.GetFlagOwner(flag);
+```
 
 ### OnTeamPowerChanged
 `public void OnTeamPowerChanged(BattleSideEnum teamSide, float power)`
 
-**用途 / Purpose:** 当 `team power changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「team power changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnTeamPowerChanged(teamSide, 0);
+```
 
 ### OnMoraleChanged
 `public void OnMoraleChanged(float morale)`
 
-**用途 / Purpose:** 当 `morale changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「morale changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnMoraleChanged(0);
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**用途 / Purpose:** 当 `gold amount changed for representative` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「gold amount changed for representative」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### OnNumberOfFlagsChanged
 `public void OnNumberOfFlagsChanged()`
 
-**用途 / Purpose:** 当 `number of flags changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「number of flags changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnNumberOfFlagsChanged();
+```
 
 ### OnBotsControlledChanged
 `public void OnBotsControlledChanged(MissionPeer missionPeer, int botAliveCount, int botTotalCount)`
 
-**用途 / Purpose:** 当 `bots controlled changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「bots controlled changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnBotsControlledChanged(missionPeer, 0, 0);
+```
 
 ### OnCapturePointOwnerChanged
 `public void OnCapturePointOwnerChanged(FlagCapturePoint flagCapturePoint, Team ownerTeam)`
 
-**用途 / Purpose:** 当 `capture point owner changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「capture point owner changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnCapturePointOwnerChanged(flagCapturePoint, ownerTeam);
+```
 
 ### OnRequestForfeitSpawn
 `public void OnRequestForfeitSpawn()`
 
-**用途 / Purpose:** 当 `request forfeit spawn` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「request forfeit spawn」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnRequestForfeitSpawn();
+```
 
 ### GetCompassTargets
 `public override List<CompassItemUpdateParams> GetCompassTargets()`
 
-**用途 / Purpose:** 获取 `compass targets` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compass targets」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+var result = missionMultiplayerGameModeFlagDominationClient.GetCompassTargets();
+```
 
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**用途 / Purpose:** 获取 `gold amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+var result = missionMultiplayerGameModeFlagDominationClient.GetGoldAmount();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeFlagDominationClient 实例
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMultiplayerGameModeFlagDominationClient();
-value.OnBehaviorInitialize();
+// 通常从对应子系统 API 获取实例后调用
+MissionMultiplayerGameModeFlagDominationClient missionMultiplayerGameModeFlagDominationClient = ...;
+missionMultiplayerGameModeFlagDominationClient.OnBehaviorInitialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

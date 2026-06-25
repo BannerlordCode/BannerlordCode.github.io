@@ -1,13 +1,7 @@
 ---
 title: "DefaultPrisonBreakModel"
+description: "Auto-generated class reference for DefaultPrisonBreakModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPrisonBreakModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPrisonBreakModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,27 +23,57 @@ Treat `DefaultPrisonBreakModel` as a Model-style extension point: first identify
 ### GetNumberOfGuardsToSpawn
 `public override int GetNumberOfGuardsToSpawn(Settlement settlement)`
 
-**Purpose:** Gets the current value of `number of guards to spawn`.
+**Purpose:** Reads and returns the `number of guards to spawn` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.GetNumberOfGuardsToSpawn(settlement);
+```
 
 ### CanPlayerStagePrisonBreak
 `public override bool CanPlayerStagePrisonBreak(Settlement settlement)`
 
-**Purpose:** Checks whether the current object can `player stage prison break`.
+**Purpose:** Checks whether the current object meets the preconditions for `player stage prison break`.
+
+```csharp
+// Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.CanPlayerStagePrisonBreak(settlement);
+```
 
 ### GetPrisonBreakStartCost
 `public override int GetPrisonBreakStartCost(Hero prisonerHero)`
 
-**Purpose:** Gets the current value of `prison break start cost`.
+**Purpose:** Reads and returns the `prison break start cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.GetPrisonBreakStartCost(prisonerHero);
+```
 
 ### GetRelationRewardOnPrisonBreak
 `public override int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
 
-**Purpose:** Gets the current value of `relation reward on prison break`.
+**Purpose:** Reads and returns the `relation reward on prison break` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.GetRelationRewardOnPrisonBreak(prisonerHero);
+```
 
 ### GetRogueryRewardOnPrisonBreak
 `public override float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
 
-**Purpose:** Gets the current value of `roguery reward on prison break`.
+**Purpose:** Reads and returns the `roguery reward on prison break` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.GetRogueryRewardOnPrisonBreak(prisonerHero, false);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultPrisonBreakModel>(new MyDefaultPrisonBreakModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

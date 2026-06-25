@@ -1,13 +1,7 @@
 ---
 title: "ReinforcementFormationPreferenceComparer"
+description: "Auto-generated class reference for ReinforcementFormationPreferenceComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReinforcementFormationPreferenceComparer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReinforcementFormationPreferenceComparer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Compare
 `public int Compare(MissionReinforcementsHelper.ReinforcementFormationPriority left, MissionReinforcementsHelper.ReinforcementFormationPriority right)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ReinforcementFormationPreferenceComparer from the subsystem API first
+ReinforcementFormationPreferenceComparer reinforcementFormationPreferenceComparer = ...;
+var result = reinforcementFormationPreferenceComparer.Compare(left, right);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ReinforcementFormationPreferenceComparer();
-value.Compare(left, right);
+// Typically call this after obtaining an instance from the subsystem API
+ReinforcementFormationPreferenceComparer reinforcementFormationPreferenceComparer = ...;
+reinforcementFormationPreferenceComparer.Compare(left, right);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

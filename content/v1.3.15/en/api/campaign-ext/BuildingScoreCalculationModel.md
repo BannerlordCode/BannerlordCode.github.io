@@ -1,13 +1,7 @@
 ---
 title: "BuildingScoreCalculationModel"
+description: "Auto-generated class reference for BuildingScoreCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingScoreCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BuildingScoreCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ Treat `BuildingScoreCalculationModel` as a Model-style extension point: first id
 ### GetNextBuilding
 `public abstract Building GetNextBuilding(Town town)`
 
-**Purpose:** Gets the current value of `next building`.
+**Purpose:** Reads and returns the `next building` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingScoreCalculationModel from the subsystem API first
+BuildingScoreCalculationModel buildingScoreCalculationModel = ...;
+var result = buildingScoreCalculationModel.GetNextBuilding(town);
+```
 
 ### GetNextDailyBuilding
 `public abstract Building GetNextDailyBuilding(Town town)`
 
-**Purpose:** Gets the current value of `next daily building`.
+**Purpose:** Reads and returns the `next daily building` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingScoreCalculationModel from the subsystem API first
+BuildingScoreCalculationModel buildingScoreCalculationModel = ...;
+var result = buildingScoreCalculationModel.GetNextDailyBuilding(town);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBuildingScoreCalculationModel();
+// Typically obtained from a subsystem API or factory
+BuildingScoreCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

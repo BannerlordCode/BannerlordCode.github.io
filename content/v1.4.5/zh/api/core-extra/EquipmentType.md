@@ -1,20 +1,14 @@
 ---
 title: "EquipmentType"
+description: "EquipmentType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EquipmentType`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EquipmentType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public enum EquipmentType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "EquipmentType"
 ## 使用示例
 
 ```csharp
-EquipmentType example = EquipmentType.Value;
+// 从对应子系统 API 获取实例
+EquipmentType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

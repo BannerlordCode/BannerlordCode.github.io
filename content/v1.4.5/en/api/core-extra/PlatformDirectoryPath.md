@@ -1,20 +1,14 @@
 ---
 title: "PlatformDirectoryPath"
+description: "Auto-generated class reference for PlatformDirectoryPath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlatformDirectoryPath`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformDirectoryPath
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PlatformDirectoryPath`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PlatformDirectoryPath.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PlatformDirectoryPath.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PlatformDirectoryPath
 `public struct PlatformDirectoryPath(PlatformFileType type, string path)`
 
-**Purpose:** Handles logic related to `platform directory path`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlatformDirectoryPath from the subsystem API first
+PlatformDirectoryPath platformDirectoryPath = ...;
+var result = platformDirectoryPath.PlatformDirectoryPath(type, "example");
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of PlatformDirectoryPath from the subsystem API first
+PlatformDirectoryPath platformDirectoryPath = ...;
+var result = platformDirectoryPath.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlatformDirectoryPath();
-value.PlatformDirectoryPath(type, "example");
+// Typically call this after obtaining an instance from the subsystem API
+PlatformDirectoryPath platformDirectoryPath = ...;
+platformDirectoryPath.PlatformDirectoryPath(type, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

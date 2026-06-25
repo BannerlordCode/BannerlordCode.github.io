@@ -1,20 +1,14 @@
 ---
 title: "ILanguage"
+description: "ILanguage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ILanguage`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ILanguage
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public interface ILanguage`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ILanguage.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ILanguage.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ILanguage"
 ## 使用示例
 
 ```csharp
-ILanguage implementation = GetLanguageImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IILanguage service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

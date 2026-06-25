@@ -1,20 +1,14 @@
 ---
 title: "Add100InfluenceCheat"
+description: "Auto-generated class reference for Add100InfluenceCheat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Add100InfluenceCheat`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Add100InfluenceCheat
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class Add100InfluenceCheat : GameplayCheatItem`
 **Base:** `GameplayCheatItem`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/Add100InfluenceCheat.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/Add100InfluenceCheat.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of Add100InfluenceCheat from the subsystem API first
+Add100InfluenceCheat add100InfluenceCheat = ...;
+add100InfluenceCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of Add100InfluenceCheat from the subsystem API first
+Add100InfluenceCheat add100InfluenceCheat = ...;
+var result = add100InfluenceCheat.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Add100InfluenceCheat();
-value.ExecuteCheat();
+// Typically call this after obtaining an instance from the subsystem API
+Add100InfluenceCheat add100InfluenceCheat = ...;
+add100InfluenceCheat.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

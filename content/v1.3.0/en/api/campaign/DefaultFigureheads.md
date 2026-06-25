@@ -1,13 +1,7 @@
 ---
 title: "DefaultFigureheads"
+description: "Auto-generated class reference for DefaultFigureheads."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultFigureheads`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultFigureheads
 
 **Namespace:** TaleWorlds.CampaignSystem.Naval
@@ -50,9 +44,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Naval` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new DefaultFigureheads();
+// Obtain an instance from the relevant subsystem API
+DefaultFigureheads instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

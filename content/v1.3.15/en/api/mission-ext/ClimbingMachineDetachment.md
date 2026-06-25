@@ -1,13 +1,7 @@
 ---
 title: "ClimbingMachineDetachment"
+description: "Auto-generated class reference for ClimbingMachineDetachment."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClimbingMachineDetachment`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClimbingMachineDetachment
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,90 +31,187 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** Handles logic related to `deactivate`.
+**Purpose:** Deactivates the resource, state, or feature represented by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+climbingMachineDetachment.Deactivate();
+```
 
 ### AddAgent
 `public void AddAgent(Agent agent, int slotIndex, Agent.AIScriptedFrameFlags customFlags = Agent.AIScriptedFrameFlags.None)`
 
 **Purpose:** Adds `agent` to the current collection or state.
 
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+climbingMachineDetachment.AddAgent(agent, 0, agent.AIScriptedFrameFlags.None);
+```
+
 ### AddAgentAtSlotIndex
 `public void AddAgentAtSlotIndex(Agent agent, int slotIndex)`
 
 **Purpose:** Adds `agent at slot index` to the current collection or state.
 
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+climbingMachineDetachment.AddAgentAtSlotIndex(agent, 0);
+```
+
 ### IsUsedByFormation
 `public bool IsUsedByFormation(Formation formation)`
 
-**Purpose:** Handles logic related to `is used by formation`.
+**Purpose:** Determines whether the current object is in the `used by formation` state or condition.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.IsUsedByFormation(formation);
+```
 
 ### IsStandingPointAvailableForAgent
 `public bool IsStandingPointAvailableForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is standing point available for agent`.
+**Purpose:** Determines whether the current object is in the `standing point available for agent` state or condition.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.IsStandingPointAvailableForAgent(agent);
+```
 
 ### GetTemplateCostsOfAgent
 `public List<float> GetTemplateCostsOfAgent(Agent candidate, List<float> oldValue)`
 
-**Purpose:** Gets the current value of `template costs of agent`.
+**Purpose:** Reads and returns the `template costs of agent` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetTemplateCostsOfAgent(candidate, oldValue);
+```
 
 ### GetTemplateWeightOfAgent
 `public float GetTemplateWeightOfAgent(Agent candidate)`
 
-**Purpose:** Gets the current value of `template weight of agent`.
+**Purpose:** Reads and returns the `template weight of agent` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetTemplateWeightOfAgent(candidate);
+```
 
 ### GetWeightOfAgentAtNextSlot
 `public float? GetWeightOfAgentAtNextSlot(List<Agent> newAgents, out Agent match)`
 
-**Purpose:** Gets the current value of `weight of agent at next slot`.
+**Purpose:** Reads and returns the `weight of agent at next slot` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetWeightOfAgentAtNextSlot(newAgents, match);
+```
 
 ### GetWeightOfAgentAtNextSlot
 `public float? GetWeightOfAgentAtNextSlot(List<ValueTuple<Agent, float>> agentTemplateScores, out Agent match)`
 
-**Purpose:** Gets the current value of `weight of agent at next slot`.
+**Purpose:** Reads and returns the `weight of agent at next slot` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetWeightOfAgentAtNextSlot(list<ValueTuple<Agent, 0, match);
+```
 
 ### GetWeightOfAgentAtOccupiedSlot
 `public float? GetWeightOfAgentAtOccupiedSlot(Agent detachedAgent, List<Agent> newAgents, out Agent match)`
 
-**Purpose:** Gets the current value of `weight of agent at occupied slot`.
+**Purpose:** Reads and returns the `weight of agent at occupied slot` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetWeightOfAgentAtOccupiedSlot(detachedAgent, newAgents, match);
+```
 
 ### RemoveAgent
 `public void RemoveAgent(Agent agent)`
 
 **Purpose:** Removes `agent` from the current collection or state.
 
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+climbingMachineDetachment.RemoveAgent(agent);
+```
+
 ### GetNumberOfUsableSlots
 `public int GetNumberOfUsableSlots()`
 
-**Purpose:** Gets the current value of `number of usable slots`.
+**Purpose:** Reads and returns the `number of usable slots` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetNumberOfUsableSlots();
+```
 
 ### GetAgentFrame
 `public WorldFrame? GetAgentFrame(Agent agent)`
 
-**Purpose:** Gets the current value of `agent frame`.
+**Purpose:** Reads and returns the `agent frame` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetAgentFrame(agent);
+```
 
 ### GetWeightOfNextSlot
 `public float? GetWeightOfNextSlot(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `weight of next slot`.
+**Purpose:** Reads and returns the `weight of next slot` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetWeightOfNextSlot(side);
+```
 
 ### GetWeightOfOccupiedSlot
 `public float GetWeightOfOccupiedSlot(Agent agent)`
 
-**Purpose:** Gets the current value of `weight of occupied slot`.
+**Purpose:** Reads and returns the `weight of occupied slot` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+var result = climbingMachineDetachment.GetWeightOfOccupiedSlot(agent);
+```
 
 ### TickClimbingMachines
 `public void TickClimbingMachines()`
 
-**Purpose:** Handles logic related to `tick climbing machines`.
+**Purpose:** Advances the `climbing machines` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of ClimbingMachineDetachment from the subsystem API first
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+climbingMachineDetachment.TickClimbingMachines();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClimbingMachineDetachment();
-value.Deactivate();
+// Typically call this after obtaining an instance from the subsystem API
+ClimbingMachineDetachment climbingMachineDetachment = ...;
+climbingMachineDetachment.Deactivate();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

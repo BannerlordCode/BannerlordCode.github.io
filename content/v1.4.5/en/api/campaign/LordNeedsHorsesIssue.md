@@ -1,20 +1,14 @@
 ---
 title: "LordNeedsHorsesIssue"
+description: "Auto-generated class reference for LordNeedsHorsesIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LordNeedsHorsesIssue`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordNeedsHorsesIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LordNeedsHorsesIssue`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LordNeedsHorsesIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LordNeedsHorsesIssueBehavior.cs`
 
 ## Overview
 
@@ -45,65 +39,130 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+var result = lordNeedsHorsesIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
+**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+var result = lordNeedsHorsesIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+var result = lordNeedsHorsesIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Handles logic related to `alternative solution start consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+lordNeedsHorsesIssue.AlternativeSolutionStartConsequence();
+```
 
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+var result = lordNeedsHorsesIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+var result = lordNeedsHorsesIssue.IssueStayAliveConditions();
+```
 
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+lordNeedsHorsesIssue.OnFailed();
+```
 
 ### ComputeMountsOverInfantryCountRatio
 `public static float ComputeMountsOverInfantryCountRatio(MobileParty issueParty, out int numInfantry)`
 
-**Purpose:** Handles logic related to `compute mounts over infantry count ratio`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LordNeedsHorsesIssue.ComputeMountsOverInfantryCountRatio(issueParty, numInfantry);
+```
 
 ### IsMountCamel
 `public static bool IsMountCamel(ItemObject mountObject)`
 
-**Purpose:** Handles logic related to `is mount camel`.
+**Purpose:** Determines whether the current object is in the `mount camel` state or condition.
+
+```csharp
+// Static call; no instance required
+LordNeedsHorsesIssue.IsMountCamel(mountObject);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+lordNeedsHorsesIssue.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of LordNeedsHorsesIssue from the subsystem API first
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+lordNeedsHorsesIssue.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LordNeedsHorsesIssue();
-value.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+// Typically call this after obtaining an instance from the subsystem API
+LordNeedsHorsesIssue lordNeedsHorsesIssue = ...;
+lordNeedsHorsesIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

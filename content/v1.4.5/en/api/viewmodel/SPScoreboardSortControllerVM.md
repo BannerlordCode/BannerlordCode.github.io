@@ -1,20 +1,14 @@
 ---
 title: "SPScoreboardSortControllerVM"
+description: "Auto-generated class reference for SPScoreboardSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPScoreboardSortControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPScoreboardSortControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPScoreboardSortControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSortControllerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSortControllerVM.cs`
 
 ## Overview
 
@@ -46,85 +40,176 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+sPScoreboardSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+var result = sPScoreboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+var result = sPScoreboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+var result = sPScoreboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+var result = sPScoreboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+var result = sPScoreboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+var result = sPScoreboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+var result = sPScoreboardSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+var result = sPScoreboardSortControllerVM.Compare(x, y);
+```
 
 ### ExecuteSortByRemaining
 `public void ExecuteSortByRemaining()`
 
-**Purpose:** Executes the `sort by remaining` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by remaining`.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+sPScoreboardSortControllerVM.ExecuteSortByRemaining();
+```
 
 ### ExecuteSortByKill
 `public void ExecuteSortByKill()`
 
-**Purpose:** Executes the `sort by kill` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by kill`.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+sPScoreboardSortControllerVM.ExecuteSortByKill();
+```
 
 ### ExecuteSortByUpgrade
 `public void ExecuteSortByUpgrade()`
 
-**Purpose:** Executes the `sort by upgrade` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by upgrade`.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+sPScoreboardSortControllerVM.ExecuteSortByUpgrade();
+```
 
 ### ExecuteSortByDead
 `public void ExecuteSortByDead()`
 
-**Purpose:** Executes the `sort by dead` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by dead`.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+sPScoreboardSortControllerVM.ExecuteSortByDead();
+```
 
 ### ExecuteSortByWounded
 `public void ExecuteSortByWounded()`
 
-**Purpose:** Executes the `sort by wounded` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by wounded`.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+sPScoreboardSortControllerVM.ExecuteSortByWounded();
+```
 
 ### ExecuteSortByRouted
 `public void ExecuteSortByRouted()`
 
-**Purpose:** Executes the `sort by routed` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by routed`.
+
+```csharp
+// Obtain an instance of SPScoreboardSortControllerVM from the subsystem API first
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+sPScoreboardSortControllerVM.ExecuteSortByRouted();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPScoreboardSortControllerVM();
-value.SetSortMode(false);
+// Typically call this after obtaining an instance from the subsystem API
+SPScoreboardSortControllerVM sPScoreboardSortControllerVM = ...;
+sPScoreboardSortControllerVM.SetSortMode(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

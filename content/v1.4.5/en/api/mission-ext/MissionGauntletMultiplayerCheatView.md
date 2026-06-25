@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerCheatView"
+description: "Auto-generated class reference for MissionGauntletMultiplayerCheatView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMultiplayerCheatView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerCheatView
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerCheatView : MissionCheatView`
 **Base:** `MissionCheatView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerCheatView.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerCheatView.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionGauntletMultiplayerCheatView` as a View-style extension point: fir
 ### GetIsCheatsAvailable
 `public override bool GetIsCheatsAvailable()`
 
-**Purpose:** Gets the current value of `is cheats available`.
+**Purpose:** Reads and returns the `is cheats available` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerCheatView from the subsystem API first
+MissionGauntletMultiplayerCheatView missionGauntletMultiplayerCheatView = ...;
+var result = missionGauntletMultiplayerCheatView.GetIsCheatsAvailable();
+```
 
 ### InitializeScreen
 `public override void InitializeScreen()`
 
-**Purpose:** Initializes the state, resources, or bindings for `screen`.
+**Purpose:** Prepares the resources, state, or bindings required by `screen`.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerCheatView from the subsystem API first
+MissionGauntletMultiplayerCheatView missionGauntletMultiplayerCheatView = ...;
+missionGauntletMultiplayerCheatView.InitializeScreen();
+```
 
 ### FinalizeScreen
 `public override void FinalizeScreen()`
 
-**Purpose:** Handles logic related to `finalize screen`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerCheatView from the subsystem API first
+MissionGauntletMultiplayerCheatView missionGauntletMultiplayerCheatView = ...;
+missionGauntletMultiplayerCheatView.FinalizeScreen();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletMultiplayerCheatView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletMultiplayerCheatView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

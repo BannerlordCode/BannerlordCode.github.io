@@ -1,20 +1,14 @@
 ---
 title: "UISoundsHelper"
+description: "UISoundsHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UISoundsHelper`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UISoundsHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class UISoundsHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/UISoundsHelper.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/UISoundsHelper.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "UISoundsHelper"
 ### PlayUISound
 `public static void PlayUISound(string soundName)`
 
-**用途 / Purpose:** 处理 `play u i sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+UISoundsHelper.PlayUISound("example");
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ UISoundsHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

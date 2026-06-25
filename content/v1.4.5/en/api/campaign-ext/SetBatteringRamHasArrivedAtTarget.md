@@ -1,20 +1,14 @@
 ---
 title: "SetBatteringRamHasArrivedAtTarget"
+description: "Auto-generated class reference for SetBatteringRamHasArrivedAtTarget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SetBatteringRamHasArrivedAtTarget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetBatteringRamHasArrivedAtTarget
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetBatteringRamHasArrivedAtTarget : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetBatteringRamHasArrivedAtTarget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetBatteringRamHasArrivedAtTarget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SetBatteringRamHasArrivedAtTarget();
+// Obtain an instance from the relevant subsystem API
+SetBatteringRamHasArrivedAtTarget instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

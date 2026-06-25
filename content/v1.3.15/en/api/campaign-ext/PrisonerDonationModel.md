@@ -1,13 +1,7 @@
 ---
 title: "PrisonerDonationModel"
+description: "Auto-generated class reference for PrisonerDonationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrisonerDonationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PrisonerDonationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ Treat `PrisonerDonationModel` as a Model-style extension point: first identify w
 ### CalculateRelationGainAfterHeroPrisonerDonate
 `public abstract float CalculateRelationGainAfterHeroPrisonerDonate(PartyBase donatingParty, Hero donatedHero, Settlement donatedSettlement)`
 
-**Purpose:** Handles logic related to `calculate relation gain after hero prisoner donate`.
+**Purpose:** Calculates the current value or result of `relation gain after hero prisoner donate`.
+
+```csharp
+// Obtain an instance of PrisonerDonationModel from the subsystem API first
+PrisonerDonationModel prisonerDonationModel = ...;
+var result = prisonerDonationModel.CalculateRelationGainAfterHeroPrisonerDonate(donatingParty, donatedHero, donatedSettlement);
+```
 
 ### CalculateInfluenceGainAfterPrisonerDonation
 `public abstract float CalculateInfluenceGainAfterPrisonerDonation(PartyBase donatingParty, CharacterObject donatedPrisoner, Settlement donatedSettlement)`
 
-**Purpose:** Handles logic related to `calculate influence gain after prisoner donation`.
+**Purpose:** Calculates the current value or result of `influence gain after prisoner donation`.
+
+```csharp
+// Obtain an instance of PrisonerDonationModel from the subsystem API first
+PrisonerDonationModel prisonerDonationModel = ...;
+var result = prisonerDonationModel.CalculateInfluenceGainAfterPrisonerDonation(donatingParty, donatedPrisoner, donatedSettlement);
+```
 
 ### CalculateInfluenceGainAfterTroopDonation
 `public abstract float CalculateInfluenceGainAfterTroopDonation(PartyBase donatingParty, CharacterObject donatedTroop, Settlement donatedSettlement)`
 
-**Purpose:** Handles logic related to `calculate influence gain after troop donation`.
+**Purpose:** Calculates the current value or result of `influence gain after troop donation`.
+
+```csharp
+// Obtain an instance of PrisonerDonationModel from the subsystem API first
+PrisonerDonationModel prisonerDonationModel = ...;
+var result = prisonerDonationModel.CalculateInfluenceGainAfterTroopDonation(donatingParty, donatedTroop, donatedSettlement);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPrisonerDonationModel();
+// Typically obtained from a subsystem API or factory
+PrisonerDonationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

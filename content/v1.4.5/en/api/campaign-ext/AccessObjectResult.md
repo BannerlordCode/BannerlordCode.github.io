@@ -1,20 +1,14 @@
 ---
 title: "AccessObjectResult"
+description: "Auto-generated class reference for AccessObjectResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AccessObjectResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AccessObjectResult
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class AccessObjectResult`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AccessObjectResult.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AccessObjectResult.cs`
 
 ## Overview
 
@@ -37,12 +31,22 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### CreateSuccess
 `public static AccessObjectResult CreateSuccess(AccessObject accessObject)`
 
-**Purpose:** Creates a new `success` instance or object.
+**Purpose:** Constructs a new `success` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+AccessObjectResult.CreateSuccess(accessObject);
+```
 
 ### CreateFailed
 `public static AccessObjectResult CreateFailed(TextObject failReason)`
 
-**Purpose:** Creates a new `failed` instance or object.
+**Purpose:** Constructs a new `failed` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+AccessObjectResult.CreateFailed(failReason);
+```
 
 ## Usage Example
 
@@ -52,4 +56,4 @@ AccessObjectResult.CreateSuccess(accessObject);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

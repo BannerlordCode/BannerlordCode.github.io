@@ -1,20 +1,14 @@
 ---
 title: "HeroRelatedIssueCoolDownData"
+description: "Auto-generated class reference for HeroRelatedIssueCoolDownData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroRelatedIssueCoolDownData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroRelatedIssueCoolDownData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeroRelatedIssueCoolDownData : IssueCoolDownData`
 **Base:** `IssueCoolDownData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/HeroRelatedIssueCoolDownData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/HeroRelatedIssueCoolDownData.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `HeroRelatedIssueCoolDownData` as a Data-style extension point: first iden
 ### IsRelatedTo
 `public override bool IsRelatedTo(object obj)`
 
-**Purpose:** Handles logic related to `is related to`.
+**Purpose:** Determines whether the current object is in the `related to` state or condition.
+
+```csharp
+// Obtain an instance of HeroRelatedIssueCoolDownData from the subsystem API first
+HeroRelatedIssueCoolDownData heroRelatedIssueCoolDownData = ...;
+var result = heroRelatedIssueCoolDownData.IsRelatedTo(obj);
+```
 
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of HeroRelatedIssueCoolDownData from the subsystem API first
+HeroRelatedIssueCoolDownData heroRelatedIssueCoolDownData = ...;
+var result = heroRelatedIssueCoolDownData.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeroRelatedIssueCoolDownData();
+// This data object is usually returned by campaign/mission APIs
+HeroRelatedIssueCoolDownData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

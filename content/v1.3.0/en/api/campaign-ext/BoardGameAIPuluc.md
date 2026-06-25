@@ -1,13 +1,7 @@
 ---
 title: "BoardGameAIPuluc"
+description: "Auto-generated class reference for BoardGameAIPuluc."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameAIPuluc`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIPuluc
 
 **Namespace:** SandBox.BoardGames.AI
@@ -29,15 +23,22 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate movement stage move`.
+**Purpose:** Calculates the current value or result of `movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAIPuluc from the subsystem API first
+BoardGameAIPuluc boardGameAIPuluc = ...;
+var result = boardGameAIPuluc.CalculateMovementStageMove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameAIPuluc();
-value.CalculateMovementStageMove();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameAIPuluc boardGameAIPuluc = ...;
+boardGameAIPuluc.CalculateMovementStageMove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

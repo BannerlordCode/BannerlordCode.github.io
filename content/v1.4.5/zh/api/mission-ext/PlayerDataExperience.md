@@ -1,20 +1,14 @@
 ---
 title: "PlayerDataExperience"
+description: "PlayerDataExperience 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerDataExperience`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerDataExperience
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct PlayerDataExperience`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerDataExperience.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerDataExperience.cs`
 
 ## 概述
 
@@ -35,17 +29,32 @@ title: "PlayerDataExperience"
 ### CalculateLevelFromExperience
 `public static int CalculateLevelFromExperience(int experience)`
 
-**用途 / Purpose:** 处理 `calculate level from experience` 相关逻辑。
+**用途 / Purpose:** 计算「level from experience」的当前值或结果。
+
+```csharp
+// 静态调用，不需要实例
+PlayerDataExperience.CalculateLevelFromExperience(0);
+```
 
 ### CalculateExperienceFromLevel
 `public static int CalculateExperienceFromLevel(int level)`
 
-**用途 / Purpose:** 处理 `calculate experience from level` 相关逻辑。
+**用途 / Purpose:** 计算「experience from level」的当前值或结果。
+
+```csharp
+// 静态调用，不需要实例
+PlayerDataExperience.CalculateExperienceFromLevel(0);
+```
 
 ### ExperienceRequiredForLevel
 `public static int ExperienceRequiredForLevel(int level)`
 
-**用途 / Purpose:** 处理 `experience required for level` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerDataExperience.ExperienceRequiredForLevel(0);
+```
 
 ## 使用示例
 
@@ -55,4 +64,4 @@ PlayerDataExperience.CalculateLevelFromExperience(0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

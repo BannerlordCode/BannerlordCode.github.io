@@ -1,13 +1,7 @@
 ---
 title: "StandingPointWithAgentLimit"
+description: "StandingPointWithAgentLimit 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StandingPointWithAgentLimit`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandingPointWithAgentLimit
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ title: "StandingPointWithAgentLimit"
 ### AddValidAgent
 `public void AddValidAgent(Agent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `valid agent`。
+**用途 / Purpose:** 将 「valid agent」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointWithAgentLimit 实例
+StandingPointWithAgentLimit standingPointWithAgentLimit = ...;
+standingPointWithAgentLimit.AddValidAgent(agent);
+```
 
 ### ClearValidAgents
 `public void ClearValidAgents()`
 
-**用途 / Purpose:** 处理 `clear valid agents` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「valid agents」。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointWithAgentLimit 实例
+StandingPointWithAgentLimit standingPointWithAgentLimit = ...;
+standingPointWithAgentLimit.ClearValidAgents();
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `is disabled for agent` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StandingPointWithAgentLimit 实例
+StandingPointWithAgentLimit standingPointWithAgentLimit = ...;
+var result = standingPointWithAgentLimit.IsDisabledForAgent(agent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StandingPointWithAgentLimit();
-value.AddValidAgent(agent);
+// 通常从对应子系统 API 获取实例后调用
+StandingPointWithAgentLimit standingPointWithAgentLimit = ...;
+standingPointWithAgentLimit.AddValidAgent(agent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

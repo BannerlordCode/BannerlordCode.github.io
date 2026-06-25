@@ -1,23 +1,18 @@
 ---
 title: "Steward"
+description: "Auto-generated class reference for Steward."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Steward`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Steward
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Steward`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Steward` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Steward` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `WarriorsDiet` | `public static PerkObject WarriorsDiet { get; }` |
+| `Frugal` | `public static PerkObject Frugal { get; }` |
+| `SevenVeterans` | `public static PerkObject SevenVeterans { get; }` |
+| `DrillSergant` | `public static PerkObject DrillSergant { get; }` |
+| `Sweatshops` | `public static PerkObject Sweatshops { get; }` |
+| `StiffUpperLip` | `public static PerkObject StiffUpperLip { get; }` |
+| `PaidInPromise` | `public static PerkObject PaidInPromise { get; }` |
+| `EfficientCampaigner` | `public static PerkObject EfficientCampaigner { get; }` |
+| `GivingHands` | `public static PerkObject GivingHands { get; }` |
+| `Logistician` | `public static PerkObject Logistician { get; }` |
+| `Relocation` | `public static PerkObject Relocation { get; }` |
+| `AidCorps` | `public static PerkObject AidCorps { get; }` |
+| `Gourmet` | `public static PerkObject Gourmet { get; }` |
+| `SoundReserves` | `public static PerkObject SoundReserves { get; }` |
+| `ForcedLabor` | `public static PerkObject ForcedLabor { get; }` |
+| `Contractors` | `public static PerkObject Contractors { get; }` |
+| `ArenicosMules` | `public static PerkObject ArenicosMules { get; }` |
+| `ArenicosHorses` | `public static PerkObject ArenicosHorses { get; }` |
+| `MasterOfPlanning` | `public static PerkObject MasterOfPlanning { get; }` |
+| `MasterOfWarcraft` | `public static PerkObject MasterOfWarcraft { get; }` |
+| `PriceOfLoyalty` | `public static PerkObject PriceOfLoyalty { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Steward();
+// Obtain an instance from the relevant subsystem API
+Steward instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

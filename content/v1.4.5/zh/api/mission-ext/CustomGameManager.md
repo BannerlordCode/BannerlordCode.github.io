@@ -1,20 +1,14 @@
 ---
 title: "CustomGameManager"
+description: "CustomGameManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomGameManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomGameManager
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomGameManager : MBGameManager`
 **Base:** `MBGameManager`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomGameManager.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomGameManager.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "CustomGameManager"
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**用途 / Purpose:** 当 `after campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomGameManager 实例
+CustomGameManager customGameManager = ...;
+customGameManager.OnAfterCampaignStart(game);
+```
 
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**用途 / Purpose:** 当 `load finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「load finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomGameManager 实例
+CustomGameManager customGameManager = ...;
+customGameManager.OnLoadFinished();
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var manager = CustomGameManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

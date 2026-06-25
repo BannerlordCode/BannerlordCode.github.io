@@ -1,20 +1,14 @@
 ---
 title: "MBOutOfRangeException"
+description: "Auto-generated class reference for MBOutOfRangeException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBOutOfRangeException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBOutOfRangeException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBOutOfRangeException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBOutOfRangeException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBOutOfRangeException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBOutOfRangeException` as a Exception-style extension point: first identi
 ## Usage Example
 
 ```csharp
-try { CallMBOutOfRangeException(); } catch (MBOutOfRangeException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBOutOfRangeException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

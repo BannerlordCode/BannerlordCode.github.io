@@ -1,20 +1,14 @@
 ---
 title: "PlatformInviteResponse"
+description: "PlatformInviteResponse 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlatformInviteResponse`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformInviteResponse
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** `class`
+**Type:** `public enum PlatformInviteResponse`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/PlatformInviteResponse.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/PlatformInviteResponse.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "PlatformInviteResponse"
 ## 使用示例
 
 ```csharp
-var example = new PlatformInviteResponse();
+// 从对应子系统 API 获取实例
+PlatformInviteResponse instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

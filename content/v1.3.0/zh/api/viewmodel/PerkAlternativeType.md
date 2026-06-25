@@ -1,13 +1,7 @@
 ---
 title: "PerkAlternativeType"
+description: "PerkAlternativeType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PerkAlternativeType`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkAlternativeType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -27,9 +21,10 @@ title: "PerkAlternativeType"
 ## 使用示例
 
 ```csharp
-PerkAlternativeType example = PerkAlternativeType.Value;
+// 从对应子系统 API 获取实例
+PerkAlternativeType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

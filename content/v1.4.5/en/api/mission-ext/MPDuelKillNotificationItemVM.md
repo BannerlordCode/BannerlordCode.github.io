@@ -1,20 +1,14 @@
 ---
 title: "MPDuelKillNotificationItemVM"
+description: "Auto-generated class reference for MPDuelKillNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPDuelKillNotificationItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPDuelKillNotificationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPDuelKillNotificationItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed/MPDuelKillNotificationItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed/MPDuelKillNotificationItemVM.cs`
 
 ## Overview
 
@@ -42,20 +36,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### InitProperties
 `public void InitProperties(MissionPeer firstPlayerPeer, MissionPeer secondPlayerPeer)`
 
-**Purpose:** Initializes the state, resources, or bindings for `properties`.
+**Purpose:** Prepares the resources, state, or bindings required by `properties`.
+
+```csharp
+// Obtain an instance of MPDuelKillNotificationItemVM from the subsystem API first
+MPDuelKillNotificationItemVM mPDuelKillNotificationItemVM = ...;
+mPDuelKillNotificationItemVM.InitProperties(firstPlayerPeer, secondPlayerPeer);
+```
 
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of MPDuelKillNotificationItemVM from the subsystem API first
+MPDuelKillNotificationItemVM mPDuelKillNotificationItemVM = ...;
+mPDuelKillNotificationItemVM.ExecuteRemove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPDuelKillNotificationItemVM();
-value.InitProperties(firstPlayerPeer, secondPlayerPeer);
+// Typically call this after obtaining an instance from the subsystem API
+MPDuelKillNotificationItemVM mPDuelKillNotificationItemVM = ...;
+mPDuelKillNotificationItemVM.InitProperties(firstPlayerPeer, secondPlayerPeer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

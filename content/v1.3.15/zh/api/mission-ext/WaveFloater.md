@@ -1,13 +1,7 @@
 ---
 title: "WaveFloater"
+description: "WaveFloater 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WaveFloater`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WaveFloater
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ title: "WaveFloater"
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WaveFloater 实例
+WaveFloater waveFloater = ...;
+var result = waveFloater.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WaveFloater();
-value.GetTickRequirement();
+// 通常从对应子系统 API 获取实例后调用
+WaveFloater waveFloater = ...;
+waveFloater.GetTickRequirement();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

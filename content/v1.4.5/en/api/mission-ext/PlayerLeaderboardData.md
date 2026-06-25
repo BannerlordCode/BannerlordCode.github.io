@@ -1,20 +1,14 @@
 ---
 title: "PlayerLeaderboardData"
+description: "Auto-generated class reference for PlayerLeaderboardData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerLeaderboardData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerLeaderboardData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerLeaderboardData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerLeaderboardData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerLeaderboardData.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `PlayerLeaderboardData` as a Data-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var value = new PlayerLeaderboardData();
+// This data object is usually returned by campaign/mission APIs
+PlayerLeaderboardData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

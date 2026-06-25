@@ -1,13 +1,7 @@
 ---
 title: "SphereData"
+description: "Auto-generated class reference for SphereData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SphereData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SphereData
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Treat `SphereData` as a Data-style extension point: first identify who creates i
 ## Usage Example
 
 ```csharp
-var value = new SphereData();
+// This data object is usually returned by campaign/mission APIs
+SphereData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

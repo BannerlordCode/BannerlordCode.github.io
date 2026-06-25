@@ -1,18 +1,12 @@
 ---
 title: "TargetIconType"
+description: "TargetIconType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TargetIconType`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TargetIconType
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum TargetIconType`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade/TargetIconType.cs`
 
@@ -27,9 +21,10 @@ title: "TargetIconType"
 ## 使用示例
 
 ```csharp
-var example = new TargetIconType();
+// 从对应子系统 API 获取实例
+TargetIconType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "HeroHelper"
+description: "Auto-generated class reference for HeroHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class HeroHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/HeroHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/HeroHelper.cs`
 
 ## Overview
 
@@ -29,137 +23,272 @@ Treat `HeroHelper` as a Helper-style extension point: first identify who creates
 ### GetLastSeenText
 `public static TextObject GetLastSeenText(Hero hero)`
 
-**Purpose:** Gets the current value of `last seen text`.
+**Purpose:** Reads and returns the `last seen text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetLastSeenText(hero);
+```
 
 ### GetClosestSettlement
 `public static Settlement GetClosestSettlement(Hero hero)`
 
-**Purpose:** Gets the current value of `closest settlement`.
+**Purpose:** Reads and returns the `closest settlement` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetClosestSettlement(hero);
+```
 
 ### LordWillConspireWithLord
 `public static bool LordWillConspireWithLord(Hero lord, Hero otherLord, bool suggestingBetrayal)`
 
-**Purpose:** Handles logic related to `lord will conspire with lord`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.LordWillConspireWithLord(lord, otherLord, false);
+```
 
 ### UnderPlayerCommand
 `public static bool UnderPlayerCommand(Hero hero)`
 
-**Purpose:** Handles logic related to `under player command`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.UnderPlayerCommand(hero);
+```
 
 ### GetTitleInIndefiniteCase
 `public static TextObject GetTitleInIndefiniteCase(Hero hero)`
 
-**Purpose:** Gets the current value of `title in indefinite case`.
+**Purpose:** Reads and returns the `title in indefinite case` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetTitleInIndefiniteCase(hero);
+```
 
 ### GetCharacterTypeName
 `public static TextObject GetCharacterTypeName(Hero hero)`
 
-**Purpose:** Gets the current value of `character type name`.
+**Purpose:** Reads and returns the `character type name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetCharacterTypeName(hero);
+```
 
 ### GetOccupiedEventReasonText
 `public static TextObject GetOccupiedEventReasonText(Hero hero)`
 
-**Purpose:** Gets the current value of `occupied event reason text`.
+**Purpose:** Reads and returns the `occupied event reason text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetOccupiedEventReasonText(hero);
+```
 
 ### OrderHeroesOnPlayerSideByPriority
 `public static List<string> OrderHeroesOnPlayerSideByPriority(bool includeArmyLeader = false, bool includePlayerCompanions = false)`
 
-**Purpose:** Handles logic related to `order heroes on player side by priority`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.OrderHeroesOnPlayerSideByPriority(false, false);
+```
 
 ### WillLordAttack
 `public static bool WillLordAttack()`
 
-**Purpose:** Handles logic related to `will lord attack`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.WillLordAttack();
+```
 
 ### SetPlayerSalutation
 `public static void SetPlayerSalutation()`
 
-**Purpose:** Sets the value or state of `player salutation`.
+**Purpose:** Assigns a new value to `player salutation` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+HeroHelper.SetPlayerSalutation();
+```
 
 ### SpawnHeroForTheFirstTime
 `public static void SpawnHeroForTheFirstTime(Hero hero, Settlement spawnSettlement)`
 
-**Purpose:** Handles logic related to `spawn hero for the first time`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.SpawnHeroForTheFirstTime(hero, spawnSettlement);
+```
 
 ### DefaultRelation
 `public static int DefaultRelation(Hero hero, Hero otherHero)`
 
-**Purpose:** Handles logic related to `default relation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.DefaultRelation(hero, otherHero);
+```
 
 ### IsCompanionInPlayerParty
 `public static bool IsCompanionInPlayerParty(Hero hero)`
 
-**Purpose:** Handles logic related to `is companion in player party`.
+**Purpose:** Determines whether the current object is in the `companion in player party` state or condition.
+
+```csharp
+// Static call; no instance required
+HeroHelper.IsCompanionInPlayerParty(hero);
+```
 
 ### NPCPoliticalDifferencesWithNPC
 `public static bool NPCPoliticalDifferencesWithNPC(Hero firstNPC, Hero secondNPC)`
 
-**Purpose:** Handles logic related to `n p c political differences with n p c`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.NPCPoliticalDifferencesWithNPC(firstNPC, secondNPC);
+```
 
 ### NPCPersonalityClashWithNPC
 `public static int NPCPersonalityClashWithNPC(Hero firstNPC, Hero secondNPC)`
 
-**Purpose:** Handles logic related to `n p c personality clash with n p c`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.NPCPersonalityClashWithNPC(firstNPC, secondNPC);
+```
 
 ### TraitHarmony
 `public static int TraitHarmony(Hero considerer, TraitObject trait, Hero consideree, bool sensitive)`
 
-**Purpose:** Handles logic related to `trait harmony`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.TraitHarmony(considerer, trait, consideree, false);
+```
 
 ### CalculateReliabilityConstant
 `public static float CalculateReliabilityConstant(Hero hero, float maxValueConstant = 1f)`
 
-**Purpose:** Handles logic related to `calculate reliability constant`.
+**Purpose:** Calculates the current value or result of `reliability constant`.
+
+```csharp
+// Static call; no instance required
+HeroHelper.CalculateReliabilityConstant(hero, 0);
+```
 
 ### SetPropertiesToTextObject
 `public static void SetPropertiesToTextObject(this Hero hero, TextObject textObject, string tagName)`
 
-**Purpose:** Sets the value or state of `properties to text object`.
+**Purpose:** Assigns a new value to `properties to text object` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+HeroHelper.SetPropertiesToTextObject(hero, textObject, "example");
+```
 
 ### SetPropertiesToTextObject
 `public static void SetPropertiesToTextObject(this Settlement settlement, TextObject textObject, string tagName)`
 
-**Purpose:** Sets the value or state of `properties to text object`.
+**Purpose:** Assigns a new value to `properties to text object` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+HeroHelper.SetPropertiesToTextObject(settlement, textObject, "example");
+```
 
 ### HeroCanRecruitFromHero
 `public static bool HeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int index)`
 
-**Purpose:** Handles logic related to `hero can recruit from hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HeroHelper.HeroCanRecruitFromHero(buyerHero, sellerHero, 0);
+```
 
 ### GetVolunteerTroopsOfHeroForRecruitment
 `public static List<CharacterObject> GetVolunteerTroopsOfHeroForRecruitment(Hero hero)`
 
-**Purpose:** Gets the current value of `volunteer troops of hero for recruitment`.
+**Purpose:** Reads and returns the `volunteer troops of hero for recruitment` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetVolunteerTroopsOfHeroForRecruitment(hero);
+```
 
 ### GetRandomClanForNotable
 `public static Clan GetRandomClanForNotable(Hero notable)`
 
-**Purpose:** Gets the current value of `random clan for notable`.
+**Purpose:** Reads and returns the `random clan for notable` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetRandomClanForNotable(notable);
+```
 
 ### GetRandomBirthDayForAge
 `public static CampaignTime GetRandomBirthDayForAge(float age)`
 
-**Purpose:** Gets the current value of `random birth day for age`.
+**Purpose:** Reads and returns the `random birth day for age` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetRandomBirthDayForAge(0);
+```
 
 ### GetRandomDeathDayAndBirthDay
 `public static void GetRandomDeathDayAndBirthDay(int deathAge, out CampaignTime birthday, out CampaignTime deathday)`
 
-**Purpose:** Gets the current value of `random death day and birth day`.
+**Purpose:** Reads and returns the `random death day and birth day` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetRandomDeathDayAndBirthDay(0, birthday, deathday);
+```
 
 ### StartRecruitingMoneyLimit
 `public static float StartRecruitingMoneyLimit(Hero hero)`
 
-**Purpose:** Handles logic related to `start recruiting money limit`.
+**Purpose:** Starts the `recruiting money limit` flow or state machine.
+
+```csharp
+// Static call; no instance required
+HeroHelper.StartRecruitingMoneyLimit(hero);
+```
 
 ### StartRecruitingMoneyLimitForClanLeader
 `public static float StartRecruitingMoneyLimitForClanLeader(Hero hero)`
 
-**Purpose:** Handles logic related to `start recruiting money limit for clan leader`.
+**Purpose:** Starts the `recruiting money limit for clan leader` flow or state machine.
+
+```csharp
+// Static call; no instance required
+HeroHelper.StartRecruitingMoneyLimitForClanLeader(hero);
+```
 
 ### GetPersonalityTraitChangeName
 `public static TextObject GetPersonalityTraitChangeName(TraitObject traitObject, Hero hero, bool isPositive)`
 
-**Purpose:** Gets the current value of `personality trait change name`.
+**Purpose:** Reads and returns the `personality trait change name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroHelper.GetPersonalityTraitChangeName(traitObject, hero, false);
+```
 
 ## Usage Example
 
@@ -169,4 +298,4 @@ HeroHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

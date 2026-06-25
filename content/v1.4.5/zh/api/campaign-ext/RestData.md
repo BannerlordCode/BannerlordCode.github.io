@@ -1,20 +1,14 @@
 ---
 title: "RestData"
+description: "RestData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RestData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestData
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class RestData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestData.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestData.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "RestData"
 ### SerializeAsJson
 `public string SerializeAsJson()`
 
-**用途 / Purpose:** 处理 `serialize as json` 相关逻辑。
+**用途 / Purpose:** 将「as json」序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 RestData 实例
+RestData restData = ...;
+var result = restData.SerializeAsJson();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomRestData();
+// 通常通过子系统 API 或工厂获得派生实例
+RestData instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "NotableSpawnPointHandler"
+description: "Auto-generated class reference for NotableSpawnPointHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NotableSpawnPointHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotableSpawnPointHandler
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class NotableSpawnPointHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/NotableSpawnPointHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/NotableSpawnPointHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `NotableSpawnPointHandler` as a Handler-style extension point: first ident
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of NotableSpawnPointHandler from the subsystem API first
+NotableSpawnPointHandler notableSpawnPointHandler = ...;
+notableSpawnPointHandler.OnBehaviorInitialize();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new NotableSpawnPointHandler());
+var behavior = Mission.Current.GetMissionBehavior<NotableSpawnPointHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

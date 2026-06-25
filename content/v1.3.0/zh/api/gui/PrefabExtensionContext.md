@@ -1,13 +1,7 @@
 ---
 title: "PrefabExtensionContext"
+description: "PrefabExtensionContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrefabExtensionContext`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrefabExtensionContext
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -35,15 +29,22 @@ title: "PrefabExtensionContext"
 ### AddExtension
 `public void AddExtension(PrefabExtension prefabExtension)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `extension`。
+**用途 / Purpose:** 将 「extension」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PrefabExtensionContext 实例
+PrefabExtensionContext prefabExtensionContext = ...;
+prefabExtensionContext.AddExtension(prefabExtension);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PrefabExtensionContext();
-value.AddExtension(prefabExtension);
+// 通常从对应子系统 API 获取实例后调用
+PrefabExtensionContext prefabExtensionContext = ...;
+prefabExtensionContext.AddExtension(prefabExtension);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

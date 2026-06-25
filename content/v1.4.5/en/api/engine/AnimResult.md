@@ -1,20 +1,14 @@
 ---
 title: "AnimResult"
+description: "Auto-generated class reference for AnimResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimResult`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimResult
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct AnimResult`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/AnimResult.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/AnimResult.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetEntitialOutTransform
 `public Transformation GetEntitialOutTransform(sbyte boneIndex, Skeleton skeleton)`
 
-**Purpose:** Gets the current value of `entitial out transform`.
+**Purpose:** Reads and returns the `entitial out transform` value held by the current object.
+
+```csharp
+// Obtain an instance of AnimResult from the subsystem API first
+AnimResult animResult = ...;
+var result = animResult.GetEntitialOutTransform(0, skeleton);
+```
 
 ### SetOutBoneDisplacement
 `public void SetOutBoneDisplacement(sbyte boneIndex, Vec3 position, Skeleton skeleton)`
 
-**Purpose:** Sets the value or state of `out bone displacement`.
+**Purpose:** Assigns a new value to `out bone displacement` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AnimResult from the subsystem API first
+AnimResult animResult = ...;
+animResult.SetOutBoneDisplacement(0, position, skeleton);
+```
 
 ### SetOutQuat
 `public void SetOutQuat(sbyte boneIndex, Mat3 rotation, Skeleton skeleton)`
 
-**Purpose:** Sets the value or state of `out quat`.
+**Purpose:** Assigns a new value to `out quat` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AnimResult from the subsystem API first
+AnimResult animResult = ...;
+animResult.SetOutQuat(0, rotation, skeleton);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AnimResult();
-value.GetEntitialOutTransform(0, skeleton);
+// Typically call this after obtaining an instance from the subsystem API
+AnimResult animResult = ...;
+animResult.GetEntitialOutTransform(0, skeleton);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

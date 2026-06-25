@@ -1,20 +1,14 @@
 ---
 title: "ITwoDimensionPlatform"
+description: "Auto-generated class reference for ITwoDimensionPlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ITwoDimensionPlatform`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ITwoDimensionPlatform
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public interface ITwoDimensionPlatform`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ITwoDimensionPlatform.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/ITwoDimensionPlatform.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-ITwoDimensionPlatform implementation = GetTwoDimensionPlatformImplementation();
+// Usually obtained through DI or a factory method
+IITwoDimensionPlatform service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

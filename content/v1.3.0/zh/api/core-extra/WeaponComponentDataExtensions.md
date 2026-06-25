@@ -1,13 +1,7 @@
 ---
 title: "WeaponComponentDataExtensions"
+description: "WeaponComponentDataExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponComponentDataExtensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponComponentDataExtensions
 
 **Namespace:** TaleWorlds.Core
@@ -29,52 +23,102 @@ title: "WeaponComponentDataExtensions"
 ### GetModifiedThrustDamage
 `public static int GetModifiedThrustDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified thrust damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified thrust damage」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedThrustDamage(componentData, itemModifier);
+```
 
 ### GetModifiedSwingDamage
 `public static int GetModifiedSwingDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified swing damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified swing damage」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedSwingDamage(componentData, itemModifier);
+```
 
 ### GetModifiedMissileDamage
 `public static int GetModifiedMissileDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified missile damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified missile damage」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedMissileDamage(componentData, itemModifier);
+```
 
 ### GetModifiedThrustSpeed
 `public static int GetModifiedThrustSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified thrust speed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified thrust speed」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedThrustSpeed(componentData, itemModifier);
+```
 
 ### GetModifiedSwingSpeed
 `public static int GetModifiedSwingSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified swing speed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified swing speed」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedSwingSpeed(componentData, itemModifier);
+```
 
 ### GetModifiedMissileSpeed
 `public static int GetModifiedMissileSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified missile speed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified missile speed」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedMissileSpeed(componentData, itemModifier);
+```
 
 ### GetModifiedHandling
 `public static int GetModifiedHandling(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified handling` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified handling」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedHandling(componentData, itemModifier);
+```
 
 ### GetModifiedStackCount
 `public static short GetModifiedStackCount(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified stack count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified stack count」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedStackCount(componentData, itemModifier);
+```
 
 ### GetModifiedMaximumHitPoints
 `public static short GetModifiedMaximumHitPoints(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified maximum hit points` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified maximum hit points」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedMaximumHitPoints(componentData, itemModifier);
+```
 
 ### GetModifiedArmor
 `public static int GetModifiedArmor(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**用途 / Purpose:** 获取 `modified armor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「modified armor」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponComponentDataExtensions.GetModifiedArmor(componentData, itemModifier);
+```
 
 ## 使用示例
 
@@ -84,4 +128,4 @@ WeaponComponentDataExtensions.GetModifiedThrustDamage(componentData, itemModifie
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

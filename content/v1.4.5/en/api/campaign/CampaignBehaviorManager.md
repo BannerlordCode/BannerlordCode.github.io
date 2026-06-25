@@ -1,20 +1,14 @@
 ---
 title: "CampaignBehaviorManager"
+description: "Auto-generated class reference for CampaignBehaviorManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignBehaviorManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignBehaviorManager
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignBehaviorManager : ICampaignBehaviorManager`
 **Base:** `ICampaignBehaviorManager`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CampaignBehaviorManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CampaignBehaviorManager.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `CampaignBehaviorManager` as a Manager-style extension point: first identi
 ### InitializeCampaignBehaviors
 `public void InitializeCampaignBehaviors(IEnumerable<CampaignBehaviorBase> inputComponents)`
 
-**Purpose:** Initializes the state, resources, or bindings for `campaign behaviors`.
+**Purpose:** Prepares the resources, state, or bindings required by `campaign behaviors`.
+
+```csharp
+// Obtain an instance of CampaignBehaviorManager from the subsystem API first
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.InitializeCampaignBehaviors(inputComponents);
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CampaignBehaviorManager from the subsystem API first
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.RegisterEvents();
+```
 
 ### LoadBehaviorData
 `public void LoadBehaviorData()`
 
-**Purpose:** Loads `behavior data` data.
+**Purpose:** Reads `behavior data` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CampaignBehaviorManager from the subsystem API first
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.LoadBehaviorData();
+```
 
 ### AddBehavior
 `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
 
 **Purpose:** Adds `behavior` to the current collection or state.
 
+```csharp
+// Obtain an instance of CampaignBehaviorManager from the subsystem API first
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.AddBehavior(campaignBehavior);
+```
+
 ### ClearBehaviors
 `public void ClearBehaviors()`
 
-**Purpose:** Handles logic related to `clear behaviors`.
+**Purpose:** Removes all `behaviors` from the current object.
+
+```csharp
+// Obtain an instance of CampaignBehaviorManager from the subsystem API first
+CampaignBehaviorManager campaignBehaviorManager = ...;
+campaignBehaviorManager.ClearBehaviors();
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ var manager = CampaignBehaviorManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

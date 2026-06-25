@@ -1,20 +1,14 @@
 ---
 title: "WeaponComponentMissionExtensions"
+description: "Auto-generated class reference for WeaponComponentMissionExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponComponentMissionExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponComponentMissionExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class WeaponComponentMissionExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WeaponComponentMissionExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WeaponComponentMissionExtensions.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetItemUsageIndex
 `public static int GetItemUsageIndex(this WeaponComponentData weaponComponentData)`
 
-**Purpose:** Gets the current value of `item usage index`.
+**Purpose:** Reads and returns the `item usage index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentMissionExtensions.GetItemUsageIndex(weaponComponentData);
+```
 
 ### GetWeaponCenterOfMass
 `public static Vec3 GetWeaponCenterOfMass(this PhysicsShape body)`
 
-**Purpose:** Gets the current value of `weapon center of mass`.
+**Purpose:** Reads and returns the `weapon center of mass` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentMissionExtensions.GetWeaponCenterOfMass(body);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ WeaponComponentMissionExtensions.GetItemUsageIndex(weaponComponentData);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

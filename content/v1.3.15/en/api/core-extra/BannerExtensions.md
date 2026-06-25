@@ -1,23 +1,18 @@
 ---
 title: "BannerExtensions"
+description: "Auto-generated class reference for BannerExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class BannerExtensions`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/BannerExtensions.cs`
 
 ## Overview
 
-`BannerExtensions` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`BannerExtensions` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsContentsSameWith
 `public static bool IsContentsSameWith(this Banner banner, Banner otherBanner)`
 
-**Purpose:** Handles logic related to `is contents same with`.
+**Purpose:** Determines whether the current object is in the `contents same with` state or condition.
+
+```csharp
+// Static call; no instance required
+BannerExtensions.IsContentsSameWith(banner, otherBanner);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 BannerExtensions.IsContentsSameWith(banner, otherBanner);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

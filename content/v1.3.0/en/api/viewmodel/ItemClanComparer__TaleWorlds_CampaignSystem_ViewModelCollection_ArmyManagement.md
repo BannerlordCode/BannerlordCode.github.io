@@ -1,13 +1,7 @@
 ---
-title: "ItemClanComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ArmyManagement"
+title: "ItemClanComparer"
+description: "Auto-generated class reference for ItemClanComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemClanComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemClanComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemClanComparer from the subsystem API first
+ItemClanComparer itemClanComparer = ...;
+var result = itemClanComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemClanComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemClanComparer itemClanComparer = ...;
+itemClanComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

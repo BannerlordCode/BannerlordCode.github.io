@@ -1,13 +1,7 @@
 ---
 title: "FillBarWidget"
+description: "Auto-generated class reference for FillBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillBarWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FillBarWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -44,9 +38,10 @@ Treat `FillBarWidget` as a Widget-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var widget = new FillBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FillBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

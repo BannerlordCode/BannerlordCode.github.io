@@ -1,20 +1,14 @@
 ---
 title: "Oriented2DArea"
+description: "Auto-generated class reference for Oriented2DArea."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Oriented2DArea`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Oriented2DArea
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Oriented2DArea`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Oriented2DArea.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Oriented2DArea.cs`
 
 ## Overview
 
@@ -42,35 +36,66 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### SetGlobalCenter
 `public void SetGlobalCenter(in Vec2 globalCenter)`
 
-**Purpose:** Sets the value or state of `global center`.
+**Purpose:** Assigns a new value to `global center` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Oriented2DArea from the subsystem API first
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetGlobalCenter(globalCenter);
+```
 
 ### SetLocalDimensions
 `public void SetLocalDimensions(in Vec2 localDimensions)`
 
-**Purpose:** Sets the value or state of `local dimensions`.
+**Purpose:** Assigns a new value to `local dimensions` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Oriented2DArea from the subsystem API first
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetLocalDimensions(localDimensions);
+```
 
 ### Overlaps
 `public bool Overlaps(in Oriented2DArea otherArea, float clearanceMargin)`
 
-**Purpose:** Handles logic related to `overlaps`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Oriented2DArea from the subsystem API first
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.Overlaps(otherArea, 0);
+```
 
 ### Intersects
 `public bool Intersects(in LineSegment2D line, float clearanceMargin)`
 
-**Purpose:** Handles logic related to `intersects`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Oriented2DArea from the subsystem API first
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.Intersects(line, 0);
+```
 
 ### GetCorners
 `public Corners GetCorners()`
 
-**Purpose:** Gets the current value of `corners`.
+**Purpose:** Reads and returns the `corners` value held by the current object.
+
+```csharp
+// Obtain an instance of Oriented2DArea from the subsystem API first
+Oriented2DArea oriented2DArea = ...;
+var result = oriented2DArea.GetCorners();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Oriented2DArea();
-value.SetGlobalCenter(globalCenter);
+// Typically call this after obtaining an instance from the subsystem API
+Oriented2DArea oriented2DArea = ...;
+oriented2DArea.SetGlobalCenter(globalCenter);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

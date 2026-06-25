@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerHUDExtensionVM"
+description: "Auto-generated class reference for MissionMultiplayerHUDExtensionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerHUDExtensionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerHUDExtensionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerHUDExtensionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/MissionMultiplayerHUDExtensionVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/MissionMultiplayerHUDExtensionVM.cs`
 
 ## Overview
 
@@ -59,35 +53,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.H
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionMultiplayerHUDExtensionVM from the subsystem API first
+MissionMultiplayerHUDExtensionVM missionMultiplayerHUDExtensionVM = ...;
+missionMultiplayerHUDExtensionVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerHUDExtensionVM from the subsystem API first
+MissionMultiplayerHUDExtensionVM missionMultiplayerHUDExtensionVM = ...;
+missionMultiplayerHUDExtensionVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionMultiplayerHUDExtensionVM from the subsystem API first
+MissionMultiplayerHUDExtensionVM missionMultiplayerHUDExtensionVM = ...;
+missionMultiplayerHUDExtensionVM.Tick(0);
+```
 
 ### OnSpectatedAgentFocusIn
 `public void OnSpectatedAgentFocusIn(Agent followedAgent)`
 
-**Purpose:** Called when the `spectated agent focus in` event is raised.
+**Purpose:** Invoked when the `spectated agent focus in` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerHUDExtensionVM from the subsystem API first
+MissionMultiplayerHUDExtensionVM missionMultiplayerHUDExtensionVM = ...;
+missionMultiplayerHUDExtensionVM.OnSpectatedAgentFocusIn(followedAgent);
+```
 
 ### OnSpectatedAgentFocusOut
 `public void OnSpectatedAgentFocusOut(Agent followedPeer)`
 
-**Purpose:** Called when the `spectated agent focus out` event is raised.
+**Purpose:** Invoked when the `spectated agent focus out` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerHUDExtensionVM from the subsystem API first
+MissionMultiplayerHUDExtensionVM missionMultiplayerHUDExtensionVM = ...;
+missionMultiplayerHUDExtensionVM.OnSpectatedAgentFocusOut(followedPeer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerHUDExtensionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerHUDExtensionVM missionMultiplayerHUDExtensionVM = ...;
+missionMultiplayerHUDExtensionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

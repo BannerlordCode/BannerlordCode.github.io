@@ -1,13 +1,7 @@
 ---
 title: "ArcheryTournamentAgentController"
+description: "Auto-generated class reference for ArcheryTournamentAgentController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArcheryTournamentAgentController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArcheryTournamentAgentController
 
 **Namespace:** SandBox.Tournaments.AgentControllers
@@ -29,22 +23,46 @@ Treat `ArcheryTournamentAgentController` as a Controller-style extension point: 
 ### OnInitialize
 `public override void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Obtain an instance of ArcheryTournamentAgentController from the subsystem API first
+ArcheryTournamentAgentController archeryTournamentAgentController = ...;
+archeryTournamentAgentController.OnInitialize();
+```
 
 ### OnTick
 `public void OnTick()`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of ArcheryTournamentAgentController from the subsystem API first
+ArcheryTournamentAgentController archeryTournamentAgentController = ...;
+archeryTournamentAgentController.OnTick();
+```
 
 ### SetTargets
 `public void SetTargets(List<DestructableComponent> targetList)`
 
-**Purpose:** Sets the value or state of `targets`.
+**Purpose:** Assigns a new value to `targets` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ArcheryTournamentAgentController from the subsystem API first
+ArcheryTournamentAgentController archeryTournamentAgentController = ...;
+archeryTournamentAgentController.SetTargets(targetList);
+```
 
 ### OnTargetHit
 `public void OnTargetHit(Agent agent, DestructableComponent target)`
 
-**Purpose:** Called when the `target hit` event is raised.
+**Purpose:** Invoked when the `target hit` event is raised.
+
+```csharp
+// Obtain an instance of ArcheryTournamentAgentController from the subsystem API first
+ArcheryTournamentAgentController archeryTournamentAgentController = ...;
+archeryTournamentAgentController.OnTargetHit(agent, target);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var controller = Mission.Current.GetMissionBehavior<ArcheryTournamentAgentContro
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "KingdomManagementVM"
+description: "Auto-generated class reference for KingdomManagementVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomManagementVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomManagementVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement
@@ -62,90 +56,187 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.RefreshValues();
+```
 
 ### OnRefresh
 `public void OnRefresh()`
 
-**Purpose:** Called when the `refresh` event is raised.
+**Purpose:** Invoked when the `refresh` event is raised.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.OnRefresh();
+```
 
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.OnFrameTick();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.ExecuteClose();
+```
 
 ### SelectArmy
 `public void SelectArmy(Army army)`
 
-**Purpose:** Handles logic related to `select army`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectArmy(army);
+```
 
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**Purpose:** Handles logic related to `select settlement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectSettlement(settlement);
+```
 
 ### SelectClan
 `public void SelectClan(Clan clan)`
 
-**Purpose:** Handles logic related to `select clan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectClan(clan);
+```
 
 ### SelectPolicy
 `public void SelectPolicy(PolicyObject policy)`
 
-**Purpose:** Handles logic related to `select policy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectPolicy(policy);
+```
 
 ### SelectKingdom
 `public void SelectKingdom(Kingdom kingdom)`
 
-**Purpose:** Handles logic related to `select kingdom`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectKingdom(kingdom);
+```
 
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**Purpose:** Handles logic related to `select previous category`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectPreviousCategory();
+```
 
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**Purpose:** Handles logic related to `select next category`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SelectNextCategory();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SetCancelInputKey(hotkey);
+```
 
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `previous tab input key`.
+**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SetPreviousTabInputKey(hotkey);
+```
 
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `next tab input key`.
+**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomManagementVM from the subsystem API first
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.SetNextTabInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomManagementVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomManagementVM kingdomManagementVM = ...;
+kingdomManagementVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "IHttpDriver"
+description: "Auto-generated class reference for IHttpDriver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IHttpDriver`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IHttpDriver
 
 **Namespace:** TaleWorlds.Library.Http
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IHttpDriver`
 **Base:** none
 **File:** `TaleWorlds.Library/Http/IHttpDriver.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.Http` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-IHttpDriver implementation = GetHttpDriverImplementation();
+// Usually obtained through DI or a factory method
+IIHttpDriver service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

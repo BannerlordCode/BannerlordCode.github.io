@@ -1,13 +1,7 @@
 ---
 title: "GauntletBarberScreen"
+description: "Auto-generated class reference for GauntletBarberScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletBarberScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletBarberScreen
 
 **Namespace:** SandBox.GauntletUI
@@ -35,15 +29,22 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### OnExit
 `public void OnExit()`
 
-**Purpose:** Called when the `exit` event is raised.
+**Purpose:** Invoked when the `exit` event is raised.
+
+```csharp
+// Obtain an instance of GauntletBarberScreen from the subsystem API first
+GauntletBarberScreen gauntletBarberScreen = ...;
+gauntletBarberScreen.OnExit();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletBarberScreen();
-value.OnExit();
+// Typically call this after obtaining an instance from the subsystem API
+GauntletBarberScreen gauntletBarberScreen = ...;
+gauntletBarberScreen.OnExit();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

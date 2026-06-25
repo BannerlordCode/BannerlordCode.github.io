@@ -1,20 +1,14 @@
 ---
 title: "TradeRumorsCampaignBehavior"
+description: "Auto-generated class reference for TradeRumorsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeRumorsCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeRumorsCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TradeRumorsCampaignBehavior : CampaignBehaviorBase, ITradeRumorCampaignBehavior, ICampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TradeRumorsCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TradeRumorsCampaignBehavior.cs`
 
 ## Overview
 
@@ -35,50 +29,99 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.RegisterEvents();
+```
 
 ### OnTradeRumorIsTaken
 `public void OnTradeRumorIsTaken(List<TradeRumor> newRumors, Settlement sourceSettlement = null)`
 
-**Purpose:** Called when the `trade rumor is taken` event is raised.
+**Purpose:** Invoked when the `trade rumor is taken` event is raised.
+
+```csharp
+// Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.OnTradeRumorIsTaken(newRumors, null);
+```
 
 ### AddTradeRumors
 `public void AddTradeRumors(List<TradeRumor> newRumors, Settlement sourceSettlement = null)`
 
 **Purpose:** Adds `trade rumors` to the current collection or state.
 
+```csharp
+// Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.AddTradeRumors(newRumors, null);
+```
+
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Handles logic related to `daily tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.DailyTick();
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Called when the `settlement entered` event is raised.
+**Purpose:** Invoked when the `settlement entered` event is raised.
+
+```csharp
+// Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ### DeleteExpiredRumors
 `public void DeleteExpiredRumors()`
 
-**Purpose:** Handles logic related to `delete expired rumors`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.DeleteExpiredRumors();
+```
 
 ### AddDailyTradeRumors
 `public void AddDailyTradeRumors(int numberOfTradeRumors)`
 
 **Purpose:** Adds `daily trade rumors` to the current collection or state.
 
+```csharp
+// Obtain an instance of TradeRumorsCampaignBehavior from the subsystem API first
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.AddDailyTradeRumors(0);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new TradeRumorsCampaignBehavior();
-value.SyncData(dataStore);
+// Typically call this after obtaining an instance from the subsystem API
+TradeRumorsCampaignBehavior tradeRumorsCampaignBehavior = ...;
+tradeRumorsCampaignBehavior.SyncData(dataStore);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SiegeStrategyActionModel"
+description: "Auto-generated class reference for SiegeStrategyActionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeStrategyActionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeStrategyActionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SiegeStrategyActionModel : MBGameModel<SiegeStrategyActionModel>`
 **Base:** `MBGameModel<SiegeStrategyActionModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SiegeStrategyActionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SiegeStrategyActionModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `SiegeStrategyActionModel` as a Model-style extension point: first identif
 ### GetLogicalActionForStrategy
 `public abstract void GetLogicalActionForStrategy(ISiegeEventSide side, out SiegeAction siegeAction, out SiegeEngineType siegeEngineType, out int deploymentIndex, out int reserveIndex)`
 
-**Purpose:** Gets the current value of `logical action for strategy`.
+**Purpose:** Reads and returns the `logical action for strategy` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeStrategyActionModel from the subsystem API first
+SiegeStrategyActionModel siegeStrategyActionModel = ...;
+siegeStrategyActionModel.GetLogicalActionForStrategy(side, siegeAction, siegeEngineType, deploymentIndex, reserveIndex);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSiegeStrategyActionModel();
+// Typically obtained from a subsystem API or factory
+SiegeStrategyActionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

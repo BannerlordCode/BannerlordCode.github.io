@@ -1,13 +1,7 @@
 ---
 title: "MPOnSpawnPerkEffectBase"
+description: "Auto-generated class reference for MPOnSpawnPerkEffectBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPOnSpawnPerkEffectBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPOnSpawnPerkEffectBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,34 +23,65 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTroopCountMultiplier
 `public virtual float GetTroopCountMultiplier()`
 
-**Purpose:** Gets the current value of `troop count multiplier`.
+**Purpose:** Reads and returns the `troop count multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetTroopCountMultiplier();
+```
 
 ### GetExtraTroopCount
 `public virtual int GetExtraTroopCount()`
 
-**Purpose:** Gets the current value of `extra troop count`.
+**Purpose:** Reads and returns the `extra troop count` value held by the current object.
+
+```csharp
+// Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetExtraTroopCount();
+```
 
 ### GetAlternativeEquipments
 `public virtual List<ValueTuple<EquipmentIndex, EquipmentElement>> GetAlternativeEquipments(bool isPlayer, List<ValueTuple<EquipmentIndex, EquipmentElement>> alternativeEquipments, bool getAll = false)`
 
-**Purpose:** Gets the current value of `alternative equipments`.
+**Purpose:** Reads and returns the `alternative equipments` value held by the current object.
+
+```csharp
+// Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetAlternativeEquipments(false, list<ValueTuple<EquipmentIndex, alternativeEquipments, false);
+```
 
 ### GetDrivenPropertyBonusOnSpawn
 `public virtual float GetDrivenPropertyBonusOnSpawn(bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Gets the current value of `driven property bonus on spawn`.
+**Purpose:** Reads and returns the `driven property bonus on spawn` value held by the current object.
+
+```csharp
+// Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetDrivenPropertyBonusOnSpawn(false, drivenProperty, 0);
+```
 
 ### GetHitpoints
 `public virtual float GetHitpoints(bool isPlayer)`
 
-**Purpose:** Gets the current value of `hitpoints`.
+**Purpose:** Reads and returns the `hitpoints` value held by the current object.
+
+```csharp
+// Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first
+MPOnSpawnPerkEffectBase mPOnSpawnPerkEffectBase = ...;
+var result = mPOnSpawnPerkEffectBase.GetHitpoints(false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPOnSpawnPerkEffectBase();
+// Typically obtained from a subsystem API or factory
+MPOnSpawnPerkEffectBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

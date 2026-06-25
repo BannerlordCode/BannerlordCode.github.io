@@ -1,13 +1,7 @@
 ---
 title: "ConditionalEffectContainer"
+description: "Auto-generated class reference for ConditionalEffectContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConditionalEffectContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConditionalEffectContainer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetState
 `public bool GetState(MPConditionalEffect conditionalEffect, Agent agent)`
 
-**Purpose:** Gets the current value of `state`.
+**Purpose:** Reads and returns the `state` value held by the current object.
+
+```csharp
+// Obtain an instance of ConditionalEffectContainer from the subsystem API first
+ConditionalEffectContainer conditionalEffectContainer = ...;
+var result = conditionalEffectContainer.GetState(conditionalEffect, agent);
+```
 
 ### SetState
 `public void SetState(MPConditionalEffect conditionalEffect, Agent agent, bool state)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ConditionalEffectContainer from the subsystem API first
+ConditionalEffectContainer conditionalEffectContainer = ...;
+conditionalEffectContainer.SetState(conditionalEffect, agent, false);
+```
 
 ### ResetStates
 `public void ResetStates()`
 
-**Purpose:** Resets `states` to its initial state.
+**Purpose:** Returns `states` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ConditionalEffectContainer from the subsystem API first
+ConditionalEffectContainer conditionalEffectContainer = ...;
+conditionalEffectContainer.ResetStates();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConditionalEffectContainer();
-value.GetState(conditionalEffect, agent);
+// Typically call this after obtaining an instance from the subsystem API
+ConditionalEffectContainer conditionalEffectContainer = ...;
+conditionalEffectContainer.GetState(conditionalEffect, agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

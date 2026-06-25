@@ -1,20 +1,14 @@
 ---
 title: "InventoryListPanel"
+description: "InventoryListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryListPanel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryListPanel : NavigatableListPanel`
 **Base:** `NavigatableListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryListPanel.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "InventoryListPanel"
 ## 使用示例
 
 ```csharp
-var example = new InventoryListPanel();
+// 从对应子系统 API 获取实例
+InventoryListPanel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

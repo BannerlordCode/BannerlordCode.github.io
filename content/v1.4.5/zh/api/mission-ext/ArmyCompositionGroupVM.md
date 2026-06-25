@@ -1,20 +1,14 @@
 ---
 title: "ArmyCompositionGroupVM"
+description: "ArmyCompositionGroupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArmyCompositionGroupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyCompositionGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArmyCompositionGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionGroupVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionGroupVM.cs`
 
 ## 概述
 
@@ -42,30 +36,55 @@ title: "ArmyCompositionGroupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyCompositionGroupVM 实例
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.RefreshValues();
+```
 
 ### SetCurrentSelectedCulture
 `public void SetCurrentSelectedCulture(BasicCultureObject selectedCulture)`
 
-**用途 / Purpose:** 设置 `current selected culture` 的值或状态。
+**用途 / Purpose:** 为 「current selected culture」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyCompositionGroupVM 实例
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.SetCurrentSelectedCulture(selectedCulture);
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize(ArmyCompositionGroupVM oppositeSide = null)`
 
-**用途 / Purpose:** 执行 `randomize` 操作或流程。
+**用途 / Purpose:** 执行 「randomize」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyCompositionGroupVM 实例
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.ExecuteRandomize(null);
+```
 
 ### OnPlayerTypeChange
 `public void OnPlayerTypeChange(CustomBattlePlayerType playerType)`
 
-**用途 / Purpose:** 当 `player type change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player type change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArmyCompositionGroupVM 实例
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.OnPlayerTypeChange(playerType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArmyCompositionGroupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ArmyCompositionGroupVM armyCompositionGroupVM = ...;
+armyCompositionGroupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

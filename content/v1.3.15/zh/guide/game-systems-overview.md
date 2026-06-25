@@ -120,16 +120,16 @@ MBSubModuleBase
 
 ## 相关文档 / Related Documentation
 
-- [任务系统](./mission-system)
-- [战役系统](./campaign-system)
+- [任务系统](mission-system/)
+- [战役系统](campaign-system/)
 - [架构文档](../architecture/)
 
 ---
 
 ## 下一节 / Next Section
 
-- [故障排除](./troubleshooting) - 解决问题
-- [常见模式](./common-patterns) - 最佳实践
+- [故障排除](troubleshooting/) - 解决问题
+- [常见模式](common-patterns/) - 最佳实践
 
 ## 使用示例
 

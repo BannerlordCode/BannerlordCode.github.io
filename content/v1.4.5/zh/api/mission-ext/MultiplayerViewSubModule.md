@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerViewSubModule"
+description: "MultiplayerViewSubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerViewSubModule`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerViewSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerViewSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View/MultiplayerViewSubModule.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View/MultiplayerViewSubModule.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MultiplayerViewSubModule"
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerViewSubModule();
+// 从对应子系统 API 获取实例
+MultiplayerViewSubModule instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

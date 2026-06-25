@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentLockVisualizerVM"
+description: "MissionAgentLockVisualizerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentLockVisualizerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionAgentLockVisualizerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
@@ -36,20 +30,33 @@ title: "MissionAgentLockVisualizerVM"
 ### OnActiveLockAgentChange
 `public void OnActiveLockAgentChange(Agent oldAgent, Agent newAgent)`
 
-**用途 / Purpose:** 当 `active lock agent change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「active lock agent change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLockVisualizerVM 实例
+MissionAgentLockVisualizerVM missionAgentLockVisualizerVM = ...;
+missionAgentLockVisualizerVM.OnActiveLockAgentChange(oldAgent, newAgent);
+```
 
 ### OnPossibleLockAgentChange
 `public void OnPossibleLockAgentChange(Agent oldPossibleAgent, Agent newPossibleAgent)`
 
-**用途 / Purpose:** 当 `possible lock agent change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「possible lock agent change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLockVisualizerVM 实例
+MissionAgentLockVisualizerVM missionAgentLockVisualizerVM = ...;
+missionAgentLockVisualizerVM.OnPossibleLockAgentChange(oldPossibleAgent, newPossibleAgent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionAgentLockVisualizerVM();
-value.OnActiveLockAgentChange(oldAgent, newAgent);
+// 通常从对应子系统 API 获取实例后调用
+MissionAgentLockVisualizerVM missionAgentLockVisualizerVM = ...;
+missionAgentLockVisualizerVM.OnActiveLockAgentChange(oldAgent, newAgent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

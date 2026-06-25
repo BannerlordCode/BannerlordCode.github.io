@@ -1,13 +1,7 @@
 ---
 title: "TooltipExtensionWidget"
+description: "Auto-generated class reference for TooltipExtensionWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipExtensionWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipExtensionWidget
 
 **Namespace:** TaleWorlds.GauntletUI.TooltipExtensions
@@ -33,9 +27,10 @@ Treat `TooltipExtensionWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new TooltipExtensionWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TooltipExtensionWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

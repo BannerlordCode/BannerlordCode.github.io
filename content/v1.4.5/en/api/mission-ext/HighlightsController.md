@@ -1,20 +1,14 @@
 ---
 title: "HighlightsController"
+description: "Auto-generated class reference for HighlightsController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HighlightsController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HighlightsController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HighlightsController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HighlightsController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HighlightsController.cs`
 
 ## Overview
 
@@ -45,65 +39,141 @@ Treat `HighlightsController` as a Controller-style extension point: first identi
 
 **Purpose:** Removes `highlights` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+HighlightsController.RemoveHighlights();
+```
+
 ### GetHighlightTypeWithId
 `public HighlightType GetHighlightTypeWithId(string highlightId)`
 
-**Purpose:** Gets the current value of `highlight type with id`.
+**Purpose:** Reads and returns the `highlight type with id` value held by the current object.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+var result = highlightsController.GetHighlightTypeWithId("example");
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+highlightsController.AfterStart();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+highlightsController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+highlightsController.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+highlightsController.OnMissionTick(0);
+```
 
 ### AddHighlightType
 `public static void AddHighlightType(HighlightType highlightType)`
 
 **Purpose:** Adds `highlight type` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+HighlightsController.AddHighlightType(highlightType);
+```
+
 ### SaveHighlight
 `public void SaveHighlight(Highlight highlight)`
 
-**Purpose:** Saves `highlight` data.
+**Purpose:** Writes `highlight` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+highlightsController.SaveHighlight(highlight);
+```
 
 ### SaveHighlight
 `public void SaveHighlight(Highlight highlight, Vec3 position)`
 
-**Purpose:** Saves `highlight` data.
+**Purpose:** Writes `highlight` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+highlightsController.SaveHighlight(highlight, position);
+```
 
 ### CanSaveHighlight
 `public bool CanSaveHighlight(HighlightType highlightType, Vec3 position)`
 
-**Purpose:** Checks whether the current object can `save highlight`.
+**Purpose:** Checks whether the current object meets the preconditions for `save highlight`.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+var result = highlightsController.CanSaveHighlight(highlightType, position);
+```
 
 ### GetPlayerIsLookingAtPositionScore
 `public float GetPlayerIsLookingAtPositionScore(Vec3 position)`
 
-**Purpose:** Gets the current value of `player is looking at position score`.
+**Purpose:** Reads and returns the `player is looking at position score` value held by the current object.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+var result = highlightsController.GetPlayerIsLookingAtPositionScore(position);
+```
 
 ### CanSeePosition
 `public bool CanSeePosition(Vec3 position)`
 
-**Purpose:** Checks whether the current object can `see position`.
+**Purpose:** Checks whether the current object meets the preconditions for `see position`.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+var result = highlightsController.CanSeePosition(position);
+```
 
 ### ShowSummary
 `public void ShowSummary()`
 
-**Purpose:** Handles logic related to `show summary`.
+**Purpose:** Displays the UI or element associated with `summary`.
+
+```csharp
+// Obtain an instance of HighlightsController from the subsystem API first
+HighlightsController highlightsController = ...;
+highlightsController.ShowSummary();
+```
 
 ## Usage Example
 
@@ -113,4 +183,4 @@ var controller = Mission.Current.GetMissionBehavior<HighlightsController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

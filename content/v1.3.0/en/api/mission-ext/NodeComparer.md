@@ -1,13 +1,7 @@
 ---
 title: "NodeComparer"
+description: "Auto-generated class reference for NodeComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NodeComparer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NodeComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### Compare
 `public int Compare(ThumbnailCacheNode x, ThumbnailCacheNode y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of NodeComparer from the subsystem API first
+NodeComparer nodeComparer = ...;
+var result = nodeComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NodeComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+NodeComparer nodeComparer = ...;
+nodeComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

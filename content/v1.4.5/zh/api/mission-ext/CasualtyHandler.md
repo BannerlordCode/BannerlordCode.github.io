@@ -1,20 +1,14 @@
 ---
 title: "CasualtyHandler"
+description: "CasualtyHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CasualtyHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CasualtyHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CasualtyHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CasualtyHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CasualtyHandler.cs`
 
 ## 概述
 
@@ -29,29 +23,53 @@ title: "CasualtyHandler"
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CasualtyHandler 实例
+CasualtyHandler casualtyHandler = ...;
+casualtyHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**用途 / Purpose:** 当 `agent fleeing` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent fleeing」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CasualtyHandler 实例
+CasualtyHandler casualtyHandler = ...;
+casualtyHandler.OnAgentFleeing(affectedAgent);
+```
 
 ### GetCasualtyCountOfFormation
 `public int GetCasualtyCountOfFormation(Formation formation)`
 
-**用途 / Purpose:** 获取 `casualty count of formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「casualty count of formation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CasualtyHandler 实例
+CasualtyHandler casualtyHandler = ...;
+var result = casualtyHandler.GetCasualtyCountOfFormation(formation);
+```
 
 ### GetCasualtyPowerLossOfFormation
 `public float GetCasualtyPowerLossOfFormation(Formation formation)`
 
-**用途 / Purpose:** 获取 `casualty power loss of formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「casualty power loss of formation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CasualtyHandler 实例
+CasualtyHandler casualtyHandler = ...;
+var result = casualtyHandler.GetCasualtyPowerLossOfFormation(formation);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CasualtyHandler());
+var behavior = Mission.Current.GetMissionBehavior<CasualtyHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

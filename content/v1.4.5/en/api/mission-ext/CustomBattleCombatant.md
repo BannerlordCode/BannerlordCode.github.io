@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleCombatant"
+description: "Auto-generated class reference for CustomBattleCombatant."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleCombatant`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleCombatant
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleCombatant : IBattleCombatant`
 **Base:** `IBattleCombatant`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleCombatant.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleCombatant.cs`
 
 ## Overview
 
@@ -39,30 +33,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTacticsSkillAmount
 `public int GetTacticsSkillAmount()`
 
-**Purpose:** Gets the current value of `tactics skill amount`.
+**Purpose:** Reads and returns the `tactics skill amount` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleCombatant from the subsystem API first
+CustomBattleCombatant customBattleCombatant = ...;
+var result = customBattleCombatant.GetTacticsSkillAmount();
+```
 
 ### AddCharacter
 `public void AddCharacter(BasicCharacterObject characterObject, int number)`
 
 **Purpose:** Adds `character` to the current collection or state.
 
+```csharp
+// Obtain an instance of CustomBattleCombatant from the subsystem API first
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.AddCharacter(characterObject, 0);
+```
+
 ### SetGeneral
 `public void SetGeneral(BasicCharacterObject generalCharacter)`
 
-**Purpose:** Sets the value or state of `general`.
+**Purpose:** Assigns a new value to `general` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleCombatant from the subsystem API first
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.SetGeneral(generalCharacter);
+```
 
 ### IsUnderPlayersCommand
 `public bool IsUnderPlayersCommand(BattleSideEnum playerSide)`
 
-**Purpose:** Handles logic related to `is under players command`.
+**Purpose:** Determines whether the current object is in the `under players command` state or condition.
+
+```csharp
+// Obtain an instance of CustomBattleCombatant from the subsystem API first
+CustomBattleCombatant customBattleCombatant = ...;
+var result = customBattleCombatant.IsUnderPlayersCommand(playerSide);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleCombatant();
-value.GetTacticsSkillAmount();
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleCombatant customBattleCombatant = ...;
+customBattleCombatant.GetTacticsSkillAmount();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

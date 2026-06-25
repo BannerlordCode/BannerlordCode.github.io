@@ -1,20 +1,14 @@
 ---
 title: "EmptyGamepadNavigationContext"
+description: "Auto-generated class reference for EmptyGamepadNavigationContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EmptyGamepadNavigationContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EmptyGamepadNavigationContext
 
 **Namespace:** (global)
 **Module:** (global)
 **Type:** `public class EmptyGamepadNavigationContext : IGamepadNavigationContext`
 **Base:** `IGamepadNavigationContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/EmptyGamepadNavigationContext.cs`
+**File:** `bin/TaleWorlds.GauntletUI/EmptyGamepadNavigationContext.cs`
 
 ## Overview
 
@@ -31,98 +25,207 @@ Start from namespace `(global)` to place it in the stack, then inspect its publi
 
 **Purpose:** Adds `forced scope collection` to the current collection or state.
 
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.AddForcedScopeCollection(collection);
+```
+
 ### AddNavigationScope
 `public void AddNavigationScope(GamepadNavigationScope scope, bool initialize)`
 
 **Purpose:** Adds `navigation scope` to the current collection or state.
 
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.AddNavigationScope(scope, false);
+```
+
 ### GainNavigationAfterFrames
 `public void GainNavigationAfterFrames(int frameCount, Func<bool> predicate)`
 
-**Purpose:** Handles logic related to `gain navigation after frames`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.GainNavigationAfterFrames(0, predicate);
+```
 
 ### GainNavigationAfterTime
 `public void GainNavigationAfterTime(float seconds, Func<bool> predicate)`
 
-**Purpose:** Handles logic related to `gain navigation after time`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.GainNavigationAfterTime(0, predicate);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.OnFinalize();
+```
 
 ### GetIsBlockedAtPosition
 `public bool GetIsBlockedAtPosition(Vector2 position)`
 
-**Purpose:** Gets the current value of `is blocked at position`.
+**Purpose:** Reads and returns the `is blocked at position` value held by the current object.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+var result = emptyGamepadNavigationContext.GetIsBlockedAtPosition(position);
+```
 
 ### GetLastScreenOrder
 `public int GetLastScreenOrder()`
 
-**Purpose:** Gets the current value of `last screen order`.
+**Purpose:** Reads and returns the `last screen order` value held by the current object.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+var result = emptyGamepadNavigationContext.GetLastScreenOrder();
+```
 
 ### HasNavigationScope
 `public bool HasNavigationScope(GamepadNavigationScope scope)`
 
-**Purpose:** Checks whether the current object has/contains `navigation scope`.
+**Purpose:** Determines whether the current object already holds `navigation scope`.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+var result = emptyGamepadNavigationContext.HasNavigationScope(scope);
+```
 
 ### HasNavigationScope
 `public bool HasNavigationScope(Func<GamepadNavigationScope, bool> predicate)`
 
-**Purpose:** Checks whether the current object has/contains `navigation scope`.
+**Purpose:** Determines whether the current object already holds `navigation scope`.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+var result = emptyGamepadNavigationContext.HasNavigationScope(func<GamepadNavigationScope, false);
+```
 
 ### IsAvailableForNavigation
 `public bool IsAvailableForNavigation()`
 
-**Purpose:** Handles logic related to `is available for navigation`.
+**Purpose:** Determines whether the current object is in the `available for navigation` state or condition.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+var result = emptyGamepadNavigationContext.IsAvailableForNavigation();
+```
 
 ### OnGainNavigation
 `public void OnGainNavigation()`
 
-**Purpose:** Called when the `gain navigation` event is raised.
+**Purpose:** Invoked when the `gain navigation` event is raised.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.OnGainNavigation();
+```
 
 ### OnMovieLoaded
 `public void OnMovieLoaded(string movieName)`
 
-**Purpose:** Called when the `movie loaded` event is raised.
+**Purpose:** Invoked when the `movie loaded` event is raised.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.OnMovieLoaded("example");
+```
 
 ### OnMovieReleased
 `public void OnMovieReleased(string movieName)`
 
-**Purpose:** Called when the `movie released` event is raised.
+**Purpose:** Invoked when the `movie released` event is raised.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.OnMovieReleased("example");
+```
 
 ### OnWidgetNavigationIndexUpdated
 `public void OnWidgetNavigationIndexUpdated(Widget widget)`
 
-**Purpose:** Called when the `widget navigation index updated` event is raised.
+**Purpose:** Invoked when the `widget navigation index updated` event is raised.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.OnWidgetNavigationIndexUpdated(widget);
+```
 
 ### OnWidgetNavigationStatusChanged
 `public void OnWidgetNavigationStatusChanged(Widget widget)`
 
-**Purpose:** Called when the `widget navigation status changed` event is raised.
+**Purpose:** Invoked when the `widget navigation status changed` event is raised.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.OnWidgetNavigationStatusChanged(widget);
+```
 
 ### OnWidgetUsedNavigationMovementsUpdated
 `public void OnWidgetUsedNavigationMovementsUpdated(Widget widget)`
 
-**Purpose:** Called when the `widget used navigation movements updated` event is raised.
+**Purpose:** Invoked when the `widget used navigation movements updated` event is raised.
+
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.OnWidgetUsedNavigationMovementsUpdated(widget);
+```
 
 ### RemoveForcedScopeCollection
 `public void RemoveForcedScopeCollection(GamepadNavigationForcedScopeCollection collection)`
 
 **Purpose:** Removes `forced scope collection` from the current collection or state.
 
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.RemoveForcedScopeCollection(collection);
+```
+
 ### RemoveNavigationScope
 `public void RemoveNavigationScope(GamepadNavigationScope scope)`
 
 **Purpose:** Removes `navigation scope` from the current collection or state.
 
+```csharp
+// Obtain an instance of EmptyGamepadNavigationContext from the subsystem API first
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.RemoveNavigationScope(scope);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new EmptyGamepadNavigationContext();
-value.AddForcedScopeCollection(collection);
+// Typically call this after obtaining an instance from the subsystem API
+EmptyGamepadNavigationContext emptyGamepadNavigationContext = ...;
+emptyGamepadNavigationContext.AddForcedScopeCollection(collection);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

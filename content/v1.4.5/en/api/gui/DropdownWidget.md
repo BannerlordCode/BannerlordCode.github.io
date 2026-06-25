@@ -1,20 +1,14 @@
 ---
 title: "DropdownWidget"
+description: "Auto-generated class reference for DropdownWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DropdownWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DropdownWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class DropdownWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/DropdownWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/DropdownWidget.cs`
 
 ## Overview
 
@@ -42,34 +36,65 @@ Treat `DropdownWidget` as a Widget-style extension point: first identify who cre
 ### OnButtonClick
 `public void OnButtonClick(Widget widget)`
 
-**Purpose:** Called when the `button click` event is raised.
+**Purpose:** Invoked when the `button click` event is raised.
+
+```csharp
+// Obtain an instance of DropdownWidget from the subsystem API first
+DropdownWidget dropdownWidget = ...;
+dropdownWidget.OnButtonClick(widget);
+```
 
 ### UpdateButtonText
 `public void UpdateButtonText(string text)`
 
-**Purpose:** Updates the state or data of `button text`.
+**Purpose:** Recalculates and stores the latest representation of `button text`.
+
+```csharp
+// Obtain an instance of DropdownWidget from the subsystem API first
+DropdownWidget dropdownWidget = ...;
+dropdownWidget.UpdateButtonText("example");
+```
 
 ### OnListItemAdded
 `public void OnListItemAdded(Widget parentWidget, Widget newChild)`
 
-**Purpose:** Called when the `list item added` event is raised.
+**Purpose:** Invoked when the `list item added` event is raised.
+
+```csharp
+// Obtain an instance of DropdownWidget from the subsystem API first
+DropdownWidget dropdownWidget = ...;
+dropdownWidget.OnListItemAdded(parentWidget, newChild);
+```
 
 ### OnListItemRemoved
 `public void OnListItemRemoved(Widget removedItem, Widget removedChild)`
 
-**Purpose:** Called when the `list item removed` event is raised.
+**Purpose:** Invoked when the `list item removed` event is raised.
+
+```csharp
+// Obtain an instance of DropdownWidget from the subsystem API first
+DropdownWidget dropdownWidget = ...;
+dropdownWidget.OnListItemRemoved(removedItem, removedChild);
+```
 
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**Purpose:** Called when the `selection changed` event is raised.
+**Purpose:** Invoked when the `selection changed` event is raised.
+
+```csharp
+// Obtain an instance of DropdownWidget from the subsystem API first
+DropdownWidget dropdownWidget = ...;
+dropdownWidget.OnSelectionChanged(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new DropdownWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DropdownWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

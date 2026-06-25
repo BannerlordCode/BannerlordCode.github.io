@@ -1,13 +1,7 @@
 ---
 title: "VillageType"
+description: "Auto-generated class reference for VillageType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VillageType
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### Initialize
 `public VillageType Initialize(TextObject shortName, string meshName, string meshNameUnderConstruction, string meshNameBurned, ValueTuple<ItemObject, float> productions)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of VillageType from the subsystem API first
+VillageType villageType = ...;
+var result = villageType.Initialize(shortName, "example", "example", "example", valueTuple<ItemObject, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of VillageType from the subsystem API first
+VillageType villageType = ...;
+var result = villageType.ToString();
+```
 
 ### AddProductions
 `public void AddProductions(IEnumerable<ValueTuple<ItemObject, float>> productions)`
 
 **Purpose:** Adds `productions` to the current collection or state.
 
+```csharp
+// Obtain an instance of VillageType from the subsystem API first
+VillageType villageType = ...;
+villageType.AddProductions(iEnumerable<ValueTuple<ItemObject, 0);
+```
+
 ### GetProductionPerDay
 `public float GetProductionPerDay(ItemObject item)`
 
-**Purpose:** Gets the current value of `production per day`.
+**Purpose:** Reads and returns the `production per day` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageType from the subsystem API first
+VillageType villageType = ...;
+var result = villageType.GetProductionPerDay(item);
+```
 
 ### GetProductionPerDay
 `public float GetProductionPerDay(ItemCategory itemCategory)`
 
-**Purpose:** Gets the current value of `production per day`.
+**Purpose:** Reads and returns the `production per day` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageType from the subsystem API first
+VillageType villageType = ...;
+var result = villageType.GetProductionPerDay(itemCategory);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillageType();
-value.Initialize(shortName, "example", "example", "example", valueTuple<ItemObject, 0);
+// Typically call this after obtaining an instance from the subsystem API
+VillageType villageType = ...;
+villageType.Initialize(shortName, "example", "example", "example", valueTuple<ItemObject, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

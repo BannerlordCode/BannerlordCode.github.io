@@ -1,20 +1,14 @@
 ---
 title: "LadysKnightOutIssue"
+description: "Auto-generated class reference for LadysKnightOutIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LadysKnightOutIssue`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LadysKnightOutIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LadysKnightOutIssue`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LadysKnightOutIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LadysKnightOutIssueBehavior.cs`
 
 ## Overview
 
@@ -39,35 +33,66 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+var result = ladysKnightOutIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+var result = ladysKnightOutIssue.IssueStayAliveConditions();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+ladysKnightOutIssue.RegisterEvents();
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+ladysKnightOutIssue.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of LadysKnightOutIssue from the subsystem API first
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+ladysKnightOutIssue.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LadysKnightOutIssue();
-value.GetFrequency();
+// Typically call this after obtaining an instance from the subsystem API
+LadysKnightOutIssue ladysKnightOutIssue = ...;
+ladysKnightOutIssue.GetFrequency();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

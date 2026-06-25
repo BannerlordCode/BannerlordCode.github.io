@@ -1,13 +1,7 @@
 ---
 title: "PlayerAvatarImageIdentifier"
+description: "Auto-generated class reference for PlayerAvatarImageIdentifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerAvatarImageIdentifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerAvatarImageIdentifier
 
 **Namespace:** TaleWorlds.Core.ImageIdentifiers
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ImageIdentifiers` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new PlayerAvatarImageIdentifier();
+// Obtain an instance from the relevant subsystem API
+PlayerAvatarImageIdentifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

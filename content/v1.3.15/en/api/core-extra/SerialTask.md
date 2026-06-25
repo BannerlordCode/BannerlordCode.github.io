@@ -1,13 +1,7 @@
 ---
 title: "SerialTask"
+description: "Auto-generated class reference for SerialTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SerialTask`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SerialTask
 
 **Namespace:** TaleWorlds.Library
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DelegateDefinition
 `public delegate void DelegateDefinition()`
 
-**Purpose:** Handles logic related to `delegate definition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SerialTask from the subsystem API first
+SerialTask serialTask = ...;
+serialTask.DelegateDefinition();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SerialTask();
-value.DelegateDefinition();
+// Typically call this after obtaining an instance from the subsystem API
+SerialTask serialTask = ...;
+serialTask.DelegateDefinition();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

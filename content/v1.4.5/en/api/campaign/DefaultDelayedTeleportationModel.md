@@ -1,20 +1,14 @@
 ---
 title: "DefaultDelayedTeleportationModel"
+description: "Auto-generated class reference for DefaultDelayedTeleportationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultDelayedTeleportationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultDelayedTeleportationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultDelayedTeleportationModel : DelayedTeleportationModel`
 **Base:** `DelayedTeleportationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultDelayedTeleportationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultDelayedTeleportationModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DefaultDelayedTeleportationModel` as a Model-style extension point: first
 ### GetTeleportationDelayAsHours
 `public override ExplainedNumber GetTeleportationDelayAsHours(Hero teleportingHero, PartyBase target)`
 
-**Purpose:** Gets the current value of `teleportation delay as hours`.
+**Purpose:** Reads and returns the `teleportation delay as hours` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDelayedTeleportationModel from the subsystem API first
+DefaultDelayedTeleportationModel defaultDelayedTeleportationModel = ...;
+var result = defaultDelayedTeleportationModel.GetTeleportationDelayAsHours(teleportingHero, target);
+```
 
 ### CanPerformImmediateTeleport
 `public override bool CanPerformImmediateTeleport(Hero hero, MobileParty targetMobileParty, Settlement targetSettlement)`
 
-**Purpose:** Checks whether the current object can `perform immediate teleport`.
+**Purpose:** Checks whether the current object meets the preconditions for `perform immediate teleport`.
+
+```csharp
+// Obtain an instance of DefaultDelayedTeleportationModel from the subsystem API first
+DefaultDelayedTeleportationModel defaultDelayedTeleportationModel = ...;
+var result = defaultDelayedTeleportationModel.CanPerformImmediateTeleport(hero, targetMobileParty, targetSettlement);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultDelayedTeleportationModel>(new MyDefaultDelayed
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "LayeredWindowController"
+description: "LayeredWindowController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LayeredWindowController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LayeredWindowController
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -29,17 +23,35 @@ title: "LayeredWindowController"
 ### SetSize
 `public void SetSize(int width, int height)`
 
-**用途 / Purpose:** 设置 `size` 的值或状态。
+**用途 / Purpose:** 为 「size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LayeredWindowController 实例
+LayeredWindowController layeredWindowController = ...;
+layeredWindowController.SetSize(0, 0);
+```
 
 ### PostRender
 `public void PostRender()`
 
-**用途 / Purpose:** 处理 `post render` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LayeredWindowController 实例
+LayeredWindowController layeredWindowController = ...;
+layeredWindowController.PostRender();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LayeredWindowController 实例
+LayeredWindowController layeredWindowController = ...;
+layeredWindowController.OnFinalize();
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ var controller = Mission.Current.GetMissionBehavior<LayeredWindowController>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

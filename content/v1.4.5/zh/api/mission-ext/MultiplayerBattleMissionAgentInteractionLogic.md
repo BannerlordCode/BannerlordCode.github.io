@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerBattleMissionAgentInteractionLogic"
+description: "MultiplayerBattleMissionAgentInteractionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerBattleMissionAgentInteractionLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleMissionAgentInteractionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleMissionAgentInteractionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Missions/MultiplayerBattleMissionAgentInteractionLogic.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Missions/MultiplayerBattleMissionAgentInteractionLogic.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "MultiplayerBattleMissionAgentInteractionLogic"
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 处理 `is there agent action` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerBattleMissionAgentInteractionLogic 实例
+MultiplayerBattleMissionAgentInteractionLogic multiplayerBattleMissionAgentInteractionLogic = ...;
+var result = multiplayerBattleMissionAgentInteractionLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerBattleMissionAgentInteractionLogic());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerBattleMissionAgentInteractionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

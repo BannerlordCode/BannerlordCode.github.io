@@ -1,20 +1,14 @@
 ---
 title: "LordsNeedsTutorIssueQuest"
+description: "LordsNeedsTutorIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LordsNeedsTutorIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordsNeedsTutorIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LordsNeedsTutorIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LordsNeedsTutorIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LordsNeedsTutorIssueBehavior.cs`
 
 ## 概述
 
@@ -35,40 +29,77 @@ title: "LordsNeedsTutorIssueQuest"
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can be selected in inventory info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can be selected in inventory info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsNeedsTutorIssueQuest 实例
+LordsNeedsTutorIssueQuest lordsNeedsTutorIssueQuest = ...;
+lordsNeedsTutorIssueQuest.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have party role or be governor info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have party role or be governor info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsNeedsTutorIssueQuest 实例
+LordsNeedsTutorIssueQuest lordsNeedsTutorIssueQuest = ...;
+lordsNeedsTutorIssueQuest.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can lead party info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can lead party info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsNeedsTutorIssueQuest 实例
+LordsNeedsTutorIssueQuest lordsNeedsTutorIssueQuest = ...;
+lordsNeedsTutorIssueQuest.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have campaign issues info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsNeedsTutorIssueQuest 实例
+LordsNeedsTutorIssueQuest lordsNeedsTutorIssueQuest = ...;
+lordsNeedsTutorIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanMarryInfoIsRequested
 `public override void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can marry info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can marry info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsNeedsTutorIssueQuest 实例
+LordsNeedsTutorIssueQuest lordsNeedsTutorIssueQuest = ...;
+lordsNeedsTutorIssueQuest.OnHeroCanMarryInfoIsRequested(hero, result);
+```
 
 ### OnHeroGainedSkill
 `public void OnHeroGainedSkill(Hero hero, SkillObject skill, int change = 1, bool shouldNotify = true)`
 
-**用途 / Purpose:** 当 `hero gained skill` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero gained skill」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsNeedsTutorIssueQuest 实例
+LordsNeedsTutorIssueQuest lordsNeedsTutorIssueQuest = ...;
+lordsNeedsTutorIssueQuest.OnHeroGainedSkill(hero, skill, 0, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LordsNeedsTutorIssueQuest();
-value.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+// 通常从对应子系统 API 获取实例后调用
+LordsNeedsTutorIssueQuest lordsNeedsTutorIssueQuest = ...;
+lordsNeedsTutorIssueQuest.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

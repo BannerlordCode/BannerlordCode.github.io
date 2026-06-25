@@ -1,20 +1,14 @@
 ---
 title: "BannerBuilderItemVM"
+description: "Auto-generated class reference for BannerBuilderItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerBuilderItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerBuilderItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerBuilderItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderItemVM.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of BannerBuilderItemVM from the subsystem API first
+BannerBuilderItemVM bannerBuilderItemVM = ...;
+bannerBuilderItemVM.ExecuteSelection();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerBuilderItemVM();
-value.ExecuteSelection();
+// Typically call this after obtaining an instance from the subsystem API
+BannerBuilderItemVM bannerBuilderItemVM = ...;
+bannerBuilderItemVM.ExecuteSelection();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

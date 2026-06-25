@@ -1,18 +1,12 @@
 ---
 title: "IOptionData"
+description: "Auto-generated class reference for IOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
-**Type:** `class`
+**Type:** `public interface IOptionData`
 **Base:** none
 **File:** `TaleWorlds.Engine/Options/IOptionData.cs`
 
@@ -27,9 +21,10 @@ Treat `IOptionData` as a Data-style extension point: first identify who creates 
 ## Usage Example
 
 ```csharp
-IOptionData implementation = GetOptionDataImplementation();
+// Usually obtained through DI or a factory method
+IIOptionData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

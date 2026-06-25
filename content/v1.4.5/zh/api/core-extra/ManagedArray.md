@@ -1,20 +1,14 @@
 ---
 title: "ManagedArray"
+description: "ManagedArray 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedArray`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedArray
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct ManagedArray`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ManagedArray.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ManagedArray.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ManagedArray"
 ### ManagedArray
 `public struct ManagedArray(IntPtr array, int length)`
 
-**用途 / Purpose:** 处理 `managed array` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedArray 实例
+ManagedArray managedArray = ...;
+var result = managedArray.ManagedArray(array, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ManagedArray();
-value.ManagedArray(array, 0);
+// 通常从对应子系统 API 获取实例后调用
+ManagedArray managedArray = ...;
+managedArray.ManagedArray(array, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

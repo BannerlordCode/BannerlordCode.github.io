@@ -1,13 +1,7 @@
 ---
 title: "DefaultShipCostModel"
+description: "DefaultShipCostModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultShipCostModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultShipCostModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ title: "DefaultShipCostModel"
 ### GetShipTradeValue
 `public override float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**用途 / Purpose:** 获取 `ship trade value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship trade value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipCostModel 实例
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipTradeValue(ship, seller, buyer);
+```
 
 ### GetShipRepairCost
 `public override float GetShipRepairCost(Ship ship)`
 
-**用途 / Purpose:** 获取 `ship repair cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship repair cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipCostModel 实例
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipRepairCost(ship);
+```
 
 ### GetShipUpgradeCost
 `public override int GetShipUpgradeCost(Hero owner, Ship ship, ShipUpgradePiece piece)`
 
-**用途 / Purpose:** 获取 `ship upgrade cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship upgrade cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipCostModel 实例
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipUpgradeCost(owner, ship, piece);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultShipCostModel>(new MyDefaultShipCostModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

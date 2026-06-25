@@ -1,13 +1,7 @@
 ---
 title: "AgentBehaviorManager"
+description: "Auto-generated class reference for AgentBehaviorManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentBehaviorManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentBehaviorManager
 
 **Namespace:** SandBox.AI
@@ -31,10 +25,22 @@ Treat `AgentBehaviorManager` as a Manager-style extension point: first identify 
 
 **Purpose:** Adds `quest character behaviors` to the current collection or state.
 
+```csharp
+// Obtain an instance of AgentBehaviorManager from the subsystem API first
+AgentBehaviorManager agentBehaviorManager = ...;
+agentBehaviorManager.AddQuestCharacterBehaviors(agent);
+```
+
 ### AddFirstCompanionBehavior
 `public void AddFirstCompanionBehavior(IAgent agent)`
 
 **Purpose:** Adds `first companion behavior` to the current collection or state.
+
+```csharp
+// Obtain an instance of AgentBehaviorManager from the subsystem API first
+AgentBehaviorManager agentBehaviorManager = ...;
+agentBehaviorManager.AddFirstCompanionBehavior(agent);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = AgentBehaviorManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

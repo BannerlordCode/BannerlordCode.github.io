@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyTrainingModel"
+description: "DefaultPartyTrainingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyTrainingModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPartyTrainingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,22 +23,46 @@ title: "DefaultPartyTrainingModel"
 ### GetXpReward
 `public override int GetXpReward(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `xp reward` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp reward」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTrainingModel 实例
+DefaultPartyTrainingModel defaultPartyTrainingModel = ...;
+var result = defaultPartyTrainingModel.GetXpReward(character);
+```
 
 ### GetEffectiveDailyExperience
 `public override ExplainedNumber GetEffectiveDailyExperience(MobileParty mobileParty, TroopRosterElement troop)`
 
-**用途 / Purpose:** 获取 `effective daily experience` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「effective daily experience」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTrainingModel 实例
+DefaultPartyTrainingModel defaultPartyTrainingModel = ...;
+var result = defaultPartyTrainingModel.GetEffectiveDailyExperience(mobileParty, troop);
+```
 
 ### GenerateSharedXp
 `public override int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `generate shared xp` 相关逻辑。
+**用途 / Purpose:** 生成「shared xp」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTrainingModel 实例
+DefaultPartyTrainingModel defaultPartyTrainingModel = ...;
+var result = defaultPartyTrainingModel.GenerateSharedXp(troop, 0, mobileParty);
+```
 
 ### CalculateXpGainFromBattles
 `public override ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
 
-**用途 / Purpose:** 处理 `calculate xp gain from battles` 相关逻辑。
+**用途 / Purpose:** 计算「xp gain from battles」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyTrainingModel 实例
+DefaultPartyTrainingModel defaultPartyTrainingModel = ...;
+var result = defaultPartyTrainingModel.CalculateXpGainFromBattles(troopRosterElement, party);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultPartyTrainingModel>(new MyDefaultPartyTrainingM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

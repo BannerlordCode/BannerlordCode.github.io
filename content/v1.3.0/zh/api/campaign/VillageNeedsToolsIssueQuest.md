@@ -1,13 +1,7 @@
 ---
 title: "VillageNeedsToolsIssueQuest"
+description: "VillageNeedsToolsIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VillageNeedsToolsIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageNeedsToolsIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,20 +30,32 @@ title: "VillageNeedsToolsIssueQuest"
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** 当 `failed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VillageNeedsToolsIssueQuest 实例
+VillageNeedsToolsIssueQuest villageNeedsToolsIssueQuest = ...;
+villageNeedsToolsIssueQuest.OnFailed();
+```
 
 ### GiveTradeOrExchangeRewardToMainParty
 `public static void GiveTradeOrExchangeRewardToMainParty(Hero questGiver, int gold, ItemObject exchangeItem, int exchangeItemCount)`
 
-**用途 / Purpose:** 处理 `give trade or exchange reward to main party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+VillageNeedsToolsIssueQuest.GiveTradeOrExchangeRewardToMainParty(questGiver, 0, exchangeItem, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VillageNeedsToolsIssueQuest();
-value.OnFailed();
+// 通常从对应子系统 API 获取实例后调用
+VillageNeedsToolsIssueQuest villageNeedsToolsIssueQuest = ...;
+villageNeedsToolsIssueQuest.OnFailed();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

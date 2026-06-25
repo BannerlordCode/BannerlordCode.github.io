@@ -1,18 +1,12 @@
 ---
 title: "IGameMenuOverlayProvider"
+description: "Auto-generated class reference for IGameMenuOverlayProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGameMenuOverlayProvider`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IGameMenuOverlayProvider
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IGameMenuOverlayProvider`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/Overlay/IGameMenuOverlayProvider.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ## Usage Example
 
 ```csharp
-IGameMenuOverlayProvider implementation = GetGameMenuOverlayProviderImplementation();
+// Usually obtained through DI or a factory method
+IIGameMenuOverlayProvider service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

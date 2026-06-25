@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyGameSearchVM"
+description: "Auto-generated class reference for MPLobbyGameSearchVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyGameSearchVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyGameSearchVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyGameSearchVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyGameSearchVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyGameSearchVM.cs`
 
 ## Overview
 
@@ -47,50 +41,99 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.OnTick(0);
+```
 
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.SetEnabled(false);
+```
 
 ### UpdateData
 `public void UpdateData(MatchmakingWaitTimeStats matchmakingWaitTimeStats, string gameTypeInfo)`
 
-**Purpose:** Updates the state or data of `data`.
+**Purpose:** Recalculates and stores the latest representation of `data`.
+
+```csharp
+// Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.UpdateData(matchmakingWaitTimeStats, "example");
+```
 
 ### UpdatePremadeGameData
 `public void UpdatePremadeGameData()`
 
-**Purpose:** Updates the state or data of `premade game data`.
+**Purpose:** Recalculates and stores the latest representation of `premade game data`.
+
+```csharp
+// Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.UpdatePremadeGameData();
+```
 
 ### OnJoinPremadeGameRequestSuccessful
 `public void OnJoinPremadeGameRequestSuccessful()`
 
-**Purpose:** Called when the `join premade game request successful` event is raised.
+**Purpose:** Invoked when the `join premade game request successful` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.OnJoinPremadeGameRequestSuccessful();
+```
 
 ### OnRequestedToCancelSearchBattle
 `public void OnRequestedToCancelSearchBattle()`
 
-**Purpose:** Called when the `requested to cancel search battle` event is raised.
+**Purpose:** Invoked when the `requested to cancel search battle` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.OnRequestedToCancelSearchBattle();
+```
 
 ### UpdateCanCancel
 `public void UpdateCanCancel()`
 
-**Purpose:** Updates the state or data of `can cancel`.
+**Purpose:** Recalculates and stores the latest representation of `can cancel`.
+
+```csharp
+// Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.UpdateCanCancel();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyGameSearchVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyGameSearchVM mPLobbyGameSearchVM = ...;
+mPLobbyGameSearchVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

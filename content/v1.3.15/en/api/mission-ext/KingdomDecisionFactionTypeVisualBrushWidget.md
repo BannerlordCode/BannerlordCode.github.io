@@ -1,13 +1,7 @@
 ---
 title: "KingdomDecisionFactionTypeVisualBrushWidget"
+description: "Auto-generated class reference for KingdomDecisionFactionTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDecisionFactionTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomDecisionFactionTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
@@ -33,9 +27,10 @@ Treat `KingdomDecisionFactionTypeVisualBrushWidget` as a Widget-style extension 
 ## Usage Example
 
 ```csharp
-var widget = new KingdomDecisionFactionTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+KingdomDecisionFactionTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

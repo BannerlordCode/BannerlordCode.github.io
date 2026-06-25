@@ -1,20 +1,14 @@
 ---
 title: "ResetAllTutorialsEvent"
+description: "Auto-generated class reference for ResetAllTutorialsEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ResetAllTutorialsEvent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResetAllTutorialsEvent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class ResetAllTutorialsEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ResetAllTutorialsEvent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ResetAllTutorialsEvent.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new ResetAllTutorialsEvent();
+// Obtain an instance from the relevant subsystem API
+ResetAllTutorialsEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

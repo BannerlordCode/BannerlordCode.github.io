@@ -1,13 +1,7 @@
 ---
 title: "InquiryElement"
+description: "Auto-generated class reference for InquiryElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InquiryElement`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InquiryElement
 
 **Namespace:** TaleWorlds.Core
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of InquiryElement from the subsystem API first
+InquiryElement inquiryElement = ...;
+var result = inquiryElement.HasSameContentWith(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InquiryElement();
-value.HasSameContentWith(other);
+// Typically call this after obtaining an instance from the subsystem API
+InquiryElement inquiryElement = ...;
+inquiryElement.HasSameContentWith(other);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

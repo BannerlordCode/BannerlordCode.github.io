@@ -1,13 +1,7 @@
 ---
 title: "ShipCostModel"
+description: "Auto-generated class reference for ShipCostModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipCostModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipCostModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,29 +23,54 @@ Treat `ShipCostModel` as a Model-style extension point: first identify who creat
 ### GetShipTradeValue
 `public abstract float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**Purpose:** Gets the current value of `ship trade value`.
+**Purpose:** Reads and returns the `ship trade value` value held by the current object.
+
+```csharp
+// Obtain an instance of ShipCostModel from the subsystem API first
+ShipCostModel shipCostModel = ...;
+var result = shipCostModel.GetShipTradeValue(ship, seller, buyer);
+```
 
 ### GetShipRepairCost
 `public abstract float GetShipRepairCost(Ship ship, PartyBase owner)`
 
-**Purpose:** Gets the current value of `ship repair cost`.
+**Purpose:** Reads and returns the `ship repair cost` value held by the current object.
+
+```csharp
+// Obtain an instance of ShipCostModel from the subsystem API first
+ShipCostModel shipCostModel = ...;
+var result = shipCostModel.GetShipRepairCost(ship, owner);
+```
 
 ### GetShipUpgradePieceCost
 `public abstract int GetShipUpgradePieceCost(Ship ship, ShipUpgradePiece piece, PartyBase owner)`
 
-**Purpose:** Gets the current value of `ship upgrade piece cost`.
+**Purpose:** Reads and returns the `ship upgrade piece cost` value held by the current object.
+
+```csharp
+// Obtain an instance of ShipCostModel from the subsystem API first
+ShipCostModel shipCostModel = ...;
+var result = shipCostModel.GetShipUpgradePieceCost(ship, piece, owner);
+```
 
 ### GetShipSellingPenalty
 `public abstract float GetShipSellingPenalty()`
 
-**Purpose:** Gets the current value of `ship selling penalty`.
+**Purpose:** Reads and returns the `ship selling penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of ShipCostModel from the subsystem API first
+ShipCostModel shipCostModel = ...;
+var result = shipCostModel.GetShipSellingPenalty();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomShipCostModel();
+// Typically obtained from a subsystem API or factory
+ShipCostModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

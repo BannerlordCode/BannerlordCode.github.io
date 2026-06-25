@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerGameMode"
+description: "Auto-generated class reference for MultiplayerGameMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerGameMode`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGameMode
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MultiplayerGameMode`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGameMode.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGameMode.cs`
 
 ## Overview
 
@@ -35,19 +29,32 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### JoinCustomGame
 `public abstract void JoinCustomGame(JoinGameData joinGameData)`
 
-**Purpose:** Handles logic related to `join custom game`.
+**Purpose:** Joins several `custom game` items into a single whole.
+
+```csharp
+// Obtain an instance of MultiplayerGameMode from the subsystem API first
+MultiplayerGameMode multiplayerGameMode = ...;
+multiplayerGameMode.JoinCustomGame(joinGameData);
+```
 
 ### StartMultiplayerGame
 `public abstract void StartMultiplayerGame(string scene)`
 
-**Purpose:** Handles logic related to `start multiplayer game`.
+**Purpose:** Starts the `multiplayer game` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerGameMode from the subsystem API first
+MultiplayerGameMode multiplayerGameMode = ...;
+multiplayerGameMode.StartMultiplayerGame("example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMultiplayerGameMode();
+// Typically obtained from a subsystem API or factory
+MultiplayerGameMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

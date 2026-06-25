@@ -1,13 +1,7 @@
 ---
 title: "BannerVisualExtensions"
+description: "BannerVisualExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerVisualExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerVisualExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,22 +23,42 @@ title: "BannerVisualExtensions"
 ### GetTableauTextureSmall
 `public static Texture GetTableauTextureSmall(this Banner banner, Action<Texture> setAction)`
 
-**用途 / Purpose:** 获取 `tableau texture small` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tableau texture small」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerVisualExtensions.GetTableauTextureSmall(banner, setAction);
+```
 
 ### GetTableauTextureLarge
 `public static Texture GetTableauTextureLarge(this Banner banner, Action<Texture> setAction)`
 
-**用途 / Purpose:** 获取 `tableau texture large` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tableau texture large」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerVisualExtensions.GetTableauTextureLarge(banner, setAction);
+```
 
 ### GetTableauTextureLarge
 `public static Texture GetTableauTextureLarge(this Banner banner, Action<Texture> setAction, out BannerThumbnailCreationData creationData)`
 
-**用途 / Purpose:** 获取 `tableau texture large` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tableau texture large」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerVisualExtensions.GetTableauTextureLarge(banner, setAction, creationData);
+```
 
 ### ConvertToMultiMesh
 `public static MetaMesh ConvertToMultiMesh(this Banner banner)`
 
-**用途 / Purpose:** 处理 `convert to multi mesh` 相关逻辑。
+**用途 / Purpose:** 把「to multi mesh」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+BannerVisualExtensions.ConvertToMultiMesh(banner);
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ BannerVisualExtensions.GetTableauTextureSmall(banner, setAction);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

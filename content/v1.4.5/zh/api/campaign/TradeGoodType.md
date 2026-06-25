@@ -1,20 +1,14 @@
 ---
 title: "TradeGoodType"
+description: "TradeGoodType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TradeGoodType`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeGoodType
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum TradeGoodType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TradeCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/TradeCampaignBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "TradeGoodType"
 ## 使用示例
 
 ```csharp
-TradeGoodType example = TradeGoodType.Value;
+// 从对应子系统 API 获取实例
+TradeGoodType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "CrimeValueInspectedInSettlementOverlayEvent"
+description: "Auto-generated class reference for CrimeValueInspectedInSettlementOverlayEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrimeValueInspectedInSettlementOverlayEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CrimeValueInspectedInSettlementOverlayEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Eve
 ## Usage Example
 
 ```csharp
-var value = new CrimeValueInspectedInSettlementOverlayEvent();
+// Obtain an instance from the relevant subsystem API
+CrimeValueInspectedInSettlementOverlayEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "NotablePowerModel"
+description: "Auto-generated class reference for NotablePowerModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NotablePowerModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotablePowerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,34 +30,65 @@ Treat `NotablePowerModel` as a Model-style extension point: first identify who c
 ### CalculateDailyPowerChangeForHero
 `public abstract ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate daily power change for hero`.
+**Purpose:** Calculates the current value or result of `daily power change for hero`.
+
+```csharp
+// Obtain an instance of NotablePowerModel from the subsystem API first
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.CalculateDailyPowerChangeForHero(hero, false);
+```
 
 ### GetPowerRankName
 `public abstract TextObject GetPowerRankName(Hero hero)`
 
-**Purpose:** Gets the current value of `power rank name`.
+**Purpose:** Reads and returns the `power rank name` value held by the current object.
+
+```csharp
+// Obtain an instance of NotablePowerModel from the subsystem API first
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.GetPowerRankName(hero);
+```
 
 ### GetInfluenceBonusToClan
 `public abstract float GetInfluenceBonusToClan(Hero hero)`
 
-**Purpose:** Gets the current value of `influence bonus to clan`.
+**Purpose:** Reads and returns the `influence bonus to clan` value held by the current object.
+
+```csharp
+// Obtain an instance of NotablePowerModel from the subsystem API first
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.GetInfluenceBonusToClan(hero);
+```
 
 ### GetInitialPower
 `public abstract int GetInitialPower(Hero hero)`
 
-**Purpose:** Gets the current value of `initial power`.
+**Purpose:** Reads and returns the `initial power` value held by the current object.
+
+```csharp
+// Obtain an instance of NotablePowerModel from the subsystem API first
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.GetInitialPower(hero);
+```
 
 ### GetInitialNotableSupporterCost
 `public abstract int GetInitialNotableSupporterCost(Hero hero)`
 
-**Purpose:** Gets the current value of `initial notable supporter cost`.
+**Purpose:** Reads and returns the `initial notable supporter cost` value held by the current object.
+
+```csharp
+// Obtain an instance of NotablePowerModel from the subsystem API first
+NotablePowerModel notablePowerModel = ...;
+var result = notablePowerModel.GetInitialNotableSupporterCost(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomNotablePowerModel();
+// Typically obtained from a subsystem API or factory
+NotablePowerModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

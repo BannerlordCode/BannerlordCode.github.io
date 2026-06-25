@@ -1,13 +1,7 @@
 ---
 title: "OptionsGamepadVisualWidget"
+description: "Auto-generated class reference for OptionsGamepadVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsGamepadVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OptionsGamepadVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad
@@ -33,9 +27,10 @@ Treat `OptionsGamepadVisualWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new OptionsGamepadVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OptionsGamepadVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

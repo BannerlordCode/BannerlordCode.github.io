@@ -1,20 +1,14 @@
 ---
 title: "MissionDisguiseMarkersVM"
+description: "Auto-generated class reference for MissionDisguiseMarkersVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionDisguiseMarkersVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDisguiseMarkersVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.MainAgentDetection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionDisguiseMarkersVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.MainAgentDetection/MissionDisguiseMarkersVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.MainAgentDetection/MissionDisguiseMarkersVM.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `SandBox.ViewModelCollection.Missions.MainAgentDetection` t
 ## Usage Example
 
 ```csharp
-var value = new MissionDisguiseMarkersVM();
+// Obtain an instance from the relevant subsystem API
+MissionDisguiseMarkersVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

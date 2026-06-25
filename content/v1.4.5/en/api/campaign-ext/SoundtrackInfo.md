@@ -1,20 +1,14 @@
 ---
 title: "SoundtrackInfo"
+description: "Auto-generated class reference for SoundtrackInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundtrackInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundtrackInfo
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public class SoundtrackInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/SoundtrackInfo.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/SoundtrackInfo.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var example = new SoundtrackInfo();
+// Obtain an instance from the relevant subsystem API
+SoundtrackInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

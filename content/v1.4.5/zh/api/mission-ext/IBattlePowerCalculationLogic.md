@@ -1,20 +1,14 @@
 ---
 title: "IBattlePowerCalculationLogic"
+description: "IBattlePowerCalculationLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IBattlePowerCalculationLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBattlePowerCalculationLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IBattlePowerCalculationLogic.cs`
+**Type:** `public interface IBattlePowerCalculationLogic : IMissionBehavior`
+**Base:** `IMissionBehavior`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IBattlePowerCalculationLogic.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IBattlePowerCalculationLogic"
 ## 使用示例
 
 ```csharp
-IBattlePowerCalculationLogic implementation = GetBattlePowerCalculationLogicImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIBattlePowerCalculationLogic service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

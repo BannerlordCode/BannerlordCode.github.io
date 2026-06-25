@@ -1,20 +1,14 @@
 ---
 title: "ConspiracyQuestMapNotificationItemVM"
+description: "Auto-generated class reference for ConspiracyQuestMapNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConspiracyQuestMapNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConspiracyQuestMapNotificationItemVM
 
 **Namespace:** StoryMode.ViewModelCollection.Map
 **Module:** StoryMode.ViewModelCollection
 **Type:** `public class ConspiracyQuestMapNotificationItemVM : MapNotificationItemBaseVM`
 **Base:** `MapNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.ViewModelCollection/StoryMode.ViewModelCollection.Map/ConspiracyQuestMapNotificationItemVM.cs`
+**File:** `Modules.StoryMode/StoryMode.ViewModelCollection/StoryMode.ViewModelCollection.Map/ConspiracyQuestMapNotificationItemVM.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `StoryMode.ViewModelCollection.Map` to place it in the stac
 ## Usage Example
 
 ```csharp
-var value = new ConspiracyQuestMapNotificationItemVM();
+// Obtain an instance from the relevant subsystem API
+ConspiracyQuestMapNotificationItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

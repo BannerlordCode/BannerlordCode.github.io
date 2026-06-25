@@ -1,13 +1,7 @@
 ---
 title: "KillData"
+description: "Auto-generated class reference for KillData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KillData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KillData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
@@ -38,9 +32,10 @@ Treat `KillData` as a Data-style extension point: first identify who creates it,
 ## Usage Example
 
 ```csharp
-var value = new KillData();
+// This data object is usually returned by campaign/mission APIs
+KillData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

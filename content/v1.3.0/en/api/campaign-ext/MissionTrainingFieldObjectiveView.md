@@ -1,13 +1,7 @@
 ---
 title: "MissionTrainingFieldObjectiveView"
+description: "Auto-generated class reference for MissionTrainingFieldObjectiveView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionTrainingFieldObjectiveView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTrainingFieldObjectiveView
 
 **Namespace:** StoryMode.View.Missions
@@ -27,9 +21,10 @@ Treat `MissionTrainingFieldObjectiveView` as a View-style extension point: first
 ## Usage Example
 
 ```csharp
-var view = new MissionTrainingFieldObjectiveView();
+// Retrieve this view from the subsystem API or scene
+MissionTrainingFieldObjectiveView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

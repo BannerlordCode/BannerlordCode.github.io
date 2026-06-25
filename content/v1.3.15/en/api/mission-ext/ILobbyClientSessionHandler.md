@@ -1,18 +1,12 @@
 ---
 title: "ILobbyClientSessionHandler"
+description: "Auto-generated class reference for ILobbyClientSessionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ILobbyClientSessionHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ILobbyClientSessionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ILobbyClientSessionHandler`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/ILobbyClientSessionHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `ILobbyClientSessionHandler` as a Handler-style extension point: first ide
 ## Usage Example
 
 ```csharp
-ILobbyClientSessionHandler implementation = GetLobbyClientSessionHandlerImplementation();
+// Usually obtained through DI or a factory method
+IILobbyClientSessionHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

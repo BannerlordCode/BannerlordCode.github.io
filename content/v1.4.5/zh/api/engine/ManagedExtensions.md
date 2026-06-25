@@ -1,20 +1,14 @@
 ---
 title: "ManagedExtensions"
+description: "ManagedExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedExtensions`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedExtensions
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class ManagedExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/ManagedExtensions.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/ManagedExtensions.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ManagedExtensions"
 ## 使用示例
 
 ```csharp
-var example = new ManagedExtensions();
+// 从对应子系统 API 获取实例
+ManagedExtensions instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

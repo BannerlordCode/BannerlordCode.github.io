@@ -1,13 +1,7 @@
 ---
 title: "DefaultHideoutModel"
+description: "Auto-generated class reference for DefaultHideoutModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultHideoutModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultHideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -37,7 +31,13 @@ Treat `DefaultHideoutModel` as a Model-style extension point: first identify who
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public override float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**Purpose:** Gets the current value of `roguery xp gain on hideout mission end`.
+**Purpose:** Reads and returns the `roguery xp gain on hideout mission end` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultHideoutModel from the subsystem API first
+DefaultHideoutModel defaultHideoutModel = ...;
+var result = defaultHideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
+```
 
 ## Usage Example
 
@@ -47,4 +47,4 @@ Game.Current.ReplaceModel<DefaultHideoutModel>(new MyDefaultHideoutModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

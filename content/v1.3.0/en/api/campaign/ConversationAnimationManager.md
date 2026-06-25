@@ -1,13 +1,7 @@
 ---
 title: "ConversationAnimationManager"
+description: "Auto-generated class reference for ConversationAnimationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationAnimationManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationAnimationManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
@@ -38,4 +32,4 @@ var manager = ConversationAnimationManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

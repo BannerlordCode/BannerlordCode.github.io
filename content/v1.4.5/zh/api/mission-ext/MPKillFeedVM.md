@@ -1,20 +1,14 @@
 ---
 title: "MPKillFeedVM"
+description: "MPKillFeedVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPKillFeedVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPKillFeedVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPKillFeedVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed/MPKillFeedVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed/MPKillFeedVM.cs`
 
 ## 概述
 
@@ -36,20 +30,33 @@ title: "MPKillFeedVM"
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isPersonalFeedEnabled)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPKillFeedVM 实例
+MPKillFeedVM mPKillFeedVM = ...;
+mPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false);
+```
 
 ### OnPersonalDamage
 `public void OnPersonalDamage(int damageAmount, bool isFatal, bool isMountDamage, bool isFriendlyDamage, bool isHeadshot, string killedAgentName)`
 
-**用途 / Purpose:** 当 `personal damage` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「personal damage」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPKillFeedVM 实例
+MPKillFeedVM mPKillFeedVM = ...;
+mPKillFeedVM.OnPersonalDamage(0, false, false, false, false, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPKillFeedVM();
-value.OnAgentRemoved(affectedAgent, affectorAgent, false);
+// 通常从对应子系统 API 获取实例后调用
+MPKillFeedVM mPKillFeedVM = ...;
+mPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

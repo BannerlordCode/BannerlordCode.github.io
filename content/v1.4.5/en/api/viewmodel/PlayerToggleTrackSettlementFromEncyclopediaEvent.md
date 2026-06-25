@@ -1,20 +1,14 @@
 ---
 title: "PlayerToggleTrackSettlementFromEncyclopediaEvent"
+description: "Auto-generated class reference for PlayerToggleTrackSettlementFromEncyclopediaEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerToggleTrackSettlementFromEncyclopediaEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerToggleTrackSettlementFromEncyclopediaEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerToggleTrackSettlementFromEncyclopediaEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/PlayerToggleTrackSettlementFromEncyclopediaEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/PlayerToggleTrackSettlementFromEncyclopediaEvent.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-var example = new PlayerToggleTrackSettlementFromEncyclopediaEvent();
+// Obtain an instance from the relevant subsystem API
+PlayerToggleTrackSettlementFromEncyclopediaEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

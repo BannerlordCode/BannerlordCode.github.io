@@ -1,13 +1,7 @@
 ---
 title: "CraftingTemplate"
+description: "CraftingTemplate 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingTemplate`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingTemplate
 
 **Namespace:** TaleWorlds.Core
@@ -46,45 +40,87 @@ title: "CraftingTemplate"
 ### GetIndexOfUsageDataWithId
 `public int GetIndexOfUsageDataWithId(string weaponDescriptionId)`
 
-**用途 / Purpose:** 获取 `index of usage data with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index of usage data with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingTemplate 实例
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.GetIndexOfUsageDataWithId("example");
+```
 
 ### IsPieceTypeHiddenOnHolster
 `public bool IsPieceTypeHiddenOnHolster(CraftingPiece.PieceTypes pieceType)`
 
-**用途 / Purpose:** 处理 `is piece type hidden on holster` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「piece type hidden on holster」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingTemplate 实例
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.IsPieceTypeHiddenOnHolster(pieceType);
+```
 
 ### GetStatDatas
 `public IEnumerable<KeyValuePair<CraftingTemplate.CraftingStatTypes, float>> GetStatDatas(string weaponDescriptionId, DamageTypes thrustDamageType, DamageTypes swingDamageType)`
 
-**用途 / Purpose:** 获取 `stat datas` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stat datas」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingTemplate 实例
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.GetStatDatas("example", thrustDamageType, swingDamageType);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingTemplate 实例
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.ToString();
+```
 
 ### IsPieceTypeUsable
 `public bool IsPieceTypeUsable(CraftingPiece.PieceTypes pieceType)`
 
-**用途 / Purpose:** 处理 `is piece type usable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「piece type usable」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingTemplate 实例
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.IsPieceTypeUsable(pieceType);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingTemplate 实例
+CraftingTemplate craftingTemplate = ...;
+craftingTemplate.Deserialize(objectManager, node);
+```
 
 ### GetTemplateFromId
 `public static CraftingTemplate GetTemplateFromId(string templateId)`
 
-**用途 / Purpose:** 获取 `template from id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「template from id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CraftingTemplate.GetTemplateFromId("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CraftingTemplate();
-value.GetIndexOfUsageDataWithId("example");
+// 通常从对应子系统 API 获取实例后调用
+CraftingTemplate craftingTemplate = ...;
+craftingTemplate.GetIndexOfUsageDataWithId("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "CharacterBecameFugitiveLogEntry"
+description: "Auto-generated class reference for CharacterBecameFugitiveLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterBecameFugitiveLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterBecameFugitiveLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CharacterBecameFugitiveLogEntry from the subsystem API first
+CharacterBecameFugitiveLogEntry characterBecameFugitiveLogEntry = ...;
+var result = characterBecameFugitiveLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterBecameFugitiveLogEntry from the subsystem API first
+CharacterBecameFugitiveLogEntry characterBecameFugitiveLogEntry = ...;
+var result = characterBecameFugitiveLogEntry.GetEncyclopediaText();
+```
 
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of CharacterBecameFugitiveLogEntry from the subsystem API first
+CharacterBecameFugitiveLogEntry characterBecameFugitiveLogEntry = ...;
+var result = characterBecameFugitiveLogEntry.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterBecameFugitiveLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterBecameFugitiveLogEntry characterBecameFugitiveLogEntry = ...;
+characterBecameFugitiveLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

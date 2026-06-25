@@ -1,20 +1,14 @@
 ---
 title: "WorkshopMissionHandler"
+description: "Auto-generated class reference for WorkshopMissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorkshopMissionHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopMissionHandler
 
 **Namespace:** SandBox.Missions.MissionLogics.Towns
 **Module:** SandBox.Missions
 **Type:** `public class WorkshopMissionHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/WorkshopMissionHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/WorkshopMissionHandler.cs`
 
 ## Overview
 
@@ -29,24 +23,42 @@ Treat `WorkshopMissionHandler` as a Handler-style extension point: first identif
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of WorkshopMissionHandler from the subsystem API first
+WorkshopMissionHandler workshopMissionHandler = ...;
+workshopMissionHandler.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorkshopMissionHandler from the subsystem API first
+WorkshopMissionHandler workshopMissionHandler = ...;
+workshopMissionHandler.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorkshopMissionHandler from the subsystem API first
+WorkshopMissionHandler workshopMissionHandler = ...;
+workshopMissionHandler.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new WorkshopMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<WorkshopMissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPAnnouncementItemVM"
+description: "Auto-generated class reference for MPAnnouncementItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPAnnouncementItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPAnnouncementItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPAnnouncementItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPAnnouncementItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPAnnouncementItemVM.cs`
 
 ## Overview
 
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### ExecuteInspect
 `public void ExecuteInspect()`
 
-**Purpose:** Executes the `inspect` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `inspect`.
+
+```csharp
+// Obtain an instance of MPAnnouncementItemVM from the subsystem API first
+MPAnnouncementItemVM mPAnnouncementItemVM = ...;
+mPAnnouncementItemVM.ExecuteInspect();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPAnnouncementItemVM();
-value.ExecuteInspect();
+// Typically call this after obtaining an instance from the subsystem API
+MPAnnouncementItemVM mPAnnouncementItemVM = ...;
+mPAnnouncementItemVM.ExecuteInspect();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CinematicBurningArrow"
+description: "Auto-generated class reference for CinematicBurningArrow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CinematicBurningArrow`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CinematicBurningArrow
 
 **Namespace:** SandBox.Objects.Cinematics
 **Module:** SandBox.Objects
 **Type:** `public class CinematicBurningArrow : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.Cinematics/CinematicBurningArrow.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.Cinematics/CinematicBurningArrow.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox.Objects.Cinematics` to place it in the stack, then
 ### StartMovement
 `public void StartMovement()`
 
-**Purpose:** Handles logic related to `start movement`.
+**Purpose:** Starts the `movement` flow or state machine.
+
+```csharp
+// Obtain an instance of CinematicBurningArrow from the subsystem API first
+CinematicBurningArrow cinematicBurningArrow = ...;
+cinematicBurningArrow.StartMovement();
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of CinematicBurningArrow from the subsystem API first
+CinematicBurningArrow cinematicBurningArrow = ...;
+var result = cinematicBurningArrow.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CinematicBurningArrow();
-value.StartMovement();
+// Typically call this after obtaining an instance from the subsystem API
+CinematicBurningArrow cinematicBurningArrow = ...;
+cinematicBurningArrow.StartMovement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

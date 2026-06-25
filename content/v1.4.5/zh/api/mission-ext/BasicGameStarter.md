@@ -1,20 +1,14 @@
 ---
 title: "BasicGameStarter"
+description: "BasicGameStarter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BasicGameStarter`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicGameStarter
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BasicGameStarter : IGameStarter`
 **Base:** `IGameStarter`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BasicGameStarter.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BasicGameStarter.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "BasicGameStarter"
 ### AddModel
 `public void AddModel(GameModel gameModel)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `model`。
+**用途 / Purpose:** 将 「model」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BasicGameStarter 实例
+BasicGameStarter basicGameStarter = ...;
+basicGameStarter.AddModel(gameModel);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BasicGameStarter();
-value.AddModel(gameModel);
+// 通常从对应子系统 API 获取实例后调用
+BasicGameStarter basicGameStarter = ...;
+basicGameStarter.AddModel(gameModel);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ApiAvatarServiceBase"
+description: "ApiAvatarServiceBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ApiAvatarServiceBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ApiAvatarServiceBase
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public abstract class ApiAvatarServiceBase : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/ApiAvatarServiceBase.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/ApiAvatarServiceBase.cs`
 
 ## 概述
 
@@ -29,34 +23,65 @@ title: "ApiAvatarServiceBase"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 ApiAvatarServiceBase 实例
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+apiAvatarServiceBase.Tick(0);
+```
 
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**用途 / Purpose:** 获取 `player avatar` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player avatar」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ApiAvatarServiceBase 实例
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+var result = apiAvatarServiceBase.GetPlayerAvatar(playerId);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ApiAvatarServiceBase 实例
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+apiAvatarServiceBase.Initialize();
+```
 
 ### ClearCache
 `public void ClearCache()`
 
-**用途 / Purpose:** 处理 `clear cache` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「cache」。
+
+```csharp
+// 先通过子系统 API 拿到 ApiAvatarServiceBase 实例
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+apiAvatarServiceBase.ClearCache();
+```
 
 ### IsInitialized
 `public bool IsInitialized()`
 
-**用途 / Purpose:** 处理 `is initialized` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「initialized」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ApiAvatarServiceBase 实例
+ApiAvatarServiceBase apiAvatarServiceBase = ...;
+var result = apiAvatarServiceBase.IsInitialized();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomApiAvatarServiceBase();
+// 通常通过子系统 API 或工厂获得派生实例
+ApiAvatarServiceBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

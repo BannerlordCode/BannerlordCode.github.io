@@ -1,13 +1,7 @@
 ---
 title: "NonviolentProfessionTag"
+description: "Auto-generated class reference for NonviolentProfessionTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NonviolentProfessionTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NonviolentProfessionTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of NonviolentProfessionTag from the subsystem API first
+NonviolentProfessionTag nonviolentProfessionTag = ...;
+var result = nonviolentProfessionTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NonviolentProfessionTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+NonviolentProfessionTag nonviolentProfessionTag = ...;
+nonviolentProfessionTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyHealingModel"
+description: "Auto-generated class reference for DefaultPartyHealingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyHealingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyHealingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,42 +23,90 @@ Treat `DefaultPartyHealingModel` as a Model-style extension point: first identif
 ### GetSurgeryChance
 `public override float GetSurgeryChance(PartyBase party)`
 
-**Purpose:** Gets the current value of `surgery chance`.
+**Purpose:** Reads and returns the `surgery chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyHealingModel from the subsystem API first
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetSurgeryChance(party);
+```
 
 ### GetSiegeBombardmentHitSurgeryChance
 `public override float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
 
-**Purpose:** Gets the current value of `siege bombardment hit surgery chance`.
+**Purpose:** Reads and returns the `siege bombardment hit surgery chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyHealingModel from the subsystem API first
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetSiegeBombardmentHitSurgeryChance(party);
+```
 
 ### GetSurvivalChance
 `public override float GetSurvivalChance(PartyBase party, CharacterObject character, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
 
-**Purpose:** Gets the current value of `survival chance`.
+**Purpose:** Reads and returns the `survival chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyHealingModel from the subsystem API first
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetSurvivalChance(party, character, damageType, false, null);
+```
 
 ### GetSkillXpFromHealingTroop
 `public override int GetSkillXpFromHealingTroop(PartyBase party)`
 
-**Purpose:** Gets the current value of `skill xp from healing troop`.
+**Purpose:** Reads and returns the `skill xp from healing troop` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyHealingModel from the subsystem API first
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetSkillXpFromHealingTroop(party);
+```
 
 ### GetDailyHealingForRegulars
 `public override ExplainedNumber GetDailyHealingForRegulars(PartyBase party, bool isPrisoners, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `daily healing for regulars`.
+**Purpose:** Reads and returns the `daily healing for regulars` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyHealingModel from the subsystem API first
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetDailyHealingForRegulars(party, false, false);
+```
 
 ### GetDailyHealingHpForHeroes
 `public override ExplainedNumber GetDailyHealingHpForHeroes(PartyBase party, bool isPrisoners, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `daily healing hp for heroes`.
+**Purpose:** Reads and returns the `daily healing hp for heroes` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyHealingModel from the subsystem API first
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetDailyHealingHpForHeroes(party, false, false);
+```
 
 ### GetHeroesEffectedHealingAmount
 `public override int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
 
-**Purpose:** Gets the current value of `heroes effected healing amount`.
+**Purpose:** Reads and returns the `heroes effected healing amount` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyHealingModel from the subsystem API first
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetHeroesEffectedHealingAmount(hero, 0);
+```
 
 ### GetBattleEndHealingAmount
 `public override ExplainedNumber GetBattleEndHealingAmount(PartyBase party, Hero hero)`
 
-**Purpose:** Gets the current value of `battle end healing amount`.
+**Purpose:** Reads and returns the `battle end healing amount` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyHealingModel from the subsystem API first
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetBattleEndHealingAmount(party, hero);
+```
 
 ## Usage Example
 
@@ -74,4 +116,4 @@ Game.Current.ReplaceModel<DefaultPartyHealingModel>(new MyDefaultPartyHealingMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

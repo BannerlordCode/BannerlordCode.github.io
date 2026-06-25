@@ -1,13 +1,7 @@
 ---
 title: "DiamondDebugCategory"
+description: "Auto-generated class reference for DiamondDebugCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DiamondDebugCategory`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DiamondDebugCategory
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-DiamondDebugCategory example = DiamondDebugCategory.Value;
+// Obtain an instance from the relevant subsystem API
+DiamondDebugCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

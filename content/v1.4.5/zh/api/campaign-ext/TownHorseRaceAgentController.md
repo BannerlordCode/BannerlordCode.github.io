@@ -1,20 +1,14 @@
 ---
 title: "TownHorseRaceAgentController"
+description: "TownHorseRaceAgentController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TownHorseRaceAgentController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownHorseRaceAgentController
 
 **Namespace:** SandBox.Tournaments.AgentControllers
 **Module:** SandBox.Tournaments
 **Type:** `public class TownHorseRaceAgentController : AgentController`
 **Base:** `AgentController`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Tournaments.AgentControllers/TownHorseRaceAgentController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments.AgentControllers/TownHorseRaceAgentController.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "TownHorseRaceAgentController"
 ### OnInitialize
 `public override void OnInitialize()`
 
-**用途 / Purpose:** 当 `initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceAgentController 实例
+TownHorseRaceAgentController townHorseRaceAgentController = ...;
+townHorseRaceAgentController.OnInitialize();
+```
 
 ### DisableMovement
 `public void DisableMovement()`
 
-**用途 / Purpose:** 处理 `disable movement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceAgentController 实例
+TownHorseRaceAgentController townHorseRaceAgentController = ...;
+townHorseRaceAgentController.DisableMovement();
+```
 
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceAgentController 实例
+TownHorseRaceAgentController townHorseRaceAgentController = ...;
+townHorseRaceAgentController.Start();
+```
 
 ### OnEnterCheckPoint
 `public void OnEnterCheckPoint(VolumeBox checkPoint)`
 
-**用途 / Purpose:** 当 `enter check point` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「enter check point」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TownHorseRaceAgentController 实例
+TownHorseRaceAgentController townHorseRaceAgentController = ...;
+townHorseRaceAgentController.OnEnterCheckPoint(checkPoint);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ var controller = Mission.Current.GetMissionBehavior<TownHorseRaceAgentController
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

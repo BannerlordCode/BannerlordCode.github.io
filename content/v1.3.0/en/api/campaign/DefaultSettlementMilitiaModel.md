@@ -1,13 +1,7 @@
 ---
 title: "DefaultSettlementMilitiaModel"
+description: "Auto-generated class reference for DefaultSettlementMilitiaModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementMilitiaModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementMilitiaModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,22 +23,46 @@ Treat `DefaultSettlementMilitiaModel` as a Model-style extension point: first id
 ### MilitiaToSpawnAfterSiege
 `public override int MilitiaToSpawnAfterSiege(Town town)`
 
-**Purpose:** Handles logic related to `militia to spawn after siege`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultSettlementMilitiaModel from the subsystem API first
+DefaultSettlementMilitiaModel defaultSettlementMilitiaModel = ...;
+var result = defaultSettlementMilitiaModel.MilitiaToSpawnAfterSiege(town);
+```
 
 ### CalculateMilitiaChange
 `public override ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate militia change`.
+**Purpose:** Calculates the current value or result of `militia change`.
+
+```csharp
+// Obtain an instance of DefaultSettlementMilitiaModel from the subsystem API first
+DefaultSettlementMilitiaModel defaultSettlementMilitiaModel = ...;
+var result = defaultSettlementMilitiaModel.CalculateMilitiaChange(settlement, false);
+```
 
 ### CalculateVeteranMilitiaSpawnChance
 `public override ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)`
 
-**Purpose:** Handles logic related to `calculate veteran militia spawn chance`.
+**Purpose:** Calculates the current value or result of `veteran militia spawn chance`.
+
+```csharp
+// Obtain an instance of DefaultSettlementMilitiaModel from the subsystem API first
+DefaultSettlementMilitiaModel defaultSettlementMilitiaModel = ...;
+var result = defaultSettlementMilitiaModel.CalculateVeteranMilitiaSpawnChance(settlement);
+```
 
 ### CalculateMilitiaSpawnRate
 `public override void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)`
 
-**Purpose:** Handles logic related to `calculate militia spawn rate`.
+**Purpose:** Calculates the current value or result of `militia spawn rate`.
+
+```csharp
+// Obtain an instance of DefaultSettlementMilitiaModel from the subsystem API first
+DefaultSettlementMilitiaModel defaultSettlementMilitiaModel = ...;
+defaultSettlementMilitiaModel.CalculateMilitiaSpawnRate(settlement, meleeTroopRate, rangedTroopRate);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultSettlementMilitiaModel>(new MyDefaultSettlement
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

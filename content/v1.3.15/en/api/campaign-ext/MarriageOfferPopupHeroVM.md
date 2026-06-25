@@ -1,13 +1,7 @@
 ---
 title: "MarriageOfferPopupHeroVM"
+description: "Auto-generated class reference for MarriageOfferPopupHeroVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarriageOfferPopupHeroVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MarriageOfferPopupHeroVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup
@@ -46,35 +40,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.Marriage
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.Update();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.OnFinalize();
+```
 
 ### ExecuteHeroLink
 `public void ExecuteHeroLink()`
 
-**Purpose:** Executes the `hero link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `hero link`.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.ExecuteHeroLink();
+```
 
 ### ExecuteClanLink
 `public void ExecuteClanLink()`
 
-**Purpose:** Executes the `clan link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `clan link`.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupHeroVM from the subsystem API first
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.ExecuteClanLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MarriageOfferPopupHeroVM();
-value.Update();
+// Typically call this after obtaining an instance from the subsystem API
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.Update();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

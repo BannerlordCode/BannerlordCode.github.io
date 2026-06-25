@@ -1,13 +1,7 @@
 ---
 title: "MovementPath"
+description: "Auto-generated class reference for MovementPath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MovementPath`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MovementPath
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickDebug
 `public void TickDebug(Vec2 position)`
 
-**Purpose:** Handles logic related to `tick debug`.
+**Purpose:** Advances the `debug` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of MovementPath from the subsystem API first
+MovementPath movementPath = ...;
+movementPath.TickDebug(position);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MovementPath();
-value.TickDebug(position);
+// Typically call this after obtaining an instance from the subsystem API
+MovementPath movementPath = ...;
+movementPath.TickDebug(position);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

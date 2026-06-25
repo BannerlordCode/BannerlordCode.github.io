@@ -1,13 +1,7 @@
 ---
 title: "ClientWebSocketHandler"
+description: "ClientWebSocketHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClientWebSocketHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClientWebSocketHandler
 
 **Namespace:** TaleWorlds.Network
@@ -35,44 +29,86 @@ title: "ClientWebSocketHandler"
 ### Connect
 `public Task Connect(string uri, string token, List<KeyValuePair<string, string>> headers = null)`
 
-**用途 / Purpose:** 处理 `connect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.Connect("example", "example", list<KeyValuePair<string, "example");
+```
 
 ### Disconnect
 `public Task Disconnect(string reason, bool onDisconnectCommand)`
 
-**用途 / Purpose:** 处理 `disconnect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.Disconnect("example", false);
+```
 
 ### SendTextMessage
 `public void SendTextMessage(string postBoxId, string text)`
 
-**用途 / Purpose:** 处理 `send text message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+clientWebSocketHandler.SendTextMessage("example", "example");
+```
 
 ### MessageReceivedDelegate
 `public delegate void MessageReceivedDelegate(WebSocketMessage message, ClientWebSocketHandler socket)`
 
-**用途 / Purpose:** 处理 `message received delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+clientWebSocketHandler.MessageReceivedDelegate(message, socket);
+```
 
 ### OnErrorDelegate
 `public delegate void OnErrorDelegate(ClientWebSocketHandler sender, Exception ex)`
 
-**用途 / Purpose:** 当 `error delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「error delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+clientWebSocketHandler.OnErrorDelegate(sender, ex);
+```
 
 ### DisconnectedDelegate
 `public delegate Task DisconnectedDelegate(ClientWebSocketHandler sender, bool onDisconnectCommand)`
 
-**用途 / Purpose:** 处理 `disconnected delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.DisconnectedDelegate(sender, false);
+```
 
 ### ConnectedDelegate
 `public delegate Task ConnectedDelegate(ClientWebSocketHandler sender)`
 
-**用途 / Purpose:** 处理 `connected delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientWebSocketHandler 实例
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.ConnectedDelegate(sender);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ClientWebSocketHandler());
+var behavior = Mission.Current.GetMissionBehavior<ClientWebSocketHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

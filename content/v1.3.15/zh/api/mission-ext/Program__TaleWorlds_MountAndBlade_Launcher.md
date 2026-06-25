@@ -1,13 +1,7 @@
 ---
-title: "Program__TaleWorlds_MountAndBlade_Launcher"
+title: "Program"
+description: "Program 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Program`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Program
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher
@@ -27,9 +21,10 @@ title: "Program__TaleWorlds_MountAndBlade_Launcher"
 ## 使用示例
 
 ```csharp
-var example = new Program();
+// 从对应子系统 API 获取实例
+Program instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

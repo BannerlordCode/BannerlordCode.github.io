@@ -1,13 +1,7 @@
 ---
 title: "StoryModeNotableSpawnModel"
+description: "StoryModeNotableSpawnModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeNotableSpawnModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeNotableSpawnModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,7 +23,13 @@ title: "StoryModeNotableSpawnModel"
 ### GetTargetNotableCountForSettlement
 `public override int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`
 
-**用途 / Purpose:** 获取 `target notable count for settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target notable count for settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeNotableSpawnModel 实例
+StoryModeNotableSpawnModel storyModeNotableSpawnModel = ...;
+var result = storyModeNotableSpawnModel.GetTargetNotableCountForSettlement(settlement, occupation);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeNotableSpawnModel>(new MyStoryModeNotableSpaw
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

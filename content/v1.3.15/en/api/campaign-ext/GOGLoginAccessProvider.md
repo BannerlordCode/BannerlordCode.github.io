@@ -1,13 +1,7 @@
 ---
 title: "GOGLoginAccessProvider"
+description: "Auto-generated class reference for GOGLoginAccessProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GOGLoginAccessProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GOGLoginAccessProvider
 
 **Namespace:** TaleWorlds.Diamond.AccessProvider.GOG
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.AccessProvider.GOG` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new GOGLoginAccessProvider();
+// Obtain an instance from the relevant subsystem API
+GOGLoginAccessProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

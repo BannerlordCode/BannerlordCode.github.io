@@ -1,20 +1,14 @@
 ---
 title: "ObjectLoadData"
+description: "Auto-generated class reference for ObjectLoadData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ObjectLoadData`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ObjectLoadData
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ObjectLoadData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ObjectLoadData.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/ObjectLoadData.cs`
 
 ## Overview
 
@@ -38,69 +32,142 @@ Treat `ObjectLoadData` as a Data-style extension point: first identify who creat
 ### GetDataBySaveId
 `public object GetDataBySaveId(int localSaveId)`
 
-**Purpose:** Gets the current value of `data by save id`.
+**Purpose:** Reads and returns the `data by save id` value held by the current object.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetDataBySaveId(0);
+```
 
 ### GetMemberValueBySaveId
 `public object GetMemberValueBySaveId(int localSaveId, int typeLevel)`
 
-**Purpose:** Gets the current value of `member value by save id`.
+**Purpose:** Reads and returns the `member value by save id` value held by the current object.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetMemberValueBySaveId(0, 0);
+```
 
 ### GetMemberValueBySaveId
 `public object GetMemberValueBySaveId(int localSaveId)`
 
-**Purpose:** Gets the current value of `member value by save id`.
+**Purpose:** Reads and returns the `member value by save id` value held by the current object.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetMemberValueBySaveId(0);
+```
 
 ### GetFieldValueBySaveId
 `public object GetFieldValueBySaveId(int localSaveId)`
 
-**Purpose:** Gets the current value of `field value by save id`.
+**Purpose:** Reads and returns the `field value by save id` value held by the current object.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetFieldValueBySaveId(0);
+```
 
 ### GetPropertyValueBySaveId
 `public object GetPropertyValueBySaveId(int localSaveId)`
 
-**Purpose:** Gets the current value of `property value by save id`.
+**Purpose:** Reads and returns the `property value by save id` value held by the current object.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.GetPropertyValueBySaveId(0);
+```
 
 ### HasMember
 `public bool HasMember(int localSaveId)`
 
-**Purpose:** Checks whether the current object has/contains `member`.
+**Purpose:** Determines whether the current object already holds `member`.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.HasMember(0);
+```
 
 ### HasMember
 `public bool HasMember(int localSaveId, int typeLevel)`
 
-**Purpose:** Checks whether the current object has/contains `member`.
+**Purpose:** Determines whether the current object already holds `member`.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+var result = objectLoadData.HasMember(0, 0);
+```
 
 ### InitializeReaders
 `public void InitializeReaders(SaveEntryFolder saveEntryFolder)`
 
-**Purpose:** Initializes the state, resources, or bindings for `readers`.
+**Purpose:** Prepares the resources, state, or bindings required by `readers`.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+objectLoadData.InitializeReaders(saveEntryFolder);
+```
 
 ### CreateStruct
 `public void CreateStruct()`
 
-**Purpose:** Creates a new `struct` instance or object.
+**Purpose:** Constructs a new `struct` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+objectLoadData.CreateStruct();
+```
 
 ### FillCreatedObject
 `public void FillCreatedObject()`
 
-**Purpose:** Handles logic related to `fill created object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+objectLoadData.FillCreatedObject();
+```
 
 ### Read
 `public void Read()`
 
-**Purpose:** Handles logic related to `read`.
+**Purpose:** Reads the data or state of the current object.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+objectLoadData.Read();
+```
 
 ### FillObject
 `public void FillObject()`
 
-**Purpose:** Handles logic related to `fill object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ObjectLoadData from the subsystem API first
+ObjectLoadData objectLoadData = ...;
+objectLoadData.FillObject();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ObjectLoadData();
+// This data object is usually returned by campaign/mission APIs
+ObjectLoadData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

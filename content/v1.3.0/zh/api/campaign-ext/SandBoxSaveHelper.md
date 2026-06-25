@@ -1,13 +1,7 @@
 ---
 title: "SandBoxSaveHelper"
+description: "SandBoxSaveHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxSaveHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSaveHelper
 
 **Namespace:** SandBox
@@ -29,22 +23,42 @@ title: "SandBoxSaveHelper"
 ### TryLoadSave
 `public static void TryLoadSave(SaveGameFileInfo saveInfo, Action<LoadResult> onStartGame, Action onCancel = null)`
 
-**用途 / Purpose:** 尝试获取 `load save`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「load save」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxSaveHelper.TryLoadSave(saveInfo, onStartGame, null);
+```
 
 ### CheckMetaDataCompatibilityErrors
 `public static MBReadOnlyList<SandBoxSaveHelper.ModuleCheckResult> CheckMetaDataCompatibilityErrors(MetaData fileMetaData)`
 
-**用途 / Purpose:** 处理 `check meta data compatibility errors` 相关逻辑。
+**用途 / Purpose:** 检查「meta data compatibility errors」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxSaveHelper.CheckMetaDataCompatibilityErrors(fileMetaData);
+```
 
 ### GetIsDisabledWithReason
 `public static bool GetIsDisabledWithReason(SaveGameFileInfo saveGameFileInfo, out TextObject reason)`
 
-**用途 / Purpose:** 获取 `is disabled with reason` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is disabled with reason」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxSaveHelper.GetIsDisabledWithReason(saveGameFileInfo, reason);
+```
 
 ### GetModuleNameFromModuleId
 `public static string GetModuleNameFromModuleId(string id)`
 
-**用途 / Purpose:** 获取 `module name from module id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「module name from module id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxSaveHelper.GetModuleNameFromModuleId("example");
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ SandBoxSaveHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultPartyWageModel"
+description: "DefaultPartyWageModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyWageModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyWageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPartyWageModel : PartyWageModel`
 **Base:** `PartyWageModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyWageModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyWageModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultPartyWageModel"
 ### GetCharacterWage
 `public override int GetCharacterWage(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `character wage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character wage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyWageModel 实例
+DefaultPartyWageModel defaultPartyWageModel = ...;
+var result = defaultPartyWageModel.GetCharacterWage(character);
+```
 
 ### GetTotalWage
 `public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `total wage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total wage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyWageModel 实例
+DefaultPartyWageModel defaultPartyWageModel = ...;
+var result = defaultPartyWageModel.GetTotalWage(mobileParty, troopRoster, false);
+```
 
 ### GetTroopRecruitmentCost
 `public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**用途 / Purpose:** 获取 `troop recruitment cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop recruitment cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyWageModel 实例
+DefaultPartyWageModel defaultPartyWageModel = ...;
+var result = defaultPartyWageModel.GetTroopRecruitmentCost(troop, buyerHero, false);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPartyWageModel>(new MyDefaultPartyWageModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

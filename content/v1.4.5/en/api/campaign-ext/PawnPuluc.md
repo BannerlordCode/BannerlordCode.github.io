@@ -1,20 +1,14 @@
 ---
 title: "PawnPuluc"
+description: "Auto-generated class reference for PawnPuluc."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PawnPuluc`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnPuluc
 
 **Namespace:** SandBox.BoardGames.Pawns
 **Module:** SandBox.BoardGames
 **Type:** `public class PawnPuluc : PawnBase`
 **Base:** `PawnBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Pawns/PawnPuluc.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Pawns/PawnPuluc.cs`
 
 ## Overview
 
@@ -39,45 +33,88 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of PawnPuluc from the subsystem API first
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.Reset();
+```
 
 ### AddGoalPosition
 `public override void AddGoalPosition(Vec3 goal)`
 
 **Purpose:** Adds `goal position` to the current collection or state.
 
+```csharp
+// Obtain an instance of PawnPuluc from the subsystem API first
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.AddGoalPosition(goal);
+```
+
 ### MovePawnToGoalPositions
 `public override void MovePawnToGoalPositions(bool instantMove, float speed, bool dragged = false)`
 
-**Purpose:** Handles logic related to `move pawn to goal positions`.
+**Purpose:** Moves `pawn to goal positions` to a new position or state.
+
+```csharp
+// Obtain an instance of PawnPuluc from the subsystem API first
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.MovePawnToGoalPositions(false, 0, false);
+```
 
 ### SetPawnAtPosition
 `public override void SetPawnAtPosition(Vec3 position)`
 
-**Purpose:** Sets the value or state of `pawn at position`.
+**Purpose:** Assigns a new value to `pawn at position` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PawnPuluc from the subsystem API first
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.SetPawnAtPosition(position);
+```
 
 ### EnableCollisionBody
 `public override void EnableCollisionBody()`
 
-**Purpose:** Handles logic related to `enable collision body`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PawnPuluc from the subsystem API first
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.EnableCollisionBody();
+```
 
 ### DisableCollisionBody
 `public override void DisableCollisionBody()`
 
-**Purpose:** Handles logic related to `disable collision body`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PawnPuluc from the subsystem API first
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.DisableCollisionBody();
+```
 
 ### MovePawnBackToSpawn
 `public void MovePawnBackToSpawn(bool instantMove, float speed, bool fake = false)`
 
-**Purpose:** Handles logic related to `move pawn back to spawn`.
+**Purpose:** Moves `pawn back to spawn` to a new position or state.
+
+```csharp
+// Obtain an instance of PawnPuluc from the subsystem API first
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.MovePawnBackToSpawn(false, 0, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PawnPuluc();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+PawnPuluc pawnPuluc = ...;
+pawnPuluc.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

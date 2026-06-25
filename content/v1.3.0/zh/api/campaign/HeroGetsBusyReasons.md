@@ -1,18 +1,12 @@
 ---
 title: "HeroGetsBusyReasons"
+description: "HeroGetsBusyReasons 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroGetsBusyReasons`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroGetsBusyReasons
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum HeroGetsBusyReasons`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/HeroGetsBusyReasons.cs`
 
@@ -27,9 +21,10 @@ title: "HeroGetsBusyReasons"
 ## 使用示例
 
 ```csharp
-var example = new HeroGetsBusyReasons();
+// 从对应子系统 API 获取实例
+HeroGetsBusyReasons instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

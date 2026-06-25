@@ -1,18 +1,12 @@
 ---
 title: "LauncherPlatformType"
+description: "Auto-generated class reference for LauncherPlatformType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherPlatformType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherPlatformType
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum LauncherPlatformType`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Launcher.Library/LauncherPlatformType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ## Usage Example
 
 ```csharp
-var value = new LauncherPlatformType();
+// Obtain an instance from the relevant subsystem API
+LauncherPlatformType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

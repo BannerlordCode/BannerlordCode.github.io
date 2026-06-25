@@ -1,13 +1,7 @@
 ---
 title: "MountVisualCreator"
+description: "MountVisualCreator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MountVisualCreator`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountVisualCreator
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,32 +23,62 @@ title: "MountVisualCreator"
 ### SetMaterialProperties
 `public static void SetMaterialProperties(ItemObject mountItem, MetaMesh mountMesh, MountCreationKey key, ref uint maneMeshMultiplier)`
 
-**用途 / Purpose:** 设置 `material properties` 的值或状态。
+**用途 / Purpose:** 为 「material properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MountVisualCreator.SetMaterialProperties(mountItem, mountMesh, key, maneMeshMultiplier);
+```
 
 ### AddMountMesh
 `public static List<MetaMesh> AddMountMesh(MBAgentVisuals agentVisual, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `mount mesh`。
+**用途 / Purpose:** 将 「mount mesh」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MountVisualCreator.AddMountMesh(agentVisual, mountItem, harnessItem, "example", null);
+```
 
 ### SetHorseColors
 `public static void SetHorseColors(MetaMesh horseMesh, MountCreationKey mountCreationKey)`
 
-**用途 / Purpose:** 设置 `horse colors` 的值或状态。
+**用途 / Purpose:** 为 「horse colors」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MountVisualCreator.SetHorseColors(horseMesh, mountCreationKey);
+```
 
 ### ClearMountMesh
 `public static void ClearMountMesh(GameEntity gameEntity)`
 
-**用途 / Purpose:** 处理 `clear mount mesh` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「mount mesh」。
+
+```csharp
+// 静态调用，不需要实例
+MountVisualCreator.ClearMountMesh(gameEntity);
+```
 
 ### AddMountMeshToEntity
 `public static void AddMountMeshToEntity(GameEntity gameEntity, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `mount mesh to entity`。
+**用途 / Purpose:** 将 「mount mesh to entity」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MountVisualCreator.AddMountMeshToEntity(gameEntity, mountItem, harnessItem, "example", null);
+```
 
 ### AddMountMeshToAgentVisual
 `public static void AddMountMeshToAgentVisual(MBAgentVisuals agentVisual, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `mount mesh to agent visual`。
+**用途 / Purpose:** 将 「mount mesh to agent visual」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MountVisualCreator.AddMountMeshToAgentVisual(agentVisual, mountItem, harnessItem, "example", null);
+```
 
 ## 使用示例
 
@@ -64,4 +88,4 @@ MountVisualCreator.SetMaterialProperties(mountItem, mountMesh, key, maneMeshMult
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

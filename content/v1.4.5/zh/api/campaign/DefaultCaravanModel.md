@@ -1,20 +1,14 @@
 ---
 title: "DefaultCaravanModel"
+description: "DefaultCaravanModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultCaravanModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCaravanModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultCaravanModel : CaravanModel`
 **Base:** `CaravanModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCaravanModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCaravanModel.cs`
 
 ## 概述
 
@@ -29,32 +23,68 @@ title: "DefaultCaravanModel"
 ### GetEliteCaravanSpawnChance
 `public override float GetEliteCaravanSpawnChance(Hero hero)`
 
-**用途 / Purpose:** 获取 `elite caravan spawn chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「elite caravan spawn chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCaravanModel 实例
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetEliteCaravanSpawnChance(hero);
+```
 
 ### GetPowerChangeAfterCaravanCreation
 `public override int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
 
-**用途 / Purpose:** 获取 `power change after caravan creation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「power change after caravan creation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCaravanModel 实例
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetPowerChangeAfterCaravanCreation(hero, caravanParty);
+```
 
 ### CanHeroCreateCaravan
 `public override bool CanHeroCreateCaravan(Hero hero)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero create caravan`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero create caravan」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCaravanModel 实例
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.CanHeroCreateCaravan(hero);
+```
 
 ### GetCaravanFormingCost
 `public override int GetCaravanFormingCost(bool largerCaravan, bool navalCaravan)`
 
-**用途 / Purpose:** 获取 `caravan forming cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「caravan forming cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCaravanModel 实例
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetCaravanFormingCost(false, false);
+```
 
 ### GetInitialTradeGold
 `public override int GetInitialTradeGold(Hero owner, bool navalCaravan, bool largeCaravan)`
 
-**用途 / Purpose:** 获取 `initial trade gold` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial trade gold」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCaravanModel 实例
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetInitialTradeGold(owner, false, false);
+```
 
 ### GetMaxGoldToSpendOnOneItemCategory
 `public override int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
 
-**用途 / Purpose:** 获取 `max gold to spend on one item category` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max gold to spend on one item category」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCaravanModel 实例
+DefaultCaravanModel defaultCaravanModel = ...;
+var result = defaultCaravanModel.GetMaxGoldToSpendOnOneItemCategory(caravan, itemCategory);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultCaravanModel>(new MyDefaultCaravanModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

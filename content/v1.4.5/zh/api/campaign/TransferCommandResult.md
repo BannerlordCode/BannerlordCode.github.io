@@ -1,20 +1,14 @@
 ---
 title: "TransferCommandResult"
+description: "TransferCommandResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TransferCommandResult`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransferCommandResult
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TransferCommandResult`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/TransferCommandResult.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/TransferCommandResult.cs`
 
 ## 概述
 
@@ -38,9 +32,10 @@ title: "TransferCommandResult"
 ## 使用示例
 
 ```csharp
-var example = new TransferCommandResult();
+// 从对应子系统 API 获取实例
+TransferCommandResult instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

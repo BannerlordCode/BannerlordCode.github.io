@@ -1,13 +1,7 @@
 ---
 title: "SallyOutMissionController"
+description: "Auto-generated class reference for SallyOutMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SallyOutMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SallyOutMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,39 +29,74 @@ Treat `SallyOutMissionController` as a Controller-style extension point: first i
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutMissionController from the subsystem API first
+SallyOutMissionController sallyOutMissionController = ...;
+sallyOutMissionController.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SallyOutMissionController from the subsystem API first
+SallyOutMissionController sallyOutMissionController = ...;
+sallyOutMissionController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutMissionController from the subsystem API first
+SallyOutMissionController sallyOutMissionController = ...;
+sallyOutMissionController.OnMissionTick(0);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of SallyOutMissionController from the subsystem API first
+SallyOutMissionController sallyOutMissionController = ...;
+sallyOutMissionController.OnDeploymentFinished();
+```
 
 ### GetBesiegerSiegeEngines
 `public static MBReadOnlyList<SiegeWeapon> GetBesiegerSiegeEngines()`
 
-**Purpose:** Gets the current value of `besieger siege engines`.
+**Purpose:** Reads and returns the `besieger siege engines` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SallyOutMissionController.GetBesiegerSiegeEngines();
+```
 
 ### DisableSiegeEngines
 `public static void DisableSiegeEngines()`
 
-**Purpose:** Handles logic related to `disable siege engines`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SallyOutMissionController.DisableSiegeEngines();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSallyOutMissionController();
+// Typically obtained from a subsystem API or factory
+SallyOutMissionController instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

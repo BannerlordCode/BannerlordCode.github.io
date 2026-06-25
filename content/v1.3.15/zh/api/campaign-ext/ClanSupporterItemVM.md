@@ -1,13 +1,7 @@
 ---
 title: "ClanSupporterItemVM"
+description: "ClanSupporterItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanSupporterItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanSupporterItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters
@@ -35,20 +29,33 @@ title: "ClanSupporterItemVM"
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**用途 / Purpose:** 执行 `open tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「open tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSupporterItemVM 实例
+ClanSupporterItemVM clanSupporterItemVM = ...;
+clanSupporterItemVM.ExecuteOpenTooltip();
+```
 
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**用途 / Purpose:** 执行 `close tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「close tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanSupporterItemVM 实例
+ClanSupporterItemVM clanSupporterItemVM = ...;
+clanSupporterItemVM.ExecuteCloseTooltip();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanSupporterItemVM();
-value.ExecuteOpenTooltip();
+// 通常从对应子系统 API 获取实例后调用
+ClanSupporterItemVM clanSupporterItemVM = ...;
+clanSupporterItemVM.ExecuteOpenTooltip();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

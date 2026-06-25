@@ -1,20 +1,14 @@
 ---
 title: "InterruptingBehaviorGroup"
+description: "Auto-generated class reference for InterruptingBehaviorGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InterruptingBehaviorGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InterruptingBehaviorGroup
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class InterruptingBehaviorGroup : AgentBehaviorGroup`
 **Base:** `AgentBehaviorGroup`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/InterruptingBehaviorGroup.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/InterruptingBehaviorGroup.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of InterruptingBehaviorGroup from the subsystem API first
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+interruptingBehaviorGroup.Tick(0, false);
+```
 
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**Purpose:** Gets the current value of `score`.
+**Purpose:** Reads and returns the `score` value held by the current object.
+
+```csharp
+// Obtain an instance of InterruptingBehaviorGroup from the subsystem API first
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+var result = interruptingBehaviorGroup.GetScore(false);
+```
 
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**Purpose:** Handles logic related to `force think`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InterruptingBehaviorGroup from the subsystem API first
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+interruptingBehaviorGroup.ForceThink(0);
+```
 
 ### ConversationTick
 `public override void ConversationTick()`
 
-**Purpose:** Handles logic related to `conversation tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InterruptingBehaviorGroup from the subsystem API first
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+interruptingBehaviorGroup.ConversationTick();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InterruptingBehaviorGroup();
-value.Tick(0, false);
+// Typically call this after obtaining an instance from the subsystem API
+InterruptingBehaviorGroup interruptingBehaviorGroup = ...;
+interruptingBehaviorGroup.Tick(0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

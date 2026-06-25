@@ -1,20 +1,14 @@
 ---
 title: "LocationModel"
+description: "Auto-generated class reference for LocationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class LocationModel : MBGameModel<LocationModel>`
 **Base:** `MBGameModel<LocationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/LocationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/LocationModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `LocationModel` as a Model-style extension point: first identify who creat
 ### GetSettlementUpgradeLevel
 `public abstract int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
 
-**Purpose:** Gets the current value of `settlement upgrade level`.
+**Purpose:** Reads and returns the `settlement upgrade level` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationModel from the subsystem API first
+LocationModel locationModel = ...;
+var result = locationModel.GetSettlementUpgradeLevel(locationEncounter);
+```
 
 ### GetCivilianSceneLevel
 `public abstract string GetCivilianSceneLevel(Settlement settlement)`
 
-**Purpose:** Gets the current value of `civilian scene level`.
+**Purpose:** Reads and returns the `civilian scene level` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationModel from the subsystem API first
+LocationModel locationModel = ...;
+var result = locationModel.GetCivilianSceneLevel(settlement);
+```
 
 ### GetCivilianUpgradeLevelTag
 `public abstract string GetCivilianUpgradeLevelTag(int upgradeLevel)`
 
-**Purpose:** Gets the current value of `civilian upgrade level tag`.
+**Purpose:** Reads and returns the `civilian upgrade level tag` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationModel from the subsystem API first
+LocationModel locationModel = ...;
+var result = locationModel.GetCivilianUpgradeLevelTag(0);
+```
 
 ### GetUpgradeLevelTag
 `public abstract string GetUpgradeLevelTag(int upgradeLevel)`
 
-**Purpose:** Gets the current value of `upgrade level tag`.
+**Purpose:** Reads and returns the `upgrade level tag` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationModel from the subsystem API first
+LocationModel locationModel = ...;
+var result = locationModel.GetUpgradeLevelTag(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomLocationModel();
+// Typically obtained from a subsystem API or factory
+LocationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

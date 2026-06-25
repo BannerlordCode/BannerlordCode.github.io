@@ -1,13 +1,7 @@
 ---
 title: "StoryModeTroopSupplierProbabilityModel"
+description: "StoryModeTroopSupplierProbabilityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeTroopSupplierProbabilityModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeTroopSupplierProbabilityModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,7 +23,13 @@ title: "StoryModeTroopSupplierProbabilityModel"
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayers, int sizeOfSide, bool forcePriorityTroops, List<ValueTuple<FlattenedTroopRosterElement, MapEventParty, float>> priorityList)`
 
-**用途 / Purpose:** 处理 `enqueue troop spawn probabilities according to unit spawn prioritization` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeTroopSupplierProbabilityModel 实例
+StoryModeTroopSupplierProbabilityModel storyModeTroopSupplierProbabilityModel = ...;
+storyModeTroopSupplierProbabilityModel.EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(battleParty, priorityTroops, false, 0, false, list<ValueTuple<FlattenedTroopRosterElement, mapEventParty, 0);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeTroopSupplierProbabilityModel>(new MyStoryMod
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

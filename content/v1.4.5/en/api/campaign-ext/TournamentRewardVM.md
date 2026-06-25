@@ -1,20 +1,14 @@
 ---
 title: "TournamentRewardVM"
+description: "Auto-generated class reference for TournamentRewardVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentRewardVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentRewardVM
 
 **Namespace:** SandBox.ViewModelCollection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TournamentRewardVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/TournamentRewardVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/TournamentRewardVM.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `SandBox.ViewModelCollection` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new TournamentRewardVM();
+// Obtain an instance from the relevant subsystem API
+TournamentRewardVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

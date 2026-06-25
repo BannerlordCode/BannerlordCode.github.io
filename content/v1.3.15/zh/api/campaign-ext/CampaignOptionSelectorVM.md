@@ -1,13 +1,7 @@
 ---
 title: "CampaignOptionSelectorVM"
+description: "CampaignOptionSelectorVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignOptionSelectorVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignOptionSelectorVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -33,9 +27,10 @@ title: "CampaignOptionSelectorVM"
 ## 使用示例
 
 ```csharp
-var value = new CampaignOptionSelectorVM();
+// 从对应子系统 API 获取实例
+CampaignOptionSelectorVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "AssembleEmpireQuest"
+description: "Auto-generated class reference for AssembleEmpireQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AssembleEmpireQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AssembleEmpireQuest
 
 **Namespace:** StoryMode.Quests.SecondPhase
 **Module:** StoryMode.Quests
 **Type:** `public class AssembleEmpireQuest`
-**Area:** campaign-ext
+**Base:** none
+**File:** `StoryMode/Quests/SecondPhase/AssembleEmpireQuestBehavior.cs`
 
 ## Overview
 
-`AssembleEmpireQuest` lives in `StoryMode.Quests.SecondPhase`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`AssembleEmpireQuest` lives in `StoryMode.Quests.SecondPhase` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,22 +29,33 @@ Start from namespace `StoryMode.Quests.SecondPhase` to place it in the stack, th
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of AssembleEmpireQuest from the subsystem API first
+AssembleEmpireQuest assembleEmpireQuest = ...;
+assembleEmpireQuest.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of AssembleEmpireQuest from the subsystem API first
+AssembleEmpireQuest assembleEmpireQuest = ...;
+assembleEmpireQuest.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a AssembleEmpireQuest instance from game state, then call one of its public methods
-var value = new AssembleEmpireQuest();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+AssembleEmpireQuest assembleEmpireQuest = ...;
+assembleEmpireQuest.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

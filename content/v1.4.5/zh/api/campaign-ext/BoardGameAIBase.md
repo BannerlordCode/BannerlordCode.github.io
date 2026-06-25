@@ -1,20 +1,14 @@
 ---
 title: "BoardGameAIBase"
+description: "BoardGameAIBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameAIBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIBase
 
 **Namespace:** SandBox.BoardGames.AI
 **Module:** SandBox.BoardGames
 **Type:** `public abstract class BoardGameAIBase`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAIBase.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAIBase.cs`
 
 ## 概述
 
@@ -35,59 +29,120 @@ title: "BoardGameAIBase"
 ### CalculatePreMovementStageMove
 `public virtual Move CalculatePreMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate pre movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「pre movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.CalculatePreMovementStageMove();
+```
 
 ### CalculateMovementStageMove
 `public abstract Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.CalculateMovementStageMove();
+```
 
 ### WantsToForfeit
 `public virtual bool WantsToForfeit()`
 
-**用途 / Purpose:** 处理 `wants to forfeit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.WantsToForfeit();
+```
 
 ### OnSetGameOver
 `public virtual void OnSetGameOver()`
 
-**用途 / Purpose:** 当 `set game over` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「set game over」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.OnSetGameOver();
+```
 
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.Initialize();
+```
 
 ### SetDifficulty
 `public void SetDifficulty(AIDifficulty difficulty)`
 
-**用途 / Purpose:** 设置 `difficulty` 的值或状态。
+**用途 / Purpose:** 为 「difficulty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.SetDifficulty(difficulty);
+```
 
 ### HowLongDidAIThinkAboutMove
 `public float HowLongDidAIThinkAboutMove()`
 
-**用途 / Purpose:** 处理 `how long did a i think about move` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.HowLongDidAIThinkAboutMove();
+```
 
 ### UpdateThinkingAboutMove
 `public void UpdateThinkingAboutMove(float dt)`
 
-**用途 / Purpose:** 更新 `thinking about move` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「thinking about move」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.UpdateThinkingAboutMove(0);
+```
 
 ### ResetThinking
 `public void ResetThinking()`
 
-**用途 / Purpose:** 将 `thinking` 重置为初始状态。
+**用途 / Purpose:** 将 「thinking」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.ResetThinking();
+```
 
 ### CanMakeMove
 `public bool CanMakeMove()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `make move`。
+**用途 / Purpose:** 检查当前对象是否满足 「make move」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIBase 实例
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.CanMakeMove();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBoardGameAIBase();
+// 通常通过子系统 API 或工厂获得派生实例
+BoardGameAIBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

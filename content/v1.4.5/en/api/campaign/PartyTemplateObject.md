@@ -1,20 +1,14 @@
 ---
 title: "PartyTemplateObject"
+description: "Auto-generated class reference for PartyTemplateObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTemplateObject`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTemplateObject
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class PartyTemplateObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyTemplateObject.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyTemplateObject.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of PartyTemplateObject from the subsystem API first
+PartyTemplateObject partyTemplateObject = ...;
+partyTemplateObject.Deserialize(objectManager, node);
+```
 
 ### GetUpperTroopLimit
 `public int GetUpperTroopLimit()`
 
-**Purpose:** Gets the current value of `upper troop limit`.
+**Purpose:** Reads and returns the `upper troop limit` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTemplateObject from the subsystem API first
+PartyTemplateObject partyTemplateObject = ...;
+var result = partyTemplateObject.GetUpperTroopLimit();
+```
 
 ### GetLowerTroopLimit
 `public int GetLowerTroopLimit()`
 
-**Purpose:** Gets the current value of `lower troop limit`.
+**Purpose:** Reads and returns the `lower troop limit` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTemplateObject from the subsystem API first
+PartyTemplateObject partyTemplateObject = ...;
+var result = partyTemplateObject.GetLowerTroopLimit();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyTemplateObject();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+PartyTemplateObject partyTemplateObject = ...;
+partyTemplateObject.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

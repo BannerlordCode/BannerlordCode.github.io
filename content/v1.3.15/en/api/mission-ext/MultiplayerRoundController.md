@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerRoundController"
+description: "Auto-generated class reference for MultiplayerRoundController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerRoundController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerRoundController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -42,27 +36,57 @@ Treat `MultiplayerRoundController` as a Controller-style extension point: first 
 ### EnableEquipmentUpdate
 `public void EnableEquipmentUpdate()`
 
-**Purpose:** Handles logic related to `enable equipment update`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerRoundController from the subsystem API first
+MultiplayerRoundController multiplayerRoundController = ...;
+multiplayerRoundController.EnableEquipmentUpdate();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerRoundController from the subsystem API first
+MultiplayerRoundController multiplayerRoundController = ...;
+multiplayerRoundController.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerRoundController from the subsystem API first
+MultiplayerRoundController multiplayerRoundController = ...;
+multiplayerRoundController.OnRemoveBehavior();
+```
 
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**Purpose:** Called when the `pre display mission tick` event is raised.
+**Purpose:** Invoked when the `pre display mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerRoundController from the subsystem API first
+MultiplayerRoundController multiplayerRoundController = ...;
+multiplayerRoundController.OnPreDisplayMissionTick(0);
+```
 
 ### HandleClientEventCultureSelect
 `public bool HandleClientEventCultureSelect(NetworkCommunicator peer, CultureVoteClient message)`
 
-**Purpose:** Handles the `client event culture select` event or callback.
+**Purpose:** Executes the response logic associated with `client event culture select`.
+
+```csharp
+// Obtain an instance of MultiplayerRoundController from the subsystem API first
+MultiplayerRoundController multiplayerRoundController = ...;
+var result = multiplayerRoundController.HandleClientEventCultureSelect(peer, message);
+```
 
 ## Usage Example
 
@@ -72,4 +96,4 @@ var controller = Mission.Current.GetMissionBehavior<MultiplayerRoundController>(
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

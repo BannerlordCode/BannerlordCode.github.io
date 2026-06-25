@@ -1,20 +1,14 @@
 ---
 title: "MissionHardBorderPlacer"
+description: "MissionHardBorderPlacer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionHardBorderPlacer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHardBorderPlacer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHardBorderPlacer : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionHardBorderPlacer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionHardBorderPlacer.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MissionHardBorderPlacer"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionHardBorderPlacer 实例
+MissionHardBorderPlacer missionHardBorderPlacer = ...;
+missionHardBorderPlacer.EarlyStart();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionHardBorderPlacer();
-value.EarlyStart();
+// 通常从对应子系统 API 获取实例后调用
+MissionHardBorderPlacer missionHardBorderPlacer = ...;
+missionHardBorderPlacer.EarlyStart();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

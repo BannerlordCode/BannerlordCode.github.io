@@ -1,13 +1,7 @@
 ---
 title: "BrushWidget"
+description: "BrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BrushWidget`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BrushWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -38,29 +32,54 @@ title: "BrushWidget"
 ### UpdateBrushes
 `public override void UpdateBrushes(float dt)`
 
-**用途 / Purpose:** 更新 `brushes` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「brushes」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BrushWidget 实例
+BrushWidget brushWidget = ...;
+brushWidget.UpdateBrushes(0);
+```
 
 ### SetState
 `public override void SetState(string stateName)`
 
-**用途 / Purpose:** 设置 `state` 的值或状态。
+**用途 / Purpose:** 为 「state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BrushWidget 实例
+BrushWidget brushWidget = ...;
+brushWidget.SetState("example");
+```
 
 ### UpdateAnimationPropertiesSubTask
 `public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**用途 / Purpose:** 更新 `animation properties sub task` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「animation properties sub task」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BrushWidget 实例
+BrushWidget brushWidget = ...;
+brushWidget.UpdateAnimationPropertiesSubTask(0);
+```
 
 ### OnBrushChanged
 `public virtual void OnBrushChanged()`
 
-**用途 / Purpose:** 当 `brush changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「brush changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BrushWidget 实例
+BrushWidget brushWidget = ...;
+brushWidget.OnBrushChanged();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new BrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+BrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

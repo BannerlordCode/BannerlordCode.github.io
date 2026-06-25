@@ -1,13 +1,7 @@
 ---
 title: "MainStoryLine"
+description: "MainStoryLine 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MainStoryLine`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainStoryLine
 
 **Namespace:** StoryMode
@@ -46,55 +40,110 @@ title: "MainStoryLine"
 ### OnSessionLaunched
 `public void OnSessionLaunched()`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.OnSessionLaunched();
+```
 
 ### SetTutorialScores
 `public void SetTutorialScores(Dictionary<string, float> scores)`
 
-**用途 / Purpose:** 设置 `tutorial scores` 的值或状态。
+**用途 / Purpose:** 为 「tutorial scores」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.SetTutorialScores(dictionary<string, 0);
+```
 
 ### GetTutorialScores
 `public Dictionary<string, float> GetTutorialScores()`
 
-**用途 / Purpose:** 获取 `tutorial scores` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorial scores」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+var result = mainStoryLine.GetTutorialScores();
+```
 
 ### SetStoryLineSide
 `public void SetStoryLineSide(MainStoryLineSide side)`
 
-**用途 / Purpose:** 设置 `story line side` 的值或状态。
+**用途 / Purpose:** 为 「story line side」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.SetStoryLineSide(side);
+```
 
 ### SetMentorSettlements
 `public void SetMentorSettlements(Settlement imperialMentorSettlement, Settlement antiImperialMentorSettlement)`
 
-**用途 / Purpose:** 设置 `mentor settlements` 的值或状态。
+**用途 / Purpose:** 为 「mentor settlements」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.SetMentorSettlements(imperialMentorSettlement, antiImperialMentorSettlement);
+```
 
 ### CompleteTutorialPhase
 `public void CompleteTutorialPhase(bool isSkipped)`
 
-**用途 / Purpose:** 处理 `complete tutorial phase` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.CompleteTutorialPhase(false);
+```
 
 ### CompleteFirstPhase
 `public void CompleteFirstPhase()`
 
-**用途 / Purpose:** 处理 `complete first phase` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.CompleteFirstPhase();
+```
 
 ### CompleteSecondPhase
 `public void CompleteSecondPhase()`
 
-**用途 / Purpose:** 处理 `complete second phase` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.CompleteSecondPhase();
+```
 
 ### CancelSecondAndThirdPhase
 `public void CancelSecondAndThirdPhase()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `cel second and third phase`。
+**用途 / Purpose:** 检查当前对象是否满足 「cel second and third phase」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MainStoryLine 实例
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.CancelSecondAndThirdPhase();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MainStoryLine();
-value.OnSessionLaunched();
+// 通常从对应子系统 API 获取实例后调用
+MainStoryLine mainStoryLine = ...;
+mainStoryLine.OnSessionLaunched();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

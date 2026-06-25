@@ -1,13 +1,7 @@
 ---
 title: "TauntIndexData"
+description: "TauntIndexData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TauntIndexData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TauntIndexData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
@@ -36,19 +30,32 @@ title: "TauntIndexData"
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 TauntIndexData 实例
+TauntIndexData tauntIndexData = ...;
+var result = tauntIndexData.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 TauntIndexData 实例
+TauntIndexData tauntIndexData = ...;
+var result = tauntIndexData.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TauntIndexData();
+// 该数据对象通常由战役/任务 API 返回
+TauntIndexData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

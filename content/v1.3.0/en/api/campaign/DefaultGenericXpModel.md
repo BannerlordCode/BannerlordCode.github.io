@@ -1,13 +1,7 @@
 ---
 title: "DefaultGenericXpModel"
+description: "Auto-generated class reference for DefaultGenericXpModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultGenericXpModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultGenericXpModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultGenericXpModel` as a Model-style extension point: first identify w
 ### GetXpMultiplier
 `public override float GetXpMultiplier(Hero hero)`
 
-**Purpose:** Gets the current value of `xp multiplier`.
+**Purpose:** Reads and returns the `xp multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultGenericXpModel from the subsystem API first
+DefaultGenericXpModel defaultGenericXpModel = ...;
+var result = defaultGenericXpModel.GetXpMultiplier(hero);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultGenericXpModel>(new MyDefaultGenericXpModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

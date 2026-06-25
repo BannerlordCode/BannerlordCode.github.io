@@ -1,13 +1,7 @@
 ---
 title: "MobilePartyPrecedenceComparer"
+description: "Auto-generated class reference for MobilePartyPrecedenceComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyPrecedenceComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyPrecedenceComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Compare
 `public int Compare(MobileParty x, MobileParty y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MobilePartyPrecedenceComparer from the subsystem API first
+MobilePartyPrecedenceComparer mobilePartyPrecedenceComparer = ...;
+var result = mobilePartyPrecedenceComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MobilePartyPrecedenceComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MobilePartyPrecedenceComparer mobilePartyPrecedenceComparer = ...;
+mobilePartyPrecedenceComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

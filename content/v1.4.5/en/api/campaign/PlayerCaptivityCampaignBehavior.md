@@ -1,20 +1,14 @@
 ---
 title: "PlayerCaptivityCampaignBehavior"
+description: "Auto-generated class reference for PlayerCaptivityCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerCaptivityCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerCaptivityCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerCaptivityCampaignBehavior : CampaignBehaviorBase, ICaptivityCampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PlayerCaptivityCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PlayerCaptivityCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PlayerCaptivityCampaignBehavior from the subsystem API first
+PlayerCaptivityCampaignBehavior playerCaptivityCampaignBehavior = ...;
+playerCaptivityCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PlayerCaptivityCampaignBehavior from the subsystem API first
+PlayerCaptivityCampaignBehavior playerCaptivityCampaignBehavior = ...;
+playerCaptivityCampaignBehavior.RegisterEvents();
+```
 
 ### CheckCaptivityChange
 `public void CheckCaptivityChange(float dt)`
 
-**Purpose:** Handles logic related to `check captivity change`.
+**Purpose:** Verifies whether `captivity change` holds true for the current object.
+
+```csharp
+// Obtain an instance of PlayerCaptivityCampaignBehavior from the subsystem API first
+PlayerCaptivityCampaignBehavior playerCaptivityCampaignBehavior = ...;
+playerCaptivityCampaignBehavior.CheckCaptivityChange(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerCaptivityCampaignBehavior();
-value.SyncData(dataStore);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerCaptivityCampaignBehavior playerCaptivityCampaignBehavior = ...;
+playerCaptivityCampaignBehavior.SyncData(dataStore);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

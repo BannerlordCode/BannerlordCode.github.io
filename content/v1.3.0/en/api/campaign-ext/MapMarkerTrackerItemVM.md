@@ -1,13 +1,7 @@
 ---
 title: "MapMarkerTrackerItemVM"
+description: "Auto-generated class reference for MapMarkerTrackerItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapMarkerTrackerItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapMarkerTrackerItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Tracker
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection.Map.Tracker` to place it in th
 ## Usage Example
 
 ```csharp
-var value = new MapMarkerTrackerItemVM();
+// Obtain an instance from the relevant subsystem API
+MapMarkerTrackerItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

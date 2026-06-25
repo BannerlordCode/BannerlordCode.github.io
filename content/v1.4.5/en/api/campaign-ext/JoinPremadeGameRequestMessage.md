@@ -1,20 +1,14 @@
 ---
 title: "JoinPremadeGameRequestMessage"
+description: "Auto-generated class reference for JoinPremadeGameRequestMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JoinPremadeGameRequestMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoinPremadeGameRequestMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class JoinPremadeGameRequestMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinPremadeGameRequestMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinPremadeGameRequestMessage.cs`
 
 ## Overview
 
@@ -40,12 +34,22 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ### CreateClanGameRequest
 `public static JoinPremadeGameRequestMessage CreateClanGameRequest(Guid challengerPartyId, string clanName, string sigil, PlayerId challengerPlayers)`
 
-**Purpose:** Creates a new `clan game request` instance or object.
+**Purpose:** Constructs a new `clan game request` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+JoinPremadeGameRequestMessage.CreateClanGameRequest(challengerPartyId, "example", "example", challengerPlayers);
+```
 
 ### CreatePracticeGameRequest
 `public static JoinPremadeGameRequestMessage CreatePracticeGameRequest(Guid challengerPartyId, PlayerId leaderId, PlayerId challengerPlayers)`
 
-**Purpose:** Creates a new `practice game request` instance or object.
+**Purpose:** Constructs a new `practice game request` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+JoinPremadeGameRequestMessage.CreatePracticeGameRequest(challengerPartyId, leaderId, challengerPlayers);
+```
 
 ## Usage Example
 
@@ -55,4 +59,4 @@ JoinPremadeGameRequestMessage.CreateClanGameRequest(challengerPartyId, "example"
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

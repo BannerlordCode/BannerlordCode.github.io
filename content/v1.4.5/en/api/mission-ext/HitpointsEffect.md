@@ -1,20 +1,14 @@
 ---
 title: "HitpointsEffect"
+description: "Auto-generated class reference for HitpointsEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HitpointsEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HitpointsEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HitpointsEffect : MPOnSpawnPerkEffect`
 **Base:** `MPOnSpawnPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/HitpointsEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/HitpointsEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetHitpoints
 `public override float GetHitpoints(bool isPlayer)`
 
-**Purpose:** Gets the current value of `hitpoints`.
+**Purpose:** Reads and returns the `hitpoints` value held by the current object.
+
+```csharp
+// Obtain an instance of HitpointsEffect from the subsystem API first
+HitpointsEffect hitpointsEffect = ...;
+var result = hitpointsEffect.GetHitpoints(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HitpointsEffect();
-value.GetHitpoints(false);
+// Typically call this after obtaining an instance from the subsystem API
+HitpointsEffect hitpointsEffect = ...;
+hitpointsEffect.GetHitpoints(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultGameMenuOverlayProvider"
+description: "DefaultGameMenuOverlayProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultGameMenuOverlayProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultGameMenuOverlayProvider
 
 **Namespace:** SandBox.View.Overlay
@@ -29,15 +23,22 @@ title: "DefaultGameMenuOverlayProvider"
 ### GetOverlay
 `public GameMenuOverlay GetOverlay(GameMenu.MenuOverlayType menuOverlayType)`
 
-**用途 / Purpose:** 获取 `overlay` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「overlay」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultGameMenuOverlayProvider 实例
+DefaultGameMenuOverlayProvider defaultGameMenuOverlayProvider = ...;
+var result = defaultGameMenuOverlayProvider.GetOverlay(menuOverlayType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultGameMenuOverlayProvider();
-value.GetOverlay(menuOverlayType);
+// 通常从对应子系统 API 获取实例后调用
+DefaultGameMenuOverlayProvider defaultGameMenuOverlayProvider = ...;
+defaultGameMenuOverlayProvider.GetOverlay(menuOverlayType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

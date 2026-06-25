@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyBadgeSelectionPopupVM"
+description: "Auto-generated class reference for MPLobbyBadgeSelectionPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyBadgeSelectionPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyBadgeSelectionPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyBadgeSelectionPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyBadgeSelectionPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyBadgeSelectionPopupVM.cs`
 
 ## Overview
 
@@ -45,65 +39,132 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.RefreshValues();
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**Purpose:** Refreshes the display or cache of `player data`.
+**Purpose:** Keeps the display or cache of `player data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.RefreshPlayerData(playerData);
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey inspectProgressKey)`
 
-**Purpose:** Refreshes the display or cache of `key bindings`.
+**Purpose:** Keeps the display or cache of `key bindings` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.RefreshKeyBindings(inspectProgressKey);
+```
 
 ### UpdateBadges
 `public async void UpdateBadges(bool shouldClear = false)`
 
-**Purpose:** Updates the state or data of `badges`.
+**Purpose:** Recalculates and stores the latest representation of `badges`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.UpdateBadges(false);
+```
 
 ### UpdateBadgeSelection
 `public void UpdateBadgeSelection()`
 
-**Purpose:** Updates the state or data of `badge selection`.
+**Purpose:** Recalculates and stores the latest representation of `badge selection`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.UpdateBadgeSelection();
+```
 
 ### OnNotificationReceived
 `public void OnNotificationReceived(LobbyNotification notification)`
 
-**Purpose:** Called when the `notification received` event is raised.
+**Purpose:** Invoked when the `notification received` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.OnNotificationReceived(notification);
+```
 
 ### OnBadgeInspected
 `public void OnBadgeInspected(MPLobbyBadgeItemVM badge)`
 
-**Purpose:** Called when the `badge inspected` event is raised.
+**Purpose:** Invoked when the `badge inspected` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.OnBadgeInspected(badge);
+```
 
 ### Open
 `public void Open()`
 
-**Purpose:** Handles logic related to `open`.
+**Purpose:** Opens the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.Open();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.ExecuteClosePopup();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyBadgeSelectionPopupVM from the subsystem API first
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.SetCancelInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyBadgeSelectionPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyBadgeSelectionPopupVM mPLobbyBadgeSelectionPopupVM = ...;
+mPLobbyBadgeSelectionPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

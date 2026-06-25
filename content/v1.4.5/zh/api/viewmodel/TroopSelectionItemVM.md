@@ -1,20 +1,14 @@
 ---
 title: "TroopSelectionItemVM"
+description: "TroopSelectionItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TroopSelectionItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopSelectionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TroopSelectionItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection/TroopSelectionItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection/TroopSelectionItemVM.cs`
 
 ## 概述
 
@@ -47,25 +41,44 @@ title: "TroopSelectionItemVM"
 ### ExecuteAdd
 `public void ExecuteAdd()`
 
-**用途 / Purpose:** 执行 `add` 操作或流程。
+**用途 / Purpose:** 执行 「add」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TroopSelectionItemVM 实例
+TroopSelectionItemVM troopSelectionItemVM = ...;
+troopSelectionItemVM.ExecuteAdd();
+```
 
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 `remove` 操作或流程。
+**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TroopSelectionItemVM 实例
+TroopSelectionItemVM troopSelectionItemVM = ...;
+troopSelectionItemVM.ExecuteRemove();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** 执行 `link` 操作或流程。
+**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 TroopSelectionItemVM 实例
+TroopSelectionItemVM troopSelectionItemVM = ...;
+troopSelectionItemVM.ExecuteLink();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TroopSelectionItemVM();
-value.ExecuteAdd();
+// 通常从对应子系统 API 获取实例后调用
+TroopSelectionItemVM troopSelectionItemVM = ...;
+troopSelectionItemVM.ExecuteAdd();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

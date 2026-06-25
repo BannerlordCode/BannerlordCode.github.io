@@ -1,20 +1,14 @@
 ---
 title: "MissionWeapon"
+description: "Auto-generated class reference for MissionWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionWeapon`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionWeapon
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MissionWeapon`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionWeapon.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionWeapon.cs`
 
 ## Overview
 
@@ -44,230 +38,495 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnGetWeaponDataDelegate
 `public delegate void OnGetWeaponDataDelegate(ref WeaponData weaponData, MissionWeapon weapon, bool isFemale, Banner banner, bool needBatchedVersion)`
 
-**Purpose:** Called when the `get weapon data delegate` event is raised.
+**Purpose:** Invoked when the `get weapon data delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.OnGetWeaponDataDelegate(weaponData, weapon, false, banner, false);
+```
 
 ### GetModifiedItemName
 `public TextObject GetModifiedItemName()`
 
-**Purpose:** Gets the current value of `modified item name`.
+**Purpose:** Reads and returns the `modified item name` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedItemName();
+```
 
 ### IsEqualTo
 `public bool IsEqualTo(MissionWeapon other)`
 
-**Purpose:** Handles logic related to `is equal to`.
+**Purpose:** Determines whether the current object is in the `equal to` state or condition.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.IsEqualTo(other);
+```
 
 ### IsSameType
 `public bool IsSameType(MissionWeapon other)`
 
-**Purpose:** Handles logic related to `is same type`.
+**Purpose:** Determines whether the current object is in the `same type` state or condition.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.IsSameType(other);
+```
 
 ### GetWeight
 `public float GetWeight()`
 
-**Purpose:** Gets the current value of `weight`.
+**Purpose:** Reads and returns the `weight` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetWeight();
+```
 
 ### GetWeaponComponentDataForUsage
 `public WeaponComponentData GetWeaponComponentDataForUsage(int usageIndex)`
 
-**Purpose:** Gets the current value of `weapon component data for usage`.
+**Purpose:** Reads and returns the `weapon component data for usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetWeaponComponentDataForUsage(0);
+```
 
 ### GetGetModifiedArmorForCurrentUsage
 `public int GetGetModifiedArmorForCurrentUsage()`
 
-**Purpose:** Gets the current value of `get modified armor for current usage`.
+**Purpose:** Reads and returns the `get modified armor for current usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetGetModifiedArmorForCurrentUsage();
+```
 
 ### GetModifiedThrustDamageForCurrentUsage
 `public int GetModifiedThrustDamageForCurrentUsage()`
 
-**Purpose:** Gets the current value of `modified thrust damage for current usage`.
+**Purpose:** Reads and returns the `modified thrust damage for current usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedThrustDamageForCurrentUsage();
+```
 
 ### GetModifiedSwingDamageForCurrentUsage
 `public int GetModifiedSwingDamageForCurrentUsage()`
 
-**Purpose:** Gets the current value of `modified swing damage for current usage`.
+**Purpose:** Reads and returns the `modified swing damage for current usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedSwingDamageForCurrentUsage();
+```
 
 ### GetModifiedMissileDamageForCurrentUsage
 `public int GetModifiedMissileDamageForCurrentUsage()`
 
-**Purpose:** Gets the current value of `modified missile damage for current usage`.
+**Purpose:** Reads and returns the `modified missile damage for current usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedMissileDamageForCurrentUsage();
+```
 
 ### GetModifiedThrustSpeedForCurrentUsage
 `public int GetModifiedThrustSpeedForCurrentUsage()`
 
-**Purpose:** Gets the current value of `modified thrust speed for current usage`.
+**Purpose:** Reads and returns the `modified thrust speed for current usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedThrustSpeedForCurrentUsage();
+```
 
 ### GetModifiedSwingSpeedForCurrentUsage
 `public int GetModifiedSwingSpeedForCurrentUsage()`
 
-**Purpose:** Gets the current value of `modified swing speed for current usage`.
+**Purpose:** Reads and returns the `modified swing speed for current usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedSwingSpeedForCurrentUsage();
+```
 
 ### GetModifiedMissileSpeedForCurrentUsage
 `public int GetModifiedMissileSpeedForCurrentUsage()`
 
-**Purpose:** Gets the current value of `modified missile speed for current usage`.
+**Purpose:** Reads and returns the `modified missile speed for current usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedMissileSpeedForCurrentUsage();
+```
 
 ### GetModifiedMissileSpeedForUsage
 `public int GetModifiedMissileSpeedForUsage(int usageIndex)`
 
-**Purpose:** Gets the current value of `modified missile speed for usage`.
+**Purpose:** Reads and returns the `modified missile speed for usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedMissileSpeedForUsage(0);
+```
 
 ### GetModifiedHandlingForCurrentUsage
 `public int GetModifiedHandlingForCurrentUsage()`
 
-**Purpose:** Gets the current value of `modified handling for current usage`.
+**Purpose:** Reads and returns the `modified handling for current usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetModifiedHandlingForCurrentUsage();
+```
 
 ### GetWeaponData
 `public WeaponData GetWeaponData(bool needBatchedVersionForMeshes)`
 
-**Purpose:** Gets the current value of `weapon data`.
+**Purpose:** Reads and returns the `weapon data` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetWeaponData(false);
+```
 
 ### GetWeaponStatsData
 `public WeaponStatsData GetWeaponStatsData()`
 
-**Purpose:** Gets the current value of `weapon stats data`.
+**Purpose:** Reads and returns the `weapon stats data` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetWeaponStatsData();
+```
 
 ### GetWeaponStatsDataForUsage
 `public WeaponStatsData GetWeaponStatsDataForUsage(int usageIndex)`
 
-**Purpose:** Gets the current value of `weapon stats data for usage`.
+**Purpose:** Reads and returns the `weapon stats data for usage` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetWeaponStatsDataForUsage(0);
+```
 
 ### GetAmmoWeaponData
 `public WeaponData GetAmmoWeaponData(bool needBatchedVersion)`
 
-**Purpose:** Gets the current value of `ammo weapon data`.
+**Purpose:** Reads and returns the `ammo weapon data` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetAmmoWeaponData(false);
+```
 
 ### GetAmmoWeaponStatsData
 `public WeaponStatsData GetAmmoWeaponStatsData()`
 
-**Purpose:** Gets the current value of `ammo weapon stats data`.
+**Purpose:** Reads and returns the `ammo weapon stats data` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetAmmoWeaponStatsData();
+```
 
 ### GetAttachedWeaponsCount
 `public int GetAttachedWeaponsCount()`
 
-**Purpose:** Gets the current value of `attached weapons count`.
+**Purpose:** Reads and returns the `attached weapons count` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetAttachedWeaponsCount();
+```
 
 ### GetAttachedWeapon
 `public MissionWeapon GetAttachedWeapon(int attachmentIndex)`
 
-**Purpose:** Gets the current value of `attached weapon`.
+**Purpose:** Reads and returns the `attached weapon` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetAttachedWeapon(0);
+```
 
 ### GetAttachedWeaponFrame
 `public MatrixFrame GetAttachedWeaponFrame(int attachmentIndex)`
 
-**Purpose:** Gets the current value of `attached weapon frame`.
+**Purpose:** Reads and returns the `attached weapon frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetAttachedWeaponFrame(0);
+```
 
 ### IsShield
 `public bool IsShield()`
 
-**Purpose:** Handles logic related to `is shield`.
+**Purpose:** Determines whether the current object is in the `shield` state or condition.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.IsShield();
+```
 
 ### IsBanner
 `public bool IsBanner()`
 
-**Purpose:** Handles logic related to `is banner`.
+**Purpose:** Determines whether the current object is in the `banner` state or condition.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.IsBanner();
+```
 
 ### IsAnyAmmo
 `public bool IsAnyAmmo()`
 
-**Purpose:** Handles logic related to `is any ammo`.
+**Purpose:** Determines whether the current object is in the `any ammo` state or condition.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.IsAnyAmmo();
+```
 
 ### HasAnyUsageWithWeaponClass
 `public bool HasAnyUsageWithWeaponClass(WeaponClass weaponClass)`
 
-**Purpose:** Checks whether the current object has/contains `any usage with weapon class`.
+**Purpose:** Determines whether the current object already holds `any usage with weapon class`.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.HasAnyUsageWithWeaponClass(weaponClass);
+```
 
 ### HasAnyUsageWithAmmoClass
 `public bool HasAnyUsageWithAmmoClass(WeaponClass ammoClass)`
 
-**Purpose:** Checks whether the current object has/contains `any usage with ammo class`.
+**Purpose:** Determines whether the current object already holds `any usage with ammo class`.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.HasAnyUsageWithAmmoClass(ammoClass);
+```
 
 ### HasAllUsagesWithAnyWeaponFlag
 `public bool HasAllUsagesWithAnyWeaponFlag(WeaponFlags flags)`
 
-**Purpose:** Checks whether the current object has/contains `all usages with any weapon flag`.
+**Purpose:** Determines whether the current object already holds `all usages with any weapon flag`.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.HasAllUsagesWithAnyWeaponFlag(flags);
+```
 
 ### HasAnyUsageWithoutWeaponFlag
 `public bool HasAnyUsageWithoutWeaponFlag(WeaponFlags flags)`
 
-**Purpose:** Checks whether the current object has/contains `any usage without weapon flag`.
+**Purpose:** Determines whether the current object already holds `any usage without weapon flag`.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.HasAnyUsageWithoutWeaponFlag(flags);
+```
 
 ### HasAnyUsageWithItemUsageSetFlags
 `public bool HasAnyUsageWithItemUsageSetFlags(ItemObject.ItemUsageSetFlags flags)`
 
-**Purpose:** Checks whether the current object has/contains `any usage with item usage set flags`.
+**Purpose:** Determines whether the current object already holds `any usage with item usage set flags`.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.HasAnyUsageWithItemUsageSetFlags(flags);
+```
 
 ### GatherInformationFromWeapon
 `public void GatherInformationFromWeapon(out bool weaponHasMelee, out bool weaponHasShield, out bool weaponHasPolearm, out bool weaponHasNonConsumableRanged, out bool weaponHasThrown, out WeaponClass rangedAmmoClass)`
 
-**Purpose:** Handles logic related to `gather information from weapon`.
+**Purpose:** Collects or aggregates `information from weapon` into the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.GatherInformationFromWeapon(weaponHasMelee, weaponHasShield, weaponHasPolearm, weaponHasNonConsumableRanged, weaponHasThrown, rangedAmmoClass);
+```
 
 ### GetConsumableIfAny
 `public bool GetConsumableIfAny(out WeaponComponentData consumableWeapon)`
 
-**Purpose:** Gets the current value of `consumable if any`.
+**Purpose:** Reads and returns the `consumable if any` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetConsumableIfAny(consumableWeapon);
+```
 
 ### IsAnyConsumable
 `public bool IsAnyConsumable()`
 
-**Purpose:** Handles logic related to `is any consumable`.
+**Purpose:** Determines whether the current object is in the `any consumable` state or condition.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.IsAnyConsumable();
+```
 
 ### GetRangedUsageIndex
 `public int GetRangedUsageIndex()`
 
-**Purpose:** Gets the current value of `ranged usage index`.
+**Purpose:** Reads and returns the `ranged usage index` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.GetRangedUsageIndex();
+```
 
 ### Consume
 `public MissionWeapon Consume(short count)`
 
-**Purpose:** Handles logic related to `consume`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.Consume(0);
+```
 
 ### ConsumeAmmo
 `public void ConsumeAmmo(short count)`
 
-**Purpose:** Handles logic related to `consume ammo`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.ConsumeAmmo(0);
+```
 
 ### SetAmmo
 `public void SetAmmo(MissionWeapon ammoWeapon)`
 
-**Purpose:** Sets the value or state of `ammo`.
+**Purpose:** Assigns a new value to `ammo` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.SetAmmo(ammoWeapon);
+```
 
 ### ReloadAmmo
 `public void ReloadAmmo(MissionWeapon ammoWeapon, short reloadPhase)`
 
-**Purpose:** Handles logic related to `reload ammo`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.ReloadAmmo(ammoWeapon, 0);
+```
 
 ### AttachWeapon
 `public void AttachWeapon(MissionWeapon attachedWeapon, ref MatrixFrame attachFrame)`
 
-**Purpose:** Handles logic related to `attach weapon`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.AttachWeapon(attachedWeapon, attachFrame);
+```
 
 ### RemoveAttachedWeapon
 `public void RemoveAttachedWeapon(int attachmentIndex)`
 
 **Purpose:** Removes `attached weapon` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.RemoveAttachedWeapon(0);
+```
+
 ### HasEnoughSpaceForAmount
 `public bool HasEnoughSpaceForAmount(int amount)`
 
-**Purpose:** Checks whether the current object has/contains `enough space for amount`.
+**Purpose:** Determines whether the current object already holds `enough space for amount`.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+var result = missionWeapon.HasEnoughSpaceForAmount(0);
+```
 
 ### SetRandomGlossMultiplier
 `public void SetRandomGlossMultiplier(int seed)`
 
-**Purpose:** Sets the value or state of `random gloss multiplier`.
+**Purpose:** Assigns a new value to `random gloss multiplier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.SetRandomGlossMultiplier(0);
+```
 
 ### AddExtraModifiedMaxValue
 `public void AddExtraModifiedMaxValue(short extraValue)`
 
 **Purpose:** Adds `extra modified max value` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionWeapon from the subsystem API first
+MissionWeapon missionWeapon = ...;
+missionWeapon.AddExtraModifiedMaxValue(0);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new MissionWeapon();
-value.OnGetWeaponDataDelegate(weaponData, weapon, false, banner, false);
+// Typically call this after obtaining an instance from the subsystem API
+MissionWeapon missionWeapon = ...;
+missionWeapon.OnGetWeaponDataDelegate(weaponData, weapon, false, banner, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

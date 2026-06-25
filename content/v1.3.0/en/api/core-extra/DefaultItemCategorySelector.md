@@ -1,13 +1,7 @@
 ---
 title: "DefaultItemCategorySelector"
+description: "Auto-generated class reference for DefaultItemCategorySelector."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultItemCategorySelector`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultItemCategorySelector
 
 **Namespace:** TaleWorlds.Core
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetItemCategoryForItem
 `public override ItemCategory GetItemCategoryForItem(ItemObject itemObject)`
 
-**Purpose:** Gets the current value of `item category for item`.
+**Purpose:** Reads and returns the `item category for item` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultItemCategorySelector from the subsystem API first
+DefaultItemCategorySelector defaultItemCategorySelector = ...;
+var result = defaultItemCategorySelector.GetItemCategoryForItem(itemObject);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultItemCategorySelector();
-value.GetItemCategoryForItem(itemObject);
+// Typically call this after obtaining an instance from the subsystem API
+DefaultItemCategorySelector defaultItemCategorySelector = ...;
+defaultItemCategorySelector.GetItemCategoryForItem(itemObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

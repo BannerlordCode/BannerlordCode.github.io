@@ -1,20 +1,14 @@
 ---
 title: "MissionSiegeWeapon"
+description: "Auto-generated class reference for MissionSiegeWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeWeapon`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeWeapon
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MissionSiegeWeapon : IMissionSiegeWeapon`
 **Base:** `IMissionSiegeWeapon`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MissionSiegeWeapon.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionSiegeWeapon.cs`
 
 ## Overview
 
@@ -29,17 +23,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CreateDefaultWeapon
 `public static MissionSiegeWeapon CreateDefaultWeapon(SiegeEngineType type)`
 
-**Purpose:** Creates a new `default weapon` instance or object.
+**Purpose:** Constructs a new `default weapon` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionSiegeWeapon.CreateDefaultWeapon(type);
+```
 
 ### CreateCampaignWeapon
 `public static MissionSiegeWeapon CreateCampaignWeapon(SiegeEngineType type, int index, float health, float maxHealth)`
 
-**Purpose:** Creates a new `campaign weapon` instance or object.
+**Purpose:** Constructs a new `campaign weapon` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionSiegeWeapon.CreateCampaignWeapon(type, 0, 0, 0);
+```
 
 ### SetHealth
 `public void SetHealth(float health)`
 
-**Purpose:** Sets the value or state of `health`.
+**Purpose:** Assigns a new value to `health` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionSiegeWeapon from the subsystem API first
+MissionSiegeWeapon missionSiegeWeapon = ...;
+missionSiegeWeapon.SetHealth(0);
+```
 
 ## Usage Example
 
@@ -49,4 +59,4 @@ MissionSiegeWeapon.CreateDefaultWeapon(type);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

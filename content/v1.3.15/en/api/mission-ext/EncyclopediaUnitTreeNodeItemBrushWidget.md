@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaUnitTreeNodeItemBrushWidget"
+description: "Auto-generated class reference for EncyclopediaUnitTreeNodeItemBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaUnitTreeNodeItemBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaUnitTreeNodeItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
@@ -39,14 +33,21 @@ Treat `EncyclopediaUnitTreeNodeItemBrushWidget` as a Widget-style extension poin
 ### OnListItemAdded
 `public void OnListItemAdded(Widget parentWidget, Widget addedWidget)`
 
-**Purpose:** Called when the `list item added` event is raised.
+**Purpose:** Invoked when the `list item added` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaUnitTreeNodeItemBrushWidget from the subsystem API first
+EncyclopediaUnitTreeNodeItemBrushWidget encyclopediaUnitTreeNodeItemBrushWidget = ...;
+encyclopediaUnitTreeNodeItemBrushWidget.OnListItemAdded(parentWidget, addedWidget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaUnitTreeNodeItemBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaUnitTreeNodeItemBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

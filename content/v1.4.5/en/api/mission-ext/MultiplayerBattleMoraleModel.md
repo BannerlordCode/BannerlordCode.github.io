@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerBattleMoraleModel"
+description: "Auto-generated class reference for MultiplayerBattleMoraleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerBattleMoraleModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleMoraleModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleMoraleModel : BattleMoraleModel`
 **Base:** `BattleMoraleModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleMoraleModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleMoraleModel.cs`
 
 ## Overview
 
@@ -29,42 +23,90 @@ Treat `MultiplayerBattleMoraleModel` as a Model-style extension point: first ide
 ### CalculateMoraleChangeToCharacter
 `public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
 
-**Purpose:** Handles logic related to `calculate morale change to character`.
+**Purpose:** Calculates the current value or result of `morale change to character`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMoraleModel from the subsystem API first
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0);
+```
 
 ### GetEffectiveInitialMorale
 `public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
 
-**Purpose:** Gets the current value of `effective initial morale`.
+**Purpose:** Reads and returns the `effective initial morale` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMoraleModel from the subsystem API first
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.GetEffectiveInitialMorale(agent, 0);
+```
 
 ### CanPanicDueToMorale
 `public override bool CanPanicDueToMorale(Agent agent)`
 
-**Purpose:** Checks whether the current object can `panic due to morale`.
+**Purpose:** Checks whether the current object meets the preconditions for `panic due to morale`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMoraleModel from the subsystem API first
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CanPanicDueToMorale(agent);
+```
 
 ### CalculateCasualtiesFactor
 `public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
 
-**Purpose:** Handles logic related to `calculate casualties factor`.
+**Purpose:** Calculates the current value or result of `casualties factor`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMoraleModel from the subsystem API first
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateCasualtiesFactor(battleSide);
+```
 
 ### GetAverageMorale
 `public override float GetAverageMorale(Formation formation)`
 
-**Purpose:** Gets the current value of `average morale`.
+**Purpose:** Reads and returns the `average morale` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMoraleModel from the subsystem API first
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.GetAverageMorale(formation);
+```
 
 ### CalculateMoraleChangeOnShipSunk
 `public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
 
-**Purpose:** Handles logic related to `calculate morale change on ship sunk`.
+**Purpose:** Calculates the current value or result of `morale change on ship sunk`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMoraleModel from the subsystem API first
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin);
+```
 
 ### CalculateMoraleOnRamming
 `public override float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)`
 
-**Purpose:** Handles logic related to `calculate morale on ramming`.
+**Purpose:** Calculates the current value or result of `morale on ramming`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMoraleModel from the subsystem API first
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMoraleOnRamming(agent, rammingShip, rammedShip);
+```
 
 ### CalculateMoraleOnShipsConnected
 `public override float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)`
 
-**Purpose:** Handles logic related to `calculate morale on ships connected`.
+**Purpose:** Calculates the current value or result of `morale on ships connected`.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMoraleModel from the subsystem API first
+MultiplayerBattleMoraleModel multiplayerBattleMoraleModel = ...;
+var result = multiplayerBattleMoraleModel.CalculateMoraleOnShipsConnected(agent, ownerShip, targetShip);
+```
 
 ## Usage Example
 
@@ -74,4 +116,4 @@ Game.Current.ReplaceModel<MultiplayerBattleMoraleModel>(new MyMultiplayerBattleM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

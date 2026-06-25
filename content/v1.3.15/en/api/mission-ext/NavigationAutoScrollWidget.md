@@ -1,13 +1,7 @@
 ---
 title: "NavigationAutoScrollWidget"
+description: "Auto-generated class reference for NavigationAutoScrollWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavigationAutoScrollWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NavigationAutoScrollWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -40,9 +34,10 @@ Treat `NavigationAutoScrollWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new NavigationAutoScrollWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+NavigationAutoScrollWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

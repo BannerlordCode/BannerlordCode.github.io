@@ -1,20 +1,14 @@
 ---
 title: "AnimatedDropdownWidget"
+description: "Auto-generated class reference for AnimatedDropdownWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimatedDropdownWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimatedDropdownWidget
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class AnimatedDropdownWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/AnimatedDropdownWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/AnimatedDropdownWidget.cs`
 
 ## Overview
 
@@ -43,34 +37,65 @@ Treat `AnimatedDropdownWidget` as a Widget-style extension point: first identify
 ### OnButtonClick
 `public void OnButtonClick(Widget widget)`
 
-**Purpose:** Called when the `button click` event is raised.
+**Purpose:** Invoked when the `button click` event is raised.
+
+```csharp
+// Obtain an instance of AnimatedDropdownWidget from the subsystem API first
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.OnButtonClick(widget);
+```
 
 ### UpdateButtonText
 `public void UpdateButtonText(string text)`
 
-**Purpose:** Updates the state or data of `button text`.
+**Purpose:** Recalculates and stores the latest representation of `button text`.
+
+```csharp
+// Obtain an instance of AnimatedDropdownWidget from the subsystem API first
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.UpdateButtonText("example");
+```
 
 ### OnListChanged
 `public void OnListChanged(Widget widget)`
 
-**Purpose:** Called when the `list changed` event is raised.
+**Purpose:** Invoked when the `list changed` event is raised.
+
+```csharp
+// Obtain an instance of AnimatedDropdownWidget from the subsystem API first
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.OnListChanged(widget);
+```
 
 ### OnListChanged
 `public void OnListChanged(Widget parentWidget, Widget addedWidget)`
 
-**Purpose:** Called when the `list changed` event is raised.
+**Purpose:** Invoked when the `list changed` event is raised.
+
+```csharp
+// Obtain an instance of AnimatedDropdownWidget from the subsystem API first
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.OnListChanged(parentWidget, addedWidget);
+```
 
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**Purpose:** Called when the `selection changed` event is raised.
+**Purpose:** Invoked when the `selection changed` event is raised.
+
+```csharp
+// Obtain an instance of AnimatedDropdownWidget from the subsystem API first
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.OnSelectionChanged(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new AnimatedDropdownWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AnimatedDropdownWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,21 +1,14 @@
 ---
 title: "KingdomManager"
+description: "Auto-generated class reference for KingdomManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-- [🔀 Cross-Version Compare /versions/KingdomManager](/versions/KingdomManager)
-<!-- END BREADCRUMB -->
 # KingdomManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/KingdomManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/KingdomManager.cs`
 
 ## Overview
 
@@ -30,42 +23,90 @@ Treat `KingdomManager` as a Manager-style extension point: first identify who cr
 ### OnSessionStart
 `public void OnSessionStart()`
 
-**Purpose:** Called when the `session start` event is raised.
+**Purpose:** Invoked when the `session start` event is raised.
+
+```csharp
+// Obtain an instance of KingdomManager from the subsystem API first
+KingdomManager kingdomManager = ...;
+kingdomManager.OnSessionStart();
+```
 
 ### CreateKingdom
 `public void CreateKingdom(TextObject kingdomName, TextObject informalName, CultureObject culture, Clan founderClan, MBReadOnlyList<PolicyObject> initialPolicies = null, TextObject encyclopediaText = null, TextObject encyclopediaTitle = null, TextObject encyclopediaRulerTitle = null)`
 
-**Purpose:** Creates a new `kingdom` instance or object.
+**Purpose:** Constructs a new `kingdom` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of KingdomManager from the subsystem API first
+KingdomManager kingdomManager = ...;
+kingdomManager.CreateKingdom(kingdomName, informalName, culture, founderClan, null, null, null, null);
+```
 
 ### AbdicateTheThrone
 `public void AbdicateTheThrone(Kingdom kingdom)`
 
-**Purpose:** Handles logic related to `abdicate the throne`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManager from the subsystem API first
+KingdomManager kingdomManager = ...;
+kingdomManager.AbdicateTheThrone(kingdom);
+```
 
 ### RaidCompleted
 `public void RaidCompleted(BattleSideEnum winnerSide, RaidEventComponent raidEvent)`
 
-**Purpose:** Handles logic related to `raid completed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManager from the subsystem API first
+KingdomManager kingdomManager = ...;
+kingdomManager.RaidCompleted(winnerSide, raidEvent);
+```
 
 ### SiegeCompleted
 `public void SiegeCompleted(Settlement settlement, MobileParty capturerParty, bool isWin, MapEvent.BattleTypes battleType)`
 
-**Purpose:** Handles logic related to `siege completed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManager from the subsystem API first
+KingdomManager kingdomManager = ...;
+kingdomManager.SiegeCompleted(settlement, capturerParty, false, battleType);
+```
 
 ### RelinquishSettlementOwnership
 `public void RelinquishSettlementOwnership(Settlement settlement)`
 
-**Purpose:** Handles logic related to `relinquish settlement ownership`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManager from the subsystem API first
+KingdomManager kingdomManager = ...;
+kingdomManager.RelinquishSettlementOwnership(settlement);
+```
 
 ### GiftSettlementOwnership
 `public void GiftSettlementOwnership(Settlement settlement, Clan receiverClan)`
 
-**Purpose:** Handles logic related to `gift settlement ownership`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomManager from the subsystem API first
+KingdomManager kingdomManager = ...;
+kingdomManager.GiftSettlementOwnership(settlement, receiverClan);
+```
 
 ### GetMercenaryWageAmount
 `public int GetMercenaryWageAmount(Hero hero)`
 
-**Purpose:** Gets the current value of `mercenary wage amount`.
+**Purpose:** Reads and returns the `mercenary wage amount` value held by the current object.
+
+```csharp
+// Obtain an instance of KingdomManager from the subsystem API first
+KingdomManager kingdomManager = ...;
+var result = kingdomManager.GetMercenaryWageAmount(hero);
+```
 
 ## Usage Example
 
@@ -75,4 +116,4 @@ var manager = KingdomManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

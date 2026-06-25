@@ -1,20 +1,14 @@
 ---
 title: "SettlementFoodModel"
+description: "Auto-generated class reference for SettlementFoodModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementFoodModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementFoodModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementFoodModel : MBGameModel<SettlementFoodModel>`
 **Base:** `MBGameModel<SettlementFoodModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementFoodModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementFoodModel.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `SettlementFoodModel` as a Model-style extension point: first identify who
 ### CalculateTownFoodStocksChange
 `public abstract ExplainedNumber CalculateTownFoodStocksChange(Town town, bool includeMarketStocks = true, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate town food stocks change`.
+**Purpose:** Calculates the current value or result of `town food stocks change`.
+
+```csharp
+// Obtain an instance of SettlementFoodModel from the subsystem API first
+SettlementFoodModel settlementFoodModel = ...;
+var result = settlementFoodModel.CalculateTownFoodStocksChange(town, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementFoodModel();
+// Typically obtained from a subsystem API or factory
+SettlementFoodModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

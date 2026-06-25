@@ -1,18 +1,12 @@
 ---
 title: "GamepadNavigationTypes"
+description: "Auto-generated class reference for GamepadNavigationTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadNavigationTypes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GamepadNavigationTypes
 
 **Namespace:** TaleWorlds.GauntletUI.GamepadNavigation
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum GamepadNavigationTypes`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/GamepadNavigation/GamepadNavigationTypes.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.GamepadNavigation` to place it in th
 ## Usage Example
 
 ```csharp
-var value = new GamepadNavigationTypes();
+// Obtain an instance from the relevant subsystem API
+GamepadNavigationTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

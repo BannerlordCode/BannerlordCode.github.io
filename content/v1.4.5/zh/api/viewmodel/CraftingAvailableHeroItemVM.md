@@ -1,20 +1,14 @@
 ---
 title: "CraftingAvailableHeroItemVM"
+description: "CraftingAvailableHeroItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingAvailableHeroItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingAvailableHeroItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingAvailableHeroItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting/CraftingAvailableHeroItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting/CraftingAvailableHeroItemVM.cs`
 
 ## 概述
 
@@ -45,40 +39,77 @@ title: "CraftingAvailableHeroItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingAvailableHeroItemVM 实例
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshValues();
+```
 
 ### RefreshStamina
 `public void RefreshStamina()`
 
-**用途 / Purpose:** 刷新 `stamina` 的显示或缓存。
+**用途 / Purpose:** 使 「stamina」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingAvailableHeroItemVM 实例
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshStamina();
+```
 
 ### RefreshOrderAvailability
 `public void RefreshOrderAvailability(CraftingOrder order)`
 
-**用途 / Purpose:** 刷新 `order availability` 的显示或缓存。
+**用途 / Purpose:** 使 「order availability」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingAvailableHeroItemVM 实例
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshOrderAvailability(order);
+```
 
 ### RefreshSkills
 `public void RefreshSkills()`
 
-**用途 / Purpose:** 刷新 `skills` 的显示或缓存。
+**用途 / Purpose:** 使 「skills」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingAvailableHeroItemVM 实例
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshSkills();
+```
 
 ### RefreshPerks
 `public void RefreshPerks()`
 
-**用途 / Purpose:** 刷新 `perks` 的显示或缓存。
+**用途 / Purpose:** 使 「perks」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingAvailableHeroItemVM 实例
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshPerks();
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** 执行 `selection` 操作或流程。
+**用途 / Purpose:** 执行 「selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingAvailableHeroItemVM 实例
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.ExecuteSelection();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CraftingAvailableHeroItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CraftingAvailableHeroItemVM craftingAvailableHeroItemVM = ...;
+craftingAvailableHeroItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

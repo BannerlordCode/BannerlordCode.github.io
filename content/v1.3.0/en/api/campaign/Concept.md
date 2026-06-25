@@ -1,13 +1,7 @@
 ---
 title: "Concept"
+description: "Auto-generated class reference for Concept."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Concept`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Concept
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -41,25 +35,42 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of Concept from the subsystem API first
+Concept concept = ...;
+concept.Deserialize(objectManager, node);
+```
 
 ### IsGroupMember
 `public static bool IsGroupMember(string groupName, Concept c)`
 
-**Purpose:** Handles logic related to `is group member`.
+**Purpose:** Determines whether the current object is in the `group member` state or condition.
+
+```csharp
+// Static call; no instance required
+Concept.IsGroupMember("example", c);
+```
 
 ### SetConceptTextLinks
 `public static void SetConceptTextLinks()`
 
-**Purpose:** Sets the value or state of `concept text links`.
+**Purpose:** Assigns a new value to `concept text links` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+Concept.SetConceptTextLinks();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Concept();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+Concept concept = ...;
+concept.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

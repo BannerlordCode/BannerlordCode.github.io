@@ -1,13 +1,7 @@
 ---
 title: "MapState"
+description: "MapState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapState`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -40,100 +34,209 @@ title: "MapState"
 ### OnJoinArmy
 `public void OnJoinArmy()`
 
-**用途 / Purpose:** 当 `join army` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「join army」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnJoinArmy();
+```
 
 ### OnLeaveArmy
 `public void OnLeaveArmy()`
 
-**用途 / Purpose:** 当 `leave army` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「leave army」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnLeaveArmy();
+```
 
 ### OnFadeInAndOut
 `public void OnFadeInAndOut(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**用途 / Purpose:** 当 `fade in and out` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「fade in and out」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnFadeInAndOut(0, 0, 0);
+```
 
 ### OnDispersePlayerLeadedArmy
 `public void OnDispersePlayerLeadedArmy()`
 
-**用途 / Purpose:** 当 `disperse player leaded army` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「disperse player leaded army」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnDispersePlayerLeadedArmy();
+```
 
 ### OnArmyCreated
 `public void OnArmyCreated(MobileParty mobileParty)`
 
-**用途 / Purpose:** 当 `army created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「army created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnArmyCreated(mobileParty);
+```
 
 ### OnIncidentStarted
 `public void OnIncidentStarted(Incident incident)`
 
-**用途 / Purpose:** 当 `incident started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「incident started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnIncidentStarted(incident);
+```
 
 ### OnMainPartyEncounter
 `public void OnMainPartyEncounter()`
 
-**用途 / Purpose:** 当 `main party encounter` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「main party encounter」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnMainPartyEncounter();
+```
 
 ### ProcessTravel
 `public void ProcessTravel(CampaignVec2 moveTargetPoint)`
 
-**用途 / Purpose:** 处理 `process travel` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.ProcessTravel(moveTargetPoint);
+```
 
 ### OnLoadingFinished
 `public void OnLoadingFinished()`
 
-**用途 / Purpose:** 当 `loading finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「loading finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnLoadingFinished();
+```
 
 ### OnMapConversationStarts
 `public void OnMapConversationStarts(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**用途 / Purpose:** 当 `map conversation starts` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map conversation starts」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnMapConversationStarts(playerCharacterData, conversationPartnerData);
+```
 
 ### OnMapConversationOver
 `public void OnMapConversationOver()`
 
-**用途 / Purpose:** 当 `map conversation over` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map conversation over」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnMapConversationOver();
+```
 
 ### EnterMenuMode
 `public void EnterMenuMode()`
 
-**用途 / Purpose:** 处理 `enter menu mode` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.EnterMenuMode();
+```
 
 ### ExitMenuMode
 `public void ExitMenuMode()`
 
-**用途 / Purpose:** 处理 `exit menu mode` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.ExitMenuMode();
+```
 
 ### StartBattleSimulation
 `public void StartBattleSimulation()`
 
-**用途 / Purpose:** 处理 `start battle simulation` 相关逻辑。
+**用途 / Purpose:** 启动「battle simulation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.StartBattleSimulation();
+```
 
 ### EndBattleSimulation
 `public void EndBattleSimulation()`
 
-**用途 / Purpose:** 处理 `end battle simulation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.EndBattleSimulation();
+```
 
 ### OnPlayerSiegeActivated
 `public void OnPlayerSiegeActivated()`
 
-**用途 / Purpose:** 当 `player siege activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player siege activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnPlayerSiegeActivated();
+```
 
 ### OnPlayerSiegeDeactivated
 `public void OnPlayerSiegeDeactivated()`
 
-**用途 / Purpose:** 当 `player siege deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player siege deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnPlayerSiegeDeactivated();
+```
 
 ### OnSiegeEngineClick
 `public void OnSiegeEngineClick(MatrixFrame siegeEngineFrame)`
 
-**用途 / Purpose:** 当 `siege engine click` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「siege engine click」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapState 实例
+MapState mapState = ...;
+mapState.OnSiegeEngineClick(siegeEngineFrame);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapState();
-value.OnJoinArmy();
+// 通常从对应子系统 API 获取实例后调用
+MapState mapState = ...;
+mapState.OnJoinArmy();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "RetirementEncounter"
+description: "Auto-generated class reference for RetirementEncounter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RetirementEncounter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RetirementEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ### CreateAndOpenMissionController
 `public override IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**Purpose:** Creates a new `and open mission controller` instance or object.
+**Purpose:** Constructs a new `and open mission controller` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of RetirementEncounter from the subsystem API first
+RetirementEncounter retirementEncounter = ...;
+var result = retirementEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RetirementEncounter();
-value.CreateAndOpenMissionController(nextLocation, null, null, "example");
+// Typically call this after obtaining an instance from the subsystem API
+RetirementEncounter retirementEncounter = ...;
+retirementEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

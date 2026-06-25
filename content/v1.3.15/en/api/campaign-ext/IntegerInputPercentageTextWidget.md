@@ -1,13 +1,7 @@
 ---
 title: "IntegerInputPercentageTextWidget"
+description: "Auto-generated class reference for IntegerInputPercentageTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntegerInputPercentageTextWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IntegerInputPercentageTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -33,9 +27,10 @@ Treat `IntegerInputPercentageTextWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new IntegerInputPercentageTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+IntegerInputPercentageTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

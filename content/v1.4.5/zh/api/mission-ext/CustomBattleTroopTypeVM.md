@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleTroopTypeVM"
+description: "CustomBattleTroopTypeVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleTroopTypeVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleTroopTypeVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleTroopTypeVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleTroopTypeVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleTroopTypeVM.cs`
 
 ## 概述
 
@@ -42,35 +36,64 @@ title: "CustomBattleTroopTypeVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopTypeVM 实例
+CustomBattleTroopTypeVM customBattleTroopTypeVM = ...;
+customBattleTroopTypeVM.RefreshValues();
+```
 
 ### ExecuteToggleSelection
 `public void ExecuteToggleSelection()`
 
-**用途 / Purpose:** 执行 `toggle selection` 操作或流程。
+**用途 / Purpose:** 执行 「toggle selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopTypeVM 实例
+CustomBattleTroopTypeVM customBattleTroopTypeVM = ...;
+customBattleTroopTypeVM.ExecuteToggleSelection();
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**用途 / Purpose:** 执行 `randomize` 操作或流程。
+**用途 / Purpose:** 执行 「randomize」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleTroopTypeVM 实例
+CustomBattleTroopTypeVM customBattleTroopTypeVM = ...;
+customBattleTroopTypeVM.ExecuteRandomize();
+```
 
 ### GetCharacterTierData
 `public static StringItemWithHintVM GetCharacterTierData(BasicCharacterObject character, bool isBig = false)`
 
-**用途 / Purpose:** 获取 `character tier data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character tier data」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleTroopTypeVM.GetCharacterTierData(character, false);
+```
 
 ### GetCharacterTier
 `public static int GetCharacterTier(BasicCharacterObject character)`
 
-**用途 / Purpose:** 获取 `character tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character tier」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleTroopTypeVM.GetCharacterTier(character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleTroopTypeVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleTroopTypeVM customBattleTroopTypeVM = ...;
+customBattleTroopTypeVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

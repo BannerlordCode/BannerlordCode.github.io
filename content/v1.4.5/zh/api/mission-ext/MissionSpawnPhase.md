@@ -1,20 +1,14 @@
 ---
 title: "MissionSpawnPhase"
+description: "MissionSpawnPhase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionSpawnPhase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSpawnPhase
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSpawnPhase`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnPhase.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionSpawnPhase.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MissionSpawnPhase"
 ### OnInitialTroopsSpawned
 `public void OnInitialTroopsSpawned()`
 
-**用途 / Purpose:** 当 `initial troops spawned` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initial troops spawned」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpawnPhase 实例
+MissionSpawnPhase missionSpawnPhase = ...;
+missionSpawnPhase.OnInitialTroopsSpawned();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionSpawnPhase();
-value.OnInitialTroopsSpawned();
+// 通常从对应子系统 API 获取实例后调用
+MissionSpawnPhase missionSpawnPhase = ...;
+missionSpawnPhase.OnInitialTroopsSpawned();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

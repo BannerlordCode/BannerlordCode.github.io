@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerIntermissionVotingManager"
+description: "Auto-generated class reference for MultiplayerIntermissionVotingManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerIntermissionVotingManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerIntermissionVotingManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerIntermissionVotingManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerIntermissionVotingManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerIntermissionVotingManager.cs`
 
 ## Overview
 
@@ -37,97 +31,211 @@ Treat `MultiplayerIntermissionVotingManager` as a Manager-style extension point:
 ### MapItemAddedDelegate
 `public delegate void MapItemAddedDelegate(string mapId)`
 
-**Purpose:** Handles logic related to `map item added delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.MapItemAddedDelegate("example");
+```
 
 ### CultureItemAddedDelegate
 `public delegate void CultureItemAddedDelegate(string cultureId)`
 
-**Purpose:** Handles logic related to `culture item added delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.CultureItemAddedDelegate("example");
+```
 
 ### MapItemVoteCountChangedDelegate
 `public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)`
 
-**Purpose:** Handles logic related to `map item vote count changed delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.MapItemVoteCountChangedDelegate(0, 0);
+```
 
 ### CultureItemVoteCountChangedDelegate
 `public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)`
 
-**Purpose:** Handles logic related to `culture item vote count changed delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.CultureItemVoteCountChangedDelegate(0, 0);
+```
 
 ### AddMapItem
 `public void AddMapItem(string mapID)`
 
 **Purpose:** Adds `map item` to the current collection or state.
 
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.AddMapItem("example");
+```
+
 ### AddUsableMap
 `public void AddUsableMap(CustomGameUsableMap usableMap)`
 
 **Purpose:** Adds `usable map` to the current collection or state.
 
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.AddUsableMap(usableMap);
+```
+
 ### GetUsableMaps
 `public List<string> GetUsableMaps(string gameType)`
 
-**Purpose:** Gets the current value of `usable maps`.
+**Purpose:** Reads and returns the `usable maps` value held by the current object.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+var result = multiplayerIntermissionVotingManager.GetUsableMaps("example");
+```
 
 ### AddCultureItem
 `public void AddCultureItem(string cultureID)`
 
 **Purpose:** Adds `culture item` to the current collection or state.
 
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.AddCultureItem("example");
+```
+
 ### AddVote
 `public void AddVote(PlayerId voterID, string itemID, int voteCount)`
 
 **Purpose:** Adds `vote` to the current collection or state.
 
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.AddVote(voterID, "example", 0);
+```
+
 ### SetVotesOfMap
 `public void SetVotesOfMap(int mapItemIndex, int voteCount)`
 
-**Purpose:** Sets the value or state of `votes of map`.
+**Purpose:** Assigns a new value to `votes of map` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.SetVotesOfMap(0, 0);
+```
 
 ### SetVotesOfCulture
 `public void SetVotesOfCulture(int cultureItemIndex, int voteCount)`
 
-**Purpose:** Sets the value or state of `votes of culture`.
+**Purpose:** Assigns a new value to `votes of culture` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.SetVotesOfCulture(0, 0);
+```
 
 ### ClearVotes
 `public void ClearVotes()`
 
-**Purpose:** Handles logic related to `clear votes`.
+**Purpose:** Removes all `votes` from the current object.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.ClearVotes();
+```
 
 ### ClearItems
 `public void ClearItems()`
 
-**Purpose:** Handles logic related to `clear items`.
+**Purpose:** Removes all `items` from the current object.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.ClearItems();
+```
 
 ### IsCultureItem
 `public bool IsCultureItem(string itemID)`
 
-**Purpose:** Handles logic related to `is culture item`.
+**Purpose:** Determines whether the current object is in the `culture item` state or condition.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+var result = multiplayerIntermissionVotingManager.IsCultureItem("example");
+```
 
 ### IsMapItem
 `public bool IsMapItem(string itemID)`
 
-**Purpose:** Handles logic related to `is map item`.
+**Purpose:** Determines whether the current object is in the `map item` state or condition.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+var result = multiplayerIntermissionVotingManager.IsMapItem("example");
+```
 
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerID)`
 
-**Purpose:** Handles the `player disconnect` event or callback.
+**Purpose:** Executes the response logic associated with `player disconnect`.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.HandlePlayerDisconnect(playerID);
+```
 
 ### SelectRandomCultures
 `public void SelectRandomCultures(MultiplayerOptions.MultiplayerOptionsAccessMode accessMode)`
 
-**Purpose:** Handles logic related to `select random cultures`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.SelectRandomCultures(accessMode);
+```
 
 ### IsPeerVotedForItem
 `public bool IsPeerVotedForItem(NetworkCommunicator peer, string itemID)`
 
-**Purpose:** Handles logic related to `is peer voted for item`.
+**Purpose:** Determines whether the current object is in the `peer voted for item` state or condition.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+var result = multiplayerIntermissionVotingManager.IsPeerVotedForItem(peer, "example");
+```
 
 ### SortVotesAndPickBest
 `public void SortVotesAndPickBest()`
 
-**Purpose:** Handles logic related to `sort votes and pick best`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerIntermissionVotingManager from the subsystem API first
+MultiplayerIntermissionVotingManager multiplayerIntermissionVotingManager = ...;
+multiplayerIntermissionVotingManager.SortVotesAndPickBest();
+```
 
 ## Usage Example
 
@@ -137,4 +245,4 @@ var manager = MultiplayerIntermissionVotingManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

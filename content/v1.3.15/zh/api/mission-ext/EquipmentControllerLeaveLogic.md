@@ -1,13 +1,7 @@
 ---
 title: "EquipmentControllerLeaveLogic"
+description: "EquipmentControllerLeaveLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EquipmentControllerLeaveLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EquipmentControllerLeaveLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,19 +29,31 @@ title: "EquipmentControllerLeaveLogic"
 ### SetIsEquipmentSelectionActive
 `public void SetIsEquipmentSelectionActive(bool isActive)`
 
-**用途 / Purpose:** 设置 `is equipment selection active` 的值或状态。
+**用途 / Purpose:** 为 「is equipment selection active」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentControllerLeaveLogic 实例
+EquipmentControllerLeaveLogic equipmentControllerLeaveLogic = ...;
+equipmentControllerLeaveLogic.SetIsEquipmentSelectionActive(false);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**用途 / Purpose:** 当 `end mission request` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentControllerLeaveLogic 实例
+EquipmentControllerLeaveLogic equipmentControllerLeaveLogic = ...;
+var result = equipmentControllerLeaveLogic.OnEndMissionRequest(canLeave);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new EquipmentControllerLeaveLogic());
+var behavior = Mission.Current.GetMissionBehavior<EquipmentControllerLeaveLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

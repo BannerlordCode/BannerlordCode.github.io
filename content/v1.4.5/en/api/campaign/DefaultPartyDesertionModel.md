@@ -1,20 +1,14 @@
 ---
 title: "DefaultPartyDesertionModel"
+description: "Auto-generated class reference for DefaultPartyDesertionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyDesertionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyDesertionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPartyDesertionModel : PartyDesertionModel`
 **Base:** `PartyDesertionModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyDesertionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyDesertionModel.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `DefaultPartyDesertionModel` as a Model-style extension point: first ident
 ### GetMoraleThresholdForTroopDesertion
 `public override int GetMoraleThresholdForTroopDesertion()`
 
-**Purpose:** Gets the current value of `morale threshold for troop desertion`.
+**Purpose:** Reads and returns the `morale threshold for troop desertion` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyDesertionModel from the subsystem API first
+DefaultPartyDesertionModel defaultPartyDesertionModel = ...;
+var result = defaultPartyDesertionModel.GetMoraleThresholdForTroopDesertion();
+```
 
 ### GetDesertionChanceForTroop
 `public override float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)`
 
-**Purpose:** Gets the current value of `desertion chance for troop`.
+**Purpose:** Reads and returns the `desertion chance for troop` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyDesertionModel from the subsystem API first
+DefaultPartyDesertionModel defaultPartyDesertionModel = ...;
+var result = defaultPartyDesertionModel.GetDesertionChanceForTroop(mobileParty, troopRosterElement);
+```
 
 ### GetTroopsToDesert
 `public override TroopRoster GetTroopsToDesert(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `troops to desert`.
+**Purpose:** Reads and returns the `troops to desert` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyDesertionModel from the subsystem API first
+DefaultPartyDesertionModel defaultPartyDesertionModel = ...;
+var result = defaultPartyDesertionModel.GetTroopsToDesert(mobileParty);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPartyDesertionModel>(new MyDefaultPartyDesertio
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

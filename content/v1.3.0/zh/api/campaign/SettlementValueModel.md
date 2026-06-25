@@ -1,13 +1,7 @@
 ---
 title: "SettlementValueModel"
+description: "SettlementValueModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementValueModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementValueModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,29 +23,54 @@ title: "SettlementValueModel"
 ### FindMostSuitableHomeSettlement
 `public abstract Settlement FindMostSuitableHomeSettlement(Clan clan)`
 
-**用途 / Purpose:** 处理 `find most suitable home settlement` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「most suitable home settlement」。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementValueModel 实例
+SettlementValueModel settlementValueModel = ...;
+var result = settlementValueModel.FindMostSuitableHomeSettlement(clan);
+```
 
 ### CalculateSettlementValueForFaction
 `public abstract float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
 
-**用途 / Purpose:** 处理 `calculate settlement value for faction` 相关逻辑。
+**用途 / Purpose:** 计算「settlement value for faction」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementValueModel 实例
+SettlementValueModel settlementValueModel = ...;
+var result = settlementValueModel.CalculateSettlementValueForFaction(settlement, faction);
+```
 
 ### CalculateSettlementBaseValue
 `public abstract float CalculateSettlementBaseValue(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `calculate settlement base value` 相关逻辑。
+**用途 / Purpose:** 计算「settlement base value」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementValueModel 实例
+SettlementValueModel settlementValueModel = ...;
+var result = settlementValueModel.CalculateSettlementBaseValue(settlement);
+```
 
 ### CalculateSettlementValueForEnemyHero
 `public abstract float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** 处理 `calculate settlement value for enemy hero` 相关逻辑。
+**用途 / Purpose:** 计算「settlement value for enemy hero」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementValueModel 实例
+SettlementValueModel settlementValueModel = ...;
+var result = settlementValueModel.CalculateSettlementValueForEnemyHero(settlement, hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementValueModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementValueModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

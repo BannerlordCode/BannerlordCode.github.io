@@ -1,20 +1,14 @@
 ---
 title: "Mathf"
+description: "Auto-generated class reference for Mathf."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Mathf`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Mathf
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public static class Mathf`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Mathf.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Mathf.cs`
 
 ## Overview
 
@@ -29,92 +23,182 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Sqrt
 `public static float Sqrt(float f)`
 
-**Purpose:** Handles logic related to `sqrt`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Sqrt(0);
+```
 
 ### Abs
 `public static float Abs(float f)`
 
-**Purpose:** Handles logic related to `abs`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Abs(0);
+```
 
 ### Floor
 `public static float Floor(float f)`
 
-**Purpose:** Handles logic related to `floor`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Floor(0);
+```
 
 ### Cos
 `public static float Cos(float radian)`
 
-**Purpose:** Handles logic related to `cos`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Cos(0);
+```
 
 ### Sin
 `public static float Sin(float radian)`
 
-**Purpose:** Handles logic related to `sin`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Sin(0);
+```
 
 ### Acos
 `public static float Acos(float f)`
 
-**Purpose:** Handles logic related to `acos`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Acos(0);
+```
 
 ### Atan2
 `public static float Atan2(float y, float x)`
 
-**Purpose:** Handles logic related to `atan2`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Atan2(0, 0);
+```
 
 ### Clamp
 `public static float Clamp(float value, float min, float max)`
 
-**Purpose:** Handles logic related to `clamp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Clamp(0, 0, 0);
+```
 
 ### Clamp
 `public static int Clamp(int value, int min, int max)`
 
-**Purpose:** Handles logic related to `clamp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Clamp(0, 0, 0);
+```
 
 ### Min
 `public static float Min(float a, float b)`
 
-**Purpose:** Handles logic related to `min`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Min(0, 0);
+```
 
 ### Max
 `public static float Max(float a, float b)`
 
-**Purpose:** Handles logic related to `max`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Max(0, 0);
+```
 
 ### IsZero
 `public static bool IsZero(float f)`
 
-**Purpose:** Handles logic related to `is zero`.
+**Purpose:** Determines whether the current object is in the `zero` state or condition.
+
+```csharp
+// Static call; no instance required
+Mathf.IsZero(0);
+```
 
 ### IsZero
 `public static bool IsZero(Vector2 vector2)`
 
-**Purpose:** Handles logic related to `is zero`.
+**Purpose:** Determines whether the current object is in the `zero` state or condition.
+
+```csharp
+// Static call; no instance required
+Mathf.IsZero(vector2);
+```
 
 ### Sign
 `public static float Sign(float f)`
 
-**Purpose:** Handles logic related to `sign`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Sign(0);
+```
 
 ### Ceil
 `public static float Ceil(float f)`
 
-**Purpose:** Handles logic related to `ceil`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Ceil(0);
+```
 
 ### Round
 `public static float Round(float f)`
 
-**Purpose:** Handles logic related to `round`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Round(0);
+```
 
 ### Lerp
 `public static float Lerp(float start, float end, float amount)`
 
-**Purpose:** Handles logic related to `lerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Mathf.Lerp(0, 0, 0);
+```
 
 ### GetClosestPointInLineSegmentToLine
 `public static Vec3 GetClosestPointInLineSegmentToLine(Vec3 linePosition, Vec3 lineDirection, Vec3 lineSegmentBegin, Vec3 lineSegmentEnd)`
 
-**Purpose:** Gets the current value of `closest point in line segment to line`.
+**Purpose:** Reads and returns the `closest point in line segment to line` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Mathf.GetClosestPointInLineSegmentToLine(linePosition, lineDirection, lineSegmentBegin, lineSegmentEnd);
+```
 
 ## Usage Example
 
@@ -124,4 +208,4 @@ Mathf.Sqrt(0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

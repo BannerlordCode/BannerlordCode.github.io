@@ -1,13 +1,7 @@
 ---
 title: "ArmyCohesionBoostedByPlayerEvent"
+description: "Auto-generated class reference for ArmyCohesionBoostedByPlayerEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyCohesionBoostedByPlayerEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyCohesionBoostedByPlayerEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ## Usage Example
 
 ```csharp
-var example = new ArmyCohesionBoostedByPlayerEvent();
+// Obtain an instance from the relevant subsystem API
+ArmyCohesionBoostedByPlayerEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

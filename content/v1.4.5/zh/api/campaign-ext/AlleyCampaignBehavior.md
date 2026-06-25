@@ -1,20 +1,14 @@
 ---
 title: "AlleyCampaignBehavior"
+description: "AlleyCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AlleyCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class AlleyCampaignBehavior : CampaignBehaviorBase, IAlleyCampaignBehavior, ICampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/AlleyCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/AlleyCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,80 +23,164 @@ title: "AlleyCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+alleyCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+alleyCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+alleyCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### GetIsPlayerAlleyUnderAttack
 `public bool GetIsPlayerAlleyUnderAttack(Alley alley)`
 
-**用途 / Purpose:** 获取 `is player alley under attack` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is player alley under attack」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+var result = alleyCampaignBehavior.GetIsPlayerAlleyUnderAttack(alley);
+```
 
 ### GetPlayerOwnedAlleyTroopCount
 `public int GetPlayerOwnedAlleyTroopCount(Alley alley)`
 
-**用途 / Purpose:** 获取 `player owned alley troop count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player owned alley troop count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+var result = alleyCampaignBehavior.GetPlayerOwnedAlleyTroopCount(alley);
+```
 
 ### GetResponseTimeLeftForAttackInDays
 `public int GetResponseTimeLeftForAttackInDays(Alley alley)`
 
-**用途 / Purpose:** 获取 `response time left for attack in days` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「response time left for attack in days」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+var result = alleyCampaignBehavior.GetResponseTimeLeftForAttackInDays(alley);
+```
 
 ### AbandonAlleyFromClanMenu
 `public void AbandonAlleyFromClanMenu(Alley alley)`
 
-**用途 / Purpose:** 处理 `abandon alley from clan menu` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+alleyCampaignBehavior.AbandonAlleyFromClanMenu(alley);
+```
 
 ### IsHeroAlleyLeaderOfAnyPlayerAlley
 `public bool IsHeroAlleyLeaderOfAnyPlayerAlley(Hero hero)`
 
-**用途 / Purpose:** 处理 `is hero alley leader of any player alley` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「hero alley leader of any player alley」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+var result = alleyCampaignBehavior.IsHeroAlleyLeaderOfAnyPlayerAlley(hero);
+```
 
 ### GetAllAssignedClanMembersForOwnedAlleys
 `public List<Hero> GetAllAssignedClanMembersForOwnedAlleys()`
 
-**用途 / Purpose:** 获取 `all assigned clan members for owned alleys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all assigned clan members for owned alleys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+var result = alleyCampaignBehavior.GetAllAssignedClanMembersForOwnedAlleys();
+```
 
 ### ChangeAlleyMember
 `public void ChangeAlleyMember(Alley alley, Hero newAlleyLead)`
 
-**用途 / Purpose:** 处理 `change alley member` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+alleyCampaignBehavior.ChangeAlleyMember(alley, newAlleyLead);
+```
 
 ### OnPlayerRetreatedFromMission
 `public void OnPlayerRetreatedFromMission()`
 
-**用途 / Purpose:** 当 `player retreated from mission` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player retreated from mission」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+alleyCampaignBehavior.OnPlayerRetreatedFromMission();
+```
 
 ### OnPlayerDiedInMission
 `public void OnPlayerDiedInMission()`
 
-**用途 / Purpose:** 当 `player died in mission` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player died in mission」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+alleyCampaignBehavior.OnPlayerDiedInMission();
+```
 
 ### GetAssignedClanMemberOfAlley
 `public Hero GetAssignedClanMemberOfAlley(Alley alley)`
 
-**用途 / Purpose:** 获取 `assigned clan member of alley` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「assigned clan member of alley」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+var result = alleyCampaignBehavior.GetAssignedClanMemberOfAlley(alley);
+```
 
 ### alley_related_menu_on_init
 `public static void alley_related_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `alley_related_menu_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+AlleyCampaignBehavior.alley_related_menu_on_init(args);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AlleyCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+AlleyCampaignBehavior alleyCampaignBehavior = ...;
+alleyCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

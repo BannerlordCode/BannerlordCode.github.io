@@ -1,20 +1,14 @@
 ---
 title: "LogEntryHistory"
+description: "Auto-generated class reference for LogEntryHistory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LogEntryHistory`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LogEntryHistory
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LogEntryHistory`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/LogEntryHistory.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/LogEntryHistory.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### DeleteOutdatedLogs
 `public void DeleteOutdatedLogs()`
 
-**Purpose:** Handles logic related to `delete outdated logs`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LogEntryHistory from the subsystem API first
+LogEntryHistory logEntryHistory = ...;
+logEntryHistory.DeleteOutdatedLogs();
+```
 
 ### GetStartIndexForComments
 `public int GetStartIndexForComments()`
 
-**Purpose:** Gets the current value of `start index for comments`.
+**Purpose:** Reads and returns the `start index for comments` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntryHistory from the subsystem API first
+LogEntryHistory logEntryHistory = ...;
+var result = logEntryHistory.GetStartIndexForComments();
+```
 
 ### GetRelevantComment
 `public LogEntry GetRelevantComment(Hero conversationHero, out int bestScore, out string bestRelatedLogEntryTag)`
 
-**Purpose:** Gets the current value of `relevant comment`.
+**Purpose:** Reads and returns the `relevant comment` value held by the current object.
+
+```csharp
+// Obtain an instance of LogEntryHistory from the subsystem API first
+LogEntryHistory logEntryHistory = ...;
+var result = logEntryHistory.GetRelevantComment(conversationHero, bestScore, bestRelatedLogEntryTag);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LogEntryHistory();
-value.DeleteOutdatedLogs();
+// Typically call this after obtaining an instance from the subsystem API
+LogEntryHistory logEntryHistory = ...;
+logEntryHistory.DeleteOutdatedLogs();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

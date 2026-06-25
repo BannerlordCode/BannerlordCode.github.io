@@ -1,20 +1,14 @@
 ---
 title: "WidgetAttributeKeyTypeCommand"
+description: "WidgetAttributeKeyTypeCommand 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetAttributeKeyTypeCommand`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeCommand
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetAttributeKeyTypeCommand : WidgetAttributeKeyType`
 **Base:** `WidgetAttributeKeyType`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/WidgetAttributeKeyTypeCommand.cs`
+**File:** `bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/WidgetAttributeKeyTypeCommand.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "WidgetAttributeKeyTypeCommand"
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**用途 / Purpose:** 处理 `check key type` 相关逻辑。
+**用途 / Purpose:** 检查「key type」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeCommand 实例
+WidgetAttributeKeyTypeCommand widgetAttributeKeyTypeCommand = ...;
+var result = widgetAttributeKeyTypeCommand.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**用途 / Purpose:** 获取 `key name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「key name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeCommand 实例
+WidgetAttributeKeyTypeCommand widgetAttributeKeyTypeCommand = ...;
+var result = widgetAttributeKeyTypeCommand.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**用途 / Purpose:** 获取 `serialized key` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「serialized key」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeCommand 实例
+WidgetAttributeKeyTypeCommand widgetAttributeKeyTypeCommand = ...;
+var result = widgetAttributeKeyTypeCommand.GetSerializedKey("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WidgetAttributeKeyTypeCommand();
-value.CheckKeyType("example");
+// 通常从对应子系统 API 获取实例后调用
+WidgetAttributeKeyTypeCommand widgetAttributeKeyTypeCommand = ...;
+widgetAttributeKeyTypeCommand.CheckKeyType("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

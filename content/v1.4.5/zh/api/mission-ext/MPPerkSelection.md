@@ -1,20 +1,14 @@
 ---
 title: "MPPerkSelection"
+description: "MPPerkSelection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPPerkSelection`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPerkSelection
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPerkSelection`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkSelectionManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkSelectionManager.cs`
 
 ## 概述
 
@@ -29,45 +23,87 @@ title: "MPPerkSelection"
 ### MPPerkSelection
 `public struct MPPerkSelection(int index, int listIndex)`
 
-**用途 / Purpose:** 处理 `m p perk selection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+var result = mPPerkSelection.MPPerkSelection(0, 0);
+```
 
 ### FreeInstance
 `public static void FreeInstance()`
 
-**用途 / Purpose:** 处理 `free instance` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MPPerkSelection.FreeInstance();
+```
 
 ### InitializeForUser
 `public void InitializeForUser(string username, PlayerId playerId)`
 
-**用途 / Purpose:** 初始化 `for user` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「for user」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.InitializeForUser("example", playerId);
+```
 
 ### ResetPendingChanges
 `public void ResetPendingChanges()`
 
-**用途 / Purpose:** 将 `pending changes` 重置为初始状态。
+**用途 / Purpose:** 将 「pending changes」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.ResetPendingChanges();
+```
 
 ### TryToApplyAndSavePendingChanges
 `public void TryToApplyAndSavePendingChanges()`
 
-**用途 / Purpose:** 尝试获取 `to apply and save pending changes`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「to apply and save pending changes」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.TryToApplyAndSavePendingChanges();
+```
 
 ### GetSelectionsForHeroClass
 `public List<MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
 
-**用途 / Purpose:** 获取 `selections for hero class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selections for hero class」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+var result = mPPerkSelection.GetSelectionsForHeroClass(currentHeroClass);
+```
 
 ### SetSelectionsForHeroClassTemporarily
 `public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelection> perkChoices)`
 
-**用途 / Purpose:** 设置 `selections for hero class temporarily` 的值或状态。
+**用途 / Purpose:** 为 「selections for hero class temporarily」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.SetSelectionsForHeroClassTemporarily(currentHeroClass, perkChoices);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPPerkSelection();
-value.MPPerkSelection(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.MPPerkSelection(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

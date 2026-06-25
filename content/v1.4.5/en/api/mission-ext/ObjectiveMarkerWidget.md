@@ -1,20 +1,14 @@
 ---
 title: "ObjectiveMarkerWidget"
+description: "Auto-generated class reference for ObjectiveMarkerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ObjectiveMarkerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ObjectiveMarkerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ObjectiveMarkerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/ObjectiveMarkerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/ObjectiveMarkerWidget.cs`
 
 ## Overview
 
@@ -55,19 +49,32 @@ Treat `ObjectiveMarkerWidget` as a Widget-style extension point: first identify 
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of ObjectiveMarkerWidget from the subsystem API first
+ObjectiveMarkerWidget objectiveMarkerWidget = ...;
+objectiveMarkerWidget.Update(0);
+```
 
 ### UpdateRectangle
 `public void UpdateRectangle()`
 
-**Purpose:** Updates the state or data of `rectangle`.
+**Purpose:** Recalculates and stores the latest representation of `rectangle`.
+
+```csharp
+// Obtain an instance of ObjectiveMarkerWidget from the subsystem API first
+ObjectiveMarkerWidget objectiveMarkerWidget = ...;
+objectiveMarkerWidget.UpdateRectangle();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ObjectiveMarkerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ObjectiveMarkerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BattleStartedLogEntry"
+description: "BattleStartedLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleStartedLogEntry`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleStartedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -37,25 +31,44 @@ title: "BattleStartedLogEntry"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 BattleStartedLogEntry 实例
+BattleStartedLogEntry battleStartedLogEntry = ...;
+var result = battleStartedLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 获取 `notification text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleStartedLogEntry 实例
+BattleStartedLogEntry battleStartedLogEntry = ...;
+var result = battleStartedLogEntry.GetNotificationText();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** 获取 `encyclopedia text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleStartedLogEntry 实例
+BattleStartedLogEntry battleStartedLogEntry = ...;
+var result = battleStartedLogEntry.GetEncyclopediaText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BattleStartedLogEntry();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+BattleStartedLogEntry battleStartedLogEntry = ...;
+battleStartedLogEntry.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

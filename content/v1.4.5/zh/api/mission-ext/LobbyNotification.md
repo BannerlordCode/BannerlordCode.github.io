@@ -1,20 +1,14 @@
 ---
 title: "LobbyNotification"
+description: "LobbyNotification 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LobbyNotification`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyNotification
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyNotification`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyNotification.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyNotification.cs`
 
 ## 概述
 
@@ -39,20 +33,33 @@ title: "LobbyNotification"
 ### GetParametersAsString
 `public string GetParametersAsString()`
 
-**用途 / Purpose:** 获取 `parameters as string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「parameters as string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyNotification 实例
+LobbyNotification lobbyNotification = ...;
+var result = lobbyNotification.GetParametersAsString();
+```
 
 ### GetTextObjectOfMessage
 `public TextObject GetTextObjectOfMessage()`
 
-**用途 / Purpose:** 获取 `text object of message` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「text object of message」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LobbyNotification 实例
+LobbyNotification lobbyNotification = ...;
+var result = lobbyNotification.GetTextObjectOfMessage();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LobbyNotification();
-value.GetParametersAsString();
+// 通常从对应子系统 API 获取实例后调用
+LobbyNotification lobbyNotification = ...;
+lobbyNotification.GetParametersAsString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPersonalKillFeedItemWidget"
+description: "Auto-generated class reference for MultiplayerPersonalKillFeedItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPersonalKillFeedItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPersonalKillFeedItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPersonalKillFeedItemWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerPersonalKillFeedItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerPersonalKillFeedItemWidget.cs`
 
 ## Overview
 
@@ -46,19 +40,32 @@ Treat `MultiplayerPersonalKillFeedItemWidget` as a Widget-style extension point:
 ### SetSpeedModifier
 `public void SetSpeedModifier(float newSpeed)`
 
-**Purpose:** Sets the value or state of `speed modifier`.
+**Purpose:** Assigns a new value to `speed modifier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerPersonalKillFeedItemWidget from the subsystem API first
+MultiplayerPersonalKillFeedItemWidget multiplayerPersonalKillFeedItemWidget = ...;
+multiplayerPersonalKillFeedItemWidget.SetSpeedModifier(0);
+```
 
 ### SetMaxAlphaValue
 `public void SetMaxAlphaValue(float newMaxAlpha)`
 
-**Purpose:** Sets the value or state of `max alpha value`.
+**Purpose:** Assigns a new value to `max alpha value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerPersonalKillFeedItemWidget from the subsystem API first
+MultiplayerPersonalKillFeedItemWidget multiplayerPersonalKillFeedItemWidget = ...;
+multiplayerPersonalKillFeedItemWidget.SetMaxAlphaValue(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerPersonalKillFeedItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerPersonalKillFeedItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

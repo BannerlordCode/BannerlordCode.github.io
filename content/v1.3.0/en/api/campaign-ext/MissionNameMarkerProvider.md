@@ -1,13 +1,7 @@
 ---
 title: "MissionNameMarkerProvider"
+description: "Auto-generated class reference for MissionNameMarkerProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNameMarkerProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerProvider
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
@@ -29,29 +23,54 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### CreateMarkers
 `public abstract void CreateMarkers(List<MissionNameMarkerTargetBaseVM> markers)`
 
-**Purpose:** Creates a new `markers` instance or object.
+**Purpose:** Constructs a new `markers` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MissionNameMarkerProvider from the subsystem API first
+MissionNameMarkerProvider missionNameMarkerProvider = ...;
+missionNameMarkerProvider.CreateMarkers(markers);
+```
 
 ### Initialize
 `public void Initialize(Mission mission, Action onSetMarkersDirty)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MissionNameMarkerProvider from the subsystem API first
+MissionNameMarkerProvider missionNameMarkerProvider = ...;
+missionNameMarkerProvider.Initialize(mission, onSetMarkersDirty);
+```
 
 ### Destroy
 `public void Destroy(Mission mission)`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionNameMarkerProvider from the subsystem API first
+MissionNameMarkerProvider missionNameMarkerProvider = ...;
+missionNameMarkerProvider.Destroy(mission);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionNameMarkerProvider from the subsystem API first
+MissionNameMarkerProvider missionNameMarkerProvider = ...;
+missionNameMarkerProvider.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionNameMarkerProvider();
+// Typically obtained from a subsystem API or factory
+MissionNameMarkerProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

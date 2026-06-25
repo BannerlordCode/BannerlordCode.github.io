@@ -1,20 +1,14 @@
 ---
 title: "GenericThreadedRestSessionProvider"
+description: "Auto-generated class reference for GenericThreadedRestSessionProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericThreadedRestSessionProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericThreadedRestSessionProvider
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
 **Module:** TaleWorlds.Diamond
 **Type:** `public class GenericThreadedRestSessionProvider<T> : IClientSessionProvider<T> where T : Client<T>`
 **Base:** `IClientSessionProvider<T> where T : Client<T>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/GenericThreadedRestSessionProvider.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/GenericThreadedRestSessionProvider.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ### CreateSession
 `public IClientSession CreateSession(T client)`
 
-**Purpose:** Creates a new `session` instance or object.
+**Purpose:** Constructs a new `session` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of GenericThreadedRestSessionProvider from the subsystem API first
+GenericThreadedRestSessionProvider genericThreadedRestSessionProvider = ...;
+var result = genericThreadedRestSessionProvider.CreateSession(client);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GenericThreadedRestSessionProvider();
-value.CreateSession(client);
+// Typically call this after obtaining an instance from the subsystem API
+GenericThreadedRestSessionProvider genericThreadedRestSessionProvider = ...;
+genericThreadedRestSessionProvider.CreateSession(client);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

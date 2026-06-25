@@ -1,20 +1,14 @@
 ---
 title: "AvatarData"
+description: "AvatarData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AvatarData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarData
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class AvatarData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarData.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarData.cs`
 
 ## 概述
 
@@ -39,24 +33,43 @@ title: "AvatarData"
 ### SetImageData
 `public void SetImageData(byte image, uint width, uint height)`
 
-**用途 / Purpose:** 设置 `image data` 的值或状态。
+**用途 / Purpose:** 为 「image data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AvatarData 实例
+AvatarData avatarData = ...;
+avatarData.SetImageData(0, 0, 0);
+```
 
 ### SetImageData
 `public void SetImageData(byte image)`
 
-**用途 / Purpose:** 设置 `image data` 的值或状态。
+**用途 / Purpose:** 为 「image data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AvatarData 实例
+AvatarData avatarData = ...;
+avatarData.SetImageData(0);
+```
 
 ### SetFailed
 `public void SetFailed()`
 
-**用途 / Purpose:** 设置 `failed` 的值或状态。
+**用途 / Purpose:** 为 「failed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AvatarData 实例
+AvatarData avatarData = ...;
+avatarData.SetFailed();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AvatarData();
+// 该数据对象通常由战役/任务 API 返回
+AvatarData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

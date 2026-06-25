@@ -1,20 +1,14 @@
 ---
 title: "MetaDataExtensions"
+description: "MetaDataExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MetaDataExtensions`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MetaDataExtensions
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public static class MetaDataExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/MetaDataExtensions.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/MetaDataExtensions.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "MetaDataExtensions"
 ### GetApplicationVersion
 `public static ApplicationVersion GetApplicationVersion(this MetaData metaData)`
 
-**用途 / Purpose:** 获取 `application version` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「application version」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MetaDataExtensions.GetApplicationVersion(metaData);
+```
 
 ### GetNewGameVersion
 `public static ApplicationVersion GetNewGameVersion(this MetaData metaData)`
 
-**用途 / Purpose:** 获取 `new game version` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「new game version」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MetaDataExtensions.GetNewGameVersion(metaData);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ MetaDataExtensions.GetApplicationVersion(metaData);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

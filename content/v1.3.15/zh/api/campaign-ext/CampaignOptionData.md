@@ -1,13 +1,7 @@
 ---
 title: "CampaignOptionData"
+description: "CampaignOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignOptionData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -29,74 +23,151 @@ title: "CampaignOptionData"
 ### GetNameOfOption
 `public static TextObject GetNameOfOption(string optionIdentifier)`
 
-**用途 / Purpose:** 获取 `name of option` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name of option」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CampaignOptionData.GetNameOfOption("example");
+```
 
 ### GetDescriptionOfOption
 `public static TextObject GetDescriptionOfOption(string optionIdentifier)`
 
-**用途 / Purpose:** 获取 `description of option` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description of option」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CampaignOptionData.GetDescriptionOfOption("example");
+```
 
 ### GetPriorityIndex
 `public int GetPriorityIndex()`
 
-**用途 / Purpose:** 获取 `priority index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「priority index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetPriorityIndex();
+```
 
 ### GetDataType
 `public abstract CampaignOptionDataType GetDataType()`
 
-**用途 / Purpose:** 获取 `data type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「data type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetDataType();
+```
 
 ### IsRelatedToDifficultyPreset
 `public bool IsRelatedToDifficultyPreset()`
 
-**用途 / Purpose:** 处理 `is related to difficulty preset` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related to difficulty preset」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.IsRelatedToDifficultyPreset();
+```
 
 ### GetValueFromDifficultyPreset
 `public float GetValueFromDifficultyPreset(CampaignOptionsDifficultyPresets preset)`
 
-**用途 / Purpose:** 获取 `value from difficulty preset` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value from difficulty preset」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetValueFromDifficultyPreset(preset);
+```
 
 ### GetIsDisabledWithReason
 `public CampaignOptionDisableStatus GetIsDisabledWithReason()`
 
-**用途 / Purpose:** 获取 `is disabled with reason` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is disabled with reason」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetIsDisabledWithReason();
+```
 
 ### GetIdentifier
 `public string GetIdentifier()`
 
-**用途 / Purpose:** 获取 `identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetIdentifier();
+```
 
 ### GetEnableState
 `public CampaignOptionEnableState GetEnableState()`
 
-**用途 / Purpose:** 获取 `enable state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「enable state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetEnableState();
+```
 
 ### GetName
 `public string GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetName();
+```
 
 ### GetDescription
 `public string GetDescription()`
 
-**用途 / Purpose:** 获取 `description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetDescription();
+```
 
 ### GetValue
 `public float GetValue()`
 
-**用途 / Purpose:** 获取 `value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+var result = campaignOptionData.GetValue();
+```
 
 ### SetValue
 `public void SetValue(float value)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignOptionData 实例
+CampaignOptionData campaignOptionData = ...;
+campaignOptionData.SetValue(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCampaignOptionData();
+// 通常通过子系统 API 或工厂获得派生实例
+CampaignOptionData instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

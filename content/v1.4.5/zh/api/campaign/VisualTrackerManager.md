@@ -1,20 +1,14 @@
 ---
 title: "VisualTrackerManager"
+description: "VisualTrackerManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualTrackerManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualTrackerManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class VisualTrackerManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/VisualTrackerManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/VisualTrackerManager.cs`
 
 ## 概述
 
@@ -35,22 +29,46 @@ title: "VisualTrackerManager"
 ### RegisterObject
 `public void RegisterObject(ITrackableCampaignObject trackableObject)`
 
-**用途 / Purpose:** 处理 `register object` 相关逻辑。
+**用途 / Purpose:** 将「object」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerManager 实例
+VisualTrackerManager visualTrackerManager = ...;
+visualTrackerManager.RegisterObject(trackableObject);
+```
 
 ### CheckTracked
 `public bool CheckTracked(ITrackableBase trackableObject)`
 
-**用途 / Purpose:** 处理 `check tracked` 相关逻辑。
+**用途 / Purpose:** 检查「tracked」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerManager 实例
+VisualTrackerManager visualTrackerManager = ...;
+var result = visualTrackerManager.CheckTracked(trackableObject);
+```
 
 ### RemoveTrackedObject
 `public void RemoveTrackedObject(ITrackableBase trackableObject, bool forceRemove = false)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `tracked object`。
+**用途 / Purpose:** 从当前容器或状态中移除 「tracked object」。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerManager 实例
+VisualTrackerManager visualTrackerManager = ...;
+visualTrackerManager.RemoveTrackedObject(trackableObject, false);
+```
 
 ### SetDirty
 `public void SetDirty()`
 
-**用途 / Purpose:** 设置 `dirty` 的值或状态。
+**用途 / Purpose:** 为 「dirty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTrackerManager 实例
+VisualTrackerManager visualTrackerManager = ...;
+visualTrackerManager.SetDirty();
+```
 
 ## 使用示例
 
@@ -60,4 +78,4 @@ var manager = VisualTrackerManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

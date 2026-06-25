@@ -1,20 +1,14 @@
 ---
 title: "SyncMutedPlayers"
+description: "Auto-generated class reference for SyncMutedPlayers."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SyncMutedPlayers`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SyncMutedPlayers
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SyncMutedPlayers : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncMutedPlayers.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SyncMutedPlayers.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SyncMutedPlayers();
+// Obtain an instance from the relevant subsystem API
+SyncMutedPlayers instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

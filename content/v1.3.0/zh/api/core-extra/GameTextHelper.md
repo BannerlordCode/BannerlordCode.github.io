@@ -1,13 +1,7 @@
 ---
 title: "GameTextHelper"
+description: "GameTextHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameTextHelper`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTextHelper
 
 **Namespace:** TaleWorlds.Core
@@ -29,17 +23,33 @@ title: "GameTextHelper"
 ### Variation
 `public GameTexts.GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
-**用途 / Purpose:** 处理 `variation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameTextHelper 实例
+GameTextHelper gameTextHelper = ...;
+var result = gameTextHelper.Variation("example", propertiesAndWeights);
+```
 
 ### MergeTextObjectsWithComma
 `public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
 
-**用途 / Purpose:** 处理 `merge text objects with comma` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+GameTextHelper.MergeTextObjectsWithComma(textObjects, false);
+```
 
 ### MergeTextObjectsWithSymbol
 `public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
 
-**用途 / Purpose:** 处理 `merge text objects with symbol` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+GameTextHelper.MergeTextObjectsWithSymbol(textObjects, symbol, null);
+```
 
 ## 使用示例
 
@@ -49,4 +59,4 @@ GameTextHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

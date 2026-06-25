@@ -1,20 +1,14 @@
 ---
 title: "XsdElement"
+description: "XsdElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `XsdElement`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # XsdElement
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public struct XsdElement`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/XmlResource.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/XmlResource.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "XsdElement"
 ### XsdElement
 `public struct XsdElement(string xPath, bool alwaysPreferMerge)`
 
-**用途 / Purpose:** 处理 `xsd element` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 XsdElement 实例
+XsdElement xsdElement = ...;
+var result = xsdElement.XsdElement("example", false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new XsdElement();
-value.XsdElement("example", false);
+// 通常从对应子系统 API 获取实例后调用
+XsdElement xsdElement = ...;
+xsdElement.XsdElement("example", false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

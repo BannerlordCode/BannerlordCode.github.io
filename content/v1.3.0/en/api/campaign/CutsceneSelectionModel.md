@@ -1,13 +1,7 @@
 ---
 title: "CutsceneSelectionModel"
+description: "Auto-generated class reference for CutsceneSelectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CutsceneSelectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CutsceneSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `CutsceneSelectionModel` as a Model-style extension point: first identify 
 ### GetKingdomDestroyedSceneNotification
 `public abstract SceneNotificationData GetKingdomDestroyedSceneNotification(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `kingdom destroyed scene notification`.
+**Purpose:** Reads and returns the `kingdom destroyed scene notification` value held by the current object.
+
+```csharp
+// Obtain an instance of CutsceneSelectionModel from the subsystem API first
+CutsceneSelectionModel cutsceneSelectionModel = ...;
+var result = cutsceneSelectionModel.GetKingdomDestroyedSceneNotification(kingdom);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCutsceneSelectionModel();
+// Typically obtained from a subsystem API or factory
+CutsceneSelectionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

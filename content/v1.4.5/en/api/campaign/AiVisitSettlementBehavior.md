@@ -1,20 +1,14 @@
 ---
 title: "AiVisitSettlementBehavior"
+description: "Auto-generated class reference for AiVisitSettlementBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AiVisitSettlementBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AiVisitSettlementBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class AiVisitSettlementBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiVisitSettlementBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiVisitSettlementBehavior.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors` t
 ### CompareTo
 `public int CompareTo(SettlementNavigationData otherSettlementNavigationData)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of AiVisitSettlementBehavior from the subsystem API first
+AiVisitSettlementBehavior aiVisitSettlementBehavior = ...;
+var result = aiVisitSettlementBehavior.CompareTo(otherSettlementNavigationData);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of AiVisitSettlementBehavior from the subsystem API first
+AiVisitSettlementBehavior aiVisitSettlementBehavior = ...;
+aiVisitSettlementBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of AiVisitSettlementBehavior from the subsystem API first
+AiVisitSettlementBehavior aiVisitSettlementBehavior = ...;
+aiVisitSettlementBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AiVisitSettlementBehavior();
-value.CompareTo(otherSettlementNavigationData);
+// Typically call this after obtaining an instance from the subsystem API
+AiVisitSettlementBehavior aiVisitSettlementBehavior = ...;
+aiVisitSettlementBehavior.CompareTo(otherSettlementNavigationData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

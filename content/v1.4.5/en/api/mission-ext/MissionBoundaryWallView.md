@@ -1,20 +1,14 @@
 ---
 title: "MissionBoundaryWallView"
+description: "Auto-generated class reference for MissionBoundaryWallView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBoundaryWallView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoundaryWallView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBoundaryWallView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionBoundaryWallView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionBoundaryWallView.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `MissionBoundaryWallView` as a View-style extension point: first identify 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoundaryWallView from the subsystem API first
+MissionBoundaryWallView missionBoundaryWallView = ...;
+missionBoundaryWallView.OnMissionScreenInitialize();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionBoundaryWallView();
+// Retrieve this view from the subsystem API or scene
+MissionBoundaryWallView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

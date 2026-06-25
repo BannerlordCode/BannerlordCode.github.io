@@ -1,20 +1,14 @@
 ---
 title: "ExposureOptionVM"
+description: "Auto-generated class reference for ExposureOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ExposureOptionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ExposureOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ExposureOptionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/ExposureOptionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/ExposureOptionVM.cs`
 
 ## Overview
 
@@ -43,35 +37,66 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ExposureOptionVM from the subsystem API first
+ExposureOptionVM exposureOptionVM = ...;
+exposureOptionVM.RefreshValues();
+```
 
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**Purpose:** Executes the `confirm` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `confirm`.
+
+```csharp
+// Obtain an instance of ExposureOptionVM from the subsystem API first
+ExposureOptionVM exposureOptionVM = ...;
+exposureOptionVM.ExecuteConfirm();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of ExposureOptionVM from the subsystem API first
+ExposureOptionVM exposureOptionVM = ...;
+exposureOptionVM.ExecuteCancel();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ExposureOptionVM from the subsystem API first
+ExposureOptionVM exposureOptionVM = ...;
+exposureOptionVM.SetCancelInputKey(hotkey);
+```
 
 ### SetConfirmInputKey
 `public void SetConfirmInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `confirm input key`.
+**Purpose:** Assigns a new value to `confirm input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ExposureOptionVM from the subsystem API first
+ExposureOptionVM exposureOptionVM = ...;
+exposureOptionVM.SetConfirmInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ExposureOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ExposureOptionVM exposureOptionVM = ...;
+exposureOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

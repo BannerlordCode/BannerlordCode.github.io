@@ -1,20 +1,14 @@
 ---
 title: "PotentialIssueData"
+description: "Auto-generated class reference for PotentialIssueData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PotentialIssueData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PotentialIssueData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct PotentialIssueData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/PotentialIssueData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/PotentialIssueData.cs`
 
 ## Overview
 
@@ -39,14 +33,21 @@ Treat `PotentialIssueData` as a Data-style extension point: first identify who c
 ### StartIssueDelegate
 `public delegate IssueBase StartIssueDelegate(in PotentialIssueData pid, Hero issueOwner)`
 
-**Purpose:** Handles logic related to `start issue delegate`.
+**Purpose:** Starts the `issue delegate` flow or state machine.
+
+```csharp
+// Obtain an instance of PotentialIssueData from the subsystem API first
+PotentialIssueData potentialIssueData = ...;
+var result = potentialIssueData.StartIssueDelegate(pid, issueOwner);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PotentialIssueData();
+// This data object is usually returned by campaign/mission APIs
+PotentialIssueData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultShipStatModel"
+description: "Auto-generated class reference for DefaultShipStatModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultShipStatModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultShipStatModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultShipStatModel` as a Model-style extension point: first identify wh
 ### GetShipFlagshipScore
 `public override float GetShipFlagshipScore(Ship ship)`
 
-**Purpose:** Gets the current value of `ship flagship score`.
+**Purpose:** Reads and returns the `ship flagship score` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultShipStatModel from the subsystem API first
+DefaultShipStatModel defaultShipStatModel = ...;
+var result = defaultShipStatModel.GetShipFlagshipScore(ship);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultShipStatModel>(new MyDefaultShipStatModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

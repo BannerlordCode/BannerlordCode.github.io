@@ -1,20 +1,14 @@
 ---
 title: "FavoriteServerDataContainer"
+description: "FavoriteServerDataContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FavoriteServerDataContainer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FavoriteServerDataContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FavoriteServerDataContainer : MultiplayerLocalDataContainer<FavoriteServerData>`
 **Base:** `MultiplayerLocalDataContainer<FavoriteServerData>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/FavoriteServerDataContainer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/FavoriteServerDataContainer.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "FavoriteServerDataContainer"
 ### TryGetServerData
 `public bool TryGetServerData(GameServerEntry serverEntry, out FavoriteServerData favoriteServerData)`
 
-**用途 / Purpose:** 尝试获取 `get server data`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get server data」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 FavoriteServerDataContainer 实例
+FavoriteServerDataContainer favoriteServerDataContainer = ...;
+var result = favoriteServerDataContainer.TryGetServerData(serverEntry, favoriteServerData);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FavoriteServerDataContainer();
-value.TryGetServerData(serverEntry, favoriteServerData);
+// 通常从对应子系统 API 获取实例后调用
+FavoriteServerDataContainer favoriteServerDataContainer = ...;
+favoriteServerDataContainer.TryGetServerData(serverEntry, favoriteServerData);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

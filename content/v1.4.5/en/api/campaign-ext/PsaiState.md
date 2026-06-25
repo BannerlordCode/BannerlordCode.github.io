@@ -1,20 +1,14 @@
 ---
 title: "PsaiState"
+description: "Auto-generated class reference for PsaiState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PsaiState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PsaiState
 
 **Namespace:** psai.net
 **Module:** psai.net
-**Type:** `class`
+**Type:** `public enum PsaiState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/PsaiState.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/PsaiState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var example = new PsaiState();
+// Obtain an instance from the relevant subsystem API
+PsaiState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

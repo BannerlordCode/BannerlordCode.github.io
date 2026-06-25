@@ -1,13 +1,7 @@
 ---
 title: "AiVisitSettlementBehavior"
+description: "Auto-generated class reference for AiVisitSettlementBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AiVisitSettlementBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AiVisitSettlementBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors` t
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of AiVisitSettlementBehavior from the subsystem API first
+AiVisitSettlementBehavior aiVisitSettlementBehavior = ...;
+aiVisitSettlementBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of AiVisitSettlementBehavior from the subsystem API first
+AiVisitSettlementBehavior aiVisitSettlementBehavior = ...;
+aiVisitSettlementBehavior.SyncData(dataStore);
+```
 
 ### CompareTo
 `public int CompareTo(AiVisitSettlementBehavior.SettlementNavigationData otherSettlementNavigationData)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of AiVisitSettlementBehavior from the subsystem API first
+AiVisitSettlementBehavior aiVisitSettlementBehavior = ...;
+var result = aiVisitSettlementBehavior.CompareTo(otherSettlementNavigationData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AiVisitSettlementBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+AiVisitSettlementBehavior aiVisitSettlementBehavior = ...;
+aiVisitSettlementBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

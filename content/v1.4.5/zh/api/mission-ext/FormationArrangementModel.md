@@ -1,20 +1,14 @@
 ---
 title: "FormationArrangementModel"
+description: "FormationArrangementModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FormationArrangementModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationArrangementModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class FormationArrangementModel : MBGameModel<FormationArrangementModel>`
 **Base:** `MBGameModel<FormationArrangementModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/FormationArrangementModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/FormationArrangementModel.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "FormationArrangementModel"
 ### GetBannerBearerPositions
 `public abstract List<ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
-**用途 / Purpose:** 获取 `banner bearer positions` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner bearer positions」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FormationArrangementModel 实例
+FormationArrangementModel formationArrangementModel = ...;
+var result = formationArrangementModel.GetBannerBearerPositions(formation, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomFormationArrangementModel();
+// 通常通过子系统 API 或工厂获得派生实例
+FormationArrangementModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

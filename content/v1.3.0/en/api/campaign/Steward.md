@@ -1,13 +1,7 @@
 ---
 title: "Steward"
+description: "Auto-generated class reference for Steward."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Steward`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Steward
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -53,9 +47,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new Steward();
+// Obtain an instance from the relevant subsystem API
+Steward instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

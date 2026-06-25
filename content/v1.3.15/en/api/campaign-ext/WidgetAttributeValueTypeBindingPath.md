@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeValueTypeBindingPath"
+description: "Auto-generated class reference for WidgetAttributeValueTypeBindingPath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeValueTypeBindingPath`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetAttributeValueTypeBindingPath
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### CheckValueType
 `public override bool CheckValueType(string value)`
 
-**Purpose:** Handles logic related to `check value type`.
+**Purpose:** Verifies whether `value type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeBindingPath from the subsystem API first
+WidgetAttributeValueTypeBindingPath widgetAttributeValueTypeBindingPath = ...;
+var result = widgetAttributeValueTypeBindingPath.CheckValueType("example");
+```
 
 ### GetAttributeValue
 `public override string GetAttributeValue(string value)`
 
-**Purpose:** Gets the current value of `attribute value`.
+**Purpose:** Reads and returns the `attribute value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeBindingPath from the subsystem API first
+WidgetAttributeValueTypeBindingPath widgetAttributeValueTypeBindingPath = ...;
+var result = widgetAttributeValueTypeBindingPath.GetAttributeValue("example");
+```
 
 ### GetSerializedValue
 `public override string GetSerializedValue(string value)`
 
-**Purpose:** Gets the current value of `serialized value`.
+**Purpose:** Reads and returns the `serialized value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeBindingPath from the subsystem API first
+WidgetAttributeValueTypeBindingPath widgetAttributeValueTypeBindingPath = ...;
+var result = widgetAttributeValueTypeBindingPath.GetSerializedValue("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeValueTypeBindingPath();
-value.CheckValueType("example");
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeValueTypeBindingPath widgetAttributeValueTypeBindingPath = ...;
+widgetAttributeValueTypeBindingPath.CheckValueType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

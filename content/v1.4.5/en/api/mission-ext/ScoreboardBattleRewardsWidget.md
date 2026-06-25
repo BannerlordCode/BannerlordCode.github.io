@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardBattleRewardsWidget"
+description: "Auto-generated class reference for ScoreboardBattleRewardsWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardBattleRewardsWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardBattleRewardsWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardBattleRewardsWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardBattleRewardsWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardBattleRewardsWidget.cs`
 
 ## Overview
 
@@ -37,24 +31,43 @@ Treat `ScoreboardBattleRewardsWidget` as a Widget-style extension point: first i
 ### ScoreboardBattleRewardsWidget
 `public class ScoreboardBattleRewardsWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `scoreboard battle rewards widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ScoreboardBattleRewardsWidget from the subsystem API first
+ScoreboardBattleRewardsWidget scoreboardBattleRewardsWidget = ...;
+var result = scoreboardBattleRewardsWidget.ScoreboardBattleRewardsWidget(context);
+```
 
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Handles logic related to `start animation`.
+**Purpose:** Starts the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of ScoreboardBattleRewardsWidget from the subsystem API first
+ScoreboardBattleRewardsWidget scoreboardBattleRewardsWidget = ...;
+scoreboardBattleRewardsWidget.StartAnimation();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of ScoreboardBattleRewardsWidget from the subsystem API first
+ScoreboardBattleRewardsWidget scoreboardBattleRewardsWidget = ...;
+scoreboardBattleRewardsWidget.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ScoreboardBattleRewardsWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScoreboardBattleRewardsWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

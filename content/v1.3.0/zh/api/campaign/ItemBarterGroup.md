@@ -1,13 +1,7 @@
 ---
 title: "ItemBarterGroup"
+description: "ItemBarterGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemBarterGroup`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemBarterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
@@ -33,9 +27,10 @@ title: "ItemBarterGroup"
 ## 使用示例
 
 ```csharp
-var example = new ItemBarterGroup();
+// 从对应子系统 API 获取实例
+ItemBarterGroup instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

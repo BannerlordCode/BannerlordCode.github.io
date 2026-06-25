@@ -1,20 +1,14 @@
 ---
 title: "Persuasion"
+description: "Auto-generated class reference for Persuasion."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Persuasion`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Persuasion
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Persuasion`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/Persuasion.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Persuasion/Persuasion.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ### CommitProgress
 `public void CommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
 
-**Purpose:** Handles logic related to `commit progress`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Persuasion from the subsystem API first
+Persuasion persuasion = ...;
+persuasion.CommitProgress(persuasionOptionArgs);
+```
 
 ### GetChosenOptions
 `public IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetChosenOptions()`
 
-**Purpose:** Gets the current value of `chosen options`.
+**Purpose:** Reads and returns the `chosen options` value held by the current object.
+
+```csharp
+// Obtain an instance of Persuasion from the subsystem API first
+Persuasion persuasion = ...;
+var result = persuasion.GetChosenOptions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Persuasion();
-value.CommitProgress(persuasionOptionArgs);
+// Typically call this after obtaining an instance from the subsystem API
+Persuasion persuasion = ...;
+persuasion.CommitProgress(persuasionOptionArgs);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

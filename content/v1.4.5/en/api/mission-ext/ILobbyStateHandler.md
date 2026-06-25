@@ -1,20 +1,14 @@
 ---
 title: "ILobbyStateHandler"
+description: "Auto-generated class reference for ILobbyStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ILobbyStateHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ILobbyStateHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ILobbyStateHandler`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/ILobbyStateHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/ILobbyStateHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ILobbyStateHandler` as a Handler-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-ILobbyStateHandler implementation = GetLobbyStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IILobbyStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

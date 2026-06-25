@@ -1,13 +1,7 @@
 ---
 title: "OpenGLTexture"
+description: "OpenGLTexture 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OpenGLTexture`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OpenGLTexture
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -39,55 +33,108 @@ title: "OpenGLTexture"
 ### Initialize
 `public void Initialize(string name, int width, int height)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 OpenGLTexture 实例
+OpenGLTexture openGLTexture = ...;
+openGLTexture.Initialize("example", 0, 0);
+```
 
 ### CopyFrom
 `public void CopyFrom(OpenGLTexture texture)`
 
-**用途 / Purpose:** 处理 `copy from` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「from」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 OpenGLTexture 实例
+OpenGLTexture openGLTexture = ...;
+openGLTexture.CopyFrom(texture);
+```
 
 ### Delete
 `public void Delete()`
 
-**用途 / Purpose:** 处理 `delete` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OpenGLTexture 实例
+OpenGLTexture openGLTexture = ...;
+openGLTexture.Delete();
+```
 
 ### FromFile
 `public static OpenGLTexture FromFile(ResourceDepot resourceDepot, string name)`
 
-**用途 / Purpose:** 处理 `from file` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+OpenGLTexture.FromFile(resourceDepot, "example");
+```
 
 ### FromFile
 `public static OpenGLTexture FromFile(string fullFilePath)`
 
-**用途 / Purpose:** 处理 `from file` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+OpenGLTexture.FromFile("example");
+```
 
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 处理 `release` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OpenGLTexture 实例
+OpenGLTexture openGLTexture = ...;
+openGLTexture.Release();
+```
 
 ### LoadFromFile
 `public void LoadFromFile(ResourceDepot resourceDepot, string name)`
 
-**用途 / Purpose:** 加载 `from file` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from file」。
+
+```csharp
+// 先通过子系统 API 拿到 OpenGLTexture 实例
+OpenGLTexture openGLTexture = ...;
+openGLTexture.LoadFromFile(resourceDepot, "example");
+```
 
 ### LoadFromFile
 `public void LoadFromFile(string fullPathName)`
 
-**用途 / Purpose:** 加载 `from file` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from file」。
+
+```csharp
+// 先通过子系统 API 拿到 OpenGLTexture 实例
+OpenGLTexture openGLTexture = ...;
+openGLTexture.LoadFromFile("example");
+```
 
 ### IsLoaded
 `public bool IsLoaded()`
 
-**用途 / Purpose:** 处理 `is loaded` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「loaded」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OpenGLTexture 实例
+OpenGLTexture openGLTexture = ...;
+var result = openGLTexture.IsLoaded();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OpenGLTexture();
-value.Initialize("example", 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+OpenGLTexture openGLTexture = ...;
+openGLTexture.Initialize("example", 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

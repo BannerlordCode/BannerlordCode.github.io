@@ -1,13 +1,7 @@
 ---
 title: "PerkSelectionToggleEvent"
+description: "PerkSelectionToggleEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PerkSelectionToggleEvent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerkSelectionToggleEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection
@@ -33,9 +27,10 @@ title: "PerkSelectionToggleEvent"
 ## 使用示例
 
 ```csharp
-var value = new PerkSelectionToggleEvent();
+// 从对应子系统 API 获取实例
+PerkSelectionToggleEvent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

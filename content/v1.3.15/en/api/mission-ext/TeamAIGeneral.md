@@ -1,13 +1,7 @@
 ---
 title: "TeamAIGeneral"
+description: "Auto-generated class reference for TeamAIGeneral."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamAIGeneral`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TeamAIGeneral
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Called when the `unit added to formation for the first time` event is raised.
+**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+
+```csharp
+// Obtain an instance of TeamAIGeneral from the subsystem API first
+TeamAIGeneral teamAIGeneral = ...;
+teamAIGeneral.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamAIGeneral();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// Typically call this after obtaining an instance from the subsystem API
+TeamAIGeneral teamAIGeneral = ...;
+teamAIGeneral.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

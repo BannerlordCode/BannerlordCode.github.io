@@ -1,20 +1,14 @@
 ---
 title: "PartyScreenData"
+description: "Auto-generated class reference for PartyScreenData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyScreenData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyScreenData
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyScreenData : IEnumerable<(TroopRosterElement, bool)>, IEnumerable`
 **Base:** `IEnumerable<(TroopRosterElement`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenData.cs`
 
 ## Overview
 
@@ -38,54 +32,109 @@ Treat `PartyScreenData` as a Data-style extension point: first identify who crea
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+var result = partyScreenData.GetHashCode();
+```
 
 ### InitializeCopyFrom
 `public void InitializeCopyFrom(PartyBase rightParty, PartyBase leftParty)`
 
-**Purpose:** Initializes the state, resources, or bindings for `copy from`.
+**Purpose:** Prepares the resources, state, or bindings required by `copy from`.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+partyScreenData.InitializeCopyFrom(rightParty, leftParty);
+```
 
 ### CopyFromPartyAndRoster
 `public void CopyFromPartyAndRoster(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty)`
 
-**Purpose:** Handles logic related to `copy from party and roster`.
+**Purpose:** Copies the `from party and roster` state of the current object to a target.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+partyScreenData.CopyFromPartyAndRoster(rightPartyMemberRoster, rightPartyPrisonerRoster, leftPartyMemberRoster, leftPartyPrisonerRoster, rightParty);
+```
 
 ### CopyFromScreenData
 `public void CopyFromScreenData(PartyScreenData data)`
 
-**Purpose:** Handles logic related to `copy from screen data`.
+**Purpose:** Copies the `from screen data` state of the current object to a target.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+partyScreenData.CopyFromScreenData(data);
+```
 
 ### BindRostersFrom
 `public void BindRostersFrom(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty, PartyBase leftParty)`
 
-**Purpose:** Handles logic related to `bind rosters from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+partyScreenData.BindRostersFrom(rightPartyMemberRoster, rightPartyPrisonerRoster, leftPartyMemberRoster, leftPartyPrisonerRoster, rightParty, leftParty);
+```
 
 ### ResetUsing
 `public void ResetUsing(PartyScreenData partyScreenData)`
 
-**Purpose:** Resets `using` to its initial state.
+**Purpose:** Returns `using` to its default or initial condition.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+partyScreenData.ResetUsing(partyScreenData);
+```
 
 ### IsThereAnyTroopTradeDifferenceBetween
 `public bool IsThereAnyTroopTradeDifferenceBetween(PartyScreenData other)`
 
-**Purpose:** Handles logic related to `is there any troop trade difference between`.
+**Purpose:** Determines whether the current object is in the `there any troop trade difference between` state or condition.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+var result = partyScreenData.IsThereAnyTroopTradeDifferenceBetween(other);
+```
 
 ### GetTroopTradeDifferencesFromTo
 `public List<TroopTradeDifference> GetTroopTradeDifferencesFromTo(PartyScreenData toPartyScreenData, PartyScreenLogic.PartyRosterSide side = PartyScreenLogic.PartyRosterSide.None)`
 
-**Purpose:** Gets the current value of `troop trade differences from to`.
+**Purpose:** Reads and returns the `troop trade differences from to` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+var result = partyScreenData.GetTroopTradeDifferencesFromTo(toPartyScreenData, partyScreenLogic.PartyRosterSide.None);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of PartyScreenData from the subsystem API first
+PartyScreenData partyScreenData = ...;
+var result = partyScreenData.Equals(obj);
+```
 
 ## Usage Example
 
 ```csharp
-PartyScreenData example = PartyScreenData.RightParty;
+// This data object is usually returned by campaign/mission APIs
+PartyScreenData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

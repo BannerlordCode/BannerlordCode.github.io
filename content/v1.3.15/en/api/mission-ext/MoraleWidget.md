@@ -1,13 +1,7 @@
 ---
 title: "MoraleWidget"
+description: "Auto-generated class reference for MoraleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MoraleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MoraleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
@@ -51,14 +45,21 @@ Treat `MoraleWidget` as a Widget-style extension point: first identify who creat
 ### SetFillAmount
 `public void SetFillAmount(float fill, int fillMargin)`
 
-**Purpose:** Sets the value or state of `fill amount`.
+**Purpose:** Assigns a new value to `fill amount` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MoraleWidget from the subsystem API first
+MoraleWidget moraleWidget = ...;
+moraleWidget.SetFillAmount(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MoraleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MoraleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

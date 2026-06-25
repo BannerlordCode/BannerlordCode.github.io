@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListWidget"
+description: "Auto-generated class reference for EncyclopediaListWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaListWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
@@ -35,9 +29,10 @@ Treat `EncyclopediaListWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaListWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaListWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

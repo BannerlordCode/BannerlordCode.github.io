@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentMarkerTargetVM"
+description: "Auto-generated class reference for MissionAgentMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionAgentMarkerTargetVM : MissionNameMarkerTargetVM<Agent>`
 **Base:** `MissionNameMarkerTargetVM<Agent>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets/MissionAgentMarkerTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets/MissionAgentMarkerTargetVM.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets` t
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+var result = missionAgentMarkerTargetVM.Compare(x, y);
+```
 
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ### UpdateQuestStatus
 `public void UpdateQuestStatus()`
 
-**Purpose:** Updates the state or data of `quest status`.
+**Purpose:** Recalculates and stores the latest representation of `quest status`.
+
+```csharp
+// Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.UpdateQuestStatus();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentMarkerTargetVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

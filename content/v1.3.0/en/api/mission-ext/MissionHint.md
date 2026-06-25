@@ -1,13 +1,7 @@
 ---
 title: "MissionHint"
+description: "Auto-generated class reference for MissionHint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHint
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Hints
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Hints` to place it in th
 ## Usage Example
 
 ```csharp
-var example = new MissionHint();
+// Obtain an instance from the relevant subsystem API
+MissionHint instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

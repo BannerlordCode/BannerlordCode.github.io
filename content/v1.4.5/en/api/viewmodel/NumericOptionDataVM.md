@@ -1,20 +1,14 @@
 ---
 title: "NumericOptionDataVM"
+description: "Auto-generated class reference for NumericOptionDataVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NumericOptionDataVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NumericOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NumericOptionDataVM : GenericOptionDataVM`
 **Base:** `GenericOptionDataVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/NumericOptionDataVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/NumericOptionDataVM.cs`
 
 ## Overview
 
@@ -40,40 +34,77 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### UpdateValue
 `public override void UpdateValue()`
 
-**Purpose:** Updates the state or data of `value`.
+**Purpose:** Recalculates and stores the latest representation of `value`.
+
+```csharp
+// Obtain an instance of NumericOptionDataVM from the subsystem API first
+NumericOptionDataVM numericOptionDataVM = ...;
+numericOptionDataVM.UpdateValue();
+```
 
 ### Cancel
 `public override void Cancel()`
 
-**Purpose:** Checks whether the current object can `cel`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel`.
+
+```csharp
+// Obtain an instance of NumericOptionDataVM from the subsystem API first
+NumericOptionDataVM numericOptionDataVM = ...;
+numericOptionDataVM.Cancel();
+```
 
 ### SetValue
 `public override void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NumericOptionDataVM from the subsystem API first
+NumericOptionDataVM numericOptionDataVM = ...;
+numericOptionDataVM.SetValue(0);
+```
 
 ### ResetData
 `public override void ResetData()`
 
-**Purpose:** Resets `data` to its initial state.
+**Purpose:** Returns `data` to its default or initial condition.
+
+```csharp
+// Obtain an instance of NumericOptionDataVM from the subsystem API first
+NumericOptionDataVM numericOptionDataVM = ...;
+numericOptionDataVM.ResetData();
+```
 
 ### IsChanged
 `public override bool IsChanged()`
 
-**Purpose:** Handles logic related to `is changed`.
+**Purpose:** Determines whether the current object is in the `changed` state or condition.
+
+```csharp
+// Obtain an instance of NumericOptionDataVM from the subsystem API first
+NumericOptionDataVM numericOptionDataVM = ...;
+var result = numericOptionDataVM.IsChanged();
+```
 
 ### ApplyValue
 `public override void ApplyValue()`
 
-**Purpose:** Applies `value` to the current object.
+**Purpose:** Applies the effect of `value` to the current object.
+
+```csharp
+// Obtain an instance of NumericOptionDataVM from the subsystem API first
+NumericOptionDataVM numericOptionDataVM = ...;
+numericOptionDataVM.ApplyValue();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NumericOptionDataVM();
-value.UpdateValue();
+// Typically call this after obtaining an instance from the subsystem API
+NumericOptionDataVM numericOptionDataVM = ...;
+numericOptionDataVM.UpdateValue();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

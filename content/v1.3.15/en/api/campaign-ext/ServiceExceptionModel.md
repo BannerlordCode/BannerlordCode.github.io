@@ -1,13 +1,7 @@
 ---
 title: "ServiceExceptionModel"
+description: "Auto-generated class reference for ServiceExceptionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServiceExceptionModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServiceExceptionModel
 
 **Namespace:** TaleWorlds.Network
@@ -36,7 +30,13 @@ Treat `ServiceExceptionModel` as a Model-style extension point: first identify w
 ### ToServiceException
 `public ServiceException ToServiceException()`
 
-**Purpose:** Handles logic related to `to service exception`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ServiceExceptionModel from the subsystem API first
+ServiceExceptionModel serviceExceptionModel = ...;
+var result = serviceExceptionModel.ToServiceException();
+```
 
 ## Usage Example
 
@@ -46,4 +46,4 @@ Game.Current.ReplaceModel<ServiceExceptionModel>(new MyServiceExceptionModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

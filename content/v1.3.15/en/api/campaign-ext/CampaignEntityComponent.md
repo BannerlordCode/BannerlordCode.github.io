@@ -1,13 +1,7 @@
 ---
 title: "CampaignEntityComponent"
+description: "Auto-generated class reference for CampaignEntityComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignEntityComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignEntityComponent
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,7 +23,13 @@ Treat `CampaignEntityComponent` as a Component-style extension point: first iden
 ### OnTick
 `public virtual void OnTick(float realDt, float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of CampaignEntityComponent from the subsystem API first
+CampaignEntityComponent campaignEntityComponent = ...;
+campaignEntityComponent.OnTick(0, 0);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var component = agent.GetComponent<CampaignEntityComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

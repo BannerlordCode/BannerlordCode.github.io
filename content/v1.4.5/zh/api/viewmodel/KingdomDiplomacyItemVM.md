@@ -1,20 +1,14 @@
 ---
 title: "KingdomDiplomacyItemVM"
+description: "KingdomDiplomacyItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomDiplomacyItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDiplomacyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class KingdomDiplomacyItemVM : KingdomItemVM`
 **Base:** `KingdomItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomDiplomacyItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomDiplomacyItemVM.cs`
 
 ## 概述
 
@@ -51,9 +45,10 @@ title: "KingdomDiplomacyItemVM"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomKingdomDiplomacyItemVM();
+// 通常通过子系统 API 或工厂获得派生实例
+KingdomDiplomacyItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

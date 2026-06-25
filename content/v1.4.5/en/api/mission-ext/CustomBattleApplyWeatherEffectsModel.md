@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleApplyWeatherEffectsModel"
+description: "Auto-generated class reference for CustomBattleApplyWeatherEffectsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleApplyWeatherEffectsModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleApplyWeatherEffectsModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleApplyWeatherEffectsModel : ApplyWeatherEffectsModel`
 **Base:** `ApplyWeatherEffectsModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleApplyWeatherEffectsModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomBattleApplyWeatherEffectsModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `CustomBattleApplyWeatherEffectsModel` as a Model-style extension point: f
 ### ApplyWeatherEffects
 `public override void ApplyWeatherEffects()`
 
-**Purpose:** Applies `weather effects` to the current object.
+**Purpose:** Applies the effect of `weather effects` to the current object.
+
+```csharp
+// Obtain an instance of CustomBattleApplyWeatherEffectsModel from the subsystem API first
+CustomBattleApplyWeatherEffectsModel customBattleApplyWeatherEffectsModel = ...;
+customBattleApplyWeatherEffectsModel.ApplyWeatherEffects();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<CustomBattleApplyWeatherEffectsModel>(new MyCustomBatt
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "IDisbandPartyCampaignBehavior"
+description: "Auto-generated class reference for IDisbandPartyCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IDisbandPartyCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IDisbandPartyCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/IDisbandPartyCampaignBehavior.cs`
+**Type:** `public interface IDisbandPartyCampaignBehavior : ICampaignBehavior`
+**Base:** `ICampaignBehavior`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/IDisbandPartyCampaignBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IDisbandPartyCampaignBehavior implementation = GetDisbandPartyCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIDisbandPartyCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

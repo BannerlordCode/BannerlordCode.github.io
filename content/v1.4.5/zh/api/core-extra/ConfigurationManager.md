@@ -1,20 +1,14 @@
 ---
 title: "ConfigurationManager"
+description: "ConfigurationManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConfigurationManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConfigurationManager
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class ConfigurationManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ConfigurationManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ConfigurationManager.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "ConfigurationManager"
 ### SetConfigurationManager
 `public static void SetConfigurationManager(IConfigurationManager configurationManager)`
 
-**用途 / Purpose:** 设置 `configuration manager` 的值或状态。
+**用途 / Purpose:** 为 「configuration manager」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+ConfigurationManager.SetConfigurationManager(configurationManager);
+```
 
 ### GetAppSettings
 `public static string GetAppSettings(string name)`
 
-**用途 / Purpose:** 获取 `app settings` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「app settings」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ConfigurationManager.GetAppSettings("example");
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ var manager = ConfigurationManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

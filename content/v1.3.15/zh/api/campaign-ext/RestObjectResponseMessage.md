@@ -1,13 +1,7 @@
 ---
 title: "RestObjectResponseMessage"
+description: "RestObjectResponseMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RestObjectResponseMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RestObjectResponseMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -29,15 +23,22 @@ title: "RestObjectResponseMessage"
 ### GetMessage
 `public override Message GetMessage()`
 
-**用途 / Purpose:** 获取 `message` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「message」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RestObjectResponseMessage 实例
+RestObjectResponseMessage restObjectResponseMessage = ...;
+var result = restObjectResponseMessage.GetMessage();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RestObjectResponseMessage();
-value.GetMessage();
+// 通常从对应子系统 API 获取实例后调用
+RestObjectResponseMessage restObjectResponseMessage = ...;
+restObjectResponseMessage.GetMessage();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

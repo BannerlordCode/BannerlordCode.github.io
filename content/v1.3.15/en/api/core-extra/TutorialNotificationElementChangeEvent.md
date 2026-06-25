@@ -1,13 +1,7 @@
 ---
 title: "TutorialNotificationElementChangeEvent"
+description: "Auto-generated class reference for TutorialNotificationElementChangeEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialNotificationElementChangeEvent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TutorialNotificationElementChangeEvent
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Tutorial
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Tutorial` to place it 
 ## Usage Example
 
 ```csharp
-var value = new TutorialNotificationElementChangeEvent();
+// Obtain an instance from the relevant subsystem API
+TutorialNotificationElementChangeEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameMenuPartyItemVM"
+description: "GameMenuPartyItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuPartyItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuPartyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
@@ -59,70 +53,143 @@ title: "GameMenuPartyItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshValues();
+```
 
 ### ExecuteSetAsContextMenuItem
 `public void ExecuteSetAsContextMenuItem()`
 
-**用途 / Purpose:** 执行 `set as context menu item` 操作或流程。
+**用途 / Purpose:** 执行 「set as context menu item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.ExecuteSetAsContextMenuItem();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.ExecuteOpenEncyclopedia();
+```
 
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**用途 / Purpose:** 执行 `close tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「close tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.ExecuteCloseTooltip();
+```
 
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**用途 / Purpose:** 执行 `open tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「open tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.ExecuteOpenTooltip();
+```
 
 ### RefreshProperties
 `public void RefreshProperties()`
 
-**用途 / Purpose:** 刷新 `properties` 的显示或缓存。
+**用途 / Purpose:** 使 「properties」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshProperties();
+```
 
 ### RefreshQuestStatus
 `public void RefreshQuestStatus()`
 
-**用途 / Purpose:** 刷新 `quest status` 的显示或缓存。
+**用途 / Purpose:** 使 「quest status」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshQuestStatus();
+```
 
 ### RefreshVisual
 `public void RefreshVisual()`
 
-**用途 / Purpose:** 刷新 `visual` 的显示或缓存。
+**用途 / Purpose:** 使 「visual」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshVisual();
+```
 
 ### RefreshCounts
 `public void RefreshCounts()`
 
-**用途 / Purpose:** 刷新 `counts` 的显示或缓存。
+**用途 / Purpose:** 使 「counts」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshCounts();
+```
 
 ### GetPartyDescriptionTextFromValues
 `public string GetPartyDescriptionTextFromValues()`
 
-**用途 / Purpose:** 获取 `party description text from values` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party description text from values」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+var result = gameMenuPartyItemVM.GetPartyDescriptionTextFromValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.OnFinalize();
+```
 
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+var result = gameMenuPartyItemVM.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameMenuPartyItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+GameMenuPartyItemVM gameMenuPartyItemVM = ...;
+gameMenuPartyItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

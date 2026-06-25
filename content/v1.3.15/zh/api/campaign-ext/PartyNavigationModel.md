@@ -1,13 +1,7 @@
 ---
 title: "PartyNavigationModel"
+description: "PartyNavigationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyNavigationModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyNavigationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ title: "PartyNavigationModel"
 ### CanPlayerNavigateToPosition
 `public abstract bool CanPlayerNavigateToPosition(CampaignVec2 vec2, out MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `player navigate to position`。
+**用途 / Purpose:** 检查当前对象是否满足 「player navigate to position」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNavigationModel 实例
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.CanPlayerNavigateToPosition(vec2, navigationType);
+```
 
 ### GetEmbarkDisembarkThresholdDistance
 `public abstract float GetEmbarkDisembarkThresholdDistance()`
 
-**用途 / Purpose:** 获取 `embark disembark threshold distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「embark disembark threshold distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNavigationModel 实例
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.GetEmbarkDisembarkThresholdDistance();
+```
 
 ### IsTerrainTypeValidForNavigationType
 `public abstract bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 处理 `is terrain type valid for navigation type` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「terrain type valid for navigation type」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNavigationModel 实例
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.IsTerrainTypeValidForNavigationType(terrainType, navigationType);
+```
 
 ### GetInvalidTerrainTypesForNavigationType
 `public abstract int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 获取 `invalid terrain types for navigation type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「invalid terrain types for navigation type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNavigationModel 实例
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.GetInvalidTerrainTypesForNavigationType(navigationType);
+```
 
 ### HasNavalNavigationCapability
 `public abstract bool HasNavalNavigationCapability(MobileParty mobileParty)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `naval navigation capability`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「naval navigation capability」。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNavigationModel 实例
+PartyNavigationModel partyNavigationModel = ...;
+var result = partyNavigationModel.HasNavalNavigationCapability(mobileParty);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyNavigationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyNavigationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

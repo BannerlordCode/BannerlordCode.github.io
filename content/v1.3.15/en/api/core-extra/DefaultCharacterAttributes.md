@@ -1,13 +1,7 @@
 ---
 title: "DefaultCharacterAttributes"
+description: "Auto-generated class reference for DefaultCharacterAttributes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCharacterAttributes`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultCharacterAttributes
 
 **Namespace:** TaleWorlds.Core
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new DefaultCharacterAttributes();
+// Obtain an instance from the relevant subsystem API
+DefaultCharacterAttributes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

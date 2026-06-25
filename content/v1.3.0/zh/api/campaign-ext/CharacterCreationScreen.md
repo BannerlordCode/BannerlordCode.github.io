@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationScreen"
+description: "CharacterCreationScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationScreen
 
 **Namespace:** SandBox.View.CharacterCreation
@@ -27,9 +21,10 @@ title: "CharacterCreationScreen"
 ## 使用示例
 
 ```csharp
-var value = new CharacterCreationScreen();
+// 从对应子系统 API 获取实例
+CharacterCreationScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

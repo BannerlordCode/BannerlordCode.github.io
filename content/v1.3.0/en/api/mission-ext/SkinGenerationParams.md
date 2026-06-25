@@ -1,13 +1,7 @@
 ---
 title: "SkinGenerationParams"
+description: "Auto-generated class reference for SkinGenerationParams."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkinGenerationParams`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkinGenerationParams
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Create
 `public static SkinGenerationParams Create()`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+SkinGenerationParams.Create();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ SkinGenerationParams.Create();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

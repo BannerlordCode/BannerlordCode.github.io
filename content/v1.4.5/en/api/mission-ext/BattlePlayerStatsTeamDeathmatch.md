@@ -1,20 +1,14 @@
 ---
 title: "BattlePlayerStatsTeamDeathmatch"
+description: "Auto-generated class reference for BattlePlayerStatsTeamDeathmatch."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattlePlayerStatsTeamDeathmatch`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattlePlayerStatsTeamDeathmatch
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattlePlayerStatsTeamDeathmatch : BattlePlayerStatsBase`
 **Base:** `BattlePlayerStatsBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsTeamDeathmatch.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattlePlayerStatsTeamDeathmatch.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new BattlePlayerStatsTeamDeathmatch();
+// Obtain an instance from the relevant subsystem API
+BattlePlayerStatsTeamDeathmatch instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

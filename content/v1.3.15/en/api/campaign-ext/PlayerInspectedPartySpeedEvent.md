@@ -1,13 +1,7 @@
 ---
 title: "PlayerInspectedPartySpeedEvent"
+description: "Auto-generated class reference for PlayerInspectedPartySpeedEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerInspectedPartySpeedEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerInspectedPartySpeedEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ## Usage Example
 
 ```csharp
-var value = new PlayerInspectedPartySpeedEvent();
+// Obtain an instance from the relevant subsystem API
+PlayerInspectedPartySpeedEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

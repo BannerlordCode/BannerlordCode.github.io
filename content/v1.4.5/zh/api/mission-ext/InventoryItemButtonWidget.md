@@ -1,20 +1,14 @@
 ---
 title: "InventoryItemButtonWidget"
+description: "InventoryItemButtonWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryItemButtonWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class InventoryItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryItemButtonWidget.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "InventoryItemButtonWidget"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomInventoryItemButtonWidget();
+// 通常通过子系统 API 或工厂获得派生实例
+InventoryItemButtonWidget instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

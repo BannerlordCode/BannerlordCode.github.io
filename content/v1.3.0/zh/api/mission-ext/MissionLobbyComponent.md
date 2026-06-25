@@ -1,13 +1,7 @@
 ---
 title: "MissionLobbyComponent"
+description: "MissionLobbyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionLobbyComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionLobbyComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,124 +31,259 @@ title: "MissionLobbyComponent"
 ### AddLobbyComponentType
 `public static void AddLobbyComponentType(Type type, LobbyMissionType missionType, bool isSeverComponent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `lobby component type`。
+**用途 / Purpose:** 将 「lobby component type」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MissionLobbyComponent.AddLobbyComponentType(type, missionType, false);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnBehaviorInitialize();
+```
 
 ### CreateBehavior
 `public static MissionLobbyComponent CreateBehavior()`
 
-**用途 / Purpose:** 创建一个 `behavior` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「behavior」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionLobbyComponent.CreateBehavior();
+```
 
 ### QuitMission
 `public virtual void QuitMission()`
 
-**用途 / Purpose:** 处理 `quit mission` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.QuitMission();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.AfterStart();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.EarlyStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnMissionTick(0);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnRemoveBehavior();
+```
 
 ### IsClassAvailable
 `public bool IsClassAvailable(FormationClass formationClass)`
 
-**用途 / Purpose:** 处理 `is class available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「class available」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+var result = missionLobbyComponent.IsClassAvailable(formationClass);
+```
 
 ### ChangeClassRestriction
 `public void ChangeClassRestriction(FormationClass classToChangeRestriction, bool value)`
 
-**用途 / Purpose:** 处理 `change class restriction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.ChangeClassRestriction(classToChangeRestriction, false);
+```
 
 ### DespawnPlayer
 `public void DespawnPlayer(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 处理 `despawn player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.DespawnPlayer(missionPeer);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** 当 `score hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「score hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnAgentBuild(agent, banner);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnClearScene();
+```
 
 ### GetSpawnPeriodDurationForPeer
 `public static int GetSpawnPeriodDurationForPeer(MissionPeer peer)`
 
-**用途 / Purpose:** 获取 `spawn period duration for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn period duration for peer」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionLobbyComponent.GetSpawnPeriodDurationForPeer(peer);
+```
 
 ### SetStateEndingAsServer
 `public virtual void SetStateEndingAsServer()`
 
-**用途 / Purpose:** 设置 `state ending as server` 的值或状态。
+**用途 / Purpose:** 为 「state ending as server」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.SetStateEndingAsServer();
+```
 
 ### RequestCultureSelection
 `public void RequestCultureSelection()`
 
-**用途 / Purpose:** 处理 `request culture selection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.RequestCultureSelection();
+```
 
 ### RequestAdminMessage
 `public void RequestAdminMessage(string message, bool isBroadcast)`
 
-**用途 / Purpose:** 处理 `request admin message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.RequestAdminMessage("example", false);
+```
 
 ### RequestTroopSelection
 `public void RequestTroopSelection()`
 
-**用途 / Purpose:** 处理 `request troop selection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.RequestTroopSelection();
+```
 
 ### OnCultureSelected
 `public void OnCultureSelected(BasicCultureObject culture)`
 
-**用途 / Purpose:** 当 `culture selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「culture selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+missionLobbyComponent.OnCultureSelected(culture);
+```
 
 ### GetRandomFaceSeedForCharacter
 `public int GetRandomFaceSeedForCharacter(BasicCharacterObject character, int addition = 0)`
 
-**用途 / Purpose:** 获取 `random face seed for character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random face seed for character」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionLobbyComponent 实例
+MissionLobbyComponent missionLobbyComponent = ...;
+var result = missionLobbyComponent.GetRandomFaceSeedForCharacter(character, 0);
+```
 
 ### MPHostChangeParam
 `public static string MPHostChangeParam(List<string> strings)`
 
-**用途 / Purpose:** 处理 `m p host change param` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionLobbyComponent.MPHostChangeParam(strings);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionLobbyComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionLobbyComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

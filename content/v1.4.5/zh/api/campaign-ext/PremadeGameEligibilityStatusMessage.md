@@ -1,20 +1,14 @@
 ---
 title: "PremadeGameEligibilityStatusMessage"
+description: "PremadeGameEligibilityStatusMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PremadeGameEligibilityStatusMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PremadeGameEligibilityStatusMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PremadeGameEligibilityStatusMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PremadeGameEligibilityStatusMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PremadeGameEligibilityStatusMessage.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "PremadeGameEligibilityStatusMessage"
 ## 使用示例
 
 ```csharp
-var example = new PremadeGameEligibilityStatusMessage();
+// 从对应子系统 API 获取实例
+PremadeGameEligibilityStatusMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

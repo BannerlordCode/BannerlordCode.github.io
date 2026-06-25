@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerEndOfBattleUIHandler"
+description: "Auto-generated class reference for MultiplayerEndOfBattleUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerEndOfBattleUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerEndOfBattleUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerEndOfBattleUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerEndOfBattleUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerEndOfBattleUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MultiplayerEndOfBattleUIHandler` as a Handler-style extension point: firs
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerEndOfBattleUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerEndOfBattleUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

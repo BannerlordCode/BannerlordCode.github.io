@@ -1,20 +1,14 @@
 ---
 title: "IPlayerInputEffector"
+description: "IPlayerInputEffector 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IPlayerInputEffector`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IPlayerInputEffector
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IPlayerInputEffector.cs`
+**Type:** `public interface IPlayerInputEffector : IMissionBehavior`
+**Base:** `IMissionBehavior`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IPlayerInputEffector.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IPlayerInputEffector"
 ## 使用示例
 
 ```csharp
-IPlayerInputEffector implementation = GetPlayerInputEffectorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIPlayerInputEffector service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "CraftingVM"
+description: "Auto-generated class reference for CraftingVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting
@@ -70,110 +64,231 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.OnFinalize();
+```
 
 ### OnCraftingLogicRefreshed
 `public void OnCraftingLogicRefreshed(Crafting newCraftingLogic)`
 
-**Purpose:** Called when the `crafting logic refreshed` event is raised.
+**Purpose:** Invoked when the `crafting logic refreshed` event is raised.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.OnCraftingLogicRefreshed(newCraftingLogic);
+```
 
 ### UpdateCraftingHero
 `public void UpdateCraftingHero(CraftingAvailableHeroItemVM newHero)`
 
-**Purpose:** Updates the state or data of `crafting hero`.
+**Purpose:** Recalculates and stores the latest representation of `crafting hero`.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.UpdateCraftingHero(newHero);
+```
 
 ### ExecuteConfirm
 `public ValueTuple<bool, bool> ExecuteConfirm()`
 
-**Purpose:** Executes the `confirm` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `confirm`.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+var result = craftingVM.ExecuteConfirm();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.ExecuteCancel();
+```
 
 ### ExecuteMainAction
 `public void ExecuteMainAction()`
 
-**Purpose:** Executes the `main action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `main action`.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.ExecuteMainAction();
+```
 
 ### ExecuteResetCamera
 `public void ExecuteResetCamera()`
 
-**Purpose:** Executes the `reset camera` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset camera`.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.ExecuteResetCamera();
+```
 
 ### SetConfirmInputKey
 `public void SetConfirmInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `confirm input key`.
+**Purpose:** Assigns a new value to `confirm input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.SetConfirmInputKey(hotKey);
+```
 
 ### SetExitInputKey
 `public void SetExitInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `exit input key`.
+**Purpose:** Assigns a new value to `exit input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.SetExitInputKey(hotKey);
+```
 
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `previous tab input key`.
+**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.SetPreviousTabInputKey(hotKey);
+```
 
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `next tab input key`.
+**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.SetNextTabInputKey(hotKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
 **Purpose:** Adds `camera control input key` to the current collection or state.
 
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.AddCameraControlInputKey(hotKey);
+```
+
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
 **Purpose:** Adds `camera control input key` to the current collection or state.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.AddCameraControlInputKey(gameKey);
+```
 
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey)`
 
 **Purpose:** Adds `camera control input key` to the current collection or state.
 
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.AddCameraControlInputKey(gameAxisKey);
+```
+
 ### ExecuteSwitchToCrafting
 `public void ExecuteSwitchToCrafting()`
 
-**Purpose:** Executes the `switch to crafting` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch to crafting`.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.ExecuteSwitchToCrafting();
+```
 
 ### ExecuteSwitchToSmelting
 `public void ExecuteSwitchToSmelting()`
 
-**Purpose:** Executes the `switch to smelting` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch to smelting`.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.ExecuteSwitchToSmelting();
+```
 
 ### ExecuteSwitchToRefinement
 `public void ExecuteSwitchToRefinement()`
 
-**Purpose:** Executes the `switch to refinement` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch to refinement`.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.ExecuteSwitchToRefinement();
+```
 
 ### SetCurrentDesignManually
 `public void SetCurrentDesignManually(CraftingTemplate craftingTemplate, ValueTuple<CraftingPiece, int> pieces)`
 
-**Purpose:** Sets the value or state of `current design manually`.
+**Purpose:** Assigns a new value to `current design manually` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.SetCurrentDesignManually(craftingTemplate, valueTuple<CraftingPiece, 0);
+```
 
 ### OnItemRefreshedDelegate
 `public delegate void OnItemRefreshedDelegate(bool isItemVisible)`
 
-**Purpose:** Called when the `item refreshed delegate` event is raised.
+**Purpose:** Invoked when the `item refreshed delegate` event is raised.
+
+```csharp
+// Obtain an instance of CraftingVM from the subsystem API first
+CraftingVM craftingVM = ...;
+craftingVM.OnItemRefreshedDelegate(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingVM craftingVM = ...;
+craftingVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ChangeAlleyOwnerLogEntry"
+description: "ChangeAlleyOwnerLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChangeAlleyOwnerLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeAlleyOwnerLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,30 +29,55 @@ title: "ChangeAlleyOwnerLogEntry"
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 获取 `notification text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ChangeAlleyOwnerLogEntry 实例
+ChangeAlleyOwnerLogEntry changeAlleyOwnerLogEntry = ...;
+var result = changeAlleyOwnerLogEntry.GetNotificationText();
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**用途 / Purpose:** 获取 `conversation score and comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation score and comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ChangeAlleyOwnerLogEntry 实例
+ChangeAlleyOwnerLogEntry changeAlleyOwnerLogEntry = ...;
+changeAlleyOwnerLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** 获取 `encyclopedia text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ChangeAlleyOwnerLogEntry 实例
+ChangeAlleyOwnerLogEntry changeAlleyOwnerLogEntry = ...;
+var result = changeAlleyOwnerLogEntry.GetEncyclopediaText();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 ChangeAlleyOwnerLogEntry 实例
+ChangeAlleyOwnerLogEntry changeAlleyOwnerLogEntry = ...;
+var result = changeAlleyOwnerLogEntry.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ChangeAlleyOwnerLogEntry();
-value.GetNotificationText();
+// 通常从对应子系统 API 获取实例后调用
+ChangeAlleyOwnerLogEntry changeAlleyOwnerLogEntry = ...;
+changeAlleyOwnerLogEntry.GetNotificationText();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

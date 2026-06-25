@@ -1,20 +1,14 @@
 ---
 title: "TestAvatarService"
+description: "Auto-generated class reference for TestAvatarService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestAvatarService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestAvatarService
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class TestAvatarService : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/TestAvatarService.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/TestAvatarService.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.PlayerServices.Avatar` to place it in the stack
 ### ClearCache
 `public void ClearCache()`
 
-**Purpose:** Handles logic related to `clear cache`.
+**Purpose:** Removes all `cache` from the current object.
+
+```csharp
+// Obtain an instance of TestAvatarService from the subsystem API first
+TestAvatarService testAvatarService = ...;
+testAvatarService.ClearCache();
+```
 
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `player avatar`.
+**Purpose:** Reads and returns the `player avatar` value held by the current object.
+
+```csharp
+// Obtain an instance of TestAvatarService from the subsystem API first
+TestAvatarService testAvatarService = ...;
+var result = testAvatarService.GetPlayerAvatar(playerId);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of TestAvatarService from the subsystem API first
+TestAvatarService testAvatarService = ...;
+testAvatarService.Initialize();
+```
 
 ### IsInitialized
 `public bool IsInitialized()`
 
-**Purpose:** Handles logic related to `is initialized`.
+**Purpose:** Determines whether the current object is in the `initialized` state or condition.
+
+```csharp
+// Obtain an instance of TestAvatarService from the subsystem API first
+TestAvatarService testAvatarService = ...;
+var result = testAvatarService.IsInitialized();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TestAvatarService from the subsystem API first
+TestAvatarService testAvatarService = ...;
+testAvatarService.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TestAvatarService();
-value.ClearCache();
+// Typically call this after obtaining an instance from the subsystem API
+TestAvatarService testAvatarService = ...;
+testAvatarService.ClearCache();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

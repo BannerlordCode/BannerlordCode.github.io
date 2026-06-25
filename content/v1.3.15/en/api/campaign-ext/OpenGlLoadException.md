@@ -1,13 +1,7 @@
 ---
 title: "OpenGlLoadException"
+description: "Auto-generated class reference for OpenGlLoadException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OpenGlLoadException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OpenGlLoadException
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.OpenGL
@@ -27,9 +21,10 @@ Treat `OpenGlLoadException` as a Exception-style extension point: first identify
 ## Usage Example
 
 ```csharp
-try { CallOpenGlLoadException(); } catch (OpenGlLoadException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (OpenGlLoadException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

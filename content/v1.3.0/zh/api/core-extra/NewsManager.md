@@ -1,13 +1,7 @@
 ---
 title: "NewsManager"
+description: "NewsManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NewsManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NewsManager
 
 **Namespace:** TaleWorlds.Library.NewsManager
@@ -37,27 +31,57 @@ title: "NewsManager"
 ### GetNewsItems
 `public async Task<MBReadOnlyList<NewsItem>> GetNewsItems(bool forceRefresh)`
 
-**用途 / Purpose:** 获取 `news items` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「news items」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NewsManager 实例
+NewsManager newsManager = ...;
+var result = newsManager.GetNewsItems(false);
+```
 
 ### SetNewsSourceURL
 `public void SetNewsSourceURL(string url)`
 
-**用途 / Purpose:** 设置 `news source u r l` 的值或状态。
+**用途 / Purpose:** 为 「news source u r l」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NewsManager 实例
+NewsManager newsManager = ...;
+newsManager.SetNewsSourceURL("example");
+```
 
 ### UpdateNewsItems
 `public async Task UpdateNewsItems(bool forceRefresh)`
 
-**用途 / Purpose:** 更新 `news items` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「news items」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 NewsManager 实例
+NewsManager newsManager = ...;
+var result = newsManager.UpdateNewsItems(false);
+```
 
 ### UpdateLocalizationID
 `public void UpdateLocalizationID(string localizationID)`
 
-**用途 / Purpose:** 更新 `localization i d` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「localization i d」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 NewsManager 实例
+NewsManager newsManager = ...;
+newsManager.UpdateLocalizationID("example");
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 NewsManager 实例
+NewsManager newsManager = ...;
+newsManager.OnFinalize();
+```
 
 ## 使用示例
 
@@ -67,4 +91,4 @@ var manager = NewsManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

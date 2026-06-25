@@ -1,20 +1,14 @@
 ---
 title: "IconOffsetButtonWidget"
+description: "Auto-generated class reference for IconOffsetButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IconOffsetButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IconOffsetButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class IconOffsetButtonWidget : IconBrushWidget`
 **Base:** `IconBrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/IconOffsetButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/IconOffsetButtonWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `IconOffsetButtonWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new IconOffsetButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+IconOffsetButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

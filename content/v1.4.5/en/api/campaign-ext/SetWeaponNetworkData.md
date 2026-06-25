@@ -1,20 +1,14 @@
 ---
 title: "SetWeaponNetworkData"
+description: "Auto-generated class reference for SetWeaponNetworkData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SetWeaponNetworkData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetWeaponNetworkData
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetWeaponNetworkData : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetWeaponNetworkData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetWeaponNetworkData.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `SetWeaponNetworkData` as a Data-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var value = new SetWeaponNetworkData();
+// This data object is usually returned by campaign/mission APIs
+SetWeaponNetworkData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

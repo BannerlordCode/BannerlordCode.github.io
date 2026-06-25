@@ -1,13 +1,7 @@
 ---
 title: "ShipUpgradePiece"
+description: "ShipUpgradePiece 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipUpgradePiece`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipUpgradePiece
 
 **Namespace:** TaleWorlds.Core
@@ -64,20 +58,33 @@ title: "ShipUpgradePiece"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ShipUpgradePiece 实例
+ShipUpgradePiece shipUpgradePiece = ...;
+shipUpgradePiece.Deserialize(objectManager, node);
+```
 
 ### DoesPieceMatchSlot
 `public bool DoesPieceMatchSlot(ShipSlot slot)`
 
-**用途 / Purpose:** 处理 `does piece match slot` 相关逻辑。
+**用途 / Purpose:** 返回「piece match slot」对当前对象是否成立的布尔结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShipUpgradePiece 实例
+ShipUpgradePiece shipUpgradePiece = ...;
+var result = shipUpgradePiece.DoesPieceMatchSlot(slot);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ShipUpgradePiece();
-value.Deserialize(objectManager, node);
+// 通常从对应子系统 API 获取实例后调用
+ShipUpgradePiece shipUpgradePiece = ...;
+shipUpgradePiece.Deserialize(objectManager, node);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

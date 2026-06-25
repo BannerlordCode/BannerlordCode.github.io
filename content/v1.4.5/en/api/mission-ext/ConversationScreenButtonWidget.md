@@ -1,20 +1,14 @@
 ---
 title: "ConversationScreenButtonWidget"
+description: "Auto-generated class reference for ConversationScreenButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationScreenButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationScreenButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ConversationScreenButtonWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationScreenButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/ConversationScreenButtonWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `ConversationScreenButtonWidget` as a Widget-style extension point: first 
 ### ConversationScreenButtonWidget
 `public class ConversationScreenButtonWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `conversation screen button widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ConversationScreenButtonWidget from the subsystem API first
+ConversationScreenButtonWidget conversationScreenButtonWidget = ...;
+var result = conversationScreenButtonWidget.ConversationScreenButtonWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ConversationScreenButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ConversationScreenButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

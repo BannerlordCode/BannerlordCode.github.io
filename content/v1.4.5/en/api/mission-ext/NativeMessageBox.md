@@ -1,20 +1,14 @@
 ---
 title: "NativeMessageBox"
+description: "Auto-generated class reference for NativeMessageBox."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeMessageBox`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeMessageBox
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class NativeMessageBox`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/NativeMessageBox.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Show
 `public static Result Show(string text, string caption = "Message", Buttons buttons = Buttons.OK, Icon icon = Icon.None)`
 
-**Purpose:** Handles logic related to `show`.
+**Purpose:** Displays the UI or element associated with the current object.
+
+```csharp
+// Static call; no instance required
+NativeMessageBox.Show("example", "example", buttons.OK, icon.None);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ NativeMessageBox.Show("example", "example", buttons.OK, icon.None);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

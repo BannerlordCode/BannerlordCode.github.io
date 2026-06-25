@@ -1,20 +1,14 @@
 ---
 title: "TroopUpgradeTracker"
+description: "TroopUpgradeTracker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TroopUpgradeTracker`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopUpgradeTracker
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TroopUpgradeTracker`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/TroopUpgradeTracker.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/TroopUpgradeTracker.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "TroopUpgradeTracker"
 ### AddParty
 `public void AddParty(MapEventParty mapEventParty)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `party`。
+**用途 / Purpose:** 将 「party」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TroopUpgradeTracker 实例
+TroopUpgradeTracker troopUpgradeTracker = ...;
+troopUpgradeTracker.AddParty(mapEventParty);
+```
 
 ### RemoveParty
 `public void RemoveParty(MapEventParty mapEventParty)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `party`。
+**用途 / Purpose:** 从当前容器或状态中移除 「party」。
+
+```csharp
+// 先通过子系统 API 拿到 TroopUpgradeTracker 实例
+TroopUpgradeTracker troopUpgradeTracker = ...;
+troopUpgradeTracker.RemoveParty(mapEventParty);
+```
 
 ### AddTrackedTroop
 `public void AddTrackedTroop(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tracked troop`。
+**用途 / Purpose:** 将 「tracked troop」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TroopUpgradeTracker 实例
+TroopUpgradeTracker troopUpgradeTracker = ...;
+troopUpgradeTracker.AddTrackedTroop(party, character);
+```
 
 ### CheckSkillUpgrades
 `public IEnumerable<SkillObject> CheckSkillUpgrades(Hero hero)`
 
-**用途 / Purpose:** 处理 `check skill upgrades` 相关逻辑。
+**用途 / Purpose:** 检查「skill upgrades」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 TroopUpgradeTracker 实例
+TroopUpgradeTracker troopUpgradeTracker = ...;
+var result = troopUpgradeTracker.CheckSkillUpgrades(hero);
+```
 
 ### CheckUpgradedCount
 `public int CheckUpgradedCount(PartyBase party, CharacterObject character)`
 
-**用途 / Purpose:** 处理 `check upgraded count` 相关逻辑。
+**用途 / Purpose:** 检查「upgraded count」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 TroopUpgradeTracker 实例
+TroopUpgradeTracker troopUpgradeTracker = ...;
+var result = troopUpgradeTracker.CheckUpgradedCount(party, character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TroopUpgradeTracker();
-value.AddParty(mapEventParty);
+// 通常从对应子系统 API 获取实例后调用
+TroopUpgradeTracker troopUpgradeTracker = ...;
+troopUpgradeTracker.AddParty(mapEventParty);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

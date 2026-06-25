@@ -1,13 +1,7 @@
 ---
 title: "SimpleSceneTestWithMission"
+description: "SimpleSceneTestWithMission 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SimpleSceneTestWithMission`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SimpleSceneTestWithMission
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,15 +23,22 @@ title: "SimpleSceneTestWithMission"
 ### LoadingFinished
 `public bool LoadingFinished()`
 
-**用途 / Purpose:** 加载 `ing finished` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「ing finished」。
+
+```csharp
+// 先通过子系统 API 拿到 SimpleSceneTestWithMission 实例
+SimpleSceneTestWithMission simpleSceneTestWithMission = ...;
+var result = simpleSceneTestWithMission.LoadingFinished();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SimpleSceneTestWithMission();
-value.LoadingFinished();
+// 通常从对应子系统 API 获取实例后调用
+SimpleSceneTestWithMission simpleSceneTestWithMission = ...;
+simpleSceneTestWithMission.LoadingFinished();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

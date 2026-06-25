@@ -1,20 +1,14 @@
 ---
 title: "PathLastNodeFixer"
+description: "PathLastNodeFixer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PathLastNodeFixer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PathLastNodeFixer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PathLastNodeFixer : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PathLastNodeFixer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PathLastNodeFixer.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "PathLastNodeFixer"
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PathLastNodeFixer 实例
+PathLastNodeFixer pathLastNodeFixer = ...;
+pathLastNodeFixer.Update();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PathLastNodeFixer();
-value.Update();
+// 通常从对应子系统 API 获取实例后调用
+PathLastNodeFixer pathLastNodeFixer = ...;
+pathLastNodeFixer.Update();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

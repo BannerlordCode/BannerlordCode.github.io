@@ -1,13 +1,7 @@
 ---
 title: "ConditionalBadge"
+description: "Auto-generated class reference for ConditionalBadge."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConditionalBadge`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConditionalBadge
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### Deserialize
 `public override void Deserialize(XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ConditionalBadge from the subsystem API first
+ConditionalBadge conditionalBadge = ...;
+conditionalBadge.Deserialize(node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConditionalBadge();
-value.Deserialize(node);
+// Typically call this after obtaining an instance from the subsystem API
+ConditionalBadge conditionalBadge = ...;
+conditionalBadge.Deserialize(node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

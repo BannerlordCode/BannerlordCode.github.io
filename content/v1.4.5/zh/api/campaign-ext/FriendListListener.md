@@ -1,20 +1,14 @@
 ---
 title: "FriendListListener"
+description: "FriendListListener 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FriendListListener`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FriendListListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class FriendListListener : IFriendListListener`
 **Base:** `IFriendListListener`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/FriendListListener.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/FriendListListener.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "FriendListListener"
 ### OnFriendListRetrieveSuccess
 `public override void OnFriendListRetrieveSuccess()`
 
-**用途 / Purpose:** 当 `friend list retrieve success` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「friend list retrieve success」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FriendListListener 实例
+FriendListListener friendListListener = ...;
+friendListListener.OnFriendListRetrieveSuccess();
+```
 
 ### OnFriendListRetrieveFailure
 `public override void OnFriendListRetrieveFailure(FailureReason failureReason)`
 
-**用途 / Purpose:** 当 `friend list retrieve failure` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「friend list retrieve failure」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FriendListListener 实例
+FriendListListener friendListListener = ...;
+friendListListener.OnFriendListRetrieveFailure(failureReason);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FriendListListener();
-value.OnFriendListRetrieveSuccess();
+// 通常从对应子系统 API 获取实例后调用
+FriendListListener friendListListener = ...;
+friendListListener.OnFriendListRetrieveSuccess();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

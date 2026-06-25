@@ -1,20 +1,14 @@
 ---
 title: "AliveMessage"
+description: "Auto-generated class reference for AliveMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AliveMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AliveMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public class AliveMessage : RestRequestMessage`
 **Base:** `RestRequestMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/AliveMessage.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/AliveMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new AliveMessage();
+// Obtain an instance from the relevant subsystem API
+AliveMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

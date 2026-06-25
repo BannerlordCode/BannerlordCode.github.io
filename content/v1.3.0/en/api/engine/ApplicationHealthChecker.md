@@ -1,13 +1,7 @@
 ---
 title: "ApplicationHealthChecker"
+description: "Auto-generated class reference for ApplicationHealthChecker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplicationHealthChecker`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ApplicationHealthChecker
 
 **Namespace:** TaleWorlds.Engine
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Start
 `public void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of ApplicationHealthChecker from the subsystem API first
+ApplicationHealthChecker applicationHealthChecker = ...;
+applicationHealthChecker.Start();
+```
 
 ### Stop
 `public void Stop()`
 
-**Purpose:** Handles logic related to `stop`.
+**Purpose:** Stops the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of ApplicationHealthChecker from the subsystem API first
+ApplicationHealthChecker applicationHealthChecker = ...;
+applicationHealthChecker.Stop();
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of ApplicationHealthChecker from the subsystem API first
+ApplicationHealthChecker applicationHealthChecker = ...;
+applicationHealthChecker.Update();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ApplicationHealthChecker();
-value.Start();
+// Typically call this after obtaining an instance from the subsystem API
+ApplicationHealthChecker applicationHealthChecker = ...;
+applicationHealthChecker.Start();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

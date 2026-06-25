@@ -1,13 +1,7 @@
 ---
 title: "NullPlatformServices"
+description: "Auto-generated class reference for NullPlatformServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NullPlatformServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NullPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of NullPlatformServices from the subsystem API first
+NullPlatformServices nullPlatformServices = ...;
+nullPlatformServices.Tick(0);
+```
 
 ### ActivateFriendList
 `public void ActivateFriendList()`
 
-**Purpose:** Handles logic related to `activate friend list`.
+**Purpose:** Activates the resource, state, or feature associated with `friend list`.
+
+```csharp
+// Obtain an instance of NullPlatformServices from the subsystem API first
+NullPlatformServices nullPlatformServices = ...;
+nullPlatformServices.ActivateFriendList();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NullPlatformServices();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+NullPlatformServices nullPlatformServices = ...;
+nullPlatformServices.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

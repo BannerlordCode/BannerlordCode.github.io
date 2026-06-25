@@ -1,13 +1,7 @@
 ---
 title: "KingdomArmyPartyItemVM"
+description: "Auto-generated class reference for KingdomArmyPartyItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomArmyPartyItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # KingdomArmyPartyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomArmyPartyItemVM from the subsystem API first
+KingdomArmyPartyItemVM kingdomArmyPartyItemVM = ...;
+kingdomArmyPartyItemVM.RefreshValues();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of KingdomArmyPartyItemVM from the subsystem API first
+KingdomArmyPartyItemVM kingdomArmyPartyItemVM = ...;
+kingdomArmyPartyItemVM.ExecuteLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomArmyPartyItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomArmyPartyItemVM kingdomArmyPartyItemVM = ...;
+kingdomArmyPartyItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

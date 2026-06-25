@@ -1,20 +1,14 @@
 ---
 title: "DuelMissionRepresentative"
+description: "Auto-generated class reference for DuelMissionRepresentative."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelMissionRepresentative`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelMissionRepresentative
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionRepresentatives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DuelMissionRepresentative : MissionRepresentativeBase`
 **Base:** `MissionRepresentativeBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/DuelMissionRepresentative.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/DuelMissionRepresentative.cs`
 
 ## Overview
 
@@ -37,65 +31,132 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.Initialize();
+```
 
 ### AddRemoveMessageHandlers
 `public void AddRemoveMessageHandlers(GameNetwork.NetworkMessageHandlerRegisterer.RegisterMode mode)`
 
 **Purpose:** Adds `remove message handlers` to the current collection or state.
 
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.AddRemoveMessageHandlers(mode);
+```
+
 ### OnInteraction
 `public void OnInteraction()`
 
-**Purpose:** Called when the `interaction` event is raised.
+**Purpose:** Invoked when the `interaction` event is raised.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnInteraction();
+```
 
 ### DuelRequested
 `public void DuelRequested(Agent requesterAgent, TroopType selectedAreaTroopType)`
 
-**Purpose:** Handles logic related to `duel requested`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.DuelRequested(requesterAgent, selectedAreaTroopType);
+```
 
 ### CheckHasRequestFromAndRemoveRequestIfNeeded
 `public bool CheckHasRequestFromAndRemoveRequestIfNeeded(MissionPeer requestOwner)`
 
-**Purpose:** Handles logic related to `check has request from and remove request if needed`.
+**Purpose:** Verifies whether `has request from and remove request if needed` holds true for the current object.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+var result = duelMissionRepresentative.CheckHasRequestFromAndRemoveRequestIfNeeded(requestOwner);
+```
 
 ### OnDuelPreparation
 `public void OnDuelPreparation(MissionPeer requesterPeer, MissionPeer requesteePeer)`
 
-**Purpose:** Called when the `duel preparation` event is raised.
+**Purpose:** Invoked when the `duel preparation` event is raised.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnDuelPreparation(requesterPeer, requesteePeer);
+```
 
 ### OnObjectFocused
 `public void OnObjectFocused(IFocusable focusedObject)`
 
-**Purpose:** Called when the `object focused` event is raised.
+**Purpose:** Invoked when the `object focused` event is raised.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnObjectFocused(focusedObject);
+```
 
 ### OnObjectFocusLost
 `public void OnObjectFocusLost()`
 
-**Purpose:** Called when the `object focus lost` event is raised.
+**Purpose:** Invoked when the `object focus lost` event is raised.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnObjectFocusLost();
+```
 
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**Purpose:** Called when the `agent spawned` event is raised.
+**Purpose:** Invoked when the `agent spawned` event is raised.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnAgentSpawned();
+```
 
 ### ResetBountyAndNumberOfWins
 `public void ResetBountyAndNumberOfWins()`
 
-**Purpose:** Resets `bounty and number of wins` to its initial state.
+**Purpose:** Returns `bounty and number of wins` to its default or initial condition.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.ResetBountyAndNumberOfWins();
+```
 
 ### OnDuelWon
 `public void OnDuelWon(float gainedScore)`
 
-**Purpose:** Called when the `duel won` event is raised.
+**Purpose:** Invoked when the `duel won` event is raised.
+
+```csharp
+// Obtain an instance of DuelMissionRepresentative from the subsystem API first
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.OnDuelWon(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DuelMissionRepresentative();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+DuelMissionRepresentative duelMissionRepresentative = ...;
+duelMissionRepresentative.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

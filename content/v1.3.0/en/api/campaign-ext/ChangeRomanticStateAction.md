@@ -1,18 +1,8 @@
 ---
 title: "ChangeRomanticStateAction"
+description: "Auto-generated campaign action reference for ChangeRomanticStateAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeRomanticStateAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeRomanticStateAction
-
-## Mental Model
-
-Treat `ChangeRomanticStateAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -29,7 +19,7 @@ ChangeRomanticStateAction is a set of static methods that trigger "ChangeRomanti
 public static void Apply(Hero person1, Hero person2, Romance.RomanceLevelEnum toWhat)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -40,5 +30,5 @@ ChangeRomanticStateAction.Apply(person1, person2, toWhat);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

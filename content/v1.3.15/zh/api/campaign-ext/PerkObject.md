@@ -1,132 +1,75 @@
 ---
 title: "PerkObject"
+description: "PerkObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PerkObject`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerkObject
 
-**命名空间:** TaleWorlds.CampaignSystem.CharacterDevelopment  
-**模块:** TaleWorlds.CampaignSystem  
-**类型:** sealed class（继?
+**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public sealed class PerkObject : PropertyObject`
+**Base:** `PropertyObject`
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/PerkObject.cs`
 
-`PropertyObject
-
-`? 
-**文件:** 
-
-`bannerlord-1.3.15/TaleWorlds.CampaignSystem/CharacterDevelopment/PerkObject.cs
-
-`
-
-`PerkObject
-
-` 表示一个特长（perk）——随技能达到阈值解锁的被动加成。每个特长属于一项技能，有主?次要两种角色加成（如队伍指挥官、军需官等）?
 ## 概述
 
-mod 通常?
+`PerkObject` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-`new PerkObject
-
-`，而是通过 
-
-`DefaultPerks
-
-` 静态字段引用既有特长（?
-
-`DefaultPerks.OneHanded.Pugilist
-
-`），或用 
-
-`PerkObject.All
-
-` 枚举全部。判断某角色是否拥有特长?
-
-`Hero.GetPerkValue(perk)
-
-`?
-## 
 ## 心智模型
 
-先把 `PerkObject` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
-主要属?
-\| 名称 \| 类型 \| 描述 \|
-\|------\|------\|------\|
-\| All \| 
+先从命名空间 `TaleWorlds.CampaignSystem.CharacterDevelopment` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-`MBReadOnlyList&lt;PerkObject&gt;
+## 主要属性
 
-` \| 静态；当前所有特长（取自 
+| Name | Signature |
+|------|-----------|
+| `All` | `public static MBReadOnlyList<PerkObject> All { get; }` |
+| `Skill` | `public SkillObject Skill { get; }` |
+| `RequiredSkillValue` | `public float RequiredSkillValue { get; }` |
+| `AlternativePerk` | `public PerkObject AlternativePerk { get; }` |
+| `PrimaryRole` | `public PartyRole PrimaryRole { get; }` |
+| `SecondaryRole` | `public PartyRole SecondaryRole { get; }` |
+| `PrimaryBonus` | `public float PrimaryBonus { get; }` |
+| `SecondaryBonus` | `public float SecondaryBonus { get; }` |
+| `PrimaryIncrementType` | `public EffectIncrementType PrimaryIncrementType { get; }` |
+| `SecondaryIncrementType` | `public EffectIncrementType SecondaryIncrementType { get; }` |
+| `PrimaryTroopUsageMask` | `public TroopUsageFlags PrimaryTroopUsageMask { get; }` |
+| `SecondaryTroopUsageMask` | `public TroopUsageFlags SecondaryTroopUsageMask { get; }` |
+| `PrimaryDescription` | `public TextObject PrimaryDescription { get; }` |
+| `SecondaryDescription` | `public TextObject SecondaryDescription { get; }` |
+| `IsTrash` | `public bool IsTrash { get; }` |
 
-`Campaign.Current.AllPerks
+## 主要方法
 
-`?\|
-\| Skill \| SkillObject \| 所属技?\|
-\| RequiredSkillValue \| float \| 解锁所需技能?\|
-\| AlternativePerk \| PerkObject \| 互斥的替代特长（二选一?\|
-\| PrimaryRole \| PartyRole \| 主要加成适用的队伍角?\|
-\| SecondaryRole \| PartyRole \| 次要加成适用的队伍角?\|
-\| PrimaryBonus / SecondaryBonus \| float \| 主要/次要加成数?\|
-\| PrimaryIncrementType / SecondaryIncrementType \| EffectIncrementType \| 加成的增量类?\|
-\| PrimaryTroopUsageMask / SecondaryTroopUsageMask \| TroopUsageFlags \| 主要/次要加成的兵种用途掩?\|
-\| PrimaryDescription / SecondaryDescription \| TextObject \| 主要/次要加成描述 \|
-\| IsTrash \| bool \| 是否未正确初始化（Name/Description/Skill 为空?\|
+### Initialize
+`public void Initialize(string name, SkillObject skill, int requiredSkillValue, PerkObject alternativePerk, string primaryDescription, PartyRole primaryRole, float primaryBonus, EffectIncrementType incrementType, string secondaryDescription = "", PartyRole secondaryRole = PartyRole.None, float secondaryBonus = 0f, EffectIncrementType secondaryIncrementType = EffectIncrementType.Invalid, TroopUsageFlags primaryTroopUsageMask = TroopUsageFlags.Undefined, TroopUsageFlags secondaryTroopUsageMask = TroopUsageFlags.Undefined)`
 
-## Initialize
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
-`
+```csharp
+// 先通过子系统 API 拿到 PerkObject 实例
+PerkObject perkObject = ...;
+perkObject.Initialize("example", skill, 0, alternativePerk, "example", primaryRole, 0, incrementType, "example", partyRole.None, 0, effectIncrementType.Invalid, troopUsageFlags.Undefined, troopUsageFlags.Undefined);
+```
 
-`
+### ToString
+`public override string ToString()`
 
-`csharp
-public void Initialize(string name, SkillObject skill, int requiredSkillValue, PerkObject alternativePerk,
-    string primaryDescription, PartyRole primaryRole, float primaryBonus, EffectIncrementType incrementType,
-    string secondaryDescription = "", PartyRole secondaryRole = PartyRole.None, float secondaryBonus = 0f,
-    EffectIncrementType secondaryIncrementType = EffectIncrementType.Invalid,
-    TroopUsageFlags primaryTroopUsageMask = TroopUsageFlags.Undefined,
-    TroopUsageFlags secondaryTroopUsageMask = TroopUsageFlags.Undefined)
-`
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
-`
+```csharp
+// 先通过子系统 API 拿到 PerkObject 实例
+PerkObject perkObject = ...;
+var result = perkObject.ToString();
+```
 
-`
-
-用于?XML/代码中定义特长时设置全部字段。`alternativePerk
-
-` 非空时会双向绑定互斥关系?
 ## 使用示例
 
-`
-
-`
-
-`csharp
-// 引用既有特长并检查角色是否拥?PerkObject perk = DefaultPerks.OneHanded.Pugilist;
-if (hero.GetPerkValue(perk))
-{
-    // 角色拥有该特?}
-
-// 枚举某技能下所有特?foreach (PerkObject p in PerkObject.All)
-{
-    if (p.Skill == DefaultSkills.OneHanded && !p.IsTrash)
-    {
-        Debug.Print($"{p.Name}: 需 {p.RequiredSkillValue} 点，主加?{p.PrimaryBonus}");
-    }
-}
-`
-
-`
-
-`
+```csharp
+// 通常从对应子系统 API 获取实例后调用
+PerkObject perkObject = ...;
+perkObject.Initialize("example", skill, 0, alternativePerk, "example", primaryRole, 0, incrementType, "example", partyRole.None, 0, effectIncrementType.Invalid, troopUsageFlags.Undefined, troopUsageFlags.Undefined);
+```
 
 ## 参见
 
-- [Hero](../campaign/Hero)
-- [HeroDeveloper](./HeroDeveloper)
-- [SkillObject](../core-extra/SkillObject)
-- [TraitObject](./TraitObject)
-- [Campaign](./Campaign)
+- [本区域目录](../)

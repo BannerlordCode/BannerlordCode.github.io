@@ -1,13 +1,7 @@
 ---
 title: "MBGameModel"
+description: "MBGameModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBGameModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBGameModel
 
 **Namespace:** TaleWorlds.Core
@@ -29,14 +23,21 @@ title: "MBGameModel"
 ### Initialize
 `public void Initialize(T baseModel)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MBGameModel 实例
+MBGameModel mBGameModel = ...;
+mBGameModel.Initialize(baseModel);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMBGameModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MBGameModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DisguiseDetectionModel"
+description: "DisguiseDetectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DisguiseDetectionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisguiseDetectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ title: "DisguiseDetectionModel"
 ### CalculateDisguiseDetectionProbability
 `public abstract float CalculateDisguiseDetectionProbability(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `calculate disguise detection probability` 相关逻辑。
+**用途 / Purpose:** 计算「disguise detection probability」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DisguiseDetectionModel 实例
+DisguiseDetectionModel disguiseDetectionModel = ...;
+var result = disguiseDetectionModel.CalculateDisguiseDetectionProbability(settlement);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDisguiseDetectionModel();
+// 通常通过子系统 API 或工厂获得派生实例
+DisguiseDetectionModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

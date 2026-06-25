@@ -1,24 +1,18 @@
 ---
 title: "CoreManaged"
+description: "Auto-generated class reference for CoreManaged."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CoreManaged`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CoreManaged
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CoreManaged : IManagedComponent`
 **Base:** `IManagedComponent`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/CoreManaged.cs`
 
 ## Overview
 
-`CoreManaged` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CoreManaged` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,16 +29,19 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Start
 `public static void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Static call; no instance required
+CoreManaged.Start();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CoreManaged.Start();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultItemCategories"
+description: "Auto-generated class reference for DefaultItemCategories."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultItemCategories`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultItemCategories
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultItemCategories`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/DefaultItemCategories.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultItemCategories.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new DefaultItemCategories();
+// Obtain an instance from the relevant subsystem API
+DefaultItemCategories instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

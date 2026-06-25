@@ -1,20 +1,14 @@
 ---
 title: "DebugHotKeyCategory"
+description: "DebugHotKeyCategory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DebugHotKeyCategory`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugHotKeyCategory
 
 **Namespace:** TaleWorlds.Engine.InputSystem
 **Module:** TaleWorlds.Engine
 **Type:** `public class DebugHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/DebugHotKeyCategory.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/DebugHotKeyCategory.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "DebugHotKeyCategory"
 ## 使用示例
 
 ```csharp
-var example = new DebugHotKeyCategory();
+// 从对应子系统 API 获取实例
+DebugHotKeyCategory instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

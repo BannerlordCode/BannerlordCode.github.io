@@ -1,20 +1,14 @@
 ---
 title: "Tile1D"
+description: "Tile1D 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Tile1D`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Tile1D
 
 **Namespace:** SandBox.BoardGames.Tiles
 **Module:** SandBox.BoardGames
 **Type:** `public class Tile1D : TileBase`
 **Base:** `TileBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/Tile1D.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Tiles/Tile1D.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "Tile1D"
 ## 使用示例
 
 ```csharp
-var value = new Tile1D();
+// 从对应子系统 API 获取实例
+Tile1D instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionBoundaryPlacer"
+description: "MissionBoundaryPlacer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBoundaryPlacer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoundaryPlacer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ title: "MissionBoundaryPlacer"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoundaryPlacer 实例
+MissionBoundaryPlacer missionBoundaryPlacer = ...;
+missionBoundaryPlacer.EarlyStart();
+```
 
 ### AddMissionBoundaries
 `public void AddMissionBoundaries()`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `mission boundaries`。
+**用途 / Purpose:** 将 「mission boundaries」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoundaryPlacer 实例
+MissionBoundaryPlacer missionBoundaryPlacer = ...;
+missionBoundaryPlacer.AddMissionBoundaries();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionBoundaryPlacer();
-value.EarlyStart();
+// 通常从对应子系统 API 获取实例后调用
+MissionBoundaryPlacer missionBoundaryPlacer = ...;
+missionBoundaryPlacer.EarlyStart();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

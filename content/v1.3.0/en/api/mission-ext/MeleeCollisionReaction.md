@@ -1,18 +1,12 @@
 ---
 title: "MeleeCollisionReaction"
+description: "Auto-generated class reference for MeleeCollisionReaction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MeleeCollisionReaction`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MeleeCollisionReaction
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum MeleeCollisionReaction`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/MeleeCollisionReaction.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new MeleeCollisionReaction();
+// Obtain an instance from the relevant subsystem API
+MeleeCollisionReaction instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

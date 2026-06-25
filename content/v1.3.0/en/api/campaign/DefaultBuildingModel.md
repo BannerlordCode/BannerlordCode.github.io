@@ -1,13 +1,7 @@
 ---
 title: "DefaultBuildingModel"
+description: "Auto-generated class reference for DefaultBuildingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBuildingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBuildingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultBuildingModel` as a Model-style extension point: first identify wh
 ### CanAddBuildingTypeToTown
 `public override bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)`
 
-**Purpose:** Checks whether the current object can `add building type to town`.
+**Purpose:** Checks whether the current object meets the preconditions for `add building type to town`.
+
+```csharp
+// Obtain an instance of DefaultBuildingModel from the subsystem API first
+DefaultBuildingModel defaultBuildingModel = ...;
+var result = defaultBuildingModel.CanAddBuildingTypeToTown(buildingType, town);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultBuildingModel>(new MyDefaultBuildingModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

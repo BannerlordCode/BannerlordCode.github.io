@@ -1,13 +1,7 @@
 ---
 title: "ShipHelper"
+description: "Auto-generated class reference for ShipHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipHelper
 
 **Namespace:** Helpers
@@ -29,22 +23,42 @@ Treat `ShipHelper` as a Helper-style extension point: first identify who creates
 ### GetShipBanner
 `public static Banner GetShipBanner(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**Purpose:** Gets the current value of `ship banner`.
+**Purpose:** Reads and returns the `ship banner` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ShipHelper.GetShipBanner(shipOrigin, null);
+```
 
 ### GetSailColors
 `public static ValueTuple<uint, uint> GetSailColors(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**Purpose:** Gets the current value of `sail colors`.
+**Purpose:** Reads and returns the `sail colors` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ShipHelper.GetSailColors(shipOrigin, null);
+```
 
 ### GetShipBanner
 `public static Banner GetShipBanner(PartyBase party = null)`
 
-**Purpose:** Gets the current value of `ship banner`.
+**Purpose:** Reads and returns the `ship banner` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ShipHelper.GetShipBanner(null);
+```
 
 ### GetSailColors
 `public static ValueTuple<uint, uint> GetSailColors(PartyBase party = null)`
 
-**Purpose:** Gets the current value of `sail colors`.
+**Purpose:** Reads and returns the `sail colors` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ShipHelper.GetSailColors(null);
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ ShipHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ClanManagementVM"
+description: "Auto-generated class reference for ClanManagementVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanManagementVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanManagementVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -91,110 +85,231 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.RefreshValues();
+```
 
 ### SelectHero
 `public void SelectHero(Hero hero)`
 
-**Purpose:** Handles logic related to `select hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectHero(hero);
+```
 
 ### SelectParty
 `public void SelectParty(PartyBase party)`
 
-**Purpose:** Handles logic related to `select party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectParty(party);
+```
 
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**Purpose:** Handles logic related to `select settlement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectSettlement(settlement);
+```
 
 ### SelectWorkshop
 `public void SelectWorkshop(Workshop workshop)`
 
-**Purpose:** Handles logic related to `select workshop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectWorkshop(workshop);
+```
 
 ### SelectAlley
 `public void SelectAlley(Alley alley)`
 
-**Purpose:** Handles logic related to `select alley`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectAlley(alley);
+```
 
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**Purpose:** Handles logic related to `select previous category`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectPreviousCategory();
+```
 
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**Purpose:** Handles logic related to `select next category`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectNextCategory();
+```
 
 ### ExecuteOpenBannerEditor
 `public void ExecuteOpenBannerEditor()`
 
-**Purpose:** Executes the `open banner editor` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open banner editor`.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.ExecuteOpenBannerEditor();
+```
 
 ### UpdateBannerVisuals
 `public void UpdateBannerVisuals()`
 
-**Purpose:** Updates the state or data of `banner visuals`.
+**Purpose:** Recalculates and stores the latest representation of `banner visuals`.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.UpdateBannerVisuals();
+```
 
 ### SetSelectedCategory
 `public void SetSelectedCategory(int index)`
 
-**Purpose:** Sets the value or state of `selected category`.
+**Purpose:** Assigns a new value to `selected category` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetSelectedCategory(0);
+```
 
 ### RefreshDailyValues
 `public void RefreshDailyValues()`
 
-**Purpose:** Refreshes the display or cache of `daily values`.
+**Purpose:** Keeps the display or cache of `daily values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.RefreshDailyValues();
+```
 
 ### RefreshCategoryValues
 `public void RefreshCategoryValues()`
 
-**Purpose:** Refreshes the display or cache of `category values`.
+**Purpose:** Keeps the display or cache of `category values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.RefreshCategoryValues();
+```
 
 ### ExecuteChangeClanName
 `public void ExecuteChangeClanName()`
 
-**Purpose:** Executes the `change clan name` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `change clan name`.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.ExecuteChangeClanName();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.ExecuteClose();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetCancelInputKey(hotkey);
+```
 
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `previous tab input key`.
+**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetPreviousTabInputKey(hotkey);
+```
 
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `next tab input key`.
+**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetNextTabInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanManagementVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

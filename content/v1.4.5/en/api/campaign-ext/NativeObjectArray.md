@@ -1,20 +1,14 @@
 ---
 title: "NativeObjectArray"
+description: "Auto-generated class reference for NativeObjectArray."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeObjectArray`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeObjectArray
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public sealed class NativeObjectArray : NativeObject, IEnumerable<NativeObject>, IEnumerable`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeObjectArray.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeObjectArray.cs`
 
 ## Overview
 
@@ -29,29 +23,52 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### Create
 `public static NativeObjectArray Create()`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+NativeObjectArray.Create();
+```
 
 ### GetElementAt
 `public NativeObject GetElementAt(int index)`
 
-**Purpose:** Gets the current value of `element at`.
+**Purpose:** Reads and returns the `element at` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeObjectArray from the subsystem API first
+NativeObjectArray nativeObjectArray = ...;
+var result = nativeObjectArray.GetElementAt(0);
+```
 
 ### AddElement
 `public void AddElement(NativeObject nativeObject)`
 
 **Purpose:** Adds `element` to the current collection or state.
 
+```csharp
+// Obtain an instance of NativeObjectArray from the subsystem API first
+NativeObjectArray nativeObjectArray = ...;
+nativeObjectArray.AddElement(nativeObject);
+```
+
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of NativeObjectArray from the subsystem API first
+NativeObjectArray nativeObjectArray = ...;
+nativeObjectArray.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-NativeObjectArray example = NativeObjectArray.Value;
+NativeObjectArray.Create();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

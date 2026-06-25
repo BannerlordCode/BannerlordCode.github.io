@@ -1,13 +1,7 @@
 ---
 title: "BattleDeploymentHandler"
+description: "BattleDeploymentHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleDeploymentHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleDeploymentHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Handlers
@@ -29,34 +23,64 @@ title: "BattleDeploymentHandler"
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleDeploymentHandler 实例
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.OnRemoveBehavior();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleDeploymentHandler 实例
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.AfterStart();
+```
 
 ### AutoDeployTeamUsingDeploymentPlan
 `public override void AutoDeployTeamUsingDeploymentPlan(Team team)`
 
-**用途 / Purpose:** 处理 `auto deploy team using deployment plan` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleDeploymentHandler 实例
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.AutoDeployTeamUsingDeploymentPlan(team);
+```
 
 ### ForceUpdateAllUnits
 `public override void ForceUpdateAllUnits()`
 
-**用途 / Purpose:** 处理 `force update all units` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleDeploymentHandler 实例
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.ForceUpdateAllUnits();
+```
 
 ### SetDefaultFormationOrders
 `public void SetDefaultFormationOrders(OrderController orderController)`
 
-**用途 / Purpose:** 设置 `default formation orders` 的值或状态。
+**用途 / Purpose:** 为 「default formation orders」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BattleDeploymentHandler 实例
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.SetDefaultFormationOrders(orderController);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleDeploymentHandler());
+var behavior = Mission.Current.GetMissionBehavior<BattleDeploymentHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

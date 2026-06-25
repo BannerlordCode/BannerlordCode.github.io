@@ -1,13 +1,7 @@
 ---
 title: "AudioPlaybackLayerChannelStandalone"
+description: "AudioPlaybackLayerChannelStandalone 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AudioPlaybackLayerChannelStandalone`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AudioPlaybackLayerChannelStandalone
 
 **Namespace:** psai.net
@@ -29,45 +23,88 @@ title: "AudioPlaybackLayerChannelStandalone"
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 处理 `release` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+audioPlaybackLayerChannelStandalone.Release();
+```
 
 ### LoadSegment
 `public PsaiResult LoadSegment(Segment segment)`
 
-**用途 / Purpose:** 加载 `segment` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「segment」。
+
+```csharp
+// 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.LoadSegment(segment);
+```
 
 ### ReleaseSegment
 `public PsaiResult ReleaseSegment()`
 
-**用途 / Purpose:** 处理 `release segment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.ReleaseSegment();
+```
 
 ### ScheduleSegmentPlayback
 `public PsaiResult ScheduleSegmentPlayback(Segment snippet, int delayMilliseconds)`
 
-**用途 / Purpose:** 处理 `schedule segment playback` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.ScheduleSegmentPlayback(snippet, 0);
+```
 
 ### StopChannel
 `public PsaiResult StopChannel()`
 
-**用途 / Purpose:** 处理 `stop channel` 相关逻辑。
+**用途 / Purpose:** 停止「channel」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.StopChannel();
+```
 
 ### SetVolume
 `public PsaiResult SetVolume(float volume)`
 
-**用途 / Purpose:** 设置 `volume` 的值或状态。
+**用途 / Purpose:** 为 「volume」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.SetVolume(0);
+```
 
 ### SetPaused
 `public PsaiResult SetPaused(bool paused)`
 
-**用途 / Purpose:** 设置 `paused` 的值或状态。
+**用途 / Purpose:** 为 「paused」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AudioPlaybackLayerChannelStandalone 实例
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+var result = audioPlaybackLayerChannelStandalone.SetPaused(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AudioPlaybackLayerChannelStandalone();
-value.Release();
+// 通常从对应子系统 API 获取实例后调用
+AudioPlaybackLayerChannelStandalone audioPlaybackLayerChannelStandalone = ...;
+audioPlaybackLayerChannelStandalone.Release();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

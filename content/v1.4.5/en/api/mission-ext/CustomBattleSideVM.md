@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleSideVM"
+description: "Auto-generated class reference for CustomBattleSideVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleSideVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleSideVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSideVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSideVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleSideVM.cs`
 
 ## Overview
 
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CustomBattleSideVM from the subsystem API first
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.RefreshValues();
+```
 
 ### OnPlayerTypeChange
 `public void OnPlayerTypeChange(CustomBattlePlayerType playerType)`
 
-**Purpose:** Called when the `player type change` event is raised.
+**Purpose:** Invoked when the `player type change` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleSideVM from the subsystem API first
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.OnPlayerTypeChange(playerType);
+```
 
 ### UpdateCharacterVisual
 `public void UpdateCharacterVisual()`
 
-**Purpose:** Updates the state or data of `character visual`.
+**Purpose:** Recalculates and stores the latest representation of `character visual`.
+
+```csharp
+// Obtain an instance of CustomBattleSideVM from the subsystem API first
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.UpdateCharacterVisual();
+```
 
 ### Randomize
 `public void Randomize(CustomBattleSideVM oppositeSide = null)`
 
-**Purpose:** Handles logic related to `randomize`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleSideVM from the subsystem API first
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.Randomize(null);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleSideVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleSideVM customBattleSideVM = ...;
+customBattleSideVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "VariableCode"
+description: "Auto-generated class reference for VariableCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VariableCode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VariableCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateLine
 `public string GenerateLine()`
 
-**Purpose:** Handles logic related to `generate line`.
+**Purpose:** Generates an instance, data, or representation of `line`.
+
+```csharp
+// Obtain an instance of VariableCode from the subsystem API first
+VariableCode variableCode = ...;
+var result = variableCode.GenerateLine();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VariableCode();
-value.GenerateLine();
+// Typically call this after obtaining an instance from the subsystem API
+VariableCode variableCode = ...;
+variableCode.GenerateLine();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

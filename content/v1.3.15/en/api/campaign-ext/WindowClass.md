@@ -1,13 +1,7 @@
 ---
 title: "WindowClass"
+description: "Auto-generated class reference for WindowClass."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WindowClass`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WindowClass
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ## Usage Example
 
 ```csharp
-var value = new WindowClass();
+// Obtain an instance from the relevant subsystem API
+WindowClass instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

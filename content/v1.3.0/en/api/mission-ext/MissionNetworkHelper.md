@@ -1,13 +1,7 @@
 ---
 title: "MissionNetworkHelper"
+description: "Auto-generated class reference for MissionNetworkHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNetworkHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNetworkHelper
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,27 +23,52 @@ Treat `MissionNetworkHelper` as a Helper-style extension point: first identify w
 ### GetAgentFromIndex
 `public static Agent GetAgentFromIndex(int agentIndex, bool canBeNull = false)`
 
-**Purpose:** Gets the current value of `agent from index`.
+**Purpose:** Reads and returns the `agent from index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetAgentFromIndex(0, false);
+```
 
 ### GetMBTeamFromTeamIndex
 `public static MBTeam GetMBTeamFromTeamIndex(int teamIndex)`
 
-**Purpose:** Gets the current value of `m b team from team index`.
+**Purpose:** Reads and returns the `m b team from team index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetMBTeamFromTeamIndex(0);
+```
 
 ### GetTeamFromTeamIndex
 `public static Team GetTeamFromTeamIndex(int teamIndex)`
 
-**Purpose:** Gets the current value of `team from team index`.
+**Purpose:** Reads and returns the `team from team index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetTeamFromTeamIndex(0);
+```
 
 ### GetMissionObjectFromMissionObjectId
 `public static MissionObject GetMissionObjectFromMissionObjectId(MissionObjectId missionObjectId)`
 
-**Purpose:** Gets the current value of `mission object from mission object id`.
+**Purpose:** Reads and returns the `mission object from mission object id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetMissionObjectFromMissionObjectId(missionObjectId);
+```
 
 ### GetCombatLogDataForCombatLogNetworkMessage
 `public static CombatLogData GetCombatLogDataForCombatLogNetworkMessage(CombatLogNetworkMessage message)`
 
-**Purpose:** Gets the current value of `combat log data for combat log network message`.
+**Purpose:** Reads and returns the `combat log data for combat log network message` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionNetworkHelper.GetCombatLogDataForCombatLogNetworkMessage(message);
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ MissionNetworkHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

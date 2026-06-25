@@ -1,20 +1,14 @@
 ---
 title: "MissionBasicTeamLogic"
+description: "MissionBasicTeamLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBasicTeamLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBasicTeamLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class MissionBasicTeamLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionBasicTeamLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionBasicTeamLogic.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "MissionBasicTeamLogic"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBasicTeamLogic 实例
+MissionBasicTeamLogic missionBasicTeamLogic = ...;
+missionBasicTeamLogic.EarlyStart();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBasicTeamLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionBasicTeamLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

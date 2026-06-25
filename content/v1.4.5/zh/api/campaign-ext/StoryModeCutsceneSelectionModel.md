@@ -1,20 +1,14 @@
 ---
 title: "StoryModeCutsceneSelectionModel"
+description: "StoryModeCutsceneSelectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeCutsceneSelectionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeCutsceneSelectionModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeCutsceneSelectionModel : CutsceneSelectionModel`
 **Base:** `CutsceneSelectionModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeCutsceneSelectionModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeCutsceneSelectionModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "StoryModeCutsceneSelectionModel"
 ### GetKingdomDestroyedSceneNotification
 `public override SceneNotificationData GetKingdomDestroyedSceneNotification(Kingdom kingdom)`
 
-**用途 / Purpose:** 获取 `kingdom destroyed scene notification` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「kingdom destroyed scene notification」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeCutsceneSelectionModel 实例
+StoryModeCutsceneSelectionModel storyModeCutsceneSelectionModel = ...;
+var result = storyModeCutsceneSelectionModel.GetKingdomDestroyedSceneNotification(kingdom);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeCutsceneSelectionModel>(new MyStoryModeCutsce
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

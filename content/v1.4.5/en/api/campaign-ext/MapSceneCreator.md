@@ -1,20 +1,14 @@
 ---
 title: "MapSceneCreator"
+description: "Auto-generated class reference for MapSceneCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSceneCreator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSceneCreator
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class MapSceneCreator : IMapSceneCreator`
 **Base:** `IMapSceneCreator`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/MapSceneCreator.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/MapSceneCreator.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-var value = new MapSceneCreator();
+// Obtain an instance from the relevant subsystem API
+MapSceneCreator instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

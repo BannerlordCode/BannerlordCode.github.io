@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListSettlementComparer"
+description: "Auto-generated class reference for EncyclopediaListSettlementComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListSettlementComparer`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListSettlementComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class EncyclopediaListSettlementComparer : EncyclopediaListItemComparerBase`
 **Base:** `EncyclopediaListItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaSettlementPage.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaSettlementPage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncyclopediaListSettlementComparer();
+// Typically obtained from a subsystem API or factory
+EncyclopediaListSettlementComparer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

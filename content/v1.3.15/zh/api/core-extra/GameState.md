@@ -1,13 +1,7 @@
 ---
 title: "GameState"
+description: "GameState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameState`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameState
 
 **Namespace:** TaleWorlds.Core
@@ -41,19 +35,32 @@ title: "GameState"
 ### RegisterListener
 `public bool RegisterListener(IGameStateListener listener)`
 
-**用途 / Purpose:** 处理 `register listener` 相关逻辑。
+**用途 / Purpose:** 将「listener」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 GameState 实例
+GameState gameState = ...;
+var result = gameState.RegisterListener(listener);
+```
 
 ### UnregisterListener
 `public bool UnregisterListener(IGameStateListener listener)`
 
-**用途 / Purpose:** 处理 `unregister listener` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「listener」。
+
+```csharp
+// 先通过子系统 API 拿到 GameState 实例
+GameState gameState = ...;
+var result = gameState.UnregisterListener(listener);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameState();
+// 通常通过子系统 API 或工厂获得派生实例
+GameState instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

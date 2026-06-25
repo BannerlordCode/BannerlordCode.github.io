@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleHelper"
+description: "CustomBattleHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleHelper`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CustomBattleHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleHelper.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleHelper.cs`
 
 ## 概述
 
@@ -29,47 +23,92 @@ title: "CustomBattleHelper"
 ### GetIndexFromGameTypeStringId
 `public static int GetIndexFromGameTypeStringId(string gameTypeStringId)`
 
-**用途 / Purpose:** 获取 `index from game type string id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index from game type string id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.GetIndexFromGameTypeStringId("example");
+```
 
 ### StartGame
 `public static void StartGame(CustomBattleData data)`
 
-**用途 / Purpose:** 处理 `start game` 相关逻辑。
+**用途 / Purpose:** 启动「game」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.StartGame(data);
+```
 
 ### GetTroopCounts
 `public static int GetTroopCounts(int armySize, CustomBattleCompositionData compositionData)`
 
-**用途 / Purpose:** 获取 `troop counts` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop counts」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.GetTroopCounts(0, compositionData);
+```
 
 ### GetWallHitpointPercentages
 `public static float GetWallHitpointPercentages(int breachedWallCount)`
 
-**用途 / Purpose:** 获取 `wall hitpoint percentages` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「wall hitpoint percentages」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.GetWallHitpointPercentages(0);
+```
 
 ### GetSiegeWeaponType
 `public static SiegeEngineType GetSiegeWeaponType(SiegeEngineType siegeWeaponType)`
 
-**用途 / Purpose:** 获取 `siege weapon type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege weapon type」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.GetSiegeWeaponType(siegeWeaponType);
+```
 
 ### PrepareBattleData
 `public static CustomBattleData PrepareBattleData(BasicCharacterObject playerCharacter, BasicCharacterObject playerSideGeneralCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, CustomBattlePlayerSide playerSide, CustomBattlePlayerType battlePlayerType, string gameTypeStringId, string scene, string season, float timeOfDay, List<MissionSiegeWeapon> attackerMachines, List<MissionSiegeWeapon> defenderMachines, float wallHitPointsPercentages, int sceneUpgradeLevel, bool isSallyOut, string forcedSceneLevel)`
 
-**用途 / Purpose:** 处理 `prepare battle data` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「battle data」操作完成前置准备工作。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.PrepareBattleData(playerCharacter, playerSideGeneralCharacter, playerParty, enemyParty, playerSide, battlePlayerType, "example", "example", "example", 0, attackerMachines, defenderMachines, 0, 0, false, "example");
+```
 
 ### GetCustomBattleParties
 `public static CustomBattleCombatant GetCustomBattleParties(BasicCharacterObject playerCharacter, BasicCharacterObject playerSideGeneralCharacter, BasicCharacterObject enemyCharacter, BasicCultureObject playerFaction, int playerNumbers, List<BasicCharacterObject> playerTroopSelections, BasicCultureObject enemyFaction, int enemyNumbers, List<BasicCharacterObject> enemyTroopSelections, bool isPlayerAttacker)`
 
-**用途 / Purpose:** 获取 `custom battle parties` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「custom battle parties」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.GetCustomBattleParties(playerCharacter, playerSideGeneralCharacter, enemyCharacter, playerFaction, 0, playerTroopSelections, enemyFaction, 0, enemyTroopSelections, false);
+```
 
 ### AssertMissingTroopsForDebug
 `public static void AssertMissingTroopsForDebug()`
 
-**用途 / Purpose:** 处理 `assert missing troops for debug` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.AssertMissingTroopsForDebug();
+```
 
 ### GetDefaultTroopOfFormationForFaction
 `public static BasicCharacterObject GetDefaultTroopOfFormationForFaction(BasicCultureObject culture, FormationClass formation)`
 
-**用途 / Purpose:** 获取 `default troop of formation for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default troop of formation for faction」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleHelper.GetDefaultTroopOfFormationForFaction(culture, formation);
+```
 
 ## 使用示例
 
@@ -79,4 +118,4 @@ CustomBattleHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

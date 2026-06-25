@@ -1,20 +1,14 @@
 ---
 title: "PrisonBreakMissionController"
+description: "PrisonBreakMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrisonBreakMissionController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrisonBreakMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Towns
 **Module:** SandBox.Missions
 **Type:** `public class PrisonBreakMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/PrisonBreakMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Towns/PrisonBreakMissionController.cs`
 
 ## 概述
 
@@ -29,52 +23,112 @@ title: "PrisonBreakMissionController"
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** 当 `created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnCreated();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.AfterStart();
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `agent interaction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent interaction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 处理 `is there agent action` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+var result = prisonBreakMissionController.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, AIStateFlag flag)`
 
-**用途 / Purpose:** 当 `agent alarmed state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent alarmed state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnAgentAlarmedStateChanged(agent, flag);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**用途 / Purpose:** 当 `end mission request` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+var result = prisonBreakMissionController.OnEndMissionRequest(canLeave);
+```
 
 ### OnStealthMissionCounterFailed
 `public void OnStealthMissionCounterFailed(OnStealthMissionCounterFailedEvent obj)`
 
-**用途 / Purpose:** 当 `stealth mission counter failed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「stealth mission counter failed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnStealthMissionCounterFailed(obj);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakMissionController 实例
+PrisonBreakMissionController prisonBreakMissionController = ...;
+prisonBreakMissionController.OnMissionTick(0);
+```
 
 ## 使用示例
 
@@ -84,4 +138,4 @@ var controller = Mission.Current.GetMissionBehavior<PrisonBreakMissionController
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

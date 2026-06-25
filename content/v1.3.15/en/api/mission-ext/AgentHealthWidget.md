@@ -1,13 +1,7 @@
 ---
 title: "AgentHealthWidget"
+description: "Auto-generated class reference for AgentHealthWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentHealthWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentHealthWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
@@ -38,9 +32,10 @@ Treat `AgentHealthWidget` as a Widget-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var widget = new AgentHealthWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AgentHealthWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PopupSceneEmissionHandler"
+description: "PopupSceneEmissionHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PopupSceneEmissionHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneEmissionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,14 +23,20 @@ title: "PopupSceneEmissionHandler"
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneEmissionHandler 实例
+PopupSceneEmissionHandler popupSceneEmissionHandler = ...;
+var result = popupSceneEmissionHandler.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new PopupSceneEmissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<PopupSceneEmissionHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

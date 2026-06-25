@@ -1,13 +1,7 @@
 ---
 title: "AreaInformation"
+description: "Auto-generated class reference for AreaInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AreaInformation`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AreaInformation
 
 **Namespace:** TaleWorlds.Library
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `deserialize from`.
+**Purpose:** Restores `from` from serialized data.
+
+```csharp
+// Obtain an instance of AreaInformation from the subsystem API first
+AreaInformation areaInformation = ...;
+areaInformation.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `serialize to`.
+**Purpose:** Serializes `to` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of AreaInformation from the subsystem API first
+AreaInformation areaInformation = ...;
+areaInformation.SerializeTo(writer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AreaInformation();
-value.DeserializeFrom(reader);
+// Typically call this after obtaining an instance from the subsystem API
+AreaInformation areaInformation = ...;
+areaInformation.DeserializeFrom(reader);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

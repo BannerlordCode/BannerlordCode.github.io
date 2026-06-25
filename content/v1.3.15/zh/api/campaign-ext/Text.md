@@ -1,13 +1,7 @@
 ---
 title: "Text"
+description: "Text 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Text`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Text
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -47,30 +41,55 @@ title: "Text"
 ### GetPreferredSize
 `public Vector2 GetPreferredSize(bool fixedWidth, float widthSize, bool fixedHeight, float heightSize, SpriteData spriteData, float renderScale)`
 
-**用途 / Purpose:** 获取 `preferred size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「preferred size」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Text 实例
+Text text = ...;
+var result = text.GetPreferredSize(false, 0, false, 0, spriteData, 0);
+```
 
 ### UpdateSize
 `public void UpdateSize(int width, int height)`
 
-**用途 / Purpose:** 更新 `size` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「size」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Text 实例
+Text text = ...;
+text.UpdateSize(0, 0);
+```
 
 ### SetAllDirty
 `public void SetAllDirty()`
 
-**用途 / Purpose:** 设置 `all dirty` 的值或状态。
+**用途 / Purpose:** 为 「all dirty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Text 实例
+Text text = ...;
+text.SetAllDirty();
+```
 
 ### GetParts
 `public List<TextPart> GetParts()`
 
-**用途 / Purpose:** 获取 `parts` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「parts」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Text 实例
+Text text = ...;
+var result = text.GetParts();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Text();
-value.GetPreferredSize(false, 0, false, 0, spriteData, 0);
+// 通常从对应子系统 API 获取实例后调用
+Text text = ...;
+text.GetPreferredSize(false, 0, false, 0, spriteData, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

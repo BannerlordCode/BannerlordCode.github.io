@@ -1,13 +1,7 @@
 ---
 title: "ValueType"
+description: "Auto-generated class reference for ValueType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ValueType`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ValueType
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-ValueType example = ValueType.Value;
+// Obtain an instance from the relevant subsystem API
+ValueType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

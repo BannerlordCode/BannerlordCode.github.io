@@ -1,20 +1,14 @@
 ---
 title: "MBUnderFlowException"
+description: "MBUnderFlowException 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBUnderFlowException`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBUnderFlowException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBUnderFlowException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBUnderFlowException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBUnderFlowException.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MBUnderFlowException"
 ## 使用示例
 
 ```csharp
-try { CallMBUnderFlowException(); } catch (MBUnderFlowException exception) { Handle(exception); }
+try { /* 调用可能抛出该异常的分支 */ }
+catch (MBUnderFlowException ex) { /* 处理异常 */ }
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

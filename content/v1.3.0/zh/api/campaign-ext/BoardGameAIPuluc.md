@@ -1,13 +1,7 @@
 ---
 title: "BoardGameAIPuluc"
+description: "BoardGameAIPuluc 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameAIPuluc`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIPuluc
 
 **Namespace:** SandBox.BoardGames.AI
@@ -29,15 +23,22 @@ title: "BoardGameAIPuluc"
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIPuluc 实例
+BoardGameAIPuluc boardGameAIPuluc = ...;
+var result = boardGameAIPuluc.CalculateMovementStageMove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameAIPuluc();
-value.CalculateMovementStageMove();
+// 通常从对应子系统 API 获取实例后调用
+BoardGameAIPuluc boardGameAIPuluc = ...;
+boardGameAIPuluc.CalculateMovementStageMove();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

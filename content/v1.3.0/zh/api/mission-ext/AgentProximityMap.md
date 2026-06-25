@@ -1,13 +1,7 @@
 ---
 title: "AgentProximityMap"
+description: "AgentProximityMap 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentProximityMap`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentProximityMap
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,17 +29,32 @@ title: "AgentProximityMap"
 ### CanSearchRadius
 `public static bool CanSearchRadius(float searchRadius)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `search radius`。
+**用途 / Purpose:** 检查当前对象是否满足 「search radius」 的前置条件。
+
+```csharp
+// 静态调用，不需要实例
+AgentProximityMap.CanSearchRadius(0);
+```
 
 ### BeginSearch
 `public static AgentProximityMap.ProximityMapSearchStruct BeginSearch(Mission mission, Vec2 searchPos, float searchRadius, bool extendRangeByBiggestAgentCollisionPadding = false)`
 
-**用途 / Purpose:** 处理 `begin search` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+AgentProximityMap.BeginSearch(mission, searchPos, 0, false);
+```
 
 ### FindNext
 `public static void FindNext(Mission mission, ref AgentProximityMap.ProximityMapSearchStruct searchStruct)`
 
-**用途 / Purpose:** 处理 `find next` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「next」。
+
+```csharp
+// 静态调用，不需要实例
+AgentProximityMap.FindNext(mission, searchStruct);
+```
 
 ## 使用示例
 
@@ -55,4 +64,4 @@ AgentProximityMap.CanSearchRadius(0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

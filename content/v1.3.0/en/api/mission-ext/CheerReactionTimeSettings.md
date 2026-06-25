@@ -1,13 +1,7 @@
 ---
 title: "CheerReactionTimeSettings"
+description: "Auto-generated class reference for CheerReactionTimeSettings."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheerReactionTimeSettings`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheerReactionTimeSettings
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new CheerReactionTimeSettings();
+// Obtain an instance from the relevant subsystem API
+CheerReactionTimeSettings instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

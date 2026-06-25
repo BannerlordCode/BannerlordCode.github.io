@@ -1,13 +1,7 @@
 ---
 title: "CoreManaged"
+description: "Auto-generated class reference for CoreManaged."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CoreManaged`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CoreManaged
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,7 +29,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Start
 `public static void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Static call; no instance required
+CoreManaged.Start();
+```
 
 ## Usage Example
 
@@ -45,4 +44,4 @@ CoreManaged.Start();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

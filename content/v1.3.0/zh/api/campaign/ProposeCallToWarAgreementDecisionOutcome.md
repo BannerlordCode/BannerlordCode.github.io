@@ -1,13 +1,7 @@
 ---
 title: "ProposeCallToWarAgreementDecisionOutcome"
+description: "ProposeCallToWarAgreementDecisionOutcome 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ProposeCallToWarAgreementDecisionOutcome`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProposeCallToWarAgreementDecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -29,30 +23,55 @@ title: "ProposeCallToWarAgreementDecisionOutcome"
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** 获取 `decision title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecisionOutcome 实例
+ProposeCallToWarAgreementDecisionOutcome proposeCallToWarAgreementDecisionOutcome = ...;
+var result = proposeCallToWarAgreementDecisionOutcome.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** 获取 `decision description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecisionOutcome 实例
+ProposeCallToWarAgreementDecisionOutcome proposeCallToWarAgreementDecisionOutcome = ...;
+var result = proposeCallToWarAgreementDecisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**用途 / Purpose:** 获取 `decision link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecisionOutcome 实例
+ProposeCallToWarAgreementDecisionOutcome proposeCallToWarAgreementDecisionOutcome = ...;
+var result = proposeCallToWarAgreementDecisionOutcome.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** 获取 `decision image identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ProposeCallToWarAgreementDecisionOutcome 实例
+ProposeCallToWarAgreementDecisionOutcome proposeCallToWarAgreementDecisionOutcome = ...;
+var result = proposeCallToWarAgreementDecisionOutcome.GetDecisionImageIdentifier();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ProposeCallToWarAgreementDecisionOutcome();
-value.GetDecisionTitle();
+// 通常从对应子系统 API 获取实例后调用
+ProposeCallToWarAgreementDecisionOutcome proposeCallToWarAgreementDecisionOutcome = ...;
+proposeCallToWarAgreementDecisionOutcome.GetDecisionTitle();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MountVisualCreationOutput"
+description: "MountVisualCreationOutput 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MountVisualCreationOutput`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountVisualCreationOutput
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MountVisualCreationOutput`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/MountVisualCreationOutput.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/MountVisualCreationOutput.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "MountVisualCreationOutput"
 ## 使用示例
 
 ```csharp
-var value = new MountVisualCreationOutput();
+// 从对应子系统 API 获取实例
+MountVisualCreationOutput instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

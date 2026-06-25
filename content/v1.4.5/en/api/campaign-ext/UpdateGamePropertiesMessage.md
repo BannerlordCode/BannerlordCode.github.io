@@ -1,20 +1,14 @@
 ---
 title: "UpdateGamePropertiesMessage"
+description: "Auto-generated class reference for UpdateGamePropertiesMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UpdateGamePropertiesMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpdateGamePropertiesMessage
 
 **Namespace:** Messages.FromCustomBattleServer.ToCustomBattleServerManager
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class UpdateGamePropertiesMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/UpdateGamePropertiesMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/UpdateGamePropertiesMessage.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `Messages.FromCustomBattleServer.ToCustomBattleServerManage
 ## Usage Example
 
 ```csharp
-var example = new UpdateGamePropertiesMessage();
+// Obtain an instance from the relevant subsystem API
+UpdateGamePropertiesMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

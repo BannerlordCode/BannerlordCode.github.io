@@ -1,20 +1,14 @@
 ---
 title: "MessageInfo"
+description: "MessageInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageInfo`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageInfo
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class MessageInfo`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/MessageInfo.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/MessageInfo.cs`
 
 ## 概述
 
@@ -41,20 +35,32 @@ title: "MessageInfo"
 ### WriteTo
 `public void WriteTo(Stream stream, bool fromServer)`
 
-**用途 / Purpose:** 处理 `write to` 相关逻辑。
+**用途 / Purpose:** 将「to」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 MessageInfo 实例
+MessageInfo messageInfo = ...;
+messageInfo.WriteTo(stream, false);
+```
 
 ### ReadFrom
 `public static MessageInfo ReadFrom(Stream stream, bool fromServer)`
 
-**用途 / Purpose:** 处理 `read from` 相关逻辑。
+**用途 / Purpose:** 读取「from」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+MessageInfo.ReadFrom(stream, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MessageInfo();
-value.WriteTo(stream, false);
+// 通常从对应子系统 API 获取实例后调用
+MessageInfo messageInfo = ...;
+messageInfo.WriteTo(stream, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

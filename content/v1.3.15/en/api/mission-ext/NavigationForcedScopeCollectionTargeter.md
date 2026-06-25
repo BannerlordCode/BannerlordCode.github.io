@@ -1,13 +1,7 @@
 ---
 title: "NavigationForcedScopeCollectionTargeter"
+description: "Auto-generated class reference for NavigationForcedScopeCollectionTargeter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavigationForcedScopeCollectionTargeter`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NavigationForcedScopeCollectionTargeter
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -38,9 +32,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets` to place it i
 ## Usage Example
 
 ```csharp
-var value = new NavigationForcedScopeCollectionTargeter();
+// Obtain an instance from the relevant subsystem API
+NavigationForcedScopeCollectionTargeter instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

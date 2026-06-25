@@ -1,20 +1,14 @@
 ---
 title: "CombatLogManager"
+description: "CombatLogManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CombatLogManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatLogManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CombatLogManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CombatLogManager.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "CombatLogManager"
 ### PrintDebugLogForInfo
 `public static void PrintDebugLogForInfo(Agent attackerAgent, Agent victimAgent, DamageTypes damageType, int speedBonus, int armorAmount, int inflictedDamage, int absorbedByArmor, sbyte collisionBone, float lostHpPercentage)`
 
-**用途 / Purpose:** 处理 `print debug log for info` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CombatLogManager.PrintDebugLogForInfo(attackerAgent, victimAgent, damageType, 0, 0, 0, 0, 0, 0);
+```
 
 ### GenerateCombatLog
 `public static void GenerateCombatLog(CombatLogData logData)`
 
-**用途 / Purpose:** 处理 `generate combat log` 相关逻辑。
+**用途 / Purpose:** 生成「combat log」的实例、数据或表示。
+
+```csharp
+// 静态调用，不需要实例
+CombatLogManager.GenerateCombatLog(logData);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ var manager = CombatLogManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

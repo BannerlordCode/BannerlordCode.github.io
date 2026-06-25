@@ -1,20 +1,14 @@
 ---
 title: "MountVisualCreationOutput"
+description: "Auto-generated class reference for MountVisualCreationOutput."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountVisualCreationOutput`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountVisualCreationOutput
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MountVisualCreationOutput`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/MountVisualCreationOutput.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/MountVisualCreationOutput.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var value = new MountVisualCreationOutput();
+// Obtain an instance from the relevant subsystem API
+MountVisualCreationOutput instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

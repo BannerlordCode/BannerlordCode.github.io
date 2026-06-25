@@ -1,13 +1,7 @@
 ---
 title: "EquipmentActionItemVM"
+description: "Auto-generated class reference for EquipmentActionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EquipmentActionItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EquipmentActionItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ## Usage Example
 
 ```csharp
-var value = new EquipmentActionItemVM();
+// Obtain an instance from the relevant subsystem API
+EquipmentActionItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

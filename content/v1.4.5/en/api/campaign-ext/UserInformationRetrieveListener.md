@@ -1,20 +1,14 @@
 ---
 title: "UserInformationRetrieveListener"
+description: "Auto-generated class reference for UserInformationRetrieveListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UserInformationRetrieveListener`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UserInformationRetrieveListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class UserInformationRetrieveListener : IUserInformationRetrieveListener`
 **Base:** `IUserInformationRetrieveListener`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/UserInformationRetrieveListener.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/UserInformationRetrieveListener.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnUserInformationRetrieveFailure
 `public override void OnUserInformationRetrieveFailure(GalaxyID userID, FailureReason failureReason)`
 
-**Purpose:** Called when the `user information retrieve failure` event is raised.
+**Purpose:** Invoked when the `user information retrieve failure` event is raised.
+
+```csharp
+// Obtain an instance of UserInformationRetrieveListener from the subsystem API first
+UserInformationRetrieveListener userInformationRetrieveListener = ...;
+userInformationRetrieveListener.OnUserInformationRetrieveFailure(userID, failureReason);
+```
 
 ### OnUserInformationRetrieveSuccess
 `public override void OnUserInformationRetrieveSuccess(GalaxyID userID)`
 
-**Purpose:** Called when the `user information retrieve success` event is raised.
+**Purpose:** Invoked when the `user information retrieve success` event is raised.
+
+```csharp
+// Obtain an instance of UserInformationRetrieveListener from the subsystem API first
+UserInformationRetrieveListener userInformationRetrieveListener = ...;
+userInformationRetrieveListener.OnUserInformationRetrieveSuccess(userID);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UserInformationRetrieveListener();
-value.OnUserInformationRetrieveFailure(userID, failureReason);
+// Typically call this after obtaining an instance from the subsystem API
+UserInformationRetrieveListener userInformationRetrieveListener = ...;
+userInformationRetrieveListener.OnUserInformationRetrieveFailure(userID, failureReason);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

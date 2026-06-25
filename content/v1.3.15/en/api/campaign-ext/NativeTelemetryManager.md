@@ -1,13 +1,7 @@
 ---
 title: "NativeTelemetryManager"
+description: "Auto-generated class reference for NativeTelemetryManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeTelemetryManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NativeTelemetryManager
 
 **Namespace:** TaleWorlds.DotNet
@@ -35,37 +29,79 @@ Treat `NativeTelemetryManager` as a Manager-style extension point: first identif
 ### GetTelemetryLevelMask
 `public TelemetryLevelMask GetTelemetryLevelMask()`
 
-**Purpose:** Gets the current value of `telemetry level mask`.
+**Purpose:** Reads and returns the `telemetry level mask` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeTelemetryManager from the subsystem API first
+NativeTelemetryManager nativeTelemetryManager = ...;
+var result = nativeTelemetryManager.GetTelemetryLevelMask();
+```
 
 ### StartTelemetryConnection
 `public void StartTelemetryConnection(bool showErrors)`
 
-**Purpose:** Handles logic related to `start telemetry connection`.
+**Purpose:** Starts the `telemetry connection` flow or state machine.
+
+```csharp
+// Obtain an instance of NativeTelemetryManager from the subsystem API first
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.StartTelemetryConnection(false);
+```
 
 ### StopTelemetryConnection
 `public void StopTelemetryConnection()`
 
-**Purpose:** Handles logic related to `stop telemetry connection`.
+**Purpose:** Stops the `telemetry connection` flow or state machine.
+
+```csharp
+// Obtain an instance of NativeTelemetryManager from the subsystem API first
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.StopTelemetryConnection();
+```
 
 ### BeginTelemetryScopeInternal
 `public void BeginTelemetryScopeInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**Purpose:** Handles logic related to `begin telemetry scope internal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NativeTelemetryManager from the subsystem API first
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.BeginTelemetryScopeInternal(levelMask, "example");
+```
 
 ### EndTelemetryScopeInternal
 `public void EndTelemetryScopeInternal()`
 
-**Purpose:** Handles logic related to `end telemetry scope internal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NativeTelemetryManager from the subsystem API first
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.EndTelemetryScopeInternal();
+```
 
 ### BeginTelemetryScopeBaseLevelInternal
 `public void BeginTelemetryScopeBaseLevelInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**Purpose:** Handles logic related to `begin telemetry scope base level internal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NativeTelemetryManager from the subsystem API first
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.BeginTelemetryScopeBaseLevelInternal(levelMask, "example");
+```
 
 ### EndTelemetryScopeBaseLevelInternal
 `public void EndTelemetryScopeBaseLevelInternal()`
 
-**Purpose:** Handles logic related to `end telemetry scope base level internal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NativeTelemetryManager from the subsystem API first
+NativeTelemetryManager nativeTelemetryManager = ...;
+nativeTelemetryManager.EndTelemetryScopeBaseLevelInternal();
+```
 
 ## Usage Example
 
@@ -75,4 +111,4 @@ var manager = NativeTelemetryManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

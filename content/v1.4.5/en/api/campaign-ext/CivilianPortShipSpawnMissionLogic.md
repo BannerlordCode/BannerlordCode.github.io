@@ -1,20 +1,14 @@
 ---
 title: "CivilianPortShipSpawnMissionLogic"
+description: "Auto-generated class reference for CivilianPortShipSpawnMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CivilianPortShipSpawnMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CivilianPortShipSpawnMissionLogic
 
 **Namespace:** SandBox.Missions
 **Module:** SandBox.Missions
 **Type:** `public class CivilianPortShipSpawnMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions/CivilianPortShipSpawnMissionLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions/CivilianPortShipSpawnMissionLogic.cs`
 
 ## Overview
 
@@ -29,24 +23,42 @@ Treat `CivilianPortShipSpawnMissionLogic` as a Logic-style extension point: firs
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of CivilianPortShipSpawnMissionLogic from the subsystem API first
+CivilianPortShipSpawnMissionLogic civilianPortShipSpawnMissionLogic = ...;
+civilianPortShipSpawnMissionLogic.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CivilianPortShipSpawnMissionLogic from the subsystem API first
+CivilianPortShipSpawnMissionLogic civilianPortShipSpawnMissionLogic = ...;
+civilianPortShipSpawnMissionLogic.EarlyStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of CivilianPortShipSpawnMissionLogic from the subsystem API first
+CivilianPortShipSpawnMissionLogic civilianPortShipSpawnMissionLogic = ...;
+civilianPortShipSpawnMissionLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CivilianPortShipSpawnMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<CivilianPortShipSpawnMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

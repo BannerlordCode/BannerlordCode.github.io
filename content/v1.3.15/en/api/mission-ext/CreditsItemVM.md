@@ -1,13 +1,7 @@
 ---
 title: "CreditsItemVM"
+description: "Auto-generated class reference for CreditsItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreditsItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CreditsItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Credits
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Credits` to p
 ## Usage Example
 
 ```csharp
-var value = new CreditsItemVM();
+// Obtain an instance from the relevant subsystem API
+CreditsItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

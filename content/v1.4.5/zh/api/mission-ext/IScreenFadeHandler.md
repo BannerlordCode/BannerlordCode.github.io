@@ -1,20 +1,14 @@
 ---
 title: "IScreenFadeHandler"
+description: "IScreenFadeHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IScreenFadeHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IScreenFadeHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IScreenFadeHandler`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IScreenFadeHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IScreenFadeHandler.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IScreenFadeHandler"
 ## 使用示例
 
 ```csharp
-IScreenFadeHandler implementation = GetScreenFadeHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIScreenFadeHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

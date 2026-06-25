@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapEventVisualsView"
+description: "Auto-generated class reference for GauntletMapEventVisualsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapEventVisualsView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapEventVisualsView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapEventVisualsView : MapView, IGauntletMapEventVisualHandler`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEventVisualsView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEventVisualsView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GauntletMapEventVisualsView` as a View-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapEventVisualsView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapEventVisualsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

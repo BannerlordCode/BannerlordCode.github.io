@@ -1,13 +1,7 @@
 ---
 title: "RichTextWidget"
+description: "Auto-generated class reference for RichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichTextWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RichTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -38,14 +32,21 @@ Treat `RichTextWidget` as a Widget-style extension point: first identify who cre
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**Purpose:** Called when the `brush changed` event is raised.
+**Purpose:** Invoked when the `brush changed` event is raised.
+
+```csharp
+// Obtain an instance of RichTextWidget from the subsystem API first
+RichTextWidget richTextWidget = ...;
+richTextWidget.OnBrushChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new RichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+RichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

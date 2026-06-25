@@ -1,13 +1,7 @@
 ---
 title: "ListTypeVM"
+description: "ListTypeVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ListTypeVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ListTypeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
@@ -38,20 +32,33 @@ title: "ListTypeVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ListTypeVM 实例
+ListTypeVM listTypeVM = ...;
+listTypeVM.RefreshValues();
+```
 
 ### Execute
 `public void Execute()`
 
-**用途 / Purpose:** 执行 `execute` 操作或流程。
+**用途 / Purpose:** 执行当前对象代表的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ListTypeVM 实例
+ListTypeVM listTypeVM = ...;
+listTypeVM.Execute();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ListTypeVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ListTypeVM listTypeVM = ...;
+listTypeVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

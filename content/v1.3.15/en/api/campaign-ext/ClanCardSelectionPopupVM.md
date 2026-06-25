@@ -1,13 +1,7 @@
 ---
 title: "ClanCardSelectionPopupVM"
+description: "Auto-generated class reference for ClanCardSelectionPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanCardSelectionPopupVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanCardSelectionPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -43,45 +37,88 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanCardSelectionPopupVM from the subsystem API first
+ClanCardSelectionPopupVM clanCardSelectionPopupVM = ...;
+clanCardSelectionPopupVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanCardSelectionPopupVM from the subsystem API first
+ClanCardSelectionPopupVM clanCardSelectionPopupVM = ...;
+clanCardSelectionPopupVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanCardSelectionPopupVM from the subsystem API first
+ClanCardSelectionPopupVM clanCardSelectionPopupVM = ...;
+clanCardSelectionPopupVM.SetDoneInputKey(hotKey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClanCardSelectionPopupVM from the subsystem API first
+ClanCardSelectionPopupVM clanCardSelectionPopupVM = ...;
+clanCardSelectionPopupVM.SetCancelInputKey(hotKey);
+```
 
 ### Open
 `public void Open(ClanCardSelectionInfo info)`
 
-**Purpose:** Handles logic related to `open`.
+**Purpose:** Opens the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of ClanCardSelectionPopupVM from the subsystem API first
+ClanCardSelectionPopupVM clanCardSelectionPopupVM = ...;
+clanCardSelectionPopupVM.Open(info);
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of ClanCardSelectionPopupVM from the subsystem API first
+ClanCardSelectionPopupVM clanCardSelectionPopupVM = ...;
+clanCardSelectionPopupVM.ExecuteCancel();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of ClanCardSelectionPopupVM from the subsystem API first
+ClanCardSelectionPopupVM clanCardSelectionPopupVM = ...;
+clanCardSelectionPopupVM.ExecuteDone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanCardSelectionPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanCardSelectionPopupVM clanCardSelectionPopupVM = ...;
+clanCardSelectionPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

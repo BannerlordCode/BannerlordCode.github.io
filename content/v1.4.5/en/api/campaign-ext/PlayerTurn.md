@@ -1,20 +1,14 @@
 ---
 title: "PlayerTurn"
+description: "Auto-generated class reference for PlayerTurn."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerTurn`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerTurn
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
-**Type:** `class`
+**Type:** `public enum PlayerTurn`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/PlayerTurn.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/PlayerTurn.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new PlayerTurn();
+// Obtain an instance from the relevant subsystem API
+PlayerTurn instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

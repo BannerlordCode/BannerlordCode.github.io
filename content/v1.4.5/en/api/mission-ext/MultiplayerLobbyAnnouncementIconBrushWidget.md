@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyAnnouncementIconBrushWidget"
+description: "Auto-generated class reference for MultiplayerLobbyAnnouncementIconBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyAnnouncementIconBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyAnnouncementIconBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Home
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyAnnouncementIconBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Home/MultiplayerLobbyAnnouncementIconBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Home/MultiplayerLobbyAnnouncementIconBrushWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MultiplayerLobbyAnnouncementIconBrushWidget` as a Widget-style extension 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyAnnouncementIconBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyAnnouncementIconBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

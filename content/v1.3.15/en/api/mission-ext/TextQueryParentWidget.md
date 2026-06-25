@@ -1,13 +1,7 @@
 ---
 title: "TextQueryParentWidget"
+description: "Auto-generated class reference for TextQueryParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextQueryParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextQueryParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Popup
@@ -33,9 +27,10 @@ Treat `TextQueryParentWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new TextQueryParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TextQueryParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

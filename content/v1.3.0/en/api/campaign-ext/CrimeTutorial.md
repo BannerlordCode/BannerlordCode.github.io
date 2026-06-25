@@ -1,13 +1,7 @@
 ---
 title: "CrimeTutorial"
+description: "Auto-generated class reference for CrimeTutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrimeTutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CrimeTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of CrimeTutorial from the subsystem API first
+CrimeTutorial crimeTutorial = ...;
+var result = crimeTutorial.GetTutorialsRelevantContext();
+```
 
 ### OnCrimeValueInspectedInSettlementOverlay
 `public override void OnCrimeValueInspectedInSettlementOverlay(CrimeValueInspectedInSettlementOverlayEvent obj)`
 
-**Purpose:** Called when the `crime value inspected in settlement overlay` event is raised.
+**Purpose:** Invoked when the `crime value inspected in settlement overlay` event is raised.
+
+```csharp
+// Obtain an instance of CrimeTutorial from the subsystem API first
+CrimeTutorial crimeTutorial = ...;
+crimeTutorial.OnCrimeValueInspectedInSettlementOverlay(obj);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of CrimeTutorial from the subsystem API first
+CrimeTutorial crimeTutorial = ...;
+var result = crimeTutorial.IsConditionsMetForActivation();
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of CrimeTutorial from the subsystem API first
+CrimeTutorial crimeTutorial = ...;
+var result = crimeTutorial.IsConditionsMetForCompletion();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CrimeTutorial();
-value.GetTutorialsRelevantContext();
+// Typically call this after obtaining an instance from the subsystem API
+CrimeTutorial crimeTutorial = ...;
+crimeTutorial.GetTutorialsRelevantContext();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

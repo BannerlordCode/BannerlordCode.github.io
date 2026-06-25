@@ -1,13 +1,7 @@
 ---
 title: "AnimatedDropdownWidget"
+description: "AnimatedDropdownWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AnimatedDropdownWidget`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AnimatedDropdownWidget
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -43,34 +37,65 @@ title: "AnimatedDropdownWidget"
 ### OnButtonClick
 `public void OnButtonClick(Widget widget)`
 
-**用途 / Purpose:** 当 `button click` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「button click」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AnimatedDropdownWidget 实例
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.OnButtonClick(widget);
+```
 
 ### UpdateButtonText
 `public void UpdateButtonText(string text)`
 
-**用途 / Purpose:** 更新 `button text` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「button text」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 AnimatedDropdownWidget 实例
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.UpdateButtonText("example");
+```
 
 ### OnListChanged
 `public void OnListChanged(Widget widget)`
 
-**用途 / Purpose:** 当 `list changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「list changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AnimatedDropdownWidget 实例
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.OnListChanged(widget);
+```
 
 ### OnListChanged
 `public void OnListChanged(Widget parentWidget, Widget addedWidget)`
 
-**用途 / Purpose:** 当 `list changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「list changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AnimatedDropdownWidget 实例
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.OnListChanged(parentWidget, addedWidget);
+```
 
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**用途 / Purpose:** 当 `selection changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「selection changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AnimatedDropdownWidget 实例
+AnimatedDropdownWidget animatedDropdownWidget = ...;
+animatedDropdownWidget.OnSelectionChanged(widget);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new AnimatedDropdownWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+AnimatedDropdownWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

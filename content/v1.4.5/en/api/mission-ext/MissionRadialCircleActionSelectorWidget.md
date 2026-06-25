@@ -1,20 +1,14 @@
 ---
 title: "MissionRadialCircleActionSelectorWidget"
+description: "Auto-generated class reference for MissionRadialCircleActionSelectorWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionRadialCircleActionSelectorWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionRadialCircleActionSelectorWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Radial
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionRadialCircleActionSelectorWidget : CircleActionSelectorWidget`
 **Base:** `CircleActionSelectorWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Radial/MissionRadialCircleActionSelectorWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Radial/MissionRadialCircleActionSelectorWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionRadialCircleActionSelectorWidget` as a Widget-style extension poin
 ## Usage Example
 
 ```csharp
-var widget = new MissionRadialCircleActionSelectorWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MissionRadialCircleActionSelectorWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

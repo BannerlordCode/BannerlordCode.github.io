@@ -1,13 +1,7 @@
 ---
 title: "ItemCostComparer"
+description: "ItemCostComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemCostComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCostComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
@@ -29,15 +23,22 @@ title: "ItemCostComparer"
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ItemCostComparer 实例
+ItemCostComparer itemCostComparer = ...;
+var result = itemCostComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemCostComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+ItemCostComparer itemCostComparer = ...;
+itemCostComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

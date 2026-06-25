@@ -1,20 +1,14 @@
 ---
 title: "SaveEntryFolder"
+description: "SaveEntryFolder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveEntryFolder`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveEntryFolder
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveEntryFolder`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntryFolder.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntryFolder.cs`
 
 ## 概述
 
@@ -37,40 +31,76 @@ title: "SaveEntryFolder"
 ### GetAllEntries
 `public List<SaveEntry> GetAllEntries()`
 
-**用途 / Purpose:** 获取 `all entries` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all entries」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveEntryFolder 实例
+SaveEntryFolder saveEntryFolder = ...;
+var result = saveEntryFolder.GetAllEntries();
+```
 
 ### CreateRootFolder
 `public static SaveEntryFolder CreateRootFolder()`
 
-**用途 / Purpose:** 创建一个 `root folder` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「root folder」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SaveEntryFolder.CreateRootFolder();
+```
 
 ### AddEntry
 `public void AddEntry(SaveEntry saveEntry)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `entry`。
+**用途 / Purpose:** 将 「entry」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveEntryFolder 实例
+SaveEntryFolder saveEntryFolder = ...;
+saveEntryFolder.AddEntry(saveEntry);
+```
 
 ### GetEntry
 `public SaveEntry GetEntry(EntryId entryId)`
 
-**用途 / Purpose:** 获取 `entry` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「entry」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveEntryFolder 实例
+SaveEntryFolder saveEntryFolder = ...;
+var result = saveEntryFolder.GetEntry(entryId);
+```
 
 ### AddChildFolderEntry
 `public void AddChildFolderEntry(SaveEntryFolder saveEntryFolder)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `child folder entry`。
+**用途 / Purpose:** 将 「child folder entry」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveEntryFolder 实例
+SaveEntryFolder saveEntryFolder = ...;
+saveEntryFolder.AddChildFolderEntry(saveEntryFolder);
+```
 
 ### CreateEntry
 `public SaveEntry CreateEntry(EntryId entryId)`
 
-**用途 / Purpose:** 创建一个 `entry` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「entry」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 SaveEntryFolder 实例
+SaveEntryFolder saveEntryFolder = ...;
+var result = saveEntryFolder.CreateEntry(entryId);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SaveEntryFolder();
-value.GetAllEntries();
+// 通常从对应子系统 API 获取实例后调用
+SaveEntryFolder saveEntryFolder = ...;
+saveEntryFolder.GetAllEntries();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

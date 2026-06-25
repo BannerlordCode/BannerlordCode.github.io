@@ -1,18 +1,12 @@
 ---
 title: "IReadonlyInputContext"
+description: "Auto-generated class reference for IReadonlyInputContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IReadonlyInputContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IReadonlyInputContext
 
 **Namespace:** TaleWorlds.GauntletUI.GauntletInput
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface IReadonlyInputContext`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/GauntletInput/IReadonlyInputContext.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.GauntletInput` to place it in the st
 ## Usage Example
 
 ```csharp
-IReadonlyInputContext implementation = GetReadonlyInputContextImplementation();
+// Usually obtained through DI or a factory method
+IIReadonlyInputContext service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SandBoxViewVisualManager"
+description: "SandBoxViewVisualManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxViewVisualManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewVisualManager
 
 **Namespace:** SandBox.View
 **Module:** SandBox.View
 **Type:** `public class SandBoxViewVisualManager`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View/SandBoxViewVisualManager.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View/SandBoxViewVisualManager.cs`
 
 ## 概述
 
@@ -29,37 +23,73 @@ title: "SandBoxViewVisualManager"
 ### VisualTick
 `public static void VisualTick(MapScreen screen, float realDt, float dt)`
 
-**用途 / Purpose:** 处理 `visual tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewVisualManager.VisualTick(screen, 0, 0);
+```
 
 ### OnTick
 `public static void OnTick(float realDt, float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewVisualManager.OnTick(0, 0);
+```
 
 ### ClearVisualMemory
 `public static void ClearVisualMemory()`
 
-**用途 / Purpose:** 处理 `clear visual memory` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「visual memory」。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewVisualManager.ClearVisualMemory();
+```
 
 ### OnFrameTick
 `public static void OnFrameTick(float dt)`
 
-**用途 / Purpose:** 当 `frame tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「frame tick」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewVisualManager.OnFrameTick(0);
+```
 
 ### OnMouseClick
 `public static bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**用途 / Purpose:** 当 `mouse click` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mouse click」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewVisualManager.OnMouseClick(visualOfSelectedEntity, intersectionPoint, mouseOverFaceIndex, false);
+```
 
 ### OnGameLoadFinished
 `public static void OnGameLoadFinished()`
 
-**用途 / Purpose:** 当 `game load finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game load finished」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewVisualManager.OnGameLoadFinished();
+```
 
 ### GetComponents
 `public MBList<CampaignEntityVisualComponent> GetComponents()`
 
-**用途 / Purpose:** 获取 `components` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「components」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxViewVisualManager 实例
+SandBoxViewVisualManager sandBoxViewVisualManager = ...;
+var result = sandBoxViewVisualManager.GetComponents();
+```
 
 ## 使用示例
 
@@ -69,4 +99,4 @@ var manager = SandBoxViewVisualManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

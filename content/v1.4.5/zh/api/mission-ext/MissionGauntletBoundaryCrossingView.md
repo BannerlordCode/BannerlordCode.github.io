@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletBoundaryCrossingView"
+description: "MissionGauntletBoundaryCrossingView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletBoundaryCrossingView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletBoundaryCrossingView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletBoundaryCrossingView : MissionBattleUIBaseView`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletBoundaryCrossingView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletBoundaryCrossingView.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "MissionGauntletBoundaryCrossingView"
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoundaryCrossingView 实例
+MissionGauntletBoundaryCrossingView missionGauntletBoundaryCrossingView = ...;
+missionGauntletBoundaryCrossingView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoundaryCrossingView 实例
+MissionGauntletBoundaryCrossingView missionGauntletBoundaryCrossingView = ...;
+missionGauntletBoundaryCrossingView.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletBoundaryCrossingView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletBoundaryCrossingView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

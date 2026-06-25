@@ -59,3 +59,18 @@ UI Gauntlet → SaveSystem → MountAndBlade → Campaign → Platform services
 ```
 
 See [SDK Overview](./sdk-overview) for details.
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Child Pages
+
+- [Module System](./module-system)
+- [Save System](./save-system)
+- [SDK Overview — Module Map & Developer Roadmap](./sdk-overview)
+- [Version Delta](./version-delta)
+
+<!-- END SECTION INDEX -->

@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerTeamPlayerAvatarButtonWidget"
+description: "Auto-generated class reference for MultiplayerTeamPlayerAvatarButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTeamPlayerAvatarButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerTeamPlayerAvatarButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
@@ -35,9 +29,10 @@ Treat `MultiplayerTeamPlayerAvatarButtonWidget` as a Widget-style extension poin
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerTeamPlayerAvatarButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerTeamPlayerAvatarButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

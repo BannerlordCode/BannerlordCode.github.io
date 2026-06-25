@@ -1,20 +1,14 @@
 ---
 title: "AsyncFileSaveDriver"
+description: "Auto-generated class reference for AsyncFileSaveDriver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AsyncFileSaveDriver`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AsyncFileSaveDriver
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class AsyncFileSaveDriver : ISaveDriver`
 **Base:** `ISaveDriver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/AsyncFileSaveDriver.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/AsyncFileSaveDriver.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new AsyncFileSaveDriver();
+// Obtain an instance from the relevant subsystem API
+AsyncFileSaveDriver instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

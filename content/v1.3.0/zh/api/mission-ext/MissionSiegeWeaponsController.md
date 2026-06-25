@@ -1,13 +1,7 @@
 ---
 title: "MissionSiegeWeaponsController"
+description: "MissionSiegeWeaponsController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionSiegeWeaponsController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeWeaponsController
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions
@@ -29,27 +23,56 @@ title: "MissionSiegeWeaponsController"
 ### GetMaxDeployableWeaponCount
 `public int GetMaxDeployableWeaponCount(Type t)`
 
-**用途 / Purpose:** 获取 `max deployable weapon count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max deployable weapon count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSiegeWeaponsController 实例
+MissionSiegeWeaponsController missionSiegeWeaponsController = ...;
+var result = missionSiegeWeaponsController.GetMaxDeployableWeaponCount(t);
+```
 
 ### GetSiegeWeapons
 `public IEnumerable<IMissionSiegeWeapon> GetSiegeWeapons()`
 
-**用途 / Purpose:** 获取 `siege weapons` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege weapons」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSiegeWeaponsController 实例
+MissionSiegeWeaponsController missionSiegeWeaponsController = ...;
+var result = missionSiegeWeaponsController.GetSiegeWeapons();
+```
 
 ### OnWeaponDeployed
 `public void OnWeaponDeployed(SiegeWeapon missionWeapon)`
 
-**用途 / Purpose:** 当 `weapon deployed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「weapon deployed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSiegeWeaponsController 实例
+MissionSiegeWeaponsController missionSiegeWeaponsController = ...;
+missionSiegeWeaponsController.OnWeaponDeployed(missionWeapon);
+```
 
 ### OnWeaponUndeployed
 `public void OnWeaponUndeployed(SiegeWeapon missionWeapon)`
 
-**用途 / Purpose:** 当 `weapon undeployed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「weapon undeployed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSiegeWeaponsController 实例
+MissionSiegeWeaponsController missionSiegeWeaponsController = ...;
+missionSiegeWeaponsController.OnWeaponUndeployed(missionWeapon);
+```
 
 ### GetWeaponType
 `public static Type GetWeaponType(ScriptComponentBehavior weapon)`
 
-**用途 / Purpose:** 获取 `weapon type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「weapon type」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionSiegeWeaponsController.GetWeaponType(weapon);
+```
 
 ## 使用示例
 
@@ -59,4 +82,4 @@ var controller = Mission.Current.GetMissionBehavior<MissionSiegeWeaponsControlle
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -79,5 +79,5 @@ This page compares the accessible API of `MissionBehavior` across **1.3.0 / 1.3.
 ## Usage Example
 
 ```csharp
-var example = new MissionBehavior();
+// Compare class APIs across versions using the notes above.
 ```

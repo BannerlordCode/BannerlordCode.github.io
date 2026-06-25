@@ -1,13 +1,7 @@
 ---
 title: "BehaviorCavalryScreen"
+description: "Auto-generated class reference for BehaviorCavalryScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorCavalryScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorCavalryScreen
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** Called when the `valid behavior side changed` event is raised.
+**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorCavalryScreen from the subsystem API first
+BehaviorCavalryScreen behaviorCavalryScreen = ...;
+behaviorCavalryScreen.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorCavalryScreen from the subsystem API first
+BehaviorCavalryScreen behaviorCavalryScreen = ...;
+behaviorCavalryScreen.TickOccasionally();
+```
 
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorCavalryScreen from the subsystem API first
+BehaviorCavalryScreen behaviorCavalryScreen = ...;
+var result = behaviorCavalryScreen.GetBehaviorString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorCavalryScreen();
-value.OnValidBehaviorSideChanged();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorCavalryScreen behaviorCavalryScreen = ...;
+behaviorCavalryScreen.OnValidBehaviorSideChanged();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

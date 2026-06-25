@@ -1,20 +1,14 @@
 ---
 title: "StoryModeHeroDeathProbabilityCalculationModel"
+description: "Auto-generated class reference for StoryModeHeroDeathProbabilityCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeHeroDeathProbabilityCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeHeroDeathProbabilityCalculationModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeHeroDeathProbabilityCalculationModel : HeroDeathProbabilityCalculationModel`
 **Base:** `HeroDeathProbabilityCalculationModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeHeroDeathProbabilityCalculationModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeHeroDeathProbabilityCalculationModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `StoryModeHeroDeathProbabilityCalculationModel` as a Model-style extension
 ### CalculateHeroDeathProbability
 `public override float CalculateHeroDeathProbability(Hero hero)`
 
-**Purpose:** Handles logic related to `calculate hero death probability`.
+**Purpose:** Calculates the current value or result of `hero death probability`.
+
+```csharp
+// Obtain an instance of StoryModeHeroDeathProbabilityCalculationModel from the subsystem API first
+StoryModeHeroDeathProbabilityCalculationModel storyModeHeroDeathProbabilityCalculationModel = ...;
+var result = storyModeHeroDeathProbabilityCalculationModel.CalculateHeroDeathProbability(hero);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeHeroDeathProbabilityCalculationModel>(new MyS
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

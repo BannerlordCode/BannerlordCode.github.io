@@ -1,13 +1,7 @@
 ---
 title: "PolicyObject"
+description: "Auto-generated class reference for PolicyObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PolicyObject`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PolicyObject
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, TextObject logEntryDescription, TextObject secondaryEffects, float authoritarianWeight, float oligarchyWeight, float egalitarianWeight)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PolicyObject from the subsystem API first
+PolicyObject policyObject = ...;
+policyObject.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of PolicyObject from the subsystem API first
+PolicyObject policyObject = ...;
+var result = policyObject.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PolicyObject();
-value.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PolicyObject policyObject = ...;
+policyObject.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

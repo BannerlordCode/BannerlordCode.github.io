@@ -1,18 +1,12 @@
 ---
 title: "VirtualKeyCode"
+description: "VirtualKeyCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VirtualKeyCode`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VirtualKeyCode
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public enum VirtualKeyCode`
 **Base:** 无
 **File:** `TaleWorlds.InputSystem/VirtualKeyCode.cs`
 
@@ -27,9 +21,10 @@ title: "VirtualKeyCode"
 ## 使用示例
 
 ```csharp
-var example = new VirtualKeyCode();
+// 从对应子系统 API 获取实例
+VirtualKeyCode instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

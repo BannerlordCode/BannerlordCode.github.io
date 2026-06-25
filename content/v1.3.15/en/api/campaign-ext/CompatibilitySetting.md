@@ -1,18 +1,12 @@
 ---
 title: "CompatibilitySetting"
+description: "Auto-generated class reference for CompatibilitySetting."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompatibilitySetting`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CompatibilitySetting
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
-**Type:** `class`
+**Type:** `public enum CompatibilitySetting`
 **Base:** none
 **File:** `TaleWorlds.PSAI/Editor/CompatibilitySetting.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ## Usage Example
 
 ```csharp
-var value = new CompatibilitySetting();
+// Obtain an instance from the relevant subsystem API
+CompatibilitySetting instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

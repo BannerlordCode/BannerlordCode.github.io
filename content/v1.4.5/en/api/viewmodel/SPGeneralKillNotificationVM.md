@@ -1,20 +1,14 @@
 ---
 title: "SPGeneralKillNotificationVM"
+description: "Auto-generated class reference for SPGeneralKillNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPGeneralKillNotificationVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPGeneralKillNotificationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPGeneralKillNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General/SPGeneralKillNotificationVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General/SPGeneralKillNotificationVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of SPGeneralKillNotificationVM from the subsystem API first
+SPGeneralKillNotificationVM sPGeneralKillNotificationVM = ...;
+sPGeneralKillNotificationVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPGeneralKillNotificationVM();
-value.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+// Typically call this after obtaining an instance from the subsystem API
+SPGeneralKillNotificationVM sPGeneralKillNotificationVM = ...;
+sPGeneralKillNotificationVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BattleDeploymentMissionController"
+description: "BattleDeploymentMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleDeploymentMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleDeploymentMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,12 +23,24 @@ title: "BattleDeploymentMissionController"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleDeploymentMissionController 实例
+BattleDeploymentMissionController battleDeploymentMissionController = ...;
+battleDeploymentMissionController.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleDeploymentMissionController 实例
+BattleDeploymentMissionController battleDeploymentMissionController = ...;
+battleDeploymentMissionController.OnRemoveBehavior();
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<BattleDeploymentMissionContr
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

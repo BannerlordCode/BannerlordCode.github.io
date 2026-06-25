@@ -1,20 +1,14 @@
 ---
 title: "TextDrawObject"
+description: "TextDrawObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextDrawObject`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextDrawObject
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct TextDrawObject : IDrawObject`
 **Base:** `IDrawObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextDrawObject.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TextDrawObject.cs`
 
 ## 概述
 
@@ -29,12 +23,23 @@ title: "TextDrawObject"
 ### Create
 `public static TextDrawObject Create(float vertices, float uvs, uint indices, float text_MeshWidth, float text_MeshHeight, in Rectangle2D rectangle)`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 静态调用，不需要实例
+TextDrawObject.Create(0, 0, 0, 0, 0, rectangle);
+```
 
 ### ConvertToHashInPlace
 `public void ConvertToHashInPlace()`
 
-**用途 / Purpose:** 处理 `convert to hash in place` 相关逻辑。
+**用途 / Purpose:** 把「to hash in place」转换为另一种表示或类型。
+
+```csharp
+// 先通过子系统 API 拿到 TextDrawObject 实例
+TextDrawObject textDrawObject = ...;
+textDrawObject.ConvertToHashInPlace();
+```
 
 ## 使用示例
 
@@ -44,4 +49,4 @@ TextDrawObject.Create(0, 0, 0, 0, 0, rectangle);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

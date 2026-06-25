@@ -1,13 +1,7 @@
 ---
 title: "SkillObjectData"
+description: "Auto-generated class reference for SkillObjectData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillObjectData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillObjectData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Treat `SkillObjectData` as a Data-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var value = new SkillObjectData();
+// This data object is usually returned by campaign/mission APIs
+SkillObjectData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

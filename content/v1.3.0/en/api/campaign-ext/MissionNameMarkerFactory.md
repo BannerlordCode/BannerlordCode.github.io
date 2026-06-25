@@ -1,23 +1,18 @@
 ---
 title: "MissionNameMarkerFactory"
+description: "Auto-generated class reference for MissionNameMarkerFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNameMarkerFactory`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerFactory
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public static class MissionNameMarkerFactory`
-**Area:** campaign-ext
+**Base:** none
+**File:** `SandBox.ViewModelCollection/Missions/NameMarker/MissionNameMarkerFactory.cs`
 
 ## Overview
 
-`MissionNameMarkerFactory` lives in `SandBox.ViewModelCollection.Missions.NameMarker`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MissionNameMarkerFactory` lives in `SandBox.ViewModelCollection.Missions.NameMarker` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -36,46 +31,81 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### PushContext
 `public static MissionNameMarkerFactory.INameMarkerProviderContext PushContext(string name, bool addDefaultProviders)`
 
-**Purpose:** Handles logic related to `push context`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.PushContext("example", false);
+```
 
 ### PopContext
 `public static void PopContext(string contextId)`
 
-**Purpose:** Handles logic related to `pop context`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.PopContext("example");
+```
 
 ### PopContext
 `public static void PopContext(MissionNameMarkerFactory.INameMarkerProviderContext context)`
 
-**Purpose:** Handles logic related to `pop context`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.PopContext(context);
+```
 
 ### CollectProviders
 `public static List<MissionNameMarkerProvider> CollectProviders()`
 
-**Purpose:** Handles logic related to `collect providers`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.CollectProviders();
+```
 
 ### UpdateProviders
 `public static void UpdateProviders(MissionNameMarkerProvider existingProviders, out List<MissionNameMarkerProvider> addedProviders, out List<MissionNameMarkerProvider> removedProviders)`
 
-**Purpose:** Updates the state or data of `providers`.
+**Purpose:** Recalculates and stores the latest representation of `providers`.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.UpdateProviders(existingProviders, addedProviders, removedProviders);
+```
 
 ### AddProvider
 `public void AddProvider(Type tProvider)`
 
 **Purpose:** Adds `provider` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionNameMarkerFactory from the subsystem API first
+MissionNameMarkerFactory missionNameMarkerFactory = ...;
+missionNameMarkerFactory.AddProvider(tProvider);
+```
+
 ### RemoveProvider
 `public void RemoveProvider(Type tProvider)`
 
 **Purpose:** Removes `provider` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionNameMarkerFactory from the subsystem API first
+MissionNameMarkerFactory missionNameMarkerFactory = ...;
+missionNameMarkerFactory.RemoveProvider(tProvider);
+```
+
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MissionNameMarkerFactory.PushContext("example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

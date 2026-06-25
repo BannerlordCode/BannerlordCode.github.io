@@ -1,20 +1,14 @@
 ---
 title: "AlwaysVisibleNameMarkerListPanel"
+description: "AlwaysVisibleNameMarkerListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AlwaysVisibleNameMarkerListPanel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlwaysVisibleNameMarkerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AlwaysVisibleNameMarkerListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/AlwaysVisibleNameMarkerListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker/AlwaysVisibleNameMarkerListPanel.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "AlwaysVisibleNameMarkerListPanel"
 ## 使用示例
 
 ```csharp
-var example = new AlwaysVisibleNameMarkerListPanel();
+// 从对应子系统 API 获取实例
+AlwaysVisibleNameMarkerListPanel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

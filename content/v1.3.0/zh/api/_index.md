@@ -1,21 +1,25 @@
 ---
-title: API 参考 / API Reference
-description: Bannerlord SDK API 完整参考 / Complete API reference for Bannerlord SDK
+title: "API 参考"
+description: Bannerlord SDK API 完整参考目录
 ---
-# API 参考 / API Reference
+<!-- BEGIN SECTION INDEX -->
 
-## 心智模型
+## ↑ 上级导航
 
-先把 `API 参考` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+- [版本首页](../)
 
-v1.3.0 版本的完整 API 参考文档。
+## ↓ 子页面目录
 
-Complete API reference for v1.3.0.
+- [campaign 目录](./campaign/) — TaleWorlds.CampaignSystem 战役模块类参考目录
+- [campaign-ext 目录](./campaign-ext/) — 战役扩展类（Settlement/Workshop/PartyTemplate 等）参考目录
+- [core 目录](./core/) — TaleWorlds.Core 核心数据类型类参考目录
+- [core-extra 目录](./core-extra/) — Core / Library 相关扩展类参考目录
+- [engine 目录](./engine/) — TaleWorlds.Engine 引擎类参考目录
+- [gui 目录](./gui/) — Gauntlet UI 系统类参考目录
+- [localization 目录](./localization/) — 本地化系统类参考目录
+- [mission 目录](./mission/) — TaleWorlds.MountAndBlade 战斗系统类参考目录
+- [mission-ext 目录](./mission-ext/) — 战斗扩展类（MissionBehavior/AgentComponent 等）参考目录
+- [system 目录](./system/) — 系统层类参考目录
+- [viewmodel 目录](./viewmodel/) — ViewModel 视图模型类参考目录
 
-## 模块 / Modules
-
-- [Core 核心](./core/) — MBSubModuleBase, Module
-- [Mission 任务](./mission/) — Mission, Agent
-- [Campaign 战役](./campaign/) — MobileParty, PartyBase
-- [TaleWorlds.MountAndBlade](./TaleWorlds.MountAndBlade/) — 核心游戏类
-
+<!-- END SECTION INDEX -->

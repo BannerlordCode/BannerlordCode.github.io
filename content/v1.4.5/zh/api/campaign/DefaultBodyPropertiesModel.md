@@ -1,20 +1,14 @@
 ---
 title: "DefaultBodyPropertiesModel"
+description: "DefaultBodyPropertiesModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultBodyPropertiesModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBodyPropertiesModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultBodyPropertiesModel : BodyPropertiesModel`
 **Base:** `BodyPropertiesModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBodyPropertiesModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBodyPropertiesModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultBodyPropertiesModel"
 ### GetHairIndicesForCulture
 `public override int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** 获取 `hair indices for culture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hair indices for culture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBodyPropertiesModel 实例
+DefaultBodyPropertiesModel defaultBodyPropertiesModel = ...;
+var result = defaultBodyPropertiesModel.GetHairIndicesForCulture(0, 0, 0, culture);
+```
 
 ### GetBeardIndicesForCulture
 `public override int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** 获取 `beard indices for culture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「beard indices for culture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBodyPropertiesModel 实例
+DefaultBodyPropertiesModel defaultBodyPropertiesModel = ...;
+var result = defaultBodyPropertiesModel.GetBeardIndicesForCulture(0, 0, 0, culture);
+```
 
 ### GetTattooIndicesForCulture
 `public override int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**用途 / Purpose:** 获取 `tattoo indices for culture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tattoo indices for culture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBodyPropertiesModel 实例
+DefaultBodyPropertiesModel defaultBodyPropertiesModel = ...;
+var result = defaultBodyPropertiesModel.GetTattooIndicesForCulture(0, 0, 0, culture);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultBodyPropertiesModel>(new MyDefaultBodyPropertie
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

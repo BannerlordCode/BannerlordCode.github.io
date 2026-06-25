@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyFoodBuyingModel"
+description: "Auto-generated class reference for DefaultPartyFoodBuyingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyFoodBuyingModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPartyFoodBuyingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -37,7 +31,13 @@ Treat `DefaultPartyFoodBuyingModel` as a Model-style extension point: first iden
 ### FindItemToBuy
 `public override void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemElement, out float itemElementsPrice)`
 
-**Purpose:** Handles logic related to `find item to buy`.
+**Purpose:** Looks up the matching `item to buy` in the current collection or scope.
+
+```csharp
+// Obtain an instance of DefaultPartyFoodBuyingModel from the subsystem API first
+DefaultPartyFoodBuyingModel defaultPartyFoodBuyingModel = ...;
+defaultPartyFoodBuyingModel.FindItemToBuy(mobileParty, settlement, itemElement, itemElementsPrice);
+```
 
 ## Usage Example
 
@@ -47,4 +47,4 @@ Game.Current.ReplaceModel<DefaultPartyFoodBuyingModel>(new MyDefaultPartyFoodBuy
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

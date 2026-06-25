@@ -1,13 +1,7 @@
 ---
 title: "RecentPlayersManager"
+description: "Auto-generated class reference for RecentPlayersManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecentPlayersManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RecentPlayersManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -37,37 +31,72 @@ Treat `RecentPlayersManager` as a Manager-style extension point: first identify 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+RecentPlayersManager.Initialize();
+```
 
 ### GetRecentPlayerInfos
 `public static Task<MBReadOnlyList<RecentPlayerInfo>> GetRecentPlayerInfos()`
 
-**Purpose:** Gets the current value of `recent player infos`.
+**Purpose:** Reads and returns the `recent player infos` value held by the current object.
+
+```csharp
+// Static call; no instance required
+RecentPlayersManager.GetRecentPlayerInfos();
+```
 
 ### GetRecentPlayerIds
 `public static PlayerId GetRecentPlayerIds()`
 
-**Purpose:** Gets the current value of `recent player ids`.
+**Purpose:** Reads and returns the `recent player ids` value held by the current object.
+
+```csharp
+// Static call; no instance required
+RecentPlayersManager.GetRecentPlayerIds();
+```
 
 ### AddOrUpdatePlayerEntry
 `public static void AddOrUpdatePlayerEntry(PlayerId playerId, string playerName, InteractionType interactionType, int forcedIndex)`
 
 **Purpose:** Adds `or update player entry` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+RecentPlayersManager.AddOrUpdatePlayerEntry(playerId, "example", interactionType, 0);
+```
+
 ### TrimPlayers
 `public static void TrimPlayers()`
 
-**Purpose:** Handles logic related to `trim players`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+RecentPlayersManager.TrimPlayers();
+```
 
 ### Serialize
 `public static void Serialize()`
 
-**Purpose:** Handles logic related to `serialize`.
+**Purpose:** Serializes the current object into a storable or transmittable format.
+
+```csharp
+// Static call; no instance required
+RecentPlayersManager.Serialize();
+```
 
 ### GetPlayersOrdered
 `public static IEnumerable<PlayerId> GetPlayersOrdered()`
 
-**Purpose:** Gets the current value of `players ordered`.
+**Purpose:** Reads and returns the `players ordered` value held by the current object.
+
+```csharp
+// Static call; no instance required
+RecentPlayersManager.GetPlayersOrdered();
+```
 
 ## Usage Example
 
@@ -77,4 +106,4 @@ var manager = RecentPlayersManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

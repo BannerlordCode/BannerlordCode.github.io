@@ -1,13 +1,7 @@
 ---
 title: "ClientWebSocketHandler"
+description: "Auto-generated class reference for ClientWebSocketHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClientWebSocketHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClientWebSocketHandler
 
 **Namespace:** TaleWorlds.Network
@@ -35,44 +29,86 @@ Treat `ClientWebSocketHandler` as a Handler-style extension point: first identif
 ### Connect
 `public Task Connect(string uri, string token, List<KeyValuePair<string, string>> headers = null)`
 
-**Purpose:** Handles logic related to `connect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientWebSocketHandler from the subsystem API first
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.Connect("example", "example", list<KeyValuePair<string, "example");
+```
 
 ### Disconnect
 `public Task Disconnect(string reason, bool onDisconnectCommand)`
 
-**Purpose:** Handles logic related to `disconnect`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientWebSocketHandler from the subsystem API first
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.Disconnect("example", false);
+```
 
 ### SendTextMessage
 `public void SendTextMessage(string postBoxId, string text)`
 
-**Purpose:** Handles logic related to `send text message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientWebSocketHandler from the subsystem API first
+ClientWebSocketHandler clientWebSocketHandler = ...;
+clientWebSocketHandler.SendTextMessage("example", "example");
+```
 
 ### MessageReceivedDelegate
 `public delegate void MessageReceivedDelegate(WebSocketMessage message, ClientWebSocketHandler socket)`
 
-**Purpose:** Handles logic related to `message received delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientWebSocketHandler from the subsystem API first
+ClientWebSocketHandler clientWebSocketHandler = ...;
+clientWebSocketHandler.MessageReceivedDelegate(message, socket);
+```
 
 ### OnErrorDelegate
 `public delegate void OnErrorDelegate(ClientWebSocketHandler sender, Exception ex)`
 
-**Purpose:** Called when the `error delegate` event is raised.
+**Purpose:** Invoked when the `error delegate` event is raised.
+
+```csharp
+// Obtain an instance of ClientWebSocketHandler from the subsystem API first
+ClientWebSocketHandler clientWebSocketHandler = ...;
+clientWebSocketHandler.OnErrorDelegate(sender, ex);
+```
 
 ### DisconnectedDelegate
 `public delegate Task DisconnectedDelegate(ClientWebSocketHandler sender, bool onDisconnectCommand)`
 
-**Purpose:** Handles logic related to `disconnected delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientWebSocketHandler from the subsystem API first
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.DisconnectedDelegate(sender, false);
+```
 
 ### ConnectedDelegate
 `public delegate Task ConnectedDelegate(ClientWebSocketHandler sender)`
 
-**Purpose:** Handles logic related to `connected delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClientWebSocketHandler from the subsystem API first
+ClientWebSocketHandler clientWebSocketHandler = ...;
+var result = clientWebSocketHandler.ConnectedDelegate(sender);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ClientWebSocketHandler());
+var behavior = Mission.Current.GetMissionBehavior<ClientWebSocketHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

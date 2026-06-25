@@ -1,20 +1,14 @@
 ---
 title: "MBEquipmentRoster"
+description: "Auto-generated class reference for MBEquipmentRoster."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBEquipmentRoster`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBEquipmentRoster
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBEquipmentRoster : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBEquipmentRoster.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBEquipmentRoster.cs`
 
 ## Overview
 
@@ -38,40 +32,77 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.Init(objectManager, node);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.Deserialize(objectManager, node);
+```
 
 ### AddEquipmentRoster
 `public void AddEquipmentRoster(MBEquipmentRoster equipmentRoster, Equipment.EquipmentType equipmentType)`
 
 **Purpose:** Adds `equipment roster` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.AddEquipmentRoster(equipmentRoster, equipmentType);
+```
+
 ### AddOverriddenEquipments
 `public void AddOverriddenEquipments(MBObjectManager objectManager, List<XmlNode> overridenEquipmentSlots)`
 
 **Purpose:** Adds `overridden equipments` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.AddOverriddenEquipments(objectManager, overridenEquipmentSlots);
+```
+
 ### OrderEquipments
 `public void OrderEquipments()`
 
-**Purpose:** Handles logic related to `order equipments`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.OrderEquipments();
+```
 
 ### InitializeDefaultEquipment
 `public void InitializeDefaultEquipment(string equipmentName)`
 
-**Purpose:** Initializes the state, resources, or bindings for `default equipment`.
+**Purpose:** Prepares the resources, state, or bindings required by `default equipment`.
+
+```csharp
+// Obtain an instance of MBEquipmentRoster from the subsystem API first
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.InitializeDefaultEquipment("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBEquipmentRoster();
-value.Init(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+MBEquipmentRoster mBEquipmentRoster = ...;
+mBEquipmentRoster.Init(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

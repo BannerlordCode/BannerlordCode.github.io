@@ -1,20 +1,14 @@
 ---
 title: "MBSoundEvent"
+description: "MBSoundEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBSoundEvent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBSoundEvent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBSoundEvent`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSoundEvent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSoundEvent.cs`
 
 ## 概述
 
@@ -29,37 +23,72 @@ title: "MBSoundEvent"
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, in Vec3 position)`
 
-**用途 / Purpose:** 处理 `play sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSoundEvent.PlaySound(0, position);
+```
 
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, Vec3 position)`
 
-**用途 / Purpose:** 处理 `play sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSoundEvent.PlaySound(0, position);
+```
 
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, ref SoundEventParameter parameter, Vec3 position)`
 
-**用途 / Purpose:** 处理 `play sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSoundEvent.PlaySound(0, parameter, position);
+```
 
 ### PlaySound
 `public static bool PlaySound(string soundPath, ref SoundEventParameter parameter, Vec3 position)`
 
-**用途 / Purpose:** 处理 `play sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSoundEvent.PlaySound("example", parameter, position);
+```
 
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, ref SoundEventParameter parameter, in Vec3 position)`
 
-**用途 / Purpose:** 处理 `play sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSoundEvent.PlaySound(0, parameter, position);
+```
 
 ### PlayEventFromSoundBuffer
 `public static void PlayEventFromSoundBuffer(string eventId, byte soundData, Scene scene, bool is3d, bool isBlocking)`
 
-**用途 / Purpose:** 处理 `play event from sound buffer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBSoundEvent.PlayEventFromSoundBuffer("example", 0, scene, false, false);
+```
 
 ### CreateEventFromExternalFile
 `public static void CreateEventFromExternalFile(string programmerEventName, string soundFilePath, Scene scene, bool is3d, bool isBlocking)`
 
-**用途 / Purpose:** 创建一个 `event from external file` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「event from external file」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MBSoundEvent.CreateEventFromExternalFile("example", "example", scene, false, false);
+```
 
 ## 使用示例
 
@@ -69,4 +98,4 @@ MBSoundEvent.PlaySound(0, position);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

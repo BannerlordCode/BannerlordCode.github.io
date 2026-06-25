@@ -1,23 +1,18 @@
 ---
 title: "AvatarServices"
+description: "Auto-generated class reference for AvatarServices."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvatarServices`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AvatarServices
 
 **Namespace:** TaleWorlds.Avatar.PlayerServices
 **Module:** TaleWorlds.Avatar
 **Type:** `public static class AvatarServices`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.PlayerServices/Avatar/PlayerServices/AvatarServices.cs`
 
 ## Overview
 
-`AvatarServices` lives in `TaleWorlds.Avatar.PlayerServices`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`AvatarServices` lives in `TaleWorlds.Avatar.PlayerServices` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,36 +29,59 @@ Start from namespace `TaleWorlds.Avatar.PlayerServices` to place it in the stack
 ### GetForcedAvatarIndexOfPlayer
 `public static int GetForcedAvatarIndexOfPlayer(PlayerId playerID)`
 
-**Purpose:** Gets the current value of `forced avatar index of player`.
+**Purpose:** Reads and returns the `forced avatar index of player` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AvatarServices.GetForcedAvatarIndexOfPlayer(playerID);
+```
 
 ### UpdateAvatarServices
 `public static void UpdateAvatarServices(float dt)`
 
-**Purpose:** Updates the state or data of `avatar services`.
+**Purpose:** Recalculates and stores the latest representation of `avatar services`.
+
+```csharp
+// Static call; no instance required
+AvatarServices.UpdateAvatarServices(0);
+```
 
 ### GetPlayerAvatar
 `public static AvatarDataResponse GetPlayerAvatar(PlayerId playerId, int forcedIndex)`
 
-**Purpose:** Gets the current value of `player avatar`.
+**Purpose:** Reads and returns the `player avatar` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AvatarServices.GetPlayerAvatar(playerId, 0);
+```
 
 ### AddAvatarService
 `public static void AddAvatarService(PlayerIdProvidedTypes type, IAvatarService avatarService)`
 
 **Purpose:** Adds `avatar service` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+AvatarServices.AddAvatarService(type, avatarService);
+```
+
 ### ClearAvatarCaches
 `public static void ClearAvatarCaches()`
 
-**Purpose:** Handles logic related to `clear avatar caches`.
+**Purpose:** Removes all `avatar caches` from the current object.
+
+```csharp
+// Static call; no instance required
+AvatarServices.ClearAvatarCaches();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 AvatarServices.GetForcedAvatarIndexOfPlayer(playerID);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

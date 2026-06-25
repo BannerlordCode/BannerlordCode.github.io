@@ -1,20 +1,14 @@
 ---
 title: "StoryModeSubModule"
+description: "Auto-generated class reference for StoryModeSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeSubModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeSubModule
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class StoryModeSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/StoryModeSubModule.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/StoryModeSubModule.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of StoryModeSubModule from the subsystem API first
+StoryModeSubModule storyModeSubModule = ...;
+storyModeSubModule.OnGameEnd(game);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StoryModeSubModule();
-value.OnGameEnd(game);
+// Typically call this after obtaining an instance from the subsystem API
+StoryModeSubModule storyModeSubModule = ...;
+storyModeSubModule.OnGameEnd(game);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

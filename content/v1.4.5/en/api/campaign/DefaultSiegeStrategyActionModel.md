@@ -1,20 +1,14 @@
 ---
 title: "DefaultSiegeStrategyActionModel"
+description: "Auto-generated class reference for DefaultSiegeStrategyActionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSiegeStrategyActionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeStrategyActionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSiegeStrategyActionModel : SiegeStrategyActionModel`
 **Base:** `SiegeStrategyActionModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeStrategyActionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeStrategyActionModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultSiegeStrategyActionModel` as a Model-style extension point: first 
 ### GetLogicalActionForStrategy
 `public override void GetLogicalActionForStrategy(ISiegeEventSide side, out SiegeAction siegeAction, out SiegeEngineType siegeEngineType, out int deploymentIndex, out int reserveIndex)`
 
-**Purpose:** Gets the current value of `logical action for strategy`.
+**Purpose:** Reads and returns the `logical action for strategy` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSiegeStrategyActionModel from the subsystem API first
+DefaultSiegeStrategyActionModel defaultSiegeStrategyActionModel = ...;
+defaultSiegeStrategyActionModel.GetLogicalActionForStrategy(side, siegeAction, siegeEngineType, deploymentIndex, reserveIndex);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultSiegeStrategyActionModel>(new MyDefaultSiegeStr
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

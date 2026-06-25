@@ -1,20 +1,14 @@
 ---
 title: "IAdminPanelMultiSelectionItem"
+description: "Auto-generated class reference for IAdminPanelMultiSelectionItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAdminPanelMultiSelectionItem`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IAdminPanelMultiSelectionItem
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Admin
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IAdminPanelMultiSelectionItem`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelMultiSelectionItem.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelMultiSelectionItem.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in
 ## Usage Example
 
 ```csharp
-IAdminPanelMultiSelectionItem implementation = GetAdminPanelMultiSelectionItemImplementation();
+// Usually obtained through DI or a factory method
+IIAdminPanelMultiSelectionItem service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

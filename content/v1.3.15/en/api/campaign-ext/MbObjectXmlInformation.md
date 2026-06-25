@@ -1,13 +1,7 @@
 ---
 title: "MbObjectXmlInformation"
+description: "Auto-generated class reference for MbObjectXmlInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MbObjectXmlInformation`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MbObjectXmlInformation
 
 **Namespace:** TaleWorlds.ObjectSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new MbObjectXmlInformation();
+// Obtain an instance from the relevant subsystem API
+MbObjectXmlInformation instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

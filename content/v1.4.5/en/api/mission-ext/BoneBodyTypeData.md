@@ -1,20 +1,14 @@
 ---
 title: "BoneBodyTypeData"
+description: "Auto-generated class reference for BoneBodyTypeData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoneBodyTypeData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoneBodyTypeData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BoneBodyTypeData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoneBodyTypeData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoneBodyTypeData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `BoneBodyTypeData` as a Data-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-var value = new BoneBodyTypeData();
+// This data object is usually returned by campaign/mission APIs
+BoneBodyTypeData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

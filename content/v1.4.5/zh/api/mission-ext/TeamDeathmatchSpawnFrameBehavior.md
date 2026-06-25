@@ -1,20 +1,14 @@
 ---
 title: "TeamDeathmatchSpawnFrameBehavior"
+description: "TeamDeathmatchSpawnFrameBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamDeathmatchSpawnFrameBehavior`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamDeathmatchSpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamDeathmatchSpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/TeamDeathmatchSpawnFrameBehavior.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/TeamDeathmatchSpawnFrameBehavior.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "TeamDeathmatchSpawnFrameBehavior"
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**用途 / Purpose:** 获取 `spawn frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TeamDeathmatchSpawnFrameBehavior 实例
+TeamDeathmatchSpawnFrameBehavior teamDeathmatchSpawnFrameBehavior = ...;
+var result = teamDeathmatchSpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamDeathmatchSpawnFrameBehavior();
-value.GetSpawnFrame(team, false, false);
+// 通常从对应子系统 API 获取实例后调用
+TeamDeathmatchSpawnFrameBehavior teamDeathmatchSpawnFrameBehavior = ...;
+teamDeathmatchSpawnFrameBehavior.GetSpawnFrame(team, false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

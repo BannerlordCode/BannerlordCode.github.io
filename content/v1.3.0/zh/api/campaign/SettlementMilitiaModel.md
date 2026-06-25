@@ -1,13 +1,7 @@
 ---
 title: "SettlementMilitiaModel"
+description: "SettlementMilitiaModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementMilitiaModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementMilitiaModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,29 +23,54 @@ title: "SettlementMilitiaModel"
 ### MilitiaToSpawnAfterSiege
 `public abstract int MilitiaToSpawnAfterSiege(Town town)`
 
-**用途 / Purpose:** 处理 `militia to spawn after siege` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementMilitiaModel 实例
+SettlementMilitiaModel settlementMilitiaModel = ...;
+var result = settlementMilitiaModel.MilitiaToSpawnAfterSiege(town);
+```
 
 ### CalculateMilitiaChange
 `public abstract ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate militia change` 相关逻辑。
+**用途 / Purpose:** 计算「militia change」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementMilitiaModel 实例
+SettlementMilitiaModel settlementMilitiaModel = ...;
+var result = settlementMilitiaModel.CalculateMilitiaChange(settlement, false);
+```
 
 ### CalculateVeteranMilitiaSpawnChance
 `public abstract ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `calculate veteran militia spawn chance` 相关逻辑。
+**用途 / Purpose:** 计算「veteran militia spawn chance」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementMilitiaModel 实例
+SettlementMilitiaModel settlementMilitiaModel = ...;
+var result = settlementMilitiaModel.CalculateVeteranMilitiaSpawnChance(settlement);
+```
 
 ### CalculateMilitiaSpawnRate
 `public abstract void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)`
 
-**用途 / Purpose:** 处理 `calculate militia spawn rate` 相关逻辑。
+**用途 / Purpose:** 计算「militia spawn rate」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementMilitiaModel 实例
+SettlementMilitiaModel settlementMilitiaModel = ...;
+settlementMilitiaModel.CalculateMilitiaSpawnRate(settlement, meleeTroopRate, rangedTroopRate);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementMilitiaModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementMilitiaModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

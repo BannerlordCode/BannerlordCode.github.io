@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerEndOfRoundPanelBrushWidget"
+description: "Auto-generated class reference for MultiplayerEndOfRoundPanelBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerEndOfRoundPanelBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerEndOfRoundPanelBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerEndOfRoundPanelBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerEndOfRoundPanelBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerEndOfRoundPanelBrushWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MultiplayerEndOfRoundPanelBrushWidget` as a Widget-style extension point:
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerEndOfRoundPanelBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerEndOfRoundPanelBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

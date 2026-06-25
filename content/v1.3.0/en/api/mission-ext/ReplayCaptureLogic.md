@@ -1,13 +1,7 @@
 ---
 title: "ReplayCaptureLogic"
+description: "Auto-generated class reference for ReplayCaptureLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReplayCaptureLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReplayCaptureLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,19 +23,31 @@ Treat `ReplayCaptureLogic` as a Logic-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of ReplayCaptureLogic from the subsystem API first
+ReplayCaptureLogic replayCaptureLogic = ...;
+replayCaptureLogic.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of ReplayCaptureLogic from the subsystem API first
+ReplayCaptureLogic replayCaptureLogic = ...;
+replayCaptureLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ReplayCaptureLogic());
+var behavior = Mission.Current.GetMissionBehavior<ReplayCaptureLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

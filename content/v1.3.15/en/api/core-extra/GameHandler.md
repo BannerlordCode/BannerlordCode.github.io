@@ -1,13 +1,7 @@
 ---
 title: "GameHandler"
+description: "Auto-generated class reference for GameHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameHandler`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameHandler
 
 **Namespace:** TaleWorlds.Core
@@ -29,19 +23,32 @@ Treat `GameHandler` as a Handler-style extension point: first identify who creat
 ### OnBeforeSave
 `public abstract void OnBeforeSave()`
 
-**Purpose:** Called when the `before save` event is raised.
+**Purpose:** Invoked when the `before save` event is raised.
+
+```csharp
+// Obtain an instance of GameHandler from the subsystem API first
+GameHandler gameHandler = ...;
+gameHandler.OnBeforeSave();
+```
 
 ### OnAfterSave
 `public abstract void OnAfterSave()`
 
-**Purpose:** Called when the `after save` event is raised.
+**Purpose:** Invoked when the `after save` event is raised.
+
+```csharp
+// Obtain an instance of GameHandler from the subsystem API first
+GameHandler gameHandler = ...;
+gameHandler.OnAfterSave();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameHandler();
+// Typically obtained from a subsystem API or factory
+GameHandler instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

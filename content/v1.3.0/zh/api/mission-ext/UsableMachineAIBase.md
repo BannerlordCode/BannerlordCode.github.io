@@ -1,13 +1,7 @@
 ---
 title: "UsableMachineAIBase"
+description: "UsableMachineAIBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UsableMachineAIBase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsableMachineAIBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,34 +29,63 @@ title: "UsableMachineAIBase"
 ### Tick
 `public void Tick(Agent agentToCompareTo, Formation formationToCompareTo, Team potentialUsersTeam, float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 UsableMachineAIBase 实例
+UsableMachineAIBase usableMachineAIBase = ...;
+usableMachineAIBase.Tick(agentToCompareTo, formationToCompareTo, potentialUsersTeam, 0);
+```
 
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(UsableMachine usableMachine, StandingPoint standingPoint, IEnumerable<Agent> agents, List<Agent> usedAgents)`
 
-**用途 / Purpose:** 获取 `suitable agent for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「suitable agent for standing point」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, agents, usedAgents);
+```
 
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(UsableMachine usableMachine, StandingPoint standingPoint, List<ValueTuple<Agent, float>> agents, List<Agent> usedAgents, float weight)`
 
-**用途 / Purpose:** 获取 `suitable agent for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「suitable agent for standing point」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, list<ValueTuple<Agent, 0, usedAgents, 0);
+```
 
 ### TeleportUserAgentsToMachine
 `public virtual void TeleportUserAgentsToMachine(List<Agent> agentList)`
 
-**用途 / Purpose:** 处理 `teleport user agents to machine` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 UsableMachineAIBase 实例
+UsableMachineAIBase usableMachineAIBase = ...;
+usableMachineAIBase.TeleportUserAgentsToMachine(agentList);
+```
 
 ### StopUsingStandingPoint
 `public void StopUsingStandingPoint(StandingPoint standingPoint)`
 
-**用途 / Purpose:** 处理 `stop using standing point` 相关逻辑。
+**用途 / Purpose:** 停止「using standing point」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 UsableMachineAIBase 实例
+UsableMachineAIBase usableMachineAIBase = ...;
+usableMachineAIBase.StopUsingStandingPoint(standingPoint);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomUsableMachineAIBase();
+// 通常通过子系统 API 或工厂获得派生实例
+UsableMachineAIBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

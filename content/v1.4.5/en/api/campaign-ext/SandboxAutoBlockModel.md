@@ -1,20 +1,14 @@
 ---
 title: "SandboxAutoBlockModel"
+description: "Auto-generated class reference for SandboxAutoBlockModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxAutoBlockModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxAutoBlockModel
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
 **Type:** `public class SandboxAutoBlockModel : AutoBlockModel`
 **Base:** `AutoBlockModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/SandboxAutoBlockModel.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/SandboxAutoBlockModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `SandboxAutoBlockModel` as a Model-style extension point: first identify w
 ### GetBlockDirection
 `public override UsageDirection GetBlockDirection(Mission mission)`
 
-**Purpose:** Gets the current value of `block direction`.
+**Purpose:** Reads and returns the `block direction` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxAutoBlockModel from the subsystem API first
+SandboxAutoBlockModel sandboxAutoBlockModel = ...;
+var result = sandboxAutoBlockModel.GetBlockDirection(mission);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxAutoBlockModel>(new MySandboxAutoBlockModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

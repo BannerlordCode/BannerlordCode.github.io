@@ -1,20 +1,14 @@
 ---
 title: "EntityVisualManagerBase"
+description: "Auto-generated class reference for EntityVisualManagerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EntityVisualManagerBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EntityVisualManagerBase
 
 **Namespace:** SandBox.View.Map.Managers
 **Module:** SandBox.View
-**Type:** `public abstract class EntityVisualManagerBase : CampaignEntityVisualComponent`
-**Base:** `CampaignEntityVisualComponent`
-**File:** `SandBox.View/Map/Managers/EntityVisualManagerBase.cs`
+**Type:** `public abstract class EntityVisualManagerBase<TEntity> : EntityVisualManagerBase`
+**Base:** `EntityVisualManagerBase`
+**File:** `SandBox.View/Map/Managers/EntityVisualManagerBase.2.cs`
 
 ## Overview
 
@@ -24,18 +18,36 @@ title: "EntityVisualManagerBase"
 
 Start from namespace `SandBox.View.Map.Managers` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Properties
+## Key Methods
 
-| Name | Signature |
-|------|-----------|
-| `MapScene` | `public Scene MapScene { get; }` |
+### GetVisualOfEntity
+`public abstract MapEntityVisual<TEntity> GetVisualOfEntity(TEntity entity)`
+
+**Purpose:** Reads and returns the `visual of entity` value held by the current object.
+
+```csharp
+// Obtain an instance of EntityVisualManagerBase from the subsystem API first
+EntityVisualManagerBase entityVisualManagerBase = ...;
+var result = entityVisualManagerBase.GetVisualOfEntity(entity);
+```
+
+### GetEntityVisualManagerBase
+`public static EntityVisualManagerBase<TEntity> GetEntityVisualManagerBase()`
+
+**Purpose:** Reads and returns the `entity visual manager base` value held by the current object.
+
+```csharp
+// Static call; no instance required
+EntityVisualManagerBase.GetEntityVisualManagerBase();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEntityVisualManagerBase();
+// Typically obtained from a subsystem API or factory
+EntityVisualManagerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

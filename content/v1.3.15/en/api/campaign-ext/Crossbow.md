@@ -1,23 +1,18 @@
 ---
 title: "Crossbow"
+description: "Auto-generated class reference for Crossbow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Crossbow`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Crossbow
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Crossbow`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Crossbow` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Crossbow` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `Piercer` | `public static PerkObject Piercer { get; }` |
+| `Marksmen` | `public static PerkObject Marksmen { get; }` |
+| `Unhorser` | `public static PerkObject Unhorser { get; }` |
+| `WindWinder` | `public static PerkObject WindWinder { get; }` |
+| `DonkeysSwiftness` | `public static PerkObject DonkeysSwiftness { get; }` |
+| `Sheriff` | `public static PerkObject Sheriff { get; }` |
+| `PeasantLeader` | `public static PerkObject PeasantLeader { get; }` |
+| `RenownMarksmen` | `public static PerkObject RenownMarksmen { get; }` |
+| `Fletcher` | `public static PerkObject Fletcher { get; }` |
+| `Puncture` | `public static PerkObject Puncture { get; }` |
+| `LooseAndMove` | `public static PerkObject LooseAndMove { get; }` |
+| `DeftHands` | `public static PerkObject DeftHands { get; }` |
+| `CounterFire` | `public static PerkObject CounterFire { get; }` |
+| `MountedCrossbowman` | `public static PerkObject MountedCrossbowman { get; }` |
+| `Steady` | `public static PerkObject Steady { get; }` |
+| `LongShots` | `public static PerkObject LongShots { get; }` |
+| `HammerBolts` | `public static PerkObject HammerBolts { get; }` |
+| `Pavise` | `public static PerkObject Pavise { get; }` |
+| `Terror` | `public static PerkObject Terror { get; }` |
+| `PickedShots` | `public static PerkObject PickedShots { get; }` |
+| `MightyPull` | `public static PerkObject MightyPull { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Crossbow();
+// Obtain an instance from the relevant subsystem API
+Crossbow instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ExplainedNumber"
+description: "ExplainedNumber 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ExplainedNumber`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ExplainedNumber
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct ExplainedNumber`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ExplainedNumber.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ExplainedNumber.cs`
 
 ## 概述
 
@@ -42,60 +36,121 @@ title: "ExplainedNumber"
 ### ExplanationLine
 `public readonly struct ExplanationLine(string name, float number, OperationType operationType)`
 
-**用途 / Purpose:** 处理 `explanation line` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+var result = explainedNumber.ExplanationLine("example", 0, operationType);
+```
 
 ### AddLine
 `public void AddLine(string name, float number, OperationType opType)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `line`。
+**用途 / Purpose:** 将 「line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+explainedNumber.AddLine("example", 0, opType);
+```
 
 ### GetExplanations
 `public string GetExplanations()`
 
-**用途 / Purpose:** 获取 `explanations` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「explanations」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+var result = explainedNumber.GetExplanations();
+```
 
 ### AddFromExplainedNumber
 `public void AddFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `from explained number`。
+**用途 / Purpose:** 将 「from explained number」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+explainedNumber.AddFromExplainedNumber(explainedNumber, baseText);
+```
 
 ### SubtractFromExplainedNumber
 `public void SubtractFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
-**用途 / Purpose:** 处理 `subtract from explained number` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+explainedNumber.SubtractFromExplainedNumber(explainedNumber, baseText);
+```
 
 ### Add
 `public void Add(float value, TextObject description = null, TextObject variable = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+explainedNumber.Add(0, null, null);
+```
 
 ### AddFactor
 `public void AddFactor(float value, TextObject description = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `factor`。
+**用途 / Purpose:** 将 「factor」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+explainedNumber.AddFactor(0, null);
+```
 
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**用途 / Purpose:** 处理 `limit min` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+explainedNumber.LimitMin(0);
+```
 
 ### LimitMax
 `public void LimitMax(float maxValue, TextObject description = null)`
 
-**用途 / Purpose:** 处理 `limit max` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+explainedNumber.LimitMax(0, null);
+```
 
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**用途 / Purpose:** 处理 `clamp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ExplainedNumber 实例
+ExplainedNumber explainedNumber = ...;
+explainedNumber.Clamp(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ExplainedNumber();
-value.ExplanationLine("example", 0, operationType);
+// 通常从对应子系统 API 获取实例后调用
+ExplainedNumber explainedNumber = ...;
+explainedNumber.ExplanationLine("example", 0, operationType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

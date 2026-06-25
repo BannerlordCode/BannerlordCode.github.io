@@ -1,13 +1,7 @@
 ---
 title: "DefaultExecutionRelationModel"
+description: "DefaultExecutionRelationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultExecutionRelationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultExecutionRelationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -44,7 +38,13 @@ title: "DefaultExecutionRelationModel"
 ### GetRelationChangeForExecutingHero
 `public override int GetRelationChangeForExecutingHero(Hero victim, Hero hero, out bool showQuickNotification)`
 
-**用途 / Purpose:** 获取 `relation change for executing hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation change for executing hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultExecutionRelationModel 实例
+DefaultExecutionRelationModel defaultExecutionRelationModel = ...;
+var result = defaultExecutionRelationModel.GetRelationChangeForExecutingHero(victim, hero, showQuickNotification);
+```
 
 ## 使用示例
 
@@ -54,4 +54,4 @@ Game.Current.ReplaceModel<DefaultExecutionRelationModel>(new MyDefaultExecutionR
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

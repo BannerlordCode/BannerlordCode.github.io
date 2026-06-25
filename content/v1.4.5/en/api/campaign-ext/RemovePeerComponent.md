@@ -1,20 +1,14 @@
 ---
 title: "RemovePeerComponent"
+description: "Auto-generated class reference for RemovePeerComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemovePeerComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemovePeerComponent
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class RemovePeerComponent : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemovePeerComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/RemovePeerComponent.cs`
 
 ## Overview
 
@@ -39,4 +33,4 @@ var component = agent.GetComponent<RemovePeerComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

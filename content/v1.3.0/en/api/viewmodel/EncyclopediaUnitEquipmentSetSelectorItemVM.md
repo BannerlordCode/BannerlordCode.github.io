@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaUnitEquipmentSetSelectorItemVM"
+description: "Auto-generated class reference for EncyclopediaUnitEquipmentSetSelectorItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaUnitEquipmentSetSelectorItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaUnitEquipmentSetSelectorItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Items
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ## Usage Example
 
 ```csharp
-var example = new EncyclopediaUnitEquipmentSetSelectorItemVM();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaUnitEquipmentSetSelectorItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

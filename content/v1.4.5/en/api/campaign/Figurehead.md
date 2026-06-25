@@ -1,20 +1,14 @@
 ---
 title: "Figurehead"
+description: "Auto-generated class reference for Figurehead."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Figurehead`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Figurehead
 
 **Namespace:** TaleWorlds.CampaignSystem.Naval
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Figurehead : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Naval/Figurehead.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Naval/Figurehead.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Naval` to place it in the stack,
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, float amount, CultureObject culture, EffectIncrementType effectIncrementType)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of Figurehead from the subsystem API first
+Figurehead figurehead = ...;
+figurehead.Initialize(name, description, 0, culture, effectIncrementType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Figurehead();
-value.Initialize(name, description, 0, culture, effectIncrementType);
+// Typically call this after obtaining an instance from the subsystem API
+Figurehead figurehead = ...;
+figurehead.Initialize(name, description, 0, culture, effectIncrementType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

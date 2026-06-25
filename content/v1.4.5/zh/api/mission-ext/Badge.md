@@ -1,20 +1,14 @@
 ---
 title: "Badge"
+description: "Badge 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Badge`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Badge
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Badge`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/Badge.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/Badge.cs`
 
 ## 概述
 
@@ -45,15 +39,22 @@ title: "Badge"
 ### Deserialize
 `public virtual void Deserialize(XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Badge 实例
+Badge badge = ...;
+badge.Deserialize(node);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Badge();
-value.Deserialize(node);
+// 通常从对应子系统 API 获取实例后调用
+Badge badge = ...;
+badge.Deserialize(node);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

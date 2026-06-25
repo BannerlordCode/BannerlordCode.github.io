@@ -1,13 +1,7 @@
 ---
 title: "PlayerRetiredLogEntry"
+description: "Auto-generated class reference for PlayerRetiredLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerRetiredLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerRetiredLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of PlayerRetiredLogEntry from the subsystem API first
+PlayerRetiredLogEntry playerRetiredLogEntry = ...;
+var result = playerRetiredLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of PlayerRetiredLogEntry from the subsystem API first
+PlayerRetiredLogEntry playerRetiredLogEntry = ...;
+var result = playerRetiredLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerRetiredLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+PlayerRetiredLogEntry playerRetiredLogEntry = ...;
+playerRetiredLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

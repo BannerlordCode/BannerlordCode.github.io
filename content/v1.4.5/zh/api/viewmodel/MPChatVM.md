@@ -1,20 +1,14 @@
 ---
 title: "MPChatVM"
+description: "MPChatVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPChatVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPChatVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPChatVM : ViewModel, IChatHandler`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer/MPChatVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer/MPChatVM.cs`
 
 ## 概述
 
@@ -57,135 +51,286 @@ title: "MPChatVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.RefreshValues();
+```
 
 ### ToggleIncludeCombatLog
 `public void ToggleIncludeCombatLog()`
 
-**用途 / Purpose:** 处理 `toggle include combat log` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.ToggleIncludeCombatLog();
+```
 
 ### ExecuteToggleIncludeShouts
 `public void ExecuteToggleIncludeShouts()`
 
-**用途 / Purpose:** 执行 `toggle include shouts` 操作或流程。
+**用途 / Purpose:** 执行 「toggle include shouts」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.ExecuteToggleIncludeShouts();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.Tick(0);
+```
 
 ### Hide
 `public void Hide()`
 
-**用途 / Purpose:** 处理 `hide` 相关逻辑。
+**用途 / Purpose:** 隐藏当前对象对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.Hide();
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.Clear();
+```
 
 ### UpdateObjects
 `public void UpdateObjects(Game game, Mission mission)`
 
-**用途 / Purpose:** 更新 `objects` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「objects」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.UpdateObjects(game, mission);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.OnFinalize();
+```
 
 ### SendMessageToChannel
 `public void SendMessageToChannel(ChatChannelType channel, string message)`
 
-**用途 / Purpose:** 处理 `send message to channel` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.SendMessageToChannel(channel, "example");
+```
 
 ### CheckChatFading
 `public void CheckChatFading(float dt)`
 
-**用途 / Purpose:** 处理 `check chat fading` 相关逻辑。
+**用途 / Purpose:** 检查「chat fading」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.CheckChatFading(0);
+```
 
 ### SetChatDisabledStateChangedCallback
 `public void SetChatDisabledStateChangedCallback(Action<bool> onChatDisabledStateChanged)`
 
-**用途 / Purpose:** 设置 `chat disabled state changed callback` 的值或状态。
+**用途 / Purpose:** 为 「chat disabled state changed callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.SetChatDisabledStateChangedCallback(onChatDisabledStateChanged);
+```
 
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<TextObject> getToggleChatKeyText)`
 
-**用途 / Purpose:** 设置 `get key text from key i d func` 的值或状态。
+**用途 / Purpose:** 为 「get key text from key i d func」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.SetGetKeyTextFromKeyIDFunc(getToggleChatKeyText);
+```
 
 ### SetGetCycleChannelKeyTextFunc
 `public void SetGetCycleChannelKeyTextFunc(Func<TextObject> getCycleChannelsKeyText)`
 
-**用途 / Purpose:** 设置 `get cycle channel key text func` 的值或状态。
+**用途 / Purpose:** 为 「get cycle channel key text func」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.SetGetCycleChannelKeyTextFunc(getCycleChannelsKeyText);
+```
 
 ### SetGetSendMessageKeyTextFunc
 `public void SetGetSendMessageKeyTextFunc(Func<TextObject> getSendMessageKeyText)`
 
-**用途 / Purpose:** 设置 `get send message key text func` 的值或状态。
+**用途 / Purpose:** 为 「get send message key text func」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.SetGetSendMessageKeyTextFunc(getSendMessageKeyText);
+```
 
 ### SetGetCancelSendingKeyTextFunc
 `public void SetGetCancelSendingKeyTextFunc(Func<TextObject> getCancelSendingKeyText)`
 
-**用途 / Purpose:** 设置 `get cancel sending key text func` 的值或状态。
+**用途 / Purpose:** 为 「get cancel sending key text func」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.SetGetCancelSendingKeyTextFunc(getCancelSendingKeyText);
+```
 
 ### IsChatAllowedByOptions
 `public bool IsChatAllowedByOptions()`
 
-**用途 / Purpose:** 处理 `is chat allowed by options` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「chat allowed by options」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+var result = mPChatVM.IsChatAllowedByOptions();
+```
 
 ### TypeToChannelAll
 `public void TypeToChannelAll(bool startTyping = false)`
 
-**用途 / Purpose:** 处理 `type to channel all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.TypeToChannelAll(false);
+```
 
 ### TypeToChannelTeam
 `public void TypeToChannelTeam(bool startTyping = false)`
 
-**用途 / Purpose:** 处理 `type to channel team` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.TypeToChannelTeam(false);
+```
 
 ### StartInspectingMessages
 `public void StartInspectingMessages()`
 
-**用途 / Purpose:** 处理 `start inspecting messages` 相关逻辑。
+**用途 / Purpose:** 启动「inspecting messages」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.StartInspectingMessages();
+```
 
 ### StopInspectingMessages
 `public void StopInspectingMessages()`
 
-**用途 / Purpose:** 处理 `stop inspecting messages` 相关逻辑。
+**用途 / Purpose:** 停止「inspecting messages」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.StopInspectingMessages();
+```
 
 ### StartTyping
 `public void StartTyping()`
 
-**用途 / Purpose:** 处理 `start typing` 相关逻辑。
+**用途 / Purpose:** 启动「typing」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.StartTyping();
+```
 
 ### StopTyping
 `public void StopTyping(bool resetWrittenText = false)`
 
-**用途 / Purpose:** 处理 `stop typing` 相关逻辑。
+**用途 / Purpose:** 停止「typing」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.StopTyping(false);
+```
 
 ### SendCurrentlyTypedMessage
 `public void SendCurrentlyTypedMessage()`
 
-**用途 / Purpose:** 处理 `send currently typed message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.SendCurrentlyTypedMessage();
+```
 
 ### ExecuteSaveSizes
 `public void ExecuteSaveSizes()`
 
-**用途 / Purpose:** 执行 `save sizes` 操作或流程。
+**用途 / Purpose:** 执行 「save sizes」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.ExecuteSaveSizes();
+```
 
 ### SetMessageHistoryCapacity
 `public void SetMessageHistoryCapacity(int capacity)`
 
-**用途 / Purpose:** 设置 `message history capacity` 的值或状态。
+**用途 / Purpose:** 为 「message history capacity」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPChatVM 实例
+MPChatVM mPChatVM = ...;
+mPChatVM.SetMessageHistoryCapacity(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPChatVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPChatVM mPChatVM = ...;
+mPChatVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentDamageFeedVM"
+description: "Auto-generated class reference for MissionAgentDamageFeedVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentDamageFeedVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentDamageFeedVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentDamageFeedVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed/MissionAgentDamageFeedVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed/MissionAgentDamageFeedVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFee
 ### OnMainAgentHit
 `public void OnMainAgentHit(float damage)`
 
-**Purpose:** Called when the `main agent hit` event is raised.
+**Purpose:** Invoked when the `main agent hit` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentDamageFeedVM from the subsystem API first
+MissionAgentDamageFeedVM missionAgentDamageFeedVM = ...;
+missionAgentDamageFeedVM.OnMainAgentHit(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentDamageFeedVM();
-value.OnMainAgentHit(0);
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentDamageFeedVM missionAgentDamageFeedVM = ...;
+missionAgentDamageFeedVM.OnMainAgentHit(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

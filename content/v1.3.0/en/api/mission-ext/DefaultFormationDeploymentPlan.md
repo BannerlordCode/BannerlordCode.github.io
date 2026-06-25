@@ -1,13 +1,7 @@
 ---
 title: "DefaultFormationDeploymentPlan"
+description: "Auto-generated class reference for DefaultFormationDeploymentPlan."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultFormationDeploymentPlan`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultFormationDeploymentPlan
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -43,70 +37,143 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### HasFrame
 `public bool HasFrame()`
 
-**Purpose:** Checks whether the current object has/contains `frame`.
+**Purpose:** Determines whether the current object already holds `frame`.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+var result = defaultFormationDeploymentPlan.HasFrame();
+```
 
 ### GetDefaultFlank
 `public FormationDeploymentFlank GetDefaultFlank(int formationTroopCount, int infantryCount, bool spawnWithHorses = false)`
 
-**Purpose:** Gets the current value of `default flank`.
+**Purpose:** Reads and returns the `default flank` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+var result = defaultFormationDeploymentPlan.GetDefaultFlank(0, 0, false);
+```
 
 ### GetFlankDeploymentOrder
 `public FormationDeploymentOrder GetFlankDeploymentOrder(int offset = 0)`
 
-**Purpose:** Gets the current value of `flank deployment order`.
+**Purpose:** Reads and returns the `flank deployment order` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+var result = defaultFormationDeploymentPlan.GetFlankDeploymentOrder(0);
+```
 
 ### GetFrame
 `public MatrixFrame GetFrame()`
 
-**Purpose:** Gets the current value of `frame`.
+**Purpose:** Reads and returns the `frame` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+var result = defaultFormationDeploymentPlan.GetFrame();
+```
 
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** Gets the current value of `position`.
+**Purpose:** Reads and returns the `position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+var result = defaultFormationDeploymentPlan.GetPosition();
+```
 
 ### GetDirection
 `public Vec2 GetDirection()`
 
-**Purpose:** Gets the current value of `direction`.
+**Purpose:** Reads and returns the `direction` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+var result = defaultFormationDeploymentPlan.GetDirection();
+```
 
 ### CreateNewDeploymentWorldPosition
 `public WorldPosition CreateNewDeploymentWorldPosition(WorldPosition.WorldPositionEnforcedCache worldPositionEnforcedCache)`
 
-**Purpose:** Creates a new `new deployment world position` instance or object.
+**Purpose:** Constructs a new `new deployment world position` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+var result = defaultFormationDeploymentPlan.CreateNewDeploymentWorldPosition(worldPositionEnforcedCache);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+defaultFormationDeploymentPlan.Clear();
+```
 
 ### SetPlannedTroopCount
 `public void SetPlannedTroopCount(int footTroopCount, int mountedTroopCount)`
 
-**Purpose:** Sets the value or state of `planned troop count`.
+**Purpose:** Assigns a new value to `planned troop count` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+defaultFormationDeploymentPlan.SetPlannedTroopCount(0, 0);
+```
 
 ### SetPlannedDimensions
 `public void SetPlannedDimensions(float width, float depth)`
 
-**Purpose:** Sets the value or state of `planned dimensions`.
+**Purpose:** Assigns a new value to `planned dimensions` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+defaultFormationDeploymentPlan.SetPlannedDimensions(0, 0);
+```
 
 ### SetFrame
 `public void SetFrame(in WorldFrame frame)`
 
-**Purpose:** Sets the value or state of `frame`.
+**Purpose:** Assigns a new value to `frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+defaultFormationDeploymentPlan.SetFrame(frame);
+```
 
 ### SetSpawnClass
 `public void SetSpawnClass(FormationClass spawnClass)`
 
-**Purpose:** Sets the value or state of `spawn class`.
+**Purpose:** Assigns a new value to `spawn class` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DefaultFormationDeploymentPlan from the subsystem API first
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+defaultFormationDeploymentPlan.SetSpawnClass(spawnClass);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultFormationDeploymentPlan();
-value.HasFrame();
+// Typically call this after obtaining an instance from the subsystem API
+DefaultFormationDeploymentPlan defaultFormationDeploymentPlan = ...;
+defaultFormationDeploymentPlan.HasFrame();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SingleplayerBattleSceneData"
+description: "SingleplayerBattleSceneData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SingleplayerBattleSceneData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SingleplayerBattleSceneData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -38,9 +32,10 @@ title: "SingleplayerBattleSceneData"
 ## 使用示例
 
 ```csharp
-var value = new SingleplayerBattleSceneData();
+// 该数据对象通常由战役/任务 API 返回
+SingleplayerBattleSceneData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyShipLimitModel"
+description: "Auto-generated class reference for PartyShipLimitModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyShipLimitModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyShipLimitModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyShipLimitModel : MBGameModel<PartyShipLimitModel>`
 **Base:** `MBGameModel<PartyShipLimitModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyShipLimitModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyShipLimitModel.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `PartyShipLimitModel` as a Model-style extension point: first identify who
 ### GetIdealShipNumber
 `public abstract int GetIdealShipNumber(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `ideal ship number`.
+**Purpose:** Reads and returns the `ideal ship number` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyShipLimitModel from the subsystem API first
+PartyShipLimitModel partyShipLimitModel = ...;
+var result = partyShipLimitModel.GetIdealShipNumber(mobileParty);
+```
 
 ### GetIdealShipNumber
 `public abstract int GetIdealShipNumber(Clan clan)`
 
-**Purpose:** Gets the current value of `ideal ship number`.
+**Purpose:** Reads and returns the `ideal ship number` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyShipLimitModel from the subsystem API first
+PartyShipLimitModel partyShipLimitModel = ...;
+var result = partyShipLimitModel.GetIdealShipNumber(clan);
+```
 
 ### GetShipPriority
 `public abstract float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)`
 
-**Purpose:** Gets the current value of `ship priority`.
+**Purpose:** Reads and returns the `ship priority` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyShipLimitModel from the subsystem API first
+PartyShipLimitModel partyShipLimitModel = ...;
+var result = partyShipLimitModel.GetShipPriority(mobileParty, ship, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyShipLimitModel();
+// Typically obtained from a subsystem API or factory
+PartyShipLimitModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

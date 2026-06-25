@@ -1,20 +1,14 @@
 ---
 title: "SallyOutReinforcementSpawnTimer"
+description: "SallyOutReinforcementSpawnTimer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SallyOutReinforcementSpawnTimer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SallyOutReinforcementSpawnTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SallyOutReinforcementSpawnTimer : ICustomReinforcementSpawnTimer`
 **Base:** `ICustomReinforcementSpawnTimer`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SallyOutReinforcementSpawnTimer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SallyOutReinforcementSpawnTimer.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "SallyOutReinforcementSpawnTimer"
 ### Check
 `public bool Check(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutReinforcementSpawnTimer 实例
+SallyOutReinforcementSpawnTimer sallyOutReinforcementSpawnTimer = ...;
+var result = sallyOutReinforcementSpawnTimer.Check(side);
+```
 
 ### ResetTimer
 `public void ResetTimer(BattleSideEnum side)`
 
-**用途 / Purpose:** 将 `timer` 重置为初始状态。
+**用途 / Purpose:** 将 「timer」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 SallyOutReinforcementSpawnTimer 实例
+SallyOutReinforcementSpawnTimer sallyOutReinforcementSpawnTimer = ...;
+sallyOutReinforcementSpawnTimer.ResetTimer(side);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SallyOutReinforcementSpawnTimer();
-value.Check(side);
+// 通常从对应子系统 API 获取实例后调用
+SallyOutReinforcementSpawnTimer sallyOutReinforcementSpawnTimer = ...;
+sallyOutReinforcementSpawnTimer.Check(side);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

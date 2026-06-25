@@ -1,13 +1,7 @@
 ---
 title: "SPPersonalKillNotificationVM"
+description: "SPPersonalKillNotificationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPPersonalKillNotificationVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPPersonalKillNotificationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.Personal
@@ -35,25 +29,44 @@ title: "SPPersonalKillNotificationVM"
 ### OnPersonalKill
 `public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-**用途 / Purpose:** 当 `personal kill` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「personal kill」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SPPersonalKillNotificationVM 实例
+SPPersonalKillNotificationVM sPPersonalKillNotificationVM = ...;
+sPPersonalKillNotificationVM.OnPersonalKill(0, false, false, false, "example", false);
+```
 
 ### OnPersonalHit
 `public void OnPersonalHit(int damageAmount, bool isMountDamage, bool isFriendlyFire, string killedAgentName)`
 
-**用途 / Purpose:** 当 `personal hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「personal hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SPPersonalKillNotificationVM 实例
+SPPersonalKillNotificationVM sPPersonalKillNotificationVM = ...;
+sPPersonalKillNotificationVM.OnPersonalHit(0, false, false, "example");
+```
 
 ### OnPersonalMessage
 `public void OnPersonalMessage(string message)`
 
-**用途 / Purpose:** 当 `personal message` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「personal message」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SPPersonalKillNotificationVM 实例
+SPPersonalKillNotificationVM sPPersonalKillNotificationVM = ...;
+sPPersonalKillNotificationVM.OnPersonalMessage("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPPersonalKillNotificationVM();
-value.OnPersonalKill(0, false, false, false, "example", false);
+// 通常从对应子系统 API 获取实例后调用
+SPPersonalKillNotificationVM sPPersonalKillNotificationVM = ...;
+sPPersonalKillNotificationVM.OnPersonalKill(0, false, false, false, "example", false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

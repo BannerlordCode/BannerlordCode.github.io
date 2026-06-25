@@ -1,20 +1,14 @@
 ---
 title: "ToggleFacingVisualOrder"
+description: "Auto-generated class reference for ToggleFacingVisualOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ToggleFacingVisualOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ToggleFacingVisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.View.VisualOrders.Orders.ToggleOrders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ToggleFacingVisualOrder : VisualOrder`
 **Base:** `VisualOrder`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.VisualOrders.Orders.ToggleOrders/ToggleFacingVisualOrder.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.VisualOrders.Orders.ToggleOrders/ToggleFacingVisualOrder.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.View.VisualOrders.Orders.ToggleOr
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of ToggleFacingVisualOrder from the subsystem API first
+ToggleFacingVisualOrder toggleFacingVisualOrder = ...;
+var result = toggleFacingVisualOrder.GetName(orderController);
+```
 
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Executes the `order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `order`.
+
+```csharp
+// Obtain an instance of ToggleFacingVisualOrder from the subsystem API first
+ToggleFacingVisualOrder toggleFacingVisualOrder = ...;
+toggleFacingVisualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**Purpose:** Handles logic related to `is targeted`.
+**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+
+```csharp
+// Obtain an instance of ToggleFacingVisualOrder from the subsystem API first
+ToggleFacingVisualOrder toggleFacingVisualOrder = ...;
+var result = toggleFacingVisualOrder.IsTargeted();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ToggleFacingVisualOrder();
-value.GetName(orderController);
+// Typically call this after obtaining an instance from the subsystem API
+ToggleFacingVisualOrder toggleFacingVisualOrder = ...;
+toggleFacingVisualOrder.GetName(orderController);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

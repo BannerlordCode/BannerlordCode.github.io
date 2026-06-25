@@ -1,13 +1,7 @@
 ---
 title: "OverruleInfluenceLogEntry"
+description: "Auto-generated class reference for OverruleInfluenceLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OverruleInfluenceLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OverruleInfluenceLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetHistoricComment
 `public override TextObject GetHistoricComment(Hero talkTroop)`
 
-**Purpose:** Gets the current value of `historic comment`.
+**Purpose:** Reads and returns the `historic comment` value held by the current object.
+
+```csharp
+// Obtain an instance of OverruleInfluenceLogEntry from the subsystem API first
+OverruleInfluenceLogEntry overruleInfluenceLogEntry = ...;
+var result = overruleInfluenceLogEntry.GetHistoricComment(talkTroop);
+```
 
 ### GetValueAsPoliticsAbuseOfPower
 `public override int GetValueAsPoliticsAbuseOfPower(Hero referenceTroop, Hero liege)`
 
-**Purpose:** Gets the current value of `value as politics abuse of power`.
+**Purpose:** Reads and returns the `value as politics abuse of power` value held by the current object.
+
+```csharp
+// Obtain an instance of OverruleInfluenceLogEntry from the subsystem API first
+OverruleInfluenceLogEntry overruleInfluenceLogEntry = ...;
+var result = overruleInfluenceLogEntry.GetValueAsPoliticsAbuseOfPower(referenceTroop, liege);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of OverruleInfluenceLogEntry from the subsystem API first
+OverruleInfluenceLogEntry overruleInfluenceLogEntry = ...;
+var result = overruleInfluenceLogEntry.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OverruleInfluenceLogEntry();
-value.GetHistoricComment(talkTroop);
+// Typically call this after obtaining an instance from the subsystem API
+OverruleInfluenceLogEntry overruleInfluenceLogEntry = ...;
+overruleInfluenceLogEntry.GetHistoricComment(talkTroop);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

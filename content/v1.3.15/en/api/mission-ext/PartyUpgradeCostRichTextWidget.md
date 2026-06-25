@@ -1,13 +1,7 @@
 ---
 title: "PartyUpgradeCostRichTextWidget"
+description: "Auto-generated class reference for PartyUpgradeCostRichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyUpgradeCostRichTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyUpgradeCostRichTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
@@ -35,9 +29,10 @@ Treat `PartyUpgradeCostRichTextWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new PartyUpgradeCostRichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyUpgradeCostRichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

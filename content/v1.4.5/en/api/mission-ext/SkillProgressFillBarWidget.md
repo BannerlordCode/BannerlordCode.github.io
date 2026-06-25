@@ -1,20 +1,14 @@
 ---
 title: "SkillProgressFillBarWidget"
+description: "Auto-generated class reference for SkillProgressFillBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillProgressFillBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillProgressFillBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SkillProgressFillBarWidget : FillBarWidget`
 **Base:** `FillBarWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/SkillProgressFillBarWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/SkillProgressFillBarWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `SkillProgressFillBarWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new SkillProgressFillBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SkillProgressFillBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

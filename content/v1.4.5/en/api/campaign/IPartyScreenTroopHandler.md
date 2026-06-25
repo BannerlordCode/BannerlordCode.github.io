@@ -1,20 +1,14 @@
 ---
 title: "IPartyScreenTroopHandler"
+description: "Auto-generated class reference for IPartyScreenTroopHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IPartyScreenTroopHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IPartyScreenTroopHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IPartyScreenTroopHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IPartyScreenTroopHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IPartyScreenTroopHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IPartyScreenTroopHandler` as a Handler-style extension point: first ident
 ## Usage Example
 
 ```csharp
-IPartyScreenTroopHandler implementation = GetPartyScreenTroopHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIPartyScreenTroopHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

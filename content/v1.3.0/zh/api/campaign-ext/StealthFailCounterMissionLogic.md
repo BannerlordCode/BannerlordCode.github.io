@@ -1,13 +1,7 @@
 ---
 title: "StealthFailCounterMissionLogic"
+description: "StealthFailCounterMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthFailCounterMissionLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthFailCounterMissionLogic
 
 **Namespace:** SandBox.Missions
@@ -29,29 +23,53 @@ title: "StealthFailCounterMissionLogic"
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, Agent.AIStateFlag flag)`
 
-**用途 / Purpose:** 当 `agent alarmed state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent alarmed state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthFailCounterMissionLogic 实例
+StealthFailCounterMissionLogic stealthFailCounterMissionLogic = ...;
+stealthFailCounterMissionLogic.OnAgentAlarmedStateChanged(agent, flag);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthFailCounterMissionLogic 实例
+StealthFailCounterMissionLogic stealthFailCounterMissionLogic = ...;
+stealthFailCounterMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthFailCounterMissionLogic 实例
+StealthFailCounterMissionLogic stealthFailCounterMissionLogic = ...;
+stealthFailCounterMissionLogic.OnMissionTick(0);
+```
 
 ### SetFailTexts
 `public void SetFailTexts(TextObject title, TextObject description)`
 
-**用途 / Purpose:** 设置 `fail texts` 的值或状态。
+**用途 / Purpose:** 为 「fail texts」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StealthFailCounterMissionLogic 实例
+StealthFailCounterMissionLogic stealthFailCounterMissionLogic = ...;
+stealthFailCounterMissionLogic.SetFailTexts(title, description);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthFailCounterMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<StealthFailCounterMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

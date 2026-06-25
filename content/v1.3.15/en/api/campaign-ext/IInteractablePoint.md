@@ -1,18 +1,12 @@
 ---
 title: "IInteractablePoint"
+description: "Auto-generated class reference for IInteractablePoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IInteractablePoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IInteractablePoint
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IInteractablePoint`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Map/IInteractablePoint.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-IInteractablePoint implementation = GetInteractablePointImplementation();
+// Usually obtained through DI or a factory method
+IIInteractablePoint service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

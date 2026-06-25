@@ -1,13 +1,7 @@
 ---
 title: "MapSiegePOIVM"
+description: "MapSiegePOIVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapSiegePOIVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegePOIVM
 
 **Namespace:** SandBox.ViewModelCollection.MapSiege
@@ -53,45 +47,88 @@ title: "MapSiegePOIVM"
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** 执行 `selection` 操作或流程。
+**用途 / Purpose:** 执行 「selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegePOIVM 实例
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.ExecuteSelection();
+```
 
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**用途 / Purpose:** 更新 `properties` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「properties」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegePOIVM 实例
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.UpdateProperties();
+```
 
 ### RefreshDistanceValue
 `public void RefreshDistanceValue(float newDistance)`
 
-**用途 / Purpose:** 刷新 `distance value` 的显示或缓存。
+**用途 / Purpose:** 使 「distance value」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegePOIVM 实例
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.RefreshDistanceValue(0);
+```
 
 ### RefreshPosition
 `public void RefreshPosition()`
 
-**用途 / Purpose:** 刷新 `position` 的显示或缓存。
+**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegePOIVM 实例
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.RefreshPosition();
+```
 
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**用途 / Purpose:** 刷新 `binding` 的显示或缓存。
+**用途 / Purpose:** 使 「binding」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegePOIVM 实例
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.RefreshBinding();
+```
 
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**用途 / Purpose:** 执行 `show tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「show tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegePOIVM 实例
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.ExecuteShowTooltip();
+```
 
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**用途 / Purpose:** 执行 `hide tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「hide tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegePOIVM 实例
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.ExecuteHideTooltip();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapSiegePOIVM();
-value.ExecuteSelection();
+// 通常从对应子系统 API 获取实例后调用
+MapSiegePOIVM mapSiegePOIVM = ...;
+mapSiegePOIVM.ExecuteSelection();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

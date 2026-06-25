@@ -1,13 +1,7 @@
 ---
 title: "ClanTierModel"
+description: "Auto-generated class reference for ClanTierModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanTierModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanTierModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -41,44 +35,87 @@ Treat `ClanTierModel` as a Model-style extension point: first identify who creat
 ### CalculateInitialRenown
 `public abstract int CalculateInitialRenown(Clan clan)`
 
-**Purpose:** Handles logic related to `calculate initial renown`.
+**Purpose:** Calculates the current value or result of `initial renown`.
+
+```csharp
+// Obtain an instance of ClanTierModel from the subsystem API first
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.CalculateInitialRenown(clan);
+```
 
 ### CalculateInitialInfluence
 `public abstract int CalculateInitialInfluence(Clan clan)`
 
-**Purpose:** Handles logic related to `calculate initial influence`.
+**Purpose:** Calculates the current value or result of `initial influence`.
+
+```csharp
+// Obtain an instance of ClanTierModel from the subsystem API first
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.CalculateInitialInfluence(clan);
+```
 
 ### CalculateTier
 `public abstract int CalculateTier(Clan clan)`
 
-**Purpose:** Handles logic related to `calculate tier`.
+**Purpose:** Calculates the current value or result of `tier`.
+
+```csharp
+// Obtain an instance of ClanTierModel from the subsystem API first
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.CalculateTier(clan);
+```
 
 ### HasUpcomingTier
 `public abstract ValueTuple<ExplainedNumber, bool> HasUpcomingTier(Clan clan, out TextObject extraExplanation, bool includeDescriptions = false)`
 
-**Purpose:** Checks whether the current object has/contains `upcoming tier`.
+**Purpose:** Determines whether the current object already holds `upcoming tier`.
+
+```csharp
+// Obtain an instance of ClanTierModel from the subsystem API first
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.HasUpcomingTier(clan, extraExplanation, false);
+```
 
 ### GetRequiredRenownForTier
 `public abstract int GetRequiredRenownForTier(int tier)`
 
-**Purpose:** Gets the current value of `required renown for tier`.
+**Purpose:** Reads and returns the `required renown for tier` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanTierModel from the subsystem API first
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.GetRequiredRenownForTier(0);
+```
 
 ### GetPartyLimitForTier
 `public abstract int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
 
-**Purpose:** Gets the current value of `party limit for tier`.
+**Purpose:** Reads and returns the `party limit for tier` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanTierModel from the subsystem API first
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.GetPartyLimitForTier(clan, 0);
+```
 
 ### GetCompanionLimit
 `public abstract int GetCompanionLimit(Clan clan)`
 
-**Purpose:** Gets the current value of `companion limit`.
+**Purpose:** Reads and returns the `companion limit` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanTierModel from the subsystem API first
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.GetCompanionLimit(clan);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomClanTierModel();
+// Typically obtained from a subsystem API or factory
+ClanTierModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

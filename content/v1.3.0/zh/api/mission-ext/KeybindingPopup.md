@@ -1,13 +1,7 @@
 ---
 title: "KeybindingPopup"
+description: "KeybindingPopup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KeybindingPopup`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KeybindingPopup
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -35,20 +29,33 @@ title: "KeybindingPopup"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 KeybindingPopup 实例
+KeybindingPopup keybindingPopup = ...;
+keybindingPopup.Tick();
+```
 
 ### OnToggle
 `public void OnToggle(bool isActive)`
 
-**用途 / Purpose:** 当 `toggle` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「toggle」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KeybindingPopup 实例
+KeybindingPopup keybindingPopup = ...;
+keybindingPopup.OnToggle(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KeybindingPopup();
-value.Tick();
+// 通常从对应子系统 API 获取实例后调用
+KeybindingPopup keybindingPopup = ...;
+keybindingPopup.Tick();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

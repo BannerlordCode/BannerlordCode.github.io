@@ -1,13 +1,7 @@
 ---
 title: "ProEmpireConspiracyBeginsSceneNotificationItem"
+description: "Auto-generated class reference for ProEmpireConspiracyBeginsSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProEmpireConspiracyBeginsSceneNotificationItem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ProEmpireConspiracyBeginsSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ## Usage Example
 
 ```csharp
-var value = new ProEmpireConspiracyBeginsSceneNotificationItem();
+// Obtain an instance from the relevant subsystem API
+ProEmpireConspiracyBeginsSceneNotificationItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

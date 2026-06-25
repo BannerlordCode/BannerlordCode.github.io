@@ -1,18 +1,12 @@
 ---
 title: "CombatCollisionResult"
+description: "Auto-generated class reference for CombatCollisionResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatCollisionResult`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CombatCollisionResult
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum CombatCollisionResult`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/CombatCollisionResult.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new CombatCollisionResult();
+// Obtain an instance from the relevant subsystem API
+CombatCollisionResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

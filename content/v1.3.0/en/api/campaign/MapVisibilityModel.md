@@ -1,13 +1,7 @@
 ---
 title: "MapVisibilityModel"
+description: "Auto-generated class reference for MapVisibilityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapVisibilityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapVisibilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ Treat `MapVisibilityModel` as a Model-style extension point: first identify who 
 ### GetPartySpottingRangeBase
 `public abstract float GetPartySpottingRangeBase(MobileParty party)`
 
-**Purpose:** Gets the current value of `party spotting range base`.
+**Purpose:** Reads and returns the `party spotting range base` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySpottingRangeBase(party);
+```
 
 ### GetPartySpottingRange
 `public abstract ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `party spotting range`.
+**Purpose:** Reads and returns the `party spotting range` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySpottingRange(party, false);
+```
 
 ### GetPartyRelativeInspectionRange
 `public abstract float GetPartyRelativeInspectionRange(IMapPoint party)`
 
-**Purpose:** Gets the current value of `party relative inspection range`.
+**Purpose:** Reads and returns the `party relative inspection range` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartyRelativeInspectionRange(party);
+```
 
 ### GetPartySpottingDifficulty
 `public abstract float GetPartySpottingDifficulty(MobileParty spotterParty, MobileParty party)`
 
-**Purpose:** Gets the current value of `party spotting difficulty`.
+**Purpose:** Reads and returns the `party spotting difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySpottingDifficulty(spotterParty, party);
+```
 
 ### GetHideoutSpottingDistance
 `public abstract float GetHideoutSpottingDistance()`
 
-**Purpose:** Gets the current value of `hideout spotting distance`.
+**Purpose:** Reads and returns the `hideout spotting distance` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetHideoutSpottingDistance();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapVisibilityModel();
+// Typically obtained from a subsystem API or factory
+MapVisibilityModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

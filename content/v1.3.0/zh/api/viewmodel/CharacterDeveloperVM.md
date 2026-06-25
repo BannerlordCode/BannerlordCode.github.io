@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperVM"
+description: "CharacterDeveloperVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterDeveloperVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -61,80 +55,165 @@ title: "CharacterDeveloperVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.RefreshValues();
+```
 
 ### SelectHero
 `public void SelectHero(Hero hero)`
 
-**用途 / Purpose:** 处理 `select hero` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.SelectHero(hero);
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** 执行 `reset` 操作或流程。
+**用途 / Purpose:** 执行 「reset」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.ExecuteReset();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 `done` 操作或流程。
+**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.ExecuteDone();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.ExecuteCancel();
+```
 
 ### ApplyAllChanges
 `public void ApplyAllChanges()`
 
-**用途 / Purpose:** 将 `all changes` 应用到当前对象。
+**用途 / Purpose:** 将 「all changes」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.ApplyAllChanges();
+```
 
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**用途 / Purpose:** 处理 `is there any changes` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there any changes」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+var result = characterDeveloperVM.IsThereAnyChanges();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey gameKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.SetCancelInputKey(gameKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.SetDoneInputKey(hotKey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `reset input key` 的值或状态。
+**用途 / Purpose:** 为 「reset input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.SetResetInputKey(hotKey);
+```
 
 ### SetPreviousCharacterInputKey
 `public void SetPreviousCharacterInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `previous character input key` 的值或状态。
+**用途 / Purpose:** 为 「previous character input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.SetPreviousCharacterInputKey(hotKey);
+```
 
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `next character input key` 的值或状态。
+**用途 / Purpose:** 为 「next character input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.SetNextCharacterInputKey(hotKey);
+```
 
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**用途 / Purpose:** 设置 `get key text from key i d func` 的值或状态。
+**用途 / Purpose:** 为 「get key text from key i d func」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperVM 实例
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterDeveloperVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CharacterDeveloperVM characterDeveloperVM = ...;
+characterDeveloperVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

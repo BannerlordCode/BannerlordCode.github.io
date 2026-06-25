@@ -1,13 +1,7 @@
 ---
 title: "GameType"
+description: "Auto-generated class reference for GameType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameType
 
 **Namespace:** TaleWorlds.Core
@@ -50,34 +44,65 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### OnStateChanged
 `public abstract void OnStateChanged(GameState oldState)`
 
-**Purpose:** Called when the `state changed` event is raised.
+**Purpose:** Invoked when the `state changed` event is raised.
+
+```csharp
+// Obtain an instance of GameType from the subsystem API first
+GameType gameType = ...;
+gameType.OnStateChanged(oldState);
+```
 
 ### DoLoadingForGameType
 `public bool DoLoadingForGameType()`
 
-**Purpose:** Handles logic related to `do loading for game type`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameType from the subsystem API first
+GameType gameType = ...;
+var result = gameType.DoLoadingForGameType();
+```
 
 ### OnDestroy
 `public abstract void OnDestroy()`
 
-**Purpose:** Called when the `destroy` event is raised.
+**Purpose:** Invoked when the `destroy` event is raised.
+
+```csharp
+// Obtain an instance of GameType from the subsystem API first
+GameType gameType = ...;
+gameType.OnDestroy();
+```
 
 ### OnMissionIsStarting
 `public virtual void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**Purpose:** Called when the `mission is starting` event is raised.
+**Purpose:** Invoked when the `mission is starting` event is raised.
+
+```csharp
+// Obtain an instance of GameType from the subsystem API first
+GameType gameType = ...;
+gameType.OnMissionIsStarting("example", rec);
+```
 
 ### InitializeParameters
 `public virtual void InitializeParameters()`
 
-**Purpose:** Initializes the state, resources, or bindings for `parameters`.
+**Purpose:** Prepares the resources, state, or bindings required by `parameters`.
+
+```csharp
+// Obtain an instance of GameType from the subsystem API first
+GameType gameType = ...;
+gameType.InitializeParameters();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameType();
+// Typically obtained from a subsystem API or factory
+GameType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BadgeOwnerKillTracker"
+description: "Auto-generated class reference for BadgeOwnerKillTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BadgeOwnerKillTracker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BadgeOwnerKillTracker
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BadgeOwnerKillTracker : GameBadgeTracker`
 **Base:** `GameBadgeTracker`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/BadgeOwnerKillTracker.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/BadgeOwnerKillTracker.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### OnPlayerJoin
 `public override void OnPlayerJoin(PlayerData playerData)`
 
-**Purpose:** Called when the `player join` event is raised.
+**Purpose:** Invoked when the `player join` event is raised.
+
+```csharp
+// Obtain an instance of BadgeOwnerKillTracker from the subsystem API first
+BadgeOwnerKillTracker badgeOwnerKillTracker = ...;
+badgeOwnerKillTracker.OnPlayerJoin(playerData);
+```
 
 ### OnKill
 `public override void OnKill(KillData killData)`
 
-**Purpose:** Called when the `kill` event is raised.
+**Purpose:** Invoked when the `kill` event is raised.
+
+```csharp
+// Obtain an instance of BadgeOwnerKillTracker from the subsystem API first
+BadgeOwnerKillTracker badgeOwnerKillTracker = ...;
+badgeOwnerKillTracker.OnKill(killData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BadgeOwnerKillTracker();
-value.OnPlayerJoin(playerData);
+// Typically call this after obtaining an instance from the subsystem API
+BadgeOwnerKillTracker badgeOwnerKillTracker = ...;
+badgeOwnerKillTracker.OnPlayerJoin(playerData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

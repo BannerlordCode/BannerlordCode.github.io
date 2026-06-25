@@ -1,20 +1,14 @@
 ---
 title: "FillBarVerticalClipWidget"
+description: "Auto-generated class reference for FillBarVerticalClipWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillBarVerticalClipWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FillBarVerticalClipWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class FillBarVerticalClipWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarVerticalClipWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarVerticalClipWidget.cs`
 
 ## Overview
 
@@ -44,9 +38,10 @@ Treat `FillBarVerticalClipWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new FillBarVerticalClipWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FillBarVerticalClipWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

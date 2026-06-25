@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerTestSubModule"
+description: "Auto-generated class reference for MultiplayerTestSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTestSubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTestSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Test
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTestSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Multiplayer.Test/TaleWorlds.MountAndBlade.Multiplayer.Test/MultiplayerTestSubModule.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Multiplayer.Test/TaleWorlds.MountAndBlade.Multiplayer.Test/MultiplayerTestSubModule.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Test` to place it in 
 ## Usage Example
 
 ```csharp
-var example = new MultiplayerTestSubModule();
+// Obtain an instance from the relevant subsystem API
+MultiplayerTestSubModule instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

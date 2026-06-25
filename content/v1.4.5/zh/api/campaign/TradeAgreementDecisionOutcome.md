@@ -1,20 +1,14 @@
 ---
 title: "TradeAgreementDecisionOutcome"
+description: "TradeAgreementDecisionOutcome 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TradeAgreementDecisionOutcome`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeAgreementDecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TradeAgreementDecisionOutcome : DecisionOutcome`
 **Base:** `DecisionOutcome`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/TradeAgreementDecision.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/TradeAgreementDecision.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "TradeAgreementDecisionOutcome"
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** 获取 `decision description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TradeAgreementDecisionOutcome 实例
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** 获取 `decision image identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TradeAgreementDecisionOutcome 实例
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionImageIdentifier();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**用途 / Purpose:** 获取 `decision link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TradeAgreementDecisionOutcome 实例
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionLink();
+```
 
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** 获取 `decision title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TradeAgreementDecisionOutcome 实例
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionTitle();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TradeAgreementDecisionOutcome();
-value.GetDecisionDescription();
+// 通常从对应子系统 API 获取实例后调用
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+tradeAgreementDecisionOutcome.GetDecisionDescription();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

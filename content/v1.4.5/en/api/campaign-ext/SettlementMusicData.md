@@ -1,20 +1,14 @@
 ---
 title: "SettlementMusicData"
+description: "Auto-generated class reference for SettlementMusicData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementMusicData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementMusicData
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class SettlementMusicData : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/SettlementMusicData.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/SettlementMusicData.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `SettlementMusicData` as a Data-style extension point: first identify who 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of SettlementMusicData from the subsystem API first
+SettlementMusicData settlementMusicData = ...;
+settlementMusicData.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementMusicData();
+// This data object is usually returned by campaign/mission APIs
+SettlementMusicData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

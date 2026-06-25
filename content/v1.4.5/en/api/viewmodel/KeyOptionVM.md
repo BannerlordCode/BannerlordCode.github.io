@@ -1,20 +1,14 @@
 ---
 title: "KeyOptionVM"
+description: "Auto-generated class reference for KeyOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KeyOptionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KeyOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class KeyOptionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/KeyOptionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/KeyOptionVM.cs`
 
 ## Overview
 
@@ -42,29 +36,54 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### Set
 `public abstract void Set(InputKey newKey)`
 
-**Purpose:** Sets the value or state of `set`.
+**Purpose:** Assigns a new value to the current object's property or state.
+
+```csharp
+// Obtain an instance of KeyOptionVM from the subsystem API first
+KeyOptionVM keyOptionVM = ...;
+keyOptionVM.Set(newKey);
+```
 
 ### Update
 `public abstract void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of KeyOptionVM from the subsystem API first
+KeyOptionVM keyOptionVM = ...;
+keyOptionVM.Update();
+```
 
 ### OnDone
 `public abstract void OnDone()`
 
-**Purpose:** Called when the `done` event is raised.
+**Purpose:** Invoked when the `done` event is raised.
+
+```csharp
+// Obtain an instance of KeyOptionVM from the subsystem API first
+KeyOptionVM keyOptionVM = ...;
+keyOptionVM.OnDone();
+```
 
 ### ExecuteRevert
 `public abstract void ExecuteRevert()`
 
-**Purpose:** Executes the `revert` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `revert`.
+
+```csharp
+// Obtain an instance of KeyOptionVM from the subsystem API first
+KeyOptionVM keyOptionVM = ...;
+keyOptionVM.ExecuteRevert();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomKeyOptionVM();
+// Typically obtained from a subsystem API or factory
+KeyOptionVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MusicianGroup"
+description: "MusicianGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MusicianGroup`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicianGroup
 
 **Namespace:** SandBox.Objects.Usables
@@ -29,35 +23,66 @@ title: "MusicianGroup"
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MusicianGroup 实例
+MusicianGroup musicianGroup = ...;
+var result = musicianGroup.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MusicianGroup 实例
+MusicianGroup musicianGroup = ...;
+var result = musicianGroup.GetDescriptionText(gameEntity);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** 创建一个 `a i behavior object` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「a i behavior object」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 MusicianGroup 实例
+MusicianGroup musicianGroup = ...;
+var result = musicianGroup.CreateAIBehaviorObject();
+```
 
 ### SetPlayList
 `public void SetPlayList(List<SettlementMusicData> playList)`
 
-**用途 / Purpose:** 设置 `play list` 的值或状态。
+**用途 / Purpose:** 为 「play list」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MusicianGroup 实例
+MusicianGroup musicianGroup = ...;
+musicianGroup.SetPlayList(playList);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MusicianGroup 实例
+MusicianGroup musicianGroup = ...;
+var result = musicianGroup.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MusicianGroup();
-value.GetActionTextForStandingPoint(usableGameObject);
+// 通常从对应子系统 API 获取实例后调用
+MusicianGroup musicianGroup = ...;
+musicianGroup.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanInvitationPopupVM"
+description: "Auto-generated class reference for MPLobbyClanInvitationPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanInvitationPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanInvitationPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanInvitationPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanInvitationPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanInvitationPopupVM.cs`
 
 ## Overview
 
@@ -42,30 +36,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanInvitationPopupVM from the subsystem API first
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.RefreshValues();
+```
 
 ### Open
 `public void Open(string clanName, string clanTag, bool isCreation)`
 
-**Purpose:** Handles logic related to `open`.
+**Purpose:** Opens the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of MPLobbyClanInvitationPopupVM from the subsystem API first
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.Open("example", "example", false);
+```
 
 ### Close
 `public void Close()`
 
-**Purpose:** Handles logic related to `close`.
+**Purpose:** Closes the resource or UI represented by the current object.
+
+```csharp
+// Obtain an instance of MPLobbyClanInvitationPopupVM from the subsystem API first
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.Close();
+```
 
 ### UpdateConfirmation
 `public void UpdateConfirmation(PlayerId playerId, ClanCreationAnswer answer)`
 
-**Purpose:** Updates the state or data of `confirmation`.
+**Purpose:** Recalculates and stores the latest representation of `confirmation`.
+
+```csharp
+// Obtain an instance of MPLobbyClanInvitationPopupVM from the subsystem API first
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.UpdateConfirmation(playerId, answer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanInvitationPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

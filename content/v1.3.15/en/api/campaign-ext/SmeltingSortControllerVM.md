@@ -1,13 +1,7 @@
 ---
 title: "SmeltingSortControllerVM"
+description: "Auto-generated class reference for SmeltingSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SmeltingSortControllerVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SmeltingSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting
@@ -43,65 +37,132 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.RefreshValues();
+```
 
 ### SetListToControl
 `public void SetListToControl(MBBindingList<SmeltingItemVM> listToControl)`
 
-**Purpose:** Sets the value or state of `list to control`.
+**Purpose:** Assigns a new value to `list to control` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.SetListToControl(listToControl);
+```
 
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**Purpose:** Handles logic related to `sort by current state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.SortByCurrentState();
+```
 
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** Executes the `sort by name` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by name`.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.ExecuteSortByName();
+```
 
 ### ExecuteSortByYield
 `public void ExecuteSortByYield()`
 
-**Purpose:** Executes the `sort by yield` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by yield`.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.ExecuteSortByYield();
+```
 
 ### ExecuteSortByType
 `public void ExecuteSortByType()`
 
-**Purpose:** Executes the `sort by type` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by type`.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.ExecuteSortByType();
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+var result = smeltingSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+var result = smeltingSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+var result = smeltingSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of SmeltingSortControllerVM from the subsystem API first
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+var result = smeltingSortControllerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SmeltingSortControllerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

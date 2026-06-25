@@ -1,13 +1,7 @@
 ---
 title: "RandomTimer"
+description: "RandomTimer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RandomTimer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RandomTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ title: "RandomTimer"
 ### Check
 `public override bool Check(float gameTime)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 RandomTimer 实例
+RandomTimer randomTimer = ...;
+var result = randomTimer.Check(0);
+```
 
 ### ChangeDuration
 `public void ChangeDuration(float min, float max)`
 
-**用途 / Purpose:** 处理 `change duration` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RandomTimer 实例
+RandomTimer randomTimer = ...;
+randomTimer.ChangeDuration(0, 0);
+```
 
 ### RecomputeDuration
 `public void RecomputeDuration()`
 
-**用途 / Purpose:** 处理 `recompute duration` 相关逻辑。
+**用途 / Purpose:** 重新执行「duration」相关的计算并返回结果。
+
+```csharp
+// 先通过子系统 API 拿到 RandomTimer 实例
+RandomTimer randomTimer = ...;
+randomTimer.RecomputeDuration();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RandomTimer();
-value.Check(0);
+// 通常从对应子系统 API 获取实例后调用
+RandomTimer randomTimer = ...;
+randomTimer.Check(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

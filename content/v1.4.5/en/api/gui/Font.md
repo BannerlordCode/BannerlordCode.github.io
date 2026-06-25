@@ -1,20 +1,14 @@
 ---
 title: "Font"
+description: "Auto-generated class reference for Font."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Font`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Font
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class Font`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Font.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Font.cs`
 
 ## Overview
 
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### TryLoadFontFromPath
 `public bool TryLoadFontFromPath(string path, SpriteData spriteData)`
 
-**Purpose:** Attempts to get `load font from path`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `load font from path`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of Font from the subsystem API first
+Font font = ...;
+var result = font.TryLoadFontFromPath("example", spriteData);
+```
 
 ### GetWordWidth
 `public float GetWordWidth(string word, float extraPadding)`
 
-**Purpose:** Gets the current value of `word width`.
+**Purpose:** Reads and returns the `word width` value held by the current object.
+
+```csharp
+// Obtain an instance of Font from the subsystem API first
+Font font = ...;
+var result = font.GetWordWidth("example", 0);
+```
 
 ### GetCharacterWidth
 `public float GetCharacterWidth(char character, float extraPadding)`
 
-**Purpose:** Gets the current value of `character width`.
+**Purpose:** Reads and returns the `character width` value held by the current object.
+
+```csharp
+// Obtain an instance of Font from the subsystem API first
+Font font = ...;
+var result = font.GetCharacterWidth(character, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Font from the subsystem API first
+Font font = ...;
+var result = font.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Font();
-value.TryLoadFontFromPath("example", spriteData);
+// Typically call this after obtaining an instance from the subsystem API
+Font font = ...;
+font.TryLoadFontFromPath("example", spriteData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

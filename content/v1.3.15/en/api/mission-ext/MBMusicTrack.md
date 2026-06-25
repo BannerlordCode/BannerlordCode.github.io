@@ -1,13 +1,7 @@
 ---
 title: "MBMusicTrack"
+description: "Auto-generated class reference for MBMusicTrack."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMusicTrack`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBMusicTrack
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public bool Equals(MBMusicTrack obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MBMusicTrack from the subsystem API first
+MBMusicTrack mBMusicTrack = ...;
+var result = mBMusicTrack.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MBMusicTrack from the subsystem API first
+MBMusicTrack mBMusicTrack = ...;
+var result = mBMusicTrack.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBMusicTrack();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+MBMusicTrack mBMusicTrack = ...;
+mBMusicTrack.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

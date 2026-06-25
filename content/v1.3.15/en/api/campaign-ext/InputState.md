@@ -1,13 +1,7 @@
 ---
 title: "InputState"
+description: "Auto-generated class reference for InputState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InputState
 
 **Namespace:** TaleWorlds.InputSystem
@@ -42,20 +36,33 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### UpdateMousePosition
 `public bool UpdateMousePosition(float mousePositionX, float mousePositionY)`
 
-**Purpose:** Updates the state or data of `mouse position`.
+**Purpose:** Recalculates and stores the latest representation of `mouse position`.
+
+```csharp
+// Obtain an instance of InputState from the subsystem API first
+InputState inputState = ...;
+var result = inputState.UpdateMousePosition(0, 0);
+```
 
 ### UpdateMouseScroll
 `public bool UpdateMouseScroll(float mouseScrollValue)`
 
-**Purpose:** Updates the state or data of `mouse scroll`.
+**Purpose:** Recalculates and stores the latest representation of `mouse scroll`.
+
+```csharp
+// Obtain an instance of InputState from the subsystem API first
+InputState inputState = ...;
+var result = inputState.UpdateMouseScroll(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InputState();
-value.UpdateMousePosition(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+InputState inputState = ...;
+inputState.UpdateMousePosition(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

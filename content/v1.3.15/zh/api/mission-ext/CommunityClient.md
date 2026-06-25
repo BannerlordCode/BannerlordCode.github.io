@@ -1,13 +1,7 @@
 ---
 title: "CommunityClient"
+description: "CommunityClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommunityClient`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CommunityClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,15 +30,22 @@ title: "CommunityClient"
 ### QuitFromGame
 `public void QuitFromGame()`
 
-**用途 / Purpose:** 处理 `quit from game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CommunityClient 实例
+CommunityClient communityClient = ...;
+communityClient.QuitFromGame();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CommunityClient();
-value.QuitFromGame();
+// 通常从对应子系统 API 获取实例后调用
+CommunityClient communityClient = ...;
+communityClient.QuitFromGame();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

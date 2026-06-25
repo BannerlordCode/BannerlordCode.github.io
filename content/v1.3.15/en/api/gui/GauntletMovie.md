@@ -1,87 +1,112 @@
 ---
 title: "GauntletMovie"
+description: "Auto-generated class reference for GauntletMovie."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMovie / Gauntlet影片`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
-# GauntletMovie / Gauntlet影片
+# GauntletMovie
+
+**Namespace:** TaleWorlds.GauntletUI.Data
+**Module:** TaleWorlds.GauntletUI
+**Type:** `public class GauntletMovie : IGauntletMovie`
+**Base:** `IGauntletMovie`
+**File:** `TaleWorlds.GauntletUI.Data/GauntletMovie.cs`
+
+## Overview
+
+`GauntletMovie` lives in `TaleWorlds.GauntletUI.Data` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `GauntletMovie` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
-
-**Namespace**: TaleWorlds.GauntletUI.Data
-**File**: `TaleWorlds.GauntletUI.Data/GauntletMovie.cs`
-**Purpose**: UI movie base class, manages UI widget trees and data binding
-
-GauntletMovie is the encapsulation class for UI movies in the GauntletUI system. Each movie corresponds to a widget tree and an optional data source view model. It handles loading, rendering, and releasing UI resources.
+Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Properties
 
-| Property | Type | Description |
-|----------|------|-------------|
-| WidgetFactory | WidgetFactory | Widget factory for creating widget instances |
-| BrushFactory | BrushFactory | Brush factory for managing UI visual styles |
-| Context | UIContext | UI context providing system-level access |
-| ViewModel | IViewModel | Associated data source view model |
-| MovieName | string | Movie name |
-| RootView | GauntletView | Root view |
-| RootWidget | Widget | Root widget |
-| IsLoaded | bool | Whether loading is complete |
-| IsReleased | bool | Whether released |
+| Name | Signature |
+|------|-----------|
+| `WidgetFactory` | `public WidgetFactory WidgetFactory { get; }` |
+| `BrushFactory` | `public BrushFactory BrushFactory { get; }` |
+| `Context` | `public UIContext Context { get; }` |
+| `ViewModel` | `public IViewModel ViewModel { get; }` |
+| `MovieName` | `public string MovieName { get; }` |
+| `RootView` | `public GauntletView RootView { get; }` |
+| `RootWidget` | `public Widget RootWidget { get; }` |
+| `IsLoaded` | `public bool IsLoaded { get; }` |
+| `IsReleased` | `public bool IsReleased { get; }` |
 
 ## Key Methods
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| Load | `static IGauntletMovie Load(UIContext context, WidgetFactory widgetFactory, string movieName, IViewModel datasource, bool doNotUseGeneratedPrefabs, bool hotReloadEnabled)` | Static factory method to load a movie |
-| Release | `void Release()` | Releases movie resources |
-| RefreshDataSource | `void RefreshDataSource(IViewModel dataSource)` | Refreshes data source |
-| RefreshBindingWithChildren | `void RefreshBindingWithChildren()` | Refreshes all child widget data bindings |
-| Update | `void Update()` | Per-frame update |
-| FindViewOf | `GauntletView FindViewOf(Widget widget)` | Finds the view corresponding to a widget |
+### RefreshDataSource
+`public void RefreshDataSource(IViewModel dataSourve)`
 
-## Usage Examples
+**Purpose:** Keeps the display or cache of `data source` in sync with the underlying state.
 
 ```csharp
-// Load a movie
-IGauntletMovie movie = GauntletMovie.Load(
-    uiContext,
-    widgetFactory,
-    "MyCustomMovie",
-    myViewModel,
-    doNotUseGeneratedPrefabs: false,
-    hotReloadEnabled: true
-);
-
-// In a Movie class, access the root widget
-public class MyMovie : GauntletMovie
-{
-    protected override void OnInitialize()
-    {
-        base.OnInitialize();
-        
-        // Find a child widget named "InfoPanel"
-        Widget infoPanel = RootWidget.FindChild("InfoPanel", includeAllChildren: true);
-        
-        // Access brush or set properties
-        if (infoPanel != null)
-        {
-            infoPanel.IsVisible = false;
-        }
-    }
-    
-    public void UpdateData()
-    {
-        // Refresh data bindings
-        RefreshBindingWithChildren();
-    }
-}
-
-// Release the movie
-movie.Release();
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshDataSource(dataSourve);
 ```
+
+### Release
+`public void Release()`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.Release();
+```
+
+### Update
+`public void Update()`
+
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.Update();
+```
+
+### Load
+`public static IGauntletMovie Load(UIContext context, WidgetFactory widgetFactory, string movieName, IViewModel datasource, bool doNotUseGeneratedPrefabs, bool hotReloadEnabled)`
+
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+GauntletMovie.Load(context, widgetFactory, "example", datasource, false, false);
+```
+
+### RefreshBindingWithChildren
+`public void RefreshBindingWithChildren()`
+
+**Purpose:** Keeps the display or cache of `binding with children` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshBindingWithChildren();
+```
+
+### FindViewOf
+`public GauntletView FindViewOf(Widget widget)`
+
+**Purpose:** Looks up the matching `view of` in the current collection or scope.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+var result = gauntletMovie.FindViewOf(widget);
+```
+
+## Usage Example
+
+```csharp
+// Typically call this after obtaining an instance from the subsystem API
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshDataSource(dataSourve);
+```
+
+## See Also
+
+- [Area Index](../)

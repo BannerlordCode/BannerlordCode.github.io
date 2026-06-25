@@ -1,20 +1,14 @@
 ---
 title: "StandingGuardSpawnData"
+description: "StandingGuardSpawnData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StandingGuardSpawnData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandingGuardSpawnData
 
-**命名空间:** SandBox.Missions.MissionLogics
-**模块:** SandBox.Missions
-**类型:** `public class StandingGuardSpawnData : PointOfInterestBaseData`
+**Namespace:** SandBox.Missions.MissionLogics
+**Module:** SandBox.Missions
+**Type:** `public class StandingGuardSpawnData : PointOfInterestBaseData`
 **Base:** `PointOfInterestBaseData`
-**领域:** campaign-ext
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionPathGenerationLogic.cs`
 
 ## 概述
 
@@ -26,113 +20,46 @@ title: "StandingGuardSpawnData"
 
 ## 主要方法
 
-### ReverseClone
-`public NavigationPathData ReverseClone()`
-
-**用途 / Purpose:** 处理 `reverse clone` 相关逻辑。
-
-### InitializeUsablePoints
-`public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
-
-**用途 / Purpose:** 初始化 `usable points` 的状态、资源或绑定。
-
-### GetPointOfInterestType
-`public abstract PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public abstract bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public abstract float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
 ### GetPointOfInterestType
 `public override PointOfInterests GetPointOfInterestType()`
 
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「point of interest type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StandingGuardSpawnData 实例
+StandingGuardSpawnData standingGuardSpawnData = ...;
+var result = standingGuardSpawnData.GetPointOfInterestType();
+```
 
 ### IsInRadius
 `public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
 
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「in radius」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StandingGuardSpawnData 实例
+StandingGuardSpawnData standingGuardSpawnData = ...;
+var result = standingGuardSpawnData.IsInRadius(otherPointOfInterest);
+```
 
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「location ratio」 的结果。
 
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**用途 / Purpose:** 获取 `point of interest type` 的当前值。
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**用途 / Purpose:** 处理 `is in radius` 相关逻辑。
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**用途 / Purpose:** 获取 `location ratio` 的当前值。
-
-### Clone
-`public PointOfInterestScorePair Clone()`
-
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
-
-### AddToData
-`public void AddToData(PointOfInterestBaseData pointOfInterestToAdd)`
-
-**用途 / Purpose:** 向当前集合/状态中添加 `to data`。
-
-### IsDataEqualTo
-`public bool IsDataEqualTo(PointOfInterestScorePair other, PointOfInterestBaseData newDataToAdd)`
-
-**用途 / Purpose:** 处理 `is data equal to` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 StandingGuardSpawnData 实例
+StandingGuardSpawnData standingGuardSpawnData = ...;
+var result = standingGuardSpawnData.GetLocationRatio();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StandingGuardSpawnData();
+// 该数据对象通常由战役/任务 API 返回
+StandingGuardSpawnData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

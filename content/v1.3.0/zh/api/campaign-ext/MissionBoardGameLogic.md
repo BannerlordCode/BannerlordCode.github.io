@@ -1,13 +1,7 @@
 ---
 title: "MissionBoardGameLogic"
+description: "MissionBoardGameLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBoardGameLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoardGameLogic
 
 **Namespace:** SandBox.BoardGames.MissionLogics
@@ -43,109 +37,227 @@ title: "MissionBoardGameLogic"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.AfterStart();
+```
 
 ### SetStartingPlayer
 `public void SetStartingPlayer(bool playerOneStarts)`
 
-**用途 / Purpose:** 设置 `starting player` 的值或状态。
+**用途 / Purpose:** 为 「starting player」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetStartingPlayer(false);
+```
 
 ### StartBoardGame
 `public void StartBoardGame()`
 
-**用途 / Purpose:** 处理 `start board game` 相关逻辑。
+**用途 / Purpose:** 启动「board game」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.StartBoardGame();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.OnMissionTick(0);
+```
 
 ### DetectOpposingAgent
 `public void DetectOpposingAgent()`
 
-**用途 / Purpose:** 处理 `detect opposing agent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.DetectOpposingAgent();
+```
 
 ### CheckIfBothSidesAreSitting
 `public bool CheckIfBothSidesAreSitting()`
 
-**用途 / Purpose:** 处理 `check if both sides are sitting` 相关逻辑。
+**用途 / Purpose:** 检查「if both sides are sitting」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+var result = missionBoardGameLogic.CheckIfBothSidesAreSitting();
+```
 
 ### PlayerOneWon
 `public void PlayerOneWon(string message = "str_boardgame_victory_message")`
 
-**用途 / Purpose:** 处理 `player one won` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.PlayerOneWon("example");
+```
 
 ### PlayerTwoWon
 `public void PlayerTwoWon(string message = "str_boardgame_defeat_message")`
 
-**用途 / Purpose:** 处理 `player two won` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.PlayerTwoWon("example");
+```
 
 ### GameWasDraw
 `public void GameWasDraw(string message = "str_boardgame_draw_message")`
 
-**用途 / Purpose:** 处理 `game was draw` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.GameWasDraw("example");
+```
 
 ### SetGameOver
 `public void SetGameOver(GameOverEnum gameOverInfo)`
 
-**用途 / Purpose:** 设置 `game over` 的值或状态。
+**用途 / Purpose:** 为 「game over」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetGameOver(gameOverInfo);
+```
 
 ### ForfeitGame
 `public void ForfeitGame()`
 
-**用途 / Purpose:** 处理 `forfeit game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.ForfeitGame();
+```
 
 ### AIForfeitGame
 `public void AIForfeitGame()`
 
-**用途 / Purpose:** 处理 `a i forfeit game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.AIForfeitGame();
+```
 
 ### RollDice
 `public void RollDice()`
 
-**用途 / Purpose:** 处理 `roll dice` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.RollDice();
+```
 
 ### RequiresDiceRolling
 `public bool RequiresDiceRolling()`
 
-**用途 / Purpose:** 处理 `requires dice rolling` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+var result = missionBoardGameLogic.RequiresDiceRolling();
+```
 
 ### SetBetAmount
 `public void SetBetAmount(int bet)`
 
-**用途 / Purpose:** 设置 `bet amount` 的值或状态。
+**用途 / Purpose:** 为 「bet amount」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetBetAmount(0);
+```
 
 ### SetCurrentDifficulty
 `public void SetCurrentDifficulty(BoardGameHelper.AIDifficulty difficulty)`
 
-**用途 / Purpose:** 设置 `current difficulty` 的值或状态。
+**用途 / Purpose:** 为 「current difficulty」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetCurrentDifficulty(difficulty);
+```
 
 ### SetBoardGame
 `public void SetBoardGame(CultureObject.BoardGameType game)`
 
-**用途 / Purpose:** 设置 `board game` 的值或状态。
+**用途 / Purpose:** 为 「board game」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+missionBoardGameLogic.SetBoardGame(game);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**用途 / Purpose:** 当 `end mission request` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoardGameLogic 实例
+MissionBoardGameLogic missionBoardGameLogic = ...;
+var result = missionBoardGameLogic.OnEndMissionRequest(canLeave);
+```
 
 ### IsBoardGameAvailable
 `public static bool IsBoardGameAvailable()`
 
-**用途 / Purpose:** 处理 `is board game available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「board game available」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MissionBoardGameLogic.IsBoardGameAvailable();
+```
 
 ### IsThereActiveBoardGameWithHero
 `public static bool IsThereActiveBoardGameWithHero(Hero hero)`
 
-**用途 / Purpose:** 处理 `is there active board game with hero` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there active board game with hero」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MissionBoardGameLogic.IsThereActiveBoardGameWithHero(hero);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBoardGameLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionBoardGameLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerFlagDomination"
+description: "Auto-generated class reference for MissionMultiplayerFlagDomination."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerFlagDomination`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerFlagDomination
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -39,120 +33,252 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### UseGold
 `public bool UseGold()`
 
-**Purpose:** Handles logic related to `use gold`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.UseGold();
+```
 
 ### AllowCustomPlayerBanners
 `public override bool AllowCustomPlayerBanners()`
 
-**Purpose:** Handles logic related to `allow custom player banners`.
+**Purpose:** Permits `custom player banners` to be enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.AllowCustomPlayerBanners();
+```
 
 ### UseRoundController
 `public override bool UseRoundController()`
 
-**Purpose:** Handles logic related to `use round controller`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.UseRoundController();
+```
 
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**Purpose:** Gets the current value of `mission type`.
+**Purpose:** Reads and returns the `mission type` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetMissionType();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnRemoveBehavior();
+```
 
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**Purpose:** Called when the `peer changed team` event is raised.
+**Purpose:** Invoked when the `peer changed team` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnPeerChangedTeam(peer, oldTeam, newTeam);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnMissionTick(0);
+```
 
 ### GetTimeUntilBattleSideVictory
 `public float GetTimeUntilBattleSideVictory(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `time until battle side victory`.
+**Purpose:** Reads and returns the `time until battle side victory` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetTimeUntilBattleSideVictory(side);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnClearScene();
+```
 
 ### CheckIfOvertime
 `public override bool CheckIfOvertime()`
 
-**Purpose:** Handles logic related to `check if overtime`.
+**Purpose:** Verifies whether `if overtime` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.CheckIfOvertime();
+```
 
 ### CheckForWarmupEnd
 `public override bool CheckForWarmupEnd()`
 
-**Purpose:** Handles logic related to `check for warmup end`.
+**Purpose:** Verifies whether `for warmup end` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.CheckForWarmupEnd();
+```
 
 ### CheckForRoundEnd
 `public override bool CheckForRoundEnd()`
 
-**Purpose:** Handles logic related to `check for round end`.
+**Purpose:** Verifies whether `for round end` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.CheckForRoundEnd();
+```
 
 ### UseCultureSelection
 `public override bool UseCultureSelection()`
 
-**Purpose:** Handles logic related to `use culture selection`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.UseCultureSelection();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnAgentBuild(agent, banner);
+```
 
 ### ForfeitSpawning
 `public void ForfeitSpawning(NetworkCommunicator peer)`
 
-**Purpose:** Handles logic related to `forfeit spawning`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.ForfeitSpawning(peer);
+```
 
 ### SetWinnerTeam
 `public static void SetWinnerTeam(int winnerTeamNo)`
 
-**Purpose:** Sets the value or state of `winner team`.
+**Purpose:** Assigns a new value to `winner team` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MissionMultiplayerFlagDomination.SetWinnerTeam(0);
+```
 
 ### GetNumberOfAttackersAroundFlag
 `public int GetNumberOfAttackersAroundFlag(FlagCapturePoint capturePoint)`
 
-**Purpose:** Gets the current value of `number of attackers around flag`.
+**Purpose:** Reads and returns the `number of attackers around flag` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetNumberOfAttackersAroundFlag(capturePoint);
+```
 
 ### GetFlagOwnerTeam
 `public Team GetFlagOwnerTeam(FlagCapturePoint flag)`
 
-**Purpose:** Gets the current value of `flag owner team`.
+**Purpose:** Reads and returns the `flag owner team` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetFlagOwnerTeam(flag);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### GetTroopNumberMultiplierForMissingPlayer
 `public override float GetTroopNumberMultiplierForMissingPlayer(MissionPeer spawningPeer)`
 
-**Purpose:** Gets the current value of `troop number multiplier for missing player`.
+**Purpose:** Reads and returns the `troop number multiplier for missing player` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetTroopNumberMultiplierForMissingPlayer(spawningPeer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerFlagDomination();
-value.UseGold();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.UseGold();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

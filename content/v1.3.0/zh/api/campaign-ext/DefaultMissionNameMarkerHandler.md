@@ -1,13 +1,7 @@
 ---
 title: "DefaultMissionNameMarkerHandler"
+description: "DefaultMissionNameMarkerHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultMissionNameMarkerHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMissionNameMarkerHandler
 
 **Namespace:** SandBox.View.Missions.NameMarkers
@@ -29,14 +23,20 @@ title: "DefaultMissionNameMarkerHandler"
 ### CreateMarkers
 `public override void CreateMarkers(List<MissionNameMarkerTargetBaseVM> markers)`
 
-**用途 / Purpose:** 创建一个 `markers` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「markers」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMissionNameMarkerHandler 实例
+DefaultMissionNameMarkerHandler defaultMissionNameMarkerHandler = ...;
+defaultMissionNameMarkerHandler.CreateMarkers(markers);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new DefaultMissionNameMarkerHandler());
+var behavior = Mission.Current.GetMissionBehavior<DefaultMissionNameMarkerHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

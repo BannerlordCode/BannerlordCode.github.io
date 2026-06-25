@@ -1,13 +1,7 @@
 ---
 title: "PartyTroopManagerItemVM"
+description: "Auto-generated class reference for PartyTroopManagerItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTroopManagerItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTroopManagerItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
@@ -39,25 +33,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyT
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** Executes the `set focused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set focused`.
+
+```csharp
+// Obtain an instance of PartyTroopManagerItemVM from the subsystem API first
+PartyTroopManagerItemVM partyTroopManagerItemVM = ...;
+partyTroopManagerItemVM.ExecuteSetFocused();
+```
 
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** Executes the `set unfocused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set unfocused`.
+
+```csharp
+// Obtain an instance of PartyTroopManagerItemVM from the subsystem API first
+PartyTroopManagerItemVM partyTroopManagerItemVM = ...;
+partyTroopManagerItemVM.ExecuteSetUnfocused();
+```
 
 ### ExecuteOpenTroopEncyclopedia
 `public void ExecuteOpenTroopEncyclopedia()`
 
-**Purpose:** Executes the `open troop encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open troop encyclopedia`.
+
+```csharp
+// Obtain an instance of PartyTroopManagerItemVM from the subsystem API first
+PartyTroopManagerItemVM partyTroopManagerItemVM = ...;
+partyTroopManagerItemVM.ExecuteOpenTroopEncyclopedia();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyTroopManagerItemVM();
-value.ExecuteSetFocused();
+// Typically call this after obtaining an instance from the subsystem API
+PartyTroopManagerItemVM partyTroopManagerItemVM = ...;
+partyTroopManagerItemVM.ExecuteSetFocused();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

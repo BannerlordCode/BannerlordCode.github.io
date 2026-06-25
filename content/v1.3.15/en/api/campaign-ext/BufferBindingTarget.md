@@ -1,18 +1,12 @@
 ---
 title: "BufferBindingTarget"
+description: "Auto-generated class reference for BufferBindingTarget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BufferBindingTarget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BufferBindingTarget
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.OpenGL
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum BufferBindingTarget`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/BufferBindingTarget.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` to place
 ## Usage Example
 
 ```csharp
-var value = new BufferBindingTarget();
+// Obtain an instance from the relevant subsystem API
+BufferBindingTarget instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

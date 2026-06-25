@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletBarterView"
+description: "Auto-generated class reference for MissionGauntletBarterView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletBarterView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletBarterView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletBarterView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletBarterView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletBarterView.cs`
 
 ## Overview
 
@@ -29,39 +23,76 @@ Treat `MissionGauntletBarterView` as a View-style extension point: first identif
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletBarterView from the subsystem API first
+MissionGauntletBarterView missionGauntletBarterView = ...;
+missionGauntletBarterView.AfterStart();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBarterView from the subsystem API first
+MissionGauntletBarterView missionGauntletBarterView = ...;
+missionGauntletBarterView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBarterView from the subsystem API first
+MissionGauntletBarterView missionGauntletBarterView = ...;
+missionGauntletBarterView.OnMissionScreenFinalize();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBarterView from the subsystem API first
+MissionGauntletBarterView missionGauntletBarterView = ...;
+missionGauntletBarterView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletBarterView from the subsystem API first
+MissionGauntletBarterView missionGauntletBarterView = ...;
+missionGauntletBarterView.OnPhotoModeDeactivated();
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** Handles logic related to `is opening escape menu on focus change allowed`.
+**Purpose:** Determines whether the current object is in the `opening escape menu on focus change allowed` state or condition.
+
+```csharp
+// Obtain an instance of MissionGauntletBarterView from the subsystem API first
+MissionGauntletBarterView missionGauntletBarterView = ...;
+var result = missionGauntletBarterView.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletBarterView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletBarterView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

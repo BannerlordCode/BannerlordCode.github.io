@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaFilterGroup"
+description: "EncyclopediaFilterGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaFilterGroup`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaFilterGroup
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaFilterGroup : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaFilterGroup.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaFilterGroup.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "EncyclopediaFilterGroup"
 ## 使用示例
 
 ```csharp
-var example = new EncyclopediaFilterGroup();
+// 从对应子系统 API 获取实例
+EncyclopediaFilterGroup instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

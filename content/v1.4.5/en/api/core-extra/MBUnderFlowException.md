@@ -1,20 +1,14 @@
 ---
 title: "MBUnderFlowException"
+description: "Auto-generated class reference for MBUnderFlowException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBUnderFlowException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBUnderFlowException
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBUnderFlowException : MBException`
 **Base:** `MBException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBUnderFlowException.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBUnderFlowException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MBUnderFlowException` as a Exception-style extension point: first identif
 ## Usage Example
 
 ```csharp
-try { CallMBUnderFlowException(); } catch (MBUnderFlowException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBUnderFlowException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

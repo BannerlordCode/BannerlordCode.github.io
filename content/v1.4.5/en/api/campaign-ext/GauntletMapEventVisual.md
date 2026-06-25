@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapEventVisual"
+description: "Auto-generated class reference for GauntletMapEventVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapEventVisual`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapEventVisual
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapEventVisual : IMapEventVisual`
 **Base:** `IMapEventVisual`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEventVisual.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEventVisual.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `SandBox.GauntletUI.Map` to place it in the stack, then ins
 ### Initialize
 `public void Initialize(CampaignVec2 position, bool isVisible)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of GauntletMapEventVisual from the subsystem API first
+GauntletMapEventVisual gauntletMapEventVisual = ...;
+gauntletMapEventVisual.Initialize(position, false);
+```
 
 ### OnMapEventEnd
 `public void OnMapEventEnd()`
 
-**Purpose:** Called when the `map event end` event is raised.
+**Purpose:** Invoked when the `map event end` event is raised.
+
+```csharp
+// Obtain an instance of GauntletMapEventVisual from the subsystem API first
+GauntletMapEventVisual gauntletMapEventVisual = ...;
+gauntletMapEventVisual.OnMapEventEnd();
+```
 
 ### SetVisibility
 `public void SetVisibility(bool isVisible)`
 
-**Purpose:** Sets the value or state of `visibility`.
+**Purpose:** Assigns a new value to `visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GauntletMapEventVisual from the subsystem API first
+GauntletMapEventVisual gauntletMapEventVisual = ...;
+gauntletMapEventVisual.SetVisibility(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletMapEventVisual();
-value.Initialize(position, false);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletMapEventVisual gauntletMapEventVisual = ...;
+gauntletMapEventVisual.Initialize(position, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "EditableText"
+description: "EditableText 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EditableText`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditableText
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class EditableText : RichText`
 **Base:** `RichText`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/EditableText.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/EditableText.cs`
 
 ## 概述
 
@@ -41,65 +35,132 @@ title: "EditableText"
 ### SetCursorPosition
 `public void SetCursorPosition(int position, bool visible)`
 
-**用途 / Purpose:** 设置 `cursor position` 的值或状态。
+**用途 / Purpose:** 为 「cursor position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+editableText.SetCursorPosition(0, false);
+```
 
 ### BlinkCursor
 `public void BlinkCursor()`
 
-**用途 / Purpose:** 处理 `blink cursor` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+editableText.BlinkCursor();
+```
 
 ### IsCursorVisible
 `public bool IsCursorVisible()`
 
-**用途 / Purpose:** 处理 `is cursor visible` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「cursor visible」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+var result = editableText.IsCursorVisible();
+```
 
 ### ResetSelected
 `public void ResetSelected()`
 
-**用途 / Purpose:** 将 `selected` 重置为初始状态。
+**用途 / Purpose:** 将 「selected」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+editableText.ResetSelected();
+```
 
 ### BeginSelection
 `public void BeginSelection()`
 
-**用途 / Purpose:** 处理 `begin selection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+editableText.BeginSelection();
+```
 
 ### IsAnySelected
 `public bool IsAnySelected()`
 
-**用途 / Purpose:** 处理 `is any selected` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「any selected」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+var result = editableText.IsAnySelected();
+```
 
 ### GetCursorPosition
 `public Vector2 GetCursorPosition()`
 
-**用途 / Purpose:** 获取 `cursor position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cursor position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+var result = editableText.GetCursorPosition();
+```
 
 ### Update
 `public override void Update(float dt, SpriteData spriteData, Vector2 focusPosition, bool focus, bool isFixedWidth, bool isFixedHeight, float renderScale)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+editableText.Update(0, spriteData, focusPosition, false, false, false, 0);
+```
 
 ### SelectAll
 `public void SelectAll()`
 
-**用途 / Purpose:** 处理 `select all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+editableText.SelectAll();
+```
 
 ### FindNextWordPosition
 `public int FindNextWordPosition(int direction)`
 
-**用途 / Purpose:** 处理 `find next word position` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「next word position」。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+var result = editableText.FindNextWordPosition(0);
+```
 
 ### SetCursor
 `public void SetCursor(int position, bool visible = true, bool withSelection = false)`
 
-**用途 / Purpose:** 设置 `cursor` 的值或状态。
+**用途 / Purpose:** 为 「cursor」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 EditableText 实例
+EditableText editableText = ...;
+editableText.SetCursor(0, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EditableText();
-value.SetCursorPosition(0, false);
+// 通常从对应子系统 API 获取实例后调用
+EditableText editableText = ...;
+editableText.SetCursorPosition(0, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

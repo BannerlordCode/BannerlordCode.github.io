@@ -1,20 +1,14 @@
 ---
 title: "SaveableLocalizationTypeDefiner"
+description: "Auto-generated class reference for SaveableLocalizationTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableLocalizationTypeDefiner`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableLocalizationTypeDefiner
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/SaveableLocalizationTypeDefiner.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/SaveableLocalizationTypeDefiner.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Localization` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new SaveableLocalizationTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SaveableLocalizationTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

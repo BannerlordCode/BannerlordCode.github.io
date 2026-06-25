@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeContext"
+description: "WidgetAttributeContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetAttributeContext`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeContext
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -36,30 +30,55 @@ title: "WidgetAttributeContext"
 ### RegisterKeyType
 `public void RegisterKeyType(WidgetAttributeKeyType keyType)`
 
-**用途 / Purpose:** 处理 `register key type` 相关逻辑。
+**用途 / Purpose:** 将「key type」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeContext 实例
+WidgetAttributeContext widgetAttributeContext = ...;
+widgetAttributeContext.RegisterKeyType(keyType);
+```
 
 ### RegisterValueType
 `public void RegisterValueType(WidgetAttributeValueType valueType)`
 
-**用途 / Purpose:** 处理 `register value type` 相关逻辑。
+**用途 / Purpose:** 将「value type」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeContext 实例
+WidgetAttributeContext widgetAttributeContext = ...;
+widgetAttributeContext.RegisterValueType(valueType);
+```
 
 ### GetKeyType
 `public WidgetAttributeKeyType GetKeyType(string key)`
 
-**用途 / Purpose:** 获取 `key type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「key type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeContext 实例
+WidgetAttributeContext widgetAttributeContext = ...;
+var result = widgetAttributeContext.GetKeyType("example");
+```
 
 ### GetValueType
 `public WidgetAttributeValueType GetValueType(string value)`
 
-**用途 / Purpose:** 获取 `value type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeContext 实例
+WidgetAttributeContext widgetAttributeContext = ...;
+var result = widgetAttributeContext.GetValueType("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WidgetAttributeContext();
-value.RegisterKeyType(keyType);
+// 通常从对应子系统 API 获取实例后调用
+WidgetAttributeContext widgetAttributeContext = ...;
+widgetAttributeContext.RegisterKeyType(keyType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

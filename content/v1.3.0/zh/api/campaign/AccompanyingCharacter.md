@@ -1,13 +1,7 @@
 ---
 title: "AccompanyingCharacter"
+description: "AccompanyingCharacter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AccompanyingCharacter`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AccompanyingCharacter
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
@@ -35,35 +29,66 @@ title: "AccompanyingCharacter"
 ### CanEnterLocation
 `public bool CanEnterLocation(Location location)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `enter location`。
+**用途 / Purpose:** 检查当前对象是否满足 「enter location」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 AccompanyingCharacter 实例
+AccompanyingCharacter accompanyingCharacter = ...;
+var result = accompanyingCharacter.CanEnterLocation(location);
+```
 
 ### AllowEntranceToLocations
 `public void AllowEntranceToLocations(Func<Location, bool> predicate)`
 
-**用途 / Purpose:** 处理 `allow entrance to locations` 相关逻辑。
+**用途 / Purpose:** 允许当前对象启用或执行「entrance to locations」。
+
+```csharp
+// 先通过子系统 API 拿到 AccompanyingCharacter 实例
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.AllowEntranceToLocations(func<Location, false);
+```
 
 ### DisallowEntranceToLocations
 `public void DisallowEntranceToLocations(Func<Location, bool> predicate)`
 
-**用途 / Purpose:** 处理 `disallow entrance to locations` 相关逻辑。
+**用途 / Purpose:** 禁止当前对象启用或执行「entrance to locations」。
+
+```csharp
+// 先通过子系统 API 拿到 AccompanyingCharacter 实例
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.DisallowEntranceToLocations(func<Location, false);
+```
 
 ### AllowEntranceToAllLocations
 `public void AllowEntranceToAllLocations()`
 
-**用途 / Purpose:** 处理 `allow entrance to all locations` 相关逻辑。
+**用途 / Purpose:** 允许当前对象启用或执行「entrance to all locations」。
+
+```csharp
+// 先通过子系统 API 拿到 AccompanyingCharacter 实例
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.AllowEntranceToAllLocations();
+```
 
 ### DisallowEntranceToAllLocations
 `public void DisallowEntranceToAllLocations()`
 
-**用途 / Purpose:** 处理 `disallow entrance to all locations` 相关逻辑。
+**用途 / Purpose:** 禁止当前对象启用或执行「entrance to all locations」。
+
+```csharp
+// 先通过子系统 API 拿到 AccompanyingCharacter 实例
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.DisallowEntranceToAllLocations();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AccompanyingCharacter();
-value.CanEnterLocation(location);
+// 通常从对应子系统 API 获取实例后调用
+AccompanyingCharacter accompanyingCharacter = ...;
+accompanyingCharacter.CanEnterLocation(location);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

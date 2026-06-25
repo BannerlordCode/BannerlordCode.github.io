@@ -1,20 +1,14 @@
 ---
 title: "IConflictResolver"
+description: "Auto-generated class reference for IConflictResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IConflictResolver`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IConflictResolver
 
 **Namespace:** TaleWorlds.SaveSystem.Resolvers
 **Module:** TaleWorlds.SaveSystem
-**Type:** `class`
+**Type:** `public interface IConflictResolver`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IConflictResolver.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Resolvers/IConflictResolver.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem.Resolvers` to place it in the stack,
 ## Usage Example
 
 ```csharp
-IConflictResolver implementation = GetConflictResolverImplementation();
+// Usually obtained through DI or a factory method
+IIConflictResolver service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

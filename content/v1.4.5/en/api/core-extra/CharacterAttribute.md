@@ -1,20 +1,14 @@
 ---
 title: "CharacterAttribute"
+description: "Auto-generated class reference for CharacterAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterAttribute`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterAttribute
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterAttribute : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/CharacterAttribute.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/CharacterAttribute.cs`
 
 ## Overview
 
@@ -35,7 +29,13 @@ Treat `CharacterAttribute` as a Attribute-style extension point: first identify 
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, TextObject abbreviation)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of CharacterAttribute from the subsystem API first
+CharacterAttribute characterAttribute = ...;
+characterAttribute.Initialize(name, description, abbreviation);
+```
 
 ## Usage Example
 
@@ -46,4 +46,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

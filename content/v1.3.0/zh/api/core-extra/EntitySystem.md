@@ -1,13 +1,7 @@
 ---
 title: "EntitySystem"
+description: "EntitySystem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EntitySystem`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EntitySystem
 
 **Namespace:** TaleWorlds.Core
@@ -35,35 +29,66 @@ title: "EntitySystem"
 ### AddComponent
 `public T AddComponent(Type componentType)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `component`。
+**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 EntitySystem 实例
+EntitySystem entitySystem = ...;
+var result = entitySystem.AddComponent(componentType);
+```
 
 ### GetComponent
 `public T GetComponent(Type componentType)`
 
-**用途 / Purpose:** 获取 `component` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「component」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EntitySystem 实例
+EntitySystem entitySystem = ...;
+var result = entitySystem.GetComponent(componentType);
+```
 
 ### GetComponents
 `public MBList<T> GetComponents()`
 
-**用途 / Purpose:** 获取 `components` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「components」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EntitySystem 实例
+EntitySystem entitySystem = ...;
+var result = entitySystem.GetComponents();
+```
 
 ### Finalize
 `public void Finalize(T component)`
 
-**用途 / Purpose:** 处理 `finalize` 相关逻辑。
+**用途 / Purpose:** 在垃圾回收时执行清理工作（通常用于释放非托管资源）。
+
+```csharp
+// 先通过子系统 API 拿到 EntitySystem 实例
+EntitySystem entitySystem = ...;
+entitySystem.Finalize(component);
+```
 
 ### RemoveComponent
 `public void RemoveComponent(T component)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `component`。
+**用途 / Purpose:** 从当前容器或状态中移除 「component」。
+
+```csharp
+// 先通过子系统 API 拿到 EntitySystem 实例
+EntitySystem entitySystem = ...;
+entitySystem.RemoveComponent(component);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EntitySystem();
-value.AddComponent(componentType);
+// 通常从对应子系统 API 获取实例后调用
+EntitySystem entitySystem = ...;
+entitySystem.AddComponent(componentType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

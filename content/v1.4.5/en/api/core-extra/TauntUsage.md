@@ -1,20 +1,14 @@
 ---
 title: "TauntUsage"
+description: "Auto-generated class reference for TauntUsage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TauntUsage`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TauntUsage
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class TauntUsage`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/TauntUsageManager.cs`
 
 ## Overview
 
@@ -36,85 +30,174 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Compare
 `public int Compare(TauntUsage.TauntUsageFlag x, TauntUsage.TauntUsageFlag y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.Compare(x, y);
+```
 
 ### AddUsage
 `public void AddUsage(TauntUsage usage)`
 
 **Purpose:** Adds `usage` to the current collection or state.
 
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+tauntUsage.AddUsage(usage);
+```
+
 ### GetUsages
 `public MBReadOnlyList<TauntUsage> GetUsages()`
 
-**Purpose:** Gets the current value of `usages`.
+**Purpose:** Reads and returns the `usages` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetUsages();
+```
 
 ### IsSuitable
 `public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**Purpose:** Handles logic related to `is suitable`.
+**Purpose:** Determines whether the current object is in the `suitable` state or condition.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.IsSuitable(false, false, mainHandWeapon, offhandWeapon);
+```
 
 ### GetIsNotSuitableReason
 `public TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**Purpose:** Gets the current value of `is not suitable reason`.
+**Purpose:** Reads and returns the `is not suitable reason` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetIsNotSuitableReason(false, false, mainHandWeapon, offhandWeapon);
+```
 
 ### GetAction
 `public string GetAction()`
 
-**Purpose:** Gets the current value of `action`.
+**Purpose:** Reads and returns the `action` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetAction();
+```
 
 ### Initialize
 `public static TauntUsageManager Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+TauntUsage.Initialize();
+```
 
 ### Read
 `public void Read()`
 
-**Purpose:** Handles logic related to `read`.
+**Purpose:** Reads the data or state of the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+tauntUsage.Read();
+```
 
 ### GetUsageSet
 `public TauntUsageSet GetUsageSet(string id)`
 
-**Purpose:** Gets the current value of `usage set`.
+**Purpose:** Reads and returns the `usage set` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetUsageSet("example");
+```
 
 ### GetAction
 `public string GetAction(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**Purpose:** Gets the current value of `action`.
+**Purpose:** Reads and returns the `action` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetAction(0, false, false, mainHandWeapon, offhandWeapon);
+```
 
 ### GetActionDisabledReasonText
 `public static string GetActionDisabledReasonText(TauntUsage.TauntUsageFlag disabledReasonFlag)`
 
-**Purpose:** Gets the current value of `action disabled reason text`.
+**Purpose:** Reads and returns the `action disabled reason text` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TauntUsage.GetActionDisabledReasonText(disabledReasonFlag);
+```
 
 ### GetIsActionNotSuitableReason
 `public TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**Purpose:** Gets the current value of `is action not suitable reason`.
+**Purpose:** Reads and returns the `is action not suitable reason` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetIsActionNotSuitableReason(0, false, false, mainHandWeapon, offhandWeapon);
+```
 
 ### GetTauntItemCount
 `public int GetTauntItemCount()`
 
-**Purpose:** Gets the current value of `taunt item count`.
+**Purpose:** Reads and returns the `taunt item count` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetTauntItemCount();
+```
 
 ### GetIndexOfAction
 `public int GetIndexOfAction(string id)`
 
-**Purpose:** Gets the current value of `index of action`.
+**Purpose:** Reads and returns the `index of action` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetIndexOfAction("example");
+```
 
 ### GetDefaultAction
 `public string GetDefaultAction(int index)`
 
-**Purpose:** Gets the current value of `default action`.
+**Purpose:** Reads and returns the `default action` value held by the current object.
+
+```csharp
+// Obtain an instance of TauntUsage from the subsystem API first
+TauntUsage tauntUsage = ...;
+var result = tauntUsage.GetDefaultAction(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TauntUsage();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+TauntUsage tauntUsage = ...;
+tauntUsage.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

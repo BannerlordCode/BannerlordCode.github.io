@@ -1,20 +1,14 @@
 ---
 title: "KingdomArmyVM"
+description: "KingdomArmyVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomArmyVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomArmyVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomArmyVM : KingdomCategoryVM`
 **Base:** `KingdomCategoryVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies/KingdomArmyVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies/KingdomArmyVM.cs`
 
 ## 概述
 
@@ -60,25 +54,44 @@ title: "KingdomArmyVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomArmyVM 实例
+KingdomArmyVM kingdomArmyVM = ...;
+kingdomArmyVM.RefreshValues();
+```
 
 ### RefreshArmyList
 `public void RefreshArmyList()`
 
-**用途 / Purpose:** 刷新 `army list` 的显示或缓存。
+**用途 / Purpose:** 使 「army list」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomArmyVM 实例
+KingdomArmyVM kingdomArmyVM = ...;
+kingdomArmyVM.RefreshArmyList();
+```
 
 ### SelectArmy
 `public void SelectArmy(Army army)`
 
-**用途 / Purpose:** 处理 `select army` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomArmyVM 实例
+KingdomArmyVM kingdomArmyVM = ...;
+kingdomArmyVM.SelectArmy(army);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomArmyVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+KingdomArmyVM kingdomArmyVM = ...;
+kingdomArmyVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

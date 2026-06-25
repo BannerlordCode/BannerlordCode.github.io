@@ -1,20 +1,14 @@
 ---
 title: "WaitMenuOption"
+description: "Auto-generated class reference for WaitMenuOption."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WaitMenuOption`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WaitMenuOption
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WaitMenuOption`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/WaitMenuOption.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/WaitMenuOption.cs`
 
 ## Overview
 
@@ -35,35 +29,66 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate(MenuCallbackArgs args)`
 
-**Purpose:** Called when the `condition delegate` event is raised.
+**Purpose:** Invoked when the `condition delegate` event is raised.
+
+```csharp
+// Obtain an instance of WaitMenuOption from the subsystem API first
+WaitMenuOption waitMenuOption = ...;
+var result = waitMenuOption.OnConditionDelegate(args);
+```
 
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate(MenuCallbackArgs args)`
 
-**Purpose:** Called when the `consequence delegate` event is raised.
+**Purpose:** Invoked when the `consequence delegate` event is raised.
+
+```csharp
+// Obtain an instance of WaitMenuOption from the subsystem API first
+WaitMenuOption waitMenuOption = ...;
+waitMenuOption.OnConsequenceDelegate(args);
+```
 
 ### GetConditionsHold
 `public bool GetConditionsHold(Game game, MapState mapState)`
 
-**Purpose:** Gets the current value of `conditions hold`.
+**Purpose:** Reads and returns the `conditions hold` value held by the current object.
+
+```csharp
+// Obtain an instance of WaitMenuOption from the subsystem API first
+WaitMenuOption waitMenuOption = ...;
+var result = waitMenuOption.GetConditionsHold(game, mapState);
+```
 
 ### RunConsequence
 `public void RunConsequence(Game game, MapState mapState)`
 
-**Purpose:** Handles logic related to `run consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WaitMenuOption from the subsystem API first
+WaitMenuOption waitMenuOption = ...;
+waitMenuOption.RunConsequence(game, mapState);
+```
 
 ### Deserialize
 `public void Deserialize(XmlNode node, Type typeOfWaitMenusCallbacks)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of WaitMenuOption from the subsystem API first
+WaitMenuOption waitMenuOption = ...;
+waitMenuOption.Deserialize(node, typeOfWaitMenusCallbacks);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WaitMenuOption();
-value.OnConditionDelegate(args);
+// Typically call this after obtaining an instance from the subsystem API
+WaitMenuOption waitMenuOption = ...;
+waitMenuOption.OnConditionDelegate(args);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "QuestItemSortOption"
+description: "Auto-generated class reference for QuestItemSortOption."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestItemSortOption`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestItemSortOption
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ## Usage Example
 
 ```csharp
-QuestItemSortOption example = QuestItemSortOption.Value;
+// Obtain an instance from the relevant subsystem API
+QuestItemSortOption instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

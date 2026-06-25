@@ -1,13 +1,7 @@
 ---
 title: "BattleSimulation"
+description: "BattleSimulation 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleSimulation`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSimulation
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -38,65 +32,132 @@ title: "BattleSimulation"
 ### Play
 `public void Play()`
 
-**用途 / Purpose:** 处理 `play` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.Play();
+```
 
 ### FastForward
 `public void FastForward()`
 
-**用途 / Purpose:** 处理 `fast forward` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.FastForward();
+```
 
 ### Skip
 `public void Skip()`
 
-**用途 / Purpose:** 处理 `skip` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.Skip();
+```
 
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** 处理 `pause` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.Pause();
+```
 
 ### OnReturn
 `public void OnReturn()`
 
-**用途 / Purpose:** 当 `return` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「return」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.OnReturn();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.Tick(0);
+```
 
 ### ResetSimulation
 `public void ResetSimulation()`
 
-**用途 / Purpose:** 将 `simulation` 重置为初始状态。
+**用途 / Purpose:** 将 「simulation」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.ResetSimulation();
+```
 
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberKilled = 0, int numberWounded = 0, int numberRouted = 0, int killCount = 0, int numberReadyToUpgrade = 0)`
 
-**用途 / Purpose:** 处理 `troop number changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.TroopNumberChanged(side, battleCombatant, character, 0, 0, 0, 0, 0, 0);
+```
 
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject skill)`
 
-**用途 / Purpose:** 处理 `hero skill increased` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.HeroSkillIncreased(side, battleCombatant, heroCharacter, skill);
+```
 
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**用途 / Purpose:** 处理 `battle results ready` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.BattleResultsReady();
+```
 
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**用途 / Purpose:** 处理 `troop side changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSimulation 实例
+BattleSimulation battleSimulation = ...;
+battleSimulation.TroopSideChanged(prevSide, newSide, battleCombatant, character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BattleSimulation();
-value.Play();
+// 通常从对应子系统 API 获取实例后调用
+BattleSimulation battleSimulation = ...;
+battleSimulation.Play();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

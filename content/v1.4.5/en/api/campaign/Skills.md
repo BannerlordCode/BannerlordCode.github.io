@@ -1,20 +1,14 @@
 ---
 title: "Skills"
+description: "Auto-generated class reference for Skills."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Skills`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Skills
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Skills`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/Skills.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/Skills.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### GetSkill
 `public static SkillObject GetSkill(int i)`
 
-**Purpose:** Gets the current value of `skill`.
+**Purpose:** Reads and returns the `skill` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Skills.GetSkill(0);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ Skills.GetSkill(0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

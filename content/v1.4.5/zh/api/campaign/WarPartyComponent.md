@@ -1,20 +1,14 @@
 ---
 title: "WarPartyComponent"
+description: "WarPartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WarPartyComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WarPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class WarPartyComponent : PartyComponent`
 **Base:** `PartyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/WarPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/WarPartyComponent.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "WarPartyComponent"
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** 获取 `default component banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default component banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WarPartyComponent 实例
+WarPartyComponent warPartyComponent = ...;
+var result = warPartyComponent.GetDefaultComponentBanner();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomWarPartyComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+WarPartyComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

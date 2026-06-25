@@ -1,13 +1,7 @@
 ---
 title: "IncidentsCampaignBehaviour"
+description: "Auto-generated class reference for IncidentsCampaignBehaviour."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IncidentsCampaignBehaviour`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IncidentsCampaignBehaviour
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of IncidentsCampaignBehaviour from the subsystem API first
+IncidentsCampaignBehaviour incidentsCampaignBehaviour = ...;
+incidentsCampaignBehaviour.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of IncidentsCampaignBehaviour from the subsystem API first
+IncidentsCampaignBehaviour incidentsCampaignBehaviour = ...;
+incidentsCampaignBehaviour.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IncidentsCampaignBehaviour();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+IncidentsCampaignBehaviour incidentsCampaignBehaviour = ...;
+incidentsCampaignBehaviour.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

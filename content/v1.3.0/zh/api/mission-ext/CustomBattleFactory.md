@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleFactory"
+description: "CustomBattleFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleFactory`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleFactory
 
 **Namespace:** TaleWorlds.MountAndBlade.View.CustomBattle
@@ -29,22 +23,42 @@ title: "CustomBattleFactory"
 ### StartCustomBattle
 `public static void StartCustomBattle()`
 
-**用途 / Purpose:** 处理 `start custom battle` 相关逻辑。
+**用途 / Purpose:** 启动「custom battle」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleFactory.StartCustomBattle();
+```
 
 ### GetProviderCount
 `public static int GetProviderCount()`
 
-**用途 / Purpose:** 获取 `provider count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「provider count」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleFactory.GetProviderCount();
+```
 
 ### CollectProviders
 `public static List<ICustomBattleProvider> CollectProviders()`
 
-**用途 / Purpose:** 处理 `collect providers` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleFactory.CollectProviders();
+```
 
 ### CollectNextProvider
 `public static ICustomBattleProvider CollectNextProvider(Type currentProviderType)`
 
-**用途 / Purpose:** 处理 `collect next provider` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleFactory.CollectNextProvider(currentProviderType);
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ CustomBattleFactory.StartCustomBattle();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

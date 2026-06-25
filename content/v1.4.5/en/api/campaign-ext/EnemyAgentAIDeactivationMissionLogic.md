@@ -1,20 +1,14 @@
 ---
 title: "EnemyAgentAIDeactivationMissionLogic"
+description: "Auto-generated class reference for EnemyAgentAIDeactivationMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EnemyAgentAIDeactivationMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EnemyAgentAIDeactivationMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class EnemyAgentAIDeactivationMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/EnemyAgentAIDeactivationMissionLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/EnemyAgentAIDeactivationMissionLogic.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `EnemyAgentAIDeactivationMissionLogic` as a Logic-style extension point: f
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new EnemyAgentAIDeactivationMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<EnemyAgentAIDeactivationMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

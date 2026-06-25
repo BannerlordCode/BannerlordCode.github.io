@@ -1,13 +1,7 @@
 ---
 title: "CommentOnPlayerMeetLordBehavior"
+description: "Auto-generated class reference for CommentOnPlayerMeetLordBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommentOnPlayerMeetLordBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CommentOnPlayerMeetLordBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehavio
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CommentOnPlayerMeetLordBehavior from the subsystem API first
+CommentOnPlayerMeetLordBehavior commentOnPlayerMeetLordBehavior = ...;
+commentOnPlayerMeetLordBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CommentOnPlayerMeetLordBehavior from the subsystem API first
+CommentOnPlayerMeetLordBehavior commentOnPlayerMeetLordBehavior = ...;
+commentOnPlayerMeetLordBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommentOnPlayerMeetLordBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+CommentOnPlayerMeetLordBehavior commentOnPlayerMeetLordBehavior = ...;
+commentOnPlayerMeetLordBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

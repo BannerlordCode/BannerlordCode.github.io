@@ -1,20 +1,14 @@
 ---
 title: "SpawnAttachedWeaponOnSpawnedWeapon"
+description: "Auto-generated class reference for SpawnAttachedWeaponOnSpawnedWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnAttachedWeaponOnSpawnedWeapon`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnAttachedWeaponOnSpawnedWeapon
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SpawnAttachedWeaponOnSpawnedWeapon : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SpawnAttachedWeaponOnSpawnedWeapon.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SpawnAttachedWeaponOnSpawnedWeapon.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SpawnAttachedWeaponOnSpawnedWeapon();
+// Obtain an instance from the relevant subsystem API
+SpawnAttachedWeaponOnSpawnedWeapon instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

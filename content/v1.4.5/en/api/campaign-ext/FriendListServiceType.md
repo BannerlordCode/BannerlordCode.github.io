@@ -1,20 +1,14 @@
 ---
 title: "FriendListServiceType"
+description: "Auto-generated class reference for FriendListServiceType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FriendListServiceType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FriendListServiceType
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** `class`
+**Type:** `public enum FriendListServiceType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/FriendListServiceType.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/FriendListServiceType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new FriendListServiceType();
+// Obtain an instance from the relevant subsystem API
+FriendListServiceType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

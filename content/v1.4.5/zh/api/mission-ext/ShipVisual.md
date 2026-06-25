@@ -1,20 +1,14 @@
 ---
 title: "ShipVisual"
+description: "ShipVisual 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipVisual`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipVisual
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ShipVisual : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/ShipVisual.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/ShipVisual.cs`
 
 ## 概述
 
@@ -38,15 +32,22 @@ title: "ShipVisual"
 ### Initialize
 `public void Initialize(int seed, string customSailPatternId = "")`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ShipVisual 实例
+ShipVisual shipVisual = ...;
+shipVisual.Initialize(0, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ShipVisual();
-value.Initialize(0, "example");
+// 通常从对应子系统 API 获取实例后调用
+ShipVisual shipVisual = ...;
+shipVisual.Initialize(0, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

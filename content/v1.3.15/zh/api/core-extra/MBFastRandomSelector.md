@@ -1,13 +1,7 @@
 ---
 title: "MBFastRandomSelector"
+description: "MBFastRandomSelector 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBFastRandomSelector`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBFastRandomSelector
 
 **Namespace:** TaleWorlds.Core
@@ -35,30 +29,55 @@ title: "MBFastRandomSelector"
 ### Initialize
 `public void Initialize(MBReadOnlyList<T> list)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandomSelector 实例
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Initialize(list);
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandomSelector 实例
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Reset();
+```
 
 ### Pack
 `public void Pack()`
 
-**用途 / Purpose:** 处理 `pack` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandomSelector 实例
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Pack();
+```
 
 ### SelectRandom
 `public bool SelectRandom(out T selection, Predicate<T> conditions = null)`
 
-**用途 / Purpose:** 处理 `select random` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBFastRandomSelector 实例
+MBFastRandomSelector mBFastRandomSelector = ...;
+var result = mBFastRandomSelector.SelectRandom(selection, null);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBFastRandomSelector();
-value.Initialize(list);
+// 通常从对应子系统 API 获取实例后调用
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Initialize(list);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PropertyOwnerObject"
+description: "Auto-generated class reference for PropertyOwnerObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyOwnerObject`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyOwnerObject
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class PropertyOwnerObject`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/PropertyOwnerObject.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/PropertyOwnerObject.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new PropertyOwnerObject();
+// Obtain an instance from the relevant subsystem API
+PropertyOwnerObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

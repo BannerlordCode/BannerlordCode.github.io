@@ -1,13 +1,7 @@
 ---
 title: "CraftingStatData"
+description: "Auto-generated class reference for CraftingStatData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingStatData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingStatData
 
 **Namespace:** TaleWorlds.Core
@@ -33,9 +27,10 @@ Treat `CraftingStatData` as a Data-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-var value = new CraftingStatData();
+// This data object is usually returned by campaign/mission APIs
+CraftingStatData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

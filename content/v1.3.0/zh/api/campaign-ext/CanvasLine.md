@@ -1,13 +1,7 @@
 ---
 title: "CanvasLine"
+description: "CanvasLine 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CanvasLine`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasLine
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -35,20 +29,33 @@ title: "CanvasLine"
 ### LoadFrom
 `public void LoadFrom(XmlNode lineNode)`
 
-**用途 / Purpose:** 加载 `from` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasLine 实例
+CanvasLine canvasLine = ...;
+canvasLine.LoadFrom(lineNode);
+```
 
 ### GetHorizontalPositionOf
 `public float GetHorizontalPositionOf(int index)`
 
-**用途 / Purpose:** 获取 `horizontal position of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「horizontal position of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasLine 实例
+CanvasLine canvasLine = ...;
+var result = canvasLine.GetHorizontalPositionOf(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CanvasLine();
-value.LoadFrom(lineNode);
+// 通常从对应子系统 API 获取实例后调用
+CanvasLine canvasLine = ...;
+canvasLine.LoadFrom(lineNode);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

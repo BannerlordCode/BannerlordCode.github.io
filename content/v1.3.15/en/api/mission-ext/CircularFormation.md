@@ -1,13 +1,7 @@
 ---
 title: "CircularFormation"
+description: "Auto-generated class reference for CircularFormation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CircularFormation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CircularFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of CircularFormation from the subsystem API first
+CircularFormation circularFormation = ...;
+var result = circularFormation.Clone(formation);
+```
 
 ### GetLocalDirectionOfUnitOrDefault
 `public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** Gets the current value of `local direction of unit or default`.
+**Purpose:** Reads and returns the `local direction of unit or default` value held by the current object.
+
+```csharp
+// Obtain an instance of CircularFormation from the subsystem API first
+CircularFormation circularFormation = ...;
+var result = circularFormation.GetLocalDirectionOfUnitOrDefault(unit);
+```
 
 ### GetCircumferenceFromRankCount
 `public float GetCircumferenceFromRankCount(int rankCount)`
 
-**Purpose:** Gets the current value of `circumference from rank count`.
+**Purpose:** Reads and returns the `circumference from rank count` value held by the current object.
+
+```csharp
+// Obtain an instance of CircularFormation from the subsystem API first
+CircularFormation circularFormation = ...;
+var result = circularFormation.GetCircumferenceFromRankCount(0);
+```
 
 ### FormFromCircumference
 `public void FormFromCircumference(float circumference)`
 
-**Purpose:** Handles logic related to `form from circumference`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CircularFormation from the subsystem API first
+CircularFormation circularFormation = ...;
+circularFormation.FormFromCircumference(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CircularFormation();
-value.Clone(formation);
+// Typically call this after obtaining an instance from the subsystem API
+CircularFormation circularFormation = ...;
+circularFormation.Clone(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

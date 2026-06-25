@@ -1,20 +1,14 @@
 ---
 title: "SiegeEngineMarkerDistanceComparer"
+description: "SiegeEngineMarkerDistanceComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeEngineMarkerDistanceComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineMarkerDistanceComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeEngineMarkerDistanceComparer : IComparer<MissionSiegeEngineMarkerTargetVM>`
 **Base:** `IComparer<MissionSiegeEngineMarkerTargetVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionSiegeEngineMarkerVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "SiegeEngineMarkerDistanceComparer"
 ### Compare
 `public int Compare(MissionSiegeEngineMarkerTargetVM x, MissionSiegeEngineMarkerTargetVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeEngineMarkerDistanceComparer 实例
+SiegeEngineMarkerDistanceComparer siegeEngineMarkerDistanceComparer = ...;
+var result = siegeEngineMarkerDistanceComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SiegeEngineMarkerDistanceComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+SiegeEngineMarkerDistanceComparer siegeEngineMarkerDistanceComparer = ...;
+siegeEngineMarkerDistanceComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ShipUpgradePiece"
+description: "Auto-generated class reference for ShipUpgradePiece."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipUpgradePiece`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipUpgradePiece
 
 **Namespace:** TaleWorlds.Core
@@ -64,20 +58,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ShipUpgradePiece from the subsystem API first
+ShipUpgradePiece shipUpgradePiece = ...;
+shipUpgradePiece.Deserialize(objectManager, node);
+```
 
 ### DoesPieceMatchSlot
 `public bool DoesPieceMatchSlot(ShipSlot slot)`
 
-**Purpose:** Handles logic related to `does piece match slot`.
+**Purpose:** Returns a boolean answer to whether `piece match slot` is true for the current object.
+
+```csharp
+// Obtain an instance of ShipUpgradePiece from the subsystem API first
+ShipUpgradePiece shipUpgradePiece = ...;
+var result = shipUpgradePiece.DoesPieceMatchSlot(slot);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipUpgradePiece();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+ShipUpgradePiece shipUpgradePiece = ...;
+shipUpgradePiece.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

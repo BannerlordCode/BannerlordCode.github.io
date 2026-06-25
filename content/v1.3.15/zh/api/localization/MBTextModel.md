@@ -1,19 +1,14 @@
 ---
 title: "MBTextModel"
+description: "MBTextModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBTextModel`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBTextModel
 
-**命名空间:** TaleWorlds.Localization.TextProcessor
-**模块:** TaleWorlds.Localization
-**类型:** `public class MBTextModel`
-**领域:** localization
+**Namespace:** TaleWorlds.Localization.TextProcessor
+**Module:** TaleWorlds.Localization
+**Type:** `public class MBTextModel`
+**Base:** 无
+**File:** `TaleWorlds.Localization/TextProcessor/MBTextModel.cs`
 
 ## 概述
 
@@ -31,5 +26,4 @@ Game.Current.ReplaceModel<MBTextModel>(new MyMBTextModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-localization)
+- [本区域目录](../)

@@ -1,24 +1,18 @@
 ---
 title: "TypeDefinition"
+description: "TypeDefinition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TypeDefinition`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TypeDefinition
 
-**命名空间:** TaleWorlds.SaveSystem.Definition
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public class TypeDefinition : TypeDefinitionBase`
+**Namespace:** TaleWorlds.SaveSystem.Definition
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class TypeDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**领域:** save-system
+**File:** `TaleWorlds.SaveSystem/Definition/TypeDefinition.cs`
 
 ## 概述
 
-`TypeDefinition` 位于 `TaleWorlds.SaveSystem.Definition`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`TypeDefinition` 位于 `TaleWorlds.SaveSystem.Definition`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -43,62 +37,121 @@ title: "TypeDefinition"
 ### CheckIfRequiresAdvancedResolving
 `public bool CheckIfRequiresAdvancedResolving(object originalObject)`
 
-**用途 / Purpose:** 处理 `check if requires advanced resolving` 相关逻辑。
+**用途 / Purpose:** 检查「if requires advanced resolving」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.CheckIfRequiresAdvancedResolving(originalObject);
+```
 
 ### ResolveObject
 `public object ResolveObject(object originalObject)`
 
-**用途 / Purpose:** 处理 `resolve object` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.ResolveObject(originalObject);
+```
 
 ### AdvancedResolveObject
 `public object AdvancedResolveObject(object originalObject, MetaData metaData, ObjectLoadData objectLoadData)`
 
-**用途 / Purpose:** 处理 `advanced resolve object` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.AdvancedResolveObject(originalObject, metaData, objectLoadData);
+```
 
 ### CollectInitializationCallbacks
 `public void CollectInitializationCallbacks()`
 
-**用途 / Purpose:** 处理 `collect initialization callbacks` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+typeDefinition.CollectInitializationCallbacks();
+```
 
 ### CollectProperties
 `public void CollectProperties()`
 
-**用途 / Purpose:** 处理 `collect properties` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+typeDefinition.CollectProperties();
+```
 
 ### CollectFields
 `public void CollectFields()`
 
-**用途 / Purpose:** 处理 `collect fields` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+typeDefinition.CollectFields();
+```
 
 ### AddCustomField
 `public void AddCustomField(string fieldName, short saveId)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `custom field`。
+**用途 / Purpose:** 将 「custom field」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+typeDefinition.AddCustomField("example", 0);
+```
 
 ### GetPropertyDefinitionWithId
 `public PropertyDefinition GetPropertyDefinitionWithId(MemberTypeId id)`
 
-**用途 / Purpose:** 获取 `property definition with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「property definition with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.GetPropertyDefinitionWithId(id);
+```
 
 ### GetFieldDefinitionWithId
 `public FieldDefinition GetFieldDefinitionWithId(MemberTypeId id)`
 
-**用途 / Purpose:** 获取 `field definition with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「field definition with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+var result = typeDefinition.GetFieldDefinitionWithId(id);
+```
 
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate)`
 
-**用途 / Purpose:** 初始化 `for auto generation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「for auto generation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 TypeDefinition 实例
+TypeDefinition typeDefinition = ...;
+typeDefinition.InitializeForAutoGeneration(collectObjectsDelegate);
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 TypeDefinition 实例，再调用它的公开方法
-var value = new TypeDefinition();
-value.CheckIfRequiresAdvancedResolving(originalObject);
+// 通常从对应子系统 API 获取实例后调用
+TypeDefinition typeDefinition = ...;
+typeDefinition.CheckIfRequiresAdvancedResolving(originalObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

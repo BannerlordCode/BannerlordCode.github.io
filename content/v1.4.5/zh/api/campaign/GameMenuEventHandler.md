@@ -1,20 +1,14 @@
 ---
 title: "GameMenuEventHandler"
+description: "GameMenuEventHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuEventHandler`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuEventHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuEventHandler : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuEventHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuEventHandler.cs`
 
 ## 概述
 
@@ -35,9 +29,9 @@ title: "GameMenuEventHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GameMenuEventHandler());
+var behavior = Mission.Current.GetMissionBehavior<GameMenuEventHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

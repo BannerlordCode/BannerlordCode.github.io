@@ -1,20 +1,14 @@
 ---
 title: "GameKeyOptionVM"
+description: "Auto-generated class reference for GameKeyOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameKeyOptionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameKeyOptionVM : KeyOptionVM`
 **Base:** `KeyOptionVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys/GameKeyOptionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys/GameKeyOptionVM.cs`
 
 ## Overview
 
@@ -35,40 +29,77 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.G
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameKeyOptionVM from the subsystem API first
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.RefreshValues();
+```
 
 ### Set
 `public override void Set(InputKey newKey)`
 
-**Purpose:** Sets the value or state of `set`.
+**Purpose:** Assigns a new value to the current object's property or state.
+
+```csharp
+// Obtain an instance of GameKeyOptionVM from the subsystem API first
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.Set(newKey);
+```
 
 ### Update
 `public override void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of GameKeyOptionVM from the subsystem API first
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.Update();
+```
 
 ### OnDone
 `public override void OnDone()`
 
-**Purpose:** Called when the `done` event is raised.
+**Purpose:** Invoked when the `done` event is raised.
+
+```csharp
+// Obtain an instance of GameKeyOptionVM from the subsystem API first
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.OnDone();
+```
 
 ### ExecuteRevert
 `public override void ExecuteRevert()`
 
-**Purpose:** Executes the `revert` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `revert`.
+
+```csharp
+// Obtain an instance of GameKeyOptionVM from the subsystem API first
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.ExecuteRevert();
+```
 
 ### Apply
 `public void Apply()`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Obtain an instance of GameKeyOptionVM from the subsystem API first
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.Apply();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameKeyOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameKeyOptionVM gameKeyOptionVM = ...;
+gameKeyOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

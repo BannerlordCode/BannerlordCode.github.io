@@ -1,20 +1,14 @@
 ---
 title: "DXGI"
+description: "DXGI 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DXGI`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DXGI
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public static class DXGI`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
 
 ## 概述
 
@@ -29,25 +23,43 @@ title: "DXGI"
 ### Equals
 `public override bool Equals(object o)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 DXGI 实例
+DXGI dXGI = ...;
+var result = dXGI.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 DXGI 实例
+DXGI dXGI = ...;
+var result = dXGI.GetHashCode();
+```
 
 ### CreateDXGIFactory
 `public static extern int CreateDXGIFactory(ref Guid riid, out IntPtr factory)`
 
-**用途 / Purpose:** 创建一个 `d x g i factory` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「d x g i factory」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+DXGI.CreateDXGIFactory(riid, factory);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DXGI();
-value.Equals(o);
+// 通常从对应子系统 API 获取实例后调用
+DXGI dXGI = ...;
+dXGI.Equals(o);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

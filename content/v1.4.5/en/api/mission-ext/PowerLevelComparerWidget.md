@@ -1,20 +1,14 @@
 ---
 title: "PowerLevelComparerWidget"
+description: "Auto-generated class reference for PowerLevelComparerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PowerLevelComparerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PowerLevelComparerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PowerLevelComparerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/PowerLevelComparerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay/PowerLevelComparerWidget.cs`
 
 ## Overview
 
@@ -44,9 +38,10 @@ Treat `PowerLevelComparerWidget` as a Widget-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var widget = new PowerLevelComparerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PowerLevelComparerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

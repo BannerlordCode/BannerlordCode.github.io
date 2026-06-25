@@ -1,13 +1,7 @@
 ---
 title: "CraftingPieceVM"
+description: "Auto-generated class reference for CraftingPieceVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPieceVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingPieceVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshFlagIcons
 `public void RefreshFlagIcons()`
 
-**Purpose:** Refreshes the display or cache of `flag icons`.
+**Purpose:** Keeps the display or cache of `flag icons` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CraftingPieceVM from the subsystem API first
+CraftingPieceVM craftingPieceVM = ...;
+craftingPieceVM.RefreshFlagIcons();
+```
 
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**Purpose:** Executes the `open tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open tooltip`.
+
+```csharp
+// Obtain an instance of CraftingPieceVM from the subsystem API first
+CraftingPieceVM craftingPieceVM = ...;
+craftingPieceVM.ExecuteOpenTooltip();
+```
 
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Executes the `close tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+
+```csharp
+// Obtain an instance of CraftingPieceVM from the subsystem API first
+CraftingPieceVM craftingPieceVM = ...;
+craftingPieceVM.ExecuteCloseTooltip();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of CraftingPieceVM from the subsystem API first
+CraftingPieceVM craftingPieceVM = ...;
+craftingPieceVM.ExecuteSelect();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingPieceVM();
-value.RefreshFlagIcons();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingPieceVM craftingPieceVM = ...;
+craftingPieceVM.RefreshFlagIcons();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

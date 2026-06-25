@@ -1,13 +1,7 @@
 ---
 title: "CapsuleData"
+description: "CapsuleData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CapsuleData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CapsuleData
 
 **Namespace:** TaleWorlds.Engine
@@ -37,19 +31,32 @@ title: "CapsuleData"
 ### GetBoxMin
 `public Vec3 GetBoxMin()`
 
-**用途 / Purpose:** 获取 `box min` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「box min」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CapsuleData 实例
+CapsuleData capsuleData = ...;
+var result = capsuleData.GetBoxMin();
+```
 
 ### GetBoxMax
 `public Vec3 GetBoxMax()`
 
-**用途 / Purpose:** 获取 `box max` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「box max」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CapsuleData 实例
+CapsuleData capsuleData = ...;
+var result = capsuleData.GetBoxMax();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CapsuleData();
+// 该数据对象通常由战役/任务 API 返回
+CapsuleData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

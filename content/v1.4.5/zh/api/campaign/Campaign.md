@@ -1,20 +1,14 @@
 ---
 title: "Campaign"
+description: "Campaign 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Campaign`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Campaign
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Campaign : GameType`
 **Base:** `GameType`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Campaign.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Campaign.cs`
 
 ## 概述
 
@@ -108,110 +102,230 @@ title: "Campaign"
 ### GetAverageDistanceBetweenClosestTwoTownsWithNavigationType
 `public float GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 获取 `average distance between closest two towns with navigation type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「average distance between closest two towns with navigation type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+var result = campaign.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(navigationType);
+```
 
 ### InitializeMainParty
 `public void InitializeMainParty()`
 
-**用途 / Purpose:** 初始化 `main party` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「main party」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.InitializeMainParty();
+```
 
 ### WaitAsyncTasks
 `public void WaitAsyncTasks()`
 
-**用途 / Purpose:** 处理 `wait async tasks` 相关逻辑。
+**用途 / Purpose:** 暂停当前流程，直到「async tasks」条件满足。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.WaitAsyncTasks();
+```
 
 ### GetSimplifiedTimeControlMode
 `public CampaignTimeControlMode GetSimplifiedTimeControlMode()`
 
-**用途 / Purpose:** 获取 `simplified time control mode` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「simplified time control mode」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+var result = campaign.GetSimplifiedTimeControlMode();
+```
 
 ### OnGameOver
 `public void OnGameOver()`
 
-**用途 / Purpose:** 当 `game over` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game over」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.OnGameOver();
+```
 
 ### SetTimeSpeed
 `public void SetTimeSpeed(int speed)`
 
-**用途 / Purpose:** 设置 `time speed` 的值或状态。
+**用途 / Purpose:** 为 「time speed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.SetTimeSpeed(0);
+```
 
 ### LateAITick
 `public static void LateAITick()`
 
-**用途 / Purpose:** 处理 `late a i tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Campaign.LateAITick();
+```
 
 ### AddCampaignBehaviorManager
 `public void AddCampaignBehaviorManager(ICampaignBehaviorManager manager)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `campaign behavior manager`。
+**用途 / Purpose:** 将 「campaign behavior manager」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.AddCampaignBehaviorManager(manager);
+```
 
 ### OnDestroy
 `public override void OnDestroy()`
 
-**用途 / Purpose:** 当 `destroy` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「destroy」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.OnDestroy();
+```
 
 ### InitializeSinglePlayerReferences
 `public void InitializeSinglePlayerReferences()`
 
-**用途 / Purpose:** 初始化 `single player references` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「single player references」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.InitializeSinglePlayerReferences();
+```
 
 ### InitializeGamePlayReferences
 `public void InitializeGamePlayReferences()`
 
-**用途 / Purpose:** 初始化 `game play references` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「game play references」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.InitializeGamePlayReferences();
+```
 
 ### SetLoadingParameters
 `public void SetLoadingParameters(GameLoadingType gameLoadingType)`
 
-**用途 / Purpose:** 设置 `loading parameters` 的值或状态。
+**用途 / Purpose:** 为 「loading parameters」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.SetLoadingParameters(gameLoadingType);
+```
 
 ### AddCampaignEventReceiver
 `public void AddCampaignEventReceiver(CampaignEventReceiver receiver)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `campaign event receiver`。
+**用途 / Purpose:** 将 「campaign event receiver」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.AddCampaignEventReceiver(receiver);
+```
 
 ### OnMissionIsStarting
 `public override void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**用途 / Purpose:** 当 `mission is starting` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission is starting」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.OnMissionIsStarting("example", rec);
+```
 
 ### InitializeParameters
 `public override void InitializeParameters()`
 
-**用途 / Purpose:** 初始化 `parameters` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「parameters」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.InitializeParameters();
+```
 
 ### SetTimeControlModeLock
 `public void SetTimeControlModeLock(bool isLocked)`
 
-**用途 / Purpose:** 设置 `time control mode lock` 的值或状态。
+**用途 / Purpose:** 为 「time control mode lock」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.SetTimeControlModeLock(false);
+```
 
 ### OnPlayerCharacterChanged
 `public void OnPlayerCharacterChanged(out bool isMainPartyChanged)`
 
-**用途 / Purpose:** 当 `player character changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player character changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.OnPlayerCharacterChanged(isMainPartyChanged);
+```
 
 ### SetPlayerFormationPreference
 `public void SetPlayerFormationPreference(CharacterObject character, FormationClass formation)`
 
-**用途 / Purpose:** 设置 `player formation preference` 的值或状态。
+**用途 / Purpose:** 为 「player formation preference」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.SetPlayerFormationPreference(character, formation);
+```
 
 ### OnStateChanged
 `public override void OnStateChanged(TaleWorlds.Core.GameState oldState)`
 
-**用途 / Purpose:** 当 `state changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「state changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.OnStateChanged(oldState);
+```
 
 ### UnlockFigurehead
 `public void UnlockFigurehead(Figurehead figurehead)`
 
-**用途 / Purpose:** 处理 `unlock figurehead` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Campaign 实例
+Campaign campaign = ...;
+campaign.UnlockFigurehead(figurehead);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Campaign();
-value.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(navigationType);
+// 通常从对应子系统 API 获取实例后调用
+Campaign campaign = ...;
+campaign.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(navigationType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

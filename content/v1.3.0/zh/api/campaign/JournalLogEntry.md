@@ -1,13 +1,7 @@
 ---
 title: "JournalLogEntry"
+description: "JournalLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `JournalLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # JournalLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,45 +29,88 @@ title: "JournalLogEntry"
 ### IsRelatedTo
 `public bool IsRelatedTo(MBObjectBase obj)`
 
-**用途 / Purpose:** 处理 `is related to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLogEntry 实例
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.IsRelatedTo(obj);
+```
 
 ### GetEntries
 `public IEnumerable<JournalLog> GetEntries()`
 
-**用途 / Purpose:** 获取 `entries` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「entries」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLogEntry 实例
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.GetEntries();
+```
 
 ### Update
 `public void Update(MBReadOnlyList<JournalLog> entries, IssueBase.IssueUpdateDetails issueStatus = IssueBase.IssueUpdateDetails.None)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLogEntry 实例
+JournalLogEntry journalLogEntry = ...;
+journalLogEntry.Update(entries, issueBase.IssueUpdateDetails.None);
+```
 
 ### Update
 `public void Update(MBReadOnlyList<JournalLog> entries, QuestBase.QuestCompleteDetails questCompletionDetail)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLogEntry 实例
+JournalLogEntry journalLogEntry = ...;
+journalLogEntry.Update(entries, questCompletionDetail);
+```
 
 ### IsEndedUnsuccessfully
 `public bool IsEndedUnsuccessfully()`
 
-**用途 / Purpose:** 处理 `is ended unsuccessfully` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ended unsuccessfully」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLogEntry 实例
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.IsEndedUnsuccessfully();
+```
 
 ### IsEnded
 `public bool IsEnded()`
 
-**用途 / Purpose:** 处理 `is ended` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ended」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLogEntry 实例
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.IsEnded();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLogEntry 实例
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new JournalLogEntry();
-value.IsRelatedTo(obj);
+// 通常从对应子系统 API 获取实例后调用
+JournalLogEntry journalLogEntry = ...;
+journalLogEntry.IsRelatedTo(obj);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

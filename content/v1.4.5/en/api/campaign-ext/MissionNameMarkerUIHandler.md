@@ -1,20 +1,14 @@
 ---
 title: "MissionNameMarkerUIHandler"
+description: "Auto-generated class reference for MissionNameMarkerUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNameMarkerUIHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerUIHandler
 
 **Namespace:** SandBox.View.Missions.NameMarkers
 **Module:** SandBox.View
 **Type:** `public class MissionNameMarkerUIHandler : MissionBattleUIBaseView`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions.NameMarkers/MissionNameMarkerUIHandler.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions.NameMarkers/MissionNameMarkerUIHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `MissionNameMarkerUIHandler` as a Handler-style extension point: first ide
 ### SetMarkersDirty
 `public virtual void SetMarkersDirty()`
 
-**Purpose:** Sets the value or state of `markers dirty`.
+**Purpose:** Assigns a new value to `markers dirty` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionNameMarkerUIHandler from the subsystem API first
+MissionNameMarkerUIHandler missionNameMarkerUIHandler = ...;
+missionNameMarkerUIHandler.SetMarkersDirty();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionNameMarkerUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionNameMarkerUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

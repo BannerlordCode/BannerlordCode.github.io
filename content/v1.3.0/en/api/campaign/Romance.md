@@ -1,13 +1,7 @@
 ---
 title: "Romance"
+description: "Auto-generated class reference for Romance."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Romance`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Romance
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,22 +29,43 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GetCourtedHeroInOtherClan
 `public static Hero GetCourtedHeroInOtherClan(Hero person1, Hero person2)`
 
-**Purpose:** Gets the current value of `courted hero in other clan`.
+**Purpose:** Reads and returns the `courted hero in other clan` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Romance.GetCourtedHeroInOtherClan(person1, person2);
+```
 
 ### GetRomanticLevel
 `public static Romance.RomanceLevelEnum GetRomanticLevel(Hero person1, Hero person2)`
 
-**Purpose:** Gets the current value of `romantic level`.
+**Purpose:** Reads and returns the `romantic level` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Romance.GetRomanticLevel(person1, person2);
+```
 
 ### GetRomanticState
 `public static Romance.RomanticState GetRomanticState(Hero person1, Hero person2)`
 
-**Purpose:** Gets the current value of `romantic state`.
+**Purpose:** Reads and returns the `romantic state` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Romance.GetRomanticState(person1, person2);
+```
 
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**Purpose:** Handles logic related to `partner`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Romance from the subsystem API first
+Romance romance = ...;
+var result = romance.Partner(hero);
+```
 
 ## Usage Example
 
@@ -60,4 +75,4 @@ Romance.GetCourtedHeroInOtherClan(person1, person2);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

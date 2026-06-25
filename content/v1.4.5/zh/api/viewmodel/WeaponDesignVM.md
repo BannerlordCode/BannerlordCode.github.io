@@ -1,20 +1,14 @@
 ---
 title: "WeaponDesignVM"
+description: "WeaponDesignVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponDesignVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponDesignVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WeaponDesignVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs`
 
 ## 概述
 
@@ -95,145 +89,308 @@ title: "WeaponDesignVM"
 ### Compare
 `public int Compare(CraftingPieceVM x, CraftingPieceVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+var result = weaponDesignVM.Compare(x, y);
+```
 
 ### Compare
 `public int Compare(CraftingTemplate x, CraftingTemplate y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+var result = weaponDesignVM.Compare(x, y);
+```
 
 ### Compare
 `public int Compare(CraftingListPropertyItem x, CraftingListPropertyItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+var result = weaponDesignVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.OnFinalize();
+```
 
 ### SetPieceNewlyUnlocked
 `public void SetPieceNewlyUnlocked(CraftingPiece piece)`
 
-**用途 / Purpose:** 设置 `piece newly unlocked` 的值或状态。
+**用途 / Purpose:** 为 「piece newly unlocked」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.SetPieceNewlyUnlocked(piece);
+```
 
 ### SelectPrimaryWeaponClass
 `public void SelectPrimaryWeaponClass(CraftingTemplate template)`
 
-**用途 / Purpose:** 处理 `select primary weapon class` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.SelectPrimaryWeaponClass(template);
+```
 
 ### ExecuteOpenOrderPopup
 `public void ExecuteOpenOrderPopup()`
 
-**用途 / Purpose:** 执行 `open order popup` 操作或流程。
+**用途 / Purpose:** 执行 「open order popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteOpenOrderPopup();
+```
 
 ### ExecuteCloseOrderPopup
 `public void ExecuteCloseOrderPopup()`
 
-**用途 / Purpose:** 执行 `close order popup` 操作或流程。
+**用途 / Purpose:** 执行 「close order popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteCloseOrderPopup();
+```
 
 ### ExecuteOpenOrdersTab
 `public void ExecuteOpenOrdersTab()`
 
-**用途 / Purpose:** 执行 `open orders tab` 操作或流程。
+**用途 / Purpose:** 执行 「open orders tab」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteOpenOrdersTab();
+```
 
 ### ExecuteOpenWeaponClassSelectionPopup
 `public void ExecuteOpenWeaponClassSelectionPopup()`
 
-**用途 / Purpose:** 执行 `open weapon class selection popup` 操作或流程。
+**用途 / Purpose:** 执行 「open weapon class selection popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteOpenWeaponClassSelectionPopup();
+```
 
 ### ExecuteOpenFreeBuildTab
 `public void ExecuteOpenFreeBuildTab()`
 
-**用途 / Purpose:** 执行 `open free build tab` 操作或流程。
+**用途 / Purpose:** 执行 「open free build tab」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteOpenFreeBuildTab();
+```
 
 ### CreateCraftingResultPopup
 `public void CreateCraftingResultPopup()`
 
-**用途 / Purpose:** 创建一个 `crafting result popup` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「crafting result popup」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.CreateCraftingResultPopup();
+```
 
 ### ExecuteToggleShowOnlyUnlockedPieces
 `public void ExecuteToggleShowOnlyUnlockedPieces()`
 
-**用途 / Purpose:** 执行 `toggle show only unlocked pieces` 操作或流程。
+**用途 / Purpose:** 执行 「toggle show only unlocked pieces」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteToggleShowOnlyUnlockedPieces();
+```
 
 ### ExecuteUndo
 `public void ExecuteUndo()`
 
-**用途 / Purpose:** 执行 `undo` 操作或流程。
+**用途 / Purpose:** 执行 「undo」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteUndo();
+```
 
 ### ExecuteRedo
 `public void ExecuteRedo()`
 
-**用途 / Purpose:** 执行 `redo` 操作或流程。
+**用途 / Purpose:** 执行 「redo」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteRedo();
+```
 
 ### ChangeModeIfHeroIsUnavailable
 `public void ChangeModeIfHeroIsUnavailable()`
 
-**用途 / Purpose:** 处理 `change mode if hero is unavailable` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ChangeModeIfHeroIsUnavailable();
+```
 
 ### ExecuteBeginHeroHint
 `public void ExecuteBeginHeroHint()`
 
-**用途 / Purpose:** 执行 `begin hero hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hero hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteBeginHeroHint();
+```
 
 ### ExecuteEndHeroHint
 `public void ExecuteEndHeroHint()`
 
-**用途 / Purpose:** 执行 `end hero hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hero hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteEndHeroHint();
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**用途 / Purpose:** 执行 `randomize` 操作或流程。
+**用途 / Purpose:** 执行 「randomize」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteRandomize();
+```
 
 ### ExecuteChangeScabbardVisibility
 `public void ExecuteChangeScabbardVisibility()`
 
-**用途 / Purpose:** 执行 `change scabbard visibility` 操作或流程。
+**用途 / Purpose:** 执行 「change scabbard visibility」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteChangeScabbardVisibility();
+```
 
 ### SelectWeapon
 `public void SelectWeapon(ItemObject itemObject)`
 
-**用途 / Purpose:** 处理 `select weapon` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.SelectWeapon(itemObject);
+```
 
 ### CanCompleteOrder
 `public bool CanCompleteOrder()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `complete order`。
+**用途 / Purpose:** 检查当前对象是否满足 「complete order」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+var result = weaponDesignVM.CanCompleteOrder();
+```
 
 ### ExecuteFinalizeCrafting
 `public void ExecuteFinalizeCrafting()`
 
-**用途 / Purpose:** 执行 `finalize crafting` 操作或流程。
+**用途 / Purpose:** 执行 「finalize crafting」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.ExecuteFinalizeCrafting();
+```
 
 ### RefreshItem
 `public void RefreshItem()`
 
-**用途 / Purpose:** 刷新 `item` 的显示或缓存。
+**用途 / Purpose:** 使 「item」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.RefreshItem();
+```
 
 ### HaveUnlockedAllSelectedPieces
 `public bool HaveUnlockedAllSelectedPieces()`
 
-**用途 / Purpose:** 处理 `have unlocked all selected pieces` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+var result = weaponDesignVM.HaveUnlockedAllSelectedPieces();
+```
 
 ### SwitchToPiece
 `public void SwitchToPiece(WeaponDesignElement usedPiece)`
 
-**用途 / Purpose:** 处理 `switch to piece` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignVM 实例
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.SwitchToPiece(usedPiece);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeaponDesignVM();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+WeaponDesignVM weaponDesignVM = ...;
+weaponDesignVM.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

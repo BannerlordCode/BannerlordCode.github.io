@@ -1,20 +1,14 @@
 ---
 title: "NavigationPermissionItem"
+description: "NavigationPermissionItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NavigationPermissionItem`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationPermissionItem
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct NavigationPermissionItem`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/NavigationPermissionItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/NavigationPermissionItem.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "NavigationPermissionItem"
 ## 使用示例
 
 ```csharp
-var example = new NavigationPermissionItem();
+// 从对应子系统 API 获取实例
+NavigationPermissionItem instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

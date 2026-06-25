@@ -1,20 +1,14 @@
 ---
 title: "PlayerProgressionModel"
+description: "Auto-generated class reference for PlayerProgressionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerProgressionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerProgressionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PlayerProgressionModel : MBGameModel<PlayerProgressionModel>`
 **Base:** `MBGameModel<PlayerProgressionModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PlayerProgressionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PlayerProgressionModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `PlayerProgressionModel` as a Model-style extension point: first identify 
 ### GetPlayerProgress
 `public abstract float GetPlayerProgress()`
 
-**Purpose:** Gets the current value of `player progress`.
+**Purpose:** Reads and returns the `player progress` value held by the current object.
+
+```csharp
+// Obtain an instance of PlayerProgressionModel from the subsystem API first
+PlayerProgressionModel playerProgressionModel = ...;
+var result = playerProgressionModel.GetPlayerProgress();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPlayerProgressionModel();
+// Typically obtained from a subsystem API or factory
+PlayerProgressionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

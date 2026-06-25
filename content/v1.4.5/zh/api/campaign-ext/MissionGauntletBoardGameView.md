@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletBoardGameView"
+description: "MissionGauntletBoardGameView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletBoardGameView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletBoardGameView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletBoardGameView : MissionView, IBoardGameHandler`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletBoardGameView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletBoardGameView.cs`
 
 ## 概述
 
@@ -36,44 +30,87 @@ title: "MissionGauntletBoardGameView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoardGameView 实例
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenActivate
 `public override void OnMissionScreenActivate()`
 
-**用途 / Purpose:** 当 `mission screen activate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen activate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoardGameView 实例
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnMissionScreenActivate();
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoardGameView 实例
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+var result = missionGauntletBoardGameView.OnEscape();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoardGameView 实例
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoardGameView 实例
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnMissionScreenFinalize();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoardGameView 实例
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletBoardGameView 实例
+MissionGauntletBoardGameView missionGauntletBoardGameView = ...;
+missionGauntletBoardGameView.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletBoardGameView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletBoardGameView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "StackArray32Bool"
+description: "StackArray32Bool 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StackArray32Bool`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StackArray32Bool
 
-**命名空间:** TaleWorlds.Core
-**模块:** TaleWorlds.Core
-**类型:** `public struct StackArray32Bool`
-**领域:** core-extra
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public struct StackArray32Bool`
+**Base:** 无
+**File:** `TaleWorlds.Core/StackArray.cs`
 
 ## 概述
 
-`StackArray32Bool` 位于 `TaleWorlds.Core`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`StackArray32Bool` 位于 `TaleWorlds.Core`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -27,28 +22,15 @@ title: "StackArray32Bool"
 
 | Name | Signature |
 |------|-----------|
-| `this` | `public float this { get; set; }` |
-| `this` | `public float this { get; }` |
-| `this` | `public int this { get; set; }` |
-| `this` | `public int this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public int this { get; }` |
-| `this` | `public ValueTuple<float, float> this { get; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
-| `this` | `public bool this { get; set; }` |
 | `this` | `public bool this { get; set; }` |
 
 ## 使用示例
 
 ```csharp
-var value = new StackArray32Bool();
+// 从对应子系统 API 获取实例
+StackArray32Bool instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-core)
+- [本区域目录](../)

@@ -43,5 +43,22 @@ Welcome to the Bannerlord v1.3.15 modding documentation (Chinese).
 ## 使用示例
 
 ```csharp
-var example = new Bannerlord v1.3.15();
+// 从下方导航进入指南、API 参考或架构总览开始阅读。
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## ↑ 上级导航
+
+- [版本首页](../)
+
+## ↓ 内容导航
+
+- [API 参考](./api/) — Bannerlord SDK API 完整参考目录
+- [架构总览 / Architecture](./architecture/) — Bannerlord SDK 架构入口 — 模块地图、加载流程、存档原理、版本差异
+- [入门指南 / Getting Started Guide](./guide/) — 快速上手 Bannerlord 模块开发 / Quick start guide for Bannerlord modding
+- [原生接口 / Native Reference](./native/) — 与原生 C++ 引擎交互的接口文档 / Documentation for interacting with native C++ engine via P/Invoke
+- [Native 1.3.15 源码参考 / Native 1.3.15 Source Reference](./native-1.3.15-src/) — TaleWorlds.Native.dll v1.3.15 反编译源码参考文档
+- [XML 参考 / XML Reference](./xml-reference/) — Bannerlord XML 配置文件完整参考 / Complete XML configuration reference
+
+<!-- END SECTION INDEX -->

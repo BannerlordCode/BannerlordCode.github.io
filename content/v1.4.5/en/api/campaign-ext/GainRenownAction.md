@@ -1,23 +1,13 @@
 ---
 title: "GainRenownAction"
+description: "Auto-generated campaign action reference for GainRenownAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GainRenownAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GainRenownAction
-
-## Mental Model
-
-Treat `GainRenownAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** static class
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/GainRenownAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/GainRenownAction.cs`
 
 GainRenownAction is a set of static methods that trigger "GainRenown" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
 
@@ -29,7 +19,7 @@ GainRenownAction is a set of static methods that trigger "GainRenown" in the cam
 public static void Apply(Hero hero, float renownValue, bool doNotNotify = false)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -40,5 +30,5 @@ GainRenownAction.Apply(hero, 100, false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

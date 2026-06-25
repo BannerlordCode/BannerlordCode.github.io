@@ -1,20 +1,14 @@
 ---
 title: "AttachWeaponToAgent"
+description: "Auto-generated class reference for AttachWeaponToAgent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AttachWeaponToAgent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AttachWeaponToAgent
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AttachWeaponToAgent : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AttachWeaponToAgent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AttachWeaponToAgent.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new AttachWeaponToAgent();
+// Obtain an instance from the relevant subsystem API
+AttachWeaponToAgent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

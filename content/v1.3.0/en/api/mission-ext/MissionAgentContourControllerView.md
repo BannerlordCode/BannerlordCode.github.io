@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentContourControllerView"
+description: "Auto-generated class reference for MissionAgentContourControllerView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentContourControllerView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentContourControllerView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,24 +23,43 @@ Treat `MissionAgentContourControllerView` as a View-style extension point: first
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentContourControllerView from the subsystem API first
+MissionAgentContourControllerView missionAgentContourControllerView = ...;
+missionAgentContourControllerView.OnMissionScreenTick(0);
+```
 
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**Purpose:** Called when the `focus gained` event is raised.
+**Purpose:** Invoked when the `focus gained` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentContourControllerView from the subsystem API first
+MissionAgentContourControllerView missionAgentContourControllerView = ...;
+missionAgentContourControllerView.OnFocusGained(agent, focusableObject, false);
+```
 
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**Purpose:** Called when the `focus lost` event is raised.
+**Purpose:** Invoked when the `focus lost` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentContourControllerView from the subsystem API first
+MissionAgentContourControllerView missionAgentContourControllerView = ...;
+missionAgentContourControllerView.OnFocusLost(agent, focusableObject);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionAgentContourControllerView();
+// Retrieve this view from the subsystem API or scene
+MissionAgentContourControllerView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

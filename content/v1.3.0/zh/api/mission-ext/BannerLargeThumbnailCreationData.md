@@ -1,13 +1,7 @@
 ---
 title: "BannerLargeThumbnailCreationData"
+description: "BannerLargeThumbnailCreationData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerLargeThumbnailCreationData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerLargeThumbnailCreationData
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -27,9 +21,10 @@ title: "BannerLargeThumbnailCreationData"
 ## 使用示例
 
 ```csharp
-var value = new BannerLargeThumbnailCreationData();
+// 该数据对象通常由战役/任务 API 返回
+BannerLargeThumbnailCreationData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

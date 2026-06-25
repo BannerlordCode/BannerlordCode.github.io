@@ -1,13 +1,7 @@
 ---
 title: "BehaviorProtectGeneral"
+description: "Auto-generated class reference for BehaviorProtectGeneral."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorProtectGeneral`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorProtectGeneral
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorProtectGeneral from the subsystem API first
+BehaviorProtectGeneral behaviorProtectGeneral = ...;
+behaviorProtectGeneral.TickOccasionally();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorProtectGeneral from the subsystem API first
+BehaviorProtectGeneral behaviorProtectGeneral = ...;
+behaviorProtectGeneral.OnAgentRemoved(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorProtectGeneral();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorProtectGeneral behaviorProtectGeneral = ...;
+behaviorProtectGeneral.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

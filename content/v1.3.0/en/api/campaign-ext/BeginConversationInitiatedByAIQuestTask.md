@@ -1,13 +1,7 @@
 ---
 title: "BeginConversationInitiatedByAIQuestTask"
+description: "Auto-generated class reference for BeginConversationInitiatedByAIQuestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BeginConversationInitiatedByAIQuestTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BeginConversationInitiatedByAIQuestTask
 
 **Namespace:** SandBox.Issues.IssueQuestTasks
@@ -29,20 +23,33 @@ Start from namespace `SandBox.Issues.IssueQuestTasks` to place it in the stack, 
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**Purpose:** Handles logic related to `mission tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BeginConversationInitiatedByAIQuestTask from the subsystem API first
+BeginConversationInitiatedByAIQuestTask beginConversationInitiatedByAIQuestTask = ...;
+beginConversationInitiatedByAIQuestTask.MissionTick(0);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BeginConversationInitiatedByAIQuestTask from the subsystem API first
+BeginConversationInitiatedByAIQuestTask beginConversationInitiatedByAIQuestTask = ...;
+beginConversationInitiatedByAIQuestTask.SetReferences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BeginConversationInitiatedByAIQuestTask();
-value.MissionTick(0);
+// Typically call this after obtaining an instance from the subsystem API
+BeginConversationInitiatedByAIQuestTask beginConversationInitiatedByAIQuestTask = ...;
+beginConversationInitiatedByAIQuestTask.MissionTick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

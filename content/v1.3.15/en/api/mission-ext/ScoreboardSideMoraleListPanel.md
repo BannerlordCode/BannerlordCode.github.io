@@ -1,13 +1,7 @@
 ---
 title: "ScoreboardSideMoraleListPanel"
+description: "Auto-generated class reference for ScoreboardSideMoraleListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardSideMoraleListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScoreboardSideMoraleListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard` to
 ## Usage Example
 
 ```csharp
-var value = new ScoreboardSideMoraleListPanel();
+// Obtain an instance from the relevant subsystem API
+ScoreboardSideMoraleListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

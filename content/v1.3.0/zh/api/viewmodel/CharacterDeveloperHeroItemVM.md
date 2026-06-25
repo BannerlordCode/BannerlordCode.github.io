@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperHeroItemVM"
+description: "CharacterDeveloperHeroItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterDeveloperHeroItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperHeroItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -61,80 +55,165 @@ title: "CharacterDeveloperHeroItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.RefreshValues();
+```
 
 ### ExecuteStopInspectingCurrentAttribute
 `public void ExecuteStopInspectingCurrentAttribute()`
 
-**用途 / Purpose:** 执行 `stop inspecting current attribute` 操作或流程。
+**用途 / Purpose:** 执行 「stop inspecting current attribute」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.ExecuteStopInspectingCurrentAttribute();
+```
 
 ### RefreshCharacterValues
 `public void RefreshCharacterValues()`
 
-**用途 / Purpose:** 刷新 `character values` 的显示或缓存。
+**用途 / Purpose:** 使 「character values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.RefreshCharacterValues();
+```
 
 ### RefreshPerksOfSkill
 `public void RefreshPerksOfSkill(SkillObject skill)`
 
-**用途 / Purpose:** 刷新 `perks of skill` 的显示或缓存。
+**用途 / Purpose:** 使 「perks of skill」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.RefreshPerksOfSkill(skill);
+```
 
 ### ResetChanges
 `public void ResetChanges(bool isCancel)`
 
-**用途 / Purpose:** 将 `changes` 重置为初始状态。
+**用途 / Purpose:** 将 「changes」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.ResetChanges(false);
+```
 
 ### ApplyChanges
 `public void ApplyChanges()`
 
-**用途 / Purpose:** 将 `changes` 应用到当前对象。
+**用途 / Purpose:** 将 「changes」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.ApplyChanges();
+```
 
 ### SetCurrentSkill
 `public void SetCurrentSkill(SkillVM skill)`
 
-**用途 / Purpose:** 设置 `current skill` 的值或状态。
+**用途 / Purpose:** 为 「current skill」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.SetCurrentSkill(skill);
+```
 
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**用途 / Purpose:** 处理 `is there any changes` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there any changes」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.IsThereAnyChanges();
+```
 
 ### GetRequiredFocusPointsToAddFocusWithCurrentFocus
 `public int GetRequiredFocusPointsToAddFocusWithCurrentFocus(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `required focus points to add focus with current focus` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「required focus points to add focus with current focus」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.GetRequiredFocusPointsToAddFocusWithCurrentFocus(skill);
+```
 
 ### CanAddFocusToSkillWithFocusAmount
 `public bool CanAddFocusToSkillWithFocusAmount(int currentFocusAmount)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `add focus to skill with focus amount`。
+**用途 / Purpose:** 检查当前对象是否满足 「add focus to skill with focus amount」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.CanAddFocusToSkillWithFocusAmount(0);
+```
 
 ### IsSkillMaxAmongOtherSkills
 `public bool IsSkillMaxAmongOtherSkills(SkillVM skill)`
 
-**用途 / Purpose:** 处理 `is skill max among other skills` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「skill max among other skills」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.IsSkillMaxAmongOtherSkills(skill);
+```
 
 ### GetNameWithNumOfUnopenedPerks
 `public string GetNameWithNumOfUnopenedPerks()`
 
-**用途 / Purpose:** 获取 `name with num of unopened perks` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name with num of unopened perks」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.GetNameWithNumOfUnopenedPerks();
+```
 
 ### GetNumberOfUnselectedPerks
 `public int GetNumberOfUnselectedPerks()`
 
-**用途 / Purpose:** 获取 `number of unselected perks` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of unselected perks」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+var result = characterDeveloperHeroItemVM.GetNumberOfUnselectedPerks();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDeveloperHeroItemVM 实例
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterDeveloperHeroItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CharacterDeveloperHeroItemVM characterDeveloperHeroItemVM = ...;
+characterDeveloperHeroItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

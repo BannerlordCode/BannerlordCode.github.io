@@ -1,13 +1,7 @@
 ---
 title: "ManagedOptions"
+description: "ManagedOptions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedOptions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedOptions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,27 +23,53 @@ title: "ManagedOptions"
 ### GetConfig
 `public static float GetConfig(ManagedOptions.ManagedOptionsType type)`
 
-**用途 / Purpose:** 获取 `config` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「config」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ManagedOptions.GetConfig(type);
+```
 
 ### GetDefaultConfig
 `public static float GetDefaultConfig(ManagedOptions.ManagedOptionsType type)`
 
-**用途 / Purpose:** 获取 `default config` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default config」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ManagedOptions.GetDefaultConfig(type);
+```
 
 ### SetConfig
 `public static void SetConfig(ManagedOptions.ManagedOptionsType type, float value)`
 
-**用途 / Purpose:** 设置 `config` 的值或状态。
+**用途 / Purpose:** 为 「config」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+ManagedOptions.SetConfig(type, 0);
+```
 
 ### SaveConfig
 `public static SaveResult SaveConfig()`
 
-**用途 / Purpose:** 保存 `config` 数据。
+**用途 / Purpose:** 将 「config」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+ManagedOptions.SaveConfig();
+```
 
 ### OnManagedOptionChangedDelegate
 `public delegate void OnManagedOptionChangedDelegate(ManagedOptions.ManagedOptionsType changedManagedOptionsType)`
 
-**用途 / Purpose:** 当 `managed option changed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「managed option changed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedOptions 实例
+ManagedOptions managedOptions = ...;
+managedOptions.OnManagedOptionChangedDelegate(changedManagedOptionsType);
+```
 
 ## 使用示例
 
@@ -59,4 +79,4 @@ ManagedOptions.GetConfig(type);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

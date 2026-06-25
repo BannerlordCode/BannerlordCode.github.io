@@ -1,20 +1,14 @@
 ---
 title: "VillageProductionCalculatorModel"
+description: "Auto-generated class reference for VillageProductionCalculatorModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageProductionCalculatorModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageProductionCalculatorModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class VillageProductionCalculatorModel : MBGameModel<VillageProductionCalculatorModel>`
 **Base:** `MBGameModel<VillageProductionCalculatorModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VillageProductionCalculatorModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/VillageProductionCalculatorModel.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `VillageProductionCalculatorModel` as a Model-style extension point: first
 ### CalculateProductionSpeedOfItemCategory
 `public abstract float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
 
-**Purpose:** Handles logic related to `calculate production speed of item category`.
+**Purpose:** Calculates the current value or result of `production speed of item category`.
+
+```csharp
+// Obtain an instance of VillageProductionCalculatorModel from the subsystem API first
+VillageProductionCalculatorModel villageProductionCalculatorModel = ...;
+var result = villageProductionCalculatorModel.CalculateProductionSpeedOfItemCategory(item);
+```
 
 ### CalculateDailyProductionAmount
 `public abstract ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
 
-**Purpose:** Handles logic related to `calculate daily production amount`.
+**Purpose:** Calculates the current value or result of `daily production amount`.
+
+```csharp
+// Obtain an instance of VillageProductionCalculatorModel from the subsystem API first
+VillageProductionCalculatorModel villageProductionCalculatorModel = ...;
+var result = villageProductionCalculatorModel.CalculateDailyProductionAmount(village, item);
+```
 
 ### CalculateDailyFoodProductionAmount
 `public abstract float CalculateDailyFoodProductionAmount(Village village)`
 
-**Purpose:** Handles logic related to `calculate daily food production amount`.
+**Purpose:** Calculates the current value or result of `daily food production amount`.
+
+```csharp
+// Obtain an instance of VillageProductionCalculatorModel from the subsystem API first
+VillageProductionCalculatorModel villageProductionCalculatorModel = ...;
+var result = villageProductionCalculatorModel.CalculateDailyFoodProductionAmount(village);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomVillageProductionCalculatorModel();
+// Typically obtained from a subsystem API or factory
+VillageProductionCalculatorModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

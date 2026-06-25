@@ -1,20 +1,14 @@
 ---
 title: "GraphVM"
+description: "GraphVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GraphVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GraphVM
 
 **Namespace:** TaleWorlds.Library.Graph
 **Module:** TaleWorlds.Library
 **Type:** `public class GraphVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.Graph/GraphVM.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Graph/GraphVM.cs`
 
 ## 概述
 
@@ -41,15 +35,22 @@ title: "GraphVM"
 ### Draw
 `public void Draw(IEnumerable<(GraphLineVM line, IEnumerable<GraphLinePointVM> points)> linesWithPoints, in Vec2 horizontalRange, in Vec2 verticalRange, float autoRangeHorizontalCoefficient = 1f, float autoRangeVerticalCoefficient = 1f, bool useAutoHorizontalRange = false, bool useAutoVerticalRange = false)`
 
-**用途 / Purpose:** 处理 `draw` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GraphVM 实例
+GraphVM graphVM = ...;
+graphVM.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GraphVM();
-value.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false, false);
+// 通常从对应子系统 API 获取实例后调用
+GraphVM graphVM = ...;
+graphVM.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "GauntletGameNotification"
+description: "Auto-generated class reference for GauntletGameNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletGameNotification`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletGameNotification
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -35,17 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletGameNotification.Initialize();
+```
 
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Static call; no instance required
+GauntletGameNotification.OnFinalize();
+```
 
 ### LoadMovie
 `public void LoadMovie(bool forMultiplayer)`
 
-**Purpose:** Loads `movie` data.
+**Purpose:** Reads `movie` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GauntletGameNotification from the subsystem API first
+GauntletGameNotification gauntletGameNotification = ...;
+gauntletGameNotification.LoadMovie(false);
+```
 
 ## Usage Example
 
@@ -55,4 +65,4 @@ GauntletGameNotification.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

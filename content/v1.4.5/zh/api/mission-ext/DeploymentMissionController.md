@@ -1,20 +1,14 @@
 ---
 title: "DeploymentMissionController"
+description: "DeploymentMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DeploymentMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeploymentMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class DeploymentMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentMissionController.cs`
 
 ## 概述
 
@@ -35,34 +29,65 @@ title: "DeploymentMissionController"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentMissionController 实例
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.AfterStart();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentMissionController 实例
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.OnBehaviorInitialize();
+```
 
 ### FinishDeployment
 `public void FinishDeployment()`
 
-**用途 / Purpose:** 处理 `finish deployment` 相关逻辑。
+**用途 / Purpose:** 结束「deployment」流程并执行必要的收尾工作。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentMissionController 实例
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.FinishDeployment();
+```
 
 ### OnAgentControllerSetToPlayer
 `public override void OnAgentControllerSetToPlayer(Agent agent)`
 
-**用途 / Purpose:** 当 `agent controller set to player` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent controller set to player」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentMissionController 实例
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.OnAgentControllerSetToPlayer(agent);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentMissionController 实例
+DeploymentMissionController deploymentMissionController = ...;
+deploymentMissionController.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDeploymentMissionController();
+// 通常通过子系统 API 或工厂获得派生实例
+DeploymentMissionController instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

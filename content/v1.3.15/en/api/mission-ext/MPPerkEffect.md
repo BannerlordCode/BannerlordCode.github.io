@@ -1,24 +1,18 @@
 ---
 title: "MPPerkEffect"
+description: "Auto-generated class reference for MPPerkEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerkEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPPerkEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPPerkEffect : MPPerkEffectBase`
 **Base:** `MPPerkEffectBase`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/MPPerkEffect.cs`
 
 ## Overview
 
-`MPPerkEffect` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MPPerkEffect` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,15 +23,20 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateFrom
 `public static MPPerkEffect CreateFrom(XmlNode node)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MPPerkEffect.CreateFrom(node);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPPerkEffect();
+// Typically obtained from a subsystem API or factory
+MPPerkEffect instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

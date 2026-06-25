@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyDesertionModel"
+description: "DefaultPartyDesertionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyDesertionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPartyDesertionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ title: "DefaultPartyDesertionModel"
 ### GetMoraleThresholdForTroopDesertion
 `public override int GetMoraleThresholdForTroopDesertion()`
 
-**用途 / Purpose:** 获取 `morale threshold for troop desertion` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「morale threshold for troop desertion」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyDesertionModel 实例
+DefaultPartyDesertionModel defaultPartyDesertionModel = ...;
+var result = defaultPartyDesertionModel.GetMoraleThresholdForTroopDesertion();
+```
 
 ### GetDesertionChanceForTroop
 `public override float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)`
 
-**用途 / Purpose:** 获取 `desertion chance for troop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「desertion chance for troop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyDesertionModel 实例
+DefaultPartyDesertionModel defaultPartyDesertionModel = ...;
+var result = defaultPartyDesertionModel.GetDesertionChanceForTroop(mobileParty, troopRosterElement);
+```
 
 ### GetTroopsToDesert
 `public override TroopRoster GetTroopsToDesert(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `troops to desert` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troops to desert」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyDesertionModel 实例
+DefaultPartyDesertionModel defaultPartyDesertionModel = ...;
+var result = defaultPartyDesertionModel.GetTroopsToDesert(mobileParty);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPartyDesertionModel>(new MyDefaultPartyDesertio
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

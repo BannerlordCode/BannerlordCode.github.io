@@ -1,20 +1,14 @@
 ---
 title: "ConversationViewEventHandler"
+description: "Auto-generated class reference for ConversationViewEventHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationViewEventHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationViewEventHandler
 
 **Namespace:** SandBox.View.Conversation
 **Module:** SandBox.View
 **Type:** `public class ConversationViewEventHandler : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Conversation/ConversationViewEventHandler.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Conversation/ConversationViewEventHandler.cs`
 
 ## Overview
 
@@ -34,9 +28,9 @@ Treat `ConversationViewEventHandler` as a Handler-style extension point: first i
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ConversationViewEventHandler());
+var behavior = Mission.Current.GetMissionBehavior<ConversationViewEventHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

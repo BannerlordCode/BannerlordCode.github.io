@@ -1,20 +1,14 @@
 ---
 title: "Language"
+description: "Language 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Language`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Language
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class Language : ILanguage`
 **Base:** `ILanguage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/Language.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/Language.cs`
 
 ## 概述
 
@@ -41,25 +35,43 @@ title: "Language"
 ### FontMapHasKey
 `public bool FontMapHasKey(string keyFontName)`
 
-**用途 / Purpose:** 处理 `font map has key` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Language 实例
+Language language = ...;
+var result = language.FontMapHasKey("example");
+```
 
 ### GetMappedFont
 `public Font GetMappedFont(string keyFontName)`
 
-**用途 / Purpose:** 获取 `mapped font` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mapped font」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Language 实例
+Language language = ...;
+var result = language.GetMappedFont("example");
+```
 
 ### CreateFrom
 `public static Language CreateFrom(XmlNode languageNode, FontFactory fontFactory)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Language.CreateFrom(languageNode, fontFactory);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Language();
-value.FontMapHasKey("example");
+// 通常从对应子系统 API 获取实例后调用
+Language language = ...;
+language.FontMapHasKey("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

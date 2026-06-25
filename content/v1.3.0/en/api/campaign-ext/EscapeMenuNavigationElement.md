@@ -1,13 +1,7 @@
 ---
 title: "EscapeMenuNavigationElement"
+description: "Auto-generated class reference for EscapeMenuNavigationElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EscapeMenuNavigationElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EscapeMenuNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
@@ -38,20 +32,33 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ### OpenView
 `public override void OpenView()`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of EscapeMenuNavigationElement from the subsystem API first
+EscapeMenuNavigationElement escapeMenuNavigationElement = ...;
+escapeMenuNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of EscapeMenuNavigationElement from the subsystem API first
+EscapeMenuNavigationElement escapeMenuNavigationElement = ...;
+escapeMenuNavigationElement.OpenView(parameters);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EscapeMenuNavigationElement();
-value.OpenView();
+// Typically call this after obtaining an instance from the subsystem API
+EscapeMenuNavigationElement escapeMenuNavigationElement = ...;
+escapeMenuNavigationElement.OpenView();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GameOverCategoryButtonWidget"
+description: "Auto-generated class reference for GameOverCategoryButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverCategoryButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverCategoryButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameOverCategoryButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver/GameOverCategoryButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver/GameOverCategoryButtonWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `GameOverCategoryButtonWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new GameOverCategoryButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GameOverCategoryButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

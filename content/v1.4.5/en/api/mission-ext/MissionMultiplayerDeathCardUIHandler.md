@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerDeathCardUIHandler"
+description: "Auto-generated class reference for MissionMultiplayerDeathCardUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerDeathCardUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerDeathCardUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerDeathCardUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerDeathCardUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerDeathCardUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionMultiplayerDeathCardUIHandler` as a Handler-style extension point:
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionMultiplayerDeathCardUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionMultiplayerDeathCardUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

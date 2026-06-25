@@ -1,20 +1,14 @@
 ---
 title: "FrameworkDomain"
+description: "FrameworkDomain 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FrameworkDomain`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FrameworkDomain
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public abstract class FrameworkDomain`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/FrameworkDomain.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/FrameworkDomain.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "FrameworkDomain"
 ### Update
 `public abstract void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 FrameworkDomain 实例
+FrameworkDomain frameworkDomain = ...;
+frameworkDomain.Update();
+```
 
 ### Destroy
 `public abstract void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FrameworkDomain 实例
+FrameworkDomain frameworkDomain = ...;
+frameworkDomain.Destroy();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomFrameworkDomain();
+// 通常通过子系统 API 或工厂获得派生实例
+FrameworkDomain instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ArmyManagementBoostEventVM"
+description: "Auto-generated class reference for ArmyManagementBoostEventVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyManagementBoostEventVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyManagementBoostEventVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ArmyManagementBoostEventVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementBoostEventVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementBoostEventVM.cs`
 
 ## Overview
 
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ArmyManagementBoostEventVM from the subsystem API first
+ArmyManagementBoostEventVM armyManagementBoostEventVM = ...;
+armyManagementBoostEventVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyManagementBoostEventVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyManagementBoostEventVM armyManagementBoostEventVM = ...;
+armyManagementBoostEventVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

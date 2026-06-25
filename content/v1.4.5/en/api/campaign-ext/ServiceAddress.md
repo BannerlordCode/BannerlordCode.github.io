@@ -1,20 +1,14 @@
 ---
 title: "ServiceAddress"
+description: "Auto-generated class reference for ServiceAddress."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServiceAddress`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServiceAddress
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public class ServiceAddress`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddress.cs`
+**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/ServiceAddress.cs`
 
 ## Overview
 
@@ -36,12 +30,22 @@ Start from namespace `TaleWorlds.ServiceDiscovery.Client` to place it in the sta
 ### IsServiceAddress
 `public static bool IsServiceAddress(string address)`
 
-**Purpose:** Handles logic related to `is service address`.
+**Purpose:** Determines whether the current object is in the `service address` state or condition.
+
+```csharp
+// Static call; no instance required
+ServiceAddress.IsServiceAddress("example");
+```
 
 ### TryGetAddressName
 `public static bool TryGetAddressName(string serviceAddress, out string addressName)`
 
-**Purpose:** Attempts to get `get address name`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get address name`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+ServiceAddress.TryGetAddressName("example", addressName);
+```
 
 ## Usage Example
 
@@ -51,4 +55,4 @@ ServiceAddress.IsServiceAddress("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

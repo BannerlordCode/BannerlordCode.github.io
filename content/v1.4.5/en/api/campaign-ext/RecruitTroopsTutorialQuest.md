@@ -1,20 +1,14 @@
 ---
 title: "RecruitTroopsTutorialQuest"
+description: "Auto-generated class reference for RecruitTroopsTutorialQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitTroopsTutorialQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitTroopsTutorialQuest
 
 **Namespace:** StoryMode.Quests.TutorialPhase
 **Module:** StoryMode.Quests
 **Type:** `public class RecruitTroopsTutorialQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/RecruitTroopsTutorialQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/RecruitTroopsTutorialQuest.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new RecruitTroopsTutorialQuest();
+// Obtain an instance from the relevant subsystem API
+RecruitTroopsTutorialQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

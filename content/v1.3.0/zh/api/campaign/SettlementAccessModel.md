@@ -1,13 +1,7 @@
 ---
 title: "SettlementAccessModel"
+description: "SettlementAccessModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementAccessModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementAccessModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,39 +23,76 @@ title: "SettlementAccessModel"
 ### CanMainHeroEnterSettlement
 `public abstract void CanMainHeroEnterSettlement(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero enter settlement`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero enter settlement」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementAccessModel 实例
+SettlementAccessModel settlementAccessModel = ...;
+settlementAccessModel.CanMainHeroEnterSettlement(settlement, accessDetails);
+```
 
 ### CanMainHeroEnterLordsHall
 `public abstract void CanMainHeroEnterLordsHall(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero enter lords hall`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero enter lords hall」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementAccessModel 实例
+SettlementAccessModel settlementAccessModel = ...;
+settlementAccessModel.CanMainHeroEnterLordsHall(settlement, accessDetails);
+```
 
 ### CanMainHeroEnterDungeon
 `public abstract void CanMainHeroEnterDungeon(Settlement settlement, out SettlementAccessModel.AccessDetails accessDetails)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero enter dungeon`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero enter dungeon」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementAccessModel 实例
+SettlementAccessModel settlementAccessModel = ...;
+settlementAccessModel.CanMainHeroEnterDungeon(settlement, accessDetails);
+```
 
 ### CanMainHeroAccessLocation
 `public abstract bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero access location`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero access location」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementAccessModel 实例
+SettlementAccessModel settlementAccessModel = ...;
+var result = settlementAccessModel.CanMainHeroAccessLocation(settlement, "example", disableOption, disabledText);
+```
 
 ### CanMainHeroDoSettlementAction
 `public abstract bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAccessModel.SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `main hero do settlement action`。
+**用途 / Purpose:** 检查当前对象是否满足 「main hero do settlement action」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementAccessModel 实例
+SettlementAccessModel settlementAccessModel = ...;
+var result = settlementAccessModel.CanMainHeroDoSettlementAction(settlement, settlementAction, disableOption, disabledText);
+```
 
 ### IsRequestMeetingOptionAvailable
 `public abstract bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 处理 `is request meeting option available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「request meeting option available」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementAccessModel 实例
+SettlementAccessModel settlementAccessModel = ...;
+var result = settlementAccessModel.IsRequestMeetingOptionAvailable(settlement, disableOption, disabledText);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementAccessModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementAccessModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

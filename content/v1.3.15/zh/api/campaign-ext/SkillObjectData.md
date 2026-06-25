@@ -1,20 +1,14 @@
 ---
 title: "SkillObjectData"
+description: "SkillObjectData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SkillObjectData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkillObjectData
 
-**命名空间:** TaleWorlds.CampaignSystem
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public class SkillObjectData : CharacterData.PropertyObjectData`
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class SkillObjectData : CharacterData.PropertyObjectData`
 **Base:** `CharacterData.PropertyObjectData`
-**领域:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/CharacterData.cs`
 
 ## 概述
 
@@ -24,25 +18,13 @@ title: "SkillObjectData"
 
 把 `SkillObjectData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
 
-## 主要方法
-
-### ExportCharacter
-`public static void ExportCharacter(Hero hero, string path)`
-
-**用途 / Purpose:** 处理 `export character` 相关逻辑。
-
-### ImportCharacter
-`public static void ImportCharacter(Hero hero, string path)`
-
-**用途 / Purpose:** 处理 `import character` 相关逻辑。
-
 ## 使用示例
 
 ```csharp
-var value = new SkillObjectData();
+// 该数据对象通常由战役/任务 API 返回
+SkillObjectData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

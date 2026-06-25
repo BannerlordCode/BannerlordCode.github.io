@@ -1,20 +1,14 @@
 ---
 title: "FaceGenerationParams"
+description: "FaceGenerationParams 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FaceGenerationParams`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGenerationParams
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FaceGenerationParams`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FaceGenerationParams.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FaceGenerationParams.cs`
 
 ## 概述
 
@@ -29,17 +23,34 @@ title: "FaceGenerationParams"
 ### Create
 `public static FaceGenerationParams Create()`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 静态调用，不需要实例
+FaceGenerationParams.Create();
+```
 
 ### SetRaceGenderAndAdjustParams
 `public void SetRaceGenderAndAdjustParams(int race, int gender, int curAge)`
 
-**用途 / Purpose:** 设置 `race gender and adjust params` 的值或状态。
+**用途 / Purpose:** 为 「race gender and adjust params」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenerationParams 实例
+FaceGenerationParams faceGenerationParams = ...;
+faceGenerationParams.SetRaceGenderAndAdjustParams(0, 0, 0);
+```
 
 ### SetRandomParamsExceptKeys
 `public void SetRandomParamsExceptKeys(int race, int gender, int minAge, out float scale)`
 
-**用途 / Purpose:** 设置 `random params except keys` 的值或状态。
+**用途 / Purpose:** 为 「random params except keys」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenerationParams 实例
+FaceGenerationParams faceGenerationParams = ...;
+faceGenerationParams.SetRandomParamsExceptKeys(0, 0, 0, scale);
+```
 
 ## 使用示例
 
@@ -49,4 +60,4 @@ FaceGenerationParams.Create();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "Sprite"
+description: "Auto-generated class reference for Sprite."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Sprite`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Sprite
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public abstract class Sprite`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Sprite.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Sprite.cs`
 
 ## Overview
 
@@ -39,24 +33,43 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### GetMinUvs
 `public abstract Vec2 GetMinUvs()`
 
-**Purpose:** Gets the current value of `min uvs`.
+**Purpose:** Reads and returns the `min uvs` value held by the current object.
+
+```csharp
+// Obtain an instance of Sprite from the subsystem API first
+Sprite sprite = ...;
+var result = sprite.GetMinUvs();
+```
 
 ### GetMaxUvs
 `public abstract Vec2 GetMaxUvs()`
 
-**Purpose:** Gets the current value of `max uvs`.
+**Purpose:** Reads and returns the `max uvs` value held by the current object.
+
+```csharp
+// Obtain an instance of Sprite from the subsystem API first
+Sprite sprite = ...;
+var result = sprite.GetMaxUvs();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Sprite from the subsystem API first
+Sprite sprite = ...;
+var result = sprite.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSprite();
+// Typically obtained from a subsystem API or factory
+Sprite instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

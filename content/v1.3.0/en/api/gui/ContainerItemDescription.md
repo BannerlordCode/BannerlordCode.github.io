@@ -1,13 +1,7 @@
 ---
 title: "ContainerItemDescription"
+description: "Auto-generated class reference for ContainerItemDescription."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContainerItemDescription`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerItemDescription
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new ContainerItemDescription();
+// Obtain an instance from the relevant subsystem API
+ContainerItemDescription instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleScoreboardVM"
+description: "Auto-generated class reference for CustomBattleScoreboardVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleScoreboardVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleScoreboardVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleScoreboardVM`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/CustomBattleScoreboardVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/CustomBattleScoreboardVM.cs`
 
 ## Overview
 
@@ -29,65 +23,132 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### CustomBattleScoreboardVM
 `public class CustomBattleScoreboardVM(BattleScoreContext scoreboardContext)`
 
-**Purpose:** Handles logic related to `custom battle scoreboard v m`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+var result = customBattleScoreboardVM.CustomBattleScoreboardVM(scoreboardContext);
+```
 
 ### Initialize
 `public override void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.Initialize(missionScreen, mission, releaseSimulationSources, onToggle);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.RefreshValues();
+```
 
 ### ExecuteFastForwardAction
 `public override void ExecuteFastForwardAction()`
 
-**Purpose:** Executes the `fast forward action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `fast forward action`.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.ExecuteFastForwardAction();
+```
 
 ### ExecuteQuitAction
 `public override void ExecuteQuitAction()`
 
-**Purpose:** Executes the `quit action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `quit action`.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.ExecuteQuitAction();
+```
 
 ### OnBattleOver
 `public void OnBattleOver()`
 
-**Purpose:** Called when the `battle over` event is raised.
+**Purpose:** Invoked when the `battle over` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.OnBattleOver();
+```
 
 ### OnExitBattle
 `public void OnExitBattle()`
 
-**Purpose:** Called when the `exit battle` event is raised.
+**Purpose:** Invoked when the `exit battle` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.OnExitBattle();
+```
 
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberDead = 0, int numberWounded = 0, int numberRouted = 0, int numberKilled = 0, int numberReadyToUpgrade = 0)`
 
-**Purpose:** Handles logic related to `troop number changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.TroopNumberChanged(side, battleCombatant, character, 0, 0, 0, 0, 0, 0);
+```
 
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**Purpose:** Handles logic related to `hero skill increased`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.HeroSkillIncreased(side, battleCombatant, heroCharacter, upgradedSkill);
+```
 
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**Purpose:** Handles logic related to `battle results ready`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.BattleResultsReady();
+```
 
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**Purpose:** Handles logic related to `troop side changed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.TroopSideChanged(prevSide, newSide, battleCombatant, character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleScoreboardVM();
-value.CustomBattleScoreboardVM(scoreboardContext);
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.CustomBattleScoreboardVM(scoreboardContext);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

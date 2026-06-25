@@ -1,13 +1,7 @@
 ---
 title: "HeroSpawnCampaignBehavior"
+description: "HeroSpawnCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroSpawnCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroSpawnCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,44 @@ title: "HeroSpawnCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 HeroSpawnCampaignBehavior 实例
+HeroSpawnCampaignBehavior heroSpawnCampaignBehavior = ...;
+heroSpawnCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 HeroSpawnCampaignBehavior 实例
+HeroSpawnCampaignBehavior heroSpawnCampaignBehavior = ...;
+heroSpawnCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnGovernorChanged
 `public void OnGovernorChanged(Town fortification, Hero oldGovernor, Hero newGovernor)`
 
-**用途 / Purpose:** 当 `governor changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「governor changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HeroSpawnCampaignBehavior 实例
+HeroSpawnCampaignBehavior heroSpawnCampaignBehavior = ...;
+heroSpawnCampaignBehavior.OnGovernorChanged(fortification, oldGovernor, newGovernor);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HeroSpawnCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+HeroSpawnCampaignBehavior heroSpawnCampaignBehavior = ...;
+heroSpawnCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

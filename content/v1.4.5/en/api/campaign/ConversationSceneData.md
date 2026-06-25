@@ -1,20 +1,14 @@
 ---
 title: "ConversationSceneData"
+description: "Auto-generated class reference for ConversationSceneData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationSceneData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationSceneData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct ConversationSceneData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ConversationSceneData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ConversationSceneData.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `ConversationSceneData` as a Data-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var value = new ConversationSceneData();
+// This data object is usually returned by campaign/mission APIs
+ConversationSceneData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

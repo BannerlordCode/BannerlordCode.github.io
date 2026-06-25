@@ -1,20 +1,14 @@
 ---
 title: "CaravanBattleMissionHandler"
+description: "Auto-generated class reference for CaravanBattleMissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaravanBattleMissionHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaravanBattleMissionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CaravanBattleMissionHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/CaravanBattleMissionHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/CaravanBattleMissionHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `CaravanBattleMissionHandler` as a Handler-style extension point: first id
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CaravanBattleMissionHandler from the subsystem API first
+CaravanBattleMissionHandler caravanBattleMissionHandler = ...;
+caravanBattleMissionHandler.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CaravanBattleMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<CaravanBattleMissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

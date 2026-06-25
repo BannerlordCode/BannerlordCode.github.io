@@ -1,20 +1,14 @@
 ---
 title: "BattleSpawnFrameBehavior"
+description: "Auto-generated class reference for BattleSpawnFrameBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSpawnFrameBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleSpawnFrameBehavior : SpawnFrameBehaviorBase`
 **Base:** `SpawnFrameBehaviorBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/BattleSpawnFrameBehavior.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/BattleSpawnFrameBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of BattleSpawnFrameBehavior from the subsystem API first
+BattleSpawnFrameBehavior battleSpawnFrameBehavior = ...;
+battleSpawnFrameBehavior.Initialize();
+```
 
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleSpawnFrameBehavior from the subsystem API first
+BattleSpawnFrameBehavior battleSpawnFrameBehavior = ...;
+var result = battleSpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattleSpawnFrameBehavior();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+BattleSpawnFrameBehavior battleSpawnFrameBehavior = ...;
+battleSpawnFrameBehavior.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

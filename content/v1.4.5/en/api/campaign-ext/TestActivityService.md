@@ -1,20 +1,14 @@
 ---
 title: "TestActivityService"
+description: "Auto-generated class reference for TestActivityService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestActivityService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestActivityService
 
 **Namespace:** TaleWorlds.ActivitySystem
 **Module:** TaleWorlds.ActivitySystem
 **Type:** `public class TestActivityService : IActivityService`
 **Base:** `IActivityService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/TestActivityService.cs`
+**File:** `bin/TaleWorlds.ActivitySystem/TaleWorlds.ActivitySystem/TestActivityService.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.ActivitySystem` to place it in the stack, then 
 ### GetActivityTransition
 `public ActivityTransition GetActivityTransition(string activityId)`
 
-**Purpose:** Gets the current value of `activity transition`.
+**Purpose:** Reads and returns the `activity transition` value held by the current object.
+
+```csharp
+// Obtain an instance of TestActivityService from the subsystem API first
+TestActivityService testActivityService = ...;
+var result = testActivityService.GetActivityTransition("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TestActivityService();
-value.GetActivityTransition("example");
+// Typically call this after obtaining an instance from the subsystem API
+TestActivityService testActivityService = ...;
+testActivityService.GetActivityTransition("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

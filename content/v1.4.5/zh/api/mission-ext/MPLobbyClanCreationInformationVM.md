@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanCreationInformationVM"
+description: "MPLobbyClanCreationInformationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyClanCreationInformationVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanCreationInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanCreationInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanCreationInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanCreationInformationVM.cs`
 
 ## 概述
 
@@ -48,40 +42,77 @@ title: "MPLobbyClanCreationInformationVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.RefreshValues();
+```
 
 ### RefreshWith
 `public void RefreshWith(ClanHomeInfo info)`
 
-**用途 / Purpose:** 刷新 `with` 的显示或缓存。
+**用途 / Purpose:** 使 「with」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.RefreshWith(info);
+```
 
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**用途 / Purpose:** 当 `friend list updated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「friend list updated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.OnFriendListUpdated(false);
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated()`
 
-**用途 / Purpose:** 当 `player name updated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player name updated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.OnPlayerNameUpdated();
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** 执行 `open popup` 操作或流程。
+**用途 / Purpose:** 执行 「open popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 `close popup` 操作或流程。
+**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanCreationInformationVM 实例
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.ExecuteClosePopup();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyClanCreationInformationVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyClanCreationInformationVM mPLobbyClanCreationInformationVM = ...;
+mPLobbyClanCreationInformationVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "NameplateVM"
+description: "Auto-generated class reference for NameplateVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NameplateVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -43,40 +37,77 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of NameplateVM from the subsystem API first
+NameplateVM nameplateVM = ...;
+nameplateVM.OnFinalize();
+```
 
 ### Initialize
 `public virtual void Initialize(GameEntity strategicEntity)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of NameplateVM from the subsystem API first
+NameplateVM nameplateVM = ...;
+nameplateVM.Initialize(strategicEntity);
+```
 
 ### RefreshDynamicProperties
 `public virtual void RefreshDynamicProperties(bool forceUpdate)`
 
-**Purpose:** Refreshes the display or cache of `dynamic properties`.
+**Purpose:** Keeps the display or cache of `dynamic properties` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of NameplateVM from the subsystem API first
+NameplateVM nameplateVM = ...;
+nameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshPosition
 `public virtual void RefreshPosition()`
 
-**Purpose:** Refreshes the display or cache of `position`.
+**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of NameplateVM from the subsystem API first
+NameplateVM nameplateVM = ...;
+nameplateVM.RefreshPosition();
+```
 
 ### RefreshRelationStatus
 `public virtual void RefreshRelationStatus()`
 
-**Purpose:** Refreshes the display or cache of `relation status`.
+**Purpose:** Keeps the display or cache of `relation status` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of NameplateVM from the subsystem API first
+NameplateVM nameplateVM = ...;
+nameplateVM.RefreshRelationStatus();
+```
 
 ### RefreshTutorialStatus
 `public virtual void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**Purpose:** Refreshes the display or cache of `tutorial status`.
+**Purpose:** Keeps the display or cache of `tutorial status` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of NameplateVM from the subsystem API first
+NameplateVM nameplateVM = ...;
+nameplateVM.RefreshTutorialStatus("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NameplateVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+NameplateVM nameplateVM = ...;
+nameplateVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

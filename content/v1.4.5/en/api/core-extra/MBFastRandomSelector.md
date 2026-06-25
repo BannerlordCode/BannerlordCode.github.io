@@ -1,20 +1,14 @@
 ---
 title: "MBFastRandomSelector"
+description: "Auto-generated class reference for MBFastRandomSelector."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBFastRandomSelector`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBFastRandomSelector
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBFastRandomSelector<T>`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBFastRandomSelector.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBFastRandomSelector.cs`
 
 ## Overview
 
@@ -35,35 +29,66 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IndexEntry
 `public struct IndexEntry(ushort index, ushort version)`
 
-**Purpose:** Handles logic related to `index entry`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+var result = mBFastRandomSelector.IndexEntry(0, 0);
+```
 
 ### Initialize
 `public void Initialize(MBReadOnlyList<T> list)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Initialize(list);
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Reset();
+```
 
 ### Pack
 `public void Pack()`
 
-**Purpose:** Handles logic related to `pack`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.Pack();
+```
 
 ### SelectRandom
 `public bool SelectRandom(out T selection, Predicate<T> conditions = null)`
 
-**Purpose:** Handles logic related to `select random`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandomSelector from the subsystem API first
+MBFastRandomSelector mBFastRandomSelector = ...;
+var result = mBFastRandomSelector.SelectRandom(selection, null);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBFastRandomSelector();
-value.IndexEntry(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+MBFastRandomSelector mBFastRandomSelector = ...;
+mBFastRandomSelector.IndexEntry(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

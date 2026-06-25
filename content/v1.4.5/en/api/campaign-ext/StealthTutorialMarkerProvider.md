@@ -1,20 +1,14 @@
 ---
 title: "StealthTutorialMarkerProvider"
+description: "Auto-generated class reference for StealthTutorialMarkerProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthTutorialMarkerProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthTutorialMarkerProvider
 
 **Namespace:** StoryMode.View.MarkerProviders
 **Module:** StoryMode.View
 **Type:** `public class StealthTutorialMarkerProvider : MissionNameMarkerProvider`
 **Base:** `MissionNameMarkerProvider`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.View/StoryMode.View.MarkerProviders/StealthTutorialMarkerProvider.cs`
+**File:** `Modules.StoryMode/StoryMode.View/StoryMode.View.MarkerProviders/StealthTutorialMarkerProvider.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `StoryMode.View.MarkerProviders` to place it in the stack, 
 ### CreateMarkers
 `public override void CreateMarkers(List<MissionNameMarkerTargetBaseVM> markers)`
 
-**Purpose:** Creates a new `markers` instance or object.
+**Purpose:** Constructs a new `markers` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of StealthTutorialMarkerProvider from the subsystem API first
+StealthTutorialMarkerProvider stealthTutorialMarkerProvider = ...;
+stealthTutorialMarkerProvider.CreateMarkers(markers);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StealthTutorialMarkerProvider();
-value.CreateMarkers(markers);
+// Typically call this after obtaining an instance from the subsystem API
+StealthTutorialMarkerProvider stealthTutorialMarkerProvider = ...;
+stealthTutorialMarkerProvider.CreateMarkers(markers);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

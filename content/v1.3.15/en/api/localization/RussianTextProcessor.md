@@ -1,24 +1,18 @@
 ---
 title: "RussianTextProcessor"
+description: "Auto-generated class reference for RussianTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RussianTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RussianTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
 **Module:** TaleWorlds.Localization
 **Type:** `public class RussianTextProcessor : LanguageSpecificTextProcessor`
 **Base:** `LanguageSpecificTextProcessor`
-**Area:** localization
+**File:** `TaleWorlds.Localization/TextProcessor/LanguageProcessors/RussianTextProcessor.cs`
 
 ## Overview
 
-`RussianTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`RussianTextProcessor` lives in `TaleWorlds.Localization.TextProcessor.LanguageProcessors` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,37 +29,65 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of RussianTextProcessor from the subsystem API first
+RussianTextProcessor russianTextProcessor = ...;
+russianTextProcessor.ClearTemporaryData();
+```
 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RussianTextProcessor from the subsystem API first
+RussianTextProcessor russianTextProcessor = ...;
+russianTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### PrepareNounCheckString
 `public string PrepareNounCheckString(string noun)`
 
-**Purpose:** Handles logic related to `prepare noun check string`.
+**Purpose:** Finishes prerequisite setup for the upcoming `noun check string` operation.
+
+```csharp
+// Obtain an instance of RussianTextProcessor from the subsystem API first
+RussianTextProcessor russianTextProcessor = ...;
+var result = russianTextProcessor.PrepareNounCheckString("example");
+```
 
 ### PrepareAdjectiveCheckString
 `public string PrepareAdjectiveCheckString(string adj)`
 
-**Purpose:** Handles logic related to `prepare adjective check string`.
+**Purpose:** Finishes prerequisite setup for the upcoming `adjective check string` operation.
+
+```csharp
+// Obtain an instance of RussianTextProcessor from the subsystem API first
+RussianTextProcessor russianTextProcessor = ...;
+var result = russianTextProcessor.PrepareAdjectiveCheckString("example");
+```
 
 ### GetProcessedNouns
 `public static string GetProcessedNouns(string str, string gender, string tokens = null)`
 
-**Purpose:** Gets the current value of `processed nouns`.
+**Purpose:** Reads and returns the `processed nouns` value held by the current object.
+
+```csharp
+// Static call; no instance required
+RussianTextProcessor.GetProcessedNouns("example", "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a RussianTextProcessor instance from game state, then call one of its public methods
-var value = new RussianTextProcessor();
-value.ClearTemporaryData();
+// Typically call this after obtaining an instance from the subsystem API
+RussianTextProcessor russianTextProcessor = ...;
+russianTextProcessor.ClearTemporaryData();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-localization)
+- [Area Index](../)

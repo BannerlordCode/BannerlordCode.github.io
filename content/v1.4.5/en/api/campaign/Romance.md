@@ -1,20 +1,14 @@
 ---
 title: "Romance"
+description: "Auto-generated class reference for Romance."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Romance`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Romance
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Romance`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Romance.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Romance.cs`
 
 ## Overview
 
@@ -29,30 +23,52 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**Purpose:** Handles logic related to `partner`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Romance from the subsystem API first
+Romance romance = ...;
+var result = romance.Partner(hero);
+```
 
 ### GetCourtedHeroInOtherClan
 `public static Hero GetCourtedHeroInOtherClan(Hero person1, Hero person2)`
 
-**Purpose:** Gets the current value of `courted hero in other clan`.
+**Purpose:** Reads and returns the `courted hero in other clan` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Romance.GetCourtedHeroInOtherClan(person1, person2);
+```
 
 ### GetRomanticLevel
 `public static RomanceLevelEnum GetRomanticLevel(Hero person1, Hero person2)`
 
-**Purpose:** Gets the current value of `romantic level`.
+**Purpose:** Reads and returns the `romantic level` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Romance.GetRomanticLevel(person1, person2);
+```
 
 ### GetRomanticState
 `public static RomanticState GetRomanticState(Hero person1, Hero person2)`
 
-**Purpose:** Gets the current value of `romantic state`.
+**Purpose:** Reads and returns the `romantic state` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Romance.GetRomanticState(person1, person2);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Romance();
-value.Partner(hero);
+// Typically call this after obtaining an instance from the subsystem API
+Romance romance = ...;
+romance.Partner(hero);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

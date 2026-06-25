@@ -1,20 +1,14 @@
 ---
 title: "IBasicTypeSerializer"
+description: "Auto-generated class reference for IBasicTypeSerializer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBasicTypeSerializer`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBasicTypeSerializer
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
-**Type:** `class`
+**Type:** `public interface IBasicTypeSerializer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/IBasicTypeSerializer.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/IBasicTypeSerializer.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ## Usage Example
 
 ```csharp
-IBasicTypeSerializer implementation = GetBasicTypeSerializerImplementation();
+// Usually obtained through DI or a factory method
+IIBasicTypeSerializer service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

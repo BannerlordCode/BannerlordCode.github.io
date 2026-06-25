@@ -1,20 +1,14 @@
 ---
 title: "IMissionPlayerFollowerHandler"
+description: "Auto-generated class reference for IMissionPlayerFollowerHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionPlayerFollowerHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionPlayerFollowerHandler
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
-**Type:** `class`
+**Type:** `public interface IMissionPlayerFollowerHandler`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/IMissionPlayerFollowerHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/IMissionPlayerFollowerHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IMissionPlayerFollowerHandler` as a Handler-style extension point: first 
 ## Usage Example
 
 ```csharp
-IMissionPlayerFollowerHandler implementation = GetMissionPlayerFollowerHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIMissionPlayerFollowerHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

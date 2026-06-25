@@ -1,20 +1,14 @@
 ---
 title: "LauncherOnlineImageTextureWidget"
+description: "Auto-generated class reference for LauncherOnlineImageTextureWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherOnlineImageTextureWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherOnlineImageTextureWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherOnlineImageTextureWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherOnlineImageTextureWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherOnlineImageTextureWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `LauncherOnlineImageTextureWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new LauncherOnlineImageTextureWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+LauncherOnlineImageTextureWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

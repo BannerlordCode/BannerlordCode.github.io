@@ -1,13 +1,7 @@
 ---
 title: "BannerlordTableauManager"
+description: "BannerlordTableauManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerlordTableauManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerlordTableauManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,27 +29,53 @@ title: "BannerlordTableauManager"
 ### RequestCharacterTableauRender
 `public static void RequestCharacterTableauRender(int characterCodeId, string path, GameEntity poseEntity, Camera cameraObject, int tableauType)`
 
-**用途 / Purpose:** 处理 `request character tableau render` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordTableauManager.RequestCharacterTableauRender(0, "example", poseEntity, cameraObject, 0);
+```
 
 ### ClearManager
 `public static void ClearManager()`
 
-**用途 / Purpose:** 处理 `clear manager` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「manager」。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordTableauManager.ClearManager();
+```
 
 ### InitializeCharacterTableauRenderSystem
 `public static void InitializeCharacterTableauRenderSystem()`
 
-**用途 / Purpose:** 初始化 `character tableau render system` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「character tableau render system」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordTableauManager.InitializeCharacterTableauRenderSystem();
+```
 
 ### GetNumberOfPendingTableauRequests
 `public static int GetNumberOfPendingTableauRequests()`
 
-**用途 / Purpose:** 获取 `number of pending tableau requests` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of pending tableau requests」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordTableauManager.GetNumberOfPendingTableauRequests();
+```
 
 ### RequestCharacterTableauSetupDelegate
 `public delegate void RequestCharacterTableauSetupDelegate(int characterCodeId, Scene scene, GameEntity poseEntity)`
 
-**用途 / Purpose:** 处理 `request character tableau setup delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerlordTableauManager 实例
+BannerlordTableauManager bannerlordTableauManager = ...;
+bannerlordTableauManager.RequestCharacterTableauSetupDelegate(0, scene, poseEntity);
+```
 
 ## 使用示例
 
@@ -65,4 +85,4 @@ var manager = BannerlordTableauManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

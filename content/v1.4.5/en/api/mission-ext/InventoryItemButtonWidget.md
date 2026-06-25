@@ -1,20 +1,14 @@
 ---
 title: "InventoryItemButtonWidget"
+description: "Auto-generated class reference for InventoryItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class InventoryItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryItemButtonWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `InventoryItemButtonWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var implementation = new CustomInventoryItemButtonWidget();
+// Typically obtained from a subsystem API or factory
+InventoryItemButtonWidget instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

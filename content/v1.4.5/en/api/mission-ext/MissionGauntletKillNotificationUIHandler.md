@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletKillNotificationUIHandler"
+description: "Auto-generated class reference for MissionGauntletKillNotificationUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletKillNotificationUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletKillNotificationUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletKillNotificationUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletKillNotificationUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletKillNotificationUIHandler.cs`
 
 ## Overview
 
@@ -29,29 +23,53 @@ Treat `MissionGauntletKillNotificationUIHandler` as a Handler-style extension po
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationUIHandler from the subsystem API first
+MissionGauntletKillNotificationUIHandler missionGauntletKillNotificationUIHandler = ...;
+missionGauntletKillNotificationUIHandler.OnMissionScreenInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationUIHandler from the subsystem API first
+MissionGauntletKillNotificationUIHandler missionGauntletKillNotificationUIHandler = ...;
+missionGauntletKillNotificationUIHandler.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationUIHandler from the subsystem API first
+MissionGauntletKillNotificationUIHandler missionGauntletKillNotificationUIHandler = ...;
+missionGauntletKillNotificationUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletKillNotificationUIHandler from the subsystem API first
+MissionGauntletKillNotificationUIHandler missionGauntletKillNotificationUIHandler = ...;
+missionGauntletKillNotificationUIHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletKillNotificationUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletKillNotificationUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

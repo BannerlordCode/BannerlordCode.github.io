@@ -1,13 +1,7 @@
 ---
 title: "BattlePlayerEntry"
+description: "Auto-generated class reference for BattlePlayerEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattlePlayerEntry`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattlePlayerEntry
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -42,9 +36,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new BattlePlayerEntry();
+// Obtain an instance from the relevant subsystem API
+BattlePlayerEntry instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

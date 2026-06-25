@@ -1,13 +1,7 @@
 ---
 title: "BinaryWriter"
+description: "Auto-generated class reference for BinaryWriter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BinaryWriter`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BinaryWriter
 
 **Namespace:** TaleWorlds.Library
@@ -36,135 +30,286 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.Clear();
+```
 
 ### EnsureLength
 `public void EnsureLength(int added)`
 
-**Purpose:** Handles logic related to `ensure length`.
+**Purpose:** Ensures `length` is in the expected state, initializing or correcting it if necessary.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.EnsureLength(0);
+```
 
 ### WriteSerializableObject
 `public void WriteSerializableObject(ISerializableObject serializableObject)`
 
-**Purpose:** Handles logic related to `write serializable object`.
+**Purpose:** Writes `serializable object` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteSerializableObject(serializableObject);
+```
 
 ### WriteByte
 `public void WriteByte(byte value)`
 
-**Purpose:** Handles logic related to `write byte`.
+**Purpose:** Writes `byte` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteByte(0);
+```
 
 ### WriteBytes
 `public void WriteBytes(byte bytes)`
 
-**Purpose:** Handles logic related to `write bytes`.
+**Purpose:** Writes `bytes` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteBytes(0);
+```
 
 ### Write3ByteInt
 `public void Write3ByteInt(int value)`
 
-**Purpose:** Handles logic related to `write3 byte int`.
+**Purpose:** Writes `3 byte int` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.Write3ByteInt(0);
+```
 
 ### WriteInt
 `public void WriteInt(int value)`
 
-**Purpose:** Handles logic related to `write int`.
+**Purpose:** Writes `int` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteInt(0);
+```
 
 ### WriteShort
 `public void WriteShort(short value)`
 
-**Purpose:** Handles logic related to `write short`.
+**Purpose:** Writes `short` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteShort(0);
+```
 
 ### WriteString
 `public void WriteString(string value)`
 
-**Purpose:** Handles logic related to `write string`.
+**Purpose:** Writes `string` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteString("example");
+```
 
 ### WriteFloats
 `public void WriteFloats(float value, int count)`
 
-**Purpose:** Handles logic related to `write floats`.
+**Purpose:** Writes `floats` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteFloats(0, 0);
+```
 
 ### WriteShorts
 `public void WriteShorts(short value, int count)`
 
-**Purpose:** Handles logic related to `write shorts`.
+**Purpose:** Writes `shorts` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteShorts(0, 0);
+```
 
 ### WriteColor
 `public void WriteColor(Color value)`
 
-**Purpose:** Handles logic related to `write color`.
+**Purpose:** Writes `color` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteColor(value);
+```
 
 ### WriteBool
 `public void WriteBool(bool value)`
 
-**Purpose:** Handles logic related to `write bool`.
+**Purpose:** Writes `bool` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteBool(false);
+```
 
 ### WriteFloat
 `public void WriteFloat(float value)`
 
-**Purpose:** Handles logic related to `write float`.
+**Purpose:** Writes `float` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteFloat(0);
+```
 
 ### WriteUInt
 `public void WriteUInt(uint value)`
 
-**Purpose:** Handles logic related to `write u int`.
+**Purpose:** Writes `u int` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteUInt(0);
+```
 
 ### WriteULong
 `public void WriteULong(ulong value)`
 
-**Purpose:** Handles logic related to `write u long`.
+**Purpose:** Writes `u long` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteULong(0);
+```
 
 ### WriteLong
 `public void WriteLong(long value)`
 
-**Purpose:** Handles logic related to `write long`.
+**Purpose:** Writes `long` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteLong(0);
+```
 
 ### WriteVec2
 `public void WriteVec2(Vec2 vec2)`
 
-**Purpose:** Handles logic related to `write vec2`.
+**Purpose:** Writes `vec2` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteVec2(vec2);
+```
 
 ### WriteVec3
 `public void WriteVec3(Vec3 vec3)`
 
-**Purpose:** Handles logic related to `write vec3`.
+**Purpose:** Writes `vec3` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteVec3(vec3);
+```
 
 ### WriteVec3Int
 `public void WriteVec3Int(Vec3i vec3)`
 
-**Purpose:** Handles logic related to `write vec3 int`.
+**Purpose:** Writes `vec3 int` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteVec3Int(vec3);
+```
 
 ### WriteSByte
 `public void WriteSByte(sbyte value)`
 
-**Purpose:** Handles logic related to `write s byte`.
+**Purpose:** Writes `s byte` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteSByte(0);
+```
 
 ### WriteUShort
 `public void WriteUShort(ushort value)`
 
-**Purpose:** Handles logic related to `write u short`.
+**Purpose:** Writes `u short` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteUShort(0);
+```
 
 ### WriteDouble
 `public void WriteDouble(double value)`
 
-**Purpose:** Handles logic related to `write double`.
+**Purpose:** Writes `double` to the target location.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.WriteDouble(0);
+```
 
 ### AppendData
 `public void AppendData(BinaryWriter writer)`
 
-**Purpose:** Handles logic related to `append data`.
+**Purpose:** Appends `data` to the end of the current collection or sequence.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+binaryWriter.AppendData(writer);
+```
 
 ### GetFinalData
 `public byte GetFinalData()`
 
-**Purpose:** Gets the current value of `final data`.
+**Purpose:** Reads and returns the `final data` value held by the current object.
+
+```csharp
+// Obtain an instance of BinaryWriter from the subsystem API first
+BinaryWriter binaryWriter = ...;
+var result = binaryWriter.GetFinalData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BinaryWriter();
-value.Clear();
+// Typically call this after obtaining an instance from the subsystem API
+BinaryWriter binaryWriter = ...;
+binaryWriter.Clear();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

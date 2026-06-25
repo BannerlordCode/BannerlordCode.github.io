@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerMissionMarkerVM"
+description: "MultiplayerMissionMarkerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerMissionMarkerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMissionMarkerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker/MultiplayerMissionMarkerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker/MultiplayerMissionMarkerVM.cs`
 
 ## 概述
 
@@ -39,30 +33,55 @@ title: "MultiplayerMissionMarkerVM"
 ### Compare
 `public int Compare(MissionMarkerTargetVM x, MissionMarkerTargetVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionMarkerVM 实例
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+var result = multiplayerMissionMarkerVM.Compare(x, y);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionMarkerVM 实例
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+multiplayerMissionMarkerVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionMarkerVM 实例
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+multiplayerMissionMarkerVM.Tick(0);
+```
 
 ### OnRemoveAlwaysVisibleMarker
 `public void OnRemoveAlwaysVisibleMarker(MissionAlwaysVisibleMarkerTargetVM marker)`
 
-**用途 / Purpose:** 当 `remove always visible marker` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove always visible marker」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionMarkerVM 实例
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+multiplayerMissionMarkerVM.OnRemoveAlwaysVisibleMarker(marker);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerMissionMarkerVM();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerMissionMarkerVM multiplayerMissionMarkerVM = ...;
+multiplayerMissionMarkerVM.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

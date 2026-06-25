@@ -1,13 +1,7 @@
 ---
 title: "MissionTime"
+description: "MissionTime 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionTime`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTime
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -48,52 +42,106 @@ title: "MissionTime"
 ### MillisecondsFromNow
 `public static MissionTime MillisecondsFromNow(float valueInMilliseconds)`
 
-**用途 / Purpose:** 处理 `milliseconds from now` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionTime.MillisecondsFromNow(0);
+```
 
 ### SecondsFromNow
 `public static MissionTime SecondsFromNow(float valueInSeconds)`
 
-**用途 / Purpose:** 处理 `seconds from now` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionTime.SecondsFromNow(0);
+```
 
 ### Equals
 `public bool Equals(MissionTime other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTime 实例
+MissionTime missionTime = ...;
+var result = missionTime.Equals(other);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTime 实例
+MissionTime missionTime = ...;
+var result = missionTime.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTime 实例
+MissionTime missionTime = ...;
+var result = missionTime.GetHashCode();
+```
 
 ### CompareTo
 `public int CompareTo(MissionTime other)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTime 实例
+MissionTime missionTime = ...;
+var result = missionTime.CompareTo(other);
+```
 
 ### Milliseconds
 `public static MissionTime Milliseconds(float valueInMilliseconds)`
 
-**用途 / Purpose:** 处理 `milliseconds` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionTime.Milliseconds(0);
+```
 
 ### Seconds
 `public static MissionTime Seconds(float valueInSeconds)`
 
-**用途 / Purpose:** 处理 `seconds` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionTime.Seconds(0);
+```
 
 ### Minutes
 `public static MissionTime Minutes(float valueInMinutes)`
 
-**用途 / Purpose:** 处理 `minutes` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionTime.Minutes(0);
+```
 
 ### Hours
 `public static MissionTime Hours(float valueInHours)`
 
-**用途 / Purpose:** 处理 `hours` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionTime.Hours(0);
+```
 
 ## 使用示例
 
@@ -103,4 +151,4 @@ MissionTime.MillisecondsFromNow(0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

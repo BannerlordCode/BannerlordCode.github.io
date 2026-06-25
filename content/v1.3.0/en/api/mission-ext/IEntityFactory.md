@@ -1,18 +1,12 @@
 ---
 title: "IEntityFactory"
+description: "Auto-generated class reference for IEntityFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IEntityFactory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IEntityFactory
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IEntityFactory`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IEntityFactory.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IEntityFactory implementation = GetEntityFactoryImplementation();
+// Usually obtained through DI or a factory method
+IIEntityFactory service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

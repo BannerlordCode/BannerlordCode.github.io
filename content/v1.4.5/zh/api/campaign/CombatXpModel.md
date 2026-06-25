@@ -1,20 +1,14 @@
 ---
 title: "CombatXpModel"
+description: "CombatXpModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CombatXpModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatXpModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CombatXpModel : MBGameModel<CombatXpModel>`
 **Base:** `MBGameModel<CombatXpModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CombatXpModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CombatXpModel.cs`
 
 ## 概述
 
@@ -35,24 +29,43 @@ title: "CombatXpModel"
 ### GetSkillForWeapon
 `public abstract SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**用途 / Purpose:** 获取 `skill for weapon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill for weapon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CombatXpModel 实例
+CombatXpModel combatXpModel = ...;
+var result = combatXpModel.GetSkillForWeapon(weapon, false);
+```
 
 ### GetXpFromHit
 `public abstract ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, MissionTypeEnum missionType)`
 
-**用途 / Purpose:** 获取 `xp from hit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp from hit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CombatXpModel 实例
+CombatXpModel combatXpModel = ...;
+var result = combatXpModel.GetXpFromHit(attackerTroop, captain, attackedTroop, attackerParty, 0, false, missionType);
+```
 
 ### GetXpMultiplierFromShotDifficulty
 `public abstract float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**用途 / Purpose:** 获取 `xp multiplier from shot difficulty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp multiplier from shot difficulty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CombatXpModel 实例
+CombatXpModel combatXpModel = ...;
+var result = combatXpModel.GetXpMultiplierFromShotDifficulty(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCombatXpModel();
+// 通常通过子系统 API 或工厂获得派生实例
+CombatXpModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SaveStatistics"
+description: "SaveStatistics 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveStatistics`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveStatistics
 
 **Namespace:** TaleWorlds.SaveSystem.Save
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct SaveStatistics`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/LegacySaveContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/LegacySaveContext.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "SaveStatistics"
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**用途 / Purpose:** 保存 `statistics` 数据。
+**用途 / Purpose:** 将 「statistics」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveStatistics 实例
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+```
 
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**用途 / Purpose:** 获取 `container size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container size」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveStatistics 实例
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.GetContainerSize("example");
+```
 
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**用途 / Purpose:** 获取 `type keys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「type keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveStatistics 实例
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.GetTypeKeys();
+```
 
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**用途 / Purpose:** 获取 `container keys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「container keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveStatistics 实例
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.GetContainerKeys();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SaveStatistics();
-value.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+SaveStatistics saveStatistics = ...;
+saveStatistics.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

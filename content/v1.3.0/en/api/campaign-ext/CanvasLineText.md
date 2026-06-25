@@ -1,13 +1,7 @@
 ---
 title: "CanvasLineText"
+description: "Auto-generated class reference for CanvasLineText."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CanvasLineText`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasLineText
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public void LoadFrom(XmlNode textNode)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CanvasLineText from the subsystem API first
+CanvasLineText canvasLineText = ...;
+canvasLineText.LoadFrom(textNode);
+```
 
 ### Update
 `public override void Update(float scale)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of CanvasLineText from the subsystem API first
+CanvasLineText canvasLineText = ...;
+canvasLineText.Update(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CanvasLineText();
-value.LoadFrom(textNode);
+// Typically call this after obtaining an instance from the subsystem API
+CanvasLineText canvasLineText = ...;
+canvasLineText.LoadFrom(textNode);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

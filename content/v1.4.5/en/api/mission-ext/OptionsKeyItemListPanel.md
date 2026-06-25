@@ -1,20 +1,14 @@
 ---
 title: "OptionsKeyItemListPanel"
+description: "Auto-generated class reference for OptionsKeyItemListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsKeyItemListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionsKeyItemListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionsKeyItemListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options/OptionsKeyItemListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options/OptionsKeyItemListPanel.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options` to pl
 ## Usage Example
 
 ```csharp
-var example = new OptionsKeyItemListPanel();
+// Obtain an instance from the relevant subsystem API
+OptionsKeyItemListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

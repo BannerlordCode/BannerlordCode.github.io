@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeValueTypeParameter"
+description: "Auto-generated class reference for WidgetAttributeValueTypeParameter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeValueTypeParameter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetAttributeValueTypeParameter
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CheckValueType
 `public override bool CheckValueType(string value)`
 
-**Purpose:** Handles logic related to `check value type`.
+**Purpose:** Verifies whether `value type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeParameter from the subsystem API first
+WidgetAttributeValueTypeParameter widgetAttributeValueTypeParameter = ...;
+var result = widgetAttributeValueTypeParameter.CheckValueType("example");
+```
 
 ### GetAttributeValue
 `public override string GetAttributeValue(string value)`
 
-**Purpose:** Gets the current value of `attribute value`.
+**Purpose:** Reads and returns the `attribute value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeParameter from the subsystem API first
+WidgetAttributeValueTypeParameter widgetAttributeValueTypeParameter = ...;
+var result = widgetAttributeValueTypeParameter.GetAttributeValue("example");
+```
 
 ### GetSerializedValue
 `public override string GetSerializedValue(string value)`
 
-**Purpose:** Gets the current value of `serialized value`.
+**Purpose:** Reads and returns the `serialized value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeParameter from the subsystem API first
+WidgetAttributeValueTypeParameter widgetAttributeValueTypeParameter = ...;
+var result = widgetAttributeValueTypeParameter.GetSerializedValue("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeValueTypeParameter();
-value.CheckValueType("example");
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeValueTypeParameter widgetAttributeValueTypeParameter = ...;
+widgetAttributeValueTypeParameter.CheckValueType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

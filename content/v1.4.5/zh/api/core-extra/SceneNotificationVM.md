@@ -1,20 +1,14 @@
 ---
 title: "SceneNotificationVM"
+description: "SceneNotificationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SceneNotificationVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneNotificationVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public class SceneNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/SceneNotificationVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/SceneNotificationVM.cs`
 
 ## 概述
 
@@ -41,45 +35,88 @@ title: "SceneNotificationVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationVM 实例
+SceneNotificationVM sceneNotificationVM = ...;
+sceneNotificationVM.RefreshValues();
+```
 
 ### CreateNotification
 `public void CreateNotification(SceneNotificationData data)`
 
-**用途 / Purpose:** 创建一个 `notification` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「notification」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationVM 实例
+SceneNotificationVM sceneNotificationVM = ...;
+sceneNotificationVM.CreateNotification(data);
+```
 
 ### ClearData
 `public void ClearData()`
 
-**用途 / Purpose:** 处理 `clear data` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「data」。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationVM 实例
+SceneNotificationVM sceneNotificationVM = ...;
+sceneNotificationVM.ClearData();
+```
 
 ### ExecuteAffirmativeProcess
 `public void ExecuteAffirmativeProcess()`
 
-**用途 / Purpose:** 执行 `affirmative process` 操作或流程。
+**用途 / Purpose:** 执行 「affirmative process」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationVM 实例
+SceneNotificationVM sceneNotificationVM = ...;
+sceneNotificationVM.ExecuteAffirmativeProcess();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 `close` 操作或流程。
+**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationVM 实例
+SceneNotificationVM sceneNotificationVM = ...;
+sceneNotificationVM.ExecuteClose();
+```
 
 ### ExecuteNegativeProcess
 `public void ExecuteNegativeProcess()`
 
-**用途 / Purpose:** 执行 `negative process` 操作或流程。
+**用途 / Purpose:** 执行 「negative process」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationVM 实例
+SceneNotificationVM sceneNotificationVM = ...;
+sceneNotificationVM.ExecuteNegativeProcess();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationVM 实例
+SceneNotificationVM sceneNotificationVM = ...;
+sceneNotificationVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SceneNotificationVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SceneNotificationVM sceneNotificationVM = ...;
+sceneNotificationVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

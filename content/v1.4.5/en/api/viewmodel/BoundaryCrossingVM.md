@@ -1,20 +1,14 @@
 ---
 title: "BoundaryCrossingVM"
+description: "Auto-generated class reference for BoundaryCrossingVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoundaryCrossingVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoundaryCrossingVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BoundaryCrossingVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/BoundaryCrossingVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/BoundaryCrossingVM.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ## Usage Example
 
 ```csharp
-var example = new BoundaryCrossingVM();
+// Obtain an instance from the relevant subsystem API
+BoundaryCrossingVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

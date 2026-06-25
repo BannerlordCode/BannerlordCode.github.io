@@ -1,20 +1,14 @@
 ---
 title: "MissionDifficultyModel"
+description: "MissionDifficultyModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionDifficultyModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDifficultyModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionDifficultyModel : MBGameModel<MissionDifficultyModel>`
 **Base:** `MBGameModel<MissionDifficultyModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionDifficultyModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionDifficultyModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "MissionDifficultyModel"
 ### GetDamageMultiplierOfCombatDifficulty
 `public abstract float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
 
-**用途 / Purpose:** 获取 `damage multiplier of combat difficulty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「damage multiplier of combat difficulty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDifficultyModel 实例
+MissionDifficultyModel missionDifficultyModel = ...;
+var result = missionDifficultyModel.GetDamageMultiplierOfCombatDifficulty(victimAgent, null);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionDifficultyModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionDifficultyModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

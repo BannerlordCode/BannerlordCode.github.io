@@ -1,20 +1,14 @@
 ---
 title: "IViewModelGetterInterface"
+description: "Auto-generated class reference for IViewModelGetterInterface."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IViewModelGetterInterface`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IViewModelGetterInterface
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public interface IViewModelGetterInterface`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ViewModel.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ViewModel.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-IViewModelGetterInterface implementation = GetViewModelGetterInterfaceImplementation();
+// Usually obtained through DI or a factory method
+IIViewModelGetterInterface service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

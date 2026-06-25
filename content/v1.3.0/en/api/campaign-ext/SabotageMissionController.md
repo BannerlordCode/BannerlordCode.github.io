@@ -1,13 +1,7 @@
 ---
 title: "SabotageMissionController"
+description: "Auto-generated class reference for SabotageMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SabotageMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SabotageMissionController
 
 **Namespace:** SandBox.Missions
@@ -29,12 +23,24 @@ Treat `SabotageMissionController` as a Controller-style extension point: first i
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SabotageMissionController from the subsystem API first
+SabotageMissionController sabotageMissionController = ...;
+sabotageMissionController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of SabotageMissionController from the subsystem API first
+SabotageMissionController sabotageMissionController = ...;
+sabotageMissionController.OnMissionTick(0);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<SabotageMissionController>()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

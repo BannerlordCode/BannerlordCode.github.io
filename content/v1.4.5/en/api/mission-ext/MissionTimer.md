@@ -1,20 +1,14 @@
 ---
 title: "MissionTimer"
+description: "Auto-generated class reference for MissionTimer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionTimer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionTimer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionTimer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionTimer.cs`
 
 ## Overview
 
@@ -29,50 +23,98 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetStartTime
 `public MissionTime GetStartTime()`
 
-**Purpose:** Gets the current value of `start time`.
+**Purpose:** Reads and returns the `start time` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionTimer from the subsystem API first
+MissionTimer missionTimer = ...;
+var result = missionTimer.GetStartTime();
+```
 
 ### GetTimerDuration
 `public float GetTimerDuration()`
 
-**Purpose:** Gets the current value of `timer duration`.
+**Purpose:** Reads and returns the `timer duration` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionTimer from the subsystem API first
+MissionTimer missionTimer = ...;
+var result = missionTimer.GetTimerDuration();
+```
 
 ### GetRemainingTimeInSeconds
 `public float GetRemainingTimeInSeconds(bool synched = false)`
 
-**Purpose:** Gets the current value of `remaining time in seconds`.
+**Purpose:** Reads and returns the `remaining time in seconds` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionTimer from the subsystem API first
+MissionTimer missionTimer = ...;
+var result = missionTimer.GetRemainingTimeInSeconds(false);
+```
 
 ### Check
 `public bool Check(bool reset = false)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of MissionTimer from the subsystem API first
+MissionTimer missionTimer = ...;
+var result = missionTimer.Check(false);
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of MissionTimer from the subsystem API first
+MissionTimer missionTimer = ...;
+missionTimer.Reset();
+```
 
 ### Set
 `public void Set(float timeInSeconds)`
 
-**Purpose:** Sets the value or state of `set`.
+**Purpose:** Assigns a new value to the current object's property or state.
+
+```csharp
+// Obtain an instance of MissionTimer from the subsystem API first
+MissionTimer missionTimer = ...;
+missionTimer.Set(0);
+```
 
 ### SetDuration
 `public void SetDuration(float duration)`
 
-**Purpose:** Sets the value or state of `duration`.
+**Purpose:** Assigns a new value to `duration` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionTimer from the subsystem API first
+MissionTimer missionTimer = ...;
+missionTimer.SetDuration(0);
+```
 
 ### CreateSynchedTimerClient
 `public static MissionTimer CreateSynchedTimerClient(float startTimeInSeconds, float duration)`
 
-**Purpose:** Creates a new `synched timer client` instance or object.
+**Purpose:** Constructs a new `synched timer client` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionTimer.CreateSynchedTimerClient(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionTimer();
-value.GetStartTime();
+// Typically call this after obtaining an instance from the subsystem API
+MissionTimer missionTimer = ...;
+missionTimer.GetStartTime();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

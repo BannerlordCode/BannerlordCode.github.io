@@ -1,20 +1,14 @@
 ---
 title: "TownEncounter"
+description: "Auto-generated class reference for TownEncounter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownEncounter`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TownEncounter : LocationEncounter`
 **Base:** `LocationEncounter`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/TownEncounter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/TownEncounter.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ### CreateAndOpenMissionController
 `public override IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**Purpose:** Creates a new `and open mission controller` instance or object.
+**Purpose:** Constructs a new `and open mission controller` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of TownEncounter from the subsystem API first
+TownEncounter townEncounter = ...;
+var result = townEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TownEncounter();
-value.CreateAndOpenMissionController(nextLocation, null, null, "example");
+// Typically call this after obtaining an instance from the subsystem API
+TownEncounter townEncounter = ...;
+townEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

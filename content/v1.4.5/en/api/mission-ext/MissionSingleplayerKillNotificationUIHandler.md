@@ -1,20 +1,14 @@
 ---
 title: "MissionSingleplayerKillNotificationUIHandler"
+description: "Auto-generated class reference for MissionSingleplayerKillNotificationUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSingleplayerKillNotificationUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSingleplayerKillNotificationUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSingleplayerKillNotificationUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionSingleplayerKillNotificationUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionSingleplayerKillNotificationUIHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `MissionSingleplayerKillNotificationUIHandler` as a Handler-style extensio
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionSingleplayerKillNotificationUIHandler from the subsystem API first
+MissionSingleplayerKillNotificationUIHandler missionSingleplayerKillNotificationUIHandler = ...;
+missionSingleplayerKillNotificationUIHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionSingleplayerKillNotificationUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionSingleplayerKillNotificationUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

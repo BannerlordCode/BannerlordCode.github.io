@@ -1,20 +1,14 @@
 ---
 title: "BadgeDataEntry"
+description: "BadgeDataEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BadgeDataEntry`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BadgeDataEntry
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BadgeDataEntry`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BadgeDataEntry.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BadgeDataEntry.cs`
 
 ## 概述
 
@@ -38,7 +32,12 @@ title: "BadgeDataEntry"
 ### ToList
 `public static List<BadgeDataEntry> ToList(Dictionary<(PlayerId, string, string), int> dictionary)`
 
-**用途 / Purpose:** 处理 `to list` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BadgeDataEntry.ToList(dictionary<(PlayerId, "example", "example", 0);
+```
 
 ## 使用示例
 
@@ -48,4 +47,4 @@ BadgeDataEntry.ToList(dictionary<(PlayerId, "example", "example", 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

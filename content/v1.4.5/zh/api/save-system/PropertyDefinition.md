@@ -1,20 +1,14 @@
 ---
 title: "PropertyDefinition"
+description: "PropertyDefinition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PropertyDefinition`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class PropertyDefinition : MemberDefinition`
 **Base:** `MemberDefinition`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/PropertyDefinition.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/PropertyDefinition.cs`
 
 ## 概述
 
@@ -39,25 +33,44 @@ title: "PropertyDefinition"
 ### GetMemberType
 `public override Type GetMemberType()`
 
-**用途 / Purpose:** 获取 `member type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「member type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PropertyDefinition 实例
+PropertyDefinition propertyDefinition = ...;
+var result = propertyDefinition.GetMemberType();
+```
 
 ### GetValue
 `public override object GetValue(object target)`
 
-**用途 / Purpose:** 获取 `value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PropertyDefinition 实例
+PropertyDefinition propertyDefinition = ...;
+var result = propertyDefinition.GetValue(target);
+```
 
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(GetPropertyValueDelegate getPropertyValueMethod)`
 
-**用途 / Purpose:** 初始化 `for auto generation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「for auto generation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PropertyDefinition 实例
+PropertyDefinition propertyDefinition = ...;
+propertyDefinition.InitializeForAutoGeneration(getPropertyValueMethod);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PropertyDefinition();
-value.GetMemberType();
+// 通常从对应子系统 API 获取实例后调用
+PropertyDefinition propertyDefinition = ...;
+propertyDefinition.GetMemberType();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

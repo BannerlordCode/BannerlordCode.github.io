@@ -1,13 +1,7 @@
 ---
 title: "EducationMapNotification"
+description: "Auto-generated class reference for EducationMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationMapNotification`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EducationMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of EducationMapNotification from the subsystem API first
+EducationMapNotification educationMapNotification = ...;
+var result = educationMapNotification.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationMapNotification();
-value.IsValid();
+// Typically call this after obtaining an instance from the subsystem API
+EducationMapNotification educationMapNotification = ...;
+educationMapNotification.IsValid();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapNotificationItemWidget"
+description: "Auto-generated class reference for MapNotificationItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNotificationItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNotificationItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapNotificationItemWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification/MapNotificationItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Notification/MapNotificationItemWidget.cs`
 
 ## Overview
 
@@ -48,14 +42,21 @@ Treat `MapNotificationItemWidget` as a Widget-style extension point: first ident
 ### MapNotificationItemWidget
 `public class MapNotificationItemWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `map notification item widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapNotificationItemWidget from the subsystem API first
+MapNotificationItemWidget mapNotificationItemWidget = ...;
+var result = mapNotificationItemWidget.MapNotificationItemWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MapNotificationItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapNotificationItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

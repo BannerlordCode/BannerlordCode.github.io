@@ -1,67 +1,72 @@
 ---
-title: CubicBezier
-description: CubicBezier - 三次贝塞尔曲线插值计算工具
+title: "CubicBezier"
+description: "CubicBezier 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CubicBezier`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CubicBezier
-**命名空间:** TaleWorlds.Library
-**模块:** TaleWorlds.Library
-**类型:** class
-## 概述
-`CubicBezier` 实现三次贝塞尔曲线的采样与求解。给定控制点 P1(x1,y1)、P2(x2,y2) 及起止 y 值，`Sample(x)` 返回曲线在进度 x 处的 y 值。内部使用 11 点采样表 (`_sampleValues`) 加速查找，Newton-Raphson 迭代法求 `t`，当斜率过小时回退到二分查找 (`BinarySubdivide`)。
 
-当控制点构成线性插值时（即 `_x1*num == y1-y0` 且 `(1-x2)*num == y3-y2`），直接返回线性值避免迭代计算。
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public class CubicBezier`
+**Base:** 无
+**File:** `TaleWorlds.Library/CubicBezier.cs`
+
+## 概述
+
+`CubicBezier` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
 ## 心智模型
-- 输入进度 x (0~1) → `GetTForX` 在采样表中定位 → Newton-Raphson 求精确 `t` → `CalcBezierY(t)` 算出 y
-- 构造时验证 x1、x2 在 [0,1] 范围内
-- 线性捷径：当曲线退化线性时直接返回，跳过迭代
-## 主要属性
-本类无私有属性。内部字段均为 private readonly：
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `_x1` | `double` | 控制点 1 的 x 坐标 |
-| `_y1` | `double` | 控制点 1 的 y 坐标 |
-| `_x2` | `double` | 控制点 2 的 x 坐标 |
-| `_y2` | `double` | 控制点 2 的 y 坐标 |
-| `_y0` | `double` | 起点 y 值 |
-| `_y3` | `double` | 终点 y 值 |
-| `_sampleValues` | `double[11]` | 预采样表 |
+
+先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
 ## 主要方法
-### createEase
+
+### CreateEase
+`public static CubicBezier CreateEase(double controlPoint1X, double controlPoint1Y, double controlPoint2X, double controlPoint2Y)`
+
+**用途 / Purpose:** 构建一个新的 「ease」 实体并返回给调用方。
+
 ```csharp
-public static CubicBezier CreateEase(double cp1X, double cp1Y, double cp2X, double cp2Y)
+// 静态调用，不需要实例
+CubicBezier.CreateEase(0, 0, 0, 0);
 ```
-创建标准 ease 缓动曲线：yBegin=0, yEnd=1。
-### createYBeginToYEnd
+
+### CreateYBeginToYEndWithRelativeControlDirs
+`public static CubicBezier CreateYBeginToYEndWithRelativeControlDirs(double yBegin, double yEnd, double controlDir1X, double controlDir1Y, double controlDir2X, double controlDir2Y)`
+
+**用途 / Purpose:** 构建一个新的 「y begin to y end with relative control dirs」 实体并返回给调用方。
+
 ```csharp
-public static CubicBezier CreateYBeginToYEnd(double yBegin, double yEnd, double cp1X, double cp1Y, double cp2X, double cp2Y)
+// 静态调用，不需要实例
+CubicBezier.CreateYBeginToYEndWithRelativeControlDirs(0, 0, 0, 0, 0, 0);
 ```
-指定起止 y 值和控制点坐标创建曲线。
-### createYBeginToYEndWithRelativeControlDirs
+
+### CreateYBeginToYEnd
+`public static CubicBezier CreateYBeginToYEnd(double yBegin, double yEnd, double controlPoint1X, double controlPoint1Y, double controlPoint2X, double controlPoint2Y)`
+
+**用途 / Purpose:** 构建一个新的 「y begin to y end」 实体并返回给调用方。
+
 ```csharp
-public static CubicBezier CreateYBeginToYEndWithRelativeControlDirs(double yBegin, double yEnd, double dir1X, double dir1Y, double dir2X, double dir2Y)
+// 静态调用，不需要实例
+CubicBezier.CreateYBeginToYEnd(0, 0, 0, 0, 0, 0);
 ```
-以相对偏移量指定控制点：P1=(dir1X, yBegin+dir1Y), P2=(1+dir2X, yEnd+dir2Y)。
+
 ### Sample
+`public double Sample(double x)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
 ```csharp
-public double Sample(double x)
+// 先通过子系统 API 拿到 CubicBezier 实例
+CubicBezier cubicBezier = ...;
+var result = cubicBezier.Sample(0);
 ```
-返回曲线在进度 x (0~1) 处的 y 值。
+
 ## 使用示例
-### 示例: 创建 ease-in-out 缓动动画
-**场景**: UI 动画使用 CSS ease 曲线
+
 ```csharp
-var bezier = CubicBezier.CreateEase(0.42, 0, 0.58, 1);
-double valueAt50Percent = bezier.Sample(0.5);
+CubicBezier.CreateEase(0, 0, 0, 0);
 ```
-**要点**: 控制点 x 必须在 [0,1] 范围内；线性情况会自动走捷径。
+
 ## 参见
-- [完整类目录](../catalog-core)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+
+- [本区域目录](../)

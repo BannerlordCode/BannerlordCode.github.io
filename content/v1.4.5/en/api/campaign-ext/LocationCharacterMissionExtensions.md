@@ -1,23 +1,18 @@
 ---
 title: "LocationCharacterMissionExtensions"
+description: "Auto-generated class reference for LocationCharacterMissionExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationCharacterMissionExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationCharacterMissionExtensions
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public static class LocationCharacterMissionExtensions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/Sandbox/LocationCharacterMissionExtensions.cs`
 
 ## Overview
 
-`LocationCharacterMissionExtensions` lives in `SandBox`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LocationCharacterMissionExtensions` lives in `SandBox` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### GetAgentBuildData
 `public static AgentBuildData GetAgentBuildData(this LocationCharacter locationCharacter)`
 
-**Purpose:** Gets the current value of `agent build data`.
+**Purpose:** Reads and returns the `agent build data` value held by the current object.
+
+```csharp
+// Static call; no instance required
+LocationCharacterMissionExtensions.GetAgentBuildData(locationCharacter);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 LocationCharacterMissionExtensions.GetAgentBuildData(locationCharacter);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

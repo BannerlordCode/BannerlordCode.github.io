@@ -1,13 +1,7 @@
 ---
 title: "WidgetExtensions"
+description: "WidgetExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetExtensions`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetExtensions
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,17 +23,32 @@ title: "WidgetExtensions"
 ### SetWidgetAttributeFromString
 `public static void SetWidgetAttributeFromString(object target, string name, string value, BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, XmlElement> customElements, Dictionary<string, string> defaultParameters)`
 
-**用途 / Purpose:** 设置 `widget attribute from string` 的值或状态。
+**用途 / Purpose:** 为 「widget attribute from string」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+WidgetExtensions.SetWidgetAttributeFromString(target, "example", "example", brushFactory, spriteData, dictionary<string, visualDefinitionTemplates, dictionary<string, constants, dictionary<string, parameters, dictionary<string, customElements, dictionary<string, "example");
+```
 
 ### GetWidgetAttributeType
 `public static Type GetWidgetAttributeType(object target, string name)`
 
-**用途 / Purpose:** 获取 `widget attribute type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「widget attribute type」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WidgetExtensions.GetWidgetAttributeType(target, "example");
+```
 
 ### SetWidgetAttribute
 `public static void SetWidgetAttribute(UIContext context, object target, string name, object value)`
 
-**用途 / Purpose:** 设置 `widget attribute` 的值或状态。
+**用途 / Purpose:** 为 「widget attribute」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+WidgetExtensions.SetWidgetAttribute(context, target, "example", value);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ WidgetExtensions.SetWidgetAttributeFromString(target, "example", "example", brus
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

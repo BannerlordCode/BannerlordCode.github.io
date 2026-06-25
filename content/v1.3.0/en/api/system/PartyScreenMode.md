@@ -1,13 +1,7 @@
 ---
 title: "PartyScreenMode"
+description: "Auto-generated class reference for PartyScreenMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyScreenMode`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyScreenMode
 
 **Namespace:** Helpers
@@ -27,9 +21,10 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-PartyScreenMode example = PartyScreenMode.Value;
+// Obtain an instance from the relevant subsystem API
+PartyScreenMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

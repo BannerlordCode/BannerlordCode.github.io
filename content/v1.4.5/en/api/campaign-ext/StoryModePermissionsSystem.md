@@ -1,23 +1,18 @@
 ---
 title: "StoryModePermissionsSystem"
+description: "Auto-generated class reference for StoryModePermissionsSystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModePermissionsSystem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModePermissionsSystem
 
 **Namespace:** StoryMode.View.Permissions
 **Module:** StoryMode.View
 **Type:** `public class StoryModePermissionsSystem`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.StoryMode/StoryMode.View/StoryMode.View.Permissions/StoryModePermissionsSystem.cs`
 
 ## Overview
 
-`StoryModePermissionsSystem` lives in `StoryMode.View.Permissions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StoryModePermissionsSystem` lives in `StoryMode.View.Permissions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `StoryMode.View.Permissions` to place it in the stack, then
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** Called when the `initialize` event is raised.
+**Purpose:** Invoked when the `initialize` event is raised.
+
+```csharp
+// Static call; no instance required
+StoryModePermissionsSystem.OnInitialize();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 StoryModePermissionsSystem.OnInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ICampaignOptionData"
+description: "Auto-generated class reference for ICampaignOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICampaignOptionData`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICampaignOptionData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/ICampaignOptionData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/ICampaignOptionData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ICampaignOptionData` as a Data-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-ICampaignOptionData implementation = GetCampaignOptionDataImplementation();
+// Usually obtained through DI or a factory method
+IICampaignOptionData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

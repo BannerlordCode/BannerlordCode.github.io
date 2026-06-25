@@ -1,20 +1,14 @@
 ---
 title: "MBRandom"
+description: "MBRandom 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBRandom`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBRandom
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBRandom`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBRandom.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBRandom.cs`
 
 ## 概述
 
@@ -35,52 +29,102 @@ title: "MBRandom"
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float maxVal)`
 
-**用途 / Purpose:** 处理 `random float ranged` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RandomFloatRanged(0);
+```
 
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float minVal, float maxVal)`
 
-**用途 / Purpose:** 处理 `random float ranged` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RandomFloatRanged(0, 0);
+```
 
 ### RandomInt
 `public static int RandomInt()`
 
-**用途 / Purpose:** 处理 `random int` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RandomInt();
+```
 
 ### RandomInt
 `public static int RandomInt(int maxValue)`
 
-**用途 / Purpose:** 处理 `random int` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RandomInt(0);
+```
 
 ### RandomInt
 `public static int RandomInt(int minValue, int maxValue)`
 
-**用途 / Purpose:** 处理 `random int` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RandomInt(0, 0);
+```
 
 ### RoundRandomized
 `public static int RoundRandomized(float f)`
 
-**用途 / Purpose:** 处理 `round randomized` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RoundRandomized(0);
+```
 
 ### RandomFloatGaussian
 `public static float RandomFloatGaussian(float center, float spread, float min, float max)`
 
-**用途 / Purpose:** 处理 `random float gaussian` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RandomFloatGaussian(0, 0, 0, 0);
+```
 
 ### SetSeed
 `public static void SetSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 设置 `seed` 的值或状态。
+**用途 / Purpose:** 为 「seed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.SetSeed(0, 0);
+```
 
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 处理 `random int with seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RandomIntWithSeed(0, 0);
+```
 
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 处理 `random float with seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBRandom.RandomFloatWithSeed(0, 0);
+```
 
 ## 使用示例
 
@@ -90,4 +134,4 @@ MBRandom.RandomFloatRanged(0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

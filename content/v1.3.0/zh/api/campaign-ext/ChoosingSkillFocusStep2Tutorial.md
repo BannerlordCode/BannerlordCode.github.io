@@ -1,13 +1,7 @@
 ---
 title: "ChoosingSkillFocusStep2Tutorial"
+description: "ChoosingSkillFocusStep2Tutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ChoosingSkillFocusStep2Tutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChoosingSkillFocusStep2Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ title: "ChoosingSkillFocusStep2Tutorial"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ChoosingSkillFocusStep2Tutorial 实例
+ChoosingSkillFocusStep2Tutorial choosingSkillFocusStep2Tutorial = ...;
+var result = choosingSkillFocusStep2Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnFocusAddedByPlayer
 `public override void OnFocusAddedByPlayer(FocusAddedByPlayerEvent obj)`
 
-**用途 / Purpose:** 当 `focus added by player` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus added by player」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ChoosingSkillFocusStep2Tutorial 实例
+ChoosingSkillFocusStep2Tutorial choosingSkillFocusStep2Tutorial = ...;
+choosingSkillFocusStep2Tutorial.OnFocusAddedByPlayer(obj);
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ChoosingSkillFocusStep2Tutorial 实例
+ChoosingSkillFocusStep2Tutorial choosingSkillFocusStep2Tutorial = ...;
+var result = choosingSkillFocusStep2Tutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ChoosingSkillFocusStep2Tutorial 实例
+ChoosingSkillFocusStep2Tutorial choosingSkillFocusStep2Tutorial = ...;
+var result = choosingSkillFocusStep2Tutorial.IsConditionsMetForActivation();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ChoosingSkillFocusStep2Tutorial();
-value.IsConditionsMetForCompletion();
+// 通常从对应子系统 API 获取实例后调用
+ChoosingSkillFocusStep2Tutorial choosingSkillFocusStep2Tutorial = ...;
+choosingSkillFocusStep2Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

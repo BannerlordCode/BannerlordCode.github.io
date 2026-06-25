@@ -1,13 +1,7 @@
 ---
 title: "VirtualDirectoryAttribute"
+description: "Auto-generated class reference for VirtualDirectoryAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VirtualDirectoryAttribute`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VirtualDirectoryAttribute
 
 **Namespace:** TaleWorlds.Library
@@ -39,4 +33,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

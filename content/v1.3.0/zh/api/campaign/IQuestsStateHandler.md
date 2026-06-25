@@ -1,18 +1,12 @@
 ---
 title: "IQuestsStateHandler"
+description: "IQuestsStateHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IQuestsStateHandler`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IQuestsStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IQuestsStateHandler`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/GameState/IQuestsStateHandler.cs`
 
@@ -27,9 +21,10 @@ title: "IQuestsStateHandler"
 ## 使用示例
 
 ```csharp
-IQuestsStateHandler implementation = GetQuestsStateHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIQuestsStateHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

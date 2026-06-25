@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerEndOfBattleScreenWidget"
+description: "Auto-generated class reference for MultiplayerEndOfBattleScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerEndOfBattleScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerEndOfBattleScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
@@ -34,9 +28,10 @@ Treat `MultiplayerEndOfBattleScreenWidget` as a Widget-style extension point: fi
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerEndOfBattleScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerEndOfBattleScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

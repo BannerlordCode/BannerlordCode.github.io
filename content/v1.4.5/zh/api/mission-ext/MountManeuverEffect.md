@@ -1,20 +1,14 @@
 ---
 title: "MountManeuverEffect"
+description: "MountManeuverEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MountManeuverEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountManeuverEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MountManeuverEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountManeuverEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/MountManeuverEffect.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "MountManeuverEffect"
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**用途 / Purpose:** 当 `update` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「update」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MountManeuverEffect 实例
+MountManeuverEffect mountManeuverEffect = ...;
+mountManeuverEffect.OnUpdate(agent, false);
+```
 
 ### GetMountManeuver
 `public override float GetMountManeuver()`
 
-**用途 / Purpose:** 获取 `mount maneuver` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mount maneuver」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MountManeuverEffect 实例
+MountManeuverEffect mountManeuverEffect = ...;
+var result = mountManeuverEffect.GetMountManeuver();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MountManeuverEffect();
-value.OnUpdate(agent, false);
+// 通常从对应子系统 API 获取实例后调用
+MountManeuverEffect mountManeuverEffect = ...;
+mountManeuverEffect.OnUpdate(agent, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

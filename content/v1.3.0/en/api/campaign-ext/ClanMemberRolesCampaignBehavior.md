@@ -1,13 +1,7 @@
 ---
 title: "ClanMemberRolesCampaignBehavior"
+description: "Auto-generated class reference for ClanMemberRolesCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanMemberRolesCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanMemberRolesCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
@@ -29,25 +23,44 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ClanMemberRolesCampaignBehavior from the subsystem API first
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+clanMemberRolesCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ClanMemberRolesCampaignBehavior from the subsystem API first
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+clanMemberRolesCampaignBehavior.SyncData(dataStore);
+```
 
 ### IsFollowingPlayer
 `public bool IsFollowingPlayer(Hero hero)`
 
-**Purpose:** Handles logic related to `is following player`.
+**Purpose:** Determines whether the current object is in the `following player` state or condition.
+
+```csharp
+// Obtain an instance of ClanMemberRolesCampaignBehavior from the subsystem API first
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+var result = clanMemberRolesCampaignBehavior.IsFollowingPlayer(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanMemberRolesCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+ClanMemberRolesCampaignBehavior clanMemberRolesCampaignBehavior = ...;
+clanMemberRolesCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

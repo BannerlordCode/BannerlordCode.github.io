@@ -1,20 +1,14 @@
 ---
 title: "GameMenuInitializationHandler"
+description: "GameMenuInitializationHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuInitializationHandler`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuInitializationHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuInitializationHandler : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuInitializationHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuInitializationHandler.cs`
 
 ## 概述
 
@@ -33,9 +27,9 @@ title: "GameMenuInitializationHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GameMenuInitializationHandler());
+var behavior = Mission.Current.GetMissionBehavior<GameMenuInitializationHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

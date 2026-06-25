@@ -1,20 +1,14 @@
 ---
 title: "KingdomElection"
+description: "KingdomElection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomElection`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomElection
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomElection`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/KingdomElection.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/KingdomElection.cs`
 
 ## 概述
 
@@ -35,110 +29,230 @@ title: "KingdomElection"
 ### StartElection
 `public void StartElection()`
 
-**用途 / Purpose:** 处理 `start election` 相关逻辑。
+**用途 / Purpose:** 启动「election」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+kingdomElection.StartElection();
+```
 
 ### GetElectionOutcomeSupport
 `public static ElectionOutcomeSupport GetElectionOutcomeSupport(KingdomDecision decision, Clan sponsor)`
 
-**用途 / Purpose:** 获取 `election outcome support` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「election outcome support」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+KingdomElection.GetElectionOutcomeSupport(decision, sponsor);
+```
 
 ### SetupResultWithoutPlayerSupport
 `public void SetupResultWithoutPlayerSupport()`
 
-**用途 / Purpose:** 设置 `up result without player support` 的值或状态。
+**用途 / Purpose:** 为 「up result without player support」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+kingdomElection.SetupResultWithoutPlayerSupport();
+```
 
 ### StartElectionWithoutPlayer
 `public void StartElectionWithoutPlayer()`
 
-**用途 / Purpose:** 处理 `start election without player` 相关逻辑。
+**用途 / Purpose:** 启动「election without player」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+kingdomElection.StartElectionWithoutPlayer();
+```
 
 ### GetLikelihoodForSponsor
 `public float GetLikelihoodForSponsor(Clan sponsor)`
 
-**用途 / Purpose:** 获取 `likelihood for sponsor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「likelihood for sponsor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetLikelihoodForSponsor(sponsor);
+```
 
 ### GetWinChanceForSponsor
 `public float GetWinChanceForSponsor(Clan sponsor)`
 
-**用途 / Purpose:** 获取 `win chance for sponsor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「win chance for sponsor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetWinChanceForSponsor(sponsor);
+```
 
 ### GetDecisionOutcomeSupportForSponsor
 `public ElectionOutcomeSupport GetDecisionOutcomeSupportForSponsor(Clan sponsor)`
 
-**用途 / Purpose:** 获取 `decision outcome support for sponsor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision outcome support for sponsor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetDecisionOutcomeSupportForSponsor(sponsor);
+```
 
 ### GetRelationChangeWithSponsor
 `public int GetRelationChangeWithSponsor(Hero opposerOrSupporter, Supporter.SupportWeights supportWeight, bool isOpposingSides)`
 
-**用途 / Purpose:** 获取 `relation change with sponsor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation change with sponsor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetRelationChangeWithSponsor(opposerOrSupporter, supportWeight, false);
+```
 
 ### GetChosenOutcomeText
 `public TextObject GetChosenOutcomeText()`
 
-**用途 / Purpose:** 获取 `chosen outcome text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「chosen outcome text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetChosenOutcomeText();
+```
 
 ### DetermineOfficialSupport
 `public void DetermineOfficialSupport()`
 
-**用途 / Purpose:** 处理 `determine official support` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「official support」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+kingdomElection.DetermineOfficialSupport();
+```
 
 ### GetWinChanceWithPlayerSupport
 `public float GetWinChanceWithPlayerSupport(DecisionOutcome supportedOutcome, Supporter.SupportWeights supportWeight)`
 
-**用途 / Purpose:** 获取 `win chance with player support` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「win chance with player support」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetWinChanceWithPlayerSupport(supportedOutcome, supportWeight);
+```
 
 ### GetInfluenceCostOfOutcome
 `public int GetInfluenceCostOfOutcome(DecisionOutcome outcome, Clan supporter, Supporter.SupportWeights weight)`
 
-**用途 / Purpose:** 获取 `influence cost of outcome` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence cost of outcome」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetInfluenceCostOfOutcome(outcome, supporter, weight);
+```
 
 ### GetSecondaryEffects
 `public TextObject GetSecondaryEffects()`
 
-**用途 / Purpose:** 获取 `secondary effects` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「secondary effects」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetSecondaryEffects();
+```
 
 ### OnPlayerSupport
 `public void OnPlayerSupport(DecisionOutcome decisionOutcome, Supporter.SupportWeights supportWeight)`
 
-**用途 / Purpose:** 当 `player support` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player support」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+kingdomElection.OnPlayerSupport(decisionOutcome, supportWeight);
+```
 
 ### OnPlayerAbstainedAsRuler
 `public void OnPlayerAbstainedAsRuler()`
 
-**用途 / Purpose:** 当 `player abstained as ruler` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player abstained as ruler」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+kingdomElection.OnPlayerAbstainedAsRuler();
+```
 
 ### ApplySelection
 `public void ApplySelection()`
 
-**用途 / Purpose:** 将 `selection` 应用到当前对象。
+**用途 / Purpose:** 将 「selection」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+kingdomElection.ApplySelection();
+```
 
 ### GetSortedDecisionOutcomes
 `public MBList<DecisionOutcome> GetSortedDecisionOutcomes()`
 
-**用途 / Purpose:** 获取 `sorted decision outcomes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sorted decision outcomes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetSortedDecisionOutcomes();
+```
 
 ### GetGeneralTitle
 `public TextObject GetGeneralTitle()`
 
-**用途 / Purpose:** 获取 `general title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「general title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetGeneralTitle();
+```
 
 ### GetTitle
 `public TextObject GetTitle()`
 
-**用途 / Purpose:** 获取 `title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetTitle();
+```
 
 ### GetDescription
 `public TextObject GetDescription()`
 
-**用途 / Purpose:** 获取 `description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomElection 实例
+KingdomElection kingdomElection = ...;
+var result = kingdomElection.GetDescription();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomElection();
-value.StartElection();
+// 通常从对应子系统 API 获取实例后调用
+KingdomElection kingdomElection = ...;
+kingdomElection.StartElection();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "LineSegment2D"
+description: "Auto-generated class reference for LineSegment2D."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LineSegment2D`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LineSegment2D
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct LineSegment2D`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/LineSegment2D.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/LineSegment2D.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### LineSegment2D
 `public struct LineSegment2D(Vec2 point1, Vec2 point2)`
 
-**Purpose:** Handles logic related to `line segment2 d`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LineSegment2D from the subsystem API first
+LineSegment2D lineSegment2D = ...;
+var result = lineSegment2D.LineSegment2D(point1, point2);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LineSegment2D();
-value.LineSegment2D(point1, point2);
+// Typically call this after obtaining an instance from the subsystem API
+LineSegment2D lineSegment2D = ...;
+lineSegment2D.LineSegment2D(point1, point2);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

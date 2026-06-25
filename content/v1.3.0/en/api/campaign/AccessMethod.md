@@ -1,13 +1,7 @@
 ---
 title: "AccessMethod"
+description: "Auto-generated class reference for AccessMethod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AccessMethod`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AccessMethod
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ComponentInterfaces` to place it
 ## Usage Example
 
 ```csharp
-AccessMethod example = AccessMethod.Value;
+// Obtain an instance from the relevant subsystem API
+AccessMethod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

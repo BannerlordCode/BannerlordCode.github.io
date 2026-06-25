@@ -1,18 +1,12 @@
 ---
 title: "IActivityService"
+description: "IActivityService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IActivityService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IActivityService
 
 **Namespace:** TaleWorlds.ActivitySystem
 **Module:** TaleWorlds.ActivitySystem
-**Type:** `class`
+**Type:** `public interface IActivityService`
 **Base:** 无
 **File:** `TaleWorlds.ActivitySystem/IActivityService.cs`
 
@@ -27,9 +21,10 @@ title: "IActivityService"
 ## 使用示例
 
 ```csharp
-IActivityService implementation = GetActivityServiceImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIActivityService service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

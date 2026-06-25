@@ -1,13 +1,7 @@
 ---
 title: "Min"
+description: "Auto-generated class reference for Min."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Min`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Min
 
 **Namespace:** TaleWorlds.LinQuick
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.LinQuick` to place it in the stack, then inspec
 ## Usage Example
 
 ```csharp
-var example = new Min();
+// Obtain an instance from the relevant subsystem API
+Min instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

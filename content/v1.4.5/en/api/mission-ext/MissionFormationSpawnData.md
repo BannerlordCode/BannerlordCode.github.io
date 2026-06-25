@@ -1,20 +1,14 @@
 ---
 title: "MissionFormationSpawnData"
+description: "Auto-generated class reference for MissionFormationSpawnData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionFormationSpawnData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFormationSpawnData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MissionFormationSpawnData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionFormationSpawnData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionFormationSpawnData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionFormationSpawnData` as a Data-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var value = new MissionFormationSpawnData();
+// This data object is usually returned by campaign/mission APIs
+MissionFormationSpawnData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

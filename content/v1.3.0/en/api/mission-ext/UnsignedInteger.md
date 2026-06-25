@@ -1,13 +1,7 @@
 ---
 title: "UnsignedInteger"
+description: "Auto-generated class reference for UnsignedInteger."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UnsignedInteger`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UnsignedInteger
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Gets the current value of `num bits`.
+**Purpose:** Reads and returns the `num bits` value held by the current object.
+
+```csharp
+// Obtain an instance of UnsignedInteger from the subsystem API first
+UnsignedInteger unsignedInteger = ...;
+var result = unsignedInteger.GetNumBits();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UnsignedInteger();
-value.GetNumBits();
+// Typically call this after obtaining an instance from the subsystem API
+UnsignedInteger unsignedInteger = ...;
+unsignedInteger.GetNumBits();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

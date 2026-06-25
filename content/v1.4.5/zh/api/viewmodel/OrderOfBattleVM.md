@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleVM"
+description: "OrderOfBattleVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderOfBattleVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle/OrderOfBattleVM.cs`
 
 ## 概述
 
@@ -57,110 +51,231 @@ title: "OrderOfBattleVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.Tick();
+```
 
 ### Initialize
 `public void Initialize(Mission mission, Camera missionCamera, Action<int> selectFormationAtIndex, Action<int> deselectFormationAtIndex, Action clearFormationSelection, Action onAutoDeploy, Action onBeginMission, Dictionary<int, Agent> formationIndicesAndSergeants)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.Initialize(mission, missionCamera, selectFormationAtIndex, deselectFormationAtIndex, clearFormationSelection, onAutoDeploy, onBeginMission, dictionary<int, formationIndicesAndSergeants);
+```
 
 ### OnAllFormationsAssignedSergeants
 `public void OnAllFormationsAssignedSergeants(Dictionary<int, Agent> preAssignedCaptains)`
 
-**用途 / Purpose:** 当 `all formations assigned sergeants` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「all formations assigned sergeants」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.OnAllFormationsAssignedSergeants(dictionary<int, preAssignedCaptains);
+```
 
 ### IsAnyClassSelectionEnabled
 `public bool IsAnyClassSelectionEnabled()`
 
-**用途 / Purpose:** 处理 `is any class selection enabled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「any class selection enabled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+var result = orderOfBattleVM.IsAnyClassSelectionEnabled();
+```
 
 ### ExecuteDisableAllClassSelections
 `public void ExecuteDisableAllClassSelections()`
 
-**用途 / Purpose:** 执行 `disable all class selections` 操作或流程。
+**用途 / Purpose:** 执行 「disable all class selections」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteDisableAllClassSelections();
+```
 
 ### ExecuteAcceptHeroes
 `public void ExecuteAcceptHeroes()`
 
-**用途 / Purpose:** 执行 `accept heroes` 操作或流程。
+**用途 / Purpose:** 执行 「accept heroes」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteAcceptHeroes();
+```
 
 ### ExecuteSelectAllHeroes
 `public void ExecuteSelectAllHeroes()`
 
-**用途 / Purpose:** 执行 `select all heroes` 操作或流程。
+**用途 / Purpose:** 执行 「select all heroes」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteSelectAllHeroes();
+```
 
 ### ExecuteClearHeroSelection
 `public void ExecuteClearHeroSelection()`
 
-**用途 / Purpose:** 执行 `clear hero selection` 操作或流程。
+**用途 / Purpose:** 执行 「clear hero selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteClearHeroSelection();
+```
 
 ### OnDeploymentFinalized
 `public void OnDeploymentFinalized(bool playerDeployed)`
 
-**用途 / Purpose:** 当 `deployment finalized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finalized」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.OnDeploymentFinalized(false);
+```
 
 ### SelectFormationItemAtIndex
 `public void SelectFormationItemAtIndex(int index)`
 
-**用途 / Purpose:** 处理 `select formation item at index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.SelectFormationItemAtIndex(0);
+```
 
 ### FocusFormationItemAtIndex
 `public void FocusFormationItemAtIndex(int index)`
 
-**用途 / Purpose:** 处理 `focus formation item at index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.FocusFormationItemAtIndex(0);
+```
 
 ### DeselectAllFormations
 `public void DeselectAllFormations()`
 
-**用途 / Purpose:** 处理 `deselect all formations` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.DeselectAllFormations();
+```
 
 ### OnUnitDeployed
 `public void OnUnitDeployed()`
 
-**用途 / Purpose:** 当 `unit deployed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unit deployed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.OnUnitDeployed();
+```
 
 ### OnEscape
 `public bool OnEscape()`
 
-**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+var result = orderOfBattleVM.OnEscape();
+```
 
 ### ExecuteAutoDeploy
 `public void ExecuteAutoDeploy()`
 
-**用途 / Purpose:** 执行 `auto deploy` 操作或流程。
+**用途 / Purpose:** 执行 「auto deploy」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteAutoDeploy();
+```
 
 ### ExecuteBeginMission
 `public void ExecuteBeginMission()`
 
-**用途 / Purpose:** 执行 `begin mission` 操作或流程。
+**用途 / Purpose:** 执行 「begin mission」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteBeginMission();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.SetDoneInputKey(hotkey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `reset input key` 的值或状态。
+**用途 / Purpose:** 为 「reset input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleVM 实例
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.SetResetInputKey(hotkey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderOfBattleVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

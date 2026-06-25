@@ -1,13 +1,7 @@
 ---
 title: "TwoDimensionEngineResourceContext"
+description: "Auto-generated class reference for TwoDimensionEngineResourceContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionEngineResourceContext`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionEngineResourceContext
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new TwoDimensionEngineResourceContext();
+// Obtain an instance from the relevant subsystem API
+TwoDimensionEngineResourceContext instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

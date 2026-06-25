@@ -1,13 +1,7 @@
 ---
 title: "PieceTierComparer"
+description: "Auto-generated class reference for PieceTierComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PieceTierComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PieceTierComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### Compare
 `public int Compare(CraftingPieceVM x, CraftingPieceVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of PieceTierComparer from the subsystem API first
+PieceTierComparer pieceTierComparer = ...;
+var result = pieceTierComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PieceTierComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+PieceTierComparer pieceTierComparer = ...;
+pieceTierComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

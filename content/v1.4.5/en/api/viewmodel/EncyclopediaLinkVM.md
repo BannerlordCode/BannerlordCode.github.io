@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaLinkVM"
+description: "Auto-generated class reference for EncyclopediaLinkVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaLinkVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaLinkVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaLinkVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaLinkVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaLinkVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### ExecuteActiveLink
 `public void ExecuteActiveLink()`
 
-**Purpose:** Executes the `active link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `active link`.
+
+```csharp
+// Obtain an instance of EncyclopediaLinkVM from the subsystem API first
+EncyclopediaLinkVM encyclopediaLinkVM = ...;
+encyclopediaLinkVM.ExecuteActiveLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaLinkVM();
-value.ExecuteActiveLink();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaLinkVM encyclopediaLinkVM = ...;
+encyclopediaLinkVM.ExecuteActiveLink();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

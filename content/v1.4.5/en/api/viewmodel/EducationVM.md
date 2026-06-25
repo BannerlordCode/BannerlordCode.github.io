@@ -1,20 +1,14 @@
 ---
 title: "EducationVM"
+description: "Auto-generated class reference for EducationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationVM.cs`
 
 ## Overview
 
@@ -49,40 +43,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EducationVM from the subsystem API first
+EducationVM educationVM = ...;
+educationVM.RefreshValues();
+```
 
 ### ExecuteNextStage
 `public void ExecuteNextStage()`
 
-**Purpose:** Executes the `next stage` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `next stage`.
+
+```csharp
+// Obtain an instance of EducationVM from the subsystem API first
+EducationVM educationVM = ...;
+educationVM.ExecuteNextStage();
+```
 
 ### ExecutePreviousStage
 `public void ExecutePreviousStage()`
 
-**Purpose:** Executes the `previous stage` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `previous stage`.
+
+```csharp
+// Obtain an instance of EducationVM from the subsystem API first
+EducationVM educationVM = ...;
+educationVM.ExecutePreviousStage();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of EducationVM from the subsystem API first
+EducationVM educationVM = ...;
+educationVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EducationVM from the subsystem API first
+EducationVM educationVM = ...;
+educationVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EducationVM from the subsystem API first
+EducationVM educationVM = ...;
+educationVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EducationVM educationVM = ...;
+educationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

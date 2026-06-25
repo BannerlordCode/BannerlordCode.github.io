@@ -1,13 +1,7 @@
 ---
 title: "FrenchTextProcessor"
+description: "FrenchTextProcessor 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FrenchTextProcessor`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FrenchTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
@@ -29,27 +23,28 @@ title: "FrenchTextProcessor"
 | Name | Signature |
 |------|-----------|
 | `WordGroups` | `public static Dictionary<string, ValueTuple<string, int, bool>> WordGroups { get; }` |
-| `CultureInfoForLanguage` | `public override CultureInfo CultureInfoForLanguage { get; }` |
 
 ## 主要方法
 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** 处理 `process token` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-### ClearTemporaryData
-`public override void ClearTemporaryData()`
-
-**用途 / Purpose:** 处理 `clear temporary data` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 FrenchTextProcessor 实例
+FrenchTextProcessor frenchTextProcessor = ...;
+frenchTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FrenchTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// 通常从对应子系统 API 获取实例后调用
+FrenchTextProcessor frenchTextProcessor = ...;
+frenchTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

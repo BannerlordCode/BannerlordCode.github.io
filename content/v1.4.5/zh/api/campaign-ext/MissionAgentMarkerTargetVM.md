@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentMarkerTargetVM"
+description: "MissionAgentMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentMarkerTargetVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionAgentMarkerTargetVM : MissionNameMarkerTargetVM<Agent>`
 **Base:** `MissionNameMarkerTargetVM<Agent>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets/MissionAgentMarkerTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets/MissionAgentMarkerTargetVM.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "MissionAgentMarkerTargetVM"
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentMarkerTargetVM 实例
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+var result = missionAgentMarkerTargetVM.Compare(x, y);
+```
 
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentMarkerTargetVM 实例
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ### UpdateQuestStatus
 `public void UpdateQuestStatus()`
 
-**用途 / Purpose:** 更新 `quest status` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「quest status」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentMarkerTargetVM 实例
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.UpdateQuestStatus();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionAgentMarkerTargetVM();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+MissionAgentMarkerTargetVM missionAgentMarkerTargetVM = ...;
+missionAgentMarkerTargetVM.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

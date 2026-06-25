@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveTarget"
+description: "MissionObjectiveTarget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectiveTarget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionObjectiveTarget
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MissionObjectiveTarget`
-**Base:** 无
-**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/MissionObjectiveTarget.cs`
+**Type:** `public abstract class MissionObjectiveTarget<T> : MissionObjectiveTarget`
+**Base:** `MissionObjectiveTarget`
+**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/MissionObjectiveTarget.2.cs`
 
 ## 概述
 
@@ -24,29 +18,19 @@ title: "MissionObjectiveTarget"
 
 先从命名空间 `TaleWorlds.MountAndBlade.Missions.Objectives` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
+## 主要属性
 
-### IsActive
-`public abstract bool IsActive()`
-
-**用途 / Purpose:** 处理 `is active` 相关逻辑。
-
-### GetName
-`public abstract TextObject GetName()`
-
-**用途 / Purpose:** 获取 `name` 的当前值。
-
-### GetGlobalPosition
-`public abstract Vec3 GetGlobalPosition()`
-
-**用途 / Purpose:** 获取 `global position` 的当前值。
+| Name | Signature |
+|------|-----------|
+| `Target` | `public T Target { get; }` |
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionObjectiveTarget();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionObjectiveTarget instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

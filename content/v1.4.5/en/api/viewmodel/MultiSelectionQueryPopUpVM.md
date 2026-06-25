@@ -1,20 +1,14 @@
 ---
 title: "MultiSelectionQueryPopUpVM"
+description: "Auto-generated class reference for MultiSelectionQueryPopUpVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiSelectionQueryPopUpVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiSelectionQueryPopUpVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiSelectionQueryPopUpVM : PopUpBaseVM`
 **Base:** `PopUpBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries/MultiSelectionQueryPopUpVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries/MultiSelectionQueryPopUpVM.cs`
 
 ## Overview
 
@@ -40,30 +34,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to
 ### SetData
 `public void SetData(MultiSelectionInquiryData data)`
 
-**Purpose:** Sets the value or state of `data`.
+**Purpose:** Assigns a new value to `data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiSelectionQueryPopUpVM from the subsystem API first
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.SetData(data);
+```
 
 ### ExecuteAffirmativeAction
 `public override void ExecuteAffirmativeAction()`
 
-**Purpose:** Executes the `affirmative action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `affirmative action`.
+
+```csharp
+// Obtain an instance of MultiSelectionQueryPopUpVM from the subsystem API first
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.ExecuteAffirmativeAction();
+```
 
 ### ExecuteNegativeAction
 `public override void ExecuteNegativeAction()`
 
-**Purpose:** Executes the `negative action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `negative action`.
+
+```csharp
+// Obtain an instance of MultiSelectionQueryPopUpVM from the subsystem API first
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.ExecuteNegativeAction();
+```
 
 ### OnClearData
 `public override void OnClearData()`
 
-**Purpose:** Called when the `clear data` event is raised.
+**Purpose:** Invoked when the `clear data` event is raised.
+
+```csharp
+// Obtain an instance of MultiSelectionQueryPopUpVM from the subsystem API first
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.OnClearData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiSelectionQueryPopUpVM();
-value.SetData(data);
+// Typically call this after obtaining an instance from the subsystem API
+MultiSelectionQueryPopUpVM multiSelectionQueryPopUpVM = ...;
+multiSelectionQueryPopUpVM.SetData(data);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

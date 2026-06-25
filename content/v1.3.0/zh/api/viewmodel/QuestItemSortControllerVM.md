@@ -1,13 +1,7 @@
 ---
 title: "QuestItemSortControllerVM"
+description: "QuestItemSortControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QuestItemSortControllerVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestItemSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -36,35 +30,66 @@ title: "QuestItemSortControllerVM"
 ### SortByOption
 `public void SortByOption(QuestItemSortControllerVM.QuestItemSortOption sortOption)`
 
-**用途 / Purpose:** 处理 `sort by option` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 QuestItemSortControllerVM 实例
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+questItemSortControllerVM.SortByOption(sortOption);
+```
 
 ### Compare
 `public abstract int Compare(QuestItemVM x, QuestItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 QuestItemSortControllerVM 实例
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+var result = questItemSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 QuestItemSortControllerVM 实例
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+var result = questItemSortControllerVM.Compare(first, second);
+```
 
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 QuestItemSortControllerVM 实例
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+var result = questItemSortControllerVM.Compare(first, second);
+```
 
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 QuestItemSortControllerVM 实例
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+var result = questItemSortControllerVM.Compare(first, second);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new QuestItemSortControllerVM();
-value.SortByOption(sortOption);
+// 通常从对应子系统 API 获取实例后调用
+QuestItemSortControllerVM questItemSortControllerVM = ...;
+questItemSortControllerVM.SortByOption(sortOption);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

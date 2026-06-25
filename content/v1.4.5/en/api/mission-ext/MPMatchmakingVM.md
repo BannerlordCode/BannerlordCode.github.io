@@ -1,20 +1,14 @@
 ---
 title: "MPMatchmakingVM"
+description: "Auto-generated class reference for MPMatchmakingVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPMatchmakingVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPMatchmakingVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPMatchmakingVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPMatchmakingVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPMatchmakingVM.cs`
 
 ## Overview
 
@@ -67,70 +61,143 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshValues();
+```
 
 ### TrySetMatchmakingSubPage
 `public void TrySetMatchmakingSubPage(MatchmakingSubPages newPage)`
 
-**Purpose:** Attempts to get `set matchmaking sub page`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `set matchmaking sub page`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.TrySetMatchmakingSubPage(newPage);
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**Purpose:** Refreshes the display or cache of `player data`.
+**Purpose:** Keeps the display or cache of `player data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshPlayerData(playerData);
+```
 
 ### OnFindingGame
 `public void OnFindingGame()`
 
-**Purpose:** Called when the `finding game` event is raised.
+**Purpose:** Invoked when the `finding game` event is raised.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnFindingGame();
+```
 
 ### OnCancelFindingGame
 `public void OnCancelFindingGame()`
 
-**Purpose:** Called when the `cancel finding game` event is raised.
+**Purpose:** Invoked when the `cancel finding game` event is raised.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnCancelFindingGame();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnFinalize();
+```
 
 ### GetSelectedGameTypesInfo
 `public bool GetSelectedGameTypesInfo(out string gameTypes)`
 
-**Purpose:** Gets the current value of `selected game types info`.
+**Purpose:** Reads and returns the `selected game types info` value held by the current object.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+var result = mPMatchmakingVM.GetSelectedGameTypesInfo(gameTypes);
+```
 
 ### RefreshWaitingTime
 `public void RefreshWaitingTime()`
 
-**Purpose:** Refreshes the display or cache of `waiting time`.
+**Purpose:** Keeps the display or cache of `waiting time` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshWaitingTime();
+```
 
 ### ExecuteAutoFindGame
 `public void ExecuteAutoFindGame()`
 
-**Purpose:** Executes the `auto find game` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `auto find game`.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.ExecuteAutoFindGame();
+```
 
 ### RefreshSubPageStates
 `public void RefreshSubPageStates()`
 
-**Purpose:** Refreshes the display or cache of `sub page states`.
+**Purpose:** Keeps the display or cache of `sub page states` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshSubPageStates();
+```
 
 ### OnPremadeGameEligibilityStatusReceived
 `public void OnPremadeGameEligibilityStatusReceived(bool isEligible)`
 
-**Purpose:** Called when the `premade game eligibility status received` event is raised.
+**Purpose:** Invoked when the `premade game eligibility status received` event is raised.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnPremadeGameEligibilityStatusReceived(false);
+```
 
 ### OnSupportedFeaturesRefreshed
 `public void OnSupportedFeaturesRefreshed(SupportedFeatures supportedFeatures)`
 
-**Purpose:** Called when the `supported features refreshed` event is raised.
+**Purpose:** Invoked when the `supported features refreshed` event is raised.
+
+```csharp
+// Obtain an instance of MPMatchmakingVM from the subsystem API first
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnSupportedFeaturesRefreshed(supportedFeatures);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPMatchmakingVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

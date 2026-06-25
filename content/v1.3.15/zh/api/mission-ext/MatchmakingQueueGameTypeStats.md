@@ -1,13 +1,7 @@
 ---
 title: "MatchmakingQueueGameTypeStats"
+description: "MatchmakingQueueGameTypeStats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MatchmakingQueueGameTypeStats`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MatchmakingQueueGameTypeStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -37,20 +31,33 @@ title: "MatchmakingQueueGameTypeStats"
 ### HasGameType
 `public bool HasGameType(string gameType)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `game type`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「game type」。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueGameTypeStats 实例
+MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats = ...;
+var result = matchmakingQueueGameTypeStats.HasGameType("example");
+```
 
 ### EqualWith
 `public bool EqualWith(string gameTypes)`
 
-**用途 / Purpose:** 处理 `equal with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueGameTypeStats 实例
+MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats = ...;
+var result = matchmakingQueueGameTypeStats.EqualWith("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MatchmakingQueueGameTypeStats();
-value.HasGameType("example");
+// 通常从对应子系统 API 获取实例后调用
+MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats = ...;
+matchmakingQueueGameTypeStats.HasGameType("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

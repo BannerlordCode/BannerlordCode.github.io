@@ -1,20 +1,14 @@
 ---
 title: "Missile"
+description: "Missile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Missile`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Missile
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Missile : MBMissile`
 **Base:** `MBMissile`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 
@@ -39,25 +33,44 @@ title: "Missile"
 ### CalculatePassbySoundParametersMT
 `public void CalculatePassbySoundParametersMT(ref SoundEventParameter soundEventParameter)`
 
-**用途 / Purpose:** 处理 `calculate passby sound parameters m t` 相关逻辑。
+**用途 / Purpose:** 计算「passby sound parameters m t」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 Missile 实例
+Missile missile = ...;
+missile.CalculatePassbySoundParametersMT(soundEventParameter);
+```
 
 ### CalculateBounceBackVelocity
 `public void CalculateBounceBackVelocity(Vec3 rotationSpeed, AttackCollisionData collisionData, out Vec3 velocity, out Vec3 angularVelocity)`
 
-**用途 / Purpose:** 处理 `calculate bounce back velocity` 相关逻辑。
+**用途 / Purpose:** 计算「bounce back velocity」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 Missile 实例
+Missile missile = ...;
+missile.CalculateBounceBackVelocity(rotationSpeed, collisionData, velocity, angularVelocity);
+```
 
 ### PassThroughEntity
 `public void PassThroughEntity(GameEntity entity)`
 
-**用途 / Purpose:** 处理 `pass through entity` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Missile 实例
+Missile missile = ...;
+missile.PassThroughEntity(entity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Missile();
-value.CalculatePassbySoundParametersMT(soundEventParameter);
+// 通常从对应子系统 API 获取实例后调用
+Missile missile = ...;
+missile.CalculatePassbySoundParametersMT(soundEventParameter);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

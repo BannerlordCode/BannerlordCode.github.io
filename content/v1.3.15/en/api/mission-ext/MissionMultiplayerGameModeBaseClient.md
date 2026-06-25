@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerGameModeBaseClient"
+description: "Auto-generated class reference for MissionMultiplayerGameModeBaseClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerGameModeBaseClient`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerGameModeBaseClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -51,54 +45,109 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetGoldAmount
 `public abstract int GetGoldAmount()`
 
-**Purpose:** Gets the current value of `gold amount`.
+**Purpose:** Reads and returns the `gold amount` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.GetGoldAmount();
+```
 
 ### GetMissionCameraLockMode
 `public virtual SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-**Purpose:** Gets the current value of `mission camera lock mode`.
+**Purpose:** Reads and returns the `mission camera lock mode` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.GetMissionCameraLockMode(false);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+missionMultiplayerGameModeBaseClient.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+missionMultiplayerGameModeBaseClient.EarlyStart();
+```
 
 ### CheckTimer
 `public bool CheckTimer(out int remainingTime, out int remainingWarningTime, bool forceUpdate = false)`
 
-**Purpose:** Handles logic related to `check timer`.
+**Purpose:** Verifies whether `timer` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.CheckTimer(remainingTime, remainingWarningTime, false);
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public abstract void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** Called when the `gold amount changed for representative` event is raised.
+**Purpose:** Invoked when the `gold amount changed for representative` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+missionMultiplayerGameModeBaseClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### CanRequestTroopChange
 `public virtual bool CanRequestTroopChange()`
 
-**Purpose:** Checks whether the current object can `request troop change`.
+**Purpose:** Checks whether the current object meets the preconditions for `request troop change`.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.CanRequestTroopChange();
+```
 
 ### CanRequestCultureChange
 `public virtual bool CanRequestCultureChange()`
 
-**Purpose:** Checks whether the current object can `request culture change`.
+**Purpose:** Checks whether the current object meets the preconditions for `request culture change`.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.CanRequestCultureChange();
+```
 
 ### IsClassAvailable
 `public bool IsClassAvailable(MultiplayerClassDivisions.MPHeroClass heroClass)`
 
-**Purpose:** Handles logic related to `is class available`.
+**Purpose:** Determines whether the current object is in the `class available` state or condition.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeBaseClient from the subsystem API first
+MissionMultiplayerGameModeBaseClient missionMultiplayerGameModeBaseClient = ...;
+var result = missionMultiplayerGameModeBaseClient.IsClassAvailable(heroClass);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionMultiplayerGameModeBaseClient();
+// Typically obtained from a subsystem API or factory
+MissionMultiplayerGameModeBaseClient instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

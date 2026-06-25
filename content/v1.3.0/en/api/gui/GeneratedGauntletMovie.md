@@ -1,13 +1,7 @@
 ---
 title: "GeneratedGauntletMovie"
+description: "Auto-generated class reference for GeneratedGauntletMovie."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GeneratedGauntletMovie`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GeneratedGauntletMovie
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of GeneratedGauntletMovie from the subsystem API first
+GeneratedGauntletMovie generatedGauntletMovie = ...;
+generatedGauntletMovie.Update();
+```
 
 ### Release
 `public void Release()`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GeneratedGauntletMovie from the subsystem API first
+GeneratedGauntletMovie generatedGauntletMovie = ...;
+generatedGauntletMovie.Release();
+```
 
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**Purpose:** Refreshes the display or cache of `binding with children`.
+**Purpose:** Keeps the display or cache of `binding with children` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GeneratedGauntletMovie from the subsystem API first
+GeneratedGauntletMovie generatedGauntletMovie = ...;
+generatedGauntletMovie.RefreshBindingWithChildren();
+```
 
 ### OnResourcesRefreshed
 `public void OnResourcesRefreshed(SpriteData spriteData, WidgetFactory widgetFactory, BrushFactory brushFactory, FontFactory fontFactory)`
 
-**Purpose:** Called when the `resources refreshed` event is raised.
+**Purpose:** Invoked when the `resources refreshed` event is raised.
+
+```csharp
+// Obtain an instance of GeneratedGauntletMovie from the subsystem API first
+GeneratedGauntletMovie generatedGauntletMovie = ...;
+generatedGauntletMovie.OnResourcesRefreshed(spriteData, widgetFactory, brushFactory, fontFactory);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GeneratedGauntletMovie();
-value.Update();
+// Typically call this after obtaining an instance from the subsystem API
+GeneratedGauntletMovie generatedGauntletMovie = ...;
+generatedGauntletMovie.Update();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

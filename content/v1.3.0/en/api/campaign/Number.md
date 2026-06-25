@@ -1,13 +1,7 @@
 ---
 title: "Number"
+description: "Auto-generated class reference for Number."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Number`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Number
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### GetBetween
 `public IEnumerable<LordConversationsCampaignBehavior.Number> GetBetween(int start, int end)`
 
-**Purpose:** Gets the current value of `between`.
+**Purpose:** Reads and returns the `between` value held by the current object.
+
+```csharp
+// Obtain an instance of Number from the subsystem API first
+Number number = ...;
+var result = number.GetBetween(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Number();
-value.GetBetween(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+Number number = ...;
+number.GetBetween(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

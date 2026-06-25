@@ -1,20 +1,14 @@
 ---
 title: "PieceTierComparer"
+description: "PieceTierComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PieceTierComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PieceTierComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PieceTierComparer : IComparer<CraftingPieceVM>`
 **Base:** `IComparer<CraftingPieceVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "PieceTierComparer"
 ### Compare
 `public int Compare(CraftingPieceVM x, CraftingPieceVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 PieceTierComparer 实例
+PieceTierComparer pieceTierComparer = ...;
+var result = pieceTierComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PieceTierComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+PieceTierComparer pieceTierComparer = ...;
+pieceTierComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

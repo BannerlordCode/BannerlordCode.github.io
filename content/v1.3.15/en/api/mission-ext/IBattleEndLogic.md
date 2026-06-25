@@ -1,18 +1,12 @@
 ---
 title: "IBattleEndLogic"
+description: "Auto-generated class reference for IBattleEndLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBattleEndLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IBattleEndLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IBattleEndLogic`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IBattleEndLogic.cs`
 
@@ -27,9 +21,10 @@ Treat `IBattleEndLogic` as a Logic-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-IBattleEndLogic implementation = GetBattleEndLogicImplementation();
+// Usually obtained through DI or a factory method
+IIBattleEndLogic service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

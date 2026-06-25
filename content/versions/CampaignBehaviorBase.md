@@ -79,5 +79,5 @@ This page compares the accessible API of `CampaignBehaviorBase` across **1.3.0 /
 ## Usage Example
 
 ```csharp
-var example = new CampaignBehaviorBase();
+// Compare class APIs across versions using the notes above.
 ```

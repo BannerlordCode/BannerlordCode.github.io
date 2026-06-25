@@ -1,307 +1,369 @@
 ---
 title: "MatrixFrame"
+description: "Auto-generated class reference for MatrixFrame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatrixFrame`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MatrixFrame
 
-**Namespace:** TaleWorlds.Library  
-**File:** `bannerlord-1.3.15/TaleWorlds.Library/MatrixFrame.cs`  
-**Type:** struct (`[Serializable]`)
-
-The engine's general-purpose affine transform: a 3x3 rotation [`Mat3`](./Mat3) plus a translation origin [`Vec3`](./Vec3). It is stored internally as a 4x4 homogeneous matrix — the three basis vectors of `rotation` (`s` = side/right, `f` = forward, `u` = up) form the top three rows and `origin` forms the fourth. The struct is used throughout the engine for entity placement, cameras, bones, and coordinate-space conversions.
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
+**Type:** `public struct MatrixFrame`
+**Base:** none
+**File:** `TaleWorlds.Library/MatrixFrame.cs`
 
 ## Overview
 
-`MatrixFrame` carries both position and orientation and is the basic unit for describing how an object is posed in the world. Its two core operations are `TransformToParent` (mapping a local point/child frame into this frame's space, i.e. "to world") and `TransformToLocal` (the inverse, mapping a world point into this frame's local space). Move along the local axes with `Strafe` / `Advance` / `Elevate`; rotate about an arbitrary axis with `Rotate`. Multiple transforms compose with the `*` operator.
-
-> Note: this is a `struct` (value type) — assignment and passing copy it. `Advance` / `Strafe` / `Elevate` / `Rotate` / `Scale` mutate `this` in place and return `this`.
+`MatrixFrame` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `MatrixFrame` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Fields
+## Key Properties
 
-| Name | Type | Description |
-|------|------|-------------|
-| rotation | Mat3 | Rotation part, made of basis vectors `s`, `f`, `u` |
-| origin | Vec3 | Translation/origin (row 4) |
+| Name | Signature |
+|------|-----------|
+| `Identity` | `public static MatrixFrame Identity { get; }` |
+| `Zero` | `public static MatrixFrame Zero { get; }` |
+| `IsIdentity` | `public bool IsIdentity { get; }` |
+| `IsZero` | `public bool IsZero { get; }` |
+| `this` | `public Vec3 this { get; }` |
+| `this` | `public float this { get; }` |
 
-## Constructors
+## Key Methods
 
-| Constructor | Description |
-|-------------|-------------|
-| `MatrixFrame(in Mat3 rot, in Vec3 o)` | Build directly from rotation and origin |
-| `MatrixFrame(float _11.._43)` (12 floats) | 3x3 + origin xyz; `origin.w = -1` |
-| `MatrixFrame(float _11.._44)` (16 floats) | Full 4x4 components; `s/f/u` each carry `w`, `origin` carries `w` |
+### TransformToParent
+`public Vec3 TransformToParent(in Vec3 v)`
 
-```csharp
-public MatrixFrame(in Mat3 rot, in Vec3 o)
-public MatrixFrame(float _11, float _12, float _13,
-                   float _21, float _22, float _23,
-                   float _31, float _32, float _33,
-                   float _41, float _42, float _43)
-public MatrixFrame(float _11, float _12, float _13, float _14,
-                   float _21, float _22, float _23, float _24,
-                   float _31, float _32, float _33, float _34,
-                   float _41, float _42, float _43, float _44)
-```
-
-## Static Properties
-
-| Name | Type | Description |
-|------|------|-------------|
-| Identity | MatrixFrame | Identity transform: `Mat3.Identity` + origin `(0,0,0,1)` |
-| Zero | MatrixFrame | All-zero rotation + origin `(0,0,0,1)` |
-
-## Instance Properties
-
-| Name | Type | Description |
-|------|------|-------------|
-| IsIdentity | bool | `true` when origin is zero and rotation is the identity |
-| IsZero | bool | `true` when origin is zero and rotation is the zero matrix |
-| this[int i] | Vec3 | Row access: `0`=s, `1`=f, `2`=u, `3`=origin; out of range throws `IndexOutOfRangeException` |
-| this[int i, int j] | float | Element access at row `i`, column `j`; out of range throws `IndexOutOfRangeException` |
-
-## Transform Methods
-
-### TransformToParent (Vec3)
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public Vec3 TransformToParent(in Vec3 v)
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(v);
 ```
-
-Maps a local vector `v` into this frame's space (applies rotation + translation). That is, "local → world".
-
-**Parameters:**
-- `v` - vector in local space
-
-**Returns:** The transformed world-space vector (`w = -1`).
-
-### TransformToParent (MatrixFrame)
-
-```csharp
-public MatrixFrame TransformToParent(in MatrixFrame m)
-```
-
-Maps the child frame `m` into this frame's space: rotation via `this.rotation.TransformToParent(m.rotation)`, origin via `this.TransformToParent(m.origin)`.
-
-**Returns:** A new composed `MatrixFrame`.
-
-### TransformToParent (Vec2)
-
-```csharp
-public Vec2 TransformToParent(in Vec2 v)
-```
-
-2D variant: uses only the xy components of the `s` and `f` basis vectors and the origin's xy.
 
 ### TransformToParentDouble
+`public Vec3 TransformToParentDouble(in Vec3 v)`
+
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public Vec3 TransformToParentDouble(in Vec3 v)
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParentDouble(v);
 ```
 
-Same as `TransformToParent(in Vec3)` but computes intermediates in `double` precision to reduce error at large coordinates.
+### TransformToParent
+`public Vec2 TransformToParent(in Vec2 v)`
 
-### TransformToParentWithW
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public Vec3 TransformToParentWithW(Vec3 _s)
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(v);
 ```
-
-Full 4x4 transform that preserves and computes the `w` component (for homogeneous/projective coordinates).
 
 ### TransformToLocal
+`public Vec3 TransformToLocal(in Vec3 v)`
+
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public Vec3 TransformToLocal(in Vec3 v)
-public MatrixFrame TransformToLocal(in MatrixFrame m)
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocal(v);
 ```
-
-Maps a world-space vector/frame `v` into this frame's local space (subtract `origin`, then apply the transpose of the rotation). The Vec3 overload assumes an orthonormal rotation basis.
 
 ### TransformToLocalNonUnit
+`public Vec3 TransformToLocalNonUnit(in Vec3 v)`
+
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public Vec3 TransformToLocalNonUnit(in Vec3 v)
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonUnit(v);
 ```
-
-Same computation as `TransformToLocal(in Vec3)`, for cases where the rotation is not normalized.
-
-### TransformToLocalNonOrthogonal
-
-```csharp
-public Vec3 TransformToLocalNonOrthogonal(in Vec3 v)
-public MatrixFrame TransformToLocalNonOrthogonal(in MatrixFrame frame)
-```
-
-Transforms by building the full 4x4 and calling `Inverse()`, for non-orthogonal rotations (with scale/shear). More expensive than `TransformToLocal`.
-
-## Movement Methods
-
-Translates `origin` along the local axes, mutating `this` and returning it for chaining.
-
-```csharp
-public MatrixFrame Strafe(float a)   // along s (right)
-public MatrixFrame Advance(float a)  // along f (forward)
-public MatrixFrame Elevate(float a)  // along u (up)
-```
-
-| Method | Direction | Equivalent to |
-|--------|-----------|----------------|
-| Strafe | right (s) | `origin += rotation.s * a` |
-| Advance | forward (f) | `origin += rotation.f * a` |
-| Elevate | up (u) | `origin += rotation.u * a` |
-
-## Rotation / Scale
-
-### Rotate
-
-```csharp
-public void Rotate(float radian, in Vec3 axis)
-```
-
-Rotates by `radian` radians about an arbitrary `axis` (no need to pre-normalize; the rotation matrix is built via Rodrigues' formula), mutating `origin` and `rotation` in place.
-
-### Scale
-
-```csharp
-public void Scale(in Vec3 scalingVector)
-```
-
-Scales this frame by `scalingVector` (builds a scale matrix and composes it with this frame).
-
-### GetScale
-
-```csharp
-public Vec3 GetScale()
-```
-
-**Returns:** The per-axis scale `(rotation.s.Length, rotation.f.Length, rotation.u.Length)`.
-
-### GetUnitRotFrame
-
-```csharp
-public MatrixFrame GetUnitRotFrame(float removedScale)
-```
-
-Returns a new frame that keeps `origin` but normalizes the rotation (removing `removedScale` of scaling).
-
-## Inverse / Determinant
-
-### Inverse / InverseFast
-
-```csharp
-public MatrixFrame Inverse()
-public MatrixFrame InverseFast()
-```
-
-`Inverse()` forwards directly to `InverseFast()`, which inverts via the 4x4 adjugate method and divides through by the determinant when it is not 1.
-
-### Determinant4X4
-
-```csharp
-public float Determinant4X4()
-```
-
-**Returns:** The determinant of the 4x4 matrix.
 
 ### NearlyEquals
+`public bool NearlyEquals(MatrixFrame rhs, float epsilon = 1E-05f)`
+
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public bool NearlyEquals(MatrixFrame rhs, float epsilon = 1E-05f)
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.NearlyEquals(rhs, 0);
 ```
 
-**Returns:** `true` when both rotation and origin are within `epsilon` of `rhs`.
+### TransformToLocalNonOrthogonal
+`public Vec3 TransformToLocalNonOrthogonal(in Vec3 v)`
 
-### Fill
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public void Fill()
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonOrthogonal(v);
 ```
 
-Sets `rotation.s.w / f.w / u.w` to 0 and `origin.w` to 1, making the frame a canonical homogeneous matrix.
+### TransformToLocalNonOrthogonal
+`public MatrixFrame TransformToLocalNonOrthogonal(in MatrixFrame frame)`
 
-## Static Methods
-
-### Lerp / LerpNonOrthogonal / Slerp
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public static MatrixFrame Lerp(in MatrixFrame m1, in MatrixFrame m2, float alpha)
-public static MatrixFrame LerpNonOrthogonal(in MatrixFrame m1, in MatrixFrame m2, float alpha)
-public static MatrixFrame Slerp(in MatrixFrame m1, in MatrixFrame m2, float alpha)
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocalNonOrthogonal(frame);
 ```
 
-Interpolate between frames. `origin` always uses `Vec3.Lerp`; for rotation: `Lerp` uses `Mat3.Lerp`, `LerpNonOrthogonal` uses `Mat3.LerpNonOrthogonal` and calls `Fill()`, and `Slerp` goes through quaternion spherical interpolation (`Quaternion.Slerp`) and converts back to `Mat3`.
+### Lerp
+`public static MatrixFrame Lerp(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixFrame.Lerp(m1, m2, 0);
+```
+
+### LerpNonOrthogonal
+`public static MatrixFrame LerpNonOrthogonal(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixFrame.LerpNonOrthogonal(m1, m2, 0);
+```
+
+### Slerp
+`public static MatrixFrame Slerp(in MatrixFrame m1, in MatrixFrame m2, float alpha)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixFrame.Slerp(m1, m2, 0);
+```
+
+### TransformToParent
+`public MatrixFrame TransformToParent(in MatrixFrame m)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParent(m);
+```
+
+### TransformToLocal
+`public MatrixFrame TransformToLocal(in MatrixFrame m)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToLocal(m);
+```
+
+### TransformToParentWithW
+`public Vec3 TransformToParentWithW(Vec3 _s)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.TransformToParentWithW(_s);
+```
+
+### GetUnitRotFrame
+`public MatrixFrame GetUnitRotFrame(float removedScale)`
+
+**Purpose:** Reads and returns the `unit rot frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetUnitRotFrame(0);
+```
+
+### InverseFast
+`public MatrixFrame InverseFast()`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.InverseFast();
+```
+
+### Inverse
+`public MatrixFrame Inverse()`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Inverse();
+```
+
+### Determinant4X4
+`public float Determinant4X4()`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Determinant4X4();
+```
+
+### Rotate
+`public void Rotate(float radian, in Vec3 axis)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+matrixFrame.Rotate(0, axis);
+```
+
+### ToString
+`public override string ToString()`
+
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.ToString();
+```
+
+### Equals
+`public override bool Equals(object obj)`
+
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Equals(obj);
+```
+
+### GetHashCode
+`public override int GetHashCode()`
+
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetHashCode();
+```
+
+### Strafe
+`public MatrixFrame Strafe(float a)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Strafe(0);
+```
+
+### Advance
+`public MatrixFrame Advance(float a)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Advance(0);
+```
+
+### Elevate
+`public MatrixFrame Elevate(float a)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.Elevate(0);
+```
+
+### Scale
+`public void Scale(in Vec3 scalingVector)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+matrixFrame.Scale(scalingVector);
+```
+
+### GetScale
+`public Vec3 GetScale()`
+
+**Purpose:** Reads and returns the `scale` value held by the current object.
+
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+var result = matrixFrame.GetScale();
+```
 
 ### CreateLookAt
+`public static MatrixFrame CreateLookAt(in Vec3 position, in Vec3 target, in Vec3 upVector)`
+
+**Purpose:** Constructs a new `look at` entity and returns it to the caller.
 
 ```csharp
-public static MatrixFrame CreateLookAt(in Vec3 position, in Vec3 target, in Vec3 upVector)
+// Static call; no instance required
+MatrixFrame.CreateLookAt(position, target, upVector);
 ```
-
-Builds a "look at target" view frame: forward = `(target - position)` normalized, side = `up × forward`, up = `forward × side`, with the origin translation set to `-dot(basis, position)`.
 
 ### CenterFrameOfTwoPoints
+`public static MatrixFrame CenterFrameOfTwoPoints(in Vec3 p1, in Vec3 p2, Vec3 upVector)`
+
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public static MatrixFrame CenterFrameOfTwoPoints(in Vec3 p1, in Vec3 p2, Vec3 upVector)
+// Static call; no instance required
+MatrixFrame.CenterFrameOfTwoPoints(p1, p2, upVector);
 ```
 
-Builds a frame with origin at the midpoint of `p1`/`p2` and `s` along `p2 - p1`; falls back to `(0,1,0)` when `s` is nearly parallel to `upVector` (>0.95), then calls `Fill()`.
+### Fill
+`public void Fill()`
 
-## Operators
+**Purpose:** Performs the operation described by this method.
 
-| Operator | Signature | Description |
-|----------|-----------|-------------|
-| `*` | `operator *(in MatrixFrame m1, in MatrixFrame m2)` | Equivalent to `m1.TransformToParent(m2)` — composes `m2` in `m1`'s space |
-| `==` | `operator ==(in MatrixFrame m1, in MatrixFrame m2)` | Both `origin` and `rotation` equal |
-| `!=` | `operator !=(in MatrixFrame m1, in MatrixFrame m2)` | Negation of the above |
-
-> The struct overrides `Equals(object)` (compares via `==`) and `ToString()` (prints Rotation and Origin), but `GetHashCode()` is not overridden (uses the base implementation).
+```csharp
+// Obtain an instance of MatrixFrame from the subsystem API first
+MatrixFrame matrixFrame = ...;
+matrixFrame.Fill();
+```
 
 ## Usage Example
 
 ```csharp
-using TaleWorlds.Library;
-
-// 1) Place an entity at a world position, facing east.
-//    Mat3 basis: s=right, f=forward, u=up; here forward points along +X.
-var spawnFrame = new MatrixFrame(
-    new Mat3(
-        new Vec3(0f, 1f, 0f),  // s (right)   -> +Y
-        new Vec3(1f, 0f, 0f),  // f (forward) -> +X
-        new Vec3(0f, 0f, 1f)), // u (up)      -> +Z
-    new Vec3(100f, 50f, 0f));
-
-// 2) Move 10 units along local forward, then 2 units to the right.
-spawnFrame.Advance(10f).Strafe(2f);
-
-// 3) Rotate 90 degrees about the world Z axis.
-spawnFrame.Rotate(MathF.PI / 2f, new Vec3(0f, 0f, 1f));
-
-// 4) Transform a local-space offset point into world space.
-Vec3 localOffset = new Vec3(0f, 0f, 5f);   // 5 units "straight up" locally
-Vec3 worldPoint = spawnFrame.TransformToParent(localOffset);
-
-// 5) Compose parent/child transforms with *: parent frame + relative child frame.
-MatrixFrame parent = MatrixFrame.Identity;
-parent.origin = new Vec3(0f, 0f, 100f);
-MatrixFrame childLocal = spawnFrame;
-MatrixFrame childWorld = parent * childLocal; // == parent.TransformToParent(childLocal)
-
-// 6) Inverse: convert a world point back into spawnFrame's local space.
-Vec3 localAgain = spawnFrame.TransformToLocal(worldPoint);
+// Typically call this after obtaining an instance from the subsystem API
+MatrixFrame matrixFrame = ...;
+matrixFrame.TransformToParent(v);
 ```
 
 ## See Also
 
-- [Vec3](./Vec3)
-- [Mat3](./Mat3)
+- [Area Index](../)

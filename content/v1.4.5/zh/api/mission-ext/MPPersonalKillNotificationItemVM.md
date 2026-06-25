@@ -1,20 +1,14 @@
 ---
 title: "MPPersonalKillNotificationItemVM"
+description: "MPPersonalKillNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPPersonalKillNotificationItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPersonalKillNotificationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.Personal
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPersonalKillNotificationItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.Personal/MPPersonalKillNotificationItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.Personal/MPPersonalKillNotificationItemVM.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "MPPersonalKillNotificationItemVM"
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 `remove` 操作或流程。
+**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPPersonalKillNotificationItemVM 实例
+MPPersonalKillNotificationItemVM mPPersonalKillNotificationItemVM = ...;
+mPPersonalKillNotificationItemVM.ExecuteRemove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPPersonalKillNotificationItemVM();
-value.ExecuteRemove();
+// 通常从对应子系统 API 获取实例后调用
+MPPersonalKillNotificationItemVM mPPersonalKillNotificationItemVM = ...;
+mPPersonalKillNotificationItemVM.ExecuteRemove();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

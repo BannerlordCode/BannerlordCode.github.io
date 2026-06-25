@@ -1,20 +1,14 @@
 ---
 title: "PlayMusicPoint"
+description: "PlayMusicPoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayMusicPoint`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayMusicPoint
 
 **Namespace:** SandBox.Objects.AnimationPoints
 **Module:** SandBox.Objects
 **Type:** `public class PlayMusicPoint : AnimationPoint`
 **Base:** `AnimationPoint`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/PlayMusicPoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/PlayMusicPoint.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "PlayMusicPoint"
 ### StartLoop
 `public void StartLoop(SoundEvent trackEvent)`
 
-**用途 / Purpose:** 处理 `start loop` 相关逻辑。
+**用途 / Purpose:** 启动「loop」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 PlayMusicPoint 实例
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.StartLoop(trackEvent);
+```
 
 ### EndLoop
 `public void EndLoop()`
 
-**用途 / Purpose:** 处理 `end loop` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayMusicPoint 实例
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.EndLoop();
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PlayMusicPoint 实例
+PlayMusicPoint playMusicPoint = ...;
+var result = playMusicPoint.GetTickRequirement();
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** 当 `use stopped` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use stopped」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PlayMusicPoint 实例
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### ChangeInstrument
 `public void ChangeInstrument(Tuple<InstrumentData, float> instrument)`
 
-**用途 / Purpose:** 处理 `change instrument` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayMusicPoint 实例
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.ChangeInstrument(tuple<InstrumentData, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayMusicPoint();
-value.StartLoop(trackEvent);
+// 通常从对应子系统 API 获取实例后调用
+PlayMusicPoint playMusicPoint = ...;
+playMusicPoint.StartLoop(trackEvent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

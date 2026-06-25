@@ -1,13 +1,7 @@
 ---
 title: "PartyTradeVM"
+description: "Auto-generated class reference for PartyTradeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTradeVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyTradeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -44,50 +38,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyTradeVM from the subsystem API first
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.RefreshValues();
+```
 
 ### UpdateTroopData
 `public void UpdateTroopData(TroopRosterElement troopRoster, PartyScreenLogic.PartyRosterSide side, bool forceUpdate = true)`
 
-**Purpose:** Updates the state or data of `troop data`.
+**Purpose:** Recalculates and stores the latest representation of `troop data`.
+
+```csharp
+// Obtain an instance of PartyTradeVM from the subsystem API first
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.UpdateTroopData(troopRoster, side, false);
+```
 
 ### FindTroopFromSide
 `public TroopRosterElement? FindTroopFromSide(CharacterObject character, PartyScreenLogic.PartyRosterSide side, bool isPrisoner)`
 
-**Purpose:** Handles logic related to `find troop from side`.
+**Purpose:** Looks up the matching `troop from side` in the current collection or scope.
+
+```csharp
+// Obtain an instance of PartyTradeVM from the subsystem API first
+PartyTradeVM partyTradeVM = ...;
+var result = partyTradeVM.FindTroopFromSide(character, side, false);
+```
 
 ### ExecuteIncreasePlayerStock
 `public void ExecuteIncreasePlayerStock()`
 
-**Purpose:** Executes the `increase player stock` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `increase player stock`.
+
+```csharp
+// Obtain an instance of PartyTradeVM from the subsystem API first
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteIncreasePlayerStock();
+```
 
 ### ExecuteIncreaseOtherStock
 `public void ExecuteIncreaseOtherStock()`
 
-**Purpose:** Executes the `increase other stock` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `increase other stock`.
+
+```csharp
+// Obtain an instance of PartyTradeVM from the subsystem API first
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteIncreaseOtherStock();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Executes the `reset` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset`.
+
+```csharp
+// Obtain an instance of PartyTradeVM from the subsystem API first
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteReset();
+```
 
 ### ExecuteApplyTransaction
 `public void ExecuteApplyTransaction()`
 
-**Purpose:** Executes the `apply transaction` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `apply transaction`.
+
+```csharp
+// Obtain an instance of PartyTradeVM from the subsystem API first
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteApplyTransaction();
+```
 
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**Purpose:** Executes the `remove zero counts` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove zero counts`.
+
+```csharp
+// Obtain an instance of PartyTradeVM from the subsystem API first
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteRemoveZeroCounts();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyTradeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

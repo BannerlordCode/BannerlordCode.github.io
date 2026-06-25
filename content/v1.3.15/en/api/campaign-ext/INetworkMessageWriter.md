@@ -1,18 +1,12 @@
 ---
 title: "INetworkMessageWriter"
+description: "Auto-generated class reference for INetworkMessageWriter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `INetworkMessageWriter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # INetworkMessageWriter
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
-**Type:** `class`
+**Type:** `public interface INetworkMessageWriter`
 **Base:** none
 **File:** `TaleWorlds.Network/INetworkMessageWriter.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-INetworkMessageWriter implementation = GetNetworkMessageWriterImplementation();
+// Usually obtained through DI or a factory method
+IINetworkMessageWriter service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

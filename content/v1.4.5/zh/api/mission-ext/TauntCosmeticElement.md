@@ -1,20 +1,14 @@
 ---
 title: "TauntCosmeticElement"
+description: "TauntCosmeticElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TauntCosmeticElement`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TauntCosmeticElement
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TauntCosmeticElement : CosmeticElement`
 **Base:** `CosmeticElement`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/TauntCosmeticElement.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/TauntCosmeticElement.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "TauntCosmeticElement"
 ## 使用示例
 
 ```csharp
-var example = new TauntCosmeticElement();
+// 从对应子系统 API 获取实例
+TauntCosmeticElement instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

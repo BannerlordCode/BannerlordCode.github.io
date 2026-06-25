@@ -1,20 +1,14 @@
 ---
 title: "LoadingWindow"
+description: "Auto-generated class reference for LoadingWindow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadingWindow`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadingWindow
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class LoadingWindow`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/LoadingWindow.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/LoadingWindow.cs`
 
 ## Overview
 
@@ -36,22 +30,42 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Destroy
 `public static void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.Destroy();
+```
 
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**Purpose:** Handles logic related to `disable global loading window`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.DisableGlobalLoadingWindow();
+```
 
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**Purpose:** Handles logic related to `enable global loading window`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.EnableGlobalLoadingWindow();
+```
 
 ### SetCurrentModeIsMultiplayer
 `public static void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**Purpose:** Sets the value or state of `current mode is multiplayer`.
+**Purpose:** Assigns a new value to `current mode is multiplayer` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.SetCurrentModeIsMultiplayer(false);
+```
 
 ## Usage Example
 
@@ -61,4 +75,4 @@ LoadingWindow.Destroy();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

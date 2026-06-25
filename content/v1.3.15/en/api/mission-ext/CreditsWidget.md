@@ -1,13 +1,7 @@
 ---
 title: "CreditsWidget"
+description: "Auto-generated class reference for CreditsWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreditsWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CreditsWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits
@@ -35,9 +29,10 @@ Treat `CreditsWidget` as a Widget-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var widget = new CreditsWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CreditsWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

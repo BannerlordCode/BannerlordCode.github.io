@@ -1,20 +1,14 @@
 ---
 title: "EducationOptionVM"
+description: "Auto-generated class reference for EducationOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationOptionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationOptionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationOptionVM : StringItemWithActionVM`
 **Base:** `StringItemWithActionVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationOptionVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationOptionVM.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EducationOptionVM from the subsystem API first
+EducationOptionVM educationOptionVM = ...;
+educationOptionVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EducationOptionVM educationOptionVM = ...;
+educationOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

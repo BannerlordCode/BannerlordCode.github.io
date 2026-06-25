@@ -1,20 +1,14 @@
 ---
 title: "TradeAgreementModel"
+description: "Auto-generated class reference for TradeAgreementModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeAgreementModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeAgreementModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class TradeAgreementModel : MBGameModel<TradeAgreementModel>`
 **Base:** `MBGameModel<TradeAgreementModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TradeAgreementModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TradeAgreementModel.cs`
 
 ## Overview
 
@@ -29,39 +23,76 @@ Treat `TradeAgreementModel` as a Model-style extension point: first identify who
 ### GetProfitPerCaravanVisit
 `public abstract int GetProfitPerCaravanVisit(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `profit per caravan visit`.
+**Purpose:** Reads and returns the `profit per caravan visit` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementModel from the subsystem API first
+TradeAgreementModel tradeAgreementModel = ...;
+var result = tradeAgreementModel.GetProfitPerCaravanVisit(mobileParty);
+```
 
 ### GetTradeAgreementDurationInYears
 `public abstract CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)`
 
-**Purpose:** Gets the current value of `trade agreement duration in years`.
+**Purpose:** Reads and returns the `trade agreement duration in years` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementModel from the subsystem API first
+TradeAgreementModel tradeAgreementModel = ...;
+var result = tradeAgreementModel.GetTradeAgreementDurationInYears(iniatatingKingdom, otherKingdom);
+```
 
 ### GetMaximumTradeAgreementCount
 `public abstract int GetMaximumTradeAgreementCount(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `maximum trade agreement count`.
+**Purpose:** Reads and returns the `maximum trade agreement count` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementModel from the subsystem API first
+TradeAgreementModel tradeAgreementModel = ...;
+var result = tradeAgreementModel.GetMaximumTradeAgreementCount(kingdom);
+```
 
 ### GetInfluenceCostOfProposingTradeAgreement
 `public abstract int GetInfluenceCostOfProposingTradeAgreement(Clan clan)`
 
-**Purpose:** Gets the current value of `influence cost of proposing trade agreement`.
+**Purpose:** Reads and returns the `influence cost of proposing trade agreement` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementModel from the subsystem API first
+TradeAgreementModel tradeAgreementModel = ...;
+var result = tradeAgreementModel.GetInfluenceCostOfProposingTradeAgreement(clan);
+```
 
 ### GetScoreOfStartingTradeAgreement
 `public abstract float GetScoreOfStartingTradeAgreement(Kingdom kingdom, Kingdom targetKingdom, Clan clan, out TextObject explanation, bool includeExplanation = false)`
 
-**Purpose:** Gets the current value of `score of starting trade agreement`.
+**Purpose:** Reads and returns the `score of starting trade agreement` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementModel from the subsystem API first
+TradeAgreementModel tradeAgreementModel = ...;
+var result = tradeAgreementModel.GetScoreOfStartingTradeAgreement(kingdom, targetKingdom, clan, explanation, false);
+```
 
 ### CanMakeTradeAgreement
 `public abstract bool CanMakeTradeAgreement(Kingdom kingdom, Kingdom other, bool checkOtherSideTradeSupport, out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Checks whether the current object can `make trade agreement`.
+**Purpose:** Checks whether the current object meets the preconditions for `make trade agreement`.
+
+```csharp
+// Obtain an instance of TradeAgreementModel from the subsystem API first
+TradeAgreementModel tradeAgreementModel = ...;
+var result = tradeAgreementModel.CanMakeTradeAgreement(kingdom, other, false, reason, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTradeAgreementModel();
+// Typically obtained from a subsystem API or factory
+TradeAgreementModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

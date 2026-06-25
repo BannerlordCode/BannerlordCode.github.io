@@ -1,20 +1,14 @@
 ---
 title: "TransposedLineFormation"
+description: "Auto-generated class reference for TransposedLineFormation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransposedLineFormation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransposedLineFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TransposedLineFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TransposedLineFormation.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TransposedLineFormation.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of TransposedLineFormation from the subsystem API first
+TransposedLineFormation transposedLineFormation = ...;
+var result = transposedLineFormation.Clone(formation);
+```
 
 ### RearrangeFrom
 `public override void RearrangeFrom(IFormationArrangement arrangement)`
 
-**Purpose:** Handles logic related to `rearrange from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TransposedLineFormation from the subsystem API first
+TransposedLineFormation transposedLineFormation = ...;
+transposedLineFormation.RearrangeFrom(arrangement);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TransposedLineFormation();
-value.Clone(formation);
+// Typically call this after obtaining an instance from the subsystem API
+TransposedLineFormation transposedLineFormation = ...;
+transposedLineFormation.Clone(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

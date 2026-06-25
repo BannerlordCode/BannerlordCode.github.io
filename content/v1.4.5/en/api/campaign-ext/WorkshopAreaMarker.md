@@ -1,20 +1,14 @@
 ---
 title: "WorkshopAreaMarker"
+description: "Auto-generated class reference for WorkshopAreaMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorkshopAreaMarker`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopAreaMarker
 
 **Namespace:** SandBox.Objects.AreaMarkers
 **Module:** SandBox.Objects
 **Type:** `public class WorkshopAreaMarker : AreaMarker`
 **Base:** `AreaMarker`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/WorkshopAreaMarker.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/WorkshopAreaMarker.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### GetWorkshop
 `public Workshop GetWorkshop()`
 
-**Purpose:** Gets the current value of `workshop`.
+**Purpose:** Reads and returns the `workshop` value held by the current object.
+
+```csharp
+// Obtain an instance of WorkshopAreaMarker from the subsystem API first
+WorkshopAreaMarker workshopAreaMarker = ...;
+var result = workshopAreaMarker.GetWorkshop();
+```
 
 ### GetWorkshopType
 `public WorkshopType GetWorkshopType()`
 
-**Purpose:** Gets the current value of `workshop type`.
+**Purpose:** Reads and returns the `workshop type` value held by the current object.
+
+```csharp
+// Obtain an instance of WorkshopAreaMarker from the subsystem API first
+WorkshopAreaMarker workshopAreaMarker = ...;
+var result = workshopAreaMarker.GetWorkshopType();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of WorkshopAreaMarker from the subsystem API first
+WorkshopAreaMarker workshopAreaMarker = ...;
+var result = workshopAreaMarker.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WorkshopAreaMarker();
-value.GetWorkshop();
+// Typically call this after obtaining an instance from the subsystem API
+WorkshopAreaMarker workshopAreaMarker = ...;
+workshopAreaMarker.GetWorkshop();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

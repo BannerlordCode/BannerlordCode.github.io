@@ -1,13 +1,7 @@
 ---
 title: "InventoryItemValueTextWidget"
+description: "Auto-generated class reference for InventoryItemValueTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryItemValueTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryItemValueTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
@@ -33,9 +27,10 @@ Treat `InventoryItemValueTextWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new InventoryItemValueTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InventoryItemValueTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

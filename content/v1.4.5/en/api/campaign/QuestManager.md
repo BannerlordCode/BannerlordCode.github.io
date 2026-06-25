@@ -1,20 +1,14 @@
 ---
 title: "QuestManager"
+description: "Auto-generated class reference for QuestManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class QuestManager : CampaignEventReceiver`
 **Base:** `CampaignEventReceiver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/QuestManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/QuestManager.cs`
 
 ## Overview
 
@@ -36,137 +30,297 @@ Treat `QuestManager` as a Manager-style extension point: first identify who crea
 ### OnQuestStarted
 `public override void OnQuestStarted(QuestBase quest)`
 
-**Purpose:** Called when the `quest started` event is raised.
+**Purpose:** Invoked when the `quest started` event is raised.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.OnQuestStarted(quest);
+```
 
 ### IsThereActiveQuestWithType
 `public bool IsThereActiveQuestWithType(Type type)`
 
-**Purpose:** Handles logic related to `is there active quest with type`.
+**Purpose:** Determines whether the current object is in the `there active quest with type` state or condition.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+var result = questManager.IsThereActiveQuestWithType(type);
+```
 
 ### IsQuestGiver
 `public bool IsQuestGiver(Hero offeringHero)`
 
-**Purpose:** Handles logic related to `is quest giver`.
+**Purpose:** Determines whether the current object is in the `quest giver` state or condition.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+var result = questManager.IsQuestGiver(offeringHero);
+```
 
 ### OnGameLoaded
 `public override void OnGameLoaded(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `game loaded` event is raised.
+**Purpose:** Invoked when the `game loaded` event is raised.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.OnGameLoaded(campaignGameStarter);
+```
 
 ### OnSessionStart
 `public override void OnSessionStart(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session start` event is raised.
+**Purpose:** Invoked when the `session start` event is raised.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.OnSessionStart(campaignGameStarter);
+```
 
 ### HourlyTick
 `public override void HourlyTick()`
 
-**Purpose:** Handles logic related to `hourly tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.HourlyTick();
+```
 
 ### HourlyTickParty
 `public override void HourlyTickParty(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `hourly tick party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.HourlyTickParty(mobileParty);
+```
 
 ### DailyTick
 `public override void DailyTick()`
 
-**Purpose:** Handles logic related to `daily tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.DailyTick();
+```
 
 ### WeeklyTick
 `public override void WeeklyTick()`
 
-**Purpose:** Handles logic related to `weekly tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.WeeklyTick();
+```
 
 ### CheckQuestForMenuLocations
 `public GameMenuOption.IssueQuestFlags CheckQuestForMenuLocations(List<Location> currentLocations)`
 
-**Purpose:** Handles logic related to `check quest for menu locations`.
+**Purpose:** Verifies whether `quest for menu locations` holds true for the current object.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+var result = questManager.CheckQuestForMenuLocations(currentLocations);
+```
 
 ### OnQuestFinalized
 `public void OnQuestFinalized(QuestBase quest)`
 
-**Purpose:** Called when the `quest finalized` event is raised.
+**Purpose:** Invoked when the `quest finalized` event is raised.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.OnQuestFinalized(quest);
+```
 
 ### OnPlayerCharacterChanged
 `public override void OnPlayerCharacterChanged(Hero oldPlayer, Hero newPlayer, MobileParty newPlayerParty, bool isMainPartyChanged)`
 
-**Purpose:** Called when the `player character changed` event is raised.
+**Purpose:** Invoked when the `player character changed` event is raised.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.OnPlayerCharacterChanged(oldPlayer, newPlayer, newPlayerParty, false);
+```
 
 ### CanHaveCampaignIssues
 `public override void CanHaveCampaignIssues(Hero hero, ref bool result)`
 
-**Purpose:** Checks whether the current object can `have campaign issues`.
+**Purpose:** Checks whether the current object meets the preconditions for `have campaign issues`.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.CanHaveCampaignIssues(hero, result);
+```
 
 ### CanHeroDie
 `public override void CanHeroDie(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
 
-**Purpose:** Checks whether the current object can `hero die`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero die`.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.CanHeroDie(hero, causeOfDeath, result);
+```
 
 ### CanHeroBecomePrisoner
 `public override void CanHeroBecomePrisoner(Hero hero, ref bool result)`
 
-**Purpose:** Checks whether the current object can `hero become prisoner`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero become prisoner`.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.CanHeroBecomePrisoner(hero, result);
+```
 
 ### CanHeroEquipmentBeChanged
 `public override void CanHeroEquipmentBeChanged(Hero hero, ref bool result)`
 
-**Purpose:** Checks whether the current object can `hero equipment be changed`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero equipment be changed`.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.CanHeroEquipmentBeChanged(hero, result);
+```
 
 ### CanHeroLeadParty
 `public override void CanHeroLeadParty(Hero hero, ref bool result)`
 
-**Purpose:** Checks whether the current object can `hero lead party`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero lead party`.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.CanHeroLeadParty(hero, result);
+```
 
 ### CanHeroMarry
 `public override void CanHeroMarry(Hero hero, ref bool result)`
 
-**Purpose:** Checks whether the current object can `hero marry`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero marry`.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.CanHeroMarry(hero, result);
+```
 
 ### CanMoveToSettlement
 `public override void CanMoveToSettlement(Hero hero, ref bool result)`
 
-**Purpose:** Checks whether the current object can `move to settlement`.
+**Purpose:** Checks whether the current object meets the preconditions for `move to settlement`.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.CanMoveToSettlement(hero, result);
+```
 
 ### CanBeGovernorOrHavePartyRole
 `public override void CanBeGovernorOrHavePartyRole(Hero hero, ref bool result)`
 
-**Purpose:** Checks whether the current object can `be governor or have party role`.
+**Purpose:** Checks whether the current object meets the preconditions for `be governor or have party role`.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.CanBeGovernorOrHavePartyRole(hero, result);
+```
 
 ### AddTrackedObjectForQuest
 `public void AddTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)`
 
 **Purpose:** Adds `tracked object for quest` to the current collection or state.
 
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.AddTrackedObjectForQuest(trackedObject, relatedQuest);
+```
+
 ### RemoveTrackedObjectForQuest
 `public void RemoveTrackedObjectForQuest(ITrackableCampaignObject trackedObject, QuestBase relatedQuest)`
 
 **Purpose:** Removes `tracked object for quest` from the current collection or state.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.RemoveTrackedObjectForQuest(trackedObject, relatedQuest);
+```
 
 ### RemoveAllTrackedObjectsForQuest
 `public void RemoveAllTrackedObjectsForQuest(QuestBase quest)`
 
 **Purpose:** Removes `all tracked objects for quest` from the current collection or state.
 
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+questManager.RemoveAllTrackedObjectsForQuest(quest);
+```
+
 ### GetAllTrackedObjectsOfAQuest
 `public List<ITrackableCampaignObject> GetAllTrackedObjectsOfAQuest(QuestBase quest)`
 
-**Purpose:** Gets the current value of `all tracked objects of a quest`.
+**Purpose:** Reads and returns the `all tracked objects of a quest` value held by the current object.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+var result = questManager.GetAllTrackedObjectsOfAQuest(quest);
+```
 
 ### GetQuestGiverQuests
 `public IEnumerable<QuestBase> GetQuestGiverQuests(Hero hero)`
 
-**Purpose:** Gets the current value of `quest giver quests`.
+**Purpose:** Reads and returns the `quest giver quests` value held by the current object.
+
+```csharp
+// Obtain an instance of QuestManager from the subsystem API first
+QuestManager questManager = ...;
+var result = questManager.GetQuestGiverQuests(hero);
+```
 
 ### QuestExistInSettlementNotables
 `public static bool QuestExistInSettlementNotables(QuestBase questBase, Settlement settlement)`
 
-**Purpose:** Handles logic related to `quest exist in settlement notables`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+QuestManager.QuestExistInSettlementNotables(questBase, settlement);
+```
 
 ### QuestExistInClan
 `public static bool QuestExistInClan(QuestBase questBase, Clan clan)`
 
-**Purpose:** Handles logic related to `quest exist in clan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+QuestManager.QuestExistInClan(questBase, clan);
+```
 
 ## Usage Example
 
@@ -176,4 +330,4 @@ var manager = QuestManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LobbyClientConnectResult"
+description: "Auto-generated class reference for LobbyClientConnectResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyClientConnectResult`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyClientConnectResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyClientConnectResult`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClientConnectResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClientConnectResult.cs`
 
 ## Overview
 
@@ -36,7 +30,12 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FromServerConnectResult
 `public static LobbyClientConnectResult FromServerConnectResult(string errorCode, Dictionary<string, string> parameters)`
 
-**Purpose:** Handles logic related to `from server connect result`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LobbyClientConnectResult.FromServerConnectResult("example", dictionary<string, "example");
+```
 
 ## Usage Example
 
@@ -46,4 +45,4 @@ LobbyClientConnectResult.FromServerConnectResult("example", dictionary<string, "
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

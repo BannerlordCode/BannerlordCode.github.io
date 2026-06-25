@@ -1,23 +1,18 @@
 ---
 title: "WeaponComponentDataExtensions"
+description: "Auto-generated class reference for WeaponComponentDataExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponComponentDataExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponComponentDataExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class WeaponComponentDataExtensions`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/WeaponComponentDataExtensions.cs`
 
 ## Overview
 
-`WeaponComponentDataExtensions` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`WeaponComponentDataExtensions` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,61 +23,109 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetModifiedThrustDamage
 `public static int GetModifiedThrustDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified thrust damage`.
+**Purpose:** Reads and returns the `modified thrust damage` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedThrustDamage(componentData, itemModifier);
+```
 
 ### GetModifiedSwingDamage
 `public static int GetModifiedSwingDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified swing damage`.
+**Purpose:** Reads and returns the `modified swing damage` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedSwingDamage(componentData, itemModifier);
+```
 
 ### GetModifiedMissileDamage
 `public static int GetModifiedMissileDamage(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified missile damage`.
+**Purpose:** Reads and returns the `modified missile damage` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedMissileDamage(componentData, itemModifier);
+```
 
 ### GetModifiedThrustSpeed
 `public static int GetModifiedThrustSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified thrust speed`.
+**Purpose:** Reads and returns the `modified thrust speed` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedThrustSpeed(componentData, itemModifier);
+```
 
 ### GetModifiedSwingSpeed
 `public static int GetModifiedSwingSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified swing speed`.
+**Purpose:** Reads and returns the `modified swing speed` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedSwingSpeed(componentData, itemModifier);
+```
 
 ### GetModifiedMissileSpeed
 `public static int GetModifiedMissileSpeed(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified missile speed`.
+**Purpose:** Reads and returns the `modified missile speed` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedMissileSpeed(componentData, itemModifier);
+```
 
 ### GetModifiedHandling
 `public static int GetModifiedHandling(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified handling`.
+**Purpose:** Reads and returns the `modified handling` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedHandling(componentData, itemModifier);
+```
 
 ### GetModifiedStackCount
 `public static short GetModifiedStackCount(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified stack count`.
+**Purpose:** Reads and returns the `modified stack count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedStackCount(componentData, itemModifier);
+```
 
 ### GetModifiedMaximumHitPoints
 `public static short GetModifiedMaximumHitPoints(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified maximum hit points`.
+**Purpose:** Reads and returns the `modified maximum hit points` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedMaximumHitPoints(componentData, itemModifier);
+```
 
 ### GetModifiedArmor
 `public static int GetModifiedArmor(this WeaponComponentData componentData, ItemModifier itemModifier)`
 
-**Purpose:** Gets the current value of `modified armor`.
+**Purpose:** Reads and returns the `modified armor` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentDataExtensions.GetModifiedArmor(componentData, itemModifier);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 WeaponComponentDataExtensions.GetModifiedThrustDamage(componentData, itemModifier);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

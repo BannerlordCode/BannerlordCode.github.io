@@ -1,13 +1,7 @@
 ---
 title: "Achievement"
+description: "Auto-generated class reference for Achievement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Achievement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Achievement
 
 **Namespace:** TaleWorlds.AchievementSystem
@@ -40,9 +34,10 @@ Start from namespace `TaleWorlds.AchievementSystem` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new Achievement();
+// Obtain an instance from the relevant subsystem API
+Achievement instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

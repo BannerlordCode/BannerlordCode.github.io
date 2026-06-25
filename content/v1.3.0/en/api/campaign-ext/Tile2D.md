@@ -1,13 +1,7 @@
 ---
 title: "Tile2D"
+description: "Auto-generated class reference for Tile2D."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Tile2D`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Tile2D
 
 **Namespace:** SandBox.BoardGames.Tiles
@@ -34,9 +28,10 @@ Start from namespace `SandBox.BoardGames.Tiles` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new Tile2D();
+// Obtain an instance from the relevant subsystem API
+Tile2D instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

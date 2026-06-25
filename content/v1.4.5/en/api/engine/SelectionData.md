@@ -1,20 +1,14 @@
 ---
 title: "SelectionData"
+description: "Auto-generated class reference for SelectionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SelectionData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/SelectionData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/SelectionData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `SelectionData` as a Data-style extension point: first identify who create
 ### SelectionData
 `public struct SelectionData(bool isLocalizationId, string data)`
 
-**Purpose:** Handles logic related to `selection data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SelectionData from the subsystem API first
+SelectionData selectionData = ...;
+var result = selectionData.SelectionData(false, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SelectionData();
+// This data object is usually returned by campaign/mission APIs
+SelectionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

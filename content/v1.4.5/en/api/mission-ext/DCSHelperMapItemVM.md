@@ -1,20 +1,14 @@
 ---
 title: "DCSHelperMapItemVM"
+description: "Auto-generated class reference for DCSHelperMapItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DCSHelperMapItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DCSHelperMapItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DCSHelperMapItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/DCSHelperMapItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/DCSHelperMapItemVM.cs`
 
 ## Overview
 
@@ -42,20 +36,33 @@ Start from namespace `TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelpe
 ### ExecuteToggleSelection
 `public void ExecuteToggleSelection()`
 
-**Purpose:** Executes the `toggle selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle selection`.
+
+```csharp
+// Obtain an instance of DCSHelperMapItemVM from the subsystem API first
+DCSHelperMapItemVM dCSHelperMapItemVM = ...;
+dCSHelperMapItemVM.ExecuteToggleSelection();
+```
 
 ### RefreshLocalMapData
 `public void RefreshLocalMapData()`
 
-**Purpose:** Refreshes the display or cache of `local map data`.
+**Purpose:** Keeps the display or cache of `local map data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of DCSHelperMapItemVM from the subsystem API first
+DCSHelperMapItemVM dCSHelperMapItemVM = ...;
+dCSHelperMapItemVM.RefreshLocalMapData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DCSHelperMapItemVM();
-value.ExecuteToggleSelection();
+// Typically call this after obtaining an instance from the subsystem API
+DCSHelperMapItemVM dCSHelperMapItemVM = ...;
+dCSHelperMapItemVM.ExecuteToggleSelection();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

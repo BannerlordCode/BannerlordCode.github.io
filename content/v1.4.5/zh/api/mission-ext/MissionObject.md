@@ -1,20 +1,14 @@
 ---
 title: "MissionObject"
+description: "MissionObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObject`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObject
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionObject : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObject.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObject.cs`
 
 ## 概述
 
@@ -37,64 +31,131 @@ title: "MissionObject"
 ### SetAbilityOfFaces
 `public virtual void SetAbilityOfFaces(bool enabled)`
 
-**用途 / Purpose:** 设置 `ability of faces` 的值或状态。
+**用途 / Purpose:** 为 「ability of faces」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.SetAbilityOfFaces(false);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+var result = missionObject.GetHashCode();
+```
 
 ### AfterMissionStart
 `public virtual void AfterMissionStart()`
 
-**用途 / Purpose:** 处理 `after mission start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.AfterMissionStart();
+```
 
 ### OnMissionEnded
 `public virtual void OnMissionEnded()`
 
-**用途 / Purpose:** 当 `mission ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.OnMissionEnded();
+```
 
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.OnDeploymentFinished();
+```
 
 ### SetEnabled
 `public void SetEnabled(bool isParentObject = false)`
 
-**用途 / Purpose:** 设置 `enabled` 的值或状态。
+**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.SetEnabled(false);
+```
 
 ### SetEnabledAndMakeVisible
 `public void SetEnabledAndMakeVisible(bool isParentObject = false, bool enableFaces = false)`
 
-**用途 / Purpose:** 设置 `enabled and make visible` 的值或状态。
+**用途 / Purpose:** 为 「enabled and make visible」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.SetEnabledAndMakeVisible(false, false);
+```
 
 ### SetDisabled
 `public void SetDisabled(bool isParentObject = false)`
 
-**用途 / Purpose:** 设置 `disabled` 的值或状态。
+**用途 / Purpose:** 为 「disabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.SetDisabled(false);
+```
 
 ### SetDisabledAndMakeInvisible
 `public void SetDisabledAndMakeInvisible(bool isParentObject = false, bool disableFaces = false)`
 
-**用途 / Purpose:** 设置 `disabled and make invisible` 的值或状态。
+**用途 / Purpose:** 为 「disabled and make invisible」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.SetDisabledAndMakeInvisible(false, false);
+```
 
 ### OnEndMission
 `public virtual void OnEndMission()`
 
-**用途 / Purpose:** 当 `end mission` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.OnEndMission();
+```
 
 ### AddStuckMissile
 `public virtual void AddStuckMissile(GameEntity missileEntity)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `stuck missile`。
+**用途 / Purpose:** 将 「stuck missile」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObject 实例
+MissionObject missionObject = ...;
+missionObject.AddStuckMissile(missileEntity);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionObject();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionObject instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

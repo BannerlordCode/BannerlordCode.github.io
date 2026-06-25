@@ -1,13 +1,7 @@
 ---
 title: "CreditsVM"
+description: "Auto-generated class reference for CreditsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreditsVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CreditsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Credits
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Credits` to p
 ### FillFromFile
 `public void FillFromFile(string path)`
 
-**Purpose:** Handles logic related to `fill from file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CreditsVM from the subsystem API first
+CreditsVM creditsVM = ...;
+creditsVM.FillFromFile("example");
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CreditsVM from the subsystem API first
+CreditsVM creditsVM = ...;
+creditsVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CreditsVM();
-value.FillFromFile("example");
+// Typically call this after obtaining an instance from the subsystem API
+CreditsVM creditsVM = ...;
+creditsVM.FillFromFile("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

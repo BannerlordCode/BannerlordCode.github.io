@@ -1,20 +1,14 @@
 ---
 title: "ArrangementOrder"
+description: "ArrangementOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArrangementOrder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArrangementOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ArrangementOrder`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ArrangementOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ArrangementOrder.cs`
 
 ## 概述
 
@@ -29,102 +23,216 @@ title: "ArrangementOrder"
 ### GetUnitSpacingOf
 `public static int GetUnitSpacingOf(ArrangementOrderEnum a)`
 
-**用途 / Purpose:** 获取 `unit spacing of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit spacing of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ArrangementOrder.GetUnitSpacingOf(a);
+```
 
 ### GetUnitLooseness
 `public static bool GetUnitLooseness(ArrangementOrderEnum a)`
 
-**用途 / Purpose:** 获取 `unit looseness` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit looseness」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ArrangementOrder.GetUnitLooseness(a);
+```
 
 ### GetMovementSpeedRestriction
 `public void GetMovementSpeedRestriction(out float? runRestriction, out float? walkRestriction)`
 
-**用途 / Purpose:** 获取 `movement speed restriction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「movement speed restriction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.GetMovementSpeedRestriction(runRestriction, walkRestriction);
+```
 
 ### GetArrangement
 `public IFormationArrangement GetArrangement(Formation formation)`
 
-**用途 / Purpose:** 获取 `arrangement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「arrangement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.GetArrangement(formation);
+```
 
 ### OnApply
 `public void OnApply(Formation formation)`
 
-**用途 / Purpose:** 当 `apply` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「apply」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.OnApply(formation);
+```
 
 ### SoftUpdate
 `public void SoftUpdate(Formation formation)`
 
-**用途 / Purpose:** 处理 `soft update` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.SoftUpdate(formation);
+```
 
 ### GetShieldDirectionOfUnit
 `public static Agent.UsageDirection GetShieldDirectionOfUnit(Formation formation, Agent unit, ArrangementOrderEnum orderEnum)`
 
-**用途 / Purpose:** 获取 `shield direction of unit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「shield direction of unit」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ArrangementOrder.GetShieldDirectionOfUnit(formation, unit, orderEnum);
+```
 
 ### GetUnitSpacing
 `public int GetUnitSpacing()`
 
-**用途 / Purpose:** 获取 `unit spacing` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit spacing」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.GetUnitSpacing();
+```
 
 ### Rearrange
 `public void Rearrange(Formation formation)`
 
-**用途 / Purpose:** 处理 `rearrange` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.Rearrange(formation);
+```
 
 ### RearrangeAux
 `public void RearrangeAux(Formation formation, bool isDirectly)`
 
-**用途 / Purpose:** 处理 `rearrange aux` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.RearrangeAux(formation, false);
+```
 
 ### TransposeLineFormation
 `public static void TransposeLineFormation(Formation formation)`
 
-**用途 / Purpose:** 处理 `transpose line formation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ArrangementOrder.TransposeLineFormation(formation);
+```
 
 ### OnCancel
 `public void OnCancel(Formation formation)`
 
-**用途 / Purpose:** 当 `cancel` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「cancel」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.OnCancel(formation);
+```
 
 ### TickOccasionally
 `public void TickOccasionally(Formation formation)`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.TickOccasionally(formation);
+```
 
 ### GetNativeEnum
 `public ArrangementOrderEnum GetNativeEnum()`
 
-**用途 / Purpose:** 获取 `native enum` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「native enum」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.GetNativeEnum();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.GetHashCode();
+```
 
 ### OnOrderPositionChanged
 `public void OnOrderPositionChanged(Formation formation, Vec2 previousOrderPosition)`
 
-**用途 / Purpose:** 当 `order position changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「order position changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+arrangementOrder.OnOrderPositionChanged(formation, previousOrderPosition);
+```
 
 ### GetArrangementOrderDefensiveness
 `public static int GetArrangementOrderDefensiveness(ArrangementOrderEnum orderEnum)`
 
-**用途 / Purpose:** 获取 `arrangement order defensiveness` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「arrangement order defensiveness」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ArrangementOrder.GetArrangementOrderDefensiveness(orderEnum);
+```
 
 ### GetArrangementOrderDefensivenessChange
 `public static int GetArrangementOrderDefensivenessChange(ArrangementOrderEnum previousOrderEnum, ArrangementOrderEnum nextOrderEnum)`
 
-**用途 / Purpose:** 获取 `arrangement order defensiveness change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「arrangement order defensiveness change」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ArrangementOrder.GetArrangementOrderDefensivenessChange(previousOrderEnum, nextOrderEnum);
+```
 
 ### CalculateFormationDirectionEnforcingFactorForRank
 `public float CalculateFormationDirectionEnforcingFactorForRank(int formationRankIndex, int rankCount)`
 
-**用途 / Purpose:** 处理 `calculate formation direction enforcing factor for rank` 相关逻辑。
+**用途 / Purpose:** 计算「formation direction enforcing factor for rank」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArrangementOrder 实例
+ArrangementOrder arrangementOrder = ...;
+var result = arrangementOrder.CalculateFormationDirectionEnforcingFactorForRank(0, 0);
+```
 
 ## 使用示例
 
@@ -134,4 +242,4 @@ ArrangementOrder.GetUnitSpacingOf(a);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

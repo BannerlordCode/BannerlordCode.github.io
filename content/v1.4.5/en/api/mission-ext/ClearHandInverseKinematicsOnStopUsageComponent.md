@@ -1,20 +1,14 @@
 ---
 title: "ClearHandInverseKinematicsOnStopUsageComponent"
+description: "Auto-generated class reference for ClearHandInverseKinematicsOnStopUsageComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClearHandInverseKinematicsOnStopUsageComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClearHandInverseKinematicsOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClearHandInverseKinematicsOnStopUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ClearHandInverseKinematicsOnStopUsageComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ClearHandInverseKinematicsOnStopUsageComponent.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ var component = agent.GetComponent<ClearHandInverseKinematicsOnStopUsageComponen
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

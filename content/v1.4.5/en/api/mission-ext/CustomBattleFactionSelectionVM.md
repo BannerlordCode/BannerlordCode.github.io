@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleFactionSelectionVM"
+description: "Auto-generated class reference for CustomBattleFactionSelectionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleFactionSelectionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleFactionSelectionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleFactionSelectionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/CustomBattleFactionSelectionVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/CustomBattleFactionSelectionVM.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.Selecti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CustomBattleFactionSelectionVM from the subsystem API first
+CustomBattleFactionSelectionVM customBattleFactionSelectionVM = ...;
+customBattleFactionSelectionVM.RefreshValues();
+```
 
 ### SelectFaction
 `public void SelectFaction(int index)`
 
-**Purpose:** Handles logic related to `select faction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomBattleFactionSelectionVM from the subsystem API first
+CustomBattleFactionSelectionVM customBattleFactionSelectionVM = ...;
+customBattleFactionSelectionVM.SelectFaction(0);
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** Executes the `randomize` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `randomize`.
+
+```csharp
+// Obtain an instance of CustomBattleFactionSelectionVM from the subsystem API first
+CustomBattleFactionSelectionVM customBattleFactionSelectionVM = ...;
+customBattleFactionSelectionVM.ExecuteRandomize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleFactionSelectionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleFactionSelectionVM customBattleFactionSelectionVM = ...;
+customBattleFactionSelectionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

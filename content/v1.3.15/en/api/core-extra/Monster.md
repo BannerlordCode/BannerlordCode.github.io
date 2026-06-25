@@ -1,13 +1,7 @@
 ---
 title: "Monster"
+description: "Auto-generated class reference for Monster."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Monster`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Monster
 
 **Namespace:** TaleWorlds.Core
@@ -119,20 +113,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of Monster from the subsystem API first
+Monster monster = ...;
+monster.Deserialize(objectManager, node);
+```
 
 ### GetBoneToAttachForItemFlags
 `public sbyte GetBoneToAttachForItemFlags(ItemFlags itemFlags)`
 
-**Purpose:** Gets the current value of `bone to attach for item flags`.
+**Purpose:** Reads and returns the `bone to attach for item flags` value held by the current object.
+
+```csharp
+// Obtain an instance of Monster from the subsystem API first
+Monster monster = ...;
+var result = monster.GetBoneToAttachForItemFlags(itemFlags);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Monster();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+Monster monster = ...;
+monster.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

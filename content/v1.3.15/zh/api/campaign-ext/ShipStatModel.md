@@ -1,13 +1,7 @@
 ---
 title: "ShipStatModel"
+description: "ShipStatModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipStatModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ShipStatModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ title: "ShipStatModel"
 ### GetShipFlagshipScore
 `public abstract float GetShipFlagshipScore(Ship ship)`
 
-**用途 / Purpose:** 获取 `ship flagship score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship flagship score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShipStatModel 实例
+ShipStatModel shipStatModel = ...;
+var result = shipStatModel.GetShipFlagshipScore(ship);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomShipStatModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ShipStatModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

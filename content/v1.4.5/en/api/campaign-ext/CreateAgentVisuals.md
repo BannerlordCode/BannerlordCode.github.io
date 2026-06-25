@@ -1,20 +1,14 @@
 ---
 title: "CreateAgentVisuals"
+description: "Auto-generated class reference for CreateAgentVisuals."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreateAgentVisuals`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreateAgentVisuals
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class CreateAgentVisuals : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/CreateAgentVisuals.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/CreateAgentVisuals.cs`
 
 ## Overview
 
@@ -40,9 +34,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new CreateAgentVisuals();
+// Obtain an instance from the relevant subsystem API
+CreateAgentVisuals instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "FriendlyDamageKickPlayerResponseMessage"
+description: "Auto-generated class reference for FriendlyDamageKickPlayerResponseMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FriendlyDamageKickPlayerResponseMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FriendlyDamageKickPlayerResponseMessage
 
 **Namespace:** Messages.FromBattleServerManager.ToBattleServer
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class FriendlyDamageKickPlayerResponseMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/FriendlyDamageKickPlayerResponseMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/FriendlyDamageKickPlayerResponseMessage.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `Messages.FromBattleServerManager.ToBattleServer` to place 
 ## Usage Example
 
 ```csharp
-var example = new FriendlyDamageKickPlayerResponseMessage();
+// Obtain an instance from the relevant subsystem API
+FriendlyDamageKickPlayerResponseMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

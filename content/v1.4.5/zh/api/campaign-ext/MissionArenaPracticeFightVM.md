@@ -1,20 +1,14 @@
 ---
 title: "MissionArenaPracticeFightVM"
+description: "MissionArenaPracticeFightVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionArenaPracticeFightVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionArenaPracticeFightVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionArenaPracticeFightVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionArenaPracticeFightVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionArenaPracticeFightVM.cs`
 
 ## 概述
 
@@ -38,20 +32,33 @@ title: "MissionArenaPracticeFightVM"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionArenaPracticeFightVM 实例
+MissionArenaPracticeFightVM missionArenaPracticeFightVM = ...;
+missionArenaPracticeFightVM.Tick();
+```
 
 ### UpdatePrizeText
 `public void UpdatePrizeText()`
 
-**用途 / Purpose:** 更新 `prize text` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「prize text」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionArenaPracticeFightVM 实例
+MissionArenaPracticeFightVM missionArenaPracticeFightVM = ...;
+missionArenaPracticeFightVM.UpdatePrizeText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionArenaPracticeFightVM();
-value.Tick();
+// 通常从对应子系统 API 获取实例后调用
+MissionArenaPracticeFightVM missionArenaPracticeFightVM = ...;
+missionArenaPracticeFightVM.Tick();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

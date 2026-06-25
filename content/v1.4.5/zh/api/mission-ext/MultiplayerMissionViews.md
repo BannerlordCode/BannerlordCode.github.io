@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerMissionViews"
+description: "MultiplayerMissionViews 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerMissionViews`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionViews
 
-**命名空间:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class MultiplayerMissionViews`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MultiplayerMissionViews`
+**Base:** 无
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerMissionViews.cs`
 
 ## 概述
 
-`MultiplayerMissionViews` 位于 `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MultiplayerMissionViews` 位于 `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,41 +23,69 @@ title: "MultiplayerMissionViews"
 ### OpenTeamDeathmatchMission
 `public static MissionView OpenTeamDeathmatchMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open team deathmatch mission` 相关逻辑。
+**用途 / Purpose:** 打开「team deathmatch mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMissionViews.OpenTeamDeathmatchMission(mission);
+```
 
 ### OpenDuelMission
 `public static MissionView OpenDuelMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open duel mission` 相关逻辑。
+**用途 / Purpose:** 打开「duel mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMissionViews.OpenDuelMission(mission);
+```
 
 ### OpenSiegeMission
 `public static MissionView OpenSiegeMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open siege mission` 相关逻辑。
+**用途 / Purpose:** 打开「siege mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMissionViews.OpenSiegeMission(mission);
+```
 
 ### OpenBattle
 `public static MissionView OpenBattle(Mission mission)`
 
-**用途 / Purpose:** 处理 `open battle` 相关逻辑。
+**用途 / Purpose:** 打开「battle」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMissionViews.OpenBattle(mission);
+```
 
 ### OpenCaptain
 `public static MissionView OpenCaptain(Mission mission)`
 
-**用途 / Purpose:** 处理 `open captain` 相关逻辑。
+**用途 / Purpose:** 打开「captain」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMissionViews.OpenCaptain(mission);
+```
 
 ### OpenSkirmish
 `public static MissionView OpenSkirmish(Mission mission)`
 
-**用途 / Purpose:** 处理 `open skirmish` 相关逻辑。
+**用途 / Purpose:** 打开「skirmish」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerMissionViews.OpenSkirmish(mission);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 MultiplayerMissionViews.OpenTeamDeathmatchMission(mission);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

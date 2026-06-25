@@ -1,13 +1,7 @@
 ---
 title: "GeneratedPrefabContext"
+description: "GeneratedPrefabContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GeneratedPrefabContext`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GeneratedPrefabContext
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,25 +23,44 @@ title: "GeneratedPrefabContext"
 ### CollectPrefabs
 `public void CollectPrefabs()`
 
-**用途 / Purpose:** 处理 `collect prefabs` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GeneratedPrefabContext 实例
+GeneratedPrefabContext generatedPrefabContext = ...;
+generatedPrefabContext.CollectPrefabs();
+```
 
 ### AddGeneratedPrefab
 `public void AddGeneratedPrefab(string prefabName, string variantName, CreateGeneratedWidget creator)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `generated prefab`。
+**用途 / Purpose:** 将 「generated prefab」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GeneratedPrefabContext 实例
+GeneratedPrefabContext generatedPrefabContext = ...;
+generatedPrefabContext.AddGeneratedPrefab("example", "example", creator);
+```
 
 ### InstantiatePrefab
 `public GeneratedPrefabInstantiationResult InstantiatePrefab(UIContext conext, string prefabName, string variantName, Dictionary<string, object> data)`
 
-**用途 / Purpose:** 处理 `instantiate prefab` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GeneratedPrefabContext 实例
+GeneratedPrefabContext generatedPrefabContext = ...;
+var result = generatedPrefabContext.InstantiatePrefab(conext, "example", "example", dictionary<string, data);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GeneratedPrefabContext();
-value.CollectPrefabs();
+// 通常从对应子系统 API 获取实例后调用
+GeneratedPrefabContext generatedPrefabContext = ...;
+generatedPrefabContext.CollectPrefabs();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

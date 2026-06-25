@@ -1,20 +1,14 @@
 ---
 title: "PartyLeaderChangeNotification"
+description: "PartyLeaderChangeNotification 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyLeaderChangeNotification`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyLeaderChangeNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyLeaderChangeNotification : InformationData`
 **Base:** `InformationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/PartyLeaderChangeNotification.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/PartyLeaderChangeNotification.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "PartyLeaderChangeNotification"
 ### IsValid
 `public override bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PartyLeaderChangeNotification 实例
+PartyLeaderChangeNotification partyLeaderChangeNotification = ...;
+var result = partyLeaderChangeNotification.IsValid();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyLeaderChangeNotification();
-value.IsValid();
+// 通常从对应子系统 API 获取实例后调用
+PartyLeaderChangeNotification partyLeaderChangeNotification = ...;
+partyLeaderChangeNotification.IsValid();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

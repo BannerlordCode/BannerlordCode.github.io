@@ -26,5 +26,14 @@ Treat `Bannerlord v1.4.5` as an entry point or data node for this subsystem: ins
 ## Usage Example
 
 ```csharp
-var example = new Bannerlord v1.4.5();
+// Use the navigation below to explore guides, API reference, and architecture.
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## 语言选择 / Select Language
+
+- [English Documentation](./en/)
+- [中文文档 / Chinese Documentation](./zh/)
+
+<!-- END SECTION INDEX -->

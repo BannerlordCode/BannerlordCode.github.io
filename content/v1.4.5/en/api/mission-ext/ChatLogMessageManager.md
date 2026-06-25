@@ -1,20 +1,14 @@
 ---
 title: "ChatLogMessageManager"
+description: "Auto-generated class reference for ChatLogMessageManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChatLogMessageManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatLogMessageManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ChatLogMessageManager : MessageManagerBase`
 **Base:** `MessageManagerBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/ChatLogMessageManager.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/ChatLogMessageManager.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `ChatLogMessageManager` as a Manager-style extension point: first identify
 ### ChatLineData
 `public struct ChatLineData(string text, uint color)`
 
-**Purpose:** Handles logic related to `chat line data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ChatLogMessageManager from the subsystem API first
+ChatLogMessageManager chatLogMessageManager = ...;
+var result = chatLogMessageManager.ChatLineData("example", 0);
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of ChatLogMessageManager from the subsystem API first
+ChatLogMessageManager chatLogMessageManager = ...;
+chatLogMessageManager.Update();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = ChatLogMessageManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

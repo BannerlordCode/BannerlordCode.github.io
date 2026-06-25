@@ -1,20 +1,14 @@
 ---
 title: "PersonaEarnestTag"
+description: "Auto-generated class reference for PersonaEarnestTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersonaEarnestTag`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersonaEarnestTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PersonaEarnestTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/PersonaEarnestTag.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/PersonaEarnestTag.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of PersonaEarnestTag from the subsystem API first
+PersonaEarnestTag personaEarnestTag = ...;
+var result = personaEarnestTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PersonaEarnestTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+PersonaEarnestTag personaEarnestTag = ...;
+personaEarnestTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

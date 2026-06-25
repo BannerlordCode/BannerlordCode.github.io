@@ -1,13 +1,7 @@
 ---
 title: "HeroSkillHandler"
+description: "Auto-generated class reference for HeroSkillHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroSkillHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroSkillHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,19 +23,31 @@ Treat `HeroSkillHandler` as a Handler-style extension point: first identify who 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HeroSkillHandler from the subsystem API first
+HeroSkillHandler heroSkillHandler = ...;
+heroSkillHandler.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of HeroSkillHandler from the subsystem API first
+HeroSkillHandler heroSkillHandler = ...;
+heroSkillHandler.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new HeroSkillHandler());
+var behavior = Mission.Current.GetMissionBehavior<HeroSkillHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ServerInfoMessageExtensions"
+description: "ServerInfoMessageExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ServerInfoMessageExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ServerInfoMessageExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ServerInfoMessageExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ServerInfoMessageExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/ServerInfoMessageExtensions.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "ServerInfoMessageExtensions"
 ### GetDescription
 `public static TextObject GetDescription(this SystemMessage message)`
 
-**用途 / Purpose:** 获取 `description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ServerInfoMessageExtensions.GetDescription(message);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ ServerInfoMessageExtensions.GetDescription(message);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

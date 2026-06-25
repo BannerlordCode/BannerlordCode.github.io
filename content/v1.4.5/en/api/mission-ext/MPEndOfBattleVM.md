@@ -1,20 +1,14 @@
 ---
 title: "MPEndOfBattleVM"
+description: "Auto-generated class reference for MPEndOfBattleVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPEndOfBattleVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPEndOfBattleVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPEndOfBattleVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MPEndOfBattleVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MPEndOfBattleVM.cs`
 
 ## Overview
 
@@ -42,25 +36,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPEndOfBattleVM from the subsystem API first
+MPEndOfBattleVM mPEndOfBattleVM = ...;
+mPEndOfBattleVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPEndOfBattleVM from the subsystem API first
+MPEndOfBattleVM mPEndOfBattleVM = ...;
+mPEndOfBattleVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MPEndOfBattleVM from the subsystem API first
+MPEndOfBattleVM mPEndOfBattleVM = ...;
+mPEndOfBattleVM.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPEndOfBattleVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPEndOfBattleVM mPEndOfBattleVM = ...;
+mPEndOfBattleVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

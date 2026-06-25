@@ -1,20 +1,14 @@
 ---
 title: "DefaultVoiceOverModel"
+description: "Auto-generated class reference for DefaultVoiceOverModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultVoiceOverModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultVoiceOverModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultVoiceOverModel : VoiceOverModel`
 **Base:** `VoiceOverModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultVoiceOverModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultVoiceOverModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DefaultVoiceOverModel` as a Model-style extension point: first identify w
 ### GetSoundPathForCharacter
 `public override string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**Purpose:** Gets the current value of `sound path for character`.
+**Purpose:** Reads and returns the `sound path for character` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultVoiceOverModel from the subsystem API first
+DefaultVoiceOverModel defaultVoiceOverModel = ...;
+var result = defaultVoiceOverModel.GetSoundPathForCharacter(character, voiceObject);
+```
 
 ### GetAccentClass
 `public override string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**Purpose:** Gets the current value of `accent class`.
+**Purpose:** Reads and returns the `accent class` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultVoiceOverModel from the subsystem API first
+DefaultVoiceOverModel defaultVoiceOverModel = ...;
+var result = defaultVoiceOverModel.GetAccentClass(culture, false);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultVoiceOverModel>(new MyDefaultVoiceOverModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

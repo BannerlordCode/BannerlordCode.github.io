@@ -1,13 +1,7 @@
 ---
 title: "ResourceDepot"
+description: "Auto-generated class reference for ResourceDepot."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ResourceDepot`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ResourceDepot
 
 **Namespace:** TaleWorlds.Library
@@ -37,48 +31,97 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 
 **Purpose:** Adds `location` to the current collection or state.
 
+```csharp
+// Obtain an instance of ResourceDepot from the subsystem API first
+ResourceDepot resourceDepot = ...;
+resourceDepot.AddLocation("example", "example");
+```
+
 ### CollectResources
 `public void CollectResources()`
 
-**Purpose:** Handles logic related to `collect resources`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ResourceDepot from the subsystem API first
+ResourceDepot resourceDepot = ...;
+resourceDepot.CollectResources();
+```
 
 ### GetFiles
 `public string GetFiles(string subDirectory, string extension, bool excludeSubContents = false)`
 
-**Purpose:** Gets the current value of `files`.
+**Purpose:** Reads and returns the `files` value held by the current object.
+
+```csharp
+// Obtain an instance of ResourceDepot from the subsystem API first
+ResourceDepot resourceDepot = ...;
+var result = resourceDepot.GetFiles("example", "example", false);
+```
 
 ### GetFilePath
 `public string GetFilePath(string file)`
 
-**Purpose:** Gets the current value of `file path`.
+**Purpose:** Reads and returns the `file path` value held by the current object.
+
+```csharp
+// Obtain an instance of ResourceDepot from the subsystem API first
+ResourceDepot resourceDepot = ...;
+var result = resourceDepot.GetFilePath("example");
+```
 
 ### GetFilesEndingWith
 `public IEnumerable<string> GetFilesEndingWith(string fileEndName)`
 
-**Purpose:** Gets the current value of `files ending with`.
+**Purpose:** Reads and returns the `files ending with` value held by the current object.
+
+```csharp
+// Obtain an instance of ResourceDepot from the subsystem API first
+ResourceDepot resourceDepot = ...;
+var result = resourceDepot.GetFilesEndingWith("example");
+```
 
 ### StartWatchingChangesInDepot
 `public void StartWatchingChangesInDepot()`
 
-**Purpose:** Handles logic related to `start watching changes in depot`.
+**Purpose:** Starts the `watching changes in depot` flow or state machine.
+
+```csharp
+// Obtain an instance of ResourceDepot from the subsystem API first
+ResourceDepot resourceDepot = ...;
+resourceDepot.StartWatchingChangesInDepot();
+```
 
 ### StopWatchingChangesInDepot
 `public void StopWatchingChangesInDepot()`
 
-**Purpose:** Handles logic related to `stop watching changes in depot`.
+**Purpose:** Stops the `watching changes in depot` flow or state machine.
+
+```csharp
+// Obtain an instance of ResourceDepot from the subsystem API first
+ResourceDepot resourceDepot = ...;
+resourceDepot.StopWatchingChangesInDepot();
+```
 
 ### CheckForChanges
 `public void CheckForChanges()`
 
-**Purpose:** Handles logic related to `check for changes`.
+**Purpose:** Verifies whether `for changes` holds true for the current object.
+
+```csharp
+// Obtain an instance of ResourceDepot from the subsystem API first
+ResourceDepot resourceDepot = ...;
+resourceDepot.CheckForChanges();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ResourceDepot();
-value.AddLocation("example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+ResourceDepot resourceDepot = ...;
+resourceDepot.AddLocation("example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

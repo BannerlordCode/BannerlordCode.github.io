@@ -1,20 +1,14 @@
 ---
 title: "MPPersonalKillNotificationVM"
+description: "Auto-generated class reference for MPPersonalKillNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPersonalKillNotificationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPersonalKillNotificationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.Personal
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPersonalKillNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.Personal/MPPersonalKillNotificationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed.Personal/MPPersonalKillNotificationVM.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### OnGoldChange
 `public void OnGoldChange(int changeAmount, GoldGainFlags goldGainType)`
 
-**Purpose:** Called when the `gold change` event is raised.
+**Purpose:** Invoked when the `gold change` event is raised.
+
+```csharp
+// Obtain an instance of MPPersonalKillNotificationVM from the subsystem API first
+MPPersonalKillNotificationVM mPPersonalKillNotificationVM = ...;
+mPPersonalKillNotificationVM.OnGoldChange(0, goldGainType);
+```
 
 ### OnPersonalHit
 `public void OnPersonalHit(int damageAmount, bool isFatal, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName)`
 
-**Purpose:** Called when the `personal hit` event is raised.
+**Purpose:** Invoked when the `personal hit` event is raised.
+
+```csharp
+// Obtain an instance of MPPersonalKillNotificationVM from the subsystem API first
+MPPersonalKillNotificationVM mPPersonalKillNotificationVM = ...;
+mPPersonalKillNotificationVM.OnPersonalHit(0, false, false, false, false, "example");
+```
 
 ### OnPersonalAssist
 `public void OnPersonalAssist(string killedAgentName)`
 
-**Purpose:** Called when the `personal assist` event is raised.
+**Purpose:** Invoked when the `personal assist` event is raised.
+
+```csharp
+// Obtain an instance of MPPersonalKillNotificationVM from the subsystem API first
+MPPersonalKillNotificationVM mPPersonalKillNotificationVM = ...;
+mPPersonalKillNotificationVM.OnPersonalAssist("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPPersonalKillNotificationVM();
-value.OnGoldChange(0, goldGainType);
+// Typically call this after obtaining an instance from the subsystem API
+MPPersonalKillNotificationVM mPPersonalKillNotificationVM = ...;
+mPPersonalKillNotificationVM.OnGoldChange(0, goldGainType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

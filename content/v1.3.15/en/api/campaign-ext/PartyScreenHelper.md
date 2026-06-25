@@ -1,13 +1,7 @@
 ---
 title: "PartyScreenHelper"
+description: "Auto-generated class reference for PartyScreenHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyScreenHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyScreenHelper
 
 **Namespace:** Helpers
@@ -29,122 +23,242 @@ Treat `PartyScreenHelper` as a Helper-style extension point: first identify who 
 ### GetActivePartyState
 `public static PartyState GetActivePartyState()`
 
-**Purpose:** Gets the current value of `active party state`.
+**Purpose:** Reads and returns the `active party state` value held by the current object.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.GetActivePartyState();
+```
 
 ### CloseScreen
 `public static void CloseScreen(bool isForced, bool fromCancel = false)`
 
-**Purpose:** Handles logic related to `close screen`.
+**Purpose:** Closes the resource or UI associated with `screen`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.CloseScreen(false, false);
+```
 
 ### OpenScreenAsCheat
 `public static void OpenScreenAsCheat()`
 
-**Purpose:** Handles logic related to `open screen as cheat`.
+**Purpose:** Opens the resource or UI associated with `screen as cheat`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsCheat();
+```
 
 ### OpenScreenAsNormal
 `public static void OpenScreenAsNormal()`
 
-**Purpose:** Handles logic related to `open screen as normal`.
+**Purpose:** Opens the resource or UI associated with `screen as normal`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsNormal();
+```
 
 ### OpenScreenAsRansom
 `public static void OpenScreenAsRansom()`
 
-**Purpose:** Handles logic related to `open screen as ransom`.
+**Purpose:** Opens the resource or UI associated with `screen as ransom`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsRansom();
+```
 
 ### OpenScreenAsLoot
 `public static void OpenScreenAsLoot(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TextObject leftPartyName, int leftPartySizeLimit, PartyScreenClosedDelegate partyScreenClosedDelegate = null)`
 
-**Purpose:** Handles logic related to `open screen as loot`.
+**Purpose:** Opens the resource or UI associated with `screen as loot`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsLoot(leftMemberRoster, leftPrisonerRoster, leftPartyName, 0, null);
+```
 
 ### OpenScreenAsManageTroopsAndPrisoners
 `public static void OpenScreenAsManageTroopsAndPrisoners(MobileParty leftParty, PartyScreenClosedDelegate onPartyScreenClosed = null)`
 
-**Purpose:** Handles logic related to `open screen as manage troops and prisoners`.
+**Purpose:** Opens the resource or UI associated with `screen as manage troops and prisoners`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsManageTroopsAndPrisoners(leftParty, null);
+```
 
 ### OpenScreenAsReceiveTroops
 `public static void OpenScreenAsReceiveTroops(TroopRoster leftMemberParty, TextObject leftPartyName, PartyScreenClosedDelegate partyScreenClosedDelegate = null)`
 
-**Purpose:** Handles logic related to `open screen as receive troops`.
+**Purpose:** Opens the resource or UI associated with `screen as receive troops`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsReceiveTroops(leftMemberParty, leftPartyName, null);
+```
 
 ### OpenScreenAsManageTroops
 `public static void OpenScreenAsManageTroops(MobileParty leftParty)`
 
-**Purpose:** Handles logic related to `open screen as manage troops`.
+**Purpose:** Opens the resource or UI associated with `screen as manage troops`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsManageTroops(leftParty);
+```
 
 ### OpenScreenAsDonateTroops
 `public static void OpenScreenAsDonateTroops(MobileParty leftParty)`
 
-**Purpose:** Handles logic related to `open screen as donate troops`.
+**Purpose:** Opens the resource or UI associated with `screen as donate troops`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsDonateTroops(leftParty);
+```
 
 ### OpenScreenAsDonateGarrisonWithCurrentSettlement
 `public static void OpenScreenAsDonateGarrisonWithCurrentSettlement()`
 
-**Purpose:** Handles logic related to `open screen as donate garrison with current settlement`.
+**Purpose:** Opens the resource or UI associated with `screen as donate garrison with current settlement`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsDonateGarrisonWithCurrentSettlement();
+```
 
 ### OpenScreenAsDonatePrisoners
 `public static void OpenScreenAsDonatePrisoners()`
 
-**Purpose:** Handles logic related to `open screen as donate prisoners`.
+**Purpose:** Opens the resource or UI associated with `screen as donate prisoners`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsDonatePrisoners();
+```
 
 ### DonatePrisonerTransferableDelegate
 `public static bool DonatePrisonerTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**Purpose:** Handles logic related to `donate prisoner transferable delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.DonatePrisonerTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### OpenScreenAsManagePrisoners
 `public static void OpenScreenAsManagePrisoners()`
 
-**Purpose:** Handles logic related to `open screen as manage prisoners`.
+**Purpose:** Opens the resource or UI associated with `screen as manage prisoners`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsManagePrisoners();
+```
 
 ### TroopTransferableDelegate
 `public static bool TroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase leftOwnerParty)`
 
-**Purpose:** Handles logic related to `troop transferable delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.TroopTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### ClanManageTroopAndPrisonerTransferableDelegate
 `public static bool ClanManageTroopAndPrisonerTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**Purpose:** Handles logic related to `clan manage troop and prisoner transferable delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.ClanManageTroopAndPrisonerTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### ClanManageTroopTransferableDelegate
 `public static bool ClanManageTroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**Purpose:** Handles logic related to `clan manage troop transferable delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.ClanManageTroopTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### DonateModeTroopTransferableDelegate
 `public static bool DonateModeTroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**Purpose:** Handles logic related to `donate mode troop transferable delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.DonateModeTroopTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### OpenScreenWithCondition
 `public static void OpenScreenWithCondition(IsTroopTransferableDelegate isTroopTransferable, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyPresentationDoneButtonDelegate onDoneClicked, PartyPresentationCancelButtonDelegate onCancelClicked, PartyScreenLogic.TransferState memberTransferState, PartyScreenLogic.TransferState prisonerTransferState, TextObject leftPartyName, int limit, bool showProgressBar, bool isDonating, PartyScreenHelper.PartyScreenMode screenMode = PartyScreenHelper.PartyScreenMode.Normal, TroopRoster memberRosterLeft = null, TroopRoster prisonerRosterLeft = null)`
 
-**Purpose:** Handles logic related to `open screen with condition`.
+**Purpose:** Opens the resource or UI associated with `screen with condition`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenWithCondition(isTroopTransferable, doneButtonCondition, onDoneClicked, onCancelClicked, memberTransferState, prisonerTransferState, leftPartyName, 0, false, false, partyScreenHelper.PartyScreenMode.Normal, null, null);
+```
 
 ### OpenScreenForManagingAlley
 `public static void OpenScreenForManagingAlley(bool isNewAlley, TroopRoster memberRosterLeft, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyPresentationDoneButtonDelegate onDoneClicked, TextObject leftPartyName, PartyPresentationCancelButtonDelegate onCancelButtonClicked)`
 
-**Purpose:** Handles logic related to `open screen for managing alley`.
+**Purpose:** Opens the resource or UI associated with `screen for managing alley`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenForManagingAlley(false, memberRosterLeft, isTroopTransferable, doneButtonCondition, onDoneClicked, leftPartyName, onCancelButtonClicked);
+```
 
 ### OpenScreenAsQuest
 `public static void OpenScreenAsQuest(TroopRoster leftMemberRoster, TextObject leftPartyName, int leftPartySizeLimit, int questDaysMultiplier, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
 
-**Purpose:** Handles logic related to `open screen as quest`.
+**Purpose:** Opens the resource or UI associated with `screen as quest`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsQuest(leftMemberRoster, leftPartyName, 0, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null);
+```
 
 ### OpenScreenWithDummyRoster
 `public static void OpenScreenWithDummyRoster(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TroopRoster rightMemberRoster, TroopRoster rightPrisonerRoster, TextObject leftPartyName, TextObject rightPartyName, int leftPartySizeLimit, int rightPartySizeLimit, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, CanTalkToHeroDelegate canTalkToTroopDelegate = null, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
 
-**Purpose:** Handles logic related to `open screen with dummy roster`.
+**Purpose:** Opens the resource or UI associated with `screen with dummy roster`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenWithDummyRoster(leftMemberRoster, leftPrisonerRoster, rightMemberRoster, rightPrisonerRoster, leftPartyName, rightPartyName, 0, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null, null);
+```
 
 ### OpenScreenWithDummyRosterWithMainParty
 `public static void OpenScreenWithDummyRosterWithMainParty(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TextObject leftPartyName, int leftPartySizeLimit, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
 
-**Purpose:** Handles logic related to `open screen with dummy roster with main party`.
+**Purpose:** Opens the resource or UI associated with `screen with dummy roster with main party`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenWithDummyRosterWithMainParty(leftMemberRoster, leftPrisonerRoster, leftPartyName, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null);
+```
 
 ### OpenScreenAsCreateClanPartyForHero
 `public static void OpenScreenAsCreateClanPartyForHero(Hero hero, PartyScreenClosedDelegate onScreenClosed = null, IsTroopTransferableDelegate isTroopTransferable = null)`
 
-**Purpose:** Handles logic related to `open screen as create clan party for hero`.
+**Purpose:** Opens the resource or UI associated with `screen as create clan party for hero`.
+
+```csharp
+// Static call; no instance required
+PartyScreenHelper.OpenScreenAsCreateClanPartyForHero(hero, null, null);
+```
 
 ## Usage Example
 
@@ -154,4 +268,4 @@ PartyScreenHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

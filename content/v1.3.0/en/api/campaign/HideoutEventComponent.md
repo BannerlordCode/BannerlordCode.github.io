@@ -1,13 +1,7 @@
 ---
 title: "HideoutEventComponent"
+description: "Auto-generated class reference for HideoutEventComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutEventComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -35,12 +29,22 @@ Treat `HideoutEventComponent` as a Component-style extension point: first identi
 ### CreateHideoutEvent
 `public static HideoutEventComponent CreateHideoutEvent(PartyBase attackerParty, PartyBase defenderParty, bool isSendTroops)`
 
-**Purpose:** Creates a new `hideout event` instance or object.
+**Purpose:** Constructs a new `hideout event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HideoutEventComponent.CreateHideoutEvent(attackerParty, defenderParty, false);
+```
 
 ### CreateComponentForOldSaves
 `public static HideoutEventComponent CreateComponentForOldSaves(MapEvent mapEvent, bool isSendTroops)`
 
-**Purpose:** Creates a new `component for old saves` instance or object.
+**Purpose:** Constructs a new `component for old saves` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HideoutEventComponent.CreateComponentForOldSaves(mapEvent, false);
+```
 
 ## Usage Example
 
@@ -50,4 +54,4 @@ var component = agent.GetComponent<HideoutEventComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

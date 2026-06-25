@@ -1,23 +1,18 @@
 ---
 title: "RenderCallbackCollection"
+description: "Auto-generated class reference for RenderCallbackCollection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RenderCallbackCollection`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RenderCallbackCollection
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct RenderCallbackCollection`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/RenderCallbackCollection.cs`
 
 ## Overview
 
-`RenderCallbackCollection` lives in `TaleWorlds.MountAndBlade.View.Tableaus`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`RenderCallbackCollection` lives in `TaleWorlds.MountAndBlade.View.Tableaus` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,16 +30,19 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### CreateEmpty
 `public static RenderCallbackCollection CreateEmpty()`
 
-**Purpose:** Creates a new `empty` instance or object.
+**Purpose:** Constructs a new `empty` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+RenderCallbackCollection.CreateEmpty();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 RenderCallbackCollection.CreateEmpty();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

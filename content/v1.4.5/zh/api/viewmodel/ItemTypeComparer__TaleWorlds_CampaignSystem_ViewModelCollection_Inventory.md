@@ -1,20 +1,14 @@
 ---
-title: "ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory"
+title: "ItemTypeComparer"
+description: "ItemTypeComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemTypeComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemTypeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemTypeComparer : ItemComparer`
 **Base:** `ItemComparer`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/SPInventorySortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/SPInventorySortControllerVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventor
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ItemTypeComparer 实例
+ItemTypeComparer itemTypeComparer = ...;
+var result = itemTypeComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemTypeComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+ItemTypeComparer itemTypeComparer = ...;
+itemTypeComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "RichTextException"
+description: "Auto-generated class reference for RichTextException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichTextException`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RichTextException
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class RichTextException : Exception`
 **Base:** `Exception`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichTextException.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichTextException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `RichTextException` as a Exception-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-try { CallRichTextException(); } catch (RichTextException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (RichTextException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

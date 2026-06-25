@@ -1,13 +1,7 @@
 ---
 title: "EncounterGameMenuModel"
+description: "Auto-generated class reference for EncounterGameMenuModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncounterGameMenuModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncounterGameMenuModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ Treat `EncounterGameMenuModel` as a Model-style extension point: first identify 
 ### GetEncounterMenu
 `public abstract string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
 
-**Purpose:** Gets the current value of `encounter menu`.
+**Purpose:** Reads and returns the `encounter menu` value held by the current object.
+
+```csharp
+// Obtain an instance of EncounterGameMenuModel from the subsystem API first
+EncounterGameMenuModel encounterGameMenuModel = ...;
+var result = encounterGameMenuModel.GetEncounterMenu(attackerParty, defenderParty, startBattle, joinBattle);
+```
 
 ### GetRaidCompleteMenu
 `public abstract string GetRaidCompleteMenu()`
 
-**Purpose:** Gets the current value of `raid complete menu`.
+**Purpose:** Reads and returns the `raid complete menu` value held by the current object.
+
+```csharp
+// Obtain an instance of EncounterGameMenuModel from the subsystem API first
+EncounterGameMenuModel encounterGameMenuModel = ...;
+var result = encounterGameMenuModel.GetRaidCompleteMenu();
+```
 
 ### GetNewPartyJoinMenu
 `public abstract string GetNewPartyJoinMenu(MobileParty newParty)`
 
-**Purpose:** Gets the current value of `new party join menu`.
+**Purpose:** Reads and returns the `new party join menu` value held by the current object.
+
+```csharp
+// Obtain an instance of EncounterGameMenuModel from the subsystem API first
+EncounterGameMenuModel encounterGameMenuModel = ...;
+var result = encounterGameMenuModel.GetNewPartyJoinMenu(newParty);
+```
 
 ### GetGenericStateMenu
 `public abstract string GetGenericStateMenu()`
 
-**Purpose:** Gets the current value of `generic state menu`.
+**Purpose:** Reads and returns the `generic state menu` value held by the current object.
+
+```csharp
+// Obtain an instance of EncounterGameMenuModel from the subsystem API first
+EncounterGameMenuModel encounterGameMenuModel = ...;
+var result = encounterGameMenuModel.GetGenericStateMenu();
+```
 
 ### IsPlunderMenu
 `public abstract bool IsPlunderMenu(string menuId)`
 
-**Purpose:** Handles logic related to `is plunder menu`.
+**Purpose:** Determines whether the current object is in the `plunder menu` state or condition.
+
+```csharp
+// Obtain an instance of EncounterGameMenuModel from the subsystem API first
+EncounterGameMenuModel encounterGameMenuModel = ...;
+var result = encounterGameMenuModel.IsPlunderMenu("example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncounterGameMenuModel();
+// Typically obtained from a subsystem API or factory
+EncounterGameMenuModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

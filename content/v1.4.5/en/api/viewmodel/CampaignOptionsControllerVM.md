@@ -1,20 +1,14 @@
 ---
 title: "CampaignOptionsControllerVM"
+description: "Auto-generated class reference for CampaignOptionsControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignOptionsControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignOptionsControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignOptionsControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionsControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignOptionsControllerVM.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Compare
 `public int Compare(CampaignOptionItemVM x, CampaignOptionItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of CampaignOptionsControllerVM from the subsystem API first
+CampaignOptionsControllerVM campaignOptionsControllerVM = ...;
+var result = campaignOptionsControllerVM.Compare(x, y);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of CampaignOptionsControllerVM from the subsystem API first
+CampaignOptionsControllerVM campaignOptionsControllerVM = ...;
+campaignOptionsControllerVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CampaignOptionsControllerVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+CampaignOptionsControllerVM campaignOptionsControllerVM = ...;
+campaignOptionsControllerVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ColorExtensions"
+description: "Auto-generated class reference for ColorExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ColorExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ColorExtensions
 
 **Namespace:** TaleWorlds.Library
@@ -31,6 +25,11 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 
 **Purpose:** Adds `factor in h s b` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+ColorExtensions.AddFactorInHSB(rgbColor, 0, 0, 0);
+```
+
 ## Usage Example
 
 ```csharp
@@ -39,4 +38,4 @@ ColorExtensions.AddFactorInHSB(rgbColor, 0, 0, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,28 +1,22 @@
 ---
 title: "AgentController"
+description: "Auto-generated class reference for AgentController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** public class AgentController
+**Type:** `public class AgentController`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/AgentController.cs`
 
 ## Overview
 
-`AgentController` is the base for per-agent controllers (movement, AI, etc.) attached to an `Agent`. Each controller has an `Owner` agent and a `Mission`. Mods define custom controller types (via `AgentControllerType`) and add them to agents to run per-tick logic. Controllers are initialized via `OnInitialize`.
+`AgentController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
 
 ## Mental Model
 
-Treat `AgentController` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `AgentController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Properties
 
@@ -34,28 +28,22 @@ Treat `AgentController` as an entry point or data node for this subsystem: inspe
 ## Key Methods
 
 ### OnInitialize
+`public virtual void OnInitialize()`
+
+**Purpose:** Invoked when the `initialize` event is raised.
+
 ```csharp
-public virtual void OnInitialize()
+// Obtain an instance of AgentController from the subsystem API first
+AgentController agentController = ...;
+agentController.OnInitialize();
 ```
 
 ## Usage Example
 
 ```csharp
-// Add a custom controller to a newly spawned agent
-public class MyAgentController : AgentController
-{
-    public override void OnTick(float dt)
-    {
-        // per-tick logic for this agent
-        base.OnTick(dt);
-    }
-}
-
-// On agent spawn:
-var ctrl = agent.AddComponent<MyAgentController>();
-ctrl.OnInitialize();
+var controller = Mission.Current.GetMissionBehavior<AgentController>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

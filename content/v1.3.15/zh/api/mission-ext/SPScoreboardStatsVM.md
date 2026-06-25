@@ -1,13 +1,7 @@
 ---
 title: "SPScoreboardStatsVM"
+description: "SPScoreboardStatsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPScoreboardStatsVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPScoreboardStatsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
@@ -43,30 +37,55 @@ title: "SPScoreboardStatsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardStatsVM 实例
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+sPScoreboardStatsVM.RefreshValues();
+```
 
 ### UpdateScores
 `public void UpdateScores(int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**用途 / Purpose:** 更新 `scores` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「scores」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardStatsVM 实例
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+sPScoreboardStatsVM.UpdateScores(0, 0, 0, 0, 0, 0);
+```
 
 ### IsAnyStatRelevant
 `public bool IsAnyStatRelevant()`
 
-**用途 / Purpose:** 处理 `is any stat relevant` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「any stat relevant」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardStatsVM 实例
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+var result = sPScoreboardStatsVM.IsAnyStatRelevant();
+```
 
 ### GetScoreForOneAliveMember
 `public SPScoreboardStatsVM GetScoreForOneAliveMember()`
 
-**用途 / Purpose:** 获取 `score for one alive member` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score for one alive member」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SPScoreboardStatsVM 实例
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+var result = sPScoreboardStatsVM.GetScoreForOneAliveMember();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPScoreboardStatsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SPScoreboardStatsVM sPScoreboardStatsVM = ...;
+sPScoreboardStatsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

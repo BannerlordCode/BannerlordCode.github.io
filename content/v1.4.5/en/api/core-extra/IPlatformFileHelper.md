@@ -1,20 +1,14 @@
 ---
 title: "IPlatformFileHelper"
+description: "Auto-generated class reference for IPlatformFileHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IPlatformFileHelper`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IPlatformFileHelper
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IPlatformFileHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/IPlatformFileHelper.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IPlatformFileHelper.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IPlatformFileHelper` as a Helper-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-IPlatformFileHelper implementation = GetPlatformFileHelperImplementation();
+// Usually obtained through DI or a factory method
+IIPlatformFileHelper service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MapSiegeConstructionControllerWidget"
+description: "Auto-generated class reference for MapSiegeConstructionControllerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeConstructionControllerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapSiegeConstructionControllerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
@@ -29,14 +23,21 @@ Treat `MapSiegeConstructionControllerWidget` as a Widget-style extension point: 
 ### SetCurrentPOIWidget
 `public void SetCurrentPOIWidget(MapSiegePOIBrushWidget widget)`
 
-**Purpose:** Sets the value or state of `current p o i widget`.
+**Purpose:** Assigns a new value to `current p o i widget` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapSiegeConstructionControllerWidget from the subsystem API first
+MapSiegeConstructionControllerWidget mapSiegeConstructionControllerWidget = ...;
+mapSiegeConstructionControllerWidget.SetCurrentPOIWidget(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MapSiegeConstructionControllerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapSiegeConstructionControllerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

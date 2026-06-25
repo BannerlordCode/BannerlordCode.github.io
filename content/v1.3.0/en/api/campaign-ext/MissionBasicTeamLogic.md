@@ -1,13 +1,7 @@
 ---
 title: "MissionBasicTeamLogic"
+description: "Auto-generated class reference for MissionBasicTeamLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBasicTeamLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBasicTeamLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,14 +23,20 @@ Treat `MissionBasicTeamLogic` as a Logic-style extension point: first identify w
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionBasicTeamLogic from the subsystem API first
+MissionBasicTeamLogic missionBasicTeamLogic = ...;
+missionBasicTeamLogic.EarlyStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBasicTeamLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionBasicTeamLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

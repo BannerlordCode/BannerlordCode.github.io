@@ -1,20 +1,14 @@
 ---
 title: "NetworkSession"
+description: "NetworkSession 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NetworkSession`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NetworkSession
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public abstract class NetworkSession`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/NetworkSession.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/NetworkSession.cs`
 
 ## 概述
 
@@ -35,29 +29,54 @@ title: "NetworkSession"
 ### ComponentMessageHandlerDelegate
 `public delegate void ComponentMessageHandlerDelegate(NetworkMessage networkMessage)`
 
-**用途 / Purpose:** 处理 `component message handler delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkSession 实例
+NetworkSession networkSession = ...;
+networkSession.ComponentMessageHandlerDelegate(networkMessage);
+```
 
 ### SendDisconnectMessage
 `public void SendDisconnectMessage()`
 
-**用途 / Purpose:** 处理 `send disconnect message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkSession 实例
+NetworkSession networkSession = ...;
+networkSession.SendDisconnectMessage();
+```
 
 ### Tick
 `public virtual void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkSession 实例
+NetworkSession networkSession = ...;
+networkSession.Tick();
+```
 
 ### SendMessage
 `public void SendMessage(MessageContract message)`
 
-**用途 / Purpose:** 处理 `send message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkSession 实例
+NetworkSession networkSession = ...;
+networkSession.SendMessage(message);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomNetworkSession();
+// 通常通过子系统 API 或工厂获得派生实例
+NetworkSession instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

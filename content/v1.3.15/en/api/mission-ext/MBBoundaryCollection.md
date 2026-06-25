@@ -1,24 +1,18 @@
 ---
 title: "MBBoundaryCollection"
+description: "Auto-generated class reference for MBBoundaryCollection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBBoundaryCollection`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBBoundaryCollection
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBBoundaryCollection : IDictionary<string, ICollection<Vec2>>, ICollection<KeyValuePair<string, ICollection<Vec2>>>, IEnumerable<KeyValuePair<string, ICollection<Vec2>>>, IEnumerable, INotifyCollectionChanged`
 **Base:** `IDictionary<string`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## Overview
 
-`MBBoundaryCollection` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBBoundaryCollection` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,136 +22,165 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 | Name | Signature |
 |------|-----------|
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `Current` | `public static Mission Current { get; }` |
-| `SceneName` | `public string SceneName { get; }` |
-| `SceneLevels` | `public string SceneLevels { get; }` |
-| `DamageToPlayerMultiplier` | `public float DamageToPlayerMultiplier { get; }` |
-| `DamageToFriendsMultiplier` | `public float DamageToFriendsMultiplier { get; }` |
-| `DamageFromPlayerToFriendsMultiplier` | `public float DamageFromPlayerToFriendsMultiplier { get; }` |
-| `HasValidTerrainType` | `public bool HasValidTerrainType { get; }` |
-| `TerrainType` | `public TerrainType TerrainType { get; }` |
-| `Scene` | `public Scene Scene { get; }` |
-| `CustomCameraTargetLocalOffset` | `public Vec3 CustomCameraTargetLocalOffset { get; }` |
-| `CustomCameraLocalOffset` | `public Vec3 CustomCameraLocalOffset { get; }` |
-| `CustomCameraLocalOffset2` | `public Vec3 CustomCameraLocalOffset2 { get; }` |
-| `CustomCameraGlobalOffset` | `public Vec3 CustomCameraGlobalOffset { get; }` |
-| `CustomCameraLocalRotationalOffset` | `public Vec3 CustomCameraLocalRotationalOffset { get; }` |
-| `CustomCameraIgnoreCollision` | `public bool CustomCameraIgnoreCollision { get; }` |
-| `CustomCameraFovMultiplier` | `public float CustomCameraFovMultiplier { get; }` |
-| `CustomCameraFixedDistance` | `public float CustomCameraFixedDistance { get; }` |
-| `ListenerAndAttenuationPosBlendFactor` | `public float ListenerAndAttenuationPosBlendFactor { get; }` |
-| `IgnoredEntityForCamera` | `public GameEntity IgnoredEntityForCamera { get; }` |
+| `Count` | `public int Count { get; }` |
+| `IsReadOnly` | `public bool IsReadOnly { get; }` |
+| `Keys` | `public ICollection<string> Keys { get; }` |
+| `Values` | `public ICollection<ICollection<Vec2>> Values { get; }` |
+| `this` | `public ICollection<Vec2> this { get; }` |
 
 ## Key Methods
 
-### AddActiveMissionObject
-`public void AddActiveMissionObject(MissionObject missionObject)`
+### GetEnumerator
+`public IEnumerator<KeyValuePair<string, ICollection<Vec2>>> GetEnumerator()`
 
-**Purpose:** Adds `active mission object` to the current collection or state.
+**Purpose:** Reads and returns the `enumerator` value held by the current object.
 
-### ActivateMissionObject
-`public void ActivateMissionObject(MissionObject missionObject)`
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.GetEnumerator();
+```
 
-**Purpose:** Handles logic related to `activate mission object`.
+### GetBoundaryRadius
+`public float GetBoundaryRadius(string name)`
 
-### DeactivateMissionObject
-`public void DeactivateMissionObject(MissionObject missionObject)`
+**Purpose:** Reads and returns the `boundary radius` value held by the current object.
 
-**Purpose:** Handles logic related to `deactivate mission object`.
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.GetBoundaryRadius("example");
+```
 
-### SetMissionCombatType
-`public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)`
+### GetOrientedBoundariesBox
+`public void GetOrientedBoundariesBox(out Vec2 boxMinimum, out Vec2 boxMaximum, float rotationInRadians = 0f)`
 
-**Purpose:** Sets the value or state of `mission combat type`.
+**Purpose:** Reads and returns the `oriented boundaries box` value held by the current object.
 
-### ConversationCharacterChanged
-`public void ConversationCharacterChanged()`
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.GetOrientedBoundariesBox(boxMinimum, boxMaximum, 0);
+```
 
-**Purpose:** Handles logic related to `conversation character changed`.
+### Add
+`public void Add(KeyValuePair<string, ICollection<Vec2>> item)`
 
-### SetMissionMode
-`public void SetMissionMode(MissionMode newMode, bool atStart)`
+**Purpose:** Adds an item to the current collection or state.
 
-**Purpose:** Sets the value or state of `mission mode`.
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add(keyValuePair<string, item);
+```
 
-### GetAverageFps
-`public float GetAverageFps()`
+### Clear
+`public void Clear()`
 
-**Purpose:** Gets the current value of `average fps`.
+**Purpose:** Removes all content from the current object.
 
-### GetFallAvoidSystemActive
-`public bool GetFallAvoidSystemActive()`
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Clear();
+```
 
-**Purpose:** Gets the current value of `fall avoid system active`.
+### Contains
+`public bool Contains(KeyValuePair<string, ICollection<Vec2>> item)`
 
-### SetFallAvoidSystemActive
-`public void SetFallAvoidSystemActive(bool fallAvoidActive)`
+**Purpose:** Indicates whether the current object contains the specified item.
 
-**Purpose:** Sets the value or state of `fall avoid system active`.
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Contains(keyValuePair<string, item);
+```
 
-### IsPositionInsideBoundaries
-`public bool IsPositionInsideBoundaries(Vec2 position)`
+### CopyTo
+`public void CopyTo(KeyValuePair<string, ICollection<Vec2>> array, int arrayIndex)`
 
-**Purpose:** Handles logic related to `is position inside boundaries`.
+**Purpose:** Copies the `to` state of the current object to a target.
 
-### IsPositionInsideHardBoundaries
-`public bool IsPositionInsideHardBoundaries(Vec2 position)`
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.CopyTo(keyValuePair<string, array, 0);
+```
 
-**Purpose:** Handles logic related to `is position inside hard boundaries`.
+### Remove
+`public bool Remove(KeyValuePair<string, ICollection<Vec2>> item)`
 
-### IsPositionInsideAnyBlockerNavMeshFace2D
-`public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)`
+**Purpose:** Removes an item from the current collection or state.
 
-**Purpose:** Handles logic related to `is position inside any blocker nav mesh face2 d`.
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Remove(keyValuePair<string, item);
+```
 
-### IsPositionOnAnyBlockerNavMeshFace
-`public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)`
+### Add
+`public void Add(string name, ICollection<Vec2> points)`
 
-**Purpose:** Handles logic related to `is position on any blocker nav mesh face`.
+**Purpose:** Adds an item to the current collection or state.
 
-### RayCastForClosestAgent
-`public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add("example", points);
+```
 
-**Purpose:** Handles logic related to `ray cast for closest agent`.
+### Add
+`public void Add(string name, ICollection<Vec2> points, bool isAllowanceInside)`
 
-### RayCastForClosestAgentsLimbs
-`public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
+**Purpose:** Adds an item to the current collection or state.
 
-**Purpose:** Handles logic related to `ray cast for closest agents limbs`.
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add("example", points, false);
+```
 
-### RayCastForGivenAgentsLimbs
-`public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
+### ContainsKey
+`public bool ContainsKey(string name)`
 
-**Purpose:** Handles logic related to `ray cast for given agents limbs`.
+**Purpose:** Indicates whether the current object contains `key`.
 
-### GetBiggestAgentCollisionPadding
-`public float GetBiggestAgentCollisionPadding()`
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.ContainsKey("example");
+```
 
-**Purpose:** Gets the current value of `biggest agent collision padding`.
+### Remove
+`public bool Remove(string name)`
 
-### SetMissionCorpseFadeOutTimeInSeconds
-`public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)`
+**Purpose:** Removes an item from the current collection or state.
 
-**Purpose:** Sets the value or state of `mission corpse fade out time in seconds`.
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Remove("example");
+```
 
-### SetOverrideCorpseCount
-`public void SetOverrideCorpseCount(int overrideCorpseCount)`
+### TryGetValue
+`public bool TryGetValue(string name, out ICollection<Vec2> points)`
 
-**Purpose:** Sets the value or state of `override corpse count`.
+**Purpose:** Attempts to retrieve `get value`, usually returning success through an out parameter.
 
-### SetReportStuckAgentsMode
-`public void SetReportStuckAgentsMode(bool value)`
-
-**Purpose:** Sets the value or state of `report stuck agents mode`.
+```csharp
+// Obtain an instance of MBBoundaryCollection from the subsystem API first
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.TryGetValue("example", points);
+```
 
 ## Usage Example
 
 ```csharp
-MBBoundaryCollection example = MBBoundaryCollection.IsFinalized;
+// Typically call this after obtaining an instance from the subsystem API
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.GetEnumerator();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

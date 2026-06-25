@@ -1,13 +1,7 @@
 ---
 title: "ItemBarterBehavior"
+description: "Auto-generated class reference for ItemBarterBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemBarterBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemBarterBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehavior
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ItemBarterBehavior from the subsystem API first
+ItemBarterBehavior itemBarterBehavior = ...;
+itemBarterBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ItemBarterBehavior from the subsystem API first
+ItemBarterBehavior itemBarterBehavior = ...;
+itemBarterBehavior.SyncData(dataStore);
+```
 
 ### CheckForBarters
 `public void CheckForBarters(BarterData args)`
 
-**Purpose:** Handles logic related to `check for barters`.
+**Purpose:** Verifies whether `for barters` holds true for the current object.
+
+```csharp
+// Obtain an instance of ItemBarterBehavior from the subsystem API first
+ItemBarterBehavior itemBarterBehavior = ...;
+itemBarterBehavior.CheckForBarters(args);
+```
 
 ### GetClosestSettlements
 `public List<Settlement> GetClosestSettlements(Vec2 position)`
 
-**Purpose:** Gets the current value of `closest settlements`.
+**Purpose:** Reads and returns the `closest settlements` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemBarterBehavior from the subsystem API first
+ItemBarterBehavior itemBarterBehavior = ...;
+var result = itemBarterBehavior.GetClosestSettlements(position);
+```
 
 ### CompareTo
 `public int CompareTo(ItemBarterBehavior.SettlementDistanceCache.SettlementDistancePair other)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of ItemBarterBehavior from the subsystem API first
+ItemBarterBehavior itemBarterBehavior = ...;
+var result = itemBarterBehavior.CompareTo(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemBarterBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+ItemBarterBehavior itemBarterBehavior = ...;
+itemBarterBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

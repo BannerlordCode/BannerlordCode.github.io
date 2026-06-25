@@ -1,20 +1,14 @@
 ---
 title: "MatchmakingQueueRegionStats"
+description: "MatchmakingQueueRegionStats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MatchmakingQueueRegionStats`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatchmakingQueueRegionStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MatchmakingQueueRegionStats`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueRegionStats.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/MatchmakingQueueRegionStats.cs`
 
 ## 概述
 
@@ -40,30 +34,55 @@ title: "MatchmakingQueueRegionStats"
 ### GetQueueCountObjectOf
 `public MatchmakingQueueGameTypeStats GetQueueCountObjectOf(string gameTypes)`
 
-**用途 / Purpose:** 获取 `queue count object of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「queue count object of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueRegionStats 实例
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+var result = matchmakingQueueRegionStats.GetQueueCountObjectOf("example");
+```
 
 ### AddStats
 `public void AddStats(MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `stats`。
+**用途 / Purpose:** 将 「stats」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueRegionStats 实例
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+matchmakingQueueRegionStats.AddStats(matchmakingQueueGameTypeStats);
+```
 
 ### GetQueueCountOf
 `public int GetQueueCountOf(string gameTypes)`
 
-**用途 / Purpose:** 获取 `queue count of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「queue count of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueRegionStats 实例
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+var result = matchmakingQueueRegionStats.GetQueueCountOf("example");
+```
 
 ### SetWaitTimeStats
 `public void SetWaitTimeStats(int averageWaitTime, int maxWaitTime, int minWaitTime, int medianWaitTime)`
 
-**用途 / Purpose:** 设置 `wait time stats` 的值或状态。
+**用途 / Purpose:** 为 「wait time stats」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MatchmakingQueueRegionStats 实例
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+matchmakingQueueRegionStats.SetWaitTimeStats(0, 0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MatchmakingQueueRegionStats();
-value.GetQueueCountObjectOf("example");
+// 通常从对应子系统 API 获取实例后调用
+MatchmakingQueueRegionStats matchmakingQueueRegionStats = ...;
+matchmakingQueueRegionStats.GetQueueCountObjectOf("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

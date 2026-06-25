@@ -1,13 +1,7 @@
 ---
 title: "PlayerTownVisitCampaignBehavior"
+description: "Auto-generated class reference for PlayerTownVisitCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerTownVisitCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerTownVisitCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,120 +23,233 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PlayerTownVisitCampaignBehavior from the subsystem API first
+PlayerTownVisitCampaignBehavior playerTownVisitCampaignBehavior = ...;
+playerTownVisitCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PlayerTownVisitCampaignBehavior from the subsystem API first
+PlayerTownVisitCampaignBehavior playerTownVisitCampaignBehavior = ...;
+playerTownVisitCampaignBehavior.SyncData(dataStore);
+```
 
 ### wait_menu_prisoner_wait_on_init
 `public static void wait_menu_prisoner_wait_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `wait_menu_prisoner_wait_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.wait_menu_prisoner_wait_on_init(args);
+```
 
 ### wait_menu_prisoner_settlement_wait_ui_on_init
 `public static void wait_menu_prisoner_settlement_wait_ui_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `wait_menu_prisoner_settlement_wait_ui_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.wait_menu_prisoner_settlement_wait_ui_on_init(args);
+```
 
 ### wait_menu_prisoner_wait_on_condition
 `public static bool wait_menu_prisoner_wait_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `wait_menu_prisoner_wait_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.wait_menu_prisoner_wait_on_condition(args);
+```
 
 ### wait_menu_prisoner_wait_on_tick
 `public static void wait_menu_prisoner_wait_on_tick(MenuCallbackArgs args, CampaignTime dt)`
 
-**Purpose:** Handles logic related to `wait_menu_prisoner_wait_on_tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.wait_menu_prisoner_wait_on_tick(args, dt);
+```
 
 ### wait_menu_settlement_wait_on_tick
 `public static void wait_menu_settlement_wait_on_tick(MenuCallbackArgs args, CampaignTime dt)`
 
-**Purpose:** Handles logic related to `wait_menu_settlement_wait_on_tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.wait_menu_settlement_wait_on_tick(args, dt);
+```
 
 ### game_menu_town_manage_town_on_condition
 `public static bool game_menu_town_manage_town_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_manage_town_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_manage_town_on_condition(args);
+```
 
 ### game_menu_town_manage_town_cheat_on_condition
 `public static bool game_menu_town_manage_town_cheat_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_manage_town_cheat_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_manage_town_cheat_on_condition(args);
+```
 
 ### settlement_player_unconscious_continue_on_consequence
 `public static void settlement_player_unconscious_continue_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `settlement_player_unconscious_continue_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.settlement_player_unconscious_continue_on_consequence(args);
+```
 
 ### game_menu_town_menu_on_init
 `public static void game_menu_town_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_menu_on_init(args);
+```
 
 ### game_menu_town_menu_arena_on_init
 `public static void game_menu_town_menu_arena_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_arena_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_menu_arena_on_init(args);
+```
 
 ### game_menu_village_menu_on_init
 `public static void game_menu_village_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_village_menu_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_village_menu_on_init(args);
+```
 
 ### game_menu_town_menu_keep_on_init
 `public static void game_menu_town_menu_keep_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_keep_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_menu_keep_on_init(args);
+```
 
 ### game_menu_ui_town_manage_town_on_consequence
 `public static void game_menu_ui_town_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_ui_town_manage_town_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_ui_town_manage_town_on_consequence(args);
+```
 
 ### game_menu_ui_town_castle_manage_town_on_consequence
 `public static void game_menu_ui_town_castle_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_ui_town_castle_manage_town_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_ui_town_castle_manage_town_on_consequence(args);
+```
 
 ### game_menu_town_menu_backstreet_sound_on_init
 `public static void game_menu_town_menu_backstreet_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_backstreet_sound_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_menu_backstreet_sound_on_init(args);
+```
 
 ### game_menu_town_menu_keep_sound_on_init
 `public static void game_menu_town_menu_keep_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_keep_sound_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_menu_keep_sound_on_init(args);
+```
 
 ### game_menu_town_menu_sound_on_init
 `public static void game_menu_town_menu_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_sound_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_menu_sound_on_init(args);
+```
 
 ### game_menu_town_menu_enter_sound_on_init
 `public static void game_menu_town_menu_enter_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_town_menu_enter_sound_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_town_menu_enter_sound_on_init(args);
+```
 
 ### game_menu_village_menu_sound_on_init
 `public static void game_menu_village_menu_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_village_menu_sound_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_village_menu_sound_on_init(args);
+```
 
 ### game_menu_village__enter_menu_sound_on_init
 `public static void game_menu_village__enter_menu_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_village__enter_menu_sound_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerTownVisitCampaignBehavior.game_menu_village__enter_menu_sound_on_init(args);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerTownVisitCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PlayerTownVisitCampaignBehavior playerTownVisitCampaignBehavior = ...;
+playerTownVisitCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

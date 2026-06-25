@@ -1,13 +1,7 @@
 ---
 title: "Crafting"
+description: "Auto-generated class reference for Crafting."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Crafting`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Crafting
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -52,9 +46,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new Crafting();
+// Obtain an instance from the relevant subsystem API
+Crafting instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

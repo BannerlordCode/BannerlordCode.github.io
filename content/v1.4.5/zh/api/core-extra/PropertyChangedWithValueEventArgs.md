@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithValueEventArgs"
+description: "PropertyChangedWithValueEventArgs 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PropertyChangedWithValueEventArgs`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithValueEventArgs`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithValueEventArgs.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "PropertyChangedWithValueEventArgs"
 ### PropertyChangedWithValueEventArgs
 `public struct PropertyChangedWithValueEventArgs(string propertyName, object value)`
 
-**用途 / Purpose:** 处理 `property changed with value event args` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PropertyChangedWithValueEventArgs 实例
+PropertyChangedWithValueEventArgs propertyChangedWithValueEventArgs = ...;
+var result = propertyChangedWithValueEventArgs.PropertyChangedWithValueEventArgs("example", value);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PropertyChangedWithValueEventArgs();
-value.PropertyChangedWithValueEventArgs("example", value);
+// 通常从对应子系统 API 获取实例后调用
+PropertyChangedWithValueEventArgs propertyChangedWithValueEventArgs = ...;
+propertyChangedWithValueEventArgs.PropertyChangedWithValueEventArgs("example", value);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

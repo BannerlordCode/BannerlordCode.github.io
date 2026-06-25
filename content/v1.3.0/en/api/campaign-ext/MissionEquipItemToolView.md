@@ -1,13 +1,7 @@
 ---
 title: "MissionEquipItemToolView"
+description: "Auto-generated class reference for MissionEquipItemToolView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionEquipItemToolView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionEquipItemToolView
 
 **Namespace:** SandBox.View.Missions
@@ -29,19 +23,32 @@ Treat `MissionEquipItemToolView` as a View-style extension point: first identify
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionEquipItemToolView from the subsystem API first
+MissionEquipItemToolView missionEquipItemToolView = ...;
+missionEquipItemToolView.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionEquipItemToolView from the subsystem API first
+MissionEquipItemToolView missionEquipItemToolView = ...;
+missionEquipItemToolView.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionEquipItemToolView();
+// Retrieve this view from the subsystem API or scene
+MissionEquipItemToolView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

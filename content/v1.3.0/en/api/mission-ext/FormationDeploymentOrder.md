@@ -1,13 +1,7 @@
 ---
 title: "FormationDeploymentOrder"
+description: "Auto-generated class reference for FormationDeploymentOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationDeploymentOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationDeploymentOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,17 +30,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetDeploymentOrder
 `public static FormationDeploymentOrder GetDeploymentOrder(FormationClass fClass, int offset = 0)`
 
-**Purpose:** Gets the current value of `deployment order`.
+**Purpose:** Reads and returns the `deployment order` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
+```
 
 ### GetComparer
 `public static FormationDeploymentOrder.DeploymentOrderComparer GetComparer()`
 
-**Purpose:** Gets the current value of `comparer`.
+**Purpose:** Reads and returns the `comparer` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormationDeploymentOrder.GetComparer();
+```
 
 ### Compare
 `public int Compare(FormationDeploymentOrder a, FormationDeploymentOrder b)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of FormationDeploymentOrder from the subsystem API first
+FormationDeploymentOrder formationDeploymentOrder = ...;
+var result = formationDeploymentOrder.Compare(a, b);
+```
 
 ## Usage Example
 
@@ -56,4 +66,4 @@ FormationDeploymentOrder.GetDeploymentOrder(fClass, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

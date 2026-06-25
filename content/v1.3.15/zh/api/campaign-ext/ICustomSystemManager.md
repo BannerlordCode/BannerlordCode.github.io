@@ -1,18 +1,12 @@
 ---
 title: "ICustomSystemManager"
+description: "ICustomSystemManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICustomSystemManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICustomSystemManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Handlers
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICustomSystemManager`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/Handlers/ICustomSystemManager.cs`
 
@@ -27,9 +21,10 @@ title: "ICustomSystemManager"
 ## 使用示例
 
 ```csharp
-ICustomSystemManager implementation = GetCustomSystemManagerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICustomSystemManager service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletStealthFailCounterView"
+description: "Auto-generated class reference for MissionGauntletStealthFailCounterView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletStealthFailCounterView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletStealthFailCounterView
 
 **Namespace:** SandBox.GauntletUI.Missions
 **Module:** SandBox.GauntletUI
 **Type:** `public class MissionGauntletStealthFailCounterView : MissionStealthFailCounterView`
 **Base:** `MissionStealthFailCounterView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletStealthFailCounterView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Missions/MissionGauntletStealthFailCounterView.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `MissionGauntletStealthFailCounterView` as a View-style extension point: f
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletStealthFailCounterView from the subsystem API first
+MissionGauntletStealthFailCounterView missionGauntletStealthFailCounterView = ...;
+missionGauntletStealthFailCounterView.OnMissionScreenInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletStealthFailCounterView from the subsystem API first
+MissionGauntletStealthFailCounterView missionGauntletStealthFailCounterView = ...;
+missionGauntletStealthFailCounterView.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletStealthFailCounterView from the subsystem API first
+MissionGauntletStealthFailCounterView missionGauntletStealthFailCounterView = ...;
+missionGauntletStealthFailCounterView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletStealthFailCounterView from the subsystem API first
+MissionGauntletStealthFailCounterView missionGauntletStealthFailCounterView = ...;
+missionGauntletStealthFailCounterView.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletStealthFailCounterView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletStealthFailCounterView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

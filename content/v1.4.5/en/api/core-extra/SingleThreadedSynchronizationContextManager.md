@@ -1,20 +1,14 @@
 ---
 title: "SingleThreadedSynchronizationContextManager"
+description: "Auto-generated class reference for SingleThreadedSynchronizationContextManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleThreadedSynchronizationContextManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SingleThreadedSynchronizationContextManager
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class SingleThreadedSynchronizationContextManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SingleThreadedSynchronizationContextManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SingleThreadedSynchronizationContextManager.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Treat `SingleThreadedSynchronizationContextManager` as a Manager-style extension
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+SingleThreadedSynchronizationContextManager.Initialize();
+```
 
 ### Tick
 `public static void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Static call; no instance required
+SingleThreadedSynchronizationContextManager.Tick();
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ var manager = SingleThreadedSynchronizationContextManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyCosmeticAnimationPartWidget"
+description: "Auto-generated class reference for MultiplayerLobbyCosmeticAnimationPartWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyCosmeticAnimationPartWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyCosmeticAnimationPartWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
@@ -29,24 +23,43 @@ Treat `MultiplayerLobbyCosmeticAnimationPartWidget` as a Widget-style extension 
 ### InitializeAnimationParameters
 `public void InitializeAnimationParameters()`
 
-**Purpose:** Initializes the state, resources, or bindings for `animation parameters`.
+**Purpose:** Prepares the resources, state, or bindings required by `animation parameters`.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyCosmeticAnimationPartWidget from the subsystem API first
+MultiplayerLobbyCosmeticAnimationPartWidget multiplayerLobbyCosmeticAnimationPartWidget = ...;
+multiplayerLobbyCosmeticAnimationPartWidget.InitializeAnimationParameters();
+```
 
 ### StartAnimation
 `public void StartAnimation(float alphaChangeDuration, float minAlpha, float maxAlpha)`
 
-**Purpose:** Handles logic related to `start animation`.
+**Purpose:** Starts the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyCosmeticAnimationPartWidget from the subsystem API first
+MultiplayerLobbyCosmeticAnimationPartWidget multiplayerLobbyCosmeticAnimationPartWidget = ...;
+multiplayerLobbyCosmeticAnimationPartWidget.StartAnimation(0, 0, 0);
+```
 
 ### StopAnimation
 `public void StopAnimation()`
 
-**Purpose:** Handles logic related to `stop animation`.
+**Purpose:** Stops the `animation` flow or state machine.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyCosmeticAnimationPartWidget from the subsystem API first
+MultiplayerLobbyCosmeticAnimationPartWidget multiplayerLobbyCosmeticAnimationPartWidget = ...;
+multiplayerLobbyCosmeticAnimationPartWidget.StopAnimation();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyCosmeticAnimationPartWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyCosmeticAnimationPartWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

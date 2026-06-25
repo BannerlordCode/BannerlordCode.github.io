@@ -1,13 +1,7 @@
 ---
 title: "IncidentHelper"
+description: "Auto-generated class reference for IncidentHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IncidentHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IncidentHelper
 
 **Namespace:** Helpers
@@ -32,4 +26,4 @@ IncidentHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

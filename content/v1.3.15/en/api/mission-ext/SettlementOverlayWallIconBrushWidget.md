@@ -1,13 +1,7 @@
 ---
 title: "SettlementOverlayWallIconBrushWidget"
+description: "Auto-generated class reference for SettlementOverlayWallIconBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementOverlayWallIconBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementOverlayWallIconBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.Overlay
@@ -33,9 +27,10 @@ Treat `SettlementOverlayWallIconBrushWidget` as a Widget-style extension point: 
 ## Usage Example
 
 ```csharp
-var widget = new SettlementOverlayWallIconBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SettlementOverlayWallIconBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

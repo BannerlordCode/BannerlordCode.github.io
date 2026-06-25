@@ -1,18 +1,12 @@
 ---
 title: "ContextParameter"
+description: "Auto-generated class reference for ContextParameter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContextParameter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ContextParameter
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.OpenGL
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public enum ContextParameter`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension.Standalone/Native/OpenGL/ContextParameter.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` to place
 ## Usage Example
 
 ```csharp
-var value = new ContextParameter();
+// Obtain an instance from the relevant subsystem API
+ContextParameter instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

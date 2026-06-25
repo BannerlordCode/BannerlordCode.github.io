@@ -1,20 +1,14 @@
 ---
 title: "MPLobbySigilItemVM"
+description: "Auto-generated class reference for MPLobbySigilItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbySigilItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbySigilItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbySigilItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbySigilItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbySigilItemVM.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshWith
 `public void RefreshWith(int iconID)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbySigilItemVM from the subsystem API first
+MPLobbySigilItemVM mPLobbySigilItemVM = ...;
+mPLobbySigilItemVM.RefreshWith(0);
+```
 
 ### RefreshWith
 `public void RefreshWith(Banner banner)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbySigilItemVM from the subsystem API first
+MPLobbySigilItemVM mPLobbySigilItemVM = ...;
+mPLobbySigilItemVM.RefreshWith(banner);
+```
 
 ### RefreshWith
 `public void RefreshWith(string bannerCode)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbySigilItemVM from the subsystem API first
+MPLobbySigilItemVM mPLobbySigilItemVM = ...;
+mPLobbySigilItemVM.RefreshWith("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbySigilItemVM();
-value.RefreshWith(0);
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbySigilItemVM mPLobbySigilItemVM = ...;
+mPLobbySigilItemVM.RefreshWith(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

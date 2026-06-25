@@ -1,20 +1,14 @@
 ---
 title: "DefaultNotablePowerModel"
+description: "Auto-generated class reference for DefaultNotablePowerModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultNotablePowerModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultNotablePowerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultNotablePowerModel : NotablePowerModel`
 **Base:** `NotablePowerModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultNotablePowerModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultNotablePowerModel.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `DefaultNotablePowerModel` as a Model-style extension point: first identif
 ### CalculateDailyPowerChangeForHero
 `public override ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate daily power change for hero`.
+**Purpose:** Calculates the current value or result of `daily power change for hero`.
+
+```csharp
+// Obtain an instance of DefaultNotablePowerModel from the subsystem API first
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.CalculateDailyPowerChangeForHero(hero, false);
+```
 
 ### GetPowerRankName
 `public override TextObject GetPowerRankName(Hero hero)`
 
-**Purpose:** Gets the current value of `power rank name`.
+**Purpose:** Reads and returns the `power rank name` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultNotablePowerModel from the subsystem API first
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.GetPowerRankName(hero);
+```
 
 ### GetInfluenceBonusToClan
 `public override float GetInfluenceBonusToClan(Hero hero)`
 
-**Purpose:** Gets the current value of `influence bonus to clan`.
+**Purpose:** Reads and returns the `influence bonus to clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultNotablePowerModel from the subsystem API first
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.GetInfluenceBonusToClan(hero);
+```
 
 ### GetInitialPower
 `public override int GetInitialPower(Hero hero)`
 
-**Purpose:** Gets the current value of `initial power`.
+**Purpose:** Reads and returns the `initial power` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultNotablePowerModel from the subsystem API first
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.GetInitialPower(hero);
+```
 
 ### GetInitialNotableSupporterCost
 `public override int GetInitialNotableSupporterCost(Hero hero)`
 
-**Purpose:** Gets the current value of `initial notable supporter cost`.
+**Purpose:** Reads and returns the `initial notable supporter cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultNotablePowerModel from the subsystem API first
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.GetInitialNotableSupporterCost(hero);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultNotablePowerModel>(new MyDefaultNotablePowerMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

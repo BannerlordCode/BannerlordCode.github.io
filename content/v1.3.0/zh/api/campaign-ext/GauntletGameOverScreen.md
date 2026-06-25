@@ -1,13 +1,7 @@
 ---
 title: "GauntletGameOverScreen"
+description: "GauntletGameOverScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletGameOverScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletGameOverScreen
 
 **Namespace:** SandBox.GauntletUI
@@ -27,9 +21,10 @@ title: "GauntletGameOverScreen"
 ## 使用示例
 
 ```csharp
-var value = new GauntletGameOverScreen();
+// 从对应子系统 API 获取实例
+GauntletGameOverScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

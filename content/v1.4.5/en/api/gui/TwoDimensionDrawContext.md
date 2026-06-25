@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionDrawContext"
+description: "Auto-generated class reference for TwoDimensionDrawContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionDrawContext`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionDrawContext
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class TwoDimensionDrawContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TwoDimensionDrawContext.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TwoDimensionDrawContext.cs`
 
 ## Overview
 
@@ -29,75 +23,154 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.Reset();
+```
 
 ### CreateSimpleMaterial
 `public SimpleMaterial CreateSimpleMaterial()`
 
-**Purpose:** Creates a new `simple material` instance or object.
+**Purpose:** Constructs a new `simple material` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+var result = twoDimensionDrawContext.CreateSimpleMaterial();
+```
 
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial()`
 
-**Purpose:** Creates a new `text material` instance or object.
+**Purpose:** Constructs a new `text material` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+var result = twoDimensionDrawContext.CreateTextMaterial();
+```
 
 ### PushScissor
 `public void PushScissor(in Rectangle2D newScissorRectangle)`
 
-**Purpose:** Handles logic related to `push scissor`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.PushScissor(newScissorRectangle);
+```
 
 ### PopScissor
 `public void PopScissor()`
 
-**Purpose:** Handles logic related to `pop scissor`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.PopScissor();
+```
 
 ### IsDiscardedByAnyScissor
 `public bool IsDiscardedByAnyScissor(in Rectangle2D rect)`
 
-**Purpose:** Handles logic related to `is discarded by any scissor`.
+**Purpose:** Determines whether the current object is in the `discarded by any scissor` state or condition.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+var result = twoDimensionDrawContext.IsDiscardedByAnyScissor(rect);
+```
 
 ### SetCircualMask
 `public void SetCircualMask(Vector2 position, float radius, float smoothingRadius)`
 
-**Purpose:** Sets the value or state of `circual mask`.
+**Purpose:** Assigns a new value to `circual mask` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.SetCircualMask(position, 0, 0);
+```
 
 ### ClearCircualMask
 `public void ClearCircualMask()`
 
-**Purpose:** Handles logic related to `clear circual mask`.
+**Purpose:** Removes all `circual mask` from the current object.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.ClearCircualMask();
+```
 
 ### DrawTo
 `public void DrawTo(TwoDimensionContext twoDimensionContext)`
 
-**Purpose:** Handles logic related to `draw to`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.DrawTo(twoDimensionContext);
+```
 
 ### DrawSprite
 `public void DrawSprite(Sprite sprite, SimpleMaterial material, in Rectangle2D rectangle, float scale)`
 
-**Purpose:** Handles logic related to `draw sprite`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.DrawSprite(sprite, material, rectangle, 0);
+```
 
 ### Draw
 `public void Draw(SimpleMaterial material, in ImageDrawObject drawObject)`
 
-**Purpose:** Handles logic related to `draw`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.Draw(material, drawObject);
+```
 
 ### Draw
 `public void Draw(TextMaterial material, in TextDrawObject drawObject)`
 
-**Purpose:** Handles logic related to `draw`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.Draw(material, drawObject);
+```
 
 ### Draw
 `public void Draw(Text text, TextMaterial materialOriginal, in Rectangle2D parentRectangle, in Rectangle2D rectangle)`
 
-**Purpose:** Handles logic related to `draw`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TwoDimensionDrawContext from the subsystem API first
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.Draw(text, materialOriginal, parentRectangle, rectangle);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TwoDimensionDrawContext();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+TwoDimensionDrawContext twoDimensionDrawContext = ...;
+twoDimensionDrawContext.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

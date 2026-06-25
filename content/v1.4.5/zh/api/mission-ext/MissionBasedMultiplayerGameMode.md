@@ -1,20 +1,14 @@
 ---
 title: "MissionBasedMultiplayerGameMode"
+description: "MissionBasedMultiplayerGameMode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBasedMultiplayerGameMode`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBasedMultiplayerGameMode
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBasedMultiplayerGameMode : MultiplayerGameMode`
 **Base:** `MultiplayerGameMode`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MissionBasedMultiplayerGameMode.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MissionBasedMultiplayerGameMode.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "MissionBasedMultiplayerGameMode"
 ### JoinCustomGame
 `public override void JoinCustomGame(JoinGameData joinGameData)`
 
-**用途 / Purpose:** 处理 `join custom game` 相关逻辑。
+**用途 / Purpose:** 把若干「custom game」连接成一个整体。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBasedMultiplayerGameMode 实例
+MissionBasedMultiplayerGameMode missionBasedMultiplayerGameMode = ...;
+missionBasedMultiplayerGameMode.JoinCustomGame(joinGameData);
+```
 
 ### StartMultiplayerGame
 `public override void StartMultiplayerGame(string scene)`
 
-**用途 / Purpose:** 处理 `start multiplayer game` 相关逻辑。
+**用途 / Purpose:** 启动「multiplayer game」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBasedMultiplayerGameMode 实例
+MissionBasedMultiplayerGameMode missionBasedMultiplayerGameMode = ...;
+missionBasedMultiplayerGameMode.StartMultiplayerGame("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionBasedMultiplayerGameMode();
-value.JoinCustomGame(joinGameData);
+// 通常从对应子系统 API 获取实例后调用
+MissionBasedMultiplayerGameMode missionBasedMultiplayerGameMode = ...;
+missionBasedMultiplayerGameMode.JoinCustomGame(joinGameData);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

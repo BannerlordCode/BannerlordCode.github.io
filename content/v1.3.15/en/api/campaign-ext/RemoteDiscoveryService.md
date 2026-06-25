@@ -1,13 +1,7 @@
 ---
 title: "RemoteDiscoveryService"
+description: "Auto-generated class reference for RemoteDiscoveryService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemoteDiscoveryService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RemoteDiscoveryService
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ServiceDiscovery.Client` to place it in the sta
 ## Usage Example
 
 ```csharp
-var value = new RemoteDiscoveryService();
+// Obtain an instance from the relevant subsystem API
+RemoteDiscoveryService instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

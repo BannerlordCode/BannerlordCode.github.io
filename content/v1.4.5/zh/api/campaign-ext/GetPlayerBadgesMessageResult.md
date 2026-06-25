@@ -1,20 +1,14 @@
 ---
 title: "GetPlayerBadgesMessageResult"
+description: "GetPlayerBadgesMessageResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GetPlayerBadgesMessageResult`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GetPlayerBadgesMessageResult
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class GetPlayerBadgesMessageResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPlayerBadgesMessageResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/GetPlayerBadgesMessageResult.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "GetPlayerBadgesMessageResult"
 ## 使用示例
 
 ```csharp
-var example = new GetPlayerBadgesMessageResult();
+// 从对应子系统 API 获取实例
+GetPlayerBadgesMessageResult instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

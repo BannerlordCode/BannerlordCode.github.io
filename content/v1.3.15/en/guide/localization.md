@@ -140,19 +140,20 @@ LocalizedTextManager.SetLanguage(newLanguageCode);
 
 ## Related API
 
-- [MBTextManager API](../api/localization/MBTextManager)
-- [TextObject API](../api/localization/TextObject)
-- [LanguageData API](../api/localization/LanguageData)
+- [MBTextManager API](../api/localization/MBTextManager/)
+- [TextObject API](../api/localization/TextObject/)
+- [LanguageData API](../api/localization/LanguageData/)
 
 ---
 
 ## Next Section
 
-- [Common Patterns](./common-patterns) - Best practices
-- [Game Systems Overview](./game-systems-overview) - Learn what can be customized
+- [Common Patterns](common-patterns/) - Best practices
+- [Game Systems Overview](game-systems-overview/) - Learn what can be customized
 
 ## Usage Example
 
 ```csharp
-var example = new Localization();
+// Example: create a localizable text token
+var text = new TextObject("{=key}Value");
 ```

@@ -1,20 +1,14 @@
 ---
 title: "Watchdog"
+description: "Watchdog 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Watchdog`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Watchdog
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class Watchdog`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Watchdog.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Watchdog.cs`
 
 ## 概述
 
@@ -29,22 +23,42 @@ title: "Watchdog"
 ### SetDumpDirectory
 `public static void SetDumpDirectory(string Path)`
 
-**用途 / Purpose:** 设置 `dump directory` 的值或状态。
+**用途 / Purpose:** 为 「dump directory」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+Watchdog.SetDumpDirectory("example");
+```
 
 ### DetachAndClose
 `public static void DetachAndClose()`
 
-**用途 / Purpose:** 处理 `detach and close` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Watchdog.DetachAndClose();
+```
 
 ### LogProperty
 `public static void LogProperty(string FileName, string GroupName, string Key, string Value)`
 
-**用途 / Purpose:** 处理 `log property` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Watchdog.LogProperty("example", "example", "example", "example");
+```
 
 ### Attached
 `public static bool Attached()`
 
-**用途 / Purpose:** 处理 `attached` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+Watchdog.Attached();
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ Watchdog.SetDumpDirectory("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

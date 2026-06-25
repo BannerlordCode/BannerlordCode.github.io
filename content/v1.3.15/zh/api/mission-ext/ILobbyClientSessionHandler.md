@@ -1,18 +1,12 @@
 ---
 title: "ILobbyClientSessionHandler"
+description: "ILobbyClientSessionHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ILobbyClientSessionHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ILobbyClientSessionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ILobbyClientSessionHandler`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade.Diamond/ILobbyClientSessionHandler.cs`
 
@@ -27,9 +21,10 @@ title: "ILobbyClientSessionHandler"
 ## 使用示例
 
 ```csharp
-ILobbyClientSessionHandler implementation = GetLobbyClientSessionHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IILobbyClientSessionHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

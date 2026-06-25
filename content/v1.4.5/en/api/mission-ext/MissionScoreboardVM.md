@@ -1,20 +1,14 @@
 ---
 title: "MissionScoreboardVM"
+description: "Auto-generated class reference for MissionScoreboardVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionScoreboardVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardVM.cs`
 
 ## Overview
 
@@ -51,50 +45,99 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionScoreboardVM from the subsystem API first
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.OnFinalize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionScoreboardVM from the subsystem API first
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.RefreshValues();
+```
 
 ### SetMouseState
 `public void SetMouseState(bool isMouseVisible)`
 
-**Purpose:** Sets the value or state of `mouse state`.
+**Purpose:** Assigns a new value to `mouse state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScoreboardVM from the subsystem API first
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.SetMouseState(false);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionScoreboardVM from the subsystem API first
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.Tick(0);
+```
 
 ### OnPlayerSideChanged
 `public void OnPlayerSideChanged(Team curTeam, Team nextTeam, MissionPeer client)`
 
-**Purpose:** Called when the `player side changed` event is raised.
+**Purpose:** Invoked when the `player side changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionScoreboardVM from the subsystem API first
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.OnPlayerSideChanged(curTeam, nextTeam, client);
+```
 
 ### DecreaseSpectatorCount
 `public void DecreaseSpectatorCount(MissionPeer spectatedPeer)`
 
-**Purpose:** Handles logic related to `decrease spectator count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionScoreboardVM from the subsystem API first
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.DecreaseSpectatorCount(spectatedPeer);
+```
 
 ### IncreaseSpectatorCount
 `public void IncreaseSpectatorCount(MissionPeer spectatedPeer)`
 
-**Purpose:** Handles logic related to `increase spectator count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionScoreboardVM from the subsystem API first
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.IncreaseSpectatorCount(spectatedPeer);
+```
 
 ### ExecuteToggleMute
 `public void ExecuteToggleMute()`
 
-**Purpose:** Executes the `toggle mute` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle mute`.
+
+```csharp
+// Obtain an instance of MissionScoreboardVM from the subsystem API first
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.ExecuteToggleMute();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionScoreboardVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionScoreboardVM missionScoreboardVM = ...;
+missionScoreboardVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

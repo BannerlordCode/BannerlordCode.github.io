@@ -1,20 +1,14 @@
 ---
 title: "NullPlatformServices"
+description: "NullPlatformServices 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NullPlatformServices`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NullPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class NullPlatformServices : IPlatformServices`
 **Base:** `IPlatformServices`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/NullPlatformServices.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/NullPlatformServices.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "NullPlatformServices"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 NullPlatformServices 实例
+NullPlatformServices nullPlatformServices = ...;
+nullPlatformServices.Tick(0);
+```
 
 ### ActivateFriendList
 `public void ActivateFriendList()`
 
-**用途 / Purpose:** 处理 `activate friend list` 相关逻辑。
+**用途 / Purpose:** 激活「friend list」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 NullPlatformServices 实例
+NullPlatformServices nullPlatformServices = ...;
+nullPlatformServices.ActivateFriendList();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NullPlatformServices();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+NullPlatformServices nullPlatformServices = ...;
+nullPlatformServices.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

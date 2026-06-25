@@ -1,20 +1,14 @@
 ---
 title: "MPKillFeedVM"
+description: "Auto-generated class reference for MPKillFeedVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPKillFeedVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPKillFeedVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPKillFeedVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed/MPKillFeedVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.KillFeed/MPKillFeedVM.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isPersonalFeedEnabled)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MPKillFeedVM from the subsystem API first
+MPKillFeedVM mPKillFeedVM = ...;
+mPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false);
+```
 
 ### OnPersonalDamage
 `public void OnPersonalDamage(int damageAmount, bool isFatal, bool isMountDamage, bool isFriendlyDamage, bool isHeadshot, string killedAgentName)`
 
-**Purpose:** Called when the `personal damage` event is raised.
+**Purpose:** Invoked when the `personal damage` event is raised.
+
+```csharp
+// Obtain an instance of MPKillFeedVM from the subsystem API first
+MPKillFeedVM mPKillFeedVM = ...;
+mPKillFeedVM.OnPersonalDamage(0, false, false, false, false, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPKillFeedVM();
-value.OnAgentRemoved(affectedAgent, affectorAgent, false);
+// Typically call this after obtaining an instance from the subsystem API
+MPKillFeedVM mPKillFeedVM = ...;
+mPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

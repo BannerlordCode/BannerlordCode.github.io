@@ -1,13 +1,7 @@
 ---
 title: "DecisionSupportStrengthListPanel"
+description: "Auto-generated class reference for DecisionSupportStrengthListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DecisionSupportStrengthListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DecisionSupportStrengthListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
@@ -43,9 +37,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom` to pl
 ## Usage Example
 
 ```csharp
-var value = new DecisionSupportStrengthListPanel();
+// Obtain an instance from the relevant subsystem API
+DecisionSupportStrengthListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

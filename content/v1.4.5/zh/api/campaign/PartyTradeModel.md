@@ -1,20 +1,14 @@
 ---
 title: "PartyTradeModel"
+description: "PartyTradeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyTradeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyTradeModel : MBGameModel<PartyTradeModel>`
 **Base:** `MBGameModel<PartyTradeModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTradeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTradeModel.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "PartyTradeModel"
 ### GetTradePenaltyFactor
 `public abstract float GetTradePenaltyFactor(MobileParty party)`
 
-**用途 / Purpose:** 获取 `trade penalty factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trade penalty factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeModel 实例
+PartyTradeModel partyTradeModel = ...;
+var result = partyTradeModel.GetTradePenaltyFactor(party);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyTradeModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyTradeModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

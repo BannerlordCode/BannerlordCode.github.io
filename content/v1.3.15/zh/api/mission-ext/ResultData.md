@@ -1,13 +1,7 @@
 ---
 title: "ResultData"
+description: "ResultData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ResultData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ResultData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -36,19 +30,32 @@ title: "ResultData"
 ### AddDLLResult
 `public void AddDLLResult(string dllName, bool isSafe, string information)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `d l l result`。
+**用途 / Purpose:** 将 「d l l result」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ResultData 实例
+ResultData resultData = ...;
+resultData.AddDLLResult("example", false, "example");
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 ResultData 实例
+ResultData resultData = ...;
+var result = resultData.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ResultData();
+// 该数据对象通常由战役/任务 API 返回
+ResultData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

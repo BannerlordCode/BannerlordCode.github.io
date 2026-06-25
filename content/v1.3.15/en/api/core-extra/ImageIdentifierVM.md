@@ -1,13 +1,7 @@
 ---
 title: "ImageIdentifierVM"
+description: "Auto-generated class reference for ImageIdentifierVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageIdentifierVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
@@ -39,14 +33,21 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ImageIdentifierVM from the subsystem API first
+ImageIdentifierVM imageIdentifierVM = ...;
+imageIdentifierVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomImageIdentifierVM();
+// Typically obtained from a subsystem API or factory
+ImageIdentifierVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

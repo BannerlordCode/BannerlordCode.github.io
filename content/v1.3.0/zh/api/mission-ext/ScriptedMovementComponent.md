@@ -1,13 +1,7 @@
 ---
 title: "ScriptedMovementComponent"
+description: "ScriptedMovementComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScriptedMovementComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScriptedMovementComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.AI.AgentComponents
@@ -29,22 +23,46 @@ title: "ScriptedMovementComponent"
 ### SetTargetAgent
 `public void SetTargetAgent(Agent targetAgent)`
 
-**用途 / Purpose:** 设置 `target agent` 的值或状态。
+**用途 / Purpose:** 为 「target agent」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptedMovementComponent 实例
+ScriptedMovementComponent scriptedMovementComponent = ...;
+scriptedMovementComponent.SetTargetAgent(targetAgent);
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptedMovementComponent 实例
+ScriptedMovementComponent scriptedMovementComponent = ...;
+scriptedMovementComponent.OnTick(0);
+```
 
 ### ShouldConversationStartWithAgent
 `public bool ShouldConversationStartWithAgent()`
 
-**用途 / Purpose:** 处理 `should conversation start with agent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptedMovementComponent 实例
+ScriptedMovementComponent scriptedMovementComponent = ...;
+var result = scriptedMovementComponent.ShouldConversationStartWithAgent();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptedMovementComponent 实例
+ScriptedMovementComponent scriptedMovementComponent = ...;
+scriptedMovementComponent.Reset();
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ var component = agent.GetComponent<ScriptedMovementComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

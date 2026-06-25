@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerClassDivisions"
+description: "MultiplayerClassDivisions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerClassDivisions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerClassDivisions
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class MultiplayerClassDivisions`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MultiplayerClassDivisions`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/MultiplayerClassDivisions.cs`
 
 ## 概述
 
-`MultiplayerClassDivisions` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MultiplayerClassDivisions` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -47,102 +42,201 @@ title: "MultiplayerClassDivisions"
 | `TroopTopSpeedReachDuration` | `public float TroopTopSpeedReachDuration { get; }` |
 | `TroopMultiplier` | `public float TroopMultiplier { get; }` |
 | `TroopCost` | `public int TroopCost { get; }` |
+| `TroopCasualCost` | `public int TroopCasualCost { get; }` |
+| `TroopBattleCost` | `public int TroopBattleCost { get; }` |
+| `MeleeAI` | `public int MeleeAI { get; }` |
+| `RangedAI` | `public int RangedAI { get; }` |
+| `HeroInformation` | `public TextObject HeroInformation { get; }` |
+| `TroopInformation` | `public TextObject TroopInformation { get; }` |
+| `IconType` | `public TargetIconType IconType { get; }` |
+| `HeroName` | `public TextObject HeroName { get; }` |
+| `TroopName` | `public TextObject TroopName { get; }` |
 
 ## 主要方法
 
 ### GetMPHeroClasses
 `public static IEnumerable<MultiplayerClassDivisions.MPHeroClass> GetMPHeroClasses(BasicCultureObject culture)`
 
-**用途 / Purpose:** 获取 `m p hero classes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「m p hero classes」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.GetMPHeroClasses(culture);
+```
 
 ### GetMPHeroClasses
 `public static MBReadOnlyList<MultiplayerClassDivisions.MPHeroClass> GetMPHeroClasses()`
 
-**用途 / Purpose:** 获取 `m p hero classes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「m p hero classes」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.GetMPHeroClasses();
+```
 
 ### GetMPHeroClassForCharacter
 `public static MultiplayerClassDivisions.MPHeroClass GetMPHeroClassForCharacter(BasicCharacterObject character)`
 
-**用途 / Purpose:** 获取 `m p hero class for character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「m p hero class for character」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.GetMPHeroClassForCharacter(character);
+```
 
 ### GetAllPerksForHeroClass
 `public static List<List<IReadOnlyPerkObject>> GetAllPerksForHeroClass(MultiplayerClassDivisions.MPHeroClass heroClass, string forcedForGameMode = null)`
 
-**用途 / Purpose:** 获取 `all perks for hero class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all perks for hero class」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.GetAllPerksForHeroClass(heroClass, "example");
+```
 
 ### GetMPHeroClassForPeer
 `public static MultiplayerClassDivisions.MPHeroClass GetMPHeroClassForPeer(MissionPeer peer, bool skipTeamCheck = false)`
 
-**用途 / Purpose:** 获取 `m p hero class for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「m p hero class for peer」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.GetMPHeroClassForPeer(peer, false);
+```
 
 ### GetMPHeroClassForFormation
 `public static TargetIconType GetMPHeroClassForFormation(Formation formation)`
 
-**用途 / Purpose:** 获取 `m p hero class for formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「m p hero class for formation」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.GetMPHeroClassForFormation(formation);
+```
 
 ### GetAvailablePerksForPeer
 `public static List<List<IReadOnlyPerkObject>> GetAvailablePerksForPeer(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 获取 `available perks for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available perks for peer」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.GetAvailablePerksForPeer(missionPeer);
+```
 
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.Initialize();
+```
 
 ### Release
 `public static void Release()`
 
-**用途 / Purpose:** 处理 `release` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.Release();
+```
 
 ### GetMinimumTroopCost
 `public static int GetMinimumTroopCost(BasicCultureObject culture = null)`
 
-**用途 / Purpose:** 获取 `minimum troop cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「minimum troop cost」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerClassDivisions.GetMinimumTroopCost(null);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerClassDivisions 实例
+MultiplayerClassDivisions multiplayerClassDivisions = ...;
+var result = multiplayerClassDivisions.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerClassDivisions 实例
+MultiplayerClassDivisions multiplayerClassDivisions = ...;
+var result = multiplayerClassDivisions.GetHashCode();
+```
 
 ### GetAllAvailablePerksForListIndex
 `public List<IReadOnlyPerkObject> GetAllAvailablePerksForListIndex(int index, string forcedForGameMode = null)`
 
-**用途 / Purpose:** 获取 `all available perks for list index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all available perks for list index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerClassDivisions 实例
+MultiplayerClassDivisions multiplayerClassDivisions = ...;
+var result = multiplayerClassDivisions.GetAllAvailablePerksForListIndex(0, "example");
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerClassDivisions 实例
+MultiplayerClassDivisions multiplayerClassDivisions = ...;
+multiplayerClassDivisions.Deserialize(objectManager, node);
+```
 
 ### IsTroopCharacter
 `public bool IsTroopCharacter(BasicCharacterObject character)`
 
-**用途 / Purpose:** 处理 `is troop character` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「troop character」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerClassDivisions 实例
+MultiplayerClassDivisions multiplayerClassDivisions = ...;
+var result = multiplayerClassDivisions.IsTroopCharacter(character);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerClassDivisions 实例
+MultiplayerClassDivisions multiplayerClassDivisions = ...;
+var result = multiplayerClassDivisions.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerClassDivisions 实例
+MultiplayerClassDivisions multiplayerClassDivisions = ...;
+var result = multiplayerClassDivisions.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 MultiplayerClassDivisions.GetMPHeroClasses(culture);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "LocateAndRescueTravellerTutorialQuest"
+description: "LocateAndRescueTravellerTutorialQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LocateAndRescueTravellerTutorialQuest`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocateAndRescueTravellerTutorialQuest
 
 **Namespace:** StoryMode.Quests.TutorialPhase
 **Module:** StoryMode.Quests
 **Type:** `public class LocateAndRescueTravellerTutorialQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/LocateAndRescueTravellerTutorialQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.TutorialPhase/LocateAndRescueTravellerTutorialQuest.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "LocateAndRescueTravellerTutorialQuest"
 ## 使用示例
 
 ```csharp
-var value = new LocateAndRescueTravellerTutorialQuest();
+// 从对应子系统 API 获取实例
+LocateAndRescueTravellerTutorialQuest instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

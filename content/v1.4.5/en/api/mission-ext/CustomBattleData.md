@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleData"
+description: "Auto-generated class reference for CustomBattleData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleData
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CustomBattleData`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleData.cs`
 
 ## Overview
 
@@ -43,24 +37,40 @@ Treat `CustomBattleData` as a Data-style extension point: first identify who cre
 ### GetAllAttackerMeleeMachines
 `public static IEnumerable<SiegeEngineType> GetAllAttackerMeleeMachines()`
 
-**Purpose:** Gets the current value of `all attacker melee machines`.
+**Purpose:** Reads and returns the `all attacker melee machines` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CustomBattleData.GetAllAttackerMeleeMachines();
+```
 
 ### GetAllDefenderRangedMachines
 `public static IEnumerable<SiegeEngineType> GetAllDefenderRangedMachines()`
 
-**Purpose:** Gets the current value of `all defender ranged machines`.
+**Purpose:** Reads and returns the `all defender ranged machines` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CustomBattleData.GetAllDefenderRangedMachines();
+```
 
 ### GetAllAttackerRangedMachines
 `public static IEnumerable<SiegeEngineType> GetAllAttackerRangedMachines()`
 
-**Purpose:** Gets the current value of `all attacker ranged machines`.
+**Purpose:** Reads and returns the `all attacker ranged machines` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CustomBattleData.GetAllAttackerRangedMachines();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleData();
+// This data object is usually returned by campaign/mission APIs
+CustomBattleData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

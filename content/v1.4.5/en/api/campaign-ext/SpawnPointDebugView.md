@@ -1,20 +1,14 @@
 ---
 title: "SpawnPointDebugView"
+description: "Auto-generated class reference for SpawnPointDebugView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnPointDebugView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnPointDebugView
 
 **Namespace:** SandBox.View.Missions.SandBox
 **Module:** SandBox.View
 **Type:** `public class SpawnPointDebugView : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions.SandBox/SpawnPointDebugView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions.SandBox/SpawnPointDebugView.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `SpawnPointDebugView` as a View-style extension point: first identify who 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnPointDebugView from the subsystem API first
+SpawnPointDebugView spawnPointDebugView = ...;
+var result = spawnPointDebugView.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new SpawnPointDebugView();
+// Retrieve this view from the subsystem API or scene
+SpawnPointDebugView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionSpectatorControlVM"
+description: "MissionSpectatorControlVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionSpectatorControlVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSpectatorControlVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSpectatorControlVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionSpectatorControlVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionSpectatorControlVM.cs`
 
 ## 概述
 
@@ -45,50 +39,99 @@ title: "MissionSpectatorControlVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.RefreshValues();
+```
 
 ### OnSpectatedAgentFocusIn
 `public void OnSpectatedAgentFocusIn(Agent followedAgent)`
 
-**用途 / Purpose:** 当 `spectated agent focus in` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「spectated agent focus in」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.OnSpectatedAgentFocusIn(followedAgent);
+```
 
 ### OnSpectatedAgentFocusOut
 `public void OnSpectatedAgentFocusOut(Agent followedAgent)`
 
-**用途 / Purpose:** 当 `spectated agent focus out` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「spectated agent focus out」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.OnSpectatedAgentFocusOut(followedAgent);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.OnFinalize();
+```
 
 ### SetMainAgentStatus
 `public void SetMainAgentStatus(bool isDead)`
 
-**用途 / Purpose:** 设置 `main agent status` 的值或状态。
+**用途 / Purpose:** 为 「main agent status」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.SetMainAgentStatus(false);
+```
 
 ### SetPrevCharacterInputKey
 `public void SetPrevCharacterInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 设置 `prev character input key` 的值或状态。
+**用途 / Purpose:** 为 「prev character input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.SetPrevCharacterInputKey(gameKey);
+```
 
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 设置 `next character input key` 的值或状态。
+**用途 / Purpose:** 为 「next character input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.SetNextCharacterInputKey(gameKey);
+```
 
 ### SetTakeControlInputKey
 `public void SetTakeControlInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 设置 `take control input key` 的值或状态。
+**用途 / Purpose:** 为 「take control input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.SetTakeControlInputKey(gameKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionSpectatorControlVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

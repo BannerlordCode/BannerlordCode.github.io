@@ -1,13 +1,7 @@
 ---
 title: "CosmeticsManager"
+description: "Auto-generated class reference for CosmeticsManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CosmeticsManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CosmeticsManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics
@@ -35,12 +29,22 @@ Treat `CosmeticsManager` as a Manager-style extension point: first identify who 
 ### GetCosmeticElement
 `public static CosmeticElement GetCosmeticElement(string cosmeticId)`
 
-**Purpose:** Gets the current value of `cosmetic element`.
+**Purpose:** Reads and returns the `cosmetic element` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CosmeticsManager.GetCosmeticElement("example");
+```
 
 ### LoadFromXml
 `public static void LoadFromXml(string path)`
 
-**Purpose:** Loads `from xml` data.
+**Purpose:** Reads `from xml` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+CosmeticsManager.LoadFromXml("example");
+```
 
 ## Usage Example
 
@@ -50,4 +54,4 @@ var manager = CosmeticsManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

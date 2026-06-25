@@ -1,13 +1,7 @@
 ---
 title: "CustomWidgetType"
+description: "CustomWidgetType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomWidgetType`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomWidgetType
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -39,15 +33,22 @@ title: "CustomWidgetType"
 ### CheckForUpdate
 `public bool CheckForUpdate()`
 
-**用途 / Purpose:** 处理 `check for update` 相关逻辑。
+**用途 / Purpose:** 检查「for update」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 CustomWidgetType 实例
+CustomWidgetType customWidgetType = ...;
+var result = customWidgetType.CheckForUpdate();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomWidgetType();
-value.CheckForUpdate();
+// 通常从对应子系统 API 获取实例后调用
+CustomWidgetType customWidgetType = ...;
+customWidgetType.CheckForUpdate();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

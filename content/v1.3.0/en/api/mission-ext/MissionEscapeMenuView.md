@@ -1,13 +1,7 @@
 ---
 title: "MissionEscapeMenuView"
+description: "Auto-generated class reference for MissionEscapeMenuView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionEscapeMenuView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionEscapeMenuView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -33,9 +27,10 @@ Treat `MissionEscapeMenuView` as a View-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionEscapeMenuView();
+// Typically obtained from a subsystem API or factory
+MissionEscapeMenuView instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

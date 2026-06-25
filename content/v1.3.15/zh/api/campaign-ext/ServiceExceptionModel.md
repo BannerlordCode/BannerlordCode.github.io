@@ -1,13 +1,7 @@
 ---
 title: "ServiceExceptionModel"
+description: "ServiceExceptionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ServiceExceptionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServiceExceptionModel
 
 **Namespace:** TaleWorlds.Network
@@ -36,7 +30,13 @@ title: "ServiceExceptionModel"
 ### ToServiceException
 `public ServiceException ToServiceException()`
 
-**用途 / Purpose:** 处理 `to service exception` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ServiceExceptionModel 实例
+ServiceExceptionModel serviceExceptionModel = ...;
+var result = serviceExceptionModel.ToServiceException();
+```
 
 ## 使用示例
 
@@ -46,4 +46,4 @@ Game.Current.ReplaceModel<ServiceExceptionModel>(new MyServiceExceptionModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

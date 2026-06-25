@@ -1,13 +1,7 @@
 ---
 title: "MissionConversationView"
+description: "Auto-generated class reference for MissionConversationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionConversationView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionConversationView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -33,9 +27,10 @@ Treat `MissionConversationView` as a View-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var view = new MissionConversationView();
+// Retrieve this view from the subsystem API or scene
+MissionConversationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

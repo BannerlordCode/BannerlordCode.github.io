@@ -1,13 +1,7 @@
 ---
 title: "TraitObject"
+description: "TraitObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TraitObject`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TraitObject
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -38,15 +32,22 @@ title: "TraitObject"
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, bool isHidden, int minValue, int maxValue)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 TraitObject 实例
+TraitObject traitObject = ...;
+traitObject.Initialize(name, description, false, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TraitObject();
-value.Initialize(name, description, false, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+TraitObject traitObject = ...;
+traitObject.Initialize(name, description, false, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

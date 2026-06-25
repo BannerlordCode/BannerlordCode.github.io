@@ -1,23 +1,18 @@
 ---
 title: "CustomBattleFactory"
+description: "CustomBattleFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleFactory`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleFactory
 
-**命名空间:** TaleWorlds.MountAndBlade.View.CustomBattle
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public static class CustomBattleFactory`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.View.CustomBattle
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public static class CustomBattleFactory`
+**Base:** 无
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.CustomBattle/CustomBattleFactory.cs`
 
 ## 概述
 
-`CustomBattleFactory` 位于 `TaleWorlds.MountAndBlade.View.CustomBattle`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`CustomBattleFactory` 位于 `TaleWorlds.MountAndBlade.View.CustomBattle`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,31 +23,49 @@ title: "CustomBattleFactory"
 ### StartCustomBattle
 `public static void StartCustomBattle()`
 
-**用途 / Purpose:** 处理 `start custom battle` 相关逻辑。
+**用途 / Purpose:** 启动「custom battle」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleFactory.StartCustomBattle();
+```
 
 ### GetProviderCount
 `public static int GetProviderCount()`
 
-**用途 / Purpose:** 获取 `provider count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「provider count」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleFactory.GetProviderCount();
+```
 
 ### CollectProviders
 `public static List<ICustomBattleProvider> CollectProviders()`
 
-**用途 / Purpose:** 处理 `collect providers` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleFactory.CollectProviders();
+```
 
 ### CollectNextProvider
 `public static ICustomBattleProvider CollectNextProvider(Type currentProviderType)`
 
-**用途 / Purpose:** 处理 `collect next provider` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleFactory.CollectNextProvider(currentProviderType);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 CustomBattleFactory.StartCustomBattle();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

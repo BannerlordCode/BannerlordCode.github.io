@@ -1,20 +1,14 @@
 ---
 title: "PhotoModeValueOptionVM"
+description: "Auto-generated class reference for PhotoModeValueOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PhotoModeValueOptionVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PhotoModeValueOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PhotoModeValueOptionVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/PhotoModeValueOptionVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection/PhotoModeValueOptionVM.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PhotoModeValueOptionVM from the subsystem API first
+PhotoModeValueOptionVM photoModeValueOptionVM = ...;
+photoModeValueOptionVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PhotoModeValueOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+PhotoModeValueOptionVM photoModeValueOptionVM = ...;
+photoModeValueOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

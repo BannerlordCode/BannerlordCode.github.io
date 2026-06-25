@@ -1,20 +1,14 @@
 ---
 title: "TutorialVM"
+description: "Auto-generated class reference for TutorialVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialVM
 
 **Namespace:** SandBox.ViewModelCollection.Tutorial
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TutorialVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tutorial/TutorialVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tutorial/TutorialVM.cs`
 
 ## Overview
 
@@ -45,35 +39,66 @@ Start from namespace `SandBox.ViewModelCollection.Tutorial` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TutorialVM from the subsystem API first
+TutorialVM tutorialVM = ...;
+tutorialVM.RefreshValues();
+```
 
 ### SetCurrentTutorial
 `public void SetCurrentTutorial(TutorialItemVM.ItemPlacements placement, string tutorialTypeId, bool requiresMouse)`
 
-**Purpose:** Sets the value or state of `current tutorial`.
+**Purpose:** Assigns a new value to `current tutorial` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TutorialVM from the subsystem API first
+TutorialVM tutorialVM = ...;
+tutorialVM.SetCurrentTutorial(placement, "example", false);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TutorialVM from the subsystem API first
+TutorialVM tutorialVM = ...;
+tutorialVM.Tick(0);
+```
 
 ### CloseTutorialStep
 `public void CloseTutorialStep(bool finalizeAllSteps = false)`
 
-**Purpose:** Handles logic related to `close tutorial step`.
+**Purpose:** Closes the resource or UI associated with `tutorial step`.
+
+```csharp
+// Obtain an instance of TutorialVM from the subsystem API first
+TutorialVM tutorialVM = ...;
+tutorialVM.CloseTutorialStep(false);
+```
 
 ### FinalizeTutorial
 `public void FinalizeTutorial()`
 
-**Purpose:** Handles logic related to `finalize tutorial`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TutorialVM from the subsystem API first
+TutorialVM tutorialVM = ...;
+tutorialVM.FinalizeTutorial();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TutorialVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TutorialVM tutorialVM = ...;
+tutorialVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TrainingFieldObjectivesVM"
+description: "Auto-generated class reference for TrainingFieldObjectivesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingFieldObjectivesVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingFieldObjectivesVM
 
 **Namespace:** StoryMode.ViewModelCollection.Missions
@@ -41,40 +35,77 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
+TrainingFieldObjectivesVM trainingFieldObjectivesVM = ...;
+trainingFieldObjectivesVM.RefreshValues();
+```
 
 ### UpdateObjectivesWith
 `public void UpdateObjectivesWith(List<TrainingFieldMissionController.TutorialObjective> objectives)`
 
-**Purpose:** Updates the state or data of `objectives with`.
+**Purpose:** Recalculates and stores the latest representation of `objectives with`.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
+TrainingFieldObjectivesVM trainingFieldObjectivesVM = ...;
+trainingFieldObjectivesVM.UpdateObjectivesWith(objectives);
+```
 
 ### UpdateCurrentObjectiveText
 `public void UpdateCurrentObjectiveText(TextObject currentObjectiveText)`
 
-**Purpose:** Updates the state or data of `current objective text`.
+**Purpose:** Recalculates and stores the latest representation of `current objective text`.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
+TrainingFieldObjectivesVM trainingFieldObjectivesVM = ...;
+trainingFieldObjectivesVM.UpdateCurrentObjectiveText(currentObjectiveText);
+```
 
 ### UpdateCurrentMouseObjective
 `public void UpdateCurrentMouseObjective(TrainingFieldMissionController.MouseObjectives currentMouseObjective)`
 
-**Purpose:** Updates the state or data of `current mouse objective`.
+**Purpose:** Recalculates and stores the latest representation of `current mouse objective`.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
+TrainingFieldObjectivesVM trainingFieldObjectivesVM = ...;
+trainingFieldObjectivesVM.UpdateCurrentMouseObjective(currentMouseObjective);
+```
 
 ### UpdateTimerText
 `public void UpdateTimerText(string timerText)`
 
-**Purpose:** Updates the state or data of `timer text`.
+**Purpose:** Recalculates and stores the latest representation of `timer text`.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
+TrainingFieldObjectivesVM trainingFieldObjectivesVM = ...;
+trainingFieldObjectivesVM.UpdateTimerText("example");
+```
 
 ### UpdateIsGamepadActive
 `public void UpdateIsGamepadActive()`
 
-**Purpose:** Updates the state or data of `is gamepad active`.
+**Purpose:** Recalculates and stores the latest representation of `is gamepad active`.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
+TrainingFieldObjectivesVM trainingFieldObjectivesVM = ...;
+trainingFieldObjectivesVM.UpdateIsGamepadActive();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrainingFieldObjectivesVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TrainingFieldObjectivesVM trainingFieldObjectivesVM = ...;
+trainingFieldObjectivesVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

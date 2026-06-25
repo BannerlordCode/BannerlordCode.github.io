@@ -1,20 +1,14 @@
 ---
 title: "MbEvent"
+description: "MbEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MbEvent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MbEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MbEvent : IMbEvent`
-**Base:** `IMbEvent`
-**File:** `TaleWorlds.CampaignSystem/MbEvent.cs`
+**Type:** `public class MbEvent<T> : IMbEvent<T>, IMbEventBase`
+**Base:** `IMbEvent<T>`
+**File:** `TaleWorlds.CampaignSystem/MbEvent.2.cs`
 
 ## 概述
 
@@ -27,27 +21,46 @@ title: "MbEvent"
 ## 主要方法
 
 ### AddNonSerializedListener
-`public void AddNonSerializedListener(object owner, Action action)`
+`public void AddNonSerializedListener(object owner, Action<T> action)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `non serialized listener`。
+**用途 / Purpose:** 将 「non serialized listener」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MbEvent 实例
+MbEvent mbEvent = ...;
+mbEvent.AddNonSerializedListener(owner, action);
+```
 
 ### Invoke
-`public void Invoke()`
+`public void Invoke(T t)`
 
-**用途 / Purpose:** 处理 `invoke` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MbEvent 实例
+MbEvent mbEvent = ...;
+mbEvent.Invoke(t);
+```
 
 ### ClearListeners
 `public void ClearListeners(object o)`
 
-**用途 / Purpose:** 处理 `clear listeners` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「listeners」。
+
+```csharp
+// 先通过子系统 API 拿到 MbEvent 实例
+MbEvent mbEvent = ...;
+mbEvent.ClearListeners(o);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MbEvent();
-value.AddNonSerializedListener(owner, action);
+// 通常从对应子系统 API 获取实例后调用
+MbEvent mbEvent = ...;
+mbEvent.AddNonSerializedListener(owner, action);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

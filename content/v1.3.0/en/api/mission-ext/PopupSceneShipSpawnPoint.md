@@ -1,13 +1,7 @@
 ---
 title: "PopupSceneShipSpawnPoint"
+description: "Auto-generated class reference for PopupSceneShipSpawnPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneShipSpawnPoint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneShipSpawnPoint
 
 **Namespace:** TaleWorlds.MountAndBlade.View.SceneNotification
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.SceneNotification` to place 
 ## Usage Example
 
 ```csharp
-var value = new PopupSceneShipSpawnPoint();
+// Obtain an instance from the relevant subsystem API
+PopupSceneShipSpawnPoint instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

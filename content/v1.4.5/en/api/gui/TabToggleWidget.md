@@ -1,20 +1,14 @@
 ---
 title: "TabToggleWidget"
+description: "Auto-generated class reference for TabToggleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TabToggleWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TabToggleWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class TabToggleWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/TabToggleWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/TabToggleWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `TabToggleWidget` as a Widget-style extension point: first identify who cr
 ## Usage Example
 
 ```csharp
-var widget = new TabToggleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TabToggleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

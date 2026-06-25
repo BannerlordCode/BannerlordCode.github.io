@@ -1,13 +1,7 @@
 ---
 title: "MissionGenericInteractionItemVM"
+description: "Auto-generated class reference for MissionGenericInteractionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGenericInteractionItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionGenericInteractionItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Inte
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionGenericInteractionItemVM from the subsystem API first
+MissionGenericInteractionItemVM missionGenericInteractionItemVM = ...;
+missionGenericInteractionItemVM.RefreshValues();
+```
 
 ### SetData
 `public void SetData(TextObject message, bool isDisabled = false)`
 
-**Purpose:** Sets the value or state of `data`.
+**Purpose:** Assigns a new value to `data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionGenericInteractionItemVM from the subsystem API first
+MissionGenericInteractionItemVM missionGenericInteractionItemVM = ...;
+missionGenericInteractionItemVM.SetData(message, false);
+```
 
 ### ResetData
 `public void ResetData()`
 
-**Purpose:** Resets `data` to its initial state.
+**Purpose:** Returns `data` to its default or initial condition.
+
+```csharp
+// Obtain an instance of MissionGenericInteractionItemVM from the subsystem API first
+MissionGenericInteractionItemVM missionGenericInteractionItemVM = ...;
+missionGenericInteractionItemVM.ResetData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGenericInteractionItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGenericInteractionItemVM missionGenericInteractionItemVM = ...;
+missionGenericInteractionItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

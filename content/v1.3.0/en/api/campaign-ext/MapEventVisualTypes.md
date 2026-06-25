@@ -1,45 +1,30 @@
 ---
 title: "MapEventVisualTypes"
+description: "Auto-generated class reference for MapEventVisualTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventVisualTypes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventVisualTypes
 
 **Namespace:** SandBox.ViewModelCollection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public enum MapEventVisualTypes`
-**Area:** campaign-ext
+**Base:** none
+**File:** `SandBox.ViewModelCollection/SandBoxUIHelper.cs`
 
 ## Overview
 
-`MapEventVisualTypes` lives in `SandBox.ViewModelCollection`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MapEventVisualTypes` lives in `SandBox.ViewModelCollection` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `SandBox.ViewModelCollection` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `None` |
-| `Raid` |
-| `Siege` |
-| `Battle` |
-| `Rebellion` |
-
 ## Usage Example
 
 ```csharp
-MapEventVisualTypes example = MapEventVisualTypes.None;
+// Obtain an instance from the relevant subsystem API
+MapEventVisualTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

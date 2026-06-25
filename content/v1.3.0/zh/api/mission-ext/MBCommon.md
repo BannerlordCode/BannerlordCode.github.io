@@ -1,13 +1,7 @@
 ---
 title: "MBCommon"
+description: "MBCommon 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBCommon`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBCommon
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,37 +31,72 @@ title: "MBCommon"
 ### PauseGameEngine
 `public static void PauseGameEngine()`
 
-**用途 / Purpose:** 处理 `pause game engine` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.PauseGameEngine();
+```
 
 ### UnPauseGameEngine
 `public static void UnPauseGameEngine()`
 
-**用途 / Purpose:** 处理 `un pause game engine` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.UnPauseGameEngine();
+```
 
 ### GetApplicationTime
 `public static float GetApplicationTime()`
 
-**用途 / Purpose:** 获取 `application time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「application time」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.GetApplicationTime();
+```
 
 ### GetTotalMissionTime
 `public static float GetTotalMissionTime()`
 
-**用途 / Purpose:** 获取 `total mission time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total mission time」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.GetTotalMissionTime();
+```
 
 ### FixSkeletons
 `public static void FixSkeletons()`
 
-**用途 / Purpose:** 处理 `fix skeletons` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.FixSkeletons();
+```
 
 ### CheckResourceModifications
 `public static void CheckResourceModifications()`
 
-**用途 / Purpose:** 处理 `check resource modifications` 相关逻辑。
+**用途 / Purpose:** 检查「resource modifications」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.CheckResourceModifications();
+```
 
 ### Hash
 `public static int Hash(int i, object o)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `h`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「h」。
+
+```csharp
+// 静态调用，不需要实例
+MBCommon.Hash(0, o);
+```
 
 ## 使用示例
 
@@ -77,4 +106,4 @@ MBCommon.PauseGameEngine();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

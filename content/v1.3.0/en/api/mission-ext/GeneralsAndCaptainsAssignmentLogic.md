@@ -1,13 +1,7 @@
 ---
 title: "GeneralsAndCaptainsAssignmentLogic"
+description: "Auto-generated class reference for GeneralsAndCaptainsAssignmentLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GeneralsAndCaptainsAssignmentLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GeneralsAndCaptainsAssignmentLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,24 +23,42 @@ Treat `GeneralsAndCaptainsAssignmentLogic` as a Logic-style extension point: fir
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GeneralsAndCaptainsAssignmentLogic from the subsystem API first
+GeneralsAndCaptainsAssignmentLogic generalsAndCaptainsAssignmentLogic = ...;
+generalsAndCaptainsAssignmentLogic.AfterStart();
+```
 
 ### OnTeamDeployed
 `public override void OnTeamDeployed(Team team)`
 
-**Purpose:** Called when the `team deployed` event is raised.
+**Purpose:** Invoked when the `team deployed` event is raised.
+
+```csharp
+// Obtain an instance of GeneralsAndCaptainsAssignmentLogic from the subsystem API first
+GeneralsAndCaptainsAssignmentLogic generalsAndCaptainsAssignmentLogic = ...;
+generalsAndCaptainsAssignmentLogic.OnTeamDeployed(team);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of GeneralsAndCaptainsAssignmentLogic from the subsystem API first
+GeneralsAndCaptainsAssignmentLogic generalsAndCaptainsAssignmentLogic = ...;
+generalsAndCaptainsAssignmentLogic.OnDeploymentFinished();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GeneralsAndCaptainsAssignmentLogic());
+var behavior = Mission.Current.GetMissionBehavior<GeneralsAndCaptainsAssignmentLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

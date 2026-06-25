@@ -1,20 +1,14 @@
 ---
 title: "IInteractionInterfaceHandler"
+description: "Auto-generated class reference for IInteractionInterfaceHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IInteractionInterfaceHandler`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IInteractionInterfaceHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IInteractionInterfaceHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction/IInteractionInterfaceHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction/IInteractionInterfaceHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IInteractionInterfaceHandler` as a Handler-style extension point: first i
 ## Usage Example
 
 ```csharp
-IInteractionInterfaceHandler implementation = GetInteractionInterfaceHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIInteractionInterfaceHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

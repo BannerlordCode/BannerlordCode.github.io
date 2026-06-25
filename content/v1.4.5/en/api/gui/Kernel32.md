@@ -1,20 +1,14 @@
 ---
 title: "Kernel32"
+description: "Auto-generated class reference for Kernel32."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Kernel32`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Kernel32
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public static class Kernel32`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Kernel32.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/Kernel32.cs`
 
 ## Overview
 
@@ -29,27 +23,52 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### LoadLibrary
 `public static extern IntPtr LoadLibrary(string lpFileName)`
 
-**Purpose:** Loads `library` data.
+**Purpose:** Reads `library` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+Kernel32.LoadLibrary("example");
+```
 
 ### GetModuleHandle
 `public static extern IntPtr GetModuleHandle(string lpModuleName)`
 
-**Purpose:** Gets the current value of `module handle`.
+**Purpose:** Reads and returns the `module handle` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Kernel32.GetModuleHandle("example");
+```
 
 ### GetLastError
 `public static extern int GetLastError()`
 
-**Purpose:** Gets the current value of `last error`.
+**Purpose:** Reads and returns the `last error` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Kernel32.GetLastError();
+```
 
 ### GetConsoleWindow
 `public static extern IntPtr GetConsoleWindow()`
 
-**Purpose:** Gets the current value of `console window`.
+**Purpose:** Reads and returns the `console window` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Kernel32.GetConsoleWindow();
+```
 
 ### GetUserGeoID
 `public static extern int GetUserGeoID(GeoTypeId type)`
 
-**Purpose:** Gets the current value of `user geo i d`.
+**Purpose:** Reads and returns the `user geo i d` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Kernel32.GetUserGeoID(type);
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ Kernel32.LoadLibrary("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

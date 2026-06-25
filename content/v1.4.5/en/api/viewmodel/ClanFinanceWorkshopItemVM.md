@@ -1,20 +1,14 @@
 ---
 title: "ClanFinanceWorkshopItemVM"
+description: "Auto-generated class reference for ClanFinanceWorkshopItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFinanceWorkshopItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceWorkshopItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanFinanceWorkshopItemVM : ClanFinanceIncomeItemBaseVM`
 **Base:** `ClanFinanceIncomeItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceWorkshopItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceWorkshopItemVM.cs`
 
 ## Overview
 
@@ -53,40 +47,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.RefreshValues();
+```
 
 ### ExecuteToggleWarehouseUsage
 `public void ExecuteToggleWarehouseUsage()`
 
-**Purpose:** Executes the `toggle warehouse usage` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle warehouse usage`.
+
+```csharp
+// Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.ExecuteToggleWarehouseUsage();
+```
 
 ### ExecuteBeginWorkshopHint
 `public void ExecuteBeginWorkshopHint()`
 
-**Purpose:** Executes the `begin workshop hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin workshop hint`.
+
+```csharp
+// Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.ExecuteBeginWorkshopHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.ExecuteEndHint();
+```
 
 ### OnStoreOutputInWarehousePercentageUpdated
 `public void OnStoreOutputInWarehousePercentageUpdated(SelectorVM<WorkshopPercentageSelectorItemVM> selector)`
 
-**Purpose:** Called when the `store output in warehouse percentage updated` event is raised.
+**Purpose:** Invoked when the `store output in warehouse percentage updated` event is raised.
+
+```csharp
+// Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.OnStoreOutputInWarehousePercentageUpdated(selector);
+```
 
 ### ExecuteManageWorkshop
 `public void ExecuteManageWorkshop()`
 
-**Purpose:** Executes the `manage workshop` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `manage workshop`.
+
+```csharp
+// Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.ExecuteManageWorkshop();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanFinanceWorkshopItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanFinanceWorkshopItemVM clanFinanceWorkshopItemVM = ...;
+clanFinanceWorkshopItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

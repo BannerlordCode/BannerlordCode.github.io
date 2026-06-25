@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerGlobalMutedPlayersManager"
+description: "MultiplayerGlobalMutedPlayersManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerGlobalMutedPlayersManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerGlobalMutedPlayersManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,22 +29,42 @@ title: "MultiplayerGlobalMutedPlayersManager"
 ### MutePlayer
 `public static void MutePlayer(PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `mute player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerGlobalMutedPlayersManager.MutePlayer(playerId);
+```
 
 ### UnmutePlayer
 `public static void UnmutePlayer(PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `unmute player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerGlobalMutedPlayersManager.UnmutePlayer(playerId);
+```
 
 ### IsUserMuted
 `public static bool IsUserMuted(PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `is user muted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「user muted」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerGlobalMutedPlayersManager.IsUserMuted(playerId);
+```
 
 ### ClearMutedPlayers
 `public static void ClearMutedPlayers()`
 
-**用途 / Purpose:** 处理 `clear muted players` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「muted players」。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerGlobalMutedPlayersManager.ClearMutedPlayers();
+```
 
 ## 使用示例
 
@@ -60,4 +74,4 @@ var manager = MultiplayerGlobalMutedPlayersManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "LauncherNewsWidget"
+description: "Auto-generated class reference for LauncherNewsWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherNewsWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherNewsWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherNewsWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherNewsWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherNewsWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `LauncherNewsWidget` as a Widget-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var widget = new LauncherNewsWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+LauncherNewsWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

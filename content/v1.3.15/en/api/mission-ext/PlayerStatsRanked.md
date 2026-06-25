@@ -1,13 +1,7 @@
 ---
 title: "PlayerStatsRanked"
+description: "Auto-generated class reference for PlayerStatsRanked."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerStatsRanked`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerStatsRanked
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int rating, int ratingDeviation, string rank, bool evaluating, int evaluationMatchesPlayedCount)`
 
-**Purpose:** Handles logic related to `fill with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerStatsRanked from the subsystem API first
+PlayerStatsRanked playerStatsRanked = ...;
+playerStatsRanked.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0);
+```
 
 ### FillWithNewPlayer
 `public virtual void FillWithNewPlayer(PlayerId playerId, string gameType, int defaultRating, int defaultRatingDeviation)`
 
-**Purpose:** Handles logic related to `fill with new player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerStatsRanked from the subsystem API first
+PlayerStatsRanked playerStatsRanked = ...;
+playerStatsRanked.FillWithNewPlayer(playerId, "example", 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerStatsRanked();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerStatsRanked playerStatsRanked = ...;
+playerStatsRanked.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

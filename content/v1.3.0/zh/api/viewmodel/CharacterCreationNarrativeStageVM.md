@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationNarrativeStageVM"
+description: "CharacterCreationNarrativeStageVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationNarrativeStageVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationNarrativeStageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
@@ -39,50 +33,99 @@ title: "CharacterCreationNarrativeStageVM"
 ### RefreshMenu
 `public void RefreshMenu()`
 
-**用途 / Purpose:** 刷新 `menu` 的显示或缓存。
+**用途 / Purpose:** 使 「menu」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.RefreshMenu();
+```
 
 ### OnOptionSelected
 `public void OnOptionSelected(CharacterCreationOptionVM option)`
 
-**用途 / Purpose:** 当 `option selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「option selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.OnOptionSelected(option);
+```
 
 ### OnNextStage
 `public override void OnNextStage()`
 
-**用途 / Purpose:** 当 `next stage` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「next stage」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.OnNextStage();
+```
 
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**用途 / Purpose:** 当 `previous stage` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「previous stage」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.OnPreviousStage();
+```
 
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `advance to next stage`。
+**用途 / Purpose:** 检查当前对象是否满足 「advance to next stage」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+var result = characterCreationNarrativeStageVM.CanAdvanceToNextStage();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationNarrativeStageVM 实例
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.SetDoneInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterCreationNarrativeStageVM();
-value.RefreshMenu();
+// 通常从对应子系统 API 获取实例后调用
+CharacterCreationNarrativeStageVM characterCreationNarrativeStageVM = ...;
+characterCreationNarrativeStageVM.RefreshMenu();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

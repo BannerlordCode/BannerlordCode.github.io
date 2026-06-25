@@ -1,20 +1,14 @@
 ---
 title: "ClanRoleAssignedThroughClanScreenEvent"
+description: "Auto-generated class reference for ClanRoleAssignedThroughClanScreenEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanRoleAssignedThroughClanScreenEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanRoleAssignedThroughClanScreenEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanRoleAssignedThroughClanScreenEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanRoleAssignedThroughClanScreenEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement/ClanRoleAssignedThroughClanScreenEvent.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ## Usage Example
 
 ```csharp
-var example = new ClanRoleAssignedThroughClanScreenEvent();
+// Obtain an instance from the relevant subsystem API
+ClanRoleAssignedThroughClanScreenEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

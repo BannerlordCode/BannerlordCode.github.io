@@ -1,20 +1,14 @@
 ---
 title: "PlayerStartEngineConstructionEvent"
+description: "Auto-generated class reference for PlayerStartEngineConstructionEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerStartEngineConstructionEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerStartEngineConstructionEvent
 
 **Namespace:** SandBox.ViewModelCollection.MapSiege
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PlayerStartEngineConstructionEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.MapSiege/PlayerStartEngineConstructionEvent.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.MapSiege/PlayerStartEngineConstructionEvent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ## Usage Example
 
 ```csharp
-var value = new PlayerStartEngineConstructionEvent();
+// Obtain an instance from the relevant subsystem API
+PlayerStartEngineConstructionEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "VillageEventOptionData"
+description: "Auto-generated class reference for VillageEventOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageEventOptionData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageEventOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct VillageEventOptionData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `VillageEventOptionData` as a Data-style extension point: first identify w
 ### VillageEventOptionData
 `public struct VillageEventOptionData(string text, GameMenuOption.OnConditionDelegate onCondition, GameMenuOption.OnConsequenceDelegate onConsequence, bool isLeave = false)`
 
-**Purpose:** Handles logic related to `village event option data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageEventOptionData from the subsystem API first
+VillageEventOptionData villageEventOptionData = ...;
+var result = villageEventOptionData.VillageEventOptionData("example", onCondition, onConsequence, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillageEventOptionData();
+// This data object is usually returned by campaign/mission APIs
+VillageEventOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

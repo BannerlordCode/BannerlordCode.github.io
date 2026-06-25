@@ -1,20 +1,14 @@
 ---
 title: "MBTestRun"
+description: "Auto-generated class reference for MBTestRun."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTestRun`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTestRun
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBTestRun`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBTestRun.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBTestRun.cs`
 
 ## Overview
 
@@ -29,47 +23,92 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### EnterEditMode
 `public static bool EnterEditMode()`
 
-**Purpose:** Handles logic related to `enter edit mode`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBTestRun.EnterEditMode();
+```
 
 ### NewScene
 `public static bool NewScene()`
 
-**Purpose:** Handles logic related to `new scene`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBTestRun.NewScene();
+```
 
 ### LeaveEditMode
 `public static bool LeaveEditMode()`
 
-**Purpose:** Handles logic related to `leave edit mode`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBTestRun.LeaveEditMode();
+```
 
 ### OpenScene
 `public static bool OpenScene(string sceneName)`
 
-**Purpose:** Handles logic related to `open scene`.
+**Purpose:** Opens the resource or UI associated with `scene`.
+
+```csharp
+// Static call; no instance required
+MBTestRun.OpenScene("example");
+```
 
 ### CloseScene
 `public static bool CloseScene()`
 
-**Purpose:** Handles logic related to `close scene`.
+**Purpose:** Closes the resource or UI associated with `scene`.
+
+```csharp
+// Static call; no instance required
+MBTestRun.CloseScene();
+```
 
 ### SaveScene
 `public static bool SaveScene()`
 
-**Purpose:** Saves `scene` data.
+**Purpose:** Writes `scene` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MBTestRun.SaveScene();
+```
 
 ### OpenDefaultScene
 `public static bool OpenDefaultScene()`
 
-**Purpose:** Handles logic related to `open default scene`.
+**Purpose:** Opens the resource or UI associated with `default scene`.
+
+```csharp
+// Static call; no instance required
+MBTestRun.OpenDefaultScene();
+```
 
 ### GetFPS
 `public static int GetFPS()`
 
-**Purpose:** Gets the current value of `f p s`.
+**Purpose:** Reads and returns the `f p s` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBTestRun.GetFPS();
+```
 
 ### StartMission
 `public static void StartMission()`
 
-**Purpose:** Handles logic related to `start mission`.
+**Purpose:** Starts the `mission` flow or state machine.
+
+```csharp
+// Static call; no instance required
+MBTestRun.StartMission();
+```
 
 ## Usage Example
 
@@ -79,4 +118,4 @@ MBTestRun.EnterEditMode();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

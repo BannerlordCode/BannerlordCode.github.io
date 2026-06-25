@@ -1,20 +1,14 @@
 ---
 title: "OverrideEncyclopediaModel"
+description: "Auto-generated class reference for OverrideEncyclopediaModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OverrideEncyclopediaModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OverrideEncyclopediaModel
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class OverrideEncyclopediaModel : EncyclopediaModelBase`
 **Base:** `EncyclopediaModelBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/OverrideEncyclopediaModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/OverrideEncyclopediaModel.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ Game.Current.ReplaceModel<OverrideEncyclopediaModel>(new MyOverrideEncyclopediaM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

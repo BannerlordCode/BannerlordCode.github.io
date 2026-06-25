@@ -1,20 +1,14 @@
 ---
 title: "BattleResultPartyData"
+description: "Auto-generated class reference for BattleResultPartyData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleResultPartyData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleResultPartyData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct BattleResultPartyData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/BattleResultPartyData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/BattleResultPartyData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `BattleResultPartyData` as a Data-style extension point: first identify wh
 ### BattleResultPartyData
 `public struct BattleResultPartyData(PartyBase party)`
 
-**Purpose:** Handles logic related to `battle result party data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleResultPartyData from the subsystem API first
+BattleResultPartyData battleResultPartyData = ...;
+var result = battleResultPartyData.BattleResultPartyData(party);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BattleResultPartyData();
+// This data object is usually returned by campaign/mission APIs
+BattleResultPartyData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

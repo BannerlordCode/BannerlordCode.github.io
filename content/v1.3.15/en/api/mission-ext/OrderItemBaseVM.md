@@ -1,13 +1,7 @@
 ---
 title: "OrderItemBaseVM"
+description: "Auto-generated class reference for OrderItemBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderItemBaseVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderItemBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -41,29 +35,54 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of OrderItemBaseVM from the subsystem API first
+OrderItemBaseVM orderItemBaseVM = ...;
+orderItemBaseVM.OnFinalize();
+```
 
 ### RefreshState
 `public void RefreshState()`
 
-**Purpose:** Refreshes the display or cache of `state`.
+**Purpose:** Keeps the display or cache of `state` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderItemBaseVM from the subsystem API first
+OrderItemBaseVM orderItemBaseVM = ...;
+orderItemBaseVM.RefreshState();
+```
 
 ### ExecuteAction
 `public void ExecuteAction(VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of OrderItemBaseVM from the subsystem API first
+OrderItemBaseVM orderItemBaseVM = ...;
+orderItemBaseVM.ExecuteAction(executionParameters);
+```
 
 ### SetShortcutKey
 `public void SetShortcutKey(InputKeyItemVM inputKeyItem)`
 
-**Purpose:** Sets the value or state of `shortcut key`.
+**Purpose:** Assigns a new value to `shortcut key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderItemBaseVM from the subsystem API first
+OrderItemBaseVM orderItemBaseVM = ...;
+orderItemBaseVM.SetShortcutKey(inputKeyItem);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomOrderItemBaseVM();
+// Typically obtained from a subsystem API or factory
+OrderItemBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

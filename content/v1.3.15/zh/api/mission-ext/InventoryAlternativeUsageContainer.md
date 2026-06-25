@@ -1,13 +1,7 @@
 ---
 title: "InventoryAlternativeUsageContainer"
+description: "InventoryAlternativeUsageContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryAlternativeUsageContainer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryAlternativeUsageContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
@@ -39,25 +33,44 @@ title: "InventoryAlternativeUsageContainer"
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**用途 / Purpose:** 当 `child selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「child selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryAlternativeUsageContainer 实例
+InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
+inventoryAlternativeUsageContainer.OnChildSelected(widget);
+```
 
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** 获取 `drop gizmo position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「drop gizmo position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryAlternativeUsageContainer 实例
+InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
+var result = inventoryAlternativeUsageContainer.GetDropGizmoPosition(draggedWidgetPosition);
+```
 
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** 获取 `index for drop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index for drop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryAlternativeUsageContainer 实例
+InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
+var result = inventoryAlternativeUsageContainer.GetIndexForDrop(draggedWidgetPosition);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InventoryAlternativeUsageContainer();
-value.OnChildSelected(widget);
+// 通常从对应子系统 API 获取实例后调用
+InventoryAlternativeUsageContainer inventoryAlternativeUsageContainer = ...;
+inventoryAlternativeUsageContainer.OnChildSelected(widget);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

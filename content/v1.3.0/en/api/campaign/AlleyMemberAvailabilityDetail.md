@@ -1,13 +1,7 @@
 ---
 title: "AlleyMemberAvailabilityDetail"
+description: "Auto-generated class reference for AlleyMemberAvailabilityDetail."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyMemberAvailabilityDetail`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyMemberAvailabilityDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameComponents` to place it in t
 ## Usage Example
 
 ```csharp
-AlleyMemberAvailabilityDetail example = AlleyMemberAvailabilityDetail.Value;
+// Obtain an instance from the relevant subsystem API
+AlleyMemberAvailabilityDetail instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

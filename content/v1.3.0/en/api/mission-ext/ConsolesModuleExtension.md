@@ -1,13 +1,7 @@
 ---
 title: "ConsolesModuleExtension"
+description: "Auto-generated class reference for ConsolesModuleExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConsolesModuleExtension`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConsolesModuleExtension
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ConsolesModuleExtension from the subsystem API first
+ConsolesModuleExtension consolesModuleExtension = ...;
+consolesModuleExtension.Initialize();
+```
 
 ### GetModulePaths
 `public string GetModulePaths()`
 
-**Purpose:** Gets the current value of `module paths`.
+**Purpose:** Reads and returns the `module paths` value held by the current object.
+
+```csharp
+// Obtain an instance of ConsolesModuleExtension from the subsystem API first
+ConsolesModuleExtension consolesModuleExtension = ...;
+var result = consolesModuleExtension.GetModulePaths();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ConsolesModuleExtension from the subsystem API first
+ConsolesModuleExtension consolesModuleExtension = ...;
+consolesModuleExtension.Destroy();
+```
 
 ### SetLauncherMode
 `public void SetLauncherMode(bool isLauncherModeActive)`
 
-**Purpose:** Sets the value or state of `launcher mode`.
+**Purpose:** Assigns a new value to `launcher mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ConsolesModuleExtension from the subsystem API first
+ConsolesModuleExtension consolesModuleExtension = ...;
+consolesModuleExtension.SetLauncherMode(false);
+```
 
 ### CheckEntitlement
 `public bool CheckEntitlement(string title)`
 
-**Purpose:** Handles logic related to `check entitlement`.
+**Purpose:** Verifies whether `entitlement` holds true for the current object.
+
+```csharp
+// Obtain an instance of ConsolesModuleExtension from the subsystem API first
+ConsolesModuleExtension consolesModuleExtension = ...;
+var result = consolesModuleExtension.CheckEntitlement("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConsolesModuleExtension();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+ConsolesModuleExtension consolesModuleExtension = ...;
+consolesModuleExtension.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminPanelOptionBaseVM"
+description: "Auto-generated class reference for MultiplayerAdminPanelOptionBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAdminPanelOptionBaseVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelOptionBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MultiplayerAdminPanelOptionBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelOptionBaseVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelOptionBaseVM.cs`
 
 ## Overview
 
@@ -47,34 +41,65 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelOptionBaseVM from the subsystem API first
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelOptionBaseVM from the subsystem API first
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.OnFinalize();
+```
 
 ### UpdateValues
 `public virtual void UpdateValues()`
 
-**Purpose:** Updates the state or data of `values`.
+**Purpose:** Recalculates and stores the latest representation of `values`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelOptionBaseVM from the subsystem API first
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.UpdateValues();
+```
 
 ### ExecuteRevertChanges
 `public virtual void ExecuteRevertChanges()`
 
-**Purpose:** Executes the `revert changes` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `revert changes`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelOptionBaseVM from the subsystem API first
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.ExecuteRevertChanges();
+```
 
 ### ExecuteRestoreDefaults
 `public virtual void ExecuteRestoreDefaults()`
 
-**Purpose:** Executes the `restore defaults` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `restore defaults`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelOptionBaseVM from the subsystem API first
+MultiplayerAdminPanelOptionBaseVM multiplayerAdminPanelOptionBaseVM = ...;
+multiplayerAdminPanelOptionBaseVM.ExecuteRestoreDefaults();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMultiplayerAdminPanelOptionBaseVM();
+// Typically obtained from a subsystem API or factory
+MultiplayerAdminPanelOptionBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

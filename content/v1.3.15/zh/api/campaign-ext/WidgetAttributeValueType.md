@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeValueType"
+description: "WidgetAttributeValueType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetAttributeValueType`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetAttributeValueType
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,24 +23,43 @@ title: "WidgetAttributeValueType"
 ### CheckValueType
 `public abstract bool CheckValueType(string value)`
 
-**用途 / Purpose:** 处理 `check value type` 相关逻辑。
+**用途 / Purpose:** 检查「value type」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeValueType 实例
+WidgetAttributeValueType widgetAttributeValueType = ...;
+var result = widgetAttributeValueType.CheckValueType("example");
+```
 
 ### GetAttributeValue
 `public abstract string GetAttributeValue(string value)`
 
-**用途 / Purpose:** 获取 `attribute value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attribute value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeValueType 实例
+WidgetAttributeValueType widgetAttributeValueType = ...;
+var result = widgetAttributeValueType.GetAttributeValue("example");
+```
 
 ### GetSerializedValue
 `public abstract string GetSerializedValue(string value)`
 
-**用途 / Purpose:** 获取 `serialized value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「serialized value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeValueType 实例
+WidgetAttributeValueType widgetAttributeValueType = ...;
+var result = widgetAttributeValueType.GetSerializedValue("example");
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomWidgetAttributeValueType();
+// 通常通过子系统 API 或工厂获得派生实例
+WidgetAttributeValueType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

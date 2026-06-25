@@ -15,7 +15,7 @@ This page indexes the 11,095 decompiled functions currently listed from `TaleWor
 | Indexed functions | 11,095 |
 | First function | `FUN_180001000` |
 | Last function | `FUN_180a21db0` |
-| Full list | [COMPLETE-FUNCTIONS.md](./COMPLETE-FUNCTIONS) |
+| Full list | [COMPLETE-FUNCTIONS.md](./) |
 | Source file | `TaleWorlds.Native.dll.c` |
 | Header declarations | `TaleWorlds.Native.dll.h` |
 
@@ -39,7 +39,7 @@ These symbols kept readable names and are the best first stops for startup and i
 | `pass_managed_initialize_method_pointer` | `TaleWorlds.Native.dll.h:15416` | `TaleWorlds.Native.dll.c:1316424` | Managed initialization delegate registration |
 | `DllMain` | `TaleWorlds.Native.dll.h:21264` | `TaleWorlds.Native.dll.c:1787079` | Windows DLL entry point |
 
-See [Exports and Managed Bridge](./exports-and-bridge).
+See [Exports and Managed Bridge](exports-and-bridge/).
 
 ## Address Range Index
 
@@ -105,7 +105,7 @@ FUN_180a21db0
 
 ## How To Use The Address List
 
-1. Open [COMPLETE-FUNCTIONS.md](./COMPLETE-FUNCTIONS).
+1. Open [COMPLETE-FUNCTIONS.md](./).
 2. Narrow by address prefix, for example `FUN_180746` or `FUN_180a21`.
 3. Search the same function name in `TaleWorlds.Native.dll.c`.
 4. Inspect nearby strings, globals, vftable writes, and callees.
@@ -115,12 +115,12 @@ FUN_180a21db0
 
 | Starting point | Next step |
 |----------------|-----------|
-| Managed interface method | Check [EngineMethod](../native/EngineMethod), then search for the native method name or callback registration table |
-| `NativeObject` crash | Check [NativeObject](../native/NativeObject), `IManaged`, `increase_reference_count`, and `decrease_reference_count` |
-| Array/string interop | Check `ftdnNative_array`, `ftdnNative_string`, [INativeArray](../native/INativeArray), and [INativeString](../native/INativeString) |
-| DLL startup issue | Check `WotsMainSDLL`, `pass_controller_methods`, and [Exports and Managed Bridge](./exports-and-bridge) |
+| Managed interface method | Check [EngineMethod](../native/EngineMethod/), then search for the native method name or callback registration table |
+| `NativeObject` crash | Check [NativeObject](../native/NativeObject/), `IManaged`, `increase_reference_count`, and `decrease_reference_count` |
+| Array/string interop | Check `ftdnNative_array`, `ftdnNative_string`, [INativeArray](../native/INativeArray/), and [INativeString](../native/INativeString/) |
+| DLL startup issue | Check `WotsMainSDLL`, `pass_controller_methods`, and [Exports and Managed Bridge](exports-and-bridge/) |
 | Resource or Native module issue | Search `Modules/Native`, `Unable to find native module`, and `get_tileset.bat` |
-| Scene script issue | Search `rglNative_script_component`, then read [Scene](./scene) |
+| Scene script issue | Search `rglNative_script_component`, then read [Scene](scene/) |
 
 ## Notes
 
@@ -138,5 +138,5 @@ FUN_180a21db0
 ## Usage Example
 
 ```csharp
-var example = new Complete Function Catalog();
+// Example: check native export signatures before using P/Invoke.
 ```

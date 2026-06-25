@@ -1,13 +1,7 @@
 ---
 title: "DefaultSkillLevelingManager"
+description: "Auto-generated class reference for DefaultSkillLevelingManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSkillLevelingManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSkillLevelingManager
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -29,232 +23,508 @@ Treat `DefaultSkillLevelingManager` as a Manager-style extension point: first id
 ### OnCombatHit
 `public void OnCombatHit(CharacterObject affectorCharacter, CharacterObject affectedCharacter, CharacterObject captain, Hero commander, float speedBonusFromMovement, float shotDifficulty, WeaponComponentData affectorWeapon, float hitPointRatio, CombatXpModel.MissionTypeEnum missionType, bool isAffectorMounted, bool isTeamKill, bool isAffectorUnderCommand, float damageAmount, bool isFatal, bool isSiegeEngineHit, bool isHorseCharge)`
 
-**Purpose:** Called when the `combat hit` event is raised.
+**Purpose:** Invoked when the `combat hit` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnCombatHit(affectorCharacter, affectedCharacter, captain, commander, 0, 0, affectorWeapon, 0, missionType, false, false, false, 0, false, false, false);
+```
 
 ### OnSiegeEngineDestroyed
 `public void OnSiegeEngineDestroyed(MobileParty party, SiegeEngineType destroyedSiegeEngine)`
 
-**Purpose:** Called when the `siege engine destroyed` event is raised.
+**Purpose:** Invoked when the `siege engine destroyed` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnSiegeEngineDestroyed(party, destroyedSiegeEngine);
+```
 
 ### OnSimulationCombatKill
 `public void OnSimulationCombatKill(CharacterObject affectorCharacter, CharacterObject affectedCharacter, PartyBase affectorParty, PartyBase commanderParty)`
 
-**Purpose:** Called when the `simulation combat kill` event is raised.
+**Purpose:** Invoked when the `simulation combat kill` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnSimulationCombatKill(affectorCharacter, affectedCharacter, affectorParty, commanderParty);
+```
 
 ### OnTradeProfitMade
 `public void OnTradeProfitMade(PartyBase party, int tradeProfit)`
 
-**Purpose:** Called when the `trade profit made` event is raised.
+**Purpose:** Invoked when the `trade profit made` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTradeProfitMade(party, 0);
+```
 
 ### OnTradeProfitMade
 `public void OnTradeProfitMade(Hero hero, int tradeProfit)`
 
-**Purpose:** Called when the `trade profit made` event is raised.
+**Purpose:** Invoked when the `trade profit made` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTradeProfitMade(hero, 0);
+```
 
 ### OnSettlementProjectFinished
 `public void OnSettlementProjectFinished(Settlement settlement)`
 
-**Purpose:** Called when the `settlement project finished` event is raised.
+**Purpose:** Invoked when the `settlement project finished` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnSettlementProjectFinished(settlement);
+```
 
 ### OnSettlementGoverned
 `public void OnSettlementGoverned(Hero governor, Settlement settlement)`
 
-**Purpose:** Called when the `settlement governed` event is raised.
+**Purpose:** Invoked when the `settlement governed` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnSettlementGoverned(governor, settlement);
+```
 
 ### OnInfluenceSpent
 `public void OnInfluenceSpent(Hero hero, float amountSpent)`
 
-**Purpose:** Called when the `influence spent` event is raised.
+**Purpose:** Invoked when the `influence spent` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnInfluenceSpent(hero, 0);
+```
 
 ### OnGainRelation
 `public void OnGainRelation(Hero hero, Hero gainedRelationWith, float relationChange, ChangeRelationAction.ChangeRelationDetail detail = ChangeRelationAction.ChangeRelationDetail.Default)`
 
-**Purpose:** Called when the `gain relation` event is raised.
+**Purpose:** Invoked when the `gain relation` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnGainRelation(hero, gainedRelationWith, 0, changeRelationAction.ChangeRelationDetail.Default);
+```
 
 ### OnTroopRecruited
 `public void OnTroopRecruited(Hero hero, int amount, int tier)`
 
-**Purpose:** Called when the `troop recruited` event is raised.
+**Purpose:** Invoked when the `troop recruited` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTroopRecruited(hero, 0, 0);
+```
 
 ### OnBribeGiven
 `public void OnBribeGiven(int amount)`
 
-**Purpose:** Called when the `bribe given` event is raised.
+**Purpose:** Invoked when the `bribe given` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnBribeGiven(0);
+```
 
 ### OnBanditsRecruited
 `public void OnBanditsRecruited(MobileParty mobileParty, CharacterObject bandit, int count)`
 
-**Purpose:** Called when the `bandits recruited` event is raised.
+**Purpose:** Invoked when the `bandits recruited` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnBanditsRecruited(mobileParty, bandit, 0);
+```
 
 ### OnMainHeroReleasedFromCaptivity
 `public void OnMainHeroReleasedFromCaptivity(float captivityTime)`
 
-**Purpose:** Called when the `main hero released from captivity` event is raised.
+**Purpose:** Invoked when the `main hero released from captivity` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnMainHeroReleasedFromCaptivity(0);
+```
 
 ### OnMainHeroTortured
 `public void OnMainHeroTortured()`
 
-**Purpose:** Called when the `main hero tortured` event is raised.
+**Purpose:** Invoked when the `main hero tortured` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnMainHeroTortured();
+```
 
 ### OnMainHeroDisguised
 `public void OnMainHeroDisguised(bool isNotCaught)`
 
-**Purpose:** Called when the `main hero disguised` event is raised.
+**Purpose:** Invoked when the `main hero disguised` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnMainHeroDisguised(false);
+```
 
 ### OnRaid
 `public void OnRaid(MobileParty attackerParty, ItemRoster lootedItems)`
 
-**Purpose:** Called when the `raid` event is raised.
+**Purpose:** Invoked when the `raid` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnRaid(attackerParty, lootedItems);
+```
 
 ### OnLoot
 `public void OnLoot(MobileParty attackerParty, MobileParty forcedParty, ItemRoster lootedItems, bool attacked)`
 
-**Purpose:** Called when the `loot` event is raised.
+**Purpose:** Invoked when the `loot` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnLoot(attackerParty, forcedParty, lootedItems, false);
+```
 
 ### OnPrisonerSell
 `public void OnPrisonerSell(MobileParty mobileParty, in TroopRoster prisonerRoster)`
 
-**Purpose:** Called when the `prisoner sell` event is raised.
+**Purpose:** Invoked when the `prisoner sell` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnPrisonerSell(mobileParty, prisonerRoster);
+```
 
 ### OnSurgeryApplied
 `public void OnSurgeryApplied(MobileParty party, bool surgerySuccess, int troopTier)`
 
-**Purpose:** Called when the `surgery applied` event is raised.
+**Purpose:** Invoked when the `surgery applied` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnSurgeryApplied(party, false, 0);
+```
 
 ### OnTacticsUsed
 `public void OnTacticsUsed(MobileParty party, float xp)`
 
-**Purpose:** Called when the `tactics used` event is raised.
+**Purpose:** Invoked when the `tactics used` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTacticsUsed(party, 0);
+```
 
 ### OnHideoutSpotted
 `public void OnHideoutSpotted(MobileParty party, PartyBase spottedParty)`
 
-**Purpose:** Called when the `hideout spotted` event is raised.
+**Purpose:** Invoked when the `hideout spotted` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnHideoutSpotted(party, spottedParty);
+```
 
 ### OnTrackDetected
 `public void OnTrackDetected(Track track)`
 
-**Purpose:** Called when the `track detected` event is raised.
+**Purpose:** Invoked when the `track detected` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTrackDetected(track);
+```
 
 ### OnTravelOnFoot
 `public void OnTravelOnFoot(Hero hero, float speed)`
 
-**Purpose:** Called when the `travel on foot` event is raised.
+**Purpose:** Invoked when the `travel on foot` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTravelOnFoot(hero, 0);
+```
 
 ### OnTravelOnHorse
 `public void OnTravelOnHorse(Hero hero, float speed)`
 
-**Purpose:** Called when the `travel on horse` event is raised.
+**Purpose:** Invoked when the `travel on horse` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTravelOnHorse(hero, 0);
+```
 
 ### OnTravelOnWater
 `public void OnTravelOnWater(Hero hero, float speed)`
 
-**Purpose:** Called when the `travel on water` event is raised.
+**Purpose:** Invoked when the `travel on water` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTravelOnWater(hero, 0);
+```
 
 ### OnHeroHealedWhileWaiting
 `public void OnHeroHealedWhileWaiting(Hero hero, int healingAmount)`
 
-**Purpose:** Called when the `hero healed while waiting` event is raised.
+**Purpose:** Invoked when the `hero healed while waiting` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnHeroHealedWhileWaiting(hero, 0);
+```
 
 ### OnRegularTroopHealedWhileWaiting
 `public void OnRegularTroopHealedWhileWaiting(MobileParty mobileParty, int healedTroopCount, float averageTier)`
 
-**Purpose:** Called when the `regular troop healed while waiting` event is raised.
+**Purpose:** Invoked when the `regular troop healed while waiting` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnRegularTroopHealedWhileWaiting(mobileParty, 0, 0);
+```
 
 ### OnLeadingArmy
 `public void OnLeadingArmy(MobileParty mobileParty)`
 
-**Purpose:** Called when the `leading army` event is raised.
+**Purpose:** Invoked when the `leading army` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnLeadingArmy(mobileParty);
+```
 
 ### OnSieging
 `public void OnSieging(MobileParty mobileParty)`
 
-**Purpose:** Called when the `sieging` event is raised.
+**Purpose:** Invoked when the `sieging` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnSieging(mobileParty);
+```
 
 ### OnSiegeEngineBuilt
 `public void OnSiegeEngineBuilt(MobileParty mobileParty, SiegeEngineType siegeEngine)`
 
-**Purpose:** Called when the `siege engine built` event is raised.
+**Purpose:** Invoked when the `siege engine built` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnSiegeEngineBuilt(mobileParty, siegeEngine);
+```
 
 ### OnUpgradeTroops
 `public void OnUpgradeTroops(PartyBase party, CharacterObject troop, CharacterObject upgrade, int numberOfTroops)`
 
-**Purpose:** Called when the `upgrade troops` event is raised.
+**Purpose:** Invoked when the `upgrade troops` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnUpgradeTroops(party, troop, upgrade, 0);
+```
 
 ### OnPersuasionSucceeded
 `public void OnPersuasionSucceeded(Hero targetHero, SkillObject skill, PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
 
-**Purpose:** Called when the `persuasion succeeded` event is raised.
+**Purpose:** Invoked when the `persuasion succeeded` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnPersuasionSucceeded(targetHero, skill, difficulty, 0);
+```
 
 ### OnPrisonBreakEnd
 `public void OnPrisonBreakEnd(Hero prisonerHero, bool isSucceeded)`
 
-**Purpose:** Called when the `prison break end` event is raised.
+**Purpose:** Invoked when the `prison break end` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnPrisonBreakEnd(prisonerHero, false);
+```
 
 ### OnWallBreached
 `public void OnWallBreached(MobileParty party)`
 
-**Purpose:** Called when the `wall breached` event is raised.
+**Purpose:** Invoked when the `wall breached` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnWallBreached(party);
+```
 
 ### OnForceVolunteers
 `public void OnForceVolunteers(MobileParty attackerParty, PartyBase forcedParty)`
 
-**Purpose:** Called when the `force volunteers` event is raised.
+**Purpose:** Invoked when the `force volunteers` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnForceVolunteers(attackerParty, forcedParty);
+```
 
 ### OnForceSupplies
 `public void OnForceSupplies(MobileParty attackerParty, ItemRoster lootedItems, bool attacked)`
 
-**Purpose:** Called when the `force supplies` event is raised.
+**Purpose:** Invoked when the `force supplies` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnForceSupplies(attackerParty, lootedItems, false);
+```
 
 ### OnAIPartiesTravel
 `public void OnAIPartiesTravel(Hero hero, bool isCaravanParty, TerrainType currentTerrainType)`
 
-**Purpose:** Called when the `a i parties travel` event is raised.
+**Purpose:** Invoked when the `a i parties travel` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnAIPartiesTravel(hero, false, currentTerrainType);
+```
 
 ### OnTraverseTerrain
 `public void OnTraverseTerrain(MobileParty mobileParty, TerrainType currentTerrainType)`
 
-**Purpose:** Called when the `traverse terrain` event is raised.
+**Purpose:** Invoked when the `traverse terrain` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnTraverseTerrain(mobileParty, currentTerrainType);
+```
 
 ### OnBattleEnd
 `public void OnBattleEnd(PartyBase party, FlattenedTroopRoster flattenedTroopRoster)`
 
-**Purpose:** Called when the `battle end` event is raised.
+**Purpose:** Invoked when the `battle end` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnBattleEnd(party, flattenedTroopRoster);
+```
 
 ### OnFoodConsumed
 `public void OnFoodConsumed(MobileParty mobileParty, bool wasStarving)`
 
-**Purpose:** Called when the `food consumed` event is raised.
+**Purpose:** Invoked when the `food consumed` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnFoodConsumed(mobileParty, false);
+```
 
 ### OnAlleyCleared
 `public void OnAlleyCleared(Alley alley)`
 
-**Purpose:** Called when the `alley cleared` event is raised.
+**Purpose:** Invoked when the `alley cleared` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnAlleyCleared(alley);
+```
 
 ### OnDailyAlleyTick
 `public void OnDailyAlleyTick(Alley alley, Hero alleyLeader)`
 
-**Purpose:** Called when the `daily alley tick` event is raised.
+**Purpose:** Invoked when the `daily alley tick` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnDailyAlleyTick(alley, alleyLeader);
+```
 
 ### OnBoardGameWonAgainstLord
 `public void OnBoardGameWonAgainstLord(Hero lord, BoardGameHelper.AIDifficulty difficulty, bool extraXpGain)`
 
-**Purpose:** Called when the `board game won against lord` event is raised.
+**Purpose:** Invoked when the `board game won against lord` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnBoardGameWonAgainstLord(lord, difficulty, false);
+```
 
 ### OnShipDamaged
 `public void OnShipDamaged(Ship ship, float rawDamage, float finalDamage)`
 
-**Purpose:** Called when the `ship damaged` event is raised.
+**Purpose:** Invoked when the `ship damaged` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnShipDamaged(ship, 0, 0);
+```
 
 ### OnWarehouseProduction
 `public void OnWarehouseProduction(EquipmentElement production)`
 
-**Purpose:** Called when the `warehouse production` event is raised.
+**Purpose:** Invoked when the `warehouse production` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnWarehouseProduction(production);
+```
 
 ### OnAIPartyLootCasualties
 `public void OnAIPartyLootCasualties(int goldAmount, Hero winnerPartyLeader, PartyBase defeatedParty)`
 
-**Purpose:** Called when the `a i party loot casualties` event is raised.
+**Purpose:** Invoked when the `a i party loot casualties` event is raised.
+
+```csharp
+// Obtain an instance of DefaultSkillLevelingManager from the subsystem API first
+DefaultSkillLevelingManager defaultSkillLevelingManager = ...;
+defaultSkillLevelingManager.OnAIPartyLootCasualties(0, winnerPartyLeader, defeatedParty);
+```
 
 ## Usage Example
 
@@ -264,4 +534,4 @@ var manager = DefaultSkillLevelingManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

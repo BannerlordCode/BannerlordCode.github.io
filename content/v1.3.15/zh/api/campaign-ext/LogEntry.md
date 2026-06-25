@@ -1,276 +1,160 @@
 ---
-title: LogEntry
-description: LogEntry - 游戏事件日志条目的抽象基?
+title: "LogEntry"
+description: "LogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LogEntry`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LogEntry
-**命名空间:** TaleWorlds.CampaignSystem.LogEntries
-**模块:** TaleWorlds.CampaignSystem
-**类型:** abstract class
+
+**Namespace:** TaleWorlds.CampaignSystem.LogEntries
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public abstract class LogEntry`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/LogEntries/LogEntry.cs`
 
 ## 概述
-`LogEntry
 
-` 是游戏事件日志的抽象基类，所有日志条目（如战斗结果、政治事件、领主互动等）都继承自此。每个条目有唯一 ID 和游戏时间戳，可被添加到 
+`LogEntry` 位于 `TaleWorlds.CampaignSystem.LogEntries`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-`LogEntryHistory
-
-` 中供玩家查看。基类还提供了一系列通知类型判断方法，根据事件涉及的阵营与玩家关系自动分类通知类型?
 ## 心智模型
-日志条目通过 
 
-`AddLogEntry
+先从命名空间 `TaleWorlds.CampaignSystem.LogEntries` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-` 静态方法注册到 
+## 主要属性
 
-`Campaign.Current.LogEntryHistory
-
-`，自动分配递增 ID 并设置当?
-
-`CampaignTime
-
-`。`KeepInHistoryTime
-
-` 默认?7 天，过期后从历史中移除。通知类型通过 
-
-`MilitaryNotification
-
-`、`DiplomaticNotification
-
-` 等辅助方法计算，逻辑是：若受益方/受害方是玩家家族→玩家家族通知；若是玩家阵营→玩家阵营通知；若与玩家阵营交战→间接通知；否则为中立通知?
-## 主要属?\| 属?\| 类型 \| 说明 \|
-\|------\|------\|------\|
-\| 
-
-`Id
-
-` \| 
-
-`long
-
-` \| 唯一标识符（自动分配，只读） \|
-\| 
-
-`GameTime
-
-` \| 
-
-`CampaignTime
-
-` \| 日志发生时的游戏时间（只读） \|
-\| 
-
-`KeepInHistoryTime
-
-` \| 
-
-`CampaignTime
-
-` \| 在历史中保留的时长，默认 7 天（虚属性） \|
-\| 
-
-`NotificationType
-
-` \| 
-
-`ChatNotificationType
-
-` \| 通知类型，默?
-
-`Default
-
-`（虚属性） \|
+| Name | Signature |
+|------|-----------|
+| `Id` | `public long Id { get; }` |
+| `GameTime` | `public CampaignTime GameTime { get; }` |
+| `KeepInHistoryTime` | `public virtual CampaignTime KeepInHistoryTime { get; }` |
+| `NotificationType` | `public virtual ChatNotificationType NotificationType { get; }` |
 
 ## 主要方法
+
 ### AddLogEntry
-`
+`public static void AddLogEntry(LogEntry logEntry)`
 
-`
+**用途 / Purpose:** 将 「log entry」 添加到当前容器或状态中。
 
-`csharp
-public static void AddLogEntry(LogEntry logEntry)
-public static void AddLogEntry(LogEntry logEntry, CampaignTime gameTime)
-`
+```csharp
+// 静态调用，不需要实例
+LogEntry.AddLogEntry(logEntry);
+```
 
-`
+### AddLogEntry
+`public static void AddLogEntry(LogEntry logEntry, CampaignTime gameTime)`
 
-`
-将日志条目添加到历史记录。第一个重载使用当?
+**用途 / Purpose:** 将 「log entry」 添加到当前容器或状态中。
 
-`CampaignTime.Now
+```csharp
+// 静态调用，不需要实例
+LogEntry.AddLogEntry(logEntry, gameTime);
+```
 
-`，第二个允许指定自定义时间。内部递增 
-
-`LastAddedIndex
-
-` 作为 ID?
-### MilitaryNotification
-`
-
-`
-
-`csharp
-protected ChatNotificationType MilitaryNotification(IFaction benefiter, IFaction affected)
-`
-
-`
-
-`
-根据受益方和受影响方与玩家的关系，返回军事事件的通知类型。优先级：玩家家族正/负面 ?玩家阵营?负面 ?玩家阵营间接?负面 ?中立?
-### DiplomaticNotification
-`
-
-`
-
-`csharp
-protected ChatNotificationType DiplomaticNotification(IFaction faction1, IFaction faction2)
-`
-
-`
-
-`
-外交事件通知类型。涉及玩家家族或阵营为正面，与玩家阵营交战为间接负面，否则为间接正面?
-### PoliticalNotification
-`
-
-`
-
-`csharp
-protected ChatNotificationType PoliticalNotification(IFaction faction)
-`
-
-`
-
-`
-政治事件通知类型。玩家家??
-
-`PlayerClanPolitical
-
-`；玩家阵??
-
-`PlayerFactionPolitical
-
-`；其??
-
-`Political
-
-`?
 ### GetImportanceForClan
-`
+`public virtual ImportanceEnum GetImportanceForClan(Clan clan)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「importance for clan」 的结果。
 
-`csharp
-public virtual ImportanceEnum GetImportanceForClan(Clan clan)
-`
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+var result = logEntry.GetImportanceForClan(clan);
+```
 
-`
+### GetConversationScoreAndComment
+`public virtual void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-`
-返回此日志对指定家族的重要程度，默认 
+**用途 / Purpose:** 读取并返回当前对象中 「conversation score and comment」 的结果。
 
-`Zero
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+logEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
-`。子类可重写以提供更细致的重要性评估?
 ### GetAsRumor
-`
+`public virtual int GetAsRumor(Settlement settlement, out TextObject comment)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「as rumor」 的结果。
 
-`csharp
-public virtual int GetAsRumor(Settlement settlement, out TextObject comment)
-`
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+var result = logEntry.GetAsRumor(settlement, comment);
+```
 
-`
+### GetHistoricComment
+`public virtual TextObject GetHistoricComment(Hero talkTroop)`
 
-`
-返回此日志作为传闻的价值（0 表示不可作为传闻），默认返回 0 和空文本?
+**用途 / Purpose:** 读取并返回当前对象中 「historic comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+var result = logEntry.GetHistoricComment(talkTroop);
+```
+
+### AsReasonForEnmity
+`public virtual int AsReasonForEnmity(Hero referenceHero1, Hero referenceHero2)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+var result = logEntry.AsReasonForEnmity(referenceHero1, referenceHero2);
+```
+
+### GetValueAsPoliticsAbuseOfPower
+`public virtual int GetValueAsPoliticsAbuseOfPower(Hero referenceTroop, Hero liege)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「value as politics abuse of power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+var result = logEntry.GetValueAsPoliticsAbuseOfPower(referenceTroop, liege);
+```
+
+### GetValueAsPoliticsSlightedClan
+`public virtual int GetValueAsPoliticsSlightedClan(Hero referenceTroop, Hero liege)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「value as politics slighted clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+var result = logEntry.GetValueAsPoliticsSlightedClan(referenceTroop, liege);
+```
+
+### GetValueAsPoliticsShowedWeakness
+`public virtual int GetValueAsPoliticsShowedWeakness(Hero referenceTroop, Hero liege)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「value as politics showed weakness」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+var result = logEntry.GetValueAsPoliticsShowedWeakness(referenceTroop, liege);
+```
+
 ### IsValid
-`
+`public virtual bool IsValid()`
 
-`
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
 
-`csharp
-public virtual bool IsValid()
-`
+```csharp
+// 先通过子系统 API 拿到 LogEntry 实例
+LogEntry logEntry = ...;
+var result = logEntry.IsValid();
+```
 
-`
-
-`
-日志是否有效，默认返?true。子类可重写以在特定条件下标记为无效?
 ## 使用示例
-### 示例: 创建自定义日志条?**场景**: mod 需要记录自定义事件到游戏日志中?
 
-`
+```csharp
+// 通常通过子系统 API 或工厂获得派生实例
+LogEntry instance = ...;
+```
 
-`
-
-`csharp
-public class MyCustomLogEntry : LogEntry
-{
-    [SaveableProperty(2)]
-    public string EventDescription { get; set; }
-    
-    [SaveableProperty(3)]
-    public Hero InvolvedHero { get; set; }
-    
-    public override ChatNotificationType NotificationType
-    {
-        get
-        {
-            if (InvolvedHero?.Clan != null)
-            {
-                return PoliticalNotification(InvolvedHero.Clan);
-            }
-            return ChatNotificationType.Neutral;
-        }
-    }
-    
-    public override ImportanceEnum GetImportanceForClan(Clan clan)
-    {
-        if (InvolvedHero?.Clan == clan)
-            return ImportanceEnum.One;
-        return ImportanceEnum.Zero;
-    }
-}
-
-// 注册日志
-var entry = new MyCustomLogEntry
-{
-    EventDescription = "发生了重要事?,
-    InvolvedHero = Hero.MainHero
-};
-LogEntry.AddLogEntry(entry);
-`
-
-`
-
-`
-**要点**: 自定义日志类必须?
-
-`[SaveableProperty]
-
-` 标记需要持久化的属性；
-
-`AddLogEntry
-
-` 会自动设?
-
-`GameTime
-
-` ?
-
-`Id
-
-`，无需手动赋值；通知类型的选择影响消息?UI 中的显示颜色和图标?
 ## 参见
-- [完整类目录](../catalog-campaign)
-- [本领域目录](../catalog-campaign)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+
+- [本区域目录](../)

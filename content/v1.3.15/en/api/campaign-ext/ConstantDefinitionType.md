@@ -1,18 +1,12 @@
 ---
 title: "ConstantDefinitionType"
+description: "Auto-generated class reference for ConstantDefinitionType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConstantDefinitionType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConstantDefinitionType
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum ConstantDefinitionType`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI.PrefabSystem/ConstantDefinitionType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ## Usage Example
 
 ```csharp
-var value = new ConstantDefinitionType();
+// Obtain an instance from the relevant subsystem API
+ConstantDefinitionType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

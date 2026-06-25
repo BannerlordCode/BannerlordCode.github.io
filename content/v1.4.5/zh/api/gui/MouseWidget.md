@@ -1,20 +1,14 @@
 ---
 title: "MouseWidget"
+description: "MouseWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MouseWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MouseWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class MouseWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/MouseWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/MouseWidget.cs`
 
 ## 概述
 
@@ -42,14 +36,21 @@ title: "MouseWidget"
 ### UpdatePressedKeys
 `public void UpdatePressedKeys()`
 
-**用途 / Purpose:** 更新 `pressed keys` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「pressed keys」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MouseWidget 实例
+MouseWidget mouseWidget = ...;
+mouseWidget.UpdatePressedKeys();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MouseWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MouseWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

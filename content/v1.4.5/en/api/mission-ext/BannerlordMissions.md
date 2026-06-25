@@ -1,20 +1,14 @@
 ---
 title: "BannerlordMissions"
+description: "Auto-generated class reference for BannerlordMissions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerlordMissions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordMissions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class BannerlordMissions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordMissions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordMissions.cs`
 
 ## Overview
 
@@ -29,22 +23,42 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateAtmosphereInfoForMission
 `public static AtmosphereInfo CreateAtmosphereInfoForMission(string seasonId, int timeOfDay)`
 
-**Purpose:** Creates a new `atmosphere info for mission` instance or object.
+**Purpose:** Constructs a new `atmosphere info for mission` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BannerlordMissions.CreateAtmosphereInfoForMission("example", 0);
+```
 
 ### OpenCustomBattleMission
 `public static Mission OpenCustomBattleMission(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, bool isPlayerGeneral, BasicCharacterObject playerSideGeneralCharacter, string sceneLevels = "", string seasonString = "", float timeOfDay = 6f)`
 
-**Purpose:** Handles logic related to `open custom battle mission`.
+**Purpose:** Opens the resource or UI associated with `custom battle mission`.
+
+```csharp
+// Static call; no instance required
+BannerlordMissions.OpenCustomBattleMission("example", playerCharacter, playerParty, enemyParty, false, playerSideGeneralCharacter, "example", "example", 0);
+```
 
 ### OpenSiegeMissionWithDeployment
 `public static Mission OpenSiegeMissionWithDeployment(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, bool isPlayerGeneral, float wallHitPointPercentages, bool hasAnySiegeTower, List<MissionSiegeWeapon> siegeWeaponsOfAttackers, List<MissionSiegeWeapon> siegeWeaponsOfDefenders, bool isPlayerAttacker, int sceneUpgradeLevel = 0, string seasonString = "", bool isSallyOut = false, bool isReliefForceAttack = false, float timeOfDay = 6f)`
 
-**Purpose:** Handles logic related to `open siege mission with deployment`.
+**Purpose:** Opens the resource or UI associated with `siege mission with deployment`.
+
+```csharp
+// Static call; no instance required
+BannerlordMissions.OpenSiegeMissionWithDeployment("example", playerCharacter, playerParty, enemyParty, false, 0, false, siegeWeaponsOfAttackers, siegeWeaponsOfDefenders, false, 0, "example", false, false, 0);
+```
 
 ### OpenCustomBattleLordsHallMission
 `public static Mission OpenCustomBattleLordsHallMission(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, BasicCharacterObject playerSideGeneralCharacter, string sceneLevels = "", int sceneUpgradeLevel = 0, string seasonString = "")`
 
-**Purpose:** Handles logic related to `open custom battle lords hall mission`.
+**Purpose:** Opens the resource or UI associated with `custom battle lords hall mission`.
+
+```csharp
+// Static call; no instance required
+BannerlordMissions.OpenCustomBattleLordsHallMission("example", playerCharacter, playerParty, enemyParty, playerSideGeneralCharacter, "example", 0, "example");
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ BannerlordMissions.CreateAtmosphereInfoForMission("example", 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

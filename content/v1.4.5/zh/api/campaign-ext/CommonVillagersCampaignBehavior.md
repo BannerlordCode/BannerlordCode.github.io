@@ -1,20 +1,14 @@
 ---
 title: "CommonVillagersCampaignBehavior"
+description: "CommonVillagersCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommonVillagersCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommonVillagersCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class CommonVillagersCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/CommonVillagersCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/CommonVillagersCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "CommonVillagersCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CommonVillagersCampaignBehavior 实例
+CommonVillagersCampaignBehavior commonVillagersCampaignBehavior = ...;
+commonVillagersCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 CommonVillagersCampaignBehavior 实例
+CommonVillagersCampaignBehavior commonVillagersCampaignBehavior = ...;
+commonVillagersCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommonVillagersCampaignBehavior 实例
+CommonVillagersCampaignBehavior commonVillagersCampaignBehavior = ...;
+commonVillagersCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementDetail detail)`
 
-**用途 / Purpose:** 当 `settlement owner changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「settlement owner changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommonVillagersCampaignBehavior 实例
+CommonVillagersCampaignBehavior commonVillagersCampaignBehavior = ...;
+commonVillagersCampaignBehavior.OnSettlementOwnerChanged(settlement, false, newOwner, oldOwner, capturerHero, detail);
+```
 
 ### conversation_town_or_village_escort_complete_on_condition
 `public bool conversation_town_or_village_escort_complete_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_town_or_village_escort_complete_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CommonVillagersCampaignBehavior 实例
+CommonVillagersCampaignBehavior commonVillagersCampaignBehavior = ...;
+var result = commonVillagersCampaignBehavior.conversation_town_or_village_escort_complete_on_condition();
+```
 
 ### conversation_town_or_village_escort_complete_on_consequence
 `public void conversation_town_or_village_escort_complete_on_consequence()`
 
-**用途 / Purpose:** 处理 `conversation_town_or_village_escort_complete_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CommonVillagersCampaignBehavior 实例
+CommonVillagersCampaignBehavior commonVillagersCampaignBehavior = ...;
+commonVillagersCampaignBehavior.conversation_town_or_village_escort_complete_on_consequence();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CommonVillagersCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+CommonVillagersCampaignBehavior commonVillagersCampaignBehavior = ...;
+commonVillagersCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

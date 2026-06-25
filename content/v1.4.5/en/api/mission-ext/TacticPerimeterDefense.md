@@ -1,20 +1,14 @@
 ---
 title: "TacticPerimeterDefense"
+description: "Auto-generated class reference for TacticPerimeterDefense."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticPerimeterDefense`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticPerimeterDefense
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TacticPerimeterDefense : TacticComponent`
 **Base:** `TacticComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticPerimeterDefense.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TacticPerimeterDefense.cs`
 
 ## Overview
 
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### UpdateClusterData
 `public void UpdateClusterData()`
 
-**Purpose:** Updates the state or data of `cluster data`.
+**Purpose:** Recalculates and stores the latest representation of `cluster data`.
+
+```csharp
+// Obtain an instance of TacticPerimeterDefense from the subsystem API first
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.UpdateClusterData();
+```
 
 ### AddToCluster
 `public void AddToCluster(Formation formation)`
 
 **Purpose:** Adds `to cluster` to the current collection or state.
 
+```csharp
+// Obtain an instance of TacticPerimeterDefense from the subsystem API first
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.AddToCluster(formation);
+```
+
 ### RemoveFromCluster
 `public void RemoveFromCluster(Formation formation)`
 
 **Purpose:** Removes `from cluster` from the current collection or state.
 
+```csharp
+// Obtain an instance of TacticPerimeterDefense from the subsystem API first
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.RemoveFromCluster(formation);
+```
+
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticPerimeterDefense from the subsystem API first
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticPerimeterDefense();
-value.UpdateClusterData();
+// Typically call this after obtaining an instance from the subsystem API
+TacticPerimeterDefense tacticPerimeterDefense = ...;
+tacticPerimeterDefense.UpdateClusterData();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

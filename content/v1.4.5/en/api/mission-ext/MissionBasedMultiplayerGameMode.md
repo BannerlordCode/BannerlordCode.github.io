@@ -1,20 +1,14 @@
 ---
 title: "MissionBasedMultiplayerGameMode"
+description: "Auto-generated class reference for MissionBasedMultiplayerGameMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBasedMultiplayerGameMode`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBasedMultiplayerGameMode
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBasedMultiplayerGameMode : MultiplayerGameMode`
 **Base:** `MultiplayerGameMode`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MissionBasedMultiplayerGameMode.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MissionBasedMultiplayerGameMode.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### JoinCustomGame
 `public override void JoinCustomGame(JoinGameData joinGameData)`
 
-**Purpose:** Handles logic related to `join custom game`.
+**Purpose:** Joins several `custom game` items into a single whole.
+
+```csharp
+// Obtain an instance of MissionBasedMultiplayerGameMode from the subsystem API first
+MissionBasedMultiplayerGameMode missionBasedMultiplayerGameMode = ...;
+missionBasedMultiplayerGameMode.JoinCustomGame(joinGameData);
+```
 
 ### StartMultiplayerGame
 `public override void StartMultiplayerGame(string scene)`
 
-**Purpose:** Handles logic related to `start multiplayer game`.
+**Purpose:** Starts the `multiplayer game` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionBasedMultiplayerGameMode from the subsystem API first
+MissionBasedMultiplayerGameMode missionBasedMultiplayerGameMode = ...;
+missionBasedMultiplayerGameMode.StartMultiplayerGame("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionBasedMultiplayerGameMode();
-value.JoinCustomGame(joinGameData);
+// Typically call this after obtaining an instance from the subsystem API
+MissionBasedMultiplayerGameMode missionBasedMultiplayerGameMode = ...;
+missionBasedMultiplayerGameMode.JoinCustomGame(joinGameData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

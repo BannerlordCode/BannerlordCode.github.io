@@ -1,20 +1,14 @@
 ---
 title: "DefaultItemValueModel"
+description: "Auto-generated class reference for DefaultItemValueModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultItemValueModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultItemValueModel
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultItemValueModel : ItemValueModel`
 **Base:** `ItemValueModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/DefaultItemValueModel.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultItemValueModel.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `DefaultItemValueModel` as a Model-style extension point: first identify w
 ### CalculateValue
 `public override int CalculateValue(ItemObject item)`
 
-**Purpose:** Handles logic related to `calculate value`.
+**Purpose:** Calculates the current value or result of `value`.
+
+```csharp
+// Obtain an instance of DefaultItemValueModel from the subsystem API first
+DefaultItemValueModel defaultItemValueModel = ...;
+var result = defaultItemValueModel.CalculateValue(item);
+```
 
 ### GetIsTransferable
 `public override bool GetIsTransferable(ItemObject item)`
 
-**Purpose:** Gets the current value of `is transferable`.
+**Purpose:** Reads and returns the `is transferable` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultItemValueModel from the subsystem API first
+DefaultItemValueModel defaultItemValueModel = ...;
+var result = defaultItemValueModel.GetIsTransferable(item);
+```
 
 ### GetEquipmentValueFromTier
 `public override float GetEquipmentValueFromTier(float itemTierf)`
 
-**Purpose:** Gets the current value of `equipment value from tier`.
+**Purpose:** Reads and returns the `equipment value from tier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultItemValueModel from the subsystem API first
+DefaultItemValueModel defaultItemValueModel = ...;
+var result = defaultItemValueModel.GetEquipmentValueFromTier(0);
+```
 
 ### CalculateTier
 `public override float CalculateTier(ItemObject item)`
 
-**Purpose:** Handles logic related to `calculate tier`.
+**Purpose:** Calculates the current value or result of `tier`.
+
+```csharp
+// Obtain an instance of DefaultItemValueModel from the subsystem API first
+DefaultItemValueModel defaultItemValueModel = ...;
+var result = defaultItemValueModel.CalculateTier(item);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultItemValueModel>(new MyDefaultItemValueModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

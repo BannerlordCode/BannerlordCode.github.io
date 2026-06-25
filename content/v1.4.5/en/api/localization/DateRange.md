@@ -1,20 +1,14 @@
 ---
 title: "DateRange"
+description: "Auto-generated class reference for DateRange."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DateRange`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DateRange
 
 **Namespace:** TaleWorlds.Localization
 **Module:** TaleWorlds.Localization
 **Type:** `public class DateRange`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization/DateRange.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization/DateRange.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Localization` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new DateRange();
+// Obtain an instance from the relevant subsystem API
+DateRange instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

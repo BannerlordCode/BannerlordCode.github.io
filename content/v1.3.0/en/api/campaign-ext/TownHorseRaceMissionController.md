@@ -1,13 +1,7 @@
 ---
 title: "TownHorseRaceMissionController"
+description: "Auto-generated class reference for TownHorseRaceMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownHorseRaceMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownHorseRaceMissionController
 
 **Namespace:** SandBox.Tournaments.MissionLogics
@@ -36,47 +30,101 @@ Treat `TownHorseRaceMissionController` as a Controller-style extension point: fi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.OnMissionTick(0);
+```
 
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**Purpose:** Handles logic related to `start match`.
+**Purpose:** Starts the `match` flow or state machine.
+
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.StartMatch(match, false);
+```
 
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**Purpose:** Handles logic related to `skip match`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.SkipMatch(match);
+```
 
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**Purpose:** Handles logic related to `is match ended`.
+**Purpose:** Determines whether the current object is in the `match ended` state or condition.
+
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+var result = townHorseRaceMissionController.IsMatchEnded();
+```
 
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**Purpose:** Called when the `match ended` event is raised.
+**Purpose:** Invoked when the `match ended` event is raised.
+
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.OnMatchEnded();
+```
 
 ### GetBestTargetPosition
 `public Vec3 GetBestTargetPosition()`
 
-**Purpose:** Gets the current value of `best target position`.
+**Purpose:** Reads and returns the `best target position` value held by the current object.
+
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+var result = townHorseRaceMissionController.GetBestTargetPosition();
+```
 
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
 **Purpose:** Adds `to check list` to the current collection or state.
 
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.AddToCheckList(agent);
+```
+
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
 **Purpose:** Removes `from check list` from the current collection or state.
+
+```csharp
+// Obtain an instance of TownHorseRaceMissionController from the subsystem API first
+TownHorseRaceMissionController townHorseRaceMissionController = ...;
+townHorseRaceMissionController.RemoveFromCheckList(agent);
+```
 
 ## Usage Example
 
@@ -86,4 +134,4 @@ var controller = Mission.Current.GetMissionBehavior<TownHorseRaceMissionControll
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BannerTableauWidget"
+description: "BannerTableauWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerTableauWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerTableauWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerTableauWidget : TextureWidget`
 **Base:** `TextureWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/BannerTableauWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/BannerTableauWidget.cs`
 
 ## 概述
 
@@ -38,9 +32,10 @@ title: "BannerTableauWidget"
 ## 使用示例
 
 ```csharp
-var widget = new BannerTableauWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+BannerTableauWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

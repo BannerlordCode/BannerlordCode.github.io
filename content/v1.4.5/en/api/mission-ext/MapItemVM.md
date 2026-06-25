@@ -1,20 +1,14 @@
 ---
 title: "MapItemVM"
+description: "Auto-generated class reference for MapItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapItemVM : SelectorItemVM`
 **Base:** `SelectorItemVM`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/MapItemVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.SelectionItem/MapItemVM.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.Selecti
 ### UpdateSearchedText
 `public void UpdateSearchedText(string searchedText)`
 
-**Purpose:** Updates the state or data of `searched text`.
+**Purpose:** Recalculates and stores the latest representation of `searched text`.
+
+```csharp
+// Obtain an instance of MapItemVM from the subsystem API first
+MapItemVM mapItemVM = ...;
+mapItemVM.UpdateSearchedText("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapItemVM();
-value.UpdateSearchedText("example");
+// Typically call this after obtaining an instance from the subsystem API
+MapItemVM mapItemVM = ...;
+mapItemVM.UpdateSearchedText("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

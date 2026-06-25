@@ -1,20 +1,14 @@
 ---
 title: "TWParallel"
+description: "Auto-generated class reference for TWParallel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TWParallel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TWParallel
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class TWParallel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TWParallel.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWParallel.cs`
 
 ## Overview
 
@@ -29,55 +23,103 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ParallelForAuxPredicate
 `public delegate void ParallelForAuxPredicate(int localStartIndex, int localEndIndex)`
 
-**Purpose:** Handles logic related to `parallel for aux predicate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TWParallel from the subsystem API first
+TWParallel tWParallel = ...;
+tWParallel.ParallelForAuxPredicate(0, 0);
+```
 
 ### ParallelForWithDtAuxPredicate
 `public delegate void ParallelForWithDtAuxPredicate(int localStartIndex, int localEndIndex, float dt)`
 
-**Purpose:** Handles logic related to `parallel for with dt aux predicate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TWParallel from the subsystem API first
+TWParallel tWParallel = ...;
+tWParallel.ParallelForWithDtAuxPredicate(0, 0, 0);
+```
 
 ### InitializeAndSetImplementation
 `public static void InitializeAndSetImplementation(IParallelDriver parallelDriver)`
 
-**Purpose:** Initializes the state, resources, or bindings for `and set implementation`.
+**Purpose:** Prepares the resources, state, or bindings required by `and set implementation`.
+
+```csharp
+// Static call; no instance required
+TWParallel.InitializeAndSetImplementation(parallelDriver);
+```
 
 ### For
 `public static void For(int fromInclusive, int toExclusive, ParallelForAuxPredicate body, int grainSize = 16)`
 
-**Purpose:** Handles logic related to `for`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TWParallel.For(0, 0, body, 0);
+```
 
 ### ForWithoutRenderThread
 `public static void ForWithoutRenderThread(int fromInclusive, int toExclusive, ParallelForAuxPredicate body, int grainSize = 16)`
 
-**Purpose:** Handles logic related to `for without render thread`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TWParallel.ForWithoutRenderThread(0, 0, body, 0);
+```
 
 ### ForWithoutRenderThreadDt
 `public static void ForWithoutRenderThreadDt(int fromInclusive, int toExclusive, float deltaTime, ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
-**Purpose:** Handles logic related to `for without render thread dt`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TWParallel.ForWithoutRenderThreadDt(0, 0, 0, body, 0);
+```
 
 ### For
 `public static void For(int fromInclusive, int toExclusive, float deltaTime, ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
-**Purpose:** Handles logic related to `for`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TWParallel.For(0, 0, 0, body, 0);
+```
 
 ### AssertIsMainThread
 `public static void AssertIsMainThread()`
 
-**Purpose:** Handles logic related to `assert is main thread`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TWParallel.AssertIsMainThread();
+```
 
 ### IsMainThread
 `public static bool IsMainThread()`
 
-**Purpose:** Handles logic related to `is main thread`.
+**Purpose:** Determines whether the current object is in the `main thread` state or condition.
+
+```csharp
+// Static call; no instance required
+TWParallel.IsMainThread();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TWParallel();
-value.ParallelForAuxPredicate(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+TWParallel tWParallel = ...;
+tWParallel.ParallelForAuxPredicate(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "AtmosphereInfo"
+description: "AtmosphereInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AtmosphereInfo`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AtmosphereInfo
 
 **Namespace:** TaleWorlds.Library
@@ -35,17 +29,34 @@ title: "AtmosphereInfo"
 ### GetInvalidAtmosphereInfo
 `public static AtmosphereInfo GetInvalidAtmosphereInfo()`
 
-**用途 / Purpose:** 获取 `invalid atmosphere info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「invalid atmosphere info」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AtmosphereInfo.GetInvalidAtmosphereInfo();
+```
 
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**用途 / Purpose:** 处理 `deserialize from` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原出「from」。
+
+```csharp
+// 先通过子系统 API 拿到 AtmosphereInfo 实例
+AtmosphereInfo atmosphereInfo = ...;
+atmosphereInfo.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**用途 / Purpose:** 处理 `serialize to` 相关逻辑。
+**用途 / Purpose:** 将「to」序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 AtmosphereInfo 实例
+AtmosphereInfo atmosphereInfo = ...;
+atmosphereInfo.SerializeTo(writer);
+```
 
 ## 使用示例
 
@@ -55,4 +66,4 @@ AtmosphereInfo.GetInvalidAtmosphereInfo();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

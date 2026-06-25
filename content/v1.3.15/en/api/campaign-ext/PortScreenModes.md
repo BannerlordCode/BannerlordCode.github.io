@@ -1,18 +1,12 @@
 ---
 title: "PortScreenModes"
+description: "Auto-generated class reference for PortScreenModes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PortScreenModes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PortScreenModes
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum PortScreenModes`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/PortScreenModes.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var value = new PortScreenModes();
+// Obtain an instance from the relevant subsystem API
+PortScreenModes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

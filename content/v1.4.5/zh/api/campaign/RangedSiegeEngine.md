@@ -1,20 +1,14 @@
 ---
 title: "RangedSiegeEngine"
+description: "RangedSiegeEngine 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RangedSiegeEngine`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedSiegeEngine
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RangedSiegeEngine`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Siege/SiegeEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Siege/SiegeEvent.cs`
 
 ## 概述
 
@@ -42,25 +36,44 @@ title: "RangedSiegeEngine"
 ### Hold
 `public void Hold()`
 
-**用途 / Purpose:** 处理 `hold` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeEngine 实例
+RangedSiegeEngine rangedSiegeEngine = ...;
+rangedSiegeEngine.Hold();
+```
 
 ### Reload
 `public void Reload()`
 
-**用途 / Purpose:** 处理 `reload` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeEngine 实例
+RangedSiegeEngine rangedSiegeEngine = ...;
+rangedSiegeEngine.Reload();
+```
 
 ### OnFireDecisionTaken
 `public void OnFireDecisionTaken(SiegeEvent siegeEvent, BattleSideEnum battleSide, int targetSlotIndex, SiegeBombardTargets targetType)`
 
-**用途 / Purpose:** 当 `fire decision taken` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「fire decision taken」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeEngine 实例
+RangedSiegeEngine rangedSiegeEngine = ...;
+rangedSiegeEngine.OnFireDecisionTaken(siegeEvent, battleSide, 0, targetType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RangedSiegeEngine();
-value.Hold();
+// 通常从对应子系统 API 获取实例后调用
+RangedSiegeEngine rangedSiegeEngine = ...;
+rangedSiegeEngine.Hold();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

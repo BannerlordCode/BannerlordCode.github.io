@@ -1,13 +1,7 @@
 ---
 title: "BehaviorComponent"
+description: "BehaviorComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,74 +34,153 @@ title: "BehaviorComponent"
 ### OnBehaviorCanceled
 `public virtual void OnBehaviorCanceled()`
 
-**用途 / Purpose:** 当 `behavior canceled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior canceled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnBehaviorCanceled();
+```
 
 ### OnLostAIControl
 `public virtual void OnLostAIControl()`
 
-**用途 / Purpose:** 当 `lost a i control` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「lost a i control」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnLostAIControl();
+```
 
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnAgentRemoved(agent);
+```
 
 ### RemindSergeantPlayer
 `public void RemindSergeantPlayer()`
 
-**用途 / Purpose:** 处理 `remind sergeant player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.RemindSergeantPlayer();
+```
 
 ### TickOccasionally
 `public virtual void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.TickOccasionally();
+```
 
 ### GetAIWeight
 `public float GetAIWeight()`
 
-**用途 / Purpose:** 获取 `a i weight` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「a i weight」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+var result = behaviorComponent.GetAIWeight();
+```
 
 ### ResetBehavior
 `public virtual void ResetBehavior()`
 
-**用途 / Purpose:** 将 `behavior` 重置为初始状态。
+**用途 / Purpose:** 将 「behavior」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.ResetBehavior();
+```
 
 ### GetBehaviorString
 `public virtual TextObject GetBehaviorString()`
 
-**用途 / Purpose:** 获取 `behavior string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「behavior string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+var result = behaviorComponent.GetBehaviorString();
+```
 
 ### OnValidBehaviorSideChanged
 `public virtual void OnValidBehaviorSideChanged()`
 
-**用途 / Purpose:** 当 `valid behavior side changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「valid behavior side changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnValidBehaviorSideChanged();
+```
 
 ### PrecalculateMovementOrder
 `public void PrecalculateMovementOrder()`
 
-**用途 / Purpose:** 处理 `precalculate movement order` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.PrecalculateMovementOrder();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+var result = behaviorComponent.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+var result = behaviorComponent.GetHashCode();
+```
 
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorComponent 实例
+BehaviorComponent behaviorComponent = ...;
+behaviorComponent.OnDeploymentFinished();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBehaviorComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+BehaviorComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

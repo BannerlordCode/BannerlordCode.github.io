@@ -1,20 +1,14 @@
 ---
 title: "DuelScoreboardData"
+description: "DuelScoreboardData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DuelScoreboardData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelScoreboardData
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DuelScoreboardData : IScoreboardData`
 **Base:** `IScoreboardData`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/DuelScoreboardData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/DuelScoreboardData.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "DuelScoreboardData"
 ### GetScoreboardHeaders
 `public ScoreboardHeader GetScoreboardHeaders()`
 
-**用途 / Purpose:** 获取 `scoreboard headers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scoreboard headers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DuelScoreboardData 实例
+DuelScoreboardData duelScoreboardData = ...;
+var result = duelScoreboardData.GetScoreboardHeaders();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DuelScoreboardData();
+// 该数据对象通常由战役/任务 API 返回
+DuelScoreboardData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

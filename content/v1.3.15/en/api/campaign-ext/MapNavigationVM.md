@@ -1,13 +1,7 @@
 ---
 title: "MapNavigationVM"
+description: "Auto-generated class reference for MapNavigationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNavigationVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapNavigationVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
@@ -39,70 +33,143 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.OnFinalize();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.Refresh();
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.Tick();
+```
 
 ### ExecuteOpenQuests
 `public void ExecuteOpenQuests()`
 
-**Purpose:** Executes the `open quests` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open quests`.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenQuests();
+```
 
 ### ExecuteOpenInventory
 `public void ExecuteOpenInventory()`
 
-**Purpose:** Executes the `open inventory` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open inventory`.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenInventory();
+```
 
 ### ExecuteOpenParty
 `public void ExecuteOpenParty()`
 
-**Purpose:** Executes the `open party` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open party`.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenParty();
+```
 
 ### ExecuteOpenCharacterDeveloper
 `public void ExecuteOpenCharacterDeveloper()`
 
-**Purpose:** Executes the `open character developer` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open character developer`.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenCharacterDeveloper();
+```
 
 ### ExecuteOpenKingdom
 `public void ExecuteOpenKingdom()`
 
-**Purpose:** Executes the `open kingdom` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open kingdom`.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenKingdom();
+```
 
 ### ExecuteOpenClan
 `public void ExecuteOpenClan()`
 
-**Purpose:** Executes the `open clan` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open clan`.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenClan();
+```
 
 ### ExecuteOpenEscapeMenu
 `public void ExecuteOpenEscapeMenu()`
 
-**Purpose:** Executes the `open escape menu` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open escape menu`.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenEscapeMenu();
+```
 
 ### ExecuteOpenMainHeroKingdomEncyclopedia
 `public void ExecuteOpenMainHeroKingdomEncyclopedia()`
 
-**Purpose:** Executes the `open main hero kingdom encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open main hero kingdom encyclopedia`.
+
+```csharp
+// Obtain an instance of MapNavigationVM from the subsystem API first
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.ExecuteOpenMainHeroKingdomEncyclopedia();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapNavigationVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapNavigationVM mapNavigationVM = ...;
+mapNavigationVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

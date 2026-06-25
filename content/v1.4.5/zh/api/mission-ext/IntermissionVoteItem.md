@@ -1,20 +1,14 @@
 ---
 title: "IntermissionVoteItem"
+description: "IntermissionVoteItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IntermissionVoteItem`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IntermissionVoteItem
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class IntermissionVoteItem`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IntermissionVoteItem.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IntermissionVoteItem.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "IntermissionVoteItem"
 ### SetVoteCount
 `public void SetVoteCount(int voteCount)`
 
-**用途 / Purpose:** 设置 `vote count` 的值或状态。
+**用途 / Purpose:** 为 「vote count」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 IntermissionVoteItem 实例
+IntermissionVoteItem intermissionVoteItem = ...;
+intermissionVoteItem.SetVoteCount(0);
+```
 
 ### IncreaseVoteCount
 `public void IncreaseVoteCount(int incrementAmount)`
 
-**用途 / Purpose:** 处理 `increase vote count` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IntermissionVoteItem 实例
+IntermissionVoteItem intermissionVoteItem = ...;
+intermissionVoteItem.IncreaseVoteCount(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new IntermissionVoteItem();
-value.SetVoteCount(0);
+// 通常从对应子系统 API 获取实例后调用
+IntermissionVoteItem intermissionVoteItem = ...;
+intermissionVoteItem.SetVoteCount(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

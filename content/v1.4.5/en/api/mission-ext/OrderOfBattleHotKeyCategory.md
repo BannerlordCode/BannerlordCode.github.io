@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleHotKeyCategory"
+description: "Auto-generated class reference for OrderOfBattleHotKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleHotKeyCategory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHotKeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade.GameKeyCategory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.GameKeyCategory/OrderOfBattleHotKeyCategory.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.GameKeyCategory/OrderOfBattleHotKeyCategory.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GameKeyCategory` to place it in t
 ## Usage Example
 
 ```csharp
-var example = new OrderOfBattleHotKeyCategory();
+// Obtain an instance from the relevant subsystem API
+OrderOfBattleHotKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

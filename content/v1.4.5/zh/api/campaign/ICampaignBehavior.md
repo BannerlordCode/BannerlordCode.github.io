@@ -1,20 +1,14 @@
 ---
 title: "ICampaignBehavior"
+description: "ICampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICampaignBehavior`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ICampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ICampaignBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ICampaignBehavior"
 ## 使用示例
 
 ```csharp
-ICampaignBehavior implementation = GetCampaignBehaviorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICampaignBehavior service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

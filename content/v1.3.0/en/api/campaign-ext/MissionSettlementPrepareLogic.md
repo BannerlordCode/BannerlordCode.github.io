@@ -1,13 +1,7 @@
 ---
 title: "MissionSettlementPrepareLogic"
+description: "Auto-generated class reference for MissionSettlementPrepareLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSettlementPrepareLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSettlementPrepareLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,14 +23,20 @@ Treat `MissionSettlementPrepareLogic` as a Logic-style extension point: first id
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionSettlementPrepareLogic from the subsystem API first
+MissionSettlementPrepareLogic missionSettlementPrepareLogic = ...;
+missionSettlementPrepareLogic.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionSettlementPrepareLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionSettlementPrepareLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GameState"
+description: "Auto-generated class reference for GameState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameState`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameState
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class GameState : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/GameState.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameState.cs`
 
 ## Overview
 
@@ -37,19 +31,32 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### RegisterListener
 `public bool RegisterListener(IGameStateListener listener)`
 
-**Purpose:** Handles logic related to `register listener`.
+**Purpose:** Registers `listener` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GameState from the subsystem API first
+GameState gameState = ...;
+var result = gameState.RegisterListener(listener);
+```
 
 ### UnregisterListener
 `public bool UnregisterListener(IGameStateListener listener)`
 
-**Purpose:** Handles logic related to `unregister listener`.
+**Purpose:** Unregisters `listener` from the current system.
+
+```csharp
+// Obtain an instance of GameState from the subsystem API first
+GameState gameState = ...;
+var result = gameState.UnregisterListener(listener);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameState();
+// Typically obtained from a subsystem API or factory
+GameState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

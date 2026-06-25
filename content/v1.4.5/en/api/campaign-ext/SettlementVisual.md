@@ -1,20 +1,14 @@
 ---
 title: "SettlementVisual"
+description: "Auto-generated class reference for SettlementVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementVisual`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementVisual
 
 **Namespace:** SandBox.View.Map.Visuals
 **Module:** SandBox.View
 **Type:** `public class SettlementVisual : MapEntityVisual<PartyBase>`
 **Base:** `MapEntityVisual<PartyBase>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Visuals/SettlementVisual.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Visuals/SettlementVisual.cs`
 
 ## Overview
 
@@ -35,90 +29,187 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 ### IsEnemyOf
 `public override bool IsEnemyOf(IFaction faction)`
 
-**Purpose:** Handles logic related to `is enemy of`.
+**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.IsEnemyOf(faction);
+```
 
 ### IsInSameFaction
 `public override bool IsInSameFaction(IFaction faction)`
 
-**Purpose:** Handles logic related to `is in same faction`.
+**Purpose:** Determines whether the current object is in the `in same faction` state or condition.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.IsInSameFaction(faction);
+```
 
 ### IsAllyOf
 `public override bool IsAllyOf(IFaction faction)`
 
-**Purpose:** Handles logic related to `is ally of`.
+**Purpose:** Determines whether the current object is in the `ally of` state or condition.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.IsAllyOf(faction);
+```
 
 ### GetVisualPosition
 `public override Vec3 GetVisualPosition()`
 
-**Purpose:** Gets the current value of `visual position`.
+**Purpose:** Reads and returns the `visual position` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.GetVisualPosition();
+```
 
 ### IsVisibleOrFadingOut
 `public override bool IsVisibleOrFadingOut()`
 
-**Purpose:** Handles logic related to `is visible or fading out`.
+**Purpose:** Determines whether the current object is in the `visible or fading out` state or condition.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.IsVisibleOrFadingOut();
+```
 
 ### OnHover
 `public override void OnHover()`
 
-**Purpose:** Called when the `hover` event is raised.
+**Purpose:** Invoked when the `hover` event is raised.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+settlementVisual.OnHover();
+```
 
 ### OnTrackAction
 `public override void OnTrackAction()`
 
-**Purpose:** Called when the `track action` event is raised.
+**Purpose:** Invoked when the `track action` event is raised.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+settlementVisual.OnTrackAction();
+```
 
 ### OnMapClick
 `public override bool OnMapClick(bool followModifierUsed)`
 
-**Purpose:** Called when the `map click` event is raised.
+**Purpose:** Invoked when the `map click` event is raised.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.OnMapClick(false);
+```
 
 ### OnOpenEncyclopedia
 `public override void OnOpenEncyclopedia()`
 
-**Purpose:** Called when the `open encyclopedia` event is raised.
+**Purpose:** Invoked when the `open encyclopedia` event is raised.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+settlementVisual.OnOpenEncyclopedia();
+```
 
 ### ReleaseResources
 `public override void ReleaseResources()`
 
-**Purpose:** Handles logic related to `release resources`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+settlementVisual.ReleaseResources();
+```
 
 ### GetBannerPositionForParty
 `public Vec3 GetBannerPositionForParty(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `banner position for party`.
+**Purpose:** Reads and returns the `banner position for party` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.GetBannerPositionForParty(mobileParty);
+```
 
 ### GetAttackerTowerSiegeEngineFrames
 `public MatrixFrame GetAttackerTowerSiegeEngineFrames()`
 
-**Purpose:** Gets the current value of `attacker tower siege engine frames`.
+**Purpose:** Reads and returns the `attacker tower siege engine frames` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.GetAttackerTowerSiegeEngineFrames();
+```
 
 ### GetAttackerBatteringRamSiegeEngineFrames
 `public MatrixFrame GetAttackerBatteringRamSiegeEngineFrames()`
 
-**Purpose:** Gets the current value of `attacker battering ram siege engine frames`.
+**Purpose:** Reads and returns the `attacker battering ram siege engine frames` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.GetAttackerBatteringRamSiegeEngineFrames();
+```
 
 ### GetAttackerRangedSiegeEngineFrames
 `public MatrixFrame GetAttackerRangedSiegeEngineFrames()`
 
-**Purpose:** Gets the current value of `attacker ranged siege engine frames`.
+**Purpose:** Reads and returns the `attacker ranged siege engine frames` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.GetAttackerRangedSiegeEngineFrames();
+```
 
 ### GetDefenderRangedSiegeEngineFrames
 `public MatrixFrame GetDefenderRangedSiegeEngineFrames()`
 
-**Purpose:** Gets the current value of `defender ranged siege engine frames`.
+**Purpose:** Reads and returns the `defender ranged siege engine frames` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.GetDefenderRangedSiegeEngineFrames();
+```
 
 ### GetBreachableWallFrames
 `public MatrixFrame GetBreachableWallFrames()`
 
-**Purpose:** Gets the current value of `breachable wall frames`.
+**Purpose:** Reads and returns the `breachable wall frames` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementVisual from the subsystem API first
+SettlementVisual settlementVisual = ...;
+var result = settlementVisual.GetBreachableWallFrames();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementVisual();
-value.IsEnemyOf(faction);
+// Typically call this after obtaining an instance from the subsystem API
+SettlementVisual settlementVisual = ...;
+settlementVisual.IsEnemyOf(faction);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ConversationSentence"
+description: "Auto-generated class reference for ConversationSentence."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationSentence`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationSentence
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
@@ -53,50 +47,98 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ### Variation
 `public ConversationSentence Variation(params object list)`
 
-**Purpose:** Handles logic related to `variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ConversationSentence from the subsystem API first
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.Variation(list);
+```
 
 ### Deserialize
 `public void Deserialize(XmlNode node, Type typeOfConversationCallbacks, ConversationManager conversationManager, int defaultPriority)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ConversationSentence from the subsystem API first
+ConversationSentence conversationSentence = ...;
+conversationSentence.Deserialize(node, typeOfConversationCallbacks, conversationManager, 0);
+```
 
 ### SetObjectsToRepeatOver
 `public static void SetObjectsToRepeatOver(IReadOnlyList<object> objectsToRepeatOver, int maxRepeatedDialogsInConversation = 5)`
 
-**Purpose:** Sets the value or state of `objects to repeat over`.
+**Purpose:** Assigns a new value to `objects to repeat over` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+ConversationSentence.SetObjectsToRepeatOver(objectsToRepeatOver, 0);
+```
 
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate()`
 
-**Purpose:** Called when the `condition delegate` event is raised.
+**Purpose:** Invoked when the `condition delegate` event is raised.
+
+```csharp
+// Obtain an instance of ConversationSentence from the subsystem API first
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.OnConditionDelegate();
+```
 
 ### OnClickableConditionDelegate
 `public delegate bool OnClickableConditionDelegate(out TextObject explanation)`
 
-**Purpose:** Called when the `clickable condition delegate` event is raised.
+**Purpose:** Invoked when the `clickable condition delegate` event is raised.
+
+```csharp
+// Obtain an instance of ConversationSentence from the subsystem API first
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.OnClickableConditionDelegate(explanation);
+```
 
 ### OnPersuasionOptionDelegate
 `public delegate PersuasionOptionArgs OnPersuasionOptionDelegate()`
 
-**Purpose:** Called when the `persuasion option delegate` event is raised.
+**Purpose:** Invoked when the `persuasion option delegate` event is raised.
+
+```csharp
+// Obtain an instance of ConversationSentence from the subsystem API first
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.OnPersuasionOptionDelegate();
+```
 
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate()`
 
-**Purpose:** Called when the `consequence delegate` event is raised.
+**Purpose:** Invoked when the `consequence delegate` event is raised.
+
+```csharp
+// Obtain an instance of ConversationSentence from the subsystem API first
+ConversationSentence conversationSentence = ...;
+conversationSentence.OnConsequenceDelegate();
+```
 
 ### OnMultipleConversationConsequenceDelegate
 `public delegate bool OnMultipleConversationConsequenceDelegate(IAgent agent)`
 
-**Purpose:** Called when the `multiple conversation consequence delegate` event is raised.
+**Purpose:** Invoked when the `multiple conversation consequence delegate` event is raised.
+
+```csharp
+// Obtain an instance of ConversationSentence from the subsystem API first
+ConversationSentence conversationSentence = ...;
+var result = conversationSentence.OnMultipleConversationConsequenceDelegate(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConversationSentence();
-value.Variation(list);
+// Typically call this after obtaining an instance from the subsystem API
+ConversationSentence conversationSentence = ...;
+conversationSentence.Variation(list);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

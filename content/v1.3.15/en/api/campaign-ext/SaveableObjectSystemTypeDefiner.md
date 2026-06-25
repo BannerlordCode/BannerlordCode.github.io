@@ -1,13 +1,7 @@
 ---
 title: "SaveableObjectSystemTypeDefiner"
+description: "Auto-generated class reference for SaveableObjectSystemTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableObjectSystemTypeDefiner`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveableObjectSystemTypeDefiner
 
 **Namespace:** TaleWorlds.ObjectSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new SaveableObjectSystemTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SaveableObjectSystemTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionObjectiveLogic"
+description: "Auto-generated class reference for MissionObjectiveLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionObjectiveLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.MissionLogics
@@ -35,24 +29,42 @@ Treat `MissionObjectiveLogic` as a Logic-style extension point: first identify w
 ### StartObjective
 `public void StartObjective(MissionObjective objective)`
 
-**Purpose:** Handles logic related to `start objective`.
+**Purpose:** Starts the `objective` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionObjectiveLogic from the subsystem API first
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.StartObjective(objective);
+```
 
 ### CompleteCurrentObjective
 `public void CompleteCurrentObjective()`
 
-**Purpose:** Handles logic related to `complete current objective`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionObjectiveLogic from the subsystem API first
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.CompleteCurrentObjective();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionObjectiveLogic from the subsystem API first
+MissionObjectiveLogic missionObjectiveLogic = ...;
+missionObjectiveLogic.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionObjectiveLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionObjectiveLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

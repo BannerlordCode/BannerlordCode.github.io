@@ -1,13 +1,7 @@
 ---
 title: "TutorialScreenWidget"
+description: "Auto-generated class reference for TutorialScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TutorialScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
@@ -42,9 +36,10 @@ Treat `TutorialScreenWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new TutorialScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TutorialScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

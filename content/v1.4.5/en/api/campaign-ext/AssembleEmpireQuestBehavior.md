@@ -1,20 +1,14 @@
 ---
 title: "AssembleEmpireQuestBehavior"
+description: "Auto-generated class reference for AssembleEmpireQuestBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AssembleEmpireQuestBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AssembleEmpireQuestBehavior
 
 **Namespace:** StoryMode.Quests.SecondPhase
 **Module:** StoryMode.Quests
 **Type:** `public class AssembleEmpireQuestBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.SecondPhase/AssembleEmpireQuestBehavior.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.SecondPhase/AssembleEmpireQuestBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `StoryMode.Quests.SecondPhase` to place it in the stack, th
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of AssembleEmpireQuestBehavior from the subsystem API first
+AssembleEmpireQuestBehavior assembleEmpireQuestBehavior = ...;
+assembleEmpireQuestBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of AssembleEmpireQuestBehavior from the subsystem API first
+AssembleEmpireQuestBehavior assembleEmpireQuestBehavior = ...;
+assembleEmpireQuestBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AssembleEmpireQuestBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+AssembleEmpireQuestBehavior assembleEmpireQuestBehavior = ...;
+assembleEmpireQuestBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

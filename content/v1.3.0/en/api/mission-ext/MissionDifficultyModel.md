@@ -1,13 +1,7 @@
 ---
 title: "MissionDifficultyModel"
+description: "Auto-generated class reference for MissionDifficultyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionDifficultyModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDifficultyModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `MissionDifficultyModel` as a Model-style extension point: first identify 
 ### GetDamageMultiplierOfCombatDifficulty
 `public abstract float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
 
-**Purpose:** Gets the current value of `damage multiplier of combat difficulty`.
+**Purpose:** Reads and returns the `damage multiplier of combat difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDifficultyModel from the subsystem API first
+MissionDifficultyModel missionDifficultyModel = ...;
+var result = missionDifficultyModel.GetDamageMultiplierOfCombatDifficulty(victimAgent, null);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionDifficultyModel();
+// Typically obtained from a subsystem API or factory
+MissionDifficultyModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

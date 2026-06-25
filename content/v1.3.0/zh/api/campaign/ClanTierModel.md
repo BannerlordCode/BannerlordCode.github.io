@@ -1,13 +1,7 @@
 ---
 title: "ClanTierModel"
+description: "ClanTierModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanTierModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanTierModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -41,44 +35,87 @@ title: "ClanTierModel"
 ### CalculateInitialRenown
 `public abstract int CalculateInitialRenown(Clan clan)`
 
-**用途 / Purpose:** 处理 `calculate initial renown` 相关逻辑。
+**用途 / Purpose:** 计算「initial renown」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanTierModel 实例
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.CalculateInitialRenown(clan);
+```
 
 ### CalculateInitialInfluence
 `public abstract int CalculateInitialInfluence(Clan clan)`
 
-**用途 / Purpose:** 处理 `calculate initial influence` 相关逻辑。
+**用途 / Purpose:** 计算「initial influence」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanTierModel 实例
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.CalculateInitialInfluence(clan);
+```
 
 ### CalculateTier
 `public abstract int CalculateTier(Clan clan)`
 
-**用途 / Purpose:** 处理 `calculate tier` 相关逻辑。
+**用途 / Purpose:** 计算「tier」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanTierModel 实例
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.CalculateTier(clan);
+```
 
 ### HasUpcomingTier
 `public abstract ValueTuple<ExplainedNumber, bool> HasUpcomingTier(Clan clan, out TextObject extraExplanation, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `upcoming tier`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「upcoming tier」。
+
+```csharp
+// 先通过子系统 API 拿到 ClanTierModel 实例
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.HasUpcomingTier(clan, extraExplanation, false);
+```
 
 ### GetRequiredRenownForTier
 `public abstract int GetRequiredRenownForTier(int tier)`
 
-**用途 / Purpose:** 获取 `required renown for tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「required renown for tier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanTierModel 实例
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.GetRequiredRenownForTier(0);
+```
 
 ### GetPartyLimitForTier
 `public abstract int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
 
-**用途 / Purpose:** 获取 `party limit for tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party limit for tier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanTierModel 实例
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.GetPartyLimitForTier(clan, 0);
+```
 
 ### GetCompanionLimit
 `public abstract int GetCompanionLimit(Clan clan)`
 
-**用途 / Purpose:** 获取 `companion limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「companion limit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanTierModel 实例
+ClanTierModel clanTierModel = ...;
+var result = clanTierModel.GetCompanionLimit(clan);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomClanTierModel();
+// 通常通过子系统 API 或工厂获得派生实例
+ClanTierModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

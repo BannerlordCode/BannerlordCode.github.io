@@ -1,13 +1,7 @@
 ---
 title: "CompassMarkerVM"
+description: "Auto-generated class reference for CompassMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompassMarkerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CompassMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass
@@ -40,15 +34,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass` 
 ### Refresh
 `public void Refresh(float circleX, float x, float distance)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of CompassMarkerVM from the subsystem API first
+CompassMarkerVM compassMarkerVM = ...;
+compassMarkerVM.Refresh(0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CompassMarkerVM();
-value.Refresh(0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CompassMarkerVM compassMarkerVM = ...;
+compassMarkerVM.Refresh(0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

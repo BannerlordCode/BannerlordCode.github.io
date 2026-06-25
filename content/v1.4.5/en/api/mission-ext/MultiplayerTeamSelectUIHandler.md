@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerTeamSelectUIHandler"
+description: "Auto-generated class reference for MultiplayerTeamSelectUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTeamSelectUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTeamSelectUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTeamSelectUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerTeamSelectUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerTeamSelectUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MultiplayerTeamSelectUIHandler` as a Handler-style extension point: first
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerTeamSelectUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerTeamSelectUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

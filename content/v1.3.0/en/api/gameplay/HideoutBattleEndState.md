@@ -1,13 +1,7 @@
 ---
 title: "HideoutBattleEndState"
+description: "Auto-generated class reference for HideoutBattleEndState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutBattleEndState`
-- [← Area / Back to gameplay](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutBattleEndState
 
 **Namespace:** StoryMode.Quests.TutorialPhase
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-HideoutBattleEndState example = HideoutBattleEndState.Value;
+// Obtain an instance from the relevant subsystem API
+HideoutBattleEndState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

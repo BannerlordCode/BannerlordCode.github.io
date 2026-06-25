@@ -1,23 +1,18 @@
 ---
 title: "SandBoxMission"
+description: "SandBoxMission 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxMission`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SandBoxMission
 
-**命名空间:** TaleWorlds.CampaignSystem
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public class SandBoxMission`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class SandBoxMission`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/SandBoxMission.cs`
 
 ## 概述
 
-`SandBoxMission` 位于 `TaleWorlds.CampaignSystem`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`SandBoxMission` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,36 +23,59 @@ title: "SandBoxMission"
 ### OpenTournamentArcheryMission
 `public static IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament archery mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament archery mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentFightMission
 `public static IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament fight mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament fight mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenTournamentFightMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentHorseRaceMission
 `public static IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament horse race mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament horse race mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenTournamentHorseRaceMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentJoustingMission
 `public static IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament jousting mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament jousting mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenTournamentJoustingMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenBattleChallengeMission
 `public static IMission OpenBattleChallengeMission(string scene, IList<Hero> priorityCharsAttacker, IList<Hero> priorityCharsDefender)`
 
-**用途 / Purpose:** 处理 `open battle challenge mission` 相关逻辑。
+**用途 / Purpose:** 打开「battle challenge mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMission.OpenBattleChallengeMission("example", priorityCharsAttacker, priorityCharsDefender);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 SandBoxMission.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

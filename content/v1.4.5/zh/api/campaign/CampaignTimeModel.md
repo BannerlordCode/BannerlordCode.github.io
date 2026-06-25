@@ -1,20 +1,14 @@
 ---
 title: "CampaignTimeModel"
+description: "CampaignTimeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignTimeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignTimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CampaignTimeModel : MBGameModel<CampaignTimeModel>`
 **Base:** `MBGameModel<CampaignTimeModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CampaignTimeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/CampaignTimeModel.cs`
 
 ## 概述
 
@@ -43,9 +37,10 @@ title: "CampaignTimeModel"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCampaignTimeModel();
+// 通常通过子系统 API 或工厂获得派生实例
+CampaignTimeModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

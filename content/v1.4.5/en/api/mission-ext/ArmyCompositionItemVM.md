@@ -1,20 +1,14 @@
 ---
 title: "ArmyCompositionItemVM"
+description: "Auto-generated class reference for ArmyCompositionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyCompositionItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyCompositionItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ArmyCompositionItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionItemVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/ArmyCompositionItemVM.cs`
 
 ## Overview
 
@@ -41,40 +35,76 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ArmyCompositionItemVM from the subsystem API first
+ArmyCompositionItemVM armyCompositionItemVM = ...;
+armyCompositionItemVM.RefreshValues();
+```
 
 ### SetCurrentSelectedCulture
 `public void SetCurrentSelectedCulture(BasicCultureObject culture)`
 
-**Purpose:** Sets the value or state of `current selected culture`.
+**Purpose:** Assigns a new value to `current selected culture` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ArmyCompositionItemVM from the subsystem API first
+ArmyCompositionItemVM armyCompositionItemVM = ...;
+armyCompositionItemVM.SetCurrentSelectedCulture(culture);
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize(int compositionValue)`
 
-**Purpose:** Executes the `randomize` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `randomize`.
+
+```csharp
+// Obtain an instance of ArmyCompositionItemVM from the subsystem API first
+ArmyCompositionItemVM armyCompositionItemVM = ...;
+armyCompositionItemVM.ExecuteRandomize(0);
+```
 
 ### ExecuteAddTroopTypes
 `public void ExecuteAddTroopTypes()`
 
-**Purpose:** Executes the `add troop types` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `add troop types`.
+
+```csharp
+// Obtain an instance of ArmyCompositionItemVM from the subsystem API first
+ArmyCompositionItemVM armyCompositionItemVM = ...;
+armyCompositionItemVM.ExecuteAddTroopTypes();
+```
 
 ### RefreshCompositionValue
 `public void RefreshCompositionValue()`
 
-**Purpose:** Refreshes the display or cache of `composition value`.
+**Purpose:** Keeps the display or cache of `composition value` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ArmyCompositionItemVM from the subsystem API first
+ArmyCompositionItemVM armyCompositionItemVM = ...;
+armyCompositionItemVM.RefreshCompositionValue();
+```
 
 ### GetTroopTypeIconData
 `public static StringItemWithHintVM GetTroopTypeIconData(BasicCharacterObject basicCharacterObject, CompositionType type, bool isBig = false)`
 
-**Purpose:** Gets the current value of `troop type icon data`.
+**Purpose:** Reads and returns the `troop type icon data` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ArmyCompositionItemVM.GetTroopTypeIconData(basicCharacterObject, type, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyCompositionItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyCompositionItemVM armyCompositionItemVM = ...;
+armyCompositionItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

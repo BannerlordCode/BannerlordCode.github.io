@@ -1,20 +1,14 @@
 ---
 title: "GoldRecoveryEffect"
+description: "Auto-generated class reference for GoldRecoveryEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GoldRecoveryEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GoldRecoveryEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GoldRecoveryEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldRecoveryEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldRecoveryEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnTick
 `public override void OnTick(Agent agent, int tickCount)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of GoldRecoveryEffect from the subsystem API first
+GoldRecoveryEffect goldRecoveryEffect = ...;
+goldRecoveryEffect.OnTick(agent, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GoldRecoveryEffect();
-value.OnTick(agent, 0);
+// Typically call this after obtaining an instance from the subsystem API
+GoldRecoveryEffect goldRecoveryEffect = ...;
+goldRecoveryEffect.OnTick(agent, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

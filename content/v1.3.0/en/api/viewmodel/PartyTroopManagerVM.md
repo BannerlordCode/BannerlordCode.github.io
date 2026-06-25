@@ -1,13 +1,7 @@
 ---
 title: "PartyTroopManagerVM"
+description: "Auto-generated class reference for PartyTroopManagerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTroopManagerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTroopManagerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
@@ -56,59 +50,120 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyT
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.OnFinalize();
+```
 
 ### OpenPopUp
 `public virtual void OpenPopUp()`
 
-**Purpose:** Handles logic related to `open pop up`.
+**Purpose:** Opens the resource or UI associated with `pop up`.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.OpenPopUp();
+```
 
 ### ExecuteDone
 `public virtual void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.ExecuteDone();
+```
 
 ### UpdateOpenButtonHint
 `public void UpdateOpenButtonHint(bool isDisabled, bool isIrrelevant, bool isUpgradesDisabled)`
 
-**Purpose:** Updates the state or data of `open button hint`.
+**Purpose:** Recalculates and stores the latest representation of `open button hint`.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.UpdateOpenButtonHint(false, false, false);
+```
 
 ### ExecuteCancel
 `public abstract void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.ExecuteCancel();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.SetDoneInputKey(hotKey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.SetCancelInputKey(hotKey);
+```
 
 ### SetPrimaryActionInputKey
 `public void SetPrimaryActionInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `primary action input key`.
+**Purpose:** Assigns a new value to `primary action input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.SetPrimaryActionInputKey(hotKey);
+```
 
 ### SetSecondaryActionInputKey
 `public void SetSecondaryActionInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `secondary action input key`.
+**Purpose:** Assigns a new value to `secondary action input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyTroopManagerVM from the subsystem API first
+PartyTroopManagerVM partyTroopManagerVM = ...;
+partyTroopManagerVM.SetSecondaryActionInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyTroopManagerVM();
+// Typically obtained from a subsystem API or factory
+PartyTroopManagerVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

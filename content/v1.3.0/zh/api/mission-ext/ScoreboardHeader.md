@@ -1,13 +1,7 @@
 ---
 title: "ScoreboardHeader"
+description: "ScoreboardHeader 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScoreboardHeader`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardHeader
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ title: "ScoreboardHeader"
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 获取 `value of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardHeader 实例
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.GetValueOf(missionPeer);
+```
 
 ### GetValueOf
 `public string GetValueOf(BotData botData)`
 
-**用途 / Purpose:** 获取 `value of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardHeader 实例
+ScoreboardHeader scoreboardHeader = ...;
+var result = scoreboardHeader.GetValueOf(botData);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ScoreboardHeader();
-value.GetValueOf(missionPeer);
+// 通常从对应子系统 API 获取实例后调用
+ScoreboardHeader scoreboardHeader = ...;
+scoreboardHeader.GetValueOf(missionPeer);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

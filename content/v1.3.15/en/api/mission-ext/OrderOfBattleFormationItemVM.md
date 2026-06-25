@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleFormationItemVM"
+description: "Auto-generated class reference for OrderOfBattleFormationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
@@ -70,95 +64,198 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.Tick();
+```
 
 ### RefreshFormation
 `public void RefreshFormation(Formation formation, DeploymentFormationClass overriddenClass = DeploymentFormationClass.Unset, bool mustExist = false)`
 
-**Purpose:** Refreshes the display or cache of `formation`.
+**Purpose:** Keeps the display or cache of `formation` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.RefreshFormation(formation, deploymentFormationClass.Unset, false);
+```
 
 ### MakeMarkerWorldPositionDirty
 `public void MakeMarkerWorldPositionDirty()`
 
-**Purpose:** Handles logic related to `make marker world position dirty`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.MakeMarkerWorldPositionDirty();
+```
 
 ### OnSizeChanged
 `public void OnSizeChanged()`
 
-**Purpose:** Called when the `size changed` event is raised.
+**Purpose:** Invoked when the `size changed` event is raised.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.OnSizeChanged();
+```
 
 ### GetOrderOfBattleClass
 `public DeploymentFormationClass GetOrderOfBattleClass()`
 
-**Purpose:** Gets the current value of `order of battle class`.
+**Purpose:** Reads and returns the `order of battle class` value held by the current object.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+var result = orderOfBattleFormationItemVM.GetOrderOfBattleClass();
+```
 
 ### UpdateAdjustable
 `public void UpdateAdjustable()`
 
-**Purpose:** Updates the state or data of `adjustable`.
+**Purpose:** Recalculates and stores the latest representation of `adjustable`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.UpdateAdjustable();
+```
 
 ### HasFilter
 `public bool HasFilter(FormationFilterType filter)`
 
-**Purpose:** Checks whether the current object has/contains `filter`.
+**Purpose:** Determines whether the current object already holds `filter`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+var result = orderOfBattleFormationItemVM.HasFilter(filter);
+```
 
 ### HasOnlyOneClass
 `public bool HasOnlyOneClass()`
 
-**Purpose:** Checks whether the current object has/contains `only one class`.
+**Purpose:** Determines whether the current object already holds `only one class`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+var result = orderOfBattleFormationItemVM.HasOnlyOneClass();
+```
 
 ### HasClass
 `public bool HasClass(FormationClass formationClass)`
 
-**Purpose:** Checks whether the current object has/contains `class`.
+**Purpose:** Determines whether the current object already holds `class`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+var result = orderOfBattleFormationItemVM.HasClass(formationClass);
+```
 
 ### HasClasses
 `public bool HasClasses(FormationClass formationClasses)`
 
-**Purpose:** Checks whether the current object has/contains `classes`.
+**Purpose:** Determines whether the current object already holds `classes`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+var result = orderOfBattleFormationItemVM.HasClasses(formationClasses);
+```
 
 ### UnassignCaptain
 `public void UnassignCaptain()`
 
-**Purpose:** Handles logic related to `unassign captain`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.UnassignCaptain();
+```
 
 ### ExecuteAcceptCaptain
 `public void ExecuteAcceptCaptain()`
 
-**Purpose:** Executes the `accept captain` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `accept captain`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.ExecuteAcceptCaptain();
+```
 
 ### ExecuteAcceptHeroTroops
 `public void ExecuteAcceptHeroTroops()`
 
-**Purpose:** Executes the `accept hero troops` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `accept hero troops`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.ExecuteAcceptHeroTroops();
+```
 
 ### OnHeroSelectionUpdated
 `public void OnHeroSelectionUpdated(int selectedHeroCount, bool hasOwnHeroTroopInSelection)`
 
-**Purpose:** Called when the `hero selection updated` event is raised.
+**Purpose:** Invoked when the `hero selection updated` event is raised.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.OnHeroSelectionUpdated(0, false);
+```
 
 ### AddHeroTroop
 `public void AddHeroTroop(OrderOfBattleHeroItemVM heroItem)`
 
 **Purpose:** Adds `hero troop` to the current collection or state.
 
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.AddHeroTroop(heroItem);
+```
+
 ### RemoveHeroTroop
 `public void RemoveHeroTroop(OrderOfBattleHeroItemVM heroItem)`
 
 **Purpose:** Removes `hero troop` from the current collection or state.
 
+```csharp
+// Obtain an instance of OrderOfBattleFormationItemVM from the subsystem API first
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.RemoveHeroTroop(heroItem);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleFormationItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+OrderOfBattleFormationItemVM orderOfBattleFormationItemVM = ...;
+orderOfBattleFormationItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

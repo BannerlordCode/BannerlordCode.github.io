@@ -1,20 +1,14 @@
 ---
 title: "CoreManaged"
+description: "CoreManaged 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CoreManaged`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CoreManaged
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CoreManaged : IManagedComponent`
 **Base:** `IManagedComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CoreManaged.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CoreManaged.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "CoreManaged"
 ### Start
 `public static void Start()`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+CoreManaged.Start();
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ CoreManaged.Start();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

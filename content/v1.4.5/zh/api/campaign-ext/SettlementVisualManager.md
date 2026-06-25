@@ -1,20 +1,14 @@
 ---
 title: "SettlementVisualManager"
+description: "SettlementVisualManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementVisualManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementVisualManager
 
 **Namespace:** SandBox.View.Map.Managers
 **Module:** SandBox.View
 **Type:** `public class SettlementVisualManager : EntityVisualManagerBase<PartyBase>`
 **Base:** `EntityVisualManagerBase<PartyBase>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/SettlementVisualManager.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/SettlementVisualManager.cs`
 
 ## 概述
 
@@ -29,32 +23,68 @@ title: "SettlementVisualManager"
 ### OnTick
 `public override void OnTick(float realDt, float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementVisualManager 实例
+SettlementVisualManager settlementVisualManager = ...;
+settlementVisualManager.OnTick(0, 0);
+```
 
 ### OnVisualIntersected
 `public override bool OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**用途 / Purpose:** 当 `visual intersected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「visual intersected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementVisualManager 实例
+SettlementVisualManager settlementVisualManager = ...;
+var result = settlementVisualManager.OnVisualIntersected(mouseRay, intersectedEntityIDs, intersectionInfos, 0, worldMouseNear, worldMouseFar, terrainIntersectionPoint, hoveredVisual, selectedVisual);
+```
 
 ### OnFrameTick
 `public override void OnFrameTick(float dt)`
 
-**用途 / Purpose:** 当 `frame tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「frame tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementVisualManager 实例
+SettlementVisualManager settlementVisualManager = ...;
+settlementVisualManager.OnFrameTick(0);
+```
 
 ### OnMouseClick
 `public override bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**用途 / Purpose:** 当 `mouse click` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mouse click」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementVisualManager 实例
+SettlementVisualManager settlementVisualManager = ...;
+var result = settlementVisualManager.OnMouseClick(visualOfSelectedEntity, intersectionPoint, mouseOverFaceIndex, false);
+```
 
 ### GetVisualOfEntity
 `public override MapEntityVisual<PartyBase> GetVisualOfEntity(PartyBase partyBase)`
 
-**用途 / Purpose:** 获取 `visual of entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual of entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementVisualManager 实例
+SettlementVisualManager settlementVisualManager = ...;
+var result = settlementVisualManager.GetVisualOfEntity(partyBase);
+```
 
 ### GetSettlementVisual
 `public SettlementVisual GetSettlementVisual(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `settlement visual` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「settlement visual」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementVisualManager 实例
+SettlementVisualManager settlementVisualManager = ...;
+var result = settlementVisualManager.GetSettlementVisual(settlement);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ var manager = SettlementVisualManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

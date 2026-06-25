@@ -1,20 +1,14 @@
 ---
 title: "LauncherBoolBrushWidget"
+description: "Auto-generated class reference for LauncherBoolBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherBoolBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherBoolBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherBoolBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherBoolBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherBoolBrushWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `LauncherBoolBrushWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new LauncherBoolBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+LauncherBoolBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

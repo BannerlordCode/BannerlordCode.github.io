@@ -1,13 +1,7 @@
 ---
 title: "ThreatSeeker"
+description: "ThreatSeeker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ThreatSeeker`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThreatSeeker
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,45 +23,86 @@ title: "ThreatSeeker"
 ### PrepareTargetFromTask
 `public Threat PrepareTargetFromTask()`
 
-**用途 / Purpose:** 处理 `prepare target from task` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「target from task」操作完成前置准备工作。
+
+```csharp
+// 先通过子系统 API 拿到 ThreatSeeker 实例
+ThreatSeeker threatSeeker = ...;
+var result = threatSeeker.PrepareTargetFromTask();
+```
 
 ### UpdateThreatSeekerTask
 `public bool UpdateThreatSeekerTask()`
 
-**用途 / Purpose:** 更新 `threat seeker task` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「threat seeker task」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ThreatSeeker 实例
+ThreatSeeker threatSeeker = ...;
+var result = threatSeeker.UpdateThreatSeekerTask();
+```
 
 ### PrepareThreatSeekerTask
 `public void PrepareThreatSeekerTask(Action lastAction)`
 
-**用途 / Purpose:** 处理 `prepare threat seeker task` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「threat seeker task」操作完成前置准备工作。
+
+```csharp
+// 先通过子系统 API 拿到 ThreatSeeker 实例
+ThreatSeeker threatSeeker = ...;
+threatSeeker.PrepareThreatSeekerTask(lastAction);
+```
 
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 处理 `release` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ThreatSeeker 实例
+ThreatSeeker threatSeeker = ...;
+threatSeeker.Release();
+```
 
 ### GetAllThreats
 `public List<Threat> GetAllThreats()`
 
-**用途 / Purpose:** 获取 `all threats` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all threats」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ThreatSeeker 实例
+ThreatSeeker threatSeeker = ...;
+var result = threatSeeker.GetAllThreats();
+```
 
 ### GetTargetFlagsOfFormation
 `public static TargetFlags GetTargetFlagsOfFormation()`
 
-**用途 / Purpose:** 获取 `target flags of formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target flags of formation」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ThreatSeeker.GetTargetFlagsOfFormation();
+```
 
 ### GetMaxThreat
 `public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)`
 
-**用途 / Purpose:** 获取 `max threat` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max threat」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ThreatSeeker.GetMaxThreat(castleKeyPositions);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ThreatSeeker();
-value.PrepareTargetFromTask();
+// 通常从对应子系统 API 获取实例后调用
+ThreatSeeker threatSeeker = ...;
+threatSeeker.PrepareTargetFromTask();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

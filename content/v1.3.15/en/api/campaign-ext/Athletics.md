@@ -1,23 +1,18 @@
 ---
 title: "Athletics"
+description: "Auto-generated class reference for Athletics."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Athletics`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Athletics
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Athletics`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Athletics` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Athletics` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `MorningExercise` | `public static PerkObject MorningExercise { get; }` |
+| `WellBuilt` | `public static PerkObject WellBuilt { get; }` |
+| `Fury` | `public static PerkObject Fury { get; }` |
+| `FormFittingArmor` | `public static PerkObject FormFittingArmor { get; }` |
+| `ImposingStature` | `public static PerkObject ImposingStature { get; }` |
+| `Stamina` | `public static PerkObject Stamina { get; }` |
+| `Sprint` | `public static PerkObject Sprint { get; }` |
+| `Powerful` | `public static PerkObject Powerful { get; }` |
+| `SurgingBlow` | `public static PerkObject SurgingBlow { get; }` |
+| `Braced` | `public static PerkObject Braced { get; }` |
+| `WalkItOff` | `public static PerkObject WalkItOff { get; }` |
+| `AGoodDaysRest` | `public static PerkObject AGoodDaysRest { get; }` |
+| `Durable` | `public static PerkObject Durable { get; }` |
+| `Energetic` | `public static PerkObject Energetic { get; }` |
+| `Steady` | `public static PerkObject Steady { get; }` |
+| `Strong` | `public static PerkObject Strong { get; }` |
+| `StrongLegs` | `public static PerkObject StrongLegs { get; }` |
+| `StrongArms` | `public static PerkObject StrongArms { get; }` |
+| `Spartan` | `public static PerkObject Spartan { get; }` |
+| `IgnorePain` | `public static PerkObject IgnorePain { get; }` |
+| `MightyBlow` | `public static PerkObject MightyBlow { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Athletics();
+// Obtain an instance from the relevant subsystem API
+Athletics instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

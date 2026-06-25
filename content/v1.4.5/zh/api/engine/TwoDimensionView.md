@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionView"
+description: "TwoDimensionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TwoDimensionView`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionView
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class TwoDimensionView : View`
 **Base:** `View`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionView.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/TwoDimensionView.cs`
 
 ## 概述
 
@@ -29,49 +23,97 @@ title: "TwoDimensionView"
 ### CreateTwoDimension
 `public static TwoDimensionView CreateTwoDimension(string viewName)`
 
-**用途 / Purpose:** 创建一个 `two dimension` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「two dimension」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TwoDimensionView.CreateTwoDimension("example");
+```
 
 ### BeginFrame
 `public void BeginFrame()`
 
-**用途 / Purpose:** 处理 `begin frame` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionView 实例
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.BeginFrame();
+```
 
 ### EndFrame
 `public void EndFrame()`
 
-**用途 / Purpose:** 处理 `end frame` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionView 实例
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.EndFrame();
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionView 实例
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.Clear();
+```
 
 ### CreateMeshFromDescription
 `public void CreateMeshFromDescription(WeakMaterial material, TwoDimensionMeshDrawData meshDrawData)`
 
-**用途 / Purpose:** 创建一个 `mesh from description` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mesh from description」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionView 实例
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.CreateMeshFromDescription(material, meshDrawData);
+```
 
 ### CreateTextMeshFromCache
 `public bool CreateTextMeshFromCache(Material material, TwoDimensionTextMeshDrawData meshDrawData)`
 
-**用途 / Purpose:** 创建一个 `text mesh from cache` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「text mesh from cache」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionView 实例
+TwoDimensionView twoDimensionView = ...;
+var result = twoDimensionView.CreateTextMeshFromCache(material, meshDrawData);
+```
 
 ### CreateTextMeshFromDescription
 `public void CreateTextMeshFromDescription(float vertices, float uvs, uint indices, int indexCount, Material material, TwoDimensionTextMeshDrawData meshDrawData)`
 
-**用途 / Purpose:** 创建一个 `text mesh from description` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「text mesh from description」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionView 实例
+TwoDimensionView twoDimensionView = ...;
+twoDimensionView.CreateTextMeshFromDescription(0, 0, 0, 0, material, meshDrawData);
+```
 
 ### GetOrCreateMaterial
 `public WeakMaterial GetOrCreateMaterial(Texture mainTexture, Texture overlayTexture)`
 
-**用途 / Purpose:** 获取 `or create material` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「or create material」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TwoDimensionView 实例
+TwoDimensionView twoDimensionView = ...;
+var result = twoDimensionView.GetOrCreateMaterial(mainTexture, overlayTexture);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new TwoDimensionView();
+// 从子系统 API 或场景中获取该视图
+TwoDimensionView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

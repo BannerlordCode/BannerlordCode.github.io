@@ -1,13 +1,7 @@
 ---
 title: "BarterData"
+description: "BarterData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BarterData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterData
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
@@ -37,29 +31,54 @@ title: "BarterData"
 ### AddBarterGroup
 `public void AddBarterGroup(BarterGroup barterGroup)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `barter group`。
+**用途 / Purpose:** 将 「barter group」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BarterData 实例
+BarterData barterData = ...;
+barterData.AddBarterGroup(barterGroup);
+```
 
 ### GetBarterGroups
 `public List<BarterGroup> GetBarterGroups()`
 
-**用途 / Purpose:** 获取 `barter groups` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「barter groups」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarterData 实例
+BarterData barterData = ...;
+var result = barterData.GetBarterGroups();
+```
 
 ### GetBarterables
 `public List<Barterable> GetBarterables()`
 
-**用途 / Purpose:** 获取 `barterables` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「barterables」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarterData 实例
+BarterData barterData = ...;
+var result = barterData.GetBarterables();
+```
 
 ### GetOfferedBarterables
 `public List<Barterable> GetOfferedBarterables()`
 
-**用途 / Purpose:** 获取 `offered barterables` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「offered barterables」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BarterData 实例
+BarterData barterData = ...;
+var result = barterData.GetOfferedBarterables();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BarterData();
+// 该数据对象通常由战役/任务 API 返回
+BarterData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

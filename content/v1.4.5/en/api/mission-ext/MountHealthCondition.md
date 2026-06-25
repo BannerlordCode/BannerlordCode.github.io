@@ -1,20 +1,14 @@
 ---
 title: "MountHealthCondition"
+description: "Auto-generated class reference for MountHealthCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountHealthCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountHealthCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MountHealthCondition : MPPerkCondition`
 **Base:** `MPPerkCondition`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/MountHealthCondition.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/MountHealthCondition.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of MountHealthCondition from the subsystem API first
+MountHealthCondition mountHealthCondition = ...;
+var result = mountHealthCondition.Check(peer);
+```
 
 ### Check
 `public override bool Check(Agent agent)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of MountHealthCondition from the subsystem API first
+MountHealthCondition mountHealthCondition = ...;
+var result = mountHealthCondition.Check(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MountHealthCondition();
-value.Check(peer);
+// Typically call this after obtaining an instance from the subsystem API
+MountHealthCondition mountHealthCondition = ...;
+mountHealthCondition.Check(peer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

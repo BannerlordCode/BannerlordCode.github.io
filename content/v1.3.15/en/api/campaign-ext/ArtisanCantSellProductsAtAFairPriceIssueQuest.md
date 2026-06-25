@@ -1,24 +1,18 @@
 ---
 title: "ArtisanCantSellProductsAtAFairPriceIssueQuest"
+description: "Auto-generated class reference for ArtisanCantSellProductsAtAFairPriceIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArtisanCantSellProductsAtAFairPriceIssueQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ArtisanCantSellProductsAtAFairPriceIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ArtisanCantSellProductsAtAFairPriceIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**Area:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/Issues/ArtisanCantSellProductsAtAFairPriceIssueBehavior.cs`
 
 ## Overview
 
-`ArtisanCantSellProductsAtAFairPriceIssueQuest` lives in `TaleWorlds.CampaignSystem.Issues`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ArtisanCantSellProductsAtAFairPriceIssueQuest` lives in `TaleWorlds.CampaignSystem.Issues` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,93 +22,41 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 
 | Name | Signature |
 |------|-----------|
-| `AlternativeSolutionScaleFlags` | `public override IssueBase.AlternativeSolutionScaleFlag AlternativeSolutionScaleFlags { get; }` |
-| `CounterOfferHero` | `public override Hero CounterOfferHero { get; set; }` |
-| `AlternativeSolutionBaseNeededMenCount` | `public override int AlternativeSolutionBaseNeededMenCount { get; }` |
-| `NeededInfluenceForLordSolution` | `public override int NeededInfluenceForLordSolution { get; }` |
-| `IsThereAlternativeSolution` | `public override bool IsThereAlternativeSolution { get; }` |
-| `IsThereLordSolution` | `public override bool IsThereLordSolution { get; }` |
-| `IssueBriefByIssueGiver` | `public override TextObject IssueBriefByIssueGiver { get; }` |
-| `IssueAcceptByPlayer` | `public override TextObject IssueAcceptByPlayer { get; }` |
-| `IssueQuestSolutionExplanationByIssueGiver` | `public override TextObject IssueQuestSolutionExplanationByIssueGiver { get; }` |
-| `IssueAlternativeSolutionExplanationByIssueGiver` | `public override TextObject IssueAlternativeSolutionExplanationByIssueGiver { get; }` |
-| `IssueLordSolutionExplanationByIssueGiver` | `public override TextObject IssueLordSolutionExplanationByIssueGiver { get; }` |
-| `IssueLordSolutionAcceptByPlayer` | `public override TextObject IssueLordSolutionAcceptByPlayer { get; }` |
-| `IssueLordSolutionResponseByIssueGiver` | `public override TextObject IssueLordSolutionResponseByIssueGiver { get; }` |
-| `IssueLordSolutionCounterOfferExplanationByOtherNpc` | `public override TextObject IssueLordSolutionCounterOfferExplanationByOtherNpc { get; }` |
-| `IssueLordSolutionCounterOfferBriefByOtherNpc` | `public override TextObject IssueLordSolutionCounterOfferBriefByOtherNpc { get; }` |
-| `IssueLordSolutionCounterOfferAcceptByPlayer` | `public override TextObject IssueLordSolutionCounterOfferAcceptByPlayer { get; }` |
-| `IssueLordSolutionCounterOfferAcceptResponseByOtherNpc` | `public override TextObject IssueLordSolutionCounterOfferAcceptResponseByOtherNpc { get; }` |
-| `IssueLordSolutionCounterOfferDeclineByPlayer` | `public override TextObject IssueLordSolutionCounterOfferDeclineByPlayer { get; }` |
-| `IssueLordSolutionCounterOfferDeclineResponseByOtherNpc` | `public override TextObject IssueLordSolutionCounterOfferDeclineResponseByOtherNpc { get; }` |
-| `IssueQuestSolutionAcceptByPlayer` | `public override TextObject IssueQuestSolutionAcceptByPlayer { get; }` |
+| `IsRemainingTimeHidden` | `public override bool IsRemainingTimeHidden { get; }` |
+| `Title` | `public override TextObject Title { get; }` |
 
 ## Key Methods
-
-### RegisterEvents
-`public override void RegisterEvents()`
-
-**Purpose:** Handles logic related to `register events`.
-
-### OnCheckForIssue
-`public void OnCheckForIssue(Hero hero)`
-
-**Purpose:** Called when the `check for issue` event is raised.
-
-### SyncData
-`public override void SyncData(IDataStore dataStore)`
-
-**Purpose:** Handles logic related to `sync data`.
-
-### GetAlternativeSolutionSkill
-`public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
-
-**Purpose:** Gets the current value of `alternative solution skill`.
-
-### LordSolutionCondition
-`public override bool LordSolutionCondition(out TextObject explanation)`
-
-**Purpose:** Handles logic related to `lord solution condition`.
-
-### AlternativeSolutionCondition
-`public override bool AlternativeSolutionCondition(out TextObject explanation)`
-
-**Purpose:** Handles logic related to `alternative solution condition`.
-
-### DoTroopsSatisfyAlternativeSolution
-`public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
-
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
-
-### GetFrequency
-`public override IssueBase.IssueFrequency GetFrequency()`
-
-**Purpose:** Gets the current value of `frequency`.
-
-### IssueStayAliveConditions
-`public override bool IssueStayAliveConditions()`
-
-**Purpose:** Handles logic related to `issue stay alive conditions`.
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of ArtisanCantSellProductsAtAFairPriceIssueQuest from the subsystem API first
+ArtisanCantSellProductsAtAFairPriceIssueQuest artisanCantSellProductsAtAFairPriceIssueQuest = ...;
+artisanCantSellProductsAtAFairPriceIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of ArtisanCantSellProductsAtAFairPriceIssueQuest from the subsystem API first
+ArtisanCantSellProductsAtAFairPriceIssueQuest artisanCantSellProductsAtAFairPriceIssueQuest = ...;
+artisanCantSellProductsAtAFairPriceIssueQuest.OnFailed();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a ArtisanCantSellProductsAtAFairPriceIssueQuest instance from game state, then call one of its public methods
-var value = new ArtisanCantSellProductsAtAFairPriceIssueQuest();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+ArtisanCantSellProductsAtAFairPriceIssueQuest artisanCantSellProductsAtAFairPriceIssueQuest = ...;
+artisanCantSellProductsAtAFairPriceIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ManagedSelectionOptionData"
+description: "Auto-generated class reference for ManagedSelectionOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedSelectionOptionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ManagedSelectionOptionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Options.ManagedOptions
@@ -29,24 +23,42 @@ Treat `ManagedSelectionOptionData` as a Data-style extension point: first identi
 ### GetSelectableOptionsLimit
 `public int GetSelectableOptionsLimit()`
 
-**Purpose:** Gets the current value of `selectable options limit`.
+**Purpose:** Reads and returns the `selectable options limit` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedSelectionOptionData from the subsystem API first
+ManagedSelectionOptionData managedSelectionOptionData = ...;
+var result = managedSelectionOptionData.GetSelectableOptionsLimit();
+```
 
 ### GetSelectableOptionNames
 `public IEnumerable<SelectionData> GetSelectableOptionNames()`
 
-**Purpose:** Gets the current value of `selectable option names`.
+**Purpose:** Reads and returns the `selectable option names` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedSelectionOptionData from the subsystem API first
+ManagedSelectionOptionData managedSelectionOptionData = ...;
+var result = managedSelectionOptionData.GetSelectableOptionNames();
+```
 
 ### GetOptionsLimit
 `public static int GetOptionsLimit(ManagedOptions.ManagedOptionsType optionType)`
 
-**Purpose:** Gets the current value of `options limit`.
+**Purpose:** Reads and returns the `options limit` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ManagedSelectionOptionData.GetOptionsLimit(optionType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ManagedSelectionOptionData();
+// This data object is usually returned by campaign/mission APIs
+ManagedSelectionOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

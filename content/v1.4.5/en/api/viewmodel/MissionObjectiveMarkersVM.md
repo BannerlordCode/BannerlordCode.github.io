@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveMarkersVM"
+description: "Auto-generated class reference for MissionObjectiveMarkersVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveMarkersVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveMarkersVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionObjectiveMarkersVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective/MissionObjectiveMarkersVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective/MissionObjectiveMarkersVM.cs`
 
 ## Overview
 
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Obje
 ### Compare
 `public int Compare(MissionObjectiveMarkerVM x, MissionObjectiveMarkerVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
+MissionObjectiveMarkersVM missionObjectiveMarkersVM = ...;
+var result = missionObjectiveMarkersVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
+MissionObjectiveMarkersVM missionObjectiveMarkersVM = ...;
+missionObjectiveMarkersVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
+MissionObjectiveMarkersVM missionObjectiveMarkersVM = ...;
+missionObjectiveMarkersVM.OnFinalize();
+```
 
 ### UpdateObjective
 `public void UpdateObjective(MissionObjective objective)`
 
-**Purpose:** Updates the state or data of `objective`.
+**Purpose:** Recalculates and stores the latest representation of `objective`.
+
+```csharp
+// Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
+MissionObjectiveMarkersVM missionObjectiveMarkersVM = ...;
+missionObjectiveMarkersVM.UpdateObjective(objective);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
+MissionObjectiveMarkersVM missionObjectiveMarkersVM = ...;
+missionObjectiveMarkersVM.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionObjectiveMarkersVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MissionObjectiveMarkersVM missionObjectiveMarkersVM = ...;
+missionObjectiveMarkersVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

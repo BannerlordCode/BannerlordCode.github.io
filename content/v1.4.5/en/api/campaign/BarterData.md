@@ -1,20 +1,14 @@
 ---
 title: "BarterData"
+description: "Auto-generated class reference for BarterData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterData
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BarterData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem/BarterData.cs`
 
 ## Overview
 
@@ -37,27 +31,52 @@ Treat `BarterData` as a Data-style extension point: first identify who creates i
 
 **Purpose:** Adds `barter group` to the current collection or state.
 
+```csharp
+// Obtain an instance of BarterData from the subsystem API first
+BarterData barterData = ...;
+barterData.AddBarterGroup(barterGroup);
+```
+
 ### GetBarterGroups
 `public List<BarterGroup> GetBarterGroups()`
 
-**Purpose:** Gets the current value of `barter groups`.
+**Purpose:** Reads and returns the `barter groups` value held by the current object.
+
+```csharp
+// Obtain an instance of BarterData from the subsystem API first
+BarterData barterData = ...;
+var result = barterData.GetBarterGroups();
+```
 
 ### GetBarterables
 `public List<Barterable> GetBarterables()`
 
-**Purpose:** Gets the current value of `barterables`.
+**Purpose:** Reads and returns the `barterables` value held by the current object.
+
+```csharp
+// Obtain an instance of BarterData from the subsystem API first
+BarterData barterData = ...;
+var result = barterData.GetBarterables();
+```
 
 ### GetOfferedBarterables
 `public List<Barterable> GetOfferedBarterables()`
 
-**Purpose:** Gets the current value of `offered barterables`.
+**Purpose:** Reads and returns the `offered barterables` value held by the current object.
+
+```csharp
+// Obtain an instance of BarterData from the subsystem API first
+BarterData barterData = ...;
+var result = barterData.GetOfferedBarterables();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BarterData();
+// This data object is usually returned by campaign/mission APIs
+BarterData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

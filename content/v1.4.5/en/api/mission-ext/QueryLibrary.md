@@ -1,20 +1,14 @@
 ---
 title: "QueryLibrary"
+description: "Auto-generated class reference for QueryLibrary."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QueryLibrary`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QueryLibrary
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class QueryLibrary`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/QueryLibrary.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/QueryLibrary.cs`
 
 ## Overview
 
@@ -29,62 +23,122 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsInfantry
 `public static bool IsInfantry(Agent a)`
 
-**Purpose:** Handles logic related to `is infantry`.
+**Purpose:** Determines whether the current object is in the `infantry` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsInfantry(a);
+```
 
 ### IsInfantryWithoutBanner
 `public static bool IsInfantryWithoutBanner(Agent a)`
 
-**Purpose:** Handles logic related to `is infantry without banner`.
+**Purpose:** Determines whether the current object is in the `infantry without banner` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsInfantryWithoutBanner(a);
+```
 
 ### HasShield
 `public static bool HasShield(Agent a)`
 
-**Purpose:** Checks whether the current object has/contains `shield`.
+**Purpose:** Determines whether the current object already holds `shield`.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.HasShield(a);
+```
 
 ### IsRanged
 `public static bool IsRanged(Agent a)`
 
-**Purpose:** Handles logic related to `is ranged`.
+**Purpose:** Determines whether the current object is in the `ranged` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsRanged(a);
+```
 
 ### IsRangedWithoutBanner
 `public static bool IsRangedWithoutBanner(Agent a)`
 
-**Purpose:** Handles logic related to `is ranged without banner`.
+**Purpose:** Determines whether the current object is in the `ranged without banner` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsRangedWithoutBanner(a);
+```
 
 ### IsCavalry
 `public static bool IsCavalry(Agent a)`
 
-**Purpose:** Handles logic related to `is cavalry`.
+**Purpose:** Determines whether the current object is in the `cavalry` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsCavalry(a);
+```
 
 ### IsCavalryWithoutBanner
 `public static bool IsCavalryWithoutBanner(Agent a)`
 
-**Purpose:** Handles logic related to `is cavalry without banner`.
+**Purpose:** Determines whether the current object is in the `cavalry without banner` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsCavalryWithoutBanner(a);
+```
 
 ### IsRangedCavalry
 `public static bool IsRangedCavalry(Agent a)`
 
-**Purpose:** Handles logic related to `is ranged cavalry`.
+**Purpose:** Determines whether the current object is in the `ranged cavalry` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsRangedCavalry(a);
+```
 
 ### IsRangedCavalryWithoutBanner
 `public static bool IsRangedCavalryWithoutBanner(Agent a)`
 
-**Purpose:** Handles logic related to `is ranged cavalry without banner`.
+**Purpose:** Determines whether the current object is in the `ranged cavalry without banner` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsRangedCavalryWithoutBanner(a);
+```
 
 ### HasSpear
 `public static bool HasSpear(Agent a)`
 
-**Purpose:** Checks whether the current object has/contains `spear`.
+**Purpose:** Determines whether the current object already holds `spear`.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.HasSpear(a);
+```
 
 ### HasThrown
 `public static bool HasThrown(Agent a)`
 
-**Purpose:** Checks whether the current object has/contains `thrown`.
+**Purpose:** Determines whether the current object already holds `thrown`.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.HasThrown(a);
+```
 
 ### IsHeavy
 `public static bool IsHeavy(Agent a)`
 
-**Purpose:** Handles logic related to `is heavy`.
+**Purpose:** Determines whether the current object is in the `heavy` state or condition.
+
+```csharp
+// Static call; no instance required
+QueryLibrary.IsHeavy(a);
+```
 
 ## Usage Example
 
@@ -94,4 +148,4 @@ QueryLibrary.IsInfantry(a);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

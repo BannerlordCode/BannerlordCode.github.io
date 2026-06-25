@@ -1,13 +1,7 @@
 ---
 title: "ClanPartyRoleSelectionPopupWidget"
+description: "ClanPartyRoleSelectionPopupWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanPartyRoleSelectionPopupWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanPartyRoleSelectionPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
@@ -35,14 +29,21 @@ title: "ClanPartyRoleSelectionPopupWidget"
 ### AddToggleWidget
 `public void AddToggleWidget(Widget widget)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `toggle widget`。
+**用途 / Purpose:** 将 「toggle widget」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ClanPartyRoleSelectionPopupWidget 实例
+ClanPartyRoleSelectionPopupWidget clanPartyRoleSelectionPopupWidget = ...;
+clanPartyRoleSelectionPopupWidget.AddToggleWidget(widget);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ClanPartyRoleSelectionPopupWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ClanPartyRoleSelectionPopupWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

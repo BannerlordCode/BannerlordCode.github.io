@@ -1,20 +1,14 @@
 ---
 title: "ProgressUpdate"
+description: "Auto-generated class reference for ProgressUpdate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProgressUpdate`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProgressUpdate
 
 **Namespace:** TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ProgressUpdate`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/ProgressUpdate.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelper/ProgressUpdate.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelpe
 ## Usage Example
 
 ```csharp
-var value = new ProgressUpdate();
+// Obtain an instance from the relevant subsystem API
+ProgressUpdate instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MapCursor"
+description: "Auto-generated class reference for MapCursor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapCursor`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapCursor
 
 **Namespace:** SandBox.View.Map
@@ -29,25 +23,44 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### Initialize
 `public void Initialize(MapScreen parentMapScreen)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MapCursor from the subsystem API first
+MapCursor mapCursor = ...;
+mapCursor.Initialize(parentMapScreen);
+```
 
 ### BeforeTick
 `public void BeforeTick(float dt)`
 
-**Purpose:** Handles logic related to `before tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapCursor from the subsystem API first
+MapCursor mapCursor = ...;
+mapCursor.BeforeTick(0);
+```
 
 ### SetVisible
 `public void SetVisible(bool value)`
 
-**Purpose:** Sets the value or state of `visible`.
+**Purpose:** Assigns a new value to `visible` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapCursor from the subsystem API first
+MapCursor mapCursor = ...;
+mapCursor.SetVisible(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapCursor();
-value.Initialize(parentMapScreen);
+// Typically call this after obtaining an instance from the subsystem API
+MapCursor mapCursor = ...;
+mapCursor.Initialize(parentMapScreen);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

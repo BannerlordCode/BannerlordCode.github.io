@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleScreen"
+description: "CustomBattleScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleScreen.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleScreen.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "CustomBattleScreen"
 ### UpdateLayout
 `public override void UpdateLayout()`
 
-**用途 / Purpose:** 更新 `layout` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「layout」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScreen 实例
+CustomBattleScreen customBattleScreen = ...;
+customBattleScreen.UpdateLayout();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleScreen();
-value.UpdateLayout();
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleScreen customBattleScreen = ...;
+customBattleScreen.UpdateLayout();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "BarterItemCountTextWidget"
+description: "Auto-generated class reference for BarterItemCountTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterItemCountTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BarterItemCountTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter
@@ -33,9 +27,10 @@ Treat `BarterItemCountTextWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new BarterItemCountTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BarterItemCountTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

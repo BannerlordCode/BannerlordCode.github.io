@@ -1,20 +1,14 @@
 ---
 title: "IssueUpdateDetails"
+description: "IssueUpdateDetails 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IssueUpdateDetails`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IssueUpdateDetails
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public enum IssueUpdateDetails`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueBase.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueBase.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IssueUpdateDetails"
 ## 使用示例
 
 ```csharp
-IssueUpdateDetails example = IssueUpdateDetails.Value;
+// 从对应子系统 API 获取实例
+IssueUpdateDetails instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

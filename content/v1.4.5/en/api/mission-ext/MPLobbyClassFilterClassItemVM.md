@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClassFilterClassItemVM"
+description: "Auto-generated class reference for MPLobbyClassFilterClassItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClassFilterClassItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClassFilterClassItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClassFilterClassItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter/MPLobbyClassFilterClassItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter/MPLobbyClassFilterClassItemVM.cs`
 
 ## Overview
 
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClassFilterClassItemVM from the subsystem API first
+MPLobbyClassFilterClassItemVM mPLobbyClassFilterClassItemVM = ...;
+mPLobbyClassFilterClassItemVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClassFilterClassItemVM from the subsystem API first
+MPLobbyClassFilterClassItemVM mPLobbyClassFilterClassItemVM = ...;
+mPLobbyClassFilterClassItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClassFilterClassItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClassFilterClassItemVM mPLobbyClassFilterClassItemVM = ...;
+mPLobbyClassFilterClassItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

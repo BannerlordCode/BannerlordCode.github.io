@@ -1,13 +1,7 @@
 ---
 title: "TournamentMissionStarter"
+description: "TournamentMissionStarter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentMissionStarter`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentMissionStarter
 
 **Namespace:** SandBox.Tournaments
@@ -29,27 +23,52 @@ title: "TournamentMissionStarter"
 ### OpenTournamentArcheryMission
 `public static Mission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament archery mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament archery mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionStarter.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentFightMission
 `public static Mission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament fight mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament fight mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionStarter.OpenTournamentFightMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentHorseRaceMission
 `public static Mission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament horse race mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament horse race mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionStarter.OpenTournamentHorseRaceMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentJoustingMission
 `public static Mission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 处理 `open tournament jousting mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament jousting mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionStarter.OpenTournamentJoustingMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenBattleChallengeMission
 `public static Mission OpenBattleChallengeMission(string scene, IList<Hero> priorityCharsAttacker, IList<Hero> priorityCharsDefender)`
 
-**用途 / Purpose:** 处理 `open battle challenge mission` 相关逻辑。
+**用途 / Purpose:** 打开「battle challenge mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionStarter.OpenBattleChallengeMission("example", priorityCharsAttacker, priorityCharsDefender);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ TournamentMissionStarter.OpenTournamentArcheryMission("example", tournamentGame,
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "CanvasLineImage"
+description: "Auto-generated class reference for CanvasLineImage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CanvasLineImage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasLineImage
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public void LoadFrom(XmlNode imageNode)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CanvasLineImage from the subsystem API first
+CanvasLineImage canvasLineImage = ...;
+canvasLineImage.LoadFrom(imageNode);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CanvasLineImage();
-value.LoadFrom(imageNode);
+// Typically call this after obtaining an instance from the subsystem API
+CanvasLineImage canvasLineImage = ...;
+canvasLineImage.LoadFrom(imageNode);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

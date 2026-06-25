@@ -1,13 +1,7 @@
 ---
 title: "MissionGenericMarkerTargetVM"
+description: "Auto-generated class reference for MissionGenericMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGenericMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGenericMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
@@ -29,20 +23,33 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets` t
 ### Equals
 `public override bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MissionGenericMarkerTargetVM from the subsystem API first
+MissionGenericMarkerTargetVM missionGenericMarkerTargetVM = ...;
+var result = missionGenericMarkerTargetVM.Equals(other);
+```
 
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionGenericMarkerTargetVM from the subsystem API first
+MissionGenericMarkerTargetVM missionGenericMarkerTargetVM = ...;
+missionGenericMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGenericMarkerTargetVM();
-value.Equals(other);
+// Typically call this after obtaining an instance from the subsystem API
+MissionGenericMarkerTargetVM missionGenericMarkerTargetVM = ...;
+missionGenericMarkerTargetVM.Equals(other);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

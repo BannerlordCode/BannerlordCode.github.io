@@ -1,20 +1,14 @@
 ---
 title: "AccessObject"
+description: "AccessObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AccessObject`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AccessObject
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public abstract class AccessObject`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AccessObject.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AccessObject.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "AccessObject"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomAccessObject();
+// 通常通过子系统 API 或工厂获得派生实例
+AccessObject instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

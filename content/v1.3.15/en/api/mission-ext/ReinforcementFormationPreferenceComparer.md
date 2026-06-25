@@ -1,24 +1,18 @@
 ---
 title: "ReinforcementFormationPreferenceComparer"
+description: "Auto-generated class reference for ReinforcementFormationPreferenceComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReinforcementFormationPreferenceComparer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ReinforcementFormationPreferenceComparer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReinforcementFormationPreferenceComparer : IComparer<MissionReinforcementsHelper.ReinforcementFormationPriority>`
 **Base:** `IComparer<MissionReinforcementsHelper.ReinforcementFormationPriority>`
-**Area:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/MissionReinforcementsHelper.cs`
 
 ## Overview
 
-`ReinforcementFormationPreferenceComparer` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ReinforcementFormationPreferenceComparer` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -26,54 +20,25 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 ## Key Methods
 
-### OnMissionStart
-`public static void OnMissionStart()`
-
-**Purpose:** Called when the `mission start` event is raised.
-
-### GetReinforcementAssignments
-`public unsafe static List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
-
-**Purpose:** Gets the current value of `reinforcement assignments`.
-
-### OnMissionEnd
-`public static void OnMissionEnd()`
-
-**Purpose:** Called when the `mission end` event is raised.
-
 ### Compare
 `public int Compare(MissionReinforcementsHelper.ReinforcementFormationPriority left, MissionReinforcementsHelper.ReinforcementFormationPriority right)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
 
-### Initialize
-`public void Initialize(Formation formation, uint initTime)`
-
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
-
-### AddProspectiveTroop
-`public void AddProspectiveTroop(FormationClass troopClass)`
-
-**Purpose:** Adds `prospective troop` to the current collection or state.
-
-### IsInitialized
-`public bool IsInitialized(uint initTime)`
-
-**Purpose:** Handles logic related to `is initialized`.
-
-### GetPriority
-`public MissionReinforcementsHelper.ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
-
-**Purpose:** Gets the current value of `priority`.
+```csharp
+// Obtain an instance of ReinforcementFormationPreferenceComparer from the subsystem API first
+ReinforcementFormationPreferenceComparer reinforcementFormationPreferenceComparer = ...;
+var result = reinforcementFormationPreferenceComparer.Compare(left, right);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
-ReinforcementFormationPreferenceComparer.OnMissionStart();
+// Typically call this after obtaining an instance from the subsystem API
+ReinforcementFormationPreferenceComparer reinforcementFormationPreferenceComparer = ...;
+reinforcementFormationPreferenceComparer.Compare(left, right);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

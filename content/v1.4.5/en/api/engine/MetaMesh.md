@@ -1,20 +1,14 @@
 ---
 title: "MetaMesh"
+description: "Auto-generated class reference for MetaMesh."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MetaMesh`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MetaMesh
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class MetaMesh : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/MetaMesh.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/MetaMesh.cs`
 
 ## Overview
 
@@ -36,332 +30,722 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateMetaMesh
 `public static MetaMesh CreateMetaMesh(string name = null)`
 
-**Purpose:** Creates a new `meta mesh` instance or object.
+**Purpose:** Constructs a new `meta mesh` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MetaMesh.CreateMetaMesh("example");
+```
 
 ### GetLodMaskForMeshAtIndex
 `public int GetLodMaskForMeshAtIndex(int index)`
 
-**Purpose:** Gets the current value of `lod mask for mesh at index`.
+**Purpose:** Reads and returns the `lod mask for mesh at index` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetLodMaskForMeshAtIndex(0);
+```
 
 ### GetTotalGpuSize
 `public int GetTotalGpuSize()`
 
-**Purpose:** Gets the current value of `total gpu size`.
+**Purpose:** Reads and returns the `total gpu size` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetTotalGpuSize();
+```
 
 ### RemoveMeshesWithTag
 `public int RemoveMeshesWithTag(string tag)`
 
 **Purpose:** Removes `meshes with tag` from the current collection or state.
 
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.RemoveMeshesWithTag("example");
+```
+
 ### RemoveMeshesWithoutTag
 `public int RemoveMeshesWithoutTag(string tag)`
 
 **Purpose:** Removes `meshes without tag` from the current collection or state.
 
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.RemoveMeshesWithoutTag("example");
+```
+
 ### GetMeshCountWithTag
 `public int GetMeshCountWithTag(string tag)`
 
-**Purpose:** Gets the current value of `mesh count with tag`.
+**Purpose:** Reads and returns the `mesh count with tag` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetMeshCountWithTag("example");
+```
 
 ### HasVertexBufferOrEditDataOrPackageItem
 `public bool HasVertexBufferOrEditDataOrPackageItem()`
 
-**Purpose:** Checks whether the current object has/contains `vertex buffer or edit data or package item`.
+**Purpose:** Determines whether the current object already holds `vertex buffer or edit data or package item`.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasVertexBufferOrEditDataOrPackageItem();
+```
 
 ### HasAnyGeneratedLods
 `public bool HasAnyGeneratedLods()`
 
-**Purpose:** Checks whether the current object has/contains `any generated lods`.
+**Purpose:** Determines whether the current object already holds `any generated lods`.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasAnyGeneratedLods();
+```
 
 ### HasAnyLods
 `public bool HasAnyLods()`
 
-**Purpose:** Checks whether the current object has/contains `any lods`.
+**Purpose:** Determines whether the current object already holds `any lods`.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasAnyLods();
+```
 
 ### GetCopy
 `public static MetaMesh GetCopy(string metaMeshName, bool showErrors = true, bool mayReturnNull = false)`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaMesh.GetCopy("example", false, false);
+```
 
 ### CopyTo
 `public void CopyTo(MetaMesh res, bool copyMeshes = true)`
 
-**Purpose:** Handles logic related to `copy to`.
+**Purpose:** Copies the `to` state of the current object to a target.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.CopyTo(res, false);
+```
 
 ### ClearMeshesForOtherLods
 `public void ClearMeshesForOtherLods(int lodToKeep)`
 
-**Purpose:** Handles logic related to `clear meshes for other lods`.
+**Purpose:** Removes all `meshes for other lods` from the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForOtherLods(0);
+```
 
 ### ClearMeshesForLod
 `public void ClearMeshesForLod(int lodToClear)`
 
-**Purpose:** Handles logic related to `clear meshes for lod`.
+**Purpose:** Removes all `meshes for lod` from the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForLod(0);
+```
 
 ### ClearMeshesForLowerLods
 `public void ClearMeshesForLowerLods(int lodToClear)`
 
-**Purpose:** Handles logic related to `clear meshes for lower lods`.
+**Purpose:** Removes all `meshes for lower lods` from the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForLowerLods(0);
+```
 
 ### ClearMeshes
 `public void ClearMeshes()`
 
-**Purpose:** Handles logic related to `clear meshes`.
+**Purpose:** Removes all `meshes` from the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshes();
+```
 
 ### SetNumLods
 `public void SetNumLods(int lodToClear)`
 
-**Purpose:** Sets the value or state of `num lods`.
+**Purpose:** Assigns a new value to `num lods` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetNumLods(0);
+```
 
 ### CheckMetaMeshExistence
 `public static void CheckMetaMeshExistence(string metaMeshName, int lod_count_check)`
 
-**Purpose:** Handles logic related to `check meta mesh existence`.
+**Purpose:** Verifies whether `meta mesh existence` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+MetaMesh.CheckMetaMeshExistence("example", 0);
+```
 
 ### GetMorphedCopy
 `public static MetaMesh GetMorphedCopy(string metaMeshName, float morphTarget, bool showErrors)`
 
-**Purpose:** Gets the current value of `morphed copy`.
+**Purpose:** Reads and returns the `morphed copy` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaMesh.GetMorphedCopy("example", 0, false);
+```
 
 ### CreateCopy
 `public MetaMesh CreateCopy()`
 
-**Purpose:** Creates a new `copy` instance or object.
+**Purpose:** Constructs a new `copy` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.CreateCopy();
+```
 
 ### AddMesh
 `public void AddMesh(Mesh mesh)`
 
 **Purpose:** Adds `mesh` to the current collection or state.
 
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddMesh(mesh);
+```
+
 ### AddMesh
 `public void AddMesh(Mesh mesh, uint lodLevel)`
 
 **Purpose:** Adds `mesh` to the current collection or state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddMesh(mesh, 0);
+```
 
 ### AddMetaMesh
 `public void AddMetaMesh(MetaMesh metaMesh)`
 
 **Purpose:** Adds `meta mesh` to the current collection or state.
 
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddMetaMesh(metaMesh);
+```
+
 ### SetCullMode
 `public void SetCullMode(MBMeshCullingMode cullMode)`
 
-**Purpose:** Sets the value or state of `cull mode`.
+**Purpose:** Assigns a new value to `cull mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetCullMode(cullMode);
+```
 
 ### AddMaterialShaderFlag
 `public void AddMaterialShaderFlag(string materialShaderFlag)`
 
 **Purpose:** Adds `material shader flag` to the current collection or state.
 
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddMaterialShaderFlag("example");
+```
+
 ### MergeMultiMeshes
 `public void MergeMultiMeshes(MetaMesh metaMesh)`
 
-**Purpose:** Handles logic related to `merge multi meshes`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.MergeMultiMeshes(metaMesh);
+```
 
 ### AssignClothBodyFrom
 `public void AssignClothBodyFrom(MetaMesh metaMesh)`
 
-**Purpose:** Handles logic related to `assign cloth body from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AssignClothBodyFrom(metaMesh);
+```
 
 ### BatchMultiMeshes
 `public void BatchMultiMeshes(MetaMesh metaMesh)`
 
-**Purpose:** Handles logic related to `batch multi meshes`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.BatchMultiMeshes(metaMesh);
+```
 
 ### HasClothData
 `public bool HasClothData()`
 
-**Purpose:** Checks whether the current object has/contains `cloth data`.
+**Purpose:** Determines whether the current object already holds `cloth data`.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasClothData();
+```
 
 ### BatchMultiMeshesMultiple
 `public void BatchMultiMeshesMultiple(List<MetaMesh> metaMeshes)`
 
-**Purpose:** Handles logic related to `batch multi meshes multiple`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.BatchMultiMeshesMultiple(metaMeshes);
+```
 
 ### ClearEditData
 `public void ClearEditData()`
 
-**Purpose:** Handles logic related to `clear edit data`.
+**Purpose:** Removes all `edit data` from the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearEditData();
+```
 
 ### GetMeshAtIndex
 `public Mesh GetMeshAtIndex(int meshIndex)`
 
-**Purpose:** Gets the current value of `mesh at index`.
+**Purpose:** Reads and returns the `mesh at index` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetMeshAtIndex(0);
+```
 
 ### GetFirstMeshWithTag
 `public Mesh GetFirstMeshWithTag(string tag)`
 
-**Purpose:** Gets the current value of `first mesh with tag`.
+**Purpose:** Reads and returns the `first mesh with tag` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFirstMeshWithTag("example");
+```
 
 ### GetFactor1
 `public uint GetFactor1()`
 
-**Purpose:** Gets the current value of `factor1`.
+**Purpose:** Reads and returns the `factor1` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFactor1();
+```
 
 ### SetGlossMultiplier
 `public void SetGlossMultiplier(float value)`
 
-**Purpose:** Sets the value or state of `gloss multiplier`.
+**Purpose:** Assigns a new value to `gloss multiplier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetGlossMultiplier(0);
+```
 
 ### GetFactor2
 `public uint GetFactor2()`
 
-**Purpose:** Gets the current value of `factor2`.
+**Purpose:** Reads and returns the `factor2` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFactor2();
+```
 
 ### SetFactor1Linear
 `public void SetFactor1Linear(uint linearFactorColor1)`
 
-**Purpose:** Sets the value or state of `factor1 linear`.
+**Purpose:** Assigns a new value to `factor1 linear` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor1Linear(0);
+```
 
 ### SetFactor2Linear
 `public void SetFactor2Linear(uint linearFactorColor2)`
 
-**Purpose:** Sets the value or state of `factor2 linear`.
+**Purpose:** Assigns a new value to `factor2 linear` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor2Linear(0);
+```
 
 ### SetFactor1
 `public void SetFactor1(uint factorColor1)`
 
-**Purpose:** Sets the value or state of `factor1`.
+**Purpose:** Assigns a new value to `factor1` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor1(0);
+```
 
 ### SetFactor2
 `public void SetFactor2(uint factorColor2)`
 
-**Purpose:** Sets the value or state of `factor2`.
+**Purpose:** Assigns a new value to `factor2` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor2(0);
+```
 
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** Sets the value or state of `vector argument`.
+**Purpose:** Assigns a new value to `vector argument` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetVectorArgument(0, 0, 0, 0);
+```
 
 ### SetVectorArgument2
 `public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**Purpose:** Sets the value or state of `vector argument2`.
+**Purpose:** Assigns a new value to `vector argument2` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetVectorArgument2(0, 0, 0, 0);
+```
 
 ### GetVectorArgument2
 `public Vec3 GetVectorArgument2()`
 
-**Purpose:** Gets the current value of `vector argument2`.
+**Purpose:** Reads and returns the `vector argument2` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetVectorArgument2();
+```
 
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**Purpose:** Sets the value or state of `material`.
+**Purpose:** Assigns a new value to `material` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetMaterial(material);
+```
 
 ### SetShaderToMaterial
 `public void SetShaderToMaterial(string shaderName)`
 
-**Purpose:** Sets the value or state of `shader to material`.
+**Purpose:** Assigns a new value to `shader to material` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetShaderToMaterial("example");
+```
 
 ### SetLodBias
 `public void SetLodBias(int lodBias)`
 
-**Purpose:** Sets the value or state of `lod bias`.
+**Purpose:** Assigns a new value to `lod bias` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetLodBias(0);
+```
 
 ### SetBillboarding
 `public void SetBillboarding(BillboardType billboard)`
 
-**Purpose:** Sets the value or state of `billboarding`.
+**Purpose:** Assigns a new value to `billboarding` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetBillboarding(billboard);
+```
 
 ### UseHeadBoneFaceGenScaling
 `public void UseHeadBoneFaceGenScaling(Skeleton skeleton, sbyte headLookDirectionBoneIndex, MatrixFrame frame)`
 
-**Purpose:** Handles logic related to `use head bone face gen scaling`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.UseHeadBoneFaceGenScaling(skeleton, 0, frame);
+```
 
 ### DrawTextWithDefaultFont
 `public void DrawTextWithDefaultFont(string text, Vec2 textPositionMin, Vec2 textPositionMax, Vec2 size, uint color, TextFlags flags)`
 
-**Purpose:** Handles logic related to `draw text with default font`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.DrawTextWithDefaultFont("example", textPositionMin, textPositionMax, size, 0, flags);
+```
 
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**Purpose:** Handles logic related to `preload for rendering`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.PreloadForRendering();
+```
 
 ### CheckResources
 `public int CheckResources()`
 
-**Purpose:** Handles logic related to `check resources`.
+**Purpose:** Verifies whether `resources` holds true for the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.CheckResources();
+```
 
 ### PreloadShaders
 `public void PreloadShaders(bool useTableau, bool useTeamColor)`
 
-**Purpose:** Handles logic related to `preload shaders`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.PreloadShaders(false, false);
+```
 
 ### RecomputeBoundingBox
 `public void RecomputeBoundingBox(bool recomputeMeshes)`
 
-**Purpose:** Handles logic related to `recompute bounding box`.
+**Purpose:** Recomputes `bounding box` and returns the result.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.RecomputeBoundingBox(false);
+```
 
 ### AddEditDataUser
 `public void AddEditDataUser()`
 
 **Purpose:** Adds `edit data user` to the current collection or state.
 
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddEditDataUser();
+```
+
 ### ReleaseEditDataUser
 `public void ReleaseEditDataUser()`
 
-**Purpose:** Handles logic related to `release edit data user`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ReleaseEditDataUser();
+```
 
 ### SetEditDataPolicy
 `public void SetEditDataPolicy(EditDataPolicy policy)`
 
-**Purpose:** Sets the value or state of `edit data policy`.
+**Purpose:** Assigns a new value to `edit data policy` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetEditDataPolicy(policy);
+```
 
 ### Fit
 `public MatrixFrame Fit()`
 
-**Purpose:** Handles logic related to `fit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.Fit();
+```
 
 ### GetBoundingBox
 `public BoundingBox GetBoundingBox()`
 
-**Purpose:** Gets the current value of `bounding box`.
+**Purpose:** Reads and returns the `bounding box` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetBoundingBox();
+```
 
 ### GetVisibilityMask
 `public VisibilityMaskFlags GetVisibilityMask()`
 
-**Purpose:** Gets the current value of `visibility mask`.
+**Purpose:** Reads and returns the `visibility mask` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetVisibilityMask();
+```
 
 ### SetVisibilityMask
 `public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
 
-**Purpose:** Sets the value or state of `visibility mask`.
+**Purpose:** Assigns a new value to `visibility mask` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetVisibilityMask(visibilityMask);
+```
 
 ### GetName
 `public string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetName();
+```
 
 ### GetAllMultiMeshes
 `public static void GetAllMultiMeshes(ref List<MetaMesh> multiMeshList)`
 
-**Purpose:** Gets the current value of `all multi meshes`.
+**Purpose:** Reads and returns the `all multi meshes` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaMesh.GetAllMultiMeshes(multiMeshList);
+```
 
 ### GetMultiMesh
 `public static MetaMesh GetMultiMesh(string name)`
 
-**Purpose:** Gets the current value of `multi mesh`.
+**Purpose:** Reads and returns the `multi mesh` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaMesh.GetMultiMesh("example");
+```
 
 ### SetContourState
 `public void SetContourState(bool alwaysVisible)`
 
-**Purpose:** Sets the value or state of `contour state`.
+**Purpose:** Assigns a new value to `contour state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetContourState(false);
+```
 
 ### SetContourColor
 `public void SetContourColor(uint color)`
 
-**Purpose:** Sets the value or state of `contour color`.
+**Purpose:** Assigns a new value to `contour color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetContourColor(0);
+```
 
 ### SetMaterialToSubMeshesWithTag
 `public void SetMaterialToSubMeshesWithTag(Material bodyMaterial, string tag)`
 
-**Purpose:** Sets the value or state of `material to sub meshes with tag`.
+**Purpose:** Assigns a new value to `material to sub meshes with tag` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetMaterialToSubMeshesWithTag(bodyMaterial, "example");
+```
 
 ### SetFactorColorToSubMeshesWithTag
 `public void SetFactorColorToSubMeshesWithTag(uint color, string tag)`
 
-**Purpose:** Sets the value or state of `factor color to sub meshes with tag`.
+**Purpose:** Assigns a new value to `factor color to sub meshes with tag` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactorColorToSubMeshesWithTag(0, "example");
+```
 
 ## Usage Example
 
@@ -371,4 +755,4 @@ MetaMesh.CreateMetaMesh("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

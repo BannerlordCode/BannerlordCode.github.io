@@ -1,24 +1,18 @@
 ---
 title: "CustomBattleState"
+description: "Auto-generated class reference for CustomBattleState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleState
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleState : GameState`
 **Base:** `GameState`
-**Area:** mission-ext
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleState.cs`
 
 ## Overview
 
-`CustomBattleState` lives in `TaleWorlds.MountAndBlade.CustomBattle`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CustomBattleState` lives in `TaleWorlds.MountAndBlade.CustomBattle` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,16 +23,19 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### EnableRecordMission
 `public static string EnableRecordMission(List<string> strings)`
 
-**Purpose:** Handles logic related to `enable record mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CustomBattleState.EnableRecordMission(strings);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CustomBattleState.EnableRecordMission(strings);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

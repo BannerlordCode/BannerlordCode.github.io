@@ -1,20 +1,14 @@
 ---
 title: "GauntletDefaultLoadingWindowManager"
+description: "GauntletDefaultLoadingWindowManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletDefaultLoadingWindowManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletDefaultLoadingWindowManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletDefaultLoadingWindowManager : GlobalLayer, ILoadingWindowManager`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletDefaultLoadingWindowManager.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletDefaultLoadingWindowManager.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "GauntletDefaultLoadingWindowManager"
 ### SetCurrentModeIsMultiplayer
 `public void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**用途 / Purpose:** 设置 `current mode is multiplayer` 的值或状态。
+**用途 / Purpose:** 为 「current mode is multiplayer」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletDefaultLoadingWindowManager 实例
+GauntletDefaultLoadingWindowManager gauntletDefaultLoadingWindowManager = ...;
+gauntletDefaultLoadingWindowManager.SetCurrentModeIsMultiplayer(false);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var manager = GauntletDefaultLoadingWindowManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

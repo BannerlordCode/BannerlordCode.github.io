@@ -1,20 +1,14 @@
 ---
 title: "MPPerkCondition"
+description: "MPPerkCondition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPPerkCondition`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPerkCondition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MPPerkCondition`
-**Base:** 无
-**File:** `TaleWorlds.MountAndBlade/MPPerkCondition.cs`
+**Type:** `public abstract class MPPerkCondition<T> : MPPerkCondition where T : MissionMultiplayerGameModeBase`
+**Base:** `MPPerkCondition where T : MissionMultiplayerGameModeBase`
+**File:** `TaleWorlds.MountAndBlade/MPPerkCondition.2.cs`
 
 ## 概述
 
@@ -24,36 +18,13 @@ title: "MPPerkCondition"
 
 先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `EventFlags` | `public virtual MPPerkCondition.PerkEventFlags EventFlags { get; }` |
-| `IsPeerCondition` | `public virtual bool IsPeerCondition { get; }` |
-
-## 主要方法
-
-### Check
-`public abstract bool Check(MissionPeer peer)`
-
-**用途 / Purpose:** 处理 `check` 相关逻辑。
-
-### Check
-`public abstract bool Check(Agent agent)`
-
-**用途 / Purpose:** 处理 `check` 相关逻辑。
-
-### CreateFrom
-`public static MPPerkCondition CreateFrom(List<string> gameModes, XmlNode node)`
-
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
-
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMPPerkCondition();
+// 通常通过子系统 API 或工厂获得派生实例
+MPPerkCondition instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

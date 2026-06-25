@@ -1,20 +1,14 @@
 ---
 title: "bin"
+description: "bin 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `bin`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # bin
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class bin`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFolders.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualFolders.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "bin"
 ### GetFileContent
 `public static string GetFileContent(string filePath, Type type = null)`
 
-**用途 / Purpose:** 获取 `file content` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file content」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+bin.GetFileContent("example", null);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ bin.GetFileContent("example", null);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

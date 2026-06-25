@@ -1,20 +1,14 @@
 ---
 title: "PrimitivePolygonMaterial"
+description: "PrimitivePolygonMaterial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrimitivePolygonMaterial`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrimitivePolygonMaterial
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class PrimitivePolygonMaterial : Material`
 **Base:** `Material`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/PrimitivePolygonMaterial.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/PrimitivePolygonMaterial.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "PrimitivePolygonMaterial"
 ## 使用示例
 
 ```csharp
-var example = new PrimitivePolygonMaterial();
+// 从对应子系统 API 获取实例
+PrimitivePolygonMaterial instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

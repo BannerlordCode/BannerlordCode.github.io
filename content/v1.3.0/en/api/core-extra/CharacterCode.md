@@ -1,13 +1,7 @@
 ---
 title: "CharacterCode"
+description: "Auto-generated class reference for CharacterCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCode
 
 **Namespace:** TaleWorlds.Core
@@ -45,45 +39,83 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CalculateEquipment
 `public Equipment CalculateEquipment()`
 
-**Purpose:** Handles logic related to `calculate equipment`.
+**Purpose:** Calculates the current value or result of `equipment`.
+
+```csharp
+// Obtain an instance of CharacterCode from the subsystem API first
+CharacterCode characterCode = ...;
+var result = characterCode.CalculateEquipment();
+```
 
 ### CreateFrom
 `public static CharacterCode CreateFrom(BasicCharacterObject character)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CharacterCode.CreateFrom(character);
+```
 
 ### CreateFrom
 `public static CharacterCode CreateFrom(BasicCharacterObject character, Equipment equipment)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CharacterCode.CreateFrom(character, equipment);
+```
 
 ### CreateFrom
 `public static CharacterCode CreateFrom(string equipmentCode, BodyProperties bodyProperties, bool isFemale, bool isHero, uint color1, uint color2, FormationClass formationClass, int race)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CharacterCode.CreateFrom("example", bodyProperties, false, false, 0, 0, formationClass, 0);
+```
 
 ### CreateNewCodeString
 `public string CreateNewCodeString()`
 
-**Purpose:** Creates a new `new code string` instance or object.
+**Purpose:** Constructs a new `new code string` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of CharacterCode from the subsystem API first
+CharacterCode characterCode = ...;
+var result = characterCode.CreateNewCodeString();
+```
 
 ### CreateEmpty
 `public static CharacterCode CreateEmpty()`
 
-**Purpose:** Creates a new `empty` instance or object.
+**Purpose:** Constructs a new `empty` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CharacterCode.CreateEmpty();
+```
 
 ### CreateFrom
 `public static CharacterCode CreateFrom(string code)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CharacterCode.CreateFrom("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCode();
-value.CalculateEquipment();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCode characterCode = ...;
+characterCode.CalculateEquipment();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

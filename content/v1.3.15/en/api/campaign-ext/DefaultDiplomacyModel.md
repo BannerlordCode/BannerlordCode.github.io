@@ -1,13 +1,7 @@
 ---
 title: "DefaultDiplomacyModel"
+description: "Auto-generated class reference for DefaultDiplomacyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultDiplomacyModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultDiplomacyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -43,272 +37,596 @@ Treat `DefaultDiplomacyModel` as a Model-style extension point: first identify w
 ### GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom
 `public override float GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom kingdomToJoin)`
 
-**Purpose:** Gets the current value of `strength threshold for non mutual wars to be ignored to join kingdom`.
+**Purpose:** Reads and returns the `strength threshold for non mutual wars to be ignored to join kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(kingdomToJoin);
+```
 
 ### GetClanStrength
 `public override float GetClanStrength(Clan clan)`
 
-**Purpose:** Gets the current value of `clan strength`.
+**Purpose:** Reads and returns the `clan strength` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetClanStrength(clan);
+```
 
 ### GetHeroCommandingStrengthForClan
 `public override float GetHeroCommandingStrengthForClan(Hero hero)`
 
-**Purpose:** Gets the current value of `hero commanding strength for clan`.
+**Purpose:** Reads and returns the `hero commanding strength for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetHeroCommandingStrengthForClan(hero);
+```
 
 ### GetHeroGoverningStrengthForClan
 `public override float GetHeroGoverningStrengthForClan(Hero hero)`
 
-**Purpose:** Gets the current value of `hero governing strength for clan`.
+**Purpose:** Reads and returns the `hero governing strength for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetHeroGoverningStrengthForClan(hero);
+```
 
 ### GetRelationIncreaseFactor
 `public override float GetRelationIncreaseFactor(Hero hero1, Hero hero2, float relationChange)`
 
-**Purpose:** Gets the current value of `relation increase factor`.
+**Purpose:** Reads and returns the `relation increase factor` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetRelationIncreaseFactor(hero1, hero2, 0);
+```
 
 ### GetInfluenceAwardForSettlementCapturer
 `public override int GetInfluenceAwardForSettlementCapturer(Settlement settlement)`
 
-**Purpose:** Gets the current value of `influence award for settlement capturer`.
+**Purpose:** Reads and returns the `influence award for settlement capturer` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceAwardForSettlementCapturer(settlement);
+```
 
 ### GetHourlyInfluenceAwardForBeingArmyMember
 `public override float GetHourlyInfluenceAwardForBeingArmyMember(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `hourly influence award for being army member`.
+**Purpose:** Reads and returns the `hourly influence award for being army member` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetHourlyInfluenceAwardForBeingArmyMember(mobileParty);
+```
 
 ### GetHourlyInfluenceAwardForRaidingEnemyVillage
 `public override float GetHourlyInfluenceAwardForRaidingEnemyVillage(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `hourly influence award for raiding enemy village`.
+**Purpose:** Reads and returns the `hourly influence award for raiding enemy village` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetHourlyInfluenceAwardForRaidingEnemyVillage(mobileParty);
+```
 
 ### GetHourlyInfluenceAwardForBesiegingEnemyFortification
 `public override float GetHourlyInfluenceAwardForBesiegingEnemyFortification(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `hourly influence award for besieging enemy fortification`.
+**Purpose:** Reads and returns the `hourly influence award for besieging enemy fortification` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetHourlyInfluenceAwardForBesiegingEnemyFortification(mobileParty);
+```
 
 ### GetScoreOfClanToJoinKingdom
 `public override float GetScoreOfClanToJoinKingdom(Clan clan, Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `score of clan to join kingdom`.
+**Purpose:** Reads and returns the `score of clan to join kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfClanToJoinKingdom(clan, kingdom);
+```
 
 ### GetScoreOfClanToLeaveKingdom
 `public override float GetScoreOfClanToLeaveKingdom(Clan clan, Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `score of clan to leave kingdom`.
+**Purpose:** Reads and returns the `score of clan to leave kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfClanToLeaveKingdom(clan, kingdom);
+```
 
 ### GetScoreOfKingdomToGetClan
 `public override float GetScoreOfKingdomToGetClan(Kingdom kingdom, Clan clan)`
 
-**Purpose:** Gets the current value of `score of kingdom to get clan`.
+**Purpose:** Reads and returns the `score of kingdom to get clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfKingdomToGetClan(kingdom, clan);
+```
 
 ### GetScoreOfKingdomToSackClan
 `public override float GetScoreOfKingdomToSackClan(Kingdom kingdom, Clan clan)`
 
-**Purpose:** Gets the current value of `score of kingdom to sack clan`.
+**Purpose:** Reads and returns the `score of kingdom to sack clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfKingdomToSackClan(kingdom, clan);
+```
 
 ### GetScoreOfMercenaryToJoinKingdom
 `public override float GetScoreOfMercenaryToJoinKingdom(Clan mercenaryClan, Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `score of mercenary to join kingdom`.
+**Purpose:** Reads and returns the `score of mercenary to join kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfMercenaryToJoinKingdom(mercenaryClan, kingdom);
+```
 
 ### GetScoreOfMercenaryToLeaveKingdom
 `public override float GetScoreOfMercenaryToLeaveKingdom(Clan mercenaryClan, Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `score of mercenary to leave kingdom`.
+**Purpose:** Reads and returns the `score of mercenary to leave kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfMercenaryToLeaveKingdom(mercenaryClan, kingdom);
+```
 
 ### GetScoreOfKingdomToHireMercenary
 `public override float GetScoreOfKingdomToHireMercenary(Kingdom kingdom, Clan mercenaryClan)`
 
-**Purpose:** Gets the current value of `score of kingdom to hire mercenary`.
+**Purpose:** Reads and returns the `score of kingdom to hire mercenary` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfKingdomToHireMercenary(kingdom, mercenaryClan);
+```
 
 ### GetScoreOfKingdomToSackMercenary
 `public override float GetScoreOfKingdomToSackMercenary(Kingdom kingdom, Clan mercenaryClan)`
 
-**Purpose:** Gets the current value of `score of kingdom to sack mercenary`.
+**Purpose:** Reads and returns the `score of kingdom to sack mercenary` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfKingdomToSackMercenary(kingdom, mercenaryClan);
+```
 
 ### GetScoreOfDeclaringPeaceForClan
 `public override float GetScoreOfDeclaringPeaceForClan(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace, Clan evaluatingClan, out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Gets the current value of `score of declaring peace for clan`.
+**Purpose:** Reads and returns the `score of declaring peace for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfDeclaringPeaceForClan(factionDeclaresPeace, factionDeclaredPeace, evaluatingClan, reason, false);
+```
 
 ### GetScoreOfDeclaringPeace
 `public override float GetScoreOfDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
 
-**Purpose:** Gets the current value of `score of declaring peace`.
+**Purpose:** Reads and returns the `score of declaring peace` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfDeclaringPeace(factionDeclaresPeace, factionDeclaredPeace);
+```
 
 ### GetWarProgressScore
 `public override ExplainedNumber GetWarProgressScore(IFaction factionDeclaresWar, IFaction factionDeclaredWar, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `war progress score`.
+**Purpose:** Reads and returns the `war progress score` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetWarProgressScore(factionDeclaresWar, factionDeclaredWar, false);
+```
 
 ### GetScoreOfDeclaringWar
 `public override float GetScoreOfDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar, Clan evaluatingClan, out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Gets the current value of `score of declaring war`.
+**Purpose:** Reads and returns the `score of declaring war` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfDeclaringWar(factionDeclaresWar, factionDeclaredWar, evaluatingClan, reason, false);
+```
 
 ### GetScoreOfLettingPartyGo
 `public override float GetScoreOfLettingPartyGo(MobileParty party, MobileParty partyToLetGo)`
 
-**Purpose:** Gets the current value of `score of letting party go`.
+**Purpose:** Reads and returns the `score of letting party go` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetScoreOfLettingPartyGo(party, partyToLetGo);
+```
 
 ### GetValueOfHeroForFaction
 `public override float GetValueOfHeroForFaction(Hero examinedHero, IFaction targetFaction, bool forMarriage = false)`
 
-**Purpose:** Gets the current value of `value of hero for faction`.
+**Purpose:** Reads and returns the `value of hero for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetValueOfHeroForFaction(examinedHero, targetFaction, false);
+```
 
 ### GetRelationCostOfExpellingClanFromKingdom
 `public override int GetRelationCostOfExpellingClanFromKingdom()`
 
-**Purpose:** Gets the current value of `relation cost of expelling clan from kingdom`.
+**Purpose:** Reads and returns the `relation cost of expelling clan from kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetRelationCostOfExpellingClanFromKingdom();
+```
 
 ### GetInfluenceCostOfSupportingClan
 `public override int GetInfluenceCostOfSupportingClan()`
 
-**Purpose:** Gets the current value of `influence cost of supporting clan`.
+**Purpose:** Reads and returns the `influence cost of supporting clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfSupportingClan();
+```
 
 ### GetInfluenceCostOfExpellingClan
 `public override int GetInfluenceCostOfExpellingClan(Clan proposingClan)`
 
-**Purpose:** Gets the current value of `influence cost of expelling clan`.
+**Purpose:** Reads and returns the `influence cost of expelling clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfExpellingClan(proposingClan);
+```
 
 ### GetInfluenceCostOfProposingPeace
 `public override int GetInfluenceCostOfProposingPeace(Clan proposingClan)`
 
-**Purpose:** Gets the current value of `influence cost of proposing peace`.
+**Purpose:** Reads and returns the `influence cost of proposing peace` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfProposingPeace(proposingClan);
+```
 
 ### GetInfluenceCostOfProposingWar
 `public override int GetInfluenceCostOfProposingWar(Clan proposingClan)`
 
-**Purpose:** Gets the current value of `influence cost of proposing war`.
+**Purpose:** Reads and returns the `influence cost of proposing war` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfProposingWar(proposingClan);
+```
 
 ### GetInfluenceValueOfSupportingClan
 `public override int GetInfluenceValueOfSupportingClan()`
 
-**Purpose:** Gets the current value of `influence value of supporting clan`.
+**Purpose:** Reads and returns the `influence value of supporting clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceValueOfSupportingClan();
+```
 
 ### GetRelationValueOfSupportingClan
 `public override int GetRelationValueOfSupportingClan()`
 
-**Purpose:** Gets the current value of `relation value of supporting clan`.
+**Purpose:** Reads and returns the `relation value of supporting clan` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetRelationValueOfSupportingClan();
+```
 
 ### GetInfluenceCostOfAnnexation
 `public override int GetInfluenceCostOfAnnexation(Clan proposingClan)`
 
-**Purpose:** Gets the current value of `influence cost of annexation`.
+**Purpose:** Reads and returns the `influence cost of annexation` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfAnnexation(proposingClan);
+```
 
 ### GetInfluenceCostOfChangingLeaderOfArmy
 `public override int GetInfluenceCostOfChangingLeaderOfArmy()`
 
-**Purpose:** Gets the current value of `influence cost of changing leader of army`.
+**Purpose:** Reads and returns the `influence cost of changing leader of army` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfChangingLeaderOfArmy();
+```
 
 ### GetInfluenceCostOfDisbandingArmy
 `public override int GetInfluenceCostOfDisbandingArmy()`
 
-**Purpose:** Gets the current value of `influence cost of disbanding army`.
+**Purpose:** Reads and returns the `influence cost of disbanding army` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfDisbandingArmy();
+```
 
 ### GetRelationCostOfDisbandingArmy
 `public override int GetRelationCostOfDisbandingArmy(bool isLeaderParty)`
 
-**Purpose:** Gets the current value of `relation cost of disbanding army`.
+**Purpose:** Reads and returns the `relation cost of disbanding army` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetRelationCostOfDisbandingArmy(false);
+```
 
 ### GetInfluenceCostOfPolicyProposalAndDisavowal
 `public override int GetInfluenceCostOfPolicyProposalAndDisavowal(Clan proposerClan)`
 
-**Purpose:** Gets the current value of `influence cost of policy proposal and disavowal`.
+**Purpose:** Reads and returns the `influence cost of policy proposal and disavowal` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfPolicyProposalAndDisavowal(proposerClan);
+```
 
 ### GetInfluenceCostOfAbandoningArmy
 `public override int GetInfluenceCostOfAbandoningArmy()`
 
-**Purpose:** Gets the current value of `influence cost of abandoning army`.
+**Purpose:** Reads and returns the `influence cost of abandoning army` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetInfluenceCostOfAbandoningArmy();
+```
 
 ### GetBaseRelation
 `public override int GetBaseRelation(Hero hero1, Hero hero2)`
 
-**Purpose:** Gets the current value of `base relation`.
+**Purpose:** Reads and returns the `base relation` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetBaseRelation(hero1, hero2);
+```
 
 ### GetEffectiveRelation
 `public override int GetEffectiveRelation(Hero hero1, Hero hero2)`
 
-**Purpose:** Gets the current value of `effective relation`.
+**Purpose:** Reads and returns the `effective relation` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetEffectiveRelation(hero1, hero2);
+```
 
 ### GetHeroesForEffectiveRelation
 `public override void GetHeroesForEffectiveRelation(Hero hero1, Hero hero2, out Hero effectiveHero1, out Hero effectiveHero2)`
 
-**Purpose:** Gets the current value of `heroes for effective relation`.
+**Purpose:** Reads and returns the `heroes for effective relation` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+defaultDiplomacyModel.GetHeroesForEffectiveRelation(hero1, hero2, effectiveHero1, effectiveHero2);
+```
 
 ### GetRelationChangeAfterClanLeaderIsDead
 `public override int GetRelationChangeAfterClanLeaderIsDead(Hero deadLeader, Hero relationHero)`
 
-**Purpose:** Gets the current value of `relation change after clan leader is dead`.
+**Purpose:** Reads and returns the `relation change after clan leader is dead` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetRelationChangeAfterClanLeaderIsDead(deadLeader, relationHero);
+```
 
 ### GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision
 `public override int GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(Hero supporter, bool hasHeroVotedAgainstOwner)`
 
-**Purpose:** Gets the current value of `relation change after voting in settlement owner preliminary decision`.
+**Purpose:** Reads and returns the `relation change after voting in settlement owner preliminary decision` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(supporter, false);
+```
 
 ### GetCharmExperienceFromRelationGain
 `public override int GetCharmExperienceFromRelationGain(Hero hero, float relationChange, ChangeRelationAction.ChangeRelationDetail detail)`
 
-**Purpose:** Gets the current value of `charm experience from relation gain`.
+**Purpose:** Reads and returns the `charm experience from relation gain` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetCharmExperienceFromRelationGain(hero, 0, detail);
+```
 
 ### GetNotificationColor
 `public override uint GetNotificationColor(ChatNotificationType notificationType)`
 
-**Purpose:** Gets the current value of `notification color`.
+**Purpose:** Reads and returns the `notification color` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetNotificationColor(notificationType);
+```
 
 ### DenarsToInfluence
 `public override float DenarsToInfluence()`
 
-**Purpose:** Handles logic related to `denars to influence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.DenarsToInfluence();
+```
 
 ### GetDecisionMakingThreshold
 `public override float GetDecisionMakingThreshold(IFaction consideringFaction)`
 
-**Purpose:** Gets the current value of `decision making threshold`.
+**Purpose:** Reads and returns the `decision making threshold` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetDecisionMakingThreshold(consideringFaction);
+```
 
 ### CanSettlementBeGifted
 `public override bool CanSettlementBeGifted(Settlement settlementToGift)`
 
-**Purpose:** Checks whether the current object can `settlement be gifted`.
+**Purpose:** Checks whether the current object meets the preconditions for `settlement be gifted`.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.CanSettlementBeGifted(settlementToGift);
+```
 
 ### GetValueOfSettlementsForFaction
 `public override float GetValueOfSettlementsForFaction(IFaction faction)`
 
-**Purpose:** Gets the current value of `value of settlements for faction`.
+**Purpose:** Reads and returns the `value of settlements for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetValueOfSettlementsForFaction(faction);
+```
 
 ### GetBarterGroups
 `public override IEnumerable<BarterGroup> GetBarterGroups()`
 
-**Purpose:** Gets the current value of `barter groups`.
+**Purpose:** Reads and returns the `barter groups` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetBarterGroups();
+```
 
 ### IsPeaceSuitable
 `public override bool IsPeaceSuitable(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
 
-**Purpose:** Handles logic related to `is peace suitable`.
+**Purpose:** Determines whether the current object is in the `peace suitable` state or condition.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.IsPeaceSuitable(factionDeclaresPeace, factionDeclaredPeace);
+```
 
 ### GetDailyTributeToPay
 `public override int GetDailyTributeToPay(Clan factionToPay, Clan factionToReceive, out int tributeDurationInDays)`
 
-**Purpose:** Gets the current value of `daily tribute to pay`.
+**Purpose:** Reads and returns the `daily tribute to pay` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetDailyTributeToPay(factionToPay, factionToReceive, tributeDurationInDays);
+```
 
 ### IsClanEligibleToBecomeRuler
 `public override bool IsClanEligibleToBecomeRuler(Clan clan)`
 
-**Purpose:** Handles logic related to `is clan eligible to become ruler`.
+**Purpose:** Determines whether the current object is in the `clan eligible to become ruler` state or condition.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.IsClanEligibleToBecomeRuler(clan);
+```
 
 ### GetShallowDiplomaticStance
 `public override DiplomacyModel.DiplomacyStance? GetShallowDiplomaticStance(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Gets the current value of `shallow diplomatic stance`.
+**Purpose:** Reads and returns the `shallow diplomatic stance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetShallowDiplomaticStance(faction1, faction2);
+```
 
 ### GetDefaultDiplomaticStance
 `public override DiplomacyModel.DiplomacyStance GetDefaultDiplomaticStance(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Gets the current value of `default diplomatic stance`.
+**Purpose:** Reads and returns the `default diplomatic stance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.GetDefaultDiplomaticStance(faction1, faction2);
+```
 
 ### IsAtConstantWar
 `public override bool IsAtConstantWar(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Handles logic related to `is at constant war`.
+**Purpose:** Determines whether the current object is in the `at constant war` state or condition.
+
+```csharp
+// Obtain an instance of DefaultDiplomacyModel from the subsystem API first
+DefaultDiplomacyModel defaultDiplomacyModel = ...;
+var result = defaultDiplomacyModel.IsAtConstantWar(faction1, faction2);
+```
 
 ## Usage Example
 
@@ -318,4 +636,4 @@ Game.Current.ReplaceModel<DefaultDiplomacyModel>(new MyDefaultDiplomacyModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SubModuleInfo"
+description: "Auto-generated class reference for SubModuleInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SubModuleInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SubModuleInfo
 
 **Namespace:** TaleWorlds.ModuleManager
 **Module:** TaleWorlds.ModuleManager
 **Type:** `public class SubModuleInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/SubModuleInfo.cs`
+**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/SubModuleInfo.cs`
 
 ## Overview
 
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ### LoadFrom
 `public void LoadFrom(XmlNode subModuleNode, string path, bool isOfficial)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SubModuleInfo from the subsystem API first
+SubModuleInfo subModuleInfo = ...;
+subModuleInfo.LoadFrom(subModuleNode, "example", false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SubModuleInfo();
-value.LoadFrom(subModuleNode, "example", false);
+// Typically call this after obtaining an instance from the subsystem API
+SubModuleInfo subModuleInfo = ...;
+subModuleInfo.LoadFrom(subModuleNode, "example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

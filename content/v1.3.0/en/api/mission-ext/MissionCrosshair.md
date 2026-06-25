@@ -1,13 +1,7 @@
 ---
 title: "MissionCrosshair"
+description: "Auto-generated class reference for MissionCrosshair."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCrosshair`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCrosshair
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews` to place it in
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionCrosshair from the subsystem API first
+MissionCrosshair missionCrosshair = ...;
+missionCrosshair.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionCrosshair from the subsystem API first
+MissionCrosshair missionCrosshair = ...;
+missionCrosshair.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionCrosshair();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionCrosshair missionCrosshair = ...;
+missionCrosshair.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

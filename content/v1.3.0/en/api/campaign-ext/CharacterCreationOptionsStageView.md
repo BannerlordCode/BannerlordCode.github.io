@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationOptionsStageView"
+description: "Auto-generated class reference for CharacterCreationOptionsStageView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationOptionsStageView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationOptionsStageView
 
 **Namespace:** SandBox.GauntletUI.CharacterCreation
@@ -35,49 +29,98 @@ Treat `CharacterCreationOptionsStageView` as a View-style extension point: first
 ### SetGenericScene
 `public override void SetGenericScene(Scene scene)`
 
-**Purpose:** Sets the value or state of `generic scene`.
+**Purpose:** Assigns a new value to `generic scene` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsStageView from the subsystem API first
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.SetGenericScene(scene);
+```
 
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsStageView from the subsystem API first
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.Tick(0);
+```
 
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**Purpose:** Gets the current value of `layers`.
+**Purpose:** Reads and returns the `layers` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsStageView from the subsystem API first
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+var result = characterCreationOptionsStageView.GetLayers();
+```
 
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**Purpose:** Gets the current value of `virtual stage count`.
+**Purpose:** Reads and returns the `virtual stage count` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsStageView from the subsystem API first
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+var result = characterCreationOptionsStageView.GetVirtualStageCount();
+```
 
 ### NextStage
 `public override void NextStage()`
 
-**Purpose:** Handles logic related to `next stage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsStageView from the subsystem API first
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.NextStage();
+```
 
 ### PreviousStage
 `public override void PreviousStage()`
 
-**Purpose:** Handles logic related to `previous stage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsStageView from the subsystem API first
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.PreviousStage();
+```
 
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**Purpose:** Loads `escape menu movie` data.
+**Purpose:** Reads `escape menu movie` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsStageView from the subsystem API first
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.LoadEscapeMenuMovie();
+```
 
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**Purpose:** Handles logic related to `release escape menu movie`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationOptionsStageView from the subsystem API first
+CharacterCreationOptionsStageView characterCreationOptionsStageView = ...;
+characterCreationOptionsStageView.ReleaseEscapeMenuMovie();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new CharacterCreationOptionsStageView();
+// Retrieve this view from the subsystem API or scene
+CharacterCreationOptionsStageView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

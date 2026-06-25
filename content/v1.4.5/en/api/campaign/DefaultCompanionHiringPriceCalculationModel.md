@@ -1,20 +1,14 @@
 ---
 title: "DefaultCompanionHiringPriceCalculationModel"
+description: "Auto-generated class reference for DefaultCompanionHiringPriceCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCompanionHiringPriceCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCompanionHiringPriceCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultCompanionHiringPriceCalculationModel : CompanionHiringPriceCalculationModel`
 **Base:** `CompanionHiringPriceCalculationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCompanionHiringPriceCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCompanionHiringPriceCalculationModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultCompanionHiringPriceCalculationModel` as a Model-style extension p
 ### GetCompanionHiringPrice
 `public override int GetCompanionHiringPrice(Hero companion)`
 
-**Purpose:** Gets the current value of `companion hiring price`.
+**Purpose:** Reads and returns the `companion hiring price` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCompanionHiringPriceCalculationModel from the subsystem API first
+DefaultCompanionHiringPriceCalculationModel defaultCompanionHiringPriceCalculationModel = ...;
+var result = defaultCompanionHiringPriceCalculationModel.GetCompanionHiringPrice(companion);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultCompanionHiringPriceCalculationModel>(new MyDef
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

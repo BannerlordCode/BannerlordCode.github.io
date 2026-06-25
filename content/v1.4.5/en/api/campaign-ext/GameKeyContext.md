@@ -1,20 +1,14 @@
 ---
 title: "GameKeyContext"
+description: "Auto-generated class reference for GameKeyContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameKeyContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyContext
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public abstract class GameKeyContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKeyContext.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/GameKeyContext.cs`
 
 ## Overview
 
@@ -36,29 +30,54 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### GetHotKey
 `public HotKey GetHotKey(string hotKeyId)`
 
-**Purpose:** Gets the current value of `hot key`.
+**Purpose:** Reads and returns the `hot key` value held by the current object.
+
+```csharp
+// Obtain an instance of GameKeyContext from the subsystem API first
+GameKeyContext gameKeyContext = ...;
+var result = gameKeyContext.GetHotKey("example");
+```
 
 ### GetGameKey
 `public GameKey GetGameKey(int gameKeyId)`
 
-**Purpose:** Gets the current value of `game key`.
+**Purpose:** Reads and returns the `game key` value held by the current object.
+
+```csharp
+// Obtain an instance of GameKeyContext from the subsystem API first
+GameKeyContext gameKeyContext = ...;
+var result = gameKeyContext.GetGameKey(0);
+```
 
 ### GetHotKeyId
 `public string GetHotKeyId(string hotKeyId)`
 
-**Purpose:** Gets the current value of `hot key id`.
+**Purpose:** Reads and returns the `hot key id` value held by the current object.
+
+```csharp
+// Obtain an instance of GameKeyContext from the subsystem API first
+GameKeyContext gameKeyContext = ...;
+var result = gameKeyContext.GetHotKeyId("example");
+```
 
 ### GetHotKeyId
 `public string GetHotKeyId(int gameKeyId)`
 
-**Purpose:** Gets the current value of `hot key id`.
+**Purpose:** Reads and returns the `hot key id` value held by the current object.
+
+```csharp
+// Obtain an instance of GameKeyContext from the subsystem API first
+GameKeyContext gameKeyContext = ...;
+var result = gameKeyContext.GetHotKeyId(0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameKeyContext();
+// Typically obtained from a subsystem API or factory
+GameKeyContext instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPlayerBadgeVisualWidget"
+description: "Auto-generated class reference for MultiplayerPlayerBadgeVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPlayerBadgeVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPlayerBadgeVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPlayerBadgeVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerPlayerBadgeVisualWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerPlayerBadgeVisualWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MultiplayerPlayerBadgeVisualWidget` as a Widget-style extension point: fi
 ### SetForcedSize
 `public void SetForcedSize(float width, float height)`
 
-**Purpose:** Sets the value or state of `forced size`.
+**Purpose:** Assigns a new value to `forced size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerPlayerBadgeVisualWidget from the subsystem API first
+MultiplayerPlayerBadgeVisualWidget multiplayerPlayerBadgeVisualWidget = ...;
+multiplayerPlayerBadgeVisualWidget.SetForcedSize(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerPlayerBadgeVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerPlayerBadgeVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

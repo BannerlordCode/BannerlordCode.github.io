@@ -1,20 +1,14 @@
 ---
 title: "DetachmentManager"
+description: "Auto-generated class reference for DetachmentManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DetachmentManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DetachmentManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DetachmentManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DetachmentManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DetachmentManager.cs`
 
 ## Overview
 
@@ -29,82 +23,178 @@ Treat `DetachmentManager` as a Manager-style extension point: first identify who
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.Clear();
+```
 
 ### ContainsDetachment
 `public bool ContainsDetachment(IDetachment detachment)`
 
-**Purpose:** Handles logic related to `contains detachment`.
+**Purpose:** Indicates whether the current object contains `detachment`.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+var result = detachmentManager.ContainsDetachment(detachment);
+```
 
 ### MakeDetachment
 `public void MakeDetachment(IDetachment detachment)`
 
-**Purpose:** Handles logic related to `make detachment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.MakeDetachment(detachment);
+```
 
 ### DestroyDetachment
 `public void DestroyDetachment(IDetachment destroyedDetachment)`
 
-**Purpose:** Handles logic related to `destroy detachment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.DestroyDetachment(destroyedDetachment);
+```
 
 ### OnFormationJoinDetachment
 `public void OnFormationJoinDetachment(Formation formation, IDetachment joinedDetachment)`
 
-**Purpose:** Called when the `formation join detachment` event is raised.
+**Purpose:** Invoked when the `formation join detachment` event is raised.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.OnFormationJoinDetachment(formation, joinedDetachment);
+```
 
 ### OnFormationLeaveDetachment
 `public void OnFormationLeaveDetachment(Formation formation, IDetachment leftDetachment)`
 
-**Purpose:** Called when the `formation leave detachment` event is raised.
+**Purpose:** Invoked when the `formation leave detachment` event is raised.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.OnFormationLeaveDetachment(formation, leftDetachment);
+```
 
 ### TickDetachments
 `public void TickDetachments()`
 
-**Purpose:** Handles logic related to `tick detachments`.
+**Purpose:** Advances the `detachments` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.TickDetachments();
+```
 
 ### TickAgent
 `public void TickAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `tick agent`.
+**Purpose:** Advances the `agent` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.TickAgent(agent);
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.OnAgentRemoved(agent);
+```
 
 ### RemoveScoresOfAgentFromDetachments
 `public void RemoveScoresOfAgentFromDetachments(Agent agent)`
 
 **Purpose:** Removes `scores of agent from detachments` from the current collection or state.
 
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.RemoveScoresOfAgentFromDetachments(agent);
+```
+
 ### RemoveScoresOfAgentFromDetachment
 `public void RemoveScoresOfAgentFromDetachment(Agent agent, IDetachment detachmentToBeRemovedFrom)`
 
 **Purpose:** Removes `scores of agent from detachment` from the current collection or state.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.RemoveScoresOfAgentFromDetachment(agent, detachmentToBeRemovedFrom);
+```
 
 ### AddAgentAsMovingToDetachment
 `public void AddAgentAsMovingToDetachment(Agent agent, IDetachment detachment)`
 
 **Purpose:** Adds `agent as moving to detachment` to the current collection or state.
 
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.AddAgentAsMovingToDetachment(agent, detachment);
+```
+
 ### RemoveAgentAsMovingToDetachment
 `public void RemoveAgentAsMovingToDetachment(Agent agent)`
 
 **Purpose:** Removes `agent as moving to detachment` from the current collection or state.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.RemoveAgentAsMovingToDetachment(agent);
+```
 
 ### AddAgentAsDefendingToDetachment
 `public void AddAgentAsDefendingToDetachment(Agent agent, IDetachment detachment)`
 
 **Purpose:** Adds `agent as defending to detachment` to the current collection or state.
 
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.AddAgentAsDefendingToDetachment(agent, detachment);
+```
+
 ### RemoveAgentAsDefendingToDetachment
 `public void RemoveAgentAsDefendingToDetachment(Agent agent)`
 
 **Purpose:** Removes `agent as defending to detachment` from the current collection or state.
 
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.RemoveAgentAsDefendingToDetachment(agent);
+```
+
 ### AssertDetachment
 `public void AssertDetachment(Team team, IDetachment detachment)`
 
-**Purpose:** Handles logic related to `assert detachment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DetachmentManager from the subsystem API first
+DetachmentManager detachmentManager = ...;
+detachmentManager.AssertDetachment(team, detachment);
+```
 
 ## Usage Example
 
@@ -114,4 +204,4 @@ var manager = DetachmentManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

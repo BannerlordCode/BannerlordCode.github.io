@@ -1,20 +1,14 @@
 ---
 title: "DefaultCampaignTimeModel"
+description: "DefaultCampaignTimeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultCampaignTimeModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCampaignTimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultCampaignTimeModel : CampaignTimeModel`
 **Base:** `CampaignTimeModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCampaignTimeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCampaignTimeModel.cs`
 
 ## 概述
 
@@ -39,4 +33,4 @@ Game.Current.ReplaceModel<DefaultCampaignTimeModel>(new MyDefaultCampaignTimeMod
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

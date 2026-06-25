@@ -1,13 +1,7 @@
 ---
 title: "SupportWeights"
+description: "Auto-generated class reference for SupportWeights."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SupportWeights`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SupportWeights
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ## Usage Example
 
 ```csharp
-SupportWeights example = SupportWeights.Value;
+// Obtain an instance from the relevant subsystem API
+SupportWeights instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

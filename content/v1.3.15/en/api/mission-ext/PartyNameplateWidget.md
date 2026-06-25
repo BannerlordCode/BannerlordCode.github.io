@@ -1,13 +1,7 @@
 ---
 title: "PartyNameplateWidget"
+description: "Auto-generated class reference for PartyNameplateWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyNameplateWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyNameplateWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
@@ -56,9 +50,10 @@ Treat `PartyNameplateWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new PartyNameplateWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyNameplateWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TestCommonBase"
+description: "Auto-generated class reference for TestCommonBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestCommonBase`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestCommonBase
 
 **Namespace:** TaleWorlds.Library
@@ -35,64 +29,130 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Tick
 `public abstract void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+testCommonBase.Tick();
+```
 
 ### StartTimeoutTimer
 `public void StartTimeoutTimer()`
 
-**Purpose:** Handles logic related to `start timeout timer`.
+**Purpose:** Starts the `timeout timer` flow or state machine.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+testCommonBase.StartTimeoutTimer();
+```
 
 ### ToggleTimeoutTimer
 `public void ToggleTimeoutTimer()`
 
-**Purpose:** Handles logic related to `toggle timeout timer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+testCommonBase.ToggleTimeoutTimer();
+```
 
 ### CheckTimeoutTimer
 `public bool CheckTimeoutTimer()`
 
-**Purpose:** Handles logic related to `check timeout timer`.
+**Purpose:** Verifies whether `timeout timer` holds true for the current object.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.CheckTimeoutTimer();
+```
 
 ### GetGameStatus
 `public virtual string GetGameStatus()`
 
-**Purpose:** Gets the current value of `game status`.
+**Purpose:** Reads and returns the `game status` value held by the current object.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.GetGameStatus();
+```
 
 ### WaitFor
 `public void WaitFor(double seconds)`
 
-**Purpose:** Handles logic related to `wait for`.
+**Purpose:** Pauses the current flow until the `for` condition is met.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+testCommonBase.WaitFor(0);
+```
 
 ### WaitUntil
 `public virtual async Task WaitUntil(Func<bool> func)`
 
-**Purpose:** Handles logic related to `wait until`.
+**Purpose:** Pauses the current flow until the `until` condition is met.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.WaitUntil(func);
+```
 
 ### WaitForAsync
 `public Task WaitForAsync(double seconds, Random random)`
 
-**Purpose:** Handles logic related to `wait for async`.
+**Purpose:** Pauses the current flow until the `for async` condition is met.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.WaitForAsync(0, random);
+```
 
 ### WaitForAsync
 `public Task WaitForAsync(double seconds)`
 
-**Purpose:** Handles logic related to `wait for async`.
+**Purpose:** Pauses the current flow until the `for async` condition is met.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.WaitForAsync(0);
+```
 
 ### GetAttachmentsFolderPath
 `public static string GetAttachmentsFolderPath()`
 
-**Purpose:** Gets the current value of `attachments folder path`.
+**Purpose:** Reads and returns the `attachments folder path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TestCommonBase.GetAttachmentsFolderPath();
+```
 
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of TestCommonBase from the subsystem API first
+TestCommonBase testCommonBase = ...;
+testCommonBase.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTestCommonBase();
+// Typically obtained from a subsystem API or factory
+TestCommonBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

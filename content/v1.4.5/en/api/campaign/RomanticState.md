@@ -1,20 +1,14 @@
 ---
 title: "RomanticState"
+description: "Auto-generated class reference for RomanticState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RomanticState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RomanticState
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RomanticState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Romance.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/Romance.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**Purpose:** Handles logic related to `partner`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RomanticState from the subsystem API first
+RomanticState romanticState = ...;
+var result = romanticState.Partner(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RomanticState();
-value.Partner(hero);
+// Typically call this after obtaining an instance from the subsystem API
+RomanticState romanticState = ...;
+romanticState.Partner(hero);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultPartyMoraleModel"
+description: "Auto-generated class reference for DefaultPartyMoraleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyMoraleModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyMoraleModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPartyMoraleModel : PartyMoraleModel`
 **Base:** `PartyMoraleModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyMoraleModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartyMoraleModel.cs`
 
 ## Overview
 
@@ -29,32 +23,68 @@ Treat `DefaultPartyMoraleModel` as a Model-style extension point: first identify
 ### GetDailyStarvationMoralePenalty
 `public override int GetDailyStarvationMoralePenalty(PartyBase party)`
 
-**Purpose:** Gets the current value of `daily starvation morale penalty`.
+**Purpose:** Reads and returns the `daily starvation morale penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
+DefaultPartyMoraleModel defaultPartyMoraleModel = ...;
+var result = defaultPartyMoraleModel.GetDailyStarvationMoralePenalty(party);
+```
 
 ### GetDailyNoWageMoralePenalty
 `public override int GetDailyNoWageMoralePenalty(MobileParty party)`
 
-**Purpose:** Gets the current value of `daily no wage morale penalty`.
+**Purpose:** Reads and returns the `daily no wage morale penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
+DefaultPartyMoraleModel defaultPartyMoraleModel = ...;
+var result = defaultPartyMoraleModel.GetDailyNoWageMoralePenalty(party);
+```
 
 ### GetStandardBaseMorale
 `public override float GetStandardBaseMorale(PartyBase party)`
 
-**Purpose:** Gets the current value of `standard base morale`.
+**Purpose:** Reads and returns the `standard base morale` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
+DefaultPartyMoraleModel defaultPartyMoraleModel = ...;
+var result = defaultPartyMoraleModel.GetStandardBaseMorale(party);
+```
 
 ### GetVictoryMoraleChange
 `public override float GetVictoryMoraleChange(PartyBase party)`
 
-**Purpose:** Gets the current value of `victory morale change`.
+**Purpose:** Reads and returns the `victory morale change` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
+DefaultPartyMoraleModel defaultPartyMoraleModel = ...;
+var result = defaultPartyMoraleModel.GetVictoryMoraleChange(party);
+```
 
 ### GetDefeatMoraleChange
 `public override float GetDefeatMoraleChange(PartyBase party)`
 
-**Purpose:** Gets the current value of `defeat morale change`.
+**Purpose:** Reads and returns the `defeat morale change` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
+DefaultPartyMoraleModel defaultPartyMoraleModel = ...;
+var result = defaultPartyMoraleModel.GetDefeatMoraleChange(party);
+```
 
 ### GetEffectivePartyMorale
 `public override ExplainedNumber GetEffectivePartyMorale(MobileParty mobileParty, bool includeDescription = false)`
 
-**Purpose:** Gets the current value of `effective party morale`.
+**Purpose:** Reads and returns the `effective party morale` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyMoraleModel from the subsystem API first
+DefaultPartyMoraleModel defaultPartyMoraleModel = ...;
+var result = defaultPartyMoraleModel.GetEffectivePartyMorale(mobileParty, false);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultPartyMoraleModel>(new MyDefaultPartyMoraleModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

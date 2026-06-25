@@ -1,13 +1,7 @@
 ---
 title: "CommonAIComponent"
+description: "CommonAIComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommonAIComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CommonAIComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,52 +34,112 @@ title: "CommonAIComponent"
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.Initialize();
+```
 
 ### OnTickParallel
 `public override void OnTickParallel(float dt)`
 
-**用途 / Purpose:** 当 `tick parallel` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick parallel」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnTickParallel(0);
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnTick(0);
+```
 
 ### Panic
 `public void Panic()`
 
-**用途 / Purpose:** 处理 `panic` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.Panic();
+```
 
 ### Retreat
 `public void Retreat(bool useCachingSystem = false)`
 
-**用途 / Purpose:** 处理 `retreat` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.Retreat(false);
+```
 
 ### StopRetreating
 `public void StopRetreating()`
 
-**用途 / Purpose:** 处理 `stop retreating` 相关逻辑。
+**用途 / Purpose:** 停止「retreating」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.StopRetreating();
+```
 
 ### CanPanic
 `public bool CanPanic()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `panic`。
+**用途 / Purpose:** 检查当前对象是否满足 「panic」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+var result = commonAIComponent.CanPanic();
+```
 
 ### OnHit
 `public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 当 `hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnHit(affectorAgent, 0, affectorWeapon, b, collisionData);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnAgentRemoved();
+```
 
 ### OnComponentRemoved
 `public override void OnComponentRemoved()`
 
-**用途 / Purpose:** 当 `component removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「component removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommonAIComponent 实例
+CommonAIComponent commonAIComponent = ...;
+commonAIComponent.OnComponentRemoved();
+```
 
 ## 使用示例
 
@@ -95,4 +149,4 @@ var component = agent.GetComponent<CommonAIComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

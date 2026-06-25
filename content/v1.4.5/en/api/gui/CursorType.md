@@ -1,20 +1,14 @@
 ---
 title: "CursorType"
+description: "Auto-generated class reference for CursorType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CursorType`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CursorType
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
-**Type:** `class`
+**Type:** `public enum CursorType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/CursorType.cs`
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/CursorType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new CursorType();
+// Obtain an instance from the relevant subsystem API
+CursorType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

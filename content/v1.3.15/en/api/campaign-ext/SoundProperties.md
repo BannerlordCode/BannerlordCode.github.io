@@ -1,13 +1,7 @@
 ---
 title: "SoundProperties"
+description: "Auto-generated class reference for SoundProperties."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundProperties`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SoundProperties
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -38,33 +32,64 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 
 **Purpose:** Adds `state sound` to the current collection or state.
 
+```csharp
+// Obtain an instance of SoundProperties from the subsystem API first
+SoundProperties soundProperties = ...;
+soundProperties.AddStateSound("example", audioProperty);
+```
+
 ### AddEventSound
 `public void AddEventSound(string state, AudioProperty audioProperty)`
 
 **Purpose:** Adds `event sound` to the current collection or state.
 
+```csharp
+// Obtain an instance of SoundProperties from the subsystem API first
+SoundProperties soundProperties = ...;
+soundProperties.AddEventSound("example", audioProperty);
+```
+
 ### FillFrom
 `public void FillFrom(SoundProperties soundProperties)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundProperties from the subsystem API first
+SoundProperties soundProperties = ...;
+soundProperties.FillFrom(soundProperties);
+```
 
 ### GetEventAudioProperty
 `public AudioProperty GetEventAudioProperty(string eventName)`
 
-**Purpose:** Gets the current value of `event audio property`.
+**Purpose:** Reads and returns the `event audio property` value held by the current object.
+
+```csharp
+// Obtain an instance of SoundProperties from the subsystem API first
+SoundProperties soundProperties = ...;
+var result = soundProperties.GetEventAudioProperty("example");
+```
 
 ### GetStateAudioProperty
 `public AudioProperty GetStateAudioProperty(string stateName)`
 
-**Purpose:** Gets the current value of `state audio property`.
+**Purpose:** Reads and returns the `state audio property` value held by the current object.
+
+```csharp
+// Obtain an instance of SoundProperties from the subsystem API first
+SoundProperties soundProperties = ...;
+var result = soundProperties.GetStateAudioProperty("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SoundProperties();
-value.AddStateSound("example", audioProperty);
+// Typically call this after obtaining an instance from the subsystem API
+SoundProperties soundProperties = ...;
+soundProperties.AddStateSound("example", audioProperty);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

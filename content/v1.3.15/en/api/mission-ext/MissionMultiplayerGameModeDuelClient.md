@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerGameModeDuelClient"
+description: "Auto-generated class reference for MissionMultiplayerGameModeDuelClient."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerGameModeDuelClient`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerGameModeDuelClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -42,45 +36,88 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**Purpose:** Gets the current value of `gold amount`.
+**Purpose:** Reads and returns the `gold amount` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+var result = missionMultiplayerGameModeDuelClient.GetGoldAmount();
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** Called when the `gold amount changed for representative` event is raised.
+**Purpose:** Invoked when the `gold amount changed for representative` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.OnRemoveBehavior();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### CanRequestCultureChange
 `public override bool CanRequestCultureChange()`
 
-**Purpose:** Checks whether the current object can `request culture change`.
+**Purpose:** Checks whether the current object meets the preconditions for `request culture change`.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+var result = missionMultiplayerGameModeDuelClient.CanRequestCultureChange();
+```
 
 ### CanRequestTroopChange
 `public override bool CanRequestTroopChange()`
 
-**Purpose:** Checks whether the current object can `request troop change`.
+**Purpose:** Checks whether the current object meets the preconditions for `request troop change`.
+
+```csharp
+// Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+var result = missionMultiplayerGameModeDuelClient.CanRequestTroopChange();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerGameModeDuelClient();
-value.GetGoldAmount();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.GetGoldAmount();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

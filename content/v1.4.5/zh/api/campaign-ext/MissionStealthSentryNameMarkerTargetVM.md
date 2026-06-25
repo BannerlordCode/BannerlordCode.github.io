@@ -1,20 +1,14 @@
 ---
 title: "MissionStealthSentryNameMarkerTargetVM"
+description: "MissionStealthSentryNameMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionStealthSentryNameMarkerTargetVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionStealthSentryNameMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionStealthSentryNameMarkerTargetVM : MissionNameMarkerTargetVM<Agent>`
 **Base:** `MissionNameMarkerTargetVM<Agent>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout/MissionStealthSentryNameMarkerTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout/MissionStealthSentryNameMarkerTargetVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MissionStealthSentryNameMarkerTargetVM"
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionStealthSentryNameMarkerTargetVM 实例
+MissionStealthSentryNameMarkerTargetVM missionStealthSentryNameMarkerTargetVM = ...;
+missionStealthSentryNameMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionStealthSentryNameMarkerTargetVM();
-value.UpdatePosition(missionCamera);
+// 通常从对应子系统 API 获取实例后调用
+MissionStealthSentryNameMarkerTargetVM missionStealthSentryNameMarkerTargetVM = ...;
+missionStealthSentryNameMarkerTargetVM.UpdatePosition(missionCamera);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

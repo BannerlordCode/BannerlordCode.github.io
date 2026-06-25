@@ -1,20 +1,14 @@
 ---
 title: "MapTrackerProvider"
+description: "MapTrackerProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapTrackerProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapTrackerProvider
 
 **Namespace:** SandBox.ViewModelCollection.Map.Tracker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MapTrackerProvider`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Tracker/MapTrackerProvider.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Tracker/MapTrackerProvider.cs`
 
 ## 概述
 
@@ -35,50 +29,99 @@ title: "MapTrackerProvider"
 ### GetTrackers
 `public MapTrackerItemVM GetTrackers()`
 
-**用途 / Purpose:** 获取 `trackers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trackers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerProvider 实例
+MapTrackerProvider mapTrackerProvider = ...;
+var result = mapTrackerProvider.GetTrackers();
+```
 
 ### HasTrackerFor
 `public bool HasTrackerFor(ITrackableCampaignObject trackable)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `tracker for`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「tracker for」。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerProvider 实例
+MapTrackerProvider mapTrackerProvider = ...;
+var result = mapTrackerProvider.HasTrackerFor(trackable);
+```
 
 ### GetTrackerFor
 `public MapTrackerItemVM GetTrackerFor(ITrackableCampaignObject trackable)`
 
-**用途 / Purpose:** 获取 `tracker for` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tracker for」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerProvider 实例
+MapTrackerProvider mapTrackerProvider = ...;
+var result = mapTrackerProvider.GetTrackerFor(trackable);
+```
 
 ### AddTracker
 `public void AddTracker(MapTrackerItemVM tracker)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tracker`。
+**用途 / Purpose:** 将 「tracker」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerProvider 实例
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.AddTracker(tracker);
+```
 
 ### RemoveTracker
 `public void RemoveTracker(MapTrackerItemVM tracker)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `tracker`。
+**用途 / Purpose:** 从当前容器或状态中移除 「tracker」。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerProvider 实例
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.RemoveTracker(tracker);
+```
 
 ### ClearTrackers
 `public void ClearTrackers()`
 
-**用途 / Purpose:** 处理 `clear trackers` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「trackers」。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerProvider 实例
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.ClearTrackers();
+```
 
 ### OnTrackerAddedOrRemovedDelegate
 `public delegate void OnTrackerAddedOrRemovedDelegate(MapTrackerItemVM tracker, bool added)`
 
-**用途 / Purpose:** 当 `tracker added or removed delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tracker added or removed delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerProvider 实例
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.OnTrackerAddedOrRemovedDelegate(tracker, false);
+```
 
 ### GetTrackers
 `public MapTrackerItemVM GetTrackers()`
 
-**用途 / Purpose:** 获取 `trackers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trackers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapTrackerProvider 实例
+MapTrackerProvider mapTrackerProvider = ...;
+var result = mapTrackerProvider.GetTrackers();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapTrackerProvider();
-value.GetTrackers();
+// 通常从对应子系统 API 获取实例后调用
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.GetTrackers();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

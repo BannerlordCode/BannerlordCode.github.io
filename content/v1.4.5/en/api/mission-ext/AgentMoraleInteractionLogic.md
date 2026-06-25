@@ -1,20 +1,14 @@
 ---
 title: "AgentMoraleInteractionLogic"
+description: "Auto-generated class reference for AgentMoraleInteractionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentMoraleInteractionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentMoraleInteractionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentMoraleInteractionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic/AgentMoraleInteractionLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic/AgentMoraleInteractionLogic.cs`
 
 ## Overview
 
@@ -29,19 +23,31 @@ Treat `AgentMoraleInteractionLogic` as a Logic-style extension point: first iden
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of AgentMoraleInteractionLogic from the subsystem API first
+AgentMoraleInteractionLogic agentMoraleInteractionLogic = ...;
+agentMoraleInteractionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**Purpose:** Called when the `agent fleeing` event is raised.
+**Purpose:** Invoked when the `agent fleeing` event is raised.
+
+```csharp
+// Obtain an instance of AgentMoraleInteractionLogic from the subsystem API first
+AgentMoraleInteractionLogic agentMoraleInteractionLogic = ...;
+agentMoraleInteractionLogic.OnAgentFleeing(affectedAgent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AgentMoraleInteractionLogic());
+var behavior = Mission.Current.GetMissionBehavior<AgentMoraleInteractionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "AiMilitaryBehavior"
+description: "AiMilitaryBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AiMilitaryBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AiMilitaryBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors
@@ -29,25 +23,44 @@ title: "AiMilitaryBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 AiMilitaryBehavior 实例
+AiMilitaryBehavior aiMilitaryBehavior = ...;
+aiMilitaryBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 AiMilitaryBehavior 实例
+AiMilitaryBehavior aiMilitaryBehavior = ...;
+aiMilitaryBehavior.SyncData(dataStore);
+```
 
 ### FindBestTargetAndItsValueForFaction
 `public void FindBestTargetAndItsValueForFaction(Army.ArmyTypes missionType, PartyThinkParams p, float ourStrength, float newArmyCreatingAdditionalConstant = 1f)`
 
-**用途 / Purpose:** 处理 `find best target and its value for faction` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「best target and its value for faction」。
+
+```csharp
+// 先通过子系统 API 拿到 AiMilitaryBehavior 实例
+AiMilitaryBehavior aiMilitaryBehavior = ...;
+aiMilitaryBehavior.FindBestTargetAndItsValueForFaction(missionType, p, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AiMilitaryBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+AiMilitaryBehavior aiMilitaryBehavior = ...;
+aiMilitaryBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

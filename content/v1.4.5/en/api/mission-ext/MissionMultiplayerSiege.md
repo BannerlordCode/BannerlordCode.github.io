@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerSiege"
+description: "Auto-generated class reference for MissionMultiplayerSiege."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerSiege`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerSiege
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerSiege : MissionMultiplayerGameModeBase, IAnalyticsFlagInfo, IMissionBehavior`
 **Base:** `MissionMultiplayerGameModeBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerSiege.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerSiege.cs`
 
 ## Overview
 
@@ -36,105 +30,220 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IncreaseAmount
 `public void IncreaseAmount(float deltaContribution)`
 
-**Purpose:** Handles logic related to `increase amount`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.IncreaseAmount(0);
+```
 
 ### RegisterObjective
 `public bool RegisterObjective(GameEntity entity)`
 
-**Purpose:** Handles logic related to `register objective`.
+**Purpose:** Registers `objective` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.RegisterObjective(entity);
+```
 
 ### AddContributionForObjective
 `public void AddContributionForObjective(GameEntity objectiveEntity, MissionPeer contributorPeer, float contribution)`
 
 **Purpose:** Adds `contribution for objective` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.AddContributionForObjective(objectiveEntity, contributorPeer, 0);
+```
+
 ### GetAllContributorsForSideAndClear
 `public List<KeyValuePair<MissionPeer, float>> GetAllContributorsForSideAndClear(GameEntity objectiveEntity, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `all contributors for side and clear`.
+**Purpose:** Reads and returns the `all contributors for side and clear` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetAllContributorsForSideAndClear(objectiveEntity, side);
+```
 
 ### OnDestructableComponentDestroyedDelegate
 `public delegate void OnDestructableComponentDestroyedDelegate(DestructableComponent destructableComponent, ScriptComponentBehavior attackerScriptComponentBehaviour, MissionPeer contributors)`
 
-**Purpose:** Called when the `destructable component destroyed delegate` event is raised.
+**Purpose:** Invoked when the `destructable component destroyed delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnDestructableComponentDestroyedDelegate(destructableComponent, attackerScriptComponentBehaviour, contributors);
+```
 
 ### OnObjectiveGoldGainedDelegate
 `public delegate void OnObjectiveGoldGainedDelegate(MissionPeer peer, int goldGain)`
 
-**Purpose:** Called when the `objective gold gained delegate` event is raised.
+**Purpose:** Invoked when the `objective gold gained delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnObjectiveGoldGainedDelegate(peer, 0);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnBehaviorInitialize();
+```
 
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**Purpose:** Gets the current value of `mission type`.
+**Purpose:** Reads and returns the `mission type` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetMissionType();
+```
 
 ### UseRoundController
 `public override bool UseRoundController()`
 
-**Purpose:** Handles logic related to `use round controller`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.UseRoundController();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnMissionTick(0);
+```
 
 ### CheckForMatchEnd
 `public override bool CheckForMatchEnd()`
 
-**Purpose:** Handles logic related to `check for match end`.
+**Purpose:** Verifies whether `for match end` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.CheckForMatchEnd();
+```
 
 ### GetWinnerTeam
 `public override Team GetWinnerTeam()`
 
-**Purpose:** Gets the current value of `winner team`.
+**Purpose:** Reads and returns the `winner team` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetWinnerTeam();
+```
 
 ### GetFlagOwnerTeam
 `public Team GetFlagOwnerTeam(FlagCapturePoint flag)`
 
-**Purpose:** Gets the current value of `flag owner team`.
+**Purpose:** Reads and returns the `flag owner team` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.GetFlagOwnerTeam(flag);
+```
 
 ### CheckForWarmupEnd
 `public override bool CheckForWarmupEnd()`
 
-**Purpose:** Handles logic related to `check for warmup end`.
+**Purpose:** Verifies whether `for warmup end` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+var result = missionMultiplayerSiege.CheckForWarmupEnd();
+```
 
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**Purpose:** Called when the `peer changed team` event is raised.
+**Purpose:** Invoked when the `peer changed team` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnPeerChangedTeam(peer, oldTeam, newTeam);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnRemoveBehavior();
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerSiege from the subsystem API first
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.OnClearScene();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerSiege();
-value.IncreaseAmount(0);
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerSiege missionMultiplayerSiege = ...;
+missionMultiplayerSiege.IncreaseAmount(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

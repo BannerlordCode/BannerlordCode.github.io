@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerIntermissionNextMapImageWidget"
+description: "Auto-generated class reference for MultiplayerIntermissionNextMapImageWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerIntermissionNextMapImageWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerIntermissionNextMapImageWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
@@ -33,9 +27,10 @@ Treat `MultiplayerIntermissionNextMapImageWidget` as a Widget-style extension po
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerIntermissionNextMapImageWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerIntermissionNextMapImageWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

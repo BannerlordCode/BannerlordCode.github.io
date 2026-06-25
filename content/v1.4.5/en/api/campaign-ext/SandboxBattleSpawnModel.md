@@ -1,20 +1,14 @@
 ---
 title: "SandboxBattleSpawnModel"
+description: "Auto-generated class reference for SandboxBattleSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxBattleSpawnModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxBattleSpawnModel
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
 **Type:** `public class SandboxBattleSpawnModel : BattleSpawnModel`
 **Base:** `BattleSpawnModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/SandboxBattleSpawnModel.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/SandboxBattleSpawnModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `SandboxBattleSpawnModel` as a Model-style extension point: first identify
 ### OnMissionStart
 `public override void OnMissionStart()`
 
-**Purpose:** Called when the `mission start` event is raised.
+**Purpose:** Invoked when the `mission start` event is raised.
+
+```csharp
+// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
+SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
+sandboxBattleSpawnModel.OnMissionStart();
+```
 
 ### OnMissionEnd
 `public override void OnMissionEnd()`
 
-**Purpose:** Called when the `mission end` event is raised.
+**Purpose:** Invoked when the `mission end` event is raised.
+
+```csharp
+// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
+SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
+sandboxBattleSpawnModel.OnMissionEnd();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<SandboxBattleSpawnModel>(new MySandboxBattleSpawnModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

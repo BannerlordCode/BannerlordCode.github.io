@@ -1,13 +1,7 @@
 ---
 title: "ShipVisual"
+description: "Auto-generated class reference for ShipVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipVisual`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipVisual
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### Initialize
 `public void Initialize(int seed)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ShipVisual from the subsystem API first
+ShipVisual shipVisual = ...;
+shipVisual.Initialize(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipVisual();
-value.Initialize(0);
+// Typically call this after obtaining an instance from the subsystem API
+ShipVisual shipVisual = ...;
+shipVisual.Initialize(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

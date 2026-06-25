@@ -1,13 +1,7 @@
 ---
 title: "Production"
+description: "Auto-generated class reference for Production."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Production`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Production
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Workshops
@@ -39,23 +33,42 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Workshops` to place 
 
 **Purpose:** Adds `input` to the current collection or state.
 
+```csharp
+// Obtain an instance of Production from the subsystem API first
+Production production = ...;
+production.AddInput(item, 0);
+```
+
 ### AddOutput
 `public void AddOutput(ItemCategory outputCategory, int outputCount)`
 
 **Purpose:** Adds `output` to the current collection or state.
 
+```csharp
+// Obtain an instance of Production from the subsystem API first
+Production production = ...;
+production.AddOutput(outputCategory, 0);
+```
+
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Production from the subsystem API first
+Production production = ...;
+var result = production.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Production();
-value.AddInput(item, 0);
+// Typically call this after obtaining an instance from the subsystem API
+Production production = ...;
+production.AddInput(item, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

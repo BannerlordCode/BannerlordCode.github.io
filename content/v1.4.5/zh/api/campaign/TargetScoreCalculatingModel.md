@@ -1,20 +1,14 @@
 ---
 title: "TargetScoreCalculatingModel"
+description: "TargetScoreCalculatingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TargetScoreCalculatingModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TargetScoreCalculatingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class TargetScoreCalculatingModel : MBGameModel<TargetScoreCalculatingModel>`
 **Base:** `MBGameModel<TargetScoreCalculatingModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TargetScoreCalculatingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/TargetScoreCalculatingModel.cs`
 
 ## 概述
 
@@ -39,39 +33,76 @@ title: "TargetScoreCalculatingModel"
 ### GetDefensivePatrollingFactor
 `public abstract float GetDefensivePatrollingFactor(bool isNavalPatrolling)`
 
-**用途 / Purpose:** 获取 `defensive patrolling factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「defensive patrolling factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TargetScoreCalculatingModel 实例
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.GetDefensivePatrollingFactor(false);
+```
 
 ### GetOffensivePatrollingFactor
 `public abstract float GetOffensivePatrollingFactor(bool isNavalPatrolling)`
 
-**用途 / Purpose:** 获取 `offensive patrolling factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「offensive patrolling factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TargetScoreCalculatingModel 实例
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.GetOffensivePatrollingFactor(false);
+```
 
 ### GetTargetScoreForFaction
 `public abstract float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**用途 / Purpose:** 获取 `target score for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target score for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TargetScoreCalculatingModel 实例
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.GetTargetScoreForFaction(targetSettlement, missionType, mobileParty, 0);
+```
 
 ### CalculateDefensivePatrollingScoreForSettlement
 `public abstract float CalculateDefensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `calculate defensive patrolling score for settlement` 相关逻辑。
+**用途 / Purpose:** 计算「defensive patrolling score for settlement」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 TargetScoreCalculatingModel 实例
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.CalculateDefensivePatrollingScoreForSettlement(settlement, false, mobileParty);
+```
 
 ### CalculateOffensivePatrollingScoreForSettlement
 `public abstract float CalculateOffensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `calculate offensive patrolling score for settlement` 相关逻辑。
+**用途 / Purpose:** 计算「offensive patrolling score for settlement」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 TargetScoreCalculatingModel 实例
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.CalculateOffensivePatrollingScoreForSettlement(settlement, false, mobileParty);
+```
 
 ### CurrentObjectiveValue
 `public abstract float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `current objective value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TargetScoreCalculatingModel 实例
+TargetScoreCalculatingModel targetScoreCalculatingModel = ...;
+var result = targetScoreCalculatingModel.CurrentObjectiveValue(mobileParty);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTargetScoreCalculatingModel();
+// 通常通过子系统 API 或工厂获得派生实例
+TargetScoreCalculatingModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

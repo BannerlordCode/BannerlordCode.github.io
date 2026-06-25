@@ -1,20 +1,14 @@
 ---
 title: "DefaultTeamDeploymentPlan"
+description: "DefaultTeamDeploymentPlan 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultTeamDeploymentPlan`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTeamDeploymentPlan
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultTeamDeploymentPlan : ITeamDeploymentPlan`
 **Base:** `ITeamDeploymentPlan`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultTeamDeploymentPlan.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultTeamDeploymentPlan.cs`
 
 ## 概述
 
@@ -36,105 +30,220 @@ title: "DefaultTeamDeploymentPlan"
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool value)`
 
-**用途 / Purpose:** 设置 `spawn with horses` 的值或状态。
+**用途 / Purpose:** 为 「spawn with horses」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+defaultTeamDeploymentPlan.SetSpawnWithHorses(false);
+```
 
 ### MakeDeploymentPlan
 `public void MakeDeploymentPlan(float spawnPathOffset = 0f, float targetOffset = 0f, FormationSceneSpawnEntry formationSceneSpawnEntries = null, bool isReinforcement = false)`
 
-**用途 / Purpose:** 处理 `make deployment plan` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+defaultTeamDeploymentPlan.MakeDeploymentPlan(0, 0, null, false);
+```
 
 ### UpdateReinforcementPlans
 `public void UpdateReinforcementPlans()`
 
-**用途 / Purpose:** 更新 `reinforcement plans` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「reinforcement plans」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+defaultTeamDeploymentPlan.UpdateReinforcementPlans();
+```
 
 ### ClearPlan
 `public void ClearPlan(bool isReinforcement = false)`
 
-**用途 / Purpose:** 处理 `clear plan` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「plan」。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+defaultTeamDeploymentPlan.ClearPlan(false);
+```
 
 ### ClearAddedTroops
 `public void ClearAddedTroops(bool isReinforcement = false)`
 
-**用途 / Purpose:** 处理 `clear added troops` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「added troops」。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+defaultTeamDeploymentPlan.ClearAddedTroops(false);
+```
 
 ### AddTroops
 `public void AddTroops(FormationClass formationClass, int footTroopCount, int mountedTroopCount, bool isReinforcement = false)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `troops`。
+**用途 / Purpose:** 将 「troops」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+defaultTeamDeploymentPlan.AddTroops(formationClass, 0, 0, false);
+```
 
 ### GetTroopCount
 `public int GetTroopCount(bool isReinforcement = false)`
 
-**用途 / Purpose:** 获取 `troop count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetTroopCount(false);
+```
 
 ### IsFirstPlan
 `public bool IsFirstPlan(bool isReinforcement = false)`
 
-**用途 / Purpose:** 处理 `is first plan` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「first plan」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.IsFirstPlan(false);
+```
 
 ### IsPlanMade
 `public bool IsPlanMade(bool isReinforcement = false)`
 
-**用途 / Purpose:** 处理 `is plan made` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「plan made」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.IsPlanMade(false);
+```
 
 ### GetSpawnPathOffset
 `public float GetSpawnPathOffset(bool isReinforcement = false)`
 
-**用途 / Purpose:** 获取 `spawn path offset` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn path offset」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetSpawnPathOffset(false);
+```
 
 ### GetTargetOffset
 `public float GetTargetOffset(bool isReinforcement = false)`
 
-**用途 / Purpose:** 获取 `target offset` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target offset」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetTargetOffset(false);
+```
 
 ### GetDeploymentFrame
 `public MatrixFrame GetDeploymentFrame()`
 
-**用途 / Purpose:** 获取 `deployment frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「deployment frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetDeploymentFrame();
+```
 
 ### HasDeploymentBoundaries
 `public bool HasDeploymentBoundaries()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `deployment boundaries`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「deployment boundaries」。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.HasDeploymentBoundaries();
+```
 
 ### GetFormationPlan
 `public IFormationDeploymentPlan GetFormationPlan(FormationClass fClass, bool isReinforcement = false)`
 
-**用途 / Purpose:** 获取 `formation plan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「formation plan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetFormationPlan(fClass, false);
+```
 
 ### GetMeanPosition
 `public Vec3 GetMeanPosition(bool isReinforcement = false)`
 
-**用途 / Purpose:** 获取 `mean position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mean position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetMeanPosition(false);
+```
 
 ### IsInitialPlanSuitableForFormations
 `public bool IsInitialPlanSuitableForFormations((int, int) troopDataPerFormationClass)`
 
-**用途 / Purpose:** 处理 `is initial plan suitable for formations` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「initial plan suitable for formations」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.IsInitialPlanSuitableForFormations((int, 0);
+```
 
 ### IsPositionInsideDeploymentBoundaries
 `public bool IsPositionInsideDeploymentBoundaries(in Vec2 position, out (string id, MBList<Vec2> points) containingBoundaryTuple)`
 
-**用途 / Purpose:** 处理 `is position inside deployment boundaries` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「position inside deployment boundaries」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.IsPositionInsideDeploymentBoundaries(position, id, containingBoundaryTuple);
+```
 
 ### GetClosestDeploymentBoundaryPosition
 `public Vec2 GetClosestDeploymentBoundaryPosition(in Vec2 position)`
 
-**用途 / Purpose:** 获取 `closest deployment boundary position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「closest deployment boundary position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetClosestDeploymentBoundaryPosition(position);
+```
 
 ### GetPathDeploymentBoundaryIntersection
 `public bool GetPathDeploymentBoundaryIntersection(in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition intersection)`
 
-**用途 / Purpose:** 获取 `path deployment boundary intersection` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「path deployment boundary intersection」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+var result = defaultTeamDeploymentPlan.GetPathDeploymentBoundaryIntersection(startPosition, endPosition, intersection);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultTeamDeploymentPlan();
-value.SetSpawnWithHorses(false);
+// 通常从对应子系统 API 获取实例后调用
+DefaultTeamDeploymentPlan defaultTeamDeploymentPlan = ...;
+defaultTeamDeploymentPlan.SetSpawnWithHorses(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

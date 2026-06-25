@@ -1,13 +1,7 @@
 ---
 title: "DefaultAlleyModel"
+description: "Auto-generated class reference for DefaultAlleyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultAlleyModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultAlleyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -38,57 +32,123 @@ Treat `DefaultAlleyModel` as a Model-style extension point: first identify who c
 ### GetDailyXpGainForAssignedClanMember
 `public override float GetDailyXpGainForAssignedClanMember(Hero assignedHero)`
 
-**Purpose:** Gets the current value of `daily xp gain for assigned clan member`.
+**Purpose:** Reads and returns the `daily xp gain for assigned clan member` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetDailyXpGainForAssignedClanMember(assignedHero);
+```
 
 ### GetDailyXpGainForMainHero
 `public override float GetDailyXpGainForMainHero()`
 
-**Purpose:** Gets the current value of `daily xp gain for main hero`.
+**Purpose:** Reads and returns the `daily xp gain for main hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetDailyXpGainForMainHero();
+```
 
 ### GetInitialXpGainForMainHero
 `public override float GetInitialXpGainForMainHero()`
 
-**Purpose:** Gets the current value of `initial xp gain for main hero`.
+**Purpose:** Reads and returns the `initial xp gain for main hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetInitialXpGainForMainHero();
+```
 
 ### GetXpGainAfterSuccessfulAlleyDefenseForMainHero
 `public override float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()`
 
-**Purpose:** Gets the current value of `xp gain after successful alley defense for main hero`.
+**Purpose:** Reads and returns the `xp gain after successful alley defense for main hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetXpGainAfterSuccessfulAlleyDefenseForMainHero();
+```
 
 ### GetTroopsOfAIOwnedAlley
 `public override TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)`
 
-**Purpose:** Gets the current value of `troops of a i owned alley`.
+**Purpose:** Reads and returns the `troops of a i owned alley` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetTroopsOfAIOwnedAlley(alley);
+```
 
 ### GetTroopsOfAlleyForBattleMission
 `public override TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)`
 
-**Purpose:** Gets the current value of `troops of alley for battle mission`.
+**Purpose:** Reads and returns the `troops of alley for battle mission` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetTroopsOfAlleyForBattleMission(alley);
+```
 
 ### GetClanMembersAndAvailabilityDetailsForLeadingAnAlley
 `public override List<ValueTuple<Hero, DefaultAlleyModel.AlleyMemberAvailabilityDetail>> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)`
 
-**Purpose:** Gets the current value of `clan members and availability details for leading an alley`.
+**Purpose:** Reads and returns the `clan members and availability details for leading an alley` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(alley);
+```
 
 ### GetTroopsToRecruitFromAlleyDependingOnAlleyRandom
 `public override TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)`
 
-**Purpose:** Gets the current value of `troops to recruit from alley depending on alley random`.
+**Purpose:** Reads and returns the `troops to recruit from alley depending on alley random` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(alley, 0);
+```
 
 ### GetDisabledReasonTextForHero
 `public override TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)`
 
-**Purpose:** Gets the current value of `disabled reason text for hero`.
+**Purpose:** Reads and returns the `disabled reason text for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetDisabledReasonTextForHero(hero, alley, detail);
+```
 
 ### GetAlleyAttackResponseTimeInDays
 `public override float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)`
 
-**Purpose:** Gets the current value of `alley attack response time in days`.
+**Purpose:** Reads and returns the `alley attack response time in days` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetAlleyAttackResponseTimeInDays(troopRoster);
+```
 
 ### GetDailyIncomeOfAlley
 `public override int GetDailyIncomeOfAlley(Alley alley)`
 
-**Purpose:** Gets the current value of `daily income of alley`.
+**Purpose:** Reads and returns the `daily income of alley` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAlleyModel from the subsystem API first
+DefaultAlleyModel defaultAlleyModel = ...;
+var result = defaultAlleyModel.GetDailyIncomeOfAlley(alley);
+```
 
 ## Usage Example
 
@@ -98,4 +158,4 @@ Game.Current.ReplaceModel<DefaultAlleyModel>(new MyDefaultAlleyModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "EscapeMenuButtonWidget"
+description: "Auto-generated class reference for EscapeMenuButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EscapeMenuButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EscapeMenuButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.EscapeMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EscapeMenuButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.EscapeMenu/EscapeMenuButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.EscapeMenu/EscapeMenuButtonWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `EscapeMenuButtonWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new EscapeMenuButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EscapeMenuButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

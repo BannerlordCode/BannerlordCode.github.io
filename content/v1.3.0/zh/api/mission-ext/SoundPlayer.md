@@ -1,13 +1,7 @@
 ---
 title: "SoundPlayer"
+description: "SoundPlayer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SoundPlayer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundPlayer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,40 +23,77 @@ title: "SoundPlayer"
 ### UpdatePlaying
 `public void UpdatePlaying()`
 
-**用途 / Purpose:** 更新 `playing` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「playing」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SoundPlayer 实例
+SoundPlayer soundPlayer = ...;
+soundPlayer.UpdatePlaying();
+```
 
 ### PlaySound
 `public void PlaySound()`
 
-**用途 / Purpose:** 处理 `play sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundPlayer 实例
+SoundPlayer soundPlayer = ...;
+soundPlayer.PlaySound();
+```
 
 ### ResumeSound
 `public void ResumeSound()`
 
-**用途 / Purpose:** 处理 `resume sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundPlayer 实例
+SoundPlayer soundPlayer = ...;
+soundPlayer.ResumeSound();
+```
 
 ### PauseSound
 `public void PauseSound()`
 
-**用途 / Purpose:** 处理 `pause sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SoundPlayer 实例
+SoundPlayer soundPlayer = ...;
+soundPlayer.PauseSound();
+```
 
 ### StopSound
 `public void StopSound()`
 
-**用途 / Purpose:** 处理 `stop sound` 相关逻辑。
+**用途 / Purpose:** 停止「sound」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 SoundPlayer 实例
+SoundPlayer soundPlayer = ...;
+soundPlayer.StopSound();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SoundPlayer 实例
+SoundPlayer soundPlayer = ...;
+var result = soundPlayer.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SoundPlayer();
-value.UpdatePlaying();
+// 通常从对应子系统 API 获取实例后调用
+SoundPlayer soundPlayer = ...;
+soundPlayer.UpdatePlaying();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

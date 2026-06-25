@@ -1,20 +1,14 @@
 ---
 title: "TestContext"
+description: "Auto-generated class reference for TestContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestContext`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestContext
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class TestContext`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TestContext.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TestContext.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RunTestAux
 `public void RunTestAux(string commandLine)`
 
-**Purpose:** Handles logic related to `run test aux`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TestContext from the subsystem API first
+TestContext testContext = ...;
+testContext.RunTestAux("example");
+```
 
 ### OnApplicationTick
 `public void OnApplicationTick(float dt)`
 
-**Purpose:** Called when the `application tick` event is raised.
+**Purpose:** Invoked when the `application tick` event is raised.
+
+```csharp
+// Obtain an instance of TestContext from the subsystem API first
+TestContext testContext = ...;
+testContext.OnApplicationTick(0);
+```
 
 ### TickTest
 `public void TickTest(float dt)`
 
-**Purpose:** Handles logic related to `tick test`.
+**Purpose:** Advances the `test` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TestContext from the subsystem API first
+TestContext testContext = ...;
+testContext.TickTest(0);
+```
 
 ### FinalizeContext
 `public void FinalizeContext()`
 
-**Purpose:** Handles logic related to `finalize context`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TestContext from the subsystem API first
+TestContext testContext = ...;
+testContext.FinalizeContext();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TestContext();
-value.RunTestAux("example");
+// Typically call this after obtaining an instance from the subsystem API
+TestContext testContext = ...;
+testContext.RunTestAux("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

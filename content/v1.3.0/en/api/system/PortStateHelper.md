@@ -1,13 +1,7 @@
 ---
 title: "PortStateHelper"
+description: "Auto-generated class reference for PortStateHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PortStateHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PortStateHelper
 
 **Namespace:** Helpers
@@ -29,32 +23,62 @@ Treat `PortStateHelper` as a Helper-style extension point: first identify who cr
 ### OpenAsTrade
 `public static void OpenAsTrade(Town town)`
 
-**Purpose:** Handles logic related to `open as trade`.
+**Purpose:** Opens the resource or UI associated with `as trade`.
+
+```csharp
+// Static call; no instance required
+PortStateHelper.OpenAsTrade(town);
+```
 
 ### OpenAsLoot
 `public static void OpenAsLoot(MBReadOnlyList<Ship> lootShips)`
 
-**Purpose:** Handles logic related to `open as loot`.
+**Purpose:** Opens the resource or UI associated with `as loot`.
+
+```csharp
+// Static call; no instance required
+PortStateHelper.OpenAsLoot(lootShips);
+```
 
 ### OpenAsRestricted
 `public static void OpenAsRestricted(Town town, TextObject restrictedReason)`
 
-**Purpose:** Handles logic related to `open as restricted`.
+**Purpose:** Opens the resource or UI associated with `as restricted`.
+
+```csharp
+// Static call; no instance required
+PortStateHelper.OpenAsRestricted(town, restrictedReason);
+```
 
 ### OpenAsStoryMode
 `public static void OpenAsStoryMode(Settlement settlement)`
 
-**Purpose:** Handles logic related to `open as story mode`.
+**Purpose:** Opens the resource or UI associated with `as story mode`.
+
+```csharp
+// Static call; no instance required
+PortStateHelper.OpenAsStoryMode(settlement);
+```
 
 ### OpenAsManageFleet
 `public static void OpenAsManageFleet(MBReadOnlyList<Ship> leftShips)`
 
-**Purpose:** Handles logic related to `open as manage fleet`.
+**Purpose:** Opens the resource or UI associated with `as manage fleet`.
+
+```csharp
+// Static call; no instance required
+PortStateHelper.OpenAsManageFleet(leftShips);
+```
 
 ### OpenAsManageOtherFleet
 `public static void OpenAsManageOtherFleet(PartyBase other, Action onEndAction)`
 
-**Purpose:** Handles logic related to `open as manage other fleet`.
+**Purpose:** Opens the resource or UI associated with `as manage other fleet`.
+
+```csharp
+// Static call; no instance required
+PortStateHelper.OpenAsManageOtherFleet(other, onEndAction);
+```
 
 ## Usage Example
 
@@ -64,4 +88,4 @@ PortStateHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

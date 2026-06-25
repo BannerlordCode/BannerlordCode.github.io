@@ -1,20 +1,14 @@
 ---
 title: "ImageIdentifierVM"
+description: "Auto-generated class reference for ImageIdentifierVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ImageIdentifierVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ImageIdentifierVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/ImageIdentifierVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/ImageIdentifierVM.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ImageIdentifierVM from the subsystem API first
+ImageIdentifierVM imageIdentifierVM = ...;
+imageIdentifierVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomImageIdentifierVM();
+// Typically obtained from a subsystem API or factory
+ImageIdentifierVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

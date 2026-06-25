@@ -1,20 +1,14 @@
 ---
 title: "TroopGivenToSettlementNotificationItemVM"
+description: "TroopGivenToSettlementNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TroopGivenToSettlementNotificationItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopGivenToSettlementNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TroopGivenToSettlementNotificationItemVM : SettlementNotificationItemBaseVM`
 **Base:** `SettlementNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/TroopGivenToSettlementNotificationItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/TroopGivenToSettlementNotificationItemVM.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "TroopGivenToSettlementNotificationItemVM"
 ### AddNewAction
 `public void AddNewAction(TroopRoster newTroops)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `new action`。
+**用途 / Purpose:** 将 「new action」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TroopGivenToSettlementNotificationItemVM 实例
+TroopGivenToSettlementNotificationItemVM troopGivenToSettlementNotificationItemVM = ...;
+troopGivenToSettlementNotificationItemVM.AddNewAction(newTroops);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TroopGivenToSettlementNotificationItemVM();
-value.AddNewAction(newTroops);
+// 通常从对应子系统 API 获取实例后调用
+TroopGivenToSettlementNotificationItemVM troopGivenToSettlementNotificationItemVM = ...;
+troopGivenToSettlementNotificationItemVM.AddNewAction(newTroops);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "GlobalLayer"
+description: "Auto-generated class reference for GlobalLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GlobalLayer`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GlobalLayer
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
 **Type:** `public class GlobalLayer : IComparable`
 **Base:** `IComparable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/GlobalLayer.cs`
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/GlobalLayer.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of GlobalLayer from the subsystem API first
+GlobalLayer globalLayer = ...;
+var result = globalLayer.CompareTo(obj);
+```
 
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**Purpose:** Updates the state or data of `layout`.
+**Purpose:** Recalculates and stores the latest representation of `layout`.
+
+```csharp
+// Obtain an instance of GlobalLayer from the subsystem API first
+GlobalLayer globalLayer = ...;
+globalLayer.UpdateLayout();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GlobalLayer();
-value.CompareTo(obj);
+// Typically call this after obtaining an instance from the subsystem API
+GlobalLayer globalLayer = ...;
+globalLayer.CompareTo(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

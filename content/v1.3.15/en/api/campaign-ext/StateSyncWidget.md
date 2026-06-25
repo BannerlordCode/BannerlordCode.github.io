@@ -1,13 +1,7 @@
 ---
 title: "StateSyncWidget"
+description: "Auto-generated class reference for StateSyncWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StateSyncWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StateSyncWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -34,9 +28,10 @@ Treat `StateSyncWidget` as a Widget-style extension point: first identify who cr
 ## Usage Example
 
 ```csharp
-var widget = new StateSyncWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+StateSyncWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

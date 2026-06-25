@@ -1,13 +1,7 @@
 ---
 title: "MissionManager"
+description: "Auto-generated class reference for MissionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -32,4 +26,4 @@ var manager = MissionManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

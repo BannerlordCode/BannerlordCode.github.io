@@ -1,20 +1,14 @@
 ---
 title: "TradeAgreementDecisionOutcome"
+description: "Auto-generated class reference for TradeAgreementDecisionOutcome."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TradeAgreementDecisionOutcome`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TradeAgreementDecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TradeAgreementDecisionOutcome : DecisionOutcome`
 **Base:** `DecisionOutcome`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/TradeAgreementDecision.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/TradeAgreementDecision.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Gets the current value of `decision description`.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementDecisionOutcome from the subsystem API first
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Gets the current value of `decision image identifier`.
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementDecisionOutcome from the subsystem API first
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionImageIdentifier();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `decision link`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementDecisionOutcome from the subsystem API first
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionLink();
+```
 
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Gets the current value of `decision title`.
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of TradeAgreementDecisionOutcome from the subsystem API first
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+var result = tradeAgreementDecisionOutcome.GetDecisionTitle();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TradeAgreementDecisionOutcome();
-value.GetDecisionDescription();
+// Typically call this after obtaining an instance from the subsystem API
+TradeAgreementDecisionOutcome tradeAgreementDecisionOutcome = ...;
+tradeAgreementDecisionOutcome.GetDecisionDescription();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

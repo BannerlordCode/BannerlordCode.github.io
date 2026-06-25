@@ -1,20 +1,14 @@
 ---
 title: "RenderTargetComponent"
+description: "RenderTargetComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RenderTargetComponent`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RenderTargetComponent
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class RenderTargetComponent : DotNetObject`
 **Base:** `DotNetObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/RenderTargetComponent.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/RenderTargetComponent.cs`
 
 ## 概述
 
@@ -35,7 +29,13 @@ title: "RenderTargetComponent"
 ### TextureUpdateEventHandler
 `public delegate void TextureUpdateEventHandler(Texture sender, EventArgs e)`
 
-**用途 / Purpose:** 处理 `texture update event handler` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RenderTargetComponent 实例
+RenderTargetComponent renderTargetComponent = ...;
+renderTargetComponent.TextureUpdateEventHandler(sender, e);
+```
 
 ## 使用示例
 
@@ -45,4 +45,4 @@ var component = agent.GetComponent<RenderTargetComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MercenaryClanChangedKingdomLogEntry"
+description: "Auto-generated class reference for MercenaryClanChangedKingdomLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MercenaryClanChangedKingdomLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MercenaryClanChangedKingdomLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** Handles logic related to `is related to war`.
+**Purpose:** Determines whether the current object is in the `related to war` state or condition.
+
+```csharp
+// Obtain an instance of MercenaryClanChangedKingdomLogEntry from the subsystem API first
+MercenaryClanChangedKingdomLogEntry mercenaryClanChangedKingdomLogEntry = ...;
+var result = mercenaryClanChangedKingdomLogEntry.IsRelatedToWar(stance, effector, effected);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MercenaryClanChangedKingdomLogEntry from the subsystem API first
+MercenaryClanChangedKingdomLogEntry mercenaryClanChangedKingdomLogEntry = ...;
+var result = mercenaryClanChangedKingdomLogEntry.ToString();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of MercenaryClanChangedKingdomLogEntry from the subsystem API first
+MercenaryClanChangedKingdomLogEntry mercenaryClanChangedKingdomLogEntry = ...;
+var result = mercenaryClanChangedKingdomLogEntry.GetNotificationText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MercenaryClanChangedKingdomLogEntry();
-value.IsRelatedToWar(stance, effector, effected);
+// Typically call this after obtaining an instance from the subsystem API
+MercenaryClanChangedKingdomLogEntry mercenaryClanChangedKingdomLogEntry = ...;
+mercenaryClanChangedKingdomLogEntry.IsRelatedToWar(stance, effector, effected);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

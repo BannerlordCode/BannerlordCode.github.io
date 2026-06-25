@@ -1,20 +1,14 @@
 ---
 title: "OrderController"
+description: "OrderController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderController`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OrderController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OrderController.cs`
 
 ## 概述
 
@@ -36,207 +30,440 @@ title: "OrderController"
 ### SelectFormation
 `public void SelectFormation(Formation formation)`
 
-**用途 / Purpose:** 处理 `select formation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SelectFormation(formation);
+```
 
 ### DeselectFormation
 `public void DeselectFormation(Formation formation)`
 
-**用途 / Purpose:** 处理 `deselect formation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.DeselectFormation(formation);
+```
 
 ### IsFormationListening
 `public bool IsFormationListening(Formation formation)`
 
-**用途 / Purpose:** 处理 `is formation listening` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「formation listening」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+var result = orderController.IsFormationListening(formation);
+```
 
 ### IsFormationSelectable
 `public bool IsFormationSelectable(Formation formation)`
 
-**用途 / Purpose:** 处理 `is formation selectable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「formation selectable」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+var result = orderController.IsFormationSelectable(formation);
+```
 
 ### BackupAndDisableGesturesEnabled
 `public bool BackupAndDisableGesturesEnabled()`
 
-**用途 / Purpose:** 处理 `backup and disable gestures enabled` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+var result = orderController.BackupAndDisableGesturesEnabled();
+```
 
 ### RestoreGesturesEnabled
 `public void RestoreGesturesEnabled(bool oldValue)`
 
-**用途 / Purpose:** 处理 `restore gestures enabled` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.RestoreGesturesEnabled(false);
+```
 
 ### SelectAllFormations
 `public void SelectAllFormations(bool uiFeedback = false)`
 
-**用途 / Purpose:** 处理 `select all formations` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SelectAllFormations(false);
+```
 
 ### ClearSelectedFormations
 `public void ClearSelectedFormations()`
 
-**用途 / Purpose:** 处理 `clear selected formations` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「selected formations」。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.ClearSelectedFormations();
+```
 
 ### SetOrder
 `public virtual void SetOrder(OrderType orderType)`
 
-**用途 / Purpose:** 设置 `order` 的值或状态。
+**用途 / Purpose:** 为 「order」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetOrder(orderType);
+```
 
 ### SetOrderWithAgent
 `public virtual void SetOrderWithAgent(OrderType orderType, Agent agent)`
 
-**用途 / Purpose:** 设置 `order with agent` 的值或状态。
+**用途 / Purpose:** 为 「order with agent」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetOrderWithAgent(orderType, agent);
+```
 
 ### SetOrderWithPosition
 `public virtual void SetOrderWithPosition(OrderType orderType, WorldPosition orderPosition)`
 
-**用途 / Purpose:** 设置 `order with position` 的值或状态。
+**用途 / Purpose:** 为 「order with position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetOrderWithPosition(orderType, orderPosition);
+```
 
 ### SetOrderWithFormation
 `public virtual void SetOrderWithFormation(OrderType orderType, Formation orderFormation)`
 
-**用途 / Purpose:** 设置 `order with formation` 的值或状态。
+**用途 / Purpose:** 为 「order with formation」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetOrderWithFormation(orderType, orderFormation);
+```
 
 ### SetOrderWithFormationAndPercentage
 `public void SetOrderWithFormationAndPercentage(OrderType orderType, Formation orderFormation, float percentage)`
 
-**用途 / Purpose:** 设置 `order with formation and percentage` 的值或状态。
+**用途 / Purpose:** 为 「order with formation and percentage」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetOrderWithFormationAndPercentage(orderType, orderFormation, 0);
+```
 
 ### TransferUnitWithPriorityFunction
 `public void TransferUnitWithPriorityFunction(Formation orderFormation, int number, bool hasShield, bool hasSpear, bool hasThrown, bool isHeavy, bool isRanged, bool isMounted, bool excludeBannerman, List<Agent> excludedAgents)`
 
-**用途 / Purpose:** 处理 `transfer unit with priority function` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.TransferUnitWithPriorityFunction(orderFormation, 0, false, false, false, false, false, false, false, excludedAgents);
+```
 
 ### RearrangeFormationsAccordingToFilters
 `public void RearrangeFormationsAccordingToFilters(Team team, List<(Formation formation, int troopCount, TroopTraitsMask troopFilter, List<Agent> excludedAgents)> MassTransferData)`
 
-**用途 / Purpose:** 处理 `rearrange formations according to filters` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.RearrangeFormationsAccordingToFilters(team, formation, 0, troopFilter, massTransferData);
+```
 
 ### SetOrderWithFormationAndNumber
 `public void SetOrderWithFormationAndNumber(OrderType orderType, Formation orderFormation, int number)`
 
-**用途 / Purpose:** 设置 `order with formation and number` 的值或状态。
+**用途 / Purpose:** 为 「order with formation and number」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetOrderWithFormationAndNumber(orderType, orderFormation, 0);
+```
 
 ### SetOrderWithTwoPositions
 `public virtual void SetOrderWithTwoPositions(OrderType orderType, WorldPosition position1, WorldPosition position2)`
 
-**用途 / Purpose:** 设置 `order with two positions` 的值或状态。
+**用途 / Purpose:** 为 「order with two positions」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetOrderWithTwoPositions(orderType, position1, position2);
+```
 
 ### SetOrderWithOrderableObject
 `public virtual void SetOrderWithOrderableObject(IOrderable target)`
 
-**用途 / Purpose:** 设置 `order with orderable object` 的值或状态。
+**用途 / Purpose:** 为 「order with orderable object」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetOrderWithOrderableObject(target);
+```
 
 ### GetActiveMovementOrderOf
 `public static OrderType GetActiveMovementOrderOf(Formation formation)`
 
-**用途 / Purpose:** 获取 `active movement order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active movement order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetActiveMovementOrderOf(formation);
+```
 
 ### GetActiveFacingOrderOf
 `public static OrderType GetActiveFacingOrderOf(Formation formation)`
 
-**用途 / Purpose:** 获取 `active facing order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active facing order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetActiveFacingOrderOf(formation);
+```
 
 ### GetActiveRidingOrderOf
 `public static OrderType GetActiveRidingOrderOf(Formation formation)`
 
-**用途 / Purpose:** 获取 `active riding order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active riding order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetActiveRidingOrderOf(formation);
+```
 
 ### GetActiveArrangementOrderOf
 `public static OrderType GetActiveArrangementOrderOf(Formation formation)`
 
-**用途 / Purpose:** 获取 `active arrangement order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active arrangement order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetActiveArrangementOrderOf(formation);
+```
 
 ### GetActiveFormOrderOf
 `public static OrderType GetActiveFormOrderOf(Formation formation)`
 
-**用途 / Purpose:** 获取 `active form order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active form order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetActiveFormOrderOf(formation);
+```
 
 ### GetActiveFiringOrderOf
 `public static OrderType GetActiveFiringOrderOf(Formation formation)`
 
-**用途 / Purpose:** 获取 `active firing order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active firing order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetActiveFiringOrderOf(formation);
+```
 
 ### GetActiveAIControlOrderOf
 `public static OrderType GetActiveAIControlOrderOf(Formation formation)`
 
-**用途 / Purpose:** 获取 `active a i control order of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active a i control order of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetActiveAIControlOrderOf(formation);
+```
 
 ### SimulateNewOrderWithPositionAndDirection
 `public void SimulateNewOrderWithPositionAndDirection(WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<WorldPosition> simulationAgentFrames, bool isFormationLayoutVertical)`
 
-**用途 / Purpose:** 处理 `simulate new order with position and direction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SimulateNewOrderWithPositionAndDirection(formationLineBegin, formationLineEnd, simulationAgentFrames, false);
+```
 
 ### SimulateNewFacingOrder
 `public void SimulateNewFacingOrder(Vec2 direction, out List<WorldPosition> simulationAgentFrames)`
 
-**用途 / Purpose:** 处理 `simulate new facing order` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SimulateNewFacingOrder(direction, simulationAgentFrames);
+```
 
 ### SimulateNewCustomWidthOrder
 `public void SimulateNewCustomWidthOrder(float width, out List<WorldPosition> simulationAgentFrames)`
 
-**用途 / Purpose:** 处理 `simulate new custom width order` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SimulateNewCustomWidthOrder(0, simulationAgentFrames);
+```
 
 ### SimulateNewOrderWithPositionAndDirection
 `public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<WorldPosition> simulationAgentFrames, bool isFormationLayoutVertical = true)`
 
-**用途 / Purpose:** 处理 `simulate new order with position and direction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<Formation, simulationFormations, formationLineBegin, formationLineEnd, simulationAgentFrames, false);
+```
 
 ### SimulateNewOrderWithPositionAndDirection
 `public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<(Formation, int, float, WorldPosition, Vec2)> formationChanges, out bool isLineShort, bool isFormationLayoutVertical = true)`
 
-**用途 / Purpose:** 处理 `simulate new order with position and direction` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<Formation, simulationFormations, formationLineBegin, formationLineEnd, list<(Formation, 0, 0, worldPosition, formationChanges, isLineShort, false);
+```
 
 ### SimulateDestinationFrames
 `public void SimulateDestinationFrames(out List<WorldPosition> simulationAgentFrames, float minDistance = 3f)`
 
-**用途 / Purpose:** 处理 `simulate destination frames` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SimulateDestinationFrames(simulationAgentFrames, 0);
+```
 
 ### SortFormationsForHorizontalLayout
 `public static IEnumerable<Formation> SortFormationsForHorizontalLayout(IEnumerable<Formation> formations)`
 
-**用途 / Purpose:** 处理 `sort formations for horizontal layout` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.SortFormationsForHorizontalLayout(formations);
+```
 
 ### GetOrderLookAtDirection
 `public static Vec2 GetOrderLookAtDirection(IEnumerable<Formation> formations, Vec2 target)`
 
-**用途 / Purpose:** 获取 `order look at direction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order look at direction」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetOrderLookAtDirection(formations, target);
+```
 
 ### GetOrderFormCustomWidth
 `public static float GetOrderFormCustomWidth(IEnumerable<Formation> formations, Vec3 orderPosition)`
 
-**用途 / Purpose:** 获取 `order form custom width` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order form custom width」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.GetOrderFormCustomWidth(formations, orderPosition);
+```
 
 ### TransferUnits
 `public void TransferUnits(Formation source, Formation target, int count)`
 
-**用途 / Purpose:** 处理 `transfer units` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.TransferUnits(source, target, 0);
+```
 
 ### SplitFormation
 `public IEnumerable<Formation> SplitFormation(Formation formation, int count = 2)`
 
-**用途 / Purpose:** 处理 `split formation` 相关逻辑。
+**用途 / Purpose:** 将「formation」拆分为多个部分或子项。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+var result = orderController.SplitFormation(formation, 0);
+```
 
 ### TickDebug
 `public void TickDebug()`
 
-**用途 / Purpose:** 处理 `tick debug` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「debug」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.TickDebug();
+```
 
 ### AddOrderOverride
 `public void AddOrderOverride(Func<Formation, MovementOrder, MovementOrder> orderOverride)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `order override`。
+**用途 / Purpose:** 将 「order override」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.AddOrderOverride(func<Formation, movementOrder, orderOverride);
+```
 
 ### GetOverridenOrderType
 `public OrderType GetOverridenOrderType(Formation formation)`
 
-**用途 / Purpose:** 获取 `overriden order type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「overriden order type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+var result = orderController.GetOverridenOrderType(formation);
+```
 
 ### SetFormationUpdateEnabledAfterSetOrder
 `public void SetFormationUpdateEnabledAfterSetOrder(bool value)`
 
-**用途 / Purpose:** 设置 `formation update enabled after set order` 的值或状态。
+**用途 / Purpose:** 为 「formation update enabled after set order」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderController 实例
+OrderController orderController = ...;
+orderController.SetFormationUpdateEnabledAfterSetOrder(false);
+```
 
 ### TryCancelStopOrder
 `public static void TryCancelStopOrder(Formation formation)`
 
-**用途 / Purpose:** 尝试获取 `cancel stop order`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「cancel stop order」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 静态调用，不需要实例
+OrderController.TryCancelStopOrder(formation);
+```
 
 ## 使用示例
 
@@ -246,4 +473,4 @@ var controller = Mission.Current.GetMissionBehavior<OrderController>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

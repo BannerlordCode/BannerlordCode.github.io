@@ -1,20 +1,14 @@
 ---
 title: "MissionViewsContainer"
+description: "Auto-generated class reference for MissionViewsContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionViewsContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionViewsContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionViewsContainer`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionViewsContainer.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionViewsContainer.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews` to place it in
 ### Add
 `public void Add(MissionView missionView)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of MissionViewsContainer from the subsystem API first
+MissionViewsContainer missionViewsContainer = ...;
+missionViewsContainer.Add(missionView);
+```
 
 ### Remove
 `public void Remove(MissionView missionView)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of MissionViewsContainer from the subsystem API first
+MissionViewsContainer missionViewsContainer = ...;
+missionViewsContainer.Remove(missionView);
+```
 
 ### Contains
 `public bool Contains(MissionView missionView)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of MissionViewsContainer from the subsystem API first
+MissionViewsContainer missionViewsContainer = ...;
+var result = missionViewsContainer.Contains(missionView);
+```
 
 ### ForEach
 `public void ForEach(Action<MissionView> action)`
 
-**Purpose:** Handles logic related to `for each`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionViewsContainer from the subsystem API first
+MissionViewsContainer missionViewsContainer = ...;
+missionViewsContainer.ForEach(action);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionViewsContainer();
-value.Add(missionView);
+// Typically call this after obtaining an instance from the subsystem API
+MissionViewsContainer missionViewsContainer = ...;
+missionViewsContainer.Add(missionView);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

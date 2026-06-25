@@ -1,18 +1,12 @@
 ---
 title: "IInputManager"
+description: "Auto-generated class reference for IInputManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IInputManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IInputManager
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public interface IInputManager`
 **Base:** none
 **File:** `TaleWorlds.InputSystem/IInputManager.cs`
 
@@ -27,9 +21,10 @@ Treat `IInputManager` as a Manager-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-IInputManager implementation = GetInputManagerImplementation();
+// Usually obtained through DI or a factory method
+IIInputManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "JoustingAgentController"
+description: "JoustingAgentController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `JoustingAgentController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoustingAgentController
 
 **Namespace:** SandBox.Tournaments.AgentControllers
 **Module:** SandBox.Tournaments
 **Type:** `public class JoustingAgentController : AgentController`
 **Base:** `AgentController`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Tournaments.AgentControllers/JoustingAgentController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments.AgentControllers/JoustingAgentController.cs`
 
 ## 概述
 
@@ -38,27 +32,57 @@ title: "JoustingAgentController"
 ### OnInitialize
 `public override void OnInitialize()`
 
-**用途 / Purpose:** 当 `initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 JoustingAgentController 实例
+JoustingAgentController joustingAgentController = ...;
+joustingAgentController.OnInitialize();
+```
 
 ### UpdateState
 `public void UpdateState()`
 
-**用途 / Purpose:** 更新 `state` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「state」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 JoustingAgentController 实例
+JoustingAgentController joustingAgentController = ...;
+joustingAgentController.UpdateState();
+```
 
 ### PrepareAgentToSwordDuel
 `public void PrepareAgentToSwordDuel()`
 
-**用途 / Purpose:** 处理 `prepare agent to sword duel` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「agent to sword duel」操作完成前置准备工作。
+
+```csharp
+// 先通过子系统 API 拿到 JoustingAgentController 实例
+JoustingAgentController joustingAgentController = ...;
+joustingAgentController.PrepareAgentToSwordDuel();
+```
 
 ### PrepareEquipmentsForSwordDuel
 `public void PrepareEquipmentsForSwordDuel()`
 
-**用途 / Purpose:** 处理 `prepare equipments for sword duel` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「equipments for sword duel」操作完成前置准备工作。
+
+```csharp
+// 先通过子系统 API 拿到 JoustingAgentController 实例
+JoustingAgentController joustingAgentController = ...;
+joustingAgentController.PrepareEquipmentsForSwordDuel();
+```
 
 ### IsRiding
 `public bool IsRiding()`
 
-**用途 / Purpose:** 处理 `is riding` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「riding」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 JoustingAgentController 实例
+JoustingAgentController joustingAgentController = ...;
+var result = joustingAgentController.IsRiding();
+```
 
 ## 使用示例
 
@@ -68,4 +92,4 @@ var controller = Mission.Current.GetMissionBehavior<JoustingAgentController>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

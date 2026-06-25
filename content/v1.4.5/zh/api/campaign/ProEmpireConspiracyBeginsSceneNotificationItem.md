@@ -1,20 +1,14 @@
 ---
 title: "ProEmpireConspiracyBeginsSceneNotificationItem"
+description: "ProEmpireConspiracyBeginsSceneNotificationItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ProEmpireConspiracyBeginsSceneNotificationItem`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProEmpireConspiracyBeginsSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ProEmpireConspiracyBeginsSceneNotificationItem : EmpireConspiracySupportsSceneNotificationItemBase`
 **Base:** `EmpireConspiracySupportsSceneNotificationItemBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/ProEmpireConspiracyBeginsSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/ProEmpireConspiracyBeginsSceneNotificationItem.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "ProEmpireConspiracyBeginsSceneNotificationItem"
 ## 使用示例
 
 ```csharp
-var example = new ProEmpireConspiracyBeginsSceneNotificationItem();
+// 从对应子系统 API 获取实例
+ProEmpireConspiracyBeginsSceneNotificationItem instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

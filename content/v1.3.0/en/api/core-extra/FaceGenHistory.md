@@ -1,13 +1,7 @@
 ---
 title: "FaceGenHistory"
+description: "Auto-generated class reference for FaceGenHistory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGenHistory`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGenHistory
 
 **Namespace:** TaleWorlds.Core
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ClearHistory
 `public void ClearHistory()`
 
-**Purpose:** Handles logic related to `clear history`.
+**Purpose:** Removes all `history` from the current object.
+
+```csharp
+// Obtain an instance of FaceGenHistory from the subsystem API first
+FaceGenHistory faceGenHistory = ...;
+faceGenHistory.ClearHistory();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FaceGenHistory();
-value.ClearHistory();
+// Typically call this after obtaining an instance from the subsystem API
+FaceGenHistory faceGenHistory = ...;
+faceGenHistory.ClearHistory();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

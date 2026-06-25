@@ -1,20 +1,14 @@
 ---
 title: "ApplyOrder"
+description: "Auto-generated class reference for ApplyOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplyOrder`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ApplyOrder
 
 **Namespace:** NetworkMessages.FromClient
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class ApplyOrder : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/ApplyOrder.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `NetworkMessages.FromClient` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new ApplyOrder();
+// Obtain an instance from the relevant subsystem API
+ApplyOrder instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

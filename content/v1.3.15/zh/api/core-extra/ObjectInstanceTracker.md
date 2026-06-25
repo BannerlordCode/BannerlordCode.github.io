@@ -1,13 +1,7 @@
 ---
 title: "ObjectInstanceTracker"
+description: "ObjectInstanceTracker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ObjectInstanceTracker`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ObjectInstanceTracker
 
 **Namespace:** TaleWorlds.Library
@@ -29,12 +23,22 @@ title: "ObjectInstanceTracker"
 ### RegisterTrackedInstance
 `public static void RegisterTrackedInstance(string name, WeakReference instance)`
 
-**用途 / Purpose:** 处理 `register tracked instance` 相关逻辑。
+**用途 / Purpose:** 将「tracked instance」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 静态调用，不需要实例
+ObjectInstanceTracker.RegisterTrackedInstance("example", instance);
+```
 
 ### CheckBlacklistedTypeCounts
 `public static bool CheckBlacklistedTypeCounts(Dictionary<string, int> typeNameCounts, ref string outputLog)`
 
-**用途 / Purpose:** 处理 `check blacklisted type counts` 相关逻辑。
+**用途 / Purpose:** 检查「blacklisted type counts」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+ObjectInstanceTracker.CheckBlacklistedTypeCounts(dictionary<string, 0, outputLog);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ ObjectInstanceTracker.RegisterTrackedInstance("example", instance);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

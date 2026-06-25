@@ -1,20 +1,14 @@
 ---
 title: "PeerExtensions"
+description: "PeerExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PeerExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeerExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class PeerExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PeerExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/PeerExtensions.cs`
 
 ## 概述
 
@@ -29,37 +23,72 @@ title: "PeerExtensions"
 ### SendExistingObjects
 `public static void SendExistingObjects(this NetworkCommunicator peer, Mission mission)`
 
-**用途 / Purpose:** 处理 `send existing objects` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PeerExtensions.SendExistingObjects(peer, mission);
+```
 
 ### GetPeer
 `public static VirtualPlayer GetPeer(this PeerComponent peerComponent)`
 
-**用途 / Purpose:** 获取 `peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「peer」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PeerExtensions.GetPeer(peerComponent);
+```
 
 ### GetNetworkPeer
 `public static NetworkCommunicator GetNetworkPeer(this PeerComponent peerComponent)`
 
-**用途 / Purpose:** 获取 `network peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「network peer」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PeerExtensions.GetNetworkPeer(peerComponent);
+```
 
 ### RemoveComponent
 `public static void RemoveComponent(this NetworkCommunicator networkPeer, PeerComponent component)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `component`。
+**用途 / Purpose:** 从当前容器或状态中移除 「component」。
+
+```csharp
+// 静态调用，不需要实例
+PeerExtensions.RemoveComponent(networkPeer, component);
+```
 
 ### GetComponent
 `public static PeerComponent GetComponent(this NetworkCommunicator networkPeer, uint componentId)`
 
-**用途 / Purpose:** 获取 `component` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「component」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PeerExtensions.GetComponent(networkPeer, 0);
+```
 
 ### AddComponent
 `public static void AddComponent(this NetworkCommunicator networkPeer, Type peerComponentType)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `component`。
+**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+PeerExtensions.AddComponent(networkPeer, peerComponentType);
+```
 
 ### AddComponent
 `public static void AddComponent(this NetworkCommunicator networkPeer, uint componentId)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `component`。
+**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+PeerExtensions.AddComponent(networkPeer, 0);
+```
 
 ## 使用示例
 
@@ -69,4 +98,4 @@ PeerExtensions.SendExistingObjects(peer, mission);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

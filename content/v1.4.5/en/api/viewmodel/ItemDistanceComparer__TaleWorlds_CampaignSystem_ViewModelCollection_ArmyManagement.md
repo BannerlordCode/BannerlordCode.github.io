@@ -1,20 +1,14 @@
 ---
-title: "ItemDistanceComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ArmyManagement"
+title: "ItemDistanceComparer"
+description: "Auto-generated class reference for ItemDistanceComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemDistanceComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemDistanceComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemDistanceComparer : ItemComparerBase`
 **Base:** `ItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement/ArmyManagementSortControllerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemDistanceComparer from the subsystem API first
+ItemDistanceComparer itemDistanceComparer = ...;
+var result = itemDistanceComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemDistanceComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemDistanceComparer itemDistanceComparer = ...;
+itemDistanceComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

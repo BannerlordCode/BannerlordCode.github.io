@@ -1,13 +1,7 @@
 ---
 title: "AgentBehaviorManager"
+description: "AgentBehaviorManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentBehaviorManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentBehaviorManager
 
 **Namespace:** SandBox.AI
@@ -29,12 +23,24 @@ title: "AgentBehaviorManager"
 ### AddQuestCharacterBehaviors
 `public void AddQuestCharacterBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `quest character behaviors`。
+**用途 / Purpose:** 将 「quest character behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorManager 实例
+AgentBehaviorManager agentBehaviorManager = ...;
+agentBehaviorManager.AddQuestCharacterBehaviors(agent);
+```
 
 ### AddFirstCompanionBehavior
 `public void AddFirstCompanionBehavior(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `first companion behavior`。
+**用途 / Purpose:** 将 「first companion behavior」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 AgentBehaviorManager 实例
+AgentBehaviorManager agentBehaviorManager = ...;
+agentBehaviorManager.AddFirstCompanionBehavior(agent);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var manager = AgentBehaviorManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

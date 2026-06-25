@@ -1,13 +1,7 @@
 ---
 title: "AssetIncomeType"
+description: "Auto-generated class reference for AssetIncomeType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AssetIncomeType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AssetIncomeType
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameComponents` to place it in t
 ## Usage Example
 
 ```csharp
-AssetIncomeType example = AssetIncomeType.Value;
+// Obtain an instance from the relevant subsystem API
+AssetIncomeType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

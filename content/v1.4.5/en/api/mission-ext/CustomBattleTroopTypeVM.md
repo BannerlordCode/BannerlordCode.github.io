@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleTroopTypeVM"
+description: "Auto-generated class reference for CustomBattleTroopTypeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleTroopTypeVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleTroopTypeVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleTroopTypeVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleTroopTypeVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CustomBattleTroopTypeVM.cs`
 
 ## Overview
 
@@ -42,35 +36,64 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CustomBattleTroopTypeVM from the subsystem API first
+CustomBattleTroopTypeVM customBattleTroopTypeVM = ...;
+customBattleTroopTypeVM.RefreshValues();
+```
 
 ### ExecuteToggleSelection
 `public void ExecuteToggleSelection()`
 
-**Purpose:** Executes the `toggle selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle selection`.
+
+```csharp
+// Obtain an instance of CustomBattleTroopTypeVM from the subsystem API first
+CustomBattleTroopTypeVM customBattleTroopTypeVM = ...;
+customBattleTroopTypeVM.ExecuteToggleSelection();
+```
 
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** Executes the `randomize` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `randomize`.
+
+```csharp
+// Obtain an instance of CustomBattleTroopTypeVM from the subsystem API first
+CustomBattleTroopTypeVM customBattleTroopTypeVM = ...;
+customBattleTroopTypeVM.ExecuteRandomize();
+```
 
 ### GetCharacterTierData
 `public static StringItemWithHintVM GetCharacterTierData(BasicCharacterObject character, bool isBig = false)`
 
-**Purpose:** Gets the current value of `character tier data`.
+**Purpose:** Reads and returns the `character tier data` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CustomBattleTroopTypeVM.GetCharacterTierData(character, false);
+```
 
 ### GetCharacterTier
 `public static int GetCharacterTier(BasicCharacterObject character)`
 
-**Purpose:** Gets the current value of `character tier`.
+**Purpose:** Reads and returns the `character tier` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CustomBattleTroopTypeVM.GetCharacterTier(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleTroopTypeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleTroopTypeVM customBattleTroopTypeVM = ...;
+customBattleTroopTypeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

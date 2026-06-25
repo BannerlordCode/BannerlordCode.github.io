@@ -1,13 +1,7 @@
 ---
 title: "PartyWageModel"
+description: "PartyWageModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyWageModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyWageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,24 +29,43 @@ title: "PartyWageModel"
 ### GetCharacterWage
 `public abstract int GetCharacterWage(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `character wage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character wage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyWageModel 实例
+PartyWageModel partyWageModel = ...;
+var result = partyWageModel.GetCharacterWage(character);
+```
 
 ### GetTotalWage
 `public abstract ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `total wage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total wage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyWageModel 实例
+PartyWageModel partyWageModel = ...;
+var result = partyWageModel.GetTotalWage(mobileParty, troopRoster, false);
+```
 
 ### GetTroopRecruitmentCost
 `public abstract ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**用途 / Purpose:** 获取 `troop recruitment cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop recruitment cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyWageModel 实例
+PartyWageModel partyWageModel = ...;
+var result = partyWageModel.GetTroopRecruitmentCost(troop, buyerHero, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyWageModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyWageModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

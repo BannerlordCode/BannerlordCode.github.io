@@ -1,20 +1,14 @@
 ---
 title: "ArenaDuelMissionBehavior"
+description: "Auto-generated class reference for ArenaDuelMissionBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArenaDuelMissionBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaDuelMissionBehavior
 
 **Namespace:** SandBox.Missions.MissionLogics.Arena
 **Module:** SandBox.Missions
 **Type:** `public class ArenaDuelMissionBehavior : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Arena/ArenaDuelMissionBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Arena/ArenaDuelMissionBehavior.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.Missions.MissionLogics.Arena` to place it in the s
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArenaDuelMissionBehavior from the subsystem API first
+ArenaDuelMissionBehavior arenaDuelMissionBehavior = ...;
+arenaDuelMissionBehavior.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArenaDuelMissionBehavior();
-value.AfterStart();
+// Typically call this after obtaining an instance from the subsystem API
+ArenaDuelMissionBehavior arenaDuelMissionBehavior = ...;
+arenaDuelMissionBehavior.AfterStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

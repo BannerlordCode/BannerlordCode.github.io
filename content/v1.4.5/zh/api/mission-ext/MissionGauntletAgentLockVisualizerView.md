@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletAgentLockVisualizerView"
+description: "MissionGauntletAgentLockVisualizerView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletAgentLockVisualizerView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletAgentLockVisualizerView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletAgentLockVisualizerView : MissionBattleUIBaseView`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletAgentLockVisualizerView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletAgentLockVisualizerView.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "MissionGauntletAgentLockVisualizerView"
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletAgentLockVisualizerView 实例
+MissionGauntletAgentLockVisualizerView missionGauntletAgentLockVisualizerView = ...;
+missionGauntletAgentLockVisualizerView.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionGauntletAgentLockVisualizerView();
+// 从子系统 API 或场景中获取该视图
+MissionGauntletAgentLockVisualizerView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

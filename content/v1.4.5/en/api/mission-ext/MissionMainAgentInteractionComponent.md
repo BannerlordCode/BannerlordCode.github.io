@@ -1,20 +1,14 @@
 ---
 title: "MissionMainAgentInteractionComponent"
+description: "Auto-generated class reference for MissionMainAgentInteractionComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMainAgentInteractionComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentInteractionComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMainAgentInteractionComponent`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionMainAgentInteractionComponent.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionMainAgentInteractionComponent.cs`
 
 ## Overview
 
@@ -36,47 +30,101 @@ Treat `MissionMainAgentInteractionComponent` as a Component-style extension poin
 ### MissionFocusGainedEventDelegate
 `public delegate void MissionFocusGainedEventDelegate(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**Purpose:** Handles logic related to `mission focus gained event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.MissionFocusGainedEventDelegate(agent, focusableObject, false);
+```
 
 ### MissionFocusLostEventDelegate
 `public delegate void MissionFocusLostEventDelegate(Agent agent, IFocusable focusableObject)`
 
-**Purpose:** Handles logic related to `mission focus lost event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.MissionFocusLostEventDelegate(agent, focusableObject);
+```
 
 ### MissionFocusHealthChangeDelegate
 `public delegate void MissionFocusHealthChangeDelegate(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**Purpose:** Handles logic related to `mission focus health change delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.MissionFocusHealthChangeDelegate(focusable, 0, false);
+```
 
 ### SetCurrentFocusedObject
 `public void SetCurrentFocusedObject(IFocusable focusedObject, IFocusable focusedMachine, sbyte focusedObjectBoneIndex, bool isInteractable)`
 
-**Purpose:** Sets the value or state of `current focused object`.
+**Purpose:** Assigns a new value to `current focused object` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.SetCurrentFocusedObject(focusedObject, focusedMachine, 0, false);
+```
 
 ### ClearFocus
 `public void ClearFocus()`
 
-**Purpose:** Handles logic related to `clear focus`.
+**Purpose:** Removes all `focus` from the current object.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.ClearFocus();
+```
 
 ### OnClearScene
 `public void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.OnClearScene();
+```
 
 ### FocusTick
 `public void FocusTick()`
 
-**Purpose:** Handles logic related to `focus tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.FocusTick();
+```
 
 ### FocusStateCheckTick
 `public void FocusStateCheckTick()`
 
-**Purpose:** Handles logic related to `focus state check tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.FocusStateCheckTick();
+```
 
 ### FocusedItemHealthTick
 `public void FocusedItemHealthTick()`
 
-**Purpose:** Handles logic related to `focused item health tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMainAgentInteractionComponent from the subsystem API first
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.FocusedItemHealthTick();
+```
 
 ## Usage Example
 
@@ -86,4 +134,4 @@ var component = agent.GetComponent<MissionMainAgentInteractionComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "JournalLog"
+description: "JournalLog 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `JournalLog`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # JournalLog
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,25 +29,44 @@ title: "JournalLog"
 ### UpdateCurrentProgress
 `public void UpdateCurrentProgress(int progress)`
 
-**用途 / Purpose:** 更新 `current progress` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「current progress」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLog 实例
+JournalLog journalLog = ...;
+journalLog.UpdateCurrentProgress(0);
+```
 
 ### HasBeenCompleted
 `public bool HasBeenCompleted()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `been completed`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「been completed」。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLog 实例
+JournalLog journalLog = ...;
+var result = journalLog.HasBeenCompleted();
+```
 
 ### GetTimeText
 `public TextObject GetTimeText()`
 
-**用途 / Purpose:** 获取 `time text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「time text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 JournalLog 实例
+JournalLog journalLog = ...;
+var result = journalLog.GetTimeText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new JournalLog();
-value.UpdateCurrentProgress(0);
+// 通常从对应子系统 API 获取实例后调用
+JournalLog journalLog = ...;
+journalLog.UpdateCurrentProgress(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "TacticDefensiveRing"
+description: "Auto-generated class reference for TacticDefensiveRing."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticDefensiveRing`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TacticDefensiveRing
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticDefensiveRing from the subsystem API first
+TacticDefensiveRing tacticDefensiveRing = ...;
+tacticDefensiveRing.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticDefensiveRing();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+TacticDefensiveRing tacticDefensiveRing = ...;
+tacticDefensiveRing.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

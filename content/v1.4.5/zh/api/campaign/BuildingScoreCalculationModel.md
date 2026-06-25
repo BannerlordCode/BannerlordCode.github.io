@@ -1,20 +1,14 @@
 ---
 title: "BuildingScoreCalculationModel"
+description: "BuildingScoreCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BuildingScoreCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingScoreCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class BuildingScoreCalculationModel : MBGameModel<BuildingScoreCalculationModel>`
 **Base:** `MBGameModel<BuildingScoreCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingScoreCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingScoreCalculationModel.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "BuildingScoreCalculationModel"
 ### GetNextBuilding
 `public abstract Building GetNextBuilding(Town town)`
 
-**用途 / Purpose:** 获取 `next building` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next building」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BuildingScoreCalculationModel 实例
+BuildingScoreCalculationModel buildingScoreCalculationModel = ...;
+var result = buildingScoreCalculationModel.GetNextBuilding(town);
+```
 
 ### GetNextDailyBuilding
 `public abstract Building GetNextDailyBuilding(Town town)`
 
-**用途 / Purpose:** 获取 `next daily building` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next daily building」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BuildingScoreCalculationModel 实例
+BuildingScoreCalculationModel buildingScoreCalculationModel = ...;
+var result = buildingScoreCalculationModel.GetNextDailyBuilding(town);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBuildingScoreCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BuildingScoreCalculationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

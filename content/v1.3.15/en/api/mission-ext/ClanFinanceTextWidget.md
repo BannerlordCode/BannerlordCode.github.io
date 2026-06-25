@@ -1,13 +1,7 @@
 ---
 title: "ClanFinanceTextWidget"
+description: "Auto-generated class reference for ClanFinanceTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFinanceTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanFinanceTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
@@ -33,9 +27,10 @@ Treat `ClanFinanceTextWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new ClanFinanceTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClanFinanceTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

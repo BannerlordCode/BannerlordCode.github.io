@@ -1,20 +1,14 @@
 ---
 title: "TabControlWidget"
+description: "TabControlWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TabControlWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TabControlWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TabControlWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TabControlWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TabControlWidget.cs`
 
 ## 概述
 
@@ -38,19 +32,32 @@ title: "TabControlWidget"
 ### OnFirstButtonClick
 `public void OnFirstButtonClick(Widget widget)`
 
-**用途 / Purpose:** 当 `first button click` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「first button click」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TabControlWidget 实例
+TabControlWidget tabControlWidget = ...;
+tabControlWidget.OnFirstButtonClick(widget);
+```
 
 ### OnSecondButtonClick
 `public void OnSecondButtonClick(Widget widget)`
 
-**用途 / Purpose:** 当 `second button click` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「second button click」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TabControlWidget 实例
+TabControlWidget tabControlWidget = ...;
+tabControlWidget.OnSecondButtonClick(widget);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new TabControlWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+TabControlWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

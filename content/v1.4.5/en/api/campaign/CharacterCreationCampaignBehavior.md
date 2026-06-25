@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationCampaignBehavior"
+description: "Auto-generated class reference for CharacterCreationCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationCampaignBehavior : CampaignBehaviorBase, ICharacterCreationContentHandler`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CharacterCreationCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CharacterCreationCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,52 +23,111 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### IsUrbanOccupation
 `public static bool IsUrbanOccupation(string occupation)`
 
-**Purpose:** Handles logic related to `is urban occupation`.
+**Purpose:** Determines whether the current object is in the `urban occupation` state or condition.
+
+```csharp
+// Static call; no instance required
+CharacterCreationCampaignBehavior.IsUrbanOccupation("example");
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.SyncData(dataStore);
+```
 
 ### InitializeCharacterCreationStages
 `public void InitializeCharacterCreationStages(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Initializes the state, resources, or bindings for `character creation stages`.
+**Purpose:** Prepares the resources, state, or bindings required by `character creation stages`.
+
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.InitializeCharacterCreationStages(characterCreationManager);
+```
 
 ### InitializeCharacterCreationCultures
 `public void InitializeCharacterCreationCultures(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Initializes the state, resources, or bindings for `character creation cultures`.
+**Purpose:** Prepares the resources, state, or bindings required by `character creation cultures`.
+
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.InitializeCharacterCreationCultures(characterCreationManager);
+```
 
 ### InitializeData
 `public void InitializeData(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Initializes the state, resources, or bindings for `data`.
+**Purpose:** Prepares the resources, state, or bindings required by `data`.
+
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.InitializeData(characterCreationManager);
+```
 
 ### FaceGenUpdated
 `public void FaceGenUpdated()`
 
-**Purpose:** Handles logic related to `face gen updated`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.FaceGenUpdated();
+```
 
 ### UpdateParentEquipment
 `public void UpdateParentEquipment(CharacterCreationManager characterCreationManager, MBEquipmentRoster motherEquipment, MBEquipmentRoster fatherEquipment, string motherAnimation, string fatherAnimation)`
 
-**Purpose:** Updates the state or data of `parent equipment`.
+**Purpose:** Recalculates and stores the latest representation of `parent equipment`.
+
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.UpdateParentEquipment(characterCreationManager, motherEquipment, fatherEquipment, "example", "example");
+```
 
 ### AddEducationMenu
 `public void AddEducationMenu(CharacterCreationManager characterCreationManager)`
 
 **Purpose:** Adds `education menu` to the current collection or state.
 
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.AddEducationMenu(characterCreationManager);
+```
+
 ### SetHeroAge
 `public void SetHeroAge(float age)`
 
-**Purpose:** Sets the value or state of `hero age`.
+**Purpose:** Assigns a new value to `hero age` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
+CharacterCreationCampaignBehavior characterCreationCampaignBehavior = ...;
+characterCreationCampaignBehavior.SetHeroAge(0);
+```
 
 ## Usage Example
 
@@ -84,4 +137,4 @@ CharacterCreationCampaignBehavior.IsUrbanOccupation("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

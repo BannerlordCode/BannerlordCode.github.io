@@ -1,23 +1,18 @@
 ---
 title: "MPPerkSelection"
+description: "MPPerkSelection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPPerkSelection`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPPerkSelection
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class MPPerkSelection`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MPPerkSelection`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade/MPPerkSelectionManager.cs`
 
 ## 概述
 
-`MPPerkSelection` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MPPerkSelection` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -34,41 +29,74 @@ title: "MPPerkSelection"
 ### FreeInstance
 `public static void FreeInstance()`
 
-**用途 / Purpose:** 处理 `free instance` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MPPerkSelection.FreeInstance();
+```
 
 ### InitializeForUser
 `public void InitializeForUser(string username, PlayerId playerId)`
 
-**用途 / Purpose:** 初始化 `for user` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「for user」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.InitializeForUser("example", playerId);
+```
 
 ### ResetPendingChanges
 `public void ResetPendingChanges()`
 
-**用途 / Purpose:** 将 `pending changes` 重置为初始状态。
+**用途 / Purpose:** 将 「pending changes」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.ResetPendingChanges();
+```
 
 ### TryToApplyAndSavePendingChanges
 `public void TryToApplyAndSavePendingChanges()`
 
-**用途 / Purpose:** 尝试获取 `to apply and save pending changes`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「to apply and save pending changes」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.TryToApplyAndSavePendingChanges();
+```
 
 ### GetSelectionsForHeroClass
 `public List<MPPerkSelectionManager.MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
 
-**用途 / Purpose:** 获取 `selections for hero class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selections for hero class」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+var result = mPPerkSelection.GetSelectionsForHeroClass(currentHeroClass);
+```
 
 ### SetSelectionsForHeroClassTemporarily
 `public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelectionManager.MPPerkSelection> perkChoices)`
 
-**用途 / Purpose:** 设置 `selections for hero class temporarily` 的值或状态。
+**用途 / Purpose:** 为 「selections for hero class temporarily」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPPerkSelection 实例
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.SetSelectionsForHeroClassTemporarily(currentHeroClass, perkChoices);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 MPPerkSelection.FreeInstance();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

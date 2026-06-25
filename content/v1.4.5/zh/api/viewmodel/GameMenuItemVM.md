@@ -1,20 +1,14 @@
 ---
 title: "GameMenuItemVM"
+description: "GameMenuItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuItemVM.cs`
 
 ## 概述
 
@@ -50,40 +44,77 @@ title: "GameMenuItemVM"
 ### InitializeWith
 `public void InitializeWith(in GameMenuItemCreationData data)`
 
-**用途 / Purpose:** 初始化 `with` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「with」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemVM 实例
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.InitializeWith(data);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemVM 实例
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.RefreshValues();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemVM 实例
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.ExecuteAction();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemVM 实例
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.OnFinalize();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemVM 实例
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.Refresh();
+```
 
 ### UpdateWith
 `public void UpdateWith(GameMenuItemVM newItem)`
 
-**用途 / Purpose:** 更新 `with` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「with」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemVM 实例
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.UpdateWith(newItem);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameMenuItemVM();
-value.InitializeWith(data);
+// 通常从对应子系统 API 获取实例后调用
+GameMenuItemVM gameMenuItemVM = ...;
+gameMenuItemVM.InitializeWith(data);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

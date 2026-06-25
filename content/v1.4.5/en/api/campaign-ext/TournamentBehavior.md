@@ -1,20 +1,14 @@
 ---
 title: "TournamentBehavior"
+description: "Auto-generated class reference for TournamentBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentBehavior
 
 **Namespace:** SandBox.Tournaments.MissionLogics
 **Module:** SandBox.Tournaments
 **Type:** `public class TournamentBehavior : MissionLogic, ICameraModeLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Tournaments.MissionLogics/TournamentBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments.MissionLogics/TournamentBehavior.cs`
 
 ## Overview
 
@@ -45,75 +39,152 @@ Start from namespace `SandBox.Tournaments.MissionLogics` to place it in the stac
 ### GetMissionCameraLockMode
 `public SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-**Purpose:** Gets the current value of `mission camera lock mode`.
+**Purpose:** Reads and returns the `mission camera lock mode` value held by the current object.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.GetMissionCameraLockMode(false);
+```
 
 ### GetAllPossibleParticipants
 `public MBList<CharacterObject> GetAllPossibleParticipants()`
 
-**Purpose:** Gets the current value of `all possible participants`.
+**Purpose:** Reads and returns the `all possible participants` value held by the current object.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.GetAllPossibleParticipants();
+```
 
 ### DeleteTournamentSetsExcept
 `public static void DeleteTournamentSetsExcept(GameEntity selectedSetEntity)`
 
-**Purpose:** Handles logic related to `delete tournament sets except`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TournamentBehavior.DeleteTournamentSetsExcept(selectedSetEntity);
+```
 
 ### DeleteAllTournamentSets
 `public static void DeleteAllTournamentSets()`
 
-**Purpose:** Handles logic related to `delete all tournament sets`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TournamentBehavior.DeleteAllTournamentSets();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.OnMissionTick(0);
+```
 
 ### StartMatch
 `public void StartMatch()`
 
-**Purpose:** Handles logic related to `start match`.
+**Purpose:** Starts the `match` flow or state machine.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.StartMatch();
+```
 
 ### SkipMatch
 `public void SkipMatch(bool isLeave = false)`
 
-**Purpose:** Handles logic related to `skip match`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.SkipMatch(false);
+```
 
 ### EndTournamentViaLeave
 `public void EndTournamentViaLeave()`
 
-**Purpose:** Handles logic related to `end tournament via leave`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.EndTournamentViaLeave();
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.OnEndMissionRequest(canPlayerLeave);
+```
 
 ### PlaceABet
 `public void PlaceABet(int bet)`
 
-**Purpose:** Handles logic related to `place a bet`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.PlaceABet(0);
+```
 
 ### GetExpectedDenarsForBet
 `public int GetExpectedDenarsForBet(int bet)`
 
-**Purpose:** Gets the current value of `expected denars for bet`.
+**Purpose:** Reads and returns the `expected denars for bet` value held by the current object.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.GetExpectedDenarsForBet(0);
+```
 
 ### GetMaximumBet
 `public int GetMaximumBet()`
 
-**Purpose:** Gets the current value of `maximum bet`.
+**Purpose:** Reads and returns the `maximum bet` value held by the current object.
+
+```csharp
+// Obtain an instance of TournamentBehavior from the subsystem API first
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.GetMaximumBet();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentBehavior();
-value.GetMissionCameraLockMode(false);
+// Typically call this after obtaining an instance from the subsystem API
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.GetMissionCameraLockMode(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

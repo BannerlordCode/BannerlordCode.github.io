@@ -1,20 +1,14 @@
 ---
 title: "TutorialItemVM"
+description: "Auto-generated class reference for TutorialItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Tutorial
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TutorialItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tutorial/TutorialItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tutorial/TutorialItemVM.cs`
 
 ## Overview
 
@@ -47,25 +41,44 @@ Start from namespace `SandBox.ViewModelCollection.Tutorial` to place it in the s
 ### Init
 `public void Init(string tutorialTypeId, bool requiresMouse, Action onFinishTutorial)`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of TutorialItemVM from the subsystem API first
+TutorialItemVM tutorialItemVM = ...;
+tutorialItemVM.Init("example", false, onFinishTutorial);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TutorialItemVM from the subsystem API first
+TutorialItemVM tutorialItemVM = ...;
+tutorialItemVM.RefreshValues();
+```
 
 ### CloseTutorialPanel
 `public void CloseTutorialPanel()`
 
-**Purpose:** Handles logic related to `close tutorial panel`.
+**Purpose:** Closes the resource or UI associated with `tutorial panel`.
+
+```csharp
+// Obtain an instance of TutorialItemVM from the subsystem API first
+TutorialItemVM tutorialItemVM = ...;
+tutorialItemVM.CloseTutorialPanel();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TutorialItemVM();
-value.Init("example", false, onFinishTutorial);
+// Typically call this after obtaining an instance from the subsystem API
+TutorialItemVM tutorialItemVM = ...;
+tutorialItemVM.Init("example", false, onFinishTutorial);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "HideoutBossFightBehavior"
+description: "HideoutBossFightBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HideoutBossFightBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutBossFightBehavior
 
 **Namespace:** SandBox.Objects.Cinematics
@@ -37,50 +31,99 @@ title: "HideoutBossFightBehavior"
 ### GetPlayerFrames
 `public void GetPlayerFrames(out MatrixFrame initialFrame, out MatrixFrame targetFrame, float perturbAmount = 0f)`
 
-**用途 / Purpose:** 获取 `player frames` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player frames」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+hideoutBossFightBehavior.GetPlayerFrames(initialFrame, targetFrame, 0);
+```
 
 ### GetBossFrames
 `public void GetBossFrames(out MatrixFrame initialFrame, out MatrixFrame targetFrame, float perturbAmount = 0f)`
 
-**用途 / Purpose:** 获取 `boss frames` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「boss frames」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+hideoutBossFightBehavior.GetBossFrames(initialFrame, targetFrame, 0);
+```
 
 ### GetAllyFrames
 `public void GetAllyFrames(out List<MatrixFrame> initialFrames, out List<MatrixFrame> targetFrames, int agentCount = 10, float agentOffsetAngle = 0.15707964f, float perturbAmount = 0f)`
 
-**用途 / Purpose:** 获取 `ally frames` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ally frames」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+hideoutBossFightBehavior.GetAllyFrames(initialFrames, targetFrames, 0, 0, 0);
+```
 
 ### GetBanditFrames
 `public void GetBanditFrames(out List<MatrixFrame> initialFrames, out List<MatrixFrame> targetFrames, int agentCount = 10, float agentOffsetAngle = 0.15707964f, float perturbAmount = 0f)`
 
-**用途 / Purpose:** 获取 `bandit frames` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bandit frames」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+hideoutBossFightBehavior.GetBanditFrames(initialFrames, targetFrames, 0, 0, 0);
+```
 
 ### GetAlliesInitialFrame
 `public void GetAlliesInitialFrame(out MatrixFrame frame)`
 
-**用途 / Purpose:** 获取 `allies initial frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「allies initial frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+hideoutBossFightBehavior.GetAlliesInitialFrame(frame);
+```
 
 ### GetBanditsInitialFrame
 `public void GetBanditsInitialFrame(out MatrixFrame frame)`
 
-**用途 / Purpose:** 获取 `bandits initial frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bandits initial frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+hideoutBossFightBehavior.GetBanditsInitialFrame(frame);
+```
 
 ### IsWorldPointInsideCameraVolume
 `public bool IsWorldPointInsideCameraVolume(in Vec3 worldPoint)`
 
-**用途 / Purpose:** 处理 `is world point inside camera volume` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「world point inside camera volume」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+var result = hideoutBossFightBehavior.IsWorldPointInsideCameraVolume(worldPoint);
+```
 
 ### ClampWorldPointToCameraVolume
 `public bool ClampWorldPointToCameraVolume(in Vec3 worldPoint, out Vec3 clampedPoint)`
 
-**用途 / Purpose:** 处理 `clamp world point to camera volume` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutBossFightBehavior 实例
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+var result = hideoutBossFightBehavior.ClampWorldPointToCameraVolume(worldPoint, clampedPoint);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HideoutBossFightBehavior();
-value.GetPlayerFrames(initialFrame, targetFrame, 0);
+// 通常从对应子系统 API 获取实例后调用
+HideoutBossFightBehavior hideoutBossFightBehavior = ...;
+hideoutBossFightBehavior.GetPlayerFrames(initialFrame, targetFrame, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

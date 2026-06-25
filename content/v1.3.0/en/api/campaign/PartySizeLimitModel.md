@@ -1,13 +1,7 @@
 ---
 title: "PartySizeLimitModel"
+description: "Auto-generated class reference for PartySizeLimitModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartySizeLimitModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartySizeLimitModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,54 +29,109 @@ Treat `PartySizeLimitModel` as a Model-style extension point: first identify who
 ### GetPartyMemberSizeLimit
 `public abstract ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `party member size limit`.
+**Purpose:** Reads and returns the `party member size limit` value held by the current object.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetPartyMemberSizeLimit(party, false);
+```
 
 ### GetPartyPrisonerSizeLimit
 `public abstract ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `party prisoner size limit`.
+**Purpose:** Reads and returns the `party prisoner size limit` value held by the current object.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetPartyPrisonerSizeLimit(party, false);
+```
 
 ### CalculateGarrisonPartySizeLimit
 `public abstract ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate garrison party size limit`.
+**Purpose:** Calculates the current value or result of `garrison party size limit`.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.CalculateGarrisonPartySizeLimit(settlement, false);
+```
 
 ### GetClanTierPartySizeEffectForHero
 `public abstract int GetClanTierPartySizeEffectForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `clan tier party size effect for hero`.
+**Purpose:** Reads and returns the `clan tier party size effect for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetClanTierPartySizeEffectForHero(hero);
+```
 
 ### GetNextClanTierPartySizeEffectChangeForHero
 `public abstract int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `next clan tier party size effect change for hero`.
+**Purpose:** Reads and returns the `next clan tier party size effect change for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetNextClanTierPartySizeEffectChangeForHero(hero);
+```
 
 ### GetAssumedPartySizeForLordParty
 `public abstract int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)`
 
-**Purpose:** Gets the current value of `assumed party size for lord party`.
+**Purpose:** Reads and returns the `assumed party size for lord party` value held by the current object.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetAssumedPartySizeForLordParty(leaderHero, partyMapFaction, actualClan);
+```
 
 ### GetIdealVillagerPartySize
 `public abstract int GetIdealVillagerPartySize(Village village)`
 
-**Purpose:** Gets the current value of `ideal villager party size`.
+**Purpose:** Reads and returns the `ideal villager party size` value held by the current object.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetIdealVillagerPartySize(village);
+```
 
 ### FindAppropriateInitialRosterForMobileParty
 `public abstract TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**Purpose:** Handles logic related to `find appropriate initial roster for mobile party`.
+**Purpose:** Looks up the matching `appropriate initial roster for mobile party` in the current collection or scope.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.FindAppropriateInitialRosterForMobileParty(party, partyTemplate);
+```
 
 ### FindAppropriateInitialShipsForMobileParty
 `public abstract List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**Purpose:** Handles logic related to `find appropriate initial ships for mobile party`.
+**Purpose:** Looks up the matching `appropriate initial ships for mobile party` in the current collection or scope.
+
+```csharp
+// Obtain an instance of PartySizeLimitModel from the subsystem API first
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.FindAppropriateInitialShipsForMobileParty(party, partyTemplate);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartySizeLimitModel();
+// Typically obtained from a subsystem API or factory
+PartySizeLimitModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

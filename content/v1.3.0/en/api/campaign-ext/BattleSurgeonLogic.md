@@ -1,13 +1,7 @@
 ---
 title: "BattleSurgeonLogic"
+description: "Auto-generated class reference for BattleSurgeonLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleSurgeonLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleSurgeonLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,14 +23,20 @@ Treat `BattleSurgeonLogic` as a Logic-style extension point: first identify who 
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** Called when the `agent created` event is raised.
+**Purpose:** Invoked when the `agent created` event is raised.
+
+```csharp
+// Obtain an instance of BattleSurgeonLogic from the subsystem API first
+BattleSurgeonLogic battleSurgeonLogic = ...;
+battleSurgeonLogic.OnAgentCreated(agent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleSurgeonLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleSurgeonLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

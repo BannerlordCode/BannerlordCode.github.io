@@ -1,18 +1,12 @@
 ---
 title: "WaitTimeStatType"
+description: "Auto-generated class reference for WaitTimeStatType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WaitTimeStatType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WaitTimeStatType
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum WaitTimeStatType`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.Diamond/WaitTimeStatType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new WaitTimeStatType();
+// Obtain an instance from the relevant subsystem API
+WaitTimeStatType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

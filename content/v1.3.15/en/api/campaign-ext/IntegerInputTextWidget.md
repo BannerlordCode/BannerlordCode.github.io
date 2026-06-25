@@ -1,13 +1,7 @@
 ---
 title: "IntegerInputTextWidget"
+description: "Auto-generated class reference for IntegerInputTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntegerInputTextWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IntegerInputTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -38,19 +32,32 @@ Treat `IntegerInputTextWidget` as a Widget-style extension point: first identify
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**Purpose:** Handles the `input` event or callback.
+**Purpose:** Executes the response logic associated with `input`.
+
+```csharp
+// Obtain an instance of IntegerInputTextWidget from the subsystem API first
+IntegerInputTextWidget integerInputTextWidget = ...;
+integerInputTextWidget.HandleInput(lastKeysPressed);
+```
 
 ### SetAllText
 `public override void SetAllText(string text)`
 
-**Purpose:** Sets the value or state of `all text`.
+**Purpose:** Assigns a new value to `all text` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of IntegerInputTextWidget from the subsystem API first
+IntegerInputTextWidget integerInputTextWidget = ...;
+integerInputTextWidget.SetAllText("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new IntegerInputTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+IntegerInputTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BannerEditorState"
+description: "BannerEditorState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerEditorState`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerEditorState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -36,20 +30,33 @@ title: "BannerEditorState"
 ### GetClan
 `public Clan GetClan()`
 
-**用途 / Purpose:** 获取 `clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorState 实例
+BannerEditorState bannerEditorState = ...;
+var result = bannerEditorState.GetClan();
+```
 
 ### GetCharacter
 `public CharacterObject GetCharacter()`
 
-**用途 / Purpose:** 获取 `character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorState 实例
+BannerEditorState bannerEditorState = ...;
+var result = bannerEditorState.GetCharacter();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerEditorState();
-value.GetClan();
+// 通常从对应子系统 API 获取实例后调用
+BannerEditorState bannerEditorState = ...;
+bannerEditorState.GetClan();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

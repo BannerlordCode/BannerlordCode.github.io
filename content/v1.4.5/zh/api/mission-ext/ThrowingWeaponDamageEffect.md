@@ -1,20 +1,14 @@
 ---
 title: "ThrowingWeaponDamageEffect"
+description: "ThrowingWeaponDamageEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ThrowingWeaponDamageEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThrowingWeaponDamageEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ThrowingWeaponDamageEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ThrowingWeaponDamageEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ThrowingWeaponDamageEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ThrowingWeaponDamageEffect"
 ### GetDamage
 `public override float GetDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**用途 / Purpose:** 获取 `damage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「damage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ThrowingWeaponDamageEffect 实例
+ThrowingWeaponDamageEffect throwingWeaponDamageEffect = ...;
+var result = throwingWeaponDamageEffect.GetDamage(attackerWeapon, damageType, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ThrowingWeaponDamageEffect();
-value.GetDamage(attackerWeapon, damageType, false);
+// 通常从对应子系统 API 获取实例后调用
+ThrowingWeaponDamageEffect throwingWeaponDamageEffect = ...;
+throwingWeaponDamageEffect.GetDamage(attackerWeapon, damageType, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

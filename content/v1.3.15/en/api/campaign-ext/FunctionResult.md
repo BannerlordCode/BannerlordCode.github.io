@@ -1,13 +1,7 @@
 ---
 title: "FunctionResult"
+description: "Auto-generated class reference for FunctionResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FunctionResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FunctionResult
 
 **Namespace:** TaleWorlds.Diamond
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var implementation = new CustomFunctionResult();
+// Typically obtained from a subsystem API or factory
+FunctionResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

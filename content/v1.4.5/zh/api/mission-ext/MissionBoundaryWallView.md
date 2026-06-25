@@ -1,20 +1,14 @@
 ---
 title: "MissionBoundaryWallView"
+description: "MissionBoundaryWallView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBoundaryWallView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoundaryWallView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBoundaryWallView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionBoundaryWallView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionBoundaryWallView.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "MissionBoundaryWallView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoundaryWallView 实例
+MissionBoundaryWallView missionBoundaryWallView = ...;
+missionBoundaryWallView.OnMissionScreenInitialize();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionBoundaryWallView();
+// 从子系统 API 或场景中获取该视图
+MissionBoundaryWallView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

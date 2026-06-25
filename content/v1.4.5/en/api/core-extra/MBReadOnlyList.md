@@ -1,20 +1,14 @@
 ---
 title: "MBReadOnlyList"
+description: "Auto-generated class reference for MBReadOnlyList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBReadOnlyList`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBReadOnlyList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class MBReadOnlyList<T> : List<T>`
 **Base:** `List<T>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBReadOnlyList.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBReadOnlyList.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new MBReadOnlyList();
+// Obtain an instance from the relevant subsystem API
+MBReadOnlyList instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

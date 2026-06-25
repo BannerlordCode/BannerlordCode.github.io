@@ -1,18 +1,12 @@
 ---
 title: "IEncyclopediaLog"
+description: "Auto-generated class reference for IEncyclopediaLog."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IEncyclopediaLog`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IEncyclopediaLog
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IEncyclopediaLog`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/LogEntries/IEncyclopediaLog.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ## Usage Example
 
 ```csharp
-IEncyclopediaLog implementation = GetEncyclopediaLogImplementation();
+// Usually obtained through DI or a factory method
+IIEncyclopediaLog service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

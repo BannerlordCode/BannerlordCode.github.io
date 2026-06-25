@@ -1,20 +1,14 @@
 ---
 title: "GameMenuOption"
+description: "GameMenuOption 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuOption`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuOption
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuOption`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuOption.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuOption.cs`
 
 ## 概述
 
@@ -45,35 +39,66 @@ title: "GameMenuOption"
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 当 `condition delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「condition delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuOption 实例
+GameMenuOption gameMenuOption = ...;
+var result = gameMenuOption.OnConditionDelegate(args);
+```
 
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 当 `consequence delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「consequence delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuOption 实例
+GameMenuOption gameMenuOption = ...;
+gameMenuOption.OnConsequenceDelegate(args);
+```
 
 ### GetConditionsHold
 `public bool GetConditionsHold(Game game, MenuContext menuContext)`
 
-**用途 / Purpose:** 获取 `conditions hold` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conditions hold」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuOption 实例
+GameMenuOption gameMenuOption = ...;
+var result = gameMenuOption.GetConditionsHold(game, menuContext);
+```
 
 ### RunConsequence
 `public void RunConsequence(MenuContext menuContext)`
 
-**用途 / Purpose:** 处理 `run consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuOption 实例
+GameMenuOption gameMenuOption = ...;
+gameMenuOption.RunConsequence(menuContext);
+```
 
 ### SetEnable
 `public void SetEnable(bool isEnable)`
 
-**用途 / Purpose:** 设置 `enable` 的值或状态。
+**用途 / Purpose:** 为 「enable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuOption 实例
+GameMenuOption gameMenuOption = ...;
+gameMenuOption.SetEnable(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameMenuOption();
-value.OnConditionDelegate(args);
+// 通常从对应子系统 API 获取实例后调用
+GameMenuOption gameMenuOption = ...;
+gameMenuOption.OnConditionDelegate(args);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

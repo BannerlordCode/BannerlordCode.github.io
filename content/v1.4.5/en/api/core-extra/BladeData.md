@@ -1,20 +1,14 @@
 ---
 title: "BladeData"
+description: "Auto-generated class reference for BladeData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BladeData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BladeData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class BladeData : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BladeData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BladeData.cs`
 
 ## Overview
 
@@ -46,14 +40,21 @@ Treat `BladeData` as a Data-style extension point: first identify who creates it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode childNode)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of BladeData from the subsystem API first
+BladeData bladeData = ...;
+bladeData.Deserialize(objectManager, childNode);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BladeData();
+// This data object is usually returned by campaign/mission APIs
+BladeData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

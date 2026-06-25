@@ -1,68 +1,211 @@
 ---
 title: "Extensions"
+description: "Auto-generated class reference for Extensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Extensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Extensions
 
-**Namespace:** TaleWorlds.Core
-**Module:** TaleWorlds.Core
+**Namespace:** TaleWorlds.Library
+**Module:** TaleWorlds.Library
 **Type:** `public static class Extensions`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Library/Extensions.cs`
 
 ## Overview
 
-`Extensions` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Extensions` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
-### ToHexadecimalString
-`public static string ToHexadecimalString(this uint number)`
+### GetTypesSafe
+`public static List<Type> GetTypesSafe(this Assembly assembly, Func<Type, bool> func = null)`
 
-**Purpose:** Handles logic related to `to hexadecimal string`.
+**Purpose:** Reads and returns the `types safe` value held by the current object.
 
-### Description
-`public static string Description(this Enum value)`
+```csharp
+// Static call; no instance required
+Extensions.GetTypesSafe(assembly, func<Type, false);
+```
 
-**Purpose:** Handles logic related to `description`.
+### GetReferencingAssembliesSafe
+`public static Assembly GetReferencingAssembliesSafe(this Assembly baseAssembly, Func<Assembly, bool> func = null)`
 
-### NextFloat
-`public static float NextFloat(this Random random)`
+**Purpose:** Reads and returns the `referencing assemblies safe` value held by the current object.
 
-**Purpose:** Handles logic related to `next float`.
+```csharp
+// Static call; no instance required
+Extensions.GetReferencingAssembliesSafe(baseAssembly, func<Assembly, false);
+```
 
-### Add
-`public static string Add(this string str, string appendant, bool newLine = true)`
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this Type type, Type attributeType, bool inherit)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
 
-### Split
-`public static IEnumerable<string> Split(this string str, int maxChunkSize)`
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(type, attributeType, false);
+```
 
-**Purpose:** Handles logic related to `split`.
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this Type type, bool inherit)`
 
-### GetOppositeSide
-`public static BattleSideEnum GetOppositeSide(this BattleSideEnum side)`
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
 
-**Purpose:** Gets the current value of `opposite side`.
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(type, false);
+```
+
+### GetCustomAttributesSafe
+`public static IEnumerable<Attribute> GetCustomAttributesSafe(this Type type, Type attributeType)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(type, attributeType);
+```
+
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this PropertyInfo property, Type attributeType, bool inherit)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(property, attributeType, false);
+```
+
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this PropertyInfo property, bool inherit)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(property, false);
+```
+
+### GetCustomAttributesSafe
+`public static IEnumerable<Attribute> GetCustomAttributesSafe(this PropertyInfo property, Type attributeType)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(property, attributeType);
+```
+
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this FieldInfo field, Type attributeType, bool inherit)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(field, attributeType, false);
+```
+
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this FieldInfo field, bool inherit)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(field, false);
+```
+
+### GetCustomAttributesSafe
+`public static IEnumerable<Attribute> GetCustomAttributesSafe(this FieldInfo field, Type attributeType)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(field, attributeType);
+```
+
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this MethodInfo method, Type attributeType, bool inherit)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(method, attributeType, false);
+```
+
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this MethodInfo method, bool inherit)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(method, false);
+```
+
+### GetCustomAttributesSafe
+`public static IEnumerable<Attribute> GetCustomAttributesSafe(this MethodInfo method, Type attributeType)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(method, attributeType);
+```
+
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this Assembly assembly, Type attributeType, bool inherit)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(assembly, attributeType, false);
+```
+
+### GetCustomAttributesSafe
+`public static object GetCustomAttributesSafe(this Assembly assembly, bool inherit)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(assembly, false);
+```
+
+### GetCustomAttributesSafe
+`public static IEnumerable<Attribute> GetCustomAttributesSafe(this Assembly assembly, Type attributeType)`
+
+**Purpose:** Reads and returns the `custom attributes safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetCustomAttributesSafe(assembly, attributeType);
+```
+
+### GetDeterministicHashCode
+`public static int GetDeterministicHashCode(this string text)`
+
+**Purpose:** Reads and returns the `deterministic hash code` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetDeterministicHashCode(text);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
-Extensions.ToHexadecimalString(number);
+Extensions.GetTypesSafe(assembly, func<Type, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

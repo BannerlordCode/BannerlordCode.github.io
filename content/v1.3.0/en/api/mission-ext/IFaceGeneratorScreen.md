@@ -1,18 +1,12 @@
 ---
 title: "IFaceGeneratorScreen"
+description: "Auto-generated class reference for IFaceGeneratorScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IFaceGeneratorScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IFaceGeneratorScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IFaceGeneratorScreen`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/Screens/IFaceGeneratorScreen.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ## Usage Example
 
 ```csharp
-IFaceGeneratorScreen implementation = GetFaceGeneratorScreenImplementation();
+// Usually obtained through DI or a factory method
+IIFaceGeneratorScreen service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

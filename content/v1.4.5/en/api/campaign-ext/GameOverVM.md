@@ -1,20 +1,14 @@
 ---
 title: "GameOverVM"
+description: "Auto-generated class reference for GameOverVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverVM
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class GameOverVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/GameOverVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/GameOverVM.cs`
 
 ## Overview
 
@@ -42,30 +36,55 @@ Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameOverVM from the subsystem API first
+GameOverVM gameOverVM = ...;
+gameOverVM.RefreshValues();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of GameOverVM from the subsystem API first
+GameOverVM gameOverVM = ...;
+gameOverVM.ExecuteClose();
+```
 
 ### SetCloseInputKey
 `public void SetCloseInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `close input key`.
+**Purpose:** Assigns a new value to `close input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameOverVM from the subsystem API first
+GameOverVM gameOverVM = ...;
+gameOverVM.SetCloseInputKey(hotKey);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GameOverVM from the subsystem API first
+GameOverVM gameOverVM = ...;
+gameOverVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameOverVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameOverVM gameOverVM = ...;
+gameOverVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

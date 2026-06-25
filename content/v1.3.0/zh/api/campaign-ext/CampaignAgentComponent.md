@@ -1,13 +1,7 @@
 ---
 title: "CampaignAgentComponent"
+description: "CampaignAgentComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignAgentComponent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignAgentComponent
 
 **Namespace:** SandBox
@@ -36,37 +30,79 @@ title: "CampaignAgentComponent"
 ### CreateAgentNavigator
 `public AgentNavigator CreateAgentNavigator(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** 创建一个 `agent navigator` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「agent navigator」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignAgentComponent 实例
+CampaignAgentComponent campaignAgentComponent = ...;
+var result = campaignAgentComponent.CreateAgentNavigator(locationCharacter);
+```
 
 ### CreateAgentNavigator
 `public AgentNavigator CreateAgentNavigator()`
 
-**用途 / Purpose:** 创建一个 `agent navigator` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「agent navigator」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignAgentComponent 实例
+CampaignAgentComponent campaignAgentComponent = ...;
+var result = campaignAgentComponent.CreateAgentNavigator();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignAgentComponent 实例
+CampaignAgentComponent campaignAgentComponent = ...;
+campaignAgentComponent.OnAgentRemoved(agent);
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignAgentComponent 实例
+CampaignAgentComponent campaignAgentComponent = ...;
+campaignAgentComponent.OnTick(0);
+```
 
 ### GetMoraleDecreaseConstant
 `public override float GetMoraleDecreaseConstant()`
 
-**用途 / Purpose:** 获取 `morale decrease constant` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「morale decrease constant」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignAgentComponent 实例
+CampaignAgentComponent campaignAgentComponent = ...;
+var result = campaignAgentComponent.GetMoraleDecreaseConstant();
+```
 
 ### GetMoraleAddition
 `public override float GetMoraleAddition()`
 
-**用途 / Purpose:** 获取 `morale addition` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「morale addition」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignAgentComponent 实例
+CampaignAgentComponent campaignAgentComponent = ...;
+var result = campaignAgentComponent.GetMoraleAddition();
+```
 
 ### OnStopUsingGameObject
 `public override void OnStopUsingGameObject()`
 
-**用途 / Purpose:** 当 `stop using game object` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「stop using game object」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignAgentComponent 实例
+CampaignAgentComponent campaignAgentComponent = ...;
+campaignAgentComponent.OnStopUsingGameObject();
+```
 
 ## 使用示例
 
@@ -76,4 +112,4 @@ var component = agent.GetComponent<CampaignAgentComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

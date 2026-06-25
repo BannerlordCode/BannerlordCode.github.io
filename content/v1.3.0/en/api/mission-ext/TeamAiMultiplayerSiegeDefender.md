@@ -1,13 +1,7 @@
 ---
 title: "TeamAiMultiplayerSiegeDefender"
+description: "Auto-generated class reference for TeamAiMultiplayerSiegeDefender."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamAiMultiplayerSiegeDefender`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamAiMultiplayerSiegeDefender
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Called when the `unit added to formation for the first time` event is raised.
+**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+
+```csharp
+// Obtain an instance of TeamAiMultiplayerSiegeDefender from the subsystem API first
+TeamAiMultiplayerSiegeDefender teamAiMultiplayerSiegeDefender = ...;
+teamAiMultiplayerSiegeDefender.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamAiMultiplayerSiegeDefender();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// Typically call this after obtaining an instance from the subsystem API
+TeamAiMultiplayerSiegeDefender teamAiMultiplayerSiegeDefender = ...;
+teamAiMultiplayerSiegeDefender.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

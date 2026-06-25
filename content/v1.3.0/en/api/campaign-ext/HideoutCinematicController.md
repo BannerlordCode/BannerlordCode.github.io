@@ -1,13 +1,7 @@
 ---
 title: "HideoutCinematicController"
+description: "Auto-generated class reference for HideoutCinematicController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutCinematicController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutCinematicController
 
 **Namespace:** SandBox.Missions.MissionLogics.Hideout
@@ -40,52 +34,112 @@ Treat `HideoutCinematicController` as a Controller-style extension point: first 
 ### StartCinematic
 `public void StartCinematic(HideoutCinematicController.OnInitialFadeOutFinished initialFadeOutFinished, Action cinematicFinishedCallback, float transitionDuration = 0.4f, float stateDuration = 0.2f, float cinematicDuration = 8f, bool forceDismountAgents = false)`
 
-**Purpose:** Handles logic related to `start cinematic`.
+**Purpose:** Starts the `cinematic` flow or state machine.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+hideoutCinematicController.StartCinematic(initialFadeOutFinished, cinematicFinishedCallback, 0, 0, 0, false);
+```
 
 ### GetBossStandingEyePosition
 `public void GetBossStandingEyePosition(out Vec3 eyePosition)`
 
-**Purpose:** Gets the current value of `boss standing eye position`.
+**Purpose:** Reads and returns the `boss standing eye position` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+hideoutCinematicController.GetBossStandingEyePosition(eyePosition);
+```
 
 ### GetPlayerStandingEyePosition
 `public void GetPlayerStandingEyePosition(out Vec3 eyePosition)`
 
-**Purpose:** Gets the current value of `player standing eye position`.
+**Purpose:** Reads and returns the `player standing eye position` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+hideoutCinematicController.GetPlayerStandingEyePosition(eyePosition);
+```
 
 ### GetBanditsInitialFrame
 `public MatrixFrame GetBanditsInitialFrame()`
 
-**Purpose:** Gets the current value of `bandits initial frame`.
+**Purpose:** Reads and returns the `bandits initial frame` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+var result = hideoutCinematicController.GetBanditsInitialFrame();
+```
 
 ### GetScenePrefabParameters
 `public void GetScenePrefabParameters(out float innerRadius, out float outerRadius, out float walkDistance)`
 
-**Purpose:** Gets the current value of `scene prefab parameters`.
+**Purpose:** Reads and returns the `scene prefab parameters` value held by the current object.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+hideoutCinematicController.GetScenePrefabParameters(innerRadius, outerRadius, walkDistance);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+hideoutCinematicController.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+hideoutCinematicController.OnMissionTick(0);
+```
 
 ### OnInitialFadeOutFinished
 `public delegate void OnInitialFadeOutFinished(ref Agent playerAgent, ref List<Agent> playerCompanions, ref Agent bossAgent, ref List<Agent> bossCompanions, ref float placementPerturbation, ref float placementAngle)`
 
-**Purpose:** Called when the `initial fade out finished` event is raised.
+**Purpose:** Invoked when the `initial fade out finished` event is raised.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+hideoutCinematicController.OnInitialFadeOutFinished(playerAgent, playerCompanions, bossAgent, bossCompanions, placementPerturbation, placementAngle);
+```
 
 ### OnHideoutCinematicFinished
 `public delegate void OnHideoutCinematicFinished()`
 
-**Purpose:** Called when the `hideout cinematic finished` event is raised.
+**Purpose:** Invoked when the `hideout cinematic finished` event is raised.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+hideoutCinematicController.OnHideoutCinematicFinished();
+```
 
 ### HasReachedTarget
 `public bool HasReachedTarget(float proximityThreshold = 0.5f)`
 
-**Purpose:** Checks whether the current object has/contains `reached target`.
+**Purpose:** Determines whether the current object already holds `reached target`.
+
+```csharp
+// Obtain an instance of HideoutCinematicController from the subsystem API first
+HideoutCinematicController hideoutCinematicController = ...;
+var result = hideoutCinematicController.HasReachedTarget(0);
+```
 
 ## Usage Example
 
@@ -95,4 +149,4 @@ var controller = Mission.Current.GetMissionBehavior<HideoutCinematicController>(
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

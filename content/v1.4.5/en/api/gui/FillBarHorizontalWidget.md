@@ -1,20 +1,14 @@
 ---
 title: "FillBarHorizontalWidget"
+description: "Auto-generated class reference for FillBarHorizontalWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillBarHorizontalWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FillBarHorizontalWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class FillBarHorizontalWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarHorizontalWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/FillBarHorizontalWidget.cs`
 
 ## Overview
 
@@ -43,9 +37,10 @@ Treat `FillBarHorizontalWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new FillBarHorizontalWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FillBarHorizontalWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

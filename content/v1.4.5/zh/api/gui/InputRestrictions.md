@@ -1,20 +1,14 @@
 ---
 title: "InputRestrictions"
+description: "InputRestrictions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InputRestrictions`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputRestrictions
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
 **Type:** `public class InputRestrictions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/InputRestrictions.cs`
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/InputRestrictions.cs`
 
 ## 概述
 
@@ -38,25 +32,44 @@ title: "InputRestrictions"
 ### SetMouseVisibility
 `public void SetMouseVisibility(bool isVisible)`
 
-**用途 / Purpose:** 设置 `mouse visibility` 的值或状态。
+**用途 / Purpose:** 为 「mouse visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 InputRestrictions 实例
+InputRestrictions inputRestrictions = ...;
+inputRestrictions.SetMouseVisibility(false);
+```
 
 ### SetInputRestrictions
 `public void SetInputRestrictions(bool isMouseVisible = true, InputUsageMask mask = InputUsageMask.All)`
 
-**用途 / Purpose:** 设置 `input restrictions` 的值或状态。
+**用途 / Purpose:** 为 「input restrictions」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 InputRestrictions 实例
+InputRestrictions inputRestrictions = ...;
+inputRestrictions.SetInputRestrictions(false, inputUsageMask.All);
+```
 
 ### ResetInputRestrictions
 `public void ResetInputRestrictions()`
 
-**用途 / Purpose:** 将 `input restrictions` 重置为初始状态。
+**用途 / Purpose:** 将 「input restrictions」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 InputRestrictions 实例
+InputRestrictions inputRestrictions = ...;
+inputRestrictions.ResetInputRestrictions();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InputRestrictions();
-value.SetMouseVisibility(false);
+// 通常从对应子系统 API 获取实例后调用
+InputRestrictions inputRestrictions = ...;
+inputRestrictions.SetMouseVisibility(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

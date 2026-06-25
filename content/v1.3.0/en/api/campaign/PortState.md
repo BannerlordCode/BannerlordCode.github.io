@@ -1,13 +1,7 @@
 ---
 title: "PortState"
+description: "Auto-generated class reference for PortState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PortState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PortState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ## Usage Example
 
 ```csharp
-var example = new PortState();
+// Obtain an instance from the relevant subsystem API
+PortState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

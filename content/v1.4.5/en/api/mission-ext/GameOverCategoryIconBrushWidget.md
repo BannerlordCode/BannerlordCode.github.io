@@ -1,20 +1,14 @@
 ---
 title: "GameOverCategoryIconBrushWidget"
+description: "Auto-generated class reference for GameOverCategoryIconBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverCategoryIconBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverCategoryIconBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameOverCategoryIconBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver/GameOverCategoryIconBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver/GameOverCategoryIconBrushWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `GameOverCategoryIconBrushWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new GameOverCategoryIconBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GameOverCategoryIconBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

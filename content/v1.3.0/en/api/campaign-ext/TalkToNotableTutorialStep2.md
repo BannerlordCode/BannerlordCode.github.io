@@ -1,13 +1,7 @@
 ---
 title: "TalkToNotableTutorialStep2"
+description: "Auto-generated class reference for TalkToNotableTutorialStep2."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TalkToNotableTutorialStep2`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TalkToNotableTutorialStep2
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of TalkToNotableTutorialStep2 from the subsystem API first
+TalkToNotableTutorialStep2 talkToNotableTutorialStep2 = ...;
+var result = talkToNotableTutorialStep2.IsConditionsMetForCompletion();
+```
 
 ### OnPlayerStartTalkFromMenuOverlay
 `public override void OnPlayerStartTalkFromMenuOverlay(Hero hero)`
 
-**Purpose:** Called when the `player start talk from menu overlay` event is raised.
+**Purpose:** Invoked when the `player start talk from menu overlay` event is raised.
+
+```csharp
+// Obtain an instance of TalkToNotableTutorialStep2 from the subsystem API first
+TalkToNotableTutorialStep2 talkToNotableTutorialStep2 = ...;
+talkToNotableTutorialStep2.OnPlayerStartTalkFromMenuOverlay(hero);
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of TalkToNotableTutorialStep2 from the subsystem API first
+TalkToNotableTutorialStep2 talkToNotableTutorialStep2 = ...;
+var result = talkToNotableTutorialStep2.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of TalkToNotableTutorialStep2 from the subsystem API first
+TalkToNotableTutorialStep2 talkToNotableTutorialStep2 = ...;
+var result = talkToNotableTutorialStep2.IsConditionsMetForActivation();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TalkToNotableTutorialStep2();
-value.IsConditionsMetForCompletion();
+// Typically call this after obtaining an instance from the subsystem API
+TalkToNotableTutorialStep2 talkToNotableTutorialStep2 = ...;
+talkToNotableTutorialStep2.IsConditionsMetForCompletion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

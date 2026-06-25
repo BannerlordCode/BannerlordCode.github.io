@@ -1,20 +1,14 @@
 ---
 title: "NordTag"
+description: "NordTag 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NordTag`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NordTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class NordTag : ConversationTag`
 **Base:** `ConversationTag`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/NordTag.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation.Tags/NordTag.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "NordTag"
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is applicable to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「applicable to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 NordTag 实例
+NordTag nordTag = ...;
+var result = nordTag.IsApplicableTo(character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NordTag();
-value.IsApplicableTo(character);
+// 通常从对应子系统 API 获取实例后调用
+NordTag nordTag = ...;
+nordTag.IsApplicableTo(character);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "DetachmentData"
+description: "Auto-generated class reference for DetachmentData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DetachmentData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DetachmentData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,19 +29,32 @@ Treat `DetachmentData` as a Data-style extension point: first identify who creat
 ### IsPrecalculated
 `public bool IsPrecalculated()`
 
-**Purpose:** Handles logic related to `is precalculated`.
+**Purpose:** Determines whether the current object is in the `precalculated` state or condition.
+
+```csharp
+// Obtain an instance of DetachmentData from the subsystem API first
+DetachmentData detachmentData = ...;
+var result = detachmentData.IsPrecalculated();
+```
 
 ### RemoveScoreOfAgent
 `public void RemoveScoreOfAgent(Agent agent)`
 
 **Purpose:** Removes `score of agent` from the current collection or state.
 
+```csharp
+// Obtain an instance of DetachmentData from the subsystem API first
+DetachmentData detachmentData = ...;
+detachmentData.RemoveScoreOfAgent(agent);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new DetachmentData();
+// This data object is usually returned by campaign/mission APIs
+DetachmentData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

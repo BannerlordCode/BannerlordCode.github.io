@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminInformationVM"
+description: "Auto-generated class reference for MultiplayerAdminInformationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAdminInformationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerAdminInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerAdminInformationVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### OnNewMessageReceived
 `public void OnNewMessageReceived(string message)`
 
-**Purpose:** Called when the `new message received` event is raised.
+**Purpose:** Invoked when the `new message received` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerAdminInformationVM from the subsystem API first
+MultiplayerAdminInformationVM multiplayerAdminInformationVM = ...;
+multiplayerAdminInformationVM.OnNewMessageReceived("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerAdminInformationVM();
-value.OnNewMessageReceived("example");
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerAdminInformationVM multiplayerAdminInformationVM = ...;
+multiplayerAdminInformationVM.OnNewMessageReceived("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

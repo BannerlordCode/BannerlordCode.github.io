@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListHeroComparer"
+description: "Auto-generated class reference for EncyclopediaListHeroComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListHeroComparer`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListHeroComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncyclopediaListHeroComparer();
+// Typically obtained from a subsystem API or factory
+EncyclopediaListHeroComparer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

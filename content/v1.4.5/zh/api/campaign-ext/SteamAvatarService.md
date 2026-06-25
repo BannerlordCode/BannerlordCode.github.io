@@ -1,20 +1,14 @@
 ---
 title: "SteamAvatarService"
+description: "SteamAvatarService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SteamAvatarService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamAvatarService
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class SteamAvatarService : ApiAvatarServiceBase`
 **Base:** `ApiAvatarServiceBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/SteamAvatarService.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/SteamAvatarService.cs`
 
 ## 概述
 
@@ -48,9 +42,10 @@ title: "SteamAvatarService"
 ## 使用示例
 
 ```csharp
-var example = new SteamAvatarService();
+// 从对应子系统 API 获取实例
+SteamAvatarService instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

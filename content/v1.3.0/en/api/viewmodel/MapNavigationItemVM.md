@@ -1,13 +1,7 @@
 ---
 title: "MapNavigationItemVM"
+description: "Auto-generated class reference for MapNavigationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapNavigationItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapNavigationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
@@ -41,25 +35,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapNavigationItemVM from the subsystem API first
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.RefreshValues();
+```
 
 ### RefreshStates
 `public void RefreshStates(bool forceRefresh = false)`
 
-**Purpose:** Refreshes the display or cache of `states`.
+**Purpose:** Keeps the display or cache of `states` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapNavigationItemVM from the subsystem API first
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.RefreshStates(false);
+```
 
 ### ExecuteOpen
 `public void ExecuteOpen()`
 
-**Purpose:** Executes the `open` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open`.
+
+```csharp
+// Obtain an instance of MapNavigationItemVM from the subsystem API first
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.ExecuteOpen();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapNavigationItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapNavigationItemVM mapNavigationItemVM = ...;
+mapNavigationItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

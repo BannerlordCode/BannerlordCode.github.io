@@ -1,20 +1,14 @@
 ---
 title: "StoryModeBanditDensityModel"
+description: "Auto-generated class reference for StoryModeBanditDensityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeBanditDensityModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeBanditDensityModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeBanditDensityModel : BanditDensityModel`
 **Base:** `BanditDensityModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeBanditDensityModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeBanditDensityModel.cs`
 
 ## Overview
 
@@ -38,22 +32,46 @@ Treat `StoryModeBanditDensityModel` as a Model-style extension point: first iden
 ### GetMaximumTroopCountForHideoutMission
 `public override int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
 
-**Purpose:** Gets the current value of `maximum troop count for hideout mission`.
+**Purpose:** Reads and returns the `maximum troop count for hideout mission` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
+StoryModeBanditDensityModel storyModeBanditDensityModel = ...;
+var result = storyModeBanditDensityModel.GetMaximumTroopCountForHideoutMission(party, false);
+```
 
 ### IsPositionInsideNavalSafeZone
 `public override bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
 
-**Purpose:** Handles logic related to `is position inside naval safe zone`.
+**Purpose:** Determines whether the current object is in the `position inside naval safe zone` state or condition.
+
+```csharp
+// Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
+StoryModeBanditDensityModel storyModeBanditDensityModel = ...;
+var result = storyModeBanditDensityModel.IsPositionInsideNavalSafeZone(position);
+```
 
 ### GetMaxSupportedNumberOfLootersForClan
 `public override int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
 
-**Purpose:** Gets the current value of `max supported number of looters for clan`.
+**Purpose:** Reads and returns the `max supported number of looters for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
+StoryModeBanditDensityModel storyModeBanditDensityModel = ...;
+var result = storyModeBanditDensityModel.GetMaxSupportedNumberOfLootersForClan(clan);
+```
 
 ### GetMinimumTroopCountForHideoutMission
 `public override int GetMinimumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
 
-**Purpose:** Gets the current value of `minimum troop count for hideout mission`.
+**Purpose:** Reads and returns the `minimum troop count for hideout mission` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
+StoryModeBanditDensityModel storyModeBanditDensityModel = ...;
+var result = storyModeBanditDensityModel.GetMinimumTroopCountForHideoutMission(party, false);
+```
 
 ## Usage Example
 
@@ -63,4 +81,4 @@ Game.Current.ReplaceModel<StoryModeBanditDensityModel>(new MyStoryModeBanditDens
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

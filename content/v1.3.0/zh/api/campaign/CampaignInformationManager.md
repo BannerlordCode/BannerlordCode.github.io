@@ -1,13 +1,7 @@
 ---
 title: "CampaignInformationManager"
+description: "CampaignInformationManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignInformationManager`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignInformationManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,12 +23,24 @@ title: "CampaignInformationManager"
 ### OnGameLoaded
 `public void OnGameLoaded()`
 
-**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignInformationManager 实例
+CampaignInformationManager campaignInformationManager = ...;
+campaignInformationManager.OnGameLoaded();
+```
 
 ### NewMapNoticeAdded
 `public void NewMapNoticeAdded(InformationData informationData)`
 
-**用途 / Purpose:** 处理 `new map notice added` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignInformationManager 实例
+CampaignInformationManager campaignInformationManager = ...;
+campaignInformationManager.NewMapNoticeAdded(informationData);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var manager = CampaignInformationManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

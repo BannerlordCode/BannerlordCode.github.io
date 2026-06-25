@@ -1,20 +1,14 @@
 ---
 title: "ItemCatalogController"
+description: "Auto-generated class reference for ItemCatalogController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemCatalogController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCatalogController
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class ItemCatalogController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/ItemCatalogController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/ItemCatalogController.cs`
 
 ## Overview
 
@@ -35,17 +29,35 @@ Treat `ItemCatalogController` as a Controller-style extension point: first ident
 ### BeforeCatalogTickDelegate
 `public delegate void BeforeCatalogTickDelegate(int currentItemIndex)`
 
-**Purpose:** Handles logic related to `before catalog tick delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemCatalogController from the subsystem API first
+ItemCatalogController itemCatalogController = ...;
+itemCatalogController.BeforeCatalogTickDelegate(0);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemCatalogController from the subsystem API first
+ItemCatalogController itemCatalogController = ...;
+itemCatalogController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of ItemCatalogController from the subsystem API first
+ItemCatalogController itemCatalogController = ...;
+itemCatalogController.OnMissionTick(0);
+```
 
 ## Usage Example
 
@@ -55,4 +67,4 @@ var controller = Mission.Current.GetMissionBehavior<ItemCatalogController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

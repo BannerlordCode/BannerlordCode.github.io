@@ -1,13 +1,7 @@
 ---
 title: "PerkSelectionVM"
+description: "PerkSelectionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PerkSelectionVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerkSelectionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection
@@ -36,40 +30,77 @@ title: "PerkSelectionVM"
 ### SetCurrentSelectionPerk
 `public void SetCurrentSelectionPerk(PerkVM perk)`
 
-**用途 / Purpose:** 设置 `current selection perk` 的值或状态。
+**用途 / Purpose:** 为 「current selection perk」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PerkSelectionVM 实例
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.SetCurrentSelectionPerk(perk);
+```
 
 ### ResetSelectedPerks
 `public void ResetSelectedPerks()`
 
-**用途 / Purpose:** 将 `selected perks` 重置为初始状态。
+**用途 / Purpose:** 将 「selected perks」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PerkSelectionVM 实例
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.ResetSelectedPerks();
+```
 
 ### ApplySelectedPerks
 `public void ApplySelectedPerks()`
 
-**用途 / Purpose:** 将 `selected perks` 应用到当前对象。
+**用途 / Purpose:** 将 「selected perks」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 PerkSelectionVM 实例
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.ApplySelectedPerks();
+```
 
 ### IsPerkSelected
 `public bool IsPerkSelected(PerkObject perk)`
 
-**用途 / Purpose:** 处理 `is perk selected` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「perk selected」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PerkSelectionVM 实例
+PerkSelectionVM perkSelectionVM = ...;
+var result = perkSelectionVM.IsPerkSelected(perk);
+```
 
 ### IsAnyPerkSelected
 `public bool IsAnyPerkSelected()`
 
-**用途 / Purpose:** 处理 `is any perk selected` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「any perk selected」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PerkSelectionVM 实例
+PerkSelectionVM perkSelectionVM = ...;
+var result = perkSelectionVM.IsAnyPerkSelected();
+```
 
 ### ExecuteDeactivate
 `public void ExecuteDeactivate()`
 
-**用途 / Purpose:** 执行 `deactivate` 操作或流程。
+**用途 / Purpose:** 执行 「deactivate」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PerkSelectionVM 实例
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.ExecuteDeactivate();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PerkSelectionVM();
-value.SetCurrentSelectionPerk(perk);
+// 通常从对应子系统 API 获取实例后调用
+PerkSelectionVM perkSelectionVM = ...;
+perkSelectionVM.SetCurrentSelectionPerk(perk);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

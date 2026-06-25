@@ -1,20 +1,14 @@
 ---
 title: "DefaultRidingModel"
+description: "Auto-generated class reference for DefaultRidingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultRidingModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultRidingModel
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultRidingModel : RidingModel`
 **Base:** `RidingModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/DefaultRidingModel.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultRidingModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultRidingModel` as a Model-style extension point: first identify who 
 ### CalculateAcceleration
 `public override float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
 
-**Purpose:** Handles logic related to `calculate acceleration`.
+**Purpose:** Calculates the current value or result of `acceleration`.
+
+```csharp
+// Obtain an instance of DefaultRidingModel from the subsystem API first
+DefaultRidingModel defaultRidingModel = ...;
+var result = defaultRidingModel.CalculateAcceleration(mountElement, harnessElement, 0);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultRidingModel>(new MyDefaultRidingModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerReportPlayerManager"
+description: "Auto-generated class reference for MultiplayerReportPlayerManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerReportPlayerManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerReportPlayerManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerReportPlayerManager`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerReportPlayerManager.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MultiplayerReportPlayerManager.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Treat `MultiplayerReportPlayerManager` as a Manager-style extension point: first
 ### RequestReportPlayer
 `public static void RequestReportPlayer(string gameId, PlayerId playerId, string playerName, bool isRequestedFromMission)`
 
-**Purpose:** Handles logic related to `request report player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MultiplayerReportPlayerManager.RequestReportPlayer("example", playerId, "example", false);
+```
 
 ### OnPlayerReported
 `public static void OnPlayerReported(PlayerId playerId)`
 
-**Purpose:** Called when the `player reported` event is raised.
+**Purpose:** Invoked when the `player reported` event is raised.
+
+```csharp
+// Static call; no instance required
+MultiplayerReportPlayerManager.OnPlayerReported(playerId);
+```
 
 ### IsPlayerReportedOverLimit
 `public static bool IsPlayerReportedOverLimit(PlayerId player)`
 
-**Purpose:** Handles logic related to `is player reported over limit`.
+**Purpose:** Determines whether the current object is in the `player reported over limit` state or condition.
+
+```csharp
+// Static call; no instance required
+MultiplayerReportPlayerManager.IsPlayerReportedOverLimit(player);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ var manager = MultiplayerReportPlayerManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

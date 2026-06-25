@@ -1,20 +1,14 @@
 ---
 title: "PlayerGameState"
+description: "Auto-generated class reference for PlayerGameState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerGameState`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerGameState
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class PlayerGameState : GameState`
 **Base:** `GameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/PlayerGameState.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/PlayerGameState.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPlayerGameState();
+// Typically obtained from a subsystem API or factory
+PlayerGameState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "StoryModeMissionViews"
+description: "Auto-generated class reference for StoryModeMissionViews."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeMissionViews`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeMissionViews
 
 **Namespace:** StoryMode.View.Missions
@@ -29,12 +23,22 @@ Start from namespace `StoryMode.View.Missions` to place it in the stack, then in
 ### OpenVillageMission
 `public static MissionView OpenVillageMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open village mission`.
+**Purpose:** Opens the resource or UI associated with `village mission`.
+
+```csharp
+// Static call; no instance required
+StoryModeMissionViews.OpenVillageMission(mission);
+```
 
 ### OpenSneakIntoTheVillaMission
 `public static MissionView OpenSneakIntoTheVillaMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open sneak into the villa mission`.
+**Purpose:** Opens the resource or UI associated with `sneak into the villa mission`.
+
+```csharp
+// Static call; no instance required
+StoryModeMissionViews.OpenSneakIntoTheVillaMission(mission);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ StoryModeMissionViews.OpenVillageMission(mission);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

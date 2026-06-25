@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationBannerEditorView"
+description: "Auto-generated class reference for CharacterCreationBannerEditorView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationBannerEditorView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationBannerEditorView
 
 **Namespace:** SandBox.GauntletUI.CharacterCreation
 **Module:** SandBox.GauntletUI
 **Type:** `public class CharacterCreationBannerEditorView : CharacterCreationStageViewBase`
 **Base:** `CharacterCreationStageViewBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.CharacterCreation/CharacterCreationBannerEditorView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.CharacterCreation/CharacterCreationBannerEditorView.cs`
 
 ## Overview
 
@@ -29,49 +23,98 @@ Treat `CharacterCreationBannerEditorView` as a View-style extension point: first
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**Purpose:** Gets the current value of `layers`.
+**Purpose:** Reads and returns the `layers` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
+CharacterCreationBannerEditorView characterCreationBannerEditorView = ...;
+var result = characterCreationBannerEditorView.GetLayers();
+```
 
 ### PreviousStage
 `public override void PreviousStage()`
 
-**Purpose:** Handles logic related to `previous stage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
+CharacterCreationBannerEditorView characterCreationBannerEditorView = ...;
+characterCreationBannerEditorView.PreviousStage();
+```
 
 ### NextStage
 `public override void NextStage()`
 
-**Purpose:** Handles logic related to `next stage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
+CharacterCreationBannerEditorView characterCreationBannerEditorView = ...;
+characterCreationBannerEditorView.NextStage();
+```
 
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
+CharacterCreationBannerEditorView characterCreationBannerEditorView = ...;
+characterCreationBannerEditorView.Tick(0);
+```
 
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**Purpose:** Gets the current value of `virtual stage count`.
+**Purpose:** Reads and returns the `virtual stage count` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
+CharacterCreationBannerEditorView characterCreationBannerEditorView = ...;
+var result = characterCreationBannerEditorView.GetVirtualStageCount();
+```
 
 ### GoToIndex
 `public override void GoToIndex(int index)`
 
-**Purpose:** Handles logic related to `go to index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
+CharacterCreationBannerEditorView characterCreationBannerEditorView = ...;
+characterCreationBannerEditorView.GoToIndex(0);
+```
 
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**Purpose:** Loads `escape menu movie` data.
+**Purpose:** Reads `escape menu movie` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
+CharacterCreationBannerEditorView characterCreationBannerEditorView = ...;
+characterCreationBannerEditorView.LoadEscapeMenuMovie();
+```
 
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**Purpose:** Handles logic related to `release escape menu movie`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationBannerEditorView from the subsystem API first
+CharacterCreationBannerEditorView characterCreationBannerEditorView = ...;
+characterCreationBannerEditorView.ReleaseEscapeMenuMovie();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new CharacterCreationBannerEditorView();
+// Retrieve this view from the subsystem API or scene
+CharacterCreationBannerEditorView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

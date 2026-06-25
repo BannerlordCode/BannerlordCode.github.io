@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerGameMode"
+description: "MultiplayerGameMode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerGameMode`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGameMode
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MultiplayerGameMode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGameMode.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerGameMode.cs`
 
 ## 概述
 
@@ -35,19 +29,32 @@ title: "MultiplayerGameMode"
 ### JoinCustomGame
 `public abstract void JoinCustomGame(JoinGameData joinGameData)`
 
-**用途 / Purpose:** 处理 `join custom game` 相关逻辑。
+**用途 / Purpose:** 把若干「custom game」连接成一个整体。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameMode 实例
+MultiplayerGameMode multiplayerGameMode = ...;
+multiplayerGameMode.JoinCustomGame(joinGameData);
+```
 
 ### StartMultiplayerGame
 `public abstract void StartMultiplayerGame(string scene)`
 
-**用途 / Purpose:** 处理 `start multiplayer game` 相关逻辑。
+**用途 / Purpose:** 启动「multiplayer game」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameMode 实例
+MultiplayerGameMode multiplayerGameMode = ...;
+multiplayerGameMode.StartMultiplayerGame("example");
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMultiplayerGameMode();
+// 通常通过子系统 API 或工厂获得派生实例
+MultiplayerGameMode instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "TransferCommand"
+description: "Auto-generated class reference for TransferCommand."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransferCommand`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransferCommand
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
@@ -43,7 +37,12 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ### Transfer
 `public static TransferCommand Transfer(int amount, InventoryLogic.InventorySide fromSide, InventoryLogic.InventorySide toSide, ItemRosterElement elementToTransfer, EquipmentIndex fromEquipmentIndex, EquipmentIndex toEquipmentIndex, CharacterObject character)`
 
-**Purpose:** Handles logic related to `transfer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TransferCommand.Transfer(0, fromSide, toSide, elementToTransfer, fromEquipmentIndex, toEquipmentIndex, character);
+```
 
 ## Usage Example
 
@@ -53,4 +52,4 @@ TransferCommand.Transfer(0, fromSide, toSide, elementToTransfer, fromEquipmentIn
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

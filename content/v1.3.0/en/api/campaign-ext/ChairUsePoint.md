@@ -1,13 +1,7 @@
 ---
 title: "ChairUsePoint"
+description: "Auto-generated class reference for ChairUsePoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChairUsePoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChairUsePoint
 
 **Namespace:** SandBox.Objects.AnimationPoints
@@ -29,15 +23,22 @@ Start from namespace `SandBox.Objects.AnimationPoints` to place it in the stack,
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of ChairUsePoint from the subsystem API first
+ChairUsePoint chairUsePoint = ...;
+chairUsePoint.OnUse(userAgent, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ChairUsePoint();
-value.OnUse(userAgent, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ChairUsePoint chairUsePoint = ...;
+chairUsePoint.OnUse(userAgent, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

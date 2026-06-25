@@ -1,20 +1,14 @@
 ---
 title: "GauntletInitialScreen"
+description: "GauntletInitialScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletInitialScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletInitialScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletInitialScreen : MBInitialScreenBase, IChatLogHandlerScreen`
 **Base:** `MBInitialScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletInitialScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletInitialScreen.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "GauntletInitialScreen"
 ### TryUpdateChatLogLayerParameters
 `public void TryUpdateChatLogLayerParameters(ref bool isTeamChatAvailable, ref bool inputEnabled, ref bool isToggleChatHintAvailable, ref bool isMouseVisible, ref InputContext inputContext)`
 
-**用途 / Purpose:** 尝试获取 `update chat log layer parameters`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「update chat log layer parameters」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInitialScreen 实例
+GauntletInitialScreen gauntletInitialScreen = ...;
+gauntletInitialScreen.TryUpdateChatLogLayerParameters(isTeamChatAvailable, inputEnabled, isToggleChatHintAvailable, isMouseVisible, inputContext);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletInitialScreen();
-value.TryUpdateChatLogLayerParameters(isTeamChatAvailable, inputEnabled, isToggleChatHintAvailable, isMouseVisible, inputContext);
+// 通常从对应子系统 API 获取实例后调用
+GauntletInitialScreen gauntletInitialScreen = ...;
+gauntletInitialScreen.TryUpdateChatLogLayerParameters(isTeamChatAvailable, inputEnabled, isToggleChatHintAvailable, isMouseVisible, inputContext);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

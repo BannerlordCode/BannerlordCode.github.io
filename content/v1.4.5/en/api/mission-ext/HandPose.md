@@ -1,20 +1,14 @@
 ---
 title: "HandPose"
+description: "Auto-generated class reference for HandPose."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HandPose`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HandPose
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class HandPose : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/HandPose.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/HandPose.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new HandPose();
+// Obtain an instance from the relevant subsystem API
+HandPose instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LoginErrorCode"
+description: "LoginErrorCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LoginErrorCode`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoginErrorCode
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
-**Type:** `class`
+**Type:** `public enum LoginErrorCode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginErrorCode.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/LoginErrorCode.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "LoginErrorCode"
 ## 使用示例
 
 ```csharp
-var example = new LoginErrorCode();
+// 从对应子系统 API 获取实例
+LoginErrorCode instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

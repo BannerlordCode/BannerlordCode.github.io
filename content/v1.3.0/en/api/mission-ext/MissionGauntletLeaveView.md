@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletLeaveView"
+description: "Auto-generated class reference for MissionGauntletLeaveView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletLeaveView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletLeaveView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
@@ -29,34 +23,65 @@ Treat `MissionGauntletLeaveView` as a View-style extension point: first identify
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletLeaveView from the subsystem API first
+MissionGauntletLeaveView missionGauntletLeaveView = ...;
+missionGauntletLeaveView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletLeaveView from the subsystem API first
+MissionGauntletLeaveView missionGauntletLeaveView = ...;
+missionGauntletLeaveView.OnMissionScreenFinalize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletLeaveView from the subsystem API first
+MissionGauntletLeaveView missionGauntletLeaveView = ...;
+missionGauntletLeaveView.OnMissionTick(0);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletLeaveView from the subsystem API first
+MissionGauntletLeaveView missionGauntletLeaveView = ...;
+missionGauntletLeaveView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletLeaveView from the subsystem API first
+MissionGauntletLeaveView missionGauntletLeaveView = ...;
+missionGauntletLeaveView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletLeaveView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletLeaveView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

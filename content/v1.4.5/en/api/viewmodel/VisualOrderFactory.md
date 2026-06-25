@@ -1,20 +1,14 @@
 ---
 title: "VisualOrderFactory"
+description: "Auto-generated class reference for VisualOrderFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualOrderFactory`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualOrderFactory
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class VisualOrderFactory`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderFactory.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual/VisualOrderFactory.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### RegisterProvider
 `public static void RegisterProvider(VisualOrderProvider provider)`
 
-**Purpose:** Handles logic related to `register provider`.
+**Purpose:** Registers `provider` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+VisualOrderFactory.RegisterProvider(provider);
+```
 
 ### UnregisterProvider
 `public static void UnregisterProvider(VisualOrderProvider provider)`
 
-**Purpose:** Handles logic related to `unregister provider`.
+**Purpose:** Unregisters `provider` from the current system.
+
+```csharp
+// Static call; no instance required
+VisualOrderFactory.UnregisterProvider(provider);
+```
 
 ### GetOrders
 `public static MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**Purpose:** Gets the current value of `orders`.
+**Purpose:** Reads and returns the `orders` value held by the current object.
+
+```csharp
+// Static call; no instance required
+VisualOrderFactory.GetOrders();
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ VisualOrderFactory.RegisterProvider(provider);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

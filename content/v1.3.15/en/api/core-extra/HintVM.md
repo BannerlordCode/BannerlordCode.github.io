@@ -1,24 +1,18 @@
 ---
 title: "HintVM"
+description: "Auto-generated class reference for HintVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HintVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HintVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public class HintVM : TooltipBaseVM`
 **Base:** `TooltipBaseVM`
-**Area:** core-extra
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/HintVM.cs`
 
 ## Overview
 
-`HintVM` lives in `TaleWorlds.Core.ViewModelCollection.Information`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`HintVM` lives in `TaleWorlds.Core.ViewModelCollection.Information` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,16 +29,19 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### RefreshGenericHintTooltip
 `public static void RefreshGenericHintTooltip(HintVM hint, object args)`
 
-**Purpose:** Refreshes the display or cache of `generic hint tooltip`.
+**Purpose:** Keeps the display or cache of `generic hint tooltip` in sync with the underlying state.
+
+```csharp
+// Static call; no instance required
+HintVM.RefreshGenericHintTooltip(hint, args);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 HintVM.RefreshGenericHintTooltip(hint, args);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

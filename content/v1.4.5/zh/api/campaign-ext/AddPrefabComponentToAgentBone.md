@@ -1,20 +1,14 @@
 ---
 title: "AddPrefabComponentToAgentBone"
+description: "AddPrefabComponentToAgentBone 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AddPrefabComponentToAgentBone`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AddPrefabComponentToAgentBone
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AddPrefabComponentToAgentBone : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AddPrefabComponentToAgentBone.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AddPrefabComponentToAgentBone.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "AddPrefabComponentToAgentBone"
 ## 使用示例
 
 ```csharp
-var example = new AddPrefabComponentToAgentBone();
+// 从对应子系统 API 获取实例
+AddPrefabComponentToAgentBone instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

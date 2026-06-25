@@ -1,20 +1,14 @@
 ---
 title: "VideoPlaybackState"
+description: "VideoPlaybackState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VideoPlaybackState`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VideoPlaybackState
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VideoPlaybackState : GameState`
 **Base:** `GameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VideoPlaybackState.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/VideoPlaybackState.cs`
 
 ## 概述
 
@@ -39,30 +33,55 @@ title: "VideoPlaybackState"
 ### SetStartingParameters
 `public void SetStartingParameters(string videoPath, string audioPath, string subtitleFileBasePath, float frameRate = 30f, bool canUserSkip = true)`
 
-**用途 / Purpose:** 设置 `starting parameters` 的值或状态。
+**用途 / Purpose:** 为 「starting parameters」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlaybackState 实例
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.SetStartingParameters("example", "example", "example", 0, false);
+```
 
 ### SetOnVideoFinisedDelegate
 `public void SetOnVideoFinisedDelegate(Action onVideoFinised)`
 
-**用途 / Purpose:** 设置 `on video finised delegate` 的值或状态。
+**用途 / Purpose:** 为 「on video finised delegate」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlaybackState 实例
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.SetOnVideoFinisedDelegate(onVideoFinised);
+```
 
 ### OnVideoStarted
 `public void OnVideoStarted()`
 
-**用途 / Purpose:** 当 `video started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「video started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlaybackState 实例
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.OnVideoStarted();
+```
 
 ### OnVideoFinished
 `public void OnVideoFinished()`
 
-**用途 / Purpose:** 当 `video finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「video finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlaybackState 实例
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.OnVideoFinished();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VideoPlaybackState();
-value.SetStartingParameters("example", "example", "example", 0, false);
+// 通常从对应子系统 API 获取实例后调用
+VideoPlaybackState videoPlaybackState = ...;
+videoPlaybackState.SetStartingParameters("example", "example", "example", 0, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

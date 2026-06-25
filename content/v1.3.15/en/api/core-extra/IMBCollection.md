@@ -1,18 +1,12 @@
 ---
 title: "IMBCollection"
+description: "Auto-generated class reference for IMBCollection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMBCollection`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMBCollection
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IMBCollection`
 **Base:** none
 **File:** `TaleWorlds.Library/IMBCollection.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-IMBCollection implementation = GetMBCollectionImplementation();
+// Usually obtained through DI or a factory method
+IIMBCollection service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

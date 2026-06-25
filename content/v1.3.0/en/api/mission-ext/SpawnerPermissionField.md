@@ -1,13 +1,7 @@
 ---
 title: "SpawnerPermissionField"
+description: "Auto-generated class reference for SpawnerPermissionField."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnerPermissionField`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnerPermissionField
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ## Usage Example
 
 ```csharp
-var example = new SpawnerPermissionField();
+// Obtain an instance from the relevant subsystem API
+SpawnerPermissionField instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

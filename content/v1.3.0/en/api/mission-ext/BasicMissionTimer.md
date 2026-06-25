@@ -1,13 +1,7 @@
 ---
 title: "BasicMissionTimer"
+description: "Auto-generated class reference for BasicMissionTimer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasicMissionTimer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicMissionTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of BasicMissionTimer from the subsystem API first
+BasicMissionTimer basicMissionTimer = ...;
+basicMissionTimer.Reset();
+```
 
 ### Set
 `public void Set(float newElapsedTime)`
 
-**Purpose:** Sets the value or state of `set`.
+**Purpose:** Assigns a new value to the current object's property or state.
+
+```csharp
+// Obtain an instance of BasicMissionTimer from the subsystem API first
+BasicMissionTimer basicMissionTimer = ...;
+basicMissionTimer.Set(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BasicMissionTimer();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+BasicMissionTimer basicMissionTimer = ...;
+basicMissionTimer.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

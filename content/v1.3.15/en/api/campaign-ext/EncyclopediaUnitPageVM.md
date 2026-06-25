@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaUnitPageVM"
+description: "Auto-generated class reference for EncyclopediaUnitPageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaUnitPageVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaUnitPageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -45,30 +39,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncyclopediaUnitPageVM from the subsystem API first
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+encyclopediaUnitPageVM.RefreshValues();
+```
 
 ### GetName
 `public override string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaUnitPageVM from the subsystem API first
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+var result = encyclopediaUnitPageVM.GetName();
+```
 
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** Gets the current value of `navigation bar u r l`.
+**Purpose:** Reads and returns the `navigation bar u r l` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaUnitPageVM from the subsystem API first
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+var result = encyclopediaUnitPageVM.GetNavigationBarURL();
+```
 
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** Executes the `switch bookmarked state` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `switch bookmarked state`.
+
+```csharp
+// Obtain an instance of EncyclopediaUnitPageVM from the subsystem API first
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+encyclopediaUnitPageVM.ExecuteSwitchBookmarkedState();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaUnitPageVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaUnitPageVM encyclopediaUnitPageVM = ...;
+encyclopediaUnitPageVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

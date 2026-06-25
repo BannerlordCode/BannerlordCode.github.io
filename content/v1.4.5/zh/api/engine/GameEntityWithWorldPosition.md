@@ -1,20 +1,14 @@
 ---
 title: "GameEntityWithWorldPosition"
+description: "GameEntityWithWorldPosition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameEntityWithWorldPosition`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameEntityWithWorldPosition
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class GameEntityWithWorldPosition`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityWithWorldPosition.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityWithWorldPosition.cs`
 
 ## 概述
 
@@ -37,30 +31,55 @@ title: "GameEntityWithWorldPosition"
 ### InvalidateWorldPosition
 `public void InvalidateWorldPosition()`
 
-**用途 / Purpose:** 处理 `invalidate world position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameEntityWithWorldPosition 实例
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+gameEntityWithWorldPosition.InvalidateWorldPosition();
+```
 
 ### SetCustomLocalFrame
 `public void SetCustomLocalFrame(in MatrixFrame customLocalFrame)`
 
-**用途 / Purpose:** 设置 `custom local frame` 的值或状态。
+**用途 / Purpose:** 为 「custom local frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GameEntityWithWorldPosition 实例
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+gameEntityWithWorldPosition.SetCustomLocalFrame(customLocalFrame);
+```
 
 ### GetNavMesh
 `public UIntPtr GetNavMesh()`
 
-**用途 / Purpose:** 获取 `nav mesh` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「nav mesh」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameEntityWithWorldPosition 实例
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+var result = gameEntityWithWorldPosition.GetNavMesh();
+```
 
 ### GetNavMeshVec3
 `public Vec3 GetNavMeshVec3()`
 
-**用途 / Purpose:** 获取 `nav mesh vec3` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「nav mesh vec3」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameEntityWithWorldPosition 实例
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+var result = gameEntityWithWorldPosition.GetNavMeshVec3();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameEntityWithWorldPosition();
-value.InvalidateWorldPosition();
+// 通常从对应子系统 API 获取实例后调用
+GameEntityWithWorldPosition gameEntityWithWorldPosition = ...;
+gameEntityWithWorldPosition.InvalidateWorldPosition();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

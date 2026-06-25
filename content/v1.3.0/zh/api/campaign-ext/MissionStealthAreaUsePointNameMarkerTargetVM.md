@@ -1,13 +1,7 @@
 ---
 title: "MissionStealthAreaUsePointNameMarkerTargetVM"
+description: "MissionStealthAreaUsePointNameMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionStealthAreaUsePointNameMarkerTargetVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionStealthAreaUsePointNameMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout
@@ -29,20 +23,33 @@ title: "MissionStealthAreaUsePointNameMarkerTargetVM"
 ### Equals
 `public override bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MissionStealthAreaUsePointNameMarkerTargetVM 实例
+MissionStealthAreaUsePointNameMarkerTargetVM missionStealthAreaUsePointNameMarkerTargetVM = ...;
+var result = missionStealthAreaUsePointNameMarkerTargetVM.Equals(other);
+```
 
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionStealthAreaUsePointNameMarkerTargetVM 实例
+MissionStealthAreaUsePointNameMarkerTargetVM missionStealthAreaUsePointNameMarkerTargetVM = ...;
+missionStealthAreaUsePointNameMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionStealthAreaUsePointNameMarkerTargetVM();
-value.Equals(other);
+// 通常从对应子系统 API 获取实例后调用
+MissionStealthAreaUsePointNameMarkerTargetVM missionStealthAreaUsePointNameMarkerTargetVM = ...;
+missionStealthAreaUsePointNameMarkerTargetVM.Equals(other);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "PhotoModeValueOptionVM"
+description: "Auto-generated class reference for PhotoModeValueOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PhotoModeValueOptionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PhotoModeValueOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PhotoModeValueOptionVM from the subsystem API first
+PhotoModeValueOptionVM photoModeValueOptionVM = ...;
+photoModeValueOptionVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PhotoModeValueOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+PhotoModeValueOptionVM photoModeValueOptionVM = ...;
+photoModeValueOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "ServiceAddress"
+description: "Auto-generated class reference for ServiceAddress."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServiceAddress`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServiceAddress
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
 **Type:** `public class ServiceAddress`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.ServiceDiscovery.Client/ServiceAddress.cs`
 
 ## Overview
 
-`ServiceAddress` lives in `TaleWorlds.ServiceDiscovery.Client`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ServiceAddress` lives in `TaleWorlds.ServiceDiscovery.Client` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,21 +30,29 @@ Start from namespace `TaleWorlds.ServiceDiscovery.Client` to place it in the sta
 ### IsServiceAddress
 `public static bool IsServiceAddress(string address)`
 
-**Purpose:** Handles logic related to `is service address`.
+**Purpose:** Determines whether the current object is in the `service address` state or condition.
+
+```csharp
+// Static call; no instance required
+ServiceAddress.IsServiceAddress("example");
+```
 
 ### TryGetAddressName
 `public static bool TryGetAddressName(string serviceAddress, out string addressName)`
 
-**Purpose:** Attempts to get `get address name`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get address name`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+ServiceAddress.TryGetAddressName("example", addressName);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ServiceAddress.IsServiceAddress("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ClassCodeAccessModifier"
+description: "Auto-generated class reference for ClassCodeAccessModifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClassCodeAccessModifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClassCodeAccessModifier
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public enum ClassCodeAccessModifier`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/ClassCodeAccessModifier.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/ClassCodeAccessModifier.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new ClassCodeAccessModifier();
+// Obtain an instance from the relevant subsystem API
+ClassCodeAccessModifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

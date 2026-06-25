@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPlayerHelper"
+description: "Auto-generated class reference for MultiplayerPlayerHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPlayerHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPlayerHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerPlayerHelper`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPlayerHelper.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPlayerHelper.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Treat `MultiplayerPlayerHelper` as a Helper-style extension point: first identif
 ### IsBlocked
 `public static bool IsBlocked(PlayerId playerID)`
 
-**Purpose:** Handles logic related to `is blocked`.
+**Purpose:** Determines whether the current object is in the `blocked` state or condition.
+
+```csharp
+// Static call; no instance required
+MultiplayerPlayerHelper.IsBlocked(playerID);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ MultiplayerPlayerHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPPerkEffect"
+description: "Auto-generated class reference for MPPerkEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerkEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPerkEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPPerkEffect : MPPerkEffectBase`
 **Base:** `MPPerkEffectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkEffect.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkEffect.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CreateFrom
 `public static MPPerkEffect CreateFrom(XmlNode node)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MPPerkEffect.CreateFrom(node);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPPerkEffect();
+// Typically obtained from a subsystem API or factory
+MPPerkEffect instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

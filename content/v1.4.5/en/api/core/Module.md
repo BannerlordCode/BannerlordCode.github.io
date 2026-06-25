@@ -1,20 +1,14 @@
 ---
 title: "Module"
+description: "Auto-generated class reference for Module."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Module`
-- [← Area / Back to core](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Module
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class Module : DotNetObject, IGameStateManagerOwner`
 **Base:** `DotNetObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Module.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Module.cs`
 
 ## Overview
 
@@ -43,125 +37,261 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### CollectSubModules
 `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`
 
-**Purpose:** Handles logic related to `collect sub modules`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+var result = module.CollectSubModules();
+```
 
 ### GetMetaMeshPackageMapping
 `public static void GetMetaMeshPackageMapping(Dictionary<string, string> metaMeshPackageMappings)`
 
-**Purpose:** Gets the current value of `meta mesh package mapping`.
+**Purpose:** Reads and returns the `meta mesh package mapping` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Module.GetMetaMeshPackageMapping(dictionary<string, "example");
+```
 
 ### GetItemMeshNames
 `public static void GetItemMeshNames(HashSet<string> itemMeshNames)`
 
-**Purpose:** Gets the current value of `item mesh names`.
+**Purpose:** Reads and returns the `item mesh names` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Module.GetItemMeshNames(itemMeshNames);
+```
 
 ### GetCraftedItemMeshNames
 `public static string GetCraftedItemMeshNames(List<string> arguments)`
 
-**Purpose:** Gets the current value of `crafted item mesh names`.
+**Purpose:** Reads and returns the `crafted item mesh names` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Module.GetCraftedItemMeshNames(arguments);
+```
 
 ### SetInitialModuleScreenAsRootScreen
 `public void SetInitialModuleScreenAsRootScreen()`
 
-**Purpose:** Sets the value or state of `initial module screen as root screen`.
+**Purpose:** Assigns a new value to `initial module screen as root screen` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.SetInitialModuleScreenAsRootScreen();
+```
 
 ### GetSubModuleType
 `public Type GetSubModuleType(string name)`
 
-**Purpose:** Gets the current value of `sub module type`.
+**Purpose:** Reads and returns the `sub module type` value held by the current object.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+var result = module.GetSubModuleType("example");
+```
 
 ### CheckIfSubmoduleCanBeLoadable
 `public bool CheckIfSubmoduleCanBeLoadable(SubModuleInfo subModuleInfo)`
 
-**Purpose:** Handles logic related to `check if submodule can be loadable`.
+**Purpose:** Verifies whether `if submodule can be loadable` holds true for the current object.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+var result = module.CheckIfSubmoduleCanBeLoadable(subModuleInfo);
+```
 
 ### ClearStateOptions
 `public void ClearStateOptions()`
 
-**Purpose:** Handles logic related to `clear state options`.
+**Purpose:** Removes all `state options` from the current object.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.ClearStateOptions();
+```
 
 ### AddInitialStateOption
 `public void AddInitialStateOption(InitialStateOption initialStateOption)`
 
 **Purpose:** Adds `initial state option` to the current collection or state.
 
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.AddInitialStateOption(initialStateOption);
+```
+
 ### OverrideInitialStateOption
 `public void OverrideInitialStateOption(string id, InitialStateOption newInitialStateOption)`
 
-**Purpose:** Handles logic related to `override initial state option`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.OverrideInitialStateOption("example", newInitialStateOption);
+```
 
 ### GetInitialStateOptions
 `public IEnumerable<InitialStateOption> GetInitialStateOptions()`
 
-**Purpose:** Gets the current value of `initial state options`.
+**Purpose:** Reads and returns the `initial state options` value held by the current object.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+var result = module.GetInitialStateOptions();
+```
 
 ### GetInitialStateOptionWithId
 `public InitialStateOption GetInitialStateOptionWithId(string id)`
 
-**Purpose:** Gets the current value of `initial state option with id`.
+**Purpose:** Reads and returns the `initial state option with id` value held by the current object.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+var result = module.GetInitialStateOptionWithId("example");
+```
 
 ### ExecuteInitialStateOptionWithId
 `public void ExecuteInitialStateOptionWithId(string id)`
 
-**Purpose:** Executes the `initial state option with id` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `initial state option with id`.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.ExecuteInitialStateOptionWithId("example");
+```
 
 ### SetCanLoadModules
 `public void SetCanLoadModules(bool canLoadModules)`
 
-**Purpose:** Sets the value or state of `can load modules`.
+**Purpose:** Assigns a new value to `can load modules` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.SetCanLoadModules(false);
+```
 
 ### SetEditorMissionTester
 `public void SetEditorMissionTester(IEditorMissionTester editorMissionTester)`
 
-**Purpose:** Sets the value or state of `editor mission tester`.
+**Purpose:** Assigns a new value to `editor mission tester` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.SetEditorMissionTester(editorMissionTester);
+```
 
 ### StartMissionForEditorAux
 `public void StartMissionForEditorAux(string missionName, string sceneName, string levels, bool forReplay, string replayFileName, bool isRecord)`
 
-**Purpose:** Handles logic related to `start mission for editor aux`.
+**Purpose:** Starts the `mission for editor aux` flow or state machine.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.StartMissionForEditorAux("example", "example", "example", false, "example", false);
+```
 
 ### GetMultiplayerGameMode
 `public MultiplayerGameMode GetMultiplayerGameMode(string gameType)`
 
-**Purpose:** Gets the current value of `multiplayer game mode`.
+**Purpose:** Reads and returns the `multiplayer game mode` value held by the current object.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+var result = module.GetMultiplayerGameMode("example");
+```
 
 ### AddMultiplayerGameMode
 `public void AddMultiplayerGameMode(MultiplayerGameMode multiplayerGameMode)`
 
 **Purpose:** Adds `multiplayer game mode` to the current collection or state.
 
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.AddMultiplayerGameMode(multiplayerGameMode);
+```
+
 ### GetMultiplayerGameTypes
 `public MBReadOnlyList<MultiplayerGameTypeInfo> GetMultiplayerGameTypes()`
 
-**Purpose:** Gets the current value of `multiplayer game types`.
+**Purpose:** Reads and returns the `multiplayer game types` value held by the current object.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+var result = module.GetMultiplayerGameTypes();
+```
 
 ### StartMultiplayerGame
 `public bool StartMultiplayerGame(string multiplayerGameType, string scene)`
 
-**Purpose:** Handles logic related to `start multiplayer game`.
+**Purpose:** Starts the `multiplayer game` flow or state machine.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+var result = module.StartMultiplayerGame("example", "example");
+```
 
 ### ShutDownWithDelay
 `public async void ShutDownWithDelay(string reason, int seconds)`
 
-**Purpose:** Handles logic related to `shut down with delay`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.ShutDownWithDelay("example", 0);
+```
 
 ### DeactiveModule
 `public void DeactiveModule(string moduleId)`
 
-**Purpose:** Handles logic related to `deactive module`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.DeactiveModule("example");
+```
 
 ### ActivateModule
 `public void ActivateModule(string moduleId)`
 
-**Purpose:** Handles logic related to `activate module`.
+**Purpose:** Activates the resource, state, or feature associated with `module`.
+
+```csharp
+// Obtain an instance of Module from the subsystem API first
+Module module = ...;
+module.ActivateModule("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Module();
-value.CollectSubModules();
+// Typically call this after obtaining an instance from the subsystem API
+Module module = ...;
+module.CollectSubModules();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameMenuCallbackManager"
+description: "Auto-generated class reference for GameMenuCallbackManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuCallbackManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuCallbackManager
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
@@ -35,37 +29,79 @@ Treat `GameMenuCallbackManager` as a Manager-style extension point: first identi
 ### OnGameLoad
 `public void OnGameLoad()`
 
-**Purpose:** Called when the `game load` event is raised.
+**Purpose:** Invoked when the `game load` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuCallbackManager from the subsystem API first
+GameMenuCallbackManager gameMenuCallbackManager = ...;
+gameMenuCallbackManager.OnGameLoad();
+```
 
 ### InitializeState
 `public void InitializeState(string menuId, MenuContext state)`
 
-**Purpose:** Initializes the state, resources, or bindings for `state`.
+**Purpose:** Prepares the resources, state, or bindings required by `state`.
+
+```csharp
+// Obtain an instance of GameMenuCallbackManager from the subsystem API first
+GameMenuCallbackManager gameMenuCallbackManager = ...;
+gameMenuCallbackManager.InitializeState("example", state);
+```
 
 ### OnConsequence
 `public void OnConsequence(string menuId, GameMenuOption gameMenuOption, MenuContext state)`
 
-**Purpose:** Called when the `consequence` event is raised.
+**Purpose:** Invoked when the `consequence` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuCallbackManager from the subsystem API first
+GameMenuCallbackManager gameMenuCallbackManager = ...;
+gameMenuCallbackManager.OnConsequence("example", gameMenuOption, state);
+```
 
 ### GetMenuOptionTooltip
 `public TextObject GetMenuOptionTooltip(MenuContext menuContext, int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option tooltip`.
+**Purpose:** Reads and returns the `menu option tooltip` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuCallbackManager from the subsystem API first
+GameMenuCallbackManager gameMenuCallbackManager = ...;
+var result = gameMenuCallbackManager.GetMenuOptionTooltip(menuContext, 0);
+```
 
 ### GetVirtualMenuOptionTooltip
 `public TextObject GetVirtualMenuOptionTooltip(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual menu option tooltip`.
+**Purpose:** Reads and returns the `virtual menu option tooltip` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuCallbackManager from the subsystem API first
+GameMenuCallbackManager gameMenuCallbackManager = ...;
+var result = gameMenuCallbackManager.GetVirtualMenuOptionTooltip(menuContext, 0);
+```
 
 ### GetVirtualMenuOptionText
 `public TextObject GetVirtualMenuOptionText(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**Purpose:** Gets the current value of `virtual menu option text`.
+**Purpose:** Reads and returns the `virtual menu option text` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuCallbackManager from the subsystem API first
+GameMenuCallbackManager gameMenuCallbackManager = ...;
+var result = gameMenuCallbackManager.GetVirtualMenuOptionText(menuContext, 0);
+```
 
 ### GetMenuOptionText
 `public TextObject GetMenuOptionText(MenuContext menuContext, int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option text`.
+**Purpose:** Reads and returns the `menu option text` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuCallbackManager from the subsystem API first
+GameMenuCallbackManager gameMenuCallbackManager = ...;
+var result = gameMenuCallbackManager.GetMenuOptionText(menuContext, 0);
+```
 
 ## Usage Example
 
@@ -75,4 +111,4 @@ var manager = GameMenuCallbackManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

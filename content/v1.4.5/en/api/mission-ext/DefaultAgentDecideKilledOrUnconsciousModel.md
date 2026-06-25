@@ -1,20 +1,14 @@
 ---
 title: "DefaultAgentDecideKilledOrUnconsciousModel"
+description: "Auto-generated class reference for DefaultAgentDecideKilledOrUnconsciousModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultAgentDecideKilledOrUnconsciousModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultAgentDecideKilledOrUnconsciousModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultAgentDecideKilledOrUnconsciousModel : AgentDecideKilledOrUnconsciousModel`
 **Base:** `AgentDecideKilledOrUnconsciousModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultAgentDecideKilledOrUnconsciousModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultAgentDecideKilledOrUnconsciousModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultAgentDecideKilledOrUnconsciousModel` as a Model-style extension po
 ### GetAgentStateProbability
 `public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**Purpose:** Gets the current value of `agent state probability`.
+**Purpose:** Reads and returns the `agent state probability` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultAgentDecideKilledOrUnconsciousModel from the subsystem API first
+DefaultAgentDecideKilledOrUnconsciousModel defaultAgentDecideKilledOrUnconsciousModel = ...;
+var result = defaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, weaponFlags, useSurgeryProbability);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultAgentDecideKilledOrUnconsciousModel>(new MyDefa
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

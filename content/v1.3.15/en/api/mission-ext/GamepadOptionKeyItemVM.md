@@ -1,13 +1,7 @@
 ---
 title: "GamepadOptionKeyItemVM"
+description: "Auto-generated class reference for GamepadOptionKeyItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadOptionKeyItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GamepadOptionKeyItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GamepadOptions
@@ -40,15 +34,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.G
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GamepadOptionKeyItemVM from the subsystem API first
+GamepadOptionKeyItemVM gamepadOptionKeyItemVM = ...;
+gamepadOptionKeyItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GamepadOptionKeyItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GamepadOptionKeyItemVM gamepadOptionKeyItemVM = ...;
+gamepadOptionKeyItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

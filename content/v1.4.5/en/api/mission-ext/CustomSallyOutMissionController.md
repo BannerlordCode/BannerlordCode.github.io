@@ -1,20 +1,14 @@
 ---
 title: "CustomSallyOutMissionController"
+description: "Auto-generated class reference for CustomSallyOutMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomSallyOutMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomSallyOutMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionSpawnHandlers
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomSallyOutMissionController : SallyOutMissionController`
 **Base:** `SallyOutMissionController`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomSallyOutMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomSallyOutMissionController.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ var controller = Mission.Current.GetMissionBehavior<CustomSallyOutMissionControl
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

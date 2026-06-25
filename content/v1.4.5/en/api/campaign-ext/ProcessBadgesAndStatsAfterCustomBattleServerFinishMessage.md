@@ -1,20 +1,14 @@
 ---
 title: "ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage"
+description: "Auto-generated class reference for ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage
 
 **Namespace:** Messages.FromLobbyServer.ToLobbyServer
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToLobbyServer/ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToLobbyServer/ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `Messages.FromLobbyServer.ToLobbyServer` to place it in the
 ## Usage Example
 
 ```csharp
-var example = new ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage();
+// Obtain an instance from the relevant subsystem API
+ProcessBadgesAndStatsAfterCustomBattleServerFinishMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

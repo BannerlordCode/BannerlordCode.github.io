@@ -1,13 +1,7 @@
 ---
 title: "PreliminaryActionObligation"
+description: "Auto-generated class reference for PreliminaryActionObligation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PreliminaryActionObligation`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PreliminaryActionObligation
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ComponentInterfaces` to place it
 ## Usage Example
 
 ```csharp
-PreliminaryActionObligation example = PreliminaryActionObligation.Value;
+// Obtain an instance from the relevant subsystem API
+PreliminaryActionObligation instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

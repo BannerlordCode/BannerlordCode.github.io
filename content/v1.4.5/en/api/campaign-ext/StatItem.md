@@ -1,20 +1,14 @@
 ---
 title: "StatItem"
+description: "Auto-generated class reference for StatItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StatItem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StatItem
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class StatItem`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/StatItem.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.GameOver/StatItem.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the s
 ## Usage Example
 
 ```csharp
-var value = new StatItem();
+// Obtain an instance from the relevant subsystem API
+StatItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

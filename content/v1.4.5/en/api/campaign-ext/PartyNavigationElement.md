@@ -1,20 +1,14 @@
 ---
 title: "PartyNavigationElement"
+description: "Auto-generated class reference for PartyNavigationElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyNavigationElement`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
 **Module:** SandBox.View
 **Type:** `public class PartyNavigationElement : MapNavigationElementBase`
 **Base:** `MapNavigationElementBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/PartyNavigationElement.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/PartyNavigationElement.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ### OpenView
 `public override void OpenView()`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of PartyNavigationElement from the subsystem API first
+PartyNavigationElement partyNavigationElement = ...;
+partyNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**Purpose:** Handles logic related to `open view`.
+**Purpose:** Opens the resource or UI associated with `view`.
+
+```csharp
+// Obtain an instance of PartyNavigationElement from the subsystem API first
+PartyNavigationElement partyNavigationElement = ...;
+partyNavigationElement.OpenView(parameters);
+```
 
 ### GoToLink
 `public override void GoToLink()`
 
-**Purpose:** Handles logic related to `go to link`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyNavigationElement from the subsystem API first
+PartyNavigationElement partyNavigationElement = ...;
+partyNavigationElement.GoToLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyNavigationElement();
-value.OpenView();
+// Typically call this after obtaining an instance from the subsystem API
+PartyNavigationElement partyNavigationElement = ...;
+partyNavigationElement.OpenView();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

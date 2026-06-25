@@ -1,13 +1,7 @@
 ---
 title: "SettlementArea"
+description: "Auto-generated class reference for SettlementArea."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementArea`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementArea
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementArea();
+// Typically obtained from a subsystem API or factory
+SettlementArea instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

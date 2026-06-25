@@ -1,20 +1,14 @@
 ---
-title: "MissionMarkerType__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Mission_FlagMarker"
+title: "MissionMarkerType"
+description: "MissionMarkerType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMarkerType`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMarkerType
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MissionMarkerType`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/MultiplayerMissionMarkerListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/MultiplayerMissionMarkerListPanel.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MissionMarkerType__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Mission_F
 ## 使用示例
 
 ```csharp
-MissionMarkerType example = MissionMarkerType.Value;
+// 从对应子系统 API 获取实例
+MissionMarkerType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "RundownColumnDividerCollectionWidget"
+description: "Auto-generated class reference for RundownColumnDividerCollectionWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RundownColumnDividerCollectionWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RundownColumnDividerCollectionWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RundownColumnDividerCollectionWidget : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip/RundownColumnDividerCollectionWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information.RundownTooltip/RundownColumnDividerCollectionWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `RundownColumnDividerCollectionWidget` as a Widget-style extension point: 
 ### Refresh
 `public void Refresh(IReadOnlyList<float> columnWidths)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of RundownColumnDividerCollectionWidget from the subsystem API first
+RundownColumnDividerCollectionWidget rundownColumnDividerCollectionWidget = ...;
+rundownColumnDividerCollectionWidget.Refresh(columnWidths);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new RundownColumnDividerCollectionWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+RundownColumnDividerCollectionWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

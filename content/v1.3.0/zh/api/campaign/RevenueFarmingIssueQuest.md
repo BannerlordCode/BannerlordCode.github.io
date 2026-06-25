@@ -1,13 +1,7 @@
 ---
 title: "RevenueFarmingIssueQuest"
+description: "RevenueFarmingIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RevenueFarmingIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RevenueFarmingIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -38,25 +32,44 @@ title: "RevenueFarmingIssueQuest"
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**用途 / Purpose:** 处理 `revenues are delivered to steward` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssueQuest 实例
+RevenueFarmingIssueQuest revenueFarmingIssueQuest = ...;
+revenueFarmingIssueQuest.RevenuesAreDeliveredToSteward();
+```
 
 ### FindCurrentRevenueVillage
 `public RevenueFarmingIssueBehavior.RevenueVillage FindCurrentRevenueVillage()`
 
-**用途 / Purpose:** 处理 `find current revenue village` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「current revenue village」。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssueQuest 实例
+RevenueFarmingIssueQuest revenueFarmingIssueQuest = ...;
+var result = revenueFarmingIssueQuest.FindCurrentRevenueVillage();
+```
 
 ### SetVillageAsCompleted
 `public void SetVillageAsCompleted(RevenueFarmingIssueBehavior.RevenueVillage village, bool addLog = true)`
 
-**用途 / Purpose:** 设置 `village as completed` 的值或状态。
+**用途 / Purpose:** 为 「village as completed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssueQuest 实例
+RevenueFarmingIssueQuest revenueFarmingIssueQuest = ...;
+revenueFarmingIssueQuest.SetVillageAsCompleted(village, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RevenueFarmingIssueQuest();
-value.RevenuesAreDeliveredToSteward();
+// 通常从对应子系统 API 获取实例后调用
+RevenueFarmingIssueQuest revenueFarmingIssueQuest = ...;
+revenueFarmingIssueQuest.RevenuesAreDeliveredToSteward();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPPerkSelection"
+description: "Auto-generated class reference for MPPerkSelection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerkSelection`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPerkSelection
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPerkSelection`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkSelectionManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkSelectionManager.cs`
 
 ## Overview
 
@@ -29,45 +23,87 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### MPPerkSelection
 `public struct MPPerkSelection(int index, int listIndex)`
 
-**Purpose:** Handles logic related to `m p perk selection`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPPerkSelection from the subsystem API first
+MPPerkSelection mPPerkSelection = ...;
+var result = mPPerkSelection.MPPerkSelection(0, 0);
+```
 
 ### FreeInstance
 `public static void FreeInstance()`
 
-**Purpose:** Handles logic related to `free instance`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MPPerkSelection.FreeInstance();
+```
 
 ### InitializeForUser
 `public void InitializeForUser(string username, PlayerId playerId)`
 
-**Purpose:** Initializes the state, resources, or bindings for `for user`.
+**Purpose:** Prepares the resources, state, or bindings required by `for user`.
+
+```csharp
+// Obtain an instance of MPPerkSelection from the subsystem API first
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.InitializeForUser("example", playerId);
+```
 
 ### ResetPendingChanges
 `public void ResetPendingChanges()`
 
-**Purpose:** Resets `pending changes` to its initial state.
+**Purpose:** Returns `pending changes` to its default or initial condition.
+
+```csharp
+// Obtain an instance of MPPerkSelection from the subsystem API first
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.ResetPendingChanges();
+```
 
 ### TryToApplyAndSavePendingChanges
 `public void TryToApplyAndSavePendingChanges()`
 
-**Purpose:** Attempts to get `to apply and save pending changes`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `to apply and save pending changes`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MPPerkSelection from the subsystem API first
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.TryToApplyAndSavePendingChanges();
+```
 
 ### GetSelectionsForHeroClass
 `public List<MPPerkSelection> GetSelectionsForHeroClass(MultiplayerClassDivisions.MPHeroClass currentHeroClass)`
 
-**Purpose:** Gets the current value of `selections for hero class`.
+**Purpose:** Reads and returns the `selections for hero class` value held by the current object.
+
+```csharp
+// Obtain an instance of MPPerkSelection from the subsystem API first
+MPPerkSelection mPPerkSelection = ...;
+var result = mPPerkSelection.GetSelectionsForHeroClass(currentHeroClass);
+```
 
 ### SetSelectionsForHeroClassTemporarily
 `public void SetSelectionsForHeroClassTemporarily(MultiplayerClassDivisions.MPHeroClass currentHeroClass, List<MPPerkSelection> perkChoices)`
 
-**Purpose:** Sets the value or state of `selections for hero class temporarily`.
+**Purpose:** Assigns a new value to `selections for hero class temporarily` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPPerkSelection from the subsystem API first
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.SetSelectionsForHeroClassTemporarily(currentHeroClass, perkChoices);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPPerkSelection();
-value.MPPerkSelection(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+MPPerkSelection mPPerkSelection = ...;
+mPPerkSelection.MPPerkSelection(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

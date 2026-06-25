@@ -1,20 +1,14 @@
 ---
 title: "DisconnectedFromChatRoomMessage"
+description: "Auto-generated class reference for DisconnectedFromChatRoomMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisconnectedFromChatRoomMessage`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisconnectedFromChatRoomMessage
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Messages.FromLobbyServer.ToClient
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DisconnectedFromChatRoomMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Messages.FromLobbyServer.ToClient/DisconnectedFromChatRoomMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Messages.FromLobbyServer.ToClient/DisconnectedFromChatRoomMessage.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Messages.FromLobbyServer.
 ## Usage Example
 
 ```csharp
-var example = new DisconnectedFromChatRoomMessage();
+// Obtain an instance from the relevant subsystem API
+DisconnectedFromChatRoomMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

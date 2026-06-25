@@ -1,23 +1,18 @@
 ---
 title: "TutorialObjective"
+description: "Auto-generated class reference for TutorialObjective."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialObjective`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialObjective
 
 **Namespace:** StoryMode.Missions
 **Module:** StoryMode.Missions
 **Type:** `public class TutorialObjective`
-**Area:** campaign-ext
+**Base:** none
+**File:** `StoryMode/Missions/TrainingFieldMissionController.cs`
 
 ## Overview
 
-`TutorialObjective` lives in `StoryMode.Missions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TutorialObjective` lives in `StoryMode.Missions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,7 +22,6 @@ Start from namespace `StoryMode.Missions` to place it in the stack, then inspect
 
 | Name | Signature |
 |------|-----------|
-| `InitialCurrentObjective` | `public TextObject InitialCurrentObjective { get; }` |
 | `Id` | `public string Id { get; }` |
 | `IsFinished` | `public bool IsFinished { get; }` |
 | `IsActive` | `public bool IsActive { get; }` |
@@ -36,95 +30,102 @@ Start from namespace `StoryMode.Missions` to place it in the stack, then inspect
 
 ## Key Methods
 
-### OnCreated
-`public override void OnCreated()`
-
-**Purpose:** Called when the `created` event is raised.
-
-### AfterStart
-`public override void AfterStart()`
-
-**Purpose:** Handles logic related to `after start`.
-
-### OnRenderingStarted
-`public override void OnRenderingStarted()`
-
-**Purpose:** Called when the `rendering started` event is raised.
-
-### OnMissionTick
-`public override void OnMissionTick(float dt)`
-
-**Purpose:** Called when the `mission tick` event is raised.
-
-### LoadCrossbowForStarting
-`public void LoadCrossbowForStarting()`
-
-**Purpose:** Loads `crossbow for starting` data.
-
-### OnAgentShootMissile
-`public override void OnAgentShootMissile(Agent shooterAgent, EquipmentIndex weaponIndex, Vec3 position, Vec3 velocity, Mat3 orientation, bool hasRigidBody, int forcedMissileIndex = -1)`
-
-**Purpose:** Called when the `agent shoot missile` event is raised.
-
-### OnScoreHit
-`public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
-
-**Purpose:** Called when the `score hit` event is raised.
-
 ### SetTextVariableOfName
 `public void SetTextVariableOfName(string tag, int variable)`
 
-**Purpose:** Sets the value or state of `text variable of name`.
+**Purpose:** Assigns a new value to `text variable of name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TutorialObjective from the subsystem API first
+TutorialObjective tutorialObjective = ...;
+tutorialObjective.SetTextVariableOfName("example", 0);
+```
 
 ### GetNameString
 `public string GetNameString()`
 
-**Purpose:** Gets the current value of `name string`.
+**Purpose:** Reads and returns the `name string` value held by the current object.
+
+```csharp
+// Obtain an instance of TutorialObjective from the subsystem API first
+TutorialObjective tutorialObjective = ...;
+var result = tutorialObjective.GetNameString();
+```
 
 ### SetActive
 `public bool SetActive(bool isActive)`
 
-**Purpose:** Sets the value or state of `active`.
+**Purpose:** Assigns a new value to `active` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TutorialObjective from the subsystem API first
+TutorialObjective tutorialObjective = ...;
+var result = tutorialObjective.SetActive(false);
+```
 
 ### FinishTask
 `public bool FinishTask()`
 
-**Purpose:** Handles logic related to `finish task`.
+**Purpose:** Concludes the `task` flow and performs any cleanup.
+
+```csharp
+// Obtain an instance of TutorialObjective from the subsystem API first
+TutorialObjective tutorialObjective = ...;
+var result = tutorialObjective.FinishTask();
+```
 
 ### FinishSubTask
 `public void FinishSubTask(string subTaskName, float score)`
 
-**Purpose:** Handles logic related to `finish sub task`.
+**Purpose:** Concludes the `sub task` flow and performs any cleanup.
+
+```csharp
+// Obtain an instance of TutorialObjective from the subsystem API first
+TutorialObjective tutorialObjective = ...;
+tutorialObjective.FinishSubTask("example", 0);
+```
 
 ### SetAllSubTasksInactive
 `public bool SetAllSubTasksInactive()`
 
-**Purpose:** Sets the value or state of `all sub tasks inactive`.
+**Purpose:** Assigns a new value to `all sub tasks inactive` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TutorialObjective from the subsystem API first
+TutorialObjective tutorialObjective = ...;
+var result = tutorialObjective.SetAllSubTasksInactive();
+```
 
 ### AddSubTask
 `public void AddSubTask(TrainingFieldMissionController.TutorialObjective newSubTask)`
 
 **Purpose:** Adds `sub task` to the current collection or state.
 
+```csharp
+// Obtain an instance of TutorialObjective from the subsystem API first
+TutorialObjective tutorialObjective = ...;
+tutorialObjective.AddSubTask(newSubTask);
+```
+
 ### RestoreScoreFromSave
 `public void RestoreScoreFromSave(float score)`
 
-**Purpose:** Handles logic related to `restore score from save`.
+**Purpose:** Performs the operation described by this method.
 
-### Update
-`public bool Update()`
-
-**Purpose:** Updates the state or data of `update`.
+```csharp
+// Obtain an instance of TutorialObjective from the subsystem API first
+TutorialObjective tutorialObjective = ...;
+tutorialObjective.RestoreScoreFromSave(0);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a TutorialObjective instance from game state, then call one of its public methods
-var value = new TutorialObjective();
-value.OnCreated();
+// Typically call this after obtaining an instance from the subsystem API
+TutorialObjective tutorialObjective = ...;
+tutorialObjective.SetTextVariableOfName("example", 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

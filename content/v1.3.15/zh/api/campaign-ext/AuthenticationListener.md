@@ -1,13 +1,7 @@
 ---
 title: "AuthenticationListener"
+description: "AuthenticationListener 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AuthenticationListener`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AuthenticationListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
@@ -35,25 +29,44 @@ title: "AuthenticationListener"
 ### OnAuthSuccess
 `public override void OnAuthSuccess()`
 
-**用途 / Purpose:** 当 `auth success` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「auth success」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AuthenticationListener 实例
+AuthenticationListener authenticationListener = ...;
+authenticationListener.OnAuthSuccess();
+```
 
 ### OnAuthFailure
 `public override void OnAuthFailure(IAuthListener.FailureReason failureReason)`
 
-**用途 / Purpose:** 当 `auth failure` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「auth failure」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AuthenticationListener 实例
+AuthenticationListener authenticationListener = ...;
+authenticationListener.OnAuthFailure(failureReason);
+```
 
 ### OnAuthLost
 `public override void OnAuthLost()`
 
-**用途 / Purpose:** 当 `auth lost` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「auth lost」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AuthenticationListener 实例
+AuthenticationListener authenticationListener = ...;
+authenticationListener.OnAuthLost();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AuthenticationListener();
-value.OnAuthSuccess();
+// 通常从对应子系统 API 获取实例后调用
+AuthenticationListener authenticationListener = ...;
+authenticationListener.OnAuthSuccess();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

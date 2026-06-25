@@ -1,20 +1,14 @@
 ---
 title: "IInventoryStateHandler"
+description: "IInventoryStateHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IInventoryStateHandler`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IInventoryStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IInventoryStateHandler`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IInventoryStateHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IInventoryStateHandler.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IInventoryStateHandler"
 ## 使用示例
 
 ```csharp
-IInventoryStateHandler implementation = GetInventoryStateHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIInventoryStateHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

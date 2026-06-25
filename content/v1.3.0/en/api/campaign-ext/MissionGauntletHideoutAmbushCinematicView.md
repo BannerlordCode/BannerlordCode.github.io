@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletHideoutAmbushCinematicView"
+description: "Auto-generated class reference for MissionGauntletHideoutAmbushCinematicView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletHideoutAmbushCinematicView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletHideoutAmbushCinematicView
 
 **Namespace:** SandBox.GauntletUI.Missions
@@ -29,24 +23,43 @@ Treat `MissionGauntletHideoutAmbushCinematicView` as a View-style extension poin
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletHideoutAmbushCinematicView from the subsystem API first
+MissionGauntletHideoutAmbushCinematicView missionGauntletHideoutAmbushCinematicView = ...;
+missionGauntletHideoutAmbushCinematicView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletHideoutAmbushCinematicView from the subsystem API first
+MissionGauntletHideoutAmbushCinematicView missionGauntletHideoutAmbushCinematicView = ...;
+missionGauntletHideoutAmbushCinematicView.OnMissionScreenFinalize();
+```
 
 ### HitTest
 `public override bool HitTest()`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletHideoutAmbushCinematicView from the subsystem API first
+MissionGauntletHideoutAmbushCinematicView missionGauntletHideoutAmbushCinematicView = ...;
+var result = missionGauntletHideoutAmbushCinematicView.HitTest();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletHideoutAmbushCinematicView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletHideoutAmbushCinematicView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "FireMangonel"
+description: "Auto-generated class reference for FireMangonel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FireMangonel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FireMangonel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FireMangonel : Mangonel`
 **Base:** `Mangonel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FireMangonel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FireMangonel.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Gets the current value of `siege engine type`.
+**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+
+```csharp
+// Obtain an instance of FireMangonel from the subsystem API first
+FireMangonel fireMangonel = ...;
+var result = fireMangonel.GetSiegeEngineType();
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Handles logic related to `process target value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FireMangonel from the subsystem API first
+FireMangonel fireMangonel = ...;
+var result = fireMangonel.ProcessTargetValue(0, flags);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FireMangonel();
-value.GetSiegeEngineType();
+// Typically call this after obtaining an instance from the subsystem API
+FireMangonel fireMangonel = ...;
+fireMangonel.GetSiegeEngineType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

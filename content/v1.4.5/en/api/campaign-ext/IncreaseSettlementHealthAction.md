@@ -1,23 +1,13 @@
 ---
 title: "IncreaseSettlementHealthAction"
+description: "Auto-generated campaign action reference for IncreaseSettlementHealthAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IncreaseSettlementHealthAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IncreaseSettlementHealthAction
-
-## Mental Model
-
-Treat `IncreaseSettlementHealthAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** static class
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/IncreaseSettlementHealthAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/IncreaseSettlementHealthAction.cs`
 
 IncreaseSettlementHealthAction is a set of static methods that trigger "IncreaseSettlementHealth" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
 
@@ -29,7 +19,7 @@ IncreaseSettlementHealthAction is a set of static methods that trigger "Increase
 public static void Apply(Settlement settlement, float percentage)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -40,5 +30,5 @@ IncreaseSettlementHealthAction.Apply(settlement, 100);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

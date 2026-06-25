@@ -1,20 +1,14 @@
 ---
 title: "WaitForSpecialCase"
+description: "Auto-generated class reference for WaitForSpecialCase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WaitForSpecialCase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WaitForSpecialCase
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class WaitForSpecialCase : CoroutineState`
 **Base:** `CoroutineState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/WaitForSpecialCase.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/WaitForSpecialCase.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### IsConditionSatisfiedDelegate
 `public delegate bool IsConditionSatisfiedDelegate()`
 
-**Purpose:** Handles logic related to `is condition satisfied delegate`.
+**Purpose:** Determines whether the current object is in the `condition satisfied delegate` state or condition.
+
+```csharp
+// Obtain an instance of WaitForSpecialCase from the subsystem API first
+WaitForSpecialCase waitForSpecialCase = ...;
+var result = waitForSpecialCase.IsConditionSatisfiedDelegate();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WaitForSpecialCase();
-value.IsConditionSatisfiedDelegate();
+// Typically call this after obtaining an instance from the subsystem API
+WaitForSpecialCase waitForSpecialCase = ...;
+waitForSpecialCase.IsConditionSatisfiedDelegate();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

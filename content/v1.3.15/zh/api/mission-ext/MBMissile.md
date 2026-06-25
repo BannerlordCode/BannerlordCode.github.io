@@ -1,13 +1,7 @@
 ---
 title: "MBMissile"
+description: "MBMissile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBMissile`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBMissile
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,34 +29,65 @@ title: "MBMissile"
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**用途 / Purpose:** 获取 `position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMissile 实例
+MBMissile mBMissile = ...;
+var result = mBMissile.GetPosition();
+```
 
 ### GetOldPosition
 `public Vec3 GetOldPosition()`
 
-**用途 / Purpose:** 获取 `old position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「old position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMissile 实例
+MBMissile mBMissile = ...;
+var result = mBMissile.GetOldPosition();
+```
 
 ### GetVelocity
 `public Vec3 GetVelocity()`
 
-**用途 / Purpose:** 获取 `velocity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「velocity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMissile 实例
+MBMissile mBMissile = ...;
+var result = mBMissile.GetVelocity();
+```
 
 ### SetVelocity
 `public void SetVelocity(in Vec3 velocity)`
 
-**用途 / Purpose:** 设置 `velocity` 的值或状态。
+**用途 / Purpose:** 为 「velocity」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBMissile 实例
+MBMissile mBMissile = ...;
+mBMissile.SetVelocity(velocity);
+```
 
 ### GetHasRigidBody
 `public bool GetHasRigidBody()`
 
-**用途 / Purpose:** 获取 `has rigid body` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「has rigid body」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBMissile 实例
+MBMissile mBMissile = ...;
+var result = mBMissile.GetHasRigidBody();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMBMissile();
+// 通常通过子系统 API 或工厂获得派生实例
+MBMissile instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

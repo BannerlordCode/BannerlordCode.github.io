@@ -1,13 +1,7 @@
 ---
 title: "NetworkMessage"
+description: "Auto-generated class reference for NetworkMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NetworkMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NetworkMessage
 
 **Namespace:** TaleWorlds.Network
@@ -29,110 +23,231 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Write
 `public void Write(string data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write("example");
+```
 
 ### Write
 `public void Write(int data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(short data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(bool data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(false);
+```
 
 ### Write
 `public void Write(byte data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(float data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(long data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(ulong data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### Write
 `public void Write(Guid data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(data);
+```
 
 ### Write
 `public void Write(byte data)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+networkMessage.Write(0);
+```
 
 ### ReadInt32
 `public int ReadInt32()`
 
-**Purpose:** Handles logic related to `read int32`.
+**Purpose:** Reads the data or state of `int32`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadInt32();
+```
 
 ### ReadInt16
 `public short ReadInt16()`
 
-**Purpose:** Handles logic related to `read int16`.
+**Purpose:** Reads the data or state of `int16`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadInt16();
+```
 
 ### ReadBoolean
 `public bool ReadBoolean()`
 
-**Purpose:** Handles logic related to `read boolean`.
+**Purpose:** Reads the data or state of `boolean`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadBoolean();
+```
 
 ### ReadByte
 `public byte ReadByte()`
 
-**Purpose:** Handles logic related to `read byte`.
+**Purpose:** Reads the data or state of `byte`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadByte();
+```
 
 ### ReadString
 `public string ReadString()`
 
-**Purpose:** Handles logic related to `read string`.
+**Purpose:** Reads the data or state of `string`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadString();
+```
 
 ### ReadFloat
 `public float ReadFloat()`
 
-**Purpose:** Handles logic related to `read float`.
+**Purpose:** Reads the data or state of `float`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadFloat();
+```
 
 ### ReadInt64
 `public long ReadInt64()`
 
-**Purpose:** Handles logic related to `read int64`.
+**Purpose:** Reads the data or state of `int64`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadInt64();
+```
 
 ### ReadUInt64
 `public ulong ReadUInt64()`
 
-**Purpose:** Handles logic related to `read u int64`.
+**Purpose:** Reads the data or state of `u int64`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadUInt64();
+```
 
 ### ReadGuid
 `public Guid ReadGuid()`
 
-**Purpose:** Handles logic related to `read guid`.
+**Purpose:** Reads the data or state of `guid`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadGuid();
+```
 
 ### ReadByteArray
 `public byte ReadByteArray()`
 
-**Purpose:** Handles logic related to `read byte array`.
+**Purpose:** Reads the data or state of `byte array`.
+
+```csharp
+// Obtain an instance of NetworkMessage from the subsystem API first
+NetworkMessage networkMessage = ...;
+var result = networkMessage.ReadByteArray();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NetworkMessage();
-value.Write("example");
+// Typically call this after obtaining an instance from the subsystem API
+NetworkMessage networkMessage = ...;
+networkMessage.Write("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

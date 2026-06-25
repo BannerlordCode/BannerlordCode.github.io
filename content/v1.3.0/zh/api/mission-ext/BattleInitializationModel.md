@@ -1,13 +1,7 @@
 ---
 title: "BattleInitializationModel"
+description: "BattleInitializationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleInitializationModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleInitializationModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,29 +23,54 @@ title: "BattleInitializationModel"
 ### GetAllAvailableTroopTypes
 `public abstract List<FormationClass> GetAllAvailableTroopTypes()`
 
-**用途 / Purpose:** 获取 `all available troop types` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all available troop types」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleInitializationModel 实例
+BattleInitializationModel battleInitializationModel = ...;
+var result = battleInitializationModel.GetAllAvailableTroopTypes();
+```
 
 ### CanPlayerSideDeployWithOrderOfBattle
 `public bool CanPlayerSideDeployWithOrderOfBattle()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `player side deploy with order of battle`。
+**用途 / Purpose:** 检查当前对象是否满足 「player side deploy with order of battle」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 BattleInitializationModel 实例
+BattleInitializationModel battleInitializationModel = ...;
+var result = battleInitializationModel.CanPlayerSideDeployWithOrderOfBattle();
+```
 
 ### InitializeModel
 `public void InitializeModel()`
 
-**用途 / Purpose:** 初始化 `model` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「model」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BattleInitializationModel 实例
+BattleInitializationModel battleInitializationModel = ...;
+battleInitializationModel.InitializeModel();
+```
 
 ### FinalizeModel
 `public void FinalizeModel()`
 
-**用途 / Purpose:** 处理 `finalize model` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleInitializationModel 实例
+BattleInitializationModel battleInitializationModel = ...;
+battleInitializationModel.FinalizeModel();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBattleInitializationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BattleInitializationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

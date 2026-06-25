@@ -1,13 +1,7 @@
 ---
 title: "StoryModeKingdomDecisionPermissionModel"
+description: "StoryModeKingdomDecisionPermissionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeKingdomDecisionPermissionModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeKingdomDecisionPermissionModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,37 +23,79 @@ title: "StoryModeKingdomDecisionPermissionModel"
 ### IsPolicyDecisionAllowed
 `public override bool IsPolicyDecisionAllowed(PolicyObject policy)`
 
-**用途 / Purpose:** 处理 `is policy decision allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「policy decision allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeKingdomDecisionPermissionModel 实例
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsPolicyDecisionAllowed(policy);
+```
 
 ### IsAnnexationDecisionAllowed
 `public override bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)`
 
-**用途 / Purpose:** 处理 `is annexation decision allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「annexation decision allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeKingdomDecisionPermissionModel 实例
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsAnnexationDecisionAllowed(annexedSettlement);
+```
 
 ### IsExpulsionDecisionAllowed
 `public override bool IsExpulsionDecisionAllowed(Clan expelledClan)`
 
-**用途 / Purpose:** 处理 `is expulsion decision allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「expulsion decision allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeKingdomDecisionPermissionModel 实例
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsExpulsionDecisionAllowed(expelledClan);
+```
 
 ### IsKingSelectionDecisionAllowed
 `public override bool IsKingSelectionDecisionAllowed(Kingdom kingdom)`
 
-**用途 / Purpose:** 处理 `is king selection decision allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「king selection decision allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeKingdomDecisionPermissionModel 实例
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsKingSelectionDecisionAllowed(kingdom);
+```
 
 ### IsWarDecisionAllowedBetweenKingdoms
 `public override bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**用途 / Purpose:** 处理 `is war decision allowed between kingdoms` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「war decision allowed between kingdoms」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeKingdomDecisionPermissionModel 实例
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsWarDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ### IsPeaceDecisionAllowedBetweenKingdoms
 `public override bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**用途 / Purpose:** 处理 `is peace decision allowed between kingdoms` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「peace decision allowed between kingdoms」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeKingdomDecisionPermissionModel 实例
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsPeaceDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ### IsStartAllianceDecisionAllowedBetweenKingdoms
 `public override bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**用途 / Purpose:** 处理 `is start alliance decision allowed between kingdoms` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「start alliance decision allowed between kingdoms」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeKingdomDecisionPermissionModel 实例
+StoryModeKingdomDecisionPermissionModel storyModeKingdomDecisionPermissionModel = ...;
+var result = storyModeKingdomDecisionPermissionModel.IsStartAllianceDecisionAllowedBetweenKingdoms(kingdom1, kingdom2, reason);
+```
 
 ## 使用示例
 
@@ -69,4 +105,4 @@ Game.Current.ReplaceModel<StoryModeKingdomDecisionPermissionModel>(new MyStoryMo
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

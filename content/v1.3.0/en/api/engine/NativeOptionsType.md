@@ -1,13 +1,7 @@
 ---
 title: "NativeOptionsType"
+description: "Auto-generated class reference for NativeOptionsType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeOptionsType`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeOptionsType
 
 **Namespace:** TaleWorlds.Engine.Options
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.Options` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-NativeOptionsType example = NativeOptionsType.Value;
+// Obtain an instance from the relevant subsystem API
+NativeOptionsType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

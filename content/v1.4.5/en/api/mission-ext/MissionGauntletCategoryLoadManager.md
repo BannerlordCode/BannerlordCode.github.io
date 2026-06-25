@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletCategoryLoadManager"
+description: "Auto-generated class reference for MissionGauntletCategoryLoadManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletCategoryLoadManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletCategoryLoadManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletCategoryLoadManager : MissionView, IMissionListener`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletCategoryLoadManager.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletCategoryLoadManager.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `MissionGauntletCategoryLoadManager` as a Manager-style extension point: f
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletCategoryLoadManager from the subsystem API first
+MissionGauntletCategoryLoadManager missionGauntletCategoryLoadManager = ...;
+missionGauntletCategoryLoadManager.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletCategoryLoadManager from the subsystem API first
+MissionGauntletCategoryLoadManager missionGauntletCategoryLoadManager = ...;
+missionGauntletCategoryLoadManager.OnMissionScreenFinalize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletCategoryLoadManager from the subsystem API first
+MissionGauntletCategoryLoadManager missionGauntletCategoryLoadManager = ...;
+missionGauntletCategoryLoadManager.OnMissionTick(0);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var manager = MissionGauntletCategoryLoadManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerTestSubModule"
+description: "Auto-generated class reference for MultiplayerTestSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTestSubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerTestSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Test
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Test` to place it in 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerTestSubModule();
+// Obtain an instance from the relevant subsystem API
+MultiplayerTestSubModule instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

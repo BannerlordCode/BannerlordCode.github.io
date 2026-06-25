@@ -1,13 +1,7 @@
 ---
 title: "ConversationOptionListPanel"
+description: "Auto-generated class reference for ConversationOptionListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationOptionListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConversationOptionListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation` 
 ## Usage Example
 
 ```csharp
-var value = new ConversationOptionListPanel();
+// Obtain an instance from the relevant subsystem API
+ConversationOptionListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BodyGenerator"
+description: "Auto-generated class reference for BodyGenerator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BodyGenerator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BodyGenerator
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitBodyGenerator
 `public FaceGenerationParams InitBodyGenerator(bool isDressed)`
 
-**Purpose:** Initializes the state, resources, or bindings for `body generator`.
+**Purpose:** Prepares the resources, state, or bindings required by `body generator`.
+
+```csharp
+// Obtain an instance of BodyGenerator from the subsystem API first
+BodyGenerator bodyGenerator = ...;
+var result = bodyGenerator.InitBodyGenerator(false);
+```
 
 ### RefreshFace
 `public void RefreshFace(FaceGenerationParams faceGenerationParams, bool hasEquipment)`
 
-**Purpose:** Refreshes the display or cache of `face`.
+**Purpose:** Keeps the display or cache of `face` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BodyGenerator from the subsystem API first
+BodyGenerator bodyGenerator = ...;
+bodyGenerator.RefreshFace(faceGenerationParams, false);
+```
 
 ### SaveCurrentCharacter
 `public void SaveCurrentCharacter()`
 
-**Purpose:** Saves `current character` data.
+**Purpose:** Writes `current character` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of BodyGenerator from the subsystem API first
+BodyGenerator bodyGenerator = ...;
+bodyGenerator.SaveCurrentCharacter();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BodyGenerator();
-value.InitBodyGenerator(false);
+// Typically call this after obtaining an instance from the subsystem API
+BodyGenerator bodyGenerator = ...;
+bodyGenerator.InitBodyGenerator(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

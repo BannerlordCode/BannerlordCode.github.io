@@ -1,20 +1,14 @@
 ---
 title: "ConversationAnimationToolCampaignBehavior"
+description: "ConversationAnimationToolCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationAnimationToolCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationAnimationToolCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class ConversationAnimationToolCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/ConversationAnimationToolCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/ConversationAnimationToolCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,25 +23,43 @@ title: "ConversationAnimationToolCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationAnimationToolCampaignBehavior 实例
+ConversationAnimationToolCampaignBehavior conversationAnimationToolCampaignBehavior = ...;
+conversationAnimationToolCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationAnimationToolCampaignBehavior 实例
+ConversationAnimationToolCampaignBehavior conversationAnimationToolCampaignBehavior = ...;
+conversationAnimationToolCampaignBehavior.SyncData(dataStore);
+```
 
 ### CloseConversationAnimationTool
 `public static void CloseConversationAnimationTool()`
 
-**用途 / Purpose:** 处理 `close conversation animation tool` 相关逻辑。
+**用途 / Purpose:** 关闭「conversation animation tool」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+ConversationAnimationToolCampaignBehavior.CloseConversationAnimationTool();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ConversationAnimationToolCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+ConversationAnimationToolCampaignBehavior conversationAnimationToolCampaignBehavior = ...;
+conversationAnimationToolCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

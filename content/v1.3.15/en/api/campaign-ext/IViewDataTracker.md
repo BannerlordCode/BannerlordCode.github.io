@@ -1,18 +1,12 @@
 ---
 title: "IViewDataTracker"
+description: "Auto-generated class reference for IViewDataTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IViewDataTracker`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IViewDataTracker
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IViewDataTracker`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/IViewDataTracker.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-IViewDataTracker implementation = GetViewDataTrackerImplementation();
+// Usually obtained through DI or a factory method
+IIViewDataTracker service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

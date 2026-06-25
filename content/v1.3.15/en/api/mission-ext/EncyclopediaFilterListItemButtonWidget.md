@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaFilterListItemButtonWidget"
+description: "Auto-generated class reference for EncyclopediaFilterListItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaFilterListItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaFilterListItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
@@ -27,9 +21,10 @@ Treat `EncyclopediaFilterListItemButtonWidget` as a Widget-style extension point
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaFilterListItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaFilterListItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeValueTypeBinding"
+description: "Auto-generated class reference for WidgetAttributeValueTypeBinding."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeValueTypeBinding`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetAttributeValueTypeBinding
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### CheckValueType
 `public override bool CheckValueType(string value)`
 
-**Purpose:** Handles logic related to `check value type`.
+**Purpose:** Verifies whether `value type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeBinding from the subsystem API first
+WidgetAttributeValueTypeBinding widgetAttributeValueTypeBinding = ...;
+var result = widgetAttributeValueTypeBinding.CheckValueType("example");
+```
 
 ### GetAttributeValue
 `public override string GetAttributeValue(string value)`
 
-**Purpose:** Gets the current value of `attribute value`.
+**Purpose:** Reads and returns the `attribute value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeBinding from the subsystem API first
+WidgetAttributeValueTypeBinding widgetAttributeValueTypeBinding = ...;
+var result = widgetAttributeValueTypeBinding.GetAttributeValue("example");
+```
 
 ### GetSerializedValue
 `public override string GetSerializedValue(string value)`
 
-**Purpose:** Gets the current value of `serialized value`.
+**Purpose:** Reads and returns the `serialized value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeValueTypeBinding from the subsystem API first
+WidgetAttributeValueTypeBinding widgetAttributeValueTypeBinding = ...;
+var result = widgetAttributeValueTypeBinding.GetSerializedValue("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeValueTypeBinding();
-value.CheckValueType("example");
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeValueTypeBinding widgetAttributeValueTypeBinding = ...;
+widgetAttributeValueTypeBinding.CheckValueType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

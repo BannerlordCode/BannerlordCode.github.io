@@ -1,13 +1,7 @@
 ---
 title: "RestResponse"
+description: "Auto-generated class reference for RestResponse."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RestResponse`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestResponse
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -39,35 +33,65 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### SetSuccessful
 `public void SetSuccessful(bool successful, string successfulReason)`
 
-**Purpose:** Sets the value or state of `successful`.
+**Purpose:** Assigns a new value to `successful` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RestResponse from the subsystem API first
+RestResponse restResponse = ...;
+restResponse.SetSuccessful(false, "example");
+```
 
 ### Create
 `public static RestResponse Create(bool successful, string successfulReason)`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+RestResponse.Create(false, "example");
+```
 
 ### TryDequeueMessage
 `public RestResponseMessage TryDequeueMessage()`
 
-**Purpose:** Attempts to get `dequeue message`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `dequeue message`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of RestResponse from the subsystem API first
+RestResponse restResponse = ...;
+var result = restResponse.TryDequeueMessage();
+```
 
 ### ClearMessageQueue
 `public void ClearMessageQueue()`
 
-**Purpose:** Handles logic related to `clear message queue`.
+**Purpose:** Removes all `message queue` from the current object.
+
+```csharp
+// Obtain an instance of RestResponse from the subsystem API first
+RestResponse restResponse = ...;
+restResponse.ClearMessageQueue();
+```
 
 ### EnqueueMessage
 `public void EnqueueMessage(RestResponseMessage message)`
 
-**Purpose:** Handles logic related to `enqueue message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RestResponse from the subsystem API first
+RestResponse restResponse = ...;
+restResponse.EnqueueMessage(message);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RestResponse();
-value.SetSuccessful(false, "example");
+// Typically call this after obtaining an instance from the subsystem API
+RestResponse restResponse = ...;
+restResponse.SetSuccessful(false, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

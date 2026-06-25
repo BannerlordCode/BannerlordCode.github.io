@@ -1,13 +1,7 @@
 ---
 title: "StandingPoint"
+description: "Auto-generated class reference for StandingPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandingPoint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StandingPoint
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -41,90 +35,187 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnParentMachinePhysicsStateChanged
 `public void OnParentMachinePhysicsStateChanged()`
 
-**Purpose:** Called when the `parent machine physics state changed` event is raised.
+**Purpose:** Invoked when the `parent machine physics state changed` event is raised.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+standingPoint.OnParentMachinePhysicsStateChanged();
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+var result = standingPoint.IsDisabledForAgent(agent);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+var result = standingPoint.GetTickRequirement();
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+standingPoint.OnUse(userAgent, 0);
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Called when the `use stopped` event is raised.
+**Purpose:** Invoked when the `use stopped` event is raised.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+standingPoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### GetUserFrameForAgent
 `public override WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**Purpose:** Gets the current value of `user frame for agent`.
+**Purpose:** Reads and returns the `user frame for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+var result = standingPoint.GetUserFrameForAgent(agent);
+```
 
 ### HasAlternative
 `public virtual bool HasAlternative()`
 
-**Purpose:** Checks whether the current object has/contains `alternative`.
+**Purpose:** Determines whether the current object already holds `alternative`.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+var result = standingPoint.HasAlternative();
+```
 
 ### GetUsageScoreForAgent
 `public virtual float GetUsageScoreForAgent(Agent agent)`
 
-**Purpose:** Gets the current value of `usage score for agent`.
+**Purpose:** Reads and returns the `usage score for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+var result = standingPoint.GetUsageScoreForAgent(agent);
+```
 
 ### GetUsageScoreForAgent
 `public virtual float GetUsageScoreForAgent(ValueTuple<Agent, float> agentPair)`
 
-**Purpose:** Gets the current value of `usage score for agent`.
+**Purpose:** Reads and returns the `usage score for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+var result = standingPoint.GetUsageScoreForAgent(valueTuple<Agent, 0);
+```
 
 ### SetupOnUsingStoppedBehavior
 `public void SetupOnUsingStoppedBehavior(bool autoAttach, Action<Agent, bool> action)`
 
-**Purpose:** Sets the value or state of `up on using stopped behavior`.
+**Purpose:** Assigns a new value to `up on using stopped behavior` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+standingPoint.SetupOnUsingStoppedBehavior(false, action<Agent, false);
+```
 
 ### OnEndMission
 `public override void OnEndMission()`
 
-**Purpose:** Called when the `end mission` event is raised.
+**Purpose:** Invoked when the `end mission` event is raised.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+standingPoint.OnEndMission();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+var result = standingPoint.GetDescriptionText(gameEntity);
+```
 
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** Handles logic related to `is usable by agent`.
+**Purpose:** Determines whether the current object is in the `usable by agent` state or condition.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+var result = standingPoint.IsUsableByAgent(userAgent);
+```
 
 ### SetUsableByAIOnly
 `public void SetUsableByAIOnly()`
 
-**Purpose:** Sets the value or state of `usable by a i only`.
+**Purpose:** Assigns a new value to `usable by a i only` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+standingPoint.SetUsableByAIOnly();
+```
 
 ### SetUsableByPlayerOnly
 `public void SetUsableByPlayerOnly()`
 
-**Purpose:** Sets the value or state of `usable by player only`.
+**Purpose:** Assigns a new value to `usable by player only` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+standingPoint.SetUsableByPlayerOnly();
+```
 
 ### SetUsableByPlayerOrAI
 `public void SetUsableByPlayerOrAI()`
 
-**Purpose:** Sets the value or state of `usable by player or a i`.
+**Purpose:** Assigns a new value to `usable by player or a i` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandingPoint from the subsystem API first
+StandingPoint standingPoint = ...;
+standingPoint.SetUsableByPlayerOrAI();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StandingPoint();
-value.OnParentMachinePhysicsStateChanged();
+// Typically call this after obtaining an instance from the subsystem API
+StandingPoint standingPoint = ...;
+standingPoint.OnParentMachinePhysicsStateChanged();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

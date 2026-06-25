@@ -1,13 +1,7 @@
 ---
 title: "View"
+description: "Auto-generated class reference for View."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `View`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # View
 
 **Namespace:** TaleWorlds.Engine
@@ -29,84 +23,175 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### SetScale
 `public void SetScale(Vec2 scale)`
 
-**Purpose:** Sets the value or state of `scale`.
+**Purpose:** Assigns a new value to `scale` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetScale(scale);
+```
 
 ### SetOffset
 `public void SetOffset(Vec2 offset)`
 
-**Purpose:** Sets the value or state of `offset`.
+**Purpose:** Assigns a new value to `offset` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetOffset(offset);
+```
 
 ### SetRenderOrder
 `public void SetRenderOrder(int value)`
 
-**Purpose:** Sets the value or state of `render order`.
+**Purpose:** Assigns a new value to `render order` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetRenderOrder(0);
+```
 
 ### SetRenderOption
 `public void SetRenderOption(View.ViewRenderOptions optionEnum, bool value)`
 
-**Purpose:** Sets the value or state of `render option`.
+**Purpose:** Assigns a new value to `render option` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetRenderOption(optionEnum, false);
+```
 
 ### SetRenderTarget
 `public void SetRenderTarget(Texture texture)`
 
-**Purpose:** Sets the value or state of `render target`.
+**Purpose:** Assigns a new value to `render target` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetRenderTarget(texture);
+```
 
 ### SetDepthTarget
 `public void SetDepthTarget(Texture texture)`
 
-**Purpose:** Sets the value or state of `depth target`.
+**Purpose:** Assigns a new value to `depth target` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetDepthTarget(texture);
+```
 
 ### DontClearBackground
 `public void DontClearBackground()`
 
-**Purpose:** Handles logic related to `dont clear background`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.DontClearBackground();
+```
 
 ### SetClearColor
 `public void SetClearColor(uint rgba)`
 
-**Purpose:** Sets the value or state of `clear color`.
+**Purpose:** Assigns a new value to `clear color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetClearColor(0);
+```
 
 ### SetEnable
 `public void SetEnable(bool value)`
 
-**Purpose:** Sets the value or state of `enable`.
+**Purpose:** Assigns a new value to `enable` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetEnable(false);
+```
 
 ### SetRenderOnDemand
 `public void SetRenderOnDemand(bool value)`
 
-**Purpose:** Sets the value or state of `render on demand`.
+**Purpose:** Assigns a new value to `render on demand` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetRenderOnDemand(false);
+```
 
 ### SetAutoDepthTargetCreation
 `public void SetAutoDepthTargetCreation(bool value)`
 
-**Purpose:** Sets the value or state of `auto depth target creation`.
+**Purpose:** Assigns a new value to `auto depth target creation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetAutoDepthTargetCreation(false);
+```
 
 ### SetSaveFinalResultToDisk
 `public void SetSaveFinalResultToDisk(bool value)`
 
-**Purpose:** Sets the value or state of `save final result to disk`.
+**Purpose:** Assigns a new value to `save final result to disk` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetSaveFinalResultToDisk(false);
+```
 
 ### SetFileNameToSaveResult
 `public void SetFileNameToSaveResult(string name)`
 
-**Purpose:** Sets the value or state of `file name to save result`.
+**Purpose:** Assigns a new value to `file name to save result` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetFileNameToSaveResult("example");
+```
 
 ### SetFileTypeToSave
 `public void SetFileTypeToSave(View.TextureSaveFormat format)`
 
-**Purpose:** Sets the value or state of `file type to save`.
+**Purpose:** Assigns a new value to `file type to save` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetFileTypeToSave(format);
+```
 
 ### SetFilePathToSaveResult
 `public void SetFilePathToSaveResult(string name)`
 
-**Purpose:** Sets the value or state of `file path to save result`.
+**Purpose:** Assigns a new value to `file path to save result` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of View from the subsystem API first
+View view = ...;
+view.SetFilePathToSaveResult("example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomView();
+// Typically obtained from a subsystem API or factory
+View instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

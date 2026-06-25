@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveTarget"
+description: "Auto-generated class reference for MissionObjectiveTarget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveTarget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionObjectiveTarget
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MissionObjectiveTarget`
-**Base:** none
-**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/MissionObjectiveTarget.cs`
+**Type:** `public abstract class MissionObjectiveTarget<T> : MissionObjectiveTarget`
+**Base:** `MissionObjectiveTarget`
+**File:** `TaleWorlds.MountAndBlade/Missions/Objectives/MissionObjectiveTarget.2.cs`
 
 ## Overview
 
@@ -24,29 +18,19 @@ title: "MissionObjectiveTarget"
 
 Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Methods
+## Key Properties
 
-### IsActive
-`public abstract bool IsActive()`
-
-**Purpose:** Handles logic related to `is active`.
-
-### GetName
-`public abstract TextObject GetName()`
-
-**Purpose:** Gets the current value of `name`.
-
-### GetGlobalPosition
-`public abstract Vec3 GetGlobalPosition()`
-
-**Purpose:** Gets the current value of `global position`.
+| Name | Signature |
+|------|-----------|
+| `Target` | `public T Target { get; }` |
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionObjectiveTarget();
+// Typically obtained from a subsystem API or factory
+MissionObjectiveTarget instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

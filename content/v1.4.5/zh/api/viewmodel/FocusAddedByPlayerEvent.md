@@ -1,20 +1,14 @@
 ---
 title: "FocusAddedByPlayerEvent"
+description: "FocusAddedByPlayerEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FocusAddedByPlayerEvent`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FocusAddedByPlayerEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FocusAddedByPlayerEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/FocusAddedByPlayerEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper/FocusAddedByPlayerEvent.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "FocusAddedByPlayerEvent"
 ## 使用示例
 
 ```csharp
-var example = new FocusAddedByPlayerEvent();
+// 从对应子系统 API 获取实例
+FocusAddedByPlayerEvent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

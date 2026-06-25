@@ -1,20 +1,14 @@
 ---
 title: "ClanFinancePaymentSliderWidget"
+description: "Auto-generated class reference for ClanFinancePaymentSliderWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFinancePaymentSliderWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinancePaymentSliderWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanFinancePaymentSliderWidget : SliderWidget`
 **Base:** `SliderWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanFinancePaymentSliderWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanFinancePaymentSliderWidget.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Treat `ClanFinancePaymentSliderWidget` as a Widget-style extension point: first 
 ## Usage Example
 
 ```csharp
-var widget = new ClanFinancePaymentSliderWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClanFinancePaymentSliderWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

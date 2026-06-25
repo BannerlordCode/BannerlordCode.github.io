@@ -1,20 +1,14 @@
 ---
 title: "MPRandomOnSpawnPerkEffect"
+description: "MPRandomOnSpawnPerkEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPRandomOnSpawnPerkEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPRandomOnSpawnPerkEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPRandomOnSpawnPerkEffect : MPOnSpawnPerkEffectBase`
 **Base:** `MPOnSpawnPerkEffectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPRandomOnSpawnPerkEffect.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPRandomOnSpawnPerkEffect.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "MPRandomOnSpawnPerkEffect"
 ### CreateFrom
 `public static MPRandomOnSpawnPerkEffect CreateFrom(XmlNode node)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MPRandomOnSpawnPerkEffect.CreateFrom(node);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMPRandomOnSpawnPerkEffect();
+// 通常通过子系统 API 或工厂获得派生实例
+MPRandomOnSpawnPerkEffect instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

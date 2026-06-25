@@ -1,20 +1,14 @@
 ---
 title: "ConnectMessage"
+description: "Auto-generated class reference for ConnectMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConnectMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConnectMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ConnectMessage : RestRequestMessage`
 **Base:** `RestRequestMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ConnectMessage.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ConnectMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new ConnectMessage();
+// Obtain an instance from the relevant subsystem API
+ConnectMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

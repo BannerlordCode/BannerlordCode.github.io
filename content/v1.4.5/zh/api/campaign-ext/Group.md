@@ -1,20 +1,14 @@
 ---
 title: "Group"
+description: "Group 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Group`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Group
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
 **Type:** `public class Group : PsaiMusicEntity, ICloneable`
 **Base:** `PsaiMusicEntity`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.Editor/Group.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.Editor/Group.cs`
 
 ## 概述
 
@@ -44,90 +38,187 @@ title: "Group"
 ### GetClassString
 `public override string GetClassString()`
 
-**用途 / Purpose:** 获取 `class string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「class string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.GetClassString();
+```
 
 ### AddSegment
 `public void AddSegment(Segment snippet)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `segment`。
+**用途 / Purpose:** 将 「segment」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+group.AddSegment(snippet);
+```
 
 ### AddSegment
 `public void AddSegment(Segment snippet, int index)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `segment`。
+**用途 / Purpose:** 将 「segment」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+group.AddSegment(snippet, 0);
+```
 
 ### RemoveSegment
 `public void RemoveSegment(Segment snippet)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `segment`。
+**用途 / Purpose:** 从当前容器或状态中移除 「segment」。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+group.RemoveSegment(snippet);
+```
 
 ### HasAtLeastOneBridgeSegmentToTargetGroup
 `public bool HasAtLeastOneBridgeSegmentToTargetGroup(Group targetGroup)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `at least one bridge segment to target group`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「at least one bridge segment to target group」。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.HasAtLeastOneBridgeSegmentToTargetGroup(targetGroup);
+```
 
 ### ContainsAtLeastOneManualBridgeSegmentForSourceGroup
 `public bool ContainsAtLeastOneManualBridgeSegmentForSourceGroup(Group sourceGroup)`
 
-**用途 / Purpose:** 处理 `contains at least one manual bridge segment for source group` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「at least one manual bridge segment for source group」。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.ContainsAtLeastOneManualBridgeSegmentForSourceGroup(sourceGroup);
+```
 
 ### ContainsAtLeastOneAutomaticBridgeSegment
 `public bool ContainsAtLeastOneAutomaticBridgeSegment()`
 
-**用途 / Purpose:** 处理 `contains at least one automatic bridge segment` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「at least one automatic bridge segment」。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.ContainsAtLeastOneAutomaticBridgeSegment();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.ToString();
+```
 
 ### GetCompatibilitySetting
 `public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**用途 / Purpose:** 获取 `compatibility setting` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compatibility setting」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.GetCompatibilitySetting(targetEntity);
+```
 
 ### GetCompatibilityType
 `public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**用途 / Purpose:** 获取 `compatibility type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compatibility type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.GetCompatibilityType(targetEntity, reason);
+```
 
 ### SetAsParentGroupForAllSegments
 `public void SetAsParentGroupForAllSegments()`
 
-**用途 / Purpose:** 设置 `as parent group for all segments` 的值或状态。
+**用途 / Purpose:** 为 「as parent group for all segments」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+group.SetAsParentGroupForAllSegments();
+```
 
 ### GetParent
 `public override PsaiMusicEntity GetParent()`
 
-**用途 / Purpose:** 获取 `parent` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「parent」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.GetParent();
+```
 
 ### GetChildren
 `public override List<PsaiMusicEntity> GetChildren()`
 
-**用途 / Purpose:** 获取 `children` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「children」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.GetChildren();
+```
 
 ### GetIndexPositionWithinParentEntity
 `public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**用途 / Purpose:** 获取 `index position within parent entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index position within parent entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.GetIndexPositionWithinParentEntity(parentProject);
+```
 
 ### Clone
 `public override object Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.Clone();
+```
 
 ### ShallowCopy
 `public override PsaiMusicEntity ShallowCopy()`
 
-**用途 / Purpose:** 处理 `shallow copy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Group 实例
+Group group = ...;
+var result = group.ShallowCopy();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Group();
-value.GetClassString();
+// 通常从对应子系统 API 获取实例后调用
+Group group = ...;
+group.GetClassString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

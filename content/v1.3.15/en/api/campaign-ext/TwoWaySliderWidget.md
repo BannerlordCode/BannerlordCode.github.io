@@ -1,13 +1,7 @@
 ---
 title: "TwoWaySliderWidget"
+description: "Auto-generated class reference for TwoWaySliderWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoWaySliderWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TwoWaySliderWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -34,9 +28,10 @@ Treat `TwoWaySliderWidget` as a Widget-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var widget = new TwoWaySliderWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TwoWaySliderWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

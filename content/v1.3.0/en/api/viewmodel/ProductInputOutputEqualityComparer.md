@@ -1,13 +1,7 @@
 ---
 title: "ProductInputOutputEqualityComparer"
+description: "Auto-generated class reference for ProductInputOutputEqualityComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProductInputOutputEqualityComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProductInputOutputEqualityComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Equals
 `public bool Equals(ValueTuple<ItemCategory, int> x, ValueTuple<ItemCategory, int> y)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of ProductInputOutputEqualityComparer from the subsystem API first
+ProductInputOutputEqualityComparer productInputOutputEqualityComparer = ...;
+var result = productInputOutputEqualityComparer.Equals(valueTuple<ItemCategory, 0, valueTuple<ItemCategory, 0);
+```
 
 ### GetHashCode
 `public int GetHashCode(ValueTuple<ItemCategory, int> obj)`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of ProductInputOutputEqualityComparer from the subsystem API first
+ProductInputOutputEqualityComparer productInputOutputEqualityComparer = ...;
+var result = productInputOutputEqualityComparer.GetHashCode(valueTuple<ItemCategory, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProductInputOutputEqualityComparer();
-value.Equals(valueTuple<ItemCategory, 0, valueTuple<ItemCategory, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ProductInputOutputEqualityComparer productInputOutputEqualityComparer = ...;
+productInputOutputEqualityComparer.Equals(valueTuple<ItemCategory, 0, valueTuple<ItemCategory, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

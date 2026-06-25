@@ -1,20 +1,14 @@
 ---
 title: "RaidModel"
+description: "Auto-generated class reference for RaidModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RaidModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RaidModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class RaidModel : MBGameModel<RaidModel>`
 **Base:** `MBGameModel<RaidModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/RaidModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/RaidModel.cs`
 
 ## Overview
 
@@ -35,19 +29,32 @@ Treat `RaidModel` as a Model-style extension point: first identify who creates i
 ### CalculateHitDamage
 `public abstract ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**Purpose:** Handles logic related to `calculate hit damage`.
+**Purpose:** Calculates the current value or result of `hit damage`.
+
+```csharp
+// Obtain an instance of RaidModel from the subsystem API first
+RaidModel raidModel = ...;
+var result = raidModel.CalculateHitDamage(attackerSide, 0);
+```
 
 ### GetRaidLootMultiplier
 `public abstract ExplainedNumber GetRaidLootMultiplier(PartyBase receivingParty)`
 
-**Purpose:** Gets the current value of `raid loot multiplier`.
+**Purpose:** Reads and returns the `raid loot multiplier` value held by the current object.
+
+```csharp
+// Obtain an instance of RaidModel from the subsystem API first
+RaidModel raidModel = ...;
+var result = raidModel.GetRaidLootMultiplier(receivingParty);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRaidModel();
+// Typically obtained from a subsystem API or factory
+RaidModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

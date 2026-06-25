@@ -1,13 +1,7 @@
 ---
 title: "ClanFinanceExpenseItemVM"
+description: "Auto-generated class reference for ClanFinanceExpenseItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFinanceExpenseItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceExpenseItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -48,15 +42,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanFinanceExpenseItemVM from the subsystem API first
+ClanFinanceExpenseItemVM clanFinanceExpenseItemVM = ...;
+clanFinanceExpenseItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanFinanceExpenseItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanFinanceExpenseItemVM clanFinanceExpenseItemVM = ...;
+clanFinanceExpenseItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

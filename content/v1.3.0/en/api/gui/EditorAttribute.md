@@ -1,13 +1,7 @@
 ---
 title: "EditorAttribute"
+description: "Auto-generated class reference for EditorAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditorAttribute`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditorAttribute
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -33,4 +27,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

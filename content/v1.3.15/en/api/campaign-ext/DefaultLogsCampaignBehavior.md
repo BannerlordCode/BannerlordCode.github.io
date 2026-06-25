@@ -1,13 +1,7 @@
 ---
 title: "DefaultLogsCampaignBehavior"
+description: "Auto-generated class reference for DefaultLogsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultLogsCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultLogsCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of DefaultLogsCampaignBehavior from the subsystem API first
+DefaultLogsCampaignBehavior defaultLogsCampaignBehavior = ...;
+defaultLogsCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of DefaultLogsCampaignBehavior from the subsystem API first
+DefaultLogsCampaignBehavior defaultLogsCampaignBehavior = ...;
+defaultLogsCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnArmyDispersed
 `public void OnArmyDispersed(Army army, Army.ArmyDispersionReason reason, bool isPlayersArmy)`
 
-**Purpose:** Called when the `army dispersed` event is raised.
+**Purpose:** Invoked when the `army dispersed` event is raised.
+
+```csharp
+// Obtain an instance of DefaultLogsCampaignBehavior from the subsystem API first
+DefaultLogsCampaignBehavior defaultLogsCampaignBehavior = ...;
+defaultLogsCampaignBehavior.OnArmyDispersed(army, reason, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultLogsCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+DefaultLogsCampaignBehavior defaultLogsCampaignBehavior = ...;
+defaultLogsCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GraphVM"
+description: "Auto-generated class reference for GraphVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GraphVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GraphVM
 
 **Namespace:** TaleWorlds.Library.Graph
 **Module:** TaleWorlds.Library
 **Type:** `public class GraphVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.Graph/GraphVM.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Graph/GraphVM.cs`
 
 ## Overview
 
@@ -41,15 +35,22 @@ Start from namespace `TaleWorlds.Library.Graph` to place it in the stack, then i
 ### Draw
 `public void Draw(IEnumerable<(GraphLineVM line, IEnumerable<GraphLinePointVM> points)> linesWithPoints, in Vec2 horizontalRange, in Vec2 verticalRange, float autoRangeHorizontalCoefficient = 1f, float autoRangeVerticalCoefficient = 1f, bool useAutoHorizontalRange = false, bool useAutoVerticalRange = false)`
 
-**Purpose:** Handles logic related to `draw`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GraphVM from the subsystem API first
+GraphVM graphVM = ...;
+graphVM.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GraphVM();
-value.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false, false);
+// Typically call this after obtaining an instance from the subsystem API
+GraphVM graphVM = ...;
+graphVM.Draw(line, linesWithPoints, horizontalRange, verticalRange, 0, 0, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

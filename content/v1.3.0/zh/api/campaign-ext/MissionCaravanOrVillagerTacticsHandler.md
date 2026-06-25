@@ -1,13 +1,7 @@
 ---
 title: "MissionCaravanOrVillagerTacticsHandler"
+description: "MissionCaravanOrVillagerTacticsHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionCaravanOrVillagerTacticsHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCaravanOrVillagerTacticsHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,14 +23,20 @@ title: "MissionCaravanOrVillagerTacticsHandler"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCaravanOrVillagerTacticsHandler 实例
+MissionCaravanOrVillagerTacticsHandler missionCaravanOrVillagerTacticsHandler = ...;
+missionCaravanOrVillagerTacticsHandler.EarlyStart();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionCaravanOrVillagerTacticsHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionCaravanOrVillagerTacticsHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

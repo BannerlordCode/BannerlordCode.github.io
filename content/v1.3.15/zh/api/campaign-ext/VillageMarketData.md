@@ -1,13 +1,7 @@
 ---
 title: "VillageMarketData"
+description: "VillageMarketData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VillageMarketData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VillageMarketData
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -29,19 +23,32 @@ title: "VillageMarketData"
 ### GetPrice
 `public int GetPrice(ItemObject item, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**用途 / Purpose:** 获取 `price` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「price」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillageMarketData 实例
+VillageMarketData villageMarketData = ...;
+var result = villageMarketData.GetPrice(item, tradingParty, false, merchantParty);
+```
 
 ### GetPrice
 `public int GetPrice(EquipmentElement itemRosterElement, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**用途 / Purpose:** 获取 `price` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「price」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillageMarketData 实例
+VillageMarketData villageMarketData = ...;
+var result = villageMarketData.GetPrice(itemRosterElement, tradingParty, false, merchantParty);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VillageMarketData();
+// 该数据对象通常由战役/任务 API 返回
+VillageMarketData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

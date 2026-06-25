@@ -1,13 +1,7 @@
 ---
 title: "CampaignEntityComponent"
+description: "CampaignEntityComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignEntityComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignEntityComponent
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,7 +23,13 @@ title: "CampaignEntityComponent"
 ### OnTick
 `public virtual void OnTick(float realDt, float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignEntityComponent 实例
+CampaignEntityComponent campaignEntityComponent = ...;
+campaignEntityComponent.OnTick(0, 0);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var component = agent.GetComponent<CampaignEntityComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

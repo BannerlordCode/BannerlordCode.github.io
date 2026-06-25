@@ -1,20 +1,14 @@
 ---
 title: "JobManager"
+description: "JobManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `JobManager`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # JobManager
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class JobManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/JobManager.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/JobManager.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "JobManager"
 ### AddJob
 `public void AddJob(Job job)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `job`。
+**用途 / Purpose:** 将 「job」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 JobManager 实例
+JobManager jobManager = ...;
+jobManager.AddJob(job);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var manager = JobManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

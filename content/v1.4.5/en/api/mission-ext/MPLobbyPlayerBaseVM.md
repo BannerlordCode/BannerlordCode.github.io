@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyPlayerBaseVM"
+description: "Auto-generated class reference for MPLobbyPlayerBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyPlayerBaseVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyPlayerBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyPlayerBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPlayerBaseVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyPlayerBaseVM.cs`
 
 ## Overview
 
@@ -102,130 +96,275 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.RefreshValues();
+```
 
 ### RefreshSelectableGameTypes
 `public void RefreshSelectableGameTypes(bool isRankedOnly, Action<string> onRefreshed, string initialGameTypeID = "")`
 
-**Purpose:** Refreshes the display or cache of `selectable game types`.
+**Purpose:** Keeps the display or cache of `selectable game types` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.RefreshSelectableGameTypes(false, onRefreshed, "example");
+```
 
 ### UpdatePlayerState
 `public void UpdatePlayerState(AnotherPlayerData playerData)`
 
-**Purpose:** Updates the state or data of `player state`.
+**Purpose:** Recalculates and stores the latest representation of `player state`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdatePlayerState(playerData);
+```
 
 ### UpdateWith
 `public virtual void UpdateWith(PlayerData playerData)`
 
-**Purpose:** Updates the state or data of `with`.
+**Purpose:** Recalculates and stores the latest representation of `with`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateWith(playerData);
+```
 
 ### UpdateNameAndAvatar
 `public void UpdateNameAndAvatar(bool forceUpdate = false)`
 
-**Purpose:** Updates the state or data of `name and avatar`.
+**Purpose:** Recalculates and stores the latest representation of `name and avatar`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateNameAndAvatar(false);
+```
 
 ### OnStatusChanged
 `public void OnStatusChanged(OnlineStatus status, bool isInGameStatusActive)`
 
-**Purpose:** Called when the `status changed` event is raised.
+**Purpose:** Invoked when the `status changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.OnStatusChanged(status, false);
+```
 
 ### SetOnInvite
 `public void SetOnInvite(Action<PlayerId> onInvite)`
 
-**Purpose:** Sets the value or state of `on invite`.
+**Purpose:** Assigns a new value to `on invite` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.SetOnInvite(onInvite);
+```
 
 ### UpdateStats
 `public async void UpdateStats(Action onDone)`
 
-**Purpose:** Updates the state or data of `stats`.
+**Purpose:** Recalculates and stores the latest representation of `stats`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateStats(onDone);
+```
 
 ### UpdateExperienceData
 `public void UpdateExperienceData()`
 
-**Purpose:** Updates the state or data of `experience data`.
+**Purpose:** Recalculates and stores the latest representation of `experience data`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateExperienceData();
+```
 
 ### UpdateRating
 `public async void UpdateRating(Action onDone)`
 
-**Purpose:** Updates the state or data of `rating`.
+**Purpose:** Recalculates and stores the latest representation of `rating`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateRating(onDone);
+```
 
 ### UpdateDisplayedRankInfo
 `public void UpdateDisplayedRankInfo(string gameType)`
 
-**Purpose:** Updates the state or data of `displayed rank info`.
+**Purpose:** Recalculates and stores the latest representation of `displayed rank info`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateDisplayedRankInfo("example");
+```
 
 ### UpdateClanInfo
 `public async void UpdateClanInfo()`
 
-**Purpose:** Updates the state or data of `clan info`.
+**Purpose:** Recalculates and stores the latest representation of `clan info`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.UpdateClanInfo();
+```
 
 ### FilterStatsForGameMode
 `public void FilterStatsForGameMode(string gameModeCode)`
 
-**Purpose:** Handles logic related to `filter stats for game mode`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.FilterStatsForGameMode("example");
+```
 
 ### RefreshCharacterVisual
 `public unsafe void RefreshCharacterVisual()`
 
-**Purpose:** Refreshes the display or cache of `character visual`.
+**Purpose:** Keeps the display or cache of `character visual` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.RefreshCharacterVisual();
+```
 
 ### ExecuteSelectPlayer
 `public void ExecuteSelectPlayer()`
 
-**Purpose:** Executes the `select player` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select player`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteSelectPlayer();
+```
 
 ### ExecuteInviteToParty
 `public void ExecuteInviteToParty()`
 
-**Purpose:** Executes the `invite to party` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `invite to party`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteInviteToParty();
+```
 
 ### ExecuteInviteToClan
 `public void ExecuteInviteToClan()`
 
-**Purpose:** Executes the `invite to clan` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `invite to clan`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteInviteToClan();
+```
 
 ### ExecuteKickFromParty
 `public void ExecuteKickFromParty()`
 
-**Purpose:** Executes the `kick from party` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `kick from party`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteKickFromParty();
+```
 
 ### ExecuteAcceptFriendRequest
 `public void ExecuteAcceptFriendRequest()`
 
-**Purpose:** Executes the `accept friend request` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `accept friend request`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteAcceptFriendRequest();
+```
 
 ### ExecuteDeclineFriendRequest
 `public void ExecuteDeclineFriendRequest()`
 
-**Purpose:** Executes the `decline friend request` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `decline friend request`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteDeclineFriendRequest();
+```
 
 ### ExecuteCancelPendingFriendRequest
 `public void ExecuteCancelPendingFriendRequest()`
 
-**Purpose:** Executes the `cancel pending friend request` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel pending friend request`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteCancelPendingFriendRequest();
+```
 
 ### ExecuteRemoveFriend
 `public void ExecuteRemoveFriend()`
 
-**Purpose:** Executes the `remove friend` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove friend`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteRemoveFriend();
+```
 
 ### ExecuteCopyBannerlordID
 `public void ExecuteCopyBannerlordID()`
 
-**Purpose:** Executes the `copy bannerlord i d` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `copy bannerlord i d`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteCopyBannerlordID();
+```
 
 ### ExecuteShowProfile
 `public void ExecuteShowProfile()`
 
-**Purpose:** Executes the `show profile` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show profile`.
+
+```csharp
+// Obtain an instance of MPLobbyPlayerBaseVM from the subsystem API first
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.ExecuteShowProfile();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyPlayerBaseVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyPlayerBaseVM mPLobbyPlayerBaseVM = ...;
+mPLobbyPlayerBaseVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

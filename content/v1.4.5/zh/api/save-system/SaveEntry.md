@@ -1,20 +1,14 @@
 ---
 title: "SaveEntry"
+description: "SaveEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveEntry`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveEntry
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class SaveEntry`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntry.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntry.cs`
 
 ## 概述
 
@@ -36,22 +30,44 @@ title: "SaveEntry"
 ### CreateFrom
 `public static SaveEntry CreateFrom(int entryFolderId, EntryId entryId, byte data)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SaveEntry.CreateFrom(0, entryId, 0);
+```
 
 ### CreateNew
 `public static SaveEntry CreateNew(SaveEntryFolder parentFolder, EntryId entryId)`
 
-**用途 / Purpose:** 创建一个 `new` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「new」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SaveEntry.CreateNew(parentFolder, entryId);
+```
 
 ### GetBinaryReader
 `public BinaryReader GetBinaryReader()`
 
-**用途 / Purpose:** 获取 `binary reader` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「binary reader」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveEntry 实例
+SaveEntry saveEntry = ...;
+var result = saveEntry.GetBinaryReader();
+```
 
 ### FillFrom
 `public void FillFrom(BinaryWriter writer)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SaveEntry 实例
+SaveEntry saveEntry = ...;
+saveEntry.FillFrom(writer);
+```
 
 ## 使用示例
 
@@ -61,4 +77,4 @@ SaveEntry.CreateFrom(0, entryId, 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

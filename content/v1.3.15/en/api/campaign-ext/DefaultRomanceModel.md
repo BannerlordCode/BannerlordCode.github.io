@@ -1,13 +1,7 @@
 ---
 title: "DefaultRomanceModel"
+description: "Auto-generated class reference for DefaultRomanceModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultRomanceModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultRomanceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultRomanceModel` as a Model-style extension point: first identify who
 ### GetAttractionValuePercentage
 `public override int GetAttractionValuePercentage(Hero potentiallyInterestedCharacter, Hero heroOfInterest)`
 
-**Purpose:** Gets the current value of `attraction value percentage`.
+**Purpose:** Reads and returns the `attraction value percentage` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultRomanceModel from the subsystem API first
+DefaultRomanceModel defaultRomanceModel = ...;
+var result = defaultRomanceModel.GetAttractionValuePercentage(potentiallyInterestedCharacter, heroOfInterest);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultRomanceModel>(new MyDefaultRomanceModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

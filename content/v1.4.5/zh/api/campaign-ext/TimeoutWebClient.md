@@ -1,20 +1,14 @@
 ---
 title: "TimeoutWebClient"
+description: "TimeoutWebClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TimeoutWebClient`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TimeoutWebClient
 
 **Namespace:** TaleWorlds.PlayerServices
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class TimeoutWebClient : WebClient`
 **Base:** `WebClient`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/TimeoutWebClient.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/TimeoutWebClient.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "TimeoutWebClient"
 ## 使用示例
 
 ```csharp
-var example = new TimeoutWebClient();
+// 从对应子系统 API 获取实例
+TimeoutWebClient instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

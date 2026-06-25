@@ -1,13 +1,7 @@
 ---
 title: "GameMenuInitializationHandler"
+description: "Auto-generated class reference for GameMenuInitializationHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuInitializationHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuInitializationHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
@@ -33,9 +27,9 @@ Treat `GameMenuInitializationHandler` as a Handler-style extension point: first 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GameMenuInitializationHandler());
+var behavior = Mission.Current.GetMissionBehavior<GameMenuInitializationHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

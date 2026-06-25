@@ -1,20 +1,14 @@
 ---
 title: "SelectableItemPropertyVM"
+description: "Auto-generated class reference for SelectableItemPropertyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectableItemPropertyVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectableItemPropertyVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SelectableItemPropertyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/SelectableItemPropertyVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/SelectableItemPropertyVM.cs`
 
 ## Overview
 
@@ -40,15 +34,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SelectableItemPropertyVM from the subsystem API first
+SelectableItemPropertyVM selectableItemPropertyVM = ...;
+selectableItemPropertyVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SelectableItemPropertyVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SelectableItemPropertyVM selectableItemPropertyVM = ...;
+selectableItemPropertyVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

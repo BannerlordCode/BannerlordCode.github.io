@@ -1,20 +1,14 @@
 ---
 title: "SandboxSceneNotificationContextProvider"
+description: "Auto-generated class reference for SandboxSceneNotificationContextProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxSceneNotificationContextProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxSceneNotificationContextProvider
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class SandboxSceneNotificationContextProvider : ISceneNotificationContextProvider`
 **Base:** `ISceneNotificationContextProvider`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/SandboxSceneNotificationContextProvider.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/SandboxSceneNotificationContextProvider.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### IsContextAllowed
 `public bool IsContextAllowed(RelevantContextType relevantType)`
 
-**Purpose:** Handles logic related to `is context allowed`.
+**Purpose:** Determines whether the current object is in the `context allowed` state or condition.
+
+```csharp
+// Obtain an instance of SandboxSceneNotificationContextProvider from the subsystem API first
+SandboxSceneNotificationContextProvider sandboxSceneNotificationContextProvider = ...;
+var result = sandboxSceneNotificationContextProvider.IsContextAllowed(relevantType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SandboxSceneNotificationContextProvider();
-value.IsContextAllowed(relevantType);
+// Typically call this after obtaining an instance from the subsystem API
+SandboxSceneNotificationContextProvider sandboxSceneNotificationContextProvider = ...;
+sandboxSceneNotificationContextProvider.IsContextAllowed(relevantType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentLockItemVM"
+description: "MissionAgentLockItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentLockItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentLockItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentLockItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionAgentLockItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionAgentLockItemVM.cs`
 
 ## 概述
 
@@ -37,20 +31,33 @@ title: "MissionAgentLockItemVM"
 ### SetLockState
 `public void SetLockState(LockStates lockState)`
 
-**用途 / Purpose:** 设置 `lock state` 的值或状态。
+**用途 / Purpose:** 为 「lock state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLockItemVM 实例
+MissionAgentLockItemVM missionAgentLockItemVM = ...;
+missionAgentLockItemVM.SetLockState(lockState);
+```
 
 ### UpdatePosition
 `public void UpdatePosition(Vec2 position)`
 
-**用途 / Purpose:** 更新 `position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLockItemVM 实例
+MissionAgentLockItemVM missionAgentLockItemVM = ...;
+missionAgentLockItemVM.UpdatePosition(position);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionAgentLockItemVM();
-value.SetLockState(lockState);
+// 通常从对应子系统 API 获取实例后调用
+MissionAgentLockItemVM missionAgentLockItemVM = ...;
+missionAgentLockItemVM.SetLockState(lockState);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

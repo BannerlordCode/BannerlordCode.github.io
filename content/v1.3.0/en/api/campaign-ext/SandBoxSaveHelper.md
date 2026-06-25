@@ -1,13 +1,7 @@
 ---
 title: "SandBoxSaveHelper"
+description: "Auto-generated class reference for SandBoxSaveHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxSaveHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSaveHelper
 
 **Namespace:** SandBox
@@ -29,22 +23,42 @@ Treat `SandBoxSaveHelper` as a Helper-style extension point: first identify who 
 ### TryLoadSave
 `public static void TryLoadSave(SaveGameFileInfo saveInfo, Action<LoadResult> onStartGame, Action onCancel = null)`
 
-**Purpose:** Attempts to get `load save`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `load save`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+SandBoxSaveHelper.TryLoadSave(saveInfo, onStartGame, null);
+```
 
 ### CheckMetaDataCompatibilityErrors
 `public static MBReadOnlyList<SandBoxSaveHelper.ModuleCheckResult> CheckMetaDataCompatibilityErrors(MetaData fileMetaData)`
 
-**Purpose:** Handles logic related to `check meta data compatibility errors`.
+**Purpose:** Verifies whether `meta data compatibility errors` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxSaveHelper.CheckMetaDataCompatibilityErrors(fileMetaData);
+```
 
 ### GetIsDisabledWithReason
 `public static bool GetIsDisabledWithReason(SaveGameFileInfo saveGameFileInfo, out TextObject reason)`
 
-**Purpose:** Gets the current value of `is disabled with reason`.
+**Purpose:** Reads and returns the `is disabled with reason` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxSaveHelper.GetIsDisabledWithReason(saveGameFileInfo, reason);
+```
 
 ### GetModuleNameFromModuleId
 `public static string GetModuleNameFromModuleId(string id)`
 
-**Purpose:** Gets the current value of `module name from module id`.
+**Purpose:** Reads and returns the `module name from module id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SandBoxSaveHelper.GetModuleNameFromModuleId("example");
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ SandBoxSaveHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

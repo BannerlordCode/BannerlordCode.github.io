@@ -1,13 +1,7 @@
 ---
 title: "Ray"
+description: "Auto-generated class reference for Ray."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Ray`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Ray
 
 **Namespace:** TaleWorlds.Library
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Reset
 `public void Reset(Vec3 origin, Vec3 direction, float maxDistance = 3.4028235E+38f)`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of Ray from the subsystem API first
+Ray ray = ...;
+ray.Reset(origin, direction, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Ray();
-value.Reset(origin, direction, 0);
+// Typically call this after obtaining an instance from the subsystem API
+Ray ray = ...;
+ray.Reset(origin, direction, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

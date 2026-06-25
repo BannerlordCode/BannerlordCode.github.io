@@ -1,20 +1,14 @@
 ---
 title: "SandBoxViewSubModule"
+description: "SandBoxViewSubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxViewSubModule`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewSubModule
 
 **Namespace:** SandBox.View
 **Module:** SandBox.View
 **Type:** `public class SandBoxViewSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View/SandBoxViewSubModule.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View/SandBoxViewSubModule.cs`
 
 ## 概述
 
@@ -29,45 +23,87 @@ title: "SandBoxViewSubModule"
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxViewSubModule 实例
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnCampaignStart(game, starterObject);
+```
 
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxViewSubModule 实例
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnGameLoaded(game, initializerObject);
+```
 
 ### OnAfterGameInitializationFinished
 `public override void OnAfterGameInitializationFinished(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `after game initialization finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after game initialization finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxViewSubModule 实例
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnAfterGameInitializationFinished(game, starterObject);
+```
 
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**用途 / Purpose:** 处理 `begin game start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxViewSubModule 实例
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.BeginGameStart(game);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxViewSubModule 实例
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnGameEnd(game);
+```
 
 ### OnInitialState
 `public override void OnInitialState()`
 
-**用途 / Purpose:** 当 `initial state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initial state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxViewSubModule 实例
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnInitialState();
+```
 
 ### SetMapConversationDataProvider
 `public static void SetMapConversationDataProvider(IMapConversationDataProvider mapConversationDataProvider)`
 
-**用途 / Purpose:** 设置 `map conversation data provider` 的值或状态。
+**用途 / Purpose:** 为 「map conversation data provider」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewSubModule.SetMapConversationDataProvider(mapConversationDataProvider);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SandBoxViewSubModule();
-value.OnCampaignStart(game, starterObject);
+// 通常从对应子系统 API 获取实例后调用
+SandBoxViewSubModule sandBoxViewSubModule = ...;
+sandBoxViewSubModule.OnCampaignStart(game, starterObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

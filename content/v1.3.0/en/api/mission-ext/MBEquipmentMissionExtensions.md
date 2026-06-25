@@ -1,13 +1,7 @@
 ---
 title: "MBEquipmentMissionExtensions"
+description: "Auto-generated class reference for MBEquipmentMissionExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBEquipmentMissionExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBEquipmentMissionExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSkinMeshesMask
 `public static SkinMask GetSkinMeshesMask(this Equipment equipment)`
 
-**Purpose:** Gets the current value of `skin meshes mask`.
+**Purpose:** Reads and returns the `skin meshes mask` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBEquipmentMissionExtensions.GetSkinMeshesMask(equipment);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ MBEquipmentMissionExtensions.GetSkinMeshesMask(equipment);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

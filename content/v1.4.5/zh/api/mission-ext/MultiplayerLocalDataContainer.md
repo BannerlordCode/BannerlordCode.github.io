@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLocalDataContainer"
+description: "MultiplayerLocalDataContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerLocalDataContainer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLocalDataContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MultiplayerLocalDataContainer<T>`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby/MultiplayerLocalDataContainer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby/MultiplayerLocalDataContainer.cs`
 
 ## 概述
 
@@ -29,49 +23,95 @@ title: "MultiplayerLocalDataContainer"
 ### CreateAsAdd
 `public static ContainerOperation CreateAsAdd(T item)`
 
-**用途 / Purpose:** 创建一个 `as add` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「as add」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerLocalDataContainer.CreateAsAdd(item);
+```
 
 ### CreateAsRemove
 `public static ContainerOperation CreateAsRemove(T item)`
 
-**用途 / Purpose:** 创建一个 `as remove` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「as remove」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerLocalDataContainer.CreateAsRemove(item);
+```
 
 ### CreateAsInsert
 `public static ContainerOperation CreateAsInsert(T item, int index)`
 
-**用途 / Purpose:** 创建一个 `as insert` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「as insert」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerLocalDataContainer.CreateAsInsert(item, 0);
+```
 
 ### Compare
 `public int Compare(ContainerOperation x, ContainerOperation y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+var result = multiplayerLocalDataContainer.Compare(x, y);
+```
 
 ### AddEntry
 `public void AddEntry(T item)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `entry`。
+**用途 / Purpose:** 将 「entry」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+multiplayerLocalDataContainer.AddEntry(item);
+```
 
 ### InsertEntry
 `public void InsertEntry(T item, int index)`
 
-**用途 / Purpose:** 处理 `insert entry` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+multiplayerLocalDataContainer.InsertEntry(item, 0);
+```
 
 ### RemoveEntry
 `public void RemoveEntry(T item)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `entry`。
+**用途 / Purpose:** 从当前容器或状态中移除 「entry」。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+multiplayerLocalDataContainer.RemoveEntry(item);
+```
 
 ### GetEntries
 `public MBReadOnlyList<T> GetEntries()`
 
-**用途 / Purpose:** 获取 `entries` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「entries」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLocalDataContainer 实例
+MultiplayerLocalDataContainer multiplayerLocalDataContainer = ...;
+var result = multiplayerLocalDataContainer.GetEntries();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMultiplayerLocalDataContainer();
+// 通常通过子系统 API 或工厂获得派生实例
+MultiplayerLocalDataContainer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PhysicsMaterialFlags"
+description: "Auto-generated class reference for PhysicsMaterialFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PhysicsMaterialFlags`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PhysicsMaterialFlags
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/PhysicsMaterialFlags.cs`
+**Type:** `public enum PhysicsMaterialFlags : byte`
+**Base:** `byte`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/PhysicsMaterialFlags.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new PhysicsMaterialFlags();
+// Obtain an instance from the relevant subsystem API
+PhysicsMaterialFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

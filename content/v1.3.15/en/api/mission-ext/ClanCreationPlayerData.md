@@ -1,13 +1,7 @@
 ---
 title: "ClanCreationPlayerData"
+description: "Auto-generated class reference for ClanCreationPlayerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanCreationPlayerData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanCreationPlayerData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -34,9 +28,10 @@ Treat `ClanCreationPlayerData` as a Data-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var value = new ClanCreationPlayerData();
+// This data object is usually returned by campaign/mission APIs
+ClanCreationPlayerData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

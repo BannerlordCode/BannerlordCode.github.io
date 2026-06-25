@@ -1,20 +1,14 @@
 ---
 title: "MountCreationKey"
+description: "MountCreationKey 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MountCreationKey`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountCreationKey
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MountCreationKey`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MountCreationKey.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MountCreationKey.cs`
 
 ## 概述
 
@@ -40,22 +34,43 @@ title: "MountCreationKey"
 ### FromString
 `public static MountCreationKey FromString(string str)`
 
-**用途 / Purpose:** 处理 `from string` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MountCreationKey.FromString("example");
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 MountCreationKey 实例
+MountCreationKey mountCreationKey = ...;
+var result = mountCreationKey.ToString();
+```
 
 ### GetRandomMountKeyString
 `public static string GetRandomMountKeyString(ItemObject mountItem, int randomSeed)`
 
-**用途 / Purpose:** 获取 `random mount key string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random mount key string」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MountCreationKey.GetRandomMountKeyString(mountItem, 0);
+```
 
 ### GetRandomMountKey
 `public static MountCreationKey GetRandomMountKey(ItemObject mountItem, int randomSeed)`
 
-**用途 / Purpose:** 获取 `random mount key` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random mount key」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MountCreationKey.GetRandomMountKey(mountItem, 0);
+```
 
 ## 使用示例
 
@@ -65,4 +80,4 @@ MountCreationKey.FromString("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

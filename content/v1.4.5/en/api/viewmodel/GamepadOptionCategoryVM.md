@@ -1,20 +1,14 @@
 ---
 title: "GamepadOptionCategoryVM"
+description: "Auto-generated class reference for GamepadOptionCategoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadOptionCategoryVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GamepadOptionCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GamepadOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GamepadOptionCategoryVM : GroupedOptionCategoryVM`
 **Base:** `GroupedOptionCategoryVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GamepadOptions/GamepadOptionCategoryVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GamepadOptions/GamepadOptionCategoryVM.cs`
 
 ## Overview
 
@@ -43,20 +37,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.G
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GamepadOptionCategoryVM from the subsystem API first
+GamepadOptionCategoryVM gamepadOptionCategoryVM = ...;
+gamepadOptionCategoryVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GamepadOptionCategoryVM from the subsystem API first
+GamepadOptionCategoryVM gamepadOptionCategoryVM = ...;
+gamepadOptionCategoryVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GamepadOptionCategoryVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GamepadOptionCategoryVM gamepadOptionCategoryVM = ...;
+gamepadOptionCategoryVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

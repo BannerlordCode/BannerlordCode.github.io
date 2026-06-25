@@ -1,20 +1,14 @@
 ---
 title: "RankBarInfo"
+description: "Auto-generated class reference for RankBarInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RankBarInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RankBarInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Ranked
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RankBarInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/RankBarInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/RankBarInfo.cs`
 
 ## Overview
 
@@ -43,12 +37,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Ranked` to place it in th
 ### CreateBarInfo
 `public static RankBarInfo CreateBarInfo(string rankId, string previousRankId, string nextRankId, float progressPercentage, int rating, int ratingToNextRank)`
 
-**Purpose:** Creates a new `bar info` instance or object.
+**Purpose:** Constructs a new `bar info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
+```
 
 ### CreateUnrankedInfo
 `public static RankBarInfo CreateUnrankedInfo(int matchesPlayed, int totalMatchesRequired)`
 
-**Purpose:** Creates a new `unranked info` instance or object.
+**Purpose:** Constructs a new `unranked info` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+RankBarInfo.CreateUnrankedInfo(0, 0);
+```
 
 ## Usage Example
 
@@ -58,4 +62,4 @@ RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

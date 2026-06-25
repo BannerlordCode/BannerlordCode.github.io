@@ -1,13 +1,7 @@
 ---
 title: "BannerImageTextureProvider"
+description: "Auto-generated class reference for BannerImageTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerImageTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerImageTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.Image
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of BannerImageTextureProvider from the subsystem API first
+BannerImageTextureProvider bannerImageTextureProvider = ...;
+bannerImageTextureProvider.Clear(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerImageTextureProvider();
-value.Clear(false);
+// Typically call this after obtaining an instance from the subsystem API
+BannerImageTextureProvider bannerImageTextureProvider = ...;
+bannerImageTextureProvider.Clear(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

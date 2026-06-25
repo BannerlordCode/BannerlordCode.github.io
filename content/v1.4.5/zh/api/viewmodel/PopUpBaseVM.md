@@ -1,20 +1,14 @@
 ---
 title: "PopUpBaseVM"
+description: "PopUpBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PopUpBaseVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopUpBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class PopUpBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries/PopUpBaseVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries/PopUpBaseVM.cs`
 
 ## 概述
 
@@ -46,54 +40,109 @@ title: "PopUpBaseVM"
 ### ExecuteAffirmativeAction
 `public abstract void ExecuteAffirmativeAction()`
 
-**用途 / Purpose:** 执行 `affirmative action` 操作或流程。
+**用途 / Purpose:** 执行 「affirmative action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.ExecuteAffirmativeAction();
+```
 
 ### ExecuteNegativeAction
 `public abstract void ExecuteNegativeAction()`
 
-**用途 / Purpose:** 执行 `negative action` 操作或流程。
+**用途 / Purpose:** 执行 「negative action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.ExecuteNegativeAction();
+```
 
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.OnTick(0);
+```
 
 ### OnClearData
 `public virtual void OnClearData()`
 
-**用途 / Purpose:** 当 `clear data` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear data」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.OnClearData();
+```
 
 ### ForceRefreshKeyVisuals
 `public void ForceRefreshKeyVisuals()`
 
-**用途 / Purpose:** 处理 `force refresh key visuals` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.ForceRefreshKeyVisuals();
+```
 
 ### CloseQuery
 `public void CloseQuery()`
 
-**用途 / Purpose:** 处理 `close query` 相关逻辑。
+**用途 / Purpose:** 关闭「query」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.CloseQuery();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopUpBaseVM 实例
+PopUpBaseVM popUpBaseVM = ...;
+popUpBaseVM.SetDoneInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPopUpBaseVM();
+// 通常通过子系统 API 或工厂获得派生实例
+PopUpBaseVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

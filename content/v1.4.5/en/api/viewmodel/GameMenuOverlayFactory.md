@@ -1,20 +1,14 @@
 ---
 title: "GameMenuOverlayFactory"
+description: "Auto-generated class reference for GameMenuOverlayFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuOverlayFactory`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuOverlayFactory
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class GameMenuOverlayFactory`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/GameMenuOverlayFactory.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay/GameMenuOverlayFactory.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RegisterProvider
 `public static void RegisterProvider(IGameMenuOverlayProvider provider)`
 
-**Purpose:** Handles logic related to `register provider`.
+**Purpose:** Registers `provider` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Static call; no instance required
+GameMenuOverlayFactory.RegisterProvider(provider);
+```
 
 ### UnregisterProvider
 `public static void UnregisterProvider(IGameMenuOverlayProvider provider)`
 
-**Purpose:** Handles logic related to `unregister provider`.
+**Purpose:** Unregisters `provider` from the current system.
+
+```csharp
+// Static call; no instance required
+GameMenuOverlayFactory.UnregisterProvider(provider);
+```
 
 ### GetOverlay
 `public static GameMenuOverlay GetOverlay(TaleWorlds.CampaignSystem.GameMenus.GameMenu.MenuOverlayType menuOverlayType)`
 
-**Purpose:** Gets the current value of `overlay`.
+**Purpose:** Reads and returns the `overlay` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameMenuOverlayFactory.GetOverlay(menuOverlayType);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ GameMenuOverlayFactory.RegisterProvider(provider);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultMissionDifficultyModel"
+description: "Auto-generated class reference for DefaultMissionDifficultyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMissionDifficultyModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultMissionDifficultyModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,13 @@ Treat `DefaultMissionDifficultyModel` as a Model-style extension point: first id
 ### GetDamageMultiplierOfCombatDifficulty
 `public override float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
 
-**Purpose:** Gets the current value of `damage multiplier of combat difficulty`.
+**Purpose:** Reads and returns the `damage multiplier of combat difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultMissionDifficultyModel from the subsystem API first
+DefaultMissionDifficultyModel defaultMissionDifficultyModel = ...;
+var result = defaultMissionDifficultyModel.GetDamageMultiplierOfCombatDifficulty(victimAgent, null);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultMissionDifficultyModel>(new MyDefaultMissionDif
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

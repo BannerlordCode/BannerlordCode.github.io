@@ -1,20 +1,14 @@
 ---
 title: "DamageTakenEffect"
+description: "DamageTakenEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DamageTakenEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DamageTakenEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DamageTakenEffect : MPCombatPerkEffect`
 **Base:** `MPCombatPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DamageTakenEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DamageTakenEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "DamageTakenEffect"
 ### GetDamageTaken
 `public override float GetDamageTaken(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**用途 / Purpose:** 获取 `damage taken` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「damage taken」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DamageTakenEffect 实例
+DamageTakenEffect damageTakenEffect = ...;
+var result = damageTakenEffect.GetDamageTaken(attackerWeapon, damageType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DamageTakenEffect();
-value.GetDamageTaken(attackerWeapon, damageType);
+// 通常从对应子系统 API 获取实例后调用
+DamageTakenEffect damageTakenEffect = ...;
+damageTakenEffect.GetDamageTaken(attackerWeapon, damageType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

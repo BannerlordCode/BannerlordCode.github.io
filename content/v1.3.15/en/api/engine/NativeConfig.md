@@ -1,23 +1,18 @@
 ---
 title: "NativeConfig"
+description: "Auto-generated class reference for NativeConfig."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeConfig`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NativeConfig
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class NativeConfig`
-**Area:** engine
+**Base:** none
+**File:** `TaleWorlds.Engine/NativeConfig.cs`
 
 ## Overview
 
-`NativeConfig` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`NativeConfig` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -51,21 +46,29 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### OnConfigChanged
 `public static void OnConfigChanged()`
 
-**Purpose:** Called when the `config changed` event is raised.
+**Purpose:** Invoked when the `config changed` event is raised.
+
+```csharp
+// Static call; no instance required
+NativeConfig.OnConfigChanged();
+```
 
 ### SetAutoConfigWrtHardware
 `public static void SetAutoConfigWrtHardware()`
 
-**Purpose:** Sets the value or state of `auto config wrt hardware`.
+**Purpose:** Assigns a new value to `auto config wrt hardware` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NativeConfig.SetAutoConfigWrtHardware();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 NativeConfig.OnConfigChanged();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

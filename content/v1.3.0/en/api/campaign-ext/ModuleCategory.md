@@ -1,18 +1,12 @@
 ---
 title: "ModuleCategory"
+description: "Auto-generated class reference for ModuleCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleCategory`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleCategory
 
 **Namespace:** TaleWorlds.ModuleManager
 **Module:** TaleWorlds.ModuleManager
-**Type:** `class`
+**Type:** `public enum ModuleCategory`
 **Base:** none
 **File:** `TaleWorlds.ModuleManager/ModuleCategory.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new ModuleCategory();
+// Obtain an instance from the relevant subsystem API
+ModuleCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

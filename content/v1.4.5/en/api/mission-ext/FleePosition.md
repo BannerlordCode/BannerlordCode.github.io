@@ -1,20 +1,14 @@
 ---
 title: "FleePosition"
+description: "Auto-generated class reference for FleePosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FleePosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FleePosition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FleePosition : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FleePosition.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FleePosition.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSide
 `public BattleSideEnum GetSide()`
 
-**Purpose:** Gets the current value of `side`.
+**Purpose:** Reads and returns the `side` value held by the current object.
+
+```csharp
+// Obtain an instance of FleePosition from the subsystem API first
+FleePosition fleePosition = ...;
+var result = fleePosition.GetSide();
+```
 
 ### GetClosestPointToEscape
 `public Vec3 GetClosestPointToEscape(Vec2 position)`
 
-**Purpose:** Gets the current value of `closest point to escape`.
+**Purpose:** Reads and returns the `closest point to escape` value held by the current object.
+
+```csharp
+// Obtain an instance of FleePosition from the subsystem API first
+FleePosition fleePosition = ...;
+var result = fleePosition.GetClosestPointToEscape(position);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FleePosition();
-value.GetSide();
+// Typically call this after obtaining an instance from the subsystem API
+FleePosition fleePosition = ...;
+fleePosition.GetSide();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

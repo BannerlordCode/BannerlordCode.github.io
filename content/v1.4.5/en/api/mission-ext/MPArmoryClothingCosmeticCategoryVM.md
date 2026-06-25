@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryClothingCosmeticCategoryVM"
+description: "Auto-generated class reference for MPArmoryClothingCosmeticCategoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryClothingCosmeticCategoryVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryClothingCosmeticCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryClothingCosmeticCategoryVM : MPArmoryCosmeticCategoryBaseVM`
 **Base:** `MPArmoryCosmeticCategoryBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory/MPArmoryClothingCosmeticCategoryVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory/MPArmoryClothingCosmeticCategoryVM.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryClothingCosmeticCategoryVM from the subsystem API first
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.RefreshValues();
+```
 
 ### SetDefaultEquipments
 `public void SetDefaultEquipments(Equipment equipment)`
 
-**Purpose:** Sets the value or state of `default equipments`.
+**Purpose:** Assigns a new value to `default equipments` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPArmoryClothingCosmeticCategoryVM from the subsystem API first
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.SetDefaultEquipments(equipment);
+```
 
 ### ReplaceCosmeticWithDefaultItem
 `public void ReplaceCosmeticWithDefaultItem(MPArmoryCosmeticClothingItemVM cosmetic, MPArmoryCosmeticsVM.ClothingCategory clothingCategory, MPHeroClass selectedClass, List<string> ownedCosmetics)`
 
-**Purpose:** Handles logic related to `replace cosmetic with default item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPArmoryClothingCosmeticCategoryVM from the subsystem API first
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.ReplaceCosmeticWithDefaultItem(cosmetic, clothingCategory, selectedClass, ownedCosmetics);
+```
 
 ### OnEquipmentRefreshed
 `public void OnEquipmentRefreshed(EquipmentIndex equipmentIndex)`
 
-**Purpose:** Called when the `equipment refreshed` event is raised.
+**Purpose:** Invoked when the `equipment refreshed` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryClothingCosmeticCategoryVM from the subsystem API first
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.OnEquipmentRefreshed(equipmentIndex);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPArmoryClothingCosmeticCategoryVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPArmoryClothingCosmeticCategoryVM mPArmoryClothingCosmeticCategoryVM = ...;
+mPArmoryClothingCosmeticCategoryVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

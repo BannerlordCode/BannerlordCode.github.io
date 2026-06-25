@@ -1,13 +1,7 @@
 ---
 title: "CircleActionSelectorWidget"
+description: "CircleActionSelectorWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CircleActionSelectorWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CircleActionSelectorWidget
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -41,19 +35,32 @@ title: "CircleActionSelectorWidget"
 ### AnimateDistanceFromCenterTo
 `public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)`
 
-**用途 / Purpose:** 处理 `animate distance from center to` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CircleActionSelectorWidget 实例
+CircleActionSelectorWidget circleActionSelectorWidget = ...;
+circleActionSelectorWidget.AnimateDistanceFromCenterTo(0, 0);
+```
 
 ### TrySetSelectedIndex
 `public bool TrySetSelectedIndex(int index)`
 
-**用途 / Purpose:** 尝试获取 `set selected index`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「set selected index」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 CircleActionSelectorWidget 实例
+CircleActionSelectorWidget circleActionSelectorWidget = ...;
+var result = circleActionSelectorWidget.TrySetSelectedIndex(0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new CircleActionSelectorWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+CircleActionSelectorWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

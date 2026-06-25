@@ -1,20 +1,14 @@
 ---
 title: "StringHelpers"
+description: "StringHelpers 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StringHelpers`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringHelpers
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class StringHelpers`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/StringHelpers.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/StringHelpers.cs`
 
 ## 概述
 
@@ -29,37 +23,72 @@ title: "StringHelpers"
 ### SplitCamelCase
 `public static string SplitCamelCase(string text)`
 
-**用途 / Purpose:** 处理 `split camel case` 相关逻辑。
+**用途 / Purpose:** 将「camel case」拆分为多个部分或子项。
+
+```csharp
+// 静态调用，不需要实例
+StringHelpers.SplitCamelCase("example");
+```
 
 ### CamelCaseToSnakeCase
 `public static string CamelCaseToSnakeCase(string camelCaseString)`
 
-**用途 / Purpose:** 处理 `camel case to snake case` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+StringHelpers.CamelCaseToSnakeCase("example");
+```
 
 ### SetSettlementProperties
 `public static void SetSettlementProperties(string tag, Settlement settlement, TextObject parent = null, bool isRepeatable = false)`
 
-**用途 / Purpose:** 设置 `settlement properties` 的值或状态。
+**用途 / Purpose:** 为 「settlement properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+StringHelpers.SetSettlementProperties("example", settlement, null, false);
+```
 
 ### SetRepeatableCharacterProperties
 `public static void SetRepeatableCharacterProperties(string tag, CharacterObject character, bool includeDetails = false)`
 
-**用途 / Purpose:** 设置 `repeatable character properties` 的值或状态。
+**用途 / Purpose:** 为 「repeatable character properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+StringHelpers.SetRepeatableCharacterProperties("example", character, false);
+```
 
 ### SetCharacterProperties
 `public static TextObject SetCharacterProperties(string tag, CharacterObject character, TextObject parent = null, bool includeDetails = false)`
 
-**用途 / Purpose:** 设置 `character properties` 的值或状态。
+**用途 / Purpose:** 为 「character properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+StringHelpers.SetCharacterProperties("example", character, null, false);
+```
 
 ### SetEffectIncrementTypeTextVariable
 `public static void SetEffectIncrementTypeTextVariable(string tag, TextObject description, float bonus, EffectIncrementType effectIncrementType)`
 
-**用途 / Purpose:** 设置 `effect increment type text variable` 的值或状态。
+**用途 / Purpose:** 为 「effect increment type text variable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+StringHelpers.SetEffectIncrementTypeTextVariable("example", description, 0, effectIncrementType);
+```
 
 ### RemoveDiacritics
 `public static string RemoveDiacritics(string originalText)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `diacritics`。
+**用途 / Purpose:** 从当前容器或状态中移除 「diacritics」。
+
+```csharp
+// 静态调用，不需要实例
+StringHelpers.RemoveDiacritics("example");
+```
 
 ## 使用示例
 
@@ -69,4 +98,4 @@ StringHelpers.SplitCamelCase("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

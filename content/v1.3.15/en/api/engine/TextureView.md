@@ -1,13 +1,7 @@
 ---
 title: "TextureView"
+description: "Auto-generated class reference for TextureView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextureView`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextureView
 
 **Namespace:** TaleWorlds.Engine
@@ -29,19 +23,31 @@ Treat `TextureView` as a View-style extension point: first identify who creates 
 ### CreateTextureView
 `public static TextureView CreateTextureView()`
 
-**Purpose:** Creates a new `texture view` instance or object.
+**Purpose:** Constructs a new `texture view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TextureView.CreateTextureView();
+```
 
 ### SetTexture
 `public void SetTexture(Texture texture)`
 
-**Purpose:** Sets the value or state of `texture`.
+**Purpose:** Assigns a new value to `texture` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextureView from the subsystem API first
+TextureView textureView = ...;
+textureView.SetTexture(texture);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new TextureView();
+// Retrieve this view from the subsystem API or scene
+TextureView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

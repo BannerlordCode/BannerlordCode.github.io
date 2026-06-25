@@ -1,13 +1,7 @@
 ---
 title: "PopupSceneEmissionHandler"
+description: "Auto-generated class reference for PopupSceneEmissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneEmissionHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneEmissionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,14 +23,20 @@ Treat `PopupSceneEmissionHandler` as a Handler-style extension point: first iden
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of PopupSceneEmissionHandler from the subsystem API first
+PopupSceneEmissionHandler popupSceneEmissionHandler = ...;
+var result = popupSceneEmissionHandler.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new PopupSceneEmissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<PopupSceneEmissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

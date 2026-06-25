@@ -1,13 +1,7 @@
 ---
 title: "SiegeAftermathModel"
+description: "SiegeAftermathModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeAftermathModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeAftermathModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ title: "SiegeAftermathModel"
 ### GetSiegeAftermathTraitXpChangeForPlayer
 `public abstract int GetSiegeAftermathTraitXpChangeForPlayer(TraitObject trait, Settlement devastatedSettlement, SiegeAftermathAction.SiegeAftermath aftermathType)`
 
-**用途 / Purpose:** 获取 `siege aftermath trait xp change for player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege aftermath trait xp change for player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeAftermathModel 实例
+SiegeAftermathModel siegeAftermathModel = ...;
+var result = siegeAftermathModel.GetSiegeAftermathTraitXpChangeForPlayer(trait, devastatedSettlement, aftermathType);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSiegeAftermathModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SiegeAftermathModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

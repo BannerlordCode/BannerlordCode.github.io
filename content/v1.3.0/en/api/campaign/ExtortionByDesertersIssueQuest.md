@@ -1,13 +1,7 @@
 ---
 title: "ExtortionByDesertersIssueQuest"
+description: "Auto-generated class reference for ExtortionByDesertersIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ExtortionByDesertersIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ExtortionByDesertersIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new ExtortionByDesertersIssueQuest();
+// Obtain an instance from the relevant subsystem API
+ExtortionByDesertersIssueQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

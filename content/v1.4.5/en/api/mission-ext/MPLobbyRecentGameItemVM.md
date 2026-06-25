@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyRecentGameItemVM"
+description: "Auto-generated class reference for MPLobbyRecentGameItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyRecentGameItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyRecentGameItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyRecentGameItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGameItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGameItemVM.cs`
 
 ## Overview
 
@@ -52,25 +46,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGameItemVM from the subsystem API first
+MPLobbyRecentGameItemVM mPLobbyRecentGameItemVM = ...;
+mPLobbyRecentGameItemVM.RefreshValues();
+```
 
 ### FillFrom
 `public void FillFrom(MatchHistoryData match)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGameItemVM from the subsystem API first
+MPLobbyRecentGameItemVM mPLobbyRecentGameItemVM = ...;
+mPLobbyRecentGameItemVM.FillFrom(match);
+```
 
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**Purpose:** Called when the `friend list updated` event is raised.
+**Purpose:** Invoked when the `friend list updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGameItemVM from the subsystem API first
+MPLobbyRecentGameItemVM mPLobbyRecentGameItemVM = ...;
+mPLobbyRecentGameItemVM.OnFriendListUpdated(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyRecentGameItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyRecentGameItemVM mPLobbyRecentGameItemVM = ...;
+mPLobbyRecentGameItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

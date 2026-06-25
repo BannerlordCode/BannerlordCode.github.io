@@ -1,13 +1,7 @@
 ---
 title: "RandomTimer"
+description: "Auto-generated class reference for RandomTimer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RandomTimer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RandomTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public override bool Check(float gameTime)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of RandomTimer from the subsystem API first
+RandomTimer randomTimer = ...;
+var result = randomTimer.Check(0);
+```
 
 ### ChangeDuration
 `public void ChangeDuration(float min, float max)`
 
-**Purpose:** Handles logic related to `change duration`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RandomTimer from the subsystem API first
+RandomTimer randomTimer = ...;
+randomTimer.ChangeDuration(0, 0);
+```
 
 ### RecomputeDuration
 `public void RecomputeDuration()`
 
-**Purpose:** Handles logic related to `recompute duration`.
+**Purpose:** Recomputes `duration` and returns the result.
+
+```csharp
+// Obtain an instance of RandomTimer from the subsystem API first
+RandomTimer randomTimer = ...;
+randomTimer.RecomputeDuration();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RandomTimer();
-value.Check(0);
+// Typically call this after obtaining an instance from the subsystem API
+RandomTimer randomTimer = ...;
+randomTimer.Check(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

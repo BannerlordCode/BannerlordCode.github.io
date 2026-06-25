@@ -1,20 +1,14 @@
 ---
 title: "WorldPositionEnforcedCache"
+description: "Auto-generated class reference for WorldPositionEnforcedCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorldPositionEnforcedCache`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorldPositionEnforcedCache
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public enum WorldPositionEnforcedCache`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldPosition.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldPosition.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-WorldPositionEnforcedCache example = WorldPositionEnforcedCache.Value;
+// Obtain an instance from the relevant subsystem API
+WorldPositionEnforcedCache instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

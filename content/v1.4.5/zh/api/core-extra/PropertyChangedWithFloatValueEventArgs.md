@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithFloatValueEventArgs"
+description: "PropertyChangedWithFloatValueEventArgs 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PropertyChangedWithFloatValueEventArgs`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithFloatValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithFloatValueEventArgs`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithFloatValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithFloatValueEventArgs.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "PropertyChangedWithFloatValueEventArgs"
 ### PropertyChangedWithFloatValueEventArgs
 `public struct PropertyChangedWithFloatValueEventArgs(string propertyName, float value)`
 
-**用途 / Purpose:** 处理 `property changed with float value event args` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PropertyChangedWithFloatValueEventArgs 实例
+PropertyChangedWithFloatValueEventArgs propertyChangedWithFloatValueEventArgs = ...;
+var result = propertyChangedWithFloatValueEventArgs.PropertyChangedWithFloatValueEventArgs("example", 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PropertyChangedWithFloatValueEventArgs();
-value.PropertyChangedWithFloatValueEventArgs("example", 0);
+// 通常从对应子系统 API 获取实例后调用
+PropertyChangedWithFloatValueEventArgs propertyChangedWithFloatValueEventArgs = ...;
+propertyChangedWithFloatValueEventArgs.PropertyChangedWithFloatValueEventArgs("example", 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

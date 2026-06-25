@@ -1,20 +1,14 @@
 ---
 title: "ConversationHelper"
+description: "Auto-generated class reference for ConversationHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationHelper`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationHelper
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class ConversationHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationHelper.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Treat `ConversationHelper` as a Helper-style extension point: first identify who
 ### HeroRefersToHero
 `public static string HeroRefersToHero(Hero talkTroop, Hero referringTo, bool uppercaseFirst)`
 
-**Purpose:** Handles logic related to `hero refers to hero`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ConversationHelper.HeroRefersToHero(talkTroop, referringTo, false);
+```
 
 ### GetHeroRelationToHeroTextShort
 `public static string GetHeroRelationToHeroTextShort(Hero queriedHero, Hero baseHero, bool uppercaseFirst)`
 
-**Purpose:** Gets the current value of `hero relation to hero text short`.
+**Purpose:** Reads and returns the `hero relation to hero text short` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ConversationHelper.GetHeroRelationToHeroTextShort(queriedHero, baseHero, false);
+```
 
 ### GetConversationCharacterPartyLeader
 `public static CharacterObject GetConversationCharacterPartyLeader(PartyBase party)`
 
-**Purpose:** Gets the current value of `conversation character party leader`.
+**Purpose:** Reads and returns the `conversation character party leader` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ConversationHelper.GetConversationCharacterPartyLeader(party);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ ConversationHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

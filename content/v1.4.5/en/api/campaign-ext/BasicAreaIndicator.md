@@ -1,20 +1,14 @@
 ---
 title: "BasicAreaIndicator"
+description: "Auto-generated class reference for BasicAreaIndicator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasicAreaIndicator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicAreaIndicator
 
 **Namespace:** SandBox.Objects.AreaMarkers
 **Module:** SandBox.Objects
 **Type:** `public class BasicAreaIndicator : AreaMarker`
 **Base:** `AreaMarker`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/BasicAreaIndicator.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AreaMarkers/BasicAreaIndicator.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### SetIsActive
 `public void SetIsActive(bool isActive)`
 
-**Purpose:** Sets the value or state of `is active`.
+**Purpose:** Assigns a new value to `is active` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BasicAreaIndicator from the subsystem API first
+BasicAreaIndicator basicAreaIndicator = ...;
+basicAreaIndicator.SetIsActive(false);
+```
 
 ### SetOverriddenName
 `public void SetOverriddenName(TextObject name)`
 
-**Purpose:** Sets the value or state of `overridden name`.
+**Purpose:** Assigns a new value to `overridden name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BasicAreaIndicator from the subsystem API first
+BasicAreaIndicator basicAreaIndicator = ...;
+basicAreaIndicator.SetOverriddenName(name);
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of BasicAreaIndicator from the subsystem API first
+BasicAreaIndicator basicAreaIndicator = ...;
+var result = basicAreaIndicator.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BasicAreaIndicator();
-value.SetIsActive(false);
+// Typically call this after obtaining an instance from the subsystem API
+BasicAreaIndicator basicAreaIndicator = ...;
+basicAreaIndicator.SetIsActive(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

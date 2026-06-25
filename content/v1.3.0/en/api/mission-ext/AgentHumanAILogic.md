@@ -1,13 +1,7 @@
 ---
 title: "AgentHumanAILogic"
+description: "Auto-generated class reference for AgentHumanAILogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentHumanAILogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentHumanAILogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,19 +23,31 @@ Treat `AgentHumanAILogic` as a Logic-style extension point: first identify who c
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** Called when the `agent created` event is raised.
+**Purpose:** Invoked when the `agent created` event is raised.
+
+```csharp
+// Obtain an instance of AgentHumanAILogic from the subsystem API first
+AgentHumanAILogic agentHumanAILogic = ...;
+agentHumanAILogic.OnAgentCreated(agent);
+```
 
 ### OnAgentMount
 `public override void OnAgentMount(Agent agent)`
 
-**Purpose:** Called when the `agent mount` event is raised.
+**Purpose:** Invoked when the `agent mount` event is raised.
+
+```csharp
+// Obtain an instance of AgentHumanAILogic from the subsystem API first
+AgentHumanAILogic agentHumanAILogic = ...;
+agentHumanAILogic.OnAgentMount(agent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AgentHumanAILogic());
+var behavior = Mission.Current.GetMissionBehavior<AgentHumanAILogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "LayeredWindowController"
+description: "Auto-generated class reference for LayeredWindowController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LayeredWindowController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LayeredWindowController
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -29,17 +23,35 @@ Treat `LayeredWindowController` as a Controller-style extension point: first ide
 ### SetSize
 `public void SetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `size`.
+**Purpose:** Assigns a new value to `size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LayeredWindowController from the subsystem API first
+LayeredWindowController layeredWindowController = ...;
+layeredWindowController.SetSize(0, 0);
+```
 
 ### PostRender
 `public void PostRender()`
 
-**Purpose:** Handles logic related to `post render`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LayeredWindowController from the subsystem API first
+LayeredWindowController layeredWindowController = ...;
+layeredWindowController.PostRender();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of LayeredWindowController from the subsystem API first
+LayeredWindowController layeredWindowController = ...;
+layeredWindowController.OnFinalize();
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var controller = Mission.Current.GetMissionBehavior<LayeredWindowController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

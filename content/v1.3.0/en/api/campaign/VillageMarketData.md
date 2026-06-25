@@ -1,13 +1,7 @@
 ---
 title: "VillageMarketData"
+description: "Auto-generated class reference for VillageMarketData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageMarketData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageMarketData
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -29,19 +23,32 @@ Treat `VillageMarketData` as a Data-style extension point: first identify who cr
 ### GetPrice
 `public int GetPrice(ItemObject item, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**Purpose:** Gets the current value of `price`.
+**Purpose:** Reads and returns the `price` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageMarketData from the subsystem API first
+VillageMarketData villageMarketData = ...;
+var result = villageMarketData.GetPrice(item, tradingParty, false, merchantParty);
+```
 
 ### GetPrice
 `public int GetPrice(EquipmentElement itemRosterElement, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**Purpose:** Gets the current value of `price`.
+**Purpose:** Reads and returns the `price` value held by the current object.
+
+```csharp
+// Obtain an instance of VillageMarketData from the subsystem API first
+VillageMarketData villageMarketData = ...;
+var result = villageMarketData.GetPrice(itemRosterElement, tradingParty, false, merchantParty);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillageMarketData();
+// This data object is usually returned by campaign/mission APIs
+VillageMarketData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

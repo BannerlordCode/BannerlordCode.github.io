@@ -1,13 +1,7 @@
 ---
 title: "DefaultBodyPropertiesModel"
+description: "Auto-generated class reference for DefaultBodyPropertiesModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBodyPropertiesModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultBodyPropertiesModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ Treat `DefaultBodyPropertiesModel` as a Model-style extension point: first ident
 ### GetHairIndicesForCulture
 `public override int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** Gets the current value of `hair indices for culture`.
+**Purpose:** Reads and returns the `hair indices for culture` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBodyPropertiesModel from the subsystem API first
+DefaultBodyPropertiesModel defaultBodyPropertiesModel = ...;
+var result = defaultBodyPropertiesModel.GetHairIndicesForCulture(0, 0, 0, culture);
+```
 
 ### GetBeardIndicesForCulture
 `public override int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** Gets the current value of `beard indices for culture`.
+**Purpose:** Reads and returns the `beard indices for culture` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBodyPropertiesModel from the subsystem API first
+DefaultBodyPropertiesModel defaultBodyPropertiesModel = ...;
+var result = defaultBodyPropertiesModel.GetBeardIndicesForCulture(0, 0, 0, culture);
+```
 
 ### GetTattooIndicesForCulture
 `public override int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** Gets the current value of `tattoo indices for culture`.
+**Purpose:** Reads and returns the `tattoo indices for culture` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBodyPropertiesModel from the subsystem API first
+DefaultBodyPropertiesModel defaultBodyPropertiesModel = ...;
+var result = defaultBodyPropertiesModel.GetTattooIndicesForCulture(0, 0, 0, culture);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultBodyPropertiesModel>(new MyDefaultBodyPropertie
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

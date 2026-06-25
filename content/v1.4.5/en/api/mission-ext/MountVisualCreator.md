@@ -1,23 +1,18 @@
 ---
 title: "MountVisualCreator"
+description: "Auto-generated class reference for MountVisualCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountVisualCreator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MountVisualCreator
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MountVisualCreator`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/MountVisualCreator.cs`
 
 ## Overview
 
-`MountVisualCreator` lives in `TaleWorlds.MountAndBlade.View`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MountVisualCreator` lives in `TaleWorlds.MountAndBlade.View` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,46 +23,79 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### SetMaterialProperties
 `public static void SetMaterialProperties(ItemObject mountItem, MetaMesh mountMesh, MountCreationKey key, ref uint maneMeshMultiplier)`
 
-**Purpose:** Sets the value or state of `material properties`.
+**Purpose:** Assigns a new value to `material properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MountVisualCreator.SetMaterialProperties(mountItem, mountMesh, key, maneMeshMultiplier);
+```
 
 ### AddMountMesh
 `public static MountVisualCreationOutput AddMountMesh(MBAgentVisuals agentVisual, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
 **Purpose:** Adds `mount mesh` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+MountVisualCreator.AddMountMesh(agentVisual, mountItem, harnessItem, "example", null);
+```
+
 ### SetHorseColors
 `public static void SetHorseColors(MetaMesh horseMesh, MountCreationKey mountCreationKey)`
 
-**Purpose:** Sets the value or state of `horse colors`.
+**Purpose:** Assigns a new value to `horse colors` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MountVisualCreator.SetHorseColors(horseMesh, mountCreationKey);
+```
 
 ### ClearMountMesh
 `public static void ClearMountMesh(GameEntity gameEntity)`
 
-**Purpose:** Handles logic related to `clear mount mesh`.
+**Purpose:** Removes all `mount mesh` from the current object.
+
+```csharp
+// Static call; no instance required
+MountVisualCreator.ClearMountMesh(gameEntity);
+```
 
 ### AddMountMeshToEntity
 `public static void AddMountMeshToEntity(GameEntity gameEntity, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, out MountVisualCreationOutput mountVisualCreationOutput, Agent agent = null)`
 
 **Purpose:** Adds `mount mesh to entity` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+MountVisualCreator.AddMountMeshToEntity(gameEntity, mountItem, harnessItem, "example", mountVisualCreationOutput, null);
+```
+
 ### AddMountMeshToEntity
 `public static void AddMountMeshToEntity(GameEntity gameEntity, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
 **Purpose:** Adds `mount mesh to entity` to the current collection or state.
+
+```csharp
+// Static call; no instance required
+MountVisualCreator.AddMountMeshToEntity(gameEntity, mountItem, harnessItem, "example", null);
+```
 
 ### AddMountMeshToAgentVisual
 `public static void AddMountMeshToAgentVisual(MBAgentVisuals agentVisual, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)`
 
 **Purpose:** Adds `mount mesh to agent visual` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+MountVisualCreator.AddMountMeshToAgentVisual(agentVisual, mountItem, harnessItem, "example", null);
+```
+
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MountVisualCreator.SetMaterialProperties(mountItem, mountMesh, key, maneMeshMultiplier);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

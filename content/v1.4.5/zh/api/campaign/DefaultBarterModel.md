@@ -1,20 +1,14 @@
 ---
 title: "DefaultBarterModel"
+description: "DefaultBarterModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultBarterModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBarterModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultBarterModel : BarterModel`
 **Base:** `BarterModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBarterModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBarterModel.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "DefaultBarterModel"
 ### CalculateOverpayRelationIncreaseCosts
 `public override int CalculateOverpayRelationIncreaseCosts(Hero hero, float overpayAmount)`
 
-**用途 / Purpose:** 处理 `calculate overpay relation increase costs` 相关逻辑。
+**用途 / Purpose:** 计算「overpay relation increase costs」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBarterModel 实例
+DefaultBarterModel defaultBarterModel = ...;
+var result = defaultBarterModel.CalculateOverpayRelationIncreaseCosts(hero, 0);
+```
 
 ### GetBarterPenalty
 `public override ExplainedNumber GetBarterPenalty(IFaction faction, ItemBarterable itemBarterable, Hero otherHero, PartyBase otherParty)`
 
-**用途 / Purpose:** 获取 `barter penalty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「barter penalty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultBarterModel 实例
+DefaultBarterModel defaultBarterModel = ...;
+var result = defaultBarterModel.GetBarterPenalty(faction, itemBarterable, otherHero, otherParty);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultBarterModel>(new MyDefaultBarterModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

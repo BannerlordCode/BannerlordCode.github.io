@@ -1,18 +1,8 @@
 ---
 title: "BribeGuardsAction"
+description: "Auto-generated campaign action reference for BribeGuardsAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BribeGuardsAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BribeGuardsAction
-
-## Mental Model
-
-Treat `BribeGuardsAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -29,7 +19,7 @@ BribeGuardsAction is a set of static methods that trigger "BribeGuards" in the c
 public static void Apply(Settlement settlement, int gold)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -40,5 +30,5 @@ BribeGuardsAction.Apply(settlement, 100);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

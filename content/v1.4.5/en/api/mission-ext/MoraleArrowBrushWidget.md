@@ -1,20 +1,14 @@
 ---
 title: "MoraleArrowBrushWidget"
+description: "Auto-generated class reference for MoraleArrowBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MoraleArrowBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MoraleArrowBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MoraleArrowBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/MoraleArrowBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/MoraleArrowBrushWidget.cs`
 
 ## Overview
 
@@ -36,14 +30,21 @@ Treat `MoraleArrowBrushWidget` as a Widget-style extension point: first identify
 ### SetFlowLevel
 `public void SetFlowLevel(int flow)`
 
-**Purpose:** Sets the value or state of `flow level`.
+**Purpose:** Assigns a new value to `flow level` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MoraleArrowBrushWidget from the subsystem API first
+MoraleArrowBrushWidget moraleArrowBrushWidget = ...;
+moraleArrowBrushWidget.SetFlowLevel(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MoraleArrowBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MoraleArrowBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

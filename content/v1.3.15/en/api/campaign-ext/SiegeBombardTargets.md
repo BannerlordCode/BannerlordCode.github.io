@@ -1,18 +1,12 @@
 ---
 title: "SiegeBombardTargets"
+description: "Auto-generated class reference for SiegeBombardTargets."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeBombardTargets`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeBombardTargets
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum SiegeBombardTargets`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Siege/SiegeBombardTargets.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var value = new SiegeBombardTargets();
+// Obtain an instance from the relevant subsystem API
+SiegeBombardTargets instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

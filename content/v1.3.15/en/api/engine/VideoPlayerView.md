@@ -1,13 +1,7 @@
 ---
 title: "VideoPlayerView"
+description: "Auto-generated class reference for VideoPlayerView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VideoPlayerView`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VideoPlayerView
 
 **Namespace:** TaleWorlds.Engine
@@ -29,34 +23,64 @@ Treat `VideoPlayerView` as a View-style extension point: first identify who crea
 ### CreateVideoPlayerView
 `public static VideoPlayerView CreateVideoPlayerView()`
 
-**Purpose:** Creates a new `video player view` instance or object.
+**Purpose:** Constructs a new `video player view` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+VideoPlayerView.CreateVideoPlayerView();
+```
 
 ### PlayVideo
 `public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)`
 
-**Purpose:** Handles logic related to `play video`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VideoPlayerView from the subsystem API first
+VideoPlayerView videoPlayerView = ...;
+videoPlayerView.PlayVideo("example", "example", 0, false);
+```
 
 ### StopVideo
 `public void StopVideo()`
 
-**Purpose:** Handles logic related to `stop video`.
+**Purpose:** Stops the `video` flow or state machine.
+
+```csharp
+// Obtain an instance of VideoPlayerView from the subsystem API first
+VideoPlayerView videoPlayerView = ...;
+videoPlayerView.StopVideo();
+```
 
 ### IsVideoFinished
 `public bool IsVideoFinished()`
 
-**Purpose:** Handles logic related to `is video finished`.
+**Purpose:** Determines whether the current object is in the `video finished` state or condition.
+
+```csharp
+// Obtain an instance of VideoPlayerView from the subsystem API first
+VideoPlayerView videoPlayerView = ...;
+var result = videoPlayerView.IsVideoFinished();
+```
 
 ### FinalizePlayer
 `public void FinalizePlayer()`
 
-**Purpose:** Handles logic related to `finalize player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VideoPlayerView from the subsystem API first
+VideoPlayerView videoPlayerView = ...;
+videoPlayerView.FinalizePlayer();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new VideoPlayerView();
+// Retrieve this view from the subsystem API or scene
+VideoPlayerView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

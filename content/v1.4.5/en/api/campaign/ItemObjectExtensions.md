@@ -1,20 +1,14 @@
 ---
 title: "ItemObjectExtensions"
+description: "Auto-generated class reference for ItemObjectExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemObjectExtensions`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemObjectExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class ItemObjectExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/ItemObjectExtensions.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Extensions/ItemObjectExtensions.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### GetItemCategory
 `public static ItemCategory GetItemCategory(this ItemObject item)`
 
-**Purpose:** Gets the current value of `item category`.
+**Purpose:** Reads and returns the `item category` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObjectExtensions.GetItemCategory(item);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ ItemObjectExtensions.GetItemCategory(item);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

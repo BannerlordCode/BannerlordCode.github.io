@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerFactionBanVoteVM"
+description: "MultiplayerFactionBanVoteVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerFactionBanVoteVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerFactionBanVoteVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FactionBanVote
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerFactionBanVoteVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FactionBanVote/MultiplayerFactionBanVoteVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FactionBanVote/MultiplayerFactionBanVoteVM.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "MultiplayerFactionBanVoteVM"
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerFactionBanVoteVM();
+// 从对应子系统 API 获取实例
+MultiplayerFactionBanVoteVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

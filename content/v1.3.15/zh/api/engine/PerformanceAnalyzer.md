@@ -1,13 +1,7 @@
 ---
 title: "PerformanceAnalyzer"
+description: "PerformanceAnalyzer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PerformanceAnalyzer`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerformanceAnalyzer
 
 **Namespace:** TaleWorlds.Engine
@@ -29,40 +23,77 @@ title: "PerformanceAnalyzer"
 ### Start
 `public void Start(string name)`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.Start("example");
+```
 
 ### End
 `public void End()`
 
-**用途 / Purpose:** 处理 `end` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.End();
+```
 
 ### FinalizeAndWrite
 `public void FinalizeAndWrite(string filePath)`
 
-**用途 / Purpose:** 处理 `finalize and write` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.FinalizeAndWrite("example");
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.Tick(0);
+```
 
 ### AddFps
 `public void AddFps(float fps, float main, float renderer)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `fps`。
+**用途 / Purpose:** 将 「fps」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.AddFps(0, 0, 0);
+```
 
 ### Write
 `public void Write(XmlNode node, XmlDocument document)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 PerformanceAnalyzer 实例
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.Write(node, document);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PerformanceAnalyzer();
-value.Start("example");
+// 通常从对应子系统 API 获取实例后调用
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.Start("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

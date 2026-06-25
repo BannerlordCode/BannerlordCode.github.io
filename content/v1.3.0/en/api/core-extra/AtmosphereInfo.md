@@ -1,13 +1,7 @@
 ---
 title: "AtmosphereInfo"
+description: "Auto-generated class reference for AtmosphereInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AtmosphereInfo`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AtmosphereInfo
 
 **Namespace:** TaleWorlds.Library
@@ -35,17 +29,34 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetInvalidAtmosphereInfo
 `public static AtmosphereInfo GetInvalidAtmosphereInfo()`
 
-**Purpose:** Gets the current value of `invalid atmosphere info`.
+**Purpose:** Reads and returns the `invalid atmosphere info` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AtmosphereInfo.GetInvalidAtmosphereInfo();
+```
 
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `deserialize from`.
+**Purpose:** Restores `from` from serialized data.
+
+```csharp
+// Obtain an instance of AtmosphereInfo from the subsystem API first
+AtmosphereInfo atmosphereInfo = ...;
+atmosphereInfo.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `serialize to`.
+**Purpose:** Serializes `to` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of AtmosphereInfo from the subsystem API first
+AtmosphereInfo atmosphereInfo = ...;
+atmosphereInfo.SerializeTo(writer);
+```
 
 ## Usage Example
 
@@ -55,4 +66,4 @@ AtmosphereInfo.GetInvalidAtmosphereInfo();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

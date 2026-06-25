@@ -1,20 +1,14 @@
 ---
 title: "DebugSiegeBehavior"
+description: "Auto-generated class reference for DebugSiegeBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugSiegeBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugSiegeBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugSiegeBehavior`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugSiegeBehavior.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugSiegeBehavior.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SiegeDebug
 `public static void SiegeDebug()`
 
-**Purpose:** Handles logic related to `siege debug`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugSiegeBehavior.SiegeDebug();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ DebugSiegeBehavior.SiegeDebug();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

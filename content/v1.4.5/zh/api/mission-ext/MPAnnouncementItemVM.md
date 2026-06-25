@@ -1,20 +1,14 @@
 ---
 title: "MPAnnouncementItemVM"
+description: "MPAnnouncementItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPAnnouncementItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPAnnouncementItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPAnnouncementItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPAnnouncementItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Home/MPAnnouncementItemVM.cs`
 
 ## 概述
 
@@ -41,15 +35,22 @@ title: "MPAnnouncementItemVM"
 ### ExecuteInspect
 `public void ExecuteInspect()`
 
-**用途 / Purpose:** 执行 `inspect` 操作或流程。
+**用途 / Purpose:** 执行 「inspect」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPAnnouncementItemVM 实例
+MPAnnouncementItemVM mPAnnouncementItemVM = ...;
+mPAnnouncementItemVM.ExecuteInspect();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPAnnouncementItemVM();
-value.ExecuteInspect();
+// 通常从对应子系统 API 获取实例后调用
+MPAnnouncementItemVM mPAnnouncementItemVM = ...;
+mPAnnouncementItemVM.ExecuteInspect();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

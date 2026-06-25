@@ -1,20 +1,14 @@
 ---
 title: "DebugHotKeyCategory"
+description: "Auto-generated class reference for DebugHotKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugHotKeyCategory`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugHotKeyCategory
 
 **Namespace:** TaleWorlds.Engine.InputSystem
 **Module:** TaleWorlds.Engine
 **Type:** `public class DebugHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/DebugHotKeyCategory.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.InputSystem/DebugHotKeyCategory.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine.InputSystem` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var example = new DebugHotKeyCategory();
+// Obtain an instance from the relevant subsystem API
+DebugHotKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

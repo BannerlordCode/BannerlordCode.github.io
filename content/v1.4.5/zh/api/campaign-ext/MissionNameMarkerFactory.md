@@ -1,20 +1,14 @@
 ---
 title: "MissionNameMarkerFactory"
+description: "MissionNameMarkerFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNameMarkerFactory`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerFactory
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public static class MissionNameMarkerFactory`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerFactory.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerFactory.cs`
 
 ## 概述
 
@@ -37,45 +31,83 @@ title: "MissionNameMarkerFactory"
 ### AddProvider
 `public void AddProvider(Type tProvider)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `provider`。
+**用途 / Purpose:** 将 「provider」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerFactory 实例
+MissionNameMarkerFactory missionNameMarkerFactory = ...;
+missionNameMarkerFactory.AddProvider(tProvider);
+```
 
 ### RemoveProvider
 `public void RemoveProvider(Type tProvider)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `provider`。
+**用途 / Purpose:** 从当前容器或状态中移除 「provider」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerFactory 实例
+MissionNameMarkerFactory missionNameMarkerFactory = ...;
+missionNameMarkerFactory.RemoveProvider(tProvider);
+```
 
 ### PushContext
 `public static INameMarkerProviderContext PushContext(string name, bool addDefaultProviders)`
 
-**用途 / Purpose:** 处理 `push context` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionNameMarkerFactory.PushContext("example", false);
+```
 
 ### PopContext
 `public static void PopContext(string contextId)`
 
-**用途 / Purpose:** 处理 `pop context` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionNameMarkerFactory.PopContext("example");
+```
 
 ### PopContext
 `public static void PopContext(INameMarkerProviderContext context)`
 
-**用途 / Purpose:** 处理 `pop context` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionNameMarkerFactory.PopContext(context);
+```
 
 ### CollectProviders
 `public static List<MissionNameMarkerProvider> CollectProviders()`
 
-**用途 / Purpose:** 处理 `collect providers` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionNameMarkerFactory.CollectProviders();
+```
 
 ### UpdateProviders
 `public static void UpdateProviders(MissionNameMarkerProvider existingProviders, out List<MissionNameMarkerProvider> addedProviders, out List<MissionNameMarkerProvider> removedProviders)`
 
-**用途 / Purpose:** 更新 `providers` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「providers」 的最新表示。
+
+```csharp
+// 静态调用，不需要实例
+MissionNameMarkerFactory.UpdateProviders(existingProviders, addedProviders, removedProviders);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionNameMarkerFactory();
-value.AddProvider(tProvider);
+// 通常从对应子系统 API 获取实例后调用
+MissionNameMarkerFactory missionNameMarkerFactory = ...;
+missionNameMarkerFactory.AddProvider(tProvider);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

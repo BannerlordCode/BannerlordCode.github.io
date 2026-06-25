@@ -1,13 +1,7 @@
 ---
 title: "CustomPartyComponent"
+description: "CustomPartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomPartyComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -42,47 +36,97 @@ title: "CustomPartyComponent"
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** 获取 `default component banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default component banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomPartyComponent 实例
+CustomPartyComponent customPartyComponent = ...;
+var result = customPartyComponent.GetDefaultComponentBanner();
+```
 
 ### CreateCustomPartyWithPartyTemplate
 `public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**用途 / Purpose:** 创建一个 `custom party with party template` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「custom party with party template」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CustomPartyComponent.CreateCustomPartyWithPartyTemplate(position, 0, homeSettlement, name, clan, partyTemplate, owner, "example", "example", 0, false);
+```
 
 ### CreateCustomPartyWithPartyTemplate
 `public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, Hero leader, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**用途 / Purpose:** 创建一个 `custom party with party template` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「custom party with party template」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CustomPartyComponent.CreateCustomPartyWithPartyTemplate(position, 0, homeSettlement, name, clan, partyTemplate, owner, leader, "example", "example", 0, false);
+```
 
 ### CreateCustomPartyWithTroopRoster
 `public static MobileParty CreateCustomPartyWithTroopRoster(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, TroopRoster troopRoster, TroopRoster prisonerRoster, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**用途 / Purpose:** 创建一个 `custom party with troop roster` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「custom party with troop roster」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CustomPartyComponent.CreateCustomPartyWithTroopRoster(position, 0, homeSettlement, name, clan, troopRoster, prisonerRoster, owner, "example", "example", 0, false);
+```
 
 ### ConvertPartyToCustomParty
 `public static void ConvertPartyToCustomParty(MobileParty mobileParty, Settlement homeSettlement, TextObject name, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**用途 / Purpose:** 处理 `convert party to custom party` 相关逻辑。
+**用途 / Purpose:** 把「party to custom party」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+CustomPartyComponent.ConvertPartyToCustomParty(mobileParty, homeSettlement, name, owner, "example", "example", 0, false);
+```
 
 ### SetBaseSpeed
 `public void SetBaseSpeed(float speed)`
 
-**用途 / Purpose:** 设置 `base speed` 的值或状态。
+**用途 / Purpose:** 为 「base speed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CustomPartyComponent 实例
+CustomPartyComponent customPartyComponent = ...;
+customPartyComponent.SetBaseSpeed(0);
+```
 
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**用途 / Purpose:** 获取 `mount and harness visual ids for party icon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mount and harness visual ids for party icon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomPartyComponent 实例
+CustomPartyComponent customPartyComponent = ...;
+customPartyComponent.GetMountAndHarnessVisualIdsForPartyIcon(party, mountStringId, harnessStringId);
+```
 
 ### InitializeCustomPartyPropertiesWithPartyTemplate
 `public void InitializeCustomPartyPropertiesWithPartyTemplate(MobileParty mobileParty)`
 
-**用途 / Purpose:** 初始化 `custom party properties with party template` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「custom party properties with party template」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CustomPartyComponent 实例
+CustomPartyComponent customPartyComponent = ...;
+customPartyComponent.InitializeCustomPartyPropertiesWithPartyTemplate(mobileParty);
+```
 
 ### InitializeCustomPartyPropertiesWithTroopRoster
 `public void InitializeCustomPartyPropertiesWithTroopRoster(MobileParty mobileParty)`
 
-**用途 / Purpose:** 初始化 `custom party properties with troop roster` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「custom party properties with troop roster」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CustomPartyComponent 实例
+CustomPartyComponent customPartyComponent = ...;
+customPartyComponent.InitializeCustomPartyPropertiesWithTroopRoster(mobileParty);
+```
 
 ## 使用示例
 
@@ -92,4 +136,4 @@ var component = agent.GetComponent<CustomPartyComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

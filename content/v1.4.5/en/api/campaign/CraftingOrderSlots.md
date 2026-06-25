@@ -1,20 +1,14 @@
 ---
 title: "CraftingOrderSlots"
+description: "Auto-generated class reference for CraftingOrderSlots."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingOrderSlots`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingOrderSlots
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingOrderSlots`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/CraftingCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### IsThereAvailableSlot
 `public bool IsThereAvailableSlot()`
 
-**Purpose:** Handles logic related to `is there available slot`.
+**Purpose:** Determines whether the current object is in the `there available slot` state or condition.
+
+```csharp
+// Obtain an instance of CraftingOrderSlots from the subsystem API first
+CraftingOrderSlots craftingOrderSlots = ...;
+var result = craftingOrderSlots.IsThereAvailableSlot();
+```
 
 ### GetAvailableSlot
 `public int GetAvailableSlot()`
 
-**Purpose:** Gets the current value of `available slot`.
+**Purpose:** Reads and returns the `available slot` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingOrderSlots from the subsystem API first
+CraftingOrderSlots craftingOrderSlots = ...;
+var result = craftingOrderSlots.GetAvailableSlot();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingOrderSlots();
-value.IsThereAvailableSlot();
+// Typically call this after obtaining an instance from the subsystem API
+CraftingOrderSlots craftingOrderSlots = ...;
+craftingOrderSlots.IsThereAvailableSlot();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

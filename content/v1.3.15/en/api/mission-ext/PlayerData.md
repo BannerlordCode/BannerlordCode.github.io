@@ -1,13 +1,7 @@
 ---
 title: "PlayerData"
+description: "Auto-generated class reference for PlayerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -62,34 +56,65 @@ Treat `PlayerData` as a Data-style extension point: first identify who creates i
 ### FillWith
 `public void FillWith(PlayerId playerId, PlayerId ownerPlayerId, BodyProperties bodyProperties, bool isFemale, string sigil, int experience, string lastPlayerName, string username, int userId, string lastRegion, string lastGameTypes, DateTime? lastLogin, int playtime, string shownBadgeId, int gold, PlayerStatsBase stats, bool shouldLog, bool isUsingClanSigil)`
 
-**Purpose:** Handles logic related to `fill with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerData from the subsystem API first
+PlayerData playerData = ...;
+playerData.FillWith(playerId, ownerPlayerId, bodyProperties, false, "example", 0, "example", "example", 0, "example", "example", lastLogin, 0, "example", 0, stats, false, false);
+```
 
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId, PlayerId ownerPlayerId, string gameTypes)`
 
-**Purpose:** Handles logic related to `fill with new player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerData from the subsystem API first
+PlayerData playerData = ...;
+playerData.FillWithNewPlayer(playerId, ownerPlayerId, "example");
+```
 
 ### HasGameStats
 `public bool HasGameStats(string gameType)`
 
-**Purpose:** Checks whether the current object has/contains `game stats`.
+**Purpose:** Determines whether the current object already holds `game stats`.
+
+```csharp
+// Obtain an instance of PlayerData from the subsystem API first
+PlayerData playerData = ...;
+var result = playerData.HasGameStats("example");
+```
 
 ### GetGameStats
 `public PlayerStatsBase GetGameStats(string gameType)`
 
-**Purpose:** Gets the current value of `game stats`.
+**Purpose:** Reads and returns the `game stats` value held by the current object.
+
+```csharp
+// Obtain an instance of PlayerData from the subsystem API first
+PlayerData playerData = ...;
+var result = playerData.GetGameStats("example");
+```
 
 ### UpdateGameStats
 `public void UpdateGameStats(PlayerStatsBase playerGameTypeStats)`
 
-**Purpose:** Updates the state or data of `game stats`.
+**Purpose:** Recalculates and stores the latest representation of `game stats`.
+
+```csharp
+// Obtain an instance of PlayerData from the subsystem API first
+PlayerData playerData = ...;
+playerData.UpdateGameStats(playerGameTypeStats);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerData();
+// This data object is usually returned by campaign/mission APIs
+PlayerData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

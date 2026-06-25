@@ -1,20 +1,14 @@
 ---
 title: "FormationWipedMessage"
+description: "Auto-generated class reference for FormationWipedMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationWipedMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationWipedMessage
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class FormationWipedMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/FormationWipedMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/FormationWipedMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new FormationWipedMessage();
+// Obtain an instance from the relevant subsystem API
+FormationWipedMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

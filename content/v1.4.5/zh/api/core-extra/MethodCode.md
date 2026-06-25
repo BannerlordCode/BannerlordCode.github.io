@@ -1,20 +1,14 @@
 ---
 title: "MethodCode"
+description: "MethodCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MethodCode`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MethodCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
 **Type:** `public class MethodCode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/MethodCode.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/MethodCode.cs`
 
 ## 概述
 
@@ -41,30 +35,55 @@ title: "MethodCode"
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 处理 `generate into` 相关逻辑。
+**用途 / Purpose:** 生成「into」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 MethodCode 实例
+MethodCode methodCode = ...;
+methodCode.GenerateInto(codeGenerationFile);
+```
 
 ### AddLine
 `public void AddLine(string line)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `line`。
+**用途 / Purpose:** 将 「line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MethodCode 实例
+MethodCode methodCode = ...;
+methodCode.AddLine("example");
+```
 
 ### AddLines
 `public void AddLines(IEnumerable<string> lines)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `lines`。
+**用途 / Purpose:** 将 「lines」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MethodCode 实例
+MethodCode methodCode = ...;
+methodCode.AddLines(lines);
+```
 
 ### AddCodeBlock
 `public void AddCodeBlock(CodeBlock codeBlock)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `code block`。
+**用途 / Purpose:** 将 「code block」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MethodCode 实例
+MethodCode methodCode = ...;
+methodCode.AddCodeBlock(codeBlock);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MethodCode();
-value.GenerateInto(codeGenerationFile);
+// 通常从对应子系统 API 获取实例后调用
+MethodCode methodCode = ...;
+methodCode.GenerateInto(codeGenerationFile);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

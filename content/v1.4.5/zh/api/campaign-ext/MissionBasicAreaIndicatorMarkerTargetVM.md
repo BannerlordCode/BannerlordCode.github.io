@@ -1,20 +1,14 @@
 ---
 title: "MissionBasicAreaIndicatorMarkerTargetVM"
+description: "MissionBasicAreaIndicatorMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBasicAreaIndicatorMarkerTargetVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBasicAreaIndicatorMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionBasicAreaIndicatorMarkerTargetVM : MissionNameMarkerTargetVM<BasicAreaIndicator>`
 **Base:** `MissionNameMarkerTargetVM<BasicAreaIndicator>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets/MissionBasicAreaIndicatorMarkerTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets/MissionBasicAreaIndicatorMarkerTargetVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "MissionBasicAreaIndicatorMarkerTargetVM"
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBasicAreaIndicatorMarkerTargetVM 实例
+MissionBasicAreaIndicatorMarkerTargetVM missionBasicAreaIndicatorMarkerTargetVM = ...;
+missionBasicAreaIndicatorMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionBasicAreaIndicatorMarkerTargetVM();
-value.UpdatePosition(missionCamera);
+// 通常从对应子系统 API 获取实例后调用
+MissionBasicAreaIndicatorMarkerTargetVM missionBasicAreaIndicatorMarkerTargetVM = ...;
+missionBasicAreaIndicatorMarkerTargetVM.UpdatePosition(missionCamera);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

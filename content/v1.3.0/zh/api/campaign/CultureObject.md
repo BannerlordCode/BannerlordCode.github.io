@@ -1,13 +1,7 @@
 ---
 title: "CultureObject"
+description: "CultureObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CultureObject`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CultureObject
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -127,40 +121,77 @@ title: "CultureObject"
 ### HasTrait
 `public bool HasTrait(CultureTrait trait)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `trait`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「trait」。
+
+```csharp
+// 先通过子系统 API 拿到 CultureObject 实例
+CultureObject cultureObject = ...;
+var result = cultureObject.HasTrait(trait);
+```
 
 ### HasFeat
 `public bool HasFeat(FeatObject feat)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `feat`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「feat」。
+
+```csharp
+// 先通过子系统 API 拿到 CultureObject 实例
+CultureObject cultureObject = ...;
+var result = cultureObject.HasFeat(feat);
+```
 
 ### GetCulturalFeats
 `public IEnumerable<FeatObject> GetCulturalFeats(Func<FeatObject, bool> predicate = null)`
 
-**用途 / Purpose:** 获取 `cultural feats` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cultural feats」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CultureObject 实例
+CultureObject cultureObject = ...;
+var result = cultureObject.GetCulturalFeats(func<FeatObject, false);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 CultureObject 实例
+CultureObject cultureObject = ...;
+var result = cultureObject.ToString();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 CultureObject 实例
+CultureObject cultureObject = ...;
+cultureObject.Deserialize(objectManager, node);
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CultureObject 实例
+CultureObject cultureObject = ...;
+var result = cultureObject.GetName();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CultureObject();
-value.HasTrait(trait);
+// 通常从对应子系统 API 获取实例后调用
+CultureObject cultureObject = ...;
+cultureObject.HasTrait(trait);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "BehaviorStop"
+description: "Auto-generated class reference for BehaviorStop."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorStop`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorStop
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorStop from the subsystem API first
+BehaviorStop behaviorStop = ...;
+behaviorStop.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorStop();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorStop behaviorStop = ...;
+behaviorStop.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

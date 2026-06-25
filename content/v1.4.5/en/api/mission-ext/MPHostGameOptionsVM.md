@@ -1,20 +1,14 @@
 ---
 title: "MPHostGameOptionsVM"
+description: "Auto-generated class reference for MPHostGameOptionsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPHostGameOptionsVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPHostGameOptionsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPHostGameOptionsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame/MPHostGameOptionsVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame/MPHostGameOptionsVM.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### Compare
 `public int Compare(GenericHostGameOptionDataVM x, GenericHostGameOptionDataVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPHostGameOptionsVM from the subsystem API first
+MPHostGameOptionsVM mPHostGameOptionsVM = ...;
+var result = mPHostGameOptionsVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPHostGameOptionsVM from the subsystem API first
+MPHostGameOptionsVM mPHostGameOptionsVM = ...;
+mPHostGameOptionsVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPHostGameOptionsVM();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MPHostGameOptionsVM mPHostGameOptionsVM = ...;
+mPHostGameOptionsVM.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

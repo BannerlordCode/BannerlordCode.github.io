@@ -1,13 +1,7 @@
 ---
 title: "KeybindingPopupVM"
+description: "Auto-generated class reference for KeybindingPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KeybindingPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KeybindingPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KeybindingPopupVM from the subsystem API first
+KeybindingPopupVM keybindingPopupVM = ...;
+keybindingPopupVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KeybindingPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KeybindingPopupVM keybindingPopupVM = ...;
+keybindingPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

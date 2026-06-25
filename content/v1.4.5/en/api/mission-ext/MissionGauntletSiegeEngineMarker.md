@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletSiegeEngineMarker"
+description: "Auto-generated class reference for MissionGauntletSiegeEngineMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletSiegeEngineMarker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletSiegeEngineMarker
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletSiegeEngineMarker : MissionBattleUIBaseView`
 **Base:** `MissionBattleUIBaseView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSiegeEngineMarker.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSiegeEngineMarker.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSiegeEngineMarker from the subsystem API first
+MissionGauntletSiegeEngineMarker missionGauntletSiegeEngineMarker = ...;
+missionGauntletSiegeEngineMarker.OnDeploymentFinished();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSiegeEngineMarker from the subsystem API first
+MissionGauntletSiegeEngineMarker missionGauntletSiegeEngineMarker = ...;
+missionGauntletSiegeEngineMarker.OnMissionScreenTick(0);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSiegeEngineMarker from the subsystem API first
+MissionGauntletSiegeEngineMarker missionGauntletSiegeEngineMarker = ...;
+missionGauntletSiegeEngineMarker.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSiegeEngineMarker from the subsystem API first
+MissionGauntletSiegeEngineMarker missionGauntletSiegeEngineMarker = ...;
+missionGauntletSiegeEngineMarker.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletSiegeEngineMarker();
-value.OnDeploymentFinished();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletSiegeEngineMarker missionGauntletSiegeEngineMarker = ...;
+missionGauntletSiegeEngineMarker.OnDeploymentFinished();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

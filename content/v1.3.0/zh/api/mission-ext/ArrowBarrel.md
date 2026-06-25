@@ -1,13 +1,7 @@
 ---
 title: "ArrowBarrel"
+description: "ArrowBarrel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArrowBarrel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArrowBarrel
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
@@ -29,15 +23,22 @@ title: "ArrowBarrel"
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ArrowBarrel 实例
+ArrowBarrel arrowBarrel = ...;
+var result = arrowBarrel.GetDescriptionText(gameEntity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArrowBarrel();
-value.GetDescriptionText(gameEntity);
+// 通常从对应子系统 API 获取实例后调用
+ArrowBarrel arrowBarrel = ...;
+arrowBarrel.GetDescriptionText(gameEntity);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

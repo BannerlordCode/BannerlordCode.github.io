@@ -1,13 +1,7 @@
 ---
 title: "SiegeWeapon"
+description: "Auto-generated class reference for SiegeWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeWeapon`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeWeapon
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,94 +34,197 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetForcedUse
 `public void SetForcedUse(bool value)`
 
-**Purpose:** Sets the value or state of `forced use`.
+**Purpose:** Assigns a new value to `forced use` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+siegeWeapon.SetForcedUse(false);
+```
 
 ### GetSiegeEngineType
 `public abstract SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Gets the current value of `siege engine type`.
+**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.GetSiegeEngineType();
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.GetTickRequirement();
+```
 
 ### TickAuxForInit
 `public void TickAuxForInit()`
 
-**Purpose:** Handles logic related to `tick aux for init`.
+**Purpose:** Advances the `aux for init` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+siegeWeapon.TickAuxForInit();
+```
 
 ### ShouldAutoLeaveDetachmentWhenDisabled
 `public override bool ShouldAutoLeaveDetachmentWhenDisabled(BattleSideEnum sideEnum)`
 
-**Purpose:** Handles logic related to `should auto leave detachment when disabled`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.ShouldAutoLeaveDetachmentWhenDisabled(sideEnum);
+```
 
 ### AutoAttachUserToFormation
 `public override bool AutoAttachUserToFormation(BattleSideEnum sideEnum)`
 
-**Purpose:** Handles logic related to `auto attach user to formation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.AutoAttachUserToFormation(sideEnum);
+```
 
 ### HasToBeDefendedByUser
 `public override bool HasToBeDefendedByUser(BattleSideEnum sideEnum)`
 
-**Purpose:** Checks whether the current object has/contains `to be defended by user`.
+**Purpose:** Determines whether the current object already holds `to be defended by user`.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.HasToBeDefendedByUser(sideEnum);
+```
 
 ### GetTargetEntity
 `public WeakGameEntity GetTargetEntity()`
 
-**Purpose:** Gets the current value of `target entity`.
+**Purpose:** Reads and returns the `target entity` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.GetTargetEntity();
+```
 
 ### GetTargetingOffset
 `public Vec3 GetTargetingOffset()`
 
-**Purpose:** Gets the current value of `targeting offset`.
+**Purpose:** Reads and returns the `targeting offset` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.GetTargetingOffset();
+```
 
 ### GetSide
 `public BattleSideEnum GetSide()`
 
-**Purpose:** Gets the current value of `side`.
+**Purpose:** Reads and returns the `side` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.GetSide();
+```
 
 ### GetTargetGlobalVelocity
 `public Vec3 GetTargetGlobalVelocity()`
 
-**Purpose:** Gets the current value of `target global velocity`.
+**Purpose:** Reads and returns the `target global velocity` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.GetTargetGlobalVelocity();
+```
 
 ### IsDestructable
 `public bool IsDestructable()`
 
-**Purpose:** Handles logic related to `is destructable`.
+**Purpose:** Determines whether the current object is in the `destructable` state or condition.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.IsDestructable();
+```
 
 ### Entity
 `public WeakGameEntity Entity()`
 
-**Purpose:** Handles logic related to `entity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.Entity();
+```
 
 ### ComputeGlobalPhysicsBoundingBoxMinMax
 `public ValueTuple<Vec3, Vec3> ComputeGlobalPhysicsBoundingBoxMinMax()`
 
-**Purpose:** Handles logic related to `compute global physics bounding box min max`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.ComputeGlobalPhysicsBoundingBoxMinMax();
+```
 
 ### OnShipCaptured
 `public virtual void OnShipCaptured(BattleSideEnum newDefaultSide)`
 
-**Purpose:** Called when the `ship captured` event is raised.
+**Purpose:** Invoked when the `ship captured` event is raised.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+siegeWeapon.OnShipCaptured(newDefaultSide);
+```
 
 ### GetTargetFlags
 `public abstract TargetFlags GetTargetFlags()`
 
-**Purpose:** Gets the current value of `target flags`.
+**Purpose:** Reads and returns the `target flags` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.GetTargetFlags();
+```
 
 ### GetTargetValue
 `public abstract float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** Gets the current value of `target value`.
+**Purpose:** Reads and returns the `target value` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeWeapon from the subsystem API first
+SiegeWeapon siegeWeapon = ...;
+var result = siegeWeapon.GetTargetValue(weaponPos);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSiegeWeapon();
+// Typically obtained from a subsystem API or factory
+SiegeWeapon instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

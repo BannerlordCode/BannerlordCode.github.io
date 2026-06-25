@@ -1,20 +1,14 @@
 ---
 title: "AtmosphereGrid"
+description: "AtmosphereGrid 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AtmosphereGrid`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AtmosphereGrid
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class AtmosphereGrid`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/AtmosphereGrid.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/AtmosphereGrid.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "AtmosphereGrid"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 AtmosphereGrid 实例
+AtmosphereGrid atmosphereGrid = ...;
+atmosphereGrid.Initialize();
+```
 
 ### GetInterpolatedStateInfo
 `public AtmosphereState GetInterpolatedStateInfo(Vec3 pos)`
 
-**用途 / Purpose:** 获取 `interpolated state info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「interpolated state info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AtmosphereGrid 实例
+AtmosphereGrid atmosphereGrid = ...;
+var result = atmosphereGrid.GetInterpolatedStateInfo(pos);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AtmosphereGrid();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+AtmosphereGrid atmosphereGrid = ...;
+atmosphereGrid.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

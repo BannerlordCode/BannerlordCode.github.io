@@ -1,20 +1,14 @@
 ---
 title: "PreloadScreen"
+description: "PreloadScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PreloadScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PreloadScreen
 
 **Namespace:** SandBox.View
 **Module:** SandBox.View
 **Type:** `public class PreloadScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View/PreloadScreen.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View/PreloadScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "PreloadScreen"
 ## 使用示例
 
 ```csharp
-var value = new PreloadScreen();
+// 从对应子系统 API 获取实例
+PreloadScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

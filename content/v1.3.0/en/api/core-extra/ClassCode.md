@@ -1,13 +1,7 @@
 ---
 title: "ClassCode"
+description: "Auto-generated class reference for ClassCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClassCode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClassCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -46,40 +40,77 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Handles logic related to `generate into`.
+**Purpose:** Generates an instance, data, or representation of `into`.
+
+```csharp
+// Obtain an instance of ClassCode from the subsystem API first
+ClassCode classCode = ...;
+classCode.GenerateInto(codeGenerationFile);
+```
 
 ### AddVariable
 `public void AddVariable(VariableCode variableCode)`
 
 **Purpose:** Adds `variable` to the current collection or state.
 
+```csharp
+// Obtain an instance of ClassCode from the subsystem API first
+ClassCode classCode = ...;
+classCode.AddVariable(variableCode);
+```
+
 ### AddNestedClass
 `public void AddNestedClass(ClassCode clasCode)`
 
 **Purpose:** Adds `nested class` to the current collection or state.
+
+```csharp
+// Obtain an instance of ClassCode from the subsystem API first
+ClassCode classCode = ...;
+classCode.AddNestedClass(clasCode);
+```
 
 ### AddMethod
 `public void AddMethod(MethodCode methodCode)`
 
 **Purpose:** Adds `method` to the current collection or state.
 
+```csharp
+// Obtain an instance of ClassCode from the subsystem API first
+ClassCode classCode = ...;
+classCode.AddMethod(methodCode);
+```
+
 ### AddConsturctor
 `public void AddConsturctor(ConstructorCode constructorCode)`
 
 **Purpose:** Adds `consturctor` to the current collection or state.
+
+```csharp
+// Obtain an instance of ClassCode from the subsystem API first
+ClassCode classCode = ...;
+classCode.AddConsturctor(constructorCode);
+```
 
 ### AddInterface
 `public void AddInterface(string interfaceName)`
 
 **Purpose:** Adds `interface` to the current collection or state.
 
+```csharp
+// Obtain an instance of ClassCode from the subsystem API first
+ClassCode classCode = ...;
+classCode.AddInterface("example");
+```
+
 ## Usage Example
 
 ```csharp
-var value = new ClassCode();
-value.GenerateInto(codeGenerationFile);
+// Typically call this after obtaining an instance from the subsystem API
+ClassCode classCode = ...;
+classCode.GenerateInto(codeGenerationFile);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

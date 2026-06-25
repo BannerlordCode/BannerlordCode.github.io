@@ -1,20 +1,14 @@
 ---
 title: "TextLayout"
+description: "Auto-generated class reference for TextLayout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextLayout`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextLayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class TextLayout : ILayout`
 **Base:** `ILayout`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/TextLayout.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/TextLayout.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new TextLayout();
+// Obtain an instance from the relevant subsystem API
+TextLayout instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

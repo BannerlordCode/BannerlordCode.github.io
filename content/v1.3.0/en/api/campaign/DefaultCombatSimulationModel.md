@@ -1,13 +1,7 @@
 ---
 title: "DefaultCombatSimulationModel"
+description: "Auto-generated class reference for DefaultCombatSimulationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCombatSimulationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCombatSimulationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,47 +23,101 @@ Treat `DefaultCombatSimulationModel` as a Model-style extension point: first ide
 ### SimulateHit
 `public override ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle)`
 
-**Purpose:** Handles logic related to `simulate hit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+var result = defaultCombatSimulationModel.SimulateHit(strikerTroop, struckTroop, strikerParty, struckParty, 0, battle);
+```
 
 ### SimulateHit
 `public override ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
 
-**Purpose:** Handles logic related to `simulate hit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+var result = defaultCombatSimulationModel.SimulateHit(strikerShip, struckShip, strikerParty, struckParty, siegeEngine, 0, battle, troopCasualties);
+```
 
 ### GetMaximumSiegeEquipmentProgress
 `public override float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
 
-**Purpose:** Gets the current value of `maximum siege equipment progress`.
+**Purpose:** Reads and returns the `maximum siege equipment progress` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+var result = defaultCombatSimulationModel.GetMaximumSiegeEquipmentProgress(settlement);
+```
 
 ### GetNumberOfEquipmentsBuilt
 `public override int GetNumberOfEquipmentsBuilt(Settlement settlement)`
 
-**Purpose:** Gets the current value of `number of equipments built`.
+**Purpose:** Reads and returns the `number of equipments built` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+var result = defaultCombatSimulationModel.GetNumberOfEquipmentsBuilt(settlement);
+```
 
 ### GetSettlementAdvantage
 `public override float GetSettlementAdvantage(Settlement settlement)`
 
-**Purpose:** Gets the current value of `settlement advantage`.
+**Purpose:** Reads and returns the `settlement advantage` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+var result = defaultCombatSimulationModel.GetSettlementAdvantage(settlement);
+```
 
 ### GetSimulationTicksForBattleRound
 `public override ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)`
 
-**Purpose:** Gets the current value of `simulation ticks for battle round`.
+**Purpose:** Reads and returns the `simulation ticks for battle round` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+var result = defaultCombatSimulationModel.GetSimulationTicksForBattleRound(mapEvent);
+```
 
 ### GetBattleAdvantage
 `public override void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
 
-**Purpose:** Gets the current value of `battle advantage`.
+**Purpose:** Reads and returns the `battle advantage` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+defaultCombatSimulationModel.GetBattleAdvantage(mapEvent, defenderAdvantage, attackerAdvantage);
+```
 
 ### GetShipSiegeEngineHitChance
 `public override float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
 
-**Purpose:** Gets the current value of `ship siege engine hit chance`.
+**Purpose:** Reads and returns the `ship siege engine hit chance` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+var result = defaultCombatSimulationModel.GetShipSiegeEngineHitChance(ship, siegeEngineType, battleSide);
+```
 
 ### GetPursuitRoundCount
 `public override int GetPursuitRoundCount(MapEvent mapEvent)`
 
-**Purpose:** Gets the current value of `pursuit round count`.
+**Purpose:** Reads and returns the `pursuit round count` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatSimulationModel from the subsystem API first
+DefaultCombatSimulationModel defaultCombatSimulationModel = ...;
+var result = defaultCombatSimulationModel.GetPursuitRoundCount(mapEvent);
+```
 
 ## Usage Example
 
@@ -79,4 +127,4 @@ Game.Current.ReplaceModel<DefaultCombatSimulationModel>(new MyDefaultCombatSimul
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

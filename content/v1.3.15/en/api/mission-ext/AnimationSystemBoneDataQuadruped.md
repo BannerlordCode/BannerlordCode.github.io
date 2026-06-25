@@ -1,13 +1,7 @@
 ---
 title: "AnimationSystemBoneDataQuadruped"
+description: "Auto-generated class reference for AnimationSystemBoneDataQuadruped."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimationSystemBoneDataQuadruped`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AnimationSystemBoneDataQuadruped
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new AnimationSystemBoneDataQuadruped();
+// Obtain an instance from the relevant subsystem API
+AnimationSystemBoneDataQuadruped instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

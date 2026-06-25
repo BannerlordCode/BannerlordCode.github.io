@@ -1,20 +1,14 @@
 ---
 title: "CoroutineManager"
+description: "CoroutineManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CoroutineManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CoroutineManager
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class CoroutineManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/CoroutineManager.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/CoroutineManager.cs`
 
 ## 概述
 
@@ -35,12 +29,24 @@ title: "CoroutineManager"
 ### AddCoroutine
 `public void AddCoroutine(CoroutineDelegate coroutineMethod)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `coroutine`。
+**用途 / Purpose:** 将 「coroutine」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CoroutineManager 实例
+CoroutineManager coroutineManager = ...;
+coroutineManager.AddCoroutine(coroutineMethod);
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 CoroutineManager 实例
+CoroutineManager coroutineManager = ...;
+coroutineManager.Tick();
+```
 
 ## 使用示例
 
@@ -50,4 +56,4 @@ var manager = CoroutineManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

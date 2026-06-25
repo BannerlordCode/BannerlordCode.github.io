@@ -1,13 +1,7 @@
 ---
 title: "TournamentMissionViews"
+description: "Auto-generated class reference for TournamentMissionViews."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentMissionViews`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentMissionViews
 
 **Namespace:** SandBox.View.Missions.Tournaments
@@ -29,22 +23,42 @@ Start from namespace `SandBox.View.Missions.Tournaments` to place it in the stac
 ### OpenTournamentArcheryMission
 `public static MissionView OpenTournamentArcheryMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open tournament archery mission`.
+**Purpose:** Opens the resource or UI associated with `tournament archery mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionViews.OpenTournamentArcheryMission(mission);
+```
 
 ### OpenTournamentFightMission
 `public static MissionView OpenTournamentFightMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open tournament fight mission`.
+**Purpose:** Opens the resource or UI associated with `tournament fight mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionViews.OpenTournamentFightMission(mission);
+```
 
 ### OpenTournamentHorseRaceMission
 `public static MissionView OpenTournamentHorseRaceMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open tournament horse race mission`.
+**Purpose:** Opens the resource or UI associated with `tournament horse race mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionViews.OpenTournamentHorseRaceMission(mission);
+```
 
 ### OpenTournamentJoustingMission
 `public static MissionView OpenTournamentJoustingMission(Mission mission)`
 
-**Purpose:** Handles logic related to `open tournament jousting mission`.
+**Purpose:** Opens the resource or UI associated with `tournament jousting mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionViews.OpenTournamentJoustingMission(mission);
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ TournamentMissionViews.OpenTournamentArcheryMission(mission);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

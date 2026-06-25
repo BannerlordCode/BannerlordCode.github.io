@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleFormationItemListPanel"
+description: "Auto-generated class reference for OrderOfBattleFormationItemListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationItemListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationItemListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
@@ -40,9 +34,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderO
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleFormationItemListPanel();
+// Obtain an instance from the relevant subsystem API
+OrderOfBattleFormationItemListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

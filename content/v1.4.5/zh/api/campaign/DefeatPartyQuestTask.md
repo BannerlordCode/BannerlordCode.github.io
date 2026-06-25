@@ -1,20 +1,14 @@
 ---
 title: "DefeatPartyQuestTask"
+description: "DefeatPartyQuestTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefeatPartyQuestTask`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefeatPartyQuestTask
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues.IssueQuestTasks
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefeatPartyQuestTask : QuestTaskBase`
 **Base:** `QuestTaskBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues.IssueQuestTasks/DefeatPartyQuestTask.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues.IssueQuestTasks/DefeatPartyQuestTask.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "DefeatPartyQuestTask"
 ### PartyConditionDelegateType
 `public delegate bool PartyConditionDelegateType(PartyBase defeatedParty)`
 
-**用途 / Purpose:** 处理 `party condition delegate type` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefeatPartyQuestTask 实例
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+var result = defeatPartyQuestTask.PartyConditionDelegateType(defeatedParty);
+```
 
 ### OnPartyDefeatedDelegateType
 `public delegate void OnPartyDefeatedDelegateType(PartyBase party)`
 
-**用途 / Purpose:** 当 `party defeated delegate type` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「party defeated delegate type」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DefeatPartyQuestTask 实例
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+defeatPartyQuestTask.OnPartyDefeatedDelegateType(party);
+```
 
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**用途 / Purpose:** 当 `map event ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map event ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DefeatPartyQuestTask 实例
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+defeatPartyQuestTask.OnMapEventEnded(mapEvent);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 设置 `references` 的值或状态。
+**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 DefeatPartyQuestTask 实例
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+defeatPartyQuestTask.SetReferences();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefeatPartyQuestTask();
-value.PartyConditionDelegateType(defeatedParty);
+// 通常从对应子系统 API 获取实例后调用
+DefeatPartyQuestTask defeatPartyQuestTask = ...;
+defeatPartyQuestTask.PartyConditionDelegateType(defeatedParty);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

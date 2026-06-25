@@ -1,13 +1,7 @@
 ---
 title: "CharacterWithActionViewModel"
+description: "CharacterWithActionViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterWithActionViewModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterWithActionViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -27,10 +21,11 @@ title: "CharacterWithActionViewModel"
 ## 使用示例
 
 ```csharp
-var vm = new CharacterWithActionViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+CharacterWithActionViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

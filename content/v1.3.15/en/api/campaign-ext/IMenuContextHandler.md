@@ -1,18 +1,12 @@
 ---
 title: "IMenuContextHandler"
+description: "Auto-generated class reference for IMenuContextHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMenuContextHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMenuContextHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMenuContextHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/IMenuContextHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IMenuContextHandler` as a Handler-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-IMenuContextHandler implementation = GetMenuContextHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIMenuContextHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

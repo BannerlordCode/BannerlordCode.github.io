@@ -1,13 +1,7 @@
 ---
 title: "KingdomDecisionsVM"
+description: "Auto-generated class reference for KingdomDecisionsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomDecisionsVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDecisionsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions
@@ -41,45 +35,88 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomDecisionsVM from the subsystem API first
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.RefreshValues();
+```
 
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of KingdomDecisionsVM from the subsystem API first
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.OnFrameTick();
+```
 
 ### HandleNextDecision
 `public void HandleNextDecision()`
 
-**Purpose:** Handles the `next decision` event or callback.
+**Purpose:** Executes the response logic associated with `next decision`.
+
+```csharp
+// Obtain an instance of KingdomDecisionsVM from the subsystem API first
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.HandleNextDecision();
+```
 
 ### HandleDecision
 `public void HandleDecision(KingdomDecision curDecision)`
 
-**Purpose:** Handles the `decision` event or callback.
+**Purpose:** Executes the response logic associated with `decision`.
+
+```csharp
+// Obtain an instance of KingdomDecisionsVM from the subsystem API first
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.HandleDecision(curDecision);
+```
 
 ### RefreshWith
 `public void RefreshWith(KingdomDecision decision)`
 
-**Purpose:** Refreshes the display or cache of `with`.
+**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomDecisionsVM from the subsystem API first
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.RefreshWith(decision);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of KingdomDecisionsVM from the subsystem API first
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomDecisionsVM from the subsystem API first
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomDecisionsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomDecisionsVM kingdomDecisionsVM = ...;
+kingdomDecisionsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

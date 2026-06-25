@@ -1,20 +1,14 @@
 ---
 title: "TickManager"
+description: "TickManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TickManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TickManager
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class TickManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/TickManager.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/TickManager.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "TickManager"
 ### TickDelegate
 `public delegate void TickDelegate()`
 
-**用途 / Purpose:** 处理 `tick delegate` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「delegate」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TickManager 实例
+TickManager tickManager = ...;
+tickManager.TickDelegate();
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TickManager 实例
+TickManager tickManager = ...;
+tickManager.Tick();
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var manager = TickManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

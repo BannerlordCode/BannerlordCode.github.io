@@ -1,18 +1,12 @@
 ---
 title: "IInteractionInterfaceHandler"
+description: "IInteractionInterfaceHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IInteractionInterfaceHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IInteractionInterfaceHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IInteractionInterfaceHandler`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade.ViewModelCollection/Missions/Interaction/IInteractionInterfaceHandler.cs`
 
@@ -27,9 +21,10 @@ title: "IInteractionInterfaceHandler"
 ## 使用示例
 
 ```csharp
-IInteractionInterfaceHandler implementation = GetInteractionInterfaceHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIInteractionInterfaceHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

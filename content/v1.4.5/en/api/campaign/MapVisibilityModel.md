@@ -1,20 +1,14 @@
 ---
 title: "MapVisibilityModel"
+description: "Auto-generated class reference for MapVisibilityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapVisibilityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapVisibilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class MapVisibilityModel : MBGameModel<MapVisibilityModel>`
 **Base:** `MBGameModel<MapVisibilityModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MapVisibilityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MapVisibilityModel.cs`
 
 ## Overview
 
@@ -29,34 +23,65 @@ Treat `MapVisibilityModel` as a Model-style extension point: first identify who 
 ### MaximumSeeingRange
 `public abstract float MaximumSeeingRange()`
 
-**Purpose:** Handles logic related to `maximum seeing range`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.MaximumSeeingRange();
+```
 
 ### GetPartySeeingRangeBase
 `public abstract float GetPartySeeingRangeBase(MobileParty party)`
 
-**Purpose:** Gets the current value of `party seeing range base`.
+**Purpose:** Reads and returns the `party seeing range base` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySeeingRangeBase(party);
+```
 
 ### GetPartySpottingRange
 `public abstract ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `party spotting range`.
+**Purpose:** Reads and returns the `party spotting range` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySpottingRange(party, false);
+```
 
 ### GetPartySpottingRatioForMainPartySeeingRange
 `public abstract float GetPartySpottingRatioForMainPartySeeingRange(MobileParty party)`
 
-**Purpose:** Gets the current value of `party spotting ratio for main party seeing range`.
+**Purpose:** Reads and returns the `party spotting ratio for main party seeing range` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetPartySpottingRatioForMainPartySeeingRange(party);
+```
 
 ### GetHideoutSpottingDistance
 `public abstract float GetHideoutSpottingDistance()`
 
-**Purpose:** Gets the current value of `hideout spotting distance`.
+**Purpose:** Reads and returns the `hideout spotting distance` value held by the current object.
+
+```csharp
+// Obtain an instance of MapVisibilityModel from the subsystem API first
+MapVisibilityModel mapVisibilityModel = ...;
+var result = mapVisibilityModel.GetHideoutSpottingDistance();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapVisibilityModel();
+// Typically obtained from a subsystem API or factory
+MapVisibilityModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

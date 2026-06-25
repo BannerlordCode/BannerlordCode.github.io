@@ -1,20 +1,14 @@
 ---
 title: "LineSegment2D"
+description: "LineSegment2D 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LineSegment2D`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LineSegment2D
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct LineSegment2D`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/LineSegment2D.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/LineSegment2D.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "LineSegment2D"
 ### LineSegment2D
 `public struct LineSegment2D(Vec2 point1, Vec2 point2)`
 
-**用途 / Purpose:** 处理 `line segment2 d` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LineSegment2D 实例
+LineSegment2D lineSegment2D = ...;
+var result = lineSegment2D.LineSegment2D(point1, point2);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LineSegment2D();
-value.LineSegment2D(point1, point2);
+// 通常从对应子系统 API 获取实例后调用
+LineSegment2D lineSegment2D = ...;
+lineSegment2D.LineSegment2D(point1, point2);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

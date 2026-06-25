@@ -1,20 +1,14 @@
 ---
 title: "PatrolPartyComponent"
+description: "PatrolPartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PatrolPartyComponent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PatrolPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PatrolPartyComponent : PartyComponent`
 **Base:** `PartyComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/PatrolPartyComponent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/PatrolPartyComponent.cs`
 
 ## 概述
 
@@ -35,17 +29,34 @@ title: "PatrolPartyComponent"
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** 获取 `default component banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default component banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolPartyComponent 实例
+PatrolPartyComponent patrolPartyComponent = ...;
+var result = patrolPartyComponent.GetDefaultComponentBanner();
+```
 
 ### CreatePatrolParty
 `public static MobileParty CreatePatrolParty(string stringId, CampaignVec2 position, float spawnRadius, Settlement homeSettlement, PartyTemplateObject template)`
 
-**用途 / Purpose:** 创建一个 `patrol party` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「patrol party」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+PatrolPartyComponent.CreatePatrolParty("example", position, 0, homeSettlement, template);
+```
 
 ### SortRoster
 `public void SortRoster()`
 
-**用途 / Purpose:** 处理 `sort roster` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolPartyComponent 实例
+PatrolPartyComponent patrolPartyComponent = ...;
+patrolPartyComponent.SortRoster();
+```
 
 ## 使用示例
 
@@ -55,4 +66,4 @@ var component = agent.GetComponent<PatrolPartyComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

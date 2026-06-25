@@ -1,23 +1,18 @@
 ---
 title: "LoadingWindow"
+description: "Auto-generated class reference for LoadingWindow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadingWindow`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LoadingWindow
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class LoadingWindow`
-**Area:** engine
+**Base:** none
+**File:** `TaleWorlds.Engine/LoadingWindow.cs`
 
 ## Overview
 
-`LoadingWindow` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LoadingWindow` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,31 +30,49 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Destroy
 `public static void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.Destroy();
+```
 
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**Purpose:** Handles logic related to `disable global loading window`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.DisableGlobalLoadingWindow();
+```
 
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**Purpose:** Handles logic related to `enable global loading window`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.EnableGlobalLoadingWindow();
+```
 
 ### SetCurrentModeIsMultiplayer
 `public static void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**Purpose:** Sets the value or state of `current mode is multiplayer`.
+**Purpose:** Assigns a new value to `current mode is multiplayer` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.SetCurrentModeIsMultiplayer(false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 LoadingWindow.Destroy();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

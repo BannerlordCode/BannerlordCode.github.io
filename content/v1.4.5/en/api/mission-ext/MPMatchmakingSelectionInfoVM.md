@@ -1,20 +1,14 @@
 ---
 title: "MPMatchmakingSelectionInfoVM"
+description: "Auto-generated class reference for MPMatchmakingSelectionInfoVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPMatchmakingSelectionInfoVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPMatchmakingSelectionInfoVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPMatchmakingSelectionInfoVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame/MPMatchmakingSelectionInfoVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.OfficialGame/MPMatchmakingSelectionInfoVM.cs`
 
 ## Overview
 
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPMatchmakingSelectionInfoVM from the subsystem API first
+MPMatchmakingSelectionInfoVM mPMatchmakingSelectionInfoVM = ...;
+mPMatchmakingSelectionInfoVM.RefreshValues();
+```
 
 ### UpdateForGameType
 `public void UpdateForGameType(string gameTypeStr)`
 
-**Purpose:** Updates the state or data of `for game type`.
+**Purpose:** Recalculates and stores the latest representation of `for game type`.
+
+```csharp
+// Obtain an instance of MPMatchmakingSelectionInfoVM from the subsystem API first
+MPMatchmakingSelectionInfoVM mPMatchmakingSelectionInfoVM = ...;
+mPMatchmakingSelectionInfoVM.UpdateForGameType("example");
+```
 
 ### SetEnabled
 `public void SetEnabled(bool isEnabled)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPMatchmakingSelectionInfoVM from the subsystem API first
+MPMatchmakingSelectionInfoVM mPMatchmakingSelectionInfoVM = ...;
+mPMatchmakingSelectionInfoVM.SetEnabled(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPMatchmakingSelectionInfoVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPMatchmakingSelectionInfoVM mPMatchmakingSelectionInfoVM = ...;
+mPMatchmakingSelectionInfoVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

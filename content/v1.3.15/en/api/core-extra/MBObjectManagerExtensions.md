@@ -1,23 +1,18 @@
 ---
 title: "MBObjectManagerExtensions"
+description: "Auto-generated class reference for MBObjectManagerExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBObjectManagerExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBObjectManagerExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBObjectManagerExtensions`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/MBObjectManagerExtensions.cs`
 
 ## Overview
 
-`MBObjectManagerExtensions` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBObjectManagerExtensions` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### LoadXML
 `public static void LoadXML(this MBObjectManager objectManager, string id, bool skipXmlFilterForEditor = false)`
 
-**Purpose:** Loads `x m l` data.
+**Purpose:** Reads `x m l` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MBObjectManagerExtensions.LoadXML(objectManager, "example", false);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBObjectManagerExtensions.LoadXML(objectManager, "example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

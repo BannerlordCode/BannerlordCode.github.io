@@ -1,20 +1,14 @@
 ---
 title: "IMessageCommunicator"
+description: "Auto-generated class reference for IMessageCommunicator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMessageCommunicator`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMessageCommunicator
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public interface IMessageCommunicator`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/IMessageCommunicator.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/IMessageCommunicator.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ## Usage Example
 
 ```csharp
-IMessageCommunicator implementation = GetMessageCommunicatorImplementation();
+// Usually obtained through DI or a factory method
+IIMessageCommunicator service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

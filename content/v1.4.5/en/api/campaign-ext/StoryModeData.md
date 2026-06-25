@@ -1,20 +1,14 @@
 ---
 title: "StoryModeData"
+description: "Auto-generated class reference for StoryModeData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeData
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public static class StoryModeData`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/StoryModeData.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/StoryModeData.cs`
 
 ## Overview
 
@@ -42,24 +36,40 @@ Treat `StoryModeData` as a Data-style extension point: first identify who create
 ### IsKingdomImperial
 `public static bool IsKingdomImperial(Kingdom kingdomToCheck)`
 
-**Purpose:** Handles logic related to `is kingdom imperial`.
+**Purpose:** Determines whether the current object is in the `kingdom imperial` state or condition.
+
+```csharp
+// Static call; no instance required
+StoryModeData.IsKingdomImperial(kingdomToCheck);
+```
 
 ### IsConspiracyTroop
 `public static bool IsConspiracyTroop(CharacterObject troop)`
 
-**Purpose:** Handles logic related to `is conspiracy troop`.
+**Purpose:** Determines whether the current object is in the `conspiracy troop` state or condition.
+
+```csharp
+// Static call; no instance required
+StoryModeData.IsConspiracyTroop(troop);
+```
 
 ### OnGameEnd
 `public static void OnGameEnd()`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Static call; no instance required
+StoryModeData.OnGameEnd();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StoryModeData();
+// This data object is usually returned by campaign/mission APIs
+StoryModeData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

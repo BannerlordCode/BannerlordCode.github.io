@@ -1,20 +1,14 @@
 ---
 title: "FindingSecondBannerPieceSceneNotificationItem"
+description: "Auto-generated class reference for FindingSecondBannerPieceSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FindingSecondBannerPieceSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FindingSecondBannerPieceSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FindingSecondBannerPieceSceneNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/FindingSecondBannerPieceSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/FindingSecondBannerPieceSceneNotificationItem.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetBanners
 `public override Banner GetBanners()`
 
-**Purpose:** Gets the current value of `banners`.
+**Purpose:** Reads and returns the `banners` value held by the current object.
+
+```csharp
+// Obtain an instance of FindingSecondBannerPieceSceneNotificationItem from the subsystem API first
+FindingSecondBannerPieceSceneNotificationItem findingSecondBannerPieceSceneNotificationItem = ...;
+var result = findingSecondBannerPieceSceneNotificationItem.GetBanners();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FindingSecondBannerPieceSceneNotificationItem();
-value.GetBanners();
+// Typically call this after obtaining an instance from the subsystem API
+FindingSecondBannerPieceSceneNotificationItem findingSecondBannerPieceSceneNotificationItem = ...;
+findingSecondBannerPieceSceneNotificationItem.GetBanners();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

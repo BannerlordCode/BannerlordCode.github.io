@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentLabelView"
+description: "MissionAgentLabelView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentLabelView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentLabelView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentLabelView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionAgentLabelView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionAgentLabelView.cs`
 
 ## 概述
 
@@ -29,74 +23,153 @@ title: "MissionAgentLabelView"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnMissionTick(0);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnRemoveBehavior();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnMissionScreenFinalize();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnAgentBuild(agent, banner);
+```
 
 ### OnAssignPlayerAsSergeantOfFormation
 `public override void OnAssignPlayerAsSergeantOfFormation(Agent agent)`
 
-**用途 / Purpose:** 当 `assign player as sergeant of formation` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「assign player as sergeant of formation」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnAssignPlayerAsSergeantOfFormation(agent);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnClearScene();
+```
 
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**用途 / Purpose:** 当 `mission mode change` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission mode change」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnMissionModeChange(oldMissionMode, false);
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**用途 / Purpose:** 当 `agent team changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent team changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLabelView 实例
+MissionAgentLabelView missionAgentLabelView = ...;
+missionAgentLabelView.OnPhotoModeDeactivated();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionAgentLabelView();
+// 从子系统 API 或场景中获取该视图
+MissionAgentLabelView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

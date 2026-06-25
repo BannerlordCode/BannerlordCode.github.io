@@ -1,23 +1,18 @@
 ---
 title: "CustomField"
+description: "Auto-generated class reference for CustomField."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomField`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomField
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class CustomField`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Definition/CustomField.cs`
 
 ## Overview
 
-`CustomField` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CustomField` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -33,10 +28,10 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new CustomField();
+// Obtain an instance from the relevant subsystem API
+CustomField instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

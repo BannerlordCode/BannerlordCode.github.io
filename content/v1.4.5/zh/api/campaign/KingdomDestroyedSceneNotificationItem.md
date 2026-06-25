@@ -1,20 +1,14 @@
 ---
 title: "KingdomDestroyedSceneNotificationItem"
+description: "KingdomDestroyedSceneNotificationItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KingdomDestroyedSceneNotificationItem`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomDestroyedSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomDestroyedSceneNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/KingdomDestroyedSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/KingdomDestroyedSceneNotificationItem.cs`
 
 ## 概述
 
@@ -36,20 +30,33 @@ title: "KingdomDestroyedSceneNotificationItem"
 ### GetBanners
 `public override Banner GetBanners()`
 
-**用途 / Purpose:** 获取 `banners` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banners」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDestroyedSceneNotificationItem 实例
+KingdomDestroyedSceneNotificationItem kingdomDestroyedSceneNotificationItem = ...;
+var result = kingdomDestroyedSceneNotificationItem.GetBanners();
+```
 
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**用途 / Purpose:** 获取 `scene notification characters` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene notification characters」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 KingdomDestroyedSceneNotificationItem 实例
+KingdomDestroyedSceneNotificationItem kingdomDestroyedSceneNotificationItem = ...;
+var result = kingdomDestroyedSceneNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KingdomDestroyedSceneNotificationItem();
-value.GetBanners();
+// 通常从对应子系统 API 获取实例后调用
+KingdomDestroyedSceneNotificationItem kingdomDestroyedSceneNotificationItem = ...;
+kingdomDestroyedSceneNotificationItem.GetBanners();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

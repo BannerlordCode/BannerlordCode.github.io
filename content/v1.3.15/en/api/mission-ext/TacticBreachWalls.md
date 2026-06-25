@@ -1,13 +1,7 @@
 ---
 title: "TacticBreachWalls"
+description: "Auto-generated class reference for TacticBreachWalls."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticBreachWalls`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TacticBreachWalls
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticBreachWalls from the subsystem API first
+TacticBreachWalls tacticBreachWalls = ...;
+tacticBreachWalls.TickOccasionally();
+```
 
 ### GetRetreatThresholdRatio
 `public float GetRetreatThresholdRatio(List<SiegeLane> lanes, int insideFormationCount)`
 
-**Purpose:** Gets the current value of `retreat threshold ratio`.
+**Purpose:** Reads and returns the `retreat threshold ratio` value held by the current object.
+
+```csharp
+// Obtain an instance of TacticBreachWalls from the subsystem API first
+TacticBreachWalls tacticBreachWalls = ...;
+var result = tacticBreachWalls.GetRetreatThresholdRatio(lanes, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticBreachWalls();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+TacticBreachWalls tacticBreachWalls = ...;
+tacticBreachWalls.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

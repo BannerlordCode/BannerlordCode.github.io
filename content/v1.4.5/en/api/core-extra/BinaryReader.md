@@ -1,20 +1,14 @@
 ---
 title: "BinaryReader"
+description: "Auto-generated class reference for BinaryReader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BinaryReader`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BinaryReader
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class BinaryReader : IReader`
 **Base:** `IReader`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/BinaryReader.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/BinaryReader.cs`
 
 ## Overview
 
@@ -35,115 +29,242 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ReadSerializableObject
 `public ISerializableObject ReadSerializableObject()`
 
-**Purpose:** Handles logic related to `read serializable object`.
+**Purpose:** Reads the data or state of `serializable object`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadSerializableObject();
+```
 
 ### Read3ByteInt
 `public int Read3ByteInt()`
 
-**Purpose:** Handles logic related to `read3 byte int`.
+**Purpose:** Reads the data or state of `3 byte int`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.Read3ByteInt();
+```
 
 ### ReadInt
 `public int ReadInt()`
 
-**Purpose:** Handles logic related to `read int`.
+**Purpose:** Reads the data or state of `int`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadInt();
+```
 
 ### ReadShort
 `public short ReadShort()`
 
-**Purpose:** Handles logic related to `read short`.
+**Purpose:** Reads the data or state of `short`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadShort();
+```
 
 ### ReadFloats
 `public void ReadFloats(float output, int count)`
 
-**Purpose:** Handles logic related to `read floats`.
+**Purpose:** Reads the data or state of `floats`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+binaryReader.ReadFloats(0, 0);
+```
 
 ### ReadShorts
 `public void ReadShorts(short output, int count)`
 
-**Purpose:** Handles logic related to `read shorts`.
+**Purpose:** Reads the data or state of `shorts`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+binaryReader.ReadShorts(0, 0);
+```
 
 ### ReadString
 `public string ReadString()`
 
-**Purpose:** Handles logic related to `read string`.
+**Purpose:** Reads the data or state of `string`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadString();
+```
 
 ### ReadColor
 `public Color ReadColor()`
 
-**Purpose:** Handles logic related to `read color`.
+**Purpose:** Reads the data or state of `color`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadColor();
+```
 
 ### ReadBool
 `public bool ReadBool()`
 
-**Purpose:** Handles logic related to `read bool`.
+**Purpose:** Reads the data or state of `bool`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadBool();
+```
 
 ### ReadFloat
 `public float ReadFloat()`
 
-**Purpose:** Handles logic related to `read float`.
+**Purpose:** Reads the data or state of `float`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadFloat();
+```
 
 ### ReadUInt
 `public uint ReadUInt()`
 
-**Purpose:** Handles logic related to `read u int`.
+**Purpose:** Reads the data or state of `u int`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadUInt();
+```
 
 ### ReadULong
 `public ulong ReadULong()`
 
-**Purpose:** Handles logic related to `read u long`.
+**Purpose:** Reads the data or state of `u long`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadULong();
+```
 
 ### ReadLong
 `public long ReadLong()`
 
-**Purpose:** Handles logic related to `read long`.
+**Purpose:** Reads the data or state of `long`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadLong();
+```
 
 ### ReadByte
 `public byte ReadByte()`
 
-**Purpose:** Handles logic related to `read byte`.
+**Purpose:** Reads the data or state of `byte`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadByte();
+```
 
 ### ReadBytes
 `public byte ReadBytes(int length)`
 
-**Purpose:** Handles logic related to `read bytes`.
+**Purpose:** Reads the data or state of `bytes`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadBytes(0);
+```
 
 ### ReadVec2
 `public Vec2 ReadVec2()`
 
-**Purpose:** Handles logic related to `read vec2`.
+**Purpose:** Reads the data or state of `vec2`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadVec2();
+```
 
 ### ReadVec3
 `public Vec3 ReadVec3()`
 
-**Purpose:** Handles logic related to `read vec3`.
+**Purpose:** Reads the data or state of `vec3`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadVec3();
+```
 
 ### ReadVec3Int
 `public Vec3i ReadVec3Int()`
 
-**Purpose:** Handles logic related to `read vec3 int`.
+**Purpose:** Reads the data or state of `vec3 int`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadVec3Int();
+```
 
 ### ReadSByte
 `public sbyte ReadSByte()`
 
-**Purpose:** Handles logic related to `read s byte`.
+**Purpose:** Reads the data or state of `s byte`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadSByte();
+```
 
 ### ReadUShort
 `public ushort ReadUShort()`
 
-**Purpose:** Handles logic related to `read u short`.
+**Purpose:** Reads the data or state of `u short`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadUShort();
+```
 
 ### ReadDouble
 `public double ReadDouble()`
 
-**Purpose:** Handles logic related to `read double`.
+**Purpose:** Reads the data or state of `double`.
+
+```csharp
+// Obtain an instance of BinaryReader from the subsystem API first
+BinaryReader binaryReader = ...;
+var result = binaryReader.ReadDouble();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BinaryReader();
-value.ReadSerializableObject();
+// Typically call this after obtaining an instance from the subsystem API
+BinaryReader binaryReader = ...;
+binaryReader.ReadSerializableObject();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

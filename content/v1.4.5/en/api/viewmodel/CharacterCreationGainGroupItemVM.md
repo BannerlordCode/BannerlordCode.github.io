@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationGainGroupItemVM"
+description: "Auto-generated class reference for CharacterCreationGainGroupItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationGainGroupItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationGainGroupItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterCreationGainGroupItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationGainGroupItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation/CharacterCreationGainGroupItemVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### ResetValues
 `public void ResetValues()`
 
-**Purpose:** Resets `values` to its initial state.
+**Purpose:** Returns `values` to its default or initial condition.
+
+```csharp
+// Obtain an instance of CharacterCreationGainGroupItemVM from the subsystem API first
+CharacterCreationGainGroupItemVM characterCreationGainGroupItemVM = ...;
+characterCreationGainGroupItemVM.ResetValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationGainGroupItemVM();
-value.ResetValues();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationGainGroupItemVM characterCreationGainGroupItemVM = ...;
+characterCreationGainGroupItemVM.ResetValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

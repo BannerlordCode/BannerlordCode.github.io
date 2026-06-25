@@ -1,13 +1,7 @@
 ---
 title: "NavigationPath"
+description: "NavigationPath 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NavigationPath`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationPath
 
 **Namespace:** TaleWorlds.Library
@@ -37,20 +31,33 @@ title: "NavigationPath"
 ### GetObjectData
 `public virtual void GetObjectData(SerializationInfo info, StreamingContext context)`
 
-**用途 / Purpose:** 获取 `object data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationPath 实例
+NavigationPath navigationPath = ...;
+navigationPath.GetObjectData(info, context);
+```
 
 ### OverridePathPointAtIndex
 `public void OverridePathPointAtIndex(int index, in Vec2 newValue)`
 
-**用途 / Purpose:** 处理 `override path point at index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationPath 实例
+NavigationPath navigationPath = ...;
+navigationPath.OverridePathPointAtIndex(0, newValue);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NavigationPath();
-value.GetObjectData(info, context);
+// 通常从对应子系统 API 获取实例后调用
+NavigationPath navigationPath = ...;
+navigationPath.GetObjectData(info, context);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

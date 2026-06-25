@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanInvitationPopupVM"
+description: "MPLobbyClanInvitationPopupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyClanInvitationPopupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanInvitationPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanInvitationPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanInvitationPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanInvitationPopupVM.cs`
 
 ## 概述
 
@@ -42,30 +36,55 @@ title: "MPLobbyClanInvitationPopupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanInvitationPopupVM 实例
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.RefreshValues();
+```
 
 ### Open
 `public void Open(string clanName, string clanTag, bool isCreation)`
 
-**用途 / Purpose:** 处理 `open` 相关逻辑。
+**用途 / Purpose:** 打开当前对象代表的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanInvitationPopupVM 实例
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.Open("example", "example", false);
+```
 
 ### Close
 `public void Close()`
 
-**用途 / Purpose:** 处理 `close` 相关逻辑。
+**用途 / Purpose:** 关闭当前对象代表的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanInvitationPopupVM 实例
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.Close();
+```
 
 ### UpdateConfirmation
 `public void UpdateConfirmation(PlayerId playerId, ClanCreationAnswer answer)`
 
-**用途 / Purpose:** 更新 `confirmation` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「confirmation」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanInvitationPopupVM 实例
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.UpdateConfirmation(playerId, answer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyClanInvitationPopupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyClanInvitationPopupVM mPLobbyClanInvitationPopupVM = ...;
+mPLobbyClanInvitationPopupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

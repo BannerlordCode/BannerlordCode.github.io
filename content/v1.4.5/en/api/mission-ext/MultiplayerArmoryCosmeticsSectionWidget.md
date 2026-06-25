@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerArmoryCosmeticsSectionWidget"
+description: "Auto-generated class reference for MultiplayerArmoryCosmeticsSectionWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerArmoryCosmeticsSectionWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerArmoryCosmeticsSectionWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerArmoryCosmeticsSectionWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerArmoryCosmeticsSectionWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerArmoryCosmeticsSectionWidget.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Treat `MultiplayerArmoryCosmeticsSectionWidget` as a Widget-style extension poin
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerArmoryCosmeticsSectionWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerArmoryCosmeticsSectionWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "NumericUpDownWidget"
+description: "Auto-generated class reference for NumericUpDownWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NumericUpDownWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NumericUpDownWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -40,9 +34,10 @@ Treat `NumericUpDownWidget` as a Widget-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var widget = new NumericUpDownWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+NumericUpDownWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

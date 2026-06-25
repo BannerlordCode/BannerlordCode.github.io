@@ -1,23 +1,18 @@
 ---
 title: "Screen"
+description: "Auto-generated class reference for Screen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Screen`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Screen
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class Screen`
-**Area:** engine
+**Base:** none
+**File:** `TaleWorlds.Engine/Screen.cs`
 
 ## Overview
 
-`Screen` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Screen` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -39,16 +34,19 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetMouseVisible
 `public static bool GetMouseVisible()`
 
-**Purpose:** Gets the current value of `mouse visible`.
+**Purpose:** Reads and returns the `mouse visible` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Screen.GetMouseVisible();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 Screen.GetMouseVisible();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

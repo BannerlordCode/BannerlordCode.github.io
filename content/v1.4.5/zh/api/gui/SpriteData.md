@@ -1,20 +1,14 @@
 ---
 title: "SpriteData"
+description: "SpriteData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SpriteData`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpriteData
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class SpriteData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteData.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteData.cs`
 
 ## 概述
 
@@ -38,29 +32,54 @@ title: "SpriteData"
 ### GetSprite
 `public Sprite GetSprite(string name)`
 
-**用途 / Purpose:** 获取 `sprite` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sprite」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteData 实例
+SpriteData spriteData = ...;
+var result = spriteData.GetSprite("example");
+```
 
 ### SpriteExists
 `public bool SpriteExists(string spriteName)`
 
-**用途 / Purpose:** 处理 `sprite exists` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteData 实例
+SpriteData spriteData = ...;
+var result = spriteData.SpriteExists("example");
+```
 
 ### Load
 `public void Load(ResourceDepot resourceDepot)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteData 实例
+SpriteData spriteData = ...;
+spriteData.Load(resourceDepot);
+```
 
 ### Reload
 `public void Reload(ResourceDepot resourceDepot, ITwoDimensionResourceContext resourceContext)`
 
-**用途 / Purpose:** 处理 `reload` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteData 实例
+SpriteData spriteData = ...;
+spriteData.Reload(resourceDepot, resourceContext);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SpriteData();
+// 该数据对象通常由战役/任务 API 返回
+SpriteData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

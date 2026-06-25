@@ -1,13 +1,7 @@
 ---
 title: "TileBaseInformation"
+description: "Auto-generated class reference for TileBaseInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TileBaseInformation`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TileBaseInformation
 
 **Namespace:** SandBox.BoardGames
@@ -27,9 +21,10 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new TileBaseInformation();
+// Obtain an instance from the relevant subsystem API
+TileBaseInformation instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

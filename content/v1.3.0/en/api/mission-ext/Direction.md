@@ -1,13 +1,7 @@
 ---
 title: "Direction"
+description: "Auto-generated class reference for Direction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Direction`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Direction
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Objects.Siege
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Source.Objects.Siege` to place it
 ## Usage Example
 
 ```csharp
-Direction example = Direction.Value;
+// Obtain an instance from the relevant subsystem API
+Direction instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

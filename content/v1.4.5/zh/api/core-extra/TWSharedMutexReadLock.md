@@ -1,20 +1,14 @@
 ---
 title: "TWSharedMutexReadLock"
+description: "TWSharedMutexReadLock 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TWSharedMutexReadLock`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TWSharedMutexReadLock
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct TWSharedMutexReadLock : IDisposable`
 **Base:** `IDisposable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TWSharedMutexReadLock.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWSharedMutexReadLock.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "TWSharedMutexReadLock"
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 处理 `dispose` 相关逻辑。
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 TWSharedMutexReadLock 实例
+TWSharedMutexReadLock tWSharedMutexReadLock = ...;
+tWSharedMutexReadLock.Dispose();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TWSharedMutexReadLock();
-value.Dispose();
+// 通常从对应子系统 API 获取实例后调用
+TWSharedMutexReadLock tWSharedMutexReadLock = ...;
+tWSharedMutexReadLock.Dispose();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

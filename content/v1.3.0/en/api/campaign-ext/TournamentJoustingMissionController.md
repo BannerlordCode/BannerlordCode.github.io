@@ -1,13 +1,7 @@
 ---
 title: "TournamentJoustingMissionController"
+description: "Auto-generated class reference for TournamentJoustingMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentJoustingMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentJoustingMissionController
 
 **Namespace:** SandBox.Tournaments.MissionLogics
@@ -29,62 +23,134 @@ Treat `TournamentJoustingMissionController` as a Controller-style extension poin
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.AfterStart();
+```
 
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**Purpose:** Handles logic related to `start match`.
+**Purpose:** Starts the `match` flow or state machine.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.StartMatch(match, false);
+```
 
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**Purpose:** Handles logic related to `skip match`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.SkipMatch(match);
+```
 
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**Purpose:** Handles logic related to `is match ended`.
+**Purpose:** Determines whether the current object is in the `match ended` state or condition.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+var result = tournamentJoustingMissionController.IsMatchEnded();
+```
 
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**Purpose:** Called when the `match ended` event is raised.
+**Purpose:** Invoked when the `match ended` event is raised.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnMatchEnded();
+```
 
 ### IsAgentInTheTrack
 `public bool IsAgentInTheTrack(Agent agent, bool inCurrentTrack = true)`
 
-**Purpose:** Handles logic related to `is agent in the track`.
+**Purpose:** Determines whether the current object is in the `agent in the track` state or condition.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+var result = tournamentJoustingMissionController.IsAgentInTheTrack(agent, false);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnMissionTick(0);
+```
 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Called when the `agent hit` event is raised.
+**Purpose:** Invoked when the `agent hit` event is raised.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blow, attackCollisionData);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnJoustingAgentStateChanged
 `public void OnJoustingAgentStateChanged(Agent agent, JoustingAgentController.JoustingAgentState state)`
 
-**Purpose:** Called when the `jousting agent state changed` event is raised.
+**Purpose:** Invoked when the `jousting agent state changed` event is raised.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.OnJoustingAgentStateChanged(agent, state);
+```
 
 ### JoustingEventDelegate
 `public delegate void JoustingEventDelegate(Agent affectedAgent, Agent affectorAgent)`
 
-**Purpose:** Handles logic related to `jousting event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.JoustingEventDelegate(affectedAgent, affectorAgent);
+```
 
 ### JoustingAgentStateChangedEventDelegate
 `public delegate void JoustingAgentStateChangedEventDelegate(Agent agent, JoustingAgentController.JoustingAgentState state)`
 
-**Purpose:** Handles logic related to `jousting agent state changed event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TournamentJoustingMissionController from the subsystem API first
+TournamentJoustingMissionController tournamentJoustingMissionController = ...;
+tournamentJoustingMissionController.JoustingAgentStateChangedEventDelegate(agent, state);
+```
 
 ## Usage Example
 
@@ -94,4 +160,4 @@ var controller = Mission.Current.GetMissionBehavior<TournamentJoustingMissionCon
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

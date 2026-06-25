@@ -1,13 +1,7 @@
 ---
 title: "TestActivityService"
+description: "TestActivityService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TestActivityService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TestActivityService
 
 **Namespace:** TaleWorlds.ActivitySystem
@@ -29,15 +23,22 @@ title: "TestActivityService"
 ### GetActivityTransition
 `public ActivityTransition GetActivityTransition(string activityId)`
 
-**用途 / Purpose:** 获取 `activity transition` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「activity transition」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TestActivityService 实例
+TestActivityService testActivityService = ...;
+var result = testActivityService.GetActivityTransition("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TestActivityService();
-value.GetActivityTransition("example");
+// 通常从对应子系统 API 获取实例后调用
+TestActivityService testActivityService = ...;
+testActivityService.GetActivityTransition("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

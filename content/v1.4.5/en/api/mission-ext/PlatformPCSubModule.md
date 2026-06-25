@@ -1,20 +1,14 @@
 ---
 title: "PlatformPCSubModule"
+description: "Auto-generated class reference for PlatformPCSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlatformPCSubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformPCSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.Platform.PC
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlatformPCSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.Platform.PC/TaleWorlds.MountAndBlade.Platform.PC/PlatformPCSubModule.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.Platform.PC/TaleWorlds.MountAndBlade.Platform.PC/PlatformPCSubModule.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Platform.PC` to place it in the s
 ### OnMissionBehaviorInitialize
 `public override void OnMissionBehaviorInitialize(Mission mission)`
 
-**Purpose:** Called when the `mission behavior initialize` event is raised.
+**Purpose:** Invoked when the `mission behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of PlatformPCSubModule from the subsystem API first
+PlatformPCSubModule platformPCSubModule = ...;
+platformPCSubModule.OnMissionBehaviorInitialize(mission);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlatformPCSubModule();
-value.OnMissionBehaviorInitialize(mission);
+// Typically call this after obtaining an instance from the subsystem API
+PlatformPCSubModule platformPCSubModule = ...;
+platformPCSubModule.OnMissionBehaviorInitialize(mission);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

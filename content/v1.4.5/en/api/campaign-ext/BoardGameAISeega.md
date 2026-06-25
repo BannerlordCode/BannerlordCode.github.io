@@ -1,20 +1,14 @@
 ---
 title: "BoardGameAISeega"
+description: "Auto-generated class reference for BoardGameAISeega."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameAISeega`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAISeega
 
 **Namespace:** SandBox.BoardGames.AI
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGameAISeega : BoardGameAIBase`
 **Base:** `BoardGameAIBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAISeega.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAISeega.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate movement stage move`.
+**Purpose:** Calculates the current value or result of `movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAISeega from the subsystem API first
+BoardGameAISeega boardGameAISeega = ...;
+var result = boardGameAISeega.CalculateMovementStageMove();
+```
 
 ### WantsToForfeit
 `public override bool WantsToForfeit()`
 
-**Purpose:** Handles logic related to `wants to forfeit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameAISeega from the subsystem API first
+BoardGameAISeega boardGameAISeega = ...;
+var result = boardGameAISeega.WantsToForfeit();
+```
 
 ### CalculatePreMovementStageMove
 `public override Move CalculatePreMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate pre movement stage move`.
+**Purpose:** Calculates the current value or result of `pre movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAISeega from the subsystem API first
+BoardGameAISeega boardGameAISeega = ...;
+var result = boardGameAISeega.CalculatePreMovementStageMove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameAISeega();
-value.CalculateMovementStageMove();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameAISeega boardGameAISeega = ...;
+boardGameAISeega.CalculateMovementStageMove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

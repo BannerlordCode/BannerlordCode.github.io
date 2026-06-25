@@ -1,13 +1,7 @@
 ---
 title: "SelectorWidget"
+description: "Auto-generated class reference for SelectorWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectorWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SelectorWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -37,24 +31,43 @@ Treat `SelectorWidget` as a Widget-style extension point: first identify who cre
 ### OnListChanged
 `public void OnListChanged(Widget widget)`
 
-**Purpose:** Called when the `list changed` event is raised.
+**Purpose:** Invoked when the `list changed` event is raised.
+
+```csharp
+// Obtain an instance of SelectorWidget from the subsystem API first
+SelectorWidget selectorWidget = ...;
+selectorWidget.OnListChanged(widget);
+```
 
 ### OnListChanged
 `public void OnListChanged(Widget parentWidget, Widget addedWidget)`
 
-**Purpose:** Called when the `list changed` event is raised.
+**Purpose:** Invoked when the `list changed` event is raised.
+
+```csharp
+// Obtain an instance of SelectorWidget from the subsystem API first
+SelectorWidget selectorWidget = ...;
+selectorWidget.OnListChanged(parentWidget, addedWidget);
+```
 
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**Purpose:** Called when the `selection changed` event is raised.
+**Purpose:** Invoked when the `selection changed` event is raised.
+
+```csharp
+// Obtain an instance of SelectorWidget from the subsystem API first
+SelectorWidget selectorWidget = ...;
+selectorWidget.OnSelectionChanged(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new SelectorWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SelectorWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

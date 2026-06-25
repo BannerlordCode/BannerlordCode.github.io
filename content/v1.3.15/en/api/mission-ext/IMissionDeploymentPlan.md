@@ -1,18 +1,12 @@
 ---
 title: "IMissionDeploymentPlan"
+description: "Auto-generated class reference for IMissionDeploymentPlan."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionDeploymentPlan`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMissionDeploymentPlan
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMissionDeploymentPlan`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IMissionDeploymentPlan.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IMissionDeploymentPlan implementation = GetMissionDeploymentPlanImplementation();
+// Usually obtained through DI or a factory method
+IIMissionDeploymentPlan service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TutorialItemVM"
+description: "TutorialItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TutorialItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Tutorial
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TutorialItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tutorial/TutorialItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tutorial/TutorialItemVM.cs`
 
 ## 概述
 
@@ -47,25 +41,44 @@ title: "TutorialItemVM"
 ### Init
 `public void Init(string tutorialTypeId, bool requiresMouse, Action onFinishTutorial)`
 
-**用途 / Purpose:** 初始化 `init` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialItemVM 实例
+TutorialItemVM tutorialItemVM = ...;
+tutorialItemVM.Init("example", false, onFinishTutorial);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialItemVM 实例
+TutorialItemVM tutorialItemVM = ...;
+tutorialItemVM.RefreshValues();
+```
 
 ### CloseTutorialPanel
 `public void CloseTutorialPanel()`
 
-**用途 / Purpose:** 处理 `close tutorial panel` 相关逻辑。
+**用途 / Purpose:** 关闭「tutorial panel」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialItemVM 实例
+TutorialItemVM tutorialItemVM = ...;
+tutorialItemVM.CloseTutorialPanel();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TutorialItemVM();
-value.Init("example", false, onFinishTutorial);
+// 通常从对应子系统 API 获取实例后调用
+TutorialItemVM tutorialItemVM = ...;
+tutorialItemVM.Init("example", false, onFinishTutorial);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

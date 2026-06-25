@@ -1,13 +1,7 @@
 ---
 title: "AttributeBoundSkillItemVM"
+description: "Auto-generated class reference for AttributeBoundSkillItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AttributeBoundSkillItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AttributeBoundSkillItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ## Usage Example
 
 ```csharp
-var example = new AttributeBoundSkillItemVM();
+// Obtain an instance from the relevant subsystem API
+AttributeBoundSkillItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

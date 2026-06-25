@@ -1,20 +1,14 @@
 ---
 title: "NativeArrayEnumerator"
+description: "Auto-generated class reference for NativeArrayEnumerator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeArrayEnumerator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeArrayEnumerator
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public sealed class NativeArrayEnumerator<T> : IReadOnlyList<T>, IEnumerable<T>, IEnumerable, IReadOnlyCollection<T> where T : struct`
 **Base:** `IReadOnlyList<T>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeArrayEnumerator.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeArrayEnumerator.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-NativeArrayEnumerator example = NativeArrayEnumerator.Value;
+// Obtain an instance from the relevant subsystem API
+NativeArrayEnumerator instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

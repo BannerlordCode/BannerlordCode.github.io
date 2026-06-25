@@ -1,13 +1,7 @@
 ---
 title: "BenchmarkScreen"
+description: "BenchmarkScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BenchmarkScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BenchmarkScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
@@ -29,15 +23,22 @@ title: "BenchmarkScreen"
 ### UpdateCamera
 `public void UpdateCamera()`
 
-**用途 / Purpose:** 更新 `camera` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「camera」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BenchmarkScreen 实例
+BenchmarkScreen benchmarkScreen = ...;
+benchmarkScreen.UpdateCamera();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BenchmarkScreen();
-value.UpdateCamera();
+// 通常从对应子系统 API 获取实例后调用
+BenchmarkScreen benchmarkScreen = ...;
+benchmarkScreen.UpdateCamera();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

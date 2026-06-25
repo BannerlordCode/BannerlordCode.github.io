@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerGeneralKillFeedItemWidget"
+description: "MultiplayerGeneralKillFeedItemWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerGeneralKillFeedItemWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGeneralKillFeedItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerGeneralKillFeedItemWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerGeneralKillFeedItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerGeneralKillFeedItemWidget.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "MultiplayerGeneralKillFeedItemWidget"
 ### SetSpeedModifier
 `public void SetSpeedModifier(float newSpeed)`
 
-**用途 / Purpose:** 设置 `speed modifier` 的值或状态。
+**用途 / Purpose:** 为 「speed modifier」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGeneralKillFeedItemWidget 实例
+MultiplayerGeneralKillFeedItemWidget multiplayerGeneralKillFeedItemWidget = ...;
+multiplayerGeneralKillFeedItemWidget.SetSpeedModifier(0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerGeneralKillFeedItemWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerGeneralKillFeedItemWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

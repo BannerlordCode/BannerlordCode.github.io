@@ -1,18 +1,12 @@
 ---
 title: "FaceGeneratorStage"
+description: "Auto-generated class reference for FaceGeneratorStage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGeneratorStage`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGeneratorStage
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum FaceGeneratorStage`
 **Base:** none
 **File:** `TaleWorlds.Core/FaceGeneratorStage.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new FaceGeneratorStage();
+// Obtain an instance from the relevant subsystem API
+FaceGeneratorStage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

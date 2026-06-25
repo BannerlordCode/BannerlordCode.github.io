@@ -1,20 +1,14 @@
 ---
 title: "BattleResult"
+description: "BattleResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleResult`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleResult`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattleResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/BattleResult.cs`
 
 ## 概述
 
@@ -39,40 +33,77 @@ title: "BattleResult"
 ### AddOrUpdatePlayerEntry
 `public void AddOrUpdatePlayerEntry(PlayerId playerId, int teamNo, string gameMode, Guid party, int overriddenInitialPlayTime = -1)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `or update player entry`。
+**用途 / Purpose:** 将 「or update player entry」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 BattleResult 实例
+BattleResult battleResult = ...;
+battleResult.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
+```
 
 ### TryGetPlayerEntry
 `public bool TryGetPlayerEntry(PlayerId playerId, out BattlePlayerEntry battlePlayerEntry)`
 
-**用途 / Purpose:** 尝试获取 `get player entry`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get player entry」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 BattleResult 实例
+BattleResult battleResult = ...;
+var result = battleResult.TryGetPlayerEntry(playerId, battlePlayerEntry);
+```
 
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `player disconnect` 事件或回调。
+**用途 / Purpose:** 执行与 「player disconnect」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 BattleResult 实例
+BattleResult battleResult = ...;
+battleResult.HandlePlayerDisconnect(playerId);
+```
 
 ### DebugPrint
 `public void DebugPrint()`
 
-**用途 / Purpose:** 处理 `debug print` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleResult 实例
+BattleResult battleResult = ...;
+battleResult.DebugPrint();
+```
 
 ### SetBattleFinished
 `public void SetBattleFinished(int winnerTeamNo, bool isPremadeGame, PremadeGameType premadeGameType)`
 
-**用途 / Purpose:** 设置 `battle finished` 的值或状态。
+**用途 / Purpose:** 为 「battle finished」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BattleResult 实例
+BattleResult battleResult = ...;
+battleResult.SetBattleFinished(0, false, premadeGameType);
+```
 
 ### SetBattleCancelled
 `public void SetBattleCancelled()`
 
-**用途 / Purpose:** 设置 `battle cancelled` 的值或状态。
+**用途 / Purpose:** 为 「battle cancelled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BattleResult 实例
+BattleResult battleResult = ...;
+battleResult.SetBattleCancelled();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BattleResult();
-value.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
+// 通常从对应子系统 API 获取实例后调用
+BattleResult battleResult = ...;
+battleResult.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

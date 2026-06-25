@@ -1,20 +1,14 @@
 ---
 title: "CommanderInfoVM"
+description: "CommanderInfoVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CommanderInfoVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommanderInfoVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CommanderInfoVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/CommanderInfoVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/CommanderInfoVM.cs`
 
 ## 概述
 
@@ -53,35 +47,66 @@ title: "CommanderInfoVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommanderInfoVM 实例
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.OnFinalize();
+```
 
 ### UpdateWarmupDependentFlags
 `public void UpdateWarmupDependentFlags(bool isInWarmup)`
 
-**用途 / Purpose:** 更新 `warmup dependent flags` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「warmup dependent flags」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 CommanderInfoVM 实例
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.UpdateWarmupDependentFlags(false);
+```
 
 ### OnUpdateMorale
 `public void OnUpdateMorale(BattleSideEnum side, float morale)`
 
-**用途 / Purpose:** 当 `update morale` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「update morale」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommanderInfoVM 实例
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.OnUpdateMorale(side, 0);
+```
 
 ### OnTeamChanged
 `public void OnTeamChanged()`
 
-**用途 / Purpose:** 当 `team changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「team changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CommanderInfoVM 实例
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.OnTeamChanged();
+```
 
 ### RefreshColors
 `public void RefreshColors(string allyTeamColor, string allyTeamColorSecondary, string enemyTeamColor, string enemyTeamColorSecondary)`
 
-**用途 / Purpose:** 刷新 `colors` 的显示或缓存。
+**用途 / Purpose:** 使 「colors」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CommanderInfoVM 实例
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.RefreshColors("example", "example", "example", "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CommanderInfoVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+CommanderInfoVM commanderInfoVM = ...;
+commanderInfoVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

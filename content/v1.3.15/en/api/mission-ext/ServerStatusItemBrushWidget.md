@@ -1,13 +1,7 @@
 ---
 title: "ServerStatusItemBrushWidget"
+description: "Auto-generated class reference for ServerStatusItemBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServerStatusItemBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServerStatusItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
@@ -33,9 +27,10 @@ Treat `ServerStatusItemBrushWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new ServerStatusItemBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ServerStatusItemBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

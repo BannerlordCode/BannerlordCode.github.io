@@ -1,20 +1,14 @@
 ---
 title: "TournamentBehavior"
+description: "TournamentBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentBehavior
 
 **Namespace:** SandBox.Tournaments.MissionLogics
 **Module:** SandBox.Tournaments
 **Type:** `public class TournamentBehavior : MissionLogic, ICameraModeLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Tournaments.MissionLogics/TournamentBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments.MissionLogics/TournamentBehavior.cs`
 
 ## 概述
 
@@ -45,75 +39,152 @@ title: "TournamentBehavior"
 ### GetMissionCameraLockMode
 `public SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-**用途 / Purpose:** 获取 `mission camera lock mode` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission camera lock mode」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.GetMissionCameraLockMode(false);
+```
 
 ### GetAllPossibleParticipants
 `public MBList<CharacterObject> GetAllPossibleParticipants()`
 
-**用途 / Purpose:** 获取 `all possible participants` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all possible participants」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.GetAllPossibleParticipants();
+```
 
 ### DeleteTournamentSetsExcept
 `public static void DeleteTournamentSetsExcept(GameEntity selectedSetEntity)`
 
-**用途 / Purpose:** 处理 `delete tournament sets except` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TournamentBehavior.DeleteTournamentSetsExcept(selectedSetEntity);
+```
 
 ### DeleteAllTournamentSets
 `public static void DeleteAllTournamentSets()`
 
-**用途 / Purpose:** 处理 `delete all tournament sets` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TournamentBehavior.DeleteAllTournamentSets();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.OnMissionTick(0);
+```
 
 ### StartMatch
 `public void StartMatch()`
 
-**用途 / Purpose:** 处理 `start match` 相关逻辑。
+**用途 / Purpose:** 启动「match」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.StartMatch();
+```
 
 ### SkipMatch
 `public void SkipMatch(bool isLeave = false)`
 
-**用途 / Purpose:** 处理 `skip match` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.SkipMatch(false);
+```
 
 ### EndTournamentViaLeave
 `public void EndTournamentViaLeave()`
 
-**用途 / Purpose:** 处理 `end tournament via leave` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.EndTournamentViaLeave();
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** 当 `end mission request` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.OnEndMissionRequest(canPlayerLeave);
+```
 
 ### PlaceABet
 `public void PlaceABet(int bet)`
 
-**用途 / Purpose:** 处理 `place a bet` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.PlaceABet(0);
+```
 
 ### GetExpectedDenarsForBet
 `public int GetExpectedDenarsForBet(int bet)`
 
-**用途 / Purpose:** 获取 `expected denars for bet` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「expected denars for bet」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.GetExpectedDenarsForBet(0);
+```
 
 ### GetMaximumBet
 `public int GetMaximumBet()`
 
-**用途 / Purpose:** 获取 `maximum bet` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum bet」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentBehavior 实例
+TournamentBehavior tournamentBehavior = ...;
+var result = tournamentBehavior.GetMaximumBet();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TournamentBehavior();
-value.GetMissionCameraLockMode(false);
+// 通常从对应子系统 API 获取实例后调用
+TournamentBehavior tournamentBehavior = ...;
+tournamentBehavior.GetMissionCameraLockMode(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

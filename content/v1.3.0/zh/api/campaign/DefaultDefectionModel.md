@@ -1,13 +1,7 @@
 ---
 title: "DefaultDefectionModel"
+description: "DefaultDefectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultDefectionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultDefectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ title: "DefaultDefectionModel"
 ### CanHeroDefectToFaction
 `public override bool CanHeroDefectToFaction(Hero hero, Kingdom kingdom)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `hero defect to faction`。
+**用途 / Purpose:** 检查当前对象是否满足 「hero defect to faction」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultDefectionModel 实例
+DefaultDefectionModel defaultDefectionModel = ...;
+var result = defaultDefectionModel.CanHeroDefectToFaction(hero, kingdom);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultDefectionModel>(new MyDefaultDefectionModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

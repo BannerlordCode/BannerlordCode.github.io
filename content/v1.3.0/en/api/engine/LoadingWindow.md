@@ -1,13 +1,7 @@
 ---
 title: "LoadingWindow"
+description: "Auto-generated class reference for LoadingWindow."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadingWindow`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadingWindow
 
 **Namespace:** TaleWorlds.Engine
@@ -36,22 +30,42 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.Initialize();
+```
 
 ### Destroy
 `public static void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.Destroy();
+```
 
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**Purpose:** Handles logic related to `disable global loading window`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.DisableGlobalLoadingWindow();
+```
 
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**Purpose:** Handles logic related to `enable global loading window`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LoadingWindow.EnableGlobalLoadingWindow();
+```
 
 ## Usage Example
 
@@ -61,4 +75,4 @@ LoadingWindow.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

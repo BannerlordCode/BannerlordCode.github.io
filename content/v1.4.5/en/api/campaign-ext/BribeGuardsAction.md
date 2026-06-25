@@ -1,23 +1,13 @@
 ---
 title: "BribeGuardsAction"
+description: "Auto-generated campaign action reference for BribeGuardsAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BribeGuardsAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BribeGuardsAction
-
-## Mental Model
-
-Treat `BribeGuardsAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** static class
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/BribeGuardsAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/BribeGuardsAction.cs`
 
 BribeGuardsAction is a set of static methods that trigger "BribeGuards" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
 
@@ -29,7 +19,7 @@ BribeGuardsAction is a set of static methods that trigger "BribeGuards" in the c
 public static void Apply(Settlement settlement, int gold)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -40,5 +30,5 @@ BribeGuardsAction.Apply(settlement, 100);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

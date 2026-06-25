@@ -1,20 +1,14 @@
 ---
 title: "NotificationStatus"
+description: "Auto-generated class reference for NotificationStatus."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NotificationStatus`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NotificationStatus
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public enum NotificationStatus`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBInformationManager.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBInformationManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-NotificationStatus example = NotificationStatus.Value;
+// Obtain an instance from the relevant subsystem API
+NotificationStatus instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

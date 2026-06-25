@@ -1,20 +1,14 @@
 ---
 title: "DefaultShipCostModel"
+description: "Auto-generated class reference for DefaultShipCostModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultShipCostModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultShipCostModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultShipCostModel : ShipCostModel`
 **Base:** `ShipCostModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultShipCostModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultShipCostModel.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `DefaultShipCostModel` as a Model-style extension point: first identify wh
 ### GetShipTradeValue
 `public override float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**Purpose:** Gets the current value of `ship trade value`.
+**Purpose:** Reads and returns the `ship trade value` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultShipCostModel from the subsystem API first
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipTradeValue(ship, seller, buyer);
+```
 
 ### GetShipRepairCost
 `public override float GetShipRepairCost(Ship ship, PartyBase owner)`
 
-**Purpose:** Gets the current value of `ship repair cost`.
+**Purpose:** Reads and returns the `ship repair cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultShipCostModel from the subsystem API first
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipRepairCost(ship, owner);
+```
 
 ### GetShipUpgradePieceCost
 `public override int GetShipUpgradePieceCost(Ship ship, ShipUpgradePiece piece, PartyBase owner)`
 
-**Purpose:** Gets the current value of `ship upgrade piece cost`.
+**Purpose:** Reads and returns the `ship upgrade piece cost` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultShipCostModel from the subsystem API first
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipUpgradePieceCost(ship, piece, owner);
+```
 
 ### GetShipSellingPenalty
 `public override float GetShipSellingPenalty()`
 
-**Purpose:** Gets the current value of `ship selling penalty`.
+**Purpose:** Reads and returns the `ship selling penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultShipCostModel from the subsystem API first
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipSellingPenalty();
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultShipCostModel>(new MyDefaultShipCostModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

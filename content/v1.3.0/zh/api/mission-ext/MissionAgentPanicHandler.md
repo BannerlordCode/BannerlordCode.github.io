@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentPanicHandler"
+description: "MissionAgentPanicHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentPanicHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentPanicHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,24 +23,42 @@ title: "MissionAgentPanicHandler"
 ### OnAgentPanicked
 `public override void OnAgentPanicked(Agent agent)`
 
-**用途 / Purpose:** 当 `agent panicked` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent panicked」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentPanicHandler 实例
+MissionAgentPanicHandler missionAgentPanicHandler = ...;
+missionAgentPanicHandler.OnAgentPanicked(agent);
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentPanicHandler 实例
+MissionAgentPanicHandler missionAgentPanicHandler = ...;
+missionAgentPanicHandler.OnPreMissionTick(0);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentPanicHandler 实例
+MissionAgentPanicHandler missionAgentPanicHandler = ...;
+missionAgentPanicHandler.OnRemoveBehavior();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAgentPanicHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionAgentPanicHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

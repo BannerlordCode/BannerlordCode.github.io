@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationState"
+description: "CharacterCreationState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationState`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationState
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -36,25 +30,44 @@ title: "CharacterCreationState"
 ### FinalizeCharacterCreationState
 `public void FinalizeCharacterCreationState()`
 
-**用途 / Purpose:** 处理 `finalize character creation state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationState 实例
+CharacterCreationState characterCreationState = ...;
+characterCreationState.FinalizeCharacterCreationState();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationState 实例
+CharacterCreationState characterCreationState = ...;
+characterCreationState.Refresh();
+```
 
 ### OnStageActivated
 `public void OnStageActivated(CharacterCreationStageBase stage)`
 
-**用途 / Purpose:** 当 `stage activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「stage activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationState 实例
+CharacterCreationState characterCreationState = ...;
+characterCreationState.OnStageActivated(stage);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterCreationState();
-value.FinalizeCharacterCreationState();
+// 通常从对应子系统 API 获取实例后调用
+CharacterCreationState characterCreationState = ...;
+characterCreationState.FinalizeCharacterCreationState();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "GOGFriendListService"
+description: "GOGFriendListService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GOGFriendListService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GOGFriendListService
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class GOGFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGFriendListService.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/GOGFriendListService.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "GOGFriendListService"
 ### RequestFriendList
 `public void RequestFriendList()`
 
-**用途 / Purpose:** 处理 `request friend list` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GOGFriendListService 实例
+GOGFriendListService gOGFriendListService = ...;
+gOGFriendListService.RequestFriendList();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GOGFriendListService();
-value.RequestFriendList();
+// 通常从对应子系统 API 获取实例后调用
+GOGFriendListService gOGFriendListService = ...;
+gOGFriendListService.RequestFriendList();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

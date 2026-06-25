@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanRosterVM"
+description: "MPLobbyClanRosterVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyClanRosterVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanRosterVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanRosterVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanRosterVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanRosterVM.cs`
 
 ## 概述
 
@@ -44,30 +38,55 @@ title: "MPLobbyClanRosterVM"
 ### Compare
 `public int Compare(MPLobbyClanMemberItemVM x, MPLobbyClanMemberItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanRosterVM 实例
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+var result = mPLobbyClanRosterVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanRosterVM 实例
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+mPLobbyClanRosterVM.RefreshValues();
+```
 
 ### RefreshClanInformation
 `public void RefreshClanInformation(ClanHomeInfo info)`
 
-**用途 / Purpose:** 刷新 `clan information` 的显示或缓存。
+**用途 / Purpose:** 使 「clan information」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanRosterVM 实例
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+mPLobbyClanRosterVM.RefreshClanInformation(info);
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**用途 / Purpose:** 当 `player name updated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player name updated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyClanRosterVM 实例
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+mPLobbyClanRosterVM.OnPlayerNameUpdated("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyClanRosterVM();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyClanRosterVM mPLobbyClanRosterVM = ...;
+mPLobbyClanRosterVM.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

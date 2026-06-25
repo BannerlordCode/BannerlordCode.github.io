@@ -1,13 +1,7 @@
 ---
 title: "MonsterMissionDataCreator"
+description: "Auto-generated class reference for MonsterMissionDataCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MonsterMissionDataCreator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MonsterMissionDataCreator
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new MonsterMissionDataCreator();
+// Obtain an instance from the relevant subsystem API
+MonsterMissionDataCreator instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "UserDataManager"
+description: "Auto-generated class reference for UserDataManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UserDataManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UserDataManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
@@ -35,17 +29,35 @@ Treat `UserDataManager` as a Manager-style extension point: first identify who c
 ### HasUserData
 `public bool HasUserData()`
 
-**Purpose:** Checks whether the current object has/contains `user data`.
+**Purpose:** Determines whether the current object already holds `user data`.
+
+```csharp
+// Obtain an instance of UserDataManager from the subsystem API first
+UserDataManager userDataManager = ...;
+var result = userDataManager.HasUserData();
+```
 
 ### LoadUserData
 `public void LoadUserData()`
 
-**Purpose:** Loads `user data` data.
+**Purpose:** Reads `user data` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of UserDataManager from the subsystem API first
+UserDataManager userDataManager = ...;
+userDataManager.LoadUserData();
+```
 
 ### SaveUserData
 `public void SaveUserData()`
 
-**Purpose:** Saves `user data` data.
+**Purpose:** Writes `user data` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of UserDataManager from the subsystem API first
+UserDataManager userDataManager = ...;
+userDataManager.SaveUserData();
+```
 
 ## Usage Example
 
@@ -55,4 +67,4 @@ var manager = UserDataManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

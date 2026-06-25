@@ -1,20 +1,14 @@
 ---
 title: "StoryModeEvents"
+description: "StoryModeEvents 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeEvents`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeEvents
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public class StoryModeEvents : CampaignEventReceiver`
 **Base:** `CampaignEventReceiver`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode/StoryModeEvents.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode/StoryModeEvents.cs`
 
 ## 概述
 
@@ -29,45 +23,88 @@ title: "StoryModeEvents"
 ### RemoveListeners
 `public override void RemoveListeners(object obj)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `listeners`。
+**用途 / Purpose:** 从当前容器或状态中移除 「listeners」。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEvents 实例
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.RemoveListeners(obj);
+```
 
 ### OnMainStoryLineSideChosen
 `public void OnMainStoryLineSideChosen(MainStoryLineSide side)`
 
-**用途 / Purpose:** 当 `main story line side chosen` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「main story line side chosen」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEvents 实例
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnMainStoryLineSideChosen(side);
+```
 
 ### OnStoryModeTutorialEnded
 `public void OnStoryModeTutorialEnded()`
 
-**用途 / Purpose:** 当 `story mode tutorial ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「story mode tutorial ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEvents 实例
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnStoryModeTutorialEnded();
+```
 
 ### OnStealthTutorialActivated
 `public void OnStealthTutorialActivated()`
 
-**用途 / Purpose:** 当 `stealth tutorial activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「stealth tutorial activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEvents 实例
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnStealthTutorialActivated();
+```
 
 ### OnBannerPieceCollected
 `public void OnBannerPieceCollected()`
 
-**用途 / Purpose:** 当 `banner piece collected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「banner piece collected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEvents 实例
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnBannerPieceCollected();
+```
 
 ### OnConspiracyActivated
 `public void OnConspiracyActivated()`
 
-**用途 / Purpose:** 当 `conspiracy activated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「conspiracy activated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEvents 实例
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnConspiracyActivated();
+```
 
 ### OnTravelToVillageTutorialQuestStarted
 `public void OnTravelToVillageTutorialQuestStarted()`
 
-**用途 / Purpose:** 当 `travel to village tutorial quest started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「travel to village tutorial quest started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEvents 实例
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.OnTravelToVillageTutorialQuestStarted();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StoryModeEvents();
-value.RemoveListeners(obj);
+// 通常从对应子系统 API 获取实例后调用
+StoryModeEvents storyModeEvents = ...;
+storyModeEvents.RemoveListeners(obj);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

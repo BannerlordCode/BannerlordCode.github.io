@@ -1,13 +1,7 @@
 ---
 title: "BuildingConstructionModel"
+description: "BuildingConstructionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BuildingConstructionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingConstructionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -38,29 +32,54 @@ title: "BuildingConstructionModel"
 ### CalculateDailyConstructionPower
 `public abstract ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate daily construction power` 相关逻辑。
+**用途 / Purpose:** 计算「daily construction power」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BuildingConstructionModel 实例
+BuildingConstructionModel buildingConstructionModel = ...;
+var result = buildingConstructionModel.CalculateDailyConstructionPower(town, false);
+```
 
 ### CalculateDailyConstructionPowerWithoutBoost
 `public abstract int CalculateDailyConstructionPowerWithoutBoost(Town town)`
 
-**用途 / Purpose:** 处理 `calculate daily construction power without boost` 相关逻辑。
+**用途 / Purpose:** 计算「daily construction power without boost」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BuildingConstructionModel 实例
+BuildingConstructionModel buildingConstructionModel = ...;
+var result = buildingConstructionModel.CalculateDailyConstructionPowerWithoutBoost(town);
+```
 
 ### GetBoostCost
 `public abstract int GetBoostCost(Town town)`
 
-**用途 / Purpose:** 获取 `boost cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「boost cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BuildingConstructionModel 实例
+BuildingConstructionModel buildingConstructionModel = ...;
+var result = buildingConstructionModel.GetBoostCost(town);
+```
 
 ### GetBoostAmount
 `public abstract int GetBoostAmount(Town town)`
 
-**用途 / Purpose:** 获取 `boost amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「boost amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BuildingConstructionModel 实例
+BuildingConstructionModel buildingConstructionModel = ...;
+var result = buildingConstructionModel.GetBoostAmount(town);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBuildingConstructionModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BuildingConstructionModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

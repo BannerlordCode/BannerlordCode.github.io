@@ -1,13 +1,7 @@
 ---
 title: "TWXmlLoadException"
+description: "Auto-generated class reference for TWXmlLoadException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TWXmlLoadException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TWXmlLoadException
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Treat `TWXmlLoadException` as a Exception-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-try { CallTWXmlLoadException(); } catch (TWXmlLoadException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (TWXmlLoadException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

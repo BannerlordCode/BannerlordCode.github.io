@@ -1,13 +1,7 @@
 ---
 title: "AnimationSystemData"
+description: "Auto-generated class reference for AnimationSystemData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimationSystemData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimationSystemData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,20 @@ Treat `AnimationSystemData` as a Data-style extension point: first identify who 
 ### GetHardcodedAnimationSystemDataForHumanSkeleton
 `public static AnimationSystemData GetHardcodedAnimationSystemDataForHumanSkeleton()`
 
-**Purpose:** Gets the current value of `hardcoded animation system data for human skeleton`.
+**Purpose:** Reads and returns the `hardcoded animation system data for human skeleton` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AnimationSystemData.GetHardcodedAnimationSystemDataForHumanSkeleton();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AnimationSystemData();
+// This data object is usually returned by campaign/mission APIs
+AnimationSystemData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

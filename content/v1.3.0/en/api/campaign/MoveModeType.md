@@ -1,18 +1,12 @@
 ---
 title: "MoveModeType"
+description: "Auto-generated class reference for MoveModeType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MoveModeType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MoveModeType
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum MoveModeType`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Party/MoveModeType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new MoveModeType();
+// Obtain an instance from the relevant subsystem API
+MoveModeType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

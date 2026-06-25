@@ -1,20 +1,14 @@
 ---
 title: "LoadResult"
+description: "LoadResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LoadResult`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadResult
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class LoadResult`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadResult.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Load/LoadResult.cs`
 
 ## 概述
 
@@ -38,20 +32,33 @@ title: "LoadResult"
 ### InitializeObjects
 `public void InitializeObjects()`
 
-**用途 / Purpose:** 初始化 `objects` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「objects」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 LoadResult 实例
+LoadResult loadResult = ...;
+loadResult.InitializeObjects();
+```
 
 ### AfterInitializeObjects
 `public void AfterInitializeObjects()`
 
-**用途 / Purpose:** 处理 `after initialize objects` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LoadResult 实例
+LoadResult loadResult = ...;
+loadResult.AfterInitializeObjects();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LoadResult();
-value.InitializeObjects();
+// 通常从对应子系统 API 获取实例后调用
+LoadResult loadResult = ...;
+loadResult.InitializeObjects();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

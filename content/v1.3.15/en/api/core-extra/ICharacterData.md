@@ -1,18 +1,12 @@
 ---
 title: "ICharacterData"
+description: "Auto-generated class reference for ICharacterData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICharacterData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICharacterData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface ICharacterData`
 **Base:** none
 **File:** `TaleWorlds.Core/ICharacterData.cs`
 
@@ -27,9 +21,10 @@ Treat `ICharacterData` as a Data-style extension point: first identify who creat
 ## Usage Example
 
 ```csharp
-ICharacterData implementation = GetCharacterDataImplementation();
+// Usually obtained through DI or a factory method
+IICharacterData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

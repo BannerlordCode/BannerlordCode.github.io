@@ -1,20 +1,14 @@
 ---
 title: "BoundaryWallView"
+description: "BoundaryWallView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoundaryWallView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoundaryWallView
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BoundaryWallView : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoundaryWallView.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoundaryWallView.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "BoundaryWallView"
 ### CreateBoundaryMesh
 `public static Mesh CreateBoundaryMesh(Scene scene, ICollection<Vec2> boundaryPoints, uint meshColor = 536918784u)`
 
-**用途 / Purpose:** 创建一个 `boundary mesh` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「boundary mesh」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+BoundaryWallView.CreateBoundaryMesh(scene, boundaryPoints, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new BoundaryWallView();
+// 从子系统 API 或场景中获取该视图
+BoundaryWallView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

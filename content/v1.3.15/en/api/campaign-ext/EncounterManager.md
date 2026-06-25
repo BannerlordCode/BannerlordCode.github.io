@@ -1,13 +1,7 @@
 ---
 title: "EncounterManager"
+description: "Auto-generated class reference for EncounterManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncounterManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncounterManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,22 +29,42 @@ Treat `EncounterManager` as a Manager-style extension point: first identify who 
 ### Tick
 `public static void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Static call; no instance required
+EncounterManager.Tick(0);
+```
 
 ### HandleEncounterForMobileParty
 `public static void HandleEncounterForMobileParty(MobileParty mobileParty, float dt)`
 
-**Purpose:** Handles the `encounter for mobile party` event or callback.
+**Purpose:** Executes the response logic associated with `encounter for mobile party`.
+
+```csharp
+// Static call; no instance required
+EncounterManager.HandleEncounterForMobileParty(mobileParty, 0);
+```
 
 ### StartPartyEncounter
 `public static void StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Handles logic related to `start party encounter`.
+**Purpose:** Starts the `party encounter` flow or state machine.
+
+```csharp
+// Static call; no instance required
+EncounterManager.StartPartyEncounter(attackerParty, defenderParty);
+```
 
 ### StartSettlementEncounter
 `public static void StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
 
-**Purpose:** Handles logic related to `start settlement encounter`.
+**Purpose:** Starts the `settlement encounter` flow or state machine.
+
+```csharp
+// Static call; no instance required
+EncounterManager.StartSettlementEncounter(attackerParty, settlement);
+```
 
 ## Usage Example
 
@@ -60,4 +74,4 @@ var manager = EncounterManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

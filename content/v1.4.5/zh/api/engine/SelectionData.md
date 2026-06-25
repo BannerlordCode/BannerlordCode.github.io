@@ -1,20 +1,14 @@
 ---
 title: "SelectionData"
+description: "SelectionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SelectionData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SelectionData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/SelectionData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/SelectionData.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "SelectionData"
 ### SelectionData
 `public struct SelectionData(bool isLocalizationId, string data)`
 
-**用途 / Purpose:** 处理 `selection data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SelectionData 实例
+SelectionData selectionData = ...;
+var result = selectionData.SelectionData(false, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SelectionData();
+// 该数据对象通常由战役/任务 API 返回
+SelectionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

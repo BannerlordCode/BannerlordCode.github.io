@@ -1,13 +1,7 @@
 ---
 title: "MissionTimer"
+description: "MissionTimer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionTimer`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTimer
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,50 +23,98 @@ title: "MissionTimer"
 ### GetStartTime
 `public MissionTime GetStartTime()`
 
-**用途 / Purpose:** 获取 `start time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「start time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimer 实例
+MissionTimer missionTimer = ...;
+var result = missionTimer.GetStartTime();
+```
 
 ### GetTimerDuration
 `public float GetTimerDuration()`
 
-**用途 / Purpose:** 获取 `timer duration` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「timer duration」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimer 实例
+MissionTimer missionTimer = ...;
+var result = missionTimer.GetTimerDuration();
+```
 
 ### GetRemainingTimeInSeconds
 `public float GetRemainingTimeInSeconds(bool synched = false)`
 
-**用途 / Purpose:** 获取 `remaining time in seconds` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「remaining time in seconds」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimer 实例
+MissionTimer missionTimer = ...;
+var result = missionTimer.GetRemainingTimeInSeconds(false);
+```
 
 ### Check
 `public bool Check(bool reset = false)`
 
-**用途 / Purpose:** 处理 `check` 相关逻辑。
+**用途 / Purpose:** 检查当前对象是否满足指定条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimer 实例
+MissionTimer missionTimer = ...;
+var result = missionTimer.Check(false);
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimer 实例
+MissionTimer missionTimer = ...;
+missionTimer.Reset();
+```
 
 ### Set
 `public void Set(float timeInSeconds)`
 
-**用途 / Purpose:** 设置 `set` 的值或状态。
+**用途 / Purpose:** 为当前对象的属性或状态赋新值。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimer 实例
+MissionTimer missionTimer = ...;
+missionTimer.Set(0);
+```
 
 ### SetDuration
 `public void SetDuration(float duration)`
 
-**用途 / Purpose:** 设置 `duration` 的值或状态。
+**用途 / Purpose:** 为 「duration」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTimer 实例
+MissionTimer missionTimer = ...;
+missionTimer.SetDuration(0);
+```
 
 ### CreateSynchedTimerClient
 `public static MissionTimer CreateSynchedTimerClient(float startTimeInSeconds, float duration)`
 
-**用途 / Purpose:** 创建一个 `synched timer client` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「synched timer client」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MissionTimer.CreateSynchedTimerClient(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionTimer();
-value.GetStartTime();
+// 通常从对应子系统 API 获取实例后调用
+MissionTimer missionTimer = ...;
+missionTimer.GetStartTime();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

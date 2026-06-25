@@ -1,13 +1,7 @@
 ---
 title: "QuestCompletionType"
+description: "Auto-generated class reference for QuestCompletionType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestCompletionType`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestCompletionType
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ## Usage Example
 
 ```csharp
-QuestCompletionType example = QuestCompletionType.Value;
+// Obtain an instance from the relevant subsystem API
+QuestCompletionType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

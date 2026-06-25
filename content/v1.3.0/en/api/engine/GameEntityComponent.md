@@ -1,13 +1,7 @@
 ---
 title: "GameEntityComponent"
+description: "Auto-generated class reference for GameEntityComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameEntityComponent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameEntityComponent
 
 **Namespace:** TaleWorlds.Engine
@@ -29,19 +23,32 @@ Treat `GameEntityComponent` as a Component-style extension point: first identify
 ### GetEntity
 `public GameEntity GetEntity()`
 
-**Purpose:** Gets the current value of `entity`.
+**Purpose:** Reads and returns the `entity` value held by the current object.
+
+```csharp
+// Obtain an instance of GameEntityComponent from the subsystem API first
+GameEntityComponent gameEntityComponent = ...;
+var result = gameEntityComponent.GetEntity();
+```
 
 ### GetFirstMetaMesh
 `public virtual MetaMesh GetFirstMetaMesh()`
 
-**Purpose:** Gets the current value of `first meta mesh`.
+**Purpose:** Reads and returns the `first meta mesh` value held by the current object.
+
+```csharp
+// Obtain an instance of GameEntityComponent from the subsystem API first
+GameEntityComponent gameEntityComponent = ...;
+var result = gameEntityComponent.GetFirstMetaMesh();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameEntityComponent();
+// Typically obtained from a subsystem API or factory
+GameEntityComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

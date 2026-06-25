@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementTaxModel"
+description: "Auto-generated class reference for DefaultSettlementTaxModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementTaxModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementTaxModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementTaxModel : SettlementTaxModel`
 **Base:** `SettlementTaxModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementTaxModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementTaxModel.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `DefaultSettlementTaxModel` as a Model-style extension point: first identi
 ### GetTownTaxRatio
 `public override float GetTownTaxRatio(Town town)`
 
-**Purpose:** Gets the current value of `town tax ratio`.
+**Purpose:** Reads and returns the `town tax ratio` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementTaxModel from the subsystem API first
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.GetTownTaxRatio(town);
+```
 
 ### GetVillageTaxRatio
 `public override float GetVillageTaxRatio(Village village)`
 
-**Purpose:** Gets the current value of `village tax ratio`.
+**Purpose:** Reads and returns the `village tax ratio` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementTaxModel from the subsystem API first
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.GetVillageTaxRatio(village);
+```
 
 ### GetTownCommissionChangeBasedOnSecurity
 `public override float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)`
 
-**Purpose:** Gets the current value of `town commission change based on security`.
+**Purpose:** Reads and returns the `town commission change based on security` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementTaxModel from the subsystem API first
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.GetTownCommissionChangeBasedOnSecurity(town, 0);
+```
 
 ### CalculateTownTax
 `public override ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate town tax`.
+**Purpose:** Calculates the current value or result of `town tax`.
+
+```csharp
+// Obtain an instance of DefaultSettlementTaxModel from the subsystem API first
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.CalculateTownTax(town, false);
+```
 
 ### CalculateVillageTaxFromIncome
 `public override int CalculateVillageTaxFromIncome(Village village, int marketIncome)`
 
-**Purpose:** Handles logic related to `calculate village tax from income`.
+**Purpose:** Calculates the current value or result of `village tax from income`.
+
+```csharp
+// Obtain an instance of DefaultSettlementTaxModel from the subsystem API first
+DefaultSettlementTaxModel defaultSettlementTaxModel = ...;
+var result = defaultSettlementTaxModel.CalculateVillageTaxFromIncome(village, 0);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultSettlementTaxModel>(new MyDefaultSettlementTaxM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

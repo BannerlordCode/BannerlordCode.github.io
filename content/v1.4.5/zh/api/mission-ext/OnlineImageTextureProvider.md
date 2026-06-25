@@ -1,20 +1,14 @@
 ---
 title: "OnlineImageTextureProvider"
+description: "OnlineImageTextureProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OnlineImageTextureProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OnlineImageTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OnlineImageTextureProvider : TextureProvider`
 **Base:** `TextureProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/OnlineImageTextureProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/OnlineImageTextureProvider.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "OnlineImageTextureProvider"
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 OnlineImageTextureProvider 实例
+OnlineImageTextureProvider onlineImageTextureProvider = ...;
+onlineImageTextureProvider.Tick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OnlineImageTextureProvider();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+OnlineImageTextureProvider onlineImageTextureProvider = ...;
+onlineImageTextureProvider.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

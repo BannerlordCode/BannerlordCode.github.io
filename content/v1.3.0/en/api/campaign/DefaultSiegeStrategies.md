@@ -1,13 +1,7 @@
 ---
 title: "DefaultSiegeStrategies"
+description: "Auto-generated class reference for DefaultSiegeStrategies."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSiegeStrategies`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeStrategies
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -41,9 +35,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new DefaultSiegeStrategies();
+// Obtain an instance from the relevant subsystem API
+DefaultSiegeStrategies instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

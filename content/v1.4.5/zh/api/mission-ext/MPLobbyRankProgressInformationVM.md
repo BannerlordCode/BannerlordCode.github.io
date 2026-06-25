@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyRankProgressInformationVM"
+description: "MPLobbyRankProgressInformationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyRankProgressInformationVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyRankProgressInformationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyRankProgressInformationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRankProgressInformationVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRankProgressInformationVM.cs`
 
 ## 概述
 
@@ -49,30 +43,55 @@ title: "MPLobbyRankProgressInformationVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyRankProgressInformationVM 实例
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyRankProgressInformationVM 实例
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.OnFinalize();
+```
 
 ### OpenWith
 `public void OpenWith(MPLobbyPlayerBaseVM player)`
 
-**用途 / Purpose:** 处理 `open with` 相关逻辑。
+**用途 / Purpose:** 打开「with」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyRankProgressInformationVM 实例
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.OpenWith(player);
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 `close popup` 操作或流程。
+**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyRankProgressInformationVM 实例
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.ExecuteClosePopup();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyRankProgressInformationVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyRankProgressInformationVM mPLobbyRankProgressInformationVM = ...;
+mPLobbyRankProgressInformationVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

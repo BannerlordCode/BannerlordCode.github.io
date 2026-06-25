@@ -1,13 +1,7 @@
 ---
 title: "GroupedOptionCategoryVM"
+description: "GroupedOptionCategoryVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GroupedOptionCategoryVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GroupedOptionCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
@@ -41,35 +35,66 @@ title: "GroupedOptionCategoryVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+groupedOptionCategoryVM.RefreshValues();
+```
 
 ### ResetData
 `public void ResetData()`
 
-**用途 / Purpose:** 将 `data` 重置为初始状态。
+**用途 / Purpose:** 将 「data」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+groupedOptionCategoryVM.ResetData();
+```
 
 ### ExecuteResetToDefault
 `public void ExecuteResetToDefault()`
 
-**用途 / Purpose:** 执行 `reset to default` 操作或流程。
+**用途 / Purpose:** 执行 「reset to default」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+groupedOptionCategoryVM.ExecuteResetToDefault();
+```
 
 ### GetOption
 `public GenericOptionDataVM GetOption(ManagedOptions.ManagedOptionsType optionType)`
 
-**用途 / Purpose:** 获取 `option` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「option」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+var result = groupedOptionCategoryVM.GetOption(optionType);
+```
 
 ### GetOption
 `public GenericOptionDataVM GetOption(NativeOptions.NativeOptionsType optionType)`
 
-**用途 / Purpose:** 获取 `option` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「option」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+var result = groupedOptionCategoryVM.GetOption(optionType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GroupedOptionCategoryVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+groupedOptionCategoryVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

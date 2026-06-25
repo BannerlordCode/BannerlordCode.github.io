@@ -1,20 +1,14 @@
 ---
 title: "SPKillFeedVM"
+description: "SPKillFeedVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPKillFeedVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPKillFeedVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPKillFeedVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed/SPKillFeedVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed/SPKillFeedVM.cs`
 
 ## 概述
 
@@ -36,30 +30,55 @@ title: "SPKillFeedVM"
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SPKillFeedVM 实例
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+```
 
 ### OnPersonalKill
 `public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-**用途 / Purpose:** 当 `personal kill` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「personal kill」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SPKillFeedVM 实例
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnPersonalKill(0, false, false, false, "example", false);
+```
 
 ### OnPersonalDamage
 `public void OnPersonalDamage(int totalDamage, bool isVictimAgentMount, bool isFriendlyFire, string victimAgentName)`
 
-**用途 / Purpose:** 当 `personal damage` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「personal damage」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SPKillFeedVM 实例
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnPersonalDamage(0, false, false, "example");
+```
 
 ### OnPersonalMessage
 `public void OnPersonalMessage(string message)`
 
-**用途 / Purpose:** 当 `personal message` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「personal message」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SPKillFeedVM 实例
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnPersonalMessage("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPKillFeedVM();
-value.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+// 通常从对应子系统 API 获取实例后调用
+SPKillFeedVM sPKillFeedVM = ...;
+sPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "Move"
+description: "Move 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Move`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Move
 
 **Namespace:** SandBox.BoardGames
@@ -33,9 +27,10 @@ title: "Move"
 ## 使用示例
 
 ```csharp
-var value = new Move();
+// 从对应子系统 API 获取实例
+Move instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

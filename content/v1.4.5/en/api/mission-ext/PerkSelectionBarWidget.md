@@ -1,20 +1,14 @@
 ---
 title: "PerkSelectionBarWidget"
+description: "Auto-generated class reference for PerkSelectionBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkSelectionBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkSelectionBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PerkSelectionBarWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/PerkSelectionBarWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/PerkSelectionBarWidget.cs`
 
 ## Overview
 
@@ -45,14 +39,21 @@ Treat `PerkSelectionBarWidget` as a Widget-style extension point: first identify
 ### PerkSelectionBarWidget
 `public class PerkSelectionBarWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `perk selection bar widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PerkSelectionBarWidget from the subsystem API first
+PerkSelectionBarWidget perkSelectionBarWidget = ...;
+var result = perkSelectionBarWidget.PerkSelectionBarWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new PerkSelectionBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PerkSelectionBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ArenaDuelMissionController"
+description: "Auto-generated class reference for ArenaDuelMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArenaDuelMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaDuelMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Arena
 **Module:** SandBox.Missions
 **Type:** `public class ArenaDuelMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Arena/ArenaDuelMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Arena/ArenaDuelMissionController.cs`
 
 ## Overview
 
@@ -29,22 +23,46 @@ Treat `ArenaDuelMissionController` as a Controller-style extension point: first 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArenaDuelMissionController from the subsystem API first
+ArenaDuelMissionController arenaDuelMissionController = ...;
+arenaDuelMissionController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of ArenaDuelMissionController from the subsystem API first
+ArenaDuelMissionController arenaDuelMissionController = ...;
+arenaDuelMissionController.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of ArenaDuelMissionController from the subsystem API first
+ArenaDuelMissionController arenaDuelMissionController = ...;
+arenaDuelMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of ArenaDuelMissionController from the subsystem API first
+ArenaDuelMissionController arenaDuelMissionController = ...;
+var result = arenaDuelMissionController.OnEndMissionRequest(canPlayerLeave);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ var controller = Mission.Current.GetMissionBehavior<ArenaDuelMissionController>(
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

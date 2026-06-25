@@ -1,13 +1,7 @@
 ---
 title: "AnchorPoint"
+description: "Auto-generated class reference for AnchorPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnchorPoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AnchorPoint
 
 **Namespace:** TaleWorlds.CampaignSystem.Naval
@@ -43,85 +37,176 @@ Start from namespace `TaleWorlds.CampaignSystem.Naval` to place it in the stack,
 ### CallFleet
 `public void CallFleet(Settlement settlement)`
 
-**Purpose:** Handles logic related to `call fleet`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.CallFleet(settlement);
+```
 
 ### SetPosition
 `public void SetPosition(CampaignVec2 position)`
 
-**Purpose:** Sets the value or state of `position`.
+**Purpose:** Assigns a new value to `position` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.SetPosition(position);
+```
 
 ### SetSettlement
 `public void SetSettlement(Settlement settlement)`
 
-**Purpose:** Sets the value or state of `settlement`.
+**Purpose:** Assigns a new value to `settlement` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.SetSettlement(settlement);
+```
 
 ### InitializeOnLoad
 `public void InitializeOnLoad(MobileParty owner)`
 
-**Purpose:** Initializes the state, resources, or bindings for `on load`.
+**Purpose:** Prepares the resources, state, or bindings required by `on load`.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.InitializeOnLoad(owner);
+```
 
 ### CanPartyInteract
 `public bool CanPartyInteract(MobileParty mobileParty, float dt)`
 
-**Purpose:** Checks whether the current object can `party interact`.
+**Purpose:** Checks whether the current object meets the preconditions for `party interact`.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+var result = anchorPoint.CanPartyInteract(mobileParty, 0);
+```
 
 ### SetLastUsedDisembarkPosition
 `public void SetLastUsedDisembarkPosition(CampaignVec2 pos)`
 
-**Purpose:** Sets the value or state of `last used disembark position`.
+**Purpose:** Assigns a new value to `last used disembark position` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.SetLastUsedDisembarkPosition(pos);
+```
 
 ### GetLastUsedDisembarkPosition
 `public CampaignVec2 GetLastUsedDisembarkPosition()`
 
-**Purpose:** Gets the current value of `last used disembark position`.
+**Purpose:** Reads and returns the `last used disembark position` value held by the current object.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+var result = anchorPoint.GetLastUsedDisembarkPosition();
+```
 
 ### GetInteractionPosition
 `public CampaignVec2 GetInteractionPosition(MobileParty interactingParty)`
 
-**Purpose:** Gets the current value of `interaction position`.
+**Purpose:** Reads and returns the `interaction position` value held by the current object.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+var result = anchorPoint.GetInteractionPosition(interactingParty);
+```
 
 ### OnPartyInteraction
 `public void OnPartyInteraction(MobileParty mobileParty)`
 
-**Purpose:** Called when the `party interaction` event is raised.
+**Purpose:** Invoked when the `party interaction` event is raised.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.OnPartyInteraction(mobileParty);
+```
 
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** Gets the current value of `position`.
+**Purpose:** Reads and returns the `position` value held by the current object.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+var result = anchorPoint.GetPosition();
+```
 
 ### IsAtSettlement
 `public bool IsAtSettlement(Settlement settlement)`
 
-**Purpose:** Handles logic related to `is at settlement`.
+**Purpose:** Determines whether the current object is in the `at settlement` state or condition.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+var result = anchorPoint.IsAtSettlement(settlement);
+```
 
 ### IsTargetingSettlement
 `public bool IsTargetingSettlement(Settlement settlement)`
 
-**Purpose:** Handles logic related to `is targeting settlement`.
+**Purpose:** Determines whether the current object is in the `targeting settlement` state or condition.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+var result = anchorPoint.IsTargetingSettlement(settlement);
+```
 
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**Purpose:** Handles logic related to `check positions for map change and update if needed`.
+**Purpose:** Verifies whether `positions for map change and update if needed` holds true for the current object.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.CheckPositionsForMapChangeAndUpdateIfNeeded();
+```
 
 ### ResetPosition
 `public void ResetPosition()`
 
-**Purpose:** Resets `position` to its initial state.
+**Purpose:** Returns `position` to its default or initial condition.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.ResetPosition();
+```
 
 ### ResetMoveTarget
 `public void ResetMoveTarget()`
 
-**Purpose:** Resets `move target` to its initial state.
+**Purpose:** Returns `move target` to its default or initial condition.
+
+```csharp
+// Obtain an instance of AnchorPoint from the subsystem API first
+AnchorPoint anchorPoint = ...;
+anchorPoint.ResetMoveTarget();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AnchorPoint();
-value.CallFleet(settlement);
+// Typically call this after obtaining an instance from the subsystem API
+AnchorPoint anchorPoint = ...;
+anchorPoint.CallFleet(settlement);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

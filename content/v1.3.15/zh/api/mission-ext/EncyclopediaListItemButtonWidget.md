@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListItemButtonWidget"
+description: "EncyclopediaListItemButtonWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListItemButtonWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncyclopediaListItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
@@ -40,14 +34,21 @@ title: "EncyclopediaListItemButtonWidget"
 ### OnThisLateUpdate
 `public void OnThisLateUpdate(float dt)`
 
-**用途 / Purpose:** 当 `this late update` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「this late update」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListItemButtonWidget 实例
+EncyclopediaListItemButtonWidget encyclopediaListItemButtonWidget = ...;
+encyclopediaListItemButtonWidget.OnThisLateUpdate(0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new EncyclopediaListItemButtonWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+EncyclopediaListItemButtonWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

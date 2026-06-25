@@ -1,13 +1,7 @@
 ---
 title: "EntitySystem"
+description: "Auto-generated class reference for EntitySystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EntitySystem`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EntitySystem
 
 **Namespace:** TaleWorlds.Core
@@ -37,33 +31,64 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 
 **Purpose:** Adds `component` to the current collection or state.
 
+```csharp
+// Obtain an instance of EntitySystem from the subsystem API first
+EntitySystem entitySystem = ...;
+var result = entitySystem.AddComponent(componentType);
+```
+
 ### GetComponent
 `public T GetComponent(Type componentType)`
 
-**Purpose:** Gets the current value of `component`.
+**Purpose:** Reads and returns the `component` value held by the current object.
+
+```csharp
+// Obtain an instance of EntitySystem from the subsystem API first
+EntitySystem entitySystem = ...;
+var result = entitySystem.GetComponent(componentType);
+```
 
 ### GetComponents
 `public MBList<T> GetComponents()`
 
-**Purpose:** Gets the current value of `components`.
+**Purpose:** Reads and returns the `components` value held by the current object.
+
+```csharp
+// Obtain an instance of EntitySystem from the subsystem API first
+EntitySystem entitySystem = ...;
+var result = entitySystem.GetComponents();
+```
 
 ### Finalize
 `public void Finalize(T component)`
 
-**Purpose:** Handles logic related to `finalize`.
+**Purpose:** Performs cleanup work when the object is garbage collected (usually for unmanaged resources).
+
+```csharp
+// Obtain an instance of EntitySystem from the subsystem API first
+EntitySystem entitySystem = ...;
+entitySystem.Finalize(component);
+```
 
 ### RemoveComponent
 `public void RemoveComponent(T component)`
 
 **Purpose:** Removes `component` from the current collection or state.
 
+```csharp
+// Obtain an instance of EntitySystem from the subsystem API first
+EntitySystem entitySystem = ...;
+entitySystem.RemoveComponent(component);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new EntitySystem();
-value.AddComponent(componentType);
+// Typically call this after obtaining an instance from the subsystem API
+EntitySystem entitySystem = ...;
+entitySystem.AddComponent(componentType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

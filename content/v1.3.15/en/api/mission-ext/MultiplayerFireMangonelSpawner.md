@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerFireMangonelSpawner"
+description: "Auto-generated class reference for MultiplayerFireMangonelSpawner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerFireMangonelSpawner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerFireMangonelSpawner
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerFireMangonelSpawner();
+// Obtain an instance from the relevant subsystem API
+MultiplayerFireMangonelSpawner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

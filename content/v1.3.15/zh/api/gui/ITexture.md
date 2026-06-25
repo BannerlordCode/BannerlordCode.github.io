@@ -1,18 +1,12 @@
 ---
 title: "ITexture"
+description: "ITexture 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ITexture`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ITexture
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public interface ITexture`
 **Base:** 无
 **File:** `TaleWorlds.TwoDimension/ITexture.cs`
 
@@ -27,9 +21,10 @@ title: "ITexture"
 ## 使用示例
 
 ```csharp
-ITexture implementation = GetTextureImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IITexture service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

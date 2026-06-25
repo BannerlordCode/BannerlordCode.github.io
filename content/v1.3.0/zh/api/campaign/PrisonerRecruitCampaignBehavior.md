@@ -1,13 +1,7 @@
 ---
 title: "PrisonerRecruitCampaignBehavior"
+description: "PrisonerRecruitCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrisonerRecruitCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrisonerRecruitCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,35 +23,66 @@ title: "PrisonerRecruitCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
+PrisonerRecruitCampaignBehavior prisonerRecruitCampaignBehavior = ...;
+prisonerRecruitCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
+PrisonerRecruitCampaignBehavior prisonerRecruitCampaignBehavior = ...;
+prisonerRecruitCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `session launched` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
+PrisonerRecruitCampaignBehavior prisonerRecruitCampaignBehavior = ...;
+prisonerRecruitCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### conversation_prisoner_recruit_on_condition
 `public bool conversation_prisoner_recruit_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_prisoner_recruit_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
+PrisonerRecruitCampaignBehavior prisonerRecruitCampaignBehavior = ...;
+var result = prisonerRecruitCampaignBehavior.conversation_prisoner_recruit_on_condition();
+```
 
 ### conversation_prisoner_recruit_no_on_condition
 `public bool conversation_prisoner_recruit_no_on_condition()`
 
-**用途 / Purpose:** 处理 `conversation_prisoner_recruit_no_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
+PrisonerRecruitCampaignBehavior prisonerRecruitCampaignBehavior = ...;
+var result = prisonerRecruitCampaignBehavior.conversation_prisoner_recruit_no_on_condition();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PrisonerRecruitCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+PrisonerRecruitCampaignBehavior prisonerRecruitCampaignBehavior = ...;
+prisonerRecruitCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

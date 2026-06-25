@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletTrainingFieldObjectiveView"
+description: "Auto-generated class reference for MissionGauntletTrainingFieldObjectiveView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletTrainingFieldObjectiveView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletTrainingFieldObjectiveView
 
 **Namespace:** StoryMode.GauntletUI.Missions
@@ -29,34 +23,65 @@ Treat `MissionGauntletTrainingFieldObjectiveView` as a View-style extension poin
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnMissionScreenFinalize();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletTrainingFieldObjectiveView from the subsystem API first
+MissionGauntletTrainingFieldObjectiveView missionGauntletTrainingFieldObjectiveView = ...;
+missionGauntletTrainingFieldObjectiveView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletTrainingFieldObjectiveView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletTrainingFieldObjectiveView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

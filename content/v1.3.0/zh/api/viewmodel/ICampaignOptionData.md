@@ -1,18 +1,12 @@
 ---
 title: "ICampaignOptionData"
+description: "ICampaignOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICampaignOptionData`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICampaignOptionData`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ICampaignOptionData.cs`
 
@@ -27,9 +21,10 @@ title: "ICampaignOptionData"
 ## 使用示例
 
 ```csharp
-ICampaignOptionData implementation = GetCampaignOptionDataImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICampaignOptionData service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

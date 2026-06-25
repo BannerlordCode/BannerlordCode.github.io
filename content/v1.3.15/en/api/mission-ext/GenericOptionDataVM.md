@@ -1,13 +1,7 @@
 ---
 title: "GenericOptionDataVM"
+description: "Auto-generated class reference for GenericOptionDataVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericOptionDataVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GenericOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
@@ -42,69 +36,142 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### UpdateData
 `public virtual void UpdateData(bool initUpdate)`
 
-**Purpose:** Updates the state or data of `data`.
+**Purpose:** Recalculates and stores the latest representation of `data`.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.UpdateData(false);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.RefreshValues();
+```
 
 ### GetOptionType
 `public object GetOptionType()`
 
-**Purpose:** Gets the current value of `option type`.
+**Purpose:** Reads and returns the `option type` value held by the current object.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+var result = genericOptionDataVM.GetOptionType();
+```
 
 ### GetOptionData
 `public IOptionData GetOptionData()`
 
-**Purpose:** Gets the current value of `option data`.
+**Purpose:** Reads and returns the `option data` value held by the current object.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+var result = genericOptionDataVM.GetOptionData();
+```
 
 ### ResetToDefault
 `public void ResetToDefault()`
 
-**Purpose:** Resets `to default` to its initial state.
+**Purpose:** Returns `to default` to its default or initial condition.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.ResetToDefault();
+```
 
 ### UpdateEnableState
 `public void UpdateEnableState()`
 
-**Purpose:** Updates the state or data of `enable state`.
+**Purpose:** Recalculates and stores the latest representation of `enable state`.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.UpdateEnableState();
+```
 
 ### UpdateValue
 `public abstract void UpdateValue()`
 
-**Purpose:** Updates the state or data of `value`.
+**Purpose:** Recalculates and stores the latest representation of `value`.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.UpdateValue();
+```
 
 ### Cancel
 `public abstract void Cancel()`
 
-**Purpose:** Checks whether the current object can `cel`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel`.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.Cancel();
+```
 
 ### IsChanged
 `public abstract bool IsChanged()`
 
-**Purpose:** Handles logic related to `is changed`.
+**Purpose:** Determines whether the current object is in the `changed` state or condition.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+var result = genericOptionDataVM.IsChanged();
+```
 
 ### SetValue
 `public abstract void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.SetValue(0);
+```
 
 ### ResetData
 `public abstract void ResetData()`
 
-**Purpose:** Resets `data` to its initial state.
+**Purpose:** Returns `data` to its default or initial condition.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.ResetData();
+```
 
 ### ApplyValue
 `public abstract void ApplyValue()`
 
-**Purpose:** Applies `value` to the current object.
+**Purpose:** Applies the effect of `value` to the current object.
+
+```csharp
+// Obtain an instance of GenericOptionDataVM from the subsystem API first
+GenericOptionDataVM genericOptionDataVM = ...;
+genericOptionDataVM.ApplyValue();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGenericOptionDataVM();
+// Typically obtained from a subsystem API or factory
+GenericOptionDataVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

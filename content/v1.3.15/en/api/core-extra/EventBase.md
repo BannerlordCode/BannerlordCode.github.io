@@ -1,13 +1,7 @@
 ---
 title: "EventBase"
+description: "Auto-generated class reference for EventBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EventBase`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EventBase
 
 **Namespace:** TaleWorlds.Library.EventSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.EventSystem` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new EventBase();
+// Obtain an instance from the relevant subsystem API
+EventBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

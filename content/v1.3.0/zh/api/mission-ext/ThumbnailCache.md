@@ -1,13 +1,7 @@
 ---
 title: "ThumbnailCache"
+description: "ThumbnailCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ThumbnailCache`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -36,14 +30,21 @@ title: "ThumbnailCache"
 ### CreateTexture
 `public virtual Texture CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**用途 / Purpose:** 创建一个 `texture` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「texture」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 ThumbnailCache 实例
+ThumbnailCache thumbnailCache = ...;
+var result = thumbnailCache.CreateTexture(thumbnailCreationData);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomThumbnailCache();
+// 通常通过子系统 API 或工厂获得派生实例
+ThumbnailCache instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

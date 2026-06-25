@@ -1,20 +1,14 @@
 ---
 title: "MissionDuelLandmarkMarkerVM"
+description: "Auto-generated class reference for MissionDuelLandmarkMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionDuelLandmarkMarkerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDuelLandmarkMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionDuelLandmarkMarkerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MissionDuelLandmarkMarkerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MissionDuelLandmarkMarkerVM.cs`
 
 ## Overview
 
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionDuelLandmarkMarkerVM from the subsystem API first
+MissionDuelLandmarkMarkerVM missionDuelLandmarkMarkerVM = ...;
+missionDuelLandmarkMarkerVM.RefreshValues();
+```
 
 ### UpdateScreenPosition
 `public void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `screen position`.
+**Purpose:** Recalculates and stores the latest representation of `screen position`.
+
+```csharp
+// Obtain an instance of MissionDuelLandmarkMarkerVM from the subsystem API first
+MissionDuelLandmarkMarkerVM missionDuelLandmarkMarkerVM = ...;
+missionDuelLandmarkMarkerVM.UpdateScreenPosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionDuelLandmarkMarkerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionDuelLandmarkMarkerVM missionDuelLandmarkMarkerVM = ...;
+missionDuelLandmarkMarkerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

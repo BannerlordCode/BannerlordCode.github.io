@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerEndOfRoundVM"
+description: "Auto-generated class reference for MultiplayerEndOfRoundVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerEndOfRoundVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerEndOfRoundVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerEndOfRoundVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound/MultiplayerEndOfRoundVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.EndOfRound/MultiplayerEndOfRoundVM.cs`
 
 ## Overview
 
@@ -47,25 +41,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.E
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfRoundVM from the subsystem API first
+MultiplayerEndOfRoundVM multiplayerEndOfRoundVM = ...;
+multiplayerEndOfRoundVM.RefreshValues();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfRoundVM from the subsystem API first
+MultiplayerEndOfRoundVM multiplayerEndOfRoundVM = ...;
+multiplayerEndOfRoundVM.Refresh();
+```
 
 ### OnMVPSelected
 `public void OnMVPSelected(MissionPeer mvpPeer)`
 
-**Purpose:** Called when the `m v p selected` event is raised.
+**Purpose:** Invoked when the `m v p selected` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfRoundVM from the subsystem API first
+MultiplayerEndOfRoundVM multiplayerEndOfRoundVM = ...;
+multiplayerEndOfRoundVM.OnMVPSelected(mvpPeer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerEndOfRoundVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerEndOfRoundVM multiplayerEndOfRoundVM = ...;
+multiplayerEndOfRoundVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

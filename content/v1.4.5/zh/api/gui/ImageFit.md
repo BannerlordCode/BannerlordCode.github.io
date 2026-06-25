@@ -1,20 +1,14 @@
 ---
 title: "ImageFit"
+description: "ImageFit 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ImageFit`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageFit
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ImageFit`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
 
 ## 概述
 
@@ -39,15 +33,22 @@ title: "ImageFit"
 ### GetFittedRectangle
 `public ImageFitResult GetFittedRectangle(in Vector2 containerSize, in Vector2 imageSize)`
 
-**用途 / Purpose:** 获取 `fitted rectangle` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「fitted rectangle」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ImageFit 实例
+ImageFit imageFit = ...;
+var result = imageFit.GetFittedRectangle(containerSize, imageSize);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ImageFit();
-value.GetFittedRectangle(containerSize, imageSize);
+// 通常从对应子系统 API 获取实例后调用
+ImageFit imageFit = ...;
+imageFit.GetFittedRectangle(containerSize, imageSize);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

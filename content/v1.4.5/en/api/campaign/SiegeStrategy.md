@@ -1,20 +1,14 @@
 ---
 title: "SiegeStrategy"
+description: "Auto-generated class reference for SiegeStrategy."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeStrategy`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeStrategy
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SiegeStrategy : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Siege/SiegeStrategy.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Siege/SiegeStrategy.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### Initialize
 `public void Initialize(TextObject name, TextObject description)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SiegeStrategy from the subsystem API first
+SiegeStrategy siegeStrategy = ...;
+siegeStrategy.Initialize(name, description);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeStrategy();
-value.Initialize(name, description);
+// Typically call this after obtaining an instance from the subsystem API
+SiegeStrategy siegeStrategy = ...;
+siegeStrategy.Initialize(name, description);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "Logger"
+description: "Logger 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Logger`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Logger
 
 **Namespace:** TaleWorlds.Library
@@ -35,45 +29,87 @@ title: "Logger"
 ### Print
 `public void Print(string log, HTMLDebugCategory debugInfo = HTMLDebugCategory.General)`
 
-**用途 / Purpose:** 处理 `print` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Logger 实例
+Logger logger = ...;
+logger.Print("example", hTMLDebugCategory.General);
+```
 
 ### Print
 `public void Print(string log, HTMLDebugCategory debugInfo, bool printOnGlobal)`
 
-**用途 / Purpose:** 处理 `print` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Logger 实例
+Logger logger = ...;
+logger.Print("example", debugInfo, false);
+```
 
 ### FinishAndCloseAll
 `public static void FinishAndCloseAll()`
 
-**用途 / Purpose:** 处理 `finish and close all` 相关逻辑。
+**用途 / Purpose:** 结束「and close all」流程并执行必要的收尾工作。
+
+```csharp
+// 静态调用，不需要实例
+Logger.FinishAndCloseAll();
+```
 
 ### GetFileStream
 `public FileStream GetFileStream()`
 
-**用途 / Purpose:** 获取 `file stream` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file stream」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Logger 实例
+Logger logger = ...;
+var result = logger.GetFileStream();
+```
 
 ### GetErrorFileStream
 `public FileStream GetErrorFileStream()`
 
-**用途 / Purpose:** 获取 `error file stream` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「error file stream」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Logger 实例
+Logger logger = ...;
+var result = logger.GetErrorFileStream();
+```
 
 ### CheckForFileSize
 `public void CheckForFileSize()`
 
-**用途 / Purpose:** 处理 `check for file size` 相关逻辑。
+**用途 / Purpose:** 检查「for file size」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 Logger 实例
+Logger logger = ...;
+logger.CheckForFileSize();
+```
 
 ### ShutDown
 `public void ShutDown()`
 
-**用途 / Purpose:** 处理 `shut down` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Logger 实例
+Logger logger = ...;
+logger.ShutDown();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Logger();
-value.Print("example", hTMLDebugCategory.General);
+// 通常从对应子系统 API 获取实例后调用
+Logger logger = ...;
+logger.Print("example", hTMLDebugCategory.General);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

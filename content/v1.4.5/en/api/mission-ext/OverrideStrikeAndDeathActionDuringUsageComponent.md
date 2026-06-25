@@ -1,20 +1,14 @@
 ---
 title: "OverrideStrikeAndDeathActionDuringUsageComponent"
+description: "Auto-generated class reference for OverrideStrikeAndDeathActionDuringUsageComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OverrideStrikeAndDeathActionDuringUsageComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OverrideStrikeAndDeathActionDuringUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OverrideStrikeAndDeathActionDuringUsageComponent : UsableMissionObjectComponent`
 **Base:** `UsableMissionObjectComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OverrideStrikeAndDeathActionDuringUsageComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/OverrideStrikeAndDeathActionDuringUsageComponent.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ var component = agent.GetComponent<OverrideStrikeAndDeathActionDuringUsageCompon
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

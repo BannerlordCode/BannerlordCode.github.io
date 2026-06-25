@@ -1,13 +1,7 @@
 ---
 title: "KingdomGiftFiefPopupVM"
+description: "Auto-generated class reference for KingdomGiftFiefPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomGiftFiefPopupVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomGiftFiefPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement
@@ -50,45 +44,88 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
+KingdomGiftFiefPopupVM kingdomGiftFiefPopupVM = ...;
+kingdomGiftFiefPopupVM.RefreshValues();
+```
 
 ### OpenWith
 `public void OpenWith(Settlement settlement)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
+KingdomGiftFiefPopupVM kingdomGiftFiefPopupVM = ...;
+kingdomGiftFiefPopupVM.OpenWith(settlement);
+```
 
 ### ExecuteGiftSettlement
 `public void ExecuteGiftSettlement()`
 
-**Purpose:** Executes the `gift settlement` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `gift settlement`.
+
+```csharp
+// Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
+KingdomGiftFiefPopupVM kingdomGiftFiefPopupVM = ...;
+kingdomGiftFiefPopupVM.ExecuteGiftSettlement();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
+KingdomGiftFiefPopupVM kingdomGiftFiefPopupVM = ...;
+kingdomGiftFiefPopupVM.ExecuteClose();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
+KingdomGiftFiefPopupVM kingdomGiftFiefPopupVM = ...;
+kingdomGiftFiefPopupVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
+KingdomGiftFiefPopupVM kingdomGiftFiefPopupVM = ...;
+kingdomGiftFiefPopupVM.SetDoneInputKey(hotKey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomGiftFiefPopupVM from the subsystem API first
+KingdomGiftFiefPopupVM kingdomGiftFiefPopupVM = ...;
+kingdomGiftFiefPopupVM.SetCancelInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomGiftFiefPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomGiftFiefPopupVM kingdomGiftFiefPopupVM = ...;
+kingdomGiftFiefPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

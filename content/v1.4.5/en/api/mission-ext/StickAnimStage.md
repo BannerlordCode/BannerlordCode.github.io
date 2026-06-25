@@ -1,20 +1,14 @@
 ---
 title: "StickAnimStage"
+description: "Auto-generated class reference for StickAnimStage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StickAnimStage`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StickAnimStage
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StickAnimStage`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialObjectiveStickParentWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialObjectiveStickParentWidget.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial` to p
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of StickAnimStage from the subsystem API first
+StickAnimStage stickAnimStage = ...;
+stickAnimStage.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StickAnimStage();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+StickAnimStage stickAnimStage = ...;
+stickAnimStage.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

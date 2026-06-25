@@ -1,13 +1,7 @@
 ---
 title: "DecisionSupporterVM"
+description: "Auto-generated class reference for DecisionSupporterVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DecisionSupporterVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DecisionSupporterVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of DecisionSupporterVM from the subsystem API first
+DecisionSupporterVM decisionSupporterVM = ...;
+decisionSupporterVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DecisionSupporterVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+DecisionSupporterVM decisionSupporterVM = ...;
+decisionSupporterVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

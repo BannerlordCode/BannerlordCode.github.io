@@ -1,13 +1,7 @@
 ---
 title: "BannerEffect"
+description: "Auto-generated class reference for BannerEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerEffect`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerEffect
 
 **Namespace:** TaleWorlds.Core
@@ -35,35 +29,66 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Initialize
 `public void Initialize(string name, string description, float level1Bonus, float level2Bonus, float level3Bonus, EffectIncrementType incrementType)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of BannerEffect from the subsystem API first
+BannerEffect bannerEffect = ...;
+bannerEffect.Initialize("example", "example", 0, 0, 0, incrementType);
+```
 
 ### GetBonusAtLevel
 `public float GetBonusAtLevel(int bannerLevel)`
 
-**Purpose:** Gets the current value of `bonus at level`.
+**Purpose:** Reads and returns the `bonus at level` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerEffect from the subsystem API first
+BannerEffect bannerEffect = ...;
+var result = bannerEffect.GetBonusAtLevel(0);
+```
 
 ### GetBonusStringAtLevel
 `public string GetBonusStringAtLevel(int bannerLevel)`
 
-**Purpose:** Gets the current value of `bonus string at level`.
+**Purpose:** Reads and returns the `bonus string at level` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerEffect from the subsystem API first
+BannerEffect bannerEffect = ...;
+var result = bannerEffect.GetBonusStringAtLevel(0);
+```
 
 ### GetDescription
 `public TextObject GetDescription(int bannerLevel)`
 
-**Purpose:** Gets the current value of `description`.
+**Purpose:** Reads and returns the `description` value held by the current object.
+
+```csharp
+// Obtain an instance of BannerEffect from the subsystem API first
+BannerEffect bannerEffect = ...;
+var result = bannerEffect.GetDescription(0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of BannerEffect from the subsystem API first
+BannerEffect bannerEffect = ...;
+var result = bannerEffect.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerEffect();
-value.Initialize("example", "example", 0, 0, 0, incrementType);
+// Typically call this after obtaining an instance from the subsystem API
+BannerEffect bannerEffect = ...;
+bannerEffect.Initialize("example", "example", 0, 0, 0, incrementType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

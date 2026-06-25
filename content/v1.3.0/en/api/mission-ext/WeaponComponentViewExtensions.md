@@ -1,13 +1,7 @@
 ---
 title: "WeaponComponentViewExtensions"
+description: "Auto-generated class reference for WeaponComponentViewExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponComponentViewExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponComponentViewExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetFlyingMeshCopy
 `public static MetaMesh GetFlyingMeshCopy(this WeaponComponentData weaponComponentData, ItemObject item)`
 
-**Purpose:** Gets the current value of `flying mesh copy`.
+**Purpose:** Reads and returns the `flying mesh copy` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentViewExtensions.GetFlyingMeshCopy(weaponComponentData, item);
+```
 
 ### GetFlyingMeshIfExists
 `public static MetaMesh GetFlyingMeshIfExists(this WeaponComponentData weaponComponentData, ItemObject item)`
 
-**Purpose:** Gets the current value of `flying mesh if exists`.
+**Purpose:** Reads and returns the `flying mesh if exists` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WeaponComponentViewExtensions.GetFlyingMeshIfExists(weaponComponentData, item);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ WeaponComponentViewExtensions.GetFlyingMeshCopy(weaponComponentData, item);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

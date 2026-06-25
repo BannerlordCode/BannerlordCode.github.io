@@ -1,20 +1,14 @@
 ---
 title: "IUdpNetworkHandler"
+description: "Auto-generated class reference for IUdpNetworkHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IUdpNetworkHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IUdpNetworkHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IUdpNetworkHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IUdpNetworkHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IUdpNetworkHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IUdpNetworkHandler` as a Handler-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-IUdpNetworkHandler implementation = GetUdpNetworkHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIUdpNetworkHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

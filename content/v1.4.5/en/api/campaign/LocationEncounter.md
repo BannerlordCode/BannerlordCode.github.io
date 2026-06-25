@@ -1,20 +1,14 @@
 ---
 title: "LocationEncounter"
+description: "Auto-generated class reference for LocationEncounter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationEncounter`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LocationEncounter`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/LocationEncounter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/LocationEncounter.cs`
 
 ## Overview
 
@@ -38,58 +32,119 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 
 **Purpose:** Adds `accompanying character` to the current collection or state.
 
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+locationEncounter.AddAccompanyingCharacter(locationCharacter, false);
+```
+
 ### GetAccompanyingCharacter
 `public AccompanyingCharacter GetAccompanyingCharacter(LocationCharacter locationCharacter)`
 
-**Purpose:** Gets the current value of `accompanying character`.
+**Purpose:** Reads and returns the `accompanying character` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+var result = locationEncounter.GetAccompanyingCharacter(locationCharacter);
+```
 
 ### GetAccompanyingCharacter
 `public AccompanyingCharacter GetAccompanyingCharacter(CharacterObject character)`
 
-**Purpose:** Gets the current value of `accompanying character`.
+**Purpose:** Reads and returns the `accompanying character` value held by the current object.
+
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+var result = locationEncounter.GetAccompanyingCharacter(character);
+```
 
 ### RemoveAccompanyingCharacter
 `public void RemoveAccompanyingCharacter(LocationCharacter locationCharacter)`
 
 **Purpose:** Removes `accompanying character` from the current collection or state.
 
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+locationEncounter.RemoveAccompanyingCharacter(locationCharacter);
+```
+
 ### RemoveAccompanyingCharacter
 `public void RemoveAccompanyingCharacter(Hero hero)`
 
 **Purpose:** Removes `accompanying character` from the current collection or state.
+
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+locationEncounter.RemoveAccompanyingCharacter(hero);
+```
 
 ### RemoveAllAccompanyingCharacters
 `public void RemoveAllAccompanyingCharacters()`
 
 **Purpose:** Removes `all accompanying characters` from the current collection or state.
 
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+locationEncounter.RemoveAllAccompanyingCharacters();
+```
+
 ### OnCharacterLocationChanged
 `public void OnCharacterLocationChanged(LocationCharacter locationCharacter, Location fromLocation, Location toLocation)`
 
-**Purpose:** Called when the `character location changed` event is raised.
+**Purpose:** Invoked when the `character location changed` event is raised.
+
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+locationEncounter.OnCharacterLocationChanged(locationCharacter, fromLocation, toLocation);
+```
 
 ### IsWorkshopLocation
 `public virtual bool IsWorkshopLocation(Location location)`
 
-**Purpose:** Handles logic related to `is workshop location`.
+**Purpose:** Determines whether the current object is in the `workshop location` state or condition.
+
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+var result = locationEncounter.IsWorkshopLocation(location);
+```
 
 ### IsTavern
 `public virtual bool IsTavern(Location location)`
 
-**Purpose:** Handles logic related to `is tavern`.
+**Purpose:** Determines whether the current object is in the `tavern` state or condition.
+
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+var result = locationEncounter.IsTavern(location);
+```
 
 ### CreateAndOpenMissionController
 `public virtual IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**Purpose:** Creates a new `and open mission controller` instance or object.
+**Purpose:** Constructs a new `and open mission controller` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of LocationEncounter from the subsystem API first
+LocationEncounter locationEncounter = ...;
+var result = locationEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LocationEncounter();
-value.AddAccompanyingCharacter(locationCharacter, false);
+// Typically call this after obtaining an instance from the subsystem API
+LocationEncounter locationEncounter = ...;
+locationEncounter.AddAccompanyingCharacter(locationCharacter, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

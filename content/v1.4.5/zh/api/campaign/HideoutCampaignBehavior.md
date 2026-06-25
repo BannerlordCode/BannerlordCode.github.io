@@ -1,20 +1,14 @@
 ---
 title: "HideoutCampaignBehavior"
+description: "HideoutCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HideoutCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HideoutCampaignBehavior : CampaignBehaviorBase, IHideoutCampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/HideoutCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/HideoutCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,55 +23,110 @@ title: "HideoutCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+hideoutCampaignBehavior.RegisterEvents();
+```
 
 ### OnNewGameCreated
 `public void OnNewGameCreated(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `new game created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「new game created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+hideoutCampaignBehavior.OnNewGameCreated(campaignGameStarter);
+```
 
 ### OnGameLoaded
 `public void OnGameLoaded(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+hideoutCampaignBehavior.OnGameLoaded(campaignGameStarter);
+```
 
 ### HourlyTickSettlement
 `public void HourlyTickSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `hourly tick settlement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+hideoutCampaignBehavior.HourlyTickSettlement(settlement);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+hideoutCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetInitialHideoutPopulation
 `public int GetInitialHideoutPopulation()`
 
-**用途 / Purpose:** 获取 `initial hideout population` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial hideout population」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+var result = hideoutCampaignBehavior.GetInitialHideoutPopulation();
+```
 
 ### hideout_wait_menu_on_condition
 `public bool hideout_wait_menu_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `hideout_wait_menu_on_condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+var result = hideoutCampaignBehavior.hideout_wait_menu_on_condition(args);
+```
 
 ### hideout_wait_menu_on_tick
 `public void hideout_wait_menu_on_tick(MenuCallbackArgs args, CampaignTime campaignTime)`
 
-**用途 / Purpose:** 处理 `hideout_wait_menu_on_tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+hideoutCampaignBehavior.hideout_wait_menu_on_tick(args, campaignTime);
+```
 
 ### hideout_wait_menu_on_consequence
 `public void hideout_wait_menu_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `hideout_wait_menu_on_consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+hideoutCampaignBehavior.hideout_wait_menu_on_consequence(args);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HideoutCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+HideoutCampaignBehavior hideoutCampaignBehavior = ...;
+hideoutCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

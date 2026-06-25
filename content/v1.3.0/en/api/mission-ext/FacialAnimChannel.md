@@ -1,13 +1,7 @@
 ---
 title: "FacialAnimChannel"
+description: "Auto-generated class reference for FacialAnimChannel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FacialAnimChannel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FacialAnimChannel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-FacialAnimChannel example = FacialAnimChannel.Value;
+// Obtain an instance from the relevant subsystem API
+FacialAnimChannel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

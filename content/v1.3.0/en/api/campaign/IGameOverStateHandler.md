@@ -1,18 +1,12 @@
 ---
 title: "IGameOverStateHandler"
+description: "Auto-generated class reference for IGameOverStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGameOverStateHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IGameOverStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IGameOverStateHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/IGameOverStateHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IGameOverStateHandler` as a Handler-style extension point: first identify
 ## Usage Example
 
 ```csharp
-IGameOverStateHandler implementation = GetGameOverStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIGameOverStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

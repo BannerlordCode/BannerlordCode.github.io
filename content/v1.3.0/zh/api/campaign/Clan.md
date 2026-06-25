@@ -1,14 +1,7 @@
 ---
 title: "Clan"
+description: "Clan 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Clan`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-- [🔀 跨版本对比 /versions/Clan](/versions/Clan)
-<!-- END BREADCRUMB -->
 # Clan
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -104,160 +97,336 @@ title: "Clan"
 ### UpdateFactionsAtWarWith
 `public void UpdateFactionsAtWarWith()`
 
-**用途 / Purpose:** 更新 `factions at war with` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「factions at war with」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.UpdateFactionsAtWarWith();
+```
 
 ### UpdateCurrentStrength
 `public void UpdateCurrentStrength()`
 
-**用途 / Purpose:** 更新 `current strength` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「current strength」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.UpdateCurrentStrength();
+```
 
 ### IsAtWarWith
 `public bool IsAtWarWith(IFaction other)`
 
-**用途 / Purpose:** 处理 `is at war with` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「at war with」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+var result = clan.IsAtWarWith(other);
+```
 
 ### CreateClan
 `public static Clan CreateClan(string stringID)`
 
-**用途 / Purpose:** 创建一个 `clan` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「clan」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Clan.CreateClan("example");
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.Deserialize(objectManager, node);
+```
 
 ### GetRelationWithClan
 `public int GetRelationWithClan(Clan other)`
 
-**用途 / Purpose:** 获取 `relation with clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation with clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+var result = clan.GetRelationWithClan(other);
+```
 
 ### SetLeader
 `public void SetLeader(Hero leader)`
 
-**用途 / Purpose:** 设置 `leader` 的值或状态。
+**用途 / Purpose:** 为 「leader」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.SetLeader(leader);
+```
 
 ### SetInitialHomeSettlement
 `public void SetInitialHomeSettlement(Settlement initialHomeSettlement)`
 
-**用途 / Purpose:** 设置 `initial home settlement` 的值或状态。
+**用途 / Purpose:** 为 「initial home settlement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.SetInitialHomeSettlement(initialHomeSettlement);
+```
 
 ### ConsiderAndUpdateHomeSettlement
 `public void ConsiderAndUpdateHomeSettlement()`
 
-**用途 / Purpose:** 处理 `consider and update home settlement` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.ConsiderAndUpdateHomeSettlement();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+var result = clan.GetName();
+```
 
 ### ChangeClanName
 `public void ChangeClanName(TextObject name, TextObject informalName)`
 
-**用途 / Purpose:** 处理 `change clan name` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.ChangeClanName(name, informalName);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+var result = clan.ToString();
+```
 
 ### GetStanceWith
 `public StanceLink GetStanceWith(IFaction other)`
 
-**用途 / Purpose:** 获取 `stance with` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stance with」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+var result = clan.GetStanceWith(other);
+```
 
 ### ClanLeaveKingdom
 `public void ClanLeaveKingdom(bool giveBackFiefs = false)`
 
-**用途 / Purpose:** 处理 `clan leave kingdom` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.ClanLeaveKingdom(false);
+```
 
 ### CalculateTotalSettlementBaseValue
 `public float CalculateTotalSettlementBaseValue()`
 
-**用途 / Purpose:** 处理 `calculate total settlement base value` 相关逻辑。
+**用途 / Purpose:** 计算「total settlement base value」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+var result = clan.CalculateTotalSettlementBaseValue();
+```
 
 ### StartMercenaryService
 `public void StartMercenaryService()`
 
-**用途 / Purpose:** 处理 `start mercenary service` 相关逻辑。
+**用途 / Purpose:** 启动「mercenary service」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.StartMercenaryService();
+```
 
 ### ResetPlayerHomeAndFactionMidSettlement
 `public void ResetPlayerHomeAndFactionMidSettlement()`
 
-**用途 / Purpose:** 将 `player home and faction mid settlement` 重置为初始状态。
+**用途 / Purpose:** 将 「player home and faction mid settlement」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.ResetPlayerHomeAndFactionMidSettlement();
+```
 
 ### FindFirst
 `public static Clan FindFirst(Predicate<Clan> predicate)`
 
-**用途 / Purpose:** 处理 `find first` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「first」。
+
+```csharp
+// 静态调用，不需要实例
+Clan.FindFirst(predicate);
+```
 
 ### EndMercenaryService
 `public void EndMercenaryService(bool isByLeavingKingdom)`
 
-**用途 / Purpose:** 处理 `end mercenary service` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.EndMercenaryService(false);
+```
 
 ### FindAll
 `public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)`
 
-**用途 / Purpose:** 处理 `find all` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all」。
+
+```csharp
+// 静态调用，不需要实例
+Clan.FindAll(predicate);
+```
 
 ### CalculateTotalSettlementValueForFaction
 `public float CalculateTotalSettlementValueForFaction(Kingdom kingdom)`
 
-**用途 / Purpose:** 处理 `calculate total settlement value for faction` 相关逻辑。
+**用途 / Purpose:** 计算「total settlement value for faction」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+var result = clan.CalculateTotalSettlementValueForFaction(kingdom);
+```
 
 ### OnHeroChangedState
 `public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
 
-**用途 / Purpose:** 当 `hero changed state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero changed state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.OnHeroChangedState(hero, oldState);
+```
 
 ### AddRenown
 `public void AddRenown(float value, bool shouldNotify = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `renown`。
+**用途 / Purpose:** 将 「renown」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.AddRenown(0, false);
+```
 
 ### ResetClanRenown
 `public void ResetClanRenown()`
 
-**用途 / Purpose:** 将 `clan renown` 重置为初始状态。
+**用途 / Purpose:** 将 「clan renown」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.ResetClanRenown();
+```
 
 ### OnSupportedByClan
 `public void OnSupportedByClan(Clan supporterClan)`
 
-**用途 / Purpose:** 当 `supported by clan` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「supported by clan」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.OnSupportedByClan(supporterClan);
+```
 
 ### CreateSettlementRebelClan
 `public static Clan CreateSettlementRebelClan(Settlement settlement, Hero owner, int iconMeshId = -1)`
 
-**用途 / Purpose:** 创建一个 `settlement rebel clan` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「settlement rebel clan」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Clan.CreateSettlementRebelClan(settlement, owner, 0);
+```
 
 ### CalculateMidSettlement
 `public void CalculateMidSettlement()`
 
-**用途 / Purpose:** 处理 `calculate mid settlement` 相关逻辑。
+**用途 / Purpose:** 计算「mid settlement」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.CalculateMidSettlement();
+```
 
 ### CreateCompanionToLordClan
 `public static Clan CreateCompanionToLordClan(Hero hero, Settlement settlement, TextObject clanName, int newClanIconId)`
 
-**用途 / Purpose:** 创建一个 `companion to lord clan` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「companion to lord clan」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Clan.CreateCompanionToLordClan(hero, settlement, clanName, 0);
+```
 
 ### GetHeirApparents
 `public Dictionary<Hero, int> GetHeirApparents()`
 
-**用途 / Purpose:** 获取 `heir apparents` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「heir apparents」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+var result = clan.GetHeirApparents();
+```
 
 ### UpdateBannerColor
 `public void UpdateBannerColor(uint backgroundColor, uint iconColor)`
 
-**用途 / Purpose:** 更新 `banner color` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「banner color」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Clan 实例
+Clan clan = ...;
+clan.UpdateBannerColor(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Clan();
-value.UpdateFactionsAtWarWith();
+// 通常从对应子系统 API 获取实例后调用
+Clan clan = ...;
+clan.UpdateFactionsAtWarWith();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

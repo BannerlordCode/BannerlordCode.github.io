@@ -1,13 +1,7 @@
 ---
 title: "DefaultBattleCaptainModel"
+description: "Auto-generated class reference for DefaultBattleCaptainModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBattleCaptainModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultBattleCaptainModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultBattleCaptainModel` as a Model-style extension point: first identi
 ### GetCaptainRatingForTroopUsages
 `public override float GetCaptainRatingForTroopUsages(Hero hero, TroopUsageFlags flag, out List<PerkObject> compatiblePerks)`
 
-**Purpose:** Gets the current value of `captain rating for troop usages`.
+**Purpose:** Reads and returns the `captain rating for troop usages` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBattleCaptainModel from the subsystem API first
+DefaultBattleCaptainModel defaultBattleCaptainModel = ...;
+var result = defaultBattleCaptainModel.GetCaptainRatingForTroopUsages(hero, flag, compatiblePerks);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultBattleCaptainModel>(new MyDefaultBattleCaptainM
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

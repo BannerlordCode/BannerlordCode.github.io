@@ -1,13 +1,7 @@
 ---
 title: "CreditsVM"
+description: "CreditsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CreditsVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CreditsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Credits
@@ -37,20 +31,33 @@ title: "CreditsVM"
 ### FillFromFile
 `public void FillFromFile(string path)`
 
-**用途 / Purpose:** 处理 `fill from file` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CreditsVM 实例
+CreditsVM creditsVM = ...;
+creditsVM.FillFromFile("example");
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CreditsVM 实例
+CreditsVM creditsVM = ...;
+creditsVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CreditsVM();
-value.FillFromFile("example");
+// 通常从对应子系统 API 获取实例后调用
+CreditsVM creditsVM = ...;
+creditsVM.FillFromFile("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

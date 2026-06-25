@@ -1,13 +1,7 @@
 ---
 title: "HttpDriverManager"
+description: "HttpDriverManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HttpDriverManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HttpDriverManager
 
 **Namespace:** TaleWorlds.Library.Http
@@ -29,22 +23,42 @@ title: "HttpDriverManager"
 ### AddHttpDriver
 `public static void AddHttpDriver(string name, IHttpDriver driver)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `http driver`。
+**用途 / Purpose:** 将 「http driver」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+HttpDriverManager.AddHttpDriver("example", driver);
+```
 
 ### SetDefault
 `public static void SetDefault(string name)`
 
-**用途 / Purpose:** 设置 `default` 的值或状态。
+**用途 / Purpose:** 为 「default」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+HttpDriverManager.SetDefault("example");
+```
 
 ### GetHttpDriver
 `public static IHttpDriver GetHttpDriver(string name)`
 
-**用途 / Purpose:** 获取 `http driver` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「http driver」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+HttpDriverManager.GetHttpDriver("example");
+```
 
 ### GetDefaultHttpDriver
 `public static IHttpDriver GetDefaultHttpDriver()`
 
-**用途 / Purpose:** 获取 `default http driver` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default http driver」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+HttpDriverManager.GetDefaultHttpDriver();
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ var manager = HttpDriverManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MapWeatherModel"
+description: "Auto-generated class reference for MapWeatherModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapWeatherModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapWeatherModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,54 +30,109 @@ Treat `MapWeatherModel` as a Model-style extension point: first identify who cre
 ### GetInterpolatedAtmosphereState
 `public abstract AtmosphereState GetInterpolatedAtmosphereState(CampaignTime timeOfYear, Vec3 pos)`
 
-**Purpose:** Gets the current value of `interpolated atmosphere state`.
+**Purpose:** Reads and returns the `interpolated atmosphere state` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetInterpolatedAtmosphereState(timeOfYear, pos);
+```
 
 ### GetAtmosphereModel
 `public abstract AtmosphereInfo GetAtmosphereModel(CampaignVec2 position)`
 
-**Purpose:** Gets the current value of `atmosphere model`.
+**Purpose:** Reads and returns the `atmosphere model` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetAtmosphereModel(position);
+```
 
 ### GetSeasonTimeFactorOfCampaignTime
 `public abstract void GetSeasonTimeFactorOfCampaignTime(CampaignTime ct, out float timeFactorForSnow, out float timeFactorForRain, bool snapCampaignTimeToWeatherPeriod = true)`
 
-**Purpose:** Gets the current value of `season time factor of campaign time`.
+**Purpose:** Reads and returns the `season time factor of campaign time` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+mapWeatherModel.GetSeasonTimeFactorOfCampaignTime(ct, timeFactorForSnow, timeFactorForRain, false);
+```
 
 ### UpdateWeatherForPosition
 `public abstract MapWeatherModel.WeatherEvent UpdateWeatherForPosition(CampaignVec2 position, CampaignTime ct)`
 
-**Purpose:** Updates the state or data of `weather for position`.
+**Purpose:** Recalculates and stores the latest representation of `weather for position`.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.UpdateWeatherForPosition(position, ct);
+```
 
 ### InitializeCaches
 `public abstract void InitializeCaches()`
 
-**Purpose:** Initializes the state, resources, or bindings for `caches`.
+**Purpose:** Prepares the resources, state, or bindings required by `caches`.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+mapWeatherModel.InitializeCaches();
+```
 
 ### GetWeatherEventInPosition
 `public abstract MapWeatherModel.WeatherEvent GetWeatherEventInPosition(Vec2 pos)`
 
-**Purpose:** Gets the current value of `weather event in position`.
+**Purpose:** Reads and returns the `weather event in position` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetWeatherEventInPosition(pos);
+```
 
 ### GetSnowAndRainDataForPosition
 `public abstract void GetSnowAndRainDataForPosition(Vec2 position, CampaignTime ct, out float snowValue, out float rainValue)`
 
-**Purpose:** Gets the current value of `snow and rain data for position`.
+**Purpose:** Reads and returns the `snow and rain data for position` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+mapWeatherModel.GetSnowAndRainDataForPosition(position, ct, snowValue, rainValue);
+```
 
 ### GetWeatherEffectOnTerrainForPosition
 `public abstract MapWeatherModel.WeatherEventEffectOnTerrain GetWeatherEffectOnTerrainForPosition(Vec2 pos)`
 
-**Purpose:** Gets the current value of `weather effect on terrain for position`.
+**Purpose:** Reads and returns the `weather effect on terrain for position` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetWeatherEffectOnTerrainForPosition(pos);
+```
 
 ### GetWindForPosition
 `public abstract Vec2 GetWindForPosition(CampaignVec2 position)`
 
-**Purpose:** Gets the current value of `wind for position`.
+**Purpose:** Reads and returns the `wind for position` value held by the current object.
+
+```csharp
+// Obtain an instance of MapWeatherModel from the subsystem API first
+MapWeatherModel mapWeatherModel = ...;
+var result = mapWeatherModel.GetWindForPosition(position);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapWeatherModel();
+// Typically obtained from a subsystem API or factory
+MapWeatherModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

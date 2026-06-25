@@ -1,13 +1,7 @@
 ---
 title: "ActionOptionDataVM"
+description: "Auto-generated class reference for ActionOptionDataVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActionOptionDataVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ActionOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
@@ -35,45 +29,88 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ActionOptionDataVM from the subsystem API first
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.RefreshValues();
+```
 
 ### Cancel
 `public override void Cancel()`
 
-**Purpose:** Checks whether the current object can `cel`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel`.
+
+```csharp
+// Obtain an instance of ActionOptionDataVM from the subsystem API first
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.Cancel();
+```
 
 ### IsChanged
 `public override bool IsChanged()`
 
-**Purpose:** Handles logic related to `is changed`.
+**Purpose:** Determines whether the current object is in the `changed` state or condition.
+
+```csharp
+// Obtain an instance of ActionOptionDataVM from the subsystem API first
+ActionOptionDataVM actionOptionDataVM = ...;
+var result = actionOptionDataVM.IsChanged();
+```
 
 ### ResetData
 `public override void ResetData()`
 
-**Purpose:** Resets `data` to its initial state.
+**Purpose:** Returns `data` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ActionOptionDataVM from the subsystem API first
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.ResetData();
+```
 
 ### SetValue
 `public override void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ActionOptionDataVM from the subsystem API first
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.SetValue(0);
+```
 
 ### UpdateValue
 `public override void UpdateValue()`
 
-**Purpose:** Updates the state or data of `value`.
+**Purpose:** Recalculates and stores the latest representation of `value`.
+
+```csharp
+// Obtain an instance of ActionOptionDataVM from the subsystem API first
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.UpdateValue();
+```
 
 ### ApplyValue
 `public override void ApplyValue()`
 
-**Purpose:** Applies `value` to the current object.
+**Purpose:** Applies the effect of `value` to the current object.
+
+```csharp
+// Obtain an instance of ActionOptionDataVM from the subsystem API first
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.ApplyValue();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ActionOptionDataVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "EntityVisualManagerBase"
+description: "EntityVisualManagerBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EntityVisualManagerBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EntityVisualManagerBase
 
 **Namespace:** SandBox.View.Map.Managers
 **Module:** SandBox.View
 **Type:** `public abstract class EntityVisualManagerBase : CampaignEntityVisualComponent`
 **Base:** `CampaignEntityVisualComponent`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/EntityVisualManagerBase.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/EntityVisualManagerBase.cs`
 
 ## 概述
 
@@ -30,24 +24,13 @@ title: "EntityVisualManagerBase"
 |------|-----------|
 | `MapScene` | `public Scene MapScene { get; }` |
 
-## 主要方法
-
-### GetVisualOfEntity
-`public abstract MapEntityVisual<TEntity> GetVisualOfEntity(TEntity entity)`
-
-**用途 / Purpose:** 获取 `visual of entity` 的当前值。
-
-### GetEntityVisualManagerBase
-`public static EntityVisualManagerBase<TEntity> GetEntityVisualManagerBase()`
-
-**用途 / Purpose:** 获取 `entity visual manager base` 的当前值。
-
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEntityVisualManagerBase();
+// 通常通过子系统 API 或工厂获得派生实例
+EntityVisualManagerBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

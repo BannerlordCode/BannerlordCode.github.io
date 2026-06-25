@@ -1,13 +1,7 @@
 ---
 title: "ClanNavigationElement"
+description: "ClanNavigationElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanNavigationElement`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
@@ -38,25 +32,44 @@ title: "ClanNavigationElement"
 ### OpenView
 `public override void OpenView()`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 ClanNavigationElement 实例
+ClanNavigationElement clanNavigationElement = ...;
+clanNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 ClanNavigationElement 实例
+ClanNavigationElement clanNavigationElement = ...;
+clanNavigationElement.OpenView(parameters);
+```
 
 ### OnClanScreenPermission
 `public void OnClanScreenPermission(bool isAvailable, TextObject reasonString)`
 
-**用途 / Purpose:** 当 `clan screen permission` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clan screen permission」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanNavigationElement 实例
+ClanNavigationElement clanNavigationElement = ...;
+clanNavigationElement.OnClanScreenPermission(false, reasonString);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanNavigationElement();
-value.OpenView();
+// 通常从对应子系统 API 获取实例后调用
+ClanNavigationElement clanNavigationElement = ...;
+clanNavigationElement.OpenView();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

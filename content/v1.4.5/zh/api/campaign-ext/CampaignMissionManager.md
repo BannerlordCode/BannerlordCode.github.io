@@ -1,20 +1,14 @@
 ---
 title: "CampaignMissionManager"
+description: "CampaignMissionManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignMissionManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignMissionManager
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class CampaignMissionManager : ICampaignMissionManager`
 **Base:** `ICampaignMissionManager`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/CampaignMissionManager.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/CampaignMissionManager.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "CampaignMissionManager"
 ### OpenArenaDuelMission
 `public IMission OpenArenaDuelMission(string scene, Location location, CharacterObject duelCharacter, bool requireCivilianEquipment, bool spawnBOthSidesWithHorse, Action<CharacterObject> onDuelEndAction, float customAgentHealth)`
 
-**用途 / Purpose:** 处理 `open arena duel mission` 相关逻辑。
+**用途 / Purpose:** 打开「arena duel mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignMissionManager 实例
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenArenaDuelMission("example", location, duelCharacter, false, false, onDuelEndAction, 0);
+```
 
 ### OpenDisguiseMission
 `public IMission OpenDisguiseMission(string scene, bool willSetUpContact, string sceneLevels, Location fromLocation)`
 
-**用途 / Purpose:** 处理 `open disguise mission` 相关逻辑。
+**用途 / Purpose:** 打开「disguise mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignMissionManager 实例
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenDisguiseMission("example", false, "example", fromLocation);
+```
 
 ### OpenNavalRaidMission
 `public IMission OpenNavalRaidMission(TroopRoster navalRaidTroops, BattleSideEnum navalSide, List<Ship> allShips)`
 
-**用途 / Purpose:** 处理 `open naval raid mission` 相关逻辑。
+**用途 / Purpose:** 打开「naval raid mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignMissionManager 实例
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenNavalRaidMission(navalRaidTroops, navalSide, allShips);
+```
 
 ### OpenNavalBattleMission
 `public IMission OpenNavalBattleMission(MissionInitializerRecord rec)`
 
-**用途 / Purpose:** 处理 `open naval battle mission` 相关逻辑。
+**用途 / Purpose:** 打开「naval battle mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignMissionManager 实例
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenNavalBattleMission(rec);
+```
 
 ### OpenNavalSetPieceBattleMission
 `public IMission OpenNavalSetPieceBattleMission(MissionInitializerRecord rec, MBList<IShipOrigin> playerShips, MBList<IShipOrigin> playerAllyShips, MBList<IShipOrigin> enemyShips)`
 
-**用途 / Purpose:** 处理 `open naval set piece battle mission` 相关逻辑。
+**用途 / Purpose:** 打开「naval set piece battle mission」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignMissionManager 实例
+CampaignMissionManager campaignMissionManager = ...;
+var result = campaignMissionManager.OpenNavalSetPieceBattleMission(rec, playerShips, playerAllyShips, enemyShips);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ var manager = CampaignMissionManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

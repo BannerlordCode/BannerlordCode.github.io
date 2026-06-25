@@ -1,20 +1,14 @@
 ---
 title: "MissionLeaveView"
+description: "Auto-generated class reference for MissionLeaveView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLeaveView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionLeaveView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionLeaveView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionLeaveView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionLeaveView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionLeaveView` as a View-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-var view = new MissionLeaveView();
+// Retrieve this view from the subsystem API or scene
+MissionLeaveView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

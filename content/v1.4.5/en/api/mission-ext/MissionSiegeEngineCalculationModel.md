@@ -1,20 +1,14 @@
 ---
 title: "MissionSiegeEngineCalculationModel"
+description: "Auto-generated class reference for MissionSiegeEngineCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSiegeEngineCalculationModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSiegeEngineCalculationModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionSiegeEngineCalculationModel : MBGameModel<MissionSiegeEngineCalculationModel>`
 **Base:** `MBGameModel<MissionSiegeEngineCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionSiegeEngineCalculationModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/MissionSiegeEngineCalculationModel.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionSiegeEngineCalculationModel` as a Model-style extension point: fir
 ### CalculateReloadSpeed
 `public abstract float CalculateReloadSpeed(Agent userAgent, float baseSpeed)`
 
-**Purpose:** Handles logic related to `calculate reload speed`.
+**Purpose:** Calculates the current value or result of `reload speed`.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineCalculationModel from the subsystem API first
+MissionSiegeEngineCalculationModel missionSiegeEngineCalculationModel = ...;
+var result = missionSiegeEngineCalculationModel.CalculateReloadSpeed(userAgent, 0);
+```
 
 ### CalculateShipSiegeWeaponAmmoCount
 `public abstract int CalculateShipSiegeWeaponAmmoCount(IShipOrigin shipOrigin, Agent captain, RangedSiegeWeapon weapon)`
 
-**Purpose:** Handles logic related to `calculate ship siege weapon ammo count`.
+**Purpose:** Calculates the current value or result of `ship siege weapon ammo count`.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineCalculationModel from the subsystem API first
+MissionSiegeEngineCalculationModel missionSiegeEngineCalculationModel = ...;
+var result = missionSiegeEngineCalculationModel.CalculateShipSiegeWeaponAmmoCount(shipOrigin, captain, weapon);
+```
 
 ### CalculateDamage
 `public abstract int CalculateDamage(Agent attackerAgent, float baseDamage)`
 
-**Purpose:** Handles logic related to `calculate damage`.
+**Purpose:** Calculates the current value or result of `damage`.
+
+```csharp
+// Obtain an instance of MissionSiegeEngineCalculationModel from the subsystem API first
+MissionSiegeEngineCalculationModel missionSiegeEngineCalculationModel = ...;
+var result = missionSiegeEngineCalculationModel.CalculateDamage(attackerAgent, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionSiegeEngineCalculationModel();
+// Typically obtained from a subsystem API or factory
+MissionSiegeEngineCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

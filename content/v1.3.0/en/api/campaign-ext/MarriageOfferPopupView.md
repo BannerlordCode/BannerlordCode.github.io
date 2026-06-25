@@ -1,13 +1,7 @@
 ---
 title: "MarriageOfferPopupView"
+description: "Auto-generated class reference for MarriageOfferPopupView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarriageOfferPopupView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageOfferPopupView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MarriageOfferPopupView` as a View-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var view = new MarriageOfferPopupView();
+// Retrieve this view from the subsystem API or scene
+MarriageOfferPopupView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

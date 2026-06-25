@@ -1,13 +1,7 @@
 ---
 title: "QuestTaskBase"
+description: "Auto-generated class reference for QuestTaskBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestTaskBase`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestTaskBase
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Finish
 `public void Finish(QuestTaskBase.FinishStates finishState)`
 
-**Purpose:** Handles logic related to `finish`.
+**Purpose:** Concludes the current object's flow and performs any cleanup.
+
+```csharp
+// Obtain an instance of QuestTaskBase from the subsystem API first
+QuestTaskBase questTaskBase = ...;
+questTaskBase.Finish(finishState);
+```
 
 ### AddTaskDialogs
 `public void AddTaskDialogs()`
 
 **Purpose:** Adds `task dialogs` to the current collection or state.
 
+```csharp
+// Obtain an instance of QuestTaskBase from the subsystem API first
+QuestTaskBase questTaskBase = ...;
+questTaskBase.AddTaskDialogs();
+```
+
 ### SetReferences
 `public virtual void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of QuestTaskBase from the subsystem API first
+QuestTaskBase questTaskBase = ...;
+questTaskBase.SetReferences();
+```
 
 ### AddTaskDialogOnGameLoaded
 `public void AddTaskDialogOnGameLoaded(DialogFlow dialogFlow)`
 
 **Purpose:** Adds `task dialog on game loaded` to the current collection or state.
 
+```csharp
+// Obtain an instance of QuestTaskBase from the subsystem API first
+QuestTaskBase questTaskBase = ...;
+questTaskBase.AddTaskDialogOnGameLoaded(dialogFlow);
+```
+
 ### AddTaskBehaviorsOnGameLoad
 `public void AddTaskBehaviorsOnGameLoad(Action onSucceededAction = null, Action onFailedAction = null, Action onCanceledAction = null)`
 
 **Purpose:** Adds `task behaviors on game load` to the current collection or state.
 
+```csharp
+// Obtain an instance of QuestTaskBase from the subsystem API first
+QuestTaskBase questTaskBase = ...;
+questTaskBase.AddTaskBehaviorsOnGameLoad(null, null, null);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new QuestTaskBase();
-value.Finish(finishState);
+// Typically call this after obtaining an instance from the subsystem API
+QuestTaskBase questTaskBase = ...;
+questTaskBase.Finish(finishState);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

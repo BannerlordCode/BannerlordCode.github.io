@@ -1,20 +1,14 @@
 ---
 title: "TownMercenaryData"
+description: "TownMercenaryData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TownMercenaryData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownMercenaryData
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class TownMercenaryData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/RecruitmentCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/RecruitmentCampaignBehavior.cs`
 
 ## 概述
 
@@ -36,24 +30,43 @@ title: "TownMercenaryData"
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**用途 / Purpose:** 处理 `change mercenary type` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TownMercenaryData 实例
+TownMercenaryData townMercenaryData = ...;
+townMercenaryData.ChangeMercenaryType(troopType, 0);
+```
 
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**用途 / Purpose:** 处理 `change mercenary count` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TownMercenaryData 实例
+TownMercenaryData townMercenaryData = ...;
+townMercenaryData.ChangeMercenaryCount(0);
+```
 
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `available mercenary`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「available mercenary」。
+
+```csharp
+// 先通过子系统 API 拿到 TownMercenaryData 实例
+TownMercenaryData townMercenaryData = ...;
+var result = townMercenaryData.HasAvailableMercenary(occupation.NotAssigned);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TownMercenaryData();
+// 该数据对象通常由战役/任务 API 返回
+TownMercenaryData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

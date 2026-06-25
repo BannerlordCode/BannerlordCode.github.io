@@ -1,18 +1,8 @@
 ---
 title: "SellGoodsForTradeAction"
+description: "SellGoodsForTradeAction 的自动生成战役动作参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SellGoodsForTradeAction`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SellGoodsForTradeAction
-
-## 心智模型
-
-先把 `SellGoodsForTradeAction` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -40,5 +30,5 @@ SellGoodsForTradeAction.ApplyByVillagerTrade(settlement, villagerParty);
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [战役系统目录](../catalog-campaign)
+- [本区域目录](../)
+- [战役系统](../campaign/)

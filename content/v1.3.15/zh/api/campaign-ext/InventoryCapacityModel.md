@@ -1,13 +1,7 @@
 ---
 title: "InventoryCapacityModel"
+description: "InventoryCapacityModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryCapacityModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryCapacityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,29 +23,54 @@ title: "InventoryCapacityModel"
 ### CalculateInventoryCapacity
 `public abstract ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalManOnFoot = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
 
-**用途 / Purpose:** 处理 `calculate inventory capacity` 相关逻辑。
+**用途 / Purpose:** 计算「inventory capacity」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryCapacityModel 实例
+InventoryCapacityModel inventoryCapacityModel = ...;
+var result = inventoryCapacityModel.CalculateInventoryCapacity(mobileParty, false, false, 0, 0, 0, false);
+```
 
 ### GetItemAverageWeight
 `public abstract int GetItemAverageWeight()`
 
-**用途 / Purpose:** 获取 `item average weight` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item average weight」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryCapacityModel 实例
+InventoryCapacityModel inventoryCapacityModel = ...;
+var result = inventoryCapacityModel.GetItemAverageWeight();
+```
 
 ### GetItemEffectiveWeight
 `public abstract float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
 
-**用途 / Purpose:** 获取 `item effective weight` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item effective weight」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryCapacityModel 实例
+InventoryCapacityModel inventoryCapacityModel = ...;
+var result = inventoryCapacityModel.GetItemEffectiveWeight(equipmentElement, mobileParty, false, description);
+```
 
 ### CalculateTotalWeightCarried
 `public abstract ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate total weight carried` 相关逻辑。
+**用途 / Purpose:** 计算「total weight carried」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryCapacityModel 实例
+InventoryCapacityModel inventoryCapacityModel = ...;
+var result = inventoryCapacityModel.CalculateTotalWeightCarried(mobileParty, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomInventoryCapacityModel();
+// 通常通过子系统 API 或工厂获得派生实例
+InventoryCapacityModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

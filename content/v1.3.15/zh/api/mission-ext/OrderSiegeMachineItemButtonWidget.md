@@ -1,13 +1,7 @@
 ---
 title: "OrderSiegeMachineItemButtonWidget"
+description: "OrderSiegeMachineItemButtonWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderSiegeMachineItemButtonWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderSiegeMachineItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
@@ -36,9 +30,10 @@ title: "OrderSiegeMachineItemButtonWidget"
 ## 使用示例
 
 ```csharp
-var widget = new OrderSiegeMachineItemButtonWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+OrderSiegeMachineItemButtonWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

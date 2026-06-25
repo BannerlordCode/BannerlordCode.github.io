@@ -1,20 +1,14 @@
 ---
 title: "MenuTownManagementView"
+description: "MenuTownManagementView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MenuTownManagementView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuTownManagementView
 
 **Namespace:** SandBox.View.Menu
 **Module:** SandBox.View
 **Type:** `public class MenuTownManagementView : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Menu/MenuTownManagementView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Menu/MenuTownManagementView.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MenuTownManagementView"
 ## 使用示例
 
 ```csharp
-var view = new MenuTownManagementView();
+// 从子系统 API 或场景中获取该视图
+MenuTownManagementView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

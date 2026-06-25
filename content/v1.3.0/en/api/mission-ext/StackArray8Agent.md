@@ -1,13 +1,7 @@
 ---
 title: "StackArray8Agent"
+description: "Auto-generated class reference for StackArray8Agent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StackArray8Agent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StackArray8Agent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new StackArray8Agent();
+// Obtain an instance from the relevant subsystem API
+StackArray8Agent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

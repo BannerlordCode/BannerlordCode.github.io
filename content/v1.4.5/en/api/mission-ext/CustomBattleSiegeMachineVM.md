@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleSiegeMachineVM"
+description: "Auto-generated class reference for CustomBattleSiegeMachineVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleSiegeMachineVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleSiegeMachineVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSiegeMachineVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleSiegeMachineVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleSiegeMachineVM.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### SetMachineType
 `public void SetMachineType(SiegeEngineType machine)`
 
-**Purpose:** Sets the value or state of `machine type`.
+**Purpose:** Assigns a new value to `machine type` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CustomBattleSiegeMachineVM from the subsystem API first
+CustomBattleSiegeMachineVM customBattleSiegeMachineVM = ...;
+customBattleSiegeMachineVM.SetMachineType(machine);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CustomBattleSiegeMachineVM();
-value.SetMachineType(machine);
+// Typically call this after obtaining an instance from the subsystem API
+CustomBattleSiegeMachineVM customBattleSiegeMachineVM = ...;
+customBattleSiegeMachineVM.SetMachineType(machine);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

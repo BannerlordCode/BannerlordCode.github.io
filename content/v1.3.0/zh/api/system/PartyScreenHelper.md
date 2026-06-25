@@ -1,13 +1,7 @@
 ---
 title: "PartyScreenHelper"
+description: "PartyScreenHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyScreenHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyScreenHelper
 
 **Namespace:** Helpers
@@ -29,122 +23,242 @@ title: "PartyScreenHelper"
 ### GetActivePartyState
 `public static PartyState GetActivePartyState()`
 
-**用途 / Purpose:** 获取 `active party state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active party state」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.GetActivePartyState();
+```
 
 ### CloseScreen
 `public static void CloseScreen(bool isForced, bool fromCancel = false)`
 
-**用途 / Purpose:** 处理 `close screen` 相关逻辑。
+**用途 / Purpose:** 关闭「screen」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.CloseScreen(false, false);
+```
 
 ### OpenScreenAsCheat
 `public static void OpenScreenAsCheat()`
 
-**用途 / Purpose:** 处理 `open screen as cheat` 相关逻辑。
+**用途 / Purpose:** 打开「screen as cheat」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsCheat();
+```
 
 ### OpenScreenAsNormal
 `public static void OpenScreenAsNormal()`
 
-**用途 / Purpose:** 处理 `open screen as normal` 相关逻辑。
+**用途 / Purpose:** 打开「screen as normal」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsNormal();
+```
 
 ### OpenScreenAsRansom
 `public static void OpenScreenAsRansom()`
 
-**用途 / Purpose:** 处理 `open screen as ransom` 相关逻辑。
+**用途 / Purpose:** 打开「screen as ransom」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsRansom();
+```
 
 ### OpenScreenAsLoot
 `public static void OpenScreenAsLoot(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TextObject leftPartyName, int leftPartySizeLimit, PartyScreenClosedDelegate partyScreenClosedDelegate = null)`
 
-**用途 / Purpose:** 处理 `open screen as loot` 相关逻辑。
+**用途 / Purpose:** 打开「screen as loot」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsLoot(leftMemberRoster, leftPrisonerRoster, leftPartyName, 0, null);
+```
 
 ### OpenScreenAsManageTroopsAndPrisoners
 `public static void OpenScreenAsManageTroopsAndPrisoners(MobileParty leftParty, PartyScreenClosedDelegate onPartyScreenClosed = null)`
 
-**用途 / Purpose:** 处理 `open screen as manage troops and prisoners` 相关逻辑。
+**用途 / Purpose:** 打开「screen as manage troops and prisoners」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsManageTroopsAndPrisoners(leftParty, null);
+```
 
 ### OpenScreenAsReceiveTroops
 `public static void OpenScreenAsReceiveTroops(TroopRoster leftMemberParty, TextObject leftPartyName, PartyScreenClosedDelegate partyScreenClosedDelegate = null)`
 
-**用途 / Purpose:** 处理 `open screen as receive troops` 相关逻辑。
+**用途 / Purpose:** 打开「screen as receive troops」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsReceiveTroops(leftMemberParty, leftPartyName, null);
+```
 
 ### OpenScreenAsManageTroops
 `public static void OpenScreenAsManageTroops(MobileParty leftParty)`
 
-**用途 / Purpose:** 处理 `open screen as manage troops` 相关逻辑。
+**用途 / Purpose:** 打开「screen as manage troops」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsManageTroops(leftParty);
+```
 
 ### OpenScreenAsDonateTroops
 `public static void OpenScreenAsDonateTroops(MobileParty leftParty)`
 
-**用途 / Purpose:** 处理 `open screen as donate troops` 相关逻辑。
+**用途 / Purpose:** 打开「screen as donate troops」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsDonateTroops(leftParty);
+```
 
 ### OpenScreenAsDonateGarrisonWithCurrentSettlement
 `public static void OpenScreenAsDonateGarrisonWithCurrentSettlement()`
 
-**用途 / Purpose:** 处理 `open screen as donate garrison with current settlement` 相关逻辑。
+**用途 / Purpose:** 打开「screen as donate garrison with current settlement」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsDonateGarrisonWithCurrentSettlement();
+```
 
 ### OpenScreenAsDonatePrisoners
 `public static void OpenScreenAsDonatePrisoners()`
 
-**用途 / Purpose:** 处理 `open screen as donate prisoners` 相关逻辑。
+**用途 / Purpose:** 打开「screen as donate prisoners」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsDonatePrisoners();
+```
 
 ### DonatePrisonerTransferableDelegate
 `public static bool DonatePrisonerTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**用途 / Purpose:** 处理 `donate prisoner transferable delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.DonatePrisonerTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### OpenScreenAsManagePrisoners
 `public static void OpenScreenAsManagePrisoners()`
 
-**用途 / Purpose:** 处理 `open screen as manage prisoners` 相关逻辑。
+**用途 / Purpose:** 打开「screen as manage prisoners」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsManagePrisoners();
+```
 
 ### TroopTransferableDelegate
 `public static bool TroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase leftOwnerParty)`
 
-**用途 / Purpose:** 处理 `troop transferable delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.TroopTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### ClanManageTroopAndPrisonerTransferableDelegate
 `public static bool ClanManageTroopAndPrisonerTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**用途 / Purpose:** 处理 `clan manage troop and prisoner transferable delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.ClanManageTroopAndPrisonerTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### ClanManageTroopTransferableDelegate
 `public static bool ClanManageTroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**用途 / Purpose:** 处理 `clan manage troop transferable delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.ClanManageTroopTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### DonateModeTroopTransferableDelegate
 `public static bool DonateModeTroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**用途 / Purpose:** 处理 `donate mode troop transferable delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.DonateModeTroopTransferableDelegate(character, type, side, leftOwnerParty);
+```
 
 ### OpenScreenWithCondition
 `public static void OpenScreenWithCondition(IsTroopTransferableDelegate isTroopTransferable, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyPresentationDoneButtonDelegate onDoneClicked, PartyPresentationCancelButtonDelegate onCancelClicked, PartyScreenLogic.TransferState memberTransferState, PartyScreenLogic.TransferState prisonerTransferState, TextObject leftPartyName, int limit, bool showProgressBar, bool isDonating, PartyScreenHelper.PartyScreenMode screenMode = PartyScreenHelper.PartyScreenMode.Normal, TroopRoster memberRosterLeft = null, TroopRoster prisonerRosterLeft = null)`
 
-**用途 / Purpose:** 处理 `open screen with condition` 相关逻辑。
+**用途 / Purpose:** 打开「screen with condition」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenWithCondition(isTroopTransferable, doneButtonCondition, onDoneClicked, onCancelClicked, memberTransferState, prisonerTransferState, leftPartyName, 0, false, false, partyScreenHelper.PartyScreenMode.Normal, null, null);
+```
 
 ### OpenScreenForManagingAlley
 `public static void OpenScreenForManagingAlley(TroopRoster memberRosterLeft, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyPresentationDoneButtonDelegate onDoneClicked, TextObject leftPartyName, PartyPresentationCancelButtonDelegate onCancelButtonClicked)`
 
-**用途 / Purpose:** 处理 `open screen for managing alley` 相关逻辑。
+**用途 / Purpose:** 打开「screen for managing alley」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenForManagingAlley(memberRosterLeft, isTroopTransferable, doneButtonCondition, onDoneClicked, leftPartyName, onCancelButtonClicked);
+```
 
 ### OpenScreenAsQuest
 `public static void OpenScreenAsQuest(TroopRoster leftMemberRoster, TextObject leftPartyName, int leftPartySizeLimit, int questDaysMultiplier, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
 
-**用途 / Purpose:** 处理 `open screen as quest` 相关逻辑。
+**用途 / Purpose:** 打开「screen as quest」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsQuest(leftMemberRoster, leftPartyName, 0, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null);
+```
 
 ### OpenScreenWithDummyRoster
 `public static void OpenScreenWithDummyRoster(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TroopRoster rightMemberRoster, TroopRoster rightPrisonerRoster, TextObject leftPartyName, TextObject rightPartyName, int leftPartySizeLimit, int rightPartySizeLimit, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, CanTalkToHeroDelegate canTalkToTroopDelegate = null, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
 
-**用途 / Purpose:** 处理 `open screen with dummy roster` 相关逻辑。
+**用途 / Purpose:** 打开「screen with dummy roster」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenWithDummyRoster(leftMemberRoster, leftPrisonerRoster, rightMemberRoster, rightPrisonerRoster, leftPartyName, rightPartyName, 0, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null, null);
+```
 
 ### OpenScreenWithDummyRosterWithMainParty
 `public static void OpenScreenWithDummyRosterWithMainParty(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TextObject leftPartyName, int leftPartySizeLimit, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
 
-**用途 / Purpose:** 处理 `open screen with dummy roster with main party` 相关逻辑。
+**用途 / Purpose:** 打开「screen with dummy roster with main party」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenWithDummyRosterWithMainParty(leftMemberRoster, leftPrisonerRoster, leftPartyName, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null);
+```
 
 ### OpenScreenAsCreateClanPartyForHero
 `public static void OpenScreenAsCreateClanPartyForHero(Hero hero, PartyScreenClosedDelegate onScreenClosed = null, IsTroopTransferableDelegate isTroopTransferable = null)`
 
-**用途 / Purpose:** 处理 `open screen as create clan party for hero` 相关逻辑。
+**用途 / Purpose:** 打开「screen as create clan party for hero」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenHelper.OpenScreenAsCreateClanPartyForHero(hero, null, null);
+```
 
 ## 使用示例
 
@@ -154,4 +268,4 @@ PartyScreenHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

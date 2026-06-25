@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithBoolValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithBoolValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithBoolValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithBoolValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithBoolValueEventArgs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithBoolValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithBoolValueEventArgs.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithBoolValueEventArgs
 `public struct PropertyChangedWithBoolValueEventArgs(string propertyName, bool value)`
 
-**Purpose:** Handles logic related to `property changed with bool value event args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PropertyChangedWithBoolValueEventArgs from the subsystem API first
+PropertyChangedWithBoolValueEventArgs propertyChangedWithBoolValueEventArgs = ...;
+var result = propertyChangedWithBoolValueEventArgs.PropertyChangedWithBoolValueEventArgs("example", false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithBoolValueEventArgs();
-value.PropertyChangedWithBoolValueEventArgs("example", false);
+// Typically call this after obtaining an instance from the subsystem API
+PropertyChangedWithBoolValueEventArgs propertyChangedWithBoolValueEventArgs = ...;
+propertyChangedWithBoolValueEventArgs.PropertyChangedWithBoolValueEventArgs("example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

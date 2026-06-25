@@ -1,13 +1,7 @@
 ---
 title: "VillagerPartyComponent"
+description: "Auto-generated class reference for VillagerPartyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillagerPartyComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VillagerPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -38,27 +32,55 @@ Treat `VillagerPartyComponent` as a Component-style extension point: first ident
 ### CreateVillagerParty
 `public static MobileParty CreateVillagerParty(string stringId, Village village)`
 
-**Purpose:** Creates a new `villager party` instance or object.
+**Purpose:** Constructs a new `villager party` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+VillagerPartyComponent.CreateVillagerParty("example", village);
+```
 
 ### ConvertPartyToVillagerParty
 `public static void ConvertPartyToVillagerParty(MobileParty mobileParty, Village village)`
 
-**Purpose:** Handles logic related to `convert party to villager party`.
+**Purpose:** Converts `party to villager party` into another representation or type.
+
+```csharp
+// Static call; no instance required
+VillagerPartyComponent.ConvertPartyToVillagerParty(mobileParty, village);
+```
 
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Gets the current value of `default component banner`.
+**Purpose:** Reads and returns the `default component banner` value held by the current object.
+
+```csharp
+// Obtain an instance of VillagerPartyComponent from the subsystem API first
+VillagerPartyComponent villagerPartyComponent = ...;
+var result = villagerPartyComponent.GetDefaultComponentBanner();
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** Handles logic related to `clear cached name`.
+**Purpose:** Removes all `cached name` from the current object.
+
+```csharp
+// Obtain an instance of VillagerPartyComponent from the subsystem API first
+VillagerPartyComponent villagerPartyComponent = ...;
+villagerPartyComponent.ClearCachedName();
+```
 
 ### InitializeVillagerPartyProperties
 `public void InitializeVillagerPartyProperties(MobileParty mobileParty, Village village)`
 
-**Purpose:** Initializes the state, resources, or bindings for `villager party properties`.
+**Purpose:** Prepares the resources, state, or bindings required by `villager party properties`.
+
+```csharp
+// Obtain an instance of VillagerPartyComponent from the subsystem API first
+VillagerPartyComponent villagerPartyComponent = ...;
+villagerPartyComponent.InitializeVillagerPartyProperties(mobileParty, village);
+```
 
 ## Usage Example
 
@@ -68,4 +90,4 @@ var component = agent.GetComponent<VillagerPartyComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

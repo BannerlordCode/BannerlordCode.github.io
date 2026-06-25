@@ -1,20 +1,14 @@
 ---
 title: "ImageHorizontalAlignments"
+description: "ImageHorizontalAlignments 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ImageHorizontalAlignments`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ImageHorizontalAlignments
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public enum ImageHorizontalAlignments : byte`
 **Base:** `byte`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/ImageFit.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ImageHorizontalAlignments"
 ## 使用示例
 
 ```csharp
-ImageHorizontalAlignments example = ImageHorizontalAlignments.Value;
+// 从对应子系统 API 获取实例
+ImageHorizontalAlignments instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

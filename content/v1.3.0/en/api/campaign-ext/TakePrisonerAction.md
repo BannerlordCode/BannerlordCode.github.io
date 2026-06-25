@@ -1,18 +1,8 @@
 ---
 title: "TakePrisonerAction"
+description: "Auto-generated campaign action reference for TakePrisonerAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TakePrisonerAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TakePrisonerAction
-
-## Mental Model
-
-Treat `TakePrisonerAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -29,7 +19,7 @@ TakePrisonerAction is a set of static methods that trigger "TakePrisoner" in the
 public static void Apply(PartyBase capturerParty, Hero prisonerCharacter)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ### ApplyByTakenFromPartyScreen
 
@@ -48,5 +38,5 @@ TakePrisonerAction.Apply(capturerParty, prisonerCharacter);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

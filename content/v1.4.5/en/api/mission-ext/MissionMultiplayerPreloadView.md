@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerPreloadView"
+description: "Auto-generated class reference for MissionMultiplayerPreloadView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerPreloadView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerPreloadView
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerPreloadView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerPreloadView.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerPreloadView.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionMultiplayerPreloadView` as a View-style extension point: first ide
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerPreloadView from the subsystem API first
+MissionMultiplayerPreloadView missionMultiplayerPreloadView = ...;
+missionMultiplayerPreloadView.OnPreMissionTick(0);
+```
 
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** Called when the `scene rendering started` event is raised.
+**Purpose:** Invoked when the `scene rendering started` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerPreloadView from the subsystem API first
+MissionMultiplayerPreloadView missionMultiplayerPreloadView = ...;
+missionMultiplayerPreloadView.OnSceneRenderingStarted();
+```
 
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** Called when the `mission state deactivated` event is raised.
+**Purpose:** Invoked when the `mission state deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerPreloadView from the subsystem API first
+MissionMultiplayerPreloadView missionMultiplayerPreloadView = ...;
+missionMultiplayerPreloadView.OnMissionStateDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionMultiplayerPreloadView();
+// Retrieve this view from the subsystem API or scene
+MissionMultiplayerPreloadView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

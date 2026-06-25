@@ -1,20 +1,14 @@
 ---
 title: "MarriageOfferPopupVM"
+description: "Auto-generated class reference for MarriageOfferPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarriageOfferPopupVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageOfferPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MarriageOfferPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup/MarriageOfferPopupVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup/MarriageOfferPopupVM.cs`
 
 ## Overview
 
@@ -48,50 +42,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.Marriage
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupVM from the subsystem API first
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.Update();
+```
 
 ### ExecuteAcceptOffer
 `public void ExecuteAcceptOffer()`
 
-**Purpose:** Executes the `accept offer` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `accept offer`.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupVM from the subsystem API first
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.ExecuteAcceptOffer();
+```
 
 ### ExecuteDeclineOffer
 `public void ExecuteDeclineOffer()`
 
-**Purpose:** Executes the `decline offer` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `decline offer`.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupVM from the subsystem API first
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.ExecuteDeclineOffer();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupVM from the subsystem API first
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupVM from the subsystem API first
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.OnFinalize();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupVM from the subsystem API first
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.ExecuteLink("example");
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupVM from the subsystem API first
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupVM from the subsystem API first
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MarriageOfferPopupVM();
-value.Update();
+// Typically call this after obtaining an instance from the subsystem API
+MarriageOfferPopupVM marriageOfferPopupVM = ...;
+marriageOfferPopupVM.Update();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

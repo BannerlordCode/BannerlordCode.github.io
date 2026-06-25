@@ -1,13 +1,7 @@
 ---
 title: "UsableMissionObjectComponent"
+description: "UsableMissionObjectComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UsableMissionObjectComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UsableMissionObjectComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,21 @@ title: "UsableMissionObjectComponent"
 ### IsOnTickRequired
 `public virtual bool IsOnTickRequired()`
 
-**用途 / Purpose:** 处理 `is on tick required` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「on tick required」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 UsableMissionObjectComponent 实例
+UsableMissionObjectComponent usableMissionObjectComponent = ...;
+var result = usableMissionObjectComponent.IsOnTickRequired();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomUsableMissionObjectComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+UsableMissionObjectComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

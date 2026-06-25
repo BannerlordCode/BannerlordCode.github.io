@@ -1,20 +1,14 @@
 ---
 title: "GlobalLayer"
+description: "GlobalLayer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GlobalLayer`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GlobalLayer
 
 **Namespace:** TaleWorlds.ScreenSystem
 **Module:** TaleWorlds.ScreenSystem
 **Type:** `public class GlobalLayer : IComparable`
 **Base:** `IComparable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/GlobalLayer.cs`
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/GlobalLayer.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "GlobalLayer"
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 GlobalLayer 实例
+GlobalLayer globalLayer = ...;
+var result = globalLayer.CompareTo(obj);
+```
 
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**用途 / Purpose:** 更新 `layout` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「layout」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 GlobalLayer 实例
+GlobalLayer globalLayer = ...;
+globalLayer.UpdateLayout();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GlobalLayer();
-value.CompareTo(obj);
+// 通常从对应子系统 API 获取实例后调用
+GlobalLayer globalLayer = ...;
+globalLayer.CompareTo(obj);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

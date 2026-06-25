@@ -1,20 +1,14 @@
 ---
 title: "BoardGameMuTorere"
+description: "Auto-generated class reference for BoardGameMuTorere."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameMuTorere`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameMuTorere
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGameMuTorere : BoardGameBase`
 **Base:** `BoardGameBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/BoardGameMuTorere.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/BoardGameMuTorere.cs`
 
 ## Overview
 
@@ -29,75 +23,154 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**Purpose:** Handles logic related to `board information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+var result = boardGameMuTorere.BoardInformation(pawns, tiles);
+```
 
 ### PawnInformation
 `public struct PawnInformation(int x)`
 
-**Purpose:** Handles logic related to `pawn information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+var result = boardGameMuTorere.PawnInformation(0);
+```
 
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** Initializes the state, resources, or bindings for `units`.
+**Purpose:** Prepares the resources, state, or bindings required by `units`.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+boardGameMuTorere.InitializeUnits();
+```
 
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** Initializes the state, resources, or bindings for `tiles`.
+**Purpose:** Prepares the resources, state, or bindings required by `tiles`.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+boardGameMuTorere.InitializeTiles();
+```
 
 ### InitializeCapturedUnitsZones
 `public override void InitializeCapturedUnitsZones()`
 
-**Purpose:** Initializes the state, resources, or bindings for `captured units zones`.
+**Purpose:** Prepares the resources, state, or bindings required by `captured units zones`.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+boardGameMuTorere.InitializeCapturedUnitsZones();
+```
 
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** Initializes the state, resources, or bindings for `sound`.
+**Purpose:** Prepares the resources, state, or bindings required by `sound`.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+boardGameMuTorere.InitializeSound();
+```
 
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+boardGameMuTorere.Reset();
+```
 
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** Handles logic related to `calculate valid moves`.
+**Purpose:** Calculates the current value or result of `valid moves`.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+var result = boardGameMuTorere.CalculateValidMoves(pawn);
+```
 
 ### FindTileByCoordinate
 `public TileMuTorere FindTileByCoordinate(int x)`
 
-**Purpose:** Handles logic related to `find tile by coordinate`.
+**Purpose:** Looks up the matching `tile by coordinate` in the current collection or scope.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+var result = boardGameMuTorere.FindTileByCoordinate(0);
+```
 
 ### TakePawnsSnapshot
 `public BoardInformation TakePawnsSnapshot()`
 
-**Purpose:** Handles logic related to `take pawns snapshot`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+var result = boardGameMuTorere.TakePawnsSnapshot();
+```
 
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**Purpose:** Handles logic related to `undo move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+boardGameMuTorere.UndoMove(board);
+```
 
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** Handles logic related to `a i make move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+boardGameMuTorere.AIMakeMove(move);
+```
 
 ### FindAvailableTile
 `public TileBase FindAvailableTile()`
 
-**Purpose:** Handles logic related to `find available tile`.
+**Purpose:** Looks up the matching `available tile` in the current collection or scope.
+
+```csharp
+// Obtain an instance of BoardGameMuTorere from the subsystem API first
+BoardGameMuTorere boardGameMuTorere = ...;
+var result = boardGameMuTorere.FindAvailableTile();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameMuTorere();
-value.BoardInformation(pawns, tiles);
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameMuTorere boardGameMuTorere = ...;
+boardGameMuTorere.BoardInformation(pawns, tiles);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

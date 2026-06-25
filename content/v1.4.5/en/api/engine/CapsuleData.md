@@ -1,20 +1,14 @@
 ---
 title: "CapsuleData"
+description: "Auto-generated class reference for CapsuleData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CapsuleData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CapsuleData
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct CapsuleData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/CapsuleData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/CapsuleData.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `CapsuleData` as a Data-style extension point: first identify who creates 
 ## Usage Example
 
 ```csharp
-var value = new CapsuleData();
+// This data object is usually returned by campaign/mission APIs
+CapsuleData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

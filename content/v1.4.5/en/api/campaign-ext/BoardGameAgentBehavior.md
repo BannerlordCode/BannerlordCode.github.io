@@ -1,20 +1,14 @@
 ---
 title: "BoardGameAgentBehavior"
+description: "Auto-generated class reference for BoardGameAgentBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameAgentBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAgentBehavior
 
 **Namespace:** SandBox.Source.Missions.AgentBehaviors
 **Module:** SandBox.Source
 **Type:** `public class BoardGameAgentBehavior : AgentBehavior`
 **Base:** `AgentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Source.Missions.AgentBehaviors/BoardGameAgentBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Source.Missions.AgentBehaviors/BoardGameAgentBehavior.cs`
 
 ## Overview
 
@@ -29,45 +23,85 @@ Start from namespace `SandBox.Source.Missions.AgentBehaviors` to place it in the
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of BoardGameAgentBehavior from the subsystem API first
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+boardGameAgentBehavior.Tick(0, false);
+```
 
 ### ConversationTick
 `public override void ConversationTick()`
 
-**Purpose:** Handles logic related to `conversation tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameAgentBehavior from the subsystem API first
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+boardGameAgentBehavior.ConversationTick();
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameAgentBehavior from the subsystem API first
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+var result = boardGameAgentBehavior.GetDebugInfo();
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of BoardGameAgentBehavior from the subsystem API first
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+var result = boardGameAgentBehavior.GetAvailability(false);
+```
 
 ### AddTargetChair
 `public static void AddTargetChair(Agent ownerAgent, Chair chair)`
 
 **Purpose:** Adds `target chair` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+BoardGameAgentBehavior.AddTargetChair(ownerAgent, chair);
+```
+
 ### RemoveBoardGameBehaviorOfAgent
 `public static void RemoveBoardGameBehaviorOfAgent(Agent ownerAgent)`
 
 **Purpose:** Removes `board game behavior of agent` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+BoardGameAgentBehavior.RemoveBoardGameBehaviorOfAgent(ownerAgent);
+```
+
 ### IsAgentMovingToChair
 `public static bool IsAgentMovingToChair(Agent ownerAgent)`
 
-**Purpose:** Handles logic related to `is agent moving to chair`.
+**Purpose:** Determines whether the current object is in the `agent moving to chair` state or condition.
+
+```csharp
+// Static call; no instance required
+BoardGameAgentBehavior.IsAgentMovingToChair(ownerAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameAgentBehavior();
-value.Tick(0, false);
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameAgentBehavior boardGameAgentBehavior = ...;
+boardGameAgentBehavior.Tick(0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

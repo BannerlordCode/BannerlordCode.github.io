@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerVoiceChatUIHandler"
+description: "MissionMultiplayerVoiceChatUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerVoiceChatUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerVoiceChatUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerVoiceChatUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerVoiceChatUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerVoiceChatUIHandler.cs`
 
 ## 概述
 
@@ -27,9 +21,9 @@ title: "MissionMultiplayerVoiceChatUIHandler"
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionMultiplayerVoiceChatUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionMultiplayerVoiceChatUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

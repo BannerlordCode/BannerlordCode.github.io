@@ -1,20 +1,14 @@
 ---
 title: "SkillObjectData"
+description: "Auto-generated class reference for SkillObjectData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillObjectData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkillObjectData
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SkillObjectData : PropertyObjectData`
 **Base:** `PropertyObjectData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `SkillObjectData` as a Data-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var value = new SkillObjectData();
+// This data object is usually returned by campaign/mission APIs
+SkillObjectData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

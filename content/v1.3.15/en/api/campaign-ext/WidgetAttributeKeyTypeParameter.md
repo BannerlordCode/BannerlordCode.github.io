@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeKeyTypeParameter"
+description: "Auto-generated class reference for WidgetAttributeKeyTypeParameter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeKeyTypeParameter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeParameter
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**Purpose:** Handles logic related to `check key type`.
+**Purpose:** Verifies whether `key type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeParameter from the subsystem API first
+WidgetAttributeKeyTypeParameter widgetAttributeKeyTypeParameter = ...;
+var result = widgetAttributeKeyTypeParameter.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**Purpose:** Gets the current value of `key name`.
+**Purpose:** Reads and returns the `key name` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeParameter from the subsystem API first
+WidgetAttributeKeyTypeParameter widgetAttributeKeyTypeParameter = ...;
+var result = widgetAttributeKeyTypeParameter.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**Purpose:** Gets the current value of `serialized key`.
+**Purpose:** Reads and returns the `serialized key` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeParameter from the subsystem API first
+WidgetAttributeKeyTypeParameter widgetAttributeKeyTypeParameter = ...;
+var result = widgetAttributeKeyTypeParameter.GetSerializedKey("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeKeyTypeParameter();
-value.CheckKeyType("example");
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeKeyTypeParameter widgetAttributeKeyTypeParameter = ...;
+widgetAttributeKeyTypeParameter.CheckKeyType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

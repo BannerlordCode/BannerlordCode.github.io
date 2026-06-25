@@ -1,20 +1,14 @@
 ---
 title: "AutoBlockModel"
+description: "AutoBlockModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AutoBlockModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AutoBlockModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class AutoBlockModel : MBGameModel<AutoBlockModel>`
 **Base:** `MBGameModel<AutoBlockModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AutoBlockModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AutoBlockModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "AutoBlockModel"
 ### GetBlockDirection
 `public abstract Agent.UsageDirection GetBlockDirection(Mission mission)`
 
-**用途 / Purpose:** 获取 `block direction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「block direction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AutoBlockModel 实例
+AutoBlockModel autoBlockModel = ...;
+var result = autoBlockModel.GetBlockDirection(mission);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomAutoBlockModel();
+// 通常通过子系统 API 或工厂获得派生实例
+AutoBlockModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

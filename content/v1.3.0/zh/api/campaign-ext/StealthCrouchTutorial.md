@@ -1,13 +1,7 @@
 ---
 title: "StealthCrouchTutorial"
+description: "StealthCrouchTutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthCrouchTutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthCrouchTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ title: "StealthCrouchTutorial"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StealthCrouchTutorial 实例
+StealthCrouchTutorial stealthCrouchTutorial = ...;
+var result = stealthCrouchTutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthCrouchTutorial 实例
+StealthCrouchTutorial stealthCrouchTutorial = ...;
+var result = stealthCrouchTutorial.IsConditionsMetForActivation();
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthCrouchTutorial 实例
+StealthCrouchTutorial stealthCrouchTutorial = ...;
+var result = stealthCrouchTutorial.IsConditionsMetForCompletion();
+```
 
 ### IsConditionsMetForVisibility
 `public override bool IsConditionsMetForVisibility()`
 
-**用途 / Purpose:** 处理 `is conditions met for visibility` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for visibility」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthCrouchTutorial 实例
+StealthCrouchTutorial stealthCrouchTutorial = ...;
+var result = stealthCrouchTutorial.IsConditionsMetForVisibility();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StealthCrouchTutorial();
-value.GetTutorialsRelevantContext();
+// 通常从对应子系统 API 获取实例后调用
+StealthCrouchTutorial stealthCrouchTutorial = ...;
+stealthCrouchTutorial.GetTutorialsRelevantContext();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

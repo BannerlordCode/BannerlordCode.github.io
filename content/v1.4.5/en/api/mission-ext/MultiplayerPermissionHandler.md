@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPermissionHandler"
+description: "Auto-generated class reference for MultiplayerPermissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPermissionHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPermissionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPermissionHandler : UdpNetworkComponent`
 **Base:** `UdpNetworkComponent`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerPermissionHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerPermissionHandler.cs`
 
 ## Overview
 
@@ -29,19 +23,31 @@ Treat `MultiplayerPermissionHandler` as a Handler-style extension point: first i
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**Purpose:** Called when the `udp network handler close` event is raised.
+**Purpose:** Invoked when the `udp network handler close` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerPermissionHandler from the subsystem API first
+MultiplayerPermissionHandler multiplayerPermissionHandler = ...;
+multiplayerPermissionHandler.OnUdpNetworkHandlerClose();
+```
 
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Called when the `player disconnected from server` event is raised.
+**Purpose:** Invoked when the `player disconnected from server` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerPermissionHandler from the subsystem API first
+MultiplayerPermissionHandler multiplayerPermissionHandler = ...;
+multiplayerPermissionHandler.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerPermissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerPermissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

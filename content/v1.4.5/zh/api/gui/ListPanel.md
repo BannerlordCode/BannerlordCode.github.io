@@ -1,20 +1,14 @@
 ---
 title: "ListPanel"
+description: "ListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ListPanel`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ListPanel
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ListPanel : Container`
 **Base:** `Container`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ListPanel.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ListPanel.cs`
 
 ## 概述
 
@@ -37,25 +31,44 @@ title: "ListPanel"
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 mousePosition)`
 
-**用途 / Purpose:** 获取 `index for drop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index for drop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ListPanel 实例
+ListPanel listPanel = ...;
+var result = listPanel.GetIndexForDrop(mousePosition);
+```
 
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 mousePosition)`
 
-**用途 / Purpose:** 获取 `drop gizmo position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「drop gizmo position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ListPanel 实例
+ListPanel listPanel = ...;
+var result = listPanel.GetDropGizmoPosition(mousePosition);
+```
 
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**用途 / Purpose:** 当 `child selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「child selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ListPanel 实例
+ListPanel listPanel = ...;
+listPanel.OnChildSelected(widget);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ListPanel();
-value.GetIndexForDrop(mousePosition);
+// 通常从对应子系统 API 获取实例后调用
+ListPanel listPanel = ...;
+listPanel.GetIndexForDrop(mousePosition);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

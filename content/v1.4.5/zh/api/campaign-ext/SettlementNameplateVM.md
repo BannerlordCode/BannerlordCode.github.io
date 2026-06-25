@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplateVM"
+description: "SettlementNameplateVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNameplateVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SettlementNameplateVM : NameplateVM`
 **Base:** `NameplateVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplateVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplateVM.cs`
 
 ## 概述
 
@@ -51,95 +45,198 @@ title: "SettlementNameplateVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnFinalize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshValues();
+```
 
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**用途 / Purpose:** 刷新 `dynamic properties` 的显示或缓存。
+**用途 / Purpose:** 使 「dynamic properties」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshRelationStatus
 `public override void RefreshRelationStatus()`
 
-**用途 / Purpose:** 刷新 `relation status` 的显示或缓存。
+**用途 / Purpose:** 使 「relation status」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshRelationStatus();
+```
 
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**用途 / Purpose:** 刷新 `position` 的显示或缓存。
+**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshPosition();
+```
 
 ### RefreshTutorialStatus
 `public override void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**用途 / Purpose:** 刷新 `tutorial status` 的显示或缓存。
+**用途 / Purpose:** 使 「tutorial status」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshTutorialStatus("example");
+```
 
 ### OnSiegeEventStartedOnSettlement
 `public void OnSiegeEventStartedOnSettlement(SiegeEvent siegeEvent)`
 
-**用途 / Purpose:** 当 `siege event started on settlement` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「siege event started on settlement」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnSiegeEventStartedOnSettlement(siegeEvent);
+```
 
 ### OnSiegeEventEndedOnSettlement
 `public void OnSiegeEventEndedOnSettlement(SiegeEvent siegeEvent)`
 
-**用途 / Purpose:** 当 `siege event ended on settlement` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「siege event ended on settlement」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnSiegeEventEndedOnSettlement(siegeEvent);
+```
 
 ### OnMapEventStartedOnSettlement
 `public void OnMapEventStartedOnSettlement(MapEvent mapEvent)`
 
-**用途 / Purpose:** 当 `map event started on settlement` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map event started on settlement」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnMapEventStartedOnSettlement(mapEvent);
+```
 
 ### OnMapEventEndedOnSettlement
 `public void OnMapEventEndedOnSettlement()`
 
-**用途 / Purpose:** 当 `map event ended on settlement` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map event ended on settlement」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnMapEventEndedOnSettlement();
+```
 
 ### OnRebelliousClanFormed
 `public void OnRebelliousClanFormed(Clan clan)`
 
-**用途 / Purpose:** 当 `rebellious clan formed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「rebellious clan formed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnRebelliousClanFormed(clan);
+```
 
 ### OnRebelliousClanDisbanded
 `public void OnRebelliousClanDisbanded(Clan clan)`
 
-**用途 / Purpose:** 当 `rebellious clan disbanded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「rebellious clan disbanded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnRebelliousClanDisbanded(clan);
+```
 
 ### UpdateNameplateMT
 `public void UpdateNameplateMT(Vec3 cameraPosition)`
 
-**用途 / Purpose:** 更新 `nameplate m t` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「nameplate m t」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.UpdateNameplateMT(cameraPosition);
+```
 
 ### RefreshBindValues
 `public void RefreshBindValues()`
 
-**用途 / Purpose:** 刷新 `bind values` 的显示或缓存。
+**用途 / Purpose:** 使 「bind values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.RefreshBindValues();
+```
 
 ### ExecuteTrack
 `public void ExecuteTrack()`
 
-**用途 / Purpose:** 执行 `track` 操作或流程。
+**用途 / Purpose:** 执行 「track」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.ExecuteTrack();
+```
 
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**用途 / Purpose:** 执行 `set camera position` 操作或流程。
+**用途 / Purpose:** 执行 「set camera position」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.ExecuteSetCameraPosition();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateVM 实例
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.ExecuteOpenEncyclopedia();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SettlementNameplateVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+SettlementNameplateVM settlementNameplateVM = ...;
+settlementNameplateVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

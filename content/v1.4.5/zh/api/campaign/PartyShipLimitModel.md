@@ -1,20 +1,14 @@
 ---
 title: "PartyShipLimitModel"
+description: "PartyShipLimitModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyShipLimitModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyShipLimitModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyShipLimitModel : MBGameModel<PartyShipLimitModel>`
 **Base:** `MBGameModel<PartyShipLimitModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyShipLimitModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyShipLimitModel.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "PartyShipLimitModel"
 ### GetIdealShipNumber
 `public abstract int GetIdealShipNumber(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `ideal ship number` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ideal ship number」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyShipLimitModel 实例
+PartyShipLimitModel partyShipLimitModel = ...;
+var result = partyShipLimitModel.GetIdealShipNumber(mobileParty);
+```
 
 ### GetIdealShipNumber
 `public abstract int GetIdealShipNumber(Clan clan)`
 
-**用途 / Purpose:** 获取 `ideal ship number` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ideal ship number」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyShipLimitModel 实例
+PartyShipLimitModel partyShipLimitModel = ...;
+var result = partyShipLimitModel.GetIdealShipNumber(clan);
+```
 
 ### GetShipPriority
 `public abstract float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)`
 
-**用途 / Purpose:** 获取 `ship priority` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship priority」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyShipLimitModel 实例
+PartyShipLimitModel partyShipLimitModel = ...;
+var result = partyShipLimitModel.GetShipPriority(mobileParty, ship, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyShipLimitModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyShipLimitModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

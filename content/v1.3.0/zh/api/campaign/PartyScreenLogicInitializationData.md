@@ -1,13 +1,7 @@
 ---
 title: "PartyScreenLogicInitializationData"
+description: "PartyScreenLogicInitializationData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyScreenLogicInitializationData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyScreenLogicInitializationData
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -29,19 +23,30 @@ title: "PartyScreenLogicInitializationData"
 ### CreateBasicInitDataWithMainParty
 `public static PartyScreenLogicInitializationData CreateBasicInitDataWithMainParty(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, PartyScreenLogic.TransferState memberTransferState, PartyScreenLogic.TransferState prisonerTransferState, PartyScreenLogic.TransferState accompanyingTransferState, IsTroopTransferableDelegate troopTransferableDelegate, PartyScreenHelper.PartyScreenMode partyScreenMode, PartyBase leftOwnerParty = null, TextObject leftPartyName = null, TextObject header = null, Hero leftLeaderHero = null, int leftPartyMembersSizeLimit = 0, int leftPartyPrisonersSizeLimit = 0, PartyPresentationDoneButtonDelegate partyPresentationDoneButtonDelegate = null, PartyPresentationDoneButtonConditionDelegate partyPresentationDoneButtonConditionDelegate = null, PartyPresentationCancelButtonDelegate partyPresentationCancelButtonDelegate = null, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null, PartyScreenClosedDelegate partyScreenClosedDelegate = null, bool isDismissMode = false, bool transferHealthiesGetWoundedsFirst = false, bool isTroopUpgradesDisabled = false, bool showProgressBar = false, int questModeWageDaysMultiplier = 0)`
 
-**用途 / Purpose:** 创建一个 `basic init data with main party` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「basic init data with main party」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenLogicInitializationData.CreateBasicInitDataWithMainParty(leftMemberRoster, leftPrisonerRoster, memberTransferState, prisonerTransferState, accompanyingTransferState, troopTransferableDelegate, partyScreenMode, null, null, null, null, 0, 0, null, null, null, null, null, false, false, false, false, 0);
+```
 
 ### CreateBasicInitDataWithMainPartyAndOther
 `public static PartyScreenLogicInitializationData CreateBasicInitDataWithMainPartyAndOther(MobileParty party, PartyScreenLogic.TransferState memberTransferState, PartyScreenLogic.TransferState prisonerTransferState, PartyScreenLogic.TransferState accompanyingTransferState, IsTroopTransferableDelegate troopTransferableDelegate, PartyScreenHelper.PartyScreenMode partyScreenMode, TextObject header = null, PartyPresentationDoneButtonDelegate partyPresentationDoneButtonDelegate = null, PartyPresentationDoneButtonConditionDelegate partyPresentationDoneButtonConditionDelegate = null, PartyPresentationCancelButtonDelegate partyPresentationCancelButtonDelegate = null, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null, PartyScreenClosedDelegate partyScreenClosedDelegate = null, bool isDismissMode = false, bool transferHealthiesGetWoundedsFirst = false, bool isTroopUpgradesDisabled = true, bool showProgressBar = false)`
 
-**用途 / Purpose:** 创建一个 `basic init data with main party and other` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「basic init data with main party and other」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+PartyScreenLogicInitializationData.CreateBasicInitDataWithMainPartyAndOther(party, memberTransferState, prisonerTransferState, accompanyingTransferState, troopTransferableDelegate, partyScreenMode, null, null, null, null, null, null, false, false, false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyScreenLogicInitializationData();
+// 该数据对象通常由战役/任务 API 返回
+PartyScreenLogicInitializationData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

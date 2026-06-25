@@ -1,13 +1,7 @@
 ---
 title: "QuestItemButtonWidget"
+description: "Auto-generated class reference for QuestItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest
@@ -45,9 +39,10 @@ Treat `QuestItemButtonWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new QuestItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+QuestItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

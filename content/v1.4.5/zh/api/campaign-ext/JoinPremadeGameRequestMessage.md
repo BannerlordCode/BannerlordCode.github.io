@@ -1,20 +1,14 @@
 ---
 title: "JoinPremadeGameRequestMessage"
+description: "JoinPremadeGameRequestMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `JoinPremadeGameRequestMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoinPremadeGameRequestMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class JoinPremadeGameRequestMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinPremadeGameRequestMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/JoinPremadeGameRequestMessage.cs`
 
 ## 概述
 
@@ -40,12 +34,22 @@ title: "JoinPremadeGameRequestMessage"
 ### CreateClanGameRequest
 `public static JoinPremadeGameRequestMessage CreateClanGameRequest(Guid challengerPartyId, string clanName, string sigil, PlayerId challengerPlayers)`
 
-**用途 / Purpose:** 创建一个 `clan game request` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「clan game request」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+JoinPremadeGameRequestMessage.CreateClanGameRequest(challengerPartyId, "example", "example", challengerPlayers);
+```
 
 ### CreatePracticeGameRequest
 `public static JoinPremadeGameRequestMessage CreatePracticeGameRequest(Guid challengerPartyId, PlayerId leaderId, PlayerId challengerPlayers)`
 
-**用途 / Purpose:** 创建一个 `practice game request` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「practice game request」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+JoinPremadeGameRequestMessage.CreatePracticeGameRequest(challengerPartyId, leaderId, challengerPlayers);
+```
 
 ## 使用示例
 
@@ -55,4 +59,4 @@ JoinPremadeGameRequestMessage.CreateClanGameRequest(challengerPartyId, "example"
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

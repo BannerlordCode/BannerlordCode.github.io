@@ -1,13 +1,7 @@
 ---
 title: "TooltipPropertyWidget"
+description: "TooltipPropertyWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TooltipPropertyWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TooltipPropertyWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information
@@ -60,19 +54,32 @@ title: "TooltipPropertyWidget"
 ### SetBattleScope
 `public void SetBattleScope(bool battleScope)`
 
-**用途 / Purpose:** 设置 `battle scope` 的值或状态。
+**用途 / Purpose:** 为 「battle scope」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TooltipPropertyWidget 实例
+TooltipPropertyWidget tooltipPropertyWidget = ...;
+tooltipPropertyWidget.SetBattleScope(false);
+```
 
 ### RefreshSize
 `public void RefreshSize(bool inBattleScope, float battleScopeSize, float maxValueLabelSizeX, float maxDefinitionLabelSizeX, Brush definitionRelationBrush = null, Brush valueRelationBrush = null)`
 
-**用途 / Purpose:** 刷新 `size` 的显示或缓存。
+**用途 / Purpose:** 使 「size」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 TooltipPropertyWidget 实例
+TooltipPropertyWidget tooltipPropertyWidget = ...;
+tooltipPropertyWidget.RefreshSize(false, 0, 0, 0, null, null);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new TooltipPropertyWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+TooltipPropertyWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

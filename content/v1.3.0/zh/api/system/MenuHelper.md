@@ -1,13 +1,7 @@
 ---
 title: "MenuHelper"
+description: "MenuHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MenuHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuHelper
 
 **Namespace:** Helpers
@@ -29,72 +23,142 @@ title: "MenuHelper"
 ### SetOptionProperties
 `public static bool SetOptionProperties(MenuCallbackArgs args, bool canPlayerDo, bool shouldBeDisabled, TextObject disabledText)`
 
-**用途 / Purpose:** 设置 `option properties` 的值或状态。
+**用途 / Purpose:** 为 「option properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.SetOptionProperties(args, false, false, disabledText);
+```
 
 ### SetIssueAndQuestDataForHero
 `public static void SetIssueAndQuestDataForHero(MenuCallbackArgs args, Hero hero)`
 
-**用途 / Purpose:** 设置 `issue and quest data for hero` 的值或状态。
+**用途 / Purpose:** 为 「issue and quest data for hero」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.SetIssueAndQuestDataForHero(args, hero);
+```
 
 ### SetIssueAndQuestDataForLocations
 `public static void SetIssueAndQuestDataForLocations(MenuCallbackArgs args, List<Location> locations)`
 
-**用途 / Purpose:** 设置 `issue and quest data for locations` 的值或状态。
+**用途 / Purpose:** 为 「issue and quest data for locations」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.SetIssueAndQuestDataForLocations(args, locations);
+```
 
 ### CheckAndOpenNextLocation
 `public static bool CheckAndOpenNextLocation(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `check and open next location` 相关逻辑。
+**用途 / Purpose:** 检查「and open next location」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.CheckAndOpenNextLocation(args);
+```
 
 ### DecideMenuState
 `public static void DecideMenuState()`
 
-**用途 / Purpose:** 处理 `decide menu state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.DecideMenuState();
+```
 
 ### EncounterAttackCondition
 `public static bool EncounterAttackCondition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `encounter attack condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.EncounterAttackCondition(args);
+```
 
 ### EncounterCaptureEnemyCondition
 `public static bool EncounterCaptureEnemyCondition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `encounter capture enemy condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.EncounterCaptureEnemyCondition(args);
+```
 
 ### EncounterAttackConsequence
 `public static void EncounterAttackConsequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `encounter attack consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.EncounterAttackConsequence(args);
+```
 
 ### CheckEnemyAttackableHonorably
 `public static void CheckEnemyAttackableHonorably(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `check enemy attackable honorably` 相关逻辑。
+**用途 / Purpose:** 检查「enemy attackable honorably」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.CheckEnemyAttackableHonorably(args);
+```
 
 ### EncounterOrderAttackCondition
 `public static bool EncounterOrderAttackCondition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `encounter order attack condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.EncounterOrderAttackCondition(args);
+```
 
 ### EncounterOrderAttackConsequence
 `public static void EncounterOrderAttackConsequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `encounter order attack consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.EncounterOrderAttackConsequence(args);
+```
 
 ### EncounterCaptureTheEnemyOnConsequence
 `public static void EncounterCaptureTheEnemyOnConsequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `encounter capture the enemy on consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.EncounterCaptureTheEnemyOnConsequence(args);
+```
 
 ### EncounterLeaveConsequence
 `public static void EncounterLeaveConsequence()`
 
-**用途 / Purpose:** 处理 `encounter leave consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.EncounterLeaveConsequence();
+```
 
 ### GetEncounterCultureBackgroundMesh
 `public static string GetEncounterCultureBackgroundMesh(CultureObject encounterCulture)`
 
-**用途 / Purpose:** 获取 `encounter culture background mesh` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encounter culture background mesh」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MenuHelper.GetEncounterCultureBackgroundMesh(encounterCulture);
+```
 
 ## 使用示例
 
@@ -104,4 +168,4 @@ MenuHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

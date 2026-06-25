@@ -1,13 +1,7 @@
 ---
 title: "EscapeMenuNavigationElement"
+description: "EscapeMenuNavigationElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EscapeMenuNavigationElement`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EscapeMenuNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
@@ -38,20 +32,33 @@ title: "EscapeMenuNavigationElement"
 ### OpenView
 `public override void OpenView()`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 EscapeMenuNavigationElement 实例
+EscapeMenuNavigationElement escapeMenuNavigationElement = ...;
+escapeMenuNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 EscapeMenuNavigationElement 实例
+EscapeMenuNavigationElement escapeMenuNavigationElement = ...;
+escapeMenuNavigationElement.OpenView(parameters);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EscapeMenuNavigationElement();
-value.OpenView();
+// 通常从对应子系统 API 获取实例后调用
+EscapeMenuNavigationElement escapeMenuNavigationElement = ...;
+escapeMenuNavigationElement.OpenView();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

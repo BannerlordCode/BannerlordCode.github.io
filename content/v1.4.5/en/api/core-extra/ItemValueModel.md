@@ -1,20 +1,14 @@
 ---
 title: "ItemValueModel"
+description: "Auto-generated class reference for ItemValueModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemValueModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemValueModel
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public abstract class ItemValueModel : MBGameModel<ItemValueModel>`
 **Base:** `MBGameModel<ItemValueModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemValueModel.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemValueModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `ItemValueModel` as a Model-style extension point: first identify who crea
 ### GetEquipmentValueFromTier
 `public abstract float GetEquipmentValueFromTier(float itemTierf)`
 
-**Purpose:** Gets the current value of `equipment value from tier`.
+**Purpose:** Reads and returns the `equipment value from tier` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemValueModel from the subsystem API first
+ItemValueModel itemValueModel = ...;
+var result = itemValueModel.GetEquipmentValueFromTier(0);
+```
 
 ### CalculateTier
 `public abstract float CalculateTier(ItemObject item)`
 
-**Purpose:** Handles logic related to `calculate tier`.
+**Purpose:** Calculates the current value or result of `tier`.
+
+```csharp
+// Obtain an instance of ItemValueModel from the subsystem API first
+ItemValueModel itemValueModel = ...;
+var result = itemValueModel.CalculateTier(item);
+```
 
 ### CalculateValue
 `public abstract int CalculateValue(ItemObject item)`
 
-**Purpose:** Handles logic related to `calculate value`.
+**Purpose:** Calculates the current value or result of `value`.
+
+```csharp
+// Obtain an instance of ItemValueModel from the subsystem API first
+ItemValueModel itemValueModel = ...;
+var result = itemValueModel.CalculateValue(item);
+```
 
 ### GetIsTransferable
 `public abstract bool GetIsTransferable(ItemObject item)`
 
-**Purpose:** Gets the current value of `is transferable`.
+**Purpose:** Reads and returns the `is transferable` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemValueModel from the subsystem API first
+ItemValueModel itemValueModel = ...;
+var result = itemValueModel.GetIsTransferable(item);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomItemValueModel();
+// Typically obtained from a subsystem API or factory
+ItemValueModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

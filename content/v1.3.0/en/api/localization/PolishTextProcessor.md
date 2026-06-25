@@ -1,13 +1,7 @@
 ---
 title: "PolishTextProcessor"
+description: "Auto-generated class reference for PolishTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PolishTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PolishTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor.LanguageProcessors
@@ -35,30 +29,53 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of PolishTextProcessor from the subsystem API first
+PolishTextProcessor polishTextProcessor = ...;
+polishTextProcessor.ClearTemporaryData();
+```
 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PolishTextProcessor from the subsystem API first
+PolishTextProcessor polishTextProcessor = ...;
+polishTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### GetProcessedNouns
 `public static string GetProcessedNouns(string str, string gender, string tokens = null)`
 
-**Purpose:** Gets the current value of `processed nouns`.
+**Purpose:** Reads and returns the `processed nouns` value held by the current object.
+
+```csharp
+// Static call; no instance required
+PolishTextProcessor.GetProcessedNouns("example", "example", "example");
+```
 
 ### GetProcessedAdjectives
 `public static string GetProcessedAdjectives(string str, string gender, string tokens = null)`
 
-**Purpose:** Gets the current value of `processed adjectives`.
+**Purpose:** Reads and returns the `processed adjectives` value held by the current object.
+
+```csharp
+// Static call; no instance required
+PolishTextProcessor.GetProcessedAdjectives("example", "example", "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PolishTextProcessor();
-value.ClearTemporaryData();
+// Typically call this after obtaining an instance from the subsystem API
+PolishTextProcessor polishTextProcessor = ...;
+polishTextProcessor.ClearTemporaryData();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

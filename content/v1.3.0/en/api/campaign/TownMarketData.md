@@ -1,13 +1,7 @@
 ---
 title: "TownMarketData"
+description: "Auto-generated class reference for TownMarketData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TownMarketData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownMarketData
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -29,79 +23,164 @@ Treat `TownMarketData` as a Data-style extension point: first identify who creat
 ### GetCategoryData
 `public ItemData GetCategoryData(ItemCategory itemCategory)`
 
-**Purpose:** Gets the current value of `category data`.
+**Purpose:** Reads and returns the `category data` value held by the current object.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+var result = townMarketData.GetCategoryData(itemCategory);
+```
 
 ### GetItemCountOfCategory
 `public int GetItemCountOfCategory(ItemCategory itemCategory)`
 
-**Purpose:** Gets the current value of `item count of category`.
+**Purpose:** Reads and returns the `item count of category` value held by the current object.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+var result = townMarketData.GetItemCountOfCategory(itemCategory);
+```
 
 ### OnTownInventoryUpdated
 `public void OnTownInventoryUpdated(ItemRosterElement item, int count)`
 
-**Purpose:** Called when the `town inventory updated` event is raised.
+**Purpose:** Invoked when the `town inventory updated` event is raised.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+townMarketData.OnTownInventoryUpdated(item, 0);
+```
 
 ### AddDemand
 `public void AddDemand(ItemCategory itemCategory, float demandAmount)`
 
 **Purpose:** Adds `demand` to the current collection or state.
 
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+townMarketData.AddDemand(itemCategory, 0);
+```
+
 ### AddSupply
 `public void AddSupply(ItemCategory itemCategory, float supplyAmount)`
 
 **Purpose:** Adds `supply` to the current collection or state.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+townMarketData.AddSupply(itemCategory, 0);
+```
 
 ### AddNumberInStore
 `public void AddNumberInStore(ItemCategory itemCategory, int number, int value)`
 
 **Purpose:** Adds `number in store` to the current collection or state.
 
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+townMarketData.AddNumberInStore(itemCategory, 0, 0);
+```
+
 ### SetSupplyDemand
 `public void SetSupplyDemand(ItemCategory itemCategory, float supply, float demand)`
 
-**Purpose:** Sets the value or state of `supply demand`.
+**Purpose:** Assigns a new value to `supply demand` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+townMarketData.SetSupplyDemand(itemCategory, 0, 0);
+```
 
 ### SetDemand
 `public void SetDemand(ItemCategory itemCategory, float demand)`
 
-**Purpose:** Sets the value or state of `demand`.
+**Purpose:** Assigns a new value to `demand` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+townMarketData.SetDemand(itemCategory, 0);
+```
 
 ### GetDemand
 `public float GetDemand(ItemCategory itemCategory)`
 
-**Purpose:** Gets the current value of `demand`.
+**Purpose:** Reads and returns the `demand` value held by the current object.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+var result = townMarketData.GetDemand(itemCategory);
+```
 
 ### GetSupply
 `public float GetSupply(ItemCategory itemCategory)`
 
-**Purpose:** Gets the current value of `supply`.
+**Purpose:** Reads and returns the `supply` value held by the current object.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+var result = townMarketData.GetSupply(itemCategory);
+```
 
 ### GetPriceFactor
 `public float GetPriceFactor(ItemCategory itemCategory)`
 
-**Purpose:** Gets the current value of `price factor`.
+**Purpose:** Reads and returns the `price factor` value held by the current object.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+var result = townMarketData.GetPriceFactor(itemCategory);
+```
 
 ### GetPrice
 `public int GetPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false, PartyBase merchantParty = null)`
 
-**Purpose:** Gets the current value of `price`.
+**Purpose:** Reads and returns the `price` value held by the current object.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+var result = townMarketData.GetPrice(item, null, false, null);
+```
 
 ### GetPrice
 `public int GetPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false, PartyBase merchantParty = null)`
 
-**Purpose:** Gets the current value of `price`.
+**Purpose:** Reads and returns the `price` value held by the current object.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+var result = townMarketData.GetPrice(itemRosterElement, null, false, null);
+```
 
 ### UpdateStores
 `public void UpdateStores()`
 
-**Purpose:** Updates the state or data of `stores`.
+**Purpose:** Recalculates and stores the latest representation of `stores`.
+
+```csharp
+// Obtain an instance of TownMarketData from the subsystem API first
+TownMarketData townMarketData = ...;
+townMarketData.UpdateStores();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TownMarketData();
+// This data object is usually returned by campaign/mission APIs
+TownMarketData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

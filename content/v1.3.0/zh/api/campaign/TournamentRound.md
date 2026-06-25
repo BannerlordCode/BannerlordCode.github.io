@@ -1,13 +1,7 @@
 ---
 title: "TournamentRound"
+description: "TournamentRound 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentRound`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentRound
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -37,25 +31,44 @@ title: "TournamentRound"
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**用途 / Purpose:** 当 `match ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「match ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentRound 实例
+TournamentRound tournamentRound = ...;
+tournamentRound.OnMatchEnded();
+```
 
 ### EndMatch
 `public void EndMatch()`
 
-**用途 / Purpose:** 处理 `end match` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentRound 实例
+TournamentRound tournamentRound = ...;
+tournamentRound.EndMatch();
+```
 
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant, bool firstTime = false)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `participant`。
+**用途 / Purpose:** 将 「participant」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentRound 实例
+TournamentRound tournamentRound = ...;
+tournamentRound.AddParticipant(participant, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TournamentRound();
-value.OnMatchEnded();
+// 通常从对应子系统 API 获取实例后调用
+TournamentRound tournamentRound = ...;
+tournamentRound.OnMatchEnded();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

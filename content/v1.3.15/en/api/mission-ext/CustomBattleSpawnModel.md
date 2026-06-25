@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleSpawnModel"
+description: "Auto-generated class reference for CustomBattleSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleSpawnModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleSpawnModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,22 +23,46 @@ Treat `CustomBattleSpawnModel` as a Model-style extension point: first identify 
 ### OnMissionStart
 `public override void OnMissionStart()`
 
-**Purpose:** Called when the `mission start` event is raised.
+**Purpose:** Invoked when the `mission start` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleSpawnModel from the subsystem API first
+CustomBattleSpawnModel customBattleSpawnModel = ...;
+customBattleSpawnModel.OnMissionStart();
+```
 
 ### OnMissionEnd
 `public override void OnMissionEnd()`
 
-**Purpose:** Called when the `mission end` event is raised.
+**Purpose:** Invoked when the `mission end` event is raised.
+
+```csharp
+// Obtain an instance of CustomBattleSpawnModel from the subsystem API first
+CustomBattleSpawnModel customBattleSpawnModel = ...;
+customBattleSpawnModel.OnMissionEnd();
+```
 
 ### GetInitialSpawnAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Gets the current value of `initial spawn assignments`.
+**Purpose:** Reads and returns the `initial spawn assignments` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleSpawnModel from the subsystem API first
+CustomBattleSpawnModel customBattleSpawnModel = ...;
+var result = customBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
+```
 
 ### GetReinforcementAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Gets the current value of `reinforcement assignments`.
+**Purpose:** Reads and returns the `reinforcement assignments` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleSpawnModel from the subsystem API first
+CustomBattleSpawnModel customBattleSpawnModel = ...;
+var result = customBattleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<CustomBattleSpawnModel>(new MyCustomBattleSpawnModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

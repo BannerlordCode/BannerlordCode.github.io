@@ -1,18 +1,12 @@
 ---
 title: "ISaveManager"
+description: "Auto-generated class reference for ISaveManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISaveManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ISaveManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ISaveManager`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/ISaveManager.cs`
 
@@ -27,9 +21,10 @@ Treat `ISaveManager` as a Manager-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-ISaveManager implementation = GetSaveManagerImplementation();
+// Usually obtained through DI or a factory method
+IISaveManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

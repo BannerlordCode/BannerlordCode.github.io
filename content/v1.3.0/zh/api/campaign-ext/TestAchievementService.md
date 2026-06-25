@@ -1,13 +1,7 @@
 ---
 title: "TestAchievementService"
+description: "TestAchievementService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TestAchievementService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestAchievementService
 
 **Namespace:** TaleWorlds.AchievementSystem
@@ -27,9 +21,10 @@ title: "TestAchievementService"
 ## 使用示例
 
 ```csharp
-var example = new TestAchievementService();
+// 从对应子系统 API 获取实例
+TestAchievementService instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

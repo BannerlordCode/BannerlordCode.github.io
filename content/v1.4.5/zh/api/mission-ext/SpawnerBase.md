@@ -1,20 +1,14 @@
 ---
 title: "SpawnerBase"
+description: "SpawnerBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SpawnerBase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnerBase
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SpawnerBase : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/SpawnerBase.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Siege/SpawnerBase.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "SpawnerBase"
 ### AssignParameters
 `public virtual void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**用途 / Purpose:** 处理 `assign parameters` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpawnerBase 实例
+SpawnerBase spawnerBase = ...;
+spawnerBase.AssignParameters(_spawnerMissionHelper);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SpawnerBase();
-value.AssignParameters(_spawnerMissionHelper);
+// 通常从对应子系统 API 获取实例后调用
+SpawnerBase spawnerBase = ...;
+spawnerBase.AssignParameters(_spawnerMissionHelper);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

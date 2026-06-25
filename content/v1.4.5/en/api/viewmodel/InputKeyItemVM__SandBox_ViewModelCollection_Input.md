@@ -1,20 +1,14 @@
 ---
-title: "InputKeyItemVM__SandBox_ViewModelCollection_Input"
+title: "InputKeyItemVM"
+description: "Auto-generated class reference for InputKeyItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputKeyItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputKeyItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Input
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class InputKeyItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Input/InputKeyItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Input/InputKeyItemVM.cs`
 
 ## Overview
 
@@ -39,50 +33,94 @@ Start from namespace `SandBox.ViewModelCollection.Input` to place it in the stac
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of InputKeyItemVM from the subsystem API first
+InputKeyItemVM inputKeyItemVM = ...;
+inputKeyItemVM.OnFinalize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of InputKeyItemVM from the subsystem API first
+InputKeyItemVM inputKeyItemVM = ...;
+inputKeyItemVM.RefreshValues();
+```
 
 ### SetForcedVisibility
 `public void SetForcedVisibility(bool? isVisible)`
 
-**Purpose:** Sets the value or state of `forced visibility`.
+**Purpose:** Assigns a new value to `forced visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of InputKeyItemVM from the subsystem API first
+InputKeyItemVM inputKeyItemVM = ...;
+inputKeyItemVM.SetForcedVisibility(false);
+```
 
 ### CreateFromGameKey
 `public static InputKeyItemVM CreateFromGameKey(GameKey gameKey, bool isConsoleOnly)`
 
-**Purpose:** Creates a new `from game key` instance or object.
+**Purpose:** Constructs a new `from game key` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+InputKeyItemVM.CreateFromGameKey(gameKey, false);
+```
 
 ### CreateFromHotKey
 `public static InputKeyItemVM CreateFromHotKey(HotKey hotKey, bool isConsoleOnly)`
 
-**Purpose:** Creates a new `from hot key` instance or object.
+**Purpose:** Constructs a new `from hot key` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+InputKeyItemVM.CreateFromHotKey(hotKey, false);
+```
 
 ### CreateFromHotKeyWithForcedName
 `public static InputKeyItemVM CreateFromHotKeyWithForcedName(HotKey hotKey, TextObject forcedName, bool isConsoleOnly)`
 
-**Purpose:** Creates a new `from hot key with forced name` instance or object.
+**Purpose:** Constructs a new `from hot key with forced name` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+InputKeyItemVM.CreateFromHotKeyWithForcedName(hotKey, forcedName, false);
+```
 
 ### CreateFromGameKeyWithForcedName
 `public static InputKeyItemVM CreateFromGameKeyWithForcedName(GameKey gameKey, TextObject forcedName, bool isConsoleOnly)`
 
-**Purpose:** Creates a new `from game key with forced name` instance or object.
+**Purpose:** Constructs a new `from game key with forced name` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+InputKeyItemVM.CreateFromGameKeyWithForcedName(gameKey, forcedName, false);
+```
 
 ### CreateFromForcedID
 `public static InputKeyItemVM CreateFromForcedID(string forcedID, TextObject forcedName, bool isConsoleOnly)`
 
-**Purpose:** Creates a new `from forced i d` instance or object.
+**Purpose:** Constructs a new `from forced i d` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+InputKeyItemVM.CreateFromForcedID("example", forcedName, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InputKeyItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+InputKeyItemVM inputKeyItemVM = ...;
+inputKeyItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

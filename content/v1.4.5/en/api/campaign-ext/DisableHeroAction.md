@@ -1,23 +1,13 @@
 ---
 title: "DisableHeroAction"
+description: "Auto-generated campaign action reference for DisableHeroAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisableHeroAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisableHeroAction
-
-## Mental Model
-
-Treat `DisableHeroAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** static class
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/DisableHeroAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/DisableHeroAction.cs`
 
 DisableHeroAction is a set of static methods that trigger "DisableHero" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
 
@@ -29,7 +19,7 @@ DisableHeroAction is a set of static methods that trigger "DisableHero" in the c
 public static void Apply(Hero hero)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ## Usage Example
 
@@ -40,5 +30,5 @@ DisableHeroAction.Apply(hero);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

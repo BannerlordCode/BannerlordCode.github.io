@@ -1,18 +1,12 @@
 ---
 title: "ICharacterCreationContentHandler"
+description: "ICharacterCreationContentHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICharacterCreationContentHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICharacterCreationContentHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICharacterCreationContentHandler`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/CharacterCreationContent/ICharacterCreationContentHandler.cs`
 
@@ -27,9 +21,10 @@ title: "ICharacterCreationContentHandler"
 ## 使用示例
 
 ```csharp
-ICharacterCreationContentHandler implementation = GetCharacterCreationContentHandlerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICharacterCreationContentHandler service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

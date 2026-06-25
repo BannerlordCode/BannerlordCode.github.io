@@ -1,13 +1,7 @@
 ---
 title: "HttpDriverManager"
+description: "Auto-generated class reference for HttpDriverManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HttpDriverManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HttpDriverManager
 
 **Namespace:** TaleWorlds.Library.Http
@@ -31,20 +25,40 @@ Treat `HttpDriverManager` as a Manager-style extension point: first identify who
 
 **Purpose:** Adds `http driver` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+HttpDriverManager.AddHttpDriver("example", driver);
+```
+
 ### SetDefault
 `public static void SetDefault(string name)`
 
-**Purpose:** Sets the value or state of `default`.
+**Purpose:** Assigns a new value to `default` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+HttpDriverManager.SetDefault("example");
+```
 
 ### GetHttpDriver
 `public static IHttpDriver GetHttpDriver(string name)`
 
-**Purpose:** Gets the current value of `http driver`.
+**Purpose:** Reads and returns the `http driver` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HttpDriverManager.GetHttpDriver("example");
+```
 
 ### GetDefaultHttpDriver
 `public static IHttpDriver GetDefaultHttpDriver()`
 
-**Purpose:** Gets the current value of `default http driver`.
+**Purpose:** Reads and returns the `default http driver` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HttpDriverManager.GetDefaultHttpDriver();
+```
 
 ## Usage Example
 
@@ -54,4 +68,4 @@ var manager = HttpDriverManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

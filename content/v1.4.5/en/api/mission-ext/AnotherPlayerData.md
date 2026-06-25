@@ -1,20 +1,14 @@
 ---
 title: "AnotherPlayerData"
+description: "Auto-generated class reference for AnotherPlayerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnotherPlayerData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnotherPlayerData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AnotherPlayerData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AnotherPlayerData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AnotherPlayerData.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `AnotherPlayerData` as a Data-style extension point: first identify who cr
 ## Usage Example
 
 ```csharp
-var value = new AnotherPlayerData();
+// This data object is usually returned by campaign/mission APIs
+AnotherPlayerData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

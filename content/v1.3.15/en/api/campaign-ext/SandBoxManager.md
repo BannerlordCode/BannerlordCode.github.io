@@ -1,13 +1,7 @@
 ---
 title: "SandBoxManager"
+description: "Auto-generated class reference for SandBoxManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SandBoxManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -39,32 +33,68 @@ Treat `SandBoxManager` as a Manager-style extension point: first identify who cr
 ### Initialize
 `public void Initialize(CampaignGameStarter gameStarter)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SandBoxManager from the subsystem API first
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.Initialize(gameStarter);
+```
 
 ### OnCampaignStart
 `public void OnCampaignStart(CampaignGameStarter gameInitializer, GameManagerBase gameManager, bool isSavedCampaign)`
 
-**Purpose:** Called when the `campaign start` event is raised.
+**Purpose:** Invoked when the `campaign start` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxManager from the subsystem API first
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.OnCampaignStart(gameInitializer, gameManager, false);
+```
 
 ### InitializeSandboxXMLs
 `public void InitializeSandboxXMLs(bool isSavedCampaign)`
 
-**Purpose:** Initializes the state, resources, or bindings for `sandbox x m ls`.
+**Purpose:** Prepares the resources, state, or bindings required by `sandbox x m ls`.
+
+```csharp
+// Obtain an instance of SandBoxManager from the subsystem API first
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.InitializeSandboxXMLs(false);
+```
 
 ### InitializeCharactersAfterLoad
 `public void InitializeCharactersAfterLoad(bool isSavedCampaign)`
 
-**Purpose:** Initializes the state, resources, or bindings for `characters after load`.
+**Purpose:** Prepares the resources, state, or bindings required by `characters after load`.
+
+```csharp
+// Obtain an instance of SandBoxManager from the subsystem API first
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.InitializeCharactersAfterLoad(false);
+```
 
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**Purpose:** Called when the `before save` event is raised.
+**Purpose:** Invoked when the `before save` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxManager from the subsystem API first
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.OnBeforeSave();
+```
 
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**Purpose:** Called when the `after save` event is raised.
+**Purpose:** Invoked when the `after save` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxManager from the subsystem API first
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.OnAfterSave();
+```
 
 ## Usage Example
 
@@ -74,4 +104,4 @@ var manager = SandBoxManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

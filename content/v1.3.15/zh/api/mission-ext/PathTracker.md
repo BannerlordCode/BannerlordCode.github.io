@@ -1,13 +1,7 @@
 ---
 title: "PathTracker"
+description: "PathTracker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PathTracker`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PathTracker
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,40 +34,77 @@ title: "PathTracker"
 ### UpdateVersion
 `public void UpdateVersion()`
 
-**用途 / Purpose:** 更新 `version` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「version」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PathTracker 实例
+PathTracker pathTracker = ...;
+pathTracker.UpdateVersion();
+```
 
 ### PathExists
 `public bool PathExists()`
 
-**用途 / Purpose:** 处理 `path exists` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PathTracker 实例
+PathTracker pathTracker = ...;
+var result = pathTracker.PathExists();
+```
 
 ### Advance
 `public void Advance(float deltaDistance)`
 
-**用途 / Purpose:** 处理 `advance` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PathTracker 实例
+PathTracker pathTracker = ...;
+pathTracker.Advance(0);
+```
 
 ### GetPathLength
 `public float GetPathLength()`
 
-**用途 / Purpose:** 获取 `path length` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「path length」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PathTracker 实例
+PathTracker pathTracker = ...;
+var result = pathTracker.GetPathLength();
+```
 
 ### CurrentFrameAndColor
 `public void CurrentFrameAndColor(out MatrixFrame frame, out Vec3 color)`
 
-**用途 / Purpose:** 处理 `current frame and color` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PathTracker 实例
+PathTracker pathTracker = ...;
+pathTracker.CurrentFrameAndColor(frame, color);
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PathTracker 实例
+PathTracker pathTracker = ...;
+pathTracker.Reset();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PathTracker();
-value.UpdateVersion();
+// 通常从对应子系统 API 获取实例后调用
+PathTracker pathTracker = ...;
+pathTracker.UpdateVersion();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

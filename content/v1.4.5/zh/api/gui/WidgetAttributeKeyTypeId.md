@@ -1,20 +1,14 @@
 ---
 title: "WidgetAttributeKeyTypeId"
+description: "WidgetAttributeKeyTypeId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetAttributeKeyTypeId`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeId
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetAttributeKeyTypeId : WidgetAttributeKeyType`
 **Base:** `WidgetAttributeKeyType`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeKeyTypeId.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetAttributeKeyTypeId.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "WidgetAttributeKeyTypeId"
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**用途 / Purpose:** 处理 `check key type` 相关逻辑。
+**用途 / Purpose:** 检查「key type」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeId 实例
+WidgetAttributeKeyTypeId widgetAttributeKeyTypeId = ...;
+var result = widgetAttributeKeyTypeId.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**用途 / Purpose:** 获取 `key name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「key name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeId 实例
+WidgetAttributeKeyTypeId widgetAttributeKeyTypeId = ...;
+var result = widgetAttributeKeyTypeId.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**用途 / Purpose:** 获取 `serialized key` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「serialized key」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetAttributeKeyTypeId 实例
+WidgetAttributeKeyTypeId widgetAttributeKeyTypeId = ...;
+var result = widgetAttributeKeyTypeId.GetSerializedKey("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WidgetAttributeKeyTypeId();
-value.CheckKeyType("example");
+// 通常从对应子系统 API 获取实例后调用
+WidgetAttributeKeyTypeId widgetAttributeKeyTypeId = ...;
+widgetAttributeKeyTypeId.CheckKeyType("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

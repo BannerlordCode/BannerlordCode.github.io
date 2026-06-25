@@ -1,13 +1,7 @@
 ---
 title: "WeaponDesignResultPopupVM"
+description: "Auto-generated class reference for WeaponDesignResultPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponDesignResultPopupVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponDesignResultPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -52,35 +46,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.OnFinalize();
+```
 
 ### ExecuteFinalizeCrafting
 `public void ExecuteFinalizeCrafting()`
 
-**Purpose:** Executes the `finalize crafting` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `finalize crafting`.
+
+```csharp
+// Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.ExecuteFinalizeCrafting();
+```
 
 ### ExecuteRandomCraftName
 `public void ExecuteRandomCraftName()`
 
-**Purpose:** Executes the `random craft name` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `random craft name`.
+
+```csharp
+// Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.ExecuteRandomCraftName();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WeaponDesignResultPopupVM from the subsystem API first
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.SetDoneInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponDesignResultPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "DevelopmentItemButtonWidget"
+description: "Auto-generated class reference for DevelopmentItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DevelopmentItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DevelopmentItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DevelopmentItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentItemButtonWidget.cs`
 
 ## Overview
 
@@ -47,9 +41,10 @@ Treat `DevelopmentItemButtonWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new DevelopmentItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DevelopmentItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

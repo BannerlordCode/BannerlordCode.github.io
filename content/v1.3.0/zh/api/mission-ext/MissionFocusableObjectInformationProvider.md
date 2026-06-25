@@ -1,13 +1,7 @@
 ---
 title: "MissionFocusableObjectInformationProvider"
+description: "MissionFocusableObjectInformationProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionFocusableObjectInformationProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFocusableObjectInformationProvider
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,30 +23,55 @@ title: "MissionFocusableObjectInformationProvider"
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFocusableObjectInformationProvider 实例
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.OnFinalize();
+```
 
 ### AddInfoCallback
 `public void AddInfoCallback(GetFocusableObjectInteractionTextsDelegate callback)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `info callback`。
+**用途 / Purpose:** 将 「info callback」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFocusableObjectInformationProvider 实例
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.AddInfoCallback(callback);
+```
 
 ### RemoveInfoCallback
 `public void RemoveInfoCallback(GetFocusableObjectInteractionTextsDelegate callback)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `info callback`。
+**用途 / Purpose:** 从当前容器或状态中移除 「info callback」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFocusableObjectInformationProvider 实例
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.RemoveInfoCallback(callback);
+```
 
 ### GetInteractionTexts
 `public void GetInteractionTexts(Agent requesterAgent, IFocusable focusable, bool isInteractable, out FocusableObjectInformation focusableObjectInformation)`
 
-**用途 / Purpose:** 获取 `interaction texts` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「interaction texts」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFocusableObjectInformationProvider 实例
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.GetInteractionTexts(requesterAgent, focusable, false, focusableObjectInformation);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionFocusableObjectInformationProvider();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+MissionFocusableObjectInformationProvider missionFocusableObjectInformationProvider = ...;
+missionFocusableObjectInformationProvider.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

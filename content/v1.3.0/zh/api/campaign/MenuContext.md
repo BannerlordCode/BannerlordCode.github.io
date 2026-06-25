@@ -1,13 +1,7 @@
 ---
 title: "MenuContext"
+description: "MenuContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MenuContext`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuContext
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -39,100 +33,209 @@ title: "MenuContext"
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.Refresh();
+```
 
 ### SwitchToMenu
 `public void SwitchToMenu(string menuId)`
 
-**用途 / Purpose:** 处理 `switch to menu` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.SwitchToMenu("example");
+```
 
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.Destroy();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.OnTick(0);
+```
 
 ### OnHourlyTick
 `public void OnHourlyTick()`
 
-**用途 / Purpose:** 当 `hourly tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hourly tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.OnHourlyTick();
+```
 
 ### GetCurrentRepeatableObject
 `public object GetCurrentRepeatableObject()`
 
-**用途 / Purpose:** 获取 `current repeatable object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current repeatable object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+var result = menuContext.GetCurrentRepeatableObject();
+```
 
 ### GetSelectedObject
 `public object GetSelectedObject()`
 
-**用途 / Purpose:** 获取 `selected object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selected object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+var result = menuContext.GetSelectedObject();
+```
 
 ### GetSelectedRepeatableObject
 `public object GetSelectedRepeatableObject()`
 
-**用途 / Purpose:** 获取 `selected repeatable object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selected repeatable object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+var result = menuContext.GetSelectedRepeatableObject();
+```
 
 ### SetRepeatObjectList
 `public void SetRepeatObjectList(IEnumerable<object> list)`
 
-**用途 / Purpose:** 设置 `repeat object list` 的值或状态。
+**用途 / Purpose:** 为 「repeat object list」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.SetRepeatObjectList(list);
+```
 
 ### OnConsequence
 `public void OnConsequence(GameMenuOption gameMenuOption)`
 
-**用途 / Purpose:** 当 `consequence` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「consequence」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.OnConsequence(gameMenuOption);
+```
 
 ### InvokeConsequence
 `public void InvokeConsequence(int index)`
 
-**用途 / Purpose:** 处理 `invoke consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.InvokeConsequence(0);
+```
 
 ### SetBackgroundMeshName
 `public void SetBackgroundMeshName(string name)`
 
-**用途 / Purpose:** 设置 `background mesh name` 的值或状态。
+**用途 / Purpose:** 为 「background mesh name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.SetBackgroundMeshName("example");
+```
 
 ### SetPanelSound
 `public void SetPanelSound(string panelSoundID)`
 
-**用途 / Purpose:** 设置 `panel sound` 的值或状态。
+**用途 / Purpose:** 为 「panel sound」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.SetPanelSound("example");
+```
 
 ### SetAmbientSound
 `public void SetAmbientSound(string ambientSoundID)`
 
-**用途 / Purpose:** 设置 `ambient sound` 的值或状态。
+**用途 / Purpose:** 为 「ambient sound」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.SetAmbientSound("example");
+```
 
 ### OpenTownManagement
 `public void OpenTownManagement()`
 
-**用途 / Purpose:** 处理 `open town management` 相关逻辑。
+**用途 / Purpose:** 打开「town management」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.OpenTownManagement();
+```
 
 ### OpenRecruitVolunteers
 `public void OpenRecruitVolunteers()`
 
-**用途 / Purpose:** 处理 `open recruit volunteers` 相关逻辑。
+**用途 / Purpose:** 打开「recruit volunteers」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.OpenRecruitVolunteers();
+```
 
 ### OpenTournamentLeaderboards
 `public void OpenTournamentLeaderboards()`
 
-**用途 / Purpose:** 处理 `open tournament leaderboards` 相关逻辑。
+**用途 / Purpose:** 打开「tournament leaderboards」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.OpenTournamentLeaderboards();
+```
 
 ### OpenTroopSelection
 `public void OpenTroopSelection(TroopRoster fullRoster, TroopRoster initialSelections, Func<CharacterObject, bool> canChangeStatusOfTroop, Action<TroopRoster> onDone, int maxSelectableTroopCount, int minSelectableTroopCount = 1)`
 
-**用途 / Purpose:** 处理 `open troop selection` 相关逻辑。
+**用途 / Purpose:** 打开「troop selection」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MenuContext 实例
+MenuContext menuContext = ...;
+menuContext.OpenTroopSelection(fullRoster, initialSelections, func<CharacterObject, false, onDone, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MenuContext();
-value.Refresh();
+// 通常从对应子系统 API 获取实例后调用
+MenuContext menuContext = ...;
+menuContext.Refresh();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

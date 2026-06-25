@@ -1,13 +1,7 @@
 ---
 title: "SiblingIndexVisibilityWidget"
+description: "Auto-generated class reference for SiblingIndexVisibilityWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiblingIndexVisibilityWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiblingIndexVisibilityWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -35,9 +29,10 @@ Treat `SiblingIndexVisibilityWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new SiblingIndexVisibilityWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SiblingIndexVisibilityWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

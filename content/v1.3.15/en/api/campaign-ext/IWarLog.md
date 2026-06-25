@@ -1,18 +1,12 @@
 ---
 title: "IWarLog"
+description: "Auto-generated class reference for IWarLog."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IWarLog`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IWarLog
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IWarLog`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/LogEntries/IWarLog.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ## Usage Example
 
 ```csharp
-IWarLog implementation = GetWarLogImplementation();
+// Usually obtained through DI or a factory method
+IIWarLog service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

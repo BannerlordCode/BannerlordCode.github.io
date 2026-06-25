@@ -1,13 +1,7 @@
 ---
 title: "PlatformFilePath"
+description: "Auto-generated class reference for PlatformFilePath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlatformFilePath`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformFilePath
 
 **Namespace:** TaleWorlds.Library
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetFileNameWithoutExtension
 `public string GetFileNameWithoutExtension()`
 
-**Purpose:** Gets the current value of `file name without extension`.
+**Purpose:** Reads and returns the `file name without extension` value held by the current object.
+
+```csharp
+// Obtain an instance of PlatformFilePath from the subsystem API first
+PlatformFilePath platformFilePath = ...;
+var result = platformFilePath.GetFileNameWithoutExtension();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of PlatformFilePath from the subsystem API first
+PlatformFilePath platformFilePath = ...;
+var result = platformFilePath.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlatformFilePath();
-value.GetFileNameWithoutExtension();
+// Typically call this after obtaining an instance from the subsystem API
+PlatformFilePath platformFilePath = ...;
+platformFilePath.GetFileNameWithoutExtension();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MBCommon"
+description: "Auto-generated class reference for MBCommon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBCommon`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBCommon
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,37 +31,72 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### PauseGameEngine
 `public static void PauseGameEngine()`
 
-**Purpose:** Handles logic related to `pause game engine`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBCommon.PauseGameEngine();
+```
 
 ### UnPauseGameEngine
 `public static void UnPauseGameEngine()`
 
-**Purpose:** Handles logic related to `un pause game engine`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBCommon.UnPauseGameEngine();
+```
 
 ### GetApplicationTime
 `public static float GetApplicationTime()`
 
-**Purpose:** Gets the current value of `application time`.
+**Purpose:** Reads and returns the `application time` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBCommon.GetApplicationTime();
+```
 
 ### GetTotalMissionTime
 `public static float GetTotalMissionTime()`
 
-**Purpose:** Gets the current value of `total mission time`.
+**Purpose:** Reads and returns the `total mission time` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBCommon.GetTotalMissionTime();
+```
 
 ### FixSkeletons
 `public static void FixSkeletons()`
 
-**Purpose:** Handles logic related to `fix skeletons`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBCommon.FixSkeletons();
+```
 
 ### CheckResourceModifications
 `public static void CheckResourceModifications()`
 
-**Purpose:** Handles logic related to `check resource modifications`.
+**Purpose:** Verifies whether `resource modifications` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+MBCommon.CheckResourceModifications();
+```
 
 ### Hash
 `public static int Hash(int i, object o)`
 
-**Purpose:** Checks whether the current object has/contains `h`.
+**Purpose:** Determines whether the current object already holds `h`.
+
+```csharp
+// Static call; no instance required
+MBCommon.Hash(0, o);
+```
 
 ## Usage Example
 
@@ -77,4 +106,4 @@ MBCommon.PauseGameEngine();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

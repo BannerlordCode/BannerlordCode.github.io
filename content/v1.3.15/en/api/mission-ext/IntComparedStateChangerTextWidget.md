@@ -1,13 +1,7 @@
 ---
 title: "IntComparedStateChangerTextWidget"
+description: "Auto-generated class reference for IntComparedStateChangerTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntComparedStateChangerTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IntComparedStateChangerTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -37,9 +31,10 @@ Treat `IntComparedStateChangerTextWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new IntComparedStateChangerTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+IntComparedStateChangerTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

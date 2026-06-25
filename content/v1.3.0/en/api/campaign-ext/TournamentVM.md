@@ -1,13 +1,7 @@
 ---
 title: "TournamentVM"
+description: "Auto-generated class reference for TournamentVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentVM
 
 **Namespace:** SandBox.ViewModelCollection.Tournament
@@ -81,80 +75,165 @@ Start from namespace `SandBox.ViewModelCollection.Tournament` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.RefreshValues();
+```
 
 ### ExecuteBet
 `public void ExecuteBet()`
 
-**Purpose:** Executes the `bet` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `bet`.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.ExecuteBet();
+```
 
 ### ExecuteJoinTournament
 `public void ExecuteJoinTournament()`
 
-**Purpose:** Executes the `join tournament` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `join tournament`.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.ExecuteJoinTournament();
+```
 
 ### ExecuteSkipRound
 `public void ExecuteSkipRound()`
 
-**Purpose:** Executes the `skip round` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `skip round`.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.ExecuteSkipRound();
+```
 
 ### ExecuteSkipAllRounds
 `public void ExecuteSkipAllRounds()`
 
-**Purpose:** Executes the `skip all rounds` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `skip all rounds`.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.ExecuteSkipAllRounds();
+```
 
 ### ExecuteWatchRound
 `public void ExecuteWatchRound()`
 
-**Purpose:** Executes the `watch round` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `watch round`.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.ExecuteWatchRound();
+```
 
 ### ExecuteLeave
 `public void ExecuteLeave()`
 
-**Purpose:** Executes the `leave` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `leave`.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.ExecuteLeave();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.Refresh();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.OnAgentRemoved(agent);
+```
 
 ### ExecuteShowPrizeItemTooltip
 `public void ExecuteShowPrizeItemTooltip()`
 
-**Purpose:** Executes the `show prize item tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show prize item tooltip`.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.ExecuteShowPrizeItemTooltip();
+```
 
 ### ExecuteHidePrizeItemTooltip
 `public void ExecuteHidePrizeItemTooltip()`
 
-**Purpose:** Executes the `hide prize item tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `hide prize item tooltip`.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.ExecuteHidePrizeItemTooltip();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.SetDoneInputKey(hotKey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TournamentVM from the subsystem API first
+TournamentVM tournamentVM = ...;
+tournamentVM.SetCancelInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentVM tournamentVM = ...;
+tournamentVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

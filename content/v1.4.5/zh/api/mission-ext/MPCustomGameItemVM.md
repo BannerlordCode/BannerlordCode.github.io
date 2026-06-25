@@ -1,20 +1,14 @@
 ---
 title: "MPCustomGameItemVM"
+description: "MPCustomGameItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPCustomGameItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPCustomGameItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPCustomGameItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameItemVM.cs`
 
 ## 概述
 
@@ -56,35 +50,66 @@ title: "MPCustomGameItemVM"
 ### UpdateIsFavorite
 `public void UpdateIsFavorite()`
 
-**用途 / Purpose:** 更新 `is favorite` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「is favorite」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameItemVM 实例
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.UpdateIsFavorite();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** 执行 `select` 操作或流程。
+**用途 / Purpose:** 执行 「select」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameItemVM 实例
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.ExecuteSelect();
+```
 
 ### ExecuteFavorite
 `public void ExecuteFavorite()`
 
-**用途 / Purpose:** 执行 `favorite` 操作或流程。
+**用途 / Purpose:** 执行 「favorite」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameItemVM 实例
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.ExecuteFavorite();
+```
 
 ### ExecuteJoin
 `public void ExecuteJoin()`
 
-**用途 / Purpose:** 执行 `join` 操作或流程。
+**用途 / Purpose:** 执行 「join」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameItemVM 实例
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.ExecuteJoin();
+```
 
 ### ExecuteViewHostOptions
 `public void ExecuteViewHostOptions()`
 
-**用途 / Purpose:** 执行 `view host options` 操作或流程。
+**用途 / Purpose:** 执行 「view host options」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameItemVM 实例
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.ExecuteViewHostOptions();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPCustomGameItemVM();
-value.UpdateIsFavorite();
+// 通常从对应子系统 API 获取实例后调用
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.UpdateIsFavorite();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

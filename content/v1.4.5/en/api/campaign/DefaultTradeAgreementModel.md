@@ -1,20 +1,14 @@
 ---
 title: "DefaultTradeAgreementModel"
+description: "Auto-generated class reference for DefaultTradeAgreementModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTradeAgreementModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTradeAgreementModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTradeAgreementModel : TradeAgreementModel`
 **Base:** `TradeAgreementModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTradeAgreementModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTradeAgreementModel.cs`
 
 ## Overview
 
@@ -29,32 +23,68 @@ Treat `DefaultTradeAgreementModel` as a Model-style extension point: first ident
 ### GetInfluenceCostOfProposingTradeAgreement
 `public override int GetInfluenceCostOfProposingTradeAgreement(Clan proposerClan)`
 
-**Purpose:** Gets the current value of `influence cost of proposing trade agreement`.
+**Purpose:** Reads and returns the `influence cost of proposing trade agreement` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetInfluenceCostOfProposingTradeAgreement(proposerClan);
+```
 
 ### GetMaximumTradeAgreementCount
 `public override int GetMaximumTradeAgreementCount(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `maximum trade agreement count`.
+**Purpose:** Reads and returns the `maximum trade agreement count` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetMaximumTradeAgreementCount(kingdom);
+```
 
 ### CanMakeTradeAgreement
 `public override bool CanMakeTradeAgreement(Kingdom querierKingdom, Kingdom queriedKingdom, bool checkOtherSideSupport, out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Checks whether the current object can `make trade agreement`.
+**Purpose:** Checks whether the current object meets the preconditions for `make trade agreement`.
+
+```csharp
+// Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.CanMakeTradeAgreement(querierKingdom, queriedKingdom, false, reason, false);
+```
 
 ### GetScoreOfStartingTradeAgreement
 `public override float GetScoreOfStartingTradeAgreement(Kingdom querierKingdom, Kingdom queriedKingdom, Clan clan, out TextObject detailedBreakdownTooltip, bool includeExplanation = false)`
 
-**Purpose:** Gets the current value of `score of starting trade agreement`.
+**Purpose:** Reads and returns the `score of starting trade agreement` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetScoreOfStartingTradeAgreement(querierKingdom, queriedKingdom, clan, detailedBreakdownTooltip, false);
+```
 
 ### GetTradeAgreementDurationInYears
 `public override CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)`
 
-**Purpose:** Gets the current value of `trade agreement duration in years`.
+**Purpose:** Reads and returns the `trade agreement duration in years` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetTradeAgreementDurationInYears(iniatatingKingdom, otherKingdom);
+```
 
 ### GetProfitPerCaravanVisit
 `public override int GetProfitPerCaravanVisit(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `profit per caravan visit`.
+**Purpose:** Reads and returns the `profit per caravan visit` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetProfitPerCaravanVisit(mobileParty);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultTradeAgreementModel>(new MyDefaultTradeAgreemen
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerClassLoadoutItemTabControllerButtonWidget"
+description: "Auto-generated class reference for MultiplayerClassLoadoutItemTabControllerButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerClassLoadoutItemTabControllerButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerClassLoadoutItemTabControllerButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerClassLoadoutItemTabControllerButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutItemTabControllerButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutItemTabControllerButtonWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `MultiplayerClassLoadoutItemTabControllerButtonWidget` as a Widget-style e
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerClassLoadoutItemTabControllerButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerClassLoadoutItemTabControllerButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "BuildingEffectEnum"
+description: "Auto-generated class reference for BuildingEffectEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingEffectEnum`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BuildingEffectEnum
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Buildings
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum BuildingEffectEnum`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Settlements/Buildings/BuildingEffectEnum.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ## Usage Example
 
 ```csharp
-var value = new BuildingEffectEnum();
+// Obtain an instance from the relevant subsystem API
+BuildingEffectEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

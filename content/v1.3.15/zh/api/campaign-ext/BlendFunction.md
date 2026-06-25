@@ -1,13 +1,7 @@
 ---
 title: "BlendFunction"
+description: "BlendFunction 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BlendFunction`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BlendFunction
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
@@ -27,9 +21,10 @@ title: "BlendFunction"
 ## 使用示例
 
 ```csharp
-var value = new BlendFunction();
+// 从对应子系统 API 获取实例
+BlendFunction instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

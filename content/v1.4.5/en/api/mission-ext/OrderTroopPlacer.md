@@ -1,20 +1,14 @@
 ---
 title: "OrderTroopPlacer"
+description: "Auto-generated class reference for OrderTroopPlacer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderTroopPlacer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTroopPlacer
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderTroopPlacer : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Order/OrderTroopPlacer.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Order/OrderTroopPlacer.cs`
 
 ## Overview
 
@@ -36,40 +30,77 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Order` to place
 ### GetGroundOrNormalCursor
 `public CursorState GetGroundOrNormalCursor()`
 
-**Purpose:** Gets the current value of `ground or normal cursor`.
+**Purpose:** Reads and returns the `ground or normal cursor` value held by the current object.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+var result = orderTroopPlacer.GetGroundOrNormalCursor();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.OnMissionTick(0);
+```
 
 ### RestrictOrdersToDeploymentBoundaries
 `public void RestrictOrdersToDeploymentBoundaries(bool enabled)`
 
-**Purpose:** Handles logic related to `restrict orders to deployment boundaries`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.RestrictOrdersToDeploymentBoundaries(false);
+```
 
 ### UpdateFormationDrawing
 `public void UpdateFormationDrawing(bool giveOrder)`
 
-**Purpose:** Updates the state or data of `formation drawing`.
+**Purpose:** Recalculates and stores the latest representation of `formation drawing`.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.UpdateFormationDrawing(false);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of OrderTroopPlacer from the subsystem API first
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderTroopPlacer();
-value.GetGroundOrNormalCursor();
+// Typically call this after obtaining an instance from the subsystem API
+OrderTroopPlacer orderTroopPlacer = ...;
+orderTroopPlacer.GetGroundOrNormalCursor();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

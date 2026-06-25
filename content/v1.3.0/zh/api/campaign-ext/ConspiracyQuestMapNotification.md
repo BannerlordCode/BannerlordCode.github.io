@@ -1,13 +1,7 @@
 ---
 title: "ConspiracyQuestMapNotification"
+description: "ConspiracyQuestMapNotification 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConspiracyQuestMapNotification`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConspiracyQuestMapNotification
 
 **Namespace:** StoryMode
@@ -35,9 +29,10 @@ title: "ConspiracyQuestMapNotification"
 ## 使用示例
 
 ```csharp
-var value = new ConspiracyQuestMapNotification();
+// 从对应子系统 API 获取实例
+ConspiracyQuestMapNotification instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

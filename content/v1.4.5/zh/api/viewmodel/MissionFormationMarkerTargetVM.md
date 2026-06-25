@@ -1,20 +1,14 @@
 ---
 title: "MissionFormationMarkerTargetVM"
+description: "MissionFormationMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionFormationMarkerTargetVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFormationMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionFormationMarkerTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionFormationMarkerTargetVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker/MissionFormationMarkerTargetVM.cs`
 
 ## 概述
 
@@ -47,25 +41,43 @@ title: "MissionFormationMarkerTargetVM"
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationMarkerTargetVM 实例
+MissionFormationMarkerTargetVM missionFormationMarkerTargetVM = ...;
+missionFormationMarkerTargetVM.Refresh();
+```
 
 ### SetTargetedState
 `public void SetTargetedState(bool isFocused, bool isTargetingAFormation)`
 
-**用途 / Purpose:** 设置 `targeted state` 的值或状态。
+**用途 / Purpose:** 为 「targeted state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationMarkerTargetVM 实例
+MissionFormationMarkerTargetVM missionFormationMarkerTargetVM = ...;
+missionFormationMarkerTargetVM.SetTargetedState(false, false);
+```
 
 ### GetFormationType
 `public static string GetFormationType(FormationClass formationType)`
 
-**用途 / Purpose:** 获取 `formation type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「formation type」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionFormationMarkerTargetVM.GetFormationType(formationType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionFormationMarkerTargetVM();
-value.Refresh();
+// 通常从对应子系统 API 获取实例后调用
+MissionFormationMarkerTargetVM missionFormationMarkerTargetVM = ...;
+missionFormationMarkerTargetVM.Refresh();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

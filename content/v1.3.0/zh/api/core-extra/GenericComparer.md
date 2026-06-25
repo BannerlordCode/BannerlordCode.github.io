@@ -1,13 +1,7 @@
 ---
 title: "GenericComparer"
+description: "GenericComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenericComparer`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericComparer
 
 **Namespace:** TaleWorlds.Library
@@ -29,25 +23,44 @@ title: "GenericComparer"
 ### Compare
 `public override int Compare(T x, T y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 GenericComparer 实例
+GenericComparer genericComparer = ...;
+var result = genericComparer.Compare(x, y);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 GenericComparer 实例
+GenericComparer genericComparer = ...;
+var result = genericComparer.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 GenericComparer 实例
+GenericComparer genericComparer = ...;
+var result = genericComparer.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GenericComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+GenericComparer genericComparer = ...;
+genericComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

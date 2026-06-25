@@ -1,20 +1,14 @@
 ---
 title: "BattleViewModel"
+description: "Auto-generated class reference for BattleViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleViewModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleViewModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleViewModel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleViewModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleViewModel.cs`
 
 ## Overview
 
@@ -33,10 +27,11 @@ Treat `BattleViewModel` as a ViewModel-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var vm = new BattleViewModel();
+// Bind the instance as the view-model of a movie or view
+BattleViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

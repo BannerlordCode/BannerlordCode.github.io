@@ -1,20 +1,14 @@
 ---
 title: "GameOverScreenWidget"
+description: "Auto-generated class reference for GameOverScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameOverScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver/GameOverScreenWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.GameOver/GameOverScreenWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `GameOverScreenWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new GameOverScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GameOverScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultDisguiseDetectionModel"
+description: "Auto-generated class reference for DefaultDisguiseDetectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultDisguiseDetectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultDisguiseDetectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultDisguiseDetectionModel` as a Model-style extension point: first id
 ### CalculateDisguiseDetectionProbability
 `public override float CalculateDisguiseDetectionProbability(Settlement settlement)`
 
-**Purpose:** Handles logic related to `calculate disguise detection probability`.
+**Purpose:** Calculates the current value or result of `disguise detection probability`.
+
+```csharp
+// Obtain an instance of DefaultDisguiseDetectionModel from the subsystem API first
+DefaultDisguiseDetectionModel defaultDisguiseDetectionModel = ...;
+var result = defaultDisguiseDetectionModel.CalculateDisguiseDetectionProbability(settlement);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultDisguiseDetectionModel>(new MyDefaultDisguiseDe
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

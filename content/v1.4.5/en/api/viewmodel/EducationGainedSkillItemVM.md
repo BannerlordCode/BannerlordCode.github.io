@@ -1,20 +1,14 @@
 ---
 title: "EducationGainedSkillItemVM"
+description: "Auto-generated class reference for EducationGainedSkillItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationGainedSkillItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationGainedSkillItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationGainedSkillItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainedSkillItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainedSkillItemVM.cs`
 
 ## Overview
 
@@ -41,20 +35,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### SetFocusValue
 `public void SetFocusValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Sets the value or state of `focus value`.
+**Purpose:** Assigns a new value to `focus value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EducationGainedSkillItemVM from the subsystem API first
+EducationGainedSkillItemVM educationGainedSkillItemVM = ...;
+educationGainedSkillItemVM.SetFocusValue(0, 0);
+```
 
 ### SetSkillValue
 `public void SetSkillValue(int gaintedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Sets the value or state of `skill value`.
+**Purpose:** Assigns a new value to `skill value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EducationGainedSkillItemVM from the subsystem API first
+EducationGainedSkillItemVM educationGainedSkillItemVM = ...;
+educationGainedSkillItemVM.SetSkillValue(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationGainedSkillItemVM();
-value.SetFocusValue(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+EducationGainedSkillItemVM educationGainedSkillItemVM = ...;
+educationGainedSkillItemVM.SetFocusValue(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

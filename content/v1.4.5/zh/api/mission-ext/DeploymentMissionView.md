@@ -1,20 +1,14 @@
 ---
 title: "DeploymentMissionView"
+description: "DeploymentMissionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DeploymentMissionView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeploymentMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DeploymentMissionView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/DeploymentMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/DeploymentMissionView.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "DeploymentMissionView"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentMissionView 实例
+DeploymentMissionView deploymentMissionView = ...;
+deploymentMissionView.AfterStart();
+```
 
 ### OnDeploymentPlanMade
 `public override void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
 
-**用途 / Purpose:** 当 `deployment plan made` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment plan made」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentMissionView 实例
+DeploymentMissionView deploymentMissionView = ...;
+deploymentMissionView.OnDeploymentPlanMade(team, false);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DeploymentMissionView 实例
+DeploymentMissionView deploymentMissionView = ...;
+deploymentMissionView.OnDeploymentFinished();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new DeploymentMissionView();
+// 从子系统 API 或场景中获取该视图
+DeploymentMissionView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

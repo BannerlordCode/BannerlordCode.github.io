@@ -1,13 +1,7 @@
 ---
 title: "CampaignOptionsVM"
+description: "Auto-generated class reference for CampaignOptionsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignOptionsVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignOptionsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CampaignOptionsVM from the subsystem API first
+CampaignOptionsVM campaignOptionsVM = ...;
+campaignOptionsVM.RefreshValues();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of CampaignOptionsVM from the subsystem API first
+CampaignOptionsVM campaignOptionsVM = ...;
+campaignOptionsVM.ExecuteDone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CampaignOptionsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CampaignOptionsVM campaignOptionsVM = ...;
+campaignOptionsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

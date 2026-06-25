@@ -1,20 +1,14 @@
 ---
 title: "PreloadState"
+description: "Auto-generated class reference for PreloadState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PreloadState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PreloadState
 
 **Namespace:** Sandbox.View.GameStates
 **Module:** Sandbox.View
 **Type:** `public class PreloadState : GameState`
 **Base:** `GameState`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Sandbox.View.GameStates/PreloadState.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Sandbox.View.GameStates/PreloadState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Sandbox.View.GameStates` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new PreloadState();
+// Obtain an instance from the relevant subsystem API
+PreloadState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

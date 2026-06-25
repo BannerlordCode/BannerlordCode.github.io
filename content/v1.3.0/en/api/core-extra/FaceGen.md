@@ -1,132 +1,206 @@
 ---
 title: "FaceGen"
+description: "Auto-generated class reference for FaceGen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGen`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGen
 
-**Namespace:** TaleWorlds.Core
-**Module:** TaleWorlds.Core
-**Type:** `public static class FaceGen`
-**Base:** none
-**File:** `TaleWorlds.Core/FaceGen.cs`
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class FaceGen : IFaceGen`
+**Base:** `IFaceGen`
+**File:** `TaleWorlds.MountAndBlade/FaceGen.cs`
 
 ## Overview
 
-`FaceGen` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`FaceGen` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
 ## Key Methods
 
-### SetInstance
-`public static void SetInstance(IFaceGen faceGen)`
+### CreateInstance
+`public static void CreateInstance()`
 
-**Purpose:** Sets the value or state of `instance`.
+**Purpose:** Constructs a new `instance` entity and returns it to the caller.
 
-### GetRandomBodyProperties
-`public static BodyProperties GetRandomBodyProperties(int race, bool isFemale, BodyProperties bodyPropertiesMin, BodyProperties bodyPropertiesMax, int hairCoverType, int seed, string hairTags, string beardTags, string tatooTags, float variationAmount)`
-
-**Purpose:** Gets the current value of `random body properties`.
-
-### GetRaceCount
-`public static int GetRaceCount()`
-
-**Purpose:** Gets the current value of `race count`.
-
-### GetRaceOrDefault
-`public static int GetRaceOrDefault(string raceId)`
-
-**Purpose:** Gets the current value of `race or default`.
-
-### GetBaseMonsterNameFromRace
-`public static string GetBaseMonsterNameFromRace(int race)`
-
-**Purpose:** Gets the current value of `base monster name from race`.
-
-### GetRaceNames
-`public static string GetRaceNames()`
-
-**Purpose:** Gets the current value of `race names`.
+```csharp
+// Static call; no instance required
+FaceGen.CreateInstance();
+```
 
 ### GetMonster
-`public static Monster GetMonster(string monsterID)`
+`public Monster GetMonster(string monsterID)`
 
-**Purpose:** Gets the current value of `monster`.
+**Purpose:** Reads and returns the `monster` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetMonster("example");
+```
 
 ### GetMonsterWithSuffix
-`public static Monster GetMonsterWithSuffix(int race, string suffix)`
+`public Monster GetMonsterWithSuffix(int race, string suffix)`
 
-**Purpose:** Gets the current value of `monster with suffix`.
+**Purpose:** Reads and returns the `monster with suffix` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetMonsterWithSuffix(0, "example");
+```
 
 ### GetBaseMonsterFromRace
-`public static Monster GetBaseMonsterFromRace(int race)`
+`public Monster GetBaseMonsterFromRace(int race)`
 
-**Purpose:** Gets the current value of `base monster from race`.
+**Purpose:** Reads and returns the `base monster from race` value held by the current object.
 
-### GenerateParentKey
-`public static void GenerateParentKey(BodyProperties childBodyProperties, int race, ref BodyProperties motherBodyProperties, ref BodyProperties fatherBodyProperties)`
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetBaseMonsterFromRace(0);
+```
 
-**Purpose:** Handles logic related to `generate parent key`.
+### GetRandomBodyProperties
+`public BodyProperties GetRandomBodyProperties(int race, bool isFemale, BodyProperties bodyPropertiesMin, BodyProperties bodyPropertiesMax, int hairCoverType, int seed, string hairTags, string beardTags, string tattooTags, float variationAmount)`
 
-### SetHair
-`public static void SetHair(ref BodyProperties bodyProperties, int hair, int beard, int tattoo)`
+**Purpose:** Reads and returns the `random body properties` value held by the current object.
 
-**Purpose:** Sets the value or state of `hair`.
-
-### SetBody
-`public static void SetBody(ref BodyProperties bodyProperties, int build, int weight)`
-
-**Purpose:** Sets the value or state of `body`.
-
-### SetPigmentation
-`public static void SetPigmentation(ref BodyProperties bodyProperties, int skinColor, int hairColor, int eyeColor)`
-
-**Purpose:** Sets the value or state of `pigmentation`.
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetRandomBodyProperties(0, false, bodyPropertiesMin, bodyPropertiesMax, 0, 0, "example", "example", "example", 0);
+```
 
 ### GetBodyPropertiesWithAge
-`public static BodyProperties GetBodyPropertiesWithAge(ref BodyProperties originalBodyProperties, float age)`
+`public BodyProperties GetBodyPropertiesWithAge(ref BodyProperties bodyProperties, float age)`
 
-**Purpose:** Gets the current value of `body properties with age`.
+**Purpose:** Reads and returns the `body properties with age` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetBodyPropertiesWithAge(bodyProperties, 0);
+```
+
+### GetParamsFromBody
+`public void GetParamsFromBody(ref FaceGenerationParams faceGenerationParams, BodyProperties bodyProperties, bool earsAreHidden, bool mouthIsHidden)`
+
+**Purpose:** Reads and returns the `params from body` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+faceGen.GetParamsFromBody(faceGenerationParams, bodyProperties, false, false);
+```
 
 ### GetMaturityTypeWithAge
-`public static BodyMeshMaturityType GetMaturityTypeWithAge(float age)`
+`public BodyMeshMaturityType GetMaturityTypeWithAge(float age)`
 
-**Purpose:** Gets the current value of `maturity type with age`.
+**Purpose:** Reads and returns the `maturity type with age` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetMaturityTypeWithAge(0);
+```
+
+### GetRaceCount
+`public int GetRaceCount()`
+
+**Purpose:** Reads and returns the `race count` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetRaceCount();
+```
+
+### GetRaceOrDefault
+`public int GetRaceOrDefault(string raceId)`
+
+**Purpose:** Reads and returns the `race or default` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetRaceOrDefault("example");
+```
+
+### GetBaseMonsterNameFromRace
+`public string GetBaseMonsterNameFromRace(int race)`
+
+**Purpose:** Reads and returns the `base monster name from race` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetBaseMonsterNameFromRace(0);
+```
+
+### GetRaceNames
+`public string GetRaceNames()`
+
+**Purpose:** Reads and returns the `race names` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetRaceNames();
+```
 
 ### GetHairIndicesByTag
-`public static int GetHairIndicesByTag(int race, int curGender, float age, string tag)`
+`public int GetHairIndicesByTag(int race, int curGender, float age, string tag)`
 
-**Purpose:** Gets the current value of `hair indices by tag`.
+**Purpose:** Reads and returns the `hair indices by tag` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetHairIndicesByTag(0, 0, 0, "example");
+```
 
 ### GetFacialIndicesByTag
-`public static int GetFacialIndicesByTag(int race, int curGender, float age, string tag)`
+`public int GetFacialIndicesByTag(int race, int curGender, float age, string tag)`
 
-**Purpose:** Gets the current value of `facial indices by tag`.
+**Purpose:** Reads and returns the `facial indices by tag` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetFacialIndicesByTag(0, 0, 0, "example");
+```
 
 ### GetTattooIndicesByTag
-`public static int GetTattooIndicesByTag(int race, int curGender, float age, string tag)`
+`public int GetTattooIndicesByTag(int race, int curGender, float age, string tag)`
 
-**Purpose:** Gets the current value of `tattoo indices by tag`.
+**Purpose:** Reads and returns the `tattoo indices by tag` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetTattooIndicesByTag(0, 0, 0, "example");
+```
 
 ### GetTattooZeroProbability
-`public static float GetTattooZeroProbability(int race, int curGender, float age)`
+`public float GetTattooZeroProbability(int race, int curGender, float age)`
 
-**Purpose:** Gets the current value of `tattoo zero probability`.
+**Purpose:** Reads and returns the `tattoo zero probability` value held by the current object.
+
+```csharp
+// Obtain an instance of FaceGen from the subsystem API first
+FaceGen faceGen = ...;
+var result = faceGen.GetTattooZeroProbability(0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-FaceGen.SetInstance(faceGen);
+FaceGen.CreateInstance();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

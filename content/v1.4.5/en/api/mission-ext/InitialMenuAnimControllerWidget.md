@@ -1,20 +1,14 @@
 ---
 title: "InitialMenuAnimControllerWidget"
+description: "Auto-generated class reference for InitialMenuAnimControllerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InitialMenuAnimControllerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialMenuAnimControllerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InitialMenuAnimControllerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/InitialMenuAnimControllerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/InitialMenuAnimControllerWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `InitialMenuAnimControllerWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new InitialMenuAnimControllerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InitialMenuAnimControllerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

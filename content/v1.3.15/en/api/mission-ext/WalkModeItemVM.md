@@ -1,13 +1,7 @@
 ---
 title: "WalkModeItemVM"
+description: "Auto-generated class reference for WalkModeItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WalkModeItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WalkModeItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode
@@ -39,40 +33,77 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode`
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of WalkModeItemVM from the subsystem API first
+WalkModeItemVM walkModeItemVM = ...;
+walkModeItemVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of WalkModeItemVM from the subsystem API first
+WalkModeItemVM walkModeItemVM = ...;
+walkModeItemVM.OnFinalize();
+```
 
 ### OnEnabled
 `public void OnEnabled()`
 
-**Purpose:** Called when the `enabled` event is raised.
+**Purpose:** Invoked when the `enabled` event is raised.
+
+```csharp
+// Obtain an instance of WalkModeItemVM from the subsystem API first
+WalkModeItemVM walkModeItemVM = ...;
+walkModeItemVM.OnEnabled();
+```
 
 ### ToggleState
 `public void ToggleState()`
 
-**Purpose:** Handles logic related to `toggle state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WalkModeItemVM from the subsystem API first
+WalkModeItemVM walkModeItemVM = ...;
+walkModeItemVM.ToggleState();
+```
 
 ### SetToggleInputKey
 `public void SetToggleInputKey(HotKey hotKey, bool isHotKeyConsoleOnly)`
 
-**Purpose:** Sets the value or state of `toggle input key`.
+**Purpose:** Assigns a new value to `toggle input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WalkModeItemVM from the subsystem API first
+WalkModeItemVM walkModeItemVM = ...;
+walkModeItemVM.SetToggleInputKey(hotKey, false);
+```
 
 ### SetToggleInputKey
 `public void SetToggleInputKey(GameKey gameKey, bool isHotKeyConsoleOnly)`
 
-**Purpose:** Sets the value or state of `toggle input key`.
+**Purpose:** Assigns a new value to `toggle input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WalkModeItemVM from the subsystem API first
+WalkModeItemVM walkModeItemVM = ...;
+walkModeItemVM.SetToggleInputKey(gameKey, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WalkModeItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+WalkModeItemVM walkModeItemVM = ...;
+walkModeItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

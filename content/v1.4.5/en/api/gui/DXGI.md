@@ -1,20 +1,14 @@
 ---
 title: "DXGI"
+description: "Auto-generated class reference for DXGI."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DXGI`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DXGI
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public static class DXGI`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
 
 ## Overview
 
@@ -29,25 +23,43 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### Equals
 `public override bool Equals(object o)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of DXGI from the subsystem API first
+DXGI dXGI = ...;
+var result = dXGI.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of DXGI from the subsystem API first
+DXGI dXGI = ...;
+var result = dXGI.GetHashCode();
+```
 
 ### CreateDXGIFactory
 `public static extern int CreateDXGIFactory(ref Guid riid, out IntPtr factory)`
 
-**Purpose:** Creates a new `d x g i factory` instance or object.
+**Purpose:** Constructs a new `d x g i factory` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+DXGI.CreateDXGIFactory(riid, factory);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DXGI();
-value.Equals(o);
+// Typically call this after obtaining an instance from the subsystem API
+DXGI dXGI = ...;
+dXGI.Equals(o);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

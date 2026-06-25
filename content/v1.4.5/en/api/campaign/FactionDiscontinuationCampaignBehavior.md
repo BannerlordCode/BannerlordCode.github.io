@@ -1,20 +1,14 @@
 ---
 title: "FactionDiscontinuationCampaignBehavior"
+description: "Auto-generated class reference for FactionDiscontinuationCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FactionDiscontinuationCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FactionDiscontinuationCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FactionDiscontinuationCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/FactionDiscontinuationCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/FactionDiscontinuationCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of FactionDiscontinuationCampaignBehavior from the subsystem API first
+FactionDiscontinuationCampaignBehavior factionDiscontinuationCampaignBehavior = ...;
+factionDiscontinuationCampaignBehavior.RegisterEvents();
+```
 
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)`
 
-**Purpose:** Called when the `settlement owner changed` event is raised.
+**Purpose:** Invoked when the `settlement owner changed` event is raised.
+
+```csharp
+// Obtain an instance of FactionDiscontinuationCampaignBehavior from the subsystem API first
+FactionDiscontinuationCampaignBehavior factionDiscontinuationCampaignBehavior = ...;
+factionDiscontinuationCampaignBehavior.OnSettlementOwnerChanged(settlement, false, newOwner, oldOwner, capturerHero, detail);
+```
 
 ### OnClanChangedKingdom
 `public void OnClanChangedKingdom(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, ChangeKingdomAction.ChangeKingdomActionDetail detail, bool showNotification = true)`
 
-**Purpose:** Called when the `clan changed kingdom` event is raised.
+**Purpose:** Invoked when the `clan changed kingdom` event is raised.
+
+```csharp
+// Obtain an instance of FactionDiscontinuationCampaignBehavior from the subsystem API first
+FactionDiscontinuationCampaignBehavior factionDiscontinuationCampaignBehavior = ...;
+factionDiscontinuationCampaignBehavior.OnClanChangedKingdom(clan, oldKingdom, newKingdom, detail, false);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of FactionDiscontinuationCampaignBehavior from the subsystem API first
+FactionDiscontinuationCampaignBehavior factionDiscontinuationCampaignBehavior = ...;
+factionDiscontinuationCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FactionDiscontinuationCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+FactionDiscontinuationCampaignBehavior factionDiscontinuationCampaignBehavior = ...;
+factionDiscontinuationCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "FollowAgentQuestTask"
+description: "Auto-generated class reference for FollowAgentQuestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FollowAgentQuestTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FollowAgentQuestTask
 
 **Namespace:** SandBox.Issues.IssueQuestTasks
@@ -29,20 +23,33 @@ Start from namespace `SandBox.Issues.IssueQuestTasks` to place it in the stack, 
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**Purpose:** Handles logic related to `mission tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FollowAgentQuestTask from the subsystem API first
+FollowAgentQuestTask followAgentQuestTask = ...;
+followAgentQuestTask.MissionTick(0);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of FollowAgentQuestTask from the subsystem API first
+FollowAgentQuestTask followAgentQuestTask = ...;
+followAgentQuestTask.SetReferences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FollowAgentQuestTask();
-value.MissionTick(0);
+// Typically call this after obtaining an instance from the subsystem API
+FollowAgentQuestTask followAgentQuestTask = ...;
+followAgentQuestTask.MissionTick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

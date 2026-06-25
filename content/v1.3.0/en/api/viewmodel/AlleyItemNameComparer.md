@@ -1,13 +1,7 @@
 ---
 title: "AlleyItemNameComparer"
+description: "Auto-generated class reference for AlleyItemNameComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyItemNameComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyItemNameComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of AlleyItemNameComparer from the subsystem API first
+AlleyItemNameComparer alleyItemNameComparer = ...;
+var result = alleyItemNameComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AlleyItemNameComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+AlleyItemNameComparer alleyItemNameComparer = ...;
+alleyItemNameComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

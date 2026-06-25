@@ -1,18 +1,12 @@
 ---
 title: "ActivityOutcome"
+description: "Auto-generated class reference for ActivityOutcome."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActivityOutcome`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ActivityOutcome
 
 **Namespace:** TaleWorlds.ActivitySystem
 **Module:** TaleWorlds.ActivitySystem
-**Type:** `class`
+**Type:** `public enum ActivityOutcome`
 **Base:** none
 **File:** `TaleWorlds.ActivitySystem/ActivityOutcome.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ActivitySystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new ActivityOutcome();
+// Obtain an instance from the relevant subsystem API
+ActivityOutcome instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

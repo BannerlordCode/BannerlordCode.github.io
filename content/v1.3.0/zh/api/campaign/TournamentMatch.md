@@ -1,13 +1,7 @@
 ---
 title: "TournamentMatch"
+description: "TournamentMatch 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentMatch`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentMatch
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -39,45 +33,88 @@ title: "TournamentMatch"
 ### End
 `public void End()`
 
-**用途 / Purpose:** 处理 `end` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentMatch 实例
+TournamentMatch tournamentMatch = ...;
+tournamentMatch.End();
+```
 
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 处理 `start` 相关逻辑。
+**用途 / Purpose:** 启动当前对象的流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentMatch 实例
+TournamentMatch tournamentMatch = ...;
+tournamentMatch.Start();
+```
 
 ### GetParticipant
 `public TournamentParticipant GetParticipant(int uniqueSeed)`
 
-**用途 / Purpose:** 获取 `participant` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「participant」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentMatch 实例
+TournamentMatch tournamentMatch = ...;
+var result = tournamentMatch.GetParticipant(0);
+```
 
 ### IsParticipantRequired
 `public bool IsParticipantRequired()`
 
-**用途 / Purpose:** 处理 `is participant required` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「participant required」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentMatch 实例
+TournamentMatch tournamentMatch = ...;
+var result = tournamentMatch.IsParticipantRequired();
+```
 
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant, bool firstTime)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `participant`。
+**用途 / Purpose:** 将 「participant」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentMatch 实例
+TournamentMatch tournamentMatch = ...;
+tournamentMatch.AddParticipant(participant, false);
+```
 
 ### IsPlayerParticipating
 `public bool IsPlayerParticipating()`
 
-**用途 / Purpose:** 处理 `is player participating` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player participating」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentMatch 实例
+TournamentMatch tournamentMatch = ...;
+var result = tournamentMatch.IsPlayerParticipating();
+```
 
 ### IsPlayerWinner
 `public bool IsPlayerWinner()`
 
-**用途 / Purpose:** 处理 `is player winner` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「player winner」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentMatch 实例
+TournamentMatch tournamentMatch = ...;
+var result = tournamentMatch.IsPlayerWinner();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TournamentMatch();
-value.End();
+// 通常从对应子系统 API 获取实例后调用
+TournamentMatch tournamentMatch = ...;
+tournamentMatch.End();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

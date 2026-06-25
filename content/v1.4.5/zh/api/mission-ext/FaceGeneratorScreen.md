@@ -1,20 +1,14 @@
 ---
 title: "FaceGeneratorScreen"
+description: "FaceGeneratorScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FaceGeneratorScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGeneratorScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FaceGeneratorScreen : ScreenBase, IFaceGeneratorScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/FaceGeneratorScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/FaceGeneratorScreen.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "FaceGeneratorScreen"
 ## 使用示例
 
 ```csharp
-var value = new FaceGeneratorScreen();
+// 从对应子系统 API 获取实例
+FaceGeneratorScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

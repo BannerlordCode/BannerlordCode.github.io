@@ -1,20 +1,14 @@
 ---
 title: "BoostSkillCheatGroup"
+description: "BoostSkillCheatGroup 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoostSkillCheatGroup`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoostSkillCheatGroup
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class BoostSkillCheatGroup : GameplayCheatGroup`
 **Base:** `GameplayCheatGroup`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/BoostSkillCheatGroup.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/BoostSkillCheatGroup.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "BoostSkillCheatGroup"
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**用途 / Purpose:** 执行 `cheat` 操作或流程。
+**用途 / Purpose:** 执行 「cheat」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BoostSkillCheatGroup 实例
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+boostSkillCheatGroup.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoostSkillCheatGroup 实例
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+var result = boostSkillCheatGroup.GetName();
+```
 
 ### GetCheats
 `public override IEnumerable<GameplayCheatBase> GetCheats()`
 
-**用途 / Purpose:** 获取 `cheats` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cheats」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoostSkillCheatGroup 实例
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+var result = boostSkillCheatGroup.GetCheats();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoostSkillCheatGroup 实例
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+var result = boostSkillCheatGroup.GetName();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoostSkillCheatGroup();
-value.ExecuteCheat();
+// 通常从对应子系统 API 获取实例后调用
+BoostSkillCheatGroup boostSkillCheatGroup = ...;
+boostSkillCheatGroup.ExecuteCheat();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

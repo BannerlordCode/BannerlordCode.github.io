@@ -1,13 +1,7 @@
 ---
 title: "WhileEnteringSettlementBattleMissionController"
+description: "WhileEnteringSettlementBattleMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WhileEnteringSettlementBattleMissionController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WhileEnteringSettlementBattleMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,52 +23,112 @@ title: "WhileEnteringSettlementBattleMissionController"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+whileEnteringSettlementBattleMissionController.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+whileEnteringSettlementBattleMissionController.OnMissionTick(0);
+```
 
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `start spawner` 相关逻辑。
+**用途 / Purpose:** 启动「spawner」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+whileEnteringSettlementBattleMissionController.StartSpawner(side);
+```
 
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `stop spawner` 相关逻辑。
+**用途 / Purpose:** 停止「spawner」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+whileEnteringSettlementBattleMissionController.StopSpawner(side);
+```
 
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `is side spawn enabled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「side spawn enabled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+var result = whileEnteringSettlementBattleMissionController.IsSideSpawnEnabled(side);
+```
 
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**用途 / Purpose:** 获取 `reinforcement interval` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「reinforcement interval」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+var result = whileEnteringSettlementBattleMissionController.GetReinforcementInterval();
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `is side depleted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「side depleted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+var result = whileEnteringSettlementBattleMissionController.IsSideDepleted(side);
+```
 
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `all troops for side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all troops for side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+var result = whileEnteringSettlementBattleMissionController.GetAllTroopsForSide(side);
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** 获取 `number of player controllable troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of player controllable troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+var result = whileEnteringSettlementBattleMissionController.GetNumberOfPlayerControllableTroops();
+```
 
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `spawn horses` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn horses」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WhileEnteringSettlementBattleMissionController 实例
+WhileEnteringSettlementBattleMissionController whileEnteringSettlementBattleMissionController = ...;
+var result = whileEnteringSettlementBattleMissionController.GetSpawnHorses(side);
+```
 
 ## 使用示例
 
@@ -84,4 +138,4 @@ var controller = Mission.Current.GetMissionBehavior<WhileEnteringSettlementBattl
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

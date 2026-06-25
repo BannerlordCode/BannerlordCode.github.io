@@ -1,13 +1,7 @@
 ---
 title: "LordsHallFightMissionController"
+description: "LordsHallFightMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LordsHallFightMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordsHallFightMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers
@@ -41,112 +35,244 @@ title: "LordsHallFightMissionController"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnBehaviorInitialize();
+```
 
 ### OnMissionStateFinalized
 `public override void OnMissionStateFinalized()`
 
-**用途 / Purpose:** 当 `mission state finalized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission state finalized」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnMissionStateFinalized();
+```
 
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** 当 `created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnCreated();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### StartSpawner
 `public void StartSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `start spawner` 相关逻辑。
+**用途 / Purpose:** 启动「spawner」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.StartSpawner(side);
+```
 
 ### StopSpawner
 `public void StopSpawner(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `stop spawner` 相关逻辑。
+**用途 / Purpose:** 停止「spawner」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.StopSpawner(side);
+```
 
 ### IsSideSpawnEnabled
 `public bool IsSideSpawnEnabled(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `is side spawn enabled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「side spawn enabled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.IsSideSpawnEnabled(side);
+```
 
 ### GetReinforcementInterval
 `public float GetReinforcementInterval()`
 
-**用途 / Purpose:** 获取 `reinforcement interval` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「reinforcement interval」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetReinforcementInterval();
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `is side depleted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「side depleted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.IsSideDepleted(side);
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** 获取 `number of player controllable troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of player controllable troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetNumberOfPlayerControllableTroops();
+```
 
 ### GetAllTroopsForSide
 `public IEnumerable<IAgentOriginBase> GetAllTroopsForSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `all troops for side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all troops for side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetAllTroopsForSide(side);
+```
 
 ### GetSpawnHorses
 `public bool GetSpawnHorses(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `spawn horses` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spawn horses」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetSpawnHorses(side);
+```
 
 ### SpawnTroops
 `public void SpawnTroops(Dictionary<int, Dictionary<int, LordsHallFightMissionController.AreaData>> areaMarkerDictionary, int spawnCount)`
 
-**用途 / Purpose:** 处理 `spawn troops` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SpawnTroops(dictionary<int, dictionary<int, areaMarkerDictionary, 0);
+```
 
 ### SpawnTroops
 `public void SpawnTroops(int spawnCount, bool isReinforcement)`
 
-**用途 / Purpose:** 处理 `spawn troops` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SpawnTroops(0, false);
+```
 
 ### SetSpawnTroops
 `public void SetSpawnTroops(bool spawnTroops)`
 
-**用途 / Purpose:** 设置 `spawn troops` 的值或状态。
+**用途 / Purpose:** 为 「spawn troops」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.SetSpawnTroops(false);
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**用途 / Purpose:** 获取 `all troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetAllTroops();
+```
 
 ### GetAvailableMachines
 `public IEnumerable<LordsHallFightMissionController.AreaEntityData> GetAvailableMachines(bool isArcher)`
 
-**用途 / Purpose:** 获取 `available machines` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available machines」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.GetAvailableMachines(false);
+```
 
 ### AddAreaMarker
 `public void AddAreaMarker(FightAreaMarker marker)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `area marker`。
+**用途 / Purpose:** 将 「area marker」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.AddAreaMarker(marker);
+```
 
 ### FindAgentMachine
 `public LordsHallFightMissionController.AreaEntityData FindAgentMachine(Agent agent)`
 
-**用途 / Purpose:** 处理 `find agent machine` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「agent machine」。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+var result = lordsHallFightMissionController.FindAgentMachine(agent);
+```
 
 ### AssignAgent
 `public void AssignAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `assign agent` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.AssignAgent(agent);
+```
 
 ### StopUse
 `public void StopUse()`
 
-**用途 / Purpose:** 处理 `stop use` 相关逻辑。
+**用途 / Purpose:** 停止「use」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 LordsHallFightMissionController 实例
+LordsHallFightMissionController lordsHallFightMissionController = ...;
+lordsHallFightMissionController.StopUse();
+```
 
 ## 使用示例
 
@@ -156,4 +282,4 @@ var controller = Mission.Current.GetMissionBehavior<LordsHallFightMissionControl
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

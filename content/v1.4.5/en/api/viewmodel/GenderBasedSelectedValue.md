@@ -1,20 +1,14 @@
 ---
 title: "GenderBasedSelectedValue"
+description: "Auto-generated class reference for GenderBasedSelectedValue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenderBasedSelectedValue`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenderBasedSelectedValue
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct GenderBasedSelectedValue`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of GenderBasedSelectedValue from the subsystem API first
+GenderBasedSelectedValue genderBasedSelectedValue = ...;
+genderBasedSelectedValue.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GenderBasedSelectedValue();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+GenderBasedSelectedValue genderBasedSelectedValue = ...;
+genderBasedSelectedValue.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

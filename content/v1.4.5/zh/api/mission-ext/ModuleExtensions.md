@@ -1,20 +1,14 @@
 ---
 title: "ModuleExtensions"
+description: "ModuleExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ModuleExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ModuleExtensions`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ModuleExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ModuleExtensions.cs`
 
 ## 概述
 
@@ -29,22 +23,42 @@ title: "ModuleExtensions"
 ### GetUsedMachines
 `public static IEnumerable<UsableMachine> GetUsedMachines(this Formation formation)`
 
-**用途 / Purpose:** 获取 `used machines` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「used machines」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ModuleExtensions.GetUsedMachines(formation);
+```
 
 ### StartUsingMachine
 `public static void StartUsingMachine(this Formation formation, UsableMachine usable, bool isPlayerOrder = false)`
 
-**用途 / Purpose:** 处理 `start using machine` 相关逻辑。
+**用途 / Purpose:** 启动「using machine」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+ModuleExtensions.StartUsingMachine(formation, usable, false);
+```
 
 ### StopUsingMachine
 `public static void StopUsingMachine(this Formation formation, UsableMachine usable, bool isPlayerOrder = false)`
 
-**用途 / Purpose:** 处理 `stop using machine` 相关逻辑。
+**用途 / Purpose:** 停止「using machine」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+ModuleExtensions.StopUsingMachine(formation, usable, false);
+```
 
 ### ToWorldPosition
 `public static WorldPosition ToWorldPosition(this Vec3 rawPosition)`
 
-**用途 / Purpose:** 处理 `to world position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ModuleExtensions.ToWorldPosition(rawPosition);
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ ModuleExtensions.GetUsedMachines(formation);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

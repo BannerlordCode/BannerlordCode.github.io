@@ -1,13 +1,7 @@
 ---
 title: "ConstantDefinition"
+description: "ConstantDefinition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConstantDefinition`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConstantDefinition
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -46,20 +40,32 @@ title: "ConstantDefinition"
 ### GetValue
 `public string GetValue(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**用途 / Purpose:** 获取 `value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ConstantDefinition 实例
+ConstantDefinition constantDefinition = ...;
+var result = constantDefinition.GetValue(brushFactory, spriteData, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+```
 
 ### GetActualValueOf
 `public static string GetActualValueOf(string value, BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**用途 / Purpose:** 获取 `actual value of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「actual value of」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ConstantDefinition.GetActualValueOf("example", brushFactory, spriteData, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ConstantDefinition();
-value.GetValue(brushFactory, spriteData, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+// 通常从对应子系统 API 获取实例后调用
+ConstantDefinition constantDefinition = ...;
+constantDefinition.GetValue(brushFactory, spriteData, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

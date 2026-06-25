@@ -1,20 +1,14 @@
 ---
 title: "MissionCampaignBattleSpectatorView"
+description: "Auto-generated class reference for MissionCampaignBattleSpectatorView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCampaignBattleSpectatorView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCampaignBattleSpectatorView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionCampaignBattleSpectatorView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionCampaignBattleSpectatorView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionCampaignBattleSpectatorView.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `MissionCampaignBattleSpectatorView` as a View-style extension point: firs
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionCampaignBattleSpectatorView from the subsystem API first
+MissionCampaignBattleSpectatorView missionCampaignBattleSpectatorView = ...;
+missionCampaignBattleSpectatorView.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionCampaignBattleSpectatorView();
+// Retrieve this view from the subsystem API or scene
+MissionCampaignBattleSpectatorView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

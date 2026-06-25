@@ -1,339 +1,443 @@
 ---
-title: PsaiCore
-description: PsaiCore - 动态自适应音乐引擎核心
+title: "PsaiCore"
+description: "PsaiCore 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PsaiCore`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PsaiCore
-**命名空间:** psai.net
-**模块:** psai.net
-**类型:** class
+
+**Namespace:** psai.net
+**Module:** psai.net
+**Type:** `public class PsaiCore`
+**Base:** 无
+**File:** `TaleWorlds.PSAI/net/PsaiCore.cs`
 
 ## 概述
-`PsaiCore
 
-` ?PSAI（Procedural Soundtrack Adaptive Intelligence）动态音乐引擎的核心单例类。它管理游戏音乐的主题（Theme）、强度（Intensity）、过渡和淡入淡出，根据游戏情境（战斗、探索、休息等）动态切换音乐。引擎通过加载项目文件（`.psai
+`PsaiCore` 位于 `psai.net`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-` XML）定义音乐片段和主题关系，运行时根据触发的主?ID 和强度值自动选择并播放合适的片段?
-核心概念?*Theme** 是一个音乐主题（?战斗"?探索"），每个主题有多?Segment（片段）?*Intensity** ?0~1 的强度值，决定音乐紧张程度。引擎自动在主题间过渡，支持保持当前强度（`HoldCurrentIntensity
-
-`）、回到基础情绪（`ReturnToLastBasicMood
-
-`）、休息（
-
-`GoToRest
-
-`）等操作?
 ## 心智模型
-?
 
-`PsaiCore
+先从命名空间 `psai.net` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-` 看作"智能音乐播放?。：游戏调用 
+## 主要属性
 
-`TriggerMusicTheme(themeId, intensity)
-
-` 触发主题，引擎自动选择匹配强度的片段播放，并在主题间平滑过渡?
-
-`Update()
-
-` 每帧调用以驱动引擎逻辑。`StopMusic
-
-` 停止播放，`GoToRest
-
-` 让音乐进入静默休息期。音量通过 
-
-`GetVolume
-
-`/
-
-`SetVolume
-
-` 控制?
-## 主要属?\| 属?\| 类型 \| 说明 \|
-\|------\|------\|------\|
-\| 
-
-`Instance
-
-` \| 
-
-`static PsaiCore
-
-` \| 单例实例 \|
+| Name | Signature |
+|------|-----------|
+| `Instance` | `public static PsaiCore Instance { get; set; }` |
 
 ## 主要方法
+
 ### IsInstanceInitialized
-`
+`public static bool IsInstanceInitialized()`
 
-`
+**用途 / Purpose:** 判断当前对象是否处于 「instance initialized」 状态或条件。
 
-`csharp
-public static bool IsInstanceInitialized()
-`
+```csharp
+// 静态调用，不需要实例
+PsaiCore.IsInstanceInitialized();
+```
 
-`
-
-`
-检查单例实例是否已初始化?
-### LoadSoundtrackFromProjectFile
-`
-
-`
-
-`csharp
-public PsaiResult LoadSoundtrackFromProjectFile(List&lt;string&gt; pathToProjectFiles)
-`
-
-`
-
-`
-?PSAI 项目文件（`.psai
-
-` XML）加载音乐轨道定义。返?
-
-`PsaiResult
-
-` 表示加载结果?
-### TriggerMusicTheme
-`
-
-`
-
-`csharp
-public PsaiResult TriggerMusicTheme(int themeId, float intensity)
-public PsaiResult TriggerMusicTheme(int themeId, float intensity, int musicDurationInSeconds)
-`
-
-`
-
-`
-触发指定主题 ID 的音乐播放，设置初始强度。第二个重载可指定音乐持续时间（秒）?
-### AddToCurrentIntensity
-`
-
-`
-
-`csharp
-public PsaiResult AddToCurrentIntensity(float deltaIntensity)
-`
-
-`
-
-`
-在当前强度基础上增减强度值（delta 可正可负）?
-### StopMusic
-`
-
-`
-
-`csharp
-public PsaiResult StopMusic(bool immediately)
-public PsaiResult StopMusic(bool immediately, float fadeOutSeconds)
-`
-
-`
-
-`
-停止音乐播放。`immediately
-
-` ?true 时立即停止，否则平滑淡出。第二个重载可指定淡出时长?
-### ReturnToLastBasicMood
-`
-
-`
-
-`csharp
-public PsaiResult ReturnToLastBasicMood(bool immediately)
-`
-
-`
-
-`
-返回到上一个基础情绪主题。用于从战斗等高强度主题回到探索等基础情绪?
-### GoToRest
-`
-
-`
-
-`csharp
-public PsaiResult GoToRest(bool immediately, float fadeOutSeconds)
-public PsaiResult GoToRest(bool immediately, float fadeOutSeconds, int restTimeMin, int restTimeMax)
-`
-
-`
-
-`
-让音乐进入休息状态（静默）。第二个重载可指定休息时间范围（秒）?
-### HoldCurrentIntensity
-`
-
-`
-
-`csharp
-public PsaiResult HoldCurrentIntensity(bool hold)
-`
-
-`
-
-`
-锁定/解锁当前强度。锁定后强度不再自动衰减?
-### Update
-`
-
-`
-
-`csharp
-public PsaiResult Update()
-`
-
-`
-
-`
-每帧调用，驱动引擎逻辑（片段选择、过渡、淡入淡出等）?
-### GetVolume / SetVolume
-`
-
-`
-
-`csharp
-public float GetVolume()
-public void SetVolume(float volume)
-`
-
-`
-
-`
-获取/设置音乐音量?~1）?
-### SetPaused
-`
-
-`
-
-`csharp
-public void SetPaused(bool setPaused)
-`
-
-`
-
-`
-暂停/恢复音乐播放?
-### GetCurrentIntensity
-`
-
-`
-
-`csharp
-public float GetCurrentIntensity()
-`
-
-`
-
-`
-返回当前音乐强度值（0~1）?
-### GetPsaiInfo
-`
-
-`
-
-`csharp
-public PsaiInfo GetPsaiInfo()
-`
-
-`
-
-`
-返回引擎当前状态信息（
-
-`PsaiInfo
-
-` 对象），包含当前主题、强度、播放状态等?
 ### SetMaximumLatencyNeededByPlatformToBufferSounddata
-`
+`public PsaiResult SetMaximumLatencyNeededByPlatformToBufferSounddata(int latencyInMilliseconds)`
 
-`
+**用途 / Purpose:** 为 「maximum latency needed by platform to buffer sounddata」 赋新值，并同步更新对象内部状态。
 
-`csharp
-public PsaiResult SetMaximumLatencyNeededByPlatformToBufferSounddata(int latencyInMilliseconds)
-`
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.SetMaximumLatencyNeededByPlatformToBufferSounddata(0);
+```
 
-`
-
-`
-设置平台缓冲音频数据所需的最大延迟（毫秒）?
 ### SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata
-`
+`public PsaiResult SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata(int latencyInMilliseconds)`
 
-`
+**用途 / Purpose:** 为 「maximum latency needed by platform to play back buffered sounddata」 赋新值，并同步更新对象内部状态。
 
-`csharp
-public PsaiResult SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata(int latencyInMilliseconds)
-`
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.SetMaximumLatencyNeededByPlatformToPlayBackBufferedSounddata(0);
+```
 
-`
+### LoadSoundtrackFromProjectFile
+`public PsaiResult LoadSoundtrackFromProjectFile(List<string> pathToProjectFiles)`
 
-`
-设置平台播放缓冲音频数据所需的最大延迟（毫秒）?
+**用途 / Purpose:** 从持久化存储或流中读取 「soundtrack from project file」。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.LoadSoundtrackFromProjectFile(pathToProjectFiles);
+```
+
+### TriggerMusicTheme
+`public PsaiResult TriggerMusicTheme(int themeId, float intensity)`
+
+**用途 / Purpose:** 触发「music theme」对应的逻辑或事件。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.TriggerMusicTheme(0, 0);
+```
+
+### TriggerMusicTheme
+`public PsaiResult TriggerMusicTheme(int themeId, float intensity, int musicDurationInSeconds)`
+
+**用途 / Purpose:** 触发「music theme」对应的逻辑或事件。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.TriggerMusicTheme(0, 0, 0);
+```
+
+### AddToCurrentIntensity
+`public PsaiResult AddToCurrentIntensity(float deltaIntensity)`
+
+**用途 / Purpose:** 将 「to current intensity」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.AddToCurrentIntensity(0);
+```
+
+### StopMusic
+`public PsaiResult StopMusic(bool immediately)`
+
+**用途 / Purpose:** 停止「music」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.StopMusic(false);
+```
+
+### StopMusic
+`public PsaiResult StopMusic(bool immediately, float fadeOutSeconds)`
+
+**用途 / Purpose:** 停止「music」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.StopMusic(false, 0);
+```
+
+### ReturnToLastBasicMood
+`public PsaiResult ReturnToLastBasicMood(bool immediately)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.ReturnToLastBasicMood(false);
+```
+
+### GoToRest
+`public PsaiResult GoToRest(bool immediately, float fadeOutSeconds)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GoToRest(false, 0);
+```
+
+### GoToRest
+`public PsaiResult GoToRest(bool immediately, float fadeOutSeconds, int restTimeMin, int restTimeMax)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GoToRest(false, 0, 0, 0);
+```
+
+### HoldCurrentIntensity
+`public PsaiResult HoldCurrentIntensity(bool hold)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.HoldCurrentIntensity(false);
+```
+
 ### GetVersion
-`
+`public string GetVersion()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「version」 的结果。
 
-`csharp
-public string GetVersion()
-`
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetVersion();
+```
 
-`
+### Update
+`public PsaiResult Update()`
 
-`
-返回 PSAI 引擎版本字符串?
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.Update();
+```
+
+### GetVolume
+`public float GetVolume()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「volume」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetVolume();
+```
+
+### SetVolume
+`public void SetVolume(float volume)`
+
+**用途 / Purpose:** 为 「volume」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+psaiCore.SetVolume(0);
+```
+
+### SetPaused
+`public void SetPaused(bool setPaused)`
+
+**用途 / Purpose:** 为 「paused」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+psaiCore.SetPaused(false);
+```
+
+### GetCurrentIntensity
+`public float GetCurrentIntensity()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「current intensity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetCurrentIntensity();
+```
+
+### GetPsaiInfo
+`public PsaiInfo GetPsaiInfo()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「psai info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetPsaiInfo();
+```
+
+### GetSoundtrackInfo
+`public SoundtrackInfo GetSoundtrackInfo()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「soundtrack info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetSoundtrackInfo();
+```
+
+### GetThemeInfo
+`public ThemeInfo GetThemeInfo(int themeId)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「theme info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetThemeInfo(0);
+```
+
+### GetSegmentInfo
+`public SegmentInfo GetSegmentInfo(int segmentId)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「segment info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetSegmentInfo(0);
+```
+
+### GetCurrentSegmentId
+`public int GetCurrentSegmentId()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「current segment id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetCurrentSegmentId();
+```
+
+### GetCurrentThemeId
+`public int GetCurrentThemeId()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「current theme id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetCurrentThemeId();
+```
+
+### GetRemainingMillisecondsOfCurrentSegmentPlayback
+`public int GetRemainingMillisecondsOfCurrentSegmentPlayback()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「remaining milliseconds of current segment playback」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetRemainingMillisecondsOfCurrentSegmentPlayback();
+```
+
+### GetRemainingMillisecondsUntilNextSegmentStart
+`public int GetRemainingMillisecondsUntilNextSegmentStart()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「remaining milliseconds until next segment start」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.GetRemainingMillisecondsUntilNextSegmentStart();
+```
+
+### MenuModeEnter
+`public PsaiResult MenuModeEnter(int menuThemeId, float menuThemeIntensity)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.MenuModeEnter(0, 0);
+```
+
+### MenuModeLeave
+`public PsaiResult MenuModeLeave()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.MenuModeLeave();
+```
+
+### MenuModeIsActive
+`public bool MenuModeIsActive()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.MenuModeIsActive();
+```
+
+### CutSceneIsActive
+`public bool CutSceneIsActive()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.CutSceneIsActive();
+```
+
+### CutSceneEnter
+`public PsaiResult CutSceneEnter(int themeId, float intensity)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.CutSceneEnter(0, 0);
+```
+
+### CutSceneLeave
+`public PsaiResult CutSceneLeave(bool immediately, bool reset)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.CutSceneLeave(false, false);
+```
+
+### PlaySegment
+`public PsaiResult PlaySegment(int segmentId)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.PlaySegment(0);
+```
+
+### CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible
+`public bool CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(int sourceSegmentId, int targetThemeId)`
+
+**用途 / Purpose:** 检查「if at least one direct transition or layering is possible」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+var result = psaiCore.CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(0, 0);
+```
+
+### SetLastBasicMood
+`public void SetLastBasicMood(int themeId)`
+
+**用途 / Purpose:** 为 「last basic mood」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+psaiCore.SetLastBasicMood(0);
+```
+
+### Release
+`public void Release()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiCore 实例
+PsaiCore psaiCore = ...;
+psaiCore.Release();
+```
+
 ## 使用示例
-### 示例: 触发战斗音乐
-**场景**: 进入战斗时切换音?
 
-`
+```csharp
+PsaiCore.IsInstanceInitialized();
+```
 
-`
-
-`csharp
-if (PsaiCore.IsInstanceInitialized())
-{
-    PsaiCore.Instance.TriggerMusicTheme(themeId: 3, intensity: 0.8f);
-}
-// 战斗结束后回到探索音?PsaiCore.Instance.ReturnToLastBasicMood(immediately: false);
-`
-
-`
-
-`
-**要点**: 调用前检?
-
-`IsInstanceInitialized()
-
-` 避免空引用。强?0.8 表示较高紧张度?
-### 示例: 逐渐增加紧张?**场景**: 战斗中随时间提升音乐强度
-`
-
-`
-
-`csharp
-PsaiCore.Instance.AddToCurrentIntensity(0.1f); // 每次增加 0.1
-`
-
-`
-
-`
-**要点**: 
-
-`AddToCurrentIntensity
-
-` 在当前强度基础上增减，不会超过 1.0?
 ## 参见
-- [完整类目录](../catalog-campaign)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+
+- [本区域目录](../)

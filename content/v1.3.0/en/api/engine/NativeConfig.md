@@ -1,13 +1,7 @@
 ---
 title: "NativeConfig"
+description: "Auto-generated class reference for NativeConfig."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeConfig`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeConfig
 
 **Namespace:** TaleWorlds.Engine
@@ -52,12 +46,22 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### OnConfigChanged
 `public static void OnConfigChanged()`
 
-**Purpose:** Called when the `config changed` event is raised.
+**Purpose:** Invoked when the `config changed` event is raised.
+
+```csharp
+// Static call; no instance required
+NativeConfig.OnConfigChanged();
+```
 
 ### SetAutoConfigWrtHardware
 `public static void SetAutoConfigWrtHardware()`
 
-**Purpose:** Sets the value or state of `auto config wrt hardware`.
+**Purpose:** Assigns a new value to `auto config wrt hardware` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NativeConfig.SetAutoConfigWrtHardware();
+```
 
 ## Usage Example
 
@@ -67,4 +71,4 @@ NativeConfig.OnConfigChanged();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

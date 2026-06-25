@@ -201,5 +201,5 @@ public const string MainDllName = "TaleWorlds.Native.dll";
 ## Usage Example
 
 ```csharp
-var example = new LibraryApplicationInterface();
+// Example: check native export signatures before using P/Invoke.
 ```

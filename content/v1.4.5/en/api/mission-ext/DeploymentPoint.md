@@ -1,20 +1,14 @@
 ---
 title: "DeploymentPoint"
+description: "Auto-generated class reference for DeploymentPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeploymentPoint`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeploymentPoint
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DeploymentPoint : SynchedMissionObject`
 **Base:** `SynchedMissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentPoint.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DeploymentPoint.cs`
 
 ## Overview
 
@@ -38,80 +32,165 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+deploymentPoint.AfterMissionStart();
+```
 
 ### GetDeploymentOrigin
 `public Vec3 GetDeploymentOrigin()`
 
-**Purpose:** Gets the current value of `deployment origin`.
+**Purpose:** Reads and returns the `deployment origin` value held by the current object.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+var result = deploymentPoint.GetDeploymentOrigin();
+```
 
 ### GetDeploymentPointState
 `public DeploymentPointState GetDeploymentPointState()`
 
-**Purpose:** Gets the current value of `deployment point state`.
+**Purpose:** Reads and returns the `deployment point state` value held by the current object.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+var result = deploymentPoint.GetDeploymentPointState();
+```
 
 ### GetDeploymentPointType
 `public DeploymentPointType GetDeploymentPointType()`
 
-**Purpose:** Gets the current value of `deployment point type`.
+**Purpose:** Reads and returns the `deployment point type` value held by the current object.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+var result = deploymentPoint.GetDeploymentPointType();
+```
 
 ### GetAssociatedSiegeLadders
 `public List<SiegeLadder> GetAssociatedSiegeLadders()`
 
-**Purpose:** Gets the current value of `associated siege ladders`.
+**Purpose:** Reads and returns the `associated siege ladders` value held by the current object.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+var result = deploymentPoint.GetAssociatedSiegeLadders();
+```
 
 ### GetWeaponsUnder
 `public MBList<SynchedMissionObject> GetWeaponsUnder()`
 
-**Purpose:** Gets the current value of `weapons under`.
+**Purpose:** Reads and returns the `weapons under` value held by the current object.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+var result = deploymentPoint.GetWeaponsUnder();
+```
 
 ### GetSpawnersForEditor
 `public IEnumerable<SpawnerBase> GetSpawnersForEditor()`
 
-**Purpose:** Gets the current value of `spawners for editor`.
+**Purpose:** Reads and returns the `spawners for editor` value held by the current object.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+var result = deploymentPoint.GetSpawnersForEditor();
+```
 
 ### Deploy
 `public void Deploy(Type t)`
 
-**Purpose:** Handles logic related to `deploy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+deploymentPoint.Deploy(t);
+```
 
 ### Deploy
 `public void Deploy(SiegeWeapon s)`
 
-**Purpose:** Handles logic related to `deploy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+deploymentPoint.Deploy(s);
+```
 
 ### Disband
 `public ScriptComponentBehavior Disband()`
 
-**Purpose:** Handles logic related to `disband`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+var result = deploymentPoint.Disband();
+```
 
 ### Hide
 `public void Hide()`
 
-**Purpose:** Handles logic related to `hide`.
+**Purpose:** Hides the UI or element associated with the current object.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+deploymentPoint.Hide();
+```
 
 ### Show
 `public void Show()`
 
-**Purpose:** Handles logic related to `show`.
+**Purpose:** Displays the UI or element associated with the current object.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+deploymentPoint.Show();
+```
 
 ### ToggleWeaponVisibility
 `public void ToggleWeaponVisibility(bool visible, SynchedMissionObject weapon)`
 
-**Purpose:** Handles logic related to `toggle weapon visibility`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+deploymentPoint.ToggleWeaponVisibility(false, weapon);
+```
 
 ### HideAllWeapons
 `public void HideAllWeapons()`
 
-**Purpose:** Handles logic related to `hide all weapons`.
+**Purpose:** Hides the UI or element associated with `all weapons`.
+
+```csharp
+// Obtain an instance of DeploymentPoint from the subsystem API first
+DeploymentPoint deploymentPoint = ...;
+deploymentPoint.HideAllWeapons();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DeploymentPoint();
-value.AfterMissionStart();
+// Typically call this after obtaining an instance from the subsystem API
+DeploymentPoint deploymentPoint = ...;
+deploymentPoint.AfterMissionStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

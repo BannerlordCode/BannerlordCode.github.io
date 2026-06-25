@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletPhotoMode"
+description: "Auto-generated class reference for MissionGauntletPhotoMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletPhotoMode`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletPhotoMode
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
+MissionGauntletPhotoMode missionGauntletPhotoMode = ...;
+missionGauntletPhotoMode.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
+MissionGauntletPhotoMode missionGauntletPhotoMode = ...;
+missionGauntletPhotoMode.OnMissionScreenTick(0);
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
+MissionGauntletPhotoMode missionGauntletPhotoMode = ...;
+var result = missionGauntletPhotoMode.OnEscape();
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** Handles logic related to `is opening escape menu on focus change allowed`.
+**Purpose:** Determines whether the current object is in the `opening escape menu on focus change allowed` state or condition.
+
+```csharp
+// Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
+MissionGauntletPhotoMode missionGauntletPhotoMode = ...;
+var result = missionGauntletPhotoMode.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
+MissionGauntletPhotoMode missionGauntletPhotoMode = ...;
+missionGauntletPhotoMode.OnMissionScreenFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletPhotoMode();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletPhotoMode missionGauntletPhotoMode = ...;
+missionGauntletPhotoMode.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

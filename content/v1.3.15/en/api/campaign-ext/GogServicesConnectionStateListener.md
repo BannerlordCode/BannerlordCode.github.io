@@ -1,13 +1,7 @@
 ---
 title: "GogServicesConnectionStateListener"
+description: "Auto-generated class reference for GogServicesConnectionStateListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GogServicesConnectionStateListener`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GogServicesConnectionStateListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnConnectionStateChange
 `public override void OnConnectionStateChange(GogServicesConnectionState connected)`
 
-**Purpose:** Called when the `connection state change` event is raised.
+**Purpose:** Invoked when the `connection state change` event is raised.
+
+```csharp
+// Obtain an instance of GogServicesConnectionStateListener from the subsystem API first
+GogServicesConnectionStateListener gogServicesConnectionStateListener = ...;
+gogServicesConnectionStateListener.OnConnectionStateChange(connected);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GogServicesConnectionStateListener();
-value.OnConnectionStateChange(connected);
+// Typically call this after obtaining an instance from the subsystem API
+GogServicesConnectionStateListener gogServicesConnectionStateListener = ...;
+gogServicesConnectionStateListener.OnConnectionStateChange(connected);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

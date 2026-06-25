@@ -1,42 +1,30 @@
 ---
 title: "ValueCategorization"
+description: "ValueCategorization 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ValueCategorization`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ValueCategorization
 
-**命名空间:** TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip
-**模块:** TaleWorlds.Core
-**类型:** `public enum ValueCategorization`
-**领域:** core-extra
+**Namespace:** TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip
+**Module:** TaleWorlds.Core
+**Type:** `public enum ValueCategorization`
+**Base:** 无
+**File:** `TaleWorlds.Core.ViewModelCollection/Information/RundownTooltip/RundownTooltipVM.cs`
 
 ## 概述
 
-`ValueCategorization` 位于 `TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`ValueCategorization` 位于 `TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
 先从命名空间 `TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 枚举值
-
-| Name |
-|------|
-| `None` |
-| `LargeIsBetter` |
-
 ## 使用示例
 
 ```csharp
-ValueCategorization example = ValueCategorization.None;
+// 从对应子系统 API 获取实例
+ValueCategorization instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-core)
+- [本区域目录](../)

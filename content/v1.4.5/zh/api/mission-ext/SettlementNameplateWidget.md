@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplateWidget"
+description: "SettlementNameplateWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNameplateWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplateWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SettlementNameplateWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate/SettlementNameplateWidget.cs`
 
 ## 概述
 
@@ -49,19 +43,32 @@ title: "SettlementNameplateWidget"
 ### SettlementNameplateWidget
 `public class SettlementNameplateWidget(UIContext context)`
 
-**用途 / Purpose:** 设置 `tlement nameplate widget` 的值或状态。
+**用途 / Purpose:** 为 「tlement nameplate widget」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateWidget 实例
+SettlementNameplateWidget settlementNameplateWidget = ...;
+var result = settlementNameplateWidget.SettlementNameplateWidget(context);
+```
 
 ### CompareTo
 `public int CompareTo(SettlementNameplateWidget other)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplateWidget 实例
+SettlementNameplateWidget settlementNameplateWidget = ...;
+var result = settlementNameplateWidget.CompareTo(other);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new SettlementNameplateWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+SettlementNameplateWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

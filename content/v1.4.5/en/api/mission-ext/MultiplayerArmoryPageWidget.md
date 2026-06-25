@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerArmoryPageWidget"
+description: "Auto-generated class reference for MultiplayerArmoryPageWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerArmoryPageWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerArmoryPageWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerArmoryPageWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerArmoryPageWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerArmoryPageWidget.cs`
 
 ## Overview
 
@@ -46,9 +40,10 @@ Treat `MultiplayerArmoryPageWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerArmoryPageWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerArmoryPageWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

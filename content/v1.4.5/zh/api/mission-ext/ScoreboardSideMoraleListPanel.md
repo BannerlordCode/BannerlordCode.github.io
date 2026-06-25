@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardSideMoraleListPanel"
+description: "ScoreboardSideMoraleListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScoreboardSideMoraleListPanel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardSideMoraleListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardSideMoraleListPanel`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardSideMoraleListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardSideMoraleListPanel.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "ScoreboardSideMoraleListPanel"
 ### ScoreboardSideMoraleListPanel
 `public class ScoreboardSideMoraleListPanel(UIContext context)`
 
-**用途 / Purpose:** 处理 `scoreboard side morale list panel` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardSideMoraleListPanel 实例
+ScoreboardSideMoraleListPanel scoreboardSideMoraleListPanel = ...;
+var result = scoreboardSideMoraleListPanel.ScoreboardSideMoraleListPanel(context);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ScoreboardSideMoraleListPanel();
-value.ScoreboardSideMoraleListPanel(context);
+// 通常从对应子系统 API 获取实例后调用
+ScoreboardSideMoraleListPanel scoreboardSideMoraleListPanel = ...;
+scoreboardSideMoraleListPanel.ScoreboardSideMoraleListPanel(context);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

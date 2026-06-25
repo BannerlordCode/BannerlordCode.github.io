@@ -1,20 +1,14 @@
 ---
 title: "SPPersonalKillNotificationVM"
+description: "Auto-generated class reference for SPPersonalKillNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPPersonalKillNotificationVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPPersonalKillNotificationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.Personal
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPPersonalKillNotificationVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.Personal/SPPersonalKillNotificationVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.Personal/SPPersonalKillNotificationVM.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.
 ### OnPersonalKill
 `public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-**Purpose:** Called when the `personal kill` event is raised.
+**Purpose:** Invoked when the `personal kill` event is raised.
+
+```csharp
+// Obtain an instance of SPPersonalKillNotificationVM from the subsystem API first
+SPPersonalKillNotificationVM sPPersonalKillNotificationVM = ...;
+sPPersonalKillNotificationVM.OnPersonalKill(0, false, false, false, "example", false);
+```
 
 ### OnPersonalHit
 `public void OnPersonalHit(int damageAmount, bool isMountDamage, bool isFriendlyFire, string killedAgentName)`
 
-**Purpose:** Called when the `personal hit` event is raised.
+**Purpose:** Invoked when the `personal hit` event is raised.
+
+```csharp
+// Obtain an instance of SPPersonalKillNotificationVM from the subsystem API first
+SPPersonalKillNotificationVM sPPersonalKillNotificationVM = ...;
+sPPersonalKillNotificationVM.OnPersonalHit(0, false, false, "example");
+```
 
 ### OnPersonalMessage
 `public void OnPersonalMessage(string message)`
 
-**Purpose:** Called when the `personal message` event is raised.
+**Purpose:** Invoked when the `personal message` event is raised.
+
+```csharp
+// Obtain an instance of SPPersonalKillNotificationVM from the subsystem API first
+SPPersonalKillNotificationVM sPPersonalKillNotificationVM = ...;
+sPPersonalKillNotificationVM.OnPersonalMessage("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPPersonalKillNotificationVM();
-value.OnPersonalKill(0, false, false, false, "example", false);
+// Typically call this after obtaining an instance from the subsystem API
+SPPersonalKillNotificationVM sPPersonalKillNotificationVM = ...;
+sPPersonalKillNotificationVM.OnPersonalKill(0, false, false, false, "example", false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

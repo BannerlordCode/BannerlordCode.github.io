@@ -1,20 +1,14 @@
 ---
 title: "PeaceBarterable"
+description: "PeaceBarterable 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PeaceBarterable`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeaceBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PeaceBarterable : Barterable`
 **Base:** `Barterable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/PeaceBarterable.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/PeaceBarterable.cs`
 
 ## 概述
 
@@ -36,35 +30,66 @@ title: "PeaceBarterable"
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction factionToEvaluateFor)`
 
-**用途 / Purpose:** 获取 `unit value for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit value for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PeaceBarterable 实例
+PeaceBarterable peaceBarterable = ...;
+var result = peaceBarterable.GetUnitValueForFaction(factionToEvaluateFor);
+```
 
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**用途 / Purpose:** 处理 `is compatible` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「compatible」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 PeaceBarterable 实例
+PeaceBarterable peaceBarterable = ...;
+var result = peaceBarterable.IsCompatible(barterable);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**用途 / Purpose:** 获取 `visual identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PeaceBarterable 实例
+PeaceBarterable peaceBarterable = ...;
+var result = peaceBarterable.GetVisualIdentifier();
+```
 
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**用途 / Purpose:** 获取 `encyclopedia link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PeaceBarterable 实例
+PeaceBarterable peaceBarterable = ...;
+var result = peaceBarterable.GetEncyclopediaLink();
+```
 
 ### Apply
 `public override void Apply()`
 
-**用途 / Purpose:** 将 `apply` 应用到当前对象。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
+
+```csharp
+// 先通过子系统 API 拿到 PeaceBarterable 实例
+PeaceBarterable peaceBarterable = ...;
+peaceBarterable.Apply();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PeaceBarterable();
-value.GetUnitValueForFaction(factionToEvaluateFor);
+// 通常从对应子系统 API 获取实例后调用
+PeaceBarterable peaceBarterable = ...;
+peaceBarterable.GetUnitValueForFaction(factionToEvaluateFor);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

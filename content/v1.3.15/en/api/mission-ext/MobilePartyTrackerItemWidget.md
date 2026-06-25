@@ -1,13 +1,7 @@
 ---
 title: "MobilePartyTrackerItemWidget"
+description: "Auto-generated class reference for MobilePartyTrackerItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyTrackerItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MobilePartyTrackerItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map
@@ -39,9 +33,10 @@ Treat `MobilePartyTrackerItemWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new MobilePartyTrackerItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MobilePartyTrackerItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

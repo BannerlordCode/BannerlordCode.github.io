@@ -1,20 +1,14 @@
 ---
 title: "DefaultTroopSupplierProbabilityModel"
+description: "Auto-generated class reference for DefaultTroopSupplierProbabilityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTroopSupplierProbabilityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTroopSupplierProbabilityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTroopSupplierProbabilityModel : TroopSupplierProbabilityModel`
 **Base:** `TroopSupplierProbabilityModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTroopSupplierProbabilityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTroopSupplierProbabilityModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultTroopSupplierProbabilityModel` as a Model-style extension point: f
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayer, int sizeOfSide, bool forcePriorityTroops, List<(FlattenedTroopRosterElement, MapEventParty, float)> priorityList)`
 
-**Purpose:** Handles logic related to `enqueue troop spawn probabilities according to unit spawn prioritization`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultTroopSupplierProbabilityModel from the subsystem API first
+DefaultTroopSupplierProbabilityModel defaultTroopSupplierProbabilityModel = ...;
+defaultTroopSupplierProbabilityModel.EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(battleParty, priorityTroops, false, 0, false, list<(FlattenedTroopRosterElement, mapEventParty, 0);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultTroopSupplierProbabilityModel>(new MyDefaultTro
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

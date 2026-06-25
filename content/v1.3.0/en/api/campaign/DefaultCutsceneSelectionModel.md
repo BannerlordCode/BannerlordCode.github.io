@@ -1,13 +1,7 @@
 ---
 title: "DefaultCutsceneSelectionModel"
+description: "Auto-generated class reference for DefaultCutsceneSelectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCutsceneSelectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCutsceneSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,7 +23,13 @@ Treat `DefaultCutsceneSelectionModel` as a Model-style extension point: first id
 ### GetKingdomDestroyedSceneNotification
 `public override SceneNotificationData GetKingdomDestroyedSceneNotification(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `kingdom destroyed scene notification`.
+**Purpose:** Reads and returns the `kingdom destroyed scene notification` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCutsceneSelectionModel from the subsystem API first
+DefaultCutsceneSelectionModel defaultCutsceneSelectionModel = ...;
+var result = defaultCutsceneSelectionModel.GetKingdomDestroyedSceneNotification(kingdom);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultCutsceneSelectionModel>(new MyDefaultCutsceneSe
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

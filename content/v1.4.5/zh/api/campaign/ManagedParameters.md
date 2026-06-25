@@ -1,20 +1,14 @@
 ---
 title: "ManagedParameters"
+description: "ManagedParameters 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedParameters`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedParameters
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class ManagedParameters : IManagedParametersInitializer`
 **Base:** `IManagedParametersInitializer`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ManagedParameters.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ManagedParameters.cs`
 
 ## 概述
 
@@ -35,25 +29,44 @@ title: "ManagedParameters"
 ### Initialize
 `public void Initialize(string relativeXmlPath)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedParameters 实例
+ManagedParameters managedParameters = ...;
+managedParameters.Initialize("example");
+```
 
 ### GetManagedParameter
 `public bool GetManagedParameter(ManagedParametersEnum _managedParametersEnum)`
 
-**用途 / Purpose:** 获取 `managed parameter` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「managed parameter」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedParameters 实例
+ManagedParameters managedParameters = ...;
+var result = managedParameters.GetManagedParameter(_managedParametersEnum);
+```
 
 ### SetManagedParameter
 `public bool SetManagedParameter(ManagedParametersEnum _managedParametersEnum, bool value)`
 
-**用途 / Purpose:** 设置 `managed parameter` 的值或状态。
+**用途 / Purpose:** 为 「managed parameter」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedParameters 实例
+ManagedParameters managedParameters = ...;
+var result = managedParameters.SetManagedParameter(_managedParametersEnum, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ManagedParameters();
-value.Initialize("example");
+// 通常从对应子系统 API 获取实例后调用
+ManagedParameters managedParameters = ...;
+managedParameters.Initialize("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

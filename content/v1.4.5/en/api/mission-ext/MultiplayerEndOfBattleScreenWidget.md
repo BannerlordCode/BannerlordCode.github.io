@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerEndOfBattleScreenWidget"
+description: "Auto-generated class reference for MultiplayerEndOfBattleScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerEndOfBattleScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerEndOfBattleScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerEndOfBattleScreenWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerEndOfBattleScreenWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerEndOfBattleScreenWidget.cs`
 
 ## Overview
 
@@ -36,14 +30,21 @@ Treat `MultiplayerEndOfBattleScreenWidget` as a Widget-style extension point: fi
 ### MultiplayerEndOfBattleScreenWidget
 `public class MultiplayerEndOfBattleScreenWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer end of battle screen widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerEndOfBattleScreenWidget from the subsystem API first
+MultiplayerEndOfBattleScreenWidget multiplayerEndOfBattleScreenWidget = ...;
+var result = multiplayerEndOfBattleScreenWidget.MultiplayerEndOfBattleScreenWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerEndOfBattleScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerEndOfBattleScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

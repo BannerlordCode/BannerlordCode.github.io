@@ -1,20 +1,14 @@
 ---
 title: "FaceGenPropertyVM"
+description: "FaceGenPropertyVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FaceGenPropertyVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGenPropertyVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FaceGenPropertyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenPropertyVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator/FaceGenPropertyVM.cs`
 
 ## 概述
 
@@ -42,30 +36,55 @@ title: "FaceGenPropertyVM"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenPropertyVM 实例
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.Reset();
+```
 
 ### Randomize
 `public void Randomize()`
 
-**用途 / Purpose:** 处理 `randomize` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenPropertyVM 实例
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.Randomize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenPropertyVM 实例
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.RefreshValues();
+```
 
 ### AddCommand
 `public void AddCommand()`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `command`。
+**用途 / Purpose:** 将 「command」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenPropertyVM 实例
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.AddCommand();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FaceGenPropertyVM();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+FaceGenPropertyVM faceGenPropertyVM = ...;
+faceGenPropertyVM.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

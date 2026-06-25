@@ -1,13 +1,7 @@
 ---
 title: "MatchHistoryData"
+description: "Auto-generated class reference for MatchHistoryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatchHistoryData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MatchHistoryData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
@@ -45,24 +39,43 @@ Treat `MatchHistoryData` as a Data-style extension point: first identify who cre
 ### HasSameContentWith
 `public override bool HasSameContentWith(MultiplayerLocalData other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of MatchHistoryData from the subsystem API first
+MatchHistoryData matchHistoryData = ...;
+var result = matchHistoryData.HasSameContentWith(other);
+```
 
 ### AddOrUpdatePlayer
 `public void AddOrUpdatePlayer(string id, string username, int forcedIndex, int teamNo)`
 
 **Purpose:** Adds `or update player` to the current collection or state.
 
+```csharp
+// Obtain an instance of MatchHistoryData from the subsystem API first
+MatchHistoryData matchHistoryData = ...;
+matchHistoryData.AddOrUpdatePlayer("example", "example", 0, 0);
+```
+
 ### TryUpdatePlayerStats
 `public bool TryUpdatePlayerStats(string id, int kill, int death, int assist)`
 
-**Purpose:** Attempts to get `update player stats`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `update player stats`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MatchHistoryData from the subsystem API first
+MatchHistoryData matchHistoryData = ...;
+var result = matchHistoryData.TryUpdatePlayerStats("example", 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MatchHistoryData();
+// This data object is usually returned by campaign/mission APIs
+MatchHistoryData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

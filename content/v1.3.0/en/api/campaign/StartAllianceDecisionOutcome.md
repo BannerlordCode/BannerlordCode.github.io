@@ -1,13 +1,7 @@
 ---
 title: "StartAllianceDecisionOutcome"
+description: "Auto-generated class reference for StartAllianceDecisionOutcome."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StartAllianceDecisionOutcome`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StartAllianceDecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Gets the current value of `decision title`.
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecisionOutcome from the subsystem API first
+StartAllianceDecisionOutcome startAllianceDecisionOutcome = ...;
+var result = startAllianceDecisionOutcome.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Gets the current value of `decision description`.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecisionOutcome from the subsystem API first
+StartAllianceDecisionOutcome startAllianceDecisionOutcome = ...;
+var result = startAllianceDecisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `decision link`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecisionOutcome from the subsystem API first
+StartAllianceDecisionOutcome startAllianceDecisionOutcome = ...;
+var result = startAllianceDecisionOutcome.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Gets the current value of `decision image identifier`.
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecisionOutcome from the subsystem API first
+StartAllianceDecisionOutcome startAllianceDecisionOutcome = ...;
+var result = startAllianceDecisionOutcome.GetDecisionImageIdentifier();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StartAllianceDecisionOutcome();
-value.GetDecisionTitle();
+// Typically call this after obtaining an instance from the subsystem API
+StartAllianceDecisionOutcome startAllianceDecisionOutcome = ...;
+startAllianceDecisionOutcome.GetDecisionTitle();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ModuleHelper"
+description: "Auto-generated class reference for ModuleHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleHelper
 
 **Namespace:** TaleWorlds.ModuleManager
@@ -29,132 +23,262 @@ Treat `ModuleHelper` as a Helper-style extension point: first identify who creat
 ### GetModuleFullPath
 `public static string GetModuleFullPath(string moduleId)`
 
-**Purpose:** Gets the current value of `module full path`.
+**Purpose:** Reads and returns the `module full path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetModuleFullPath("example");
+```
 
 ### GetModuleInfo
 `public static ModuleInfo GetModuleInfo(string moduleId)`
 
-**Purpose:** Gets the current value of `module info`.
+**Purpose:** Reads and returns the `module info` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetModuleInfo("example");
+```
 
 ### OnModuleDeactivated
 `public static void OnModuleDeactivated(string id)`
 
-**Purpose:** Called when the `module deactivated` event is raised.
+**Purpose:** Invoked when the `module deactivated` event is raised.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.OnModuleDeactivated("example");
+```
 
 ### OnModuleActivated
 `public static void OnModuleActivated(string id)`
 
-**Purpose:** Called when the `module activated` event is raised.
+**Purpose:** Invoked when the `module activated` event is raised.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.OnModuleActivated("example");
+```
 
 ### InitializeModules
 `public static void InitializeModules(string loadedModuleIds, string platformModulePaths = null)`
 
-**Purpose:** Initializes the state, resources, or bindings for `modules`.
+**Purpose:** Prepares the resources, state, or bindings required by `modules`.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.InitializeModules("example", "example");
+```
 
 ### InitializeSingleModule
 `public static ModuleInfo InitializeSingleModule(string modulePath)`
 
-**Purpose:** Initializes the state, resources, or bindings for `single module`.
+**Purpose:** Prepares the resources, state, or bindings required by `single module`.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.InitializeSingleModule("example");
+```
 
 ### IsModuleActive
 `public static bool IsModuleActive(string moduleId)`
 
-**Purpose:** Handles logic related to `is module active`.
+**Purpose:** Determines whether the current object is in the `module active` state or condition.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.IsModuleActive("example");
+```
 
 ### InitializePlatformModuleExtension
 `public static void InitializePlatformModuleExtension(IPlatformModuleExtension moduleExtension)`
 
-**Purpose:** Initializes the state, resources, or bindings for `platform module extension`.
+**Purpose:** Prepares the resources, state, or bindings required by `platform module extension`.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.InitializePlatformModuleExtension(moduleExtension);
+```
 
 ### ClearPlatformModuleExtension
 `public static void ClearPlatformModuleExtension()`
 
-**Purpose:** Handles logic related to `clear platform module extension`.
+**Purpose:** Removes all `platform module extension` from the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.ClearPlatformModuleExtension();
+```
 
 ### GetModuleInfos
 `public static List<ModuleInfo> GetModuleInfos(string moduleIds)`
 
-**Purpose:** Gets the current value of `module infos`.
+**Purpose:** Reads and returns the `module infos` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetModuleInfos("example");
+```
 
 ### GetModules
 `public static List<ModuleInfo> GetModules(Func<ModuleInfo, bool> cond = null)`
 
-**Purpose:** Gets the current value of `modules`.
+**Purpose:** Reads and returns the `modules` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetModules(func<ModuleInfo, false);
+```
 
 ### GetActiveModules
 `public static List<ModuleInfo> GetActiveModules()`
 
-**Purpose:** Gets the current value of `active modules`.
+**Purpose:** Reads and returns the `active modules` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetActiveModules();
+```
 
 ### GetMbprojPath
 `public static string GetMbprojPath(string id)`
 
-**Purpose:** Gets the current value of `mbproj path`.
+**Purpose:** Reads and returns the `mbproj path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetMbprojPath("example");
+```
 
 ### GetXmlPathForNative
 `public static string GetXmlPathForNative(string moduleId, string xmlName)`
 
-**Purpose:** Gets the current value of `xml path for native`.
+**Purpose:** Reads and returns the `xml path for native` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetXmlPathForNative("example", "example");
+```
 
 ### GetXmlPathForNativeWBase
 `public static string GetXmlPathForNativeWBase(string moduleId, string xmlName)`
 
-**Purpose:** Gets the current value of `xml path for native w base`.
+**Purpose:** Reads and returns the `xml path for native w base` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetXmlPathForNativeWBase("example", "example");
+```
 
 ### GetXsltPathForNative
 `public static string GetXsltPathForNative(string moduleId, string xsltName)`
 
-**Purpose:** Gets the current value of `xslt path for native`.
+**Purpose:** Reads and returns the `xslt path for native` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetXsltPathForNative("example", "example");
+```
 
 ### GetPath
 `public static string GetPath(string id)`
 
-**Purpose:** Gets the current value of `path`.
+**Purpose:** Reads and returns the `path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetPath("example");
+```
 
 ### GetXmlPath
 `public static string GetXmlPath(string moduleId, string xmlName)`
 
-**Purpose:** Gets the current value of `xml path`.
+**Purpose:** Reads and returns the `xml path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetXmlPath("example", "example");
+```
 
 ### GetXsltPath
 `public static string GetXsltPath(string moduleId, string xmlName)`
 
-**Purpose:** Gets the current value of `xslt path`.
+**Purpose:** Reads and returns the `xslt path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetXsltPath("example", "example");
+```
 
 ### GetXsdPathForModules
 `public static string GetXsdPathForModules(string moduleId, string xsdName)`
 
-**Purpose:** Gets the current value of `xsd path for modules`.
+**Purpose:** Reads and returns the `xsd path for modules` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetXsdPathForModules("example", "example");
+```
 
 ### GetXsdPath
 `public static string GetXsdPath(string xmlInfoId)`
 
-**Purpose:** Gets the current value of `xsd path`.
+**Purpose:** Reads and returns the `xsd path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetXsdPath("example");
+```
 
 ### GetDependentModulesOf
 `public static IEnumerable<ModuleInfo> GetDependentModulesOf(IEnumerable<ModuleInfo> source, ModuleInfo module)`
 
-**Purpose:** Gets the current value of `dependent modules of`.
+**Purpose:** Reads and returns the `dependent modules of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetDependentModulesOf(source, module);
+```
 
 ### GetSortedModules
 `public static List<ModuleInfo> GetSortedModules(string moduleIDs)`
 
-**Purpose:** Gets the current value of `sorted modules`.
+**Purpose:** Reads and returns the `sorted modules` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetSortedModules("example");
+```
 
 ### GetModulesForLauncher
 `public static List<ModuleInfo> GetModulesForLauncher()`
 
-**Purpose:** Gets the current value of `modules for launcher`.
+**Purpose:** Reads and returns the `modules for launcher` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetModulesForLauncher();
+```
 
 ### GetOfficialModuleIds
 `public static MBList<string> GetOfficialModuleIds()`
 
-**Purpose:** Gets the current value of `official module ids`.
+**Purpose:** Reads and returns the `official module ids` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetOfficialModuleIds();
+```
 
 ### GetActiveGameAssemblies
 `public static MBList<Assembly> GetActiveGameAssemblies()`
 
-**Purpose:** Gets the current value of `active game assemblies`.
+**Purpose:** Reads and returns the `active game assemblies` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ModuleHelper.GetActiveGameAssemblies();
+```
 
 ## Usage Example
 
@@ -164,4 +288,4 @@ ModuleHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

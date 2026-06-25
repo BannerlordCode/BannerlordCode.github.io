@@ -1,20 +1,14 @@
 ---
 title: "DefaultItemValueModel"
+description: "DefaultItemValueModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultItemValueModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultItemValueModel
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class DefaultItemValueModel : ItemValueModel`
 **Base:** `ItemValueModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/DefaultItemValueModel.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DefaultItemValueModel.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "DefaultItemValueModel"
 ### CalculateValue
 `public override int CalculateValue(ItemObject item)`
 
-**用途 / Purpose:** 处理 `calculate value` 相关逻辑。
+**用途 / Purpose:** 计算「value」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemValueModel 实例
+DefaultItemValueModel defaultItemValueModel = ...;
+var result = defaultItemValueModel.CalculateValue(item);
+```
 
 ### GetIsTransferable
 `public override bool GetIsTransferable(ItemObject item)`
 
-**用途 / Purpose:** 获取 `is transferable` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is transferable」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemValueModel 实例
+DefaultItemValueModel defaultItemValueModel = ...;
+var result = defaultItemValueModel.GetIsTransferable(item);
+```
 
 ### GetEquipmentValueFromTier
 `public override float GetEquipmentValueFromTier(float itemTierf)`
 
-**用途 / Purpose:** 获取 `equipment value from tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment value from tier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemValueModel 实例
+DefaultItemValueModel defaultItemValueModel = ...;
+var result = defaultItemValueModel.GetEquipmentValueFromTier(0);
+```
 
 ### CalculateTier
 `public override float CalculateTier(ItemObject item)`
 
-**用途 / Purpose:** 处理 `calculate tier` 相关逻辑。
+**用途 / Purpose:** 计算「tier」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemValueModel 实例
+DefaultItemValueModel defaultItemValueModel = ...;
+var result = defaultItemValueModel.CalculateTier(item);
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultItemValueModel>(new MyDefaultItemValueModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ConstantDefinition"
+description: "Auto-generated class reference for ConstantDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConstantDefinition`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConstantDefinition
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -46,20 +40,32 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### GetValue
 `public string GetValue(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of ConstantDefinition from the subsystem API first
+ConstantDefinition constantDefinition = ...;
+var result = constantDefinition.GetValue(brushFactory, spriteData, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+```
 
 ### GetActualValueOf
 `public static string GetActualValueOf(string value, BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** Gets the current value of `actual value of`.
+**Purpose:** Reads and returns the `actual value of` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ConstantDefinition.GetActualValueOf("example", brushFactory, spriteData, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ConstantDefinition();
-value.GetValue(brushFactory, spriteData, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+// Typically call this after obtaining an instance from the subsystem API
+ConstantDefinition constantDefinition = ...;
+constantDefinition.GetValue(brushFactory, spriteData, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

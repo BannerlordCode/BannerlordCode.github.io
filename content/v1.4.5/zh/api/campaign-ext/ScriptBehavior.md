@@ -1,20 +1,14 @@
 ---
 title: "ScriptBehavior"
+description: "ScriptBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScriptBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScriptBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class ScriptBehavior`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/ScriptBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/ScriptBehavior.cs`
 
 ## 概述
 
@@ -29,70 +23,139 @@ title: "ScriptBehavior"
 ### ScriptBehavior
 `public class ScriptBehavior(AgentBehaviorGroup behaviorGroup)`
 
-**用途 / Purpose:** 处理 `script behavior` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptBehavior 实例
+ScriptBehavior scriptBehavior = ...;
+var result = scriptBehavior.ScriptBehavior(behaviorGroup);
+```
 
 ### SelectTargetDelegate
 `public delegate bool SelectTargetDelegate(Agent agent, ref Agent targetAgent, ref UsableMachine targetUsableMachine, ref WorldFrame targetFrame, ref float customTargetReachedRangeThreshold, ref float customTargetReachedRotationThreshold)`
 
-**用途 / Purpose:** 处理 `select target delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptBehavior 实例
+ScriptBehavior scriptBehavior = ...;
+var result = scriptBehavior.SelectTargetDelegate(agent, targetAgent, targetUsableMachine, targetFrame, customTargetReachedRangeThreshold, customTargetReachedRotationThreshold);
+```
 
 ### OnTargetReachedDelegate
 `public delegate bool OnTargetReachedDelegate(Agent agent, ref Agent targetAgent, ref UsableMachine targetUsableMachine, ref WorldFrame targetFrame)`
 
-**用途 / Purpose:** 当 `target reached delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「target reached delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptBehavior 实例
+ScriptBehavior scriptBehavior = ...;
+var result = scriptBehavior.OnTargetReachedDelegate(agent, targetAgent, targetUsableMachine, targetFrame);
+```
 
 ### OnTargetReachedWaitDelegate
 `public delegate void OnTargetReachedWaitDelegate(Agent agent, ref float waitTimeInSeconds)`
 
-**用途 / Purpose:** 当 `target reached wait delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「target reached wait delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptBehavior 实例
+ScriptBehavior scriptBehavior = ...;
+scriptBehavior.OnTargetReachedWaitDelegate(agent, waitTimeInSeconds);
+```
 
 ### AddUsableMachineTarget
 `public static void AddUsableMachineTarget(Agent ownerAgent, UsableMachine targetUsableMachine)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `usable machine target`。
+**用途 / Purpose:** 将 「usable machine target」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+ScriptBehavior.AddUsableMachineTarget(ownerAgent, targetUsableMachine);
+```
 
 ### AddAgentTarget
 `public static void AddAgentTarget(Agent ownerAgent, Agent targetAgent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `agent target`。
+**用途 / Purpose:** 将 「agent target」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+ScriptBehavior.AddAgentTarget(ownerAgent, targetAgent);
+```
 
 ### AddWorldFrameTarget
 `public static void AddWorldFrameTarget(Agent ownerAgent, WorldFrame targetWorldFrame)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `world frame target`。
+**用途 / Purpose:** 将 「world frame target」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+ScriptBehavior.AddWorldFrameTarget(ownerAgent, targetWorldFrame);
+```
 
 ### AddTargetWithDelegate
 `public static void AddTargetWithDelegate(Agent ownerAgent, SelectTargetDelegate selectTargetDelegate, OnTargetReachedWaitDelegate onTargetReachWaitDelegate, OnTargetReachedDelegate onTargetReachedDelegate, float initialWaitInSeconds = 0f)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `target with delegate`。
+**用途 / Purpose:** 将 「target with delegate」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+ScriptBehavior.AddTargetWithDelegate(ownerAgent, selectTargetDelegate, onTargetReachWaitDelegate, onTargetReachedDelegate, 0);
+```
 
 ### IsNearTarget
 `public bool IsNearTarget(Agent targetAgent)`
 
-**用途 / Purpose:** 处理 `is near target` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「near target」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptBehavior 实例
+ScriptBehavior scriptBehavior = ...;
+var result = scriptBehavior.IsNearTarget(targetAgent);
+```
 
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptBehavior 实例
+ScriptBehavior scriptBehavior = ...;
+scriptBehavior.Tick(0, false);
+```
 
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `availability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptBehavior 实例
+ScriptBehavior scriptBehavior = ...;
+var result = scriptBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 获取 `debug info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ScriptBehavior 实例
+ScriptBehavior scriptBehavior = ...;
+var result = scriptBehavior.GetDebugInfo();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ScriptBehavior();
-value.ScriptBehavior(behaviorGroup);
+// 通常从对应子系统 API 获取实例后调用
+ScriptBehavior scriptBehavior = ...;
+scriptBehavior.ScriptBehavior(behaviorGroup);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

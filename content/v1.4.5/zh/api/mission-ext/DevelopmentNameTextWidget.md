@@ -1,20 +1,14 @@
 ---
 title: "DevelopmentNameTextWidget"
+description: "DevelopmentNameTextWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DevelopmentNameTextWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DevelopmentNameTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DevelopmentNameTextWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentNameTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DevelopmentNameTextWidget.cs`
 
 ## 概述
 
@@ -38,19 +32,32 @@ title: "DevelopmentNameTextWidget"
 ### DevelopmentNameTextWidget
 `public class DevelopmentNameTextWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `development name text widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DevelopmentNameTextWidget 实例
+DevelopmentNameTextWidget developmentNameTextWidget = ...;
+var result = developmentNameTextWidget.DevelopmentNameTextWidget(context);
+```
 
 ### StartMaxTextAnimation
 `public void StartMaxTextAnimation()`
 
-**用途 / Purpose:** 处理 `start max text animation` 相关逻辑。
+**用途 / Purpose:** 启动「max text animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 DevelopmentNameTextWidget 实例
+DevelopmentNameTextWidget developmentNameTextWidget = ...;
+developmentNameTextWidget.StartMaxTextAnimation();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new DevelopmentNameTextWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+DevelopmentNameTextWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

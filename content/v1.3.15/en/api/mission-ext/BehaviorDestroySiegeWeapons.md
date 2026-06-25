@@ -1,13 +1,7 @@
 ---
 title: "BehaviorDestroySiegeWeapons"
+description: "Auto-generated class reference for BehaviorDestroySiegeWeapons."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorDestroySiegeWeapons`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorDestroySiegeWeapons
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorDestroySiegeWeapons from the subsystem API first
+BehaviorDestroySiegeWeapons behaviorDestroySiegeWeapons = ...;
+var result = behaviorDestroySiegeWeapons.GetBehaviorString();
+```
 
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** Called when the `valid behavior side changed` event is raised.
+**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorDestroySiegeWeapons from the subsystem API first
+BehaviorDestroySiegeWeapons behaviorDestroySiegeWeapons = ...;
+behaviorDestroySiegeWeapons.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorDestroySiegeWeapons from the subsystem API first
+BehaviorDestroySiegeWeapons behaviorDestroySiegeWeapons = ...;
+behaviorDestroySiegeWeapons.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorDestroySiegeWeapons();
-value.GetBehaviorString();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorDestroySiegeWeapons behaviorDestroySiegeWeapons = ...;
+behaviorDestroySiegeWeapons.GetBehaviorString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

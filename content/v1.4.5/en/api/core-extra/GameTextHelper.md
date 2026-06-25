@@ -1,20 +1,14 @@
 ---
 title: "GameTextHelper"
+description: "Auto-generated class reference for GameTextHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameTextHelper`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTextHelper
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class GameTextHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/GameTexts.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/GameTexts.cs`
 
 ## Overview
 
@@ -29,17 +23,33 @@ Treat `GameTextHelper` as a Helper-style extension point: first identify who cre
 ### Variation
 `public GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
-**Purpose:** Handles logic related to `variation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameTextHelper from the subsystem API first
+GameTextHelper gameTextHelper = ...;
+var result = gameTextHelper.Variation("example", propertiesAndWeights);
+```
 
 ### MergeTextObjectsWithComma
 `public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
 
-**Purpose:** Handles logic related to `merge text objects with comma`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameTextHelper.MergeTextObjectsWithComma(textObjects, false);
+```
 
 ### MergeTextObjectsWithSymbol
 `public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
 
-**Purpose:** Handles logic related to `merge text objects with symbol`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameTextHelper.MergeTextObjectsWithSymbol(textObjects, symbol, null);
+```
 
 ## Usage Example
 
@@ -49,4 +59,4 @@ GameTextHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

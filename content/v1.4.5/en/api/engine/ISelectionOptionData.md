@@ -1,20 +1,14 @@
 ---
 title: "ISelectionOptionData"
+description: "Auto-generated class reference for ISelectionOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISelectionOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISelectionOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/ISelectionOptionData.cs`
+**Type:** `public interface ISelectionOptionData : IOptionData`
+**Base:** `IOptionData`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/ISelectionOptionData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ISelectionOptionData` as a Data-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-ISelectionOptionData implementation = GetSelectionOptionDataImplementation();
+// Usually obtained through DI or a factory method
+IISelectionOptionData service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

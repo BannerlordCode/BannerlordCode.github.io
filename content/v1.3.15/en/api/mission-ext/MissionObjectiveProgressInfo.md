@@ -1,13 +1,7 @@
 ---
 title: "MissionObjectiveProgressInfo"
+description: "Auto-generated class reference for MissionObjectiveProgressInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveProgressInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionObjectiveProgressInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it 
 ## Usage Example
 
 ```csharp
-var value = new MissionObjectiveProgressInfo();
+// Obtain an instance from the relevant subsystem API
+MissionObjectiveProgressInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

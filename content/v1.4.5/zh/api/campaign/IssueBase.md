@@ -1,21 +1,14 @@
 ---
 title: "IssueBase"
+description: "IssueBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IssueBase`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-- [🔀 跨版本对比 /versions/IssueBase](/versions/IssueBase)
-<!-- END BREADCRUMB -->
 # IssueBase
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class IssueBase : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueBase.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueBase.cs`
 
 ## 概述
 
@@ -57,224 +50,483 @@ title: "IssueBase"
 ### GetTotalAlternativeSolutionNeededMenCount
 `public int GetTotalAlternativeSolutionNeededMenCount()`
 
-**用途 / Purpose:** 获取 `total alternative solution needed men count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total alternative solution needed men count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.GetTotalAlternativeSolutionNeededMenCount();
+```
 
 ### GetTotalAlternativeSolutionDurationInDays
 `public int GetTotalAlternativeSolutionDurationInDays()`
 
-**用途 / Purpose:** 获取 `total alternative solution duration in days` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total alternative solution duration in days」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.GetTotalAlternativeSolutionDurationInDays();
+```
 
 ### GetBaseAlternativeSolutionDurationInDays
 `public int GetBaseAlternativeSolutionDurationInDays()`
 
-**用途 / Purpose:** 获取 `base alternative solution duration in days` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「base alternative solution duration in days」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.GetBaseAlternativeSolutionDurationInDays();
+```
 
 ### AlternativeSolutionCondition
 `public virtual bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `alternative solution condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.AlternativeSolutionCondition(explanation);
+```
 
 ### AlternativeSolutionStartConsequence
 `public virtual void AlternativeSolutionStartConsequence()`
 
-**用途 / Purpose:** 处理 `alternative solution start consequence` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.AlternativeSolutionStartConsequence();
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public virtual bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `do troops satisfy alternative solution` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public virtual bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is troop type needed by alternative solution` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「troop type needed by alternative solution」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### LordSolutionCondition
 `public virtual bool LordSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `lord solution condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.LordSolutionCondition(explanation);
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.GetName();
+```
 
 ### GetActiveIssueEffectAmount
 `public float GetActiveIssueEffectAmount(IssueEffect issueEffect)`
 
-**用途 / Purpose:** 获取 `active issue effect amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active issue effect amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.GetActiveIssueEffectAmount(issueEffect);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.ToString();
+```
 
 ### InitializeIssueBaseOnLoad
 `public void InitializeIssueBaseOnLoad()`
 
-**用途 / Purpose:** 初始化 `issue base on load` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「issue base on load」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.InitializeIssueBaseOnLoad();
+```
 
 ### GetFrequency
 `public abstract IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 获取 `frequency` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public abstract bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
+**用途 / Purpose:** 创建或发起「stay alive conditions」。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.IssueStayAliveConditions();
+```
 
 ### CanBeCompletedByAI
 `public virtual bool CanBeCompletedByAI()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `be completed by a i`。
+**用途 / Purpose:** 检查当前对象是否满足 「be completed by a i」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.CanBeCompletedByAI();
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public virtual void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have campaign issues info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public virtual void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can lead party info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can lead party info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public virtual void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have party role or be governor info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have party role or be governor info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanDieInfoIsRequested
 `public virtual void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can die info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can die info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
+```
 
 ### OnHeroCanBecomePrisonerInfoIsRequested
 `public virtual void OnHeroCanBecomePrisonerInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can become prisoner info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can become prisoner info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnHeroCanBecomePrisonerInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public virtual void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can be selected in inventory info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can be selected in inventory info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanMoveToSettlementInfoIsRequested
 `public virtual void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can move to settlement info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can move to settlement info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnHeroCanMoveToSettlementInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanMarryInfoIsRequested
 `public virtual void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can marry info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can marry info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnHeroCanMarryInfoIsRequested(hero, result);
+```
 
 ### IsSettlementBusy
 `public virtual void IsSettlementBusy(Settlement settlement, object asker, ref int priority)`
 
-**用途 / Purpose:** 处理 `is settlement busy` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「settlement busy」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.IsSettlementBusy(settlement, asker, priority);
+```
 
 ### StartIssueWithQuest
 `public bool StartIssueWithQuest()`
 
-**用途 / Purpose:** 处理 `start issue with quest` 相关逻辑。
+**用途 / Purpose:** 启动「issue with quest」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+var result = issueBase.StartIssueWithQuest();
+```
 
 ### StartIssueWithAlternativeSolution
 `public void StartIssueWithAlternativeSolution()`
 
-**用途 / Purpose:** 处理 `start issue with alternative solution` 相关逻辑。
+**用途 / Purpose:** 启动「issue with alternative solution」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.StartIssueWithAlternativeSolution();
+```
 
 ### OnAlternativeSolutionSolvedAndTroopsAreReturning
 `public void OnAlternativeSolutionSolvedAndTroopsAreReturning()`
 
-**用途 / Purpose:** 当 `alternative solution solved and troops are returning` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「alternative solution solved and troops are returning」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.OnAlternativeSolutionSolvedAndTroopsAreReturning();
+```
 
 ### IssueFinalized
 `public void IssueFinalized()`
 
-**用途 / Purpose:** 处理 `issue finalized` 相关逻辑。
+**用途 / Purpose:** 创建或发起「finalized」。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.IssueFinalized();
+```
 
 ### CompleteIssueWithQuest
 `public void CompleteIssueWithQuest()`
 
-**用途 / Purpose:** 处理 `complete issue with quest` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithQuest();
+```
 
 ### CompleteIssueWithTimedOut
 `public void CompleteIssueWithTimedOut()`
 
-**用途 / Purpose:** 处理 `complete issue with timed out` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithTimedOut();
+```
 
 ### CompleteIssueWithStayAliveConditionsFailed
 `public void CompleteIssueWithStayAliveConditionsFailed()`
 
-**用途 / Purpose:** 处理 `complete issue with stay alive conditions failed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithStayAliveConditionsFailed();
+```
 
 ### CompleteIssueWithBetrayal
 `public void CompleteIssueWithBetrayal()`
 
-**用途 / Purpose:** 处理 `complete issue with betrayal` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithBetrayal();
+```
 
 ### CompleteIssueWithFail
 `public void CompleteIssueWithFail(TextObject log = null)`
 
-**用途 / Purpose:** 处理 `complete issue with fail` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithFail(null);
+```
 
 ### CompleteIssueWithCancel
 `public void CompleteIssueWithCancel(TextObject log = null)`
 
-**用途 / Purpose:** 处理 `complete issue with cancel` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithCancel(null);
+```
 
 ### CompleteIssueWithAiLord
 `public void CompleteIssueWithAiLord(Hero issueSolver)`
 
-**用途 / Purpose:** 处理 `complete issue with ai lord` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithAiLord(issueSolver);
+```
 
 ### StartIssueWithLordSolution
 `public void StartIssueWithLordSolution()`
 
-**用途 / Purpose:** 处理 `start issue with lord solution` 相关逻辑。
+**用途 / Purpose:** 启动「issue with lord solution」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.StartIssueWithLordSolution();
+```
 
 ### CompleteIssueWithAlternativeSolution
 `public void CompleteIssueWithAlternativeSolution()`
 
-**用途 / Purpose:** 处理 `complete issue with alternative solution` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithAlternativeSolution();
+```
 
 ### CompleteIssueWithLordSolutionWithRefuseCounterOffer
 `public void CompleteIssueWithLordSolutionWithRefuseCounterOffer()`
 
-**用途 / Purpose:** 处理 `complete issue with lord solution with refuse counter offer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithLordSolutionWithRefuseCounterOffer();
+```
 
 ### CompleteIssueWithLordSolutionWithAcceptCounterOffer
 `public void CompleteIssueWithLordSolutionWithAcceptCounterOffer()`
 
-**用途 / Purpose:** 处理 `complete issue with lord solution with accept counter offer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithLordSolutionWithAcceptCounterOffer();
+```
 
 ### InitializeIssueOnSettlementOwnerChange
 `public void InitializeIssueOnSettlementOwnerChange()`
 
-**用途 / Purpose:** 初始化 `issue on settlement owner change` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「issue on settlement owner change」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.InitializeIssueOnSettlementOwnerChange();
+```
 
 ### AddLog
 `public void AddLog(JournalLog log)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `log`。
+**用途 / Purpose:** 将 「log」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.AddLog(log);
+```
 
 ### AddTrackedObject
 `public void AddTrackedObject(ITrackableCampaignObject o)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tracked object`。
+**用途 / Purpose:** 将 「tracked object」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.AddTrackedObject(o);
+```
 
 ### ToggleTrackedObjects
 `public void ToggleTrackedObjects(bool enableTrack)`
 
-**用途 / Purpose:** 处理 `toggle tracked objects` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 IssueBase 实例
+IssueBase issueBase = ...;
+issueBase.ToggleTrackedObjects(false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomIssueBase();
+// 通常通过子系统 API 或工厂获得派生实例
+IssueBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "KingdomWarSortControllerVM"
+description: "Auto-generated class reference for KingdomWarSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomWarSortControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomWarSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomWarSortControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomWarSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy/KingdomWarSortControllerVM.cs`
 
 ## Overview
 
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomWarSortControllerVM from the subsystem API first
+KingdomWarSortControllerVM kingdomWarSortControllerVM = ...;
+kingdomWarSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(KingdomWarItemVM x, KingdomWarItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of KingdomWarSortControllerVM from the subsystem API first
+KingdomWarSortControllerVM kingdomWarSortControllerVM = ...;
+var result = kingdomWarSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomWarItemVM x, KingdomWarItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of KingdomWarSortControllerVM from the subsystem API first
+KingdomWarSortControllerVM kingdomWarSortControllerVM = ...;
+var result = kingdomWarSortControllerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomWarSortControllerVM();
-value.SetSortMode(false);
+// Typically call this after obtaining an instance from the subsystem API
+KingdomWarSortControllerVM kingdomWarSortControllerVM = ...;
+kingdomWarSortControllerVM.SetSortMode(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

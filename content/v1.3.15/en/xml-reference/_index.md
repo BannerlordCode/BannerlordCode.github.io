@@ -14,3 +14,14 @@ Bannerlord uses XML for configuration and data storage.
 
 - [Known Bugs](./bugs)
 
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Child Pages
+
+- [bugs](./bugs)
+
+<!-- END SECTION INDEX -->

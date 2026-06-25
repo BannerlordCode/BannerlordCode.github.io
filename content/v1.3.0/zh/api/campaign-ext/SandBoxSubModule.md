@@ -1,13 +1,7 @@
 ---
 title: "SandBoxSubModule"
+description: "SandBoxSubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxSubModule`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSubModule
 
 **Namespace:** SandBox
@@ -29,40 +23,77 @@ title: "SandBoxSubModule"
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSubModule 实例
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnCampaignStart(game, starterObject);
+```
 
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**用途 / Purpose:** 当 `game initialization finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game initialization finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSubModule 实例
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnGameInitializationFinished(game);
+```
 
 ### RegisterSubModuleObjects
 `public override void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** 处理 `register sub module objects` 相关逻辑。
+**用途 / Purpose:** 将「sub module objects」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSubModule 实例
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.RegisterSubModuleObjects(false);
+```
 
 ### AfterRegisterSubModuleObjects
 `public override void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** 处理 `after register sub module objects` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSubModule 实例
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.AfterRegisterSubModuleObjects(false);
+```
 
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSubModule 实例
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnGameLoaded(game, starterObject);
+```
 
 ### OnConfigChanged
 `public override void OnConfigChanged()`
 
-**用途 / Purpose:** 当 `config changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「config changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxSubModule 实例
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnConfigChanged();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SandBoxSubModule();
-value.OnCampaignStart(game, starterObject);
+// 通常从对应子系统 API 获取实例后调用
+SandBoxSubModule sandBoxSubModule = ...;
+sandBoxSubModule.OnCampaignStart(game, starterObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

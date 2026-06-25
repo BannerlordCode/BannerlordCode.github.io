@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentAlarmTargetVM"
+description: "Auto-generated class reference for MissionAgentAlarmTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentAlarmTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentAlarmTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionAgentAlarmTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionAgentAlarmTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionAgentAlarmTargetVM.cs`
 
 ## Overview
 
@@ -44,25 +38,44 @@ Start from namespace `SandBox.ViewModelCollection.Missions` to place it in the s
 ### UpdateValues
 `public void UpdateValues()`
 
-**Purpose:** Updates the state or data of `values`.
+**Purpose:** Recalculates and stores the latest representation of `values`.
+
+```csharp
+// Obtain an instance of MissionAgentAlarmTargetVM from the subsystem API first
+MissionAgentAlarmTargetVM missionAgentAlarmTargetVM = ...;
+missionAgentAlarmTargetVM.UpdateValues();
+```
 
 ### UpdateScreenPosition
 `public void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `screen position`.
+**Purpose:** Recalculates and stores the latest representation of `screen position`.
+
+```csharp
+// Obtain an instance of MissionAgentAlarmTargetVM from the subsystem API first
+MissionAgentAlarmTargetVM missionAgentAlarmTargetVM = ...;
+missionAgentAlarmTargetVM.UpdateScreenPosition(missionCamera);
+```
 
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of MissionAgentAlarmTargetVM from the subsystem API first
+MissionAgentAlarmTargetVM missionAgentAlarmTargetVM = ...;
+missionAgentAlarmTargetVM.ExecuteRemove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentAlarmTargetVM();
-value.UpdateValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentAlarmTargetVM missionAgentAlarmTargetVM = ...;
+missionAgentAlarmTargetVM.UpdateValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

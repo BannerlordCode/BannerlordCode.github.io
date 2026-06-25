@@ -1,20 +1,14 @@
 ---
 title: "ClassConfiguration"
+description: "ClassConfiguration 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClassConfiguration`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClassConfiguration
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ClassConfiguration`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/MissionOrderVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ClassConfiguration"
 ### ClassConfiguration
 `public struct ClassConfiguration(int formationIndex, DeploymentFormationClass formationClass)`
 
-**用途 / Purpose:** 处理 `class configuration` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClassConfiguration 实例
+ClassConfiguration classConfiguration = ...;
+var result = classConfiguration.ClassConfiguration(0, formationClass);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClassConfiguration();
-value.ClassConfiguration(0, formationClass);
+// 通常从对应子系统 API 获取实例后调用
+ClassConfiguration classConfiguration = ...;
+classConfiguration.ClassConfiguration(0, formationClass);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

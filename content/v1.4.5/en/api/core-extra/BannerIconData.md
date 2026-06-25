@@ -1,20 +1,14 @@
 ---
 title: "BannerIconData"
+description: "Auto-generated class reference for BannerIconData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerIconData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerIconData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct BannerIconData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BannerIconData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerIconData.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `BannerIconData` as a Data-style extension point: first identify who creat
 ## Usage Example
 
 ```csharp
-var value = new BannerIconData();
+// This data object is usually returned by campaign/mission APIs
+BannerIconData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

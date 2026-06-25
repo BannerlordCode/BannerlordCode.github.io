@@ -1,13 +1,7 @@
 ---
 title: "MBExtensions"
+description: "MBExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,52 +23,102 @@ title: "MBExtensions"
 ### GetGlobalOrganicDirection
 `public static Vec2 GetGlobalOrganicDirection(this ColumnFormation columnFormation)`
 
-**用途 / Purpose:** 获取 `global organic direction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global organic direction」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.GetGlobalOrganicDirection(columnFormation);
+```
 
 ### GetGlobalHeadDirection
 `public static Vec2 GetGlobalHeadDirection(this ColumnFormation columnFormation)`
 
-**用途 / Purpose:** 获取 `global head direction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「global head direction」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.GetGlobalHeadDirection(columnFormation);
+```
 
 ### FindAllWithCompatibleType
 `public static List<GameEntity> FindAllWithCompatibleType(this IEnumerable<GameEntity> sceneProps, params Type types)`
 
-**用途 / Purpose:** 处理 `find all with compatible type` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all with compatible type」。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.FindAllWithCompatibleType(sceneProps, types);
+```
 
 ### FindAllWithCompatibleType
 `public static List<MissionObject> FindAllWithCompatibleType(this IEnumerable<MissionObject> missionObjects, params Type types)`
 
-**用途 / Purpose:** 处理 `find all with compatible type` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all with compatible type」。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.FindAllWithCompatibleType(missionObjects, types);
+```
 
 ### CollectChildrenEntitiesWithTag
 `public static List<GameEntity> CollectChildrenEntitiesWithTag(this GameEntity entity, string tag)`
 
-**用途 / Purpose:** 处理 `collect children entities with tag` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.CollectChildrenEntitiesWithTag(entity, "example");
+```
 
 ### CollectChildrenEntitiesWithTag
 `public static List<WeakGameEntity> CollectChildrenEntitiesWithTag(this WeakGameEntity entity, string tag)`
 
-**用途 / Purpose:** 处理 `collect children entities with tag` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.CollectChildrenEntitiesWithTag(entity, "example");
+```
 
 ### GetFirstChildEntityWithName
 `public static WeakGameEntity GetFirstChildEntityWithName(this WeakGameEntity entity, string name)`
 
-**用途 / Purpose:** 获取 `first child entity with name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「first child entity with name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.GetFirstChildEntityWithName(entity, "example");
+```
 
 ### HasParentOfType
 `public static bool HasParentOfType(this GameEntity e, Type t)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `parent of type`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「parent of type」。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.HasParentOfType(e, t);
+```
 
 ### HasParentOfType
 `public static bool HasParentOfType(this WeakGameEntity e, Type t)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `parent of type`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「parent of type」。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.HasParentOfType(e, t);
+```
 
 ### IsOpponentOf
 `public static bool IsOpponentOf(this BattleSideEnum s, BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `is opponent of` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「opponent of」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+MBExtensions.IsOpponentOf(s, side);
+```
 
 ## 使用示例
 
@@ -84,4 +128,4 @@ MBExtensions.GetGlobalOrganicDirection(columnFormation);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

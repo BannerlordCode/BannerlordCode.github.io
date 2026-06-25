@@ -1,13 +1,7 @@
 ---
 title: "ConversationTagHelper"
+description: "Auto-generated class reference for ConversationTagHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationTagHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConversationTagHelper
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -29,27 +23,52 @@ Treat `ConversationTagHelper` as a Helper-style extension point: first identify 
 ### UsesHighRegister
 `public static bool UsesHighRegister(CharacterObject character)`
 
-**Purpose:** Handles logic related to `uses high register`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ConversationTagHelper.UsesHighRegister(character);
+```
 
 ### UsesLowRegister
 `public static bool UsesLowRegister(CharacterObject character)`
 
-**Purpose:** Handles logic related to `uses low register`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ConversationTagHelper.UsesLowRegister(character);
+```
 
 ### TribalVoiceGroup
 `public static bool TribalVoiceGroup(CharacterObject character)`
 
-**Purpose:** Handles logic related to `tribal voice group`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ConversationTagHelper.TribalVoiceGroup(character);
+```
 
 ### EducatedClass
 `public static bool EducatedClass(CharacterObject character)`
 
-**Purpose:** Handles logic related to `educated class`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ConversationTagHelper.EducatedClass(character);
+```
 
 ### TraitCompatibility
 `public static int TraitCompatibility(Hero hero1, Hero hero2, TraitObject trait)`
 
-**Purpose:** Handles logic related to `trait compatibility`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ConversationTagHelper.TraitCompatibility(hero1, hero2, trait);
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ ConversationTagHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "FFASpawnFrameBehavior"
+description: "Auto-generated class reference for FFASpawnFrameBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FFASpawnFrameBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FFASpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of FFASpawnFrameBehavior from the subsystem API first
+FFASpawnFrameBehavior fFASpawnFrameBehavior = ...;
+var result = fFASpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FFASpawnFrameBehavior();
-value.GetSpawnFrame(team, false, false);
+// Typically call this after obtaining an instance from the subsystem API
+FFASpawnFrameBehavior fFASpawnFrameBehavior = ...;
+fFASpawnFrameBehavior.GetSpawnFrame(team, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

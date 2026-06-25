@@ -1,20 +1,14 @@
 ---
 title: "DisabledAlphaChangerWidget"
+description: "Auto-generated class reference for DisabledAlphaChangerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisabledAlphaChangerWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisabledAlphaChangerWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class DisabledAlphaChangerWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/DisabledAlphaChangerWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/DisabledAlphaChangerWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `DisabledAlphaChangerWidget` as a Widget-style extension point: first iden
 ### DisabledAlphaChangerWidget
 `public class DisabledAlphaChangerWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `disabled alpha changer widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DisabledAlphaChangerWidget from the subsystem API first
+DisabledAlphaChangerWidget disabledAlphaChangerWidget = ...;
+var result = disabledAlphaChangerWidget.DisabledAlphaChangerWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new DisabledAlphaChangerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DisabledAlphaChangerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

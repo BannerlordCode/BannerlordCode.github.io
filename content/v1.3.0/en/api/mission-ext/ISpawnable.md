@@ -1,18 +1,12 @@
 ---
 title: "ISpawnable"
+description: "Auto-generated class reference for ISpawnable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISpawnable`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISpawnable
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ISpawnable`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/Objects/Siege/ISpawnable.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ## Usage Example
 
 ```csharp
-ISpawnable implementation = GetSpawnableImplementation();
+// Usually obtained through DI or a factory method
+IISpawnable service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

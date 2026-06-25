@@ -1,20 +1,14 @@
 ---
 title: "NativeArray"
+description: "NativeArray 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeArray`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeArray
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public sealed class NativeArray : NativeObject`
 **Base:** `NativeObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeArray.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/NativeArray.cs`
 
 ## 概述
 
@@ -29,22 +23,45 @@ title: "NativeArray"
 ### Create
 `public static NativeArray Create()`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 静态调用，不需要实例
+NativeArray.Create();
+```
 
 ### AddElement
 `public void AddElement(int value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `element`。
+**用途 / Purpose:** 将 「element」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 NativeArray 实例
+NativeArray nativeArray = ...;
+nativeArray.AddElement(0);
+```
 
 ### AddElement
 `public void AddElement(float value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `element`。
+**用途 / Purpose:** 将 「element」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 NativeArray 实例
+NativeArray nativeArray = ...;
+nativeArray.AddElement(0);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 NativeArray 实例
+NativeArray nativeArray = ...;
+nativeArray.Clear();
+```
 
 ## 使用示例
 
@@ -54,4 +71,4 @@ NativeArray.Create();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

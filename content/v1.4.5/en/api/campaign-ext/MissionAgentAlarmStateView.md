@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentAlarmStateView"
+description: "Auto-generated class reference for MissionAgentAlarmStateView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentAlarmStateView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentAlarmStateView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionAgentAlarmStateView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionAgentAlarmStateView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionAgentAlarmStateView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionAgentAlarmStateView` as a View-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var view = new MissionAgentAlarmStateView();
+// Retrieve this view from the subsystem API or scene
+MissionAgentAlarmStateView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

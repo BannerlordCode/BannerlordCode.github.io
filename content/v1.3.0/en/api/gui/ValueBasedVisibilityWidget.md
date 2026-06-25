@@ -1,13 +1,7 @@
 ---
 title: "ValueBasedVisibilityWidget"
+description: "Auto-generated class reference for ValueBasedVisibilityWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ValueBasedVisibilityWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ValueBasedVisibilityWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -37,9 +31,10 @@ Treat `ValueBasedVisibilityWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new ValueBasedVisibilityWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ValueBasedVisibilityWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

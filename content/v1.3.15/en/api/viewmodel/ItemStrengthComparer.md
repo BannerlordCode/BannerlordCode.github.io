@@ -1,13 +1,7 @@
 ---
 title: "ItemStrengthComparer"
+description: "Auto-generated class reference for ItemStrengthComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemStrengthComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemStrengthComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### Compare
 `public override int Compare(KingdomArmyItemVM x, KingdomArmyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemStrengthComparer from the subsystem API first
+ItemStrengthComparer itemStrengthComparer = ...;
+var result = itemStrengthComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemStrengthComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemStrengthComparer itemStrengthComparer = ...;
+itemStrengthComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

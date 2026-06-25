@@ -1,13 +1,7 @@
 ---
 title: "GauntletView"
+description: "GauntletView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GauntletView
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -40,44 +34,87 @@ title: "GauntletView"
 ### AddChild
 `public void AddChild(GauntletView child)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `child`。
+**用途 / Purpose:** 将 「child」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletView 实例
+GauntletView gauntletView = ...;
+gauntletView.AddChild(child);
+```
 
 ### RemoveChild
 `public void RemoveChild(GauntletView child)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `child`。
+**用途 / Purpose:** 从当前容器或状态中移除 「child」。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletView 实例
+GauntletView gauntletView = ...;
+gauntletView.RemoveChild(child);
+```
 
 ### SwapChildrenAtIndeces
 `public void SwapChildrenAtIndeces(GauntletView child1, GauntletView child2)`
 
-**用途 / Purpose:** 处理 `swap children at indeces` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletView 实例
+GauntletView gauntletView = ...;
+gauntletView.SwapChildrenAtIndeces(child1, child2);
+```
 
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**用途 / Purpose:** 刷新 `binding` 的显示或缓存。
+**用途 / Purpose:** 使 「binding」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletView 实例
+GauntletView gauntletView = ...;
+gauntletView.RefreshBinding();
+```
 
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**用途 / Purpose:** 刷新 `binding with children` 的显示或缓存。
+**用途 / Purpose:** 使 「binding with children」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletView 实例
+GauntletView gauntletView = ...;
+gauntletView.RefreshBindingWithChildren();
+```
 
 ### ReleaseBindingWithChildren
 `public void ReleaseBindingWithChildren()`
 
-**用途 / Purpose:** 处理 `release binding with children` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletView 实例
+GauntletView gauntletView = ...;
+gauntletView.ReleaseBindingWithChildren();
+```
 
 ### BindData
 `public void BindData(string property, BindingPath path)`
 
-**用途 / Purpose:** 处理 `bind data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletView 实例
+GauntletView gauntletView = ...;
+gauntletView.BindData("example", path);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new GauntletView();
+// 从子系统 API 或场景中获取该视图
+GauntletView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

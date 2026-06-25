@@ -1,20 +1,14 @@
 ---
 title: "JoinKingdomAsClanBarterable"
+description: "Auto-generated class reference for JoinKingdomAsClanBarterable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JoinKingdomAsClanBarterable`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoinKingdomAsClanBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class JoinKingdomAsClanBarterable : Barterable`
 **Base:** `Barterable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/JoinKingdomAsClanBarterable.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.BarterSystem.Barterables/JoinKingdomAsClanBarterable.cs`
 
 ## Overview
 
@@ -35,40 +29,77 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction factionForEvaluation)`
 
-**Purpose:** Gets the current value of `unit value for faction`.
+**Purpose:** Reads and returns the `unit value for faction` value held by the current object.
+
+```csharp
+// Obtain an instance of JoinKingdomAsClanBarterable from the subsystem API first
+JoinKingdomAsClanBarterable joinKingdomAsClanBarterable = ...;
+var result = joinKingdomAsClanBarterable.GetUnitValueForFaction(factionForEvaluation);
+```
 
 ### CheckBarterLink
 `public override void CheckBarterLink(Barterable linkedBarterable)`
 
-**Purpose:** Handles logic related to `check barter link`.
+**Purpose:** Verifies whether `barter link` holds true for the current object.
+
+```csharp
+// Obtain an instance of JoinKingdomAsClanBarterable from the subsystem API first
+JoinKingdomAsClanBarterable joinKingdomAsClanBarterable = ...;
+joinKingdomAsClanBarterable.CheckBarterLink(linkedBarterable);
+```
 
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**Purpose:** Handles logic related to `is compatible`.
+**Purpose:** Determines whether the current object is in the `compatible` state or condition.
+
+```csharp
+// Obtain an instance of JoinKingdomAsClanBarterable from the subsystem API first
+JoinKingdomAsClanBarterable joinKingdomAsClanBarterable = ...;
+var result = joinKingdomAsClanBarterable.IsCompatible(barterable);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** Gets the current value of `visual identifier`.
+**Purpose:** Reads and returns the `visual identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of JoinKingdomAsClanBarterable from the subsystem API first
+JoinKingdomAsClanBarterable joinKingdomAsClanBarterable = ...;
+var result = joinKingdomAsClanBarterable.GetVisualIdentifier();
+```
 
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**Purpose:** Gets the current value of `encyclopedia link`.
+**Purpose:** Reads and returns the `encyclopedia link` value held by the current object.
+
+```csharp
+// Obtain an instance of JoinKingdomAsClanBarterable from the subsystem API first
+JoinKingdomAsClanBarterable joinKingdomAsClanBarterable = ...;
+var result = joinKingdomAsClanBarterable.GetEncyclopediaLink();
+```
 
 ### Apply
 `public override void Apply()`
 
-**Purpose:** Applies `apply` to the current object.
+**Purpose:** Applies the current object's effect to its target.
+
+```csharp
+// Obtain an instance of JoinKingdomAsClanBarterable from the subsystem API first
+JoinKingdomAsClanBarterable joinKingdomAsClanBarterable = ...;
+joinKingdomAsClanBarterable.Apply();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new JoinKingdomAsClanBarterable();
-value.GetUnitValueForFaction(factionForEvaluation);
+// Typically call this after obtaining an instance from the subsystem API
+JoinKingdomAsClanBarterable joinKingdomAsClanBarterable = ...;
+joinKingdomAsClanBarterable.GetUnitValueForFaction(factionForEvaluation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

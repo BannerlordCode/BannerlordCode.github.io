@@ -1,13 +1,7 @@
 ---
 title: "BoardGameInstructionsVM"
+description: "Auto-generated class reference for BoardGameInstructionsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameInstructionsVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameInstructionsVM
 
 **Namespace:** SandBox.ViewModelCollection.BoardGame
@@ -41,25 +35,44 @@ Start from namespace `SandBox.ViewModelCollection.BoardGame` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of BoardGameInstructionsVM from the subsystem API first
+BoardGameInstructionsVM boardGameInstructionsVM = ...;
+boardGameInstructionsVM.RefreshValues();
+```
 
 ### ExecuteShowPrevious
 `public void ExecuteShowPrevious()`
 
-**Purpose:** Executes the `show previous` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show previous`.
+
+```csharp
+// Obtain an instance of BoardGameInstructionsVM from the subsystem API first
+BoardGameInstructionsVM boardGameInstructionsVM = ...;
+boardGameInstructionsVM.ExecuteShowPrevious();
+```
 
 ### ExecuteShowNext
 `public void ExecuteShowNext()`
 
-**Purpose:** Executes the `show next` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show next`.
+
+```csharp
+// Obtain an instance of BoardGameInstructionsVM from the subsystem API first
+BoardGameInstructionsVM boardGameInstructionsVM = ...;
+boardGameInstructionsVM.ExecuteShowNext();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameInstructionsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameInstructionsVM boardGameInstructionsVM = ...;
+boardGameInstructionsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

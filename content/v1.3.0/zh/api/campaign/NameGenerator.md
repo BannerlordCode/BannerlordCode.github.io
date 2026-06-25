@@ -1,13 +1,7 @@
 ---
 title: "NameGenerator"
+description: "NameGenerator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NameGenerator`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NameGenerator
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,40 +29,77 @@ title: "NameGenerator"
 ### GenerateHeroNameAndHeroFullName
 `public void GenerateHeroNameAndHeroFullName(Hero hero, out TextObject firstName, out TextObject fullName, bool useDeterministicValues = true)`
 
-**用途 / Purpose:** 处理 `generate hero name and hero full name` 相关逻辑。
+**用途 / Purpose:** 生成「hero name and hero full name」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 NameGenerator 实例
+NameGenerator nameGenerator = ...;
+nameGenerator.GenerateHeroNameAndHeroFullName(hero, firstName, fullName, false);
+```
 
 ### GenerateHeroFirstName
 `public TextObject GenerateHeroFirstName(Hero hero)`
 
-**用途 / Purpose:** 处理 `generate hero first name` 相关逻辑。
+**用途 / Purpose:** 生成「hero first name」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 NameGenerator 实例
+NameGenerator nameGenerator = ...;
+var result = nameGenerator.GenerateHeroFirstName(hero);
+```
 
 ### GenerateFirstNameForPlayer
 `public TextObject GenerateFirstNameForPlayer(CultureObject culture, bool isFemale)`
 
-**用途 / Purpose:** 处理 `generate first name for player` 相关逻辑。
+**用途 / Purpose:** 生成「first name for player」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 NameGenerator 实例
+NameGenerator nameGenerator = ...;
+var result = nameGenerator.GenerateFirstNameForPlayer(culture, false);
+```
 
 ### GenerateClanName
 `public TextObject GenerateClanName(CultureObject culture, Settlement clanOriginSettlement)`
 
-**用途 / Purpose:** 处理 `generate clan name` 相关逻辑。
+**用途 / Purpose:** 生成「clan name」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 NameGenerator 实例
+NameGenerator nameGenerator = ...;
+var result = nameGenerator.GenerateClanName(culture, clanOriginSettlement);
+```
 
 ### GetNameListForCulture
 `public MBReadOnlyList<TextObject> GetNameListForCulture(CultureObject npcCulture, bool isFemale)`
 
-**用途 / Purpose:** 获取 `name list for culture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name list for culture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NameGenerator 实例
+NameGenerator nameGenerator = ...;
+var result = nameGenerator.GetNameListForCulture(npcCulture, false);
+```
 
 ### AddName
 `public void AddName(TextObject name)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `name`。
+**用途 / Purpose:** 将 「name」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 NameGenerator 实例
+NameGenerator nameGenerator = ...;
+nameGenerator.AddName(name);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NameGenerator();
-value.GenerateHeroNameAndHeroFullName(hero, firstName, fullName, false);
+// 通常从对应子系统 API 获取实例后调用
+NameGenerator nameGenerator = ...;
+nameGenerator.GenerateHeroNameAndHeroFullName(hero, firstName, fullName, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

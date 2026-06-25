@@ -1,18 +1,12 @@
 ---
 title: "IKingdomStateHandler"
+description: "Auto-generated class reference for IKingdomStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IKingdomStateHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IKingdomStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IKingdomStateHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/IKingdomStateHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IKingdomStateHandler` as a Handler-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-IKingdomStateHandler implementation = GetKingdomStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIKingdomStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

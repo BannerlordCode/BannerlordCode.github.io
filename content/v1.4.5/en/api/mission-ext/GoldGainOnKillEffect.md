@@ -1,20 +1,14 @@
 ---
 title: "GoldGainOnKillEffect"
+description: "Auto-generated class reference for GoldGainOnKillEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GoldGainOnKillEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GoldGainOnKillEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GoldGainOnKillEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldGainOnKillEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/GoldGainOnKillEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetGoldOnKill
 `public override int GetGoldOnKill(float attackerValue, float victimValue)`
 
-**Purpose:** Gets the current value of `gold on kill`.
+**Purpose:** Reads and returns the `gold on kill` value held by the current object.
+
+```csharp
+// Obtain an instance of GoldGainOnKillEffect from the subsystem API first
+GoldGainOnKillEffect goldGainOnKillEffect = ...;
+var result = goldGainOnKillEffect.GetGoldOnKill(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GoldGainOnKillEffect();
-value.GetGoldOnKill(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+GoldGainOnKillEffect goldGainOnKillEffect = ...;
+goldGainOnKillEffect.GetGoldOnKill(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

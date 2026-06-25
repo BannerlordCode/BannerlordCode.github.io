@@ -1,18 +1,12 @@
 ---
 title: "HeroGetsBusyReasons"
+description: "Auto-generated class reference for HeroGetsBusyReasons."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroGetsBusyReasons`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroGetsBusyReasons
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum HeroGetsBusyReasons`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/HeroGetsBusyReasons.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new HeroGetsBusyReasons();
+// Obtain an instance from the relevant subsystem API
+HeroGetsBusyReasons instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

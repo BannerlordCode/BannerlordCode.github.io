@@ -1,13 +1,7 @@
 ---
 title: "MBGameModel"
+description: "Auto-generated class reference for MBGameModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBGameModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBGameModel
 
 **Namespace:** TaleWorlds.Core
@@ -29,14 +23,21 @@ Treat `MBGameModel` as a Model-style extension point: first identify who creates
 ### Initialize
 `public void Initialize(T baseModel)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MBGameModel from the subsystem API first
+MBGameModel mBGameModel = ...;
+mBGameModel.Initialize(baseModel);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMBGameModel();
+// Typically obtained from a subsystem API or factory
+MBGameModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

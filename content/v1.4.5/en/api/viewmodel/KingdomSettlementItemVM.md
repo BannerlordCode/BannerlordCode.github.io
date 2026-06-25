@@ -1,20 +1,14 @@
 ---
 title: "KingdomSettlementItemVM"
+description: "Auto-generated class reference for KingdomSettlementItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomSettlementItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomSettlementItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomSettlementItemVM : KingdomItemVM`
 **Base:** `KingdomItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementItemVM.cs`
 
 ## Overview
 
@@ -49,20 +43,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomSettlementItemVM from the subsystem API first
+KingdomSettlementItemVM kingdomSettlementItemVM = ...;
+kingdomSettlementItemVM.RefreshValues();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of KingdomSettlementItemVM from the subsystem API first
+KingdomSettlementItemVM kingdomSettlementItemVM = ...;
+kingdomSettlementItemVM.ExecuteLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomSettlementItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomSettlementItemVM kingdomSettlementItemVM = ...;
+kingdomSettlementItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

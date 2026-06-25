@@ -1,13 +1,7 @@
 ---
 title: "LordPartyComponent"
+description: "Auto-generated class reference for LordPartyComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LordPartyComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LordPartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -41,27 +35,55 @@ Treat `LordPartyComponent` as a Component-style extension point: first identify 
 ### SetWagePaymentLimit
 `public override void SetWagePaymentLimit(int newLimit)`
 
-**Purpose:** Sets the value or state of `wage payment limit`.
+**Purpose:** Assigns a new value to `wage payment limit` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LordPartyComponent from the subsystem API first
+LordPartyComponent lordPartyComponent = ...;
+lordPartyComponent.SetWagePaymentLimit(0);
+```
 
 ### CreateLordParty
 `public static MobileParty CreateLordParty(string stringId, Hero hero, CampaignVec2 position, float spawnRadius, Settlement spawnSettlement, Hero partyLeader)`
 
-**Purpose:** Creates a new `lord party` instance or object.
+**Purpose:** Constructs a new `lord party` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+LordPartyComponent.CreateLordParty("example", hero, position, 0, spawnSettlement, partyLeader);
+```
 
 ### ConvertPartyToLordParty
 `public static void ConvertPartyToLordParty(MobileParty mobileParty, Hero owner, Hero partyLeader)`
 
-**Purpose:** Handles logic related to `convert party to lord party`.
+**Purpose:** Converts `party to lord party` into another representation or type.
+
+```csharp
+// Static call; no instance required
+LordPartyComponent.ConvertPartyToLordParty(mobileParty, owner, partyLeader);
+```
 
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** Handles logic related to `clear cached name`.
+**Purpose:** Removes all `cached name` from the current object.
+
+```csharp
+// Obtain an instance of LordPartyComponent from the subsystem API first
+LordPartyComponent lordPartyComponent = ...;
+lordPartyComponent.ClearCachedName();
+```
 
 ### InitializeLordPartyProperties
 `public void InitializeLordPartyProperties(MobileParty mobileParty, Hero owner)`
 
-**Purpose:** Initializes the state, resources, or bindings for `lord party properties`.
+**Purpose:** Prepares the resources, state, or bindings required by `lord party properties`.
+
+```csharp
+// Obtain an instance of LordPartyComponent from the subsystem API first
+LordPartyComponent lordPartyComponent = ...;
+lordPartyComponent.InitializeLordPartyProperties(mobileParty, owner);
+```
 
 ## Usage Example
 
@@ -71,4 +93,4 @@ var component = agent.GetComponent<LordPartyComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

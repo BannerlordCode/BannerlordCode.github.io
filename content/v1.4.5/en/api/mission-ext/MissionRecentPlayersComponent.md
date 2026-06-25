@@ -1,20 +1,14 @@
 ---
 title: "MissionRecentPlayersComponent"
+description: "Auto-generated class reference for MissionRecentPlayersComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionRecentPlayersComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionRecentPlayersComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionRecentPlayersComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MissionRecentPlayersComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MissionRecentPlayersComponent.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `MissionRecentPlayersComponent` as a Component-style extension point: firs
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionRecentPlayersComponent from the subsystem API first
+MissionRecentPlayersComponent missionRecentPlayersComponent = ...;
+missionRecentPlayersComponent.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionRecentPlayersComponent from the subsystem API first
+MissionRecentPlayersComponent missionRecentPlayersComponent = ...;
+missionRecentPlayersComponent.OnRemoveBehavior();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var component = agent.GetComponent<MissionRecentPlayersComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

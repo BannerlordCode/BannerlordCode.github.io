@@ -1,13 +1,7 @@
 ---
 title: "ClickableCharacterTableauWidget"
+description: "Auto-generated class reference for ClickableCharacterTableauWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClickableCharacterTableauWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClickableCharacterTableauWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -27,9 +21,10 @@ Treat `ClickableCharacterTableauWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new ClickableCharacterTableauWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClickableCharacterTableauWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

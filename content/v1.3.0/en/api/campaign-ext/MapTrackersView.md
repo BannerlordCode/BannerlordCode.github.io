@@ -1,13 +1,7 @@
 ---
 title: "MapTrackersView"
+description: "Auto-generated class reference for MapTrackersView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapTrackersView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapTrackersView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MapTrackersView` as a View-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var view = new MapTrackersView();
+// Retrieve this view from the subsystem API or scene
+MapTrackersView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

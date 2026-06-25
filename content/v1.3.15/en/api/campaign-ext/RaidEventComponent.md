@@ -1,13 +1,7 @@
 ---
 title: "RaidEventComponent"
+description: "Auto-generated class reference for RaidEventComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RaidEventComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RaidEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -41,12 +35,22 @@ Treat `RaidEventComponent` as a Component-style extension point: first identify 
 ### CreateRaidEvent
 `public static RaidEventComponent CreateRaidEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Creates a new `raid event` instance or object.
+**Purpose:** Constructs a new `raid event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+RaidEventComponent.CreateRaidEvent(attackerParty, defenderParty);
+```
 
 ### CreateComponentForOldSaves
 `public static RaidEventComponent CreateComponentForOldSaves(MapEvent mapEvent, float nextSettlementDamage, int lootedItemCount, float raidDamage)`
 
-**Purpose:** Creates a new `component for old saves` instance or object.
+**Purpose:** Constructs a new `component for old saves` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+RaidEventComponent.CreateComponentForOldSaves(mapEvent, 0, 0, 0);
+```
 
 ## Usage Example
 
@@ -56,4 +60,4 @@ var component = agent.GetComponent<RaidEventComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

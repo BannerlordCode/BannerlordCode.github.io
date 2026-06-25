@@ -1,20 +1,14 @@
 ---
 title: "AiPartyThinkBehavior"
+description: "Auto-generated class reference for AiPartyThinkBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AiPartyThinkBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AiPartyThinkBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class AiPartyThinkBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiPartyThinkBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors/AiPartyThinkBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors` t
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of AiPartyThinkBehavior from the subsystem API first
+AiPartyThinkBehavior aiPartyThinkBehavior = ...;
+aiPartyThinkBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of AiPartyThinkBehavior from the subsystem API first
+AiPartyThinkBehavior aiPartyThinkBehavior = ...;
+aiPartyThinkBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AiPartyThinkBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+AiPartyThinkBehavior aiPartyThinkBehavior = ...;
+aiPartyThinkBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerTeamDeathmatch"
+description: "Auto-generated class reference for MissionMultiplayerTeamDeathmatch."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerTeamDeathmatch`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerTeamDeathmatch
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerTeamDeathmatch : MissionMultiplayerGameModeBase`
 **Base:** `MissionMultiplayerGameModeBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerTeamDeathmatch.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerTeamDeathmatch.cs`
 
 ## Overview
 
@@ -29,45 +23,88 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**Purpose:** Gets the current value of `mission type`.
+**Purpose:** Reads and returns the `mission type` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+var result = missionMultiplayerTeamDeathmatch.GetMissionType();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.AfterStart();
+```
 
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**Purpose:** Called when the `peer changed team` event is raised.
+**Purpose:** Invoked when the `peer changed team` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.OnPeerChangedTeam(peer, oldTeam, newTeam);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### CheckForMatchEnd
 `public override bool CheckForMatchEnd()`
 
-**Purpose:** Handles logic related to `check for match end`.
+**Purpose:** Verifies whether `for match end` holds true for the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+var result = missionMultiplayerTeamDeathmatch.CheckForMatchEnd();
+```
 
 ### GetWinnerTeam
 `public override Team GetWinnerTeam()`
 
-**Purpose:** Gets the current value of `winner team`.
+**Purpose:** Reads and returns the `winner team` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+var result = missionMultiplayerTeamDeathmatch.GetWinnerTeam();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionMultiplayerTeamDeathmatch();
-value.GetMissionType();
+// Typically call this after obtaining an instance from the subsystem API
+MissionMultiplayerTeamDeathmatch missionMultiplayerTeamDeathmatch = ...;
+missionMultiplayerTeamDeathmatch.GetMissionType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

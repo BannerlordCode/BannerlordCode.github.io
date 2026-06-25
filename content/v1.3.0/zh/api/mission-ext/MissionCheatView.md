@@ -1,13 +1,7 @@
 ---
 title: "MissionCheatView"
+description: "MissionCheatView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionCheatView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCheatView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,24 +23,43 @@ title: "MissionCheatView"
 ### GetIsCheatsAvailable
 `public abstract bool GetIsCheatsAvailable()`
 
-**用途 / Purpose:** 获取 `is cheats available` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is cheats available」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCheatView 实例
+MissionCheatView missionCheatView = ...;
+var result = missionCheatView.GetIsCheatsAvailable();
+```
 
 ### InitializeScreen
 `public abstract void InitializeScreen()`
 
-**用途 / Purpose:** 初始化 `screen` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「screen」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCheatView 实例
+MissionCheatView missionCheatView = ...;
+missionCheatView.InitializeScreen();
+```
 
 ### FinalizeScreen
 `public abstract void FinalizeScreen()`
 
-**用途 / Purpose:** 处理 `finalize screen` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCheatView 实例
+MissionCheatView missionCheatView = ...;
+missionCheatView.FinalizeScreen();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionCheatView();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionCheatView instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

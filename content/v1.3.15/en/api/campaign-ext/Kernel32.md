@@ -1,23 +1,18 @@
 ---
 title: "Kernel32"
+description: "Auto-generated class reference for Kernel32."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Kernel32`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Kernel32
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public static class Kernel32`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/Kernel32.cs`
 
 ## Overview
 
-`Kernel32` lives in `TaleWorlds.TwoDimension.Standalone.Native.Windows`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Kernel32` lives in `TaleWorlds.TwoDimension.Standalone.Native.Windows` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,36 +23,59 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### LoadLibrary
 `public static extern IntPtr LoadLibrary(string lpFileName)`
 
-**Purpose:** Loads `library` data.
+**Purpose:** Reads `library` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+Kernel32.LoadLibrary("example");
+```
 
 ### GetModuleHandle
 `public static extern IntPtr GetModuleHandle(string lpModuleName)`
 
-**Purpose:** Gets the current value of `module handle`.
+**Purpose:** Reads and returns the `module handle` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Kernel32.GetModuleHandle("example");
+```
 
 ### GetLastError
 `public static extern int GetLastError()`
 
-**Purpose:** Gets the current value of `last error`.
+**Purpose:** Reads and returns the `last error` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Kernel32.GetLastError();
+```
 
 ### GetConsoleWindow
 `public static extern IntPtr GetConsoleWindow()`
 
-**Purpose:** Gets the current value of `console window`.
+**Purpose:** Reads and returns the `console window` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Kernel32.GetConsoleWindow();
+```
 
 ### GetUserGeoID
 `public static extern int GetUserGeoID(Kernel32.GeoTypeId type)`
 
-**Purpose:** Gets the current value of `user geo i d`.
+**Purpose:** Reads and returns the `user geo i d` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Kernel32.GetUserGeoID(type);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 Kernel32.LoadLibrary("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

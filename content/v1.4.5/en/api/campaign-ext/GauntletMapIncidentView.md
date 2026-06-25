@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapIncidentView"
+description: "Auto-generated class reference for GauntletMapIncidentView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapIncidentView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapIncidentView
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapIncidentView : MapIncidentView`
 **Base:** `MapIncidentView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapIncidentView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapIncidentView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `GauntletMapIncidentView` as a View-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapIncidentView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapIncidentView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

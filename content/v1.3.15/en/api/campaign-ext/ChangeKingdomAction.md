@@ -1,18 +1,8 @@
 ---
 title: "ChangeKingdomAction"
+description: "Auto-generated campaign action reference for ChangeKingdomAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeKingdomAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ChangeKingdomAction
-
-## Mental Model
-
-Treat `ChangeKingdomAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -104,5 +94,5 @@ ChangeKingdomAction.ApplyByJoinToKingdom(clan, newKingdom, default(CampaignTime)
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

@@ -1,13 +1,7 @@
 ---
 title: "DeletePlayer"
+description: "Auto-generated class reference for DeletePlayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeletePlayer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DeletePlayer
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Messages
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Messages` to place it in 
 ## Usage Example
 
 ```csharp
-var value = new DeletePlayer();
+// Obtain an instance from the relevant subsystem API
+DeletePlayer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

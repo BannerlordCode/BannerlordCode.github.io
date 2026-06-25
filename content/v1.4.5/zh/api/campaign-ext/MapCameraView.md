@@ -1,20 +1,14 @@
 ---
 title: "MapCameraView"
+description: "MapCameraView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapCameraView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapCameraView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapCameraView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapCameraView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapCameraView.cs`
 
 ## 概述
 
@@ -40,104 +34,219 @@ title: "MapCameraView"
 ### OnActivate
 `public virtual void OnActivate(bool leftButtonDraggingMode, Vec3 clickedPosition)`
 
-**用途 / Purpose:** 当 `activate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「activate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.OnActivate(false, clickedPosition);
+```
 
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.Initialize();
+```
 
 ### SetCameraMode
 `public virtual void SetCameraMode(CameraFollowMode cameraMode)`
 
-**用途 / Purpose:** 设置 `camera mode` 的值或状态。
+**用途 / Purpose:** 为 「camera mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.SetCameraMode(cameraMode);
+```
 
 ### ResetCamera
 `public virtual void ResetCamera(bool resetDistance, bool teleportToMainParty)`
 
-**用途 / Purpose:** 将 `camera` 重置为初始状态。
+**用途 / Purpose:** 将 「camera」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.ResetCamera(false, false);
+```
 
 ### TeleportCameraToMainParty
 `public virtual void TeleportCameraToMainParty()`
 
-**用途 / Purpose:** 处理 `teleport camera to main party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.TeleportCameraToMainParty();
+```
 
 ### FastMoveCameraToMainParty
 `public virtual void FastMoveCameraToMainParty()`
 
-**用途 / Purpose:** 处理 `fast move camera to main party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.FastMoveCameraToMainParty();
+```
 
 ### FastMoveCameraToPosition
 `public virtual void FastMoveCameraToPosition(CampaignVec2 target, bool isInMenu)`
 
-**用途 / Purpose:** 处理 `fast move camera to position` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.FastMoveCameraToPosition(target, false);
+```
 
 ### OnFastMoveCameraMovementStart
 `public void OnFastMoveCameraMovementStart()`
 
-**用途 / Purpose:** 当 `fast move camera movement start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「fast move camera movement start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.OnFastMoveCameraMovementStart();
+```
 
 ### StopCameraMovementSoundEvents
 `public void StopCameraMovementSoundEvents()`
 
-**用途 / Purpose:** 处理 `stop camera movement sound events` 相关逻辑。
+**用途 / Purpose:** 停止「camera movement sound events」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.StopCameraMovementSoundEvents();
+```
 
 ### IsCameraLockedToPlayerParty
 `public virtual bool IsCameraLockedToPlayerParty()`
 
-**用途 / Purpose:** 处理 `is camera locked to player party` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「camera locked to player party」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+var result = mapCameraView.IsCameraLockedToPlayerParty();
+```
 
 ### StartCameraAnimation
 `public virtual void StartCameraAnimation(CampaignVec2 targetPosition, float animationStopDuration)`
 
-**用途 / Purpose:** 处理 `start camera animation` 相关逻辑。
+**用途 / Purpose:** 启动「camera animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.StartCameraAnimation(targetPosition, 0);
+```
 
 ### SiegeEngineClick
 `public virtual void SiegeEngineClick(MatrixFrame siegeEngineFrame)`
 
-**用途 / Purpose:** 处理 `siege engine click` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.SiegeEngineClick(siegeEngineFrame);
+```
 
 ### OnExit
 `public virtual void OnExit()`
 
-**用途 / Purpose:** 当 `exit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「exit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.OnExit();
+```
 
 ### OnEscapeMenuToggled
 `public virtual void OnEscapeMenuToggled(bool isOpened)`
 
-**用途 / Purpose:** 当 `escape menu toggled` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「escape menu toggled」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.OnEscapeMenuToggled(false);
+```
 
 ### HandleMouse
 `public virtual void HandleMouse(bool rightMouseButtonPressed, float verticalCameraInput, float mouseMoveY, float dt)`
 
-**用途 / Purpose:** 处理 `mouse` 事件或回调。
+**用途 / Purpose:** 执行与 「mouse」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.HandleMouse(false, 0, 0, 0);
+```
 
 ### HandleLeftMouseButtonClick
 `public virtual void HandleLeftMouseButtonClick(bool isMouseActive)`
 
-**用途 / Purpose:** 处理 `left mouse button click` 事件或回调。
+**用途 / Purpose:** 执行与 「left mouse button click」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.HandleLeftMouseButtonClick(false);
+```
 
 ### OnSetMapSiegeOverlayState
 `public virtual void OnSetMapSiegeOverlayState(bool isActive, bool isMapSiegeOverlayViewNull)`
 
-**用途 / Purpose:** 当 `set map siege overlay state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「set map siege overlay state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.OnSetMapSiegeOverlayState(false, false);
+```
 
 ### OnRefreshMapSiegeOverlayRequired
 `public virtual void OnRefreshMapSiegeOverlayRequired(bool isMapSiegeOverlayViewNull)`
 
-**用途 / Purpose:** 当 `refresh map siege overlay required` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「refresh map siege overlay required」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.OnRefreshMapSiegeOverlayRequired(false);
+```
 
 ### OnBeforeTick
 `public virtual void OnBeforeTick(in InputInformation inputInformation)`
 
-**用途 / Purpose:** 当 `before tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「before tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapCameraView 实例
+MapCameraView mapCameraView = ...;
+mapCameraView.OnBeforeTick(inputInformation);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MapCameraView();
+// 从子系统 API 或场景中获取该视图
+MapCameraView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

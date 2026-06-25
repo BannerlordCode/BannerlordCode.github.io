@@ -1,13 +1,7 @@
 ---
 title: "InputData"
+description: "Auto-generated class reference for InputData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InputData
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -41,19 +35,32 @@ Treat `InputData` as a Data-style extension point: first identify who creates it
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of InputData from the subsystem API first
+InputData inputData = ...;
+inputData.Reset();
+```
 
 ### FillFrom
 `public void FillFrom(InputData inputData)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InputData from the subsystem API first
+InputData inputData = ...;
+inputData.FillFrom(inputData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new InputData();
+// This data object is usually returned by campaign/mission APIs
+InputData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

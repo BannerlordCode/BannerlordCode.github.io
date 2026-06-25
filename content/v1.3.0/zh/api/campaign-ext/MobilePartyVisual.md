@@ -1,13 +1,7 @@
 ---
 title: "MobilePartyVisual"
+description: "MobilePartyVisual 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MobilePartyVisual`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyVisual
 
 **Namespace:** SandBox.View.Map.Visuals
@@ -43,65 +37,131 @@ title: "MobilePartyVisual"
 ### IsEnemyOf
 `public override bool IsEnemyOf(IFaction faction)`
 
-**用途 / Purpose:** 处理 `is enemy of` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「enemy of」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.IsEnemyOf(faction);
+```
 
 ### IsAllyOf
 `public override bool IsAllyOf(IFaction faction)`
 
-**用途 / Purpose:** 处理 `is ally of` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ally of」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.IsAllyOf(faction);
+```
 
 ### OnTrackAction
 `public override void OnTrackAction()`
 
-**用途 / Purpose:** 当 `track action` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「track action」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.OnTrackAction();
+```
 
 ### OnMapClick
 `public override bool OnMapClick(bool followModifierUsed)`
 
-**用途 / Purpose:** 当 `map click` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map click」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.OnMapClick(false);
+```
 
 ### OnHover
 `public override void OnHover()`
 
-**用途 / Purpose:** 当 `hover` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hover」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.OnHover();
+```
 
 ### GetVisualPosition
 `public override Vec3 GetVisualPosition()`
 
-**用途 / Purpose:** 获取 `visual position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.GetVisualPosition();
+```
 
 ### ReleaseResources
 `public override void ReleaseResources()`
 
-**用途 / Purpose:** 处理 `release resources` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.ReleaseResources();
+```
 
 ### IsVisibleOrFadingOut
 `public override bool IsVisibleOrFadingOut()`
 
-**用途 / Purpose:** 处理 `is visible or fading out` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「visible or fading out」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+var result = mobilePartyVisual.IsVisibleOrFadingOut();
+```
 
 ### OnOpenEncyclopedia
 `public override void OnOpenEncyclopedia()`
 
-**用途 / Purpose:** 当 `open encyclopedia` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「open encyclopedia」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.OnOpenEncyclopedia();
+```
 
 ### GetBannerOfCharacter
 `public static MetaMesh GetBannerOfCharacter(Banner banner, string bannerMeshName)`
 
-**用途 / Purpose:** 获取 `banner of character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner of character」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MobilePartyVisual.GetBannerOfCharacter(banner, "example");
+```
 
 ### AddTentEntityForParty
 `public void AddTentEntityForParty(GameEntity strategicEntity, PartyBase party, ref bool clearBannerComponentCache)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tent entity for party`。
+**用途 / Purpose:** 将 「tent entity for party」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MobilePartyVisual 实例
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.AddTentEntityForParty(strategicEntity, party, clearBannerComponentCache);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MobilePartyVisual();
-value.IsEnemyOf(faction);
+// 通常从对应子系统 API 获取实例后调用
+MobilePartyVisual mobilePartyVisual = ...;
+mobilePartyVisual.IsEnemyOf(faction);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

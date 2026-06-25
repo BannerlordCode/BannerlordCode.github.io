@@ -1,20 +1,14 @@
 ---
 title: "PlayerId"
+description: "PlayerId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerId`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerId
 
 **Namespace:** TaleWorlds.PlayerServices
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public struct PlayerId : IComparable<PlayerId>, IEquatable<PlayerId>`
 **Base:** `IComparable<PlayerId>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerId.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerId.cs`
 
 ## 概述
 
@@ -35,55 +29,109 @@ title: "PlayerId"
 ### ToByteArray
 `public byte ToByteArray()`
 
-**用途 / Purpose:** 处理 `to byte array` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerId 实例
+PlayerId playerId = ...;
+var result = playerId.ToByteArray();
+```
 
 ### Serialize
 `public void Serialize(IWriter writer)`
 
-**用途 / Purpose:** 处理 `serialize` 相关逻辑。
+**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerId 实例
+PlayerId playerId = ...;
+playerId.Serialize(writer);
+```
 
 ### Deserialize
 `public void Deserialize(IReader reader)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerId 实例
+PlayerId playerId = ...;
+playerId.Deserialize(reader);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerId 实例
+PlayerId playerId = ...;
+var result = playerId.ToString();
+```
 
 ### Equals
 `public override bool Equals(object o)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerId 实例
+PlayerId playerId = ...;
+var result = playerId.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerId 实例
+PlayerId playerId = ...;
+var result = playerId.GetHashCode();
+```
 
 ### FromString
 `public static PlayerId FromString(string id)`
 
-**用途 / Purpose:** 处理 `from string` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerId.FromString("example");
+```
 
 ### CompareTo
 `public int CompareTo(PlayerId other)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerId 实例
+PlayerId playerId = ...;
+var result = playerId.CompareTo(other);
+```
 
 ### Equals
 `public bool Equals(PlayerId other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerId 实例
+PlayerId playerId = ...;
+var result = playerId.Equals(other);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerId();
-value.ToByteArray();
+// 通常从对应子系统 API 获取实例后调用
+PlayerId playerId = ...;
+playerId.ToByteArray();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

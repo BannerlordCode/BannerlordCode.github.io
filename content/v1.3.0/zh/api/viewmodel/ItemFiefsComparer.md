@@ -1,13 +1,7 @@
 ---
 title: "ItemFiefsComparer"
+description: "ItemFiefsComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemFiefsComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemFiefsComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
@@ -29,15 +23,22 @@ title: "ItemFiefsComparer"
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ItemFiefsComparer 实例
+ItemFiefsComparer itemFiefsComparer = ...;
+var result = itemFiefsComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemFiefsComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+ItemFiefsComparer itemFiefsComparer = ...;
+itemFiefsComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,23 +1,18 @@
 ---
 title: "MultiplayerGameTypes"
+description: "Auto-generated class reference for MultiplayerGameTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerGameTypes`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerGameTypes
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MultiplayerGameTypes`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MultiplayerGameTypes.cs`
 
 ## Overview
 
-`MultiplayerGameTypes` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MultiplayerGameTypes` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,26 +23,39 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+MultiplayerGameTypes.Initialize();
+```
 
 ### CheckGameTypeInfoExists
 `public static bool CheckGameTypeInfoExists(string gameType)`
 
-**Purpose:** Handles logic related to `check game type info exists`.
+**Purpose:** Verifies whether `game type info exists` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerGameTypes.CheckGameTypeInfoExists("example");
+```
 
 ### GetGameTypeInfo
 `public static MultiplayerGameTypeInfo GetGameTypeInfo(string gameType)`
 
-**Purpose:** Gets the current value of `game type info`.
+**Purpose:** Reads and returns the `game type info` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MultiplayerGameTypes.GetGameTypeInfo("example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MultiplayerGameTypes.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapTrackerProvider"
+description: "Auto-generated class reference for MapTrackerProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapTrackerProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapTrackerProvider
 
 **Namespace:** SandBox.ViewModelCollection.Map.Tracker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MapTrackerProvider`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Tracker/MapTrackerProvider.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Tracker/MapTrackerProvider.cs`
 
 ## Overview
 
@@ -35,50 +29,99 @@ Start from namespace `SandBox.ViewModelCollection.Map.Tracker` to place it in th
 ### GetTrackers
 `public MapTrackerItemVM GetTrackers()`
 
-**Purpose:** Gets the current value of `trackers`.
+**Purpose:** Reads and returns the `trackers` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackerProvider from the subsystem API first
+MapTrackerProvider mapTrackerProvider = ...;
+var result = mapTrackerProvider.GetTrackers();
+```
 
 ### HasTrackerFor
 `public bool HasTrackerFor(ITrackableCampaignObject trackable)`
 
-**Purpose:** Checks whether the current object has/contains `tracker for`.
+**Purpose:** Determines whether the current object already holds `tracker for`.
+
+```csharp
+// Obtain an instance of MapTrackerProvider from the subsystem API first
+MapTrackerProvider mapTrackerProvider = ...;
+var result = mapTrackerProvider.HasTrackerFor(trackable);
+```
 
 ### GetTrackerFor
 `public MapTrackerItemVM GetTrackerFor(ITrackableCampaignObject trackable)`
 
-**Purpose:** Gets the current value of `tracker for`.
+**Purpose:** Reads and returns the `tracker for` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackerProvider from the subsystem API first
+MapTrackerProvider mapTrackerProvider = ...;
+var result = mapTrackerProvider.GetTrackerFor(trackable);
+```
 
 ### AddTracker
 `public void AddTracker(MapTrackerItemVM tracker)`
 
 **Purpose:** Adds `tracker` to the current collection or state.
 
+```csharp
+// Obtain an instance of MapTrackerProvider from the subsystem API first
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.AddTracker(tracker);
+```
+
 ### RemoveTracker
 `public void RemoveTracker(MapTrackerItemVM tracker)`
 
 **Purpose:** Removes `tracker` from the current collection or state.
 
+```csharp
+// Obtain an instance of MapTrackerProvider from the subsystem API first
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.RemoveTracker(tracker);
+```
+
 ### ClearTrackers
 `public void ClearTrackers()`
 
-**Purpose:** Handles logic related to `clear trackers`.
+**Purpose:** Removes all `trackers` from the current object.
+
+```csharp
+// Obtain an instance of MapTrackerProvider from the subsystem API first
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.ClearTrackers();
+```
 
 ### OnTrackerAddedOrRemovedDelegate
 `public delegate void OnTrackerAddedOrRemovedDelegate(MapTrackerItemVM tracker, bool added)`
 
-**Purpose:** Called when the `tracker added or removed delegate` event is raised.
+**Purpose:** Invoked when the `tracker added or removed delegate` event is raised.
+
+```csharp
+// Obtain an instance of MapTrackerProvider from the subsystem API first
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.OnTrackerAddedOrRemovedDelegate(tracker, false);
+```
 
 ### GetTrackers
 `public MapTrackerItemVM GetTrackers()`
 
-**Purpose:** Gets the current value of `trackers`.
+**Purpose:** Reads and returns the `trackers` value held by the current object.
+
+```csharp
+// Obtain an instance of MapTrackerProvider from the subsystem API first
+MapTrackerProvider mapTrackerProvider = ...;
+var result = mapTrackerProvider.GetTrackers();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapTrackerProvider();
-value.GetTrackers();
+// Typically call this after obtaining an instance from the subsystem API
+MapTrackerProvider mapTrackerProvider = ...;
+mapTrackerProvider.GetTrackers();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

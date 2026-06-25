@@ -1,20 +1,14 @@
 ---
 title: "SimpleSceneTestWithMission"
+description: "Auto-generated class reference for SimpleSceneTestWithMission."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SimpleSceneTestWithMission`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SimpleSceneTestWithMission
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SimpleSceneTestWithMission`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/SimpleSceneTestWithMission.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/SimpleSceneTestWithMission.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### LoadingFinished
 `public bool LoadingFinished()`
 
-**Purpose:** Loads `ing finished` data.
+**Purpose:** Reads `ing finished` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SimpleSceneTestWithMission from the subsystem API first
+SimpleSceneTestWithMission simpleSceneTestWithMission = ...;
+var result = simpleSceneTestWithMission.LoadingFinished();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SimpleSceneTestWithMission();
-value.LoadingFinished();
+// Typically call this after obtaining an instance from the subsystem API
+SimpleSceneTestWithMission simpleSceneTestWithMission = ...;
+simpleSceneTestWithMission.LoadingFinished();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

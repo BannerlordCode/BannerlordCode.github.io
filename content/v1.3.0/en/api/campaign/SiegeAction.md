@@ -1,13 +1,7 @@
 ---
 title: "SiegeAction"
+description: "Auto-generated class reference for SiegeAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeAction`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeAction
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ComponentInterfaces` to place it
 ## Usage Example
 
 ```csharp
-SiegeAction example = SiegeAction.Value;
+// Obtain an instance from the relevant subsystem API
+SiegeAction instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

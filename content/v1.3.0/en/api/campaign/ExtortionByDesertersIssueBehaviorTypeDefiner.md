@@ -1,13 +1,7 @@
 ---
 title: "ExtortionByDesertersIssueBehaviorTypeDefiner"
+description: "Auto-generated class reference for ExtortionByDesertersIssueBehaviorTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ExtortionByDesertersIssueBehaviorTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ExtortionByDesertersIssueBehaviorTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new ExtortionByDesertersIssueBehaviorTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+ExtortionByDesertersIssueBehaviorTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,24 +1,18 @@
 ---
 title: "SandBoxGauntletGameNotification"
+description: "Auto-generated class reference for SandBoxGauntletGameNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxGauntletGameNotification`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxGauntletGameNotification
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class SandBoxGauntletGameNotification : GauntletGameNotification`
 **Base:** `GauntletGameNotification`
-**Area:** campaign-ext
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/SandBoxGauntletGameNotification.cs`
 
 ## Overview
 
-`SandBoxGauntletGameNotification` lives in `SandBox.GauntletUI`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SandBoxGauntletGameNotification` lives in `SandBox.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,31 +23,52 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+SandBoxGauntletGameNotification.Initialize();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxGauntletGameNotification from the subsystem API first
+SandBoxGauntletGameNotification sandBoxGauntletGameNotification = ...;
+sandBoxGauntletGameNotification.OnFinalize();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of SandBoxGauntletGameNotification from the subsystem API first
+SandBoxGauntletGameNotification sandBoxGauntletGameNotification = ...;
+sandBoxGauntletGameNotification.RegisterEvents();
+```
 
 ### UnregisterEvents
 `public override void UnregisterEvents()`
 
-**Purpose:** Handles logic related to `unregister events`.
+**Purpose:** Unregisters `events` from the current system.
+
+```csharp
+// Obtain an instance of SandBoxGauntletGameNotification from the subsystem API first
+SandBoxGauntletGameNotification sandBoxGauntletGameNotification = ...;
+sandBoxGauntletGameNotification.UnregisterEvents();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 SandBoxGauntletGameNotification.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

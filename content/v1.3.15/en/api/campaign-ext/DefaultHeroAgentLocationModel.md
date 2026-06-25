@@ -1,13 +1,7 @@
 ---
 title: "DefaultHeroAgentLocationModel"
+description: "Auto-generated class reference for DefaultHeroAgentLocationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultHeroAgentLocationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultHeroAgentLocationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,12 +23,24 @@ Treat `DefaultHeroAgentLocationModel` as a Model-style extension point: first id
 ### WillBeListedInOverlay
 `public override bool WillBeListedInOverlay(LocationCharacter locationCharacter)`
 
-**Purpose:** Handles logic related to `will be listed in overlay`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultHeroAgentLocationModel from the subsystem API first
+DefaultHeroAgentLocationModel defaultHeroAgentLocationModel = ...;
+var result = defaultHeroAgentLocationModel.WillBeListedInOverlay(locationCharacter);
+```
 
 ### GetLocationForHero
 `public override Location GetLocationForHero(Hero hero, Settlement settlement, out HeroAgentLocationModel.HeroLocationDetail heroLocationDetail)`
 
-**Purpose:** Gets the current value of `location for hero`.
+**Purpose:** Reads and returns the `location for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultHeroAgentLocationModel from the subsystem API first
+DefaultHeroAgentLocationModel defaultHeroAgentLocationModel = ...;
+var result = defaultHeroAgentLocationModel.GetLocationForHero(hero, settlement, heroLocationDetail);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultHeroAgentLocationModel>(new MyDefaultHeroAgentL
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "StyleAnimationMode"
+description: "Auto-generated class reference for StyleAnimationMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StyleAnimationMode`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StyleAnimationMode
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum StyleAnimationMode`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/StyleAnimationMode.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/StyleAnimationMode.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new StyleAnimationMode();
+// Obtain an instance from the relevant subsystem API
+StyleAnimationMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

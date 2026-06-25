@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListKingdomComparer"
+description: "Auto-generated class reference for EncyclopediaListKingdomComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListKingdomComparer`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListKingdomComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,14 +23,21 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### CompareKingdoms
 `public int CompareKingdoms(EncyclopediaListItem x, EncyclopediaListItem y, Func<Kingdom, Kingdom, int> comparison)`
 
-**Purpose:** Handles logic related to `compare kingdoms`.
+**Purpose:** Compares two `kingdoms` objects and returns an ordering result.
+
+```csharp
+// Obtain an instance of EncyclopediaListKingdomComparer from the subsystem API first
+EncyclopediaListKingdomComparer encyclopediaListKingdomComparer = ...;
+var result = encyclopediaListKingdomComparer.CompareKingdoms(x, y, func<Kingdom, kingdom, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncyclopediaListKingdomComparer();
+// Typically obtained from a subsystem API or factory
+EncyclopediaListKingdomComparer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

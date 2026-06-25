@@ -1,13 +1,7 @@
 ---
 title: "DefaultSkillEffects"
+description: "Auto-generated class reference for DefaultSkillEffects."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSkillEffects`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSkillEffects
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -75,9 +69,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var example = new DefaultSkillEffects();
+// Obtain an instance from the relevant subsystem API
+DefaultSkillEffects instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

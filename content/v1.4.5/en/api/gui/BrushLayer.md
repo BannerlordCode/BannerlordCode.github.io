@@ -1,20 +1,14 @@
 ---
 title: "BrushLayer"
+description: "Auto-generated class reference for BrushLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushLayer`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushLayer
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class BrushLayer : IBrushLayerData`
 **Base:** `IBrushLayerData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushLayer.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushLayer.cs`
 
 ## Overview
 
@@ -67,35 +61,66 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(BrushLayer brushLayer)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BrushLayer from the subsystem API first
+BrushLayer brushLayer = ...;
+brushLayer.FillFrom(brushLayer);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as float`.
+**Purpose:** Reads and returns the `value as float` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushLayer from the subsystem API first
+BrushLayer brushLayer = ...;
+var result = brushLayer.GetValueAsFloat(propertyType);
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as color`.
+**Purpose:** Reads and returns the `value as color` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushLayer from the subsystem API first
+BrushLayer brushLayer = ...;
+var result = brushLayer.GetValueAsColor(propertyType);
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as sprite`.
+**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+
+```csharp
+// Obtain an instance of BrushLayer from the subsystem API first
+BrushLayer brushLayer = ...;
+var result = brushLayer.GetValueAsSprite(propertyType);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of BrushLayer from the subsystem API first
+BrushLayer brushLayer = ...;
+var result = brushLayer.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushLayer();
-value.FillFrom(brushLayer);
+// Typically call this after obtaining an instance from the subsystem API
+BrushLayer brushLayer = ...;
+brushLayer.FillFrom(brushLayer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

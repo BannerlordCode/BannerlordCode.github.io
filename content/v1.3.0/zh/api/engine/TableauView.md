@@ -1,13 +1,7 @@
 ---
 title: "TableauView"
+description: "TableauView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TableauView`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TableauView
 
 **Namespace:** TaleWorlds.Engine
@@ -29,39 +23,74 @@ title: "TableauView"
 ### CreateTableauView
 `public static TableauView CreateTableauView()`
 
-**用途 / Purpose:** 创建一个 `tableau view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「tableau view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+TableauView.CreateTableauView();
+```
 
 ### SetSortingEnabled
 `public void SetSortingEnabled(bool value)`
 
-**用途 / Purpose:** 设置 `sorting enabled` 的值或状态。
+**用途 / Purpose:** 为 「sorting enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TableauView 实例
+TableauView tableauView = ...;
+tableauView.SetSortingEnabled(false);
+```
 
 ### SetContinuousRendering
 `public void SetContinuousRendering(bool value)`
 
-**用途 / Purpose:** 设置 `continuous rendering` 的值或状态。
+**用途 / Purpose:** 为 「continuous rendering」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TableauView 实例
+TableauView tableauView = ...;
+tableauView.SetContinuousRendering(false);
+```
 
 ### SetDoNotRenderThisFrame
 `public void SetDoNotRenderThisFrame(bool value)`
 
-**用途 / Purpose:** 设置 `do not render this frame` 的值或状态。
+**用途 / Purpose:** 为 「do not render this frame」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TableauView 实例
+TableauView tableauView = ...;
+tableauView.SetDoNotRenderThisFrame(false);
+```
 
 ### SetDeleteAfterRendering
 `public void SetDeleteAfterRendering(bool value)`
 
-**用途 / Purpose:** 设置 `delete after rendering` 的值或状态。
+**用途 / Purpose:** 为 「delete after rendering」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TableauView 实例
+TableauView tableauView = ...;
+tableauView.SetDeleteAfterRendering(false);
+```
 
 ### AddTableau
 `public static Texture AddTableau(string name, RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, int tableauSizeX, int tableauSizeY)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `tableau`。
+**用途 / Purpose:** 将 「tableau」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+TableauView.AddTableau("example", eventHandler, objectRef, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new TableauView();
+// 从子系统 API 或场景中获取该视图
+TableauView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

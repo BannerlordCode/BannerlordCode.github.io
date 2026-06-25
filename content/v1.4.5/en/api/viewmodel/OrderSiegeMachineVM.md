@@ -1,20 +1,14 @@
 ---
 title: "OrderSiegeMachineVM"
+description: "Auto-generated class reference for OrderSiegeMachineVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderSiegeMachineVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderSiegeMachineVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderSiegeMachineVM : OrderSubjectVM`
 **Base:** `OrderSubjectVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/OrderSiegeMachineVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Order/OrderSiegeMachineVM.cs`
 
 ## Overview
 
@@ -40,20 +34,32 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### RefreshSiegeWeapon
 `public void RefreshSiegeWeapon()`
 
-**Purpose:** Refreshes the display or cache of `siege weapon`.
+**Purpose:** Keeps the display or cache of `siege weapon` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderSiegeMachineVM from the subsystem API first
+OrderSiegeMachineVM orderSiegeMachineVM = ...;
+orderSiegeMachineVM.RefreshSiegeWeapon();
+```
 
 ### GetSiegeType
 `public static SiegeEngineType GetSiegeType(Type t, BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `siege type`.
+**Purpose:** Reads and returns the `siege type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+OrderSiegeMachineVM.GetSiegeType(t, side);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderSiegeMachineVM();
-value.RefreshSiegeWeapon();
+// Typically call this after obtaining an instance from the subsystem API
+OrderSiegeMachineVM orderSiegeMachineVM = ...;
+orderSiegeMachineVM.RefreshSiegeWeapon();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

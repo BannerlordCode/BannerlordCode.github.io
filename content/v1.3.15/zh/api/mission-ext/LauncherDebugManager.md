@@ -1,13 +1,7 @@
 ---
 title: "LauncherDebugManager"
+description: "LauncherDebugManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LauncherDebugManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherDebugManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -29,7 +23,13 @@ title: "LauncherDebugManager"
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherDebugManager 实例
+LauncherDebugManager launcherDebugManager = ...;
+launcherDebugManager.OnFinalize();
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ var manager = LauncherDebugManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

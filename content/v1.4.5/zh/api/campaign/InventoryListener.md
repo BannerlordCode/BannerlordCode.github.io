@@ -1,20 +1,14 @@
 ---
 title: "InventoryListener"
+description: "InventoryListener 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryListener`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryListener
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class InventoryListener`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/InventoryListener.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/InventoryListener.cs`
 
 ## 概述
 
@@ -29,34 +23,65 @@ title: "InventoryListener"
 ### GetGold
 `public abstract int GetGold()`
 
-**用途 / Purpose:** 获取 `gold` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryListener 实例
+InventoryListener inventoryListener = ...;
+var result = inventoryListener.GetGold();
+```
 
 ### GetTraderName
 `public abstract TextObject GetTraderName()`
 
-**用途 / Purpose:** 获取 `trader name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trader name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryListener 实例
+InventoryListener inventoryListener = ...;
+var result = inventoryListener.GetTraderName();
+```
 
 ### SetGold
 `public abstract void SetGold(int gold)`
 
-**用途 / Purpose:** 设置 `gold` 的值或状态。
+**用途 / Purpose:** 为 「gold」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryListener 实例
+InventoryListener inventoryListener = ...;
+inventoryListener.SetGold(0);
+```
 
 ### GetOppositeParty
 `public abstract PartyBase GetOppositeParty()`
 
-**用途 / Purpose:** 获取 `opposite party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「opposite party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryListener 实例
+InventoryListener inventoryListener = ...;
+var result = inventoryListener.GetOppositeParty();
+```
 
 ### OnTransaction
 `public abstract void OnTransaction()`
 
-**用途 / Purpose:** 当 `transaction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「transaction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryListener 实例
+InventoryListener inventoryListener = ...;
+inventoryListener.OnTransaction();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomInventoryListener();
+// 通常通过子系统 API 或工厂获得派生实例
+InventoryListener instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "EquipmentTestMissionController"
+description: "Auto-generated class reference for EquipmentTestMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EquipmentTestMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EquipmentTestMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
@@ -29,7 +23,13 @@ Treat `EquipmentTestMissionController` as a Controller-style extension point: fi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EquipmentTestMissionController from the subsystem API first
+EquipmentTestMissionController equipmentTestMissionController = ...;
+equipmentTestMissionController.AfterStart();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<EquipmentTestMissionControll
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

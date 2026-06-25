@@ -1,20 +1,14 @@
 ---
 title: "ThumbnailCreationData"
+description: "Auto-generated class reference for ThumbnailCreationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThumbnailCreationData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThumbnailCreationData
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class ThumbnailCreationData`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/ThumbnailCreationData.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/ThumbnailCreationData.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `ThumbnailCreationData` as a Data-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var implementation = new CustomThumbnailCreationData();
+// Typically obtained from a subsystem API or factory
+ThumbnailCreationData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

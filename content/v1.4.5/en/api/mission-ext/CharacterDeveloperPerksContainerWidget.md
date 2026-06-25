@@ -1,20 +1,14 @@
 ---
 title: "CharacterDeveloperPerksContainerWidget"
+description: "Auto-generated class reference for CharacterDeveloperPerksContainerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperPerksContainerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperPerksContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterDeveloperPerksContainerWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperPerksContainerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper/CharacterDeveloperPerksContainerWidget.cs`
 
 ## Overview
 
@@ -37,9 +31,10 @@ Treat `CharacterDeveloperPerksContainerWidget` as a Widget-style extension point
 ## Usage Example
 
 ```csharp
-var widget = new CharacterDeveloperPerksContainerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterDeveloperPerksContainerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "OrderTroopItemFormationClassVM"
+description: "OrderTroopItemFormationClassVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderTroopItemFormationClassVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderTroopItemFormationClassVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order
@@ -36,15 +30,22 @@ title: "OrderTroopItemFormationClassVM"
 ### UpdateTroopCount
 `public void UpdateTroopCount()`
 
-**用途 / Purpose:** 更新 `troop count` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「troop count」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 OrderTroopItemFormationClassVM 实例
+OrderTroopItemFormationClassVM orderTroopItemFormationClassVM = ...;
+orderTroopItemFormationClassVM.UpdateTroopCount();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderTroopItemFormationClassVM();
-value.UpdateTroopCount();
+// 通常从对应子系统 API 获取实例后调用
+OrderTroopItemFormationClassVM orderTroopItemFormationClassVM = ...;
+orderTroopItemFormationClassVM.UpdateTroopCount();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

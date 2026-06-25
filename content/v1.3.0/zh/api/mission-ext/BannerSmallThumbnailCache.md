@@ -1,13 +1,7 @@
 ---
 title: "BannerSmallThumbnailCache"
+description: "BannerSmallThumbnailCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerSmallThumbnailCache`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerSmallThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -29,15 +23,22 @@ title: "BannerSmallThumbnailCache"
 ### CreateTexture
 `public override Texture CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**用途 / Purpose:** 创建一个 `texture` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「texture」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 BannerSmallThumbnailCache 实例
+BannerSmallThumbnailCache bannerSmallThumbnailCache = ...;
+var result = bannerSmallThumbnailCache.CreateTexture(thumbnailCreationData);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerSmallThumbnailCache();
-value.CreateTexture(thumbnailCreationData);
+// 通常从对应子系统 API 获取实例后调用
+BannerSmallThumbnailCache bannerSmallThumbnailCache = ...;
+bannerSmallThumbnailCache.CreateTexture(thumbnailCreationData);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

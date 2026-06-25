@@ -1,20 +1,14 @@
 ---
 title: "DefaultCampaignOptionsProvider"
+description: "Auto-generated class reference for DefaultCampaignOptionsProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCampaignOptionsProvider`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCampaignOptionsProvider
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultCampaignOptionsProvider : ICampaignOptionProvider`
 **Base:** `ICampaignOptionProvider`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/DefaultCampaignOptionsProvider.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/DefaultCampaignOptionsProvider.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### GetGameplayCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**Purpose:** Gets the current value of `gameplay campaign options`.
+**Purpose:** Reads and returns the `gameplay campaign options` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignOptionsProvider from the subsystem API first
+DefaultCampaignOptionsProvider defaultCampaignOptionsProvider = ...;
+var result = defaultCampaignOptionsProvider.GetGameplayCampaignOptions();
+```
 
 ### GetCharacterCreationCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**Purpose:** Gets the current value of `character creation campaign options`.
+**Purpose:** Reads and returns the `character creation campaign options` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCampaignOptionsProvider from the subsystem API first
+DefaultCampaignOptionsProvider defaultCampaignOptionsProvider = ...;
+var result = defaultCampaignOptionsProvider.GetCharacterCreationCampaignOptions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultCampaignOptionsProvider();
-value.GetGameplayCampaignOptions();
+// Typically call this after obtaining an instance from the subsystem API
+DefaultCampaignOptionsProvider defaultCampaignOptionsProvider = ...;
+defaultCampaignOptionsProvider.GetGameplayCampaignOptions();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

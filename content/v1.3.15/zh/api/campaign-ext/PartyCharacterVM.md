@@ -1,13 +1,7 @@
 ---
 title: "PartyCharacterVM"
+description: "PartyCharacterVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyCharacterVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyCharacterVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -92,125 +86,264 @@ title: "PartyCharacterVM"
 ### UpdateTalkable
 `public void UpdateTalkable()`
 
-**用途 / Purpose:** 更新 `talkable` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「talkable」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.UpdateTalkable();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.RefreshValues();
+```
 
 ### ExecuteSetSelected
 `public void ExecuteSetSelected()`
 
-**用途 / Purpose:** 执行 `set selected` 操作或流程。
+**用途 / Purpose:** 执行 「set selected」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteSetSelected();
+```
 
 ### ExecuteTalk
 `public void ExecuteTalk()`
 
-**用途 / Purpose:** 执行 `talk` 操作或流程。
+**用途 / Purpose:** 执行 「talk」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteTalk();
+```
 
 ### UpdateTradeData
 `public void UpdateTradeData()`
 
-**用途 / Purpose:** 更新 `trade data` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「trade data」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.UpdateTradeData();
+```
 
 ### UpdateRecruitable
 `public void UpdateRecruitable()`
 
-**用途 / Purpose:** 更新 `recruitable` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「recruitable」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.UpdateRecruitable();
+```
 
 ### InitializeUpgrades
 `public void InitializeUpgrades()`
 
-**用途 / Purpose:** 初始化 `upgrades` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「upgrades」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.InitializeUpgrades();
+```
 
 ### OnTransferred
 `public void OnTransferred()`
 
-**用途 / Purpose:** 当 `transferred` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「transferred」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.OnTransferred();
+```
 
 ### ThrowOnPropertyChanged
 `public void ThrowOnPropertyChanged()`
 
-**用途 / Purpose:** 处理 `throw on property changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ThrowOnPropertyChanged();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+var result = partyCharacterVM.Equals(obj);
+```
 
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** 执行 `set focused` 操作或流程。
+**用途 / Purpose:** 执行 「set focused」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteSetFocused();
+```
 
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** 执行 `set unfocused` 操作或流程。
+**用途 / Purpose:** 执行 「set unfocused」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteSetUnfocused();
+```
 
 ### ExecuteTransferSingle
 `public void ExecuteTransferSingle()`
 
-**用途 / Purpose:** 执行 `transfer single` 操作或流程。
+**用途 / Purpose:** 执行 「transfer single」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteTransferSingle();
+```
 
 ### ExecuteResetTrade
 `public void ExecuteResetTrade()`
 
-**用途 / Purpose:** 执行 `reset trade` 操作或流程。
+**用途 / Purpose:** 执行 「reset trade」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteResetTrade();
+```
 
 ### Upgrade
 `public void Upgrade(int upgradeIndex, int maxUpgradeCount)`
 
-**用途 / Purpose:** 处理 `upgrade` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.Upgrade(0, 0);
+```
 
 ### FocusUpgrade
 `public void FocusUpgrade(UpgradeTargetVM upgrade)`
 
-**用途 / Purpose:** 处理 `focus upgrade` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.FocusUpgrade(upgrade);
+```
 
 ### RecruitAll
 `public void RecruitAll()`
 
-**用途 / Purpose:** 处理 `recruit all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.RecruitAll();
+```
 
 ### ExecuteRecruitTroop
 `public void ExecuteRecruitTroop()`
 
-**用途 / Purpose:** 执行 `recruit troop` 操作或流程。
+**用途 / Purpose:** 执行 「recruit troop」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteRecruitTroop();
+```
 
 ### ExecuteExecuteTroop
 `public void ExecuteExecuteTroop()`
 
-**用途 / Purpose:** 执行 `execute troop` 操作或流程。
+**用途 / Purpose:** 执行 「execute troop」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteExecuteTroop();
+```
 
 ### ExecuteOpenTroopEncyclopedia
 `public void ExecuteOpenTroopEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open troop encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open troop encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.ExecuteOpenTroopEncyclopedia();
+```
 
 ### SetIsUpgradeButtonHighlighted
 `public void SetIsUpgradeButtonHighlighted(bool isHighlighted)`
 
-**用途 / Purpose:** 设置 `is upgrade button highlighted` 的值或状态。
+**用途 / Purpose:** 为 「is upgrade button highlighted」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.SetIsUpgradeButtonHighlighted(false);
+```
 
 ### GetNumOfCategoryItemPartyHas
 `public int GetNumOfCategoryItemPartyHas(ItemRoster items, ItemCategory itemCategory)`
 
-**用途 / Purpose:** 获取 `num of category item party has` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num of category item party has」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+var result = partyCharacterVM.GetNumOfCategoryItemPartyHas(items, itemCategory);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCharacterVM 实例
+PartyCharacterVM partyCharacterVM = ...;
+var result = partyCharacterVM.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyCharacterVM();
-value.UpdateTalkable();
+// 通常从对应子系统 API 获取实例后调用
+PartyCharacterVM partyCharacterVM = ...;
+partyCharacterVM.UpdateTalkable();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,24 +1,18 @@
 ---
 title: "ClanAsDecisionOutcome"
+description: "Auto-generated class reference for ClanAsDecisionOutcome."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanAsDecisionOutcome`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanAsDecisionOutcome
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanAsDecisionOutcome : DecisionOutcome`
 **Base:** `DecisionOutcome`
-**Area:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/Election/SettlementClaimantDecision.cs`
 
 ## Overview
 
-`ClanAsDecisionOutcome` lives in `TaleWorlds.CampaignSystem.Election`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ClanAsDecisionOutcome` lives in `TaleWorlds.CampaignSystem.Election` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -26,115 +20,58 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 
 ## Key Methods
 
-### IsAllowed
-`public override bool IsAllowed()`
-
-**Purpose:** Handles logic related to `is allowed`.
-
-### GetProposalInfluenceCost
-`public override int GetProposalInfluenceCost()`
-
-**Purpose:** Gets the current value of `proposal influence cost`.
-
-### GetSupportTitle
-`public override TextObject GetSupportTitle()`
-
-**Purpose:** Gets the current value of `support title`.
-
-### GetGeneralTitle
-`public override TextObject GetGeneralTitle()`
-
-**Purpose:** Gets the current value of `general title`.
-
-### GetSupportDescription
-`public override TextObject GetSupportDescription()`
-
-**Purpose:** Gets the current value of `support description`.
-
-### GetChooseTitle
-`public override TextObject GetChooseTitle()`
-
-**Purpose:** Gets the current value of `choose title`.
-
-### GetChooseDescription
-`public override TextObject GetChooseDescription()`
-
-**Purpose:** Gets the current value of `choose description`.
-
-### CalculateMeritOfOutcome
-`public override float CalculateMeritOfOutcome(DecisionOutcome candidateOutcome)`
-
-**Purpose:** Handles logic related to `calculate merit of outcome`.
-
-### DetermineInitialCandidates
-`public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
-
-**Purpose:** Handles logic related to `determine initial candidates`.
-
-### DetermineChooser
-`public override Clan DetermineChooser()`
-
-**Purpose:** Handles logic related to `determine chooser`.
-
-### DetermineSupport
-`public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
-
-**Purpose:** Handles logic related to `determine support`.
-
-### DetermineSponsors
-`public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
-
-**Purpose:** Handles logic related to `determine sponsors`.
-
-### ApplyChosenOutcome
-`public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
-
-**Purpose:** Applies `chosen outcome` to the current object.
-
-### GetSecondaryEffects
-`public override TextObject GetSecondaryEffects()`
-
-**Purpose:** Gets the current value of `secondary effects`.
-
-### ApplySecondaryEffects
-`public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
-
-**Purpose:** Applies `secondary effects` to the current object.
-
-### GetChosenOutcomeText
-`public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
-
-**Purpose:** Gets the current value of `chosen outcome text`.
-
-### GetQueriedDecisionOutcome
-`public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
-
-**Purpose:** Gets the current value of `queried decision outcome`.
-
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Gets the current value of `decision title`.
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanAsDecisionOutcome from the subsystem API first
+ClanAsDecisionOutcome clanAsDecisionOutcome = ...;
+var result = clanAsDecisionOutcome.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Gets the current value of `decision description`.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanAsDecisionOutcome from the subsystem API first
+ClanAsDecisionOutcome clanAsDecisionOutcome = ...;
+var result = clanAsDecisionOutcome.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `decision link`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanAsDecisionOutcome from the subsystem API first
+ClanAsDecisionOutcome clanAsDecisionOutcome = ...;
+var result = clanAsDecisionOutcome.GetDecisionLink();
+```
+
+### GetDecisionImageIdentifier
+`public override ImageIdentifier GetDecisionImageIdentifier()`
+
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanAsDecisionOutcome from the subsystem API first
+ClanAsDecisionOutcome clanAsDecisionOutcome = ...;
+var result = clanAsDecisionOutcome.GetDecisionImageIdentifier();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a ClanAsDecisionOutcome instance from game state, then call one of its public methods
-var value = new ClanAsDecisionOutcome();
-value.IsAllowed();
+// Typically call this after obtaining an instance from the subsystem API
+ClanAsDecisionOutcome clanAsDecisionOutcome = ...;
+clanAsDecisionOutcome.GetDecisionTitle();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

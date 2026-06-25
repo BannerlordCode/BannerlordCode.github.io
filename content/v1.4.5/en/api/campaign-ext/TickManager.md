@@ -1,20 +1,14 @@
 ---
 title: "TickManager"
+description: "Auto-generated class reference for TickManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TickManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TickManager
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class TickManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/TickManager.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/TickManager.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `TickManager` as a Manager-style extension point: first identify who creat
 ### TickDelegate
 `public delegate void TickDelegate()`
 
-**Purpose:** Handles logic related to `tick delegate`.
+**Purpose:** Advances the `delegate` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TickManager from the subsystem API first
+TickManager tickManager = ...;
+tickManager.TickDelegate();
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TickManager from the subsystem API first
+TickManager tickManager = ...;
+tickManager.Tick();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = TickManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

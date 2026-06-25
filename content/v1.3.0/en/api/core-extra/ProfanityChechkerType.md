@@ -1,13 +1,7 @@
 ---
 title: "ProfanityChechkerType"
+description: "Auto-generated class reference for ProfanityChechkerType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProfanityChechkerType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProfanityChechkerType
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-ProfanityChechkerType example = ProfanityChechkerType.Value;
+// Obtain an instance from the relevant subsystem API
+ProfanityChechkerType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

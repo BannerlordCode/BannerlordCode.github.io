@@ -1,20 +1,14 @@
 ---
 title: "PopupSceneSwitchItemSequence"
+description: "Auto-generated class reference for PopupSceneSwitchItemSequence."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneSwitchItemSequence`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneSwitchItemSequence
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PopupSceneSwitchItemSequence : PopupSceneSequence`
 **Base:** `PopupSceneSequence`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/PopupSceneSwitchItemSequence.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/PopupSceneSwitchItemSequence.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### OnInitialState
 `public override void OnInitialState()`
 
-**Purpose:** Called when the `initial state` event is raised.
+**Purpose:** Invoked when the `initial state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSwitchItemSequence from the subsystem API first
+PopupSceneSwitchItemSequence popupSceneSwitchItemSequence = ...;
+popupSceneSwitchItemSequence.OnInitialState();
+```
 
 ### OnPositiveState
 `public override void OnPositiveState()`
 
-**Purpose:** Called when the `positive state` event is raised.
+**Purpose:** Invoked when the `positive state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSwitchItemSequence from the subsystem API first
+PopupSceneSwitchItemSequence popupSceneSwitchItemSequence = ...;
+popupSceneSwitchItemSequence.OnPositiveState();
+```
 
 ### OnNegativeState
 `public override void OnNegativeState()`
 
-**Purpose:** Called when the `negative state` event is raised.
+**Purpose:** Invoked when the `negative state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSwitchItemSequence from the subsystem API first
+PopupSceneSwitchItemSequence popupSceneSwitchItemSequence = ...;
+popupSceneSwitchItemSequence.OnNegativeState();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PopupSceneSwitchItemSequence();
-value.OnInitialState();
+// Typically call this after obtaining an instance from the subsystem API
+PopupSceneSwitchItemSequence popupSceneSwitchItemSequence = ...;
+popupSceneSwitchItemSequence.OnInitialState();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "GameTipsVM"
+description: "GameTipsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameTipsVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTipsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameTipsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu/GameTipsVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu/GameTipsVM.cs`
 
 ## 概述
 
@@ -37,30 +31,55 @@ title: "GameTipsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameTipsVM 实例
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.RefreshValues();
+```
 
 ### ExecutePreviousTip
 `public void ExecutePreviousTip()`
 
-**用途 / Purpose:** 执行 `previous tip` 操作或流程。
+**用途 / Purpose:** 执行 「previous tip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameTipsVM 实例
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.ExecutePreviousTip();
+```
 
 ### ExecuteNextTip
 `public void ExecuteNextTip()`
 
-**用途 / Purpose:** 执行 `next tip` 操作或流程。
+**用途 / Purpose:** 执行 「next tip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameTipsVM 实例
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.ExecuteNextTip();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameTipsVM 实例
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.OnTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameTipsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

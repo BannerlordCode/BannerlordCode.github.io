@@ -1,20 +1,14 @@
 ---
 title: "MPCustomGameSortControllerVM"
+description: "MPCustomGameSortControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPCustomGameSortControllerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPCustomGameSortControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPCustomGameSortControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameSortControllerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameSortControllerVM.cs`
 
 ## 概述
 
@@ -49,140 +43,297 @@ title: "MPCustomGameSortControllerVM"
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 设置 `sort mode` 的值或状态。
+**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPCustomGameItemVM x, MPCustomGameItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+var result = mPCustomGameSortControllerVM.Compare(x, y);
+```
 
 ### InitializeWithSortState
 `public void InitializeWithSortState(CustomServerSortOption? sortOption, SortState sortState = SortState.Default)`
 
-**用途 / Purpose:** 初始化 `with sort state` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「with sort state」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.InitializeWithSortState(sortOption, sortState.Default);
+```
 
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**用途 / Purpose:** 处理 `sort by current state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.SortByCurrentState();
+```
 
 ### ExecuteSortByFavorites
 `public void ExecuteSortByFavorites()`
 
-**用途 / Purpose:** 执行 `sort by favorites` 操作或流程。
+**用途 / Purpose:** 执行 「sort by favorites」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByFavorites();
+```
 
 ### ExecuteSortByServerName
 `public void ExecuteSortByServerName()`
 
-**用途 / Purpose:** 执行 `sort by server name` 操作或流程。
+**用途 / Purpose:** 执行 「sort by server name」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByServerName();
+```
 
 ### ExecuteSortByGameType
 `public void ExecuteSortByGameType()`
 
-**用途 / Purpose:** 执行 `sort by game type` 操作或流程。
+**用途 / Purpose:** 执行 「sort by game type」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByGameType();
+```
 
 ### ExecuteSortByPlayerCount
 `public void ExecuteSortByPlayerCount()`
 
-**用途 / Purpose:** 执行 `sort by player count` 操作或流程。
+**用途 / Purpose:** 执行 「sort by player count」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByPlayerCount();
+```
 
 ### ExecuteSortByPassword
 `public void ExecuteSortByPassword()`
 
-**用途 / Purpose:** 执行 `sort by password` 操作或流程。
+**用途 / Purpose:** 执行 「sort by password」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByPassword();
+```
 
 ### ExecuteSortByFirstFaction
 `public void ExecuteSortByFirstFaction()`
 
-**用途 / Purpose:** 执行 `sort by first faction` 操作或流程。
+**用途 / Purpose:** 执行 「sort by first faction」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByFirstFaction();
+```
 
 ### ExecuteSortBySecondFaction
 `public void ExecuteSortBySecondFaction()`
 
-**用途 / Purpose:** 执行 `sort by second faction` 操作或流程。
+**用途 / Purpose:** 执行 「sort by second faction」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortBySecondFaction();
+```
 
 ### ExecuteSortByRegion
 `public void ExecuteSortByRegion()`
 
-**用途 / Purpose:** 执行 `sort by region` 操作或流程。
+**用途 / Purpose:** 执行 「sort by region」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByRegion();
+```
 
 ### ExecuteSortByPremadeMatchType
 `public void ExecuteSortByPremadeMatchType()`
 
-**用途 / Purpose:** 执行 `sort by premade match type` 操作或流程。
+**用途 / Purpose:** 执行 「sort by premade match type」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByPremadeMatchType();
+```
 
 ### ExecuteSortByHost
 `public void ExecuteSortByHost()`
 
-**用途 / Purpose:** 执行 `sort by host` 操作或流程。
+**用途 / Purpose:** 执行 「sort by host」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByHost();
+```
 
 ### ExecuteSortByPing
 `public void ExecuteSortByPing()`
 
-**用途 / Purpose:** 执行 `sort by ping` 操作或流程。
+**用途 / Purpose:** 执行 「sort by ping」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameSortControllerVM 实例
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.ExecuteSortByPing();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPCustomGameSortControllerVM();
-value.SetSortMode(false);
+// 通常从对应子系统 API 获取实例后调用
+MPCustomGameSortControllerVM mPCustomGameSortControllerVM = ...;
+mPCustomGameSortControllerVM.SetSortMode(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClassFilterClassGroupItemVM"
+description: "Auto-generated class reference for MPLobbyClassFilterClassGroupItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClassFilterClassGroupItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClassFilterClassGroupItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClassFilterClassGroupItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter/MPLobbyClassFilterClassGroupItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.ClassFilter/MPLobbyClassFilterClassGroupItemVM.cs`
 
 ## Overview
 
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClassFilterClassGroupItemVM from the subsystem API first
+MPLobbyClassFilterClassGroupItemVM mPLobbyClassFilterClassGroupItemVM = ...;
+mPLobbyClassFilterClassGroupItemVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClassFilterClassGroupItemVM from the subsystem API first
+MPLobbyClassFilterClassGroupItemVM mPLobbyClassFilterClassGroupItemVM = ...;
+mPLobbyClassFilterClassGroupItemVM.OnFinalize();
+```
 
 ### AddClass
 `public void AddClass(BasicCultureObject culture, MPHeroClass heroClass, Action<MPLobbyClassFilterClassItemVM> onSelect)`
 
 **Purpose:** Adds `class` to the current collection or state.
 
+```csharp
+// Obtain an instance of MPLobbyClassFilterClassGroupItemVM from the subsystem API first
+MPLobbyClassFilterClassGroupItemVM mPLobbyClassFilterClassGroupItemVM = ...;
+mPLobbyClassFilterClassGroupItemVM.AddClass(culture, heroClass, onSelect);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClassFilterClassGroupItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClassFilterClassGroupItemVM mPLobbyClassFilterClassGroupItemVM = ...;
+mPLobbyClassFilterClassGroupItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

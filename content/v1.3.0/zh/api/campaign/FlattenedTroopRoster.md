@@ -1,13 +1,7 @@
 ---
 title: "FlattenedTroopRoster"
+description: "FlattenedTroopRoster 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FlattenedTroopRoster`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FlattenedTroopRoster
 
 **Namespace:** TaleWorlds.CampaignSystem.Roster
@@ -36,79 +30,164 @@ title: "FlattenedTroopRoster"
 ### Add
 `public void Add(MBList<TroopRosterElement> roster)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.Add(roster);
+```
 
 ### Add
 `public void Add(TroopRosterElement troop)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.Add(troop);
+```
 
 ### Add
 `public void Add(CharacterObject troop, int number, int woundedNumber = 0)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.Add(troop, 0, 0);
+```
 
 ### Add
 `public UniqueTroopDescriptor Add(CharacterObject troop, bool isWounded = false, int xp = 0)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+var result = flattenedTroopRoster.Add(troop, false, 0);
+```
 
 ### GenerateUniqueNoFromParty
 `public static int GenerateUniqueNoFromParty(MobileParty party, int troopIndex)`
 
-**用途 / Purpose:** 处理 `generate unique no from party` 相关逻辑。
+**用途 / Purpose:** 生成「unique no from party」的实例、数据或表示。
+
+```csharp
+// 静态调用，不需要实例
+FlattenedTroopRoster.GenerateUniqueNoFromParty(party, 0);
+```
 
 ### Remove
 `public void Remove(UniqueTroopDescriptor descriptor)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.Remove(descriptor);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.Clear();
+```
 
 ### RemoveIf
 `public ICollection<FlattenedTroopRosterElement> RemoveIf(Predicate<FlattenedTroopRosterElement> match)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `if`。
+**用途 / Purpose:** 从当前容器或状态中移除 「if」。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+var result = flattenedTroopRoster.RemoveIf(match);
+```
 
 ### FindIndexOfCharacter
 `public UniqueTroopDescriptor FindIndexOfCharacter(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `find index of character` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「index of character」。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+var result = flattenedTroopRoster.FindIndexOfCharacter(character);
+```
 
 ### GetEnumerator
 `public IEnumerator<FlattenedTroopRosterElement> GetEnumerator()`
 
-**用途 / Purpose:** 获取 `enumerator` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「enumerator」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+var result = flattenedTroopRoster.GetEnumerator();
+```
 
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** 当 `troop killed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop killed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.OnTroopKilled(troopSeed);
+```
 
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** 当 `troop wounded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop wounded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.OnTroopWounded(troopSeed);
+```
 
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopSeed)`
 
-**用途 / Purpose:** 当 `troop routed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop routed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.OnTroopRouted(troopSeed);
+```
 
 ### OnTroopGainXp
 `public void OnTroopGainXp(UniqueTroopDescriptor troopSeed, int xpGained)`
 
-**用途 / Purpose:** 当 `troop gain xp` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop gain xp」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FlattenedTroopRoster 实例
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.OnTroopGainXp(troopSeed, 0);
+```
 
 ## 使用示例
 
 ```csharp
-FlattenedTroopRoster example = FlattenedTroopRoster.this;
+// 通常从对应子系统 API 获取实例后调用
+FlattenedTroopRoster flattenedTroopRoster = ...;
+flattenedTroopRoster.Add(roster);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

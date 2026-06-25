@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticsVM"
+description: "Auto-generated class reference for MPArmoryCosmeticsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryCosmeticsVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryCosmeticsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryCosmeticsVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryCosmeticsVM.cs`
 
 ## Overview
 
@@ -56,90 +50,187 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+var result = mPArmoryCosmeticsVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.OnFinalize();
+```
 
 ### OnTick
 `public async void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.OnTick(0);
+```
 
 ### RefreshAvailableCategoriesBy
 `public void RefreshAvailableCategoriesBy(CosmeticType type)`
 
-**Purpose:** Refreshes the display or cache of `available categories by`.
+**Purpose:** Keeps the display or cache of `available categories by` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshAvailableCategoriesBy(type);
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**Purpose:** Refreshes the display or cache of `player data`.
+**Purpose:** Keeps the display or cache of `player data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshPlayerData(playerData);
+```
 
 ### RefreshCosmeticInfoFromNetwork
 `public void RefreshCosmeticInfoFromNetwork()`
 
-**Purpose:** Refreshes the display or cache of `cosmetic info from network`.
+**Purpose:** Keeps the display or cache of `cosmetic info from network` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshCosmeticInfoFromNetwork();
+```
 
 ### RefreshSelectedClass
 `public void RefreshSelectedClass(MPHeroClass selectedClass, List<IReadOnlyPerkObject> selectedPerks)`
 
-**Purpose:** Refreshes the display or cache of `selected class`.
+**Purpose:** Keeps the display or cache of `selected class` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshSelectedClass(selectedClass, selectedPerks);
+```
 
 ### ClearTauntSelections
 `public void ClearTauntSelections()`
 
-**Purpose:** Handles logic related to `clear taunt selections`.
+**Purpose:** Removes all `taunt selections` from the current object.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.ClearTauntSelections();
+```
 
 ### OnItemObtained
 `public void OnItemObtained(string cosmeticID, int finalLoot)`
 
-**Purpose:** Called when the `item obtained` event is raised.
+**Purpose:** Invoked when the `item obtained` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.OnItemObtained("example", 0);
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey actionKey, HotKey previewKey)`
 
-**Purpose:** Refreshes the display or cache of `key bindings`.
+**Purpose:** Keeps the display or cache of `key bindings` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.RefreshKeyBindings(actionKey, previewKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPArmoryCosmeticsVM();
-value.SetSortMode(false);
+// Typically call this after obtaining an instance from the subsystem API
+MPArmoryCosmeticsVM mPArmoryCosmeticsVM = ...;
+mPArmoryCosmeticsVM.SetSortMode(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

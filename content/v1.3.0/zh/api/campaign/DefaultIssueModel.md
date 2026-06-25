@@ -1,13 +1,7 @@
 ---
 title: "DefaultIssueModel"
+description: "DefaultIssueModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultIssueModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultIssueModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,52 +29,112 @@ title: "DefaultIssueModel"
 ### GetIssueDifficultyMultiplier
 `public override float GetIssueDifficultyMultiplier()`
 
-**用途 / Purpose:** 获取 `issue difficulty multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「issue difficulty multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+var result = defaultIssueModel.GetIssueDifficultyMultiplier();
+```
 
 ### GetIssueEffectsOfSettlement
 `public override void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 获取 `issue effects of settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「issue effects of settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+defaultIssueModel.GetIssueEffectsOfSettlement(issueEffect, settlement, explainedNumber);
+```
 
 ### GetIssueEffectOfHero
 `public override void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 获取 `issue effect of hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「issue effect of hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+defaultIssueModel.GetIssueEffectOfHero(issueEffect, hero, explainedNumber);
+```
 
 ### GetIssueEffectOfClan
 `public override void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 获取 `issue effect of clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「issue effect of clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+defaultIssueModel.GetIssueEffectOfClan(issueEffect, clan, explainedNumber);
+```
 
 ### GetCausalityForHero
 `public override ValueTuple<int, int> GetCausalityForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** 获取 `causality for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「causality for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+var result = defaultIssueModel.GetCausalityForHero(alternativeSolutionHero, issue);
+```
 
 ### GetFailureRiskForHero
 `public override float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** 获取 `failure risk for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「failure risk for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+var result = defaultIssueModel.GetFailureRiskForHero(alternativeSolutionHero, issue);
+```
 
 ### GetDurationOfResolutionForHero
 `public override CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** 获取 `duration of resolution for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「duration of resolution for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+var result = defaultIssueModel.GetDurationOfResolutionForHero(alternativeSolutionHero, issue);
+```
 
 ### GetTroopsRequiredForHero
 `public override int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** 获取 `troops required for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troops required for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+var result = defaultIssueModel.GetTroopsRequiredForHero(alternativeSolutionHero, issue);
+```
 
 ### GetIssueAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetIssueAlternativeSolutionSkill(Hero hero, IssueBase issue)`
 
-**用途 / Purpose:** 获取 `issue alternative solution skill` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「issue alternative solution skill」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+var result = defaultIssueModel.GetIssueAlternativeSolutionSkill(hero, issue);
+```
 
 ### CanTroopsReturnFromAlternativeSolution
 `public override bool CanTroopsReturnFromAlternativeSolution()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `troops return from alternative solution`。
+**用途 / Purpose:** 检查当前对象是否满足 「troops return from alternative solution」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultIssueModel 实例
+DefaultIssueModel defaultIssueModel = ...;
+var result = defaultIssueModel.CanTroopsReturnFromAlternativeSolution();
+```
 
 ## 使用示例
 
@@ -90,4 +144,4 @@ Game.Current.ReplaceModel<DefaultIssueModel>(new MyDefaultIssueModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleInitializationModel"
+description: "Auto-generated class reference for CustomBattleInitializationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleInitializationModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleInitializationModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,13 @@ Treat `CustomBattleInitializationModel` as a Model-style extension point: first 
 ### GetAllAvailableTroopTypes
 `public override List<FormationClass> GetAllAvailableTroopTypes()`
 
-**Purpose:** Gets the current value of `all available troop types`.
+**Purpose:** Reads and returns the `all available troop types` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleInitializationModel from the subsystem API first
+CustomBattleInitializationModel customBattleInitializationModel = ...;
+var result = customBattleInitializationModel.GetAllAvailableTroopTypes();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<CustomBattleInitializationModel>(new MyCustomBattleIni
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

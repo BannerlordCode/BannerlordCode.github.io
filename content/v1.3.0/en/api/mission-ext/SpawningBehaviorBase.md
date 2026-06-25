@@ -1,13 +1,7 @@
 ---
 title: "SpawningBehaviorBase"
+description: "Auto-generated class reference for SpawningBehaviorBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawningBehaviorBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawningBehaviorBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,79 +23,164 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public virtual void Initialize(SpawnComponent spawnComponent)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.Initialize(spawnComponent);
+```
 
 ### Clear
 `public virtual void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.Clear();
+```
 
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.OnTick(0);
+```
 
 ### AreAgentsSpawning
 `public bool AreAgentsSpawning()`
 
-**Purpose:** Handles logic related to `are agents spawning`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+var result = spawningBehaviorBase.AreAgentsSpawning();
+```
 
 ### RequestStartSpawnSession
 `public virtual void RequestStartSpawnSession()`
 
-**Purpose:** Handles logic related to `request start spawn session`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.RequestStartSpawnSession();
+```
 
 ### RequestStopSpawnSession
 `public void RequestStopSpawnSession()`
 
-**Purpose:** Handles logic related to `request stop spawn session`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.RequestStopSpawnSession();
+```
 
 ### SetRemainingAgentsInvulnerable
 `public void SetRemainingAgentsInvulnerable()`
 
-**Purpose:** Sets the value or state of `remaining agents invulnerable`.
+**Purpose:** Assigns a new value to `remaining agents invulnerable` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.SetRemainingAgentsInvulnerable();
+```
 
 ### CanUpdateSpawnEquipment
 `public virtual bool CanUpdateSpawnEquipment(MissionPeer missionPeer)`
 
-**Purpose:** Checks whether the current object can `update spawn equipment`.
+**Purpose:** Checks whether the current object meets the preconditions for `update spawn equipment`.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+var result = spawningBehaviorBase.CanUpdateSpawnEquipment(missionPeer);
+```
 
 ### ToggleUpdatingSpawnEquipment
 `public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
 
-**Purpose:** Handles logic related to `toggle updating spawn equipment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.ToggleUpdatingSpawnEquipment(false);
+```
 
 ### AllowEarlyAgentVisualsDespawning
 `public abstract bool AllowEarlyAgentVisualsDespawning(MissionPeer missionPeer)`
 
-**Purpose:** Handles logic related to `allow early agent visuals despawning`.
+**Purpose:** Permits `early agent visuals despawning` to be enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+var result = spawningBehaviorBase.AllowEarlyAgentVisualsDespawning(missionPeer);
+```
 
 ### GetMaximumReSpawnPeriodForPeer
 `public virtual int GetMaximumReSpawnPeriodForPeer(MissionPeer peer)`
 
-**Purpose:** Gets the current value of `maximum re spawn period for peer`.
+**Purpose:** Reads and returns the `maximum re spawn period for peer` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+var result = spawningBehaviorBase.GetMaximumReSpawnPeriodForPeer(peer);
+```
 
 ### OnClearScene
 `public virtual void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.OnClearScene();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnSpawningEndedEventDelegate
 `public delegate void OnSpawningEndedEventDelegate()`
 
-**Purpose:** Called when the `spawning ended event delegate` event is raised.
+**Purpose:** Invoked when the `spawning ended event delegate` event is raised.
+
+```csharp
+// Obtain an instance of SpawningBehaviorBase from the subsystem API first
+SpawningBehaviorBase spawningBehaviorBase = ...;
+spawningBehaviorBase.OnSpawningEndedEventDelegate();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSpawningBehaviorBase();
+// Typically obtained from a subsystem API or factory
+SpawningBehaviorBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

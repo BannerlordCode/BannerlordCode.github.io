@@ -1,13 +1,7 @@
 ---
 title: "Track"
+description: "Track 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Track`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Track
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -42,25 +36,43 @@ title: "Track"
 ### CanPartyInteract
 `public bool CanPartyInteract(MobileParty mobileParty, float dt)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `party interact`。
+**用途 / Purpose:** 检查当前对象是否满足 「party interact」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 Track 实例
+Track track = ...;
+var result = track.CanPartyInteract(mobileParty, 0);
+```
 
 ### GetPartyTypeEnum
 `public static Track.PartyTypeEnum GetPartyTypeEnum(MobileParty party)`
 
-**用途 / Purpose:** 获取 `party type enum` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party type enum」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Track.GetPartyTypeEnum(party);
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 Track 实例
+Track track = ...;
+track.Reset();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Track();
-value.CanPartyInteract(mobileParty, 0);
+// 通常从对应子系统 API 获取实例后调用
+Track track = ...;
+track.CanPartyInteract(mobileParty, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

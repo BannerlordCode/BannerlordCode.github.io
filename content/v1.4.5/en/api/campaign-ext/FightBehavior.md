@@ -1,20 +1,14 @@
 ---
 title: "FightBehavior"
+description: "Auto-generated class reference for FightBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FightBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FightBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
 **Module:** SandBox.Missions
 **Type:** `public class FightBehavior : AgentBehavior`
 **Base:** `AgentBehavior`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/FightBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/FightBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Gets the current value of `availability`.
+**Purpose:** Reads and returns the `availability` value held by the current object.
+
+```csharp
+// Obtain an instance of FightBehavior from the subsystem API first
+FightBehavior fightBehavior = ...;
+var result = fightBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Gets the current value of `debug info`.
+**Purpose:** Reads and returns the `debug info` value held by the current object.
+
+```csharp
+// Obtain an instance of FightBehavior from the subsystem API first
+FightBehavior fightBehavior = ...;
+var result = fightBehavior.GetDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FightBehavior();
-value.GetAvailability(false);
+// Typically call this after obtaining an instance from the subsystem API
+FightBehavior fightBehavior = ...;
+fightBehavior.GetAvailability(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

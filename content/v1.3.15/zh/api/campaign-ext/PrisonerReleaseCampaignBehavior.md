@@ -1,13 +1,7 @@
 ---
 title: "PrisonerReleaseCampaignBehavior"
+description: "PrisonerReleaseCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrisonerReleaseCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PrisonerReleaseCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,20 +23,33 @@ title: "PrisonerReleaseCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonerReleaseCampaignBehavior 实例
+PrisonerReleaseCampaignBehavior prisonerReleaseCampaignBehavior = ...;
+prisonerReleaseCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonerReleaseCampaignBehavior 实例
+PrisonerReleaseCampaignBehavior prisonerReleaseCampaignBehavior = ...;
+prisonerReleaseCampaignBehavior.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PrisonerReleaseCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+PrisonerReleaseCampaignBehavior prisonerReleaseCampaignBehavior = ...;
+prisonerReleaseCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

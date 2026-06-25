@@ -1,13 +1,7 @@
 ---
 title: "EquipmentSelectionModel"
+description: "Auto-generated class reference for EquipmentSelectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EquipmentSelectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EquipmentSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ Treat `EquipmentSelectionModel` as a Model-style extension point: first identify
 ### GetEquipmentRostersForHeroComeOfAge
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
 
-**Purpose:** Gets the current value of `equipment rosters for hero come of age`.
+**Purpose:** Reads and returns the `equipment rosters for hero come of age` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(hero, false);
+```
 
 ### GetEquipmentRostersForHeroReachesTeenAge
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment rosters for hero reaches teen age`.
+**Purpose:** Reads and returns the `equipment rosters for hero reaches teen age` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForHeroReachesTeenAge(hero);
+```
 
 ### GetEquipmentRostersForInitialChildrenGeneration
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment rosters for initial children generation`.
+**Purpose:** Reads and returns the `equipment rosters for initial children generation` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForInitialChildrenGeneration(hero);
+```
 
 ### GetEquipmentRostersForDeliveredOffspring
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment rosters for delivered offspring`.
+**Purpose:** Reads and returns the `equipment rosters for delivered offspring` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForDeliveredOffspring(hero);
+```
 
 ### GetEquipmentRostersForCompanion
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero companionHero, bool isCivilian)`
 
-**Purpose:** Gets the current value of `equipment rosters for companion`.
+**Purpose:** Reads and returns the `equipment rosters for companion` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentRostersForCompanion(companionHero, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEquipmentSelectionModel();
+// Typically obtained from a subsystem API or factory
+EquipmentSelectionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SupportKingdomQuest"
+description: "SupportKingdomQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SupportKingdomQuest`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SupportKingdomQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
 **Module:** StoryMode.Quests
 **Type:** `public class SupportKingdomQuest : StoryModeQuestBase`
 **Base:** `StoryModeQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/SupportKingdomQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.FirstPhase/SupportKingdomQuest.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "SupportKingdomQuest"
 ## 使用示例
 
 ```csharp
-var value = new SupportKingdomQuest();
+// 从对应子系统 API 获取实例
+SupportKingdomQuest instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

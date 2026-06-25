@@ -1,13 +1,7 @@
 ---
 title: "ResetAnimationOnStopUsageComponent"
+description: "Auto-generated class reference for ResetAnimationOnStopUsageComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ResetAnimationOnStopUsageComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResetAnimationOnStopUsageComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,13 @@ Treat `ResetAnimationOnStopUsageComponent` as a Component-style extension point:
 ### UpdateSuccessfulResetAction
 `public void UpdateSuccessfulResetAction(ActionIndexCache successfulResetActionCode)`
 
-**Purpose:** Updates the state or data of `successful reset action`.
+**Purpose:** Recalculates and stores the latest representation of `successful reset action`.
+
+```csharp
+// Obtain an instance of ResetAnimationOnStopUsageComponent from the subsystem API first
+ResetAnimationOnStopUsageComponent resetAnimationOnStopUsageComponent = ...;
+resetAnimationOnStopUsageComponent.UpdateSuccessfulResetAction(successfulResetActionCode);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var component = agent.GetComponent<ResetAnimationOnStopUsageComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

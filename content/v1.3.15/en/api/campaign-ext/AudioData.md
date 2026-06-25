@@ -1,13 +1,7 @@
 ---
 title: "AudioData"
+description: "Auto-generated class reference for AudioData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AudioData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AudioData
 
 **Namespace:** psai.Editor
@@ -49,69 +43,138 @@ Treat `AudioData` as a Data-style extension point: first identify who creates it
 ### CreatePsaiDotNetVersion
 `public AudioData CreatePsaiDotNetVersion()`
 
-**Purpose:** Creates a new `psai dot net version` instance or object.
+**Purpose:** Constructs a new `psai dot net version` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.CreatePsaiDotNetVersion();
+```
 
 ### GetMillisecondsFromSampleCount
 `public int GetMillisecondsFromSampleCount(int sampleCount)`
 
-**Purpose:** Gets the current value of `milliseconds from sample count`.
+**Purpose:** Reads and returns the `milliseconds from sample count` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetMillisecondsFromSampleCount(0);
+```
 
 ### GetSampleCountFromMilliseconds
 `public int GetSampleCountFromMilliseconds(int durationMs)`
 
-**Purpose:** Gets the current value of `sample count from milliseconds`.
+**Purpose:** Reads and returns the `sample count from milliseconds` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetSampleCountFromMilliseconds(0);
+```
 
 ### GetLengthInSamplesBasedOnBeats
 `public int GetLengthInSamplesBasedOnBeats(float bpm, float beats)`
 
-**Purpose:** Gets the current value of `length in samples based on beats`.
+**Purpose:** Reads and returns the `length in samples based on beats` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetLengthInSamplesBasedOnBeats(0, 0);
+```
 
 ### GetPostbeatLengthInSamplesBasedOnBeats
 `public int GetPostbeatLengthInSamplesBasedOnBeats()`
 
-**Purpose:** Gets the current value of `postbeat length in samples based on beats`.
+**Purpose:** Reads and returns the `postbeat length in samples based on beats` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetPostbeatLengthInSamplesBasedOnBeats();
+```
 
 ### GetPrebeatLengthInSamplesBasedOnBeats
 `public int GetPrebeatLengthInSamplesBasedOnBeats()`
 
-**Purpose:** Gets the current value of `prebeat length in samples based on beats`.
+**Purpose:** Reads and returns the `prebeat length in samples based on beats` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetPrebeatLengthInSamplesBasedOnBeats();
+```
 
 ### CalculateTotalLengthInSamples
 `public static int CalculateTotalLengthInSamples(int lengthOfWaveformDataInBytes, int bitsPerSample, int channelCount)`
 
-**Purpose:** Handles logic related to `calculate total length in samples`.
+**Purpose:** Calculates the current value or result of `total length in samples`.
+
+```csharp
+// Static call; no instance required
+AudioData.CalculateTotalLengthInSamples(0, 0, 0);
+```
 
 ### DoUpdateMembersBasedOnWaveHeader
 `public bool DoUpdateMembersBasedOnWaveHeader(string fullPathToAudioFile, out string errorMessage)`
 
-**Purpose:** Handles logic related to `do update members based on wave header`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.DoUpdateMembersBasedOnWaveHeader("example", errorMessage);
+```
 
 ### SeekChunkInWaveHeader
 `public static bool SeekChunkInWaveHeader(ref BinaryReader reader, string chunk)`
 
-**Purpose:** Handles logic related to `seek chunk in wave header`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+AudioData.SeekChunkInWaveHeader(reader, "example");
+```
 
 ### ReadWaveHeader
 `public static PsaiResult ReadWaveHeader(Stream stream, out int outChannelCount, out int outSampleRate, out int outBitsPerSample, out int outLengthOfWaveformDatablockInBytes, out long outBytePositionOfWaveformData)`
 
-**Purpose:** Handles logic related to `read wave header`.
+**Purpose:** Reads the data or state of `wave header`.
+
+```csharp
+// Static call; no instance required
+AudioData.ReadWaveHeader(stream, outChannelCount, outSampleRate, outBitsPerSample, outLengthOfWaveformDatablockInBytes, outBytePositionOfWaveformData);
+```
 
 ### LoadWaveformDataToByteArray
 `public static byte LoadWaveformDataToByteArray(string fullFilePath, long byteIndexOfWaveformDataWithinAudioFile, int lengthOfWaveformDataInBytes)`
 
-**Purpose:** Loads `waveform data to byte array` data.
+**Purpose:** Reads `waveform data to byte array` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+AudioData.LoadWaveformDataToByteArray("example", 0, 0);
+```
 
 ### Clone
 `public object Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.Clone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AudioData();
+// This data object is usually returned by campaign/mission APIs
+AudioData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PopupSceneBanner"
+description: "Auto-generated class reference for PopupSceneBanner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneBanner`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneBanner
 
 **Namespace:** TaleWorlds.MountAndBlade.View.SceneNotification
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.SceneNotification` to place 
 ## Usage Example
 
 ```csharp
-var value = new PopupSceneBanner();
+// Obtain an instance from the relevant subsystem API
+PopupSceneBanner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

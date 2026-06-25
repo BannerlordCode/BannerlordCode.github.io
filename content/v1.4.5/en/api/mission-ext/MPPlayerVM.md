@@ -1,20 +1,14 @@
 ---
 title: "MPPlayerVM"
+description: "Auto-generated class reference for MPPlayerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPlayerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPlayerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPPlayerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MPPlayerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MPPlayerVM.cs`
 
 ## Overview
 
@@ -48,60 +42,121 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### UpdateDisabled
 `public void UpdateDisabled()`
 
-**Purpose:** Updates the state or data of `disabled`.
+**Purpose:** Recalculates and stores the latest representation of `disabled`.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.UpdateDisabled();
+```
 
 ### RefreshDivision
 `public void RefreshDivision(bool useCultureColors = false)`
 
-**Purpose:** Refreshes the display or cache of `division`.
+**Purpose:** Keeps the display or cache of `division` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshDivision(false);
+```
 
 ### RefreshGold
 `public void RefreshGold()`
 
-**Purpose:** Refreshes the display or cache of `gold`.
+**Purpose:** Keeps the display or cache of `gold` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshGold();
+```
 
 ### RefreshTeam
 `public void RefreshTeam()`
 
-**Purpose:** Refreshes the display or cache of `team`.
+**Purpose:** Keeps the display or cache of `team` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshTeam();
+```
 
 ### RefreshProperties
 `public void RefreshProperties()`
 
-**Purpose:** Refreshes the display or cache of `properties`.
+**Purpose:** Keeps the display or cache of `properties` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshProperties();
+```
 
 ### RefreshPreview
 `public void RefreshPreview(BasicCharacterObject character, DynamicBodyProperties dynamicBodyProperties, bool isFemale)`
 
-**Purpose:** Refreshes the display or cache of `preview`.
+**Purpose:** Keeps the display or cache of `preview` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshPreview(character, dynamicBodyProperties, false);
+```
 
 ### RefreshActivePerks
 `public void RefreshActivePerks()`
 
-**Purpose:** Refreshes the display or cache of `active perks`.
+**Purpose:** Keeps the display or cache of `active perks` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshActivePerks();
+```
 
 ### RefreshAvatar
 `public void RefreshAvatar()`
 
-**Purpose:** Refreshes the display or cache of `avatar`.
+**Purpose:** Keeps the display or cache of `avatar` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.RefreshAvatar();
+```
 
 ### ExecuteFocusBegin
 `public void ExecuteFocusBegin()`
 
-**Purpose:** Executes the `focus begin` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focus begin`.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.ExecuteFocusBegin();
+```
 
 ### ExecuteFocusEnd
 `public void ExecuteFocusEnd()`
 
-**Purpose:** Executes the `focus end` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focus end`.
+
+```csharp
+// Obtain an instance of MPPlayerVM from the subsystem API first
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.ExecuteFocusEnd();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPPlayerVM();
-value.UpdateDisabled();
+// Typically call this after obtaining an instance from the subsystem API
+MPPlayerVM mPPlayerVM = ...;
+mPPlayerVM.UpdateDisabled();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

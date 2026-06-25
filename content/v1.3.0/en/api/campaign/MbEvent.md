@@ -1,20 +1,14 @@
 ---
 title: "MbEvent"
+description: "Auto-generated class reference for MbEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MbEvent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MbEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MbEvent : IMbEvent`
-**Base:** `IMbEvent`
-**File:** `TaleWorlds.CampaignSystem/MbEvent.cs`
+**Type:** `public class MbEvent<T> : IMbEvent<T>, IMbEventBase`
+**Base:** `IMbEvent<T>`
+**File:** `TaleWorlds.CampaignSystem/MbEvent.2.cs`
 
 ## Overview
 
@@ -27,27 +21,46 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Key Methods
 
 ### AddNonSerializedListener
-`public void AddNonSerializedListener(object owner, Action action)`
+`public void AddNonSerializedListener(object owner, Action<T> action)`
 
 **Purpose:** Adds `non serialized listener` to the current collection or state.
 
-### Invoke
-`public void Invoke()`
+```csharp
+// Obtain an instance of MbEvent from the subsystem API first
+MbEvent mbEvent = ...;
+mbEvent.AddNonSerializedListener(owner, action);
+```
 
-**Purpose:** Handles logic related to `invoke`.
+### Invoke
+`public void Invoke(T t)`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MbEvent from the subsystem API first
+MbEvent mbEvent = ...;
+mbEvent.Invoke(t);
+```
 
 ### ClearListeners
 `public void ClearListeners(object o)`
 
-**Purpose:** Handles logic related to `clear listeners`.
+**Purpose:** Removes all `listeners` from the current object.
+
+```csharp
+// Obtain an instance of MbEvent from the subsystem API first
+MbEvent mbEvent = ...;
+mbEvent.ClearListeners(o);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MbEvent();
-value.AddNonSerializedListener(owner, action);
+// Typically call this after obtaining an instance from the subsystem API
+MbEvent mbEvent = ...;
+mbEvent.AddNonSerializedListener(owner, action);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

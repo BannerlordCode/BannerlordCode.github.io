@@ -1,20 +1,14 @@
 ---
 title: "SelectionCampaignOptionData"
+description: "Auto-generated class reference for SelectionCampaignOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectionCampaignOptionData`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SelectionCampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SelectionCampaignOptionData : CampaignOptionData`
 **Base:** `CampaignOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/SelectionCampaignOptionData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/SelectionCampaignOptionData.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `SelectionCampaignOptionData` as a Data-style extension point: first ident
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**Purpose:** Gets the current value of `data type`.
+**Purpose:** Reads and returns the `data type` value held by the current object.
+
+```csharp
+// Obtain an instance of SelectionCampaignOptionData from the subsystem API first
+SelectionCampaignOptionData selectionCampaignOptionData = ...;
+var result = selectionCampaignOptionData.GetDataType();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SelectionCampaignOptionData();
+// This data object is usually returned by campaign/mission APIs
+SelectionCampaignOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

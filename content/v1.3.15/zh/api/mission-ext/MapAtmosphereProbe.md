@@ -1,13 +1,7 @@
 ---
 title: "MapAtmosphereProbe"
+description: "MapAtmosphereProbe 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapAtmosphereProbe`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapAtmosphereProbe
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ title: "MapAtmosphereProbe"
 ### GetInfluenceAmount
 `public float GetInfluenceAmount(Vec3 worldPosition)`
 
-**用途 / Purpose:** 获取 `influence amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapAtmosphereProbe 实例
+MapAtmosphereProbe mapAtmosphereProbe = ...;
+var result = mapAtmosphereProbe.GetInfluenceAmount(worldPosition);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapAtmosphereProbe();
-value.GetInfluenceAmount(worldPosition);
+// 通常从对应子系统 API 获取实例后调用
+MapAtmosphereProbe mapAtmosphereProbe = ...;
+mapAtmosphereProbe.GetInfluenceAmount(worldPosition);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

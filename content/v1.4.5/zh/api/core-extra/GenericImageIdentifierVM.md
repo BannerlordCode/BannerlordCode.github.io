@@ -1,20 +1,14 @@
 ---
 title: "GenericImageIdentifierVM"
+description: "GenericImageIdentifierVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenericImageIdentifierVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
 **Module:** TaleWorlds.Core
 **Type:** `public class GenericImageIdentifierVM : ImageIdentifierVM`
 **Base:** `ImageIdentifierVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/GenericImageIdentifierVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.ImageIdentifiers/GenericImageIdentifierVM.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GenericImageIdentifierVM"
 ## 使用示例
 
 ```csharp
-var example = new GenericImageIdentifierVM();
+// 从对应子系统 API 获取实例
+GenericImageIdentifierVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "RESTClient"
+description: "RESTClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RESTClient`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RESTClient
 
 **Namespace:** TaleWorlds.Network
@@ -29,20 +23,33 @@ title: "RESTClient"
 ### Get
 `public Task Get(string service, List<KeyValuePair<string, string>> headers)`
 
-**用途 / Purpose:** 获取 `get` 的当前值。
+**用途 / Purpose:** 读取当前对象的值或状态并返回。
+
+```csharp
+// 先通过子系统 API 拿到 RESTClient 实例
+RESTClient rESTClient = ...;
+var result = rESTClient.Get("example", list<KeyValuePair<string, "example");
+```
 
 ### Post
 `public Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")`
 
-**用途 / Purpose:** 处理 `post` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RESTClient 实例
+RESTClient rESTClient = ...;
+var result = rESTClient.Post("example", list<KeyValuePair<string, "example", "example", "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RESTClient();
-value.Get("example", list<KeyValuePair<string, "example");
+// 通常从对应子系统 API 获取实例后调用
+RESTClient rESTClient = ...;
+rESTClient.Get("example", list<KeyValuePair<string, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

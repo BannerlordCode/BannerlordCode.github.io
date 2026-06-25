@@ -1,13 +1,7 @@
 ---
 title: "TextureSaveFormat"
+description: "Auto-generated class reference for TextureSaveFormat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextureSaveFormat`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextureSaveFormat
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-TextureSaveFormat example = TextureSaveFormat.Value;
+// Obtain an instance from the relevant subsystem API
+TextureSaveFormat instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

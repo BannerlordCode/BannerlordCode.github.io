@@ -1,13 +1,7 @@
 ---
-title: "PlayerIdExtensions__TaleWorlds_PlayerServices"
+title: "PlayerIdExtensions"
+description: "PlayerIdExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerIdExtensions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerIdExtensions
 
 **Namespace:** TaleWorlds.PlayerServices
@@ -29,7 +23,12 @@ title: "PlayerIdExtensions__TaleWorlds_PlayerServices"
 ### SupportsPlayerCard
 `public static bool SupportsPlayerCard(this PlayerIdProvidedTypes type)`
 
-**用途 / Purpose:** 处理 `supports player card` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerIdExtensions.SupportsPlayerCard(type);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ PlayerIdExtensions.SupportsPlayerCard(type);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

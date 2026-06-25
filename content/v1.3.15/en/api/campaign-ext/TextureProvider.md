@@ -1,13 +1,7 @@
 ---
 title: "TextureProvider"
+description: "Auto-generated class reference for TextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextureProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextureProvider
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -35,39 +29,76 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### SetTargetSize
 `public virtual void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextureProvider from the subsystem API first
+TextureProvider textureProvider = ...;
+textureProvider.SetTargetSize(0, 0);
+```
 
 ### GetTextureForRender
 `public Texture GetTextureForRender(TwoDimensionContext context, string name = null)`
 
-**Purpose:** Gets the current value of `texture for render`.
+**Purpose:** Reads and returns the `texture for render` value held by the current object.
+
+```csharp
+// Obtain an instance of TextureProvider from the subsystem API first
+TextureProvider textureProvider = ...;
+var result = textureProvider.GetTextureForRender(context, "example");
+```
 
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of TextureProvider from the subsystem API first
+TextureProvider textureProvider = ...;
+textureProvider.Tick(0);
+```
 
 ### Clear
 `public virtual void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of TextureProvider from the subsystem API first
+TextureProvider textureProvider = ...;
+textureProvider.Clear(false);
+```
 
 ### SetProperty
 `public void SetProperty(string name, object value)`
 
-**Purpose:** Sets the value or state of `property`.
+**Purpose:** Assigns a new value to `property` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextureProvider from the subsystem API first
+TextureProvider textureProvider = ...;
+textureProvider.SetProperty("example", value);
+```
 
 ### GetProperty
 `public object GetProperty(string name)`
 
-**Purpose:** Gets the current value of `property`.
+**Purpose:** Reads and returns the `property` value held by the current object.
+
+```csharp
+// Obtain an instance of TextureProvider from the subsystem API first
+TextureProvider textureProvider = ...;
+var result = textureProvider.GetProperty("example");
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomTextureProvider();
+// Typically obtained from a subsystem API or factory
+TextureProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

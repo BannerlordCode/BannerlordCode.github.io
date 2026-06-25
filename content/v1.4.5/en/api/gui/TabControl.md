@@ -1,20 +1,14 @@
 ---
 title: "TabControl"
+description: "Auto-generated class reference for TabControl."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TabControl`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TabControl
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class TabControl : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/TabControl.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/TabControl.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### SetActiveTab
 `public void SetActiveTab(string tabName)`
 
-**Purpose:** Sets the value or state of `active tab`.
+**Purpose:** Assigns a new value to `active tab` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TabControl from the subsystem API first
+TabControl tabControl = ...;
+tabControl.SetActiveTab("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TabControl();
-value.SetActiveTab("example");
+// Typically call this after obtaining an instance from the subsystem API
+TabControl tabControl = ...;
+tabControl.SetActiveTab("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

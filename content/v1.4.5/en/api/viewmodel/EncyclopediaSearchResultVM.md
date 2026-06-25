@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaSearchResultVM"
+description: "Auto-generated class reference for EncyclopediaSearchResultVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaSearchResultVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaSearchResultVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaSearchResultVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaSearchResultVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia/EncyclopediaSearchResultVM.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### UpdateSearchedText
 `public void UpdateSearchedText(string searchedText)`
 
-**Purpose:** Updates the state or data of `searched text`.
+**Purpose:** Recalculates and stores the latest representation of `searched text`.
+
+```csharp
+// Obtain an instance of EncyclopediaSearchResultVM from the subsystem API first
+EncyclopediaSearchResultVM encyclopediaSearchResultVM = ...;
+encyclopediaSearchResultVM.UpdateSearchedText("example");
+```
 
 ### Execute
 `public void Execute()`
 
-**Purpose:** Executes the `execute` operation or workflow.
+**Purpose:** Runs the operation or workflow represented by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaSearchResultVM from the subsystem API first
+EncyclopediaSearchResultVM encyclopediaSearchResultVM = ...;
+encyclopediaSearchResultVM.Execute();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaSearchResultVM();
-value.UpdateSearchedText("example");
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaSearchResultVM encyclopediaSearchResultVM = ...;
+encyclopediaSearchResultVM.UpdateSearchedText("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

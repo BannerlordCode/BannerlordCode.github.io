@@ -1,13 +1,7 @@
 ---
 title: "UpgradingTroopsStep2Tutorial"
+description: "Auto-generated class reference for UpgradingTroopsStep2Tutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UpgradingTroopsStep2Tutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpgradingTroopsStep2Tutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,35 +23,66 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of UpgradingTroopsStep2Tutorial from the subsystem API first
+UpgradingTroopsStep2Tutorial upgradingTroopsStep2Tutorial = ...;
+var result = upgradingTroopsStep2Tutorial.IsConditionsMetForCompletion();
+```
 
 ### OnPlayerToggledUpgradePopup
 `public override void OnPlayerToggledUpgradePopup(PlayerToggledUpgradePopupEvent obj)`
 
-**Purpose:** Called when the `player toggled upgrade popup` event is raised.
+**Purpose:** Invoked when the `player toggled upgrade popup` event is raised.
+
+```csharp
+// Obtain an instance of UpgradingTroopsStep2Tutorial from the subsystem API first
+UpgradingTroopsStep2Tutorial upgradingTroopsStep2Tutorial = ...;
+upgradingTroopsStep2Tutorial.OnPlayerToggledUpgradePopup(obj);
+```
 
 ### OnPlayerUpgradeTroop
 `public override void OnPlayerUpgradeTroop(CharacterObject arg1, CharacterObject arg2, int arg3)`
 
-**Purpose:** Called when the `player upgrade troop` event is raised.
+**Purpose:** Invoked when the `player upgrade troop` event is raised.
+
+```csharp
+// Obtain an instance of UpgradingTroopsStep2Tutorial from the subsystem API first
+UpgradingTroopsStep2Tutorial upgradingTroopsStep2Tutorial = ...;
+upgradingTroopsStep2Tutorial.OnPlayerUpgradeTroop(arg1, arg2, 0);
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of UpgradingTroopsStep2Tutorial from the subsystem API first
+UpgradingTroopsStep2Tutorial upgradingTroopsStep2Tutorial = ...;
+var result = upgradingTroopsStep2Tutorial.IsConditionsMetForActivation();
+```
 
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of UpgradingTroopsStep2Tutorial from the subsystem API first
+UpgradingTroopsStep2Tutorial upgradingTroopsStep2Tutorial = ...;
+var result = upgradingTroopsStep2Tutorial.GetTutorialsRelevantContext();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UpgradingTroopsStep2Tutorial();
-value.IsConditionsMetForCompletion();
+// Typically call this after obtaining an instance from the subsystem API
+UpgradingTroopsStep2Tutorial upgradingTroopsStep2Tutorial = ...;
+upgradingTroopsStep2Tutorial.IsConditionsMetForCompletion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,60 +1,71 @@
 ---
 title: "NativeObject"
+description: "Auto-generated class reference for NativeObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeObject`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NativeObject
 
-**Namespace**: TaleWorlds.DotNet
-**File**: `bannerlord-1.3.15/TaleWorlds.DotNet/NativeObject.cs`
-**Purpose**: Base class for native object wrappers / 原生对象包装基类
+**Namespace:** TaleWorlds.DotNet
+**Module:** TaleWorlds.DotNet
+**Type:** `public abstract class NativeObject`
+**Base:** none
+**File:** `TaleWorlds.DotNet/NativeObject.cs`
 
 ## Overview
 
-`NativeObject` is the base class for all native object wrapper classes in the Bannerlord engine. It encapsulates a `UIntPtr Pointer` to native C++ objects and manages the lifecycle through reference counting.
+`NativeObject` lives in `TaleWorlds.DotNet` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `NativeObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Features
+## Key Properties
 
-- Encapsulates native object pointer via `UIntPtr Pointer`
-- Automatic reference counting via `Construct` and destructor
-- Manual invalidation via `ManualInvalidate`
-- Static type registration system for native types
-- Operator overloads for equality comparison
+| Name | Signature |
+|------|-----------|
+| `Pointer` | `public UIntPtr Pointer { get; }` |
 
-## Core Methods
+## Key Methods
 
-- `Construct(UIntPtr pointer)`: Initialize and increase reference count
-- `ManualInvalidate()`: Manually release reference
-- `CreateNativeObjectWrapper`: Create wrapper from native pointer
+### ManualInvalidate
+`public void ManualInvalidate()`
 
-## Usage
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-Skeleton skeleton = Skeleton.CreateFromModel("human_skeleton");
-if (skeleton.IsValid)
-{
-    // Use skeleton...
-}
-skeleton.ManualInvalidate();
+// Obtain an instance of NativeObject from the subsystem API first
+NativeObject nativeObject = ...;
+nativeObject.ManualInvalidate();
 ```
 
-## Notes
+### GetHashCode
+`public override int GetHashCode()`
 
-- Abstract base class - cannot be instantiated directly
-- All wrapper classes inherit from it
-- Reference counting managed by native side
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of NativeObject from the subsystem API first
+NativeObject nativeObject = ...;
+var result = nativeObject.GetHashCode();
+```
+
+### Equals
+`public override bool Equals(object obj)`
+
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of NativeObject from the subsystem API first
+NativeObject nativeObject = ...;
+var result = nativeObject.Equals(obj);
+```
 
 ## Usage Example
 
 ```csharp
-var example = new NativeObject();
+// Typically obtained from a subsystem API or factory
+NativeObject instance = ...;
 ```
+
+## See Also
+
+- [Area Index](../)

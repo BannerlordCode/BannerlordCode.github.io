@@ -1,20 +1,14 @@
 ---
 title: "RangedSiegeWeaponAi"
+description: "RangedSiegeWeaponAi 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RangedSiegeWeaponAi`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedSiegeWeaponAi
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class RangedSiegeWeaponAi : UsableMachineAIBase`
 **Base:** `UsableMachineAIBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RangedSiegeWeaponAi.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RangedSiegeWeaponAi.cs`
 
 ## 概述
 
@@ -29,59 +23,118 @@ title: "RangedSiegeWeaponAi"
 ### InitializeTargetableObjects
 `public void InitializeTargetableObjects()`
 
-**用途 / Purpose:** 初始化 `targetable objects` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「targetable objects」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+rangedSiegeWeaponAi.InitializeTargetableObjects();
+```
 
 ### PrepareTargetFromTask
 `public Threat PrepareTargetFromTask()`
 
-**用途 / Purpose:** 处理 `prepare target from task` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「target from task」操作完成前置准备工作。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+var result = rangedSiegeWeaponAi.PrepareTargetFromTask();
+```
 
 ### UpdateThreatSeekerTask
 `public bool UpdateThreatSeekerTask()`
 
-**用途 / Purpose:** 更新 `threat seeker task` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「threat seeker task」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+var result = rangedSiegeWeaponAi.UpdateThreatSeekerTask();
+```
 
 ### PrepareThreatSeekerTask
 `public void PrepareThreatSeekerTask(Action lastAction)`
 
-**用途 / Purpose:** 处理 `prepare threat seeker task` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「threat seeker task」操作完成前置准备工作。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+rangedSiegeWeaponAi.PrepareThreatSeekerTask(lastAction);
+```
 
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 处理 `release` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+rangedSiegeWeaponAi.Release();
+```
 
 ### GetAllThreats
 `public List<Threat> GetAllThreats()`
 
-**用途 / Purpose:** 获取 `all threats` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all threats」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+var result = rangedSiegeWeaponAi.GetAllThreats();
+```
 
 ### GetTargetFlagsOfFormation
 `public static TargetFlags GetTargetFlagsOfFormation()`
 
-**用途 / Purpose:** 获取 `target flags of formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target flags of formation」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+RangedSiegeWeaponAi.GetTargetFlagsOfFormation();
+```
 
 ### GetMaxThreat
 `public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)`
 
-**用途 / Purpose:** 获取 `max threat` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max threat」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+RangedSiegeWeaponAi.GetMaxThreat(castleKeyPositions);
+```
 
 ### InitializeThreatSeeker
 `public void InitializeThreatSeeker()`
 
-**用途 / Purpose:** 初始化 `threat seeker` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「threat seeker」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+rangedSiegeWeaponAi.InitializeThreatSeeker();
+```
 
 ### FindNextTarget
 `public void FindNextTarget()`
 
-**用途 / Purpose:** 处理 `find next target` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「next target」。
+
+```csharp
+// 先通过子系统 API 拿到 RangedSiegeWeaponAi 实例
+RangedSiegeWeaponAi rangedSiegeWeaponAi = ...;
+rangedSiegeWeaponAi.FindNextTarget();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomRangedSiegeWeaponAi();
+// 通常通过子系统 API 或工厂获得派生实例
+RangedSiegeWeaponAi instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

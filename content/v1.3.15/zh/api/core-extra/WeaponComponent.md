@@ -1,13 +1,7 @@
 ---
 title: "WeaponComponent"
+description: "WeaponComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponComponent`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponComponent
 
 **Namespace:** TaleWorlds.Core
@@ -36,22 +30,46 @@ title: "WeaponComponent"
 ### AddWeapon
 `public void AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `weapon`。
+**用途 / Purpose:** 将 「weapon」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponent 实例
+WeaponComponent weaponComponent = ...;
+weaponComponent.AddWeapon(weaponComponentData, itemModifierGroup);
+```
 
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**用途 / Purpose:** 获取 `copy` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「copy」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponent 实例
+WeaponComponent weaponComponent = ...;
+var result = weaponComponent.GetCopy();
+```
 
 ### GetItemType
 `public ItemObject.ItemTypeEnum GetItemType()`
 
-**用途 / Purpose:** 获取 `item type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponent 实例
+WeaponComponent weaponComponent = ...;
+var result = weaponComponent.GetItemType();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponComponent 实例
+WeaponComponent weaponComponent = ...;
+weaponComponent.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
@@ -61,4 +79,4 @@ var component = agent.GetComponent<WeaponComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

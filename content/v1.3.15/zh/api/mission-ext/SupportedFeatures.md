@@ -1,13 +1,7 @@
 ---
 title: "SupportedFeatures"
+description: "SupportedFeatures 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SupportedFeatures`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SupportedFeatures
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -29,15 +23,22 @@ title: "SupportedFeatures"
 ### SupportsFeatures
 `public bool SupportsFeatures(Features feature)`
 
-**用途 / Purpose:** 处理 `supports features` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SupportedFeatures 实例
+SupportedFeatures supportedFeatures = ...;
+var result = supportedFeatures.SupportsFeatures(feature);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SupportedFeatures();
-value.SupportsFeatures(feature);
+// 通常从对应子系统 API 获取实例后调用
+SupportedFeatures supportedFeatures = ...;
+supportedFeatures.SupportsFeatures(feature);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

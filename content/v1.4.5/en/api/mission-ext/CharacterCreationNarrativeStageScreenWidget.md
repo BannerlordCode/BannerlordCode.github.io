@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationNarrativeStageScreenWidget"
+description: "Auto-generated class reference for CharacterCreationNarrativeStageScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationNarrativeStageScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationNarrativeStageScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterCreationNarrativeStageScreenWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation/CharacterCreationNarrativeStageScreenWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation/CharacterCreationNarrativeStageScreenWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `CharacterCreationNarrativeStageScreenWidget` as a Widget-style extension 
 ## Usage Example
 
 ```csharp
-var widget = new CharacterCreationNarrativeStageScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterCreationNarrativeStageScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

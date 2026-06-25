@@ -1,13 +1,7 @@
 ---
 title: "SpawnPointUnits"
+description: "Auto-generated class reference for SpawnPointUnits."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnPointUnits`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnPointUnits
 
 **Namespace:** SandBox.View.Missions.SandBox
@@ -37,9 +31,10 @@ Start from namespace `SandBox.View.Missions.SandBox` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var value = new SpawnPointUnits();
+// Obtain an instance from the relevant subsystem API
+SpawnPointUnits instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

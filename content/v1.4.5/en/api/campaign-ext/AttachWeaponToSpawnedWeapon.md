@@ -1,20 +1,14 @@
 ---
 title: "AttachWeaponToSpawnedWeapon"
+description: "Auto-generated class reference for AttachWeaponToSpawnedWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AttachWeaponToSpawnedWeapon`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AttachWeaponToSpawnedWeapon
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AttachWeaponToSpawnedWeapon : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AttachWeaponToSpawnedWeapon.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AttachWeaponToSpawnedWeapon.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new AttachWeaponToSpawnedWeapon();
+// Obtain an instance from the relevant subsystem API
+AttachWeaponToSpawnedWeapon instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

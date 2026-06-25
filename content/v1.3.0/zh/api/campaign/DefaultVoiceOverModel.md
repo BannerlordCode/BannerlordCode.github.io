@@ -1,13 +1,7 @@
 ---
 title: "DefaultVoiceOverModel"
+description: "DefaultVoiceOverModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultVoiceOverModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultVoiceOverModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,12 +23,24 @@ title: "DefaultVoiceOverModel"
 ### GetSoundPathForCharacter
 `public override string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**用途 / Purpose:** 获取 `sound path for character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sound path for character」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVoiceOverModel 实例
+DefaultVoiceOverModel defaultVoiceOverModel = ...;
+var result = defaultVoiceOverModel.GetSoundPathForCharacter(character, voiceObject);
+```
 
 ### GetAccentClass
 `public override string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**用途 / Purpose:** 获取 `accent class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「accent class」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVoiceOverModel 实例
+DefaultVoiceOverModel defaultVoiceOverModel = ...;
+var result = defaultVoiceOverModel.GetAccentClass(culture, false);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultVoiceOverModel>(new MyDefaultVoiceOverModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

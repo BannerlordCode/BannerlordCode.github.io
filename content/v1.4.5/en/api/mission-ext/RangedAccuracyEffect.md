@@ -1,20 +1,14 @@
 ---
 title: "RangedAccuracyEffect"
+description: "Auto-generated class reference for RangedAccuracyEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RangedAccuracyEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RangedAccuracyEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RangedAccuracyEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/RangedAccuracyEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/RangedAccuracyEffect.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**Purpose:** Called when the `update` event is raised.
+**Purpose:** Invoked when the `update` event is raised.
+
+```csharp
+// Obtain an instance of RangedAccuracyEffect from the subsystem API first
+RangedAccuracyEffect rangedAccuracyEffect = ...;
+rangedAccuracyEffect.OnUpdate(agent, false);
+```
 
 ### GetRangedAccuracy
 `public override float GetRangedAccuracy()`
 
-**Purpose:** Gets the current value of `ranged accuracy`.
+**Purpose:** Reads and returns the `ranged accuracy` value held by the current object.
+
+```csharp
+// Obtain an instance of RangedAccuracyEffect from the subsystem API first
+RangedAccuracyEffect rangedAccuracyEffect = ...;
+var result = rangedAccuracyEffect.GetRangedAccuracy();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RangedAccuracyEffect();
-value.OnUpdate(agent, false);
+// Typically call this after obtaining an instance from the subsystem API
+RangedAccuracyEffect rangedAccuracyEffect = ...;
+rangedAccuracyEffect.OnUpdate(agent, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

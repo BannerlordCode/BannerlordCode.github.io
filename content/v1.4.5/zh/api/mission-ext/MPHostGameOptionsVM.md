@@ -1,20 +1,14 @@
 ---
 title: "MPHostGameOptionsVM"
+description: "MPHostGameOptionsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPHostGameOptionsVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPHostGameOptionsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPHostGameOptionsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame/MPHostGameOptionsVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame/MPHostGameOptionsVM.cs`
 
 ## 概述
 
@@ -37,20 +31,33 @@ title: "MPHostGameOptionsVM"
 ### Compare
 `public int Compare(GenericHostGameOptionDataVM x, GenericHostGameOptionDataVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MPHostGameOptionsVM 实例
+MPHostGameOptionsVM mPHostGameOptionsVM = ...;
+var result = mPHostGameOptionsVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPHostGameOptionsVM 实例
+MPHostGameOptionsVM mPHostGameOptionsVM = ...;
+mPHostGameOptionsVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPHostGameOptionsVM();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+MPHostGameOptionsVM mPHostGameOptionsVM = ...;
+mPHostGameOptionsVM.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

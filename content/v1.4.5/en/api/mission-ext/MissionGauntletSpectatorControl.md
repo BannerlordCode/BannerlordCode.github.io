@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletSpectatorControl"
+description: "Auto-generated class reference for MissionGauntletSpectatorControl."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletSpectatorControl`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletSpectatorControl
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletSpectatorControl : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSpectatorControl.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSpectatorControl.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletSpectatorControl from the subsystem API first
+MissionGauntletSpectatorControl missionGauntletSpectatorControl = ...;
+missionGauntletSpectatorControl.EarlyStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSpectatorControl from the subsystem API first
+MissionGauntletSpectatorControl missionGauntletSpectatorControl = ...;
+missionGauntletSpectatorControl.OnMissionTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletSpectatorControl from the subsystem API first
+MissionGauntletSpectatorControl missionGauntletSpectatorControl = ...;
+missionGauntletSpectatorControl.OnMissionScreenFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletSpectatorControl();
-value.EarlyStart();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletSpectatorControl missionGauntletSpectatorControl = ...;
+missionGauntletSpectatorControl.EarlyStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

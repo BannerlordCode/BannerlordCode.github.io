@@ -1,20 +1,14 @@
 ---
 title: "ThrowingWeaponSpeedEffect"
+description: "Auto-generated class reference for ThrowingWeaponSpeedEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThrowingWeaponSpeedEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThrowingWeaponSpeedEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ThrowingWeaponSpeedEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ThrowingWeaponSpeedEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ThrowingWeaponSpeedEffect.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetThrowingWeaponSpeed
 `public override float GetThrowingWeaponSpeed(WeaponComponentData attackerWeapon)`
 
-**Purpose:** Gets the current value of `throwing weapon speed`.
+**Purpose:** Reads and returns the `throwing weapon speed` value held by the current object.
+
+```csharp
+// Obtain an instance of ThrowingWeaponSpeedEffect from the subsystem API first
+ThrowingWeaponSpeedEffect throwingWeaponSpeedEffect = ...;
+var result = throwingWeaponSpeedEffect.GetThrowingWeaponSpeed(attackerWeapon);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ThrowingWeaponSpeedEffect();
-value.GetThrowingWeaponSpeed(attackerWeapon);
+// Typically call this after obtaining an instance from the subsystem API
+ThrowingWeaponSpeedEffect throwingWeaponSpeedEffect = ...;
+throwingWeaponSpeedEffect.GetThrowingWeaponSpeed(attackerWeapon);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

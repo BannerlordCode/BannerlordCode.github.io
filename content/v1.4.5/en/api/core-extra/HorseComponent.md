@@ -1,20 +1,14 @@
 ---
 title: "HorseComponent"
+description: "Auto-generated class reference for HorseComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HorseComponent`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HorseComponent
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class HorseComponent : ItemComponent`
 **Base:** `ItemComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/HorseComponent.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/HorseComponent.cs`
 
 ## Overview
 
@@ -48,17 +42,35 @@ Treat `HorseComponent` as a Component-style extension point: first identify who 
 ### MaterialProperty
 `public struct MaterialProperty(string name)`
 
-**Purpose:** Handles logic related to `material property`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HorseComponent from the subsystem API first
+HorseComponent horseComponent = ...;
+var result = horseComponent.MaterialProperty("example");
+```
 
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** Gets the current value of `copy`.
+**Purpose:** Reads and returns the `copy` value held by the current object.
+
+```csharp
+// Obtain an instance of HorseComponent from the subsystem API first
+HorseComponent horseComponent = ...;
+var result = horseComponent.GetCopy();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of HorseComponent from the subsystem API first
+HorseComponent horseComponent = ...;
+horseComponent.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
@@ -68,4 +80,4 @@ var component = agent.GetComponent<HorseComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

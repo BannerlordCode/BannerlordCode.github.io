@@ -1,13 +1,7 @@
 ---
 title: "MissionFormationTargetSelectionHandler"
+description: "MissionFormationTargetSelectionHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionFormationTargetSelectionHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFormationTargetSelectionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,24 +23,42 @@ title: "MissionFormationTargetSelectionHandler"
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre display mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre display mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例
+MissionFormationTargetSelectionHandler missionFormationTargetSelectionHandler = ...;
+missionFormationTargetSelectionHandler.OnPreDisplayMissionTick(0);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例
+MissionFormationTargetSelectionHandler missionFormationTargetSelectionHandler = ...;
+missionFormationTargetSelectionHandler.OnRemoveBehavior();
+```
 
 ### TickDebug
 `public void TickDebug()`
 
-**用途 / Purpose:** 处理 `tick debug` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「debug」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionFormationTargetSelectionHandler 实例
+MissionFormationTargetSelectionHandler missionFormationTargetSelectionHandler = ...;
+missionFormationTargetSelectionHandler.TickDebug();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionFormationTargetSelectionHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionFormationTargetSelectionHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

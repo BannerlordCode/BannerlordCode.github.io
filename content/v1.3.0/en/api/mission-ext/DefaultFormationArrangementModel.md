@@ -1,13 +1,7 @@
 ---
 title: "DefaultFormationArrangementModel"
+description: "Auto-generated class reference for DefaultFormationArrangementModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultFormationArrangementModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultFormationArrangementModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,12 +23,24 @@ Treat `DefaultFormationArrangementModel` as a Model-style extension point: first
 ### GetBannerBearerPositions
 `public override List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
 
-**Purpose:** Gets the current value of `banner bearer positions`.
+**Purpose:** Reads and returns the `banner bearer positions` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultFormationArrangementModel from the subsystem API first
+DefaultFormationArrangementModel defaultFormationArrangementModel = ...;
+var result = defaultFormationArrangementModel.GetBannerBearerPositions(formation, 0);
+```
 
 ### GetArrangementPosition
 `public FormationArrangementModel.ArrangementPosition GetArrangementPosition(int fileCount, int rankCount)`
 
-**Purpose:** Gets the current value of `arrangement position`.
+**Purpose:** Reads and returns the `arrangement position` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultFormationArrangementModel from the subsystem API first
+DefaultFormationArrangementModel defaultFormationArrangementModel = ...;
+var result = defaultFormationArrangementModel.GetArrangementPosition(0, 0);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultFormationArrangementModel>(new MyDefaultFormati
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

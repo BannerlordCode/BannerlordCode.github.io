@@ -1,13 +1,7 @@
 ---
 title: "DefaultCampaignTimeModel"
+description: "Auto-generated class reference for DefaultCampaignTimeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCampaignTimeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCampaignTimeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -48,4 +42,4 @@ Game.Current.ReplaceModel<DefaultCampaignTimeModel>(new MyDefaultCampaignTimeMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

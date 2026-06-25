@@ -1,20 +1,14 @@
 ---
 title: "StoryModeCutsceneSelectionModel"
+description: "Auto-generated class reference for StoryModeCutsceneSelectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeCutsceneSelectionModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeCutsceneSelectionModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeCutsceneSelectionModel : CutsceneSelectionModel`
 **Base:** `CutsceneSelectionModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeCutsceneSelectionModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeCutsceneSelectionModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `StoryModeCutsceneSelectionModel` as a Model-style extension point: first 
 ### GetKingdomDestroyedSceneNotification
 `public override SceneNotificationData GetKingdomDestroyedSceneNotification(Kingdom kingdom)`
 
-**Purpose:** Gets the current value of `kingdom destroyed scene notification`.
+**Purpose:** Reads and returns the `kingdom destroyed scene notification` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeCutsceneSelectionModel from the subsystem API first
+StoryModeCutsceneSelectionModel storyModeCutsceneSelectionModel = ...;
+var result = storyModeCutsceneSelectionModel.GetKingdomDestroyedSceneNotification(kingdom);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeCutsceneSelectionModel>(new MyStoryModeCutsce
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

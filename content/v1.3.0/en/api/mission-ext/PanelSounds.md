@@ -1,43 +1,30 @@
 ---
 title: "PanelSounds"
+description: "Auto-generated class reference for PanelSounds."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PanelSounds`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PanelSounds
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class PanelSounds`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/UISoundsHelper.cs`
 
 ## Overview
 
-`PanelSounds` lives in `TaleWorlds.MountAndBlade.View`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PanelSounds` lives in `TaleWorlds.MountAndBlade.View` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Methods
-
-### PlayUISound
-`public static void PlayUISound(string soundName)`
-
-**Purpose:** Handles logic related to `play u i sound`.
-
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
-PanelSounds.PlayUISound("example");
+// Obtain an instance from the relevant subsystem API
+PanelSounds instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

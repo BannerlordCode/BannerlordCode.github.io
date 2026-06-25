@@ -1,13 +1,7 @@
 ---
 title: "StoryModePartySizeLimitModel"
+description: "Auto-generated class reference for StoryModePartySizeLimitModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModePartySizeLimitModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModePartySizeLimitModel
 
 **Namespace:** StoryMode.GameComponents
@@ -35,47 +29,101 @@ Treat `StoryModePartySizeLimitModel` as a Model-style extension point: first ide
 ### CalculateGarrisonPartySizeLimit
 `public override ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate garrison party size limit`.
+**Purpose:** Calculates the current value or result of `garrison party size limit`.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.CalculateGarrisonPartySizeLimit(settlement, false);
+```
 
 ### FindAppropriateInitialRosterForMobileParty
 `public override TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**Purpose:** Handles logic related to `find appropriate initial roster for mobile party`.
+**Purpose:** Looks up the matching `appropriate initial roster for mobile party` in the current collection or scope.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.FindAppropriateInitialRosterForMobileParty(party, partyTemplate);
+```
 
 ### FindAppropriateInitialShipsForMobileParty
 `public override List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**Purpose:** Handles logic related to `find appropriate initial ships for mobile party`.
+**Purpose:** Looks up the matching `appropriate initial ships for mobile party` in the current collection or scope.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.FindAppropriateInitialShipsForMobileParty(party, partyTemplate);
+```
 
 ### GetAssumedPartySizeForLordParty
 `public override int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)`
 
-**Purpose:** Gets the current value of `assumed party size for lord party`.
+**Purpose:** Reads and returns the `assumed party size for lord party` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.GetAssumedPartySizeForLordParty(leaderHero, partyMapFaction, actualClan);
+```
 
 ### GetClanTierPartySizeEffectForHero
 `public override int GetClanTierPartySizeEffectForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `clan tier party size effect for hero`.
+**Purpose:** Reads and returns the `clan tier party size effect for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.GetClanTierPartySizeEffectForHero(hero);
+```
 
 ### GetIdealVillagerPartySize
 `public override int GetIdealVillagerPartySize(Village village)`
 
-**Purpose:** Gets the current value of `ideal villager party size`.
+**Purpose:** Reads and returns the `ideal villager party size` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.GetIdealVillagerPartySize(village);
+```
 
 ### GetNextClanTierPartySizeEffectChangeForHero
 `public override int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `next clan tier party size effect change for hero`.
+**Purpose:** Reads and returns the `next clan tier party size effect change for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.GetNextClanTierPartySizeEffectChangeForHero(hero);
+```
 
 ### GetPartyMemberSizeLimit
 `public override ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `party member size limit`.
+**Purpose:** Reads and returns the `party member size limit` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.GetPartyMemberSizeLimit(party, false);
+```
 
 ### GetPartyPrisonerSizeLimit
 `public override ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**Purpose:** Gets the current value of `party prisoner size limit`.
+**Purpose:** Reads and returns the `party prisoner size limit` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModePartySizeLimitModel from the subsystem API first
+StoryModePartySizeLimitModel storyModePartySizeLimitModel = ...;
+var result = storyModePartySizeLimitModel.GetPartyPrisonerSizeLimit(party, false);
+```
 
 ## Usage Example
 
@@ -85,4 +133,4 @@ Game.Current.ReplaceModel<StoryModePartySizeLimitModel>(new MyStoryModePartySize
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

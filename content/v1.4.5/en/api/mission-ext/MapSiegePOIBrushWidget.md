@@ -1,20 +1,14 @@
 ---
 title: "MapSiegePOIBrushWidget"
+description: "Auto-generated class reference for MapSiegePOIBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegePOIBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegePOIBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapSiegePOIBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegePOIBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege/MapSiegePOIBrushWidget.cs`
 
 ## Overview
 
@@ -45,9 +39,10 @@ Treat `MapSiegePOIBrushWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new MapSiegePOIBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapSiegePOIBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

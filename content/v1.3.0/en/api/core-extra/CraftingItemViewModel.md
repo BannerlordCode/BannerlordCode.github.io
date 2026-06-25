@@ -1,13 +1,7 @@
 ---
 title: "CraftingItemViewModel"
+description: "Auto-generated class reference for CraftingItemViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingItemViewModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingItemViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -36,20 +30,33 @@ Treat `CraftingItemViewModel` as a ViewModel-style extension point: first identi
 ### GetWeaponClass
 `public WeaponClass GetWeaponClass()`
 
-**Purpose:** Gets the current value of `weapon class`.
+**Purpose:** Reads and returns the `weapon class` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingItemViewModel from the subsystem API first
+CraftingItemViewModel craftingItemViewModel = ...;
+var result = craftingItemViewModel.GetWeaponClass();
+```
 
 ### SetCraftingData
 `public void SetCraftingData(WeaponClass weaponClass, WeaponDesignElement craftingPieces)`
 
-**Purpose:** Sets the value or state of `crafting data`.
+**Purpose:** Assigns a new value to `crafting data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CraftingItemViewModel from the subsystem API first
+CraftingItemViewModel craftingItemViewModel = ...;
+craftingItemViewModel.SetCraftingData(weaponClass, craftingPieces);
+```
 
 ## Usage Example
 
 ```csharp
-var vm = new CraftingItemViewModel();
+// Bind the instance as the view-model of a movie or view
+CraftingItemViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BarterItemCountControlButtonWidget"
+description: "Auto-generated class reference for BarterItemCountControlButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterItemCountControlButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BarterItemCountControlButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter
@@ -33,9 +27,10 @@ Treat `BarterItemCountControlButtonWidget` as a Widget-style extension point: fi
 ## Usage Example
 
 ```csharp
-var widget = new BarterItemCountControlButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BarterItemCountControlButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

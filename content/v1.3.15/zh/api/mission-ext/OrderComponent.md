@@ -1,13 +1,7 @@
 ---
 title: "OrderComponent"
+description: "OrderComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,14 +29,21 @@ title: "OrderComponent"
 ### GetDirection
 `public Vec2 GetDirection(Formation f)`
 
-**用途 / Purpose:** 获取 `direction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「direction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 OrderComponent 实例
+OrderComponent orderComponent = ...;
+var result = orderComponent.GetDirection(f);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomOrderComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+OrderComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

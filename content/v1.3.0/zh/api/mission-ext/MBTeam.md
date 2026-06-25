@@ -1,13 +1,7 @@
 ---
 title: "MBTeam"
+description: "MBTeam 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBTeam`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTeam
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,35 +30,66 @@ title: "MBTeam"
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MBTeam 实例
+MBTeam mBTeam = ...;
+var result = mBTeam.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MBTeam 实例
+MBTeam mBTeam = ...;
+var result = mBTeam.Equals(obj);
+```
 
 ### IsEnemyOf
 `public bool IsEnemyOf(MBTeam otherTeam)`
 
-**用途 / Purpose:** 处理 `is enemy of` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「enemy of」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MBTeam 实例
+MBTeam mBTeam = ...;
+var result = mBTeam.IsEnemyOf(otherTeam);
+```
 
 ### SetIsEnemyOf
 `public void SetIsEnemyOf(MBTeam otherTeam, bool isEnemyOf)`
 
-**用途 / Purpose:** 设置 `is enemy of` 的值或状态。
+**用途 / Purpose:** 为 「is enemy of」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBTeam 实例
+MBTeam mBTeam = ...;
+mBTeam.SetIsEnemyOf(otherTeam, false);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 MBTeam 实例
+MBTeam mBTeam = ...;
+var result = mBTeam.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBTeam();
-value.GetHashCode();
+// 通常从对应子系统 API 获取实例后调用
+MBTeam mBTeam = ...;
+mBTeam.GetHashCode();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

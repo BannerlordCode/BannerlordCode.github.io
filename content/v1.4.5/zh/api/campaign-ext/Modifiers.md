@@ -1,20 +1,14 @@
 ---
 title: "Modifiers"
+description: "Modifiers 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Modifiers`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Modifiers
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum Modifiers`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/HotKey.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/HotKey.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "Modifiers"
 ## 使用示例
 
 ```csharp
-Modifiers example = Modifiers.Value;
+// 从对应子系统 API 获取实例
+Modifiers instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

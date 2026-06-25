@@ -1,13 +1,7 @@
 ---
 title: "CreateFreeCorpseMountAgent"
+description: "Auto-generated class reference for CreateFreeCorpseMountAgent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreateFreeCorpseMountAgent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreateFreeCorpseMountAgent
 
 **Namespace:** NetworkMessages.FromServer
@@ -43,9 +37,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new CreateFreeCorpseMountAgent();
+// Obtain an instance from the relevant subsystem API
+CreateFreeCorpseMountAgent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionHardBorderPlacer"
+description: "Auto-generated class reference for MissionHardBorderPlacer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHardBorderPlacer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHardBorderPlacer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHardBorderPlacer : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionHardBorderPlacer.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionHardBorderPlacer.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionHardBorderPlacer from the subsystem API first
+MissionHardBorderPlacer missionHardBorderPlacer = ...;
+missionHardBorderPlacer.EarlyStart();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionHardBorderPlacer();
-value.EarlyStart();
+// Typically call this after obtaining an instance from the subsystem API
+MissionHardBorderPlacer missionHardBorderPlacer = ...;
+missionHardBorderPlacer.EarlyStart();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionQuestBarVM"
+description: "Auto-generated class reference for MissionQuestBarVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionQuestBarVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionQuestBarVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionQuestBarVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionQuestBarVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions/MissionQuestBarVM.cs`
 
 ## Overview
 
@@ -39,15 +33,22 @@ Start from namespace `SandBox.ViewModelCollection.Missions` to place it in the s
 ### UpdateQuestValues
 `public void UpdateQuestValues(float minDetectionLevel, float maxDetectionLevel, float currentDetectionLevel)`
 
-**Purpose:** Updates the state or data of `quest values`.
+**Purpose:** Recalculates and stores the latest representation of `quest values`.
+
+```csharp
+// Obtain an instance of MissionQuestBarVM from the subsystem API first
+MissionQuestBarVM missionQuestBarVM = ...;
+missionQuestBarVM.UpdateQuestValues(0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionQuestBarVM();
-value.UpdateQuestValues(0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+MissionQuestBarVM missionQuestBarVM = ...;
+missionQuestBarVM.UpdateQuestValues(0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

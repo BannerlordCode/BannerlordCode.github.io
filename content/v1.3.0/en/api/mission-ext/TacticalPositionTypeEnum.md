@@ -1,13 +1,7 @@
 ---
 title: "TacticalPositionTypeEnum"
+description: "Auto-generated class reference for TacticalPositionTypeEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticalPositionTypeEnum`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TacticalPositionTypeEnum
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-TacticalPositionTypeEnum example = TacticalPositionTypeEnum.Value;
+// Obtain an instance from the relevant subsystem API
+TacticalPositionTypeEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "InputKeyItemVM"
+description: "InputKeyItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InputKeyItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InputKeyItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Input
@@ -39,50 +33,94 @@ title: "InputKeyItemVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 InputKeyItemVM 实例
+InputKeyItemVM inputKeyItemVM = ...;
+inputKeyItemVM.OnFinalize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 InputKeyItemVM 实例
+InputKeyItemVM inputKeyItemVM = ...;
+inputKeyItemVM.RefreshValues();
+```
 
 ### SetForcedVisibility
 `public void SetForcedVisibility(bool? isVisible)`
 
-**用途 / Purpose:** 设置 `forced visibility` 的值或状态。
+**用途 / Purpose:** 为 「forced visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 InputKeyItemVM 实例
+InputKeyItemVM inputKeyItemVM = ...;
+inputKeyItemVM.SetForcedVisibility(false);
+```
 
 ### CreateFromGameKey
 `public static InputKeyItemVM CreateFromGameKey(GameKey gameKey, bool isConsoleOnly)`
 
-**用途 / Purpose:** 创建一个 `from game key` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from game key」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+InputKeyItemVM.CreateFromGameKey(gameKey, false);
+```
 
 ### CreateFromHotKey
 `public static InputKeyItemVM CreateFromHotKey(HotKey hotKey, bool isConsoleOnly)`
 
-**用途 / Purpose:** 创建一个 `from hot key` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from hot key」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+InputKeyItemVM.CreateFromHotKey(hotKey, false);
+```
 
 ### CreateFromHotKeyWithForcedName
 `public static InputKeyItemVM CreateFromHotKeyWithForcedName(HotKey hotKey, TextObject forcedName, bool isConsoleOnly)`
 
-**用途 / Purpose:** 创建一个 `from hot key with forced name` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from hot key with forced name」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+InputKeyItemVM.CreateFromHotKeyWithForcedName(hotKey, forcedName, false);
+```
 
 ### CreateFromGameKeyWithForcedName
 `public static InputKeyItemVM CreateFromGameKeyWithForcedName(GameKey gameKey, TextObject forcedName, bool isConsoleOnly)`
 
-**用途 / Purpose:** 创建一个 `from game key with forced name` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from game key with forced name」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+InputKeyItemVM.CreateFromGameKeyWithForcedName(gameKey, forcedName, false);
+```
 
 ### CreateFromForcedID
 `public static InputKeyItemVM CreateFromForcedID(string forcedID, TextObject forcedName, bool isConsoleOnly)`
 
-**用途 / Purpose:** 创建一个 `from forced i d` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from forced i d」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+InputKeyItemVM.CreateFromForcedID("example", forcedName, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InputKeyItemVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+InputKeyItemVM inputKeyItemVM = ...;
+inputKeyItemVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

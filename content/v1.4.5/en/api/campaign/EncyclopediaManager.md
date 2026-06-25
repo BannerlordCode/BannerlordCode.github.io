@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaManager"
+description: "Auto-generated class reference for EncyclopediaManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaManager
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaManager.cs`
 
 ## Overview
 
@@ -35,37 +29,79 @@ Treat `EncyclopediaManager` as a Manager-style extension point: first identify w
 ### CreateEncyclopediaPages
 `public void CreateEncyclopediaPages()`
 
-**Purpose:** Creates a new `encyclopedia pages` instance or object.
+**Purpose:** Constructs a new `encyclopedia pages` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of EncyclopediaManager from the subsystem API first
+EncyclopediaManager encyclopediaManager = ...;
+encyclopediaManager.CreateEncyclopediaPages();
+```
 
 ### GetEncyclopediaPages
 `public IEnumerable<EncyclopediaPage> GetEncyclopediaPages()`
 
-**Purpose:** Gets the current value of `encyclopedia pages`.
+**Purpose:** Reads and returns the `encyclopedia pages` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaManager from the subsystem API first
+EncyclopediaManager encyclopediaManager = ...;
+var result = encyclopediaManager.GetEncyclopediaPages();
+```
 
 ### GetPageOf
 `public EncyclopediaPage GetPageOf(Type type)`
 
-**Purpose:** Gets the current value of `page of`.
+**Purpose:** Reads and returns the `page of` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaManager from the subsystem API first
+EncyclopediaManager encyclopediaManager = ...;
+var result = encyclopediaManager.GetPageOf(type);
+```
 
 ### GetIdentifier
 `public string GetIdentifier(Type type)`
 
-**Purpose:** Gets the current value of `identifier`.
+**Purpose:** Reads and returns the `identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of EncyclopediaManager from the subsystem API first
+EncyclopediaManager encyclopediaManager = ...;
+var result = encyclopediaManager.GetIdentifier(type);
+```
 
 ### GoToLink
 `public void GoToLink(string pageType, string stringID)`
 
-**Purpose:** Handles logic related to `go to link`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EncyclopediaManager from the subsystem API first
+EncyclopediaManager encyclopediaManager = ...;
+encyclopediaManager.GoToLink("example", "example");
+```
 
 ### GoToLink
 `public void GoToLink(string link)`
 
-**Purpose:** Handles logic related to `go to link`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of EncyclopediaManager from the subsystem API first
+EncyclopediaManager encyclopediaManager = ...;
+encyclopediaManager.GoToLink("example");
+```
 
 ### SetLinkCallback
 `public void SetLinkCallback(Action<string, object> ExecuteLink)`
 
-**Purpose:** Sets the value or state of `link callback`.
+**Purpose:** Assigns a new value to `link callback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EncyclopediaManager from the subsystem API first
+EncyclopediaManager encyclopediaManager = ...;
+encyclopediaManager.SetLinkCallback(action<string, executeLink);
+```
 
 ## Usage Example
 
@@ -75,4 +111,4 @@ var manager = EncyclopediaManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

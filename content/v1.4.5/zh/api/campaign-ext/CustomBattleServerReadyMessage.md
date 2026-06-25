@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleServerReadyMessage"
+description: "CustomBattleServerReadyMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleServerReadyMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleServerReadyMessage
 
 **Namespace:** Messages.FromCustomBattleServer.ToCustomBattleServerManager
 **Module:** Messages.FromCustomBattleServer
 **Type:** `public class CustomBattleServerReadyMessage : LoginMessage`
 **Base:** `LoginMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/CustomBattleServerReadyMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServer.ToCustomBattleServerManager/CustomBattleServerReadyMessage.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "CustomBattleServerReadyMessage"
 ## 使用示例
 
 ```csharp
-var example = new CustomBattleServerReadyMessage();
+// 从对应子系统 API 获取实例
+CustomBattleServerReadyMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

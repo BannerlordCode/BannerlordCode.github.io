@@ -1,20 +1,14 @@
 ---
 title: "CharacterTableau"
+description: "CharacterTableau 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterTableau`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterTableau
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CharacterTableau`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/CharacterTableau.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus/CharacterTableau.cs`
 
 ## 概述
 
@@ -38,150 +32,319 @@ title: "CharacterTableau"
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.OnTick(0);
+```
 
 ### GetCustomAnimationProgressRatio
 `public float GetCustomAnimationProgressRatio()`
 
-**用途 / Purpose:** 获取 `custom animation progress ratio` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「custom animation progress ratio」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+var result = characterTableau.GetCustomAnimationProgressRatio();
+```
 
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**用途 / Purpose:** 设置 `enabled` 的值或状态。
+**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetEnabled(false);
+```
 
 ### SetLeftHandWieldedEquipmentIndex
 `public void SetLeftHandWieldedEquipmentIndex(int index)`
 
-**用途 / Purpose:** 设置 `left hand wielded equipment index` 的值或状态。
+**用途 / Purpose:** 为 「left hand wielded equipment index」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetLeftHandWieldedEquipmentIndex(0);
+```
 
 ### SetRightHandWieldedEquipmentIndex
 `public void SetRightHandWieldedEquipmentIndex(int index)`
 
-**用途 / Purpose:** 设置 `right hand wielded equipment index` 的值或状态。
+**用途 / Purpose:** 为 「right hand wielded equipment index」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetRightHandWieldedEquipmentIndex(0);
+```
 
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** 设置 `target size` 的值或状态。
+**用途 / Purpose:** 为 「target size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetTargetSize(0, 0);
+```
 
 ### SetCharStringID
 `public void SetCharStringID(string charStringId)`
 
-**用途 / Purpose:** 设置 `char string i d` 的值或状态。
+**用途 / Purpose:** 为 「char string i d」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetCharStringID("example");
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.OnFinalize();
+```
 
 ### SetBodyProperties
 `public void SetBodyProperties(string bodyPropertiesCode)`
 
-**用途 / Purpose:** 设置 `body properties` 的值或状态。
+**用途 / Purpose:** 为 「body properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetBodyProperties("example");
+```
 
 ### SetStanceIndex
 `public void SetStanceIndex(int index)`
 
-**用途 / Purpose:** 设置 `stance index` 的值或状态。
+**用途 / Purpose:** 为 「stance index」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetStanceIndex(0);
+```
 
 ### SetCustomRenderScale
 `public void SetCustomRenderScale(float value)`
 
-**用途 / Purpose:** 设置 `custom render scale` 的值或状态。
+**用途 / Purpose:** 为 「custom render scale」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetCustomRenderScale(0);
+```
 
 ### SetIsFemale
 `public void SetIsFemale(bool isFemale)`
 
-**用途 / Purpose:** 设置 `is female` 的值或状态。
+**用途 / Purpose:** 为 「is female」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetIsFemale(false);
+```
 
 ### SetIsBannerShownInBackground
 `public void SetIsBannerShownInBackground(bool isBannerShownInBackground)`
 
-**用途 / Purpose:** 设置 `is banner shown in background` 的值或状态。
+**用途 / Purpose:** 为 「is banner shown in background」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetIsBannerShownInBackground(false);
+```
 
 ### SetRace
 `public void SetRace(int race)`
 
-**用途 / Purpose:** 设置 `race` 的值或状态。
+**用途 / Purpose:** 为 「race」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetRace(0);
+```
 
 ### SetIdleAction
 `public void SetIdleAction(string idleAction)`
 
-**用途 / Purpose:** 设置 `idle action` 的值或状态。
+**用途 / Purpose:** 为 「idle action」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetIdleAction("example");
+```
 
 ### SetCustomAnimation
 `public void SetCustomAnimation(string animation)`
 
-**用途 / Purpose:** 设置 `custom animation` 的值或状态。
+**用途 / Purpose:** 为 「custom animation」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetCustomAnimation("example");
+```
 
 ### StartCustomAnimation
 `public void StartCustomAnimation()`
 
-**用途 / Purpose:** 处理 `start custom animation` 相关逻辑。
+**用途 / Purpose:** 启动「custom animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.StartCustomAnimation();
+```
 
 ### StopCustomAnimation
 `public void StopCustomAnimation()`
 
-**用途 / Purpose:** 处理 `stop custom animation` 相关逻辑。
+**用途 / Purpose:** 停止「custom animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.StopCustomAnimation();
+```
 
 ### SetIdleFaceAnim
 `public void SetIdleFaceAnim(string idleFaceAnim)`
 
-**用途 / Purpose:** 设置 `idle face anim` 的值或状态。
+**用途 / Purpose:** 为 「idle face anim」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetIdleFaceAnim("example");
+```
 
 ### SetEquipmentCode
 `public void SetEquipmentCode(string equipmentCode)`
 
-**用途 / Purpose:** 设置 `equipment code` 的值或状态。
+**用途 / Purpose:** 为 「equipment code」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetEquipmentCode("example");
+```
 
 ### SetIsEquipmentAnimActive
 `public void SetIsEquipmentAnimActive(bool value)`
 
-**用途 / Purpose:** 设置 `is equipment anim active` 的值或状态。
+**用途 / Purpose:** 为 「is equipment anim active」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetIsEquipmentAnimActive(false);
+```
 
 ### SetMountCreationKey
 `public void SetMountCreationKey(string value)`
 
-**用途 / Purpose:** 设置 `mount creation key` 的值或状态。
+**用途 / Purpose:** 为 「mount creation key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetMountCreationKey("example");
+```
 
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**用途 / Purpose:** 设置 `banner code` 的值或状态。
+**用途 / Purpose:** 为 「banner code」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetBannerCode("example");
+```
 
 ### SetArmorColor1
 `public void SetArmorColor1(uint clothColor1)`
 
-**用途 / Purpose:** 设置 `armor color1` 的值或状态。
+**用途 / Purpose:** 为 「armor color1」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetArmorColor1(0);
+```
 
 ### SetArmorColor2
 `public void SetArmorColor2(uint clothColor2)`
 
-**用途 / Purpose:** 设置 `armor color2` 的值或状态。
+**用途 / Purpose:** 为 「armor color2」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.SetArmorColor2(0);
+```
 
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**用途 / Purpose:** 处理 `rotate character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.RotateCharacter(false);
+```
 
 ### TriggerCharacterMountPlacesSwap
 `public void TriggerCharacterMountPlacesSwap()`
 
-**用途 / Purpose:** 处理 `trigger character mount places swap` 相关逻辑。
+**用途 / Purpose:** 触发「character mount places swap」对应的逻辑或事件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.TriggerCharacterMountPlacesSwap();
+```
 
 ### OnCharacterTableauMouseMove
 `public void OnCharacterTableauMouseMove(int mouseMoveX)`
 
-**用途 / Purpose:** 当 `character tableau mouse move` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「character tableau mouse move」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterTableau 实例
+CharacterTableau characterTableau = ...;
+characterTableau.OnCharacterTableauMouseMove(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterTableau();
-value.OnTick(0);
+// 通常从对应子系统 API 获取实例后调用
+CharacterTableau characterTableau = ...;
+characterTableau.OnTick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

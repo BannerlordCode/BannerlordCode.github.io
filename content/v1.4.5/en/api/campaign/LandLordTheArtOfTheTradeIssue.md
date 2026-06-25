@@ -1,20 +1,14 @@
 ---
 title: "LandLordTheArtOfTheTradeIssue"
+description: "Auto-generated class reference for LandLordTheArtOfTheTradeIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LandLordTheArtOfTheTradeIssue`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LandLordTheArtOfTheTradeIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LandLordTheArtOfTheTradeIssue`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LandLordTheArtOfTheTradeIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LandLordTheArtOfTheTradeIssueBehavior.cs`
 
 ## Overview
 
@@ -41,40 +35,77 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LandLordTheArtOfTheTradeIssue from the subsystem API first
+LandLordTheArtOfTheTradeIssue landLordTheArtOfTheTradeIssue = ...;
+var result = landLordTheArtOfTheTradeIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of LandLordTheArtOfTheTradeIssue from the subsystem API first
+LandLordTheArtOfTheTradeIssue landLordTheArtOfTheTradeIssue = ...;
+var result = landLordTheArtOfTheTradeIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of LandLordTheArtOfTheTradeIssue from the subsystem API first
+LandLordTheArtOfTheTradeIssue landLordTheArtOfTheTradeIssue = ...;
+var result = landLordTheArtOfTheTradeIssue.IssueStayAliveConditions();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of LandLordTheArtOfTheTradeIssue from the subsystem API first
+LandLordTheArtOfTheTradeIssue landLordTheArtOfTheTradeIssue = ...;
+landLordTheArtOfTheTradeIssue.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of LandLordTheArtOfTheTradeIssue from the subsystem API first
+LandLordTheArtOfTheTradeIssue landLordTheArtOfTheTradeIssue = ...;
+landLordTheArtOfTheTradeIssue.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of LandLordTheArtOfTheTradeIssue from the subsystem API first
+LandLordTheArtOfTheTradeIssue landLordTheArtOfTheTradeIssue = ...;
+landLordTheArtOfTheTradeIssue.OnCheckForIssue(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LandLordTheArtOfTheTradeIssue();
-value.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+// Typically call this after obtaining an instance from the subsystem API
+LandLordTheArtOfTheTradeIssue landLordTheArtOfTheTradeIssue = ...;
+landLordTheArtOfTheTradeIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

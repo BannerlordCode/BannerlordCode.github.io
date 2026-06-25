@@ -1,20 +1,14 @@
 ---
 title: "MissionStealthFailCounterView"
+description: "Auto-generated class reference for MissionStealthFailCounterView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionStealthFailCounterView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionStealthFailCounterView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionStealthFailCounterView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionStealthFailCounterView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionStealthFailCounterView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionStealthFailCounterView` as a View-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var view = new MissionStealthFailCounterView();
+// Retrieve this view from the subsystem API or scene
+MissionStealthFailCounterView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

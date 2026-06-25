@@ -1,23 +1,18 @@
 ---
 title: "RescueFamilyQuest"
+description: "Auto-generated class reference for RescueFamilyQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RescueFamilyQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RescueFamilyQuest
 
 **Namespace:** StoryMode.Quests.PlayerClanQuests
 **Module:** StoryMode.Quests
 **Type:** `public class RescueFamilyQuest`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.PlayerClanQuests/RescueFamilyQuestBehavior.cs`
 
 ## Overview
 
-`RescueFamilyQuest` lives in `StoryMode.Quests.PlayerClanQuests`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`RescueFamilyQuest` lives in `StoryMode.Quests.PlayerClanQuests` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,27 +23,44 @@ Start from namespace `StoryMode.Quests.PlayerClanQuests` to place it in the stac
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of RescueFamilyQuest from the subsystem API first
+RescueFamilyQuest rescueFamilyQuest = ...;
+rescueFamilyQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of RescueFamilyQuest from the subsystem API first
+RescueFamilyQuest rescueFamilyQuest = ...;
+rescueFamilyQuest.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of RescueFamilyQuest from the subsystem API first
+RescueFamilyQuest rescueFamilyQuest = ...;
+rescueFamilyQuest.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a RescueFamilyQuest instance from game state, then call one of its public methods
-var value = new RescueFamilyQuest();
-value.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+// Typically call this after obtaining an instance from the subsystem API
+RescueFamilyQuest rescueFamilyQuest = ...;
+rescueFamilyQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionArenaPracticeFightView"
+description: "Auto-generated class reference for MissionArenaPracticeFightView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionArenaPracticeFightView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionArenaPracticeFightView
 
 **Namespace:** SandBox.View.Missions
@@ -27,9 +21,10 @@ Treat `MissionArenaPracticeFightView` as a View-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var view = new MissionArenaPracticeFightView();
+// Retrieve this view from the subsystem API or scene
+MissionArenaPracticeFightView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

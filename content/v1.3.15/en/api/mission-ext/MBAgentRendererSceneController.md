@@ -1,13 +1,7 @@
 ---
 title: "MBAgentRendererSceneController"
+description: "Auto-generated class reference for MBAgentRendererSceneController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBAgentRendererSceneController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBAgentRendererSceneController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,27 +23,54 @@ Treat `MBAgentRendererSceneController` as a Controller-style extension point: fi
 ### SetEnforcedVisibilityForAllAgents
 `public void SetEnforcedVisibilityForAllAgents(Scene scene)`
 
-**Purpose:** Sets the value or state of `enforced visibility for all agents`.
+**Purpose:** Assigns a new value to `enforced visibility for all agents` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentRendererSceneController from the subsystem API first
+MBAgentRendererSceneController mBAgentRendererSceneController = ...;
+mBAgentRendererSceneController.SetEnforcedVisibilityForAllAgents(scene);
+```
 
 ### CreateNewAgentRendererSceneController
 `public static MBAgentRendererSceneController CreateNewAgentRendererSceneController(Scene scene)`
 
-**Purpose:** Creates a new `new agent renderer scene controller` instance or object.
+**Purpose:** Constructs a new `new agent renderer scene controller` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MBAgentRendererSceneController.CreateNewAgentRendererSceneController(scene);
+```
 
 ### SetDoTimerBasedForcedSkeletonUpdates
 `public void SetDoTimerBasedForcedSkeletonUpdates(bool value)`
 
-**Purpose:** Sets the value or state of `do timer based forced skeleton updates`.
+**Purpose:** Assigns a new value to `do timer based forced skeleton updates` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBAgentRendererSceneController from the subsystem API first
+MBAgentRendererSceneController mBAgentRendererSceneController = ...;
+mBAgentRendererSceneController.SetDoTimerBasedForcedSkeletonUpdates(false);
+```
 
 ### DestructAgentRendererSceneController
 `public static void DestructAgentRendererSceneController(Scene scene, MBAgentRendererSceneController rendererSceneController, bool deleteThisFrame)`
 
-**Purpose:** Handles logic related to `destruct agent renderer scene controller`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBAgentRendererSceneController.DestructAgentRendererSceneController(scene, rendererSceneController, false);
+```
 
 ### ValidateAgentVisualsReseted
 `public static void ValidateAgentVisualsReseted(Scene scene, MBAgentRendererSceneController rendererSceneController)`
 
-**Purpose:** Handles logic related to `validate agent visuals reseted`.
+**Purpose:** Checks whether `agent visuals reseted` satisfies the required constraints, usually returning a boolean.
+
+```csharp
+// Static call; no instance required
+MBAgentRendererSceneController.ValidateAgentVisualsReseted(scene, rendererSceneController);
+```
 
 ## Usage Example
 
@@ -59,4 +80,4 @@ var controller = Mission.Current.GetMissionBehavior<MBAgentRendererSceneControll
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

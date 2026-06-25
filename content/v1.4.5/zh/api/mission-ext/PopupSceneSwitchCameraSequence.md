@@ -1,20 +1,14 @@
 ---
 title: "PopupSceneSwitchCameraSequence"
+description: "PopupSceneSwitchCameraSequence 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PopupSceneSwitchCameraSequence`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneSwitchCameraSequence
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PopupSceneSwitchCameraSequence : PopupSceneSequence`
 **Base:** `PopupSceneSequence`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/PopupSceneSwitchCameraSequence.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Scripts/PopupSceneSwitchCameraSequence.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "PopupSceneSwitchCameraSequence"
 ### OnInitialState
 `public override void OnInitialState()`
 
-**用途 / Purpose:** 当 `initial state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initial state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSwitchCameraSequence 实例
+PopupSceneSwitchCameraSequence popupSceneSwitchCameraSequence = ...;
+popupSceneSwitchCameraSequence.OnInitialState();
+```
 
 ### OnPositiveState
 `public override void OnPositiveState()`
 
-**用途 / Purpose:** 当 `positive state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「positive state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSwitchCameraSequence 实例
+PopupSceneSwitchCameraSequence popupSceneSwitchCameraSequence = ...;
+popupSceneSwitchCameraSequence.OnPositiveState();
+```
 
 ### OnNegativeState
 `public override void OnNegativeState()`
 
-**用途 / Purpose:** 当 `negative state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「negative state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSwitchCameraSequence 实例
+PopupSceneSwitchCameraSequence popupSceneSwitchCameraSequence = ...;
+popupSceneSwitchCameraSequence.OnNegativeState();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PopupSceneSwitchCameraSequence();
-value.OnInitialState();
+// 通常从对应子系统 API 获取实例后调用
+PopupSceneSwitchCameraSequence popupSceneSwitchCameraSequence = ...;
+popupSceneSwitchCameraSequence.OnInitialState();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

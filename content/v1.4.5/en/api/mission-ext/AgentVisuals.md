@@ -1,20 +1,14 @@
 ---
 title: "AgentVisuals"
+description: "Auto-generated class reference for AgentVisuals."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentVisuals`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentVisuals
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentVisuals : IAgentVisual`
 **Base:** `IAgentVisual`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs`
 
 ## Overview
 
@@ -35,220 +29,469 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetVisuals
 `public MBAgentVisuals GetVisuals()`
 
-**Purpose:** Gets the current value of `visuals`.
+**Purpose:** Reads and returns the `visuals` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetVisuals();
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.Reset();
+```
 
 ### ResetNextFrame
 `public void ResetNextFrame()`
 
-**Purpose:** Resets `next frame` to its initial state.
+**Purpose:** Returns `next frame` to its default or initial condition.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.ResetNextFrame();
+```
 
 ### GetFrame
 `public MatrixFrame GetFrame()`
 
-**Purpose:** Gets the current value of `frame`.
+**Purpose:** Reads and returns the `frame` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetFrame();
+```
 
 ### GetBodyProperties
 `public BodyProperties GetBodyProperties()`
 
-**Purpose:** Gets the current value of `body properties`.
+**Purpose:** Reads and returns the `body properties` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetBodyProperties();
+```
 
 ### SetBodyProperties
 `public void SetBodyProperties(BodyProperties bodyProperties)`
 
-**Purpose:** Sets the value or state of `body properties`.
+**Purpose:** Assigns a new value to `body properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetBodyProperties(bodyProperties);
+```
 
 ### GetIsFemale
 `public bool GetIsFemale()`
 
-**Purpose:** Gets the current value of `is female`.
+**Purpose:** Reads and returns the `is female` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetIsFemale();
+```
 
 ### GetCharacterObjectID
 `public string GetCharacterObjectID()`
 
-**Purpose:** Gets the current value of `character object i d`.
+**Purpose:** Reads and returns the `character object i d` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetCharacterObjectID();
+```
 
 ### SetCharacterObjectID
 `public void SetCharacterObjectID(string id)`
 
-**Purpose:** Sets the value or state of `character object i d`.
+**Purpose:** Assigns a new value to `character object i d` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetCharacterObjectID("example");
+```
 
 ### GetEquipment
 `public Equipment GetEquipment()`
 
-**Purpose:** Gets the current value of `equipment`.
+**Purpose:** Reads and returns the `equipment` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetEquipment();
+```
 
 ### GetCopyAgentVisualsData
 `public AgentVisualsData GetCopyAgentVisualsData()`
 
-**Purpose:** Gets the current value of `copy agent visuals data`.
+**Purpose:** Reads and returns the `copy agent visuals data` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetCopyAgentVisualsData();
+```
 
 ### GetEntity
 `public GameEntity GetEntity()`
 
-**Purpose:** Gets the current value of `entity`.
+**Purpose:** Reads and returns the `entity` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetEntity();
+```
 
 ### GetWeakEntity
 `public WeakGameEntity GetWeakEntity()`
 
-**Purpose:** Gets the current value of `weak entity`.
+**Purpose:** Reads and returns the `weak entity` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetWeakEntity();
+```
 
 ### SetVisible
 `public void SetVisible(bool value)`
 
-**Purpose:** Sets the value or state of `visible`.
+**Purpose:** Assigns a new value to `visible` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetVisible(false);
+```
 
 ### GetGlobalStableEyePoint
 `public Vec3 GetGlobalStableEyePoint(bool isHumanoid)`
 
-**Purpose:** Gets the current value of `global stable eye point`.
+**Purpose:** Reads and returns the `global stable eye point` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetGlobalStableEyePoint(false);
+```
 
 ### GetGlobalStableNeckPoint
 `public Vec3 GetGlobalStableNeckPoint(bool isHumanoid)`
 
-**Purpose:** Gets the current value of `global stable neck point`.
+**Purpose:** Reads and returns the `global stable neck point` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetGlobalStableNeckPoint(false);
+```
 
 ### AddPrefabToAgentVisualBoneByBoneType
 `public CompositeComponent AddPrefabToAgentVisualBoneByBoneType(string prefabName, HumanBone boneType)`
 
 **Purpose:** Adds `prefab to agent visual bone by bone type` to the current collection or state.
 
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.AddPrefabToAgentVisualBoneByBoneType("example", boneType);
+```
+
 ### AddPrefabToAgentVisualBoneByRealBoneIndex
 `public CompositeComponent AddPrefabToAgentVisualBoneByRealBoneIndex(string prefabName, sbyte realBoneIndex)`
 
 **Purpose:** Adds `prefab to agent visual bone by real bone index` to the current collection or state.
 
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.AddPrefabToAgentVisualBoneByRealBoneIndex("example", 0);
+```
+
 ### SetAgentLodZeroOrMax
 `public void SetAgentLodZeroOrMax(bool value)`
 
-**Purpose:** Sets the value or state of `agent lod zero or max`.
+**Purpose:** Assigns a new value to `agent lod zero or max` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetAgentLodZeroOrMax(false);
+```
 
 ### GetScale
 `public float GetScale()`
 
-**Purpose:** Gets the current value of `scale`.
+**Purpose:** Reads and returns the `scale` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetScale();
+```
 
 ### SetAction
 `public void SetAction(in ActionIndexCache actionIndex, float startProgress = 0f, bool forceFaceMorphRestart = true)`
 
-**Purpose:** Sets the value or state of `action`.
+**Purpose:** Assigns a new value to `action` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetAction(actionIndex, 0, false);
+```
 
 ### DoesActionContinueWithCurrentAction
 `public bool DoesActionContinueWithCurrentAction(in ActionIndexCache actionIndex)`
 
-**Purpose:** Handles logic related to `does action continue with current action`.
+**Purpose:** Returns a boolean answer to whether `action continue with current action` is true for the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.DoesActionContinueWithCurrentAction(actionIndex);
+```
 
 ### GetAnimationParameterAtChannel
 `public float GetAnimationParameterAtChannel(int channelIndex)`
 
-**Purpose:** Gets the current value of `animation parameter at channel`.
+**Purpose:** Reads and returns the `animation parameter at channel` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetAnimationParameterAtChannel(0);
+```
 
 ### Refresh
 `public void Refresh(bool needBatchedVersionForWeaponMeshes, AgentVisualsData data, bool forceUseFaceCache = false)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.Refresh(false, data, false);
+```
 
 ### SetClothWindToWeaponAtIndex
 `public void SetClothWindToWeaponAtIndex(Vec3 localWindVector, bool isLocal, EquipmentIndex weaponIndex)`
 
-**Purpose:** Sets the value or state of `cloth wind to weapon at index`.
+**Purpose:** Assigns a new value to `cloth wind to weapon at index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetClothWindToWeaponAtIndex(localWindVector, false, weaponIndex);
+```
 
 ### TickVisuals
 `public void TickVisuals()`
 
-**Purpose:** Handles logic related to `tick visuals`.
+**Purpose:** Advances the `visuals` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.TickVisuals();
+```
 
 ### Tick
 `public void Tick(AgentVisuals parentAgentVisuals, float dt, bool isEntityMoving = false, float speed = 0f)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.Tick(parentAgentVisuals, 0, false, 0);
+```
 
 ### Create
 `public static AgentVisuals Create(AgentVisualsData data, string name, bool isRandomProgress, bool needBatchedVersionForWeaponMeshes, bool forceUseFaceCache)`
 
-**Purpose:** Creates a new `create` instance or object.
+**Purpose:** Creates a new instance or related entity for the current object.
+
+```csharp
+// Static call; no instance required
+AgentVisuals.Create(data, "example", false, false, false);
+```
 
 ### GetRandomGlossFactor
 `public static float GetRandomGlossFactor(Random randomGenerator)`
 
-**Purpose:** Gets the current value of `random gloss factor`.
+**Purpose:** Reads and returns the `random gloss factor` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AgentVisuals.GetRandomGlossFactor(randomGenerator);
+```
 
 ### GetRandomClothingColors
 `public static void GetRandomClothingColors(int seed, Color inputColor1, Color inputColor2, out Color color1, out Color color2)`
 
-**Purpose:** Gets the current value of `random clothing colors`.
+**Purpose:** Reads and returns the `random clothing colors` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AgentVisuals.GetRandomClothingColors(0, inputColor1, inputColor2, color1, color2);
+```
 
 ### SetFaceGenerationParams
 `public void SetFaceGenerationParams(FaceGenerationParams faceGenerationParams)`
 
-**Purpose:** Sets the value or state of `face generation params`.
+**Purpose:** Assigns a new value to `face generation params` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetFaceGenerationParams(faceGenerationParams);
+```
 
 ### SetVoiceDefinitionIndex
 `public void SetVoiceDefinitionIndex(int voiceDefinitionIndex, float voicePitch)`
 
-**Purpose:** Sets the value or state of `voice definition index`.
+**Purpose:** Assigns a new value to `voice definition index` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetVoiceDefinitionIndex(0, 0);
+```
 
 ### StartRhubarbRecord
 `public void StartRhubarbRecord(string path, int soundId)`
 
-**Purpose:** Handles logic related to `start rhubarb record`.
+**Purpose:** Starts the `rhubarb record` flow or state machine.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.StartRhubarbRecord("example", 0);
+```
 
 ### SetAgentLodZeroOrMaxExternal
 `public void SetAgentLodZeroOrMaxExternal(bool makeZero)`
 
-**Purpose:** Sets the value or state of `agent lod zero or max external`.
+**Purpose:** Assigns a new value to `agent lod zero or max external` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetAgentLodZeroOrMaxExternal(false);
+```
 
 ### SetAgentLocalSpeed
 `public void SetAgentLocalSpeed(Vec2 speed)`
 
-**Purpose:** Sets the value or state of `agent local speed`.
+**Purpose:** Assigns a new value to `agent local speed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetAgentLocalSpeed(speed);
+```
 
 ### SetLookDirection
 `public void SetLookDirection(Vec3 direction)`
 
-**Purpose:** Sets the value or state of `look direction`.
+**Purpose:** Assigns a new value to `look direction` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetLookDirection(direction);
+```
 
 ### AddArmorMultiMeshesToAgentEntity
 `public unsafe void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)`
 
 **Purpose:** Adds `armor multi meshes to agent entity` to the current collection or state.
 
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.AddArmorMultiMeshesToAgentEntity(0, 0);
+```
+
 ### MakeRandomVoiceForFacegen
 `public void MakeRandomVoiceForFacegen()`
 
-**Purpose:** Handles logic related to `make random voice for facegen`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.MakeRandomVoiceForFacegen();
+```
 
 ### AddTeamColorToMesh
 `public static void AddTeamColorToMesh(MetaMesh metaMesh, uint color1, uint color2)`
 
 **Purpose:** Adds `team color to mesh` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+AgentVisuals.AddTeamColorToMesh(metaMesh, 0, 0);
+```
+
 ### SetClothingColors
 `public void SetClothingColors(uint color1, uint color2)`
 
-**Purpose:** Sets the value or state of `clothing colors`.
+**Purpose:** Assigns a new value to `clothing colors` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetClothingColors(0, 0);
+```
 
 ### GetClothingColors
 `public void GetClothingColors(out uint color1, out uint color2)`
 
-**Purpose:** Gets the current value of `clothing colors`.
+**Purpose:** Reads and returns the `clothing colors` value held by the current object.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.GetClothingColors(color1, color2);
+```
 
 ### SetEntity
 `public void SetEntity(GameEntity entity)`
 
-**Purpose:** Sets the value or state of `entity`.
+**Purpose:** Assigns a new value to `entity` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AgentVisuals from the subsystem API first
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetEntity(entity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AgentVisuals();
-value.GetVisuals();
+// Typically call this after obtaining an instance from the subsystem API
+AgentVisuals agentVisuals = ...;
+agentVisuals.GetVisuals();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

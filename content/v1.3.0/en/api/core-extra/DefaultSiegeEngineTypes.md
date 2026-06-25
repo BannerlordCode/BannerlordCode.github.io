@@ -1,13 +1,7 @@
 ---
 title: "DefaultSiegeEngineTypes"
+description: "Auto-generated class reference for DefaultSiegeEngineTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSiegeEngineTypes`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeEngineTypes
 
 **Namespace:** TaleWorlds.Core
@@ -47,9 +41,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var example = new DefaultSiegeEngineTypes();
+// Obtain an instance from the relevant subsystem API
+DefaultSiegeEngineTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

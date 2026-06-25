@@ -1,13 +1,7 @@
 ---
 title: "MissionQuestBarView"
+description: "Auto-generated class reference for MissionQuestBarView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionQuestBarView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionQuestBarView
 
 **Namespace:** SandBox.View.Missions
@@ -27,9 +21,10 @@ Treat `MissionQuestBarView` as a View-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var view = new MissionQuestBarView();
+// Retrieve this view from the subsystem API or scene
+MissionQuestBarView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

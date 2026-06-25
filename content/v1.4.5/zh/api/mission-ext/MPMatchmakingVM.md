@@ -1,20 +1,14 @@
 ---
 title: "MPMatchmakingVM"
+description: "MPMatchmakingVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPMatchmakingVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPMatchmakingVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPMatchmakingVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPMatchmakingVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPMatchmakingVM.cs`
 
 ## 概述
 
@@ -67,70 +61,143 @@ title: "MPMatchmakingVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshValues();
+```
 
 ### TrySetMatchmakingSubPage
 `public void TrySetMatchmakingSubPage(MatchmakingSubPages newPage)`
 
-**用途 / Purpose:** 尝试获取 `set matchmaking sub page`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「set matchmaking sub page」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.TrySetMatchmakingSubPage(newPage);
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**用途 / Purpose:** 刷新 `player data` 的显示或缓存。
+**用途 / Purpose:** 使 「player data」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshPlayerData(playerData);
+```
 
 ### OnFindingGame
 `public void OnFindingGame()`
 
-**用途 / Purpose:** 当 `finding game` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finding game」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnFindingGame();
+```
 
 ### OnCancelFindingGame
 `public void OnCancelFindingGame()`
 
-**用途 / Purpose:** 当 `cancel finding game` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「cancel finding game」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnCancelFindingGame();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnFinalize();
+```
 
 ### GetSelectedGameTypesInfo
 `public bool GetSelectedGameTypesInfo(out string gameTypes)`
 
-**用途 / Purpose:** 获取 `selected game types info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selected game types info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+var result = mPMatchmakingVM.GetSelectedGameTypesInfo(gameTypes);
+```
 
 ### RefreshWaitingTime
 `public void RefreshWaitingTime()`
 
-**用途 / Purpose:** 刷新 `waiting time` 的显示或缓存。
+**用途 / Purpose:** 使 「waiting time」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshWaitingTime();
+```
 
 ### ExecuteAutoFindGame
 `public void ExecuteAutoFindGame()`
 
-**用途 / Purpose:** 执行 `auto find game` 操作或流程。
+**用途 / Purpose:** 执行 「auto find game」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.ExecuteAutoFindGame();
+```
 
 ### RefreshSubPageStates
 `public void RefreshSubPageStates()`
 
-**用途 / Purpose:** 刷新 `sub page states` 的显示或缓存。
+**用途 / Purpose:** 使 「sub page states」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshSubPageStates();
+```
 
 ### OnPremadeGameEligibilityStatusReceived
 `public void OnPremadeGameEligibilityStatusReceived(bool isEligible)`
 
-**用途 / Purpose:** 当 `premade game eligibility status received` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「premade game eligibility status received」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnPremadeGameEligibilityStatusReceived(false);
+```
 
 ### OnSupportedFeaturesRefreshed
 `public void OnSupportedFeaturesRefreshed(SupportedFeatures supportedFeatures)`
 
-**用途 / Purpose:** 当 `supported features refreshed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「supported features refreshed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnSupportedFeaturesRefreshed(supportedFeatures);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPMatchmakingVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

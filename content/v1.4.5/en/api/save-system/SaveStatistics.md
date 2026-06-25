@@ -1,20 +1,14 @@
 ---
 title: "SaveStatistics"
+description: "Auto-generated class reference for SaveStatistics."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveStatistics`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveStatistics
 
 **Namespace:** TaleWorlds.SaveSystem.Save
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct SaveStatistics`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/LegacySaveContext.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Save/LegacySaveContext.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**Purpose:** Saves `statistics` data.
+**Purpose:** Writes `statistics` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SaveStatistics from the subsystem API first
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+```
 
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**Purpose:** Gets the current value of `container size`.
+**Purpose:** Reads and returns the `container size` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveStatistics from the subsystem API first
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.GetContainerSize("example");
+```
 
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**Purpose:** Gets the current value of `type keys`.
+**Purpose:** Reads and returns the `type keys` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveStatistics from the subsystem API first
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.GetTypeKeys();
+```
 
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**Purpose:** Gets the current value of `container keys`.
+**Purpose:** Reads and returns the `container keys` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveStatistics from the subsystem API first
+SaveStatistics saveStatistics = ...;
+var result = saveStatistics.GetContainerKeys();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SaveStatistics();
-value.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+SaveStatistics saveStatistics = ...;
+saveStatistics.SaveStatistics(dictionary<string, (int, 0, 0, 0, dictionary<string, (int, 0, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

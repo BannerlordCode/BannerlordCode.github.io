@@ -1,20 +1,14 @@
 ---
 title: "DefaultDailyTroopXpBonusModel"
+description: "Auto-generated class reference for DefaultDailyTroopXpBonusModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultDailyTroopXpBonusModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultDailyTroopXpBonusModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultDailyTroopXpBonusModel : DailyTroopXpBonusModel`
 **Base:** `DailyTroopXpBonusModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultDailyTroopXpBonusModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultDailyTroopXpBonusModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DefaultDailyTroopXpBonusModel` as a Model-style extension point: first id
 ### CalculateDailyTroopXpBonus
 `public override int CalculateDailyTroopXpBonus(Town town)`
 
-**Purpose:** Handles logic related to `calculate daily troop xp bonus`.
+**Purpose:** Calculates the current value or result of `daily troop xp bonus`.
+
+```csharp
+// Obtain an instance of DefaultDailyTroopXpBonusModel from the subsystem API first
+DefaultDailyTroopXpBonusModel defaultDailyTroopXpBonusModel = ...;
+var result = defaultDailyTroopXpBonusModel.CalculateDailyTroopXpBonus(town);
+```
 
 ### CalculateGarrisonXpBonusMultiplier
 `public override float CalculateGarrisonXpBonusMultiplier(Town town)`
 
-**Purpose:** Handles logic related to `calculate garrison xp bonus multiplier`.
+**Purpose:** Calculates the current value or result of `garrison xp bonus multiplier`.
+
+```csharp
+// Obtain an instance of DefaultDailyTroopXpBonusModel from the subsystem API first
+DefaultDailyTroopXpBonusModel defaultDailyTroopXpBonusModel = ...;
+var result = defaultDailyTroopXpBonusModel.CalculateGarrisonXpBonusMultiplier(town);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultDailyTroopXpBonusModel>(new MyDefaultDailyTroop
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

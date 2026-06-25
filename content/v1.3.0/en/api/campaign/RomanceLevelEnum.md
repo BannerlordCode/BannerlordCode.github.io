@@ -1,13 +1,7 @@
 ---
 title: "RomanceLevelEnum"
+description: "Auto-generated class reference for RomanceLevelEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RomanceLevelEnum`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RomanceLevelEnum
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-RomanceLevelEnum example = RomanceLevelEnum.Value;
+// Obtain an instance from the relevant subsystem API
+RomanceLevelEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SaveableObjectSystemTypeDefiner"
+description: "Auto-generated class reference for SaveableObjectSystemTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveableObjectSystemTypeDefiner`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveableObjectSystemTypeDefiner
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class SaveableObjectSystemTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/SaveableObjectSystemTypeDefiner.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/SaveableObjectSystemTypeDefiner.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new SaveableObjectSystemTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+SaveableObjectSystemTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

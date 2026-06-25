@@ -1,20 +1,14 @@
 ---
 title: "PlayerStatsBattle"
+description: "PlayerStatsBattle 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerStatsBattle`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerStatsBattle
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsBattle : PlayerStatsBase`
 **Base:** `PlayerStatsBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsBattle.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsBattle.cs`
 
 ## 概述
 
@@ -36,25 +30,44 @@ title: "PlayerStatsBattle"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int roundsWon, int roundsLost)`
 
-**用途 / Purpose:** 处理 `fill with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsBattle 实例
+PlayerStatsBattle playerStatsBattle = ...;
+playerStatsBattle.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0);
+```
 
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `fill with new player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsBattle 实例
+PlayerStatsBattle playerStatsBattle = ...;
+playerStatsBattle.FillWithNewPlayer(playerId);
+```
 
 ### Update
 `public void Update(BattlePlayerStatsBattle stats, bool won)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsBattle 实例
+PlayerStatsBattle playerStatsBattle = ...;
+playerStatsBattle.Update(stats, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerStatsBattle();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+PlayerStatsBattle playerStatsBattle = ...;
+playerStatsBattle.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

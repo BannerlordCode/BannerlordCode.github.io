@@ -1,20 +1,14 @@
 ---
 title: "BrightnessDemoTextureProvider"
+description: "Auto-generated class reference for BrightnessDemoTextureProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrightnessDemoTextureProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrightnessDemoTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BrightnessDemoTextureProvider : TextureProvider`
 **Base:** `TextureProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/BrightnessDemoTextureProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.TextureProviders/BrightnessDemoTextureProvider.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders` to p
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of BrightnessDemoTextureProvider from the subsystem API first
+BrightnessDemoTextureProvider brightnessDemoTextureProvider = ...;
+brightnessDemoTextureProvider.Tick(0);
+```
 
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of BrightnessDemoTextureProvider from the subsystem API first
+BrightnessDemoTextureProvider brightnessDemoTextureProvider = ...;
+brightnessDemoTextureProvider.Clear(false);
+```
 
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrightnessDemoTextureProvider from the subsystem API first
+BrightnessDemoTextureProvider brightnessDemoTextureProvider = ...;
+brightnessDemoTextureProvider.SetTargetSize(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrightnessDemoTextureProvider();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+BrightnessDemoTextureProvider brightnessDemoTextureProvider = ...;
+brightnessDemoTextureProvider.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

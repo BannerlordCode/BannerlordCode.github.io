@@ -1,20 +1,14 @@
 ---
 title: "ClanWorkshopTypeVisualBrushWidget"
+description: "Auto-generated class reference for ClanWorkshopTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanWorkshopTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanWorkshopTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanWorkshopTypeVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanWorkshopTypeVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanWorkshopTypeVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `ClanWorkshopTypeVisualBrushWidget` as a Widget-style extension point: fir
 ### ClanWorkshopTypeVisualBrushWidget
 `public class ClanWorkshopTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `clan workshop type visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanWorkshopTypeVisualBrushWidget from the subsystem API first
+ClanWorkshopTypeVisualBrushWidget clanWorkshopTypeVisualBrushWidget = ...;
+var result = clanWorkshopTypeVisualBrushWidget.ClanWorkshopTypeVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ClanWorkshopTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClanWorkshopTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

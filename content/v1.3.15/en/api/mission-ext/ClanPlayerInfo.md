@@ -1,13 +1,7 @@
 ---
 title: "ClanPlayerInfo"
+description: "Auto-generated class reference for ClanPlayerInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanPlayerInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanPlayerInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new ClanPlayerInfo();
+// Obtain an instance from the relevant subsystem API
+ClanPlayerInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

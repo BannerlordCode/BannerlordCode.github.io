@@ -1,13 +1,7 @@
 ---
 title: "BoardGameView"
+description: "Auto-generated class reference for BoardGameView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -27,9 +21,10 @@ Treat `BoardGameView` as a View-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var view = new BoardGameView();
+// Retrieve this view from the subsystem API or scene
+BoardGameView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

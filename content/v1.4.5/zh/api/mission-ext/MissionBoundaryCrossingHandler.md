@@ -1,20 +1,14 @@
 ---
 title: "MissionBoundaryCrossingHandler"
+description: "MissionBoundaryCrossingHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBoundaryCrossingHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoundaryCrossingHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionBoundaryCrossingHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBoundaryCrossingHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionBoundaryCrossingHandler.cs`
 
 ## 概述
 
@@ -29,34 +23,64 @@ title: "MissionBoundaryCrossingHandler"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoundaryCrossingHandler 实例
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoundaryCrossingHandler 实例
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnRemoveBehavior();
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoundaryCrossingHandler 实例
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnClearScene();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoundaryCrossingHandler 实例
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBoundaryCrossingHandler 实例
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBoundaryCrossingHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionBoundaryCrossingHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

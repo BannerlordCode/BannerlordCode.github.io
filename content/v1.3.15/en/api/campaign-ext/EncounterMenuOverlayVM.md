@@ -1,13 +1,7 @@
 ---
 title: "EncounterMenuOverlayVM"
+description: "Auto-generated class reference for EncounterMenuOverlayVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncounterMenuOverlayVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncounterMenuOverlayVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
@@ -64,25 +58,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EncounterMenuOverlayVM from the subsystem API first
+EncounterMenuOverlayVM encounterMenuOverlayVM = ...;
+encounterMenuOverlayVM.RefreshValues();
+```
 
 ### OnFrameTick
 `public override void OnFrameTick(float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of EncounterMenuOverlayVM from the subsystem API first
+EncounterMenuOverlayVM encounterMenuOverlayVM = ...;
+encounterMenuOverlayVM.OnFrameTick(0);
+```
 
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of EncounterMenuOverlayVM from the subsystem API first
+EncounterMenuOverlayVM encounterMenuOverlayVM = ...;
+encounterMenuOverlayVM.Refresh();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncounterMenuOverlayVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EncounterMenuOverlayVM encounterMenuOverlayVM = ...;
+encounterMenuOverlayVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "AgentCommonAILogic"
+description: "AgentCommonAILogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentCommonAILogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentCommonAILogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,20 @@ title: "AgentCommonAILogic"
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**用途 / Purpose:** 当 `agent created` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent created」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 AgentCommonAILogic 实例
+AgentCommonAILogic agentCommonAILogic = ...;
+agentCommonAILogic.OnAgentCreated(agent);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new AgentCommonAILogic());
+var behavior = Mission.Current.GetMissionBehavior<AgentCommonAILogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

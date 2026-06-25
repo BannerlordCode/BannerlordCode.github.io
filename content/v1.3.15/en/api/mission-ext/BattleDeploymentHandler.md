@@ -1,13 +1,7 @@
 ---
 title: "BattleDeploymentHandler"
+description: "Auto-generated class reference for BattleDeploymentHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleDeploymentHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleDeploymentHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Handlers
@@ -29,34 +23,64 @@ Treat `BattleDeploymentHandler` as a Handler-style extension point: first identi
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of BattleDeploymentHandler from the subsystem API first
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.OnRemoveBehavior();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleDeploymentHandler from the subsystem API first
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.AfterStart();
+```
 
 ### AutoDeployTeamUsingDeploymentPlan
 `public override void AutoDeployTeamUsingDeploymentPlan(Team team)`
 
-**Purpose:** Handles logic related to `auto deploy team using deployment plan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleDeploymentHandler from the subsystem API first
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.AutoDeployTeamUsingDeploymentPlan(team);
+```
 
 ### ForceUpdateAllUnits
 `public override void ForceUpdateAllUnits()`
 
-**Purpose:** Handles logic related to `force update all units`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleDeploymentHandler from the subsystem API first
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.ForceUpdateAllUnits();
+```
 
 ### SetDefaultFormationOrders
 `public void SetDefaultFormationOrders(OrderController orderController)`
 
-**Purpose:** Sets the value or state of `default formation orders`.
+**Purpose:** Assigns a new value to `default formation orders` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BattleDeploymentHandler from the subsystem API first
+BattleDeploymentHandler battleDeploymentHandler = ...;
+battleDeploymentHandler.SetDefaultFormationOrders(orderController);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleDeploymentHandler());
+var behavior = Mission.Current.GetMissionBehavior<BattleDeploymentHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

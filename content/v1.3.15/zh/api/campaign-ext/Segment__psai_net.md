@@ -1,13 +1,7 @@
 ---
-title: "Segment__psai_net"
+title: "Segment"
+description: "Segment 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Segment`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Segment
 
 **Namespace:** psai.net
@@ -42,40 +36,76 @@ title: "Segment__psai_net"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.ToString();
+```
 
 ### IsUsableAs
 `public bool IsUsableAs(SegmentSuitability snippetType)`
 
-**用途 / Purpose:** 处理 `is usable as` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「usable as」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.IsUsableAs(snippetType);
+```
 
 ### IsUsableOnlyAs
 `public bool IsUsableOnlyAs(SegmentSuitability snippetType)`
 
-**用途 / Purpose:** 处理 `is usable only as` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「usable only as」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.IsUsableOnlyAs(snippetType);
+```
 
 ### ReturnSegmentWithLowestIntensityDifference
 `public Segment ReturnSegmentWithLowestIntensityDifference(List<Segment> argSnippets)`
 
-**用途 / Purpose:** 处理 `return segment with lowest intensity difference` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.ReturnSegmentWithLowestIntensityDifference(argSnippets);
+```
 
 ### CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible
 `public bool CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(Soundtrack soundtrack, int targetThemeId)`
 
-**用途 / Purpose:** 处理 `check if at least one direct transition or layering is possible` 相关逻辑。
+**用途 / Purpose:** 检查「if at least one direct transition or layering is possible」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 Segment 实例
+Segment segment = ...;
+var result = segment.CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(soundtrack, 0);
+```
 
 ### GetStringFromSegmentSuitabilities
 `public static string GetStringFromSegmentSuitabilities(int snippetTypeBitfield)`
 
-**用途 / Purpose:** 获取 `string from segment suitabilities` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string from segment suitabilities」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Segment.GetStringFromSegmentSuitabilities(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Segment();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+Segment segment = ...;
+segment.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

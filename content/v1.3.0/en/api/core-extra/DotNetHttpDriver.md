@@ -1,13 +1,7 @@
 ---
 title: "DotNetHttpDriver"
+description: "Auto-generated class reference for DotNetHttpDriver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DotNetHttpDriver`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DotNetHttpDriver
 
 **Namespace:** TaleWorlds.Library.Http
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.Http` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new DotNetHttpDriver();
+// Obtain an instance from the relevant subsystem API
+DotNetHttpDriver instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyClanMemberRankVisualBrushWidget"
+description: "MultiplayerLobbyClanMemberRankVisualBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerLobbyClanMemberRankVisualBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyClanMemberRankVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyClanMemberRankVisualBrushWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Clan/MultiplayerLobbyClanMemberRankVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Clan/MultiplayerLobbyClanMemberRankVisualBrushWidget.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "MultiplayerLobbyClanMemberRankVisualBrushWidget"
 ### MultiplayerLobbyClanMemberRankVisualBrushWidget
 `public class MultiplayerLobbyClanMemberRankVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `multiplayer lobby clan member rank visual brush widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLobbyClanMemberRankVisualBrushWidget 实例
+MultiplayerLobbyClanMemberRankVisualBrushWidget multiplayerLobbyClanMemberRankVisualBrushWidget = ...;
+var result = multiplayerLobbyClanMemberRankVisualBrushWidget.MultiplayerLobbyClanMemberRankVisualBrushWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerLobbyClanMemberRankVisualBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerLobbyClanMemberRankVisualBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

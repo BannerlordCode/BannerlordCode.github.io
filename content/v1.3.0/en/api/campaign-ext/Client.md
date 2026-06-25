@@ -1,13 +1,7 @@
 ---
 title: "Client"
+description: "Auto-generated class reference for Client."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Client`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Client
 
 **Namespace:** TaleWorlds.Diamond
@@ -37,39 +31,76 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of Client from the subsystem API first
+Client client = ...;
+client.Update();
+```
 
 ### HandleMessage
 `public void HandleMessage(Message message)`
 
-**Purpose:** Handles the `message` event or callback.
+**Purpose:** Executes the response logic associated with `message`.
+
+```csharp
+// Obtain an instance of Client from the subsystem API first
+Client client = ...;
+client.HandleMessage(message);
+```
 
 ### OnConnected
 `public virtual void OnConnected()`
 
-**Purpose:** Called when the `connected` event is raised.
+**Purpose:** Invoked when the `connected` event is raised.
+
+```csharp
+// Obtain an instance of Client from the subsystem API first
+Client client = ...;
+client.OnConnected();
+```
 
 ### OnCantConnect
 `public virtual void OnCantConnect()`
 
-**Purpose:** Called when the `cant connect` event is raised.
+**Purpose:** Invoked when the `cant connect` event is raised.
+
+```csharp
+// Obtain an instance of Client from the subsystem API first
+Client client = ...;
+client.OnCantConnect();
+```
 
 ### OnDisconnected
 `public virtual void OnDisconnected()`
 
-**Purpose:** Called when the `disconnected` event is raised.
+**Purpose:** Invoked when the `disconnected` event is raised.
+
+```csharp
+// Obtain an instance of Client from the subsystem API first
+Client client = ...;
+client.OnDisconnected();
+```
 
 ### CheckConnection
 `public Task<bool> CheckConnection()`
 
-**Purpose:** Handles logic related to `check connection`.
+**Purpose:** Verifies whether `connection` holds true for the current object.
+
+```csharp
+// Obtain an instance of Client from the subsystem API first
+Client client = ...;
+var result = client.CheckConnection();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomClient();
+// Typically obtained from a subsystem API or factory
+Client instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

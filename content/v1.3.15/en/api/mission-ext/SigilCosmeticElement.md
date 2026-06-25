@@ -1,13 +1,7 @@
 ---
 title: "SigilCosmeticElement"
+description: "Auto-generated class reference for SigilCosmeticElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SigilCosmeticElement`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SigilCosmeticElement
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes` 
 ## Usage Example
 
 ```csharp
-var value = new SigilCosmeticElement();
+// Obtain an instance from the relevant subsystem API
+SigilCosmeticElement instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

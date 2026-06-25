@@ -1,20 +1,14 @@
 ---
 title: "IInputManager"
+description: "IInputManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IInputManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IInputManager
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public interface IInputManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/IInputManager.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/IInputManager.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IInputManager"
 ## 使用示例
 
 ```csharp
-IInputManager implementation = GetInputManagerImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIInputManager service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

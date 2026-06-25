@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithColorValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithColorValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithColorValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithColorValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithColorValueEventArgs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithColorValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithColorValueEventArgs.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithColorValueEventArgs
 `public struct PropertyChangedWithColorValueEventArgs(string propertyName, Color value)`
 
-**Purpose:** Handles logic related to `property changed with color value event args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PropertyChangedWithColorValueEventArgs from the subsystem API first
+PropertyChangedWithColorValueEventArgs propertyChangedWithColorValueEventArgs = ...;
+var result = propertyChangedWithColorValueEventArgs.PropertyChangedWithColorValueEventArgs("example", value);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithColorValueEventArgs();
-value.PropertyChangedWithColorValueEventArgs("example", value);
+// Typically call this after obtaining an instance from the subsystem API
+PropertyChangedWithColorValueEventArgs propertyChangedWithColorValueEventArgs = ...;
+propertyChangedWithColorValueEventArgs.PropertyChangedWithColorValueEventArgs("example", value);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

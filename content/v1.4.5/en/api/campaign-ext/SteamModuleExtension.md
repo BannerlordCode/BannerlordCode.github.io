@@ -1,20 +1,14 @@
 ---
 title: "SteamModuleExtension"
+description: "Auto-generated class reference for SteamModuleExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamModuleExtension`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamModuleExtension
 
 **Namespace:** TaleWorlds.PlatformService.Steam
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class SteamModuleExtension : IPlatformModuleExtension`
 **Base:** `IPlatformModuleExtension`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamModuleExtension.cs`
+**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamModuleExtension.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ### Initialize
 `public void Initialize(List<string> args)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SteamModuleExtension from the subsystem API first
+SteamModuleExtension steamModuleExtension = ...;
+steamModuleExtension.Initialize(args);
+```
 
 ### GetModulePaths
 `public string GetModulePaths()`
 
-**Purpose:** Gets the current value of `module paths`.
+**Purpose:** Reads and returns the `module paths` value held by the current object.
+
+```csharp
+// Obtain an instance of SteamModuleExtension from the subsystem API first
+SteamModuleExtension steamModuleExtension = ...;
+var result = steamModuleExtension.GetModulePaths();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SteamModuleExtension from the subsystem API first
+SteamModuleExtension steamModuleExtension = ...;
+steamModuleExtension.Destroy();
+```
 
 ### SetLauncherMode
 `public void SetLauncherMode(bool isLauncherModeActive)`
 
-**Purpose:** Sets the value or state of `launcher mode`.
+**Purpose:** Assigns a new value to `launcher mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SteamModuleExtension from the subsystem API first
+SteamModuleExtension steamModuleExtension = ...;
+steamModuleExtension.SetLauncherMode(false);
+```
 
 ### CheckEntitlement
 `public bool CheckEntitlement(string title)`
 
-**Purpose:** Handles logic related to `check entitlement`.
+**Purpose:** Verifies whether `entitlement` holds true for the current object.
+
+```csharp
+// Obtain an instance of SteamModuleExtension from the subsystem API first
+SteamModuleExtension steamModuleExtension = ...;
+var result = steamModuleExtension.CheckEntitlement("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SteamModuleExtension();
-value.Initialize(args);
+// Typically call this after obtaining an instance from the subsystem API
+SteamModuleExtension steamModuleExtension = ...;
+steamModuleExtension.Initialize(args);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CrashInformationCollector"
+description: "Auto-generated class reference for CrashInformationCollector."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrashInformationCollector`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CrashInformationCollector
 
 **Namespace:** TaleWorlds.Engine
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CollectInformation
 `public static string CollectInformation()`
 
-**Purpose:** Handles logic related to `collect information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CrashInformationCollector.CollectInformation();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ CrashInformationCollector.CollectInformation();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

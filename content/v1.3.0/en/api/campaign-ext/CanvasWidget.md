@@ -1,13 +1,7 @@
 ---
 title: "CanvasWidget"
+description: "Auto-generated class reference for CanvasWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CanvasWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasWidget
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -34,9 +28,10 @@ Treat `CanvasWidget` as a Widget-style extension point: first identify who creat
 ## Usage Example
 
 ```csharp
-var widget = new CanvasWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CanvasWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

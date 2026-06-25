@@ -1,13 +1,7 @@
 ---
 title: "DefaultTextProcessor"
+description: "Auto-generated class reference for DefaultTextProcessor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTextProcessor`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTextProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Handles logic related to `process token`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultTextProcessor from the subsystem API first
+DefaultTextProcessor defaultTextProcessor = ...;
+defaultTextProcessor.ProcessToken("example", cursorPos, "example", "example");
+```
 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Handles logic related to `clear temporary data`.
+**Purpose:** Removes all `temporary data` from the current object.
+
+```csharp
+// Obtain an instance of DefaultTextProcessor from the subsystem API first
+DefaultTextProcessor defaultTextProcessor = ...;
+defaultTextProcessor.ClearTemporaryData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultTextProcessor();
-value.ProcessToken("example", cursorPos, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+DefaultTextProcessor defaultTextProcessor = ...;
+defaultTextProcessor.ProcessToken("example", cursorPos, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

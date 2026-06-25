@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerData"
+description: "Auto-generated class reference for MultiplayerData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerData : MBMultiplayerData`
 **Base:** `MBMultiplayerData`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `MultiplayerData` as a Data-style extension point: first identify who crea
 ### IsMultiplayerTeamAvailable
 `public bool IsMultiplayerTeamAvailable(int peerNo, int teamNo)`
 
-**Purpose:** Handles logic related to `is multiplayer team available`.
+**Purpose:** Determines whether the current object is in the `multiplayer team available` state or condition.
+
+```csharp
+// Obtain an instance of MultiplayerData from the subsystem API first
+MultiplayerData multiplayerData = ...;
+var result = multiplayerData.IsMultiplayerTeamAvailable(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerData();
+// This data object is usually returned by campaign/mission APIs
+MultiplayerData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SpawnFrameBehaviorBase"
+description: "Auto-generated class reference for SpawnFrameBehaviorBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnFrameBehaviorBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpawnFrameBehaviorBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,34 +23,64 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SpawnFrameBehaviorBase from the subsystem API first
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+spawnFrameBehaviorBase.Initialize();
+```
 
 ### GetSpawnFrame
 `public abstract MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnFrameBehaviorBase from the subsystem API first
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+var result = spawnFrameBehaviorBase.GetSpawnFrame(team, false, false);
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of SpawnFrameBehaviorBase from the subsystem API first
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+spawnFrameBehaviorBase.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### CreateDecreasingCache
 `public static SpawnFrameBehaviorBase.WeightCache CreateDecreasingCache()`
 
-**Purpose:** Creates a new `decreasing cache` instance or object.
+**Purpose:** Constructs a new `decreasing cache` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SpawnFrameBehaviorBase.CreateDecreasingCache();
+```
 
 ### CheckAndInsertNewValueIfLower
 `public bool CheckAndInsertNewValueIfLower(float value, out float valueDifference)`
 
-**Purpose:** Handles logic related to `check and insert new value if lower`.
+**Purpose:** Verifies whether `and insert new value if lower` holds true for the current object.
+
+```csharp
+// Obtain an instance of SpawnFrameBehaviorBase from the subsystem API first
+SpawnFrameBehaviorBase spawnFrameBehaviorBase = ...;
+var result = spawnFrameBehaviorBase.CheckAndInsertNewValueIfLower(0, valueDifference);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSpawnFrameBehaviorBase();
+// Typically obtained from a subsystem API or factory
+SpawnFrameBehaviorBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

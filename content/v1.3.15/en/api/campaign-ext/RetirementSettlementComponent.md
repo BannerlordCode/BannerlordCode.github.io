@@ -1,13 +1,7 @@
 ---
 title: "RetirementSettlementComponent"
+description: "Auto-generated class reference for RetirementSettlementComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RetirementSettlementComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RetirementSettlementComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -36,7 +30,13 @@ Treat `RetirementSettlementComponent` as a Component-style extension point: firs
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of RetirementSettlementComponent from the subsystem API first
+RetirementSettlementComponent retirementSettlementComponent = ...;
+retirementSettlementComponent.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
@@ -46,4 +46,4 @@ var component = agent.GetComponent<RetirementSettlementComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

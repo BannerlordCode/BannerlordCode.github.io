@@ -1,24 +1,18 @@
 ---
 title: "StartAllianceDecision"
+description: "Auto-generated class reference for StartAllianceDecision."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StartAllianceDecision`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StartAllianceDecision
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class StartAllianceDecision : KingdomDecision`
 **Base:** `KingdomDecision`
-**Area:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/Election/StartAllianceDecision.cs`
 
 ## Overview
 
-`StartAllianceDecision` lives in `TaleWorlds.CampaignSystem.Election`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StartAllianceDecision` lives in `TaleWorlds.CampaignSystem.Election` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,111 +29,272 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetProposerClanForPlayerKingdom
 `public static Clan GetProposerClanForPlayerKingdom(Kingdom target)`
 
-**Purpose:** Gets the current value of `proposer clan for player kingdom`.
+**Purpose:** Reads and returns the `proposer clan for player kingdom` value held by the current object.
+
+```csharp
+// Static call; no instance required
+StartAllianceDecision.GetProposerClanForPlayerKingdom(target);
+```
 
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**Purpose:** Handles logic related to `is allowed`.
+**Purpose:** Determines whether the current object is in the `allowed` state or condition.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.IsAllowed();
+```
 
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**Purpose:** Gets the current value of `proposal influence cost`.
+**Purpose:** Reads and returns the `proposal influence cost` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetProposalInfluenceCost();
+```
 
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**Purpose:** Gets the current value of `general title`.
+**Purpose:** Reads and returns the `general title` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetGeneralTitle();
+```
 
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**Purpose:** Gets the current value of `support title`.
+**Purpose:** Reads and returns the `support title` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetSupportTitle();
+```
 
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**Purpose:** Gets the current value of `choose title`.
+**Purpose:** Reads and returns the `choose title` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetChooseTitle();
+```
 
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**Purpose:** Gets the current value of `support description`.
+**Purpose:** Reads and returns the `support description` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetSupportDescription();
+```
 
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**Purpose:** Gets the current value of `choose description`.
+**Purpose:** Reads and returns the `choose description` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetChooseDescription();
+```
 
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**Purpose:** Handles logic related to `determine initial candidates`.
+**Purpose:** Determines the result of `initial candidates` based on the current state.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.DetermineInitialCandidates();
+```
 
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**Purpose:** Handles logic related to `determine chooser`.
+**Purpose:** Determines the result of `chooser` based on the current state.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.DetermineChooser();
+```
 
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** Handles logic related to `determine sponsors`.
+**Purpose:** Determines the result of `sponsors` based on the current state.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+startAllianceDecision.DetermineSponsors(possibleOutcomes);
+```
 
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**Purpose:** Applies `chosen outcome` to the current object.
+**Purpose:** Applies the effect of `chosen outcome` to the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+startAllianceDecision.ApplyChosenOutcome(chosenOutcome);
+```
 
 ### OnShowDecision
 `public override bool OnShowDecision()`
 
-**Purpose:** Called when the `show decision` event is raised.
+**Purpose:** Invoked when the `show decision` event is raised.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.OnShowDecision();
+```
 
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**Purpose:** Applies `secondary effects` to the current object.
+**Purpose:** Applies the effect of `secondary effects` to the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+startAllianceDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutcome);
+```
 
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**Purpose:** Gets the current value of `secondary effects`.
+**Purpose:** Reads and returns the `secondary effects` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetSecondaryEffects();
+```
 
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
 
-**Purpose:** Gets the current value of `chosen outcome text`.
+**Purpose:** Reads and returns the `chosen outcome text` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, false);
+```
 
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** Gets the current value of `queried decision outcome`.
+**Purpose:** Reads and returns the `queried decision outcome` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetQueriedDecisionOutcome(possibleOutcomes);
+```
 
 ### CalculateSupport
 `public float CalculateSupport(Clan clan, out TextObject hint, bool includeExplanation = false)`
 
-**Purpose:** Handles logic related to `calculate support`.
+**Purpose:** Calculates the current value or result of `support`.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.CalculateSupport(clan, hint, false);
+```
 
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**Purpose:** Handles logic related to `determine support`.
+**Purpose:** Determines the result of `support` based on the current state.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.DetermineSupport(clan, possibleOutcome);
+```
 
 ### CanMakeDecision
 `public override bool CanMakeDecision(out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Checks whether the current object can `make decision`.
+**Purpose:** Checks whether the current object meets the preconditions for `make decision`.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.CanMakeDecision(reason, false);
+```
+
+### GetDecisionTitle
+`public override TextObject GetDecisionTitle()`
+
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetDecisionTitle();
+```
+
+### GetDecisionDescription
+`public override TextObject GetDecisionDescription()`
+
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetDecisionDescription();
+```
+
+### GetDecisionLink
+`public override string GetDecisionLink()`
+
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetDecisionLink();
+```
+
+### GetDecisionImageIdentifier
+`public override ImageIdentifier GetDecisionImageIdentifier()`
+
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of StartAllianceDecision from the subsystem API first
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetDecisionImageIdentifier();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 StartAllianceDecision.GetProposerClanForPlayerKingdom(target);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

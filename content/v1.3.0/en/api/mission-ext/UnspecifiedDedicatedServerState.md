@@ -1,13 +1,7 @@
 ---
 title: "UnspecifiedDedicatedServerState"
+description: "Auto-generated class reference for UnspecifiedDedicatedServerState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UnspecifiedDedicatedServerState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UnspecifiedDedicatedServerState
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new UnspecifiedDedicatedServerState();
+// Obtain an instance from the relevant subsystem API
+UnspecifiedDedicatedServerState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

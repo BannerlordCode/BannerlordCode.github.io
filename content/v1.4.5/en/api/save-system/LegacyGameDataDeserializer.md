@@ -1,20 +1,14 @@
 ---
 title: "LegacyGameDataDeserializer"
+description: "Auto-generated class reference for LegacyGameDataDeserializer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LegacyGameDataDeserializer`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LegacyGameDataDeserializer
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public static class LegacyGameDataDeserializer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LegacyGameDataDeserializer.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LegacyGameDataDeserializer.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### Deserialize
 `public static GameData Deserialize(Stream stream)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Static call; no instance required
+LegacyGameDataDeserializer.Deserialize(stream);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ LegacyGameDataDeserializer.Deserialize(stream);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

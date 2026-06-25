@@ -1,20 +1,14 @@
 ---
 title: "PieceData"
+description: "Auto-generated class reference for PieceData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PieceData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PieceData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct PieceData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/PieceData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/PieceData.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `PieceData` as a Data-style extension point: first identify who creates it
 ## Usage Example
 
 ```csharp
-var value = new PieceData();
+// This data object is usually returned by campaign/mission APIs
+PieceData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

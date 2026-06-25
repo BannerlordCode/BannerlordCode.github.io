@@ -1,13 +1,7 @@
 ---
 title: "GraphLineWidget"
+description: "Auto-generated class reference for GraphLineWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GraphLineWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GraphLineWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets.Graph
@@ -34,9 +28,10 @@ Treat `GraphLineWidget` as a Widget-style extension point: first identify who cr
 ## Usage Example
 
 ```csharp
-var widget = new GraphLineWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GraphLineWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

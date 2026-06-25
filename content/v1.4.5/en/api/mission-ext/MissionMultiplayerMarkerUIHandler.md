@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerMarkerUIHandler"
+description: "Auto-generated class reference for MissionMultiplayerMarkerUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMultiplayerMarkerUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerMarkerUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerMarkerUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerMarkerUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MissionMultiplayerMarkerUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionMultiplayerMarkerUIHandler` as a Handler-style extension point: fi
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionMultiplayerMarkerUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionMultiplayerMarkerUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

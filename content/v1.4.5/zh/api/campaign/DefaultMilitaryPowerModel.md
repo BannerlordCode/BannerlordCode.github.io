@@ -1,20 +1,14 @@
 ---
 title: "DefaultMilitaryPowerModel"
+description: "DefaultMilitaryPowerModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultMilitaryPowerModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMilitaryPowerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultMilitaryPowerModel : MilitaryPowerModel`
 **Base:** `MilitaryPowerModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultMilitaryPowerModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultMilitaryPowerModel.cs`
 
 ## 概述
 
@@ -29,37 +23,79 @@ title: "DefaultMilitaryPowerModel"
 ### GetTroopPower
 `public override float GetTroopPower(CharacterObject troop, BattleSideEnum side, MapEvent.PowerCalculationContext context, float leaderModifier)`
 
-**用途 / Purpose:** 获取 `troop power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetTroopPower(troop, side, context, 0);
+```
 
 ### GetPowerOfParty
 `public override float GetPowerOfParty(PartyBase party, BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**用途 / Purpose:** 获取 `power of party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「power of party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetPowerOfParty(party, side, context);
+```
 
 ### GetPowerModifierOfHero
 `public override float GetPowerModifierOfHero(Hero leaderHero)`
 
-**用途 / Purpose:** 获取 `power modifier of hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「power modifier of hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetPowerModifierOfHero(leaderHero);
+```
 
 ### GetContextModifier
 `public override float GetContextModifier(CharacterObject troop, BattleSideEnum battleSide, MapEvent.PowerCalculationContext context)`
 
-**用途 / Purpose:** 获取 `context modifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「context modifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetContextModifier(troop, battleSide, context);
+```
 
 ### GetContextForPosition
 `public override MapEvent.PowerCalculationContext GetContextForPosition(CampaignVec2 position)`
 
-**用途 / Purpose:** 获取 `context for position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「context for position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetContextForPosition(position);
+```
 
 ### GetDefaultTroopPower
 `public override float GetDefaultTroopPower(CharacterObject troop)`
 
-**用途 / Purpose:** 获取 `default troop power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default troop power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetDefaultTroopPower(troop);
+```
 
 ### GetContextModifier
 `public override float GetContextModifier(Ship ship, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
 
-**用途 / Purpose:** 获取 `context modifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「context modifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
+DefaultMilitaryPowerModel defaultMilitaryPowerModel = ...;
+var result = defaultMilitaryPowerModel.GetContextModifier(ship, battleSideEnum, context);
+```
 
 ## 使用示例
 
@@ -69,4 +105,4 @@ Game.Current.ReplaceModel<DefaultMilitaryPowerModel>(new MyDefaultMilitaryPowerM
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

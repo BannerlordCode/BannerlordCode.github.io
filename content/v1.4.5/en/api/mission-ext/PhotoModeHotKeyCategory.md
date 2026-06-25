@@ -1,20 +1,14 @@
 ---
 title: "PhotoModeHotKeyCategory"
+description: "Auto-generated class reference for PhotoModeHotKeyCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PhotoModeHotKeyCategory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PhotoModeHotKeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade.GameKeyCategory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class PhotoModeHotKeyCategory : GameKeyContext`
 **Base:** `GameKeyContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.GameKeyCategory/PhotoModeHotKeyCategory.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.GameKeyCategory/PhotoModeHotKeyCategory.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GameKeyCategory` to place it in t
 ## Usage Example
 
 ```csharp
-var example = new PhotoModeHotKeyCategory();
+// Obtain an instance from the relevant subsystem API
+PhotoModeHotKeyCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

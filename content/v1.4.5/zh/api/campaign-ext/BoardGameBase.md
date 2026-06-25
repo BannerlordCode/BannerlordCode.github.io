@@ -1,20 +1,14 @@
 ---
 title: "BoardGameBase"
+description: "BoardGameBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameBase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameBase
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
 **Type:** `public abstract class BoardGameBase`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/BoardGameBase.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/BoardGameBase.cs`
 
 ## 概述
 
@@ -45,124 +39,263 @@ title: "BoardGameBase"
 ### InitializeUnits
 `public abstract void InitializeUnits()`
 
-**用途 / Purpose:** 初始化 `units` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「units」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeUnits();
+```
 
 ### InitializeTiles
 `public abstract void InitializeTiles()`
 
-**用途 / Purpose:** 初始化 `tiles` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「tiles」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeTiles();
+```
 
 ### InitializeSound
 `public abstract void InitializeSound()`
 
-**用途 / Purpose:** 初始化 `sound` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「sound」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeSound();
+```
 
 ### CalculateValidMoves
 `public abstract List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**用途 / Purpose:** 处理 `calculate valid moves` 相关逻辑。
+**用途 / Purpose:** 计算「valid moves」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.CalculateValidMoves(pawn);
+```
 
 ### RollDice
 `public virtual void RollDice()`
 
-**用途 / Purpose:** 处理 `roll dice` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.RollDice();
+```
 
 ### InitializeDiceBoard
 `public virtual void InitializeDiceBoard()`
 
-**用途 / Purpose:** 初始化 `dice board` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「dice board」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeDiceBoard();
+```
 
 ### Reset
 `public virtual void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.Reset();
+```
 
 ### InitializeCapturedUnitsZones
 `public virtual void InitializeCapturedUnitsZones()`
 
-**用途 / Purpose:** 初始化 `captured units zones` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「captured units zones」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.InitializeCapturedUnitsZones();
+```
 
 ### SetPawnCaptured
 `public virtual void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**用途 / Purpose:** 设置 `pawn captured` 的值或状态。
+**用途 / Purpose:** 为 「pawn captured」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.SetPawnCaptured(pawn, false);
+```
 
 ### CalculateAllValidMoves
 `public virtual List<List<Move>> CalculateAllValidMoves(BoardGameSide side)`
 
-**用途 / Purpose:** 处理 `calculate all valid moves` 相关逻辑。
+**用途 / Purpose:** 计算「all valid moves」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.CalculateAllValidMoves(side);
+```
 
 ### SetUserRay
 `public void SetUserRay(Vec3 rayBegin, Vec3 rayEnd)`
 
-**用途 / Purpose:** 设置 `user ray` 的值或状态。
+**用途 / Purpose:** 为 「user ray」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.SetUserRay(rayBegin, rayEnd);
+```
 
 ### SetStartingPlayer
 `public void SetStartingPlayer(PlayerTurn player)`
 
-**用途 / Purpose:** 设置 `starting player` 的值或状态。
+**用途 / Purpose:** 为 「starting player」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.SetStartingPlayer(player);
+```
 
 ### SetGameOverInfo
 `public void SetGameOverInfo(GameOverEnum info)`
 
-**用途 / Purpose:** 设置 `game over info` 的值或状态。
+**用途 / Purpose:** 为 「game over info」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.SetGameOverInfo(info);
+```
 
 ### HasMovesAvailable
 `public bool HasMovesAvailable(ref List<List<Move>> moves)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `moves available`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「moves available」。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.HasMovesAvailable(moves);
+```
 
 ### GetTotalMovesAvailable
 `public int GetTotalMovesAvailable(ref List<List<Move>> moves)`
 
-**用途 / Purpose:** 获取 `total moves available` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total moves available」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetTotalMovesAvailable(moves);
+```
 
 ### PlayDiceRollSound
 `public void PlayDiceRollSound()`
 
-**用途 / Purpose:** 处理 `play dice roll sound` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.PlayDiceRollSound();
+```
 
 ### GetPlayerOneUnitsAlive
 `public int GetPlayerOneUnitsAlive()`
 
-**用途 / Purpose:** 获取 `player one units alive` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player one units alive」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetPlayerOneUnitsAlive();
+```
 
 ### GetPlayerTwoUnitsAlive
 `public int GetPlayerTwoUnitsAlive()`
 
-**用途 / Purpose:** 获取 `player two units alive` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player two units alive」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetPlayerTwoUnitsAlive();
+```
 
 ### GetPlayerOneUnitsDead
 `public int GetPlayerOneUnitsDead()`
 
-**用途 / Purpose:** 获取 `player one units dead` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player one units dead」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetPlayerOneUnitsDead();
+```
 
 ### GetPlayerTwoUnitsDead
 `public int GetPlayerTwoUnitsDead()`
 
-**用途 / Purpose:** 获取 `player two units dead` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player two units dead」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.GetPlayerTwoUnitsDead();
+```
 
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.Initialize();
+```
 
 ### Tick
 `public bool Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+var result = boardGameBase.Tick(0);
+```
 
 ### ForceDice
 `public void ForceDice(int value)`
 
-**用途 / Purpose:** 处理 `force dice` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameBase 实例
+BoardGameBase boardGameBase = ...;
+boardGameBase.ForceDice(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBoardGameBase();
+// 通常通过子系统 API 或工厂获得派生实例
+BoardGameBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

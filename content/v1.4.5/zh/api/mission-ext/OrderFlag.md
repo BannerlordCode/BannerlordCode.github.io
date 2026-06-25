@@ -1,20 +1,14 @@
 ---
 title: "OrderFlag"
+description: "OrderFlag 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderFlag`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderFlag
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderFlag`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Order/OrderFlag.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Order/OrderFlag.cs`
 
 ## 概述
 
@@ -38,35 +32,65 @@ title: "OrderFlag"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderFlag 实例
+OrderFlag orderFlag = ...;
+orderFlag.Tick(0);
+```
 
 ### SetArrowVisibility
 `public void SetArrowVisibility(bool isVisible, Vec2 arrowDirection)`
 
-**用途 / Purpose:** 设置 `arrow visibility` 的值或状态。
+**用途 / Purpose:** 为 「arrow visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderFlag 实例
+OrderFlag orderFlag = ...;
+orderFlag.SetArrowVisibility(false, arrowDirection);
+```
 
 ### IsPositionOnValidGround
 `public virtual bool IsPositionOnValidGround(WorldPosition worldPosition)`
 
-**用途 / Purpose:** 处理 `is position on valid ground` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「position on valid ground」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OrderFlag 实例
+OrderFlag orderFlag = ...;
+var result = orderFlag.IsPositionOnValidGround(worldPosition);
+```
 
 ### IsOrderPositionValid
 `public static bool IsOrderPositionValid(WorldPosition orderPosition)`
 
-**用途 / Purpose:** 处理 `is order position valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「order position valid」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+OrderFlag.IsOrderPositionValid(orderPosition);
+```
 
 ### SetWidthVisibility
 `public void SetWidthVisibility(bool isVisible, float width)`
 
-**用途 / Purpose:** 设置 `width visibility` 的值或状态。
+**用途 / Purpose:** 为 「width visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderFlag 实例
+OrderFlag orderFlag = ...;
+orderFlag.SetWidthVisibility(false, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderFlag();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+OrderFlag orderFlag = ...;
+orderFlag.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

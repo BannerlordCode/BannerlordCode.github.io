@@ -1,13 +1,7 @@
 ---
-title: "WatchTypes__TaleWorlds_MountAndBlade_GauntletUI_Widgets"
+title: "WatchTypes"
+description: "Auto-generated class reference for WatchTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WatchTypes`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WatchTypes
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets` to place it i
 ## Usage Example
 
 ```csharp
-WatchTypes example = WatchTypes.Value;
+// Obtain an instance from the relevant subsystem API
+WatchTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

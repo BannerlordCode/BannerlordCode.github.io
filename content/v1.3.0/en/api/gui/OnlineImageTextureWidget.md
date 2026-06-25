@@ -1,13 +1,7 @@
 ---
 title: "OnlineImageTextureWidget"
+description: "Auto-generated class reference for OnlineImageTextureWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OnlineImageTextureWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OnlineImageTextureWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -34,9 +28,10 @@ Treat `OnlineImageTextureWidget` as a Widget-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var widget = new OnlineImageTextureWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OnlineImageTextureWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

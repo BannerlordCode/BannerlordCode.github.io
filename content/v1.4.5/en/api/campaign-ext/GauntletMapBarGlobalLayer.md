@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapBarGlobalLayer"
+description: "Auto-generated class reference for GauntletMapBarGlobalLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapBarGlobalLayer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapBarGlobalLayer
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapBarGlobalLayer : GlobalLayer`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapBarGlobalLayer.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapBarGlobalLayer.cs`
 
 ## Overview
 
@@ -35,40 +29,77 @@ Start from namespace `SandBox.GauntletUI.Map` to place it in the stack, then ins
 ### Initialize
 `public void Initialize(MapBarVM dataSource)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.Initialize(dataSource);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.OnFinalize();
+```
 
 ### OnMapConversationStarted
 `public void OnMapConversationStarted()`
 
-**Purpose:** Called when the `map conversation started` event is raised.
+**Purpose:** Invoked when the `map conversation started` event is raised.
+
+```csharp
+// Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.OnMapConversationStarted();
+```
 
 ### OnMapConversationOver
 `public void OnMapConversationOver()`
 
-**Purpose:** Called when the `map conversation over` event is raised.
+**Purpose:** Invoked when the `map conversation over` event is raised.
+
+```csharp
+// Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.OnMapConversationOver();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.Refresh();
+```
 
 ### IsEscaped
 `public bool IsEscaped()`
 
-**Purpose:** Handles logic related to `is escaped`.
+**Purpose:** Determines whether the current object is in the `escaped` state or condition.
+
+```csharp
+// Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+var result = gauntletMapBarGlobalLayer.IsEscaped();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletMapBarGlobalLayer();
-value.Initialize(dataSource);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.Initialize(dataSource);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

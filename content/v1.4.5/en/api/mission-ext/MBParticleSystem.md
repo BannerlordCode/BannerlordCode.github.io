@@ -1,20 +1,14 @@
 ---
 title: "MBParticleSystem"
+description: "Auto-generated class reference for MBParticleSystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBParticleSystem`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBParticleSystem
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct MBParticleSystem`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBParticleSystem.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBParticleSystem.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public bool Equals(MBParticleSystem a)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MBParticleSystem from the subsystem API first
+MBParticleSystem mBParticleSystem = ...;
+var result = mBParticleSystem.Equals(a);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MBParticleSystem from the subsystem API first
+MBParticleSystem mBParticleSystem = ...;
+var result = mBParticleSystem.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBParticleSystem();
-value.Equals(a);
+// Typically call this after obtaining an instance from the subsystem API
+MBParticleSystem mBParticleSystem = ...;
+mBParticleSystem.Equals(a);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

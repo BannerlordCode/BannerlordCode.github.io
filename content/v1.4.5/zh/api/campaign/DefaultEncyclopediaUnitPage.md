@@ -1,20 +1,14 @@
 ---
 title: "DefaultEncyclopediaUnitPage"
+description: "DefaultEncyclopediaUnitPage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEncyclopediaUnitPage`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultEncyclopediaUnitPage
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultEncyclopediaUnitPage : EncyclopediaPage`
 **Base:** `EncyclopediaPage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaUnitPage.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia.Pages/DefaultEncyclopediaUnitPage.cs`
 
 ## 概述
 
@@ -29,60 +23,121 @@ title: "DefaultEncyclopediaUnitPage"
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.GetComparedValueText(item);
+```
 
 ### CompareUnits
 `public int CompareUnits(EncyclopediaListItem x, EncyclopediaListItem y, Func<CharacterObject, CharacterObject, int> comparison)`
 
-**用途 / Purpose:** 处理 `compare units` 相关逻辑。
+**用途 / Purpose:** 比较两个「units」对象并返回大小/顺序结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.CompareUnits(x, y, func<CharacterObject, characterObject, 0);
+```
 
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「view fully qualified name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.GetViewFullyQualifiedName();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.GetName();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.GetDescriptionText();
+```
 
 ### GetStringID
 `public override string GetStringID()`
 
-**用途 / Purpose:** 获取 `string i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string i d」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.GetStringID();
+```
 
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid encyclopedia item」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaUnitPage 实例
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+var result = defaultEncyclopediaUnitPage.IsValidEncyclopediaItem(o);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultEncyclopediaUnitPage();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+DefaultEncyclopediaUnitPage defaultEncyclopediaUnitPage = ...;
+defaultEncyclopediaUnitPage.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

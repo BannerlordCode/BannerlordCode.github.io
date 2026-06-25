@@ -1,20 +1,14 @@
 ---
 title: "RestDataJsonConverter"
+description: "Auto-generated class reference for RestDataJsonConverter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RestDataJsonConverter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestDataJsonConverter
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public class RestDataJsonConverter : JsonConverter<RestData>`
 **Base:** `JsonConverter<RestData>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestDataJsonConverter.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/RestDataJsonConverter.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### ReadJson
 `public override RestData ReadJson(JsonReader reader, Type objectType, RestData existingValue, bool hasExistingValue, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `read json`.
+**Purpose:** Reads the data or state of `json`.
+
+```csharp
+// Obtain an instance of RestDataJsonConverter from the subsystem API first
+RestDataJsonConverter restDataJsonConverter = ...;
+var result = restDataJsonConverter.ReadJson(reader, objectType, existingValue, false, serializer);
+```
 
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, RestData value, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `write json`.
+**Purpose:** Writes `json` to the target location.
+
+```csharp
+// Obtain an instance of RestDataJsonConverter from the subsystem API first
+RestDataJsonConverter restDataJsonConverter = ...;
+restDataJsonConverter.WriteJson(writer, value, serializer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RestDataJsonConverter();
-value.ReadJson(reader, objectType, existingValue, false, serializer);
+// Typically call this after obtaining an instance from the subsystem API
+RestDataJsonConverter restDataJsonConverter = ...;
+restDataJsonConverter.ReadJson(reader, objectType, existingValue, false, serializer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

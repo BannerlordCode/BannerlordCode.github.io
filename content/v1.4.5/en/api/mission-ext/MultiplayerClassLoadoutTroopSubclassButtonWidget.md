@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerClassLoadoutTroopSubclassButtonWidget"
+description: "Auto-generated class reference for MultiplayerClassLoadoutTroopSubclassButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerClassLoadoutTroopSubclassButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerClassLoadoutTroopSubclassButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerClassLoadoutTroopSubclassButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutTroopSubclassButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout/MultiplayerClassLoadoutTroopSubclassButtonWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `MultiplayerClassLoadoutTroopSubclassButtonWidget` as a Widget-style exten
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutTroopSubclassButtonWidget from the subsystem API first
+MultiplayerClassLoadoutTroopSubclassButtonWidget multiplayerClassLoadoutTroopSubclassButtonWidget = ...;
+multiplayerClassLoadoutTroopSubclassButtonWidget.SetState("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerClassLoadoutTroopSubclassButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerClassLoadoutTroopSubclassButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

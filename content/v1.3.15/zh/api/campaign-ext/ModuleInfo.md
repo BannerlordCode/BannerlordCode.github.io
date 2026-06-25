@@ -1,13 +1,7 @@
 ---
 title: "ModuleInfo"
+description: "ModuleInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ModuleInfo`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ModuleInfo
 
 **Namespace:** TaleWorlds.ModuleManager
@@ -48,30 +42,55 @@ title: "ModuleInfo"
 ### LoadWithFullPath
 `public void LoadWithFullPath(string fullPath)`
 
-**用途 / Purpose:** 加载 `with full path` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「with full path」。
+
+```csharp
+// 先通过子系统 API 拿到 ModuleInfo 实例
+ModuleInfo moduleInfo = ...;
+moduleInfo.LoadWithFullPath("example");
+```
 
 ### ActivateModule
 `public void ActivateModule()`
 
-**用途 / Purpose:** 处理 `activate module` 相关逻辑。
+**用途 / Purpose:** 激活「module」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 ModuleInfo 实例
+ModuleInfo moduleInfo = ...;
+moduleInfo.ActivateModule();
+```
 
 ### DeactivateModule
 `public void DeactivateModule()`
 
-**用途 / Purpose:** 处理 `deactivate module` 相关逻辑。
+**用途 / Purpose:** 停用「module」对应的资源、状态或功能。
+
+```csharp
+// 先通过子系统 API 拿到 ModuleInfo 实例
+ModuleInfo moduleInfo = ...;
+moduleInfo.DeactivateModule();
+```
 
 ### UpdateVersionChangeSet
 `public void UpdateVersionChangeSet()`
 
-**用途 / Purpose:** 更新 `version change set` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「version change set」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ModuleInfo 实例
+ModuleInfo moduleInfo = ...;
+moduleInfo.UpdateVersionChangeSet();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ModuleInfo();
-value.LoadWithFullPath("example");
+// 通常从对应子系统 API 获取实例后调用
+ModuleInfo moduleInfo = ...;
+moduleInfo.LoadWithFullPath("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ClanIncomeVM"
+description: "ClanIncomeVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanIncomeVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanIncomeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -53,40 +47,77 @@ title: "ClanIncomeVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanIncomeVM 实例
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.RefreshValues();
+```
 
 ### RefreshList
 `public void RefreshList()`
 
-**用途 / Purpose:** 刷新 `list` 的显示或缓存。
+**用途 / Purpose:** 使 「list」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanIncomeVM 实例
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.RefreshList();
+```
 
 ### SelectWorkshop
 `public void SelectWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 处理 `select workshop` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClanIncomeVM 实例
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.SelectWorkshop(workshop);
+```
 
 ### SelectAlley
 `public void SelectAlley(Alley alley)`
 
-**用途 / Purpose:** 处理 `select alley` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClanIncomeVM 实例
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.SelectAlley(alley);
+```
 
 ### RefreshTotalIncome
 `public void RefreshTotalIncome()`
 
-**用途 / Purpose:** 刷新 `total income` 的显示或缓存。
+**用途 / Purpose:** 使 「total income」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanIncomeVM 实例
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.RefreshTotalIncome();
+```
 
 ### OnRefresh
 `public void OnRefresh()`
 
-**用途 / Purpose:** 当 `refresh` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「refresh」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanIncomeVM 实例
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.OnRefresh();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanIncomeVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanIncomeVM clanIncomeVM = ...;
+clanIncomeVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

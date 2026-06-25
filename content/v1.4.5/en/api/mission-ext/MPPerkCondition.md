@@ -1,20 +1,14 @@
 ---
 title: "MPPerkCondition"
+description: "Auto-generated class reference for MPPerkCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPPerkCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPPerkCondition
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPPerkCondition`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkCondition.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MPPerkCondition.cs`
 
 ## Overview
 
@@ -29,24 +23,42 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public abstract bool Check(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of MPPerkCondition from the subsystem API first
+MPPerkCondition mPPerkCondition = ...;
+var result = mPPerkCondition.Check(peer);
+```
 
 ### Check
 `public abstract bool Check(Agent agent)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of MPPerkCondition from the subsystem API first
+MPPerkCondition mPPerkCondition = ...;
+var result = mPPerkCondition.Check(agent);
+```
 
 ### CreateFrom
 `public static MPPerkCondition CreateFrom(List<string> gameModes, XmlNode node)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MPPerkCondition.CreateFrom(gameModes, node);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPPerkCondition();
+// Typically obtained from a subsystem API or factory
+MPPerkCondition instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

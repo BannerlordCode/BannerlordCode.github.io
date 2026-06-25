@@ -1,13 +1,7 @@
 ---
 title: "GameHandler"
+description: "GameHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameHandler`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameHandler
 
 **Namespace:** TaleWorlds.Core
@@ -29,19 +23,32 @@ title: "GameHandler"
 ### OnBeforeSave
 `public abstract void OnBeforeSave()`
 
-**用途 / Purpose:** 当 `before save` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「before save」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameHandler 实例
+GameHandler gameHandler = ...;
+gameHandler.OnBeforeSave();
+```
 
 ### OnAfterSave
 `public abstract void OnAfterSave()`
 
-**用途 / Purpose:** 当 `after save` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after save」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameHandler 实例
+GameHandler gameHandler = ...;
+gameHandler.OnAfterSave();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameHandler();
+// 通常通过子系统 API 或工厂获得派生实例
+GameHandler instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

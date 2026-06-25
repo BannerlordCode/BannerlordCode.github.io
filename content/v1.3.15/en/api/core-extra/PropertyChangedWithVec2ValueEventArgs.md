@@ -1,13 +1,7 @@
 ---
 title: "PropertyChangedWithVec2ValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithVec2ValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithVec2ValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithVec2ValueEventArgs
 
 **Namespace:** TaleWorlds.Library
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithVec2ValueEventArgs();
+// Obtain an instance from the relevant subsystem API
+PropertyChangedWithVec2ValueEventArgs instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

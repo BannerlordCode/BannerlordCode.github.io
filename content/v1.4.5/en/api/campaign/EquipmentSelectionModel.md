@@ -1,20 +1,14 @@
 ---
 title: "EquipmentSelectionModel"
+description: "Auto-generated class reference for EquipmentSelectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EquipmentSelectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EquipmentSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class EquipmentSelectionModel : MBGameModel<EquipmentSelectionModel>`
 **Base:** `MBGameModel<EquipmentSelectionModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/EquipmentSelectionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/EquipmentSelectionModel.cs`
 
 ## Overview
 
@@ -29,34 +23,65 @@ Treat `EquipmentSelectionModel` as a Model-style extension point: first identify
 ### GetEquipmentForHeroComeOfAge
 `public abstract Equipment GetEquipmentForHeroComeOfAge(Hero hero, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** Gets the current value of `equipment for hero come of age`.
+**Purpose:** Reads and returns the `equipment for hero come of age` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForHeroComeOfAge(hero, equipmentType);
+```
 
 ### GetEquipmentForHeroReachesTeenAge
 `public abstract Equipment GetEquipmentForHeroReachesTeenAge(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment for hero reaches teen age`.
+**Purpose:** Reads and returns the `equipment for hero reaches teen age` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForHeroReachesTeenAge(hero);
+```
 
 ### GetEquipmentForInitialChildrenGeneration
 `public abstract Equipment GetEquipmentForInitialChildrenGeneration(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment for initial children generation`.
+**Purpose:** Reads and returns the `equipment for initial children generation` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForInitialChildrenGeneration(hero);
+```
 
 ### GetEquipmentForDeliveredOffspring
 `public abstract Equipment GetEquipmentForDeliveredOffspring(Hero hero)`
 
-**Purpose:** Gets the current value of `equipment for delivered offspring`.
+**Purpose:** Reads and returns the `equipment for delivered offspring` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForDeliveredOffspring(hero);
+```
 
 ### GetEquipmentForCompanionWhenTurningToLord
 `public abstract Equipment GetEquipmentForCompanionWhenTurningToLord(Hero companionHero, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** Gets the current value of `equipment for companion when turning to lord`.
+**Purpose:** Reads and returns the `equipment for companion when turning to lord` value held by the current object.
+
+```csharp
+// Obtain an instance of EquipmentSelectionModel from the subsystem API first
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForCompanionWhenTurningToLord(companionHero, equipmentType);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEquipmentSelectionModel();
+// Typically obtained from a subsystem API or factory
+EquipmentSelectionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

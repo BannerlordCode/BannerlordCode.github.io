@@ -1,20 +1,14 @@
 ---
 title: "EducationOptionVM"
+description: "EducationOptionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EducationOptionVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationOptionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationOptionVM : StringItemWithActionVM`
 **Base:** `StringItemWithActionVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationOptionVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationOptionVM.cs`
 
 ## 概述
 
@@ -39,15 +33,22 @@ title: "EducationOptionVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 EducationOptionVM 实例
+EducationOptionVM educationOptionVM = ...;
+educationOptionVM.RefreshValues();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EducationOptionVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+EducationOptionVM educationOptionVM = ...;
+educationOptionVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

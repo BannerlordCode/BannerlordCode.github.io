@@ -1,20 +1,14 @@
 ---
 title: "ArenaAgentStateDeciderLogic"
+description: "Auto-generated class reference for ArenaAgentStateDeciderLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArenaAgentStateDeciderLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArenaAgentStateDeciderLogic
 
 **Namespace:** SandBox.Missions.MissionLogics.Arena
 **Module:** SandBox.Missions
 **Type:** `public class ArenaAgentStateDeciderLogic : MissionLogic, IAgentStateDecider, IMissionBehavior`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Arena/ArenaAgentStateDeciderLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Arena/ArenaAgentStateDeciderLogic.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `ArenaAgentStateDeciderLogic` as a Logic-style extension point: first iden
 ### GetAgentState
 `public AgentState GetAgentState(Agent effectedAgent, float deathProbability, out bool usedSurgery)`
 
-**Purpose:** Gets the current value of `agent state`.
+**Purpose:** Reads and returns the `agent state` value held by the current object.
+
+```csharp
+// Obtain an instance of ArenaAgentStateDeciderLogic from the subsystem API first
+ArenaAgentStateDeciderLogic arenaAgentStateDeciderLogic = ...;
+var result = arenaAgentStateDeciderLogic.GetAgentState(effectedAgent, 0, usedSurgery);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new ArenaAgentStateDeciderLogic());
+var behavior = Mission.Current.GetMissionBehavior<ArenaAgentStateDeciderLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

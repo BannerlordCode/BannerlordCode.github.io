@@ -1,20 +1,14 @@
 ---
 title: "OrderTroopItemBrushWidget"
+description: "Auto-generated class reference for OrderTroopItemBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderTroopItemBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderTroopItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderTroopItemBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderTroopItemBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderTroopItemBrushWidget.cs`
 
 ## Overview
 
@@ -38,9 +32,10 @@ Treat `OrderTroopItemBrushWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new OrderTroopItemBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderTroopItemBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

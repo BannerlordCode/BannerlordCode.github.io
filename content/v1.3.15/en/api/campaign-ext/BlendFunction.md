@@ -1,13 +1,7 @@
 ---
 title: "BlendFunction"
+description: "Auto-generated class reference for BlendFunction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BlendFunction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BlendFunction
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ## Usage Example
 
 ```csharp
-var value = new BlendFunction();
+// Obtain an instance from the relevant subsystem API
+BlendFunction instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

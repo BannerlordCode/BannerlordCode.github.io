@@ -1,13 +1,7 @@
 ---
 title: "PrefabExtension"
+description: "Auto-generated class reference for PrefabExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrefabExtension`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PrefabExtension
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPrefabExtension();
+// Typically obtained from a subsystem API or factory
+PrefabExtension instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

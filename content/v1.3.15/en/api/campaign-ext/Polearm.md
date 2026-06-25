@@ -1,23 +1,18 @@
 ---
 title: "Polearm"
+description: "Auto-generated class reference for Polearm."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Polearm`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Polearm
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Polearm`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Polearm` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Polearm` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
+| `Pikeman` | `public static PerkObject Pikeman { get; }` |
 | `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `Braced` | `public static PerkObject Braced { get; }` |
+| `KeepAtBay` | `public static PerkObject KeepAtBay { get; }` |
+| `SwiftSwing` | `public static PerkObject SwiftSwing { get; }` |
+| `CleanThrust` | `public static PerkObject CleanThrust { get; }` |
+| `Footwork` | `public static PerkObject Footwork { get; }` |
+| `HardKnock` | `public static PerkObject HardKnock { get; }` |
+| `SteedKiller` | `public static PerkObject SteedKiller { get; }` |
+| `Lancer` | `public static PerkObject Lancer { get; }` |
+| `Skewer` | `public static PerkObject Skewer { get; }` |
+| `Guards` | `public static PerkObject Guards { get; }` |
+| `StandardBearer` | `public static PerkObject StandardBearer { get; }` |
+| `Phalanx` | `public static PerkObject Phalanx { get; }` |
+| `HardyFrontline` | `public static PerkObject HardyFrontline { get; }` |
+| `Drills` | `public static PerkObject Drills { get; }` |
+| `SureFooted` | `public static PerkObject SureFooted { get; }` |
+| `UnstoppableForce` | `public static PerkObject UnstoppableForce { get; }` |
+| `CounterWeight` | `public static PerkObject CounterWeight { get; }` |
+| `SharpenTheTip` | `public static PerkObject SharpenTheTip { get; }` |
+| `WayOfTheSpear` | `public static PerkObject WayOfTheSpear { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Polearm();
+// Obtain an instance from the relevant subsystem API
+Polearm instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

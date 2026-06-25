@@ -1,13 +1,7 @@
 ---
 title: "CreateKingdomQuest"
+description: "Auto-generated class reference for CreateKingdomQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreateKingdomQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreateKingdomQuest
 
 **Namespace:** StoryMode.Quests.FirstPhase
@@ -34,9 +28,10 @@ Start from namespace `StoryMode.Quests.FirstPhase` to place it in the stack, the
 ## Usage Example
 
 ```csharp
-var value = new CreateKingdomQuest();
+// Obtain an instance from the relevant subsystem API
+CreateKingdomQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

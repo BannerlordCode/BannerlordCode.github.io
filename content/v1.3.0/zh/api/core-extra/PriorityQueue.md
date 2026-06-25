@@ -1,13 +1,7 @@
 ---
 title: "PriorityQueue"
+description: "PriorityQueue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PriorityQueue`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PriorityQueue
 
 **Namespace:** TaleWorlds.Library
@@ -37,74 +31,150 @@ title: "PriorityQueue"
 ### MergeQueues
 `public static PriorityQueue<TPriority, TValue> MergeQueues(PriorityQueue<TPriority, TValue> pq1, PriorityQueue<TPriority, TValue> pq2)`
 
-**用途 / Purpose:** 处理 `merge queues` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority, pq2);
+```
 
 ### MergeQueues
 `public static PriorityQueue<TPriority, TValue> MergeQueues(PriorityQueue<TPriority, TValue> pq1, PriorityQueue<TPriority, TValue> pq2, IComparer<TPriority> comparer)`
 
-**用途 / Purpose:** 处理 `merge queues` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority, pq2, comparer);
+```
 
 ### Enqueue
 `public void Enqueue(TPriority priority, TValue value)`
 
-**用途 / Purpose:** 处理 `enqueue` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+priorityQueue.Enqueue(priority, value);
+```
 
 ### Dequeue
 `public KeyValuePair<TPriority, TValue> Dequeue()`
 
-**用途 / Purpose:** 处理 `dequeue` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.Dequeue();
+```
 
 ### DequeueValue
 `public TValue DequeueValue()`
 
-**用途 / Purpose:** 处理 `dequeue value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.DequeueValue();
+```
 
 ### Peek
 `public KeyValuePair<TPriority, TValue> Peek()`
 
-**用途 / Purpose:** 处理 `peek` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.Peek();
+```
 
 ### PeekValue
 `public TValue PeekValue()`
 
-**用途 / Purpose:** 处理 `peek value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.PeekValue();
+```
 
 ### Add
 `public void Add(KeyValuePair<TPriority, TValue> item)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+priorityQueue.Add(keyValuePair<TPriority, item);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+priorityQueue.Clear();
+```
 
 ### Contains
 `public bool Contains(KeyValuePair<TPriority, TValue> item)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.Contains(keyValuePair<TPriority, item);
+```
 
 ### CopyTo
 `public void CopyTo(KeyValuePair<TPriority, TValue> array, int arrayIndex)`
 
-**用途 / Purpose:** 处理 `copy to` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「to」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+priorityQueue.CopyTo(keyValuePair<TPriority, array, 0);
+```
 
 ### Remove
 `public bool Remove(KeyValuePair<TPriority, TValue> item)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.Remove(keyValuePair<TPriority, item);
+```
 
 ### GetEnumerator
 `public IEnumerator<KeyValuePair<TPriority, TValue>> GetEnumerator()`
 
-**用途 / Purpose:** 获取 `enumerator` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「enumerator」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PriorityQueue 实例
+PriorityQueue priorityQueue = ...;
+var result = priorityQueue.GetEnumerator();
+```
 
 ## 使用示例
 
 ```csharp
-PriorityQueue example = PriorityQueue.IsEmpty;
+PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority, pq2);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

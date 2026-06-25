@@ -1,20 +1,14 @@
 ---
 title: "FormationIntegrityDataGroup"
+description: "Auto-generated class reference for FormationIntegrityDataGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationIntegrityDataGroup`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationIntegrityDataGroup
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FormationIntegrityDataGroup`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FormationIntegrityDataGroup
 `public struct FormationIntegrityDataGroup(Vec2 averageVelocityExcludeFarAgents, float deviationOfPositionsExcludeFarAgents, float maxDeviationOfPositionExcludeFarAgents, float averageMaxUnlimitedSpeedExcludeFarAgents)`
 
-**Purpose:** Handles logic related to `formation integrity data group`.
+**Purpose:** Formats `ion integrity data group` into a string suitable for display or storage.
+
+```csharp
+// Obtain an instance of FormationIntegrityDataGroup from the subsystem API first
+FormationIntegrityDataGroup formationIntegrityDataGroup = ...;
+var result = formationIntegrityDataGroup.FormationIntegrityDataGroup(averageVelocityExcludeFarAgents, 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationIntegrityDataGroup();
-value.FormationIntegrityDataGroup(averageVelocityExcludeFarAgents, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+FormationIntegrityDataGroup formationIntegrityDataGroup = ...;
+formationIntegrityDataGroup.FormationIntegrityDataGroup(averageVelocityExcludeFarAgents, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

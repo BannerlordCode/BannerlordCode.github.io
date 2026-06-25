@@ -1,20 +1,14 @@
 ---
 title: "WedgeFormation"
+description: "Auto-generated class reference for WedgeFormation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WedgeFormation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WedgeFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class WedgeFormation : LineFormation`
 **Base:** `LineFormation`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WedgeFormation.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/WedgeFormation.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of WedgeFormation from the subsystem API first
+WedgeFormation wedgeFormation = ...;
+var result = wedgeFormation.Clone(formation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WedgeFormation();
-value.Clone(formation);
+// Typically call this after obtaining an instance from the subsystem API
+WedgeFormation wedgeFormation = ...;
+wedgeFormation.Clone(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

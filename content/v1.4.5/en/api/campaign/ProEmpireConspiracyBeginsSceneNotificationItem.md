@@ -1,20 +1,14 @@
 ---
 title: "ProEmpireConspiracyBeginsSceneNotificationItem"
+description: "Auto-generated class reference for ProEmpireConspiracyBeginsSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProEmpireConspiracyBeginsSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProEmpireConspiracyBeginsSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ProEmpireConspiracyBeginsSceneNotificationItem : EmpireConspiracySupportsSceneNotificationItemBase`
 **Base:** `EmpireConspiracySupportsSceneNotificationItemBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/ProEmpireConspiracyBeginsSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/ProEmpireConspiracyBeginsSceneNotificationItem.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ## Usage Example
 
 ```csharp
-var example = new ProEmpireConspiracyBeginsSceneNotificationItem();
+// Obtain an instance from the relevant subsystem API
+ProEmpireConspiracyBeginsSceneNotificationItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

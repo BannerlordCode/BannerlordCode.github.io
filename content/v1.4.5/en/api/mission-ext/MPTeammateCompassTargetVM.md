@@ -1,20 +1,14 @@
 ---
 title: "MPTeammateCompassTargetVM"
+description: "Auto-generated class reference for MPTeammateCompassTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPTeammateCompassTargetVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPTeammateCompassTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPTeammateCompassTargetVM : CompassTargetVM`
 **Base:** `CompassTargetVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/MPTeammateCompassTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/MPTeammateCompassTargetVM.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### MPTeammateCompassTargetVM
 `public unsafe MPTeammateCompassTargetVM(TargetIconType iconType, uint color, uint color2, Banner banner, bool isAlly)`
 
-**Purpose:** Handles logic related to `m p teammate compass target v m`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPTeammateCompassTargetVM from the subsystem API first
+MPTeammateCompassTargetVM mPTeammateCompassTargetVM = ...;
+var result = mPTeammateCompassTargetVM.MPTeammateCompassTargetVM(iconType, 0, 0, banner, false);
+```
 
 ### RefreshTargetIconType
 `public unsafe void RefreshTargetIconType(TargetIconType targetIconType)`
 
-**Purpose:** Refreshes the display or cache of `target icon type`.
+**Purpose:** Keeps the display or cache of `target icon type` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPTeammateCompassTargetVM from the subsystem API first
+MPTeammateCompassTargetVM mPTeammateCompassTargetVM = ...;
+mPTeammateCompassTargetVM.RefreshTargetIconType(targetIconType);
+```
 
 ### RefreshTeam
 `public void RefreshTeam(Banner banner, bool isAlly)`
 
-**Purpose:** Refreshes the display or cache of `team`.
+**Purpose:** Keeps the display or cache of `team` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPTeammateCompassTargetVM from the subsystem API first
+MPTeammateCompassTargetVM mPTeammateCompassTargetVM = ...;
+mPTeammateCompassTargetVM.RefreshTeam(banner, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPTeammateCompassTargetVM();
-value.MPTeammateCompassTargetVM(iconType, 0, 0, banner, false);
+// Typically call this after obtaining an instance from the subsystem API
+MPTeammateCompassTargetVM mPTeammateCompassTargetVM = ...;
+mPTeammateCompassTargetVM.MPTeammateCompassTargetVM(iconType, 0, 0, banner, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "AgentTeleportToFrame"
+description: "Auto-generated class reference for AgentTeleportToFrame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentTeleportToFrame`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentTeleportToFrame
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class AgentTeleportToFrame : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AgentTeleportToFrame.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/AgentTeleportToFrame.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new AgentTeleportToFrame();
+// Obtain an instance from the relevant subsystem API
+AgentTeleportToFrame instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

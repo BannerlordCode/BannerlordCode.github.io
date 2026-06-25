@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletAdminPanel"
+description: "Auto-generated class reference for MissionGauntletAdminPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletAdminPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletAdminPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletAdminPanel : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletAdminPanel.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletAdminPanel.cs`
 
 ## Overview
 
@@ -29,60 +23,121 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### CreateOptionProviderDelegeate
 `public delegate IAdminPanelOptionProvider CreateOptionProviderDelegeate()`
 
-**Purpose:** Creates a new `option provider delegeate` instance or object.
+**Purpose:** Constructs a new `option provider delegeate` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+var result = missionGauntletAdminPanel.CreateOptionProviderDelegeate();
+```
 
 ### CreateOptionViewModelDelegate
 `public delegate MultiplayerAdminPanelOptionBaseVM CreateOptionViewModelDelegate(IAdminPanelOption option)`
 
-**Purpose:** Creates a new `option view model delegate` instance or object.
+**Purpose:** Constructs a new `option view model delegate` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+var result = missionGauntletAdminPanel.CreateOptionViewModelDelegate(option);
+```
 
 ### CreateActionViewModelDelegate
 `public delegate MultiplayerAdminPanelOptionBaseVM CreateActionViewModelDelegate(IAdminPanelAction action)`
 
-**Purpose:** Creates a new `action view model delegate` instance or object.
+**Purpose:** Constructs a new `action view model delegate` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+var result = missionGauntletAdminPanel.CreateActionViewModelDelegate(action);
+```
 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.OnMissionScreenFinalize();
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+var result = missionGauntletAdminPanel.OnEscape();
+```
 
 ### AddOptionProviderCreator
 `public void AddOptionProviderCreator(CreateOptionProviderDelegeate creator)`
 
 **Purpose:** Adds `option provider creator` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.AddOptionProviderCreator(creator);
+```
+
 ### AddOptionViewModelCreator
 `public void AddOptionViewModelCreator(CreateOptionViewModelDelegate creator)`
 
 **Purpose:** Adds `option view model creator` to the current collection or state.
+
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.AddOptionViewModelCreator(creator);
+```
 
 ### AddActionViewModelCreator
 `public void AddActionViewModelCreator(CreateActionViewModelDelegate creator)`
 
 **Purpose:** Adds `action view model creator` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionGauntletAdminPanel from the subsystem API first
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.AddActionViewModelCreator(creator);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletAdminPanel();
-value.CreateOptionProviderDelegeate();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletAdminPanel missionGauntletAdminPanel = ...;
+missionGauntletAdminPanel.CreateOptionProviderDelegeate();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

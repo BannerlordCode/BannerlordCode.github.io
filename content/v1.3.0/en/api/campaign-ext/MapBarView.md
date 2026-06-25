@@ -1,13 +1,7 @@
 ---
 title: "MapBarView"
+description: "Auto-generated class reference for MapBarView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapBarView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapBarView
 
 **Namespace:** SandBox.View.Map
@@ -27,9 +21,10 @@ Treat `MapBarView` as a View-style extension point: first identify who creates i
 ## Usage Example
 
 ```csharp
-var view = new MapBarView();
+// Retrieve this view from the subsystem API or scene
+MapBarView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

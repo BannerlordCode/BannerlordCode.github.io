@@ -1,19 +1,13 @@
 ---
 title: "IMissionAgentSpawnLogic"
+description: "IMissionAgentSpawnLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IMissionAgentSpawnLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMissionAgentSpawnLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** 无
+**Type:** `public interface IMissionAgentSpawnLogic : IMissionBehavior`
+**Base:** `IMissionBehavior`
 **File:** `TaleWorlds.MountAndBlade/IMissionAgentSpawnLogic.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "IMissionAgentSpawnLogic"
 ## 使用示例
 
 ```csharp
-IMissionAgentSpawnLogic implementation = GetMissionAgentSpawnLogicImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIMissionAgentSpawnLogic service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

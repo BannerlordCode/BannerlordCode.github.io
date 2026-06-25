@@ -1,13 +1,7 @@
 ---
 title: "FindHideoutTutorialQuest"
+description: "Auto-generated class reference for FindHideoutTutorialQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FindHideoutTutorialQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FindHideoutTutorialQuest
 
 **Namespace:** StoryMode.Quests.TutorialPhase
@@ -35,25 +29,44 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ### OnHeroCanDieInfoIsRequested
 `public override void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
 
-**Purpose:** Called when the `hero can die info is requested` event is raised.
+**Purpose:** Invoked when the `hero can die info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FindHideoutTutorialQuest from the subsystem API first
+FindHideoutTutorialQuest findHideoutTutorialQuest = ...;
+findHideoutTutorialQuest.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
+```
 
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FindHideoutTutorialQuest from the subsystem API first
+FindHideoutTutorialQuest findHideoutTutorialQuest = ...;
+findHideoutTutorialQuest.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of FindHideoutTutorialQuest from the subsystem API first
+FindHideoutTutorialQuest findHideoutTutorialQuest = ...;
+findHideoutTutorialQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FindHideoutTutorialQuest();
-value.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
+// Typically call this after obtaining an instance from the subsystem API
+FindHideoutTutorialQuest findHideoutTutorialQuest = ...;
+findHideoutTutorialQuest.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

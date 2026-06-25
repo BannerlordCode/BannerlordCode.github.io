@@ -1,13 +1,7 @@
 ---
 title: "LandLordTheArtOfTheTradeIssueQuest"
+description: "Auto-generated class reference for LandLordTheArtOfTheTradeIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LandLordTheArtOfTheTradeIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LandLordTheArtOfTheTradeIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new LandLordTheArtOfTheTradeIssueQuest();
+// Obtain an instance from the relevant subsystem API
+LandLordTheArtOfTheTradeIssueQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

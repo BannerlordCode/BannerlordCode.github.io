@@ -1,13 +1,7 @@
 ---
 title: "PartyState"
+description: "Auto-generated class reference for PartyState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyState`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyState
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### RequestUserInput
 `public void RequestUserInput(string text, Action accept, Action cancel)`
 
-**Purpose:** Handles logic related to `request user input`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyState from the subsystem API first
+PartyState partyState = ...;
+partyState.RequestUserInput("example", accept, cancel);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyState();
-value.RequestUserInput("example", accept, cancel);
+// Typically call this after obtaining an instance from the subsystem API
+PartyState partyState = ...;
+partyState.RequestUserInput("example", accept, cancel);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,21 +1,14 @@
 ---
 title: "CampaignBehaviorBase"
+description: "Auto-generated class reference for CampaignBehaviorBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignBehaviorBase`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-- [🔀 Cross-Version Compare /versions/CampaignBehaviorBase](/versions/CampaignBehaviorBase)
-<!-- END BREADCRUMB -->
 # CampaignBehaviorBase
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class CampaignBehaviorBase : ICampaignBehavior`
 **Base:** `ICampaignBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs`
 
 ## Overview
 
@@ -30,19 +23,32 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### RegisterEvents
 `public abstract void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CampaignBehaviorBase from the subsystem API first
+CampaignBehaviorBase campaignBehaviorBase = ...;
+campaignBehaviorBase.RegisterEvents();
+```
 
 ### SyncData
 `public abstract void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CampaignBehaviorBase from the subsystem API first
+CampaignBehaviorBase campaignBehaviorBase = ...;
+campaignBehaviorBase.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCampaignBehaviorBase();
+// Typically obtained from a subsystem API or factory
+CampaignBehaviorBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

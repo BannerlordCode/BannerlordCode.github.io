@@ -1,20 +1,14 @@
 ---
 title: "MissionHideoutAmbushCinematicView"
+description: "Auto-generated class reference for MissionHideoutAmbushCinematicView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHideoutAmbushCinematicView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHideoutAmbushCinematicView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionHideoutAmbushCinematicView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionHideoutAmbushCinematicView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionHideoutAmbushCinematicView.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Treat `MissionHideoutAmbushCinematicView` as a View-style extension point: first
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionHideoutAmbushCinematicView from the subsystem API first
+MissionHideoutAmbushCinematicView missionHideoutAmbushCinematicView = ...;
+missionHideoutAmbushCinematicView.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionHideoutAmbushCinematicView from the subsystem API first
+MissionHideoutAmbushCinematicView missionHideoutAmbushCinematicView = ...;
+missionHideoutAmbushCinematicView.OnMissionTick(0);
+```
 
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** Called when the `object used` event is raised.
+**Purpose:** Invoked when the `object used` event is raised.
+
+```csharp
+// Obtain an instance of MissionHideoutAmbushCinematicView from the subsystem API first
+MissionHideoutAmbushCinematicView missionHideoutAmbushCinematicView = ...;
+missionHideoutAmbushCinematicView.OnObjectUsed(userAgent, usedObject);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionHideoutAmbushCinematicView();
+// Retrieve this view from the subsystem API or scene
+MissionHideoutAmbushCinematicView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

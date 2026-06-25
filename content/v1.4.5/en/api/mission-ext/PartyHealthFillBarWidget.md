@@ -1,20 +1,14 @@
 ---
 title: "PartyHealthFillBarWidget"
+description: "Auto-generated class reference for PartyHealthFillBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyHealthFillBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyHealthFillBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyHealthFillBarWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyHealthFillBarWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyHealthFillBarWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `PartyHealthFillBarWidget` as a Widget-style extension point: first identi
 ### PartyHealthFillBarWidget
 `public class PartyHealthFillBarWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `party health fill bar widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyHealthFillBarWidget from the subsystem API first
+PartyHealthFillBarWidget partyHealthFillBarWidget = ...;
+var result = partyHealthFillBarWidget.PartyHealthFillBarWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new PartyHealthFillBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyHealthFillBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

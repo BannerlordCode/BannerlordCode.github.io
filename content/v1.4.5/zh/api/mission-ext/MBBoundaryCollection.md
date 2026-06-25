@@ -1,20 +1,14 @@
 ---
 title: "MBBoundaryCollection"
+description: "MBBoundaryCollection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBBoundaryCollection`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBBoundaryCollection
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBBoundaryCollection : IDictionary<string, ICollection<Vec2>>, ICollection<KeyValuePair<string, ICollection<Vec2>>>, IEnumerable<KeyValuePair<string, ICollection<Vec2>>>, IEnumerable, INotifyCollectionChanged`
 **Base:** `IDictionary<string`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 
@@ -37,74 +31,154 @@ title: "MBBoundaryCollection"
 ### GetEnumerator
 `public IEnumerator<KeyValuePair<string, ICollection<Vec2>>> GetEnumerator()`
 
-**用途 / Purpose:** 获取 `enumerator` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「enumerator」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.GetEnumerator();
+```
 
 ### GetBoundaryRadius
 `public float GetBoundaryRadius(string name)`
 
-**用途 / Purpose:** 获取 `boundary radius` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「boundary radius」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.GetBoundaryRadius("example");
+```
 
 ### GetOrientedBoundariesBox
 `public void GetOrientedBoundariesBox(out Vec2 boxMinimum, out Vec2 boxMaximum, float rotationInRadians = 0f)`
 
-**用途 / Purpose:** 获取 `oriented boundaries box` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「oriented boundaries box」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.GetOrientedBoundariesBox(boxMinimum, boxMaximum, 0);
+```
 
 ### Add
 `public void Add(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add(keyValuePair<string, item);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Clear();
+```
 
 ### Contains
 `public bool Contains(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Contains(keyValuePair<string, item);
+```
 
 ### CopyTo
 `public void CopyTo(KeyValuePair<string, ICollection<Vec2>> array, int arrayIndex)`
 
-**用途 / Purpose:** 处理 `copy to` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「to」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.CopyTo(keyValuePair<string, array, 0);
+```
 
 ### Remove
 `public bool Remove(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Remove(keyValuePair<string, item);
+```
 
 ### Add
 `public void Add(string name, ICollection<Vec2> points)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add("example", points);
+```
 
 ### Add
 `public void Add(string name, ICollection<Vec2> points, bool isAllowanceInside)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.Add("example", points, false);
+```
 
 ### ContainsKey
 `public bool ContainsKey(string name)`
 
-**用途 / Purpose:** 处理 `contains key` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「key」。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.ContainsKey("example");
+```
 
 ### Remove
 `public bool Remove(string name)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.Remove("example");
+```
 
 ### TryGetValue
 `public bool TryGetValue(string name, out ICollection<Vec2> points)`
 
-**用途 / Purpose:** 尝试获取 `get value`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get value」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 MBBoundaryCollection 实例
+MBBoundaryCollection mBBoundaryCollection = ...;
+var result = mBBoundaryCollection.TryGetValue("example", points);
+```
 
 ## 使用示例
 
 ```csharp
-MBBoundaryCollection example = MBBoundaryCollection.Keys;
+// 通常从对应子系统 API 获取实例后调用
+MBBoundaryCollection mBBoundaryCollection = ...;
+mBBoundaryCollection.GetEnumerator();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

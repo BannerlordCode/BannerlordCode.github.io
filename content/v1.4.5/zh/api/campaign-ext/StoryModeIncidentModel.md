@@ -1,20 +1,14 @@
 ---
 title: "StoryModeIncidentModel"
+description: "StoryModeIncidentModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeIncidentModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeIncidentModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeIncidentModel : IncidentModel`
 **Base:** `IncidentModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeIncidentModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeIncidentModel.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "StoryModeIncidentModel"
 ### GetMinGlobalCooldownTime
 `public override CampaignTime GetMinGlobalCooldownTime()`
 
-**用途 / Purpose:** 获取 `min global cooldown time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「min global cooldown time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeIncidentModel 实例
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetMinGlobalCooldownTime();
+```
 
 ### GetMaxGlobalCooldownTime
 `public override CampaignTime GetMaxGlobalCooldownTime()`
 
-**用途 / Purpose:** 获取 `max global cooldown time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max global cooldown time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeIncidentModel 实例
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetMaxGlobalCooldownTime();
+```
 
 ### GetIncidentTriggerGlobalProbability
 `public override float GetIncidentTriggerGlobalProbability()`
 
-**用途 / Purpose:** 获取 `incident trigger global probability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「incident trigger global probability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeIncidentModel 实例
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetIncidentTriggerGlobalProbability();
+```
 
 ### GetIncidentTriggerProbabilityDuringSiege
 `public override float GetIncidentTriggerProbabilityDuringSiege()`
 
-**用途 / Purpose:** 获取 `incident trigger probability during siege` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「incident trigger probability during siege」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeIncidentModel 实例
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetIncidentTriggerProbabilityDuringSiege();
+```
 
 ### GetIncidentTriggerProbabilityDuringWait
 `public override float GetIncidentTriggerProbabilityDuringWait()`
 
-**用途 / Purpose:** 获取 `incident trigger probability during wait` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「incident trigger probability during wait」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeIncidentModel 实例
+StoryModeIncidentModel storyModeIncidentModel = ...;
+var result = storyModeIncidentModel.GetIncidentTriggerProbabilityDuringWait();
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<StoryModeIncidentModel>(new MyStoryModeIncidentModel()
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

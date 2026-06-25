@@ -1,20 +1,14 @@
 ---
 title: "EventTriggeringUsableMachine"
+description: "EventTriggeringUsableMachine 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EventTriggeringUsableMachine`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EventTriggeringUsableMachine
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EventTriggeringUsableMachine : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/EventTriggeringUsableMachine.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/EventTriggeringUsableMachine.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "EventTriggeringUsableMachine"
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EventTriggeringUsableMachine 实例
+EventTriggeringUsableMachine eventTriggeringUsableMachine = ...;
+var result = eventTriggeringUsableMachine.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EventTriggeringUsableMachine 实例
+EventTriggeringUsableMachine eventTriggeringUsableMachine = ...;
+var result = eventTriggeringUsableMachine.GetDescriptionText(gameEntity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EventTriggeringUsableMachine();
-value.GetActionTextForStandingPoint(usableGameObject);
+// 通常从对应子系统 API 获取实例后调用
+EventTriggeringUsableMachine eventTriggeringUsableMachine = ...;
+eventTriggeringUsableMachine.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

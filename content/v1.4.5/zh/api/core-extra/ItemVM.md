@@ -1,20 +1,14 @@
 ---
 title: "ItemVM"
+description: "ItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
 **Module:** TaleWorlds.Core
 **Type:** `public class ItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/ItemVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/ItemVM.cs`
 
 ## 概述
 
@@ -52,60 +46,120 @@ title: "ItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+itemVM.RefreshValues();
+```
 
 ### ExecutePreviewItem
 `public void ExecutePreviewItem()`
 
-**用途 / Purpose:** 执行 `preview item` 操作或流程。
+**用途 / Purpose:** 执行 「preview item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+itemVM.ExecutePreviewItem();
+```
 
 ### ExecuteUnequipItem
 `public void ExecuteUnequipItem()`
 
-**用途 / Purpose:** 执行 `unequip item` 操作或流程。
+**用途 / Purpose:** 执行 「unequip item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+itemVM.ExecuteUnequipItem();
+```
 
 ### ExecuteEquipItem
 `public void ExecuteEquipItem()`
 
-**用途 / Purpose:** 执行 `equip item` 操作或流程。
+**用途 / Purpose:** 执行 「equip item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+itemVM.ExecuteEquipItem();
+```
 
 ### ReleaseStaticContent
 `public static void ReleaseStaticContent()`
 
-**用途 / Purpose:** 处理 `release static content` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ItemVM.ReleaseStaticContent();
+```
 
 ### ExecuteRefreshTooltip
 `public void ExecuteRefreshTooltip()`
 
-**用途 / Purpose:** 执行 `refresh tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「refresh tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+itemVM.ExecuteRefreshTooltip();
+```
 
 ### ExecuteCancelTooltip
 `public void ExecuteCancelTooltip()`
 
-**用途 / Purpose:** 执行 `cancel tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「cancel tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+itemVM.ExecuteCancelTooltip();
+```
 
 ### ExecuteBuyItem
 `public void ExecuteBuyItem()`
 
-**用途 / Purpose:** 执行 `buy item` 操作或流程。
+**用途 / Purpose:** 执行 「buy item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+itemVM.ExecuteBuyItem();
+```
 
 ### ExecuteSelectItem
 `public void ExecuteSelectItem()`
 
-**用途 / Purpose:** 执行 `select item` 操作或流程。
+**用途 / Purpose:** 执行 「select item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+itemVM.ExecuteSelectItem();
+```
 
 ### GetItemTypeWithItemObject
 `public EquipmentIndex GetItemTypeWithItemObject()`
 
-**用途 / Purpose:** 获取 `item type with item object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item type with item object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemVM 实例
+ItemVM itemVM = ...;
+var result = itemVM.GetItemTypeWithItemObject();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ItemVM itemVM = ...;
+itemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

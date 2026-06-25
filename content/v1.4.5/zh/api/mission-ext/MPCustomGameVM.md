@@ -1,20 +1,14 @@
 ---
 title: "MPCustomGameVM"
+description: "MPCustomGameVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPCustomGameVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPCustomGameVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPCustomGameVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameVM.cs`
 
 ## 概述
 
@@ -68,65 +62,132 @@ title: "MPCustomGameVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.OnFinalize();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.OnTick(0);
+```
 
 ### SetPremadeGameList
 `public void SetPremadeGameList(PremadeGameEntry entries)`
 
-**用途 / Purpose:** 设置 `premade game list` 的值或状态。
+**用途 / Purpose:** 为 「premade game list」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.SetPremadeGameList(entries);
+```
 
 ### SetCustomGameServerList
 `public void SetCustomGameServerList(AvailableCustomGames availableCustomGames)`
 
-**用途 / Purpose:** 设置 `custom game server list` 的值或状态。
+**用途 / Purpose:** 为 「custom game server list」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.SetCustomGameServerList(availableCustomGames);
+```
 
 ### ExecuteRefresh
 `public async void ExecuteRefresh()`
 
-**用途 / Purpose:** 执行 `refresh` 操作或流程。
+**用途 / Purpose:** 执行 「refresh」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.ExecuteRefresh();
+```
 
 ### ExecuteJoinSelectedGame
 `public void ExecuteJoinSelectedGame()`
 
-**用途 / Purpose:** 执行 `join selected game` 操作或流程。
+**用途 / Purpose:** 执行 「join selected game」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.ExecuteJoinSelectedGame();
+```
 
 ### OnJoinGame
 `public void OnJoinGame(MPCustomGameItemVM gameItem)`
 
-**用途 / Purpose:** 当 `join game` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「join game」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.OnJoinGame(gameItem);
+```
 
 ### ExecuteOpenCreateGamePanel
 `public void ExecuteOpenCreateGamePanel()`
 
-**用途 / Purpose:** 执行 `open create game panel` 操作或流程。
+**用途 / Purpose:** 执行 「open create game panel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.ExecuteOpenCreateGamePanel();
+```
 
 ### ExecuteCloseCreateGamePanel
 `public void ExecuteCloseCreateGamePanel()`
 
-**用途 / Purpose:** 执行 `close create game panel` 操作或流程。
+**用途 / Purpose:** 执行 「close create game panel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.ExecuteCloseCreateGamePanel();
+```
 
 ### SetRefreshInputKey
 `public void SetRefreshInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `refresh input key` 的值或状态。
+**用途 / Purpose:** 为 「refresh input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPCustomGameVM 实例
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.SetRefreshInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPCustomGameVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPCustomGameVM mPCustomGameVM = ...;
+mPCustomGameVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

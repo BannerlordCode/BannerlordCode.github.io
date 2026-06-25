@@ -1,20 +1,14 @@
 ---
 title: "GameplayCheatsManager"
+description: "GameplayCheatsManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameplayCheatsManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatsManager
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public static class GameplayCheatsManager`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/GameplayCheatsManager.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/GameplayCheatsManager.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "GameplayCheatsManager"
 ### GetMapCheatList
 `public static IEnumerable<GameplayCheatBase> GetMapCheatList()`
 
-**用途 / Purpose:** 获取 `map cheat list` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「map cheat list」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+GameplayCheatsManager.GetMapCheatList();
+```
 
 ### GetMissionCheatList
 `public static IEnumerable<GameplayCheatBase> GetMissionCheatList()`
 
-**用途 / Purpose:** 获取 `mission cheat list` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission cheat list」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+GameplayCheatsManager.GetMissionCheatList();
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ var manager = GameplayCheatsManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

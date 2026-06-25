@@ -1,20 +1,14 @@
 ---
 title: "LegacyGameDataDeserializer"
+description: "LegacyGameDataDeserializer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LegacyGameDataDeserializer`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LegacyGameDataDeserializer
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public static class LegacyGameDataDeserializer`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LegacyGameDataDeserializer.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/LegacyGameDataDeserializer.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "LegacyGameDataDeserializer"
 ### Deserialize
 `public static GameData Deserialize(Stream stream)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 静态调用，不需要实例
+LegacyGameDataDeserializer.Deserialize(stream);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ LegacyGameDataDeserializer.Deserialize(stream);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

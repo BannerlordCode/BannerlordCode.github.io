@@ -1,20 +1,14 @@
 ---
 title: "BoardGameAIMuTorere"
+description: "BoardGameAIMuTorere 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameAIMuTorere`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIMuTorere
 
 **Namespace:** SandBox.BoardGames.AI
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGameAIMuTorere : BoardGameAIBase`
 **Base:** `BoardGameAIBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAIMuTorere.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAIMuTorere.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "BoardGameAIMuTorere"
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAIMuTorere 实例
+BoardGameAIMuTorere boardGameAIMuTorere = ...;
+var result = boardGameAIMuTorere.CalculateMovementStageMove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameAIMuTorere();
-value.CalculateMovementStageMove();
+// 通常从对应子系统 API 获取实例后调用
+BoardGameAIMuTorere boardGameAIMuTorere = ...;
+boardGameAIMuTorere.CalculateMovementStageMove();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

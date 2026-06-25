@@ -1,20 +1,14 @@
 ---
 title: "DeploymentOrderComparer"
+description: "Auto-generated class reference for DeploymentOrderComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeploymentOrderComparer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeploymentOrderComparer
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DeploymentOrderComparer : IComparer<FormationDeploymentOrder>`
 **Base:** `IComparer<FormationDeploymentOrder>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FormationDeploymentOrder.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Compare
 `public int Compare(FormationDeploymentOrder a, FormationDeploymentOrder b)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of DeploymentOrderComparer from the subsystem API first
+DeploymentOrderComparer deploymentOrderComparer = ...;
+var result = deploymentOrderComparer.Compare(a, b);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DeploymentOrderComparer();
-value.Compare(a, b);
+// Typically call this after obtaining an instance from the subsystem API
+DeploymentOrderComparer deploymentOrderComparer = ...;
+deploymentOrderComparer.Compare(a, b);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

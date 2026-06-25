@@ -1,20 +1,14 @@
 ---
 title: "PolicyObject"
+description: "PolicyObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PolicyObject`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PolicyObject
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class PolicyObject : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/PolicyObject.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/PolicyObject.cs`
 
 ## 概述
 
@@ -39,20 +33,33 @@ title: "PolicyObject"
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, TextObject logEntryDescription, TextObject secondaryEffects, float authoritarianWeight, float oligarchyWeight, float egalitarianWeight)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PolicyObject 实例
+PolicyObject policyObject = ...;
+policyObject.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 PolicyObject 实例
+PolicyObject policyObject = ...;
+var result = policyObject.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PolicyObject();
-value.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+PolicyObject policyObject = ...;
+policyObject.Initialize(name, description, logEntryDescription, secondaryEffects, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

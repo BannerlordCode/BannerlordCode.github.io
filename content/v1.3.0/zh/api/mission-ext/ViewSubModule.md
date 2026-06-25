@@ -1,13 +1,7 @@
 ---
 title: "ViewSubModule"
+description: "ViewSubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ViewSubModule`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ViewSubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.View
@@ -36,45 +30,88 @@ title: "ViewSubModule"
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ViewSubModule 实例
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnCampaignStart(game, starterObject);
+```
 
 ### OnMultiplayerGameStart
 `public override void OnMultiplayerGameStart(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `multiplayer game start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「multiplayer game start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ViewSubModule 实例
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnMultiplayerGameStart(game, starterObject);
+```
 
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**用途 / Purpose:** 当 `game loaded` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ViewSubModule 实例
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnGameLoaded(game, initializerObject);
+```
 
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**用途 / Purpose:** 当 `game initialization finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game initialization finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ViewSubModule 实例
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnGameInitializationFinished(game);
+```
 
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**用途 / Purpose:** 处理 `begin game start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ViewSubModule 实例
+ViewSubModule viewSubModule = ...;
+viewSubModule.BeginGameStart(game);
+```
 
 ### DoLoading
 `public override bool DoLoading(Game game)`
 
-**用途 / Purpose:** 处理 `do loading` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ViewSubModule 实例
+ViewSubModule viewSubModule = ...;
+var result = viewSubModule.DoLoading(game);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ViewSubModule 实例
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnGameEnd(game);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ViewSubModule();
-value.OnCampaignStart(game, starterObject);
+// 通常从对应子系统 API 获取实例后调用
+ViewSubModule viewSubModule = ...;
+viewSubModule.OnCampaignStart(game, starterObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

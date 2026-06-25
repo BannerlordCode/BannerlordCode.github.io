@@ -1,103 +1,44 @@
 ---
 title: "ItemVictoriesComparer"
+description: "Auto-generated class reference for ItemVictoriesComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemVictoriesComparer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemVictoriesComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemVictoriesComparer : TournamentLeaderboardSortControllerVM.ItemComparerBase`
 **Base:** `TournamentLeaderboardSortControllerVM.ItemComparerBase`
-**Area:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/GameMenu/TournamentLeaderboard/TournamentLeaderboardSortControllerVM.cs`
 
 ## Overview
 
-`ItemVictoriesComparer` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ItemVictoriesComparer` lives in `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `NameState` | `public int NameState { get; set; }` |
-| `VictoriesState` | `public int VictoriesState { get; set; }` |
-| `PrizeState` | `public int PrizeState { get; set; }` |
-| `PlacementState` | `public int PlacementState { get; set; }` |
-| `IsNameSelected` | `public bool IsNameSelected { get; set; }` |
-| `IsPrizeSelected` | `public bool IsPrizeSelected { get; set; }` |
-| `IsPlacementSelected` | `public bool IsPlacementSelected { get; set; }` |
-| `IsVictoriesSelected` | `public bool IsVictoriesSelected { get; set; }` |
-
 ## Key Methods
 
-### ExecuteSortByName
-`public void ExecuteSortByName()`
-
-**Purpose:** Executes the `sort by name` operation or workflow.
-
-### ExecuteSortByPrize
-`public void ExecuteSortByPrize()`
-
-**Purpose:** Executes the `sort by prize` operation or workflow.
-
-### ExecuteSortByPlacement
-`public void ExecuteSortByPlacement()`
-
-**Purpose:** Executes the `sort by placement` operation or workflow.
-
-### ExecuteSortByVictories
-`public void ExecuteSortByVictories()`
-
-**Purpose:** Executes the `sort by victories` operation or workflow.
-
-### SetSortMode
-`public void SetSortMode(bool isAcending)`
-
-**Purpose:** Sets the value or state of `sort mode`.
-
-### Compare
-`public abstract int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
-
-**Purpose:** Handles logic related to `compare`.
-
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
 
-### Compare
-`public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
-
-**Purpose:** Handles logic related to `compare`.
-
-### Compare
-`public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
-
-**Purpose:** Handles logic related to `compare`.
-
-### Compare
-`public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
-
-**Purpose:** Handles logic related to `compare`.
+```csharp
+// Obtain an instance of ItemVictoriesComparer from the subsystem API first
+ItemVictoriesComparer itemVictoriesComparer = ...;
+var result = itemVictoriesComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a ItemVictoriesComparer instance from game state, then call one of its public methods
-var value = new ItemVictoriesComparer();
-value.ExecuteSortByName();
+// Typically call this after obtaining an instance from the subsystem API
+ItemVictoriesComparer itemVictoriesComparer = ...;
+itemVictoriesComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

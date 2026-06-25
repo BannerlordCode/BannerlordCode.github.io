@@ -1,13 +1,7 @@
 ---
 title: "CharacterDeveloperPerkSelectionItemButtonWidget"
+description: "Auto-generated class reference for CharacterDeveloperPerkSelectionItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterDeveloperPerkSelectionItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterDeveloperPerkSelectionItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
@@ -33,9 +27,10 @@ Treat `CharacterDeveloperPerkSelectionItemButtonWidget` as a Widget-style extens
 ## Usage Example
 
 ```csharp
-var widget = new CharacterDeveloperPerkSelectionItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterDeveloperPerkSelectionItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

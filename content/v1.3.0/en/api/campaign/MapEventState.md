@@ -1,18 +1,12 @@
 ---
 title: "MapEventState"
+description: "Auto-generated class reference for MapEventState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventState`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventState
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum MapEventState`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/MapEvents/MapEventState.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ## Usage Example
 
 ```csharp
-var example = new MapEventState();
+// Obtain an instance from the relevant subsystem API
+MapEventState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

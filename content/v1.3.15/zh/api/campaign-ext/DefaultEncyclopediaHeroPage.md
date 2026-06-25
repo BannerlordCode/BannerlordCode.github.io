@@ -1,13 +1,7 @@
 ---
 title: "DefaultEncyclopediaHeroPage"
+description: "DefaultEncyclopediaHeroPage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultEncyclopediaHeroPage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultEncyclopediaHeroPage
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,60 +23,121 @@ title: "DefaultEncyclopediaHeroPage"
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** 获取 `view fully qualified name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「view fully qualified name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.GetViewFullyQualifiedName();
+```
 
 ### GetStringID
 `public override string GetStringID()`
 
-**用途 / Purpose:** 获取 `string i d` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string i d」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.GetStringID();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.GetName();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText()`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.GetDescriptionText();
+```
 
 ### GetObject
 `public override MBObjectBase GetObject(string typeName, string stringID)`
 
-**用途 / Purpose:** 获取 `object` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.GetObject("example", "example");
+```
 
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** 处理 `is valid encyclopedia item` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid encyclopedia item」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.IsValidEncyclopediaItem(o);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.GetComparedValueText(item);
+```
 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.Compare(x, y);
+```
 
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 获取 `compared value text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultEncyclopediaHeroPage 实例
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+var result = defaultEncyclopediaHeroPage.GetComparedValueText(item);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultEncyclopediaHeroPage();
-value.GetViewFullyQualifiedName();
+// 通常从对应子系统 API 获取实例后调用
+DefaultEncyclopediaHeroPage defaultEncyclopediaHeroPage = ...;
+defaultEncyclopediaHeroPage.GetViewFullyQualifiedName();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

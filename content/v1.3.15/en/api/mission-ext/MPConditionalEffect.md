@@ -1,13 +1,7 @@
 ---
 title: "MPConditionalEffect"
+description: "Auto-generated class reference for MPConditionalEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPConditionalEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MPConditionalEffect
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -39,50 +33,99 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public bool Check(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of MPConditionalEffect from the subsystem API first
+MPConditionalEffect mPConditionalEffect = ...;
+var result = mPConditionalEffect.Check(peer);
+```
 
 ### Check
 `public bool Check(Agent agent)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of MPConditionalEffect from the subsystem API first
+MPConditionalEffect mPConditionalEffect = ...;
+var result = mPConditionalEffect.Check(agent);
+```
 
 ### OnEvent
 `public void OnEvent(bool isWarmup, MissionPeer peer, MPConditionalEffect.ConditionalEffectContainer container)`
 
-**Purpose:** Called when the `event` event is raised.
+**Purpose:** Invoked when the `event` event is raised.
+
+```csharp
+// Obtain an instance of MPConditionalEffect from the subsystem API first
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.OnEvent(false, peer, container);
+```
 
 ### OnEvent
 `public void OnEvent(bool isWarmup, Agent agent, MPConditionalEffect.ConditionalEffectContainer container)`
 
-**Purpose:** Called when the `event` event is raised.
+**Purpose:** Invoked when the `event` event is raised.
+
+```csharp
+// Obtain an instance of MPConditionalEffect from the subsystem API first
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.OnEvent(false, agent, container);
+```
 
 ### OnTick
 `public void OnTick(bool isWarmup, MissionPeer peer, int tickCount)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPConditionalEffect from the subsystem API first
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.OnTick(false, peer, 0);
+```
 
 ### GetState
 `public bool GetState(MPConditionalEffect conditionalEffect, Agent agent)`
 
-**Purpose:** Gets the current value of `state`.
+**Purpose:** Reads and returns the `state` value held by the current object.
+
+```csharp
+// Obtain an instance of MPConditionalEffect from the subsystem API first
+MPConditionalEffect mPConditionalEffect = ...;
+var result = mPConditionalEffect.GetState(conditionalEffect, agent);
+```
 
 ### SetState
 `public void SetState(MPConditionalEffect conditionalEffect, Agent agent, bool state)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPConditionalEffect from the subsystem API first
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.SetState(conditionalEffect, agent, false);
+```
 
 ### ResetStates
 `public void ResetStates()`
 
-**Purpose:** Resets `states` to its initial state.
+**Purpose:** Returns `states` to its default or initial condition.
+
+```csharp
+// Obtain an instance of MPConditionalEffect from the subsystem API first
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.ResetStates();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPConditionalEffect();
-value.Check(peer);
+// Typically call this after obtaining an instance from the subsystem API
+MPConditionalEffect mPConditionalEffect = ...;
+mPConditionalEffect.Check(peer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

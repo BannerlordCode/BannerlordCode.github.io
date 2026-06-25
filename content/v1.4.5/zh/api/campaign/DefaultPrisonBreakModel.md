@@ -1,20 +1,14 @@
 ---
 title: "DefaultPrisonBreakModel"
+description: "DefaultPrisonBreakModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPrisonBreakModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPrisonBreakModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPrisonBreakModel : PrisonBreakModel`
 **Base:** `PrisonBreakModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPrisonBreakModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPrisonBreakModel.cs`
 
 ## 概述
 
@@ -29,27 +23,57 @@ title: "DefaultPrisonBreakModel"
 ### GetNumberOfGuardsToSpawn
 `public override int GetNumberOfGuardsToSpawn(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `number of guards to spawn` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of guards to spawn」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonBreakModel 实例
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.GetNumberOfGuardsToSpawn(settlement);
+```
 
 ### CanPlayerStagePrisonBreak
 `public override bool CanPlayerStagePrisonBreak(Settlement settlement)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `player stage prison break`。
+**用途 / Purpose:** 检查当前对象是否满足 「player stage prison break」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonBreakModel 实例
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.CanPlayerStagePrisonBreak(settlement);
+```
 
 ### GetPrisonBreakStartCost
 `public override int GetPrisonBreakStartCost(Hero prisonerHero)`
 
-**用途 / Purpose:** 获取 `prison break start cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「prison break start cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonBreakModel 实例
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.GetPrisonBreakStartCost(prisonerHero);
+```
 
 ### GetRelationRewardOnPrisonBreak
 `public override int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
 
-**用途 / Purpose:** 获取 `relation reward on prison break` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「relation reward on prison break」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonBreakModel 实例
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.GetRelationRewardOnPrisonBreak(prisonerHero);
+```
 
 ### GetRogueryRewardOnPrisonBreak
 `public override float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
 
-**用途 / Purpose:** 获取 `roguery reward on prison break` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「roguery reward on prison break」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonBreakModel 实例
+DefaultPrisonBreakModel defaultPrisonBreakModel = ...;
+var result = defaultPrisonBreakModel.GetRogueryRewardOnPrisonBreak(prisonerHero, false);
+```
 
 ## 使用示例
 
@@ -59,4 +83,4 @@ Game.Current.ReplaceModel<DefaultPrisonBreakModel>(new MyDefaultPrisonBreakModel
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

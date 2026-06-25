@@ -1,13 +1,7 @@
 ---
 title: "MBInformationManager"
+description: "Auto-generated class reference for MBInformationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBInformationManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBInformationManager
 
 **Namespace:** TaleWorlds.Core
@@ -31,55 +25,110 @@ Treat `MBInformationManager` as a Manager-style extension point: first identify 
 
 **Purpose:** Adds `quick information` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+MBInformationManager.AddQuickInformation(message, 0, null, null, "example");
+```
+
 ### ClearQuickInformations
 `public static void ClearQuickInformations()`
 
-**Purpose:** Handles logic related to `clear quick informations`.
+**Purpose:** Removes all `quick informations` from the current object.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.ClearQuickInformations();
+```
 
 ### ShowMultiSelectionInquiry
 `public static void ShowMultiSelectionInquiry(MultiSelectionInquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**Purpose:** Handles logic related to `show multi selection inquiry`.
+**Purpose:** Displays the UI or element associated with `multi selection inquiry`.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.ShowMultiSelectionInquiry(data, false, false);
+```
 
 ### AddNotice
 `public static void AddNotice(InformationData data)`
 
 **Purpose:** Adds `notice` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+MBInformationManager.AddNotice(data);
+```
+
 ### MapNoticeRemoved
 `public static void MapNoticeRemoved(InformationData data)`
 
-**Purpose:** Handles logic related to `map notice removed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.MapNoticeRemoved(data);
+```
 
 ### ShowHint
 `public static void ShowHint(string hint)`
 
-**Purpose:** Handles logic related to `show hint`.
+**Purpose:** Displays the UI or element associated with `hint`.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.ShowHint("example");
+```
 
 ### HideInformations
 `public static void HideInformations()`
 
-**Purpose:** Handles logic related to `hide informations`.
+**Purpose:** Hides the UI or element associated with `informations`.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.HideInformations();
+```
 
 ### ShowSceneNotification
 `public static void ShowSceneNotification(SceneNotificationData data)`
 
-**Purpose:** Handles logic related to `show scene notification`.
+**Purpose:** Displays the UI or element associated with `scene notification`.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.ShowSceneNotification(data);
+```
 
 ### HideSceneNotification
 `public static void HideSceneNotification()`
 
-**Purpose:** Handles logic related to `hide scene notification`.
+**Purpose:** Hides the UI or element associated with `scene notification`.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.HideSceneNotification();
+```
 
 ### GetIsAnySceneNotificationActive
 `public static bool? GetIsAnySceneNotificationActive()`
 
-**Purpose:** Gets the current value of `is any scene notification active`.
+**Purpose:** Reads and returns the `is any scene notification active` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.GetIsAnySceneNotificationActive();
+```
 
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Static call; no instance required
+MBInformationManager.Clear();
+```
 
 ## Usage Example
 
@@ -89,4 +138,4 @@ var manager = MBInformationManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "IssueEffect"
+description: "Auto-generated class reference for IssueEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IssueEffect`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IssueEffect
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class IssueEffect : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueEffect.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/IssueEffect.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### Initialize
 `public void Initialize(TextObject name, TextObject description)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of IssueEffect from the subsystem API first
+IssueEffect issueEffect = ...;
+issueEffect.Initialize(name, description);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of IssueEffect from the subsystem API first
+IssueEffect issueEffect = ...;
+var result = issueEffect.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new IssueEffect();
-value.Initialize(name, description);
+// Typically call this after obtaining an instance from the subsystem API
+IssueEffect issueEffect = ...;
+issueEffect.Initialize(name, description);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

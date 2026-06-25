@@ -1,13 +1,7 @@
 ---
 title: "GauntletGamepadCursor"
+description: "Auto-generated class reference for GauntletGamepadCursor."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletGamepadCursor`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletGamepadCursor
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletGamepadCursor.Initialize();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ GauntletGamepadCursor.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

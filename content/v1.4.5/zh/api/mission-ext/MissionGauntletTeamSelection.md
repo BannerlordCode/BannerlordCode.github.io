@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletTeamSelection"
+description: "MissionGauntletTeamSelection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletTeamSelection`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletTeamSelection
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletTeamSelection : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletTeamSelection.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletTeamSelection.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "MissionGauntletTeamSelection"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTeamSelection 实例
+MissionGauntletTeamSelection missionGauntletTeamSelection = ...;
+missionGauntletTeamSelection.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTeamSelection 实例
+MissionGauntletTeamSelection missionGauntletTeamSelection = ...;
+missionGauntletTeamSelection.OnMissionScreenFinalize();
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTeamSelection 实例
+MissionGauntletTeamSelection missionGauntletTeamSelection = ...;
+var result = missionGauntletTeamSelection.OnEscape();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletTeamSelection 实例
+MissionGauntletTeamSelection missionGauntletTeamSelection = ...;
+missionGauntletTeamSelection.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionGauntletTeamSelection();
-value.OnMissionScreenInitialize();
+// 通常从对应子系统 API 获取实例后调用
+MissionGauntletTeamSelection missionGauntletTeamSelection = ...;
+missionGauntletTeamSelection.OnMissionScreenInitialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

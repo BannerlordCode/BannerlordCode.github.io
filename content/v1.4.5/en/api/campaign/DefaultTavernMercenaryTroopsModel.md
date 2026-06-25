@@ -1,20 +1,14 @@
 ---
 title: "DefaultTavernMercenaryTroopsModel"
+description: "Auto-generated class reference for DefaultTavernMercenaryTroopsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultTavernMercenaryTroopsModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTavernMercenaryTroopsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTavernMercenaryTroopsModel : TavernMercenaryTroopsModel`
 **Base:** `TavernMercenaryTroopsModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTavernMercenaryTroopsModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTavernMercenaryTroopsModel.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ Game.Current.ReplaceModel<DefaultTavernMercenaryTroopsModel>(new MyDefaultTavern
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

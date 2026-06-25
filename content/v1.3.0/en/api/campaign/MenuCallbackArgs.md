@@ -1,13 +1,7 @@
 ---
 title: "MenuCallbackArgs"
+description: "Auto-generated class reference for MenuCallbackArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuCallbackArgs`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuCallbackArgs
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ## Usage Example
 
 ```csharp
-var example = new MenuCallbackArgs();
+// Obtain an instance from the relevant subsystem API
+MenuCallbackArgs instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

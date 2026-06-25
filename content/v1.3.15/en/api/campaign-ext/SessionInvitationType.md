@@ -1,18 +1,12 @@
 ---
 title: "SessionInvitationType"
+description: "Auto-generated class reference for SessionInvitationType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SessionInvitationType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SessionInvitationType
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** `class`
+**Type:** `public enum SessionInvitationType`
 **Base:** none
 **File:** `TaleWorlds.PlatformService/SessionInvitationType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var value = new SessionInvitationType();
+// Obtain an instance from the relevant subsystem API
+SessionInvitationType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

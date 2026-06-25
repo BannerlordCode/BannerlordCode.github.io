@@ -1,18 +1,12 @@
 ---
 title: "ISynchedMissionObjectReadableRecord"
+description: "Auto-generated class reference for ISynchedMissionObjectReadableRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISynchedMissionObjectReadableRecord`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISynchedMissionObjectReadableRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ISynchedMissionObjectReadableRecord`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/ISynchedMissionObjectReadableRecord.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-ISynchedMissionObjectReadableRecord implementation = GetSynchedMissionObjectReadableRecordImplementation();
+// Usually obtained through DI or a factory method
+IISynchedMissionObjectReadableRecord service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

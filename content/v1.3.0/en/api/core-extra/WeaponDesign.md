@@ -1,13 +1,7 @@
 ---
 title: "WeaponDesign"
+description: "Auto-generated class reference for WeaponDesign."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponDesign`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponDesign
 
 **Namespace:** TaleWorlds.Core
@@ -41,20 +35,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of WeaponDesign from the subsystem API first
+WeaponDesign weaponDesign = ...;
+var result = weaponDesign.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of WeaponDesign from the subsystem API first
+WeaponDesign weaponDesign = ...;
+var result = weaponDesign.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponDesign();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+WeaponDesign weaponDesign = ...;
+weaponDesign.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BehaviorSets"
+description: "BehaviorSets 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorSets`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorSets
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,67 +23,132 @@ title: "BehaviorSets"
 ### AddQuestCharacterBehaviors
 `public static void AddQuestCharacterBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `quest character behaviors`。
+**用途 / Purpose:** 将 「quest character behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddQuestCharacterBehaviors(agent);
+```
 
 ### AddWandererBehaviors
 `public static void AddWandererBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `wanderer behaviors`。
+**用途 / Purpose:** 将 「wanderer behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddWandererBehaviors(agent);
+```
 
 ### AddOutdoorWandererBehaviors
 `public static void AddOutdoorWandererBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `outdoor wanderer behaviors`。
+**用途 / Purpose:** 将 「outdoor wanderer behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddOutdoorWandererBehaviors(agent);
+```
 
 ### AddIndoorWandererBehaviors
 `public static void AddIndoorWandererBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `indoor wanderer behaviors`。
+**用途 / Purpose:** 将 「indoor wanderer behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddIndoorWandererBehaviors(agent);
+```
 
 ### AddFixedCharacterBehaviors
 `public static void AddFixedCharacterBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `fixed character behaviors`。
+**用途 / Purpose:** 将 「fixed character behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddFixedCharacterBehaviors(agent);
+```
 
 ### AddPatrollingThugBehaviors
 `public static void AddPatrollingThugBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `patrolling thug behaviors`。
+**用途 / Purpose:** 将 「patrolling thug behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddPatrollingThugBehaviors(agent);
+```
 
 ### AddStandGuardBehaviors
 `public static void AddStandGuardBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `stand guard behaviors`。
+**用途 / Purpose:** 将 「stand guard behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddStandGuardBehaviors(agent);
+```
 
 ### AddFixedGuardBehaviors
 `public static void AddFixedGuardBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `fixed guard behaviors`。
+**用途 / Purpose:** 将 「fixed guard behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddFixedGuardBehaviors(agent);
+```
 
 ### StealthAgentBehaviors
 `public static void StealthAgentBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 处理 `stealth agent behaviors` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.StealthAgentBehaviors(agent);
+```
 
 ### AddPatrollingGuardBehaviors
 `public static void AddPatrollingGuardBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `patrolling guard behaviors`。
+**用途 / Purpose:** 将 「patrolling guard behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddPatrollingGuardBehaviors(agent);
+```
 
 ### AddCompanionBehaviors
 `public static void AddCompanionBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `companion behaviors`。
+**用途 / Purpose:** 将 「companion behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddCompanionBehaviors(agent);
+```
 
 ### AddBodyguardBehaviors
 `public static void AddBodyguardBehaviors(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `bodyguard behaviors`。
+**用途 / Purpose:** 将 「bodyguard behaviors」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddBodyguardBehaviors(agent);
+```
 
 ### AddFirstCompanionBehavior
 `public static void AddFirstCompanionBehavior(IAgent agent)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `first companion behavior`。
+**用途 / Purpose:** 将 「first companion behavior」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BehaviorSets.AddFirstCompanionBehavior(agent);
+```
 
 ## 使用示例
 
@@ -99,4 +158,4 @@ BehaviorSets.AddQuestCharacterBehaviors(agent);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

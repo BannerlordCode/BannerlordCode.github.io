@@ -1,13 +1,7 @@
 ---
 title: "MatchmakingQueueGameTypeStats"
+description: "Auto-generated class reference for MatchmakingQueueGameTypeStats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatchmakingQueueGameTypeStats`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MatchmakingQueueGameTypeStats
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### HasGameType
 `public bool HasGameType(string gameType)`
 
-**Purpose:** Checks whether the current object has/contains `game type`.
+**Purpose:** Determines whether the current object already holds `game type`.
+
+```csharp
+// Obtain an instance of MatchmakingQueueGameTypeStats from the subsystem API first
+MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats = ...;
+var result = matchmakingQueueGameTypeStats.HasGameType("example");
+```
 
 ### EqualWith
 `public bool EqualWith(string gameTypes)`
 
-**Purpose:** Handles logic related to `equal with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MatchmakingQueueGameTypeStats from the subsystem API first
+MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats = ...;
+var result = matchmakingQueueGameTypeStats.EqualWith("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MatchmakingQueueGameTypeStats();
-value.HasGameType("example");
+// Typically call this after obtaining an instance from the subsystem API
+MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats = ...;
+matchmakingQueueGameTypeStats.HasGameType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

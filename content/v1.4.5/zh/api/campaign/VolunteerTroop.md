@@ -1,20 +1,14 @@
 ---
 title: "VolunteerTroop"
+description: "VolunteerTroop 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VolunteerTroop`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VolunteerTroop
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct VolunteerTroop`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "VolunteerTroop"
 ### VolunteerTroop
 `public struct VolunteerTroop(Hero ownerNotable, int notableVolunteerArrayIndex)`
 
-**用途 / Purpose:** 处理 `volunteer troop` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VolunteerTroop 实例
+VolunteerTroop volunteerTroop = ...;
+var result = volunteerTroop.VolunteerTroop(ownerNotable, 0);
+```
 
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 VolunteerTroop 实例
+VolunteerTroop volunteerTroop = ...;
+var result = volunteerTroop.CompareTo(obj);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VolunteerTroop();
-value.VolunteerTroop(ownerNotable, 0);
+// 通常从对应子系统 API 获取实例后调用
+VolunteerTroop volunteerTroop = ...;
+volunteerTroop.VolunteerTroop(ownerNotable, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

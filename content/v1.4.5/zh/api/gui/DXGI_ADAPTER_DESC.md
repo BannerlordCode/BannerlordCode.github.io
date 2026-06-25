@@ -1,20 +1,14 @@
 ---
 title: "DXGI_ADAPTER_DESC"
+description: "DXGI_ADAPTER_DESC 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DXGI_ADAPTER_DESC`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DXGI_ADAPTER_DESC
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct DXGI_ADAPTER_DESC`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "DXGI_ADAPTER_DESC"
 ## 使用示例
 
 ```csharp
-var example = new DXGI_ADAPTER_DESC();
+// 从对应子系统 API 获取实例
+DXGI_ADAPTER_DESC instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

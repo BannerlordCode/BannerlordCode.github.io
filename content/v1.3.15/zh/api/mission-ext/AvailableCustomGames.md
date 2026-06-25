@@ -1,13 +1,7 @@
 ---
 title: "AvailableCustomGames"
+description: "AvailableCustomGames 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AvailableCustomGames`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AvailableCustomGames
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -35,15 +29,22 @@ title: "AvailableCustomGames"
 ### GetCustomGamesByPermission
 `public AvailableCustomGames GetCustomGamesByPermission(int playerPermission)`
 
-**用途 / Purpose:** 获取 `custom games by permission` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「custom games by permission」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AvailableCustomGames 实例
+AvailableCustomGames availableCustomGames = ...;
+var result = availableCustomGames.GetCustomGamesByPermission(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AvailableCustomGames();
-value.GetCustomGamesByPermission(0);
+// 通常从对应子系统 API 获取实例后调用
+AvailableCustomGames availableCustomGames = ...;
+availableCustomGames.GetCustomGamesByPermission(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

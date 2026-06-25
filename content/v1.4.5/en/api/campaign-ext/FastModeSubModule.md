@@ -1,20 +1,14 @@
 ---
 title: "FastModeSubModule"
+description: "Auto-generated class reference for FastModeSubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FastModeSubModule`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FastModeSubModule
 
 **Namespace:** TaleWorlds.CampaignSystem.FastMode
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class FastModeSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.FastMode/TaleWorlds.CampaignSystem.FastMode/FastModeSubModule.cs`
+**File:** `Modules.FastMode/TaleWorlds.CampaignSystem.FastMode/FastModeSubModule.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.FastMode` to place it in the sta
 ## Usage Example
 
 ```csharp
-var value = new FastModeSubModule();
+// Obtain an instance from the relevant subsystem API
+FastModeSubModule instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

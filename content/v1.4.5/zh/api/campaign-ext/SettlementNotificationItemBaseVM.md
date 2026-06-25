@@ -1,20 +1,14 @@
 ---
 title: "SettlementNotificationItemBaseVM"
+description: "SettlementNotificationItemBaseVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNotificationItemBaseVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNotificationItemBaseVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SettlementNotificationItemBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications/SettlementNotificationItemBaseVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications/SettlementNotificationItemBaseVM.cs`
 
 ## 概述
 
@@ -39,15 +33,22 @@ title: "SettlementNotificationItemBaseVM"
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 `remove` 操作或流程。
+**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNotificationItemBaseVM 实例
+SettlementNotificationItemBaseVM settlementNotificationItemBaseVM = ...;
+settlementNotificationItemBaseVM.ExecuteRemove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SettlementNotificationItemBaseVM();
-value.ExecuteRemove();
+// 通常从对应子系统 API 获取实例后调用
+SettlementNotificationItemBaseVM settlementNotificationItemBaseVM = ...;
+settlementNotificationItemBaseVM.ExecuteRemove();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

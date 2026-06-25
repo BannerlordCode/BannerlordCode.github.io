@@ -1,20 +1,14 @@
 ---
 title: "GameNetwork"
+description: "Auto-generated class reference for GameNetwork."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameNetwork`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameNetwork
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class GameNetwork`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/GameNetwork.cs`
 
 ## Overview
 
@@ -48,285 +42,563 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### RegisterMessages
 `public void RegisterMessages()`
 
-**Purpose:** Handles logic related to `register messages`.
+**Purpose:** Registers `messages` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GameNetwork from the subsystem API first
+GameNetwork gameNetwork = ...;
+gameNetwork.RegisterMessages();
+```
 
 ### UnregisterMessages
 `public void UnregisterMessages()`
 
-**Purpose:** Handles logic related to `unregister messages`.
+**Purpose:** Unregisters `messages` from the current system.
+
+```csharp
+// Obtain an instance of GameNetwork from the subsystem API first
+GameNetwork gameNetwork = ...;
+gameNetwork.UnregisterMessages();
+```
 
 ### ClearAllPeers
 `public static void ClearAllPeers()`
 
-**Purpose:** Handles logic related to `clear all peers`.
+**Purpose:** Removes all `all peers` from the current object.
+
+```csharp
+// Static call; no instance required
+GameNetwork.ClearAllPeers();
+```
 
 ### FindNetworkPeer
 `public static NetworkCommunicator FindNetworkPeer(int index)`
 
-**Purpose:** Handles logic related to `find network peer`.
+**Purpose:** Looks up the matching `network peer` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+GameNetwork.FindNetworkPeer(0);
+```
 
 ### Initialize
 `public static void Initialize(IGameNetworkHandler handler)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GameNetwork.Initialize(handler);
+```
 
 ### EndMultiplayer
 `public static void EndMultiplayer()`
 
-**Purpose:** Handles logic related to `end multiplayer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.EndMultiplayer();
+```
 
 ### StartReplay
 `public static void StartReplay()`
 
-**Purpose:** Handles logic related to `start replay`.
+**Purpose:** Starts the `replay` flow or state machine.
+
+```csharp
+// Static call; no instance required
+GameNetwork.StartReplay();
+```
 
 ### EndReplay
 `public static void EndReplay()`
 
-**Purpose:** Handles logic related to `end replay`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.EndReplay();
+```
 
 ### PreStartMultiplayerOnServer
 `public static void PreStartMultiplayerOnServer()`
 
-**Purpose:** Handles logic related to `pre start multiplayer on server`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.PreStartMultiplayerOnServer();
+```
 
 ### StartMultiplayerOnServer
 `public static void StartMultiplayerOnServer(int port)`
 
-**Purpose:** Handles logic related to `start multiplayer on server`.
+**Purpose:** Starts the `multiplayer on server` flow or state machine.
+
+```csharp
+// Static call; no instance required
+GameNetwork.StartMultiplayerOnServer(0);
+```
 
 ### HandleConsoleCommand
 `public static void HandleConsoleCommand(string command)`
 
-**Purpose:** Handles the `console command` event or callback.
+**Purpose:** Executes the response logic associated with `console command`.
+
+```csharp
+// Static call; no instance required
+GameNetwork.HandleConsoleCommand("example");
+```
 
 ### GetActiveUdpSessionsIpAddress
 `public static string GetActiveUdpSessionsIpAddress()`
 
-**Purpose:** Gets the current value of `active udp sessions ip address`.
+**Purpose:** Reads and returns the `active udp sessions ip address` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameNetwork.GetActiveUdpSessionsIpAddress();
+```
 
 ### AddNewPlayerOnServer
 `public static ICommunicator AddNewPlayerOnServer(PlayerConnectionInfo playerConnectionInfo, bool serverPeer, bool isAdmin)`
 
 **Purpose:** Adds `new player on server` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+GameNetwork.AddNewPlayerOnServer(playerConnectionInfo, false, false);
+```
+
 ### AddNewPlayersOnServer
 `public static AddPlayersResult AddNewPlayersOnServer(PlayerConnectionInfo playerConnectionInfos, bool serverPeer)`
 
 **Purpose:** Adds `new players on server` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+GameNetwork.AddNewPlayersOnServer(playerConnectionInfos, false);
+```
+
 ### ClientFinishedLoading
 `public static void ClientFinishedLoading(NetworkCommunicator networkPeer)`
 
-**Purpose:** Handles logic related to `client finished loading`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.ClientFinishedLoading(networkPeer);
+```
 
 ### BeginModuleEventAsClient
 `public static void BeginModuleEventAsClient()`
 
-**Purpose:** Handles logic related to `begin module event as client`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.BeginModuleEventAsClient();
+```
 
 ### EndModuleEventAsClient
 `public static void EndModuleEventAsClient()`
 
-**Purpose:** Handles logic related to `end module event as client`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.EndModuleEventAsClient();
+```
 
 ### BeginModuleEventAsClientUnreliable
 `public static void BeginModuleEventAsClientUnreliable()`
 
-**Purpose:** Handles logic related to `begin module event as client unreliable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.BeginModuleEventAsClientUnreliable();
+```
 
 ### EndModuleEventAsClientUnreliable
 `public static void EndModuleEventAsClientUnreliable()`
 
-**Purpose:** Handles logic related to `end module event as client unreliable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.EndModuleEventAsClientUnreliable();
+```
 
 ### BeginModuleEventAsServer
 `public static void BeginModuleEventAsServer(NetworkCommunicator communicator)`
 
-**Purpose:** Handles logic related to `begin module event as server`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.BeginModuleEventAsServer(communicator);
+```
 
 ### BeginModuleEventAsServerUnreliable
 `public static void BeginModuleEventAsServerUnreliable(NetworkCommunicator communicator)`
 
-**Purpose:** Handles logic related to `begin module event as server unreliable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.BeginModuleEventAsServerUnreliable(communicator);
+```
 
 ### BeginModuleEventAsServer
 `public static void BeginModuleEventAsServer(VirtualPlayer peer)`
 
-**Purpose:** Handles logic related to `begin module event as server`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.BeginModuleEventAsServer(peer);
+```
 
 ### EndModuleEventAsServer
 `public static void EndModuleEventAsServer()`
 
-**Purpose:** Handles logic related to `end module event as server`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.EndModuleEventAsServer();
+```
 
 ### BeginModuleEventAsServerUnreliable
 `public static void BeginModuleEventAsServerUnreliable(VirtualPlayer peer)`
 
-**Purpose:** Handles logic related to `begin module event as server unreliable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.BeginModuleEventAsServerUnreliable(peer);
+```
 
 ### EndModuleEventAsServerUnreliable
 `public static void EndModuleEventAsServerUnreliable()`
 
-**Purpose:** Handles logic related to `end module event as server unreliable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.EndModuleEventAsServerUnreliable();
+```
 
 ### BeginBroadcastModuleEvent
 `public static void BeginBroadcastModuleEvent()`
 
-**Purpose:** Handles logic related to `begin broadcast module event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.BeginBroadcastModuleEvent();
+```
 
 ### EndBroadcastModuleEvent
 `public static void EndBroadcastModuleEvent(EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)`
 
-**Purpose:** Handles logic related to `end broadcast module event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.EndBroadcastModuleEvent(broadcastFlags, null);
+```
 
 ### ElapsedTimeSinceLastUdpPacketArrived
 `public static double ElapsedTimeSinceLastUdpPacketArrived()`
 
-**Purpose:** Handles logic related to `elapsed time since last udp packet arrived`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.ElapsedTimeSinceLastUdpPacketArrived();
+```
 
 ### EndBroadcastModuleEventUnreliable
 `public static void EndBroadcastModuleEventUnreliable(EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)`
 
-**Purpose:** Handles logic related to `end broadcast module event unreliable`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.EndBroadcastModuleEventUnreliable(broadcastFlags, null);
+```
 
 ### UnSynchronizeEveryone
 `public static void UnSynchronizeEveryone()`
 
-**Purpose:** Handles logic related to `un synchronize everyone`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.UnSynchronizeEveryone();
+```
 
 ### AddRemoveMessageHandlers
 `public static void AddRemoveMessageHandlers(NetworkMessageHandlerRegisterer.RegisterMode mode)`
 
 **Purpose:** Adds `remove message handlers` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+GameNetwork.AddRemoveMessageHandlers(mode);
+```
+
 ### StartMultiplayerOnClient
 `public static void StartMultiplayerOnClient(string serverAddress, int port, int sessionKey, int playerIndex)`
 
-**Purpose:** Handles logic related to `start multiplayer on client`.
+**Purpose:** Starts the `multiplayer on client` flow or state machine.
+
+```csharp
+// Static call; no instance required
+GameNetwork.StartMultiplayerOnClient("example", 0, 0, 0);
+```
 
 ### HandleNewClientConnect
 `public static NetworkCommunicator HandleNewClientConnect(PlayerConnectionInfo playerConnectionInfo, bool isAdmin)`
 
-**Purpose:** Handles the `new client connect` event or callback.
+**Purpose:** Executes the response logic associated with `new client connect`.
+
+```csharp
+// Static call; no instance required
+GameNetwork.HandleNewClientConnect(playerConnectionInfo, false);
+```
 
 ### HandleNewClientsConnect
 `public static AddPlayersResult HandleNewClientsConnect(PlayerConnectionInfo playerConnectionInfos, bool isAdmin)`
 
-**Purpose:** Handles the `new clients connect` event or callback.
+**Purpose:** Executes the response logic associated with `new clients connect`.
+
+```csharp
+// Static call; no instance required
+GameNetwork.HandleNewClientsConnect(playerConnectionInfos, false);
+```
 
 ### AddNetworkPeerToDisconnectAsServer
 `public static void AddNetworkPeerToDisconnectAsServer(NetworkCommunicator networkPeer)`
 
 **Purpose:** Adds `network peer to disconnect as server` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+GameNetwork.AddNetworkPeerToDisconnectAsServer(networkPeer);
+```
+
 ### InitializeClientSide
 `public static void InitializeClientSide(string serverAddress, int port, int sessionKey, int playerIndex)`
 
-**Purpose:** Initializes the state, resources, or bindings for `client side`.
+**Purpose:** Prepares the resources, state, or bindings required by `client side`.
+
+```csharp
+// Static call; no instance required
+GameNetwork.InitializeClientSide("example", 0, 0, 0);
+```
 
 ### TerminateClientSide
 `public static void TerminateClientSide()`
 
-**Purpose:** Handles logic related to `terminate client side`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.TerminateClientSide();
+```
 
 ### GetSynchedMissionObjectReadableRecordTypeFromIndex
 `public static Type GetSynchedMissionObjectReadableRecordTypeFromIndex(int typeIndex)`
 
-**Purpose:** Gets the current value of `synched mission object readable record type from index`.
+**Purpose:** Reads and returns the `synched mission object readable record type from index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameNetwork.GetSynchedMissionObjectReadableRecordTypeFromIndex(0);
+```
 
 ### GetSynchedMissionObjectReadableRecordIndexFromType
 `public static int GetSynchedMissionObjectReadableRecordIndexFromType(Type type)`
 
-**Purpose:** Gets the current value of `synched mission object readable record index from type`.
+**Purpose:** Reads and returns the `synched mission object readable record index from type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameNetwork.GetSynchedMissionObjectReadableRecordIndexFromType(type);
+```
 
 ### DestroyComponent
 `public static void DestroyComponent(UdpNetworkComponent udpNetworkComponent)`
 
-**Purpose:** Handles logic related to `destroy component`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.DestroyComponent(udpNetworkComponent);
+```
 
 ### AddNetworkHandler
 `public static void AddNetworkHandler(IUdpNetworkHandler handler)`
 
 **Purpose:** Adds `network handler` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+GameNetwork.AddNetworkHandler(handler);
+```
+
 ### RemoveNetworkHandler
 `public static void RemoveNetworkHandler(IUdpNetworkHandler handler)`
 
 **Purpose:** Removes `network handler` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+GameNetwork.RemoveNetworkHandler(handler);
+```
+
 ### WriteMessage
 `public static void WriteMessage(GameNetworkMessage message)`
 
-**Purpose:** Handles logic related to `write message`.
+**Purpose:** Writes `message` to the target location.
+
+```csharp
+// Static call; no instance required
+GameNetwork.WriteMessage(message);
+```
 
 ### SetServerBandwidthLimitInMbps
 `public static void SetServerBandwidthLimitInMbps(double value)`
 
-**Purpose:** Sets the value or state of `server bandwidth limit in mbps`.
+**Purpose:** Assigns a new value to `server bandwidth limit in mbps` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+GameNetwork.SetServerBandwidthLimitInMbps(0);
+```
 
 ### SetServerTickRate
 `public static void SetServerTickRate(double value)`
 
-**Purpose:** Sets the value or state of `server tick rate`.
+**Purpose:** Assigns a new value to `server tick rate` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+GameNetwork.SetServerTickRate(0);
+```
 
 ### SetServerFrameRate
 `public static void SetServerFrameRate(double value)`
 
-**Purpose:** Sets the value or state of `server frame rate`.
+**Purpose:** Assigns a new value to `server frame rate` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+GameNetwork.SetServerFrameRate(0);
+```
 
 ### ResetDebugVariables
 `public static void ResetDebugVariables()`
 
-**Purpose:** Resets `debug variables` to its initial state.
+**Purpose:** Returns `debug variables` to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+GameNetwork.ResetDebugVariables();
+```
 
 ### PrintDebugStats
 `public static void PrintDebugStats()`
 
-**Purpose:** Handles logic related to `print debug stats`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.PrintDebugStats();
+```
 
 ### GetAveragePacketLossRatio
 `public static float GetAveragePacketLossRatio()`
 
-**Purpose:** Gets the current value of `average packet loss ratio`.
+**Purpose:** Reads and returns the `average packet loss ratio` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameNetwork.GetAveragePacketLossRatio();
+```
 
 ### GetDebugUploadsInBits
 `public static void GetDebugUploadsInBits(ref DebugNetworkPacketStatisticsStruct networkStatisticsStruct, ref DebugNetworkPositionCompressionStatisticsStruct posStatisticsStruct)`
 
-**Purpose:** Gets the current value of `debug uploads in bits`.
+**Purpose:** Reads and returns the `debug uploads in bits` value held by the current object.
+
+```csharp
+// Static call; no instance required
+GameNetwork.GetDebugUploadsInBits(networkStatisticsStruct, posStatisticsStruct);
+```
 
 ### PrintReplicationTableStatistics
 `public static void PrintReplicationTableStatistics()`
 
-**Purpose:** Handles logic related to `print replication table statistics`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameNetwork.PrintReplicationTableStatistics();
+```
 
 ### ClearReplicationTableStatistics
 `public static void ClearReplicationTableStatistics()`
 
-**Purpose:** Handles logic related to `clear replication table statistics`.
+**Purpose:** Removes all `replication table statistics` from the current object.
+
+```csharp
+// Static call; no instance required
+GameNetwork.ClearReplicationTableStatistics();
+```
 
 ### ResetDebugUploads
 `public static void ResetDebugUploads()`
 
-**Purpose:** Resets `debug uploads` to its initial state.
+**Purpose:** Returns `debug uploads` to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+GameNetwork.ResetDebugUploads();
+```
 
 ### ResetMissionData
 `public static void ResetMissionData()`
 
-**Purpose:** Resets `mission data` to its initial state.
+**Purpose:** Returns `mission data` to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+GameNetwork.ResetMissionData();
+```
 
 ### InitializeCompressionInfos
 `public static void InitializeCompressionInfos()`
 
-**Purpose:** Initializes the state, resources, or bindings for `compression infos`.
+**Purpose:** Prepares the resources, state, or bindings required by `compression infos`.
+
+```csharp
+// Static call; no instance required
+GameNetwork.InitializeCompressionInfos();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameNetwork();
-value.RegisterMessages();
+// Typically call this after obtaining an instance from the subsystem API
+GameNetwork gameNetwork = ...;
+gameNetwork.RegisterMessages();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

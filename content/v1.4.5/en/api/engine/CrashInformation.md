@@ -1,20 +1,14 @@
 ---
 title: "CrashInformation"
+description: "Auto-generated class reference for CrashInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrashInformation`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CrashInformation
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class CrashInformation`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/CrashInformationCollector.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/CrashInformationCollector.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CollectInformation
 `public static string CollectInformation()`
 
-**Purpose:** Handles logic related to `collect information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CrashInformation.CollectInformation();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ CrashInformation.CollectInformation();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

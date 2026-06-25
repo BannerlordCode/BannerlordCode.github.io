@@ -1,23 +1,18 @@
 ---
 title: "SiegeEnginesContainer"
+description: "SiegeEnginesContainer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeEnginesContainer`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeEnginesContainer
 
-**命名空间:** TaleWorlds.CampaignSystem.Siege
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public class SiegeEnginesContainer`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.Siege
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class SiegeEnginesContainer`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Siege/SiegeEvent.cs`
 
 ## 概述
 
-`SiegeEnginesContainer` 位于 `TaleWorlds.CampaignSystem.Siege`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`SiegeEnginesContainer` 位于 `TaleWorlds.CampaignSystem.Siege`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -27,138 +22,99 @@ title: "SiegeEnginesContainer"
 
 | Name | Signature |
 |------|-----------|
-| `SiegeWallSeed` | `public int SiegeWallSeed { get; }` |
-| `SiegePeopleSeed` | `public int SiegePeopleSeed { get; }` |
-| `SiegeStartTime` | `public CampaignTime SiegeStartTime { get; }` |
-| `IsPlayerSiegeEvent` | `public bool IsPlayerSiegeEvent { get; }` |
-| `BlockadeShouldBeActivated` | `public bool BlockadeShouldBeActivated { get; }` |
-| `IsBlockadeActive` | `public bool IsBlockadeActive { get; }` |
-| `ReadyToBeRemoved` | `public bool ReadyToBeRemoved { get; }` |
-| `NextTimeEngineCanBombard` | `public CampaignTime NextTimeEngineCanBombard { get; }` |
-| `AlreadyFired` | `public bool AlreadyFired { get; }` |
-| `CurrentTargetType` | `public SiegeBombardTargets CurrentTargetType { get; }` |
-| `CurrentTargetIndex` | `public int CurrentTargetIndex { get; }` |
-| `PreviousDamagedTargetType` | `public SiegeBombardTargets PreviousDamagedTargetType { get; }` |
-| `PreviousTargetIndex` | `public int PreviousTargetIndex { get; }` |
-| `LastBombardTime` | `public CampaignTime LastBombardTime { get; }` |
-| `NextProjectileCollisionTime` | `public CampaignTime NextProjectileCollisionTime { get; }` |
-| `IsReadyToFire` | `public bool IsReadyToFire { get; }` |
-| `IsActive` | `public bool IsActive { get; }` |
-| `Hitpoints` | `public float Hitpoints { get; }` |
-| `Progress` | `public float Progress { get; }` |
-| `RangedSiegeEngine` | `public SiegeEvent.RangedSiegeEngine RangedSiegeEngine { get; }` |
+| `DeployedSiegeEngines` | `public MBReadOnlyList<SiegeEvent.SiegeEngineConstructionProgress> DeployedSiegeEngines { get; }` |
+| `ReservedSiegeEngines` | `public MBReadOnlyList<SiegeEvent.SiegeEngineConstructionProgress> ReservedSiegeEngines { get; }` |
+| `DeployedSiegeEngineTypesCount` | `public MBReadOnlyDictionary<SiegeEngineType, int> DeployedSiegeEngineTypesCount { get; }` |
+| `ReservedSiegeEngineTypesCount` | `public MBReadOnlyDictionary<SiegeEngineType, int> ReservedSiegeEngineTypesCount { get; }` |
+| `RemovedSiegeEngines` | `public MBReadOnlyList<SiegeEvent.SiegeEnginesContainer.RemovedSiegeEngine> RemovedSiegeEngines { get; }` |
 
 ## 主要方法
 
-### ActivateBlockade
-`public void ActivateBlockade()`
+### AllSiegeEngines
+`public IEnumerable<SiegeEvent.SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**用途 / Purpose:** 处理 `activate blockade` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-### DeactivateBlockade
-`public void DeactivateBlockade()`
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.AllSiegeEngines();
+```
 
-**用途 / Purpose:** 处理 `deactivate blockade` 相关逻辑。
+### AddPrebuiltEngineToReserve
+`public void AddPrebuiltEngineToReserve(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
-### GetInvolvedPartiesForEventType
-`public List<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes battleType)`
+**用途 / Purpose:** 将 「prebuilt engine to reserve」 添加到当前容器或状态中。
 
-**用途 / Purpose:** 获取 `involved parties for event type` 的当前值。
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.AddPrebuiltEngineToReserve(siegeEngine);
+```
 
-### GetCurrentBattleType
-`public MapEvent.BattleTypes GetCurrentBattleType()`
+### DeploySiegeEngineAtIndex
+`public void DeploySiegeEngineAtIndex(SiegeEvent.SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**用途 / Purpose:** 获取 `current battle type` 的当前值。
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-### GetSiegeEventSide
-`public ISiegeEventSide GetSiegeEventSide(BattleSideEnum side)`
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.DeploySiegeEngineAtIndex(siegeEngine, 0);
+```
 
-**用途 / Purpose:** 获取 `siege event side` 的当前值。
+### RemoveDeployedSiegeEngine
+`public void RemoveDeployedSiegeEngine(int index, bool isRanged, bool moveToReserve)`
 
-### CanPartyJoinSide
-`public bool CanPartyJoinSide(PartyBase party, BattleSideEnum side)`
+**用途 / Purpose:** 从当前容器或状态中移除 「deployed siege engine」。
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `party join side`。
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.RemoveDeployedSiegeEngine(0, false, false);
+```
 
-### Tick
-`public void Tick(float dt)`
+### RemovedSiegeEngineFromReservedSiegeEngines
+`public bool RemovedSiegeEngineFromReservedSiegeEngines(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 从当前容器或状态中移除 「d siege engine from reserved siege engines」。
 
-### OnAfterLoad
-`public void OnAfterLoad()`
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.RemovedSiegeEngineFromReservedSiegeEngines(siegeEngine);
+```
 
-**用途 / Purpose:** 当 `after load` 事件触发时调用此方法。
+### FindDeploymentIndexOfDeployedEngine
+`public int FindDeploymentIndexOfDeployedEngine(SiegeEvent.SiegeEngineConstructionProgress deployedEngine)`
 
-### OnBeforeSiegeEventEnd
-`public void OnBeforeSiegeEventEnd(BattleState winnerSide, MapEvent.BattleTypes battleType)`
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「deployment index of deployed engine」。
 
-**用途 / Purpose:** 当 `before siege event end` 事件触发时调用此方法。
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.FindDeploymentIndexOfDeployedEngine(deployedEngine);
+```
 
-### FinalizeSiegeEvent
-`public void FinalizeSiegeEvent()`
+### ClearRemovedEnginesIfNecessary
+`public bool ClearRemovedEnginesIfNecessary()`
 
-**用途 / Purpose:** 处理 `finalize siege event` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「removed engines if necessary」。
 
-### IsPartyInvolved
-`public bool IsPartyInvolved(PartyBase party)`
-
-**用途 / Purpose:** 处理 `is party involved` 相关逻辑。
-
-### SetPositionAfterMapChange
-`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
-
-**用途 / Purpose:** 设置 `position after map change` 的值或状态。
-
-### DoSiegeAction
-`public void DoSiegeAction(ISiegeEventSide siegeEventSide, SiegeStrategyActionModel.SiegeAction siegeAction, SiegeEngineType siegeEngineType, int deploymentIndex, int reserveIndex)`
-
-**用途 / Purpose:** 处理 `do siege action` 相关逻辑。
-
-### AdvanceStrategy
-`public void AdvanceStrategy(ISiegeEventSide siegeEventSide)`
-
-**用途 / Purpose:** 处理 `advance strategy` 相关逻辑。
-
-### BreakSiegeEngine
-`public void BreakSiegeEngine(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngineType)`
-
-**用途 / Purpose:** 处理 `break siege engine` 相关逻辑。
-
-### GetPreparedSiegeEnginesAsDictionary
-`public Dictionary<SiegeEngineType, int> GetPreparedSiegeEnginesAsDictionary(ISiegeEventSide siegeEventSide)`
-
-**用途 / Purpose:** 获取 `prepared siege engines as dictionary` 的当前值。
-
-### GetPreparedAndActiveSiegeEngines
-`public List<MissionSiegeWeapon> GetPreparedAndActiveSiegeEngines(ISiegeEventSide siegeEventSide)`
-
-**用途 / Purpose:** 获取 `prepared and active siege engines` 的当前值。
-
-### SetSiegeEngineStatesAfterSiegeMission
-`public void SetSiegeEngineStatesAfterSiegeMission(IEnumerable<IMissionSiegeWeapon> attackerMissionSiegeEngineData, IEnumerable<IMissionSiegeWeapon> defenderMissionSiegeEngineData)`
-
-**用途 / Purpose:** 设置 `siege engine states after siege mission` 的值或状态。
-
-### CreateSiegeObject
-`public void CreateSiegeObject(SiegeEvent.SiegeEngineConstructionProgress siegeEngineConstructionProgress, ISiegeEventSide siegeSide)`
-
-**用途 / Purpose:** 创建一个 `siege object` 实例或对象。
-
-### ToString
-`public override string ToString()`
-
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 SiegeEnginesContainer 实例
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.ClearRemovedEnginesIfNecessary();
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 SiegeEnginesContainer 实例，再调用它的公开方法
-var value = new SiegeEnginesContainer();
-value.ActivateBlockade();
+// 通常从对应子系统 API 获取实例后调用
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.AllSiegeEngines();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

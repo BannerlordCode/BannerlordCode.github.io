@@ -1,20 +1,14 @@
 ---
 title: "UsableMissionObject"
+description: "Auto-generated class reference for UsableMissionObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UsableMissionObject`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsableMissionObject
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class UsableMissionObject : SynchedMissionObject, IFocusable, IUsable, IVisible`
 **Base:** `SynchedMissionObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableMissionObject.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableMissionObject.cs`
 
 ## Overview
 
@@ -51,219 +45,472 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.ReadFromNetwork(bufferReadValid);
+```
 
 ### OnUserConversationStart
 `public virtual void OnUserConversationStart()`
 
-**Purpose:** Called when the `user conversation start` event is raised.
+**Purpose:** Invoked when the `user conversation start` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnUserConversationStart();
+```
 
 ### OnUserConversationEnd
 `public virtual void OnUserConversationEnd()`
 
-**Purpose:** Called when the `user conversation end` event is raised.
+**Purpose:** Invoked when the `user conversation end` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnUserConversationEnd();
+```
 
 ### SetAreUserPositionsUpdatedInTheMachineTick
 `public void SetAreUserPositionsUpdatedInTheMachineTick(bool value)`
 
-**Purpose:** Sets the value or state of `are user positions updated in the machine tick`.
+**Purpose:** Assigns a new value to `are user positions updated in the machine tick` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.SetAreUserPositionsUpdatedInTheMachineTick(false);
+```
 
 ### GetIsUserPositionsUpdatedInTheMachineTick
 `public bool GetIsUserPositionsUpdatedInTheMachineTick()`
 
-**Purpose:** Gets the current value of `is user positions updated in the machine tick`.
+**Purpose:** Reads and returns the `is user positions updated in the machine tick` value held by the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.GetIsUserPositionsUpdatedInTheMachineTick();
+```
 
 ### SetIsDeactivatedSynched
 `public void SetIsDeactivatedSynched(bool value)`
 
-**Purpose:** Sets the value or state of `is deactivated synched`.
+**Purpose:** Assigns a new value to `is deactivated synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.SetIsDeactivatedSynched(false);
+```
 
 ### SetIsDisabledForPlayersSynched
 `public void SetIsDisabledForPlayersSynched(bool value)`
 
-**Purpose:** Sets the value or state of `is disabled for players synched`.
+**Purpose:** Assigns a new value to `is disabled for players synched` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.SetIsDisabledForPlayersSynched(false);
+```
 
 ### IsDisabledForAgent
 `public virtual bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.IsDisabledForAgent(agent);
+```
 
 ### AddComponent
 `public void AddComponent(UsableMissionObjectComponent component)`
 
 **Purpose:** Adds `component` to the current collection or state.
 
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.AddComponent(component);
+```
+
 ### RemoveComponent
 `public void RemoveComponent(UsableMissionObjectComponent component)`
 
 **Purpose:** Removes `component` from the current collection or state.
 
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.RemoveComponent(component);
+```
+
 ### RefreshGameEntityWithWorldPosition
 `public void RefreshGameEntityWithWorldPosition()`
 
-**Purpose:** Refreshes the display or cache of `game entity with world position`.
+**Purpose:** Keeps the display or cache of `game entity with world position` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.RefreshGameEntityWithWorldPosition();
+```
 
 ### OnFocusGain
 `public virtual void OnFocusGain(Agent userAgent)`
 
-**Purpose:** Called when the `focus gain` event is raised.
+**Purpose:** Invoked when the `focus gain` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnFocusGain(userAgent);
+```
 
 ### OnFocusLose
 `public virtual void OnFocusLose(Agent userAgent)`
 
-**Purpose:** Called when the `focus lose` event is raised.
+**Purpose:** Invoked when the `focus lose` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnFocusLose(userAgent);
+```
 
 ### GetInfoTextForBeingNotInteractable
 `public virtual TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**Purpose:** Gets the current value of `info text for being not interactable`.
+**Purpose:** Reads and returns the `info text for being not interactable` value held by the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.GetInfoTextForBeingNotInteractable(userAgent);
+```
 
 ### SetUserForClient
 `public virtual void SetUserForClient(Agent userAgent)`
 
-**Purpose:** Sets the value or state of `user for client`.
+**Purpose:** Assigns a new value to `user for client` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.SetUserForClient(userAgent);
+```
 
 ### OnUse
 `public virtual void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnUse(userAgent, 0);
+```
 
 ### OnAIMoveToUse
 `public virtual void OnAIMoveToUse(Agent userAgent, IDetachment detachment)`
 
-**Purpose:** Called when the `a i move to use` event is raised.
+**Purpose:** Invoked when the `a i move to use` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnAIMoveToUse(userAgent, detachment);
+```
 
 ### OnUseStopped
 `public virtual void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Called when the `use stopped` event is raised.
+**Purpose:** Invoked when the `use stopped` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnUseStopped(userAgent, false, 0);
+```
 
 ### OnMoveToStopped
 `public virtual void OnMoveToStopped(Agent movingAgent)`
 
-**Purpose:** Called when the `move to stopped` event is raised.
+**Purpose:** Invoked when the `move to stopped` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnMoveToStopped(movingAgent);
+```
 
 ### GetMovingAgentCount
 `public virtual int GetMovingAgentCount()`
 
-**Purpose:** Gets the current value of `moving agent count`.
+**Purpose:** Reads and returns the `moving agent count` value held by the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.GetMovingAgentCount();
+```
 
 ### GetMovingAgentWithIndex
 `public virtual Agent GetMovingAgentWithIndex(int index)`
 
-**Purpose:** Gets the current value of `moving agent with index`.
+**Purpose:** Reads and returns the `moving agent with index` value held by the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.GetMovingAgentWithIndex(0);
+```
 
 ### RemoveMovingAgent
 `public virtual void RemoveMovingAgent(Agent movingAgent)`
 
 **Purpose:** Removes `moving agent` from the current collection or state.
 
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.RemoveMovingAgent(movingAgent);
+```
+
 ### AddMovingAgent
 `public virtual void AddMovingAgent(Agent movingAgent)`
 
 **Purpose:** Adds `moving agent` to the current collection or state.
 
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.AddMovingAgent(movingAgent);
+```
+
 ### OnAIDefendBegin
 `public void OnAIDefendBegin(Agent agent, IDetachment detachment)`
 
-**Purpose:** Called when the `a i defend begin` event is raised.
+**Purpose:** Invoked when the `a i defend begin` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnAIDefendBegin(agent, detachment);
+```
 
 ### OnAIDefendEnd
 `public void OnAIDefendEnd(Agent agent)`
 
-**Purpose:** Called when the `a i defend end` event is raised.
+**Purpose:** Invoked when the `a i defend end` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnAIDefendEnd(agent);
+```
 
 ### InitializeDefendingAgents
 `public void InitializeDefendingAgents()`
 
-**Purpose:** Initializes the state, resources, or bindings for `defending agents`.
+**Purpose:** Prepares the resources, state, or bindings required by `defending agents`.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.InitializeDefendingAgents();
+```
 
 ### GetDefendingAgentCount
 `public int GetDefendingAgentCount()`
 
-**Purpose:** Gets the current value of `defending agent count`.
+**Purpose:** Reads and returns the `defending agent count` value held by the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.GetDefendingAgentCount();
+```
 
 ### AddDefendingAgent
 `public void AddDefendingAgent(Agent agent)`
 
 **Purpose:** Adds `defending agent` to the current collection or state.
 
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.AddDefendingAgent(agent);
+```
+
 ### RemoveDefendingAgent
 `public void RemoveDefendingAgent(Agent agent)`
 
 **Purpose:** Removes `defending agent` from the current collection or state.
 
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.RemoveDefendingAgent(agent);
+```
+
 ### IsAgentDefending
 `public bool IsAgentDefending(Agent agent)`
 
-**Purpose:** Handles logic related to `is agent defending`.
+**Purpose:** Determines whether the current object is in the `agent defending` state or condition.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.IsAgentDefending(agent);
+```
 
 ### SimulateTick
 `public virtual void SimulateTick(float dt)`
 
-**Purpose:** Handles logic related to `simulate tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.SimulateTick(0);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.GetTickRequirement();
+```
 
 ### GetUserFrameForAgent
 `public virtual WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**Purpose:** Gets the current value of `user frame for agent`.
+**Purpose:** Reads and returns the `user frame for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.GetUserFrameForAgent(agent);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.ToString();
+```
 
 ### IsAIMovingTo
 `public virtual bool IsAIMovingTo(Agent agent)`
 
-**Purpose:** Handles logic related to `is a i moving to`.
+**Purpose:** Determines whether the current object is in the `a i moving to` state or condition.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.IsAIMovingTo(agent);
+```
 
 ### HasUserPositionsChanged
 `public virtual bool HasUserPositionsChanged(Agent agent)`
 
-**Purpose:** Checks whether the current object has/contains `user positions changed`.
+**Purpose:** Determines whether the current object already holds `user positions changed`.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.HasUserPositionsChanged(agent);
+```
 
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** Handles logic related to `write to network`.
+**Purpose:** Writes `to network` to the target location.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.WriteToNetwork();
+```
 
 ### IsUsableByAgent
 `public virtual bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** Handles logic related to `is usable by agent`.
+**Purpose:** Determines whether the current object is in the `usable by agent` state or condition.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.IsUsableByAgent(userAgent);
+```
 
 ### SetCustomLocalFrame
 `public void SetCustomLocalFrame(in MatrixFrame customLocalFrame)`
 
-**Purpose:** Sets the value or state of `custom local frame`.
+**Purpose:** Assigns a new value to `custom local frame` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.SetCustomLocalFrame(customLocalFrame);
+```
 
 ### OnEndMission
 `public override void OnEndMission()`
 
-**Purpose:** Called when the `end mission` event is raised.
+**Purpose:** Invoked when the `end mission` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnEndMission();
+```
 
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**Purpose:** Called when the `after read from network` event is raised.
+**Purpose:** Invoked when the `after read from network` event is raised.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+usableMissionObject.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
+```
 
 ### GetDescriptionText
 `public abstract TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of UsableMissionObject from the subsystem API first
+UsableMissionObject usableMissionObject = ...;
+var result = usableMissionObject.GetDescriptionText(gameEntity);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomUsableMissionObject();
+// Typically obtained from a subsystem API or factory
+UsableMissionObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

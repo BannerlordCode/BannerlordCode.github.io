@@ -1,13 +1,7 @@
 ---
 title: "MBTextModel"
+description: "Auto-generated class reference for MBTextModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTextModel`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTextModel
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
@@ -32,4 +26,4 @@ Game.Current.ReplaceModel<MBTextModel>(new MyMBTextModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

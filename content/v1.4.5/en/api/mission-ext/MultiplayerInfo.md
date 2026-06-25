@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerInfo"
+description: "Auto-generated class reference for MultiplayerInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerInfo
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerInfo`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerInfo.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MultiplayerInfo.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsMultiplayerTeamAvailable
 `public bool IsMultiplayerTeamAvailable(int peerNo, int teamNo)`
 
-**Purpose:** Handles logic related to `is multiplayer team available`.
+**Purpose:** Determines whether the current object is in the `multiplayer team available` state or condition.
+
+```csharp
+// Obtain an instance of MultiplayerInfo from the subsystem API first
+MultiplayerInfo multiplayerInfo = ...;
+var result = multiplayerInfo.IsMultiplayerTeamAvailable(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerInfo();
-value.IsMultiplayerTeamAvailable(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerInfo multiplayerInfo = ...;
+multiplayerInfo.IsMultiplayerTeamAvailable(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

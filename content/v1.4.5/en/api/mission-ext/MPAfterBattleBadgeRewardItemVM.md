@@ -1,20 +1,14 @@
 ---
 title: "MPAfterBattleBadgeRewardItemVM"
+description: "Auto-generated class reference for MPAfterBattleBadgeRewardItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPAfterBattleBadgeRewardItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPAfterBattleBadgeRewardItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPAfterBattleBadgeRewardItemVM : MPAfterBattleRewardItemVM`
 **Base:** `MPAfterBattleRewardItemVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle/MPAfterBattleBadgeRewardItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle/MPAfterBattleBadgeRewardItemVM.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ## Usage Example
 
 ```csharp
-var value = new MPAfterBattleBadgeRewardItemVM();
+// Obtain an instance from the relevant subsystem API
+MPAfterBattleBadgeRewardItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

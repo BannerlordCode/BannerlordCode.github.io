@@ -1,13 +1,7 @@
 ---
 title: "CampaignOptionsManager"
+description: "Auto-generated class reference for CampaignOptionsManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignOptionsManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignOptionsManager
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -29,27 +23,52 @@ Treat `CampaignOptionsManager` as a Manager-style extension point: first identif
 ### GetOptionWithIdExists
 `public static bool GetOptionWithIdExists(string identifier)`
 
-**Purpose:** Gets the current value of `option with id exists`.
+**Purpose:** Reads and returns the `option with id exists` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignOptionsManager.GetOptionWithIdExists("example");
+```
 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+CampaignOptionsManager.Initialize();
+```
 
 ### ClearCachedOptions
 `public static void ClearCachedOptions()`
 
-**Purpose:** Handles logic related to `clear cached options`.
+**Purpose:** Removes all `cached options` from the current object.
+
+```csharp
+// Static call; no instance required
+CampaignOptionsManager.ClearCachedOptions();
+```
 
 ### GetGameplayCampaignOptions
 `public static List<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**Purpose:** Gets the current value of `gameplay campaign options`.
+**Purpose:** Reads and returns the `gameplay campaign options` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignOptionsManager.GetGameplayCampaignOptions();
+```
 
 ### GetCharacterCreationCampaignOptions
 `public static List<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**Purpose:** Gets the current value of `character creation campaign options`.
+**Purpose:** Reads and returns the `character creation campaign options` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CampaignOptionsManager.GetCharacterCreationCampaignOptions();
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ var manager = CampaignOptionsManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

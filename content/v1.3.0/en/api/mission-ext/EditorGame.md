@@ -1,13 +1,7 @@
 ---
 title: "EditorGame"
+description: "Auto-generated class reference for EditorGame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditorGame`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditorGame
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnDestroy
 `public override void OnDestroy()`
 
-**Purpose:** Called when the `destroy` event is raised.
+**Purpose:** Invoked when the `destroy` event is raised.
+
+```csharp
+// Obtain an instance of EditorGame from the subsystem API first
+EditorGame editorGame = ...;
+editorGame.OnDestroy();
+```
 
 ### OnStateChanged
 `public override void OnStateChanged(GameState oldState)`
 
-**Purpose:** Called when the `state changed` event is raised.
+**Purpose:** Invoked when the `state changed` event is raised.
+
+```csharp
+// Obtain an instance of EditorGame from the subsystem API first
+EditorGame editorGame = ...;
+editorGame.OnStateChanged(oldState);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EditorGame();
-value.OnDestroy();
+// Typically call this after obtaining an instance from the subsystem API
+EditorGame editorGame = ...;
+editorGame.OnDestroy();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

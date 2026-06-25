@@ -1,13 +1,7 @@
 ---
 title: "TutorialObjectiveItemWidget"
+description: "Auto-generated class reference for TutorialObjectiveItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialObjectiveItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TutorialObjectiveItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
@@ -37,9 +31,10 @@ Treat `TutorialObjectiveItemWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new TutorialObjectiveItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TutorialObjectiveItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

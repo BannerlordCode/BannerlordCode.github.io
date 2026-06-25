@@ -1,20 +1,14 @@
 ---
 title: "GauntletFullScreenNoticeView"
+description: "Auto-generated class reference for GauntletFullScreenNoticeView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletFullScreenNoticeView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletFullScreenNoticeView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletFullScreenNoticeView : GlobalLayer`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletFullScreenNoticeView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletFullScreenNoticeView.cs`
 
 ## Overview
 
@@ -35,19 +29,30 @@ Treat `GauntletFullScreenNoticeView` as a View-style extension point: first iden
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletFullScreenNoticeView.Initialize();
+```
 
 ### SkipNotice
 `public static void SkipNotice()`
 
-**Purpose:** Handles logic related to `skip notice`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GauntletFullScreenNoticeView.SkipNotice();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletFullScreenNoticeView();
+// Retrieve this view from the subsystem API or scene
+GauntletFullScreenNoticeView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

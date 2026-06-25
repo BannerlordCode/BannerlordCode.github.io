@@ -1,20 +1,14 @@
 ---
 title: "ShipPhysicsReference"
+description: "Auto-generated class reference for ShipPhysicsReference."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipPhysicsReference`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipPhysicsReference
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipPhysicsReference : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ShipPhysicsReference.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipPhysicsReference.cs`
 
 ## Overview
 
@@ -37,20 +31,32 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ShipPhysicsReference from the subsystem API first
+ShipPhysicsReference shipPhysicsReference = ...;
+shipPhysicsReference.Deserialize(objectManager, node);
+```
 
 ### GetDefaultWaterDensity
 `public static float GetDefaultWaterDensity()`
 
-**Purpose:** Gets the current value of `default water density`.
+**Purpose:** Reads and returns the `default water density` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ShipPhysicsReference.GetDefaultWaterDensity();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipPhysicsReference();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+ShipPhysicsReference shipPhysicsReference = ...;
+shipPhysicsReference.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

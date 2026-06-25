@@ -1,13 +1,7 @@
 ---
 title: "SiegeEnginesContainer"
+description: "Auto-generated class reference for SiegeEnginesContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEnginesContainer`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEnginesContainer
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -39,45 +33,88 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### AllSiegeEngines
 `public IEnumerable<SiegeEvent.SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**Purpose:** Handles logic related to `all siege engines`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.AllSiegeEngines();
+```
 
 ### AddPrebuiltEngineToReserve
 `public void AddPrebuiltEngineToReserve(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
 **Purpose:** Adds `prebuilt engine to reserve` to the current collection or state.
 
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.AddPrebuiltEngineToReserve(siegeEngine);
+```
+
 ### DeploySiegeEngineAtIndex
 `public void DeploySiegeEngineAtIndex(SiegeEvent.SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**Purpose:** Handles logic related to `deploy siege engine at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.DeploySiegeEngineAtIndex(siegeEngine, 0);
+```
 
 ### RemoveDeployedSiegeEngine
 `public void RemoveDeployedSiegeEngine(int index, bool isRanged, bool moveToReserve)`
 
 **Purpose:** Removes `deployed siege engine` from the current collection or state.
 
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.RemoveDeployedSiegeEngine(0, false, false);
+```
+
 ### RemovedSiegeEngineFromReservedSiegeEngines
 `public bool RemovedSiegeEngineFromReservedSiegeEngines(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
 **Purpose:** Removes `d siege engine from reserved siege engines` from the current collection or state.
 
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.RemovedSiegeEngineFromReservedSiegeEngines(siegeEngine);
+```
+
 ### FindDeploymentIndexOfDeployedEngine
 `public int FindDeploymentIndexOfDeployedEngine(SiegeEvent.SiegeEngineConstructionProgress deployedEngine)`
 
-**Purpose:** Handles logic related to `find deployment index of deployed engine`.
+**Purpose:** Looks up the matching `deployment index of deployed engine` in the current collection or scope.
+
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.FindDeploymentIndexOfDeployedEngine(deployedEngine);
+```
 
 ### ClearRemovedEnginesIfNecessary
 `public bool ClearRemovedEnginesIfNecessary()`
 
-**Purpose:** Handles logic related to `clear removed engines if necessary`.
+**Purpose:** Removes all `removed engines if necessary` from the current object.
+
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.ClearRemovedEnginesIfNecessary();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeEnginesContainer();
-value.AllSiegeEngines();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.AllSiegeEngines();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

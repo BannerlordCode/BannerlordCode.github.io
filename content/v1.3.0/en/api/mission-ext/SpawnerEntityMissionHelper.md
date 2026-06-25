@@ -1,13 +1,7 @@
 ---
 title: "SpawnerEntityMissionHelper"
+description: "Auto-generated class reference for SpawnerEntityMissionHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnerEntityMissionHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnerEntityMissionHelper
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -32,4 +26,4 @@ SpawnerEntityMissionHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BodyPropertiesModel"
+description: "Auto-generated class reference for BodyPropertiesModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BodyPropertiesModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BodyPropertiesModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ Treat `BodyPropertiesModel` as a Model-style extension point: first identify who
 ### GetHairIndicesForCulture
 `public abstract int GetHairIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** Gets the current value of `hair indices for culture`.
+**Purpose:** Reads and returns the `hair indices for culture` value held by the current object.
+
+```csharp
+// Obtain an instance of BodyPropertiesModel from the subsystem API first
+BodyPropertiesModel bodyPropertiesModel = ...;
+var result = bodyPropertiesModel.GetHairIndicesForCulture(0, 0, 0, culture);
+```
 
 ### GetBeardIndicesForCulture
 `public abstract int GetBeardIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** Gets the current value of `beard indices for culture`.
+**Purpose:** Reads and returns the `beard indices for culture` value held by the current object.
+
+```csharp
+// Obtain an instance of BodyPropertiesModel from the subsystem API first
+BodyPropertiesModel bodyPropertiesModel = ...;
+var result = bodyPropertiesModel.GetBeardIndicesForCulture(0, 0, 0, culture);
+```
 
 ### GetTattooIndicesForCulture
 `public abstract int GetTattooIndicesForCulture(int race, int gender, float age, CultureObject culture)`
 
-**Purpose:** Gets the current value of `tattoo indices for culture`.
+**Purpose:** Reads and returns the `tattoo indices for culture` value held by the current object.
+
+```csharp
+// Obtain an instance of BodyPropertiesModel from the subsystem API first
+BodyPropertiesModel bodyPropertiesModel = ...;
+var result = bodyPropertiesModel.GetTattooIndicesForCulture(0, 0, 0, culture);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBodyPropertiesModel();
+// Typically obtained from a subsystem API or factory
+BodyPropertiesModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

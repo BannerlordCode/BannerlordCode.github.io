@@ -1,20 +1,14 @@
 ---
 title: "SetAgentHealth"
+description: "SetAgentHealth 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SetAgentHealth`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetAgentHealth
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetAgentHealth : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetAgentHealth.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetAgentHealth.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "SetAgentHealth"
 ## 使用示例
 
 ```csharp
-var example = new SetAgentHealth();
+// 从对应子系统 API 获取实例
+SetAgentHealth instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "VisualOrder"
+description: "VisualOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualOrder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
@@ -36,44 +30,87 @@ title: "VisualOrder"
 ### GetName
 `public abstract TextObject GetName(OrderController orderController)`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrder 实例
+VisualOrder visualOrder = ...;
+var result = visualOrder.GetName(orderController);
+```
 
 ### IsTargeted
 `public abstract bool IsTargeted()`
 
-**用途 / Purpose:** 处理 `is targeted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「targeted」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrder 实例
+VisualOrder visualOrder = ...;
+var result = visualOrder.IsTargeted();
+```
 
 ### ExecuteOrder
 `public abstract void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 执行 `order` 操作或流程。
+**用途 / Purpose:** 执行 「order」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrder 实例
+VisualOrder visualOrder = ...;
+visualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ### BeforeExecuteOrder
 `public virtual void BeforeExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 处理 `before execute order` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrder 实例
+VisualOrder visualOrder = ...;
+visualOrder.BeforeExecuteOrder(orderController, executionParameters);
+```
 
 ### AfterExecuteOrder
 `public virtual void AfterExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 处理 `after execute order` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrder 实例
+VisualOrder visualOrder = ...;
+visualOrder.AfterExecuteOrder(orderController, executionParameters);
+```
 
 ### GetFormationHasOrder
 `public bool GetFormationHasOrder(Formation formation)`
 
-**用途 / Purpose:** 获取 `formation has order` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「formation has order」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrder 实例
+VisualOrder visualOrder = ...;
+var result = visualOrder.GetFormationHasOrder(formation);
+```
 
 ### GetActiveState
 `public OrderState GetActiveState(OrderController orderController)`
 
-**用途 / Purpose:** 获取 `active state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「active state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualOrder 实例
+VisualOrder visualOrder = ...;
+var result = visualOrder.GetActiveState(orderController);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomVisualOrder();
+// 通常通过子系统 API 或工厂获得派生实例
+VisualOrder instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

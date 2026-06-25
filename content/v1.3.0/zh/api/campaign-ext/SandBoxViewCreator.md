@@ -1,13 +1,7 @@
 ---
 title: "SandBoxViewCreator"
+description: "SandBoxViewCreator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxViewCreator`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxViewCreator
 
 **Namespace:** SandBox.View
@@ -29,57 +23,112 @@ title: "SandBoxViewCreator"
 ### CreateSaveLoadScreen
 `public static ScreenBase CreateSaveLoadScreen(bool isSaving)`
 
-**用途 / Purpose:** 创建一个 `save load screen` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「save load screen」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateSaveLoadScreen(false);
+```
 
 ### CreateMissionCraftingView
 `public static MissionView CreateMissionCraftingView()`
 
-**用途 / Purpose:** 创建一个 `mission crafting view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission crafting view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionCraftingView();
+```
 
 ### CreateMissionNameMarkerUIHandler
 `public static MissionView CreateMissionNameMarkerUIHandler(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission name marker u i handler` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission name marker u i handler」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionNameMarkerUIHandler(null);
+```
 
 ### CreateMissionConversationView
 `public static MissionView CreateMissionConversationView(Mission mission)`
 
-**用途 / Purpose:** 创建一个 `mission conversation view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission conversation view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionConversationView(mission);
+```
 
 ### CreateMissionBarterView
 `public static MissionView CreateMissionBarterView()`
 
-**用途 / Purpose:** 创建一个 `mission barter view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission barter view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionBarterView();
+```
 
 ### CreateMissionAgentAlarmStateView
 `public static MissionView CreateMissionAgentAlarmStateView(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission agent alarm state view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission agent alarm state view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionAgentAlarmStateView(null);
+```
 
 ### CreateMissionMainAgentDetectionView
 `public static MissionView CreateMissionMainAgentDetectionView(Mission mission = null)`
 
-**用途 / Purpose:** 创建一个 `mission main agent detection view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission main agent detection view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionMainAgentDetectionView(null);
+```
 
 ### CreateMissionTournamentView
 `public static MissionView CreateMissionTournamentView()`
 
-**用途 / Purpose:** 创建一个 `mission tournament view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission tournament view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionTournamentView();
+```
 
 ### CreateMissionQuestBarView
 `public static MissionView CreateMissionQuestBarView()`
 
-**用途 / Purpose:** 创建一个 `mission quest bar view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission quest bar view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionQuestBarView();
+```
 
 ### CreateBoardGameView
 `public static MissionView CreateBoardGameView()`
 
-**用途 / Purpose:** 创建一个 `board game view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「board game view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateBoardGameView();
+```
 
 ### CreateMissionArenaPracticeFightView
 `public static MissionView CreateMissionArenaPracticeFightView()`
 
-**用途 / Purpose:** 创建一个 `mission arena practice fight view` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「mission arena practice fight view」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxViewCreator.CreateMissionArenaPracticeFightView();
+```
 
 ## 使用示例
 
@@ -89,4 +138,4 @@ SandBoxViewCreator.CreateSaveLoadScreen(false);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

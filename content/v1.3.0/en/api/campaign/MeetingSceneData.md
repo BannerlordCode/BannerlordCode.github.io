@@ -1,13 +1,7 @@
 ---
 title: "MeetingSceneData"
+description: "Auto-generated class reference for MeetingSceneData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MeetingSceneData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MeetingSceneData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,9 +29,10 @@ Treat `MeetingSceneData` as a Data-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-var value = new MeetingSceneData();
+// This data object is usually returned by campaign/mission APIs
+MeetingSceneData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

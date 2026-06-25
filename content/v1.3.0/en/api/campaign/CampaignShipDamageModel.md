@@ -1,13 +1,7 @@
 ---
 title: "CampaignShipDamageModel"
+description: "Auto-generated class reference for CampaignShipDamageModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignShipDamageModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignShipDamageModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ Treat `CampaignShipDamageModel` as a Model-style extension point: first identify
 ### GetHourlyShipDamage
 `public abstract int GetHourlyShipDamage(MobileParty owner, Ship ship)`
 
-**Purpose:** Gets the current value of `hourly ship damage`.
+**Purpose:** Reads and returns the `hourly ship damage` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignShipDamageModel from the subsystem API first
+CampaignShipDamageModel campaignShipDamageModel = ...;
+var result = campaignShipDamageModel.GetHourlyShipDamage(owner, ship);
+```
 
 ### GetEstimatedSafeSailDuration
 `public abstract float GetEstimatedSafeSailDuration(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `estimated safe sail duration`.
+**Purpose:** Reads and returns the `estimated safe sail duration` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignShipDamageModel from the subsystem API first
+CampaignShipDamageModel campaignShipDamageModel = ...;
+var result = campaignShipDamageModel.GetEstimatedSafeSailDuration(mobileParty);
+```
 
 ### GetShipDamage
 `public abstract float GetShipDamage(Ship ship, float rawDamage)`
 
-**Purpose:** Gets the current value of `ship damage`.
+**Purpose:** Reads and returns the `ship damage` value held by the current object.
+
+```csharp
+// Obtain an instance of CampaignShipDamageModel from the subsystem API first
+CampaignShipDamageModel campaignShipDamageModel = ...;
+var result = campaignShipDamageModel.GetShipDamage(ship, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCampaignShipDamageModel();
+// Typically obtained from a subsystem API or factory
+CampaignShipDamageModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

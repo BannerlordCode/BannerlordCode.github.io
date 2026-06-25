@@ -1,20 +1,14 @@
 ---
 title: "ControllerEquippedItemVM"
+description: "Auto-generated class reference for ControllerEquippedItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ControllerEquippedItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ControllerEquippedItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ControllerEquippedItemVM : EquipmentActionItemVM`
 **Base:** `EquipmentActionItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/ControllerEquippedItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/ControllerEquippedItemVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ControllerEquippedItemVM from the subsystem API first
+ControllerEquippedItemVM controllerEquippedItemVM = ...;
+controllerEquippedItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ControllerEquippedItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+ControllerEquippedItemVM controllerEquippedItemVM = ...;
+controllerEquippedItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

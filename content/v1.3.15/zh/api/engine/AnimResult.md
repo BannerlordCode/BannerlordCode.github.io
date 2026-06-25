@@ -1,13 +1,7 @@
 ---
 title: "AnimResult"
+description: "AnimResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AnimResult`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AnimResult
 
 **Namespace:** TaleWorlds.Engine
@@ -29,25 +23,44 @@ title: "AnimResult"
 ### GetEntitialOutTransform
 `public Transformation GetEntitialOutTransform(sbyte boneIndex, Skeleton skeleton)`
 
-**用途 / Purpose:** 获取 `entitial out transform` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「entitial out transform」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AnimResult 实例
+AnimResult animResult = ...;
+var result = animResult.GetEntitialOutTransform(0, skeleton);
+```
 
 ### SetOutBoneDisplacement
 `public void SetOutBoneDisplacement(sbyte boneIndex, Vec3 position, Skeleton skeleton)`
 
-**用途 / Purpose:** 设置 `out bone displacement` 的值或状态。
+**用途 / Purpose:** 为 「out bone displacement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AnimResult 实例
+AnimResult animResult = ...;
+animResult.SetOutBoneDisplacement(0, position, skeleton);
+```
 
 ### SetOutQuat
 `public void SetOutQuat(sbyte boneIndex, Mat3 rotation, Skeleton skeleton)`
 
-**用途 / Purpose:** 设置 `out quat` 的值或状态。
+**用途 / Purpose:** 为 「out quat」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 AnimResult 实例
+AnimResult animResult = ...;
+animResult.SetOutQuat(0, rotation, skeleton);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AnimResult();
-value.GetEntitialOutTransform(0, skeleton);
+// 通常从对应子系统 API 获取实例后调用
+AnimResult animResult = ...;
+animResult.GetEntitialOutTransform(0, skeleton);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

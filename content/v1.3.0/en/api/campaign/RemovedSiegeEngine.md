@@ -1,13 +1,7 @@
 ---
 title: "RemovedSiegeEngine"
+description: "Auto-generated class reference for RemovedSiegeEngine."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RemovedSiegeEngine`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RemovedSiegeEngine
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ## Usage Example
 
 ```csharp
-var example = new RemovedSiegeEngine();
+// Obtain an instance from the relevant subsystem API
+RemovedSiegeEngine instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

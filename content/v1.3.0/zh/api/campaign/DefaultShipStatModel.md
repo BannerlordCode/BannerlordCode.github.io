@@ -1,13 +1,7 @@
 ---
 title: "DefaultShipStatModel"
+description: "DefaultShipStatModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultShipStatModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultShipStatModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,12 +23,24 @@ title: "DefaultShipStatModel"
 ### GetShipTierf
 `public override float GetShipTierf(Ship ship)`
 
-**用途 / Purpose:** 获取 `ship tierf` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship tierf」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipStatModel 实例
+DefaultShipStatModel defaultShipStatModel = ...;
+var result = defaultShipStatModel.GetShipTierf(ship);
+```
 
 ### GetShipFlagshipScore
 `public override float GetShipFlagshipScore(Ship ship)`
 
-**用途 / Purpose:** 获取 `ship flagship score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship flagship score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipStatModel 实例
+DefaultShipStatModel defaultShipStatModel = ...;
+var result = defaultShipStatModel.GetShipFlagshipScore(ship);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultShipStatModel>(new MyDefaultShipStatModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

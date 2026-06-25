@@ -1,20 +1,14 @@
 ---
 title: "IMbEvent"
+description: "Auto-generated class reference for IMbEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMbEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMbEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
-**File:** `TaleWorlds.CampaignSystem/IMbEvent.cs`
+**Type:** `public interface IMbEvent<out T> : IMbEventBase`
+**Base:** `IMbEventBase`
+**File:** `TaleWorlds.CampaignSystem/IMbEvent.2.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-IMbEvent implementation = GetMbEventImplementation();
+// Usually obtained through DI or a factory method
+IIMbEvent service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

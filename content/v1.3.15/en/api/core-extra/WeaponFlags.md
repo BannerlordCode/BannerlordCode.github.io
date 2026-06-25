@@ -1,19 +1,13 @@
 ---
 title: "WeaponFlags"
+description: "Auto-generated class reference for WeaponFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponFlags`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponFlags
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
-**Base:** none
+**Type:** `public enum WeaponFlags : ulong`
+**Base:** `ulong`
 **File:** `TaleWorlds.Core/WeaponFlags.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-var value = new WeaponFlags();
+// Obtain an instance from the relevant subsystem API
+WeaponFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

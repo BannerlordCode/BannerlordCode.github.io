@@ -1,13 +1,7 @@
 ---
 title: "TradeAgreementDecisionItemVM"
+description: "TradeAgreementDecisionItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TradeAgreementDecisionItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TradeAgreementDecisionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes
@@ -43,9 +37,10 @@ title: "TradeAgreementDecisionItemVM"
 ## 使用示例
 
 ```csharp
-var value = new TradeAgreementDecisionItemVM();
+// 从对应子系统 API 获取实例
+TradeAgreementDecisionItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

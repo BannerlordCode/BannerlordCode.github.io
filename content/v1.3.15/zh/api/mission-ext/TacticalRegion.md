@@ -1,13 +1,7 @@
 ---
 title: "TacticalRegion"
+description: "TacticalRegion 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TacticalRegion`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TacticalRegion
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,15 +30,22 @@ title: "TacticalRegion"
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 处理 `after mission start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TacticalRegion 实例
+TacticalRegion tacticalRegion = ...;
+tacticalRegion.AfterMissionStart();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TacticalRegion();
-value.AfterMissionStart();
+// 通常从对应子系统 API 获取实例后调用
+TacticalRegion tacticalRegion = ...;
+tacticalRegion.AfterMissionStart();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

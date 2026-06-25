@@ -1,13 +1,7 @@
 ---
 title: "Passage"
+description: "Auto-generated class reference for Passage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Passage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Passage
 
 **Namespace:** SandBox.Objects.Usables
@@ -35,25 +29,44 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of Passage from the subsystem API first
+Passage passage = ...;
+var result = passage.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of Passage from the subsystem API first
+Passage passage = ...;
+var result = passage.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Passage from the subsystem API first
+Passage passage = ...;
+var result = passage.CreateAIBehaviorObject();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Passage();
-value.GetDescriptionText(gameEntity);
+// Typically call this after obtaining an instance from the subsystem API
+Passage passage = ...;
+passage.GetDescriptionText(gameEntity);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

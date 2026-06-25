@@ -1,20 +1,14 @@
 ---
 title: "CustomSiegeMissionSpawnHandler"
+description: "CustomSiegeMissionSpawnHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomSiegeMissionSpawnHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomSiegeMissionSpawnHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionSpawnHandlers
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomSiegeMissionSpawnHandler : CustomMissionSpawnHandler`
 **Base:** `CustomMissionSpawnHandler`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomSiegeMissionSpawnHandler.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionSpawnHandlers/CustomSiegeMissionSpawnHandler.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "CustomSiegeMissionSpawnHandler"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomSiegeMissionSpawnHandler 实例
+CustomSiegeMissionSpawnHandler customSiegeMissionSpawnHandler = ...;
+customSiegeMissionSpawnHandler.AfterStart();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CustomSiegeMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<CustomSiegeMissionSpawnHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

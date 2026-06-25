@@ -1,18 +1,12 @@
 ---
 title: "IMapEventVisual"
+description: "Auto-generated class reference for IMapEventVisual."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMapEventVisual`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMapEventVisual
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMapEventVisual`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/MapEvents/IMapEventVisual.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ## Usage Example
 
 ```csharp
-IMapEventVisual implementation = GetMapEventVisualImplementation();
+// Usually obtained through DI or a factory method
+IIMapEventVisual service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

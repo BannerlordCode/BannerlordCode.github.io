@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleFormationClassVM"
+description: "Auto-generated class reference for OrderOfBattleFormationClassVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationClassVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationClassVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationClassVM from the subsystem API first
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.RefreshValues();
+```
 
 ### UpdateTroopCountText
 `public void UpdateTroopCountText()`
 
-**Purpose:** Updates the state or data of `troop count text`.
+**Purpose:** Recalculates and stores the latest representation of `troop count text`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationClassVM from the subsystem API first
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.UpdateTroopCountText();
+```
 
 ### SetWeightAdjustmentLock
 `public void SetWeightAdjustmentLock(bool isLocked)`
 
-**Purpose:** Sets the value or state of `weight adjustment lock`.
+**Purpose:** Assigns a new value to `weight adjustment lock` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationClassVM from the subsystem API first
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.SetWeightAdjustmentLock(false);
+```
 
 ### UpdateWeightAdjustable
 `public void UpdateWeightAdjustable()`
 
-**Purpose:** Updates the state or data of `weight adjustable`.
+**Purpose:** Recalculates and stores the latest representation of `weight adjustable`.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationClassVM from the subsystem API first
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.UpdateWeightAdjustable();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleFormationClassVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

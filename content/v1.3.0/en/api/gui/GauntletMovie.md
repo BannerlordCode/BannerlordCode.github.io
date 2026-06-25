@@ -1,13 +1,7 @@
 ---
 title: "GauntletMovie"
+description: "Auto-generated class reference for GauntletMovie."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMovie`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMovie
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -42,40 +36,76 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### RefreshDataSource
 `public void RefreshDataSource(IViewModel dataSourve)`
 
-**Purpose:** Refreshes the display or cache of `data source`.
+**Purpose:** Keeps the display or cache of `data source` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshDataSource(dataSourve);
+```
 
 ### Release
 `public void Release()`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.Release();
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.Update();
+```
 
 ### Load
 `public static IGauntletMovie Load(UIContext context, WidgetFactory widgetFactory, string movieName, IViewModel datasource, bool doNotUseGeneratedPrefabs, bool hotReloadEnabled)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+GauntletMovie.Load(context, widgetFactory, "example", datasource, false, false);
+```
 
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**Purpose:** Refreshes the display or cache of `binding with children`.
+**Purpose:** Keeps the display or cache of `binding with children` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshBindingWithChildren();
+```
 
 ### FindViewOf
 `public GauntletView FindViewOf(Widget widget)`
 
-**Purpose:** Handles logic related to `find view of`.
+**Purpose:** Looks up the matching `view of` in the current collection or scope.
+
+```csharp
+// Obtain an instance of GauntletMovie from the subsystem API first
+GauntletMovie gauntletMovie = ...;
+var result = gauntletMovie.FindViewOf(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletMovie();
-value.RefreshDataSource(dataSourve);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletMovie gauntletMovie = ...;
+gauntletMovie.RefreshDataSource(dataSourve);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

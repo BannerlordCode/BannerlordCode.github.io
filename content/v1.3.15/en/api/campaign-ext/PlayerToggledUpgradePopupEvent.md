@@ -1,13 +1,7 @@
 ---
 title: "PlayerToggledUpgradePopupEvent"
+description: "Auto-generated class reference for PlayerToggledUpgradePopupEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerToggledUpgradePopupEvent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerToggledUpgradePopupEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ## Usage Example
 
 ```csharp
-var value = new PlayerToggledUpgradePopupEvent();
+// Obtain an instance from the relevant subsystem API
+PlayerToggledUpgradePopupEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

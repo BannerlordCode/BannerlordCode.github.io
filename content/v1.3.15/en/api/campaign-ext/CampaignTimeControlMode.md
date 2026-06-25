@@ -1,18 +1,12 @@
 ---
 title: "CampaignTimeControlMode"
+description: "Auto-generated class reference for CampaignTimeControlMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignTimeControlMode`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignTimeControlMode
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum CampaignTimeControlMode`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CampaignTimeControlMode.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new CampaignTimeControlMode();
+// Obtain an instance from the relevant subsystem API
+CampaignTimeControlMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

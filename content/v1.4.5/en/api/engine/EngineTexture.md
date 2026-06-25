@@ -1,20 +1,14 @@
 ---
 title: "EngineTexture"
+description: "Auto-generated class reference for EngineTexture."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineTexture`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineTexture
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
 **Module:** TaleWorlds.Engine
 **Type:** `public class EngineTexture : ITexture`
 **Base:** `ITexture`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/EngineTexture.cs`
+**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/EngineTexture.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of EngineTexture from the subsystem API first
+EngineTexture engineTexture = ...;
+var result = engineTexture.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EngineTexture();
-value.GetHashCode();
+// Typically call this after obtaining an instance from the subsystem API
+EngineTexture engineTexture = ...;
+engineTexture.GetHashCode();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

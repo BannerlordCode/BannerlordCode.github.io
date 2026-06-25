@@ -1,20 +1,14 @@
 ---
 title: "GridVerticalLayoutMethod"
+description: "Auto-generated class reference for GridVerticalLayoutMethod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GridVerticalLayoutMethod`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GridVerticalLayoutMethod
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum GridVerticalLayoutMethod`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/GridVerticalLayoutMethod.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/GridVerticalLayoutMethod.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new GridVerticalLayoutMethod();
+// Obtain an instance from the relevant subsystem API
+GridVerticalLayoutMethod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

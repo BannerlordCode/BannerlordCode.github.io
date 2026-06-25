@@ -1,13 +1,7 @@
 ---
 title: "AlleyModel"
+description: "Auto-generated class reference for AlleyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -38,64 +32,131 @@ Treat `AlleyModel` as a Model-style extension point: first identify who creates 
 ### GetDailyXpGainForAssignedClanMember
 `public abstract float GetDailyXpGainForAssignedClanMember(Hero assignedHero)`
 
-**Purpose:** Gets the current value of `daily xp gain for assigned clan member`.
+**Purpose:** Reads and returns the `daily xp gain for assigned clan member` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetDailyXpGainForAssignedClanMember(assignedHero);
+```
 
 ### GetDailyXpGainForMainHero
 `public abstract float GetDailyXpGainForMainHero()`
 
-**Purpose:** Gets the current value of `daily xp gain for main hero`.
+**Purpose:** Reads and returns the `daily xp gain for main hero` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetDailyXpGainForMainHero();
+```
 
 ### GetInitialXpGainForMainHero
 `public abstract float GetInitialXpGainForMainHero()`
 
-**Purpose:** Gets the current value of `initial xp gain for main hero`.
+**Purpose:** Reads and returns the `initial xp gain for main hero` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetInitialXpGainForMainHero();
+```
 
 ### GetXpGainAfterSuccessfulAlleyDefenseForMainHero
 `public abstract float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()`
 
-**Purpose:** Gets the current value of `xp gain after successful alley defense for main hero`.
+**Purpose:** Reads and returns the `xp gain after successful alley defense for main hero` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetXpGainAfterSuccessfulAlleyDefenseForMainHero();
+```
 
 ### GetTroopsOfAIOwnedAlley
 `public abstract TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)`
 
-**Purpose:** Gets the current value of `troops of a i owned alley`.
+**Purpose:** Reads and returns the `troops of a i owned alley` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetTroopsOfAIOwnedAlley(alley);
+```
 
 ### GetTroopsOfAlleyForBattleMission
 `public abstract TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)`
 
-**Purpose:** Gets the current value of `troops of alley for battle mission`.
+**Purpose:** Reads and returns the `troops of alley for battle mission` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetTroopsOfAlleyForBattleMission(alley);
+```
 
 ### GetDailyIncomeOfAlley
 `public abstract int GetDailyIncomeOfAlley(Alley alley)`
 
-**Purpose:** Gets the current value of `daily income of alley`.
+**Purpose:** Reads and returns the `daily income of alley` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetDailyIncomeOfAlley(alley);
+```
 
 ### GetClanMembersAndAvailabilityDetailsForLeadingAnAlley
 `public abstract List<ValueTuple<Hero, DefaultAlleyModel.AlleyMemberAvailabilityDetail>> GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(Alley alley)`
 
-**Purpose:** Gets the current value of `clan members and availability details for leading an alley`.
+**Purpose:** Reads and returns the `clan members and availability details for leading an alley` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetClanMembersAndAvailabilityDetailsForLeadingAnAlley(alley);
+```
 
 ### GetTroopsToRecruitFromAlleyDependingOnAlleyRandom
 `public abstract TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)`
 
-**Purpose:** Gets the current value of `troops to recruit from alley depending on alley random`.
+**Purpose:** Reads and returns the `troops to recruit from alley depending on alley random` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(alley, 0);
+```
 
 ### GetDisabledReasonTextForHero
 `public abstract TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)`
 
-**Purpose:** Gets the current value of `disabled reason text for hero`.
+**Purpose:** Reads and returns the `disabled reason text for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetDisabledReasonTextForHero(hero, alley, detail);
+```
 
 ### GetAlleyAttackResponseTimeInDays
 `public abstract float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)`
 
-**Purpose:** Gets the current value of `alley attack response time in days`.
+**Purpose:** Reads and returns the `alley attack response time in days` value held by the current object.
+
+```csharp
+// Obtain an instance of AlleyModel from the subsystem API first
+AlleyModel alleyModel = ...;
+var result = alleyModel.GetAlleyAttackResponseTimeInDays(troopRoster);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAlleyModel();
+// Typically obtained from a subsystem API or factory
+AlleyModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

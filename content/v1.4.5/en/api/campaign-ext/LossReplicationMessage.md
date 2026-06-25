@@ -1,20 +1,14 @@
 ---
 title: "LossReplicationMessage"
+description: "Auto-generated class reference for LossReplicationMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LossReplicationMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LossReplicationMessage
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class LossReplicationMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/LossReplicationMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/LossReplicationMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new LossReplicationMessage();
+// Obtain an instance from the relevant subsystem API
+LossReplicationMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

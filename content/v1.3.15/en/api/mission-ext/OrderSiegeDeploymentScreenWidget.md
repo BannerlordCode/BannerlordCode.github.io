@@ -1,13 +1,7 @@
 ---
 title: "OrderSiegeDeploymentScreenWidget"
+description: "Auto-generated class reference for OrderSiegeDeploymentScreenWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderSiegeDeploymentScreenWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderSiegeDeploymentScreenWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
@@ -37,14 +31,21 @@ Treat `OrderSiegeDeploymentScreenWidget` as a Widget-style extension point: firs
 ### SetSelectedDeploymentItem
 `public void SetSelectedDeploymentItem(OrderSiegeDeploymentItemButtonWidget deploymentItem)`
 
-**Purpose:** Sets the value or state of `selected deployment item`.
+**Purpose:** Assigns a new value to `selected deployment item` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderSiegeDeploymentScreenWidget from the subsystem API first
+OrderSiegeDeploymentScreenWidget orderSiegeDeploymentScreenWidget = ...;
+orderSiegeDeploymentScreenWidget.SetSelectedDeploymentItem(deploymentItem);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new OrderSiegeDeploymentScreenWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderSiegeDeploymentScreenWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PostBoxId"
+description: "Auto-generated class reference for PostBoxId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PostBoxId`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PostBoxId
 
 **Namespace:** TaleWorlds.Network
 **Module:** TaleWorlds.Network
 **Type:** `public class PostBoxId : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Network/TaleWorlds.Network/PostBoxId.cs`
+**File:** `bin/TaleWorlds.Network/TaleWorlds.Network/PostBoxId.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new PostBoxId();
+// Obtain an instance from the relevant subsystem API
+PostBoxId instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

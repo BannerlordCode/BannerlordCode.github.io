@@ -1,23 +1,18 @@
 ---
 title: "PointOfInterestScorePair"
+description: "Auto-generated class reference for PointOfInterestScorePair."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PointOfInterestScorePair`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PointOfInterestScorePair
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class PointOfInterestScorePair`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionPathGenerationLogic.cs`
 
 ## Overview
 
-`PointOfInterestScorePair` lives in `SandBox.Missions.MissionLogics`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PointOfInterestScorePair` lives in `SandBox.Missions.MissionLogics` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -25,115 +20,80 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 
 ## Key Methods
 
-### ReverseClone
-`public NavigationPathData ReverseClone()`
-
-**Purpose:** Handles logic related to `reverse clone`.
-
-### InitializeUsablePoints
-`public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
-
-**Purpose:** Initializes the state, resources, or bindings for `usable points`.
-
-### GetPointOfInterestType
-`public abstract PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public abstract bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public abstract float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
 ### Clone
 `public PointOfInterestScorePair Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.Clone();
+```
 
 ### AddToData
 `public void AddToData(PointOfInterestBaseData pointOfInterestToAdd)`
 
 **Purpose:** Adds `to data` to the current collection or state.
 
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.AddToData(pointOfInterestToAdd);
+```
+
 ### IsDataEqualTo
 `public bool IsDataEqualTo(PointOfInterestScorePair other, PointOfInterestBaseData newDataToAdd)`
 
-**Purpose:** Handles logic related to `is data equal to`.
+**Purpose:** Determines whether the current object is in the `data equal to` state or condition.
+
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsDataEqualTo(other, newDataToAdd);
+```
+
+### IsBetterThan
+`public bool IsBetterThan(PointOfInterestScorePair other)`
+
+**Purpose:** Determines whether the current object is in the `better than` state or condition.
+
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsBetterThan(other);
+```
+
+### IsSufficient
+`public bool IsSufficient()`
+
+**Purpose:** Determines whether the current object is in the `sufficient` state or condition.
+
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+var result = pointOfInterestScorePair.IsSufficient();
+```
+
+### ReOrderDataAccordingToPathRatios
+`public void ReOrderDataAccordingToPathRatios()`
+
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PointOfInterestScorePair from the subsystem API first
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.ReOrderDataAccordingToPathRatios();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a PointOfInterestScorePair instance from game state, then call one of its public methods
-var value = new PointOfInterestScorePair();
-value.ReverseClone();
+// Typically call this after obtaining an instance from the subsystem API
+PointOfInterestScorePair pointOfInterestScorePair = ...;
+pointOfInterestScorePair.Clone();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

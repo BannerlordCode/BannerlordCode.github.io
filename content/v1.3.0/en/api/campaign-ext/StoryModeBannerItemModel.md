@@ -1,13 +1,7 @@
 ---
 title: "StoryModeBannerItemModel"
+description: "Auto-generated class reference for StoryModeBannerItemModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeBannerItemModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeBannerItemModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,22 +23,46 @@ Treat `StoryModeBannerItemModel` as a Model-style extension point: first identif
 ### GetPossibleRewardBannerItems
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
 
-**Purpose:** Gets the current value of `possible reward banner items`.
+**Purpose:** Reads and returns the `possible reward banner items` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeBannerItemModel from the subsystem API first
+StoryModeBannerItemModel storyModeBannerItemModel = ...;
+var result = storyModeBannerItemModel.GetPossibleRewardBannerItems();
+```
 
 ### CanBannerBeUpdated
 `public override bool CanBannerBeUpdated(ItemObject item)`
 
-**Purpose:** Checks whether the current object can `banner be updated`.
+**Purpose:** Checks whether the current object meets the preconditions for `banner be updated`.
+
+```csharp
+// Obtain an instance of StoryModeBannerItemModel from the subsystem API first
+StoryModeBannerItemModel storyModeBannerItemModel = ...;
+var result = storyModeBannerItemModel.CanBannerBeUpdated(item);
+```
 
 ### GetPossibleRewardBannerItemsForHero
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `possible reward banner items for hero`.
+**Purpose:** Reads and returns the `possible reward banner items for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeBannerItemModel from the subsystem API first
+StoryModeBannerItemModel storyModeBannerItemModel = ...;
+var result = storyModeBannerItemModel.GetPossibleRewardBannerItemsForHero(hero);
+```
 
 ### GetBannerItemLevelForHero
 `public override int GetBannerItemLevelForHero(Hero hero)`
 
-**Purpose:** Gets the current value of `banner item level for hero`.
+**Purpose:** Reads and returns the `banner item level for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeBannerItemModel from the subsystem API first
+StoryModeBannerItemModel storyModeBannerItemModel = ...;
+var result = storyModeBannerItemModel.GetBannerItemLevelForHero(hero);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<StoryModeBannerItemModel>(new MyStoryModeBannerItemMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

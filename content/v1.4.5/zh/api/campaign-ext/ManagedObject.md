@@ -1,20 +1,14 @@
 ---
 title: "ManagedObject"
+description: "ManagedObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedObject`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedObject
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public abstract class ManagedObject`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedObject.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedObject.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "ManagedObject"
 ### GetManagedId
 `public int GetManagedId()`
 
-**用途 / Purpose:** 获取 `managed id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「managed id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedObject 实例
+ManagedObject managedObject = ...;
+var result = managedObject.GetManagedId();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedObject 实例
+ManagedObject managedObject = ...;
+var result = managedObject.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomManagedObject();
+// 通常通过子系统 API 或工厂获得派生实例
+ManagedObject instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

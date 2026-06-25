@@ -1,13 +1,7 @@
 ---
 title: "ScreenComponent"
+description: "Auto-generated class reference for ScreenComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScreenComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ScreenComponent
 
 **Namespace:** TaleWorlds.ScreenSystem
@@ -32,4 +26,4 @@ var component = agent.GetComponent<ScreenComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

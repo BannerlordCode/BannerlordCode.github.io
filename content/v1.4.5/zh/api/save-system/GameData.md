@@ -1,20 +1,14 @@
 ---
 title: "GameData"
+description: "GameData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameData`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameData
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class GameData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/GameData.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/GameData.cs`
 
 ## 概述
 
@@ -39,39 +33,73 @@ title: "GameData"
 ### Inspect
 `public void Inspect()`
 
-**用途 / Purpose:** 处理 `inspect` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameData 实例
+GameData gameData = ...;
+gameData.Inspect();
+```
 
 ### CreateFrom
 `public static GameData CreateFrom(byte readBytes)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+GameData.CreateFrom(0);
+```
 
 ### GetData
 `public byte GetData()`
 
-**用途 / Purpose:** 获取 `data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GameData 实例
+GameData gameData = ...;
+var result = gameData.GetData();
+```
 
 ### Write
 `public static void Write(System.IO.BinaryWriter writer, GameData gameData)`
 
-**用途 / Purpose:** 处理 `write` 相关逻辑。
+**用途 / Purpose:** 将当前对象的数据写入目标位置。
+
+```csharp
+// 静态调用，不需要实例
+GameData.Write(writer, gameData);
+```
 
 ### Read
 `public static GameData Read(System.IO.BinaryReader reader)`
 
-**用途 / Purpose:** 处理 `read` 相关逻辑。
+**用途 / Purpose:** 读取当前对象的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+GameData.Read(reader);
+```
 
 ### IsEqualTo
 `public bool IsEqualTo(GameData gameData)`
 
-**用途 / Purpose:** 处理 `is equal to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「equal to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 GameData 实例
+GameData gameData = ...;
+var result = gameData.IsEqualTo(gameData);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameData();
+// 该数据对象通常由战役/任务 API 返回
+GameData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

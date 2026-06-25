@@ -1,23 +1,18 @@
 ---
 title: "ApplicationPlatform"
+description: "Auto-generated class reference for ApplicationPlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplicationPlatform`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ApplicationPlatform
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class ApplicationPlatform`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Library/ApplicationPlatform.cs`
 
 ## Overview
 
-`ApplicationPlatform` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ApplicationPlatform` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -36,26 +31,39 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize(EngineType engineType, Platform currentPlatform, Runtime currentRuntimeLibrary)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+ApplicationPlatform.Initialize(engineType, currentPlatform, currentRuntimeLibrary);
+```
 
 ### IsPlatformWindows
 `public static bool IsPlatformWindows()`
 
-**Purpose:** Handles logic related to `is platform windows`.
+**Purpose:** Determines whether the current object is in the `platform windows` state or condition.
+
+```csharp
+// Static call; no instance required
+ApplicationPlatform.IsPlatformWindows();
+```
 
 ### IsPlatformConsole
 `public static bool IsPlatformConsole()`
 
-**Purpose:** Handles logic related to `is platform console`.
+**Purpose:** Determines whether the current object is in the `platform console` state or condition.
+
+```csharp
+// Static call; no instance required
+ApplicationPlatform.IsPlatformConsole();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ApplicationPlatform.Initialize(engineType, currentPlatform, currentRuntimeLibrary);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "MBSceneUtilities"
+description: "Auto-generated class reference for MBSceneUtilities."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBSceneUtilities`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBSceneUtilities
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBSceneUtilities`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MBSceneUtilities.cs`
 
 ## Overview
 
-`MBSceneUtilities` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBSceneUtilities` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,76 +23,139 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetAllSpawnPaths
 `public static MBList<Path> GetAllSpawnPaths(Scene scene)`
 
-**Purpose:** Gets the current value of `all spawn paths`.
+**Purpose:** Reads and returns the `all spawn paths` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.GetAllSpawnPaths(scene);
+```
 
 ### GetSoftBoundaryPoints
 `public static MBList<Vec2> GetSoftBoundaryPoints(Scene scene)`
 
-**Purpose:** Gets the current value of `soft boundary points`.
+**Purpose:** Reads and returns the `soft boundary points` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.GetSoftBoundaryPoints(scene);
+```
 
 ### GetHardBoundaryPoints
 `public static MBList<Vec2> GetHardBoundaryPoints(Scene scene)`
 
-**Purpose:** Gets the current value of `hard boundary points`.
+**Purpose:** Reads and returns the `hard boundary points` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.GetHardBoundaryPoints(scene);
+```
 
 ### GetSceneLimitPoints
 `public static MBList<Vec2> GetSceneLimitPoints(Scene scene, out Vec2 sceneLimitMin, out Vec2 sceneLimitMax)`
 
-**Purpose:** Gets the current value of `scene limit points`.
+**Purpose:** Reads and returns the `scene limit points` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.GetSceneLimitPoints(scene, sceneLimitMin, sceneLimitMax);
+```
 
 ### GetDeploymentBoundaries
 `public static MBList<ValueTuple<string, MBList<Vec2>, bool>> GetDeploymentBoundaries(BattleSideEnum battleSide)`
 
-**Purpose:** Gets the current value of `deployment boundaries`.
+**Purpose:** Reads and returns the `deployment boundaries` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.GetDeploymentBoundaries(battleSide);
+```
 
 ### GetAxisAlignedBoundaryRectangle
 `public static void GetAxisAlignedBoundaryRectangle(List<Vec2> boundaryPoints, out Vec2 boundsMin, out Vec2 boundsMax)`
 
-**Purpose:** Gets the current value of `axis aligned boundary rectangle`.
+**Purpose:** Reads and returns the `axis aligned boundary rectangle` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.GetAxisAlignedBoundaryRectangle(boundaryPoints, boundsMin, boundsMax);
+```
 
 ### FindConvexHull
 `public static void FindConvexHull(ref MBList<Vec2> boundary)`
 
-**Purpose:** Handles logic related to `find convex hull`.
+**Purpose:** Looks up the matching `convex hull` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.FindConvexHull(boundary);
+```
 
 ### RadialSortBoundary
 `public static void RadialSortBoundary(ref MBList<Vec2> boundary)`
 
-**Purpose:** Handles logic related to `radial sort boundary`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.RadialSortBoundary(boundary);
+```
 
 ### RadialSortBoundary
 `public static void RadialSortBoundary(ref MBList<Vec3> boundary)`
 
-**Purpose:** Handles logic related to `radial sort boundary`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.RadialSortBoundary(boundary);
+```
 
 ### IsConvexAndRadiallySorted
 `public static bool IsConvexAndRadiallySorted(MBList<Vec2> boundary)`
 
-**Purpose:** Handles logic related to `is convex and radially sorted`.
+**Purpose:** Determines whether the current object is in the `convex and radially sorted` state or condition.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.IsConvexAndRadiallySorted(boundary);
+```
 
 ### IsPointInsideBoundaries
 `public static bool IsPointInsideBoundaries(in Vec2 point, MBList<Vec2> boundaries, float acceptanceThreshold = 0.05f)`
 
-**Purpose:** Handles logic related to `is point inside boundaries`.
+**Purpose:** Determines whether the current object is in the `point inside boundaries` state or condition.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.IsPointInsideBoundaries(point, boundaries, 0);
+```
 
 ### FindClosestPointToBoundaries
 `public static float FindClosestPointToBoundaries(in Vec2 position, MBList<Vec2> boundaries, out Vec2 closestPoint)`
 
-**Purpose:** Handles logic related to `find closest point to boundaries`.
+**Purpose:** Looks up the matching `closest point to boundaries` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.FindClosestPointToBoundaries(position, boundaries, closestPoint);
+```
 
 ### FindClosestPointToBoundariesReturnDistanceSquared
 `public static float FindClosestPointToBoundariesReturnDistanceSquared(in Vec2 position, MBList<Vec2> boundaries, out Vec2 closestPoint, out bool isPositionInsideBoundaries)`
 
-**Purpose:** Handles logic related to `find closest point to boundaries return distance squared`.
+**Purpose:** Looks up the matching `closest point to boundaries return distance squared` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+MBSceneUtilities.FindClosestPointToBoundariesReturnDistanceSquared(position, boundaries, closestPoint, isPositionInsideBoundaries);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBSceneUtilities.GetAllSpawnPaths(scene);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

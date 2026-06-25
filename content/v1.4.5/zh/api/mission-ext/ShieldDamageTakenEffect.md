@@ -1,20 +1,14 @@
 ---
 title: "ShieldDamageTakenEffect"
+description: "ShieldDamageTakenEffect 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShieldDamageTakenEffect`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShieldDamageTakenEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ShieldDamageTakenEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ShieldDamageTakenEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/ShieldDamageTakenEffect.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ShieldDamageTakenEffect"
 ### GetShieldDamageTaken
 `public override float GetShieldDamageTaken(bool isCorrectSideBlock)`
 
-**用途 / Purpose:** 获取 `shield damage taken` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「shield damage taken」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShieldDamageTakenEffect 实例
+ShieldDamageTakenEffect shieldDamageTakenEffect = ...;
+var result = shieldDamageTakenEffect.GetShieldDamageTaken(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ShieldDamageTakenEffect();
-value.GetShieldDamageTaken(false);
+// 通常从对应子系统 API 获取实例后调用
+ShieldDamageTakenEffect shieldDamageTakenEffect = ...;
+shieldDamageTakenEffect.GetShieldDamageTaken(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

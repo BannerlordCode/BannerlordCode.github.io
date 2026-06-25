@@ -1,13 +1,7 @@
 ---
 title: "InventoryCategoryType"
+description: "Auto-generated class reference for InventoryCategoryType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryCategoryType`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryCategoryType
 
 **Namespace:** Helpers
@@ -27,9 +21,10 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-InventoryCategoryType example = InventoryCategoryType.Value;
+// Obtain an instance from the relevant subsystem API
+InventoryCategoryType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

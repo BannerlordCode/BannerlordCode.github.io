@@ -1,20 +1,14 @@
 ---
 title: "WeaponClass"
+description: "WeaponClass 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponClass`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponClass
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public enum WeaponClass`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/WeaponClass.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponClass.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "WeaponClass"
 ## 使用示例
 
 ```csharp
-var example = new WeaponClass();
+// 从对应子系统 API 获取实例
+WeaponClass instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

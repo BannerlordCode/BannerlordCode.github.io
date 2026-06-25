@@ -1,20 +1,14 @@
 ---
 title: "IAdminPanelMultiSelectionOption"
+description: "Auto-generated class reference for IAdminPanelMultiSelectionOption."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAdminPanelMultiSelectionOption`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IAdminPanelMultiSelectionOption
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Admin
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelMultiSelectionOption.cs`
+**Type:** `public interface IAdminPanelMultiSelectionOption : IAdminPanelOption<IAdminPanelMultiSelectionItem>, IAdminPanelOption`
+**Base:** `IAdminPanelOption<IAdminPanelMultiSelectionItem>`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Admin/IAdminPanelMultiSelectionOption.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in
 ## Usage Example
 
 ```csharp
-IAdminPanelMultiSelectionOption implementation = GetAdminPanelMultiSelectionOptionImplementation();
+// Usually obtained through DI or a factory method
+IIAdminPanelMultiSelectionOption service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

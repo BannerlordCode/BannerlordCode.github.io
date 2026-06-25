@@ -1,13 +1,7 @@
 ---
 title: "PartyTradeModel"
+description: "Auto-generated class reference for PartyTradeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTradeModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,14 +29,21 @@ Treat `PartyTradeModel` as a Model-style extension point: first identify who cre
 ### GetTradePenaltyFactor
 `public abstract float GetTradePenaltyFactor(MobileParty party)`
 
-**Purpose:** Gets the current value of `trade penalty factor`.
+**Purpose:** Reads and returns the `trade penalty factor` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTradeModel from the subsystem API first
+PartyTradeModel partyTradeModel = ...;
+var result = partyTradeModel.GetTradePenaltyFactor(party);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyTradeModel();
+// Typically obtained from a subsystem API or factory
+PartyTradeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

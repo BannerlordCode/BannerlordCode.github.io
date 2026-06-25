@@ -1,20 +1,14 @@
 ---
 title: "PersuasionResultChanceContainerListPanel"
+description: "Auto-generated class reference for PersuasionResultChanceContainerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionResultChanceContainerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionResultChanceContainerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PersuasionResultChanceContainerListPanel : BrushListPanel`
 **Base:** `BrushListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/PersuasionResultChanceContainerListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation/PersuasionResultChanceContainerListPanel.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation` 
 ## Usage Example
 
 ```csharp
-var example = new PersuasionResultChanceContainerListPanel();
+// Obtain an instance from the relevant subsystem API
+PersuasionResultChanceContainerListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

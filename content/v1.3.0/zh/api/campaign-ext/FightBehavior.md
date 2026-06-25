@@ -1,13 +1,7 @@
 ---
 title: "FightBehavior"
+description: "FightBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FightBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FightBehavior
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,20 +23,33 @@ title: "FightBehavior"
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 获取 `availability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FightBehavior 实例
+FightBehavior fightBehavior = ...;
+var result = fightBehavior.GetAvailability(false);
+```
 
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 获取 `debug info` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FightBehavior 实例
+FightBehavior fightBehavior = ...;
+var result = fightBehavior.GetDebugInfo();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FightBehavior();
-value.GetAvailability(false);
+// 通常从对应子系统 API 获取实例后调用
+FightBehavior fightBehavior = ...;
+fightBehavior.GetAvailability(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

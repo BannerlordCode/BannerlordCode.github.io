@@ -1,20 +1,14 @@
 ---
 title: "PartyGroupTroopSupplier"
+description: "Auto-generated class reference for PartyGroupTroopSupplier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyGroupTroopSupplier`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyGroupTroopSupplier
 
 **Namespace:** TaleWorlds.CampaignSystem.TroopSuppliers
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyGroupTroopSupplier : IMissionTroopSupplier`
 **Base:** `IMissionTroopSupplier`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TroopSuppliers/PartyGroupTroopSupplier.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.TroopSuppliers/PartyGroupTroopSupplier.cs`
 
 ## Overview
 
@@ -29,60 +23,121 @@ Start from namespace `TaleWorlds.CampaignSystem.TroopSuppliers` to place it in t
 ### SupplyTroops
 `public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-**Purpose:** Handles logic related to `supply troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+var result = partyGroupTroopSupplier.SupplyTroops(0);
+```
 
 ### SupplyOneTroop
 `public IAgentOriginBase SupplyOneTroop()`
 
-**Purpose:** Handles logic related to `supply one troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+var result = partyGroupTroopSupplier.SupplyOneTroop();
+```
 
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** Gets the current value of `all troops`.
+**Purpose:** Reads and returns the `all troops` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+var result = partyGroupTroopSupplier.GetAllTroops();
+```
 
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**Purpose:** Gets the current value of `general character`.
+**Purpose:** Reads and returns the `general character` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+var result = partyGroupTroopSupplier.GetGeneralCharacter();
+```
 
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Gets the current value of `number of player controllable troops`.
+**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+var result = partyGroupTroopSupplier.GetNumberOfPlayerControllableTroops();
+```
 
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopDescriptor)`
 
-**Purpose:** Called when the `troop wounded` event is raised.
+**Purpose:** Invoked when the `troop wounded` event is raised.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+partyGroupTroopSupplier.OnTroopWounded(troopDescriptor);
+```
 
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopDescriptor)`
 
-**Purpose:** Called when the `troop killed` event is raised.
+**Purpose:** Invoked when the `troop killed` event is raised.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+partyGroupTroopSupplier.OnTroopKilled(troopDescriptor);
+```
 
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopDescriptor, bool isOrderRetreat)`
 
-**Purpose:** Called when the `troop routed` event is raised.
+**Purpose:** Invoked when the `troop routed` event is raised.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+partyGroupTroopSupplier.OnTroopRouted(troopDescriptor, false);
+```
 
 ### GetParty
 `public PartyBase GetParty(UniqueTroopDescriptor troopDescriptor)`
 
-**Purpose:** Gets the current value of `party`.
+**Purpose:** Reads and returns the `party` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+var result = partyGroupTroopSupplier.GetParty(troopDescriptor);
+```
 
 ### OnTroopScoreHit
 `public void OnTroopScoreHit(UniqueTroopDescriptor descriptor, BasicCharacterObject attackedCharacter, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon)`
 
-**Purpose:** Called when the `troop score hit` event is raised.
+**Purpose:** Invoked when the `troop score hit` event is raised.
+
+```csharp
+// Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+partyGroupTroopSupplier.OnTroopScoreHit(descriptor, attackedCharacter, 0, false, false, attackerWeapon);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyGroupTroopSupplier();
-value.SupplyTroops(0);
+// Typically call this after obtaining an instance from the subsystem API
+PartyGroupTroopSupplier partyGroupTroopSupplier = ...;
+partyGroupTroopSupplier.SupplyTroops(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

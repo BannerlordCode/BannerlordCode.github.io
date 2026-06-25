@@ -1,13 +1,7 @@
 ---
 title: "ApplicationVersionJsonConverter"
+description: "Auto-generated class reference for ApplicationVersionJsonConverter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ApplicationVersionJsonConverter`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ApplicationVersionJsonConverter
 
 **Namespace:** TaleWorlds.Library
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**Purpose:** Checks whether the current object can `convert`.
+**Purpose:** Checks whether the current object meets the preconditions for `convert`.
+
+```csharp
+// Obtain an instance of ApplicationVersionJsonConverter from the subsystem API first
+ApplicationVersionJsonConverter applicationVersionJsonConverter = ...;
+var result = applicationVersionJsonConverter.CanConvert(objectType);
+```
 
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `read json`.
+**Purpose:** Reads the data or state of `json`.
+
+```csharp
+// Obtain an instance of ApplicationVersionJsonConverter from the subsystem API first
+ApplicationVersionJsonConverter applicationVersionJsonConverter = ...;
+var result = applicationVersionJsonConverter.ReadJson(reader, objectType, existingValue, serializer);
+```
 
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `write json`.
+**Purpose:** Writes `json` to the target location.
+
+```csharp
+// Obtain an instance of ApplicationVersionJsonConverter from the subsystem API first
+ApplicationVersionJsonConverter applicationVersionJsonConverter = ...;
+applicationVersionJsonConverter.WriteJson(writer, value, serializer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ApplicationVersionJsonConverter();
-value.CanConvert(objectType);
+// Typically call this after obtaining an instance from the subsystem API
+ApplicationVersionJsonConverter applicationVersionJsonConverter = ...;
+applicationVersionJsonConverter.CanConvert(objectType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

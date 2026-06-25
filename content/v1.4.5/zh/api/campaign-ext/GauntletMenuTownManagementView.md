@@ -1,20 +1,14 @@
 ---
 title: "GauntletMenuTownManagementView"
+description: "GauntletMenuTownManagementView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMenuTownManagementView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMenuTownManagementView
 
 **Namespace:** SandBox.GauntletUI.Menu
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMenuTownManagementView : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuTownManagementView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Menu/GauntletMenuTownManagementView.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GauntletMenuTownManagementView"
 ## 使用示例
 
 ```csharp
-var view = new GauntletMenuTownManagementView();
+// 从子系统 API 或场景中获取该视图
+GauntletMenuTownManagementView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

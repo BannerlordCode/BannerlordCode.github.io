@@ -1,20 +1,14 @@
 ---
 title: "StyleLayer"
+description: "Auto-generated class reference for StyleLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StyleLayer`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StyleLayer
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class StyleLayer : IBrushLayerData, IDataSource`
 **Base:** `IBrushLayerData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/StyleLayer.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/StyleLayer.cs`
 
 ## Overview
 
@@ -67,32 +61,67 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### CreateFrom
 `public static StyleLayer CreateFrom(StyleLayer source)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+StyleLayer.CreateFrom(source);
+```
 
 ### FillFrom
 `public void FillFrom(StyleLayer source)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+styleLayer.FillFrom(source);
+```
 
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as float`.
+**Purpose:** Reads and returns the `value as float` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsFloat(propertyType);
+```
 
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as color`.
+**Purpose:** Reads and returns the `value as color` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsColor(propertyType);
+```
 
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `value as sprite`.
+**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetValueAsSprite(propertyType);
+```
 
 ### GetIsValueChanged
 `public bool GetIsValueChanged(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Gets the current value of `is value changed`.
+**Purpose:** Reads and returns the `is value changed` value held by the current object.
+
+```csharp
+// Obtain an instance of StyleLayer from the subsystem API first
+StyleLayer styleLayer = ...;
+var result = styleLayer.GetIsValueChanged(propertyType);
+```
 
 ## Usage Example
 
@@ -102,4 +131,4 @@ StyleLayer.CreateFrom(source);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "LocationCharacter"
+description: "Auto-generated class reference for LocationCharacter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationCharacter`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationCharacter
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LocationCharacter`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationCharacter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationCharacter.cs`
 
 ## Overview
 
@@ -47,28 +41,52 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 
 **Purpose:** Adds `behaviors delegate` to the current collection or state.
 
+```csharp
+// Obtain an instance of LocationCharacter from the subsystem API first
+LocationCharacter locationCharacter = ...;
+locationCharacter.AddBehaviorsDelegate(agent);
+```
+
 ### AfterAgentCreatedDelegate
 `public delegate void AfterAgentCreatedDelegate(IAgent agent)`
 
-**Purpose:** Handles logic related to `after agent created delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LocationCharacter from the subsystem API first
+LocationCharacter locationCharacter = ...;
+locationCharacter.AfterAgentCreatedDelegate(agent);
+```
 
 ### SetAlleyOfCharacter
 `public void SetAlleyOfCharacter(Alley alley)`
 
-**Purpose:** Sets the value or state of `alley of character`.
+**Purpose:** Assigns a new value to `alley of character` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LocationCharacter from the subsystem API first
+LocationCharacter locationCharacter = ...;
+locationCharacter.SetAlleyOfCharacter(alley);
+```
 
 ### CreateBodyguardHero
 `public static LocationCharacter CreateBodyguardHero(Hero hero, MobileParty party, AddBehaviorsDelegate addBehaviorsDelegate)`
 
-**Purpose:** Creates a new `bodyguard hero` instance or object.
+**Purpose:** Constructs a new `bodyguard hero` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+LocationCharacter.CreateBodyguardHero(hero, party, addBehaviorsDelegate);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LocationCharacter();
-value.AddBehaviorsDelegate(agent);
+// Typically call this after obtaining an instance from the subsystem API
+LocationCharacter locationCharacter = ...;
+locationCharacter.AddBehaviorsDelegate(agent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

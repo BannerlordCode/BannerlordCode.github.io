@@ -1,13 +1,7 @@
 ---
 title: "DefaultEmissaryModel"
+description: "Auto-generated class reference for DefaultEmissaryModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultEmissaryModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultEmissaryModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,7 +29,13 @@ Treat `DefaultEmissaryModel` as a Model-style extension point: first identify wh
 ### IsEmissary
 `public override bool IsEmissary(Hero hero)`
 
-**Purpose:** Handles logic related to `is emissary`.
+**Purpose:** Determines whether the current object is in the `emissary` state or condition.
+
+```csharp
+// Obtain an instance of DefaultEmissaryModel from the subsystem API first
+DefaultEmissaryModel defaultEmissaryModel = ...;
+var result = defaultEmissaryModel.IsEmissary(hero);
+```
 
 ## Usage Example
 
@@ -45,4 +45,4 @@ Game.Current.ReplaceModel<DefaultEmissaryModel>(new MyDefaultEmissaryModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

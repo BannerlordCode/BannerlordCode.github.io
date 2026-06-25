@@ -1,71 +1,53 @@
 ---
 title: "TraitObject"
+description: "Auto-generated class reference for TraitObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TraitObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TraitObject
 
-**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** sealed class (inherits `PropertyObject`)  
-**File:** `bannerlord-1.3.15/TaleWorlds.CampaignSystem/CharacterDevelopment/TraitObject.cs`
-
-`TraitObject` represents a character trait (e.g. Valor, Mercy, Calculating) whose value lies in a `[MinValue, MaxValue]` range; the level affects character behavior and interpersonal relations.
+**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public sealed class TraitObject : PropertyObject`
+**Base:** `PropertyObject`
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/TraitObject.cs`
 
 ## Overview
 
-Mods usually reference existing traits via the `DefaultTraits` static fields, or enumerate all with `TraitObject.All`. Read/write a hero's trait level with `Hero.GetTraitLevel(trait)` / `Hero.SetTraitLevel(trait, value)`.
+`TraitObject` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `TraitObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Main properties
+## Key Properties
 
-| Name | Type | Description |
-|------|------|-------------|
-| All | `MBReadOnlyList<TraitObject>` | Static; all traits (from `Campaign.Current.AllTraits`) |
-| MinValue | int | Minimum level |
-| MaxValue | int | Maximum level |
-| IsHidden | bool | Whether hidden from the player |
+| Name | Signature |
+|------|-----------|
+| `All` | `public static MBReadOnlyList<TraitObject> All { get; }` |
+| `MinValue` | `public int MinValue { get; }` |
+| `MaxValue` | `public int MaxValue { get; }` |
+| `IsHidden` | `public bool IsHidden { get; }` |
 
-## Initialize
+## Key Methods
 
-```csharp
-public void Initialize(TextObject name, TextObject description, bool isHidden, int minValue, int maxValue)
-```
+### Initialize
+`public void Initialize(TextObject name, TextObject description, bool isHidden, int minValue, int maxValue)`
 
-Sets name, description, hidden flag, and level bounds when defining a trait.
-
-## Usage example
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
 
 ```csharp
-// Read and set a hero's trait level
-TraitObject valor = DefaultTraits.Valor;
-int level = hero.GetTraitLevel(valor);   // read
-hero.SetTraitLevel(valor, level + 1);    // raise
-
-// Enumerate all non-hidden traits
-foreach (TraitObject t in TraitObject.All)
-{
-    if (!t.IsHidden)
-        Debug.Print($"{t.Name}: range [{t.MinValue}, {t.MaxValue}]");
-}
+// Obtain an instance of TraitObject from the subsystem API first
+TraitObject traitObject = ...;
+traitObject.Initialize(name, description, false, 0, 0);
 ```
-
-## See also
-
-- [Hero](../campaign/Hero)
-- [PerkObject](./PerkObject)
-- [Campaign](./Campaign)
 
 ## Usage Example
 
 ```csharp
-var example = new TraitObject();
+// Typically call this after obtaining an instance from the subsystem API
+TraitObject traitObject = ...;
+traitObject.Initialize(name, description, false, 0, 0);
 ```
+
+## See Also
+
+- [Area Index](../)

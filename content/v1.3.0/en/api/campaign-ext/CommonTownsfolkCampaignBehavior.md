@@ -1,13 +1,7 @@
 ---
 title: "CommonTownsfolkCampaignBehavior"
+description: "Auto-generated class reference for CommonTownsfolkCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommonTownsfolkCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommonTownsfolkCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
@@ -29,50 +23,93 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of CommonTownsfolkCampaignBehavior from the subsystem API first
+CommonTownsfolkCampaignBehavior commonTownsfolkCampaignBehavior = ...;
+commonTownsfolkCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of CommonTownsfolkCampaignBehavior from the subsystem API first
+CommonTownsfolkCampaignBehavior commonTownsfolkCampaignBehavior = ...;
+commonTownsfolkCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetActionSetSuffixAndMonsterForItem
 `public static string GetActionSetSuffixAndMonsterForItem(string itemId, int race, bool isFemale, out Monster monster)`
 
-**Purpose:** Gets the current value of `action set suffix and monster for item`.
+**Purpose:** Reads and returns the `action set suffix and monster for item` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CommonTownsfolkCampaignBehavior.GetActionSetSuffixAndMonsterForItem("example", 0, false, monster);
+```
 
 ### GetRandomTownsManActionSetAndMonster
 `public static Tuple<string, Monster> GetRandomTownsManActionSetAndMonster(int race)`
 
-**Purpose:** Gets the current value of `random towns man action set and monster`.
+**Purpose:** Reads and returns the `random towns man action set and monster` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CommonTownsfolkCampaignBehavior.GetRandomTownsManActionSetAndMonster(0);
+```
 
 ### GetRandomTownsWomanActionSetAndMonster
 `public static Tuple<string, Monster> GetRandomTownsWomanActionSetAndMonster(int race)`
 
-**Purpose:** Gets the current value of `random towns woman action set and monster`.
+**Purpose:** Reads and returns the `random towns woman action set and monster` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CommonTownsfolkCampaignBehavior.GetRandomTownsWomanActionSetAndMonster(0);
+```
 
 ### CreateBroomsWoman
 `public static LocationCharacter CreateBroomsWoman(CultureObject culture, LocationCharacter.CharacterRelations relation)`
 
-**Purpose:** Creates a new `brooms woman` instance or object.
+**Purpose:** Constructs a new `brooms woman` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CommonTownsfolkCampaignBehavior.CreateBroomsWoman(culture, relation);
+```
 
 ### CreateMaleBeggar
 `public static LocationCharacter CreateMaleBeggar(CultureObject culture, LocationCharacter.CharacterRelations relation)`
 
-**Purpose:** Creates a new `male beggar` instance or object.
+**Purpose:** Constructs a new `male beggar` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CommonTownsfolkCampaignBehavior.CreateMaleBeggar(culture, relation);
+```
 
 ### CreateFemaleBeggar
 `public static LocationCharacter CreateFemaleBeggar(CultureObject culture, LocationCharacter.CharacterRelations relation)`
 
-**Purpose:** Creates a new `female beggar` instance or object.
+**Purpose:** Constructs a new `female beggar` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+CommonTownsfolkCampaignBehavior.CreateFemaleBeggar(culture, relation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommonTownsfolkCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+CommonTownsfolkCampaignBehavior commonTownsfolkCampaignBehavior = ...;
+commonTownsfolkCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

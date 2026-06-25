@@ -1,20 +1,14 @@
 ---
 title: "TauntIndexData"
+description: "Auto-generated class reference for TauntIndexData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TauntIndexData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TauntIndexData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct TauntIndexData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/TauntIndexData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData/TauntIndexData.cs`
 
 ## Overview
 
@@ -36,19 +30,32 @@ Treat `TauntIndexData` as a Data-style extension point: first identify who creat
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of TauntIndexData from the subsystem API first
+TauntIndexData tauntIndexData = ...;
+var result = tauntIndexData.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of TauntIndexData from the subsystem API first
+TauntIndexData tauntIndexData = ...;
+var result = tauntIndexData.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TauntIndexData();
+// This data object is usually returned by campaign/mission APIs
+TauntIndexData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

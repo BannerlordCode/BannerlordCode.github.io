@@ -1,13 +1,7 @@
 ---
 title: "PartySpeedModel"
+description: "PartySpeedModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartySpeedModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartySpeedModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,19 +30,32 @@ title: "PartySpeedModel"
 ### CalculateBaseSpeed
 `public abstract ExplainedNumber CalculateBaseSpeed(MobileParty party, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
 
-**用途 / Purpose:** 处理 `calculate base speed` 相关逻辑。
+**用途 / Purpose:** 计算「base speed」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySpeedModel 实例
+PartySpeedModel partySpeedModel = ...;
+var result = partySpeedModel.CalculateBaseSpeed(party, false, 0, 0);
+```
 
 ### CalculateFinalSpeed
 `public abstract ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
 
-**用途 / Purpose:** 处理 `calculate final speed` 相关逻辑。
+**用途 / Purpose:** 计算「final speed」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySpeedModel 实例
+PartySpeedModel partySpeedModel = ...;
+var result = partySpeedModel.CalculateFinalSpeed(mobileParty, finalSpeed);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartySpeedModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartySpeedModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

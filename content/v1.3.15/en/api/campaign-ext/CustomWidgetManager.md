@@ -1,13 +1,7 @@
 ---
 title: "CustomWidgetManager"
+description: "Auto-generated class reference for CustomWidgetManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomWidgetManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomWidgetManager
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -29,7 +23,12 @@ Treat `CustomWidgetManager` as a Manager-style extension point: first identify w
 ### TouchAssembly
 `public static void TouchAssembly()`
 
-**Purpose:** Handles logic related to `touch assembly`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CustomWidgetManager.TouchAssembly();
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ var manager = CustomWidgetManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

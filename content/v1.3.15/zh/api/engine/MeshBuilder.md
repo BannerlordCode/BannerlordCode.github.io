@@ -1,13 +1,7 @@
 ---
 title: "MeshBuilder"
+description: "MeshBuilder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MeshBuilder`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MeshBuilder
 
 **Namespace:** TaleWorlds.Engine
@@ -29,45 +23,85 @@ title: "MeshBuilder"
 ### AddFaceCorner
 `public int AddFaceCorner(Vec3 position, Vec3 normal, Vec2 uvCoord, uint color)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `face corner`。
+**用途 / Purpose:** 将 「face corner」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MeshBuilder 实例
+MeshBuilder meshBuilder = ...;
+var result = meshBuilder.AddFaceCorner(position, normal, uvCoord, 0);
+```
 
 ### AddFace
 `public int AddFace(int patchNode0, int patchNode1, int patchNode2)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `face`。
+**用途 / Purpose:** 将 「face」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MeshBuilder 实例
+MeshBuilder meshBuilder = ...;
+var result = meshBuilder.AddFace(0, 0, 0);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MeshBuilder 实例
+MeshBuilder meshBuilder = ...;
+meshBuilder.Clear();
+```
 
 ### Finalize
 `public new Mesh Finalize()`
 
-**用途 / Purpose:** 处理 `finalize` 相关逻辑。
+**用途 / Purpose:** 在垃圾回收时执行清理工作（通常用于释放非托管资源）。
+
+```csharp
+// 先通过子系统 API 拿到 MeshBuilder 实例
+MeshBuilder meshBuilder = ...;
+var result = meshBuilder.Finalize();
+```
 
 ### CreateUnitMesh
 `public static Mesh CreateUnitMesh()`
 
-**用途 / Purpose:** 创建一个 `unit mesh` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「unit mesh」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MeshBuilder.CreateUnitMesh();
+```
 
 ### CreateTilingWindowMesh
 `public static Mesh CreateTilingWindowMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness, Vec2 bgBorderThickness)`
 
-**用途 / Purpose:** 创建一个 `tiling window mesh` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「tiling window mesh」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MeshBuilder.CreateTilingWindowMesh("example", meshSizeMin, meshSizeMax, borderThickness, bgBorderThickness);
+```
 
 ### CreateTilingButtonMesh
 `public static Mesh CreateTilingButtonMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness)`
 
-**用途 / Purpose:** 创建一个 `tiling button mesh` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「tiling button mesh」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MeshBuilder.CreateTilingButtonMesh("example", meshSizeMin, meshSizeMax, borderThickness);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MeshBuilder();
-value.AddFaceCorner(position, normal, uvCoord, 0);
+// 通常从对应子系统 API 获取实例后调用
+MeshBuilder meshBuilder = ...;
+meshBuilder.AddFaceCorner(position, normal, uvCoord, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

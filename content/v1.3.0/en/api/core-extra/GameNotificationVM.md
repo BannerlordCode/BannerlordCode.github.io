@@ -1,13 +1,7 @@
 ---
 title: "GameNotificationVM"
+description: "Auto-generated class reference for GameNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameNotificationVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameNotificationVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### ClearNotifications
 `public void ClearNotifications()`
 
-**Purpose:** Handles logic related to `clear notifications`.
+**Purpose:** Removes all `notifications` from the current object.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.ClearNotifications();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.Tick(0);
+```
 
 ### AddGameNotification
 `public void AddGameNotification(string notificationText, int extraTimeInMs, BasicCharacterObject announcerCharacter, Equipment equipment, string soundId)`
 
 **Purpose:** Adds `game notification` to the current collection or state.
 
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.AddGameNotification("example", 0, announcerCharacter, equipment, "example");
+```
+
 ## Usage Example
 
 ```csharp
-var value = new GameNotificationVM();
-value.ClearNotifications();
+// Typically call this after obtaining an instance from the subsystem API
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.ClearNotifications();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

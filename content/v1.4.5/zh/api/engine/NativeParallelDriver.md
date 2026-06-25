@@ -1,20 +1,14 @@
 ---
 title: "NativeParallelDriver"
+description: "NativeParallelDriver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NativeParallelDriver`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeParallelDriver
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public sealed class NativeParallelDriver : IParallelDriver`
 **Base:** `IParallelDriver`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeParallelDriver.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/NativeParallelDriver.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "NativeParallelDriver"
 ### For
 `public void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate loopBody, int grainSize)`
 
-**用途 / Purpose:** 处理 `for` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeParallelDriver 实例
+NativeParallelDriver nativeParallelDriver = ...;
+nativeParallelDriver.For(0, 0, loopBody, 0);
+```
 
 ### ForWithoutRenderThread
 `public void ForWithoutRenderThread(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate loopBody, int grainSize)`
 
-**用途 / Purpose:** 处理 `for without render thread` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeParallelDriver 实例
+NativeParallelDriver nativeParallelDriver = ...;
+nativeParallelDriver.ForWithoutRenderThread(0, 0, loopBody, 0);
+```
 
 ### ForWithoutRenderThreadDt
 `public void ForWithoutRenderThreadDt(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate loopBody, int grainSize)`
 
-**用途 / Purpose:** 处理 `for without render thread dt` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeParallelDriver 实例
+NativeParallelDriver nativeParallelDriver = ...;
+nativeParallelDriver.ForWithoutRenderThreadDt(0, 0, 0, loopBody, 0);
+```
 
 ### For
 `public void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate loopBody, int grainSize)`
 
-**用途 / Purpose:** 处理 `for` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 NativeParallelDriver 实例
+NativeParallelDriver nativeParallelDriver = ...;
+nativeParallelDriver.For(0, 0, 0, loopBody, 0);
+```
 
 ### GetMainThreadId
 `public ulong GetMainThreadId()`
 
-**用途 / Purpose:** 获取 `main thread id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「main thread id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeParallelDriver 实例
+NativeParallelDriver nativeParallelDriver = ...;
+var result = nativeParallelDriver.GetMainThreadId();
+```
 
 ### GetCurrentThreadId
 `public ulong GetCurrentThreadId()`
 
-**用途 / Purpose:** 获取 `current thread id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current thread id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NativeParallelDriver 实例
+NativeParallelDriver nativeParallelDriver = ...;
+var result = nativeParallelDriver.GetCurrentThreadId();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NativeParallelDriver();
-value.For(0, 0, loopBody, 0);
+// 通常从对应子系统 API 获取实例后调用
+NativeParallelDriver nativeParallelDriver = ...;
+nativeParallelDriver.For(0, 0, loopBody, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

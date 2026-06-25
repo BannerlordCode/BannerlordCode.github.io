@@ -1,20 +1,14 @@
 ---
 title: "CPUBenchmarkMissionLogic"
+description: "Auto-generated class reference for CPUBenchmarkMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CPUBenchmarkMissionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CPUBenchmarkMissionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CPUBenchmarkMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CPUBenchmarkMissionLogic.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CPUBenchmarkMissionLogic.cs`
 
 ## Overview
 
@@ -29,59 +23,114 @@ Treat `CPUBenchmarkMissionLogic` as a Logic-style extension point: first identif
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.OnMissionTick(0);
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.OnPreMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### CPUBenchmarkMission
 `public static string CPUBenchmarkMission(List<string> strings)`
 
-**Purpose:** Handles logic related to `c p u benchmark mission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CPUBenchmarkMissionLogic.CPUBenchmarkMission(strings);
+```
 
 ### CPUBenchmark
 `public static string CPUBenchmark(List<string> strings)`
 
-**Purpose:** Handles logic related to `c p u benchmark`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CPUBenchmarkMissionLogic.CPUBenchmark(strings);
+```
 
 ### BenchmarkStateStart
 `public static string BenchmarkStateStart(List<string> strings)`
 
-**Purpose:** Handles logic related to `benchmark state start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CPUBenchmarkMissionLogic.BenchmarkStateStart(strings);
+```
 
 ### BenchmarkStateEnd
 `public static string BenchmarkStateEnd(List<string> strings)`
 
-**Purpose:** Handles logic related to `benchmark state end`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CPUBenchmarkMissionLogic.BenchmarkStateEnd(strings);
+```
 
 ### OpenCPUBenchmarkMission
 `public static Mission OpenCPUBenchmarkMission(string scene)`
 
-**Purpose:** Handles logic related to `open c p u benchmark mission`.
+**Purpose:** Opens the resource or UI associated with `c p u benchmark mission`.
+
+```csharp
+// Static call; no instance required
+CPUBenchmarkMissionLogic.OpenCPUBenchmarkMission("example");
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CPUBenchmarkMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<CPUBenchmarkMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BoneBodyPartType"
+description: "Auto-generated class reference for BoneBodyPartType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoneBodyPartType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoneBodyPartType
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoneBodyPartType.cs`
+**Type:** `public enum BoneBodyPartType : sbyte`
+**Base:** `sbyte`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BoneBodyPartType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new BoneBodyPartType();
+// Obtain an instance from the relevant subsystem API
+BoneBodyPartType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyScreenMode"
+description: "Auto-generated class reference for PartyScreenMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyScreenMode`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyScreenMode
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public enum PartyScreenMode`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/PartyScreenHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/PartyScreenHelper.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ## Usage Example
 
 ```csharp
-PartyScreenMode example = PartyScreenMode.Value;
+// Obtain an instance from the relevant subsystem API
+PartyScreenMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

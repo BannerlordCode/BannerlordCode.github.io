@@ -1,20 +1,14 @@
 ---
 title: "DrivenPropertyEffect"
+description: "Auto-generated class reference for DrivenPropertyEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DrivenPropertyEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DrivenPropertyEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DrivenPropertyEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DrivenPropertyEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/DrivenPropertyEffect.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**Purpose:** Called when the `update` event is raised.
+**Purpose:** Invoked when the `update` event is raised.
+
+```csharp
+// Obtain an instance of DrivenPropertyEffect from the subsystem API first
+DrivenPropertyEffect drivenPropertyEffect = ...;
+drivenPropertyEffect.OnUpdate(agent, false);
+```
 
 ### GetDrivenPropertyBonus
 `public override float GetDrivenPropertyBonus(DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Gets the current value of `driven property bonus`.
+**Purpose:** Reads and returns the `driven property bonus` value held by the current object.
+
+```csharp
+// Obtain an instance of DrivenPropertyEffect from the subsystem API first
+DrivenPropertyEffect drivenPropertyEffect = ...;
+var result = drivenPropertyEffect.GetDrivenPropertyBonus(drivenProperty, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DrivenPropertyEffect();
-value.OnUpdate(agent, false);
+// Typically call this after obtaining an instance from the subsystem API
+DrivenPropertyEffect drivenPropertyEffect = ...;
+drivenPropertyEffect.OnUpdate(agent, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

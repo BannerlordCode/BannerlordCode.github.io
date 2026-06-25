@@ -1,20 +1,14 @@
 ---
 title: "CharacterCreationContent"
+description: "Auto-generated class reference for CharacterCreationContent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationContent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationContent
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class CharacterCreationContent`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationContent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/CharacterCreationContent.cs`
 
 ## Overview
 
@@ -41,80 +35,165 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### TryGetEquipmentIdDelegate
 `public delegate bool TryGetEquipmentIdDelegate(string occupationId, out string equipmentId)`
 
-**Purpose:** Attempts to get `get equipment id delegate`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get equipment id delegate`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+var result = characterCreationContent.TryGetEquipmentIdDelegate("example", equipmentId);
+```
 
 ### AddCharacterCreationCulture
 `public void AddCharacterCreationCulture(CultureObject culture, int focusToAddByCulture, int skillLevelToAddByCulture)`
 
 **Purpose:** Adds `character creation culture` to the current collection or state.
 
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.AddCharacterCreationCulture(culture, 0, 0);
+```
+
 ### GetFocusToAddByCulture
 `public int GetFocusToAddByCulture(CultureObject culture)`
 
-**Purpose:** Gets the current value of `focus to add by culture`.
+**Purpose:** Reads and returns the `focus to add by culture` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+var result = characterCreationContent.GetFocusToAddByCulture(culture);
+```
 
 ### GetSkillLevelToAddByCulture
 `public int GetSkillLevelToAddByCulture(CultureObject culture)`
 
-**Purpose:** Gets the current value of `skill level to add by culture`.
+**Purpose:** Reads and returns the `skill level to add by culture` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+var result = characterCreationContent.GetSkillLevelToAddByCulture(culture);
+```
 
 ### ChangeReviewPageDescription
 `public void ChangeReviewPageDescription(TextObject reviewPageDescription)`
 
-**Purpose:** Handles logic related to `change review page description`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.ChangeReviewPageDescription(reviewPageDescription);
+```
 
 ### SetMainCharacterName
 `public void SetMainCharacterName(string name)`
 
-**Purpose:** Sets the value or state of `main character name`.
+**Purpose:** Assigns a new value to `main character name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.SetMainCharacterName("example");
+```
 
 ### SetParentOccupation
 `public void SetParentOccupation(string occupationType)`
 
-**Purpose:** Sets the value or state of `parent occupation`.
+**Purpose:** Assigns a new value to `parent occupation` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.SetParentOccupation("example");
+```
 
 ### ApplySkillAndAttributeEffects
 `public void ApplySkillAndAttributeEffects(List<SkillObject> skills, int focusToAdd, int skillLevelToAdd, CharacterAttribute attribute, int attributeLevelToAdd, List<TraitObject> traits = null, int traitLevelToAdd = 0, int renownToAdd = 0, int goldToAdd = 0, int unspentFocusPoints = 0, int unspentAttributePoints = 0)`
 
-**Purpose:** Applies `skill and attribute effects` to the current object.
+**Purpose:** Applies the effect of `skill and attribute effects` to the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.ApplySkillAndAttributeEffects(skills, 0, 0, attribute, 0, null, 0, 0, 0, 0, 0);
+```
 
 ### SetMainClanBanner
 `public void SetMainClanBanner(Banner banner)`
 
-**Purpose:** Sets the value or state of `main clan banner`.
+**Purpose:** Assigns a new value to `main clan banner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.SetMainClanBanner(banner);
+```
 
 ### SetSelectedCulture
 `public void SetSelectedCulture(CultureObject culture, CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Sets the value or state of `selected culture`.
+**Purpose:** Assigns a new value to `selected culture` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.SetSelectedCulture(culture, characterCreationManager);
+```
 
 ### ApplyCulture
 `public void ApplyCulture(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Applies `culture` to the current object.
+**Purpose:** Applies the effect of `culture` to the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.ApplyCulture(characterCreationManager);
+```
 
 ### GetCultures
 `public IEnumerable<CultureObject> GetCultures()`
 
-**Purpose:** Gets the current value of `cultures`.
+**Purpose:** Reads and returns the `cultures` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+var result = characterCreationContent.GetCultures();
+```
 
 ### AddEquipmentToUseGetter
 `public void AddEquipmentToUseGetter(TryGetEquipmentIdDelegate tryGetEquipmentIdDelegate)`
 
 **Purpose:** Adds `equipment to use getter` to the current collection or state.
 
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.AddEquipmentToUseGetter(tryGetEquipmentIdDelegate);
+```
+
 ### TryGetEquipmentToUse
 `public bool TryGetEquipmentToUse(string occupationId, out string equipmentId)`
 
-**Purpose:** Attempts to get `get equipment to use`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get equipment to use`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of CharacterCreationContent from the subsystem API first
+CharacterCreationContent characterCreationContent = ...;
+var result = characterCreationContent.TryGetEquipmentToUse("example", equipmentId);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationContent();
-value.TryGetEquipmentIdDelegate("example", equipmentId);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationContent characterCreationContent = ...;
+characterCreationContent.TryGetEquipmentIdDelegate("example", equipmentId);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

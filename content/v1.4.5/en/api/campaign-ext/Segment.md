@@ -1,20 +1,14 @@
 ---
 title: "Segment"
+description: "Auto-generated class reference for Segment."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Segment`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Segment
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public class Segment`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/Segment.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/Segment.cs`
 
 ## Overview
 
@@ -42,40 +36,76 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Segment from the subsystem API first
+Segment segment = ...;
+var result = segment.ToString();
+```
 
 ### IsUsableAs
 `public bool IsUsableAs(SegmentSuitability snippetType)`
 
-**Purpose:** Handles logic related to `is usable as`.
+**Purpose:** Determines whether the current object is in the `usable as` state or condition.
+
+```csharp
+// Obtain an instance of Segment from the subsystem API first
+Segment segment = ...;
+var result = segment.IsUsableAs(snippetType);
+```
 
 ### IsUsableOnlyAs
 `public bool IsUsableOnlyAs(SegmentSuitability snippetType)`
 
-**Purpose:** Handles logic related to `is usable only as`.
+**Purpose:** Determines whether the current object is in the `usable only as` state or condition.
+
+```csharp
+// Obtain an instance of Segment from the subsystem API first
+Segment segment = ...;
+var result = segment.IsUsableOnlyAs(snippetType);
+```
 
 ### ReturnSegmentWithLowestIntensityDifference
 `public Segment ReturnSegmentWithLowestIntensityDifference(List<Segment> argSnippets)`
 
-**Purpose:** Handles logic related to `return segment with lowest intensity difference`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Segment from the subsystem API first
+Segment segment = ...;
+var result = segment.ReturnSegmentWithLowestIntensityDifference(argSnippets);
+```
 
 ### CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible
 `public bool CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(Soundtrack soundtrack, int targetThemeId)`
 
-**Purpose:** Handles logic related to `check if at least one direct transition or layering is possible`.
+**Purpose:** Verifies whether `if at least one direct transition or layering is possible` holds true for the current object.
+
+```csharp
+// Obtain an instance of Segment from the subsystem API first
+Segment segment = ...;
+var result = segment.CheckIfAtLeastOneDirectTransitionOrLayeringIsPossible(soundtrack, 0);
+```
 
 ### GetStringFromSegmentSuitabilities
 `public static string GetStringFromSegmentSuitabilities(int snippetTypeBitfield)`
 
-**Purpose:** Gets the current value of `string from segment suitabilities`.
+**Purpose:** Reads and returns the `string from segment suitabilities` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Segment.GetStringFromSegmentSuitabilities(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Segment();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+Segment segment = ...;
+segment.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

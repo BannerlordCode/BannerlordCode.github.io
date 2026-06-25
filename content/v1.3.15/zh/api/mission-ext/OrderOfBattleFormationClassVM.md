@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleFormationClassVM"
+description: "OrderOfBattleFormationClassVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderOfBattleFormationClassVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationClassVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
@@ -44,30 +38,55 @@ title: "OrderOfBattleFormationClassVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleFormationClassVM 实例
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.RefreshValues();
+```
 
 ### UpdateTroopCountText
 `public void UpdateTroopCountText()`
 
-**用途 / Purpose:** 更新 `troop count text` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「troop count text」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleFormationClassVM 实例
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.UpdateTroopCountText();
+```
 
 ### SetWeightAdjustmentLock
 `public void SetWeightAdjustmentLock(bool isLocked)`
 
-**用途 / Purpose:** 设置 `weight adjustment lock` 的值或状态。
+**用途 / Purpose:** 为 「weight adjustment lock」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleFormationClassVM 实例
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.SetWeightAdjustmentLock(false);
+```
 
 ### UpdateWeightAdjustable
 `public void UpdateWeightAdjustable()`
 
-**用途 / Purpose:** 更新 `weight adjustable` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「weight adjustable」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleFormationClassVM 实例
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.UpdateWeightAdjustable();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderOfBattleFormationClassVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+OrderOfBattleFormationClassVM orderOfBattleFormationClassVM = ...;
+orderOfBattleFormationClassVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

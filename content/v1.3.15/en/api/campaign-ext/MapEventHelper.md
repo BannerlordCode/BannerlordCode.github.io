@@ -1,13 +1,7 @@
 ---
 title: "MapEventHelper"
+description: "Auto-generated class reference for MapEventHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapEventHelper
 
 **Namespace:** Helpers
@@ -29,27 +23,52 @@ Treat `MapEventHelper` as a Helper-style extension point: first identify who cre
 ### GetSallyOutDefenderLeader
 `public static PartyBase GetSallyOutDefenderLeader()`
 
-**Purpose:** Gets the current value of `sally out defender leader`.
+**Purpose:** Reads and returns the `sally out defender leader` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MapEventHelper.GetSallyOutDefenderLeader();
+```
 
 ### CanMainPartyLeaveBattleCommonCondition
 `public static bool CanMainPartyLeaveBattleCommonCondition()`
 
-**Purpose:** Checks whether the current object can `main party leave battle common condition`.
+**Purpose:** Checks whether the current object meets the preconditions for `main party leave battle common condition`.
+
+```csharp
+// Static call; no instance required
+MapEventHelper.CanMainPartyLeaveBattleCommonCondition();
+```
 
 ### GetEncounteredPartyBase
 `public static PartyBase GetEncounteredPartyBase(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Gets the current value of `encountered party base`.
+**Purpose:** Reads and returns the `encountered party base` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MapEventHelper.GetEncounteredPartyBase(attackerParty, defenderParty);
+```
 
 ### OnConversationEnd
 `public static void OnConversationEnd()`
 
-**Purpose:** Called when the `conversation end` event is raised.
+**Purpose:** Invoked when the `conversation end` event is raised.
+
+```csharp
+// Static call; no instance required
+MapEventHelper.OnConversationEnd();
+```
 
 ### GetPriorityListForHideoutMission
 `public static FlattenedTroopRoster GetPriorityListForHideoutMission(List<MobileParty> partyList, out int firstPhaseTroopCount)`
 
-**Purpose:** Gets the current value of `priority list for hideout mission`.
+**Purpose:** Reads and returns the `priority list for hideout mission` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MapEventHelper.GetPriorityListForHideoutMission(partyList, firstPhaseTroopCount);
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ MapEventHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

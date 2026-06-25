@@ -1,13 +1,7 @@
 ---
 title: "DefaultItemCategorySelector"
+description: "DefaultItemCategorySelector 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultItemCategorySelector`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultItemCategorySelector
 
 **Namespace:** TaleWorlds.Core
@@ -29,15 +23,22 @@ title: "DefaultItemCategorySelector"
 ### GetItemCategoryForItem
 `public override ItemCategory GetItemCategoryForItem(ItemObject itemObject)`
 
-**用途 / Purpose:** 获取 `item category for item` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item category for item」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultItemCategorySelector 实例
+DefaultItemCategorySelector defaultItemCategorySelector = ...;
+var result = defaultItemCategorySelector.GetItemCategoryForItem(itemObject);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultItemCategorySelector();
-value.GetItemCategoryForItem(itemObject);
+// 通常从对应子系统 API 获取实例后调用
+DefaultItemCategorySelector defaultItemCategorySelector = ...;
+defaultItemCategorySelector.GetItemCategoryForItem(itemObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

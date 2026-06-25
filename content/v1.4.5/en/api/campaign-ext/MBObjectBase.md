@@ -1,20 +1,14 @@
 ---
 title: "MBObjectBase"
+description: "Auto-generated class reference for MBObjectBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBObjectBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBObjectBase
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public class MBObjectBase`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBObjectBase.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MBObjectBase.cs`
 
 ## Overview
 
@@ -38,60 +32,121 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### AfterInitialized
 `public void AfterInitialized()`
 
-**Purpose:** Handles logic related to `after initialized`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.AfterInitialized();
+```
 
 ### AfterRegister
 `public virtual void AfterRegister()`
 
-**Purpose:** Handles logic related to `after register`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.AfterRegister();
+```
 
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.Initialize();
+```
 
 ### Deserialize
 `public virtual void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.Deserialize(objectManager, node);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+var result = mBObjectBase.GetHashCode();
+```
 
 ### GetName
 `public virtual TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+var result = mBObjectBase.GetName();
+```
 
 ### PreAfterLoadInternal
 `public void PreAfterLoadInternal()`
 
-**Purpose:** Handles logic related to `pre after load internal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.PreAfterLoadInternal();
+```
 
 ### AfterLoadInternal
 `public void AfterLoadInternal()`
 
-**Purpose:** Handles logic related to `after load internal`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.AfterLoadInternal();
+```
 
 ### OnRegistered
 `public void OnRegistered()`
 
-**Purpose:** Called when the `registered` event is raised.
+**Purpose:** Invoked when the `registered` event is raised.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.OnRegistered();
+```
 
 ### OnUnregistered
 `public void OnUnregistered()`
 
-**Purpose:** Called when the `unregistered` event is raised.
+**Purpose:** Invoked when the `unregistered` event is raised.
+
+```csharp
+// Obtain an instance of MBObjectBase from the subsystem API first
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.OnUnregistered();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBObjectBase();
-value.AfterInitialized();
+// Typically call this after obtaining an instance from the subsystem API
+MBObjectBase mBObjectBase = ...;
+mBObjectBase.AfterInitialized();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

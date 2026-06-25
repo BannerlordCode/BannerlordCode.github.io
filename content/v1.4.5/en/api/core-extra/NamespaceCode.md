@@ -1,20 +1,14 @@
 ---
 title: "NamespaceCode"
+description: "Auto-generated class reference for NamespaceCode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NamespaceCode`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NamespaceCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
 **Type:** `public class NamespaceCode`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/NamespaceCode.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/NamespaceCode.cs`
 
 ## Overview
 
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Handles logic related to `generate into`.
+**Purpose:** Generates an instance, data, or representation of `into`.
+
+```csharp
+// Obtain an instance of NamespaceCode from the subsystem API first
+NamespaceCode namespaceCode = ...;
+namespaceCode.GenerateInto(codeGenerationFile);
+```
 
 ### AddClass
 `public void AddClass(ClassCode clasCode)`
 
 **Purpose:** Adds `class` to the current collection or state.
 
+```csharp
+// Obtain an instance of NamespaceCode from the subsystem API first
+NamespaceCode namespaceCode = ...;
+namespaceCode.AddClass(clasCode);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new NamespaceCode();
-value.GenerateInto(codeGenerationFile);
+// Typically call this after obtaining an instance from the subsystem API
+NamespaceCode namespaceCode = ...;
+namespaceCode.GenerateInto(codeGenerationFile);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "IMBBindingList"
+description: "Auto-generated class reference for IMBBindingList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMBBindingList`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMBBindingList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/IMBBindingList.cs`
+**Type:** `public interface IMBBindingList : IList, ICollection, IEnumerable`
+**Base:** `IList`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/IMBBindingList.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-IMBBindingList implementation = GetMBBindingListImplementation();
+// Usually obtained through DI or a factory method
+IIMBBindingList service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

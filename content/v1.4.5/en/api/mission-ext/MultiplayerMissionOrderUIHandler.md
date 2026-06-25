@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerMissionOrderUIHandler"
+description: "Auto-generated class reference for MultiplayerMissionOrderUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerMissionOrderUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionOrderUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMissionOrderUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerMissionOrderUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews/MultiplayerMissionOrderUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MultiplayerMissionOrderUIHandler` as a Handler-style extension point: fir
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerMissionOrderUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerMissionOrderUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "QuestNotificationItemVM"
+description: "QuestNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QuestNotificationItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -29,15 +23,22 @@ title: "QuestNotificationItemVM"
 ### ManualRefreshRelevantStatus
 `public override void ManualRefreshRelevantStatus()`
 
-**用途 / Purpose:** 处理 `manual refresh relevant status` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 QuestNotificationItemVM 实例
+QuestNotificationItemVM questNotificationItemVM = ...;
+questNotificationItemVM.ManualRefreshRelevantStatus();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new QuestNotificationItemVM();
-value.ManualRefreshRelevantStatus();
+// 通常从对应子系统 API 获取实例后调用
+QuestNotificationItemVM questNotificationItemVM = ...;
+questNotificationItemVM.ManualRefreshRelevantStatus();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

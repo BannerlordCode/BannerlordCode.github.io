@@ -1,20 +1,14 @@
 ---
 title: "OrderSiegeMachineItemButtonWidget"
+description: "Auto-generated class reference for OrderSiegeMachineItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderSiegeMachineItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderSiegeMachineItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderSiegeMachineItemButtonWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderSiegeMachineItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderSiegeMachineItemButtonWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `OrderSiegeMachineItemButtonWidget` as a Widget-style extension point: fir
 ### OrderSiegeMachineItemButtonWidget
 `public class OrderSiegeMachineItemButtonWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `order siege machine item button widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderSiegeMachineItemButtonWidget from the subsystem API first
+OrderSiegeMachineItemButtonWidget orderSiegeMachineItemButtonWidget = ...;
+var result = orderSiegeMachineItemButtonWidget.OrderSiegeMachineItemButtonWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new OrderSiegeMachineItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderSiegeMachineItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

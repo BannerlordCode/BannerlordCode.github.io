@@ -1,20 +1,14 @@
 ---
 title: "StealthHideInBushesTutorial"
+description: "StealthHideInBushesTutorial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthHideInBushesTutorial`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthHideInBushesTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class StealthHideInBushesTutorial : TutorialItemBase`
 **Base:** `TutorialItemBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/StealthHideInBushesTutorial.cs`
+**File:** `Modules.StoryMode/StoryMode.GauntletUI/StoryMode.GauntletUI.Tutorial/StealthHideInBushesTutorial.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "StealthHideInBushesTutorial"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 获取 `tutorials relevant context` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StealthHideInBushesTutorial 实例
+StealthHideInBushesTutorial stealthHideInBushesTutorial = ...;
+var result = stealthHideInBushesTutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 处理 `is conditions met for activation` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthHideInBushesTutorial 实例
+StealthHideInBushesTutorial stealthHideInBushesTutorial = ...;
+var result = stealthHideInBushesTutorial.IsConditionsMetForActivation();
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 处理 `is conditions met for completion` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthHideInBushesTutorial 实例
+StealthHideInBushesTutorial stealthHideInBushesTutorial = ...;
+var result = stealthHideInBushesTutorial.IsConditionsMetForCompletion();
+```
 
 ### IsConditionsMetForVisibility
 `public override bool IsConditionsMetForVisibility()`
 
-**用途 / Purpose:** 处理 `is conditions met for visibility` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「conditions met for visibility」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthHideInBushesTutorial 实例
+StealthHideInBushesTutorial stealthHideInBushesTutorial = ...;
+var result = stealthHideInBushesTutorial.IsConditionsMetForVisibility();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StealthHideInBushesTutorial();
-value.GetTutorialsRelevantContext();
+// 通常从对应子系统 API 获取实例后调用
+StealthHideInBushesTutorial stealthHideInBushesTutorial = ...;
+stealthHideInBushesTutorial.GetTutorialsRelevantContext();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

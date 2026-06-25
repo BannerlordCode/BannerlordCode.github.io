@@ -1,13 +1,7 @@
 ---
 title: "ServersideSession"
+description: "Auto-generated class reference for ServersideSession."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServersideSession`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServersideSession
 
 **Namespace:** TaleWorlds.Network
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var implementation = new CustomServersideSession();
+// Typically obtained from a subsystem API or factory
+ServersideSession instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "FormationQuerySystem"
+description: "Auto-generated class reference for FormationQuerySystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationQuerySystem`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationQuerySystem
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -125,35 +119,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### EvaluateAllPreliminaryQueryData
 `public void EvaluateAllPreliminaryQueryData()`
 
-**Purpose:** Handles logic related to `evaluate all preliminary query data`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FormationQuerySystem from the subsystem API first
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.EvaluateAllPreliminaryQueryData();
+```
 
 ### ForceExpireCavalryUnitRatio
 `public void ForceExpireCavalryUnitRatio()`
 
-**Purpose:** Handles logic related to `force expire cavalry unit ratio`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FormationQuerySystem from the subsystem API first
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.ForceExpireCavalryUnitRatio();
+```
 
 ### Expire
 `public void Expire()`
 
-**Purpose:** Handles logic related to `expire`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FormationQuerySystem from the subsystem API first
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.Expire();
+```
 
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**Purpose:** Handles logic related to `expire after unit add remove`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FormationQuerySystem from the subsystem API first
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.ExpireAfterUnitAddRemove();
+```
 
 ### GetClassWeightedFactor
 `public float GetClassWeightedFactor(float infantryWeight, float rangedWeight, float cavalryWeight, float rangedCavalryWeight)`
 
-**Purpose:** Gets the current value of `class weighted factor`.
+**Purpose:** Reads and returns the `class weighted factor` value held by the current object.
+
+```csharp
+// Obtain an instance of FormationQuerySystem from the subsystem API first
+FormationQuerySystem formationQuerySystem = ...;
+var result = formationQuerySystem.GetClassWeightedFactor(0, 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationQuerySystem();
-value.EvaluateAllPreliminaryQueryData();
+// Typically call this after obtaining an instance from the subsystem API
+FormationQuerySystem formationQuerySystem = ...;
+formationQuerySystem.EvaluateAllPreliminaryQueryData();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "RankBarInfo"
+description: "RankBarInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RankBarInfo`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RankBarInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Ranked
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RankBarInfo`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/RankBarInfo.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Ranked/RankBarInfo.cs`
 
 ## 概述
 
@@ -43,12 +37,22 @@ title: "RankBarInfo"
 ### CreateBarInfo
 `public static RankBarInfo CreateBarInfo(string rankId, string previousRankId, string nextRankId, float progressPercentage, int rating, int ratingToNextRank)`
 
-**用途 / Purpose:** 创建一个 `bar info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「bar info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
+```
 
 ### CreateUnrankedInfo
 `public static RankBarInfo CreateUnrankedInfo(int matchesPlayed, int totalMatchesRequired)`
 
-**用途 / Purpose:** 创建一个 `unranked info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「unranked info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+RankBarInfo.CreateUnrankedInfo(0, 0);
+```
 
 ## 使用示例
 
@@ -58,4 +62,4 @@ RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

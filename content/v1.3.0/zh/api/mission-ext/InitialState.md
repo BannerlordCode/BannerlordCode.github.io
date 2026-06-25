@@ -1,13 +1,7 @@
 ---
 title: "InitialState"
+description: "InitialState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InitialState`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitialState
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,20 +29,33 @@ title: "InitialState"
 ### OnExecutedInitialStateOption
 `public void OnExecutedInitialStateOption(InitialStateOption target)`
 
-**用途 / Purpose:** 当 `executed initial state option` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「executed initial state option」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 InitialState 实例
+InitialState initialState = ...;
+initialState.OnExecutedInitialStateOption(target);
+```
 
 ### RefreshContentState
 `public void RefreshContentState()`
 
-**用途 / Purpose:** 刷新 `content state` 的显示或缓存。
+**用途 / Purpose:** 使 「content state」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 InitialState 实例
+InitialState initialState = ...;
+initialState.RefreshContentState();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InitialState();
-value.OnExecutedInitialStateOption(target);
+// 通常从对应子系统 API 获取实例后调用
+InitialState initialState = ...;
+initialState.OnExecutedInitialStateOption(target);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "Add1000GoldCheat"
+description: "Auto-generated class reference for Add1000GoldCheat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Add1000GoldCheat`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Add1000GoldCheat
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class Add1000GoldCheat : GameplayCheatItem`
 **Base:** `GameplayCheatItem`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/Add1000GoldCheat.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/Add1000GoldCheat.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of Add1000GoldCheat from the subsystem API first
+Add1000GoldCheat add1000GoldCheat = ...;
+add1000GoldCheat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of Add1000GoldCheat from the subsystem API first
+Add1000GoldCheat add1000GoldCheat = ...;
+var result = add1000GoldCheat.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Add1000GoldCheat();
-value.ExecuteCheat();
+// Typically call this after obtaining an instance from the subsystem API
+Add1000GoldCheat add1000GoldCheat = ...;
+add1000GoldCheat.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

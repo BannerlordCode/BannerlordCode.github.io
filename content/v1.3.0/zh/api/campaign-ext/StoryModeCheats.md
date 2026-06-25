@@ -1,13 +1,7 @@
 ---
 title: "StoryModeCheats"
+description: "StoryModeCheats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeCheats`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeCheats
 
 **Namespace:** StoryMode
@@ -29,12 +23,22 @@ title: "StoryModeCheats"
 ### CheckCheatUsage
 `public static bool CheckCheatUsage(ref string message)`
 
-**用途 / Purpose:** 处理 `check cheat usage` 相关逻辑。
+**用途 / Purpose:** 检查「cheat usage」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+StoryModeCheats.CheckCheatUsage(message);
+```
 
 ### AddFamilyMembers
 `public static string AddFamilyMembers(List<string> strings)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `family members`。
+**用途 / Purpose:** 将 「family members」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+StoryModeCheats.AddFamilyMembers(strings);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ StoryModeCheats.CheckCheatUsage(message);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

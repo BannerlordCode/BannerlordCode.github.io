@@ -1,20 +1,14 @@
 ---
 title: "CapacityData"
+description: "Auto-generated class reference for CapacityData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CapacityData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CapacityData
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CapacityData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/InventoryLogic.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/InventoryLogic.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `CapacityData` as a Data-style extension point: first identify who creates
 ### GetCapacity
 `public int GetCapacity()`
 
-**Purpose:** Gets the current value of `capacity`.
+**Purpose:** Reads and returns the `capacity` value held by the current object.
+
+```csharp
+// Obtain an instance of CapacityData from the subsystem API first
+CapacityData capacityData = ...;
+var result = capacityData.GetCapacity();
+```
 
 ### CanForceTransaction
 `public bool CanForceTransaction()`
 
-**Purpose:** Checks whether the current object can `force transaction`.
+**Purpose:** Checks whether the current object meets the preconditions for `force transaction`.
+
+```csharp
+// Obtain an instance of CapacityData from the subsystem API first
+CapacityData capacityData = ...;
+var result = capacityData.CanForceTransaction();
+```
 
 ### GetCapacityExceededWarningText
 `public TextObject GetCapacityExceededWarningText()`
 
-**Purpose:** Gets the current value of `capacity exceeded warning text`.
+**Purpose:** Reads and returns the `capacity exceeded warning text` value held by the current object.
+
+```csharp
+// Obtain an instance of CapacityData from the subsystem API first
+CapacityData capacityData = ...;
+var result = capacityData.GetCapacityExceededWarningText();
+```
 
 ### GetCapacityExceededHintText
 `public TextObject GetCapacityExceededHintText()`
 
-**Purpose:** Gets the current value of `capacity exceeded hint text`.
+**Purpose:** Reads and returns the `capacity exceeded hint text` value held by the current object.
+
+```csharp
+// Obtain an instance of CapacityData from the subsystem API first
+CapacityData capacityData = ...;
+var result = capacityData.GetCapacityExceededHintText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CapacityData();
+// This data object is usually returned by campaign/mission APIs
+CapacityData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MBNetworkBitException"
+description: "Auto-generated class reference for MBNetworkBitException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBNetworkBitException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBNetworkBitException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBNetworkBitException` as a Exception-style extension point: first identi
 ## Usage Example
 
 ```csharp
-try { CallMBNetworkBitException(); } catch (MBNetworkBitException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBNetworkBitException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

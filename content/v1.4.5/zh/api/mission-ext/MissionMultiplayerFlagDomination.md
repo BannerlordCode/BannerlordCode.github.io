@@ -1,20 +1,14 @@
 ---
 title: "MissionMultiplayerFlagDomination"
+description: "MissionMultiplayerFlagDomination 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerFlagDomination`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerFlagDomination
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMultiplayerFlagDomination : MissionMultiplayerGameModeBase, IAnalyticsFlagInfo, IMissionBehavior`
 **Base:** `MissionMultiplayerGameModeBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerFlagDomination.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionMultiplayerFlagDomination.cs`
 
 ## 概述
 
@@ -37,120 +31,252 @@ title: "MissionMultiplayerFlagDomination"
 ### UseGold
 `public bool UseGold()`
 
-**用途 / Purpose:** 处理 `use gold` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.UseGold();
+```
 
 ### AllowCustomPlayerBanners
 `public override bool AllowCustomPlayerBanners()`
 
-**用途 / Purpose:** 处理 `allow custom player banners` 相关逻辑。
+**用途 / Purpose:** 允许当前对象启用或执行「custom player banners」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.AllowCustomPlayerBanners();
+```
 
 ### UseRoundController
 `public override bool UseRoundController()`
 
-**用途 / Purpose:** 处理 `use round controller` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.UseRoundController();
+```
 
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**用途 / Purpose:** 获取 `mission type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetMissionType();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnRemoveBehavior();
+```
 
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**用途 / Purpose:** 当 `peer changed team` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「peer changed team」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnPeerChangedTeam(peer, oldTeam, newTeam);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnMissionTick(0);
+```
 
 ### GetTimeUntilBattleSideVictory
 `public float GetTimeUntilBattleSideVictory(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `time until battle side victory` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「time until battle side victory」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetTimeUntilBattleSideVictory(side);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnClearScene();
+```
 
 ### CheckIfOvertime
 `public override bool CheckIfOvertime()`
 
-**用途 / Purpose:** 处理 `check if overtime` 相关逻辑。
+**用途 / Purpose:** 检查「if overtime」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.CheckIfOvertime();
+```
 
 ### CheckForWarmupEnd
 `public override bool CheckForWarmupEnd()`
 
-**用途 / Purpose:** 处理 `check for warmup end` 相关逻辑。
+**用途 / Purpose:** 检查「for warmup end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.CheckForWarmupEnd();
+```
 
 ### CheckForRoundEnd
 `public override bool CheckForRoundEnd()`
 
-**用途 / Purpose:** 处理 `check for round end` 相关逻辑。
+**用途 / Purpose:** 检查「for round end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.CheckForRoundEnd();
+```
 
 ### UseCultureSelection
 `public override bool UseCultureSelection()`
 
-**用途 / Purpose:** 处理 `use culture selection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.UseCultureSelection();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnAgentBuild(agent, banner);
+```
 
 ### ForfeitSpawning
 `public void ForfeitSpawning(NetworkCommunicator peer)`
 
-**用途 / Purpose:** 处理 `forfeit spawning` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.ForfeitSpawning(peer);
+```
 
 ### SetWinnerTeam
 `public static void SetWinnerTeam(int winnerTeamNo)`
 
-**用途 / Purpose:** 设置 `winner team` 的值或状态。
+**用途 / Purpose:** 为 「winner team」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MissionMultiplayerFlagDomination.SetWinnerTeam(0);
+```
 
 ### GetNumberOfAttackersAroundFlag
 `public int GetNumberOfAttackersAroundFlag(FlagCapturePoint capturePoint)`
 
-**用途 / Purpose:** 获取 `number of attackers around flag` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of attackers around flag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetNumberOfAttackersAroundFlag(capturePoint);
+```
 
 ### GetFlagOwnerTeam
 `public Team GetFlagOwnerTeam(FlagCapturePoint flag)`
 
-**用途 / Purpose:** 获取 `flag owner team` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flag owner team」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetFlagOwnerTeam(flag);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### GetTroopNumberMultiplierForMissingPlayer
 `public override float GetTroopNumberMultiplierForMissingPlayer(MissionPeer spawningPeer)`
 
-**用途 / Purpose:** 获取 `troop number multiplier for missing player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop number multiplier for missing player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+var result = missionMultiplayerFlagDomination.GetTroopNumberMultiplierForMissingPlayer(spawningPeer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMultiplayerFlagDomination();
-value.UseGold();
+// 通常从对应子系统 API 获取实例后调用
+MissionMultiplayerFlagDomination missionMultiplayerFlagDomination = ...;
+missionMultiplayerFlagDomination.UseGold();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

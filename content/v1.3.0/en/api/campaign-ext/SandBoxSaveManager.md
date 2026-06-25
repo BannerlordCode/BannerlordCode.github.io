@@ -1,13 +1,7 @@
 ---
 title: "SandBoxSaveManager"
+description: "Auto-generated class reference for SandBoxSaveManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxSaveManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSaveManager
 
 **Namespace:** SandBox
@@ -29,12 +23,24 @@ Treat `SandBoxSaveManager` as a Manager-style extension point: first identify wh
 ### GetAutoSaveInterval
 `public int GetAutoSaveInterval()`
 
-**Purpose:** Gets the current value of `auto save interval`.
+**Purpose:** Reads and returns the `auto save interval` value held by the current object.
+
+```csharp
+// Obtain an instance of SandBoxSaveManager from the subsystem API first
+SandBoxSaveManager sandBoxSaveManager = ...;
+var result = sandBoxSaveManager.GetAutoSaveInterval();
+```
 
 ### OnSaveOver
 `public void OnSaveOver(bool isSuccessful, string newSaveGameName)`
 
-**Purpose:** Called when the `save over` event is raised.
+**Purpose:** Invoked when the `save over` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxSaveManager from the subsystem API first
+SandBoxSaveManager sandBoxSaveManager = ...;
+sandBoxSaveManager.OnSaveOver(false, "example");
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = SandBoxSaveManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

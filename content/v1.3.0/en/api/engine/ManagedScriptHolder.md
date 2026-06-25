@@ -1,13 +1,7 @@
 ---
 title: "ManagedScriptHolder"
+description: "Auto-generated class reference for ManagedScriptHolder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedScriptHolder`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedScriptHolder
 
 **Namespace:** TaleWorlds.Engine
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### SetScriptComponentHolder
 `public void SetScriptComponentHolder(ScriptComponentBehavior sc)`
 
-**Purpose:** Sets the value or state of `script component holder`.
+**Purpose:** Assigns a new value to `script component holder` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ManagedScriptHolder from the subsystem API first
+ManagedScriptHolder managedScriptHolder = ...;
+managedScriptHolder.SetScriptComponentHolder(sc);
+```
 
 ### UpdateTickRequirement
 `public void UpdateTickRequirement(ScriptComponentBehavior sc, ScriptComponentBehavior.TickRequirement oldTickRequirement, ScriptComponentBehavior.TickRequirement newTickRequirement)`
 
-**Purpose:** Updates the state or data of `tick requirement`.
+**Purpose:** Recalculates and stores the latest representation of `tick requirement`.
+
+```csharp
+// Obtain an instance of ManagedScriptHolder from the subsystem API first
+ManagedScriptHolder managedScriptHolder = ...;
+managedScriptHolder.UpdateTickRequirement(sc, oldTickRequirement, newTickRequirement);
+```
 
 ### RemoveScriptComponentFromAllTickLists
 `public void RemoveScriptComponentFromAllTickLists(ScriptComponentBehavior sc)`
 
 **Purpose:** Removes `script component from all tick lists` from the current collection or state.
 
+```csharp
+// Obtain an instance of ManagedScriptHolder from the subsystem API first
+ManagedScriptHolder managedScriptHolder = ...;
+managedScriptHolder.RemoveScriptComponentFromAllTickLists(sc);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new ManagedScriptHolder();
-value.SetScriptComponentHolder(sc);
+// Typically call this after obtaining an instance from the subsystem API
+ManagedScriptHolder managedScriptHolder = ...;
+managedScriptHolder.SetScriptComponentHolder(sc);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

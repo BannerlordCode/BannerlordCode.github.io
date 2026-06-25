@@ -1,20 +1,14 @@
 ---
 title: "ListPanelDropdownWidget"
+description: "Auto-generated class reference for ListPanelDropdownWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ListPanelDropdownWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ListPanelDropdownWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ListPanelDropdownWidget : DropdownWidget`
 **Base:** `DropdownWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ListPanelDropdownWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/ListPanelDropdownWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `ListPanelDropdownWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new ListPanelDropdownWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ListPanelDropdownWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

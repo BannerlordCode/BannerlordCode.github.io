@@ -1,20 +1,14 @@
 ---
 title: "PurchaseItemTutorialQuestTask"
+description: "Auto-generated class reference for PurchaseItemTutorialQuestTask."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PurchaseItemTutorialQuestTask`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PurchaseItemTutorialQuestTask
 
 **Namespace:** StoryMode.Quests.QuestTasks
 **Module:** StoryMode.Quests
 **Type:** `public class PurchaseItemTutorialQuestTask : QuestTaskBase`
 **Base:** `QuestTaskBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.QuestTasks/PurchaseItemTutorialQuestTask.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.QuestTasks/PurchaseItemTutorialQuestTask.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `StoryMode.Quests.QuestTasks` to place it in the stack, the
 ### InitializeTaskOnLoad
 `public void InitializeTaskOnLoad(int targetItemAmount, ItemObject item)`
 
-**Purpose:** Initializes the state, resources, or bindings for `task on load`.
+**Purpose:** Prepares the resources, state, or bindings required by `task on load`.
+
+```csharp
+// Obtain an instance of PurchaseItemTutorialQuestTask from the subsystem API first
+PurchaseItemTutorialQuestTask purchaseItemTutorialQuestTask = ...;
+purchaseItemTutorialQuestTask.InitializeTaskOnLoad(0, item);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**Purpose:** Sets the value or state of `references`.
+**Purpose:** Assigns a new value to `references` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PurchaseItemTutorialQuestTask from the subsystem API first
+PurchaseItemTutorialQuestTask purchaseItemTutorialQuestTask = ...;
+purchaseItemTutorialQuestTask.SetReferences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PurchaseItemTutorialQuestTask();
-value.InitializeTaskOnLoad(0, item);
+// Typically call this after obtaining an instance from the subsystem API
+PurchaseItemTutorialQuestTask purchaseItemTutorialQuestTask = ...;
+purchaseItemTutorialQuestTask.InitializeTaskOnLoad(0, item);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ManagedScriptComponent"
+description: "Auto-generated class reference for ManagedScriptComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedScriptComponent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedScriptComponent
 
 **Namespace:** TaleWorlds.Engine
@@ -35,12 +29,24 @@ Treat `ManagedScriptComponent` as a Component-style extension point: first ident
 ### SetVariableEditorWidgetStatus
 `public void SetVariableEditorWidgetStatus(string field, bool enabled)`
 
-**Purpose:** Sets the value or state of `variable editor widget status`.
+**Purpose:** Assigns a new value to `variable editor widget status` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ManagedScriptComponent from the subsystem API first
+ManagedScriptComponent managedScriptComponent = ...;
+managedScriptComponent.SetVariableEditorWidgetStatus("example", false);
+```
 
 ### SetVariableEditorWidgetValue
 `public void SetVariableEditorWidgetValue(string field, RglScriptFieldType fieldType, double value)`
 
-**Purpose:** Sets the value or state of `variable editor widget value`.
+**Purpose:** Assigns a new value to `variable editor widget value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ManagedScriptComponent from the subsystem API first
+ManagedScriptComponent managedScriptComponent = ...;
+managedScriptComponent.SetVariableEditorWidgetValue("example", fieldType, 0);
+```
 
 ## Usage Example
 
@@ -50,4 +56,4 @@ var component = agent.GetComponent<ManagedScriptComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

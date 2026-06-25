@@ -1,20 +1,14 @@
 ---
 title: "SkirmishScoreboardData"
+description: "Auto-generated class reference for SkirmishScoreboardData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkirmishScoreboardData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkirmishScoreboardData
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SkirmishScoreboardData : IScoreboardData`
 **Base:** `IScoreboardData`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/SkirmishScoreboardData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/SkirmishScoreboardData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `SkirmishScoreboardData` as a Data-style extension point: first identify w
 ### GetScoreboardHeaders
 `public ScoreboardHeader GetScoreboardHeaders()`
 
-**Purpose:** Gets the current value of `scoreboard headers`.
+**Purpose:** Reads and returns the `scoreboard headers` value held by the current object.
+
+```csharp
+// Obtain an instance of SkirmishScoreboardData from the subsystem API first
+SkirmishScoreboardData skirmishScoreboardData = ...;
+var result = skirmishScoreboardData.GetScoreboardHeaders();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkirmishScoreboardData();
+// This data object is usually returned by campaign/mission APIs
+SkirmishScoreboardData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultLocationModel"
+description: "Auto-generated class reference for DefaultLocationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultLocationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultLocationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,22 +23,46 @@ Treat `DefaultLocationModel` as a Model-style extension point: first identify wh
 ### GetSettlementUpgradeLevel
 `public override int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
 
-**Purpose:** Gets the current value of `settlement upgrade level`.
+**Purpose:** Reads and returns the `settlement upgrade level` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultLocationModel from the subsystem API first
+DefaultLocationModel defaultLocationModel = ...;
+var result = defaultLocationModel.GetSettlementUpgradeLevel(locationEncounter);
+```
 
 ### GetCivilianSceneLevel
 `public override string GetCivilianSceneLevel(Settlement settlement)`
 
-**Purpose:** Gets the current value of `civilian scene level`.
+**Purpose:** Reads and returns the `civilian scene level` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultLocationModel from the subsystem API first
+DefaultLocationModel defaultLocationModel = ...;
+var result = defaultLocationModel.GetCivilianSceneLevel(settlement);
+```
 
 ### GetCivilianUpgradeLevelTag
 `public override string GetCivilianUpgradeLevelTag(int upgradeLevel)`
 
-**Purpose:** Gets the current value of `civilian upgrade level tag`.
+**Purpose:** Reads and returns the `civilian upgrade level tag` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultLocationModel from the subsystem API first
+DefaultLocationModel defaultLocationModel = ...;
+var result = defaultLocationModel.GetCivilianUpgradeLevelTag(0);
+```
 
 ### GetUpgradeLevelTag
 `public override string GetUpgradeLevelTag(int upgradeLevel)`
 
-**Purpose:** Gets the current value of `upgrade level tag`.
+**Purpose:** Reads and returns the `upgrade level tag` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultLocationModel from the subsystem API first
+DefaultLocationModel defaultLocationModel = ...;
+var result = defaultLocationModel.GetUpgradeLevelTag(0);
+```
 
 ## Usage Example
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultLocationModel>(new MyDefaultLocationModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

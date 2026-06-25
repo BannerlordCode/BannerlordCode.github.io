@@ -1,19 +1,13 @@
 ---
 title: "IBattlePowerCalculationLogic"
+description: "Auto-generated class reference for IBattlePowerCalculationLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBattlePowerCalculationLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IBattlePowerCalculationLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
+**Type:** `public interface IBattlePowerCalculationLogic : IMissionBehavior`
+**Base:** `IMissionBehavior`
 **File:** `TaleWorlds.MountAndBlade/IBattlePowerCalculationLogic.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Treat `IBattlePowerCalculationLogic` as a Logic-style extension point: first ide
 ## Usage Example
 
 ```csharp
-IBattlePowerCalculationLogic implementation = GetBattlePowerCalculationLogicImplementation();
+// Usually obtained through DI or a factory method
+IIBattlePowerCalculationLogic service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

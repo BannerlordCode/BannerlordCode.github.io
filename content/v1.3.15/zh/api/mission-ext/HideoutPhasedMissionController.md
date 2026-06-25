@@ -1,13 +1,7 @@
 ---
 title: "HideoutPhasedMissionController"
+description: "HideoutPhasedMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HideoutPhasedMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HideoutPhasedMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
@@ -35,17 +29,35 @@ title: "HideoutPhasedMissionController"
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutPhasedMissionController 实例
+HideoutPhasedMissionController hideoutPhasedMissionController = ...;
+hideoutPhasedMissionController.OnMissionTick(0);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutPhasedMissionController 实例
+HideoutPhasedMissionController hideoutPhasedMissionController = ...;
+hideoutPhasedMissionController.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HideoutPhasedMissionController 实例
+HideoutPhasedMissionController hideoutPhasedMissionController = ...;
+hideoutPhasedMissionController.AfterStart();
+```
 
 ## 使用示例
 
@@ -55,4 +67,4 @@ var controller = Mission.Current.GetMissionBehavior<HideoutPhasedMissionControll
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

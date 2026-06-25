@@ -1,20 +1,14 @@
 ---
 title: "FireBallista"
+description: "Auto-generated class reference for FireBallista."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FireBallista`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FireBallista
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FireBallista : Ballista`
 **Base:** `Ballista`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FireBallista.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FireBallista.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Gets the current value of `siege engine type`.
+**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+
+```csharp
+// Obtain an instance of FireBallista from the subsystem API first
+FireBallista fireBallista = ...;
+var result = fireBallista.GetSiegeEngineType();
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Handles logic related to `process target value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FireBallista from the subsystem API first
+FireBallista fireBallista = ...;
+var result = fireBallista.ProcessTargetValue(0, flags);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FireBallista();
-value.GetSiegeEngineType();
+// Typically call this after obtaining an instance from the subsystem API
+FireBallista fireBallista = ...;
+fireBallista.GetSiegeEngineType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ShipHelper"
+description: "Auto-generated class reference for ShipHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class ShipHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/ShipHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/ShipHelper.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Treat `ShipHelper` as a Helper-style extension point: first identify who creates
 ### GetShipBanner
 `public static Banner GetShipBanner(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**Purpose:** Gets the current value of `ship banner`.
+**Purpose:** Reads and returns the `ship banner` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ShipHelper.GetShipBanner(shipOrigin, null);
+```
 
 ### GetShipBanner
 `public static Banner GetShipBanner(PartyBase party = null)`
 
-**Purpose:** Gets the current value of `ship banner`.
+**Purpose:** Reads and returns the `ship banner` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ShipHelper.GetShipBanner(null);
+```
 
 ### GetOrderedNavalRaidShipsOfPlayerParty
 `public static List<Ship> GetOrderedNavalRaidShipsOfPlayerParty()`
 
-**Purpose:** Gets the current value of `ordered naval raid ships of player party`.
+**Purpose:** Reads and returns the `ordered naval raid ships of player party` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ShipHelper.GetOrderedNavalRaidShipsOfPlayerParty();
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ ShipHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

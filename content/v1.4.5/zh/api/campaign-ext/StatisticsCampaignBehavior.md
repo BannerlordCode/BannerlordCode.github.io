@@ -1,20 +1,14 @@
 ---
 title: "StatisticsCampaignBehavior"
+description: "StatisticsCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StatisticsCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StatisticsCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
 **Module:** SandBox.CampaignBehaviors
 **Type:** `public class StatisticsCampaignBehavior : CampaignBehaviorBase, IStatisticsCampaignBehavior, ICampaignBehavior`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.CampaignBehaviors/StatisticsCampaignBehavior.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/StatisticsCampaignBehavior.cs`
 
 ## 概述
 
@@ -29,220 +23,473 @@ title: "StatisticsCampaignBehavior"
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.RegisterEvents();
+```
 
 ### OnDefectionPersuasionSucess
 `public void OnDefectionPersuasionSucess()`
 
-**用途 / Purpose:** 当 `defection persuasion sucess` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「defection persuasion sucess」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.OnDefectionPersuasionSucess();
+```
 
 ### OnPlayerAcceptedRansomOffer
 `public void OnPlayerAcceptedRansomOffer(int ransomPrice)`
 
-**用途 / Purpose:** 当 `player accepted ransom offer` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player accepted ransom offer」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.OnPlayerAcceptedRansomOffer(0);
+```
 
 ### GetHighestTournamentRank
 `public int GetHighestTournamentRank()`
 
-**用途 / Purpose:** 获取 `highest tournament rank` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「highest tournament rank」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetHighestTournamentRank();
+```
 
 ### GetNumberOfTournamentWins
 `public int GetNumberOfTournamentWins()`
 
-**用途 / Purpose:** 获取 `number of tournament wins` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of tournament wins」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTournamentWins();
+```
 
 ### GetNumberOfChildrenBorn
 `public int GetNumberOfChildrenBorn()`
 
-**用途 / Purpose:** 获取 `number of children born` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of children born」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfChildrenBorn();
+```
 
 ### GetNumberOfPrisonersRecruited
 `public int GetNumberOfPrisonersRecruited()`
 
-**用途 / Purpose:** 获取 `number of prisoners recruited` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of prisoners recruited」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfPrisonersRecruited();
+```
 
 ### GetNumberOfTroopsRecruited
 `public int GetNumberOfTroopsRecruited()`
 
-**用途 / Purpose:** 获取 `number of troops recruited` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of troops recruited」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTroopsRecruited();
+```
 
 ### GetNumberOfClansDefected
 `public int GetNumberOfClansDefected()`
 
-**用途 / Purpose:** 获取 `number of clans defected` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of clans defected」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfClansDefected();
+```
 
 ### GetNumberOfIssuesSolved
 `public int GetNumberOfIssuesSolved()`
 
-**用途 / Purpose:** 获取 `number of issues solved` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of issues solved」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfIssuesSolved();
+```
 
 ### GetTotalInfluenceEarned
 `public int GetTotalInfluenceEarned()`
 
-**用途 / Purpose:** 获取 `total influence earned` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total influence earned」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalInfluenceEarned();
+```
 
 ### GetTotalCrimeRatingGained
 `public int GetTotalCrimeRatingGained()`
 
-**用途 / Purpose:** 获取 `total crime rating gained` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total crime rating gained」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalCrimeRatingGained();
+```
 
 ### GetNumberOfBattlesWon
 `public int GetNumberOfBattlesWon()`
 
-**用途 / Purpose:** 获取 `number of battles won` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of battles won」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfBattlesWon();
+```
 
 ### GetNumberOfBattlesLost
 `public int GetNumberOfBattlesLost()`
 
-**用途 / Purpose:** 获取 `number of battles lost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of battles lost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfBattlesLost();
+```
 
 ### GetLargestBattleWonAsLeader
 `public int GetLargestBattleWonAsLeader()`
 
-**用途 / Purpose:** 获取 `largest battle won as leader` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「largest battle won as leader」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetLargestBattleWonAsLeader();
+```
 
 ### GetLargestArmyFormedByPlayer
 `public int GetLargestArmyFormedByPlayer()`
 
-**用途 / Purpose:** 获取 `largest army formed by player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「largest army formed by player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetLargestArmyFormedByPlayer();
+```
 
 ### GetNumberOfEnemyClansDestroyed
 `public int GetNumberOfEnemyClansDestroyed()`
 
-**用途 / Purpose:** 获取 `number of enemy clans destroyed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of enemy clans destroyed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfEnemyClansDestroyed();
+```
 
 ### GetNumberOfHeroesKilledInBattle
 `public int GetNumberOfHeroesKilledInBattle()`
 
-**用途 / Purpose:** 获取 `number of heroes killed in battle` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of heroes killed in battle」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfHeroesKilledInBattle();
+```
 
 ### GetNumberOfTroopsKnockedOrKilledAsParty
 `public int GetNumberOfTroopsKnockedOrKilledAsParty()`
 
-**用途 / Purpose:** 获取 `number of troops knocked or killed as party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of troops knocked or killed as party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTroopsKnockedOrKilledAsParty();
+```
 
 ### GetNumberOfTroopsKnockedOrKilledByPlayer
 `public int GetNumberOfTroopsKnockedOrKilledByPlayer()`
 
-**用途 / Purpose:** 获取 `number of troops knocked or killed by player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of troops knocked or killed by player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTroopsKnockedOrKilledByPlayer();
+```
 
 ### GetNumberOfHeroPrisonersTaken
 `public int GetNumberOfHeroPrisonersTaken()`
 
-**用途 / Purpose:** 获取 `number of hero prisoners taken` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of hero prisoners taken」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfHeroPrisonersTaken();
+```
 
 ### GetNumberOfTroopPrisonersTaken
 `public int GetNumberOfTroopPrisonersTaken()`
 
-**用途 / Purpose:** 获取 `number of troop prisoners taken` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of troop prisoners taken」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTroopPrisonersTaken();
+```
 
 ### GetNumberOfTownsCaptured
 `public int GetNumberOfTownsCaptured()`
 
-**用途 / Purpose:** 获取 `number of towns captured` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of towns captured」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfTownsCaptured();
+```
 
 ### GetNumberOfHideoutsCleared
 `public int GetNumberOfHideoutsCleared()`
 
-**用途 / Purpose:** 获取 `number of hideouts cleared` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of hideouts cleared」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfHideoutsCleared();
+```
 
 ### GetNumberOfCastlesCaptured
 `public int GetNumberOfCastlesCaptured()`
 
-**用途 / Purpose:** 获取 `number of castles captured` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of castles captured」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfCastlesCaptured();
+```
 
 ### GetNumberOfVillagesRaided
 `public int GetNumberOfVillagesRaided()`
 
-**用途 / Purpose:** 获取 `number of villages raided` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of villages raided」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfVillagesRaided();
+```
 
 ### GetNumberOfCraftingPartsUnlocked
 `public int GetNumberOfCraftingPartsUnlocked()`
 
-**用途 / Purpose:** 获取 `number of crafting parts unlocked` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of crafting parts unlocked」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfCraftingPartsUnlocked();
+```
 
 ### GetNumberOfWeaponsCrafted
 `public int GetNumberOfWeaponsCrafted()`
 
-**用途 / Purpose:** 获取 `number of weapons crafted` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of weapons crafted」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfWeaponsCrafted();
+```
 
 ### GetNumberOfCraftingOrdersCompleted
 `public int GetNumberOfCraftingOrdersCompleted()`
 
-**用途 / Purpose:** 获取 `number of crafting orders completed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of crafting orders completed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfCraftingOrdersCompleted();
+```
 
 ### GetNumberOfCompanionsHired
 `public int GetNumberOfCompanionsHired()`
 
-**用途 / Purpose:** 获取 `number of companions hired` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「number of companions hired」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetNumberOfCompanionsHired();
+```
 
 ### GetTimeSpentAsPrisoner
 `public CampaignTime GetTimeSpentAsPrisoner()`
 
-**用途 / Purpose:** 获取 `time spent as prisoner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「time spent as prisoner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTimeSpentAsPrisoner();
+```
 
 ### GetTotalTimePlayedInSeconds
 `public ulong GetTotalTimePlayedInSeconds()`
 
-**用途 / Purpose:** 获取 `total time played in seconds` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total time played in seconds」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalTimePlayedInSeconds();
+```
 
 ### GetTotalDenarsEarned
 `public ulong GetTotalDenarsEarned()`
 
-**用途 / Purpose:** 获取 `total denars earned` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total denars earned」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalDenarsEarned();
+```
 
 ### GetDenarsEarnedFromCaravans
 `public ulong GetDenarsEarnedFromCaravans()`
 
-**用途 / Purpose:** 获取 `denars earned from caravans` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「denars earned from caravans」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromCaravans();
+```
 
 ### GetDenarsEarnedFromWorkshops
 `public ulong GetDenarsEarnedFromWorkshops()`
 
-**用途 / Purpose:** 获取 `denars earned from workshops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「denars earned from workshops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromWorkshops();
+```
 
 ### GetDenarsEarnedFromRansoms
 `public ulong GetDenarsEarnedFromRansoms()`
 
-**用途 / Purpose:** 获取 `denars earned from ransoms` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「denars earned from ransoms」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromRansoms();
+```
 
 ### GetDenarsEarnedFromTaxes
 `public ulong GetDenarsEarnedFromTaxes()`
 
-**用途 / Purpose:** 获取 `denars earned from taxes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「denars earned from taxes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromTaxes();
+```
 
 ### GetDenarsEarnedFromTributes
 `public ulong GetDenarsEarnedFromTributes()`
 
-**用途 / Purpose:** 获取 `denars earned from tributes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「denars earned from tributes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsEarnedFromTributes();
+```
 
 ### GetDenarsPaidAsTributes
 `public ulong GetDenarsPaidAsTributes()`
 
-**用途 / Purpose:** 获取 `denars paid as tributes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「denars paid as tributes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetDenarsPaidAsTributes();
+```
 
 ### GetTotalTimePlayed
 `public CampaignTime GetTotalTimePlayed()`
 
-**用途 / Purpose:** 获取 `total time played` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total time played」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StatisticsCampaignBehavior 实例
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+var result = statisticsCampaignBehavior.GetTotalTimePlayed();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StatisticsCampaignBehavior();
-value.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+// 通常从对应子系统 API 获取实例后调用
+StatisticsCampaignBehavior statisticsCampaignBehavior = ...;
+statisticsCampaignBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

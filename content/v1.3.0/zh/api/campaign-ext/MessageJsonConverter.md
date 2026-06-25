@@ -1,13 +1,7 @@
 ---
 title: "MessageJsonConverter"
+description: "MessageJsonConverter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MessageJsonConverter`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MessageJsonConverter
 
 **Namespace:** TaleWorlds.Diamond
@@ -35,25 +29,44 @@ title: "MessageJsonConverter"
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `convert`。
+**用途 / Purpose:** 检查当前对象是否满足 「convert」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MessageJsonConverter 实例
+MessageJsonConverter messageJsonConverter = ...;
+var result = messageJsonConverter.CanConvert(objectType);
+```
 
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**用途 / Purpose:** 处理 `read json` 相关逻辑。
+**用途 / Purpose:** 读取「json」的数据或状态。
+
+```csharp
+// 先通过子系统 API 拿到 MessageJsonConverter 实例
+MessageJsonConverter messageJsonConverter = ...;
+var result = messageJsonConverter.ReadJson(reader, objectType, existingValue, serializer);
+```
 
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**用途 / Purpose:** 处理 `write json` 相关逻辑。
+**用途 / Purpose:** 将「json」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 MessageJsonConverter 实例
+MessageJsonConverter messageJsonConverter = ...;
+messageJsonConverter.WriteJson(writer, value, serializer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MessageJsonConverter();
-value.CanConvert(objectType);
+// 通常从对应子系统 API 获取实例后调用
+MessageJsonConverter messageJsonConverter = ...;
+messageJsonConverter.CanConvert(objectType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

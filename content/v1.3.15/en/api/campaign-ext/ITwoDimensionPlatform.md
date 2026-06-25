@@ -1,18 +1,12 @@
 ---
 title: "ITwoDimensionPlatform"
+description: "Auto-generated class reference for ITwoDimensionPlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ITwoDimensionPlatform`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ITwoDimensionPlatform
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public interface ITwoDimensionPlatform`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension/ITwoDimensionPlatform.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-ITwoDimensionPlatform implementation = GetTwoDimensionPlatformImplementation();
+// Usually obtained through DI or a factory method
+IITwoDimensionPlatform service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

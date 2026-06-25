@@ -1,19 +1,14 @@
 ---
 title: "ContainerHeaderLoadData"
+description: "ContainerHeaderLoadData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ContainerHeaderLoadData`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ContainerHeaderLoadData
 
-**命名空间:** TaleWorlds.SaveSystem.Load
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public class ContainerHeaderLoadData`
-**领域:** save-system
+**Namespace:** TaleWorlds.SaveSystem.Load
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class ContainerHeaderLoadData`
+**Base:** 无
+**File:** `TaleWorlds.SaveSystem/Load/ContainerHeaderLoadData.cs`
 
 ## 概述
 
@@ -40,25 +35,43 @@ title: "ContainerHeaderLoadData"
 ### GetObjectTypeDefinition
 `public bool GetObjectTypeDefinition()`
 
-**用途 / Purpose:** 获取 `object type definition` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「object type definition」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ContainerHeaderLoadData 实例
+ContainerHeaderLoadData containerHeaderLoadData = ...;
+var result = containerHeaderLoadData.GetObjectTypeDefinition();
+```
 
 ### CreateObject
 `public void CreateObject()`
 
-**用途 / Purpose:** 创建一个 `object` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「object」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 ContainerHeaderLoadData 实例
+ContainerHeaderLoadData containerHeaderLoadData = ...;
+containerHeaderLoadData.CreateObject();
+```
 
 ### InitialieReaders
 `public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
 
-**用途 / Purpose:** 初始化 `ialie readers` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「ialie readers」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 ContainerHeaderLoadData 实例
+ContainerHeaderLoadData containerHeaderLoadData = ...;
+containerHeaderLoadData.InitialieReaders(saveEntryFolder);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ContainerHeaderLoadData();
+// 该数据对象通常由战役/任务 API 返回
+ContainerHeaderLoadData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

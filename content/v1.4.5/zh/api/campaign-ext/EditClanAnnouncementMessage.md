@@ -1,20 +1,14 @@
 ---
 title: "EditClanAnnouncementMessage"
+description: "EditClanAnnouncementMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EditClanAnnouncementMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditClanAnnouncementMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class EditClanAnnouncementMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/EditClanAnnouncementMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/EditClanAnnouncementMessage.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "EditClanAnnouncementMessage"
 ## 使用示例
 
 ```csharp
-var example = new EditClanAnnouncementMessage();
+// 从对应子系统 API 获取实例
+EditClanAnnouncementMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

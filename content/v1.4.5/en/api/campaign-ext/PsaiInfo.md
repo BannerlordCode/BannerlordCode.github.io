@@ -1,20 +1,14 @@
 ---
 title: "PsaiInfo"
+description: "Auto-generated class reference for PsaiInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PsaiInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PsaiInfo
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public struct PsaiInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/PsaiInfo.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/PsaiInfo.cs`
 
 ## Overview
 
@@ -45,9 +39,10 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var example = new PsaiInfo();
+// Obtain an instance from the relevant subsystem API
+PsaiInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

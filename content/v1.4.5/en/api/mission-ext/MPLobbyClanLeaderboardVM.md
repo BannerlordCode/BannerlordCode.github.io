@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanLeaderboardVM"
+description: "Auto-generated class reference for MPLobbyClanLeaderboardVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanLeaderboardVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanLeaderboardVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanLeaderboardVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanLeaderboardVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanLeaderboardVM.cs`
 
 ## Overview
 
@@ -46,25 +40,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanLeaderboardVM from the subsystem API first
+MPLobbyClanLeaderboardVM mPLobbyClanLeaderboardVM = ...;
+mPLobbyClanLeaderboardVM.RefreshValues();
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Executes the `open popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanLeaderboardVM from the subsystem API first
+MPLobbyClanLeaderboardVM mPLobbyClanLeaderboardVM = ...;
+mPLobbyClanLeaderboardVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanLeaderboardVM from the subsystem API first
+MPLobbyClanLeaderboardVM mPLobbyClanLeaderboardVM = ...;
+mPLobbyClanLeaderboardVM.ExecuteClosePopup();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanLeaderboardVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanLeaderboardVM mPLobbyClanLeaderboardVM = ...;
+mPLobbyClanLeaderboardVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

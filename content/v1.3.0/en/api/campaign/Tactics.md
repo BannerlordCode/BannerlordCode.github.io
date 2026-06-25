@@ -1,13 +1,7 @@
 ---
 title: "Tactics"
+description: "Auto-generated class reference for Tactics."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Tactics`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Tactics
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
@@ -53,9 +47,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 ## Usage Example
 
 ```csharp
-var example = new Tactics();
+// Obtain an instance from the relevant subsystem API
+Tactics instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

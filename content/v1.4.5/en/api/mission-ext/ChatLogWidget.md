@@ -1,20 +1,14 @@
 ---
 title: "ChatLogWidget"
+description: "Auto-generated class reference for ChatLogWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChatLogWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChatLogWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ChatLogWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatLogWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat/ChatLogWidget.cs`
 
 ## Overview
 
@@ -47,19 +41,32 @@ Treat `ChatLogWidget` as a Widget-style extension point: first identify who crea
 ### RegisterMultiLineElement
 `public void RegisterMultiLineElement(ChatCollapsableListPanel element)`
 
-**Purpose:** Handles logic related to `register multi line element`.
+**Purpose:** Registers `multi line element` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ChatLogWidget from the subsystem API first
+ChatLogWidget chatLogWidget = ...;
+chatLogWidget.RegisterMultiLineElement(element);
+```
 
 ### RemoveMultiLineElement
 `public void RemoveMultiLineElement(ChatCollapsableListPanel element)`
 
 **Purpose:** Removes `multi line element` from the current collection or state.
 
+```csharp
+// Obtain an instance of ChatLogWidget from the subsystem API first
+ChatLogWidget chatLogWidget = ...;
+chatLogWidget.RemoveMultiLineElement(element);
+```
+
 ## Usage Example
 
 ```csharp
-var widget = new ChatLogWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ChatLogWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

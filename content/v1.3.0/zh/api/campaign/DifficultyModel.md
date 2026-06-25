@@ -1,13 +1,7 @@
 ---
 title: "DifficultyModel"
+description: "DifficultyModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DifficultyModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DifficultyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,54 +23,109 @@ title: "DifficultyModel"
 ### GetPlayerTroopsReceivedDamageMultiplier
 `public abstract float GetPlayerTroopsReceivedDamageMultiplier()`
 
-**用途 / Purpose:** 获取 `player troops received damage multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player troops received damage multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetPlayerTroopsReceivedDamageMultiplier();
+```
 
 ### GetDamageToPlayerMultiplier
 `public abstract float GetDamageToPlayerMultiplier()`
 
-**用途 / Purpose:** 获取 `damage to player multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「damage to player multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetDamageToPlayerMultiplier();
+```
 
 ### GetPlayerRecruitSlotBonus
 `public abstract int GetPlayerRecruitSlotBonus()`
 
-**用途 / Purpose:** 获取 `player recruit slot bonus` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player recruit slot bonus」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetPlayerRecruitSlotBonus();
+```
 
 ### GetPlayerMapMovementSpeedBonusMultiplier
 `public abstract float GetPlayerMapMovementSpeedBonusMultiplier()`
 
-**用途 / Purpose:** 获取 `player map movement speed bonus multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player map movement speed bonus multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetPlayerMapMovementSpeedBonusMultiplier();
+```
 
 ### GetCombatAIDifficultyMultiplier
 `public abstract float GetCombatAIDifficultyMultiplier()`
 
-**用途 / Purpose:** 获取 `combat a i difficulty multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「combat a i difficulty multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetCombatAIDifficultyMultiplier();
+```
 
 ### GetPersuasionBonusChance
 `public abstract float GetPersuasionBonusChance()`
 
-**用途 / Purpose:** 获取 `persuasion bonus chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「persuasion bonus chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetPersuasionBonusChance();
+```
 
 ### GetClanMemberDeathChanceMultiplier
 `public abstract float GetClanMemberDeathChanceMultiplier()`
 
-**用途 / Purpose:** 获取 `clan member death chance multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「clan member death chance multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetClanMemberDeathChanceMultiplier();
+```
 
 ### GetStealthDifficultyMultiplier
 `public abstract float GetStealthDifficultyMultiplier()`
 
-**用途 / Purpose:** 获取 `stealth difficulty multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「stealth difficulty multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetStealthDifficultyMultiplier();
+```
 
 ### GetDisguiseDifficultyMultiplier
 `public abstract float GetDisguiseDifficultyMultiplier()`
 
-**用途 / Purpose:** 获取 `disguise difficulty multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「disguise difficulty multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DifficultyModel 实例
+DifficultyModel difficultyModel = ...;
+var result = difficultyModel.GetDisguiseDifficultyMultiplier();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDifficultyModel();
+// 通常通过子系统 API 或工厂获得派生实例
+DifficultyModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

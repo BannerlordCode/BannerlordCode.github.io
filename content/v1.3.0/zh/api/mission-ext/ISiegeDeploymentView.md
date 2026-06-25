@@ -1,18 +1,12 @@
 ---
 title: "ISiegeDeploymentView"
+description: "ISiegeDeploymentView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ISiegeDeploymentView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISiegeDeploymentView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ISiegeDeploymentView`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/ISiegeDeploymentView.cs`
 
@@ -27,9 +21,10 @@ title: "ISiegeDeploymentView"
 ## 使用示例
 
 ```csharp
-ISiegeDeploymentView implementation = GetSiegeDeploymentViewImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IISiegeDeploymentView service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

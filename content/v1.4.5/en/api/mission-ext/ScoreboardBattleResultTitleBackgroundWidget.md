@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardBattleResultTitleBackgroundWidget"
+description: "Auto-generated class reference for ScoreboardBattleResultTitleBackgroundWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoreboardBattleResultTitleBackgroundWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardBattleResultTitleBackgroundWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardBattleResultTitleBackgroundWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardBattleResultTitleBackgroundWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardBattleResultTitleBackgroundWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `ScoreboardBattleResultTitleBackgroundWidget` as a Widget-style extension 
 ## Usage Example
 
 ```csharp
-var widget = new ScoreboardBattleResultTitleBackgroundWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScoreboardBattleResultTitleBackgroundWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PartyDiplomaticHandlerCampaignBehavior"
+description: "Auto-generated class reference for PartyDiplomaticHandlerCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyDiplomaticHandlerCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyDiplomaticHandlerCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,43 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PartyDiplomaticHandlerCampaignBehavior from the subsystem API first
+PartyDiplomaticHandlerCampaignBehavior partyDiplomaticHandlerCampaignBehavior = ...;
+partyDiplomaticHandlerCampaignBehavior.RegisterEvents();
+```
 
 ### hostile_action_end_by_peace_on_init
 `public static void hostile_action_end_by_peace_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `hostile_action_end_by_peace_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PartyDiplomaticHandlerCampaignBehavior.hostile_action_end_by_peace_on_init(args);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PartyDiplomaticHandlerCampaignBehavior from the subsystem API first
+PartyDiplomaticHandlerCampaignBehavior partyDiplomaticHandlerCampaignBehavior = ...;
+partyDiplomaticHandlerCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyDiplomaticHandlerCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PartyDiplomaticHandlerCampaignBehavior partyDiplomaticHandlerCampaignBehavior = ...;
+partyDiplomaticHandlerCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

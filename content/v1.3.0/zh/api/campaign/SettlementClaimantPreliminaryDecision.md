@@ -1,13 +1,7 @@
 ---
 title: "SettlementClaimantPreliminaryDecision"
+description: "SettlementClaimantPreliminaryDecision 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementClaimantPreliminaryDecision`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementClaimantPreliminaryDecision
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -29,125 +23,264 @@ title: "SettlementClaimantPreliminaryDecision"
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**用途 / Purpose:** 处理 `is allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.IsAllowed();
+```
 
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**用途 / Purpose:** 获取 `proposal influence cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「proposal influence cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetProposalInfluenceCost();
+```
 
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**用途 / Purpose:** 获取 `general title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「general title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetGeneralTitle();
+```
 
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**用途 / Purpose:** 获取 `support title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「support title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetSupportTitle();
+```
 
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**用途 / Purpose:** 获取 `choose title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「choose title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetChooseTitle();
+```
 
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**用途 / Purpose:** 获取 `support description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「support description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetSupportDescription();
+```
 
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**用途 / Purpose:** 获取 `choose description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「choose description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetChooseDescription();
+```
 
 ### CalculateMeritOfOutcome
 `public override float CalculateMeritOfOutcome(DecisionOutcome candidateOutcome)`
 
-**用途 / Purpose:** 处理 `calculate merit of outcome` 相关逻辑。
+**用途 / Purpose:** 计算「merit of outcome」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.CalculateMeritOfOutcome(candidateOutcome);
+```
 
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**用途 / Purpose:** 处理 `determine initial candidates` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「initial candidates」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.DetermineInitialCandidates();
+```
 
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**用途 / Purpose:** 处理 `determine chooser` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「chooser」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.DetermineChooser();
+```
 
 ### CalculateSupport
 `public float CalculateSupport(Clan clan)`
 
-**用途 / Purpose:** 处理 `calculate support` 相关逻辑。
+**用途 / Purpose:** 计算「support」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.CalculateSupport(clan);
+```
 
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**用途 / Purpose:** 处理 `determine support` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「support」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.DetermineSupport(clan, possibleOutcome);
+```
 
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** 处理 `determine sponsors` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「sponsors」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+settlementClaimantPreliminaryDecision.DetermineSponsors(possibleOutcomes);
+```
 
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**用途 / Purpose:** 将 `chosen outcome` 应用到当前对象。
+**用途 / Purpose:** 将 「chosen outcome」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+settlementClaimantPreliminaryDecision.ApplyChosenOutcome(chosenOutcome);
+```
 
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**用途 / Purpose:** 获取 `secondary effects` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「secondary effects」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetSecondaryEffects();
+```
 
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**用途 / Purpose:** 将 `secondary effects` 应用到当前对象。
+**用途 / Purpose:** 将 「secondary effects」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+settlementClaimantPreliminaryDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutcome);
+```
 
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
 
-**用途 / Purpose:** 获取 `chosen outcome text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「chosen outcome text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, false);
+```
 
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** 获取 `queried decision outcome` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「queried decision outcome」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetQueriedDecisionOutcome(possibleOutcomes);
+```
 
 ### GetFollowUpDecision
 `public override KingdomDecision GetFollowUpDecision()`
 
-**用途 / Purpose:** 获取 `follow up decision` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「follow up decision」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetFollowUpDecision();
+```
 
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** 获取 `decision title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** 获取 `decision description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**用途 / Purpose:** 获取 `decision link` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** 获取 `decision image identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementClaimantPreliminaryDecision 实例
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+var result = settlementClaimantPreliminaryDecision.GetDecisionImageIdentifier();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SettlementClaimantPreliminaryDecision();
-value.IsAllowed();
+// 通常从对应子系统 API 获取实例后调用
+SettlementClaimantPreliminaryDecision settlementClaimantPreliminaryDecision = ...;
+settlementClaimantPreliminaryDecision.IsAllowed();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

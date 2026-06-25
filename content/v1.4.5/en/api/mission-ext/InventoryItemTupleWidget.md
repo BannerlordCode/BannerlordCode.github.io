@@ -1,20 +1,14 @@
 ---
 title: "InventoryItemTupleWidget"
+description: "Auto-generated class reference for InventoryItemTupleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryItemTupleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryItemTupleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryItemTupleWidget : InventoryItemButtonWidget`
 **Base:** `InventoryItemButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryItemTupleWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryItemTupleWidget.cs`
 
 ## Overview
 
@@ -56,9 +50,10 @@ Treat `InventoryItemTupleWidget` as a Widget-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var widget = new InventoryItemTupleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InventoryItemTupleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

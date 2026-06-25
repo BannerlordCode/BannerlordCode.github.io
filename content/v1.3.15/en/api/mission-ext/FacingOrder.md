@@ -1,23 +1,18 @@
 ---
 title: "FacingOrder"
+description: "Auto-generated class reference for FacingOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FacingOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FacingOrder
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct FacingOrder`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/FacingOrder.cs`
 
 ## Overview
 
-`FacingOrder` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`FacingOrder` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,31 +29,52 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FacingOrderLookAtDirection
 `public static FacingOrder FacingOrderLookAtDirection(Vec2 direction)`
 
-**Purpose:** Handles logic related to `facing order look at direction`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+FacingOrder.FacingOrderLookAtDirection(direction);
+```
 
 ### GetDirection
 `public Vec2 GetDirection(Formation f, Agent targetAgent = null)`
 
-**Purpose:** Gets the current value of `direction`.
+**Purpose:** Reads and returns the `direction` value held by the current object.
+
+```csharp
+// Obtain an instance of FacingOrder from the subsystem API first
+FacingOrder facingOrder = ...;
+var result = facingOrder.GetDirection(f, null);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of FacingOrder from the subsystem API first
+FacingOrder facingOrder = ...;
+var result = facingOrder.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of FacingOrder from the subsystem API first
+FacingOrder facingOrder = ...;
+var result = facingOrder.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 FacingOrder.FacingOrderLookAtDirection(direction);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

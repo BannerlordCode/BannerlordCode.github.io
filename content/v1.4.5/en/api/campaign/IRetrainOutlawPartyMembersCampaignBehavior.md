@@ -1,20 +1,14 @@
 ---
 title: "IRetrainOutlawPartyMembersCampaignBehavior"
+description: "Auto-generated class reference for IRetrainOutlawPartyMembersCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IRetrainOutlawPartyMembersCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IRetrainOutlawPartyMembersCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/IRetrainOutlawPartyMembersCampaignBehavior.cs`
+**Type:** `public interface IRetrainOutlawPartyMembersCampaignBehavior : ICampaignBehavior`
+**Base:** `ICampaignBehavior`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/IRetrainOutlawPartyMembersCampaignBehavior.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ## Usage Example
 
 ```csharp
-IRetrainOutlawPartyMembersCampaignBehavior implementation = GetRetrainOutlawPartyMembersCampaignBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IIRetrainOutlawPartyMembersCampaignBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

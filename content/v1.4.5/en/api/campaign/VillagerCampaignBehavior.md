@@ -1,20 +1,14 @@
 ---
 title: "VillagerCampaignBehavior"
+description: "Auto-generated class reference for VillagerCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillagerCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillagerCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class VillagerCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/VillagerCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/VillagerCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,45 +23,88 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of VillagerCampaignBehavior from the subsystem API first
+VillagerCampaignBehavior villagerCampaignBehavior = ...;
+villagerCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of VillagerCampaignBehavior from the subsystem API first
+VillagerCampaignBehavior villagerCampaignBehavior = ...;
+villagerCampaignBehavior.SyncData(dataStore);
+```
 
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Handles logic related to `daily tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillagerCampaignBehavior from the subsystem API first
+VillagerCampaignBehavior villagerCampaignBehavior = ...;
+villagerCampaignBehavior.DailyTick();
+```
 
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of VillagerCampaignBehavior from the subsystem API first
+VillagerCampaignBehavior villagerCampaignBehavior = ...;
+villagerCampaignBehavior.OnSessionLaunched(campaignGameStarter);
+```
 
 ### taking_food_from_villagers_wait_on_condition
 `public bool taking_food_from_villagers_wait_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `taking_food_from_villagers_wait_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillagerCampaignBehavior from the subsystem API first
+VillagerCampaignBehavior villagerCampaignBehavior = ...;
+var result = villagerCampaignBehavior.taking_food_from_villagers_wait_on_condition(args);
+```
 
 ### press_into_service_confirm_on_condition
 `public bool press_into_service_confirm_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `press_into_service_confirm_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillagerCampaignBehavior from the subsystem API first
+VillagerCampaignBehavior villagerCampaignBehavior = ...;
+var result = villagerCampaignBehavior.press_into_service_confirm_on_condition(args);
+```
 
 ### taking_food_from_villagers_wait_on_consequence
 `public void taking_food_from_villagers_wait_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `taking_food_from_villagers_wait_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillagerCampaignBehavior from the subsystem API first
+VillagerCampaignBehavior villagerCampaignBehavior = ...;
+villagerCampaignBehavior.taking_food_from_villagers_wait_on_consequence(args);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VillagerCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+VillagerCampaignBehavior villagerCampaignBehavior = ...;
+villagerCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

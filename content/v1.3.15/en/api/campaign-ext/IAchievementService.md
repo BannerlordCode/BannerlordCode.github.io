@@ -1,18 +1,12 @@
 ---
 title: "IAchievementService"
+description: "Auto-generated class reference for IAchievementService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAchievementService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IAchievementService
 
 **Namespace:** TaleWorlds.AchievementSystem
 **Module:** TaleWorlds.AchievementSystem
-**Type:** `class`
+**Type:** `public interface IAchievementService`
 **Base:** none
 **File:** `TaleWorlds.AchievementSystem/IAchievementService.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.AchievementSystem` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-IAchievementService implementation = GetAchievementServiceImplementation();
+// Usually obtained through DI or a factory method
+IIAchievementService service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

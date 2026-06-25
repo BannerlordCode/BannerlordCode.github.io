@@ -1,13 +1,7 @@
 ---
 title: "ServiceException"
+description: "Auto-generated class reference for ServiceException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ServiceException`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServiceException
 
 **Namespace:** TaleWorlds.Network
@@ -34,9 +28,10 @@ Treat `ServiceException` as a Exception-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-try { CallServiceException(); } catch (ServiceException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (ServiceException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "WorkshopItemIncomeComparer"
+description: "Auto-generated class reference for WorkshopItemIncomeComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorkshopItemIncomeComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopItemIncomeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WorkshopItemIncomeComparer : WorkshopItemComparerBase`
 **Base:** `WorkshopItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public override int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of WorkshopItemIncomeComparer from the subsystem API first
+WorkshopItemIncomeComparer workshopItemIncomeComparer = ...;
+var result = workshopItemIncomeComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WorkshopItemIncomeComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+WorkshopItemIncomeComparer workshopItemIncomeComparer = ...;
+workshopItemIncomeComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

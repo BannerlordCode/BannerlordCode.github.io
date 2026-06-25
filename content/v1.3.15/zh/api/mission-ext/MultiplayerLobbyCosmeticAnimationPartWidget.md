@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyCosmeticAnimationPartWidget"
+description: "MultiplayerLobbyCosmeticAnimationPartWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerLobbyCosmeticAnimationPartWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyCosmeticAnimationPartWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
@@ -29,24 +23,43 @@ title: "MultiplayerLobbyCosmeticAnimationPartWidget"
 ### InitializeAnimationParameters
 `public void InitializeAnimationParameters()`
 
-**用途 / Purpose:** 初始化 `animation parameters` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「animation parameters」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLobbyCosmeticAnimationPartWidget 实例
+MultiplayerLobbyCosmeticAnimationPartWidget multiplayerLobbyCosmeticAnimationPartWidget = ...;
+multiplayerLobbyCosmeticAnimationPartWidget.InitializeAnimationParameters();
+```
 
 ### StartAnimation
 `public void StartAnimation(float alphaChangeDuration, float minAlpha, float maxAlpha)`
 
-**用途 / Purpose:** 处理 `start animation` 相关逻辑。
+**用途 / Purpose:** 启动「animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLobbyCosmeticAnimationPartWidget 实例
+MultiplayerLobbyCosmeticAnimationPartWidget multiplayerLobbyCosmeticAnimationPartWidget = ...;
+multiplayerLobbyCosmeticAnimationPartWidget.StartAnimation(0, 0, 0);
+```
 
 ### StopAnimation
 `public void StopAnimation()`
 
-**用途 / Purpose:** 处理 `stop animation` 相关逻辑。
+**用途 / Purpose:** 停止「animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLobbyCosmeticAnimationPartWidget 实例
+MultiplayerLobbyCosmeticAnimationPartWidget multiplayerLobbyCosmeticAnimationPartWidget = ...;
+multiplayerLobbyCosmeticAnimationPartWidget.StopAnimation();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MultiplayerLobbyCosmeticAnimationPartWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MultiplayerLobbyCosmeticAnimationPartWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

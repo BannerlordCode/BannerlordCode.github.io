@@ -1,24 +1,18 @@
 ---
 title: "FileDriver"
+description: "FileDriver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FileDriver`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FileDriver
 
-**命名空间:** TaleWorlds.SaveSystem
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public class FileDriver : ISaveDriver`
+**Namespace:** TaleWorlds.SaveSystem
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class FileDriver : ISaveDriver`
 **Base:** `ISaveDriver`
-**领域:** save-system
+**File:** `TaleWorlds.SaveSystem/FileDriver.cs`
 
 ## 概述
 
-`FileDriver` 位于 `TaleWorlds.SaveSystem`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`FileDriver` 位于 `TaleWorlds.SaveSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -35,56 +29,107 @@ title: "FileDriver"
 ### GetSaveFilePath
 `public static PlatformFilePath GetSaveFilePath(string fileName)`
 
-**用途 / Purpose:** 获取 `save file path` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save file path」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FileDriver.GetSaveFilePath("example");
+```
 
 ### Save
 `public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`
 
-**用途 / Purpose:** 保存 `save` 数据。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 FileDriver 实例
+FileDriver fileDriver = ...;
+var result = fileDriver.Save("example", 0, metaData, gameData);
+```
 
 ### LoadMetaData
 `public MetaData LoadMetaData(string saveName)`
 
-**用途 / Purpose:** 加载 `meta data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「meta data」。
+
+```csharp
+// 先通过子系统 API 拿到 FileDriver 实例
+FileDriver fileDriver = ...;
+var result = fileDriver.LoadMetaData("example");
+```
 
 ### Load
 `public LoadData Load(string saveName)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 先通过子系统 API 拿到 FileDriver 实例
+FileDriver fileDriver = ...;
+var result = fileDriver.Load("example");
+```
 
 ### GetSaveGameFileInfos
 `public SaveGameFileInfo GetSaveGameFileInfos()`
 
-**用途 / Purpose:** 获取 `save game file infos` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save game file infos」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FileDriver 实例
+FileDriver fileDriver = ...;
+var result = fileDriver.GetSaveGameFileInfos();
+```
 
 ### GetSaveGameFileNames
 `public string GetSaveGameFileNames()`
 
-**用途 / Purpose:** 获取 `save game file names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save game file names」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FileDriver 实例
+FileDriver fileDriver = ...;
+var result = fileDriver.GetSaveGameFileNames();
+```
 
 ### Delete
 `public bool Delete(string saveName)`
 
-**用途 / Purpose:** 处理 `delete` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FileDriver 实例
+FileDriver fileDriver = ...;
+var result = fileDriver.Delete("example");
+```
 
 ### IsSaveGameFileExists
 `public bool IsSaveGameFileExists(string saveName)`
 
-**用途 / Purpose:** 处理 `is save game file exists` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「save game file exists」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 FileDriver 实例
+FileDriver fileDriver = ...;
+var result = fileDriver.IsSaveGameFileExists("example");
+```
 
 ### IsWorkingAsync
 `public bool IsWorkingAsync()`
 
-**用途 / Purpose:** 处理 `is working async` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「working async」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 FileDriver 实例
+FileDriver fileDriver = ...;
+var result = fileDriver.IsWorkingAsync();
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 FileDriver.GetSaveFilePath("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

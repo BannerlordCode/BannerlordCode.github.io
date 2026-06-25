@@ -1,20 +1,14 @@
 ---
 title: "RECT"
+description: "RECT 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RECT`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RECT
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public struct RECT`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.Windows/DXGI.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "RECT"
 ### Equals
 `public override bool Equals(object o)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 RECT 实例
+RECT rECT = ...;
+var result = rECT.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 RECT 实例
+RECT rECT = ...;
+var result = rECT.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RECT();
-value.Equals(o);
+// 通常从对应子系统 API 获取实例后调用
+RECT rECT = ...;
+rECT.Equals(o);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

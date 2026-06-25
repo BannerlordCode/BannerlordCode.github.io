@@ -1,13 +1,7 @@
 ---
 title: "CounterTextBrushWidget"
+description: "Auto-generated class reference for CounterTextBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CounterTextBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CounterTextBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -42,19 +36,32 @@ Treat `CounterTextBrushWidget` as a Widget-style extension point: first identify
 ### SetInitialValue
 `public void SetInitialValue(float value)`
 
-**Purpose:** Sets the value or state of `initial value`.
+**Purpose:** Assigns a new value to `initial value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CounterTextBrushWidget from the subsystem API first
+CounterTextBrushWidget counterTextBrushWidget = ...;
+counterTextBrushWidget.SetInitialValue(0);
+```
 
 ### ForceSetValue
 `public void ForceSetValue(float value)`
 
-**Purpose:** Handles logic related to `force set value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CounterTextBrushWidget from the subsystem API first
+CounterTextBrushWidget counterTextBrushWidget = ...;
+counterTextBrushWidget.ForceSetValue(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CounterTextBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CounterTextBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

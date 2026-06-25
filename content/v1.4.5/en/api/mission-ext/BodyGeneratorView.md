@@ -1,20 +1,14 @@
 ---
 title: "BodyGeneratorView"
+description: "Auto-generated class reference for BodyGeneratorView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BodyGeneratorView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BodyGeneratorView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BodyGeneratorView : IFaceGeneratorHandler`
 **Base:** `IFaceGeneratorHandler`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator/BodyGeneratorView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator/BodyGeneratorView.cs`
 
 ## Overview
 
@@ -38,44 +32,84 @@ Treat `BodyGeneratorView` as a View-style extension point: first identify who cr
 ### ResetFaceToDefault
 `public void ResetFaceToDefault()`
 
-**Purpose:** Resets `face to default` to its initial state.
+**Purpose:** Returns `face to default` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BodyGeneratorView from the subsystem API first
+BodyGeneratorView bodyGeneratorView = ...;
+bodyGeneratorView.ResetFaceToDefault();
+```
 
 ### FaceGenShowDebug
 `public static string FaceGenShowDebug(List<string> strings)`
 
-**Purpose:** Handles logic related to `face gen show debug`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BodyGeneratorView.FaceGenShowDebug(strings);
+```
 
 ### FaceGenUpdateDeformKeys
 `public static string FaceGenUpdateDeformKeys(List<string> strings)`
 
-**Purpose:** Handles logic related to `face gen update deform keys`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BodyGeneratorView.FaceGenUpdateDeformKeys(strings);
+```
 
 ### ReadyToRender
 `public bool ReadyToRender()`
 
-**Purpose:** Handles logic related to `ready to render`.
+**Purpose:** Reads the data or state of `y to render`.
+
+```csharp
+// Obtain an instance of BodyGeneratorView from the subsystem API first
+BodyGeneratorView bodyGeneratorView = ...;
+var result = bodyGeneratorView.ReadyToRender();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of BodyGeneratorView from the subsystem API first
+BodyGeneratorView bodyGeneratorView = ...;
+bodyGeneratorView.OnTick(0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of BodyGeneratorView from the subsystem API first
+BodyGeneratorView bodyGeneratorView = ...;
+bodyGeneratorView.OnFinalize();
+```
 
 ### InitCamera
 `public static MatrixFrame InitCamera(Camera camera, Vec3 cameraPosition)`
 
-**Purpose:** Initializes the state, resources, or bindings for `camera`.
+**Purpose:** Prepares the resources, state, or bindings required by `camera`.
+
+```csharp
+// Static call; no instance required
+BodyGeneratorView.InitCamera(camera, cameraPosition);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new BodyGeneratorView();
+// Retrieve this view from the subsystem API or scene
+BodyGeneratorView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

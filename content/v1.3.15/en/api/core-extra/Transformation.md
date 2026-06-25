@@ -1,23 +1,18 @@
 ---
 title: "Transformation"
+description: "Auto-generated class reference for Transformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Transformation`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Transformation
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Transformation`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Library/Transformation.cs`
 
 ## Overview
 
-`Transformation` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Transformation` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,66 +30,128 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CreateFromMatrixFrame
 `public static Transformation CreateFromMatrixFrame(MatrixFrame matrixFrame)`
 
-**Purpose:** Creates a new `from matrix frame` instance or object.
+**Purpose:** Constructs a new `from matrix frame` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Transformation.CreateFromMatrixFrame(matrixFrame);
+```
 
 ### CreateFromRotation
 `public static Transformation CreateFromRotation(Mat3 rotation)`
 
-**Purpose:** Creates a new `from rotation` instance or object.
+**Purpose:** Constructs a new `from rotation` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Transformation.CreateFromRotation(rotation);
+```
 
 ### TransformToParent
 `public Vec3 TransformToParent(Vec3 v)`
 
-**Purpose:** Handles logic related to `transform to parent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+var result = transformation.TransformToParent(v);
+```
 
 ### TransformToParent
 `public Transformation TransformToParent(Transformation t)`
 
-**Purpose:** Handles logic related to `transform to parent`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+var result = transformation.TransformToParent(t);
+```
 
 ### TransformToLocal
 `public Vec3 TransformToLocal(Vec3 v)`
 
-**Purpose:** Handles logic related to `transform to local`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+var result = transformation.TransformToLocal(v);
+```
 
 ### TransformToLocal
 `public Transformation TransformToLocal(Transformation t)`
 
-**Purpose:** Handles logic related to `transform to local`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+var result = transformation.TransformToLocal(t);
+```
 
 ### Rotate
 `public void Rotate(float radian, Vec3 axis)`
 
-**Purpose:** Handles logic related to `rotate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+transformation.Rotate(0, axis);
+```
 
 ### ApplyScale
 `public void ApplyScale(Vec3 vec3)`
 
-**Purpose:** Applies `scale` to the current object.
+**Purpose:** Applies the effect of `scale` to the current object.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+transformation.ApplyScale(vec3);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+var result = transformation.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+var result = transformation.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Transformation from the subsystem API first
+Transformation transformation = ...;
+var result = transformation.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 Transformation.CreateFromMatrixFrame(matrixFrame);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "IMoveableSiegeWeapon"
+description: "Auto-generated class reference for IMoveableSiegeWeapon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMoveableSiegeWeapon`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMoveableSiegeWeapon
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMoveableSiegeWeapon`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IMoveableSiegeWeapon.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IMoveableSiegeWeapon implementation = GetMoveableSiegeWeaponImplementation();
+// Usually obtained through DI or a factory method
+IIMoveableSiegeWeapon service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

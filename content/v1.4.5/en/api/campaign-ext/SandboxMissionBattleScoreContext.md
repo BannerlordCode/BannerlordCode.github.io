@@ -1,20 +1,14 @@
 ---
 title: "SandboxMissionBattleScoreContext"
+description: "Auto-generated class reference for SandboxMissionBattleScoreContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxMissionBattleScoreContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxMissionBattleScoreContext
 
 **Namespace:** SandBox.Missions.BattleScore
 **Module:** SandBox.Missions
 **Type:** `public class SandboxMissionBattleScoreContext : BattleScoreContext`
 **Base:** `BattleScoreContext`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.BattleScore/SandboxMissionBattleScoreContext.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.BattleScore/SandboxMissionBattleScoreContext.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox.Missions.BattleScore` to place it in the stack, th
 ### GetAttackerBanner
 `public override Banner GetAttackerBanner()`
 
-**Purpose:** Gets the current value of `attacker banner`.
+**Purpose:** Reads and returns the `attacker banner` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxMissionBattleScoreContext from the subsystem API first
+SandboxMissionBattleScoreContext sandboxMissionBattleScoreContext = ...;
+var result = sandboxMissionBattleScoreContext.GetAttackerBanner();
+```
 
 ### GetDefenderBanner
 `public override Banner GetDefenderBanner()`
 
-**Purpose:** Gets the current value of `defender banner`.
+**Purpose:** Reads and returns the `defender banner` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxMissionBattleScoreContext from the subsystem API first
+SandboxMissionBattleScoreContext sandboxMissionBattleScoreContext = ...;
+var result = sandboxMissionBattleScoreContext.GetDefenderBanner();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SandboxMissionBattleScoreContext();
-value.GetAttackerBanner();
+// Typically call this after obtaining an instance from the subsystem API
+SandboxMissionBattleScoreContext sandboxMissionBattleScoreContext = ...;
+sandboxMissionBattleScoreContext.GetAttackerBanner();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

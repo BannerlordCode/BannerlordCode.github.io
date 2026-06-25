@@ -1,13 +1,7 @@
 ---
 title: "CraftingWeaponTypeIconWidget"
+description: "Auto-generated class reference for CraftingWeaponTypeIconWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingWeaponTypeIconWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingWeaponTypeIconWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
@@ -33,9 +27,10 @@ Treat `CraftingWeaponTypeIconWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new CraftingWeaponTypeIconWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingWeaponTypeIconWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

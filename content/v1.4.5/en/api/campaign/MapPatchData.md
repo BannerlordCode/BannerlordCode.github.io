@@ -1,20 +1,14 @@
 ---
 title: "MapPatchData"
+description: "Auto-generated class reference for MapPatchData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapPatchData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapPatchData
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct MapPatchData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/MapPatchData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map/MapPatchData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MapPatchData` as a Data-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var value = new MapPatchData();
+// This data object is usually returned by campaign/mission APIs
+MapPatchData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

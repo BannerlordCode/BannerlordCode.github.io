@@ -1,20 +1,14 @@
 ---
 title: "BrushListPanel"
+description: "Auto-generated class reference for BrushListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushListPanel`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushListPanel
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class BrushListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushListPanel.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushListPanel.cs`
 
 ## Overview
 
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### UpdateBrushes
 `public override void UpdateBrushes(float dt)`
 
-**Purpose:** Updates the state or data of `brushes`.
+**Purpose:** Recalculates and stores the latest representation of `brushes`.
+
+```csharp
+// Obtain an instance of BrushListPanel from the subsystem API first
+BrushListPanel brushListPanel = ...;
+brushListPanel.UpdateBrushes(0);
+```
 
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushListPanel from the subsystem API first
+BrushListPanel brushListPanel = ...;
+brushListPanel.SetState("example");
+```
 
 ### UpdateAnimationPropertiesSubTask
 `public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**Purpose:** Updates the state or data of `animation properties sub task`.
+**Purpose:** Recalculates and stores the latest representation of `animation properties sub task`.
+
+```csharp
+// Obtain an instance of BrushListPanel from the subsystem API first
+BrushListPanel brushListPanel = ...;
+brushListPanel.UpdateAnimationPropertiesSubTask(0);
+```
 
 ### OnBrushChanged
 `public virtual void OnBrushChanged()`
 
-**Purpose:** Called when the `brush changed` event is raised.
+**Purpose:** Invoked when the `brush changed` event is raised.
+
+```csharp
+// Obtain an instance of BrushListPanel from the subsystem API first
+BrushListPanel brushListPanel = ...;
+brushListPanel.OnBrushChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushListPanel();
-value.UpdateBrushes(0);
+// Typically call this after obtaining an instance from the subsystem API
+BrushListPanel brushListPanel = ...;
+brushListPanel.UpdateBrushes(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

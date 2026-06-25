@@ -1,20 +1,14 @@
 ---
 title: "InputType"
+description: "Auto-generated class reference for InputType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InputType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputType
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
 **Type:** `public enum InputType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/Key.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/Key.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ## Usage Example
 
 ```csharp
-InputType example = InputType.Value;
+// Obtain an instance from the relevant subsystem API
+InputType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

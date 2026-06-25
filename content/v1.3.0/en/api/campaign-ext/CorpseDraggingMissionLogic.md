@@ -1,13 +1,7 @@
 ---
 title: "CorpseDraggingMissionLogic"
+description: "Auto-generated class reference for CorpseDraggingMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CorpseDraggingMissionLogic`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CorpseDraggingMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,39 +23,75 @@ Treat `CorpseDraggingMissionLogic` as a Logic-style extension point: first ident
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
+CorpseDraggingMissionLogic corpseDraggingMissionLogic = ...;
+corpseDraggingMissionLogic.AfterStart();
+```
 
 ### OnFixedMissionTick
 `public override void OnFixedMissionTick(float fixedDt)`
 
-**Purpose:** Called when the `fixed mission tick` event is raised.
+**Purpose:** Invoked when the `fixed mission tick` event is raised.
+
+```csharp
+// Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
+CorpseDraggingMissionLogic corpseDraggingMissionLogic = ...;
+corpseDraggingMissionLogic.OnFixedMissionTick(0);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
+CorpseDraggingMissionLogic corpseDraggingMissionLogic = ...;
+corpseDraggingMissionLogic.OnMissionTick(0);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
+CorpseDraggingMissionLogic corpseDraggingMissionLogic = ...;
+var result = corpseDraggingMissionLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `agent interaction` event is raised.
+**Purpose:** Invoked when the `agent interaction` event is raised.
+
+```csharp
+// Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
+CorpseDraggingMissionLogic corpseDraggingMissionLogic = ...;
+corpseDraggingMissionLogic.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### OnCollectPlayerEventControlFlags
 `public Agent.EventControlFlag OnCollectPlayerEventControlFlags()`
 
-**Purpose:** Called when the `collect player event control flags` event is raised.
+**Purpose:** Invoked when the `collect player event control flags` event is raised.
+
+```csharp
+// Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
+CorpseDraggingMissionLogic corpseDraggingMissionLogic = ...;
+var result = corpseDraggingMissionLogic.OnCollectPlayerEventControlFlags();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CorpseDraggingMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<CorpseDraggingMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

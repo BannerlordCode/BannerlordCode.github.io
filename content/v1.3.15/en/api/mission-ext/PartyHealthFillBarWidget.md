@@ -1,13 +1,7 @@
 ---
 title: "PartyHealthFillBarWidget"
+description: "Auto-generated class reference for PartyHealthFillBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyHealthFillBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyHealthFillBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
@@ -35,9 +29,10 @@ Treat `PartyHealthFillBarWidget` as a Widget-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var widget = new PartyHealthFillBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyHealthFillBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

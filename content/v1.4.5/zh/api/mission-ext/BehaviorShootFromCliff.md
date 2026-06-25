@@ -1,20 +1,14 @@
 ---
 title: "BehaviorShootFromCliff"
+description: "BehaviorShootFromCliff 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorShootFromCliff`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorShootFromCliff
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorShootFromCliff : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorShootFromCliff.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorShootFromCliff.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "BehaviorShootFromCliff"
 ### SetTacticalDefendPosition
 `public void SetTacticalDefendPosition(TacticalPosition tacticalPosition)`
 
-**用途 / Purpose:** 设置 `tactical defend position` 的值或状态。
+**用途 / Purpose:** 为 「tactical defend position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorShootFromCliff 实例
+BehaviorShootFromCliff behaviorShootFromCliff = ...;
+behaviorShootFromCliff.SetTacticalDefendPosition(tacticalPosition);
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorShootFromCliff 实例
+BehaviorShootFromCliff behaviorShootFromCliff = ...;
+behaviorShootFromCliff.TickOccasionally();
+```
 
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**用途 / Purpose:** 将 `behavior` 重置为初始状态。
+**用途 / Purpose:** 将 「behavior」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorShootFromCliff 实例
+BehaviorShootFromCliff behaviorShootFromCliff = ...;
+behaviorShootFromCliff.ResetBehavior();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorShootFromCliff();
-value.SetTacticalDefendPosition(tacticalPosition);
+// 通常从对应子系统 API 获取实例后调用
+BehaviorShootFromCliff behaviorShootFromCliff = ...;
+behaviorShootFromCliff.SetTacticalDefendPosition(tacticalPosition);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

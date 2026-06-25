@@ -1,20 +1,14 @@
 ---
 title: "PlayerStatsCaptain"
+description: "PlayerStatsCaptain 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerStatsCaptain`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerStatsCaptain
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PlayerStatsCaptain : PlayerStatsRanked`
 **Base:** `PlayerStatsRanked`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsCaptain.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/PlayerStatsCaptain.cs`
 
 ## 概述
 
@@ -38,25 +32,44 @@ title: "PlayerStatsCaptain"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int rating, int ratingDeviation, string rank, bool evaluating, int evaluationMatchesPlayedCount, int captainsKilled, int mvps, int score)`
 
-**用途 / Purpose:** 处理 `fill with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsCaptain 实例
+PlayerStatsCaptain playerStatsCaptain = ...;
+playerStatsCaptain.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0, 0);
+```
 
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId, int defaultRating, int defaultRatingDeviation)`
 
-**用途 / Purpose:** 处理 `fill with new player` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsCaptain 实例
+PlayerStatsCaptain playerStatsCaptain = ...;
+playerStatsCaptain.FillWithNewPlayer(playerId, 0, 0);
+```
 
 ### Update
 `public void Update(BattlePlayerStatsCaptain stats, bool won)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PlayerStatsCaptain 实例
+PlayerStatsCaptain playerStatsCaptain = ...;
+playerStatsCaptain.Update(stats, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayerStatsCaptain();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0, 0);
+// 通常从对应子系统 API 获取实例后调用
+PlayerStatsCaptain playerStatsCaptain = ...;
+playerStatsCaptain.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

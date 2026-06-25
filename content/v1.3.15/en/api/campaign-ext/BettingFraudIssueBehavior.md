@@ -1,13 +1,7 @@
 ---
 title: "BettingFraudIssueBehavior"
+description: "Auto-generated class reference for BettingFraudIssueBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BettingFraudIssueBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BettingFraudIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of BettingFraudIssueBehavior from the subsystem API first
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+bettingFraudIssueBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of BettingFraudIssueBehavior from the subsystem API first
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+bettingFraudIssueBehavior.SyncData(dataStore);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of BettingFraudIssueBehavior from the subsystem API first
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+var result = bettingFraudIssueBehavior.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of BettingFraudIssueBehavior from the subsystem API first
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+var result = bettingFraudIssueBehavior.IssueStayAliveConditions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BettingFraudIssueBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+BettingFraudIssueBehavior bettingFraudIssueBehavior = ...;
+bettingFraudIssueBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

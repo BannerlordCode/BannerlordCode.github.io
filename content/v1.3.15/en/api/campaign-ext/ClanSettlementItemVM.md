@@ -1,13 +1,7 @@
 ---
 title: "ClanSettlementItemVM"
+description: "Auto-generated class reference for ClanSettlementItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanSettlementItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanSettlementItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -53,40 +47,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanSettlementItemVM from the subsystem API first
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.RefreshValues();
+```
 
 ### OnSettlementSelection
 `public void OnSettlementSelection()`
 
-**Purpose:** Called when the `settlement selection` event is raised.
+**Purpose:** Invoked when the `settlement selection` event is raised.
+
+```csharp
+// Obtain an instance of ClanSettlementItemVM from the subsystem API first
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.OnSettlementSelection();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of ClanSettlementItemVM from the subsystem API first
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.ExecuteLink();
+```
 
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Executes the `close tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+
+```csharp
+// Obtain an instance of ClanSettlementItemVM from the subsystem API first
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.ExecuteCloseTooltip();
+```
 
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**Purpose:** Executes the `open tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open tooltip`.
+
+```csharp
+// Obtain an instance of ClanSettlementItemVM from the subsystem API first
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.ExecuteOpenTooltip();
+```
 
 ### ExecuteSendMembers
 `public void ExecuteSendMembers()`
 
-**Purpose:** Executes the `send members` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `send members`.
+
+```csharp
+// Obtain an instance of ClanSettlementItemVM from the subsystem API first
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.ExecuteSendMembers();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanSettlementItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanSettlementItemVM clanSettlementItemVM = ...;
+clanSettlementItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

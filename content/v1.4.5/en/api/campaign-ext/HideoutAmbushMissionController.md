@@ -1,20 +1,14 @@
 ---
 title: "HideoutAmbushMissionController"
+description: "Auto-generated class reference for HideoutAmbushMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutAmbushMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutAmbushMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics.Hideout
 **Module:** SandBox.Missions
 **Type:** `public class HideoutAmbushMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Hideout/HideoutAmbushMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics.Hideout/HideoutAmbushMissionController.cs`
 
 ## Overview
 
@@ -29,87 +23,186 @@ Treat `HideoutAmbushMissionController` as a Controller-style extension point: fi
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnBehaviorInitialize();
+```
 
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnCreated();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnRemoveBehavior();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnMissionTick(0);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, AIStateFlag flag)`
 
-**Purpose:** Called when the `agent alarmed state changed` event is raised.
+**Purpose:** Invoked when the `agent alarmed state changed` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnAgentAlarmedStateChanged(agent, flag);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnMissionStateFinalized
 `public override void OnMissionStateFinalized()`
 
-**Purpose:** Called when the `mission state finalized` event is raised.
+**Purpose:** Invoked when the `mission state finalized` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnMissionStateFinalized();
+```
 
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**Purpose:** Called when the `object used` event is raised.
+**Purpose:** Invoked when the `object used` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnObjectUsed(userAgent, usedObject);
+```
 
 ### OnStealthMissionCounterFailed
 `public void OnStealthMissionCounterFailed(OnStealthMissionCounterFailedEvent obj)`
 
-**Purpose:** Called when the `stealth mission counter failed` event is raised.
+**Purpose:** Invoked when the `stealth mission counter failed` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnStealthMissionCounterFailed(obj);
+```
 
 ### IsSideDepleted
 `public bool IsSideDepleted(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is side depleted`.
+**Purpose:** Determines whether the current object is in the `side depleted` state or condition.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+var result = hideoutAmbushMissionController.IsSideDepleted(side);
+```
 
 ### SetOverriddenHideoutBossCharacterObject
 `public void SetOverriddenHideoutBossCharacterObject(CharacterObject characterObject)`
 
-**Purpose:** Sets the value or state of `overridden hideout boss character object`.
+**Purpose:** Assigns a new value to `overridden hideout boss character object` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.SetOverriddenHideoutBossCharacterObject(characterObject);
+```
 
 ### OnAgentsShouldBeEnabled
 `public void OnAgentsShouldBeEnabled()`
 
-**Purpose:** Called when the `agents should be enabled` event is raised.
+**Purpose:** Invoked when the `agents should be enabled` event is raised.
+
+```csharp
+// Obtain an instance of HideoutAmbushMissionController from the subsystem API first
+HideoutAmbushMissionController hideoutAmbushMissionController = ...;
+hideoutAmbushMissionController.OnAgentsShouldBeEnabled();
+```
 
 ### StartBossFightDuelMode
 `public static void StartBossFightDuelMode()`
 
-**Purpose:** Handles logic related to `start boss fight duel mode`.
+**Purpose:** Starts the `boss fight duel mode` flow or state machine.
+
+```csharp
+// Static call; no instance required
+HideoutAmbushMissionController.StartBossFightDuelMode();
+```
 
 ### StartBossFightBattleMode
 `public static void StartBossFightBattleMode()`
 
-**Purpose:** Handles logic related to `start boss fight battle mode`.
+**Purpose:** Starts the `boss fight battle mode` flow or state machine.
+
+```csharp
+// Static call; no instance required
+HideoutAmbushMissionController.StartBossFightBattleMode();
+```
 
 ### KillAllSentries
 `public static string KillAllSentries(List<string> strings)`
 
-**Purpose:** Handles logic related to `kill all sentries`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+HideoutAmbushMissionController.KillAllSentries(strings);
+```
 
 ## Usage Example
 
@@ -119,4 +212,4 @@ var controller = Mission.Current.GetMissionBehavior<HideoutAmbushMissionControll
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

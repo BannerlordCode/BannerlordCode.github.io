@@ -1,20 +1,14 @@
 ---
 title: "SettlementProsperityModel"
+description: "Auto-generated class reference for SettlementProsperityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementProsperityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementProsperityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementProsperityModel : MBGameModel<SettlementProsperityModel>`
 **Base:** `MBGameModel<SettlementProsperityModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementProsperityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementProsperityModel.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `SettlementProsperityModel` as a Model-style extension point: first identi
 ### CalculateProsperityChange
 `public abstract ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate prosperity change`.
+**Purpose:** Calculates the current value or result of `prosperity change`.
+
+```csharp
+// Obtain an instance of SettlementProsperityModel from the subsystem API first
+SettlementProsperityModel settlementProsperityModel = ...;
+var result = settlementProsperityModel.CalculateProsperityChange(fortification, false);
+```
 
 ### CalculateHearthChange
 `public abstract ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate hearth change`.
+**Purpose:** Calculates the current value or result of `hearth change`.
+
+```csharp
+// Obtain an instance of SettlementProsperityModel from the subsystem API first
+SettlementProsperityModel settlementProsperityModel = ...;
+var result = settlementProsperityModel.CalculateHearthChange(village, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomSettlementProsperityModel();
+// Typically obtained from a subsystem API or factory
+SettlementProsperityModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

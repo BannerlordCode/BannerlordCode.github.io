@@ -1,13 +1,7 @@
 ---
 title: "ClothSimulatorComponent"
+description: "Auto-generated class reference for ClothSimulatorComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClothSimulatorComponent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClothSimulatorComponent
 
 **Namespace:** TaleWorlds.Engine
@@ -29,67 +23,145 @@ Treat `ClothSimulatorComponent` as a Component-style extension point: first iden
 ### SetMaxDistanceMultiplier
 `public void SetMaxDistanceMultiplier(float multiplier)`
 
-**Purpose:** Sets the value or state of `max distance multiplier`.
+**Purpose:** Assigns a new value to `max distance multiplier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.SetMaxDistanceMultiplier(0);
+```
 
 ### SetForcedWind
 `public void SetForcedWind(Vec3 windVector, bool isLocal)`
 
-**Purpose:** Sets the value or state of `forced wind`.
+**Purpose:** Assigns a new value to `forced wind` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.SetForcedWind(windVector, false);
+```
 
 ### DisableForcedWind
 `public void DisableForcedWind()`
 
-**Purpose:** Handles logic related to `disable forced wind`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.DisableForcedWind();
+```
 
 ### SetForcedGustStrength
 `public void SetForcedGustStrength(float gustStrength)`
 
-**Purpose:** Sets the value or state of `forced gust strength`.
+**Purpose:** Assigns a new value to `forced gust strength` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.SetForcedGustStrength(0);
+```
 
 ### SetResetRequired
 `public void SetResetRequired()`
 
-**Purpose:** Sets the value or state of `reset required`.
+**Purpose:** Assigns a new value to `reset required` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.SetResetRequired();
+```
 
 ### DisableMorphAnimation
 `public void DisableMorphAnimation()`
 
-**Purpose:** Handles logic related to `disable morph animation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.DisableMorphAnimation();
+```
 
 ### SetMorphBuffer
 `public void SetMorphBuffer(float morphKey)`
 
-**Purpose:** Sets the value or state of `morph buffer`.
+**Purpose:** Assigns a new value to `morph buffer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.SetMorphBuffer(0);
+```
 
 ### GetNumberOfMorphKeys
 `public int GetNumberOfMorphKeys()`
 
-**Purpose:** Gets the current value of `number of morph keys`.
+**Purpose:** Reads and returns the `number of morph keys` value held by the current object.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+var result = clothSimulatorComponent.GetNumberOfMorphKeys();
+```
 
 ### SetVectorArgument
 `public void SetVectorArgument(float x, float y, float z, float w)`
 
-**Purpose:** Sets the value or state of `vector argument`.
+**Purpose:** Assigns a new value to `vector argument` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.SetVectorArgument(0, 0, 0, 0);
+```
 
 ### GetMorphAnimLeftPoints
 `public void GetMorphAnimLeftPoints(Vec3 leftPoints)`
 
-**Purpose:** Gets the current value of `morph anim left points`.
+**Purpose:** Reads and returns the `morph anim left points` value held by the current object.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.GetMorphAnimLeftPoints(leftPoints);
+```
 
 ### GetMorphAnimRightPoints
 `public void GetMorphAnimRightPoints(Vec3 rightPoints)`
 
-**Purpose:** Gets the current value of `morph anim right points`.
+**Purpose:** Reads and returns the `morph anim right points` value held by the current object.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.GetMorphAnimRightPoints(rightPoints);
+```
 
 ### GetMorphAnimCenterPoints
 `public void GetMorphAnimCenterPoints(Vec3 centerPoints)`
 
-**Purpose:** Gets the current value of `morph anim center points`.
+**Purpose:** Reads and returns the `morph anim center points` value held by the current object.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.GetMorphAnimCenterPoints(centerPoints);
+```
 
 ### SetForcedVelocity
 `public void SetForcedVelocity(in Vec3 forcedVelocity)`
 
-**Purpose:** Sets the value or state of `forced velocity`.
+**Purpose:** Assigns a new value to `forced velocity` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ClothSimulatorComponent from the subsystem API first
+ClothSimulatorComponent clothSimulatorComponent = ...;
+clothSimulatorComponent.SetForcedVelocity(forcedVelocity);
+```
 
 ## Usage Example
 
@@ -99,4 +171,4 @@ var component = agent.GetComponent<ClothSimulatorComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

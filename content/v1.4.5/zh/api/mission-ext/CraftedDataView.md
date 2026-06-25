@@ -1,20 +1,14 @@
 ---
 title: "CraftedDataView"
+description: "CraftedDataView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftedDataView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftedDataView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftedDataView`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/CraftedDataView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/CraftedDataView.cs`
 
 ## 概述
 
@@ -37,34 +31,62 @@ title: "CraftedDataView"
 ### OnMeshBuiltDelegate
 `public delegate void OnMeshBuiltDelegate(WeaponDesign weaponDesign, ref MetaMesh builtMesh)`
 
-**用途 / Purpose:** 当 `mesh built delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mesh built delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CraftedDataView 实例
+CraftedDataView craftedDataView = ...;
+craftedDataView.OnMeshBuiltDelegate(weaponDesign, builtMesh);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 CraftedDataView 实例
+CraftedDataView craftedDataView = ...;
+craftedDataView.Clear();
+```
 
 ### BuildWeaponMesh
 `public static MetaMesh BuildWeaponMesh(WeaponDesign craftedData, float pivotDiff, bool pieceTypeHidingEnabledForHolster, bool batchAllMeshes)`
 
-**用途 / Purpose:** 处理 `build weapon mesh` 相关逻辑。
+**用途 / Purpose:** 组装并返回「weapon mesh」的构建结果。
+
+```csharp
+// 静态调用，不需要实例
+CraftedDataView.BuildWeaponMesh(craftedData, 0, false, false);
+```
 
 ### BuildHolsterMesh
 `public static MetaMesh BuildHolsterMesh(WeaponDesign craftedData)`
 
-**用途 / Purpose:** 处理 `build holster mesh` 相关逻辑。
+**用途 / Purpose:** 组装并返回「holster mesh」的构建结果。
+
+```csharp
+// 静态调用，不需要实例
+CraftedDataView.BuildHolsterMesh(craftedData);
+```
 
 ### BuildHolsterMeshWithWeapon
 `public static MetaMesh BuildHolsterMeshWithWeapon(WeaponDesign craftedData, float pivotDiff, bool batchAllMeshes)`
 
-**用途 / Purpose:** 处理 `build holster mesh with weapon` 相关逻辑。
+**用途 / Purpose:** 组装并返回「holster mesh with weapon」的构建结果。
+
+```csharp
+// 静态调用，不需要实例
+CraftedDataView.BuildHolsterMeshWithWeapon(craftedData, 0, false);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new CraftedDataView();
+// 从子系统 API 或场景中获取该视图
+CraftedDataView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "TilePuluc"
+description: "Auto-generated class reference for TilePuluc."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TilePuluc`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TilePuluc
 
 **Namespace:** SandBox.BoardGames.Tiles
@@ -38,15 +32,22 @@ Start from namespace `SandBox.BoardGames.Tiles` to place it in the stack, then i
 ### UpdateTilePosition
 `public void UpdateTilePosition()`
 
-**Purpose:** Updates the state or data of `tile position`.
+**Purpose:** Recalculates and stores the latest representation of `tile position`.
+
+```csharp
+// Obtain an instance of TilePuluc from the subsystem API first
+TilePuluc tilePuluc = ...;
+tilePuluc.UpdateTilePosition();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TilePuluc();
-value.UpdateTilePosition();
+// Typically call this after obtaining an instance from the subsystem API
+TilePuluc tilePuluc = ...;
+tilePuluc.UpdateTilePosition();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "StoryModeVoiceOverModel"
+description: "StoryModeVoiceOverModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeVoiceOverModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeVoiceOverModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeVoiceOverModel : VoiceOverModel`
 **Base:** `VoiceOverModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeVoiceOverModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeVoiceOverModel.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "StoryModeVoiceOverModel"
 ### GetSoundPathForCharacter
 `public override string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**用途 / Purpose:** 获取 `sound path for character` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sound path for character」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeVoiceOverModel 实例
+StoryModeVoiceOverModel storyModeVoiceOverModel = ...;
+var result = storyModeVoiceOverModel.GetSoundPathForCharacter(character, voiceObject);
+```
 
 ### GetAccentClass
 `public override string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**用途 / Purpose:** 获取 `accent class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「accent class」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeVoiceOverModel 实例
+StoryModeVoiceOverModel storyModeVoiceOverModel = ...;
+var result = storyModeVoiceOverModel.GetAccentClass(culture, false);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<StoryModeVoiceOverModel>(new MyStoryModeVoiceOverModel
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

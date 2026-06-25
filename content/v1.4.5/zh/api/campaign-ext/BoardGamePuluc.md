@@ -1,20 +1,14 @@
 ---
 title: "BoardGamePuluc"
+description: "BoardGamePuluc 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGamePuluc`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGamePuluc
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGamePuluc : BoardGameBase`
 **Base:** `BoardGameBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames/BoardGamePuluc.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames/BoardGamePuluc.cs`
 
 ## 概述
 
@@ -29,70 +23,143 @@ title: "BoardGamePuluc"
 ### PawnInformation
 `public struct PawnInformation(int x, bool inSpawn, bool topPawn, PawnPuluc.MovementState state, List<PawnPuluc> pawnsBelow, bool captured, Vec3 position, PawnPuluc capturedBy)`
 
-**用途 / Purpose:** 处理 `pawn information` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+var result = boardGamePuluc.PawnInformation(0, false, false, state, pawnsBelow, false, position, capturedBy);
+```
 
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns)`
 
-**用途 / Purpose:** 处理 `board information` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+var result = boardGamePuluc.BoardInformation(pawns);
+```
 
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**用途 / Purpose:** 初始化 `units` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「units」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.InitializeUnits();
+```
 
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**用途 / Purpose:** 初始化 `tiles` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「tiles」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.InitializeTiles();
+```
 
 ### InitializeSound
 `public override void InitializeSound()`
 
-**用途 / Purpose:** 初始化 `sound` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「sound」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.InitializeSound();
+```
 
 ### InitializeDiceBoard
 `public override void InitializeDiceBoard()`
 
-**用途 / Purpose:** 初始化 `dice board` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「dice board」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.InitializeDiceBoard();
+```
 
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.Reset();
+```
 
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**用途 / Purpose:** 处理 `calculate valid moves` 相关逻辑。
+**用途 / Purpose:** 计算「valid moves」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+var result = boardGamePuluc.CalculateValidMoves(pawn);
+```
 
 ### RollDice
 `public override void RollDice()`
 
-**用途 / Purpose:** 处理 `roll dice` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.RollDice();
+```
 
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 处理 `a i make move` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.AIMakeMove(move);
+```
 
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 处理 `take board snapshot` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+var result = boardGamePuluc.TakeBoardSnapshot();
+```
 
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**用途 / Purpose:** 处理 `undo move` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGamePuluc 实例
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.UndoMove(board);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGamePuluc();
-value.PawnInformation(0, false, false, state, pawnsBelow, false, position, capturedBy);
+// 通常从对应子系统 API 获取实例后调用
+BoardGamePuluc boardGamePuluc = ...;
+boardGamePuluc.PawnInformation(0, false, false, state, pawnsBelow, false, position, capturedBy);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

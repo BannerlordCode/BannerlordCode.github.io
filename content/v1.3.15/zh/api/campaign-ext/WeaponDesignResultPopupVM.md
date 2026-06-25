@@ -1,13 +1,7 @@
 ---
 title: "WeaponDesignResultPopupVM"
+description: "WeaponDesignResultPopupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponDesignResultPopupVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeaponDesignResultPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
@@ -52,35 +46,66 @@ title: "WeaponDesignResultPopupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignResultPopupVM 实例
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignResultPopupVM 实例
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.OnFinalize();
+```
 
 ### ExecuteFinalizeCrafting
 `public void ExecuteFinalizeCrafting()`
 
-**用途 / Purpose:** 执行 `finalize crafting` 操作或流程。
+**用途 / Purpose:** 执行 「finalize crafting」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignResultPopupVM 实例
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.ExecuteFinalizeCrafting();
+```
 
 ### ExecuteRandomCraftName
 `public void ExecuteRandomCraftName()`
 
-**用途 / Purpose:** 执行 `random craft name` 操作或流程。
+**用途 / Purpose:** 执行 「random craft name」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignResultPopupVM 实例
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.ExecuteRandomCraftName();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignResultPopupVM 实例
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.SetDoneInputKey(hotkey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeaponDesignResultPopupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+WeaponDesignResultPopupVM weaponDesignResultPopupVM = ...;
+weaponDesignResultPopupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

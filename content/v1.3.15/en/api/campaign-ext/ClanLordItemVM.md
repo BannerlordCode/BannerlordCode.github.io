@@ -1,13 +1,7 @@
 ---
 title: "ClanLordItemVM"
+description: "Auto-generated class reference for ClanLordItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanLordItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanLordItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -59,75 +53,154 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.RefreshValues();
+```
 
 ### ExecuteLocationLink
 `public void ExecuteLocationLink(string link)`
 
-**Purpose:** Executes the `location link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `location link`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteLocationLink("example");
+```
 
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Updates the state or data of `properties`.
+**Purpose:** Recalculates and stores the latest representation of `properties`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.UpdateProperties();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteLink();
+```
 
 ### OnCharacterSelect
 `public void OnCharacterSelect()`
 
-**Purpose:** Called when the `character select` event is raised.
+**Purpose:** Invoked when the `character select` event is raised.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.OnCharacterSelect();
+```
 
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteEndHint();
+```
 
 ### GetHero
 `public Hero GetHero()`
 
-**Purpose:** Gets the current value of `hero`.
+**Purpose:** Reads and returns the `hero` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+var result = clanLordItemVM.GetHero();
+```
 
 ### ExecuteRename
 `public void ExecuteRename()`
 
-**Purpose:** Executes the `rename` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `rename`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteRename();
+```
 
 ### ExecuteShowOnMap
 `public void ExecuteShowOnMap()`
 
-**Purpose:** Executes the `show on map` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `show on map`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteShowOnMap();
+```
 
 ### ExecuteRecall
 `public void ExecuteRecall()`
 
-**Purpose:** Executes the `recall` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `recall`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteRecall();
+```
 
 ### ExecuteTalk
 `public void ExecuteTalk()`
 
-**Purpose:** Executes the `talk` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `talk`.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteTalk();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of ClanLordItemVM from the subsystem API first
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanLordItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

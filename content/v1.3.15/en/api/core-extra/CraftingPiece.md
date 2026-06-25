@@ -1,24 +1,18 @@
 ---
 title: "CraftingPiece"
+description: "Auto-generated class reference for CraftingPiece."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingPiece`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CraftingPiece
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class CraftingPiece : MBObjectBase`
 **Base:** `MBObjectBase`
-**Area:** core-extra
+**File:** `TaleWorlds.Core/CraftingPiece.cs`
 
 ## Overview
 
-`CraftingPiece` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CraftingPiece` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -48,27 +42,51 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 | `ThrustDamageBonus` | `public int ThrustDamageBonus { get; }` |
 | `ThrustSpeedBonus` | `public int ThrustSpeedBonus { get; }` |
 | `HandlingBonus` | `public int HandlingBonus { get; }` |
+| `AccuracyBonus` | `public int AccuracyBonus { get; }` |
+| `PieceTier` | `public int PieceTier { get; }` |
+| `FullScale` | `public bool FullScale { get; }` |
+| `ItemHolsterPosShift` | `public Vec3 ItemHolsterPosShift { get; }` |
+| `Appearance` | `public float Appearance { get; }` |
+| `IsGivenByDefault` | `public bool IsGivenByDefault { get; }` |
+| `IsHiddenOnDesigner` | `public bool IsHiddenOnDesigner { get; }` |
+| `IsUnique` | `public bool IsUnique { get; }` |
+| `ItemUsageFeaturesToExclude` | `public string ItemUsageFeaturesToExclude { get; }` |
+| `MaterialsUsed` | `public MBReadOnlyList<ValueTuple<CraftingMaterials, int>> MaterialsUsed { get; }` |
+| `IsEmptyPiece` | `public bool IsEmptyPiece { get; }` |
+| `CraftingCost` | `public int CraftingCost { get; }` |
+| `RequiredSkillValue` | `public int RequiredSkillValue { get; }` |
+| `BladeData` | `public BladeData BladeData { get; }` |
+| `All` | `public static MBReadOnlyList<CraftingPiece> All { get; }` |
 
 ## Key Methods
 
 ### GetInvalidCraftingPiece
 `public static CraftingPiece GetInvalidCraftingPiece(CraftingPiece.PieceTypes pieceType)`
 
-**Purpose:** Gets the current value of `invalid crafting piece`.
+**Purpose:** Reads and returns the `invalid crafting piece` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CraftingPiece.GetInvalidCraftingPiece(pieceType);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of CraftingPiece from the subsystem API first
+CraftingPiece craftingPiece = ...;
+craftingPiece.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CraftingPiece.GetInvalidCraftingPiece(pieceType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

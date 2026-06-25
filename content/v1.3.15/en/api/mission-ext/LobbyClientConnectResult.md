@@ -1,23 +1,18 @@
 ---
 title: "LobbyClientConnectResult"
+description: "Auto-generated class reference for LobbyClientConnectResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyClientConnectResult`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LobbyClientConnectResult
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyClientConnectResult`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/LobbyClientConnectResult.cs`
 
 ## Overview
 
-`LobbyClientConnectResult` lives in `TaleWorlds.MountAndBlade.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LobbyClientConnectResult` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -35,16 +30,19 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FromServerConnectResult
 `public static LobbyClientConnectResult FromServerConnectResult(string errorCode, Dictionary<string, string> parameters)`
 
-**Purpose:** Handles logic related to `from server connect result`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LobbyClientConnectResult.FromServerConnectResult("example", dictionary<string, "example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 LobbyClientConnectResult.FromServerConnectResult("example", dictionary<string, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MapSiegeProductionMachineVM"
+description: "MapSiegeProductionMachineVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapSiegeProductionMachineVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeProductionMachineVM
 
 **Namespace:** SandBox.ViewModelCollection.MapSiege
@@ -40,30 +34,55 @@ title: "MapSiegeProductionMachineVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeProductionMachineVM 实例
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.RefreshValues();
+```
 
 ### OnSelection
 `public void OnSelection()`
 
-**用途 / Purpose:** 当 `selection` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「selection」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeProductionMachineVM 实例
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.OnSelection();
+```
 
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**用途 / Purpose:** 执行 `show tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「show tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeProductionMachineVM 实例
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.ExecuteShowTooltip();
+```
 
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**用途 / Purpose:** 执行 `hide tooltip` 操作或流程。
+**用途 / Purpose:** 执行 「hide tooltip」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapSiegeProductionMachineVM 实例
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.ExecuteHideTooltip();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapSiegeProductionMachineVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MapSiegeProductionMachineVM mapSiegeProductionMachineVM = ...;
+mapSiegeProductionMachineVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

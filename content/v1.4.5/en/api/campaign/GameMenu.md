@@ -1,20 +1,14 @@
 ---
 title: "GameMenu"
+description: "Auto-generated class reference for GameMenu."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenu`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenu
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenu`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenu.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenu.cs`
 
 ## Overview
 
@@ -52,130 +46,272 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ### SetMenuRepeatObjects
 `public void SetMenuRepeatObjects(IEnumerable<object> list)`
 
-**Purpose:** Sets the value or state of `menu repeat objects`.
+**Purpose:** Assigns a new value to `menu repeat objects` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.SetMenuRepeatObjects(list);
+```
 
 ### GetMenuOptionConditionsHold
 `public bool GetMenuOptionConditionsHold(Game game, MenuContext menuContext, int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option conditions hold`.
+**Purpose:** Reads and returns the `menu option conditions hold` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetMenuOptionConditionsHold(game, menuContext, 0);
+```
 
 ### GetMenuOptionText
 `public TextObject GetMenuOptionText(int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option text`.
+**Purpose:** Reads and returns the `menu option text` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetMenuOptionText(0);
+```
 
 ### GetGameMenuOption
 `public GameMenuOption GetGameMenuOption(int menuItemNumber)`
 
-**Purpose:** Gets the current value of `game menu option`.
+**Purpose:** Reads and returns the `game menu option` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetGameMenuOption(0);
+```
 
 ### GetMenuOptionText2
 `public TextObject GetMenuOptionText2(int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option text2`.
+**Purpose:** Reads and returns the `menu option text2` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetMenuOptionText2(0);
+```
 
 ### GetMenuOptionIdString
 `public string GetMenuOptionIdString(int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option id string`.
+**Purpose:** Reads and returns the `menu option id string` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetMenuOptionIdString(0);
+```
 
 ### GetMenuOptionTooltip
 `public TextObject GetMenuOptionTooltip(int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option tooltip`.
+**Purpose:** Reads and returns the `menu option tooltip` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetMenuOptionTooltip(0);
+```
 
 ### GetMenuOptionIsLeave
 `public bool GetMenuOptionIsLeave(int menuItemNumber)`
 
-**Purpose:** Gets the current value of `menu option is leave`.
+**Purpose:** Reads and returns the `menu option is leave` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetMenuOptionIsLeave(0);
+```
 
 ### SetProgressOfWaitingInMenu
 `public void SetProgressOfWaitingInMenu(float progress)`
 
-**Purpose:** Sets the value or state of `progress of waiting in menu`.
+**Purpose:** Assigns a new value to `progress of waiting in menu` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.SetProgressOfWaitingInMenu(0);
+```
 
 ### SetTargetedWaitingTimeAndInitialProgress
 `public void SetTargetedWaitingTimeAndInitialProgress(float targetedWaitingTime, float initialProgress)`
 
-**Purpose:** Sets the value or state of `targeted waiting time and initial progress`.
+**Purpose:** Assigns a new value to `targeted waiting time and initial progress` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.SetTargetedWaitingTimeAndInitialProgress(0, 0);
+```
 
 ### GetLeaveMenuOption
 `public GameMenuOption GetLeaveMenuOption(Game game, MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `leave menu option`.
+**Purpose:** Reads and returns the `leave menu option` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetLeaveMenuOption(game, menuContext);
+```
 
 ### RunOnTick
 `public void RunOnTick(MenuContext menuContext, float dt)`
 
-**Purpose:** Handles logic related to `run on tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.RunOnTick(menuContext, 0);
+```
 
 ### RunWaitMenuCondition
 `public bool RunWaitMenuCondition(MenuContext menuContext)`
 
-**Purpose:** Handles logic related to `run wait menu condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.RunWaitMenuCondition(menuContext);
+```
 
 ### RunWaitMenuConsequence
 `public void RunWaitMenuConsequence(MenuContext menuContext)`
 
-**Purpose:** Handles logic related to `run wait menu consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.RunWaitMenuConsequence(menuContext);
+```
 
 ### RunMenuOptionConsequence
 `public void RunMenuOptionConsequence(MenuContext menuContext, int menuItemNumber)`
 
-**Purpose:** Handles logic related to `run menu option consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.RunMenuOptionConsequence(menuContext, 0);
+```
 
 ### StartWait
 `public void StartWait()`
 
-**Purpose:** Handles logic related to `start wait`.
+**Purpose:** Starts the `wait` flow or state machine.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.StartWait();
+```
 
 ### EndWait
 `public void EndWait()`
 
-**Purpose:** Handles logic related to `end wait`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.EndWait();
+```
 
 ### RunOnInit
 `public void RunOnInit(Game game, MenuContext menuContext)`
 
-**Purpose:** Handles logic related to `run on init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.RunOnInit(game, menuContext);
+```
 
 ### PreInit
 `public void PreInit(MenuContext menuContext)`
 
-**Purpose:** Handles logic related to `pre init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.PreInit(menuContext);
+```
 
 ### AfterInit
 `public void AfterInit(MenuContext menuContext)`
 
-**Purpose:** Handles logic related to `after init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+gameMenu.AfterInit(menuContext);
+```
 
 ### GetText
 `public TextObject GetText()`
 
-**Purpose:** Gets the current value of `text`.
+**Purpose:** Reads and returns the `text` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenu from the subsystem API first
+GameMenu gameMenu = ...;
+var result = gameMenu.GetText();
+```
 
 ### ActivateGameMenu
 `public static void ActivateGameMenu(string menuId)`
 
-**Purpose:** Handles logic related to `activate game menu`.
+**Purpose:** Activates the resource, state, or feature associated with `game menu`.
+
+```csharp
+// Static call; no instance required
+GameMenu.ActivateGameMenu("example");
+```
 
 ### SwitchToMenu
 `public static void SwitchToMenu(string menuId)`
 
-**Purpose:** Handles logic related to `switch to menu`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameMenu.SwitchToMenu("example");
+```
 
 ### ExitToLast
 `public static void ExitToLast()`
 
-**Purpose:** Handles logic related to `exit to last`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+GameMenu.ExitToLast();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenu();
-value.SetMenuRepeatObjects(list);
+// Typically call this after obtaining an instance from the subsystem API
+GameMenu gameMenu = ...;
+gameMenu.SetMenuRepeatObjects(list);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

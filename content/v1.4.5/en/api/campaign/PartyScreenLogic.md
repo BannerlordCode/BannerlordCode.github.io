@@ -1,20 +1,14 @@
 ---
 title: "PartyScreenLogic"
+description: "Auto-generated class reference for PartyScreenLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyScreenLogic`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyScreenLogic
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyScreenLogic`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenLogic.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/PartyScreenLogic.cs`
 
 ## Overview
 
@@ -70,229 +64,493 @@ Treat `PartyScreenLogic` as a Logic-style extension point: first identify who cr
 ### PresentationUpdate
 `public delegate void PresentationUpdate(PartyCommand command)`
 
-**Purpose:** Handles logic related to `presentation update`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.PresentationUpdate(command);
+```
 
 ### PartyGoldDelegate
 `public delegate void PartyGoldDelegate()`
 
-**Purpose:** Handles logic related to `party gold delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.PartyGoldDelegate();
+```
 
 ### PartyMoraleDelegate
 `public delegate void PartyMoraleDelegate()`
 
-**Purpose:** Handles logic related to `party morale delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.PartyMoraleDelegate();
+```
 
 ### PartyInfluenceDelegate
 `public delegate void PartyInfluenceDelegate()`
 
-**Purpose:** Handles logic related to `party influence delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.PartyInfluenceDelegate();
+```
 
 ### PartyHorseDelegate
 `public delegate void PartyHorseDelegate()`
 
-**Purpose:** Handles logic related to `party horse delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.PartyHorseDelegate();
+```
 
 ### AfterResetDelegate
 `public delegate void AfterResetDelegate(PartyScreenLogic partyScreenLogic, bool fromCancel)`
 
-**Purpose:** Handles logic related to `after reset delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.AfterResetDelegate(partyScreenLogic, false);
+```
 
 ### FillForTransferTroop
 `public void FillForTransferTroop(PartyRosterSide fromSide, TroopType type, CharacterObject character, int totalNumber, int woundedNumber, int targetIndex)`
 
-**Purpose:** Handles logic related to `fill for transfer troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForTransferTroop(fromSide, type, character, 0, 0, 0);
+```
 
 ### FillForShiftTroop
 `public void FillForShiftTroop(PartyRosterSide side, TroopType type, CharacterObject character, int targetIndex)`
 
-**Purpose:** Handles logic related to `fill for shift troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForShiftTroop(side, type, character, 0);
+```
 
 ### FillForTransferTroopToLeaderSlot
 `public void FillForTransferTroopToLeaderSlot(PartyRosterSide side, TroopType type, CharacterObject character, int totalNumber, int woundedNumber, int targetIndex)`
 
-**Purpose:** Handles logic related to `fill for transfer troop to leader slot`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForTransferTroopToLeaderSlot(side, type, character, 0, 0, 0);
+```
 
 ### FillForTransferPartyLeaderTroop
 `public void FillForTransferPartyLeaderTroop(PartyRosterSide side, TroopType type, CharacterObject character, int totalNumber)`
 
-**Purpose:** Handles logic related to `fill for transfer party leader troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForTransferPartyLeaderTroop(side, type, character, 0);
+```
 
 ### FillForUpgradeTroop
 `public void FillForUpgradeTroop(PartyRosterSide side, TroopType type, CharacterObject character, int number, int upgradeTargetType, int index)`
 
-**Purpose:** Handles logic related to `fill for upgrade troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForUpgradeTroop(side, type, character, 0, 0, 0);
+```
 
 ### FillForRecruitTroop
 `public void FillForRecruitTroop(PartyRosterSide side, TroopType type, CharacterObject character, int number, int index)`
 
-**Purpose:** Handles logic related to `fill for recruit troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForRecruitTroop(side, type, character, 0, 0);
+```
 
 ### FillForExecuteTroop
 `public void FillForExecuteTroop(PartyRosterSide side, TroopType type, CharacterObject character)`
 
-**Purpose:** Handles logic related to `fill for execute troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForExecuteTroop(side, type, character);
+```
 
 ### FillForTransferAllTroops
 `public void FillForTransferAllTroops(PartyRosterSide side, TroopType type)`
 
-**Purpose:** Handles logic related to `fill for transfer all troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForTransferAllTroops(side, type);
+```
 
 ### FillForSortTroops
 `public void FillForSortTroops(PartyRosterSide side, TroopSortType sortType, bool isAscending)`
 
-**Purpose:** Handles logic related to `fill for sort troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.FillForSortTroops(side, sortType, false);
+```
 
 ### SetIsAscending
 `public void SetIsAscending(bool isAscending)`
 
-**Purpose:** Sets the value or state of `is ascending`.
+**Purpose:** Assigns a new value to `is ascending` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.SetIsAscending(false);
+```
 
 ### Compare
 `public int Compare(TroopRosterElement x, TroopRosterElement y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.Compare(x, y);
+```
 
 ### Initialize
 `public void Initialize(PartyScreenLogicInitializationData initializationData)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.Initialize(initializationData);
+```
 
 ### AddCommand
 `public void AddCommand(PartyCommand command)`
 
 **Purpose:** Adds `command` to the current collection or state.
 
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.AddCommand(command);
+```
+
 ### ValidateCommand
 `public bool ValidateCommand(PartyCommand command)`
 
-**Purpose:** Handles logic related to `validate command`.
+**Purpose:** Checks whether `command` satisfies the required constraints, usually returning a boolean.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.ValidateCommand(command);
+```
 
 ### GetIndexToInsertTroop
 `public int GetIndexToInsertTroop(PartyRosterSide side, TroopType type, TroopRosterElement troop)`
 
-**Purpose:** Gets the current value of `index to insert troop`.
+**Purpose:** Reads and returns the `index to insert troop` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetIndexToInsertTroop(side, type, troop);
+```
 
 ### GetActiveSortTypeForSide
 `public TroopSortType GetActiveSortTypeForSide(PartyRosterSide side)`
 
-**Purpose:** Gets the current value of `active sort type for side`.
+**Purpose:** Reads and returns the `active sort type for side` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetActiveSortTypeForSide(side);
+```
 
 ### GetIsAscendingSortForSide
 `public bool GetIsAscendingSortForSide(PartyRosterSide side)`
 
-**Purpose:** Gets the current value of `is ascending sort for side`.
+**Purpose:** Reads and returns the `is ascending sort for side` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetIsAscendingSortForSide(side);
+```
 
 ### IsDoneActive
 `public bool IsDoneActive()`
 
-**Purpose:** Handles logic related to `is done active`.
+**Purpose:** Determines whether the current object is in the `done active` state or condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.IsDoneActive();
+```
 
 ### IsCancelActive
 `public bool IsCancelActive()`
 
-**Purpose:** Handles logic related to `is cancel active`.
+**Purpose:** Determines whether the current object is in the `cancel active` state or condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.IsCancelActive();
+```
 
 ### DoneLogic
 `public bool DoneLogic(bool isForced)`
 
-**Purpose:** Handles logic related to `done logic`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.DoneLogic(false);
+```
 
 ### OnPartyScreenClosed
 `public void OnPartyScreenClosed(bool fromCancel)`
 
-**Purpose:** Called when the `party screen closed` event is raised.
+**Purpose:** Invoked when the `party screen closed` event is raised.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.OnPartyScreenClosed(false);
+```
 
 ### IsTroopTransferable
 `public bool IsTroopTransferable(TroopType troopType, CharacterObject character, int side)`
 
-**Purpose:** Handles logic related to `is troop transferable`.
+**Purpose:** Determines whether the current object is in the `troop transferable` state or condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.IsTroopTransferable(troopType, character, 0);
+```
 
 ### IsTroopRosterTransferable
 `public bool IsTroopRosterTransferable(TroopType troopType)`
 
-**Purpose:** Handles logic related to `is troop roster transferable`.
+**Purpose:** Determines whether the current object is in the `troop roster transferable` state or condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.IsTroopRosterTransferable(troopType);
+```
 
 ### IsPrisonerRecruitable
 `public bool IsPrisonerRecruitable(TroopType troopType, CharacterObject character, PartyRosterSide side)`
 
-**Purpose:** Handles logic related to `is prisoner recruitable`.
+**Purpose:** Determines whether the current object is in the `prisoner recruitable` state or condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.IsPrisonerRecruitable(troopType, character, side);
+```
 
 ### GetRecruitableReasonString
 `public string GetRecruitableReasonString(CharacterObject character, bool isRecruitable, int troopCount, out bool showStackModifierText)`
 
-**Purpose:** Gets the current value of `recruitable reason string`.
+**Purpose:** Reads and returns the `recruitable reason string` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetRecruitableReasonString(character, false, 0, showStackModifierText);
+```
 
 ### IsExecutable
 `public bool IsExecutable(TroopType troopType, CharacterObject character, PartyRosterSide side)`
 
-**Purpose:** Handles logic related to `is executable`.
+**Purpose:** Determines whether the current object is in the `executable` state or condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.IsExecutable(troopType, character, side);
+```
 
 ### GetExecutableReasonString
 `public string GetExecutableReasonString(CharacterObject character, bool isExecutable)`
 
-**Purpose:** Gets the current value of `executable reason string`.
+**Purpose:** Reads and returns the `executable reason string` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetExecutableReasonString(character, false);
+```
 
 ### GetCurrentQuestCurrentCount
 `public int GetCurrentQuestCurrentCount(bool includePrisoners, bool includeMembers)`
 
-**Purpose:** Gets the current value of `current quest current count`.
+**Purpose:** Reads and returns the `current quest current count` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetCurrentQuestCurrentCount(false, false);
+```
 
 ### GetCurrentQuestRequiredCount
 `public int GetCurrentQuestRequiredCount()`
 
-**Purpose:** Gets the current value of `current quest required count`.
+**Purpose:** Reads and returns the `current quest required count` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetCurrentQuestRequiredCount();
+```
 
 ### Reset
 `public void Reset(bool fromCancel)`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.Reset(false);
+```
 
 ### SavePartyScreenData
 `public void SavePartyScreenData()`
 
-**Purpose:** Saves `party screen data` data.
+**Purpose:** Writes `party screen data` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.SavePartyScreenData();
+```
 
 ### ResetToLastSavedPartyScreenData
 `public void ResetToLastSavedPartyScreenData(bool fromCancel)`
 
-**Purpose:** Resets `to last saved party screen data` to its initial state.
+**Purpose:** Returns `to last saved party screen data` to its default or initial condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.ResetToLastSavedPartyScreenData(false);
+```
 
 ### RemoveZeroCounts
 `public void RemoveZeroCounts()`
 
 **Purpose:** Removes `zero counts` from the current collection or state.
 
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+partyScreenLogic.RemoveZeroCounts();
+```
+
 ### GetTroopRecruitableAmount
 `public int GetTroopRecruitableAmount(CharacterObject troop)`
 
-**Purpose:** Gets the current value of `troop recruitable amount`.
+**Purpose:** Reads and returns the `troop recruitable amount` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetTroopRecruitableAmount(troop);
+```
 
 ### GetRoster
 `public TroopRoster GetRoster(PartyRosterSide side, TroopType troopType)`
 
-**Purpose:** Gets the current value of `roster`.
+**Purpose:** Reads and returns the `roster` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetRoster(side, troopType);
+```
 
 ### IsThereAnyChanges
 `public bool IsThereAnyChanges()`
 
-**Purpose:** Handles logic related to `is there any changes`.
+**Purpose:** Determines whether the current object is in the `there any changes` state or condition.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.IsThereAnyChanges();
+```
 
 ### HaveRightSideGainedTroops
 `public bool HaveRightSideGainedTroops()`
 
-**Purpose:** Handles logic related to `have right side gained troops`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.HaveRightSideGainedTroops();
+```
 
 ### GetComparer
 `public TroopComparer GetComparer(TroopSortType sortType)`
 
-**Purpose:** Gets the current value of `comparer`.
+**Purpose:** Reads and returns the `comparer` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyScreenLogic from the subsystem API first
+PartyScreenLogic partyScreenLogic = ...;
+var result = partyScreenLogic.GetComparer(sortType);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new PartyScreenLogic());
+var behavior = Mission.Current.GetMissionBehavior<PartyScreenLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

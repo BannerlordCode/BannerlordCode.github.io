@@ -1,13 +1,7 @@
 ---
 title: "SettlementDailyProjectVM"
+description: "Auto-generated class reference for SettlementDailyProjectVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementDailyProjectVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementDailyProjectVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement
@@ -36,45 +30,88 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tow
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementDailyProjectVM from the subsystem API first
+SettlementDailyProjectVM settlementDailyProjectVM = ...;
+settlementDailyProjectVM.RefreshValues();
+```
 
 ### RefreshProductionText
 `public override void RefreshProductionText()`
 
-**Purpose:** Refreshes the display or cache of `production text`.
+**Purpose:** Keeps the display or cache of `production text` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementDailyProjectVM from the subsystem API first
+SettlementDailyProjectVM settlementDailyProjectVM = ...;
+settlementDailyProjectVM.RefreshProductionText();
+```
 
 ### ExecuteAddToQueue
 `public override void ExecuteAddToQueue()`
 
-**Purpose:** Executes the `add to queue` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `add to queue`.
+
+```csharp
+// Obtain an instance of SettlementDailyProjectVM from the subsystem API first
+SettlementDailyProjectVM settlementDailyProjectVM = ...;
+settlementDailyProjectVM.ExecuteAddToQueue();
+```
 
 ### ExecuteSetAsActiveDevelopment
 `public override void ExecuteSetAsActiveDevelopment()`
 
-**Purpose:** Executes the `set as active development` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set as active development`.
+
+```csharp
+// Obtain an instance of SettlementDailyProjectVM from the subsystem API first
+SettlementDailyProjectVM settlementDailyProjectVM = ...;
+settlementDailyProjectVM.ExecuteSetAsActiveDevelopment();
+```
 
 ### ExecuteSetAsCurrent
 `public override void ExecuteSetAsCurrent()`
 
-**Purpose:** Executes the `set as current` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set as current`.
+
+```csharp
+// Obtain an instance of SettlementDailyProjectVM from the subsystem API first
+SettlementDailyProjectVM settlementDailyProjectVM = ...;
+settlementDailyProjectVM.ExecuteSetAsCurrent();
+```
 
 ### ExecuteResetCurrent
 `public override void ExecuteResetCurrent()`
 
-**Purpose:** Executes the `reset current` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset current`.
+
+```csharp
+// Obtain an instance of SettlementDailyProjectVM from the subsystem API first
+SettlementDailyProjectVM settlementDailyProjectVM = ...;
+settlementDailyProjectVM.ExecuteResetCurrent();
+```
 
 ### ExecuteToggleSelected
 `public override void ExecuteToggleSelected()`
 
-**Purpose:** Executes the `toggle selected` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `toggle selected`.
+
+```csharp
+// Obtain an instance of SettlementDailyProjectVM from the subsystem API first
+SettlementDailyProjectVM settlementDailyProjectVM = ...;
+settlementDailyProjectVM.ExecuteToggleSelected();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementDailyProjectVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementDailyProjectVM settlementDailyProjectVM = ...;
+settlementDailyProjectVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

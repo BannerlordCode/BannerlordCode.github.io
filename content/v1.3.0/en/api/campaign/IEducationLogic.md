@@ -1,18 +1,12 @@
 ---
 title: "IEducationLogic"
+description: "Auto-generated class reference for IEducationLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IEducationLogic`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IEducationLogic
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IEducationLogic`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IEducationLogic.cs`
 
@@ -27,9 +21,10 @@ Treat `IEducationLogic` as a Logic-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-IEducationLogic implementation = GetEducationLogicImplementation();
+// Usually obtained through DI or a factory method
+IIEducationLogic service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

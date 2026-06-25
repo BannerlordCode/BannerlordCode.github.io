@@ -1,20 +1,14 @@
 ---
 title: "BoardGameAISeega"
+description: "BoardGameAISeega 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BoardGameAISeega`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAISeega
 
 **Namespace:** SandBox.BoardGames.AI
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGameAISeega : BoardGameAIBase`
 **Base:** `BoardGameAIBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAISeega.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.AI/BoardGameAISeega.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "BoardGameAISeega"
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAISeega 实例
+BoardGameAISeega boardGameAISeega = ...;
+var result = boardGameAISeega.CalculateMovementStageMove();
+```
 
 ### WantsToForfeit
 `public override bool WantsToForfeit()`
 
-**用途 / Purpose:** 处理 `wants to forfeit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAISeega 实例
+BoardGameAISeega boardGameAISeega = ...;
+var result = boardGameAISeega.WantsToForfeit();
+```
 
 ### CalculatePreMovementStageMove
 `public override Move CalculatePreMovementStageMove()`
 
-**用途 / Purpose:** 处理 `calculate pre movement stage move` 相关逻辑。
+**用途 / Purpose:** 计算「pre movement stage move」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 BoardGameAISeega 实例
+BoardGameAISeega boardGameAISeega = ...;
+var result = boardGameAISeega.CalculatePreMovementStageMove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BoardGameAISeega();
-value.CalculateMovementStageMove();
+// 通常从对应子系统 API 获取实例后调用
+BoardGameAISeega boardGameAISeega = ...;
+boardGameAISeega.CalculateMovementStageMove();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

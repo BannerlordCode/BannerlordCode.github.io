@@ -1,20 +1,14 @@
 ---
 title: "MarriageOfferPopupHeroVM"
+description: "MarriageOfferPopupHeroVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MarriageOfferPopupHeroVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageOfferPopupHeroVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MarriageOfferPopupHeroVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup/MarriageOfferPopupHeroVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup/MarriageOfferPopupHeroVM.cs`
 
 ## 概述
 
@@ -46,35 +40,66 @@ title: "MarriageOfferPopupHeroVM"
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageOfferPopupHeroVM 实例
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.Update();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageOfferPopupHeroVM 实例
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageOfferPopupHeroVM 实例
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.OnFinalize();
+```
 
 ### ExecuteHeroLink
 `public void ExecuteHeroLink()`
 
-**用途 / Purpose:** 执行 `hero link` 操作或流程。
+**用途 / Purpose:** 执行 「hero link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageOfferPopupHeroVM 实例
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.ExecuteHeroLink();
+```
 
 ### ExecuteClanLink
 `public void ExecuteClanLink()`
 
-**用途 / Purpose:** 执行 `clan link` 操作或流程。
+**用途 / Purpose:** 执行 「clan link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MarriageOfferPopupHeroVM 实例
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.ExecuteClanLink();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MarriageOfferPopupHeroVM();
-value.Update();
+// 通常从对应子系统 API 获取实例后调用
+MarriageOfferPopupHeroVM marriageOfferPopupHeroVM = ...;
+marriageOfferPopupHeroVM.Update();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

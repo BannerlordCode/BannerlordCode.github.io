@@ -1,13 +1,7 @@
 ---
 title: "IncidentModel"
+description: "Auto-generated class reference for IncidentModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IncidentModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IncidentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,34 +23,65 @@ Treat `IncidentModel` as a Model-style extension point: first identify who creat
 ### GetMinGlobalCooldownTime
 `public abstract CampaignTime GetMinGlobalCooldownTime()`
 
-**Purpose:** Gets the current value of `min global cooldown time`.
+**Purpose:** Reads and returns the `min global cooldown time` value held by the current object.
+
+```csharp
+// Obtain an instance of IncidentModel from the subsystem API first
+IncidentModel incidentModel = ...;
+var result = incidentModel.GetMinGlobalCooldownTime();
+```
 
 ### GetMaxGlobalCooldownTime
 `public abstract CampaignTime GetMaxGlobalCooldownTime()`
 
-**Purpose:** Gets the current value of `max global cooldown time`.
+**Purpose:** Reads and returns the `max global cooldown time` value held by the current object.
+
+```csharp
+// Obtain an instance of IncidentModel from the subsystem API first
+IncidentModel incidentModel = ...;
+var result = incidentModel.GetMaxGlobalCooldownTime();
+```
 
 ### GetIncidentTriggerGlobalProbability
 `public abstract float GetIncidentTriggerGlobalProbability()`
 
-**Purpose:** Gets the current value of `incident trigger global probability`.
+**Purpose:** Reads and returns the `incident trigger global probability` value held by the current object.
+
+```csharp
+// Obtain an instance of IncidentModel from the subsystem API first
+IncidentModel incidentModel = ...;
+var result = incidentModel.GetIncidentTriggerGlobalProbability();
+```
 
 ### GetIncidentTriggerProbabilityDuringSiege
 `public abstract float GetIncidentTriggerProbabilityDuringSiege()`
 
-**Purpose:** Gets the current value of `incident trigger probability during siege`.
+**Purpose:** Reads and returns the `incident trigger probability during siege` value held by the current object.
+
+```csharp
+// Obtain an instance of IncidentModel from the subsystem API first
+IncidentModel incidentModel = ...;
+var result = incidentModel.GetIncidentTriggerProbabilityDuringSiege();
+```
 
 ### GetIncidentTriggerProbabilityDuringWait
 `public abstract float GetIncidentTriggerProbabilityDuringWait()`
 
-**Purpose:** Gets the current value of `incident trigger probability during wait`.
+**Purpose:** Reads and returns the `incident trigger probability during wait` value held by the current object.
+
+```csharp
+// Obtain an instance of IncidentModel from the subsystem API first
+IncidentModel incidentModel = ...;
+var result = incidentModel.GetIncidentTriggerProbabilityDuringWait();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomIncidentModel();
+// Typically obtained from a subsystem API or factory
+IncidentModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

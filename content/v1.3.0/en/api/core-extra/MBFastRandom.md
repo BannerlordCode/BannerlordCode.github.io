@@ -1,13 +1,7 @@
 ---
 title: "MBFastRandom"
+description: "Auto-generated class reference for MBFastRandom."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBFastRandom`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBFastRandom
 
 **Namespace:** TaleWorlds.Core
@@ -29,45 +23,88 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetSeed
 `public void SetSeed(uint seed, uint seed2)`
 
-**Purpose:** Sets the value or state of `seed`.
+**Purpose:** Assigns a new value to `seed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBFastRandom from the subsystem API first
+MBFastRandom mBFastRandom = ...;
+mBFastRandom.SetSeed(0, 0);
+```
 
 ### Next
 `public int Next()`
 
-**Purpose:** Handles logic related to `next`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandom from the subsystem API first
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.Next();
+```
 
 ### Next
 `public int Next(int maxValue)`
 
-**Purpose:** Handles logic related to `next`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandom from the subsystem API first
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.Next(0);
+```
 
 ### Next
 `public int Next(int minValue, int maxValue)`
 
-**Purpose:** Handles logic related to `next`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandom from the subsystem API first
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.Next(0, 0);
+```
 
 ### NextDouble
 `public double NextDouble()`
 
-**Purpose:** Handles logic related to `next double`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandom from the subsystem API first
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.NextDouble();
+```
 
 ### NextFloat
 `public float NextFloat()`
 
-**Purpose:** Handles logic related to `next float`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandom from the subsystem API first
+MBFastRandom mBFastRandom = ...;
+var result = mBFastRandom.NextFloat();
+```
 
 ### NextBytes
 `public void NextBytes(byte buffer)`
 
-**Purpose:** Handles logic related to `next bytes`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBFastRandom from the subsystem API first
+MBFastRandom mBFastRandom = ...;
+mBFastRandom.NextBytes(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBFastRandom();
-value.SetSeed(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+MBFastRandom mBFastRandom = ...;
+mBFastRandom.SetSeed(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

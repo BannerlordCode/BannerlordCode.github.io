@@ -1,20 +1,14 @@
 ---
 title: "FindMostDangerousThreat"
+description: "Auto-generated class reference for FindMostDangerousThreat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FindMostDangerousThreat`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FindMostDangerousThreat
 
 **Namespace:** TaleWorlds.MountAndBlade.DividableTasks
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FindMostDangerousThreat : DividableTask`
 **Base:** `DividableTask`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.DividableTasks/FindMostDangerousThreat.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.DividableTasks/FindMostDangerousThreat.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.DividableTasks` to place it in th
 ### Prepare
 `public void Prepare(List<Threat> threats, RangedSiegeWeapon weapon)`
 
-**Purpose:** Handles logic related to `prepare`.
+**Purpose:** Finishes prerequisite setup for the current object's operation.
+
+```csharp
+// Obtain an instance of FindMostDangerousThreat from the subsystem API first
+FindMostDangerousThreat findMostDangerousThreat = ...;
+findMostDangerousThreat.Prepare(threats, weapon);
+```
 
 ### GetResult
 `public Threat GetResult(out Agent targetAgent)`
 
-**Purpose:** Gets the current value of `result`.
+**Purpose:** Reads and returns the `result` value held by the current object.
+
+```csharp
+// Obtain an instance of FindMostDangerousThreat from the subsystem API first
+FindMostDangerousThreat findMostDangerousThreat = ...;
+var result = findMostDangerousThreat.GetResult(targetAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FindMostDangerousThreat();
-value.Prepare(threats, weapon);
+// Typically call this after obtaining an instance from the subsystem API
+FindMostDangerousThreat findMostDangerousThreat = ...;
+findMostDangerousThreat.Prepare(threats, weapon);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

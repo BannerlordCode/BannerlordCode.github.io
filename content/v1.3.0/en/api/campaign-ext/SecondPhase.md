@@ -1,13 +1,7 @@
 ---
 title: "SecondPhase"
+description: "Auto-generated class reference for SecondPhase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SecondPhase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SecondPhase
 
 **Namespace:** StoryMode.StoryModePhases
@@ -37,40 +31,77 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 ### OnSessionLaunched
 `public void OnSessionLaunched()`
 
-**Purpose:** Called when the `session launched` event is raised.
+**Purpose:** Invoked when the `session launched` event is raised.
+
+```csharp
+// Obtain an instance of SecondPhase from the subsystem API first
+SecondPhase secondPhase = ...;
+secondPhase.OnSessionLaunched();
+```
 
 ### TriggerConspiracy
 `public void TriggerConspiracy()`
 
-**Purpose:** Handles logic related to `trigger conspiracy`.
+**Purpose:** Triggers the logic or event associated with `conspiracy`.
+
+```csharp
+// Obtain an instance of SecondPhase from the subsystem API first
+SecondPhase secondPhase = ...;
+secondPhase.TriggerConspiracy();
+```
 
 ### IncreaseConspiracyStrength
 `public void IncreaseConspiracyStrength()`
 
-**Purpose:** Handles logic related to `increase conspiracy strength`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SecondPhase from the subsystem API first
+SecondPhase secondPhase = ...;
+secondPhase.IncreaseConspiracyStrength();
+```
 
 ### DecreaseConspiracyStrength
 `public void DecreaseConspiracyStrength(float amount)`
 
-**Purpose:** Handles logic related to `decrease conspiracy strength`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SecondPhase from the subsystem API first
+SecondPhase secondPhase = ...;
+secondPhase.DecreaseConspiracyStrength(0);
+```
 
 ### ActivateConspiracy
 `public void ActivateConspiracy()`
 
-**Purpose:** Handles logic related to `activate conspiracy`.
+**Purpose:** Activates the resource, state, or feature associated with `conspiracy`.
+
+```csharp
+// Obtain an instance of SecondPhase from the subsystem API first
+SecondPhase secondPhase = ...;
+secondPhase.ActivateConspiracy();
+```
 
 ### CreateNextConspiracyQuest
 `public void CreateNextConspiracyQuest()`
 
-**Purpose:** Creates a new `next conspiracy quest` instance or object.
+**Purpose:** Constructs a new `next conspiracy quest` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of SecondPhase from the subsystem API first
+SecondPhase secondPhase = ...;
+secondPhase.CreateNextConspiracyQuest();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SecondPhase();
-value.OnSessionLaunched();
+// Typically call this after obtaining an instance from the subsystem API
+SecondPhase secondPhase = ...;
+secondPhase.OnSessionLaunched();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

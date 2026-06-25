@@ -1,13 +1,7 @@
 ---
 title: "MissionNameMarkerProvider"
+description: "MissionNameMarkerProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNameMarkerProvider`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerProvider
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
@@ -29,29 +23,54 @@ title: "MissionNameMarkerProvider"
 ### CreateMarkers
 `public abstract void CreateMarkers(List<MissionNameMarkerTargetBaseVM> markers)`
 
-**用途 / Purpose:** 创建一个 `markers` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「markers」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerProvider 实例
+MissionNameMarkerProvider missionNameMarkerProvider = ...;
+missionNameMarkerProvider.CreateMarkers(markers);
+```
 
 ### Initialize
 `public void Initialize(Mission mission, Action onSetMarkersDirty)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerProvider 实例
+MissionNameMarkerProvider missionNameMarkerProvider = ...;
+missionNameMarkerProvider.Initialize(mission, onSetMarkersDirty);
+```
 
 ### Destroy
 `public void Destroy(Mission mission)`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerProvider 实例
+MissionNameMarkerProvider missionNameMarkerProvider = ...;
+missionNameMarkerProvider.Destroy(mission);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNameMarkerProvider 实例
+MissionNameMarkerProvider missionNameMarkerProvider = ...;
+missionNameMarkerProvider.Tick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionNameMarkerProvider();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionNameMarkerProvider instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

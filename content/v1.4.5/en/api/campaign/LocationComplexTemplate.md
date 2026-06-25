@@ -1,20 +1,14 @@
 ---
 title: "LocationComplexTemplate"
+description: "Auto-generated class reference for LocationComplexTemplate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LocationComplexTemplate`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationComplexTemplate
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class LocationComplexTemplate : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationComplexTemplate.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/LocationComplexTemplate.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of LocationComplexTemplate from the subsystem API first
+LocationComplexTemplate locationComplexTemplate = ...;
+locationComplexTemplate.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LocationComplexTemplate();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+LocationComplexTemplate locationComplexTemplate = ...;
+locationComplexTemplate.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

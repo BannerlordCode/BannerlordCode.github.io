@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplateManagerWidget"
+description: "Auto-generated class reference for SettlementNameplateManagerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateManagerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementNameplateManagerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
@@ -27,9 +21,10 @@ Treat `SettlementNameplateManagerWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new SettlementNameplateManagerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SettlementNameplateManagerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

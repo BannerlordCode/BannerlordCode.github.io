@@ -1,13 +1,7 @@
 ---
 title: "EducationMapNotification"
+description: "EducationMapNotification 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EducationMapNotification`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EducationMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -38,15 +32,22 @@ title: "EducationMapNotification"
 ### IsValid
 `public override bool IsValid()`
 
-**用途 / Purpose:** 处理 `is valid` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 EducationMapNotification 实例
+EducationMapNotification educationMapNotification = ...;
+var result = educationMapNotification.IsValid();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EducationMapNotification();
-value.IsValid();
+// 通常从对应子系统 API 获取实例后调用
+EducationMapNotification educationMapNotification = ...;
+educationMapNotification.IsValid();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "BaseBattleMissionController"
+description: "Auto-generated class reference for BaseBattleMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BaseBattleMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BaseBattleMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
@@ -29,44 +23,87 @@ Treat `BaseBattleMissionController` as a Controller-style extension point: first
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BaseBattleMissionController from the subsystem API first
+BaseBattleMissionController baseBattleMissionController = ...;
+baseBattleMissionController.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BaseBattleMissionController from the subsystem API first
+BaseBattleMissionController baseBattleMissionController = ...;
+baseBattleMissionController.AfterStart();
+```
 
 ### GetTeamAI
 `public virtual TeamAIComponent GetTeamAI(Team team, float thinkTimerTime = 5f, float applyTimerTime = 1f)`
 
-**Purpose:** Gets the current value of `team a i`.
+**Purpose:** Reads and returns the `team a i` value held by the current object.
+
+```csharp
+// Obtain an instance of BaseBattleMissionController from the subsystem API first
+BaseBattleMissionController baseBattleMissionController = ...;
+var result = baseBattleMissionController.GetTeamAI(team, 0, 0);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of BaseBattleMissionController from the subsystem API first
+BaseBattleMissionController baseBattleMissionController = ...;
+baseBattleMissionController.OnMissionTick(0);
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Handles logic related to `mission ended`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BaseBattleMissionController from the subsystem API first
+BaseBattleMissionController baseBattleMissionController = ...;
+var result = baseBattleMissionController.MissionEnded(missionResult);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of BaseBattleMissionController from the subsystem API first
+BaseBattleMissionController baseBattleMissionController = ...;
+var result = baseBattleMissionController.OnEndMissionRequest(canPlayerLeave);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of BaseBattleMissionController from the subsystem API first
+BaseBattleMissionController baseBattleMissionController = ...;
+baseBattleMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBaseBattleMissionController();
+// Typically obtained from a subsystem API or factory
+BaseBattleMissionController instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

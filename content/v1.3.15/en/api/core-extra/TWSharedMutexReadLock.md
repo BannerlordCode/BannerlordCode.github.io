@@ -1,13 +1,7 @@
 ---
 title: "TWSharedMutexReadLock"
+description: "Auto-generated class reference for TWSharedMutexReadLock."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TWSharedMutexReadLock`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TWSharedMutexReadLock
 
 **Namespace:** TaleWorlds.Library
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of TWSharedMutexReadLock from the subsystem API first
+TWSharedMutexReadLock tWSharedMutexReadLock = ...;
+tWSharedMutexReadLock.Dispose();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TWSharedMutexReadLock();
-value.Dispose();
+// Typically call this after obtaining an instance from the subsystem API
+TWSharedMutexReadLock tWSharedMutexReadLock = ...;
+tWSharedMutexReadLock.Dispose();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

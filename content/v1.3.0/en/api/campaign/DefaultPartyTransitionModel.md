@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyTransitionModel"
+description: "Auto-generated class reference for DefaultPartyTransitionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPartyTransitionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyTransitionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ Treat `DefaultPartyTransitionModel` as a Model-style extension point: first iden
 ### GetFleetTravelTimeToPoint
 `public override CampaignTime GetFleetTravelTimeToPoint(MobileParty mobileParty, CampaignVec2 target)`
 
-**Purpose:** Gets the current value of `fleet travel time to point`.
+**Purpose:** Reads and returns the `fleet travel time to point` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyTransitionModel from the subsystem API first
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetFleetTravelTimeToPoint(mobileParty, target);
+```
 
 ### GetTransitionTimeDisembarking
 `public override CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `transition time disembarking`.
+**Purpose:** Reads and returns the `transition time disembarking` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyTransitionModel from the subsystem API first
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetTransitionTimeDisembarking(mobileParty);
+```
 
 ### GetTransitionTimeForEmbarking
 `public override CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `transition time for embarking`.
+**Purpose:** Reads and returns the `transition time for embarking` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPartyTransitionModel from the subsystem API first
+DefaultPartyTransitionModel defaultPartyTransitionModel = ...;
+var result = defaultPartyTransitionModel.GetTransitionTimeForEmbarking(mobileParty);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPartyTransitionModel>(new MyDefaultPartyTransit
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

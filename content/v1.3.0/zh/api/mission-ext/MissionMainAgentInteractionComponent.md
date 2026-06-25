@@ -1,13 +1,7 @@
 ---
 title: "MissionMainAgentInteractionComponent"
+description: "MissionMainAgentInteractionComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMainAgentInteractionComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentInteractionComponent
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -36,47 +30,101 @@ title: "MissionMainAgentInteractionComponent"
 ### SetCurrentFocusedObject
 `public void SetCurrentFocusedObject(IFocusable focusedObject, IFocusable focusedMachine, sbyte focusedObjectBoneIndex, bool isInteractable)`
 
-**用途 / Purpose:** 设置 `current focused object` 的值或状态。
+**用途 / Purpose:** 为 「current focused object」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.SetCurrentFocusedObject(focusedObject, focusedMachine, 0, false);
+```
 
 ### ClearFocus
 `public void ClearFocus()`
 
-**用途 / Purpose:** 处理 `clear focus` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「focus」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.ClearFocus();
+```
 
 ### OnClearScene
 `public void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.OnClearScene();
+```
 
 ### FocusTick
 `public void FocusTick()`
 
-**用途 / Purpose:** 处理 `focus tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.FocusTick();
+```
 
 ### FocusStateCheckTick
 `public void FocusStateCheckTick()`
 
-**用途 / Purpose:** 处理 `focus state check tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.FocusStateCheckTick();
+```
 
 ### FocusedItemHealthTick
 `public void FocusedItemHealthTick()`
 
-**用途 / Purpose:** 处理 `focused item health tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.FocusedItemHealthTick();
+```
 
 ### MissionFocusGainedEventDelegate
 `public delegate void MissionFocusGainedEventDelegate(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** 处理 `mission focus gained event delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.MissionFocusGainedEventDelegate(agent, focusableObject, false);
+```
 
 ### MissionFocusLostEventDelegate
 `public delegate void MissionFocusLostEventDelegate(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** 处理 `mission focus lost event delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.MissionFocusLostEventDelegate(agent, focusableObject);
+```
 
 ### MissionFocusHealthChangeDelegate
 `public delegate void MissionFocusHealthChangeDelegate(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**用途 / Purpose:** 处理 `mission focus health change delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
+MissionMainAgentInteractionComponent missionMainAgentInteractionComponent = ...;
+missionMainAgentInteractionComponent.MissionFocusHealthChangeDelegate(focusable, 0, false);
+```
 
 ## 使用示例
 
@@ -86,4 +134,4 @@ var component = agent.GetComponent<MissionMainAgentInteractionComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

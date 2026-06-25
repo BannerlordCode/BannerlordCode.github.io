@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticCategoryBaseVM"
+description: "Auto-generated class reference for MPArmoryCosmeticCategoryBaseVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryCosmeticCategoryBaseVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticCategoryBaseVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MPArmoryCosmeticCategoryBaseVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory/MPArmoryCosmeticCategoryBaseVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticCategory/MPArmoryCosmeticCategoryBaseVM.cs`
 
 ## Overview
 
@@ -38,29 +32,54 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### MPArmoryCosmeticCategoryBaseVM
 `public unsafe MPArmoryCosmeticCategoryBaseVM(CosmeticType cosmeticType)`
 
-**Purpose:** Handles logic related to `m p armory cosmetic category base v m`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticCategoryBaseVM from the subsystem API first
+MPArmoryCosmeticCategoryBaseVM mPArmoryCosmeticCategoryBaseVM = ...;
+var result = mPArmoryCosmeticCategoryBaseVM.MPArmoryCosmeticCategoryBaseVM(cosmeticType);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticCategoryBaseVM from the subsystem API first
+MPArmoryCosmeticCategoryBaseVM mPArmoryCosmeticCategoryBaseVM = ...;
+mPArmoryCosmeticCategoryBaseVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticCategoryBaseVM from the subsystem API first
+MPArmoryCosmeticCategoryBaseVM mPArmoryCosmeticCategoryBaseVM = ...;
+mPArmoryCosmeticCategoryBaseVM.OnFinalize();
+```
 
 ### Sort
 `public void Sort(MPArmoryCosmeticsVM.CosmeticItemComparer comparer)`
 
-**Purpose:** Handles logic related to `sort`.
+**Purpose:** Sorts the content inside the current object.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticCategoryBaseVM from the subsystem API first
+MPArmoryCosmeticCategoryBaseVM mPArmoryCosmeticCategoryBaseVM = ...;
+mPArmoryCosmeticCategoryBaseVM.Sort(comparer);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMPArmoryCosmeticCategoryBaseVM();
+// Typically obtained from a subsystem API or factory
+MPArmoryCosmeticCategoryBaseVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

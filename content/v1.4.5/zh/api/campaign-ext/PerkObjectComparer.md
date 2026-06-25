@@ -1,20 +1,14 @@
 ---
 title: "PerkObjectComparer"
+description: "PerkObjectComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PerkObjectComparer`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkObjectComparer
 
 **Namespace:** SandBox.ViewModelCollection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PerkObjectComparer : IComparer<PerkObject>`
 **Base:** `IComparer<PerkObject>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/PerkObjectComparer.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection/PerkObjectComparer.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "PerkObjectComparer"
 ### Compare
 `public int Compare(PerkObject x, PerkObject y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 PerkObjectComparer 实例
+PerkObjectComparer perkObjectComparer = ...;
+var result = perkObjectComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PerkObjectComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+PerkObjectComparer perkObjectComparer = ...;
+perkObjectComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

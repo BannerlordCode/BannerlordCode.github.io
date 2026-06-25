@@ -1,23 +1,18 @@
 ---
 title: "SubtitleItem"
+description: "Auto-generated class reference for SubtitleItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SubtitleItem`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SubtitleItem
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class SubtitleItem`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Library/SRTHelper.cs`
 
 ## Overview
 
-`SubtitleItem` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SubtitleItem` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -33,29 +28,25 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 
 ## Key Methods
 
-### ParseStream
-`public static List<SRTHelper.SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
-
-**Purpose:** Handles logic related to `parse stream`.
-
-### CopyStream
-`public static Stream CopyStream(Stream inputStream)`
-
-**Purpose:** Handles logic related to `copy stream`.
-
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SubtitleItem from the subsystem API first
+SubtitleItem subtitleItem = ...;
+var result = subtitleItem.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
-SubtitleItem.ParseStream(subtitleStream, encoding);
+// Typically call this after obtaining an instance from the subsystem API
+SubtitleItem subtitleItem = ...;
+subtitleItem.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

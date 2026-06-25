@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleSliderLockButtonWidget"
+description: "Auto-generated class reference for CustomBattleSliderLockButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleSliderLockButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleSliderLockButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleSliderLockButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CustomBattle/CustomBattleSliderLockButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.CustomBattle/CustomBattleSliderLockButtonWidget.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `CustomBattleSliderLockButtonWidget` as a Widget-style extension point: fi
 ## Usage Example
 
 ```csharp
-var widget = new CustomBattleSliderLockButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CustomBattleSliderLockButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

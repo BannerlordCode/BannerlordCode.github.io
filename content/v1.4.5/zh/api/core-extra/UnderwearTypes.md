@@ -1,20 +1,14 @@
 ---
 title: "UnderwearTypes"
+description: "UnderwearTypes 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UnderwearTypes`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UnderwearTypes
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public enum UnderwearTypes`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "UnderwearTypes"
 ## 使用示例
 
 ```csharp
-UnderwearTypes example = UnderwearTypes.Value;
+// 从对应子系统 API 获取实例
+UnderwearTypes instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

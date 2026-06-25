@@ -1,13 +1,7 @@
 ---
 title: "ItemQuantityComparer"
+description: "Auto-generated class reference for ItemQuantityComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemQuantityComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemQuantityComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemQuantityComparer from the subsystem API first
+ItemQuantityComparer itemQuantityComparer = ...;
+var result = itemQuantityComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemQuantityComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemQuantityComparer itemQuantityComparer = ...;
+itemQuantityComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

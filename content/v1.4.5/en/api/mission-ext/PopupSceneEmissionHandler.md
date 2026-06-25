@@ -1,20 +1,14 @@
 ---
 title: "PopupSceneEmissionHandler"
+description: "Auto-generated class reference for PopupSceneEmissionHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneEmissionHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneEmissionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PopupSceneEmissionHandler : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/PopupSceneEmissionHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/PopupSceneEmissionHandler.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `PopupSceneEmissionHandler` as a Handler-style extension point: first iden
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of PopupSceneEmissionHandler from the subsystem API first
+PopupSceneEmissionHandler popupSceneEmissionHandler = ...;
+var result = popupSceneEmissionHandler.GetTickRequirement();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new PopupSceneEmissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<PopupSceneEmissionHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

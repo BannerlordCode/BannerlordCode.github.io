@@ -1,18 +1,12 @@
 ---
 title: "IPatrolPartiesCampaignBehavior"
+description: "IPatrolPartiesCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IPatrolPartiesCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IPatrolPartiesCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IPatrolPartiesCampaignBehavior`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/CampaignBehaviors/IPatrolPartiesCampaignBehavior.cs`
 
@@ -27,9 +21,10 @@ title: "IPatrolPartiesCampaignBehavior"
 ## 使用示例
 
 ```csharp
-IPatrolPartiesCampaignBehavior implementation = GetPatrolPartiesCampaignBehaviorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIPatrolPartiesCampaignBehavior service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

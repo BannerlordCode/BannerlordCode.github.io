@@ -1,13 +1,7 @@
 ---
 title: "BrushLayerAnimation"
+description: "Auto-generated class reference for BrushLayerAnimation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushLayerAnimation`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushLayerAnimation
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -38,18 +32,31 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 
 **Purpose:** Adds `animation property` to the current collection or state.
 
+```csharp
+// Obtain an instance of BrushLayerAnimation from the subsystem API first
+BrushLayerAnimation brushLayerAnimation = ...;
+brushLayerAnimation.AddAnimationProperty(property);
+```
+
 ### Clone
 `public BrushLayerAnimation Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of BrushLayerAnimation from the subsystem API first
+BrushLayerAnimation brushLayerAnimation = ...;
+var result = brushLayerAnimation.Clone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushLayerAnimation();
-value.AddAnimationProperty(property);
+// Typically call this after obtaining an instance from the subsystem API
+BrushLayerAnimation brushLayerAnimation = ...;
+brushLayerAnimation.AddAnimationProperty(property);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

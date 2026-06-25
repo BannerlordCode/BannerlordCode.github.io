@@ -1,20 +1,14 @@
 ---
 title: "PlayerInvitedToPartyMessage"
+description: "PlayerInvitedToPartyMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerInvitedToPartyMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerInvitedToPartyMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerInvitedToPartyMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerInvitedToPartyMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerInvitedToPartyMessage.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "PlayerInvitedToPartyMessage"
 ## 使用示例
 
 ```csharp
-var example = new PlayerInvitedToPartyMessage();
+// 从对应子系统 API 获取实例
+PlayerInvitedToPartyMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

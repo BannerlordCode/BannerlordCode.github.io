@@ -1,13 +1,7 @@
 ---
 title: "MainThreadPerformanceQuery"
+description: "Auto-generated class reference for MainThreadPerformanceQuery."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MainThreadPerformanceQuery`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MainThreadPerformanceQuery
 
 **Namespace:** TaleWorlds.Engine
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of MainThreadPerformanceQuery from the subsystem API first
+MainThreadPerformanceQuery mainThreadPerformanceQuery = ...;
+mainThreadPerformanceQuery.Dispose();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MainThreadPerformanceQuery();
-value.Dispose();
+// Typically call this after obtaining an instance from the subsystem API
+MainThreadPerformanceQuery mainThreadPerformanceQuery = ...;
+mainThreadPerformanceQuery.Dispose();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

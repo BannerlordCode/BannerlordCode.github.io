@@ -1,20 +1,14 @@
 ---
 title: "MouseWidget"
+description: "Auto-generated class reference for MouseWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MouseWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MouseWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class MouseWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/MouseWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/MouseWidget.cs`
 
 ## Overview
 
@@ -42,14 +36,21 @@ Treat `MouseWidget` as a Widget-style extension point: first identify who create
 ### UpdatePressedKeys
 `public void UpdatePressedKeys()`
 
-**Purpose:** Updates the state or data of `pressed keys`.
+**Purpose:** Recalculates and stores the latest representation of `pressed keys`.
+
+```csharp
+// Obtain an instance of MouseWidget from the subsystem API first
+MouseWidget mouseWidget = ...;
+mouseWidget.UpdatePressedKeys();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MouseWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MouseWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

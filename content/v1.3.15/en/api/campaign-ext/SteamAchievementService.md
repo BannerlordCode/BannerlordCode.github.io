@@ -1,13 +1,7 @@
 ---
 title: "SteamAchievementService"
+description: "Auto-generated class reference for SteamAchievementService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamAchievementService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SteamAchievementService
 
 **Namespace:** TaleWorlds.PlatformService.Steam
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SteamAchievementService from the subsystem API first
+SteamAchievementService steamAchievementService = ...;
+steamAchievementService.Tick(0);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SteamAchievementService from the subsystem API first
+SteamAchievementService steamAchievementService = ...;
+steamAchievementService.Initialize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SteamAchievementService();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+SteamAchievementService steamAchievementService = ...;
+steamAchievementService.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

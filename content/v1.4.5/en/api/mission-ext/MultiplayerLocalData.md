@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLocalData"
+description: "Auto-generated class reference for MultiplayerLocalData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLocalData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLocalData
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MultiplayerLocalData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby/MultiplayerLocalData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby/MultiplayerLocalData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `MultiplayerLocalData` as a Data-style extension point: first identify who
 ### HasSameContentWith
 `public abstract bool HasSameContentWith(MultiplayerLocalData other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of MultiplayerLocalData from the subsystem API first
+MultiplayerLocalData multiplayerLocalData = ...;
+var result = multiplayerLocalData.HasSameContentWith(other);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMultiplayerLocalData();
+// Typically obtained from a subsystem API or factory
+MultiplayerLocalData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

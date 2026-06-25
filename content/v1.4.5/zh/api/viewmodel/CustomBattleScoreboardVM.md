@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleScoreboardVM"
+description: "CustomBattleScoreboardVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleScoreboardVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleScoreboardVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CustomBattleScoreboardVM`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/CustomBattleScoreboardVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/CustomBattleScoreboardVM.cs`
 
 ## 概述
 
@@ -29,65 +23,132 @@ title: "CustomBattleScoreboardVM"
 ### CustomBattleScoreboardVM
 `public class CustomBattleScoreboardVM(BattleScoreContext scoreboardContext)`
 
-**用途 / Purpose:** 处理 `custom battle scoreboard v m` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+var result = customBattleScoreboardVM.CustomBattleScoreboardVM(scoreboardContext);
+```
 
 ### Initialize
 `public override void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.Initialize(missionScreen, mission, releaseSimulationSources, onToggle);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.RefreshValues();
+```
 
 ### ExecuteFastForwardAction
 `public override void ExecuteFastForwardAction()`
 
-**用途 / Purpose:** 执行 `fast forward action` 操作或流程。
+**用途 / Purpose:** 执行 「fast forward action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.ExecuteFastForwardAction();
+```
 
 ### ExecuteQuitAction
 `public override void ExecuteQuitAction()`
 
-**用途 / Purpose:** 执行 `quit action` 操作或流程。
+**用途 / Purpose:** 执行 「quit action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.ExecuteQuitAction();
+```
 
 ### OnBattleOver
 `public void OnBattleOver()`
 
-**用途 / Purpose:** 当 `battle over` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「battle over」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.OnBattleOver();
+```
 
 ### OnExitBattle
 `public void OnExitBattle()`
 
-**用途 / Purpose:** 当 `exit battle` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「exit battle」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.OnExitBattle();
+```
 
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberDead = 0, int numberWounded = 0, int numberRouted = 0, int numberKilled = 0, int numberReadyToUpgrade = 0)`
 
-**用途 / Purpose:** 处理 `troop number changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.TroopNumberChanged(side, battleCombatant, character, 0, 0, 0, 0, 0, 0);
+```
 
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**用途 / Purpose:** 处理 `hero skill increased` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.HeroSkillIncreased(side, battleCombatant, heroCharacter, upgradedSkill);
+```
 
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**用途 / Purpose:** 处理 `battle results ready` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.BattleResultsReady();
+```
 
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**用途 / Purpose:** 处理 `troop side changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.TroopSideChanged(prevSide, newSide, battleCombatant, character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleScoreboardVM();
-value.CustomBattleScoreboardVM(scoreboardContext);
+// 通常从对应子系统 API 获取实例后调用
+CustomBattleScoreboardVM customBattleScoreboardVM = ...;
+customBattleScoreboardVM.CustomBattleScoreboardVM(scoreboardContext);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

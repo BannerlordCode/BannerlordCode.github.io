@@ -1,20 +1,14 @@
 ---
 title: "INumericOptionData"
+description: "INumericOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `INumericOptionData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # INumericOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/INumericOptionData.cs`
+**Type:** `public interface INumericOptionData : IOptionData`
+**Base:** `IOptionData`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/INumericOptionData.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "INumericOptionData"
 ## 使用示例
 
 ```csharp
-INumericOptionData implementation = GetNumericOptionDataImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IINumericOptionData service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

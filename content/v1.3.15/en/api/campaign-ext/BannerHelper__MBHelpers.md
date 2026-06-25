@@ -1,13 +1,7 @@
 ---
-title: "BannerHelper__MBHelpers"
+title: "BannerHelper"
+description: "Auto-generated class reference for BannerHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerHelper
 
 **Namespace:** MBHelpers
@@ -31,6 +25,11 @@ Treat `BannerHelper` as a Helper-style extension point: first identify who creat
 
 **Purpose:** Adds `banner bonus for banner` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+BannerHelper.AddBannerBonusForBanner(bannerEffect, bannerComponent, bonuses);
+```
+
 ## Usage Example
 
 ```csharp
@@ -39,4 +38,4 @@ BannerHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ItemModifier"
+description: "Auto-generated class reference for ItemModifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemModifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemModifier
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class ItemModifier : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemModifier.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemModifier.cs`
 
 ## Overview
 
@@ -49,80 +43,165 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+itemModifier.Deserialize(objectManager, node);
+```
 
 ### IsBeneficial
 `public bool IsBeneficial()`
 
-**Purpose:** Handles logic related to `is beneficial`.
+**Purpose:** Determines whether the current object is in the `beneficial` state or condition.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.IsBeneficial();
+```
 
 ### Equals
 `public bool Equals(ItemModifier other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.GetHashCode();
+```
 
 ### ModifyDamage
 `public int ModifyDamage(int baseDamage)`
 
-**Purpose:** Handles logic related to `modify damage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyDamage(0);
+```
 
 ### ModifySpeed
 `public int ModifySpeed(int baseSpeed)`
 
-**Purpose:** Handles logic related to `modify speed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifySpeed(0);
+```
 
 ### ModifyMountSpeed
 `public int ModifyMountSpeed(int baseSpeed)`
 
-**Purpose:** Handles logic related to `modify mount speed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyMountSpeed(0);
+```
 
 ### ModifyMountManeuver
 `public int ModifyMountManeuver(int baseManeuver)`
 
-**Purpose:** Handles logic related to `modify mount maneuver`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyMountManeuver(0);
+```
 
 ### ModifyMountCharge
 `public int ModifyMountCharge(int baseCharge)`
 
-**Purpose:** Handles logic related to `modify mount charge`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyMountCharge(0);
+```
 
 ### ModifyMountHitPoints
 `public int ModifyMountHitPoints(int baseCharge)`
 
-**Purpose:** Handles logic related to `modify mount hit points`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyMountHitPoints(0);
+```
 
 ### ModifyMissileSpeed
 `public int ModifyMissileSpeed(int baseSpeed)`
 
-**Purpose:** Handles logic related to `modify missile speed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyMissileSpeed(0);
+```
 
 ### ModifyArmor
 `public int ModifyArmor(int armorValue)`
 
-**Purpose:** Handles logic related to `modify armor`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyArmor(0);
+```
 
 ### ModifyHitPoints
 `public short ModifyHitPoints(short baseHitPoints)`
 
-**Purpose:** Handles logic related to `modify hit points`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyHitPoints(0);
+```
 
 ### ModifyStackCount
 `public short ModifyStackCount(short baseStackCount)`
 
-**Purpose:** Handles logic related to `modify stack count`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ItemModifier from the subsystem API first
+ItemModifier itemModifier = ...;
+var result = itemModifier.ModifyStackCount(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemModifier();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+ItemModifier itemModifier = ...;
+itemModifier.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

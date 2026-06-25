@@ -1,13 +1,7 @@
 ---
 title: "SceneLeveler"
+description: "Auto-generated class reference for SceneLeveler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneLeveler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SceneLeveler
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Objects
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Source.Objects` to place it in th
 ## Usage Example
 
 ```csharp
-var value = new SceneLeveler();
+// Obtain an instance from the relevant subsystem API
+SceneLeveler instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

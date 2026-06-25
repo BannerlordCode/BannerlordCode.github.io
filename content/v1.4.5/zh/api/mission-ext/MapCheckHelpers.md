@@ -1,20 +1,14 @@
 ---
 title: "MapCheckHelpers"
+description: "MapCheckHelpers 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapCheckHelpers`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapCheckHelpers
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class MapCheckHelpers`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MapCheckHelpers.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/MapCheckHelpers.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MapCheckHelpers"
 ## 使用示例
 
 ```csharp
-var value = new MapCheckHelpers();
+// 从对应子系统 API 获取实例
+MapCheckHelpers instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

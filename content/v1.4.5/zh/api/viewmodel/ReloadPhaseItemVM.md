@@ -1,20 +1,14 @@
 ---
 title: "ReloadPhaseItemVM"
+description: "ReloadPhaseItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ReloadPhaseItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReloadPhaseItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ReloadPhaseItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/ReloadPhaseItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/ReloadPhaseItemVM.cs`
 
 ## 概述
 
@@ -36,15 +30,22 @@ title: "ReloadPhaseItemVM"
 ### Update
 `public void Update(float progress, float relativeDurationToMaxDuration)`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ReloadPhaseItemVM 实例
+ReloadPhaseItemVM reloadPhaseItemVM = ...;
+reloadPhaseItemVM.Update(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ReloadPhaseItemVM();
-value.Update(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+ReloadPhaseItemVM reloadPhaseItemVM = ...;
+reloadPhaseItemVM.Update(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

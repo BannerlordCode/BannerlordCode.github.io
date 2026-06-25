@@ -1,13 +1,7 @@
 ---
 title: "ControllerTypes"
+description: "Auto-generated class reference for ControllerTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ControllerTypes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ControllerTypes
 
 **Namespace:** TaleWorlds.InputSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ## Usage Example
 
 ```csharp
-ControllerTypes example = ControllerTypes.Value;
+// Obtain an instance from the relevant subsystem API
+ControllerTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

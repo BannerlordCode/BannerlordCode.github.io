@@ -1,20 +1,14 @@
 ---
 title: "SceneProblemsLogger"
+description: "Auto-generated class reference for SceneProblemsLogger."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SceneProblemsLogger`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneProblemsLogger
 
 **Namespace:** (global)
 **Module:** (global)
 **Type:** `public class SceneProblemsLogger`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/SceneProblemsLogger.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/SceneProblemsLogger.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `(global)` to place it in the stack, then inspect its publi
 ### LogScene
 `public void LogScene(int sceneIndex, string sceneId, string log)`
 
-**Purpose:** Handles logic related to `log scene`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SceneProblemsLogger from the subsystem API first
+SceneProblemsLogger sceneProblemsLogger = ...;
+sceneProblemsLogger.LogScene(0, "example", "example");
+```
 
 ### FinishLogging
 `public void FinishLogging()`
 
-**Purpose:** Handles logic related to `finish logging`.
+**Purpose:** Concludes the `logging` flow and performs any cleanup.
+
+```csharp
+// Obtain an instance of SceneProblemsLogger from the subsystem API first
+SceneProblemsLogger sceneProblemsLogger = ...;
+sceneProblemsLogger.FinishLogging();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SceneProblemsLogger();
-value.LogScene(0, "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+SceneProblemsLogger sceneProblemsLogger = ...;
+sceneProblemsLogger.LogScene(0, "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

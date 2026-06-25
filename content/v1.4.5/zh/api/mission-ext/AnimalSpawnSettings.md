@@ -1,20 +1,14 @@
 ---
 title: "AnimalSpawnSettings"
+description: "AnimalSpawnSettings 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AnimalSpawnSettings`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimalSpawnSettings
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AnimalSpawnSettings : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/AnimalSpawnSettings.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/AnimalSpawnSettings.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "AnimalSpawnSettings"
 ### CheckAndSetAnimalAgentFlags
 `public static void CheckAndSetAnimalAgentFlags(GameEntity spawnEntity, Agent animalAgent)`
 
-**用途 / Purpose:** 处理 `check and set animal agent flags` 相关逻辑。
+**用途 / Purpose:** 检查「and set animal agent flags」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+AnimalSpawnSettings.CheckAndSetAnimalAgentFlags(spawnEntity, animalAgent);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ AnimalSpawnSettings.CheckAndSetAnimalAgentFlags(spawnEntity, animalAgent);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

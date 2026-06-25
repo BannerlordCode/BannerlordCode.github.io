@@ -1,13 +1,7 @@
 ---
 title: "HUDExtensionBrushWidget"
+description: "Auto-generated class reference for HUDExtensionBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HUDExtensionBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HUDExtensionBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
@@ -35,9 +29,10 @@ Treat `HUDExtensionBrushWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new HUDExtensionBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+HUDExtensionBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TeamCollection"
+description: "TeamCollection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamCollection`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamCollection
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -41,35 +35,66 @@ title: "TeamCollection"
 ### Add
 `public new void Add(Team t)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+teamCollection.Add(t);
+```
 
 ### Add
 `public Team Add(BattleSideEnum side, uint color = 4294967295U, uint color2 = 4294967295U, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+var result = teamCollection.Add(side, 0, 0, null, false, false, false);
+```
 
 ### Find
 `public Team Find(MBTeam mbTeam)`
 
-**用途 / Purpose:** 处理 `find` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找匹配项。
+
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+var result = teamCollection.Find(mbTeam);
+```
 
 ### ClearResources
 `public void ClearResources()`
 
-**用途 / Purpose:** 处理 `clear resources` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「resources」。
+
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+teamCollection.ClearResources();
+```
 
 ### Clear
 `public new void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+teamCollection.Clear();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TeamCollection();
-value.Add(t);
+// 通常从对应子系统 API 获取实例后调用
+TeamCollection teamCollection = ...;
+teamCollection.Add(t);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

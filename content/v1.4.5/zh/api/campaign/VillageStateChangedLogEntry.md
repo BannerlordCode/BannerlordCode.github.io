@@ -1,20 +1,14 @@
 ---
 title: "VillageStateChangedLogEntry"
+description: "VillageStateChangedLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VillageStateChangedLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageStateChangedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class VillageStateChangedLogEntry : LogEntry, IWarLog`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/VillageStateChangedLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/VillageStateChangedLogEntry.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "VillageStateChangedLogEntry"
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**用途 / Purpose:** 处理 `is related to war` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「related to war」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 VillageStateChangedLogEntry 实例
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+var result = villageStateChangedLogEntry.IsRelatedToWar(stance, effector, effected);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 VillageStateChangedLogEntry 实例
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+var result = villageStateChangedLogEntry.ToString();
+```
 
 ### GetAsRumor
 `public override int GetAsRumor(Settlement talkSettlement, out TextObject comment)`
 
-**用途 / Purpose:** 获取 `as rumor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「as rumor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillageStateChangedLogEntry 实例
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+var result = villageStateChangedLogEntry.GetAsRumor(talkSettlement, comment);
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**用途 / Purpose:** 获取 `conversation score and comment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation score and comment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillageStateChangedLogEntry 实例
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+villageStateChangedLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VillageStateChangedLogEntry();
-value.IsRelatedToWar(stance, effector, effected);
+// 通常从对应子系统 API 获取实例后调用
+VillageStateChangedLogEntry villageStateChangedLogEntry = ...;
+villageStateChangedLogEntry.IsRelatedToWar(stance, effector, effected);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

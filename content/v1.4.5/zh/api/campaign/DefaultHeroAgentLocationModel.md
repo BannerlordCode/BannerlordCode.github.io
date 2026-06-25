@@ -1,20 +1,14 @@
 ---
 title: "DefaultHeroAgentLocationModel"
+description: "DefaultHeroAgentLocationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultHeroAgentLocationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultHeroAgentLocationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultHeroAgentLocationModel : HeroAgentLocationModel`
 **Base:** `HeroAgentLocationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultHeroAgentLocationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultHeroAgentLocationModel.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "DefaultHeroAgentLocationModel"
 ### WillBeListedInOverlay
 `public override bool WillBeListedInOverlay(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** 处理 `will be listed in overlay` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultHeroAgentLocationModel 实例
+DefaultHeroAgentLocationModel defaultHeroAgentLocationModel = ...;
+var result = defaultHeroAgentLocationModel.WillBeListedInOverlay(locationCharacter);
+```
 
 ### GetLocationForHero
 `public override Location GetLocationForHero(Hero hero, Settlement settlement, out HeroLocationDetail heroLocationDetail)`
 
-**用途 / Purpose:** 获取 `location for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「location for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultHeroAgentLocationModel 实例
+DefaultHeroAgentLocationModel defaultHeroAgentLocationModel = ...;
+var result = defaultHeroAgentLocationModel.GetLocationForHero(hero, settlement, heroLocationDetail);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultHeroAgentLocationModel>(new MyDefaultHeroAgentL
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

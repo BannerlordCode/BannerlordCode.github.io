@@ -1,13 +1,7 @@
 ---
 title: "WidgetPrefab"
+description: "WidgetPrefab 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetPrefab`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetPrefab
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -39,37 +33,78 @@ title: "WidgetPrefab"
 ### LoadFrom
 `public static WidgetPrefab LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, string path)`
 
-**用途 / Purpose:** 加载 `from` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+
+```csharp
+// 静态调用，不需要实例
+WidgetPrefab.LoadFrom(prefabExtensionContext, widgetAttributeContext, "example");
+```
 
 ### Save
 `public XmlDocument Save(PrefabExtensionContext prefabExtensionContext)`
 
-**用途 / Purpose:** 保存 `save` 数据。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetPrefab 实例
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.Save(prefabExtensionContext);
+```
 
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData)`
 
-**用途 / Purpose:** 处理 `instantiate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetPrefab 实例
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.Instantiate(widgetCreationData);
+```
 
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-**用途 / Purpose:** 处理 `instantiate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetPrefab 实例
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.Instantiate(widgetCreationData, dictionary<string, parameters);
+```
 
 ### OnRelease
 `public void OnRelease()`
 
-**用途 / Purpose:** 当 `release` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「release」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetPrefab 实例
+WidgetPrefab widgetPrefab = ...;
+widgetPrefab.OnRelease();
+```
 
 ### GetConstantValue
 `public ConstantDefinition GetConstantValue(string name)`
 
-**用途 / Purpose:** 获取 `constant value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「constant value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetPrefab 实例
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.GetConstantValue("example");
+```
 
 ### GetParameterDefaultValue
 `public string GetParameterDefaultValue(string name)`
 
-**用途 / Purpose:** 获取 `parameter default value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「parameter default value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetPrefab 实例
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.GetParameterDefaultValue("example");
+```
 
 ## 使用示例
 
@@ -79,4 +114,4 @@ WidgetPrefab.LoadFrom(prefabExtensionContext, widgetAttributeContext, "example")
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

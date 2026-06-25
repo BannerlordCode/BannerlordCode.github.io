@@ -1,20 +1,14 @@
 ---
 title: "LauncherUI"
+description: "Auto-generated class reference for LauncherUI."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherUI`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherUI
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherUI`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherUI.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherUI.cs`
 
 ## Overview
 
@@ -35,45 +29,86 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of LauncherUI from the subsystem API first
+LauncherUI launcherUI = ...;
+launcherUI.Initialize();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of LauncherUI from the subsystem API first
+LauncherUI launcherUI = ...;
+launcherUI.OnFinalize();
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of LauncherUI from the subsystem API first
+LauncherUI launcherUI = ...;
+launcherUI.Update();
+```
 
 ### CheckMouseOverWindowDragArea
 `public bool CheckMouseOverWindowDragArea()`
 
-**Purpose:** Handles logic related to `check mouse over window drag area`.
+**Purpose:** Verifies whether `mouse over window drag area` holds true for the current object.
+
+```csharp
+// Obtain an instance of LauncherUI from the subsystem API first
+LauncherUI launcherUI = ...;
+var result = launcherUI.CheckMouseOverWindowDragArea();
+```
 
 ### HitTest
 `public bool HitTest()`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LauncherUI from the subsystem API first
+LauncherUI launcherUI = ...;
+var result = launcherUI.HitTest();
+```
 
 ### AddHintInformation
 `public static void AddHintInformation(string message)`
 
 **Purpose:** Adds `hint information` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+LauncherUI.AddHintInformation("example");
+```
+
 ### HideHintInformation
 `public static void HideHintInformation()`
 
-**Purpose:** Handles logic related to `hide hint information`.
+**Purpose:** Hides the UI or element associated with `hint information`.
+
+```csharp
+// Static call; no instance required
+LauncherUI.HideHintInformation();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LauncherUI();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+LauncherUI launcherUI = ...;
+launcherUI.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

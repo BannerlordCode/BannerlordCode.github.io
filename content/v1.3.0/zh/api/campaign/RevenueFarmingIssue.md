@@ -1,13 +1,7 @@
 ---
 title: "RevenueFarmingIssue"
+description: "RevenueFarmingIssue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RevenueFarmingIssue`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RevenueFarmingIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -47,70 +41,143 @@ title: "RevenueFarmingIssue"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.RegisterEvents();
+```
 
 ### OnVillageEventWithIdSpawned
 `public void OnVillageEventWithIdSpawned(string Id)`
 
-**用途 / Purpose:** 当 `village event with id spawned` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「village event with id spawned」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.OnVillageEventWithIdSpawned("example");
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** 当 `check for issue` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「check for issue」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.OnCheckForIssue(hero);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 获取 `frequency` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
+**用途 / Purpose:** 创建或发起「stay alive conditions」。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.IssueStayAliveConditions();
+```
 
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**用途 / Purpose:** 处理 `revenues are delivered to steward` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.RevenuesAreDeliveredToSteward();
+```
 
 ### FindCurrentRevenueVillage
 `public RevenueFarmingIssueBehavior.RevenueVillage FindCurrentRevenueVillage()`
 
-**用途 / Purpose:** 处理 `find current revenue village` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「current revenue village」。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.FindCurrentRevenueVillage();
+```
 
 ### SetVillageAsCompleted
 `public void SetVillageAsCompleted(RevenueFarmingIssueBehavior.RevenueVillage village, bool addLog = true)`
 
-**用途 / Purpose:** 设置 `village as completed` 的值或状态。
+**用途 / Purpose:** 为 「village as completed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.SetVillageAsCompleted(village, false);
+```
 
 ### SetDone
 `public void SetDone()`
 
-**用途 / Purpose:** 设置 `done` 的值或状态。
+**用途 / Purpose:** 为 「done」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.SetDone();
+```
 
 ### SetAdditionalProgress
 `public void SetAdditionalProgress(float progress)`
 
-**用途 / Purpose:** 设置 `additional progress` 的值或状态。
+**用途 / Purpose:** 为 「additional progress」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.SetAdditionalProgress(0);
+```
 
 ### GetIsCompleted
 `public bool GetIsCompleted()`
 
-**用途 / Purpose:** 获取 `is completed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is completed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RevenueFarmingIssue 实例
+RevenueFarmingIssue revenueFarmingIssue = ...;
+var result = revenueFarmingIssue.GetIsCompleted();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RevenueFarmingIssue();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+RevenueFarmingIssue revenueFarmingIssue = ...;
+revenueFarmingIssue.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

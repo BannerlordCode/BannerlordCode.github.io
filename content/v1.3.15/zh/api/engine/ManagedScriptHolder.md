@@ -1,13 +1,7 @@
 ---
 title: "ManagedScriptHolder"
+description: "ManagedScriptHolder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedScriptHolder`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ManagedScriptHolder
 
 **Namespace:** TaleWorlds.Engine
@@ -35,25 +29,44 @@ title: "ManagedScriptHolder"
 ### SetScriptComponentHolder
 `public void SetScriptComponentHolder(ScriptComponentBehavior sc)`
 
-**用途 / Purpose:** 设置 `script component holder` 的值或状态。
+**用途 / Purpose:** 为 「script component holder」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedScriptHolder 实例
+ManagedScriptHolder managedScriptHolder = ...;
+managedScriptHolder.SetScriptComponentHolder(sc);
+```
 
 ### UpdateTickRequirement
 `public void UpdateTickRequirement(ScriptComponentBehavior sc, ScriptComponentBehavior.TickRequirement oldTickRequirement, ScriptComponentBehavior.TickRequirement newTickRequirement)`
 
-**用途 / Purpose:** 更新 `tick requirement` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「tick requirement」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedScriptHolder 实例
+ManagedScriptHolder managedScriptHolder = ...;
+managedScriptHolder.UpdateTickRequirement(sc, oldTickRequirement, newTickRequirement);
+```
 
 ### RemoveScriptComponentFromAllTickLists
 `public void RemoveScriptComponentFromAllTickLists(ScriptComponentBehavior sc)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `script component from all tick lists`。
+**用途 / Purpose:** 从当前容器或状态中移除 「script component from all tick lists」。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedScriptHolder 实例
+ManagedScriptHolder managedScriptHolder = ...;
+managedScriptHolder.RemoveScriptComponentFromAllTickLists(sc);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ManagedScriptHolder();
-value.SetScriptComponentHolder(sc);
+// 通常从对应子系统 API 获取实例后调用
+ManagedScriptHolder managedScriptHolder = ...;
+managedScriptHolder.SetScriptComponentHolder(sc);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

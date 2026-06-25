@@ -1,20 +1,14 @@
 ---
 title: "TeamAiMultiplayerSiegeAttacker"
+description: "Auto-generated class reference for TeamAiMultiplayerSiegeAttacker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamAiMultiplayerSiegeAttacker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamAiMultiplayerSiegeAttacker
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamAiMultiplayerSiegeAttacker : TeamAISiegeComponent`
 **Base:** `TeamAISiegeComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAiMultiplayerSiegeAttacker.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAiMultiplayerSiegeAttacker.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Called when the `unit added to formation for the first time` event is raised.
+**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+
+```csharp
+// Obtain an instance of TeamAiMultiplayerSiegeAttacker from the subsystem API first
+TeamAiMultiplayerSiegeAttacker teamAiMultiplayerSiegeAttacker = ...;
+teamAiMultiplayerSiegeAttacker.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamAiMultiplayerSiegeAttacker();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// Typically call this after obtaining an instance from the subsystem API
+TeamAiMultiplayerSiegeAttacker teamAiMultiplayerSiegeAttacker = ...;
+teamAiMultiplayerSiegeAttacker.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

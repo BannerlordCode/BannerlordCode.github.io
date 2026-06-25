@@ -1,13 +1,7 @@
 ---
 title: "FillBarVerticalClipTierColorsWidget"
+description: "Auto-generated class reference for FillBarVerticalClipTierColorsWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FillBarVerticalClipTierColorsWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FillBarVerticalClipTierColorsWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -36,9 +30,10 @@ Treat `FillBarVerticalClipTierColorsWidget` as a Widget-style extension point: f
 ## Usage Example
 
 ```csharp
-var widget = new FillBarVerticalClipTierColorsWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FillBarVerticalClipTierColorsWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

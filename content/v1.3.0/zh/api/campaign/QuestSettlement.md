@@ -1,13 +1,7 @@
 ---
 title: "QuestSettlement"
+description: "QuestSettlement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QuestSettlement`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestSettlement
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -29,25 +23,44 @@ title: "QuestSettlement"
 ### IsScoutingCompleted
 `public bool IsScoutingCompleted()`
 
-**用途 / Purpose:** 处理 `is scouting completed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「scouting completed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 QuestSettlement 实例
+QuestSettlement questSettlement = ...;
+var result = questSettlement.IsScoutingCompleted();
+```
 
 ### SetScoutingCompleted
 `public void SetScoutingCompleted()`
 
-**用途 / Purpose:** 设置 `scouting completed` 的值或状态。
+**用途 / Purpose:** 为 「scouting completed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 QuestSettlement 实例
+QuestSettlement questSettlement = ...;
+questSettlement.SetScoutingCompleted();
+```
 
 ### ResetCurrentProgress
 `public void ResetCurrentProgress()`
 
-**用途 / Purpose:** 将 `current progress` 重置为初始状态。
+**用途 / Purpose:** 将 「current progress」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 QuestSettlement 实例
+QuestSettlement questSettlement = ...;
+questSettlement.ResetCurrentProgress();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new QuestSettlement();
-value.IsScoutingCompleted();
+// 通常从对应子系统 API 获取实例后调用
+QuestSettlement questSettlement = ...;
+questSettlement.IsScoutingCompleted();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

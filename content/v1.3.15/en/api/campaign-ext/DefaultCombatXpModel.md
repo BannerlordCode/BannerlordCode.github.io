@@ -1,13 +1,7 @@
 ---
 title: "DefaultCombatXpModel"
+description: "Auto-generated class reference for DefaultCombatXpModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultCombatXpModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultCombatXpModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -35,17 +29,35 @@ Treat `DefaultCombatXpModel` as a Model-style extension point: first identify wh
 ### GetSkillForWeapon
 `public override SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**Purpose:** Gets the current value of `skill for weapon`.
+**Purpose:** Reads and returns the `skill for weapon` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatXpModel from the subsystem API first
+DefaultCombatXpModel defaultCombatXpModel = ...;
+var result = defaultCombatXpModel.GetSkillForWeapon(weapon, false);
+```
 
 ### GetXpFromHit
 `public override ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`
 
-**Purpose:** Gets the current value of `xp from hit`.
+**Purpose:** Reads and returns the `xp from hit` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatXpModel from the subsystem API first
+DefaultCombatXpModel defaultCombatXpModel = ...;
+var result = defaultCombatXpModel.GetXpFromHit(attackerTroop, captain, attackedTroop, attackerParty, 0, false, missionType);
+```
 
 ### GetXpMultiplierFromShotDifficulty
 `public override float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**Purpose:** Gets the current value of `xp multiplier from shot difficulty`.
+**Purpose:** Reads and returns the `xp multiplier from shot difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultCombatXpModel from the subsystem API first
+DefaultCombatXpModel defaultCombatXpModel = ...;
+var result = defaultCombatXpModel.GetXpMultiplierFromShotDifficulty(0);
+```
 
 ## Usage Example
 
@@ -55,4 +67,4 @@ Game.Current.ReplaceModel<DefaultCombatXpModel>(new MyDefaultCombatXpModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

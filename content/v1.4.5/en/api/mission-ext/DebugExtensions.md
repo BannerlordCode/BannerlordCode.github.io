@@ -1,20 +1,14 @@
 ---
 title: "DebugExtensions"
+description: "Auto-generated class reference for DebugExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugExtensions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugExtensions.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### RenderDebugCircleOnTerrain
 `public static void RenderDebugCircleOnTerrain(Scene scene, MatrixFrame frame, float radius, uint color, bool depthCheck = true, bool isDotted = false)`
 
-**Purpose:** Handles logic related to `render debug circle on terrain`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugExtensions.RenderDebugCircleOnTerrain(scene, frame, 0, 0, false, false);
+```
 
 ### RenderDebugArcOnTerrain
 `public static void RenderDebugArcOnTerrain(Scene scene, MatrixFrame frame, float radius, float beginAngle, float endAngle, uint color, bool depthCheck = true, bool isDotted = false)`
 
-**Purpose:** Handles logic related to `render debug arc on terrain`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugExtensions.RenderDebugArcOnTerrain(scene, frame, 0, 0, 0, 0, false, false);
+```
 
 ### RenderDebugLineOnTerrain
 `public static void RenderDebugLineOnTerrain(Scene scene, Vec3 position, Vec3 direction, uint color, bool depthCheck = true, float time = 0f, bool isDotted = false, float pointDensity = 1f)`
 
-**Purpose:** Handles logic related to `render debug line on terrain`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugExtensions.RenderDebugLineOnTerrain(scene, position, direction, 0, false, 0, false, 0);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ DebugExtensions.RenderDebugCircleOnTerrain(scene, frame, 0, 0, false, false);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

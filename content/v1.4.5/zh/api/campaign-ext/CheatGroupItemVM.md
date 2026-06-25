@@ -1,20 +1,14 @@
 ---
 title: "CheatGroupItemVM"
+description: "CheatGroupItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CheatGroupItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheatGroupItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Cheat
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class CheatGroupItemVM : CheatItemBaseVM`
 **Base:** `CheatItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Cheat/CheatGroupItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Map.Cheat/CheatGroupItemVM.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "CheatGroupItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CheatGroupItemVM 实例
+CheatGroupItemVM cheatGroupItemVM = ...;
+cheatGroupItemVM.RefreshValues();
+```
 
 ### ExecuteAction
 `public override void ExecuteAction()`
 
-**用途 / Purpose:** 执行 `action` 操作或流程。
+**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CheatGroupItemVM 实例
+CheatGroupItemVM cheatGroupItemVM = ...;
+cheatGroupItemVM.ExecuteAction();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CheatGroupItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CheatGroupItemVM cheatGroupItemVM = ...;
+cheatGroupItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

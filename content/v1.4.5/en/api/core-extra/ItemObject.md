@@ -1,21 +1,14 @@
 ---
 title: "ItemObject"
+description: "Auto-generated class reference for ItemObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemObject`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-- [🔀 Cross-Version Compare /versions/ItemObject](/versions/ItemObject)
-<!-- END BREADCRUMB -->
 # ItemObject
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class ItemObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ItemObject.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ItemObject.cs`
 
 ## Overview
 
@@ -76,67 +69,139 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### InitializeTradeGood
 `public static ItemObject InitializeTradeGood(ItemObject item, TextObject name, string meshName, ItemCategory category, int value, float weight, ItemTypeEnum itemType, bool isFood = false)`
 
-**Purpose:** Initializes the state, resources, or bindings for `trade good`.
+**Purpose:** Prepares the resources, state, or bindings required by `trade good`.
+
+```csharp
+// Static call; no instance required
+ItemObject.InitializeTradeGood(item, name, "example", category, 0, 0, itemType, false);
+```
 
 ### InitAsPlayerCraftedItem
 `public static void InitAsPlayerCraftedItem(ref ItemObject itemObject)`
 
-**Purpose:** Initializes the state, resources, or bindings for `as player crafted item`.
+**Purpose:** Prepares the resources, state, or bindings required by `as player crafted item`.
+
+```csharp
+// Static call; no instance required
+ItemObject.InitAsPlayerCraftedItem(itemObject);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of ItemObject from the subsystem API first
+ItemObject itemObject = ...;
+var result = itemObject.GetHashCode();
+```
 
 ### SetItemFlagsForCosmetics
 `public void SetItemFlagsForCosmetics(ItemFlags newFlags)`
 
-**Purpose:** Sets the value or state of `item flags for cosmetics`.
+**Purpose:** Assigns a new value to `item flags for cosmetics` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ItemObject from the subsystem API first
+ItemObject itemObject = ...;
+itemObject.SetItemFlagsForCosmetics(newFlags);
+```
 
 ### DetermineItemCategoryForItem
 `public void DetermineItemCategoryForItem()`
 
-**Purpose:** Handles logic related to `determine item category for item`.
+**Purpose:** Determines the result of `item category for item` based on the current state.
+
+```csharp
+// Obtain an instance of ItemObject from the subsystem API first
+ItemObject itemObject = ...;
+itemObject.DetermineItemCategoryForItem();
+```
 
 ### GetCraftedItemObjectFromHashedCode
 `public static ItemObject GetCraftedItemObjectFromHashedCode(string hashedCode)`
 
-**Purpose:** Gets the current value of `crafted item object from hashed code`.
+**Purpose:** Reads and returns the `crafted item object from hashed code` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObject.GetCraftedItemObjectFromHashedCode("example");
+```
 
 ### AddWeapon
 `public void AddWeapon(WeaponComponentData weapon, ItemModifierGroup itemModifierGroup)`
 
 **Purpose:** Adds `weapon` to the current collection or state.
 
+```csharp
+// Obtain an instance of ItemObject from the subsystem API first
+ItemObject itemObject = ...;
+itemObject.AddWeapon(weapon, itemModifierGroup);
+```
+
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of ItemObject from the subsystem API first
+ItemObject itemObject = ...;
+itemObject.Deserialize(objectManager, node);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ItemObject from the subsystem API first
+ItemObject itemObject = ...;
+var result = itemObject.ToString();
+```
 
 ### GetItemFromWeaponKind
 `public static ItemObject GetItemFromWeaponKind(int weaponKind)`
 
-**Purpose:** Gets the current value of `item from weapon kind`.
+**Purpose:** Reads and returns the `item from weapon kind` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObject.GetItemFromWeaponKind(0);
+```
 
 ### GetAmmoTypeForItemType
 `public static ItemTypeEnum GetAmmoTypeForItemType(ItemTypeEnum itemType)`
 
-**Purpose:** Gets the current value of `ammo type for item type`.
+**Purpose:** Reads and returns the `ammo type for item type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObject.GetAmmoTypeForItemType(itemType);
+```
 
 ### GetAirFrictionConstant
 `public static float GetAirFrictionConstant(WeaponClass weaponClass, WeaponFlags weaponFlags)`
 
-**Purpose:** Gets the current value of `air friction constant`.
+**Purpose:** Reads and returns the `air friction constant` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ItemObject.GetAirFrictionConstant(weaponClass, weaponFlags);
+```
 
 ### GetWeaponWithUsageIndex
 `public WeaponComponentData GetWeaponWithUsageIndex(int usageIndex)`
 
-**Purpose:** Gets the current value of `weapon with usage index`.
+**Purpose:** Reads and returns the `weapon with usage index` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemObject from the subsystem API first
+ItemObject itemObject = ...;
+var result = itemObject.GetWeaponWithUsageIndex(0);
+```
 
 ## Usage Example
 
@@ -146,4 +211,4 @@ ItemObject.InitializeTradeGood(item, name, "example", category, 0, 0, itemType, 
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

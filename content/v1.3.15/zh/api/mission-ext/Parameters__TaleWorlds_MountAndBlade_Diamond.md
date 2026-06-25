@@ -1,13 +1,7 @@
 ---
-title: "Parameters__TaleWorlds_MountAndBlade_Diamond"
+title: "Parameters"
+description: "Parameters 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Parameters`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Parameters
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -27,9 +21,10 @@ title: "Parameters__TaleWorlds_MountAndBlade_Diamond"
 ## 使用示例
 
 ```csharp
-var example = new Parameters();
+// 从对应子系统 API 获取实例
+Parameters instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

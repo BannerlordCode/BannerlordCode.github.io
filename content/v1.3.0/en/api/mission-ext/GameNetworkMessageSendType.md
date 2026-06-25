@@ -1,18 +1,12 @@
 ---
 title: "GameNetworkMessageSendType"
+description: "Auto-generated class reference for GameNetworkMessageSendType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameNetworkMessageSendType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameNetworkMessageSendType
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum GameNetworkMessageSendType`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/GameNetworkMessageSendType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new GameNetworkMessageSendType();
+// Obtain an instance from the relevant subsystem API
+GameNetworkMessageSendType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerTimerComponent"
+description: "MultiplayerTimerComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerTimerComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTimerComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,27 +29,57 @@ title: "MultiplayerTimerComponent"
 ### StartTimerAsServer
 `public void StartTimerAsServer(float duration)`
 
-**用途 / Purpose:** 处理 `start timer as server` 相关逻辑。
+**用途 / Purpose:** 启动「timer as server」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+multiplayerTimerComponent.StartTimerAsServer(0);
+```
 
 ### StartTimerAsClient
 `public void StartTimerAsClient(float startTime, float duration)`
 
-**用途 / Purpose:** 处理 `start timer as client` 相关逻辑。
+**用途 / Purpose:** 启动「timer as client」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+multiplayerTimerComponent.StartTimerAsClient(0, 0);
+```
 
 ### GetRemainingTime
 `public float GetRemainingTime(bool isSynched)`
 
-**用途 / Purpose:** 获取 `remaining time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「remaining time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+var result = multiplayerTimerComponent.GetRemainingTime(false);
+```
 
 ### CheckIfTimerPassed
 `public bool CheckIfTimerPassed()`
 
-**用途 / Purpose:** 处理 `check if timer passed` 相关逻辑。
+**用途 / Purpose:** 检查「if timer passed」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+var result = multiplayerTimerComponent.CheckIfTimerPassed();
+```
 
 ### GetCurrentTimerStartTime
 `public MissionTime GetCurrentTimerStartTime()`
 
-**用途 / Purpose:** 获取 `current timer start time` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current timer start time」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerTimerComponent 实例
+MultiplayerTimerComponent multiplayerTimerComponent = ...;
+var result = multiplayerTimerComponent.GetCurrentTimerStartTime();
+```
 
 ## 使用示例
 
@@ -65,4 +89,4 @@ var component = agent.GetComponent<MultiplayerTimerComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

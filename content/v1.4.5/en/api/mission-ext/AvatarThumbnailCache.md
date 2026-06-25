@@ -1,20 +1,14 @@
 ---
 title: "AvatarThumbnailCache"
+description: "Auto-generated class reference for AvatarThumbnailCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvatarThumbnailCache`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarThumbnailCache
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AvatarThumbnailCache : ThumbnailCache<AvatarThumbnailCreationData>`
 **Base:** `ThumbnailCache<AvatarThumbnailCreationData>`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/AvatarThumbnailCache.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/AvatarThumbnailCache.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### FlushCache
 `public void FlushCache()`
 
-**Purpose:** Handles logic related to `flush cache`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AvatarThumbnailCache from the subsystem API first
+AvatarThumbnailCache avatarThumbnailCache = ...;
+avatarThumbnailCache.FlushCache();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AvatarThumbnailCache();
-value.FlushCache();
+// Typically call this after obtaining an instance from the subsystem API
+AvatarThumbnailCache avatarThumbnailCache = ...;
+avatarThumbnailCache.FlushCache();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

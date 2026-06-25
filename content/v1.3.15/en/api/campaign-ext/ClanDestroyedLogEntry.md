@@ -1,13 +1,7 @@
 ---
 title: "ClanDestroyedLogEntry"
+description: "Auto-generated class reference for ClanDestroyedLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanDestroyedLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanDestroyedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanDestroyedLogEntry from the subsystem API first
+ClanDestroyedLogEntry clanDestroyedLogEntry = ...;
+var result = clanDestroyedLogEntry.GetEncyclopediaText();
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanDestroyedLogEntry from the subsystem API first
+ClanDestroyedLogEntry clanDestroyedLogEntry = ...;
+var result = clanDestroyedLogEntry.GetNotificationText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanDestroyedLogEntry();
-value.GetEncyclopediaText();
+// Typically call this after obtaining an instance from the subsystem API
+ClanDestroyedLogEntry clanDestroyedLogEntry = ...;
+clanDestroyedLogEntry.GetEncyclopediaText();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

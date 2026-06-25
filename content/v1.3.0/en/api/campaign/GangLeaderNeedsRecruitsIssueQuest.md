@@ -1,13 +1,7 @@
 ---
 title: "GangLeaderNeedsRecruitsIssueQuest"
+description: "Auto-generated class reference for GangLeaderNeedsRecruitsIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GangLeaderNeedsRecruitsIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GangLeaderNeedsRecruitsIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new GangLeaderNeedsRecruitsIssueQuest();
+// Obtain an instance from the relevant subsystem API
+GangLeaderNeedsRecruitsIssueQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "UIConfig"
+description: "UIConfig 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UIConfig`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UIConfig
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
 **Module:** TaleWorlds.Engine
 **Type:** `public static class UIConfig`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/UIConfig.cs`
+**File:** `bin/TaleWorlds.Engine.GauntletUI/TaleWorlds.Engine.GauntletUI/UIConfig.cs`
 
 ## 概述
 
@@ -36,22 +30,42 @@ title: "UIConfig"
 ### GetIsUsingGeneratedPrefabs
 `public static bool GetIsUsingGeneratedPrefabs()`
 
-**用途 / Purpose:** 获取 `is using generated prefabs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is using generated prefabs」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+UIConfig.GetIsUsingGeneratedPrefabs();
+```
 
 ### GetIsHotReloadEnabled
 `public static bool GetIsHotReloadEnabled()`
 
-**用途 / Purpose:** 获取 `is hot reload enabled` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is hot reload enabled」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+UIConfig.GetIsHotReloadEnabled();
+```
 
 ### SetDebugMode
 `public static string SetDebugMode(List<string> args)`
 
-**用途 / Purpose:** 设置 `debug mode` 的值或状态。
+**用途 / Purpose:** 为 「debug mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+UIConfig.SetDebugMode(args);
+```
 
 ### SetUsingGeneratedPrefabs
 `public static string SetUsingGeneratedPrefabs(List<string> args)`
 
-**用途 / Purpose:** 设置 `using generated prefabs` 的值或状态。
+**用途 / Purpose:** 为 「using generated prefabs」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+UIConfig.SetUsingGeneratedPrefabs(args);
+```
 
 ## 使用示例
 
@@ -61,4 +75,4 @@ UIConfig.GetIsUsingGeneratedPrefabs();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

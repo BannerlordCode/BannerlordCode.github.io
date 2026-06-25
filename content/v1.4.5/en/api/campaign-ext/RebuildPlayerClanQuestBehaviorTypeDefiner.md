@@ -1,55 +1,30 @@
 ---
 title: "RebuildPlayerClanQuestBehaviorTypeDefiner"
+description: "Auto-generated class reference for RebuildPlayerClanQuestBehaviorTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RebuildPlayerClanQuestBehaviorTypeDefiner`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RebuildPlayerClanQuestBehaviorTypeDefiner
 
 **Namespace:** StoryMode.Quests.PlayerClanQuests
 **Module:** StoryMode.Quests
 **Type:** `public class RebuildPlayerClanQuestBehaviorTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**Area:** campaign-ext
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.PlayerClanQuests/RescueFamilyQuestBehavior.cs`
 
 ## Overview
 
-`RebuildPlayerClanQuestBehaviorTypeDefiner` lives in `StoryMode.Quests.PlayerClanQuests`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`RebuildPlayerClanQuestBehaviorTypeDefiner` lives in `StoryMode.Quests.PlayerClanQuests` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `StoryMode.Quests.PlayerClanQuests` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Methods
-
-### OnHeroCanHaveCampaignIssuesInfoIsRequested
-`public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
-
-### RegisterEvents
-`public override void RegisterEvents()`
-
-**Purpose:** Handles logic related to `register events`.
-
-### SyncData
-`public override void SyncData(IDataStore dataStore)`
-
-**Purpose:** Handles logic related to `sync data`.
-
 ## Usage Example
 
 ```csharp
-// First obtain a RebuildPlayerClanQuestBehaviorTypeDefiner instance from game state, then call one of its public methods
-var value = new RebuildPlayerClanQuestBehaviorTypeDefiner();
-value.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+// Obtain an instance from the relevant subsystem API
+RebuildPlayerClanQuestBehaviorTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CampaignTickCacheDataStore"
+description: "CampaignTickCacheDataStore 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignTickCacheDataStore`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignTickCacheDataStore
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,15 +23,22 @@ title: "CampaignTickCacheDataStore"
 ### Compare
 `public int Compare(MobileParty x, MobileParty y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignTickCacheDataStore 实例
+CampaignTickCacheDataStore campaignTickCacheDataStore = ...;
+var result = campaignTickCacheDataStore.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CampaignTickCacheDataStore();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+CampaignTickCacheDataStore campaignTickCacheDataStore = ...;
+campaignTickCacheDataStore.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

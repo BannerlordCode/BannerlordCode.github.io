@@ -1,20 +1,14 @@
 ---
 title: "MarriageOfferPopupHeroAttributeVM"
+description: "Auto-generated class reference for MarriageOfferPopupHeroAttributeVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarriageOfferPopupHeroAttributeVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarriageOfferPopupHeroAttributeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MarriageOfferPopupHeroAttributeVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup/MarriageOfferPopupHeroAttributeVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MarriageOfferPopup/MarriageOfferPopupHeroAttributeVM.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.Marriage
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MarriageOfferPopupHeroAttributeVM from the subsystem API first
+MarriageOfferPopupHeroAttributeVM marriageOfferPopupHeroAttributeVM = ...;
+marriageOfferPopupHeroAttributeVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MarriageOfferPopupHeroAttributeVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MarriageOfferPopupHeroAttributeVM marriageOfferPopupHeroAttributeVM = ...;
+marriageOfferPopupHeroAttributeVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

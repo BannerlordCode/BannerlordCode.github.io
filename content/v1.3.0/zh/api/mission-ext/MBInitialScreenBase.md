@@ -1,13 +1,7 @@
 ---
 title: "MBInitialScreenBase"
+description: "MBInitialScreenBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBInitialScreenBase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBInitialScreenBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,22 +23,43 @@ title: "MBInitialScreenBase"
 ### DoExitButtonAction
 `public static void DoExitButtonAction()`
 
-**用途 / Purpose:** 处理 `do exit button action` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBInitialScreenBase.DoExitButtonAction();
+```
 
 ### StartedRendering
 `public bool StartedRendering()`
 
-**用途 / Purpose:** 处理 `started rendering` 相关逻辑。
+**用途 / Purpose:** 启动「ed rendering」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MBInitialScreenBase 实例
+MBInitialScreenBase mBInitialScreenBase = ...;
+var result = mBInitialScreenBase.StartedRendering();
+```
 
 ### OnEditModeEnterPress
 `public static void OnEditModeEnterPress()`
 
-**用途 / Purpose:** 当 `edit mode enter press` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「edit mode enter press」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+MBInitialScreenBase.OnEditModeEnterPress();
+```
 
 ### OnEditModeEnterRelease
 `public static void OnEditModeEnterRelease()`
 
-**用途 / Purpose:** 当 `edit mode enter release` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「edit mode enter release」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+MBInitialScreenBase.OnEditModeEnterRelease();
+```
 
 ## 使用示例
 
@@ -54,4 +69,4 @@ MBInitialScreenBase.DoExitButtonAction();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameMenuVM"
+description: "Auto-generated class reference for GameMenuVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
@@ -46,65 +40,132 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.RefreshValues();
+```
 
 ### SetIdleMode
 `public void SetIdleMode(bool isIdle)`
 
-**Purpose:** Sets the value or state of `idle mode`.
+**Purpose:** Assigns a new value to `idle mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.SetIdleMode(false);
+```
 
 ### Refresh
 `public void Refresh(bool forceUpdateItems)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.Refresh(false);
+```
 
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.OnFrameTick();
+```
 
 ### UpdateMenuContext
 `public void UpdateMenuContext(MenuContext newMenuContext)`
 
-**Purpose:** Updates the state or data of `menu context`.
+**Purpose:** Recalculates and stores the latest representation of `menu context`.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.UpdateMenuContext(newMenuContext);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.OnFinalize();
+```
 
 ### AddHotKey
 `public void AddHotKey(GameMenuOption.LeaveType leaveType, GameKey gameKey)`
 
 **Purpose:** Adds `hot key` to the current collection or state.
 
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.AddHotKey(leaveType, gameKey);
+```
+
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.ExecuteLink("example");
+```
 
 ### Get
 `public TItem Get()`
 
-**Purpose:** Gets the current value of `get`.
+**Purpose:** Reads the current object's value or state and returns it.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+var result = gameMenuVM.Get();
+```
 
 ### Release
 `public void Release(TItem item)`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.Release(item);
+```
 
 ### Compare
 `public int Compare(GameMenuItemVM x, GameMenuItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of GameMenuVM from the subsystem API first
+GameMenuVM gameMenuVM = ...;
+var result = gameMenuVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuVM gameMenuVM = ...;
+gameMenuVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

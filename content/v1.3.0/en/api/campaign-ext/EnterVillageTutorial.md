@@ -1,13 +1,7 @@
 ---
 title: "EnterVillageTutorial"
+description: "Auto-generated class reference for EnterVillageTutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EnterVillageTutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EnterVillageTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -29,30 +23,55 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Gets the current value of `tutorials relevant context`.
+**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+
+```csharp
+// Obtain an instance of EnterVillageTutorial from the subsystem API first
+EnterVillageTutorial enterVillageTutorial = ...;
+var result = enterVillageTutorial.GetTutorialsRelevantContext();
+```
 
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Handles logic related to `is conditions met for activation`.
+**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+
+```csharp
+// Obtain an instance of EnterVillageTutorial from the subsystem API first
+EnterVillageTutorial enterVillageTutorial = ...;
+var result = enterVillageTutorial.IsConditionsMetForActivation();
+```
 
 ### OnGameMenuOptionSelected
 `public override void OnGameMenuOptionSelected(GameMenuOption obj)`
 
-**Purpose:** Called when the `game menu option selected` event is raised.
+**Purpose:** Invoked when the `game menu option selected` event is raised.
+
+```csharp
+// Obtain an instance of EnterVillageTutorial from the subsystem API first
+EnterVillageTutorial enterVillageTutorial = ...;
+enterVillageTutorial.OnGameMenuOptionSelected(obj);
+```
 
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Handles logic related to `is conditions met for completion`.
+**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+
+```csharp
+// Obtain an instance of EnterVillageTutorial from the subsystem API first
+EnterVillageTutorial enterVillageTutorial = ...;
+var result = enterVillageTutorial.IsConditionsMetForCompletion();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EnterVillageTutorial();
-value.GetTutorialsRelevantContext();
+// Typically call this after obtaining an instance from the subsystem API
+EnterVillageTutorial enterVillageTutorial = ...;
+enterVillageTutorial.GetTutorialsRelevantContext();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "HeirSelectionCalculationModel"
+description: "Auto-generated class reference for HeirSelectionCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeirSelectionCalculationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HeirSelectionCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,14 +29,21 @@ Treat `HeirSelectionCalculationModel` as a Model-style extension point: first id
 ### CalculateHeirSelectionPoint
 `public abstract int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
 
-**Purpose:** Handles logic related to `calculate heir selection point`.
+**Purpose:** Calculates the current value or result of `heir selection point`.
+
+```csharp
+// Obtain an instance of HeirSelectionCalculationModel from the subsystem API first
+HeirSelectionCalculationModel heirSelectionCalculationModel = ...;
+var result = heirSelectionCalculationModel.CalculateHeirSelectionPoint(candidateHeir, deadHero, maxSkillHero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomHeirSelectionCalculationModel();
+// Typically obtained from a subsystem API or factory
+HeirSelectionCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

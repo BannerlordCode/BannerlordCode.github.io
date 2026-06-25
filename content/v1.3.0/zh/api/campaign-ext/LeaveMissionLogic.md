@@ -1,13 +1,7 @@
 ---
 title: "LeaveMissionLogic"
+description: "LeaveMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LeaveMissionLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LeaveMissionLogic
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,19 +23,31 @@ title: "LeaveMissionLogic"
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** 处理 `mission ended` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LeaveMissionLogic 实例
+LeaveMissionLogic leaveMissionLogic = ...;
+var result = leaveMissionLogic.MissionEnded(missionResult);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LeaveMissionLogic 实例
+LeaveMissionLogic leaveMissionLogic = ...;
+leaveMissionLogic.OnMissionTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new LeaveMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<LeaveMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

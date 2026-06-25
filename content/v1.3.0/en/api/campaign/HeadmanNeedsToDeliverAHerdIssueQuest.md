@@ -1,13 +1,7 @@
 ---
 title: "HeadmanNeedsToDeliverAHerdIssueQuest"
+description: "Auto-generated class reference for HeadmanNeedsToDeliverAHerdIssueQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeadmanNeedsToDeliverAHerdIssueQuest`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeadmanNeedsToDeliverAHerdIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnCanceled
 `public override void OnCanceled()`
 
-**Purpose:** Called when the `canceled` event is raised.
+**Purpose:** Invoked when the `canceled` event is raised.
+
+```csharp
+// Obtain an instance of HeadmanNeedsToDeliverAHerdIssueQuest from the subsystem API first
+HeadmanNeedsToDeliverAHerdIssueQuest headmanNeedsToDeliverAHerdIssueQuest = ...;
+headmanNeedsToDeliverAHerdIssueQuest.OnCanceled();
+```
 
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of HeadmanNeedsToDeliverAHerdIssueQuest from the subsystem API first
+HeadmanNeedsToDeliverAHerdIssueQuest headmanNeedsToDeliverAHerdIssueQuest = ...;
+headmanNeedsToDeliverAHerdIssueQuest.OnFailed();
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Called when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+
+```csharp
+// Obtain an instance of HeadmanNeedsToDeliverAHerdIssueQuest from the subsystem API first
+HeadmanNeedsToDeliverAHerdIssueQuest headmanNeedsToDeliverAHerdIssueQuest = ...;
+headmanNeedsToDeliverAHerdIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeadmanNeedsToDeliverAHerdIssueQuest();
-value.OnCanceled();
+// Typically call this after obtaining an instance from the subsystem API
+HeadmanNeedsToDeliverAHerdIssueQuest headmanNeedsToDeliverAHerdIssueQuest = ...;
+headmanNeedsToDeliverAHerdIssueQuest.OnCanceled();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

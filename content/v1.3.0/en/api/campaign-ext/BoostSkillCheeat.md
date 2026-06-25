@@ -1,24 +1,18 @@
 ---
 title: "BoostSkillCheeat"
+description: "Auto-generated class reference for BoostSkillCheeat."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoostSkillCheeat`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoostSkillCheeat
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class BoostSkillCheeat : GameplayCheatItem`
 **Base:** `GameplayCheatItem`
-**Area:** campaign-ext
+**File:** `SandBox/BoostSkillCheatGroup.cs`
 
 ## Overview
 
-`BoostSkillCheeat` lives in `SandBox`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`BoostSkillCheeat` lives in `SandBox` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -26,35 +20,36 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 
 ## Key Methods
 
-### GetCheats
-`public override IEnumerable<GameplayCheatBase> GetCheats()`
-
-**Purpose:** Gets the current value of `cheats`.
-
-### GetName
-`public override TextObject GetName()`
-
-**Purpose:** Gets the current value of `name`.
-
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Executes the `cheat` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cheat`.
+
+```csharp
+// Obtain an instance of BoostSkillCheeat from the subsystem API first
+BoostSkillCheeat boostSkillCheeat = ...;
+boostSkillCheeat.ExecuteCheat();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of BoostSkillCheeat from the subsystem API first
+BoostSkillCheeat boostSkillCheeat = ...;
+var result = boostSkillCheeat.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a BoostSkillCheeat instance from game state, then call one of its public methods
-var value = new BoostSkillCheeat();
-value.GetCheats();
+// Typically call this after obtaining an instance from the subsystem API
+BoostSkillCheeat boostSkillCheeat = ...;
+boostSkillCheeat.ExecuteCheat();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

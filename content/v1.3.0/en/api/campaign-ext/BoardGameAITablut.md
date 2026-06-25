@@ -1,13 +1,7 @@
 ---
 title: "BoardGameAITablut"
+description: "Auto-generated class reference for BoardGameAITablut."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameAITablut`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAITablut
 
 **Namespace:** SandBox.BoardGames.AI
@@ -29,25 +23,44 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of BoardGameAITablut from the subsystem API first
+BoardGameAITablut boardGameAITablut = ...;
+boardGameAITablut.Initialize();
+```
 
 ### OnSetGameOver
 `public override void OnSetGameOver()`
 
-**Purpose:** Called when the `set game over` event is raised.
+**Purpose:** Invoked when the `set game over` event is raised.
+
+```csharp
+// Obtain an instance of BoardGameAITablut from the subsystem API first
+BoardGameAITablut boardGameAITablut = ...;
+boardGameAITablut.OnSetGameOver();
+```
 
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate movement stage move`.
+**Purpose:** Calculates the current value or result of `movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAITablut from the subsystem API first
+BoardGameAITablut boardGameAITablut = ...;
+var result = boardGameAITablut.CalculateMovementStageMove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameAITablut();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameAITablut boardGameAITablut = ...;
+boardGameAITablut.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

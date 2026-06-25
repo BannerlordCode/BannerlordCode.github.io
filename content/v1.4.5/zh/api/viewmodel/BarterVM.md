@@ -1,20 +1,14 @@
 ---
 title: "BarterVM"
+description: "BarterVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BarterVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Barter
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BarterVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Barter/BarterVM.cs`
 
 ## 概述
 
@@ -70,110 +64,231 @@ title: "BarterVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.OnFinalize();
+```
 
 ### OnInitialized
 `public void OnInitialized()`
 
-**用途 / Purpose:** 当 `initialized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initialized」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.OnInitialized();
+```
 
 ### ExecuteTransferAllLeftFief
 `public void ExecuteTransferAllLeftFief()`
 
-**用途 / Purpose:** 执行 `transfer all left fief` 操作或流程。
+**用途 / Purpose:** 执行 「transfer all left fief」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllLeftFief();
+```
 
 ### ExecuteAutoBalance
 `public void ExecuteAutoBalance()`
 
-**用途 / Purpose:** 执行 `auto balance` 操作或流程。
+**用途 / Purpose:** 执行 「auto balance」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteAutoBalance();
+```
 
 ### ExecuteTransferAllLeftItem
 `public void ExecuteTransferAllLeftItem()`
 
-**用途 / Purpose:** 执行 `transfer all left item` 操作或流程。
+**用途 / Purpose:** 执行 「transfer all left item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllLeftItem();
+```
 
 ### ExecuteTransferAllLeftPrisoner
 `public void ExecuteTransferAllLeftPrisoner()`
 
-**用途 / Purpose:** 执行 `transfer all left prisoner` 操作或流程。
+**用途 / Purpose:** 执行 「transfer all left prisoner」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllLeftPrisoner();
+```
 
 ### ExecuteTransferAllLeftOther
 `public void ExecuteTransferAllLeftOther()`
 
-**用途 / Purpose:** 执行 `transfer all left other` 操作或流程。
+**用途 / Purpose:** 执行 「transfer all left other」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllLeftOther();
+```
 
 ### ExecuteTransferAllRightFief
 `public void ExecuteTransferAllRightFief()`
 
-**用途 / Purpose:** 执行 `transfer all right fief` 操作或流程。
+**用途 / Purpose:** 执行 「transfer all right fief」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllRightFief();
+```
 
 ### ExecuteTransferAllRightItem
 `public void ExecuteTransferAllRightItem()`
 
-**用途 / Purpose:** 执行 `transfer all right item` 操作或流程。
+**用途 / Purpose:** 执行 「transfer all right item」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllRightItem();
+```
 
 ### ExecuteTransferAllRightPrisoner
 `public void ExecuteTransferAllRightPrisoner()`
 
-**用途 / Purpose:** 执行 `transfer all right prisoner` 操作或流程。
+**用途 / Purpose:** 执行 「transfer all right prisoner」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllRightPrisoner();
+```
 
 ### ExecuteTransferAllRightOther
 `public void ExecuteTransferAllRightOther()`
 
-**用途 / Purpose:** 执行 `transfer all right other` 操作或流程。
+**用途 / Purpose:** 执行 「transfer all right other」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteTransferAllRightOther();
+```
 
 ### ExecuteOffer
 `public void ExecuteOffer()`
 
-**用途 / Purpose:** 执行 `offer` 操作或流程。
+**用途 / Purpose:** 执行 「offer」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteOffer();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteCancel();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** 执行 `reset` 操作或流程。
+**用途 / Purpose:** 执行 「reset」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.ExecuteReset();
+```
 
 ### OnTransferItem
 `public void OnTransferItem(Barterable barter, bool isTransferrable)`
 
-**用途 / Purpose:** 当 `transfer item` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「transfer item」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.OnTransferItem(barter, false);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `reset input key` 的值或状态。
+**用途 / Purpose:** 为 「reset input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.SetResetInputKey(hotkey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.SetCancelInputKey(hotkey);
+```
 
 ### InitializeStaticContent
 `public void InitializeStaticContent()`
 
-**用途 / Purpose:** 初始化 `static content` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「static content」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BarterVM 实例
+BarterVM barterVM = ...;
+barterVM.InitializeStaticContent();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BarterVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+BarterVM barterVM = ...;
+barterVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

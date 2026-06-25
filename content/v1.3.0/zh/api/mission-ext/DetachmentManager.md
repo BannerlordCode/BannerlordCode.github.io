@@ -1,13 +1,7 @@
 ---
 title: "DetachmentManager"
+description: "DetachmentManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DetachmentManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DetachmentManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,82 +29,178 @@ title: "DetachmentManager"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.Clear();
+```
 
 ### ContainsDetachment
 `public bool ContainsDetachment(IDetachment detachment)`
 
-**用途 / Purpose:** 处理 `contains detachment` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含「detachment」。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+var result = detachmentManager.ContainsDetachment(detachment);
+```
 
 ### MakeDetachment
 `public void MakeDetachment(IDetachment detachment)`
 
-**用途 / Purpose:** 处理 `make detachment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.MakeDetachment(detachment);
+```
 
 ### DestroyDetachment
 `public void DestroyDetachment(IDetachment destroyedDetachment)`
 
-**用途 / Purpose:** 处理 `destroy detachment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.DestroyDetachment(destroyedDetachment);
+```
 
 ### OnFormationJoinDetachment
 `public void OnFormationJoinDetachment(Formation formation, IDetachment joinedDetachment)`
 
-**用途 / Purpose:** 当 `formation join detachment` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「formation join detachment」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.OnFormationJoinDetachment(formation, joinedDetachment);
+```
 
 ### OnFormationLeaveDetachment
 `public void OnFormationLeaveDetachment(Formation formation, IDetachment leftDetachment)`
 
-**用途 / Purpose:** 当 `formation leave detachment` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「formation leave detachment」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.OnFormationLeaveDetachment(formation, leftDetachment);
+```
 
 ### TickDetachments
 `public void TickDetachments()`
 
-**用途 / Purpose:** 处理 `tick detachments` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「detachments」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.TickDetachments();
+```
 
 ### TickAgent
 `public void TickAgent(Agent agent)`
 
-**用途 / Purpose:** 处理 `tick agent` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「agent」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.TickAgent(agent);
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.OnAgentRemoved(agent);
+```
 
 ### RemoveScoresOfAgentFromDetachments
 `public void RemoveScoresOfAgentFromDetachments(Agent agent)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `scores of agent from detachments`。
+**用途 / Purpose:** 从当前容器或状态中移除 「scores of agent from detachments」。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.RemoveScoresOfAgentFromDetachments(agent);
+```
 
 ### RemoveScoresOfAgentFromDetachment
 `public void RemoveScoresOfAgentFromDetachment(Agent agent, IDetachment detachmentToBeRemovedFrom)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `scores of agent from detachment`。
+**用途 / Purpose:** 从当前容器或状态中移除 「scores of agent from detachment」。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.RemoveScoresOfAgentFromDetachment(agent, detachmentToBeRemovedFrom);
+```
 
 ### AddAgentAsMovingToDetachment
 `public void AddAgentAsMovingToDetachment(Agent agent, IDetachment detachment)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `agent as moving to detachment`。
+**用途 / Purpose:** 将 「agent as moving to detachment」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.AddAgentAsMovingToDetachment(agent, detachment);
+```
 
 ### RemoveAgentAsMovingToDetachment
 `public void RemoveAgentAsMovingToDetachment(Agent agent)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `agent as moving to detachment`。
+**用途 / Purpose:** 从当前容器或状态中移除 「agent as moving to detachment」。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.RemoveAgentAsMovingToDetachment(agent);
+```
 
 ### AddAgentAsDefendingToDetachment
 `public void AddAgentAsDefendingToDetachment(Agent agent, IDetachment detachment)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `agent as defending to detachment`。
+**用途 / Purpose:** 将 「agent as defending to detachment」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.AddAgentAsDefendingToDetachment(agent, detachment);
+```
 
 ### RemoveAgentAsDefendingToDetachment
 `public void RemoveAgentAsDefendingToDetachment(Agent agent)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `agent as defending to detachment`。
+**用途 / Purpose:** 从当前容器或状态中移除 「agent as defending to detachment」。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.RemoveAgentAsDefendingToDetachment(agent);
+```
 
 ### AssertDetachment
 `public void AssertDetachment(Team team, IDetachment detachment)`
 
-**用途 / Purpose:** 处理 `assert detachment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DetachmentManager 实例
+DetachmentManager detachmentManager = ...;
+detachmentManager.AssertDetachment(team, detachment);
+```
 
 ## 使用示例
 
@@ -120,4 +210,4 @@ var manager = DetachmentManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

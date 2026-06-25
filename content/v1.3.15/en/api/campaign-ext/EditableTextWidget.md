@@ -1,13 +1,7 @@
 ---
 title: "EditableTextWidget"
+description: "Auto-generated class reference for EditableTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditableTextWidget`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EditableTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -40,19 +34,32 @@ Treat `EditableTextWidget` as a Widget-style extension point: first identify who
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**Purpose:** Handles the `input` event or callback.
+**Purpose:** Executes the response logic associated with `input`.
+
+```csharp
+// Obtain an instance of EditableTextWidget from the subsystem API first
+EditableTextWidget editableTextWidget = ...;
+editableTextWidget.HandleInput(lastKeysPressed);
+```
 
 ### SetAllText
 `public virtual void SetAllText(string text)`
 
-**Purpose:** Sets the value or state of `all text`.
+**Purpose:** Assigns a new value to `all text` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EditableTextWidget from the subsystem API first
+EditableTextWidget editableTextWidget = ...;
+editableTextWidget.SetAllText("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new EditableTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EditableTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

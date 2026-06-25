@@ -1,13 +1,7 @@
 ---
 title: "RestObjectResponseMessage"
+description: "Auto-generated class reference for RestObjectResponseMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RestObjectResponseMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestObjectResponseMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### GetMessage
 `public override Message GetMessage()`
 
-**Purpose:** Gets the current value of `message`.
+**Purpose:** Reads and returns the `message` value held by the current object.
+
+```csharp
+// Obtain an instance of RestObjectResponseMessage from the subsystem API first
+RestObjectResponseMessage restObjectResponseMessage = ...;
+var result = restObjectResponseMessage.GetMessage();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RestObjectResponseMessage();
-value.GetMessage();
+// Typically call this after obtaining an instance from the subsystem API
+RestObjectResponseMessage restObjectResponseMessage = ...;
+restObjectResponseMessage.GetMessage();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

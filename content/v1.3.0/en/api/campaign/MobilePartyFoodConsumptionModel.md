@@ -1,13 +1,7 @@
 ---
 title: "MobilePartyFoodConsumptionModel"
+description: "Auto-generated class reference for MobilePartyFoodConsumptionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyFoodConsumptionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyFoodConsumptionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,24 +29,43 @@ Treat `MobilePartyFoodConsumptionModel` as a Model-style extension point: first 
 ### CalculateDailyBaseFoodConsumptionf
 `public abstract ExplainedNumber CalculateDailyBaseFoodConsumptionf(MobileParty party, bool includeDescription = false)`
 
-**Purpose:** Handles logic related to `calculate daily base food consumptionf`.
+**Purpose:** Calculates the current value or result of `daily base food consumptionf`.
+
+```csharp
+// Obtain an instance of MobilePartyFoodConsumptionModel from the subsystem API first
+MobilePartyFoodConsumptionModel mobilePartyFoodConsumptionModel = ...;
+var result = mobilePartyFoodConsumptionModel.CalculateDailyBaseFoodConsumptionf(party, false);
+```
 
 ### CalculateDailyFoodConsumptionf
 `public abstract ExplainedNumber CalculateDailyFoodConsumptionf(MobileParty party, ExplainedNumber baseConsumption)`
 
-**Purpose:** Handles logic related to `calculate daily food consumptionf`.
+**Purpose:** Calculates the current value or result of `daily food consumptionf`.
+
+```csharp
+// Obtain an instance of MobilePartyFoodConsumptionModel from the subsystem API first
+MobilePartyFoodConsumptionModel mobilePartyFoodConsumptionModel = ...;
+var result = mobilePartyFoodConsumptionModel.CalculateDailyFoodConsumptionf(party, baseConsumption);
+```
 
 ### DoesPartyConsumeFood
 `public abstract bool DoesPartyConsumeFood(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `does party consume food`.
+**Purpose:** Returns a boolean answer to whether `party consume food` is true for the current object.
+
+```csharp
+// Obtain an instance of MobilePartyFoodConsumptionModel from the subsystem API first
+MobilePartyFoodConsumptionModel mobilePartyFoodConsumptionModel = ...;
+var result = mobilePartyFoodConsumptionModel.DoesPartyConsumeFood(mobileParty);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMobilePartyFoodConsumptionModel();
+// Typically obtained from a subsystem API or factory
+MobilePartyFoodConsumptionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SmoothDecreaseIndicatorFillBar"
+description: "SmoothDecreaseIndicatorFillBar 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SmoothDecreaseIndicatorFillBar`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SmoothDecreaseIndicatorFillBar
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class SmoothDecreaseIndicatorFillBar`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/SmoothDecreaseIndicatorFillBar.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/SmoothDecreaseIndicatorFillBar.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "SmoothDecreaseIndicatorFillBar"
 ### SmoothDecreaseIndicatorFillBar
 `public class SmoothDecreaseIndicatorFillBar(UIContext context)`
 
-**用途 / Purpose:** 处理 `smooth decrease indicator fill bar` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SmoothDecreaseIndicatorFillBar 实例
+SmoothDecreaseIndicatorFillBar smoothDecreaseIndicatorFillBar = ...;
+var result = smoothDecreaseIndicatorFillBar.SmoothDecreaseIndicatorFillBar(context);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SmoothDecreaseIndicatorFillBar();
-value.SmoothDecreaseIndicatorFillBar(context);
+// 通常从对应子系统 API 获取实例后调用
+SmoothDecreaseIndicatorFillBar smoothDecreaseIndicatorFillBar = ...;
+smoothDecreaseIndicatorFillBar.SmoothDecreaseIndicatorFillBar(context);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

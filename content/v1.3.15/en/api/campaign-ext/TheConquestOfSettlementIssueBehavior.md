@@ -1,13 +1,7 @@
 ---
 title: "TheConquestOfSettlementIssueBehavior"
+description: "Auto-generated class reference for TheConquestOfSettlementIssueBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TheConquestOfSettlementIssueBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TheConquestOfSettlementIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -44,30 +38,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of TheConquestOfSettlementIssueBehavior from the subsystem API first
+TheConquestOfSettlementIssueBehavior theConquestOfSettlementIssueBehavior = ...;
+theConquestOfSettlementIssueBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of TheConquestOfSettlementIssueBehavior from the subsystem API first
+TheConquestOfSettlementIssueBehavior theConquestOfSettlementIssueBehavior = ...;
+theConquestOfSettlementIssueBehavior.SyncData(dataStore);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of TheConquestOfSettlementIssueBehavior from the subsystem API first
+TheConquestOfSettlementIssueBehavior theConquestOfSettlementIssueBehavior = ...;
+var result = theConquestOfSettlementIssueBehavior.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of TheConquestOfSettlementIssueBehavior from the subsystem API first
+TheConquestOfSettlementIssueBehavior theConquestOfSettlementIssueBehavior = ...;
+var result = theConquestOfSettlementIssueBehavior.IssueStayAliveConditions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TheConquestOfSettlementIssueBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+TheConquestOfSettlementIssueBehavior theConquestOfSettlementIssueBehavior = ...;
+theConquestOfSettlementIssueBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

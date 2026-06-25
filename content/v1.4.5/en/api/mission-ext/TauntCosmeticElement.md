@@ -1,20 +1,14 @@
 ---
 title: "TauntCosmeticElement"
+description: "Auto-generated class reference for TauntCosmeticElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TauntCosmeticElement`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TauntCosmeticElement
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TauntCosmeticElement : CosmeticElement`
 **Base:** `CosmeticElement`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/TauntCosmeticElement.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/TauntCosmeticElement.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes` 
 ## Usage Example
 
 ```csharp
-var example = new TauntCosmeticElement();
+// Obtain an instance from the relevant subsystem API
+TauntCosmeticElement instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

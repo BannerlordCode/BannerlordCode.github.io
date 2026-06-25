@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerPollProgressVM"
+description: "Auto-generated class reference for MultiplayerPollProgressVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerPollProgressVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPollProgressVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerPollProgressVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPollProgressVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerPollProgressVM.cs`
 
 ## Overview
 
@@ -42,35 +36,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### OnKickPollOpened
 `public void OnKickPollOpened(MissionPeer initiatorPeer, MissionPeer targetPeer, bool isBanRequested)`
 
-**Purpose:** Called when the `kick poll opened` event is raised.
+**Purpose:** Invoked when the `kick poll opened` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnKickPollOpened(initiatorPeer, targetPeer, false);
+```
 
 ### OnPollUpdated
 `public void OnPollUpdated(int votesAccepted, int votesRejected)`
 
-**Purpose:** Called when the `poll updated` event is raised.
+**Purpose:** Invoked when the `poll updated` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnPollUpdated(0, 0);
+```
 
 ### OnPollClosed
 `public void OnPollClosed()`
 
-**Purpose:** Called when the `poll closed` event is raised.
+**Purpose:** Invoked when the `poll closed` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnPollClosed();
+```
 
 ### OnPollOptionPicked
 `public void OnPollOptionPicked()`
 
-**Purpose:** Called when the `poll option picked` event is raised.
+**Purpose:** Invoked when the `poll option picked` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnPollOptionPicked();
+```
 
 ### AddKey
 `public void AddKey(GameKey key)`
 
 **Purpose:** Adds `key` to the current collection or state.
 
+```csharp
+// Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.AddKey(key);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerPollProgressVM();
-value.OnKickPollOpened(initiatorPeer, targetPeer, false);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerPollProgressVM multiplayerPollProgressVM = ...;
+multiplayerPollProgressVM.OnKickPollOpened(initiatorPeer, targetPeer, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

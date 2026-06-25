@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListItem"
+description: "EncyclopediaListItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaListItem`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListItem
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct EncyclopediaListItem`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaListItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaListItem.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "EncyclopediaListItem"
 ### EncyclopediaListItem
 `public struct EncyclopediaListItem(object obj, string name, string description, string id, string typeName, bool playerCanSeeValues, Action onShowTooltip = null)`
 
-**用途 / Purpose:** 处理 `encyclopedia list item` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EncyclopediaListItem 实例
+EncyclopediaListItem encyclopediaListItem = ...;
+var result = encyclopediaListItem.EncyclopediaListItem(obj, "example", "example", "example", "example", false, null);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EncyclopediaListItem();
-value.EncyclopediaListItem(obj, "example", "example", "example", "example", false, null);
+// 通常从对应子系统 API 获取实例后调用
+EncyclopediaListItem encyclopediaListItem = ...;
+encyclopediaListItem.EncyclopediaListItem(obj, "example", "example", "example", "example", false, null);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

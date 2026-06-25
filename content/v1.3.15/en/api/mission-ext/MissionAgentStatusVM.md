@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentStatusVM"
+description: "Auto-generated class reference for MissionAgentStatusVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentStatusVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionAgentStatusVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
@@ -67,80 +61,165 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ### InitializeMainAgentPropterties
 `public void InitializeMainAgentPropterties()`
 
-**Purpose:** Initializes the state, resources, or bindings for `main agent propterties`.
+**Purpose:** Prepares the resources, state, or bindings required by `main agent propterties`.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.InitializeMainAgentPropterties();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.Tick(0);
+```
 
 ### OnEquipmentInteractionViewToggled
 `public void OnEquipmentInteractionViewToggled(bool isActive)`
 
-**Purpose:** Called when the `equipment interaction view toggled` event is raised.
+**Purpose:** Invoked when the `equipment interaction view toggled` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnEquipmentInteractionViewToggled(false);
+```
 
 ### OnMainAgentWeaponChange
 `public void OnMainAgentWeaponChange()`
 
-**Purpose:** Called when the `main agent weapon change` event is raised.
+**Purpose:** Invoked when the `main agent weapon change` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnMainAgentWeaponChange();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnAgentRemoved(agent);
+```
 
 ### OnAgentDeleted
 `public void OnAgentDeleted(Agent agent)`
 
-**Purpose:** Called when the `agent deleted` event is raised.
+**Purpose:** Invoked when the `agent deleted` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnAgentDeleted(agent);
+```
 
 ### OnMainAgentHit
 `public void OnMainAgentHit(int damage, float distance)`
 
-**Purpose:** Called when the `main agent hit` event is raised.
+**Purpose:** Invoked when the `main agent hit` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnMainAgentHit(0, 0);
+```
 
 ### OnFocusGained
 `public void OnFocusGained(Agent mainAgent, IFocusable focusableObject, bool isInteractable)`
 
-**Purpose:** Called when the `focus gained` event is raised.
+**Purpose:** Invoked when the `focus gained` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnFocusGained(mainAgent, focusableObject, false);
+```
 
 ### OnFocusLost
 `public void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**Purpose:** Called when the `focus lost` event is raised.
+**Purpose:** Invoked when the `focus lost` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnFocusLost(agent, focusableObject);
+```
 
 ### OnSecondaryFocusGained
 `public void OnSecondaryFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**Purpose:** Called when the `secondary focus gained` event is raised.
+**Purpose:** Invoked when the `secondary focus gained` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnSecondaryFocusGained(agent, focusableObject, false);
+```
 
 ### OnSecondaryFocusLost
 `public void OnSecondaryFocusLost(Agent agent, IFocusable focusableObject)`
 
-**Purpose:** Called when the `secondary focus lost` event is raised.
+**Purpose:** Invoked when the `secondary focus lost` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnSecondaryFocusLost(agent, focusableObject);
+```
 
 ### OnAgentInteraction
 `public void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `agent interaction` event is raised.
+**Purpose:** Invoked when the `agent interaction` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentStatusVM from the subsystem API first
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentStatusVM();
-value.InitializeMainAgentPropterties();
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentStatusVM missionAgentStatusVM = ...;
+missionAgentStatusVM.InitializeMainAgentPropterties();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

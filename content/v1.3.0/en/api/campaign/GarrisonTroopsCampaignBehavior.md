@@ -1,13 +1,7 @@
 ---
 title: "GarrisonTroopsCampaignBehavior"
+description: "Auto-generated class reference for GarrisonTroopsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GarrisonTroopsCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GarrisonTroopsCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,40 +23,77 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+garrisonTroopsCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+garrisonTroopsCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetTroopsToLeaveDataForArmy
 `public List<ValueTuple<MobileParty, int>> GetTroopsToLeaveDataForArmy()`
 
-**Purpose:** Gets the current value of `troops to leave data for army`.
+**Purpose:** Reads and returns the `troops to leave data for army` value held by the current object.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+var result = garrisonTroopsCampaignBehavior.GetTroopsToLeaveDataForArmy();
+```
 
 ### GetTroopsToTakeDataForArmy
 `public List<ValueTuple<MobileParty, int>> GetTroopsToTakeDataForArmy()`
 
-**Purpose:** Gets the current value of `troops to take data for army`.
+**Purpose:** Reads and returns the `troops to take data for army` value held by the current object.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+var result = garrisonTroopsCampaignBehavior.GetTroopsToTakeDataForArmy();
+```
 
 ### GetNumberOfTroopsToLeaveForParty
 `public int GetNumberOfTroopsToLeaveForParty()`
 
-**Purpose:** Gets the current value of `number of troops to leave for party`.
+**Purpose:** Reads and returns the `number of troops to leave for party` value held by the current object.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToLeaveForParty();
+```
 
 ### GetNumberOfTroopsToTakeForParty
 `public int GetNumberOfTroopsToTakeForParty()`
 
-**Purpose:** Gets the current value of `number of troops to take for party`.
+**Purpose:** Reads and returns the `number of troops to take for party` value held by the current object.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToTakeForParty();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GarrisonTroopsCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+garrisonTroopsCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyShipLimitModel"
+description: "DefaultPartyShipLimitModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyShipLimitModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPartyShipLimitModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ title: "DefaultPartyShipLimitModel"
 ### GetIdealShipNumber
 `public override int GetIdealShipNumber(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `ideal ship number` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ideal ship number」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyShipLimitModel 实例
+DefaultPartyShipLimitModel defaultPartyShipLimitModel = ...;
+var result = defaultPartyShipLimitModel.GetIdealShipNumber(mobileParty);
+```
 
 ### GetIdealShipNumber
 `public override int GetIdealShipNumber(Clan clan)`
 
-**用途 / Purpose:** 获取 `ideal ship number` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ideal ship number」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyShipLimitModel 实例
+DefaultPartyShipLimitModel defaultPartyShipLimitModel = ...;
+var result = defaultPartyShipLimitModel.GetIdealShipNumber(clan);
+```
 
 ### GetShipPriority
 `public override float GetShipPriority(MobileParty mobileParty, Ship ship, bool isSelling)`
 
-**用途 / Purpose:** 获取 `ship priority` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship priority」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyShipLimitModel 实例
+DefaultPartyShipLimitModel defaultPartyShipLimitModel = ...;
+var result = defaultPartyShipLimitModel.GetShipPriority(mobileParty, ship, false);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPartyShipLimitModel>(new MyDefaultPartyShipLimi
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "TournamentTeam"
+description: "Auto-generated class reference for TournamentTeam."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentTeam`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TournamentTeam
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### IsParticipantRequired
 `public bool IsParticipantRequired()`
 
-**Purpose:** Handles logic related to `is participant required`.
+**Purpose:** Determines whether the current object is in the `participant required` state or condition.
+
+```csharp
+// Obtain an instance of TournamentTeam from the subsystem API first
+TournamentTeam tournamentTeam = ...;
+var result = tournamentTeam.IsParticipantRequired();
+```
 
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant)`
 
 **Purpose:** Adds `participant` to the current collection or state.
 
+```csharp
+// Obtain an instance of TournamentTeam from the subsystem API first
+TournamentTeam tournamentTeam = ...;
+tournamentTeam.AddParticipant(participant);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new TournamentTeam();
-value.IsParticipantRequired();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentTeam tournamentTeam = ...;
+tournamentTeam.IsParticipantRequired();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

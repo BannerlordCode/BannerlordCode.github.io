@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleMoraleModel"
+description: "CustomBattleMoraleModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleMoraleModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleMoraleModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,47 +23,101 @@ title: "CustomBattleMoraleModel"
 ### CalculateMaxMoraleChangeDueToAgentIncapacitated
 `public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)`
 
-**用途 / Purpose:** 处理 `calculate max morale change due to agent incapacitated` 相关逻辑。
+**用途 / Purpose:** 计算「max morale change due to agent incapacitated」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentIncapacitated(affectedAgent, affectedAgentState, affectorAgent, killingBlow);
+```
 
 ### CalculateMaxMoraleChangeDueToAgentPanicked
 `public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)`
 
-**用途 / Purpose:** 处理 `calculate max morale change due to agent panicked` 相关逻辑。
+**用途 / Purpose:** 计算「max morale change due to agent panicked」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentPanicked(agent);
+```
 
 ### CalculateMoraleChangeToCharacter
 `public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
 
-**用途 / Purpose:** 处理 `calculate morale change to character` 相关逻辑。
+**用途 / Purpose:** 计算「morale change to character」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0);
+```
 
 ### GetEffectiveInitialMorale
 `public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
 
-**用途 / Purpose:** 获取 `effective initial morale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「effective initial morale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.GetEffectiveInitialMorale(agent, 0);
+```
 
 ### CanPanicDueToMorale
 `public override bool CanPanicDueToMorale(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `panic due to morale`。
+**用途 / Purpose:** 检查当前对象是否满足 「panic due to morale」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.CanPanicDueToMorale(agent);
+```
 
 ### CalculateCasualtiesFactor
 `public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
 
-**用途 / Purpose:** 处理 `calculate casualties factor` 相关逻辑。
+**用途 / Purpose:** 计算「casualties factor」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.CalculateCasualtiesFactor(battleSide);
+```
 
 ### GetAverageMorale
 `public override float GetAverageMorale(Formation formation)`
 
-**用途 / Purpose:** 获取 `average morale` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「average morale」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.GetAverageMorale(formation);
+```
 
 ### CalculateMoraleChangeOnShipSunk
 `public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
 
-**用途 / Purpose:** 处理 `calculate morale change on ship sunk` 相关逻辑。
+**用途 / Purpose:** 计算「morale change on ship sunk」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin);
+```
 
 ### CalculateMoraleOnRamming
 `public override float CalculateMoraleOnRamming(Agent agent)`
 
-**用途 / Purpose:** 处理 `calculate morale on ramming` 相关逻辑。
+**用途 / Purpose:** 计算「morale on ramming」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMoraleModel 实例
+CustomBattleMoraleModel customBattleMoraleModel = ...;
+var result = customBattleMoraleModel.CalculateMoraleOnRamming(agent);
+```
 
 ## 使用示例
 
@@ -79,4 +127,4 @@ Game.Current.ReplaceModel<CustomBattleMoraleModel>(new MyCustomBattleMoraleModel
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "PersuasionOptionResult"
+description: "Auto-generated class reference for PersuasionOptionResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionOptionResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PersuasionOptionResult
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Persuasion
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum PersuasionOptionResult`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Conversation/Persuasion/PersuasionOptionResult.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ## Usage Example
 
 ```csharp
-var value = new PersuasionOptionResult();
+// Obtain an instance from the relevant subsystem API
+PersuasionOptionResult instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

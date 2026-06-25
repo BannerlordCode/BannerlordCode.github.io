@@ -1,67 +1,62 @@
 ---
 title: "CombatLogManager"
+description: "Auto-generated class reference for CombatLogManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CombatLogManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CombatLogManager
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** public static class CombatLogManager
+**Type:** `public static class CombatLogManager`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/CombatLogManager.cs`
 
 ## Overview
 
-`CombatLogManager` produces combat log entries — the kill/damage feed shown in-mission. Mods call `GenerateCombatLog` to emit custom notifications and subscribe to `OnPrintCombatLogHandler` to react to or transform log output. Use `PrintDebugLogForInfo` for diagnostics.
+`CombatLogManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
 
 ## Mental Model
 
-Treat `CombatLogManager` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `CombatLogManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
 ## Key Methods
 
 ### PrintDebugLogForInfo
+`public static void PrintDebugLogForInfo(Agent attackerAgent, Agent victimAgent, DamageTypes damageType, int speedBonus, int armorAmount, int inflictedDamage, int absorbedByArmor, sbyte collisionBone, float lostHpPercentage)`
+
+**Purpose:** Performs the operation described by this method.
+
 ```csharp
-public static void PrintDebugLogForInfo(Agent attackerAgent, Agent victimAgent, DamageTypes damageType, int speedBonus, int armorAmount, int inflictedDamage, int absorbedByArmor, sbyte collisionBone, float lostHpPercentage)
+// Static call; no instance required
+CombatLogManager.PrintDebugLogForInfo(attackerAgent, victimAgent, damageType, 0, 0, 0, 0, 0, 0);
 ```
 
 ### GenerateCombatLog
+`public static void GenerateCombatLog(CombatLogData logData)`
+
+**Purpose:** Generates an instance, data, or representation of `combat log`.
+
 ```csharp
-public static void GenerateCombatLog(CombatLogData logData)
+// Static call; no instance required
+CombatLogManager.GenerateCombatLog(logData);
 ```
 
 ### OnPrintCombatLogHandler
+`public delegate void OnPrintCombatLogHandler(CombatLogData logData)`
+
+**Purpose:** Invoked when the `print combat log handler` event is raised.
+
 ```csharp
-public delegate void OnPrintCombatLogHandler(CombatLogData logData)
+// Obtain an instance of CombatLogManager from the subsystem API first
+CombatLogManager combatLogManager = ...;
+combatLogManager.OnPrintCombatLogHandler(logData);
 ```
 
 ## Usage Example
 
 ```csharp
-// Emit a custom combat-log line when your scripted event triggers
-CombatLogManager.GenerateCombatLog(
-    new CombatLogData
-    {
-        AttackerName = attacker.Name,
-        VictimName = victim.Name,
-        DamageType = DamageType.Blunt,
-        InflictedDamage = 50,
-        IsVictimAgentDead = false
-    });
-
-// React to any printed log
-CombatLogManager.OnPrintCombatLogHandler += data =>
-{
-    // record, filter, or rewrite the entry
-};
+var manager = CombatLogManager.Current;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

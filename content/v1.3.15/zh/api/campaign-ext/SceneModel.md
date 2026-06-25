@@ -1,13 +1,7 @@
 ---
 title: "SceneModel"
+description: "SceneModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SceneModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SceneModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ title: "SceneModel"
 ### GetConversationSceneForMapPosition
 `public abstract string GetConversationSceneForMapPosition(CampaignVec2 campaignPosition)`
 
-**用途 / Purpose:** 获取 `conversation scene for map position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation scene for map position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SceneModel 实例
+SceneModel sceneModel = ...;
+var result = sceneModel.GetConversationSceneForMapPosition(campaignPosition);
+```
 
 ### GetBattleSceneForMapPatch
 `public abstract string GetBattleSceneForMapPatch(MapPatchData mapPatch, bool isNavalEncounter)`
 
-**用途 / Purpose:** 获取 `battle scene for map patch` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle scene for map patch」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SceneModel 实例
+SceneModel sceneModel = ...;
+var result = sceneModel.GetBattleSceneForMapPatch(mapPatch, false);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSceneModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SceneModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

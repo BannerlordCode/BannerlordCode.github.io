@@ -1,13 +1,7 @@
 ---
 title: "AnimationInterpolation"
+description: "Auto-generated class reference for AnimationInterpolation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimationInterpolation`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimationInterpolation
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -29,22 +23,45 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Ease
 `public static float Ease(AnimationInterpolation.Type type, AnimationInterpolation.Function function, float ratio)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+AnimationInterpolation.Ease(type, function, 0);
+```
 
 ### Ease
 `public float Ease(AnimationInterpolation.Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ### Ease
 `public float Ease(AnimationInterpolation.Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ### Ease
 `public float Ease(AnimationInterpolation.Function function, float t)`
 
-**Purpose:** Handles logic related to `ease`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of AnimationInterpolation from the subsystem API first
+AnimationInterpolation animationInterpolation = ...;
+var result = animationInterpolation.Ease(function, 0);
+```
 
 ## Usage Example
 
@@ -54,4 +71,4 @@ AnimationInterpolation.Ease(type, function, 0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

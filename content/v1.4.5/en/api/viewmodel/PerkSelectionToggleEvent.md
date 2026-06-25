@@ -1,20 +1,14 @@
 ---
 title: "PerkSelectionToggleEvent"
+description: "Auto-generated class reference for PerkSelectionToggleEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkSelectionToggleEvent`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerkSelectionToggleEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PerkSelectionToggleEvent : EventBase`
 **Base:** `EventBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection/PerkSelectionToggleEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection/PerkSelectionToggleEvent.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ## Usage Example
 
 ```csharp
-var example = new PerkSelectionToggleEvent();
+// Obtain an instance from the relevant subsystem API
+PerkSelectionToggleEvent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

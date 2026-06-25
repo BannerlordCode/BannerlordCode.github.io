@@ -1,20 +1,14 @@
 ---
 title: "DefaultClanTierModel"
+description: "Auto-generated class reference for DefaultClanTierModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultClanTierModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultClanTierModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultClanTierModel : ClanTierModel`
 **Base:** `ClanTierModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanTierModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanTierModel.cs`
 
 ## Overview
 
@@ -29,32 +23,68 @@ Treat `DefaultClanTierModel` as a Model-style extension point: first identify wh
 ### CalculateInitialRenown
 `public override int CalculateInitialRenown(Clan clan)`
 
-**Purpose:** Handles logic related to `calculate initial renown`.
+**Purpose:** Calculates the current value or result of `initial renown`.
+
+```csharp
+// Obtain an instance of DefaultClanTierModel from the subsystem API first
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.CalculateInitialRenown(clan);
+```
 
 ### CalculateInitialInfluence
 `public override int CalculateInitialInfluence(Clan clan)`
 
-**Purpose:** Handles logic related to `calculate initial influence`.
+**Purpose:** Calculates the current value or result of `initial influence`.
+
+```csharp
+// Obtain an instance of DefaultClanTierModel from the subsystem API first
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.CalculateInitialInfluence(clan);
+```
 
 ### CalculateTier
 `public override int CalculateTier(Clan clan)`
 
-**Purpose:** Handles logic related to `calculate tier`.
+**Purpose:** Calculates the current value or result of `tier`.
+
+```csharp
+// Obtain an instance of DefaultClanTierModel from the subsystem API first
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.CalculateTier(clan);
+```
 
 ### GetRequiredRenownForTier
 `public override int GetRequiredRenownForTier(int tier)`
 
-**Purpose:** Gets the current value of `required renown for tier`.
+**Purpose:** Reads and returns the `required renown for tier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultClanTierModel from the subsystem API first
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.GetRequiredRenownForTier(0);
+```
 
 ### GetPartyLimitForTier
 `public override int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
 
-**Purpose:** Gets the current value of `party limit for tier`.
+**Purpose:** Reads and returns the `party limit for tier` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultClanTierModel from the subsystem API first
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.GetPartyLimitForTier(clan, 0);
+```
 
 ### GetCompanionLimit
 `public override int GetCompanionLimit(Clan clan)`
 
-**Purpose:** Gets the current value of `companion limit`.
+**Purpose:** Reads and returns the `companion limit` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultClanTierModel from the subsystem API first
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.GetCompanionLimit(clan);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultClanTierModel>(new MyDefaultClanTierModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

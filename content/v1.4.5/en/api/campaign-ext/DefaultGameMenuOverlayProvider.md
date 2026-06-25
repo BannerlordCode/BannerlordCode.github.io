@@ -1,20 +1,14 @@
 ---
 title: "DefaultGameMenuOverlayProvider"
+description: "Auto-generated class reference for DefaultGameMenuOverlayProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultGameMenuOverlayProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultGameMenuOverlayProvider
 
 **Namespace:** SandBox.View.Overlay
 **Module:** SandBox.View
 **Type:** `public class DefaultGameMenuOverlayProvider : IGameMenuOverlayProvider`
 **Base:** `IGameMenuOverlayProvider`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Overlay/DefaultGameMenuOverlayProvider.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Overlay/DefaultGameMenuOverlayProvider.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `SandBox.View.Overlay` to place it in the stack, then inspe
 ### GetOverlay
 `public unsafe GameMenuOverlay GetOverlay(MenuOverlayType menuOverlayType)`
 
-**Purpose:** Gets the current value of `overlay`.
+**Purpose:** Reads and returns the `overlay` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultGameMenuOverlayProvider from the subsystem API first
+DefaultGameMenuOverlayProvider defaultGameMenuOverlayProvider = ...;
+var result = defaultGameMenuOverlayProvider.GetOverlay(menuOverlayType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultGameMenuOverlayProvider();
-value.GetOverlay(menuOverlayType);
+// Typically call this after obtaining an instance from the subsystem API
+DefaultGameMenuOverlayProvider defaultGameMenuOverlayProvider = ...;
+defaultGameMenuOverlayProvider.GetOverlay(menuOverlayType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

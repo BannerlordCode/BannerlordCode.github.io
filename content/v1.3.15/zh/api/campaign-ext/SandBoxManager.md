@@ -1,13 +1,7 @@
 ---
 title: "SandBoxManager"
+description: "SandBoxManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SandBoxManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -39,32 +33,68 @@ title: "SandBoxManager"
 ### Initialize
 `public void Initialize(CampaignGameStarter gameStarter)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxManager 实例
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.Initialize(gameStarter);
+```
 
 ### OnCampaignStart
 `public void OnCampaignStart(CampaignGameStarter gameInitializer, GameManagerBase gameManager, bool isSavedCampaign)`
 
-**用途 / Purpose:** 当 `campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxManager 实例
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.OnCampaignStart(gameInitializer, gameManager, false);
+```
 
 ### InitializeSandboxXMLs
 `public void InitializeSandboxXMLs(bool isSavedCampaign)`
 
-**用途 / Purpose:** 初始化 `sandbox x m ls` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「sandbox x m ls」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxManager 实例
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.InitializeSandboxXMLs(false);
+```
 
 ### InitializeCharactersAfterLoad
 `public void InitializeCharactersAfterLoad(bool isSavedCampaign)`
 
-**用途 / Purpose:** 初始化 `characters after load` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「characters after load」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxManager 实例
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.InitializeCharactersAfterLoad(false);
+```
 
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**用途 / Purpose:** 当 `before save` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「before save」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxManager 实例
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.OnBeforeSave();
+```
 
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**用途 / Purpose:** 当 `after save` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after save」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxManager 实例
+SandBoxManager sandBoxManager = ...;
+sandBoxManager.OnAfterSave();
+```
 
 ## 使用示例
 
@@ -74,4 +104,4 @@ var manager = SandBoxManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

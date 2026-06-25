@@ -1,20 +1,14 @@
 ---
 title: "PartyTrainingModel"
+description: "Auto-generated class reference for PartyTrainingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTrainingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTrainingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyTrainingModel : MBGameModel<PartyTrainingModel>`
 **Base:** `MBGameModel<PartyTrainingModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTrainingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTrainingModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `PartyTrainingModel` as a Model-style extension point: first identify who 
 ### GenerateSharedXp
 `public abstract int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `generate shared xp`.
+**Purpose:** Generates an instance, data, or representation of `shared xp`.
+
+```csharp
+// Obtain an instance of PartyTrainingModel from the subsystem API first
+PartyTrainingModel partyTrainingModel = ...;
+var result = partyTrainingModel.GenerateSharedXp(troop, 0, mobileParty);
+```
 
 ### CalculateXpGainFromBattles
 `public abstract ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
 
-**Purpose:** Handles logic related to `calculate xp gain from battles`.
+**Purpose:** Calculates the current value or result of `xp gain from battles`.
+
+```csharp
+// Obtain an instance of PartyTrainingModel from the subsystem API first
+PartyTrainingModel partyTrainingModel = ...;
+var result = partyTrainingModel.CalculateXpGainFromBattles(troopRosterElement, party);
+```
 
 ### GetXpReward
 `public abstract int GetXpReward(CharacterObject character)`
 
-**Purpose:** Gets the current value of `xp reward`.
+**Purpose:** Reads and returns the `xp reward` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTrainingModel from the subsystem API first
+PartyTrainingModel partyTrainingModel = ...;
+var result = partyTrainingModel.GetXpReward(character);
+```
 
 ### GetEffectiveDailyExperience
 `public abstract ExplainedNumber GetEffectiveDailyExperience(MobileParty party, TroopRosterElement troop)`
 
-**Purpose:** Gets the current value of `effective daily experience`.
+**Purpose:** Reads and returns the `effective daily experience` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTrainingModel from the subsystem API first
+PartyTrainingModel partyTrainingModel = ...;
+var result = partyTrainingModel.GetEffectiveDailyExperience(party, troop);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyTrainingModel();
+// Typically obtained from a subsystem API or factory
+PartyTrainingModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

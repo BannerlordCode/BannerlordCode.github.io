@@ -1,20 +1,14 @@
 ---
 title: "RichTextTag"
+description: "Auto-generated class reference for RichTextTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichTextTag`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RichTextTag
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class RichTextTag`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichTextTag.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichTextTag.cs`
 
 ## Overview
 
@@ -38,18 +32,31 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 
 **Purpose:** Adds `atrribute` to the current collection or state.
 
+```csharp
+// Obtain an instance of RichTextTag from the subsystem API first
+RichTextTag richTextTag = ...;
+richTextTag.AddAtrribute("example", "example");
+```
+
 ### GetAttribute
 `public string GetAttribute(string key)`
 
-**Purpose:** Gets the current value of `attribute`.
+**Purpose:** Reads and returns the `attribute` value held by the current object.
+
+```csharp
+// Obtain an instance of RichTextTag from the subsystem API first
+RichTextTag richTextTag = ...;
+var result = richTextTag.GetAttribute("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RichTextTag();
-value.AddAtrribute("example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+RichTextTag richTextTag = ...;
+richTextTag.AddAtrribute("example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

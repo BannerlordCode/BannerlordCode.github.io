@@ -1,13 +1,7 @@
 ---
 title: "GeneralsAndCaptainsAssignmentLogic"
+description: "GeneralsAndCaptainsAssignmentLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GeneralsAndCaptainsAssignmentLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GeneralsAndCaptainsAssignmentLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,24 +23,42 @@ title: "GeneralsAndCaptainsAssignmentLogic"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GeneralsAndCaptainsAssignmentLogic 实例
+GeneralsAndCaptainsAssignmentLogic generalsAndCaptainsAssignmentLogic = ...;
+generalsAndCaptainsAssignmentLogic.AfterStart();
+```
 
 ### OnTeamDeployed
 `public override void OnTeamDeployed(Team team)`
 
-**用途 / Purpose:** 当 `team deployed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「team deployed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GeneralsAndCaptainsAssignmentLogic 实例
+GeneralsAndCaptainsAssignmentLogic generalsAndCaptainsAssignmentLogic = ...;
+generalsAndCaptainsAssignmentLogic.OnTeamDeployed(team);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GeneralsAndCaptainsAssignmentLogic 实例
+GeneralsAndCaptainsAssignmentLogic generalsAndCaptainsAssignmentLogic = ...;
+generalsAndCaptainsAssignmentLogic.OnDeploymentFinished();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GeneralsAndCaptainsAssignmentLogic());
+var behavior = Mission.Current.GetMissionBehavior<GeneralsAndCaptainsAssignmentLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

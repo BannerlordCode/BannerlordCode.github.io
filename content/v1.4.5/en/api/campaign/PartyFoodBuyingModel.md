@@ -1,20 +1,14 @@
 ---
 title: "PartyFoodBuyingModel"
+description: "Auto-generated class reference for PartyFoodBuyingModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyFoodBuyingModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyFoodBuyingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyFoodBuyingModel : MBGameModel<PartyFoodBuyingModel>`
 **Base:** `MBGameModel<PartyFoodBuyingModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyFoodBuyingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyFoodBuyingModel.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `PartyFoodBuyingModel` as a Model-style extension point: first identify wh
 ### FindItemToBuy
 `public abstract void FindItemToBuy(MobileParty mobileParty, Settlement settlement, out ItemRosterElement itemRosterElement, out float itemElementsPrice)`
 
-**Purpose:** Handles logic related to `find item to buy`.
+**Purpose:** Looks up the matching `item to buy` in the current collection or scope.
+
+```csharp
+// Obtain an instance of PartyFoodBuyingModel from the subsystem API first
+PartyFoodBuyingModel partyFoodBuyingModel = ...;
+partyFoodBuyingModel.FindItemToBuy(mobileParty, settlement, itemRosterElement, itemElementsPrice);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyFoodBuyingModel();
+// Typically obtained from a subsystem API or factory
+PartyFoodBuyingModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "AudioData"
+description: "Auto-generated class reference for AudioData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AudioData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AudioData
 
 **Namespace:** psai.net
 **Module:** psai.net
 **Type:** `public class AudioData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.net/AudioData.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.net/AudioData.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `AudioData` as a Data-style extension point: first identify who creates it
 ### GetFullLengthInMilliseconds
 `public int GetFullLengthInMilliseconds()`
 
-**Purpose:** Gets the current value of `full length in milliseconds`.
+**Purpose:** Reads and returns the `full length in milliseconds` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetFullLengthInMilliseconds();
+```
 
 ### GetPreBeatZoneInMilliseconds
 `public int GetPreBeatZoneInMilliseconds()`
 
-**Purpose:** Gets the current value of `pre beat zone in milliseconds`.
+**Purpose:** Reads and returns the `pre beat zone in milliseconds` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetPreBeatZoneInMilliseconds();
+```
 
 ### GetPostBeatZoneInMilliseconds
 `public int GetPostBeatZoneInMilliseconds()`
 
-**Purpose:** Gets the current value of `post beat zone in milliseconds`.
+**Purpose:** Reads and returns the `post beat zone in milliseconds` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetPostBeatZoneInMilliseconds();
+```
 
 ### GetSampleCountByMilliseconds
 `public int GetSampleCountByMilliseconds(int milliSeconds)`
 
-**Purpose:** Gets the current value of `sample count by milliseconds`.
+**Purpose:** Reads and returns the `sample count by milliseconds` value held by the current object.
+
+```csharp
+// Obtain an instance of AudioData from the subsystem API first
+AudioData audioData = ...;
+var result = audioData.GetSampleCountByMilliseconds(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AudioData();
+// This data object is usually returned by campaign/mission APIs
+AudioData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

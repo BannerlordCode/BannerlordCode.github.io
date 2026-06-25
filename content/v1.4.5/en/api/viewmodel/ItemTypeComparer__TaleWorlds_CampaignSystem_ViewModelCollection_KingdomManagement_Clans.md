@@ -1,20 +1,14 @@
 ---
-title: "ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans"
+title: "ItemTypeComparer"
+description: "Auto-generated class reference for ItemTypeComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemTypeComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemTypeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemTypeComparer : ItemComparerBase`
 **Base:** `ItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans/KingdomClanSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans/KingdomClanSortControllerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemTypeComparer from the subsystem API first
+ItemTypeComparer itemTypeComparer = ...;
+var result = itemTypeComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemTypeComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemTypeComparer itemTypeComparer = ...;
+itemTypeComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

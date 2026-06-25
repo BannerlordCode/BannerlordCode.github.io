@@ -1,13 +1,7 @@
 ---
 title: "MusicArenaPracticeMissionView"
+description: "Auto-generated class reference for MusicArenaPracticeMissionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MusicArenaPracticeMissionView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MusicArenaPracticeMissionView
 
 **Namespace:** SandBox.View.Missions.Sound.Components
@@ -29,54 +23,109 @@ Treat `MusicArenaPracticeMissionView` as a View-style extension point: first ide
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.EarlyStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.OnMissionScreenFinalize();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.OnMissionTick(0);
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Called when the `score hit` event is raised.
+**Purpose:** Invoked when the `score hit` event is raised.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ### OnMissileHit
 `public override void OnMissileHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
 
-**Purpose:** Called when the `missile hit` event is raised.
+**Purpose:** Invoked when the `missile hit` event is raised.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.OnMissileHit(attacker, victim, false, collisionData);
+```
 
 ### OnMeleeHit
 `public override void OnMeleeHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
 
-**Purpose:** Called when the `melee hit` event is raised.
+**Purpose:** Invoked when the `melee hit` event is raised.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.OnMeleeHit(attacker, victim, false, collisionData);
+```
 
 ### OnUpdated
 `public void OnUpdated(float dt)`
 
-**Purpose:** Called when the `updated` event is raised.
+**Purpose:** Invoked when the `updated` event is raised.
+
+```csharp
+// Obtain an instance of MusicArenaPracticeMissionView from the subsystem API first
+MusicArenaPracticeMissionView musicArenaPracticeMissionView = ...;
+musicArenaPracticeMissionView.OnUpdated(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MusicArenaPracticeMissionView();
+// Retrieve this view from the subsystem API or scene
+MusicArenaPracticeMissionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TwoDimensionEnginePlatform"
+description: "Auto-generated class reference for TwoDimensionEnginePlatform."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TwoDimensionEnginePlatform`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionEnginePlatform
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of TwoDimensionEnginePlatform from the subsystem API first
+TwoDimensionEnginePlatform twoDimensionEnginePlatform = ...;
+twoDimensionEnginePlatform.Reset();
+```
 
 ### Equals
 `public bool Equals(TwoDimensionEnginePlatform.MaterialTuple other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of TwoDimensionEnginePlatform from the subsystem API first
+TwoDimensionEnginePlatform twoDimensionEnginePlatform = ...;
+var result = twoDimensionEnginePlatform.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of TwoDimensionEnginePlatform from the subsystem API first
+TwoDimensionEnginePlatform twoDimensionEnginePlatform = ...;
+var result = twoDimensionEnginePlatform.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TwoDimensionEnginePlatform();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+TwoDimensionEnginePlatform twoDimensionEnginePlatform = ...;
+twoDimensionEnginePlatform.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

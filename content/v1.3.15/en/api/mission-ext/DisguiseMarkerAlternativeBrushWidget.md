@@ -1,13 +1,7 @@
 ---
 title: "DisguiseMarkerAlternativeBrushWidget"
+description: "Auto-generated class reference for DisguiseMarkerAlternativeBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisguiseMarkerAlternativeBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DisguiseMarkerAlternativeBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
@@ -41,9 +35,10 @@ Treat `DisguiseMarkerAlternativeBrushWidget` as a Widget-style extension point: 
 ## Usage Example
 
 ```csharp
-var widget = new DisguiseMarkerAlternativeBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+DisguiseMarkerAlternativeBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

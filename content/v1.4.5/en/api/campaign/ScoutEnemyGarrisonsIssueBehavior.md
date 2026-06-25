@@ -1,20 +1,14 @@
 ---
 title: "ScoutEnemyGarrisonsIssueBehavior"
+description: "Auto-generated class reference for ScoutEnemyGarrisonsIssueBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScoutEnemyGarrisonsIssueBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoutEnemyGarrisonsIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ScoutEnemyGarrisonsIssueBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ScoutEnemyGarrisonsIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ScoutEnemyGarrisonsIssueBehavior.cs`
 
 ## Overview
 
@@ -37,50 +31,99 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+var result = scoutEnemyGarrisonsIssueBehavior.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+var result = scoutEnemyGarrisonsIssueBehavior.IssueStayAliveConditions();
+```
 
 ### IsScoutingCompleted
 `public bool IsScoutingCompleted()`
 
-**Purpose:** Handles logic related to `is scouting completed`.
+**Purpose:** Determines whether the current object is in the `scouting completed` state or condition.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+var result = scoutEnemyGarrisonsIssueBehavior.IsScoutingCompleted();
+```
 
 ### SetScoutingCompleted
 `public void SetScoutingCompleted()`
 
-**Purpose:** Sets the value or state of `scouting completed`.
+**Purpose:** Assigns a new value to `scouting completed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+scoutEnemyGarrisonsIssueBehavior.SetScoutingCompleted();
+```
 
 ### ResetCurrentProgress
 `public void ResetCurrentProgress()`
 
-**Purpose:** Resets `current progress` to its initial state.
+**Purpose:** Returns `current progress` to its default or initial condition.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+scoutEnemyGarrisonsIssueBehavior.ResetCurrentProgress();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+scoutEnemyGarrisonsIssueBehavior.RegisterEvents();
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+scoutEnemyGarrisonsIssueBehavior.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ScoutEnemyGarrisonsIssueBehavior from the subsystem API first
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+scoutEnemyGarrisonsIssueBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ScoutEnemyGarrisonsIssueBehavior();
-value.GetFrequency();
+// Typically call this after obtaining an instance from the subsystem API
+ScoutEnemyGarrisonsIssueBehavior scoutEnemyGarrisonsIssueBehavior = ...;
+scoutEnemyGarrisonsIssueBehavior.GetFrequency();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

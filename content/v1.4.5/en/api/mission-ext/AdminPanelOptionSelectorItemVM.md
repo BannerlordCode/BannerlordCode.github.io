@@ -1,68 +1,30 @@
 ---
 title: "AdminPanelOptionSelectorItemVM"
+description: "Auto-generated class reference for AdminPanelOptionSelectorItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AdminPanelOptionSelectorItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AdminPanelOptionSelectorItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AdminPanelOptionSelectorItemVM : SelectorItemVM`
 **Base:** `SelectorItemVM`
-**Area:** mission-ext
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelMultiSelectionOptionVM.cs`
 
 ## Overview
 
-`AdminPanelOptionSelectorItemVM` lives in `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`AdminPanelOptionSelectorItemVM` lives in `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `IsEnabled` | `public bool IsEnabled { get; set; }` |
-| `IsMultiSelectionOption` | `public bool IsMultiSelectionOption { get; set; }` |
-| `MultiSelectionOptions` | `public AdminPanelOptionSelectorVM MultiSelectionOptions { get; set; }` |
-
-## Key Methods
-
-### RefreshValues
-`public override void RefreshValues()`
-
-**Purpose:** Refreshes the display or cache of `values`.
-
-### UpdateValues
-`public override void UpdateValues()`
-
-**Purpose:** Updates the state or data of `values`.
-
-### ExecuteRestoreDefaults
-`public override void ExecuteRestoreDefaults()`
-
-**Purpose:** Executes the `restore defaults` operation or workflow.
-
-### ExecuteRevertChanges
-`public override void ExecuteRevertChanges()`
-
-**Purpose:** Executes the `revert changes` operation or workflow.
-
 ## Usage Example
 
 ```csharp
-// First obtain a AdminPanelOptionSelectorItemVM instance from game state, then call one of its public methods
-var value = new AdminPanelOptionSelectorItemVM();
-value.RefreshValues();
+// Obtain an instance from the relevant subsystem API
+AdminPanelOptionSelectorItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

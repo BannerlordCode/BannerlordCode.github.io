@@ -1,13 +1,7 @@
 ---
 title: "DeformKeyData"
+description: "Auto-generated class reference for DeformKeyData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DeformKeyData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DeformKeyData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Treat `DeformKeyData` as a Data-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var value = new DeformKeyData();
+// This data object is usually returned by campaign/mission APIs
+DeformKeyData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

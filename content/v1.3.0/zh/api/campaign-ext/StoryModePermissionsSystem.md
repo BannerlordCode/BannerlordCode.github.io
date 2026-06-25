@@ -1,13 +1,7 @@
 ---
 title: "StoryModePermissionsSystem"
+description: "StoryModePermissionsSystem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModePermissionsSystem`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModePermissionsSystem
 
 **Namespace:** StoryMode.View.Permissions
@@ -29,7 +23,12 @@ title: "StoryModePermissionsSystem"
 ### OnInitialize
 `public static void OnInitialize()`
 
-**用途 / Purpose:** 当 `initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+StoryModePermissionsSystem.OnInitialize();
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ StoryModePermissionsSystem.OnInitialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

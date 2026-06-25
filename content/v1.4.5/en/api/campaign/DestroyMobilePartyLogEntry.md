@@ -1,20 +1,14 @@
 ---
 title: "DestroyMobilePartyLogEntry"
+description: "Auto-generated class reference for DestroyMobilePartyLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DestroyMobilePartyLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DestroyMobilePartyLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DestroyMobilePartyLogEntry : LogEntry`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/DestroyMobilePartyLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/DestroyMobilePartyLogEntry.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetAsRumor
 `public override int GetAsRumor(Settlement settlement, out TextObject comment)`
 
-**Purpose:** Gets the current value of `as rumor`.
+**Purpose:** Reads and returns the `as rumor` value held by the current object.
+
+```csharp
+// Obtain an instance of DestroyMobilePartyLogEntry from the subsystem API first
+DestroyMobilePartyLogEntry destroyMobilePartyLogEntry = ...;
+var result = destroyMobilePartyLogEntry.GetAsRumor(settlement, comment);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of DestroyMobilePartyLogEntry from the subsystem API first
+DestroyMobilePartyLogEntry destroyMobilePartyLogEntry = ...;
+var result = destroyMobilePartyLogEntry.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DestroyMobilePartyLogEntry();
-value.GetAsRumor(settlement, comment);
+// Typically call this after obtaining an instance from the subsystem API
+DestroyMobilePartyLogEntry destroyMobilePartyLogEntry = ...;
+destroyMobilePartyLogEntry.GetAsRumor(settlement, comment);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

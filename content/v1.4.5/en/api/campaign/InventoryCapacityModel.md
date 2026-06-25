@@ -1,20 +1,14 @@
 ---
 title: "InventoryCapacityModel"
+description: "Auto-generated class reference for InventoryCapacityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryCapacityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryCapacityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class InventoryCapacityModel : MBGameModel<InventoryCapacityModel>`
 **Base:** `MBGameModel<InventoryCapacityModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/InventoryCapacityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/InventoryCapacityModel.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `InventoryCapacityModel` as a Model-style extension point: first identify 
 ### CalculateInventoryCapacity
 `public abstract ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalManOnFoot = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
 
-**Purpose:** Handles logic related to `calculate inventory capacity`.
+**Purpose:** Calculates the current value or result of `inventory capacity`.
+
+```csharp
+// Obtain an instance of InventoryCapacityModel from the subsystem API first
+InventoryCapacityModel inventoryCapacityModel = ...;
+var result = inventoryCapacityModel.CalculateInventoryCapacity(mobileParty, false, false, 0, 0, 0, false);
+```
 
 ### GetItemAverageWeight
 `public abstract int GetItemAverageWeight()`
 
-**Purpose:** Gets the current value of `item average weight`.
+**Purpose:** Reads and returns the `item average weight` value held by the current object.
+
+```csharp
+// Obtain an instance of InventoryCapacityModel from the subsystem API first
+InventoryCapacityModel inventoryCapacityModel = ...;
+var result = inventoryCapacityModel.GetItemAverageWeight();
+```
 
 ### GetItemEffectiveWeight
 `public abstract float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
 
-**Purpose:** Gets the current value of `item effective weight`.
+**Purpose:** Reads and returns the `item effective weight` value held by the current object.
+
+```csharp
+// Obtain an instance of InventoryCapacityModel from the subsystem API first
+InventoryCapacityModel inventoryCapacityModel = ...;
+var result = inventoryCapacityModel.GetItemEffectiveWeight(equipmentElement, mobileParty, false, description);
+```
 
 ### CalculateTotalWeightCarried
 `public abstract ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate total weight carried`.
+**Purpose:** Calculates the current value or result of `total weight carried`.
+
+```csharp
+// Obtain an instance of InventoryCapacityModel from the subsystem API first
+InventoryCapacityModel inventoryCapacityModel = ...;
+var result = inventoryCapacityModel.CalculateTotalWeightCarried(mobileParty, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomInventoryCapacityModel();
+// Typically obtained from a subsystem API or factory
+InventoryCapacityModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

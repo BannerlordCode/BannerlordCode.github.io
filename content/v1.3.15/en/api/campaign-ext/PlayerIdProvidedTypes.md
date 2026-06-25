@@ -1,18 +1,12 @@
 ---
 title: "PlayerIdProvidedTypes"
+description: "Auto-generated class reference for PlayerIdProvidedTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIdProvidedTypes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerIdProvidedTypes
 
 **Namespace:** TaleWorlds.PlayerServices
 **Module:** TaleWorlds.PlayerServices
-**Type:** `class`
+**Type:** `public enum PlayerIdProvidedTypes`
 **Base:** none
 **File:** `TaleWorlds.PlayerServices/PlayerServices/PlayerIdProvidedTypes.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new PlayerIdProvidedTypes();
+// Obtain an instance from the relevant subsystem API
+PlayerIdProvidedTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

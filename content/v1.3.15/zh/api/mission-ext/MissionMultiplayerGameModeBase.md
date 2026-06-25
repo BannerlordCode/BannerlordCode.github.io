@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerGameModeBase"
+description: "MissionMultiplayerGameModeBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerGameModeBase`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerGameModeBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,134 +32,285 @@ title: "MissionMultiplayerGameModeBase"
 ### GetMissionType
 `public abstract MultiplayerGameType GetMissionType()`
 
-**用途 / Purpose:** 获取 `mission type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mission type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.GetMissionType();
+```
 
 ### CheckIfOvertime
 `public virtual bool CheckIfOvertime()`
 
-**用途 / Purpose:** 处理 `check if overtime` 相关逻辑。
+**用途 / Purpose:** 检查「if overtime」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.CheckIfOvertime();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.OnMissionTick(0);
+```
 
 ### CheckForWarmupEnd
 `public virtual bool CheckForWarmupEnd()`
 
-**用途 / Purpose:** 处理 `check for warmup end` 相关逻辑。
+**用途 / Purpose:** 检查「for warmup end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.CheckForWarmupEnd();
+```
 
 ### CheckForRoundEnd
 `public virtual bool CheckForRoundEnd()`
 
-**用途 / Purpose:** 处理 `check for round end` 相关逻辑。
+**用途 / Purpose:** 检查「for round end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.CheckForRoundEnd();
+```
 
 ### CheckForMatchEnd
 `public virtual bool CheckForMatchEnd()`
 
-**用途 / Purpose:** 处理 `check for match end` 相关逻辑。
+**用途 / Purpose:** 检查「for match end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.CheckForMatchEnd();
+```
 
 ### UseCultureSelection
 `public virtual bool UseCultureSelection()`
 
-**用途 / Purpose:** 处理 `use culture selection` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.UseCultureSelection();
+```
 
 ### UseRoundController
 `public virtual bool UseRoundController()`
 
-**用途 / Purpose:** 处理 `use round controller` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.UseRoundController();
+```
 
 ### GetWinnerTeam
 `public virtual Team GetWinnerTeam()`
 
-**用途 / Purpose:** 获取 `winner team` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「winner team」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.GetWinnerTeam();
+```
 
 ### OnPeerChangedTeam
 `public virtual void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**用途 / Purpose:** 当 `peer changed team` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「peer changed team」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.OnPeerChangedTeam(peer, oldTeam, newTeam);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.OnClearScene();
+```
 
 ### ClearPeerCounts
 `public void ClearPeerCounts()`
 
-**用途 / Purpose:** 处理 `clear peer counts` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「peer counts」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.ClearPeerCounts();
+```
 
 ### ShouldSpawnVisualsForServer
 `public bool ShouldSpawnVisualsForServer(NetworkCommunicator spawningNetworkPeer)`
 
-**用途 / Purpose:** 处理 `should spawn visuals for server` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.ShouldSpawnVisualsForServer(spawningNetworkPeer);
+```
 
 ### HandleAgentVisualSpawning
 `public void HandleAgentVisualSpawning(NetworkCommunicator spawningNetworkPeer, AgentBuildData spawningAgentBuildData, int troopCountInFormation = 0, bool useCosmetics = true)`
 
-**用途 / Purpose:** 处理 `agent visual spawning` 事件或回调。
+**用途 / Purpose:** 执行与 「agent visual spawning」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.HandleAgentVisualSpawning(spawningNetworkPeer, spawningAgentBuildData, 0, false);
+```
 
 ### AllowCustomPlayerBanners
 `public virtual bool AllowCustomPlayerBanners()`
 
-**用途 / Purpose:** 处理 `allow custom player banners` 相关逻辑。
+**用途 / Purpose:** 允许当前对象启用或执行「custom player banners」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.AllowCustomPlayerBanners();
+```
 
 ### GetScoreForKill
 `public virtual int GetScoreForKill(Agent killedAgent)`
 
-**用途 / Purpose:** 获取 `score for kill` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score for kill」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.GetScoreForKill(killedAgent);
+```
 
 ### GetTroopNumberMultiplierForMissingPlayer
 `public virtual float GetTroopNumberMultiplierForMissingPlayer(MissionPeer spawningPeer)`
 
-**用途 / Purpose:** 获取 `troop number multiplier for missing player` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop number multiplier for missing player」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.GetTroopNumberMultiplierForMissingPlayer(spawningPeer);
+```
 
 ### GetCurrentGoldForPeer
 `public int GetCurrentGoldForPeer(MissionPeer peer)`
 
-**用途 / Purpose:** 获取 `current gold for peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current gold for peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.GetCurrentGoldForPeer(peer);
+```
 
 ### ChangeCurrentGoldForPeer
 `public void ChangeCurrentGoldForPeer(MissionPeer peer, int newAmount)`
 
-**用途 / Purpose:** 处理 `change current gold for peer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.ChangeCurrentGoldForPeer(peer, 0);
+```
 
 ### CheckIfPlayerCanDespawn
 `public virtual bool CheckIfPlayerCanDespawn(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 处理 `check if player can despawn` 相关逻辑。
+**用途 / Purpose:** 检查「if player can despawn」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.CheckIfPlayerCanDespawn(missionPeer);
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.OnPreMissionTick(0);
+```
 
 ### GetUsedCosmeticsFromPeer
 `public Dictionary<string, string> GetUsedCosmeticsFromPeer(MissionPeer missionPeer, BasicCharacterObject selectedTroopCharacter)`
 
-**用途 / Purpose:** 获取 `used cosmetics from peer` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「used cosmetics from peer」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.GetUsedCosmeticsFromPeer(missionPeer, selectedTroopCharacter);
+```
 
 ### AddCosmeticItemsToEquipment
 `public void AddCosmeticItemsToEquipment(Equipment equipment, Dictionary<string, string> choosenCosmetics)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `cosmetic items to equipment`。
+**用途 / Purpose:** 将 「cosmetic items to equipment」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+missionMultiplayerGameModeBase.AddCosmeticItemsToEquipment(equipment, dictionary<string, "example");
+```
 
 ### IsClassAvailable
 `public bool IsClassAvailable(MultiplayerClassDivisions.MPHeroClass heroClass)`
 
-**用途 / Purpose:** 处理 `is class available` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「class available」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
+MissionMultiplayerGameModeBase missionMultiplayerGameModeBase = ...;
+var result = missionMultiplayerGameModeBase.IsClassAvailable(heroClass);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionMultiplayerGameModeBase();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionMultiplayerGameModeBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

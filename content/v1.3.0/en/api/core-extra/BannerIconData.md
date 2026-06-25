@@ -1,13 +1,7 @@
 ---
 title: "BannerIconData"
+description: "Auto-generated class reference for BannerIconData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerIconData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerIconData
 
 **Namespace:** TaleWorlds.Core
@@ -34,9 +28,10 @@ Treat `BannerIconData` as a Data-style extension point: first identify who creat
 ## Usage Example
 
 ```csharp
-var value = new BannerIconData();
+// This data object is usually returned by campaign/mission APIs
+BannerIconData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

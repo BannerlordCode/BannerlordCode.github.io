@@ -1,13 +1,7 @@
 ---
 title: "BannerColorVM"
+description: "Auto-generated class reference for BannerColorVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerColorVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerColorVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.BannerEditor
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.BannerEditor` to place
 ### ExecuteSelectIcon
 `public void ExecuteSelectIcon()`
 
-**Purpose:** Executes the `select icon` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select icon`.
+
+```csharp
+// Obtain an instance of BannerColorVM from the subsystem API first
+BannerColorVM bannerColorVM = ...;
+bannerColorVM.ExecuteSelectIcon();
+```
 
 ### SetOnSelectionAction
 `public void SetOnSelectionAction(Action<BannerColorVM> onSelection)`
 
-**Purpose:** Sets the value or state of `on selection action`.
+**Purpose:** Assigns a new value to `on selection action` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BannerColorVM from the subsystem API first
+BannerColorVM bannerColorVM = ...;
+bannerColorVM.SetOnSelectionAction(onSelection);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BannerColorVM();
-value.ExecuteSelectIcon();
+// Typically call this after obtaining an instance from the subsystem API
+BannerColorVM bannerColorVM = ...;
+bannerColorVM.ExecuteSelectIcon();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

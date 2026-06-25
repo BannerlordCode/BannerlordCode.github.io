@@ -1,20 +1,14 @@
 ---
 title: "DefaultBuildingScoreCalculationModel"
+description: "Auto-generated class reference for DefaultBuildingScoreCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBuildingScoreCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBuildingScoreCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultBuildingScoreCalculationModel : BuildingScoreCalculationModel`
 **Base:** `BuildingScoreCalculationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingScoreCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultBuildingScoreCalculationModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DefaultBuildingScoreCalculationModel` as a Model-style extension point: f
 ### GetNextDailyBuilding
 `public override Building GetNextDailyBuilding(Town town)`
 
-**Purpose:** Gets the current value of `next daily building`.
+**Purpose:** Reads and returns the `next daily building` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBuildingScoreCalculationModel from the subsystem API first
+DefaultBuildingScoreCalculationModel defaultBuildingScoreCalculationModel = ...;
+var result = defaultBuildingScoreCalculationModel.GetNextDailyBuilding(town);
+```
 
 ### GetNextBuilding
 `public override Building GetNextBuilding(Town town)`
 
-**Purpose:** Gets the current value of `next building`.
+**Purpose:** Reads and returns the `next building` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBuildingScoreCalculationModel from the subsystem API first
+DefaultBuildingScoreCalculationModel defaultBuildingScoreCalculationModel = ...;
+var result = defaultBuildingScoreCalculationModel.GetNextBuilding(town);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultBuildingScoreCalculationModel>(new MyDefaultBui
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

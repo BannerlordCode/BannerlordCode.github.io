@@ -1,13 +1,7 @@
 ---
 title: "SupportStatus"
+description: "Auto-generated class reference for SupportStatus."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SupportStatus`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SupportStatus
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ## Usage Example
 
 ```csharp
-SupportStatus example = SupportStatus.Value;
+// Obtain an instance from the relevant subsystem API
+SupportStatus instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

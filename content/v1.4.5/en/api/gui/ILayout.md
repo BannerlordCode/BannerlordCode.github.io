@@ -1,20 +1,14 @@
 ---
 title: "ILayout"
+description: "Auto-generated class reference for ILayout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ILayout`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ILayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public interface ILayout`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/ILayout.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/ILayout.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-ILayout implementation = GetLayoutImplementation();
+// Usually obtained through DI or a factory method
+IILayout service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapEventVisualBrushWidget"
+description: "MapEventVisualBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapEventVisualBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapEventVisualBrushWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map/MapEventVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map/MapEventVisualBrushWidget.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "MapEventVisualBrushWidget"
 ### MapEventVisualBrushWidget
 `public class MapEventVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `map event visual brush widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapEventVisualBrushWidget 实例
+MapEventVisualBrushWidget mapEventVisualBrushWidget = ...;
+var result = mapEventVisualBrushWidget.MapEventVisualBrushWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MapEventVisualBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MapEventVisualBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

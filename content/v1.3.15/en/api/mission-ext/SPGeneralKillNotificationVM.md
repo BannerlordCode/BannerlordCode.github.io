@@ -1,13 +1,7 @@
 ---
 title: "SPGeneralKillNotificationVM"
+description: "Auto-generated class reference for SPGeneralKillNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SPGeneralKillNotificationVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SPGeneralKillNotificationVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of SPGeneralKillNotificationVM from the subsystem API first
+SPGeneralKillNotificationVM sPGeneralKillNotificationVM = ...;
+sPGeneralKillNotificationVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SPGeneralKillNotificationVM();
-value.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
+// Typically call this after obtaining an instance from the subsystem API
+SPGeneralKillNotificationVM sPGeneralKillNotificationVM = ...;
+sPGeneralKillNotificationVM.OnAgentRemoved(affectedAgent, affectorAgent, false, false, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

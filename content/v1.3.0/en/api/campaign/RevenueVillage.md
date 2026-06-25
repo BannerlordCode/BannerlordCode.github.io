@@ -1,13 +1,7 @@
 ---
 title: "RevenueVillage"
+description: "Auto-generated class reference for RevenueVillage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RevenueVillage`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RevenueVillage
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### SetDone
 `public void SetDone()`
 
-**Purpose:** Sets the value or state of `done`.
+**Purpose:** Assigns a new value to `done` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RevenueVillage from the subsystem API first
+RevenueVillage revenueVillage = ...;
+revenueVillage.SetDone();
+```
 
 ### SetAdditionalProgress
 `public void SetAdditionalProgress(float progress)`
 
-**Purpose:** Sets the value or state of `additional progress`.
+**Purpose:** Assigns a new value to `additional progress` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of RevenueVillage from the subsystem API first
+RevenueVillage revenueVillage = ...;
+revenueVillage.SetAdditionalProgress(0);
+```
 
 ### GetIsCompleted
 `public bool GetIsCompleted()`
 
-**Purpose:** Gets the current value of `is completed`.
+**Purpose:** Reads and returns the `is completed` value held by the current object.
+
+```csharp
+// Obtain an instance of RevenueVillage from the subsystem API first
+RevenueVillage revenueVillage = ...;
+var result = revenueVillage.GetIsCompleted();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RevenueVillage();
-value.SetDone();
+// Typically call this after obtaining an instance from the subsystem API
+RevenueVillage revenueVillage = ...;
+revenueVillage.SetDone();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

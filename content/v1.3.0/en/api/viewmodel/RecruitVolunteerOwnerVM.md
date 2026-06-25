@@ -1,13 +1,7 @@
 ---
 title: "RecruitVolunteerOwnerVM"
+description: "Auto-generated class reference for RecruitVolunteerOwnerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecruitVolunteerOwnerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitVolunteerOwnerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
@@ -36,30 +30,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Rec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RecruitVolunteerOwnerVM from the subsystem API first
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.RefreshValues();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Executes the `open encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerOwnerVM from the subsystem API first
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.ExecuteOpenEncyclopedia();
+```
 
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**Purpose:** Executes the `focus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `focus`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerOwnerVM from the subsystem API first
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.ExecuteFocus();
+```
 
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**Purpose:** Executes the `unfocus` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `unfocus`.
+
+```csharp
+// Obtain an instance of RecruitVolunteerOwnerVM from the subsystem API first
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.ExecuteUnfocus();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RecruitVolunteerOwnerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

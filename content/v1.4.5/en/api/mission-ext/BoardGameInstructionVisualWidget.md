@@ -1,20 +1,14 @@
 ---
 title: "BoardGameInstructionVisualWidget"
+description: "Auto-generated class reference for BoardGameInstructionVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameInstructionVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameInstructionVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.BoardGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BoardGameInstructionVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.BoardGame/BoardGameInstructionVisualWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.BoardGame/BoardGameInstructionVisualWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `BoardGameInstructionVisualWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new BoardGameInstructionVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BoardGameInstructionVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

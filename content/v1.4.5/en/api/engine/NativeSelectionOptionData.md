@@ -1,20 +1,14 @@
 ---
 title: "NativeSelectionOptionData"
+description: "Auto-generated class reference for NativeSelectionOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NativeSelectionOptionData`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NativeSelectionOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
 **Type:** `public class NativeSelectionOptionData : NativeOptionData, ISelectionOptionData, IOptionData`
 **Base:** `NativeOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeSelectionOptionData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/NativeSelectionOptionData.cs`
 
 ## Overview
 
@@ -29,24 +23,42 @@ Treat `NativeSelectionOptionData` as a Data-style extension point: first identif
 ### GetSelectableOptionsLimit
 `public int GetSelectableOptionsLimit()`
 
-**Purpose:** Gets the current value of `selectable options limit`.
+**Purpose:** Reads and returns the `selectable options limit` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeSelectionOptionData from the subsystem API first
+NativeSelectionOptionData nativeSelectionOptionData = ...;
+var result = nativeSelectionOptionData.GetSelectableOptionsLimit();
+```
 
 ### GetSelectableOptionNames
 `public IEnumerable<SelectionData> GetSelectableOptionNames()`
 
-**Purpose:** Gets the current value of `selectable option names`.
+**Purpose:** Reads and returns the `selectable option names` value held by the current object.
+
+```csharp
+// Obtain an instance of NativeSelectionOptionData from the subsystem API first
+NativeSelectionOptionData nativeSelectionOptionData = ...;
+var result = nativeSelectionOptionData.GetSelectableOptionNames();
+```
 
 ### GetOptionsLimit
 `public static int GetOptionsLimit(NativeOptions.NativeOptionsType optionType)`
 
-**Purpose:** Gets the current value of `options limit`.
+**Purpose:** Reads and returns the `options limit` value held by the current object.
+
+```csharp
+// Static call; no instance required
+NativeSelectionOptionData.GetOptionsLimit(optionType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NativeSelectionOptionData();
+// This data object is usually returned by campaign/mission APIs
+NativeSelectionOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

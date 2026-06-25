@@ -1,23 +1,18 @@
 ---
 title: "AccessObjectResult"
+description: "Auto-generated class reference for AccessObjectResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AccessObjectResult`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AccessObjectResult
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class AccessObjectResult`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.Diamond/AccessObjectResult.cs`
 
 ## Overview
 
-`AccessObjectResult` lives in `TaleWorlds.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`AccessObjectResult` lives in `TaleWorlds.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -36,21 +31,29 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### CreateSuccess
 `public static AccessObjectResult CreateSuccess(AccessObject accessObject)`
 
-**Purpose:** Creates a new `success` instance or object.
+**Purpose:** Constructs a new `success` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+AccessObjectResult.CreateSuccess(accessObject);
+```
 
 ### CreateFailed
 `public static AccessObjectResult CreateFailed(TextObject failReason)`
 
-**Purpose:** Creates a new `failed` instance or object.
+**Purpose:** Constructs a new `failed` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+AccessObjectResult.CreateFailed(failReason);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 AccessObjectResult.CreateSuccess(accessObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

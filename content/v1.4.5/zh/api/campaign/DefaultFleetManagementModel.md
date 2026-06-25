@@ -1,20 +1,14 @@
 ---
 title: "DefaultFleetManagementModel"
+description: "DefaultFleetManagementModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultFleetManagementModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultFleetManagementModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultFleetManagementModel : FleetManagementModel`
 **Base:** `FleetManagementModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultFleetManagementModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultFleetManagementModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultFleetManagementModel"
 ### CanSendShipToPlayerClan
 `public override bool CanSendShipToPlayerClan(Ship ship, int playerShipsCount, int troopsCountToSend, out TextObject hint)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `send ship to player clan`。
+**用途 / Purpose:** 检查当前对象是否满足 「send ship to player clan」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultFleetManagementModel 实例
+DefaultFleetManagementModel defaultFleetManagementModel = ...;
+var result = defaultFleetManagementModel.CanSendShipToPlayerClan(ship, 0, 0, hint);
+```
 
 ### CanTroopsReturn
 `public override bool CanTroopsReturn()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `troops return`。
+**用途 / Purpose:** 检查当前对象是否满足 「troops return」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultFleetManagementModel 实例
+DefaultFleetManagementModel defaultFleetManagementModel = ...;
+var result = defaultFleetManagementModel.CanTroopsReturn();
+```
 
 ### GetReturnTimeForTroops
 `public override CampaignTime GetReturnTimeForTroops(Ship ship)`
 
-**用途 / Purpose:** 获取 `return time for troops` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「return time for troops」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultFleetManagementModel 实例
+DefaultFleetManagementModel defaultFleetManagementModel = ...;
+var result = defaultFleetManagementModel.GetReturnTimeForTroops(ship);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultFleetManagementModel>(new MyDefaultFleetManagem
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

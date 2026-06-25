@@ -1,13 +1,7 @@
 ---
 title: "TroopClassExtensions"
+description: "TroopClassExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TroopClassExtensions`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopClassExtensions
 
 **Namespace:** TaleWorlds.Core
@@ -29,52 +23,102 @@ title: "TroopClassExtensions"
 ### IsRanged
 `public static bool IsRanged(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `is ranged` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ranged」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.IsRanged(troopClass);
+```
 
 ### IsMounted
 `public static bool IsMounted(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `is mounted` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「mounted」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.IsMounted(troopClass);
+```
 
 ### IsMeleeInfantry
 `public static bool IsMeleeInfantry(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `is melee infantry` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「melee infantry」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.IsMeleeInfantry(troopClass);
+```
 
 ### IsMeleeCavalry
 `public static bool IsMeleeCavalry(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `is melee cavalry` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「melee cavalry」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.IsMeleeCavalry(troopClass);
+```
 
 ### DefaultClass
 `public static FormationClass DefaultClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `default class` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.DefaultClass(troopClass);
+```
 
 ### AlternativeClass
 `public static FormationClass AlternativeClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `alternative class` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.AlternativeClass(troopClass);
+```
 
 ### DismountedClass
 `public static FormationClass DismountedClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `dismounted class` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.DismountedClass(troopClass);
+```
 
 ### IsDefaultTroopClass
 `public static bool IsDefaultTroopClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `is default troop class` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「default troop class」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.IsDefaultTroopClass(troopClass);
+```
 
 ### IsRegularTroopClass
 `public static bool IsRegularTroopClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 处理 `is regular troop class` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「regular troop class」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.IsRegularTroopClass(troopClass);
+```
 
 ### GetNextSpawnPrioritizedClass
 `public static FormationClass GetNextSpawnPrioritizedClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 获取 `next spawn prioritized class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next spawn prioritized class」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TroopClassExtensions.GetNextSpawnPrioritizedClass(troopClass);
+```
 
 ## 使用示例
 
@@ -84,4 +128,4 @@ TroopClassExtensions.IsRanged(troopClass);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

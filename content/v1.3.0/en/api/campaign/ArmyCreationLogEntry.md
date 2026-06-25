@@ -1,13 +1,7 @@
 ---
 title: "ArmyCreationLogEntry"
+description: "Auto-generated class reference for ArmyCreationLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyCreationLogEntry`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyCreationLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ArmyCreationLogEntry from the subsystem API first
+ArmyCreationLogEntry armyCreationLogEntry = ...;
+var result = armyCreationLogEntry.ToString();
+```
 
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** Handles logic related to `is related to war`.
+**Purpose:** Determines whether the current object is in the `related to war` state or condition.
+
+```csharp
+// Obtain an instance of ArmyCreationLogEntry from the subsystem API first
+ArmyCreationLogEntry armyCreationLogEntry = ...;
+var result = armyCreationLogEntry.IsRelatedToWar(stance, effector, effected);
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Gets the current value of `encyclopedia text`.
+**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+
+```csharp
+// Obtain an instance of ArmyCreationLogEntry from the subsystem API first
+ArmyCreationLogEntry armyCreationLogEntry = ...;
+var result = armyCreationLogEntry.GetEncyclopediaText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyCreationLogEntry();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyCreationLogEntry armyCreationLogEntry = ...;
+armyCreationLogEntry.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

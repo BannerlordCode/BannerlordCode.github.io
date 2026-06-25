@@ -1,13 +1,7 @@
 ---
 title: "DamageParticleModel"
+description: "DamageParticleModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DamageParticleModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DamageParticleModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,24 +23,43 @@ title: "DamageParticleModel"
 ### GetMeleeAttackBloodParticles
 `public abstract void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**用途 / Purpose:** 获取 `melee attack blood particles` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「melee attack blood particles」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DamageParticleModel 实例
+DamageParticleModel damageParticleModel = ...;
+damageParticleModel.GetMeleeAttackBloodParticles(attacker, victim, blow, collisionData, particleResultData);
+```
 
 ### GetMeleeAttackSweatParticles
 `public abstract void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**用途 / Purpose:** 获取 `melee attack sweat particles` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「melee attack sweat particles」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DamageParticleModel 实例
+DamageParticleModel damageParticleModel = ...;
+damageParticleModel.GetMeleeAttackSweatParticles(attacker, victim, blow, collisionData, particleResultData);
+```
 
 ### GetMissileAttackParticle
 `public abstract int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 获取 `missile attack particle` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「missile attack particle」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DamageParticleModel 实例
+DamageParticleModel damageParticleModel = ...;
+var result = damageParticleModel.GetMissileAttackParticle(attacker, victim, blow, collisionData);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDamageParticleModel();
+// 通常通过子系统 API 或工厂获得派生实例
+DamageParticleModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

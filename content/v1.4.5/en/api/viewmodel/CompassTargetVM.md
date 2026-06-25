@@ -1,20 +1,14 @@
 ---
 title: "CompassTargetVM"
+description: "Auto-generated class reference for CompassTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CompassTargetVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CompassTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CompassTargetVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass/CompassTargetVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass/CompassTargetVM.cs`
 
 ## Overview
 
@@ -46,20 +40,33 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass` 
 ### RefreshColor
 `public void RefreshColor(uint color, uint color2)`
 
-**Purpose:** Refreshes the display or cache of `color`.
+**Purpose:** Keeps the display or cache of `color` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CompassTargetVM from the subsystem API first
+CompassTargetVM compassTargetVM = ...;
+compassTargetVM.RefreshColor(0, 0);
+```
 
 ### Refresh
 `public virtual void Refresh(float circleX, float x, float distance)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of CompassTargetVM from the subsystem API first
+CompassTargetVM compassTargetVM = ...;
+compassTargetVM.Refresh(0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CompassTargetVM();
-value.RefreshColor(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CompassTargetVM compassTargetVM = ...;
+compassTargetVM.RefreshColor(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

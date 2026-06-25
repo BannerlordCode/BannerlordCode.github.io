@@ -1,13 +1,7 @@
 ---
 title: "RecruitVolunteerOwnerVM"
+description: "RecruitVolunteerOwnerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RecruitVolunteerOwnerVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitVolunteerOwnerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
@@ -36,30 +30,55 @@ title: "RecruitVolunteerOwnerVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerOwnerVM 实例
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.RefreshValues();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerOwnerVM 实例
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.ExecuteOpenEncyclopedia();
+```
 
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**用途 / Purpose:** 执行 `focus` 操作或流程。
+**用途 / Purpose:** 执行 「focus」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerOwnerVM 实例
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.ExecuteFocus();
+```
 
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**用途 / Purpose:** 执行 `unfocus` 操作或流程。
+**用途 / Purpose:** 执行 「unfocus」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerOwnerVM 实例
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.ExecuteUnfocus();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RecruitVolunteerOwnerVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+RecruitVolunteerOwnerVM recruitVolunteerOwnerVM = ...;
+recruitVolunteerOwnerVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

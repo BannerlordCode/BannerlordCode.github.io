@@ -1,20 +1,14 @@
 ---
 title: "SavedGameVM"
+description: "SavedGameVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SavedGameVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SavedGameVM
 
 **Namespace:** SandBox.ViewModelCollection.SaveLoad
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SavedGameVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SavedGameVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SavedGameVM.cs`
 
 ## 概述
 
@@ -63,35 +57,66 @@ title: "SavedGameVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SavedGameVM 实例
+SavedGameVM savedGameVM = ...;
+savedGameVM.RefreshValues();
+```
 
 ### ExecuteSaveLoad
 `public void ExecuteSaveLoad()`
 
-**用途 / Purpose:** 执行 `save load` 操作或流程。
+**用途 / Purpose:** 执行 「save load」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SavedGameVM 实例
+SavedGameVM savedGameVM = ...;
+savedGameVM.ExecuteSaveLoad();
+```
 
 ### ExecuteUpdate
 `public void ExecuteUpdate()`
 
-**用途 / Purpose:** 执行 `update` 操作或流程。
+**用途 / Purpose:** 执行 「update」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SavedGameVM 实例
+SavedGameVM savedGameVM = ...;
+savedGameVM.ExecuteUpdate();
+```
 
 ### ExecuteDelete
 `public void ExecuteDelete()`
 
-**用途 / Purpose:** 执行 `delete` 操作或流程。
+**用途 / Purpose:** 执行 「delete」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SavedGameVM 实例
+SavedGameVM savedGameVM = ...;
+savedGameVM.ExecuteDelete();
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** 执行 `selection` 操作或流程。
+**用途 / Purpose:** 执行 「selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SavedGameVM 实例
+SavedGameVM savedGameVM = ...;
+savedGameVM.ExecuteSelection();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SavedGameVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SavedGameVM savedGameVM = ...;
+savedGameVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

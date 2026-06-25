@@ -1,13 +1,7 @@
 ---
 title: "GamepadNavigationForcedScopeCollection"
+description: "Auto-generated class reference for GamepadNavigationForcedScopeCollection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadNavigationForcedScopeCollection`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GamepadNavigationForcedScopeCollection
 
 **Namespace:** TaleWorlds.GauntletUI.GamepadNavigation
@@ -42,35 +36,66 @@ Start from namespace `TaleWorlds.GauntletUI.GamepadNavigation` to place it in th
 ### IsAvailable
 `public bool IsAvailable()`
 
-**Purpose:** Handles logic related to `is available`.
+**Purpose:** Determines whether the current object is in the `available` state or condition.
+
+```csharp
+// Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+var result = gamepadNavigationForcedScopeCollection.IsAvailable();
+```
 
 ### AddScope
 `public void AddScope(GamepadNavigationScope scope)`
 
 **Purpose:** Adds `scope` to the current collection or state.
 
+```csharp
+// Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+gamepadNavigationForcedScopeCollection.AddScope(scope);
+```
+
 ### RemoveScope
 `public void RemoveScope(GamepadNavigationScope scope)`
 
 **Purpose:** Removes `scope` from the current collection or state.
 
+```csharp
+// Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+gamepadNavigationForcedScopeCollection.RemoveScope(scope);
+```
+
 ### ClearScopes
 `public void ClearScopes()`
 
-**Purpose:** Handles logic related to `clear scopes`.
+**Purpose:** Removes all `scopes` from the current object.
+
+```csharp
+// Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+gamepadNavigationForcedScopeCollection.ClearScopes();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+var result = gamepadNavigationForcedScopeCollection.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GamepadNavigationForcedScopeCollection();
-value.IsAvailable();
+// Typically call this after obtaining an instance from the subsystem API
+GamepadNavigationForcedScopeCollection gamepadNavigationForcedScopeCollection = ...;
+gamepadNavigationForcedScopeCollection.IsAvailable();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TWSharedMutex"
+description: "TWSharedMutex 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TWSharedMutex`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TWSharedMutex
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class TWSharedMutex`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TWSharedMutex.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWSharedMutex.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "TWSharedMutex"
 ### EnterReadLock
 `public void EnterReadLock()`
 
-**用途 / Purpose:** 处理 `enter read lock` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TWSharedMutex 实例
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.EnterReadLock();
+```
 
 ### EnterWriteLock
 `public void EnterWriteLock()`
 
-**用途 / Purpose:** 处理 `enter write lock` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TWSharedMutex 实例
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.EnterWriteLock();
+```
 
 ### ExitReadLock
 `public void ExitReadLock()`
 
-**用途 / Purpose:** 处理 `exit read lock` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TWSharedMutex 实例
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.ExitReadLock();
+```
 
 ### ExitWriteLock
 `public void ExitWriteLock()`
 
-**用途 / Purpose:** 处理 `exit write lock` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TWSharedMutex 实例
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.ExitWriteLock();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TWSharedMutex();
-value.EnterReadLock();
+// 通常从对应子系统 API 获取实例后调用
+TWSharedMutex tWSharedMutex = ...;
+tWSharedMutex.EnterReadLock();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

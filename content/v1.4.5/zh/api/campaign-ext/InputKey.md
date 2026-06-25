@@ -1,20 +1,14 @@
 ---
 title: "InputKey"
+description: "InputKey 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InputKey`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InputKey
 
 **Namespace:** TaleWorlds.InputSystem
 **Module:** TaleWorlds.InputSystem
-**Type:** `class`
+**Type:** `public enum InputKey`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/InputKey.cs`
+**File:** `bin/TaleWorlds.InputSystem/TaleWorlds.InputSystem/InputKey.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "InputKey"
 ## 使用示例
 
 ```csharp
-var example = new InputKey();
+// 从对应子系统 API 获取实例
+InputKey instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

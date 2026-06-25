@@ -1,23 +1,18 @@
 ---
 title: "MissionResult"
+description: "Auto-generated class reference for MissionResult."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionResult`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionResult
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MissionResult`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/MissionResult.cs`
 
 ## Overview
 
-`MissionResult` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MissionResult` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,26 +33,39 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CreateSuccessful
 `public static MissionResult CreateSuccessful(IMission mission, bool enemyRetreated = false)`
 
-**Purpose:** Creates a new `successful` instance or object.
+**Purpose:** Constructs a new `successful` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionResult.CreateSuccessful(mission, false);
+```
 
 ### CreateDefeated
 `public static MissionResult CreateDefeated(IMission mission)`
 
-**Purpose:** Creates a new `defeated` instance or object.
+**Purpose:** Constructs a new `defeated` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionResult.CreateDefeated(mission);
+```
 
 ### CreateDefenderPushedBack
 `public static MissionResult CreateDefenderPushedBack()`
 
-**Purpose:** Creates a new `defender pushed back` instance or object.
+**Purpose:** Constructs a new `defender pushed back` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionResult.CreateDefenderPushedBack();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MissionResult.CreateSuccessful(mission, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

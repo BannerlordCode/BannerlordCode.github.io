@@ -1,13 +1,7 @@
 ---
 title: "MissionNetworkComponent"
+description: "MissionNetworkComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionNetworkComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionNetworkComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,42 +23,90 @@ title: "MissionNetworkComponent"
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 当 `player disconnected from server` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player disconnected from server」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetworkComponent 实例
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetworkComponent 实例
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnRemoveBehavior();
+```
 
 ### OnAddTeam
 `public override void OnAddTeam(Team team)`
 
-**用途 / Purpose:** 当 `add team` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「add team」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetworkComponent 实例
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnAddTeam(team);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetworkComponent 实例
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnBehaviorInitialize();
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetworkComponent 实例
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnClearScene();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetworkComponent 实例
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnMissionTick(0);
+```
 
 ### OnPeerSelectedTeam
 `public void OnPeerSelectedTeam(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 当 `peer selected team` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「peer selected team」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetworkComponent 实例
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnPeerSelectedTeam(missionPeer);
+```
 
 ### OnClientSynchronized
 `public void OnClientSynchronized(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 当 `client synchronized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「client synchronized」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionNetworkComponent 实例
+MissionNetworkComponent missionNetworkComponent = ...;
+missionNetworkComponent.OnClientSynchronized(networkPeer);
+```
 
 ## 使用示例
 
@@ -74,4 +116,4 @@ var component = agent.GetComponent<MissionNetworkComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

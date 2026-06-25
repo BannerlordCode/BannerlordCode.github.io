@@ -1,13 +1,7 @@
 ---
 title: "BehaviorShootFromSiegeTower"
+description: "Auto-generated class reference for BehaviorShootFromSiegeTower."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorShootFromSiegeTower`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorShootFromSiegeTower
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorShootFromSiegeTower from the subsystem API first
+BehaviorShootFromSiegeTower behaviorShootFromSiegeTower = ...;
+behaviorShootFromSiegeTower.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorShootFromSiegeTower();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorShootFromSiegeTower behaviorShootFromSiegeTower = ...;
+behaviorShootFromSiegeTower.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

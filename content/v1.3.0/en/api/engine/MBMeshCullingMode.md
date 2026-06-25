@@ -1,19 +1,13 @@
 ---
 title: "MBMeshCullingMode"
+description: "Auto-generated class reference for MBMeshCullingMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMeshCullingMode`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBMeshCullingMode
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
+**Type:** `public enum MBMeshCullingMode : byte`
+**Base:** `byte`
 **File:** `TaleWorlds.Engine/MBMeshCullingMode.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new MBMeshCullingMode();
+// Obtain an instance from the relevant subsystem API
+MBMeshCullingMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SPGeneralKillNotificationItemVM"
+description: "SPGeneralKillNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SPGeneralKillNotificationItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SPGeneralKillNotificationItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SPGeneralKillNotificationItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General/SPGeneralKillNotificationItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General/SPGeneralKillNotificationItemVM.cs`
 
 ## 概述
 
@@ -44,15 +38,22 @@ title: "SPGeneralKillNotificationItemVM"
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 `remove` 操作或流程。
+**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SPGeneralKillNotificationItemVM 实例
+SPGeneralKillNotificationItemVM sPGeneralKillNotificationItemVM = ...;
+sPGeneralKillNotificationItemVM.ExecuteRemove();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SPGeneralKillNotificationItemVM();
-value.ExecuteRemove();
+// 通常从对应子系统 API 获取实例后调用
+SPGeneralKillNotificationItemVM sPGeneralKillNotificationItemVM = ...;
+sPGeneralKillNotificationItemVM.ExecuteRemove();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

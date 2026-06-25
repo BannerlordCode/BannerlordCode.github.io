@@ -1,20 +1,14 @@
 ---
 title: "LauncherModsDLLManager"
+description: "Auto-generated class reference for LauncherModsDLLManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherModsDLLManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherModsDLLManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherModsDLLManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherModsDLLManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/LauncherModsDLLManager.cs`
 
 ## Overview
 
@@ -35,7 +29,13 @@ Treat `LauncherModsDLLManager` as a Manager-style extension point: first identif
 ### GetSubModuleVerifyData
 `public LauncherDLLData GetSubModuleVerifyData(SubModuleInfo subModuleInfo)`
 
-**Purpose:** Gets the current value of `sub module verify data`.
+**Purpose:** Reads and returns the `sub module verify data` value held by the current object.
+
+```csharp
+// Obtain an instance of LauncherModsDLLManager from the subsystem API first
+LauncherModsDLLManager launcherModsDLLManager = ...;
+var result = launcherModsDLLManager.GetSubModuleVerifyData(subModuleInfo);
+```
 
 ## Usage Example
 
@@ -45,4 +45,4 @@ var manager = LauncherModsDLLManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

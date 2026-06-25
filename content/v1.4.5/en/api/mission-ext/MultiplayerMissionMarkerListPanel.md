@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerMissionMarkerListPanel"
+description: "Auto-generated class reference for MultiplayerMissionMarkerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerMissionMarkerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionMarkerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMissionMarkerListPanel : ListPanel`
 **Base:** `ListPanel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/MultiplayerMissionMarkerListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/MultiplayerMissionMarkerListPanel.cs`
 
 ## Overview
 
@@ -45,9 +39,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMa
 ## Usage Example
 
 ```csharp
-var example = new MultiplayerMissionMarkerListPanel();
+// Obtain an instance from the relevant subsystem API
+MultiplayerMissionMarkerListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

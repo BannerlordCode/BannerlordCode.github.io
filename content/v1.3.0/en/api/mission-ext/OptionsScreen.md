@@ -1,13 +1,7 @@
 ---
 title: "OptionsScreen"
+description: "Auto-generated class reference for OptionsScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionsScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionsScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new OptionsScreen();
+// Obtain an instance from the relevant subsystem API
+OptionsScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

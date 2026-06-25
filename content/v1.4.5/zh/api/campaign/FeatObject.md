@@ -1,20 +1,14 @@
 ---
 title: "FeatObject"
+description: "FeatObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FeatObject`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FeatObject
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class FeatObject : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/FeatObject.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/FeatObject.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "FeatObject"
 ### Initialize
 `public void Initialize(string name, string description, float effectBonus, bool isPositiveEffect, AdditionType incrementType)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 FeatObject 实例
+FeatObject featObject = ...;
+featObject.Initialize("example", "example", 0, false, incrementType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FeatObject();
-value.Initialize("example", "example", 0, false, incrementType);
+// 通常从对应子系统 API 获取实例后调用
+FeatObject featObject = ...;
+featObject.Initialize("example", "example", 0, false, incrementType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

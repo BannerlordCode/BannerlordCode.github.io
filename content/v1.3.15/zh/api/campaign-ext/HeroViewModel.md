@@ -1,13 +1,7 @@
 ---
 title: "HeroViewModel"
+description: "HeroViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroViewModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HeroViewModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -35,25 +29,44 @@ title: "HeroViewModel"
 ### SetEquipment
 `public override void SetEquipment(Equipment equipment)`
 
-**用途 / Purpose:** 设置 `equipment` 的值或状态。
+**用途 / Purpose:** 为 「equipment」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 HeroViewModel 实例
+HeroViewModel heroViewModel = ...;
+heroViewModel.SetEquipment(equipment);
+```
 
 ### FillFrom
 `public void FillFrom(Hero hero, int seed = -1, bool useCivilian = false, bool useCharacteristicIdleAction = false)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 HeroViewModel 实例
+HeroViewModel heroViewModel = ...;
+heroViewModel.FillFrom(hero, 0, false, false);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 HeroViewModel 实例
+HeroViewModel heroViewModel = ...;
+heroViewModel.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var vm = new HeroViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+HeroViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

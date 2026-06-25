@@ -1,20 +1,14 @@
 ---
 title: "PerSecondEventData"
+description: "Auto-generated class reference for PerSecondEventData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerSecondEventData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerSecondEventData
 
 **Namespace:** TaleWorlds.MountAndBlade.Network
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PerSecondEventData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `PerSecondEventData` as a Data-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-var value = new PerSecondEventData();
+// This data object is usually returned by campaign/mission APIs
+PerSecondEventData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

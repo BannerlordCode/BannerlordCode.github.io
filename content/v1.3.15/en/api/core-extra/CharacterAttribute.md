@@ -1,63 +1,49 @@
 ---
 title: "CharacterAttribute"
+description: "Auto-generated class reference for CharacterAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterAttribute`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterAttribute
 
-**Namespace:** TaleWorlds.Core  
-**Module:** TaleWorlds.Core  
-**Type:** class (inherits `PropertyObject`)  
-**File:** `bannerlord-1.3.15/TaleWorlds.Core/CharacterAttribute.cs`
-
-`CharacterAttribute` represents a character attribute (Vigour, Control, Endurance, Cunning, Social, Intelligence). Attributes gate spendable points and are tied to several skills.
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public class CharacterAttribute : PropertyObject`
+**Base:** `PropertyObject`
+**File:** `TaleWorlds.Core/CharacterAttribute.cs`
 
 ## Overview
 
-Mods usually reference existing attributes via the `DefaultAttributes` static fields (e.g. `DefaultAttributes.Vigour`). Read a hero's attribute level with `Hero.GetAttributeValue(attr)`; spend an attribute point with `HeroDeveloper.AddAttribute(attr, amount)`.
+`CharacterAttribute` is a .NET attribute used to tag a type or member so runtime code or tooling can recognize it by convention.
 
 ## Mental Model
 
-Treat `CharacterAttribute` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `CharacterAttribute` as a Attribute-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
-## Main properties
+## Key Properties
 
-| Name | Type | Description |
-|------|------|-------------|
-| Abbreviation | TextObject | Attribute abbreviation (get-only) |
+| Name | Signature |
+|------|-----------|
+| `Abbreviation` | `public TextObject Abbreviation { get; }` |
 
-## Initialize
+## Key Methods
 
-```csharp
-public void Initialize(TextObject name, TextObject description, TextObject abbreviation)
-```
+### Initialize
+`public void Initialize(TextObject name, TextObject description, TextObject abbreviation)`
 
-Sets name, description, and abbreviation when defining an attribute.
-
-## Usage example
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
 
 ```csharp
-// Read a hero's attribute level
-CharacterAttribute vigour = DefaultAttributes.Vigour;
-int level = hero.GetAttributeValue(vigour);
-
-// Spend an attribute point (via HeroDeveloper)
-hero.HeroDeveloper.AddAttribute(vigour, 1);
+// Obtain an instance of CharacterAttribute from the subsystem API first
+CharacterAttribute characterAttribute = ...;
+characterAttribute.Initialize(name, description, abbreviation);
 ```
-
-## See also
-
-- [SkillObject](./SkillObject)
-- [HeroDeveloper](../campaign-ext/HeroDeveloper)
-- [Hero](../campaign/Hero)
 
 ## Usage Example
 
 ```csharp
-var example = new CharacterAttribute();
+[CharacterAttribute]
+public class Example { }
 ```
+
+## See Also
+
+- [Area Index](../)

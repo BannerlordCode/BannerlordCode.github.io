@@ -1,13 +1,7 @@
 ---
 title: "GameNotificationVM"
+description: "Auto-generated class reference for GameNotificationVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameNotificationVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameNotificationVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -40,60 +34,121 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### FadeOutCurrentNotification
 `public void FadeOutCurrentNotification(bool useExtraDisplayTime = false)`
 
-**Purpose:** Handles logic related to `fade out current notification`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.FadeOutCurrentNotification(false);
+```
 
 ### SkipCurrentNotification
 `public void SkipCurrentNotification()`
 
-**Purpose:** Handles logic related to `skip current notification`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.SkipCurrentNotification();
+```
 
 ### ClearNotifications
 `public void ClearNotifications()`
 
-**Purpose:** Handles logic related to `clear notifications`.
+**Purpose:** Removes all `notifications` from the current object.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.ClearNotifications();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.Tick(0);
+```
 
 ### AddDialogNotification
 `public MBInformationManager.DialogNotificationHandle AddDialogNotification(TextObject text, int extraTimeInMs, BasicCharacterObject announcerCharacter, Equipment equipment, MBInformationManager.NotificationPriority priority, string dialogSoundPath)`
 
 **Purpose:** Adds `dialog notification` to the current collection or state.
 
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+var result = gameNotificationVM.AddDialogNotification(text, 0, announcerCharacter, equipment, priority, "example");
+```
+
 ### GetStatusOfDialogNotification
 `public MBInformationManager.NotificationStatus GetStatusOfDialogNotification(MBInformationManager.DialogNotificationHandle handle)`
 
-**Purpose:** Gets the current value of `status of dialog notification`.
+**Purpose:** Reads and returns the `status of dialog notification` value held by the current object.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+var result = gameNotificationVM.GetStatusOfDialogNotification(handle);
+```
 
 ### ClearDialogNotification
 `public void ClearDialogNotification(MBInformationManager.DialogNotificationHandle handle, bool fadeOut)`
 
-**Purpose:** Handles logic related to `clear dialog notification`.
+**Purpose:** Removes all `dialog notification` from the current object.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.ClearDialogNotification(handle, false);
+```
 
 ### GetIsAnyDialogNotificationActiveOrQueued
 `public bool GetIsAnyDialogNotificationActiveOrQueued()`
 
-**Purpose:** Gets the current value of `is any dialog notification active or queued`.
+**Purpose:** Reads and returns the `is any dialog notification active or queued` value held by the current object.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+var result = gameNotificationVM.GetIsAnyDialogNotificationActiveOrQueued();
+```
 
 ### ClearAllDialogNotifications
 `public void ClearAllDialogNotifications(bool fadeOut)`
 
-**Purpose:** Handles logic related to `clear all dialog notifications`.
+**Purpose:** Removes all `all dialog notifications` from the current object.
+
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.ClearAllDialogNotifications(false);
+```
 
 ### AddGameNotification
 `public void AddGameNotification(string notificationText, int extraTimeInMs, BasicCharacterObject announcerCharacter, Equipment equipment, string soundId)`
 
 **Purpose:** Adds `game notification` to the current collection or state.
 
+```csharp
+// Obtain an instance of GameNotificationVM from the subsystem API first
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.AddGameNotification("example", 0, announcerCharacter, equipment, "example");
+```
+
 ## Usage Example
 
 ```csharp
-var value = new GameNotificationVM();
-value.FadeOutCurrentNotification(false);
+// Typically call this after obtaining an instance from the subsystem API
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.FadeOutCurrentNotification(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapConversationView"
+description: "Auto-generated class reference for MapConversationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapConversationView : MapView`
 **Base:** `MapView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationView.cs`
 
 ## Overview
 
@@ -36,29 +30,54 @@ Treat `MapConversationView` as a View-style extension point: first identify who 
 ### ConversationPlayArgs
 `public struct ConversationPlayArgs(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**Purpose:** Handles logic related to `conversation play args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapConversationView from the subsystem API first
+MapConversationView mapConversationView = ...;
+var result = mapConversationView.ConversationPlayArgs("example", "example", "example", "example", "example");
+```
 
 ### SetConversationTableau
 `public void SetConversationTableau(MapConversationTableau tableau)`
 
-**Purpose:** Sets the value or state of `conversation tableau`.
+**Purpose:** Assigns a new value to `conversation tableau` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationView from the subsystem API first
+MapConversationView mapConversationView = ...;
+mapConversationView.SetConversationTableau(tableau);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapConversationView from the subsystem API first
+MapConversationView mapConversationView = ...;
+mapConversationView.Tick(0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationView from the subsystem API first
+MapConversationView mapConversationView = ...;
+mapConversationView.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MapConversationView();
+// Retrieve this view from the subsystem API or scene
+MapConversationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

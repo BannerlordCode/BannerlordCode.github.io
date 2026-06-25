@@ -1,13 +1,7 @@
 ---
 title: "SoundEvent"
+description: "Auto-generated class reference for SoundEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SoundEvent`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SoundEvent
 
 **Namespace:** TaleWorlds.Engine
@@ -35,145 +29,300 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetSoundId
 `public int GetSoundId()`
 
-**Purpose:** Gets the current value of `sound id`.
+**Purpose:** Reads and returns the `sound id` value held by the current object.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+var result = soundEvent.GetSoundId();
+```
 
 ### CreateEventFromString
 `public static SoundEvent CreateEventFromString(string eventId, Scene scene)`
 
-**Purpose:** Creates a new `event from string` instance or object.
+**Purpose:** Constructs a new `event from string` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SoundEvent.CreateEventFromString("example", scene);
+```
 
 ### SetEventMinMaxDistance
 `public void SetEventMinMaxDistance(Vec3 newRadius)`
 
-**Purpose:** Sets the value or state of `event min max distance`.
+**Purpose:** Assigns a new value to `event min max distance` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.SetEventMinMaxDistance(newRadius);
+```
 
 ### GetEventIdFromString
 `public static int GetEventIdFromString(string name)`
 
-**Purpose:** Gets the current value of `event id from string`.
+**Purpose:** Reads and returns the `event id from string` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SoundEvent.GetEventIdFromString("example");
+```
 
 ### PlaySound2D
 `public static bool PlaySound2D(int soundCodeId)`
 
-**Purpose:** Handles logic related to `play sound2 d`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundEvent.PlaySound2D(0);
+```
 
 ### PlaySound2D
 `public static bool PlaySound2D(string soundName)`
 
-**Purpose:** Handles logic related to `play sound2 d`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SoundEvent.PlaySound2D("example");
+```
 
 ### GetTotalEventCount
 `public static int GetTotalEventCount()`
 
-**Purpose:** Gets the current value of `total event count`.
+**Purpose:** Reads and returns the `total event count` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SoundEvent.GetTotalEventCount();
+```
 
 ### CreateEvent
 `public static SoundEvent CreateEvent(int soundCodeId, Scene scene)`
 
-**Purpose:** Creates a new `event` instance or object.
+**Purpose:** Constructs a new `event` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SoundEvent.CreateEvent(0, scene);
+```
 
 ### IsNullSoundEvent
 `public bool IsNullSoundEvent()`
 
-**Purpose:** Handles logic related to `is null sound event`.
+**Purpose:** Determines whether the current object is in the `null sound event` state or condition.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+var result = soundEvent.IsNullSoundEvent();
+```
 
 ### Play
 `public bool Play()`
 
-**Purpose:** Handles logic related to `play`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+var result = soundEvent.Play();
+```
 
 ### Pause
 `public void Pause()`
 
-**Purpose:** Handles logic related to `pause`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.Pause();
+```
 
 ### Resume
 `public void Resume()`
 
-**Purpose:** Handles logic related to `resume`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.Resume();
+```
 
 ### PlayExtraEvent
 `public void PlayExtraEvent(string eventName)`
 
-**Purpose:** Handles logic related to `play extra event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.PlayExtraEvent("example");
+```
 
 ### SetSwitch
 `public void SetSwitch(string switchGroupName, string newSwitchStateName)`
 
-**Purpose:** Sets the value or state of `switch`.
+**Purpose:** Assigns a new value to `switch` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.SetSwitch("example", "example");
+```
 
 ### TriggerCue
 `public void TriggerCue()`
 
-**Purpose:** Handles logic related to `trigger cue`.
+**Purpose:** Triggers the logic or event associated with `cue`.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.TriggerCue();
+```
 
 ### PlayInPosition
 `public bool PlayInPosition(Vec3 position)`
 
-**Purpose:** Handles logic related to `play in position`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+var result = soundEvent.PlayInPosition(position);
+```
 
 ### Stop
 `public void Stop()`
 
-**Purpose:** Handles logic related to `stop`.
+**Purpose:** Stops the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.Stop();
+```
 
 ### SetParameter
 `public void SetParameter(string parameterName, float value)`
 
-**Purpose:** Sets the value or state of `parameter`.
+**Purpose:** Assigns a new value to `parameter` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.SetParameter("example", 0);
+```
 
 ### SetParameter
 `public void SetParameter(int parameterIndex, float value)`
 
-**Purpose:** Sets the value or state of `parameter`.
+**Purpose:** Assigns a new value to `parameter` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.SetParameter(0, 0);
+```
 
 ### GetEventMinMaxDistance
 `public Vec3 GetEventMinMaxDistance()`
 
-**Purpose:** Gets the current value of `event min max distance`.
+**Purpose:** Reads and returns the `event min max distance` value held by the current object.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+var result = soundEvent.GetEventMinMaxDistance();
+```
 
 ### SetPosition
 `public void SetPosition(Vec3 vec)`
 
-**Purpose:** Sets the value or state of `position`.
+**Purpose:** Assigns a new value to `position` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.SetPosition(vec);
+```
 
 ### SetVelocity
 `public void SetVelocity(Vec3 vec)`
 
-**Purpose:** Sets the value or state of `velocity`.
+**Purpose:** Assigns a new value to `velocity` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.SetVelocity(vec);
+```
 
 ### Release
 `public void Release()`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+soundEvent.Release();
+```
 
 ### IsPlaying
 `public bool IsPlaying()`
 
-**Purpose:** Handles logic related to `is playing`.
+**Purpose:** Determines whether the current object is in the `playing` state or condition.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+var result = soundEvent.IsPlaying();
+```
 
 ### IsPaused
 `public bool IsPaused()`
 
-**Purpose:** Handles logic related to `is paused`.
+**Purpose:** Determines whether the current object is in the `paused` state or condition.
+
+```csharp
+// Obtain an instance of SoundEvent from the subsystem API first
+SoundEvent soundEvent = ...;
+var result = soundEvent.IsPaused();
+```
 
 ### CreateEventFromSoundBuffer
 `public static SoundEvent CreateEventFromSoundBuffer(string eventId, byte soundData, Scene scene, bool is3d, bool isBlocking)`
 
-**Purpose:** Creates a new `event from sound buffer` instance or object.
+**Purpose:** Constructs a new `event from sound buffer` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SoundEvent.CreateEventFromSoundBuffer("example", 0, scene, false, false);
+```
 
 ### CreateEventFromExternalFile
 `public static SoundEvent CreateEventFromExternalFile(string programmerEventName, string soundFilePath, Scene scene, bool is3d, bool isBlocking)`
 
-**Purpose:** Creates a new `event from external file` instance or object.
+**Purpose:** Constructs a new `event from external file` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+SoundEvent.CreateEventFromExternalFile("example", "example", scene, false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SoundEvent();
-value.GetSoundId();
+// Typically call this after obtaining an instance from the subsystem API
+SoundEvent soundEvent = ...;
+soundEvent.GetSoundId();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

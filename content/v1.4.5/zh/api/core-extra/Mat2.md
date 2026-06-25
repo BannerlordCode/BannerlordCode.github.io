@@ -1,20 +1,14 @@
 ---
 title: "Mat2"
+description: "Mat2 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Mat2`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Mat2
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct Mat2`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/Mat2.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/Mat2.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "Mat2"
 ### RotateCounterClockWise
 `public void RotateCounterClockWise(float a)`
 
-**用途 / Purpose:** 处理 `rotate counter clock wise` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Mat2 实例
+Mat2 mat2 = ...;
+mat2.RotateCounterClockWise(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Mat2();
-value.RotateCounterClockWise(0);
+// 通常从对应子系统 API 获取实例后调用
+Mat2 mat2 = ...;
+mat2.RotateCounterClockWise(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

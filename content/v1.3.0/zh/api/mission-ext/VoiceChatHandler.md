@@ -1,13 +1,7 @@
 ---
 title: "VoiceChatHandler"
+description: "VoiceChatHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VoiceChatHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VoiceChatHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,59 +29,119 @@ title: "VoiceChatHandler"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.OnRemoveBehavior();
+```
 
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre display mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre display mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.OnPreDisplayMissionTick(0);
+```
 
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 当 `player disconnected from server` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player disconnected from server」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ### WriteVoiceData
 `public void WriteVoiceData(byte dataBuffer, int bufferSize)`
 
-**用途 / Purpose:** 处理 `write voice data` 相关逻辑。
+**用途 / Purpose:** 将「voice data」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.WriteVoiceData(0, 0);
+```
 
 ### SetReadyOnPlatform
 `public void SetReadyOnPlatform()`
 
-**用途 / Purpose:** 设置 `ready on platform` 的值或状态。
+**用途 / Purpose:** 为 「ready on platform」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+voiceChatHandler.SetReadyOnPlatform();
+```
 
 ### ProcessVoiceData
 `public bool ProcessVoiceData()`
 
-**用途 / Purpose:** 处理 `process voice data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.ProcessVoiceData();
+```
 
 ### GetVoiceToPlayForTick
 `public Queue<short> GetVoiceToPlayForTick()`
 
-**用途 / Purpose:** 获取 `voice to play for tick` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「voice to play for tick」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.GetVoiceToPlayForTick();
+```
 
 ### HasAnyVoiceData
 `public bool HasAnyVoiceData()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `any voice data`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「any voice data」。
+
+```csharp
+// 先通过子系统 API 拿到 VoiceChatHandler 实例
+VoiceChatHandler voiceChatHandler = ...;
+var result = voiceChatHandler.HasAnyVoiceData();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new VoiceChatHandler());
+var behavior = Mission.Current.GetMissionBehavior<VoiceChatHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

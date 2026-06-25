@@ -1,20 +1,14 @@
 ---
 title: "PatrolPoint"
+description: "Auto-generated class reference for PatrolPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PatrolPoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PatrolPoint
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class PatrolPoint : StandingPoint`
 **Base:** `StandingPoint`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/PatrolPoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/PatrolPoint.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### SetAgentItemsVisibility
 `public void SetAgentItemsVisibility(bool isVisible)`
 
-**Purpose:** Sets the value or state of `agent items visibility`.
+**Purpose:** Assigns a new value to `agent items visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PatrolPoint from the subsystem API first
+PatrolPoint patrolPoint = ...;
+patrolPoint.SetAgentItemsVisibility(false);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of PatrolPoint from the subsystem API first
+PatrolPoint patrolPoint = ...;
+patrolPoint.OnUse(userAgent, 0);
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Called when the `use stopped` event is raised.
+**Purpose:** Invoked when the `use stopped` event is raised.
+
+```csharp
+// Obtain an instance of PatrolPoint from the subsystem API first
+PatrolPoint patrolPoint = ...;
+patrolPoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of PatrolPoint from the subsystem API first
+PatrolPoint patrolPoint = ...;
+var result = patrolPoint.GetDescriptionText(gameEntity);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PatrolPoint();
-value.SetAgentItemsVisibility(false);
+// Typically call this after obtaining an instance from the subsystem API
+PatrolPoint patrolPoint = ...;
+patrolPoint.SetAgentItemsVisibility(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

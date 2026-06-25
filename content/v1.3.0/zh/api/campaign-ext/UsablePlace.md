@@ -1,13 +1,7 @@
 ---
 title: "UsablePlace"
+description: "UsablePlace 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UsablePlace`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UsablePlace
 
 **Namespace:** SandBox.Objects.Usables
@@ -29,25 +23,44 @@ title: "UsablePlace"
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 UsablePlace 实例
+UsablePlace usablePlace = ...;
+var result = usablePlace.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 UsablePlace 实例
+UsablePlace usablePlace = ...;
+var result = usablePlace.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** 创建一个 `a i behavior object` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「a i behavior object」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 UsablePlace 实例
+UsablePlace usablePlace = ...;
+var result = usablePlace.CreateAIBehaviorObject();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new UsablePlace();
-value.GetDescriptionText(gameEntity);
+// 通常从对应子系统 API 获取实例后调用
+UsablePlace usablePlace = ...;
+usablePlace.GetDescriptionText(gameEntity);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

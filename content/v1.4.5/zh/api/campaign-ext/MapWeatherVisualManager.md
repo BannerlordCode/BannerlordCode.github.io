@@ -1,20 +1,14 @@
 ---
 title: "MapWeatherVisualManager"
+description: "MapWeatherVisualManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapWeatherVisualManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapWeatherVisualManager
 
 **Namespace:** SandBox.View.Map.Managers
 **Module:** SandBox.View
 **Type:** `public class MapWeatherVisualManager : EntityVisualManagerBase<WeatherNode>`
 **Base:** `EntityVisualManagerBase<WeatherNode>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/MapWeatherVisualManager.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Managers/MapWeatherVisualManager.cs`
 
 ## 概述
 
@@ -29,42 +23,90 @@ title: "MapWeatherVisualManager"
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**用途 / Purpose:** 当 `visual tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「visual tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherVisualManager 实例
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.OnVisualTick(screen, 0, 0);
+```
 
 ### SetRainData
 `public void SetRainData(int dataIndex, byte value)`
 
-**用途 / Purpose:** 设置 `rain data` 的值或状态。
+**用途 / Purpose:** 为 「rain data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherVisualManager 实例
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.SetRainData(0, 0);
+```
 
 ### SetCloudData
 `public void SetCloudData(int dataIndex, byte value)`
 
-**用途 / Purpose:** 设置 `cloud data` 的值或状态。
+**用途 / Purpose:** 为 「cloud data」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherVisualManager 实例
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.SetCloudData(0, 0);
+```
 
 ### GetRainPrefabFromPool
 `public GameEntity GetRainPrefabFromPool()`
 
-**用途 / Purpose:** 获取 `rain prefab from pool` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「rain prefab from pool」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherVisualManager 实例
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+var result = mapWeatherVisualManager.GetRainPrefabFromPool();
+```
 
 ### GetBlizzardPrefabFromPool
 `public GameEntity GetBlizzardPrefabFromPool()`
 
-**用途 / Purpose:** 获取 `blizzard prefab from pool` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「blizzard prefab from pool」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherVisualManager 实例
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+var result = mapWeatherVisualManager.GetBlizzardPrefabFromPool();
+```
 
 ### ReleaseRainPrefab
 `public void ReleaseRainPrefab(GameEntity prefab)`
 
-**用途 / Purpose:** 处理 `release rain prefab` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherVisualManager 实例
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.ReleaseRainPrefab(prefab);
+```
 
 ### ReleaseBlizzardPrefab
 `public void ReleaseBlizzardPrefab(GameEntity prefab)`
 
-**用途 / Purpose:** 处理 `release blizzard prefab` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherVisualManager 实例
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+mapWeatherVisualManager.ReleaseBlizzardPrefab(prefab);
+```
 
 ### GetVisualOfEntity
 `public override MapEntityVisual<WeatherNode> GetVisualOfEntity(WeatherNode entity)`
 
-**用途 / Purpose:** 获取 `visual of entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual of entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MapWeatherVisualManager 实例
+MapWeatherVisualManager mapWeatherVisualManager = ...;
+var result = mapWeatherVisualManager.GetVisualOfEntity(entity);
+```
 
 ## 使用示例
 
@@ -74,4 +116,4 @@ var manager = MapWeatherVisualManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

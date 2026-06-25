@@ -1,20 +1,14 @@
 ---
 title: "OrderOfBattleHeroDragWidget"
+description: "Auto-generated class reference for OrderOfBattleHeroDragWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleHeroDragWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHeroDragWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderOfBattleHeroDragWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleHeroDragWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle/OrderOfBattleHeroDragWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `OrderOfBattleHeroDragWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new OrderOfBattleHeroDragWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderOfBattleHeroDragWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

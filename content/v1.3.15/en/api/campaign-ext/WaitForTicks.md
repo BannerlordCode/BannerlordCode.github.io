@@ -1,13 +1,7 @@
 ---
 title: "WaitForTicks"
+description: "Auto-generated class reference for WaitForTicks."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WaitForTicks`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WaitForTicks
 
 **Namespace:** TaleWorlds.Network
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new WaitForTicks();
+// Obtain an instance from the relevant subsystem API
+WaitForTicks instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

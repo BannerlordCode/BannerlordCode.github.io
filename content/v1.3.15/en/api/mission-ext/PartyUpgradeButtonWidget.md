@@ -1,13 +1,7 @@
 ---
 title: "PartyUpgradeButtonWidget"
+description: "Auto-generated class reference for PartyUpgradeButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyUpgradeButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyUpgradeButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
@@ -39,9 +33,10 @@ Treat `PartyUpgradeButtonWidget` as a Widget-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var widget = new PartyUpgradeButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyUpgradeButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

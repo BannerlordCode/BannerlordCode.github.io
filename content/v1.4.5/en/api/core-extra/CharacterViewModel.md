@@ -1,20 +1,14 @@
 ---
 title: "CharacterViewModel"
+description: "Auto-generated class reference for CharacterViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterViewModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/CharacterViewModel.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection/CharacterViewModel.cs`
 
 ## Overview
 
@@ -56,45 +50,88 @@ Treat `CharacterViewModel` as a ViewModel-style extension point: first identify 
 ### SetEquipment
 `public void SetEquipment(EquipmentIndex index, EquipmentElement item)`
 
-**Purpose:** Sets the value or state of `equipment`.
+**Purpose:** Assigns a new value to `equipment` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterViewModel from the subsystem API first
+CharacterViewModel characterViewModel = ...;
+characterViewModel.SetEquipment(index, item);
+```
 
 ### SetEquipment
 `public virtual void SetEquipment(Equipment equipment)`
 
-**Purpose:** Sets the value or state of `equipment`.
+**Purpose:** Assigns a new value to `equipment` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CharacterViewModel from the subsystem API first
+CharacterViewModel characterViewModel = ...;
+characterViewModel.SetEquipment(equipment);
+```
 
 ### FillFrom
 `public void FillFrom(BasicCharacterObject character, int seed = -1, string bannerCode = null)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterViewModel from the subsystem API first
+CharacterViewModel characterViewModel = ...;
+characterViewModel.FillFrom(character, 0, "example");
+```
 
 ### FillFrom
 `public void FillFrom(CharacterViewModel characterViewModel, int seed = -1)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterViewModel from the subsystem API first
+CharacterViewModel characterViewModel = ...;
+characterViewModel.FillFrom(characterViewModel, 0);
+```
 
 ### ExecuteEquipWeaponAtIndex
 `public void ExecuteEquipWeaponAtIndex(EquipmentIndex index, bool isLeftHand)`
 
-**Purpose:** Executes the `equip weapon at index` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `equip weapon at index`.
+
+```csharp
+// Obtain an instance of CharacterViewModel from the subsystem API first
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteEquipWeaponAtIndex(index, false);
+```
 
 ### ExecuteStartCustomAnimation
 `public void ExecuteStartCustomAnimation(string animation, bool loop = false, float loopInterval = 0f)`
 
-**Purpose:** Executes the `start custom animation` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `start custom animation`.
+
+```csharp
+// Obtain an instance of CharacterViewModel from the subsystem API first
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteStartCustomAnimation("example", false, 0);
+```
 
 ### ExecuteStopCustomAnimation
 `public void ExecuteStopCustomAnimation()`
 
-**Purpose:** Executes the `stop custom animation` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `stop custom animation`.
+
+```csharp
+// Obtain an instance of CharacterViewModel from the subsystem API first
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteStopCustomAnimation();
+```
 
 ## Usage Example
 
 ```csharp
-var vm = new CharacterViewModel();
+// Bind the instance as the view-model of a movie or view
+CharacterViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

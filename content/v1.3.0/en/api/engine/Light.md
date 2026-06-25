@@ -1,13 +1,7 @@
 ---
 title: "Light"
+description: "Auto-generated class reference for Light."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Light`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Light
 
 **Namespace:** TaleWorlds.Engine
@@ -40,32 +34,67 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreatePointLight
 `public static Light CreatePointLight(float lightRadius)`
 
-**Purpose:** Creates a new `point light` instance or object.
+**Purpose:** Constructs a new `point light` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+Light.CreatePointLight(0);
+```
 
 ### SetShadowType
 `public void SetShadowType(Light.ShadowType type)`
 
-**Purpose:** Sets the value or state of `shadow type`.
+**Purpose:** Assigns a new value to `shadow type` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.SetShadowType(type);
+```
 
 ### SetLightFlicker
 `public void SetLightFlicker(float magnitude, float interval)`
 
-**Purpose:** Sets the value or state of `light flicker`.
+**Purpose:** Assigns a new value to `light flicker` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.SetLightFlicker(0, 0);
+```
 
 ### SetVolumetricProperties
 `public void SetVolumetricProperties(bool volumetricLightEnabled, float volumeParameters)`
 
-**Purpose:** Sets the value or state of `volumetric properties`.
+**Purpose:** Assigns a new value to `volumetric properties` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.SetVolumetricProperties(false, 0);
+```
 
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.Dispose();
+```
 
 ### SetVisibility
 `public void SetVisibility(bool value)`
 
-**Purpose:** Sets the value or state of `visibility`.
+**Purpose:** Assigns a new value to `visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Light from the subsystem API first
+Light light = ...;
+light.SetVisibility(false);
+```
 
 ## Usage Example
 
@@ -75,4 +104,4 @@ Light.CreatePointLight(0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

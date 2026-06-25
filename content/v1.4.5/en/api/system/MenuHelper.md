@@ -1,20 +1,14 @@
 ---
 title: "MenuHelper"
+description: "Auto-generated class reference for MenuHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class MenuHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/MenuHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/MenuHelper.cs`
 
 ## Overview
 
@@ -29,72 +23,142 @@ Treat `MenuHelper` as a Helper-style extension point: first identify who creates
 ### SetOptionProperties
 `public static bool SetOptionProperties(MenuCallbackArgs args, bool canPlayerDo, bool shouldBeDisabled, TextObject disabledText)`
 
-**Purpose:** Sets the value or state of `option properties`.
+**Purpose:** Assigns a new value to `option properties` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MenuHelper.SetOptionProperties(args, false, false, disabledText);
+```
 
 ### SetIssueAndQuestDataForHero
 `public static void SetIssueAndQuestDataForHero(MenuCallbackArgs args, Hero hero)`
 
-**Purpose:** Sets the value or state of `issue and quest data for hero`.
+**Purpose:** Assigns a new value to `issue and quest data for hero` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MenuHelper.SetIssueAndQuestDataForHero(args, hero);
+```
 
 ### SetIssueAndQuestDataForLocations
 `public static void SetIssueAndQuestDataForLocations(MenuCallbackArgs args, List<Location> locations)`
 
-**Purpose:** Sets the value or state of `issue and quest data for locations`.
+**Purpose:** Assigns a new value to `issue and quest data for locations` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MenuHelper.SetIssueAndQuestDataForLocations(args, locations);
+```
 
 ### CheckAndOpenNextLocation
 `public static bool CheckAndOpenNextLocation(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `check and open next location`.
+**Purpose:** Verifies whether `and open next location` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+MenuHelper.CheckAndOpenNextLocation(args);
+```
 
 ### DecideMenuState
 `public static void DecideMenuState()`
 
-**Purpose:** Handles logic related to `decide menu state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MenuHelper.DecideMenuState();
+```
 
 ### EncounterAttackCondition
 `public static bool EncounterAttackCondition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `encounter attack condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MenuHelper.EncounterAttackCondition(args);
+```
 
 ### EncounterCaptureEnemyCondition
 `public static bool EncounterCaptureEnemyCondition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `encounter capture enemy condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MenuHelper.EncounterCaptureEnemyCondition(args);
+```
 
 ### EncounterAttackConsequence
 `public static void EncounterAttackConsequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `encounter attack consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MenuHelper.EncounterAttackConsequence(args);
+```
 
 ### CheckEnemyAttackableHonorably
 `public static void CheckEnemyAttackableHonorably(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `check enemy attackable honorably`.
+**Purpose:** Verifies whether `enemy attackable honorably` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+MenuHelper.CheckEnemyAttackableHonorably(args);
+```
 
 ### EncounterOrderAttackCondition
 `public static bool EncounterOrderAttackCondition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `encounter order attack condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MenuHelper.EncounterOrderAttackCondition(args);
+```
 
 ### EncounterOrderAttackConsequence
 `public static void EncounterOrderAttackConsequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `encounter order attack consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MenuHelper.EncounterOrderAttackConsequence(args);
+```
 
 ### EncounterCaptureTheEnemyOnConsequence
 `public static void EncounterCaptureTheEnemyOnConsequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `encounter capture the enemy on consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MenuHelper.EncounterCaptureTheEnemyOnConsequence(args);
+```
 
 ### EncounterLeaveConsequence
 `public static void EncounterLeaveConsequence()`
 
-**Purpose:** Handles logic related to `encounter leave consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MenuHelper.EncounterLeaveConsequence();
+```
 
 ### GetEncounterCultureBackgroundMesh
 `public static string GetEncounterCultureBackgroundMesh(CultureObject encounterCulture)`
 
-**Purpose:** Gets the current value of `encounter culture background mesh`.
+**Purpose:** Reads and returns the `encounter culture background mesh` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MenuHelper.GetEncounterCultureBackgroundMesh(encounterCulture);
+```
 
 ## Usage Example
 
@@ -104,4 +168,4 @@ MenuHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

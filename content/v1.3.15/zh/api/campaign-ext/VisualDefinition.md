@@ -1,13 +1,7 @@
 ---
 title: "VisualDefinition"
+description: "VisualDefinition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualDefinition`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VisualDefinition
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -40,20 +34,33 @@ title: "VisualDefinition"
 ### AddVisualState
 `public void AddVisualState(VisualState visualState)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `visual state`。
+**用途 / Purpose:** 将 「visual state」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 VisualDefinition 实例
+VisualDefinition visualDefinition = ...;
+visualDefinition.AddVisualState(visualState);
+```
 
 ### GetVisualState
 `public VisualState GetVisualState(string state)`
 
-**用途 / Purpose:** 获取 `visual state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualDefinition 实例
+VisualDefinition visualDefinition = ...;
+var result = visualDefinition.GetVisualState("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VisualDefinition();
-value.AddVisualState(visualState);
+// 通常从对应子系统 API 获取实例后调用
+VisualDefinition visualDefinition = ...;
+visualDefinition.AddVisualState(visualState);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

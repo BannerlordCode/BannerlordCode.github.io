@@ -1,13 +1,7 @@
 ---
 title: "GameStateManager"
+description: "Auto-generated class reference for GameStateManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameStateManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameStateManager
 
 **Namespace:** TaleWorlds.Core
@@ -41,52 +35,112 @@ Treat `GameStateManager` as a Manager-style extension point: first identify who 
 ### RegisterListener
 `public bool RegisterListener(IGameStateManagerListener listener)`
 
-**Purpose:** Handles logic related to `register listener`.
+**Purpose:** Registers `listener` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+var result = gameStateManager.RegisterListener(listener);
+```
 
 ### UnregisterListener
 `public bool UnregisterListener(IGameStateManagerListener listener)`
 
-**Purpose:** Handles logic related to `unregister listener`.
+**Purpose:** Unregisters `listener` from the current system.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+var result = gameStateManager.UnregisterListener(listener);
+```
 
 ### RegisterActiveStateDisableRequest
 `public void RegisterActiveStateDisableRequest(object requestingInstance)`
 
-**Purpose:** Handles logic related to `register active state disable request`.
+**Purpose:** Registers `active state disable request` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+gameStateManager.RegisterActiveStateDisableRequest(requestingInstance);
+```
 
 ### UnregisterActiveStateDisableRequest
 `public void UnregisterActiveStateDisableRequest(object requestingInstance)`
 
-**Purpose:** Handles logic related to `unregister active state disable request`.
+**Purpose:** Unregisters `active state disable request` from the current system.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+gameStateManager.UnregisterActiveStateDisableRequest(requestingInstance);
+```
 
 ### OnSavedGameLoadFinished
 `public void OnSavedGameLoadFinished()`
 
-**Purpose:** Called when the `saved game load finished` event is raised.
+**Purpose:** Invoked when the `saved game load finished` event is raised.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+gameStateManager.OnSavedGameLoadFinished();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+gameStateManager.OnTick(0);
+```
 
 ### PushState
 `public void PushState(GameState gameState, int level = 0)`
 
-**Purpose:** Handles logic related to `push state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+gameStateManager.PushState(gameState, 0);
+```
 
 ### PopState
 `public void PopState(int level = 0)`
 
-**Purpose:** Handles logic related to `pop state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+gameStateManager.PopState(0);
+```
 
 ### CleanAndPushState
 `public void CleanAndPushState(GameState gameState, int level = 0)`
 
-**Purpose:** Handles logic related to `clean and push state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+gameStateManager.CleanAndPushState(gameState, 0);
+```
 
 ### CleanStates
 `public void CleanStates(int level = 0)`
 
-**Purpose:** Handles logic related to `clean states`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameStateManager from the subsystem API first
+GameStateManager gameStateManager = ...;
+gameStateManager.CleanStates(0);
+```
 
 ## Usage Example
 
@@ -96,4 +150,4 @@ var manager = GameStateManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

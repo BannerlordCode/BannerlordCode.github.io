@@ -1,20 +1,14 @@
 ---
 title: "DefaultTraits"
+description: "DefaultTraits 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultTraits`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTraits
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTraits`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/DefaultTraits.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterDevelopment/DefaultTraits.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "DefaultTraits"
 ### RegisterAll
 `public void RegisterAll()`
 
-**用途 / Purpose:** 处理 `register all` 相关逻辑。
+**用途 / Purpose:** 将「all」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTraits 实例
+DefaultTraits defaultTraits = ...;
+defaultTraits.RegisterAll();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultTraits();
-value.RegisterAll();
+// 通常从对应子系统 API 获取实例后调用
+DefaultTraits defaultTraits = ...;
+defaultTraits.RegisterAll();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

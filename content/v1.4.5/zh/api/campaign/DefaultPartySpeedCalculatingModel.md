@@ -1,20 +1,14 @@
 ---
 title: "DefaultPartySpeedCalculatingModel"
+description: "DefaultPartySpeedCalculatingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartySpeedCalculatingModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartySpeedCalculatingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPartySpeedCalculatingModel : PartySpeedModel`
 **Base:** `PartySpeedModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartySpeedCalculatingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPartySpeedCalculatingModel.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "DefaultPartySpeedCalculatingModel"
 ### CalculateBaseSpeed
 `public override ExplainedNumber CalculateBaseSpeed(MobileParty mobileParty, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
 
-**用途 / Purpose:** 处理 `calculate base speed` 相关逻辑。
+**用途 / Purpose:** 计算「base speed」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartySpeedCalculatingModel 实例
+DefaultPartySpeedCalculatingModel defaultPartySpeedCalculatingModel = ...;
+var result = defaultPartySpeedCalculatingModel.CalculateBaseSpeed(mobileParty, false, 0, 0);
+```
 
 ### CalculateFinalSpeed
 `public override ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
 
-**用途 / Purpose:** 处理 `calculate final speed` 相关逻辑。
+**用途 / Purpose:** 计算「final speed」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartySpeedCalculatingModel 实例
+DefaultPartySpeedCalculatingModel defaultPartySpeedCalculatingModel = ...;
+var result = defaultPartySpeedCalculatingModel.CalculateFinalSpeed(mobileParty, finalSpeed);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultPartySpeedCalculatingModel>(new MyDefaultPartyS
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartiesBuyHorseCampaignBehavior"
+description: "Auto-generated class reference for PartiesBuyHorseCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartiesBuyHorseCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartiesBuyHorseCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartiesBuyHorseCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PartiesBuyHorseCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PartiesBuyHorseCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PartiesBuyHorseCampaignBehavior from the subsystem API first
+PartiesBuyHorseCampaignBehavior partiesBuyHorseCampaignBehavior = ...;
+partiesBuyHorseCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PartiesBuyHorseCampaignBehavior from the subsystem API first
+PartiesBuyHorseCampaignBehavior partiesBuyHorseCampaignBehavior = ...;
+partiesBuyHorseCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Called when the `settlement entered` event is raised.
+**Purpose:** Invoked when the `settlement entered` event is raised.
+
+```csharp
+// Obtain an instance of PartiesBuyHorseCampaignBehavior from the subsystem API first
+PartiesBuyHorseCampaignBehavior partiesBuyHorseCampaignBehavior = ...;
+partiesBuyHorseCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartiesBuyHorseCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PartiesBuyHorseCampaignBehavior partiesBuyHorseCampaignBehavior = ...;
+partiesBuyHorseCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PartyComponent"
+description: "PartyComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyComponent`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
@@ -45,39 +39,76 @@ title: "PartyComponent"
 ### SetWagePaymentLimit
 `public virtual void SetWagePaymentLimit(int newLimit)`
 
-**用途 / Purpose:** 设置 `wage payment limit` 的值或状态。
+**用途 / Purpose:** 为 「wage payment limit」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyComponent 实例
+PartyComponent partyComponent = ...;
+partyComponent.SetWagePaymentLimit(0);
+```
 
 ### GetDefaultComponentBanner
 `public abstract Banner GetDefaultComponentBanner()`
 
-**用途 / Purpose:** 获取 `default component banner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default component banner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyComponent 实例
+PartyComponent partyComponent = ...;
+var result = partyComponent.GetDefaultComponentBanner();
+```
 
 ### ClearCachedName
 `public virtual void ClearCachedName()`
 
-**用途 / Purpose:** 处理 `clear cached name` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「cached name」。
+
+```csharp
+// 先通过子系统 API 拿到 PartyComponent 实例
+PartyComponent partyComponent = ...;
+partyComponent.ClearCachedName();
+```
 
 ### ChangePartyLeader
 `public void ChangePartyLeader(Hero newLeader)`
 
-**用途 / Purpose:** 处理 `change party leader` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartyComponent 实例
+PartyComponent partyComponent = ...;
+partyComponent.ChangePartyLeader(newLeader);
+```
 
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public virtual void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**用途 / Purpose:** 获取 `mount and harness visual ids for party icon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mount and harness visual ids for party icon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyComponent 实例
+PartyComponent partyComponent = ...;
+partyComponent.GetMountAndHarnessVisualIdsForPartyIcon(party, mountStringId, harnessStringId);
+```
 
 ### OnPartyComponentCreatedDelegate
 `public delegate void OnPartyComponentCreatedDelegate(MobileParty mobileParty)`
 
-**用途 / Purpose:** 当 `party component created delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「party component created delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyComponent 实例
+PartyComponent partyComponent = ...;
+partyComponent.OnPartyComponentCreatedDelegate(mobileParty);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

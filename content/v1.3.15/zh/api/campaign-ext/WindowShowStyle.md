@@ -1,19 +1,13 @@
 ---
 title: "WindowShowStyle"
+description: "WindowShowStyle 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WindowShowStyle`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WindowShowStyle
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
-**Base:** 无
+**Type:** `public enum WindowShowStyle : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/WindowShowStyle.cs`
 
 ## 概述
@@ -27,9 +21,10 @@ title: "WindowShowStyle"
 ## 使用示例
 
 ```csharp
-var value = new WindowShowStyle();
+// 从对应子系统 API 获取实例
+WindowShowStyle instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

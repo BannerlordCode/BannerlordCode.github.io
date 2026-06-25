@@ -1,13 +1,7 @@
 ---
 title: "EncounterGameMenuBehavior"
+description: "Auto-generated class reference for EncounterGameMenuBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncounterGameMenuBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EncounterGameMenuBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,95 +23,184 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of EncounterGameMenuBehavior from the subsystem API first
+EncounterGameMenuBehavior encounterGameMenuBehavior = ...;
+encounterGameMenuBehavior.SyncData(dataStore);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of EncounterGameMenuBehavior from the subsystem API first
+EncounterGameMenuBehavior encounterGameMenuBehavior = ...;
+encounterGameMenuBehavior.RegisterEvents();
+```
 
 ### AddCurrentSettlementAsAlreadySneakedIn
 `public void AddCurrentSettlementAsAlreadySneakedIn()`
 
 **Purpose:** Adds `current settlement as already sneaked in` to the current collection or state.
 
+```csharp
+// Obtain an instance of EncounterGameMenuBehavior from the subsystem API first
+EncounterGameMenuBehavior encounterGameMenuBehavior = ...;
+encounterGameMenuBehavior.AddCurrentSettlementAsAlreadySneakedIn();
+```
+
 ### game_menu_captivity_taken_prisoner_cheat_on_consequence
 `public static void game_menu_captivity_taken_prisoner_cheat_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_captivity_taken_prisoner_cheat_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_menu_captivity_taken_prisoner_cheat_on_consequence(args);
+```
 
 ### game_menu_captivity_castle_taken_prisoner_cont_on_condition
 `public static bool game_menu_captivity_castle_taken_prisoner_cont_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_captivity_castle_taken_prisoner_cont_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_menu_captivity_castle_taken_prisoner_cont_on_condition(args);
+```
 
 ### menu_sneak_into_town_succeeded_continue_on_consequence
 `public static void menu_sneak_into_town_succeeded_continue_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `menu_sneak_into_town_succeeded_continue_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.menu_sneak_into_town_succeeded_continue_on_consequence(args);
+```
 
 ### menu_sneak_into_town_succeeded_continue_on_condition
 `public static bool menu_sneak_into_town_succeeded_continue_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `menu_sneak_into_town_succeeded_continue_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.menu_sneak_into_town_succeeded_continue_on_condition(args);
+```
 
 ### game_menu_sneak_into_town_caught_on_init
 `public static void game_menu_sneak_into_town_caught_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_sneak_into_town_caught_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_menu_sneak_into_town_caught_on_init(args);
+```
 
 ### mno_sneak_caught_surrender_on_consequence
 `public static void mno_sneak_caught_surrender_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `mno_sneak_caught_surrender_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.mno_sneak_caught_surrender_on_consequence(args);
+```
 
 ### mno_sneak_caught_surrender_on_condition
 `public static bool mno_sneak_caught_surrender_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `mno_sneak_caught_surrender_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.mno_sneak_caught_surrender_on_condition(args);
+```
 
 ### game_menu_captivity_taken_prisoner_cheat_on_condition
 `public static bool game_menu_captivity_taken_prisoner_cheat_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_captivity_taken_prisoner_cheat_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_menu_captivity_taken_prisoner_cheat_on_condition(args);
+```
 
 ### game_menu_captivity_castle_taken_prisoner_cont_on_consequence
 `public static void game_menu_captivity_castle_taken_prisoner_cont_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_captivity_castle_taken_prisoner_cont_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_menu_captivity_castle_taken_prisoner_cont_on_consequence(args);
+```
 
 ### game_request_entry_to_castle_approved_continue_on_consequence
 `public static void game_request_entry_to_castle_approved_continue_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_request_entry_to_castle_approved_continue_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_request_entry_to_castle_approved_continue_on_consequence(args);
+```
 
 ### game_request_entry_to_castle_approved_continue_on_condition
 `public static bool game_request_entry_to_castle_approved_continue_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_request_entry_to_castle_approved_continue_on_condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_request_entry_to_castle_approved_continue_on_condition(args);
+```
 
 ### game_request_entry_to_castle_rejected_continue_on_consequence
 `public static void game_request_entry_to_castle_rejected_continue_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_request_entry_to_castle_rejected_continue_on_consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_request_entry_to_castle_rejected_continue_on_consequence(args);
+```
 
 ### menu_castle_entry_denied_on_init
 `public static void menu_castle_entry_denied_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `menu_castle_entry_denied_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.menu_castle_entry_denied_on_init(args);
+```
 
 ### game_menu_castle_menu_sound_on_init
 `public static void game_menu_castle_menu_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `game_menu_castle_menu_sound_on_init`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+EncounterGameMenuBehavior.game_menu_castle_menu_sound_on_init(args);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncounterGameMenuBehavior();
-value.SyncData(dataStore);
+// Typically call this after obtaining an instance from the subsystem API
+EncounterGameMenuBehavior encounterGameMenuBehavior = ...;
+encounterGameMenuBehavior.SyncData(dataStore);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "UiStringHelper"
+description: "Auto-generated class reference for UiStringHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UiStringHelper`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UiStringHelper
 
 **Namespace:** TaleWorlds.Library
@@ -29,7 +23,12 @@ Treat `UiStringHelper` as a Helper-style extension point: first identify who cre
 ### IsStringNoneOrEmptyForUi
 `public static bool IsStringNoneOrEmptyForUi(string str)`
 
-**Purpose:** Handles logic related to `is string none or empty for ui`.
+**Purpose:** Determines whether the current object is in the `string none or empty for ui` state or condition.
+
+```csharp
+// Static call; no instance required
+UiStringHelper.IsStringNoneOrEmptyForUi("example");
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ UiStringHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

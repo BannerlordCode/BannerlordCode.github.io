@@ -1,13 +1,7 @@
 ---
 title: "TroopSelectionItemVM"
+description: "Auto-generated class reference for TroopSelectionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopSelectionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopSelectionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection
@@ -47,25 +41,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tro
 ### ExecuteAdd
 `public void ExecuteAdd()`
 
-**Purpose:** Executes the `add` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `add`.
+
+```csharp
+// Obtain an instance of TroopSelectionItemVM from the subsystem API first
+TroopSelectionItemVM troopSelectionItemVM = ...;
+troopSelectionItemVM.ExecuteAdd();
+```
 
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of TroopSelectionItemVM from the subsystem API first
+TroopSelectionItemVM troopSelectionItemVM = ...;
+troopSelectionItemVM.ExecuteRemove();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of TroopSelectionItemVM from the subsystem API first
+TroopSelectionItemVM troopSelectionItemVM = ...;
+troopSelectionItemVM.ExecuteLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TroopSelectionItemVM();
-value.ExecuteAdd();
+// Typically call this after obtaining an instance from the subsystem API
+TroopSelectionItemVM troopSelectionItemVM = ...;
+troopSelectionItemVM.ExecuteAdd();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

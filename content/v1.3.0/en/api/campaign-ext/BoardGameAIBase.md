@@ -1,13 +1,7 @@
 ---
 title: "BoardGameAIBase"
+description: "Auto-generated class reference for BoardGameAIBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameAIBase`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIBase
 
 **Namespace:** SandBox.BoardGames.AI
@@ -37,59 +31,120 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CalculatePreMovementStageMove
 `public virtual Move CalculatePreMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate pre movement stage move`.
+**Purpose:** Calculates the current value or result of `pre movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.CalculatePreMovementStageMove();
+```
 
 ### CalculateMovementStageMove
 `public abstract Move CalculateMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate movement stage move`.
+**Purpose:** Calculates the current value or result of `movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.CalculateMovementStageMove();
+```
 
 ### WantsToForfeit
 `public virtual bool WantsToForfeit()`
 
-**Purpose:** Handles logic related to `wants to forfeit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.WantsToForfeit();
+```
 
 ### OnSetGameOver
 `public virtual void OnSetGameOver()`
 
-**Purpose:** Called when the `set game over` event is raised.
+**Purpose:** Invoked when the `set game over` event is raised.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.OnSetGameOver();
+```
 
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.Initialize();
+```
 
 ### SetDifficulty
 `public void SetDifficulty(BoardGameHelper.AIDifficulty difficulty)`
 
-**Purpose:** Sets the value or state of `difficulty`.
+**Purpose:** Assigns a new value to `difficulty` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.SetDifficulty(difficulty);
+```
 
 ### HowLongDidAIThinkAboutMove
 `public float HowLongDidAIThinkAboutMove()`
 
-**Purpose:** Handles logic related to `how long did a i think about move`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.HowLongDidAIThinkAboutMove();
+```
 
 ### UpdateThinkingAboutMove
 `public void UpdateThinkingAboutMove(float dt)`
 
-**Purpose:** Updates the state or data of `thinking about move`.
+**Purpose:** Recalculates and stores the latest representation of `thinking about move`.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.UpdateThinkingAboutMove(0);
+```
 
 ### ResetThinking
 `public void ResetThinking()`
 
-**Purpose:** Resets `thinking` to its initial state.
+**Purpose:** Returns `thinking` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+boardGameAIBase.ResetThinking();
+```
 
 ### CanMakeMove
 `public bool CanMakeMove()`
 
-**Purpose:** Checks whether the current object can `make move`.
+**Purpose:** Checks whether the current object meets the preconditions for `make move`.
+
+```csharp
+// Obtain an instance of BoardGameAIBase from the subsystem API first
+BoardGameAIBase boardGameAIBase = ...;
+var result = boardGameAIBase.CanMakeMove();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBoardGameAIBase();
+// Typically obtained from a subsystem API or factory
+BoardGameAIBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyTradeVM"
+description: "PartyTradeVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyTradeVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTradeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyTradeVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PartyTradeVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PartyTradeVM.cs`
 
 ## 概述
 
@@ -46,50 +40,99 @@ title: "PartyTradeVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeVM 实例
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.RefreshValues();
+```
 
 ### UpdateTroopData
 `public void UpdateTroopData(TroopRosterElement troopRoster, PartyScreenLogic.PartyRosterSide side, bool forceUpdate = true)`
 
-**用途 / Purpose:** 更新 `troop data` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「troop data」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeVM 实例
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.UpdateTroopData(troopRoster, side, false);
+```
 
 ### FindTroopFromSide
 `public TroopRosterElement? FindTroopFromSide(CharacterObject character, PartyScreenLogic.PartyRosterSide side, bool isPrisoner)`
 
-**用途 / Purpose:** 处理 `find troop from side` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「troop from side」。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeVM 实例
+PartyTradeVM partyTradeVM = ...;
+var result = partyTradeVM.FindTroopFromSide(character, side, false);
+```
 
 ### ExecuteIncreasePlayerStock
 `public void ExecuteIncreasePlayerStock()`
 
-**用途 / Purpose:** 执行 `increase player stock` 操作或流程。
+**用途 / Purpose:** 执行 「increase player stock」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeVM 实例
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteIncreasePlayerStock();
+```
 
 ### ExecuteIncreaseOtherStock
 `public void ExecuteIncreaseOtherStock()`
 
-**用途 / Purpose:** 执行 `increase other stock` 操作或流程。
+**用途 / Purpose:** 执行 「increase other stock」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeVM 实例
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteIncreaseOtherStock();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** 执行 `reset` 操作或流程。
+**用途 / Purpose:** 执行 「reset」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeVM 实例
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteReset();
+```
 
 ### ExecuteApplyTransaction
 `public void ExecuteApplyTransaction()`
 
-**用途 / Purpose:** 执行 `apply transaction` 操作或流程。
+**用途 / Purpose:** 执行 「apply transaction」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeVM 实例
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteApplyTransaction();
+```
 
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**用途 / Purpose:** 执行 `remove zero counts` 操作或流程。
+**用途 / Purpose:** 执行 「remove zero counts」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTradeVM 实例
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.ExecuteRemoveZeroCounts();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyTradeVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+PartyTradeVM partyTradeVM = ...;
+partyTradeVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

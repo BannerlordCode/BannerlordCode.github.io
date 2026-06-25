@@ -1,19 +1,14 @@
 ---
 title: "MetaData"
+description: "MetaData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MetaData`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MetaData
 
-**命名空间:** TaleWorlds.SaveSystem
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public class MetaData`
-**领域:** save-system
+**Namespace:** TaleWorlds.SaveSystem
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class MetaData`
+**Base:** 无
+**File:** `TaleWorlds.SaveSystem/MetaData.cs`
 
 ## 概述
 
@@ -36,30 +31,53 @@ title: "MetaData"
 ### Add
 `public void Add(string key, string value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 MetaData 实例
+MetaData metaData = ...;
+metaData.Add("example", "example");
+```
 
 ### TryGetValue
 `public bool TryGetValue(string key, out string value)`
 
-**用途 / Purpose:** 尝试获取 `get value`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get value」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 MetaData 实例
+MetaData metaData = ...;
+var result = metaData.TryGetValue("example", value);
+```
 
 ### Serialize
 `public void Serialize(Stream stream)`
 
-**用途 / Purpose:** 处理 `serialize` 相关逻辑。
+**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 MetaData 实例
+MetaData metaData = ...;
+metaData.Serialize(stream);
+```
 
 ### Deserialize
 `public static MetaData Deserialize(Stream stream)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 静态调用，不需要实例
+MetaData.Deserialize(stream);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MetaData();
+// 该数据对象通常由战役/任务 API 返回
+MetaData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

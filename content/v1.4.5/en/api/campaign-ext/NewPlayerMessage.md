@@ -1,20 +1,14 @@
 ---
 title: "NewPlayerMessage"
+description: "Auto-generated class reference for NewPlayerMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NewPlayerMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NewPlayerMessage
 
 **Namespace:** Messages.FromBattleServerManager.ToBattleServer
 **Module:** Messages.FromBattleServerManager
 **Type:** `public class NewPlayerMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/NewPlayerMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServerManager.ToBattleServer/NewPlayerMessage.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Start from namespace `Messages.FromBattleServerManager.ToBattleServer` to place 
 ## Usage Example
 
 ```csharp
-var example = new NewPlayerMessage();
+// Obtain an instance from the relevant subsystem API
+NewPlayerMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionItemCalatogView"
+description: "Auto-generated class reference for MissionItemCalatogView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionItemCalatogView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionItemCalatogView
 
 **Namespace:** SandBox.View.Missions
@@ -29,14 +23,21 @@ Treat `MissionItemCalatogView` as a View-style extension point: first identify w
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionItemCalatogView from the subsystem API first
+MissionItemCalatogView missionItemCalatogView = ...;
+missionItemCalatogView.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionItemCalatogView();
+// Retrieve this view from the subsystem API or scene
+MissionItemCalatogView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

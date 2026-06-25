@@ -1,13 +1,7 @@
 ---
 title: "VertexArrayObject"
+description: "VertexArrayObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VertexArrayObject`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VertexArrayObject
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
@@ -29,45 +23,85 @@ title: "VertexArrayObject"
 ### LoadVertexData
 `public void LoadVertexData(float vertices)`
 
-**用途 / Purpose:** 加载 `vertex data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「vertex data」。
+
+```csharp
+// 先通过子系统 API 拿到 VertexArrayObject 实例
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.LoadVertexData(0);
+```
 
 ### LoadUVData
 `public void LoadUVData(float uvs)`
 
-**用途 / Purpose:** 加载 `u v data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「u v data」。
+
+```csharp
+// 先通过子系统 API 拿到 VertexArrayObject 实例
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.LoadUVData(0);
+```
 
 ### LoadIndexData
 `public void LoadIndexData(uint indices)`
 
-**用途 / Purpose:** 加载 `index data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「index data」。
+
+```csharp
+// 先通过子系统 API 拿到 VertexArrayObject 实例
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.LoadIndexData(0);
+```
 
 ### Bind
 `public void Bind()`
 
-**用途 / Purpose:** 处理 `bind` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VertexArrayObject 实例
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.Bind();
+```
 
 ### UnBind
 `public static void UnBind()`
 
-**用途 / Purpose:** 处理 `un bind` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+VertexArrayObject.UnBind();
+```
 
 ### Create
 `public static VertexArrayObject Create()`
 
-**用途 / Purpose:** 创建一个 `create` 实例或对象。
+**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+
+```csharp
+// 静态调用，不需要实例
+VertexArrayObject.Create();
+```
 
 ### CreateWithUVBuffer
 `public static VertexArrayObject CreateWithUVBuffer()`
 
-**用途 / Purpose:** 创建一个 `with u v buffer` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「with u v buffer」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+VertexArrayObject.CreateWithUVBuffer();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VertexArrayObject();
-value.LoadVertexData(0);
+// 通常从对应子系统 API 获取实例后调用
+VertexArrayObject vertexArrayObject = ...;
+vertexArrayObject.LoadVertexData(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

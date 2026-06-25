@@ -1,13 +1,7 @@
 ---
 title: "MapTimeImageBrushWidget"
+description: "Auto-generated class reference for MapTimeImageBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapTimeImageBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapTimeImageBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.MapBar
@@ -33,9 +27,10 @@ Treat `MapTimeImageBrushWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new MapTimeImageBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapTimeImageBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

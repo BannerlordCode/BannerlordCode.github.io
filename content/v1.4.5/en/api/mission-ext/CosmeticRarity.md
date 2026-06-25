@@ -1,20 +1,14 @@
 ---
 title: "CosmeticRarity"
+description: "Auto-generated class reference for CosmeticRarity."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CosmeticRarity`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CosmeticRarity
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum CosmeticRarity`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics/CosmeticsManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics/CosmeticsManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Cosmetics` to place it in
 ## Usage Example
 
 ```csharp
-CosmeticRarity example = CosmeticRarity.Value;
+// Obtain an instance from the relevant subsystem API
+CosmeticRarity instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

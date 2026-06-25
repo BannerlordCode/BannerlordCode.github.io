@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletSpectatorControl"
+description: "MissionGauntletSpectatorControl 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletSpectatorControl`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletSpectatorControl
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletSpectatorControl : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSpectatorControl.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer/MissionGauntletSpectatorControl.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "MissionGauntletSpectatorControl"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSpectatorControl 实例
+MissionGauntletSpectatorControl missionGauntletSpectatorControl = ...;
+missionGauntletSpectatorControl.EarlyStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSpectatorControl 实例
+MissionGauntletSpectatorControl missionGauntletSpectatorControl = ...;
+missionGauntletSpectatorControl.OnMissionTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletSpectatorControl 实例
+MissionGauntletSpectatorControl missionGauntletSpectatorControl = ...;
+missionGauntletSpectatorControl.OnMissionScreenFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionGauntletSpectatorControl();
-value.EarlyStart();
+// 通常从对应子系统 API 获取实例后调用
+MissionGauntletSpectatorControl missionGauntletSpectatorControl = ...;
+missionGauntletSpectatorControl.EarlyStart();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "RecruitmentCampaignBehavior"
+description: "RecruitmentCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RecruitmentCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RecruitmentCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -36,50 +30,99 @@ title: "RecruitmentCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.SyncData(dataStore);
+```
 
 ### GetMercenaryData
 `public RecruitmentCampaignBehavior.TownMercenaryData GetMercenaryData(Town town)`
 
-**用途 / Purpose:** 获取 `mercenary data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mercenary data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+var result = recruitmentCampaignBehavior.GetMercenaryData(town);
+```
 
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `hourly tick party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.HourlyTickParty(mobileParty);
+```
 
 ### OnBeforeSettlementEntered
 `public void OnBeforeSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** 当 `before settlement entered` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「before settlement entered」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.OnBeforeSettlementEntered(mobileParty, settlement, hero);
+```
 
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**用途 / Purpose:** 处理 `change mercenary type` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.ChangeMercenaryType(troopType, 0);
+```
 
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**用途 / Purpose:** 处理 `change mercenary count` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.ChangeMercenaryCount(0);
+```
 
 ### HasAvailableMercenary
 `public bool HasAvailableMercenary(Occupation occupation = Occupation.NotAssigned)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `available mercenary`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「available mercenary」。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+var result = recruitmentCampaignBehavior.HasAvailableMercenary(occupation.NotAssigned);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RecruitmentCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+RecruitmentCampaignBehavior recruitmentCampaignBehavior = ...;
+recruitmentCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

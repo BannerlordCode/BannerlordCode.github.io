@@ -1,20 +1,14 @@
 ---
 title: "PartyTransitionModel"
+description: "PartyTransitionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyTransitionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTransitionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyTransitionModel : MBGameModel<PartyTransitionModel>`
 **Base:** `MBGameModel<PartyTransitionModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTransitionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTransitionModel.cs`
 
 ## 概述
 
@@ -29,24 +23,43 @@ title: "PartyTransitionModel"
 ### GetTransitionTimeForEmbarking
 `public abstract CampaignTime GetTransitionTimeForEmbarking(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `transition time for embarking` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「transition time for embarking」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTransitionModel 实例
+PartyTransitionModel partyTransitionModel = ...;
+var result = partyTransitionModel.GetTransitionTimeForEmbarking(mobileParty);
+```
 
 ### GetTransitionTimeDisembarking
 `public abstract CampaignTime GetTransitionTimeDisembarking(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `transition time disembarking` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「transition time disembarking」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTransitionModel 实例
+PartyTransitionModel partyTransitionModel = ...;
+var result = partyTransitionModel.GetTransitionTimeDisembarking(mobileParty);
+```
 
 ### GetFleetTravelTimeToSettlement
 `public abstract CampaignTime GetFleetTravelTimeToSettlement(MobileParty mobileParty, Settlement targetSettlement)`
 
-**用途 / Purpose:** 获取 `fleet travel time to settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「fleet travel time to settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyTransitionModel 实例
+PartyTransitionModel partyTransitionModel = ...;
+var result = partyTransitionModel.GetFleetTravelTimeToSettlement(mobileParty, targetSettlement);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyTransitionModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyTransitionModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyThinkParams"
+description: "PartyThinkParams 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyThinkParams`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyThinkParams
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyThinkParams`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/PartyThinkParams.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/PartyThinkParams.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "PartyThinkParams"
 ### Reset
 `public void Reset(MobileParty mobileParty)`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyThinkParams 实例
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.Reset(mobileParty);
+```
 
 ### Initialization
 `public void Initialization()`
 
-**用途 / Purpose:** 初始化 `ialization` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「ialization」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PartyThinkParams 实例
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.Initialization();
+```
 
 ### SetArmyMembers
 `public void SetArmyMembers(MBList<MobileParty> armyMembers)`
 
-**用途 / Purpose:** 设置 `army members` 的值或状态。
+**用途 / Purpose:** 为 「army members」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyThinkParams 实例
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.SetArmyMembers(armyMembers);
+```
 
 ### TryGetBehaviorScore
 `public bool TryGetBehaviorScore(in AIBehaviorData aiBehaviorData, out float score)`
 
-**用途 / Purpose:** 尝试获取 `get behavior score`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「get behavior score」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 PartyThinkParams 实例
+PartyThinkParams partyThinkParams = ...;
+var result = partyThinkParams.TryGetBehaviorScore(aiBehaviorData, score);
+```
 
 ### SetBehaviorScore
 `public void SetBehaviorScore(in AIBehaviorData aiBehaviorData, float score)`
 
-**用途 / Purpose:** 设置 `behavior score` 的值或状态。
+**用途 / Purpose:** 为 「behavior score」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PartyThinkParams 实例
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.SetBehaviorScore(aiBehaviorData, 0);
+```
 
 ### AddBehaviorScore
 `public void AddBehaviorScore(in (AIBehaviorData, float) value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `behavior score`。
+**用途 / Purpose:** 将 「behavior score」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PartyThinkParams 实例
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.AddBehaviorScore((AIBehaviorData, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyThinkParams();
-value.Reset(mobileParty);
+// 通常从对应子系统 API 获取实例后调用
+PartyThinkParams partyThinkParams = ...;
+partyThinkParams.Reset(mobileParty);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

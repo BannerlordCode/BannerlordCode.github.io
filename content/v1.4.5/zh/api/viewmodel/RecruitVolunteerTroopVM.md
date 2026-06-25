@@ -1,20 +1,14 @@
 ---
 title: "RecruitVolunteerTroopVM"
+description: "RecruitVolunteerTroopVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RecruitVolunteerTroopVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitVolunteerTroopVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RecruitVolunteerTroopVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment/RecruitVolunteerTroopVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment/RecruitVolunteerTroopVM.cs`
 
 ## 概述
 
@@ -46,50 +40,99 @@ title: "RecruitVolunteerTroopVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.RefreshValues();
+```
 
 ### ExecuteRecruit
 `public void ExecuteRecruit()`
 
-**用途 / Purpose:** 执行 `recruit` 操作或流程。
+**用途 / Purpose:** 执行 「recruit」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteRecruit();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**用途 / Purpose:** 执行 `open encyclopedia` 操作或流程。
+**用途 / Purpose:** 执行 「open encyclopedia」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteOpenEncyclopedia();
+```
 
 ### ExecuteRemoveFromCart
 `public void ExecuteRemoveFromCart()`
 
-**用途 / Purpose:** 执行 `remove from cart` 操作或流程。
+**用途 / Purpose:** 执行 「remove from cart」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteRemoveFromCart();
+```
 
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 `begin hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteEndHint();
+```
 
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**用途 / Purpose:** 执行 `focus` 操作或流程。
+**用途 / Purpose:** 执行 「focus」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteFocus();
+```
 
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**用途 / Purpose:** 执行 `unfocus` 操作或流程。
+**用途 / Purpose:** 执行 「unfocus」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerTroopVM 实例
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.ExecuteUnfocus();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RecruitVolunteerTroopVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+RecruitVolunteerTroopVM recruitVolunteerTroopVM = ...;
+recruitVolunteerTroopVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

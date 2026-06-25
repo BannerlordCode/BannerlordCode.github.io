@@ -1,529 +1,907 @@
 ---
 title: "CampaignCheats"
+description: "CampaignCheats 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignCheats`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignCheats
 
-**命名空间:** TaleWorlds.CampaignSystem  
-**模块:** TaleWorlds.CampaignSystem  
-**类型:** public static class
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class CampaignCheats`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/CampaignCheats.cs`
 
 ## 概述
 
-`CampaignCheats
+`CampaignCheats` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-` ?Bannerlord 原版所有战役作弊命令的容器。它是一个纯静态类，包含上百个形如 
-
-`public static string XXX(List&lt;string&gt; strings)
-
-` 的方法，每个方法对应一条控制台命令——参数通过 
-
-`List&lt;string&gt;
-
-` 传入（已按空格切分），返回值是要回显到控制台的提示文本。这些方法通过 
-
-`[CommandLineCommandFunction]
-
-` 特性或控制台命令注册机制暴露给游戏?
-
-`CommandLine
-
-` 系统，玩家在战役中按 
-
-`Ctrl + ~
-
-` 打开控制台即可调用?
-所有命令在执行前都会通过 
-
-`CheckCheatUsage(ref ErrorType)
-
-` 检查两个前置条件：(1) 
-
-`Campaign.Current
-
-` 不为 null（战役已启动）；(2) 
-
-`Game.Current.CheatMode
-
-` ?true（配置文件中开启了作弊模式）。任一条件不满足都会返回错误信息并拒绝执行。`CheckParameters
-
-` 用于校验参数个数，`CheckHelp
-
-` 检测用户是否输入了 
-
-`help
-
-` 关键字以打印用法?
-模组开发者可以通过两种方式扩展作弊系统：一是直接在 
-
-`CampaignCheats
-
-` 之外添加自己的静态方法并用相同的命令注册机制登记（推荐，避免修改原版文件）；二是调用 
-
-`CampaignCheats
-
-` 的辅助方法（
-
-`CheckCheatUsage
-
-`、`CheckParameters
-
-`、`GetSeparatedNames
-
-`、`ConcatenateString
-
-`、`GetDefaultSettlement
-
-`）来简化自定义命令的实现。理解这些辅助方法的约定很重要——你的命令应当遵循同样的"返回字符串、先检查作弊模式、校验参?模式?
 ## 心智模型
 
-?
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-`CampaignCheats
+## 主要属性
 
-` 看作"控制台命令到战役动作的适配器层"。每条命令的签名几乎一致：
-
-`string Method(List&lt;string&gt; args)
-
-`，内部流程也几乎一致：
-
-`CheckCheatUsage
-
-` ?
-
-`CheckHelp
-
-` ?
-
-`CheckParameters
-
-` ?解析参数 ?调用战役 API ?返回结果文本。这种统一模式让你可以快速读懂任意一条命令，也让你添加自定义命令时有清晰的模板可循?
-命令大致分几类：**英雄/技?*（`AddSkillXpToHero
-
-`、`SetSkillMainHero
-
-`、`SetSkillCompanion
-
-`、`SetAllHeroSkills
-
-`、`SetSkillsOfGivenHero
-
-`）?*聚落经济**（`SetLoyaltyOfSettlement
-
-`、`SetProsperityOfSettlement
-
-`、`SetMilitiaOfSettlement
-
-`、`SetSecurityOfSettlement
-
-`、`SetFoodOfSettlement
-
-`、`SetHearthOfSettlement
-
-`）?*文化/氏族**（`SetHeroCulture
-
-`、`SetClanCulture
-
-`）?*导入导出**（`ImportMainHero
-
-`、`ExportMainHero
-
-`——把主角的捏?技?特质序列化为文本）?*可视?*（`ShowSettlements
-
-`、`HideSettlements
-
-`——在地图上显?隐藏所有聚落）?*关系**（`AddHeroRelation
-
-`、`ShowHeroRelation
-
-`、`ShowHeroRelation
-
-`）?*杂项**（`SetCraftingStamina
-
-`、`PrintPlayerTrait
-
-`、`PrintMainPartyPosition
-
-`）?
-## 主要属?
-\| 属?\| 类型 \| 说明 \|
-\|------\|------\|------\|
-\| 
-
-`GetDefaultSettlement
-
-` \| 
-
-`Settlement
-
-`（静态只读） \| 返回主角的家乡聚落；若为 null 则随机返回一个城镇的 Settlement。许多聚落类命令在用户未指定目标时用它作为默认操作对?\|
+| Name | Signature |
+|------|-----------|
+| `GetDefaultSettlement` | `public static Settlement GetDefaultSettlement { get; }` |
 
 ## 主要方法
 
 ### CheckCheatUsage
+`public static bool CheckCheatUsage(ref string ErrorType)`
 
-`
+**用途 / Purpose:** 检查「cheat usage」在当前对象中是否成立。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.CheckCheatUsage(errorType);
+```
 
-`csharp
-public static bool CheckCheatUsage(ref string ErrorType)
-`
-
-`
-
-`
-
-检查当前是否允许执行作弊命令。若 
-
-`Campaign.Current == null
-
-` ?
-
-`ErrorType = "Campaign was not started."
-
-` 并返?false；若 
-
-`Game.Current.CheatMode
-
-` ?false ?
-
-`ErrorType = "Cheat mode is disabled!"
-
-` 并返?false。自定义命令应在第一行就调用此方法。`ref ErrorType
-
-` 是一?out 参数模式的变体——调用方先声明局部变量，传入后根据返回值决定是否使用错误文本?
 ### CheckParameters
+`public static bool CheckParameters(List<string> strings, int ParameterCount)`
 
-`
+**用途 / Purpose:** 检查「parameters」在当前对象中是否成立。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.CheckParameters(strings, 0);
+```
 
-`csharp
-public static bool CheckParameters(List&lt;string&gt; strings, int ParameterCount)
-`
-
-`
-
-`
-
-校验参数列表长度是否等于 
-
-`ParameterCount
-
-`。空列表只在 
-
-`ParameterCount == 0
-
-` 时通过。这是统一的参数个数校验入口——自定义命令应先?
-
-`CheckHelp
-
-` 检测帮助请求，再用此方法校验个数，最后解析具体值?
 ### CheckHelp
+`public static bool CheckHelp(List<string> strings)`
 
-`
+**用途 / Purpose:** 检查「help」在当前对象中是否成立。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.CheckHelp(strings);
+```
 
-`csharp
-public static bool CheckHelp(List&lt;string&gt; strings)
-`
-
-`
-
-`
-
-检测用户是否在命令后输入了 
-
-`help
-
-` 关键字（不区分大小写）。若是，命令应返回该命令的用法说明而不是真正执行。这是所有命令的标准帮助协议?
 ### GetSeparatedNames
+`public static List<string> GetSeparatedNames(List<string> strings, bool removeEmptySpaces = false)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「separated names」 的结果。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.GetSeparatedNames(strings, false);
+```
 
-`csharp
-public static List&lt;string&gt; GetSeparatedNames(List&lt;string&gt; strings, bool removeEmptySpaces = false)
-`
-
-`
-
-`
-
-把可能用引号或下划线连接的多词名称拆分为独立名称列表。`removeEmptySpaces
-
-` ?true 时会移除结果中的空白项。用于处?设置英雄?这类需要复合名称参数的命令?
 ### ConcatenateString
+`public static string ConcatenateString(List<string> strings)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ConcatenateString(strings);
+```
 
-`csharp
-public static string ConcatenateString(List&lt;string&gt; strings)
-`
+### ImportMainHero
+`public static string ImportMainHero(List<string> strings)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ImportMainHero(strings);
+```
 
-把参数列表用空格重新连接成一个字符串。用于处?给英雄添加备?这类把剩余参数整体当作文本的命令?
-### ImportMainHero / ExportMainHero
+### ExportMainHero
+`public static string ExportMainHero(List<string> strings)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ExportMainHero(strings);
+```
 
-`csharp
-public static string ImportMainHero(List&lt;string&gt; strings)
-public static string ExportMainHero(List&lt;string&gt; strings)
-`
-
-`
-
-`
-
-`ExportMainHero
-
-` 把主角的捏脸参数、技能、特质、属性等序列化为文本文件；`ImportMainHero
-
-` 从文件读取并应用。常用于在不同存档间迁移角色。返回值是操作结果提示?
-### AddSkillXpToHero
-
-`
-
-`
-
-`csharp
-public static string AddSkillXpToHero(List&lt;string&gt; strings)
-`
-
-`
-
-`
-
-给指定英雄添加指定技能的经验值。参数格式：
-
-`hero_name skill_name xp_amount
-
-`。会查找英雄（按名称匹配）和技能（?
-
-`StringId
-
-` 匹配?
-
-`OneHanded
-
-`），然后调用 
-
-`Hero.SetSkillXp
-
-` / 
-
-`Hero.AddSkillXp
-
-`?
-### SetLoyaltyOfSettlement / SetProsperityOfSettlement / SetMilitiaOfSettlement / SetSecurityOfSettlement / SetFoodOfSettlement / SetHearthOfSettlement
-
-`
-
-`
-
-`csharp
-public static string SetLoyaltyOfSettlement(List&lt;string&gt; strings)
-// 其余 5 个签名相?
-
-`
-
-`
-
-`
-
-一组聚落经济参数设置命令。参数格式：
-
-`settlement_name value
-
-`。分别设置聚落的忠诚度、繁荣度、民兵数、安全度、食物储备、村庄炉灶（hearth）。值会经过 
-
-`IsValueAcceptable
-
-` 范围校验?
-### SetHeroCulture / SetClanCulture
-
-`
-
-`
-
-`csharp
-public static string SetHeroCulture(List&lt;string&gt; strings)
-public static string SetClanCulture(List&lt;string&gt; strings)
-`
-
-`
-
-`
-
-改变主角或氏族的文化。参数格式：
-
-`culture_id
-
-`（如 
-
-`empire
-
-`、`vlandia
-
-`）。会触发文化相关的重算（可招募兵种、可用装备等）?
 ### SetCraftingStamina
+`public static string SetCraftingStamina(List<string> strings)`
 
-`
+**用途 / Purpose:** 为 「crafting stamina」 赋新值，并同步更新对象内部状态。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetCraftingStamina(strings);
+```
 
-`csharp
-public static string SetCraftingStamina(List&lt;string&gt; strings)
-`
+### SetHeroCulture
+`public static string SetHeroCulture(List<string> strings)`
 
-`
+**用途 / Purpose:** 为 「hero culture」 赋新值，并同步更新对象内部状态。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetHeroCulture(strings);
+```
 
-设置主角的锻造体力为指定值。绕过正常的时间恢复机制，常用于测试锻造配方?
-### ShowSettlements / HideSettlements
+### SetClanCulture
+`public static string SetClanCulture(List<string> strings)`
 
-`
+**用途 / Purpose:** 为 「clan culture」 赋新值，并同步更新对象内部状态。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetClanCulture(strings);
+```
 
-`csharp
-public static string ShowSettlements(List&lt;string&gt; strings)
-public static string HideSettlements(List&lt;string&gt; strings)
-`
+### AddSkillXpToHero
+`public static string AddSkillXpToHero(List<string> strings)`
 
-`
+**用途 / Purpose:** 将 「skill xp to hero」 添加到当前容器或状态中。
 
-`
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddSkillXpToHero(strings);
+```
 
-在战役大地图上强制显?隐藏所有聚落图标。用于截图或调试地图可见性逻辑?
+### PrintPlayerTrait
+`public static string PrintPlayerTrait(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintPlayerTrait(strings);
+```
+
+### ShowSettlements
+`public static string ShowSettlements(List<string> strings)`
+
+**用途 / Purpose:** 显示「settlements」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ShowSettlements(strings);
+```
+
+### SetSkillsOfGivenHero
+`public static string SetSkillsOfGivenHero(List<string> strings)`
+
+**用途 / Purpose:** 为 「skills of given hero」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetSkillsOfGivenHero(strings);
+```
+
+### HideSettlements
+`public static string HideSettlements(List<string> strings)`
+
+**用途 / Purpose:** 隐藏「settlements」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.HideSettlements(strings);
+```
+
+### SetSkillMainHero
+`public static string SetSkillMainHero(List<string> strings)`
+
+**用途 / Purpose:** 为 「skill main hero」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetSkillMainHero(strings);
+```
+
+### SetSkillCompanion
+`public static string SetSkillCompanion(List<string> strings)`
+
+**用途 / Purpose:** 为 「skill companion」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetSkillCompanion(strings);
+```
+
+### SetAllSkillsOfAllCompanions
+`public static string SetAllSkillsOfAllCompanions(List<string> strings)`
+
+**用途 / Purpose:** 为 「all skills of all companions」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetAllSkillsOfAllCompanions(strings);
+```
+
+### SetAllHeroSkills
+`public static string SetAllHeroSkills(List<string> strings)`
+
+**用途 / Purpose:** 为 「all hero skills」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetAllHeroSkills(strings);
+```
+
+### SetLoyaltyOfSettlement
+`public static string SetLoyaltyOfSettlement(List<string> strings)`
+
+**用途 / Purpose:** 为 「loyalty of settlement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetLoyaltyOfSettlement(strings);
+```
+
+### SetProsperityOfSettlement
+`public static string SetProsperityOfSettlement(List<string> strings)`
+
+**用途 / Purpose:** 为 「prosperity of settlement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetProsperityOfSettlement(strings);
+```
+
+### SetMilitiaOfSettlement
+`public static string SetMilitiaOfSettlement(List<string> strings)`
+
+**用途 / Purpose:** 为 「militia of settlement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetMilitiaOfSettlement(strings);
+```
+
+### SetSecurityOfSettlement
+`public static string SetSecurityOfSettlement(List<string> strings)`
+
+**用途 / Purpose:** 为 「security of settlement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetSecurityOfSettlement(strings);
+```
+
+### SetFoodOfSettlement
+`public static string SetFoodOfSettlement(List<string> strings)`
+
+**用途 / Purpose:** 为 「food of settlement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetFoodOfSettlement(strings);
+```
+
+### SetHearthOfSettlement
+`public static string SetHearthOfSettlement(List<string> strings)`
+
+**用途 / Purpose:** 为 「hearth of settlement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetHearthOfSettlement(strings);
+```
+
+### ShowHeroRelation
+`public static string ShowHeroRelation(List<string> strings)`
+
+**用途 / Purpose:** 显示「hero relation」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ShowHeroRelation(strings);
+```
+
+### AddHeroRelation
+`public static string AddHeroRelation(List<string> strings)`
+
+**用途 / Purpose:** 将 「hero relation」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddHeroRelation(strings);
+```
+
+### PrintMainPartyPosition
+`public static string PrintMainPartyPosition(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintMainPartyPosition(strings);
+```
+
+### AddCraftingMaterials
+`public static string AddCraftingMaterials(List<string> strings)`
+
+**用途 / Purpose:** 将 「crafting materials」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddCraftingMaterials(strings);
+```
+
+### HealMainParty
+`public static string HealMainParty(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.HealMainParty(strings);
+```
+
+### DeclareWar
+`public static string DeclareWar(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.DeclareWar(strings);
+```
+
+### AddItemToPlayerParty
+`public static string AddItemToPlayerParty(List<string> strings)`
+
+**用途 / Purpose:** 将 「item to player party」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddItemToPlayerParty(strings);
+```
+
+### DeclarePeace
+`public static string DeclarePeace(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.DeclarePeace(strings);
+```
+
+### AddInfluence
+`public static string AddInfluence(List<string> strings)`
+
+**用途 / Purpose:** 将 「influence」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddInfluence(strings);
+```
+
+### AddRenown
+`public static string AddRenown(List<string> strings)`
+
+**用途 / Purpose:** 将 「renown」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddRenown(strings);
+```
+
+### AddGoldToHero
+`public static string AddGoldToHero(List<string> strings)`
+
+**用途 / Purpose:** 将 「gold to hero」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddGoldToHero(strings);
+```
+
+### AddDevelopment
+`public static string AddDevelopment(List<string> strings)`
+
+**用途 / Purpose:** 将 「development」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddDevelopment(strings);
+```
+
+### ActivateAllPolicies
+`public static string ActivateAllPolicies(List<string> strings)`
+
+**用途 / Purpose:** 激活「all policies」对应的资源、状态或功能。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ActivateAllPolicies(strings);
+```
+
+### SetPlayerReputationTrait
+`public static string SetPlayerReputationTrait(List<string> strings)`
+
+**用途 / Purpose:** 为 「player reputation trait」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetPlayerReputationTrait(strings);
+```
+
+### GiveSettlementToPlayer
+`public static string GiveSettlementToPlayer(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.GiveSettlementToPlayer(strings);
+```
+
+### GiveSettlementToKingdom
+`public static string GiveSettlementToKingdom(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.GiveSettlementToKingdom(strings);
+```
+
+### AddPowerToNotable
+`public static string AddPowerToNotable(List<string> strings)`
+
+**用途 / Purpose:** 将 「power to notable」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddPowerToNotable(strings);
+```
+
+### LeadYourFaction
+`public static string LeadYourFaction(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.LeadYourFaction(strings);
+```
+
+### PrintHeroesSuitableForMarriage
+`public static string PrintHeroesSuitableForMarriage(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintHeroesSuitableForMarriage(strings);
+```
+
+### MarryPlayerWithHero
+`public static string MarryPlayerWithHero(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.MarryPlayerWithHero(strings);
+```
+
+### MarryHeroWithHero
+`public static string MarryHeroWithHero(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.MarryHeroWithHero(strings);
+```
+
+### IsHeroSuitableForMarriageWithPlayer
+`public static string IsHeroSuitableForMarriageWithPlayer(List<string> strings)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「hero suitable for marriage with player」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.IsHeroSuitableForMarriageWithPlayer(strings);
+```
+
+### CreatePlayerKingdom
+`public static string CreatePlayerKingdom(List<string> strings)`
+
+**用途 / Purpose:** 构建一个新的 「player kingdom」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.CreatePlayerKingdom(strings);
+```
+
+### CreateRandomClan
+`public static string CreateRandomClan(List<string> strings)`
+
+**用途 / Purpose:** 构建一个新的 「random clan」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.CreateRandomClan(strings);
+```
+
+### LeadKingdom
+`public static string LeadKingdom(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.LeadKingdom(strings);
+```
+
+### JoinKingdom
+`public static string JoinKingdom(List<string> strings)`
+
+**用途 / Purpose:** 把若干「kingdom」连接成一个整体。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.JoinKingdom(strings);
+```
+
+### JoinKingdomAsMercenary
+`public static string JoinKingdomAsMercenary(List<string> strings)`
+
+**用途 / Purpose:** 把若干「kingdom as mercenary」连接成一个整体。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.JoinKingdomAsMercenary(strings);
+```
+
+### MakeTradeAgreement
+`public static string MakeTradeAgreement(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.MakeTradeAgreement(strings);
+```
+
+### PrintCriminalRatings
+`public static string PrintCriminalRatings(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintCriminalRatings(strings);
+```
+
+### SetMainHeroAge
+`public static string SetMainHeroAge(List<string> strings)`
+
+**用途 / Purpose:** 为 「main hero age」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetMainHeroAge(strings);
+```
+
+### SetMainPartyAttackable
+`public static string SetMainPartyAttackable(List<string> strings)`
+
+**用途 / Purpose:** 为 「main party attackable」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetMainPartyAttackable(strings);
+```
+
+### AddMoraleToParty
+`public static string AddMoraleToParty(List<string> strings)`
+
+**用途 / Purpose:** 将 「morale to party」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddMoraleToParty(strings);
+```
+
+### BoostCohesionOfArmy
+`public static string BoostCohesionOfArmy(List<string> strings)`
+
+**用途 / Purpose:** 提升「cohesion of army」的数值或强度。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.BoostCohesionOfArmy(strings);
+```
+
+### AddFocusPointCheat
+`public static string AddFocusPointCheat(List<string> strings)`
+
+**用途 / Purpose:** 将 「focus point cheat」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddFocusPointCheat(strings);
+```
+
+### AddAttributePointsCheat
+`public static string AddAttributePointsCheat(List<string> strings)`
+
+**用途 / Purpose:** 将 「attribute points cheat」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddAttributePointsCheat(strings);
+```
+
+### PrintSettlementsWithTournament
+`public static string PrintSettlementsWithTournament(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintSettlementsWithTournament(strings);
+```
+
+### ConvertListToMultiLine
+`public static string ConvertListToMultiLine(List<string> strings)`
+
+**用途 / Purpose:** 把「list to multi line」转换为另一种表示或类型。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ConvertListToMultiLine(strings);
+```
+
+### PrintAllIssues
+`public static string PrintAllIssues(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintAllIssues(strings);
+```
+
+### GiveWorkshopToPlayer
+`public static string GiveWorkshopToPlayer(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.GiveWorkshopToPlayer(strings);
+```
+
+### MakePregnant
+`public static string MakePregnant(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.MakePregnant(strings);
+```
+
+### GenerateChild
+`public static Hero GenerateChild(Hero hero, bool isFemale, CultureObject culture)`
+
+**用途 / Purpose:** 生成「child」的实例、数据或表示。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.GenerateChild(hero, false, culture);
+```
+
+### AddPrisonerToParty
+`public static string AddPrisonerToParty(List<string> strings)`
+
+**用途 / Purpose:** 将 「prisoner to party」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddPrisonerToParty(strings);
+```
+
+### ClearSettlementDefense
+`public static string ClearSettlementDefense(List<string> strings)`
+
+**用途 / Purpose:** 清空当前对象中的「settlement defense」。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ClearSettlementDefense(strings);
+```
+
+### AddPrisonersXp
+`public static string AddPrisonersXp(List<string> strings)`
+
+**用途 / Purpose:** 将 「prisoners xp」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddPrisonersXp(strings);
+```
+
+### SetHeroTrait
+`public static string SetHeroTrait(List<string> strings)`
+
+**用途 / Purpose:** 为 「hero trait」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetHeroTrait(strings);
+```
+
+### RemoveMilitiasFromSettlement
+`public static string RemoveMilitiasFromSettlement(List<string> strings)`
+
+**用途 / Purpose:** 从当前容器或状态中移除 「militias from settlement」。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.RemoveMilitiasFromSettlement(strings);
+```
+
+### CancelQuestCheat
+`public static string CancelQuestCheat(List<string> strings)`
+
+**用途 / Purpose:** 检查当前对象是否满足 「cel quest cheat」 的前置条件。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.CancelQuestCheat(strings);
+```
+
+### KickCompanionFromParty
+`public static string KickCompanionFromParty(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.KickCompanionFromParty(strings);
+```
+
+### AddTroopsXp
+`public static string AddTroopsXp(List<string> strings)`
+
+**用途 / Purpose:** 将 「troops xp」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddTroopsXp(strings);
+```
+
+### PrintGameplayStatistics
+`public static string PrintGameplayStatistics(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintGameplayStatistics(strings);
+```
+
+### SetAllArmiesAndPartiesVisible
+`public static string SetAllArmiesAndPartiesVisible(List<string> strings)`
+
+**用途 / Purpose:** 为 「all armies and parties visible」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetAllArmiesAndPartiesVisible(strings);
+```
+
+### PrintStrengthOfLordParties
+`public static string PrintStrengthOfLordParties(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintStrengthOfLordParties(strings);
+```
+
+### ToggleInformationRestrictions
+`public static string ToggleInformationRestrictions(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ToggleInformationRestrictions(strings);
+```
+
+### PrintStrengthOfFactions
+`public static string PrintStrengthOfFactions(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.PrintStrengthOfFactions(strings);
+```
+
+### AddSupportersForMainHero
+`public static string AddSupportersForMainHero(List<string> strings)`
+
+**用途 / Purpose:** 将 「supporters for main hero」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddSupportersForMainHero(strings);
+```
+
+### SetCampaignSpeed
+`public static string SetCampaignSpeed(List<string> strings)`
+
+**用途 / Purpose:** 为 「campaign speed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetCampaignSpeed(strings);
+```
+
+### ShowHideouts
+`public static string ShowHideouts(List<string> strings)`
+
+**用途 / Purpose:** 显示「hideouts」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.ShowHideouts(strings);
+```
+
+### HideHideouts
+`public static string HideHideouts(List<string> strings)`
+
+**用途 / Purpose:** 隐藏「hideouts」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.HideHideouts(strings);
+```
+
+### UnlockCraftingPieces
+`public static string UnlockCraftingPieces(List<string> strings)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.UnlockCraftingPieces(strings);
+```
+
+### SetRebellionEnabled
+`public static string SetRebellionEnabled(List<string> strings)`
+
+**用途 / Purpose:** 为 「rebellion enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.SetRebellionEnabled(strings);
+```
+
+### AddTroopsToParty
+`public static string AddTroopsToParty(List<string> strings)`
+
+**用途 / Purpose:** 将 「troops to party」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.AddTroopsToParty(strings);
+```
+
+### IsPartySuitableToUseCheat
+`public static bool IsPartySuitableToUseCheat(PartyBase party)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「party suitable to use cheat」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+CampaignCheats.IsPartySuitableToUseCheat(party);
+```
+
 ## 使用示例
 
-### 示例 1: 添加自定义作弊命?
-**场景**: 模组想加一?
+```csharp
+CampaignCheats.CheckCheatUsage(errorType);
+```
 
-`give_gold
-
-` 命令给主角加金币?
-`
-
-`
-
-`csharp
-public static class MyModCheats
-{
-    [CommandLineCommandFunction("give_gold")]
-    public static string GiveGold(List&lt;string&gt; strings)
-    {
-        string error = "";
-        if (!CampaignCheats.CheckCheatUsage(ref error))
-            return error;
-
-        if (CampaignCheats.CheckHelp(strings))
-            return "Usage: give_gold &lt;amount&gt;  -- Gives gold to the main hero.";
-
-        if (!CampaignCheats.CheckParameters(strings, 1))
-            return "Error: requires exactly 1 parameter (amount).";
-
-        int amount;
-        if (!int.TryParse(strings[0], out amount) \|\| amount &lt; 0)
-            return "Error: amount must be a non-negative integer.";
-
-        Hero.MainHero.Gold += amount;
-        return $"Gave {amount} gold to {Hero.MainHero.Name}. Total: {Hero.MainHero.Gold}";
-    }
-}
-`
-
-`
-
-`
-
-**要点**: 遵循原版的三段式模式（`CheckCheatUsage
-
-` ?
-
-`CheckHelp
-
-` ?
-
-`CheckParameters
-
-`）；?
-
-`[CommandLineCommandFunction]
-
-` 特性登记命令名；返回值会回显到控制台?
-### 示例 2: 在自定义逻辑中复用辅助方?
-**场景**: 模组的某个调试工具需要找到一个默认聚落作为测试目标?
-`
-
-`
-
-`csharp
-Settlement target = CampaignCheats.GetDefaultSettlement;
-InformationManager.DisplayMessage(
-    new InformationMessage($"Default settlement: {target.Name}"));
-`
-
-`
-
-`
-
-**要点**: 
-
-`GetDefaultSettlement
-
-` 优先返回主角家乡，没有则随机取一个城镇——比自己写查找逻辑更稳健?
-### 示例 3: 批量设置聚落参数
-
-**场景**: 测试模组的经济平衡时，想把所有城镇的繁荣度统一设为固定值?
-`
-
-`
-
-`csharp
-// 不能直接调用 CampaignCheats.SetProsperityOfSettlement（它是命令适配器）?// 而应直接调用底层 API?foreach (Town town in Town.AllTowns)
-{
-    town.Prosperity = 5000f;
-}
-`
-
-`
-
-`
-
-**要点**: 
-
-`CampaignCheats
-
-` 的方法是为控制台交互设计的（解析字符串、返回提示），程序化操作应直接调用战?API（如 
-
-`Town.Prosperity
-
-`）。`CampaignCheats
-
-` 方法本身不是"业务 API"，只?命令入口"?
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+- [本区域目录](../)

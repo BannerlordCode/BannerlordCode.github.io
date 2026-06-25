@@ -1,13 +1,7 @@
 ---
 title: "SelectorVM"
+description: "Auto-generated class reference for SelectorVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SelectorVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SelectorVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Selector
@@ -38,60 +32,121 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Selector` to place it 
 ### Refresh
 `public void Refresh(IEnumerable<string> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.Refresh(list, 0, onChange);
+```
 
 ### Refresh
 `public void Refresh(IEnumerable<TextObject> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.Refresh(list, 0, onChange);
+```
 
 ### Refresh
 `public void Refresh(IEnumerable<T> list, int selectedIndex, Action<SelectorVM<T>> onChange)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.Refresh(list, 0, onChange);
+```
 
 ### SetOnChangeAction
 `public void SetOnChangeAction(Action<SelectorVM<T>> onChange)`
 
-**Purpose:** Sets the value or state of `on change action`.
+**Purpose:** Assigns a new value to `on change action` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.SetOnChangeAction(onChange);
+```
 
 ### AddItem
 `public void AddItem(T item)`
 
 **Purpose:** Adds `item` to the current collection or state.
 
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.AddItem(item);
+```
+
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** Executes the `randomize` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `randomize`.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.ExecuteRandomize();
+```
 
 ### ExecuteSelectNextItem
 `public void ExecuteSelectNextItem()`
 
-**Purpose:** Executes the `select next item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select next item`.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.ExecuteSelectNextItem();
+```
 
 ### ExecuteSelectPreviousItem
 `public void ExecuteSelectPreviousItem()`
 
-**Purpose:** Executes the `select previous item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select previous item`.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.ExecuteSelectPreviousItem();
+```
 
 ### GetCurrentItem
 `public T GetCurrentItem()`
 
-**Purpose:** Gets the current value of `current item`.
+**Purpose:** Reads and returns the `current item` value held by the current object.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+var result = selectorVM.GetCurrentItem();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SelectorVM from the subsystem API first
+SelectorVM selectorVM = ...;
+selectorVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SelectorVM();
-value.Refresh(list, 0, onChange);
+// Typically call this after obtaining an instance from the subsystem API
+SelectorVM selectorVM = ...;
+selectorVM.Refresh(list, 0, onChange);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionArenaPracticeFightView"
+description: "Auto-generated class reference for MissionArenaPracticeFightView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionArenaPracticeFightView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionArenaPracticeFightView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionArenaPracticeFightView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionArenaPracticeFightView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionArenaPracticeFightView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionArenaPracticeFightView` as a View-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var view = new MissionArenaPracticeFightView();
+// Retrieve this view from the subsystem API or scene
+MissionArenaPracticeFightView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

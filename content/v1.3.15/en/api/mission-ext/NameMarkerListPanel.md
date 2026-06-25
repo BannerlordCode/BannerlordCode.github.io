@@ -1,13 +1,7 @@
 ---
 title: "NameMarkerListPanel"
+description: "Auto-generated class reference for NameMarkerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NameMarkerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NameMarkerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
@@ -59,20 +53,33 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMa
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of NameMarkerListPanel from the subsystem API first
+NameMarkerListPanel nameMarkerListPanel = ...;
+nameMarkerListPanel.Update(0);
+```
 
 ### UpdateRectangle
 `public void UpdateRectangle()`
 
-**Purpose:** Updates the state or data of `rectangle`.
+**Purpose:** Recalculates and stores the latest representation of `rectangle`.
+
+```csharp
+// Obtain an instance of NameMarkerListPanel from the subsystem API first
+NameMarkerListPanel nameMarkerListPanel = ...;
+nameMarkerListPanel.UpdateRectangle();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NameMarkerListPanel();
-value.Update(0);
+// Typically call this after obtaining an instance from the subsystem API
+NameMarkerListPanel nameMarkerListPanel = ...;
+nameMarkerListPanel.Update(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "Trebuchet"
+description: "Auto-generated class reference for Trebuchet."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Trebuchet`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Trebuchet
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class Trebuchet : RangedSiegeWeapon, ISpawnable`
 **Base:** `RangedSiegeWeapon`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Trebuchet.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Trebuchet.cs`
 
 ## Overview
 
@@ -29,60 +23,121 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+var result = trebuchet.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+var result = trebuchet.GetDescriptionText(gameEntity);
+```
 
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Gets the current value of `siege engine type`.
+**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+var result = trebuchet.GetSiegeEngineType();
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+var result = trebuchet.CreateAIBehaviorObject();
+```
 
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Handles logic related to `after mission start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+trebuchet.AfterMissionStart();
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Handles logic related to `process target value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+var result = trebuchet.ProcessTargetValue(0, flags);
+```
 
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**Purpose:** Gets the current value of `target flags`.
+**Purpose:** Reads and returns the `target flags` value held by the current object.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+var result = trebuchet.GetTargetFlags();
+```
 
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** Gets the current value of `target value`.
+**Purpose:** Reads and returns the `target value` value held by the current object.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+var result = trebuchet.GetTargetValue(weaponPos);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+var result = trebuchet.GetTickRequirement();
+```
 
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** Sets the value or state of `spawned from spawner`.
+**Purpose:** Assigns a new value to `spawned from spawner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Trebuchet from the subsystem API first
+Trebuchet trebuchet = ...;
+trebuchet.SetSpawnedFromSpawner();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Trebuchet();
-value.GetActionTextForStandingPoint(usableGameObject);
+// Typically call this after obtaining an instance from the subsystem API
+Trebuchet trebuchet = ...;
+trebuchet.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

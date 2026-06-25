@@ -1,13 +1,7 @@
 ---
 title: "ManagedToUnmanagedScopedCallCounter"
+description: "Auto-generated class reference for ManagedToUnmanagedScopedCallCounter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedToUnmanagedScopedCallCounter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ManagedToUnmanagedScopedCallCounter
 
 **Namespace:** TaleWorlds.DotNet
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Handles logic related to `dispose`.
+**Purpose:** Releases unmanaged resources held by the current object.
+
+```csharp
+// Obtain an instance of ManagedToUnmanagedScopedCallCounter from the subsystem API first
+ManagedToUnmanagedScopedCallCounter managedToUnmanagedScopedCallCounter = ...;
+managedToUnmanagedScopedCallCounter.Dispose();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ManagedToUnmanagedScopedCallCounter();
-value.Dispose();
+// Typically call this after obtaining an instance from the subsystem API
+ManagedToUnmanagedScopedCallCounter managedToUnmanagedScopedCallCounter = ...;
+managedToUnmanagedScopedCallCounter.Dispose();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

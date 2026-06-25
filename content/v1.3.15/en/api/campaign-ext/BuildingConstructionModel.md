@@ -1,13 +1,7 @@
 ---
 title: "BuildingConstructionModel"
+description: "Auto-generated class reference for BuildingConstructionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingConstructionModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BuildingConstructionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -38,29 +32,54 @@ Treat `BuildingConstructionModel` as a Model-style extension point: first identi
 ### CalculateDailyConstructionPower
 `public abstract ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate daily construction power`.
+**Purpose:** Calculates the current value or result of `daily construction power`.
+
+```csharp
+// Obtain an instance of BuildingConstructionModel from the subsystem API first
+BuildingConstructionModel buildingConstructionModel = ...;
+var result = buildingConstructionModel.CalculateDailyConstructionPower(town, false);
+```
 
 ### CalculateDailyConstructionPowerWithoutBoost
 `public abstract int CalculateDailyConstructionPowerWithoutBoost(Town town)`
 
-**Purpose:** Handles logic related to `calculate daily construction power without boost`.
+**Purpose:** Calculates the current value or result of `daily construction power without boost`.
+
+```csharp
+// Obtain an instance of BuildingConstructionModel from the subsystem API first
+BuildingConstructionModel buildingConstructionModel = ...;
+var result = buildingConstructionModel.CalculateDailyConstructionPowerWithoutBoost(town);
+```
 
 ### GetBoostCost
 `public abstract int GetBoostCost(Town town)`
 
-**Purpose:** Gets the current value of `boost cost`.
+**Purpose:** Reads and returns the `boost cost` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingConstructionModel from the subsystem API first
+BuildingConstructionModel buildingConstructionModel = ...;
+var result = buildingConstructionModel.GetBoostCost(town);
+```
 
 ### GetBoostAmount
 `public abstract int GetBoostAmount(Town town)`
 
-**Purpose:** Gets the current value of `boost amount`.
+**Purpose:** Reads and returns the `boost amount` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingConstructionModel from the subsystem API first
+BuildingConstructionModel buildingConstructionModel = ...;
+var result = buildingConstructionModel.GetBoostAmount(town);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBuildingConstructionModel();
+// Typically obtained from a subsystem API or factory
+BuildingConstructionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

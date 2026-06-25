@@ -1,13 +1,7 @@
 ---
 title: "MBTeam"
+description: "Auto-generated class reference for MBTeam."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTeam`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBTeam
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MBTeam from the subsystem API first
+MBTeam mBTeam = ...;
+var result = mBTeam.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MBTeam from the subsystem API first
+MBTeam mBTeam = ...;
+var result = mBTeam.Equals(obj);
+```
 
 ### IsEnemyOf
 `public bool IsEnemyOf(MBTeam otherTeam)`
 
-**Purpose:** Handles logic related to `is enemy of`.
+**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+
+```csharp
+// Obtain an instance of MBTeam from the subsystem API first
+MBTeam mBTeam = ...;
+var result = mBTeam.IsEnemyOf(otherTeam);
+```
 
 ### SetIsEnemyOf
 `public void SetIsEnemyOf(MBTeam otherTeam, bool isEnemyOf)`
 
-**Purpose:** Sets the value or state of `is enemy of`.
+**Purpose:** Assigns a new value to `is enemy of` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MBTeam from the subsystem API first
+MBTeam mBTeam = ...;
+mBTeam.SetIsEnemyOf(otherTeam, false);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MBTeam from the subsystem API first
+MBTeam mBTeam = ...;
+var result = mBTeam.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBTeam();
-value.GetHashCode();
+// Typically call this after obtaining an instance from the subsystem API
+MBTeam mBTeam = ...;
+mBTeam.GetHashCode();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

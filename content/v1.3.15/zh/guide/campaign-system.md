@@ -382,18 +382,18 @@ public class MySaveableData
 
 ## 相关 API / Related API
 
-- [Campaign API](../api/campaign-ext/Campaign)
-- [MobileParty API](../api/campaign/MobileParty)
-- [Kingdom API](../api/campaign/Kingdom)
-- [Clan API](../api/campaign/Clan)
-- [Settlement API](../api/campaign-ext/Settlement)
+- [Campaign API](../api/campaign/Campaign/)
+- [MobileParty API](../api/campaign/MobileParty/)
+- [Kingdom API](../api/campaign/Kingdom/)
+- [Clan API](../api/campaign/Clan/)
+- [Settlement API](../api/campaign/Settlement/)
 
 ---
 
 ## 下一节 / Next Section
 
-- [存档系统](./save-system-guide) - 确保你的数据正确保存
-- [任务系统](./mission-system) - 自定义战斗
+- [存档系统](save-system-guide/) - 确保你的数据正确保存
+- [任务系统](mission-system/) - 自定义战斗
 
 ## 使用示例
 

@@ -1,13 +1,7 @@
 ---
 title: "VoiceOverModel"
+description: "Auto-generated class reference for VoiceOverModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VoiceOverModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VoiceOverModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ Treat `VoiceOverModel` as a Model-style extension point: first identify who crea
 ### GetSoundPathForCharacter
 `public abstract string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**Purpose:** Gets the current value of `sound path for character`.
+**Purpose:** Reads and returns the `sound path for character` value held by the current object.
+
+```csharp
+// Obtain an instance of VoiceOverModel from the subsystem API first
+VoiceOverModel voiceOverModel = ...;
+var result = voiceOverModel.GetSoundPathForCharacter(character, voiceObject);
+```
 
 ### GetAccentClass
 `public abstract string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**Purpose:** Gets the current value of `accent class`.
+**Purpose:** Reads and returns the `accent class` value held by the current object.
+
+```csharp
+// Obtain an instance of VoiceOverModel from the subsystem API first
+VoiceOverModel voiceOverModel = ...;
+var result = voiceOverModel.GetAccentClass(culture, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomVoiceOverModel();
+// Typically obtained from a subsystem API or factory
+VoiceOverModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

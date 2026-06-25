@@ -1,13 +1,7 @@
 ---
 title: "CharacterAttributesResolver"
+description: "Auto-generated class reference for CharacterAttributesResolver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterAttributesResolver`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterAttributesResolver
 
 **Namespace:** TaleWorlds.CampaignSystem.SaveCompability
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.SaveCompability` to place it in 
 ### IsApplicable
 `public bool IsApplicable(ApplicationVersion version)`
 
-**Purpose:** Handles logic related to `is applicable`.
+**Purpose:** Determines whether the current object is in the `applicable` state or condition.
+
+```csharp
+// Obtain an instance of CharacterAttributesResolver from the subsystem API first
+CharacterAttributesResolver characterAttributesResolver = ...;
+var result = characterAttributesResolver.IsApplicable(version);
+```
 
 ### GetFieldMemberWithId
 `public MemberTypeId GetFieldMemberWithId(MemberTypeId memberTypeId)`
 
-**Purpose:** Gets the current value of `field member with id`.
+**Purpose:** Reads and returns the `field member with id` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterAttributesResolver from the subsystem API first
+CharacterAttributesResolver characterAttributesResolver = ...;
+var result = characterAttributesResolver.GetFieldMemberWithId(memberTypeId);
+```
 
 ### GetNewType
 `public Type GetNewType()`
 
-**Purpose:** Gets the current value of `new type`.
+**Purpose:** Reads and returns the `new type` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterAttributesResolver from the subsystem API first
+CharacterAttributesResolver characterAttributesResolver = ...;
+var result = characterAttributesResolver.GetNewType();
+```
 
 ### GetPropertyMemberWithId
 `public MemberTypeId GetPropertyMemberWithId(MemberTypeId memberTypeId)`
 
-**Purpose:** Gets the current value of `property member with id`.
+**Purpose:** Reads and returns the `property member with id` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterAttributesResolver from the subsystem API first
+CharacterAttributesResolver characterAttributesResolver = ...;
+var result = characterAttributesResolver.GetPropertyMemberWithId(memberTypeId);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterAttributesResolver();
-value.IsApplicable(version);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterAttributesResolver characterAttributesResolver = ...;
+characterAttributesResolver.IsApplicable(version);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

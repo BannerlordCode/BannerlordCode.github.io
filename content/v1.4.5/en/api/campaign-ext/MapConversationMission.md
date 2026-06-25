@@ -1,24 +1,18 @@
 ---
 title: "MapConversationMission"
+description: "Auto-generated class reference for MapConversationMission."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationMission`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationMission
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapConversationMission : ICampaignMission`
 **Base:** `ICampaignMission`
-**Area:** campaign-ext
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationView.cs`
 
 ## Overview
 
-`MapConversationMission` lives in `SandBox.View.Map`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MapConversationMission` lives in `SandBox.View.Map` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,39 +23,61 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 | Name | Signature |
 |------|-----------|
 | `ConversationTableau` | `public MapConversationTableau ConversationTableau { get; }` |
-| `IsConversationActive` | `public bool IsConversationActive { get; set; }` |
 
 ## Key Methods
 
 ### ConversationPlayArgs
 `public struct ConversationPlayArgs(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**Purpose:** Handles logic related to `conversation play args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapConversationMission from the subsystem API first
+MapConversationMission mapConversationMission = ...;
+var result = mapConversationMission.ConversationPlayArgs("example", "example", "example", "example", "example");
+```
 
 ### SetConversationTableau
 `public void SetConversationTableau(MapConversationTableau tableau)`
 
-**Purpose:** Sets the value or state of `conversation tableau`.
+**Purpose:** Assigns a new value to `conversation tableau` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationMission from the subsystem API first
+MapConversationMission mapConversationMission = ...;
+mapConversationMission.SetConversationTableau(tableau);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapConversationMission from the subsystem API first
+MapConversationMission mapConversationMission = ...;
+mapConversationMission.Tick(0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationMission from the subsystem API first
+MapConversationMission mapConversationMission = ...;
+mapConversationMission.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a MapConversationMission instance from game state, then call one of its public methods
-var value = new MapConversationMission();
-value.ConversationPlayArgs("example", "example", "example", "example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+MapConversationMission mapConversationMission = ...;
+mapConversationMission.ConversationPlayArgs("example", "example", "example", "example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

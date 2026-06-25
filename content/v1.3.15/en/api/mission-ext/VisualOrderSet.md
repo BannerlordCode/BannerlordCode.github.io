@@ -1,13 +1,7 @@
 ---
 title: "VisualOrderSet"
+description: "Auto-generated class reference for VisualOrderSet."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualOrderSet`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VisualOrderSet
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
@@ -39,29 +33,54 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### GetName
 `public abstract TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of VisualOrderSet from the subsystem API first
+VisualOrderSet visualOrderSet = ...;
+var result = visualOrderSet.GetName(orderController);
+```
 
 ### AddOrder
 `public void AddOrder(VisualOrder order)`
 
 **Purpose:** Adds `order` to the current collection or state.
 
+```csharp
+// Obtain an instance of VisualOrderSet from the subsystem API first
+VisualOrderSet visualOrderSet = ...;
+visualOrderSet.AddOrder(order);
+```
+
 ### RemoveOrder
 `public void RemoveOrder(VisualOrder order)`
 
 **Purpose:** Removes `order` from the current collection or state.
 
+```csharp
+// Obtain an instance of VisualOrderSet from the subsystem API first
+VisualOrderSet visualOrderSet = ...;
+visualOrderSet.RemoveOrder(order);
+```
+
 ### ClearOrders
 `public void ClearOrders()`
 
-**Purpose:** Handles logic related to `clear orders`.
+**Purpose:** Removes all `orders` from the current object.
+
+```csharp
+// Obtain an instance of VisualOrderSet from the subsystem API first
+VisualOrderSet visualOrderSet = ...;
+visualOrderSet.ClearOrders();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomVisualOrderSet();
+// Typically obtained from a subsystem API or factory
+VisualOrderSet instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

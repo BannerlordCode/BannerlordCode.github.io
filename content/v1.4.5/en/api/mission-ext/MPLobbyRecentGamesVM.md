@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyRecentGamesVM"
+description: "Auto-generated class reference for MPLobbyRecentGamesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyRecentGamesVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyRecentGamesVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyRecentGamesVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGamesVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyRecentGamesVM.cs`
 
 ## Overview
 
@@ -42,40 +36,77 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
+MPLobbyRecentGamesVM mPLobbyRecentGamesVM = ...;
+mPLobbyRecentGamesVM.RefreshValues();
+```
 
 ### RefreshData
 `public void RefreshData(MBReadOnlyList<MatchHistoryData> matches)`
 
-**Purpose:** Refreshes the display or cache of `data`.
+**Purpose:** Keeps the display or cache of `data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
+MPLobbyRecentGamesVM mPLobbyRecentGamesVM = ...;
+mPLobbyRecentGamesVM.RefreshData(matches);
+```
 
 ### ActivatePlayerActions
 `public void ActivatePlayerActions(MPLobbyRecentGamePlayerItemVM playerVM)`
 
-**Purpose:** Handles logic related to `activate player actions`.
+**Purpose:** Activates the resource, state, or feature associated with `player actions`.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
+MPLobbyRecentGamesVM mPLobbyRecentGamesVM = ...;
+mPLobbyRecentGamesVM.ActivatePlayerActions(playerVM);
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Executes the `open popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open popup`.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
+MPLobbyRecentGamesVM mPLobbyRecentGamesVM = ...;
+mPLobbyRecentGamesVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
+MPLobbyRecentGamesVM mPLobbyRecentGamesVM = ...;
+mPLobbyRecentGamesVM.ExecuteClosePopup();
+```
 
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**Purpose:** Called when the `friend list updated` event is raised.
+**Purpose:** Invoked when the `friend list updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyRecentGamesVM from the subsystem API first
+MPLobbyRecentGamesVM mPLobbyRecentGamesVM = ...;
+mPLobbyRecentGamesVM.OnFriendListUpdated(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyRecentGamesVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyRecentGamesVM mPLobbyRecentGamesVM = ...;
+mPLobbyRecentGamesVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

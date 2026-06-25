@@ -1,20 +1,14 @@
 ---
 title: "PromotePlayerToPartyLeaderMessage"
+description: "PromotePlayerToPartyLeaderMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PromotePlayerToPartyLeaderMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PromotePlayerToPartyLeaderMessage
 
 **Namespace:** Messages.FromClient.ToLobbyServer
 **Module:** Messages.FromClient
 **Type:** `public class PromotePlayerToPartyLeaderMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/PromotePlayerToPartyLeaderMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/PromotePlayerToPartyLeaderMessage.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "PromotePlayerToPartyLeaderMessage"
 ## 使用示例
 
 ```csharp
-var example = new PromotePlayerToPartyLeaderMessage();
+// 从对应子系统 API 获取实例
+PromotePlayerToPartyLeaderMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

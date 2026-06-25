@@ -1,13 +1,7 @@
 ---
 title: "MBSaveLoad"
+description: "Auto-generated class reference for MBSaveLoad."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBSaveLoad`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBSaveLoad
 
 **Namespace:** TaleWorlds.Core
@@ -41,87 +35,172 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetSaveDriver
 `public static void SetSaveDriver(ISaveDriver saveDriver)`
 
-**Purpose:** Sets the value or state of `save driver`.
+**Purpose:** Assigns a new value to `save driver` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.SetSaveDriver(saveDriver);
+```
 
 ### GetSaveFiles
 `public static SaveGameFileInfo GetSaveFiles(Func<SaveGameFileInfo, bool> condition = null)`
 
-**Purpose:** Gets the current value of `save files`.
+**Purpose:** Reads and returns the `save files` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.GetSaveFiles(func<SaveGameFileInfo, false);
+```
 
 ### IsSaveGameFileExists
 `public static bool IsSaveGameFileExists(string saveFileName)`
 
-**Purpose:** Handles logic related to `is save game file exists`.
+**Purpose:** Determines whether the current object is in the `save game file exists` state or condition.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.IsSaveGameFileExists("example");
+```
 
 ### GetSaveFileNames
 `public static string GetSaveFileNames()`
 
-**Purpose:** Gets the current value of `save file names`.
+**Purpose:** Reads and returns the `save file names` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.GetSaveFileNames();
+```
 
 ### LoadSaveGameData
 `public static LoadResult LoadSaveGameData(string saveName)`
 
-**Purpose:** Loads `save game data` data.
+**Purpose:** Reads `save game data` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.LoadSaveGameData("example");
+```
 
 ### GetSaveFileWithName
 `public static SaveGameFileInfo GetSaveFileWithName(string saveName)`
 
-**Purpose:** Gets the current value of `save file with name`.
+**Purpose:** Reads and returns the `save file with name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.GetSaveFileWithName("example");
+```
 
 ### QuickSaveCurrentGame
 `public static void QuickSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**Purpose:** Handles logic related to `quick save current game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.QuickSaveCurrentGame(campaignMetaData, action<ValueTuple<SaveResult, "example");
+```
 
 ### AutoSaveCurrentGame
 `public static void AutoSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**Purpose:** Handles logic related to `auto save current game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.AutoSaveCurrentGame(campaignMetaData, action<ValueTuple<SaveResult, "example");
+```
 
 ### SaveAsCurrentGame
 `public static void SaveAsCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, string saveName, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**Purpose:** Saves `as current game` data.
+**Purpose:** Writes `as current game` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.SaveAsCurrentGame(campaignMetaData, "example", action<ValueTuple<SaveResult, "example");
+```
 
 ### DeleteSaveGame
 `public static bool DeleteSaveGame(string saveName)`
 
-**Purpose:** Handles logic related to `delete save game`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.DeleteSaveGame("example");
+```
 
 ### Initialize
 `public static void Initialize(GameTextManager localizedTextProvider)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.Initialize(localizedTextProvider);
+```
 
 ### OnNewGame
 `public static void OnNewGame()`
 
-**Purpose:** Called when the `new game` event is raised.
+**Purpose:** Invoked when the `new game` event is raised.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.OnNewGame();
+```
 
 ### OnGameDestroy
 `public static void OnGameDestroy()`
 
-**Purpose:** Called when the `game destroy` event is raised.
+**Purpose:** Invoked when the `game destroy` event is raised.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.OnGameDestroy();
+```
 
 ### OnStartGame
 `public static void OnStartGame(LoadResult loadResult)`
 
-**Purpose:** Called when the `start game` event is raised.
+**Purpose:** Invoked when the `start game` event is raised.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.OnStartGame(loadResult);
+```
 
 ### IsSaveFileNameReserved
 `public static bool IsSaveFileNameReserved(string name)`
 
-**Purpose:** Handles logic related to `is save file name reserved`.
+**Purpose:** Determines whether the current object is in the `save file name reserved` state or condition.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.IsSaveFileNameReserved("example");
+```
 
 ### GetMaxNumberOfSaves
 `public static int GetMaxNumberOfSaves()`
 
-**Purpose:** Gets the current value of `max number of saves`.
+**Purpose:** Reads and returns the `max number of saves` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.GetMaxNumberOfSaves();
+```
 
 ### IsMaxNumberOfSavesReached
 `public static bool IsMaxNumberOfSavesReached()`
 
-**Purpose:** Handles logic related to `is max number of saves reached`.
+**Purpose:** Determines whether the current object is in the `max number of saves reached` state or condition.
+
+```csharp
+// Static call; no instance required
+MBSaveLoad.IsMaxNumberOfSavesReached();
+```
 
 ## Usage Example
 
@@ -131,4 +210,4 @@ MBSaveLoad.SetSaveDriver(saveDriver);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

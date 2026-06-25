@@ -1,13 +1,7 @@
 ---
 title: "ServiceResolvedAddress"
+description: "ServiceResolvedAddress 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ServiceResolvedAddress`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ServiceResolvedAddress
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
@@ -34,9 +28,10 @@ title: "ServiceResolvedAddress"
 ## 使用示例
 
 ```csharp
-var value = new ServiceResolvedAddress();
+// 从对应子系统 API 获取实例
+ServiceResolvedAddress instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

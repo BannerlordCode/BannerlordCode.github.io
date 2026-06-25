@@ -1,20 +1,14 @@
 ---
 title: "SandBoxGauntletUISubModule"
+description: "SandBoxGauntletUISubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxGauntletUISubModule`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxGauntletUISubModule
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class SandBoxGauntletUISubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/SandBoxGauntletUISubModule.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/SandBoxGauntletUISubModule.cs`
 
 ## 概述
 
@@ -29,25 +23,44 @@ title: "SandBoxGauntletUISubModule"
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**用途 / Purpose:** 当 `campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxGauntletUISubModule 实例
+SandBoxGauntletUISubModule sandBoxGauntletUISubModule = ...;
+sandBoxGauntletUISubModule.OnCampaignStart(game, starterObject);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 当 `game end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxGauntletUISubModule 实例
+SandBoxGauntletUISubModule sandBoxGauntletUISubModule = ...;
+sandBoxGauntletUISubModule.OnGameEnd(game);
+```
 
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**用途 / Purpose:** 处理 `begin game start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxGauntletUISubModule 实例
+SandBoxGauntletUISubModule sandBoxGauntletUISubModule = ...;
+sandBoxGauntletUISubModule.BeginGameStart(game);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SandBoxGauntletUISubModule();
-value.OnCampaignStart(game, starterObject);
+// 通常从对应子系统 API 获取实例后调用
+SandBoxGauntletUISubModule sandBoxGauntletUISubModule = ...;
+sandBoxGauntletUISubModule.OnCampaignStart(game, starterObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

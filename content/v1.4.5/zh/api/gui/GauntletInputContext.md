@@ -1,20 +1,14 @@
 ---
 title: "GauntletInputContext"
+description: "GauntletInputContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletInputContext`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletInputContext
 
 **Namespace:** TaleWorlds.GauntletUI.GauntletInput
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GauntletInputContext : IReadonlyInputContext`
 **Base:** `IReadonlyInputContext`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.GauntletInput/GauntletInputContext.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.GauntletInput/GauntletInputContext.cs`
 
 ## 概述
 
@@ -29,60 +23,121 @@ title: "GauntletInputContext"
 ### GetIsMouseActive
 `public bool GetIsMouseActive()`
 
-**用途 / Purpose:** 获取 `is mouse active` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is mouse active」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetIsMouseActive();
+```
 
 ### GetMousePosition
 `public Vector2 GetMousePosition()`
 
-**用途 / Purpose:** 获取 `mouse position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mouse position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetMousePosition();
+```
 
 ### GetMouseMovement
 `public Vector2 GetMouseMovement()`
 
-**用途 / Purpose:** 获取 `mouse movement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mouse movement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetMouseMovement();
+```
 
 ### GetClickKeys
 `public InputKey GetClickKeys()`
 
-**用途 / Purpose:** 获取 `click keys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「click keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetClickKeys();
+```
 
 ### GetAlternateClickKeys
 `public InputKey GetAlternateClickKeys()`
 
-**用途 / Purpose:** 获取 `alternate click keys` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「alternate click keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetAlternateClickKeys();
+```
 
 ### GetMouseScrollDelta
 `public float GetMouseScrollDelta()`
 
-**用途 / Purpose:** 获取 `mouse scroll delta` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mouse scroll delta」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetMouseScrollDelta();
+```
 
 ### GetControllerLeftStickState
 `public Vector2 GetControllerLeftStickState()`
 
-**用途 / Purpose:** 获取 `controller left stick state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「controller left stick state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetControllerLeftStickState();
+```
 
 ### GetControllerRightStickState
 `public Vector2 GetControllerRightStickState()`
 
-**用途 / Purpose:** 获取 `controller right stick state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「controller right stick state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+var result = gauntletInputContext.GetControllerRightStickState();
+```
 
 ### SetMousePositionOverride
 `public void SetMousePositionOverride(Vector2 mousePosition)`
 
-**用途 / Purpose:** 设置 `mouse position override` 的值或状态。
+**用途 / Purpose:** 为 「mouse position override」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+gauntletInputContext.SetMousePositionOverride(mousePosition);
+```
 
 ### ResetMousePositionOverride
 `public void ResetMousePositionOverride()`
 
-**用途 / Purpose:** 将 `mouse position override` 重置为初始状态。
+**用途 / Purpose:** 将 「mouse position override」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletInputContext 实例
+GauntletInputContext gauntletInputContext = ...;
+gauntletInputContext.ResetMousePositionOverride();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletInputContext();
-value.GetIsMouseActive();
+// 通常从对应子系统 API 获取实例后调用
+GauntletInputContext gauntletInputContext = ...;
+gauntletInputContext.GetIsMouseActive();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

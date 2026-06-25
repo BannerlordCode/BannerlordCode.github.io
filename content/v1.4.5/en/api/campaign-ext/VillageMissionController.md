@@ -1,20 +1,14 @@
 ---
 title: "VillageMissionController"
+description: "Auto-generated class reference for VillageMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VillageMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class VillageMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/VillageMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/VillageMissionController.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `VillageMissionController` as a Controller-style extension point: first id
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of VillageMissionController from the subsystem API first
+VillageMissionController villageMissionController = ...;
+villageMissionController.OnCreated();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VillageMissionController from the subsystem API first
+VillageMissionController villageMissionController = ...;
+villageMissionController.AfterStart();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<VillageMissionController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

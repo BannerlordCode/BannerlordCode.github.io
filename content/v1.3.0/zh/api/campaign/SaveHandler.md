@@ -1,13 +1,7 @@
 ---
 title: "SaveHandler"
+description: "SaveHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveHandler`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveHandler
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -38,34 +32,64 @@ title: "SaveHandler"
 ### QuickSaveCurrentGame
 `public void QuickSaveCurrentGame()`
 
-**用途 / Purpose:** 处理 `quick save current game` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SaveHandler 实例
+SaveHandler saveHandler = ...;
+saveHandler.QuickSaveCurrentGame();
+```
 
 ### SaveAs
 `public void SaveAs(string saveName)`
 
-**用途 / Purpose:** 保存 `as` 数据。
+**用途 / Purpose:** 将 「as」 写入持久化存储或流中。
+
+```csharp
+// 先通过子系统 API 拿到 SaveHandler 实例
+SaveHandler saveHandler = ...;
+saveHandler.SaveAs("example");
+```
 
 ### CampaignTick
 `public void CampaignTick()`
 
-**用途 / Purpose:** 处理 `campaign tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SaveHandler 实例
+SaveHandler saveHandler = ...;
+saveHandler.CampaignTick();
+```
 
 ### SignalAutoSave
 `public void SignalAutoSave()`
 
-**用途 / Purpose:** 处理 `signal auto save` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SaveHandler 实例
+SaveHandler saveHandler = ...;
+saveHandler.SignalAutoSave();
+```
 
 ### GetSaveMetaData
 `public CampaignSaveMetaDataArgs GetSaveMetaData()`
 
-**用途 / Purpose:** 获取 `save meta data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「save meta data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SaveHandler 实例
+SaveHandler saveHandler = ...;
+var result = saveHandler.GetSaveMetaData();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new SaveHandler());
+var behavior = Mission.Current.GetMissionBehavior<SaveHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionHintView"
+description: "Auto-generated class reference for MissionHintView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionHintView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHintView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -27,9 +21,10 @@ Treat `MissionHintView` as a View-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var view = new MissionHintView();
+// Retrieve this view from the subsystem API or scene
+MissionHintView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

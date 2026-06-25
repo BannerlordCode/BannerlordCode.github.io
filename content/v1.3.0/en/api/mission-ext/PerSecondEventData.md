@@ -1,13 +1,7 @@
 ---
 title: "PerSecondEventData"
+description: "Auto-generated class reference for PerSecondEventData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerSecondEventData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerSecondEventData
 
 **Namespace:** TaleWorlds.MountAndBlade.Network
@@ -27,9 +21,10 @@ Treat `PerSecondEventData` as a Data-style extension point: first identify who c
 ## Usage Example
 
 ```csharp
-var value = new PerSecondEventData();
+// This data object is usually returned by campaign/mission APIs
+PerSecondEventData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

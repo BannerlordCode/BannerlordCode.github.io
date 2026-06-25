@@ -1,20 +1,14 @@
 ---
 title: "PathFinder"
+description: "Auto-generated class reference for PathFinder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PathFinder`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PathFinder
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public abstract class PathFinder`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PathFinder.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PathFinder.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Destroy
 `public virtual void Destroy()`
 
-**Purpose:** Handles logic related to `destroy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PathFinder from the subsystem API first
+PathFinder pathFinder = ...;
+pathFinder.Destroy();
+```
 
 ### Initialize
 `public abstract void Initialize(Vec3 bbSize)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PathFinder from the subsystem API first
+PathFinder pathFinder = ...;
+pathFinder.Initialize(bbSize);
+```
 
 ### FindPath
 `public abstract bool FindPath(Vec3 wSource, Vec3 wDestination, List<Vec3> path, float craftWidth = 5f)`
 
-**Purpose:** Handles logic related to `find path`.
+**Purpose:** Looks up the matching `path` in the current collection or scope.
+
+```csharp
+// Obtain an instance of PathFinder from the subsystem API first
+PathFinder pathFinder = ...;
+var result = pathFinder.FindPath(wSource, wDestination, path, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPathFinder();
+// Typically obtained from a subsystem API or factory
+PathFinder instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

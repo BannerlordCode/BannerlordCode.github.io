@@ -1,20 +1,14 @@
 ---
 title: "TimedDictionaryCache"
+description: "Auto-generated class reference for TimedDictionaryCache."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TimedDictionaryCache`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TimedDictionaryCache
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class TimedDictionaryCache<TKey, TValue>`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TimedDictionaryCache.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TimedDictionaryCache.cs`
 
 ## Overview
 
@@ -35,40 +29,77 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PruneExpiredItems
 `public void PruneExpiredItems()`
 
-**Purpose:** Handles logic related to `prune expired items`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TimedDictionaryCache from the subsystem API first
+TimedDictionaryCache timedDictionaryCache = ...;
+timedDictionaryCache.PruneExpiredItems();
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of TimedDictionaryCache from the subsystem API first
+TimedDictionaryCache timedDictionaryCache = ...;
+timedDictionaryCache.Clear();
+```
 
 ### ContainsKey
 `public bool ContainsKey(TKey key)`
 
-**Purpose:** Handles logic related to `contains key`.
+**Purpose:** Indicates whether the current object contains `key`.
+
+```csharp
+// Obtain an instance of TimedDictionaryCache from the subsystem API first
+TimedDictionaryCache timedDictionaryCache = ...;
+var result = timedDictionaryCache.ContainsKey(key);
+```
 
 ### Remove
 `public bool Remove(TKey key)`
 
-**Purpose:** Removes `remove` from the current collection or state.
+**Purpose:** Removes an item from the current collection or state.
+
+```csharp
+// Obtain an instance of TimedDictionaryCache from the subsystem API first
+TimedDictionaryCache timedDictionaryCache = ...;
+var result = timedDictionaryCache.Remove(key);
+```
 
 ### TryGetValue
 `public bool TryGetValue(TKey key, out TValue value)`
 
-**Purpose:** Attempts to get `get value`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get value`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of TimedDictionaryCache from the subsystem API first
+TimedDictionaryCache timedDictionaryCache = ...;
+var result = timedDictionaryCache.TryGetValue(key, value);
+```
 
 ### AsReadOnlyDictionary
 `public MBReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary()`
 
-**Purpose:** Handles logic related to `as read only dictionary`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TimedDictionaryCache from the subsystem API first
+TimedDictionaryCache timedDictionaryCache = ...;
+var result = timedDictionaryCache.AsReadOnlyDictionary();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TimedDictionaryCache();
-value.PruneExpiredItems();
+// Typically call this after obtaining an instance from the subsystem API
+TimedDictionaryCache timedDictionaryCache = ...;
+timedDictionaryCache.PruneExpiredItems();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

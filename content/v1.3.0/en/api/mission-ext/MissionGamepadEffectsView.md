@@ -1,13 +1,7 @@
 ---
 title: "MissionGamepadEffectsView"
+description: "Auto-generated class reference for MissionGamepadEffectsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGamepadEffectsView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGamepadEffectsView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,34 +23,65 @@ Treat `MissionGamepadEffectsView` as a View-style extension point: first identif
 ### OnMissionStateActivated
 `public override void OnMissionStateActivated()`
 
-**Purpose:** Called when the `mission state activated` event is raised.
+**Purpose:** Invoked when the `mission state activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGamepadEffectsView from the subsystem API first
+MissionGamepadEffectsView missionGamepadEffectsView = ...;
+missionGamepadEffectsView.OnMissionStateActivated();
+```
 
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** Called when the `mission state deactivated` event is raised.
+**Purpose:** Invoked when the `mission state deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGamepadEffectsView from the subsystem API first
+MissionGamepadEffectsView missionGamepadEffectsView = ...;
+missionGamepadEffectsView.OnMissionStateDeactivated();
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Called when the `pre mission tick` event is raised.
+**Purpose:** Invoked when the `pre mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGamepadEffectsView from the subsystem API first
+MissionGamepadEffectsView missionGamepadEffectsView = ...;
+missionGamepadEffectsView.OnPreMissionTick(0);
+```
 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Called when the `agent hit` event is raised.
+**Purpose:** Invoked when the `agent hit` event is raised.
+
+```csharp
+// Obtain an instance of MissionGamepadEffectsView from the subsystem API first
+MissionGamepadEffectsView missionGamepadEffectsView = ...;
+missionGamepadEffectsView.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, blow, attackCollisionData);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGamepadEffectsView from the subsystem API first
+MissionGamepadEffectsView missionGamepadEffectsView = ...;
+missionGamepadEffectsView.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGamepadEffectsView();
+// Retrieve this view from the subsystem API or scene
+MissionGamepadEffectsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

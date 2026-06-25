@@ -1,20 +1,14 @@
 ---
 title: "BehaviorSergeantMPRanged"
+description: "Auto-generated class reference for BehaviorSergeantMPRanged."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorSergeantMPRanged`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorSergeantMPRanged
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorSergeantMPRanged : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSergeantMPRanged.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorSergeantMPRanged.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorSergeantMPRanged from the subsystem API first
+BehaviorSergeantMPRanged behaviorSergeantMPRanged = ...;
+behaviorSergeantMPRanged.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorSergeantMPRanged();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorSergeantMPRanged behaviorSergeantMPRanged = ...;
+behaviorSergeantMPRanged.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultVillageProductionCalculatorModel"
+description: "DefaultVillageProductionCalculatorModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultVillageProductionCalculatorModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultVillageProductionCalculatorModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ title: "DefaultVillageProductionCalculatorModel"
 ### CalculateDailyProductionAmount
 `public override ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
 
-**用途 / Purpose:** 处理 `calculate daily production amount` 相关逻辑。
+**用途 / Purpose:** 计算「daily production amount」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVillageProductionCalculatorModel 实例
+DefaultVillageProductionCalculatorModel defaultVillageProductionCalculatorModel = ...;
+var result = defaultVillageProductionCalculatorModel.CalculateDailyProductionAmount(village, item);
+```
 
 ### CalculateDailyFoodProductionAmount
 `public override float CalculateDailyFoodProductionAmount(Village village)`
 
-**用途 / Purpose:** 处理 `calculate daily food production amount` 相关逻辑。
+**用途 / Purpose:** 计算「daily food production amount」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVillageProductionCalculatorModel 实例
+DefaultVillageProductionCalculatorModel defaultVillageProductionCalculatorModel = ...;
+var result = defaultVillageProductionCalculatorModel.CalculateDailyFoodProductionAmount(village);
+```
 
 ### CalculateProductionSpeedOfItemCategory
 `public override float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
 
-**用途 / Purpose:** 处理 `calculate production speed of item category` 相关逻辑。
+**用途 / Purpose:** 计算「production speed of item category」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultVillageProductionCalculatorModel 实例
+DefaultVillageProductionCalculatorModel defaultVillageProductionCalculatorModel = ...;
+var result = defaultVillageProductionCalculatorModel.CalculateProductionSpeedOfItemCategory(item);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultVillageProductionCalculatorModel>(new MyDefault
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

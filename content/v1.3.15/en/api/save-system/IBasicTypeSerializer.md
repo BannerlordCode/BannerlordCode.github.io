@@ -1,23 +1,18 @@
 ---
 title: "IBasicTypeSerializer"
+description: "Auto-generated class reference for IBasicTypeSerializer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBasicTypeSerializer`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IBasicTypeSerializer
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public interface IBasicTypeSerializer`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Definition/IBasicTypeSerializer.cs`
 
 ## Overview
 
-`IBasicTypeSerializer` lives in `TaleWorlds.SaveSystem.Definition`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`IBasicTypeSerializer` lives in `TaleWorlds.SaveSystem.Definition` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -26,10 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ## Usage Example
 
 ```csharp
-IBasicTypeSerializer implementation = GetBasicTypeSerializerImplementation();
+// Usually obtained through DI or a factory method
+IIBasicTypeSerializer service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

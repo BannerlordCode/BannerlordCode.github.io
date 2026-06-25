@@ -1,13 +1,7 @@
 ---
 title: "AgentAmmoTextWidget"
+description: "Auto-generated class reference for AgentAmmoTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentAmmoTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentAmmoTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
@@ -33,9 +27,10 @@ Treat `AgentAmmoTextWidget` as a Widget-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var widget = new AgentAmmoTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AgentAmmoTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TutorialHelper"
+description: "TutorialHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TutorialHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialHelper
 
 **Namespace:** SandBox.GauntletUI.Tutorial
@@ -69,7 +63,12 @@ title: "TutorialHelper"
 ### IsThereAvailableCompanionInLocation
 `public static bool? IsThereAvailableCompanionInLocation(Location location)`
 
-**用途 / Purpose:** 处理 `is there available companion in location` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there available companion in location」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TutorialHelper.IsThereAvailableCompanionInLocation(location);
+```
 
 ## 使用示例
 
@@ -79,4 +78,4 @@ TutorialHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

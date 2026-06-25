@@ -1,20 +1,14 @@
 ---
 title: "UserData"
+description: "Auto-generated class reference for UserData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UserData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UserData
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.UserDatas
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class UserData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/UserData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.UserDatas/UserData.cs`
 
 ## Overview
 
@@ -38,44 +32,87 @@ Treat `UserData` as a Data-style extension point: first identify who creates it,
 ### GetUserModData
 `public UserModData GetUserModData(bool isMultiplayer, string id)`
 
-**Purpose:** Gets the current value of `user mod data`.
+**Purpose:** Reads and returns the `user mod data` value held by the current object.
+
+```csharp
+// Obtain an instance of UserData from the subsystem API first
+UserData userData = ...;
+var result = userData.GetUserModData(false, "example");
+```
 
 ### GetDLLLatestSizeInBytes
 `public uint? GetDLLLatestSizeInBytes(string dllName)`
 
-**Purpose:** Gets the current value of `d l l latest size in bytes`.
+**Purpose:** Reads and returns the `d l l latest size in bytes` value held by the current object.
+
+```csharp
+// Obtain an instance of UserData from the subsystem API first
+UserData userData = ...;
+var result = userData.GetDLLLatestSizeInBytes("example");
+```
 
 ### GetDLLLatestIsDangerous
 `public bool GetDLLLatestIsDangerous(string dllName)`
 
-**Purpose:** Gets the current value of `d l l latest is dangerous`.
+**Purpose:** Reads and returns the `d l l latest is dangerous` value held by the current object.
+
+```csharp
+// Obtain an instance of UserData from the subsystem API first
+UserData userData = ...;
+var result = userData.GetDLLLatestIsDangerous("example");
+```
 
 ### GetDLLLatestVerifyInformation
 `public string GetDLLLatestVerifyInformation(string dllName)`
 
-**Purpose:** Gets the current value of `d l l latest verify information`.
+**Purpose:** Reads and returns the `d l l latest verify information` value held by the current object.
+
+```csharp
+// Obtain an instance of UserData from the subsystem API first
+UserData userData = ...;
+var result = userData.GetDLLLatestVerifyInformation("example");
+```
 
 ### SetDLLLatestSizeInBytes
 `public void SetDLLLatestSizeInBytes(string dllName, uint sizeInBytes)`
 
-**Purpose:** Sets the value or state of `d l l latest size in bytes`.
+**Purpose:** Assigns a new value to `d l l latest size in bytes` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UserData from the subsystem API first
+UserData userData = ...;
+userData.SetDLLLatestSizeInBytes("example", 0);
+```
 
 ### SetDLLLatestVerifyInformation
 `public void SetDLLLatestVerifyInformation(string dllName, string verifyInformation)`
 
-**Purpose:** Sets the value or state of `d l l latest verify information`.
+**Purpose:** Assigns a new value to `d l l latest verify information` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UserData from the subsystem API first
+UserData userData = ...;
+userData.SetDLLLatestVerifyInformation("example", "example");
+```
 
 ### SetDLLLatestIsDangerous
 `public void SetDLLLatestIsDangerous(string dllName, bool isDangerous)`
 
-**Purpose:** Sets the value or state of `d l l latest is dangerous`.
+**Purpose:** Assigns a new value to `d l l latest is dangerous` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UserData from the subsystem API first
+UserData userData = ...;
+userData.SetDLLLatestIsDangerous("example", false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UserData();
+// This data object is usually returned by campaign/mission APIs
+UserData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

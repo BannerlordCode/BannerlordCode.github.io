@@ -1,18 +1,12 @@
 ---
 title: "IChatNotification"
+description: "Auto-generated class reference for IChatNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IChatNotification`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IChatNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IChatNotification`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/LogEntries/IChatNotification.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ## Usage Example
 
 ```csharp
-IChatNotification implementation = GetChatNotificationImplementation();
+// Usually obtained through DI or a factory method
+IIChatNotification service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

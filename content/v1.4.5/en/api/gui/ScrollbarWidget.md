@@ -1,20 +1,14 @@
 ---
 title: "ScrollbarWidget"
+description: "Auto-generated class reference for ScrollbarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ScrollbarWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScrollbarWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ScrollbarWidget : ImageWidget`
 **Base:** `ImageWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ScrollbarWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/ScrollbarWidget.cs`
 
 ## Overview
 
@@ -45,14 +39,21 @@ Treat `ScrollbarWidget` as a Widget-style extension point: first identify who cr
 ### SetValueForced
 `public void SetValueForced(float value)`
 
-**Purpose:** Sets the value or state of `value forced`.
+**Purpose:** Assigns a new value to `value forced` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ScrollbarWidget from the subsystem API first
+ScrollbarWidget scrollbarWidget = ...;
+scrollbarWidget.SetValueForced(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ScrollbarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ScrollbarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

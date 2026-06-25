@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleVM"
+description: "Auto-generated class reference for OrderOfBattleVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
@@ -57,110 +51,231 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.Tick();
+```
 
 ### Initialize
 `public void Initialize(Mission mission, Camera missionCamera, Action<int> selectFormationAtIndex, Action<int> deselectFormationAtIndex, Action clearFormationSelection, Action onAutoDeploy, Action onBeginMission, Dictionary<int, Agent> formationIndicesAndSergeants)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.Initialize(mission, missionCamera, selectFormationAtIndex, deselectFormationAtIndex, clearFormationSelection, onAutoDeploy, onBeginMission, dictionary<int, formationIndicesAndSergeants);
+```
 
 ### OnAllFormationsAssignedSergeants
 `public void OnAllFormationsAssignedSergeants(Dictionary<int, Agent> preAssignedCaptains)`
 
-**Purpose:** Called when the `all formations assigned sergeants` event is raised.
+**Purpose:** Invoked when the `all formations assigned sergeants` event is raised.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.OnAllFormationsAssignedSergeants(dictionary<int, preAssignedCaptains);
+```
 
 ### IsAnyClassSelectionEnabled
 `public bool IsAnyClassSelectionEnabled()`
 
-**Purpose:** Handles logic related to `is any class selection enabled`.
+**Purpose:** Determines whether the current object is in the `any class selection enabled` state or condition.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+var result = orderOfBattleVM.IsAnyClassSelectionEnabled();
+```
 
 ### ExecuteDisableAllClassSelections
 `public void ExecuteDisableAllClassSelections()`
 
-**Purpose:** Executes the `disable all class selections` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `disable all class selections`.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteDisableAllClassSelections();
+```
 
 ### ExecuteAcceptHeroes
 `public void ExecuteAcceptHeroes()`
 
-**Purpose:** Executes the `accept heroes` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `accept heroes`.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteAcceptHeroes();
+```
 
 ### ExecuteSelectAllHeroes
 `public void ExecuteSelectAllHeroes()`
 
-**Purpose:** Executes the `select all heroes` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select all heroes`.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteSelectAllHeroes();
+```
 
 ### ExecuteClearHeroSelection
 `public void ExecuteClearHeroSelection()`
 
-**Purpose:** Executes the `clear hero selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `clear hero selection`.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteClearHeroSelection();
+```
 
 ### OnDeploymentFinalized
 `public void OnDeploymentFinalized(bool playerDeployed)`
 
-**Purpose:** Called when the `deployment finalized` event is raised.
+**Purpose:** Invoked when the `deployment finalized` event is raised.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.OnDeploymentFinalized(false);
+```
 
 ### SelectFormationItemAtIndex
 `public void SelectFormationItemAtIndex(int index)`
 
-**Purpose:** Handles logic related to `select formation item at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.SelectFormationItemAtIndex(0);
+```
 
 ### FocusFormationItemAtIndex
 `public void FocusFormationItemAtIndex(int index)`
 
-**Purpose:** Handles logic related to `focus formation item at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.FocusFormationItemAtIndex(0);
+```
 
 ### DeselectAllFormations
 `public void DeselectAllFormations()`
 
-**Purpose:** Handles logic related to `deselect all formations`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.DeselectAllFormations();
+```
 
 ### OnUnitDeployed
 `public void OnUnitDeployed()`
 
-**Purpose:** Called when the `unit deployed` event is raised.
+**Purpose:** Invoked when the `unit deployed` event is raised.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.OnUnitDeployed();
+```
 
 ### OnEscape
 `public bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+var result = orderOfBattleVM.OnEscape();
+```
 
 ### ExecuteAutoDeploy
 `public void ExecuteAutoDeploy()`
 
-**Purpose:** Executes the `auto deploy` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `auto deploy`.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteAutoDeploy();
+```
 
 ### ExecuteBeginMission
 `public void ExecuteBeginMission()`
 
-**Purpose:** Executes the `begin mission` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin mission`.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.ExecuteBeginMission();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.SetDoneInputKey(hotkey);
+```
 
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `reset input key`.
+**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of OrderOfBattleVM from the subsystem API first
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.SetResetInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+OrderOfBattleVM orderOfBattleVM = ...;
+orderOfBattleVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

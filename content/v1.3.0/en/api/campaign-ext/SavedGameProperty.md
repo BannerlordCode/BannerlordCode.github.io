@@ -1,47 +1,52 @@
 ---
 title: "SavedGameProperty"
+description: "Auto-generated class reference for SavedGameProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SavedGameProperty`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SavedGameProperty
 
 **Namespace:** SandBox.ViewModelCollection.SaveLoad
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SavedGameProperty`
-**Area:** campaign-ext
+**Base:** none
+**File:** `SandBox.ViewModelCollection/SaveLoad/SavedGamePropertyVM.cs`
 
 ## Overview
 
-`SavedGameProperty` lives in `SandBox.ViewModelCollection.SaveLoad`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SavedGameProperty` lives in `SandBox.ViewModelCollection.SaveLoad` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
+## Key Properties
 
-| Name |
-|------|
-| `None` |
-| `1` |
-| `Health` |
-| `Gold` |
-| `Influence` |
-| `PartySize` |
-| `Food` |
+| Name | Signature |
+|------|-----------|
+| `Hint` | `public HintViewModel Hint { get; set; }` |
+| `PropertyType` | `public string PropertyType { get; set; }` |
+| `Value` | `public string Value { get; set; }` |
+
+## Key Methods
+
+### RefreshValues
+`public override void RefreshValues()`
+
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SavedGameProperty from the subsystem API first
+SavedGameProperty savedGameProperty = ...;
+savedGameProperty.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SavedGameProperty();
+// Typically call this after obtaining an instance from the subsystem API
+SavedGameProperty savedGameProperty = ...;
+savedGameProperty.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

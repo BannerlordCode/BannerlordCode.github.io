@@ -1,20 +1,14 @@
 ---
 title: "IParleyCampaignBehavior"
+description: "IParleyCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IParleyCampaignBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IParleyCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IParleyCampaignBehavior`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/IParleyCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/IParleyCampaignBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IParleyCampaignBehavior"
 ## 使用示例
 
 ```csharp
-IParleyCampaignBehavior implementation = GetParleyCampaignBehaviorImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIParleyCampaignBehavior service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

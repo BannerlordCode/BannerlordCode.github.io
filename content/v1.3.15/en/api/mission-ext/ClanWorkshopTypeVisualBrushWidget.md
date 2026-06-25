@@ -1,13 +1,7 @@
 ---
 title: "ClanWorkshopTypeVisualBrushWidget"
+description: "Auto-generated class reference for ClanWorkshopTypeVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanWorkshopTypeVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanWorkshopTypeVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
@@ -33,9 +27,10 @@ Treat `ClanWorkshopTypeVisualBrushWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new ClanWorkshopTypeVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClanWorkshopTypeVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

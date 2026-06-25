@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerBattleSpawnModel"
+description: "Auto-generated class reference for MultiplayerBattleSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerBattleSpawnModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleSpawnModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleSpawnModel : BattleSpawnModel`
 **Base:** `BattleSpawnModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleSpawnModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MultiplayerBattleSpawnModel.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ Game.Current.ReplaceModel<MultiplayerBattleSpawnModel>(new MyMultiplayerBattleSp
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

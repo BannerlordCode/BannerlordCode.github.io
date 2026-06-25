@@ -1,20 +1,14 @@
 ---
 title: "DefaultShipCostModel"
+description: "DefaultShipCostModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultShipCostModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultShipCostModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultShipCostModel : ShipCostModel`
 **Base:** `ShipCostModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultShipCostModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultShipCostModel.cs`
 
 ## 概述
 
@@ -29,22 +23,46 @@ title: "DefaultShipCostModel"
 ### GetShipTradeValue
 `public override float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**用途 / Purpose:** 获取 `ship trade value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship trade value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipCostModel 实例
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipTradeValue(ship, seller, buyer);
+```
 
 ### GetShipRepairCost
 `public override float GetShipRepairCost(Ship ship, PartyBase owner)`
 
-**用途 / Purpose:** 获取 `ship repair cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship repair cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipCostModel 实例
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipRepairCost(ship, owner);
+```
 
 ### GetShipUpgradePieceCost
 `public override int GetShipUpgradePieceCost(Ship ship, ShipUpgradePiece piece, PartyBase owner)`
 
-**用途 / Purpose:** 获取 `ship upgrade piece cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship upgrade piece cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipCostModel 实例
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipUpgradePieceCost(ship, piece, owner);
+```
 
 ### GetShipSellingPenalty
 `public override float GetShipSellingPenalty()`
 
-**用途 / Purpose:** 获取 `ship selling penalty` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship selling penalty」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultShipCostModel 实例
+DefaultShipCostModel defaultShipCostModel = ...;
+var result = defaultShipCostModel.GetShipSellingPenalty();
+```
 
 ## 使用示例
 
@@ -54,4 +72,4 @@ Game.Current.ReplaceModel<DefaultShipCostModel>(new MyDefaultShipCostModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

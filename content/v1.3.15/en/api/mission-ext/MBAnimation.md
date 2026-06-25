@@ -1,13 +1,7 @@
 ---
 title: "MBAnimation"
+description: "Auto-generated class reference for MBAnimation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBAnimation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBAnimation
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,120 +23,233 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public bool Equals(MBAnimation a)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MBAnimation from the subsystem API first
+MBAnimation mBAnimation = ...;
+var result = mBAnimation.Equals(a);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MBAnimation from the subsystem API first
+MBAnimation mBAnimation = ...;
+var result = mBAnimation.GetHashCode();
+```
 
 ### GetAnimationIndexWithName
 `public static int GetAnimationIndexWithName(string animationName)`
 
-**Purpose:** Gets the current value of `animation index with name`.
+**Purpose:** Reads and returns the `animation index with name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationIndexWithName("example");
+```
 
 ### GetActionType
 `public static Agent.ActionCodeType GetActionType(ActionIndexCache actionIndex)`
 
-**Purpose:** Gets the current value of `action type`.
+**Purpose:** Reads and returns the `action type` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetActionType(actionIndex);
+```
 
 ### PrefetchAnimationClip
 `public static void PrefetchAnimationClip(MBActionSet actionSet, ActionIndexCache actionIndexCache)`
 
-**Purpose:** Handles logic related to `prefetch animation clip`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBAnimation.PrefetchAnimationClip(actionSet, actionIndexCache);
+```
 
 ### GetAnimationDuration
 `public static float GetAnimationDuration(string animationName)`
 
-**Purpose:** Gets the current value of `animation duration`.
+**Purpose:** Reads and returns the `animation duration` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationDuration("example");
+```
 
 ### GetAnimationDuration
 `public static float GetAnimationDuration(int animationIndex)`
 
-**Purpose:** Gets the current value of `animation duration`.
+**Purpose:** Reads and returns the `animation duration` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationDuration(0);
+```
 
 ### GetAnimationParameter1
 `public static float GetAnimationParameter1(string animationName)`
 
-**Purpose:** Gets the current value of `animation parameter1`.
+**Purpose:** Reads and returns the `animation parameter1` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationParameter1("example");
+```
 
 ### GetAnimationParameter1
 `public static float GetAnimationParameter1(int animationIndex)`
 
-**Purpose:** Gets the current value of `animation parameter1`.
+**Purpose:** Reads and returns the `animation parameter1` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationParameter1(0);
+```
 
 ### GetAnimationParameter2
 `public static float GetAnimationParameter2(string animationName)`
 
-**Purpose:** Gets the current value of `animation parameter2`.
+**Purpose:** Reads and returns the `animation parameter2` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationParameter2("example");
+```
 
 ### GetAnimationParameter2
 `public static float GetAnimationParameter2(int animationIndex)`
 
-**Purpose:** Gets the current value of `animation parameter2`.
+**Purpose:** Reads and returns the `animation parameter2` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationParameter2(0);
+```
 
 ### GetAnimationParameter3
 `public static float GetAnimationParameter3(string animationName)`
 
-**Purpose:** Gets the current value of `animation parameter3`.
+**Purpose:** Reads and returns the `animation parameter3` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationParameter3("example");
+```
 
 ### GetAnimationBlendInPeriod
 `public static float GetAnimationBlendInPeriod(string animationName)`
 
-**Purpose:** Gets the current value of `animation blend in period`.
+**Purpose:** Reads and returns the `animation blend in period` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationBlendInPeriod("example");
+```
 
 ### GetAnimationBlendInPeriod
 `public static float GetAnimationBlendInPeriod(int animationIndex)`
 
-**Purpose:** Gets the current value of `animation blend in period`.
+**Purpose:** Reads and returns the `animation blend in period` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationBlendInPeriod(0);
+```
 
 ### GetAnimationBlendsWithActionIndex
 `public static int GetAnimationBlendsWithActionIndex(string animationName)`
 
-**Purpose:** Gets the current value of `animation blends with action index`.
+**Purpose:** Reads and returns the `animation blends with action index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationBlendsWithActionIndex("example");
+```
 
 ### GetAnimationBlendsWithActionIndex
 `public static float GetAnimationBlendsWithActionIndex(int animationIndex)`
 
-**Purpose:** Gets the current value of `animation blends with action index`.
+**Purpose:** Reads and returns the `animation blends with action index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationBlendsWithActionIndex(0);
+```
 
 ### GetAnimationDisplacementAtProgress
 `public static Vec3 GetAnimationDisplacementAtProgress(string animationName, float progress)`
 
-**Purpose:** Gets the current value of `animation displacement at progress`.
+**Purpose:** Reads and returns the `animation displacement at progress` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationDisplacementAtProgress("example", 0);
+```
 
 ### GetAnimationDisplacementAtProgress
 `public static Vec3 GetAnimationDisplacementAtProgress(int animationIndex, float progress)`
 
-**Purpose:** Gets the current value of `animation displacement at progress`.
+**Purpose:** Reads and returns the `animation displacement at progress` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetAnimationDisplacementAtProgress(0, 0);
+```
 
 ### GetActionCodeWithName
 `public static int GetActionCodeWithName(string name)`
 
-**Purpose:** Gets the current value of `action code with name`.
+**Purpose:** Reads and returns the `action code with name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetActionCodeWithName("example");
+```
 
 ### GetNumActionCodes
 `public static int GetNumActionCodes()`
 
-**Purpose:** Gets the current value of `num action codes`.
+**Purpose:** Reads and returns the `num action codes` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetNumActionCodes();
+```
 
 ### GetNumAnimations
 `public static int GetNumAnimations()`
 
-**Purpose:** Gets the current value of `num animations`.
+**Purpose:** Reads and returns the `num animations` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBAnimation.GetNumAnimations();
+```
 
 ### IsAnyAnimationLoadingFromDisk
 `public static bool IsAnyAnimationLoadingFromDisk()`
 
-**Purpose:** Handles logic related to `is any animation loading from disk`.
+**Purpose:** Determines whether the current object is in the `any animation loading from disk` state or condition.
+
+```csharp
+// Static call; no instance required
+MBAnimation.IsAnyAnimationLoadingFromDisk();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBAnimation();
-value.Equals(a);
+// Typically call this after obtaining an instance from the subsystem API
+MBAnimation mBAnimation = ...;
+mBAnimation.Equals(a);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

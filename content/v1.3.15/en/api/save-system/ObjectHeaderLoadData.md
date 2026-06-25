@@ -1,19 +1,14 @@
 ---
 title: "ObjectHeaderLoadData"
+description: "Auto-generated class reference for ObjectHeaderLoadData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ObjectHeaderLoadData`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ObjectHeaderLoadData
 
 **Namespace:** TaleWorlds.SaveSystem.Load
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ObjectHeaderLoadData`
-**Area:** save-system
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/Load/ObjectHeaderLoadData.cs`
 
 ## Overview
 
@@ -41,30 +36,54 @@ Treat `ObjectHeaderLoadData` as a Data-style extension point: first identify who
 ### InitialieReaders
 `public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
 
-**Purpose:** Initializes the state, resources, or bindings for `ialie readers`.
+**Purpose:** Prepares the resources, state, or bindings required by `ialie readers`.
+
+```csharp
+// Obtain an instance of ObjectHeaderLoadData from the subsystem API first
+ObjectHeaderLoadData objectHeaderLoadData = ...;
+objectHeaderLoadData.InitialieReaders(saveEntryFolder);
+```
 
 ### CreateObject
 `public void CreateObject()`
 
-**Purpose:** Creates a new `object` instance or object.
+**Purpose:** Constructs a new `object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of ObjectHeaderLoadData from the subsystem API first
+ObjectHeaderLoadData objectHeaderLoadData = ...;
+objectHeaderLoadData.CreateObject();
+```
 
 ### AdvancedResolveObject
 `public void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)`
 
-**Purpose:** Handles logic related to `advanced resolve object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ObjectHeaderLoadData from the subsystem API first
+ObjectHeaderLoadData objectHeaderLoadData = ...;
+objectHeaderLoadData.AdvancedResolveObject(metaData, objectLoadData);
+```
 
 ### ResolveObject
 `public void ResolveObject()`
 
-**Purpose:** Handles logic related to `resolve object`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ObjectHeaderLoadData from the subsystem API first
+ObjectHeaderLoadData objectHeaderLoadData = ...;
+objectHeaderLoadData.ResolveObject();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ObjectHeaderLoadData();
+// This data object is usually returned by campaign/mission APIs
+ObjectHeaderLoadData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-save)
+- [Area Index](../)

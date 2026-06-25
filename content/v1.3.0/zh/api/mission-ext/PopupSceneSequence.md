@@ -1,13 +1,7 @@
 ---
 title: "PopupSceneSequence"
+description: "PopupSceneSequence 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PopupSceneSequence`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneSequence
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
@@ -29,50 +23,99 @@ title: "PopupSceneSequence"
 ### InitializeWithAgentVisuals
 `public void InitializeWithAgentVisuals(AgentVisuals visuals)`
 
-**用途 / Purpose:** 初始化 `with agent visuals` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「with agent visuals」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSequence 实例
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.InitializeWithAgentVisuals(visuals);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSequence 实例
+PopupSceneSequence popupSceneSequence = ...;
+var result = popupSceneSequence.GetTickRequirement();
+```
 
 ### OnInitialState
 `public virtual void OnInitialState()`
 
-**用途 / Purpose:** 当 `initial state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「initial state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSequence 实例
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.OnInitialState();
+```
 
 ### OnPositiveState
 `public virtual void OnPositiveState()`
 
-**用途 / Purpose:** 当 `positive state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「positive state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSequence 实例
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.OnPositiveState();
+```
 
 ### OnNegativeState
 `public virtual void OnNegativeState()`
 
-**用途 / Purpose:** 当 `negative state` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「negative state」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSequence 实例
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.OnNegativeState();
+```
 
 ### SetInitialState
 `public void SetInitialState()`
 
-**用途 / Purpose:** 设置 `initial state` 的值或状态。
+**用途 / Purpose:** 为 「initial state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSequence 实例
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.SetInitialState();
+```
 
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**用途 / Purpose:** 设置 `positive state` 的值或状态。
+**用途 / Purpose:** 为 「positive state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSequence 实例
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.SetPositiveState();
+```
 
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**用途 / Purpose:** 设置 `negative state` 的值或状态。
+**用途 / Purpose:** 为 「negative state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PopupSceneSequence 实例
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.SetNegativeState();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PopupSceneSequence();
-value.InitializeWithAgentVisuals(visuals);
+// 通常从对应子系统 API 获取实例后调用
+PopupSceneSequence popupSceneSequence = ...;
+popupSceneSequence.InitializeWithAgentVisuals(visuals);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

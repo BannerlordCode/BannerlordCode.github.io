@@ -1,20 +1,14 @@
 ---
 title: "LandlordNeedsAccessToVillageCommonsIssueQuest"
+description: "LandlordNeedsAccessToVillageCommonsIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LandlordNeedsAccessToVillageCommonsIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LandlordNeedsAccessToVillageCommonsIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LandlordNeedsAccessToVillageCommonsIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LandlordNeedsAccessToVillageCommonsIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LandlordNeedsAccessToVillageCommonsIssueBehavior.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "LandlordNeedsAccessToVillageCommonsIssueQuest"
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** 当 `failed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LandlordNeedsAccessToVillageCommonsIssueQuest 实例
+LandlordNeedsAccessToVillageCommonsIssueQuest landlordNeedsAccessToVillageCommonsIssueQuest = ...;
+landlordNeedsAccessToVillageCommonsIssueQuest.OnFailed();
+```
 
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have campaign issues info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LandlordNeedsAccessToVillageCommonsIssueQuest 实例
+LandlordNeedsAccessToVillageCommonsIssueQuest landlordNeedsAccessToVillageCommonsIssueQuest = ...;
+landlordNeedsAccessToVillageCommonsIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LandlordNeedsAccessToVillageCommonsIssueQuest();
-value.OnFailed();
+// 通常从对应子系统 API 获取实例后调用
+LandlordNeedsAccessToVillageCommonsIssueQuest landlordNeedsAccessToVillageCommonsIssueQuest = ...;
+landlordNeedsAccessToVillageCommonsIssueQuest.OnFailed();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

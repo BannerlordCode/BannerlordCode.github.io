@@ -1,20 +1,14 @@
 ---
 title: "EngineCallback"
+description: "Auto-generated class reference for EngineCallback."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineCallback`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineCallback
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class EngineCallback : ManagedFromNativeCallback`
 **Base:** `ManagedFromNativeCallback`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineCallback.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EngineCallback.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new EngineCallback();
+// Obtain an instance from the relevant subsystem API
+EngineCallback instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

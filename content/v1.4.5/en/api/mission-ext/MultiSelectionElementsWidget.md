@@ -1,20 +1,14 @@
 ---
 title: "MultiSelectionElementsWidget"
+description: "Auto-generated class reference for MultiSelectionElementsWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiSelectionElementsWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiSelectionElementsWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiSelectionElementsWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information/MultiSelectionElementsWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information/MultiSelectionElementsWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MultiSelectionElementsWidget` as a Widget-style extension point: first id
 ### MultiSelectionElementsWidget
 `public class MultiSelectionElementsWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multi selection elements widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiSelectionElementsWidget from the subsystem API first
+MultiSelectionElementsWidget multiSelectionElementsWidget = ...;
+var result = multiSelectionElementsWidget.MultiSelectionElementsWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiSelectionElementsWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiSelectionElementsWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

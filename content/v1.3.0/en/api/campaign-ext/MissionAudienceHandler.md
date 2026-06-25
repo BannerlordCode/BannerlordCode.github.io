@@ -1,13 +1,7 @@
 ---
 title: "MissionAudienceHandler"
+description: "Auto-generated class reference for MissionAudienceHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAudienceHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAudienceHandler
 
 **Namespace:** SandBox.View.Missions
@@ -29,39 +23,75 @@ Treat `MissionAudienceHandler` as a Handler-style extension point: first identif
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionAudienceHandler from the subsystem API first
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.EarlyStart();
+```
 
 ### OnInit
 `public void OnInit()`
 
-**Purpose:** Called when the `init` event is raised.
+**Purpose:** Invoked when the `init` event is raised.
+
+```csharp
+// Obtain an instance of MissionAudienceHandler from the subsystem API first
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnInit();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionAudienceHandler from the subsystem API first
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionAudienceHandler from the subsystem API first
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnMissionTick(0);
+```
 
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**Purpose:** Called when the `mission mode change` event is raised.
+**Purpose:** Invoked when the `mission mode change` event is raised.
+
+```csharp
+// Obtain an instance of MissionAudienceHandler from the subsystem API first
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnMissionModeChange(oldMissionMode, false);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionAudienceHandler from the subsystem API first
+MissionAudienceHandler missionAudienceHandler = ...;
+missionAudienceHandler.OnMissionScreenFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAudienceHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionAudienceHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

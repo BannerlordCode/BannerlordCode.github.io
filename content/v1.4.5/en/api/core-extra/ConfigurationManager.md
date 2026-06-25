@@ -1,20 +1,14 @@
 ---
 title: "ConfigurationManager"
+description: "Auto-generated class reference for ConfigurationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConfigurationManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConfigurationManager
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class ConfigurationManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ConfigurationManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ConfigurationManager.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Treat `ConfigurationManager` as a Manager-style extension point: first identify 
 ### SetConfigurationManager
 `public static void SetConfigurationManager(IConfigurationManager configurationManager)`
 
-**Purpose:** Sets the value or state of `configuration manager`.
+**Purpose:** Assigns a new value to `configuration manager` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+ConfigurationManager.SetConfigurationManager(configurationManager);
+```
 
 ### GetAppSettings
 `public static string GetAppSettings(string name)`
 
-**Purpose:** Gets the current value of `app settings`.
+**Purpose:** Reads and returns the `app settings` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ConfigurationManager.GetAppSettings("example");
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ var manager = ConfigurationManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

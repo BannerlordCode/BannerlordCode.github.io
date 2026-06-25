@@ -1,20 +1,14 @@
 ---
 title: "MissionDuelMarkersVM"
+description: "MissionDuelMarkersVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionDuelMarkersVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDuelMarkersVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionDuelMarkersVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MissionDuelMarkersVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MissionDuelMarkersVM.cs`
 
 ## 概述
 
@@ -37,85 +31,176 @@ title: "MissionDuelMarkersVM"
 ### Compare
 `public int Compare(MissionDuelPeerMarkerVM x, MissionDuelPeerMarkerVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+var result = missionDuelMarkersVM.Compare(x, y);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.RefreshValues();
+```
 
 ### UpdateScreenCenter
 `public void UpdateScreenCenter()`
 
-**用途 / Purpose:** 更新 `screen center` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「screen center」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.UpdateScreenCenter();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.Tick(0);
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.RegisterEvents();
+```
 
 ### UnregisterEvents
 `public void UnregisterEvents()`
 
-**用途 / Purpose:** 处理 `unregister events` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「events」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.UnregisterEvents();
+```
 
 ### RefreshPeerEquipments
 `public void RefreshPeerEquipments()`
 
-**用途 / Purpose:** 刷新 `peer equipments` 的显示或缓存。
+**用途 / Purpose:** 使 「peer equipments」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.RefreshPeerEquipments();
+```
 
 ### OnAgentSpawnedWithoutDuel
 `public void OnAgentSpawnedWithoutDuel()`
 
-**用途 / Purpose:** 当 `agent spawned without duel` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent spawned without duel」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnAgentSpawnedWithoutDuel();
+```
 
 ### OnAgentBuiltForTheFirstTime
 `public void OnAgentBuiltForTheFirstTime()`
 
-**用途 / Purpose:** 当 `agent built for the first time` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent built for the first time」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnAgentBuiltForTheFirstTime();
+```
 
 ### OnDuelStarted
 `public void OnDuelStarted(MissionPeer firstPeer, MissionPeer secondPeer)`
 
-**用途 / Purpose:** 当 `duel started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「duel started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnDuelStarted(firstPeer, secondPeer);
+```
 
 ### SetMarkerOfPeerEnabled
 `public void SetMarkerOfPeerEnabled(MissionPeer peer, bool isEnabled)`
 
-**用途 / Purpose:** 设置 `marker of peer enabled` 的值或状态。
+**用途 / Purpose:** 为 「marker of peer enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.SetMarkerOfPeerEnabled(peer, false);
+```
 
 ### OnPlayerPreferredZoneChanged
 `public void OnPlayerPreferredZoneChanged(int playerPrefferedArenaType)`
 
-**用途 / Purpose:** 当 `player preferred zone changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player preferred zone changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnPlayerPreferredZoneChanged(0);
+```
 
 ### OnFocusGained
 `public void OnFocusGained()`
 
-**用途 / Purpose:** 当 `focus gained` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus gained」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnFocusGained();
+```
 
 ### OnFocusLost
 `public void OnFocusLost()`
 
-**用途 / Purpose:** 当 `focus lost` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus lost」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnFocusLost();
+```
 
 ### OnPeerEquipmentRefreshed
 `public void OnPeerEquipmentRefreshed(MissionPeer peer)`
 
-**用途 / Purpose:** 当 `peer equipment refreshed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「peer equipment refreshed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.OnPeerEquipmentRefreshed(peer);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionDuelMarkersVM();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+MissionDuelMarkersVM missionDuelMarkersVM = ...;
+missionDuelMarkersVM.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

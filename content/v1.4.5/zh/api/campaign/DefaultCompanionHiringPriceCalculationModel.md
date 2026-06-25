@@ -1,20 +1,14 @@
 ---
 title: "DefaultCompanionHiringPriceCalculationModel"
+description: "DefaultCompanionHiringPriceCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultCompanionHiringPriceCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultCompanionHiringPriceCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultCompanionHiringPriceCalculationModel : CompanionHiringPriceCalculationModel`
 **Base:** `CompanionHiringPriceCalculationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCompanionHiringPriceCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultCompanionHiringPriceCalculationModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultCompanionHiringPriceCalculationModel"
 ### GetCompanionHiringPrice
 `public override int GetCompanionHiringPrice(Hero companion)`
 
-**用途 / Purpose:** 获取 `companion hiring price` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「companion hiring price」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCompanionHiringPriceCalculationModel 实例
+DefaultCompanionHiringPriceCalculationModel defaultCompanionHiringPriceCalculationModel = ...;
+var result = defaultCompanionHiringPriceCalculationModel.GetCompanionHiringPrice(companion);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultCompanionHiringPriceCalculationModel>(new MyDef
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

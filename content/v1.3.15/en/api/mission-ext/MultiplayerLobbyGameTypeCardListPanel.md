@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyGameTypeCardListPanel"
+description: "Auto-generated class reference for MultiplayerLobbyGameTypeCardListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyGameTypeCardListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyGameTypeCardListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lo
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerLobbyGameTypeCardListPanel();
+// Obtain an instance from the relevant subsystem API
+MultiplayerLobbyGameTypeCardListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

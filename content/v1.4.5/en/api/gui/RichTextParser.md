@@ -1,20 +1,14 @@
 ---
 title: "RichTextParser"
+description: "Auto-generated class reference for RichTextParser."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RichTextParser`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RichTextParser
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class RichTextParser`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichTextParser.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/RichTextParser.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Parse
 `public static List<TextToken> Parse(string text)`
 
-**Purpose:** Handles logic related to `parse`.
+**Purpose:** Parses external input into a `parse` the current system understands.
+
+```csharp
+// Static call; no instance required
+RichTextParser.Parse("example");
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ RichTextParser.Parse("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

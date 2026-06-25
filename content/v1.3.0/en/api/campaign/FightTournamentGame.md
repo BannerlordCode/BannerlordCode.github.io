@@ -1,13 +1,7 @@
 ---
 title: "FightTournamentGame"
+description: "Auto-generated class reference for FightTournamentGame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FightTournamentGame`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FightTournamentGame
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### CanBeAParticipant
 `public override bool CanBeAParticipant(CharacterObject character, bool considerSkills)`
 
-**Purpose:** Checks whether the current object can `be a participant`.
+**Purpose:** Checks whether the current object meets the preconditions for `be a participant`.
+
+```csharp
+// Obtain an instance of FightTournamentGame from the subsystem API first
+FightTournamentGame fightTournamentGame = ...;
+var result = fightTournamentGame.CanBeAParticipant(character, false);
+```
 
 ### GetMenuText
 `public override TextObject GetMenuText()`
 
-**Purpose:** Gets the current value of `menu text`.
+**Purpose:** Reads and returns the `menu text` value held by the current object.
+
+```csharp
+// Obtain an instance of FightTournamentGame from the subsystem API first
+FightTournamentGame fightTournamentGame = ...;
+var result = fightTournamentGame.GetMenuText();
+```
 
 ### OpenMission
 `public override void OpenMission(Settlement settlement, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open mission`.
+**Purpose:** Opens the resource or UI associated with `mission`.
+
+```csharp
+// Obtain an instance of FightTournamentGame from the subsystem API first
+FightTournamentGame fightTournamentGame = ...;
+fightTournamentGame.OpenMission(settlement, false);
+```
 
 ### GetParticipantCharacters
 `public override MBList<CharacterObject> GetParticipantCharacters(Settlement settlement, bool includePlayer = true)`
 
-**Purpose:** Gets the current value of `participant characters`.
+**Purpose:** Reads and returns the `participant characters` value held by the current object.
+
+```csharp
+// Obtain an instance of FightTournamentGame from the subsystem API first
+FightTournamentGame fightTournamentGame = ...;
+var result = fightTournamentGame.GetParticipantCharacters(settlement, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FightTournamentGame();
-value.CanBeAParticipant(character, false);
+// Typically call this after obtaining an instance from the subsystem API
+FightTournamentGame fightTournamentGame = ...;
+fightTournamentGame.CanBeAParticipant(character, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

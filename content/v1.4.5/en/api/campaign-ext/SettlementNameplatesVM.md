@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplatesVM"
+description: "Auto-generated class reference for SettlementNameplatesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplatesVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplatesVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SettlementNameplatesVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplatesVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplatesVM.cs`
 
 ## Overview
 
@@ -37,50 +31,99 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.OnFinalize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.RefreshValues();
+```
 
 ### Initialize
 `public void Initialize(IEnumerable<Tuple<Settlement, GameEntity>> settlements)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.Initialize(iEnumerable<Tuple<Settlement, settlements);
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.Update();
+```
 
 ### GetNameplateOfSettlement
 `public SettlementNameplateVM GetNameplateOfSettlement(Settlement settlement)`
 
-**Purpose:** Gets the current value of `nameplate of settlement`.
+**Purpose:** Reads and returns the `nameplate of settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+var result = settlementNameplatesVM.GetNameplateOfSettlement(settlement);
+```
 
 ### OnRebelliousClanDisbandedAtSettlement
 `public void OnRebelliousClanDisbandedAtSettlement(Settlement settlement, Clan clan)`
 
-**Purpose:** Called when the `rebellious clan disbanded at settlement` event is raised.
+**Purpose:** Invoked when the `rebellious clan disbanded at settlement` event is raised.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.OnRebelliousClanDisbandedAtSettlement(settlement, clan);
+```
 
 ### RefreshRelationsOfNameplates
 `public void RefreshRelationsOfNameplates()`
 
-**Purpose:** Refreshes the display or cache of `relations of nameplates`.
+**Purpose:** Keeps the display or cache of `relations of nameplates` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.RefreshRelationsOfNameplates();
+```
 
 ### RefreshDynamicPropertiesOfNameplates
 `public void RefreshDynamicPropertiesOfNameplates(bool forceUpdate)`
 
-**Purpose:** Refreshes the display or cache of `dynamic properties of nameplates`.
+**Purpose:** Keeps the display or cache of `dynamic properties of nameplates` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SettlementNameplatesVM from the subsystem API first
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.RefreshDynamicPropertiesOfNameplates(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementNameplatesVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

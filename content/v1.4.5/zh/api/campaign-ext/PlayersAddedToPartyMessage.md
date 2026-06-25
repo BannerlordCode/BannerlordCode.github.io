@@ -1,20 +1,14 @@
 ---
 title: "PlayersAddedToPartyMessage"
+description: "PlayersAddedToPartyMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayersAddedToPartyMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayersAddedToPartyMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayersAddedToPartyMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayersAddedToPartyMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayersAddedToPartyMessage.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "PlayersAddedToPartyMessage"
 ### AddPlayer
 `public void AddPlayer(PlayerId playerId, string playerName, bool isPartyLeader)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `player`。
+**用途 / Purpose:** 将 「player」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PlayersAddedToPartyMessage 实例
+PlayersAddedToPartyMessage playersAddedToPartyMessage = ...;
+playersAddedToPartyMessage.AddPlayer(playerId, "example", false);
+```
 
 ### AddInvitedPlayer
 `public void AddInvitedPlayer(PlayerId playerId, string playerName)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `invited player`。
+**用途 / Purpose:** 将 「invited player」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 PlayersAddedToPartyMessage 实例
+PlayersAddedToPartyMessage playersAddedToPartyMessage = ...;
+playersAddedToPartyMessage.AddInvitedPlayer(playerId, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PlayersAddedToPartyMessage();
-value.AddPlayer(playerId, "example", false);
+// 通常从对应子系统 API 获取实例后调用
+PlayersAddedToPartyMessage playersAddedToPartyMessage = ...;
+playersAddedToPartyMessage.AddPlayer(playerId, "example", false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

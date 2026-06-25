@@ -1,20 +1,14 @@
 ---
 title: "ActionOptionDataVM"
+description: "ActionOptionDataVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ActionOptionDataVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ActionOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ActionOptionDataVM : GenericOptionDataVM`
 **Base:** `GenericOptionDataVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/ActionOptionDataVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/ActionOptionDataVM.cs`
 
 ## 概述
 
@@ -35,45 +29,88 @@ title: "ActionOptionDataVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ActionOptionDataVM 实例
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.RefreshValues();
+```
 
 ### Cancel
 `public override void Cancel()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `cel`。
+**用途 / Purpose:** 检查当前对象是否满足 「cel」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 ActionOptionDataVM 实例
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.Cancel();
+```
 
 ### IsChanged
 `public override bool IsChanged()`
 
-**用途 / Purpose:** 处理 `is changed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「changed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ActionOptionDataVM 实例
+ActionOptionDataVM actionOptionDataVM = ...;
+var result = actionOptionDataVM.IsChanged();
+```
 
 ### ResetData
 `public override void ResetData()`
 
-**用途 / Purpose:** 将 `data` 重置为初始状态。
+**用途 / Purpose:** 将 「data」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 ActionOptionDataVM 实例
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.ResetData();
+```
 
 ### SetValue
 `public override void SetValue(float value)`
 
-**用途 / Purpose:** 设置 `value` 的值或状态。
+**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 ActionOptionDataVM 实例
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.SetValue(0);
+```
 
 ### UpdateValue
 `public override void UpdateValue()`
 
-**用途 / Purpose:** 更新 `value` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「value」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ActionOptionDataVM 实例
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.UpdateValue();
+```
 
 ### ApplyValue
 `public override void ApplyValue()`
 
-**用途 / Purpose:** 将 `value` 应用到当前对象。
+**用途 / Purpose:** 将 「value」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ActionOptionDataVM 实例
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.ApplyValue();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ActionOptionDataVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ActionOptionDataVM actionOptionDataVM = ...;
+actionOptionDataVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

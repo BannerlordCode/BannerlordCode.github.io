@@ -1,20 +1,14 @@
 ---
 title: "NamespaceCode"
+description: "NamespaceCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NamespaceCode`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NamespaceCode
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
 **Type:** `public class NamespaceCode`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/NamespaceCode.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/NamespaceCode.cs`
 
 ## 概述
 
@@ -36,20 +30,33 @@ title: "NamespaceCode"
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 处理 `generate into` 相关逻辑。
+**用途 / Purpose:** 生成「into」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 NamespaceCode 实例
+NamespaceCode namespaceCode = ...;
+namespaceCode.GenerateInto(codeGenerationFile);
+```
 
 ### AddClass
 `public void AddClass(ClassCode clasCode)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `class`。
+**用途 / Purpose:** 将 「class」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 NamespaceCode 实例
+NamespaceCode namespaceCode = ...;
+namespaceCode.AddClass(clasCode);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NamespaceCode();
-value.GenerateInto(codeGenerationFile);
+// 通常从对应子系统 API 获取实例后调用
+NamespaceCode namespaceCode = ...;
+namespaceCode.GenerateInto(codeGenerationFile);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "StealthCharactersCampaignBehavior"
+description: "Auto-generated class reference for StealthCharactersCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthCharactersCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthCharactersCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
@@ -29,20 +23,33 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of StealthCharactersCampaignBehavior from the subsystem API first
+StealthCharactersCampaignBehavior stealthCharactersCampaignBehavior = ...;
+stealthCharactersCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of StealthCharactersCampaignBehavior from the subsystem API first
+StealthCharactersCampaignBehavior stealthCharactersCampaignBehavior = ...;
+stealthCharactersCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StealthCharactersCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+StealthCharactersCampaignBehavior stealthCharactersCampaignBehavior = ...;
+stealthCharactersCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

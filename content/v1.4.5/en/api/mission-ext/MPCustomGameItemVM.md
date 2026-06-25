@@ -1,20 +1,14 @@
 ---
 title: "MPCustomGameItemVM"
+description: "Auto-generated class reference for MPCustomGameItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPCustomGameItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPCustomGameItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPCustomGameItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.CustomGame/MPCustomGameItemVM.cs`
 
 ## Overview
 
@@ -56,35 +50,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### UpdateIsFavorite
 `public void UpdateIsFavorite()`
 
-**Purpose:** Updates the state or data of `is favorite`.
+**Purpose:** Recalculates and stores the latest representation of `is favorite`.
+
+```csharp
+// Obtain an instance of MPCustomGameItemVM from the subsystem API first
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.UpdateIsFavorite();
+```
 
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Executes the `select` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select`.
+
+```csharp
+// Obtain an instance of MPCustomGameItemVM from the subsystem API first
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.ExecuteSelect();
+```
 
 ### ExecuteFavorite
 `public void ExecuteFavorite()`
 
-**Purpose:** Executes the `favorite` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `favorite`.
+
+```csharp
+// Obtain an instance of MPCustomGameItemVM from the subsystem API first
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.ExecuteFavorite();
+```
 
 ### ExecuteJoin
 `public void ExecuteJoin()`
 
-**Purpose:** Executes the `join` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `join`.
+
+```csharp
+// Obtain an instance of MPCustomGameItemVM from the subsystem API first
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.ExecuteJoin();
+```
 
 ### ExecuteViewHostOptions
 `public void ExecuteViewHostOptions()`
 
-**Purpose:** Executes the `view host options` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `view host options`.
+
+```csharp
+// Obtain an instance of MPCustomGameItemVM from the subsystem API first
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.ExecuteViewHostOptions();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPCustomGameItemVM();
-value.UpdateIsFavorite();
+// Typically call this after obtaining an instance from the subsystem API
+MPCustomGameItemVM mPCustomGameItemVM = ...;
+mPCustomGameItemVM.UpdateIsFavorite();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

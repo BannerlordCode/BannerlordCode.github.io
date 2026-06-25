@@ -1,13 +1,7 @@
 ---
 title: "ActionOptionData"
+description: "Auto-generated class reference for ActionOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActionOptionData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ActionOptionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Options
@@ -35,49 +29,98 @@ Treat `ActionOptionData` as a Data-style extension point: first identify who cre
 ### Commit
 `public void Commit()`
 
-**Purpose:** Handles logic related to `commit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ActionOptionData from the subsystem API first
+ActionOptionData actionOptionData = ...;
+actionOptionData.Commit();
+```
 
 ### GetDefaultValue
 `public float GetDefaultValue()`
 
-**Purpose:** Gets the current value of `default value`.
+**Purpose:** Reads and returns the `default value` value held by the current object.
+
+```csharp
+// Obtain an instance of ActionOptionData from the subsystem API first
+ActionOptionData actionOptionData = ...;
+var result = actionOptionData.GetDefaultValue();
+```
 
 ### GetOptionType
 `public object GetOptionType()`
 
-**Purpose:** Gets the current value of `option type`.
+**Purpose:** Reads and returns the `option type` value held by the current object.
+
+```csharp
+// Obtain an instance of ActionOptionData from the subsystem API first
+ActionOptionData actionOptionData = ...;
+var result = actionOptionData.GetOptionType();
+```
 
 ### GetValue
 `public float GetValue(bool forceRefresh)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of ActionOptionData from the subsystem API first
+ActionOptionData actionOptionData = ...;
+var result = actionOptionData.GetValue(false);
+```
 
 ### IsNative
 `public bool IsNative()`
 
-**Purpose:** Handles logic related to `is native`.
+**Purpose:** Determines whether the current object is in the `native` state or condition.
+
+```csharp
+// Obtain an instance of ActionOptionData from the subsystem API first
+ActionOptionData actionOptionData = ...;
+var result = actionOptionData.IsNative();
+```
 
 ### SetValue
 `public void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ActionOptionData from the subsystem API first
+ActionOptionData actionOptionData = ...;
+actionOptionData.SetValue(0);
+```
 
 ### IsAction
 `public bool IsAction()`
 
-**Purpose:** Handles logic related to `is action`.
+**Purpose:** Determines whether the current object is in the `action` state or condition.
+
+```csharp
+// Obtain an instance of ActionOptionData from the subsystem API first
+ActionOptionData actionOptionData = ...;
+var result = actionOptionData.IsAction();
+```
 
 ### GetIsDisabledAndReasonID
 `public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
 
-**Purpose:** Gets the current value of `is disabled and reason i d`.
+**Purpose:** Reads and returns the `is disabled and reason i d` value held by the current object.
+
+```csharp
+// Obtain an instance of ActionOptionData from the subsystem API first
+ActionOptionData actionOptionData = ...;
+var result = actionOptionData.GetIsDisabledAndReasonID();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ActionOptionData();
+// This data object is usually returned by campaign/mission APIs
+ActionOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

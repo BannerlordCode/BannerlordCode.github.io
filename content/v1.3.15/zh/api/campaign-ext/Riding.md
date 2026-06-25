@@ -1,23 +1,18 @@
 ---
 title: "Riding"
+description: "Riding 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Riding`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Riding
 
-**命名空间:** TaleWorlds.CampaignSystem.CharacterDevelopment
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public static class Riding`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class Riding`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## 概述
 
-`Riding` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`Riding` 位于 `TaleWorlds.CampaignSystem.CharacterDevelopment`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -27,34 +22,34 @@ title: "Riding"
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `FullSpeed` | `public static PerkObject FullSpeed { get; }` |
+| `NimbleSteed` | `public static PerkObject NimbleSteed { get; }` |
+| `WellStraped` | `public static PerkObject WellStraped { get; }` |
+| `Veterinary` | `public static PerkObject Veterinary { get; }` |
+| `NomadicTraditions` | `public static PerkObject NomadicTraditions { get; }` |
+| `DeeperSacks` | `public static PerkObject DeeperSacks { get; }` |
+| `Sagittarius` | `public static PerkObject Sagittarius { get; }` |
+| `SweepingWind` | `public static PerkObject SweepingWind { get; }` |
+| `ReliefForce` | `public static PerkObject ReliefForce { get; }` |
+| `MountedWarrior` | `public static PerkObject MountedWarrior { get; }` |
+| `HorseArcher` | `public static PerkObject HorseArcher { get; }` |
+| `Shepherd` | `public static PerkObject Shepherd { get; }` |
+| `Breeder` | `public static PerkObject Breeder { get; }` |
+| `ThunderousCharge` | `public static PerkObject ThunderousCharge { get; }` |
+| `AnnoyingBuzz` | `public static PerkObject AnnoyingBuzz { get; }` |
+| `MountedPatrols` | `public static PerkObject MountedPatrols { get; }` |
+| `CavalryTactics` | `public static PerkObject CavalryTactics { get; }` |
+| `DauntlessSteed` | `public static PerkObject DauntlessSteed { get; }` |
+| `ToughSteed` | `public static PerkObject ToughSteed { get; }` |
+| `TheWayOfTheSaddle` | `public static PerkObject TheWayOfTheSaddle { get; }` |
 
 ## 使用示例
 
 ```csharp
-var value = new Riding();
+// 从对应子系统 API 获取实例
+Riding instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

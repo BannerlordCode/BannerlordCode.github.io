@@ -1,13 +1,7 @@
 ---
 title: "MapSiegeProductionVM"
+description: "Auto-generated class reference for MapSiegeProductionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapSiegeProductionVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapSiegeProductionVM
 
 **Namespace:** SandBox.ViewModelCollection.MapSiege
@@ -37,30 +31,55 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MapSiegeProductionVM from the subsystem API first
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.RefreshValues();
+```
 
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of MapSiegeProductionVM from the subsystem API first
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.Update();
+```
 
 ### OnMachineSelection
 `public void OnMachineSelection(MapSiegePOIVM poi)`
 
-**Purpose:** Called when the `machine selection` event is raised.
+**Purpose:** Invoked when the `machine selection` event is raised.
+
+```csharp
+// Obtain an instance of MapSiegeProductionVM from the subsystem API first
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.OnMachineSelection(poi);
+```
 
 ### ExecuteDisable
 `public void ExecuteDisable()`
 
-**Purpose:** Executes the `disable` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `disable`.
+
+```csharp
+// Obtain an instance of MapSiegeProductionVM from the subsystem API first
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.ExecuteDisable();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapSiegeProductionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MapSiegeProductionVM mapSiegeProductionVM = ...;
+mapSiegeProductionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

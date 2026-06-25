@@ -1,13 +1,7 @@
 ---
 title: "Win64_Shipping_Client"
+description: "Win64_Shipping_Client 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Win64_Shipping_Client`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Win64_Shipping_Client
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ title: "Win64_Shipping_Client"
 ## 使用示例
 
 ```csharp
-var example = new Win64_Shipping_Client();
+// 从对应子系统 API 获取实例
+Win64_Shipping_Client instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

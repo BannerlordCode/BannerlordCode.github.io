@@ -1,20 +1,14 @@
 ---
 title: "EditDataPolicy"
+description: "Auto-generated class reference for EditDataPolicy."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditDataPolicy`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditDataPolicy
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/EditDataPolicy.cs`
+**Type:** `public enum EditDataPolicy : sbyte`
+**Base:** `sbyte`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/EditDataPolicy.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new EditDataPolicy();
+// Obtain an instance from the relevant subsystem API
+EditDataPolicy instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

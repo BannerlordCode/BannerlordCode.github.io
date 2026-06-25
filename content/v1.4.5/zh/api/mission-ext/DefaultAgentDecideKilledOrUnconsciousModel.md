@@ -1,20 +1,14 @@
 ---
 title: "DefaultAgentDecideKilledOrUnconsciousModel"
+description: "DefaultAgentDecideKilledOrUnconsciousModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultAgentDecideKilledOrUnconsciousModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultAgentDecideKilledOrUnconsciousModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultAgentDecideKilledOrUnconsciousModel : AgentDecideKilledOrUnconsciousModel`
 **Base:** `AgentDecideKilledOrUnconsciousModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultAgentDecideKilledOrUnconsciousModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultAgentDecideKilledOrUnconsciousModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultAgentDecideKilledOrUnconsciousModel"
 ### GetAgentStateProbability
 `public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**用途 / Purpose:** 获取 `agent state probability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「agent state probability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAgentDecideKilledOrUnconsciousModel 实例
+DefaultAgentDecideKilledOrUnconsciousModel defaultAgentDecideKilledOrUnconsciousModel = ...;
+var result = defaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, weaponFlags, useSurgeryProbability);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultAgentDecideKilledOrUnconsciousModel>(new MyDefa
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

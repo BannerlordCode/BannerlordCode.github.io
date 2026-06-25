@@ -1,20 +1,14 @@
 ---
 title: "DefaultSettlementPatrolModel"
+description: "Auto-generated class reference for DefaultSettlementPatrolModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementPatrolModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementPatrolModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSettlementPatrolModel : SettlementPatrolModel`
 **Base:** `SettlementPatrolModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementPatrolModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementPatrolModel.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `DefaultSettlementPatrolModel` as a Model-style extension point: first ide
 ### GetPatrolPartySpawnDuration
 `public override CampaignTime GetPatrolPartySpawnDuration(Settlement settlement, bool naval)`
 
-**Purpose:** Gets the current value of `patrol party spawn duration`.
+**Purpose:** Reads and returns the `patrol party spawn duration` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first
+DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
+var result = defaultSettlementPatrolModel.GetPatrolPartySpawnDuration(settlement, false);
+```
 
 ### CanSettlementHavePatrolParties
 `public override bool CanSettlementHavePatrolParties(Settlement settlement, bool naval)`
 
-**Purpose:** Checks whether the current object can `settlement have patrol parties`.
+**Purpose:** Checks whether the current object meets the preconditions for `settlement have patrol parties`.
+
+```csharp
+// Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first
+DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
+var result = defaultSettlementPatrolModel.CanSettlementHavePatrolParties(settlement, false);
+```
 
 ### GetPartyTemplateForPatrolParty
 `public override PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement, bool naval)`
 
-**Purpose:** Gets the current value of `party template for patrol party`.
+**Purpose:** Reads and returns the `party template for patrol party` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first
+DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
+var result = defaultSettlementPatrolModel.GetPartyTemplateForPatrolParty(settlement, false);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultSettlementPatrolModel>(new MyDefaultSettlementP
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

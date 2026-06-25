@@ -1,20 +1,14 @@
 ---
 title: "SubtitleItem"
+description: "Auto-generated class reference for SubtitleItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SubtitleItem`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SubtitleItem
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class SubtitleItem`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/SRTHelper.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SubtitleItem from the subsystem API first
+SubtitleItem subtitleItem = ...;
+var result = subtitleItem.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SubtitleItem();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+SubtitleItem subtitleItem = ...;
+subtitleItem.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

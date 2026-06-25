@@ -1,13 +1,7 @@
 ---
 title: "MultiThreadedStressTestsScreen"
+description: "Auto-generated class reference for MultiThreadedStressTestsScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiThreadedStressTestsScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiThreadedStressTestsScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens.Scripts
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens.Scripts` to place it
 ### MeshMerger
 `public static void MeshMerger(InputLayout layout)`
 
-**Purpose:** Handles logic related to `mesh merger`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MultiThreadedStressTestsScreen.MeshMerger(layout);
+```
 
 ### SceneHandler
 `public static void SceneHandler(SceneView view)`
 
-**Purpose:** Handles logic related to `scene handler`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MultiThreadedStressTestsScreen.SceneHandler(view);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ MultiThreadedStressTestsScreen.MeshMerger(layout);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "NarrativeMenuOptionArgs"
+description: "Auto-generated class reference for NarrativeMenuOptionArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NarrativeMenuOptionArgs`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NarrativeMenuOptionArgs
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -46,55 +40,110 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### SetAffectedSkills
 `public void SetAffectedSkills(SkillObject affectedSkills)`
 
-**Purpose:** Sets the value or state of `affected skills`.
+**Purpose:** Assigns a new value to `affected skills` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetAffectedSkills(affectedSkills);
+```
 
 ### SetFocusToSkills
 `public void SetFocusToSkills(int focusToAdd)`
 
-**Purpose:** Sets the value or state of `focus to skills`.
+**Purpose:** Assigns a new value to `focus to skills` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetFocusToSkills(0);
+```
 
 ### SetLevelToSkills
 `public void SetLevelToSkills(int levelToAdd)`
 
-**Purpose:** Sets the value or state of `level to skills`.
+**Purpose:** Assigns a new value to `level to skills` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetLevelToSkills(0);
+```
 
 ### SetAffectedTraits
 `public void SetAffectedTraits(TraitObject affectedTraits)`
 
-**Purpose:** Sets the value or state of `affected traits`.
+**Purpose:** Assigns a new value to `affected traits` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetAffectedTraits(affectedTraits);
+```
 
 ### SetLevelToTraits
 `public void SetLevelToTraits(int levelToAdd)`
 
-**Purpose:** Sets the value or state of `level to traits`.
+**Purpose:** Assigns a new value to `level to traits` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetLevelToTraits(0);
+```
 
 ### SetLevelToAttribute
 `public void SetLevelToAttribute(CharacterAttribute characterAttribute, int levelToAdd)`
 
-**Purpose:** Sets the value or state of `level to attribute`.
+**Purpose:** Assigns a new value to `level to attribute` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetLevelToAttribute(characterAttribute, 0);
+```
 
 ### SetRenownToAdd
 `public void SetRenownToAdd(int value)`
 
-**Purpose:** Sets the value or state of `renown to add`.
+**Purpose:** Assigns a new value to `renown to add` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetRenownToAdd(0);
+```
 
 ### SetUnspentFocusToAdd
 `public void SetUnspentFocusToAdd(int value)`
 
-**Purpose:** Sets the value or state of `unspent focus to add`.
+**Purpose:** Assigns a new value to `unspent focus to add` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetUnspentFocusToAdd(0);
+```
 
 ### SetUnspentAttributeToAdd
 `public void SetUnspentAttributeToAdd(int value)`
 
-**Purpose:** Sets the value or state of `unspent attribute to add`.
+**Purpose:** Assigns a new value to `unspent attribute to add` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetUnspentAttributeToAdd(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NarrativeMenuOptionArgs();
-value.SetAffectedSkills(affectedSkills);
+// Typically call this after obtaining an instance from the subsystem API
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetAffectedSkills(affectedSkills);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

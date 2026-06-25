@@ -1,20 +1,14 @@
 ---
 title: "MapConversationTableau"
+description: "Auto-generated class reference for MapConversationTableau."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationTableau`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationTableau
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public class MapConversationTableau`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationTableau.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapConversationTableau.cs`
 
 ## Overview
 
@@ -35,50 +29,99 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**Purpose:** Sets the value or state of `enabled`.
+**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetEnabled(false);
+```
 
 ### SetData
 `public void SetData(object data)`
 
-**Purpose:** Sets the value or state of `data`.
+**Purpose:** Assigns a new value to `data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetData(data);
+```
 
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** Sets the value or state of `target size`.
+**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetTargetSize(0, 0);
+```
 
 ### OnFinalize
 `public void OnFinalize(bool clearNextFrame)`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnFinalize(false);
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnTick(0);
+```
 
 ### OnConversationPlay
 `public void OnConversationPlay(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**Purpose:** Called when the `conversation play` event is raised.
+**Purpose:** Invoked when the `conversation play` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.OnConversationPlay("example", "example", "example", "example", "example");
+```
 
 ### RemovePreviousAgentsSoundEvent
 `public void RemovePreviousAgentsSoundEvent()`
 
 **Purpose:** Removes `previous agents sound event` from the current collection or state.
 
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.RemovePreviousAgentsSoundEvent();
+```
+
 ### StopConversationSoundEvent
 `public void StopConversationSoundEvent()`
 
-**Purpose:** Handles logic related to `stop conversation sound event`.
+**Purpose:** Stops the `conversation sound event` flow or state machine.
+
+```csharp
+// Obtain an instance of MapConversationTableau from the subsystem API first
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.StopConversationSoundEvent();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapConversationTableau();
-value.SetEnabled(false);
+// Typically call this after obtaining an instance from the subsystem API
+MapConversationTableau mapConversationTableau = ...;
+mapConversationTableau.SetEnabled(false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TroopRecruitmentNotificationItemVM"
+description: "TroopRecruitmentNotificationItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TroopRecruitmentNotificationItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopRecruitmentNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TroopRecruitmentNotificationItemVM : SettlementNotificationItemBaseVM`
 **Base:** `SettlementNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/TroopRecruitmentNotificationItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/TroopRecruitmentNotificationItemVM.cs`
 
 ## 概述
 
@@ -35,15 +29,22 @@ title: "TroopRecruitmentNotificationItemVM"
 ### AddNewAction
 `public void AddNewAction(int addedAmount)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `new action`。
+**用途 / Purpose:** 将 「new action」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 TroopRecruitmentNotificationItemVM 实例
+TroopRecruitmentNotificationItemVM troopRecruitmentNotificationItemVM = ...;
+troopRecruitmentNotificationItemVM.AddNewAction(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TroopRecruitmentNotificationItemVM();
-value.AddNewAction(0);
+// 通常从对应子系统 API 获取实例后调用
+TroopRecruitmentNotificationItemVM troopRecruitmentNotificationItemVM = ...;
+troopRecruitmentNotificationItemVM.AddNewAction(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

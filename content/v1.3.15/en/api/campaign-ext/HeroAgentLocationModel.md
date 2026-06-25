@@ -1,13 +1,7 @@
 ---
 title: "HeroAgentLocationModel"
+description: "Auto-generated class reference for HeroAgentLocationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroAgentLocationModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HeroAgentLocationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,19 +23,32 @@ Treat `HeroAgentLocationModel` as a Model-style extension point: first identify 
 ### WillBeListedInOverlay
 `public abstract bool WillBeListedInOverlay(LocationCharacter locationCharacter)`
 
-**Purpose:** Handles logic related to `will be listed in overlay`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of HeroAgentLocationModel from the subsystem API first
+HeroAgentLocationModel heroAgentLocationModel = ...;
+var result = heroAgentLocationModel.WillBeListedInOverlay(locationCharacter);
+```
 
 ### GetLocationForHero
 `public abstract Location GetLocationForHero(Hero hero, Settlement settlement, out HeroAgentLocationModel.HeroLocationDetail heroSpawnDetail)`
 
-**Purpose:** Gets the current value of `location for hero`.
+**Purpose:** Reads and returns the `location for hero` value held by the current object.
+
+```csharp
+// Obtain an instance of HeroAgentLocationModel from the subsystem API first
+HeroAgentLocationModel heroAgentLocationModel = ...;
+var result = heroAgentLocationModel.GetLocationForHero(hero, settlement, heroSpawnDetail);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomHeroAgentLocationModel();
+// Typically obtained from a subsystem API or factory
+HeroAgentLocationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

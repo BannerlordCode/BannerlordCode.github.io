@@ -1,13 +1,7 @@
 ---
-title: "BannerHelper__MBHelpers"
+title: "BannerHelper"
+description: "BannerHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerHelper
 
 **Namespace:** MBHelpers
@@ -29,7 +23,12 @@ title: "BannerHelper__MBHelpers"
 ### AddBannerBonusForBanner
 `public static void AddBannerBonusForBanner(BannerEffect bannerEffect, BannerComponent bannerComponent, ref FactoredNumber bonuses)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `banner bonus for banner`。
+**用途 / Purpose:** 将 「banner bonus for banner」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+BannerHelper.AddBannerBonusForBanner(bannerEffect, bannerComponent, bonuses);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ BannerHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

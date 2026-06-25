@@ -1,13 +1,7 @@
 ---
 title: "MissionGenericMarkerTargetVM"
+description: "MissionGenericMarkerTargetVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGenericMarkerTargetVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGenericMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
@@ -29,20 +23,33 @@ title: "MissionGenericMarkerTargetVM"
 ### Equals
 `public override bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGenericMarkerTargetVM 实例
+MissionGenericMarkerTargetVM missionGenericMarkerTargetVM = ...;
+var result = missionGenericMarkerTargetVM.Equals(other);
+```
 
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGenericMarkerTargetVM 实例
+MissionGenericMarkerTargetVM missionGenericMarkerTargetVM = ...;
+missionGenericMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionGenericMarkerTargetVM();
-value.Equals(other);
+// 通常从对应子系统 API 获取实例后调用
+MissionGenericMarkerTargetVM missionGenericMarkerTargetVM = ...;
+missionGenericMarkerTargetVM.Equals(other);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

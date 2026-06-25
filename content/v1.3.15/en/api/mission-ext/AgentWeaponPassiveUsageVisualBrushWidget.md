@@ -1,13 +1,7 @@
 ---
 title: "AgentWeaponPassiveUsageVisualBrushWidget"
+description: "Auto-generated class reference for AgentWeaponPassiveUsageVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentWeaponPassiveUsageVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AgentWeaponPassiveUsageVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
@@ -33,9 +27,10 @@ Treat `AgentWeaponPassiveUsageVisualBrushWidget` as a Widget-style extension poi
 ## Usage Example
 
 ```csharp
-var widget = new AgentWeaponPassiveUsageVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AgentWeaponPassiveUsageVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

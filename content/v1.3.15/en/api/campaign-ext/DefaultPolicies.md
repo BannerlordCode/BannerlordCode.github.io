@@ -1,13 +1,7 @@
 ---
 title: "DefaultPolicies"
+description: "Auto-generated class reference for DefaultPolicies."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPolicies`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultPolicies
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -64,9 +58,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-var value = new DefaultPolicies();
+// Obtain an instance from the relevant subsystem API
+DefaultPolicies instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

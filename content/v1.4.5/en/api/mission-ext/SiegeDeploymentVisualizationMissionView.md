@@ -1,20 +1,14 @@
 ---
 title: "SiegeDeploymentVisualizationMissionView"
+description: "Auto-generated class reference for SiegeDeploymentVisualizationMissionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeDeploymentVisualizationMissionView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeDeploymentVisualizationMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeDeploymentVisualizationMissionView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/SiegeDeploymentVisualizationMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/SiegeDeploymentVisualizationMissionView.cs`
 
 ## Overview
 
@@ -29,34 +23,64 @@ Treat `SiegeDeploymentVisualizationMissionView` as a View-style extension point:
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeDeploymentVisualizationMissionView from the subsystem API first
+SiegeDeploymentVisualizationMissionView siegeDeploymentVisualizationMissionView = ...;
+siegeDeploymentVisualizationMissionView.AfterStart();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of SiegeDeploymentVisualizationMissionView from the subsystem API first
+SiegeDeploymentVisualizationMissionView siegeDeploymentVisualizationMissionView = ...;
+siegeDeploymentVisualizationMissionView.OnDeploymentFinished();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of SiegeDeploymentVisualizationMissionView from the subsystem API first
+SiegeDeploymentVisualizationMissionView siegeDeploymentVisualizationMissionView = ...;
+siegeDeploymentVisualizationMissionView.OnRemoveBehavior();
+```
 
 ### SetDeploymentVisualizationSelector
 `public static string SetDeploymentVisualizationSelector(List<string> strings)`
 
-**Purpose:** Sets the value or state of `deployment visualization selector`.
+**Purpose:** Assigns a new value to `deployment visualization selector` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+SiegeDeploymentVisualizationMissionView.SetDeploymentVisualizationSelector(strings);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of SiegeDeploymentVisualizationMissionView from the subsystem API first
+SiegeDeploymentVisualizationMissionView siegeDeploymentVisualizationMissionView = ...;
+siegeDeploymentVisualizationMissionView.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new SiegeDeploymentVisualizationMissionView();
+// Retrieve this view from the subsystem API or scene
+SiegeDeploymentVisualizationMissionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletCheatView"
+description: "Auto-generated class reference for MissionGauntletCheatView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletCheatView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletCheatView
 
 **Namespace:** SandBox.GauntletUI.Missions
@@ -29,34 +23,65 @@ Treat `MissionGauntletCheatView` as a View-style extension point: first identify
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletCheatView from the subsystem API first
+MissionGauntletCheatView missionGauntletCheatView = ...;
+missionGauntletCheatView.OnMissionScreenFinalize();
+```
 
 ### GetIsCheatsAvailable
 `public override bool GetIsCheatsAvailable()`
 
-**Purpose:** Gets the current value of `is cheats available`.
+**Purpose:** Reads and returns the `is cheats available` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionGauntletCheatView from the subsystem API first
+MissionGauntletCheatView missionGauntletCheatView = ...;
+var result = missionGauntletCheatView.GetIsCheatsAvailable();
+```
 
 ### InitializeScreen
 `public override void InitializeScreen()`
 
-**Purpose:** Initializes the state, resources, or bindings for `screen`.
+**Purpose:** Prepares the resources, state, or bindings required by `screen`.
+
+```csharp
+// Obtain an instance of MissionGauntletCheatView from the subsystem API first
+MissionGauntletCheatView missionGauntletCheatView = ...;
+missionGauntletCheatView.InitializeScreen();
+```
 
 ### FinalizeScreen
 `public override void FinalizeScreen()`
 
-**Purpose:** Handles logic related to `finalize screen`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletCheatView from the subsystem API first
+MissionGauntletCheatView missionGauntletCheatView = ...;
+missionGauntletCheatView.FinalizeScreen();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletCheatView from the subsystem API first
+MissionGauntletCheatView missionGauntletCheatView = ...;
+missionGauntletCheatView.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletCheatView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletCheatView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

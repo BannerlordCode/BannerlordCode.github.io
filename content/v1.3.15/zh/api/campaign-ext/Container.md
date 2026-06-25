@@ -1,13 +1,7 @@
 ---
 title: "Container"
+description: "Container 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Container`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Container
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -40,39 +34,76 @@ title: "Container"
 ### GetDropGizmoPosition
 `public abstract Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** 获取 `drop gizmo position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「drop gizmo position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Container 实例
+Container container = ...;
+var result = container.GetDropGizmoPosition(draggedWidgetPosition);
+```
 
 ### GetIndexForDrop
 `public abstract int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** 获取 `index for drop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index for drop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Container 实例
+Container container = ...;
+var result = container.GetIndexForDrop(draggedWidgetPosition);
+```
 
 ### OnChildSelected
 `public abstract void OnChildSelected(Widget widget)`
 
-**用途 / Purpose:** 当 `child selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「child selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Container 实例
+Container container = ...;
+container.OnChildSelected(widget);
+```
 
 ### GetItemDescription
 `public ContainerItemDescription GetItemDescription(string id, int index)`
 
-**用途 / Purpose:** 获取 `item description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Container 实例
+Container container = ...;
+var result = container.GetItemDescription("example", 0);
+```
 
 ### AddItemDescription
 `public void AddItemDescription(ContainerItemDescription itemDescription)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `item description`。
+**用途 / Purpose:** 将 「item description」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 Container 实例
+Container container = ...;
+container.AddItemDescription(itemDescription);
+```
 
 ### FindParentPanel
 `public ScrollablePanel FindParentPanel()`
 
-**用途 / Purpose:** 处理 `find parent panel` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「parent panel」。
+
+```csharp
+// 先通过子系统 API 拿到 Container 实例
+Container container = ...;
+var result = container.FindParentPanel();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomContainer();
+// 通常通过子系统 API 或工厂获得派生实例
+Container instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "BallistaView"
+description: "Auto-generated class reference for BallistaView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BallistaView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BallistaView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BallistaView : RangedSiegeWeaponView`
 **Base:** `RangedSiegeWeaponView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon/BallistaView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon/BallistaView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `BallistaView` as a View-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var view = new BallistaView();
+// Retrieve this view from the subsystem API or scene
+BallistaView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

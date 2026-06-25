@@ -1,13 +1,7 @@
 ---
 title: "SandBoxMissionViews"
+description: "SandBoxMissionViews 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxMissionViews`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxMissionViews
 
 **Namespace:** SandBox.View.Missions
@@ -29,182 +23,362 @@ title: "SandBoxMissionViews"
 ### OpenTownCenterMission
 `public static MissionView OpenTownCenterMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open town center mission` 相关逻辑。
+**用途 / Purpose:** 打开「town center mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenTownCenterMission(mission);
+```
 
 ### OpenFacialAnimationTest
 `public static MissionView OpenFacialAnimationTest(Mission mission)`
 
-**用途 / Purpose:** 处理 `open facial animation test` 相关逻辑。
+**用途 / Purpose:** 打开「facial animation test」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenFacialAnimationTest(mission);
+```
 
 ### OpenTavernMission
 `public static MissionView OpenTavernMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open tavern mission` 相关逻辑。
+**用途 / Purpose:** 打开「tavern mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenTavernMission(mission);
+```
 
 ### OpenPrisonBreakMission
 `public static MissionView OpenPrisonBreakMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open prison break mission` 相关逻辑。
+**用途 / Purpose:** 打开「prison break mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenPrisonBreakMission(mission);
+```
 
 ### OpenVillageMission
 `public static MissionView OpenVillageMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open village mission` 相关逻辑。
+**用途 / Purpose:** 打开「village mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenVillageMission(mission);
+```
 
 ### OpenRetirementMission
 `public static MissionView OpenRetirementMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open retirement mission` 相关逻辑。
+**用途 / Purpose:** 打开「retirement mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenRetirementMission(mission);
+```
 
 ### OpenArenaStartMission
 `public static MissionView OpenArenaStartMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open arena start mission` 相关逻辑。
+**用途 / Purpose:** 打开「arena start mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenArenaStartMission(mission);
+```
 
 ### OpenArenaDuelMission
 `public static MissionView OpenArenaDuelMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open arena duel mission` 相关逻辑。
+**用途 / Purpose:** 打开「arena duel mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenArenaDuelMission(mission);
+```
 
 ### OpenTownMerchantMission
 `public static MissionView OpenTownMerchantMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open town merchant mission` 相关逻辑。
+**用途 / Purpose:** 打开「town merchant mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenTownMerchantMission(mission);
+```
 
 ### OpenAlleyMission
 `public static MissionView OpenAlleyMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open alley mission` 相关逻辑。
+**用途 / Purpose:** 打开「alley mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenAlleyMission(mission);
+```
 
 ### OpenSneakTeam3Mission
 `public static MissionView OpenSneakTeam3Mission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open sneak team3 mission` 相关逻辑。
+**用途 / Purpose:** 打开「sneak team3 mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenSneakTeam3Mission(mission);
+```
 
 ### OpenSimpleMountedPlayerMission
 `public static MissionView OpenSimpleMountedPlayerMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open simple mounted player mission` 相关逻辑。
+**用途 / Purpose:** 打开「simple mounted player mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenSimpleMountedPlayerMission(mission);
+```
 
 ### OpenBattleMission
 `public static MissionView OpenBattleMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open battle mission` 相关逻辑。
+**用途 / Purpose:** 打开「battle mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenBattleMission(mission);
+```
 
 ### OpenAlleyFightMission
 `public static MissionView OpenAlleyFightMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open alley fight mission` 相关逻辑。
+**用途 / Purpose:** 打开「alley fight mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenAlleyFightMission(mission);
+```
 
 ### OpenHideoutBattleMission
 `public static MissionView OpenHideoutBattleMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open hideout battle mission` 相关逻辑。
+**用途 / Purpose:** 打开「hideout battle mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenHideoutBattleMission(mission);
+```
 
 ### OpenHideoutAmbushMission
 `public static MissionView OpenHideoutAmbushMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open hideout ambush mission` 相关逻辑。
+**用途 / Purpose:** 打开「hideout ambush mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenHideoutAmbushMission(mission);
+```
 
 ### OpenBattleMissionWhileEnteringSettlement
 `public static MissionView OpenBattleMissionWhileEnteringSettlement(Mission mission)`
 
-**用途 / Purpose:** 处理 `open battle mission while entering settlement` 相关逻辑。
+**用途 / Purpose:** 打开「battle mission while entering settlement」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenBattleMissionWhileEnteringSettlement(mission);
+```
 
 ### OpenCombatMissionWithDialogue
 `public static MissionView OpenCombatMissionWithDialogue(Mission mission)`
 
-**用途 / Purpose:** 处理 `open combat mission with dialogue` 相关逻辑。
+**用途 / Purpose:** 打开「combat mission with dialogue」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenCombatMissionWithDialogue(mission);
+```
 
 ### OpenTestSiegeEngineMission
 `public static MissionView OpenTestSiegeEngineMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open test siege engine mission` 相关逻辑。
+**用途 / Purpose:** 打开「test siege engine mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenTestSiegeEngineMission(mission);
+```
 
 ### OpenCustomCameraMission
 `public static MissionView OpenCustomCameraMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open custom camera mission` 相关逻辑。
+**用途 / Purpose:** 打开「custom camera mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenCustomCameraMission(mission);
+```
 
 ### OpenAmbushBattleMission
 `public static MissionView OpenAmbushBattleMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open ambush battle mission` 相关逻辑。
+**用途 / Purpose:** 打开「ambush battle mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenAmbushBattleMission(mission);
+```
 
 ### OpenCampMission
 `public static MissionView OpenCampMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open camp mission` 相关逻辑。
+**用途 / Purpose:** 打开「camp mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenCampMission(mission);
+```
 
 ### OpenSiegeMissionWithDeployment
 `public static MissionView OpenSiegeMissionWithDeployment(Mission mission)`
 
-**用途 / Purpose:** 处理 `open siege mission with deployment` 相关逻辑。
+**用途 / Purpose:** 打开「siege mission with deployment」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenSiegeMissionWithDeployment(mission);
+```
 
 ### OpenSiegeMissionNoDeployment
 `public static MissionView OpenSiegeMissionNoDeployment(Mission mission)`
 
-**用途 / Purpose:** 处理 `open siege mission no deployment` 相关逻辑。
+**用途 / Purpose:** 打开「siege mission no deployment」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenSiegeMissionNoDeployment(mission);
+```
 
 ### OpenSiegeLordsHallFightMission
 `public static MissionView OpenSiegeLordsHallFightMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open siege lords hall fight mission` 相关逻辑。
+**用途 / Purpose:** 打开「siege lords hall fight mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenSiegeLordsHallFightMission(mission);
+```
 
 ### OpenSiegeMission
 `public static MissionView OpenSiegeMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open siege mission` 相关逻辑。
+**用途 / Purpose:** 打开「siege mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenSiegeMission(mission);
+```
 
 ### OpenSiegeMissionForTutorial
 `public static MissionView OpenSiegeMissionForTutorial(Mission mission)`
 
-**用途 / Purpose:** 处理 `open siege mission for tutorial` 相关逻辑。
+**用途 / Purpose:** 打开「siege mission for tutorial」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenSiegeMissionForTutorial(mission);
+```
 
 ### OpenFormationTestMission
 `public static MissionView OpenFormationTestMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open formation test mission` 相关逻辑。
+**用途 / Purpose:** 打开「formation test mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenFormationTestMission(mission);
+```
 
 ### OpenVillageBattleMission
 `public static MissionView OpenVillageBattleMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open village battle mission` 相关逻辑。
+**用途 / Purpose:** 打开「village battle mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenVillageBattleMission(mission);
+```
 
 ### OpenSettlementTestMission
 `public static MissionView OpenSettlementTestMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open settlement test mission` 相关逻辑。
+**用途 / Purpose:** 打开「settlement test mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenSettlementTestMission(mission);
+```
 
 ### OpenEquipmentTestMission
 `public static MissionView OpenEquipmentTestMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open equipment test mission` 相关逻辑。
+**用途 / Purpose:** 打开「equipment test mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenEquipmentTestMission(mission);
+```
 
 ### OpenFacialAnimTestMission
 `public static MissionView OpenFacialAnimTestMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open facial anim test mission` 相关逻辑。
+**用途 / Purpose:** 打开「facial anim test mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenFacialAnimTestMission(mission);
+```
 
 ### OpenEquipItemToolMission
 `public static MissionView OpenEquipItemToolMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open equip item tool mission` 相关逻辑。
+**用途 / Purpose:** 打开「equip item tool mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenEquipItemToolMission(mission);
+```
 
 ### OpenConversationMission
 `public static MissionView OpenConversationMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open conversation mission` 相关逻辑。
+**用途 / Purpose:** 打开「conversation mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenConversationMission(mission);
+```
 
 ### OpenShadowingATargetMission
 `public static MissionView OpenShadowingATargetMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open shadowing a target mission` 相关逻辑。
+**用途 / Purpose:** 打开「shadowing a target mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenShadowingATargetMission(mission);
+```
 
 ### OpenDisguiseMission
 `public static MissionView OpenDisguiseMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open disguise mission` 相关逻辑。
+**用途 / Purpose:** 打开「disguise mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+SandBoxMissionViews.OpenDisguiseMission(mission);
+```
 
 ## 使用示例
 
@@ -214,4 +388,4 @@ SandBoxMissionViews.OpenTownCenterMission(mission);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "CraftingItemStatSliderWidget"
+description: "Auto-generated class reference for CraftingItemStatSliderWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingItemStatSliderWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingItemStatSliderWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingItemStatSliderWidget : SliderWidget`
 **Base:** `SliderWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingItemStatSliderWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingItemStatSliderWidget.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Treat `CraftingItemStatSliderWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new CraftingItemStatSliderWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingItemStatSliderWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "RecruitVolunteerVM"
+description: "RecruitVolunteerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RecruitVolunteerVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecruitVolunteerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment
@@ -44,35 +38,66 @@ title: "RecruitVolunteerVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerVM 实例
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.RefreshValues();
+```
 
 ### ExecuteRecruit
 `public void ExecuteRecruit(RecruitVolunteerTroopVM troop)`
 
-**用途 / Purpose:** 执行 `recruit` 操作或流程。
+**用途 / Purpose:** 执行 「recruit」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerVM 实例
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.ExecuteRecruit(troop);
+```
 
 ### ExecuteRemoveFromCart
 `public void ExecuteRemoveFromCart(RecruitVolunteerTroopVM troop)`
 
-**用途 / Purpose:** 执行 `remove from cart` 操作或流程。
+**用途 / Purpose:** 执行 「remove from cart」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerVM 实例
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.ExecuteRemoveFromCart(troop);
+```
 
 ### OnRecruitMoveToCart
 `public void OnRecruitMoveToCart(RecruitVolunteerTroopVM troop)`
 
-**用途 / Purpose:** 当 `recruit move to cart` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「recruit move to cart」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerVM 实例
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.OnRecruitMoveToCart(troop);
+```
 
 ### OnRecruitRemovedFromCart
 `public void OnRecruitRemovedFromCart(RecruitVolunteerTroopVM troop)`
 
-**用途 / Purpose:** 当 `recruit removed from cart` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「recruit removed from cart」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 RecruitVolunteerVM 实例
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.OnRecruitRemovedFromCart(troop);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RecruitVolunteerVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+RecruitVolunteerVM recruitVolunteerVM = ...;
+recruitVolunteerVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ModuleType"
+description: "Auto-generated class reference for ModuleType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ModuleType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleType
 
 **Namespace:** TaleWorlds.ModuleManager
 **Module:** TaleWorlds.ModuleManager
-**Type:** `class`
+**Type:** `public enum ModuleType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/ModuleType.cs`
+**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/ModuleType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new ModuleType();
+// Obtain an instance from the relevant subsystem API
+ModuleType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

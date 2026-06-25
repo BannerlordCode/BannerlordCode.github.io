@@ -1,20 +1,14 @@
 ---
 title: "SceneNotificationData"
+description: "SceneNotificationData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SceneNotificationData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneNotificationData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class SceneNotificationData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`
 
 ## 概述
 
@@ -50,49 +44,98 @@ title: "SceneNotificationData"
 ### SceneNotificationCharacter
 `public readonly struct SceneNotificationCharacter(BasicCharacterObject character, Equipment overriddenEquipment = null, BodyProperties overriddenBodyProperties = default(BodyProperties), bool useCivilianEquipment = false, uint customColor1 = uint.MaxValue, uint customColor2 = uint.MaxValue, bool useHorse = false)`
 
-**用途 / Purpose:** 处理 `scene notification character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationData 实例
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.SceneNotificationCharacter(character, null, default(BodyProperties), false, 0, 0, false);
+```
 
 ### SceneNotificationShip
 `public readonly struct SceneNotificationShip(string shipPrefabId, List<ShipVisualSlotInfo> shipUpgrades, float shipHitPointRatio, uint sailColor1, uint sailColor2, int shipSeed)`
 
-**用途 / Purpose:** 处理 `scene notification ship` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationData 实例
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.SceneNotificationShip("example", shipUpgrades, 0, 0, 0, 0);
+```
 
 ### OnAffirmativeAction
 `public virtual void OnAffirmativeAction()`
 
-**用途 / Purpose:** 当 `affirmative action` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「affirmative action」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationData 实例
+SceneNotificationData sceneNotificationData = ...;
+sceneNotificationData.OnAffirmativeAction();
+```
 
 ### OnNegativeAction
 `public virtual void OnNegativeAction()`
 
-**用途 / Purpose:** 当 `negative action` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「negative action」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationData 实例
+SceneNotificationData sceneNotificationData = ...;
+sceneNotificationData.OnNegativeAction();
+```
 
 ### OnCloseAction
 `public virtual void OnCloseAction()`
 
-**用途 / Purpose:** 当 `close action` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「close action」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationData 实例
+SceneNotificationData sceneNotificationData = ...;
+sceneNotificationData.OnCloseAction();
+```
 
 ### GetBanners
 `public virtual Banner GetBanners()`
 
-**用途 / Purpose:** 获取 `banners` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banners」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationData 实例
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.GetBanners();
+```
 
 ### GetSceneNotificationCharacters
 `public virtual SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**用途 / Purpose:** 获取 `scene notification characters` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene notification characters」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationData 实例
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.GetSceneNotificationCharacters();
+```
 
 ### GetShips
 `public virtual SceneNotificationShip GetShips()`
 
-**用途 / Purpose:** 获取 `ships` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ships」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SceneNotificationData 实例
+SceneNotificationData sceneNotificationData = ...;
+var result = sceneNotificationData.GetShips();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SceneNotificationData();
+// 该数据对象通常由战役/任务 API 返回
+SceneNotificationData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

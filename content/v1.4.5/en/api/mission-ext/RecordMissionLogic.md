@@ -1,20 +1,14 @@
 ---
 title: "RecordMissionLogic"
+description: "Auto-generated class reference for RecordMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RecordMissionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RecordMissionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RecordMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RecordMissionLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RecordMissionLogic.cs`
 
 ## Overview
 
@@ -29,24 +23,42 @@ Treat `RecordMissionLogic` as a Logic-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of RecordMissionLogic from the subsystem API first
+RecordMissionLogic recordMissionLogic = ...;
+recordMissionLogic.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of RecordMissionLogic from the subsystem API first
+RecordMissionLogic recordMissionLogic = ...;
+recordMissionLogic.OnMissionTick(0);
+```
 
 ### OnEndMissionInternal
 `public override void OnEndMissionInternal()`
 
-**Purpose:** Called when the `end mission internal` event is raised.
+**Purpose:** Invoked when the `end mission internal` event is raised.
+
+```csharp
+// Obtain an instance of RecordMissionLogic from the subsystem API first
+RecordMissionLogic recordMissionLogic = ...;
+recordMissionLogic.OnEndMissionInternal();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new RecordMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<RecordMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

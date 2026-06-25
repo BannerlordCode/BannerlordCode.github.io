@@ -1,13 +1,7 @@
 ---
 title: "ClanLordItemVM"
+description: "ClanLordItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanLordItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanLordItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
@@ -59,75 +53,154 @@ title: "ClanLordItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.RefreshValues();
+```
 
 ### ExecuteLocationLink
 `public void ExecuteLocationLink(string link)`
 
-**用途 / Purpose:** 执行 `location link` 操作或流程。
+**用途 / Purpose:** 执行 「location link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteLocationLink("example");
+```
 
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**用途 / Purpose:** 更新 `properties` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「properties」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.UpdateProperties();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** 执行 `link` 操作或流程。
+**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteLink();
+```
 
 ### OnCharacterSelect
 `public void OnCharacterSelect()`
 
-**用途 / Purpose:** 当 `character select` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「character select」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.OnCharacterSelect();
+```
 
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 `begin hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteEndHint();
+```
 
 ### GetHero
 `public Hero GetHero()`
 
-**用途 / Purpose:** 获取 `hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+var result = clanLordItemVM.GetHero();
+```
 
 ### ExecuteRename
 `public void ExecuteRename()`
 
-**用途 / Purpose:** 执行 `rename` 操作或流程。
+**用途 / Purpose:** 执行 「rename」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteRename();
+```
 
 ### ExecuteShowOnMap
 `public void ExecuteShowOnMap()`
 
-**用途 / Purpose:** 执行 `show on map` 操作或流程。
+**用途 / Purpose:** 执行 「show on map」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteShowOnMap();
+```
 
 ### ExecuteRecall
 `public void ExecuteRecall()`
 
-**用途 / Purpose:** 执行 `recall` 操作或流程。
+**用途 / Purpose:** 执行 「recall」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteRecall();
+```
 
 ### ExecuteTalk
 `public void ExecuteTalk()`
 
-**用途 / Purpose:** 执行 `talk` 操作或流程。
+**用途 / Purpose:** 执行 「talk」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.ExecuteTalk();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLordItemVM 实例
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanLordItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+ClanLordItemVM clanLordItemVM = ...;
+clanLordItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

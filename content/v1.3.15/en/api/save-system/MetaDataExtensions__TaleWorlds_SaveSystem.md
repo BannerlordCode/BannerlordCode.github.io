@@ -1,13 +1,7 @@
 ---
-title: "MetaDataExtensions__TaleWorlds_SaveSystem"
+title: "MetaDataExtensions"
+description: "Auto-generated class reference for MetaDataExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MetaDataExtensions`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MetaDataExtensions
 
 **Namespace:** TaleWorlds.SaveSystem
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### GetApplicationVersion
 `public static ApplicationVersion GetApplicationVersion(this MetaData metaData)`
 
-**Purpose:** Gets the current value of `application version`.
+**Purpose:** Reads and returns the `application version` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MetaDataExtensions.GetApplicationVersion(metaData);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ MetaDataExtensions.GetApplicationVersion(metaData);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

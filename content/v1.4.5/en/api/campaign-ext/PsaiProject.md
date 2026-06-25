@@ -1,20 +1,14 @@
 ---
 title: "PsaiProject"
+description: "Auto-generated class reference for PsaiProject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PsaiProject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PsaiProject
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
 **Type:** `public class PsaiProject : ICloneable`
 **Base:** `ICloneable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.Editor/PsaiProject.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.Editor/PsaiProject.cs`
 
 ## Overview
 
@@ -38,155 +32,328 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### Init
 `public void Init()`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.Init();
+```
 
 ### LoadProjectFromStream
 `public static PsaiProject LoadProjectFromStream(StreamReader reader, string path)`
 
-**Purpose:** Loads `project from stream` data.
+**Purpose:** Reads `project from stream` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+PsaiProject.LoadProjectFromStream(reader, "example");
+```
 
 ### LoadProjectFromXmlFile
 `public static PsaiProject LoadProjectFromXmlFile(string filename)`
 
-**Purpose:** Loads `project from xml file` data.
+**Purpose:** Reads `project from xml file` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+PsaiProject.LoadProjectFromXmlFile("example");
+```
 
 ### SaveAsXmlFile
 `public void SaveAsXmlFile(string filename)`
 
-**Purpose:** Saves `as xml file` data.
+**Purpose:** Writes `as xml file` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.SaveAsXmlFile("example");
+```
 
 ### Report
 `public void Report(bool reportGroups, bool reportSegments)`
 
-**Purpose:** Handles logic related to `report`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.Report(false, false);
+```
 
 ### ConvertProjectFile_From_Legacy_To_0_9_12
 `public bool ConvertProjectFile_From_Legacy_To_0_9_12(string pathToProjectFile)`
 
-**Purpose:** Handles logic related to `convert project file_ from_ legacy_ to_0_9_12`.
+**Purpose:** Converts `project file_ from_ legacy_ to_0_9_12` into another representation or type.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.ConvertProjectFile_From_Legacy_To_0_9_12("example");
+```
 
 ### ReconstructReferencesAfterXmlDeserialization
 `public void ReconstructReferencesAfterXmlDeserialization()`
 
-**Purpose:** Handles logic related to `reconstruct references after xml deserialization`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.ReconstructReferencesAfterXmlDeserialization();
+```
 
 ### MergeProjects
 `public void MergeProjects(PsaiProject project)`
 
-**Purpose:** Handles logic related to `merge projects`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.MergeProjects(project);
+```
 
 ### ReconstructIds
 `public void ReconstructIds(string path)`
 
-**Purpose:** Handles logic related to `reconstruct ids`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.ReconstructIds("example");
+```
 
 ### DebugCheckProjectIntegrity
 `public void DebugCheckProjectIntegrity()`
 
-**Purpose:** Handles logic related to `debug check project integrity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.DebugCheckProjectIntegrity();
+```
 
 ### BuildPsaiDotNetSoundtrackFromProject
 `public Soundtrack BuildPsaiDotNetSoundtrackFromProject()`
 
-**Purpose:** Handles logic related to `build psai dot net soundtrack from project`.
+**Purpose:** Assembles and returns the built result for `psai dot net soundtrack from project`.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.BuildPsaiDotNetSoundtrackFromProject();
+```
 
 ### GetSegmentsOfAllThemes
 `public HashSet<Segment> GetSegmentsOfAllThemes()`
 
-**Purpose:** Gets the current value of `segments of all themes`.
+**Purpose:** Reads and returns the `segments of all themes` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetSegmentsOfAllThemes();
+```
 
 ### GetThemeById
 `public Theme GetThemeById(int themeId)`
 
-**Purpose:** Gets the current value of `theme by id`.
+**Purpose:** Reads and returns the `theme by id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetThemeById(0);
+```
 
 ### GetSnippetById
 `public Segment GetSnippetById(int id)`
 
-**Purpose:** Gets the current value of `snippet by id`.
+**Purpose:** Reads and returns the `snippet by id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetSnippetById(0);
+```
 
 ### GetGroupBySerializationId
 `public Group GetGroupBySerializationId(int id)`
 
-**Purpose:** Gets the current value of `group by serialization id`.
+**Purpose:** Reads and returns the `group by serialization id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetGroupBySerializationId(0);
+```
 
 ### AddPsaiMusicEntity
 `public void AddPsaiMusicEntity(PsaiMusicEntity entity)`
 
 **Purpose:** Adds `psai music entity` to the current collection or state.
 
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.AddPsaiMusicEntity(entity);
+```
+
 ### AddPsaiMusicEntity
 `public void AddPsaiMusicEntity(PsaiMusicEntity entity, int targetIndex)`
 
 **Purpose:** Adds `psai music entity` to the current collection or state.
 
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.AddPsaiMusicEntity(entity, 0);
+```
+
 ### DeleteMusicEntity
 `public void DeleteMusicEntity(PsaiMusicEntity entity)`
 
-**Purpose:** Handles logic related to `delete music entity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.DeleteMusicEntity(entity);
+```
 
 ### GetHighestSegmentId
 `public int GetHighestSegmentId()`
 
-**Purpose:** Gets the current value of `highest segment id`.
+**Purpose:** Reads and returns the `highest segment id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetHighestSegmentId();
+```
 
 ### GetNextFreeSnippetId
 `public int GetNextFreeSnippetId(int idToStartSearchFrom)`
 
-**Purpose:** Gets the current value of `next free snippet id`.
+**Purpose:** Reads and returns the `next free snippet id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetNextFreeSnippetId(0);
+```
 
 ### GetGroupsOfAllThemes
 `public HashSet<Group> GetGroupsOfAllThemes()`
 
-**Purpose:** Gets the current value of `groups of all themes`.
+**Purpose:** Reads and returns the `groups of all themes` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetGroupsOfAllThemes();
+```
 
 ### CheckIfSnippetIsManualBridgeSnippetForSourceGroup
 `public bool CheckIfSnippetIsManualBridgeSnippetForSourceGroup(Segment snippet, Group sourceGroup)`
 
-**Purpose:** Handles logic related to `check if snippet is manual bridge snippet for source group`.
+**Purpose:** Verifies whether `if snippet is manual bridge snippet for source group` holds true for the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.CheckIfSnippetIsManualBridgeSnippetForSourceGroup(snippet, sourceGroup);
+```
 
 ### CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToTargetGroup
 `public bool CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToTargetGroup(Group sourceGroup, Group targetGroup)`
 
-**Purpose:** Handles logic related to `check if there is at least one bridge snippet from source group to target group`.
+**Purpose:** Verifies whether `if there is at least one bridge snippet from source group to target group` holds true for the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToTargetGroup(sourceGroup, targetGroup);
+```
 
 ### CheckIfSnippetIsManualBridgeSnippetToAnyGroup
 `public bool CheckIfSnippetIsManualBridgeSnippetToAnyGroup(Segment snippet, bool getGroups, out List<Group> groups)`
 
-**Purpose:** Handles logic related to `check if snippet is manual bridge snippet to any group`.
+**Purpose:** Verifies whether `if snippet is manual bridge snippet to any group` holds true for the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.CheckIfSnippetIsManualBridgeSnippetToAnyGroup(snippet, false, groups);
+```
 
 ### DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities
 `public void DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities()`
 
-**Purpose:** Handles logic related to `do update all parent theme ids and groups of child psai entities`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+psaiProject.DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities();
+```
 
 ### GetNextFreeThemeId
 `public int GetNextFreeThemeId(int idToStartSearchFrom)`
 
-**Purpose:** Gets the current value of `next free theme id`.
+**Purpose:** Reads and returns the `next free theme id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetNextFreeThemeId(0);
+```
 
 ### CheckIfThemeIdIsInUse
 `public bool CheckIfThemeIdIsInUse(int themeId)`
 
-**Purpose:** Handles logic related to `check if theme id is in use`.
+**Purpose:** Verifies whether `if theme id is in use` holds true for the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.CheckIfThemeIdIsInUse(0);
+```
 
 ### GetSnippetsById
 `public List<Segment> GetSnippetsById(int id)`
 
-**Purpose:** Gets the current value of `snippets by id`.
+**Purpose:** Reads and returns the `snippets by id` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.GetSnippetsById(0);
+```
 
 ### Clone
 `public object Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of PsaiProject from the subsystem API first
+PsaiProject psaiProject = ...;
+var result = psaiProject.Clone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PsaiProject();
-value.Init();
+// Typically call this after obtaining an instance from the subsystem API
+PsaiProject psaiProject = ...;
+psaiProject.Init();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

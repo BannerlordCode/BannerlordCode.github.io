@@ -1,13 +1,7 @@
 ---
 title: "SiegeEvent"
+description: "Auto-generated class reference for SiegeEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEvent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEvent
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -63,195 +57,418 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### ActivateBlockade
 `public void ActivateBlockade()`
 
-**Purpose:** Handles logic related to `activate blockade`.
+**Purpose:** Activates the resource, state, or feature associated with `blockade`.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.ActivateBlockade();
+```
 
 ### DeactivateBlockade
 `public void DeactivateBlockade()`
 
-**Purpose:** Handles logic related to `deactivate blockade`.
+**Purpose:** Deactivates the resource, state, or feature associated with `blockade`.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.DeactivateBlockade();
+```
 
 ### GetInvolvedPartiesForEventType
 `public List<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes battleType)`
 
-**Purpose:** Gets the current value of `involved parties for event type`.
+**Purpose:** Reads and returns the `involved parties for event type` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.GetInvolvedPartiesForEventType(battleType);
+```
 
 ### GetCurrentBattleType
 `public MapEvent.BattleTypes GetCurrentBattleType()`
 
-**Purpose:** Gets the current value of `current battle type`.
+**Purpose:** Reads and returns the `current battle type` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.GetCurrentBattleType();
+```
 
 ### GetSiegeEventSide
 `public ISiegeEventSide GetSiegeEventSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `siege event side`.
+**Purpose:** Reads and returns the `siege event side` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.GetSiegeEventSide(side);
+```
 
 ### CanPartyJoinSide
 `public bool CanPartyJoinSide(PartyBase party, BattleSideEnum side)`
 
-**Purpose:** Checks whether the current object can `party join side`.
+**Purpose:** Checks whether the current object meets the preconditions for `party join side`.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.CanPartyJoinSide(party, side);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.Tick(0);
+```
 
 ### OnAfterLoad
 `public void OnAfterLoad()`
 
-**Purpose:** Called when the `after load` event is raised.
+**Purpose:** Invoked when the `after load` event is raised.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.OnAfterLoad();
+```
 
 ### OnBeforeSiegeEventEnd
 `public void OnBeforeSiegeEventEnd(BattleState winnerSide, MapEvent.BattleTypes battleType)`
 
-**Purpose:** Called when the `before siege event end` event is raised.
+**Purpose:** Invoked when the `before siege event end` event is raised.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.OnBeforeSiegeEventEnd(winnerSide, battleType);
+```
 
 ### FinalizeSiegeEvent
 `public void FinalizeSiegeEvent()`
 
-**Purpose:** Handles logic related to `finalize siege event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.FinalizeSiegeEvent();
+```
 
 ### IsPartyInvolved
 `public bool IsPartyInvolved(PartyBase party)`
 
-**Purpose:** Handles logic related to `is party involved`.
+**Purpose:** Determines whether the current object is in the `party involved` state or condition.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.IsPartyInvolved(party);
+```
 
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**Purpose:** Sets the value or state of `position after map change`.
+**Purpose:** Assigns a new value to `position after map change` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.SetPositionAfterMapChange(newPosition);
+```
 
 ### DoSiegeAction
 `public void DoSiegeAction(ISiegeEventSide siegeEventSide, SiegeStrategyActionModel.SiegeAction siegeAction, SiegeEngineType siegeEngineType, int deploymentIndex, int reserveIndex)`
 
-**Purpose:** Handles logic related to `do siege action`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.DoSiegeAction(siegeEventSide, siegeAction, siegeEngineType, 0, 0);
+```
 
 ### AdvanceStrategy
 `public void AdvanceStrategy(ISiegeEventSide siegeEventSide)`
 
-**Purpose:** Handles logic related to `advance strategy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.AdvanceStrategy(siegeEventSide);
+```
 
 ### BreakSiegeEngine
 `public void BreakSiegeEngine(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngineType)`
 
-**Purpose:** Handles logic related to `break siege engine`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.BreakSiegeEngine(siegeEventSide, siegeEngineType);
+```
 
 ### GetPreparedSiegeEnginesAsDictionary
 `public Dictionary<SiegeEngineType, int> GetPreparedSiegeEnginesAsDictionary(ISiegeEventSide siegeEventSide)`
 
-**Purpose:** Gets the current value of `prepared siege engines as dictionary`.
+**Purpose:** Reads and returns the `prepared siege engines as dictionary` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.GetPreparedSiegeEnginesAsDictionary(siegeEventSide);
+```
 
 ### GetPreparedAndActiveSiegeEngines
 `public List<MissionSiegeWeapon> GetPreparedAndActiveSiegeEngines(ISiegeEventSide siegeEventSide)`
 
-**Purpose:** Gets the current value of `prepared and active siege engines`.
+**Purpose:** Reads and returns the `prepared and active siege engines` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.GetPreparedAndActiveSiegeEngines(siegeEventSide);
+```
 
 ### SetSiegeEngineStatesAfterSiegeMission
 `public void SetSiegeEngineStatesAfterSiegeMission(IEnumerable<IMissionSiegeWeapon> attackerMissionSiegeEngineData, IEnumerable<IMissionSiegeWeapon> defenderMissionSiegeEngineData)`
 
-**Purpose:** Sets the value or state of `siege engine states after siege mission`.
+**Purpose:** Assigns a new value to `siege engine states after siege mission` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.SetSiegeEngineStatesAfterSiegeMission(attackerMissionSiegeEngineData, defenderMissionSiegeEngineData);
+```
 
 ### CreateSiegeObject
 `public void CreateSiegeObject(SiegeEvent.SiegeEngineConstructionProgress siegeEngineConstructionProgress, ISiegeEventSide siegeSide)`
 
-**Purpose:** Creates a new `siege object` instance or object.
+**Purpose:** Constructs a new `siege object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.CreateSiegeObject(siegeEngineConstructionProgress, siegeSide);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.ToString();
+```
 
 ### ConstructionTick
 `public void ConstructionTick(ISiegeEventSide siegeEventSide)`
 
-**Purpose:** Handles logic related to `construction tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.ConstructionTick(siegeEventSide);
+```
 
 ### BombardTick
 `public void BombardTick(ISiegeEventSide siegeEventSide)`
 
-**Purpose:** Handles logic related to `bombard tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.BombardTick(siegeEventSide);
+```
 
 ### FindAttackableRangedEngineWithHighestPriority
 `public void FindAttackableRangedEngineWithHighestPriority(ISiegeEventSide siegeEventSide, int attackerSlotIndex, out int targetIndex, out float targetPriority)`
 
-**Purpose:** Handles logic related to `find attackable ranged engine with highest priority`.
+**Purpose:** Looks up the matching `attackable ranged engine with highest priority` in the current collection or scope.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.FindAttackableRangedEngineWithHighestPriority(siegeEventSide, 0, targetIndex, targetPriority);
+```
 
 ### Hold
 `public void Hold()`
 
-**Purpose:** Handles logic related to `hold`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.Hold();
+```
 
 ### Reload
 `public void Reload()`
 
-**Purpose:** Handles logic related to `reload`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.Reload();
+```
 
 ### OnFireDecisionTaken
 `public void OnFireDecisionTaken(SiegeEvent siegeEvent, BattleSideEnum battleSide, int targetSlotIndex, SiegeBombardTargets targetType)`
 
-**Purpose:** Called when the `fire decision taken` event is raised.
+**Purpose:** Invoked when the `fire decision taken` event is raised.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.OnFireDecisionTaken(siegeEvent, battleSide, 0, targetType);
+```
 
 ### SetRedeploymentProgress
 `public void SetRedeploymentProgress(float redeploymentProgress)`
 
-**Purpose:** Sets the value or state of `redeployment progress`.
+**Purpose:** Assigns a new value to `redeployment progress` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.SetRedeploymentProgress(0);
+```
 
 ### SetHitpoints
 `public void SetHitpoints(float hitPoints)`
 
-**Purpose:** Sets the value or state of `hitpoints`.
+**Purpose:** Assigns a new value to `hitpoints` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.SetHitpoints(0);
+```
 
 ### SetProgress
 `public void SetProgress(float progress)`
 
-**Purpose:** Sets the value or state of `progress`.
+**Purpose:** Assigns a new value to `progress` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.SetProgress(0);
+```
 
 ### SetRangedSiegeEngine
 `public void SetRangedSiegeEngine(SiegeEvent.RangedSiegeEngine rangedSiegeEngine)`
 
-**Purpose:** Sets the value or state of `ranged siege engine`.
+**Purpose:** Assigns a new value to `ranged siege engine` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.SetRangedSiegeEngine(rangedSiegeEngine);
+```
 
 ### AllSiegeEngines
 `public IEnumerable<SiegeEvent.SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**Purpose:** Handles logic related to `all siege engines`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.AllSiegeEngines();
+```
 
 ### AddPrebuiltEngineToReserve
 `public void AddPrebuiltEngineToReserve(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
 **Purpose:** Adds `prebuilt engine to reserve` to the current collection or state.
 
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.AddPrebuiltEngineToReserve(siegeEngine);
+```
+
 ### DeploySiegeEngineAtIndex
 `public void DeploySiegeEngineAtIndex(SiegeEvent.SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**Purpose:** Handles logic related to `deploy siege engine at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.DeploySiegeEngineAtIndex(siegeEngine, 0);
+```
 
 ### RemoveDeployedSiegeEngine
 `public void RemoveDeployedSiegeEngine(int index, bool isRanged, bool moveToReserve)`
 
 **Purpose:** Removes `deployed siege engine` from the current collection or state.
 
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+siegeEvent.RemoveDeployedSiegeEngine(0, false, false);
+```
+
 ### RemovedSiegeEngineFromReservedSiegeEngines
 `public bool RemovedSiegeEngineFromReservedSiegeEngines(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
 **Purpose:** Removes `d siege engine from reserved siege engines` from the current collection or state.
 
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.RemovedSiegeEngineFromReservedSiegeEngines(siegeEngine);
+```
+
 ### FindDeploymentIndexOfDeployedEngine
 `public int FindDeploymentIndexOfDeployedEngine(SiegeEvent.SiegeEngineConstructionProgress deployedEngine)`
 
-**Purpose:** Handles logic related to `find deployment index of deployed engine`.
+**Purpose:** Looks up the matching `deployment index of deployed engine` in the current collection or scope.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.FindDeploymentIndexOfDeployedEngine(deployedEngine);
+```
 
 ### ClearRemovedEnginesIfNecessary
 `public bool ClearRemovedEnginesIfNecessary()`
 
-**Purpose:** Handles logic related to `clear removed engines if necessary`.
+**Purpose:** Removes all `removed engines if necessary` from the current object.
+
+```csharp
+// Obtain an instance of SiegeEvent from the subsystem API first
+SiegeEvent siegeEvent = ...;
+var result = siegeEvent.ClearRemovedEnginesIfNecessary();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeEvent();
-value.ActivateBlockade();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeEvent siegeEvent = ...;
+siegeEvent.ActivateBlockade();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

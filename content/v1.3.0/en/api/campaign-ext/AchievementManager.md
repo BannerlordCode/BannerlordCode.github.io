@@ -1,13 +1,7 @@
 ---
 title: "AchievementManager"
+description: "Auto-generated class reference for AchievementManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AchievementManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AchievementManager
 
 **Namespace:** TaleWorlds.AchievementSystem
@@ -35,17 +29,32 @@ Treat `AchievementManager` as a Manager-style extension point: first identify wh
 ### SetStat
 `public static bool SetStat(string name, int value)`
 
-**Purpose:** Sets the value or state of `stat`.
+**Purpose:** Assigns a new value to `stat` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+AchievementManager.SetStat("example", 0);
+```
 
 ### GetStat
 `public static async Task<int> GetStat(string name)`
 
-**Purpose:** Gets the current value of `stat`.
+**Purpose:** Reads and returns the `stat` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AchievementManager.GetStat("example");
+```
 
 ### GetStats
 `public static async Task<int > GetStats(string names)`
 
-**Purpose:** Gets the current value of `stats`.
+**Purpose:** Reads and returns the `stats` value held by the current object.
+
+```csharp
+// Static call; no instance required
+AchievementManager.GetStats("example");
+```
 
 ## Usage Example
 
@@ -55,4 +64,4 @@ var manager = AchievementManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

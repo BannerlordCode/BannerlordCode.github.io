@@ -1,20 +1,14 @@
 ---
 title: "TotalEventData"
+description: "Auto-generated class reference for TotalEventData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TotalEventData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TotalEventData
 
 **Namespace:** TaleWorlds.MountAndBlade.Network
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TotalEventData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Network/DebugNetworkEventStatistics.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `TotalEventData` as a Data-style extension point: first identify who creat
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of TotalEventData from the subsystem API first
+TotalEventData totalEventData = ...;
+var result = totalEventData.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of TotalEventData from the subsystem API first
+TotalEventData totalEventData = ...;
+var result = totalEventData.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TotalEventData();
+// This data object is usually returned by campaign/mission APIs
+TotalEventData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

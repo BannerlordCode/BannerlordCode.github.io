@@ -1,20 +1,14 @@
 ---
 title: "LauncherDragWindowAreaWidget"
+description: "Auto-generated class reference for LauncherDragWindowAreaWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LauncherDragWindowAreaWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LauncherDragWindowAreaWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LauncherDragWindowAreaWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherDragWindowAreaWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets/LauncherDragWindowAreaWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `LauncherDragWindowAreaWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new LauncherDragWindowAreaWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+LauncherDragWindowAreaWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

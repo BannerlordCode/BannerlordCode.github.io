@@ -1,20 +1,14 @@
 ---
 title: "SandBoxSallyOutMissionController"
+description: "Auto-generated class reference for SandBoxSallyOutMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxSallyOutMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSallyOutMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class SandBoxSallyOutMissionController : SallyOutMissionController`
 **Base:** `SallyOutMissionController`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SandBoxSallyOutMissionController.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/SandBoxSallyOutMissionController.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `SandBoxSallyOutMissionController` as a Controller-style extension point: 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxSallyOutMissionController from the subsystem API first
+SandBoxSallyOutMissionController sandBoxSallyOutMissionController = ...;
+sandBoxSallyOutMissionController.OnBehaviorInitialize();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<SandBoxSallyOutMissionContro
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "StoryModeEncounterGameMenuModel"
+description: "StoryModeEncounterGameMenuModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModeEncounterGameMenuModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeEncounterGameMenuModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeEncounterGameMenuModel : EncounterGameMenuModel`
 **Base:** `EncounterGameMenuModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeEncounterGameMenuModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeEncounterGameMenuModel.cs`
 
 ## 概述
 
@@ -29,34 +23,64 @@ title: "StoryModeEncounterGameMenuModel"
 ### GetEncounterMenu
 `public override string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
 
-**用途 / Purpose:** 获取 `encounter menu` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encounter menu」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.GetEncounterMenu(attackerParty, defenderParty, startBattle, joinBattle);
+```
 
 ### GetGenericStateMenu
 `public override string GetGenericStateMenu()`
 
-**用途 / Purpose:** 获取 `generic state menu` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「generic state menu」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.GetGenericStateMenu();
+```
 
 ### GetNewPartyJoinMenu
 `public override string GetNewPartyJoinMenu(MobileParty newParty)`
 
-**用途 / Purpose:** 获取 `new party join menu` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「new party join menu」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.GetNewPartyJoinMenu(newParty);
+```
 
 ### GetRaidCompleteMenu
 `public override string GetRaidCompleteMenu()`
 
-**用途 / Purpose:** 获取 `raid complete menu` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「raid complete menu」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.GetRaidCompleteMenu();
+```
 
 ### IsPlunderMenu
 `public override bool IsPlunderMenu(string menuId)`
 
-**用途 / Purpose:** 处理 `is plunder menu` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「plunder menu」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
+StoryModeEncounterGameMenuModel storyModeEncounterGameMenuModel = ...;
+var result = storyModeEncounterGameMenuModel.IsPlunderMenu("example");
+```
 
 ## 使用示例
 
 ```csharp
-StoryModeEncounterGameMenuModel example = StoryModeEncounterGameMenuModel.Value;
+Game.Current.ReplaceModel<StoryModeEncounterGameMenuModel>(new MyStoryModeEncounterGameMenuModel());
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

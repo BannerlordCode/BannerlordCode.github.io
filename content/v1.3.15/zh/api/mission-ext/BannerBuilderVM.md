@@ -1,13 +1,7 @@
 ---
 title: "BannerBuilderVM"
+description: "BannerBuilderVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerBuilderVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerBuilderVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
@@ -65,85 +59,176 @@ title: "BannerBuilderVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.RefreshValues();
+```
 
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 `cancel` 操作或流程。
+**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.ExecuteCancel();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 `done` 操作或流程。
+**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.ExecuteDone();
+```
 
 ### ExecuteAddDefaultLayer
 `public void ExecuteAddDefaultLayer()`
 
-**用途 / Purpose:** 执行 `add default layer` 操作或流程。
+**用途 / Purpose:** 执行 「add default layer」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.ExecuteAddDefaultLayer();
+```
 
 ### ExecuteDuplicateCurrentLayer
 `public void ExecuteDuplicateCurrentLayer()`
 
-**用途 / Purpose:** 执行 `duplicate current layer` 操作或流程。
+**用途 / Purpose:** 执行 「duplicate current layer」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.ExecuteDuplicateCurrentLayer();
+```
 
 ### ExecuteCopyBannerCode
 `public void ExecuteCopyBannerCode()`
 
-**用途 / Purpose:** 执行 `copy banner code` 操作或流程。
+**用途 / Purpose:** 执行 「copy banner code」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.ExecuteCopyBannerCode();
+```
 
 ### ExecuteReorderWithParameters
 `public void ExecuteReorderWithParameters(BannerBuilderLayerVM layer, int index, string targetTag)`
 
-**用途 / Purpose:** 执行 `reorder with parameters` 操作或流程。
+**用途 / Purpose:** 执行 「reorder with parameters」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.ExecuteReorderWithParameters(layer, 0, "example");
+```
 
 ### ExecuteReorderToEndWithParameters
 `public void ExecuteReorderToEndWithParameters(BannerBuilderLayerVM layer, int index, string targetTag)`
 
-**用途 / Purpose:** 执行 `reorder to end with parameters` 操作或流程。
+**用途 / Purpose:** 执行 「reorder to end with parameters」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.ExecuteReorderToEndWithParameters(layer, 0, "example");
+```
 
 ### GetBannerCode
 `public string GetBannerCode()`
 
-**用途 / Purpose:** 获取 `banner code` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner code」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+var result = bannerBuilderVM.GetBannerCode();
+```
 
 ### SetBannerCode
 `public void SetBannerCode(string v)`
 
-**用途 / Purpose:** 设置 `banner code` 的值或状态。
+**用途 / Purpose:** 为 「banner code」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.SetBannerCode("example");
+```
 
 ### TranslateCurrentLayerWith
 `public void TranslateCurrentLayerWith(Vec2 moveDirection)`
 
-**用途 / Purpose:** 处理 `translate current layer with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.TranslateCurrentLayerWith(moveDirection);
+```
 
 ### DeleteCurrentLayer
 `public void DeleteCurrentLayer()`
 
-**用途 / Purpose:** 处理 `delete current layer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.DeleteCurrentLayer();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderVM 实例
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.SetDoneInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerBuilderVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+BannerBuilderVM bannerBuilderVM = ...;
+bannerBuilderVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

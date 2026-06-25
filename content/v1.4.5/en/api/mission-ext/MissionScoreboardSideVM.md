@@ -1,20 +1,14 @@
 ---
 title: "MissionScoreboardSideVM"
+description: "Auto-generated class reference for MissionScoreboardSideVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionScoreboardSideVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardSideVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardSideVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardSideVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardSideVM.cs`
 
 ## Overview
 
@@ -48,50 +42,99 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionScoreboardSideVM from the subsystem API first
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.RefreshValues();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionScoreboardSideVM from the subsystem API first
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.Tick(0);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionScoreboardSideVM from the subsystem API first
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.OnFinalize();
+```
 
 ### UpdateRoundAttributes
 `public void UpdateRoundAttributes()`
 
-**Purpose:** Updates the state or data of `round attributes`.
+**Purpose:** Recalculates and stores the latest representation of `round attributes`.
+
+```csharp
+// Obtain an instance of MissionScoreboardSideVM from the subsystem API first
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.UpdateRoundAttributes();
+```
 
 ### UpdateBotAttributes
 `public void UpdateBotAttributes()`
 
-**Purpose:** Updates the state or data of `bot attributes`.
+**Purpose:** Recalculates and stores the latest representation of `bot attributes`.
+
+```csharp
+// Obtain an instance of MissionScoreboardSideVM from the subsystem API first
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.UpdateBotAttributes();
+```
 
 ### UpdatePlayerAttributes
 `public void UpdatePlayerAttributes(MissionPeer player)`
 
-**Purpose:** Updates the state or data of `player attributes`.
+**Purpose:** Recalculates and stores the latest representation of `player attributes`.
+
+```csharp
+// Obtain an instance of MissionScoreboardSideVM from the subsystem API first
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.UpdatePlayerAttributes(player);
+```
 
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
 **Purpose:** Removes `player` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionScoreboardSideVM from the subsystem API first
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.RemovePlayer(peer);
+```
+
 ### AddPlayer
 `public void AddPlayer(MissionPeer peer)`
 
 **Purpose:** Adds `player` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionScoreboardSideVM from the subsystem API first
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.AddPlayer(peer);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new MissionScoreboardSideVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionScoreboardSideVM missionScoreboardSideVM = ...;
+missionScoreboardSideVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

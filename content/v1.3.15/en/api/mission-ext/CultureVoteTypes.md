@@ -1,18 +1,12 @@
 ---
 title: "CultureVoteTypes"
+description: "Auto-generated class reference for CultureVoteTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CultureVoteTypes`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CultureVoteTypes
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum CultureVoteTypes`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/CultureVoteTypes.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new CultureVoteTypes();
+// Obtain an instance from the relevant subsystem API
+CultureVoteTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

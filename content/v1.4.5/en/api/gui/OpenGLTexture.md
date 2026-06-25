@@ -1,20 +1,14 @@
 ---
 title: "OpenGLTexture"
+description: "Auto-generated class reference for OpenGLTexture."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OpenGLTexture`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OpenGLTexture
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class OpenGLTexture : ITexture`
 **Base:** `ITexture`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/OpenGLTexture.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/OpenGLTexture.cs`
 
 ## Overview
 
@@ -36,55 +30,108 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### Initialize
 `public void Initialize(string name, int width, int height)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of OpenGLTexture from the subsystem API first
+OpenGLTexture openGLTexture = ...;
+openGLTexture.Initialize("example", 0, 0);
+```
 
 ### CopyFrom
 `public void CopyFrom(OpenGLTexture texture)`
 
-**Purpose:** Handles logic related to `copy from`.
+**Purpose:** Copies the `from` state of the current object to a target.
+
+```csharp
+// Obtain an instance of OpenGLTexture from the subsystem API first
+OpenGLTexture openGLTexture = ...;
+openGLTexture.CopyFrom(texture);
+```
 
 ### Delete
 `public void Delete()`
 
-**Purpose:** Handles logic related to `delete`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OpenGLTexture from the subsystem API first
+OpenGLTexture openGLTexture = ...;
+openGLTexture.Delete();
+```
 
 ### FromFile
 `public static OpenGLTexture FromFile(ResourceDepot resourceDepot, string name)`
 
-**Purpose:** Handles logic related to `from file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+OpenGLTexture.FromFile(resourceDepot, "example");
+```
 
 ### FromFile
 `public static OpenGLTexture FromFile(string fullFilePath)`
 
-**Purpose:** Handles logic related to `from file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+OpenGLTexture.FromFile("example");
+```
 
 ### Release
 `public void Release()`
 
-**Purpose:** Handles logic related to `release`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of OpenGLTexture from the subsystem API first
+OpenGLTexture openGLTexture = ...;
+openGLTexture.Release();
+```
 
 ### LoadFromFile
 `public void LoadFromFile(ResourceDepot resourceDepot, string name)`
 
-**Purpose:** Loads `from file` data.
+**Purpose:** Reads `from file` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of OpenGLTexture from the subsystem API first
+OpenGLTexture openGLTexture = ...;
+openGLTexture.LoadFromFile(resourceDepot, "example");
+```
 
 ### LoadFromFile
 `public void LoadFromFile(string fullPathName)`
 
-**Purpose:** Loads `from file` data.
+**Purpose:** Reads `from file` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of OpenGLTexture from the subsystem API first
+OpenGLTexture openGLTexture = ...;
+openGLTexture.LoadFromFile("example");
+```
 
 ### IsLoaded
 `public bool IsLoaded()`
 
-**Purpose:** Handles logic related to `is loaded`.
+**Purpose:** Determines whether the current object is in the `loaded` state or condition.
+
+```csharp
+// Obtain an instance of OpenGLTexture from the subsystem API first
+OpenGLTexture openGLTexture = ...;
+var result = openGLTexture.IsLoaded();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OpenGLTexture();
-value.Initialize("example", 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+OpenGLTexture openGLTexture = ...;
+openGLTexture.Initialize("example", 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

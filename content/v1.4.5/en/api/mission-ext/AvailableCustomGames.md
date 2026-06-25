@@ -1,20 +1,14 @@
 ---
 title: "AvailableCustomGames"
+description: "Auto-generated class reference for AvailableCustomGames."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvailableCustomGames`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvailableCustomGames
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AvailableCustomGames`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AvailableCustomGames.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/AvailableCustomGames.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetCustomGamesByPermission
 `public AvailableCustomGames GetCustomGamesByPermission(int playerPermission)`
 
-**Purpose:** Gets the current value of `custom games by permission`.
+**Purpose:** Reads and returns the `custom games by permission` value held by the current object.
+
+```csharp
+// Obtain an instance of AvailableCustomGames from the subsystem API first
+AvailableCustomGames availableCustomGames = ...;
+var result = availableCustomGames.GetCustomGamesByPermission(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AvailableCustomGames();
-value.GetCustomGamesByPermission(0);
+// Typically call this after obtaining an instance from the subsystem API
+AvailableCustomGames availableCustomGames = ...;
+availableCustomGames.GetCustomGamesByPermission(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

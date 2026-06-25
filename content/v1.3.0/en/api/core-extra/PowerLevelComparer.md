@@ -1,13 +1,7 @@
 ---
 title: "PowerLevelComparer"
+description: "Auto-generated class reference for PowerLevelComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PowerLevelComparer`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PowerLevelComparer
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -48,25 +42,44 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the st
 ### SetColors
 `public void SetColors(string defenderColor, string attackerColor)`
 
-**Purpose:** Sets the value or state of `colors`.
+**Purpose:** Assigns a new value to `colors` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PowerLevelComparer from the subsystem API first
+PowerLevelComparer powerLevelComparer = ...;
+powerLevelComparer.SetColors("example", "example");
+```
 
 ### Update
 `public void Update(double defenderPower, double attackerPower)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of PowerLevelComparer from the subsystem API first
+PowerLevelComparer powerLevelComparer = ...;
+powerLevelComparer.Update(0, 0);
+```
 
 ### Update
 `public void Update(double defenderPower, double attackerPower, double initialDefenderPower, double initialAttackerPower)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of PowerLevelComparer from the subsystem API first
+PowerLevelComparer powerLevelComparer = ...;
+powerLevelComparer.Update(0, 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PowerLevelComparer();
-value.SetColors("example", "example");
+// Typically call this after obtaining an instance from the subsystem API
+PowerLevelComparer powerLevelComparer = ...;
+powerLevelComparer.SetColors("example", "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

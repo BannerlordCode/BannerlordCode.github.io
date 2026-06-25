@@ -1,20 +1,14 @@
 ---
 title: "DefaultVillageTradeModel"
+description: "Auto-generated class reference for DefaultVillageTradeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultVillageTradeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultVillageTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultVillageTradeModel : VillageTradeModel`
 **Base:** `VillageTradeModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultVillageTradeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultVillageTradeModel.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DefaultVillageTradeModel` as a Model-style extension point: first identif
 ### TradeBoundDistanceLimitAsDays
 `public override float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)`
 
-**Purpose:** Handles logic related to `trade bound distance limit as days`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultVillageTradeModel from the subsystem API first
+DefaultVillageTradeModel defaultVillageTradeModel = ...;
+var result = defaultVillageTradeModel.TradeBoundDistanceLimitAsDays(navigationType);
+```
 
 ### GetTradeBoundToAssignForVillage
 `public override Settlement GetTradeBoundToAssignForVillage(Village village)`
 
-**Purpose:** Gets the current value of `trade bound to assign for village`.
+**Purpose:** Reads and returns the `trade bound to assign for village` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultVillageTradeModel from the subsystem API first
+DefaultVillageTradeModel defaultVillageTradeModel = ...;
+var result = defaultVillageTradeModel.GetTradeBoundToAssignForVillage(village);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultVillageTradeModel>(new MyDefaultVillageTradeMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

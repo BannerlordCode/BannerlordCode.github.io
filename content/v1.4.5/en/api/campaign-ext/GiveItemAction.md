@@ -1,23 +1,13 @@
 ---
 title: "GiveItemAction"
+description: "Auto-generated campaign action reference for GiveItemAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GiveItemAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GiveItemAction
-
-## Mental Model
-
-Treat `GiveItemAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** static class
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/GiveItemAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/GiveItemAction.cs`
 
 GiveItemAction is a set of static methods that trigger "GiveItem" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
 
@@ -48,5 +38,5 @@ GiveItemAction.ApplyForHeroes(giver, receiver, itemRosterElement);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

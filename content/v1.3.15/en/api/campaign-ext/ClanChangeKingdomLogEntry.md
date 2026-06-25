@@ -1,13 +1,7 @@
 ---
 title: "ClanChangeKingdomLogEntry"
+description: "Auto-generated class reference for ClanChangeKingdomLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanChangeKingdomLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanChangeKingdomLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -36,35 +30,66 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** Handles logic related to `is related to war`.
+**Purpose:** Determines whether the current object is in the `related to war` state or condition.
+
+```csharp
+// Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
+ClanChangeKingdomLogEntry clanChangeKingdomLogEntry = ...;
+var result = clanChangeKingdomLogEntry.IsRelatedToWar(stance, effector, effected);
+```
 
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Gets the current value of `notification text`.
+**Purpose:** Reads and returns the `notification text` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
+ClanChangeKingdomLogEntry clanChangeKingdomLogEntry = ...;
+var result = clanChangeKingdomLogEntry.GetNotificationText();
+```
 
 ### GetImportanceForClan
 `public override ImportanceEnum GetImportanceForClan(Clan clan)`
 
-**Purpose:** Gets the current value of `importance for clan`.
+**Purpose:** Reads and returns the `importance for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
+ClanChangeKingdomLogEntry clanChangeKingdomLogEntry = ...;
+var result = clanChangeKingdomLogEntry.GetImportanceForClan(clan);
+```
 
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**Purpose:** Gets the current value of `conversation score and comment`.
+**Purpose:** Reads and returns the `conversation score and comment` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
+ClanChangeKingdomLogEntry clanChangeKingdomLogEntry = ...;
+clanChangeKingdomLogEntry.GetConversationScoreAndComment(talkTroop, false, comment, score);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ClanChangeKingdomLogEntry from the subsystem API first
+ClanChangeKingdomLogEntry clanChangeKingdomLogEntry = ...;
+var result = clanChangeKingdomLogEntry.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanChangeKingdomLogEntry();
-value.IsRelatedToWar(stance, effector, effected);
+// Typically call this after obtaining an instance from the subsystem API
+ClanChangeKingdomLogEntry clanChangeKingdomLogEntry = ...;
+clanChangeKingdomLogEntry.IsRelatedToWar(stance, effector, effected);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

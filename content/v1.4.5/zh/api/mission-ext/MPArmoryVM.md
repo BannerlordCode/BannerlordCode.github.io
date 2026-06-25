@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryVM"
+description: "MPArmoryVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPArmoryVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory/MPArmoryVM.cs`
 
 ## 概述
 
@@ -48,65 +42,131 @@ title: "MPArmoryVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.OnFinalize();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.OnTick(0);
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**用途 / Purpose:** 刷新 `player data` 的显示或缓存。
+**用途 / Purpose:** 使 「player data」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.RefreshPlayerData(playerData);
+```
 
 ### ForceRefreshCharacter
 `public void ForceRefreshCharacter()`
 
-**用途 / Purpose:** 处理 `force refresh character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ForceRefreshCharacter();
+```
 
 ### SetCanOpenFacegen
 `public void SetCanOpenFacegen(bool enabled)`
 
-**用途 / Purpose:** 设置 `can open facegen` 的值或状态。
+**用途 / Purpose:** 为 「can open facegen」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.SetCanOpenFacegen(false);
+```
 
 ### ExecuteClearTauntSelection
 `public void ExecuteClearTauntSelection()`
 
-**用途 / Purpose:** 执行 `clear taunt selection` 操作或流程。
+**用途 / Purpose:** 执行 「clear taunt selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ExecuteClearTauntSelection();
+```
 
 ### ExecuteToggleManageTauntsState
 `public void ExecuteToggleManageTauntsState()`
 
-**用途 / Purpose:** 执行 `toggle manage taunts state` 操作或流程。
+**用途 / Purpose:** 执行 「toggle manage taunts state」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ExecuteToggleManageTauntsState();
+```
 
 ### ExecuteSelectFocusedSlot
 `public void ExecuteSelectFocusedSlot()`
 
-**用途 / Purpose:** 执行 `select focused slot` 操作或流程。
+**用途 / Purpose:** 执行 「select focused slot」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ExecuteSelectFocusedSlot();
+```
 
 ### ExecuteEmptyFocusedSlot
 `public void ExecuteEmptyFocusedSlot()`
 
-**用途 / Purpose:** 执行 `empty focused slot` 操作或流程。
+**用途 / Purpose:** 执行 「empty focused slot」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPArmoryVM 实例
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.ExecuteEmptyFocusedSlot();
+```
 
 ### ApplyPerkEffectsToEquipment
 `public static void ApplyPerkEffectsToEquipment(ref Equipment equipment, List<IReadOnlyPerkObject> selectedPerks)`
 
-**用途 / Purpose:** 将 `perk effects to equipment` 应用到当前对象。
+**用途 / Purpose:** 将 「perk effects to equipment」 的效果应用到当前对象。
+
+```csharp
+// 静态调用，不需要实例
+MPArmoryVM.ApplyPerkEffectsToEquipment(equipment, selectedPerks);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPArmoryVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPArmoryVM mPArmoryVM = ...;
+mPArmoryVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

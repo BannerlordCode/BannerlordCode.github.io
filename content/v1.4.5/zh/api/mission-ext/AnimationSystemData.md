@@ -1,20 +1,14 @@
 ---
 title: "AnimationSystemData"
+description: "AnimationSystemData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AnimationSystemData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimationSystemData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AnimationSystemData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimationSystemData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimationSystemData.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "AnimationSystemData"
 ### GetHardcodedAnimationSystemDataForHumanSkeleton
 `public static AnimationSystemData GetHardcodedAnimationSystemDataForHumanSkeleton()`
 
-**用途 / Purpose:** 获取 `hardcoded animation system data for human skeleton` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hardcoded animation system data for human skeleton」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+AnimationSystemData.GetHardcodedAnimationSystemDataForHumanSkeleton();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AnimationSystemData();
+// 该数据对象通常由战役/任务 API 返回
+AnimationSystemData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

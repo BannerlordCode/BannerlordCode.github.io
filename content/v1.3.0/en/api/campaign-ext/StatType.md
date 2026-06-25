@@ -1,46 +1,30 @@
 ---
 title: "StatType"
+description: "Auto-generated class reference for StatType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StatType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StatType
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
 **Module:** SandBox.ViewModelCollection
 **Type:** `public enum StatType`
-**Area:** campaign-ext
+**Base:** none
+**File:** `SandBox.ViewModelCollection/GameOver/StatItem.cs`
 
 ## Overview
 
-`StatType` lives in `SandBox.ViewModelCollection.GameOver`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StatType` lives in `SandBox.ViewModelCollection.GameOver` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
 Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Enum Values
-
-| Name |
-|------|
-| `None` |
-| `Influence` |
-| `Issue` |
-| `Tournament` |
-| `Gold` |
-| `Crime` |
-
 ## Usage Example
 
 ```csharp
-StatType example = StatType.None;
+// Obtain an instance from the relevant subsystem API
+StatType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

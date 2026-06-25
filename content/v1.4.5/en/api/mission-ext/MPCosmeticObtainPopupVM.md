@@ -1,20 +1,14 @@
 ---
 title: "MPCosmeticObtainPopupVM"
+description: "Auto-generated class reference for MPCosmeticObtainPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPCosmeticObtainPopupVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPCosmeticObtainPopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPCosmeticObtainPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPCosmeticObtainPopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPCosmeticObtainPopupVM.cs`
 
 ## Overview
 
@@ -56,50 +50,99 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPCosmeticObtainPopupVM from the subsystem API first
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPCosmeticObtainPopupVM from the subsystem API first
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.OnFinalize();
+```
 
 ### OpenWith
 `public void OpenWith(MPArmoryCosmeticClothingItemVM item)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPCosmeticObtainPopupVM from the subsystem API first
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.OpenWith(item);
+```
 
 ### OpenWith
 `public void OpenWith(MPArmoryCosmeticTauntItemVM item, CharacterViewModel sourceCharacter)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPCosmeticObtainPopupVM from the subsystem API first
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.OpenWith(item, sourceCharacter);
+```
 
 ### ExecuteSelectNextAnimation
 `public void ExecuteSelectNextAnimation(int increment)`
 
-**Purpose:** Executes the `select next animation` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select next animation`.
+
+```csharp
+// Obtain an instance of MPCosmeticObtainPopupVM from the subsystem API first
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.ExecuteSelectNextAnimation(0);
+```
 
 ### OpenWith
 `public void OpenWith(MPLobbyCosmeticSigilItemVM sigilItem)`
 
-**Purpose:** Handles logic related to `open with`.
+**Purpose:** Opens the resource or UI associated with `with`.
+
+```csharp
+// Obtain an instance of MPCosmeticObtainPopupVM from the subsystem API first
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.OpenWith(sigilItem);
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPCosmeticObtainPopupVM from the subsystem API first
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.ExecuteClosePopup();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPCosmeticObtainPopupVM from the subsystem API first
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPCosmeticObtainPopupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPCosmeticObtainPopupVM mPCosmeticObtainPopupVM = ...;
+mPCosmeticObtainPopupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

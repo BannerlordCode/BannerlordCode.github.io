@@ -1,13 +1,7 @@
 ---
 title: "EngineClass"
+description: "Auto-generated class reference for EngineClass."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineClass`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EngineClass
 
 **Namespace:** TaleWorlds.DotNet
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var example = new EngineClass();
+// Obtain an instance from the relevant subsystem API
+EngineClass instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

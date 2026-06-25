@@ -1,23 +1,18 @@
 ---
 title: "ArrangementPosition"
+description: "Auto-generated class reference for ArrangementPosition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArrangementPosition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ArrangementPosition
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct ArrangementPosition`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/ComponentInterfaces/FormationArrangementModel.cs`
 
 ## Overview
 
-`ArrangementPosition` lives in `TaleWorlds.MountAndBlade.ComponentInterfaces`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ArrangementPosition` lives in `TaleWorlds.MountAndBlade.ComponentInterfaces` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -30,22 +25,13 @@ Start from namespace `TaleWorlds.MountAndBlade.ComponentInterfaces` to place it 
 | `IsValid` | `public bool IsValid { get; }` |
 | `Invalid` | `public static FormationArrangementModel.ArrangementPosition Invalid { get; }` |
 
-## Key Methods
-
-### GetBannerBearerPositions
-`public abstract List<FormationArrangementModel.ArrangementPosition> GetBannerBearerPositions(Formation formation, int maxCount)`
-
-**Purpose:** Gets the current value of `banner bearer positions`.
-
 ## Usage Example
 
 ```csharp
-// First obtain a ArrangementPosition instance from game state, then call one of its public methods
-var value = new ArrangementPosition();
-value.GetBannerBearerPositions(formation, 0);
+// Obtain an instance from the relevant subsystem API
+ArrangementPosition instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

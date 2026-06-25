@@ -1,13 +1,7 @@
 ---
 title: "FactoredNumber"
+description: "FactoredNumber 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FactoredNumber`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FactoredNumber
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,35 +32,66 @@ title: "FactoredNumber"
 ### Add
 `public void Add(float value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 FactoredNumber 实例
+FactoredNumber factoredNumber = ...;
+factoredNumber.Add(0);
+```
 
 ### AddFactor
 `public void AddFactor(float value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `factor`。
+**用途 / Purpose:** 将 「factor」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 FactoredNumber 实例
+FactoredNumber factoredNumber = ...;
+factoredNumber.AddFactor(0);
+```
 
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**用途 / Purpose:** 处理 `limit min` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FactoredNumber 实例
+FactoredNumber factoredNumber = ...;
+factoredNumber.LimitMin(0);
+```
 
 ### LimitMax
 `public void LimitMax(float maxValue)`
 
-**用途 / Purpose:** 处理 `limit max` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FactoredNumber 实例
+FactoredNumber factoredNumber = ...;
+factoredNumber.LimitMax(0);
+```
 
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**用途 / Purpose:** 处理 `clamp` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FactoredNumber 实例
+FactoredNumber factoredNumber = ...;
+factoredNumber.Clamp(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FactoredNumber();
-value.Add(0);
+// 通常从对应子系统 API 获取实例后调用
+FactoredNumber factoredNumber = ...;
+factoredNumber.Add(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

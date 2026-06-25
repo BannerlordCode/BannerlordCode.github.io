@@ -1,20 +1,14 @@
 ---
 title: "SteamPlatformAvatarService"
+description: "SteamPlatformAvatarService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SteamPlatformAvatarService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SteamPlatformAvatarService
 
 **Namespace:** TaleWorlds.PlatformService.Steam
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class SteamPlatformAvatarService : IAvatarService`
 **Base:** `IAvatarService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamPlatformAvatarService.cs`
+**File:** `bin/TaleWorlds.PlatformService.Steam/TaleWorlds.PlatformService.Steam/SteamPlatformAvatarService.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "SteamPlatformAvatarService"
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**用途 / Purpose:** 获取 `player avatar` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player avatar」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SteamPlatformAvatarService 实例
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+var result = steamPlatformAvatarService.GetPlayerAvatar(playerId);
+```
 
 ### FetchPlayerAvatar
 `public async void FetchPlayerAvatar(AvatarData avatarData, PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `fetch player avatar` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SteamPlatformAvatarService 实例
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.FetchPlayerAvatar(avatarData, playerId);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SteamPlatformAvatarService 实例
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.Initialize();
+```
 
 ### ClearCache
 `public void ClearCache()`
 
-**用途 / Purpose:** 处理 `clear cache` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「cache」。
+
+```csharp
+// 先通过子系统 API 拿到 SteamPlatformAvatarService 实例
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.ClearCache();
+```
 
 ### IsInitialized
 `public bool IsInitialized()`
 
-**用途 / Purpose:** 处理 `is initialized` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「initialized」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SteamPlatformAvatarService 实例
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+var result = steamPlatformAvatarService.IsInitialized();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 SteamPlatformAvatarService 实例
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.Tick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SteamPlatformAvatarService();
-value.GetPlayerAvatar(playerId);
+// 通常从对应子系统 API 获取实例后调用
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.GetPlayerAvatar(playerId);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

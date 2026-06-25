@@ -1,13 +1,7 @@
 ---
 title: "SaveResultWithMessage"
+description: "Auto-generated class reference for SaveResultWithMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveResultWithMessage`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveResultWithMessage
 
 **Namespace:** TaleWorlds.Library
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new SaveResultWithMessage();
+// Obtain an instance from the relevant subsystem API
+SaveResultWithMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

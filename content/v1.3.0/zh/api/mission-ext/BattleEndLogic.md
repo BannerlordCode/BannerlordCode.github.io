@@ -1,13 +1,7 @@
 ---
 title: "BattleEndLogic"
+description: "BattleEndLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleEndLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleEndLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,49 +31,97 @@ title: "BattleEndLogic"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleEndLogic 实例
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleEndLogic 实例
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BattleEndLogic 实例
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** 处理 `mission ended` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleEndLogic 实例
+BattleEndLogic battleEndLogic = ...;
+var result = battleEndLogic.MissionEnded(missionResult);
+```
 
 ### ChangeCanCheckForEndCondition
 `public void ChangeCanCheckForEndCondition(bool canCheckForEndCondition)`
 
-**用途 / Purpose:** 处理 `change can check for end condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleEndLogic 实例
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.ChangeCanCheckForEndCondition(false);
+```
 
 ### TryExit
 `public BattleEndLogic.ExitResult TryExit()`
 
-**用途 / Purpose:** 尝试获取 `exit`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「exit」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 BattleEndLogic 实例
+BattleEndLogic battleEndLogic = ...;
+var result = battleEndLogic.TryExit();
+```
 
 ### EnableEnemyDefenderPullBack
 `public void EnableEnemyDefenderPullBack(int neededTroopNumber)`
 
-**用途 / Purpose:** 处理 `enable enemy defender pull back` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BattleEndLogic 实例
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.EnableEnemyDefenderPullBack(0);
+```
 
 ### SetNotificationDisabled
 `public void SetNotificationDisabled(bool value)`
 
-**用途 / Purpose:** 设置 `notification disabled` 的值或状态。
+**用途 / Purpose:** 为 「notification disabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BattleEndLogic 实例
+BattleEndLogic battleEndLogic = ...;
+battleEndLogic.SetNotificationDisabled(false);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleEndLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleEndLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,24 +1,18 @@
 ---
 title: "ProdigalSonIssueQuest"
+description: "ProdigalSonIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ProdigalSonIssueQuest`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProdigalSonIssueQuest
 
-**命名空间:** SandBox.Issues
-**模块:** SandBox.Issues
-**类型:** `public class ProdigalSonIssueQuest : QuestBase`
+**Namespace:** SandBox.Issues
+**Module:** SandBox.Issues
+**Type:** `public class ProdigalSonIssueQuest : QuestBase`
 **Base:** `QuestBase`
-**领域:** campaign-ext
+**File:** `Modules.SandBox/SandBox/SandBox.Issues/ProdigalSonIssueBehavior.cs`
 
 ## 概述
 
-`ProdigalSonIssueQuest` 位于 `SandBox.Issues`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`ProdigalSonIssueQuest` 位于 `SandBox.Issues`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,13 +22,6 @@ title: "ProdigalSonIssueQuest"
 
 | Name | Signature |
 |------|-----------|
-| `IssueBriefByIssueGiver` | `public override TextObject IssueBriefByIssueGiver { get; }` |
-| `IssueQuestSolutionExplanationByIssueGiver` | `public override TextObject IssueQuestSolutionExplanationByIssueGiver { get; }` |
-| `IssueAlternativeSolutionExplanationByIssueGiver` | `public override TextObject IssueAlternativeSolutionExplanationByIssueGiver { get; }` |
-| `IssueAlternativeSolutionAcceptByPlayer` | `public override TextObject IssueAlternativeSolutionAcceptByPlayer { get; }` |
-| `IssueAlternativeSolutionSuccessLog` | `public override TextObject IssueAlternativeSolutionSuccessLog { get; }` |
-| `Title` | `public override TextObject Title { get; }` |
-| `Description` | `public override TextObject Description { get; }` |
 | `Title` | `public override TextObject Title { get; }` |
 
 ## 主要方法
@@ -42,67 +29,33 @@ title: "ProdigalSonIssueQuest"
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can have campaign issues info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
 
-### GetFrequency
-`public override IssueFrequency GetFrequency()`
-
-**用途 / Purpose:** 获取 `frequency` 的当前值。
-
-### IssueStayAliveConditions
-`public override bool IssueStayAliveConditions()`
-
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
-
-### DoTroopsSatisfyAlternativeSolution
-`public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
-
-**用途 / Purpose:** 处理 `do troops satisfy alternative solution` 相关逻辑。
-
-### IsTroopTypeNeededByAlternativeSolution
-`public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
-
-**用途 / Purpose:** 处理 `is troop type needed by alternative solution` 相关逻辑。
-
-### AlternativeSolutionCondition
-`public override bool AlternativeSolutionCondition(out TextObject explanation)`
-
-**用途 / Purpose:** 处理 `alternative solution condition` 相关逻辑。
-
-### OnHeroCanHaveCampaignIssuesInfoIsRequested
-`public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
-
-**用途 / Purpose:** 当 `hero can have campaign issues info is requested` 事件触发时调用此方法。
+```csharp
+// 先通过子系统 API 拿到 ProdigalSonIssueQuest 实例
+ProdigalSonIssueQuest prodigalSonIssueQuest = ...;
+prodigalSonIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+```
 
 ### OnHeroCanMoveToSettlementInfoIsRequested
 `public override void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 当 `hero can move to settlement info is requested` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hero can move to settlement info is requested」 事件触发时调用此回调。
 
-### RegisterEvents
-`public override void RegisterEvents()`
-
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
-
-### SyncData
-`public override void SyncData(IDataStore dataStore)`
-
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
-
-### CheckForIssue
-`public void CheckForIssue(Hero hero)`
-
-**用途 / Purpose:** 处理 `check for issue` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 ProdigalSonIssueQuest 实例
+ProdigalSonIssueQuest prodigalSonIssueQuest = ...;
+prodigalSonIssueQuest.OnHeroCanMoveToSettlementInfoIsRequested(hero, result);
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 ProdigalSonIssueQuest 实例，再调用它的公开方法
-var value = new ProdigalSonIssueQuest();
-value.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+// 通常从对应子系统 API 获取实例后调用
+ProdigalSonIssueQuest prodigalSonIssueQuest = ...;
+prodigalSonIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

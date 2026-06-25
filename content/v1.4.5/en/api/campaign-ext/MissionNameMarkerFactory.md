@@ -1,20 +1,14 @@
 ---
 title: "MissionNameMarkerFactory"
+description: "Auto-generated class reference for MissionNameMarkerFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionNameMarkerFactory`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionNameMarkerFactory
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public static class MissionNameMarkerFactory`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerFactory.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker/MissionNameMarkerFactory.cs`
 
 ## Overview
 
@@ -39,43 +33,81 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 
 **Purpose:** Adds `provider` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionNameMarkerFactory from the subsystem API first
+MissionNameMarkerFactory missionNameMarkerFactory = ...;
+missionNameMarkerFactory.AddProvider(tProvider);
+```
+
 ### RemoveProvider
 `public void RemoveProvider(Type tProvider)`
 
 **Purpose:** Removes `provider` from the current collection or state.
 
+```csharp
+// Obtain an instance of MissionNameMarkerFactory from the subsystem API first
+MissionNameMarkerFactory missionNameMarkerFactory = ...;
+missionNameMarkerFactory.RemoveProvider(tProvider);
+```
+
 ### PushContext
 `public static INameMarkerProviderContext PushContext(string name, bool addDefaultProviders)`
 
-**Purpose:** Handles logic related to `push context`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.PushContext("example", false);
+```
 
 ### PopContext
 `public static void PopContext(string contextId)`
 
-**Purpose:** Handles logic related to `pop context`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.PopContext("example");
+```
 
 ### PopContext
 `public static void PopContext(INameMarkerProviderContext context)`
 
-**Purpose:** Handles logic related to `pop context`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.PopContext(context);
+```
 
 ### CollectProviders
 `public static List<MissionNameMarkerProvider> CollectProviders()`
 
-**Purpose:** Handles logic related to `collect providers`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.CollectProviders();
+```
 
 ### UpdateProviders
 `public static void UpdateProviders(MissionNameMarkerProvider existingProviders, out List<MissionNameMarkerProvider> addedProviders, out List<MissionNameMarkerProvider> removedProviders)`
 
-**Purpose:** Updates the state or data of `providers`.
+**Purpose:** Recalculates and stores the latest representation of `providers`.
+
+```csharp
+// Static call; no instance required
+MissionNameMarkerFactory.UpdateProviders(existingProviders, addedProviders, removedProviders);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionNameMarkerFactory();
-value.AddProvider(tProvider);
+// Typically call this after obtaining an instance from the subsystem API
+MissionNameMarkerFactory missionNameMarkerFactory = ...;
+missionNameMarkerFactory.AddProvider(tProvider);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "RglScriptFieldType"
+description: "Auto-generated class reference for RglScriptFieldType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RglScriptFieldType`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RglScriptFieldType
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
+**Type:** `public enum RglScriptFieldType`
 **Base:** none
 **File:** `TaleWorlds.Engine/RglScriptFieldType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new RglScriptFieldType();
+// Obtain an instance from the relevant subsystem API
+RglScriptFieldType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

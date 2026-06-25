@@ -1,20 +1,14 @@
 ---
 title: "BattleObserverMissionLogic"
+description: "Auto-generated class reference for BattleObserverMissionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleObserverMissionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleObserverMissionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BattleObserverMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleObserverMissionLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleObserverMissionLogic.cs`
 
 ## Overview
 
@@ -35,44 +29,86 @@ Treat `BattleObserverMissionLogic` as a Logic-style extension point: first ident
 ### SetObserver
 `public void SetObserver(IBattleObserver observer)`
 
-**Purpose:** Sets the value or state of `observer`.
+**Purpose:** Assigns a new value to `observer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BattleObserverMissionLogic from the subsystem API first
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.SetObserver(observer);
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BattleObserverMissionLogic from the subsystem API first
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.EarlyStart();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of BattleObserverMissionLogic from the subsystem API first
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of BattleObserverMissionLogic from the subsystem API first
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** Called when the `agent team changed` event is raised.
+**Purpose:** Invoked when the `agent team changed` event is raised.
+
+```csharp
+// Obtain an instance of BattleObserverMissionLogic from the subsystem API first
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
+```
 
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**Purpose:** Called when the `mission result ready` event is raised.
+**Purpose:** Invoked when the `mission result ready` event is raised.
+
+```csharp
+// Obtain an instance of BattleObserverMissionLogic from the subsystem API first
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+battleObserverMissionLogic.OnMissionResultReady(missionResult);
+```
 
 ### GetDeathToBuiltAgentRatioForSide
 `public float GetDeathToBuiltAgentRatioForSide(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `death to built agent ratio for side`.
+**Purpose:** Reads and returns the `death to built agent ratio for side` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleObserverMissionLogic from the subsystem API first
+BattleObserverMissionLogic battleObserverMissionLogic = ...;
+var result = battleObserverMissionLogic.GetDeathToBuiltAgentRatioForSide(side);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BattleObserverMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<BattleObserverMissionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TournamentArcheryMissionController"
+description: "TournamentArcheryMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentArcheryMissionController`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentArcheryMissionController
 
 **Namespace:** SandBox.Tournaments.MissionLogics
@@ -35,42 +29,90 @@ title: "TournamentArcheryMissionController"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
+TournamentArcheryMissionController tournamentArcheryMissionController = ...;
+tournamentArcheryMissionController.AfterStart();
+```
 
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**用途 / Purpose:** 处理 `start match` 相关逻辑。
+**用途 / Purpose:** 启动「match」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
+TournamentArcheryMissionController tournamentArcheryMissionController = ...;
+tournamentArcheryMissionController.StartMatch(match, false);
+```
 
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**用途 / Purpose:** 处理 `skip match` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
+TournamentArcheryMissionController tournamentArcheryMissionController = ...;
+tournamentArcheryMissionController.SkipMatch(match);
+```
 
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**用途 / Purpose:** 处理 `is match ended` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「match ended」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
+TournamentArcheryMissionController tournamentArcheryMissionController = ...;
+var result = tournamentArcheryMissionController.IsMatchEnded();
+```
 
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**用途 / Purpose:** 当 `match ended` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「match ended」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
+TournamentArcheryMissionController tournamentArcheryMissionController = ...;
+tournamentArcheryMissionController.OnMatchEnded();
+```
 
 ### OnTargetDestroyed
 `public void OnTargetDestroyed(DestructableComponent destroyedComponent, Agent destroyerAgent, in MissionWeapon attackerWeapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)`
 
-**用途 / Purpose:** 当 `target destroyed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「target destroyed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
+TournamentArcheryMissionController tournamentArcheryMissionController = ...;
+tournamentArcheryMissionController.OnTargetDestroyed(destroyedComponent, destroyerAgent, attackerWeapon, attackerScriptComponentBehavior, 0);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
+TournamentArcheryMissionController tournamentArcheryMissionController = ...;
+tournamentArcheryMissionController.OnMissionTick(0);
+```
 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** 当 `agent hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
+TournamentArcheryMissionController tournamentArcheryMissionController = ...;
+tournamentArcheryMissionController.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blow, attackCollisionData);
+```
 
 ## 使用示例
 
@@ -80,4 +122,4 @@ var controller = Mission.Current.GetMissionBehavior<TournamentArcheryMissionCont
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "TrainingFieldObjectiveItemVM"
+description: "Auto-generated class reference for TrainingFieldObjectiveItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingFieldObjectiveItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingFieldObjectiveItemVM
 
 **Namespace:** StoryMode.ViewModelCollection.Missions
 **Module:** StoryMode.ViewModelCollection
 **Type:** `public class TrainingFieldObjectiveItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode.ViewModelCollection/StoryMode.ViewModelCollection.Missions/TrainingFieldObjectiveItemVM.cs`
+**File:** `Modules.StoryMode/StoryMode.ViewModelCollection/StoryMode.ViewModelCollection.Missions/TrainingFieldObjectiveItemVM.cs`
 
 ## Overview
 
@@ -41,30 +35,53 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### UpdateObjective
 `public void UpdateObjective(TrainingFieldMissionController.MouseObjectives currentMouseObjective, TrainingFieldMissionController.ObjectivePerformingType currentObjectivePerformingType)`
 
-**Purpose:** Updates the state or data of `objective`.
+**Purpose:** Recalculates and stores the latest representation of `objective`.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectiveItemVM from the subsystem API first
+TrainingFieldObjectiveItemVM trainingFieldObjectiveItemVM = ...;
+trainingFieldObjectiveItemVM.UpdateObjective(currentMouseObjective, currentObjectivePerformingType);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TrainingFieldObjectiveItemVM from the subsystem API first
+TrainingFieldObjectiveItemVM trainingFieldObjectiveItemVM = ...;
+trainingFieldObjectiveItemVM.RefreshValues();
+```
 
 ### CreateFromObjective
 `public static TrainingFieldObjectiveItemVM CreateFromObjective(TrainingFieldMissionController.TutorialObjective objective)`
 
-**Purpose:** Creates a new `from objective` instance or object.
+**Purpose:** Constructs a new `from objective` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TrainingFieldObjectiveItemVM.CreateFromObjective(objective);
+```
 
 ### CreateDummy
 `public static TrainingFieldObjectiveItemVM CreateDummy()`
 
-**Purpose:** Creates a new `dummy` instance or object.
+**Purpose:** Constructs a new `dummy` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TrainingFieldObjectiveItemVM.CreateDummy();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrainingFieldObjectiveItemVM();
-value.UpdateObjective(currentMouseObjective, currentObjectivePerformingType);
+// Typically call this after obtaining an instance from the subsystem API
+TrainingFieldObjectiveItemVM trainingFieldObjectiveItemVM = ...;
+trainingFieldObjectiveItemVM.UpdateObjective(currentMouseObjective, currentObjectivePerformingType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

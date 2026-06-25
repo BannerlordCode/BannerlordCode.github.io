@@ -1,13 +1,7 @@
 ---
 title: "CraftingTemplate"
+description: "Auto-generated class reference for CraftingTemplate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingTemplate`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingTemplate
 
 **Namespace:** TaleWorlds.Core
@@ -46,45 +40,87 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetIndexOfUsageDataWithId
 `public int GetIndexOfUsageDataWithId(string weaponDescriptionId)`
 
-**Purpose:** Gets the current value of `index of usage data with id`.
+**Purpose:** Reads and returns the `index of usage data with id` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingTemplate from the subsystem API first
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.GetIndexOfUsageDataWithId("example");
+```
 
 ### IsPieceTypeHiddenOnHolster
 `public bool IsPieceTypeHiddenOnHolster(CraftingPiece.PieceTypes pieceType)`
 
-**Purpose:** Handles logic related to `is piece type hidden on holster`.
+**Purpose:** Determines whether the current object is in the `piece type hidden on holster` state or condition.
+
+```csharp
+// Obtain an instance of CraftingTemplate from the subsystem API first
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.IsPieceTypeHiddenOnHolster(pieceType);
+```
 
 ### GetStatDatas
 `public IEnumerable<KeyValuePair<CraftingTemplate.CraftingStatTypes, float>> GetStatDatas(string weaponDescriptionId, DamageTypes thrustDamageType, DamageTypes swingDamageType)`
 
-**Purpose:** Gets the current value of `stat datas`.
+**Purpose:** Reads and returns the `stat datas` value held by the current object.
+
+```csharp
+// Obtain an instance of CraftingTemplate from the subsystem API first
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.GetStatDatas("example", thrustDamageType, swingDamageType);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of CraftingTemplate from the subsystem API first
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.ToString();
+```
 
 ### IsPieceTypeUsable
 `public bool IsPieceTypeUsable(CraftingPiece.PieceTypes pieceType)`
 
-**Purpose:** Handles logic related to `is piece type usable`.
+**Purpose:** Determines whether the current object is in the `piece type usable` state or condition.
+
+```csharp
+// Obtain an instance of CraftingTemplate from the subsystem API first
+CraftingTemplate craftingTemplate = ...;
+var result = craftingTemplate.IsPieceTypeUsable(pieceType);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of CraftingTemplate from the subsystem API first
+CraftingTemplate craftingTemplate = ...;
+craftingTemplate.Deserialize(objectManager, node);
+```
 
 ### GetTemplateFromId
 `public static CraftingTemplate GetTemplateFromId(string templateId)`
 
-**Purpose:** Gets the current value of `template from id`.
+**Purpose:** Reads and returns the `template from id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CraftingTemplate.GetTemplateFromId("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CraftingTemplate();
-value.GetIndexOfUsageDataWithId("example");
+// Typically call this after obtaining an instance from the subsystem API
+CraftingTemplate craftingTemplate = ...;
+craftingTemplate.GetIndexOfUsageDataWithId("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

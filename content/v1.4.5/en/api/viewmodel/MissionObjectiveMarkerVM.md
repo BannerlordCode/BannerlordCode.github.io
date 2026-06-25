@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveMarkerVM"
+description: "Auto-generated class reference for MissionObjectiveMarkerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveMarkerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionObjectiveMarkerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective/MissionObjectiveMarkerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective/MissionObjectiveMarkerVM.cs`
 
 ## Overview
 
@@ -40,25 +34,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Obje
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionObjectiveMarkerVM from the subsystem API first
+MissionObjectiveMarkerVM missionObjectiveMarkerVM = ...;
+missionObjectiveMarkerVM.RefreshValues();
+```
 
 ### UpdateActiveState
 `public void UpdateActiveState()`
 
-**Purpose:** Updates the state or data of `active state`.
+**Purpose:** Recalculates and stores the latest representation of `active state`.
+
+```csharp
+// Obtain an instance of MissionObjectiveMarkerVM from the subsystem API first
+MissionObjectiveMarkerVM missionObjectiveMarkerVM = ...;
+missionObjectiveMarkerVM.UpdateActiveState();
+```
 
 ### UpdatePosition
 `public void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionObjectiveMarkerVM from the subsystem API first
+MissionObjectiveMarkerVM missionObjectiveMarkerVM = ...;
+missionObjectiveMarkerVM.UpdatePosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionObjectiveMarkerVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionObjectiveMarkerVM missionObjectiveMarkerVM = ...;
+missionObjectiveMarkerVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

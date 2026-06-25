@@ -1,20 +1,14 @@
 ---
 title: "EducationGainGroupItemVM"
+description: "Auto-generated class reference for EducationGainGroupItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationGainGroupItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationGainGroupItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationGainGroupItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainGroupItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainGroupItemVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### ResetValues
 `public void ResetValues()`
 
-**Purpose:** Resets `values` to its initial state.
+**Purpose:** Returns `values` to its default or initial condition.
+
+```csharp
+// Obtain an instance of EducationGainGroupItemVM from the subsystem API first
+EducationGainGroupItemVM educationGainGroupItemVM = ...;
+educationGainGroupItemVM.ResetValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationGainGroupItemVM();
-value.ResetValues();
+// Typically call this after obtaining an instance from the subsystem API
+EducationGainGroupItemVM educationGainGroupItemVM = ...;
+educationGainGroupItemVM.ResetValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TWParallel"
+description: "TWParallel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TWParallel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TWParallel
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class TWParallel`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TWParallel.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWParallel.cs`
 
 ## 概述
 
@@ -29,55 +23,103 @@ title: "TWParallel"
 ### ParallelForAuxPredicate
 `public delegate void ParallelForAuxPredicate(int localStartIndex, int localEndIndex)`
 
-**用途 / Purpose:** 处理 `parallel for aux predicate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TWParallel 实例
+TWParallel tWParallel = ...;
+tWParallel.ParallelForAuxPredicate(0, 0);
+```
 
 ### ParallelForWithDtAuxPredicate
 `public delegate void ParallelForWithDtAuxPredicate(int localStartIndex, int localEndIndex, float dt)`
 
-**用途 / Purpose:** 处理 `parallel for with dt aux predicate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TWParallel 实例
+TWParallel tWParallel = ...;
+tWParallel.ParallelForWithDtAuxPredicate(0, 0, 0);
+```
 
 ### InitializeAndSetImplementation
 `public static void InitializeAndSetImplementation(IParallelDriver parallelDriver)`
 
-**用途 / Purpose:** 初始化 `and set implementation` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「and set implementation」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+TWParallel.InitializeAndSetImplementation(parallelDriver);
+```
 
 ### For
 `public static void For(int fromInclusive, int toExclusive, ParallelForAuxPredicate body, int grainSize = 16)`
 
-**用途 / Purpose:** 处理 `for` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TWParallel.For(0, 0, body, 0);
+```
 
 ### ForWithoutRenderThread
 `public static void ForWithoutRenderThread(int fromInclusive, int toExclusive, ParallelForAuxPredicate body, int grainSize = 16)`
 
-**用途 / Purpose:** 处理 `for without render thread` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TWParallel.ForWithoutRenderThread(0, 0, body, 0);
+```
 
 ### ForWithoutRenderThreadDt
 `public static void ForWithoutRenderThreadDt(int fromInclusive, int toExclusive, float deltaTime, ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
-**用途 / Purpose:** 处理 `for without render thread dt` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TWParallel.ForWithoutRenderThreadDt(0, 0, 0, body, 0);
+```
 
 ### For
 `public static void For(int fromInclusive, int toExclusive, float deltaTime, ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
-**用途 / Purpose:** 处理 `for` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TWParallel.For(0, 0, 0, body, 0);
+```
 
 ### AssertIsMainThread
 `public static void AssertIsMainThread()`
 
-**用途 / Purpose:** 处理 `assert is main thread` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TWParallel.AssertIsMainThread();
+```
 
 ### IsMainThread
 `public static bool IsMainThread()`
 
-**用途 / Purpose:** 处理 `is main thread` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「main thread」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+TWParallel.IsMainThread();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TWParallel();
-value.ParallelForAuxPredicate(0, 0);
+// 通常从对应子系统 API 获取实例后调用
+TWParallel tWParallel = ...;
+tWParallel.ParallelForAuxPredicate(0, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

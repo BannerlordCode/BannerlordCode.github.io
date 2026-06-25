@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerClassLoadoutVM"
+description: "Auto-generated class reference for MultiplayerClassLoadoutVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerClassLoadoutVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerClassLoadoutVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerClassLoadoutVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/MultiplayerClassLoadoutVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.ClassLoadout/MultiplayerClassLoadoutVM.cs`
 
 ## Overview
 
@@ -56,45 +50,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
+MultiplayerClassLoadoutVM multiplayerClassLoadoutVM = ...;
+multiplayerClassLoadoutVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
+MultiplayerClassLoadoutVM multiplayerClassLoadoutVM = ...;
+multiplayerClassLoadoutVM.OnFinalize();
+```
 
 ### RefreshPeerDivision
 `public void RefreshPeerDivision(MissionPeer peer, int divisionType)`
 
-**Purpose:** Refreshes the display or cache of `peer division`.
+**Purpose:** Keeps the display or cache of `peer division` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
+MultiplayerClassLoadoutVM multiplayerClassLoadoutVM = ...;
+multiplayerClassLoadoutVM.RefreshPeerDivision(peer, 0);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
+MultiplayerClassLoadoutVM multiplayerClassLoadoutVM = ...;
+multiplayerClassLoadoutVM.Tick(0);
+```
 
 ### OnPeerEquipmentRefreshed
 `public void OnPeerEquipmentRefreshed(MissionPeer peer)`
 
-**Purpose:** Called when the `peer equipment refreshed` event is raised.
+**Purpose:** Invoked when the `peer equipment refreshed` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
+MultiplayerClassLoadoutVM multiplayerClassLoadoutVM = ...;
+multiplayerClassLoadoutVM.OnPeerEquipmentRefreshed(peer);
+```
 
 ### OnGoldUpdated
 `public void OnGoldUpdated()`
 
-**Purpose:** Called when the `gold updated` event is raised.
+**Purpose:** Invoked when the `gold updated` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
+MultiplayerClassLoadoutVM multiplayerClassLoadoutVM = ...;
+multiplayerClassLoadoutVM.OnGoldUpdated();
+```
 
 ### RefreshRemainingTime
 `public void RefreshRemainingTime()`
 
-**Purpose:** Refreshes the display or cache of `remaining time`.
+**Purpose:** Keeps the display or cache of `remaining time` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutVM from the subsystem API first
+MultiplayerClassLoadoutVM multiplayerClassLoadoutVM = ...;
+multiplayerClassLoadoutVM.RefreshRemainingTime();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerClassLoadoutVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerClassLoadoutVM multiplayerClassLoadoutVM = ...;
+multiplayerClassLoadoutVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

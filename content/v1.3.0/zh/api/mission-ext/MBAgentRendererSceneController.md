@@ -1,13 +1,7 @@
 ---
 title: "MBAgentRendererSceneController"
+description: "MBAgentRendererSceneController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBAgentRendererSceneController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBAgentRendererSceneController
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,27 +23,54 @@ title: "MBAgentRendererSceneController"
 ### SetEnforcedVisibilityForAllAgents
 `public void SetEnforcedVisibilityForAllAgents(Scene scene)`
 
-**用途 / Purpose:** 设置 `enforced visibility for all agents` 的值或状态。
+**用途 / Purpose:** 为 「enforced visibility for all agents」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBAgentRendererSceneController 实例
+MBAgentRendererSceneController mBAgentRendererSceneController = ...;
+mBAgentRendererSceneController.SetEnforcedVisibilityForAllAgents(scene);
+```
 
 ### CreateNewAgentRendererSceneController
 `public static MBAgentRendererSceneController CreateNewAgentRendererSceneController(Scene scene)`
 
-**用途 / Purpose:** 创建一个 `new agent renderer scene controller` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「new agent renderer scene controller」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+MBAgentRendererSceneController.CreateNewAgentRendererSceneController(scene);
+```
 
 ### SetDoTimerBasedForcedSkeletonUpdates
 `public void SetDoTimerBasedForcedSkeletonUpdates(bool value)`
 
-**用途 / Purpose:** 设置 `do timer based forced skeleton updates` 的值或状态。
+**用途 / Purpose:** 为 「do timer based forced skeleton updates」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBAgentRendererSceneController 实例
+MBAgentRendererSceneController mBAgentRendererSceneController = ...;
+mBAgentRendererSceneController.SetDoTimerBasedForcedSkeletonUpdates(false);
+```
 
 ### DestructAgentRendererSceneController
 `public static void DestructAgentRendererSceneController(Scene scene, MBAgentRendererSceneController rendererSceneController, bool deleteThisFrame)`
 
-**用途 / Purpose:** 处理 `destruct agent renderer scene controller` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBAgentRendererSceneController.DestructAgentRendererSceneController(scene, rendererSceneController, false);
+```
 
 ### ValidateAgentVisualsReseted
 `public static void ValidateAgentVisualsReseted(Scene scene, MBAgentRendererSceneController rendererSceneController)`
 
-**用途 / Purpose:** 处理 `validate agent visuals reseted` 相关逻辑。
+**用途 / Purpose:** 检查「agent visuals reseted」是否满足约束条件，通常返回布尔值。
+
+```csharp
+// 静态调用，不需要实例
+MBAgentRendererSceneController.ValidateAgentVisualsReseted(scene, rendererSceneController);
+```
 
 ## 使用示例
 
@@ -59,4 +80,4 @@ var controller = Mission.Current.GetMissionBehavior<MBAgentRendererSceneControll
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

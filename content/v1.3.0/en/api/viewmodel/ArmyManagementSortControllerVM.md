@@ -1,13 +1,7 @@
 ---
 title: "ArmyManagementSortControllerVM"
+description: "Auto-generated class reference for ArmyManagementSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyManagementSortControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyManagementSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -46,80 +40,165 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### ExecuteSortByDistance
 `public void ExecuteSortByDistance()`
 
-**Purpose:** Executes the `sort by distance` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by distance`.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByDistance();
+```
 
 ### ExecuteSortByCost
 `public void ExecuteSortByCost()`
 
-**Purpose:** Executes the `sort by cost` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by cost`.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByCost();
+```
 
 ### ExecuteSortByStrength
 `public void ExecuteSortByStrength()`
 
-**Purpose:** Executes the `sort by strength` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by strength`.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByStrength();
+```
 
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** Executes the `sort by name` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by name`.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByName();
+```
 
 ### ExecuteSortByClan
 `public void ExecuteSortByClan()`
 
-**Purpose:** Executes the `sort by clan` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by clan`.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByClan();
+```
 
 ### ExecuteSortByShipCount
 `public void ExecuteSortByShipCount()`
 
-**Purpose:** Executes the `sort by ship count` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `sort by ship count`.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByShipCount();
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ArmyManagementSortControllerVM from the subsystem API first
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+var result = armyManagementSortControllerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyManagementSortControllerVM();
-value.ExecuteSortByDistance();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyManagementSortControllerVM armyManagementSortControllerVM = ...;
+armyManagementSortControllerVM.ExecuteSortByDistance();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "IMissionScreen"
+description: "Auto-generated class reference for IMissionScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMissionScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IMissionScreen`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.ViewModelCollection/IMissionScreen.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ## Usage Example
 
 ```csharp
-IMissionScreen implementation = GetMissionScreenImplementation();
+// Usually obtained through DI or a factory method
+IIMissionScreen service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

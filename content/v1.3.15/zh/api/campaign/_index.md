@@ -1,34 +1,122 @@
 ---
-title: Campaign 战役系统 / Campaign
-description: TaleWorlds.CampaignSystem 战役模块 / Campaign system module
+title: "campaign 目录"
+description: TaleWorlds.CampaignSystem 战役模块类参考目录
 ---
-# Campaign 战役系统 / Campaign
+<!-- BEGIN SECTION INDEX -->
 
-## 心智模型
+## ↑ 上级导航
 
-先把 `Campaign 战役系统` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+- [API 参考](../)
+- [版本首页](../../)
 
-v1.3.15 战役系统模块文档。
+## ↓ 子类列表 — 按字母分组
 
-Campaign system module documentation for v1.3.15.
+### A
 
-## 文件 / Files
+- [AIMoveToNearestLandBehavior](./AIMoveToNearestLandBehavior)
+- [Alliance](./Alliance)
 
-\| 文件 / File \| 描述 / Description \|
-\|------------\|-------------------\|
-\| [Campaign.md](./Campaign) \| 战役主上下文与系统入口 \|
-\| [CharacterObject.md](./CharacterObject) \| 角色模板与基础战斗数据 \|
-\| [Clan.md](./Clan) \| 家族、成员与势力归属 \|
-\| [Game.md](./Game) \| 游戏上下文与模型替换入口 \|
-\| [Hero.md](./Hero) \| 英雄/角色核心对象 \|
-\| [IssueBase.md](./IssueBase) \| 战役任务/问题基类 \|
-\| [Kingdom.md](./Kingdom) \| 王国与政策体系 \|
-\| [MobileParty.md](./MobileParty) \| 移动队伍与地图 AI \|
-\| [PartyBase.md](./PartyBase) \| 队伍基类与共享库存/成员数据 \|
-\| [Settlement.md](./Settlement) \| 定居点基础对象 \|
-\| [Village.md](./Village) \| 村庄数据与状态 \|
-\| [Workshop.md](./Workshop) \| 工坊对象与收益逻辑 \|
+### B
 
-## 使用方式
+- [BehaviorSaveData](./BehaviorSaveData)
 
-从本页进入具体类页后，可以通过页面顶部 breadcrumb 返回本目录、上一级 API 目录，或跳到跨版本对比页。
+### C
+
+- [CachedPartyVariables](./CachedPartyVariables)
+- [CallToWarAgreement](./CallToWarAgreement)
+- [Campaign](./Campaign)
+- [CampaignBehaviorDataStore](./CampaignBehaviorDataStore)
+- [CharacterObject](./CharacterObject)
+- [Clan](./Clan)
+- [CraftedItemInitializationData](./CraftedItemInitializationData)
+
+### D
+
+- [DialogFlowContext](./DialogFlowContext)
+- [DialogFlowLine](./DialogFlowLine)
+- [DisorganizedStateCampaignBehavior](./DisorganizedStateCampaignBehavior)
+
+### E
+
+- [EncyclopediaListItemNameComparer](./EncyclopediaListItemNameComparer)
+- [EncyclopediaModel](./EncyclopediaModel)
+- [EventHandlerRec](./EventHandlerRec)
+- [ExplanationLine](./ExplanationLine)
+- [ExtortionByDesertersQuestState](./ExtortionByDesertersQuestState)
+
+### F
+
+- [FactionManagerStancesData](./FactionManagerStancesData)
+- [FakeMarketData](./FakeMarketData)
+
+### G
+
+- [Grievance](./Grievance)
+- [GrievanceType](./GrievanceType)
+
+### H
+
+- [Hero](./Hero)
+- [HeroCraftingRecord](./HeroCraftingRecord)
+- [HeroRelations](./HeroRelations)
+
+### I
+
+- [ILocatable](./ILocatable)
+- [IssueBase](./IssueBase)
+- [IssueState](./IssueState)
+- [ItemTradeData](./ItemTradeData)
+
+### K
+
+- [Kingdom](./Kingdom)
+
+### L
+
+- [LocatorGrid](./LocatorGrid)
+
+### M
+
+- [MapTimeTracker](./MapTimeTracker)
+- [MenuContextState](./MenuContextState)
+- [MobileParty](./MobileParty)
+
+### N
+
+- [NarrativeMenuCharacterArgs](./NarrativeMenuCharacterArgs)
+- [NavigationCacheElement](./NavigationCacheElement)
+
+### P
+
+- [PartyBase](./PartyBase)
+- [PeriodicTicker](./PeriodicTicker)
+- [PreconditionFlags](./PreconditionFlags)
+- [Pregnancy](./Pregnancy)
+
+### Q
+
+- [QuestStates](./QuestStates)
+
+### S
+
+- [Settlement](./Settlement)
+- [StanceType](./StanceType)
+
+### T
+
+- [TeleportationData](./TeleportationData)
+- [TradeActionLog](./TradeActionLog)
+- [TradeActionLogPool](./TradeActionLogPool)
+- [TradeAgreement](./TradeAgreement)
+
+### V
+
+- [Village](./Village)
+
+### W
+
+- [Workshop](./Workshop)
+- [WorkshopData](./WorkshopData)
+
+
+<!-- END SECTION INDEX -->

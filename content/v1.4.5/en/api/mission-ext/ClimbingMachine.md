@@ -1,20 +1,14 @@
 ---
 title: "ClimbingMachine"
+description: "Auto-generated class reference for ClimbingMachine."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClimbingMachine`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClimbingMachine
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Usables
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClimbingMachine : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/ClimbingMachine.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects.Usables/ClimbingMachine.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Usables` to place it in t
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachine from the subsystem API first
+ClimbingMachine climbingMachine = ...;
+var result = climbingMachine.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachine from the subsystem API first
+ClimbingMachine climbingMachine = ...;
+var result = climbingMachine.GetDescriptionText(gameEntity);
+```
 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of ClimbingMachine from the subsystem API first
+ClimbingMachine climbingMachine = ...;
+var result = climbingMachine.GetTickRequirement();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of ClimbingMachine from the subsystem API first
+ClimbingMachine climbingMachine = ...;
+climbingMachine.OnDeploymentFinished();
+```
 
 ### OnMissionEnded
 `public override void OnMissionEnded()`
 
-**Purpose:** Called when the `mission ended` event is raised.
+**Purpose:** Invoked when the `mission ended` event is raised.
+
+```csharp
+// Obtain an instance of ClimbingMachine from the subsystem API first
+ClimbingMachine climbingMachine = ...;
+climbingMachine.OnMissionEnded();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClimbingMachine();
-value.GetActionTextForStandingPoint(usableGameObject);
+// Typically call this after obtaining an instance from the subsystem API
+ClimbingMachine climbingMachine = ...;
+climbingMachine.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

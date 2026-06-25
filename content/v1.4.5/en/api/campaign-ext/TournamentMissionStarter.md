@@ -1,23 +1,18 @@
 ---
 title: "TournamentMissionStarter"
+description: "Auto-generated class reference for TournamentMissionStarter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentMissionStarter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentMissionStarter
 
 **Namespace:** SandBox.Tournaments
 **Module:** SandBox.Tournaments
 **Type:** `public static class TournamentMissionStarter`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/SandBox.Tournaments/TournamentMissionStarter.cs`
 
 ## Overview
 
-`TournamentMissionStarter` lives in `SandBox.Tournaments`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TournamentMissionStarter` lives in `SandBox.Tournaments` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,36 +23,59 @@ Start from namespace `SandBox.Tournaments` to place it in the stack, then inspec
 ### OpenTournamentArcheryMission
 `public static Mission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament archery mission`.
+**Purpose:** Opens the resource or UI associated with `tournament archery mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionStarter.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentFightMission
 `public static Mission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament fight mission`.
+**Purpose:** Opens the resource or UI associated with `tournament fight mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionStarter.OpenTournamentFightMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentHorseRaceMission
 `public static Mission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament horse race mission`.
+**Purpose:** Opens the resource or UI associated with `tournament horse race mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionStarter.OpenTournamentHorseRaceMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentJoustingMission
 `public static Mission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament jousting mission`.
+**Purpose:** Opens the resource or UI associated with `tournament jousting mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionStarter.OpenTournamentJoustingMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenBattleChallengeMission
 `public static Mission OpenBattleChallengeMission(string scene, IList<Hero> priorityCharsAttacker, IList<Hero> priorityCharsDefender)`
 
-**Purpose:** Handles logic related to `open battle challenge mission`.
+**Purpose:** Opens the resource or UI associated with `battle challenge mission`.
+
+```csharp
+// Static call; no instance required
+TournamentMissionStarter.OpenBattleChallengeMission("example", priorityCharsAttacker, priorityCharsDefender);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TournamentMissionStarter.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

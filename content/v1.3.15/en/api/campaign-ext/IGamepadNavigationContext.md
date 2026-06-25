@@ -1,18 +1,12 @@
 ---
 title: "IGamepadNavigationContext"
+description: "Auto-generated class reference for IGamepadNavigationContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGamepadNavigationContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IGamepadNavigationContext
 
 **Namespace:** (global)
 **Module:** (global)
-**Type:** `class`
+**Type:** `public interface IGamepadNavigationContext`
 **Base:** none
 **File:** `TaleWorlds.GauntletUI/IGamepadNavigationContext.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `(global)` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-IGamepadNavigationContext implementation = GetGamepadNavigationContextImplementation();
+// Usually obtained through DI or a factory method
+IIGamepadNavigationContext service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

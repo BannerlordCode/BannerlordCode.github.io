@@ -1,20 +1,14 @@
 ---
 title: "EducationGainedAttributeItemVM"
+description: "Auto-generated class reference for EducationGainedAttributeItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationGainedAttributeItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationGainedAttributeItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EducationGainedAttributeItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainedAttributeItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Education/EducationGainedAttributeItemVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### SetValue
 `public void SetValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EducationGainedAttributeItemVM from the subsystem API first
+EducationGainedAttributeItemVM educationGainedAttributeItemVM = ...;
+educationGainedAttributeItemVM.SetValue(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationGainedAttributeItemVM();
-value.SetValue(0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+EducationGainedAttributeItemVM educationGainedAttributeItemVM = ...;
+educationGainedAttributeItemVM.SetValue(0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

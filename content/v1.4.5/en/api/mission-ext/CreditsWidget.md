@@ -1,20 +1,14 @@
 ---
 title: "CreditsWidget"
+description: "Auto-generated class reference for CreditsWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreditsWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreditsWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CreditsWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits/CreditsWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Credits/CreditsWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `CreditsWidget` as a Widget-style extension point: first identify who crea
 ### CreditsWidget
 `public class CreditsWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `credits widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CreditsWidget from the subsystem API first
+CreditsWidget creditsWidget = ...;
+var result = creditsWidget.CreditsWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CreditsWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CreditsWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

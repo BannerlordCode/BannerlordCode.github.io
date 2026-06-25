@@ -28,11 +28,27 @@ Welcome to the Bannerlord v1.3.0 modding documentation (English).
 
 | Category | Description |
 |----------|-------------|
-| [TaleWorlds.MountAndBlade](./api/TaleWorlds.MountAndBlade/) | Core game classes |
+| [Mission & Mission-Ext](./api/mission-ext/) | Core game classes |
 | [Native](./native/) | NativeObject, INativeArray |
 
 ## Usage Example
 
 ```csharp
-var example = new Bannerlord v1.3.0();
+// Use the navigation below to explore guides, API reference, and architecture.
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Content Navigation
+
+- [API Reference](./api/) — Complete API reference catalog for Bannerlord SDK
+- [Architecture (v1.3.0)](./architecture/) — v1.3.0 architecture documentation
+- [Getting Started Guide](./guide/) — Quick start guide for Bannerlord v1.3.0 modding
+- [Native Interface (v1.3.0)](./native/) — v1.3.0 native P/Invoke interface
+- [XML Reference (v1.3.0)](./xml-reference/) — v1.3.0 XML configuration reference
+
+<!-- END SECTION INDEX -->

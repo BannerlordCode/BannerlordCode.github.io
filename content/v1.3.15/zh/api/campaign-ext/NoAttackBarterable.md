@@ -1,13 +1,7 @@
 ---
 title: "NoAttackBarterable"
+description: "NoAttackBarterable 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NoAttackBarterable`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NoAttackBarterable
 
 **Namespace:** TaleWorlds.CampaignSystem.BarterSystem.Barterables
@@ -36,25 +30,44 @@ title: "NoAttackBarterable"
 ### Apply
 `public override void Apply()`
 
-**用途 / Purpose:** 将 `apply` 应用到当前对象。
+**用途 / Purpose:** 将当前对象的效果应用到目标。
+
+```csharp
+// 先通过子系统 API 拿到 NoAttackBarterable 实例
+NoAttackBarterable noAttackBarterable = ...;
+noAttackBarterable.Apply();
+```
 
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**用途 / Purpose:** 获取 `unit value for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「unit value for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NoAttackBarterable 实例
+NoAttackBarterable noAttackBarterable = ...;
+var result = noAttackBarterable.GetUnitValueForFaction(faction);
+```
 
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**用途 / Purpose:** 获取 `visual identifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NoAttackBarterable 实例
+NoAttackBarterable noAttackBarterable = ...;
+var result = noAttackBarterable.GetVisualIdentifier();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NoAttackBarterable();
-value.Apply();
+// 通常从对应子系统 API 获取实例后调用
+NoAttackBarterable noAttackBarterable = ...;
+noAttackBarterable.Apply();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

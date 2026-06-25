@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyAchievementBadgeGroupVM"
+description: "MPLobbyAchievementBadgeGroupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyAchievementBadgeGroupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyAchievementBadgeGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyAchievementBadgeGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyAchievementBadgeGroupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyAchievementBadgeGroupVM.cs`
 
 ## 概述
 
@@ -40,30 +34,55 @@ title: "MPLobbyAchievementBadgeGroupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyAchievementBadgeGroupVM 实例
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.RefreshValues();
+```
 
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey inspectProgressKey)`
 
-**用途 / Purpose:** 刷新 `key bindings` 的显示或缓存。
+**用途 / Purpose:** 使 「key bindings」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyAchievementBadgeGroupVM 实例
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.RefreshKeyBindings(inspectProgressKey);
+```
 
 ### OnGroupBadgeAdded
 `public void OnGroupBadgeAdded(MPLobbyBadgeItemVM badgeItem)`
 
-**用途 / Purpose:** 当 `group badge added` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「group badge added」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyAchievementBadgeGroupVM 实例
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.OnGroupBadgeAdded(badgeItem);
+```
 
 ### UpdateBadgeSelection
 `public void UpdateBadgeSelection()`
 
-**用途 / Purpose:** 更新 `badge selection` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「badge selection」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyAchievementBadgeGroupVM 实例
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.UpdateBadgeSelection();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyAchievementBadgeGroupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyAchievementBadgeGroupVM mPLobbyAchievementBadgeGroupVM = ...;
+mPLobbyAchievementBadgeGroupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

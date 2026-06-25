@@ -1,20 +1,14 @@
 ---
 title: "JoinKingdomSceneNotificationItem"
+description: "Auto-generated class reference for JoinKingdomSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JoinKingdomSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # JoinKingdomSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class JoinKingdomSceneNotificationItem : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/JoinKingdomSceneNotificationItem.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/JoinKingdomSceneNotificationItem.cs`
 
 ## Overview
 
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetBanners
 `public override Banner GetBanners()`
 
-**Purpose:** Gets the current value of `banners`.
+**Purpose:** Reads and returns the `banners` value held by the current object.
+
+```csharp
+// Obtain an instance of JoinKingdomSceneNotificationItem from the subsystem API first
+JoinKingdomSceneNotificationItem joinKingdomSceneNotificationItem = ...;
+var result = joinKingdomSceneNotificationItem.GetBanners();
+```
 
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of JoinKingdomSceneNotificationItem from the subsystem API first
+JoinKingdomSceneNotificationItem joinKingdomSceneNotificationItem = ...;
+var result = joinKingdomSceneNotificationItem.GetSceneNotificationCharacters();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new JoinKingdomSceneNotificationItem();
-value.GetBanners();
+// Typically call this after obtaining an instance from the subsystem API
+JoinKingdomSceneNotificationItem joinKingdomSceneNotificationItem = ...;
+joinKingdomSceneNotificationItem.GetBanners();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

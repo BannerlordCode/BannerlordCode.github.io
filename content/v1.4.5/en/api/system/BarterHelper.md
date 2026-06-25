@@ -1,20 +1,14 @@
 ---
 title: "BarterHelper"
+description: "Auto-generated class reference for BarterHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class BarterHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/BarterHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/BarterHelper.cs`
 
 ## Overview
 
@@ -32,4 +26,4 @@ BarterHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

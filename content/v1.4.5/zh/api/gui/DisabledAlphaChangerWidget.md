@@ -1,20 +1,14 @@
 ---
 title: "DisabledAlphaChangerWidget"
+description: "DisabledAlphaChangerWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DisabledAlphaChangerWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisabledAlphaChangerWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class DisabledAlphaChangerWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/DisabledAlphaChangerWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets/DisabledAlphaChangerWidget.cs`
 
 ## 概述
 
@@ -37,14 +31,21 @@ title: "DisabledAlphaChangerWidget"
 ### DisabledAlphaChangerWidget
 `public class DisabledAlphaChangerWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `disabled alpha changer widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DisabledAlphaChangerWidget 实例
+DisabledAlphaChangerWidget disabledAlphaChangerWidget = ...;
+var result = disabledAlphaChangerWidget.DisabledAlphaChangerWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new DisabledAlphaChangerWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+DisabledAlphaChangerWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

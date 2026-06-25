@@ -1,20 +1,14 @@
 ---
 title: "PlatformInviteResponse"
+description: "Auto-generated class reference for PlatformInviteResponse."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlatformInviteResponse`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformInviteResponse
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** `class`
+**Type:** `public enum PlatformInviteResponse`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/PlatformInviteResponse.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/PlatformInviteResponse.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new PlatformInviteResponse();
+// Obtain an instance from the relevant subsystem API
+PlatformInviteResponse instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

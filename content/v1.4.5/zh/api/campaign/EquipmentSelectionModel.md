@@ -1,20 +1,14 @@
 ---
 title: "EquipmentSelectionModel"
+description: "EquipmentSelectionModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EquipmentSelectionModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EquipmentSelectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class EquipmentSelectionModel : MBGameModel<EquipmentSelectionModel>`
 **Base:** `MBGameModel<EquipmentSelectionModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/EquipmentSelectionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/EquipmentSelectionModel.cs`
 
 ## 概述
 
@@ -29,34 +23,65 @@ title: "EquipmentSelectionModel"
 ### GetEquipmentForHeroComeOfAge
 `public abstract Equipment GetEquipmentForHeroComeOfAge(Hero hero, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 获取 `equipment for hero come of age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for hero come of age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForHeroComeOfAge(hero, equipmentType);
+```
 
 ### GetEquipmentForHeroReachesTeenAge
 `public abstract Equipment GetEquipmentForHeroReachesTeenAge(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment for hero reaches teen age` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for hero reaches teen age」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForHeroReachesTeenAge(hero);
+```
 
 ### GetEquipmentForInitialChildrenGeneration
 `public abstract Equipment GetEquipmentForInitialChildrenGeneration(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment for initial children generation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for initial children generation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForInitialChildrenGeneration(hero);
+```
 
 ### GetEquipmentForDeliveredOffspring
 `public abstract Equipment GetEquipmentForDeliveredOffspring(Hero hero)`
 
-**用途 / Purpose:** 获取 `equipment for delivered offspring` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for delivered offspring」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForDeliveredOffspring(hero);
+```
 
 ### GetEquipmentForCompanionWhenTurningToLord
 `public abstract Equipment GetEquipmentForCompanionWhenTurningToLord(Hero companionHero, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 获取 `equipment for companion when turning to lord` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment for companion when turning to lord」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EquipmentSelectionModel 实例
+EquipmentSelectionModel equipmentSelectionModel = ...;
+var result = equipmentSelectionModel.GetEquipmentForCompanionWhenTurningToLord(companionHero, equipmentType);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomEquipmentSelectionModel();
+// 通常通过子系统 API 或工厂获得派生实例
+EquipmentSelectionModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "EpicAccessObject"
+description: "Auto-generated class reference for EpicAccessObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EpicAccessObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EpicAccessObject
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class EpicAccessObject : AccessObject`
 **Base:** `AccessObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/EpicAccessObject.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/EpicAccessObject.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new EpicAccessObject();
+// Obtain an instance from the relevant subsystem API
+EpicAccessObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

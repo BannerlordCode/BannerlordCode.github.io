@@ -1,13 +1,7 @@
 ---
 title: "CreatePlayer"
+description: "Auto-generated class reference for CreatePlayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreatePlayer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CreatePlayer
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Messages
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Messages` to place it in 
 ## Usage Example
 
 ```csharp
-var value = new CreatePlayer();
+// Obtain an instance from the relevant subsystem API
+CreatePlayer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

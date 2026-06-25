@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentAlarmStateView"
+description: "Auto-generated class reference for MissionAgentAlarmStateView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentAlarmStateView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentAlarmStateView
 
 **Namespace:** SandBox.View.Missions
@@ -27,9 +21,10 @@ Treat `MissionAgentAlarmStateView` as a View-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var view = new MissionAgentAlarmStateView();
+// Retrieve this view from the subsystem API or scene
+MissionAgentAlarmStateView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

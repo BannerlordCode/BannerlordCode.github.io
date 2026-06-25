@@ -1,20 +1,14 @@
 ---
 title: "BeginConversationInitiatedByAIQuestTask"
+description: "BeginConversationInitiatedByAIQuestTask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BeginConversationInitiatedByAIQuestTask`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BeginConversationInitiatedByAIQuestTask
 
 **Namespace:** SandBox.Issues.IssueQuestTasks
 **Module:** SandBox.Issues
 **Type:** `public class BeginConversationInitiatedByAIQuestTask : QuestTaskBase`
 **Base:** `QuestTaskBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Issues.IssueQuestTasks/BeginConversationInitiatedByAIQuestTask.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Issues.IssueQuestTasks/BeginConversationInitiatedByAIQuestTask.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "BeginConversationInitiatedByAIQuestTask"
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**用途 / Purpose:** 处理 `mission tick` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BeginConversationInitiatedByAIQuestTask 实例
+BeginConversationInitiatedByAIQuestTask beginConversationInitiatedByAIQuestTask = ...;
+beginConversationInitiatedByAIQuestTask.MissionTick(0);
+```
 
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 设置 `references` 的值或状态。
+**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BeginConversationInitiatedByAIQuestTask 实例
+BeginConversationInitiatedByAIQuestTask beginConversationInitiatedByAIQuestTask = ...;
+beginConversationInitiatedByAIQuestTask.SetReferences();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BeginConversationInitiatedByAIQuestTask();
-value.MissionTick(0);
+// 通常从对应子系统 API 获取实例后调用
+BeginConversationInitiatedByAIQuestTask beginConversationInitiatedByAIQuestTask = ...;
+beginConversationInitiatedByAIQuestTask.MissionTick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

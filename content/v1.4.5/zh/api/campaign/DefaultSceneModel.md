@@ -1,20 +1,14 @@
 ---
 title: "DefaultSceneModel"
+description: "DefaultSceneModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSceneModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSceneModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSceneModel : SceneModel`
 **Base:** `SceneModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSceneModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSceneModel.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "DefaultSceneModel"
 ### GetBattleSceneForMapPatch
 `public override string GetBattleSceneForMapPatch(MapPatchData mapPatch, bool isNavalEncounter)`
 
-**用途 / Purpose:** 获取 `battle scene for map patch` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle scene for map patch」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSceneModel 实例
+DefaultSceneModel defaultSceneModel = ...;
+var result = defaultSceneModel.GetBattleSceneForMapPatch(mapPatch, false);
+```
 
 ### GetConversationSceneForMapPosition
 `public override string GetConversationSceneForMapPosition(CampaignVec2 campaignPosition)`
 
-**用途 / Purpose:** 获取 `conversation scene for map position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「conversation scene for map position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSceneModel 实例
+DefaultSceneModel defaultSceneModel = ...;
+var result = defaultSceneModel.GetConversationSceneForMapPosition(campaignPosition);
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<DefaultSceneModel>(new MyDefaultSceneModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

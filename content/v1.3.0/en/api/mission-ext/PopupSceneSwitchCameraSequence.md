@@ -1,13 +1,7 @@
 ---
 title: "PopupSceneSwitchCameraSequence"
+description: "Auto-generated class reference for PopupSceneSwitchCameraSequence."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PopupSceneSwitchCameraSequence`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PopupSceneSwitchCameraSequence
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### OnInitialState
 `public override void OnInitialState()`
 
-**Purpose:** Called when the `initial state` event is raised.
+**Purpose:** Invoked when the `initial state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSwitchCameraSequence from the subsystem API first
+PopupSceneSwitchCameraSequence popupSceneSwitchCameraSequence = ...;
+popupSceneSwitchCameraSequence.OnInitialState();
+```
 
 ### OnPositiveState
 `public override void OnPositiveState()`
 
-**Purpose:** Called when the `positive state` event is raised.
+**Purpose:** Invoked when the `positive state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSwitchCameraSequence from the subsystem API first
+PopupSceneSwitchCameraSequence popupSceneSwitchCameraSequence = ...;
+popupSceneSwitchCameraSequence.OnPositiveState();
+```
 
 ### OnNegativeState
 `public override void OnNegativeState()`
 
-**Purpose:** Called when the `negative state` event is raised.
+**Purpose:** Invoked when the `negative state` event is raised.
+
+```csharp
+// Obtain an instance of PopupSceneSwitchCameraSequence from the subsystem API first
+PopupSceneSwitchCameraSequence popupSceneSwitchCameraSequence = ...;
+popupSceneSwitchCameraSequence.OnNegativeState();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PopupSceneSwitchCameraSequence();
-value.OnInitialState();
+// Typically call this after obtaining an instance from the subsystem API
+PopupSceneSwitchCameraSequence popupSceneSwitchCameraSequence = ...;
+popupSceneSwitchCameraSequence.OnInitialState();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

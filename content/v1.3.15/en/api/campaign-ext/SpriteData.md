@@ -1,13 +1,7 @@
 ---
 title: "SpriteData"
+description: "Auto-generated class reference for SpriteData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpriteData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpriteData
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -38,29 +32,54 @@ Treat `SpriteData` as a Data-style extension point: first identify who creates i
 ### GetSprite
 `public Sprite GetSprite(string name)`
 
-**Purpose:** Gets the current value of `sprite`.
+**Purpose:** Reads and returns the `sprite` value held by the current object.
+
+```csharp
+// Obtain an instance of SpriteData from the subsystem API first
+SpriteData spriteData = ...;
+var result = spriteData.GetSprite("example");
+```
 
 ### SpriteExists
 `public bool SpriteExists(string spriteName)`
 
-**Purpose:** Handles logic related to `sprite exists`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteData from the subsystem API first
+SpriteData spriteData = ...;
+var result = spriteData.SpriteExists("example");
+```
 
 ### Load
 `public void Load(ResourceDepot resourceDepot)`
 
-**Purpose:** Loads `load` data.
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SpriteData from the subsystem API first
+SpriteData spriteData = ...;
+spriteData.Load(resourceDepot);
+```
 
 ### Reload
 `public void Reload(ResourceDepot resourceDepot, ITwoDimensionResourceContext resourceContext)`
 
-**Purpose:** Handles logic related to `reload`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpriteData from the subsystem API first
+SpriteData spriteData = ...;
+spriteData.Reload(resourceDepot, resourceContext);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpriteData();
+// This data object is usually returned by campaign/mission APIs
+SpriteData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

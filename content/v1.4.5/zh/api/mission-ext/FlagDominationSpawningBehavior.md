@@ -1,20 +1,14 @@
 ---
 title: "FlagDominationSpawningBehavior"
+description: "FlagDominationSpawningBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FlagDominationSpawningBehavior`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FlagDominationSpawningBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FlagDominationSpawningBehavior : SpawningBehaviorBase`
 **Base:** `SpawningBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FlagDominationSpawningBehavior.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/FlagDominationSpawningBehavior.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "FlagDominationSpawningBehavior"
 ### Initialize
 `public override void Initialize(SpawnComponent spawnComponent)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.Initialize(spawnComponent);
+```
 
 ### Clear
 `public override void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.Clear();
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.OnTick(0);
+```
 
 ### RequestStartSpawnSession
 `public override void RequestStartSpawnSession()`
 
-**用途 / Purpose:** 处理 `request start spawn session` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.RequestStartSpawnSession();
+```
 
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**用途 / Purpose:** 处理 `allow early agent visuals despawning` 相关逻辑。
+**用途 / Purpose:** 允许当前对象启用或执行「early agent visuals despawning」。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+var result = flagDominationSpawningBehavior.AllowEarlyAgentVisualsDespawning(lobbyPeer);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.OnClearScene();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FlagDominationSpawningBehavior();
-value.Initialize(spawnComponent);
+// 通常从对应子系统 API 获取实例后调用
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.Initialize(spawnComponent);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

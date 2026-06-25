@@ -1,13 +1,7 @@
 ---
 title: "TextInquiryData"
+description: "Auto-generated class reference for TextInquiryData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextInquiryData`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextInquiryData
 
 **Namespace:** TaleWorlds.Library
@@ -29,14 +23,21 @@ Treat `TextInquiryData` as a Data-style extension point: first identify who crea
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**Purpose:** Checks whether the current object has/contains `same content with`.
+**Purpose:** Determines whether the current object already holds `same content with`.
+
+```csharp
+// Obtain an instance of TextInquiryData from the subsystem API first
+TextInquiryData textInquiryData = ...;
+var result = textInquiryData.HasSameContentWith(other);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TextInquiryData();
+// This data object is usually returned by campaign/mission APIs
+TextInquiryData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

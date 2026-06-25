@@ -1,13 +1,7 @@
 ---
 title: "TutorialHelper"
+description: "Auto-generated class reference for TutorialHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TutorialHelper`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialHelper
 
 **Namespace:** SandBox.GauntletUI.Tutorial
@@ -69,7 +63,12 @@ Treat `TutorialHelper` as a Helper-style extension point: first identify who cre
 ### IsThereAvailableCompanionInLocation
 `public static bool? IsThereAvailableCompanionInLocation(Location location)`
 
-**Purpose:** Handles logic related to `is there available companion in location`.
+**Purpose:** Determines whether the current object is in the `there available companion in location` state or condition.
+
+```csharp
+// Static call; no instance required
+TutorialHelper.IsThereAvailableCompanionInLocation(location);
+```
 
 ## Usage Example
 
@@ -79,4 +78,4 @@ TutorialHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

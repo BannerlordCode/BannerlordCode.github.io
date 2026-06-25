@@ -1,13 +1,7 @@
 ---
 title: "CharacterCode"
+description: "CharacterCode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCode`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCode
 
 **Namespace:** TaleWorlds.Core
@@ -45,45 +39,83 @@ title: "CharacterCode"
 ### CalculateEquipment
 `public Equipment CalculateEquipment()`
 
-**用途 / Purpose:** 处理 `calculate equipment` 相关逻辑。
+**用途 / Purpose:** 计算「equipment」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCode 实例
+CharacterCode characterCode = ...;
+var result = characterCode.CalculateEquipment();
+```
 
 ### CreateFrom
 `public static CharacterCode CreateFrom(BasicCharacterObject character)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CharacterCode.CreateFrom(character);
+```
 
 ### CreateFrom
 `public static CharacterCode CreateFrom(BasicCharacterObject character, Equipment equipment)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CharacterCode.CreateFrom(character, equipment);
+```
 
 ### CreateFrom
 `public static CharacterCode CreateFrom(string equipmentCode, BodyProperties bodyProperties, bool isFemale, bool isHero, uint color1, uint color2, FormationClass formationClass, int race)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CharacterCode.CreateFrom("example", bodyProperties, false, false, 0, 0, formationClass, 0);
+```
 
 ### CreateNewCodeString
 `public string CreateNewCodeString()`
 
-**用途 / Purpose:** 创建一个 `new code string` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「new code string」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCode 实例
+CharacterCode characterCode = ...;
+var result = characterCode.CreateNewCodeString();
+```
 
 ### CreateEmpty
 `public static CharacterCode CreateEmpty()`
 
-**用途 / Purpose:** 创建一个 `empty` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「empty」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CharacterCode.CreateEmpty();
+```
 
 ### CreateFrom
 `public static CharacterCode CreateFrom(string code)`
 
-**用途 / Purpose:** 创建一个 `from` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+CharacterCode.CreateFrom("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterCode();
-value.CalculateEquipment();
+// 通常从对应子系统 API 获取实例后调用
+CharacterCode characterCode = ...;
+characterCode.CalculateEquipment();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

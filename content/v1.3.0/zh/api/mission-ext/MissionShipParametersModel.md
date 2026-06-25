@@ -1,13 +1,7 @@
 ---
 title: "MissionShipParametersModel"
+description: "MissionShipParametersModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionShipParametersModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionShipParametersModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
@@ -29,24 +23,43 @@ title: "MissionShipParametersModel"
 ### CalculateMainDeckCrewSize
 `public abstract int CalculateMainDeckCrewSize(IShipOrigin shipOrigin, Agent captain)`
 
-**用途 / Purpose:** 处理 `calculate main deck crew size` 相关逻辑。
+**用途 / Purpose:** 计算「main deck crew size」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionShipParametersModel 实例
+MissionShipParametersModel missionShipParametersModel = ...;
+var result = missionShipParametersModel.CalculateMainDeckCrewSize(shipOrigin, captain);
+```
 
 ### CalculateWindBonus
 `public abstract float CalculateWindBonus(IShipOrigin shipOrigin, Agent captain, float baseSailForceMagnitude)`
 
-**用途 / Purpose:** 处理 `calculate wind bonus` 相关逻辑。
+**用途 / Purpose:** 计算「wind bonus」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionShipParametersModel 实例
+MissionShipParametersModel missionShipParametersModel = ...;
+var result = missionShipParametersModel.CalculateWindBonus(shipOrigin, captain, 0);
+```
 
 ### CalculateOarForceMultiplier
 `public abstract float CalculateOarForceMultiplier(Agent pilotAgent, float baseOarForce)`
 
-**用途 / Purpose:** 处理 `calculate oar force multiplier` 相关逻辑。
+**用途 / Purpose:** 计算「oar force multiplier」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionShipParametersModel 实例
+MissionShipParametersModel missionShipParametersModel = ...;
+var result = missionShipParametersModel.CalculateOarForceMultiplier(pilotAgent, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionShipParametersModel();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionShipParametersModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

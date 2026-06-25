@@ -1,13 +1,7 @@
 ---
 title: "ListPanel"
+description: "Auto-generated class reference for ListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ListPanel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ListPanel
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `index for drop`.
+**Purpose:** Reads and returns the `index for drop` value held by the current object.
+
+```csharp
+// Obtain an instance of ListPanel from the subsystem API first
+ListPanel listPanel = ...;
+var result = listPanel.GetIndexForDrop(draggedWidgetPosition);
+```
 
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `drop gizmo position`.
+**Purpose:** Reads and returns the `drop gizmo position` value held by the current object.
+
+```csharp
+// Obtain an instance of ListPanel from the subsystem API first
+ListPanel listPanel = ...;
+var result = listPanel.GetDropGizmoPosition(draggedWidgetPosition);
+```
 
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**Purpose:** Called when the `child selected` event is raised.
+**Purpose:** Invoked when the `child selected` event is raised.
+
+```csharp
+// Obtain an instance of ListPanel from the subsystem API first
+ListPanel listPanel = ...;
+listPanel.OnChildSelected(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ListPanel();
-value.GetIndexForDrop(draggedWidgetPosition);
+// Typically call this after obtaining an instance from the subsystem API
+ListPanel listPanel = ...;
+listPanel.GetIndexForDrop(draggedWidgetPosition);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

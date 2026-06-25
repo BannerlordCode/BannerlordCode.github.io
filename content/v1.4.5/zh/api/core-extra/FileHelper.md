@@ -1,20 +1,14 @@
 ---
 title: "FileHelper"
+description: "FileHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FileHelper`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FileHelper
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class FileHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/FileHelper.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/FileHelper.cs`
 
 ## 概述
 
@@ -29,82 +23,162 @@ title: "FileHelper"
 ### SaveFile
 `public static SaveResult SaveFile(PlatformFilePath path, byte data)`
 
-**用途 / Purpose:** 保存 `file` 数据。
+**用途 / Purpose:** 将 「file」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.SaveFile(path, 0);
+```
 
 ### SaveFileString
 `public static SaveResult SaveFileString(PlatformFilePath path, string data)`
 
-**用途 / Purpose:** 保存 `file string` 数据。
+**用途 / Purpose:** 将 「file string」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.SaveFileString(path, "example");
+```
 
 ### GetFileFullPath
 `public static string GetFileFullPath(PlatformFilePath path)`
 
-**用途 / Purpose:** 获取 `file full path` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file full path」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.GetFileFullPath(path);
+```
 
 ### AppendLineToFileString
 `public static SaveResult AppendLineToFileString(PlatformFilePath path, string data)`
 
-**用途 / Purpose:** 处理 `append line to file string` 相关逻辑。
+**用途 / Purpose:** 将「line to file string」追加到当前集合或序列末尾。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.AppendLineToFileString(path, "example");
+```
 
 ### SaveFileAsync
 `public static Task<SaveResult> SaveFileAsync(PlatformFilePath path, byte data)`
 
-**用途 / Purpose:** 保存 `file async` 数据。
+**用途 / Purpose:** 将 「file async」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.SaveFileAsync(path, 0);
+```
 
 ### SaveFileStringAsync
 `public static Task<SaveResult> SaveFileStringAsync(PlatformFilePath path, string data)`
 
-**用途 / Purpose:** 保存 `file string async` 数据。
+**用途 / Purpose:** 将 「file string async」 写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.SaveFileStringAsync(path, "example");
+```
 
 ### GetError
 `public static string GetError()`
 
-**用途 / Purpose:** 获取 `error` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「error」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.GetError();
+```
 
 ### FileExists
 `public static bool FileExists(PlatformFilePath path)`
 
-**用途 / Purpose:** 处理 `file exists` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.FileExists(path);
+```
 
 ### GetFileContentStringAsync
 `public static Task<string> GetFileContentStringAsync(PlatformFilePath path)`
 
-**用途 / Purpose:** 获取 `file content string async` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file content string async」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.GetFileContentStringAsync(path);
+```
 
 ### GetFileContentString
 `public static string GetFileContentString(PlatformFilePath path)`
 
-**用途 / Purpose:** 获取 `file content string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file content string」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.GetFileContentString(path);
+```
 
 ### DeleteFile
 `public static void DeleteFile(PlatformFilePath path)`
 
-**用途 / Purpose:** 处理 `delete file` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.DeleteFile(path);
+```
 
 ### GetFiles
 `public static PlatformFilePath GetFiles(PlatformDirectoryPath path, string searchPattern, SearchOption searchOption)`
 
-**用途 / Purpose:** 获取 `files` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「files」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.GetFiles(path, "example", searchOption);
+```
 
 ### GetFileContent
 `public static byte GetFileContent(PlatformFilePath filePath)`
 
-**用途 / Purpose:** 获取 `file content` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「file content」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.GetFileContent(filePath);
+```
 
 ### GetMetaDataContent
 `public static byte GetMetaDataContent(PlatformFilePath filePath)`
 
-**用途 / Purpose:** 获取 `meta data content` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「meta data content」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.GetMetaDataContent(filePath);
+```
 
 ### CopyFile
 `public static void CopyFile(PlatformFilePath source, PlatformFilePath target)`
 
-**用途 / Purpose:** 处理 `copy file` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「file」状态复制到目标对象。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.CopyFile(source, target);
+```
 
 ### CopyDirectory
 `public static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)`
 
-**用途 / Purpose:** 处理 `copy directory` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「directory」状态复制到目标对象。
+
+```csharp
+// 静态调用，不需要实例
+FileHelper.CopyDirectory("example", "example", false);
+```
 
 ## 使用示例
 
@@ -114,4 +188,4 @@ FileHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

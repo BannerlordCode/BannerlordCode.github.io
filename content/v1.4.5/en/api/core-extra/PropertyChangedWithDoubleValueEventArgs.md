@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithDoubleValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithDoubleValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithDoubleValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithDoubleValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithDoubleValueEventArgs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithDoubleValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithDoubleValueEventArgs.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithDoubleValueEventArgs
 `public struct PropertyChangedWithDoubleValueEventArgs(string propertyName, double value)`
 
-**Purpose:** Handles logic related to `property changed with double value event args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PropertyChangedWithDoubleValueEventArgs from the subsystem API first
+PropertyChangedWithDoubleValueEventArgs propertyChangedWithDoubleValueEventArgs = ...;
+var result = propertyChangedWithDoubleValueEventArgs.PropertyChangedWithDoubleValueEventArgs("example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithDoubleValueEventArgs();
-value.PropertyChangedWithDoubleValueEventArgs("example", 0);
+// Typically call this after obtaining an instance from the subsystem API
+PropertyChangedWithDoubleValueEventArgs propertyChangedWithDoubleValueEventArgs = ...;
+propertyChangedWithDoubleValueEventArgs.PropertyChangedWithDoubleValueEventArgs("example", 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

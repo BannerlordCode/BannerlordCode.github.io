@@ -1,13 +1,7 @@
 ---
 title: "RestFunctionResult"
+description: "RestFunctionResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RestFunctionResult`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RestFunctionResult
 
 **Namespace:** TaleWorlds.Diamond.Rest
@@ -29,14 +23,21 @@ title: "RestFunctionResult"
 ### GetFunctionResult
 `public abstract FunctionResult GetFunctionResult()`
 
-**用途 / Purpose:** 获取 `function result` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「function result」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RestFunctionResult 实例
+RestFunctionResult restFunctionResult = ...;
+var result = restFunctionResult.GetFunctionResult();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomRestFunctionResult();
+// 通常通过子系统 API 或工厂获得派生实例
+RestFunctionResult instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

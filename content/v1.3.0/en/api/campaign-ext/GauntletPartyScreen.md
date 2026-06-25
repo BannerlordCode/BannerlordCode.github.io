@@ -1,13 +1,7 @@
 ---
 title: "GauntletPartyScreen"
+description: "Auto-generated class reference for GauntletPartyScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletPartyScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletPartyScreen
 
 **Namespace:** SandBox.GauntletUI
@@ -35,15 +29,22 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### RequestUserInput
 `public void RequestUserInput(string text, Action accept, Action cancel)`
 
-**Purpose:** Handles logic related to `request user input`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletPartyScreen from the subsystem API first
+GauntletPartyScreen gauntletPartyScreen = ...;
+gauntletPartyScreen.RequestUserInput("example", accept, cancel);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletPartyScreen();
-value.RequestUserInput("example", accept, cancel);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletPartyScreen gauntletPartyScreen = ...;
+gauntletPartyScreen.RequestUserInput("example", accept, cancel);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

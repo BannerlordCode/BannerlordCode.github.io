@@ -1,20 +1,14 @@
 ---
 title: "PlayerCaptivity"
+description: "Auto-generated class reference for PlayerCaptivity."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerCaptivity`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerCaptivity
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerCaptivity`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/PlayerCaptivity.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/PlayerCaptivity.cs`
 
 ## Overview
 
@@ -37,22 +31,43 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### StartCaptivity
 `public static void StartCaptivity(PartyBase captorParty)`
 
-**Purpose:** Handles logic related to `start captivity`.
+**Purpose:** Starts the `captivity` flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerCaptivity.StartCaptivity(captorParty);
+```
 
 ### OnPlayerCharacterChanged
 `public static void OnPlayerCharacterChanged()`
 
-**Purpose:** Called when the `player character changed` event is raised.
+**Purpose:** Invoked when the `player character changed` event is raised.
+
+```csharp
+// Static call; no instance required
+PlayerCaptivity.OnPlayerCharacterChanged();
+```
 
 ### SetRansomAmount
 `public void SetRansomAmount()`
 
-**Purpose:** Sets the value or state of `ransom amount`.
+**Purpose:** Assigns a new value to `ransom amount` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PlayerCaptivity from the subsystem API first
+PlayerCaptivity playerCaptivity = ...;
+playerCaptivity.SetRansomAmount();
+```
 
 ### EndCaptivity
 `public static void EndCaptivity()`
 
-**Purpose:** Handles logic related to `end captivity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerCaptivity.EndCaptivity();
+```
 
 ## Usage Example
 
@@ -62,4 +77,4 @@ PlayerCaptivity.StartCaptivity(captorParty);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

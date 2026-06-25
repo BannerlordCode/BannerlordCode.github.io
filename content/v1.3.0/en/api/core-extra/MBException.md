@@ -1,13 +1,7 @@
 ---
 title: "MBException"
+description: "Auto-generated class reference for MBException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBException` as a Exception-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-try { CallMBException(); } catch (MBException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

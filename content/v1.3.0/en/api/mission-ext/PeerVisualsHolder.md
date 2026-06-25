@@ -1,13 +1,7 @@
 ---
 title: "PeerVisualsHolder"
+description: "Auto-generated class reference for PeerVisualsHolder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PeerVisualsHolder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeerVisualsHolder
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetMountVisuals
 `public void SetMountVisuals(IAgentVisual mountAgentVisuals)`
 
-**Purpose:** Sets the value or state of `mount visuals`.
+**Purpose:** Assigns a new value to `mount visuals` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PeerVisualsHolder from the subsystem API first
+PeerVisualsHolder peerVisualsHolder = ...;
+peerVisualsHolder.SetMountVisuals(mountAgentVisuals);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PeerVisualsHolder();
-value.SetMountVisuals(mountAgentVisuals);
+// Typically call this after obtaining an instance from the subsystem API
+PeerVisualsHolder peerVisualsHolder = ...;
+peerVisualsHolder.SetMountVisuals(mountAgentVisuals);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

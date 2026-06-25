@@ -1,20 +1,14 @@
 ---
 title: "PawnKonane"
+description: "Auto-generated class reference for PawnKonane."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PawnKonane`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnKonane
 
 **Namespace:** SandBox.BoardGames.Pawns
 **Module:** SandBox.BoardGames
 **Type:** `public class PawnKonane : PawnBase`
 **Base:** `PawnBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.BoardGames.Pawns/PawnKonane.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.BoardGames.Pawns/PawnKonane.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of PawnKonane from the subsystem API first
+PawnKonane pawnKonane = ...;
+pawnKonane.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PawnKonane();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+PawnKonane pawnKonane = ...;
+pawnKonane.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "HeroExecutionSceneNotificationData"
+description: "Auto-generated class reference for HeroExecutionSceneNotificationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroExecutionSceneNotificationData`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroExecutionSceneNotificationData
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeroExecutionSceneNotificationData : SceneNotificationData`
 **Base:** `SceneNotificationData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/HeroExecutionSceneNotificationData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/HeroExecutionSceneNotificationData.cs`
 
 ## Overview
 
@@ -44,34 +38,63 @@ Treat `HeroExecutionSceneNotificationData` as a Data-style extension point: firs
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Gets the current value of `scene notification characters`.
+**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+
+```csharp
+// Obtain an instance of HeroExecutionSceneNotificationData from the subsystem API first
+HeroExecutionSceneNotificationData heroExecutionSceneNotificationData = ...;
+var result = heroExecutionSceneNotificationData.GetSceneNotificationCharacters();
+```
 
 ### OnCloseAction
 `public override void OnCloseAction()`
 
-**Purpose:** Called when the `close action` event is raised.
+**Purpose:** Invoked when the `close action` event is raised.
+
+```csharp
+// Obtain an instance of HeroExecutionSceneNotificationData from the subsystem API first
+HeroExecutionSceneNotificationData heroExecutionSceneNotificationData = ...;
+heroExecutionSceneNotificationData.OnCloseAction();
+```
 
 ### OnAffirmativeAction
 `public override void OnAffirmativeAction()`
 
-**Purpose:** Called when the `affirmative action` event is raised.
+**Purpose:** Invoked when the `affirmative action` event is raised.
+
+```csharp
+// Obtain an instance of HeroExecutionSceneNotificationData from the subsystem API first
+HeroExecutionSceneNotificationData heroExecutionSceneNotificationData = ...;
+heroExecutionSceneNotificationData.OnAffirmativeAction();
+```
 
 ### CreateForPlayerExecutingHero
 `public static HeroExecutionSceneNotificationData CreateForPlayerExecutingHero(Hero dyingHero, Action onAffirmativeAction, RelevantContextType relevantContextType = RelevantContextType.Any, bool showNegativeOption = true)`
 
-**Purpose:** Creates a new `for player executing hero` instance or object.
+**Purpose:** Constructs a new `for player executing hero` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HeroExecutionSceneNotificationData.CreateForPlayerExecutingHero(dyingHero, onAffirmativeAction, relevantContextType.Any, false);
+```
 
 ### CreateForInformingPlayer
 `public static HeroExecutionSceneNotificationData CreateForInformingPlayer(Hero executingHero, Hero dyingHero, RelevantContextType relevantContextType = RelevantContextType.Any, Action onClose = null)`
 
-**Purpose:** Creates a new `for informing player` instance or object.
+**Purpose:** Constructs a new `for informing player` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+HeroExecutionSceneNotificationData.CreateForInformingPlayer(executingHero, dyingHero, relevantContextType.Any, null);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeroExecutionSceneNotificationData();
+// This data object is usually returned by campaign/mission APIs
+HeroExecutionSceneNotificationData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

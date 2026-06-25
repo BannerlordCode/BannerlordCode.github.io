@@ -1,20 +1,14 @@
 ---
 title: "ICraftingStateHandler"
+description: "Auto-generated class reference for ICraftingStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICraftingStateHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICraftingStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICraftingStateHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/ICraftingStateHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/ICraftingStateHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ICraftingStateHandler` as a Handler-style extension point: first identify
 ## Usage Example
 
 ```csharp
-ICraftingStateHandler implementation = GetCraftingStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IICraftingStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

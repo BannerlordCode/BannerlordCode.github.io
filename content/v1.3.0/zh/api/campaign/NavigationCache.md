@@ -1,13 +1,7 @@
 ---
 title: "NavigationCache"
+description: "NavigationCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NavigationCache`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationCache
 
 **Namespace:** TaleWorlds.CampaignSystem.Map.DistanceCache
@@ -35,44 +29,87 @@ title: "NavigationCache"
 ### GetNeighbors
 `public MBReadOnlyList<T> GetNeighbors(T settlement)`
 
-**用途 / Purpose:** 获取 `neighbors` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「neighbors」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationCache 实例
+NavigationCache navigationCache = ...;
+var result = navigationCache.GetNeighbors(settlement);
+```
 
 ### GetClosestSettlementToFaceIndex
 `public T GetClosestSettlementToFaceIndex(int faceId, out bool isAtSea)`
 
-**用途 / Purpose:** 获取 `closest settlement to face index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「closest settlement to face index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationCache 实例
+NavigationCache navigationCache = ...;
+var result = navigationCache.GetClosestSettlementToFaceIndex(0, isAtSea);
+```
 
 ### GenerateCacheData
 `public void GenerateCacheData()`
 
-**用途 / Purpose:** 处理 `generate cache data` 相关逻辑。
+**用途 / Purpose:** 生成「cache data」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationCache 实例
+NavigationCache navigationCache = ...;
+navigationCache.GenerateCacheData();
+```
 
 ### GetSceneXmlCrcValues
 `public abstract void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-**用途 / Purpose:** 获取 `scene xml crc values` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene xml crc values」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationCache 实例
+NavigationCache navigationCache = ...;
+navigationCache.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
+```
 
 ### GetSettlementsDistanceCacheFileForCapability
 `public bool GetSettlementsDistanceCacheFileForCapability(string moduleId, out string filePath)`
 
-**用途 / Purpose:** 获取 `settlements distance cache file for capability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「settlements distance cache file for capability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationCache 实例
+NavigationCache navigationCache = ...;
+var result = navigationCache.GetSettlementsDistanceCacheFileForCapability("example", filePath);
+```
 
 ### Serialize
 `public void Serialize(string path)`
 
-**用途 / Purpose:** 处理 `serialize` 相关逻辑。
+**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationCache 实例
+NavigationCache navigationCache = ...;
+navigationCache.Serialize("example");
+```
 
 ### Deserialize
 `public void Deserialize(string path)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 NavigationCache 实例
+NavigationCache navigationCache = ...;
+navigationCache.Deserialize("example");
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomNavigationCache();
+// 通常通过子系统 API 或工厂获得派生实例
+NavigationCache instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

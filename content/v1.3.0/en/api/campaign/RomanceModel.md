@@ -1,13 +1,7 @@
 ---
 title: "RomanceModel"
+description: "Auto-generated class reference for RomanceModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RomanceModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RomanceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ Treat `RomanceModel` as a Model-style extension point: first identify who create
 ### GetAttractionValuePercentage
 `public abstract int GetAttractionValuePercentage(Hero potentiallyInterestedCharacter, Hero heroOfInterest)`
 
-**Purpose:** Gets the current value of `attraction value percentage`.
+**Purpose:** Reads and returns the `attraction value percentage` value held by the current object.
+
+```csharp
+// Obtain an instance of RomanceModel from the subsystem API first
+RomanceModel romanceModel = ...;
+var result = romanceModel.GetAttractionValuePercentage(potentiallyInterestedCharacter, heroOfInterest);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRomanceModel();
+// Typically obtained from a subsystem API or factory
+RomanceModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

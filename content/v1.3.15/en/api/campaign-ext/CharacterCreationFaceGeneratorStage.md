@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationFaceGeneratorStage"
+description: "Auto-generated class reference for CharacterCreationFaceGeneratorStage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationFaceGeneratorStage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationFaceGeneratorStage
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationFaceGeneratorStage();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationFaceGeneratorStage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

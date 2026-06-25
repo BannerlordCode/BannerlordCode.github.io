@@ -1,20 +1,14 @@
 ---
 title: "MapTimeControlVM"
+description: "MapTimeControlVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MapTimeControlVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapTimeControlVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MapTimeControlVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar/MapTimeControlVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar/MapTimeControlVM.cs`
 
 ## 概述
 
@@ -58,40 +52,77 @@ title: "MapTimeControlVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapTimeControlVM 实例
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MapTimeControlVM 实例
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.OnFinalize();
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MapTimeControlVM 实例
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.Tick();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MapTimeControlVM 实例
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.Refresh();
+```
 
 ### ExecuteTimeControlChange
 `public void ExecuteTimeControlChange(int selectedTimeSpeed)`
 
-**用途 / Purpose:** 执行 `time control change` 操作或流程。
+**用途 / Purpose:** 执行 「time control change」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapTimeControlVM 实例
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.ExecuteTimeControlChange(0);
+```
 
 ### ExecuteResetCamera
 `public void ExecuteResetCamera()`
 
-**用途 / Purpose:** 执行 `reset camera` 操作或流程。
+**用途 / Purpose:** 执行 「reset camera」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MapTimeControlVM 实例
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.ExecuteResetCamera();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MapTimeControlVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MapTimeControlVM mapTimeControlVM = ...;
+mapTimeControlVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

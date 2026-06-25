@@ -1,20 +1,14 @@
 ---
 title: "HttpRequestTaskState"
+description: "Auto-generated class reference for HttpRequestTaskState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HttpRequestTaskState`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HttpRequestTaskState
 
 **Namespace:** TaleWorlds.Library.Http
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public enum HttpRequestTaskState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpRequestTaskState.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.Http/HttpRequestTaskState.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.Http` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var example = new HttpRequestTaskState();
+// Obtain an instance from the relevant subsystem API
+HttpRequestTaskState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

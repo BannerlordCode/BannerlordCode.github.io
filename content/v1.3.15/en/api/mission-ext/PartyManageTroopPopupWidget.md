@@ -1,13 +1,7 @@
 ---
 title: "PartyManageTroopPopupWidget"
+description: "Auto-generated class reference for PartyManageTroopPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyManageTroopPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyManageTroopPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
@@ -38,9 +32,10 @@ Treat `PartyManageTroopPopupWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new PartyManageTroopPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyManageTroopPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

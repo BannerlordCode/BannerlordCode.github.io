@@ -1,20 +1,14 @@
 ---
 title: "MBSoundEvent"
+description: "Auto-generated class reference for MBSoundEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBSoundEvent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBSoundEvent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBSoundEvent`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSoundEvent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSoundEvent.cs`
 
 ## Overview
 
@@ -29,37 +23,72 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, in Vec3 position)`
 
-**Purpose:** Handles logic related to `play sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSoundEvent.PlaySound(0, position);
+```
 
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, Vec3 position)`
 
-**Purpose:** Handles logic related to `play sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSoundEvent.PlaySound(0, position);
+```
 
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, ref SoundEventParameter parameter, Vec3 position)`
 
-**Purpose:** Handles logic related to `play sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSoundEvent.PlaySound(0, parameter, position);
+```
 
 ### PlaySound
 `public static bool PlaySound(string soundPath, ref SoundEventParameter parameter, Vec3 position)`
 
-**Purpose:** Handles logic related to `play sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSoundEvent.PlaySound("example", parameter, position);
+```
 
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, ref SoundEventParameter parameter, in Vec3 position)`
 
-**Purpose:** Handles logic related to `play sound`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSoundEvent.PlaySound(0, parameter, position);
+```
 
 ### PlayEventFromSoundBuffer
 `public static void PlayEventFromSoundBuffer(string eventId, byte soundData, Scene scene, bool is3d, bool isBlocking)`
 
-**Purpose:** Handles logic related to `play event from sound buffer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBSoundEvent.PlayEventFromSoundBuffer("example", 0, scene, false, false);
+```
 
 ### CreateEventFromExternalFile
 `public static void CreateEventFromExternalFile(string programmerEventName, string soundFilePath, Scene scene, bool is3d, bool isBlocking)`
 
-**Purpose:** Creates a new `event from external file` instance or object.
+**Purpose:** Constructs a new `event from external file` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MBSoundEvent.CreateEventFromExternalFile("example", "example", scene, false, false);
+```
 
 ## Usage Example
 
@@ -69,4 +98,4 @@ MBSoundEvent.PlaySound(0, position);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

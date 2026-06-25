@@ -1,13 +1,7 @@
 ---
 title: "FormationMarkerListPanel"
+description: "Auto-generated class reference for FormationMarkerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationMarkerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FormationMarkerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
@@ -51,9 +45,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission` to pl
 ## Usage Example
 
 ```csharp
-var value = new FormationMarkerListPanel();
+// Obtain an instance from the relevant subsystem API
+FormationMarkerListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TrainingIcon"
+description: "TrainingIcon 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TrainingIcon`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingIcon
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TrainingIcon : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrainingIcon.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrainingIcon.cs`
 
 ## 概述
 
@@ -35,60 +29,121 @@ title: "TrainingIcon"
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetTickRequirement();
+```
 
 ### SetMarked
 `public void SetMarked(bool highlight)`
 
-**用途 / Purpose:** 设置 `marked` 的值或状态。
+**用途 / Purpose:** 为 「marked」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+trainingIcon.SetMarked(false);
+```
 
 ### GetIsActivated
 `public bool GetIsActivated()`
 
-**用途 / Purpose:** 获取 `is activated` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is activated」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetIsActivated();
+```
 
 ### GetTrainingSubTypeTag
 `public string GetTrainingSubTypeTag()`
 
-**用途 / Purpose:** 获取 `training sub type tag` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「training sub type tag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetTrainingSubTypeTag();
+```
 
 ### DisableIcon
 `public void DisableIcon()`
 
-**用途 / Purpose:** 处理 `disable icon` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+trainingIcon.DisableIcon();
+```
 
 ### EnableIcon
 `public void EnableIcon()`
 
-**用途 / Purpose:** 处理 `enable icon` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+trainingIcon.EnableIcon();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject = null)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetActionTextForStandingPoint(null);
+```
 
 ### OnFocusGain
 `public override void OnFocusGain(Agent userAgent)`
 
-**用途 / Purpose:** 当 `focus gain` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus gain」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+trainingIcon.OnFocusGain(userAgent);
+```
 
 ### OnFocusLose
 `public override void OnFocusLose(Agent userAgent)`
 
-**用途 / Purpose:** 当 `focus lose` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus lose」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TrainingIcon 实例
+TrainingIcon trainingIcon = ...;
+trainingIcon.OnFocusLose(userAgent);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TrainingIcon();
-value.GetTickRequirement();
+// 通常从对应子系统 API 获取实例后调用
+TrainingIcon trainingIcon = ...;
+trainingIcon.GetTickRequirement();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

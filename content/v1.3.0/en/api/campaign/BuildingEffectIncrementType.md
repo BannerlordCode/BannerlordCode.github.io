@@ -1,18 +1,12 @@
 ---
 title: "BuildingEffectIncrementType"
+description: "Auto-generated class reference for BuildingEffectIncrementType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingEffectIncrementType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingEffectIncrementType
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements.Buildings
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum BuildingEffectIncrementType`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Settlements/Buildings/BuildingEffectIncrementType.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ## Usage Example
 
 ```csharp
-var example = new BuildingEffectIncrementType();
+// Obtain an instance from the relevant subsystem API
+BuildingEffectIncrementType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

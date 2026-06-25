@@ -1,20 +1,14 @@
 ---
 title: "TeamDeathmatchMissionRepresentative"
+description: "Auto-generated class reference for TeamDeathmatchMissionRepresentative."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamDeathmatchMissionRepresentative`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamDeathmatchMissionRepresentative
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionRepresentatives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TeamDeathmatchMissionRepresentative : MissionRepresentativeBase`
 **Base:** `MissionRepresentativeBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/TeamDeathmatchMissionRepresentative.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.MissionRepresentatives/TeamDeathmatchMissionRepresentative.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**Purpose:** Called when the `agent spawned` event is raised.
+**Purpose:** Invoked when the `agent spawned` event is raised.
+
+```csharp
+// Obtain an instance of TeamDeathmatchMissionRepresentative from the subsystem API first
+TeamDeathmatchMissionRepresentative teamDeathmatchMissionRepresentative = ...;
+teamDeathmatchMissionRepresentative.OnAgentSpawned();
+```
 
 ### GetGoldGainsFromKillDataAndUpdateFlags
 `public int GetGoldGainsFromKillDataAndUpdateFlags(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isRanged, bool isFriendly)`
 
-**Purpose:** Gets the current value of `gold gains from kill data and update flags`.
+**Purpose:** Reads and returns the `gold gains from kill data and update flags` value held by the current object.
+
+```csharp
+// Obtain an instance of TeamDeathmatchMissionRepresentative from the subsystem API first
+TeamDeathmatchMissionRepresentative teamDeathmatchMissionRepresentative = ...;
+var result = teamDeathmatchMissionRepresentative.GetGoldGainsFromKillDataAndUpdateFlags(killerPerkHandler, assistingHitterPerkHandler, victimClass, false, false, false);
+```
 
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**Purpose:** Gets the current value of `gold gains from ally death reward`.
+**Purpose:** Reads and returns the `gold gains from ally death reward` value held by the current object.
+
+```csharp
+// Obtain an instance of TeamDeathmatchMissionRepresentative from the subsystem API first
+TeamDeathmatchMissionRepresentative teamDeathmatchMissionRepresentative = ...;
+var result = teamDeathmatchMissionRepresentative.GetGoldGainsFromAllyDeathReward(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamDeathmatchMissionRepresentative();
-value.OnAgentSpawned();
+// Typically call this after obtaining an instance from the subsystem API
+TeamDeathmatchMissionRepresentative teamDeathmatchMissionRepresentative = ...;
+teamDeathmatchMissionRepresentative.OnAgentSpawned();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

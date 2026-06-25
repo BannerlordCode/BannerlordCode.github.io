@@ -1,20 +1,14 @@
 ---
 title: "PropertyChangedWithVec2ValueEventArgs"
+description: "Auto-generated class reference for PropertyChangedWithVec2ValueEventArgs."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyChangedWithVec2ValueEventArgs`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyChangedWithVec2ValueEventArgs
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public struct PropertyChangedWithVec2ValueEventArgs`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithVec2ValueEventArgs.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PropertyChangedWithVec2ValueEventArgs.cs`
 
 ## Overview
 
@@ -36,15 +30,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithVec2ValueEventArgs
 `public struct PropertyChangedWithVec2ValueEventArgs(string propertyName, Vec2 value)`
 
-**Purpose:** Handles logic related to `property changed with vec2 value event args`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PropertyChangedWithVec2ValueEventArgs from the subsystem API first
+PropertyChangedWithVec2ValueEventArgs propertyChangedWithVec2ValueEventArgs = ...;
+var result = propertyChangedWithVec2ValueEventArgs.PropertyChangedWithVec2ValueEventArgs("example", value);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyChangedWithVec2ValueEventArgs();
-value.PropertyChangedWithVec2ValueEventArgs("example", value);
+// Typically call this after obtaining an instance from the subsystem API
+PropertyChangedWithVec2ValueEventArgs propertyChangedWithVec2ValueEventArgs = ...;
+propertyChangedWithVec2ValueEventArgs.PropertyChangedWithVec2ValueEventArgs("example", value);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

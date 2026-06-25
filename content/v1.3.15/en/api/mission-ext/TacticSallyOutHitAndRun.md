@@ -1,13 +1,7 @@
 ---
 title: "TacticSallyOutHitAndRun"
+description: "Auto-generated class reference for TacticSallyOutHitAndRun."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TacticSallyOutHitAndRun`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TacticSallyOutHitAndRun
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of TacticSallyOutHitAndRun from the subsystem API first
+TacticSallyOutHitAndRun tacticSallyOutHitAndRun = ...;
+tacticSallyOutHitAndRun.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TacticSallyOutHitAndRun();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+TacticSallyOutHitAndRun tacticSallyOutHitAndRun = ...;
+tacticSallyOutHitAndRun.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

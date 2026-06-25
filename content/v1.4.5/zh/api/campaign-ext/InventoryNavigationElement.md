@@ -1,20 +1,14 @@
 ---
 title: "InventoryNavigationElement"
+description: "InventoryNavigationElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryNavigationElement`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryNavigationElement
 
 **Namespace:** SandBox.View.Map.Navigation.NavigationElements
 **Module:** SandBox.View
 **Type:** `public class InventoryNavigationElement : MapNavigationElementBase`
 **Base:** `MapNavigationElementBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/InventoryNavigationElement.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Navigation.NavigationElements/InventoryNavigationElement.cs`
 
 ## 概述
 
@@ -35,25 +29,44 @@ title: "InventoryNavigationElement"
 ### OpenView
 `public override void OpenView()`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryNavigationElement 实例
+InventoryNavigationElement inventoryNavigationElement = ...;
+inventoryNavigationElement.OpenView();
+```
 
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**用途 / Purpose:** 处理 `open view` 相关逻辑。
+**用途 / Purpose:** 打开「view」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryNavigationElement 实例
+InventoryNavigationElement inventoryNavigationElement = ...;
+inventoryNavigationElement.OpenView(parameters);
+```
 
 ### GoToLink
 `public override void GoToLink()`
 
-**用途 / Purpose:** 处理 `go to link` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryNavigationElement 实例
+InventoryNavigationElement inventoryNavigationElement = ...;
+inventoryNavigationElement.GoToLink();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InventoryNavigationElement();
-value.OpenView();
+// 通常从对应子系统 API 获取实例后调用
+InventoryNavigationElement inventoryNavigationElement = ...;
+inventoryNavigationElement.OpenView();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

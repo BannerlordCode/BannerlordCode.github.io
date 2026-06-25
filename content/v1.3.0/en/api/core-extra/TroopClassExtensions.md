@@ -1,13 +1,7 @@
 ---
 title: "TroopClassExtensions"
+description: "Auto-generated class reference for TroopClassExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopClassExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopClassExtensions
 
 **Namespace:** TaleWorlds.Core
@@ -29,52 +23,102 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsRanged
 `public static bool IsRanged(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `is ranged`.
+**Purpose:** Determines whether the current object is in the `ranged` state or condition.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.IsRanged(troopClass);
+```
 
 ### IsMounted
 `public static bool IsMounted(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `is mounted`.
+**Purpose:** Determines whether the current object is in the `mounted` state or condition.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.IsMounted(troopClass);
+```
 
 ### IsMeleeInfantry
 `public static bool IsMeleeInfantry(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `is melee infantry`.
+**Purpose:** Determines whether the current object is in the `melee infantry` state or condition.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.IsMeleeInfantry(troopClass);
+```
 
 ### IsMeleeCavalry
 `public static bool IsMeleeCavalry(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `is melee cavalry`.
+**Purpose:** Determines whether the current object is in the `melee cavalry` state or condition.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.IsMeleeCavalry(troopClass);
+```
 
 ### DefaultClass
 `public static FormationClass DefaultClass(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `default class`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.DefaultClass(troopClass);
+```
 
 ### AlternativeClass
 `public static FormationClass AlternativeClass(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `alternative class`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.AlternativeClass(troopClass);
+```
 
 ### DismountedClass
 `public static FormationClass DismountedClass(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `dismounted class`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.DismountedClass(troopClass);
+```
 
 ### IsDefaultTroopClass
 `public static bool IsDefaultTroopClass(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `is default troop class`.
+**Purpose:** Determines whether the current object is in the `default troop class` state or condition.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.IsDefaultTroopClass(troopClass);
+```
 
 ### IsRegularTroopClass
 `public static bool IsRegularTroopClass(this FormationClass troopClass)`
 
-**Purpose:** Handles logic related to `is regular troop class`.
+**Purpose:** Determines whether the current object is in the `regular troop class` state or condition.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.IsRegularTroopClass(troopClass);
+```
 
 ### GetNextSpawnPrioritizedClass
 `public static FormationClass GetNextSpawnPrioritizedClass(this FormationClass troopClass)`
 
-**Purpose:** Gets the current value of `next spawn prioritized class`.
+**Purpose:** Reads and returns the `next spawn prioritized class` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TroopClassExtensions.GetNextSpawnPrioritizedClass(troopClass);
+```
 
 ## Usage Example
 
@@ -84,4 +128,4 @@ TroopClassExtensions.IsRanged(troopClass);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

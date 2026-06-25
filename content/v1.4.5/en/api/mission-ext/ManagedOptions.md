@@ -1,20 +1,14 @@
 ---
 title: "ManagedOptions"
+description: "Auto-generated class reference for ManagedOptions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedOptions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedOptions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ManagedOptions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ManagedOptions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/ManagedOptions.cs`
 
 ## Overview
 
@@ -29,35 +23,62 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnManagedOptionChangedDelegate
 `public delegate void OnManagedOptionChangedDelegate(ManagedOptionsType changedManagedOptionsType)`
 
-**Purpose:** Called when the `managed option changed delegate` event is raised.
+**Purpose:** Invoked when the `managed option changed delegate` event is raised.
+
+```csharp
+// Obtain an instance of ManagedOptions from the subsystem API first
+ManagedOptions managedOptions = ...;
+managedOptions.OnManagedOptionChangedDelegate(changedManagedOptionsType);
+```
 
 ### GetConfig
 `public static float GetConfig(ManagedOptionsType type)`
 
-**Purpose:** Gets the current value of `config`.
+**Purpose:** Reads and returns the `config` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ManagedOptions.GetConfig(type);
+```
 
 ### GetDefaultConfig
 `public static float GetDefaultConfig(ManagedOptionsType type)`
 
-**Purpose:** Gets the current value of `default config`.
+**Purpose:** Reads and returns the `default config` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ManagedOptions.GetDefaultConfig(type);
+```
 
 ### SetConfig
 `public static void SetConfig(ManagedOptionsType type, float value)`
 
-**Purpose:** Sets the value or state of `config`.
+**Purpose:** Assigns a new value to `config` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+ManagedOptions.SetConfig(type, 0);
+```
 
 ### SaveConfig
 `public static SaveResult SaveConfig()`
 
-**Purpose:** Saves `config` data.
+**Purpose:** Writes `config` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+ManagedOptions.SaveConfig();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ManagedOptions();
-value.OnManagedOptionChangedDelegate(changedManagedOptionsType);
+// Typically call this after obtaining an instance from the subsystem API
+ManagedOptions managedOptions = ...;
+managedOptions.OnManagedOptionChangedDelegate(changedManagedOptionsType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CreditsItemVM"
+description: "Auto-generated class reference for CreditsItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CreditsItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CreditsItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Credits
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CreditsItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Credits/CreditsItemVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Credits/CreditsItemVM.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Credits` to p
 ## Usage Example
 
 ```csharp
-var example = new CreditsItemVM();
+// Obtain an instance from the relevant subsystem API
+CreditsItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

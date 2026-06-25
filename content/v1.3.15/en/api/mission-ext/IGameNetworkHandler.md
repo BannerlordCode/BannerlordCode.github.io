@@ -1,18 +1,12 @@
 ---
 title: "IGameNetworkHandler"
+description: "Auto-generated class reference for IGameNetworkHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IGameNetworkHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IGameNetworkHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IGameNetworkHandler`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IGameNetworkHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IGameNetworkHandler` as a Handler-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-IGameNetworkHandler implementation = GetGameNetworkHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIGameNetworkHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

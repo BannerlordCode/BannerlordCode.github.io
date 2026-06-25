@@ -1,13 +1,7 @@
 ---
 title: "PartyCommand"
+description: "Auto-generated class reference for PartyCommand."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyCommand`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyCommand
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ## Usage Example
 
 ```csharp
-PartyCommand example = PartyCommand.Value;
+// Obtain an instance from the relevant subsystem API
+PartyCommand instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

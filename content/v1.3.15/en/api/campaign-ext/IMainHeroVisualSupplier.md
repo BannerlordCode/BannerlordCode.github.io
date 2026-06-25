@@ -1,18 +1,12 @@
 ---
 title: "IMainHeroVisualSupplier"
+description: "Auto-generated class reference for IMainHeroVisualSupplier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMainHeroVisualSupplier`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMainHeroVisualSupplier
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMainHeroVisualSupplier`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/IMainHeroVisualSupplier.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ## Usage Example
 
 ```csharp
-IMainHeroVisualSupplier implementation = GetMainHeroVisualSupplierImplementation();
+// Usually obtained through DI or a factory method
+IIMainHeroVisualSupplier service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

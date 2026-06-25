@@ -1,13 +1,7 @@
 ---
 title: "StoryModeCheats"
+description: "Auto-generated class reference for StoryModeCheats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeCheats`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeCheats
 
 **Namespace:** StoryMode
@@ -29,12 +23,22 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### CheckCheatUsage
 `public static bool CheckCheatUsage(ref string message)`
 
-**Purpose:** Handles logic related to `check cheat usage`.
+**Purpose:** Verifies whether `cheat usage` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+StoryModeCheats.CheckCheatUsage(message);
+```
 
 ### AddFamilyMembers
 `public static string AddFamilyMembers(List<string> strings)`
 
 **Purpose:** Adds `family members` to the current collection or state.
+
+```csharp
+// Static call; no instance required
+StoryModeCheats.AddFamilyMembers(strings);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ StoryModeCheats.CheckCheatUsage(message);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

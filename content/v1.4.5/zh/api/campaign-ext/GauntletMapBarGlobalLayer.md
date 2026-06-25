@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapBarGlobalLayer"
+description: "GauntletMapBarGlobalLayer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletMapBarGlobalLayer`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapBarGlobalLayer
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapBarGlobalLayer : GlobalLayer`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapBarGlobalLayer.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapBarGlobalLayer.cs`
 
 ## 概述
 
@@ -35,40 +29,77 @@ title: "GauntletMapBarGlobalLayer"
 ### Initialize
 `public void Initialize(MapBarVM dataSource)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapBarGlobalLayer 实例
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.Initialize(dataSource);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapBarGlobalLayer 实例
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.OnFinalize();
+```
 
 ### OnMapConversationStarted
 `public void OnMapConversationStarted()`
 
-**用途 / Purpose:** 当 `map conversation started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map conversation started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapBarGlobalLayer 实例
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.OnMapConversationStarted();
+```
 
 ### OnMapConversationOver
 `public void OnMapConversationOver()`
 
-**用途 / Purpose:** 当 `map conversation over` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map conversation over」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapBarGlobalLayer 实例
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.OnMapConversationOver();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapBarGlobalLayer 实例
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.Refresh();
+```
 
 ### IsEscaped
 `public bool IsEscaped()`
 
-**用途 / Purpose:** 处理 `is escaped` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「escaped」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletMapBarGlobalLayer 实例
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+var result = gauntletMapBarGlobalLayer.IsEscaped();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GauntletMapBarGlobalLayer();
-value.Initialize(dataSource);
+// 通常从对应子系统 API 获取实例后调用
+GauntletMapBarGlobalLayer gauntletMapBarGlobalLayer = ...;
+gauntletMapBarGlobalLayer.Initialize(dataSource);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

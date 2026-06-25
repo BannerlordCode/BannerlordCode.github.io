@@ -1,13 +1,7 @@
 ---
 title: "PawnKonane"
+description: "PawnKonane 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PawnKonane`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnKonane
 
 **Namespace:** SandBox.BoardGames.Pawns
@@ -35,15 +29,22 @@ title: "PawnKonane"
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 PawnKonane 实例
+PawnKonane pawnKonane = ...;
+pawnKonane.Reset();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PawnKonane();
-value.Reset();
+// 通常从对应子系统 API 获取实例后调用
+PawnKonane pawnKonane = ...;
+pawnKonane.Reset();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

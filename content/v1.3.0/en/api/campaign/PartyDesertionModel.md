@@ -1,13 +1,7 @@
 ---
 title: "PartyDesertionModel"
+description: "Auto-generated class reference for PartyDesertionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyDesertionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyDesertionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ Treat `PartyDesertionModel` as a Model-style extension point: first identify who
 ### GetTroopsToDesert
 `public abstract TroopRoster GetTroopsToDesert(MobileParty mobileParty)`
 
-**Purpose:** Gets the current value of `troops to desert`.
+**Purpose:** Reads and returns the `troops to desert` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyDesertionModel from the subsystem API first
+PartyDesertionModel partyDesertionModel = ...;
+var result = partyDesertionModel.GetTroopsToDesert(mobileParty);
+```
 
 ### GetDesertionChanceForTroop
 `public abstract float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)`
 
-**Purpose:** Gets the current value of `desertion chance for troop`.
+**Purpose:** Reads and returns the `desertion chance for troop` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyDesertionModel from the subsystem API first
+PartyDesertionModel partyDesertionModel = ...;
+var result = partyDesertionModel.GetDesertionChanceForTroop(mobileParty, troopRosterElement);
+```
 
 ### GetMoraleThresholdForTroopDesertion
 `public abstract int GetMoraleThresholdForTroopDesertion()`
 
-**Purpose:** Gets the current value of `morale threshold for troop desertion`.
+**Purpose:** Reads and returns the `morale threshold for troop desertion` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyDesertionModel from the subsystem API first
+PartyDesertionModel partyDesertionModel = ...;
+var result = partyDesertionModel.GetMoraleThresholdForTroopDesertion();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyDesertionModel();
+// Typically obtained from a subsystem API or factory
+PartyDesertionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

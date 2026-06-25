@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletObjectiveView"
+description: "Auto-generated class reference for MissionGauntletObjectiveView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletObjectiveView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletObjectiveView
 
 **Namespace:** SandBox.GauntletUI.Missions
@@ -29,34 +23,65 @@ Treat `MissionGauntletObjectiveView` as a View-style extension point: first iden
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletObjectiveView from the subsystem API first
+MissionGauntletObjectiveView missionGauntletObjectiveView = ...;
+missionGauntletObjectiveView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletObjectiveView from the subsystem API first
+MissionGauntletObjectiveView missionGauntletObjectiveView = ...;
+missionGauntletObjectiveView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletObjectiveView from the subsystem API first
+MissionGauntletObjectiveView missionGauntletObjectiveView = ...;
+missionGauntletObjectiveView.OnMissionScreenTick(0);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletObjectiveView from the subsystem API first
+MissionGauntletObjectiveView missionGauntletObjectiveView = ...;
+missionGauntletObjectiveView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletObjectiveView from the subsystem API first
+MissionGauntletObjectiveView missionGauntletObjectiveView = ...;
+missionGauntletObjectiveView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletObjectiveView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletObjectiveView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MBInformationManager"
+description: "MBInformationManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBInformationManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBInformationManager
 
 **Namespace:** TaleWorlds.Core
@@ -29,52 +23,102 @@ title: "MBInformationManager"
 ### AddQuickInformation
 `public static void AddQuickInformation(TextObject message, int extraTimeInMs = 0, BasicCharacterObject announcerCharacter = null, Equipment equipment = null, string soundEventPath = "")`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `quick information`。
+**用途 / Purpose:** 将 「quick information」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.AddQuickInformation(message, 0, null, null, "example");
+```
 
 ### ShowMultiSelectionInquiry
 `public static void ShowMultiSelectionInquiry(MultiSelectionInquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**用途 / Purpose:** 处理 `show multi selection inquiry` 相关逻辑。
+**用途 / Purpose:** 显示「multi selection inquiry」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.ShowMultiSelectionInquiry(data, false, false);
+```
 
 ### AddNotice
 `public static void AddNotice(InformationData data)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `notice`。
+**用途 / Purpose:** 将 「notice」 添加到当前容器或状态中。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.AddNotice(data);
+```
 
 ### MapNoticeRemoved
 `public static void MapNoticeRemoved(InformationData data)`
 
-**用途 / Purpose:** 处理 `map notice removed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.MapNoticeRemoved(data);
+```
 
 ### ShowHint
 `public static void ShowHint(string hint)`
 
-**用途 / Purpose:** 处理 `show hint` 相关逻辑。
+**用途 / Purpose:** 显示「hint」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.ShowHint("example");
+```
 
 ### HideInformations
 `public static void HideInformations()`
 
-**用途 / Purpose:** 处理 `hide informations` 相关逻辑。
+**用途 / Purpose:** 隐藏「informations」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.HideInformations();
+```
 
 ### ShowSceneNotification
 `public static void ShowSceneNotification(SceneNotificationData data)`
 
-**用途 / Purpose:** 处理 `show scene notification` 相关逻辑。
+**用途 / Purpose:** 显示「scene notification」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.ShowSceneNotification(data);
+```
 
 ### HideSceneNotification
 `public static void HideSceneNotification()`
 
-**用途 / Purpose:** 处理 `hide scene notification` 相关逻辑。
+**用途 / Purpose:** 隐藏「scene notification」对应的界面或元素。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.HideSceneNotification();
+```
 
 ### GetIsAnySceneNotificationActive
 `public static bool? GetIsAnySceneNotificationActive()`
 
-**用途 / Purpose:** 获取 `is any scene notification active` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is any scene notification active」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.GetIsAnySceneNotificationActive();
+```
 
 ### Clear
 `public static void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 静态调用，不需要实例
+MBInformationManager.Clear();
+```
 
 ## 使用示例
 
@@ -84,4 +128,4 @@ var manager = MBInformationManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

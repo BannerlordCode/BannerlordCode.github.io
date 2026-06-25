@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerOrderUIHandler"
+description: "Auto-generated class reference for MissionGauntletMultiplayerOrderUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMultiplayerOrderUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerOrderUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerOrderUIHandler : GauntletOrderUIHandler`
 **Base:** `GauntletOrderUIHandler`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerOrderUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerOrderUIHandler.cs`
 
 ## Overview
 
@@ -35,44 +29,86 @@ Treat `MissionGauntletMultiplayerOrderUIHandler` as a Handler-style extension po
 ### IsReady
 `public override bool IsReady()`
 
-**Purpose:** Handles logic related to `is ready`.
+**Purpose:** Determines whether the current object is in the `ready` state or condition.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+var result = missionGauntletMultiplayerOrderUIHandler.IsReady();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.AfterStart();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.OnMissionScreenFinalize();
+```
 
 ### InitializeInADisgustingManner
 `public void InitializeInADisgustingManner()`
 
-**Purpose:** Initializes the state, resources, or bindings for `in a disgusting manner`.
+**Purpose:** Prepares the resources, state, or bindings required by `in a disgusting manner`.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.InitializeInADisgustingManner();
+```
 
 ### ValidateInADisgustingManner
 `public void ValidateInADisgustingManner()`
 
-**Purpose:** Handles logic related to `validate in a disgusting manner`.
+**Purpose:** Checks whether `in a disgusting manner` satisfies the required constraints, usually returning a boolean.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerOrderUIHandler from the subsystem API first
+MissionGauntletMultiplayerOrderUIHandler missionGauntletMultiplayerOrderUIHandler = ...;
+missionGauntletMultiplayerOrderUIHandler.ValidateInADisgustingManner();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletMultiplayerOrderUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletMultiplayerOrderUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

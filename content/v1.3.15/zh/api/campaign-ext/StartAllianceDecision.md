@@ -1,24 +1,18 @@
 ---
 title: "StartAllianceDecision"
+description: "StartAllianceDecision 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StartAllianceDecision`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StartAllianceDecision
 
-**命名空间:** TaleWorlds.CampaignSystem.Election
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public class StartAllianceDecision : KingdomDecision`
+**Namespace:** TaleWorlds.CampaignSystem.Election
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class StartAllianceDecision : KingdomDecision`
 **Base:** `KingdomDecision`
-**领域:** campaign-ext
+**File:** `TaleWorlds.CampaignSystem/Election/StartAllianceDecision.cs`
 
 ## 概述
 
-`StartAllianceDecision` 位于 `TaleWorlds.CampaignSystem.Election`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`StartAllianceDecision` 位于 `TaleWorlds.CampaignSystem.Election`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -35,111 +29,272 @@ title: "StartAllianceDecision"
 ### GetProposerClanForPlayerKingdom
 `public static Clan GetProposerClanForPlayerKingdom(Kingdom target)`
 
-**用途 / Purpose:** 获取 `proposer clan for player kingdom` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「proposer clan for player kingdom」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+StartAllianceDecision.GetProposerClanForPlayerKingdom(target);
+```
 
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**用途 / Purpose:** 处理 `is allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.IsAllowed();
+```
 
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**用途 / Purpose:** 获取 `proposal influence cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「proposal influence cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetProposalInfluenceCost();
+```
 
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**用途 / Purpose:** 获取 `general title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「general title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetGeneralTitle();
+```
 
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**用途 / Purpose:** 获取 `support title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「support title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetSupportTitle();
+```
 
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**用途 / Purpose:** 获取 `choose title` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「choose title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetChooseTitle();
+```
 
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**用途 / Purpose:** 获取 `support description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「support description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetSupportDescription();
+```
 
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**用途 / Purpose:** 获取 `choose description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「choose description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetChooseDescription();
+```
 
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**用途 / Purpose:** 处理 `determine initial candidates` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「initial candidates」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.DetermineInitialCandidates();
+```
 
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**用途 / Purpose:** 处理 `determine chooser` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「chooser」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.DetermineChooser();
+```
 
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** 处理 `determine sponsors` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「sponsors」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+startAllianceDecision.DetermineSponsors(possibleOutcomes);
+```
 
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**用途 / Purpose:** 将 `chosen outcome` 应用到当前对象。
+**用途 / Purpose:** 将 「chosen outcome」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+startAllianceDecision.ApplyChosenOutcome(chosenOutcome);
+```
 
 ### OnShowDecision
 `public override bool OnShowDecision()`
 
-**用途 / Purpose:** 当 `show decision` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「show decision」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.OnShowDecision();
+```
 
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**用途 / Purpose:** 将 `secondary effects` 应用到当前对象。
+**用途 / Purpose:** 将 「secondary effects」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+startAllianceDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutcome);
+```
 
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**用途 / Purpose:** 获取 `secondary effects` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「secondary effects」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetSecondaryEffects();
+```
 
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
 
-**用途 / Purpose:** 获取 `chosen outcome text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「chosen outcome text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, false);
+```
 
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** 获取 `queried decision outcome` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「queried decision outcome」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetQueriedDecisionOutcome(possibleOutcomes);
+```
 
 ### CalculateSupport
 `public float CalculateSupport(Clan clan, out TextObject hint, bool includeExplanation = false)`
 
-**用途 / Purpose:** 处理 `calculate support` 相关逻辑。
+**用途 / Purpose:** 计算「support」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.CalculateSupport(clan, hint, false);
+```
 
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**用途 / Purpose:** 处理 `determine support` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「support」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.DetermineSupport(clan, possibleOutcome);
+```
 
 ### CanMakeDecision
 `public override bool CanMakeDecision(out TextObject reason, bool includeReason = false)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `make decision`。
+**用途 / Purpose:** 检查当前对象是否满足 「make decision」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.CanMakeDecision(reason, false);
+```
+
+### GetDecisionTitle
+`public override TextObject GetDecisionTitle()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetDecisionTitle();
+```
+
+### GetDecisionDescription
+`public override TextObject GetDecisionDescription()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetDecisionDescription();
+```
+
+### GetDecisionLink
+`public override string GetDecisionLink()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetDecisionLink();
+```
+
+### GetDecisionImageIdentifier
+`public override ImageIdentifier GetDecisionImageIdentifier()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StartAllianceDecision 实例
+StartAllianceDecision startAllianceDecision = ...;
+var result = startAllianceDecision.GetDecisionImageIdentifier();
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 StartAllianceDecision.GetProposerClanForPlayerKingdom(target);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

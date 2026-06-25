@@ -1,13 +1,7 @@
 ---
 title: "TravelToVillageTutorialQuest"
+description: "Auto-generated class reference for TravelToVillageTutorialQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TravelToVillageTutorialQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TravelToVillageTutorialQuest
 
 **Namespace:** StoryMode.Quests.TutorialPhase
@@ -33,9 +27,10 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ## Usage Example
 
 ```csharp
-var value = new TravelToVillageTutorialQuest();
+// Obtain an instance from the relevant subsystem API
+TravelToVillageTutorialQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

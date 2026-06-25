@@ -1,20 +1,14 @@
 ---
 title: "FaceGeneratorMissionView"
+description: "Auto-generated class reference for FaceGeneratorMissionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FaceGeneratorMissionView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGeneratorMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FaceGeneratorMissionView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/FaceGeneratorMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/FaceGeneratorMissionView.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `FaceGeneratorMissionView` as a View-style extension point: first identify
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of FaceGeneratorMissionView from the subsystem API first
+FaceGeneratorMissionView faceGeneratorMissionView = ...;
+faceGeneratorMissionView.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new FaceGeneratorMissionView();
+// Retrieve this view from the subsystem API or scene
+FaceGeneratorMissionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

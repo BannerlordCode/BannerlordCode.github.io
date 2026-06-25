@@ -1,13 +1,7 @@
 ---
 title: "PrefabDatabindingExtension"
+description: "Auto-generated class reference for PrefabDatabindingExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PrefabDatabindingExtension`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrefabDatabindingExtension
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new PrefabDatabindingExtension();
+// Obtain an instance from the relevant subsystem API
+PrefabDatabindingExtension instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

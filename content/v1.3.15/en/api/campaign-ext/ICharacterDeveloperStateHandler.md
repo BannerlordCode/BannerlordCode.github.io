@@ -1,18 +1,12 @@
 ---
 title: "ICharacterDeveloperStateHandler"
+description: "Auto-generated class reference for ICharacterDeveloperStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICharacterDeveloperStateHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICharacterDeveloperStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICharacterDeveloperStateHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/ICharacterDeveloperStateHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `ICharacterDeveloperStateHandler` as a Handler-style extension point: firs
 ## Usage Example
 
 ```csharp
-ICharacterDeveloperStateHandler implementation = GetCharacterDeveloperStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IICharacterDeveloperStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "WidgetPrefab"
+description: "Auto-generated class reference for WidgetPrefab."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetPrefab`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetPrefab
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetPrefab`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.GauntletUI.PrefabSystem/WidgetPrefab.cs`
 
 ## Overview
 
-`WidgetPrefab` lives in `TaleWorlds.GauntletUI.PrefabSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`WidgetPrefab` lives in `TaleWorlds.GauntletUI.PrefabSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,46 +33,85 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### LoadFrom
 `public static WidgetPrefab LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, string path)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+WidgetPrefab.LoadFrom(prefabExtensionContext, widgetAttributeContext, "example");
+```
 
 ### Save
 `public XmlDocument Save(PrefabExtensionContext prefabExtensionContext)`
 
-**Purpose:** Saves `save` data.
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of WidgetPrefab from the subsystem API first
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.Save(prefabExtensionContext);
+```
 
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData)`
 
-**Purpose:** Handles logic related to `instantiate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WidgetPrefab from the subsystem API first
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.Instantiate(widgetCreationData);
+```
 
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-**Purpose:** Handles logic related to `instantiate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WidgetPrefab from the subsystem API first
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.Instantiate(widgetCreationData, dictionary<string, parameters);
+```
 
 ### OnRelease
 `public void OnRelease()`
 
-**Purpose:** Called when the `release` event is raised.
+**Purpose:** Invoked when the `release` event is raised.
+
+```csharp
+// Obtain an instance of WidgetPrefab from the subsystem API first
+WidgetPrefab widgetPrefab = ...;
+widgetPrefab.OnRelease();
+```
 
 ### GetConstantValue
 `public ConstantDefinition GetConstantValue(string name)`
 
-**Purpose:** Gets the current value of `constant value`.
+**Purpose:** Reads and returns the `constant value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetPrefab from the subsystem API first
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.GetConstantValue("example");
+```
 
 ### GetParameterDefaultValue
 `public string GetParameterDefaultValue(string name)`
 
-**Purpose:** Gets the current value of `parameter default value`.
+**Purpose:** Reads and returns the `parameter default value` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetPrefab from the subsystem API first
+WidgetPrefab widgetPrefab = ...;
+var result = widgetPrefab.GetParameterDefaultValue("example");
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 WidgetPrefab.LoadFrom(prefabExtensionContext, widgetAttributeContext, "example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

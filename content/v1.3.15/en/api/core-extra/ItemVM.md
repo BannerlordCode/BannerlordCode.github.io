@@ -1,13 +1,7 @@
 ---
 title: "ItemVM"
+description: "Auto-generated class reference for ItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -52,60 +46,120 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the st
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+itemVM.RefreshValues();
+```
 
 ### ExecutePreviewItem
 `public void ExecutePreviewItem()`
 
-**Purpose:** Executes the `preview item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `preview item`.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+itemVM.ExecutePreviewItem();
+```
 
 ### ExecuteUnequipItem
 `public void ExecuteUnequipItem()`
 
-**Purpose:** Executes the `unequip item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `unequip item`.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+itemVM.ExecuteUnequipItem();
+```
 
 ### ExecuteEquipItem
 `public void ExecuteEquipItem()`
 
-**Purpose:** Executes the `equip item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `equip item`.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+itemVM.ExecuteEquipItem();
+```
 
 ### ReleaseStaticContent
 `public static void ReleaseStaticContent()`
 
-**Purpose:** Handles logic related to `release static content`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ItemVM.ReleaseStaticContent();
+```
 
 ### ExecuteRefreshTooltip
 `public void ExecuteRefreshTooltip()`
 
-**Purpose:** Executes the `refresh tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `refresh tooltip`.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+itemVM.ExecuteRefreshTooltip();
+```
 
 ### ExecuteCancelTooltip
 `public void ExecuteCancelTooltip()`
 
-**Purpose:** Executes the `cancel tooltip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel tooltip`.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+itemVM.ExecuteCancelTooltip();
+```
 
 ### ExecuteBuyItem
 `public void ExecuteBuyItem()`
 
-**Purpose:** Executes the `buy item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `buy item`.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+itemVM.ExecuteBuyItem();
+```
 
 ### ExecuteSelectItem
 `public void ExecuteSelectItem()`
 
-**Purpose:** Executes the `select item` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select item`.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+itemVM.ExecuteSelectItem();
+```
 
 ### GetItemTypeWithItemObject
 `public EquipmentIndex GetItemTypeWithItemObject()`
 
-**Purpose:** Gets the current value of `item type with item object`.
+**Purpose:** Reads and returns the `item type with item object` value held by the current object.
+
+```csharp
+// Obtain an instance of ItemVM from the subsystem API first
+ItemVM itemVM = ...;
+var result = itemVM.GetItemTypeWithItemObject();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ItemVM itemVM = ...;
+itemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

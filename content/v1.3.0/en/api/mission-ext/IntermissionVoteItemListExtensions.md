@@ -1,13 +1,7 @@
 ---
 title: "IntermissionVoteItemListExtensions"
+description: "Auto-generated class reference for IntermissionVoteItemListExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntermissionVoteItemListExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IntermissionVoteItemListExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ContainsItem
 `public static bool ContainsItem(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**Purpose:** Handles logic related to `contains item`.
+**Purpose:** Indicates whether the current object contains `item`.
+
+```csharp
+// Static call; no instance required
+IntermissionVoteItemListExtensions.ContainsItem(intermissionVoteItems, "example");
+```
 
 ### Add
 `public static IntermissionVoteItem Add(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Static call; no instance required
+IntermissionVoteItemListExtensions.Add(intermissionVoteItems, "example");
+```
 
 ### GetItem
 `public static IntermissionVoteItem GetItem(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**Purpose:** Gets the current value of `item`.
+**Purpose:** Reads and returns the `item` value held by the current object.
+
+```csharp
+// Static call; no instance required
+IntermissionVoteItemListExtensions.GetItem(intermissionVoteItems, "example");
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ IntermissionVoteItemListExtensions.ContainsItem(intermissionVoteItems, "example"
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

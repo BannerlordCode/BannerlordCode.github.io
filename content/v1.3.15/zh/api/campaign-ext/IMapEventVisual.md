@@ -1,18 +1,12 @@
 ---
 title: "IMapEventVisual"
+description: "IMapEventVisual 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IMapEventVisual`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMapEventVisual
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMapEventVisual`
 **Base:** 无
 **File:** `TaleWorlds.CampaignSystem/MapEvents/IMapEventVisual.cs`
 
@@ -27,9 +21,10 @@ title: "IMapEventVisual"
 ## 使用示例
 
 ```csharp
-IMapEventVisual implementation = GetMapEventVisualImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIMapEventVisual service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

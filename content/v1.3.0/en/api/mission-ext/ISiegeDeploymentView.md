@@ -1,18 +1,12 @@
 ---
 title: "ISiegeDeploymentView"
+description: "Auto-generated class reference for ISiegeDeploymentView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ISiegeDeploymentView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISiegeDeploymentView
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ISiegeDeploymentView`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/ISiegeDeploymentView.cs`
 
@@ -27,9 +21,10 @@ Treat `ISiegeDeploymentView` as a View-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-ISiegeDeploymentView implementation = GetSiegeDeploymentViewImplementation();
+// Usually obtained through DI or a factory method
+IISiegeDeploymentView service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SettlementMusicData"
+description: "SettlementMusicData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementMusicData`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementMusicData
 
 **Namespace:** SandBox.Objects
@@ -39,14 +33,21 @@ title: "SettlementMusicData"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementMusicData 实例
+SettlementMusicData settlementMusicData = ...;
+settlementMusicData.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SettlementMusicData();
+// 该数据对象通常由战役/任务 API 返回
+SettlementMusicData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

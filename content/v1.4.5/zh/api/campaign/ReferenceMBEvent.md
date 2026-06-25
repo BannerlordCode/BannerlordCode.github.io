@@ -1,20 +1,14 @@
 ---
 title: "ReferenceMBEvent"
+description: "ReferenceMBEvent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ReferenceMBEvent`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ReferenceMBEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ReferenceMBEvent<T1> : ReferenceIMBEvent<T1>, IMbEventBase`
 **Base:** `ReferenceIMBEvent<T1>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ReferenceMBEvent.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ReferenceMBEvent.cs`
 
 ## 概述
 
@@ -29,55 +23,44 @@ title: "ReferenceMBEvent"
 ### AddNonSerializedListener
 `public void AddNonSerializedListener(object owner, ReferenceAction<T1> action)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `non serialized listener`。
+**用途 / Purpose:** 将 「non serialized listener」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ReferenceMBEvent 实例
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.AddNonSerializedListener(owner, action);
+```
 
 ### Invoke
 `public void Invoke(ref T1 t1)`
 
-**用途 / Purpose:** 处理 `invoke` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ReferenceMBEvent 实例
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.Invoke(t1);
+```
 
 ### ClearListeners
 `public void ClearListeners(object o)`
 
-**用途 / Purpose:** 处理 `clear listeners` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「listeners」。
 
-### AddNonSerializedListener
-`public void AddNonSerializedListener(object owner, ReferenceAction<T1, T2> action)`
-
-**用途 / Purpose:** 向当前集合/状态中添加 `non serialized listener`。
-
-### Invoke
-`public void Invoke(T1 t1, ref T2 t2)`
-
-**用途 / Purpose:** 处理 `invoke` 相关逻辑。
-
-### ClearListeners
-`public void ClearListeners(object o)`
-
-**用途 / Purpose:** 处理 `clear listeners` 相关逻辑。
-
-### AddNonSerializedListener
-`public void AddNonSerializedListener(object owner, ReferenceAction<T1, T2, T3> action)`
-
-**用途 / Purpose:** 向当前集合/状态中添加 `non serialized listener`。
-
-### Invoke
-`public void Invoke(T1 t1, T2 t2, ref T3 t3)`
-
-**用途 / Purpose:** 处理 `invoke` 相关逻辑。
-
-### ClearListeners
-`public void ClearListeners(object o)`
-
-**用途 / Purpose:** 处理 `clear listeners` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 ReferenceMBEvent 实例
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.ClearListeners(o);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ReferenceMBEvent();
-value.AddNonSerializedListener(owner, action);
+// 通常从对应子系统 API 获取实例后调用
+ReferenceMBEvent referenceMBEvent = ...;
+referenceMBEvent.AddNonSerializedListener(owner, action);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

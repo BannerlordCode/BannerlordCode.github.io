@@ -1,13 +1,7 @@
 ---
 title: "DefaultCharacterDevelopmentModel"
+description: "DefaultCharacterDevelopmentModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultCharacterDevelopmentModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultCharacterDevelopmentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -42,72 +36,156 @@ title: "DefaultCharacterDevelopmentModel"
 ### InitializeSkillsRequiredForLevel
 `public void InitializeSkillsRequiredForLevel()`
 
-**用途 / Purpose:** 初始化 `skills required for level` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「skills required for level」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+defaultCharacterDevelopmentModel.InitializeSkillsRequiredForLevel();
+```
 
 ### InitializeXpRequiredForSkillLevel
 `public void InitializeXpRequiredForSkillLevel()`
 
-**用途 / Purpose:** 初始化 `xp required for skill level` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「xp required for skill level」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+defaultCharacterDevelopmentModel.InitializeXpRequiredForSkillLevel();
+```
 
 ### SkillsRequiredForLevel
 `public override int SkillsRequiredForLevel(int level)`
 
-**用途 / Purpose:** 处理 `skills required for level` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.SkillsRequiredForLevel(0);
+```
 
 ### GetMaxSkillPoint
 `public override int GetMaxSkillPoint()`
 
-**用途 / Purpose:** 获取 `max skill point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max skill point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetMaxSkillPoint();
+```
 
 ### GetXpRequiredForSkillLevel
 `public override int GetXpRequiredForSkillLevel(int skillLevel)`
 
-**用途 / Purpose:** 获取 `xp required for skill level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp required for skill level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetXpRequiredForSkillLevel(0);
+```
 
 ### GetSkillLevelChange
 `public override int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)`
 
-**用途 / Purpose:** 获取 `skill level change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill level change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetSkillLevelChange(hero, skill, 0);
+```
 
 ### GetXpAmountForSkillLevelChange
 `public override int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)`
 
-**用途 / Purpose:** 获取 `xp amount for skill level change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp amount for skill level change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetXpAmountForSkillLevelChange(hero, skill, 0);
+```
 
 ### GetTraitLevelForTraitXp
 `public override void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int xpValue, out int traitLevel, out int clampedTraitXp)`
 
-**用途 / Purpose:** 获取 `trait level for trait xp` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trait level for trait xp」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+defaultCharacterDevelopmentModel.GetTraitLevelForTraitXp(hero, trait, 0, traitLevel, clampedTraitXp);
+```
 
 ### GetTraitXpRequiredForTraitLevel
 `public override int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)`
 
-**用途 / Purpose:** 获取 `trait xp required for trait level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trait xp required for trait level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetTraitXpRequiredForTraitLevel(trait, 0);
+```
 
 ### CalculateLearningLimit
 `public override ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate learning limit` 相关逻辑。
+**用途 / Purpose:** 计算「learning limit」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.CalculateLearningLimit(characterAttributes, 0, skill, false);
+```
 
 ### CalculateLearningRate
 `public override ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate learning rate` 相关逻辑。
+**用途 / Purpose:** 计算「learning rate」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.CalculateLearningRate(characterAttributes, 0, 0, skill, false);
+```
 
 ### GetNextSkillToAddFocus
 `public override SkillObject GetNextSkillToAddFocus(Hero hero)`
 
-**用途 / Purpose:** 获取 `next skill to add focus` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next skill to add focus」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetNextSkillToAddFocus(hero);
+```
 
 ### GetNextAttributeToUpgrade
 `public override CharacterAttribute GetNextAttributeToUpgrade(Hero hero)`
 
-**用途 / Purpose:** 获取 `next attribute to upgrade` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next attribute to upgrade」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetNextAttributeToUpgrade(hero);
+```
 
 ### GetNextPerkToChoose
 `public override PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)`
 
-**用途 / Purpose:** 获取 `next perk to choose` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next perk to choose」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultCharacterDevelopmentModel 实例
+DefaultCharacterDevelopmentModel defaultCharacterDevelopmentModel = ...;
+var result = defaultCharacterDevelopmentModel.GetNextPerkToChoose(hero, perk);
+```
 
 ## 使用示例
 
@@ -117,4 +195,4 @@ Game.Current.ReplaceModel<DefaultCharacterDevelopmentModel>(new MyDefaultCharact
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

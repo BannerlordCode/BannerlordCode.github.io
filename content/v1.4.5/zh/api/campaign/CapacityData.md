@@ -1,20 +1,14 @@
 ---
 title: "CapacityData"
+description: "CapacityData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CapacityData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CapacityData
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CapacityData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/InventoryLogic.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Inventory/InventoryLogic.cs`
 
 ## 概述
 
@@ -29,29 +23,54 @@ title: "CapacityData"
 ### GetCapacity
 `public int GetCapacity()`
 
-**用途 / Purpose:** 获取 `capacity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「capacity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CapacityData 实例
+CapacityData capacityData = ...;
+var result = capacityData.GetCapacity();
+```
 
 ### CanForceTransaction
 `public bool CanForceTransaction()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `force transaction`。
+**用途 / Purpose:** 检查当前对象是否满足 「force transaction」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CapacityData 实例
+CapacityData capacityData = ...;
+var result = capacityData.CanForceTransaction();
+```
 
 ### GetCapacityExceededWarningText
 `public TextObject GetCapacityExceededWarningText()`
 
-**用途 / Purpose:** 获取 `capacity exceeded warning text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「capacity exceeded warning text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CapacityData 实例
+CapacityData capacityData = ...;
+var result = capacityData.GetCapacityExceededWarningText();
+```
 
 ### GetCapacityExceededHintText
 `public TextObject GetCapacityExceededHintText()`
 
-**用途 / Purpose:** 获取 `capacity exceeded hint text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「capacity exceeded hint text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CapacityData 实例
+CapacityData capacityData = ...;
+var result = capacityData.GetCapacityExceededHintText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CapacityData();
+// 该数据对象通常由战役/任务 API 返回
+CapacityData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

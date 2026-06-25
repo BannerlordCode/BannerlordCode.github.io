@@ -1,13 +1,7 @@
 ---
 title: "OptionsGamepadOptionItemListPanel"
+description: "OptionsGamepadOptionItemListPanel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OptionsGamepadOptionItemListPanel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OptionsGamepadOptionItemListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad
@@ -37,20 +31,33 @@ title: "OptionsGamepadOptionItemListPanel"
 ### SetKeyProperties
 `public void SetKeyProperties(OptionsGamepadKeyLocationWidget currentTarget, Widget parentAreaWidget)`
 
-**用途 / Purpose:** 设置 `key properties` 的值或状态。
+**用途 / Purpose:** 为 「key properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OptionsGamepadOptionItemListPanel 实例
+OptionsGamepadOptionItemListPanel optionsGamepadOptionItemListPanel = ...;
+optionsGamepadOptionItemListPanel.SetKeyProperties(currentTarget, parentAreaWidget);
+```
 
 ### OnActionTextChangeEvent
 `public delegate void OnActionTextChangeEvent()`
 
-**用途 / Purpose:** 当 `action text change event` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「action text change event」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OptionsGamepadOptionItemListPanel 实例
+OptionsGamepadOptionItemListPanel optionsGamepadOptionItemListPanel = ...;
+optionsGamepadOptionItemListPanel.OnActionTextChangeEvent();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OptionsGamepadOptionItemListPanel();
-value.SetKeyProperties(currentTarget, parentAreaWidget);
+// 通常从对应子系统 API 获取实例后调用
+OptionsGamepadOptionItemListPanel optionsGamepadOptionItemListPanel = ...;
+optionsGamepadOptionItemListPanel.SetKeyProperties(currentTarget, parentAreaWidget);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

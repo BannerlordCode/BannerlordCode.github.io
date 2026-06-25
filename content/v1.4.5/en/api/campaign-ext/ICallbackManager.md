@@ -1,20 +1,14 @@
 ---
 title: "ICallbackManager"
+description: "Auto-generated class reference for ICallbackManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICallbackManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICallbackManager
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** `class`
+**Type:** `public interface ICallbackManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ICallbackManager.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ICallbackManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `ICallbackManager` as a Manager-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-ICallbackManager implementation = GetCallbackManagerImplementation();
+// Usually obtained through DI or a factory method
+IICallbackManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

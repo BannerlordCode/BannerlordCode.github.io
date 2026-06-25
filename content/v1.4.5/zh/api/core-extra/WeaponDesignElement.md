@@ -1,20 +1,14 @@
 ---
 title: "WeaponDesignElement"
+description: "WeaponDesignElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeaponDesignElement`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponDesignElement
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class WeaponDesignElement`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/WeaponDesignElement.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/WeaponDesignElement.cs`
 
 ## 概述
 
@@ -43,30 +37,53 @@ title: "WeaponDesignElement"
 ### SetScale
 `public void SetScale(int scalePercentage)`
 
-**用途 / Purpose:** 设置 `scale` 的值或状态。
+**用途 / Purpose:** 为 「scale」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignElement 实例
+WeaponDesignElement weaponDesignElement = ...;
+weaponDesignElement.SetScale(0);
+```
 
 ### GetCopy
 `public WeaponDesignElement GetCopy()`
 
-**用途 / Purpose:** 获取 `copy` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「copy」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeaponDesignElement 实例
+WeaponDesignElement weaponDesignElement = ...;
+var result = weaponDesignElement.GetCopy();
+```
 
 ### GetInvalidPieceForType
 `public static WeaponDesignElement GetInvalidPieceForType(CraftingPiece.PieceTypes pieceType)`
 
-**用途 / Purpose:** 获取 `invalid piece for type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「invalid piece for type」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WeaponDesignElement.GetInvalidPieceForType(pieceType);
+```
 
 ### CreateUsablePiece
 `public static WeaponDesignElement CreateUsablePiece(CraftingPiece craftingPiece, int scalePercentage = 100)`
 
-**用途 / Purpose:** 创建一个 `usable piece` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「usable piece」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+WeaponDesignElement.CreateUsablePiece(craftingPiece, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeaponDesignElement();
-value.SetScale(0);
+// 通常从对应子系统 API 获取实例后调用
+WeaponDesignElement weaponDesignElement = ...;
+weaponDesignElement.SetScale(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

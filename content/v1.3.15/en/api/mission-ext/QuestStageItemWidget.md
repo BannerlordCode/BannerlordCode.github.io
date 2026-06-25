@@ -1,13 +1,7 @@
 ---
 title: "QuestStageItemWidget"
+description: "Auto-generated class reference for QuestStageItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestStageItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestStageItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Quest
@@ -33,9 +27,10 @@ Treat `QuestStageItemWidget` as a Widget-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var widget = new QuestStageItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+QuestStageItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

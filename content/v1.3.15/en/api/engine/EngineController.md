@@ -1,13 +1,7 @@
 ---
 title: "EngineController"
+description: "Auto-generated class reference for EngineController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineController`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EngineController
 
 **Namespace:** TaleWorlds.Engine
@@ -29,17 +23,32 @@ Treat `EngineController` as a Controller-style extension point: first identify w
 ### GetVersionStr
 `public static string GetVersionStr()`
 
-**Purpose:** Gets the current value of `version str`.
+**Purpose:** Reads and returns the `version str` value held by the current object.
+
+```csharp
+// Static call; no instance required
+EngineController.GetVersionStr();
+```
 
 ### GetApplicationPlatformName
 `public static string GetApplicationPlatformName()`
 
-**Purpose:** Gets the current value of `application platform name`.
+**Purpose:** Reads and returns the `application platform name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+EngineController.GetApplicationPlatformName();
+```
 
 ### GetModulesVersionStr
 `public static string GetModulesVersionStr()`
 
-**Purpose:** Gets the current value of `modules version str`.
+**Purpose:** Reads and returns the `modules version str` value held by the current object.
+
+```csharp
+// Static call; no instance required
+EngineController.GetModulesVersionStr();
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ var controller = Mission.Current.GetMissionBehavior<EngineController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

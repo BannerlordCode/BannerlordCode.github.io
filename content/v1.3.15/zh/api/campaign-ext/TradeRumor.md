@@ -1,13 +1,7 @@
 ---
 title: "TradeRumor"
+description: "TradeRumor 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TradeRumor`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TradeRumor
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -35,20 +29,33 @@ title: "TradeRumor"
 ### IsCompatable
 `public bool IsCompatable(ItemObject item)`
 
-**用途 / Purpose:** 处理 `is compatable` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「compatable」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TradeRumor 实例
+TradeRumor tradeRumor = ...;
+var result = tradeRumor.IsCompatable(item);
+```
 
 ### IsExpired
 `public bool IsExpired()`
 
-**用途 / Purpose:** 处理 `is expired` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「expired」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TradeRumor 实例
+TradeRumor tradeRumor = ...;
+var result = tradeRumor.IsExpired();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TradeRumor();
-value.IsCompatable(item);
+// 通常从对应子系统 API 获取实例后调用
+TradeRumor tradeRumor = ...;
+tradeRumor.IsCompatable(item);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

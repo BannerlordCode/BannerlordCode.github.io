@@ -1,23 +1,18 @@
 ---
 title: "PlayerCaptivity"
+description: "Auto-generated class reference for PlayerCaptivity."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerCaptivity`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerCaptivity
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PlayerCaptivity`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/PlayerCaptivity.cs`
 
 ## Overview
 
-`PlayerCaptivity` lives in `TaleWorlds.CampaignSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`PlayerCaptivity` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -39,31 +34,50 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### StartCaptivity
 `public static void StartCaptivity(PartyBase captorParty)`
 
-**Purpose:** Handles logic related to `start captivity`.
+**Purpose:** Starts the `captivity` flow or state machine.
+
+```csharp
+// Static call; no instance required
+PlayerCaptivity.StartCaptivity(captorParty);
+```
 
 ### OnPlayerCharacterChanged
 `public static void OnPlayerCharacterChanged()`
 
-**Purpose:** Called when the `player character changed` event is raised.
+**Purpose:** Invoked when the `player character changed` event is raised.
+
+```csharp
+// Static call; no instance required
+PlayerCaptivity.OnPlayerCharacterChanged();
+```
 
 ### SetRansomAmount
 `public void SetRansomAmount()`
 
-**Purpose:** Sets the value or state of `ransom amount`.
+**Purpose:** Assigns a new value to `ransom amount` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PlayerCaptivity from the subsystem API first
+PlayerCaptivity playerCaptivity = ...;
+playerCaptivity.SetRansomAmount();
+```
 
 ### EndCaptivity
 `public static void EndCaptivity()`
 
-**Purpose:** Handles logic related to `end captivity`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerCaptivity.EndCaptivity();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 PlayerCaptivity.StartCaptivity(captorParty);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

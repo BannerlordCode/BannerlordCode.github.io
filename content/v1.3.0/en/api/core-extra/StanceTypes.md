@@ -1,13 +1,7 @@
 ---
 title: "StanceTypes"
+description: "Auto-generated class reference for StanceTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StanceTypes`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StanceTypes
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the st
 ## Usage Example
 
 ```csharp
-StanceTypes example = StanceTypes.Value;
+// Obtain an instance from the relevant subsystem API
+StanceTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

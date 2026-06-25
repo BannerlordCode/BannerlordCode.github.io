@@ -1,13 +1,7 @@
 ---
 title: "TournamentParticipant"
+description: "Auto-generated class reference for TournamentParticipant."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentParticipant`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TournamentParticipant
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -41,25 +35,44 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### SetTeam
 `public void SetTeam(TournamentTeam team)`
 
-**Purpose:** Sets the value or state of `team`.
+**Purpose:** Assigns a new value to `team` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TournamentParticipant from the subsystem API first
+TournamentParticipant tournamentParticipant = ...;
+tournamentParticipant.SetTeam(team);
+```
 
 ### AddScore
 `public int AddScore(int score)`
 
 **Purpose:** Adds `score` to the current collection or state.
 
+```csharp
+// Obtain an instance of TournamentParticipant from the subsystem API first
+TournamentParticipant tournamentParticipant = ...;
+var result = tournamentParticipant.AddScore(0);
+```
+
 ### ResetScore
 `public void ResetScore()`
 
-**Purpose:** Resets `score` to its initial state.
+**Purpose:** Returns `score` to its default or initial condition.
+
+```csharp
+// Obtain an instance of TournamentParticipant from the subsystem API first
+TournamentParticipant tournamentParticipant = ...;
+tournamentParticipant.ResetScore();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentParticipant();
-value.SetTeam(team);
+// Typically call this after obtaining an instance from the subsystem API
+TournamentParticipant tournamentParticipant = ...;
+tournamentParticipant.SetTeam(team);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

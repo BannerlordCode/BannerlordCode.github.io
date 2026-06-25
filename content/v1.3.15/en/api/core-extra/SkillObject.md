@@ -1,70 +1,62 @@
 ---
 title: "SkillObject"
+description: "Auto-generated class reference for SkillObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkillObject`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkillObject
 
-**Namespace:** TaleWorlds.Core  
-**Module:** TaleWorlds.Core  
-**Type:** sealed class (inherits `PropertyObject`)  
-**File:** `bannerlord-1.3.15/TaleWorlds.Core/SkillObject.cs`
-
-`SkillObject` represents a skill (OneHanded, TwoHanded, Bow, Trade, Leadership, etc.). A skill is associated with one or more `CharacterAttribute`s and is the core dimension of perks (`PerkObject`) and character progression.
+**Namespace:** TaleWorlds.Core
+**Module:** TaleWorlds.Core
+**Type:** `public sealed class SkillObject : PropertyObject`
+**Base:** `PropertyObject`
+**File:** `TaleWorlds.Core/SkillObject.cs`
 
 ## Overview
 
-Mods usually reference existing skills via the `DefaultSkills` static fields (e.g. `DefaultSkills.OneHanded`). Read/write a hero's skill value with `Hero.GetSkillValue(skill)` / `Hero.SetSkillValue(skill, value)`; add xp with `Hero.AddSkillXp(skill, xp)` or `HeroDeveloper.AddSkillXp`.
+`SkillObject` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `SkillObject` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Main properties
+## Key Properties
 
-| Name | Type | Description |
-|------|------|-------------|
-| Attributes | `CharacterAttribute[]` | Attributes this skill is tied to (get-only) |
-| HowToLearnSkillText | TextObject | "How to learn this skill" text (from `str_how_to_learn_skill`) |
+| Name | Signature |
+|------|-----------|
+| `Attributes` | `public CharacterAttribute Attributes { get; }` |
+| `HowToLearnSkillText` | `public TextObject HowToLearnSkillText { get; }` |
 
-## Initialize
+## Key Methods
 
-```csharp
-public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute[] attributes)
-```
+### ToString
+`public override string ToString()`
 
-Sets name, description, and associated attributes when defining a skill.
-
-## Usage example
+**Purpose:** Returns a human-readable string representation of the current object.
 
 ```csharp
-// Reference a skill and read/write a hero's skill value
-SkillObject oneHanded = DefaultSkills.OneHanded;
-int value = hero.GetSkillValue(oneHanded);
-hero.SetSkillValue(oneHanded, value + 10);
-hero.AddSkillXp(oneHanded, 500f);
-
-// Inspect the attributes a skill is tied to
-foreach (CharacterAttribute attr in oneHanded.Attributes)
-{
-    Debug.Print(attr.Name.ToString());
-}
+// Obtain an instance of SkillObject from the subsystem API first
+SkillObject skillObject = ...;
+var result = skillObject.ToString();
 ```
 
-## See also
+### Initialize
+`public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute attributes)`
 
-- [Hero](../campaign/Hero)
-- [HeroDeveloper](../campaign-ext/HeroDeveloper)
-- [CharacterAttribute](./CharacterAttribute)
-- [PerkObject](../campaign-ext/PerkObject)
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SkillObject from the subsystem API first
+SkillObject skillObject = ...;
+var result = skillObject.Initialize(name, description, attributes);
+```
 
 ## Usage Example
 
 ```csharp
-var example = new SkillObject();
+// Typically call this after obtaining an instance from the subsystem API
+SkillObject skillObject = ...;
+skillObject.ToString();
 ```
+
+## See Also
+
+- [Area Index](../)

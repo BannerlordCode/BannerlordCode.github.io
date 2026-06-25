@@ -1,13 +1,7 @@
 ---
 title: "PersuasionOptionVM"
+description: "PersuasionOptionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PersuasionOptionVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PersuasionOptionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
@@ -52,25 +46,44 @@ title: "PersuasionOptionVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionOptionVM 实例
+PersuasionOptionVM persuasionOptionVM = ...;
+persuasionOptionVM.RefreshValues();
+```
 
 ### GetPersuasionAdditionalText
 `public string GetPersuasionAdditionalText()`
 
-**用途 / Purpose:** 获取 `persuasion additional text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「persuasion additional text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionOptionVM 实例
+PersuasionOptionVM persuasionOptionVM = ...;
+var result = persuasionOptionVM.GetPersuasionAdditionalText();
+```
 
 ### ExecuteReadyToContinue
 `public void ExecuteReadyToContinue()`
 
-**用途 / Purpose:** 执行 `ready to continue` 操作或流程。
+**用途 / Purpose:** 执行 「ready to continue」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PersuasionOptionVM 实例
+PersuasionOptionVM persuasionOptionVM = ...;
+persuasionOptionVM.ExecuteReadyToContinue();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PersuasionOptionVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+PersuasionOptionVM persuasionOptionVM = ...;
+persuasionOptionVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

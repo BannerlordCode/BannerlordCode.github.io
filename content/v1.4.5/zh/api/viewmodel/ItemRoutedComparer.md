@@ -1,20 +1,14 @@
 ---
 title: "ItemRoutedComparer"
+description: "ItemRoutedComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemRoutedComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemRoutedComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ItemRoutedComparer : ScoreboardUnitItemComparerBase`
 **Base:** `ScoreboardUnitItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSortControllerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSortControllerVM.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ItemRoutedComparer"
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ItemRoutedComparer 实例
+ItemRoutedComparer itemRoutedComparer = ...;
+var result = itemRoutedComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemRoutedComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+ItemRoutedComparer itemRoutedComparer = ...;
+itemRoutedComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

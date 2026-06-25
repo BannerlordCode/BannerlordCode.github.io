@@ -1,13 +1,7 @@
 ---
 title: "StackLayout"
+description: "StackLayout 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StackLayout`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StackLayout
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
@@ -36,35 +30,66 @@ title: "StackLayout"
 ### GetItemDescription
 `public ContainerItemDescription GetItemDescription(Widget owner, Widget child, int childIndex)`
 
-**用途 / Purpose:** 获取 `item description` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item description」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StackLayout 实例
+StackLayout stackLayout = ...;
+var result = stackLayout.GetItemDescription(owner, child, 0);
+```
 
 ### MeasureChildren
 `public Vector2 MeasureChildren(Widget widget, Vector2 measureSpec, SpriteData spriteData, float renderScale)`
 
-**用途 / Purpose:** 处理 `measure children` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StackLayout 实例
+StackLayout stackLayout = ...;
+var result = stackLayout.MeasureChildren(widget, measureSpec, spriteData, 0);
+```
 
 ### OnLayout
 `public void OnLayout(Widget widget, float left, float bottom, float right, float top)`
 
-**用途 / Purpose:** 当 `layout` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「layout」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StackLayout 实例
+StackLayout stackLayout = ...;
+stackLayout.OnLayout(widget, 0, 0, 0, 0);
+```
 
 ### GetIndexForDrop
 `public int GetIndexForDrop(Container widget, Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** 获取 `index for drop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index for drop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StackLayout 实例
+StackLayout stackLayout = ...;
+var result = stackLayout.GetIndexForDrop(widget, draggedWidgetPosition);
+```
 
 ### GetDropGizmoPosition
 `public Vector2 GetDropGizmoPosition(Container widget, Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** 获取 `drop gizmo position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「drop gizmo position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StackLayout 实例
+StackLayout stackLayout = ...;
+var result = stackLayout.GetDropGizmoPosition(widget, draggedWidgetPosition);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StackLayout();
-value.GetItemDescription(owner, child, 0);
+// 通常从对应子系统 API 获取实例后调用
+StackLayout stackLayout = ...;
+stackLayout.GetItemDescription(owner, child, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

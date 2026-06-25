@@ -1,20 +1,14 @@
 ---
 title: "BasicTooltipViewModel"
+description: "Auto-generated class reference for BasicTooltipViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BasicTooltipViewModel`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicTooltipViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public class BasicTooltipViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/BasicTooltipViewModel.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/BasicTooltipViewModel.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Treat `BasicTooltipViewModel` as a ViewModel-style extension point: first identi
 ### SetToolipCallback
 `public void SetToolipCallback(Func<List<TooltipProperty>> tooltipPropertiesDelegate)`
 
-**Purpose:** Sets the value or state of `toolip callback`.
+**Purpose:** Assigns a new value to `toolip callback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BasicTooltipViewModel from the subsystem API first
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.SetToolipCallback(tooltipPropertiesDelegate);
+```
 
 ### SetGenericTooltipCallback
 `public void SetGenericTooltipCallback(Action preBuiltTooltipCallback)`
 
-**Purpose:** Sets the value or state of `generic tooltip callback`.
+**Purpose:** Assigns a new value to `generic tooltip callback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BasicTooltipViewModel from the subsystem API first
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.SetGenericTooltipCallback(preBuiltTooltipCallback);
+```
 
 ### SetHintCallback
 `public void SetHintCallback(Func<string> hintProperty)`
 
-**Purpose:** Sets the value or state of `hint callback`.
+**Purpose:** Assigns a new value to `hint callback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BasicTooltipViewModel from the subsystem API first
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.SetHintCallback(hintProperty);
+```
 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of BasicTooltipViewModel from the subsystem API first
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of BasicTooltipViewModel from the subsystem API first
+BasicTooltipViewModel basicTooltipViewModel = ...;
+basicTooltipViewModel.ExecuteEndHint();
+```
 
 ## Usage Example
 
 ```csharp
-var vm = new BasicTooltipViewModel();
+// Bind the instance as the view-model of a movie or view
+BasicTooltipViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

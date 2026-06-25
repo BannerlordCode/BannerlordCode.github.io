@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListItemComparer"
+description: "Auto-generated class reference for EncyclopediaListItemComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListItemComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListItemComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### Compare
 `public int Compare(EncyclopediaListItemVM x, EncyclopediaListItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of EncyclopediaListItemComparer from the subsystem API first
+EncyclopediaListItemComparer encyclopediaListItemComparer = ...;
+var result = encyclopediaListItemComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaListItemComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaListItemComparer encyclopediaListItemComparer = ...;
+encyclopediaListItemComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

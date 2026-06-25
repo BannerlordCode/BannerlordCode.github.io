@@ -1,13 +1,7 @@
 ---
 title: "PlayerSiege"
+description: "PlayerSiege 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerSiege`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerSiege
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -38,27 +32,52 @@ title: "PlayerSiege"
 ### StartSiegePreparation
 `public static void StartSiegePreparation()`
 
-**用途 / Purpose:** 处理 `start siege preparation` 相关逻辑。
+**用途 / Purpose:** 启动「siege preparation」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerSiege.StartSiegePreparation();
+```
 
 ### OnSiegeEventFinalized
 `public static void OnSiegeEventFinalized(bool besiegerPartyDefeated)`
 
-**用途 / Purpose:** 当 `siege event finalized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「siege event finalized」 事件触发时调用此回调。
+
+```csharp
+// 静态调用，不需要实例
+PlayerSiege.OnSiegeEventFinalized(false);
+```
 
 ### StartPlayerSiege
 `public static void StartPlayerSiege(BattleSideEnum playerSide, bool isSimulation = false, Settlement settlement = null)`
 
-**用途 / Purpose:** 处理 `start player siege` 相关逻辑。
+**用途 / Purpose:** 启动「player siege」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerSiege.StartPlayerSiege(playerSide, false, null);
+```
 
 ### FinalizePlayerSiege
 `public static void FinalizePlayerSiege()`
 
-**用途 / Purpose:** 处理 `finalize player siege` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PlayerSiege.FinalizePlayerSiege();
+```
 
 ### StartSiegeMission
 `public static void StartSiegeMission(Settlement settlement = null)`
 
-**用途 / Purpose:** 处理 `start siege mission` 相关逻辑。
+**用途 / Purpose:** 启动「siege mission」流程或状态机。
+
+```csharp
+// 静态调用，不需要实例
+PlayerSiege.StartSiegeMission(null);
+```
 
 ## 使用示例
 
@@ -68,4 +87,4 @@ PlayerSiege.StartSiegePreparation();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

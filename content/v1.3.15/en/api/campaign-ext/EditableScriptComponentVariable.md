@@ -1,13 +1,7 @@
 ---
 title: "EditableScriptComponentVariable"
+description: "Auto-generated class reference for EditableScriptComponentVariable."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditableScriptComponentVariable`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EditableScriptComponentVariable
 
 **Namespace:** TaleWorlds.DotNet
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new EditableScriptComponentVariable();
+// Obtain an instance from the relevant subsystem API
+EditableScriptComponentVariable instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "WeaponStatsData"
+description: "Auto-generated class reference for WeaponStatsData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponStatsData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponStatsData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -27,9 +21,10 @@ Treat `WeaponStatsData` as a Data-style extension point: first identify who crea
 ## Usage Example
 
 ```csharp
-var value = new WeaponStatsData();
+// This data object is usually returned by campaign/mission APIs
+WeaponStatsData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

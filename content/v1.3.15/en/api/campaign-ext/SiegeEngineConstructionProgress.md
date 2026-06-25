@@ -1,23 +1,18 @@
 ---
 title: "SiegeEngineConstructionProgress"
+description: "Auto-generated class reference for SiegeEngineConstructionProgress."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEngineConstructionProgress`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeEngineConstructionProgress
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SiegeEngineConstructionProgress`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Siege/SiegeEvent.cs`
 
 ## Overview
 
-`SiegeEngineConstructionProgress` lives in `TaleWorlds.CampaignSystem.Siege`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SiegeEngineConstructionProgress` lives in `TaleWorlds.CampaignSystem.Siege` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,138 +22,69 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 
 | Name | Signature |
 |------|-----------|
-| `SiegeWallSeed` | `public int SiegeWallSeed { get; }` |
-| `SiegePeopleSeed` | `public int SiegePeopleSeed { get; }` |
-| `SiegeStartTime` | `public CampaignTime SiegeStartTime { get; }` |
-| `IsPlayerSiegeEvent` | `public bool IsPlayerSiegeEvent { get; }` |
-| `BlockadeShouldBeActivated` | `public bool BlockadeShouldBeActivated { get; }` |
-| `IsBlockadeActive` | `public bool IsBlockadeActive { get; }` |
-| `ReadyToBeRemoved` | `public bool ReadyToBeRemoved { get; }` |
-| `NextTimeEngineCanBombard` | `public CampaignTime NextTimeEngineCanBombard { get; }` |
-| `AlreadyFired` | `public bool AlreadyFired { get; }` |
-| `CurrentTargetType` | `public SiegeBombardTargets CurrentTargetType { get; }` |
-| `CurrentTargetIndex` | `public int CurrentTargetIndex { get; }` |
-| `PreviousDamagedTargetType` | `public SiegeBombardTargets PreviousDamagedTargetType { get; }` |
-| `PreviousTargetIndex` | `public int PreviousTargetIndex { get; }` |
-| `LastBombardTime` | `public CampaignTime LastBombardTime { get; }` |
-| `NextProjectileCollisionTime` | `public CampaignTime NextProjectileCollisionTime { get; }` |
-| `IsReadyToFire` | `public bool IsReadyToFire { get; }` |
 | `IsActive` | `public bool IsActive { get; }` |
 | `Hitpoints` | `public float Hitpoints { get; }` |
 | `Progress` | `public float Progress { get; }` |
 | `RangedSiegeEngine` | `public SiegeEvent.RangedSiegeEngine RangedSiegeEngine { get; }` |
+| `RedeploymentProgress` | `public float RedeploymentProgress { get; }` |
+| `MaxHitPoints` | `public float MaxHitPoints { get; }` |
+| `IsConstructed` | `public bool IsConstructed { get; }` |
+| `IsBeingRedeployed` | `public bool IsBeingRedeployed { get; }` |
 
 ## Key Methods
 
-### ActivateBlockade
-`public void ActivateBlockade()`
+### SetRedeploymentProgress
+`public void SetRedeploymentProgress(float redeploymentProgress)`
 
-**Purpose:** Handles logic related to `activate blockade`.
+**Purpose:** Assigns a new value to `redeployment progress` and updates the object's internal state.
 
-### DeactivateBlockade
-`public void DeactivateBlockade()`
+```csharp
+// Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRedeploymentProgress(0);
+```
 
-**Purpose:** Handles logic related to `deactivate blockade`.
+### SetHitpoints
+`public void SetHitpoints(float hitPoints)`
 
-### GetInvolvedPartiesForEventType
-`public List<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes battleType)`
+**Purpose:** Assigns a new value to `hitpoints` and updates the object's internal state.
 
-**Purpose:** Gets the current value of `involved parties for event type`.
+```csharp
+// Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetHitpoints(0);
+```
 
-### GetCurrentBattleType
-`public MapEvent.BattleTypes GetCurrentBattleType()`
+### SetProgress
+`public void SetProgress(float progress)`
 
-**Purpose:** Gets the current value of `current battle type`.
+**Purpose:** Assigns a new value to `progress` and updates the object's internal state.
 
-### GetSiegeEventSide
-`public ISiegeEventSide GetSiegeEventSide(BattleSideEnum side)`
+```csharp
+// Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetProgress(0);
+```
 
-**Purpose:** Gets the current value of `siege event side`.
+### SetRangedSiegeEngine
+`public void SetRangedSiegeEngine(SiegeEvent.RangedSiegeEngine rangedSiegeEngine)`
 
-### CanPartyJoinSide
-`public bool CanPartyJoinSide(PartyBase party, BattleSideEnum side)`
+**Purpose:** Assigns a new value to `ranged siege engine` and updates the object's internal state.
 
-**Purpose:** Checks whether the current object can `party join side`.
-
-### Tick
-`public void Tick(float dt)`
-
-**Purpose:** Handles logic related to `tick`.
-
-### OnAfterLoad
-`public void OnAfterLoad()`
-
-**Purpose:** Called when the `after load` event is raised.
-
-### OnBeforeSiegeEventEnd
-`public void OnBeforeSiegeEventEnd(BattleState winnerSide, MapEvent.BattleTypes battleType)`
-
-**Purpose:** Called when the `before siege event end` event is raised.
-
-### FinalizeSiegeEvent
-`public void FinalizeSiegeEvent()`
-
-**Purpose:** Handles logic related to `finalize siege event`.
-
-### IsPartyInvolved
-`public bool IsPartyInvolved(PartyBase party)`
-
-**Purpose:** Handles logic related to `is party involved`.
-
-### SetPositionAfterMapChange
-`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
-
-**Purpose:** Sets the value or state of `position after map change`.
-
-### DoSiegeAction
-`public void DoSiegeAction(ISiegeEventSide siegeEventSide, SiegeStrategyActionModel.SiegeAction siegeAction, SiegeEngineType siegeEngineType, int deploymentIndex, int reserveIndex)`
-
-**Purpose:** Handles logic related to `do siege action`.
-
-### AdvanceStrategy
-`public void AdvanceStrategy(ISiegeEventSide siegeEventSide)`
-
-**Purpose:** Handles logic related to `advance strategy`.
-
-### BreakSiegeEngine
-`public void BreakSiegeEngine(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngineType)`
-
-**Purpose:** Handles logic related to `break siege engine`.
-
-### GetPreparedSiegeEnginesAsDictionary
-`public Dictionary<SiegeEngineType, int> GetPreparedSiegeEnginesAsDictionary(ISiegeEventSide siegeEventSide)`
-
-**Purpose:** Gets the current value of `prepared siege engines as dictionary`.
-
-### GetPreparedAndActiveSiegeEngines
-`public List<MissionSiegeWeapon> GetPreparedAndActiveSiegeEngines(ISiegeEventSide siegeEventSide)`
-
-**Purpose:** Gets the current value of `prepared and active siege engines`.
-
-### SetSiegeEngineStatesAfterSiegeMission
-`public void SetSiegeEngineStatesAfterSiegeMission(IEnumerable<IMissionSiegeWeapon> attackerMissionSiegeEngineData, IEnumerable<IMissionSiegeWeapon> defenderMissionSiegeEngineData)`
-
-**Purpose:** Sets the value or state of `siege engine states after siege mission`.
-
-### CreateSiegeObject
-`public void CreateSiegeObject(SiegeEvent.SiegeEngineConstructionProgress siegeEngineConstructionProgress, ISiegeEventSide siegeSide)`
-
-**Purpose:** Creates a new `siege object` instance or object.
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Handles logic related to `to string`.
+```csharp
+// Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRangedSiegeEngine(rangedSiegeEngine);
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a SiegeEngineConstructionProgress instance from game state, then call one of its public methods
-var value = new SiegeEngineConstructionProgress();
-value.ActivateBlockade();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRedeploymentProgress(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

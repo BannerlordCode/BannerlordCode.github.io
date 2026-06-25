@@ -1,13 +1,7 @@
 ---
 title: "WeakMaterial"
+description: "WeakMaterial 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WeakMaterial`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeakMaterial
 
 **Namespace:** TaleWorlds.Engine
@@ -37,85 +31,176 @@ title: "WeakMaterial"
 ### GetShader
 `public Shader GetShader()`
 
-**用途 / Purpose:** 获取 `shader` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「shader」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+var result = weakMaterial.GetShader();
+```
 
 ### GetShaderFlags
 `public ulong GetShaderFlags()`
 
-**用途 / Purpose:** 获取 `shader flags` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「shader flags」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+var result = weakMaterial.GetShaderFlags();
+```
 
 ### SetShaderFlags
 `public void SetShaderFlags(ulong flagEntry)`
 
-**用途 / Purpose:** 设置 `shader flags` 的值或状态。
+**用途 / Purpose:** 为 「shader flags」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+weakMaterial.SetShaderFlags(0);
+```
 
 ### SetMeshVectorArgument
 `public void SetMeshVectorArgument(float x, float y, float z, float w)`
 
-**用途 / Purpose:** 设置 `mesh vector argument` 的值或状态。
+**用途 / Purpose:** 为 「mesh vector argument」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+weakMaterial.SetMeshVectorArgument(0, 0, 0, 0);
+```
 
 ### SetTexture
 `public void SetTexture(Material.MBTextureType textureType, Texture texture)`
 
-**用途 / Purpose:** 设置 `texture` 的值或状态。
+**用途 / Purpose:** 为 「texture」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+weakMaterial.SetTexture(textureType, texture);
+```
 
 ### SetTextureAtSlot
 `public void SetTextureAtSlot(int textureSlot, Texture texture)`
 
-**用途 / Purpose:** 设置 `texture at slot` 的值或状态。
+**用途 / Purpose:** 为 「texture at slot」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+weakMaterial.SetTextureAtSlot(0, texture);
+```
 
 ### SetAreaMapScale
 `public void SetAreaMapScale(float scale)`
 
-**用途 / Purpose:** 设置 `area map scale` 的值或状态。
+**用途 / Purpose:** 为 「area map scale」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+weakMaterial.SetAreaMapScale(0);
+```
 
 ### SetEnableSkinning
 `public void SetEnableSkinning(bool enable)`
 
-**用途 / Purpose:** 设置 `enable skinning` 的值或状态。
+**用途 / Purpose:** 为 「enable skinning」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+weakMaterial.SetEnableSkinning(false);
+```
 
 ### UsingSkinning
 `public bool UsingSkinning()`
 
-**用途 / Purpose:** 处理 `using skinning` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+var result = weakMaterial.UsingSkinning();
+```
 
 ### GetTexture
 `public Texture GetTexture(Material.MBTextureType textureType)`
 
-**用途 / Purpose:** 获取 `texture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「texture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+var result = weakMaterial.GetTexture(textureType);
+```
 
 ### GetTextureWithSlot
 `public Texture GetTextureWithSlot(int textureSlot)`
 
-**用途 / Purpose:** 获取 `texture with slot` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「texture with slot」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+var result = weakMaterial.GetTextureWithSlot(0);
+```
 
 ### AddMaterialShaderFlag
 `public void AddMaterialShaderFlag(string flagName, bool showErrors)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `material shader flag`。
+**用途 / Purpose:** 将 「material shader flag」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+weakMaterial.AddMaterialShaderFlag("example", false);
+```
 
 ### RemoveMaterialShaderFlag
 `public void RemoveMaterialShaderFlag(string flagName)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `material shader flag`。
+**用途 / Purpose:** 从当前容器或状态中移除 「material shader flag」。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+weakMaterial.RemoveMaterialShaderFlag("example");
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+var result = weakMaterial.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 WeakMaterial 实例
+WeakMaterial weakMaterial = ...;
+var result = weakMaterial.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WeakMaterial();
-value.GetShader();
+// 通常从对应子系统 API 获取实例后调用
+WeakMaterial weakMaterial = ...;
+weakMaterial.GetShader();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,24 +1,18 @@
 ---
 title: "TypeSaveId"
+description: "TypeSaveId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TypeSaveId`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TypeSaveId
 
-**命名空间:** TaleWorlds.SaveSystem.Definition
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public class TypeSaveId : SaveId`
+**Namespace:** TaleWorlds.SaveSystem.Definition
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class TypeSaveId : SaveId`
 **Base:** `SaveId`
-**领域:** save-system
+**File:** `TaleWorlds.SaveSystem/Definition/TypeSaveId.cs`
 
 ## 概述
 
-`TypeSaveId` 位于 `TaleWorlds.SaveSystem.Definition`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`TypeSaveId` 位于 `TaleWorlds.SaveSystem.Definition`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -35,32 +29,54 @@ title: "TypeSaveId"
 ### GetStringId
 `public override string GetStringId()`
 
-**用途 / Purpose:** 获取 `string id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「string id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TypeSaveId 实例
+TypeSaveId typeSaveId = ...;
+var result = typeSaveId.GetStringId();
+```
 
 ### WriteTo
 `public override void WriteTo(IWriter writer)`
 
-**用途 / Purpose:** 处理 `write to` 相关逻辑。
+**用途 / Purpose:** 将「to」写入目标位置。
+
+```csharp
+// 先通过子系统 API 拿到 TypeSaveId 实例
+TypeSaveId typeSaveId = ...;
+typeSaveId.WriteTo(writer);
+```
 
 ### ReadFrom
 `public static TypeSaveId ReadFrom(IReader reader)`
 
-**用途 / Purpose:** 处理 `read from` 相关逻辑。
+**用途 / Purpose:** 读取「from」的数据或状态。
+
+```csharp
+// 静态调用，不需要实例
+TypeSaveId.ReadFrom(reader);
+```
 
 ### GetSizeInBytes
 `public override int GetSizeInBytes()`
 
-**用途 / Purpose:** 获取 `size in bytes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「size in bytes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TypeSaveId 实例
+TypeSaveId typeSaveId = ...;
+var result = typeSaveId.GetSizeInBytes();
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 TypeSaveId 实例，再调用它的公开方法
-var value = new TypeSaveId();
-value.GetStringId();
+// 通常从对应子系统 API 获取实例后调用
+TypeSaveId typeSaveId = ...;
+typeSaveId.GetStringId();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

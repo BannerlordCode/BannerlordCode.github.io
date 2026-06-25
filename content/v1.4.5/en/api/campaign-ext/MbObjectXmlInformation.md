@@ -1,20 +1,14 @@
 ---
 title: "MbObjectXmlInformation"
+description: "Auto-generated class reference for MbObjectXmlInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MbObjectXmlInformation`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MbObjectXmlInformation
 
 **Namespace:** TaleWorlds.ObjectSystem
 **Module:** TaleWorlds.ObjectSystem
 **Type:** `public struct MbObjectXmlInformation`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MbObjectXmlInformation.cs`
+**File:** `bin/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem/MbObjectXmlInformation.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### MbObjectXmlInformation
 `public struct MbObjectXmlInformation(string id, string name, string moduleName, List<string> gameTypesIncluded)`
 
-**Purpose:** Handles logic related to `mb object xml information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MbObjectXmlInformation from the subsystem API first
+MbObjectXmlInformation mbObjectXmlInformation = ...;
+var result = mbObjectXmlInformation.MbObjectXmlInformation("example", "example", "example", gameTypesIncluded);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MbObjectXmlInformation();
-value.MbObjectXmlInformation("example", "example", "example", gameTypesIncluded);
+// Typically call this after obtaining an instance from the subsystem API
+MbObjectXmlInformation mbObjectXmlInformation = ...;
+mbObjectXmlInformation.MbObjectXmlInformation("example", "example", "example", gameTypesIncluded);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

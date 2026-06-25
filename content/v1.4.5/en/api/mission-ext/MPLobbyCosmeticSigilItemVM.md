@@ -1,24 +1,18 @@
 ---
 title: "MPLobbyCosmeticSigilItemVM"
+description: "Auto-generated class reference for MPLobbyCosmeticSigilItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyCosmeticSigilItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyCosmeticSigilItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyCosmeticSigilItemVM : MPLobbySigilItemVM`
 **Base:** `MPLobbySigilItemVM`
-**Area:** mission-ext
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyCosmeticSigilItemVM.cs`
 
 ## Overview
 
-`MPLobbyCosmeticSigilItemVM` lives in `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MPLobbyCosmeticSigilItemVM` lives in `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -38,31 +32,49 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### SetOnSelectionCallback
 `public static void SetOnSelectionCallback(Action<MPLobbyCosmeticSigilItemVM> onSelection)`
 
-**Purpose:** Sets the value or state of `on selection callback`.
+**Purpose:** Assigns a new value to `on selection callback` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MPLobbyCosmeticSigilItemVM.SetOnSelectionCallback(onSelection);
+```
 
 ### ResetOnSelectionCallback
 `public static void ResetOnSelectionCallback()`
 
-**Purpose:** Resets `on selection callback` to its initial state.
+**Purpose:** Returns `on selection callback` to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+MPLobbyCosmeticSigilItemVM.ResetOnSelectionCallback();
+```
 
 ### SetOnObtainRequestedCallback
 `public static void SetOnObtainRequestedCallback(Action<MPLobbyCosmeticSigilItemVM> onObtainRequested)`
 
-**Purpose:** Sets the value or state of `on obtain requested callback`.
+**Purpose:** Assigns a new value to `on obtain requested callback` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MPLobbyCosmeticSigilItemVM.SetOnObtainRequestedCallback(onObtainRequested);
+```
 
 ### ResetOnObtainRequestedCallback
 `public static void ResetOnObtainRequestedCallback()`
 
-**Purpose:** Resets `on obtain requested callback` to its initial state.
+**Purpose:** Returns `on obtain requested callback` to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+MPLobbyCosmeticSigilItemVM.ResetOnObtainRequestedCallback();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MPLobbyCosmeticSigilItemVM.SetOnSelectionCallback(onSelection);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

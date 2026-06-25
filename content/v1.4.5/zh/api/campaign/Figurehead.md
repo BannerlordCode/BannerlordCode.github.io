@@ -1,20 +1,14 @@
 ---
 title: "Figurehead"
+description: "Figurehead 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Figurehead`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Figurehead
 
 **Namespace:** TaleWorlds.CampaignSystem.Naval
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class Figurehead : PropertyObject`
 **Base:** `PropertyObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Naval/Figurehead.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Naval/Figurehead.cs`
 
 ## 概述
 
@@ -37,15 +31,22 @@ title: "Figurehead"
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, float amount, CultureObject culture, EffectIncrementType effectIncrementType)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 Figurehead 实例
+Figurehead figurehead = ...;
+figurehead.Initialize(name, description, 0, culture, effectIncrementType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Figurehead();
-value.Initialize(name, description, 0, culture, effectIncrementType);
+// 通常从对应子系统 API 获取实例后调用
+Figurehead figurehead = ...;
+figurehead.Initialize(name, description, 0, culture, effectIncrementType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

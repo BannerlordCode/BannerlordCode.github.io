@@ -1,13 +1,7 @@
 ---
 title: "JournalLogEntry"
+description: "Auto-generated class reference for JournalLogEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JournalLogEntry`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # JournalLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
@@ -35,45 +29,88 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedTo
 `public bool IsRelatedTo(MBObjectBase obj)`
 
-**Purpose:** Handles logic related to `is related to`.
+**Purpose:** Determines whether the current object is in the `related to` state or condition.
+
+```csharp
+// Obtain an instance of JournalLogEntry from the subsystem API first
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.IsRelatedTo(obj);
+```
 
 ### GetEntries
 `public IEnumerable<JournalLog> GetEntries()`
 
-**Purpose:** Gets the current value of `entries`.
+**Purpose:** Reads and returns the `entries` value held by the current object.
+
+```csharp
+// Obtain an instance of JournalLogEntry from the subsystem API first
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.GetEntries();
+```
 
 ### Update
 `public void Update(MBReadOnlyList<JournalLog> entries, IssueBase.IssueUpdateDetails issueStatus = IssueBase.IssueUpdateDetails.None)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of JournalLogEntry from the subsystem API first
+JournalLogEntry journalLogEntry = ...;
+journalLogEntry.Update(entries, issueBase.IssueUpdateDetails.None);
+```
 
 ### Update
 `public void Update(MBReadOnlyList<JournalLog> entries, QuestBase.QuestCompleteDetails questCompletionDetail)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of JournalLogEntry from the subsystem API first
+JournalLogEntry journalLogEntry = ...;
+journalLogEntry.Update(entries, questCompletionDetail);
+```
 
 ### IsEndedUnsuccessfully
 `public bool IsEndedUnsuccessfully()`
 
-**Purpose:** Handles logic related to `is ended unsuccessfully`.
+**Purpose:** Determines whether the current object is in the `ended unsuccessfully` state or condition.
+
+```csharp
+// Obtain an instance of JournalLogEntry from the subsystem API first
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.IsEndedUnsuccessfully();
+```
 
 ### IsEnded
 `public bool IsEnded()`
 
-**Purpose:** Handles logic related to `is ended`.
+**Purpose:** Determines whether the current object is in the `ended` state or condition.
+
+```csharp
+// Obtain an instance of JournalLogEntry from the subsystem API first
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.IsEnded();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of JournalLogEntry from the subsystem API first
+JournalLogEntry journalLogEntry = ...;
+var result = journalLogEntry.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new JournalLogEntry();
-value.IsRelatedTo(obj);
+// Typically call this after obtaining an instance from the subsystem API
+JournalLogEntry journalLogEntry = ...;
+journalLogEntry.IsRelatedTo(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

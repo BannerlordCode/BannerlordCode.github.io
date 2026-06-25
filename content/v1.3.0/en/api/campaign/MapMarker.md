@@ -1,13 +1,7 @@
 ---
 title: "MapMarker"
+description: "Auto-generated class reference for MapMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapMarker`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapMarker
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
@@ -40,25 +34,44 @@ Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, t
 ### GetBanner
 `public Banner GetBanner()`
 
-**Purpose:** Gets the current value of `banner`.
+**Purpose:** Reads and returns the `banner` value held by the current object.
+
+```csharp
+// Obtain an instance of MapMarker from the subsystem API first
+MapMarker mapMarker = ...;
+var result = mapMarker.GetBanner();
+```
 
 ### GetName
 `public TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of MapMarker from the subsystem API first
+MapMarker mapMarker = ...;
+var result = mapMarker.GetName();
+```
 
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** Gets the current value of `position`.
+**Purpose:** Reads and returns the `position` value held by the current object.
+
+```csharp
+// Obtain an instance of MapMarker from the subsystem API first
+MapMarker mapMarker = ...;
+var result = mapMarker.GetPosition();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapMarker();
-value.GetBanner();
+// Typically call this after obtaining an instance from the subsystem API
+MapMarker mapMarker = ...;
+mapMarker.GetBanner();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

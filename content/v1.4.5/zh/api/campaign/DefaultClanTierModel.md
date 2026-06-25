@@ -1,20 +1,14 @@
 ---
 title: "DefaultClanTierModel"
+description: "DefaultClanTierModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultClanTierModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultClanTierModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultClanTierModel : ClanTierModel`
 **Base:** `ClanTierModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanTierModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultClanTierModel.cs`
 
 ## 概述
 
@@ -29,32 +23,68 @@ title: "DefaultClanTierModel"
 ### CalculateInitialRenown
 `public override int CalculateInitialRenown(Clan clan)`
 
-**用途 / Purpose:** 处理 `calculate initial renown` 相关逻辑。
+**用途 / Purpose:** 计算「initial renown」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanTierModel 实例
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.CalculateInitialRenown(clan);
+```
 
 ### CalculateInitialInfluence
 `public override int CalculateInitialInfluence(Clan clan)`
 
-**用途 / Purpose:** 处理 `calculate initial influence` 相关逻辑。
+**用途 / Purpose:** 计算「initial influence」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanTierModel 实例
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.CalculateInitialInfluence(clan);
+```
 
 ### CalculateTier
 `public override int CalculateTier(Clan clan)`
 
-**用途 / Purpose:** 处理 `calculate tier` 相关逻辑。
+**用途 / Purpose:** 计算「tier」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanTierModel 实例
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.CalculateTier(clan);
+```
 
 ### GetRequiredRenownForTier
 `public override int GetRequiredRenownForTier(int tier)`
 
-**用途 / Purpose:** 获取 `required renown for tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「required renown for tier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanTierModel 实例
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.GetRequiredRenownForTier(0);
+```
 
 ### GetPartyLimitForTier
 `public override int GetPartyLimitForTier(Clan clan, int clanTierToCheck)`
 
-**用途 / Purpose:** 获取 `party limit for tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party limit for tier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanTierModel 实例
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.GetPartyLimitForTier(clan, 0);
+```
 
 ### GetCompanionLimit
 `public override int GetCompanionLimit(Clan clan)`
 
-**用途 / Purpose:** 获取 `companion limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「companion limit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultClanTierModel 实例
+DefaultClanTierModel defaultClanTierModel = ...;
+var result = defaultClanTierModel.GetCompanionLimit(clan);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultClanTierModel>(new MyDefaultClanTierModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

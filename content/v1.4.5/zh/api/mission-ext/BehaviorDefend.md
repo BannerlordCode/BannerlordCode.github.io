@@ -1,20 +1,14 @@
 ---
 title: "BehaviorDefend"
+description: "BehaviorDefend 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BehaviorDefend`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorDefend
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BehaviorDefend : BehaviorComponent`
 **Base:** `BehaviorComponent`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefend.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BehaviorDefend.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "BehaviorDefend"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 处理 `tick occasionally` 相关逻辑。
+**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorDefend 实例
+BehaviorDefend behaviorDefend = ...;
+behaviorDefend.TickOccasionally();
+```
 
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**用途 / Purpose:** 将 `behavior` 重置为初始状态。
+**用途 / Purpose:** 将 「behavior」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 BehaviorDefend 实例
+BehaviorDefend behaviorDefend = ...;
+behaviorDefend.ResetBehavior();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BehaviorDefend();
-value.TickOccasionally();
+// 通常从对应子系统 API 获取实例后调用
+BehaviorDefend behaviorDefend = ...;
+behaviorDefend.TickOccasionally();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

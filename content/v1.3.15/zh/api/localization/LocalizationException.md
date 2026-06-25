@@ -1,20 +1,14 @@
 ---
 title: "LocalizationException"
+description: "LocalizationException 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LocalizationException`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LocalizationException
 
-**命名空间:** TaleWorlds.Localization
-**模块:** TaleWorlds.Localization
-**类型:** `public class LocalizationException : Exception`
+**Namespace:** TaleWorlds.Localization
+**Module:** TaleWorlds.Localization
+**Type:** `public class LocalizationException : Exception`
 **Base:** `Exception`
-**领域:** localization
+**File:** `TaleWorlds.Localization/LocalizationException.cs`
 
 ## 概述
 
@@ -27,10 +21,10 @@ title: "LocalizationException"
 ## 使用示例
 
 ```csharp
-try { /* call */ } catch (LocalizationException exception) { /* handle */ }
+try { /* 调用可能抛出该异常的分支 */ }
+catch (LocalizationException ex) { /* 处理异常 */ }
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-localization)
+- [本区域目录](../)

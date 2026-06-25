@@ -1,20 +1,14 @@
 ---
 title: "ArtisanOverpricedGoodsIssueBehavior"
+description: "Auto-generated class reference for ArtisanOverpricedGoodsIssueBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArtisanOverpricedGoodsIssueBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArtisanOverpricedGoodsIssueBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ArtisanOverpricedGoodsIssueBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ArtisanOverpricedGoodsIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/ArtisanOverpricedGoodsIssueBehavior.cs`
 
 ## Overview
 
@@ -47,65 +41,132 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+var result = artisanOverpricedGoodsIssueBehavior.IssueStayAliveConditions();
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `alternative solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+var result = artisanOverpricedGoodsIssueBehavior.AlternativeSolutionCondition(explanation);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Handles logic related to `do troops satisfy alternative solution`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+var result = artisanOverpricedGoodsIssueBehavior.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is troop type needed by alternative solution`.
+**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+var result = artisanOverpricedGoodsIssueBehavior.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Handles logic related to `alternative solution start consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+artisanOverpricedGoodsIssueBehavior.AlternativeSolutionStartConsequence();
+```
 
 ### LordSolutionCondition
 `public override bool LordSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Handles logic related to `lord solution condition`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+var result = artisanOverpricedGoodsIssueBehavior.LordSolutionCondition(explanation);
+```
 
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+var result = artisanOverpricedGoodsIssueBehavior.GetFrequency();
+```
 
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Called when the `failed` event is raised.
+**Purpose:** Invoked when the `failed` event is raised.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+artisanOverpricedGoodsIssueBehavior.OnFailed();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+artisanOverpricedGoodsIssueBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+artisanOverpricedGoodsIssueBehavior.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+artisanOverpricedGoodsIssueBehavior.OnCheckForIssue(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArtisanOverpricedGoodsIssueBehavior();
-value.IssueStayAliveConditions();
+// Typically call this after obtaining an instance from the subsystem API
+ArtisanOverpricedGoodsIssueBehavior artisanOverpricedGoodsIssueBehavior = ...;
+artisanOverpricedGoodsIssueBehavior.IssueStayAliveConditions();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

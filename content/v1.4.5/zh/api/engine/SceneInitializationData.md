@@ -1,20 +1,14 @@
 ---
 title: "SceneInitializationData"
+description: "SceneInitializationData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SceneInitializationData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SceneInitializationData
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct SceneInitializationData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/SceneInitializationData.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/SceneInitializationData.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "SceneInitializationData"
 ## 使用示例
 
 ```csharp
-var value = new SceneInitializationData();
+// 该数据对象通常由战役/任务 API 返回
+SceneInitializationData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

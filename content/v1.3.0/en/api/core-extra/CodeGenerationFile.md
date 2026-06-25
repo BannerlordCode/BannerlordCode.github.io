@@ -1,13 +1,7 @@
 ---
 title: "CodeGenerationFile"
+description: "Auto-generated class reference for CodeGenerationFile."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CodeGenerationFile`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CodeGenerationFile
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
@@ -31,18 +25,31 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 
 **Purpose:** Adds `line` to the current collection or state.
 
+```csharp
+// Obtain an instance of CodeGenerationFile from the subsystem API first
+CodeGenerationFile codeGenerationFile = ...;
+codeGenerationFile.AddLine("example");
+```
+
 ### GenerateText
 `public string GenerateText()`
 
-**Purpose:** Handles logic related to `generate text`.
+**Purpose:** Generates an instance, data, or representation of `text`.
+
+```csharp
+// Obtain an instance of CodeGenerationFile from the subsystem API first
+CodeGenerationFile codeGenerationFile = ...;
+var result = codeGenerationFile.GenerateText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CodeGenerationFile();
-value.AddLine("example");
+// Typically call this after obtaining an instance from the subsystem API
+CodeGenerationFile codeGenerationFile = ...;
+codeGenerationFile.AddLine("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

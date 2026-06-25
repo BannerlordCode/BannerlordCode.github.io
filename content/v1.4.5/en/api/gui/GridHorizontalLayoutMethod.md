@@ -1,20 +1,14 @@
 ---
 title: "GridHorizontalLayoutMethod"
+description: "Auto-generated class reference for GridHorizontalLayoutMethod."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GridHorizontalLayoutMethod`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GridHorizontalLayoutMethod
 
 **Namespace:** TaleWorlds.GauntletUI.Layout
 **Module:** TaleWorlds.GauntletUI
-**Type:** `class`
+**Type:** `public enum GridHorizontalLayoutMethod`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/GridHorizontalLayoutMethod.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.Layout/GridHorizontalLayoutMethod.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ## Usage Example
 
 ```csharp
-var example = new GridHorizontalLayoutMethod();
+// Obtain an instance from the relevant subsystem API
+GridHorizontalLayoutMethod instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

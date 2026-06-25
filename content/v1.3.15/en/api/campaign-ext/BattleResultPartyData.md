@@ -1,13 +1,7 @@
 ---
 title: "BattleResultPartyData"
+description: "Auto-generated class reference for BattleResultPartyData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleResultPartyData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleResultPartyData
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -27,9 +21,10 @@ Treat `BattleResultPartyData` as a Data-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var value = new BattleResultPartyData();
+// This data object is usually returned by campaign/mission APIs
+BattleResultPartyData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

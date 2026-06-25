@@ -1,13 +1,7 @@
 ---
 title: "DestructableComponentRecord"
+description: "Auto-generated class reference for DestructableComponentRecord."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DestructableComponentRecord`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DestructableComponentRecord
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of DestructableComponentRecord from the subsystem API first
+DestructableComponentRecord destructableComponentRecord = ...;
+var result = destructableComponentRecord.ReadFromNetwork(bufferReadValid);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DestructableComponentRecord();
-value.ReadFromNetwork(bufferReadValid);
+// Typically call this after obtaining an instance from the subsystem API
+DestructableComponentRecord destructableComponentRecord = ...;
+destructableComponentRecord.ReadFromNetwork(bufferReadValid);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

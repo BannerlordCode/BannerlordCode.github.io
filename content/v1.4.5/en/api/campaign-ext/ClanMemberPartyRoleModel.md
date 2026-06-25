@@ -1,20 +1,14 @@
 ---
 title: "ClanMemberPartyRoleModel"
+description: "Auto-generated class reference for ClanMemberPartyRoleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanMemberPartyRoleModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanMemberPartyRoleModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class ClanMemberPartyRoleModel : MBGameModel<ClanMemberPartyRoleModel>`
 **Base:** `MBGameModel<ClanMemberPartyRoleModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanMemberPartyRoleModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanMemberPartyRoleModel.cs`
 
 ## Overview
 
@@ -35,34 +29,65 @@ Treat `ClanMemberPartyRoleModel` as a Model-style extension point: first identif
 ### GetAssignablePartyRoles
 `public abstract IEnumerable<PartyRole> GetAssignablePartyRoles()`
 
-**Purpose:** Gets the current value of `assignable party roles`.
+**Purpose:** Reads and returns the `assignable party roles` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.GetAssignablePartyRoles();
+```
 
 ### GetRelevantSkillForPartyRole
 `public abstract SkillObject GetRelevantSkillForPartyRole(PartyRole role)`
 
-**Purpose:** Gets the current value of `relevant skill for party role`.
+**Purpose:** Reads and returns the `relevant skill for party role` value held by the current object.
+
+```csharp
+// Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.GetRelevantSkillForPartyRole(role);
+```
 
 ### IsHeroAssignableForPartyRole
 `public abstract bool IsHeroAssignableForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Handles logic related to `is hero assignable for party role`.
+**Purpose:** Determines whether the current object is in the `hero assignable for party role` state or condition.
+
+```csharp
+// Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.IsHeroAssignableForPartyRole(hero, role, party);
+```
 
 ### DoesHeroHaveEnoughSkillForPartyRole
 `public abstract bool DoesHeroHaveEnoughSkillForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Handles logic related to `does hero have enough skill for party role`.
+**Purpose:** Returns a boolean answer to whether `hero have enough skill for party role` is true for the current object.
+
+```csharp
+// Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.DoesHeroHaveEnoughSkillForPartyRole(hero, role, party);
+```
 
 ### IsHeroAssignableForPartyRoleInParty
 `public abstract bool IsHeroAssignableForPartyRoleInParty(PartyRole role, Hero hero, MobileParty party)`
 
-**Purpose:** Handles logic related to `is hero assignable for party role in party`.
+**Purpose:** Determines whether the current object is in the `hero assignable for party role in party` state or condition.
+
+```csharp
+// Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
+ClanMemberPartyRoleModel clanMemberPartyRoleModel = ...;
+var result = clanMemberPartyRoleModel.IsHeroAssignableForPartyRoleInParty(role, hero, party);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomClanMemberPartyRoleModel();
+// Typically obtained from a subsystem API or factory
+ClanMemberPartyRoleModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

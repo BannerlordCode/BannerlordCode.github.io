@@ -1,20 +1,14 @@
 ---
 title: "LinQuick"
+description: "LinQuick 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LinQuick`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LinQuick
 
 **Namespace:** TaleWorlds.LinQuick
 **Module:** TaleWorlds.LinQuick
 **Type:** `public static class LinQuick`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.LinQuick/TaleWorlds.LinQuick/LinQuick.cs`
+**File:** `bin/TaleWorlds.LinQuick/TaleWorlds.LinQuick/LinQuick.cs`
 
 ## 概述
 
@@ -29,27 +23,52 @@ title: "LinQuick"
 ### AverageQ
 `public static float AverageQ(this float source)`
 
-**用途 / Purpose:** 处理 `average q` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LinQuick.AverageQ(source);
+```
 
 ### AverageQ
 `public static float AverageQ(this IEnumerable<float> source)`
 
-**用途 / Purpose:** 处理 `average q` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LinQuick.AverageQ(source);
+```
 
 ### MaxQ
 `public static int MaxQ(this int source)`
 
-**用途 / Purpose:** 处理 `max q` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LinQuick.MaxQ(source);
+```
 
 ### MaxQ
 `public static int MaxQ(this List<int> source)`
 
-**用途 / Purpose:** 处理 `max q` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LinQuick.MaxQ(source);
+```
 
 ### MaxQ
 `public static int MaxQ(this IReadOnlyList<int> source)`
 
-**用途 / Purpose:** 处理 `max q` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LinQuick.MaxQ(source);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ LinQuick.AverageQ(source);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

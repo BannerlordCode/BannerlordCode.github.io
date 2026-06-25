@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerEscapeMenu"
+description: "Auto-generated class reference for MissionGauntletMultiplayerEscapeMenu."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletMultiplayerEscapeMenu`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerEscapeMenu
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerEscapeMenu : MissionGauntletEscapeMenuBase`
 **Base:** `MissionGauntletEscapeMenuBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerEscapeMenu.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerEscapeMenu.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerEscapeMenu from the subsystem API first
+MissionGauntletMultiplayerEscapeMenu missionGauntletMultiplayerEscapeMenu = ...;
+missionGauntletMultiplayerEscapeMenu.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerEscapeMenu from the subsystem API first
+MissionGauntletMultiplayerEscapeMenu missionGauntletMultiplayerEscapeMenu = ...;
+missionGauntletMultiplayerEscapeMenu.OnMissionScreenTick(0);
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletMultiplayerEscapeMenu from the subsystem API first
+MissionGauntletMultiplayerEscapeMenu missionGauntletMultiplayerEscapeMenu = ...;
+var result = missionGauntletMultiplayerEscapeMenu.OnEscape();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletMultiplayerEscapeMenu();
-value.OnMissionScreenInitialize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletMultiplayerEscapeMenu missionGauntletMultiplayerEscapeMenu = ...;
+missionGauntletMultiplayerEscapeMenu.OnMissionScreenInitialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

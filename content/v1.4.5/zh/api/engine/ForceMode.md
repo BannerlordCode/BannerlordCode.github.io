@@ -1,20 +1,14 @@
 ---
 title: "ForceMode"
+description: "ForceMode 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ForceMode`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ForceMode
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public enum ForceMode : sbyte`
 **Base:** `sbyte`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityPhysicsExtensions.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/GameEntityPhysicsExtensions.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ForceMode"
 ## 使用示例
 
 ```csharp
-ForceMode example = ForceMode.Value;
+// 从对应子系统 API 获取实例
+ForceMode instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

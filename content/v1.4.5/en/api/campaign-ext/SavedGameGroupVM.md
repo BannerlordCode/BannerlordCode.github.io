@@ -1,20 +1,14 @@
 ---
 title: "SavedGameGroupVM"
+description: "Auto-generated class reference for SavedGameGroupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SavedGameGroupVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SavedGameGroupVM
 
 **Namespace:** SandBox.ViewModelCollection.SaveLoad
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SavedGameGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SavedGameGroupVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SavedGameGroupVM.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SavedGameGroupVM from the subsystem API first
+SavedGameGroupVM savedGameGroupVM = ...;
+savedGameGroupVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SavedGameGroupVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+SavedGameGroupVM savedGameGroupVM = ...;
+savedGameGroupVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

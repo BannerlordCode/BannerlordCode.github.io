@@ -1,13 +1,7 @@
 ---
 title: "LocationModel"
+description: "LocationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LocationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,29 +23,54 @@ title: "LocationModel"
 ### GetSettlementUpgradeLevel
 `public abstract int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
 
-**用途 / Purpose:** 获取 `settlement upgrade level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「settlement upgrade level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LocationModel 实例
+LocationModel locationModel = ...;
+var result = locationModel.GetSettlementUpgradeLevel(locationEncounter);
+```
 
 ### GetCivilianSceneLevel
 `public abstract string GetCivilianSceneLevel(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `civilian scene level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「civilian scene level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LocationModel 实例
+LocationModel locationModel = ...;
+var result = locationModel.GetCivilianSceneLevel(settlement);
+```
 
 ### GetCivilianUpgradeLevelTag
 `public abstract string GetCivilianUpgradeLevelTag(int upgradeLevel)`
 
-**用途 / Purpose:** 获取 `civilian upgrade level tag` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「civilian upgrade level tag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LocationModel 实例
+LocationModel locationModel = ...;
+var result = locationModel.GetCivilianUpgradeLevelTag(0);
+```
 
 ### GetUpgradeLevelTag
 `public abstract string GetUpgradeLevelTag(int upgradeLevel)`
 
-**用途 / Purpose:** 获取 `upgrade level tag` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「upgrade level tag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LocationModel 实例
+LocationModel locationModel = ...;
+var result = locationModel.GetUpgradeLevelTag(0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomLocationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+LocationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

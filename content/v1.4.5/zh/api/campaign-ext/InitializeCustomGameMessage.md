@@ -1,20 +1,14 @@
 ---
 title: "InitializeCustomGameMessage"
+description: "InitializeCustomGameMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InitializeCustomGameMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InitializeCustomGameMessage
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class InitializeCustomGameMessage : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/InitializeCustomGameMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/InitializeCustomGameMessage.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "InitializeCustomGameMessage"
 ## 使用示例
 
 ```csharp
-var example = new InitializeCustomGameMessage();
+// 从对应子系统 API 获取实例
+InitializeCustomGameMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

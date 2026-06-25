@@ -1,23 +1,18 @@
 ---
 title: "TextureProviderFactory"
+description: "Auto-generated class reference for TextureProviderFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextureProviderFactory`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextureProviderFactory
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public static class TextureProviderFactory`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/TextureProviderFactory.cs`
 
 ## Overview
 
-`TextureProviderFactory` lives in `TaleWorlds.GauntletUI`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`TextureProviderFactory` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,21 +23,29 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### CreateInstance
 `public static TextureProvider CreateInstance(string textureProviderName)`
 
-**Purpose:** Creates a new `instance` instance or object.
+**Purpose:** Constructs a new `instance` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+TextureProviderFactory.CreateInstance("example");
+```
 
 ### RefreshProviderTypes
 `public static void RefreshProviderTypes()`
 
-**Purpose:** Refreshes the display or cache of `provider types`.
+**Purpose:** Keeps the display or cache of `provider types` in sync with the underlying state.
+
+```csharp
+// Static call; no instance required
+TextureProviderFactory.RefreshProviderTypes();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 TextureProviderFactory.CreateInstance("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

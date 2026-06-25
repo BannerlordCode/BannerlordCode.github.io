@@ -1,13 +1,7 @@
 ---
 title: "SkinVoiceManager"
+description: "SkinVoiceManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SkinVoiceManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SkinVoiceManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,17 +30,33 @@ title: "SkinVoiceManager"
 ### GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName
 `public static int GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(string className)`
 
-**用途 / Purpose:** 获取 `voice definition count with monster sound and collision info class name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「voice definition count with monster sound and collision info class name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SkinVoiceManager.GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName("example");
+```
 
 ### GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName
 `public static void GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(string className, int definitionIndices)`
 
-**用途 / Purpose:** 获取 `voice definition list with monster sound and collision info class name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「voice definition list with monster sound and collision info class name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+SkinVoiceManager.GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName("example", 0);
+```
 
 ### GetName
 `public TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SkinVoiceManager 实例
+SkinVoiceManager skinVoiceManager = ...;
+var result = skinVoiceManager.GetName();
+```
 
 ## 使用示例
 
@@ -56,4 +66,4 @@ var manager = SkinVoiceManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

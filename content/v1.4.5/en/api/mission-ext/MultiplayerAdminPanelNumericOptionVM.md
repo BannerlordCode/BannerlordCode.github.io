@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerAdminPanelNumericOptionVM"
+description: "Auto-generated class reference for MultiplayerAdminPanelNumericOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerAdminPanelNumericOptionVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerAdminPanelNumericOptionVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerAdminPanelNumericOptionVM : MultiplayerAdminPanelOptionBaseVM`
 **Base:** `MultiplayerAdminPanelOptionBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelNumericOptionVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.AdminPanel/MultiplayerAdminPanelNumericOptionVM.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### UpdateValues
 `public override void UpdateValues()`
 
-**Purpose:** Updates the state or data of `values`.
+**Purpose:** Recalculates and stores the latest representation of `values`.
+
+```csharp
+// Obtain an instance of MultiplayerAdminPanelNumericOptionVM from the subsystem API first
+MultiplayerAdminPanelNumericOptionVM multiplayerAdminPanelNumericOptionVM = ...;
+multiplayerAdminPanelNumericOptionVM.UpdateValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerAdminPanelNumericOptionVM();
-value.UpdateValues();
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerAdminPanelNumericOptionVM multiplayerAdminPanelNumericOptionVM = ...;
+multiplayerAdminPanelNumericOptionVM.UpdateValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,19 +1,13 @@
 ---
 title: "TerrainTypeSoundSlot"
+description: "Auto-generated class reference for TerrainTypeSoundSlot."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TerrainTypeSoundSlot`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TerrainTypeSoundSlot
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
+**Type:** `public enum TerrainTypeSoundSlot : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.MountAndBlade/TerrainTypeSoundSlot.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var value = new TerrainTypeSoundSlot();
+// Obtain an instance from the relevant subsystem API
+TerrainTypeSoundSlot instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

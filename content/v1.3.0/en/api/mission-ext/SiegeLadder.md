@@ -1,13 +1,7 @@
 ---
 title: "SiegeLadder"
+description: "Auto-generated class reference for SiegeLadder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeLadder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeLadder
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -51,105 +45,220 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Gets the current value of `siege engine type`.
+**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetSiegeEngineType();
+```
 
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** Gets the current value of `order`.
+**Purpose:** Reads and returns the `order` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetOrder(side);
+```
 
 ### HasCompletedAction
 `public bool HasCompletedAction()`
 
-**Purpose:** Checks whether the current object has/contains `completed action`.
+**Purpose:** Determines whether the current object already holds `completed action`.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.HasCompletedAction();
+```
 
 ### IsDisabledForBattleSide
 `public override bool IsDisabledForBattleSide(BattleSideEnum sideEnum)`
 
-**Purpose:** Handles logic related to `is disabled for battle side`.
+**Purpose:** Determines whether the current object is in the `disabled for battle side` state or condition.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.IsDisabledForBattleSide(sideEnum);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetTickRequirement();
+```
 
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Creates a new `a i behavior object` instance or object.
+**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.CreateAIBehaviorObject();
+```
 
 ### SetUpStateVisibility
 `public void SetUpStateVisibility(bool isVisible)`
 
-**Purpose:** Sets the value or state of `up state visibility`.
+**Purpose:** Assigns a new value to `up state visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+siegeLadder.SetUpStateVisibility(false);
+```
 
 ### SetAbilityOfFaces
 `public override void SetAbilityOfFaces(bool enabled)`
 
-**Purpose:** Sets the value or state of `ability of faces`.
+**Purpose:** Assigns a new value to `ability of faces` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+siegeLadder.SetAbilityOfFaces(false);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** Handles logic related to `write to network`.
+**Purpose:** Writes `to network` to the target location.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+siegeLadder.WriteToNetwork();
+```
 
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**Purpose:** Gets the current value of `target flags`.
+**Purpose:** Reads and returns the `target flags` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetTargetFlags();
+```
 
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** Gets the current value of `target value`.
+**Purpose:** Reads and returns the `target value` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetTargetValue(weaponPos);
+```
 
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** Sets the value or state of `spawned from spawner`.
+**Purpose:** Assigns a new value to `spawned from spawner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+siegeLadder.SetSpawnedFromSpawner();
+```
 
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord)`
 
-**Purpose:** Called when the `after read from network` event is raised.
+**Purpose:** Invoked when the `after read from network` event is raised.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+siegeLadder.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord);
+```
 
 ### AssignParametersFromSpawner
 `public void AssignParametersFromSpawner(string sideTag, string targetWallSegment, int onWallNavMeshId, float downStateRotationRadian, float upperStateRotationRadian, string barrierTagToRemove, string indestructibleMerlonsTag)`
 
-**Purpose:** Handles logic related to `assign parameters from spawner`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+siegeLadder.AssignParametersFromSpawner("example", "example", 0, 0, 0, "example", "example");
+```
 
 ### GetNavmeshFaceIds
 `public bool GetNavmeshFaceIds(out List<int> navmeshFaceIds)`
 
-**Purpose:** Gets the current value of `navmesh face ids`.
+**Purpose:** Reads and returns the `navmesh face ids` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.GetNavmeshFaceIds(navmeshFaceIds);
+```
 
 ### OnFormationFrameChanged
 `public void OnFormationFrameChanged(Agent agent, bool hasFrame, WorldPosition position)`
 
-**Purpose:** Called when the `formation frame changed` event is raised.
+**Purpose:** Invoked when the `formation frame changed` event is raised.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+siegeLadder.OnFormationFrameChanged(agent, false, position);
+```
 
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Handles logic related to `read from network`.
+**Purpose:** Reads the data or state of `from network`.
+
+```csharp
+// Obtain an instance of SiegeLadder from the subsystem API first
+SiegeLadder siegeLadder = ...;
+var result = siegeLadder.ReadFromNetwork(bufferReadValid);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeLadder();
-value.GetSiegeEngineType();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeLadder siegeLadder = ...;
+siegeLadder.GetSiegeEngineType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "DefaultItemDiscardModel"
+description: "Auto-generated class reference for DefaultItemDiscardModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultItemDiscardModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultItemDiscardModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ Treat `DefaultItemDiscardModel` as a Model-style extension point: first identify
 ### PlayerCanDonateItem
 `public override bool PlayerCanDonateItem(ItemObject item)`
 
-**Purpose:** Handles logic related to `player can donate item`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultItemDiscardModel from the subsystem API first
+DefaultItemDiscardModel defaultItemDiscardModel = ...;
+var result = defaultItemDiscardModel.PlayerCanDonateItem(item);
+```
 
 ### GetXpBonusForDiscardingItem
 `public override int GetXpBonusForDiscardingItem(ItemObject item, int amount = 1)`
 
-**Purpose:** Gets the current value of `xp bonus for discarding item`.
+**Purpose:** Reads and returns the `xp bonus for discarding item` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultItemDiscardModel from the subsystem API first
+DefaultItemDiscardModel defaultItemDiscardModel = ...;
+var result = defaultItemDiscardModel.GetXpBonusForDiscardingItem(item, 0);
+```
 
 ### GetXpBonusForDiscardingItems
 `public override int GetXpBonusForDiscardingItems(ItemRoster itemRoster)`
 
-**Purpose:** Gets the current value of `xp bonus for discarding items`.
+**Purpose:** Reads and returns the `xp bonus for discarding items` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultItemDiscardModel from the subsystem API first
+DefaultItemDiscardModel defaultItemDiscardModel = ...;
+var result = defaultItemDiscardModel.GetXpBonusForDiscardingItems(itemRoster);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultItemDiscardModel>(new MyDefaultItemDiscardModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

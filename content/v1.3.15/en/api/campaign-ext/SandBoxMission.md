@@ -1,23 +1,18 @@
 ---
 title: "SandBoxMission"
+description: "Auto-generated class reference for SandBoxMission."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxMission`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SandBoxMission
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SandBoxMission`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/SandBoxMission.cs`
 
 ## Overview
 
-`SandBoxMission` lives in `TaleWorlds.CampaignSystem`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SandBoxMission` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,36 +23,59 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### OpenTournamentArcheryMission
 `public static IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament archery mission`.
+**Purpose:** Opens the resource or UI associated with `tournament archery mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMission.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentFightMission
 `public static IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament fight mission`.
+**Purpose:** Opens the resource or UI associated with `tournament fight mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMission.OpenTournamentFightMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentHorseRaceMission
 `public static IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament horse race mission`.
+**Purpose:** Opens the resource or UI associated with `tournament horse race mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMission.OpenTournamentHorseRaceMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenTournamentJoustingMission
 `public static IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Handles logic related to `open tournament jousting mission`.
+**Purpose:** Opens the resource or UI associated with `tournament jousting mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMission.OpenTournamentJoustingMission("example", tournamentGame, settlement, culture, false);
+```
 
 ### OpenBattleChallengeMission
 `public static IMission OpenBattleChallengeMission(string scene, IList<Hero> priorityCharsAttacker, IList<Hero> priorityCharsDefender)`
 
-**Purpose:** Handles logic related to `open battle challenge mission`.
+**Purpose:** Opens the resource or UI associated with `battle challenge mission`.
+
+```csharp
+// Static call; no instance required
+SandBoxMission.OpenBattleChallengeMission("example", priorityCharsAttacker, priorityCharsDefender);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 SandBoxMission.OpenTournamentArcheryMission("example", tournamentGame, settlement, culture, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

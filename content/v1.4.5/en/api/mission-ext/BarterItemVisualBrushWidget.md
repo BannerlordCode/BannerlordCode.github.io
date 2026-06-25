@@ -1,20 +1,14 @@
 ---
 title: "BarterItemVisualBrushWidget"
+description: "Auto-generated class reference for BarterItemVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterItemVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterItemVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BarterItemVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter/BarterItemVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Barter/BarterItemVisualBrushWidget.cs`
 
 ## Overview
 
@@ -41,14 +35,21 @@ Treat `BarterItemVisualBrushWidget` as a Widget-style extension point: first ide
 ### BarterItemVisualBrushWidget
 `public class BarterItemVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `barter item visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BarterItemVisualBrushWidget from the subsystem API first
+BarterItemVisualBrushWidget barterItemVisualBrushWidget = ...;
+var result = barterItemVisualBrushWidget.BarterItemVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new BarterItemVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BarterItemVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

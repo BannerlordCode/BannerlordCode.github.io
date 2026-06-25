@@ -1,13 +1,7 @@
 ---
 title: "CharacterAttributeItemVM"
+description: "CharacterAttributeItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterAttributeItemVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterAttributeItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper
@@ -46,40 +40,77 @@ title: "CharacterAttributeItemVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.RefreshValues();
+```
 
 ### ExecuteInspectAttribute
 `public void ExecuteInspectAttribute()`
 
-**用途 / Purpose:** 执行 `inspect attribute` 操作或流程。
+**用途 / Purpose:** 执行 「inspect attribute」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.ExecuteInspectAttribute();
+```
 
 ### ExecuteAddAttributePoint
 `public void ExecuteAddAttributePoint()`
 
-**用途 / Purpose:** 执行 `add attribute point` 操作或流程。
+**用途 / Purpose:** 执行 「add attribute point」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.ExecuteAddAttributePoint();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.Reset();
+```
 
 ### RefreshWithCurrentValues
 `public void RefreshWithCurrentValues()`
 
-**用途 / Purpose:** 刷新 `with current values` 的显示或缓存。
+**用途 / Purpose:** 使 「with current values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.RefreshWithCurrentValues();
+```
 
 ### Commit
 `public void Commit()`
 
-**用途 / Purpose:** 处理 `commit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterAttributeItemVM 实例
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.Commit();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterAttributeItemVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+CharacterAttributeItemVM characterAttributeItemVM = ...;
+characterAttributeItemVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

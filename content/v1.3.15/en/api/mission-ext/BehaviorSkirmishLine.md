@@ -1,13 +1,7 @@
 ---
 title: "BehaviorSkirmishLine"
+description: "Auto-generated class reference for BehaviorSkirmishLine."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorSkirmishLine`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BehaviorSkirmishLine
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Gets the current value of `behavior string`.
+**Purpose:** Reads and returns the `behavior string` value held by the current object.
+
+```csharp
+// Obtain an instance of BehaviorSkirmishLine from the subsystem API first
+BehaviorSkirmishLine behaviorSkirmishLine = ...;
+var result = behaviorSkirmishLine.GetBehaviorString();
+```
 
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** Called when the `valid behavior side changed` event is raised.
+**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+
+```csharp
+// Obtain an instance of BehaviorSkirmishLine from the subsystem API first
+BehaviorSkirmishLine behaviorSkirmishLine = ...;
+behaviorSkirmishLine.OnValidBehaviorSideChanged();
+```
 
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorSkirmishLine from the subsystem API first
+BehaviorSkirmishLine behaviorSkirmishLine = ...;
+behaviorSkirmishLine.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorSkirmishLine();
-value.GetBehaviorString();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorSkirmishLine behaviorSkirmishLine = ...;
+behaviorSkirmishLine.GetBehaviorString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ExitDoor"
+description: "ExitDoor 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ExitDoor`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ExitDoor
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ title: "ExitDoor"
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ExitDoor 实例
+ExitDoor exitDoor = ...;
+var result = exitDoor.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ExitDoor 实例
+ExitDoor exitDoor = ...;
+var result = exitDoor.GetDescriptionText(gameEntity);
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ExitDoor 实例
+ExitDoor exitDoor = ...;
+var result = exitDoor.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ExitDoor();
-value.GetActionTextForStandingPoint(usableGameObject);
+// 通常从对应子系统 API 获取实例后调用
+ExitDoor exitDoor = ...;
+exitDoor.GetActionTextForStandingPoint(usableGameObject);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

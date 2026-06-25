@@ -1,20 +1,14 @@
 ---
 title: "ScoreboardBattleRewardsWidget"
+description: "ScoreboardBattleRewardsWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ScoreboardBattleRewardsWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ScoreboardBattleRewardsWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ScoreboardBattleRewardsWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardBattleRewardsWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard/ScoreboardBattleRewardsWidget.cs`
 
 ## 概述
 
@@ -37,24 +31,43 @@ title: "ScoreboardBattleRewardsWidget"
 ### ScoreboardBattleRewardsWidget
 `public class ScoreboardBattleRewardsWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `scoreboard battle rewards widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardBattleRewardsWidget 实例
+ScoreboardBattleRewardsWidget scoreboardBattleRewardsWidget = ...;
+var result = scoreboardBattleRewardsWidget.ScoreboardBattleRewardsWidget(context);
+```
 
 ### StartAnimation
 `public void StartAnimation()`
 
-**用途 / Purpose:** 处理 `start animation` 相关逻辑。
+**用途 / Purpose:** 启动「animation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardBattleRewardsWidget 实例
+ScoreboardBattleRewardsWidget scoreboardBattleRewardsWidget = ...;
+scoreboardBattleRewardsWidget.StartAnimation();
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 ScoreboardBattleRewardsWidget 实例
+ScoreboardBattleRewardsWidget scoreboardBattleRewardsWidget = ...;
+scoreboardBattleRewardsWidget.Reset();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new ScoreboardBattleRewardsWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ScoreboardBattleRewardsWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

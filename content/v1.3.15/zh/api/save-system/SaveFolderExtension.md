@@ -1,45 +1,30 @@
 ---
 title: "SaveFolderExtension"
+description: "SaveFolderExtension 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveFolderExtension`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveFolderExtension
 
-**命名空间:** TaleWorlds.SaveSystem
-**模块:** TaleWorlds.SaveSystem
-**类型:** `public enum SaveFolderExtension : byte`
+**Namespace:** TaleWorlds.SaveSystem
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public enum SaveFolderExtension : byte`
 **Base:** `byte`
-**领域:** save-system
+**File:** `TaleWorlds.SaveSystem/SaveFolderExtension.cs`
 
 ## 概述
 
-`SaveFolderExtension` 位于 `TaleWorlds.SaveSystem`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`SaveFolderExtension` 位于 `TaleWorlds.SaveSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
 先从命名空间 `TaleWorlds.SaveSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 枚举值
-
-| Name |
-|------|
-| `Root` |
-| `Object` |
-| `Struct` |
-| `Container` |
-
 ## 使用示例
 
 ```csharp
-SaveFolderExtension example = SaveFolderExtension.Root;
+// 从对应子系统 API 获取实例
+SaveFolderExtension instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-save)
+- [本区域目录](../)

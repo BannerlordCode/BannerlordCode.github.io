@@ -1,20 +1,14 @@
 ---
 title: "SiegeDeploymentVisualizationMissionView"
+description: "SiegeDeploymentVisualizationMissionView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeDeploymentVisualizationMissionView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeDeploymentVisualizationMissionView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeDeploymentVisualizationMissionView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/SiegeDeploymentVisualizationMissionView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/SiegeDeploymentVisualizationMissionView.cs`
 
 ## 概述
 
@@ -29,34 +23,64 @@ title: "SiegeDeploymentVisualizationMissionView"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentVisualizationMissionView 实例
+SiegeDeploymentVisualizationMissionView siegeDeploymentVisualizationMissionView = ...;
+siegeDeploymentVisualizationMissionView.AfterStart();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentVisualizationMissionView 实例
+SiegeDeploymentVisualizationMissionView siegeDeploymentVisualizationMissionView = ...;
+siegeDeploymentVisualizationMissionView.OnDeploymentFinished();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentVisualizationMissionView 实例
+SiegeDeploymentVisualizationMissionView siegeDeploymentVisualizationMissionView = ...;
+siegeDeploymentVisualizationMissionView.OnRemoveBehavior();
+```
 
 ### SetDeploymentVisualizationSelector
 `public static string SetDeploymentVisualizationSelector(List<string> strings)`
 
-**用途 / Purpose:** 设置 `deployment visualization selector` 的值或状态。
+**用途 / Purpose:** 为 「deployment visualization selector」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+SiegeDeploymentVisualizationMissionView.SetDeploymentVisualizationSelector(strings);
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentVisualizationMissionView 实例
+SiegeDeploymentVisualizationMissionView siegeDeploymentVisualizationMissionView = ...;
+siegeDeploymentVisualizationMissionView.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new SiegeDeploymentVisualizationMissionView();
+// 从子系统 API 或场景中获取该视图
+SiegeDeploymentVisualizationMissionView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

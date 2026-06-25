@@ -1,20 +1,14 @@
 ---
 title: "ShipTemplateStack"
+description: "Auto-generated class reference for ShipTemplateStack."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipTemplateStack`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipTemplateStack
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct ShipTemplateStack`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/ShipTemplateStack.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/ShipTemplateStack.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### ShipTemplateStack
 `public struct ShipTemplateStack(ShipHull shipHull, int minValue, int maxValue)`
 
-**Purpose:** Handles logic related to `ship template stack`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ShipTemplateStack from the subsystem API first
+ShipTemplateStack shipTemplateStack = ...;
+var result = shipTemplateStack.ShipTemplateStack(shipHull, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipTemplateStack();
-value.ShipTemplateStack(shipHull, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+ShipTemplateStack shipTemplateStack = ...;
+shipTemplateStack.ShipTemplateStack(shipHull, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

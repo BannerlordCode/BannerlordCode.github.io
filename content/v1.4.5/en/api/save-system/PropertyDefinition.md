@@ -1,20 +1,14 @@
 ---
 title: "PropertyDefinition"
+description: "Auto-generated class reference for PropertyDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyDefinition`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PropertyDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class PropertyDefinition : MemberDefinition`
 **Base:** `MemberDefinition`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/PropertyDefinition.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/PropertyDefinition.cs`
 
 ## Overview
 
@@ -39,25 +33,44 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetMemberType
 `public override Type GetMemberType()`
 
-**Purpose:** Gets the current value of `member type`.
+**Purpose:** Reads and returns the `member type` value held by the current object.
+
+```csharp
+// Obtain an instance of PropertyDefinition from the subsystem API first
+PropertyDefinition propertyDefinition = ...;
+var result = propertyDefinition.GetMemberType();
+```
 
 ### GetValue
 `public override object GetValue(object target)`
 
-**Purpose:** Gets the current value of `value`.
+**Purpose:** Reads and returns the `value` value held by the current object.
+
+```csharp
+// Obtain an instance of PropertyDefinition from the subsystem API first
+PropertyDefinition propertyDefinition = ...;
+var result = propertyDefinition.GetValue(target);
+```
 
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(GetPropertyValueDelegate getPropertyValueMethod)`
 
-**Purpose:** Initializes the state, resources, or bindings for `for auto generation`.
+**Purpose:** Prepares the resources, state, or bindings required by `for auto generation`.
+
+```csharp
+// Obtain an instance of PropertyDefinition from the subsystem API first
+PropertyDefinition propertyDefinition = ...;
+propertyDefinition.InitializeForAutoGeneration(getPropertyValueMethod);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyDefinition();
-value.GetMemberType();
+// Typically call this after obtaining an instance from the subsystem API
+PropertyDefinition propertyDefinition = ...;
+propertyDefinition.GetMemberType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

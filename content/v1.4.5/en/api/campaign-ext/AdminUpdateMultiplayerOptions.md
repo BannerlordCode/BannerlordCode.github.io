@@ -1,20 +1,14 @@
 ---
 title: "AdminUpdateMultiplayerOptions"
+description: "Auto-generated class reference for AdminUpdateMultiplayerOptions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AdminUpdateMultiplayerOptions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AdminUpdateMultiplayerOptions
 
 **Namespace:** NetworkMessages.FromClient
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class AdminUpdateMultiplayerOptions : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminUpdateMultiplayerOptions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminUpdateMultiplayerOptions.cs`
 
 ## Overview
 
@@ -43,23 +37,42 @@ Start from namespace `NetworkMessages.FromClient` to place it in the stack, then
 
 **Purpose:** Adds `multiplayer option` to the current collection or state.
 
+```csharp
+// Obtain an instance of AdminUpdateMultiplayerOptions from the subsystem API first
+AdminUpdateMultiplayerOptions adminUpdateMultiplayerOptions = ...;
+adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, false);
+```
+
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, int value)`
 
 **Purpose:** Adds `multiplayer option` to the current collection or state.
+
+```csharp
+// Obtain an instance of AdminUpdateMultiplayerOptions from the subsystem API first
+AdminUpdateMultiplayerOptions adminUpdateMultiplayerOptions = ...;
+adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, 0);
+```
 
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, string value)`
 
 **Purpose:** Adds `multiplayer option` to the current collection or state.
 
+```csharp
+// Obtain an instance of AdminUpdateMultiplayerOptions from the subsystem API first
+AdminUpdateMultiplayerOptions adminUpdateMultiplayerOptions = ...;
+adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, "example");
+```
+
 ## Usage Example
 
 ```csharp
-var value = new AdminUpdateMultiplayerOptions();
-value.AddMultiplayerOption(optionType, accessMode, false);
+// Typically call this after obtaining an instance from the subsystem API
+AdminUpdateMultiplayerOptions adminUpdateMultiplayerOptions = ...;
+adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

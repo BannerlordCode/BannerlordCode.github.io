@@ -1,20 +1,14 @@
 ---
 title: "HeroCreationModel"
+description: "HeroCreationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroCreationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroCreationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class HeroCreationModel : MBGameModel<HeroCreationModel>`
 **Base:** `MBGameModel<HeroCreationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HeroCreationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/HeroCreationModel.cs`
 
 ## 概述
 
@@ -29,59 +23,120 @@ title: "HeroCreationModel"
 ### GetBornSettlement
 `public abstract Settlement GetBornSettlement(Hero character)`
 
-**用途 / Purpose:** 获取 `born settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「born settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetBornSettlement(character);
+```
 
 ### GetStaticBodyProperties
 `public abstract StaticBodyProperties GetStaticBodyProperties(Hero character, bool isOffspring, float variationAmount = 0.35f)`
 
-**用途 / Purpose:** 获取 `static body properties` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「static body properties」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetStaticBodyProperties(character, false, 0);
+```
 
 ### GetPreferredUpgradeFormation
 `public abstract FormationClass GetPreferredUpgradeFormation(Hero character)`
 
-**用途 / Purpose:** 获取 `preferred upgrade formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「preferred upgrade formation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetPreferredUpgradeFormation(character);
+```
 
 ### GetClan
 `public abstract Clan GetClan(Hero character)`
 
-**用途 / Purpose:** 获取 `clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetClan(character);
+```
 
 ### GetCulture
 `public abstract CultureObject GetCulture(Hero hero, Settlement bornSettlement, Clan clan)`
 
-**用途 / Purpose:** 获取 `culture` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「culture」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetCulture(hero, bornSettlement, clan);
+```
 
 ### GetRandomTemplateByOccupation
 `public abstract CharacterObject GetRandomTemplateByOccupation(Occupation occupation, Settlement settlement = null)`
 
-**用途 / Purpose:** 获取 `random template by occupation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random template by occupation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetRandomTemplateByOccupation(occupation, null);
+```
 
 ### GetCivilianEquipment
 `public abstract Equipment GetCivilianEquipment(Hero hero)`
 
-**用途 / Purpose:** 获取 `civilian equipment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「civilian equipment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetCivilianEquipment(hero);
+```
 
 ### GetBattleEquipment
 `public abstract Equipment GetBattleEquipment(Hero hero)`
 
-**用途 / Purpose:** 获取 `battle equipment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle equipment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetBattleEquipment(hero);
+```
 
 ### GetCharacterTemplateForOffspring
 `public abstract CharacterObject GetCharacterTemplateForOffspring(Hero mother, Hero father, bool isOffspringFemale)`
 
-**用途 / Purpose:** 获取 `character template for offspring` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character template for offspring」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.GetCharacterTemplateForOffspring(mother, father, false);
+```
 
 ### IsHeroCombatant
 `public abstract bool IsHeroCombatant(Hero hero)`
 
-**用途 / Purpose:** 处理 `is hero combatant` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「hero combatant」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 HeroCreationModel 实例
+HeroCreationModel heroCreationModel = ...;
+var result = heroCreationModel.IsHeroCombatant(hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomHeroCreationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+HeroCreationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

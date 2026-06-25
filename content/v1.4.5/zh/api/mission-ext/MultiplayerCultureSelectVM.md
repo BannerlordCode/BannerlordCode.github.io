@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerCultureSelectVM"
+description: "MultiplayerCultureSelectVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerCultureSelectVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerCultureSelectVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerCultureSelectVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/MultiplayerCultureSelectVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.TeamSelection/MultiplayerCultureSelectVM.cs`
 
 ## 概述
 
@@ -44,25 +38,44 @@ title: "MultiplayerCultureSelectVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerCultureSelectVM 实例
+MultiplayerCultureSelectVM multiplayerCultureSelectVM = ...;
+multiplayerCultureSelectVM.RefreshValues();
+```
 
 ### ExecuteSelectCulture
 `public void ExecuteSelectCulture(int cultureIndex)`
 
-**用途 / Purpose:** 执行 `select culture` 操作或流程。
+**用途 / Purpose:** 执行 「select culture」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerCultureSelectVM 实例
+MultiplayerCultureSelectVM multiplayerCultureSelectVM = ...;
+multiplayerCultureSelectVM.ExecuteSelectCulture(0);
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 `close` 操作或流程。
+**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerCultureSelectVM 实例
+MultiplayerCultureSelectVM multiplayerCultureSelectVM = ...;
+multiplayerCultureSelectVM.ExecuteClose();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerCultureSelectVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerCultureSelectVM multiplayerCultureSelectVM = ...;
+multiplayerCultureSelectVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "ShipSail"
+description: "Auto-generated class reference for ShipSail."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ShipSail`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipSail
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipSail`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ShipSail.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipSail.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### NearlyEquals
 `public bool NearlyEquals(ShipSail otherShipSail)`
 
-**Purpose:** Handles logic related to `nearly equals`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ShipSail from the subsystem API first
+ShipSail shipSail = ...;
+var result = shipSail.NearlyEquals(otherShipSail);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ShipSail();
-value.NearlyEquals(otherShipSail);
+// Typically call this after obtaining an instance from the subsystem API
+ShipSail shipSail = ...;
+shipSail.NearlyEquals(otherShipSail);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

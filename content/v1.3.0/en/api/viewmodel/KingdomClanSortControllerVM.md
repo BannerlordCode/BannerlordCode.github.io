@@ -1,13 +1,7 @@
 ---
 title: "KingdomClanSortControllerVM"
+description: "Auto-generated class reference for KingdomClanSortControllerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomClanSortControllerVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomClanSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
@@ -44,50 +38,99 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**Purpose:** Handles logic related to `sort by current state`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+kingdomClanSortControllerVM.SortByCurrentState();
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+kingdomClanSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+var result = kingdomClanSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+var result = kingdomClanSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+var result = kingdomClanSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+var result = kingdomClanSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+var result = kingdomClanSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of KingdomClanSortControllerVM from the subsystem API first
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+var result = kingdomClanSortControllerVM.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomClanSortControllerVM();
-value.SortByCurrentState();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomClanSortControllerVM kingdomClanSortControllerVM = ...;
+kingdomClanSortControllerVM.SortByCurrentState();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

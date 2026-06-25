@@ -1,13 +1,7 @@
 ---
 title: "Brush"
+description: "Auto-generated class reference for Brush."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Brush`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Brush
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -67,80 +61,165 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### GetStyle
 `public Style GetStyle(string name)`
 
-**Purpose:** Gets the current value of `style`.
+**Purpose:** Reads and returns the `style` value held by the current object.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+var result = brush.GetStyle("example");
+```
 
 ### GetStyleOrDefault
 `public Style GetStyleOrDefault(string name)`
 
-**Purpose:** Gets the current value of `style or default`.
+**Purpose:** Reads and returns the `style or default` value held by the current object.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+var result = brush.GetStyleOrDefault("example");
+```
 
 ### AddStyle
 `public void AddStyle(Style style)`
 
 **Purpose:** Adds `style` to the current collection or state.
 
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+brush.AddStyle(style);
+```
+
 ### RemoveStyle
 `public void RemoveStyle(string styleName)`
 
 **Purpose:** Removes `style` from the current collection or state.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+brush.RemoveStyle("example");
+```
 
 ### AddLayer
 `public void AddLayer(BrushLayer layer)`
 
 **Purpose:** Adds `layer` to the current collection or state.
 
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+brush.AddLayer(layer);
+```
+
 ### RemoveLayer
 `public void RemoveLayer(string layerName)`
 
 **Purpose:** Removes `layer` from the current collection or state.
 
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+brush.RemoveLayer("example");
+```
+
 ### GetLayer
 `public BrushLayer GetLayer(string name)`
 
-**Purpose:** Gets the current value of `layer`.
+**Purpose:** Reads and returns the `layer` value held by the current object.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+var result = brush.GetLayer("example");
+```
 
 ### FillFrom
 `public void FillFrom(Brush brush)`
 
-**Purpose:** Handles logic related to `fill from`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+brush.FillFrom(brush);
+```
 
 ### Clone
 `public Brush Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+var result = brush.Clone();
+```
 
 ### AddAnimation
 `public void AddAnimation(BrushAnimation animation)`
 
 **Purpose:** Adds `animation` to the current collection or state.
 
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+brush.AddAnimation(animation);
+```
+
 ### GetAnimation
 `public BrushAnimation GetAnimation(string name)`
 
-**Purpose:** Gets the current value of `animation`.
+**Purpose:** Reads and returns the `animation` value held by the current object.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+var result = brush.GetAnimation("example");
+```
 
 ### GetAnimations
 `public IEnumerable<BrushAnimation> GetAnimations()`
 
-**Purpose:** Gets the current value of `animations`.
+**Purpose:** Reads and returns the `animations` value held by the current object.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+var result = brush.GetAnimations();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+var result = brush.ToString();
+```
 
 ### IsCloneRelated
 `public bool IsCloneRelated(Brush brush)`
 
-**Purpose:** Handles logic related to `is clone related`.
+**Purpose:** Determines whether the current object is in the `clone related` state or condition.
+
+```csharp
+// Obtain an instance of Brush from the subsystem API first
+Brush brush = ...;
+var result = brush.IsCloneRelated(brush);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Brush();
-value.GetStyle("example");
+// Typically call this after obtaining an instance from the subsystem API
+Brush brush = ...;
+brush.GetStyle("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyUpgradeTroopVM"
+description: "Auto-generated class reference for PartyUpgradeTroopVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyUpgradeTroopVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyUpgradeTroopVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartyUpgradeTroopVM : PartyTroopManagerVM`
 **Base:** `PartyTroopManagerVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp/PartyUpgradeTroopVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyTroopManagerPopUp/PartyUpgradeTroopVM.cs`
 
 ## Overview
 
@@ -36,55 +30,110 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyT
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.RefreshValues();
+```
 
 ### OnRanOutTroop
 `public void OnRanOutTroop(PartyCharacterVM troop)`
 
-**Purpose:** Called when the `ran out troop` event is raised.
+**Purpose:** Invoked when the `ran out troop` event is raised.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.OnRanOutTroop(troop);
+```
 
 ### OnTroopUpgraded
 `public void OnTroopUpgraded()`
 
-**Purpose:** Called when the `troop upgraded` event is raised.
+**Purpose:** Invoked when the `troop upgraded` event is raised.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.OnTroopUpgraded();
+```
 
 ### OpenPopUp
 `public override void OpenPopUp()`
 
-**Purpose:** Handles logic related to `open pop up`.
+**Purpose:** Opens the resource or UI associated with `pop up`.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.OpenPopUp();
+```
 
 ### ExecuteDone
 `public override void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteDone();
+```
 
 ### ExecuteCancel
 `public override void ExecuteCancel()`
 
-**Purpose:** Executes the `cancel` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `cancel`.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteCancel();
+```
 
 ### ExecuteItemPrimaryAction
 `public override void ExecuteItemPrimaryAction()`
 
-**Purpose:** Executes the `item primary action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `item primary action`.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteItemPrimaryAction();
+```
 
 ### ExecuteItemSecondaryAction
 `public override void ExecuteItemSecondaryAction()`
 
-**Purpose:** Executes the `item secondary action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `item secondary action`.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteItemSecondaryAction();
+```
 
 ### ExecuteItemTertiaryAction
 `public override void ExecuteItemTertiaryAction()`
 
-**Purpose:** Executes the `item tertiary action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `item tertiary action`.
+
+```csharp
+// Obtain an instance of PartyUpgradeTroopVM from the subsystem API first
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.ExecuteItemTertiaryAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyUpgradeTroopVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+PartyUpgradeTroopVM partyUpgradeTroopVM = ...;
+partyUpgradeTroopVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

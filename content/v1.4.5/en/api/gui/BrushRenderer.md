@@ -1,20 +1,14 @@
 ---
 title: "BrushRenderer"
+description: "Auto-generated class reference for BrushRenderer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BrushRenderer`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BrushRenderer
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class BrushRenderer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushRenderer.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/BrushRenderer.cs`
 
 ## Overview
 
@@ -38,40 +32,77 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Update
 `public void Update(ulong frameNumber, float globalAnimTime, float dt)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of BrushRenderer from the subsystem API first
+BrushRenderer brushRenderer = ...;
+brushRenderer.Update(0, 0, 0);
+```
 
 ### IsUpdateNeeded
 `public bool IsUpdateNeeded()`
 
-**Purpose:** Handles logic related to `is update needed`.
+**Purpose:** Determines whether the current object is in the `update needed` state or condition.
+
+```csharp
+// Obtain an instance of BrushRenderer from the subsystem API first
+BrushRenderer brushRenderer = ...;
+var result = brushRenderer.IsUpdateNeeded();
+```
 
 ### Render
 `public void Render(TwoDimensionDrawContext drawContext, in Rectangle2D rect, float scale, float contextAlpha, Vector2 overlayOffset = default(Vector2), Vector2 overlaySize = default(Vector2))`
 
-**Purpose:** Handles logic related to `render`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BrushRenderer from the subsystem API first
+BrushRenderer brushRenderer = ...;
+brushRenderer.Render(drawContext, rect, 0, 0, default(Vector2), default(Vector2));
+```
 
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Creates a new `text material` instance or object.
+**Purpose:** Constructs a new `text material` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of BrushRenderer from the subsystem API first
+BrushRenderer brushRenderer = ...;
+var result = brushRenderer.CreateTextMaterial(drawContext);
+```
 
 ### RestartAnimation
 `public void RestartAnimation()`
 
-**Purpose:** Handles logic related to `restart animation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BrushRenderer from the subsystem API first
+BrushRenderer brushRenderer = ...;
+brushRenderer.RestartAnimation();
+```
 
 ### SetSeed
 `public void SetSeed(int seed)`
 
-**Purpose:** Sets the value or state of `seed`.
+**Purpose:** Assigns a new value to `seed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of BrushRenderer from the subsystem API first
+BrushRenderer brushRenderer = ...;
+brushRenderer.SetSeed(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BrushRenderer();
-value.Update(0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+BrushRenderer brushRenderer = ...;
+brushRenderer.Update(0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

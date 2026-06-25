@@ -1,13 +1,7 @@
 ---
 title: "BoostItemButtonWidget"
+description: "Auto-generated class reference for BoostItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoostItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BoostItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.GatherArmy
@@ -35,9 +29,10 @@ Treat `BoostItemButtonWidget` as a Widget-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var widget = new BoostItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+BoostItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

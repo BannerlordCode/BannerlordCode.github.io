@@ -1,20 +1,14 @@
 ---
 title: "SandboxBattleBannerBearersModel"
+description: "Auto-generated class reference for SandboxBattleBannerBearersModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandboxBattleBannerBearersModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxBattleBannerBearersModel
 
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public class SandboxBattleBannerBearersModel : BattleBannerBearersModel`
 **Base:** `BattleBannerBearersModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/Sandbox/SandboxBattleBannerBearersModel.cs`
+**File:** `Modules.SandBox/SandBox/Sandbox/SandboxBattleBannerBearersModel.cs`
 
 ## Overview
 
@@ -29,47 +23,101 @@ Treat `SandboxBattleBannerBearersModel` as a Model-style extension point: first 
 ### GetMinimumFormationTroopCountToBearBanners
 `public override int GetMinimumFormationTroopCountToBearBanners()`
 
-**Purpose:** Gets the current value of `minimum formation troop count to bear banners`.
+**Purpose:** Reads and returns the `minimum formation troop count to bear banners` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetMinimumFormationTroopCountToBearBanners();
+```
 
 ### GetBannerInteractionDistance
 `public override float GetBannerInteractionDistance(Agent interactingAgent)`
 
-**Purpose:** Gets the current value of `banner interaction distance`.
+**Purpose:** Reads and returns the `banner interaction distance` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetBannerInteractionDistance(interactingAgent);
+```
 
 ### CanBannerBearerProvideEffectToFormation
 `public override bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
 
-**Purpose:** Checks whether the current object can `banner bearer provide effect to formation`.
+**Purpose:** Checks whether the current object meets the preconditions for `banner bearer provide effect to formation`.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.CanBannerBearerProvideEffectToFormation(agent, formation);
+```
 
 ### CanAgentPickUpAnyBanner
 `public override bool CanAgentPickUpAnyBanner(Agent agent)`
 
-**Purpose:** Checks whether the current object can `agent pick up any banner`.
+**Purpose:** Checks whether the current object meets the preconditions for `agent pick up any banner`.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.CanAgentPickUpAnyBanner(agent);
+```
 
 ### CanAgentBecomeBannerBearer
 `public override bool CanAgentBecomeBannerBearer(Agent agent)`
 
-**Purpose:** Checks whether the current object can `agent become banner bearer`.
+**Purpose:** Checks whether the current object meets the preconditions for `agent become banner bearer`.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.CanAgentBecomeBannerBearer(agent);
+```
 
 ### GetAgentBannerBearingPriority
 `public override int GetAgentBannerBearingPriority(Agent agent)`
 
-**Purpose:** Gets the current value of `agent banner bearing priority`.
+**Purpose:** Reads and returns the `agent banner bearing priority` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetAgentBannerBearingPriority(agent);
+```
 
 ### CanFormationDeployBannerBearers
 `public override bool CanFormationDeployBannerBearers(Formation formation)`
 
-**Purpose:** Checks whether the current object can `formation deploy banner bearers`.
+**Purpose:** Checks whether the current object meets the preconditions for `formation deploy banner bearers`.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.CanFormationDeployBannerBearers(formation);
+```
 
 ### GetDesiredNumberOfBannerBearersForFormation
 `public override int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
 
-**Purpose:** Gets the current value of `desired number of banner bearers for formation`.
+**Purpose:** Reads and returns the `desired number of banner bearers for formation` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetDesiredNumberOfBannerBearersForFormation(formation);
+```
 
 ### GetBannerBearerReplacementWeapon
 `public override ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
 
-**Purpose:** Gets the current value of `banner bearer replacement weapon`.
+**Purpose:** Reads and returns the `banner bearer replacement weapon` value held by the current object.
+
+```csharp
+// Obtain an instance of SandboxBattleBannerBearersModel from the subsystem API first
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetBannerBearerReplacementWeapon(agentCharacter);
+```
 
 ## Usage Example
 
@@ -79,4 +127,4 @@ Game.Current.ReplaceModel<SandboxBattleBannerBearersModel>(new MySandboxBattleBa
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MenuTournamentLeaderboardView"
+description: "Auto-generated class reference for MenuTournamentLeaderboardView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuTournamentLeaderboardView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuTournamentLeaderboardView
 
 **Namespace:** SandBox.View.Menu
 **Module:** SandBox.View
 **Type:** `public class MenuTournamentLeaderboardView : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Menu/MenuTournamentLeaderboardView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Menu/MenuTournamentLeaderboardView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MenuTournamentLeaderboardView` as a View-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var view = new MenuTournamentLeaderboardView();
+// Retrieve this view from the subsystem API or scene
+MenuTournamentLeaderboardView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

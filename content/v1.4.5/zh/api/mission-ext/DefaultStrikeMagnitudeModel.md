@@ -1,20 +1,14 @@
 ---
 title: "DefaultStrikeMagnitudeModel"
+description: "DefaultStrikeMagnitudeModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultStrikeMagnitudeModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultStrikeMagnitudeModel
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultStrikeMagnitudeModel : StrikeMagnitudeCalculationModel`
 **Base:** `StrikeMagnitudeCalculationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultStrikeMagnitudeModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultStrikeMagnitudeModel.cs`
 
 ## 概述
 
@@ -29,42 +23,90 @@ title: "DefaultStrikeMagnitudeModel"
 ### CalculateStrikeMagnitudeForMissile
 `public override float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for missile` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for missile」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateStrikeMagnitudeForMissile(attackInformation, collisionData, weapon, 0);
+```
 
 ### CalculateStrikeMagnitudeForSwing
 `public override float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for swing` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for swing」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateStrikeMagnitudeForSwing(attackInformation, collisionData, weapon, 0, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public override float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for unarmed attack` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for unarmed attack」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateStrikeMagnitudeForUnarmedAttack(attackInformation, collisionData, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForThrust
 `public override float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustWeaponSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for thrust` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for thrust」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateStrikeMagnitudeForThrust(attackInformation, collisionData, weapon, 0, 0, false);
+```
 
 ### ComputeRawDamage
 `public override float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**用途 / Purpose:** 处理 `compute raw damage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.ComputeRawDamage(damageType, 0, 0, 0);
+```
 
 ### GetBluntDamageFactorByDamageType
 `public override float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**用途 / Purpose:** 获取 `blunt damage factor by damage type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「blunt damage factor by damage type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.GetBluntDamageFactorByDamageType(damageType);
+```
 
 ### CalculateHorseArcheryFactor
 `public override float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** 处理 `calculate horse archery factor` 相关逻辑。
+**用途 / Purpose:** 计算「horse archery factor」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateHorseArcheryFactor(characterObject);
+```
 
 ### CalculateBaseBlowMagnitudeForPassiveUsage
 `public override float CalculateBaseBlowMagnitudeForPassiveUsage(in AttackInformation attackInformation, in AttackCollisionData collisionData, float extraLinearSpeed)`
 
-**用途 / Purpose:** 处理 `calculate base blow magnitude for passive usage` 相关逻辑。
+**用途 / Purpose:** 计算「base blow magnitude for passive usage」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultStrikeMagnitudeModel 实例
+DefaultStrikeMagnitudeModel defaultStrikeMagnitudeModel = ...;
+var result = defaultStrikeMagnitudeModel.CalculateBaseBlowMagnitudeForPassiveUsage(attackInformation, collisionData, 0);
+```
 
 ## 使用示例
 
@@ -74,4 +116,4 @@ Game.Current.ReplaceModel<DefaultStrikeMagnitudeModel>(new MyDefaultStrikeMagnit
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionScoreboardComponent"
+description: "MissionScoreboardComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionScoreboardComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionScoreboardComponent.cs`
 
 ## 概述
 
@@ -29,172 +23,376 @@ title: "MissionScoreboardComponent"
 ### ScoreboardHeader
 `public struct ScoreboardHeader(string id, Func<MissionPeer, string> playerGetterFunc, Func<BotData, string> botGetterFunc)`
 
-**用途 / Purpose:** 处理 `scoreboard header` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.ScoreboardHeader("example", func<MissionPeer, "example", func<BotData, "example");
+```
 
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 获取 `value of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetValueOf(missionPeer);
+```
 
 ### GetValueOf
 `public string GetValueOf(BotData botData)`
 
-**用途 / Purpose:** 获取 `value of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetValueOf(botData);
+```
 
 ### AddPlayer
 `public void AddPlayer(MissionPeer peer)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `player`。
+**用途 / Purpose:** 将 「player」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.AddPlayer(peer);
+```
 
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `player`。
+**用途 / Purpose:** 从当前容器或状态中移除 「player」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.RemovePlayer(peer);
+```
 
 ### GetValuesOf
 `public string GetValuesOf(MissionPeer peer)`
 
-**用途 / Purpose:** 获取 `values of` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「values of」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetValuesOf(peer);
+```
 
 ### GetHeaderNames
 `public string GetHeaderNames()`
 
-**用途 / Purpose:** 获取 `header names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「header names」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetHeaderNames();
+```
 
 ### GetHeaderIds
 `public string GetHeaderIds()`
 
-**用途 / Purpose:** 获取 `header ids` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「header ids」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetHeaderIds();
+```
 
 ### GetScore
 `public int GetScore(MissionPeer peer)`
 
-**用途 / Purpose:** 获取 `score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetScore(peer);
+```
 
 ### UpdateHeader
 `public void UpdateHeader(ScoreboardHeader headers)`
 
-**用途 / Purpose:** 更新 `header` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「header」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.UpdateHeader(headers);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.Clear();
+```
 
 ### CalculateAndGetMVPScoreWithPeer
 `public KeyValuePair<MissionPeer, int> CalculateAndGetMVPScoreWithPeer()`
 
-**用途 / Purpose:** 处理 `calculate and get m v p score with peer` 相关逻辑。
+**用途 / Purpose:** 计算「and get m v p score with peer」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.CalculateAndGetMVPScoreWithPeer();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnRemoveBehavior();
+```
 
 ### ResetBotScores
 `public void ResetBotScores()`
 
-**用途 / Purpose:** 将 `bot scores` 重置为初始状态。
+**用途 / Purpose:** 将 「bot scores」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.ResetBotScores();
+```
 
 ### ChangeTeamScore
 `public void ChangeTeamScore(Team team, int scoreChange)`
 
-**用途 / Purpose:** 处理 `change team score` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.ChangeTeamScore(team, 0);
+```
 
 ### GetSideSafe
 `public MissionScoreboardSide GetSideSafe(BattleSideEnum battleSide)`
 
-**用途 / Purpose:** 获取 `side safe` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「side safe」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetSideSafe(battleSide);
+```
 
 ### GetRoundScore
 `public int GetRoundScore(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `round score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「round score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetRoundScore(side);
+```
 
 ### HandleServerUpdateRoundScoresMessage
 `public void HandleServerUpdateRoundScoresMessage(GameNetworkMessage baseMessage)`
 
-**用途 / Purpose:** 处理 `server update round scores message` 事件或回调。
+**用途 / Purpose:** 执行与 「server update round scores message」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.HandleServerUpdateRoundScoresMessage(baseMessage);
+```
 
 ### HandleServerSetRoundMVP
 `public void HandleServerSetRoundMVP(GameNetworkMessage baseMessage)`
 
-**用途 / Purpose:** 处理 `server set round m v p` 事件或回调。
+**用途 / Purpose:** 执行与 「server set round m v p」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.HandleServerSetRoundMVP(baseMessage);
+```
 
 ### CalculateTotalNumbers
 `public void CalculateTotalNumbers()`
 
-**用途 / Purpose:** 处理 `calculate total numbers` 相关逻辑。
+**用途 / Purpose:** 计算「total numbers」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.CalculateTotalNumbers();
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 当 `clear scene` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnClearScene();
+```
 
 ### OnPlayerConnectedToServer
 `public override void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 当 `player connected to server` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player connected to server」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnPlayerConnectedToServer(networkPeer);
+```
 
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 当 `player disconnected from server` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player disconnected from server」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnPlayerDisconnectedFromServer(networkPeer);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnAgentBuild(agent, banner);
+```
 
 ### OnAssignPlayerAsSergeantOfFormation
 `public override void OnAssignPlayerAsSergeantOfFormation(Agent agent)`
 
-**用途 / Purpose:** 当 `assign player as sergeant of formation` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「assign player as sergeant of formation」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnAssignPlayerAsSergeantOfFormation(agent);
+```
 
 ### BotPropertiesChanged
 `public void BotPropertiesChanged(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理 `bot properties changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.BotPropertiesChanged(side);
+```
 
 ### PlayerPropertiesChanged
 `public void PlayerPropertiesChanged(NetworkCommunicator player)`
 
-**用途 / Purpose:** 处理 `player properties changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.PlayerPropertiesChanged(player);
+```
 
 ### PlayerPropertiesChanged
 `public void PlayerPropertiesChanged(MissionPeer player)`
 
-**用途 / Purpose:** 处理 `player properties changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.PlayerPropertiesChanged(player);
+```
 
 ### HandleServerEventBotDataMessage
 `public void HandleServerEventBotDataMessage(GameNetworkMessage baseMessage)`
 
-**用途 / Purpose:** 处理 `server event bot data message` 事件或回调。
+**用途 / Purpose:** 执行与 「server event bot data message」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.HandleServerEventBotDataMessage(baseMessage);
+```
 
 ### OnRoundEnding
 `public void OnRoundEnding()`
 
-**用途 / Purpose:** 当 `round ending` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「round ending」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnRoundEnding();
+```
 
 ### OnMultiplayerGameClientBehaviorInitialized
 `public void OnMultiplayerGameClientBehaviorInitialized(ref Action<NetworkCommunicator> onBotsControlledChanged)`
 
-**用途 / Purpose:** 当 `multiplayer game client behavior initialized` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「multiplayer game client behavior initialized」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnMultiplayerGameClientBehaviorInitialized(onBotsControlledChanged);
+```
 
 ### GetMatchWinnerSide
 `public BattleSideEnum GetMatchWinnerSide()`
 
-**用途 / Purpose:** 获取 `match winner side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「match winner side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+var result = missionScoreboardComponent.GetMatchWinnerSide();
+```
 
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** 当 `score hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「score hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScoreboardComponent 实例
+MissionScoreboardComponent missionScoreboardComponent = ...;
+missionScoreboardComponent.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
+```
 
 ## 使用示例
 
@@ -204,4 +402,4 @@ var component = agent.GetComponent<MissionScoreboardComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "HitParticleResultData"
+description: "HitParticleResultData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HitParticleResultData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HitParticleResultData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct HitParticleResultData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HitParticleResultData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/HitParticleResultData.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "HitParticleResultData"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 HitParticleResultData 实例
+HitParticleResultData hitParticleResultData = ...;
+hitParticleResultData.Reset();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new HitParticleResultData();
+// 该数据对象通常由战役/任务 API 返回
+HitParticleResultData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

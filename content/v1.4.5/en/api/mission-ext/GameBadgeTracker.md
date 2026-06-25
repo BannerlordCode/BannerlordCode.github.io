@@ -1,20 +1,14 @@
 ---
 title: "GameBadgeTracker"
+description: "Auto-generated class reference for GameBadgeTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameBadgeTracker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameBadgeTracker
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class GameBadgeTracker`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/GameBadgeTracker.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/GameBadgeTracker.cs`
 
 ## Overview
 
@@ -29,24 +23,43 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### OnPlayerJoin
 `public virtual void OnPlayerJoin(PlayerData playerData)`
 
-**Purpose:** Called when the `player join` event is raised.
+**Purpose:** Invoked when the `player join` event is raised.
+
+```csharp
+// Obtain an instance of GameBadgeTracker from the subsystem API first
+GameBadgeTracker gameBadgeTracker = ...;
+gameBadgeTracker.OnPlayerJoin(playerData);
+```
 
 ### OnKill
 `public virtual void OnKill(KillData killData)`
 
-**Purpose:** Called when the `kill` event is raised.
+**Purpose:** Invoked when the `kill` event is raised.
+
+```csharp
+// Obtain an instance of GameBadgeTracker from the subsystem API first
+GameBadgeTracker gameBadgeTracker = ...;
+gameBadgeTracker.OnKill(killData);
+```
 
 ### OnStartingNextBattle
 `public virtual void OnStartingNextBattle()`
 
-**Purpose:** Called when the `starting next battle` event is raised.
+**Purpose:** Invoked when the `starting next battle` event is raised.
+
+```csharp
+// Obtain an instance of GameBadgeTracker from the subsystem API first
+GameBadgeTracker gameBadgeTracker = ...;
+gameBadgeTracker.OnStartingNextBattle();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGameBadgeTracker();
+// Typically obtained from a subsystem API or factory
+GameBadgeTracker instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

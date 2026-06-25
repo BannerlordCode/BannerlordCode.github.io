@@ -1,13 +1,7 @@
 ---
 title: "SavedGameModuleInfoVM"
+description: "Auto-generated class reference for SavedGameModuleInfoVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SavedGameModuleInfoVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SavedGameModuleInfoVM
 
 **Namespace:** SandBox.ViewModelCollection.SaveLoad
@@ -35,9 +29,10 @@ Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the s
 ## Usage Example
 
 ```csharp
-var value = new SavedGameModuleInfoVM();
+// Obtain an instance from the relevant subsystem API
+SavedGameModuleInfoVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MiscHelper"
+description: "Auto-generated class reference for MiscHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MiscHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MiscHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class MiscHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/MiscHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/MiscHelper.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Treat `MiscHelper` as a Helper-style extension point: first identify who creates
 ### LoadXmlFile
 `public static XmlDocument LoadXmlFile(string path)`
 
-**Purpose:** Loads `xml file` data.
+**Purpose:** Reads `xml file` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MiscHelper.LoadXmlFile("example");
+```
 
 ### GenerateCampaignId
 `public static string GenerateCampaignId(int length)`
 
-**Purpose:** Handles logic related to `generate campaign id`.
+**Purpose:** Generates an instance, data, or representation of `campaign id`.
+
+```csharp
+// Static call; no instance required
+MiscHelper.GenerateCampaignId(0);
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ MiscHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

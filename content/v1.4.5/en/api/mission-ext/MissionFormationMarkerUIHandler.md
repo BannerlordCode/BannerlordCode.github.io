@@ -1,20 +1,14 @@
 ---
 title: "MissionFormationMarkerUIHandler"
+description: "Auto-generated class reference for MissionFormationMarkerUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionFormationMarkerUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFormationMarkerUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionFormationMarkerUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionFormationMarkerUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer/MissionFormationMarkerUIHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `MissionFormationMarkerUIHandler` as a Handler-style extension point: firs
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionFormationMarkerUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionFormationMarkerUIHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

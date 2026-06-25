@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentDamageFeedWidget"
+description: "Auto-generated class reference for MissionAgentDamageFeedWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentDamageFeedWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentDamageFeedWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.DamageFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAgentDamageFeedWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.DamageFeed/MissionAgentDamageFeedWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.DamageFeed/MissionAgentDamageFeedWidget.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MissionAgentDamageFeedWidget` as a Widget-style extension point: first id
 ## Usage Example
 
 ```csharp
-var widget = new MissionAgentDamageFeedWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MissionAgentDamageFeedWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

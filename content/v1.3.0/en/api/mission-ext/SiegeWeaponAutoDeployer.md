@@ -1,13 +1,7 @@
 ---
 title: "SiegeWeaponAutoDeployer"
+description: "Auto-generated class reference for SiegeWeaponAutoDeployer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeWeaponAutoDeployer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeWeaponAutoDeployer
 
 **Namespace:** TaleWorlds.MountAndBlade.AI
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.AI` to place it in the stack, the
 ### DeployAll
 `public void DeployAll(BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `deploy all`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeWeaponAutoDeployer from the subsystem API first
+SiegeWeaponAutoDeployer siegeWeaponAutoDeployer = ...;
+siegeWeaponAutoDeployer.DeployAll(side);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeWeaponAutoDeployer();
-value.DeployAll(side);
+// Typically call this after obtaining an instance from the subsystem API
+SiegeWeaponAutoDeployer siegeWeaponAutoDeployer = ...;
+siegeWeaponAutoDeployer.DeployAll(side);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

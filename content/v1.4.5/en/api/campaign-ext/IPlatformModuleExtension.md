@@ -1,20 +1,14 @@
 ---
 title: "IPlatformModuleExtension"
+description: "Auto-generated class reference for IPlatformModuleExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IPlatformModuleExtension`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IPlatformModuleExtension
 
 **Namespace:** TaleWorlds.ModuleManager
 **Module:** TaleWorlds.ModuleManager
-**Type:** `class`
+**Type:** `public interface IPlatformModuleExtension`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/IPlatformModuleExtension.cs`
+**File:** `bin/TaleWorlds.ModuleManager/TaleWorlds.ModuleManager/IPlatformModuleExtension.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IPlatformModuleExtension implementation = GetPlatformModuleExtensionImplementation();
+// Usually obtained through DI or a factory method
+IIPlatformModuleExtension service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

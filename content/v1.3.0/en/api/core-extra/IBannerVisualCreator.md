@@ -1,18 +1,12 @@
 ---
 title: "IBannerVisualCreator"
+description: "Auto-generated class reference for IBannerVisualCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IBannerVisualCreator`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBannerVisualCreator
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IBannerVisualCreator`
 **Base:** none
 **File:** `TaleWorlds.Core/IBannerVisualCreator.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IBannerVisualCreator implementation = GetBannerVisualCreatorImplementation();
+// Usually obtained through DI or a factory method
+IIBannerVisualCreator service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

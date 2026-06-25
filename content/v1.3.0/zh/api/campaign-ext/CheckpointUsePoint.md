@@ -1,13 +1,7 @@
 ---
 title: "CheckpointUsePoint"
+description: "CheckpointUsePoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CheckpointUsePoint`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheckpointUsePoint
 
 **Namespace:** SandBox.Objects.Usables
@@ -35,25 +29,44 @@ title: "CheckpointUsePoint"
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 处理 `after mission start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CheckpointUsePoint 实例
+CheckpointUsePoint checkpointUsePoint = ...;
+checkpointUsePoint.AfterMissionStart();
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 获取 `action text for standing point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CheckpointUsePoint 实例
+CheckpointUsePoint checkpointUsePoint = ...;
+var result = checkpointUsePoint.GetActionTextForStandingPoint(usableGameObject);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CheckpointUsePoint 实例
+CheckpointUsePoint checkpointUsePoint = ...;
+var result = checkpointUsePoint.GetDescriptionText(gameEntity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CheckpointUsePoint();
-value.AfterMissionStart();
+// 通常从对应子系统 API 获取实例后调用
+CheckpointUsePoint checkpointUsePoint = ...;
+checkpointUsePoint.AfterMissionStart();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

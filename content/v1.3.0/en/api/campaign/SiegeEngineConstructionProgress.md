@@ -1,13 +1,7 @@
 ---
 title: "SiegeEngineConstructionProgress"
+description: "Auto-generated class reference for SiegeEngineConstructionProgress."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEngineConstructionProgress`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineConstructionProgress
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
@@ -42,30 +36,55 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### SetRedeploymentProgress
 `public void SetRedeploymentProgress(float redeploymentProgress)`
 
-**Purpose:** Sets the value or state of `redeployment progress`.
+**Purpose:** Assigns a new value to `redeployment progress` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRedeploymentProgress(0);
+```
 
 ### SetHitpoints
 `public void SetHitpoints(float hitPoints)`
 
-**Purpose:** Sets the value or state of `hitpoints`.
+**Purpose:** Assigns a new value to `hitpoints` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetHitpoints(0);
+```
 
 ### SetProgress
 `public void SetProgress(float progress)`
 
-**Purpose:** Sets the value or state of `progress`.
+**Purpose:** Assigns a new value to `progress` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetProgress(0);
+```
 
 ### SetRangedSiegeEngine
 `public void SetRangedSiegeEngine(SiegeEvent.RangedSiegeEngine rangedSiegeEngine)`
 
-**Purpose:** Sets the value or state of `ranged siege engine`.
+**Purpose:** Assigns a new value to `ranged siege engine` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRangedSiegeEngine(rangedSiegeEngine);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeEngineConstructionProgress();
-value.SetRedeploymentProgress(0);
+// Typically call this after obtaining an instance from the subsystem API
+SiegeEngineConstructionProgress siegeEngineConstructionProgress = ...;
+siegeEngineConstructionProgress.SetRedeploymentProgress(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

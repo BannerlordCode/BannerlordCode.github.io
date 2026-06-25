@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeKeyTypeDataSource"
+description: "Auto-generated class reference for WidgetAttributeKeyTypeDataSource."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeKeyTypeDataSource`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetAttributeKeyTypeDataSource
 
 **Namespace:** TaleWorlds.GauntletUI.Data
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### CheckKeyType
 `public override bool CheckKeyType(string key)`
 
-**Purpose:** Handles logic related to `check key type`.
+**Purpose:** Verifies whether `key type` holds true for the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeDataSource from the subsystem API first
+WidgetAttributeKeyTypeDataSource widgetAttributeKeyTypeDataSource = ...;
+var result = widgetAttributeKeyTypeDataSource.CheckKeyType("example");
+```
 
 ### GetKeyName
 `public override string GetKeyName(string key)`
 
-**Purpose:** Gets the current value of `key name`.
+**Purpose:** Reads and returns the `key name` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeDataSource from the subsystem API first
+WidgetAttributeKeyTypeDataSource widgetAttributeKeyTypeDataSource = ...;
+var result = widgetAttributeKeyTypeDataSource.GetKeyName("example");
+```
 
 ### GetSerializedKey
 `public override string GetSerializedKey(string key)`
 
-**Purpose:** Gets the current value of `serialized key`.
+**Purpose:** Reads and returns the `serialized key` value held by the current object.
+
+```csharp
+// Obtain an instance of WidgetAttributeKeyTypeDataSource from the subsystem API first
+WidgetAttributeKeyTypeDataSource widgetAttributeKeyTypeDataSource = ...;
+var result = widgetAttributeKeyTypeDataSource.GetSerializedKey("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WidgetAttributeKeyTypeDataSource();
-value.CheckKeyType("example");
+// Typically call this after obtaining an instance from the subsystem API
+WidgetAttributeKeyTypeDataSource widgetAttributeKeyTypeDataSource = ...;
+widgetAttributeKeyTypeDataSource.CheckKeyType("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "SiegeEnginesContainer"
+description: "Auto-generated class reference for SiegeEnginesContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEnginesContainer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SiegeEnginesContainer
 
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SiegeEnginesContainer`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Siege/SiegeEvent.cs`
 
 ## Overview
 
-`SiegeEnginesContainer` lives in `TaleWorlds.CampaignSystem.Siege`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`SiegeEnginesContainer` lives in `TaleWorlds.CampaignSystem.Siege` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,138 +22,99 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 
 | Name | Signature |
 |------|-----------|
-| `SiegeWallSeed` | `public int SiegeWallSeed { get; }` |
-| `SiegePeopleSeed` | `public int SiegePeopleSeed { get; }` |
-| `SiegeStartTime` | `public CampaignTime SiegeStartTime { get; }` |
-| `IsPlayerSiegeEvent` | `public bool IsPlayerSiegeEvent { get; }` |
-| `BlockadeShouldBeActivated` | `public bool BlockadeShouldBeActivated { get; }` |
-| `IsBlockadeActive` | `public bool IsBlockadeActive { get; }` |
-| `ReadyToBeRemoved` | `public bool ReadyToBeRemoved { get; }` |
-| `NextTimeEngineCanBombard` | `public CampaignTime NextTimeEngineCanBombard { get; }` |
-| `AlreadyFired` | `public bool AlreadyFired { get; }` |
-| `CurrentTargetType` | `public SiegeBombardTargets CurrentTargetType { get; }` |
-| `CurrentTargetIndex` | `public int CurrentTargetIndex { get; }` |
-| `PreviousDamagedTargetType` | `public SiegeBombardTargets PreviousDamagedTargetType { get; }` |
-| `PreviousTargetIndex` | `public int PreviousTargetIndex { get; }` |
-| `LastBombardTime` | `public CampaignTime LastBombardTime { get; }` |
-| `NextProjectileCollisionTime` | `public CampaignTime NextProjectileCollisionTime { get; }` |
-| `IsReadyToFire` | `public bool IsReadyToFire { get; }` |
-| `IsActive` | `public bool IsActive { get; }` |
-| `Hitpoints` | `public float Hitpoints { get; }` |
-| `Progress` | `public float Progress { get; }` |
-| `RangedSiegeEngine` | `public SiegeEvent.RangedSiegeEngine RangedSiegeEngine { get; }` |
+| `DeployedSiegeEngines` | `public MBReadOnlyList<SiegeEvent.SiegeEngineConstructionProgress> DeployedSiegeEngines { get; }` |
+| `ReservedSiegeEngines` | `public MBReadOnlyList<SiegeEvent.SiegeEngineConstructionProgress> ReservedSiegeEngines { get; }` |
+| `DeployedSiegeEngineTypesCount` | `public MBReadOnlyDictionary<SiegeEngineType, int> DeployedSiegeEngineTypesCount { get; }` |
+| `ReservedSiegeEngineTypesCount` | `public MBReadOnlyDictionary<SiegeEngineType, int> ReservedSiegeEngineTypesCount { get; }` |
+| `RemovedSiegeEngines` | `public MBReadOnlyList<SiegeEvent.SiegeEnginesContainer.RemovedSiegeEngine> RemovedSiegeEngines { get; }` |
 
 ## Key Methods
 
-### ActivateBlockade
-`public void ActivateBlockade()`
+### AllSiegeEngines
+`public IEnumerable<SiegeEvent.SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**Purpose:** Handles logic related to `activate blockade`.
+**Purpose:** Performs the operation described by this method.
 
-### DeactivateBlockade
-`public void DeactivateBlockade()`
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.AllSiegeEngines();
+```
 
-**Purpose:** Handles logic related to `deactivate blockade`.
+### AddPrebuiltEngineToReserve
+`public void AddPrebuiltEngineToReserve(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
-### GetInvolvedPartiesForEventType
-`public List<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes battleType)`
+**Purpose:** Adds `prebuilt engine to reserve` to the current collection or state.
 
-**Purpose:** Gets the current value of `involved parties for event type`.
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.AddPrebuiltEngineToReserve(siegeEngine);
+```
 
-### GetCurrentBattleType
-`public MapEvent.BattleTypes GetCurrentBattleType()`
+### DeploySiegeEngineAtIndex
+`public void DeploySiegeEngineAtIndex(SiegeEvent.SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**Purpose:** Gets the current value of `current battle type`.
+**Purpose:** Performs the operation described by this method.
 
-### GetSiegeEventSide
-`public ISiegeEventSide GetSiegeEventSide(BattleSideEnum side)`
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.DeploySiegeEngineAtIndex(siegeEngine, 0);
+```
 
-**Purpose:** Gets the current value of `siege event side`.
+### RemoveDeployedSiegeEngine
+`public void RemoveDeployedSiegeEngine(int index, bool isRanged, bool moveToReserve)`
 
-### CanPartyJoinSide
-`public bool CanPartyJoinSide(PartyBase party, BattleSideEnum side)`
+**Purpose:** Removes `deployed siege engine` from the current collection or state.
 
-**Purpose:** Checks whether the current object can `party join side`.
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.RemoveDeployedSiegeEngine(0, false, false);
+```
 
-### Tick
-`public void Tick(float dt)`
+### RemovedSiegeEngineFromReservedSiegeEngines
+`public bool RemovedSiegeEngineFromReservedSiegeEngines(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Removes `d siege engine from reserved siege engines` from the current collection or state.
 
-### OnAfterLoad
-`public void OnAfterLoad()`
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.RemovedSiegeEngineFromReservedSiegeEngines(siegeEngine);
+```
 
-**Purpose:** Called when the `after load` event is raised.
+### FindDeploymentIndexOfDeployedEngine
+`public int FindDeploymentIndexOfDeployedEngine(SiegeEvent.SiegeEngineConstructionProgress deployedEngine)`
 
-### OnBeforeSiegeEventEnd
-`public void OnBeforeSiegeEventEnd(BattleState winnerSide, MapEvent.BattleTypes battleType)`
+**Purpose:** Looks up the matching `deployment index of deployed engine` in the current collection or scope.
 
-**Purpose:** Called when the `before siege event end` event is raised.
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.FindDeploymentIndexOfDeployedEngine(deployedEngine);
+```
 
-### FinalizeSiegeEvent
-`public void FinalizeSiegeEvent()`
+### ClearRemovedEnginesIfNecessary
+`public bool ClearRemovedEnginesIfNecessary()`
 
-**Purpose:** Handles logic related to `finalize siege event`.
+**Purpose:** Removes all `removed engines if necessary` from the current object.
 
-### IsPartyInvolved
-`public bool IsPartyInvolved(PartyBase party)`
-
-**Purpose:** Handles logic related to `is party involved`.
-
-### SetPositionAfterMapChange
-`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
-
-**Purpose:** Sets the value or state of `position after map change`.
-
-### DoSiegeAction
-`public void DoSiegeAction(ISiegeEventSide siegeEventSide, SiegeStrategyActionModel.SiegeAction siegeAction, SiegeEngineType siegeEngineType, int deploymentIndex, int reserveIndex)`
-
-**Purpose:** Handles logic related to `do siege action`.
-
-### AdvanceStrategy
-`public void AdvanceStrategy(ISiegeEventSide siegeEventSide)`
-
-**Purpose:** Handles logic related to `advance strategy`.
-
-### BreakSiegeEngine
-`public void BreakSiegeEngine(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngineType)`
-
-**Purpose:** Handles logic related to `break siege engine`.
-
-### GetPreparedSiegeEnginesAsDictionary
-`public Dictionary<SiegeEngineType, int> GetPreparedSiegeEnginesAsDictionary(ISiegeEventSide siegeEventSide)`
-
-**Purpose:** Gets the current value of `prepared siege engines as dictionary`.
-
-### GetPreparedAndActiveSiegeEngines
-`public List<MissionSiegeWeapon> GetPreparedAndActiveSiegeEngines(ISiegeEventSide siegeEventSide)`
-
-**Purpose:** Gets the current value of `prepared and active siege engines`.
-
-### SetSiegeEngineStatesAfterSiegeMission
-`public void SetSiegeEngineStatesAfterSiegeMission(IEnumerable<IMissionSiegeWeapon> attackerMissionSiegeEngineData, IEnumerable<IMissionSiegeWeapon> defenderMissionSiegeEngineData)`
-
-**Purpose:** Sets the value or state of `siege engine states after siege mission`.
-
-### CreateSiegeObject
-`public void CreateSiegeObject(SiegeEvent.SiegeEngineConstructionProgress siegeEngineConstructionProgress, ISiegeEventSide siegeSide)`
-
-**Purpose:** Creates a new `siege object` instance or object.
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Handles logic related to `to string`.
+```csharp
+// Obtain an instance of SiegeEnginesContainer from the subsystem API first
+SiegeEnginesContainer siegeEnginesContainer = ...;
+var result = siegeEnginesContainer.ClearRemovedEnginesIfNecessary();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a SiegeEnginesContainer instance from game state, then call one of its public methods
-var value = new SiegeEnginesContainer();
-value.ActivateBlockade();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeEnginesContainer siegeEnginesContainer = ...;
+siegeEnginesContainer.AllSiegeEngines();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

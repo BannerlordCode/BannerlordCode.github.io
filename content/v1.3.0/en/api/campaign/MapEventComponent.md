@@ -1,13 +1,7 @@
 ---
 title: "MapEventComponent"
+description: "Auto-generated class reference for MapEventComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventComponent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventComponent
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -34,9 +28,10 @@ Treat `MapEventComponent` as a Component-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapEventComponent();
+// Typically obtained from a subsystem API or factory
+MapEventComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

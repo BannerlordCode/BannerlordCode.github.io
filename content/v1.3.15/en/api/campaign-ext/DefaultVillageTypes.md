@@ -1,13 +1,7 @@
 ---
 title: "DefaultVillageTypes"
+description: "Auto-generated class reference for DefaultVillageTypes."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultVillageTypes`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DefaultVillageTypes
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -54,9 +48,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new DefaultVillageTypes();
+// Obtain an instance from the relevant subsystem API
+DefaultVillageTypes instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

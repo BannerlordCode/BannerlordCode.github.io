@@ -1,20 +1,14 @@
 ---
 title: "DynamicObjectAnimationPoint"
+description: "Auto-generated class reference for DynamicObjectAnimationPoint."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DynamicObjectAnimationPoint`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DynamicObjectAnimationPoint
 
 **Namespace:** SandBox.Objects.AnimationPoints
 **Module:** SandBox.Objects
 **Type:** `public class DynamicObjectAnimationPoint : StandingPoint`
 **Base:** `StandingPoint`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/DynamicObjectAnimationPoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects.AnimationPoints/DynamicObjectAnimationPoint.cs`
 
 ## Overview
 
@@ -36,70 +30,143 @@ Start from namespace `SandBox.Objects.AnimationPoints` to place it in the stack,
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.GetTickRequirement();
+```
 
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** Handles logic related to `is usable by agent`.
+**Purpose:** Determines whether the current object is in the `usable by agent` state or condition.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.IsUsableByAgent(userAgent);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `use` event is raised.
+**Purpose:** Invoked when the `use` event is raised.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.OnUse(userAgent, 0);
+```
 
 ### GetUserFrameForAgent
 `public override WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**Purpose:** Gets the current value of `user frame for agent`.
+**Purpose:** Reads and returns the `user frame for agent` value held by the current object.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.GetUserFrameForAgent(agent);
+```
 
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Handles logic related to `is disabled for agent`.
+**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.IsDisabledForAgent(agent);
+```
 
 ### SimulateTick
 `public override void SimulateTick(float dt)`
 
-**Purpose:** Handles logic related to `simulate tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.SimulateTick(0);
+```
 
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**Purpose:** Checks whether the current object has/contains `alternative`.
+**Purpose:** Determines whether the current object already holds `alternative`.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.HasAlternative();
+```
 
 ### OnUserConversationStart
 `public override void OnUserConversationStart()`
 
-**Purpose:** Called when the `user conversation start` event is raised.
+**Purpose:** Invoked when the `user conversation start` event is raised.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.OnUserConversationStart();
+```
 
 ### OnUserConversationEnd
 `public override void OnUserConversationEnd()`
 
-**Purpose:** Called when the `user conversation end` event is raised.
+**Purpose:** Invoked when the `user conversation end` event is raised.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.OnUserConversationEnd();
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Called when the `use stopped` event is raised.
+**Purpose:** Invoked when the `use stopped` event is raised.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### SetAgentItemsVisibility
 `public void SetAgentItemsVisibility(bool isVisible)`
 
-**Purpose:** Sets the value or state of `agent items visibility`.
+**Purpose:** Assigns a new value to `agent items visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.SetAgentItemsVisibility(false);
+```
 
 ### IsRotationCorrectDuringUsage
 `public bool IsRotationCorrectDuringUsage()`
 
-**Purpose:** Handles logic related to `is rotation correct during usage`.
+**Purpose:** Determines whether the current object is in the `rotation correct during usage` state or condition.
+
+```csharp
+// Obtain an instance of DynamicObjectAnimationPoint from the subsystem API first
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+var result = dynamicObjectAnimationPoint.IsRotationCorrectDuringUsage();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DynamicObjectAnimationPoint();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+DynamicObjectAnimationPoint dynamicObjectAnimationPoint = ...;
+dynamicObjectAnimationPoint.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

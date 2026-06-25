@@ -1,20 +1,14 @@
 ---
 title: "GenericMissionObjectiveBuilder"
+description: "GenericMissionObjectiveBuilder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenericMissionObjectiveBuilder`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericMissionObjectiveBuilder
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct GenericMissionObjectiveBuilder`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjective.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjective.cs`
 
 ## 概述
 
@@ -29,65 +23,132 @@ title: "GenericMissionObjectiveBuilder"
 ### SetName
 `public GenericMissionObjectiveBuilder SetName(TextObject name)`
 
-**用途 / Purpose:** 设置 `name` 的值或状态。
+**用途 / Purpose:** 为 「name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetName(name);
+```
 
 ### SetDescription
 `public GenericMissionObjectiveBuilder SetDescription(TextObject description)`
 
-**用途 / Purpose:** 设置 `description` 的值或状态。
+**用途 / Purpose:** 为 「description」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetDescription(description);
+```
 
 ### SetObjectiveGiver
 `public GenericMissionObjectiveBuilder SetObjectiveGiver(BasicCharacterObject objectiveGiver)`
 
-**用途 / Purpose:** 设置 `objective giver` 的值或状态。
+**用途 / Purpose:** 为 「objective giver」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetObjectiveGiver(objectiveGiver);
+```
 
 ### SetInitialTargets
 `public GenericMissionObjectiveBuilder SetInitialTargets(params MissionObjectiveTarget targets)`
 
-**用途 / Purpose:** 设置 `initial targets` 的值或状态。
+**用途 / Purpose:** 为 「initial targets」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetInitialTargets(targets);
+```
 
 ### SetIsActivationRequirementsMetCallback
 `public GenericMissionObjectiveBuilder SetIsActivationRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-**用途 / Purpose:** 设置 `is activation requirements met callback` 的值或状态。
+**用途 / Purpose:** 为 「is activation requirements met callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetIsActivationRequirementsMetCallback(func<MissionObjective, false);
+```
 
 ### SetIsCompletionRequirementsMetCallback
 `public GenericMissionObjectiveBuilder SetIsCompletionRequirementsMetCallback(Func<MissionObjective, bool> callback)`
 
-**用途 / Purpose:** 设置 `is completion requirements met callback` 的值或状态。
+**用途 / Purpose:** 为 「is completion requirements met callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetIsCompletionRequirementsMetCallback(func<MissionObjective, false);
+```
 
 ### SetOnStartCallback
 `public GenericMissionObjectiveBuilder SetOnStartCallback(Action<MissionObjective> callback)`
 
-**用途 / Purpose:** 设置 `on start callback` 的值或状态。
+**用途 / Purpose:** 为 「on start callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetOnStartCallback(callback);
+```
 
 ### SetOnCompleteCallback
 `public GenericMissionObjectiveBuilder SetOnCompleteCallback(Action<MissionObjective> callback)`
 
-**用途 / Purpose:** 设置 `on complete callback` 的值或状态。
+**用途 / Purpose:** 为 「on complete callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetOnCompleteCallback(callback);
+```
 
 ### SetOnTickCallback
 `public GenericMissionObjectiveBuilder SetOnTickCallback(Action<MissionObjective, float> callback)`
 
-**用途 / Purpose:** 设置 `on tick callback` 的值或状态。
+**用途 / Purpose:** 为 「on tick callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetOnTickCallback(action<MissionObjective, 0);
+```
 
 ### SetProgressCallback
 `public GenericMissionObjectiveBuilder SetProgressCallback(Func<MissionObjective, MissionObjectiveProgressInfo> callback)`
 
-**用途 / Purpose:** 设置 `progress callback` 的值或状态。
+**用途 / Purpose:** 为 「progress callback」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.SetProgressCallback(func<MissionObjective, callback);
+```
 
 ### Build
 `public MissionObjective Build()`
 
-**用途 / Purpose:** 处理 `build` 相关逻辑。
+**用途 / Purpose:** 构建当前对象的实例或表示。
+
+```csharp
+// 先通过子系统 API 拿到 GenericMissionObjectiveBuilder 实例
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+var result = genericMissionObjectiveBuilder.Build();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GenericMissionObjectiveBuilder();
-value.SetName(name);
+// 通常从对应子系统 API 获取实例后调用
+GenericMissionObjectiveBuilder genericMissionObjectiveBuilder = ...;
+genericMissionObjectiveBuilder.SetName(name);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

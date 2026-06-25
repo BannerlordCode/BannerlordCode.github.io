@@ -1,13 +1,7 @@
 ---
 title: "ManagedObject"
+description: "Auto-generated class reference for ManagedObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ManagedObject
 
 **Namespace:** TaleWorlds.DotNet
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### GetManagedId
 `public int GetManagedId()`
 
-**Purpose:** Gets the current value of `managed id`.
+**Purpose:** Reads and returns the `managed id` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedObject from the subsystem API first
+ManagedObject managedObject = ...;
+var result = managedObject.GetManagedId();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of ManagedObject from the subsystem API first
+ManagedObject managedObject = ...;
+var result = managedObject.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomManagedObject();
+// Typically obtained from a subsystem API or factory
+ManagedObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

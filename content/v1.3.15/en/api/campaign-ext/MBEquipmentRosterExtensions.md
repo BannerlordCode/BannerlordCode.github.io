@@ -1,23 +1,18 @@
 ---
 title: "MBEquipmentRosterExtensions"
+description: "Auto-generated class reference for MBEquipmentRosterExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBEquipmentRosterExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBEquipmentRosterExtensions
 
 **Namespace:** TaleWorlds.CampaignSystem.Extensions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class MBEquipmentRosterExtensions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Extensions/MBEquipmentRosterExtensions.cs`
 
 ## Overview
 
-`MBEquipmentRosterExtensions` lives in `TaleWorlds.CampaignSystem.Extensions`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBEquipmentRosterExtensions` lives in `TaleWorlds.CampaignSystem.Extensions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -34,36 +29,59 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### GetCivilianEquipments
 `public static IEnumerable<Equipment> GetCivilianEquipments(this MBEquipmentRoster instance)`
 
-**Purpose:** Gets the current value of `civilian equipments`.
+**Purpose:** Reads and returns the `civilian equipments` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBEquipmentRosterExtensions.GetCivilianEquipments(instance);
+```
 
 ### GetStealthEquipments
 `public static IEnumerable<Equipment> GetStealthEquipments(this MBEquipmentRoster instance)`
 
-**Purpose:** Gets the current value of `stealth equipments`.
+**Purpose:** Reads and returns the `stealth equipments` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBEquipmentRosterExtensions.GetStealthEquipments(instance);
+```
 
 ### GetBattleEquipments
 `public static IEnumerable<Equipment> GetBattleEquipments(this MBEquipmentRoster instance)`
 
-**Purpose:** Gets the current value of `battle equipments`.
+**Purpose:** Reads and returns the `battle equipments` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBEquipmentRosterExtensions.GetBattleEquipments(instance);
+```
 
 ### GetRandomCivilianEquipment
 `public static Equipment GetRandomCivilianEquipment(this MBEquipmentRoster instance)`
 
-**Purpose:** Gets the current value of `random civilian equipment`.
+**Purpose:** Reads and returns the `random civilian equipment` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBEquipmentRosterExtensions.GetRandomCivilianEquipment(instance);
+```
 
 ### GetRandomStealthEquipment
 `public static Equipment GetRandomStealthEquipment(this MBEquipmentRoster instance)`
 
-**Purpose:** Gets the current value of `random stealth equipment`.
+**Purpose:** Reads and returns the `random stealth equipment` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBEquipmentRosterExtensions.GetRandomStealthEquipment(instance);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBEquipmentRosterExtensions.GetCivilianEquipments(instance);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

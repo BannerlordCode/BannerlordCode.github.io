@@ -1,13 +1,7 @@
 ---
 title: "BasicMissionHandler"
+description: "BasicMissionHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BasicMissionHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BasicMissionHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions.Handlers
@@ -35,19 +29,31 @@ title: "BasicMissionHandler"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BasicMissionHandler 实例
+BasicMissionHandler basicMissionHandler = ...;
+basicMissionHandler.OnBehaviorInitialize();
+```
 
 ### CreateWarningWidgetForResult
 `public void CreateWarningWidgetForResult(BattleEndLogic.ExitResult result)`
 
-**用途 / Purpose:** 创建一个 `warning widget for result` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「warning widget for result」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 BasicMissionHandler 实例
+BasicMissionHandler basicMissionHandler = ...;
+basicMissionHandler.CreateWarningWidgetForResult(result);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new BasicMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<BasicMissionHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

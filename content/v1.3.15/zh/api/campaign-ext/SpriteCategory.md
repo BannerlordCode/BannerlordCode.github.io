@@ -1,13 +1,7 @@
 ---
 title: "SpriteCategory"
+description: "SpriteCategory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SpriteCategory`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpriteCategory
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -42,60 +36,121 @@ title: "SpriteCategory"
 ### Load
 `public void Load(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+spriteCategory.Load(resourceContext, resourceDepot);
+```
 
 ### Unload
 `public void Unload()`
 
-**用途 / Purpose:** 处理 `unload` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+spriteCategory.Unload();
+```
 
 ### Reload
 `public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)`
 
-**用途 / Purpose:** 处理 `reload` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+spriteCategory.Reload(resourceContext, resourceDepot, newCategoryInfo);
+```
 
 ### InitializePartialLoad
 `public void InitializePartialLoad()`
 
-**用途 / Purpose:** 初始化 `partial load` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「partial load」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+spriteCategory.InitializePartialLoad();
+```
 
 ### ReleasePartialLoad
 `public void ReleasePartialLoad()`
 
-**用途 / Purpose:** 处理 `release partial load` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+spriteCategory.ReleasePartialLoad();
+```
 
 ### PartialLoadAtIndex
 `public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)`
 
-**用途 / Purpose:** 处理 `partial load at index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+spriteCategory.PartialLoadAtIndex(resourceContext, resourceDepot, 0);
+```
 
 ### PartialUnloadAtIndex
 `public void PartialUnloadAtIndex(int sheetIndex)`
 
-**用途 / Purpose:** 处理 `partial unload at index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+spriteCategory.PartialUnloadAtIndex(0);
+```
 
 ### SortList
 `public void SortList()`
 
-**用途 / Purpose:** 处理 `sort list` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+spriteCategory.SortList();
+```
 
 ### IsCategoryFullyLoaded
 `public bool IsCategoryFullyLoaded()`
 
-**用途 / Purpose:** 处理 `is category fully loaded` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「category fully loaded」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+var result = spriteCategory.IsCategoryFullyLoaded();
+```
 
 ### Compare
 `public int Compare(SpritePart x, SpritePart y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteCategory 实例
+SpriteCategory spriteCategory = ...;
+var result = spriteCategory.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SpriteCategory();
-value.Load(resourceContext, resourceDepot);
+// 通常从对应子系统 API 获取实例后调用
+SpriteCategory spriteCategory = ...;
+spriteCategory.Load(resourceContext, resourceDepot);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

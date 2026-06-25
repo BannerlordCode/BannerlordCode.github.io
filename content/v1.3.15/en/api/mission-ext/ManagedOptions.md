@@ -1,23 +1,18 @@
 ---
 title: "ManagedOptions"
+description: "Auto-generated class reference for ManagedOptions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedOptions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ManagedOptions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class ManagedOptions`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/ManagedOptions.cs`
 
 ## Overview
 
-`ManagedOptions` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`ManagedOptions` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,36 +23,60 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetConfig
 `public static float GetConfig(ManagedOptions.ManagedOptionsType type)`
 
-**Purpose:** Gets the current value of `config`.
+**Purpose:** Reads and returns the `config` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ManagedOptions.GetConfig(type);
+```
 
 ### GetDefaultConfig
 `public static float GetDefaultConfig(ManagedOptions.ManagedOptionsType type)`
 
-**Purpose:** Gets the current value of `default config`.
+**Purpose:** Reads and returns the `default config` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ManagedOptions.GetDefaultConfig(type);
+```
 
 ### SetConfig
 `public static void SetConfig(ManagedOptions.ManagedOptionsType type, float value)`
 
-**Purpose:** Sets the value or state of `config`.
+**Purpose:** Assigns a new value to `config` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+ManagedOptions.SetConfig(type, 0);
+```
 
 ### SaveConfig
 `public static SaveResult SaveConfig()`
 
-**Purpose:** Saves `config` data.
+**Purpose:** Writes `config` to persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+ManagedOptions.SaveConfig();
+```
 
 ### OnManagedOptionChangedDelegate
 `public delegate void OnManagedOptionChangedDelegate(ManagedOptions.ManagedOptionsType changedManagedOptionsType)`
 
-**Purpose:** Called when the `managed option changed delegate` event is raised.
+**Purpose:** Invoked when the `managed option changed delegate` event is raised.
+
+```csharp
+// Obtain an instance of ManagedOptions from the subsystem API first
+ManagedOptions managedOptions = ...;
+managedOptions.OnManagedOptionChangedDelegate(changedManagedOptionsType);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 ManagedOptions.GetConfig(type);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

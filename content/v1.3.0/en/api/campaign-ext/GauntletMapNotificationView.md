@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapNotificationView"
+description: "Auto-generated class reference for GauntletMapNotificationView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapNotificationView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapNotificationView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -29,19 +23,32 @@ Treat `GauntletMapNotificationView` as a View-style extension point: first ident
 ### RegisterMapNotificationType
 `public override void RegisterMapNotificationType(Type data, Type item)`
 
-**Purpose:** Handles logic related to `register map notification type`.
+**Purpose:** Registers `map notification type` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GauntletMapNotificationView from the subsystem API first
+GauntletMapNotificationView gauntletMapNotificationView = ...;
+gauntletMapNotificationView.RegisterMapNotificationType(data, item);
+```
 
 ### ResetNotifications
 `public override void ResetNotifications()`
 
-**Purpose:** Resets `notifications` to its initial state.
+**Purpose:** Returns `notifications` to its default or initial condition.
+
+```csharp
+// Obtain an instance of GauntletMapNotificationView from the subsystem API first
+GauntletMapNotificationView gauntletMapNotificationView = ...;
+gauntletMapNotificationView.ResetNotifications();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapNotificationView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapNotificationView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

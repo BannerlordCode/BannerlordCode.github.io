@@ -1,20 +1,14 @@
 ---
 title: "VirtualPlayer"
+description: "Auto-generated class reference for VirtualPlayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VirtualPlayer`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VirtualPlayer
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class VirtualPlayer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/VirtualPlayer.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/VirtualPlayer.cs`
 
 ## Overview
 
@@ -42,47 +36,100 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Reset
 `public static void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+VirtualPlayer.Reset();
+```
 
 ### AddComponent
 `public PeerComponent AddComponent(Type peerComponentType)`
 
 **Purpose:** Adds `component` to the current collection or state.
 
+```csharp
+// Obtain an instance of VirtualPlayer from the subsystem API first
+VirtualPlayer virtualPlayer = ...;
+var result = virtualPlayer.AddComponent(peerComponentType);
+```
+
 ### AddComponent
 `public PeerComponent AddComponent(uint componentId)`
 
 **Purpose:** Adds `component` to the current collection or state.
 
+```csharp
+// Obtain an instance of VirtualPlayer from the subsystem API first
+VirtualPlayer virtualPlayer = ...;
+var result = virtualPlayer.AddComponent(0);
+```
+
 ### GetComponent
 `public PeerComponent GetComponent(uint componentId)`
 
-**Purpose:** Gets the current value of `component`.
+**Purpose:** Reads and returns the `component` value held by the current object.
+
+```csharp
+// Obtain an instance of VirtualPlayer from the subsystem API first
+VirtualPlayer virtualPlayer = ...;
+var result = virtualPlayer.GetComponent(0);
+```
 
 ### GetComponent
 `public PeerComponent GetComponent(Type peerComponentType)`
 
-**Purpose:** Gets the current value of `component`.
+**Purpose:** Reads and returns the `component` value held by the current object.
+
+```csharp
+// Obtain an instance of VirtualPlayer from the subsystem API first
+VirtualPlayer virtualPlayer = ...;
+var result = virtualPlayer.GetComponent(peerComponentType);
+```
 
 ### RemoveComponent
 `public void RemoveComponent(PeerComponent component)`
 
 **Purpose:** Removes `component` from the current collection or state.
 
+```csharp
+// Obtain an instance of VirtualPlayer from the subsystem API first
+VirtualPlayer virtualPlayer = ...;
+virtualPlayer.RemoveComponent(component);
+```
+
 ### OnDisconnect
 `public void OnDisconnect()`
 
-**Purpose:** Called when the `disconnect` event is raised.
+**Purpose:** Invoked when the `disconnect` event is raised.
+
+```csharp
+// Obtain an instance of VirtualPlayer from the subsystem API first
+VirtualPlayer virtualPlayer = ...;
+virtualPlayer.OnDisconnect();
+```
 
 ### SynchronizeComponentsTo
 `public void SynchronizeComponentsTo(VirtualPlayer peer)`
 
-**Purpose:** Handles logic related to `synchronize components to`.
+**Purpose:** Synchronizes `hronize components to` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of VirtualPlayer from the subsystem API first
+VirtualPlayer virtualPlayer = ...;
+virtualPlayer.SynchronizeComponentsTo(peer);
+```
 
 ### UpdateIndexForReconnectingPlayer
 `public void UpdateIndexForReconnectingPlayer(int playerIndex)`
 
-**Purpose:** Updates the state or data of `index for reconnecting player`.
+**Purpose:** Recalculates and stores the latest representation of `index for reconnecting player`.
+
+```csharp
+// Obtain an instance of VirtualPlayer from the subsystem API first
+VirtualPlayer virtualPlayer = ...;
+virtualPlayer.UpdateIndexForReconnectingPlayer(0);
+```
 
 ## Usage Example
 
@@ -92,4 +139,4 @@ VirtualPlayer.Reset();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

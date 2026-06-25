@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerSiegeClient"
+description: "MissionMultiplayerSiegeClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerSiegeClient`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerSiegeClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,65 +34,132 @@ title: "MissionMultiplayerSiegeClient"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.AfterStart();
+```
 
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**用途 / Purpose:** 获取 `gold amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+var result = missionMultiplayerSiegeClient.GetGoldAmount();
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**用途 / Purpose:** 当 `gold amount changed for representative` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「gold amount changed for representative」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### OnNumberOfFlagsChanged
 `public void OnNumberOfFlagsChanged()`
 
-**用途 / Purpose:** 当 `number of flags changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「number of flags changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnNumberOfFlagsChanged();
+```
 
 ### OnCapturePointOwnerChanged
 `public void OnCapturePointOwnerChanged(FlagCapturePoint flagCapturePoint, Team ownerTeam)`
 
-**用途 / Purpose:** 当 `capture point owner changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「capture point owner changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnCapturePointOwnerChanged(flagCapturePoint, ownerTeam);
+```
 
 ### OnMoraleChanged
 `public void OnMoraleChanged(int attackerMorale, int defenderMorale, int capturePointRemainingMoraleGains)`
 
-**用途 / Purpose:** 当 `morale changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「morale changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnMoraleChanged(0, 0, 0);
+```
 
 ### GetFlagOwner
 `public Team GetFlagOwner(FlagCapturePoint flag)`
 
-**用途 / Purpose:** 获取 `flag owner` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「flag owner」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+var result = missionMultiplayerSiegeClient.GetFlagOwner(flag);
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnRemoveBehavior();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnMissionTick(0);
+```
 
 ### GetSiegeMissiles
 `public List<ItemObject> GetSiegeMissiles()`
 
-**用途 / Purpose:** 获取 `siege missiles` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege missiles」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerSiegeClient 实例
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+var result = missionMultiplayerSiegeClient.GetSiegeMissiles();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMultiplayerSiegeClient();
-value.OnBehaviorInitialize();
+// 通常从对应子系统 API 获取实例后调用
+MissionMultiplayerSiegeClient missionMultiplayerSiegeClient = ...;
+missionMultiplayerSiegeClient.OnBehaviorInitialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionSettlementPrepareView"
+description: "Auto-generated class reference for MissionSettlementPrepareView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSettlementPrepareView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSettlementPrepareView
 
 **Namespace:** SandBox.View.Missions
@@ -29,14 +23,21 @@ Treat `MissionSettlementPrepareView` as a View-style extension point: first iden
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionSettlementPrepareView from the subsystem API first
+MissionSettlementPrepareView missionSettlementPrepareView = ...;
+missionSettlementPrepareView.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionSettlementPrepareView();
+// Retrieve this view from the subsystem API or scene
+MissionSettlementPrepareView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

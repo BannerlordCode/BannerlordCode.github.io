@@ -1,20 +1,14 @@
 ---
 title: "GauntletCameraFadeView"
+description: "GauntletCameraFadeView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletCameraFadeView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletCameraFadeView
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletCameraFadeView : GlobalLayer, IScreenFadeHandler`
 **Base:** `GlobalLayer`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletCameraFadeView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletCameraFadeView.cs`
 
 ## 概述
 
@@ -29,34 +23,64 @@ title: "GauntletCameraFadeView"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+GauntletCameraFadeView.Initialize();
+```
 
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutDuration = 0.5f, float blackOutDuration = 0.5f, float fadeInDuration = 0.5f)`
 
-**用途 / Purpose:** 处理 `begin fade out and in` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletCameraFadeView 实例
+GauntletCameraFadeView gauntletCameraFadeView = ...;
+gauntletCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
+```
 
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutDuration = 0.5f)`
 
-**用途 / Purpose:** 处理 `begin fade out` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletCameraFadeView 实例
+GauntletCameraFadeView gauntletCameraFadeView = ...;
+gauntletCameraFadeView.BeginFadeOut(0);
+```
 
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInDuration = 0.5f)`
 
-**用途 / Purpose:** 处理 `begin fade in` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletCameraFadeView 实例
+GauntletCameraFadeView gauntletCameraFadeView = ...;
+gauntletCameraFadeView.BeginFadeIn(0);
+```
 
 ### GetScreenFadeState
 `public ScreenFadeState GetScreenFadeState()`
 
-**用途 / Purpose:** 获取 `screen fade state` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「screen fade state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletCameraFadeView 实例
+GauntletCameraFadeView gauntletCameraFadeView = ...;
+var result = gauntletCameraFadeView.GetScreenFadeState();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new GauntletCameraFadeView();
+// 从子系统 API 或场景中获取该视图
+GauntletCameraFadeView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

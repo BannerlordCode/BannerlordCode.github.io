@@ -1,20 +1,14 @@
 ---
 title: "ClanCreationFailedMessage"
+description: "ClanCreationFailedMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanCreationFailedMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanCreationFailedMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class ClanCreationFailedMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/ClanCreationFailedMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/ClanCreationFailedMessage.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ClanCreationFailedMessage"
 ## 使用示例
 
 ```csharp
-var example = new ClanCreationFailedMessage();
+// 从对应子系统 API 获取实例
+ClanCreationFailedMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

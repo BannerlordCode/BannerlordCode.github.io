@@ -1,20 +1,14 @@
 ---
 title: "DebugAgentTeleporterMissionController"
+description: "Auto-generated class reference for DebugAgentTeleporterMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugAgentTeleporterMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugAgentTeleporterMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DebugAgentTeleporterMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/DebugAgentTeleporterMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/DebugAgentTeleporterMissionController.cs`
 
 ## Overview
 
@@ -29,12 +23,24 @@ Treat `DebugAgentTeleporterMissionController` as a Controller-style extension po
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DebugAgentTeleporterMissionController from the subsystem API first
+DebugAgentTeleporterMissionController debugAgentTeleporterMissionController = ...;
+debugAgentTeleporterMissionController.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of DebugAgentTeleporterMissionController from the subsystem API first
+DebugAgentTeleporterMissionController debugAgentTeleporterMissionController = ...;
+debugAgentTeleporterMissionController.OnMissionTick(0);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<DebugAgentTeleporterMissionC
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SandboxBattleSpawnModel"
+description: "SandboxBattleSpawnModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxBattleSpawnModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxBattleSpawnModel
 
 **Namespace:** SandBox.GameComponents
 **Module:** SandBox.GameComponents
 **Type:** `public class SandboxBattleSpawnModel : BattleSpawnModel`
 **Base:** `BattleSpawnModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.GameComponents/SandboxBattleSpawnModel.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.GameComponents/SandboxBattleSpawnModel.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "SandboxBattleSpawnModel"
 ### OnMissionStart
 `public override void OnMissionStart()`
 
-**用途 / Purpose:** 当 `mission start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleSpawnModel 实例
+SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
+sandboxBattleSpawnModel.OnMissionStart();
+```
 
 ### OnMissionEnd
 `public override void OnMissionEnd()`
 
-**用途 / Purpose:** 当 `mission end` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission end」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleSpawnModel 实例
+SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
+sandboxBattleSpawnModel.OnMissionEnd();
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<SandboxBattleSpawnModel>(new MySandboxBattleSpawnModel
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

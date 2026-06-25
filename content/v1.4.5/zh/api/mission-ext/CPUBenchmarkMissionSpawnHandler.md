@@ -1,20 +1,14 @@
 ---
 title: "CPUBenchmarkMissionSpawnHandler"
+description: "CPUBenchmarkMissionSpawnHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CPUBenchmarkMissionSpawnHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CPUBenchmarkMissionSpawnHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CPUBenchmarkMissionSpawnHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CPUBenchmarkMissionSpawnHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CPUBenchmarkMissionSpawnHandler.cs`
 
 ## 概述
 
@@ -29,19 +23,31 @@ title: "CPUBenchmarkMissionSpawnHandler"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CPUBenchmarkMissionSpawnHandler 实例
+CPUBenchmarkMissionSpawnHandler cPUBenchmarkMissionSpawnHandler = ...;
+cPUBenchmarkMissionSpawnHandler.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CPUBenchmarkMissionSpawnHandler 实例
+CPUBenchmarkMissionSpawnHandler cPUBenchmarkMissionSpawnHandler = ...;
+cPUBenchmarkMissionSpawnHandler.AfterStart();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CPUBenchmarkMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<CPUBenchmarkMissionSpawnHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

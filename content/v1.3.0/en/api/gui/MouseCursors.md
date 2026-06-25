@@ -1,13 +1,7 @@
 ---
 title: "MouseCursors"
+description: "Auto-generated class reference for MouseCursors."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MouseCursors`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MouseCursors
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-MouseCursors example = MouseCursors.Value;
+// Obtain an instance from the relevant subsystem API
+MouseCursors instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

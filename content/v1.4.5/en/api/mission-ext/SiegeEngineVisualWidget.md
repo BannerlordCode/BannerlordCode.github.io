@@ -1,20 +1,14 @@
 ---
 title: "SiegeEngineVisualWidget"
+description: "Auto-generated class reference for SiegeEngineVisualWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEngineVisualWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineVisualWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeEngineVisualWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/SiegeEngineVisualWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/SiegeEngineVisualWidget.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Treat `SiegeEngineVisualWidget` as a Widget-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var widget = new SiegeEngineVisualWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SiegeEngineVisualWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

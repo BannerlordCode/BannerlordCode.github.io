@@ -1,19 +1,13 @@
 ---
 title: "VisibilityMaskFlags"
+description: "Auto-generated class reference for VisibilityMaskFlags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisibilityMaskFlags`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VisibilityMaskFlags
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** none
+**Type:** `public enum VisibilityMaskFlags : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.Engine/VisibilityMaskFlags.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ## Usage Example
 
 ```csharp
-var value = new VisibilityMaskFlags();
+// Obtain an instance from the relevant subsystem API
+VisibilityMaskFlags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

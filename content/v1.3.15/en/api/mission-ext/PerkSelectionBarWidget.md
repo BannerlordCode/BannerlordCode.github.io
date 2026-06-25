@@ -1,13 +1,7 @@
 ---
 title: "PerkSelectionBarWidget"
+description: "Auto-generated class reference for PerkSelectionBarWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerkSelectionBarWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PerkSelectionBarWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper
@@ -42,9 +36,10 @@ Treat `PerkSelectionBarWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new PerkSelectionBarWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PerkSelectionBarWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

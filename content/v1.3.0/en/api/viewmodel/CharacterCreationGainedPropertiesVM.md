@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationGainedPropertiesVM"
+description: "Auto-generated class reference for CharacterCreationGainedPropertiesVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationGainedPropertiesVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationGainedPropertiesVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### UpdateValues
 `public void UpdateValues()`
 
-**Purpose:** Updates the state or data of `values`.
+**Purpose:** Recalculates and stores the latest representation of `values`.
+
+```csharp
+// Obtain an instance of CharacterCreationGainedPropertiesVM from the subsystem API first
+CharacterCreationGainedPropertiesVM characterCreationGainedPropertiesVM = ...;
+characterCreationGainedPropertiesVM.UpdateValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationGainedPropertiesVM();
-value.UpdateValues();
+// Typically call this after obtaining an instance from the subsystem API
+CharacterCreationGainedPropertiesVM characterCreationGainedPropertiesVM = ...;
+characterCreationGainedPropertiesVM.UpdateValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

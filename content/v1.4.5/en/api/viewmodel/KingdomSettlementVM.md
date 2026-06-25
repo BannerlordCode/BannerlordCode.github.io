@@ -1,20 +1,14 @@
 ---
 title: "KingdomSettlementVM"
+description: "Auto-generated class reference for KingdomSettlementVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomSettlementVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomSettlementVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class KingdomSettlementVM : KingdomCategoryVM`
 **Base:** `KingdomCategoryVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements/KingdomSettlementVM.cs`
 
 ## Overview
 
@@ -54,25 +48,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomSettlementVM from the subsystem API first
+KingdomSettlementVM kingdomSettlementVM = ...;
+kingdomSettlementVM.RefreshValues();
+```
 
 ### RefreshSettlementList
 `public void RefreshSettlementList()`
 
-**Purpose:** Refreshes the display or cache of `settlement list`.
+**Purpose:** Keeps the display or cache of `settlement list` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomSettlementVM from the subsystem API first
+KingdomSettlementVM kingdomSettlementVM = ...;
+kingdomSettlementVM.RefreshSettlementList();
+```
 
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**Purpose:** Handles logic related to `select settlement`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomSettlementVM from the subsystem API first
+KingdomSettlementVM kingdomSettlementVM = ...;
+kingdomSettlementVM.SelectSettlement(settlement);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomSettlementVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomSettlementVM kingdomSettlementVM = ...;
+kingdomSettlementVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

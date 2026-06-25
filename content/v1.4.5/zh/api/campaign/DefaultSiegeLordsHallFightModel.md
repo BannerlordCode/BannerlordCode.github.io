@@ -1,20 +1,14 @@
 ---
 title: "DefaultSiegeLordsHallFightModel"
+description: "DefaultSiegeLordsHallFightModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultSiegeLordsHallFightModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSiegeLordsHallFightModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultSiegeLordsHallFightModel : SiegeLordsHallFightModel`
 **Base:** `SiegeLordsHallFightModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeLordsHallFightModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultSiegeLordsHallFightModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultSiegeLordsHallFightModel"
 ### GetPriorityListForLordsHallFightMission
 `public override FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)`
 
-**用途 / Purpose:** 获取 `priority list for lords hall fight mission` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「priority list for lords hall fight mission」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultSiegeLordsHallFightModel 实例
+DefaultSiegeLordsHallFightModel defaultSiegeLordsHallFightModel = ...;
+var result = defaultSiegeLordsHallFightModel.GetPriorityListForLordsHallFightMission(playerMapEvent, side, 0);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultSiegeLordsHallFightModel>(new MyDefaultSiegeLor
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

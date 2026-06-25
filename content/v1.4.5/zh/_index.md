@@ -51,5 +51,18 @@ bannerlord-1.4.5/Bannerlord.Source/
 ## 使用示例
 
 ```csharp
-var example = new Bannerlord v1.4.5();
+// 从下方导航进入指南、API 参考或架构总览开始阅读。
 ```
+
+<!-- BEGIN SECTION INDEX -->
+
+## ↑ 上级导航
+
+- [版本首页](../)
+
+## ↓ 内容导航
+
+- [API 参考](./api/) — Bannerlord SDK API 完整参考目录
+- [v1.4.5 架构总览 / Architecture](./architecture/) — Bannerlord v1.4.5 的模块结构与开发者入口
+
+<!-- END SECTION INDEX -->

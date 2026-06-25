@@ -1,13 +1,7 @@
 ---
 title: "BarberCampaignBehavior"
+description: "Auto-generated class reference for BarberCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarberCampaignBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarberCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
@@ -29,40 +23,77 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of BarberCampaignBehavior from the subsystem API first
+BarberCampaignBehavior barberCampaignBehavior = ...;
+barberCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore store)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of BarberCampaignBehavior from the subsystem API first
+BarberCampaignBehavior barberCampaignBehavior = ...;
+barberCampaignBehavior.SyncData(store);
+```
 
 ### GetFaceGenFilter
 `public IFaceGeneratorCustomFilter GetFaceGenFilter()`
 
-**Purpose:** Gets the current value of `face gen filter`.
+**Purpose:** Reads and returns the `face gen filter` value held by the current object.
+
+```csharp
+// Obtain an instance of BarberCampaignBehavior from the subsystem API first
+BarberCampaignBehavior barberCampaignBehavior = ...;
+var result = barberCampaignBehavior.GetFaceGenFilter();
+```
 
 ### GetHaircutIndices
 `public int GetHaircutIndices(BasicCharacterObject character)`
 
-**Purpose:** Gets the current value of `haircut indices`.
+**Purpose:** Reads and returns the `haircut indices` value held by the current object.
+
+```csharp
+// Obtain an instance of BarberCampaignBehavior from the subsystem API first
+BarberCampaignBehavior barberCampaignBehavior = ...;
+var result = barberCampaignBehavior.GetHaircutIndices(character);
+```
 
 ### GetFacialHairIndices
 `public int GetFacialHairIndices(BasicCharacterObject character)`
 
-**Purpose:** Gets the current value of `facial hair indices`.
+**Purpose:** Reads and returns the `facial hair indices` value held by the current object.
+
+```csharp
+// Obtain an instance of BarberCampaignBehavior from the subsystem API first
+BarberCampaignBehavior barberCampaignBehavior = ...;
+var result = barberCampaignBehavior.GetFacialHairIndices(character);
+```
 
 ### GetAvailableStages
 `public FaceGeneratorStage GetAvailableStages()`
 
-**Purpose:** Gets the current value of `available stages`.
+**Purpose:** Reads and returns the `available stages` value held by the current object.
+
+```csharp
+// Obtain an instance of BarberCampaignBehavior from the subsystem API first
+BarberCampaignBehavior barberCampaignBehavior = ...;
+var result = barberCampaignBehavior.GetAvailableStages();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BarberCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+BarberCampaignBehavior barberCampaignBehavior = ...;
+barberCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "OptionGroup"
+description: "Auto-generated class reference for OptionGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionGroup`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OptionGroup
 
 **Namespace:** TaleWorlds.MountAndBlade.Options
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Options` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new OptionGroup();
+// Obtain an instance from the relevant subsystem API
+OptionGroup instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

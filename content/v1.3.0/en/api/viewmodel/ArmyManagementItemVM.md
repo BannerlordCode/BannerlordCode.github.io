@@ -1,13 +1,7 @@
 ---
 title: "ArmyManagementItemVM"
+description: "Auto-generated class reference for ArmyManagementItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ArmyManagementItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArmyManagementItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManagement
@@ -56,60 +50,121 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.RefreshValues();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteAction();
+```
 
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** Executes the `set focused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set focused`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteSetFocused();
+```
 
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** Executes the `set unfocused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set unfocused`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteSetUnfocused();
+```
 
 ### UpdateEligibility
 `public void UpdateEligibility()`
 
-**Purpose:** Updates the state or data of `eligibility`.
+**Purpose:** Recalculates and stores the latest representation of `eligibility`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.UpdateEligibility();
+```
 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteBeginHint();
+```
 
 ### ExecuteBeginClanHint
 `public void ExecuteBeginClanHint()`
 
-**Purpose:** Executes the `begin clan hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin clan hint`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteBeginClanHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteEndHint();
+```
 
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Executes the `open encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteOpenEncyclopedia();
+```
 
 ### ExecuteOpenClanEncyclopedia
 `public void ExecuteOpenClanEncyclopedia()`
 
-**Purpose:** Executes the `open clan encyclopedia` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open clan encyclopedia`.
+
+```csharp
+// Obtain an instance of ArmyManagementItemVM from the subsystem API first
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.ExecuteOpenClanEncyclopedia();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ArmyManagementItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ArmyManagementItemVM armyManagementItemVM = ...;
+armyManagementItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

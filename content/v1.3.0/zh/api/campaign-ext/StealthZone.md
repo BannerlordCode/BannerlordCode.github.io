@@ -1,13 +1,7 @@
 ---
 title: "StealthZone"
+description: "StealthZone 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthZone`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthZone
 
 **Namespace:** SandBox.Objects
@@ -39,50 +33,99 @@ title: "StealthZone"
 ### SetStealthAgents
 `public void SetStealthAgents(List<Agent> agents)`
 
-**用途 / Purpose:** 设置 `stealth agents` 的值或状态。
+**用途 / Purpose:** 为 「stealth agents」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 StealthZone 实例
+StealthZone stealthZone = ...;
+stealthZone.SetStealthAgents(agents);
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 StealthZone 实例
+StealthZone stealthZone = ...;
+stealthZone.Tick();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthZone 实例
+StealthZone stealthZone = ...;
+stealthZone.OnAgentRemoved(affectedAgent, affectorAgent);
+```
 
 ### IsAgentInside
 `public bool IsAgentInside(Agent agent)`
 
-**用途 / Purpose:** 处理 `is agent inside` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「agent inside」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 StealthZone 实例
+StealthZone stealthZone = ...;
+var result = stealthZone.IsAgentInside(agent);
+```
 
 ### OnPlayerFlees
 `public void OnPlayerFlees()`
 
-**用途 / Purpose:** 当 `player flees` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player flees」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthZone 实例
+StealthZone stealthZone = ...;
+stealthZone.OnPlayerFlees();
+```
 
 ### ResetEvents
 `public void ResetEvents()`
 
-**用途 / Purpose:** 将 `events` 重置为初始状态。
+**用途 / Purpose:** 将 「events」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 StealthZone 实例
+StealthZone stealthZone = ...;
+stealthZone.ResetEvents();
+```
 
 ### DisableAll
 `public void DisableAll()`
 
-**用途 / Purpose:** 处理 `disable all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StealthZone 实例
+StealthZone stealthZone = ...;
+stealthZone.DisableAll();
+```
 
 ### StealthZoneEvent
 `public delegate void StealthZoneEvent()`
 
-**用途 / Purpose:** 处理 `stealth zone event` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 StealthZone 实例
+StealthZone stealthZone = ...;
+stealthZone.StealthZoneEvent();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new StealthZone();
-value.SetStealthAgents(agents);
+// 通常从对应子系统 API 获取实例后调用
+StealthZone stealthZone = ...;
+stealthZone.SetStealthAgents(agents);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

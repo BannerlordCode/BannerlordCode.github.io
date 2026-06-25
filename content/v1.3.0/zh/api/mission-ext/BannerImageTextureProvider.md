@@ -1,13 +1,7 @@
 ---
 title: "BannerImageTextureProvider"
+description: "BannerImageTextureProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerImageTextureProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerImageTextureProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.ImageIdentifiers
@@ -29,15 +23,22 @@ title: "BannerImageTextureProvider"
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 BannerImageTextureProvider 实例
+BannerImageTextureProvider bannerImageTextureProvider = ...;
+bannerImageTextureProvider.Clear(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerImageTextureProvider();
-value.Clear(false);
+// 通常从对应子系统 API 获取实例后调用
+BannerImageTextureProvider bannerImageTextureProvider = ...;
+bannerImageTextureProvider.Clear(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

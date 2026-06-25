@@ -1,20 +1,14 @@
 ---
 title: "DuelScoreboardData"
+description: "Auto-generated class reference for DuelScoreboardData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelScoreboardData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelScoreboardData
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DuelScoreboardData : IScoreboardData`
 **Base:** `IScoreboardData`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/DuelScoreboardData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer/DuelScoreboardData.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `DuelScoreboardData` as a Data-style extension point: first identify who c
 ### GetScoreboardHeaders
 `public ScoreboardHeader GetScoreboardHeaders()`
 
-**Purpose:** Gets the current value of `scoreboard headers`.
+**Purpose:** Reads and returns the `scoreboard headers` value held by the current object.
+
+```csharp
+// Obtain an instance of DuelScoreboardData from the subsystem API first
+DuelScoreboardData duelScoreboardData = ...;
+var result = duelScoreboardData.GetScoreboardHeaders();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DuelScoreboardData();
+// This data object is usually returned by campaign/mission APIs
+DuelScoreboardData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TextQueryPopUpVM"
+description: "Auto-generated class reference for TextQueryPopUpVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextQueryPopUpVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextQueryPopUpVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to
 ### SetData
 `public void SetData(TextInquiryData data)`
 
-**Purpose:** Sets the value or state of `data`.
+**Purpose:** Assigns a new value to `data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TextQueryPopUpVM from the subsystem API first
+TextQueryPopUpVM textQueryPopUpVM = ...;
+textQueryPopUpVM.SetData(data);
+```
 
 ### ExecuteAffirmativeAction
 `public override void ExecuteAffirmativeAction()`
 
-**Purpose:** Executes the `affirmative action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `affirmative action`.
+
+```csharp
+// Obtain an instance of TextQueryPopUpVM from the subsystem API first
+TextQueryPopUpVM textQueryPopUpVM = ...;
+textQueryPopUpVM.ExecuteAffirmativeAction();
+```
 
 ### ExecuteNegativeAction
 `public override void ExecuteNegativeAction()`
 
-**Purpose:** Executes the `negative action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `negative action`.
+
+```csharp
+// Obtain an instance of TextQueryPopUpVM from the subsystem API first
+TextQueryPopUpVM textQueryPopUpVM = ...;
+textQueryPopUpVM.ExecuteNegativeAction();
+```
 
 ### OnClearData
 `public override void OnClearData()`
 
-**Purpose:** Called when the `clear data` event is raised.
+**Purpose:** Invoked when the `clear data` event is raised.
+
+```csharp
+// Obtain an instance of TextQueryPopUpVM from the subsystem API first
+TextQueryPopUpVM textQueryPopUpVM = ...;
+textQueryPopUpVM.OnClearData();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TextQueryPopUpVM();
-value.SetData(data);
+// Typically call this after obtaining an instance from the subsystem API
+TextQueryPopUpVM textQueryPopUpVM = ...;
+textQueryPopUpVM.SetData(data);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

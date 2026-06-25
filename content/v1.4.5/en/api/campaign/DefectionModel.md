@@ -1,20 +1,14 @@
 ---
 title: "DefectionModel"
+description: "Auto-generated class reference for DefectionModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefectionModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefectionModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class DefectionModel : MBGameModel<DefaultDefectionModel>`
 **Base:** `MBGameModel<DefaultDefectionModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DefectionModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DefectionModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `DefectionModel` as a Model-style extension point: first identify who crea
 ### CanHeroDefectToFaction
 `public abstract bool CanHeroDefectToFaction(Hero hero, Kingdom kingdom)`
 
-**Purpose:** Checks whether the current object can `hero defect to faction`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero defect to faction`.
+
+```csharp
+// Obtain an instance of DefectionModel from the subsystem API first
+DefectionModel defectionModel = ...;
+var result = defectionModel.CanHeroDefectToFaction(hero, kingdom);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomDefectionModel();
+// Typically obtained from a subsystem API or factory
+DefectionModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

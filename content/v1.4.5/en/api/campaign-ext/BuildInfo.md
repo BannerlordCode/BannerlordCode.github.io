@@ -1,20 +1,14 @@
 ---
 title: "BuildInfo"
+description: "Auto-generated class reference for BuildInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildInfo
 
 **Namespace:** (global)
 **Module:** (global)
 **Type:** `public static class BuildInfo`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/BuildInfo.cs`
+**File:** `bin/TaleWorlds.Library/BuildInfo.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `(global)` to place it in the stack, then inspect its publi
 ## Usage Example
 
 ```csharp
-var example = new BuildInfo();
+// Obtain an instance from the relevant subsystem API
+BuildInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

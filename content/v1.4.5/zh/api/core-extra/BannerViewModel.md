@@ -1,20 +1,14 @@
 ---
 title: "BannerViewModel"
+description: "BannerViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerViewModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.BannerEditor
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.BannerEditor/BannerViewModel.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.BannerEditor/BannerViewModel.cs`
 
 ## 概述
 
@@ -34,10 +28,11 @@ title: "BannerViewModel"
 ## 使用示例
 
 ```csharp
-var vm = new BannerViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+BannerViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

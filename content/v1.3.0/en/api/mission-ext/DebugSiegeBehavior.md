@@ -1,13 +1,7 @@
 ---
 title: "DebugSiegeBehavior"
+description: "Auto-generated class reference for DebugSiegeBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugSiegeBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugSiegeBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SiegeDebug
 `public static void SiegeDebug(UsableMachine usableMachine)`
 
-**Purpose:** Handles logic related to `siege debug`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+DebugSiegeBehavior.SiegeDebug(usableMachine);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ DebugSiegeBehavior.SiegeDebug(usableMachine);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

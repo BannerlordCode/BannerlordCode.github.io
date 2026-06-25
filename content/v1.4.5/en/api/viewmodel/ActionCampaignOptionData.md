@@ -1,20 +1,14 @@
 ---
 title: "ActionCampaignOptionData"
+description: "Auto-generated class reference for ActionCampaignOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ActionCampaignOptionData`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ActionCampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ActionCampaignOptionData : CampaignOptionData`
 **Base:** `CampaignOptionData`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/ActionCampaignOptionData.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/ActionCampaignOptionData.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `ActionCampaignOptionData` as a Data-style extension point: first identify
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**Purpose:** Gets the current value of `data type`.
+**Purpose:** Reads and returns the `data type` value held by the current object.
+
+```csharp
+// Obtain an instance of ActionCampaignOptionData from the subsystem API first
+ActionCampaignOptionData actionCampaignOptionData = ...;
+var result = actionCampaignOptionData.GetDataType();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of ActionCampaignOptionData from the subsystem API first
+ActionCampaignOptionData actionCampaignOptionData = ...;
+actionCampaignOptionData.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ActionCampaignOptionData();
+// This data object is usually returned by campaign/mission APIs
+ActionCampaignOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

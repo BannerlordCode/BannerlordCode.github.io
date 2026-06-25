@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleFormationFilterSelectorItemComparer"
+description: "Auto-generated class reference for OrderOfBattleFormationFilterSelectorItemComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationFilterSelectorItemComparer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationFilterSelectorItemComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### Compare
 `public int Compare(OrderOfBattleFormationFilterSelectorItemVM x, OrderOfBattleFormationFilterSelectorItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of OrderOfBattleFormationFilterSelectorItemComparer from the subsystem API first
+OrderOfBattleFormationFilterSelectorItemComparer orderOfBattleFormationFilterSelectorItemComparer = ...;
+var result = orderOfBattleFormationFilterSelectorItemComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new OrderOfBattleFormationFilterSelectorItemComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+OrderOfBattleFormationFilterSelectorItemComparer orderOfBattleFormationFilterSelectorItemComparer = ...;
+orderOfBattleFormationFilterSelectorItemComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

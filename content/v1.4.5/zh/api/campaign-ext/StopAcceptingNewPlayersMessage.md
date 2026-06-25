@@ -1,20 +1,14 @@
 ---
 title: "StopAcceptingNewPlayersMessage"
+description: "StopAcceptingNewPlayersMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StopAcceptingNewPlayersMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StopAcceptingNewPlayersMessage
 
 **Namespace:** Messages.FromBattleServer.ToBattleServerManager
 **Module:** Messages.FromBattleServer
 **Type:** `public class StopAcceptingNewPlayersMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/StopAcceptingNewPlayersMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromBattleServer.ToBattleServerManager/StopAcceptingNewPlayersMessage.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "StopAcceptingNewPlayersMessage"
 ## 使用示例
 
 ```csharp
-var example = new StopAcceptingNewPlayersMessage();
+// 从对应子系统 API 获取实例
+StopAcceptingNewPlayersMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

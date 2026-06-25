@@ -1,13 +1,7 @@
 ---
 title: "EducationReviewVM"
+description: "Auto-generated class reference for EducationReviewVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationReviewVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EducationReviewVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
@@ -37,25 +31,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EducationReviewVM from the subsystem API first
+EducationReviewVM educationReviewVM = ...;
+educationReviewVM.RefreshValues();
+```
 
 ### SetGainForStage
 `public void SetGainForStage(int pageIndex, string gainText)`
 
-**Purpose:** Sets the value or state of `gain for stage`.
+**Purpose:** Assigns a new value to `gain for stage` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EducationReviewVM from the subsystem API first
+EducationReviewVM educationReviewVM = ...;
+educationReviewVM.SetGainForStage(0, "example");
+```
 
 ### SetCurrentPage
 `public void SetCurrentPage(int currentPageIndex)`
 
-**Purpose:** Sets the value or state of `current page`.
+**Purpose:** Assigns a new value to `current page` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EducationReviewVM from the subsystem API first
+EducationReviewVM educationReviewVM = ...;
+educationReviewVM.SetCurrentPage(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationReviewVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EducationReviewVM educationReviewVM = ...;
+educationReviewVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

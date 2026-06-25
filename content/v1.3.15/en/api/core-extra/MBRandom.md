@@ -1,23 +1,18 @@
 ---
 title: "MBRandom"
+description: "Auto-generated class reference for MBRandom."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBRandom`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBRandom
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class MBRandom`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/MBRandom.cs`
 
 ## Overview
 
-`MBRandom` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBRandom` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -37,61 +32,109 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float maxVal)`
 
-**Purpose:** Handles logic related to `random float ranged`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RandomFloatRanged(0);
+```
 
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float minVal, float maxVal)`
 
-**Purpose:** Handles logic related to `random float ranged`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RandomFloatRanged(0, 0);
+```
 
 ### RandomInt
 `public static int RandomInt()`
 
-**Purpose:** Handles logic related to `random int`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RandomInt();
+```
 
 ### RandomInt
 `public static int RandomInt(int maxValue)`
 
-**Purpose:** Handles logic related to `random int`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RandomInt(0);
+```
 
 ### RandomInt
 `public static int RandomInt(int minValue, int maxValue)`
 
-**Purpose:** Handles logic related to `random int`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RandomInt(0, 0);
+```
 
 ### RoundRandomized
 `public static int RoundRandomized(float f)`
 
-**Purpose:** Handles logic related to `round randomized`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RoundRandomized(0);
+```
 
 ### RandomFloatGaussian
 `public static float RandomFloatGaussian(float center, float spread, float min, float max)`
 
-**Purpose:** Handles logic related to `random float gaussian`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RandomFloatGaussian(0, 0, 0, 0);
+```
 
 ### SetSeed
 `public static void SetSeed(uint seed, uint seed2)`
 
-**Purpose:** Sets the value or state of `seed`.
+**Purpose:** Assigns a new value to `seed` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBRandom.SetSeed(0, 0);
+```
 
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(uint seed, uint seed2)`
 
-**Purpose:** Handles logic related to `random int with seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RandomIntWithSeed(0, 0);
+```
 
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(uint seed, uint seed2)`
 
-**Purpose:** Handles logic related to `random float with seed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBRandom.RandomFloatWithSeed(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBRandom.RandomFloatRanged(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

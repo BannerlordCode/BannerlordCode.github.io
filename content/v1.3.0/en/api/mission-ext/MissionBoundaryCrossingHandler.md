@@ -1,13 +1,7 @@
 ---
 title: "MissionBoundaryCrossingHandler"
+description: "Auto-generated class reference for MissionBoundaryCrossingHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBoundaryCrossingHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoundaryCrossingHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,34 +23,64 @@ Treat `MissionBoundaryCrossingHandler` as a Handler-style extension point: first
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnRemoveBehavior();
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnClearScene();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionBoundaryCrossingHandler from the subsystem API first
+MissionBoundaryCrossingHandler missionBoundaryCrossingHandler = ...;
+missionBoundaryCrossingHandler.OnMissionTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionBoundaryCrossingHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionBoundaryCrossingHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

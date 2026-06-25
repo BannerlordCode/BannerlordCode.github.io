@@ -1,19 +1,14 @@
 ---
 title: "NavigationPathData"
+description: "Auto-generated class reference for NavigationPathData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavigationPathData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationPathData
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class NavigationPathData`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionPathGenerationLogic.cs`
 
 ## Overview
 
@@ -28,110 +23,32 @@ Treat `NavigationPathData` as a Data-style extension point: first identify who c
 ### ReverseClone
 `public NavigationPathData ReverseClone()`
 
-**Purpose:** Handles logic related to `reverse clone`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NavigationPathData from the subsystem API first
+NavigationPathData navigationPathData = ...;
+var result = navigationPathData.ReverseClone();
+```
 
 ### InitializeUsablePoints
 `public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
 
-**Purpose:** Initializes the state, resources, or bindings for `usable points`.
+**Purpose:** Prepares the resources, state, or bindings required by `usable points`.
 
-### GetPointOfInterestType
-`public abstract PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public abstract bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public abstract float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### GetPointOfInterestType
-`public override PointOfInterests GetPointOfInterestType()`
-
-**Purpose:** Gets the current value of `point of interest type`.
-
-### IsInRadius
-`public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
-
-**Purpose:** Handles logic related to `is in radius`.
-
-### GetLocationRatio
-`public override float GetLocationRatio()`
-
-**Purpose:** Gets the current value of `location ratio`.
-
-### Clone
-`public PointOfInterestScorePair Clone()`
-
-**Purpose:** Handles logic related to `clone`.
-
-### AddToData
-`public void AddToData(PointOfInterestBaseData pointOfInterestToAdd)`
-
-**Purpose:** Adds `to data` to the current collection or state.
-
-### IsDataEqualTo
-`public bool IsDataEqualTo(PointOfInterestScorePair other, PointOfInterestBaseData newDataToAdd)`
-
-**Purpose:** Handles logic related to `is data equal to`.
+```csharp
+// Obtain an instance of NavigationPathData from the subsystem API first
+NavigationPathData navigationPathData = ...;
+navigationPathData.InitializeUsablePoints(allUsableMachines);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NavigationPathData();
+// This data object is usually returned by campaign/mission APIs
+NavigationPathData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

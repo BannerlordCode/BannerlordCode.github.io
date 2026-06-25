@@ -1,20 +1,14 @@
 ---
 title: "MissionAgentLookHandler"
+description: "MissionAgentLookHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentLookHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentLookHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class MissionAgentLookHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionAgentLookHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionAgentLookHandler.cs`
 
 ## 概述
 
@@ -35,59 +29,119 @@ title: "MissionAgentLookHandler"
 ### GetScore
 `public float GetScore(Agent agent)`
 
-**用途 / Purpose:** 获取 `score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+var result = missionAgentLookHandler.GetScore(agent);
+```
 
 ### GetTargetPosition
 `public Vec3 GetTargetPosition()`
 
-**用途 / Purpose:** 获取 `target position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+var result = missionAgentLookHandler.GetTargetPosition();
+```
 
 ### GetBasicPosition
 `public Vec3 GetBasicPosition()`
 
-**用途 / Purpose:** 获取 `basic position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「basic position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+var result = missionAgentLookHandler.GetBasicPosition();
+```
 
 ### IsVisibleFor
 `public bool IsVisibleFor(Agent agent)`
 
-**用途 / Purpose:** 处理 `is visible for` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「visible for」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+var result = missionAgentLookHandler.IsVisibleFor(agent);
+```
 
 ### IsRelevant
 `public bool IsRelevant(Agent agent)`
 
-**用途 / Purpose:** 处理 `is relevant` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「relevant」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+var result = missionAgentLookHandler.IsRelevant(agent);
+```
 
 ### Reset
 `public void Reset(PointOfInterest pointOfInterest, float duration)`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+missionAgentLookHandler.Reset(pointOfInterest, 0);
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+missionAgentLookHandler.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+missionAgentLookHandler.OnMissionTick(0);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+missionAgentLookHandler.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentLookHandler 实例
+MissionAgentLookHandler missionAgentLookHandler = ...;
+missionAgentLookHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionAgentLookHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionAgentLookHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

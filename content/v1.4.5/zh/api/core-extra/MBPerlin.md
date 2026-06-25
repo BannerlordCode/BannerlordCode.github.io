@@ -1,20 +1,14 @@
 ---
 title: "MBPerlin"
+description: "MBPerlin 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBPerlin`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBPerlin
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MBPerlin`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBPerlin.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MBPerlin.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "MBPerlin"
 ### Noise
 `public static float Noise(float x, float y, float z)`
 
-**用途 / Purpose:** 处理 `noise` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBPerlin.Noise(0, 0, 0);
+```
 
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float t)`
 
-**用途 / Purpose:** 处理 `noise vec3` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBPerlin.NoiseVec3(0);
+```
 
 ### NoiseVec3
 `public static Vec3 NoiseVec3(float x, float y, float z)`
 
-**用途 / Purpose:** 处理 `noise vec3` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MBPerlin.NoiseVec3(0, 0, 0);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ MBPerlin.Noise(0, 0, 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

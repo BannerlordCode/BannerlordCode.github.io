@@ -1,13 +1,7 @@
 ---
 title: "BoardGameAIBaghChal"
+description: "Auto-generated class reference for BoardGameAIBaghChal."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoardGameAIBaghChal`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoardGameAIBaghChal
 
 **Namespace:** SandBox.BoardGames.AI
@@ -29,20 +23,33 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate movement stage move`.
+**Purpose:** Calculates the current value or result of `movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAIBaghChal from the subsystem API first
+BoardGameAIBaghChal boardGameAIBaghChal = ...;
+var result = boardGameAIBaghChal.CalculateMovementStageMove();
+```
 
 ### CalculatePreMovementStageMove
 `public override Move CalculatePreMovementStageMove()`
 
-**Purpose:** Handles logic related to `calculate pre movement stage move`.
+**Purpose:** Calculates the current value or result of `pre movement stage move`.
+
+```csharp
+// Obtain an instance of BoardGameAIBaghChal from the subsystem API first
+BoardGameAIBaghChal boardGameAIBaghChal = ...;
+var result = boardGameAIBaghChal.CalculatePreMovementStageMove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoardGameAIBaghChal();
-value.CalculateMovementStageMove();
+// Typically call this after obtaining an instance from the subsystem API
+BoardGameAIBaghChal boardGameAIBaghChal = ...;
+boardGameAIBaghChal.CalculateMovementStageMove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

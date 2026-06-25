@@ -1,13 +1,7 @@
 ---
 title: "StealthMissionUIHandler"
+description: "StealthMissionUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthMissionUIHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthMissionUIHandler
 
 **Namespace:** SandBox.View.Missions
@@ -29,19 +23,31 @@ title: "StealthMissionUIHandler"
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthMissionUIHandler 实例
+StealthMissionUIHandler stealthMissionUIHandler = ...;
+stealthMissionUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**用途 / Purpose:** 当 `object used` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「object used」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthMissionUIHandler 实例
+StealthMissionUIHandler stealthMissionUIHandler = ...;
+stealthMissionUIHandler.OnObjectUsed(userAgent, usedObject);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthMissionUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<StealthMissionUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

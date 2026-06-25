@@ -1,20 +1,14 @@
 ---
 title: "SettlementMenuOverlayModel"
+description: "SettlementMenuOverlayModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementMenuOverlayModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementMenuOverlayModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class SettlementMenuOverlayModel : MBGameModel<SettlementMenuOverlayModel>`
 **Base:** `MBGameModel<SettlementMenuOverlayModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementMenuOverlayModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/SettlementMenuOverlayModel.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "SettlementMenuOverlayModel"
 ### GetOverlayHeroes
 `public abstract Dictionary<Hero, bool> GetOverlayHeroes()`
 
-**用途 / Purpose:** 获取 `overlay heroes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「overlay heroes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementMenuOverlayModel 实例
+SettlementMenuOverlayModel settlementMenuOverlayModel = ...;
+var result = settlementMenuOverlayModel.GetOverlayHeroes();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomSettlementMenuOverlayModel();
+// 通常通过子系统 API 或工厂获得派生实例
+SettlementMenuOverlayModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

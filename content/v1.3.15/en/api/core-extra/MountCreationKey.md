@@ -1,23 +1,18 @@
 ---
 title: "MountCreationKey"
+description: "Auto-generated class reference for MountCreationKey."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MountCreationKey`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MountCreationKey
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class MountCreationKey`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/MountCreationKey.cs`
 
 ## Overview
 
-`MountCreationKey` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MountCreationKey` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -39,31 +34,50 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### FromString
 `public static MountCreationKey FromString(string str)`
 
-**Purpose:** Handles logic related to `from string`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MountCreationKey.FromString("example");
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MountCreationKey from the subsystem API first
+MountCreationKey mountCreationKey = ...;
+var result = mountCreationKey.ToString();
+```
 
 ### GetRandomMountKeyString
 `public static string GetRandomMountKeyString(ItemObject mountItem, int randomSeed)`
 
-**Purpose:** Gets the current value of `random mount key string`.
+**Purpose:** Reads and returns the `random mount key string` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MountCreationKey.GetRandomMountKeyString(mountItem, 0);
+```
 
 ### GetRandomMountKey
 `public static MountCreationKey GetRandomMountKey(ItemObject mountItem, int randomSeed)`
 
-**Purpose:** Gets the current value of `random mount key`.
+**Purpose:** Reads and returns the `random mount key` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MountCreationKey.GetRandomMountKey(mountItem, 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MountCreationKey.FromString("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

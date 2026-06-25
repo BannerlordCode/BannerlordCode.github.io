@@ -1,20 +1,14 @@
 ---
 title: "DebugSiegeBehavior"
+description: "DebugSiegeBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DebugSiegeBehavior`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugSiegeBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class DebugSiegeBehavior`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugSiegeBehavior.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DebugSiegeBehavior.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "DebugSiegeBehavior"
 ### SiegeDebug
 `public static void SiegeDebug()`
 
-**用途 / Purpose:** 处理 `siege debug` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+DebugSiegeBehavior.SiegeDebug();
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ DebugSiegeBehavior.SiegeDebug();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

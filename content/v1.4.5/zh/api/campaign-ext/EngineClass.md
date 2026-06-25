@@ -1,20 +1,14 @@
 ---
 title: "EngineClass"
+description: "EngineClass 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EngineClass`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EngineClass
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class EngineClass : EngineBaseClass`
 **Base:** `EngineBaseClass`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineClass.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/EngineClass.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "EngineClass"
 ## 使用示例
 
 ```csharp
-var example = new EngineClass();
+// 从对应子系统 API 获取实例
+EngineClass instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

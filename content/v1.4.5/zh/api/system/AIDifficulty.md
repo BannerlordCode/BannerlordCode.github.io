@@ -1,20 +1,14 @@
 ---
 title: "AIDifficulty"
+description: "AIDifficulty 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AIDifficulty`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AIDifficulty
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public enum AIDifficulty`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/BoardGameHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/BoardGameHelper.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "AIDifficulty"
 ## 使用示例
 
 ```csharp
-AIDifficulty example = AIDifficulty.Value;
+// 从对应子系统 API 获取实例
+AIDifficulty instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

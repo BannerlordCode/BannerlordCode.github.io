@@ -1,20 +1,14 @@
 ---
 title: "PartiesBuyFoodCampaignBehavior"
+description: "Auto-generated class reference for PartiesBuyFoodCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartiesBuyFoodCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartiesBuyFoodCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartiesBuyFoodCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PartiesBuyFoodCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/PartiesBuyFoodCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PartiesBuyFoodCampaignBehavior from the subsystem API first
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PartiesBuyFoodCampaignBehavior from the subsystem API first
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.SyncData(dataStore);
+```
 
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**Purpose:** Handles logic related to `hourly tick party`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PartiesBuyFoodCampaignBehavior from the subsystem API first
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.HourlyTickParty(mobileParty);
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Called when the `settlement entered` event is raised.
+**Purpose:** Invoked when the `settlement entered` event is raised.
+
+```csharp
+// Obtain an instance of PartiesBuyFoodCampaignBehavior from the subsystem API first
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartiesBuyFoodCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

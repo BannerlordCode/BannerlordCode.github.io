@@ -1,13 +1,7 @@
 ---
 title: "BannerManager"
+description: "BannerManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerManager`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerManager
 
 **Namespace:** TaleWorlds.Core
@@ -37,72 +31,152 @@ title: "BannerManager"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+BannerManager.Initialize();
+```
 
 ### ResetAndLoad
 `public static void ResetAndLoad()`
 
-**用途 / Purpose:** 将 `and load` 重置为初始状态。
+**用途 / Purpose:** 将 「and load」 重置回默认或初始状态。
+
+```csharp
+// 静态调用，不需要实例
+BannerManager.ResetAndLoad();
+```
 
 ### GetColor
 `public static uint GetColor(int id)`
 
-**用途 / Purpose:** 获取 `color` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「color」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerManager.GetColor(0);
+```
 
 ### GetColorId
 `public static int GetColorId(uint color)`
 
-**用途 / Purpose:** 获取 `color id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「color id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerManager.GetColorId(0);
+```
 
 ### GetRandomColorId
 `public int GetRandomColorId(MBFastRandom random)`
 
-**用途 / Purpose:** 获取 `random color id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random color id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+var result = bannerManager.GetRandomColorId(random);
+```
 
 ### GetIconDataFromIconId
 `public BannerIconData GetIconDataFromIconId(int id)`
 
-**用途 / Purpose:** 获取 `icon data from icon id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「icon data from icon id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+var result = bannerManager.GetIconDataFromIconId(0);
+```
 
 ### GetRandomBackgroundId
 `public int GetRandomBackgroundId(MBFastRandom random)`
 
-**用途 / Purpose:** 获取 `random background id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random background id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+var result = bannerManager.GetRandomBackgroundId(random);
+```
 
 ### GetRandomBannerIconId
 `public int GetRandomBannerIconId(MBFastRandom random)`
 
-**用途 / Purpose:** 获取 `random banner icon id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「random banner icon id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+var result = bannerManager.GetRandomBannerIconId(random);
+```
 
 ### GetBackgroundMeshName
 `public string GetBackgroundMeshName(int id)`
 
-**用途 / Purpose:** 获取 `background mesh name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「background mesh name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+var result = bannerManager.GetBackgroundMeshName(0);
+```
 
 ### GetIconSourceTextureName
 `public string GetIconSourceTextureName(int id)`
 
-**用途 / Purpose:** 获取 `icon source texture name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「icon source texture name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+var result = bannerManager.GetIconSourceTextureName(0);
+```
 
 ### SetBaseBackgroundId
 `public void SetBaseBackgroundId(int id)`
 
-**用途 / Purpose:** 设置 `base background id` 的值或状态。
+**用途 / Purpose:** 为 「base background id」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+bannerManager.SetBaseBackgroundId(0);
+```
 
 ### SetCultureColors
 `public void SetCultureColors(BasicCultureObject culture, List<BannerColor> color)`
 
-**用途 / Purpose:** 设置 `culture colors` 的值或状态。
+**用途 / Purpose:** 为 「culture colors」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+bannerManager.SetCultureColors(culture, color);
+```
 
 ### LoadBannerIcons
 `public void LoadBannerIcons()`
 
-**用途 / Purpose:** 加载 `banner icons` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「banner icons」。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+bannerManager.LoadBannerIcons();
+```
 
 ### LoadBannerIcons
 `public void LoadBannerIcons(string xmlPath)`
 
-**用途 / Purpose:** 加载 `banner icons` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「banner icons」。
+
+```csharp
+// 先通过子系统 API 拿到 BannerManager 实例
+BannerManager bannerManager = ...;
+bannerManager.LoadBannerIcons("example");
+```
 
 ## 使用示例
 
@@ -112,4 +186,4 @@ var manager = BannerManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

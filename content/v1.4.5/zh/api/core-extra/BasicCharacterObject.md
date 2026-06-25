@@ -1,20 +1,14 @@
 ---
 title: "BasicCharacterObject"
+description: "BasicCharacterObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BasicCharacterObject`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BasicCharacterObject
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class BasicCharacterObject : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BasicCharacterObject.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BasicCharacterObject.cs`
 
 ## 概述
 
@@ -52,115 +46,242 @@ title: "BasicCharacterObject"
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 获取 `name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetName();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.ToString();
+```
 
 ### InitializeEquipmentsOnLoad
 `public void InitializeEquipmentsOnLoad(BasicCharacterObject character)`
 
-**用途 / Purpose:** 初始化 `equipments on load` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「equipments on load」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+basicCharacterObject.InitializeEquipmentsOnLoad(character);
+```
 
 ### GetFirstEquipment
 `public Equipment GetFirstEquipment(Func<Equipment, bool> predicate)`
 
-**用途 / Purpose:** 获取 `first equipment` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「first equipment」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetFirstEquipment(func<Equipment, false);
+```
 
 ### GetBodyPropertiesMin
 `public virtual BodyProperties GetBodyPropertiesMin(bool returnBaseValue = false)`
 
-**用途 / Purpose:** 获取 `body properties min` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「body properties min」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetBodyPropertiesMin(false);
+```
 
 ### GetBodyPropertiesMax
 `public virtual BodyProperties GetBodyPropertiesMax(bool returnBaseValue = false)`
 
-**用途 / Purpose:** 获取 `body properties max` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「body properties max」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetBodyPropertiesMax(false);
+```
 
 ### GetBodyProperties
 `public virtual BodyProperties GetBodyProperties(Equipment equipment, int seed = -1)`
 
-**用途 / Purpose:** 获取 `body properties` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「body properties」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetBodyProperties(equipment, 0);
+```
 
 ### UpdatePlayerCharacterBodyProperties
 `public virtual void UpdatePlayerCharacterBodyProperties(BodyProperties properties, int race, bool isFemale)`
 
-**用途 / Purpose:** 更新 `player character body properties` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「player character body properties」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+basicCharacterObject.UpdatePlayerCharacterBodyProperties(properties, 0, false);
+```
 
 ### GetDefaultFaceSeed
 `public int GetDefaultFaceSeed(int rank)`
 
-**用途 / Purpose:** 获取 `default face seed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default face seed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetDefaultFaceSeed(0);
+```
 
 ### GetStepSize
 `public float GetStepSize()`
 
-**用途 / Purpose:** 获取 `step size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「step size」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetStepSize();
+```
 
 ### HasMount
 `public bool HasMount()`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `mount`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「mount」。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.HasMount();
+```
 
 ### MaxHitPoints
 `public virtual int MaxHitPoints()`
 
-**用途 / Purpose:** 处理 `max hit points` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.MaxHitPoints();
+```
 
 ### GetPower
 `public virtual float GetPower()`
 
-**用途 / Purpose:** 获取 `power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetPower();
+```
 
 ### GetBattlePower
 `public virtual float GetBattlePower()`
 
-**用途 / Purpose:** 获取 `battle power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetBattlePower();
+```
 
 ### GetMoraleResistance
 `public virtual float GetMoraleResistance()`
 
-**用途 / Purpose:** 获取 `morale resistance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「morale resistance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetMoraleResistance();
+```
 
 ### GetMountKeySeed
 `public virtual int GetMountKeySeed()`
 
-**用途 / Purpose:** 获取 `mount key seed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mount key seed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetMountKeySeed();
+```
 
 ### GetBattleTier
 `public virtual int GetBattleTier()`
 
-**用途 / Purpose:** 获取 `battle tier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle tier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetBattleTier();
+```
 
 ### GetDefaultCharacterSkills
 `public MBCharacterSkills GetDefaultCharacterSkills()`
 
-**用途 / Purpose:** 获取 `default character skills` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default character skills」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetDefaultCharacterSkills();
+```
 
 ### GetSkillValue
 `public virtual int GetSkillValue(SkillObject skill)`
 
-**用途 / Purpose:** 获取 `skill value` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill value」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetSkillValue(skill);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+basicCharacterObject.Deserialize(objectManager, node);
+```
 
 ### GetFormationClass
 `public virtual FormationClass GetFormationClass()`
 
-**用途 / Purpose:** 获取 `formation class` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「formation class」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BasicCharacterObject 实例
+BasicCharacterObject basicCharacterObject = ...;
+var result = basicCharacterObject.GetFormationClass();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BasicCharacterObject();
-value.GetName();
+// 通常从对应子系统 API 获取实例后调用
+BasicCharacterObject basicCharacterObject = ...;
+basicCharacterObject.GetName();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

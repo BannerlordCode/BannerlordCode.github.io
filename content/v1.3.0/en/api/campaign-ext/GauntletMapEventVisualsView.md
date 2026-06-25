@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapEventVisualsView"
+description: "Auto-generated class reference for GauntletMapEventVisualsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapEventVisualsView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapEventVisualsView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -27,9 +21,10 @@ Treat `GauntletMapEventVisualsView` as a View-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapEventVisualsView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapEventVisualsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

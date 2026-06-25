@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLocalDataManager"
+description: "Auto-generated class reference for MultiplayerLocalDataManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLocalDataManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLocalDataManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby
@@ -38,17 +32,33 @@ Treat `MultiplayerLocalDataManager` as a Manager-style extension point: first id
 ### InitializeManager
 `public static void InitializeManager()`
 
-**Purpose:** Initializes the state, resources, or bindings for `manager`.
+**Purpose:** Prepares the resources, state, or bindings required by `manager`.
+
+```csharp
+// Static call; no instance required
+MultiplayerLocalDataManager.InitializeManager();
+```
 
 ### FinalizeManager
 `public static void FinalizeManager()`
 
-**Purpose:** Handles logic related to `finalize manager`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MultiplayerLocalDataManager.FinalizeManager();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MultiplayerLocalDataManager from the subsystem API first
+MultiplayerLocalDataManager multiplayerLocalDataManager = ...;
+multiplayerLocalDataManager.Tick(0);
+```
 
 ## Usage Example
 
@@ -58,4 +68,4 @@ var manager = MultiplayerLocalDataManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

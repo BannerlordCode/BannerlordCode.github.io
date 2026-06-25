@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyClanVM"
+description: "Auto-generated class reference for MPLobbyClanVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyClanVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyClanVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyClanVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Clan/MPLobbyClanVM.cs`
 
 ## Overview
 
@@ -39,45 +33,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyClanVM from the subsystem API first
+MPLobbyClanVM mPLobbyClanVM = ...;
+mPLobbyClanVM.RefreshValues();
+```
 
 ### OnClanInfoChanged
 `public async void OnClanInfoChanged()`
 
-**Purpose:** Called when the `clan info changed` event is raised.
+**Purpose:** Invoked when the `clan info changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClanVM from the subsystem API first
+MPLobbyClanVM mPLobbyClanVM = ...;
+mPLobbyClanVM.OnClanInfoChanged();
+```
 
 ### TrySetClanSubPage
 `public async void TrySetClanSubPage(ClanSubPages newPage)`
 
-**Purpose:** Attempts to get `set clan sub page`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `set clan sub page`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of MPLobbyClanVM from the subsystem API first
+MPLobbyClanVM mPLobbyClanVM = ...;
+mPLobbyClanVM.TrySetClanSubPage(newPage);
+```
 
 ### OnNotificationReceived
 `public void OnNotificationReceived(LobbyNotification notification)`
 
-**Purpose:** Called when the `notification received` event is raised.
+**Purpose:** Invoked when the `notification received` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClanVM from the subsystem API first
+MPLobbyClanVM mPLobbyClanVM = ...;
+mPLobbyClanVM.OnNotificationReceived(notification);
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** Called when the `player name updated` event is raised.
+**Purpose:** Invoked when the `player name updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyClanVM from the subsystem API first
+MPLobbyClanVM mPLobbyClanVM = ...;
+mPLobbyClanVM.OnPlayerNameUpdated("example");
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Executes the `open popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `open popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanVM from the subsystem API first
+MPLobbyClanVM mPLobbyClanVM = ...;
+mPLobbyClanVM.ExecuteOpenPopup();
+```
 
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Executes the `close popup` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close popup`.
+
+```csharp
+// Obtain an instance of MPLobbyClanVM from the subsystem API first
+MPLobbyClanVM mPLobbyClanVM = ...;
+mPLobbyClanVM.ExecuteClosePopup();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyClanVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyClanVM mPLobbyClanVM = ...;
+mPLobbyClanVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

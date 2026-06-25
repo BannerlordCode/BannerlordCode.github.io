@@ -1,20 +1,14 @@
 ---
 title: "DefaultNotableSpawnModel"
+description: "Auto-generated class reference for DefaultNotableSpawnModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultNotableSpawnModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultNotableSpawnModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultNotableSpawnModel : NotableSpawnModel`
 **Base:** `NotableSpawnModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultNotableSpawnModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultNotableSpawnModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultNotableSpawnModel` as a Model-style extension point: first identif
 ### GetTargetNotableCountForSettlement
 `public override int GetTargetNotableCountForSettlement(Settlement settlement, Occupation occupation)`
 
-**Purpose:** Gets the current value of `target notable count for settlement`.
+**Purpose:** Reads and returns the `target notable count for settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultNotableSpawnModel from the subsystem API first
+DefaultNotableSpawnModel defaultNotableSpawnModel = ...;
+var result = defaultNotableSpawnModel.GetTargetNotableCountForSettlement(settlement, occupation);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultNotableSpawnModel>(new MyDefaultNotableSpawnMod
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ProposeCallToWarOfferMapNotification"
+description: "Auto-generated class reference for ProposeCallToWarOfferMapNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProposeCallToWarOfferMapNotification`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProposeCallToWarOfferMapNotification
 
 **Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
@@ -39,15 +33,22 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of ProposeCallToWarOfferMapNotification from the subsystem API first
+ProposeCallToWarOfferMapNotification proposeCallToWarOfferMapNotification = ...;
+var result = proposeCallToWarOfferMapNotification.IsValid();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProposeCallToWarOfferMapNotification();
-value.IsValid();
+// Typically call this after obtaining an instance from the subsystem API
+ProposeCallToWarOfferMapNotification proposeCallToWarOfferMapNotification = ...;
+proposeCallToWarOfferMapNotification.IsValid();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

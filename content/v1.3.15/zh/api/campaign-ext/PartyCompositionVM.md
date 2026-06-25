@@ -1,13 +1,7 @@
 ---
 title: "PartyCompositionVM"
+description: "PartyCompositionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyCompositionVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyCompositionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -42,25 +36,44 @@ title: "PartyCompositionVM"
 ### OnTroopRemoved
 `public void OnTroopRemoved(FormationClass formationClass, int count)`
 
-**用途 / Purpose:** 当 `troop removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCompositionVM 实例
+PartyCompositionVM partyCompositionVM = ...;
+partyCompositionVM.OnTroopRemoved(formationClass, 0);
+```
 
 ### OnTroopAdded
 `public void OnTroopAdded(FormationClass formationClass, int count)`
 
-**用途 / Purpose:** 当 `troop added` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「troop added」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCompositionVM 实例
+PartyCompositionVM partyCompositionVM = ...;
+partyCompositionVM.OnTroopAdded(formationClass, 0);
+```
 
 ### RefreshCounts
 `public void RefreshCounts(MBBindingList<PartyCharacterVM> list)`
 
-**用途 / Purpose:** 刷新 `counts` 的显示或缓存。
+**用途 / Purpose:** 使 「counts」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyCompositionVM 实例
+PartyCompositionVM partyCompositionVM = ...;
+partyCompositionVM.RefreshCounts(list);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyCompositionVM();
-value.OnTroopRemoved(formationClass, 0);
+// 通常从对应子系统 API 获取实例后调用
+PartyCompositionVM partyCompositionVM = ...;
+partyCompositionVM.OnTroopRemoved(formationClass, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

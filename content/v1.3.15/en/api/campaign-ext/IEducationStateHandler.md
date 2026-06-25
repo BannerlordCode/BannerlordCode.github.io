@@ -1,18 +1,12 @@
 ---
 title: "IEducationStateHandler"
+description: "Auto-generated class reference for IEducationStateHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IEducationStateHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IEducationStateHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IEducationStateHandler`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/GameState/IEducationStateHandler.cs`
 
@@ -27,9 +21,10 @@ Treat `IEducationStateHandler` as a Handler-style extension point: first identif
 ## Usage Example
 
 ```csharp
-IEducationStateHandler implementation = GetEducationStateHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIEducationStateHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

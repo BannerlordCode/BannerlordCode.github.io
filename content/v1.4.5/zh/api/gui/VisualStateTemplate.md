@@ -1,20 +1,14 @@
 ---
 title: "VisualStateTemplate"
+description: "VisualStateTemplate 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualStateTemplate`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualStateTemplate
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class VisualStateTemplate`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/VisualStateTemplate.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/VisualStateTemplate.cs`
 
 ## 概述
 
@@ -35,30 +29,55 @@ title: "VisualStateTemplate"
 ### SetAttribute
 `public void SetAttribute(string name, string value)`
 
-**用途 / Purpose:** 设置 `attribute` 的值或状态。
+**用途 / Purpose:** 为 「attribute」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VisualStateTemplate 实例
+VisualStateTemplate visualStateTemplate = ...;
+visualStateTemplate.SetAttribute("example", "example");
+```
 
 ### GetAttributes
 `public Dictionary<string, string> GetAttributes()`
 
-**用途 / Purpose:** 获取 `attributes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attributes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualStateTemplate 实例
+VisualStateTemplate visualStateTemplate = ...;
+var result = visualStateTemplate.GetAttributes();
+```
 
 ### ClearAttribute
 `public void ClearAttribute(string name)`
 
-**用途 / Purpose:** 处理 `clear attribute` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「attribute」。
+
+```csharp
+// 先通过子系统 API 拿到 VisualStateTemplate 实例
+VisualStateTemplate visualStateTemplate = ...;
+visualStateTemplate.ClearAttribute("example");
+```
 
 ### CreateVisualState
 `public VisualState CreateVisualState(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**用途 / Purpose:** 创建一个 `visual state` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「visual state」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 VisualStateTemplate 实例
+VisualStateTemplate visualStateTemplate = ...;
+var result = visualStateTemplate.CreateVisualState(brushFactory, spriteData, dictionary<string, visualDefinitionTemplates, dictionary<string, constants, dictionary<string, parameters, dictionary<string, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VisualStateTemplate();
-value.SetAttribute("example", "example");
+// 通常从对应子系统 API 获取实例后调用
+VisualStateTemplate visualStateTemplate = ...;
+visualStateTemplate.SetAttribute("example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

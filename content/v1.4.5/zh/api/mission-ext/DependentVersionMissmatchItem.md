@@ -1,20 +1,14 @@
 ---
 title: "DependentVersionMissmatchItem"
+description: "DependentVersionMissmatchItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DependentVersionMissmatchItem`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DependentVersionMissmatchItem
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct DependentVersionMissmatchItem`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/DependentVersionMissmatchItem.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Launcher.Library/TaleWorlds.MountAndBlade.Launcher.Library/DependentVersionMissmatchItem.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "DependentVersionMissmatchItem"
 ## 使用示例
 
 ```csharp
-var example = new DependentVersionMissmatchItem();
+// 从对应子系统 API 获取实例
+DependentVersionMissmatchItem instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "IReadOnlyPerkObject"
+description: "IReadOnlyPerkObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IReadOnlyPerkObject`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IReadOnlyPerkObject
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IReadOnlyPerkObject`
 **Base:** 无
 **File:** `TaleWorlds.MountAndBlade/IReadOnlyPerkObject.cs`
 
@@ -27,9 +21,10 @@ title: "IReadOnlyPerkObject"
 ## 使用示例
 
 ```csharp
-IReadOnlyPerkObject implementation = GetReadOnlyPerkObjectImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIReadOnlyPerkObject service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

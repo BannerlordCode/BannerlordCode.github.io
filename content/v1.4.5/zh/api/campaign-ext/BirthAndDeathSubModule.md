@@ -1,20 +1,14 @@
 ---
 title: "BirthAndDeathSubModule"
+description: "BirthAndDeathSubModule 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BirthAndDeathSubModule`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BirthAndDeathSubModule
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class BirthAndDeathSubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.BirthAndDeath/TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath/BirthAndDeathSubModule.cs`
+**File:** `Modules.BirthAndDeath/TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath/BirthAndDeathSubModule.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "BirthAndDeathSubModule"
 ## 使用示例
 
 ```csharp
-var value = new BirthAndDeathSubModule();
+// 从对应子系统 API 获取实例
+BirthAndDeathSubModule instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

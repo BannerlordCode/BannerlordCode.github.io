@@ -1,20 +1,14 @@
 ---
 title: "ShipSlot"
+description: "ShipSlot 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ShipSlot`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ShipSlot
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class ShipSlot : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/ShipSlot.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/ShipSlot.cs`
 
 ## 概述
 
@@ -36,30 +30,55 @@ title: "ShipSlot"
 ### AfterRegister
 `public override void AfterRegister()`
 
-**用途 / Purpose:** 处理 `after register` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ShipSlot 实例
+ShipSlot shipSlot = ...;
+shipSlot.AfterRegister();
+```
 
 ### AddMatchingPiece
 `public void AddMatchingPiece(ShipUpgradePiece upgradePiece)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `matching piece`。
+**用途 / Purpose:** 将 「matching piece」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 ShipSlot 实例
+ShipSlot shipSlot = ...;
+shipSlot.AddMatchingPiece(upgradePiece);
+```
 
 ### GetSlotTypeName
 `public TextObject GetSlotTypeName()`
 
-**用途 / Purpose:** 获取 `slot type name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「slot type name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ShipSlot 实例
+ShipSlot shipSlot = ...;
+var result = shipSlot.GetSlotTypeName();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 处理 `deserialize` 相关逻辑。
+**用途 / Purpose:** 从序列化数据还原当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 ShipSlot 实例
+ShipSlot shipSlot = ...;
+shipSlot.Deserialize(objectManager, node);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ShipSlot();
-value.AfterRegister();
+// 通常从对应子系统 API 获取实例后调用
+ShipSlot shipSlot = ...;
+shipSlot.AfterRegister();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "ITournamentGameBehavior"
+description: "Auto-generated class reference for ITournamentGameBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ITournamentGameBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ITournamentGameBehavior
 
 **Namespace:** SandBox.Tournaments
 **Module:** SandBox.Tournaments
-**Type:** `class`
+**Type:** `public interface ITournamentGameBehavior`
 **Base:** none
 **File:** `SandBox/Tournaments/ITournamentGameBehavior.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.Tournaments` to place it in the stack, then inspec
 ## Usage Example
 
 ```csharp
-ITournamentGameBehavior implementation = GetTournamentGameBehaviorImplementation();
+// Usually obtained through DI or a factory method
+IITournamentGameBehavior service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MoraleWidget"
+description: "MoraleWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MoraleWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MoraleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MoraleWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/MoraleWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.HUD/MoraleWidget.cs`
 
 ## 概述
 
@@ -51,14 +45,21 @@ title: "MoraleWidget"
 ### SetFillAmount
 `public void SetFillAmount(float fill, int fillMargin)`
 
-**用途 / Purpose:** 设置 `fill amount` 的值或状态。
+**用途 / Purpose:** 为 「fill amount」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MoraleWidget 实例
+MoraleWidget moraleWidget = ...;
+moraleWidget.SetFillAmount(0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new MoraleWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+MoraleWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

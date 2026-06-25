@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationReviewStageItemVM"
+description: "Auto-generated class reference for CharacterCreationReviewStageItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationReviewStageItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationReviewStageItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ## Usage Example
 
 ```csharp
-var value = new CharacterCreationReviewStageItemVM();
+// Obtain an instance from the relevant subsystem API
+CharacterCreationReviewStageItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

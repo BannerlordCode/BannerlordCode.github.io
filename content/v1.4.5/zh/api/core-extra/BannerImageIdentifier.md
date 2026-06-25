@@ -1,20 +1,14 @@
 ---
 title: "BannerImageIdentifier"
+description: "BannerImageIdentifier 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerImageIdentifier`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerImageIdentifier
 
 **Namespace:** TaleWorlds.Core.ImageIdentifiers
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/BannerImageIdentifier.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/BannerImageIdentifier.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "BannerImageIdentifier"
 ## 使用示例
 
 ```csharp
-var example = new BannerImageIdentifier();
+// 从对应子系统 API 获取实例
+BannerImageIdentifier instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

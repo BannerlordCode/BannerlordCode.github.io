@@ -1,13 +1,7 @@
 ---
 title: "WidgetAttributeTemplate"
+description: "Auto-generated class reference for WidgetAttributeTemplate."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetAttributeTemplate`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetAttributeTemplate
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ## Usage Example
 
 ```csharp
-var example = new WidgetAttributeTemplate();
+// Obtain an instance from the relevant subsystem API
+WidgetAttributeTemplate instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BadgeCondition"
+description: "Auto-generated class reference for BadgeCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BadgeCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BadgeCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
@@ -39,20 +33,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### Check
 `public bool Check(string value)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of BadgeCondition from the subsystem API first
+BadgeCondition badgeCondition = ...;
+var result = badgeCondition.Check("example");
+```
 
 ### Check
 `public bool Check(int value)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of BadgeCondition from the subsystem API first
+BadgeCondition badgeCondition = ...;
+var result = badgeCondition.Check(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BadgeCondition();
-value.Check("example");
+// Typically call this after obtaining an instance from the subsystem API
+BadgeCondition badgeCondition = ...;
+badgeCondition.Check("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

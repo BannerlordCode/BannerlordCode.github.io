@@ -1,13 +1,7 @@
 ---
 title: "TextPart"
+description: "Auto-generated class reference for TextPart."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TextPart`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TextPart
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-var value = new TextPart();
+// Obtain an instance from the relevant subsystem API
+TextPart instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

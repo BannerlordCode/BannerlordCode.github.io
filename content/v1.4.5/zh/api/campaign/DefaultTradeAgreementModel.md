@@ -1,20 +1,14 @@
 ---
 title: "DefaultTradeAgreementModel"
+description: "DefaultTradeAgreementModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultTradeAgreementModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTradeAgreementModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultTradeAgreementModel : TradeAgreementModel`
 **Base:** `TradeAgreementModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTradeAgreementModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultTradeAgreementModel.cs`
 
 ## 概述
 
@@ -29,32 +23,68 @@ title: "DefaultTradeAgreementModel"
 ### GetInfluenceCostOfProposingTradeAgreement
 `public override int GetInfluenceCostOfProposingTradeAgreement(Clan proposerClan)`
 
-**用途 / Purpose:** 获取 `influence cost of proposing trade agreement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence cost of proposing trade agreement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetInfluenceCostOfProposingTradeAgreement(proposerClan);
+```
 
 ### GetMaximumTradeAgreementCount
 `public override int GetMaximumTradeAgreementCount(Kingdom kingdom)`
 
-**用途 / Purpose:** 获取 `maximum trade agreement count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「maximum trade agreement count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetMaximumTradeAgreementCount(kingdom);
+```
 
 ### CanMakeTradeAgreement
 `public override bool CanMakeTradeAgreement(Kingdom querierKingdom, Kingdom queriedKingdom, bool checkOtherSideSupport, out TextObject reason, bool includeReason = false)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `make trade agreement`。
+**用途 / Purpose:** 检查当前对象是否满足 「make trade agreement」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.CanMakeTradeAgreement(querierKingdom, queriedKingdom, false, reason, false);
+```
 
 ### GetScoreOfStartingTradeAgreement
 `public override float GetScoreOfStartingTradeAgreement(Kingdom querierKingdom, Kingdom queriedKingdom, Clan clan, out TextObject detailedBreakdownTooltip, bool includeExplanation = false)`
 
-**用途 / Purpose:** 获取 `score of starting trade agreement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score of starting trade agreement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetScoreOfStartingTradeAgreement(querierKingdom, queriedKingdom, clan, detailedBreakdownTooltip, false);
+```
 
 ### GetTradeAgreementDurationInYears
 `public override CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)`
 
-**用途 / Purpose:** 获取 `trade agreement duration in years` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trade agreement duration in years」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetTradeAgreementDurationInYears(iniatatingKingdom, otherKingdom);
+```
 
 ### GetProfitPerCaravanVisit
 `public override int GetProfitPerCaravanVisit(MobileParty mobileParty)`
 
-**用途 / Purpose:** 获取 `profit per caravan visit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「profit per caravan visit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
+DefaultTradeAgreementModel defaultTradeAgreementModel = ...;
+var result = defaultTradeAgreementModel.GetProfitPerCaravanVisit(mobileParty);
+```
 
 ## 使用示例
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultTradeAgreementModel>(new MyDefaultTradeAgreemen
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

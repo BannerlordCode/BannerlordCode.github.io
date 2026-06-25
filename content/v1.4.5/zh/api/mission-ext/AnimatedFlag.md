@@ -1,20 +1,14 @@
 ---
 title: "AnimatedFlag"
+description: "AnimatedFlag 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AnimatedFlag`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimatedFlag
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AnimatedFlag : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimatedFlag.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimatedFlag.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "AnimatedFlag"
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 AnimatedFlag 实例
+AnimatedFlag animatedFlag = ...;
+var result = animatedFlag.GetTickRequirement();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AnimatedFlag();
-value.GetTickRequirement();
+// 通常从对应子系统 API 获取实例后调用
+AnimatedFlag animatedFlag = ...;
+animatedFlag.GetTickRequirement();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

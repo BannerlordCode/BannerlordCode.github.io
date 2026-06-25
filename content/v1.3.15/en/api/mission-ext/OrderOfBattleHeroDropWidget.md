@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleHeroDropWidget"
+description: "Auto-generated class reference for OrderOfBattleHeroDropWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleHeroDropWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHeroDropWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
@@ -33,9 +27,10 @@ Treat `OrderOfBattleHeroDropWidget` as a Widget-style extension point: first ide
 ## Usage Example
 
 ```csharp
-var widget = new OrderOfBattleHeroDropWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderOfBattleHeroDropWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

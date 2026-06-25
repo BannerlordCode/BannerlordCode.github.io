@@ -1,23 +1,18 @@
 ---
 title: "CrashInformation"
+description: "Auto-generated class reference for CrashInformation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CrashInformation`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CrashInformation
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class CrashInformation`
-**Area:** engine
+**Base:** none
+**File:** `TaleWorlds.Engine/CrashInformationCollector.cs`
 
 ## Overview
 
-`CrashInformation` lives in `TaleWorlds.Engine`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`CrashInformation` lives in `TaleWorlds.Engine` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CollectInformation
 `public static string CollectInformation()`
 
-**Purpose:** Handles logic related to `collect information`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CrashInformation.CollectInformation();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 CrashInformation.CollectInformation();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-engine)
+- [Area Index](../)

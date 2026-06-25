@@ -1,20 +1,14 @@
 ---
 title: "VirtualDirectoryAttribute"
+description: "Auto-generated class reference for VirtualDirectoryAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VirtualDirectoryAttribute`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VirtualDirectoryAttribute
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class VirtualDirectoryAttribute : Attribute`
 **Base:** `Attribute`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/VirtualDirectoryAttribute.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/VirtualDirectoryAttribute.cs`
 
 ## Overview
 
@@ -39,4 +33,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

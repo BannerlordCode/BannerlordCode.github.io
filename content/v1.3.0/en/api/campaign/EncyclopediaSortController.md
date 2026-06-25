@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaSortController"
+description: "Auto-generated class reference for EncyclopediaSortController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaSortController`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaSortController
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
@@ -39,4 +33,4 @@ var controller = Mission.Current.GetMissionBehavior<EncyclopediaSortController>(
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

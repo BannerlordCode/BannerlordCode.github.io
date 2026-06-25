@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentDamageFeedVM"
+description: "Auto-generated class reference for MissionAgentDamageFeedVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAgentDamageFeedVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionAgentDamageFeedVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFee
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionAgentDamageFeedVM from the subsystem API first
+MissionAgentDamageFeedVM missionAgentDamageFeedVM = ...;
+missionAgentDamageFeedVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAgentDamageFeedVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionAgentDamageFeedVM missionAgentDamageFeedVM = ...;
+missionAgentDamageFeedVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

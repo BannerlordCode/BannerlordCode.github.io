@@ -1,20 +1,14 @@
 ---
 title: "FloatInputTextWidget"
+description: "FloatInputTextWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FloatInputTextWidget`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FloatInputTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class FloatInputTextWidget : EditableTextWidget`
 **Base:** `EditableTextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/FloatInputTextWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/FloatInputTextWidget.cs`
 
 ## 概述
 
@@ -39,19 +33,32 @@ title: "FloatInputTextWidget"
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**用途 / Purpose:** 处理 `input` 事件或回调。
+**用途 / Purpose:** 执行与 「input」 相关的响应逻辑。
+
+```csharp
+// 先通过子系统 API 拿到 FloatInputTextWidget 实例
+FloatInputTextWidget floatInputTextWidget = ...;
+floatInputTextWidget.HandleInput(lastKeysPressed);
+```
 
 ### SetAllText
 `public override void SetAllText(string text)`
 
-**用途 / Purpose:** 设置 `all text` 的值或状态。
+**用途 / Purpose:** 为 「all text」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 FloatInputTextWidget 实例
+FloatInputTextWidget floatInputTextWidget = ...;
+floatInputTextWidget.SetAllText("example");
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new FloatInputTextWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+FloatInputTextWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

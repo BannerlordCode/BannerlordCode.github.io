@@ -1,20 +1,14 @@
 ---
 title: "ConspiracyBaseOfOperationsDiscoveredConspiracyQuest"
+description: "Auto-generated class reference for ConspiracyBaseOfOperationsDiscoveredConspiracyQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConspiracyBaseOfOperationsDiscoveredConspiracyQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConspiracyBaseOfOperationsDiscoveredConspiracyQuest
 
 **Namespace:** StoryMode.Quests.SecondPhase.ConspiracyQuests
 **Module:** StoryMode.Quests
 **Type:** `public class ConspiracyBaseOfOperationsDiscoveredConspiracyQuest : ConspiracyQuestBase`
 **Base:** `ConspiracyQuestBase`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.Quests.SecondPhase.ConspiracyQuests/ConspiracyBaseOfOperationsDiscoveredConspiracyQuest.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.Quests.SecondPhase.ConspiracyQuests/ConspiracyBaseOfOperationsDiscoveredConspiracyQuest.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `StoryMode.Quests.SecondPhase.ConspiracyQuests` to place it
 ## Usage Example
 
 ```csharp
-var value = new ConspiracyBaseOfOperationsDiscoveredConspiracyQuest();
+// Obtain an instance from the relevant subsystem API
+ConspiracyBaseOfOperationsDiscoveredConspiracyQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

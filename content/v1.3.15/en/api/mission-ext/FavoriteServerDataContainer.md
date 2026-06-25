@@ -1,13 +1,7 @@
 ---
 title: "FavoriteServerDataContainer"
+description: "Auto-generated class reference for FavoriteServerDataContainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FavoriteServerDataContainer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FavoriteServerDataContainer
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place
 ### TryGetServerData
 `public bool TryGetServerData(GameServerEntry serverEntry, out FavoriteServerData favoriteServerData)`
 
-**Purpose:** Attempts to get `get server data`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `get server data`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of FavoriteServerDataContainer from the subsystem API first
+FavoriteServerDataContainer favoriteServerDataContainer = ...;
+var result = favoriteServerDataContainer.TryGetServerData(serverEntry, favoriteServerData);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FavoriteServerDataContainer();
-value.TryGetServerData(serverEntry, favoriteServerData);
+// Typically call this after obtaining an instance from the subsystem API
+FavoriteServerDataContainer favoriteServerDataContainer = ...;
+favoriteServerDataContainer.TryGetServerData(serverEntry, favoriteServerData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

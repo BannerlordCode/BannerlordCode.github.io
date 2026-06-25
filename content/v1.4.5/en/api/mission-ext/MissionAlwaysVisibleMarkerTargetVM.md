@@ -1,20 +1,14 @@
 ---
 title: "MissionAlwaysVisibleMarkerTargetVM"
+description: "Auto-generated class reference for MissionAlwaysVisibleMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionAlwaysVisibleMarkerTargetVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAlwaysVisibleMarkerTargetVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionAlwaysVisibleMarkerTargetVM : MissionMarkerTargetVM`
 **Base:** `MissionMarkerTargetVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionAlwaysVisibleMarkerTargetVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker.Targets/MissionAlwaysVisibleMarkerTargetVM.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Executes the `remove` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `remove`.
+
+```csharp
+// Obtain an instance of MissionAlwaysVisibleMarkerTargetVM from the subsystem API first
+MissionAlwaysVisibleMarkerTargetVM missionAlwaysVisibleMarkerTargetVM = ...;
+missionAlwaysVisibleMarkerTargetVM.ExecuteRemove();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionAlwaysVisibleMarkerTargetVM();
-value.ExecuteRemove();
+// Typically call this after obtaining an instance from the subsystem API
+MissionAlwaysVisibleMarkerTargetVM missionAlwaysVisibleMarkerTargetVM = ...;
+missionAlwaysVisibleMarkerTargetVM.ExecuteRemove();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

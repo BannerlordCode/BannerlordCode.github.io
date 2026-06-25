@@ -1,24 +1,18 @@
 ---
 title: "GauntletGameNotification"
+description: "Auto-generated class reference for GauntletGameNotification."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletGameNotification`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletGameNotification
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletGameNotification : GlobalLayer`
 **Base:** `GlobalLayer`
-**Area:** mission-ext
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletGameNotification.cs`
 
 ## Overview
 
-`GauntletGameNotification` lives in `TaleWorlds.MountAndBlade.GauntletUI`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`GauntletGameNotification` lives in `TaleWorlds.MountAndBlade.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -29,31 +23,52 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+GauntletGameNotification.Initialize();
+```
 
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GauntletGameNotification from the subsystem API first
+GauntletGameNotification gauntletGameNotification = ...;
+gauntletGameNotification.OnFinalize();
+```
 
 ### RegisterEvents
 `public virtual void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GauntletGameNotification from the subsystem API first
+GauntletGameNotification gauntletGameNotification = ...;
+gauntletGameNotification.RegisterEvents();
+```
 
 ### UnregisterEvents
 `public virtual void UnregisterEvents()`
 
-**Purpose:** Handles logic related to `unregister events`.
+**Purpose:** Unregisters `events` from the current system.
+
+```csharp
+// Obtain an instance of GauntletGameNotification from the subsystem API first
+GauntletGameNotification gauntletGameNotification = ...;
+gauntletGameNotification.UnregisterEvents();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 GauntletGameNotification.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

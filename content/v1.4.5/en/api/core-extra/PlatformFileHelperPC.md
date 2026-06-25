@@ -1,20 +1,14 @@
 ---
 title: "PlatformFileHelperPC"
+description: "Auto-generated class reference for PlatformFileHelperPC."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlatformFileHelperPC`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlatformFileHelperPC
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class PlatformFileHelperPC : IPlatformFileHelper`
 **Base:** `IPlatformFileHelper`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/PlatformFileHelperPC.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/PlatformFileHelperPC.cs`
 
 ## Overview
 
@@ -29,90 +23,187 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### SaveFile
 `public SaveResult SaveFile(PlatformFilePath path, byte data)`
 
-**Purpose:** Saves `file` data.
+**Purpose:** Writes `file` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.SaveFile(path, 0);
+```
 
 ### SaveFileString
 `public SaveResult SaveFileString(PlatformFilePath path, string data)`
 
-**Purpose:** Saves `file string` data.
+**Purpose:** Writes `file string` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.SaveFileString(path, "example");
+```
 
 ### SaveFileAsync
 `public Task<SaveResult> SaveFileAsync(PlatformFilePath path, byte data)`
 
-**Purpose:** Saves `file async` data.
+**Purpose:** Writes `file async` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.SaveFileAsync(path, 0);
+```
 
 ### SaveFileStringAsync
 `public Task<SaveResult> SaveFileStringAsync(PlatformFilePath path, string data)`
 
-**Purpose:** Saves `file string async` data.
+**Purpose:** Writes `file string async` to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.SaveFileStringAsync(path, "example");
+```
 
 ### AppendLineToFileString
 `public SaveResult AppendLineToFileString(PlatformFilePath path, string data)`
 
-**Purpose:** Handles logic related to `append line to file string`.
+**Purpose:** Appends `line to file string` to the end of the current collection or sequence.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.AppendLineToFileString(path, "example");
+```
 
 ### GetFileFullPath
 `public string GetFileFullPath(PlatformFilePath filePath)`
 
-**Purpose:** Gets the current value of `file full path`.
+**Purpose:** Reads and returns the `file full path` value held by the current object.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFileFullPath(filePath);
+```
 
 ### FileExists
 `public bool FileExists(PlatformFilePath path)`
 
-**Purpose:** Handles logic related to `file exists`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.FileExists(path);
+```
 
 ### GetFileContentStringAsync
 `public async Task<string> GetFileContentStringAsync(PlatformFilePath path)`
 
-**Purpose:** Gets the current value of `file content string async`.
+**Purpose:** Reads and returns the `file content string async` value held by the current object.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFileContentStringAsync(path);
+```
 
 ### GetFileContentString
 `public string GetFileContentString(PlatformFilePath path)`
 
-**Purpose:** Gets the current value of `file content string`.
+**Purpose:** Reads and returns the `file content string` value held by the current object.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFileContentString(path);
+```
 
 ### GetMetaDataContent
 `public byte GetMetaDataContent(PlatformFilePath path)`
 
-**Purpose:** Gets the current value of `meta data content`.
+**Purpose:** Reads and returns the `meta data content` value held by the current object.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetMetaDataContent(path);
+```
 
 ### GetFileContent
 `public byte GetFileContent(PlatformFilePath path)`
 
-**Purpose:** Gets the current value of `file content`.
+**Purpose:** Reads and returns the `file content` value held by the current object.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFileContent(path);
+```
 
 ### DeleteFile
 `public bool DeleteFile(PlatformFilePath path)`
 
-**Purpose:** Handles logic related to `delete file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.DeleteFile(path);
+```
 
 ### CreateDirectory
 `public void CreateDirectory(PlatformDirectoryPath path)`
 
-**Purpose:** Creates a new `directory` instance or object.
+**Purpose:** Constructs a new `directory` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+platformFileHelperPC.CreateDirectory(path);
+```
 
 ### GetFiles
 `public PlatformFilePath GetFiles(PlatformDirectoryPath path, string searchPattern, SearchOption searchOption)`
 
-**Purpose:** Gets the current value of `files`.
+**Purpose:** Reads and returns the `files` value held by the current object.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetFiles(path, "example", searchOption);
+```
 
 ### RenameFile
 `public void RenameFile(PlatformFilePath filePath, string newName)`
 
-**Purpose:** Handles logic related to `rename file`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+platformFileHelperPC.RenameFile(filePath, "example");
+```
 
 ### GetError
 `public string GetError()`
 
-**Purpose:** Gets the current value of `error`.
+**Purpose:** Reads and returns the `error` value held by the current object.
+
+```csharp
+// Obtain an instance of PlatformFileHelperPC from the subsystem API first
+PlatformFileHelperPC platformFileHelperPC = ...;
+var result = platformFileHelperPC.GetError();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlatformFileHelperPC();
-value.SaveFile(path, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PlatformFileHelperPC platformFileHelperPC = ...;
+platformFileHelperPC.SaveFile(path, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

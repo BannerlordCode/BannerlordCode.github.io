@@ -1,13 +1,7 @@
 ---
 title: "ParameterFile"
+description: "ParameterFile 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ParameterFile`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ParameterFile
 
 **Namespace:** TaleWorlds.Library
@@ -37,20 +31,33 @@ title: "ParameterFile"
 ### CheckIfNeedsToBeRefreshed
 `public bool CheckIfNeedsToBeRefreshed()`
 
-**用途 / Purpose:** 处理 `check if needs to be refreshed` 相关逻辑。
+**用途 / Purpose:** 检查「if needs to be refreshed」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 ParameterFile 实例
+ParameterFile parameterFile = ...;
+var result = parameterFile.CheckIfNeedsToBeRefreshed();
+```
 
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 ParameterFile 实例
+ParameterFile parameterFile = ...;
+parameterFile.Refresh();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ParameterFile();
-value.CheckIfNeedsToBeRefreshed();
+// 通常从对应子系统 API 获取实例后调用
+ParameterFile parameterFile = ...;
+parameterFile.CheckIfNeedsToBeRefreshed();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

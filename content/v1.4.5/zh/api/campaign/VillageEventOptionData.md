@@ -1,20 +1,14 @@
 ---
 title: "VillageEventOptionData"
+description: "VillageEventOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VillageEventOptionData`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VillageEventOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct VillageEventOptionData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/RevenueFarmingIssueBehavior.cs`
 
 ## 概述
 
@@ -29,14 +23,21 @@ title: "VillageEventOptionData"
 ### VillageEventOptionData
 `public struct VillageEventOptionData(string text, GameMenuOption.OnConditionDelegate onCondition, GameMenuOption.OnConsequenceDelegate onConsequence, bool isLeave = false)`
 
-**用途 / Purpose:** 处理 `village event option data` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VillageEventOptionData 实例
+VillageEventOptionData villageEventOptionData = ...;
+var result = villageEventOptionData.VillageEventOptionData("example", onCondition, onConsequence, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VillageEventOptionData();
+// 该数据对象通常由战役/任务 API 返回
+VillageEventOptionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

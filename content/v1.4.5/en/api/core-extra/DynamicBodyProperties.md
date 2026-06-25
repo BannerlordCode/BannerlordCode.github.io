@@ -1,20 +1,14 @@
 ---
 title: "DynamicBodyProperties"
+description: "Auto-generated class reference for DynamicBodyProperties."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DynamicBodyProperties`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DynamicBodyProperties
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct DynamicBodyProperties`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/DynamicBodyProperties.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/DynamicBodyProperties.cs`
 
 ## Overview
 
@@ -29,35 +23,66 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### DynamicBodyProperties
 `public struct DynamicBodyProperties(float age, float weight, float build)`
 
-**Purpose:** Handles logic related to `dynamic body properties`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.DynamicBodyProperties(0, 0, 0);
+```
 
 ### Equals
 `public bool Equals(DynamicBodyProperties other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.Equals(other);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of DynamicBodyProperties from the subsystem API first
+DynamicBodyProperties dynamicBodyProperties = ...;
+var result = dynamicBodyProperties.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DynamicBodyProperties();
-value.DynamicBodyProperties(0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+DynamicBodyProperties dynamicBodyProperties = ...;
+dynamicBodyProperties.DynamicBodyProperties(0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

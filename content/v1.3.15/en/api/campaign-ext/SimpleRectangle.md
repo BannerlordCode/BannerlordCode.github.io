@@ -1,13 +1,7 @@
 ---
 title: "SimpleRectangle"
+description: "Auto-generated class reference for SimpleRectangle."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SimpleRectangle`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SimpleRectangle
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -36,45 +30,87 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### IsCollide
 `public bool IsCollide(SimpleRectangle other)`
 
-**Purpose:** Handles logic related to `is collide`.
+**Purpose:** Determines whether the current object is in the `collide` state or condition.
+
+```csharp
+// Obtain an instance of SimpleRectangle from the subsystem API first
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.IsCollide(other);
+```
 
 ### GetCenter
 `public Vector2 GetCenter()`
 
-**Purpose:** Gets the current value of `center`.
+**Purpose:** Reads and returns the `center` value held by the current object.
+
+```csharp
+// Obtain an instance of SimpleRectangle from the subsystem API first
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.GetCenter();
+```
 
 ### IsSubRectOf
 `public bool IsSubRectOf(SimpleRectangle other)`
 
-**Purpose:** Handles logic related to `is sub rect of`.
+**Purpose:** Determines whether the current object is in the `sub rect of` state or condition.
+
+```csharp
+// Obtain an instance of SimpleRectangle from the subsystem API first
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.IsSubRectOf(other);
+```
 
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** Handles logic related to `is valid`.
+**Purpose:** Determines whether the current object is in the `valid` state or condition.
+
+```csharp
+// Obtain an instance of SimpleRectangle from the subsystem API first
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.IsValid();
+```
 
 ### IsPointInside
 `public bool IsPointInside(Vector2 point)`
 
-**Purpose:** Handles logic related to `is point inside`.
+**Purpose:** Determines whether the current object is in the `point inside` state or condition.
+
+```csharp
+// Obtain an instance of SimpleRectangle from the subsystem API first
+SimpleRectangle simpleRectangle = ...;
+var result = simpleRectangle.IsPointInside(point);
+```
 
 ### ReduceToIntersection
 `public void ReduceToIntersection(SimpleRectangle other)`
 
-**Purpose:** Handles logic related to `reduce to intersection`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SimpleRectangle from the subsystem API first
+SimpleRectangle simpleRectangle = ...;
+simpleRectangle.ReduceToIntersection(other);
+```
 
 ### Lerp
 `public static SimpleRectangle Lerp(SimpleRectangle from, SimpleRectangle to, float ratio)`
 
-**Purpose:** Handles logic related to `lerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SimpleRectangle.Lerp(from, to, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SimpleRectangle();
-value.IsCollide(other);
+// Typically call this after obtaining an instance from the subsystem API
+SimpleRectangle simpleRectangle = ...;
+simpleRectangle.IsCollide(other);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

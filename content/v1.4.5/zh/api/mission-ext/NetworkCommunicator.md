@@ -1,20 +1,14 @@
 ---
 title: "NetworkCommunicator"
+description: "NetworkCommunicator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NetworkCommunicator`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NetworkCommunicator
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class NetworkCommunicator : ICommunicator`
 **Base:** `ICommunicator`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NetworkCommunicator.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/NetworkCommunicator.cs`
 
 ## 概述
 
@@ -48,45 +42,88 @@ title: "NetworkCommunicator"
 ### SetRelevantGameOptions
 `public void SetRelevantGameOptions(bool sendMeBloodEvents, bool sendMeSoundEvents)`
 
-**用途 / Purpose:** 设置 `relevant game options` 的值或状态。
+**用途 / Purpose:** 为 「relevant game options」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkCommunicator 实例
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.SetRelevantGameOptions(false, false);
+```
 
 ### GetHost
 `public uint GetHost()`
 
-**用途 / Purpose:** 获取 `host` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「host」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkCommunicator 实例
+NetworkCommunicator networkCommunicator = ...;
+var result = networkCommunicator.GetHost();
+```
 
 ### GetReversedHost
 `public uint GetReversedHost()`
 
-**用途 / Purpose:** 获取 `reversed host` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「reversed host」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkCommunicator 实例
+NetworkCommunicator networkCommunicator = ...;
+var result = networkCommunicator.GetReversedHost();
+```
 
 ### GetPort
 `public ushort GetPort()`
 
-**用途 / Purpose:** 获取 `port` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「port」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkCommunicator 实例
+NetworkCommunicator networkCommunicator = ...;
+var result = networkCommunicator.GetPort();
+```
 
 ### UpdateConnectionInfoForReconnect
 `public void UpdateConnectionInfoForReconnect(PlayerConnectionInfo playerConnectionInfo, bool isAdmin)`
 
-**用途 / Purpose:** 更新 `connection info for reconnect` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「connection info for reconnect」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkCommunicator 实例
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.UpdateConnectionInfoForReconnect(playerConnectionInfo, false);
+```
 
 ### UpdateIndexForReconnectingPlayer
 `public void UpdateIndexForReconnectingPlayer(int newIndex)`
 
-**用途 / Purpose:** 更新 `index for reconnecting player` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「index for reconnecting player」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkCommunicator 实例
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.UpdateIndexForReconnectingPlayer(0);
+```
 
 ### UpdateForJoiningCustomGame
 `public void UpdateForJoiningCustomGame(bool isAdmin)`
 
-**用途 / Purpose:** 更新 `for joining custom game` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「for joining custom game」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 NetworkCommunicator 实例
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.UpdateForJoiningCustomGame(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NetworkCommunicator();
-value.SetRelevantGameOptions(false, false);
+// 通常从对应子系统 API 获取实例后调用
+NetworkCommunicator networkCommunicator = ...;
+networkCommunicator.SetRelevantGameOptions(false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

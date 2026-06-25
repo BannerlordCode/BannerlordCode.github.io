@@ -1,13 +1,7 @@
 ---
 title: "SubModuleTags"
+description: "Auto-generated class reference for SubModuleTags."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SubModuleTags`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SubModuleTags
 
 **Namespace:** TaleWorlds.ModuleManager
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-SubModuleTags example = SubModuleTags.Value;
+// Obtain an instance from the relevant subsystem API
+SubModuleTags instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

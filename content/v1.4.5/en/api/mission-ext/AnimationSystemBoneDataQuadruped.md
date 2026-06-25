@@ -1,20 +1,14 @@
 ---
 title: "AnimationSystemBoneDataQuadruped"
+description: "Auto-generated class reference for AnimationSystemBoneDataQuadruped."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AnimationSystemBoneDataQuadruped`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AnimationSystemBoneDataQuadruped
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct AnimationSystemBoneDataQuadruped`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimationSystemBoneDataQuadruped.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AnimationSystemBoneDataQuadruped.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new AnimationSystemBoneDataQuadruped();
+// Obtain an instance from the relevant subsystem API
+AnimationSystemBoneDataQuadruped instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

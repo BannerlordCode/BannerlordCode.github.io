@@ -1,13 +1,7 @@
 ---
 title: "MapColorGradeManager"
+description: "Auto-generated class reference for MapColorGradeManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapColorGradeManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapColorGradeManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Scripts
@@ -29,17 +23,35 @@ Treat `MapColorGradeManager` as a Manager-style extension point: first identify 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of MapColorGradeManager from the subsystem API first
+MapColorGradeManager mapColorGradeManager = ...;
+var result = mapColorGradeManager.GetTickRequirement();
+```
 
 ### ApplyAtmosphere
 `public void ApplyAtmosphere(bool forceLoadTextures)`
 
-**Purpose:** Applies `atmosphere` to the current object.
+**Purpose:** Applies the effect of `atmosphere` to the current object.
+
+```csharp
+// Obtain an instance of MapColorGradeManager from the subsystem API first
+MapColorGradeManager mapColorGradeManager = ...;
+mapColorGradeManager.ApplyAtmosphere(false);
+```
 
 ### ApplyColorGrade
 `public void ApplyColorGrade(float dt)`
 
-**Purpose:** Applies `color grade` to the current object.
+**Purpose:** Applies the effect of `color grade` to the current object.
+
+```csharp
+// Obtain an instance of MapColorGradeManager from the subsystem API first
+MapColorGradeManager mapColorGradeManager = ...;
+mapColorGradeManager.ApplyColorGrade(0);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var manager = MapColorGradeManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

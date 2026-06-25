@@ -1,20 +1,14 @@
 ---
 title: "SessionCredentials"
+description: "Auto-generated class reference for SessionCredentials."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SessionCredentials`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SessionCredentials
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public sealed class SessionCredentials`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/SessionCredentials.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/SessionCredentials.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new SessionCredentials();
+// Obtain an instance from the relevant subsystem API
+SessionCredentials instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

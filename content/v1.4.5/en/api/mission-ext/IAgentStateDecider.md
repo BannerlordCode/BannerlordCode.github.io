@@ -1,20 +1,14 @@
 ---
 title: "IAgentStateDecider"
+description: "Auto-generated class reference for IAgentStateDecider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAgentStateDecider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IAgentStateDecider
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IAgentStateDecider.cs`
+**Type:** `public interface IAgentStateDecider : IMissionBehavior`
+**Base:** `IMissionBehavior`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/IAgentStateDecider.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IAgentStateDecider implementation = GetAgentStateDeciderImplementation();
+// Usually obtained through DI or a factory method
+IIAgentStateDecider service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "AlleyItemLocationComparer"
+description: "Auto-generated class reference for AlleyItemLocationComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyItemLocationComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyItemLocationComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class AlleyItemLocationComparer : AlleyItemComparerBase`
 **Base:** `AlleyItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### Compare
 `public override int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of AlleyItemLocationComparer from the subsystem API first
+AlleyItemLocationComparer alleyItemLocationComparer = ...;
+var result = alleyItemLocationComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AlleyItemLocationComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+AlleyItemLocationComparer alleyItemLocationComparer = ...;
+alleyItemLocationComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

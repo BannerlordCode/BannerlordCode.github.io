@@ -1,20 +1,14 @@
 ---
 title: "RansomValueCalculationModel"
+description: "Auto-generated class reference for RansomValueCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RansomValueCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RansomValueCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class RansomValueCalculationModel : MBGameModel<RansomValueCalculationModel>`
 **Base:** `MBGameModel<RansomValueCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/RansomValueCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/RansomValueCalculationModel.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `RansomValueCalculationModel` as a Model-style extension point: first iden
 ### PrisonerRansomValue
 `public abstract int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
 
-**Purpose:** Handles logic related to `prisoner ransom value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RansomValueCalculationModel from the subsystem API first
+RansomValueCalculationModel ransomValueCalculationModel = ...;
+var result = ransomValueCalculationModel.PrisonerRansomValue(prisoner, null);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomRansomValueCalculationModel();
+// Typically obtained from a subsystem API or factory
+RansomValueCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

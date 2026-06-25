@@ -1,13 +1,7 @@
 ---
 title: "ManagedDllFolder"
+description: "Auto-generated class reference for ManagedDllFolder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedDllFolder`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedDllFolder
 
 **Namespace:** TaleWorlds.Library
@@ -35,7 +29,12 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### OverrideManagedDllFolder
 `public static void OverrideManagedDllFolder(string overridenFolder)`
 
-**Purpose:** Handles logic related to `override managed dll folder`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ManagedDllFolder.OverrideManagedDllFolder("example");
+```
 
 ## Usage Example
 
@@ -45,4 +44,4 @@ ManagedDllFolder.OverrideManagedDllFolder("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

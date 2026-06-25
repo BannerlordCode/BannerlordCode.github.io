@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerGeneralKillFeedItemWidget"
+description: "Auto-generated class reference for MultiplayerGeneralKillFeedItemWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerGeneralKillFeedItemWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGeneralKillFeedItemWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerGeneralKillFeedItemWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerGeneralKillFeedItemWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.KillFeed/MultiplayerGeneralKillFeedItemWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MultiplayerGeneralKillFeedItemWidget` as a Widget-style extension point: 
 ### SetSpeedModifier
 `public void SetSpeedModifier(float newSpeed)`
 
-**Purpose:** Sets the value or state of `speed modifier`.
+**Purpose:** Assigns a new value to `speed modifier` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MultiplayerGeneralKillFeedItemWidget from the subsystem API first
+MultiplayerGeneralKillFeedItemWidget multiplayerGeneralKillFeedItemWidget = ...;
+multiplayerGeneralKillFeedItemWidget.SetSpeedModifier(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerGeneralKillFeedItemWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerGeneralKillFeedItemWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

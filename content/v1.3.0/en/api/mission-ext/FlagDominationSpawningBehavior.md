@@ -1,13 +1,7 @@
 ---
 title: "FlagDominationSpawningBehavior"
+description: "Auto-generated class reference for FlagDominationSpawningBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FlagDominationSpawningBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FlagDominationSpawningBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,40 +23,77 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public override void Initialize(SpawnComponent spawnComponent)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of FlagDominationSpawningBehavior from the subsystem API first
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.Initialize(spawnComponent);
+```
 
 ### Clear
 `public override void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of FlagDominationSpawningBehavior from the subsystem API first
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.Clear();
+```
 
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of FlagDominationSpawningBehavior from the subsystem API first
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.OnTick(0);
+```
 
 ### RequestStartSpawnSession
 `public override void RequestStartSpawnSession()`
 
-**Purpose:** Handles logic related to `request start spawn session`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FlagDominationSpawningBehavior from the subsystem API first
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.RequestStartSpawnSession();
+```
 
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**Purpose:** Handles logic related to `allow early agent visuals despawning`.
+**Purpose:** Permits `early agent visuals despawning` to be enabled or performed on the current object.
+
+```csharp
+// Obtain an instance of FlagDominationSpawningBehavior from the subsystem API first
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+var result = flagDominationSpawningBehavior.AllowEarlyAgentVisualsDespawning(lobbyPeer);
+```
 
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Called when the `clear scene` event is raised.
+**Purpose:** Invoked when the `clear scene` event is raised.
+
+```csharp
+// Obtain an instance of FlagDominationSpawningBehavior from the subsystem API first
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.OnClearScene();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FlagDominationSpawningBehavior();
-value.Initialize(spawnComponent);
+// Typically call this after obtaining an instance from the subsystem API
+FlagDominationSpawningBehavior flagDominationSpawningBehavior = ...;
+flagDominationSpawningBehavior.Initialize(spawnComponent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

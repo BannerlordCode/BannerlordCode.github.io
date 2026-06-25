@@ -1,13 +1,7 @@
 ---
 title: "RidingModel"
+description: "RidingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RidingModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RidingModel
 
 **Namespace:** TaleWorlds.Core
@@ -29,14 +23,21 @@ title: "RidingModel"
 ### CalculateAcceleration
 `public abstract float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
 
-**用途 / Purpose:** 处理 `calculate acceleration` 相关逻辑。
+**用途 / Purpose:** 计算「acceleration」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 RidingModel 实例
+RidingModel ridingModel = ...;
+var result = ridingModel.CalculateAcceleration(mountElement, harnessElement, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomRidingModel();
+// 通常通过子系统 API 或工厂获得派生实例
+RidingModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

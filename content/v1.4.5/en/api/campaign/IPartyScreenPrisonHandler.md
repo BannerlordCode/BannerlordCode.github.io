@@ -1,20 +1,14 @@
 ---
 title: "IPartyScreenPrisonHandler"
+description: "Auto-generated class reference for IPartyScreenPrisonHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IPartyScreenPrisonHandler`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IPartyScreenPrisonHandler
 
 **Namespace:** TaleWorlds.CampaignSystem.GameState
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IPartyScreenPrisonHandler`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IPartyScreenPrisonHandler.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameState/IPartyScreenPrisonHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IPartyScreenPrisonHandler` as a Handler-style extension point: first iden
 ## Usage Example
 
 ```csharp
-IPartyScreenPrisonHandler implementation = GetPartyScreenPrisonHandlerImplementation();
+// Usually obtained through DI or a factory method
+IIPartyScreenPrisonHandler service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TeamCollection"
+description: "Auto-generated class reference for TeamCollection."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamCollection`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TeamCollection
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -41,35 +35,66 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Add
 `public new void Add(Team t)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+teamCollection.Add(t);
+```
 
 ### Add
 `public Team Add(BattleSideEnum side, uint color = 4294967295U, uint color2 = 4294967295U, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)`
 
-**Purpose:** Adds `add` to the current collection or state.
+**Purpose:** Adds an item to the current collection or state.
+
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+var result = teamCollection.Add(side, 0, 0, null, false, false, false);
+```
 
 ### Find
 `public Team Find(MBTeam mbTeam)`
 
-**Purpose:** Handles logic related to `find`.
+**Purpose:** Finds the matching entry in the current collection or scope.
+
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+var result = teamCollection.Find(mbTeam);
+```
 
 ### ClearResources
 `public void ClearResources()`
 
-**Purpose:** Handles logic related to `clear resources`.
+**Purpose:** Removes all `resources` from the current object.
+
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+teamCollection.ClearResources();
+```
 
 ### Clear
 `public new void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of TeamCollection from the subsystem API first
+TeamCollection teamCollection = ...;
+teamCollection.Clear();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamCollection();
-value.Add(t);
+// Typically call this after obtaining an instance from the subsystem API
+TeamCollection teamCollection = ...;
+teamCollection.Add(t);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

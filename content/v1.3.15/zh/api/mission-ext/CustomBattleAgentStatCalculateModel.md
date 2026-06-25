@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleAgentStatCalculateModel"
+description: "CustomBattleAgentStatCalculateModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleAgentStatCalculateModel`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomBattleAgentStatCalculateModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,57 +23,123 @@ title: "CustomBattleAgentStatCalculateModel"
 ### GetDifficultyModifier
 `public override float GetDifficultyModifier()`
 
-**用途 / Purpose:** 获取 `difficulty modifier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「difficulty modifier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetDifficultyModifier();
+```
 
 ### CanAgentRideMount
 `public override bool CanAgentRideMount(Agent agent, Agent targetMount)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `agent ride mount`。
+**用途 / Purpose:** 检查当前对象是否满足 「agent ride mount」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.CanAgentRideMount(agent, targetMount);
+```
 
 ### InitializeAgentStats
 `public override void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
 
-**用途 / Purpose:** 初始化 `agent stats` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「agent stats」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+customBattleAgentStatCalculateModel.InitializeAgentStats(agent, spawnEquipment, agentDrivenProperties, agentBuildData);
+```
 
 ### UpdateAgentStats
 `public override void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
 
-**用途 / Purpose:** 更新 `agent stats` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「agent stats」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+customBattleAgentStatCalculateModel.UpdateAgentStats(agent, agentDrivenProperties);
+```
 
 ### GetWeaponDamageMultiplier
 `public override float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 获取 `weapon damage multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「weapon damage multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetWeaponDamageMultiplier(agent, weapon);
+```
 
 ### GetEquipmentStealthBonus
 `public override float GetEquipmentStealthBonus(Agent agent)`
 
-**用途 / Purpose:** 获取 `equipment stealth bonus` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「equipment stealth bonus」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetEquipmentStealthBonus(agent);
+```
 
 ### GetSneakAttackMultiplier
 `public override float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 获取 `sneak attack multiplier` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sneak attack multiplier」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetSneakAttackMultiplier(agent, weapon);
+```
 
 ### GetKnockBackResistance
 `public override float GetKnockBackResistance(Agent agent)`
 
-**用途 / Purpose:** 获取 `knock back resistance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「knock back resistance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetKnockBackResistance(agent);
+```
 
 ### GetKnockDownResistance
 `public override float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)`
 
-**用途 / Purpose:** 获取 `knock down resistance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「knock down resistance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetKnockDownResistance(agent, strikeType.Invalid);
+```
 
 ### GetDismountResistance
 `public override float GetDismountResistance(Agent agent)`
 
-**用途 / Purpose:** 获取 `dismount resistance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「dismount resistance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetDismountResistance(agent);
+```
 
 ### GetBreatheHoldMaxDuration
 `public override float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
 
-**用途 / Purpose:** 获取 `breathe hold max duration` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「breathe hold max duration」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleAgentStatCalculateModel 实例
+CustomBattleAgentStatCalculateModel customBattleAgentStatCalculateModel = ...;
+var result = customBattleAgentStatCalculateModel.GetBreatheHoldMaxDuration(agent, 0);
+```
 
 ## 使用示例
 
@@ -89,4 +149,4 @@ Game.Current.ReplaceModel<CustomBattleAgentStatCalculateModel>(new MyCustomBattl
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

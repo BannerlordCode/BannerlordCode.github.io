@@ -1,20 +1,14 @@
 ---
 title: "IBooleanOptionData"
+description: "IBooleanOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IBooleanOptionData`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IBooleanOptionData
 
 **Namespace:** TaleWorlds.Engine.Options
 **Module:** TaleWorlds.Engine
-**Type:** `class`
-**Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/IBooleanOptionData.cs`
+**Type:** `public interface IBooleanOptionData : IOptionData`
+**Base:** `IOptionData`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine.Options/IBooleanOptionData.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IBooleanOptionData"
 ## 使用示例
 
 ```csharp
-IBooleanOptionData implementation = GetBooleanOptionDataImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIBooleanOptionData service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "FireTrebuchet"
+description: "Auto-generated class reference for FireTrebuchet."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FireTrebuchet`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FireTrebuchet
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects.Siege
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Gets the current value of `siege engine type`.
+**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+
+```csharp
+// Obtain an instance of FireTrebuchet from the subsystem API first
+FireTrebuchet fireTrebuchet = ...;
+var result = fireTrebuchet.GetSiegeEngineType();
+```
 
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Handles logic related to `process target value`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FireTrebuchet from the subsystem API first
+FireTrebuchet fireTrebuchet = ...;
+var result = fireTrebuchet.ProcessTargetValue(0, flags);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FireTrebuchet();
-value.GetSiegeEngineType();
+// Typically call this after obtaining an instance from the subsystem API
+FireTrebuchet fireTrebuchet = ...;
+fireTrebuchet.GetSiegeEngineType();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

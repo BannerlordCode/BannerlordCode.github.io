@@ -1,20 +1,14 @@
 ---
 title: "GroupedOptionCategoryVM"
+description: "Auto-generated class reference for GroupedOptionCategoryVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GroupedOptionCategoryVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GroupedOptionCategoryVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GroupedOptionCategoryVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/GroupedOptionCategoryVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions/GroupedOptionCategoryVM.cs`
 
 ## Overview
 
@@ -40,35 +34,66 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+groupedOptionCategoryVM.RefreshValues();
+```
 
 ### ResetData
 `public void ResetData()`
 
-**Purpose:** Resets `data` to its initial state.
+**Purpose:** Returns `data` to its default or initial condition.
+
+```csharp
+// Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+groupedOptionCategoryVM.ResetData();
+```
 
 ### ExecuteResetToDefault
 `public void ExecuteResetToDefault()`
 
-**Purpose:** Executes the `reset to default` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset to default`.
+
+```csharp
+// Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+groupedOptionCategoryVM.ExecuteResetToDefault();
+```
 
 ### GetOption
 `public GenericOptionDataVM GetOption(ManagedOptions.ManagedOptionsType optionType)`
 
-**Purpose:** Gets the current value of `option`.
+**Purpose:** Reads and returns the `option` value held by the current object.
+
+```csharp
+// Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+var result = groupedOptionCategoryVM.GetOption(optionType);
+```
 
 ### GetOption
 `public GenericOptionDataVM GetOption(NativeOptions.NativeOptionsType optionType)`
 
-**Purpose:** Gets the current value of `option`.
+**Purpose:** Reads and returns the `option` value held by the current object.
+
+```csharp
+// Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+var result = groupedOptionCategoryVM.GetOption(optionType);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GroupedOptionCategoryVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GroupedOptionCategoryVM groupedOptionCategoryVM = ...;
+groupedOptionCategoryVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

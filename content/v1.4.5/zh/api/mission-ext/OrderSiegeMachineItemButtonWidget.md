@@ -1,20 +1,14 @@
 ---
 title: "OrderSiegeMachineItemButtonWidget"
+description: "OrderSiegeMachineItemButtonWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderSiegeMachineItemButtonWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # OrderSiegeMachineItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OrderSiegeMachineItemButtonWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderSiegeMachineItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderSiegeMachineItemButtonWidget.cs`
 
 ## 概述
 
@@ -38,14 +32,21 @@ title: "OrderSiegeMachineItemButtonWidget"
 ### OrderSiegeMachineItemButtonWidget
 `public class OrderSiegeMachineItemButtonWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `order siege machine item button widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 OrderSiegeMachineItemButtonWidget 实例
+OrderSiegeMachineItemButtonWidget orderSiegeMachineItemButtonWidget = ...;
+var result = orderSiegeMachineItemButtonWidget.OrderSiegeMachineItemButtonWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new OrderSiegeMachineItemButtonWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+OrderSiegeMachineItemButtonWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

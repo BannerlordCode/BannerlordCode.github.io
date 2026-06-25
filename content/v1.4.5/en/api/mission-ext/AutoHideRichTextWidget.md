@@ -1,20 +1,14 @@
 ---
 title: "AutoHideRichTextWidget"
+description: "Auto-generated class reference for AutoHideRichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AutoHideRichTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AutoHideRichTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AutoHideRichTextWidget : RichTextWidget`
 **Base:** `RichTextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/AutoHideRichTextWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/AutoHideRichTextWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `AutoHideRichTextWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new AutoHideRichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AutoHideRichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

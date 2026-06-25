@@ -1,20 +1,14 @@
 ---
 title: "MissionConversationPrepareView"
+description: "Auto-generated class reference for MissionConversationPrepareView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionConversationPrepareView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionConversationPrepareView
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class MissionConversationPrepareView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionConversationPrepareView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/MissionConversationPrepareView.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `MissionConversationPrepareView` as a View-style extension point: first id
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionConversationPrepareView from the subsystem API first
+MissionConversationPrepareView missionConversationPrepareView = ...;
+missionConversationPrepareView.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionConversationPrepareView from the subsystem API first
+MissionConversationPrepareView missionConversationPrepareView = ...;
+missionConversationPrepareView.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionConversationPrepareView();
+// Retrieve this view from the subsystem API or scene
+MissionConversationPrepareView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

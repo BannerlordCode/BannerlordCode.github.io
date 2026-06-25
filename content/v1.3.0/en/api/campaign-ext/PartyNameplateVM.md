@@ -1,13 +1,7 @@
 ---
 title: "PartyNameplateVM"
+description: "Auto-generated class reference for PartyNameplateVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyNameplateVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyNameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
@@ -56,65 +50,132 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.OnFinalize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshValues();
+```
 
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**Purpose:** Refreshes the display or cache of `dynamic properties`.
+**Purpose:** Keeps the display or cache of `dynamic properties` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**Purpose:** Refreshes the display or cache of `position`.
+**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshPosition();
+```
 
 ### RefreshTutorialStatus
 `public override void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**Purpose:** Refreshes the display or cache of `tutorial status`.
+**Purpose:** Keeps the display or cache of `tutorial status` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshTutorialStatus("example");
+```
 
 ### DetermineIsVisibleOnMap
 `public void DetermineIsVisibleOnMap()`
 
-**Purpose:** Handles logic related to `determine is visible on map`.
+**Purpose:** Determines the result of `is visible on map` based on the current state.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.DetermineIsVisibleOnMap();
+```
 
 ### OnPlayerCharacterChanged
 `public void OnPlayerCharacterChanged(Hero newPlayer)`
 
-**Purpose:** Called when the `player character changed` event is raised.
+**Purpose:** Invoked when the `player character changed` event is raised.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.OnPlayerCharacterChanged(newPlayer);
+```
 
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**Purpose:** Refreshes the display or cache of `binding`.
+**Purpose:** Keeps the display or cache of `binding` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshBinding();
+```
 
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**Purpose:** Executes the `set camera position` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set camera position`.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.ExecuteSetCameraPosition();
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RegisterEvents();
+```
 
 ### UnregisterEvents
 `public void UnregisterEvents()`
 
-**Purpose:** Handles logic related to `unregister events`.
+**Purpose:** Unregisters `events` from the current system.
+
+```csharp
+// Obtain an instance of PartyNameplateVM from the subsystem API first
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.UnregisterEvents();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyNameplateVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

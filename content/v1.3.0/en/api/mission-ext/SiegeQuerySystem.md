@@ -1,13 +1,7 @@
 ---
 title: "SiegeQuerySystem"
+description: "Auto-generated class reference for SiegeQuerySystem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeQuerySystem`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeQuerySystem
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -54,30 +48,53 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Expire
 `public void Expire()`
 
-**Purpose:** Handles logic related to `expire`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SiegeQuerySystem from the subsystem API first
+SiegeQuerySystem siegeQuerySystem = ...;
+siegeQuerySystem.Expire();
+```
 
 ### DeterminePositionAssociatedSide
 `public int DeterminePositionAssociatedSide(Vec3 position)`
 
-**Purpose:** Handles logic related to `determine position associated side`.
+**Purpose:** Determines the result of `position associated side` based on the current state.
+
+```csharp
+// Obtain an instance of SiegeQuerySystem from the subsystem API first
+SiegeQuerySystem siegeQuerySystem = ...;
+var result = siegeQuerySystem.DeterminePositionAssociatedSide(position);
+```
 
 ### AreSidesRelated
 `public static bool AreSidesRelated(FormationAI.BehaviorSide side, int connectedSides)`
 
-**Purpose:** Handles logic related to `are sides related`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SiegeQuerySystem.AreSidesRelated(side, 0);
+```
 
 ### SideDistance
 `public static int SideDistance(int connectedSides, int side)`
 
-**Purpose:** Handles logic related to `side distance`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+SiegeQuerySystem.SideDistance(0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeQuerySystem();
-value.Expire();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeQuerySystem siegeQuerySystem = ...;
+siegeQuerySystem.Expire();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

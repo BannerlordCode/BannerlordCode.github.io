@@ -1,13 +1,7 @@
 ---
 title: "Soundtrack"
+description: "Auto-generated class reference for Soundtrack."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Soundtrack`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Soundtrack
 
 **Namespace:** psai.net
@@ -29,50 +23,99 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of Soundtrack from the subsystem API first
+Soundtrack soundtrack = ...;
+soundtrack.Clear();
+```
 
 ### getThemeById
 `public Theme getThemeById(int id)`
 
-**Purpose:** Handles logic related to `get theme by id`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Soundtrack from the subsystem API first
+Soundtrack soundtrack = ...;
+var result = soundtrack.getThemeById(0);
+```
 
 ### GetSegmentById
 `public Segment GetSegmentById(int id)`
 
-**Purpose:** Gets the current value of `segment by id`.
+**Purpose:** Reads and returns the `segment by id` value held by the current object.
+
+```csharp
+// Obtain an instance of Soundtrack from the subsystem API first
+Soundtrack soundtrack = ...;
+var result = soundtrack.GetSegmentById(0);
+```
 
 ### getSoundtrackInfo
 `public SoundtrackInfo getSoundtrackInfo()`
 
-**Purpose:** Handles logic related to `get soundtrack info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Soundtrack from the subsystem API first
+Soundtrack soundtrack = ...;
+var result = soundtrack.getSoundtrackInfo();
+```
 
 ### getThemeInfo
 `public ThemeInfo getThemeInfo(int themeId)`
 
-**Purpose:** Handles logic related to `get theme info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Soundtrack from the subsystem API first
+Soundtrack soundtrack = ...;
+var result = soundtrack.getThemeInfo(0);
+```
 
 ### getSegmentInfo
 `public SegmentInfo getSegmentInfo(int snippetId)`
 
-**Purpose:** Handles logic related to `get segment info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Soundtrack from the subsystem API first
+Soundtrack soundtrack = ...;
+var result = soundtrack.getSegmentInfo(0);
+```
 
 ### UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets
 `public void UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets()`
 
-**Purpose:** Updates the state or data of `max pre beat ms of compatible middle or bridge snippets`.
+**Purpose:** Recalculates and stores the latest representation of `max pre beat ms of compatible middle or bridge snippets`.
+
+```csharp
+// Obtain an instance of Soundtrack from the subsystem API first
+Soundtrack soundtrack = ...;
+soundtrack.UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets();
+```
 
 ### BuildAllIndirectionSequences
 `public void BuildAllIndirectionSequences()`
 
-**Purpose:** Handles logic related to `build all indirection sequences`.
+**Purpose:** Assembles and returns the built result for `all indirection sequences`.
+
+```csharp
+// Obtain an instance of Soundtrack from the subsystem API first
+Soundtrack soundtrack = ...;
+soundtrack.BuildAllIndirectionSequences();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Soundtrack();
-value.Clear();
+// Typically call this after obtaining an instance from the subsystem API
+Soundtrack soundtrack = ...;
+soundtrack.Clear();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ClanPartyRoleSelectionPopupWidget"
+description: "Auto-generated class reference for ClanPartyRoleSelectionPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanPartyRoleSelectionPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanPartyRoleSelectionPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanPartyRoleSelectionPopupWidget : AutoClosePopupWidget`
 **Base:** `AutoClosePopupWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanPartyRoleSelectionPopupWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanPartyRoleSelectionPopupWidget.cs`
 
 ## Overview
 
@@ -37,12 +31,19 @@ Treat `ClanPartyRoleSelectionPopupWidget` as a Widget-style extension point: fir
 
 **Purpose:** Adds `toggle widget` to the current collection or state.
 
+```csharp
+// Obtain an instance of ClanPartyRoleSelectionPopupWidget from the subsystem API first
+ClanPartyRoleSelectionPopupWidget clanPartyRoleSelectionPopupWidget = ...;
+clanPartyRoleSelectionPopupWidget.AddToggleWidget(widget);
+```
+
 ## Usage Example
 
 ```csharp
-var widget = new ClanPartyRoleSelectionPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClanPartyRoleSelectionPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

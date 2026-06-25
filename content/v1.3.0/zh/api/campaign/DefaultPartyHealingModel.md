@@ -1,13 +1,7 @@
 ---
 title: "DefaultPartyHealingModel"
+description: "DefaultPartyHealingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPartyHealingModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPartyHealingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,42 +23,90 @@ title: "DefaultPartyHealingModel"
 ### GetSurgeryChance
 `public override float GetSurgeryChance(PartyBase party)`
 
-**用途 / Purpose:** 获取 `surgery chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「surgery chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetSurgeryChance(party);
+```
 
 ### GetSiegeBombardmentHitSurgeryChance
 `public override float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
 
-**用途 / Purpose:** 获取 `siege bombardment hit surgery chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege bombardment hit surgery chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetSiegeBombardmentHitSurgeryChance(party);
+```
 
 ### GetSurvivalChance
 `public override float GetSurvivalChance(PartyBase party, CharacterObject character, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
 
-**用途 / Purpose:** 获取 `survival chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「survival chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetSurvivalChance(party, character, damageType, false, null);
+```
 
 ### GetSkillXpFromHealingTroop
 `public override int GetSkillXpFromHealingTroop(PartyBase party)`
 
-**用途 / Purpose:** 获取 `skill xp from healing troop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill xp from healing troop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetSkillXpFromHealingTroop(party);
+```
 
 ### GetDailyHealingForRegulars
 `public override ExplainedNumber GetDailyHealingForRegulars(PartyBase party, bool isPrisoners, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `daily healing for regulars` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily healing for regulars」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetDailyHealingForRegulars(party, false, false);
+```
 
 ### GetDailyHealingHpForHeroes
 `public override ExplainedNumber GetDailyHealingHpForHeroes(PartyBase party, bool isPrisoners, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `daily healing hp for heroes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily healing hp for heroes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetDailyHealingHpForHeroes(party, false, false);
+```
 
 ### GetHeroesEffectedHealingAmount
 `public override int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
 
-**用途 / Purpose:** 获取 `heroes effected healing amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「heroes effected healing amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetHeroesEffectedHealingAmount(hero, 0);
+```
 
 ### GetBattleEndHealingAmount
 `public override ExplainedNumber GetBattleEndHealingAmount(PartyBase party, Hero hero)`
 
-**用途 / Purpose:** 获取 `battle end healing amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle end healing amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
+DefaultPartyHealingModel defaultPartyHealingModel = ...;
+var result = defaultPartyHealingModel.GetBattleEndHealingAmount(party, hero);
+```
 
 ## 使用示例
 
@@ -74,4 +116,4 @@ Game.Current.ReplaceModel<DefaultPartyHealingModel>(new MyDefaultPartyHealingMod
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

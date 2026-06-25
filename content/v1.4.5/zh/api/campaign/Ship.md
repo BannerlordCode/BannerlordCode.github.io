@@ -1,20 +1,14 @@
 ---
 title: "Ship"
+description: "Ship 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Ship`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Ship
 
 **Namespace:** TaleWorlds.CampaignSystem.Naval
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class Ship : IShipOrigin, IRandomOwner`
 **Base:** `IShipOrigin`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Naval/Ship.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Naval/Ship.cs`
 
 ## 概述
 
@@ -54,75 +48,154 @@ title: "Ship"
 ### ChangeFigurehead
 `public void ChangeFigurehead(Figurehead figurehead)`
 
-**用途 / Purpose:** 处理 `change figurehead` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.ChangeFigurehead(figurehead);
+```
 
 ### GetPieceAtSlot
 `public ShipUpgradePiece GetPieceAtSlot(string slotTag)`
 
-**用途 / Purpose:** 获取 `piece at slot` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「piece at slot」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetPieceAtSlot("example");
+```
 
 ### EquipUpgradePiece
 `public void EquipUpgradePiece(string slotTag, ShipUpgradePiece newUpgradePiece)`
 
-**用途 / Purpose:** 处理 `equip upgrade piece` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.EquipUpgradePiece("example", newUpgradePiece);
+```
 
 ### HasSlot
 `public bool HasSlot(string slotTag)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `slot`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「slot」。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.HasSlot("example");
+```
 
 ### SetName
 `public void SetName(TextObject name)`
 
-**用途 / Purpose:** 设置 `name` 的值或状态。
+**用途 / Purpose:** 为 「name」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.SetName(name);
+```
 
 ### GetCampaignSpeed
 `public float GetCampaignSpeed()`
 
-**用途 / Purpose:** 获取 `campaign speed` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「campaign speed」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetCampaignSpeed();
+```
 
 ### GetSiegeEngines
 `public MBList<SiegeEngineType> GetSiegeEngines()`
 
-**用途 / Purpose:** 获取 `siege engines` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege engines」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetSiegeEngines();
+```
 
 ### UpdateVersionNo
 `public void UpdateVersionNo()`
 
-**用途 / Purpose:** 更新 `version no` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「version no」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.UpdateVersionNo();
+```
 
 ### GetCombatFactor
 `public float GetCombatFactor()`
 
-**用途 / Purpose:** 获取 `combat factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「combat factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetCombatFactor();
+```
 
 ### OnShipDamaged
 `public void OnShipDamaged(float rawDamage, IShipOrigin rammingShip, out float modifiedDamage)`
 
-**用途 / Purpose:** 当 `ship damaged` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「ship damaged」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.OnShipDamaged(0, rammingShip, modifiedDamage);
+```
 
 ### GetShipVisualSlotInfos
 `public List<ShipVisualSlotInfo> GetShipVisualSlotInfos()`
 
-**用途 / Purpose:** 获取 `ship visual slot infos` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship visual slot infos」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetShipVisualSlotInfos();
+```
 
 ### GetShipSlotAndPieceNames
 `public List<ShipSlotAndPieceName> GetShipSlotAndPieceNames()`
 
-**用途 / Purpose:** 获取 `ship slot and piece names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ship slot and piece names」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+var result = ship.GetShipSlotAndPieceNames();
+```
 
 ### OnPlayerCharacterChanged
 `public void OnPlayerCharacterChanged()`
 
-**用途 / Purpose:** 当 `player character changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player character changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 Ship 实例
+Ship ship = ...;
+ship.OnPlayerCharacterChanged();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new Ship();
-value.ChangeFigurehead(figurehead);
+// 通常从对应子系统 API 获取实例后调用
+Ship ship = ...;
+ship.ChangeFigurehead(figurehead);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

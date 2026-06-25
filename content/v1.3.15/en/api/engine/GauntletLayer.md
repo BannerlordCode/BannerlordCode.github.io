@@ -1,13 +1,7 @@
 ---
 title: "GauntletLayer"
+description: "Auto-generated class reference for GauntletLayer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletLayer`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GauntletLayer
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -36,85 +30,176 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### OnResourceRefreshBegin
 `public void OnResourceRefreshBegin(out List<GauntletMovieIdentifier> previouslyLoadedMovies)`
 
-**Purpose:** Called when the `resource refresh begin` event is raised.
+**Purpose:** Invoked when the `resource refresh begin` event is raised.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnResourceRefreshBegin(previouslyLoadedMovies);
+```
 
 ### OnResourceRefreshEnd
 `public void OnResourceRefreshEnd(List<GauntletMovieIdentifier> previouslyLoadedMovies)`
 
-**Purpose:** Called when the `resource refresh end` event is raised.
+**Purpose:** Invoked when the `resource refresh end` event is raised.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnResourceRefreshEnd(previouslyLoadedMovies);
+```
 
 ### GetMovieIdentifier
 `public GauntletMovieIdentifier GetMovieIdentifier(string movieName)`
 
-**Purpose:** Gets the current value of `movie identifier`.
+**Purpose:** Reads and returns the `movie identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.GetMovieIdentifier("example");
+```
 
 ### LoadMovie
 `public GauntletMovieIdentifier LoadMovie(string movieName, ViewModel dataSource)`
 
-**Purpose:** Loads `movie` data.
+**Purpose:** Reads `movie` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.LoadMovie("example", dataSource);
+```
 
 ### ReleaseMovie
 `public void ReleaseMovie(GauntletMovieIdentifier identifier)`
 
-**Purpose:** Handles logic related to `release movie`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.ReleaseMovie(identifier);
+```
 
 ### ProcessEvents
 `public override void ProcessEvents()`
 
-**Purpose:** Handles logic related to `process events`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.ProcessEvents();
+```
 
 ### HitTest
 `public override bool HitTest(Vector2 position)`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.HitTest(position);
+```
 
 ### HitTest
 `public override bool HitTest()`
 
-**Purpose:** Handles logic related to `hit test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.HitTest();
+```
 
 ### FocusTest
 `public override bool FocusTest()`
 
-**Purpose:** Handles logic related to `focus test`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.FocusTest();
+```
 
 ### IsFocusedOnInput
 `public override bool IsFocusedOnInput()`
 
-**Purpose:** Handles logic related to `is focused on input`.
+**Purpose:** Determines whether the current object is in the `focused on input` state or condition.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.IsFocusedOnInput();
+```
 
 ### OnOnScreenKeyboardDone
 `public override void OnOnScreenKeyboardDone(string inputText)`
 
-**Purpose:** Called when the `on screen keyboard done` event is raised.
+**Purpose:** Invoked when the `on screen keyboard done` event is raised.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnOnScreenKeyboardDone("example");
+```
 
 ### OnOnScreenKeyboardCanceled
 `public override void OnOnScreenKeyboardCanceled()`
 
-**Purpose:** Called when the `on screen keyboard canceled` event is raised.
+**Purpose:** Invoked when the `on screen keyboard canceled` event is raised.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnOnScreenKeyboardCanceled();
+```
 
 ### UpdateLayout
 `public override void UpdateLayout()`
 
-**Purpose:** Updates the state or data of `layout`.
+**Purpose:** Recalculates and stores the latest representation of `layout`.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.UpdateLayout();
+```
 
 ### GetIsAvailableForGamepadNavigation
 `public bool GetIsAvailableForGamepadNavigation()`
 
-**Purpose:** Gets the current value of `is available for gamepad navigation`.
+**Purpose:** Reads and returns the `is available for gamepad navigation` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+var result = gauntletLayer.GetIsAvailableForGamepadNavigation();
+```
 
 ### DrawDebugInfo
 `public override void DrawDebugInfo()`
 
-**Purpose:** Handles logic related to `draw debug info`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletLayer from the subsystem API first
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.DrawDebugInfo();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletLayer();
-value.OnResourceRefreshBegin(previouslyLoadedMovies);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletLayer gauntletLayer = ...;
+gauntletLayer.OnResourceRefreshBegin(previouslyLoadedMovies);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

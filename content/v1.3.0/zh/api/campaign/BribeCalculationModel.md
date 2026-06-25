@@ -1,13 +1,7 @@
 ---
 title: "BribeCalculationModel"
+description: "BribeCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BribeCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BribeCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,29 +23,54 @@ title: "BribeCalculationModel"
 ### GetBribeToEnterLordsHall
 `public abstract int GetBribeToEnterLordsHall(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `bribe to enter lords hall` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bribe to enter lords hall」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BribeCalculationModel 实例
+BribeCalculationModel bribeCalculationModel = ...;
+var result = bribeCalculationModel.GetBribeToEnterLordsHall(settlement);
+```
 
 ### GetBribeToEnterDungeon
 `public abstract int GetBribeToEnterDungeon(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `bribe to enter dungeon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「bribe to enter dungeon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BribeCalculationModel 实例
+BribeCalculationModel bribeCalculationModel = ...;
+var result = bribeCalculationModel.GetBribeToEnterDungeon(settlement);
+```
 
 ### IsBribeNotNeededToEnterKeep
 `public abstract bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `is bribe not needed to enter keep` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「bribe not needed to enter keep」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BribeCalculationModel 实例
+BribeCalculationModel bribeCalculationModel = ...;
+var result = bribeCalculationModel.IsBribeNotNeededToEnterKeep(settlement);
+```
 
 ### IsBribeNotNeededToEnterDungeon
 `public abstract bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
 
-**用途 / Purpose:** 处理 `is bribe not needed to enter dungeon` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「bribe not needed to enter dungeon」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BribeCalculationModel 实例
+BribeCalculationModel bribeCalculationModel = ...;
+var result = bribeCalculationModel.IsBribeNotNeededToEnterDungeon(settlement);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomBribeCalculationModel();
+// 通常通过子系统 API 或工厂获得派生实例
+BribeCalculationModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

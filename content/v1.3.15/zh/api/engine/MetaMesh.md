@@ -1,629 +1,760 @@
 ---
-title: MetaMesh
-description: MetaMesh - 引擎网格容器，封装多?Mesh ?LOD、材质、着色器参数
+title: "MetaMesh"
+description: "MetaMesh 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MetaMesh`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MetaMesh
 
-**命名空间:** TaleWorlds.Engine
-**模块:** TaleWorlds.Engine
-**类型:** sealed class（继承自 
-
-`GameEntityComponent
-
-`，标?
-
-`[EngineClass("rglMeta_mesh")]
-
-`?**领域:** 引擎 / 渲染资源
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public sealed class MetaMesh : GameEntityComponent`
+**Base:** `GameEntityComponent`
+**File:** `TaleWorlds.Engine/MetaMesh.cs`
 
 ## 概述
 
-`MetaMesh
+`MetaMesh` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-` ?Bannerlord 引擎?网格容器"的托管包装。一?MetaMesh 包含多个 
-
-`Mesh
-
-`（子网格），每个 Mesh 有自己的材质、LOD（多级细节）层级、标签。它?3D 渲染的基本单位——`GameEntity
-
-` 通过挂载 MetaMesh 来显?3D 模型，UI 中的 
-
-`SceneWidget
-
-` 也用 MetaMesh 渲染 3D 内容?2D 纹理?
-所有方法都通过 
-
-`EngineApplicationInterface.IMetaMesh
-
-` 转发到原?C++ 引擎（P/Invoke），托管层只持有 
-
-`UIntPtr
-
-` 指针。`CreateMetaMesh(name)
-
-` 按名从资源库创建实例；`GetCopy(name)
-
-` 创建副本（可独立修改）；
-
-`GetMorphedCopy(name, morphTarget, showErrors)
-
-` 创建变形副本（用于角色面容生成等需?morph 的场景）?
-核心能力?) **Mesh 管理**——`AddMesh
-
-`/
-
-`GetMeshAtIndex
-
-`/
-
-`MeshCount
-
-`/
-
-`GetFirstMeshWithTag
-
-`/
-
-`RemoveMeshesWithTag
-
-`?) **LOD 控制**——`SetNumLods
-
-`/
-
-`ClearMeshesForLod
-
-`/
-
-`ClearMeshesForLowerLods
-
-`/
-
-`GetLodMaskForMeshAtIndex
-
-`/
-
-`HasAnyLods
-
-`/
-
-`HasAnyGeneratedLods
-
-`?) **材质与着?*——`SetMaterial
-
-`/
-
-`SetMaterialToSubMeshesWithTag
-
-`/
-
-`SetShaderToMaterial
-
-`/
-
-`AddMaterialShaderFlag
-
-`/
-
-`SetFactor1
-
-`/
-
-`SetFactor2
-
-`/
-
-`SetFactorColorToSubMeshesWithTag
-
-`/
-
-`SetGlossMultiplier
-
-`?) **变换**——`Frame
-
-`（get/set 
-
-`MatrixFrame
-
-`?
-
-`Fit
-
-`（计算缩放居中帧?
-
-`RecomputeBoundingBox
-
-`/
-
-`GetBoundingBox
-
-`?) **批量优化**——`BatchMultiMeshes
-
-`/
-
-`BatchMultiMeshesMultiple
-
-`/
-
-`MergeMultiMeshes
-
-`（合?draw call）；6) **布料**——`HasClothData
-
-`/
-
-`AssignClothBodyFrom
-
-`?) **渲染辅助**——`SetBillboarding
-
-`/
-
-`SetCullMode
-
-`/
-
-`SetLodBias
-
-`/
-
-`SetVisibilityMask
-
-`/
-
-`PreloadForRendering
-
-`/
-
-`PreloadShaders
-
-`?) **轮廓**——`SetContourState
-
-`/
-
-`SetContourColor
-
-`（选中高亮）?
 ## 心智模型
 
-?
+先从命名空间 `TaleWorlds.Engine` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-`MetaMesh
+## 主要属性
 
-` 看作"一?Mesh + 共享变换的渲染单?。一?MetaMesh 可以含多?Mesh（如角色身体=??手脚+装备），每个 Mesh 有独立的材质?LOD 链。`Frame
-
-` 属性是整体变换（位?旋转+缩放），所?Mesh 共享?
-`Factor1
-
-`/
-
-`Factor2
-
-` 是两?
-
-`uint
-
-` 颜色因子，传给着色器用于团队着色（team color）、染色等。`SetFactor1Linear
-
-`/
-
-`SetFactor2Linear
-
-` 接受线性空间颜色，
-
-`SetFactor1
-
-`/
-
-`SetFactor2
-
-` 接受 sRGB。`SetFactorColorToSubMeshesWithTag
-
-` 只影响带特定 tag 的子 Mesh（如只染护甲不染皮肤）?
-`BatchMultiMeshes
-
-` 把多?MetaMesh ?Mesh 合并到一?draw call，提升渲染性能（用于同类大量物体如树木、尸体）。`MergeMultiMeshes
-
-` 更彻底地合并但不可逆。`BatchMultiMeshesMultiple
-
-` 批量版本?
-`Fit
-
-` 计算一?
-
-`MatrixFrame
-
-`，让 MetaMesh 缩放?0.95 并居中——用?UI 中预览模型时自动适配视口。它遍历所?Mesh ?bounding box，取最?最大值计算中心与缩放?
-`UseHeadBoneFaceGenScaling
-
-` 配合 
-
-`Skeleton
-
-` 做头部骨骼的面容生成缩放（角色创建时调整头型）?
-## 主要属?
-\| 属?\| 类型 \| 说明 \|
-\|------\|------\|------\|
-\| 
-
-`IsValid
-
-` \| 
-
-`bool
-
-` \| 指针是否有效（非零）?\|
-\| 
-
-`MeshCount
-
-` \| 
-
-`int
-
-` \| ?Mesh 数量?\|
-\| 
-
-`Frame
-
-` \| 
-
-`MatrixFrame
-
-` \| 整体变换矩阵（位?旋转+缩放）。get/set?\|
-\| 
-
-`VectorUserData
-
-` \| 
-
-`Vec3
-
-` \| 用户自定义向量数据，传给着色器。get/set?\|
+| Name | Signature |
+|------|-----------|
+| `IsValid` | `public bool IsValid { get; }` |
+| `MeshCount` | `public int MeshCount { get; }` |
+| `Frame` | `public MatrixFrame Frame { get; set; }` |
+| `VectorUserData` | `public Vec3 VectorUserData { get; set; }` |
 
 ## 主要方法
 
-### CreateMetaMesh / GetCopy / GetMorphedCopy / CreateCopy
-`
+### CreateMetaMesh
+`public static MetaMesh CreateMetaMesh(string name = null)`
 
-`
+**用途 / Purpose:** 构建一个新的 「meta mesh」 实体并返回给调用方。
 
-`csharp
-public static MetaMesh CreateMetaMesh(string name = null)
-public static MetaMesh GetCopy(string metaMeshName, bool showErrors = true, bool mayReturnNull = false)
-public static MetaMesh GetMorphedCopy(string metaMeshName, float morphTarget, bool showErrors)
-public MetaMesh CreateCopy()
-`
+```csharp
+// 静态调用，不需要实例
+MetaMesh.CreateMetaMesh("example");
+```
 
-`
+### GetLodMaskForMeshAtIndex
+`public int GetLodMaskForMeshAtIndex(int index)`
 
-`
-创建实例。`CreateMetaMesh
+**用途 / Purpose:** 读取并返回当前对象中 「lod mask for mesh at index」 的结果。
 
-` 按名创建（null 创建?MetaMesh）；
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetLodMaskForMeshAtIndex(0);
+```
 
-`GetCopy
+### GetTotalGpuSize
+`public int GetTotalGpuSize()`
 
-` 按名创建副本；`GetMorphedCopy
+**用途 / Purpose:** 读取并返回当前对象中 「total gpu size」 的结果。
 
-` 创建?morph 变形的副本；
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetTotalGpuSize();
+```
 
-`CreateCopy
+### RemoveMeshesWithTag
+`public int RemoveMeshesWithTag(string tag)`
 
-` 从已有实例创建副本?
-### AddMesh / AddMetaMesh
-`
+**用途 / Purpose:** 从当前容器或状态中移除 「meshes with tag」。
 
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.RemoveMeshesWithTag("example");
+```
 
-`csharp
-public void AddMesh(Mesh mesh)
-public void AddMesh(Mesh mesh, uint lodLevel)
-public void AddMetaMesh(MetaMesh metaMesh)
-`
+### RemoveMeshesWithoutTag
+`public int RemoveMeshesWithoutTag(string tag)`
 
-`
+**用途 / Purpose:** 从当前容器或状态中移除 「meshes without tag」。
 
-`
-添加 Mesh 或整?MetaMesh。`lodLevel
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.RemoveMeshesWithoutTag("example");
+```
 
-` 指定 LOD 层级?
-### GetMeshAtIndex / GetFirstMeshWithTag
-`
+### GetMeshCountWithTag
+`public int GetMeshCountWithTag(string tag)`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「mesh count with tag」 的结果。
 
-`csharp
-public Mesh GetMeshAtIndex(int meshIndex)
-public Mesh GetFirstMeshWithTag(string tag)
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetMeshCountWithTag("example");
+```
 
-`
+### HasVertexBufferOrEditDataOrPackageItem
+`public bool HasVertexBufferOrEditDataOrPackageItem()`
 
-`
-获取 Mesh。`GetFirstMeshWithTag
+**用途 / Purpose:** 判断当前对象是否已经持有 「vertex buffer or edit data or package item」。
 
-` 遍历所?Mesh 返回第一个带指定 tag 的?
-### RemoveMeshesWithTag / RemoveMeshesWithoutTag / GetMeshCountWithTag
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasVertexBufferOrEditDataOrPackageItem();
+```
 
-`
+### HasAnyGeneratedLods
+`public bool HasAnyGeneratedLods()`
 
-`csharp
-public int RemoveMeshesWithTag(string tag)
-public int RemoveMeshesWithoutTag(string tag)
-public int GetMeshCountWithTag(string tag)
-`
+**用途 / Purpose:** 判断当前对象是否已经持有 「any generated lods」。
 
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasAnyGeneratedLods();
+```
 
-`
-?tag 删除/统计 Mesh?
-### SetNumLods / ClearMeshesForLod / ClearMeshesForLowerLods / ClearMeshesForOtherLods / ClearMeshes
-`
+### HasAnyLods
+`public bool HasAnyLods()`
 
-`
+**用途 / Purpose:** 判断当前对象是否已经持有 「any lods」。
 
-`csharp
-public void SetNumLods(int lodToClear)
-public void ClearMeshesForLod(int lodToClear)
-public void ClearMeshesForLowerLods(int lodToClear)
-public void ClearMeshesForOtherLods(int lodToKeep)
-public void ClearMeshes()
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasAnyLods();
+```
 
-`
+### GetCopy
+`public static MetaMesh GetCopy(string metaMeshName, bool showErrors = true, bool mayReturnNull = false)`
 
-`
-LOD 管理。设?LOD 层数、清除指定层?低于指定层级/非保留层?全部 Mesh?
-### SetMaterial / SetMaterialToSubMeshesWithTag / SetShaderToMaterial / AddMaterialShaderFlag
-`
+**用途 / Purpose:** 读取并返回当前对象中 「copy」 的结果。
 
-`
+```csharp
+// 静态调用，不需要实例
+MetaMesh.GetCopy("example", false, false);
+```
 
-`csharp
-public void SetMaterial(Material material)
-public void SetMaterialToSubMeshesWithTag(Material bodyMaterial, string tag)
-public void SetShaderToMaterial(string shaderName)
-public void AddMaterialShaderFlag(string materialShaderFlag)
-`
+### CopyTo
+`public void CopyTo(MetaMesh res, bool copyMeshes = true)`
 
-`
+**用途 / Purpose:** 把当前对象的「to」状态复制到目标对象。
 
-`
-材质操作。`SetMaterial
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.CopyTo(res, false);
+```
 
-` 设整体材质；
+### ClearMeshesForOtherLods
+`public void ClearMeshesForOtherLods(int lodToKeep)`
 
-`SetMaterialToSubMeshesWithTag
+**用途 / Purpose:** 清空当前对象中的「meshes for other lods」。
 
-` 只设?tag 的子 Mesh；`AddMaterialShaderFlag
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForOtherLods(0);
+```
 
-` 给所?Mesh 的材质副本添加着色器 flag?
-### SetFactor1 / SetFactor2 / SetFactor1Linear / SetFactor2Linear / SetFactorColorToSubMeshesWithTag / GetFactor1 / GetFactor2
-`
+### ClearMeshesForLod
+`public void ClearMeshesForLod(int lodToClear)`
 
-`
+**用途 / Purpose:** 清空当前对象中的「meshes for lod」。
 
-`csharp
-public void SetFactor1(uint factorColor1)
-public void SetFactor2(uint factorColor2)
-public void SetFactor1Linear(uint linearFactorColor1)
-public void SetFactor2Linear(uint linearFactorColor2)
-public void SetFactorColorToSubMeshesWithTag(uint color, string tag)
-public uint GetFactor1()
-public uint GetFactor2()
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForLod(0);
+```
 
-`
+### ClearMeshesForLowerLods
+`public void ClearMeshesForLowerLods(int lodToClear)`
 
-`
-颜色因子。sRGB ?
+**用途 / Purpose:** 清空当前对象中的「meshes for lower lods」。
 
-`SetFactor1/2
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForLowerLods(0);
+```
 
-`，线性空间用 
+### ClearMeshes
+`public void ClearMeshes()`
 
-`SetFactor1Linear/2Linear
+**用途 / Purpose:** 清空当前对象中的「meshes」。
 
-`。`SetFactorColorToSubMeshesWithTag
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshes();
+```
 
-` 只影响带 tag 的子 Mesh?
-### BatchMultiMeshes / BatchMultiMeshesMultiple / MergeMultiMeshes
-`
+### SetNumLods
+`public void SetNumLods(int lodToClear)`
 
-`
+**用途 / Purpose:** 为 「num lods」 赋新值，并同步更新对象内部状态。
 
-`csharp
-public void BatchMultiMeshes(MetaMesh metaMesh)
-public void BatchMultiMeshesMultiple(List&lt;MetaMesh&gt; metaMeshes)
-public void MergeMultiMeshes(MetaMesh metaMesh)
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetNumLods(0);
+```
 
-`
+### CheckMetaMeshExistence
+`public static void CheckMetaMeshExistence(string metaMeshName, int lod_count_check)`
 
-`
-批量合并。`BatchMultiMeshes
+**用途 / Purpose:** 检查「meta mesh existence」在当前对象中是否成立。
 
-` 合并另一?MetaMesh ?Mesh；`BatchMultiMeshesMultiple
+```csharp
+// 静态调用，不需要实例
+MetaMesh.CheckMetaMeshExistence("example", 0);
+```
 
-` 批量合并多个；`MergeMultiMeshes
+### GetMorphedCopy
+`public static MetaMesh GetMorphedCopy(string metaMeshName, float morphTarget, bool showErrors)`
 
-` 彻底合并?
-### Fit / GetBoundingBox / RecomputeBoundingBox
-`
+**用途 / Purpose:** 读取并返回当前对象中 「morphed copy」 的结果。
 
-`
+```csharp
+// 静态调用，不需要实例
+MetaMesh.GetMorphedCopy("example", 0, false);
+```
 
-`csharp
-public MatrixFrame Fit()
-public BoundingBox GetBoundingBox()
-public void RecomputeBoundingBox(bool recomputeMeshes)
-`
+### CreateCopy
+`public MetaMesh CreateCopy()`
 
-`
+**用途 / Purpose:** 构建一个新的 「copy」 实体并返回给调用方。
 
-`
-包围盒。`Fit
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.CreateCopy();
+```
 
-` 计算缩放居中帧（0.95 缩放）；
+### AddMesh
+`public void AddMesh(Mesh mesh)`
 
-`GetBoundingBox
+**用途 / Purpose:** 将 「mesh」 添加到当前容器或状态中。
 
-` 获取包围盒；
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.AddMesh(mesh);
+```
 
-`RecomputeBoundingBox
+### AddMesh
+`public void AddMesh(Mesh mesh, uint lodLevel)`
 
-` 重算?
-### SetBillboarding / SetCullMode / SetLodBias / SetVisibilityMask / SetContourState / SetContourColor
-`
+**用途 / Purpose:** 将 「mesh」 添加到当前容器或状态中。
 
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.AddMesh(mesh, 0);
+```
 
-`csharp
-public void SetBillboarding(BillboardType billboard)
-public void SetCullMode(MBMeshCullingMode cullMode)
-public void SetLodBias(int lodBias)
-public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)
-public void SetContourState(bool alwaysVisible)
-public void SetContourColor(uint color)
-`
+### AddMetaMesh
+`public void AddMetaMesh(MetaMesh metaMesh)`
 
-`
+**用途 / Purpose:** 将 「meta mesh」 添加到当前容器或状态中。
 
-`
-渲染参数。广告牌类型、剔除模式、LOD 偏置、可见性掩码、轮廓（选中高亮）状态与颜色?
-### UseHeadBoneFaceGenScaling / DrawTextWithDefaultFont
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.AddMetaMesh(metaMesh);
+```
 
-`
+### SetCullMode
+`public void SetCullMode(MBMeshCullingMode cullMode)`
 
-`csharp
-public void UseHeadBoneFaceGenScaling(Skeleton skeleton, sbyte headLookDirectionBoneIndex, MatrixFrame frame)
-public void DrawTextWithDefaultFont(string text, Vec2 textPositionMin, Vec2 textPositionMax, Vec2 size, uint color, TextFlags flags)
-`
+**用途 / Purpose:** 为 「cull mode」 赋新值，并同步更新对象内部状态。
 
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetCullMode(cullMode);
+```
 
-`
-特殊用途。头部骨骼面容缩放；?Mesh 上绘制默认字体文本?
-### PreloadForRendering / PreloadShaders / CheckResources
-`
+### AddMaterialShaderFlag
+`public void AddMaterialShaderFlag(string materialShaderFlag)`
 
-`
+**用途 / Purpose:** 将 「material shader flag」 添加到当前容器或状态中。
 
-`csharp
-public void PreloadForRendering()
-public void PreloadShaders(bool useTableau, bool useTeamColor)
-public int CheckResources()
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.AddMaterialShaderFlag("example");
+```
 
-`
+### MergeMultiMeshes
+`public void MergeMultiMeshes(MetaMesh metaMesh)`
 
-`
-预加载。预加载渲染资源、预加载着色器、检查资源状态?
-### GetMultiMesh / GetAllMultiMeshes / CheckMetaMeshExistence / GetName
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.MergeMultiMeshes(metaMesh);
+```
 
-`csharp
-public static MetaMesh GetMultiMesh(string name)
-public static void GetAllMultiMeshes(ref List&lt;MetaMesh&gt; multiMeshList)
-public static void CheckMetaMeshExistence(string metaMeshName, int lod_count_check)
-public string GetName()
-`
+### AssignClothBodyFrom
+`public void AssignClothBodyFrom(MetaMesh metaMesh)`
 
-`
+**用途 / Purpose:** 执行此方法所描述的操作。
 
-`
-静态查询。按名获取全局 MultiMesh、获取所?MultiMesh、检查存在性、获取名称?
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.AssignClothBodyFrom(metaMesh);
+```
+
+### BatchMultiMeshes
+`public void BatchMultiMeshes(MetaMesh metaMesh)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.BatchMultiMeshes(metaMesh);
+```
+
+### HasClothData
+`public bool HasClothData()`
+
+**用途 / Purpose:** 判断当前对象是否已经持有 「cloth data」。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasClothData();
+```
+
+### BatchMultiMeshesMultiple
+`public void BatchMultiMeshesMultiple(List<MetaMesh> metaMeshes)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.BatchMultiMeshesMultiple(metaMeshes);
+```
+
+### ClearEditData
+`public void ClearEditData()`
+
+**用途 / Purpose:** 清空当前对象中的「edit data」。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.ClearEditData();
+```
+
+### GetMeshAtIndex
+`public Mesh GetMeshAtIndex(int meshIndex)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「mesh at index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetMeshAtIndex(0);
+```
+
+### GetFirstMeshWithTag
+`public Mesh GetFirstMeshWithTag(string tag)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「first mesh with tag」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFirstMeshWithTag("example");
+```
+
+### GetFactor1
+`public uint GetFactor1()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「factor1」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFactor1();
+```
+
+### SetGlossMultiplier
+`public void SetGlossMultiplier(float value)`
+
+**用途 / Purpose:** 为 「gloss multiplier」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetGlossMultiplier(0);
+```
+
+### GetFactor2
+`public uint GetFactor2()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「factor2」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFactor2();
+```
+
+### SetFactor1Linear
+`public void SetFactor1Linear(uint linearFactorColor1)`
+
+**用途 / Purpose:** 为 「factor1 linear」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor1Linear(0);
+```
+
+### SetFactor2Linear
+`public void SetFactor2Linear(uint linearFactorColor2)`
+
+**用途 / Purpose:** 为 「factor2 linear」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor2Linear(0);
+```
+
+### SetFactor1
+`public void SetFactor1(uint factorColor1)`
+
+**用途 / Purpose:** 为 「factor1」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor1(0);
+```
+
+### SetFactor2
+`public void SetFactor2(uint factorColor2)`
+
+**用途 / Purpose:** 为 「factor2」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor2(0);
+```
+
+### SetVectorArgument
+`public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
+
+**用途 / Purpose:** 为 「vector argument」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetVectorArgument(0, 0, 0, 0);
+```
+
+### SetVectorArgument2
+`public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
+
+**用途 / Purpose:** 为 「vector argument2」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetVectorArgument2(0, 0, 0, 0);
+```
+
+### GetVectorArgument2
+`public Vec3 GetVectorArgument2()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「vector argument2」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetVectorArgument2();
+```
+
+### SetMaterial
+`public void SetMaterial(Material material)`
+
+**用途 / Purpose:** 为 「material」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetMaterial(material);
+```
+
+### SetShaderToMaterial
+`public void SetShaderToMaterial(string shaderName)`
+
+**用途 / Purpose:** 为 「shader to material」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetShaderToMaterial("example");
+```
+
+### SetLodBias
+`public void SetLodBias(int lodBias)`
+
+**用途 / Purpose:** 为 「lod bias」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetLodBias(0);
+```
+
+### SetBillboarding
+`public void SetBillboarding(BillboardType billboard)`
+
+**用途 / Purpose:** 为 「billboarding」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetBillboarding(billboard);
+```
+
+### UseHeadBoneFaceGenScaling
+`public void UseHeadBoneFaceGenScaling(Skeleton skeleton, sbyte headLookDirectionBoneIndex, MatrixFrame frame)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.UseHeadBoneFaceGenScaling(skeleton, 0, frame);
+```
+
+### DrawTextWithDefaultFont
+`public void DrawTextWithDefaultFont(string text, Vec2 textPositionMin, Vec2 textPositionMax, Vec2 size, uint color, TextFlags flags)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.DrawTextWithDefaultFont("example", textPositionMin, textPositionMax, size, 0, flags);
+```
+
+### PreloadForRendering
+`public void PreloadForRendering()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.PreloadForRendering();
+```
+
+### CheckResources
+`public int CheckResources()`
+
+**用途 / Purpose:** 检查「resources」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.CheckResources();
+```
+
+### PreloadShaders
+`public void PreloadShaders(bool useTableau, bool useTeamColor)`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.PreloadShaders(false, false);
+```
+
+### RecomputeBoundingBox
+`public void RecomputeBoundingBox(bool recomputeMeshes)`
+
+**用途 / Purpose:** 重新执行「bounding box」相关的计算并返回结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.RecomputeBoundingBox(false);
+```
+
+### AddEditDataUser
+`public void AddEditDataUser()`
+
+**用途 / Purpose:** 将 「edit data user」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.AddEditDataUser();
+```
+
+### ReleaseEditDataUser
+`public void ReleaseEditDataUser()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.ReleaseEditDataUser();
+```
+
+### SetEditDataPolicy
+`public void SetEditDataPolicy(EditDataPolicy policy)`
+
+**用途 / Purpose:** 为 「edit data policy」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetEditDataPolicy(policy);
+```
+
+### Fit
+`public MatrixFrame Fit()`
+
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.Fit();
+```
+
+### GetBoundingBox
+`public BoundingBox GetBoundingBox()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「bounding box」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetBoundingBox();
+```
+
+### GetVisibilityMask
+`public VisibilityMaskFlags GetVisibilityMask()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「visibility mask」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetVisibilityMask();
+```
+
+### SetVisibilityMask
+`public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
+
+**用途 / Purpose:** 为 「visibility mask」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetVisibilityMask(visibilityMask);
+```
+
+### GetName
+`public string GetName()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetName();
+```
+
+### GetAllMultiMeshes
+`public static void GetAllMultiMeshes(ref List<MetaMesh> multiMeshList)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「all multi meshes」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MetaMesh.GetAllMultiMeshes(multiMeshList);
+```
+
+### GetMultiMesh
+`public static MetaMesh GetMultiMesh(string name)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「multi mesh」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MetaMesh.GetMultiMesh("example");
+```
+
+### SetContourState
+`public void SetContourState(bool alwaysVisible)`
+
+**用途 / Purpose:** 为 「contour state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetContourState(false);
+```
+
+### SetContourColor
+`public void SetContourColor(uint color)`
+
+**用途 / Purpose:** 为 「contour color」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetContourColor(0);
+```
+
+### SetMaterialToSubMeshesWithTag
+`public void SetMaterialToSubMeshesWithTag(Material bodyMaterial, string tag)`
+
+**用途 / Purpose:** 为 「material to sub meshes with tag」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetMaterialToSubMeshesWithTag(bodyMaterial, "example");
+```
+
+### SetFactorColorToSubMeshesWithTag
+`public void SetFactorColorToSubMeshesWithTag(uint color, string tag)`
+
+**用途 / Purpose:** 为 「factor color to sub meshes with tag」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MetaMesh 实例
+MetaMesh metaMesh = ...;
+metaMesh.SetFactorColorToSubMeshesWithTag(0, "example");
+```
+
 ## 使用示例
 
-### 示例: 为实体创建带团队颜色?MetaMesh
+```csharp
+MetaMesh.CreateMetaMesh("example");
+```
 
-**场景**: Mod 在场景中生成旗帜实体，需要按氏族颜色染色并设置选中轮廓?
-`
-
-`
-
-`csharp
-public GameEntity CreateBannerEntity(Vec3 position, Clan clan)
-{
-    // 1. 创建实体
-    var entity = GameEntity.CreateEmpty(Mission.Current.Scene);
-
-    // 2. 创建 MetaMesh 副本（必须用 GetCopy 创建副本，不能直接改全局资源?    MetaMesh bannerMesh = MetaMesh.GetCopy("banner_pole_mesh");
-
-    // 3. 设置团队颜色因子
-    bannerMesh.SetFactor1Linear(clan.Color);
-    bannerMesh.SetFactor2Linear(clan.Color2);
-
-    // 4. 只给?"cloth" tag 的子 Mesh 设置氏族材质
-    var clanMaterial = Material.CreateFrom("banner_clan_material");
-    bannerMesh.SetMaterialToSubMeshesWithTag(clanMaterial, "cloth");
-
-    // 5. 添加轮廓（选中高亮?    bannerMesh.SetContourState(true);
-    bannerMesh.SetContourColor(0xFFFFFFFF);  // 白色轮廓
-
-    // 6. 设置位置
-    var frame = MatrixFrame.Identity;
-    frame.origin = position;
-    bannerMesh.Frame = frame;
-
-    // 7. 挂载到实?    entity.AddMesh(bannerMesh);
-    entity.SetVisibilityMask(VisibilityMaskFlags.Visible);
-
-    return entity;
-}
-
-// 性能优化：批量合并同类旗?public void BatchBanners(List&lt;GameEntity&gt; bannerEntities)
-{
-    if (bannerEntities.Count &lt; 2) return;
-
-    var firstMesh = bannerEntities[0].GetMetaMesh(0);
-    for (int i = 1; i &lt; bannerEntities.Count; i++)
-    {
-        var mesh = bannerEntities[i].GetMetaMesh(0);
-        firstMesh.BatchMultiMeshes(mesh);  // 合并 draw call
-    }
-}
-`
-
-`
-
-`
-
-**要点**: 修改全局 MetaMesh 资源会影响所有引用者——必须用 
-
-`GetCopy
-
-`/
-
-`CreateCopy
-
-` 创建副本再修改；
-
-`SetFactor1Linear
-
-` 用于团队着色，
-
-`SetFactor1
-
-` ?sRGB 版本；`BatchMultiMeshes
-
-` 合并后原 MetaMesh 仍独立存在但渲染时合?draw call；`Fit
-
-` 返回?Frame 用于 UI 预览自动适配，不影响实际渲染；`SetContourState(true)
-
-` 让轮廓始终可见（选中高亮），false 则按默认规则?
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-engine)
-- [API 目录](../)
-- [SDK 总览](../../architecture/sdk-overview)
+- [本区域目录](../)

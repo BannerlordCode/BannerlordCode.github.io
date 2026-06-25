@@ -1,20 +1,14 @@
 ---
 title: "Controller"
+description: "Auto-generated class reference for Controller."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Controller`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Controller
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public static class Controller`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/Controller.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/Controller.cs`
 
 ## Overview
 
@@ -29,27 +23,52 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### OverrideManagedDllFolder
 `public static void OverrideManagedDllFolder(IntPtr overridenFolderAsPointer)`
 
-**Purpose:** Handles logic related to `override managed dll folder`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Controller.OverrideManagedDllFolder(overridenFolderAsPointer);
+```
 
 ### LoadOnCurrentApplicationDomain
 `public static void LoadOnCurrentApplicationDomain(IntPtr gameDllNameAsPointer, IntPtr gameTypeNameAsPointer, int currentEngineAsInteger, int currentPlatformAsInteger)`
 
-**Purpose:** Loads `on current application domain` data.
+**Purpose:** Reads `on current application domain` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+Controller.LoadOnCurrentApplicationDomain(gameDllNameAsPointer, gameTypeNameAsPointer, 0, 0);
+```
 
 ### SetEngineMethodsAsMono
 `public static void SetEngineMethodsAsMono(IntPtr passControllerMethods, IntPtr passManagedInitializeMethod, IntPtr passManagedCallbackMethod)`
 
-**Purpose:** Sets the value or state of `engine methods as mono`.
+**Purpose:** Assigns a new value to `engine methods as mono` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+Controller.SetEngineMethodsAsMono(passControllerMethods, passManagedInitializeMethod, passManagedCallbackMethod);
+```
 
 ### SetEngineMethodsAsHostedDotNetCore
 `public static void SetEngineMethodsAsHostedDotNetCore(IntPtr passControllerMethods, IntPtr passManagedInitializeMethod, IntPtr passManagedCallbackMethod)`
 
-**Purpose:** Sets the value or state of `engine methods as hosted dot net core`.
+**Purpose:** Assigns a new value to `engine methods as hosted dot net core` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+Controller.SetEngineMethodsAsHostedDotNetCore(passControllerMethods, passManagedInitializeMethod, passManagedCallbackMethod);
+```
 
 ### SetEngineMethodsAsDotNet
 `public static void SetEngineMethodsAsDotNet(Delegate passControllerMethods, Delegate passManagedInitializeMethod, Delegate passManagedCallbackMethod)`
 
-**Purpose:** Sets the value or state of `engine methods as dot net`.
+**Purpose:** Assigns a new value to `engine methods as dot net` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+Controller.SetEngineMethodsAsDotNet(passControllerMethods, passManagedInitializeMethod, passManagedCallbackMethod);
+```
 
 ## Usage Example
 
@@ -59,4 +78,4 @@ Controller.OverrideManagedDllFolder(overridenFolderAsPointer);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

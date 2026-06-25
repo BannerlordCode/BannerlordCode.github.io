@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerLobbyMaskedIntTextWidget"
+description: "Auto-generated class reference for MultiplayerLobbyMaskedIntTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyMaskedIntTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyMaskedIntTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby
@@ -35,9 +29,10 @@ Treat `MultiplayerLobbyMaskedIntTextWidget` as a Widget-style extension point: f
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyMaskedIntTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyMaskedIntTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

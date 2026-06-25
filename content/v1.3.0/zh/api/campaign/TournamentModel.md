@@ -1,13 +1,7 @@
 ---
 title: "TournamentModel"
+description: "TournamentModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,64 +23,131 @@ title: "TournamentModel"
 ### GetTournamentStartChance
 `public abstract float GetTournamentStartChance(Town town)`
 
-**用途 / Purpose:** 获取 `tournament start chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tournament start chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetTournamentStartChance(town);
+```
 
 ### CreateTournament
 `public abstract TournamentGame CreateTournament(Town town)`
 
-**用途 / Purpose:** 创建一个 `tournament` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「tournament」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.CreateTournament(town);
+```
 
 ### GetTournamentEndChance
 `public abstract float GetTournamentEndChance(TournamentGame tournament)`
 
-**用途 / Purpose:** 获取 `tournament end chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tournament end chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetTournamentEndChance(tournament);
+```
 
 ### GetNumLeaderboardVictoriesAtGameStart
 `public abstract int GetNumLeaderboardVictoriesAtGameStart()`
 
-**用途 / Purpose:** 获取 `num leaderboard victories at game start` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「num leaderboard victories at game start」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetNumLeaderboardVictoriesAtGameStart();
+```
 
 ### GetTournamentSimulationScore
 `public abstract float GetTournamentSimulationScore(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `tournament simulation score` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tournament simulation score」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetTournamentSimulationScore(character);
+```
 
 ### GetRenownReward
 `public abstract int GetRenownReward(Hero winner, Town town)`
 
-**用途 / Purpose:** 获取 `renown reward` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「renown reward」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetRenownReward(winner, town);
+```
 
 ### GetInfluenceReward
 `public abstract int GetInfluenceReward(Hero winner, Town town)`
 
-**用途 / Purpose:** 获取 `influence reward` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence reward」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetInfluenceReward(winner, town);
+```
 
 ### GetSkillXpGainFromTournament
 `public abstract ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)`
 
-**用途 / Purpose:** 获取 `skill xp gain from tournament` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill xp gain from tournament」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetSkillXpGainFromTournament(town);
+```
 
 ### GetParticipantArmor
 `public abstract Equipment GetParticipantArmor(CharacterObject participant)`
 
-**用途 / Purpose:** 获取 `participant armor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「participant armor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetParticipantArmor(participant);
+```
 
 ### GetRegularRewardItems
 `public abstract MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
 
-**用途 / Purpose:** 获取 `regular reward items` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「regular reward items」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetRegularRewardItems(town, 0, 0);
+```
 
 ### GetEliteRewardItems
 `public abstract MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
 
-**用途 / Purpose:** 获取 `elite reward items` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「elite reward items」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TournamentModel 实例
+TournamentModel tournamentModel = ...;
+var result = tournamentModel.GetEliteRewardItems(town, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTournamentModel();
+// 通常通过子系统 API 或工厂获得派生实例
+TournamentModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

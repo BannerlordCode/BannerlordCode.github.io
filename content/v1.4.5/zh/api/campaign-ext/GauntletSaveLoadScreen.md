@@ -1,20 +1,14 @@
 ---
 title: "GauntletSaveLoadScreen"
+description: "GauntletSaveLoadScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletSaveLoadScreen`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletSaveLoadScreen
 
 **Namespace:** SandBox.GauntletUI
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletSaveLoadScreen : ScreenBase`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletSaveLoadScreen.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI/GauntletSaveLoadScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GauntletSaveLoadScreen"
 ## 使用示例
 
 ```csharp
-var value = new GauntletSaveLoadScreen();
+// 从对应子系统 API 获取实例
+GauntletSaveLoadScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

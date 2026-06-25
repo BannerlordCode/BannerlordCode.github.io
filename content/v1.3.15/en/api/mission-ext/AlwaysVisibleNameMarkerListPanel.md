@@ -1,13 +1,7 @@
 ---
 title: "AlwaysVisibleNameMarkerListPanel"
+description: "Auto-generated class reference for AlwaysVisibleNameMarkerListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlwaysVisibleNameMarkerListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AlwaysVisibleNameMarkerListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMa
 ## Usage Example
 
 ```csharp
-var value = new AlwaysVisibleNameMarkerListPanel();
+// Obtain an instance from the relevant subsystem API
+AlwaysVisibleNameMarkerListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

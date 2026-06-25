@@ -1,13 +1,7 @@
 ---
 title: "MissionCameraFadeView"
+description: "MissionCameraFadeView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionCameraFadeView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCameraFadeView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -39,34 +33,65 @@ title: "MissionCameraFadeView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCameraFadeView 实例
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCameraFadeView 实例
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.OnMissionScreenTick(0);
+```
 
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**用途 / Purpose:** 处理 `begin fade out and in` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCameraFadeView 实例
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
+```
 
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutTime)`
 
-**用途 / Purpose:** 处理 `begin fade out` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCameraFadeView 实例
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.BeginFadeOut(0);
+```
 
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInTime)`
 
-**用途 / Purpose:** 处理 `begin fade in` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionCameraFadeView 实例
+MissionCameraFadeView missionCameraFadeView = ...;
+missionCameraFadeView.BeginFadeIn(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionCameraFadeView();
+// 从子系统 API 或场景中获取该视图
+MissionCameraFadeView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

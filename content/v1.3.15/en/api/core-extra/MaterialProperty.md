@@ -1,23 +1,18 @@
 ---
 title: "MaterialProperty"
+description: "Auto-generated class reference for MaterialProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MaterialProperty`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MaterialProperty
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public struct MaterialProperty`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/HorseComponent.cs`
 
 ## Overview
 
-`MaterialProperty` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MaterialProperty` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,44 +22,15 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 
 | Name | Signature |
 |------|-----------|
-| `Monster` | `public Monster Monster { get; }` |
-| `Maneuver` | `public int Maneuver { get; }` |
-| `ChargeDamage` | `public int ChargeDamage { get; }` |
-| `Speed` | `public int Speed { get; }` |
-| `BodyLength` | `public int BodyLength { get; }` |
-| `HitPoints` | `public int HitPoints { get; }` |
-| `HitPointBonus` | `public int HitPointBonus { get; }` |
-| `IsRideable` | `public bool IsRideable { get; }` |
-| `IsPackAnimal` | `public bool IsPackAnimal { get; }` |
-| `IsMount` | `public bool IsMount { get; }` |
-| `IsLiveStock` | `public bool IsLiveStock { get; }` |
-| `HorseMaterialNames` | `public MBReadOnlyList<HorseComponent.MaterialProperty> HorseMaterialNames { get; }` |
-| `MeatCount` | `public int MeatCount { get; }` |
-| `HideCount` | `public int HideCount { get; }` |
-| `SkeletonScale` | `public SkeletonScale SkeletonScale { get; }` |
 | `Name` | `public string Name { get; }` |
-
-## Key Methods
-
-### GetCopy
-`public override ItemComponent GetCopy()`
-
-**Purpose:** Gets the current value of `copy`.
-
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
-
-**Purpose:** Handles logic related to `deserialize`.
 
 ## Usage Example
 
 ```csharp
-// First obtain a MaterialProperty instance from game state, then call one of its public methods
-var value = new MaterialProperty();
-value.GetCopy();
+// Obtain an instance from the relevant subsystem API
+MaterialProperty instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

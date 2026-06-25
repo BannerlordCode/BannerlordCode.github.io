@@ -1,13 +1,7 @@
 ---
 title: "EducationOptionVM"
+description: "Auto-generated class reference for EducationOptionVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationOptionVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EducationOptionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Education
@@ -42,15 +36,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of EducationOptionVM from the subsystem API first
+EducationOptionVM educationOptionVM = ...;
+educationOptionVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationOptionVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+EducationOptionVM educationOptionVM = ...;
+educationOptionVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

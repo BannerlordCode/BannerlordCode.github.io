@@ -1,13 +1,7 @@
 ---
 title: "WebSocketMessage"
+description: "Auto-generated class reference for WebSocketMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WebSocketMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WebSocketMessage
 
 **Namespace:** TaleWorlds.Network
@@ -38,45 +32,84 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### SetTextPayload
 `public void SetTextPayload(string payload)`
 
-**Purpose:** Sets the value or state of `text payload`.
+**Purpose:** Assigns a new value to `text payload` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of WebSocketMessage from the subsystem API first
+WebSocketMessage webSocketMessage = ...;
+webSocketMessage.SetTextPayload("example");
+```
 
 ### WriteTo
 `public void WriteTo(bool fromServer, Stream stream)`
 
-**Purpose:** Handles logic related to `write to`.
+**Purpose:** Writes `to` to the target location.
+
+```csharp
+// Obtain an instance of WebSocketMessage from the subsystem API first
+WebSocketMessage webSocketMessage = ...;
+webSocketMessage.WriteTo(false, stream);
+```
 
 ### ReadFrom
 `public static WebSocketMessage ReadFrom(bool fromServer, byte payload)`
 
-**Purpose:** Handles logic related to `read from`.
+**Purpose:** Reads the data or state of `from`.
+
+```csharp
+// Static call; no instance required
+WebSocketMessage.ReadFrom(false, 0);
+```
 
 ### ReadFrom
 `public static WebSocketMessage ReadFrom(bool fromServer, Stream stream)`
 
-**Purpose:** Handles logic related to `read from`.
+**Purpose:** Reads the data or state of `from`.
+
+```csharp
+// Static call; no instance required
+WebSocketMessage.ReadFrom(false, stream);
+```
 
 ### CreateCursorMessage
 `public static WebSocketMessage CreateCursorMessage(int cursor)`
 
-**Purpose:** Creates a new `cursor message` instance or object.
+**Purpose:** Constructs a new `cursor message` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+WebSocketMessage.CreateCursorMessage(0);
+```
 
 ### CreateCloseMessage
 `public static WebSocketMessage CreateCloseMessage()`
 
-**Purpose:** Creates a new `close message` instance or object.
+**Purpose:** Constructs a new `close message` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+WebSocketMessage.CreateCloseMessage();
+```
 
 ### GetCursor
 `public int GetCursor()`
 
-**Purpose:** Gets the current value of `cursor`.
+**Purpose:** Reads and returns the `cursor` value held by the current object.
+
+```csharp
+// Obtain an instance of WebSocketMessage from the subsystem API first
+WebSocketMessage webSocketMessage = ...;
+var result = webSocketMessage.GetCursor();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WebSocketMessage();
-value.SetTextPayload("example");
+// Typically call this after obtaining an instance from the subsystem API
+WebSocketMessage webSocketMessage = ...;
+webSocketMessage.SetTextPayload("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "VisualState"
+description: "VisualState 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualState`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualState
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -53,15 +47,22 @@ title: "VisualState"
 ### FillFromWidget
 `public void FillFromWidget(Widget widget)`
 
-**用途 / Purpose:** 处理 `fill from widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 VisualState 实例
+VisualState visualState = ...;
+visualState.FillFromWidget(widget);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VisualState();
-value.FillFromWidget(widget);
+// 通常从对应子系统 API 获取实例后调用
+VisualState visualState = ...;
+visualState.FillFromWidget(widget);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

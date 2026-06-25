@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyGauntletScreen"
+description: "Auto-generated class reference for MultiplayerLobbyGauntletScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyGauntletScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyGauntletScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyGauntletScreen : ScreenBase, IGameStateListener, ILobbyStateHandler, IChatLogHandlerScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerLobbyGauntletScreen.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/MultiplayerLobbyGauntletScreen.cs`
 
 ## Overview
 
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ### OnBattleServerInformationReceived
 `public void OnBattleServerInformationReceived(BattleServerInformationForClient battleServerInformation)`
 
-**Purpose:** Called when the `battle server information received` event is raised.
+**Purpose:** Invoked when the `battle server information received` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyGauntletScreen from the subsystem API first
+MultiplayerLobbyGauntletScreen multiplayerLobbyGauntletScreen = ...;
+multiplayerLobbyGauntletScreen.OnBattleServerInformationReceived(battleServerInformation);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerLobbyGauntletScreen();
-value.OnBattleServerInformationReceived(battleServerInformation);
+// Typically call this after obtaining an instance from the subsystem API
+MultiplayerLobbyGauntletScreen multiplayerLobbyGauntletScreen = ...;
+multiplayerLobbyGauntletScreen.OnBattleServerInformationReceived(battleServerInformation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

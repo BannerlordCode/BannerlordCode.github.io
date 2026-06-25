@@ -1,18 +1,12 @@
 ---
 title: "IMapSceneCreator"
+description: "Auto-generated class reference for IMapSceneCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMapSceneCreator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IMapSceneCreator
 
 **Namespace:** TaleWorlds.CampaignSystem.Map
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IMapSceneCreator`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/Map/IMapSceneCreator.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-IMapSceneCreator implementation = GetMapSceneCreatorImplementation();
+// Usually obtained through DI or a factory method
+IIMapSceneCreator service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

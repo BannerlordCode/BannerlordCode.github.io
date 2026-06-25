@@ -1,20 +1,14 @@
 ---
 title: "MerchantNeedsHelpWithOutlawsIssueTypeDefiner"
+description: "MerchantNeedsHelpWithOutlawsIssueTypeDefiner 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MerchantNeedsHelpWithOutlawsIssueTypeDefiner`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MerchantNeedsHelpWithOutlawsIssueTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MerchantNeedsHelpWithOutlawsIssueTypeDefiner : SaveableTypeDefiner`
 **Base:** `SaveableTypeDefiner`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/MerchantNeedsHelpWithOutlawsIssueQuestBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/MerchantNeedsHelpWithOutlawsIssueQuestBehavior.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "MerchantNeedsHelpWithOutlawsIssueTypeDefiner"
 ## 使用示例
 
 ```csharp
-var example = new MerchantNeedsHelpWithOutlawsIssueTypeDefiner();
+// 从对应子系统 API 获取实例
+MerchantNeedsHelpWithOutlawsIssueTypeDefiner instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "PathTracker"
+description: "Auto-generated class reference for PathTracker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PathTracker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PathTracker
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -40,40 +34,77 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### UpdateVersion
 `public void UpdateVersion()`
 
-**Purpose:** Updates the state or data of `version`.
+**Purpose:** Recalculates and stores the latest representation of `version`.
+
+```csharp
+// Obtain an instance of PathTracker from the subsystem API first
+PathTracker pathTracker = ...;
+pathTracker.UpdateVersion();
+```
 
 ### PathExists
 `public bool PathExists()`
 
-**Purpose:** Handles logic related to `path exists`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PathTracker from the subsystem API first
+PathTracker pathTracker = ...;
+var result = pathTracker.PathExists();
+```
 
 ### Advance
 `public void Advance(float deltaDistance)`
 
-**Purpose:** Handles logic related to `advance`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PathTracker from the subsystem API first
+PathTracker pathTracker = ...;
+pathTracker.Advance(0);
+```
 
 ### GetPathLength
 `public float GetPathLength()`
 
-**Purpose:** Gets the current value of `path length`.
+**Purpose:** Reads and returns the `path length` value held by the current object.
+
+```csharp
+// Obtain an instance of PathTracker from the subsystem API first
+PathTracker pathTracker = ...;
+var result = pathTracker.GetPathLength();
+```
 
 ### CurrentFrameAndColor
 `public void CurrentFrameAndColor(out MatrixFrame frame, out Vec3 color)`
 
-**Purpose:** Handles logic related to `current frame and color`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PathTracker from the subsystem API first
+PathTracker pathTracker = ...;
+pathTracker.CurrentFrameAndColor(frame, color);
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of PathTracker from the subsystem API first
+PathTracker pathTracker = ...;
+pathTracker.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PathTracker();
-value.UpdateVersion();
+// Typically call this after obtaining an instance from the subsystem API
+PathTracker pathTracker = ...;
+pathTracker.UpdateVersion();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

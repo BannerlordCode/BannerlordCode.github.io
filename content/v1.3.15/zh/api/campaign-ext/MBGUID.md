@@ -1,24 +1,18 @@
 ---
 title: "MBGUID"
+description: "MBGUID 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBGUID`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBGUID
 
-**命名空间:** TaleWorlds.ObjectSystem
-**模块:** TaleWorlds.ObjectSystem
-**类型:** `public struct MBGUID : IComparable, IEquatable<MBGUID>`
+**Namespace:** TaleWorlds.ObjectSystem
+**Module:** TaleWorlds.ObjectSystem
+**Type:** `public struct MBGUID : IComparable, IEquatable<MBGUID>`
 **Base:** `IComparable`
-**领域:** campaign-ext
+**File:** `TaleWorlds.ObjectSystem/MBGUID.cs`
 
 ## 概述
 
-`MBGUID` 位于 `TaleWorlds.ObjectSystem`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`MBGUID` 位于 `TaleWorlds.ObjectSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -36,46 +30,85 @@ title: "MBGUID"
 ### GetHash2
 `public static long GetHash2(MBGUID id1, MBGUID id2)`
 
-**用途 / Purpose:** 获取 `hash2` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「hash2」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBGUID.GetHash2(id1, id2);
+```
 
 ### CompareTo
 `public int CompareTo(object a)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 MBGUID 实例
+MBGUID mBGUID = ...;
+var result = mBGUID.CompareTo(a);
+```
 
 ### GetTypeIndex
 `public uint GetTypeIndex()`
 
-**用途 / Purpose:** 获取 `type index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「type index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBGUID 实例
+MBGUID mBGUID = ...;
+var result = mBGUID.GetTypeIndex();
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 MBGUID 实例
+MBGUID mBGUID = ...;
+var result = mBGUID.GetHashCode();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 MBGUID 实例
+MBGUID mBGUID = ...;
+var result = mBGUID.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MBGUID 实例
+MBGUID mBGUID = ...;
+var result = mBGUID.Equals(obj);
+```
 
 ### Equals
 `public bool Equals(MBGUID other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 MBGUID 实例
+MBGUID mBGUID = ...;
+var result = mBGUID.Equals(other);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 MBGUID.GetHash2(id1, id2);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

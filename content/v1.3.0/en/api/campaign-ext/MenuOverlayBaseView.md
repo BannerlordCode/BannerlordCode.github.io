@@ -1,13 +1,7 @@
 ---
 title: "MenuOverlayBaseView"
+description: "Auto-generated class reference for MenuOverlayBaseView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuOverlayBaseView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuOverlayBaseView
 
 **Namespace:** SandBox.View.Menu
@@ -27,9 +21,10 @@ Treat `MenuOverlayBaseView` as a View-style extension point: first identify who 
 ## Usage Example
 
 ```csharp
-var view = new MenuOverlayBaseView();
+// Retrieve this view from the subsystem API or scene
+MenuOverlayBaseView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

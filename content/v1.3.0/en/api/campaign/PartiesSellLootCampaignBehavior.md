@@ -1,13 +1,7 @@
 ---
 title: "PartiesSellLootCampaignBehavior"
+description: "Auto-generated class reference for PartiesSellLootCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartiesSellLootCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartiesSellLootCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of PartiesSellLootCampaignBehavior from the subsystem API first
+PartiesSellLootCampaignBehavior partiesSellLootCampaignBehavior = ...;
+partiesSellLootCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of PartiesSellLootCampaignBehavior from the subsystem API first
+PartiesSellLootCampaignBehavior partiesSellLootCampaignBehavior = ...;
+partiesSellLootCampaignBehavior.SyncData(dataStore);
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Called when the `settlement entered` event is raised.
+**Purpose:** Invoked when the `settlement entered` event is raised.
+
+```csharp
+// Obtain an instance of PartiesSellLootCampaignBehavior from the subsystem API first
+PartiesSellLootCampaignBehavior partiesSellLootCampaignBehavior = ...;
+partiesSellLootCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartiesSellLootCampaignBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+PartiesSellLootCampaignBehavior partiesSellLootCampaignBehavior = ...;
+partiesSellLootCampaignBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

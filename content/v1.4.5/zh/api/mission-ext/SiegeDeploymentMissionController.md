@@ -1,20 +1,14 @@
 ---
 title: "SiegeDeploymentMissionController"
+description: "SiegeDeploymentMissionController 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SiegeDeploymentMissionController`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeDeploymentMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SiegeDeploymentMissionController : DeploymentMissionController`
 **Base:** `DeploymentMissionController`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeDeploymentMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SiegeDeploymentMissionController.cs`
 
 ## 概述
 
@@ -29,12 +23,24 @@ title: "SiegeDeploymentMissionController"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentMissionController 实例
+SiegeDeploymentMissionController siegeDeploymentMissionController = ...;
+siegeDeploymentMissionController.OnBehaviorInitialize();
+```
 
 ### GetSiegeMissiles
 `public List<ItemObject> GetSiegeMissiles()`
 
-**用途 / Purpose:** 获取 `siege missiles` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege missiles」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SiegeDeploymentMissionController 实例
+SiegeDeploymentMissionController siegeDeploymentMissionController = ...;
+var result = siegeDeploymentMissionController.GetSiegeMissiles();
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var controller = Mission.Current.GetMissionBehavior<SiegeDeploymentMissionContro
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapIncidentView"
+description: "Auto-generated class reference for GauntletMapIncidentView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapIncidentView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapIncidentView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -27,9 +21,10 @@ Treat `GauntletMapIncidentView` as a View-style extension point: first identify 
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapIncidentView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapIncidentView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

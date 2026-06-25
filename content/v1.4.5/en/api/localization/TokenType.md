@@ -1,20 +1,14 @@
 ---
 title: "TokenType"
+description: "Auto-generated class reference for TokenType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TokenType`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TokenType
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
 **Module:** TaleWorlds.Localization
-**Type:** `class`
+**Type:** `internal enum TokenType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TokenType.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TokenType.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ## Usage Example
 
 ```csharp
-var example = new TokenType();
+// Obtain an instance from the relevant subsystem API
+TokenType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

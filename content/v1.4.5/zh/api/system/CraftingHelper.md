@@ -1,20 +1,14 @@
 ---
 title: "CraftingHelper"
+description: "CraftingHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingHelper`
-- [← 本领域 / 返回 system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class CraftingHelper`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/CraftingHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/CraftingHelper.cs`
 
 ## 概述
 
@@ -29,17 +23,32 @@ title: "CraftingHelper"
 ### GetAvailableHeroesForCrafting
 `public static IEnumerable<Hero> GetAvailableHeroesForCrafting()`
 
-**用途 / Purpose:** 获取 `available heroes for crafting` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「available heroes for crafting」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CraftingHelper.GetAvailableHeroesForCrafting();
+```
 
 ### ChangeCurrentCraftingTemplate
 `public static void ChangeCurrentCraftingTemplate(CraftingTemplate craftingTemplate)`
 
-**用途 / Purpose:** 处理 `change current crafting template` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CraftingHelper.ChangeCurrentCraftingTemplate(craftingTemplate);
+```
 
 ### OpenCrafting
 `public static void OpenCrafting(CraftingTemplate craftingTemplate, CraftingState oldState = null)`
 
-**用途 / Purpose:** 处理 `open crafting` 相关逻辑。
+**用途 / Purpose:** 打开「crafting」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+CraftingHelper.OpenCrafting(craftingTemplate, null);
+```
 
 ## 使用示例
 
@@ -49,4 +58,4 @@ CraftingHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

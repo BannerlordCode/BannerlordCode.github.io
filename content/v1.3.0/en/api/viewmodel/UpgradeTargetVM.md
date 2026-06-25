@@ -1,13 +1,7 @@
 ---
 title: "UpgradeTargetVM"
+description: "Auto-generated class reference for UpgradeTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UpgradeTargetVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpgradeTargetVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -41,40 +35,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of UpgradeTargetVM from the subsystem API first
+UpgradeTargetVM upgradeTargetVM = ...;
+upgradeTargetVM.RefreshValues();
+```
 
 ### Refresh
 `public void Refresh(int upgradableAmount, bool isAvailable, bool isInsufficient, bool itemRequirementsMet, bool perkRequirementsMet, string hintString)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of UpgradeTargetVM from the subsystem API first
+UpgradeTargetVM upgradeTargetVM = ...;
+upgradeTargetVM.Refresh(0, false, false, false, false, "example");
+```
 
 ### ExecuteUpgradeEncyclopediaLink
 `public void ExecuteUpgradeEncyclopediaLink()`
 
-**Purpose:** Executes the `upgrade encyclopedia link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `upgrade encyclopedia link`.
+
+```csharp
+// Obtain an instance of UpgradeTargetVM from the subsystem API first
+UpgradeTargetVM upgradeTargetVM = ...;
+upgradeTargetVM.ExecuteUpgradeEncyclopediaLink();
+```
 
 ### ExecuteUpgrade
 `public void ExecuteUpgrade()`
 
-**Purpose:** Executes the `upgrade` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `upgrade`.
+
+```csharp
+// Obtain an instance of UpgradeTargetVM from the subsystem API first
+UpgradeTargetVM upgradeTargetVM = ...;
+upgradeTargetVM.ExecuteUpgrade();
+```
 
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** Executes the `set focused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set focused`.
+
+```csharp
+// Obtain an instance of UpgradeTargetVM from the subsystem API first
+UpgradeTargetVM upgradeTargetVM = ...;
+upgradeTargetVM.ExecuteSetFocused();
+```
 
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** Executes the `set unfocused` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `set unfocused`.
+
+```csharp
+// Obtain an instance of UpgradeTargetVM from the subsystem API first
+UpgradeTargetVM upgradeTargetVM = ...;
+upgradeTargetVM.ExecuteSetUnfocused();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UpgradeTargetVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+UpgradeTargetVM upgradeTargetVM = ...;
+upgradeTargetVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

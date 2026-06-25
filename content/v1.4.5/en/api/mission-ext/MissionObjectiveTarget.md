@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveTarget"
+description: "Auto-generated class reference for MissionObjectiveTarget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveTarget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveTarget
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionObjectiveTarget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjectiveTarget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.Objectives/MissionObjectiveTarget.cs`
 
 ## Overview
 
@@ -24,35 +18,48 @@ title: "MissionObjectiveTarget"
 
 Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `Target` | `public T Target { get; }` |
-
 ## Key Methods
 
 ### IsActive
 `public abstract bool IsActive()`
 
-**Purpose:** Handles logic related to `is active`.
+**Purpose:** Determines whether the current object is in the `active` state or condition.
+
+```csharp
+// Obtain an instance of MissionObjectiveTarget from the subsystem API first
+MissionObjectiveTarget missionObjectiveTarget = ...;
+var result = missionObjectiveTarget.IsActive();
+```
 
 ### GetName
 `public abstract TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionObjectiveTarget from the subsystem API first
+MissionObjectiveTarget missionObjectiveTarget = ...;
+var result = missionObjectiveTarget.GetName();
+```
 
 ### GetGlobalPosition
 `public abstract Vec3 GetGlobalPosition()`
 
-**Purpose:** Gets the current value of `global position`.
+**Purpose:** Reads and returns the `global position` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionObjectiveTarget from the subsystem API first
+MissionObjectiveTarget missionObjectiveTarget = ...;
+var result = missionObjectiveTarget.GetGlobalPosition();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionObjectiveTarget();
+// Typically obtained from a subsystem API or factory
+MissionObjectiveTarget instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

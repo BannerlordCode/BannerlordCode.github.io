@@ -1,13 +1,7 @@
 ---
 title: "SiegeSpawnFrameBehavior"
+description: "Auto-generated class reference for SiegeSpawnFrameBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeSpawnFrameBehavior`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeSpawnFrameBehavior
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SiegeSpawnFrameBehavior from the subsystem API first
+SiegeSpawnFrameBehavior siegeSpawnFrameBehavior = ...;
+siegeSpawnFrameBehavior.Initialize();
+```
 
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Gets the current value of `spawn frame`.
+**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of SiegeSpawnFrameBehavior from the subsystem API first
+SiegeSpawnFrameBehavior siegeSpawnFrameBehavior = ...;
+var result = siegeSpawnFrameBehavior.GetSpawnFrame(team, false, false);
+```
 
 ### OnFlagDeactivated
 `public void OnFlagDeactivated(FlagCapturePoint flag)`
 
-**Purpose:** Called when the `flag deactivated` event is raised.
+**Purpose:** Invoked when the `flag deactivated` event is raised.
+
+```csharp
+// Obtain an instance of SiegeSpawnFrameBehavior from the subsystem API first
+SiegeSpawnFrameBehavior siegeSpawnFrameBehavior = ...;
+siegeSpawnFrameBehavior.OnFlagDeactivated(flag);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeSpawnFrameBehavior();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeSpawnFrameBehavior siegeSpawnFrameBehavior = ...;
+siegeSpawnFrameBehavior.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

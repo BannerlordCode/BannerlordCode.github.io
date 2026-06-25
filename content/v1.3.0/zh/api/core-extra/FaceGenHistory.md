@@ -1,13 +1,7 @@
 ---
 title: "FaceGenHistory"
+description: "FaceGenHistory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FaceGenHistory`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # FaceGenHistory
 
 **Namespace:** TaleWorlds.Core
@@ -29,15 +23,22 @@ title: "FaceGenHistory"
 ### ClearHistory
 `public void ClearHistory()`
 
-**用途 / Purpose:** 处理 `clear history` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「history」。
+
+```csharp
+// 先通过子系统 API 拿到 FaceGenHistory 实例
+FaceGenHistory faceGenHistory = ...;
+faceGenHistory.ClearHistory();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FaceGenHistory();
-value.ClearHistory();
+// 通常从对应子系统 API 获取实例后调用
+FaceGenHistory faceGenHistory = ...;
+faceGenHistory.ClearHistory();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

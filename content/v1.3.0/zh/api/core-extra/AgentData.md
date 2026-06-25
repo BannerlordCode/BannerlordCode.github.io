@@ -1,13 +1,7 @@
 ---
 title: "AgentData"
+description: "AgentData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AgentData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentData
 
 **Namespace:** TaleWorlds.Core
@@ -55,99 +49,208 @@ title: "AgentData"
 ### Character
 `public AgentData Character(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** 处理 `character` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.Character(characterObject);
+```
 
 ### Monster
 `public AgentData Monster(Monster monster)`
 
-**用途 / Purpose:** 处理 `monster` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.Monster(monster);
+```
 
 ### OwnerParty
 `public AgentData OwnerParty(IBattleCombatant owner)`
 
-**用途 / Purpose:** 处理 `owner party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.OwnerParty(owner);
+```
 
 ### Equipment
 `public AgentData Equipment(Equipment equipment)`
 
-**用途 / Purpose:** 处理 `equipment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.Equipment(equipment);
+```
 
 ### EquipmentSeed
 `public AgentData EquipmentSeed(int seed)`
 
-**用途 / Purpose:** 处理 `equipment seed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.EquipmentSeed(0);
+```
 
 ### NoHorses
 `public AgentData NoHorses(bool noHorses)`
 
-**用途 / Purpose:** 处理 `no horses` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.NoHorses(false);
+```
 
 ### NoWeapons
 `public AgentData NoWeapons(bool noWeapons)`
 
-**用途 / Purpose:** 处理 `no weapons` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.NoWeapons(false);
+```
 
 ### NoArmor
 `public AgentData NoArmor(bool noArmor)`
 
-**用途 / Purpose:** 处理 `no armor` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.NoArmor(false);
+```
 
 ### FixedEquipment
 `public AgentData FixedEquipment(bool fixedEquipment)`
 
-**用途 / Purpose:** 处理 `fixed equipment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.FixedEquipment(false);
+```
 
 ### CivilianEquipment
 `public AgentData CivilianEquipment(bool civilianEquipment)`
 
-**用途 / Purpose:** 处理 `civilian equipment` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.CivilianEquipment(false);
+```
 
 ### ClothingColor1
 `public AgentData ClothingColor1(uint color)`
 
-**用途 / Purpose:** 处理 `clothing color1` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.ClothingColor1(0);
+```
 
 ### ClothingColor2
 `public AgentData ClothingColor2(uint color)`
 
-**用途 / Purpose:** 处理 `clothing color2` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.ClothingColor2(0);
+```
 
 ### BodyProperties
 `public AgentData BodyProperties(BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 处理 `body properties` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.BodyProperties(bodyProperties);
+```
 
 ### Age
 `public AgentData Age(int age)`
 
-**用途 / Purpose:** 处理 `age` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.Age(0);
+```
 
 ### TroopOrigin
 `public AgentData TroopOrigin(IAgentOriginBase troopOrigin)`
 
-**用途 / Purpose:** 处理 `troop origin` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.TroopOrigin(troopOrigin);
+```
 
 ### IsFemale
 `public AgentData IsFemale(bool isFemale)`
 
-**用途 / Purpose:** 处理 `is female` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「female」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.IsFemale(false);
+```
 
 ### Race
 `public AgentData Race(int race)`
 
-**用途 / Purpose:** 处理 `race` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.Race(0);
+```
 
 ### MountKey
 `public AgentData MountKey(string mountKey)`
 
-**用途 / Purpose:** 处理 `mount key` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 AgentData 实例
+AgentData agentData = ...;
+var result = agentData.MountKey("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AgentData();
+// 该数据对象通常由战役/任务 API 返回
+AgentData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

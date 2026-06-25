@@ -1,13 +1,7 @@
 ---
 title: "BoundaryCrossingVM"
+description: "Auto-generated class reference for BoundaryCrossingVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoundaryCrossingVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BoundaryCrossingVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ## Usage Example
 
 ```csharp
-var value = new BoundaryCrossingVM();
+// Obtain an instance from the relevant subsystem API
+BoundaryCrossingVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ItemSoldNotificationItemVM"
+description: "Auto-generated class reference for ItemSoldNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemSoldNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemSoldNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class ItemSoldNotificationItemVM : SettlementNotificationItemBaseVM`
 **Base:** `SettlementNotificationItemBaseVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/ItemSoldNotificationItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes/ItemSoldNotificationItemVM.cs`
 
 ## Overview
 
@@ -39,13 +33,20 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 
 **Purpose:** Adds `new transaction` to the current collection or state.
 
+```csharp
+// Obtain an instance of ItemSoldNotificationItemVM from the subsystem API first
+ItemSoldNotificationItemVM itemSoldNotificationItemVM = ...;
+itemSoldNotificationItemVM.AddNewTransaction(0);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new ItemSoldNotificationItemVM();
-value.AddNewTransaction(0);
+// Typically call this after obtaining an instance from the subsystem API
+ItemSoldNotificationItemVM itemSoldNotificationItemVM = ...;
+itemSoldNotificationItemVM.AddNewTransaction(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

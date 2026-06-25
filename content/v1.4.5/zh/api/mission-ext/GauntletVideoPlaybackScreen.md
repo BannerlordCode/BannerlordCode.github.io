@@ -1,20 +1,14 @@
 ---
 title: "GauntletVideoPlaybackScreen"
+description: "GauntletVideoPlaybackScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletVideoPlaybackScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletVideoPlaybackScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletVideoPlaybackScreen : VideoPlaybackScreen`
 **Base:** `VideoPlaybackScreen`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletVideoPlaybackScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletVideoPlaybackScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "GauntletVideoPlaybackScreen"
 ## 使用示例
 
 ```csharp
-var value = new GauntletVideoPlaybackScreen();
+// 从对应子系统 API 获取实例
+GauntletVideoPlaybackScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

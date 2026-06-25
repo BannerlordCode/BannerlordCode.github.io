@@ -1,13 +1,7 @@
 ---
 title: "CampaignEntityVisualComponent"
+description: "Auto-generated class reference for CampaignEntityVisualComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignEntityVisualComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignEntityVisualComponent
 
 **Namespace:** SandBox.View.Map
@@ -29,32 +23,68 @@ Treat `CampaignEntityVisualComponent` as a Component-style extension point: firs
 ### OnVisualTick
 `public virtual void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** Called when the `visual tick` event is raised.
+**Purpose:** Invoked when the `visual tick` event is raised.
+
+```csharp
+// Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
+CampaignEntityVisualComponent campaignEntityVisualComponent = ...;
+campaignEntityVisualComponent.OnVisualTick(screen, 0, 0);
+```
 
 ### OnMouseClick
 `public virtual bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**Purpose:** Called when the `mouse click` event is raised.
+**Purpose:** Invoked when the `mouse click` event is raised.
+
+```csharp
+// Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
+CampaignEntityVisualComponent campaignEntityVisualComponent = ...;
+var result = campaignEntityVisualComponent.OnMouseClick(visualOfSelectedEntity, intersectionPoint, mouseOverFaceIndex, false);
+```
 
 ### OnVisualIntersected
 `public virtual void OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, float closestDistanceSquared, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**Purpose:** Called when the `visual intersected` event is raised.
+**Purpose:** Invoked when the `visual intersected` event is raised.
+
+```csharp
+// Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
+CampaignEntityVisualComponent campaignEntityVisualComponent = ...;
+campaignEntityVisualComponent.OnVisualIntersected(mouseRay, intersectedEntityIDs, intersectionInfos, 0, worldMouseNear, worldMouseFar, terrainIntersectionPoint, 0, hoveredVisual, selectedVisual);
+```
 
 ### OnFrameTick
 `public virtual void OnFrameTick(float dt)`
 
-**Purpose:** Called when the `frame tick` event is raised.
+**Purpose:** Invoked when the `frame tick` event is raised.
+
+```csharp
+// Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
+CampaignEntityVisualComponent campaignEntityVisualComponent = ...;
+campaignEntityVisualComponent.OnFrameTick(0);
+```
 
 ### OnGameLoadFinished
 `public virtual void OnGameLoadFinished()`
 
-**Purpose:** Called when the `game load finished` event is raised.
+**Purpose:** Invoked when the `game load finished` event is raised.
+
+```csharp
+// Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
+CampaignEntityVisualComponent campaignEntityVisualComponent = ...;
+campaignEntityVisualComponent.OnGameLoadFinished();
+```
 
 ### OnTick
 `public virtual void OnTick(float realDt, float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of CampaignEntityVisualComponent from the subsystem API first
+CampaignEntityVisualComponent campaignEntityVisualComponent = ...;
+campaignEntityVisualComponent.OnTick(0, 0);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ var component = agent.GetComponent<CampaignEntityVisualComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

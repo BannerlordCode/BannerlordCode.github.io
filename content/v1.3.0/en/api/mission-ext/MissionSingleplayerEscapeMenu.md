@@ -1,13 +1,7 @@
 ---
 title: "MissionSingleplayerEscapeMenu"
+description: "Auto-generated class reference for MissionSingleplayerEscapeMenu."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSingleplayerEscapeMenu`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSingleplayerEscapeMenu
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer` t
 ## Usage Example
 
 ```csharp
-var value = new MissionSingleplayerEscapeMenu();
+// Obtain an instance from the relevant subsystem API
+MissionSingleplayerEscapeMenu instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBBindingList"
+description: "Auto-generated class reference for MBBindingList."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBBindingList`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBBindingList
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class MBBindingList<T> : Collection<T>, IMBBindingList, IList, ICollection, IEnumerable`
 **Base:** `Collection<T>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBBindingList.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBBindingList.cs`
 
 ## Overview
 
@@ -35,29 +29,55 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Sort
 `public void Sort()`
 
-**Purpose:** Handles logic related to `sort`.
+**Purpose:** Sorts the content inside the current object.
+
+```csharp
+// Obtain an instance of MBBindingList from the subsystem API first
+MBBindingList mBBindingList = ...;
+mBBindingList.Sort();
+```
 
 ### Sort
 `public void Sort(IComparer<T> comparer)`
 
-**Purpose:** Handles logic related to `sort`.
+**Purpose:** Sorts the content inside the current object.
+
+```csharp
+// Obtain an instance of MBBindingList from the subsystem API first
+MBBindingList mBBindingList = ...;
+mBBindingList.Sort(comparer);
+```
 
 ### IsOrdered
 `public bool IsOrdered(IComparer<T> comparer)`
 
-**Purpose:** Handles logic related to `is ordered`.
+**Purpose:** Determines whether the current object is in the `ordered` state or condition.
+
+```csharp
+// Obtain an instance of MBBindingList from the subsystem API first
+MBBindingList mBBindingList = ...;
+var result = mBBindingList.IsOrdered(comparer);
+```
 
 ### ApplyActionOnAllItems
 `public void ApplyActionOnAllItems(Action<T> action)`
 
-**Purpose:** Applies `action on all items` to the current object.
+**Purpose:** Applies the effect of `action on all items` to the current object.
+
+```csharp
+// Obtain an instance of MBBindingList from the subsystem API first
+MBBindingList mBBindingList = ...;
+mBBindingList.ApplyActionOnAllItems(action);
+```
 
 ## Usage Example
 
 ```csharp
-MBBindingList example = MBBindingList.ListChanged;
+// Typically call this after obtaining an instance from the subsystem API
+MBBindingList mBBindingList = ...;
+mBBindingList.Sort();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

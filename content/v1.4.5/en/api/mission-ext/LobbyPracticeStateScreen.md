@@ -1,20 +1,14 @@
 ---
 title: "LobbyPracticeStateScreen"
+description: "Auto-generated class reference for LobbyPracticeStateScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LobbyPracticeStateScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyPracticeStateScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyPracticeStateScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.Screens/LobbyPracticeStateScreen.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.Screens/LobbyPracticeStateScreen.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.View.Screens` to plac
 ## Usage Example
 
 ```csharp
-var value = new LobbyPracticeStateScreen();
+// Obtain an instance from the relevant subsystem API
+LobbyPracticeStateScreen instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

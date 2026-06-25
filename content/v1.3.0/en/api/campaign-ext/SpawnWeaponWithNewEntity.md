@@ -1,13 +1,7 @@
 ---
 title: "SpawnWeaponWithNewEntity"
+description: "Auto-generated class reference for SpawnWeaponWithNewEntity."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnWeaponWithNewEntity`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpawnWeaponWithNewEntity
 
 **Namespace:** NetworkMessages.FromServer
@@ -39,9 +33,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new SpawnWeaponWithNewEntity();
+// Obtain an instance from the relevant subsystem API
+SpawnWeaponWithNewEntity instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

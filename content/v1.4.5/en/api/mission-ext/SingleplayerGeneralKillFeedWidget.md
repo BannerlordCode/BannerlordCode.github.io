@@ -1,20 +1,14 @@
 ---
 title: "SingleplayerGeneralKillFeedWidget"
+description: "Auto-generated class reference for SingleplayerGeneralKillFeedWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleplayerGeneralKillFeedWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SingleplayerGeneralKillFeedWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.KillFeed.General
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SingleplayerGeneralKillFeedWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.KillFeed.General/SingleplayerGeneralKillFeedWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.KillFeed.General/SingleplayerGeneralKillFeedWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `SingleplayerGeneralKillFeedWidget` as a Widget-style extension point: fir
 ## Usage Example
 
 ```csharp
-var widget = new SingleplayerGeneralKillFeedWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SingleplayerGeneralKillFeedWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

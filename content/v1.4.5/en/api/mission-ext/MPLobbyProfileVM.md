@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyProfileVM"
+description: "Auto-generated class reference for MPLobbyProfileVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyProfileVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyProfileVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyProfileVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyProfileVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Profile/MPLobbyProfileVM.cs`
 
 ## Overview
 
@@ -45,45 +39,88 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyProfileVM from the subsystem API first
+MPLobbyProfileVM mPLobbyProfileVM = ...;
+mPLobbyProfileVM.RefreshValues();
+```
 
 ### RefreshRecentGames
 `public void RefreshRecentGames(MBReadOnlyList<MatchHistoryData> recentGames)`
 
-**Purpose:** Refreshes the display or cache of `recent games`.
+**Purpose:** Keeps the display or cache of `recent games` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyProfileVM from the subsystem API first
+MPLobbyProfileVM mPLobbyProfileVM = ...;
+mPLobbyProfileVM.RefreshRecentGames(recentGames);
+```
 
 ### OnMatchSelectionChanged
 `public void OnMatchSelectionChanged(string selectionInfo, bool isMatchFindPossible)`
 
-**Purpose:** Called when the `match selection changed` event is raised.
+**Purpose:** Invoked when the `match selection changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyProfileVM from the subsystem API first
+MPLobbyProfileVM mPLobbyProfileVM = ...;
+mPLobbyProfileVM.OnMatchSelectionChanged("example", false);
+```
 
 ### UpdatePlayerData
 `public void UpdatePlayerData(PlayerData playerData, bool updateStatistics = true, bool updateRating = true)`
 
-**Purpose:** Updates the state or data of `player data`.
+**Purpose:** Recalculates and stores the latest representation of `player data`.
+
+```csharp
+// Obtain an instance of MPLobbyProfileVM from the subsystem API first
+MPLobbyProfileVM mPLobbyProfileVM = ...;
+mPLobbyProfileVM.UpdatePlayerData(playerData, false, false);
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** Called when the `player name updated` event is raised.
+**Purpose:** Invoked when the `player name updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyProfileVM from the subsystem API first
+MPLobbyProfileVM mPLobbyProfileVM = ...;
+mPLobbyProfileVM.OnPlayerNameUpdated("example");
+```
 
 ### OnNotificationReceived
 `public void OnNotificationReceived(LobbyNotification notification)`
 
-**Purpose:** Called when the `notification received` event is raised.
+**Purpose:** Invoked when the `notification received` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyProfileVM from the subsystem API first
+MPLobbyProfileVM mPLobbyProfileVM = ...;
+mPLobbyProfileVM.OnNotificationReceived(notification);
+```
 
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**Purpose:** Called when the `clan info changed` event is raised.
+**Purpose:** Invoked when the `clan info changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyProfileVM from the subsystem API first
+MPLobbyProfileVM mPLobbyProfileVM = ...;
+mPLobbyProfileVM.OnClanInfoChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyProfileVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyProfileVM mPLobbyProfileVM = ...;
+mPLobbyProfileVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

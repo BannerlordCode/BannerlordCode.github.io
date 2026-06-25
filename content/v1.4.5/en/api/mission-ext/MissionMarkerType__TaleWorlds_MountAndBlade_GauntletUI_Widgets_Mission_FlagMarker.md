@@ -1,20 +1,14 @@
 ---
-title: "MissionMarkerType__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Mission_FlagMarker"
+title: "MissionMarkerType"
+description: "Auto-generated class reference for MissionMarkerType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMarkerType`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMarkerType
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public enum MissionMarkerType`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/MultiplayerMissionMarkerListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker/MultiplayerMissionMarkerListPanel.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMa
 ## Usage Example
 
 ```csharp
-MissionMarkerType example = MissionMarkerType.Value;
+// Obtain an instance from the relevant subsystem API
+MissionMarkerType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

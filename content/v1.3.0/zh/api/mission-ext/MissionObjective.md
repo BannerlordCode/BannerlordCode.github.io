@@ -1,13 +1,7 @@
 ---
 title: "MissionObjective"
+description: "MissionObjective 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjective`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjective
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.Objectives
@@ -40,34 +34,65 @@ title: "MissionObjective"
 ### ForceComplete
 `public void ForceComplete()`
 
-**用途 / Purpose:** 处理 `force complete` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+missionObjective.ForceComplete();
+```
 
 ### GetIsActivationRequirementsMet
 `public bool GetIsActivationRequirementsMet()`
 
-**用途 / Purpose:** 获取 `is activation requirements met` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is activation requirements met」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetIsActivationRequirementsMet();
+```
 
 ### GetIsCompletionRequirementsMet
 `public bool GetIsCompletionRequirementsMet()`
 
-**用途 / Purpose:** 获取 `is completion requirements met` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「is completion requirements met」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetIsCompletionRequirementsMet();
+```
 
 ### GetCurrentProgress
 `public virtual MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**用途 / Purpose:** 获取 `current progress` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current progress」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetCurrentProgress();
+```
 
 ### GetTargets
 `public abstract IMissionObjectiveTarget GetTargets()`
 
-**用途 / Purpose:** 获取 `targets` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「targets」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjective 实例
+MissionObjective missionObjective = ...;
+var result = missionObjective.GetTargets();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionObjective();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionObjective instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

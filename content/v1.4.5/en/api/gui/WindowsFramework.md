@@ -1,20 +1,14 @@
 ---
 title: "WindowsFramework"
+description: "Auto-generated class reference for WindowsFramework."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WindowsFramework`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WindowsFramework
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class WindowsFramework`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/WindowsFramework.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/WindowsFramework.cs`
 
 ## Overview
 
@@ -35,40 +29,77 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### Initialize
 `public void Initialize(FrameworkDomain frameworkDomains)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of WindowsFramework from the subsystem API first
+WindowsFramework windowsFramework = ...;
+windowsFramework.Initialize(frameworkDomains);
+```
 
 ### RegisterMessageCommunicator
 `public void RegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**Purpose:** Handles logic related to `register message communicator`.
+**Purpose:** Registers `message communicator` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of WindowsFramework from the subsystem API first
+WindowsFramework windowsFramework = ...;
+windowsFramework.RegisterMessageCommunicator(communicator);
+```
 
 ### UnRegisterMessageCommunicator
 `public void UnRegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**Purpose:** Handles logic related to `un register message communicator`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WindowsFramework from the subsystem API first
+WindowsFramework windowsFramework = ...;
+windowsFramework.UnRegisterMessageCommunicator(communicator);
+```
 
 ### Stop
 `public void Stop()`
 
-**Purpose:** Handles logic related to `stop`.
+**Purpose:** Stops the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of WindowsFramework from the subsystem API first
+WindowsFramework windowsFramework = ...;
+windowsFramework.Stop();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of WindowsFramework from the subsystem API first
+WindowsFramework windowsFramework = ...;
+windowsFramework.OnFinalize();
+```
 
 ### Start
 `public void Start()`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of WindowsFramework from the subsystem API first
+WindowsFramework windowsFramework = ...;
+windowsFramework.Start();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WindowsFramework();
-value.Initialize(frameworkDomains);
+// Typically call this after obtaining an instance from the subsystem API
+WindowsFramework windowsFramework = ...;
+windowsFramework.Initialize(frameworkDomains);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

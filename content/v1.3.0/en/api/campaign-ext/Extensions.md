@@ -1,13 +1,7 @@
 ---
 title: "Extensions"
+description: "Auto-generated class reference for Extensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Extensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Extensions
 
 **Namespace:** TaleWorlds.ModuleManager
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ### GetActiveReferencingGameAssembliesSafe
 `public static Assembly GetActiveReferencingGameAssembliesSafe(this Assembly assembly)`
 
-**Purpose:** Gets the current value of `active referencing game assemblies safe`.
+**Purpose:** Reads and returns the `active referencing game assemblies safe` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Extensions.GetActiveReferencingGameAssembliesSafe(assembly);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ Extensions.GetActiveReferencingGameAssembliesSafe(assembly);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

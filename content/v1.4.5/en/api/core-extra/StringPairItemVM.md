@@ -1,20 +1,14 @@
 ---
 title: "StringPairItemVM"
+description: "Auto-generated class reference for StringPairItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StringPairItemVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StringPairItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
 **Module:** TaleWorlds.Core
 **Type:** `public class StringPairItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringPairItemVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Generic/StringPairItemVM.cs`
 
 ## Overview
 
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ## Usage Example
 
 ```csharp
-var example = new StringPairItemVM();
+// Obtain an instance from the relevant subsystem API
+StringPairItemVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

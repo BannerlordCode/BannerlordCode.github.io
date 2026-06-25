@@ -1,13 +1,7 @@
 ---
 title: "BoundingBox"
+description: "Auto-generated class reference for BoundingBox."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BoundingBox`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BoundingBox
 
 **Namespace:** TaleWorlds.Engine
@@ -36,70 +30,141 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### RelaxMinMaxWithPoint
 `public void RelaxMinMaxWithPoint(in Vec3 point)`
 
-**Purpose:** Handles logic related to `relax min max with point`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+boundingBox.RelaxMinMaxWithPoint(point);
+```
 
 ### RelaxMinMaxWithPointAndRadius
 `public void RelaxMinMaxWithPointAndRadius(in Vec3 point, float radius)`
 
-**Purpose:** Handles logic related to `relax min max with point and radius`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+boundingBox.RelaxMinMaxWithPointAndRadius(point, 0);
+```
 
 ### RecomputeRadius
 `public void RecomputeRadius()`
 
-**Purpose:** Handles logic related to `recompute radius`.
+**Purpose:** Recomputes `radius` and returns the result.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+boundingBox.RecomputeRadius();
+```
 
 ### GetTransformedTipPointsToParent
 `public BoundingBox.TransformedBoundingBoxPointsContainer GetTransformedTipPointsToParent(in MatrixFrame childFrame)`
 
-**Purpose:** Gets the current value of `transformed tip points to parent`.
+**Purpose:** Reads and returns the `transformed tip points to parent` value held by the current object.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+var result = boundingBox.GetTransformedTipPointsToParent(childFrame);
+```
 
 ### GetTransformedTipPointsToChild
 `public BoundingBox.TransformedBoundingBoxPointsContainer GetTransformedTipPointsToChild(in MatrixFrame childFrame)`
 
-**Purpose:** Gets the current value of `transformed tip points to child`.
+**Purpose:** Reads and returns the `transformed tip points to child` value held by the current object.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+var result = boundingBox.GetTransformedTipPointsToChild(childFrame);
+```
 
 ### RelaxWithBoundingBox
 `public void RelaxWithBoundingBox(BoundingBox modifiedBoundingBox)`
 
-**Purpose:** Handles logic related to `relax with bounding box`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+boundingBox.RelaxWithBoundingBox(modifiedBoundingBox);
+```
 
 ### RelaxWithArbitraryBoundingBox
 `public void RelaxWithArbitraryBoundingBox(BoundingBox otherBoundingBox, MatrixFrame otherGlobalFrame, MatrixFrame globalFrameOfThisBoundingBox)`
 
-**Purpose:** Handles logic related to `relax with arbitrary bounding box`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+boundingBox.RelaxWithArbitraryBoundingBox(otherBoundingBox, otherGlobalFrame, globalFrameOfThisBoundingBox);
+```
 
 ### RelaxWithChildBoundingBox
 `public void RelaxWithChildBoundingBox(BoundingBox childBoundingBox, MatrixFrame childFrame)`
 
-**Purpose:** Handles logic related to `relax with child bounding box`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+boundingBox.RelaxWithChildBoundingBox(childBoundingBox, childFrame);
+```
 
 ### BeginRelaxation
 `public void BeginRelaxation()`
 
-**Purpose:** Handles logic related to `begin relaxation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+boundingBox.BeginRelaxation();
+```
 
 ### ArrangeWithAnotherBoundingBox
 `public static bool ArrangeWithAnotherBoundingBox(ref BoundingBox boundingBox, BoundingBox otherBoundingBox, float changeAmount)`
 
-**Purpose:** Handles logic related to `arrange with another bounding box`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BoundingBox.ArrangeWithAnotherBoundingBox(boundingBox, otherBoundingBox, 0);
+```
 
 ### GetLongestHalfDimensionOfBoundingBox
 `public static float GetLongestHalfDimensionOfBoundingBox(BoundingBox boundingBox)`
 
-**Purpose:** Gets the current value of `longest half dimension of bounding box`.
+**Purpose:** Reads and returns the `longest half dimension of bounding box` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BoundingBox.GetLongestHalfDimensionOfBoundingBox(boundingBox);
+```
 
 ### RenderBoundingBox
 `public void RenderBoundingBox()`
 
-**Purpose:** Handles logic related to `render bounding box`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BoundingBox from the subsystem API first
+BoundingBox boundingBox = ...;
+boundingBox.RenderBoundingBox();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BoundingBox();
-value.RelaxMinMaxWithPoint(point);
+// Typically call this after obtaining an instance from the subsystem API
+BoundingBox boundingBox = ...;
+boundingBox.RelaxMinMaxWithPoint(point);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "ThumbnailCreationData"
+description: "Auto-generated class reference for ThumbnailCreationData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThumbnailCreationData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThumbnailCreationData
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
@@ -33,9 +27,10 @@ Treat `ThumbnailCreationData` as a Data-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var implementation = new CustomThumbnailCreationData();
+// Typically obtained from a subsystem API or factory
+ThumbnailCreationData instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

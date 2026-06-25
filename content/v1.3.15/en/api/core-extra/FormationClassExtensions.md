@@ -1,23 +1,18 @@
 ---
 title: "FormationClassExtensions"
+description: "Auto-generated class reference for FormationClassExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationClassExtensions`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FormationClassExtensions
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public static class FormationClassExtensions`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Core/FormationClassExtensions.cs`
 
 ## Overview
 
-`FormationClassExtensions` lives in `TaleWorlds.Core`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`FormationClassExtensions` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,46 +23,79 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetName
 `public static string GetName(this FormationClass formationClass)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormationClassExtensions.GetName(formationClass);
+```
 
 ### GetLocalizedName
 `public static TextObject GetLocalizedName(this FormationClass formationClass)`
 
-**Purpose:** Gets the current value of `localized name`.
+**Purpose:** Reads and returns the `localized name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormationClassExtensions.GetLocalizedName(formationClass);
+```
 
 ### GetTroopUsageFlags
 `public static TroopUsageFlags GetTroopUsageFlags(this FormationClass troopClass)`
 
-**Purpose:** Gets the current value of `troop usage flags`.
+**Purpose:** Reads and returns the `troop usage flags` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormationClassExtensions.GetTroopUsageFlags(troopClass);
+```
 
 ### GetTroopTypeForRegularFormation
 `public static TroopType GetTroopTypeForRegularFormation(this FormationClass formationClass)`
 
-**Purpose:** Gets the current value of `troop type for regular formation`.
+**Purpose:** Reads and returns the `troop type for regular formation` value held by the current object.
+
+```csharp
+// Static call; no instance required
+FormationClassExtensions.GetTroopTypeForRegularFormation(formationClass);
+```
 
 ### IsDefaultFormationClass
 `public static bool IsDefaultFormationClass(this FormationClass formationClass)`
 
-**Purpose:** Handles logic related to `is default formation class`.
+**Purpose:** Determines whether the current object is in the `default formation class` state or condition.
+
+```csharp
+// Static call; no instance required
+FormationClassExtensions.IsDefaultFormationClass(formationClass);
+```
 
 ### IsRegularFormationClass
 `public static bool IsRegularFormationClass(this FormationClass formationClass)`
 
-**Purpose:** Handles logic related to `is regular formation class`.
+**Purpose:** Determines whether the current object is in the `regular formation class` state or condition.
+
+```csharp
+// Static call; no instance required
+FormationClassExtensions.IsRegularFormationClass(formationClass);
+```
 
 ### FallbackClass
 `public static FormationClass FallbackClass(this FormationClass formationClass)`
 
-**Purpose:** Handles logic related to `fallback class`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+FormationClassExtensions.FallbackClass(formationClass);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 FormationClassExtensions.GetName(formationClass);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

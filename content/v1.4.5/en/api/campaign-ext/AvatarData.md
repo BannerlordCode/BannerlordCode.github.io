@@ -1,20 +1,14 @@
 ---
 title: "AvatarData"
+description: "Auto-generated class reference for AvatarData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AvatarData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AvatarData
 
 **Namespace:** TaleWorlds.PlayerServices.Avatar
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public class AvatarData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarData.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices.Avatar/AvatarData.cs`
 
 ## Overview
 
@@ -39,24 +33,43 @@ Treat `AvatarData` as a Data-style extension point: first identify who creates i
 ### SetImageData
 `public void SetImageData(byte image, uint width, uint height)`
 
-**Purpose:** Sets the value or state of `image data`.
+**Purpose:** Assigns a new value to `image data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AvatarData from the subsystem API first
+AvatarData avatarData = ...;
+avatarData.SetImageData(0, 0, 0);
+```
 
 ### SetImageData
 `public void SetImageData(byte image)`
 
-**Purpose:** Sets the value or state of `image data`.
+**Purpose:** Assigns a new value to `image data` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AvatarData from the subsystem API first
+AvatarData avatarData = ...;
+avatarData.SetImageData(0);
+```
 
 ### SetFailed
 `public void SetFailed()`
 
-**Purpose:** Sets the value or state of `failed`.
+**Purpose:** Assigns a new value to `failed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AvatarData from the subsystem API first
+AvatarData avatarData = ...;
+avatarData.SetFailed();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AvatarData();
+// This data object is usually returned by campaign/mission APIs
+AvatarData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

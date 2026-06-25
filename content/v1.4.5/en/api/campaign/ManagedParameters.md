@@ -1,20 +1,14 @@
 ---
 title: "ManagedParameters"
+description: "Auto-generated class reference for ManagedParameters."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ManagedParameters`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedParameters
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class ManagedParameters : IManagedParametersInitializer`
 **Base:** `IManagedParametersInitializer`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ManagedParameters.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/ManagedParameters.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize(string relativeXmlPath)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of ManagedParameters from the subsystem API first
+ManagedParameters managedParameters = ...;
+managedParameters.Initialize("example");
+```
 
 ### GetManagedParameter
 `public bool GetManagedParameter(ManagedParametersEnum _managedParametersEnum)`
 
-**Purpose:** Gets the current value of `managed parameter`.
+**Purpose:** Reads and returns the `managed parameter` value held by the current object.
+
+```csharp
+// Obtain an instance of ManagedParameters from the subsystem API first
+ManagedParameters managedParameters = ...;
+var result = managedParameters.GetManagedParameter(_managedParametersEnum);
+```
 
 ### SetManagedParameter
 `public bool SetManagedParameter(ManagedParametersEnum _managedParametersEnum, bool value)`
 
-**Purpose:** Sets the value or state of `managed parameter`.
+**Purpose:** Assigns a new value to `managed parameter` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of ManagedParameters from the subsystem API first
+ManagedParameters managedParameters = ...;
+var result = managedParameters.SetManagedParameter(_managedParametersEnum, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ManagedParameters();
-value.Initialize("example");
+// Typically call this after obtaining an instance from the subsystem API
+ManagedParameters managedParameters = ...;
+managedParameters.Initialize("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "TooltipProperty"
+description: "Auto-generated class reference for TooltipProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TooltipProperty`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TooltipProperty
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -41,30 +35,55 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### RefreshValue
 `public void RefreshValue()`
 
-**Purpose:** Refreshes the display or cache of `value`.
+**Purpose:** Keeps the display or cache of `value` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TooltipProperty from the subsystem API first
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.RefreshValue();
+```
 
 ### RefreshDefinition
 `public void RefreshDefinition()`
 
-**Purpose:** Refreshes the display or cache of `definition`.
+**Purpose:** Keeps the display or cache of `definition` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TooltipProperty from the subsystem API first
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.RefreshDefinition();
+```
 
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** Handles logic related to `deserialize from`.
+**Purpose:** Restores `from` from serialized data.
+
+```csharp
+// Obtain an instance of TooltipProperty from the subsystem API first
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.DeserializeFrom(reader);
+```
 
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** Handles logic related to `serialize to`.
+**Purpose:** Serializes `to` into a storable or transmittable format.
+
+```csharp
+// Obtain an instance of TooltipProperty from the subsystem API first
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.SerializeTo(writer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TooltipProperty();
-value.RefreshValue();
+// Typically call this after obtaining an instance from the subsystem API
+TooltipProperty tooltipProperty = ...;
+tooltipProperty.RefreshValue();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

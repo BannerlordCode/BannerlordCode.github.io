@@ -1,23 +1,18 @@
 ---
 title: "BindingPath"
+description: "Auto-generated class reference for BindingPath."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BindingPath`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BindingPath
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class BindingPath`
-**Area:** core-extra
+**Base:** none
+**File:** `TaleWorlds.Library/BindingPath.cs`
 
 ## Overview
 
-`BindingPath` lives in `TaleWorlds.Library`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`BindingPath` lives in `TaleWorlds.Library` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -39,61 +34,116 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CreateFromProperty
 `public static BindingPath CreateFromProperty(string propertyName)`
 
-**Purpose:** Creates a new `from property` instance or object.
+**Purpose:** Constructs a new `from property` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BindingPath.CreateFromProperty("example");
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of BindingPath from the subsystem API first
+BindingPath bindingPath = ...;
+var result = bindingPath.GetHashCode();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of BindingPath from the subsystem API first
+BindingPath bindingPath = ...;
+var result = bindingPath.Equals(obj);
+```
 
 ### IsRelatedWithPathAsString
 `public static bool IsRelatedWithPathAsString(string path, string referencePath)`
 
-**Purpose:** Handles logic related to `is related with path as string`.
+**Purpose:** Determines whether the current object is in the `related with path as string` state or condition.
+
+```csharp
+// Static call; no instance required
+BindingPath.IsRelatedWithPathAsString("example", "example");
+```
 
 ### IsRelatedWithPath
 `public static bool IsRelatedWithPath(string path, BindingPath referencePath)`
 
-**Purpose:** Handles logic related to `is related with path`.
+**Purpose:** Determines whether the current object is in the `related with path` state or condition.
+
+```csharp
+// Static call; no instance required
+BindingPath.IsRelatedWithPath("example", referencePath);
+```
 
 ### IsRelatedWith
 `public bool IsRelatedWith(BindingPath referencePath)`
 
-**Purpose:** Handles logic related to `is related with`.
+**Purpose:** Determines whether the current object is in the `related with` state or condition.
+
+```csharp
+// Obtain an instance of BindingPath from the subsystem API first
+BindingPath bindingPath = ...;
+var result = bindingPath.IsRelatedWith(referencePath);
+```
 
 ### DecrementIfRelatedWith
 `public void DecrementIfRelatedWith(BindingPath path, int startIndex)`
 
-**Purpose:** Handles logic related to `decrement if related with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BindingPath from the subsystem API first
+BindingPath bindingPath = ...;
+bindingPath.DecrementIfRelatedWith(path, 0);
+```
 
 ### Simplify
 `public BindingPath Simplify()`
 
-**Purpose:** Handles logic related to `simplify`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BindingPath from the subsystem API first
+BindingPath bindingPath = ...;
+var result = bindingPath.Simplify();
+```
 
 ### Append
 `public BindingPath Append(BindingPath bindingPath)`
 
-**Purpose:** Handles logic related to `append`.
+**Purpose:** Appends `append` to the end of the current collection or sequence.
+
+```csharp
+// Obtain an instance of BindingPath from the subsystem API first
+BindingPath bindingPath = ...;
+var result = bindingPath.Append(bindingPath);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of BindingPath from the subsystem API first
+BindingPath bindingPath = ...;
+var result = bindingPath.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 BindingPath.CreateFromProperty("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-core)
+- [Area Index](../)

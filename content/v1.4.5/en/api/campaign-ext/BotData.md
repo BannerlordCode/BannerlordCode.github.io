@@ -1,20 +1,14 @@
 ---
 title: "BotData"
+description: "Auto-generated class reference for BotData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BotData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BotData
 
-**Namespace:** NetworkMessages.FromServer
-**Module:** NetworkMessages.FromServer
-**Type:** `public sealed class BotData : GameNetworkMessage`
-**Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/BotData.cs`
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class BotData`
+**Base:** none
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BotData.cs`
 
 ## Overview
 
@@ -28,18 +22,28 @@ Treat `BotData` as a Data-style extension point: first identify who creates it, 
 
 | Name | Signature |
 |------|-----------|
-| `Side` | `public BattleSideEnum Side { get; }` |
-| `KillCount` | `public int KillCount { get; }` |
-| `AssistCount` | `public int AssistCount { get; }` |
-| `DeathCount` | `public int DeathCount { get; }` |
-| `AliveBotCount` | `public int AliveBotCount { get; }` |
+| `IsAnyValid` | `public bool IsAnyValid { get; }` |
+
+## Key Methods
+
+### ResetKillDeathAssist
+`public void ResetKillDeathAssist()`
+
+**Purpose:** Returns `kill death assist` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BotData from the subsystem API first
+BotData botData = ...;
+botData.ResetKillDeathAssist();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BotData();
+// This data object is usually returned by campaign/mission APIs
+BotData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

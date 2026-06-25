@@ -1,13 +1,7 @@
 ---
 title: "KingdomClanFiefItemVM"
+description: "Auto-generated class reference for KingdomClanFiefItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomClanFiefItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomClanFiefItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of KingdomClanFiefItemVM from the subsystem API first
+KingdomClanFiefItemVM kingdomClanFiefItemVM = ...;
+kingdomClanFiefItemVM.RefreshValues();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of KingdomClanFiefItemVM from the subsystem API first
+KingdomClanFiefItemVM kingdomClanFiefItemVM = ...;
+kingdomClanFiefItemVM.ExecuteLink();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new KingdomClanFiefItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+KingdomClanFiefItemVM kingdomClanFiefItemVM = ...;
+kingdomClanFiefItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MemberTypeId"
+description: "Auto-generated class reference for MemberTypeId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MemberTypeId`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MemberTypeId
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct MemberTypeId`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/MemberTypeId.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/MemberTypeId.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of MemberTypeId from the subsystem API first
+MemberTypeId memberTypeId = ...;
+var result = memberTypeId.ToString();
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MemberTypeId from the subsystem API first
+MemberTypeId memberTypeId = ...;
+var result = memberTypeId.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MemberTypeId from the subsystem API first
+MemberTypeId memberTypeId = ...;
+var result = memberTypeId.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MemberTypeId();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+MemberTypeId memberTypeId = ...;
+memberTypeId.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

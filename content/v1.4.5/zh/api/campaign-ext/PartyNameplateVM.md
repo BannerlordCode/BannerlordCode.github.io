@@ -1,20 +1,14 @@
 ---
 title: "PartyNameplateVM"
+description: "PartyNameplateVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyNameplateVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyNameplateVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class PartyNameplateVM : NameplateVM`
 **Base:** `NameplateVM`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/PartyNameplateVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/PartyNameplateVM.cs`
 
 ## 概述
 
@@ -52,60 +46,121 @@ title: "PartyNameplateVM"
 ### InitializeWith
 `public void InitializeWith(MobileParty party, Camera mapCamera)`
 
-**用途 / Purpose:** 初始化 `with` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「with」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.InitializeWith(party, mapCamera);
+```
 
 ### Clear
 `public virtual void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.Clear();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshValues();
+```
 
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RegisterEvents();
+```
 
 ### UnregisterEvents
 `public void UnregisterEvents()`
 
-**用途 / Purpose:** 处理 `unregister events` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「events」。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.UnregisterEvents();
+```
 
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**用途 / Purpose:** 刷新 `dynamic properties` 的显示或缓存。
+**用途 / Purpose:** 使 「dynamic properties」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshDynamicProperties(false);
+```
 
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**用途 / Purpose:** 刷新 `position` 的显示或缓存。
+**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshPosition();
+```
 
 ### RefreshTutorialStatus
 `public override void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**用途 / Purpose:** 刷新 `tutorial status` 的显示或缓存。
+**用途 / Purpose:** 使 「tutorial status」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshTutorialStatus("example");
+```
 
 ### DetermineIsVisibleOnMap
 `public void DetermineIsVisibleOnMap()`
 
-**用途 / Purpose:** 处理 `determine is visible on map` 相关逻辑。
+**用途 / Purpose:** 根据当前状态判定「is visible on map」的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.DetermineIsVisibleOnMap();
+```
 
 ### RefreshBinding
 `public virtual void RefreshBinding()`
 
-**用途 / Purpose:** 刷新 `binding` 的显示或缓存。
+**用途 / Purpose:** 使 「binding」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 PartyNameplateVM 实例
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.RefreshBinding();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartyNameplateVM();
-value.InitializeWith(party, mapCamera);
+// 通常从对应子系统 API 获取实例后调用
+PartyNameplateVM partyNameplateVM = ...;
+partyNameplateVM.InitializeWith(party, mapCamera);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

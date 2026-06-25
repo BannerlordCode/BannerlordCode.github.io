@@ -1,20 +1,14 @@
 ---
 title: "IDiscoveryService"
+description: "Auto-generated class reference for IDiscoveryService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IDiscoveryService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IDiscoveryService
 
 **Namespace:** TaleWorlds.ServiceDiscovery.Client
 **Module:** TaleWorlds.ServiceDiscovery
-**Type:** `class`
+**Type:** `public interface IDiscoveryService`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/IDiscoveryService.cs`
+**File:** `bin/TaleWorlds.ServiceDiscovery.Client/TaleWorlds.ServiceDiscovery.Client/IDiscoveryService.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.ServiceDiscovery.Client` to place it in the sta
 ## Usage Example
 
 ```csharp
-IDiscoveryService implementation = GetDiscoveryServiceImplementation();
+// Usually obtained through DI or a factory method
+IIDiscoveryService service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "LocationCharacterMissionExtensions"
+description: "LocationCharacterMissionExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LocationCharacterMissionExtensions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LocationCharacterMissionExtensions
 
 **Namespace:** SandBox
@@ -29,7 +23,12 @@ title: "LocationCharacterMissionExtensions"
 ### GetAgentBuildData
 `public static AgentBuildData GetAgentBuildData(this LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** 获取 `agent build data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「agent build data」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+LocationCharacterMissionExtensions.GetAgentBuildData(locationCharacter);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ LocationCharacterMissionExtensions.GetAgentBuildData(locationCharacter);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

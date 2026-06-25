@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerMissionServerStatusVM"
+description: "MultiplayerMissionServerStatusVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerMissionServerStatusVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerMissionServerStatusVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerMissionServerStatusVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerMissionServerStatusVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/MultiplayerMissionServerStatusVM.cs`
 
 ## 概述
 
@@ -37,30 +31,55 @@ title: "MultiplayerMissionServerStatusVM"
 ### UpdatePacketLossRatio
 `public void UpdatePacketLossRatio(float v)`
 
-**用途 / Purpose:** 更新 `packet loss ratio` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「packet loss ratio」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionServerStatusVM 实例
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.UpdatePacketLossRatio(0);
+```
 
 ### UpdatePeerPing
 `public void UpdatePeerPing(double averagePingInMilliseconds)`
 
-**用途 / Purpose:** 更新 `peer ping` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「peer ping」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionServerStatusVM 实例
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.UpdatePeerPing(0);
+```
 
 ### UpdateServerPerformanceState
 `public void UpdateServerPerformanceState(ServerPerformanceState serverPerformanceState)`
 
-**用途 / Purpose:** 更新 `server performance state` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「server performance state」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionServerStatusVM 实例
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.UpdateServerPerformanceState(serverPerformanceState);
+```
 
 ### ResetStates
 `public void ResetStates()`
 
-**用途 / Purpose:** 将 `states` 重置为初始状态。
+**用途 / Purpose:** 将 「states」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerMissionServerStatusVM 实例
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.ResetStates();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MultiplayerMissionServerStatusVM();
-value.UpdatePacketLossRatio(0);
+// 通常从对应子系统 API 获取实例后调用
+MultiplayerMissionServerStatusVM multiplayerMissionServerStatusVM = ...;
+multiplayerMissionServerStatusVM.UpdatePacketLossRatio(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

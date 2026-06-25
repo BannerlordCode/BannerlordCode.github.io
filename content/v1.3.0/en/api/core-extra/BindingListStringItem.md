@@ -1,13 +1,7 @@
 ---
 title: "BindingListStringItem"
+description: "Auto-generated class reference for BindingListStringItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BindingListStringItem`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BindingListStringItem
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Generic
@@ -33,9 +27,10 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ## Usage Example
 
 ```csharp
-var example = new BindingListStringItem();
+// Obtain an instance from the relevant subsystem API
+BindingListStringItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "HitParticleResultData"
+description: "Auto-generated class reference for HitParticleResultData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HitParticleResultData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HitParticleResultData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,14 +23,21 @@ Treat `HitParticleResultData` as a Data-style extension point: first identify wh
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of HitParticleResultData from the subsystem API first
+HitParticleResultData hitParticleResultData = ...;
+hitParticleResultData.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HitParticleResultData();
+// This data object is usually returned by campaign/mission APIs
+HitParticleResultData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

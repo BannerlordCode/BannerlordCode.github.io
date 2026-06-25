@@ -1,20 +1,14 @@
 ---
 title: "MissionCommonAreaMarkerTargetVM"
+description: "Auto-generated class reference for MissionCommonAreaMarkerTargetVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionCommonAreaMarkerTargetVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionCommonAreaMarkerTargetVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker.Targets
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionCommonAreaMarkerTargetVM : MissionNameMarkerTargetVM<CommonAreaMarker>`
 **Base:** `MissionNameMarkerTargetVM<CommonAreaMarker>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets/MissionCommonAreaMarkerTargetVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.NameMarker.Targets/MissionCommonAreaMarkerTargetVM.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets` t
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionCommonAreaMarkerTargetVM from the subsystem API first
+MissionCommonAreaMarkerTargetVM missionCommonAreaMarkerTargetVM = ...;
+missionCommonAreaMarkerTargetVM.OnFinalize();
+```
 
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionCommonAreaMarkerTargetVM from the subsystem API first
+MissionCommonAreaMarkerTargetVM missionCommonAreaMarkerTargetVM = ...;
+missionCommonAreaMarkerTargetVM.UpdatePosition(missionCamera);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionCommonAreaMarkerTargetVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+MissionCommonAreaMarkerTargetVM missionCommonAreaMarkerTargetVM = ...;
+missionCommonAreaMarkerTargetVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

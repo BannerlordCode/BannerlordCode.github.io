@@ -1,13 +1,7 @@
 ---
 title: "SettlementUnderSiegeMapNotificationItemVM"
+description: "Auto-generated class reference for SettlementUnderSiegeMapNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementUnderSiegeMapNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementUnderSiegeMapNotificationItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of SettlementUnderSiegeMapNotificationItemVM from the subsystem API first
+SettlementUnderSiegeMapNotificationItemVM settlementUnderSiegeMapNotificationItemVM = ...;
+settlementUnderSiegeMapNotificationItemVM.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SettlementUnderSiegeMapNotificationItemVM();
-value.OnFinalize();
+// Typically call this after obtaining an instance from the subsystem API
+SettlementUnderSiegeMapNotificationItemVM settlementUnderSiegeMapNotificationItemVM = ...;
+settlementUnderSiegeMapNotificationItemVM.OnFinalize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

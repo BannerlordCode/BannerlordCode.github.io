@@ -1,13 +1,7 @@
 ---
 title: "ThumbnailCacheManager"
+description: "Auto-generated class reference for ThumbnailCacheManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ThumbnailCacheManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ThumbnailCacheManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus
@@ -36,97 +30,205 @@ Treat `ThumbnailCacheManager` as a Manager-style extension point: first identify
 ### IsCachedInventoryTableauSceneUsed
 `public bool IsCachedInventoryTableauSceneUsed()`
 
-**Purpose:** Handles logic related to `is cached inventory tableau scene used`.
+**Purpose:** Determines whether the current object is in the `cached inventory tableau scene used` state or condition.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.IsCachedInventoryTableauSceneUsed();
+```
 
 ### GetCachedInventoryTableauScene
 `public Scene GetCachedInventoryTableauScene()`
 
-**Purpose:** Gets the current value of `cached inventory tableau scene`.
+**Purpose:** Reads and returns the `cached inventory tableau scene` value held by the current object.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.GetCachedInventoryTableauScene();
+```
 
 ### ReturnCachedInventoryTableauScene
 `public void ReturnCachedInventoryTableauScene()`
 
-**Purpose:** Handles logic related to `return cached inventory tableau scene`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.ReturnCachedInventoryTableauScene();
+```
 
 ### IsCachedMapConversationTableauSceneUsed
 `public bool IsCachedMapConversationTableauSceneUsed()`
 
-**Purpose:** Handles logic related to `is cached map conversation tableau scene used`.
+**Purpose:** Determines whether the current object is in the `cached map conversation tableau scene used` state or condition.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.IsCachedMapConversationTableauSceneUsed();
+```
 
 ### GetCachedMapConversationTableauScene
 `public Scene GetCachedMapConversationTableauScene()`
 
-**Purpose:** Gets the current value of `cached map conversation tableau scene`.
+**Purpose:** Reads and returns the `cached map conversation tableau scene` value held by the current object.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.GetCachedMapConversationTableauScene();
+```
 
 ### ReturnCachedMapConversationTableauScene
 `public void ReturnCachedMapConversationTableauScene()`
 
-**Purpose:** Handles logic related to `return cached map conversation tableau scene`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.ReturnCachedMapConversationTableauScene();
+```
 
 ### GetNumberOfPendingRequests
 `public static int GetNumberOfPendingRequests()`
 
-**Purpose:** Gets the current value of `number of pending requests`.
+**Purpose:** Reads and returns the `number of pending requests` value held by the current object.
+
+```csharp
+// Static call; no instance required
+ThumbnailCacheManager.GetNumberOfPendingRequests();
+```
 
 ### IsNativeMemoryCleared
 `public static bool IsNativeMemoryCleared()`
 
-**Purpose:** Handles logic related to `is native memory cleared`.
+**Purpose:** Determines whether the current object is in the `native memory cleared` state or condition.
+
+```csharp
+// Static call; no instance required
+ThumbnailCacheManager.IsNativeMemoryCleared();
+```
 
 ### InitializeManager
 `public static void InitializeManager()`
 
-**Purpose:** Initializes the state, resources, or bindings for `manager`.
+**Purpose:** Prepares the resources, state, or bindings required by `manager`.
+
+```csharp
+// Static call; no instance required
+ThumbnailCacheManager.InitializeManager();
+```
 
 ### RegisterThumbnailCache
 `public void RegisterThumbnailCache(IThumbnailCache thumbnailCache)`
 
-**Purpose:** Handles logic related to `register thumbnail cache`.
+**Purpose:** Registers `thumbnail cache` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.RegisterThumbnailCache(thumbnailCache);
+```
 
 ### UnregisterThumbnailCache
 `public void UnregisterThumbnailCache(IThumbnailCache thumbnailCache)`
 
-**Purpose:** Handles logic related to `unregister thumbnail cache`.
+**Purpose:** Unregisters `thumbnail cache` from the current system.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.UnregisterThumbnailCache(thumbnailCache);
+```
 
 ### InitializeSandboxValues
 `public static void InitializeSandboxValues()`
 
-**Purpose:** Initializes the state, resources, or bindings for `sandbox values`.
+**Purpose:** Prepares the resources, state, or bindings required by `sandbox values`.
+
+```csharp
+// Static call; no instance required
+ThumbnailCacheManager.InitializeSandboxValues();
+```
 
 ### ReleaseSandboxValues
 `public static void ReleaseSandboxValues()`
 
-**Purpose:** Handles logic related to `release sandbox values`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+ThumbnailCacheManager.ReleaseSandboxValues();
+```
 
 ### ClearManager
 `public static void ClearManager()`
 
-**Purpose:** Handles logic related to `clear manager`.
+**Purpose:** Removes all `manager` from the current object.
+
+```csharp
+// Static call; no instance required
+ThumbnailCacheManager.ClearManager();
+```
 
 ### CreateTexture
 `public Texture CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Creates a new `texture` instance or object.
+**Purpose:** Constructs a new `texture` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.CreateTexture(thumbnailCreationData);
+```
 
 ### DestroyTexture
 `public void DestroyTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Handles logic related to `destroy texture`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.DestroyTexture(thumbnailCreationData);
+```
 
 ### ForceDestroyTexture
 `public void ForceDestroyTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Handles logic related to `force destroy texture`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.ForceDestroyTexture(thumbnailCreationData);
+```
 
 ### GetCachedHeroSilhouetteTexture
 `public Texture GetCachedHeroSilhouetteTexture()`
 
-**Purpose:** Gets the current value of `cached hero silhouette texture`.
+**Purpose:** Reads and returns the `cached hero silhouette texture` value held by the current object.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+var result = thumbnailCacheManager.GetCachedHeroSilhouetteTexture();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of ThumbnailCacheManager from the subsystem API first
+ThumbnailCacheManager thumbnailCacheManager = ...;
+thumbnailCacheManager.Tick(0);
+```
 
 ## Usage Example
 
@@ -136,4 +238,4 @@ var manager = ThumbnailCacheManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

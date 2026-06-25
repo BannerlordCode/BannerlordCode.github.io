@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyFriendsVM"
+description: "MPLobbyFriendsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPLobbyFriendsVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyFriendsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyFriendsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyFriendsVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Friends/MPLobbyFriendsVM.cs`
 
 ## 概述
 
@@ -54,80 +48,165 @@ title: "MPLobbyFriendsVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnFinalize();
+```
 
 ### OnStateActivate
 `public void OnStateActivate()`
 
-**用途 / Purpose:** 当 `state activate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「state activate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnStateActivate();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnTick(0);
+```
 
 ### OnPlayerInvitedToParty
 `public void OnPlayerInvitedToParty(PlayerId playerId)`
 
-**用途 / Purpose:** 当 `player invited to party` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player invited to party」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnPlayerInvitedToParty(playerId);
+```
 
 ### OnPlayerAddedToParty
 `public void OnPlayerAddedToParty(PlayerId playerId)`
 
-**用途 / Purpose:** 当 `player added to party` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player added to party」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnPlayerAddedToParty(playerId);
+```
 
 ### OnPlayerRemovedFromParty
 `public void OnPlayerRemovedFromParty(PlayerId playerId)`
 
-**用途 / Purpose:** 当 `player removed from party` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「player removed from party」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnPlayerRemovedFromParty(playerId);
+```
 
 ### UpdateCanInviteOtherPlayersToParty
 `public void UpdateCanInviteOtherPlayersToParty()`
 
-**用途 / Purpose:** 更新 `can invite other players to party` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「can invite other players to party」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.UpdateCanInviteOtherPlayersToParty();
+```
 
 ### UpdatePartyLeader
 `public void UpdatePartyLeader()`
 
-**用途 / Purpose:** 更新 `party leader` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「party leader」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.UpdatePartyLeader();
+```
 
 ### OnFriendRequestNotificationsReceived
 `public void OnFriendRequestNotificationsReceived(List<LobbyNotification> notifications)`
 
-**用途 / Purpose:** 当 `friend request notifications received` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「friend request notifications received」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnFriendRequestNotificationsReceived(notifications);
+```
 
 ### GetAllFriends
 `public MBBindingList<MPLobbyPlayerBaseVM> GetAllFriends()`
 
-**用途 / Purpose:** 获取 `all friends` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all friends」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+var result = mPLobbyFriendsVM.GetAllFriends();
+```
 
 ### OnSupportedFeaturesRefreshed
 `public void OnSupportedFeaturesRefreshed(SupportedFeatures supportedFeatures)`
 
-**用途 / Purpose:** 当 `supported features refreshed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「supported features refreshed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnSupportedFeaturesRefreshed(supportedFeatures);
+```
 
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**用途 / Purpose:** 当 `friend list updated` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「friend list updated」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.OnFriendListUpdated(false);
+```
 
 ### SetToggleFriendListKey
 `public void SetToggleFriendListKey(HotKey hotkey)`
 
-**用途 / Purpose:** 设置 `toggle friend list key` 的值或状态。
+**用途 / Purpose:** 为 「toggle friend list key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MPLobbyFriendsVM 实例
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.SetToggleFriendListKey(hotkey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPLobbyFriendsVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPLobbyFriendsVM mPLobbyFriendsVM = ...;
+mPLobbyFriendsVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "PlayerIdExtensions"
+description: "Auto-generated class reference for PlayerIdExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerIdExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerIdExtensions
 
 **Namespace:** TaleWorlds.PlayerServices
 **Module:** TaleWorlds.PlayerServices
 **Type:** `public static class PlayerIdExtensions`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerIdExtensions.cs`
+**File:** `bin/TaleWorlds.PlayerServices/TaleWorlds.PlayerServices/PlayerIdExtensions.cs`
 
 ## Overview
 
@@ -29,7 +23,12 @@ Start from namespace `TaleWorlds.PlayerServices` to place it in the stack, then 
 ### SupportsPlayerCard
 `public static bool SupportsPlayerCard(this PlayerIdProvidedTypes type)`
 
-**Purpose:** Handles logic related to `supports player card`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+PlayerIdExtensions.SupportsPlayerCard(type);
+```
 
 ## Usage Example
 
@@ -39,4 +38,4 @@ PlayerIdExtensions.SupportsPlayerCard(type);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

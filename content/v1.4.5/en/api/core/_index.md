@@ -1,15 +1,20 @@
 ---
-title: Core
-description: Entry page for v1.4.5 core references
+title: "core index"
+description: Core data types class reference index
 ---
-# Core
+<!-- BEGIN SECTION INDEX -->
 
-## Mental Model
+## Parent Navigation
 
-Treat `Core` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+- [API Reference](../)
+- [Version Home](../../)
 
-This area groups the v1.4.5 core-facing reference pages.
+## Child Classes — Alphabetical
 
-- [← Back to API Index](../)
-- [📋 Back to Core Catalog](../catalog-core)
-- [🏠 Back to v1.4.5 Home](../../)
+### M
+
+- [MBSubModuleBase](./MBSubModuleBase)
+- [Module](./Module)
+
+
+<!-- END SECTION INDEX -->

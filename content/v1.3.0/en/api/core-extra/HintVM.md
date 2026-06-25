@@ -1,13 +1,7 @@
 ---
 title: "HintVM"
+description: "Auto-generated class reference for HintVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HintVM`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HintVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -35,7 +29,12 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Information` to place 
 ### RefreshGenericHintTooltip
 `public static void RefreshGenericHintTooltip(HintVM hint, object args)`
 
-**Purpose:** Refreshes the display or cache of `generic hint tooltip`.
+**Purpose:** Keeps the display or cache of `generic hint tooltip` in sync with the underlying state.
+
+```csharp
+// Static call; no instance required
+HintVM.RefreshGenericHintTooltip(hint, args);
+```
 
 ## Usage Example
 
@@ -45,4 +44,4 @@ HintVM.RefreshGenericHintTooltip(hint, args);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

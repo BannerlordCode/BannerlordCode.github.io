@@ -1,20 +1,14 @@
 ---
 title: "CharacterHelper"
+description: "Auto-generated class reference for CharacterHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterHelper`
-- [← Area / Back to system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterHelper
 
 **Namespace:** Helpers
 **Module:** Helpers
 **Type:** `public static class CharacterHelper`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/Helpers/CharacterHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/Helpers/CharacterHelper.cs`
 
 ## Overview
 
@@ -29,92 +23,182 @@ Treat `CharacterHelper` as a Helper-style extension point: first identify who cr
 ### GetDeathNotification
 `public static TextObject GetDeathNotification(Hero victimHero, Hero killer, KillCharacterAction.KillCharacterActionDetail detail)`
 
-**Purpose:** Gets the current value of `death notification`.
+**Purpose:** Reads and returns the `death notification` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetDeathNotification(victimHero, killer, detail);
+```
 
 ### GetDynamicBodyPropertiesBetweenMinMaxRange
 `public static DynamicBodyProperties GetDynamicBodyPropertiesBetweenMinMaxRange(CharacterObject character)`
 
-**Purpose:** Gets the current value of `dynamic body properties between min max range`.
+**Purpose:** Reads and returns the `dynamic body properties between min max range` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetDynamicBodyPropertiesBetweenMinMaxRange(character);
+```
 
 ### GetReputationDescription
 `public static TextObject GetReputationDescription(CharacterObject character)`
 
-**Purpose:** Gets the current value of `reputation description`.
+**Purpose:** Reads and returns the `reputation description` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetReputationDescription(character);
+```
 
 ### GetFaceGeneratorFilter
 `public static IFaceGeneratorCustomFilter GetFaceGeneratorFilter()`
 
-**Purpose:** Gets the current value of `face generator filter`.
+**Purpose:** Reads and returns the `face generator filter` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetFaceGeneratorFilter();
+```
 
 ### GetNonconversationPose
 `public static string GetNonconversationPose(CharacterObject character)`
 
-**Purpose:** Gets the current value of `nonconversation pose`.
+**Purpose:** Reads and returns the `nonconversation pose` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetNonconversationPose(character);
+```
 
 ### GetNonconversationFacialIdle
 `public static string GetNonconversationFacialIdle(CharacterObject character)`
 
-**Purpose:** Gets the current value of `nonconversation facial idle`.
+**Purpose:** Reads and returns the `nonconversation facial idle` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetNonconversationFacialIdle(character);
+```
 
 ### GetStandingBodyIdle
 `public static string GetStandingBodyIdle(CharacterObject character, PartyBase party)`
 
-**Purpose:** Gets the current value of `standing body idle`.
+**Purpose:** Reads and returns the `standing body idle` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetStandingBodyIdle(character, party);
+```
 
 ### GetDefaultFaceIdle
 `public static string GetDefaultFaceIdle(CharacterObject character)`
 
-**Purpose:** Gets the current value of `default face idle`.
+**Purpose:** Reads and returns the `default face idle` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetDefaultFaceIdle(character);
+```
 
 ### FindUpgradeRootOf
 `public static CharacterObject FindUpgradeRootOf(CharacterObject character)`
 
-**Purpose:** Handles logic related to `find upgrade root of`.
+**Purpose:** Looks up the matching `upgrade root of` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.FindUpgradeRootOf(character);
+```
 
 ### GetDefaultWeapon
 `public static ItemObject GetDefaultWeapon(CharacterObject affectorCharacter)`
 
-**Purpose:** Gets the current value of `default weapon`.
+**Purpose:** Reads and returns the `default weapon` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetDefaultWeapon(affectorCharacter);
+```
 
 ### CanUseItem
 `public static bool CanUseItem(BasicCharacterObject currentCharacter, EquipmentElement itemRosterElement)`
 
-**Purpose:** Checks whether the current object can `use item`.
+**Purpose:** Checks whether the current object meets the preconditions for `use item`.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.CanUseItem(currentCharacter, itemRosterElement);
+```
 
 ### CanUseItem
 `public static bool CanUseItem(BasicCharacterObject currentCharacter, EquipmentElement itemRosterElement, out TextObject reason)`
 
-**Purpose:** Checks whether the current object can `use item`.
+**Purpose:** Checks whether the current object meets the preconditions for `use item`.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.CanUseItem(currentCharacter, itemRosterElement, reason);
+```
 
 ### GetPartyMemberFaceSeed
 `public static int GetPartyMemberFaceSeed(PartyBase party, BasicCharacterObject character, int rank)`
 
-**Purpose:** Gets the current value of `party member face seed`.
+**Purpose:** Reads and returns the `party member face seed` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetPartyMemberFaceSeed(party, character, 0);
+```
 
 ### GetDefaultFaceSeed
 `public static int GetDefaultFaceSeed(BasicCharacterObject character, int rank)`
 
-**Purpose:** Gets the current value of `default face seed`.
+**Purpose:** Reads and returns the `default face seed` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetDefaultFaceSeed(character, 0);
+```
 
 ### SearchForFormationInTroopTree
 `public static bool SearchForFormationInTroopTree(CharacterObject baseTroop, FormationClass formation)`
 
-**Purpose:** Handles logic related to `search for formation in troop tree`.
+**Purpose:** Searches for `for formation in troop tree` entries that meet the given criteria.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.SearchForFormationInTroopTree(baseTroop, formation);
+```
 
 ### GetTroopTree
 `public static IEnumerable<CharacterObject> GetTroopTree(CharacterObject baseTroop, float minTier = -1f, float maxTier = float.MaxValue)`
 
-**Purpose:** Gets the current value of `troop tree`.
+**Purpose:** Reads and returns the `troop tree` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetTroopTree(baseTroop, 0, 0);
+```
 
 ### DeleteQuestCharacter
 `public static void DeleteQuestCharacter(CharacterObject character, Settlement questSettlement)`
 
-**Purpose:** Handles logic related to `delete quest character`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.DeleteQuestCharacter(character, questSettlement);
+```
 
 ### GetRandomCompanionTemplateWithPredicate
 `public static CharacterObject GetRandomCompanionTemplateWithPredicate(Func<CharacterObject, bool> predicate = null)`
 
-**Purpose:** Gets the current value of `random companion template with predicate`.
+**Purpose:** Reads and returns the `random companion template with predicate` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CharacterHelper.GetRandomCompanionTemplateWithPredicate(func<CharacterObject, false);
+```
 
 ## Usage Example
 
@@ -124,4 +208,4 @@ CharacterHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

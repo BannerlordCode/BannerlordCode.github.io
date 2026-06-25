@@ -1,20 +1,14 @@
 ---
 title: "ClothingCosmeticElement"
+description: "Auto-generated class reference for ClothingCosmeticElement."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClothingCosmeticElement`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClothingCosmeticElement
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClothingCosmeticElement : CosmeticElement`
 **Base:** `CosmeticElement`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/ClothingCosmeticElement.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/ClothingCosmeticElement.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes` 
 ## Usage Example
 
 ```csharp
-var example = new ClothingCosmeticElement();
+// Obtain an instance from the relevant subsystem API
+ClothingCosmeticElement instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

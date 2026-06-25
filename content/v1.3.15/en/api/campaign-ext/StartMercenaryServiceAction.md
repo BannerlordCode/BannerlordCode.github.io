@@ -1,18 +1,8 @@
 ---
 title: "StartMercenaryServiceAction"
+description: "Auto-generated campaign action reference for StartMercenaryServiceAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StartMercenaryServiceAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # StartMercenaryServiceAction
-
-## Mental Model
-
-Treat `StartMercenaryServiceAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -40,5 +30,5 @@ StartMercenaryServiceAction.ApplyByDefault(clan, kingdom, 100);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

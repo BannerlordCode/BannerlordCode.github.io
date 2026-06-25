@@ -1,20 +1,14 @@
 ---
 title: "ControllerCondition"
+description: "Auto-generated class reference for ControllerCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ControllerCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ControllerCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ControllerCondition : MPPerkCondition`
 **Base:** `MPPerkCondition`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/ControllerCondition.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/ControllerCondition.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of ControllerCondition from the subsystem API first
+ControllerCondition controllerCondition = ...;
+var result = controllerCondition.Check(peer);
+```
 
 ### Check
 `public override bool Check(Agent agent)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of ControllerCondition from the subsystem API first
+ControllerCondition controllerCondition = ...;
+var result = controllerCondition.Check(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ControllerCondition();
-value.Check(peer);
+// Typically call this after obtaining an instance from the subsystem API
+ControllerCondition controllerCondition = ...;
+controllerCondition.Check(peer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

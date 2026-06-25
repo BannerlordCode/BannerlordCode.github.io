@@ -1,13 +1,7 @@
 ---
 title: "Hideout"
+description: "Auto-generated class reference for Hideout."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Hideout`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Hideout
 
 **Namespace:** TaleWorlds.CampaignSystem.Settlements
@@ -39,50 +33,99 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### UpdateNextPossibleAttackTime
 `public void UpdateNextPossibleAttackTime()`
 
-**Purpose:** Updates the state or data of `next possible attack time`.
+**Purpose:** Recalculates and stores the latest representation of `next possible attack time`.
+
+```csharp
+// Obtain an instance of Hideout from the subsystem API first
+Hideout hideout = ...;
+hideout.UpdateNextPossibleAttackTime();
+```
 
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**Purpose:** Gets the current value of `defender parties`.
+**Purpose:** Reads and returns the `defender parties` value held by the current object.
+
+```csharp
+// Obtain an instance of Hideout from the subsystem API first
+Hideout hideout = ...;
+var result = hideout.GetDefenderParties(battleType);
+```
 
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**Purpose:** Gets the current value of `next defender party`.
+**Purpose:** Reads and returns the `next defender party` value held by the current object.
+
+```csharp
+// Obtain an instance of Hideout from the subsystem API first
+Hideout hideout = ...;
+var result = hideout.GetNextDefenderParty(partyIndex, battleType);
+```
 
 ### OnPartyEntered
 `public override void OnPartyEntered(MobileParty mobileParty)`
 
-**Purpose:** Called when the `party entered` event is raised.
+**Purpose:** Invoked when the `party entered` event is raised.
+
+```csharp
+// Obtain an instance of Hideout from the subsystem API first
+Hideout hideout = ...;
+hideout.OnPartyEntered(mobileParty);
+```
 
 ### OnPartyLeft
 `public override void OnPartyLeft(MobileParty mobileParty)`
 
-**Purpose:** Called when the `party left` event is raised.
+**Purpose:** Invoked when the `party left` event is raised.
+
+```csharp
+// Obtain an instance of Hideout from the subsystem API first
+Hideout hideout = ...;
+hideout.OnPartyLeft(mobileParty);
+```
 
 ### OnRelatedPartyRemoved
 `public override void OnRelatedPartyRemoved(MobileParty mobileParty)`
 
-**Purpose:** Called when the `related party removed` event is raised.
+**Purpose:** Invoked when the `related party removed` event is raised.
+
+```csharp
+// Obtain an instance of Hideout from the subsystem API first
+Hideout hideout = ...;
+hideout.OnRelatedPartyRemoved(mobileParty);
+```
 
 ### OnInit
 `public override void OnInit()`
 
-**Purpose:** Called when the `init` event is raised.
+**Purpose:** Invoked when the `init` event is raised.
+
+```csharp
+// Obtain an instance of Hideout from the subsystem API first
+Hideout hideout = ...;
+hideout.OnInit();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of Hideout from the subsystem API first
+Hideout hideout = ...;
+hideout.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Hideout();
-value.UpdateNextPossibleAttackTime();
+// Typically call this after obtaining an instance from the subsystem API
+Hideout hideout = ...;
+hideout.UpdateNextPossibleAttackTime();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

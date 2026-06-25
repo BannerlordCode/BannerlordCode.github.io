@@ -1,20 +1,14 @@
 ---
 title: "TWException"
+description: "Auto-generated class reference for TWException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TWException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TWException
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class TWException : ApplicationException`
 **Base:** `ApplicationException`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TWException.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TWException.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `TWException` as a Exception-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-try { CallTWException(); } catch (TWException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (TWException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

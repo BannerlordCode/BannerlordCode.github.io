@@ -1,13 +1,7 @@
 ---
 title: "HeirSelectionPopupVM"
+description: "Auto-generated class reference for HeirSelectionPopupVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeirSelectionPopupVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeirSelectionPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.HeirSelectionPopup
@@ -45,35 +39,66 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.HeirSele
 ### Update
 `public void Update()`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of HeirSelectionPopupVM from the subsystem API first
+HeirSelectionPopupVM heirSelectionPopupVM = ...;
+heirSelectionPopupVM.Update();
+```
 
 ### ExecuteSelectHeir
 `public void ExecuteSelectHeir()`
 
-**Purpose:** Executes the `select heir` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select heir`.
+
+```csharp
+// Obtain an instance of HeirSelectionPopupVM from the subsystem API first
+HeirSelectionPopupVM heirSelectionPopupVM = ...;
+heirSelectionPopupVM.ExecuteSelectHeir();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of HeirSelectionPopupVM from the subsystem API first
+HeirSelectionPopupVM heirSelectionPopupVM = ...;
+heirSelectionPopupVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of HeirSelectionPopupVM from the subsystem API first
+HeirSelectionPopupVM heirSelectionPopupVM = ...;
+heirSelectionPopupVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of HeirSelectionPopupVM from the subsystem API first
+HeirSelectionPopupVM heirSelectionPopupVM = ...;
+heirSelectionPopupVM.SetDoneInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeirSelectionPopupVM();
-value.Update();
+// Typically call this after obtaining an instance from the subsystem API
+HeirSelectionPopupVM heirSelectionPopupVM = ...;
+heirSelectionPopupVM.Update();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SpawnerEntityEditorHelper"
+description: "Auto-generated class reference for SpawnerEntityEditorHelper."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpawnerEntityEditorHelper`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpawnerEntityEditorHelper
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,37 +30,79 @@ Treat `SpawnerEntityEditorHelper` as a Helper-style extension point: first ident
 ### GetGhostEntityOrChild
 `public GameEntity GetGhostEntityOrChild(string name)`
 
-**Purpose:** Gets the current value of `ghost entity or child`.
+**Purpose:** Reads and returns the `ghost entity or child` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
+SpawnerEntityEditorHelper spawnerEntityEditorHelper = ...;
+var result = spawnerEntityEditorHelper.GetGhostEntityOrChild("example");
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
+SpawnerEntityEditorHelper spawnerEntityEditorHelper = ...;
+spawnerEntityEditorHelper.Tick(0);
+```
 
 ### GivePermission
 `public void GivePermission(string childName, SpawnerEntityEditorHelper.Permission permission, Action<float> onChangeFunction)`
 
-**Purpose:** Handles logic related to `give permission`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
+SpawnerEntityEditorHelper spawnerEntityEditorHelper = ...;
+spawnerEntityEditorHelper.GivePermission("example", permission, onChangeFunction);
+```
 
 ### ChangeStableChildMatrixFrameAndApply
 `public void ChangeStableChildMatrixFrameAndApply(string childName, MatrixFrame matrixFrame, bool updateTriad = true)`
 
-**Purpose:** Handles logic related to `change stable child matrix frame and apply`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
+SpawnerEntityEditorHelper spawnerEntityEditorHelper = ...;
+spawnerEntityEditorHelper.ChangeStableChildMatrixFrameAndApply("example", matrixFrame, false);
+```
 
 ### GetPrefabName
 `public string GetPrefabName()`
 
-**Purpose:** Gets the current value of `prefab name`.
+**Purpose:** Reads and returns the `prefab name` value held by the current object.
+
+```csharp
+// Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
+SpawnerEntityEditorHelper spawnerEntityEditorHelper = ...;
+var result = spawnerEntityEditorHelper.GetPrefabName();
+```
 
 ### SetupGhostMovement
 `public void SetupGhostMovement(string pathName)`
 
-**Purpose:** Sets the value or state of `up ghost movement`.
+**Purpose:** Assigns a new value to `up ghost movement` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
+SpawnerEntityEditorHelper spawnerEntityEditorHelper = ...;
+spawnerEntityEditorHelper.SetupGhostMovement("example");
+```
 
 ### SetEnableAutoGhostMovement
 `public void SetEnableAutoGhostMovement(bool enableAutoGhostMovement)`
 
-**Purpose:** Sets the value or state of `enable auto ghost movement`.
+**Purpose:** Assigns a new value to `enable auto ghost movement` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
+SpawnerEntityEditorHelper spawnerEntityEditorHelper = ...;
+spawnerEntityEditorHelper.SetEnableAutoGhostMovement(false);
+```
 
 ## Usage Example
 
@@ -76,4 +112,4 @@ SpawnerEntityEditorHelper.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

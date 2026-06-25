@@ -1,20 +1,14 @@
 ---
 title: "ChangeGamePoll"
+description: "Auto-generated class reference for ChangeGamePoll."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ChangeGamePoll`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ChangeGamePoll
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class ChangeGamePoll : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ChangeGamePoll.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/ChangeGamePoll.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new ChangeGamePoll();
+// Obtain an instance from the relevant subsystem API
+ChangeGamePoll instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "BotData"
+description: "Auto-generated class reference for BotData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BotData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BotData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,14 +30,21 @@ Treat `BotData` as a Data-style extension point: first identify who creates it, 
 ### ResetKillDeathAssist
 `public void ResetKillDeathAssist()`
 
-**Purpose:** Resets `kill death assist` to its initial state.
+**Purpose:** Returns `kill death assist` to its default or initial condition.
+
+```csharp
+// Obtain an instance of BotData from the subsystem API first
+BotData botData = ...;
+botData.ResetKillDeathAssist();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BotData();
+// This data object is usually returned by campaign/mission APIs
+BotData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

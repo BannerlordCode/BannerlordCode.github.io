@@ -1,13 +1,7 @@
 ---
 title: "BannerlordMissions"
+description: "BannerlordMissions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerlordMissions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordMissions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,22 +23,42 @@ title: "BannerlordMissions"
 ### CreateAtmosphereInfoForMission
 `public static AtmosphereInfo CreateAtmosphereInfoForMission(string seasonId, int timeOfDay)`
 
-**用途 / Purpose:** 创建一个 `atmosphere info for mission` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「atmosphere info for mission」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordMissions.CreateAtmosphereInfoForMission("example", 0);
+```
 
 ### OpenCustomBattleMission
 `public static Mission OpenCustomBattleMission(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, bool isPlayerGeneral, BasicCharacterObject playerSideGeneralCharacter, string sceneLevels = "", string seasonString = "", float timeOfDay = 6f)`
 
-**用途 / Purpose:** 处理 `open custom battle mission` 相关逻辑。
+**用途 / Purpose:** 打开「custom battle mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordMissions.OpenCustomBattleMission("example", playerCharacter, playerParty, enemyParty, false, playerSideGeneralCharacter, "example", "example", 0);
+```
 
 ### OpenSiegeMissionWithDeployment
 `public static Mission OpenSiegeMissionWithDeployment(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, bool isPlayerGeneral, float wallHitPointPercentages, bool hasAnySiegeTower, List<MissionSiegeWeapon> siegeWeaponsOfAttackers, List<MissionSiegeWeapon> siegeWeaponsOfDefenders, bool isPlayerAttacker, int sceneUpgradeLevel = 0, string seasonString = "", bool isSallyOut = false, bool isReliefForceAttack = false, float timeOfDay = 6f)`
 
-**用途 / Purpose:** 处理 `open siege mission with deployment` 相关逻辑。
+**用途 / Purpose:** 打开「siege mission with deployment」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordMissions.OpenSiegeMissionWithDeployment("example", playerCharacter, playerParty, enemyParty, false, 0, false, siegeWeaponsOfAttackers, siegeWeaponsOfDefenders, false, 0, "example", false, false, 0);
+```
 
 ### OpenCustomBattleLordsHallMission
 `public static Mission OpenCustomBattleLordsHallMission(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, BasicCharacterObject playerSideGeneralCharacter, string sceneLevels = "", int sceneUpgradeLevel = 0, string seasonString = "")`
 
-**用途 / Purpose:** 处理 `open custom battle lords hall mission` 相关逻辑。
+**用途 / Purpose:** 打开「custom battle lords hall mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordMissions.OpenCustomBattleLordsHallMission("example", playerCharacter, playerParty, enemyParty, playerSideGeneralCharacter, "example", 0, "example");
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ BannerlordMissions.CreateAtmosphereInfoForMission("example", 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

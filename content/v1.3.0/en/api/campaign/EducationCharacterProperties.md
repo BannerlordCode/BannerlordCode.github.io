@@ -1,13 +1,7 @@
 ---
 title: "EducationCharacterProperties"
+description: "Auto-generated class reference for EducationCharacterProperties."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EducationCharacterProperties`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationCharacterProperties
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### Equals
 `public bool Equals(EducationCampaignBehavior.EducationCharacterProperties other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of EducationCharacterProperties from the subsystem API first
+EducationCharacterProperties educationCharacterProperties = ...;
+var result = educationCharacterProperties.Equals(other);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of EducationCharacterProperties from the subsystem API first
+EducationCharacterProperties educationCharacterProperties = ...;
+var result = educationCharacterProperties.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of EducationCharacterProperties from the subsystem API first
+EducationCharacterProperties educationCharacterProperties = ...;
+var result = educationCharacterProperties.GetHashCode();
+```
 
 ### GetUsedHandBoneIndex
 `public sbyte GetUsedHandBoneIndex()`
 
-**Purpose:** Gets the current value of `used hand bone index`.
+**Purpose:** Reads and returns the `used hand bone index` value held by the current object.
+
+```csharp
+// Obtain an instance of EducationCharacterProperties from the subsystem API first
+EducationCharacterProperties educationCharacterProperties = ...;
+var result = educationCharacterProperties.GetUsedHandBoneIndex();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EducationCharacterProperties();
-value.Equals(other);
+// Typically call this after obtaining an instance from the subsystem API
+EducationCharacterProperties educationCharacterProperties = ...;
+educationCharacterProperties.Equals(other);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

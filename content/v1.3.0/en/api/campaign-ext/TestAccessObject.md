@@ -1,13 +1,7 @@
 ---
 title: "TestAccessObject"
+description: "Auto-generated class reference for TestAccessObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestAccessObject`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestAccessObject
 
 **Namespace:** TaleWorlds.Diamond
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new TestAccessObject();
+// Obtain an instance from the relevant subsystem API
+TestAccessObject instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

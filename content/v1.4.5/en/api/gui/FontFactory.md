@@ -1,20 +1,14 @@
 ---
 title: "FontFactory"
+description: "Auto-generated class reference for FontFactory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FontFactory`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FontFactory
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class FontFactory`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/FontFactory.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/FontFactory.cs`
 
 ## Overview
 
@@ -36,60 +30,121 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### LoadAllFonts
 `public void LoadAllFonts(SpriteData spriteData)`
 
-**Purpose:** Loads `all fonts` data.
+**Purpose:** Reads `all fonts` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+fontFactory.LoadAllFonts(spriteData);
+```
 
 ### TryAddFontDefinition
 `public bool TryAddFontDefinition(string fontPath, string fontName, SpriteData spriteData)`
 
-**Purpose:** Attempts to get `add font definition`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `add font definition`, usually returning success through an out parameter.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+var result = fontFactory.TryAddFontDefinition("example", "example", spriteData);
+```
 
 ### LoadLocalizationValues
 `public void LoadLocalizationValues(string sourceXMLPath)`
 
-**Purpose:** Loads `localization values` data.
+**Purpose:** Reads `localization values` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+fontFactory.LoadLocalizationValues("example");
+```
 
 ### GetFont
 `public Font GetFont(string fontName)`
 
-**Purpose:** Gets the current value of `font`.
+**Purpose:** Reads and returns the `font` value held by the current object.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+var result = fontFactory.GetFont("example");
+```
 
 ### GetFonts
 `public IEnumerable<Font> GetFonts()`
 
-**Purpose:** Gets the current value of `fonts`.
+**Purpose:** Reads and returns the `fonts` value held by the current object.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+var result = fontFactory.GetFonts();
+```
 
 ### GetFontName
 `public string GetFontName(Font font)`
 
-**Purpose:** Gets the current value of `font name`.
+**Purpose:** Reads and returns the `font name` value held by the current object.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+var result = fontFactory.GetFontName(font);
+```
 
 ### GetMappedFontForLocalization
 `public Font GetMappedFontForLocalization(string englishFontName)`
 
-**Purpose:** Gets the current value of `mapped font for localization`.
+**Purpose:** Reads and returns the `mapped font for localization` value held by the current object.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+var result = fontFactory.GetMappedFontForLocalization("example");
+```
 
 ### OnLanguageChange
 `public void OnLanguageChange(string newLanguageCode)`
 
-**Purpose:** Called when the `language change` event is raised.
+**Purpose:** Invoked when the `language change` event is raised.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+fontFactory.OnLanguageChange("example");
+```
 
 ### GetUsableFontForCharacter
 `public Font GetUsableFontForCharacter(int characterCode)`
 
-**Purpose:** Gets the current value of `usable font for character`.
+**Purpose:** Reads and returns the `usable font for character` value held by the current object.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+var result = fontFactory.GetUsableFontForCharacter(0);
+```
 
 ### CheckForUpdates
 `public void CheckForUpdates()`
 
-**Purpose:** Handles logic related to `check for updates`.
+**Purpose:** Verifies whether `for updates` holds true for the current object.
+
+```csharp
+// Obtain an instance of FontFactory from the subsystem API first
+FontFactory fontFactory = ...;
+fontFactory.CheckForUpdates();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FontFactory();
-value.LoadAllFonts(spriteData);
+// Typically call this after obtaining an instance from the subsystem API
+FontFactory fontFactory = ...;
+fontFactory.LoadAllFonts(spriteData);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBMultiplayerData"
+description: "MBMultiplayerData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBMultiplayerData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBMultiplayerData
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MBMultiplayerData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBMultiplayerData.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBMultiplayerData.cs`
 
 ## 概述
 
@@ -35,54 +29,101 @@ title: "MBMultiplayerData"
 ### GameServerInfoReceivedDelegate
 `public delegate void GameServerInfoReceivedDelegate(CustomBattleId id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
 
-**用途 / Purpose:** 处理 `game server info received delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MBMultiplayerData 实例
+MBMultiplayerData mBMultiplayerData = ...;
+mBMultiplayerData.GameServerInfoReceivedDelegate(id, "example", "example", "example", "example", 0, 0, "example", 0);
+```
 
 ### GetServerId
 `public static string GetServerId()`
 
-**用途 / Purpose:** 获取 `server id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「server id」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMultiplayerData.GetServerId();
+```
 
 ### GetServerName
 `public static string GetServerName()`
 
-**用途 / Purpose:** 获取 `server name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「server name」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMultiplayerData.GetServerName();
+```
 
 ### GetGameModule
 `public static string GetGameModule()`
 
-**用途 / Purpose:** 获取 `game module` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「game module」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMultiplayerData.GetGameModule();
+```
 
 ### GetGameType
 `public static string GetGameType()`
 
-**用途 / Purpose:** 获取 `game type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「game type」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMultiplayerData.GetGameType();
+```
 
 ### GetMap
 `public static string GetMap()`
 
-**用途 / Purpose:** 获取 `map` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「map」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMultiplayerData.GetMap();
+```
 
 ### GetCurrentPlayerCount
 `public static int GetCurrentPlayerCount()`
 
-**用途 / Purpose:** 获取 `current player count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current player count」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMultiplayerData.GetCurrentPlayerCount();
+```
 
 ### GetPlayerCountLimit
 `public static int GetPlayerCountLimit()`
 
-**用途 / Purpose:** 获取 `player count limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player count limit」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MBMultiplayerData.GetPlayerCountLimit();
+```
 
 ### UpdateGameServerInfo
 `public static void UpdateGameServerInfo(string id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
 
-**用途 / Purpose:** 更新 `game server info` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「game server info」 的最新表示。
+
+```csharp
+// 静态调用，不需要实例
+MBMultiplayerData.UpdateGameServerInfo("example", "example", "example", "example", "example", 0, 0, "example", 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBMultiplayerData();
+// 该数据对象通常由战役/任务 API 返回
+MBMultiplayerData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

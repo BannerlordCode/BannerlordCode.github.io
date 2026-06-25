@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerClassLoadoutItemTabListPanel"
+description: "Auto-generated class reference for MultiplayerClassLoadoutItemTabListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerClassLoadoutItemTabListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerClassLoadoutItemTabListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Cl
 ## Usage Example
 
 ```csharp
-var value = new MultiplayerClassLoadoutItemTabListPanel();
+// Obtain an instance from the relevant subsystem API
+MultiplayerClassLoadoutItemTabListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

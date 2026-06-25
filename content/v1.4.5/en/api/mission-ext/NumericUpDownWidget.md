@@ -1,20 +1,14 @@
 ---
 title: "NumericUpDownWidget"
+description: "Auto-generated class reference for NumericUpDownWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NumericUpDownWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NumericUpDownWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NumericUpDownWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NumericUpDownWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/NumericUpDownWidget.cs`
 
 ## Overview
 
@@ -42,14 +36,21 @@ Treat `NumericUpDownWidget` as a Widget-style extension point: first identify wh
 ### NumericUpDownWidget
 `public class NumericUpDownWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `numeric up down widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NumericUpDownWidget from the subsystem API first
+NumericUpDownWidget numericUpDownWidget = ...;
+var result = numericUpDownWidget.NumericUpDownWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new NumericUpDownWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+NumericUpDownWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

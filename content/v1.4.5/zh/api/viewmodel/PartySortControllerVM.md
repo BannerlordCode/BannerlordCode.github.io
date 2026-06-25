@@ -1,20 +1,14 @@
 ---
 title: "PartySortControllerVM"
+description: "PartySortControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartySortControllerVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartySortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class PartySortControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PartySortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PartySortControllerVM.cs`
 
 ## 概述
 
@@ -37,25 +31,44 @@ title: "PartySortControllerVM"
 ### SelectSortType
 `public void SelectSortType(PartyScreenLogic.TroopSortType sortType)`
 
-**用途 / Purpose:** 处理 `select sort type` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartySortControllerVM 实例
+PartySortControllerVM partySortControllerVM = ...;
+partySortControllerVM.SelectSortType(sortType);
+```
 
 ### SortWith
 `public void SortWith(PartyScreenLogic.TroopSortType sortType, bool isAscending)`
 
-**用途 / Purpose:** 处理 `sort with` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartySortControllerVM 实例
+PartySortControllerVM partySortControllerVM = ...;
+partySortControllerVM.SortWith(sortType, false);
+```
 
 ### ExecuteToggleOrder
 `public void ExecuteToggleOrder()`
 
-**用途 / Purpose:** 执行 `toggle order` 操作或流程。
+**用途 / Purpose:** 执行 「toggle order」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 PartySortControllerVM 实例
+PartySortControllerVM partySortControllerVM = ...;
+partySortControllerVM.ExecuteToggleOrder();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartySortControllerVM();
-value.SelectSortType(sortType);
+// 通常从对应子系统 API 获取实例后调用
+PartySortControllerVM partySortControllerVM = ...;
+partySortControllerVM.SelectSortType(sortType);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

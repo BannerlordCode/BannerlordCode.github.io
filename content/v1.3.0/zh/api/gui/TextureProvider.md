@@ -1,13 +1,7 @@
 ---
 title: "TextureProvider"
+description: "TextureProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextureProvider`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextureProvider
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -29,39 +23,76 @@ title: "TextureProvider"
 ### SetTargetSize
 `public virtual void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** 设置 `target size` 的值或状态。
+**用途 / Purpose:** 为 「target size」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TextureProvider 实例
+TextureProvider textureProvider = ...;
+textureProvider.SetTargetSize(0, 0);
+```
 
 ### GetTextureForRender
 `public Texture GetTextureForRender(TwoDimensionContext context, string name = null, bool useHashcodeAsName = false)`
 
-**用途 / Purpose:** 获取 `texture for render` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「texture for render」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TextureProvider 实例
+TextureProvider textureProvider = ...;
+var result = textureProvider.GetTextureForRender(context, "example", false);
+```
 
 ### Tick
 `public virtual void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TextureProvider 实例
+TextureProvider textureProvider = ...;
+textureProvider.Tick(0);
+```
 
 ### Clear
 `public virtual void Clear(bool clearNextFrame)`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 TextureProvider 实例
+TextureProvider textureProvider = ...;
+textureProvider.Clear(false);
+```
 
 ### SetProperty
 `public void SetProperty(string name, object value)`
 
-**用途 / Purpose:** 设置 `property` 的值或状态。
+**用途 / Purpose:** 为 「property」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TextureProvider 实例
+TextureProvider textureProvider = ...;
+textureProvider.SetProperty("example", value);
+```
 
 ### GetProperty
 `public object GetProperty(string name)`
 
-**用途 / Purpose:** 获取 `property` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「property」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TextureProvider 实例
+TextureProvider textureProvider = ...;
+var result = textureProvider.GetProperty("example");
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTextureProvider();
+// 通常通过子系统 API 或工厂获得派生实例
+TextureProvider instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

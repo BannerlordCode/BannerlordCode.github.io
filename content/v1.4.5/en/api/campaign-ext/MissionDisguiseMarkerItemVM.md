@@ -1,20 +1,14 @@
 ---
 title: "MissionDisguiseMarkerItemVM"
+description: "Auto-generated class reference for MissionDisguiseMarkerItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionDisguiseMarkerItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDisguiseMarkerItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Missions.MainAgentDetection
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class MissionDisguiseMarkerItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.MainAgentDetection/MissionDisguiseMarkerItemVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.MainAgentDetection/MissionDisguiseMarkerItemVM.cs`
 
 ## Overview
 
@@ -44,20 +38,33 @@ Start from namespace `SandBox.ViewModelCollection.Missions.MainAgentDetection` t
 ### RefreshVisuals
 `public void RefreshVisuals()`
 
-**Purpose:** Refreshes the display or cache of `visuals`.
+**Purpose:** Keeps the display or cache of `visuals` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionDisguiseMarkerItemVM from the subsystem API first
+MissionDisguiseMarkerItemVM missionDisguiseMarkerItemVM = ...;
+missionDisguiseMarkerItemVM.RefreshVisuals();
+```
 
 ### UpdatePosition
 `public void UpdatePosition()`
 
-**Purpose:** Updates the state or data of `position`.
+**Purpose:** Recalculates and stores the latest representation of `position`.
+
+```csharp
+// Obtain an instance of MissionDisguiseMarkerItemVM from the subsystem API first
+MissionDisguiseMarkerItemVM missionDisguiseMarkerItemVM = ...;
+missionDisguiseMarkerItemVM.UpdatePosition();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionDisguiseMarkerItemVM();
-value.RefreshVisuals();
+// Typically call this after obtaining an instance from the subsystem API
+MissionDisguiseMarkerItemVM missionDisguiseMarkerItemVM = ...;
+missionDisguiseMarkerItemVM.RefreshVisuals();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

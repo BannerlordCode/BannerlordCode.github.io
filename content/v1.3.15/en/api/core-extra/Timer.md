@@ -1,13 +1,7 @@
 ---
 title: "Timer"
+description: "Auto-generated class reference for Timer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Timer`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Timer
 
 **Namespace:** TaleWorlds.Core
@@ -37,35 +31,66 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Check
 `public virtual bool Check(float gameTime)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of Timer from the subsystem API first
+Timer timer = ...;
+var result = timer.Check(0);
+```
 
 ### ElapsedTime
 `public float ElapsedTime()`
 
-**Purpose:** Handles logic related to `elapsed time`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Timer from the subsystem API first
+Timer timer = ...;
+var result = timer.ElapsedTime();
+```
 
 ### Reset
 `public void Reset(float gameTime)`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of Timer from the subsystem API first
+Timer timer = ...;
+timer.Reset(0);
+```
 
 ### Reset
 `public void Reset(float gameTime, float newDuration)`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of Timer from the subsystem API first
+Timer timer = ...;
+timer.Reset(0, 0);
+```
 
 ### AdjustStartTime
 `public void AdjustStartTime(float deltaTime)`
 
-**Purpose:** Handles logic related to `adjust start time`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Timer from the subsystem API first
+Timer timer = ...;
+timer.AdjustStartTime(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Timer();
-value.Check(0);
+// Typically call this after obtaining an instance from the subsystem API
+Timer timer = ...;
+timer.Check(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

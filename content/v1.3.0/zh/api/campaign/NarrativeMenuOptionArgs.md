@@ -1,13 +1,7 @@
 ---
 title: "NarrativeMenuOptionArgs"
+description: "NarrativeMenuOptionArgs 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `NarrativeMenuOptionArgs`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # NarrativeMenuOptionArgs
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -46,55 +40,110 @@ title: "NarrativeMenuOptionArgs"
 ### SetAffectedSkills
 `public void SetAffectedSkills(SkillObject affectedSkills)`
 
-**用途 / Purpose:** 设置 `affected skills` 的值或状态。
+**用途 / Purpose:** 为 「affected skills」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetAffectedSkills(affectedSkills);
+```
 
 ### SetFocusToSkills
 `public void SetFocusToSkills(int focusToAdd)`
 
-**用途 / Purpose:** 设置 `focus to skills` 的值或状态。
+**用途 / Purpose:** 为 「focus to skills」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetFocusToSkills(0);
+```
 
 ### SetLevelToSkills
 `public void SetLevelToSkills(int levelToAdd)`
 
-**用途 / Purpose:** 设置 `level to skills` 的值或状态。
+**用途 / Purpose:** 为 「level to skills」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetLevelToSkills(0);
+```
 
 ### SetAffectedTraits
 `public void SetAffectedTraits(TraitObject affectedTraits)`
 
-**用途 / Purpose:** 设置 `affected traits` 的值或状态。
+**用途 / Purpose:** 为 「affected traits」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetAffectedTraits(affectedTraits);
+```
 
 ### SetLevelToTraits
 `public void SetLevelToTraits(int levelToAdd)`
 
-**用途 / Purpose:** 设置 `level to traits` 的值或状态。
+**用途 / Purpose:** 为 「level to traits」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetLevelToTraits(0);
+```
 
 ### SetLevelToAttribute
 `public void SetLevelToAttribute(CharacterAttribute characterAttribute, int levelToAdd)`
 
-**用途 / Purpose:** 设置 `level to attribute` 的值或状态。
+**用途 / Purpose:** 为 「level to attribute」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetLevelToAttribute(characterAttribute, 0);
+```
 
 ### SetRenownToAdd
 `public void SetRenownToAdd(int value)`
 
-**用途 / Purpose:** 设置 `renown to add` 的值或状态。
+**用途 / Purpose:** 为 「renown to add」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetRenownToAdd(0);
+```
 
 ### SetUnspentFocusToAdd
 `public void SetUnspentFocusToAdd(int value)`
 
-**用途 / Purpose:** 设置 `unspent focus to add` 的值或状态。
+**用途 / Purpose:** 为 「unspent focus to add」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetUnspentFocusToAdd(0);
+```
 
 ### SetUnspentAttributeToAdd
 `public void SetUnspentAttributeToAdd(int value)`
 
-**用途 / Purpose:** 设置 `unspent attribute to add` 的值或状态。
+**用途 / Purpose:** 为 「unspent attribute to add」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 NarrativeMenuOptionArgs 实例
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetUnspentAttributeToAdd(0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new NarrativeMenuOptionArgs();
-value.SetAffectedSkills(affectedSkills);
+// 通常从对应子系统 API 获取实例后调用
+NarrativeMenuOptionArgs narrativeMenuOptionArgs = ...;
+narrativeMenuOptionArgs.SetAffectedSkills(affectedSkills);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

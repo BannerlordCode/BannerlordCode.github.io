@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletEscapeMenuBase"
+description: "Auto-generated class reference for MissionGauntletEscapeMenuBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletEscapeMenuBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletEscapeMenuBase
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionGauntletEscapeMenuBase : MissionEscapeMenuView`
 **Base:** `MissionEscapeMenuView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletEscapeMenuBase.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI.Mission/MissionGauntletEscapeMenuBase.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission` to place it i
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletEscapeMenuBase from the subsystem API first
+MissionGauntletEscapeMenuBase missionGauntletEscapeMenuBase = ...;
+missionGauntletEscapeMenuBase.OnMissionScreenFinalize();
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletEscapeMenuBase from the subsystem API first
+MissionGauntletEscapeMenuBase missionGauntletEscapeMenuBase = ...;
+var result = missionGauntletEscapeMenuBase.OnEscape();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletEscapeMenuBase from the subsystem API first
+MissionGauntletEscapeMenuBase missionGauntletEscapeMenuBase = ...;
+missionGauntletEscapeMenuBase.OnMissionScreenTick(0);
+```
 
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** Called when the `scene rendering started` event is raised.
+**Purpose:** Invoked when the `scene rendering started` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletEscapeMenuBase from the subsystem API first
+MissionGauntletEscapeMenuBase missionGauntletEscapeMenuBase = ...;
+missionGauntletEscapeMenuBase.OnSceneRenderingStarted();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionGauntletEscapeMenuBase();
+// Typically obtained from a subsystem API or factory
+MissionGauntletEscapeMenuBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

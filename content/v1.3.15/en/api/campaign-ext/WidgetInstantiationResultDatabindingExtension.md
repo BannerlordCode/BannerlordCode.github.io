@@ -1,23 +1,18 @@
 ---
 title: "WidgetInstantiationResultDatabindingExtension"
+description: "Auto-generated class reference for WidgetInstantiationResultDatabindingExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetInstantiationResultDatabindingExtension`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetInstantiationResultDatabindingExtension
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public static class WidgetInstantiationResultDatabindingExtension`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.GauntletUI.Data/WidgetInstantiationResultDatabindingExtension.cs`
 
 ## Overview
 
-`WidgetInstantiationResultDatabindingExtension` lives in `TaleWorlds.GauntletUI.Data`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`WidgetInstantiationResultDatabindingExtension` lives in `TaleWorlds.GauntletUI.Data` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,16 +23,19 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### GetGauntletView
 `public static GauntletView GetGauntletView(this WidgetInstantiationResult widgetInstantiationResult)`
 
-**Purpose:** Gets the current value of `gauntlet view`.
+**Purpose:** Reads and returns the `gauntlet view` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WidgetInstantiationResultDatabindingExtension.GetGauntletView(widgetInstantiationResult);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 WidgetInstantiationResultDatabindingExtension.GetGauntletView(widgetInstantiationResult);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ICustomBattleProvider"
+description: "ICustomBattleProvider 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ICustomBattleProvider`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ICustomBattleProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.View.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface ICustomBattleProvider`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.CustomBattle/ICustomBattleProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.CustomBattle/ICustomBattleProvider.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ICustomBattleProvider"
 ## 使用示例
 
 ```csharp
-ICustomBattleProvider implementation = GetCustomBattleProviderImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IICustomBattleProvider service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

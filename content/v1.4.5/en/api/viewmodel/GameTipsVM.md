@@ -1,20 +1,14 @@
 ---
 title: "GameTipsVM"
+description: "Auto-generated class reference for GameTipsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameTipsVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTipsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameTipsVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu/GameTipsVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu/GameTipsVM.cs`
 
 ## Overview
 
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameTipsVM from the subsystem API first
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.RefreshValues();
+```
 
 ### ExecutePreviousTip
 `public void ExecutePreviousTip()`
 
-**Purpose:** Executes the `previous tip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `previous tip`.
+
+```csharp
+// Obtain an instance of GameTipsVM from the subsystem API first
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.ExecutePreviousTip();
+```
 
 ### ExecuteNextTip
 `public void ExecuteNextTip()`
 
-**Purpose:** Executes the `next tip` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `next tip`.
+
+```csharp
+// Obtain an instance of GameTipsVM from the subsystem API first
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.ExecuteNextTip();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of GameTipsVM from the subsystem API first
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.OnTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameTipsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameTipsVM gameTipsVM = ...;
+gameTipsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MarkerDistanceComparer"
+description: "Auto-generated class reference for MarkerDistanceComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MarkerDistanceComparer`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MarkerDistanceComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MarkerDistanceComparer : IComparer<MissionMarkerTargetVM>`
 **Base:** `IComparer<MissionMarkerTargetVM>`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker/MultiplayerMissionMarkerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.FlagMarker/MultiplayerMissionMarkerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### Compare
 `public int Compare(MissionMarkerTargetVM x, MissionMarkerTargetVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of MarkerDistanceComparer from the subsystem API first
+MarkerDistanceComparer markerDistanceComparer = ...;
+var result = markerDistanceComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MarkerDistanceComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+MarkerDistanceComparer markerDistanceComparer = ...;
+markerDistanceComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

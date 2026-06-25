@@ -1,13 +1,7 @@
 ---
 title: "GauntletSceneNotification"
+description: "GauntletSceneNotification 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GauntletSceneNotification`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletSceneNotification
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.SceneNotification
@@ -36,22 +30,45 @@ title: "GauntletSceneNotification"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+GauntletSceneNotification.Initialize();
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletSceneNotification 实例
+GauntletSceneNotification gauntletSceneNotification = ...;
+gauntletSceneNotification.OnFinalize();
+```
 
 ### RegisterContextProvider
 `public void RegisterContextProvider(ISceneNotificationContextProvider provider)`
 
-**用途 / Purpose:** 处理 `register context provider` 相关逻辑。
+**用途 / Purpose:** 将「context provider」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletSceneNotification 实例
+GauntletSceneNotification gauntletSceneNotification = ...;
+gauntletSceneNotification.RegisterContextProvider(provider);
+```
 
 ### RemoveContextProvider
 `public bool RemoveContextProvider(ISceneNotificationContextProvider provider)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `context provider`。
+**用途 / Purpose:** 从当前容器或状态中移除 「context provider」。
+
+```csharp
+// 先通过子系统 API 拿到 GauntletSceneNotification 实例
+GauntletSceneNotification gauntletSceneNotification = ...;
+var result = gauntletSceneNotification.RemoveContextProvider(provider);
+```
 
 ## 使用示例
 
@@ -61,4 +78,4 @@ GauntletSceneNotification.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

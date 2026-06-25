@@ -1,20 +1,14 @@
 ---
 title: "HeroRelationComparer"
+description: "HeroRelationComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HeroRelationComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroRelationComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class HeroRelationComparer : IComparer<HeroVM>`
 **Base:** `IComparer<HeroVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/HeroRelationComparer.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages/HeroRelationComparer.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "HeroRelationComparer"
 ## 使用示例
 
 ```csharp
-var example = new HeroRelationComparer();
+// 从对应子系统 API 获取实例
+HeroRelationComparer instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

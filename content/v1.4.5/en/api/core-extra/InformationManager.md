@@ -1,20 +1,14 @@
 ---
 title: "InformationManager"
+description: "Auto-generated class reference for InformationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InformationManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InformationManager
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class InformationManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/InformationManager.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/InformationManager.cs`
 
 ## Overview
 
@@ -29,77 +23,154 @@ Treat `InformationManager` as a Manager-style extension point: first identify wh
 ### TooltipRegistry
 `public struct TooltipRegistry(Type tooltipType, object onRefreshData, string movieName)`
 
-**Purpose:** Handles logic related to `tooltip registry`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of InformationManager from the subsystem API first
+InformationManager informationManager = ...;
+var result = informationManager.TooltipRegistry(tooltipType, onRefreshData, "example");
+```
 
 ### IsAnyTooltipActiveDelegate
 `public delegate void IsAnyTooltipActiveDelegate(out bool isAnyTooltipActive, out bool isAnyTooltipExtended)`
 
-**Purpose:** Handles logic related to `is any tooltip active delegate`.
+**Purpose:** Determines whether the current object is in the `any tooltip active delegate` state or condition.
+
+```csharp
+// Obtain an instance of InformationManager from the subsystem API first
+InformationManager informationManager = ...;
+informationManager.IsAnyTooltipActiveDelegate(isAnyTooltipActive, isAnyTooltipExtended);
+```
 
 ### IsAnyInquiryActive
 `public static bool IsAnyInquiryActive()`
 
-**Purpose:** Handles logic related to `is any inquiry active`.
+**Purpose:** Determines whether the current object is in the `any inquiry active` state or condition.
+
+```csharp
+// Static call; no instance required
+InformationManager.IsAnyInquiryActive();
+```
 
 ### DisplayMessage
 `public static void DisplayMessage(InformationMessage message)`
 
-**Purpose:** Handles logic related to `display message`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+InformationManager.DisplayMessage(message);
+```
 
 ### HideAllMessages
 `public static void HideAllMessages()`
 
-**Purpose:** Handles logic related to `hide all messages`.
+**Purpose:** Hides the UI or element associated with `all messages`.
+
+```csharp
+// Static call; no instance required
+InformationManager.HideAllMessages();
+```
 
 ### ClearAllMessages
 `public static void ClearAllMessages()`
 
-**Purpose:** Handles logic related to `clear all messages`.
+**Purpose:** Removes all `all messages` from the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.ClearAllMessages();
+```
 
 ### AddSystemNotification
 `public static void AddSystemNotification(string message)`
 
 **Purpose:** Adds `system notification` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+InformationManager.AddSystemNotification("example");
+```
+
 ### ShowTooltip
 `public static void ShowTooltip(Type type, params object args)`
 
-**Purpose:** Handles logic related to `show tooltip`.
+**Purpose:** Displays the UI or element associated with `tooltip`.
+
+```csharp
+// Static call; no instance required
+InformationManager.ShowTooltip(type, args);
+```
 
 ### HideTooltip
 `public static void HideTooltip()`
 
-**Purpose:** Handles logic related to `hide tooltip`.
+**Purpose:** Hides the UI or element associated with `tooltip`.
+
+```csharp
+// Static call; no instance required
+InformationManager.HideTooltip();
+```
 
 ### ShowInquiry
 `public static void ShowInquiry(InquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**Purpose:** Handles logic related to `show inquiry`.
+**Purpose:** Displays the UI or element associated with `inquiry`.
+
+```csharp
+// Static call; no instance required
+InformationManager.ShowInquiry(data, false, false);
+```
 
 ### ShowTextInquiry
 `public static void ShowTextInquiry(TextInquiryData textData, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**Purpose:** Handles logic related to `show text inquiry`.
+**Purpose:** Displays the UI or element associated with `text inquiry`.
+
+```csharp
+// Static call; no instance required
+InformationManager.ShowTextInquiry(textData, false, false);
+```
 
 ### HideInquiry
 `public static void HideInquiry()`
 
-**Purpose:** Handles logic related to `hide inquiry`.
+**Purpose:** Hides the UI or element associated with `inquiry`.
+
+```csharp
+// Static call; no instance required
+InformationManager.HideInquiry();
+```
 
 ### GetIsAnyTooltipActive
 `public static bool GetIsAnyTooltipActive()`
 
-**Purpose:** Gets the current value of `is any tooltip active`.
+**Purpose:** Reads and returns the `is any tooltip active` value held by the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.GetIsAnyTooltipActive();
+```
 
 ### GetIsAnyTooltipActiveAndExtended
 `public static bool GetIsAnyTooltipActiveAndExtended()`
 
-**Purpose:** Gets the current value of `is any tooltip active and extended`.
+**Purpose:** Reads and returns the `is any tooltip active and extended` value held by the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.GetIsAnyTooltipActiveAndExtended();
+```
 
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Static call; no instance required
+InformationManager.Clear();
+```
 
 ## Usage Example
 
@@ -109,4 +180,4 @@ var manager = InformationManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

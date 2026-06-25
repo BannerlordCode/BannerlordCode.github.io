@@ -1,20 +1,14 @@
 ---
 title: "GauntletOrderUIHandler"
+description: "Auto-generated class reference for GauntletOrderUIHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletOrderUIHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletOrderUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class GauntletOrderUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletOrderUIHandler.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletOrderUIHandler.cs`
 
 ## Overview
 
@@ -41,64 +35,131 @@ Treat `GauntletOrderUIHandler` as a Handler-style extension point: first identif
 ### SelectFormationAtIndex
 `public virtual void SelectFormationAtIndex(int index)`
 
-**Purpose:** Handles logic related to `select formation at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.SelectFormationAtIndex(0);
+```
 
 ### DeselectFormationAtIndex
 `public virtual void DeselectFormationAtIndex(int index)`
 
-**Purpose:** Handles logic related to `deselect formation at index`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.DeselectFormationAtIndex(0);
+```
 
 ### OnMissionScreenActivate
 `public override void OnMissionScreenActivate()`
 
-**Purpose:** Called when the `mission screen activate` event is raised.
+**Purpose:** Invoked when the `mission screen activate` event is raised.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.OnMissionScreenActivate();
+```
 
 ### OnMissionScreenDeactivate
 `public override void OnMissionScreenDeactivate()`
 
-**Purpose:** Called when the `mission screen deactivate` event is raised.
+**Purpose:** Invoked when the `mission screen deactivate` event is raised.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.OnMissionScreenDeactivate();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.OnMissionScreenTick(0);
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Called when the `agent build` event is raised.
+**Purpose:** Invoked when the `agent build` event is raised.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.OnAgentBuild(agent, banner);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+var result = gauntletOrderUIHandler.OnEscape();
+```
 
 ### IsReady
 `public override bool IsReady()`
 
-**Purpose:** Handles logic related to `is ready`.
+**Purpose:** Determines whether the current object is in the `ready` state or condition.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+var result = gauntletOrderUIHandler.IsReady();
+```
 
 ### OnActivateToggleOrder
 `public void OnActivateToggleOrder()`
 
-**Purpose:** Called when the `activate toggle order` event is raised.
+**Purpose:** Invoked when the `activate toggle order` event is raised.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.OnActivateToggleOrder();
+```
 
 ### OnDeactivateToggleOrder
 `public void OnDeactivateToggleOrder()`
 
-**Purpose:** Called when the `deactivate toggle order` event is raised.
+**Purpose:** Invoked when the `deactivate toggle order` event is raised.
+
+```csharp
+// Obtain an instance of GauntletOrderUIHandler from the subsystem API first
+GauntletOrderUIHandler gauntletOrderUIHandler = ...;
+gauntletOrderUIHandler.OnDeactivateToggleOrder();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGauntletOrderUIHandler();
+// Typically obtained from a subsystem API or factory
+GauntletOrderUIHandler instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

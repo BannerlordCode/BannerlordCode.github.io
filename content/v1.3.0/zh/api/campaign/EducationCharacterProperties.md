@@ -1,13 +1,7 @@
 ---
 title: "EducationCharacterProperties"
+description: "EducationCharacterProperties 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EducationCharacterProperties`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EducationCharacterProperties
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,30 +23,55 @@ title: "EducationCharacterProperties"
 ### Equals
 `public bool Equals(EducationCampaignBehavior.EducationCharacterProperties other)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 EducationCharacterProperties 实例
+EducationCharacterProperties educationCharacterProperties = ...;
+var result = educationCharacterProperties.Equals(other);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 EducationCharacterProperties 实例
+EducationCharacterProperties educationCharacterProperties = ...;
+var result = educationCharacterProperties.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 EducationCharacterProperties 实例
+EducationCharacterProperties educationCharacterProperties = ...;
+var result = educationCharacterProperties.GetHashCode();
+```
 
 ### GetUsedHandBoneIndex
 `public sbyte GetUsedHandBoneIndex()`
 
-**用途 / Purpose:** 获取 `used hand bone index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「used hand bone index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 EducationCharacterProperties 实例
+EducationCharacterProperties educationCharacterProperties = ...;
+var result = educationCharacterProperties.GetUsedHandBoneIndex();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EducationCharacterProperties();
-value.Equals(other);
+// 通常从对应子系统 API 获取实例后调用
+EducationCharacterProperties educationCharacterProperties = ...;
+educationCharacterProperties.Equals(other);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

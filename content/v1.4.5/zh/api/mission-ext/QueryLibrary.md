@@ -1,20 +1,14 @@
 ---
 title: "QueryLibrary"
+description: "QueryLibrary 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `QueryLibrary`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # QueryLibrary
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class QueryLibrary`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/QueryLibrary.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/QueryLibrary.cs`
 
 ## 概述
 
@@ -29,62 +23,122 @@ title: "QueryLibrary"
 ### IsInfantry
 `public static bool IsInfantry(Agent a)`
 
-**用途 / Purpose:** 处理 `is infantry` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「infantry」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsInfantry(a);
+```
 
 ### IsInfantryWithoutBanner
 `public static bool IsInfantryWithoutBanner(Agent a)`
 
-**用途 / Purpose:** 处理 `is infantry without banner` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「infantry without banner」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsInfantryWithoutBanner(a);
+```
 
 ### HasShield
 `public static bool HasShield(Agent a)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `shield`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「shield」。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.HasShield(a);
+```
 
 ### IsRanged
 `public static bool IsRanged(Agent a)`
 
-**用途 / Purpose:** 处理 `is ranged` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ranged」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsRanged(a);
+```
 
 ### IsRangedWithoutBanner
 `public static bool IsRangedWithoutBanner(Agent a)`
 
-**用途 / Purpose:** 处理 `is ranged without banner` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ranged without banner」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsRangedWithoutBanner(a);
+```
 
 ### IsCavalry
 `public static bool IsCavalry(Agent a)`
 
-**用途 / Purpose:** 处理 `is cavalry` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「cavalry」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsCavalry(a);
+```
 
 ### IsCavalryWithoutBanner
 `public static bool IsCavalryWithoutBanner(Agent a)`
 
-**用途 / Purpose:** 处理 `is cavalry without banner` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「cavalry without banner」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsCavalryWithoutBanner(a);
+```
 
 ### IsRangedCavalry
 `public static bool IsRangedCavalry(Agent a)`
 
-**用途 / Purpose:** 处理 `is ranged cavalry` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ranged cavalry」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsRangedCavalry(a);
+```
 
 ### IsRangedCavalryWithoutBanner
 `public static bool IsRangedCavalryWithoutBanner(Agent a)`
 
-**用途 / Purpose:** 处理 `is ranged cavalry without banner` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「ranged cavalry without banner」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsRangedCavalryWithoutBanner(a);
+```
 
 ### HasSpear
 `public static bool HasSpear(Agent a)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `spear`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「spear」。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.HasSpear(a);
+```
 
 ### HasThrown
 `public static bool HasThrown(Agent a)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `thrown`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「thrown」。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.HasThrown(a);
+```
 
 ### IsHeavy
 `public static bool IsHeavy(Agent a)`
 
-**用途 / Purpose:** 处理 `is heavy` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「heavy」 状态或条件。
+
+```csharp
+// 静态调用，不需要实例
+QueryLibrary.IsHeavy(a);
+```
 
 ## 使用示例
 
@@ -94,4 +148,4 @@ QueryLibrary.IsInfantry(a);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

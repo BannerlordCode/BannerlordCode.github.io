@@ -1,13 +1,7 @@
 ---
 title: "BarterView"
+description: "Auto-generated class reference for BarterView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BarterView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BarterView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -27,9 +21,10 @@ Treat `BarterView` as a View-style extension point: first identify who creates i
 ## Usage Example
 
 ```csharp
-var view = new BarterView();
+// Retrieve this view from the subsystem API or scene
+BarterView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

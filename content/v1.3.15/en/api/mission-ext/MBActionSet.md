@@ -1,13 +1,7 @@
 ---
 title: "MBActionSet"
+description: "Auto-generated class reference for MBActionSet."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBActionSet`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBActionSet
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,120 +29,238 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public bool Equals(MBActionSet a)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MBActionSet from the subsystem API first
+MBActionSet mBActionSet = ...;
+var result = mBActionSet.Equals(a);
+```
 
 ### Equals
 `public bool Equals(int index)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of MBActionSet from the subsystem API first
+MBActionSet mBActionSet = ...;
+var result = mBActionSet.Equals(0);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of MBActionSet from the subsystem API first
+MBActionSet mBActionSet = ...;
+var result = mBActionSet.GetHashCode();
+```
 
 ### GetName
 `public string GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of MBActionSet from the subsystem API first
+MBActionSet mBActionSet = ...;
+var result = mBActionSet.GetName();
+```
 
 ### GetSkeletonName
 `public string GetSkeletonName()`
 
-**Purpose:** Gets the current value of `skeleton name`.
+**Purpose:** Reads and returns the `skeleton name` value held by the current object.
+
+```csharp
+// Obtain an instance of MBActionSet from the subsystem API first
+MBActionSet mBActionSet = ...;
+var result = mBActionSet.GetSkeletonName();
+```
 
 ### GetAnimationName
 `public string GetAnimationName(in ActionIndexCache actionCode)`
 
-**Purpose:** Gets the current value of `animation name`.
+**Purpose:** Reads and returns the `animation name` value held by the current object.
+
+```csharp
+// Obtain an instance of MBActionSet from the subsystem API first
+MBActionSet mBActionSet = ...;
+var result = mBActionSet.GetAnimationName(actionCode);
+```
 
 ### AreActionsAlternatives
 `public bool AreActionsAlternatives(in ActionIndexCache actionCode1, in ActionIndexCache actionCode2)`
 
-**Purpose:** Handles logic related to `are actions alternatives`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBActionSet from the subsystem API first
+MBActionSet mBActionSet = ...;
+var result = mBActionSet.AreActionsAlternatives(actionCode1, actionCode2);
+```
 
 ### GetNumberOfActionSets
 `public static int GetNumberOfActionSets()`
 
-**Purpose:** Gets the current value of `number of action sets`.
+**Purpose:** Reads and returns the `number of action sets` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetNumberOfActionSets();
+```
 
 ### GetNumberOfMonsterUsageSets
 `public static int GetNumberOfMonsterUsageSets()`
 
-**Purpose:** Gets the current value of `number of monster usage sets`.
+**Purpose:** Reads and returns the `number of monster usage sets` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetNumberOfMonsterUsageSets();
+```
 
 ### GetActionSet
 `public static MBActionSet GetActionSet(string objectID)`
 
-**Purpose:** Gets the current value of `action set`.
+**Purpose:** Reads and returns the `action set` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetActionSet("example");
+```
 
 ### GetActionSetWithIndex
 `public static MBActionSet GetActionSetWithIndex(int index)`
 
-**Purpose:** Gets the current value of `action set with index`.
+**Purpose:** Reads and returns the `action set with index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetActionSetWithIndex(0);
+```
 
 ### GetBoneIndexWithId
 `public static sbyte GetBoneIndexWithId(string actionSetId, string boneId)`
 
-**Purpose:** Gets the current value of `bone index with id`.
+**Purpose:** Reads and returns the `bone index with id` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetBoneIndexWithId("example", "example");
+```
 
 ### GetBoneHasParentBone
 `public static bool GetBoneHasParentBone(string actionSetId, sbyte boneIndex)`
 
-**Purpose:** Gets the current value of `bone has parent bone`.
+**Purpose:** Reads and returns the `bone has parent bone` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetBoneHasParentBone("example", 0);
+```
 
 ### GetActionDisplacementVector
 `public static Vec3 GetActionDisplacementVector(MBActionSet actionSet, in ActionIndexCache actionIndexCache)`
 
-**Purpose:** Gets the current value of `action displacement vector`.
+**Purpose:** Reads and returns the `action displacement vector` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetActionDisplacementVector(actionSet, actionIndexCache);
+```
 
 ### GetActionAnimationFlags
 `public static AnimFlags GetActionAnimationFlags(MBActionSet actionSet, in ActionIndexCache actionIndexCache)`
 
-**Purpose:** Gets the current value of `action animation flags`.
+**Purpose:** Reads and returns the `action animation flags` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetActionAnimationFlags(actionSet, actionIndexCache);
+```
 
 ### CheckActionAnimationClipExists
 `public static bool CheckActionAnimationClipExists(MBActionSet actionSet, in ActionIndexCache actionIndexCache)`
 
-**Purpose:** Handles logic related to `check action animation clip exists`.
+**Purpose:** Verifies whether `action animation clip exists` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.CheckActionAnimationClipExists(actionSet, actionIndexCache);
+```
 
 ### GetAnimationIndexOfAction
 `public static int GetAnimationIndexOfAction(MBActionSet actionSet, in ActionIndexCache actionIndexCache)`
 
-**Purpose:** Gets the current value of `animation index of action`.
+**Purpose:** Reads and returns the `animation index of action` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetAnimationIndexOfAction(actionSet, actionIndexCache);
+```
 
 ### GetActionAnimationName
 `public static string GetActionAnimationName(MBActionSet actionSet, in ActionIndexCache actionIndexCache)`
 
-**Purpose:** Gets the current value of `action animation name`.
+**Purpose:** Reads and returns the `action animation name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetActionAnimationName(actionSet, actionIndexCache);
+```
 
 ### GetActionAnimationDuration
 `public static float GetActionAnimationDuration(MBActionSet actionSet, in ActionIndexCache actionIndexCache)`
 
-**Purpose:** Gets the current value of `action animation duration`.
+**Purpose:** Reads and returns the `action animation duration` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetActionAnimationDuration(actionSet, actionIndexCache);
+```
 
 ### GetActionAnimationContinueToAction
 `public static ActionIndexCache GetActionAnimationContinueToAction(MBActionSet actionSet, in ActionIndexCache actionIndexCache)`
 
-**Purpose:** Gets the current value of `action animation continue to action`.
+**Purpose:** Reads and returns the `action animation continue to action` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetActionAnimationContinueToAction(actionSet, actionIndexCache);
+```
 
 ### GetTotalAnimationDurationWithContinueToAction
 `public static float GetTotalAnimationDurationWithContinueToAction(MBActionSet actionSet, ActionIndexCache actionIndexCache)`
 
-**Purpose:** Gets the current value of `total animation duration with continue to action`.
+**Purpose:** Reads and returns the `total animation duration with continue to action` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetTotalAnimationDurationWithContinueToAction(actionSet, actionIndexCache);
+```
 
 ### GetActionBlendOutStartProgress
 `public static float GetActionBlendOutStartProgress(MBActionSet actionSet, in ActionIndexCache actionIndexCache)`
 
-**Purpose:** Gets the current value of `action blend out start progress`.
+**Purpose:** Reads and returns the `action blend out start progress` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBActionSet.GetActionBlendOutStartProgress(actionSet, actionIndexCache);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBActionSet();
-value.Equals(a);
+// Typically call this after obtaining an instance from the subsystem API
+MBActionSet mBActionSet = ...;
+mBActionSet.Equals(a);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

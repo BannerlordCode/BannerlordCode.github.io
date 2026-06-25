@@ -1,13 +1,7 @@
 ---
 title: "WidgetComponent"
+description: "Auto-generated class reference for WidgetComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetComponent`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetComponent
 
 **Namespace:** TaleWorlds.GauntletUI
@@ -33,9 +27,10 @@ Treat `WidgetComponent` as a Component-style extension point: first identify who
 ## Usage Example
 
 ```csharp
-var implementation = new CustomWidgetComponent();
+// Typically obtained from a subsystem API or factory
+WidgetComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

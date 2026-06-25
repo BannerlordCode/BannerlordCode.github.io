@@ -1,20 +1,14 @@
 ---
 title: "StoryModeCombatXpModel"
+description: "Auto-generated class reference for StoryModeCombatXpModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeCombatXpModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeCombatXpModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeCombatXpModel : CombatXpModel`
 **Base:** `CombatXpModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeCombatXpModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeCombatXpModel.cs`
 
 ## Overview
 
@@ -29,17 +23,35 @@ Treat `StoryModeCombatXpModel` as a Model-style extension point: first identify 
 ### GetSkillForWeapon
 `public override SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**Purpose:** Gets the current value of `skill for weapon`.
+**Purpose:** Reads and returns the `skill for weapon` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeCombatXpModel from the subsystem API first
+StoryModeCombatXpModel storyModeCombatXpModel = ...;
+var result = storyModeCombatXpModel.GetSkillForWeapon(weapon, false);
+```
 
 ### GetXpFromHit
 `public override ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, MissionTypeEnum missionType)`
 
-**Purpose:** Gets the current value of `xp from hit`.
+**Purpose:** Reads and returns the `xp from hit` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeCombatXpModel from the subsystem API first
+StoryModeCombatXpModel storyModeCombatXpModel = ...;
+var result = storyModeCombatXpModel.GetXpFromHit(attackerTroop, captain, attackedTroop, attackerParty, 0, false, missionType);
+```
 
 ### GetXpMultiplierFromShotDifficulty
 `public override float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**Purpose:** Gets the current value of `xp multiplier from shot difficulty`.
+**Purpose:** Reads and returns the `xp multiplier from shot difficulty` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeCombatXpModel from the subsystem API first
+StoryModeCombatXpModel storyModeCombatXpModel = ...;
+var result = storyModeCombatXpModel.GetXpMultiplierFromShotDifficulty(0);
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<StoryModeCombatXpModel>(new MyStoryModeCombatXpModel()
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

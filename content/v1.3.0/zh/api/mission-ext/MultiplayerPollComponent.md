@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerPollComponent"
+description: "MultiplayerPollComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerPollComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerPollComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -41,67 +35,145 @@ title: "MultiplayerPollComponent"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.OnBehaviorInitialize();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.OnMissionTick(0);
+```
 
 ### Vote
 `public void Vote(bool accepted)`
 
-**用途 / Purpose:** 处理 `vote` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.Vote(false);
+```
 
 ### RequestKickPlayerPoll
 `public void RequestKickPlayerPoll(NetworkCommunicator peer, bool banPlayer)`
 
-**用途 / Purpose:** 处理 `request kick player poll` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.RequestKickPlayerPoll(peer, false);
+```
 
 ### IsCancelled
 `public virtual bool IsCancelled()`
 
-**用途 / Purpose:** 处理 `is cancelled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「cancelled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+var result = multiplayerPollComponent.IsCancelled();
+```
 
 ### GetPollProgressReceivers
 `public virtual List<NetworkCommunicator> GetPollProgressReceivers()`
 
-**用途 / Purpose:** 获取 `poll progress receivers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「poll progress receivers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+var result = multiplayerPollComponent.GetPollProgressReceivers();
+```
 
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.Tick();
+```
 
 ### Close
 `public void Close()`
 
-**用途 / Purpose:** 处理 `close` 相关逻辑。
+**用途 / Purpose:** 关闭当前对象代表的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.Close();
+```
 
 ### Cancel
 `public void Cancel()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `cel`。
+**用途 / Purpose:** 检查当前对象是否满足 「cel」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+multiplayerPollComponent.Cancel();
+```
 
 ### ApplyVote
 `public bool ApplyVote(NetworkCommunicator peer, bool accepted)`
 
-**用途 / Purpose:** 将 `vote` 应用到当前对象。
+**用途 / Purpose:** 将 「vote」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+var result = multiplayerPollComponent.ApplyVote(peer, false);
+```
 
 ### GotEnoughAcceptVotesToEnd
 `public bool GotEnoughAcceptVotesToEnd()`
 
-**用途 / Purpose:** 处理 `got enough accept votes to end` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+var result = multiplayerPollComponent.GotEnoughAcceptVotesToEnd();
+```
 
 ### IsCancelled
 `public override bool IsCancelled()`
 
-**用途 / Purpose:** 处理 `is cancelled` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「cancelled」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+var result = multiplayerPollComponent.IsCancelled();
+```
 
 ### GetPollProgressReceivers
 `public override List<NetworkCommunicator> GetPollProgressReceivers()`
 
-**用途 / Purpose:** 获取 `poll progress receivers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「poll progress receivers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerPollComponent 实例
+MultiplayerPollComponent multiplayerPollComponent = ...;
+var result = multiplayerPollComponent.GetPollProgressReceivers();
+```
 
 ## 使用示例
 
@@ -111,4 +183,4 @@ var component = agent.GetComponent<MultiplayerPollComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

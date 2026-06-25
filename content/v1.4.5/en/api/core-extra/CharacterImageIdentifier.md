@@ -1,20 +1,14 @@
 ---
 title: "CharacterImageIdentifier"
+description: "Auto-generated class reference for CharacterImageIdentifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterImageIdentifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterImageIdentifier
 
 **Namespace:** TaleWorlds.Core.ImageIdentifiers
 **Module:** TaleWorlds.Core
 **Type:** `public class CharacterImageIdentifier : ImageIdentifier`
 **Base:** `ImageIdentifier`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/CharacterImageIdentifier.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core.ImageIdentifiers/CharacterImageIdentifier.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core.ImageIdentifiers` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new CharacterImageIdentifier();
+// Obtain an instance from the relevant subsystem API
+CharacterImageIdentifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "AgentPathNavMeshChecker"
+description: "Auto-generated class reference for AgentPathNavMeshChecker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentPathNavMeshChecker`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentPathNavMeshChecker
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Objects.Siege
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Source.Objects.Siege` to place it
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of AgentPathNavMeshChecker from the subsystem API first
+AgentPathNavMeshChecker agentPathNavMeshChecker = ...;
+agentPathNavMeshChecker.Tick(0);
+```
 
 ### TickOccasionally
 `public void TickOccasionally(float dt)`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of AgentPathNavMeshChecker from the subsystem API first
+AgentPathNavMeshChecker agentPathNavMeshChecker = ...;
+agentPathNavMeshChecker.TickOccasionally(0);
+```
 
 ### HasAgentsUsingPath
 `public bool HasAgentsUsingPath()`
 
-**Purpose:** Checks whether the current object has/contains `agents using path`.
+**Purpose:** Determines whether the current object already holds `agents using path`.
+
+```csharp
+// Obtain an instance of AgentPathNavMeshChecker from the subsystem API first
+AgentPathNavMeshChecker agentPathNavMeshChecker = ...;
+var result = agentPathNavMeshChecker.HasAgentsUsingPath();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AgentPathNavMeshChecker();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+AgentPathNavMeshChecker agentPathNavMeshChecker = ...;
+agentPathNavMeshChecker.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CPUBenchmarkMissionLogic"
+description: "CPUBenchmarkMissionLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CPUBenchmarkMissionLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CPUBenchmarkMissionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CPUBenchmarkMissionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CPUBenchmarkMissionLogic.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/CPUBenchmarkMissionLogic.cs`
 
 ## 概述
 
@@ -29,59 +23,114 @@ title: "CPUBenchmarkMissionLogic"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.OnMissionTick(0);
+```
 
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.OnPreMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
+CPUBenchmarkMissionLogic cPUBenchmarkMissionLogic = ...;
+cPUBenchmarkMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### CPUBenchmarkMission
 `public static string CPUBenchmarkMission(List<string> strings)`
 
-**用途 / Purpose:** 处理 `c p u benchmark mission` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CPUBenchmarkMissionLogic.CPUBenchmarkMission(strings);
+```
 
 ### CPUBenchmark
 `public static string CPUBenchmark(List<string> strings)`
 
-**用途 / Purpose:** 处理 `c p u benchmark` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CPUBenchmarkMissionLogic.CPUBenchmark(strings);
+```
 
 ### BenchmarkStateStart
 `public static string BenchmarkStateStart(List<string> strings)`
 
-**用途 / Purpose:** 处理 `benchmark state start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CPUBenchmarkMissionLogic.BenchmarkStateStart(strings);
+```
 
 ### BenchmarkStateEnd
 `public static string BenchmarkStateEnd(List<string> strings)`
 
-**用途 / Purpose:** 处理 `benchmark state end` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+CPUBenchmarkMissionLogic.BenchmarkStateEnd(strings);
+```
 
 ### OpenCPUBenchmarkMission
 `public static Mission OpenCPUBenchmarkMission(string scene)`
 
-**用途 / Purpose:** 处理 `open c p u benchmark mission` 相关逻辑。
+**用途 / Purpose:** 打开「c p u benchmark mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+CPUBenchmarkMissionLogic.OpenCPUBenchmarkMission("example");
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CPUBenchmarkMissionLogic());
+var behavior = Mission.Current.GetMissionBehavior<CPUBenchmarkMissionLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

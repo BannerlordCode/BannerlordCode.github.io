@@ -1,20 +1,14 @@
 ---
 title: "GameTypeSelectionGroupVM"
+description: "GameTypeSelectionGroupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameTypeSelectionGroupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameTypeSelectionGroupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameTypeSelectionGroupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/GameTypeSelectionGroupVM.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/GameTypeSelectionGroupVM.cs`
 
 ## 概述
 
@@ -43,20 +37,33 @@ title: "GameTypeSelectionGroupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameTypeSelectionGroupVM 实例
+GameTypeSelectionGroupVM gameTypeSelectionGroupVM = ...;
+gameTypeSelectionGroupVM.RefreshValues();
+```
 
 ### RandomizeAll
 `public void RandomizeAll()`
 
-**用途 / Purpose:** 处理 `randomize all` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 GameTypeSelectionGroupVM 实例
+GameTypeSelectionGroupVM gameTypeSelectionGroupVM = ...;
+gameTypeSelectionGroupVM.RandomizeAll();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameTypeSelectionGroupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+GameTypeSelectionGroupVM gameTypeSelectionGroupVM = ...;
+gameTypeSelectionGroupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

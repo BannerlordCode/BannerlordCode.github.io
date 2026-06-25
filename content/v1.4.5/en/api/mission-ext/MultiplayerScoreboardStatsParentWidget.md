@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerScoreboardStatsParentWidget"
+description: "Auto-generated class reference for MultiplayerScoreboardStatsParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerScoreboardStatsParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardStatsParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerScoreboardStatsParentWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardStatsParentWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard/MultiplayerScoreboardStatsParentWidget.cs`
 
 ## Overview
 
@@ -36,9 +30,10 @@ Treat `MultiplayerScoreboardStatsParentWidget` as a Widget-style extension point
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerScoreboardStatsParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerScoreboardStatsParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

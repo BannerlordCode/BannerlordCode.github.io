@@ -1,13 +1,7 @@
 ---
 title: "Supporter"
+description: "Auto-generated class reference for Supporter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Supporter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Supporter
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Supporter from the subsystem API first
+Supporter supporter = ...;
+var result = supporter.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Supporter from the subsystem API first
+Supporter supporter = ...;
+var result = supporter.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Supporter();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+Supporter supporter = ...;
+supporter.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "FindingThirdBannerPieceSceneNotificationItem"
+description: "Auto-generated class reference for FindingThirdBannerPieceSceneNotificationItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FindingThirdBannerPieceSceneNotificationItem`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FindingThirdBannerPieceSceneNotificationItem
 
 **Namespace:** TaleWorlds.CampaignSystem.SceneInformationPopupTypes
@@ -40,15 +34,22 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetBanners
 `public override Banner GetBanners()`
 
-**Purpose:** Gets the current value of `banners`.
+**Purpose:** Reads and returns the `banners` value held by the current object.
+
+```csharp
+// Obtain an instance of FindingThirdBannerPieceSceneNotificationItem from the subsystem API first
+FindingThirdBannerPieceSceneNotificationItem findingThirdBannerPieceSceneNotificationItem = ...;
+var result = findingThirdBannerPieceSceneNotificationItem.GetBanners();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FindingThirdBannerPieceSceneNotificationItem();
-value.GetBanners();
+// Typically call this after obtaining an instance from the subsystem API
+FindingThirdBannerPieceSceneNotificationItem findingThirdBannerPieceSceneNotificationItem = ...;
+findingThirdBannerPieceSceneNotificationItem.GetBanners();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

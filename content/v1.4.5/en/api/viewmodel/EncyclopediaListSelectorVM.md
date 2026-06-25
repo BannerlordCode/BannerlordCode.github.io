@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListSelectorVM"
+description: "Auto-generated class reference for EncyclopediaListSelectorVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListSelectorVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListSelectorVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class EncyclopediaListSelectorVM : SelectorVM<EncyclopediaListSelectorItemVM>`
 **Base:** `SelectorVM<EncyclopediaListSelectorItemVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List/EncyclopediaListSelectorVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.List/EncyclopediaListSelectorVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### ExecuteOnDropdownActivated
 `public void ExecuteOnDropdownActivated()`
 
-**Purpose:** Executes the `on dropdown activated` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `on dropdown activated`.
+
+```csharp
+// Obtain an instance of EncyclopediaListSelectorVM from the subsystem API first
+EncyclopediaListSelectorVM encyclopediaListSelectorVM = ...;
+encyclopediaListSelectorVM.ExecuteOnDropdownActivated();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaListSelectorVM();
-value.ExecuteOnDropdownActivated();
+// Typically call this after obtaining an instance from the subsystem API
+EncyclopediaListSelectorVM encyclopediaListSelectorVM = ...;
+encyclopediaListSelectorVM.ExecuteOnDropdownActivated();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

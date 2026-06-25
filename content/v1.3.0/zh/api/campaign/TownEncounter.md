@@ -1,13 +1,7 @@
 ---
 title: "TownEncounter"
+description: "TownEncounter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TownEncounter`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TownEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
@@ -29,15 +23,22 @@ title: "TownEncounter"
 ### CreateAndOpenMissionController
 `public override IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**用途 / Purpose:** 创建一个 `and open mission controller` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「and open mission controller」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 TownEncounter 实例
+TownEncounter townEncounter = ...;
+var result = townEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TownEncounter();
-value.CreateAndOpenMissionController(nextLocation, null, null, "example");
+// 通常从对应子系统 API 获取实例后调用
+TownEncounter townEncounter = ...;
+townEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

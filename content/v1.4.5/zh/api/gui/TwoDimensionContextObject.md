@@ -1,20 +1,14 @@
 ---
 title: "TwoDimensionContextObject"
+description: "TwoDimensionContextObject 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TwoDimensionContextObject`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TwoDimensionContextObject
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class TwoDimensionContextObject`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TwoDimensionContextObject.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/TwoDimensionContextObject.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "TwoDimensionContextObject"
 ## 使用示例
 
 ```csharp
-var example = new TwoDimensionContextObject();
+// 从对应子系统 API 获取实例
+TwoDimensionContextObject instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

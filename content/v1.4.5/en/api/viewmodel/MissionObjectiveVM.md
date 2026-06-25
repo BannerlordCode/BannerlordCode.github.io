@@ -1,20 +1,14 @@
 ---
 title: "MissionObjectiveVM"
+description: "Auto-generated class reference for MissionObjectiveVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionObjectiveVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionObjectiveVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionObjectiveVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective/MissionObjectiveVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective/MissionObjectiveVM.cs`
 
 ## Overview
 
@@ -47,30 +41,55 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Obje
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionObjectiveVM from the subsystem API first
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionObjectiveVM from the subsystem API first
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.OnFinalize();
+```
 
 ### UpdateObjective
 `public void UpdateObjective(MissionObjective objective)`
 
-**Purpose:** Updates the state or data of `objective`.
+**Purpose:** Recalculates and stores the latest representation of `objective`.
+
+```csharp
+// Obtain an instance of MissionObjectiveVM from the subsystem API first
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.UpdateObjective(objective);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionObjectiveVM from the subsystem API first
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionObjectiveVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionObjectiveVM missionObjectiveVM = ...;
+missionObjectiveVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

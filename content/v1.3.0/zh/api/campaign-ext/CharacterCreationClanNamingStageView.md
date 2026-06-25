@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationClanNamingStageView"
+description: "CharacterCreationClanNamingStageView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationClanNamingStageView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationClanNamingStageView
 
 **Namespace:** SandBox.GauntletUI.CharacterCreation
@@ -35,44 +29,87 @@ title: "CharacterCreationClanNamingStageView"
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.Tick(0);
+```
 
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**用途 / Purpose:** 获取 `layers` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「layers」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+var result = characterCreationClanNamingStageView.GetLayers();
+```
 
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**用途 / Purpose:** 获取 `virtual stage count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「virtual stage count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+var result = characterCreationClanNamingStageView.GetVirtualStageCount();
+```
 
 ### NextStage
 `public override void NextStage()`
 
-**用途 / Purpose:** 处理 `next stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.NextStage();
+```
 
 ### PreviousStage
 `public override void PreviousStage()`
 
-**用途 / Purpose:** 处理 `previous stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.PreviousStage();
+```
 
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**用途 / Purpose:** 加载 `escape menu movie` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「escape menu movie」。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.LoadEscapeMenuMovie();
+```
 
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**用途 / Purpose:** 处理 `release escape menu movie` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.ReleaseEscapeMenuMovie();
+```
 
 ## 使用示例
 
 ```csharp
-var view = new CharacterCreationClanNamingStageView();
+// 从子系统 API 或场景中获取该视图
+CharacterCreationClanNamingStageView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

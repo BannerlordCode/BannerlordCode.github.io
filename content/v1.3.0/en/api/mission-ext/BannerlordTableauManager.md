@@ -1,13 +1,7 @@
 ---
 title: "BannerlordTableauManager"
+description: "Auto-generated class reference for BannerlordTableauManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerlordTableauManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordTableauManager
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,27 +29,53 @@ Treat `BannerlordTableauManager` as a Manager-style extension point: first ident
 ### RequestCharacterTableauRender
 `public static void RequestCharacterTableauRender(int characterCodeId, string path, GameEntity poseEntity, Camera cameraObject, int tableauType)`
 
-**Purpose:** Handles logic related to `request character tableau render`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BannerlordTableauManager.RequestCharacterTableauRender(0, "example", poseEntity, cameraObject, 0);
+```
 
 ### ClearManager
 `public static void ClearManager()`
 
-**Purpose:** Handles logic related to `clear manager`.
+**Purpose:** Removes all `manager` from the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordTableauManager.ClearManager();
+```
 
 ### InitializeCharacterTableauRenderSystem
 `public static void InitializeCharacterTableauRenderSystem()`
 
-**Purpose:** Initializes the state, resources, or bindings for `character tableau render system`.
+**Purpose:** Prepares the resources, state, or bindings required by `character tableau render system`.
+
+```csharp
+// Static call; no instance required
+BannerlordTableauManager.InitializeCharacterTableauRenderSystem();
+```
 
 ### GetNumberOfPendingTableauRequests
 `public static int GetNumberOfPendingTableauRequests()`
 
-**Purpose:** Gets the current value of `number of pending tableau requests`.
+**Purpose:** Reads and returns the `number of pending tableau requests` value held by the current object.
+
+```csharp
+// Static call; no instance required
+BannerlordTableauManager.GetNumberOfPendingTableauRequests();
+```
 
 ### RequestCharacterTableauSetupDelegate
 `public delegate void RequestCharacterTableauSetupDelegate(int characterCodeId, Scene scene, GameEntity poseEntity)`
 
-**Purpose:** Handles logic related to `request character tableau setup delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of BannerlordTableauManager from the subsystem API first
+BannerlordTableauManager bannerlordTableauManager = ...;
+bannerlordTableauManager.RequestCharacterTableauSetupDelegate(0, scene, poseEntity);
+```
 
 ## Usage Example
 
@@ -65,4 +85,4 @@ var manager = BannerlordTableauManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

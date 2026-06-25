@@ -1,20 +1,14 @@
 ---
 title: "MapEventVisualBrushWidget"
+description: "Auto-generated class reference for MapEventVisualBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventVisualBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MapEventVisualBrushWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map/MapEventVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map/MapEventVisualBrushWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `MapEventVisualBrushWidget` as a Widget-style extension point: first ident
 ### MapEventVisualBrushWidget
 `public class MapEventVisualBrushWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `map event visual brush widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapEventVisualBrushWidget from the subsystem API first
+MapEventVisualBrushWidget mapEventVisualBrushWidget = ...;
+var result = mapEventVisualBrushWidget.MapEventVisualBrushWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MapEventVisualBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MapEventVisualBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

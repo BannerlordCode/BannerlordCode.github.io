@@ -1,13 +1,7 @@
 ---
 title: "MBList2D"
+description: "MBList2D 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBList2D`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBList2D
 
 **Namespace:** TaleWorlds.Library
@@ -38,30 +32,55 @@ title: "MBList2D"
 ### Contains
 `public bool Contains(T item)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 MBList2D 实例
+MBList2D mBList2D = ...;
+var result = mBList2D.Contains(item);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MBList2D 实例
+MBList2D mBList2D = ...;
+mBList2D.Clear();
+```
 
 ### ResetWithNewCount
 `public void ResetWithNewCount(int newCount1, int newCount2)`
 
-**用途 / Purpose:** 将 `with new count` 重置为初始状态。
+**用途 / Purpose:** 将 「with new count」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 MBList2D 实例
+MBList2D mBList2D = ...;
+mBList2D.ResetWithNewCount(0, 0);
+```
 
 ### CopyRowTo
 `public void CopyRowTo(int sourceIndex1, int sourceIndex2, MBList2D<T> destination, int destinationIndex1, int destinationIndex2, int copyCount)`
 
-**用途 / Purpose:** 处理 `copy row to` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「row to」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBList2D 实例
+MBList2D mBList2D = ...;
+mBList2D.CopyRowTo(0, 0, destination, 0, 0, 0);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MBList2D();
-value.Contains(item);
+// 通常从对应子系统 API 获取实例后调用
+MBList2D mBList2D = ...;
+mBList2D.Contains(item);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

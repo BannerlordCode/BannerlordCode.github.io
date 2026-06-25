@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletAgentStatus"
+description: "Auto-generated class reference for MissionGauntletAgentStatus."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletAgentStatus`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletAgentStatus
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission
@@ -35,80 +29,165 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission` to place it i
 ### OnMissionStateActivated
 `public override void OnMissionStateActivated()`
 
-**Purpose:** Called when the `mission state activated` event is raised.
+**Purpose:** Invoked when the `mission state activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnMissionStateActivated();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.AfterStart();
+```
 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnMissionScreenInitialize();
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnDeploymentFinished();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnMissionScreenTick(0);
+```
 
 ### OnFocusGained
 `public override void OnFocusGained(Agent mainAgent, IFocusable focusableObject, bool isInteractable)`
 
-**Purpose:** Called when the `focus gained` event is raised.
+**Purpose:** Invoked when the `focus gained` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnFocusGained(mainAgent, focusableObject, false);
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Called when the `agent interaction` event is raised.
+**Purpose:** Invoked when the `agent interaction` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**Purpose:** Called when the `focus lost` event is raised.
+**Purpose:** Invoked when the `focus lost` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnFocusLost(agent, focusableObject);
+```
 
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**Purpose:** Called when the `agent deleted` event is raised.
+**Purpose:** Invoked when the `agent deleted` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnAgentDeleted(affectedAgent);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletAgentStatus from the subsystem API first
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionGauntletAgentStatus();
-value.OnMissionStateActivated();
+// Typically call this after obtaining an instance from the subsystem API
+MissionGauntletAgentStatus missionGauntletAgentStatus = ...;
+missionGauntletAgentStatus.OnMissionStateActivated();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

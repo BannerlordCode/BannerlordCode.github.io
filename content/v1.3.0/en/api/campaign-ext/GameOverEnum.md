@@ -1,18 +1,12 @@
 ---
 title: "GameOverEnum"
+description: "Auto-generated class reference for GameOverEnum."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameOverEnum`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameOverEnum
 
 **Namespace:** SandBox.BoardGames
 **Module:** SandBox.BoardGames
-**Type:** `class`
+**Type:** `public enum GameOverEnum`
 **Base:** none
 **File:** `SandBox/BoardGames/GameOverEnum.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var value = new GameOverEnum();
+// Obtain an instance from the relevant subsystem API
+GameOverEnum instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GameMenuOption"
+description: "Auto-generated class reference for GameMenuOption."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuOption`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GameMenuOption
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
@@ -45,35 +39,66 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ### GetConditionsHold
 `public bool GetConditionsHold(Game game, MenuContext menuContext)`
 
-**Purpose:** Gets the current value of `conditions hold`.
+**Purpose:** Reads and returns the `conditions hold` value held by the current object.
+
+```csharp
+// Obtain an instance of GameMenuOption from the subsystem API first
+GameMenuOption gameMenuOption = ...;
+var result = gameMenuOption.GetConditionsHold(game, menuContext);
+```
 
 ### RunConsequence
 `public void RunConsequence(MenuContext menuContext)`
 
-**Purpose:** Handles logic related to `run consequence`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GameMenuOption from the subsystem API first
+GameMenuOption gameMenuOption = ...;
+gameMenuOption.RunConsequence(menuContext);
+```
 
 ### SetEnable
 `public void SetEnable(bool isEnable)`
 
-**Purpose:** Sets the value or state of `enable`.
+**Purpose:** Assigns a new value to `enable` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameMenuOption from the subsystem API first
+GameMenuOption gameMenuOption = ...;
+gameMenuOption.SetEnable(false);
+```
 
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate(MenuCallbackArgs args)`
 
-**Purpose:** Called when the `condition delegate` event is raised.
+**Purpose:** Invoked when the `condition delegate` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuOption from the subsystem API first
+GameMenuOption gameMenuOption = ...;
+var result = gameMenuOption.OnConditionDelegate(args);
+```
 
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate(MenuCallbackArgs args)`
 
-**Purpose:** Called when the `consequence delegate` event is raised.
+**Purpose:** Invoked when the `consequence delegate` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuOption from the subsystem API first
+GameMenuOption gameMenuOption = ...;
+gameMenuOption.OnConsequenceDelegate(args);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuOption();
-value.GetConditionsHold(game, menuContext);
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuOption gameMenuOption = ...;
+gameMenuOption.GetConditionsHold(game, menuContext);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

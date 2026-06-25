@@ -1,13 +1,7 @@
 ---
 title: "ProjectProperties"
+description: "Auto-generated class reference for ProjectProperties."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProjectProperties`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ProjectProperties
 
 **Namespace:** psai.Editor
@@ -46,20 +40,33 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### ShallowCopy
 `public ProjectProperties ShallowCopy()`
 
-**Purpose:** Handles logic related to `shallow copy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ProjectProperties from the subsystem API first
+ProjectProperties projectProperties = ...;
+var result = projectProperties.ShallowCopy();
+```
 
 ### Clone
 `public object Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of ProjectProperties from the subsystem API first
+ProjectProperties projectProperties = ...;
+var result = projectProperties.Clone();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProjectProperties();
-value.ShallowCopy();
+// Typically call this after obtaining an instance from the subsystem API
+ProjectProperties projectProperties = ...;
+projectProperties.ShallowCopy();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

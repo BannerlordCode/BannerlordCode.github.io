@@ -1,20 +1,14 @@
 ---
 title: "SetMissionObjectGlobalFrameOverTime"
+description: "SetMissionObjectGlobalFrameOverTime 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SetMissionObjectGlobalFrameOverTime`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SetMissionObjectGlobalFrameOverTime
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class SetMissionObjectGlobalFrameOverTime : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetMissionObjectGlobalFrameOverTime.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/SetMissionObjectGlobalFrameOverTime.cs`
 
 ## 概述
 
@@ -35,9 +29,10 @@ title: "SetMissionObjectGlobalFrameOverTime"
 ## 使用示例
 
 ```csharp
-var example = new SetMissionObjectGlobalFrameOverTime();
+// 从对应子系统 API 获取实例
+SetMissionObjectGlobalFrameOverTime instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

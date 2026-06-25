@@ -1,20 +1,14 @@
 ---
 title: "CodeGenerationContext"
+description: "CodeGenerationContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CodeGenerationContext`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CodeGenerationContext
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
 **Type:** `public class CodeGenerationContext`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/CodeGenerationContext.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library.CodeGeneration/CodeGenerationContext.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "CodeGenerationContext"
 ### FindOrCreateNamespace
 `public NamespaceCode FindOrCreateNamespace(string name)`
 
-**用途 / Purpose:** 处理 `find or create namespace` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「or create namespace」。
+
+```csharp
+// 先通过子系统 API 拿到 CodeGenerationContext 实例
+CodeGenerationContext codeGenerationContext = ...;
+var result = codeGenerationContext.FindOrCreateNamespace("example");
+```
 
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 处理 `generate into` 相关逻辑。
+**用途 / Purpose:** 生成「into」的实例、数据或表示。
+
+```csharp
+// 先通过子系统 API 拿到 CodeGenerationContext 实例
+CodeGenerationContext codeGenerationContext = ...;
+codeGenerationContext.GenerateInto(codeGenerationFile);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CodeGenerationContext();
-value.FindOrCreateNamespace("example");
+// 通常从对应子系统 API 获取实例后调用
+CodeGenerationContext codeGenerationContext = ...;
+codeGenerationContext.FindOrCreateNamespace("example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

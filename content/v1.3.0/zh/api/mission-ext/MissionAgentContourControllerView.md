@@ -1,13 +1,7 @@
 ---
 title: "MissionAgentContourControllerView"
+description: "MissionAgentContourControllerView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionAgentContourControllerView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionAgentContourControllerView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -29,24 +23,43 @@ title: "MissionAgentContourControllerView"
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentContourControllerView 实例
+MissionAgentContourControllerView missionAgentContourControllerView = ...;
+missionAgentContourControllerView.OnMissionScreenTick(0);
+```
 
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** 当 `focus gained` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus gained」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentContourControllerView 实例
+MissionAgentContourControllerView missionAgentContourControllerView = ...;
+missionAgentContourControllerView.OnFocusGained(agent, focusableObject, false);
+```
 
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** 当 `focus lost` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus lost」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionAgentContourControllerView 实例
+MissionAgentContourControllerView missionAgentContourControllerView = ...;
+missionAgentContourControllerView.OnFocusLost(agent, focusableObject);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionAgentContourControllerView();
+// 从子系统 API 或场景中获取该视图
+MissionAgentContourControllerView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

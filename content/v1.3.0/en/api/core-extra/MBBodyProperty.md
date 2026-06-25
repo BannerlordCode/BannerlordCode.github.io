@@ -1,13 +1,7 @@
 ---
 title: "MBBodyProperty"
+description: "Auto-generated class reference for MBBodyProperty."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBBodyProperty`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBBodyProperty
 
 **Namespace:** TaleWorlds.Core
@@ -39,17 +33,34 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CreateFrom
 `public static MBBodyProperty CreateFrom(MBBodyProperty bodyProperty)`
 
-**Purpose:** Creates a new `from` instance or object.
+**Purpose:** Constructs a new `from` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MBBodyProperty.CreateFrom(bodyProperty);
+```
 
 ### Init
 `public void Init(BodyProperties bodyPropertyMin, BodyProperties bodyPropertyMax)`
 
-**Purpose:** Initializes the state, resources, or bindings for `init`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MBBodyProperty from the subsystem API first
+MBBodyProperty mBBodyProperty = ...;
+mBBodyProperty.Init(bodyPropertyMin, bodyPropertyMax);
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of MBBodyProperty from the subsystem API first
+MBBodyProperty mBBodyProperty = ...;
+mBBodyProperty.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
@@ -59,4 +70,4 @@ MBBodyProperty.CreateFrom(bodyProperty);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaListUnitComparer"
+description: "Auto-generated class reference for EncyclopediaListUnitComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListUnitComparer`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListUnitComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.Encyclopedia.Pages
@@ -29,14 +23,21 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### CompareUnits
 `public int CompareUnits(EncyclopediaListItem x, EncyclopediaListItem y, Func<CharacterObject, CharacterObject, int> comparison)`
 
-**Purpose:** Handles logic related to `compare units`.
+**Purpose:** Compares two `units` objects and returns an ordering result.
+
+```csharp
+// Obtain an instance of EncyclopediaListUnitComparer from the subsystem API first
+EncyclopediaListUnitComparer encyclopediaListUnitComparer = ...;
+var result = encyclopediaListUnitComparer.CompareUnits(x, y, func<CharacterObject, characterObject, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomEncyclopediaListUnitComparer();
+// Typically obtained from a subsystem API or factory
+EncyclopediaListUnitComparer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

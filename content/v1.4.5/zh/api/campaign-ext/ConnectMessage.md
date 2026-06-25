@@ -1,20 +1,14 @@
 ---
 title: "ConnectMessage"
+description: "ConnectMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConnectMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConnectMessage
 
 **Namespace:** TaleWorlds.Diamond.Rest
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ConnectMessage : RestRequestMessage`
 **Base:** `RestRequestMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ConnectMessage.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.Rest/ConnectMessage.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ConnectMessage"
 ## 使用示例
 
 ```csharp
-var example = new ConnectMessage();
+// 从对应子系统 API 获取实例
+ConnectMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

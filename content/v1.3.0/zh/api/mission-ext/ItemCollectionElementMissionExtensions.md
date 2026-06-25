@@ -1,13 +1,7 @@
 ---
 title: "ItemCollectionElementMissionExtensions"
+description: "ItemCollectionElementMissionExtensions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemCollectionElementMissionExtensions`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemCollectionElementMissionExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,12 @@ title: "ItemCollectionElementMissionExtensions"
 ### GetItemHolsterIndices
 `public static StackArray.StackArray4Int GetItemHolsterIndices(this ItemObject item)`
 
-**用途 / Purpose:** 获取 `item holster indices` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item holster indices」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ItemCollectionElementMissionExtensions.GetItemHolsterIndices(item);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ ItemCollectionElementMissionExtensions.GetItemHolsterIndices(item);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

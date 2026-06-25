@@ -1,20 +1,14 @@
 ---
 title: "NavigationMeshDeactivator"
+description: "Auto-generated class reference for NavigationMeshDeactivator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NavigationMeshDeactivator`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NavigationMeshDeactivator
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Objects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NavigationMeshDeactivator : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Objects/NavigationMeshDeactivator.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Objects/NavigationMeshDeactivator.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Source.Objects` to place it in th
 ### DisableAssignedFaces
 `public void DisableAssignedFaces(Scene scene)`
 
-**Purpose:** Handles logic related to `disable assigned faces`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NavigationMeshDeactivator from the subsystem API first
+NavigationMeshDeactivator navigationMeshDeactivator = ...;
+navigationMeshDeactivator.DisableAssignedFaces(scene);
+```
 
 ### EnableAssignedFaces
 `public void EnableAssignedFaces(Scene scene)`
 
-**Purpose:** Handles logic related to `enable assigned faces`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NavigationMeshDeactivator from the subsystem API first
+NavigationMeshDeactivator navigationMeshDeactivator = ...;
+navigationMeshDeactivator.EnableAssignedFaces(scene);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NavigationMeshDeactivator();
-value.DisableAssignedFaces(scene);
+// Typically call this after obtaining an instance from the subsystem API
+NavigationMeshDeactivator navigationMeshDeactivator = ...;
+navigationMeshDeactivator.DisableAssignedFaces(scene);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerBattleMissionAgentInteractionLogic"
+description: "Auto-generated class reference for MultiplayerBattleMissionAgentInteractionLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerBattleMissionAgentInteractionLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerBattleMissionAgentInteractionLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerBattleMissionAgentInteractionLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Missions/MultiplayerBattleMissionAgentInteractionLogic.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.Missions/MultiplayerBattleMissionAgentInteractionLogic.cs`
 
 ## Overview
 
@@ -29,14 +23,20 @@ Treat `MultiplayerBattleMissionAgentInteractionLogic` as a Logic-style extension
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Handles logic related to `is there agent action`.
+**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+
+```csharp
+// Obtain an instance of MultiplayerBattleMissionAgentInteractionLogic from the subsystem API first
+MultiplayerBattleMissionAgentInteractionLogic multiplayerBattleMissionAgentInteractionLogic = ...;
+var result = multiplayerBattleMissionAgentInteractionLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MultiplayerBattleMissionAgentInteractionLogic());
+var behavior = Mission.Current.GetMissionBehavior<MultiplayerBattleMissionAgentInteractionLogic>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

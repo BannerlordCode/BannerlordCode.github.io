@@ -1,13 +1,7 @@
 ---
 title: "UpgradeRequirementsVM"
+description: "Auto-generated class reference for UpgradeRequirementsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `UpgradeRequirementsVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # UpgradeRequirementsVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Party
@@ -42,30 +36,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of UpgradeRequirementsVM from the subsystem API first
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.RefreshValues();
+```
 
 ### SetItemRequirement
 `public void SetItemRequirement(ItemCategory category)`
 
-**Purpose:** Sets the value or state of `item requirement`.
+**Purpose:** Assigns a new value to `item requirement` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UpgradeRequirementsVM from the subsystem API first
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.SetItemRequirement(category);
+```
 
 ### SetPerkRequirement
 `public void SetPerkRequirement(PerkObject perk)`
 
-**Purpose:** Sets the value or state of `perk requirement`.
+**Purpose:** Assigns a new value to `perk requirement` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UpgradeRequirementsVM from the subsystem API first
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.SetPerkRequirement(perk);
+```
 
 ### SetRequirementsMet
 `public void SetRequirementsMet(bool isItemRequirementMet, bool isPerkRequirementMet)`
 
-**Purpose:** Sets the value or state of `requirements met`.
+**Purpose:** Assigns a new value to `requirements met` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of UpgradeRequirementsVM from the subsystem API first
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.SetRequirementsMet(false, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new UpgradeRequirementsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+UpgradeRequirementsVM upgradeRequirementsVM = ...;
+upgradeRequirementsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

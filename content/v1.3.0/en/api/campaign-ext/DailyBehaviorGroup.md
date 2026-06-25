@@ -1,13 +1,7 @@
 ---
 title: "DailyBehaviorGroup"
+description: "Auto-generated class reference for DailyBehaviorGroup."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DailyBehaviorGroup`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DailyBehaviorGroup
 
 **Namespace:** SandBox.Missions.AgentBehaviors
@@ -29,35 +23,66 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of DailyBehaviorGroup from the subsystem API first
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.Tick(0, false);
+```
 
 ### ConversationTick
 `public override void ConversationTick()`
 
-**Purpose:** Handles logic related to `conversation tick`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DailyBehaviorGroup from the subsystem API first
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.ConversationTick();
+```
 
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**Purpose:** Gets the current value of `score`.
+**Purpose:** Reads and returns the `score` value held by the current object.
+
+```csharp
+// Obtain an instance of DailyBehaviorGroup from the subsystem API first
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+var result = dailyBehaviorGroup.GetScore(false);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of DailyBehaviorGroup from the subsystem API first
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.OnAgentRemoved(agent);
+```
 
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**Purpose:** Handles logic related to `force think`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DailyBehaviorGroup from the subsystem API first
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.ForceThink(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DailyBehaviorGroup();
-value.Tick(0, false);
+// Typically call this after obtaining an instance from the subsystem API
+DailyBehaviorGroup dailyBehaviorGroup = ...;
+dailyBehaviorGroup.Tick(0, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

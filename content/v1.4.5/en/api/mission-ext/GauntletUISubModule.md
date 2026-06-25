@@ -1,20 +1,14 @@
 ---
 title: "GauntletUISubModule"
+description: "Auto-generated class reference for GauntletUISubModule."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletUISubModule`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletUISubModule
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GauntletUISubModule : MBSubModuleBase`
 **Base:** `MBSubModuleBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletUISubModule.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/GauntletUISubModule.cs`
 
 ## Overview
 
@@ -35,30 +29,53 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### OnMultiplayerGameStart
 `public override void OnMultiplayerGameStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `multiplayer game start` event is raised.
+**Purpose:** Invoked when the `multiplayer game start` event is raised.
+
+```csharp
+// Obtain an instance of GauntletUISubModule from the subsystem API first
+GauntletUISubModule gauntletUISubModule = ...;
+gauntletUISubModule.OnMultiplayerGameStart(game, starterObject);
+```
 
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of GauntletUISubModule from the subsystem API first
+GauntletUISubModule gauntletUISubModule = ...;
+gauntletUISubModule.OnGameEnd(game);
+```
 
 ### ClearChatLog
 `public static string ClearChatLog(List<string> strings)`
 
-**Purpose:** Handles logic related to `clear chat log`.
+**Purpose:** Removes all `chat log` from the current object.
+
+```csharp
+// Static call; no instance required
+GauntletUISubModule.ClearChatLog(strings);
+```
 
 ### SetCanFocusWhileInMission
 `public static string SetCanFocusWhileInMission(List<string> strings)`
 
-**Purpose:** Sets the value or state of `can focus while in mission`.
+**Purpose:** Assigns a new value to `can focus while in mission` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+GauntletUISubModule.SetCanFocusWhileInMission(strings);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletUISubModule();
-value.OnMultiplayerGameStart(game, starterObject);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletUISubModule gauntletUISubModule = ...;
+gauntletUISubModule.OnMultiplayerGameStart(game, starterObject);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "SettlementNameplatesVM"
+description: "SettlementNameplatesVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SettlementNameplatesVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SettlementNameplatesVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SettlementNameplatesVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplatesVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Nameplate/SettlementNameplatesVM.cs`
 
 ## 概述
 
@@ -37,50 +31,99 @@ title: "SettlementNameplatesVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatesVM 实例
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.OnFinalize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatesVM 实例
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.RefreshValues();
+```
 
 ### Initialize
 `public void Initialize(IEnumerable<Tuple<Settlement, GameEntity>> settlements)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatesVM 实例
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.Initialize(iEnumerable<Tuple<Settlement, settlements);
+```
 
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 更新 `update` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatesVM 实例
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.Update();
+```
 
 ### GetNameplateOfSettlement
 `public SettlementNameplateVM GetNameplateOfSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 获取 `nameplate of settlement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「nameplate of settlement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatesVM 实例
+SettlementNameplatesVM settlementNameplatesVM = ...;
+var result = settlementNameplatesVM.GetNameplateOfSettlement(settlement);
+```
 
 ### OnRebelliousClanDisbandedAtSettlement
 `public void OnRebelliousClanDisbandedAtSettlement(Settlement settlement, Clan clan)`
 
-**用途 / Purpose:** 当 `rebellious clan disbanded at settlement` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「rebellious clan disbanded at settlement」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatesVM 实例
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.OnRebelliousClanDisbandedAtSettlement(settlement, clan);
+```
 
 ### RefreshRelationsOfNameplates
 `public void RefreshRelationsOfNameplates()`
 
-**用途 / Purpose:** 刷新 `relations of nameplates` 的显示或缓存。
+**用途 / Purpose:** 使 「relations of nameplates」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatesVM 实例
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.RefreshRelationsOfNameplates();
+```
 
 ### RefreshDynamicPropertiesOfNameplates
 `public void RefreshDynamicPropertiesOfNameplates(bool forceUpdate)`
 
-**用途 / Purpose:** 刷新 `dynamic properties of nameplates` 的显示或缓存。
+**用途 / Purpose:** 使 「dynamic properties of nameplates」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SettlementNameplatesVM 实例
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.RefreshDynamicPropertiesOfNameplates(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SettlementNameplatesVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+SettlementNameplatesVM settlementNameplatesVM = ...;
+settlementNameplatesVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

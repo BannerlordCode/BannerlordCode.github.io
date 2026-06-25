@@ -1,20 +1,14 @@
 ---
 title: "PeerId"
+description: "PeerId 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PeerId`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PeerId
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public struct PeerId`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/PeerId.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/PeerId.cs`
 
 ## 概述
 
@@ -35,35 +29,65 @@ title: "PeerId"
 ### ToByteArray
 `public byte ToByteArray()`
 
-**用途 / Purpose:** 处理 `to byte array` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PeerId 实例
+PeerId peerId = ...;
+var result = peerId.ToByteArray();
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 PeerId 实例
+PeerId peerId = ...;
+var result = peerId.ToString();
+```
 
 ### FromString
 `public static PeerId FromString(string peerIdAsString)`
 
-**用途 / Purpose:** 处理 `from string` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PeerId.FromString("example");
+```
 
 ### Equals
 `public override bool Equals(object o)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 PeerId 实例
+PeerId peerId = ...;
+var result = peerId.Equals(o);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 PeerId 实例
+PeerId peerId = ...;
+var result = peerId.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PeerId();
-value.ToByteArray();
+// 通常从对应子系统 API 获取实例后调用
+PeerId peerId = ...;
+peerId.ToByteArray();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

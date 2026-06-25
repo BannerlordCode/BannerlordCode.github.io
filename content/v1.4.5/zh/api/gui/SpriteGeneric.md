@@ -1,20 +1,14 @@
 ---
 title: "SpriteGeneric"
+description: "SpriteGeneric 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SpriteGeneric`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SpriteGeneric
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class SpriteGeneric : Sprite`
 **Base:** `Sprite`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteGeneric.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/SpriteGeneric.cs`
 
 ## 概述
 
@@ -35,20 +29,33 @@ title: "SpriteGeneric"
 ### GetMinUvs
 `public override Vec2 GetMinUvs()`
 
-**用途 / Purpose:** 获取 `min uvs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「min uvs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteGeneric 实例
+SpriteGeneric spriteGeneric = ...;
+var result = spriteGeneric.GetMinUvs();
+```
 
 ### GetMaxUvs
 `public override Vec2 GetMaxUvs()`
 
-**用途 / Purpose:** 获取 `max uvs` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max uvs」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SpriteGeneric 实例
+SpriteGeneric spriteGeneric = ...;
+var result = spriteGeneric.GetMaxUvs();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SpriteGeneric();
-value.GetMinUvs();
+// 通常从对应子系统 API 获取实例后调用
+SpriteGeneric spriteGeneric = ...;
+spriteGeneric.GetMinUvs();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

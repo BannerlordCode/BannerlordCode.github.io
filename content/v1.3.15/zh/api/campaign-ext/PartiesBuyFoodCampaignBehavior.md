@@ -1,13 +1,7 @@
 ---
 title: "PartiesBuyFoodCampaignBehavior"
+description: "PartiesBuyFoodCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartiesBuyFoodCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartiesBuyFoodCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
@@ -29,30 +23,55 @@ title: "PartiesBuyFoodCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 PartiesBuyFoodCampaignBehavior 实例
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 PartiesBuyFoodCampaignBehavior 实例
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.SyncData(dataStore);
+```
 
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `hourly tick party` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PartiesBuyFoodCampaignBehavior 实例
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.HourlyTickParty(mobileParty);
+```
 
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** 当 `settlement entered` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「settlement entered」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PartiesBuyFoodCampaignBehavior 实例
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PartiesBuyFoodCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+PartiesBuyFoodCampaignBehavior partiesBuyFoodCampaignBehavior = ...;
+partiesBuyFoodCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "ArtisanOverpricedGoodsIssueQuest"
+description: "ArtisanOverpricedGoodsIssueQuest 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ArtisanOverpricedGoodsIssueQuest`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ArtisanOverpricedGoodsIssueQuest
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -36,15 +30,22 @@ title: "ArtisanOverpricedGoodsIssueQuest"
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** 当 `failed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ArtisanOverpricedGoodsIssueQuest 实例
+ArtisanOverpricedGoodsIssueQuest artisanOverpricedGoodsIssueQuest = ...;
+artisanOverpricedGoodsIssueQuest.OnFailed();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ArtisanOverpricedGoodsIssueQuest();
-value.OnFailed();
+// 通常从对应子系统 API 获取实例后调用
+ArtisanOverpricedGoodsIssueQuest artisanOverpricedGoodsIssueQuest = ...;
+artisanOverpricedGoodsIssueQuest.OnFailed();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

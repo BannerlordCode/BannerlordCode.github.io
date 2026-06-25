@@ -1,18 +1,12 @@
 ---
 title: "IDebugManager"
+description: "Auto-generated class reference for IDebugManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IDebugManager`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IDebugManager
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IDebugManager`
 **Base:** none
 **File:** `TaleWorlds.Library/IDebugManager.cs`
 
@@ -27,9 +21,10 @@ Treat `IDebugManager` as a Manager-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-IDebugManager implementation = GetDebugManagerImplementation();
+// Usually obtained through DI or a factory method
+IIDebugManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

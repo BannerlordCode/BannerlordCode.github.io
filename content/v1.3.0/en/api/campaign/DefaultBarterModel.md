@@ -1,13 +1,7 @@
 ---
 title: "DefaultBarterModel"
+description: "Auto-generated class reference for DefaultBarterModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultBarterModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultBarterModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -36,12 +30,24 @@ Treat `DefaultBarterModel` as a Model-style extension point: first identify who 
 ### CalculateOverpayRelationIncreaseCosts
 `public override int CalculateOverpayRelationIncreaseCosts(Hero hero, float overpayAmount)`
 
-**Purpose:** Handles logic related to `calculate overpay relation increase costs`.
+**Purpose:** Calculates the current value or result of `overpay relation increase costs`.
+
+```csharp
+// Obtain an instance of DefaultBarterModel from the subsystem API first
+DefaultBarterModel defaultBarterModel = ...;
+var result = defaultBarterModel.CalculateOverpayRelationIncreaseCosts(hero, 0);
+```
 
 ### GetBarterPenalty
 `public override ExplainedNumber GetBarterPenalty(IFaction faction, ItemBarterable itemBarterable, Hero otherHero, PartyBase otherParty)`
 
-**Purpose:** Gets the current value of `barter penalty`.
+**Purpose:** Reads and returns the `barter penalty` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultBarterModel from the subsystem API first
+DefaultBarterModel defaultBarterModel = ...;
+var result = defaultBarterModel.GetBarterPenalty(faction, itemBarterable, otherHero, otherParty);
+```
 
 ## Usage Example
 
@@ -51,4 +57,4 @@ Game.Current.ReplaceModel<DefaultBarterModel>(new MyDefaultBarterModel());
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CharacterEquipmentItemVM"
+description: "CharacterEquipmentItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterEquipmentItemVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterEquipmentItemVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -36,20 +30,33 @@ title: "CharacterEquipmentItemVM"
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 `begin hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterEquipmentItemVM 实例
+CharacterEquipmentItemVM characterEquipmentItemVM = ...;
+characterEquipmentItemVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterEquipmentItemVM 实例
+CharacterEquipmentItemVM characterEquipmentItemVM = ...;
+characterEquipmentItemVM.ExecuteEndHint();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterEquipmentItemVM();
-value.ExecuteBeginHint();
+// 通常从对应子系统 API 获取实例后调用
+CharacterEquipmentItemVM characterEquipmentItemVM = ...;
+characterEquipmentItemVM.ExecuteBeginHint();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

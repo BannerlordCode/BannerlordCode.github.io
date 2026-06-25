@@ -1,13 +1,7 @@
 ---
 title: "GameStateScreenManager"
+description: "Auto-generated class reference for GameStateScreenManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameStateScreenManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameStateScreenManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
@@ -29,12 +23,24 @@ Treat `GameStateScreenManager` as a Manager-style extension point: first identif
 ### CreateScreen
 `public ScreenBase CreateScreen(GameState state)`
 
-**Purpose:** Creates a new `screen` instance or object.
+**Purpose:** Constructs a new `screen` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of GameStateScreenManager from the subsystem API first
+GameStateScreenManager gameStateScreenManager = ...;
+var result = gameStateScreenManager.CreateScreen(state);
+```
 
 ### BuildScreens
 `public void BuildScreens()`
 
-**Purpose:** Handles logic related to `build screens`.
+**Purpose:** Assembles and returns the built result for `screens`.
+
+```csharp
+// Obtain an instance of GameStateScreenManager from the subsystem API first
+GameStateScreenManager gameStateScreenManager = ...;
+gameStateScreenManager.BuildScreens();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = GameStateScreenManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

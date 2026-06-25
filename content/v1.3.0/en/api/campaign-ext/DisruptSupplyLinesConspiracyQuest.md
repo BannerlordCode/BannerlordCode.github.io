@@ -1,13 +1,7 @@
 ---
 title: "DisruptSupplyLinesConspiracyQuest"
+description: "Auto-generated class reference for DisruptSupplyLinesConspiracyQuest."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DisruptSupplyLinesConspiracyQuest`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DisruptSupplyLinesConspiracyQuest
 
 **Namespace:** StoryMode.Quests.SecondPhase.ConspiracyQuests
@@ -39,9 +33,10 @@ Start from namespace `StoryMode.Quests.SecondPhase.ConspiracyQuests` to place it
 ## Usage Example
 
 ```csharp
-var value = new DisruptSupplyLinesConspiracyQuest();
+// Obtain an instance from the relevant subsystem API
+DisruptSupplyLinesConspiracyQuest instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

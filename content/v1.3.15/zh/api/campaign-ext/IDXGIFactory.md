@@ -1,52 +1,30 @@
 ---
 title: "IDXGIFactory"
+description: "IDXGIFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IDXGIFactory`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IDXGIFactory
 
-**命名空间:** TaleWorlds.TwoDimension.Standalone.Native.Windows
-**模块:** TaleWorlds.TwoDimension
-**类型:** `public interface IDXGIFactory`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
+**Module:** TaleWorlds.TwoDimension
+**Type:** `public interface IDXGIFactory`
+**Base:** 无
+**File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/DXGI.cs`
 
 ## 概述
 
-`IDXGIFactory` 位于 `TaleWorlds.TwoDimension.Standalone.Native.Windows`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`IDXGIFactory` 位于 `TaleWorlds.TwoDimension.Standalone.Native.Windows`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
 先从命名空间 `TaleWorlds.TwoDimension.Standalone.Native.Windows` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
-## 主要方法
-
-### CreateDXGIFactory
-`public static extern int CreateDXGIFactory(ref Guid riid, out IntPtr factory)`
-
-**用途 / Purpose:** 创建一个 `d x g i factory` 实例或对象。
-
-### Equals
-`public override bool Equals(object o)`
-
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
-
-### GetHashCode
-`public override int GetHashCode()`
-
-**用途 / Purpose:** 获取 `hash code` 的当前值。
-
 ## 使用示例
 
 ```csharp
-IDXGIFactory implementation = GetDXGIFactoryImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIDXGIFactory service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

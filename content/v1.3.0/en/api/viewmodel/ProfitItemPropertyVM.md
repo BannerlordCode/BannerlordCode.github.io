@@ -1,13 +1,7 @@
 ---
 title: "ProfitItemPropertyVM"
+description: "Auto-generated class reference for ProfitItemPropertyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProfitItemPropertyVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProfitItemPropertyVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -42,15 +36,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ProfitItemPropertyVM from the subsystem API first
+ProfitItemPropertyVM profitItemPropertyVM = ...;
+profitItemPropertyVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProfitItemPropertyVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ProfitItemPropertyVM profitItemPropertyVM = ...;
+profitItemPropertyVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

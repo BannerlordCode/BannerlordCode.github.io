@@ -1,20 +1,14 @@
 ---
 title: "ClanFinanceAlleyItemVM"
+description: "Auto-generated class reference for ClanFinanceAlleyItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanFinanceAlleyItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanFinanceAlleyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanFinanceAlleyItemVM : ClanFinanceIncomeItemBaseVM`
 **Base:** `ClanFinanceIncomeItemBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceAlleyItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance/ClanFinanceAlleyItemVM.cs`
 
 ## Overview
 
@@ -38,30 +32,55 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of ClanFinanceAlleyItemVM from the subsystem API first
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.RefreshValues();
+```
 
 ### ExecuteManageAlley
 `public void ExecuteManageAlley()`
 
-**Purpose:** Executes the `manage alley` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `manage alley`.
+
+```csharp
+// Obtain an instance of ClanFinanceAlleyItemVM from the subsystem API first
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.ExecuteManageAlley();
+```
 
 ### ExecuteBeginHeroHint
 `public void ExecuteBeginHeroHint()`
 
-**Purpose:** Executes the `begin hero hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hero hint`.
+
+```csharp
+// Obtain an instance of ClanFinanceAlleyItemVM from the subsystem API first
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.ExecuteBeginHeroHint();
+```
 
 ### ExecuteEndHeroHint
 `public void ExecuteEndHeroHint()`
 
-**Purpose:** Executes the `end hero hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hero hint`.
+
+```csharp
+// Obtain an instance of ClanFinanceAlleyItemVM from the subsystem API first
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.ExecuteEndHeroHint();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ClanFinanceAlleyItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+ClanFinanceAlleyItemVM clanFinanceAlleyItemVM = ...;
+clanFinanceAlleyItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

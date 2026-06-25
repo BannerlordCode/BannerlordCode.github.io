@@ -1,20 +1,14 @@
 ---
 title: "EncyclopediaListItemButtonWidget"
+description: "Auto-generated class reference for EncyclopediaListItemButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaListItemButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaListItemButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class EncyclopediaListItemButtonWidget : ButtonWidget`
 **Base:** `ButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaListItemButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Encyclopedia/EncyclopediaListItemButtonWidget.cs`
 
 ## Overview
 
@@ -40,14 +34,21 @@ Treat `EncyclopediaListItemButtonWidget` as a Widget-style extension point: firs
 ### OnThisLateUpdate
 `public void OnThisLateUpdate(float dt)`
 
-**Purpose:** Called when the `this late update` event is raised.
+**Purpose:** Invoked when the `this late update` event is raised.
+
+```csharp
+// Obtain an instance of EncyclopediaListItemButtonWidget from the subsystem API first
+EncyclopediaListItemButtonWidget encyclopediaListItemButtonWidget = ...;
+encyclopediaListItemButtonWidget.OnThisLateUpdate(0);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new EncyclopediaListItemButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+EncyclopediaListItemButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

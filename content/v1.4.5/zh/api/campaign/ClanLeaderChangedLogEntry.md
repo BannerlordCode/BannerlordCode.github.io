@@ -1,20 +1,14 @@
 ---
 title: "ClanLeaderChangedLogEntry"
+description: "ClanLeaderChangedLogEntry 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanLeaderChangedLogEntry`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanLeaderChangedLogEntry
 
 **Namespace:** TaleWorlds.CampaignSystem.LogEntries
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ClanLeaderChangedLogEntry : LogEntry, IEncyclopediaLog`
 **Base:** `LogEntry`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/ClanLeaderChangedLogEntry.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.LogEntries/ClanLeaderChangedLogEntry.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "ClanLeaderChangedLogEntry"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLeaderChangedLogEntry 实例
+ClanLeaderChangedLogEntry clanLeaderChangedLogEntry = ...;
+var result = clanLeaderChangedLogEntry.ToString();
+```
 
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** 获取 `encyclopedia text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ClanLeaderChangedLogEntry 实例
+ClanLeaderChangedLogEntry clanLeaderChangedLogEntry = ...;
+var result = clanLeaderChangedLogEntry.GetEncyclopediaText();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ClanLeaderChangedLogEntry();
-value.ToString();
+// 通常从对应子系统 API 获取实例后调用
+ClanLeaderChangedLogEntry clanLeaderChangedLogEntry = ...;
+clanLeaderChangedLogEntry.ToString();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

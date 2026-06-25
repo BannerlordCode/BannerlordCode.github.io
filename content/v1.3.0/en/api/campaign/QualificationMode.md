@@ -1,13 +1,7 @@
 ---
 title: "QualificationMode"
+description: "Auto-generated class reference for QualificationMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QualificationMode`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QualificationMode
 
 **Namespace:** TaleWorlds.CampaignSystem.TournamentGames
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ## Usage Example
 
 ```csharp
-QualificationMode example = QualificationMode.Value;
+// Obtain an instance from the relevant subsystem API
+QualificationMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

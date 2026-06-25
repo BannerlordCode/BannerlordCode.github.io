@@ -1,20 +1,14 @@
 ---
 title: "StealthMissionUIHandler"
+description: "StealthMissionUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StealthMissionUIHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthMissionUIHandler
 
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public class StealthMissionUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions/StealthMissionUIHandler.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions/StealthMissionUIHandler.cs`
 
 ## 概述
 
@@ -29,14 +23,20 @@ title: "StealthMissionUIHandler"
 ### OnObjectUsed
 `public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
 
-**用途 / Purpose:** 当 `object used` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「object used」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 StealthMissionUIHandler 实例
+StealthMissionUIHandler stealthMissionUIHandler = ...;
+stealthMissionUIHandler.OnObjectUsed(userAgent, usedObject);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new StealthMissionUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<StealthMissionUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

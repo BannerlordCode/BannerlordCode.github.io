@@ -1,13 +1,7 @@
 ---
 title: "StatItem"
+description: "Auto-generated class reference for StatItem."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StatItem`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StatItem
 
 **Namespace:** SandBox.ViewModelCollection.GameOver
@@ -27,9 +21,10 @@ Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the s
 ## Usage Example
 
 ```csharp
-var value = new StatItem();
+// Obtain an instance from the relevant subsystem API
+StatItem instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

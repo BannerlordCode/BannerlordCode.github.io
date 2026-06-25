@@ -1,20 +1,14 @@
 ---
 title: "RectilinearSchiltronFormation"
+description: "Auto-generated class reference for RectilinearSchiltronFormation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RectilinearSchiltronFormation`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RectilinearSchiltronFormation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RectilinearSchiltronFormation : SquareFormation`
 **Base:** `SquareFormation`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RectilinearSchiltronFormation.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/RectilinearSchiltronFormation.cs`
 
 ## Overview
 
@@ -35,20 +29,33 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of RectilinearSchiltronFormation from the subsystem API first
+RectilinearSchiltronFormation rectilinearSchiltronFormation = ...;
+var result = rectilinearSchiltronFormation.Clone(formation);
+```
 
 ### Form
 `public void Form()`
 
-**Purpose:** Handles logic related to `form`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of RectilinearSchiltronFormation from the subsystem API first
+RectilinearSchiltronFormation rectilinearSchiltronFormation = ...;
+rectilinearSchiltronFormation.Form();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RectilinearSchiltronFormation();
-value.Clone(formation);
+// Typically call this after obtaining an instance from the subsystem API
+RectilinearSchiltronFormation rectilinearSchiltronFormation = ...;
+rectilinearSchiltronFormation.Clone(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

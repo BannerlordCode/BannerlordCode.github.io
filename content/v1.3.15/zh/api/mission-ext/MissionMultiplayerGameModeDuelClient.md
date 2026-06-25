@@ -1,13 +1,7 @@
 ---
 title: "MissionMultiplayerGameModeDuelClient"
+description: "MissionMultiplayerGameModeDuelClient 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMultiplayerGameModeDuelClient`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionMultiplayerGameModeDuelClient
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -42,45 +36,88 @@ title: "MissionMultiplayerGameModeDuelClient"
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**用途 / Purpose:** 获取 `gold amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「gold amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+var result = missionMultiplayerGameModeDuelClient.GetGoldAmount();
+```
 
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**用途 / Purpose:** 当 `gold amount changed for representative` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「gold amount changed for representative」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.OnGoldAmountChangedForRepresentative(representative, 0);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.OnRemoveBehavior();
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 当 `agent removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+```
 
 ### CanRequestCultureChange
 `public override bool CanRequestCultureChange()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `request culture change`。
+**用途 / Purpose:** 检查当前对象是否满足 「request culture change」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+var result = missionMultiplayerGameModeDuelClient.CanRequestCultureChange();
+```
 
 ### CanRequestTroopChange
 `public override bool CanRequestTroopChange()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `request troop change`。
+**用途 / Purpose:** 检查当前对象是否满足 「request troop change」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+var result = missionMultiplayerGameModeDuelClient.CanRequestTroopChange();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMultiplayerGameModeDuelClient();
-value.GetGoldAmount();
+// 通常从对应子系统 API 获取实例后调用
+MissionMultiplayerGameModeDuelClient missionMultiplayerGameModeDuelClient = ...;
+missionMultiplayerGameModeDuelClient.GetGoldAmount();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

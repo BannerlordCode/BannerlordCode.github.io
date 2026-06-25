@@ -1,20 +1,14 @@
 ---
 title: "FolderId"
+description: "Auto-generated class reference for FolderId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FolderId`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FolderId
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public struct FolderId : IEquatable<FolderId>`
 **Base:** `IEquatable<FolderId>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/FolderId.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/FolderId.cs`
 
 ## Overview
 
@@ -36,25 +30,44 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of FolderId from the subsystem API first
+FolderId folderId = ...;
+var result = folderId.Equals(obj);
+```
 
 ### Equals
 `public bool Equals(FolderId other)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of FolderId from the subsystem API first
+FolderId folderId = ...;
+var result = folderId.Equals(other);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of FolderId from the subsystem API first
+FolderId folderId = ...;
+var result = folderId.GetHashCode();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FolderId();
-value.Equals(obj);
+// Typically call this after obtaining an instance from the subsystem API
+FolderId folderId = ...;
+folderId.Equals(obj);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

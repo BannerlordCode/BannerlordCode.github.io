@@ -1,13 +1,7 @@
 ---
 title: "MapConversationMission"
+description: "Auto-generated class reference for MapConversationMission."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapConversationMission`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapConversationMission
 
 **Namespace:** SandBox.View.Map
@@ -35,25 +29,44 @@ Start from namespace `SandBox.View.Map` to place it in the stack, then inspect i
 ### SetConversationTableau
 `public void SetConversationTableau(MapConversationTableau tableau)`
 
-**Purpose:** Sets the value or state of `conversation tableau`.
+**Purpose:** Assigns a new value to `conversation tableau` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapConversationMission from the subsystem API first
+MapConversationMission mapConversationMission = ...;
+mapConversationMission.SetConversationTableau(tableau);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MapConversationMission from the subsystem API first
+MapConversationMission mapConversationMission = ...;
+mapConversationMission.Tick(0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MapConversationMission from the subsystem API first
+MapConversationMission mapConversationMission = ...;
+mapConversationMission.OnFinalize();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapConversationMission();
-value.SetConversationTableau(tableau);
+// Typically call this after obtaining an instance from the subsystem API
+MapConversationMission mapConversationMission = ...;
+mapConversationMission.SetConversationTableau(tableau);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

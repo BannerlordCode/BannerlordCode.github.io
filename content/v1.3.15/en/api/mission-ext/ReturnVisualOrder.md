@@ -1,13 +1,7 @@
 ---
 title: "ReturnVisualOrder"
+description: "Auto-generated class reference for ReturnVisualOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ReturnVisualOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ReturnVisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of ReturnVisualOrder from the subsystem API first
+ReturnVisualOrder returnVisualOrder = ...;
+var result = returnVisualOrder.GetName(orderController);
+```
 
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**Purpose:** Handles logic related to `is targeted`.
+**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+
+```csharp
+// Obtain an instance of ReturnVisualOrder from the subsystem API first
+ReturnVisualOrder returnVisualOrder = ...;
+var result = returnVisualOrder.IsTargeted();
+```
 
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Executes the `order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `order`.
+
+```csharp
+// Obtain an instance of ReturnVisualOrder from the subsystem API first
+ReturnVisualOrder returnVisualOrder = ...;
+returnVisualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ReturnVisualOrder();
-value.GetName(orderController);
+// Typically call this after obtaining an instance from the subsystem API
+ReturnVisualOrder returnVisualOrder = ...;
+returnVisualOrder.GetName(orderController);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleData"
+description: "CustomBattleData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleData
 
 **Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct CustomBattleData`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleData.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattleData.cs`
 
 ## 概述
 
@@ -43,24 +37,40 @@ title: "CustomBattleData"
 ### GetAllAttackerMeleeMachines
 `public static IEnumerable<SiegeEngineType> GetAllAttackerMeleeMachines()`
 
-**用途 / Purpose:** 获取 `all attacker melee machines` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all attacker melee machines」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleData.GetAllAttackerMeleeMachines();
+```
 
 ### GetAllDefenderRangedMachines
 `public static IEnumerable<SiegeEngineType> GetAllDefenderRangedMachines()`
 
-**用途 / Purpose:** 获取 `all defender ranged machines` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all defender ranged machines」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleData.GetAllDefenderRangedMachines();
+```
 
 ### GetAllAttackerRangedMachines
 `public static IEnumerable<SiegeEngineType> GetAllAttackerRangedMachines()`
 
-**用途 / Purpose:** 获取 `all attacker ranged machines` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「all attacker ranged machines」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CustomBattleData.GetAllAttackerRangedMachines();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CustomBattleData();
+// 该数据对象通常由战役/任务 API 返回
+CustomBattleData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

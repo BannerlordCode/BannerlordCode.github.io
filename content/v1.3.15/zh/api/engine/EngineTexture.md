@@ -1,13 +1,7 @@
 ---
 title: "EngineTexture"
+description: "EngineTexture 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EngineTexture`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EngineTexture
 
 **Namespace:** TaleWorlds.Engine.GauntletUI
@@ -35,15 +29,22 @@ title: "EngineTexture"
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 EngineTexture 实例
+EngineTexture engineTexture = ...;
+var result = engineTexture.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EngineTexture();
-value.GetHashCode();
+// 通常从对应子系统 API 获取实例后调用
+EngineTexture engineTexture = ...;
+engineTexture.GetHashCode();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

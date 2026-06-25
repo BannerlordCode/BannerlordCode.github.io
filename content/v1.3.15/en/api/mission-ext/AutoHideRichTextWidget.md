@@ -1,13 +1,7 @@
 ---
 title: "AutoHideRichTextWidget"
+description: "Auto-generated class reference for AutoHideRichTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AutoHideRichTextWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # AutoHideRichTextWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -33,9 +27,10 @@ Treat `AutoHideRichTextWidget` as a Widget-style extension point: first identify
 ## Usage Example
 
 ```csharp
-var widget = new AutoHideRichTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+AutoHideRichTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

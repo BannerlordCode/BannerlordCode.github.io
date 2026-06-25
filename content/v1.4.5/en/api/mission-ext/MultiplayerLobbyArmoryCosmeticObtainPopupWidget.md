@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLobbyArmoryCosmeticObtainPopupWidget"
+description: "Auto-generated class reference for MultiplayerLobbyArmoryCosmeticObtainPopupWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerLobbyArmoryCosmeticObtainPopupWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLobbyArmoryCosmeticObtainPopupWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLobbyArmoryCosmeticObtainPopupWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticObtainPopupWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby.Armory/MultiplayerLobbyArmoryCosmeticObtainPopupWidget.cs`
 
 ## Overview
 
@@ -42,14 +36,21 @@ Treat `MultiplayerLobbyArmoryCosmeticObtainPopupWidget` as a Widget-style extens
 ### MultiplayerLobbyArmoryCosmeticObtainPopupWidget
 `public class MultiplayerLobbyArmoryCosmeticObtainPopupWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer lobby armory cosmetic obtain popup widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerLobbyArmoryCosmeticObtainPopupWidget from the subsystem API first
+MultiplayerLobbyArmoryCosmeticObtainPopupWidget multiplayerLobbyArmoryCosmeticObtainPopupWidget = ...;
+var result = multiplayerLobbyArmoryCosmeticObtainPopupWidget.MultiplayerLobbyArmoryCosmeticObtainPopupWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerLobbyArmoryCosmeticObtainPopupWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerLobbyArmoryCosmeticObtainPopupWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

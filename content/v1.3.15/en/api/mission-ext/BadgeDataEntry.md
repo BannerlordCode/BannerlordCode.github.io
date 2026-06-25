@@ -1,23 +1,18 @@
 ---
 title: "BadgeDataEntry"
+description: "Auto-generated class reference for BadgeDataEntry."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BadgeDataEntry`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BadgeDataEntry
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BadgeDataEntry`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade.Diamond/BadgeDataEntry.cs`
 
 ## Overview
 
-`BadgeDataEntry` lives in `TaleWorlds.MountAndBlade.Diamond`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`BadgeDataEntry` lives in `TaleWorlds.MountAndBlade.Diamond` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -37,21 +32,29 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### ToDictionary
 `public static Dictionary<ValueTuple<PlayerId, string, string>, int> ToDictionary(List<BadgeDataEntry> entries)`
 
-**Purpose:** Handles logic related to `to dictionary`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BadgeDataEntry.ToDictionary(entries);
+```
 
 ### ToList
 `public static List<BadgeDataEntry> ToList(Dictionary<ValueTuple<PlayerId, string, string>, int> dictionary)`
 
-**Purpose:** Handles logic related to `to list`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+BadgeDataEntry.ToList(dictionary<ValueTuple<PlayerId, "example", "example", 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 BadgeDataEntry.ToDictionary(entries);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

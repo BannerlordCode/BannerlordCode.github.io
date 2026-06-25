@@ -1,20 +1,14 @@
 ---
 title: "DefaultHeirSelectionCalculationModel"
+description: "DefaultHeirSelectionCalculationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultHeirSelectionCalculationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultHeirSelectionCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultHeirSelectionCalculationModel : HeirSelectionCalculationModel`
 **Base:** `HeirSelectionCalculationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultHeirSelectionCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultHeirSelectionCalculationModel.cs`
 
 ## 概述
 
@@ -29,7 +23,13 @@ title: "DefaultHeirSelectionCalculationModel"
 ### CalculateHeirSelectionPoint
 `public override int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
 
-**用途 / Purpose:** 处理 `calculate heir selection point` 相关逻辑。
+**用途 / Purpose:** 计算「heir selection point」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultHeirSelectionCalculationModel 实例
+DefaultHeirSelectionCalculationModel defaultHeirSelectionCalculationModel = ...;
+var result = defaultHeirSelectionCalculationModel.CalculateHeirSelectionPoint(candidateHeir, deadHero, maxSkillHero);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultHeirSelectionCalculationModel>(new MyDefaultHei
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

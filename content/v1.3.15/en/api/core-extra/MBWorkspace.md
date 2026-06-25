@@ -1,13 +1,7 @@
 ---
 title: "MBWorkspace"
+description: "Auto-generated class reference for MBWorkspace."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBWorkspace`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBWorkspace
 
 **Namespace:** TaleWorlds.Library
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### StartUsingWorkspace
 `public T StartUsingWorkspace()`
 
-**Purpose:** Handles logic related to `start using workspace`.
+**Purpose:** Starts the `using workspace` flow or state machine.
+
+```csharp
+// Obtain an instance of MBWorkspace from the subsystem API first
+MBWorkspace mBWorkspace = ...;
+var result = mBWorkspace.StartUsingWorkspace();
+```
 
 ### StopUsingWorkspace
 `public void StopUsingWorkspace()`
 
-**Purpose:** Handles logic related to `stop using workspace`.
+**Purpose:** Stops the `using workspace` flow or state machine.
+
+```csharp
+// Obtain an instance of MBWorkspace from the subsystem API first
+MBWorkspace mBWorkspace = ...;
+mBWorkspace.StopUsingWorkspace();
+```
 
 ### GetWorkspace
 `public T GetWorkspace()`
 
-**Purpose:** Gets the current value of `workspace`.
+**Purpose:** Reads and returns the `workspace` value held by the current object.
+
+```csharp
+// Obtain an instance of MBWorkspace from the subsystem API first
+MBWorkspace mBWorkspace = ...;
+var result = mBWorkspace.GetWorkspace();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBWorkspace();
-value.StartUsingWorkspace();
+// Typically call this after obtaining an instance from the subsystem API
+MBWorkspace mBWorkspace = ...;
+mBWorkspace.StartUsingWorkspace();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

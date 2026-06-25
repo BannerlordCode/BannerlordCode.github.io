@@ -1,13 +1,7 @@
 ---
 title: "MBMisuseException"
+description: "Auto-generated class reference for MBMisuseException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMisuseException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBMisuseException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBMisuseException` as a Exception-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-try { CallMBMisuseException(); } catch (MBMisuseException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBMisuseException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

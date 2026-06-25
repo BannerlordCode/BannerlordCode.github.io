@@ -1,13 +1,7 @@
 ---
 title: "RomanceModel"
+description: "RomanceModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RomanceModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RomanceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,14 +23,21 @@ title: "RomanceModel"
 ### GetAttractionValuePercentage
 `public abstract int GetAttractionValuePercentage(Hero potentiallyInterestedCharacter, Hero heroOfInterest)`
 
-**用途 / Purpose:** 获取 `attraction value percentage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attraction value percentage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RomanceModel 实例
+RomanceModel romanceModel = ...;
+var result = romanceModel.GetAttractionValuePercentage(potentiallyInterestedCharacter, heroOfInterest);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomRomanceModel();
+// 通常通过子系统 API 或工厂获得派生实例
+RomanceModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

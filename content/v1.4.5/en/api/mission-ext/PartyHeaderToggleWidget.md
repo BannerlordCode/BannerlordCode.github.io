@@ -1,20 +1,14 @@
 ---
 title: "PartyHeaderToggleWidget"
+description: "Auto-generated class reference for PartyHeaderToggleWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyHeaderToggleWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyHeaderToggleWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class PartyHeaderToggleWidget : ToggleButtonWidget`
 **Base:** `ToggleButtonWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyHeaderToggleWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Party/PartyHeaderToggleWidget.cs`
 
 ## Overview
 
@@ -40,14 +34,21 @@ Treat `PartyHeaderToggleWidget` as a Widget-style extension point: first identif
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Sets the value or state of `state`.
+**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyHeaderToggleWidget from the subsystem API first
+PartyHeaderToggleWidget partyHeaderToggleWidget = ...;
+partyHeaderToggleWidget.SetState("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new PartyHeaderToggleWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+PartyHeaderToggleWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

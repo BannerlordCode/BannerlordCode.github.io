@@ -1,13 +1,7 @@
 ---
 title: "ItemImageIdentifierVM"
+description: "ItemImageIdentifierVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemImageIdentifierVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ItemImageIdentifierVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.ImageIdentifiers
@@ -29,15 +23,22 @@ title: "ItemImageIdentifierVM"
 ### Clone
 `public ItemImageIdentifierVM Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 ItemImageIdentifierVM 实例
+ItemImageIdentifierVM itemImageIdentifierVM = ...;
+var result = itemImageIdentifierVM.Clone();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemImageIdentifierVM();
-value.Clone();
+// 通常从对应子系统 API 获取实例后调用
+ItemImageIdentifierVM itemImageIdentifierVM = ...;
+itemImageIdentifierVM.Clone();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

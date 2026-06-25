@@ -1,20 +1,14 @@
 ---
 title: "GauntletMainAgentDetectionView"
+description: "Auto-generated class reference for GauntletMainAgentDetectionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMainAgentDetectionView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMainAgentDetectionView
 
 **Namespace:** Sandobx.GauntletUI.Missions
 **Module:** Sandobx.GauntletUI
 **Type:** `public class GauntletMainAgentDetectionView : MissionMainAgentDetectionView`
 **Base:** `MissionMainAgentDetectionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/Sandobx.GauntletUI.Missions/GauntletMainAgentDetectionView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/Sandobx.GauntletUI.Missions/GauntletMainAgentDetectionView.cs`
 
 ## Overview
 
@@ -29,29 +23,54 @@ Treat `GauntletMainAgentDetectionView` as a View-style extension point: first id
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of GauntletMainAgentDetectionView from the subsystem API first
+GauntletMainAgentDetectionView gauntletMainAgentDetectionView = ...;
+gauntletMainAgentDetectionView.OnMissionScreenInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of GauntletMainAgentDetectionView from the subsystem API first
+GauntletMainAgentDetectionView gauntletMainAgentDetectionView = ...;
+gauntletMainAgentDetectionView.AfterStart();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of GauntletMainAgentDetectionView from the subsystem API first
+GauntletMainAgentDetectionView gauntletMainAgentDetectionView = ...;
+gauntletMainAgentDetectionView.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of GauntletMainAgentDetectionView from the subsystem API first
+GauntletMainAgentDetectionView gauntletMainAgentDetectionView = ...;
+gauntletMainAgentDetectionView.OnMissionScreenTick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var view = new GauntletMainAgentDetectionView();
+// Retrieve this view from the subsystem API or scene
+GauntletMainAgentDetectionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "FormationAI"
+description: "Auto-generated class reference for FormationAI."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationAI`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationAI
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -39,48 +33,97 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 
 **Purpose:** Adds `ai behavior` to the current collection or state.
 
+```csharp
+// Obtain an instance of FormationAI from the subsystem API first
+FormationAI formationAI = ...;
+formationAI.AddAiBehavior(behaviorComponent);
+```
+
 ### AddSpecialBehavior
 `public void AddSpecialBehavior(BehaviorComponent behavior, bool purgePreviousSpecialBehaviors = false)`
 
 **Purpose:** Adds `special behavior` to the current collection or state.
 
+```csharp
+// Obtain an instance of FormationAI from the subsystem API first
+FormationAI formationAI = ...;
+formationAI.AddSpecialBehavior(behavior, false);
+```
+
 ### Tick
 `public void Tick()`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of FormationAI from the subsystem API first
+FormationAI formationAI = ...;
+formationAI.Tick();
+```
 
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of FormationAI from the subsystem API first
+FormationAI formationAI = ...;
+formationAI.OnDeploymentFinished();
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of FormationAI from the subsystem API first
+FormationAI formationAI = ...;
+formationAI.OnAgentRemoved(agent);
+```
 
 ### DebugMore
 `public void DebugMore()`
 
-**Purpose:** Handles logic related to `debug more`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FormationAI from the subsystem API first
+FormationAI formationAI = ...;
+formationAI.DebugMore();
+```
 
 ### DebugScores
 `public void DebugScores()`
 
-**Purpose:** Handles logic related to `debug scores`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of FormationAI from the subsystem API first
+FormationAI formationAI = ...;
+formationAI.DebugScores();
+```
 
 ### ResetBehaviorWeights
 `public void ResetBehaviorWeights()`
 
-**Purpose:** Resets `behavior weights` to its initial state.
+**Purpose:** Returns `behavior weights` to its default or initial condition.
+
+```csharp
+// Obtain an instance of FormationAI from the subsystem API first
+FormationAI formationAI = ...;
+formationAI.ResetBehaviorWeights();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new FormationAI();
-value.AddAiBehavior(behaviorComponent);
+// Typically call this after obtaining an instance from the subsystem API
+FormationAI formationAI = ...;
+formationAI.AddAiBehavior(behaviorComponent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

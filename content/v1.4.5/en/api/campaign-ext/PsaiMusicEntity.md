@@ -1,20 +1,14 @@
 ---
 title: "PsaiMusicEntity"
+description: "Auto-generated class reference for PsaiMusicEntity."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PsaiMusicEntity`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PsaiMusicEntity
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
 **Type:** `public abstract class PsaiMusicEntity : ICloneable`
 **Base:** `ICloneable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.Editor/PsaiMusicEntity.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.Editor/PsaiMusicEntity.cs`
 
 ## Overview
 
@@ -35,59 +29,120 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### GetClassString
 `public abstract string GetClassString()`
 
-**Purpose:** Gets the current value of `class string`.
+**Purpose:** Reads and returns the `class string` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetClassString();
+```
 
 ### GetCompatibilitySetting
 `public abstract CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**Purpose:** Gets the current value of `compatibility setting`.
+**Purpose:** Reads and returns the `compatibility setting` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetCompatibilitySetting(targetEntity);
+```
 
 ### GetCompatibilityType
 `public abstract CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**Purpose:** Gets the current value of `compatibility type`.
+**Purpose:** Reads and returns the `compatibility type` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetCompatibilityType(targetEntity, reason);
+```
 
 ### GetParent
 `public abstract PsaiMusicEntity GetParent()`
 
-**Purpose:** Gets the current value of `parent`.
+**Purpose:** Reads and returns the `parent` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetParent();
+```
 
 ### GetChildren
 `public abstract List<PsaiMusicEntity> GetChildren()`
 
-**Purpose:** Gets the current value of `children`.
+**Purpose:** Reads and returns the `children` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetChildren();
+```
 
 ### GetIndexPositionWithinParentEntity
 `public abstract int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**Purpose:** Gets the current value of `index position within parent entity`.
+**Purpose:** Reads and returns the `index position within parent entity` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetIndexPositionWithinParentEntity(parentProject);
+```
 
 ### Clone
 `public virtual object Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.Clone();
+```
 
 ### ShallowCopy
 `public virtual PsaiMusicEntity ShallowCopy()`
 
-**Purpose:** Handles logic related to `shallow copy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.ShallowCopy();
+```
 
 ### PropertyDifferencesAffectCompatibilities
 `public virtual bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**Purpose:** Handles logic related to `property differences affect compatibilities`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.PropertyDifferencesAffectCompatibilities(otherEntity);
+```
 
 ### GetTheme
 `public Theme GetTheme()`
 
-**Purpose:** Gets the current value of `theme`.
+**Purpose:** Reads and returns the `theme` value held by the current object.
+
+```csharp
+// Obtain an instance of PsaiMusicEntity from the subsystem API first
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetTheme();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPsaiMusicEntity();
+// Typically obtained from a subsystem API or factory
+PsaiMusicEntity instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

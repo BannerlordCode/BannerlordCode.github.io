@@ -1,13 +1,7 @@
 ---
 title: "TroopGivenToSettlementNotificationItemVM"
+description: "Auto-generated class reference for TroopGivenToSettlementNotificationItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TroopGivenToSettlementNotificationItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TroopGivenToSettlementNotificationItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes
@@ -38,13 +32,20 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 
 **Purpose:** Adds `new action` to the current collection or state.
 
+```csharp
+// Obtain an instance of TroopGivenToSettlementNotificationItemVM from the subsystem API first
+TroopGivenToSettlementNotificationItemVM troopGivenToSettlementNotificationItemVM = ...;
+troopGivenToSettlementNotificationItemVM.AddNewAction(newTroops);
+```
+
 ## Usage Example
 
 ```csharp
-var value = new TroopGivenToSettlementNotificationItemVM();
-value.AddNewAction(newTroops);
+// Typically call this after obtaining an instance from the subsystem API
+TroopGivenToSettlementNotificationItemVM troopGivenToSettlementNotificationItemVM = ...;
+troopGivenToSettlementNotificationItemVM.AddNewAction(newTroops);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

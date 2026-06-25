@@ -1,20 +1,14 @@
 ---
 title: "MPArmoryCosmeticTauntItemVM"
+description: "Auto-generated class reference for MPArmoryCosmeticTauntItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPArmoryCosmeticTauntItemVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPArmoryCosmeticTauntItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPArmoryCosmeticTauntItemVM : MPArmoryCosmeticItemBaseVM`
 **Base:** `MPArmoryCosmeticItemBaseVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticTauntItemVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.Armory.CosmeticItem/MPArmoryCosmeticTauntItemVM.cs`
 
 ## Overview
 
@@ -44,15 +38,22 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPArmoryCosmeticTauntItemVM from the subsystem API first
+MPArmoryCosmeticTauntItemVM mPArmoryCosmeticTauntItemVM = ...;
+mPArmoryCosmeticTauntItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPArmoryCosmeticTauntItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPArmoryCosmeticTauntItemVM mPArmoryCosmeticTauntItemVM = ...;
+mPArmoryCosmeticTauntItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

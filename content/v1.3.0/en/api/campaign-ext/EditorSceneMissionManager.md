@@ -1,13 +1,7 @@
 ---
 title: "EditorSceneMissionManager"
+description: "Auto-generated class reference for EditorSceneMissionManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EditorSceneMissionManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditorSceneMissionManager
 
 **Namespace:** SandBox
@@ -29,12 +23,24 @@ Treat `EditorSceneMissionManager` as a Manager-style extension point: first iden
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**Purpose:** Called when the `after campaign start` event is raised.
+**Purpose:** Invoked when the `after campaign start` event is raised.
+
+```csharp
+// Obtain an instance of EditorSceneMissionManager from the subsystem API first
+EditorSceneMissionManager editorSceneMissionManager = ...;
+editorSceneMissionManager.OnAfterCampaignStart(game);
+```
 
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** Called when the `load finished` event is raised.
+**Purpose:** Invoked when the `load finished` event is raised.
+
+```csharp
+// Obtain an instance of EditorSceneMissionManager from the subsystem API first
+EditorSceneMissionManager editorSceneMissionManager = ...;
+editorSceneMissionManager.OnLoadFinished();
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = EditorSceneMissionManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

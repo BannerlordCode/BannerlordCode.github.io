@@ -1,13 +1,7 @@
 ---
 title: "DefaultNotablePowerModel"
+description: "DefaultNotablePowerModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultNotablePowerModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultNotablePowerModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -36,27 +30,57 @@ title: "DefaultNotablePowerModel"
 ### CalculateDailyPowerChangeForHero
 `public override ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate daily power change for hero` 相关逻辑。
+**用途 / Purpose:** 计算「daily power change for hero」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.CalculateDailyPowerChangeForHero(hero, false);
+```
 
 ### GetPowerRankName
 `public override TextObject GetPowerRankName(Hero hero)`
 
-**用途 / Purpose:** 获取 `power rank name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「power rank name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.GetPowerRankName(hero);
+```
 
 ### GetInfluenceBonusToClan
 `public override float GetInfluenceBonusToClan(Hero hero)`
 
-**用途 / Purpose:** 获取 `influence bonus to clan` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence bonus to clan」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.GetInfluenceBonusToClan(hero);
+```
 
 ### GetInitialPower
 `public override int GetInitialPower(Hero hero)`
 
-**用途 / Purpose:** 获取 `initial power` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial power」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.GetInitialPower(hero);
+```
 
 ### GetInitialNotableSupporterCost
 `public override int GetInitialNotableSupporterCost(Hero hero)`
 
-**用途 / Purpose:** 获取 `initial notable supporter cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial notable supporter cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
+DefaultNotablePowerModel defaultNotablePowerModel = ...;
+var result = defaultNotablePowerModel.GetInitialNotableSupporterCost(hero);
+```
 
 ## 使用示例
 
@@ -66,4 +90,4 @@ Game.Current.ReplaceModel<DefaultNotablePowerModel>(new MyDefaultNotablePowerMod
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

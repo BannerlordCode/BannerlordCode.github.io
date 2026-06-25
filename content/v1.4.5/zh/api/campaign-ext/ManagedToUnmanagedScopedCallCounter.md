@@ -1,20 +1,14 @@
 ---
 title: "ManagedToUnmanagedScopedCallCounter"
+description: "ManagedToUnmanagedScopedCallCounter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedToUnmanagedScopedCallCounter`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedToUnmanagedScopedCallCounter
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
 **Type:** `public class ManagedToUnmanagedScopedCallCounter : IDisposable`
 **Base:** `IDisposable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedToUnmanagedScopedCallCounter.cs`
+**File:** `bin/TaleWorlds.DotNet/TaleWorlds.DotNet/ManagedToUnmanagedScopedCallCounter.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "ManagedToUnmanagedScopedCallCounter"
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 处理 `dispose` 相关逻辑。
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedToUnmanagedScopedCallCounter 实例
+ManagedToUnmanagedScopedCallCounter managedToUnmanagedScopedCallCounter = ...;
+managedToUnmanagedScopedCallCounter.Dispose();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ManagedToUnmanagedScopedCallCounter();
-value.Dispose();
+// 通常从对应子系统 API 获取实例后调用
+ManagedToUnmanagedScopedCallCounter managedToUnmanagedScopedCallCounter = ...;
+managedToUnmanagedScopedCallCounter.Dispose();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

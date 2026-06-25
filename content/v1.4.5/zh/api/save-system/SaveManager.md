@@ -1,20 +1,14 @@
 ---
 title: "SaveManager"
+description: "SaveManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SaveManager`
-- [← 本领域 / 返回 save-system](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveManager
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public static class SaveManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveManager.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveManager.cs`
 
 ## 概述
 
@@ -29,54 +23,79 @@ title: "SaveManager"
 ### InitializeGlobalDefinitionContext
 `public static void InitializeGlobalDefinitionContext()`
 
-**用途 / Purpose:** 初始化 `global definition context` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「global definition context」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+SaveManager.InitializeGlobalDefinitionContext();
+```
 
 ### CheckSaveableTypes
 `public static List<Type> CheckSaveableTypes()`
 
-**用途 / Purpose:** 处理 `check saveable types` 相关逻辑。
+**用途 / Purpose:** 检查「saveable types」在当前对象中是否成立。
+
+```csharp
+// 静态调用，不需要实例
+SaveManager.CheckSaveableTypes();
+```
 
 ### Save
 `public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`
 
-**用途 / Purpose:** 保存 `save` 数据。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+SaveManager.Save(target, metaData, "example", driver);
+```
 
 ### ShouldResolveConflicts
 `public static bool ShouldResolveConflicts()`
 
-**用途 / Purpose:** 处理 `should resolve conflicts` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+SaveManager.ShouldResolveConflicts();
+```
 
 ### LoadMetaData
 `public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`
 
-**用途 / Purpose:** 加载 `meta data` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「meta data」。
+
+```csharp
+// 静态调用，不需要实例
+SaveManager.LoadMetaData("example", driver);
+```
 
 ### Load
 `public static LoadResult Load(string saveName, ISaveDriver driver)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 静态调用，不需要实例
+SaveManager.Load("example", driver);
+```
 
 ### Load
 `public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)`
 
-**用途 / Purpose:** 加载 `load` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+
+```csharp
+// 静态调用，不需要实例
+SaveManager.Load("example", driver, false);
+```
 
 ## 使用示例
 
 ```csharp
-SaveManager.InitializeGlobalDefinitionContext();
-
-MetaData metaData = new MetaData();
-metaData["ModVersion"] = "1.0.0";
-
-SaveOutput saveResult = SaveManager.Save(
-    Campaign.Current,
-    metaData,
-    "my_mod_save",
-    SaveGameFileDriver
-);
+var manager = SaveManager.Current;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

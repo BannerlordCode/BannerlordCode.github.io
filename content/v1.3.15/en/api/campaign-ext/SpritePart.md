@@ -1,13 +1,7 @@
 ---
 title: "SpritePart"
+description: "Auto-generated class reference for SpritePart."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SpritePart`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SpritePart
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -48,15 +42,22 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### UpdateInitValues
 `public void UpdateInitValues()`
 
-**Purpose:** Updates the state or data of `init values`.
+**Purpose:** Recalculates and stores the latest representation of `init values`.
+
+```csharp
+// Obtain an instance of SpritePart from the subsystem API first
+SpritePart spritePart = ...;
+spritePart.UpdateInitValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SpritePart();
-value.UpdateInitValues();
+// Typically call this after obtaining an instance from the subsystem API
+SpritePart spritePart = ...;
+spritePart.UpdateInitValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

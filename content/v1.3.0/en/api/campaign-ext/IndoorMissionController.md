@@ -1,13 +1,7 @@
 ---
 title: "IndoorMissionController"
+description: "Auto-generated class reference for IndoorMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IndoorMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IndoorMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,17 +23,35 @@ Treat `IndoorMissionController` as a Controller-style extension point: first ide
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Called when the `created` event is raised.
+**Purpose:** Invoked when the `created` event is raised.
+
+```csharp
+// Obtain an instance of IndoorMissionController from the subsystem API first
+IndoorMissionController indoorMissionController = ...;
+indoorMissionController.OnCreated();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of IndoorMissionController from the subsystem API first
+IndoorMissionController indoorMissionController = ...;
+indoorMissionController.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of IndoorMissionController from the subsystem API first
+IndoorMissionController indoorMissionController = ...;
+indoorMissionController.AfterStart();
+```
 
 ## Usage Example
 
@@ -49,4 +61,4 @@ var controller = Mission.Current.GetMissionBehavior<IndoorMissionController>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

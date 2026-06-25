@@ -1,13 +1,7 @@
 ---
 title: "ConversationTag"
+description: "ConversationTag 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationTag`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConversationTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,19 +29,32 @@ title: "ConversationTag"
 ### IsApplicableTo
 `public abstract bool IsApplicableTo(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is applicable to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「applicable to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationTag 实例
+ConversationTag conversationTag = ...;
+var result = conversationTag.IsApplicableTo(character);
+```
 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 处理 `to string` 相关逻辑。
+**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+
+```csharp
+// 先通过子系统 API 拿到 ConversationTag 实例
+ConversationTag conversationTag = ...;
+var result = conversationTag.ToString();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomConversationTag();
+// 通常通过子系统 API 或工厂获得派生实例
+ConversationTag instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

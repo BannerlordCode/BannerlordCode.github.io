@@ -1,18 +1,12 @@
 ---
 title: "ICampaignBehaviorManager"
+description: "Auto-generated class reference for ICampaignBehaviorManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ICampaignBehaviorManager`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ICampaignBehaviorManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface ICampaignBehaviorManager`
 **Base:** none
 **File:** `TaleWorlds.CampaignSystem/ICampaignBehaviorManager.cs`
 
@@ -27,9 +21,10 @@ Treat `ICampaignBehaviorManager` as a Manager-style extension point: first ident
 ## Usage Example
 
 ```csharp
-ICampaignBehaviorManager implementation = GetCampaignBehaviorManagerImplementation();
+// Usually obtained through DI or a factory method
+IICampaignBehaviorManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

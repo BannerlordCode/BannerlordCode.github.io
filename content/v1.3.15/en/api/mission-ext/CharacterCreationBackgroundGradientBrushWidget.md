@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationBackgroundGradientBrushWidget"
+description: "Auto-generated class reference for CharacterCreationBackgroundGradientBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationBackgroundGradientBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationBackgroundGradientBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation.Culture
@@ -33,9 +27,10 @@ Treat `CharacterCreationBackgroundGradientBrushWidget` as a Widget-style extensi
 ## Usage Example
 
 ```csharp
-var widget = new CharacterCreationBackgroundGradientBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CharacterCreationBackgroundGradientBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

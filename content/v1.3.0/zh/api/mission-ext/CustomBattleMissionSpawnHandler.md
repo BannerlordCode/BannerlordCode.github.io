@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleMissionSpawnHandler"
+description: "CustomBattleMissionSpawnHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CustomBattleMissionSpawnHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleMissionSpawnHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionSpawnHandlers
@@ -29,14 +23,20 @@ title: "CustomBattleMissionSpawnHandler"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CustomBattleMissionSpawnHandler 实例
+CustomBattleMissionSpawnHandler customBattleMissionSpawnHandler = ...;
+customBattleMissionSpawnHandler.AfterStart();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CustomBattleMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<CustomBattleMissionSpawnHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

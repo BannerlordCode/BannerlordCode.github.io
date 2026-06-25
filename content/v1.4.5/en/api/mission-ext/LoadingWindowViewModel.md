@@ -1,20 +1,14 @@
 ---
 title: "LoadingWindowViewModel"
+description: "Auto-generated class reference for LoadingWindowViewModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LoadingWindowViewModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LoadingWindowViewModel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LoadingWindowViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/LoadingWindowViewModel.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.GauntletUI/TaleWorlds.MountAndBlade.GauntletUI/LoadingWindowViewModel.cs`
 
 ## Overview
 
@@ -43,25 +37,44 @@ Treat `LoadingWindowViewModel` as a ViewModel-style extension point: first ident
 ### UnloadImageDelegate
 `public delegate void UnloadImageDelegate(int index)`
 
-**Purpose:** Handles logic related to `unload image delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LoadingWindowViewModel from the subsystem API first
+LoadingWindowViewModel loadingWindowViewModel = ...;
+loadingWindowViewModel.UnloadImageDelegate(0);
+```
 
 ### LoadImageDelegate
 `public delegate void LoadImageDelegate(int index, out string imageName)`
 
-**Purpose:** Loads `image delegate` data.
+**Purpose:** Reads `image delegate` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of LoadingWindowViewModel from the subsystem API first
+LoadingWindowViewModel loadingWindowViewModel = ...;
+loadingWindowViewModel.LoadImageDelegate(0, imageName);
+```
 
 ### SetTotalGenericImageCount
 `public void SetTotalGenericImageCount(int totalGenericImageCount)`
 
-**Purpose:** Sets the value or state of `total generic image count`.
+**Purpose:** Assigns a new value to `total generic image count` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of LoadingWindowViewModel from the subsystem API first
+LoadingWindowViewModel loadingWindowViewModel = ...;
+loadingWindowViewModel.SetTotalGenericImageCount(0);
+```
 
 ## Usage Example
 
 ```csharp
-var vm = new LoadingWindowViewModel();
+// Bind the instance as the view-model of a movie or view
+LoadingWindowViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

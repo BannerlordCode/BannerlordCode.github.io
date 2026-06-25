@@ -1,20 +1,14 @@
 ---
 title: "SandBoxNavigationCache"
+description: "SandBoxNavigationCache 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandBoxNavigationCache`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxNavigationCache
 
 **Namespace:** TaleWorlds.CampaignSystem.Map.DistanceCache
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SandBoxNavigationCache : NavigationCache<Settlement>, MapDistanceModel.INavigationCache`
 **Base:** `NavigationCache<Settlement>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map.DistanceCache/SandBoxNavigationCache.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Map.DistanceCache/SandBoxNavigationCache.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "SandBoxNavigationCache"
 ### GetSceneXmlCrcValues
 `public override void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-**用途 / Purpose:** 获取 `scene xml crc values` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「scene xml crc values」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxNavigationCache 实例
+SandBoxNavigationCache sandBoxNavigationCache = ...;
+sandBoxNavigationCache.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
+```
 
 ### FinalizeInitialization
 `public void FinalizeInitialization()`
 
-**用途 / Purpose:** 处理 `finalize initialization` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SandBoxNavigationCache 实例
+SandBoxNavigationCache sandBoxNavigationCache = ...;
+sandBoxNavigationCache.FinalizeInitialization();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SandBoxNavigationCache();
-value.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
+// 通常从对应子系统 API 获取实例后调用
+SandBoxNavigationCache sandBoxNavigationCache = ...;
+sandBoxNavigationCache.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "MBArrayList"
+description: "MBArrayList 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MBArrayList`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBArrayList
 
 **Namespace:** TaleWorlds.Library
@@ -40,49 +34,99 @@ title: "MBArrayList"
 ### IndexOf
 `public int IndexOf(T item)`
 
-**用途 / Purpose:** 处理 `index of` 相关逻辑。
+**用途 / Purpose:** 查找指定内容在当前对象中的位置索引。
+
+```csharp
+// 先通过子系统 API 拿到 MBArrayList 实例
+MBArrayList mBArrayList = ...;
+var result = mBArrayList.IndexOf(item);
+```
 
 ### Contains
 `public bool Contains(T item)`
 
-**用途 / Purpose:** 处理 `contains` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否包含指定项。
+
+```csharp
+// 先通过子系统 API 拿到 MBArrayList 实例
+MBArrayList mBArrayList = ...;
+var result = mBArrayList.Contains(item);
+```
 
 ### GetEnumerator
 `public IEnumerator<T> GetEnumerator()`
 
-**用途 / Purpose:** 获取 `enumerator` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「enumerator」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MBArrayList 实例
+MBArrayList mBArrayList = ...;
+var result = mBArrayList.GetEnumerator();
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MBArrayList 实例
+MBArrayList mBArrayList = ...;
+mBArrayList.Clear();
+```
 
 ### Add
 `public void Add(T item)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `add`。
+**用途 / Purpose:** 向当前容器或状态添加项。
+
+```csharp
+// 先通过子系统 API 拿到 MBArrayList 实例
+MBArrayList mBArrayList = ...;
+mBArrayList.Add(item);
+```
 
 ### AddRange
 `public void AddRange(IEnumerable<T> list)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `range`。
+**用途 / Purpose:** 将 「range」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MBArrayList 实例
+MBArrayList mBArrayList = ...;
+mBArrayList.AddRange(list);
+```
 
 ### Remove
 `public bool Remove(T item)`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+**用途 / Purpose:** 从当前容器或状态中移除项。
+
+```csharp
+// 先通过子系统 API 拿到 MBArrayList 实例
+MBArrayList mBArrayList = ...;
+var result = mBArrayList.Remove(item);
+```
 
 ### CopyTo
 `public void CopyTo(Array array, int index)`
 
-**用途 / Purpose:** 处理 `copy to` 相关逻辑。
+**用途 / Purpose:** 把当前对象的「to」状态复制到目标对象。
+
+```csharp
+// 先通过子系统 API 拿到 MBArrayList 实例
+MBArrayList mBArrayList = ...;
+mBArrayList.CopyTo(array, 0);
+```
 
 ## 使用示例
 
 ```csharp
-MBArrayList example = MBArrayList.Count;
+// 通常从对应子系统 API 获取实例后调用
+MBArrayList mBArrayList = ...;
+mBArrayList.IndexOf(item);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

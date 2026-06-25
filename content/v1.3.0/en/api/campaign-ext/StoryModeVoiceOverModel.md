@@ -1,13 +1,7 @@
 ---
 title: "StoryModeVoiceOverModel"
+description: "Auto-generated class reference for StoryModeVoiceOverModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeVoiceOverModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeVoiceOverModel
 
 **Namespace:** StoryMode.GameComponents
@@ -29,12 +23,24 @@ Treat `StoryModeVoiceOverModel` as a Model-style extension point: first identify
 ### GetSoundPathForCharacter
 `public override string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**Purpose:** Gets the current value of `sound path for character`.
+**Purpose:** Reads and returns the `sound path for character` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeVoiceOverModel from the subsystem API first
+StoryModeVoiceOverModel storyModeVoiceOverModel = ...;
+var result = storyModeVoiceOverModel.GetSoundPathForCharacter(character, voiceObject);
+```
 
 ### GetAccentClass
 `public override string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**Purpose:** Gets the current value of `accent class`.
+**Purpose:** Reads and returns the `accent class` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeVoiceOverModel from the subsystem API first
+StoryModeVoiceOverModel storyModeVoiceOverModel = ...;
+var result = storyModeVoiceOverModel.GetAccentClass(culture, false);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ Game.Current.ReplaceModel<StoryModeVoiceOverModel>(new MyStoryModeVoiceOverModel
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

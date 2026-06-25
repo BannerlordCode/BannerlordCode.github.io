@@ -1,13 +1,7 @@
 ---
 title: "MBTextManager"
+description: "Auto-generated class reference for MBTextManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTextManager`
-- [← Area / Back to localization](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTextManager
 
 **Namespace:** TaleWorlds.Localization
@@ -36,92 +30,162 @@ Treat `MBTextManager` as a Manager-style extension point: first identify who cre
 ### LanguageExistsInCurrentConfiguration
 `public static bool LanguageExistsInCurrentConfiguration(string language, bool developmentMode)`
 
-**Purpose:** Handles logic related to `language exists in current configuration`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBTextManager.LanguageExistsInCurrentConfiguration("example", false);
+```
 
 ### ChangeLanguage
 `public static bool ChangeLanguage(string language)`
 
-**Purpose:** Handles logic related to `change language`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBTextManager.ChangeLanguage("example");
+```
 
 ### GetActiveTextLanguageIndex
 `public static int GetActiveTextLanguageIndex()`
 
-**Purpose:** Gets the current value of `active text language index`.
+**Purpose:** Reads and returns the `active text language index` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBTextManager.GetActiveTextLanguageIndex();
+```
 
 ### TryChangeVoiceLanguage
 `public static bool TryChangeVoiceLanguage(string language)`
 
-**Purpose:** Attempts to get `change voice language`, usually returning the result in an out parameter.
+**Purpose:** Attempts to retrieve `change voice language`, usually returning success through an out parameter.
+
+```csharp
+// Static call; no instance required
+MBTextManager.TryChangeVoiceLanguage("example");
+```
 
 ### ClearAll
 `public static void ClearAll()`
 
-**Purpose:** Handles logic related to `clear all`.
+**Purpose:** Removes all `all` from the current object.
+
+```csharp
+// Static call; no instance required
+MBTextManager.ClearAll();
+```
 
 ### SetTextVariable
 `public static void SetTextVariable(string variableName, string text, bool sendClients = false)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBTextManager.SetTextVariable("example", "example", false);
+```
 
 ### SetTextVariable
 `public static void SetTextVariable(string variableName, TextObject text, bool sendClients = false)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBTextManager.SetTextVariable("example", text, false);
+```
 
 ### SetTextVariable
 `public static void SetTextVariable(string variableName, int content)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBTextManager.SetTextVariable("example", 0);
+```
 
 ### SetTextVariable
 `public static void SetTextVariable(string variableName, float content, int decimalDigits = 2)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBTextManager.SetTextVariable("example", 0, 0);
+```
 
 ### SetTextVariable
 `public static void SetTextVariable(string variableName, object content)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBTextManager.SetTextVariable("example", content);
+```
 
 ### SetTextVariable
 `public static void SetTextVariable(string variableName, int arrayIndex, object content)`
 
-**Purpose:** Sets the value or state of `text variable`.
+**Purpose:** Assigns a new value to `text variable` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBTextManager.SetTextVariable("example", 0, content);
+```
 
 ### SetFunction
 `public static void SetFunction(string funcName, string functionBody)`
 
-**Purpose:** Sets the value or state of `function`.
+**Purpose:** Assigns a new value to `function` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBTextManager.SetFunction("example", "example");
+```
 
 ### ResetFunctions
 `public static void ResetFunctions()`
 
-**Purpose:** Resets `functions` to its initial state.
+**Purpose:** Returns `functions` to its default or initial condition.
+
+```csharp
+// Static call; no instance required
+MBTextManager.ResetFunctions();
+```
 
 ### ThrowLocalizationError
 `public static void ThrowLocalizationError(string message)`
 
-**Purpose:** Handles logic related to `throw localization error`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBTextManager.ThrowLocalizationError("example");
+```
 
 ### DiscardAnimationTagsAndCheckAnimationTagPositions
 `public static string DiscardAnimationTagsAndCheckAnimationTagPositions(string text)`
 
-**Purpose:** Handles logic related to `discard animation tags and check animation tag positions`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBTextManager.DiscardAnimationTagsAndCheckAnimationTagPositions("example");
+```
 
 ### DiscardAnimationTags
 `public static string DiscardAnimationTags(string text)`
 
-**Purpose:** Handles logic related to `discard animation tags`.
+**Purpose:** Performs the operation described by this method.
 
-### GetConversationAnimations
-`public static string GetConversationAnimations(TextObject to)`
-
-**Purpose:** Gets the current value of `conversation animations`.
-
-### TryGetVoiceObject
-`public static bool TryGetVoiceObject(TextObject to, out VoiceObject vo, out string vocalizationId)`
-
-**Purpose:** Attempts to get `get voice object`, usually returning the result in an out parameter.
+```csharp
+// Static call; no instance required
+MBTextManager.DiscardAnimationTags("example");
+```
 
 ## Usage Example
 
@@ -131,4 +195,4 @@ var manager = MBTextManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

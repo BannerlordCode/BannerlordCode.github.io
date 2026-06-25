@@ -1,13 +1,7 @@
 ---
 title: "InventoryListener"
+description: "Auto-generated class reference for InventoryListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryListener`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryListener
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
@@ -29,34 +23,65 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ### GetGold
 `public abstract int GetGold()`
 
-**Purpose:** Gets the current value of `gold`.
+**Purpose:** Reads and returns the `gold` value held by the current object.
+
+```csharp
+// Obtain an instance of InventoryListener from the subsystem API first
+InventoryListener inventoryListener = ...;
+var result = inventoryListener.GetGold();
+```
 
 ### GetTraderName
 `public abstract TextObject GetTraderName()`
 
-**Purpose:** Gets the current value of `trader name`.
+**Purpose:** Reads and returns the `trader name` value held by the current object.
+
+```csharp
+// Obtain an instance of InventoryListener from the subsystem API first
+InventoryListener inventoryListener = ...;
+var result = inventoryListener.GetTraderName();
+```
 
 ### SetGold
 `public abstract void SetGold(int gold)`
 
-**Purpose:** Sets the value or state of `gold`.
+**Purpose:** Assigns a new value to `gold` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of InventoryListener from the subsystem API first
+InventoryListener inventoryListener = ...;
+inventoryListener.SetGold(0);
+```
 
 ### GetOppositeParty
 `public abstract PartyBase GetOppositeParty()`
 
-**Purpose:** Gets the current value of `opposite party`.
+**Purpose:** Reads and returns the `opposite party` value held by the current object.
+
+```csharp
+// Obtain an instance of InventoryListener from the subsystem API first
+InventoryListener inventoryListener = ...;
+var result = inventoryListener.GetOppositeParty();
+```
 
 ### OnTransaction
 `public abstract void OnTransaction()`
 
-**Purpose:** Called when the `transaction` event is raised.
+**Purpose:** Invoked when the `transaction` event is raised.
+
+```csharp
+// Obtain an instance of InventoryListener from the subsystem API first
+InventoryListener inventoryListener = ...;
+inventoryListener.OnTransaction();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomInventoryListener();
+// Typically obtained from a subsystem API or factory
+InventoryListener instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "CalculatingTag"
+description: "Auto-generated class reference for CalculatingTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CalculatingTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CalculatingTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of CalculatingTag from the subsystem API first
+CalculatingTag calculatingTag = ...;
+var result = calculatingTag.IsApplicableTo(character);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CalculatingTag();
-value.IsApplicableTo(character);
+// Typically call this after obtaining an instance from the subsystem API
+CalculatingTag calculatingTag = ...;
+calculatingTag.IsApplicableTo(character);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

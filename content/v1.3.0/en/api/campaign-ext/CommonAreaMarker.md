@@ -1,13 +1,7 @@
 ---
 title: "CommonAreaMarker"
+description: "Auto-generated class reference for CommonAreaMarker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommonAreaMarker`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CommonAreaMarker
 
 **Namespace:** SandBox.Objects.AreaMarkers
@@ -36,25 +30,44 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### GetUsableMachinesInRange
 `public override List<UsableMachine> GetUsableMachinesInRange(string excludeTag = null)`
 
-**Purpose:** Gets the current value of `usable machines in range`.
+**Purpose:** Reads and returns the `usable machines in range` value held by the current object.
+
+```csharp
+// Obtain an instance of CommonAreaMarker from the subsystem API first
+CommonAreaMarker commonAreaMarker = ...;
+var result = commonAreaMarker.GetUsableMachinesInRange("example");
+```
 
 ### GetAlley
 `public Alley GetAlley()`
 
-**Purpose:** Gets the current value of `alley`.
+**Purpose:** Reads and returns the `alley` value held by the current object.
+
+```csharp
+// Obtain an instance of CommonAreaMarker from the subsystem API first
+CommonAreaMarker commonAreaMarker = ...;
+var result = commonAreaMarker.GetAlley();
+```
 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of CommonAreaMarker from the subsystem API first
+CommonAreaMarker commonAreaMarker = ...;
+var result = commonAreaMarker.GetName();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CommonAreaMarker();
-value.GetUsableMachinesInRange("example");
+// Typically call this after obtaining an instance from the subsystem API
+CommonAreaMarker commonAreaMarker = ...;
+commonAreaMarker.GetUsableMachinesInRange("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

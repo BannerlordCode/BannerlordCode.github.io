@@ -1,18 +1,8 @@
 ---
 title: "DestroyKingdomAction"
+description: "Auto-generated campaign action reference for DestroyKingdomAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DestroyKingdomAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DestroyKingdomAction
-
-## Mental Model
-
-Treat `DestroyKingdomAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -29,7 +19,7 @@ DestroyKingdomAction is a set of static methods that trigger "DestroyKingdom" in
 public static void Apply(Kingdom destroyedKingdom)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ### ApplyByKingdomLeaderDeath
 
@@ -48,5 +38,5 @@ DestroyKingdomAction.Apply(destroyedKingdom);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

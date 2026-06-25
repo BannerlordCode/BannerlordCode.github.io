@@ -1,20 +1,14 @@
 ---
 title: "CapturePointVM"
+description: "Auto-generated class reference for CapturePointVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CapturePointVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CapturePointVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CapturePointVM : CompassTargetVM`
 **Base:** `CompassTargetVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/CapturePointVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/CapturePointVM.cs`
 
 ## Overview
 
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.H
 ### Refresh
 `public override void Refresh(float circleX, float x, float distance)`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Obtain an instance of CapturePointVM from the subsystem API first
+CapturePointVM capturePointVM = ...;
+capturePointVM.Refresh(0, 0, 0);
+```
 
 ### OnOwnerChanged
 `public void OnOwnerChanged(Team newTeam)`
 
-**Purpose:** Called when the `owner changed` event is raised.
+**Purpose:** Invoked when the `owner changed` event is raised.
+
+```csharp
+// Obtain an instance of CapturePointVM from the subsystem API first
+CapturePointVM capturePointVM = ...;
+capturePointVM.OnOwnerChanged(newTeam);
+```
 
 ### ResetFlag
 `public void ResetFlag()`
 
-**Purpose:** Resets `flag` to its initial state.
+**Purpose:** Returns `flag` to its default or initial condition.
+
+```csharp
+// Obtain an instance of CapturePointVM from the subsystem API first
+CapturePointVM capturePointVM = ...;
+capturePointVM.ResetFlag();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CapturePointVM();
-value.Refresh(0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+CapturePointVM capturePointVM = ...;
+capturePointVM.Refresh(0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

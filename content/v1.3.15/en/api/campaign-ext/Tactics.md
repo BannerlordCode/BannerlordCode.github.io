@@ -1,23 +1,18 @@
 ---
 title: "Tactics"
+description: "Auto-generated class reference for Tactics."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Tactics`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Tactics
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterDevelopment
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public static class Tactics`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs`
 
 ## Overview
 
-`Tactics` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`Tactics` lives in `TaleWorlds.CampaignSystem.CharacterDevelopment` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -27,34 +22,35 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterDevelopment` to place i
 
 | Name | Signature |
 |------|-----------|
-| `WrappedHandles` | `public static PerkObject WrappedHandles { get; }` |
-| `Basher` | `public static PerkObject Basher { get; }` |
-| `ToBeBlunt` | `public static PerkObject ToBeBlunt { get; }` |
-| `SwiftStrike` | `public static PerkObject SwiftStrike { get; }` |
-| `Cavalry` | `public static PerkObject Cavalry { get; }` |
-| `ShieldBearer` | `public static PerkObject ShieldBearer { get; }` |
-| `Trainer` | `public static PerkObject Trainer { get; }` |
-| `Duelist` | `public static PerkObject Duelist { get; }` |
-| `ShieldWall` | `public static PerkObject ShieldWall { get; }` |
-| `ArrowCatcher` | `public static PerkObject ArrowCatcher { get; }` |
-| `MilitaryTradition` | `public static PerkObject MilitaryTradition { get; }` |
-| `CorpsACorps` | `public static PerkObject CorpsACorps { get; }` |
-| `StandUnited` | `public static PerkObject StandUnited { get; }` |
-| `LeadByExample` | `public static PerkObject LeadByExample { get; }` |
-| `SteelCoreShields` | `public static PerkObject SteelCoreShields { get; }` |
-| `FleetOfFoot` | `public static PerkObject FleetOfFoot { get; }` |
-| `DeadlyPurpose` | `public static PerkObject DeadlyPurpose { get; }` |
-| `UnwaveringDefense` | `public static PerkObject UnwaveringDefense { get; }` |
-| `Prestige` | `public static PerkObject Prestige { get; }` |
-| `WayOfTheSword` | `public static PerkObject WayOfTheSword { get; }` |
+| `TightFormations` | `public static PerkObject TightFormations { get; }` |
+| `LooseFormations` | `public static PerkObject LooseFormations { get; }` |
+| `ExtendedSkirmish` | `public static PerkObject ExtendedSkirmish { get; }` |
+| `DecisiveBattle` | `public static PerkObject DecisiveBattle { get; }` |
+| `SmallUnitTactics` | `public static PerkObject SmallUnitTactics { get; }` |
+| `HordeLeader` | `public static PerkObject HordeLeader { get; }` |
+| `LawKeeper` | `public static PerkObject LawKeeper { get; }` |
+| `Coaching` | `public static PerkObject Coaching { get; }` |
+| `SwiftRegroup` | `public static PerkObject SwiftRegroup { get; }` |
+| `Improviser` | `public static PerkObject Improviser { get; }` |
+| `OnTheMarch` | `public static PerkObject OnTheMarch { get; }` |
+| `CallToArms` | `public static PerkObject CallToArms { get; }` |
+| `PickThemOfTheWalls` | `public static PerkObject PickThemOfTheWalls { get; }` |
+| `MakeThemPay` | `public static PerkObject MakeThemPay { get; }` |
+| `EliteReserves` | `public static PerkObject EliteReserves { get; }` |
+| `Encirclement` | `public static PerkObject Encirclement { get; }` |
+| `PreBattleManeuvers` | `public static PerkObject PreBattleManeuvers { get; }` |
+| `Besieged` | `public static PerkObject Besieged { get; }` |
+| `Counteroffensive` | `public static PerkObject Counteroffensive { get; }` |
+| `Gensdarmes` | `public static PerkObject Gensdarmes { get; }` |
+| `TacticalMastery` | `public static PerkObject TacticalMastery { get; }` |
 
 ## Usage Example
 
 ```csharp
-var value = new Tactics();
+// Obtain an instance from the relevant subsystem API
+Tactics instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

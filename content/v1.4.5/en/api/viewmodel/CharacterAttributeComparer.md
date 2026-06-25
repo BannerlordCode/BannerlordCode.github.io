@@ -1,20 +1,14 @@
 ---
 title: "CharacterAttributeComparer"
+description: "Auto-generated class reference for CharacterAttributeComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterAttributeComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterAttributeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CharacterAttributeComparer : IComparer<CharacterAttribute>`
 **Base:** `IComparer<CharacterAttribute>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignUIHelper.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignUIHelper.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Compare
 `public int Compare(CharacterAttribute x, CharacterAttribute y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of CharacterAttributeComparer from the subsystem API first
+CharacterAttributeComparer characterAttributeComparer = ...;
+var result = characterAttributeComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CharacterAttributeComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+CharacterAttributeComparer characterAttributeComparer = ...;
+characterAttributeComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "GenericCampaignPanelsGameKeyCategory"
+description: "GenericCampaignPanelsGameKeyCategory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GenericCampaignPanelsGameKeyCategory`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericCampaignPanelsGameKeyCategory
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -33,9 +27,10 @@ title: "GenericCampaignPanelsGameKeyCategory"
 ## 使用示例
 
 ```csharp
-var example = new GenericCampaignPanelsGameKeyCategory();
+// 从对应子系统 API 获取实例
+GenericCampaignPanelsGameKeyCategory instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

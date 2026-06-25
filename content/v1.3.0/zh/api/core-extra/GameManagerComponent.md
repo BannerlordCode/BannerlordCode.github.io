@@ -1,13 +1,7 @@
 ---
 title: "GameManagerComponent"
+description: "GameManagerComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameManagerComponent`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameManagerComponent
 
 **Namespace:** TaleWorlds.Core
@@ -33,9 +27,10 @@ title: "GameManagerComponent"
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameManagerComponent();
+// 通常通过子系统 API 或工厂获得派生实例
+GameManagerComponent instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

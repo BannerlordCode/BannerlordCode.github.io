@@ -1,20 +1,14 @@
 ---
 title: "MPLobbyVM"
+description: "Auto-generated class reference for MPLobbyVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MPLobbyVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPLobbyVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPLobbyVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyVM.cs`
 
 ## Overview
 
@@ -80,210 +74,449 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshValues();
+```
 
 ### CreateInputKeyVisuals
 `public void CreateInputKeyVisuals(HotKey cancelInputKey, HotKey doneInputKey, HotKey previousInputKey, HotKey nextInputKey, HotKey firstInputKey, HotKey lastInputKey)`
 
-**Purpose:** Creates a new `input key visuals` instance or object.
+**Purpose:** Constructs a new `input key visuals` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.CreateInputKeyVisuals(cancelInputKey, doneInputKey, previousInputKey, nextInputKey, firstInputKey, lastInputKey);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnFinalize();
+```
 
 ### OnActivate
 `public void OnActivate()`
 
-**Purpose:** Called when the `activate` event is raised.
+**Purpose:** Invoked when the `activate` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnActivate();
+```
 
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**Purpose:** Called when the `deactivate` event is raised.
+**Purpose:** Invoked when the `deactivate` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnDeactivate();
+```
 
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnTick(0);
+```
 
 ### OnConfirm
 `public void OnConfirm()`
 
-**Purpose:** Called when the `confirm` event is raised.
+**Purpose:** Invoked when the `confirm` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnConfirm();
+```
 
 ### OnEscape
 `public async void OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnEscape();
+```
 
 ### HasAnyContextMenuOpen
 `public bool HasAnyContextMenuOpen()`
 
-**Purpose:** Checks whether the current object has/contains `any context menu open`.
+**Purpose:** Determines whether the current object already holds `any context menu open`.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+var result = mPLobbyVM.HasAnyContextMenuOpen();
+```
 
 ### ForceCloseContextMenus
 `public void ForceCloseContextMenus()`
 
-**Purpose:** Handles logic related to `force close context menus`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.ForceCloseContextMenus();
+```
 
 ### HasNoPopupOpen
 `public bool HasNoPopupOpen()`
 
-**Purpose:** Checks whether the current object has/contains `no popup open`.
+**Purpose:** Determines whether the current object already holds `no popup open`.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+var result = mPLobbyVM.HasNoPopupOpen();
+```
 
 ### RequestExit
 `public async Task RequestExit()`
 
-**Purpose:** Handles logic related to `request exit`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+var result = mPLobbyVM.RequestExit();
+```
 
 ### ConnectionStateUpdated
 `public void ConnectionStateUpdated(bool isAuthenticated)`
 
-**Purpose:** Handles logic related to `connection state updated`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.ConnectionStateUpdated(false);
+```
 
 ### ShowOptionsChangedInquiry
 `public void ShowOptionsChangedInquiry(Action onAccept = null, Action onDecline = null)`
 
-**Purpose:** Handles logic related to `show options changed inquiry`.
+**Purpose:** Displays the UI or element associated with `options changed inquiry`.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.ShowOptionsChangedInquiry(null, null);
+```
 
 ### SetPage
 `public void SetPage(LobbyPage lobbyPage, MPMatchmakingVM.MatchmakingSubPages matchmakingSubPage = MPMatchmakingVM.MatchmakingSubPages.Default)`
 
-**Purpose:** Sets the value or state of `page`.
+**Purpose:** Assigns a new value to `page` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.SetPage(lobbyPage, mPMatchmakingVM.MatchmakingSubPages.Default);
+```
 
 ### RefreshRecentGames
 `public void RefreshRecentGames()`
 
-**Purpose:** Refreshes the display or cache of `recent games`.
+**Purpose:** Keeps the display or cache of `recent games` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshRecentGames();
+```
 
 ### OnDisconnected
 `public void OnDisconnected()`
 
-**Purpose:** Called when the `disconnected` event is raised.
+**Purpose:** Invoked when the `disconnected` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnDisconnected();
+```
 
 ### OnServerStatusReceived
 `public void OnServerStatusReceived(ServerStatus serverStatus)`
 
-**Purpose:** Called when the `server status received` event is raised.
+**Purpose:** Invoked when the `server status received` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnServerStatusReceived(serverStatus);
+```
 
 ### OnRejoinBattleRequestAnswered
 `public void OnRejoinBattleRequestAnswered(bool isSuccessful)`
 
-**Purpose:** Called when the `rejoin battle request answered` event is raised.
+**Purpose:** Invoked when the `rejoin battle request answered` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnRejoinBattleRequestAnswered(false);
+```
 
 ### OnRequestedToSearchBattle
 `public void OnRequestedToSearchBattle()`
 
-**Purpose:** Called when the `requested to search battle` event is raised.
+**Purpose:** Invoked when the `requested to search battle` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnRequestedToSearchBattle();
+```
 
 ### OnUpdateFindingGame
 `public void OnUpdateFindingGame(MatchmakingWaitTimeStats matchmakingWaitTimeStats, string gameTypeInfo)`
 
-**Purpose:** Called when the `update finding game` event is raised.
+**Purpose:** Invoked when the `update finding game` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnUpdateFindingGame(matchmakingWaitTimeStats, "example");
+```
 
 ### OnPremadeGameCreated
 `public void OnPremadeGameCreated()`
 
-**Purpose:** Called when the `premade game created` event is raised.
+**Purpose:** Invoked when the `premade game created` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPremadeGameCreated();
+```
 
 ### OnRequestedToCancelSearchBattle
 `public void OnRequestedToCancelSearchBattle()`
 
-**Purpose:** Called when the `requested to cancel search battle` event is raised.
+**Purpose:** Invoked when the `requested to cancel search battle` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnRequestedToCancelSearchBattle();
+```
 
 ### OnPlayerRemovedFromParty
 `public void OnPlayerRemovedFromParty(PlayerId playerId, PartyRemoveReason reason)`
 
-**Purpose:** Called when the `player removed from party` event is raised.
+**Purpose:** Invoked when the `player removed from party` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerRemovedFromParty(playerId, reason);
+```
 
 ### OnPlayerAddedToParty
 `public void OnPlayerAddedToParty(PlayerId playerId)`
 
-**Purpose:** Called when the `player added to party` event is raised.
+**Purpose:** Invoked when the `player added to party` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerAddedToParty(playerId);
+```
 
 ### OnPlayerAssignedPartyLeader
 `public void OnPlayerAssignedPartyLeader(PlayerId newPartyLeaderId)`
 
-**Purpose:** Called when the `player assigned party leader` event is raised.
+**Purpose:** Invoked when the `player assigned party leader` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerAssignedPartyLeader(newPartyLeaderId);
+```
 
 ### OnPlayerSuggestedToParty
 `public void OnPlayerSuggestedToParty(PlayerId playerId, string playerName, PlayerId suggestingPlayerId, string suggestingPlayerName)`
 
-**Purpose:** Called when the `player suggested to party` event is raised.
+**Purpose:** Invoked when the `player suggested to party` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerSuggestedToParty(playerId, "example", suggestingPlayerId, "example");
+```
 
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** Called when the `player name updated` event is raised.
+**Purpose:** Invoked when the `player name updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerNameUpdated("example");
+```
 
 ### OnSearchBattleCanceled
 `public void OnSearchBattleCanceled()`
 
-**Purpose:** Called when the `search battle canceled` event is raised.
+**Purpose:** Invoked when the `search battle canceled` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnSearchBattleCanceled();
+```
 
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**Purpose:** Refreshes the display or cache of `player data`.
+**Purpose:** Keeps the display or cache of `player data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshPlayerData(playerData);
+```
 
 ### RefreshSupportedFeatures
 `public void RefreshSupportedFeatures()`
 
-**Purpose:** Refreshes the display or cache of `supported features`.
+**Purpose:** Keeps the display or cache of `supported features` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshSupportedFeatures();
+```
 
 ### OnNotificationsReceived
 `public void OnNotificationsReceived(LobbyNotification notifications)`
 
-**Purpose:** Called when the `notifications received` event is raised.
+**Purpose:** Invoked when the `notifications received` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnNotificationsReceived(notifications);
+```
 
 ### OnSigilChanged
 `public void OnSigilChanged(int iconID)`
 
-**Purpose:** Called when the `sigil changed` event is raised.
+**Purpose:** Invoked when the `sigil changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnSigilChanged(0);
+```
 
 ### OnClanCreationFinished
 `public void OnClanCreationFinished()`
 
-**Purpose:** Called when the `clan creation finished` event is raised.
+**Purpose:** Invoked when the `clan creation finished` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnClanCreationFinished();
+```
 
 ### OnEnableGenericAvatarsChanged
 `public void OnEnableGenericAvatarsChanged()`
 
-**Purpose:** Called when the `enable generic avatars changed` event is raised.
+**Purpose:** Invoked when the `enable generic avatars changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnEnableGenericAvatarsChanged();
+```
 
 ### OnEnableGenericNamesChanged
 `public void OnEnableGenericNamesChanged()`
 
-**Purpose:** Called when the `enable generic names changed` event is raised.
+**Purpose:** Invoked when the `enable generic names changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnEnableGenericNamesChanged();
+```
 
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**Purpose:** Called when the `friend list updated` event is raised.
+**Purpose:** Invoked when the `friend list updated` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnFriendListUpdated(false);
+```
 
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**Purpose:** Called when the `clan info changed` event is raised.
+**Purpose:** Invoked when the `clan info changed` event is raised.
+
+```csharp
+// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnClanInfoChanged();
+```
 
 ### GetLocalizedGameTypesString
 `public static string GetLocalizedGameTypesString(string gameTypes)`
 
-**Purpose:** Gets the current value of `localized game types string`.
+**Purpose:** Reads and returns the `localized game types string` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MPLobbyVM.GetLocalizedGameTypesString("example");
+```
 
 ### GetLocalizedRankName
 `public static string GetLocalizedRankName(string rankID)`
 
-**Purpose:** Gets the current value of `localized rank name`.
+**Purpose:** Reads and returns the `localized rank name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MPLobbyVM.GetLocalizedRankName("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MPLobbyVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

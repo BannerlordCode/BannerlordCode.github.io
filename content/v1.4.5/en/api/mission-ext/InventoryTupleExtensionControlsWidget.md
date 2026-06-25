@@ -1,20 +1,14 @@
 ---
 title: "InventoryTupleExtensionControlsWidget"
+description: "Auto-generated class reference for InventoryTupleExtensionControlsWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `InventoryTupleExtensionControlsWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryTupleExtensionControlsWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class InventoryTupleExtensionControlsWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryTupleExtensionControlsWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory/InventoryTupleExtensionControlsWidget.cs`
 
 ## Overview
 
@@ -39,14 +33,21 @@ Treat `InventoryTupleExtensionControlsWidget` as a Widget-style extension point:
 ### BuildNavigationData
 `public void BuildNavigationData()`
 
-**Purpose:** Handles logic related to `build navigation data`.
+**Purpose:** Assembles and returns the built result for `navigation data`.
+
+```csharp
+// Obtain an instance of InventoryTupleExtensionControlsWidget from the subsystem API first
+InventoryTupleExtensionControlsWidget inventoryTupleExtensionControlsWidget = ...;
+inventoryTupleExtensionControlsWidget.BuildNavigationData();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new InventoryTupleExtensionControlsWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+InventoryTupleExtensionControlsWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

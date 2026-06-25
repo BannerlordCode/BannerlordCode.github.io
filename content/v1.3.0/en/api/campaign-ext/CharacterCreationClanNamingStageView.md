@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationClanNamingStageView"
+description: "Auto-generated class reference for CharacterCreationClanNamingStageView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CharacterCreationClanNamingStageView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterCreationClanNamingStageView
 
 **Namespace:** SandBox.GauntletUI.CharacterCreation
@@ -35,44 +29,87 @@ Treat `CharacterCreationClanNamingStageView` as a View-style extension point: fi
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of CharacterCreationClanNamingStageView from the subsystem API first
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.Tick(0);
+```
 
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**Purpose:** Gets the current value of `layers`.
+**Purpose:** Reads and returns the `layers` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationClanNamingStageView from the subsystem API first
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+var result = characterCreationClanNamingStageView.GetLayers();
+```
 
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**Purpose:** Gets the current value of `virtual stage count`.
+**Purpose:** Reads and returns the `virtual stage count` value held by the current object.
+
+```csharp
+// Obtain an instance of CharacterCreationClanNamingStageView from the subsystem API first
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+var result = characterCreationClanNamingStageView.GetVirtualStageCount();
+```
 
 ### NextStage
 `public override void NextStage()`
 
-**Purpose:** Handles logic related to `next stage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationClanNamingStageView from the subsystem API first
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.NextStage();
+```
 
 ### PreviousStage
 `public override void PreviousStage()`
 
-**Purpose:** Handles logic related to `previous stage`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationClanNamingStageView from the subsystem API first
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.PreviousStage();
+```
 
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**Purpose:** Loads `escape menu movie` data.
+**Purpose:** Reads `escape menu movie` from persistent storage or a stream.
+
+```csharp
+// Obtain an instance of CharacterCreationClanNamingStageView from the subsystem API first
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.LoadEscapeMenuMovie();
+```
 
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**Purpose:** Handles logic related to `release escape menu movie`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CharacterCreationClanNamingStageView from the subsystem API first
+CharacterCreationClanNamingStageView characterCreationClanNamingStageView = ...;
+characterCreationClanNamingStageView.ReleaseEscapeMenuMovie();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new CharacterCreationClanNamingStageView();
+// Retrieve this view from the subsystem API or scene
+CharacterCreationClanNamingStageView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

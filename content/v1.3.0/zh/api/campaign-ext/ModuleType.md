@@ -1,18 +1,12 @@
 ---
 title: "ModuleType"
+description: "ModuleType 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ModuleType`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ModuleType
 
 **Namespace:** TaleWorlds.ModuleManager
 **Module:** TaleWorlds.ModuleManager
-**Type:** `class`
+**Type:** `public enum ModuleType`
 **Base:** 无
 **File:** `TaleWorlds.ModuleManager/ModuleType.cs`
 
@@ -27,9 +21,10 @@ title: "ModuleType"
 ## 使用示例
 
 ```csharp
-var example = new ModuleType();
+// 从对应子系统 API 获取实例
+ModuleType instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

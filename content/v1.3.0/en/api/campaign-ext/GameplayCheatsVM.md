@@ -1,13 +1,7 @@
 ---
 title: "GameplayCheatsVM"
+description: "Auto-generated class reference for GameplayCheatsVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameplayCheatsVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatsVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Cheat
@@ -38,30 +32,55 @@ Start from namespace `SandBox.ViewModelCollection.Map.Cheat` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameplayCheatsVM from the subsystem API first
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.RefreshValues();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of GameplayCheatsVM from the subsystem API first
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.OnFinalize();
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Executes the `close` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `close`.
+
+```csharp
+// Obtain an instance of GameplayCheatsVM from the subsystem API first
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.ExecuteClose();
+```
 
 ### SetCloseInputKey
 `public void SetCloseInputKey(HotKey hotKey)`
 
-**Purpose:** Sets the value or state of `close input key`.
+**Purpose:** Assigns a new value to `close input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of GameplayCheatsVM from the subsystem API first
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.SetCloseInputKey(hotKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameplayCheatsVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameplayCheatsVM gameplayCheatsVM = ...;
+gameplayCheatsVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionScreen"
+description: "Auto-generated class reference for MissionScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScreen : ScreenBase, IMissionSystemHandler, IGameStateListener, IMissionScreen, IMissionListener, IChatLogHandlerScreen`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/MissionScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/MissionScreen.cs`
 
 ## Overview
 
@@ -55,210 +49,447 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ### OnSpectateAgentDelegate
 `public delegate void OnSpectateAgentDelegate(Agent followedAgent)`
 
-**Purpose:** Called when the `spectate agent delegate` event is raised.
+**Purpose:** Invoked when the `spectate agent delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.OnSpectateAgentDelegate(followedAgent);
+```
 
 ### GatherCustomAgentListToSpectateDelegate
 `public delegate List<Agent> GatherCustomAgentListToSpectateDelegate(Agent forcedAgentToInclude)`
 
-**Purpose:** Handles logic related to `gather custom agent list to spectate delegate`.
+**Purpose:** Collects or aggregates `custom agent list to spectate delegate` into the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GatherCustomAgentListToSpectateDelegate(forcedAgentToInclude);
+```
 
 ### OnFocusChangeOnGameWindow
 `public override void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**Purpose:** Called when the `focus change on game window` event is raised.
+**Purpose:** Invoked when the `focus change on game window` event is raised.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.OnFocusChangeOnGameWindow(false);
+```
 
 ### SetOrderFlagVisibility
 `public void SetOrderFlagVisibility(bool value)`
 
-**Purpose:** Sets the value or state of `order flag visibility`.
+**Purpose:** Assigns a new value to `order flag visibility` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetOrderFlagVisibility(false);
+```
 
 ### GetFollowText
 `public string GetFollowText()`
 
-**Purpose:** Gets the current value of `follow text`.
+**Purpose:** Reads and returns the `follow text` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetFollowText();
+```
 
 ### GetFollowPartyText
 `public string GetFollowPartyText()`
 
-**Purpose:** Gets the current value of `follow party text`.
+**Purpose:** Reads and returns the `follow party text` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetFollowPartyText();
+```
 
 ### SetDisplayDialog
 `public bool SetDisplayDialog(bool value)`
 
-**Purpose:** Sets the value or state of `display dialog`.
+**Purpose:** Assigns a new value to `display dialog` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.SetDisplayDialog(false);
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** Handles logic related to `is opening escape menu on focus change allowed`.
+**Purpose:** Determines whether the current object is in the `opening escape menu on focus change allowed` state or condition.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ### IsPhotoModeAllowed
 `public bool IsPhotoModeAllowed()`
 
-**Purpose:** Handles logic related to `is photo mode allowed`.
+**Purpose:** Determines whether the current object is in the `photo mode allowed` state or condition.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.IsPhotoModeAllowed();
+```
 
 ### SetExtraCameraParameters
 `public void SetExtraCameraParameters(bool newForceCanZoom, float newCameraRayCastStartingPointOffset)`
 
-**Purpose:** Sets the value or state of `extra camera parameters`.
+**Purpose:** Assigns a new value to `extra camera parameters` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetExtraCameraParameters(false, 0);
+```
 
 ### SetCustomAgentListToSpectateGatherer
 `public void SetCustomAgentListToSpectateGatherer(GatherCustomAgentListToSpectateDelegate gatherer)`
 
-**Purpose:** Sets the value or state of `custom agent list to spectate gatherer`.
+**Purpose:** Assigns a new value to `custom agent list to spectate gatherer` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetCustomAgentListToSpectateGatherer(gatherer);
+```
 
 ### UpdateFreeCamera
 `public void UpdateFreeCamera(MatrixFrame frame)`
 
-**Purpose:** Updates the state or data of `free camera`.
+**Purpose:** Recalculates and stores the latest representation of `free camera`.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.UpdateFreeCamera(frame);
+```
 
 ### OnMainAgentWeaponChanged
 `public void OnMainAgentWeaponChanged()`
 
-**Purpose:** Called when the `main agent weapon changed` event is raised.
+**Purpose:** Invoked when the `main agent weapon changed` event is raised.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.OnMainAgentWeaponChanged();
+```
 
 ### ToggleFixedMissionCamera
 `public static string ToggleFixedMissionCamera(List<string> strings)`
 
-**Purpose:** Handles logic related to `toggle fixed mission camera`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MissionScreen.ToggleFixedMissionCamera(strings);
+```
 
 ### SetFixedMissionCameraActive
 `public static void SetFixedMissionCameraActive(bool active)`
 
-**Purpose:** Sets the value or state of `fixed mission camera active`.
+**Purpose:** Assigns a new value to `fixed mission camera active` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MissionScreen.SetFixedMissionCameraActive(false);
+```
 
 ### SetShiftCameraSpeed
 `public static string SetShiftCameraSpeed(List<string> strings)`
 
-**Purpose:** Sets the value or state of `shift camera speed`.
+**Purpose:** Assigns a new value to `shift camera speed` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MissionScreen.SetShiftCameraSpeed(strings);
+```
 
 ### SetCameraPosition
 `public static string SetCameraPosition(List<string> strings)`
 
-**Purpose:** Sets the value or state of `camera position`.
+**Purpose:** Assigns a new value to `camera position` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MissionScreen.SetCameraPosition(strings);
+```
 
 ### IsViewingCharacter
 `public bool IsViewingCharacter()`
 
-**Purpose:** Handles logic related to `is viewing character`.
+**Purpose:** Determines whether the current object is in the `viewing character` state or condition.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.IsViewingCharacter();
+```
 
 ### GetCameraToggleProgress
 `public float GetCameraToggleProgress()`
 
-**Purpose:** Gets the current value of `camera toggle progress`.
+**Purpose:** Reads and returns the `camera toggle progress` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetCameraToggleProgress();
+```
 
 ### AddMissionView
 `public void AddMissionView(MissionView missionView)`
 
 **Purpose:** Adds `mission view` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.AddMissionView(missionView);
+```
+
 ### ScreenPointToWorldRay
 `public void ScreenPointToWorldRay(Vec2 screenPoint, out Vec3 rayBegin, out Vec3 rayEnd)`
 
-**Purpose:** Handles logic related to `screen point to world ray`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.ScreenPointToWorldRay(screenPoint, rayBegin, rayEnd);
+```
 
 ### GetProjectedMousePositionOnGround
 `public bool GetProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
 
-**Purpose:** Gets the current value of `projected mouse position on ground`.
+**Purpose:** Reads and returns the `projected mouse position on ground` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetProjectedMousePositionOnGround(groundPosition, groundNormal, excludeBodyOwnerFlags, false);
+```
 
 ### GetProjectedMousePositionOnWater
 `public bool GetProjectedMousePositionOnWater(out Vec3 waterPosition)`
 
-**Purpose:** Gets the current value of `projected mouse position on water`.
+**Purpose:** Reads and returns the `projected mouse position on water` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetProjectedMousePositionOnWater(waterPosition);
+```
 
 ### CancelQuickPositionOrder
 `public void CancelQuickPositionOrder()`
 
-**Purpose:** Checks whether the current object can `cel quick position order`.
+**Purpose:** Checks whether the current object meets the preconditions for `cel quick position order`.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.CancelQuickPositionOrder();
+```
 
 ### MissionStartedRendering
 `public bool MissionStartedRendering()`
 
-**Purpose:** Handles logic related to `mission started rendering`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.MissionStartedRendering();
+```
 
 ### GetOrderFlagPosition
 `public Vec3 GetOrderFlagPosition()`
 
-**Purpose:** Gets the current value of `order flag position`.
+**Purpose:** Reads and returns the `order flag position` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetOrderFlagPosition();
+```
 
 ### GetOrderFlagFrame
 `public MatrixFrame GetOrderFlagFrame()`
 
-**Purpose:** Gets the current value of `order flag frame`.
+**Purpose:** Reads and returns the `order flag frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetOrderFlagFrame();
+```
 
 ### UnregisterRadialMenuObject
 `public void UnregisterRadialMenuObject(object radialMenuOwnerObject)`
 
-**Purpose:** Handles logic related to `unregister radial menu object`.
+**Purpose:** Unregisters `radial menu object` from the current system.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.UnregisterRadialMenuObject(radialMenuOwnerObject);
+```
 
 ### SetPhotoModeRequiresMouse
 `public void SetPhotoModeRequiresMouse(bool isRequired)`
 
-**Purpose:** Sets the value or state of `photo mode requires mouse`.
+**Purpose:** Assigns a new value to `photo mode requires mouse` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetPhotoModeRequiresMouse(false);
+```
 
 ### SetPhotoModeEnabled
 `public void SetPhotoModeEnabled(bool isEnabled)`
 
-**Purpose:** Sets the value or state of `photo mode enabled`.
+**Purpose:** Assigns a new value to `photo mode enabled` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetPhotoModeEnabled(false);
+```
 
 ### SetConversationActive
 `public void SetConversationActive(bool isActive)`
 
-**Purpose:** Sets the value or state of `conversation active`.
+**Purpose:** Assigns a new value to `conversation active` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetConversationActive(false);
+```
 
 ### SetAsConversationMission
 `public void SetAsConversationMission()`
 
-**Purpose:** Sets the value or state of `as conversation mission`.
+**Purpose:** Assigns a new value to `as conversation mission` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetAsConversationMission();
+```
 
 ### SetCameraLockState
 `public void SetCameraLockState(bool isLocked)`
 
-**Purpose:** Sets the value or state of `camera lock state`.
+**Purpose:** Assigns a new value to `camera lock state` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetCameraLockState(false);
+```
 
 ### RegisterView
 `public void RegisterView(MissionView missionView)`
 
-**Purpose:** Handles logic related to `register view`.
+**Purpose:** Registers `view` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.RegisterView(missionView);
+```
 
 ### UnregisterView
 `public void UnregisterView(MissionView missionView)`
 
-**Purpose:** Handles logic related to `unregister view`.
+**Purpose:** Unregisters `view` from the current system.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.UnregisterView(missionView);
+```
 
 ### TeleportMainAgentToCameraFocusForCheat
 `public virtual void TeleportMainAgentToCameraFocusForCheat()`
 
-**Purpose:** Handles logic related to `teleport main agent to camera focus for cheat`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.TeleportMainAgentToCameraFocusForCheat();
+```
 
 ### GetPlayerAgentVisuals
 `public IAgentVisual GetPlayerAgentVisuals(MissionPeer lobbyPeer)`
 
-**Purpose:** Gets the current value of `player agent visuals`.
+**Purpose:** Reads and returns the `player agent visuals` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetPlayerAgentVisuals(lobbyPeer);
+```
 
 ### SetAgentToFollow
 `public void SetAgentToFollow(Agent agent)`
 
-**Purpose:** Sets the value or state of `agent to follow`.
+**Purpose:** Assigns a new value to `agent to follow` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.SetAgentToFollow(agent);
+```
 
 ### GetSpectatingData
 `public SpectatorData GetSpectatingData(Vec3 currentCameraPosition)`
 
-**Purpose:** Gets the current value of `spectating data`.
+**Purpose:** Reads and returns the `spectating data` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetSpectatingData(currentCameraPosition);
+```
 
 ### OnEscape
 `public void OnEscape()`
 
-**Purpose:** Called when the `escape` event is raised.
+**Purpose:** Invoked when the `escape` event is raised.
+
+```csharp
+// Obtain an instance of MissionScreen from the subsystem API first
+MissionScreen missionScreen = ...;
+missionScreen.OnEscape();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionScreen();
-value.OnSpectateAgentDelegate(followedAgent);
+// Typically call this after obtaining an instance from the subsystem API
+MissionScreen missionScreen = ...;
+missionScreen.OnSpectateAgentDelegate(followedAgent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

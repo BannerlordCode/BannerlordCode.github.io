@@ -1,13 +1,7 @@
 ---
 title: "CharacterViewModel"
+description: "CharacterViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterViewModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CharacterViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection
@@ -55,45 +49,88 @@ title: "CharacterViewModel"
 ### SetEquipment
 `public void SetEquipment(EquipmentIndex index, EquipmentElement item)`
 
-**用途 / Purpose:** 设置 `equipment` 的值或状态。
+**用途 / Purpose:** 为 「equipment」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.SetEquipment(index, item);
+```
 
 ### SetEquipment
 `public virtual void SetEquipment(Equipment equipment)`
 
-**用途 / Purpose:** 设置 `equipment` 的值或状态。
+**用途 / Purpose:** 为 「equipment」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.SetEquipment(equipment);
+```
 
 ### FillFrom
 `public void FillFrom(BasicCharacterObject character, int seed = -1, string bannerCode = null)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.FillFrom(character, 0, "example");
+```
 
 ### FillFrom
 `public void FillFrom(CharacterViewModel characterViewModel, int seed = -1)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.FillFrom(characterViewModel, 0);
+```
 
 ### ExecuteEquipWeaponAtIndex
 `public void ExecuteEquipWeaponAtIndex(EquipmentIndex index, bool isLeftHand)`
 
-**用途 / Purpose:** 执行 `equip weapon at index` 操作或流程。
+**用途 / Purpose:** 执行 「equip weapon at index」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteEquipWeaponAtIndex(index, false);
+```
 
 ### ExecuteStartCustomAnimation
 `public void ExecuteStartCustomAnimation(string animation, bool loop = false, float loopInterval = 0f)`
 
-**用途 / Purpose:** 执行 `start custom animation` 操作或流程。
+**用途 / Purpose:** 执行 「start custom animation」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteStartCustomAnimation("example", false, 0);
+```
 
 ### ExecuteStopCustomAnimation
 `public void ExecuteStopCustomAnimation()`
 
-**用途 / Purpose:** 执行 `stop custom animation` 操作或流程。
+**用途 / Purpose:** 执行 「stop custom animation」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterViewModel 实例
+CharacterViewModel characterViewModel = ...;
+characterViewModel.ExecuteStopCustomAnimation();
+```
 
 ## 使用示例
 
 ```csharp
-var vm = new CharacterViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+CharacterViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

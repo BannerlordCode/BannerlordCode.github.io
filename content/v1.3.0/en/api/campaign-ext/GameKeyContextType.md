@@ -1,13 +1,7 @@
 ---
 title: "GameKeyContextType"
+description: "Auto-generated class reference for GameKeyContextType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameKeyContextType`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameKeyContextType
 
 **Namespace:** TaleWorlds.InputSystem
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ## Usage Example
 
 ```csharp
-GameKeyContextType example = GameKeyContextType.Value;
+// Obtain an instance from the relevant subsystem API
+GameKeyContextType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

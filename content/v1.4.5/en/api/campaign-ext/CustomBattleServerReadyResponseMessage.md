@@ -1,20 +1,14 @@
 ---
 title: "CustomBattleServerReadyResponseMessage"
+description: "Auto-generated class reference for CustomBattleServerReadyResponseMessage."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleServerReadyResponseMessage`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleServerReadyResponseMessage
 
 **Namespace:** Messages.FromCustomBattleServerManager.ToCustomBattleServer
 **Module:** Messages.FromCustomBattleServerManager
 **Type:** `public class CustomBattleServerReadyResponseMessage : LoginResultObject`
 **Base:** `LoginResultObject`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/CustomBattleServerReadyResponseMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromCustomBattleServerManager.ToCustomBattleServer/CustomBattleServerReadyResponseMessage.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `Messages.FromCustomBattleServerManager.ToCustomBattleServe
 ## Usage Example
 
 ```csharp
-var example = new CustomBattleServerReadyResponseMessage();
+// Obtain an instance from the relevant subsystem API
+CustomBattleServerReadyResponseMessage instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "JournalLog"
+description: "Auto-generated class reference for JournalLog."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `JournalLog`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # JournalLog
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class JournalLog`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/JournalLog.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/JournalLog.cs`
 
 ## Overview
 
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### UpdateCurrentProgress
 `public void UpdateCurrentProgress(int progress)`
 
-**Purpose:** Updates the state or data of `current progress`.
+**Purpose:** Recalculates and stores the latest representation of `current progress`.
+
+```csharp
+// Obtain an instance of JournalLog from the subsystem API first
+JournalLog journalLog = ...;
+journalLog.UpdateCurrentProgress(0);
+```
 
 ### HasBeenCompleted
 `public bool HasBeenCompleted()`
 
-**Purpose:** Checks whether the current object has/contains `been completed`.
+**Purpose:** Determines whether the current object already holds `been completed`.
+
+```csharp
+// Obtain an instance of JournalLog from the subsystem API first
+JournalLog journalLog = ...;
+var result = journalLog.HasBeenCompleted();
+```
 
 ### GetTimeText
 `public TextObject GetTimeText()`
 
-**Purpose:** Gets the current value of `time text`.
+**Purpose:** Reads and returns the `time text` value held by the current object.
+
+```csharp
+// Obtain an instance of JournalLog from the subsystem API first
+JournalLog journalLog = ...;
+var result = journalLog.GetTimeText();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new JournalLog();
-value.UpdateCurrentProgress(0);
+// Typically call this after obtaining an instance from the subsystem API
+JournalLog journalLog = ...;
+journalLog.UpdateCurrentProgress(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

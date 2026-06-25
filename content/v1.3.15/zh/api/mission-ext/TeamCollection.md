@@ -1,24 +1,18 @@
 ---
 title: "TeamCollection"
+description: "TeamCollection 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TeamCollection`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TeamCollection
 
-**命名空间:** TaleWorlds.MountAndBlade
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public sealed class TeamCollection : List<Team>`
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public sealed class TeamCollection : List<Team>`
 **Base:** `List<Team>`
-**领域:** mission-ext
+**File:** `TaleWorlds.MountAndBlade/Mission.cs`
 
 ## 概述
 
-`TeamCollection` 位于 `TaleWorlds.MountAndBlade`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`TeamCollection` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -28,138 +22,79 @@ title: "TeamCollection"
 
 | Name | Signature |
 |------|-----------|
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `Current` | `public static Mission Current { get; }` |
-| `SceneName` | `public string SceneName { get; }` |
-| `SceneLevels` | `public string SceneLevels { get; }` |
-| `DamageToPlayerMultiplier` | `public float DamageToPlayerMultiplier { get; }` |
-| `DamageToFriendsMultiplier` | `public float DamageToFriendsMultiplier { get; }` |
-| `DamageFromPlayerToFriendsMultiplier` | `public float DamageFromPlayerToFriendsMultiplier { get; }` |
-| `HasValidTerrainType` | `public bool HasValidTerrainType { get; }` |
-| `TerrainType` | `public TerrainType TerrainType { get; }` |
-| `Scene` | `public Scene Scene { get; }` |
-| `CustomCameraTargetLocalOffset` | `public Vec3 CustomCameraTargetLocalOffset { get; }` |
-| `CustomCameraLocalOffset` | `public Vec3 CustomCameraLocalOffset { get; }` |
-| `CustomCameraLocalOffset2` | `public Vec3 CustomCameraLocalOffset2 { get; }` |
-| `CustomCameraGlobalOffset` | `public Vec3 CustomCameraGlobalOffset { get; }` |
-| `CustomCameraLocalRotationalOffset` | `public Vec3 CustomCameraLocalRotationalOffset { get; }` |
-| `CustomCameraIgnoreCollision` | `public bool CustomCameraIgnoreCollision { get; }` |
-| `CustomCameraFovMultiplier` | `public float CustomCameraFovMultiplier { get; }` |
-| `CustomCameraFixedDistance` | `public float CustomCameraFixedDistance { get; }` |
-| `ListenerAndAttenuationPosBlendFactor` | `public float ListenerAndAttenuationPosBlendFactor { get; }` |
-| `IgnoredEntityForCamera` | `public GameEntity IgnoredEntityForCamera { get; }` |
+| `Attacker` | `public Team Attacker { get; }` |
+| `Defender` | `public Team Defender { get; }` |
+| `AttackerAlly` | `public Team AttackerAlly { get; }` |
+| `DefenderAlly` | `public Team DefenderAlly { get; }` |
+| `Player` | `public Team Player { get; set; }` |
+| `PlayerEnemy` | `public Team PlayerEnemy { get; }` |
+| `PlayerAlly` | `public Team PlayerAlly { get; }` |
 
 ## 主要方法
 
-### AddActiveMissionObject
-`public void AddActiveMissionObject(MissionObject missionObject)`
+### Add
+`public new void Add(Team t)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `active mission object`。
+**用途 / Purpose:** 向当前容器或状态添加项。
 
-### ActivateMissionObject
-`public void ActivateMissionObject(MissionObject missionObject)`
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+teamCollection.Add(t);
+```
 
-**用途 / Purpose:** 处理 `activate mission object` 相关逻辑。
+### Add
+`public Team Add(BattleSideEnum side, uint color = 4294967295U, uint color2 = 4294967295U, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)`
 
-### DeactivateMissionObject
-`public void DeactivateMissionObject(MissionObject missionObject)`
+**用途 / Purpose:** 向当前容器或状态添加项。
 
-**用途 / Purpose:** 处理 `deactivate mission object` 相关逻辑。
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+var result = teamCollection.Add(side, 0, 0, null, false, false, false);
+```
 
-### SetMissionCombatType
-`public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)`
+### Find
+`public Team Find(MBTeam mbTeam)`
 
-**用途 / Purpose:** 设置 `mission combat type` 的值或状态。
+**用途 / Purpose:** 在当前集合/范围内查找匹配项。
 
-### ConversationCharacterChanged
-`public void ConversationCharacterChanged()`
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+var result = teamCollection.Find(mbTeam);
+```
 
-**用途 / Purpose:** 处理 `conversation character changed` 相关逻辑。
+### ClearResources
+`public void ClearResources()`
 
-### SetMissionMode
-`public void SetMissionMode(MissionMode newMode, bool atStart)`
+**用途 / Purpose:** 清空当前对象中的「resources」。
 
-**用途 / Purpose:** 设置 `mission mode` 的值或状态。
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+teamCollection.ClearResources();
+```
 
-### GetAverageFps
-`public float GetAverageFps()`
+### Clear
+`public new void Clear()`
 
-**用途 / Purpose:** 获取 `average fps` 的当前值。
+**用途 / Purpose:** 清空当前对象中的内容。
 
-### GetFallAvoidSystemActive
-`public bool GetFallAvoidSystemActive()`
-
-**用途 / Purpose:** 获取 `fall avoid system active` 的当前值。
-
-### SetFallAvoidSystemActive
-`public void SetFallAvoidSystemActive(bool fallAvoidActive)`
-
-**用途 / Purpose:** 设置 `fall avoid system active` 的值或状态。
-
-### IsPositionInsideBoundaries
-`public bool IsPositionInsideBoundaries(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside boundaries` 相关逻辑。
-
-### IsPositionInsideHardBoundaries
-`public bool IsPositionInsideHardBoundaries(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside hard boundaries` 相关逻辑。
-
-### IsPositionInsideAnyBlockerNavMeshFace2D
-`public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)`
-
-**用途 / Purpose:** 处理 `is position inside any blocker nav mesh face2 d` 相关逻辑。
-
-### IsPositionOnAnyBlockerNavMeshFace
-`public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)`
-
-**用途 / Purpose:** 处理 `is position on any blocker nav mesh face` 相关逻辑。
-
-### RayCastForClosestAgent
-`public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
-
-**用途 / Purpose:** 处理 `ray cast for closest agent` 相关逻辑。
-
-### RayCastForClosestAgentsLimbs
-`public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**用途 / Purpose:** 处理 `ray cast for closest agents limbs` 相关逻辑。
-
-### RayCastForGivenAgentsLimbs
-`public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
-
-**用途 / Purpose:** 处理 `ray cast for given agents limbs` 相关逻辑。
-
-### GetBiggestAgentCollisionPadding
-`public float GetBiggestAgentCollisionPadding()`
-
-**用途 / Purpose:** 获取 `biggest agent collision padding` 的当前值。
-
-### SetMissionCorpseFadeOutTimeInSeconds
-`public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)`
-
-**用途 / Purpose:** 设置 `mission corpse fade out time in seconds` 的值或状态。
-
-### SetOverrideCorpseCount
-`public void SetOverrideCorpseCount(int overrideCorpseCount)`
-
-**用途 / Purpose:** 设置 `override corpse count` 的值或状态。
-
-### SetReportStuckAgentsMode
-`public void SetReportStuckAgentsMode(bool value)`
-
-**用途 / Purpose:** 设置 `report stuck agents mode` 的值或状态。
+```csharp
+// 先通过子系统 API 拿到 TeamCollection 实例
+TeamCollection teamCollection = ...;
+teamCollection.Clear();
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 TeamCollection 实例，再调用它的公开方法
-var value = new TeamCollection();
-value.AddActiveMissionObject(missionObject);
+// 通常从对应子系统 API 获取实例后调用
+TeamCollection teamCollection = ...;
+teamCollection.Add(t);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

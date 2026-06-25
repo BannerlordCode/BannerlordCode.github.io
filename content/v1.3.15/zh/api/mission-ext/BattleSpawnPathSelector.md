@@ -1,13 +1,7 @@
 ---
 title: "BattleSpawnPathSelector"
+description: "BattleSpawnPathSelector 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BattleSpawnPathSelector`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattleSpawnPathSelector
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,35 +30,65 @@ title: "BattleSpawnPathSelector"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnPathSelector 实例
+BattleSpawnPathSelector battleSpawnPathSelector = ...;
+battleSpawnPathSelector.Initialize();
+```
 
 ### HasPath
 `public bool HasPath(Path path)`
 
-**用途 / Purpose:** 判断当前对象是否包含/拥有 `path`。
+**用途 / Purpose:** 判断当前对象是否已经持有 「path」。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnPathSelector 实例
+BattleSpawnPathSelector battleSpawnPathSelector = ...;
+var result = battleSpawnPathSelector.HasPath(path);
+```
 
 ### GetInitialPathDataOfSide
 `public bool GetInitialPathDataOfSide(BattleSideEnum side, out SpawnPathData pathPathData)`
 
-**用途 / Purpose:** 获取 `initial path data of side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「initial path data of side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnPathSelector 实例
+BattleSpawnPathSelector battleSpawnPathSelector = ...;
+var result = battleSpawnPathSelector.GetInitialPathDataOfSide(side, pathPathData);
+```
 
 ### GetReinforcementPathsDataOfSide
 `public MBReadOnlyList<SpawnPathData> GetReinforcementPathsDataOfSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 获取 `reinforcement paths data of side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「reinforcement paths data of side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 BattleSpawnPathSelector 实例
+BattleSpawnPathSelector battleSpawnPathSelector = ...;
+var result = battleSpawnPathSelector.GetReinforcementPathsDataOfSide(side);
+```
 
 ### FindBestInitialPath
 `public static Path FindBestInitialPath(Mission mission, out float pivotRatio, out bool isInverted)`
 
-**用途 / Purpose:** 处理 `find best initial path` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「best initial path」。
+
+```csharp
+// 静态调用，不需要实例
+BattleSpawnPathSelector.FindBestInitialPath(mission, pivotRatio, isInverted);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BattleSpawnPathSelector();
-value.Initialize();
+// 通常从对应子系统 API 获取实例后调用
+BattleSpawnPathSelector battleSpawnPathSelector = ...;
+battleSpawnPathSelector.Initialize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

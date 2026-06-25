@@ -1,18 +1,12 @@
 ---
 title: "IEditorMissionTester"
+description: "Auto-generated class reference for IEditorMissionTester."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IEditorMissionTester`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IEditorMissionTester
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IEditorMissionTester`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/IEditorMissionTester.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-IEditorMissionTester implementation = GetEditorMissionTesterImplementation();
+// Usually obtained through DI or a factory method
+IIEditorMissionTester service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

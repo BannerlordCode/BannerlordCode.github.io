@@ -1,13 +1,7 @@
 ---
 title: "EngineInputManager"
+description: "Auto-generated class reference for EngineInputManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EngineInputManager`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EngineInputManager
 
 **Namespace:** TaleWorlds.Engine.InputSystem
@@ -29,27 +23,57 @@ Treat `EngineInputManager` as a Manager-style extension point: first identify wh
 ### SetRumbleEffect
 `public void SetRumbleEffect(float lowFrequencyLevels, float lowFrequencyDurations, int numLowFrequencyElements, float highFrequencyLevels, float highFrequencyDurations, int numHighFrequencyElements)`
 
-**Purpose:** Sets the value or state of `rumble effect`.
+**Purpose:** Assigns a new value to `rumble effect` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EngineInputManager from the subsystem API first
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetRumbleEffect(0, 0, 0, 0, 0, 0);
+```
 
 ### SetTriggerFeedback
 `public void SetTriggerFeedback(byte leftTriggerPosition, byte leftTriggerStrength, byte rightTriggerPosition, byte rightTriggerStrength)`
 
-**Purpose:** Sets the value or state of `trigger feedback`.
+**Purpose:** Assigns a new value to `trigger feedback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EngineInputManager from the subsystem API first
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetTriggerFeedback(0, 0, 0, 0);
+```
 
 ### SetTriggerWeaponEffect
 `public void SetTriggerWeaponEffect(byte leftStartPosition, byte leftEnd_position, byte leftStrength, byte rightStartPosition, byte rightEndPosition, byte rightStrength)`
 
-**Purpose:** Sets the value or state of `trigger weapon effect`.
+**Purpose:** Assigns a new value to `trigger weapon effect` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EngineInputManager from the subsystem API first
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetTriggerWeaponEffect(0, 0, 0, 0, 0, 0);
+```
 
 ### SetTriggerVibration
 `public void SetTriggerVibration(float leftTriggerAmplitudes, float leftTriggerFrequencies, float leftTriggerDurations, int numLeftTriggerElements, float rightTriggerAmplitudes, float rightTriggerFrequencies, float rightTriggerDurations, int numRightTriggerElements)`
 
-**Purpose:** Sets the value or state of `trigger vibration`.
+**Purpose:** Assigns a new value to `trigger vibration` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EngineInputManager from the subsystem API first
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetTriggerVibration(0, 0, 0, 0, 0, 0, 0, 0);
+```
 
 ### SetLightbarColor
 `public void SetLightbarColor(float red, float green, float blue)`
 
-**Purpose:** Sets the value or state of `lightbar color`.
+**Purpose:** Assigns a new value to `lightbar color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of EngineInputManager from the subsystem API first
+EngineInputManager engineInputManager = ...;
+engineInputManager.SetLightbarColor(0, 0, 0);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ var manager = EngineInputManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

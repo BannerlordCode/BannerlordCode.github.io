@@ -1,13 +1,7 @@
 ---
 title: "MissionSingleplayerViewHandler"
+description: "MissionSingleplayerViewHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionSingleplayerViewHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSingleplayerViewHandler
 
 **Namespace:** SandBox.View.Missions
@@ -29,19 +23,31 @@ title: "MissionSingleplayerViewHandler"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSingleplayerViewHandler 实例
+MissionSingleplayerViewHandler missionSingleplayerViewHandler = ...;
+missionSingleplayerViewHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionSingleplayerViewHandler 实例
+MissionSingleplayerViewHandler missionSingleplayerViewHandler = ...;
+missionSingleplayerViewHandler.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionSingleplayerViewHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionSingleplayerViewHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

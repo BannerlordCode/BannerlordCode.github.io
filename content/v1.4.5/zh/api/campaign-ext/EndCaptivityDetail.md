@@ -1,20 +1,14 @@
 ---
 title: "EndCaptivityDetail"
+description: "EndCaptivityDetail 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EndCaptivityDetail`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EndCaptivityDetail
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public enum EndCaptivityDetail`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/EndCaptivityDetail.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/EndCaptivityDetail.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "EndCaptivityDetail"
 ## 使用示例
 
 ```csharp
-var example = new EndCaptivityDetail();
+// 从对应子系统 API 获取实例
+EndCaptivityDetail instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

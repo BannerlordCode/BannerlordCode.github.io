@@ -1,13 +1,7 @@
 ---
 title: "HeadmanNeedsGrainIssueTypeDefiner"
+description: "Auto-generated class reference for HeadmanNeedsGrainIssueTypeDefiner."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeadmanNeedsGrainIssueTypeDefiner`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeadmanNeedsGrainIssueTypeDefiner
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new HeadmanNeedsGrainIssueTypeDefiner();
+// Obtain an instance from the relevant subsystem API
+HeadmanNeedsGrainIssueTypeDefiner instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -92,5 +92,5 @@ This page compares the accessible API of `Settlement` across **1.3.0 / 1.3.15 / 
 ## Usage Example
 
 ```csharp
-var example = new Settlement();
+// Compare class APIs across versions using the notes above.
 ```

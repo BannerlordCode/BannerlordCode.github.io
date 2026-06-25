@@ -1,20 +1,14 @@
 ---
 title: "VideoPlaybackVM"
+description: "VideoPlaybackVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VideoPlaybackVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VideoPlaybackVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VideoPlaybackVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback/VideoPlaybackVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback/VideoPlaybackVM.cs`
 
 ## 概述
 
@@ -35,25 +29,44 @@ title: "VideoPlaybackVM"
 ### Tick
 `public void Tick(float totalElapsedTimeInVideoInSeconds)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlaybackVM 实例
+VideoPlaybackVM videoPlaybackVM = ...;
+videoPlaybackVM.Tick(0);
+```
 
 ### GetItemInTimeframe
 `public SRTHelper.SubtitleItem GetItemInTimeframe(float timeInSecondsInVideo)`
 
-**用途 / Purpose:** 获取 `item in timeframe` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item in timeframe」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlaybackVM 实例
+VideoPlaybackVM videoPlaybackVM = ...;
+var result = videoPlaybackVM.GetItemInTimeframe(0);
+```
 
 ### SetSubtitles
 `public void SetSubtitles(List<SRTHelper.SubtitleItem> lines)`
 
-**用途 / Purpose:** 设置 `subtitles` 的值或状态。
+**用途 / Purpose:** 为 「subtitles」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 VideoPlaybackVM 实例
+VideoPlaybackVM videoPlaybackVM = ...;
+videoPlaybackVM.SetSubtitles(lines);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VideoPlaybackVM();
-value.Tick(0);
+// 通常从对应子系统 API 获取实例后调用
+VideoPlaybackVM videoPlaybackVM = ...;
+videoPlaybackVM.Tick(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

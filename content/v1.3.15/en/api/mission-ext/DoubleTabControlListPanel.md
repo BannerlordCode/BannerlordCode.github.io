@@ -1,13 +1,7 @@
 ---
 title: "DoubleTabControlListPanel"
+description: "Auto-generated class reference for DoubleTabControlListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DoubleTabControlListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # DoubleTabControlListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets` to place it i
 ### OnFirstTabClick
 `public void OnFirstTabClick(Widget widget)`
 
-**Purpose:** Called when the `first tab click` event is raised.
+**Purpose:** Invoked when the `first tab click` event is raised.
+
+```csharp
+// Obtain an instance of DoubleTabControlListPanel from the subsystem API first
+DoubleTabControlListPanel doubleTabControlListPanel = ...;
+doubleTabControlListPanel.OnFirstTabClick(widget);
+```
 
 ### OnSecondTabClick
 `public void OnSecondTabClick(Widget widget)`
 
-**Purpose:** Called when the `second tab click` event is raised.
+**Purpose:** Invoked when the `second tab click` event is raised.
+
+```csharp
+// Obtain an instance of DoubleTabControlListPanel from the subsystem API first
+DoubleTabControlListPanel doubleTabControlListPanel = ...;
+doubleTabControlListPanel.OnSecondTabClick(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DoubleTabControlListPanel();
-value.OnFirstTabClick(widget);
+// Typically call this after obtaining an instance from the subsystem API
+DoubleTabControlListPanel doubleTabControlListPanel = ...;
+doubleTabControlListPanel.OnFirstTabClick(widget);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

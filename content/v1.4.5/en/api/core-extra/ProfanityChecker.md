@@ -1,20 +1,14 @@
 ---
 title: "ProfanityChecker"
+description: "Auto-generated class reference for ProfanityChecker."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ProfanityChecker`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ProfanityChecker
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class ProfanityChecker`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/ProfanityChecker.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ProfanityChecker.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### IsProfane
 `public bool IsProfane(string word)`
 
-**Purpose:** Handles logic related to `is profane`.
+**Purpose:** Determines whether the current object is in the `profane` state or condition.
+
+```csharp
+// Obtain an instance of ProfanityChecker from the subsystem API first
+ProfanityChecker profanityChecker = ...;
+var result = profanityChecker.IsProfane("example");
+```
 
 ### ContainsProfanity
 `public bool ContainsProfanity(string text, ProfanityChechkerType checkType)`
 
-**Purpose:** Handles logic related to `contains profanity`.
+**Purpose:** Indicates whether the current object contains `profanity`.
+
+```csharp
+// Obtain an instance of ProfanityChecker from the subsystem API first
+ProfanityChecker profanityChecker = ...;
+var result = profanityChecker.ContainsProfanity("example", checkType);
+```
 
 ### CensorText
 `public string CensorText(string text)`
 
-**Purpose:** Handles logic related to `censor text`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ProfanityChecker from the subsystem API first
+ProfanityChecker profanityChecker = ...;
+var result = profanityChecker.CensorText("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ProfanityChecker();
-value.IsProfane("example");
+// Typically call this after obtaining an instance from the subsystem API
+ProfanityChecker profanityChecker = ...;
+profanityChecker.IsProfane("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

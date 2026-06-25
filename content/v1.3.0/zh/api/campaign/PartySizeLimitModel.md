@@ -1,13 +1,7 @@
 ---
 title: "PartySizeLimitModel"
+description: "PartySizeLimitModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartySizeLimitModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartySizeLimitModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,54 +29,109 @@ title: "PartySizeLimitModel"
 ### GetPartyMemberSizeLimit
 `public abstract ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `party member size limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party member size limit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetPartyMemberSizeLimit(party, false);
+```
 
 ### GetPartyPrisonerSizeLimit
 `public abstract ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `party prisoner size limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「party prisoner size limit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetPartyPrisonerSizeLimit(party, false);
+```
 
 ### CalculateGarrisonPartySizeLimit
 `public abstract ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate garrison party size limit` 相关逻辑。
+**用途 / Purpose:** 计算「garrison party size limit」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.CalculateGarrisonPartySizeLimit(settlement, false);
+```
 
 ### GetClanTierPartySizeEffectForHero
 `public abstract int GetClanTierPartySizeEffectForHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `clan tier party size effect for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「clan tier party size effect for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetClanTierPartySizeEffectForHero(hero);
+```
 
 ### GetNextClanTierPartySizeEffectChangeForHero
 `public abstract int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `next clan tier party size effect change for hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next clan tier party size effect change for hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetNextClanTierPartySizeEffectChangeForHero(hero);
+```
 
 ### GetAssumedPartySizeForLordParty
 `public abstract int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)`
 
-**用途 / Purpose:** 获取 `assumed party size for lord party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「assumed party size for lord party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetAssumedPartySizeForLordParty(leaderHero, partyMapFaction, actualClan);
+```
 
 ### GetIdealVillagerPartySize
 `public abstract int GetIdealVillagerPartySize(Village village)`
 
-**用途 / Purpose:** 获取 `ideal villager party size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「ideal villager party size」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.GetIdealVillagerPartySize(village);
+```
 
 ### FindAppropriateInitialRosterForMobileParty
 `public abstract TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**用途 / Purpose:** 处理 `find appropriate initial roster for mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「appropriate initial roster for mobile party」。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.FindAppropriateInitialRosterForMobileParty(party, partyTemplate);
+```
 
 ### FindAppropriateInitialShipsForMobileParty
 `public abstract List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
 
-**用途 / Purpose:** 处理 `find appropriate initial ships for mobile party` 相关逻辑。
+**用途 / Purpose:** 在当前集合/范围内查找满足条件的「appropriate initial ships for mobile party」。
+
+```csharp
+// 先通过子系统 API 拿到 PartySizeLimitModel 实例
+PartySizeLimitModel partySizeLimitModel = ...;
+var result = partySizeLimitModel.FindAppropriateInitialShipsForMobileParty(party, partyTemplate);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartySizeLimitModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartySizeLimitModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

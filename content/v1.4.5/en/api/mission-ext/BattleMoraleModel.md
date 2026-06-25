@@ -1,20 +1,14 @@
 ---
 title: "BattleMoraleModel"
+description: "Auto-generated class reference for BattleMoraleModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattleMoraleModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BattleMoraleModel
 
 **Namespace:** TaleWorlds.MountAndBlade.ComponentInterfaces
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class BattleMoraleModel : MBGameModel<BattleMoraleModel>`
 **Base:** `MBGameModel<BattleMoraleModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/BattleMoraleModel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/BattleMoraleModel.cs`
 
 ## Overview
 
@@ -29,49 +23,98 @@ Treat `BattleMoraleModel` as a Model-style extension point: first identify who c
 ### CalculateMoraleChangeToCharacter
 `public abstract float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
 
-**Purpose:** Handles logic related to `calculate morale change to character`.
+**Purpose:** Calculates the current value or result of `morale change to character`.
+
+```csharp
+// Obtain an instance of BattleMoraleModel from the subsystem API first
+BattleMoraleModel battleMoraleModel = ...;
+var result = battleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0);
+```
 
 ### GetEffectiveInitialMorale
 `public abstract float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
 
-**Purpose:** Gets the current value of `effective initial morale`.
+**Purpose:** Reads and returns the `effective initial morale` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleMoraleModel from the subsystem API first
+BattleMoraleModel battleMoraleModel = ...;
+var result = battleMoraleModel.GetEffectiveInitialMorale(agent, 0);
+```
 
 ### CanPanicDueToMorale
 `public abstract bool CanPanicDueToMorale(Agent agent)`
 
-**Purpose:** Checks whether the current object can `panic due to morale`.
+**Purpose:** Checks whether the current object meets the preconditions for `panic due to morale`.
+
+```csharp
+// Obtain an instance of BattleMoraleModel from the subsystem API first
+BattleMoraleModel battleMoraleModel = ...;
+var result = battleMoraleModel.CanPanicDueToMorale(agent);
+```
 
 ### CalculateCasualtiesFactor
 `public abstract float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
 
-**Purpose:** Handles logic related to `calculate casualties factor`.
+**Purpose:** Calculates the current value or result of `casualties factor`.
+
+```csharp
+// Obtain an instance of BattleMoraleModel from the subsystem API first
+BattleMoraleModel battleMoraleModel = ...;
+var result = battleMoraleModel.CalculateCasualtiesFactor(battleSide);
+```
 
 ### GetAverageMorale
 `public abstract float GetAverageMorale(Formation formation)`
 
-**Purpose:** Gets the current value of `average morale`.
+**Purpose:** Reads and returns the `average morale` value held by the current object.
+
+```csharp
+// Obtain an instance of BattleMoraleModel from the subsystem API first
+BattleMoraleModel battleMoraleModel = ...;
+var result = battleMoraleModel.GetAverageMorale(formation);
+```
 
 ### CalculateMoraleChangeOnShipSunk
 `public abstract float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
 
-**Purpose:** Handles logic related to `calculate morale change on ship sunk`.
+**Purpose:** Calculates the current value or result of `morale change on ship sunk`.
+
+```csharp
+// Obtain an instance of BattleMoraleModel from the subsystem API first
+BattleMoraleModel battleMoraleModel = ...;
+var result = battleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin);
+```
 
 ### CalculateMoraleOnRamming
 `public abstract float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)`
 
-**Purpose:** Handles logic related to `calculate morale on ramming`.
+**Purpose:** Calculates the current value or result of `morale on ramming`.
+
+```csharp
+// Obtain an instance of BattleMoraleModel from the subsystem API first
+BattleMoraleModel battleMoraleModel = ...;
+var result = battleMoraleModel.CalculateMoraleOnRamming(agent, rammingShip, rammedShip);
+```
 
 ### CalculateMoraleOnShipsConnected
 `public abstract float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)`
 
-**Purpose:** Handles logic related to `calculate morale on ships connected`.
+**Purpose:** Calculates the current value or result of `morale on ships connected`.
+
+```csharp
+// Obtain an instance of BattleMoraleModel from the subsystem API first
+BattleMoraleModel battleMoraleModel = ...;
+var result = battleMoraleModel.CalculateMoraleOnShipsConnected(agent, ownerShip, targetShip);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBattleMoraleModel();
+// Typically obtained from a subsystem API or factory
+BattleMoraleModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "IParallelDriver"
+description: "Auto-generated class reference for IParallelDriver."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IParallelDriver`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # IParallelDriver
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public interface IParallelDriver`
 **Base:** none
 **File:** `TaleWorlds.Library/IParallelDriver.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-IParallelDriver implementation = GetParallelDriverImplementation();
+// Usually obtained through DI or a factory method
+IIParallelDriver service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

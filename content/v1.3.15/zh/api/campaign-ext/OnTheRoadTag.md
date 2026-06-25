@@ -1,13 +1,7 @@
 ---
 title: "OnTheRoadTag"
+description: "OnTheRoadTag 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OnTheRoadTag`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OnTheRoadTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,15 +29,22 @@ title: "OnTheRoadTag"
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is applicable to` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「applicable to」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 OnTheRoadTag 实例
+OnTheRoadTag onTheRoadTag = ...;
+var result = onTheRoadTag.IsApplicableTo(character);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OnTheRoadTag();
-value.IsApplicableTo(character);
+// 通常从对应子系统 API 获取实例后调用
+OnTheRoadTag onTheRoadTag = ...;
+onTheRoadTag.IsApplicableTo(character);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

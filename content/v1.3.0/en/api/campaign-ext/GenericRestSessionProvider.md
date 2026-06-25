@@ -1,13 +1,7 @@
 ---
 title: "GenericRestSessionProvider"
+description: "Auto-generated class reference for GenericRestSessionProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericRestSessionProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericRestSessionProvider
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ### CreateSession
 `public IClientSession CreateSession(T session)`
 
-**Purpose:** Creates a new `session` instance or object.
+**Purpose:** Constructs a new `session` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of GenericRestSessionProvider from the subsystem API first
+GenericRestSessionProvider genericRestSessionProvider = ...;
+var result = genericRestSessionProvider.CreateSession(session);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GenericRestSessionProvider();
-value.CreateSession(session);
+// Typically call this after obtaining an instance from the subsystem API
+GenericRestSessionProvider genericRestSessionProvider = ...;
+genericRestSessionProvider.CreateSession(session);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

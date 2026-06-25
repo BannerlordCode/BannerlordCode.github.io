@@ -1,13 +1,7 @@
 ---
 title: "SingleVisualOrder"
+description: "Auto-generated class reference for SingleVisualOrder."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SingleVisualOrder`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SingleVisualOrder
 
 **Namespace:** TaleWorlds.MountAndBlade.View.VisualOrders.Orders
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.MountAndBlade.View.VisualOrders.Orders` to plac
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Executes the `order` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `order`.
+
+```csharp
+// Obtain an instance of SingleVisualOrder from the subsystem API first
+SingleVisualOrder singleVisualOrder = ...;
+singleVisualOrder.ExecuteOrder(orderController, executionParameters);
+```
 
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of SingleVisualOrder from the subsystem API first
+SingleVisualOrder singleVisualOrder = ...;
+var result = singleVisualOrder.GetName(orderController);
+```
 
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**Purpose:** Handles logic related to `is targeted`.
+**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+
+```csharp
+// Obtain an instance of SingleVisualOrder from the subsystem API first
+SingleVisualOrder singleVisualOrder = ...;
+var result = singleVisualOrder.IsTargeted();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SingleVisualOrder();
-value.ExecuteOrder(orderController, executionParameters);
+// Typically call this after obtaining an instance from the subsystem API
+SingleVisualOrder singleVisualOrder = ...;
+singleVisualOrder.ExecuteOrder(orderController, executionParameters);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

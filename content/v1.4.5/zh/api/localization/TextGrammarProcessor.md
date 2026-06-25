@@ -1,20 +1,14 @@
 ---
 title: "TextGrammarProcessor"
+description: "TextGrammarProcessor 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TextGrammarProcessor`
-- [← 本领域 / 返回 localization](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TextGrammarProcessor
 
 **Namespace:** TaleWorlds.Localization.TextProcessor
 **Module:** TaleWorlds.Localization
 **Type:** `public static class TextGrammarProcessor`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TextGrammarProcessor.cs`
+**File:** `bin/TaleWorlds.Localization/TaleWorlds.Localization.TextProcessor/TextGrammarProcessor.cs`
 
 ## 概述
 
@@ -29,7 +23,12 @@ title: "TextGrammarProcessor"
 ### Process
 `public static string Process(MBTextModel dataRepresentation, TextProcessingContext textContext, TextObject parent = null)`
 
-**用途 / Purpose:** 处理 `process` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+TextGrammarProcessor.Process(dataRepresentation, textContext, null);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ TextGrammarProcessor.Process(dataRepresentation, textContext, null);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

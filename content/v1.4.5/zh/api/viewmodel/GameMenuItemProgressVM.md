@@ -1,20 +1,14 @@
 ---
 title: "GameMenuItemProgressVM"
+description: "GameMenuItemProgressVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuItemProgressVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuItemProgressVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GameMenuItemProgressVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuItemProgressVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu/GameMenuItemProgressVM.cs`
 
 ## 概述
 
@@ -37,25 +31,44 @@ title: "GameMenuItemProgressVM"
 ### InitializeWith
 `public void InitializeWith(MenuContext context, int virtualIndex)`
 
-**用途 / Purpose:** 初始化 `with` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「with」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemProgressVM 实例
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.InitializeWith(context, 0);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemProgressVM 实例
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick()`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 GameMenuItemProgressVM 实例
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.OnTick();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameMenuItemProgressVM();
-value.InitializeWith(context, 0);
+// 通常从对应子系统 API 获取实例后调用
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.InitializeWith(context, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

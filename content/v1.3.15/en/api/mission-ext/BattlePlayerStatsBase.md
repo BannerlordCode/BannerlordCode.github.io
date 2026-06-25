@@ -1,13 +1,7 @@
 ---
 title: "BattlePlayerStatsBase"
+description: "Auto-generated class reference for BattlePlayerStatsBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BattlePlayerStatsBase`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BattlePlayerStatsBase
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -37,9 +31,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new BattlePlayerStatsBase();
+// Obtain an instance from the relevant subsystem API
+BattlePlayerStatsBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

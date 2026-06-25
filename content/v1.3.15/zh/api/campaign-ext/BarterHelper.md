@@ -1,13 +1,7 @@
 ---
 title: "BarterHelper"
+description: "BarterHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BarterHelper`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BarterHelper
 
 **Namespace:** Helpers
@@ -29,12 +23,22 @@ title: "BarterHelper"
 ### GetAutoBalanceBarterablesAdd
 `public static IEnumerable<ValueTuple<Barterable, int>> GetAutoBalanceBarterablesAdd(BarterData barterData, IFaction factionToBalanceFor, IFaction offerer, Hero offererHero, float fulfillRatio = 1f)`
 
-**用途 / Purpose:** 获取 `auto balance barterables add` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「auto balance barterables add」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BarterHelper.GetAutoBalanceBarterablesAdd(barterData, factionToBalanceFor, offerer, offererHero, 0);
+```
 
 ### GetAutoBalanceBarterablesToRemove
 `public static IEnumerable<ValueTuple<Barterable, int>> GetAutoBalanceBarterablesToRemove(BarterData barterData, IFaction factionToBalanceFor, IFaction offerer, Hero offererHero)`
 
-**用途 / Purpose:** 获取 `auto balance barterables to remove` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「auto balance barterables to remove」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BarterHelper.GetAutoBalanceBarterablesToRemove(barterData, factionToBalanceFor, offerer, offererHero);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ BarterHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

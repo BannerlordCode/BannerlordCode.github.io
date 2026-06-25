@@ -1,20 +1,14 @@
 ---
 title: "ItemTemplateUsageWithData"
+description: "Auto-generated class reference for ItemTemplateUsageWithData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemTemplateUsageWithData`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemTemplateUsageWithData
 
 **Namespace:** TaleWorlds.GauntletUI.Data
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class ItemTemplateUsageWithData`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/ItemTemplateUsageWithData.cs`
+**File:** `bin/TaleWorlds.GauntletUI.Data/TaleWorlds.GauntletUI.Data/ItemTemplateUsageWithData.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `ItemTemplateUsageWithData` as a Data-style extension point: first identif
 ## Usage Example
 
 ```csharp
-var value = new ItemTemplateUsageWithData();
+// This data object is usually returned by campaign/mission APIs
+ItemTemplateUsageWithData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

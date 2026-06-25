@@ -1,20 +1,14 @@
 ---
 title: "TrebuchetView"
+description: "Auto-generated class reference for TrebuchetView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrebuchetView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrebuchetView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TrebuchetView : RangedSiegeWeaponView`
 **Base:** `RangedSiegeWeaponView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon/TrebuchetView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon/TrebuchetView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `TrebuchetView` as a View-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var view = new TrebuchetView();
+// Retrieve this view from the subsystem API or scene
+TrebuchetView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

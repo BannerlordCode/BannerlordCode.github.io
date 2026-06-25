@@ -1,18 +1,12 @@
 ---
 title: "INetworkCommunication"
+description: "Auto-generated class reference for INetworkCommunication."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `INetworkCommunication`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # INetworkCommunication
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface INetworkCommunication`
 **Base:** none
 **File:** `TaleWorlds.Core/INetworkCommunication.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-INetworkCommunication implementation = GetNetworkCommunicationImplementation();
+// Usually obtained through DI or a factory method
+IINetworkCommunication service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

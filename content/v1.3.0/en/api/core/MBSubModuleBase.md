@@ -1,13 +1,7 @@
 ---
 title: "MBSubModuleBase"
+description: "Auto-generated class reference for MBSubModuleBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBSubModuleBase`
-- [← Area / Back to core](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBSubModuleBase
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,104 +23,219 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnConfigChanged
 `public virtual void OnConfigChanged()`
 
-**Purpose:** Called when the `config changed` event is raised.
+**Purpose:** Invoked when the `config changed` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnConfigChanged();
+```
 
 ### OnGameLoaded
 `public virtual void OnGameLoaded(Game game, object initializerObject)`
 
-**Purpose:** Called when the `game loaded` event is raised.
+**Purpose:** Invoked when the `game loaded` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnGameLoaded(game, initializerObject);
+```
 
 ### OnAfterGameLoaded
 `public virtual void OnAfterGameLoaded(Game game)`
 
-**Purpose:** Called when the `after game loaded` event is raised.
+**Purpose:** Invoked when the `after game loaded` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnAfterGameLoaded(game);
+```
 
 ### OnNewGameCreated
 `public virtual void OnNewGameCreated(Game game, object initializerObject)`
 
-**Purpose:** Called when the `new game created` event is raised.
+**Purpose:** Invoked when the `new game created` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnNewGameCreated(game, initializerObject);
+```
 
 ### BeginGameStart
 `public virtual void BeginGameStart(Game game)`
 
-**Purpose:** Handles logic related to `begin game start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.BeginGameStart(game);
+```
 
 ### OnCampaignStart
 `public virtual void OnCampaignStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `campaign start` event is raised.
+**Purpose:** Invoked when the `campaign start` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnCampaignStart(game, starterObject);
+```
 
 ### RegisterSubModuleObjects
 `public virtual void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** Handles logic related to `register sub module objects`.
+**Purpose:** Registers `sub module objects` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.RegisterSubModuleObjects(false);
+```
 
 ### AfterRegisterSubModuleObjects
 `public virtual void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** Handles logic related to `after register sub module objects`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.AfterRegisterSubModuleObjects(false);
+```
 
 ### OnMultiplayerGameStart
 `public virtual void OnMultiplayerGameStart(Game game, object starterObject)`
 
-**Purpose:** Called when the `multiplayer game start` event is raised.
+**Purpose:** Invoked when the `multiplayer game start` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnMultiplayerGameStart(game, starterObject);
+```
 
 ### OnGameInitializationFinished
 `public virtual void OnGameInitializationFinished(Game game)`
 
-**Purpose:** Called when the `game initialization finished` event is raised.
+**Purpose:** Invoked when the `game initialization finished` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnGameInitializationFinished(game);
+```
 
 ### OnAfterGameInitializationFinished
 `public virtual void OnAfterGameInitializationFinished(Game game, object starterObject)`
 
-**Purpose:** Called when the `after game initialization finished` event is raised.
+**Purpose:** Invoked when the `after game initialization finished` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnAfterGameInitializationFinished(game, starterObject);
+```
 
 ### DoLoading
 `public virtual bool DoLoading(Game game)`
 
-**Purpose:** Handles logic related to `do loading`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+var result = mBSubModuleBase.DoLoading(game);
+```
 
 ### OnGameEnd
 `public virtual void OnGameEnd(Game game)`
 
-**Purpose:** Called when the `game end` event is raised.
+**Purpose:** Invoked when the `game end` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnGameEnd(game);
+```
 
 ### OnMissionBehaviorInitialize
 `public virtual void OnMissionBehaviorInitialize(Mission mission)`
 
-**Purpose:** Called when the `mission behavior initialize` event is raised.
+**Purpose:** Invoked when the `mission behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnMissionBehaviorInitialize(mission);
+```
 
 ### OnBeforeMissionBehaviorInitialize
 `public virtual void OnBeforeMissionBehaviorInitialize(Mission mission)`
 
-**Purpose:** Called when the `before mission behavior initialize` event is raised.
+**Purpose:** Invoked when the `before mission behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnBeforeMissionBehaviorInitialize(mission);
+```
 
 ### OnInitialState
 `public virtual void OnInitialState()`
 
-**Purpose:** Called when the `initial state` event is raised.
+**Purpose:** Invoked when the `initial state` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnInitialState();
+```
 
 ### OnSubModuleActivated
 `public virtual void OnSubModuleActivated()`
 
-**Purpose:** Called when the `sub module activated` event is raised.
+**Purpose:** Invoked when the `sub module activated` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnSubModuleActivated();
+```
 
 ### OnSubModuleDeactivated
 `public virtual void OnSubModuleDeactivated()`
 
-**Purpose:** Called when the `sub module deactivated` event is raised.
+**Purpose:** Invoked when the `sub module deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.OnSubModuleDeactivated();
+```
 
 ### InitializeSubModuleGameObjects
 `public virtual void InitializeSubModuleGameObjects(Game game)`
 
-**Purpose:** Initializes the state, resources, or bindings for `sub module game objects`.
+**Purpose:** Prepares the resources, state, or bindings required by `sub module game objects`.
+
+```csharp
+// Obtain an instance of MBSubModuleBase from the subsystem API first
+MBSubModuleBase mBSubModuleBase = ...;
+mBSubModuleBase.InitializeSubModuleGameObjects(game);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMBSubModuleBase();
+// Typically obtained from a subsystem API or factory
+MBSubModuleBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

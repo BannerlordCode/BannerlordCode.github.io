@@ -1,13 +1,7 @@
 ---
 title: "PersuasionChanceVisualListPanel"
+description: "Auto-generated class reference for PersuasionChanceVisualListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PersuasionChanceVisualListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PersuasionChanceVisualListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Conversation
@@ -34,9 +28,10 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Conver
 ## Usage Example
 
 ```csharp
-var value = new PersuasionChanceVisualListPanel();
+// Obtain an instance from the relevant subsystem API
+PersuasionChanceVisualListPanel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

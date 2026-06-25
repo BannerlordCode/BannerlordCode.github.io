@@ -1,20 +1,14 @@
 ---
 title: "StatsAndAchievementsStoreListener"
+description: "Auto-generated class reference for StatsAndAchievementsStoreListener."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StatsAndAchievementsStoreListener`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StatsAndAchievementsStoreListener
 
 **Namespace:** TaleWorlds.PlatformService.GOG
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class StatsAndAchievementsStoreListener : GlobalStatsAndAchievementsStoreListener`
 **Base:** `GlobalStatsAndAchievementsStoreListener`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/StatsAndAchievementsStoreListener.cs`
+**File:** `bin/TaleWorlds.PlatformService.GOG/TaleWorlds.PlatformService.GOG/StatsAndAchievementsStoreListener.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### UserStatsAndAchievementsStored
 `public delegate void UserStatsAndAchievementsStored(bool success, FailureReason? failureReason)`
 
-**Purpose:** Handles logic related to `user stats and achievements stored`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.UserStatsAndAchievementsStored(false, failureReason);
+```
 
 ### OnUserStatsAndAchievementsStoreFailure
 `public override void OnUserStatsAndAchievementsStoreFailure(FailureReason failureReason)`
 
-**Purpose:** Called when the `user stats and achievements store failure` event is raised.
+**Purpose:** Invoked when the `user stats and achievements store failure` event is raised.
+
+```csharp
+// Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreFailure(failureReason);
+```
 
 ### OnUserStatsAndAchievementsStoreSuccess
 `public override void OnUserStatsAndAchievementsStoreSuccess()`
 
-**Purpose:** Called when the `user stats and achievements store success` event is raised.
+**Purpose:** Invoked when the `user stats and achievements store success` event is raised.
+
+```csharp
+// Obtain an instance of StatsAndAchievementsStoreListener from the subsystem API first
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreSuccess();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StatsAndAchievementsStoreListener();
-value.UserStatsAndAchievementsStored(false, failureReason);
+// Typically call this after obtaining an instance from the subsystem API
+StatsAndAchievementsStoreListener statsAndAchievementsStoreListener = ...;
+statsAndAchievementsStoreListener.UserStatsAndAchievementsStored(false, failureReason);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

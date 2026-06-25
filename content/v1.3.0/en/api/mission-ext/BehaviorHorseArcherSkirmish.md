@@ -1,13 +1,7 @@
 ---
 title: "BehaviorHorseArcherSkirmish"
+description: "Auto-generated class reference for BehaviorHorseArcherSkirmish."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorHorseArcherSkirmish`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorHorseArcherSkirmish
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorHorseArcherSkirmish from the subsystem API first
+BehaviorHorseArcherSkirmish behaviorHorseArcherSkirmish = ...;
+behaviorHorseArcherSkirmish.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorHorseArcherSkirmish();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorHorseArcherSkirmish behaviorHorseArcherSkirmish = ...;
+behaviorHorseArcherSkirmish.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,200 +1,494 @@
 ---
 title: "InputContext"
+description: "InputContext 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InputContext`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InputContext
 
-**命名空间:** TaleWorlds.InputSystem  
-**模块:** TaleWorlds.InputSystem  
-**类型:** class（实?
+**Namespace:** TaleWorlds.InputSystem
+**Module:** TaleWorlds.InputSystem
+**Type:** `public class InputContext : IInputContext`
+**Base:** `IInputContext`
+**File:** `TaleWorlds.InputSystem/InputContext.cs`
 
-`IInputContext
-
-`? 
-**文件:** 
-
-`bannerlord-1.3.15/TaleWorlds.InputSystem/InputContext.cs
-
-`
-
-`InputContext
-
-` ?mod 读取键鼠/手柄输入的入口——查询按键的按下/刚按/刚松、鼠标移动量与滚轮、手柄摇杆等。每个任务（
-
-`Mission
-
-`）有自己?
-
-`InputContext
-
-`?
 ## 概述
 
-mod ?
+`InputContext` 位于 `TaleWorlds.InputSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
-`MissionBehavior
-
-` 中通过 
-
-`Mission.Current.InputContext
-
-` 获取当前输入上下文，然后查询自定义热键（
-
-`GameKeyContext
-
-`）或原始 
-
-`InputKey
-
-`。注册自定义按键类别?
-
-`RegisterHotKeyCategory
-
-`，随后用 
-
-`IsGameKeyDown/Pressed/Released(gameKey)
-
-`（gameKey 为整?ID）或 
-
-`IsHotKeyDown/Pressed/Released(hotKeyName)
-
-` 查询?
-## 
 ## 心智模型
 
-先把 `InputContext` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
-主要属?
-\| 名称 \| 类型 \| 描述 \|
-\|------\|------\|------\|
-\| IsKeysAllowed \| bool \| 是否允许键盘输入（get/set?\|
-\| IsMouseButtonAllowed \| bool \| 是否允许鼠标按键（get/set?\|
-\| IsMouseWheelAllowed \| bool \| 是否允许滚轮（get/set?\|
-\| IsControllerAllowed \| bool \| 是否允许手柄（仅 get?\|
-\| MouseOnMe \| bool \| 鼠标是否在当?UI 上（get/set?\|
+先从命名空间 `TaleWorlds.InputSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `IsKeysAllowed` | `public bool IsKeysAllowed { get; set; }` |
+| `IsMouseButtonAllowed` | `public bool IsMouseButtonAllowed { get; set; }` |
+| `IsMouseWheelAllowed` | `public bool IsMouseWheelAllowed { get; set; }` |
+| `IsControllerAllowed` | `public bool IsControllerAllowed { get; set; }` |
+| `MouseOnMe` | `public bool MouseOnMe { get; set; }` |
 
 ## 主要方法
 
-### 热键 / 游戏?
-`
+### GetPointerX
+`public int GetPointerX()`
 
-`
+**用途 / Purpose:** 读取并返回当前对象中 「pointer x」 的结果。
 
-`csharp
-public void RegisterHotKeyCategory(GameKeyContext category)
-public bool IsCategoryRegistered(GameKeyContext category)
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetPointerX();
+```
 
-public bool IsGameKeyDown(int gameKey)
-public bool IsGameKeyDownImmediate(int gameKey)
-public bool IsGameKeyPressed(int gameKey)
-public bool IsGameKeyReleased(int gameKey)
-public float GetGameKeyState(int gameKey)
-public float GetGameKeyAxis(GameAxisKey gameKey)
-public float GetGameKeyAxis(string gameKey)
+### GetPointerY
+`public int GetPointerY()`
 
-public bool IsHotKeyDown(string hotKey)
-public bool IsHotKeyPressed(string hotKey)
-public bool IsHotKeyReleased(string hotKey)
-public bool IsHotKeyDoublePressed(string hotKey)
-`
+**用途 / Purpose:** 读取并返回当前对象中 「pointer y」 的结果。
 
-`
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetPointerY();
+```
 
-`
+### GetPointerPosition
+`public Vector2 GetPointerPosition()`
 
-### 原始按键 / 鼠标 / 手柄
+**用途 / Purpose:** 读取并返回当前对象中 「pointer position」 的结果。
 
-`
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetPointerPosition();
+```
 
-`
+### GetPointerPositionVec2
+`public Vec2 GetPointerPositionVec2()`
 
-`csharp
-public bool IsKeyDown(InputKey key)
-public bool IsKeyPressed(InputKey key)
-public bool IsKeyReleased(InputKey key)
-public Vec2 GetKeyState(InputKey key)
+**用途 / Purpose:** 读取并返回当前对象中 「pointer position vec2」 的结果。
 
-public int GetPointerX();
-public int GetPointerY();
-public Vec2 GetPointerPositionVec2();
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetPointerPositionVec2();
+```
 
-public float GetMouseMoveX();
-public float GetMouseMoveY();
-public float GetNormalizedMouseMoveX();
-public float GetNormalizedMouseMoveY();
-public float GetDeltaMouseScroll();
-public Vec2 GetMousePositionPixel();
-public Vec2 GetMousePositionRanged();
-public bool GetIsMouseActive();
-public bool GetIsMouseDown();
-public float GetMouseSensitivity();
+### RegisterHotKeyCategory
+`public void RegisterHotKeyCategory(GameKeyContext category)`
 
-public Vec2 GetControllerRightStickState();
-public Vec2 GetControllerLeftStickState();
-public bool GetIsControllerConnected();
+**用途 / Purpose:** 将「hot key category」注册到当前系统，以便后续监听或分发。
 
-public bool IsControlDown();
-public bool IsShiftDown();
-public bool IsAltDown();
-public InputKey[] GetClickKeys();
-`
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+inputContext.RegisterHotKeyCategory(category);
+```
 
-`
+### IsCategoryRegistered
+`public bool IsCategoryRegistered(GameKeyContext category)`
 
-`
+**用途 / Purpose:** 判断当前对象是否处于 「category registered」 状态或条件。
 
-`IsGameKeyDown
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsCategoryRegistered(category);
+```
 
-` 表示当前按住；`IsGameKeyPressed
+### RegisterDownKeys
+`public void RegisterDownKeys()`
 
-` 表示本帧刚按下（边沿触发）。`Immediate
+**用途 / Purpose:** 将「down keys」注册到当前系统，以便后续监听或分发。
 
-` 变体不经过边沿缓冲?
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+inputContext.RegisterDownKeys();
+```
+
+### UnregisterReleasedKeys
+`public void UnregisterReleasedKeys()`
+
+**用途 / Purpose:** 从当前系统中注销「released keys」。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+inputContext.UnregisterReleasedKeys();
+```
+
+### ResetLastDownKeys
+`public void ResetLastDownKeys()`
+
+**用途 / Purpose:** 将 「last down keys」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+inputContext.ResetLastDownKeys();
+```
+
+### IsHotKeyDown
+`public bool IsHotKeyDown(string hotKey)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「hot key down」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsHotKeyDown("example");
+```
+
+### IsGameKeyDown
+`public bool IsGameKeyDown(int gameKey)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「game key down」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsGameKeyDown(0);
+```
+
+### IsGameKeyDownImmediate
+`public bool IsGameKeyDownImmediate(int gameKey)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「game key down immediate」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsGameKeyDownImmediate(0);
+```
+
+### IsHotKeyPressed
+`public bool IsHotKeyPressed(string hotKey)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「hot key pressed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsHotKeyPressed("example");
+```
+
+### IsGameKeyPressed
+`public bool IsGameKeyPressed(int gameKey)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「game key pressed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsGameKeyPressed(0);
+```
+
+### IsHotKeyReleased
+`public bool IsHotKeyReleased(string hotKey)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「hot key released」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsHotKeyReleased("example");
+```
+
+### IsGameKeyReleased
+`public bool IsGameKeyReleased(int gameKey)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「game key released」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsGameKeyReleased(0);
+```
+
+### GetGameKeyState
+`public float GetGameKeyState(int gameKey)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「game key state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetGameKeyState(0);
+```
+
+### IsHotKeyDoublePressed
+`public bool IsHotKeyDoublePressed(string hotKey)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「hot key double pressed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsHotKeyDoublePressed("example");
+```
+
+### GetGameKeyAxis
+`public float GetGameKeyAxis(GameAxisKey gameKey)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「game key axis」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetGameKeyAxis(gameKey);
+```
+
+### GetGameKeyAxis
+`public float GetGameKeyAxis(string gameKey)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「game key axis」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetGameKeyAxis("example");
+```
+
+### GetKeyState
+`public Vec2 GetKeyState(InputKey key)`
+
+**用途 / Purpose:** 读取并返回当前对象中 「key state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetKeyState(key);
+```
+
+### IsKeyDown
+`public bool IsKeyDown(InputKey key)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「key down」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsKeyDown(key);
+```
+
+### IsKeyPressed
+`public bool IsKeyPressed(InputKey key)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「key pressed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsKeyPressed(key);
+```
+
+### IsKeyReleased
+`public bool IsKeyReleased(InputKey key)`
+
+**用途 / Purpose:** 判断当前对象是否处于 「key released」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsKeyReleased(key);
+```
+
+### GetMouseMoveX
+`public float GetMouseMoveX()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「mouse move x」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetMouseMoveX();
+```
+
+### GetMouseMoveY
+`public float GetMouseMoveY()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「mouse move y」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetMouseMoveY();
+```
+
+### GetNormalizedMouseMoveX
+`public float GetNormalizedMouseMoveX()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「normalized mouse move x」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetNormalizedMouseMoveX();
+```
+
+### GetNormalizedMouseMoveY
+`public float GetNormalizedMouseMoveY()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「normalized mouse move y」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetNormalizedMouseMoveY();
+```
+
+### GetControllerRightStickState
+`public Vec2 GetControllerRightStickState()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「controller right stick state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetControllerRightStickState();
+```
+
+### GetControllerLeftStickState
+`public Vec2 GetControllerLeftStickState()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「controller left stick state」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetControllerLeftStickState();
+```
+
+### GetIsMouseActive
+`public bool GetIsMouseActive()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「is mouse active」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetIsMouseActive();
+```
+
+### GetIsMouseDown
+`public bool GetIsMouseDown()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「is mouse down」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetIsMouseDown();
+```
+
+### GetMousePositionPixel
+`public Vec2 GetMousePositionPixel()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「mouse position pixel」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetMousePositionPixel();
+```
+
+### GetDeltaMouseScroll
+`public float GetDeltaMouseScroll()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「delta mouse scroll」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetDeltaMouseScroll();
+```
+
+### GetIsControllerConnected
+`public bool GetIsControllerConnected()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「is controller connected」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetIsControllerConnected();
+```
+
+### GetMousePositionRanged
+`public Vec2 GetMousePositionRanged()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「mouse position ranged」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetMousePositionRanged();
+```
+
+### GetMouseSensitivity
+`public float GetMouseSensitivity()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「mouse sensitivity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetMouseSensitivity();
+```
+
+### IsControlDown
+`public bool IsControlDown()`
+
+**用途 / Purpose:** 判断当前对象是否处于 「control down」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsControlDown();
+```
+
+### IsShiftDown
+`public bool IsShiftDown()`
+
+**用途 / Purpose:** 判断当前对象是否处于 「shift down」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsShiftDown();
+```
+
+### IsAltDown
+`public bool IsAltDown()`
+
+**用途 / Purpose:** 判断当前对象是否处于 「alt down」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.IsAltDown();
+```
+
+### GetClickKeys
+`public InputKey GetClickKeys()`
+
+**用途 / Purpose:** 读取并返回当前对象中 「click keys」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InputContext 实例
+InputContext inputContext = ...;
+var result = inputContext.GetClickKeys();
+```
+
 ## 使用示例
 
-`
-
-`
-
-`csharp
-// ?MissionBehavior 中读取自定义按键
-public class MyMissionBehavior : MissionBehavior
-{
-    public override MissionBehaviorType BehaviorType =&gt; MissionBehaviorType.Other;
-
-    public override void OnMissionBehaviourUpdate(float dt)
-    {
-        InputContext input = Mission.Current.InputContext;
-
-        // 自定义热键（需先在某处 RegisterHotKeyCategory?        if (input.IsGameKeyPressed(MyKeys.ToggleMenu))  // MyKeys.ToggleMenu ?int ID
-        {
-            // 切换菜单
-        }
-
-        // 原始按键
-        if (input.IsKeyDown(InputKey.LeftMouseButton))
-        {
-            // 鼠标左键按住?        }
-
-        // 修饰?        if (input.IsControlDown() && input.IsKeyPressed(InputKey.K))
-        {
-            // Ctrl+K
-        }
-    }
-}
-`
-
-`
-
-`
+```csharp
+// 通常从对应子系统 API 获取实例后调用
+InputContext inputContext = ...;
+inputContext.GetPointerX();
+```
 
 ## 参见
 
-- [Mission](../mission/Mission)
-- [GameEntity](../engine/GameEntity)
-- [MBCommon](./MBCommon)
+- [本区域目录](../)

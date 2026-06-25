@@ -1,23 +1,18 @@
 ---
 title: "StoryModeCheats"
+description: "Auto-generated class reference for StoryModeCheats."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeCheats`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeCheats
 
 **Namespace:** StoryMode
 **Module:** StoryMode
 **Type:** `public static class StoryModeCheats`
-**Area:** campaign-ext
+**Base:** none
+**File:** `Modules.StoryMode/StoryMode/StoryMode/StoryModeCheats.cs`
 
 ## Overview
 
-`StoryModeCheats` lives in `StoryMode`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`StoryModeCheats` lives in `StoryMode` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,21 +23,29 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### CheckCheatUsage
 `public static bool CheckCheatUsage(ref string message)`
 
-**Purpose:** Handles logic related to `check cheat usage`.
+**Purpose:** Verifies whether `cheat usage` holds true for the current object.
+
+```csharp
+// Static call; no instance required
+StoryModeCheats.CheckCheatUsage(message);
+```
 
 ### AddFamilyMembers
 `public static string AddFamilyMembers(List<string> strings)`
 
 **Purpose:** Adds `family members` to the current collection or state.
 
+```csharp
+// Static call; no instance required
+StoryModeCheats.AddFamilyMembers(strings);
+```
+
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 StoryModeCheats.CheckCheatUsage(message);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

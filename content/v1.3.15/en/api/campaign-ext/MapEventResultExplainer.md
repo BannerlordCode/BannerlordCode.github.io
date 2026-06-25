@@ -1,13 +1,7 @@
 ---
 title: "MapEventResultExplainer"
+description: "Auto-generated class reference for MapEventResultExplainer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventResultExplainer`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MapEventResultExplainer
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ## Usage Example
 
 ```csharp
-var value = new MapEventResultExplainer();
+// Obtain an instance from the relevant subsystem API
+MapEventResultExplainer instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

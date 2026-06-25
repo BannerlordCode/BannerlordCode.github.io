@@ -1,20 +1,14 @@
 ---
 title: "Screen"
+description: "Screen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Screen`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # Screen
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public static class Screen`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/Screen.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/Screen.cs`
 
 ## 概述
 
@@ -39,7 +33,12 @@ title: "Screen"
 ### GetMouseVisible
 `public static bool GetMouseVisible()`
 
-**用途 / Purpose:** 获取 `mouse visible` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「mouse visible」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+Screen.GetMouseVisible();
+```
 
 ## 使用示例
 
@@ -49,4 +48,4 @@ Screen.GetMouseVisible();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "QuestStageTaskVM"
+description: "Auto-generated class reference for QuestStageTaskVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestStageTaskVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # QuestStageTaskVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of QuestStageTaskVM from the subsystem API first
+QuestStageTaskVM questStageTaskVM = ...;
+questStageTaskVM.RefreshValues();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of QuestStageTaskVM from the subsystem API first
+QuestStageTaskVM questStageTaskVM = ...;
+questStageTaskVM.ExecuteLink("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestStageTaskVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+QuestStageTaskVM questStageTaskVM = ...;
+questStageTaskVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

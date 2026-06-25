@@ -1,13 +1,7 @@
 ---
 title: "DefaultAllianceModel"
+description: "DefaultAllianceModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultAllianceModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultAllianceModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -38,32 +32,68 @@ title: "DefaultAllianceModel"
 ### GetCallToWarCost
 `public override int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**用途 / Purpose:** 获取 `call to war cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「call to war cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAllianceModel 实例
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetCallToWarCost(callingKingdom, calledKingdom, kingdomToCallToWarAgainst);
+```
 
 ### GetScoreOfStartingAlliance
 `public override ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, bool includeDescription = false)`
 
-**用途 / Purpose:** 获取 `score of starting alliance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score of starting alliance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAllianceModel 实例
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetScoreOfStartingAlliance(kingdomDeclaresAlliance, kingdomDeclaredAlliance, evaluatingFaction, false);
+```
 
 ### GetInfluenceCostOfProposingStartingAlliance
 `public override int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
 
-**用途 / Purpose:** 获取 `influence cost of proposing starting alliance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence cost of proposing starting alliance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAllianceModel 实例
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetInfluenceCostOfProposingStartingAlliance(proposingClan);
+```
 
 ### GetScoreOfCallingToWar
 `public override float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**用途 / Purpose:** 获取 `score of calling to war` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score of calling to war」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAllianceModel 实例
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetScoreOfCallingToWar(callingKingdom, calledKingdom, kingdomToCallToWarAgainst, evaluatingFaction, reason);
+```
 
 ### GetScoreOfJoiningWar
 `public override float GetScoreOfJoiningWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**用途 / Purpose:** 获取 `score of joining war` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「score of joining war」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAllianceModel 实例
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetScoreOfJoiningWar(callingKingdom, calledKingdom, kingdomToCallToWarAgainst, evaluatingFaction, reason);
+```
 
 ### GetInfluenceCostOfCallingToWar
 `public override int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
 
-**用途 / Purpose:** 获取 `influence cost of calling to war` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「influence cost of calling to war」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultAllianceModel 实例
+DefaultAllianceModel defaultAllianceModel = ...;
+var result = defaultAllianceModel.GetInfluenceCostOfCallingToWar(proposingClan);
+```
 
 ## 使用示例
 
@@ -73,4 +103,4 @@ Game.Current.ReplaceModel<DefaultAllianceModel>(new MyDefaultAllianceModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

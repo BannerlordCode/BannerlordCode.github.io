@@ -1,20 +1,14 @@
 ---
 title: "MapView"
+description: "Auto-generated class reference for MapView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapView
 
 **Namespace:** SandBox.View.Map
 **Module:** SandBox.View
 **Type:** `public abstract class MapView : SandboxView`
 **Base:** `SandboxView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map/MapView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map/MapView.cs`
 
 ## Overview
 
@@ -34,9 +28,10 @@ Treat `MapView` as a View-style extension point: first identify who creates it, 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapView();
+// Typically obtained from a subsystem API or factory
+MapView instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

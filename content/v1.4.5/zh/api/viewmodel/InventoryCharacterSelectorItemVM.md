@@ -1,20 +1,14 @@
 ---
 title: "InventoryCharacterSelectorItemVM"
+description: "InventoryCharacterSelectorItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryCharacterSelectorItemVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # InventoryCharacterSelectorItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class InventoryCharacterSelectorItemVM : SelectorItemVM`
 **Base:** `SelectorItemVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/InventoryCharacterSelectorItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/InventoryCharacterSelectorItemVM.cs`
 
 ## 概述
 
@@ -34,9 +28,10 @@ title: "InventoryCharacterSelectorItemVM"
 ## 使用示例
 
 ```csharp
-var example = new InventoryCharacterSelectorItemVM();
+// 从对应子系统 API 获取实例
+InventoryCharacterSelectorItemVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

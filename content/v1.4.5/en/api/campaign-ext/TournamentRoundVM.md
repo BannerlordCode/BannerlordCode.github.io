@@ -1,20 +1,14 @@
 ---
 title: "TournamentRoundVM"
+description: "Auto-generated class reference for TournamentRoundVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentRoundVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentRoundVM
 
 **Namespace:** SandBox.ViewModelCollection.Tournament
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class TournamentRoundVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tournament/TournamentRoundVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Tournament/TournamentRoundVM.cs`
 
 ## Overview
 
@@ -47,30 +41,55 @@ Start from namespace `SandBox.ViewModelCollection.Tournament` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of TournamentRoundVM from the subsystem API first
+TournamentRoundVM tournamentRoundVM = ...;
+tournamentRoundVM.RefreshValues();
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of TournamentRoundVM from the subsystem API first
+TournamentRoundVM tournamentRoundVM = ...;
+tournamentRoundVM.Initialize();
+```
 
 ### Initialize
 `public void Initialize(TournamentRound round, TextObject name)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of TournamentRoundVM from the subsystem API first
+TournamentRoundVM tournamentRoundVM = ...;
+tournamentRoundVM.Initialize(round, name);
+```
 
 ### GetParticipants
 `public IEnumerable<TournamentParticipantVM> GetParticipants()`
 
-**Purpose:** Gets the current value of `participants`.
+**Purpose:** Reads and returns the `participants` value held by the current object.
+
+```csharp
+// Obtain an instance of TournamentRoundVM from the subsystem API first
+TournamentRoundVM tournamentRoundVM = ...;
+var result = tournamentRoundVM.GetParticipants();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TournamentRoundVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+TournamentRoundVM tournamentRoundVM = ...;
+tournamentRoundVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

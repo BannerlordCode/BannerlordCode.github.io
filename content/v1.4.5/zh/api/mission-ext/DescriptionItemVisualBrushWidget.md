@@ -1,20 +1,14 @@
 ---
 title: "DescriptionItemVisualBrushWidget"
+description: "DescriptionItemVisualBrushWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DescriptionItemVisualBrushWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DescriptionItemVisualBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DescriptionItemVisualBrushWidget`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DescriptionItemVisualBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement/DescriptionItemVisualBrushWidget.cs`
 
 ## 概述
 
@@ -35,14 +29,21 @@ title: "DescriptionItemVisualBrushWidget"
 ### DescriptionItemVisualBrushWidget
 `public class DescriptionItemVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理 `description item visual brush widget` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DescriptionItemVisualBrushWidget 实例
+DescriptionItemVisualBrushWidget descriptionItemVisualBrushWidget = ...;
+var result = descriptionItemVisualBrushWidget.DescriptionItemVisualBrushWidget(context);
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new DescriptionItemVisualBrushWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+DescriptionItemVisualBrushWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MPAfterBattlePopupVM"
+description: "MPAfterBattlePopupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MPAfterBattlePopupVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MPAfterBattlePopupVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MPAfterBattlePopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle/MPAfterBattlePopupVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.AfterBattle/MPAfterBattlePopupVM.cs`
 
 ## 概述
 
@@ -60,25 +54,44 @@ title: "MPAfterBattlePopupVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MPAfterBattlePopupVM 实例
+MPAfterBattlePopupVM mPAfterBattlePopupVM = ...;
+mPAfterBattlePopupVM.RefreshValues();
+```
 
 ### OpenWith
 `public void OpenWith(int oldExperience, int newExperience, List<string> badgesEarned, int lootGained, RankBarInfo oldRankBarInfo, RankBarInfo newRankBarInfo)`
 
-**用途 / Purpose:** 处理 `open with` 相关逻辑。
+**用途 / Purpose:** 打开「with」对应的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 MPAfterBattlePopupVM 实例
+MPAfterBattlePopupVM mPAfterBattlePopupVM = ...;
+mPAfterBattlePopupVM.OpenWith(0, 0, badgesEarned, 0, oldRankBarInfo, newRankBarInfo);
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 `close` 操作或流程。
+**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 MPAfterBattlePopupVM 实例
+MPAfterBattlePopupVM mPAfterBattlePopupVM = ...;
+mPAfterBattlePopupVM.ExecuteClose();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MPAfterBattlePopupVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MPAfterBattlePopupVM mPAfterBattlePopupVM = ...;
+mPAfterBattlePopupVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

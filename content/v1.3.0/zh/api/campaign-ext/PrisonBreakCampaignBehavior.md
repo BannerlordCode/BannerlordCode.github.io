@@ -1,13 +1,7 @@
 ---
 title: "PrisonBreakCampaignBehavior"
+description: "PrisonBreakCampaignBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PrisonBreakCampaignBehavior`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PrisonBreakCampaignBehavior
 
 **Namespace:** SandBox.CampaignBehaviors
@@ -29,30 +23,54 @@ title: "PrisonBreakCampaignBehavior"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakCampaignBehavior 实例
+PrisonBreakCampaignBehavior prisonBreakCampaignBehavior = ...;
+prisonBreakCampaignBehavior.RegisterEvents();
+```
 
 ### CreatePrisonBreakGuard
 `public LocationCharacter CreatePrisonBreakGuard()`
 
-**用途 / Purpose:** 创建一个 `prison break guard` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「prison break guard」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakCampaignBehavior 实例
+PrisonBreakCampaignBehavior prisonBreakCampaignBehavior = ...;
+var result = prisonBreakCampaignBehavior.CreatePrisonBreakGuard();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 PrisonBreakCampaignBehavior 实例
+PrisonBreakCampaignBehavior prisonBreakCampaignBehavior = ...;
+prisonBreakCampaignBehavior.SyncData(dataStore);
+```
 
 ### game_menu_prison_menu_on_init
 `public static void game_menu_prison_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `game_menu_prison_menu_on_init` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+PrisonBreakCampaignBehavior.game_menu_prison_menu_on_init(args);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PrisonBreakCampaignBehavior();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+PrisonBreakCampaignBehavior prisonBreakCampaignBehavior = ...;
+prisonBreakCampaignBehavior.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

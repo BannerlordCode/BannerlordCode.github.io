@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationManager"
+description: "CharacterCreationManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationManager
 
 **Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
@@ -39,107 +33,233 @@ title: "CharacterCreationManager"
 ### RegisterCharacterCreationContentHandler
 `public void RegisterCharacterCreationContentHandler(ICharacterCreationContentHandler characterCreationContentHandler, int priority)`
 
-**用途 / Purpose:** 处理 `register character creation content handler` 相关逻辑。
+**用途 / Purpose:** 将「character creation content handler」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.RegisterCharacterCreationContentHandler(characterCreationContentHandler, 0);
+```
 
 ### AddStage
 `public void AddStage(CharacterCreationStageBase stage)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `stage`。
+**用途 / Purpose:** 将 「stage」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.AddStage(stage);
+```
 
 ### NextStage
 `public void NextStage()`
 
-**用途 / Purpose:** 处理 `next stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.NextStage();
+```
 
 ### PreviousStage
 `public void PreviousStage()`
 
-**用途 / Purpose:** 处理 `previous stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.PreviousStage();
+```
 
 ### GoToStage
 `public void GoToStage(int stageIndex)`
 
-**用途 / Purpose:** 处理 `go to stage` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.GoToStage(0);
+```
 
 ### GetIndexOfCurrentStage
 `public int GetIndexOfCurrentStage()`
 
-**用途 / Purpose:** 获取 `index of current stage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index of current stage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.GetIndexOfCurrentStage();
+```
 
 ### GetTotalStagesCount
 `public int GetTotalStagesCount()`
 
-**用途 / Purpose:** 获取 `total stages count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total stages count」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.GetTotalStagesCount();
+```
 
 ### GetFurthestIndex
 `public int GetFurthestIndex()`
 
-**用途 / Purpose:** 获取 `furthest index` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「furthest index」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.GetFurthestIndex();
+```
 
 ### AddNewMenu
 `public void AddNewMenu(NarrativeMenu menu)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `new menu`。
+**用途 / Purpose:** 将 「new menu」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.AddNewMenu(menu);
+```
 
 ### GetCurrentMenu
 `public NarrativeMenu GetCurrentMenu(int index)`
 
-**用途 / Purpose:** 获取 `current menu` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current menu」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.GetCurrentMenu(0);
+```
 
 ### GetCurrentMenuOptions
 `public IEnumerable<NarrativeMenuOption> GetCurrentMenuOptions(int index)`
 
-**用途 / Purpose:** 获取 `current menu options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current menu options」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.GetCurrentMenuOptions(0);
+```
 
 ### GetNarrativeMenuWithId
 `public NarrativeMenu GetNarrativeMenuWithId(string stringId)`
 
-**用途 / Purpose:** 获取 `narrative menu with id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「narrative menu with id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.GetNarrativeMenuWithId("example");
+```
 
 ### DeleteNarrativeMenuWithId
 `public void DeleteNarrativeMenuWithId(string stringId)`
 
-**用途 / Purpose:** 处理 `delete narrative menu with id` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.DeleteNarrativeMenuWithId("example");
+```
 
 ### ResetNarrativeMenus
 `public void ResetNarrativeMenus()`
 
-**用途 / Purpose:** 将 `narrative menus` 重置为初始状态。
+**用途 / Purpose:** 将 「narrative menus」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.ResetNarrativeMenus();
+```
 
 ### ResetMenuOptions
 `public void ResetMenuOptions()`
 
-**用途 / Purpose:** 将 `menu options` 重置为初始状态。
+**用途 / Purpose:** 将 「menu options」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.ResetMenuOptions();
+```
 
 ### StartNarrativeStage
 `public void StartNarrativeStage()`
 
-**用途 / Purpose:** 处理 `start narrative stage` 相关逻辑。
+**用途 / Purpose:** 启动「narrative stage」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.StartNarrativeStage();
+```
 
 ### TrySwitchToNextMenu
 `public bool TrySwitchToNextMenu()`
 
-**用途 / Purpose:** 尝试获取 `switch to next menu`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「switch to next menu」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.TrySwitchToNextMenu();
+```
 
 ### TrySwitchToPreviousMenu
 `public bool TrySwitchToPreviousMenu()`
 
-**用途 / Purpose:** 尝试获取 `switch to previous menu`，通常以 out 参数返回结果。
+**用途 / Purpose:** 尝试获取 「switch to previous menu」 的值，通常通过 out 参数返回是否成功。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.TrySwitchToPreviousMenu();
+```
 
 ### OnNarrativeMenuOptionSelected
 `public void OnNarrativeMenuOptionSelected(NarrativeMenuOption option)`
 
-**用途 / Purpose:** 当 `narrative menu option selected` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「narrative menu option selected」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.OnNarrativeMenuOptionSelected(option);
+```
 
 ### GetSuitableNarrativeMenuOptions
 `public IEnumerable<NarrativeMenuOption> GetSuitableNarrativeMenuOptions()`
 
-**用途 / Purpose:** 获取 `suitable narrative menu options` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「suitable narrative menu options」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+var result = characterCreationManager.GetSuitableNarrativeMenuOptions();
+```
 
 ### ApplyFinalEffects
 `public void ApplyFinalEffects()`
 
-**用途 / Purpose:** 将 `final effects` 应用到当前对象。
+**用途 / Purpose:** 将 「final effects」 的效果应用到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationManager 实例
+CharacterCreationManager characterCreationManager = ...;
+characterCreationManager.ApplyFinalEffects();
+```
 
 ## 使用示例
 
@@ -149,4 +269,4 @@ var manager = CharacterCreationManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

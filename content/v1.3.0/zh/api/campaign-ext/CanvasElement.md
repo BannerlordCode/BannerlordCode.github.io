@@ -1,13 +1,7 @@
 ---
 title: "CanvasElement"
+description: "CanvasElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CanvasElement`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CanvasElement
 
 **Namespace:** TaleWorlds.GauntletUI.Canvas
@@ -40,19 +34,32 @@ title: "CanvasElement"
 ### LoadFrom
 `public virtual void LoadFrom(XmlNode canvasImageNode)`
 
-**用途 / Purpose:** 加载 `from` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasElement 实例
+CanvasElement canvasElement = ...;
+canvasElement.LoadFrom(canvasImageNode);
+```
 
 ### GetMarginSize
 `public override Vector2 GetMarginSize()`
 
-**用途 / Purpose:** 获取 `margin size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「margin size」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CanvasElement 实例
+CanvasElement canvasElement = ...;
+var result = canvasElement.GetMarginSize();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCanvasElement();
+// 通常通过子系统 API 或工厂获得派生实例
+CanvasElement instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

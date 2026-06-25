@@ -1,20 +1,14 @@
 ---
 title: "IAgentBehaviorManager"
+description: "Auto-generated class reference for IAgentBehaviorManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IAgentBehaviorManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IAgentBehaviorManager
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `class`
+**Type:** `public interface IAgentBehaviorManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/IAgentBehaviorManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/IAgentBehaviorManager.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `IAgentBehaviorManager` as a Manager-style extension point: first identify
 ## Usage Example
 
 ```csharp
-IAgentBehaviorManager implementation = GetAgentBehaviorManagerImplementation();
+// Usually obtained through DI or a factory method
+IIAgentBehaviorManager service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

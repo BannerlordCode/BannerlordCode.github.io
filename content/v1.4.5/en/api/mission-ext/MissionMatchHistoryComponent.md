@@ -1,20 +1,14 @@
 ---
 title: "MissionMatchHistoryComponent"
+description: "Auto-generated class reference for MissionMatchHistoryComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionMatchHistoryComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMatchHistoryComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMatchHistoryComponent : MissionNetwork`
 **Base:** `MissionNetwork`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MissionMatchHistoryComponent.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/MissionMatchHistoryComponent.cs`
 
 ## Overview
 
@@ -29,22 +23,45 @@ Treat `MissionMatchHistoryComponent` as a Component-style extension point: first
 ### CreateIfConditionsAreMet
 `public static MissionMatchHistoryComponent CreateIfConditionsAreMet()`
 
-**Purpose:** Creates a new `if conditions are met` instance or object.
+**Purpose:** Constructs a new `if conditions are met` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MissionMatchHistoryComponent.CreateIfConditionsAreMet();
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionMatchHistoryComponent from the subsystem API first
+MissionMatchHistoryComponent missionMatchHistoryComponent = ...;
+missionMatchHistoryComponent.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionMatchHistoryComponent from the subsystem API first
+MissionMatchHistoryComponent missionMatchHistoryComponent = ...;
+missionMatchHistoryComponent.AfterStart();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Called when the `remove behavior` event is raised.
+**Purpose:** Invoked when the `remove behavior` event is raised.
+
+```csharp
+// Obtain an instance of MissionMatchHistoryComponent from the subsystem API first
+MissionMatchHistoryComponent missionMatchHistoryComponent = ...;
+missionMatchHistoryComponent.OnRemoveBehavior();
+```
 
 ## Usage Example
 
@@ -54,4 +71,4 @@ var component = agent.GetComponent<MissionMatchHistoryComponent>();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

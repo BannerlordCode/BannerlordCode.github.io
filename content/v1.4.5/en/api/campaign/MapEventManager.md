@@ -1,20 +1,14 @@
 ---
 title: "MapEventManager"
+description: "Auto-generated class reference for MapEventManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapEventManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapEventManager
 
 **Namespace:** TaleWorlds.CampaignSystem.MapEvents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MapEventManager`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventManager.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventManager.cs`
 
 ## Overview
 
@@ -29,42 +23,90 @@ Treat `MapEventManager` as a Manager-style extension point: first identify who c
 ### OnMapEventCreated
 `public void OnMapEventCreated(MapEvent mapEvent)`
 
-**Purpose:** Called when the `map event created` event is raised.
+**Purpose:** Invoked when the `map event created` event is raised.
+
+```csharp
+// Obtain an instance of MapEventManager from the subsystem API first
+MapEventManager mapEventManager = ...;
+mapEventManager.OnMapEventCreated(mapEvent);
+```
 
 ### GetMapEvent
 `public MapEvent GetMapEvent(int attackerPartyIndex)`
 
-**Purpose:** Gets the current value of `map event`.
+**Purpose:** Reads and returns the `map event` value held by the current object.
+
+```csharp
+// Obtain an instance of MapEventManager from the subsystem API first
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.GetMapEvent(0);
+```
 
 ### GetMapEventsBetweenFactions
 `public List<MapEvent> GetMapEventsBetweenFactions(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Gets the current value of `map events between factions`.
+**Purpose:** Reads and returns the `map events between factions` value held by the current object.
+
+```csharp
+// Obtain an instance of MapEventManager from the subsystem API first
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.GetMapEventsBetweenFactions(faction1, faction2);
+```
 
 ### FinalizePlayerMapEvent
 `public void FinalizePlayerMapEvent(MapEvent mapEvent = null)`
 
-**Purpose:** Handles logic related to `finalize player map event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MapEventManager from the subsystem API first
+MapEventManager mapEventManager = ...;
+mapEventManager.FinalizePlayerMapEvent(null);
+```
 
 ### StartSiegeMapEvent
 `public MapEvent StartSiegeMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Handles logic related to `start siege map event`.
+**Purpose:** Starts the `siege map event` flow or state machine.
+
+```csharp
+// Obtain an instance of MapEventManager from the subsystem API first
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.StartSiegeMapEvent(attackerParty, defenderParty);
+```
 
 ### StartSallyOutMapEvent
 `public MapEvent StartSallyOutMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Handles logic related to `start sally out map event`.
+**Purpose:** Starts the `sally out map event` flow or state machine.
+
+```csharp
+// Obtain an instance of MapEventManager from the subsystem API first
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.StartSallyOutMapEvent(attackerParty, defenderParty);
+```
 
 ### StartSiegeOutsideMapEvent
 `public MapEvent StartSiegeOutsideMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Handles logic related to `start siege outside map event`.
+**Purpose:** Starts the `siege outside map event` flow or state machine.
+
+```csharp
+// Obtain an instance of MapEventManager from the subsystem API first
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.StartSiegeOutsideMapEvent(attackerParty, defenderParty);
+```
 
 ### StartBlockadeBattleMapEvent
 `public MapEvent StartBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Handles logic related to `start blockade battle map event`.
+**Purpose:** Starts the `blockade battle map event` flow or state machine.
+
+```csharp
+// Obtain an instance of MapEventManager from the subsystem API first
+MapEventManager mapEventManager = ...;
+var result = mapEventManager.StartBlockadeBattleMapEvent(attackerParty, defenderParty);
+```
 
 ## Usage Example
 
@@ -74,4 +116,4 @@ var manager = MapEventManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -311,3 +311,23 @@ For new projects, v1.3.15 is recommended.
 
 - [Bannerlord Modding Discord](https://discord.gg/bannerlord)
 - [Official Modding Forum](https://forums.taleworlds.com/)
+
+<!-- BEGIN SECTION INDEX -->
+
+## Parent Navigation
+
+- [Version Home](../)
+
+## Child Pages
+
+- [Asset Pipeline](./asset-pipeline)
+- [Campaign System](./campaign-system)
+- [Common Patterns](./common-patterns)
+- [Game Systems Overview](./game-systems-overview)
+- [Gauntlet UI System](./gauntlet-ui)
+- [Localization](./localization)
+- [Mission System](./mission-system)
+- [Save System Guide](./save-system-guide)
+- [Troubleshooting](./troubleshooting)
+
+<!-- END SECTION INDEX -->

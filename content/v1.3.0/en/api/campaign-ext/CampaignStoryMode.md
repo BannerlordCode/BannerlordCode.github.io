@@ -1,13 +1,7 @@
 ---
 title: "CampaignStoryMode"
+description: "Auto-generated class reference for CampaignStoryMode."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignStoryMode`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignStoryMode
 
 **Namespace:** StoryMode
@@ -33,9 +27,10 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ## Usage Example
 
 ```csharp
-var value = new CampaignStoryMode();
+// Obtain an instance from the relevant subsystem API
+CampaignStoryMode instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TakenDamageItemBrushWidget"
+description: "Auto-generated class reference for TakenDamageItemBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TakenDamageItemBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TakenDamageItemBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TakenDamageItemBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/TakenDamageItemBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/TakenDamageItemBrushWidget.cs`
 
 ## Overview
 
@@ -42,9 +36,10 @@ Treat `TakenDamageItemBrushWidget` as a Widget-style extension point: first iden
 ## Usage Example
 
 ```csharp
-var widget = new TakenDamageItemBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TakenDamageItemBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

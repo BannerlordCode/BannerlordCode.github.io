@@ -1,18 +1,12 @@
 ---
 title: "IChatLogHandlerScreen"
+description: "Auto-generated class reference for IChatLogHandlerScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IChatLogHandlerScreen`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IChatLogHandlerScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public interface IChatLogHandlerScreen`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade.View/TaleWorlds/MountAndBlade/View/IChatLogHandlerScreen.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-IChatLogHandlerScreen implementation = GetChatLogHandlerScreenImplementation();
+// Usually obtained through DI or a factory method
+IIChatLogHandlerScreen service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

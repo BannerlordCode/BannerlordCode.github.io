@@ -1,13 +1,7 @@
 ---
 title: "CombatStatCalculator"
+description: "CombatStatCalculator 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CombatStatCalculator`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CombatStatCalculator
 
 **Namespace:** TaleWorlds.Core
@@ -29,27 +23,52 @@ title: "CombatStatCalculator"
 ### CalculateStrikeMagnitudeForSwing
 `public static float CalculateStrikeMagnitudeForSwing(float swingSpeed, float impactPointAsPercent, float weaponWeight, float weaponLength, float weaponInertia, float weaponCoM, float extraLinearSpeed)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for swing` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for swing」的当前值或结果。
+
+```csharp
+// 静态调用，不需要实例
+CombatStatCalculator.CalculateStrikeMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
+```
 
 ### CalculateStrikeMagnitudeForThrust
 `public static float CalculateStrikeMagnitudeForThrust(float thrustWeaponSpeed, float weaponWeight, float extraLinearSpeed, bool isThrown)`
 
-**用途 / Purpose:** 处理 `calculate strike magnitude for thrust` 相关逻辑。
+**用途 / Purpose:** 计算「strike magnitude for thrust」的当前值或结果。
+
+```csharp
+// 静态调用，不需要实例
+CombatStatCalculator.CalculateStrikeMagnitudeForThrust(0, 0, 0, false);
+```
 
 ### CalculateBaseBlowMagnitudeForSwing
 `public static float CalculateBaseBlowMagnitudeForSwing(float angularSpeed, float weaponReach, float weaponWeight, float weaponInertia, float weaponCoM, float impactPoint, float exraLinearSpeed)`
 
-**用途 / Purpose:** 处理 `calculate base blow magnitude for swing` 相关逻辑。
+**用途 / Purpose:** 计算「base blow magnitude for swing」的当前值或结果。
+
+```csharp
+// 静态调用，不需要实例
+CombatStatCalculator.CalculateBaseBlowMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
+```
 
 ### CalculateBaseBlowMagnitudeForThrust
 `public static float CalculateBaseBlowMagnitudeForThrust(float linearSpeed, float weaponWeight, float exraLinearSpeed)`
 
-**用途 / Purpose:** 处理 `calculate base blow magnitude for thrust` 相关逻辑。
+**用途 / Purpose:** 计算「base blow magnitude for thrust」的当前值或结果。
+
+```csharp
+// 静态调用，不需要实例
+CombatStatCalculator.CalculateBaseBlowMagnitudeForThrust(0, 0, 0);
+```
 
 ### CalculateBaseBlowMagnitudeForPassiveUsage
 `public static float CalculateBaseBlowMagnitudeForPassiveUsage(float weaponWeight, float extraLinearSpeed)`
 
-**用途 / Purpose:** 处理 `calculate base blow magnitude for passive usage` 相关逻辑。
+**用途 / Purpose:** 计算「base blow magnitude for passive usage」的当前值或结果。
+
+```csharp
+// 静态调用，不需要实例
+CombatStatCalculator.CalculateBaseBlowMagnitudeForPassiveUsage(0, 0);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ CombatStatCalculator.CalculateStrikeMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

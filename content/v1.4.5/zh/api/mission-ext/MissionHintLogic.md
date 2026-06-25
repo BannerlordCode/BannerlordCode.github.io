@@ -1,20 +1,14 @@
 ---
 title: "MissionHintLogic"
+description: "MissionHintLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionHintLogic`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionHintLogic
 
 **Namespace:** TaleWorlds.MountAndBlade.Missions.MissionLogics
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionHintLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.MissionLogics/MissionHintLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.MissionLogics/MissionHintLogic.cs`
 
 ## 概述
 
@@ -35,24 +29,42 @@ title: "MissionHintLogic"
 ### MissionHintChangedDelegate
 `public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)`
 
-**用途 / Purpose:** 处理 `mission hint changed delegate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionHintLogic 实例
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.MissionHintChangedDelegate(previousHint, newHint);
+```
 
 ### SetActiveHint
 `public void SetActiveHint(MissionHint hint)`
 
-**用途 / Purpose:** 设置 `active hint` 的值或状态。
+**用途 / Purpose:** 为 「active hint」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionHintLogic 实例
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.SetActiveHint(hint);
+```
 
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 处理 `clear` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的内容。
+
+```csharp
+// 先通过子系统 API 拿到 MissionHintLogic 实例
+MissionHintLogic missionHintLogic = ...;
+missionHintLogic.Clear();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionHintLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionHintLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

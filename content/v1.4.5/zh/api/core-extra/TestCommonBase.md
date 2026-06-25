@@ -1,20 +1,14 @@
 ---
 title: "TestCommonBase"
+description: "TestCommonBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TestCommonBase`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestCommonBase
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public abstract class TestCommonBase`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/TestCommonBase.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/TestCommonBase.cs`
 
 ## 概述
 
@@ -29,64 +23,130 @@ title: "TestCommonBase"
 ### Tick
 `public abstract void Tick()`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+testCommonBase.Tick();
+```
 
 ### StartTimeoutTimer
 `public void StartTimeoutTimer()`
 
-**用途 / Purpose:** 处理 `start timeout timer` 相关逻辑。
+**用途 / Purpose:** 启动「timeout timer」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+testCommonBase.StartTimeoutTimer();
+```
 
 ### ToggleTimeoutTimer
 `public void ToggleTimeoutTimer()`
 
-**用途 / Purpose:** 处理 `toggle timeout timer` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+testCommonBase.ToggleTimeoutTimer();
+```
 
 ### CheckTimeoutTimer
 `public bool CheckTimeoutTimer()`
 
-**用途 / Purpose:** 处理 `check timeout timer` 相关逻辑。
+**用途 / Purpose:** 检查「timeout timer」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.CheckTimeoutTimer();
+```
 
 ### GetGameStatus
 `public virtual string GetGameStatus()`
 
-**用途 / Purpose:** 获取 `game status` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「game status」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.GetGameStatus();
+```
 
 ### WaitFor
 `public void WaitFor(double seconds)`
 
-**用途 / Purpose:** 处理 `wait for` 相关逻辑。
+**用途 / Purpose:** 暂停当前流程，直到「for」条件满足。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+testCommonBase.WaitFor(0);
+```
 
 ### WaitUntil
 `public virtual async Task WaitUntil(Func<bool> func)`
 
-**用途 / Purpose:** 处理 `wait until` 相关逻辑。
+**用途 / Purpose:** 暂停当前流程，直到「until」条件满足。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.WaitUntil(func);
+```
 
 ### WaitForAsync
 `public Task WaitForAsync(double seconds, Random random)`
 
-**用途 / Purpose:** 处理 `wait for async` 相关逻辑。
+**用途 / Purpose:** 暂停当前流程，直到「for async」条件满足。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.WaitForAsync(0, random);
+```
 
 ### WaitForAsync
 `public Task WaitForAsync(double seconds)`
 
-**用途 / Purpose:** 处理 `wait for async` 相关逻辑。
+**用途 / Purpose:** 暂停当前流程，直到「for async」条件满足。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+var result = testCommonBase.WaitForAsync(0);
+```
 
 ### GetAttachmentsFolderPath
 `public static string GetAttachmentsFolderPath()`
 
-**用途 / Purpose:** 获取 `attachments folder path` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attachments folder path」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+TestCommonBase.GetAttachmentsFolderPath();
+```
 
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TestCommonBase 实例
+TestCommonBase testCommonBase = ...;
+testCommonBase.OnFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomTestCommonBase();
+// 通常通过子系统 API 或工厂获得派生实例
+TestCommonBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

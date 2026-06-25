@@ -1,20 +1,14 @@
 ---
 title: "MachineId"
+description: "Auto-generated class reference for MachineId."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MachineId`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MachineId
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class MachineId`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MachineId.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MachineId.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+MachineId.Initialize();
+```
 
 ### AsInteger
 `public static int AsInteger()`
 
-**Purpose:** Handles logic related to `as integer`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MachineId.AsInteger();
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ MachineId.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

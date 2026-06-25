@@ -1,20 +1,14 @@
 ---
 title: "VisualTestsScreen"
+description: "VisualTestsScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualTestsScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualTestsScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class VisualTestsScreen : ScreenBase`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/VisualTestsScreen.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Screens/VisualTestsScreen.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "VisualTestsScreen"
 ### StartedRendering
 `public bool StartedRendering()`
 
-**用途 / Purpose:** 处理 `started rendering` 相关逻辑。
+**用途 / Purpose:** 启动「ed rendering」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTestsScreen 实例
+VisualTestsScreen visualTestsScreen = ...;
+var result = visualTestsScreen.StartedRendering();
+```
 
 ### GetSubTestName
 `public string GetSubTestName(CameraPointTestType type)`
 
-**用途 / Purpose:** 获取 `sub test name` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「sub test name」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTestsScreen 实例
+VisualTestsScreen visualTestsScreen = ...;
+var result = visualTestsScreen.GetSubTestName(type);
+```
 
 ### GetRenderMode
 `public EngineRenderDisplayMode GetRenderMode(CameraPointTestType type)`
 
-**用途 / Purpose:** 获取 `render mode` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「render mode」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTestsScreen 实例
+VisualTestsScreen visualTestsScreen = ...;
+var result = visualTestsScreen.GetRenderMode(type);
+```
 
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将 `reset` 重置为初始状态。
+**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 VisualTestsScreen 实例
+VisualTestsScreen visualTestsScreen = ...;
+visualTestsScreen.Reset();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new VisualTestsScreen();
-value.StartedRendering();
+// 通常从对应子系统 API 获取实例后调用
+VisualTestsScreen visualTestsScreen = ...;
+visualTestsScreen.StartedRendering();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

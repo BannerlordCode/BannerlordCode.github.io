@@ -1,79 +1,170 @@
 ---
 title: "SaveContext"
+description: "Auto-generated class reference for SaveContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveContext`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveContext
 
-**Namespace:** TaleWorlds.SaveSystem.Save  
-**Module:** TaleWorlds.SaveSystem  
-**Type:** public class (implements `ISaveContext`)
-
-The **write-side context** of the save system. `SaveManager.Save` creates a `SaveContext` internally; it walks the object graph, collects every object/container/string that needs serializing, and produces the final save data.
+**Namespace:** TaleWorlds.SaveSystem.Save
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public class SaveContext : ISaveContext`
+**Base:** `ISaveContext`
+**File:** `TaleWorlds.SaveSystem/Save/SaveContext.cs`
 
 ## Overview
 
-`SaveContext` holds the root object and a `DefinitionContext` (type definition table). It maintains four core index tables:
-
-| Field | Purpose |
-|-------|---------|
-| `_childObjects` / `_idsOfChildObjects` | All referenced saveable objects and their integer IDs |
-| `_childContainers` / `_idsOfChildContainers` | Containers (lists/dicts/etc.) and their IDs |
-| `_strings` / `_idsOfStrings` | String dedup table |
-
-The collection phase uses `TWParallel.ForWithoutRenderThread` for parallelism — the critical path for save performance.
+`SaveContext` lives in `TaleWorlds.SaveSystem.Save` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
-Treat `SaveContext` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
 
-## Main properties
+## Key Properties
 
-| Name | Type | Description |
-|------|------|-------------|
-| `RootObject` | object | The root object of this save (usually game state) |
-| `DefinitionContext` | DefinitionContext | Type/field definition context |
+| Name | Signature |
+|------|-----------|
+| `RootObject` | `public object RootObject { get; }` |
+| `SaveData` | `public GameData SaveData { get; }` |
+| `DefinitionContext` | `public DefinitionContext DefinitionContext { get; }` |
+| `EnableSaveStatistics` | `public static bool EnableSaveStatistics { get; }` |
 
-## Main static members
+## Key Methods
 
-```csharp
-public static SaveStatistics GetStatistics();
-public static bool EnableSaveStatistics { get; }   // always false in release
-```
+### GetStatistics
+`public static SaveContext.SaveStatistics GetStatistics()`
 
-`GetStatistics` returns type/container stats, meaningful only when `EnableSaveStatistics` is true.
-
-## Key flow
-
-1. **Construct**: `new SaveContext(definitionContext)`, initializing each index table with capacity 131072.
-2. **Collect**: `CollectSaveDatas()` walks `_childObjects` / `_childContainers` in parallel, producing `SaveData` per object.
-3. **Write**: `SaveManager` coordinates the driver to flush collected results to disk.
-
-## Usage example
+**Purpose:** Reads and returns the `statistics` value held by the current object.
 
 ```csharp
-SaveManager.InitializeGlobalDefinitionContext();
-var defCtx = SaveManager.GetGlobalDefinitionContext();
-var ctx = new SaveContext(defCtx);
-// Usually you don't call this manually; SaveManager.Save wraps it.
+// Static call; no instance required
+SaveContext.GetStatistics();
 ```
 
-> **For mod developers**
-> In almost all cases you do **not** use `SaveContext` directly — just annotate fields with `[SaveableField]` and properties with `[SaveableProperty]`, and `SaveManager` / `SaveContext` handle serialization automatically. Touching this type directly is advanced usage.
+### AddOrGetStringId
+`public int AddOrGetStringId(string text)`
 
-## See also
+**Purpose:** Adds `or get string id` to the current collection or state.
 
-- [SaveManager](./SaveManager)
-- [LoadContext](./LoadContext)
-- [SaveAttributes](./SaveAttributes)
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.AddOrGetStringId("example");
+```
+
+### GetObjectId
+`public int GetObjectId(object target)`
+
+**Purpose:** Reads and returns the `object id` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetObjectId(target);
+```
+
+### GetContainerId
+`public int GetContainerId(object target)`
+
+**Purpose:** Reads and returns the `container id` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerId(target);
+```
+
+### GetStringId
+`public int GetStringId(string target)`
+
+**Purpose:** Reads and returns the `string id` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetStringId("example");
+```
+
+### GetStringSizeInBytes
+`public static int GetStringSizeInBytes(string text)`
+
+**Purpose:** Reads and returns the `string size in bytes` value held by the current object.
+
+```csharp
+// Static call; no instance required
+SaveContext.GetStringSizeInBytes("example");
+```
+
+### Save
+`public bool Save(object target, MetaData metaData, out string errorMessage)`
+
+**Purpose:** Writes the current object's data to persistent storage or a stream.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.Save(target, metaData, errorMessage);
+```
+
+### GetObjectCounts
+`public ValueTuple<int, int, int, long> GetObjectCounts(string key)`
+
+**Purpose:** Reads and returns the `object counts` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetObjectCounts("example");
+```
+
+### GetContainerCounts
+`public ValueTuple<int, int, int, int, long> GetContainerCounts(string key)`
+
+**Purpose:** Reads and returns the `container counts` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerCounts("example");
+```
+
+### GetContainerSize
+`public long GetContainerSize(string key)`
+
+**Purpose:** Reads and returns the `container size` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerSize("example");
+```
+
+### GetTypeKeys
+`public List<string> GetTypeKeys()`
+
+**Purpose:** Reads and returns the `type keys` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetTypeKeys();
+```
+
+### GetContainerKeys
+`public List<string> GetContainerKeys()`
+
+**Purpose:** Reads and returns the `container keys` value held by the current object.
+
+```csharp
+// Obtain an instance of SaveContext from the subsystem API first
+SaveContext saveContext = ...;
+var result = saveContext.GetContainerKeys();
+```
 
 ## Usage Example
 
 ```csharp
-var example = new SaveContext();
+SaveContext.GetStatistics();
 ```
+
+## See Also
+
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "StoryModePartyWageModel"
+description: "StoryModePartyWageModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `StoryModePartyWageModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModePartyWageModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModePartyWageModel : PartyWageModel`
 **Base:** `PartyWageModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModePartyWageModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModePartyWageModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "StoryModePartyWageModel"
 ### GetCharacterWage
 `public override int GetCharacterWage(CharacterObject character)`
 
-**用途 / Purpose:** 获取 `character wage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「character wage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePartyWageModel 实例
+StoryModePartyWageModel storyModePartyWageModel = ...;
+var result = storyModePartyWageModel.GetCharacterWage(character);
+```
 
 ### GetTotalWage
 `public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `total wage` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「total wage」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePartyWageModel 实例
+StoryModePartyWageModel storyModePartyWageModel = ...;
+var result = storyModePartyWageModel.GetTotalWage(mobileParty, troopRoster, false);
+```
 
 ### GetTroopRecruitmentCost
 `public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**用途 / Purpose:** 获取 `troop recruitment cost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「troop recruitment cost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 StoryModePartyWageModel 实例
+StoryModePartyWageModel storyModePartyWageModel = ...;
+var result = storyModePartyWageModel.GetTroopRecruitmentCost(troop, buyerHero, false);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<StoryModePartyWageModel>(new MyStoryModePartyWageModel
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

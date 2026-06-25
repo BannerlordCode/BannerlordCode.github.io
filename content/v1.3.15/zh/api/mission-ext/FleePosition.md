@@ -1,13 +1,7 @@
 ---
 title: "FleePosition"
+description: "FleePosition 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `FleePosition`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FleePosition
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,20 +23,33 @@ title: "FleePosition"
 ### GetSide
 `public BattleSideEnum GetSide()`
 
-**用途 / Purpose:** 获取 `side` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「side」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FleePosition 实例
+FleePosition fleePosition = ...;
+var result = fleePosition.GetSide();
+```
 
 ### GetClosestPointToEscape
 `public Vec3 GetClosestPointToEscape(Vec2 position)`
 
-**用途 / Purpose:** 获取 `closest point to escape` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「closest point to escape」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 FleePosition 实例
+FleePosition fleePosition = ...;
+var result = fleePosition.GetClosestPointToEscape(position);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new FleePosition();
-value.GetSide();
+// 通常从对应子系统 API 获取实例后调用
+FleePosition fleePosition = ...;
+fleePosition.GetSide();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

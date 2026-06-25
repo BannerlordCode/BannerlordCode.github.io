@@ -1,20 +1,14 @@
 ---
 title: "StoryModeAgentDecideKilledOrUnconsciousModel"
+description: "Auto-generated class reference for StoryModeAgentDecideKilledOrUnconsciousModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeAgentDecideKilledOrUnconsciousModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeAgentDecideKilledOrUnconsciousModel
 
 **Namespace:** StoryMode.GameComponents
 **Module:** StoryMode.GameComponents
 **Type:** `public class StoryModeAgentDecideKilledOrUnconsciousModel : AgentDecideKilledOrUnconsciousModel`
 **Base:** `AgentDecideKilledOrUnconsciousModel`
-**File:** `Bannerlord.Source/Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeAgentDecideKilledOrUnconsciousModel.cs`
+**File:** `Modules.StoryMode/StoryMode/StoryMode.GameComponents/StoryModeAgentDecideKilledOrUnconsciousModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `StoryModeAgentDecideKilledOrUnconsciousModel` as a Model-style extension 
 ### GetAgentStateProbability
 `public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**Purpose:** Gets the current value of `agent state probability`.
+**Purpose:** Reads and returns the `agent state probability` value held by the current object.
+
+```csharp
+// Obtain an instance of StoryModeAgentDecideKilledOrUnconsciousModel from the subsystem API first
+StoryModeAgentDecideKilledOrUnconsciousModel storyModeAgentDecideKilledOrUnconsciousModel = ...;
+var result = storyModeAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, weaponFlags, useSurgeryProbability);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<StoryModeAgentDecideKilledOrUnconsciousModel>(new MySt
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BannerBuilderLayerVM"
+description: "BannerBuilderLayerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerBuilderLayerVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerBuilderLayerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class BannerBuilderLayerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderLayerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder/BannerBuilderLayerVM.cs`
 
 ## 概述
 
@@ -57,70 +51,141 @@ title: "BannerBuilderLayerVM"
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.Refresh();
+```
 
 ### ExecuteDelete
 `public void ExecuteDelete()`
 
-**用途 / Purpose:** 执行 `delete` 操作或流程。
+**用途 / Purpose:** 执行 「delete」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.ExecuteDelete();
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** 执行 `selection` 操作或流程。
+**用途 / Purpose:** 执行 「selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.ExecuteSelection();
+```
 
 ### SetLayerIndex
 `public void SetLayerIndex(int newIndex)`
 
-**用途 / Purpose:** 设置 `layer index` 的值或状态。
+**用途 / Purpose:** 为 「layer index」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.SetLayerIndex(0);
+```
 
 ### ExecuteSelectColor1
 `public void ExecuteSelectColor1()`
 
-**用途 / Purpose:** 执行 `select color1` 操作或流程。
+**用途 / Purpose:** 执行 「select color1」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.ExecuteSelectColor1();
+```
 
 ### ExecuteSelectColor2
 `public void ExecuteSelectColor2()`
 
-**用途 / Purpose:** 执行 `select color2` 操作或流程。
+**用途 / Purpose:** 执行 「select color2」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.ExecuteSelectColor2();
+```
 
 ### ExecuteSwapColors
 `public void ExecuteSwapColors()`
 
-**用途 / Purpose:** 执行 `swap colors` 操作或流程。
+**用途 / Purpose:** 执行 「swap colors」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.ExecuteSwapColors();
+```
 
 ### ExecuteCenterSigil
 `public void ExecuteCenterSigil()`
 
-**用途 / Purpose:** 执行 `center sigil` 操作或流程。
+**用途 / Purpose:** 执行 「center sigil」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.ExecuteCenterSigil();
+```
 
 ### ExecuteResetSize
 `public void ExecuteResetSize()`
 
-**用途 / Purpose:** 执行 `reset size` 操作或流程。
+**用途 / Purpose:** 执行 「reset size」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.ExecuteResetSize();
+```
 
 ### ExecuteUpdateBanner
 `public void ExecuteUpdateBanner()`
 
-**用途 / Purpose:** 执行 `update banner` 操作或流程。
+**用途 / Purpose:** 执行 「update banner」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 BannerBuilderLayerVM 实例
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.ExecuteUpdateBanner();
+```
 
 ### SetLayerActions
 `public static void SetLayerActions(Action refresh, Action<BannerBuilderLayerVM> onSelection, Action<BannerBuilderLayerVM> onDeletion, Action<int, Action<BannerBuilderColorItemVM>> onColorSelection)`
 
-**用途 / Purpose:** 设置 `layer actions` 的值或状态。
+**用途 / Purpose:** 为 「layer actions」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+BannerBuilderLayerVM.SetLayerActions(refresh, onSelection, onDeletion, action<int, onColorSelection);
+```
 
 ### ResetLayerActions
 `public static void ResetLayerActions()`
 
-**用途 / Purpose:** 将 `layer actions` 重置为初始状态。
+**用途 / Purpose:** 将 「layer actions」 重置回默认或初始状态。
+
+```csharp
+// 静态调用，不需要实例
+BannerBuilderLayerVM.ResetLayerActions();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerBuilderLayerVM();
-value.Refresh();
+// 通常从对应子系统 API 获取实例后调用
+BannerBuilderLayerVM bannerBuilderLayerVM = ...;
+bannerBuilderLayerVM.Refresh();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "LobbyGameStateScreen"
+description: "LobbyGameStateScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LobbyGameStateScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LobbyGameStateScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.View.Screens
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class LobbyGameStateScreen : ScreenBase, IGameStateListener`
 **Base:** `ScreenBase`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.Screens/LobbyGameStateScreen.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.View/TaleWorlds.MountAndBlade.Multiplayer.View.Screens/LobbyGameStateScreen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "LobbyGameStateScreen"
 ## 使用示例
 
 ```csharp
-var value = new LobbyGameStateScreen();
+// 从对应子系统 API 获取实例
+LobbyGameStateScreen instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

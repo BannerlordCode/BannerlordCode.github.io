@@ -1,13 +1,7 @@
 ---
 title: "WindMill"
+description: "WindMill 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WindMill`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WindMill
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,12 +23,23 @@ title: "WindMill"
 ### GetIntegerFromStringEnd
 `public static int GetIntegerFromStringEnd(string str)`
 
-**用途 / Purpose:** 获取 `integer from string end` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「integer from string end」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+WindMill.GetIntegerFromStringEnd("example");
+```
 
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 获取 `tick requirement` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WindMill 实例
+WindMill windMill = ...;
+var result = windMill.GetTickRequirement();
+```
 
 ## 使用示例
 
@@ -44,4 +49,4 @@ WindMill.GetIntegerFromStringEnd("example");
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

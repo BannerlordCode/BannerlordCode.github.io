@@ -1,20 +1,14 @@
 ---
 title: "CastleEncounter"
+description: "CastleEncounter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CastleEncounter`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CastleEncounter
 
 **Namespace:** TaleWorlds.CampaignSystem.Encounters
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CastleEncounter : LocationEncounter`
 **Base:** `LocationEncounter`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/CastleEncounter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encounters/CastleEncounter.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "CastleEncounter"
 ### CreateAndOpenMissionController
 `public override IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**用途 / Purpose:** 创建一个 `and open mission controller` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「and open mission controller」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 CastleEncounter 实例
+CastleEncounter castleEncounter = ...;
+var result = castleEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CastleEncounter();
-value.CreateAndOpenMissionController(nextLocation, null, null, "example");
+// 通常从对应子系统 API 获取实例后调用
+CastleEncounter castleEncounter = ...;
+castleEncounter.CreateAndOpenMissionController(nextLocation, null, null, "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

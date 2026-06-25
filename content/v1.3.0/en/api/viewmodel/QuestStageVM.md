@@ -1,13 +1,7 @@
 ---
 title: "QuestStageVM"
+description: "Auto-generated class reference for QuestStageVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `QuestStageVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # QuestStageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Quests
@@ -41,25 +35,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### ExecuteResetUpdated
 `public void ExecuteResetUpdated()`
 
-**Purpose:** Executes the `reset updated` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `reset updated`.
+
+```csharp
+// Obtain an instance of QuestStageVM from the subsystem API first
+QuestStageVM questStageVM = ...;
+questStageVM.ExecuteResetUpdated();
+```
 
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of QuestStageVM from the subsystem API first
+QuestStageVM questStageVM = ...;
+questStageVM.ExecuteLink("example");
+```
 
 ### UpdateIsNew
 `public void UpdateIsNew()`
 
-**Purpose:** Updates the state or data of `is new`.
+**Purpose:** Recalculates and stores the latest representation of `is new`.
+
+```csharp
+// Obtain an instance of QuestStageVM from the subsystem API first
+QuestStageVM questStageVM = ...;
+questStageVM.UpdateIsNew();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new QuestStageVM();
-value.ExecuteResetUpdated();
+// Typically call this after obtaining an instance from the subsystem API
+QuestStageVM questStageVM = ...;
+questStageVM.ExecuteResetUpdated();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

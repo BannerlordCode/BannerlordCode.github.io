@@ -1,20 +1,14 @@
 ---
 title: "WidgetFactory"
+description: "WidgetFactory 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WidgetFactory`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WidgetFactory
 
 **Namespace:** TaleWorlds.GauntletUI.PrefabSystem
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetFactory`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetFactory.cs`
+**File:** `bin/TaleWorlds.GauntletUI.PrefabSystem/TaleWorlds.GauntletUI.PrefabSystem/WidgetFactory.cs`
 
 ## 概述
 
@@ -37,70 +31,143 @@ title: "WidgetFactory"
 ### Initialize
 `public void Initialize(List<string> assemblyOrder = null)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+widgetFactory.Initialize(null);
+```
 
 ### AddCustomType
 `public void AddCustomType(string name, string path)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `custom type`。
+**用途 / Purpose:** 将 「custom type」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+widgetFactory.AddCustomType("example", "example");
+```
 
 ### GetPrefabNames
 `public IEnumerable<string> GetPrefabNames()`
 
-**用途 / Purpose:** 获取 `prefab names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「prefab names」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetPrefabNames();
+```
 
 ### GetWidgetTypes
 `public IEnumerable<string> GetWidgetTypes()`
 
-**用途 / Purpose:** 获取 `widget types` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「widget types」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetWidgetTypes();
+```
 
 ### IsBuiltinType
 `public bool IsBuiltinType(string name)`
 
-**用途 / Purpose:** 处理 `is builtin type` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「builtin type」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.IsBuiltinType("example");
+```
 
 ### GetBuiltinType
 `public Type GetBuiltinType(string name)`
 
-**用途 / Purpose:** 获取 `builtin type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「builtin type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetBuiltinType("example");
+```
 
 ### IsCustomType
 `public bool IsCustomType(string typeName)`
 
-**用途 / Purpose:** 处理 `is custom type` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「custom type」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.IsCustomType("example");
+```
 
 ### GetCustomTypePath
 `public string GetCustomTypePath(string name)`
 
-**用途 / Purpose:** 获取 `custom type path` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「custom type path」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetCustomTypePath("example");
+```
 
 ### CreateBuiltinWidget
 `public Widget CreateBuiltinWidget(UIContext context, string typeName)`
 
-**用途 / Purpose:** 创建一个 `builtin widget` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「builtin widget」 实体并返回给调用方。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.CreateBuiltinWidget(context, "example");
+```
 
 ### GetCustomType
 `public WidgetPrefab GetCustomType(string typeName)`
 
-**用途 / Purpose:** 获取 `custom type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「custom type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+var result = widgetFactory.GetCustomType("example");
+```
 
 ### OnUnload
 `public void OnUnload(string typeName)`
 
-**用途 / Purpose:** 当 `unload` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「unload」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+widgetFactory.OnUnload("example");
+```
 
 ### CheckForUpdates
 `public void CheckForUpdates()`
 
-**用途 / Purpose:** 处理 `check for updates` 相关逻辑。
+**用途 / Purpose:** 检查「for updates」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 WidgetFactory 实例
+WidgetFactory widgetFactory = ...;
+widgetFactory.CheckForUpdates();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WidgetFactory();
-value.Initialize(null);
+// 通常从对应子系统 API 获取实例后调用
+WidgetFactory widgetFactory = ...;
+widgetFactory.Initialize(null);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,8 @@
 ---
 title: "MakePeaceAction"
+description: "Auto-generated campaign action reference for MakePeaceAction."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MakePeaceAction`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MakePeaceAction
-
-## Mental Model
-
-Treat `MakePeaceAction` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
@@ -37,7 +27,7 @@ public static void ApplyPardonPlayer(IFaction faction)
 public static void Apply(IFaction faction1, IFaction faction2, int dailyTributeFrom1To2 = 0)
 ```
 
-**Purpose:** execute this entry point.
+**Purpose:** .
 
 ### ApplyByKingdomDecision
 
@@ -56,5 +46,5 @@ MakePeaceAction.ApplyPardonPlayer(faction);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Campaign System catalog](../catalog-campaign)
+- [Area Index](../)
+- [Campaign System](../campaign/)

@@ -1,20 +1,14 @@
 ---
 title: "RaftStateChangeAction"
+description: "RaftStateChangeAction 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RaftStateChangeAction`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RaftStateChangeAction
 
 **Namespace:** TaleWorlds.CampaignSystem.Actions
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class RaftStateChangeAction`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/RaftStateChangeAction.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/RaftStateChangeAction.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "RaftStateChangeAction"
 ### ActivateRaftStateForParty
 `public static void ActivateRaftStateForParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `activate raft state for party` 相关逻辑。
+**用途 / Purpose:** 激活「raft state for party」对应的资源、状态或功能。
+
+```csharp
+// 静态调用，不需要实例
+RaftStateChangeAction.ActivateRaftStateForParty(mobileParty);
+```
 
 ### DeactivateRaftStateForParty
 `public static void DeactivateRaftStateForParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `deactivate raft state for party` 相关逻辑。
+**用途 / Purpose:** 停用「raft state for party」对应的资源、状态或功能。
+
+```csharp
+// 静态调用，不需要实例
+RaftStateChangeAction.DeactivateRaftStateForParty(mobileParty);
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ RaftStateChangeAction.ActivateRaftStateForParty(mobileParty);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

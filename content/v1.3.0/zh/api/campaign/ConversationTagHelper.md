@@ -1,13 +1,7 @@
 ---
 title: "ConversationTagHelper"
+description: "ConversationTagHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ConversationTagHelper`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ConversationTagHelper
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -29,27 +23,52 @@ title: "ConversationTagHelper"
 ### UsesHighRegister
 `public static bool UsesHighRegister(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `uses high register` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ConversationTagHelper.UsesHighRegister(character);
+```
 
 ### UsesLowRegister
 `public static bool UsesLowRegister(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `uses low register` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ConversationTagHelper.UsesLowRegister(character);
+```
 
 ### TribalVoiceGroup
 `public static bool TribalVoiceGroup(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `tribal voice group` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ConversationTagHelper.TribalVoiceGroup(character);
+```
 
 ### EducatedClass
 `public static bool EducatedClass(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `educated class` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ConversationTagHelper.EducatedClass(character);
+```
 
 ### TraitCompatibility
 `public static int TraitCompatibility(Hero hero1, Hero hero2, TraitObject trait)`
 
-**用途 / Purpose:** 处理 `trait compatibility` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+ConversationTagHelper.TraitCompatibility(hero1, hero2, trait);
+```
 
 ## 使用示例
 
@@ -59,4 +78,4 @@ ConversationTagHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

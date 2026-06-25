@@ -1,13 +1,7 @@
 ---
 title: "CustomSiegeMissionSpawnHandler"
+description: "Auto-generated class reference for CustomSiegeMissionSpawnHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomSiegeMissionSpawnHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CustomSiegeMissionSpawnHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionSpawnHandlers
@@ -29,14 +23,20 @@ Treat `CustomSiegeMissionSpawnHandler` as a Handler-style extension point: first
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CustomSiegeMissionSpawnHandler from the subsystem API first
+CustomSiegeMissionSpawnHandler customSiegeMissionSpawnHandler = ...;
+customSiegeMissionSpawnHandler.AfterStart();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CustomSiegeMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<CustomSiegeMissionSpawnHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

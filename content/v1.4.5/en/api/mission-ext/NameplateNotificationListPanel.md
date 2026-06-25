@@ -1,20 +1,14 @@
 ---
 title: "NameplateNotificationListPanel"
+description: "Auto-generated class reference for NameplateNotificationListPanel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NameplateNotificationListPanel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NameplateNotificationListPanel
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Notifications
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class NameplateNotificationListPanel`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Notifications/NameplateNotificationListPanel.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Notifications/NameplateNotificationListPanel.cs`
 
 ## Overview
 
@@ -38,15 +32,22 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Noti
 ### NameplateNotificationListPanel
 `public class NameplateNotificationListPanel(UIContext context)`
 
-**Purpose:** Handles logic related to `nameplate notification list panel`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of NameplateNotificationListPanel from the subsystem API first
+NameplateNotificationListPanel nameplateNotificationListPanel = ...;
+var result = nameplateNotificationListPanel.NameplateNotificationListPanel(context);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NameplateNotificationListPanel();
-value.NameplateNotificationListPanel(context);
+// Typically call this after obtaining an instance from the subsystem API
+NameplateNotificationListPanel nameplateNotificationListPanel = ...;
+nameplateNotificationListPanel.NameplateNotificationListPanel(context);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

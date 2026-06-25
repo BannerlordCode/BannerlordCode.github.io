@@ -1,13 +1,7 @@
 ---
 title: "LinearFrictionTerm"
+description: "Auto-generated class reference for LinearFrictionTerm."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LinearFrictionTerm`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # LinearFrictionTerm
 
 **Namespace:** TaleWorlds.Core
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ElementWiseProduct
 `public LinearFrictionTerm ElementWiseProduct(LinearFrictionTerm o)`
 
-**Purpose:** Handles logic related to `element wise product`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of LinearFrictionTerm from the subsystem API first
+LinearFrictionTerm linearFrictionTerm = ...;
+var result = linearFrictionTerm.ElementWiseProduct(o);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new LinearFrictionTerm();
-value.ElementWiseProduct(o);
+// Typically call this after obtaining an instance from the subsystem API
+LinearFrictionTerm linearFrictionTerm = ...;
+linearFrictionTerm.ElementWiseProduct(o);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "StealthBox"
+description: "Auto-generated class reference for StealthBox."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StealthBox`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StealthBox
 
 **Namespace:** TaleWorlds.MountAndBlade.Objects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class StealthBox : ScriptComponentBehavior`
 **Base:** `ScriptComponentBehavior`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/StealthBox.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Objects/StealthBox.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### IsPointInside
 `public bool IsPointInside(Vec3 point)`
 
-**Purpose:** Handles logic related to `is point inside`.
+**Purpose:** Determines whether the current object is in the `point inside` state or condition.
+
+```csharp
+// Obtain an instance of StealthBox from the subsystem API first
+StealthBox stealthBox = ...;
+var result = stealthBox.IsPointInside(point);
+```
 
 ### IsAgentInside
 `public bool IsAgentInside(Agent agent)`
 
-**Purpose:** Handles logic related to `is agent inside`.
+**Purpose:** Determines whether the current object is in the `agent inside` state or condition.
+
+```csharp
+// Obtain an instance of StealthBox from the subsystem API first
+StealthBox stealthBox = ...;
+var result = stealthBox.IsAgentInside(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new StealthBox();
-value.IsPointInside(point);
+// Typically call this after obtaining an instance from the subsystem API
+StealthBox stealthBox = ...;
+stealthBox.IsPointInside(point);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

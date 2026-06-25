@@ -1,20 +1,14 @@
 ---
 title: "MangonelView"
+description: "Auto-generated class reference for MangonelView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MangonelView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MangonelView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MangonelView : RangedSiegeWeaponView`
 **Base:** `RangedSiegeWeaponView`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon/MangonelView.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon/MangonelView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MangonelView` as a View-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var view = new MangonelView();
+// Retrieve this view from the subsystem API or scene
+MangonelView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

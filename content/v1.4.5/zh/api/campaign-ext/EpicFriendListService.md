@@ -1,20 +1,14 @@
 ---
 title: "EpicFriendListService"
+description: "EpicFriendListService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EpicFriendListService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EpicFriendListService
 
 **Namespace:** TaleWorlds.PlatformService.Epic
 **Module:** TaleWorlds.PlatformService
 **Type:** `public class EpicFriendListService : IFriendListService`
 **Base:** `IFriendListService`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicFriendListService.cs`
+**File:** `bin/TaleWorlds.PlatformService.Epic/TaleWorlds.PlatformService.Epic/EpicFriendListService.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "EpicFriendListService"
 ### UserStatusChanged
 `public void UserStatusChanged(PlayerId playerId)`
 
-**用途 / Purpose:** 处理 `user status changed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EpicFriendListService 实例
+EpicFriendListService epicFriendListService = ...;
+epicFriendListService.UserStatusChanged(playerId);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EpicFriendListService();
-value.UserStatusChanged(playerId);
+// 通常从对应子系统 API 获取实例后调用
+EpicFriendListService epicFriendListService = ...;
+epicFriendListService.UserStatusChanged(playerId);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

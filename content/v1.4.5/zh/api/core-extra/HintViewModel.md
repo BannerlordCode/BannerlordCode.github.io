@@ -1,20 +1,14 @@
 ---
 title: "HintViewModel"
+description: "HintViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HintViewModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HintViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public class HintViewModel : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/HintViewModel.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/HintViewModel.cs`
 
 ## 概述
 
@@ -29,20 +23,33 @@ title: "HintViewModel"
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 通知 UI 开始显示当前提示，常在鼠标悬停或控件聚焦时触发。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HintViewModel 实例
+HintViewModel hintViewModel = ...;
+hintViewModel.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 通知 UI 结束当前提示显示，常在鼠标移开或控件失焦时触发。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HintViewModel 实例
+HintViewModel hintViewModel = ...;
+hintViewModel.ExecuteEndHint();
+```
 
 ## 使用示例
 
 ```csharp
-var vm = new HintViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+HintViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

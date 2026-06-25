@@ -1,13 +1,7 @@
 ---
 title: "HintWidget"
+description: "Auto-generated class reference for HintWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HintWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # HintWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -27,9 +21,10 @@ Treat `HintWidget` as a Widget-style extension point: first identify who creates
 ## Usage Example
 
 ```csharp
-var widget = new HintWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+HintWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

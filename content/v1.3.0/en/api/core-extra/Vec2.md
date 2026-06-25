@@ -1,13 +1,7 @@
 ---
 title: "Vec2"
+description: "Auto-generated class reference for Vec2."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Vec2`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Vec2
 
 **Namespace:** TaleWorlds.Library
@@ -40,210 +34,434 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ToVec3
 `public Vec3 ToVec3(float z = 0f)`
 
-**Purpose:** Handles logic related to `to vec3`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.ToVec3(0);
+```
 
 ### Vector2
 `public static explicit operator Vector2(Vec2 vec2)`
 
-**Purpose:** Handles logic related to `vector2`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Vector2(vec2);
+```
 
 ### Vec2
 `public static implicit operator Vec2(Vector2 vec2)`
 
-**Purpose:** Handles logic related to `vec2`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Vec2(vec2);
+```
 
 ### Normalize
 `public float Normalize()`
 
-**Purpose:** Handles logic related to `normalize`.
+**Purpose:** Normalizes the current object into a standard form or range.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.Normalize();
+```
 
 ### Normalized
 `public Vec2 Normalized()`
 
-**Purpose:** Handles logic related to `normalized`.
+**Purpose:** Normalizes `d` into a standard form or range.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.Normalized();
+```
 
 ### ClampMagnitude
 `public void ClampMagnitude(float min, float max)`
 
-**Purpose:** Handles logic related to `clamp magnitude`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+vec2.ClampMagnitude(0, 0);
+```
 
 ### GetWindingOrder
 `public static WindingOrder GetWindingOrder(Vec2 first, Vec2 second, Vec2 third)`
 
-**Purpose:** Gets the current value of `winding order`.
+**Purpose:** Reads and returns the `winding order` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Vec2.GetWindingOrder(first, second, third);
+```
 
 ### CCW
 `public static float CCW(Vec2 va, Vec2 vb)`
 
-**Purpose:** Handles logic related to `c c w`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.CCW(va, vb);
+```
 
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Handles logic related to `equals`.
+**Purpose:** Compares the current object with the supplied instance for equality.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Gets the current value of `hash code`.
+**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.GetHashCode();
+```
 
 ### IsUnit
 `public bool IsUnit()`
 
-**Purpose:** Handles logic related to `is unit`.
+**Purpose:** Determines whether the current object is in the `unit` state or condition.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.IsUnit();
+```
 
 ### IsNonZero
 `public bool IsNonZero()`
 
-**Purpose:** Handles logic related to `is non zero`.
+**Purpose:** Determines whether the current object is in the `non zero` state or condition.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.IsNonZero();
+```
 
 ### NearlyEquals
 `public bool NearlyEquals(Vec2 v, float epsilon = 1E-05f)`
 
-**Purpose:** Handles logic related to `nearly equals`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.NearlyEquals(v, 0);
+```
 
 ### RotateCCW
 `public void RotateCCW(float angleInRadians)`
 
-**Purpose:** Handles logic related to `rotate c c w`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+vec2.RotateCCW(0);
+```
 
 ### DotProduct
 `public float DotProduct(Vec2 v)`
 
-**Purpose:** Handles logic related to `dot product`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.DotProduct(v);
+```
 
 ### DotProduct
 `public static float DotProduct(Vec2 va, Vec2 vb)`
 
-**Purpose:** Handles logic related to `dot product`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.DotProduct(va, vb);
+```
 
 ### ElementWiseProduct
 `public static Vec2 ElementWiseProduct(Vec2 va, Vec2 vb)`
 
-**Purpose:** Handles logic related to `element wise product`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.ElementWiseProduct(va, vb);
+```
 
 ### FromRotation
 `public static Vec2 FromRotation(float rotation)`
 
-**Purpose:** Handles logic related to `from rotation`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.FromRotation(0);
+```
 
 ### TransformToLocalUnitF
 `public Vec2 TransformToLocalUnitF(Vec2 a)`
 
-**Purpose:** Handles logic related to `transform to local unit f`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.TransformToLocalUnitF(a);
+```
 
 ### TransformToParentUnitF
 `public Vec2 TransformToParentUnitF(Vec2 a)`
 
-**Purpose:** Handles logic related to `transform to parent unit f`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.TransformToParentUnitF(a);
+```
 
 ### TransformToLocalUnitFLeftHanded
 `public Vec2 TransformToLocalUnitFLeftHanded(Vec2 a)`
 
-**Purpose:** Handles logic related to `transform to local unit f left handed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.TransformToLocalUnitFLeftHanded(a);
+```
 
 ### TransformToParentUnitFLeftHanded
 `public Vec2 TransformToParentUnitFLeftHanded(Vec2 a)`
 
-**Purpose:** Handles logic related to `transform to parent unit f left handed`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.TransformToParentUnitFLeftHanded(a);
+```
 
 ### RightVec
 `public Vec2 RightVec()`
 
-**Purpose:** Handles logic related to `right vec`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.RightVec();
+```
 
 ### LeftVec
 `public Vec2 LeftVec()`
 
-**Purpose:** Handles logic related to `left vec`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.LeftVec();
+```
 
 ### Max
 `public static Vec2 Max(Vec2 v1, Vec2 v2)`
 
-**Purpose:** Handles logic related to `max`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Max(v1, v2);
+```
 
 ### Max
 `public static Vec2 Max(Vec2 v1, float f)`
 
-**Purpose:** Handles logic related to `max`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Max(v1, 0);
+```
 
 ### Min
 `public static Vec2 Min(Vec2 v1, Vec2 v2)`
 
-**Purpose:** Handles logic related to `min`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Min(v1, v2);
+```
 
 ### Min
 `public static Vec2 Min(Vec2 v1, float f)`
 
-**Purpose:** Handles logic related to `min`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Min(v1, 0);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.ToString();
+```
 
 ### DistanceSquared
 `public float DistanceSquared(Vec2 v)`
 
-**Purpose:** Handles logic related to `distance squared`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.DistanceSquared(v);
+```
 
 ### Distance
 `public float Distance(Vec2 v)`
 
-**Purpose:** Handles logic related to `distance`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.Distance(v);
+```
 
 ### DistanceToLine
 `public static float DistanceToLine(Vec2 line1, Vec2 line2, Vec2 point)`
 
-**Purpose:** Handles logic related to `distance to line`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.DistanceToLine(line1, line2, point);
+```
 
 ### DistanceToLineSegmentSquared
 `public static float DistanceToLineSegmentSquared(Vec2 line1, Vec2 line2, Vec2 point)`
 
-**Purpose:** Handles logic related to `distance to line segment squared`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.DistanceToLineSegmentSquared(line1, line2, point);
+```
 
 ### DistanceToLineSegment
 `public float DistanceToLineSegment(Vec2 v, Vec2 w, out Vec2 closestPointOnLineSegment)`
 
-**Purpose:** Handles logic related to `distance to line segment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.DistanceToLineSegment(v, w, closestPointOnLineSegment);
+```
 
 ### DistanceSquaredToLineSegment
 `public float DistanceSquaredToLineSegment(Vec2 v, Vec2 w, out Vec2 closestPointOnLineSegment)`
 
-**Purpose:** Handles logic related to `distance squared to line segment`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.DistanceSquaredToLineSegment(v, w, closestPointOnLineSegment);
+```
 
 ### Abs
 `public static Vec2 Abs(Vec2 vec)`
 
-**Purpose:** Handles logic related to `abs`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Abs(vec);
+```
 
 ### Lerp
 `public static Vec2 Lerp(Vec2 v1, Vec2 v2, float alpha)`
 
-**Purpose:** Handles logic related to `lerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Lerp(v1, v2, 0);
+```
 
 ### Slerp
 `public static Vec2 Slerp(Vec2 start, Vec2 end, float percent)`
 
-**Purpose:** Handles logic related to `slerp`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Slerp(start, end, 0);
+```
 
 ### AngleBetween
 `public float AngleBetween(Vec2 vector2)`
 
-**Purpose:** Handles logic related to `angle between`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Vec2 from the subsystem API first
+Vec2 vec2 = ...;
+var result = vec2.AngleBetween(vector2);
+```
 
 ### Determinant
 `public static float Determinant(in Vec2 vec1, in Vec2 vec2)`
 
-**Purpose:** Handles logic related to `determinant`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Vec2.Determinant(vec1, vec2);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Vec2();
-value.ToVec3(0);
+// Typically call this after obtaining an instance from the subsystem API
+Vec2 vec2 = ...;
+vec2.ToVec3(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

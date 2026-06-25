@@ -1,20 +1,14 @@
 ---
 title: "CampaignGameStarter"
+description: "CampaignGameStarter 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CampaignGameStarter`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignGameStarter
 
 **Namespace:** TaleWorlds.CampaignSystem
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CampaignGameStarter : IGameStarter`
 **Base:** `IGameStarter`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignGameStarter.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignGameStarter.cs`
 
 ## 概述
 
@@ -29,75 +23,154 @@ title: "CampaignGameStarter"
 ### UnregisterNonReadyObjects
 `public void UnregisterNonReadyObjects()`
 
-**用途 / Purpose:** 处理 `unregister non ready objects` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「non ready objects」。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+campaignGameStarter.UnregisterNonReadyObjects();
+```
 
 ### AddBehavior
 `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `behavior`。
+**用途 / Purpose:** 将 「behavior」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+campaignGameStarter.AddBehavior(campaignBehavior);
+```
 
 ### AddModel
 `public void AddModel(GameModel gameModel)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `model`。
+**用途 / Purpose:** 将 「model」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+campaignGameStarter.AddModel(gameModel);
+```
 
 ### AddGameMenu
 `public void AddGameMenu(string menuId, string menuText, OnInitDelegate initDelegate, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, GameMenu.MenuFlags menuFlags = GameMenu.MenuFlags.None, object relatedObject = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `game menu`。
+**用途 / Purpose:** 将 「game menu」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+campaignGameStarter.AddGameMenu("example", "example", initDelegate, gameMenu.MenuOverlayType.None, gameMenu.MenuFlags.None, null);
+```
 
 ### AddWaitGameMenu
 `public void AddWaitGameMenu(string idString, string text, OnInitDelegate initDelegate, OnConditionDelegate condition, OnConsequenceDelegate consequence, OnTickDelegate tick, GameMenu.MenuAndOptionType type, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, float targetWaitHours = 0f, GameMenu.MenuFlags flags = GameMenu.MenuFlags.None, object relatedObject = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `wait game menu`。
+**用途 / Purpose:** 将 「wait game menu」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+campaignGameStarter.AddWaitGameMenu("example", "example", initDelegate, condition, consequence, tick, type, gameMenu.MenuOverlayType.None, 0, gameMenu.MenuFlags.None, null);
+```
 
 ### AddGameMenuOption
 `public void AddGameMenuOption(string menuId, string optionId, string optionText, GameMenuOption.OnConditionDelegate condition, GameMenuOption.OnConsequenceDelegate consequence, bool isLeave = false, int index = -1, bool isRepeatable = false, object relatedObject = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `game menu option`。
+**用途 / Purpose:** 将 「game menu option」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+campaignGameStarter.AddGameMenuOption("example", "example", "example", condition, consequence, false, 0, false, null);
+```
 
 ### GetPresumedGameMenu
 `public GameMenu GetPresumedGameMenu(string stringId)`
 
-**用途 / Purpose:** 获取 `presumed game menu` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「presumed game menu」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+var result = campaignGameStarter.GetPresumedGameMenu("example");
+```
 
 ### AddDialogFlow
 `public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `dialog flow`。
+**用途 / Purpose:** 将 「dialog flow」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+campaignGameStarter.AddDialogFlow(dialogFlow, null);
+```
 
 ### AddPlayerLine
 `public ConversationSentence AddPlayerLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnPersuasionOptionDelegate persuasionOptionDelegate = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `player line`。
+**用途 / Purpose:** 将 「player line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+var result = campaignGameStarter.AddPlayerLine("example", "example", "example", "example", conditionDelegate, consequenceDelegate, 0, null, null);
+```
 
 ### AddRepeatablePlayerLine
 `public ConversationSentence AddRepeatablePlayerLine(string id, string inputToken, string outputToken, string text, string continueListingRepeatedObjectsText, string continueListingOptionOutputToken, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `repeatable player line`。
+**用途 / Purpose:** 将 「repeatable player line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+var result = campaignGameStarter.AddRepeatablePlayerLine("example", "example", "example", "example", "example", "example", conditionDelegate, consequenceDelegate, 0, null);
+```
 
 ### AddDialogLineWithVariation
 `public ConversationSentence AddDialogLineWithVariation(string id, string inputToken, string outputToken, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, string idleActionId = "", string idleFaceAnimId = "", string reactionId = "", string reactionFaceAnimId = "", ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `dialog line with variation`。
+**用途 / Purpose:** 将 「dialog line with variation」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+var result = campaignGameStarter.AddDialogLineWithVariation("example", "example", "example", conditionDelegate, consequenceDelegate, 0, "example", "example", "example", "example", null);
+```
 
 ### AddDialogLine
 `public ConversationSentence AddDialogLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `dialog line`。
+**用途 / Purpose:** 将 「dialog line」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+var result = campaignGameStarter.AddDialogLine("example", "example", "example", "example", conditionDelegate, consequenceDelegate, 0, null);
+```
 
 ### AddDialogLineMultiAgent
 `public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `dialog line multi agent`。
+**用途 / Purpose:** 将 「dialog line multi agent」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 CampaignGameStarter 实例
+CampaignGameStarter campaignGameStarter = ...;
+var result = campaignGameStarter.AddDialogLineMultiAgent("example", "example", "example", text, conditionDelegate, consequenceDelegate, 0, 0, 0, null);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CampaignGameStarter();
-value.UnregisterNonReadyObjects();
+// 通常从对应子系统 API 获取实例后调用
+CampaignGameStarter campaignGameStarter = ...;
+campaignGameStarter.UnregisterNonReadyObjects();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

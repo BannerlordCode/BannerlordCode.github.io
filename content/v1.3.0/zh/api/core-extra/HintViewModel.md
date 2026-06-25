@@ -1,13 +1,7 @@
 ---
 title: "HintViewModel"
+description: "HintViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HintViewModel`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HintViewModel
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -29,20 +23,33 @@ title: "HintViewModel"
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 `begin hint` 操作或流程。
+**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HintViewModel 实例
+HintViewModel hintViewModel = ...;
+hintViewModel.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 `end hint` 操作或流程。
+**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 HintViewModel 实例
+HintViewModel hintViewModel = ...;
+hintViewModel.ExecuteEndHint();
+```
 
 ## 使用示例
 
 ```csharp
-var vm = new HintViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+HintViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

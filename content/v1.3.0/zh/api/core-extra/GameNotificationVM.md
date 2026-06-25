@@ -1,13 +1,7 @@
 ---
 title: "GameNotificationVM"
+description: "GameNotificationVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameNotificationVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameNotificationVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
@@ -38,25 +32,44 @@ title: "GameNotificationVM"
 ### ClearNotifications
 `public void ClearNotifications()`
 
-**用途 / Purpose:** 处理 `clear notifications` 相关逻辑。
+**用途 / Purpose:** 清空当前对象中的「notifications」。
+
+```csharp
+// 先通过子系统 API 拿到 GameNotificationVM 实例
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.ClearNotifications();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 GameNotificationVM 实例
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.Tick(0);
+```
 
 ### AddGameNotification
 `public void AddGameNotification(string notificationText, int extraTimeInMs, BasicCharacterObject announcerCharacter, Equipment equipment, string soundId)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `game notification`。
+**用途 / Purpose:** 将 「game notification」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 GameNotificationVM 实例
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.AddGameNotification("example", 0, announcerCharacter, equipment, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new GameNotificationVM();
-value.ClearNotifications();
+// 通常从对应子系统 API 获取实例后调用
+GameNotificationVM gameNotificationVM = ...;
+gameNotificationVM.ClearNotifications();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

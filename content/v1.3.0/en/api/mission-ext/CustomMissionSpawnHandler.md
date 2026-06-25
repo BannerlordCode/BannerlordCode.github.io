@@ -1,13 +1,7 @@
 ---
 title: "CustomMissionSpawnHandler"
+description: "Auto-generated class reference for CustomMissionSpawnHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomMissionSpawnHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomMissionSpawnHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.MissionSpawnHandlers
@@ -29,14 +23,20 @@ Treat `CustomMissionSpawnHandler` as a Handler-style extension point: first iden
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of CustomMissionSpawnHandler from the subsystem API first
+CustomMissionSpawnHandler customMissionSpawnHandler = ...;
+customMissionSpawnHandler.OnBehaviorInitialize();
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new CustomMissionSpawnHandler());
+var behavior = Mission.Current.GetMissionBehavior<CustomMissionSpawnHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

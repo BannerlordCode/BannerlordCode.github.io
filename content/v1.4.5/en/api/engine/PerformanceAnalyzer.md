@@ -1,20 +1,14 @@
 ---
 title: "PerformanceAnalyzer"
+description: "Auto-generated class reference for PerformanceAnalyzer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PerformanceAnalyzer`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PerformanceAnalyzer
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public class PerformanceAnalyzer`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/PerformanceAnalyzer.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/PerformanceAnalyzer.cs`
 
 ## Overview
 
@@ -31,38 +25,75 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 
 **Purpose:** Adds `fps` to the current collection or state.
 
+```csharp
+// Obtain an instance of PerformanceAnalyzer from the subsystem API first
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.AddFps(0, 0, 0);
+```
+
 ### Write
 `public void Write(XmlNode node, XmlDocument document)`
 
-**Purpose:** Handles logic related to `write`.
+**Purpose:** Writes the current object's data to the target location.
+
+```csharp
+// Obtain an instance of PerformanceAnalyzer from the subsystem API first
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.Write(node, document);
+```
 
 ### Start
 `public void Start(string name)`
 
-**Purpose:** Handles logic related to `start`.
+**Purpose:** Starts the current object's flow or state machine.
+
+```csharp
+// Obtain an instance of PerformanceAnalyzer from the subsystem API first
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.Start("example");
+```
 
 ### End
 `public void End()`
 
-**Purpose:** Handles logic related to `end`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PerformanceAnalyzer from the subsystem API first
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.End();
+```
 
 ### FinalizeAndWrite
 `public void FinalizeAndWrite(string filePath)`
 
-**Purpose:** Handles logic related to `finalize and write`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PerformanceAnalyzer from the subsystem API first
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.FinalizeAndWrite("example");
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of PerformanceAnalyzer from the subsystem API first
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PerformanceAnalyzer();
-value.AddFps(0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PerformanceAnalyzer performanceAnalyzer = ...;
+performanceAnalyzer.AddFps(0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

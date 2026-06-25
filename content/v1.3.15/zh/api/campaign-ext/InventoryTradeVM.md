@@ -1,13 +1,7 @@
 ---
 title: "InventoryTradeVM"
+description: "InventoryTradeVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `InventoryTradeVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # InventoryTradeVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
@@ -52,50 +46,99 @@ title: "InventoryTradeVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryTradeVM 实例
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.RefreshValues();
+```
 
 ### UpdateItemData
 `public void UpdateItemData(ItemRosterElement itemRoster, InventoryLogic.InventorySide side, bool forceUpdate = true)`
 
-**用途 / Purpose:** 更新 `item data` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「item data」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryTradeVM 实例
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.UpdateItemData(itemRoster, side, false);
+```
 
 ### GetAveragePrice
 `public string GetAveragePrice(int totalPrice, int lastPrice, bool isBuying)`
 
-**用途 / Purpose:** 获取 `average price` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「average price」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryTradeVM 实例
+InventoryTradeVM inventoryTradeVM = ...;
+var result = inventoryTradeVM.GetAveragePrice(0, 0, false);
+```
 
 ### ExecuteIncreaseThisStock
 `public void ExecuteIncreaseThisStock()`
 
-**用途 / Purpose:** 执行 `increase this stock` 操作或流程。
+**用途 / Purpose:** 执行 「increase this stock」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryTradeVM 实例
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteIncreaseThisStock();
+```
 
 ### ExecuteIncreaseOtherStock
 `public void ExecuteIncreaseOtherStock()`
 
-**用途 / Purpose:** 执行 `increase other stock` 操作或流程。
+**用途 / Purpose:** 执行 「increase other stock」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryTradeVM 实例
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteIncreaseOtherStock();
+```
 
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** 执行 `reset` 操作或流程。
+**用途 / Purpose:** 执行 「reset」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryTradeVM 实例
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteReset();
+```
 
 ### ExecuteApplyTransaction
 `public void ExecuteApplyTransaction()`
 
-**用途 / Purpose:** 执行 `apply transaction` 操作或流程。
+**用途 / Purpose:** 执行 「apply transaction」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryTradeVM 实例
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteApplyTransaction();
+```
 
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**用途 / Purpose:** 执行 `remove zero counts` 操作或流程。
+**用途 / Purpose:** 执行 「remove zero counts」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 InventoryTradeVM 实例
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.ExecuteRemoveZeroCounts();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new InventoryTradeVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+InventoryTradeVM inventoryTradeVM = ...;
+inventoryTradeVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

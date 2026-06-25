@@ -1,20 +1,14 @@
 ---
 title: "AssemblyLoader"
+description: "Auto-generated class reference for AssemblyLoader."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AssemblyLoader`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AssemblyLoader
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public static class AssemblyLoader`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/AssemblyLoader.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/AssemblyLoader.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+AssemblyLoader.Initialize();
+```
 
 ### LoadFrom
 `public static Assembly LoadFrom(string assemblyFile, bool showError = true)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+AssemblyLoader.LoadFrom("example", false);
+```
 
 ### LoadFrom
 `public static Assembly LoadFrom(string assemblyFile, out AssemblyLoadResult result, bool showError = true)`
 
-**Purpose:** Loads `from` data.
+**Purpose:** Reads `from` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+AssemblyLoader.LoadFrom("example", result, false);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ AssemblyLoader.Initialize();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

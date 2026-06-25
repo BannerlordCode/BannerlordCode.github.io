@@ -1,13 +1,7 @@
 ---
 title: "ParallaxContainerWidget"
+description: "ParallaxContainerWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ParallaxContainerWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ParallaxContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -27,9 +21,10 @@ title: "ParallaxContainerWidget"
 ## 使用示例
 
 ```csharp
-var widget = new ParallaxContainerWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+ParallaxContainerWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

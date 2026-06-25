@@ -1,20 +1,14 @@
 ---
 title: "BuildingScoreCalculationModel"
+description: "Auto-generated class reference for BuildingScoreCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BuildingScoreCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BuildingScoreCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class BuildingScoreCalculationModel : MBGameModel<BuildingScoreCalculationModel>`
 **Base:** `MBGameModel<BuildingScoreCalculationModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingScoreCalculationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BuildingScoreCalculationModel.cs`
 
 ## Overview
 
@@ -29,19 +23,32 @@ Treat `BuildingScoreCalculationModel` as a Model-style extension point: first id
 ### GetNextBuilding
 `public abstract Building GetNextBuilding(Town town)`
 
-**Purpose:** Gets the current value of `next building`.
+**Purpose:** Reads and returns the `next building` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingScoreCalculationModel from the subsystem API first
+BuildingScoreCalculationModel buildingScoreCalculationModel = ...;
+var result = buildingScoreCalculationModel.GetNextBuilding(town);
+```
 
 ### GetNextDailyBuilding
 `public abstract Building GetNextDailyBuilding(Town town)`
 
-**Purpose:** Gets the current value of `next daily building`.
+**Purpose:** Reads and returns the `next daily building` value held by the current object.
+
+```csharp
+// Obtain an instance of BuildingScoreCalculationModel from the subsystem API first
+BuildingScoreCalculationModel buildingScoreCalculationModel = ...;
+var result = buildingScoreCalculationModel.GetNextDailyBuilding(town);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBuildingScoreCalculationModel();
+// Typically obtained from a subsystem API or factory
+BuildingScoreCalculationModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

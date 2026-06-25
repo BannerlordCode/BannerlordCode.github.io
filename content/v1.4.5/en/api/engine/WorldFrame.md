@@ -1,20 +1,14 @@
 ---
 title: "WorldFrame"
+description: "Auto-generated class reference for WorldFrame."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WorldFrame`
-- [← Area / Back to engine](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorldFrame
 
 **Namespace:** TaleWorlds.Engine
 **Module:** TaleWorlds.Engine
 **Type:** `public struct WorldFrame`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldFrame.cs`
+**File:** `bin/TaleWorlds.Engine/TaleWorlds.Engine/WorldFrame.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### WorldFrame
 `public struct WorldFrame(Mat3 rotation, WorldPosition origin)`
 
-**Purpose:** Handles logic related to `world frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorldFrame from the subsystem API first
+WorldFrame worldFrame = ...;
+var result = worldFrame.WorldFrame(rotation, origin);
+```
 
 ### ToGroundMatrixFrame
 `public MatrixFrame ToGroundMatrixFrame()`
 
-**Purpose:** Handles logic related to `to ground matrix frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorldFrame from the subsystem API first
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToGroundMatrixFrame();
+```
 
 ### ToGroundMatrixFrameMT
 `public MatrixFrame ToGroundMatrixFrameMT()`
 
-**Purpose:** Handles logic related to `to ground matrix frame m t`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorldFrame from the subsystem API first
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToGroundMatrixFrameMT();
+```
 
 ### ToNavMeshMatrixFrame
 `public MatrixFrame ToNavMeshMatrixFrame()`
 
-**Purpose:** Handles logic related to `to nav mesh matrix frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WorldFrame from the subsystem API first
+WorldFrame worldFrame = ...;
+var result = worldFrame.ToNavMeshMatrixFrame();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WorldFrame();
-value.WorldFrame(rotation, origin);
+// Typically call this after obtaining an instance from the subsystem API
+WorldFrame worldFrame = ...;
+worldFrame.WorldFrame(rotation, origin);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

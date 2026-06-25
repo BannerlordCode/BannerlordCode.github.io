@@ -1,20 +1,14 @@
 ---
 title: "MobilePartyAi"
+description: "Auto-generated class reference for MobilePartyAi."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MobilePartyAi`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MobilePartyAi
 
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MobilePartyAi`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/MobilePartyAi.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/MobilePartyAi.cs`
 
 ## Overview
 
@@ -43,70 +37,143 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.Clear();
+```
 
 ### CacheAiBehaviorPartyBase
 `public void CacheAiBehaviorPartyBase()`
 
-**Purpose:** Handles logic related to `cache ai behavior party base`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.CacheAiBehaviorPartyBase();
+```
 
 ### CheckPartyNeedsUpdate
 `public void CheckPartyNeedsUpdate()`
 
-**Purpose:** Handles logic related to `check party needs update`.
+**Purpose:** Verifies whether `party needs update` holds true for the current object.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.CheckPartyNeedsUpdate();
+```
 
 ### CalculateFleePosition
 `public void CalculateFleePosition(out CampaignVec2 fleeTargetPoint, MobileParty partyToFleeFrom, Vec2 averageEnemyVec)`
 
-**Purpose:** Handles logic related to `calculate flee position`.
+**Purpose:** Calculates the current value or result of `flee position`.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.CalculateFleePosition(fleeTargetPoint, partyToFleeFrom, averageEnemyVec);
+```
 
 ### GetNearbyPartyDataWhileDefendingSettlement
 `public bool GetNearbyPartyDataWhileDefendingSettlement(Settlement targetSettlement, out bool shouldConsiderJoiningNearbyAllyParties, out bool shouldJoinLandSide, out bool shouldEngage, out MobileParty mostPowerfulLandAlly, out MobileParty mostPowerfulNavalAlly)`
 
-**Purpose:** Gets the current value of `nearby party data while defending settlement`.
+**Purpose:** Reads and returns the `nearby party data while defending settlement` value held by the current object.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+var result = mobilePartyAi.GetNearbyPartyDataWhileDefendingSettlement(targetSettlement, shouldConsiderJoiningNearbyAllyParties, shouldJoinLandSide, shouldEngage, mostPowerfulLandAlly, mostPowerfulNavalAlly);
+```
 
 ### DisableForHours
 `public void DisableForHours(int hours)`
 
-**Purpose:** Handles logic related to `disable for hours`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.DisableForHours(0);
+```
 
 ### DisableAi
 `public void DisableAi()`
 
-**Purpose:** Handles logic related to `disable ai`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.DisableAi();
+```
 
 ### EnableAi
 `public void EnableAi()`
 
-**Purpose:** Handles logic related to `enable ai`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.EnableAi();
+```
 
 ### EnableAgainAtHourIsPast
 `public bool EnableAgainAtHourIsPast()`
 
-**Purpose:** Handles logic related to `enable again at hour is past`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+var result = mobilePartyAi.EnableAgainAtHourIsPast();
+```
 
 ### SetDoNotAttackMainParty
 `public void SetDoNotAttackMainParty(int hours)`
 
-**Purpose:** Sets the value or state of `do not attack main party`.
+**Purpose:** Assigns a new value to `do not attack main party` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.SetDoNotAttackMainParty(0);
+```
 
 ### SetInitiative
 `public void SetInitiative(float attackInitiative, float avoidInitiative, float hoursUntilReset)`
 
-**Purpose:** Sets the value or state of `initiative`.
+**Purpose:** Assigns a new value to `initiative` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.SetInitiative(0, 0, 0);
+```
 
 ### SetDoNotMakeNewDecisions
 `public void SetDoNotMakeNewDecisions(bool doNotMakeNewDecisions)`
 
-**Purpose:** Sets the value or state of `do not make new decisions`.
+**Purpose:** Assigns a new value to `do not make new decisions` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MobilePartyAi from the subsystem API first
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.SetDoNotMakeNewDecisions(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MobilePartyAi();
-value.Clear();
+// Typically call this after obtaining an instance from the subsystem API
+MobilePartyAi mobilePartyAi = ...;
+mobilePartyAi.Clear();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

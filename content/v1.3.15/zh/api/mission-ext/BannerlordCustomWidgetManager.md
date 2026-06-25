@@ -1,13 +1,7 @@
 ---
 title: "BannerlordCustomWidgetManager"
+description: "BannerlordCustomWidgetManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerlordCustomWidgetManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # BannerlordCustomWidgetManager
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
@@ -29,7 +23,12 @@ title: "BannerlordCustomWidgetManager"
 ### TouchAssembly
 `public static void TouchAssembly()`
 
-**用途 / Purpose:** 处理 `touch assembly` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordCustomWidgetManager.TouchAssembly();
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ var manager = BannerlordCustomWidgetManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "UpgradeLevelMask"
+description: "UpgradeLevelMask 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `UpgradeLevelMask`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # UpgradeLevelMask
 
 **Namespace:** TaleWorlds.Engine
@@ -27,9 +21,10 @@ title: "UpgradeLevelMask"
 ## 使用示例
 
 ```csharp
-UpgradeLevelMask example = UpgradeLevelMask.Value;
+// 从对应子系统 API 获取实例
+UpgradeLevelMask instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

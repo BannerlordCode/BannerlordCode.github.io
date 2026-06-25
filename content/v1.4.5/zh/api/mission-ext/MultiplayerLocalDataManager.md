@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerLocalDataManager"
+description: "MultiplayerLocalDataManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerLocalDataManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerLocalDataManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Lobby
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerLocalDataManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby/MultiplayerLocalDataManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Lobby/MultiplayerLocalDataManager.cs`
 
 ## 概述
 
@@ -38,17 +32,33 @@ title: "MultiplayerLocalDataManager"
 ### InitializeManager
 `public static void InitializeManager()`
 
-**用途 / Purpose:** 初始化 `manager` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「manager」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerLocalDataManager.InitializeManager();
+```
 
 ### FinalizeManager
 `public static void FinalizeManager()`
 
-**用途 / Purpose:** 处理 `finalize manager` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerLocalDataManager.FinalizeManager();
+```
 
 ### Tick
 `public async void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerLocalDataManager 实例
+MultiplayerLocalDataManager multiplayerLocalDataManager = ...;
+multiplayerLocalDataManager.Tick(0);
+```
 
 ## 使用示例
 
@@ -58,4 +68,4 @@ var manager = MultiplayerLocalDataManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

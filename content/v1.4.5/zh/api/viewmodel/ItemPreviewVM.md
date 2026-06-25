@@ -1,20 +1,14 @@
 ---
 title: "ItemPreviewVM"
+description: "ItemPreviewVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemPreviewVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemPreviewVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Inventory
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemPreviewVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/ItemPreviewVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Inventory/ItemPreviewVM.cs`
 
 ## 概述
 
@@ -37,30 +31,55 @@ title: "ItemPreviewVM"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 ItemPreviewVM 实例
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.OnFinalize();
+```
 
 ### Open
 `public void Open(EquipmentElement item)`
 
-**用途 / Purpose:** 处理 `open` 相关逻辑。
+**用途 / Purpose:** 打开当前对象代表的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 ItemPreviewVM 实例
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.Open(item);
+```
 
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 `close` 操作或流程。
+**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 ItemPreviewVM 实例
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.ExecuteClose();
+```
 
 ### Close
 `public void Close()`
 
-**用途 / Purpose:** 处理 `close` 相关逻辑。
+**用途 / Purpose:** 关闭当前对象代表的资源或界面。
+
+```csharp
+// 先通过子系统 API 拿到 ItemPreviewVM 实例
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.Close();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemPreviewVM();
-value.OnFinalize();
+// 通常从对应子系统 API 获取实例后调用
+ItemPreviewVM itemPreviewVM = ...;
+itemPreviewVM.OnFinalize();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

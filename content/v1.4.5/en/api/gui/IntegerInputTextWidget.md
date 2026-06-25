@@ -1,20 +1,14 @@
 ---
 title: "IntegerInputTextWidget"
+description: "Auto-generated class reference for IntegerInputTextWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IntegerInputTextWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IntegerInputTextWidget
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class IntegerInputTextWidget : EditableTextWidget`
 **Base:** `EditableTextWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/IntegerInputTextWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/IntegerInputTextWidget.cs`
 
 ## Overview
 
@@ -39,19 +33,32 @@ Treat `IntegerInputTextWidget` as a Widget-style extension point: first identify
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**Purpose:** Handles the `input` event or callback.
+**Purpose:** Executes the response logic associated with `input`.
+
+```csharp
+// Obtain an instance of IntegerInputTextWidget from the subsystem API first
+IntegerInputTextWidget integerInputTextWidget = ...;
+integerInputTextWidget.HandleInput(lastKeysPressed);
+```
 
 ### SetAllText
 `public override void SetAllText(string text)`
 
-**Purpose:** Sets the value or state of `all text`.
+**Purpose:** Assigns a new value to `all text` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of IntegerInputTextWidget from the subsystem API first
+IntegerInputTextWidget integerInputTextWidget = ...;
+integerInputTextWidget.SetAllText("example");
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new IntegerInputTextWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+IntegerInputTextWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

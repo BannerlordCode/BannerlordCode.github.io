@@ -1,13 +1,7 @@
 ---
 title: "NumericCampaignOptionData"
+description: "Auto-generated class reference for NumericCampaignOptionData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NumericCampaignOptionData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # NumericCampaignOptionData
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -37,14 +31,21 @@ Treat `NumericCampaignOptionData` as a Data-style extension point: first identif
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**Purpose:** Gets the current value of `data type`.
+**Purpose:** Reads and returns the `data type` value held by the current object.
+
+```csharp
+// Obtain an instance of NumericCampaignOptionData from the subsystem API first
+NumericCampaignOptionData numericCampaignOptionData = ...;
+var result = numericCampaignOptionData.GetDataType();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new NumericCampaignOptionData();
+// This data object is usually returned by campaign/mission APIs
+NumericCampaignOptionData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

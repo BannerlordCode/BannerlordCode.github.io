@@ -1,20 +1,14 @@
 ---
 title: "DefaultMusicInstrumentData"
+description: "Auto-generated class reference for DefaultMusicInstrumentData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultMusicInstrumentData`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultMusicInstrumentData
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class DefaultMusicInstrumentData`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/DefaultMusicInstrumentData.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/DefaultMusicInstrumentData.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `DefaultMusicInstrumentData` as a Data-style extension point: first identi
 ## Usage Example
 
 ```csharp
-var value = new DefaultMusicInstrumentData();
+// This data object is usually returned by campaign/mission APIs
+DefaultMusicInstrumentData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

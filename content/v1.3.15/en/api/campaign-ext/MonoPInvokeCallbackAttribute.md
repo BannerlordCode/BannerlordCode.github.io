@@ -1,13 +1,7 @@
 ---
 title: "MonoPInvokeCallbackAttribute"
+description: "Auto-generated class reference for MonoPInvokeCallbackAttribute."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MonoPInvokeCallbackAttribute`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MonoPInvokeCallbackAttribute
 
 **Namespace:** (global)
@@ -33,4 +27,4 @@ public class Example { }
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

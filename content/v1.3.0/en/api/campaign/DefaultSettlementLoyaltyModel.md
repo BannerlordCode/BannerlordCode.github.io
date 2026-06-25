@@ -1,13 +1,7 @@
 ---
 title: "DefaultSettlementLoyaltyModel"
+description: "Auto-generated class reference for DefaultSettlementLoyaltyModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultSettlementLoyaltyModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultSettlementLoyaltyModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -57,17 +51,35 @@ Treat `DefaultSettlementLoyaltyModel` as a Model-style extension point: first id
 ### CalculateLoyaltyChange
 `public override ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Handles logic related to `calculate loyalty change`.
+**Purpose:** Calculates the current value or result of `loyalty change`.
+
+```csharp
+// Obtain an instance of DefaultSettlementLoyaltyModel from the subsystem API first
+DefaultSettlementLoyaltyModel defaultSettlementLoyaltyModel = ...;
+var result = defaultSettlementLoyaltyModel.CalculateLoyaltyChange(town, false);
+```
 
 ### CalculateGoldGainDueToHighLoyalty
 `public override void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Handles logic related to `calculate gold gain due to high loyalty`.
+**Purpose:** Calculates the current value or result of `gold gain due to high loyalty`.
+
+```csharp
+// Obtain an instance of DefaultSettlementLoyaltyModel from the subsystem API first
+DefaultSettlementLoyaltyModel defaultSettlementLoyaltyModel = ...;
+defaultSettlementLoyaltyModel.CalculateGoldGainDueToHighLoyalty(town, explainedNumber);
+```
 
 ### CalculateGoldCutDueToLowLoyalty
 `public override void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Handles logic related to `calculate gold cut due to low loyalty`.
+**Purpose:** Calculates the current value or result of `gold cut due to low loyalty`.
+
+```csharp
+// Obtain an instance of DefaultSettlementLoyaltyModel from the subsystem API first
+DefaultSettlementLoyaltyModel defaultSettlementLoyaltyModel = ...;
+defaultSettlementLoyaltyModel.CalculateGoldCutDueToLowLoyalty(town, explainedNumber);
+```
 
 ## Usage Example
 
@@ -77,4 +89,4 @@ Game.Current.ReplaceModel<DefaultSettlementLoyaltyModel>(new MyDefaultSettlement
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

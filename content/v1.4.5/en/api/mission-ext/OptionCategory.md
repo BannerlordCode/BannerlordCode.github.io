@@ -1,20 +1,14 @@
 ---
 title: "OptionCategory"
+description: "Auto-generated class reference for OptionCategory."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OptionCategory`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # OptionCategory
 
 **Namespace:** TaleWorlds.MountAndBlade.Options
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class OptionCategory`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options/OptionCategory.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Options/OptionCategory.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Options` to place it in the stack
 ## Usage Example
 
 ```csharp
-var example = new OptionCategory();
+// Obtain an instance from the relevant subsystem API
+OptionCategory instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

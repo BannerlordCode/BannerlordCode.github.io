@@ -1,23 +1,18 @@
 ---
 title: "LesserNobleRevoltIssue"
+description: "LesserNobleRevoltIssue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LesserNobleRevoltIssue`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LesserNobleRevoltIssue
 
-**命名空间:** TaleWorlds.CampaignSystem.Issues
-**模块:** TaleWorlds.CampaignSystem
-**类型:** `public class LesserNobleRevoltIssue`
-**领域:** campaign-ext
+**Namespace:** TaleWorlds.CampaignSystem.Issues
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class LesserNobleRevoltIssue`
+**Base:** 无
+**File:** `TaleWorlds.CampaignSystem/Issues/LesserNobleRevoltIssueBehavior.cs`
 
 ## 概述
 
-`LesserNobleRevoltIssue` 位于 `TaleWorlds.CampaignSystem.Issues`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`LesserNobleRevoltIssue` 位于 `TaleWorlds.CampaignSystem.Issues`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -50,62 +45,121 @@ title: "LesserNobleRevoltIssue"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+lesserNobleRevoltIssue.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+lesserNobleRevoltIssue.SyncData(dataStore);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** 当 `check for issue` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「check for issue」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+lesserNobleRevoltIssue.OnCheckForIssue(hero);
+```
 
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**用途 / Purpose:** 获取 `alternative solution skill` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「alternative solution skill」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+var result = lesserNobleRevoltIssue.GetAlternativeSolutionSkill(hero);
+```
 
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `do troops satisfy alternative solution` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+var result = lesserNobleRevoltIssue.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+```
 
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**用途 / Purpose:** 处理 `is troop type needed by alternative solution` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「troop type needed by alternative solution」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+var result = lesserNobleRevoltIssue.IsTroopTypeNeededByAlternativeSolution(character);
+```
 
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 处理 `alternative solution condition` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+var result = lesserNobleRevoltIssue.AlternativeSolutionCondition(explanation);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 获取 `frequency` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+var result = lesserNobleRevoltIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
+**用途 / Purpose:** 创建或发起「stay alive conditions」。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+var result = lesserNobleRevoltIssue.IssueStayAliveConditions();
+```
 
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** 当 `failed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LesserNobleRevoltIssue 实例
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+lesserNobleRevoltIssue.OnFailed();
+```
 
 ## 使用示例
 
 ```csharp
-// 先从游戏状态中拿到一个 LesserNobleRevoltIssue 实例，再调用它的公开方法
-var value = new LesserNobleRevoltIssue();
-value.RegisterEvents();
+// 通常从对应子系统 API 获取实例后调用
+LesserNobleRevoltIssue lesserNobleRevoltIssue = ...;
+lesserNobleRevoltIssue.RegisterEvents();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-campaign)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SigilCosmeticElement"
+description: "SigilCosmeticElement 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SigilCosmeticElement`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SigilCosmeticElement
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class SigilCosmeticElement : CosmeticElement`
 **Base:** `CosmeticElement`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/SigilCosmeticElement.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics.CosmeticTypes/SigilCosmeticElement.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "SigilCosmeticElement"
 ## 使用示例
 
 ```csharp
-var example = new SigilCosmeticElement();
+// 从对应子系统 API 获取实例
+SigilCosmeticElement instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

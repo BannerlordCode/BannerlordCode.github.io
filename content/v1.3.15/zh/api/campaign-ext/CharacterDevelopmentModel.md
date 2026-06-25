@@ -1,13 +1,7 @@
 ---
 title: "CharacterDevelopmentModel"
+description: "CharacterDevelopmentModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterDevelopmentModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterDevelopmentModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -42,69 +36,142 @@ title: "CharacterDevelopmentModel"
 ### SkillsRequiredForLevel
 `public abstract int SkillsRequiredForLevel(int level)`
 
-**用途 / Purpose:** 处理 `skills required for level` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.SkillsRequiredForLevel(0);
+```
 
 ### GetMaxSkillPoint
 `public abstract int GetMaxSkillPoint()`
 
-**用途 / Purpose:** 获取 `max skill point` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「max skill point」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.GetMaxSkillPoint();
+```
 
 ### GetXpRequiredForSkillLevel
 `public abstract int GetXpRequiredForSkillLevel(int skillLevel)`
 
-**用途 / Purpose:** 获取 `xp required for skill level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp required for skill level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.GetXpRequiredForSkillLevel(0);
+```
 
 ### GetSkillLevelChange
 `public abstract int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)`
 
-**用途 / Purpose:** 获取 `skill level change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill level change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.GetSkillLevelChange(hero, skill, 0);
+```
 
 ### GetXpAmountForSkillLevelChange
 `public abstract int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)`
 
-**用途 / Purpose:** 获取 `xp amount for skill level change` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「xp amount for skill level change」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.GetXpAmountForSkillLevelChange(hero, skill, 0);
+```
 
 ### GetTraitLevelForTraitXp
 `public abstract void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int newValue, out int traitLevel, out int traitXp)`
 
-**用途 / Purpose:** 获取 `trait level for trait xp` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trait level for trait xp」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+characterDevelopmentModel.GetTraitLevelForTraitXp(hero, trait, 0, traitLevel, traitXp);
+```
 
 ### GetTraitXpRequiredForTraitLevel
 `public abstract int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)`
 
-**用途 / Purpose:** 获取 `trait xp required for trait level` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「trait xp required for trait level」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.GetTraitXpRequiredForTraitLevel(trait, 0);
+```
 
 ### CalculateLearningLimit
 `public abstract ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate learning limit` 相关逻辑。
+**用途 / Purpose:** 计算「learning limit」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.CalculateLearningLimit(characterAttributes, 0, skill, false);
+```
 
 ### CalculateLearningRate
 `public abstract ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 处理 `calculate learning rate` 相关逻辑。
+**用途 / Purpose:** 计算「learning rate」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.CalculateLearningRate(characterAttributes, 0, 0, skill, false);
+```
 
 ### GetNextSkillToAddFocus
 `public abstract SkillObject GetNextSkillToAddFocus(Hero hero)`
 
-**用途 / Purpose:** 获取 `next skill to add focus` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next skill to add focus」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.GetNextSkillToAddFocus(hero);
+```
 
 ### GetNextAttributeToUpgrade
 `public abstract CharacterAttribute GetNextAttributeToUpgrade(Hero hero)`
 
-**用途 / Purpose:** 获取 `next attribute to upgrade` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next attribute to upgrade」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.GetNextAttributeToUpgrade(hero);
+```
 
 ### GetNextPerkToChoose
 `public abstract PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)`
 
-**用途 / Purpose:** 获取 `next perk to choose` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「next perk to choose」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
+CharacterDevelopmentModel characterDevelopmentModel = ...;
+var result = characterDevelopmentModel.GetNextPerkToChoose(hero, perk);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomCharacterDevelopmentModel();
+// 通常通过子系统 API 或工厂获得派生实例
+CharacterDevelopmentModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

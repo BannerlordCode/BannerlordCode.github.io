@@ -1,23 +1,18 @@
 ---
 title: "ClanHomeInfo"
+description: "ClanHomeInfo 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClanHomeInfo`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ClanHomeInfo
 
-**命名空间:** TaleWorlds.MountAndBlade.Diamond
-**模块:** TaleWorlds.MountAndBlade
-**类型:** `public class ClanHomeInfo`
-**领域:** mission-ext
+**Namespace:** TaleWorlds.MountAndBlade.Diamond
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class ClanHomeInfo`
+**Base:** 无
+**File:** `TaleWorlds.MountAndBlade.Diamond/ClanHomeInfo.cs`
 
 ## 概述
 
-`ClanHomeInfo` 位于 `TaleWorlds.MountAndBlade.Diamond`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`ClanHomeInfo` 位于 `TaleWorlds.MountAndBlade.Diamond`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -39,31 +34,49 @@ title: "ClanHomeInfo"
 ### CreateInClanInfo
 `public static ClanHomeInfo CreateInClanInfo(ClanInfo clanInfo, ClanPlayerInfo clanPlayerInfos)`
 
-**用途 / Purpose:** 创建一个 `in clan info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「in clan info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ClanHomeInfo.CreateInClanInfo(clanInfo, clanPlayerInfos);
+```
 
 ### CreateCanCreateClanInfo
 `public static ClanHomeInfo CreateCanCreateClanInfo()`
 
-**用途 / Purpose:** 创建一个 `can create clan info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「can create clan info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ClanHomeInfo.CreateCanCreateClanInfo();
+```
 
 ### CreateCantCreateClanInfo
 `public static ClanHomeInfo CreateCantCreateClanInfo(NotEnoughPlayersInfo notEnoughPlayersInfo, PlayerNotEligibleInfo playerNotEligibleInfos)`
 
-**用途 / Purpose:** 创建一个 `cant create clan info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「cant create clan info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ClanHomeInfo.CreateCantCreateClanInfo(notEnoughPlayersInfo, playerNotEligibleInfos);
+```
 
 ### CreateInvalidStateClanInfo
 `public static ClanHomeInfo CreateInvalidStateClanInfo()`
 
-**用途 / Purpose:** 创建一个 `invalid state clan info` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「invalid state clan info」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+ClanHomeInfo.CreateInvalidStateClanInfo();
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 ClanHomeInfo.CreateInClanInfo(clanInfo, clanPlayerInfos);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-mountandblade)
+- [本区域目录](../)

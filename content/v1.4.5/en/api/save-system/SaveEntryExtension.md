@@ -1,20 +1,14 @@
 ---
 title: "SaveEntryExtension"
+description: "Auto-generated class reference for SaveEntryExtension."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveEntryExtension`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveEntryExtension
 
 **Namespace:** TaleWorlds.SaveSystem
 **Module:** TaleWorlds.SaveSystem
-**Type:** `class`
-**Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntryExtension.cs`
+**Type:** `public enum SaveEntryExtension : byte`
+**Base:** `byte`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem/SaveEntryExtension.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ## Usage Example
 
 ```csharp
-var example = new SaveEntryExtension();
+// Obtain an instance from the relevant subsystem API
+SaveEntryExtension instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

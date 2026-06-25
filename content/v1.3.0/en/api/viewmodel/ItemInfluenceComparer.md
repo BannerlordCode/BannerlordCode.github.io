@@ -1,13 +1,7 @@
 ---
 title: "ItemInfluenceComparer"
+description: "Auto-generated class reference for ItemInfluenceComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemInfluenceComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemInfluenceComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemInfluenceComparer from the subsystem API first
+ItemInfluenceComparer itemInfluenceComparer = ...;
+var result = itemInfluenceComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemInfluenceComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemInfluenceComparer itemInfluenceComparer = ...;
+itemInfluenceComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

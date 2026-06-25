@@ -1,13 +1,7 @@
 ---
 title: "StoryModeMissions"
+description: "Auto-generated class reference for StoryModeMissions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StoryModeMissions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StoryModeMissions
 
 **Namespace:** StoryMode.Missions
@@ -29,12 +23,22 @@ Start from namespace `StoryMode.Missions` to place it in the stack, then inspect
 ### OpenTrainingFieldMission
 `public static Mission OpenTrainingFieldMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null)`
 
-**Purpose:** Handles logic related to `open training field mission`.
+**Purpose:** Opens the resource or UI associated with `training field mission`.
+
+```csharp
+// Static call; no instance required
+StoryModeMissions.OpenTrainingFieldMission("example", location, null, "example");
+```
 
 ### OpenSneakIntoTheVillaMission
 `public static Mission OpenSneakIntoTheVillaMission(string scene, CampaignTime overridenCt, string sceneLevels = null)`
 
-**Purpose:** Handles logic related to `open sneak into the villa mission`.
+**Purpose:** Opens the resource or UI associated with `sneak into the villa mission`.
+
+```csharp
+// Static call; no instance required
+StoryModeMissions.OpenSneakIntoTheVillaMission("example", overridenCt, "example");
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ StoryModeMissions.OpenTrainingFieldMission("example", location, null, "example")
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerGameNotificationsComponent"
+description: "MultiplayerGameNotificationsComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerGameNotificationsComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerGameNotificationsComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,62 +29,134 @@ title: "MultiplayerGameNotificationsComponent"
 ### WarmupEnding
 `public void WarmupEnding()`
 
-**用途 / Purpose:** 处理 `warmup ending` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.WarmupEnding();
+```
 
 ### GameOver
 `public void GameOver(Team winnerTeam)`
 
-**用途 / Purpose:** 处理 `game over` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.GameOver(winnerTeam);
+```
 
 ### PreparationStarted
 `public void PreparationStarted()`
 
-**用途 / Purpose:** 处理 `preparation started` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.PreparationStarted();
+```
 
 ### FlagsXRemoved
 `public void FlagsXRemoved(FlagCapturePoint removedFlag)`
 
-**用途 / Purpose:** 处理 `flags x removed` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FlagsXRemoved(removedFlag);
+```
 
 ### FlagXRemaining
 `public void FlagXRemaining(FlagCapturePoint remainingFlag)`
 
-**用途 / Purpose:** 处理 `flag x remaining` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FlagXRemaining(remainingFlag);
+```
 
 ### FlagsWillBeRemovedInXSeconds
 `public void FlagsWillBeRemovedInXSeconds(int timeLeft)`
 
-**用途 / Purpose:** 处理 `flags will be removed in x seconds` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FlagsWillBeRemovedInXSeconds(0);
+```
 
 ### FlagXCapturedByTeamX
 `public void FlagXCapturedByTeamX(SynchedMissionObject flag, Team capturingTeam)`
 
-**用途 / Purpose:** 处理 `flag x captured by team x` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FlagXCapturedByTeamX(flag, capturingTeam);
+```
 
 ### GoldCarriedFromPreviousRound
 `public void GoldCarriedFromPreviousRound(int carriedGoldAmount, NetworkCommunicator syncToPeer)`
 
-**用途 / Purpose:** 处理 `gold carried from previous round` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.GoldCarriedFromPreviousRound(0, syncToPeer);
+```
 
 ### PlayerIsInactive
 `public void PlayerIsInactive(NetworkCommunicator peer)`
 
-**用途 / Purpose:** 处理 `player is inactive` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.PlayerIsInactive(peer);
+```
 
 ### FormationAutoFollowEnforced
 `public void FormationAutoFollowEnforced(NetworkCommunicator peer)`
 
-**用途 / Purpose:** 处理 `formation auto follow enforced` 相关逻辑。
+**用途 / Purpose:** 将「ion auto follow enforced」格式化为适合显示或存储的字符串。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.FormationAutoFollowEnforced(peer);
+```
 
 ### PollRejected
 `public void PollRejected(MultiplayerPollRejectReason reason)`
 
-**用途 / Purpose:** 处理 `poll rejected` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.PollRejected(reason);
+```
 
 ### PlayerKicked
 `public void PlayerKicked(NetworkCommunicator kickedPeer)`
 
-**用途 / Purpose:** 处理 `player kicked` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerGameNotificationsComponent 实例
+MultiplayerGameNotificationsComponent multiplayerGameNotificationsComponent = ...;
+multiplayerGameNotificationsComponent.PlayerKicked(kickedPeer);
+```
 
 ## 使用示例
 
@@ -100,4 +166,4 @@ var component = agent.GetComponent<MultiplayerGameNotificationsComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultExecutionRelationModel"
+description: "Auto-generated class reference for DefaultExecutionRelationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultExecutionRelationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultExecutionRelationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultExecutionRelationModel : ExecutionRelationModel`
 **Base:** `ExecutionRelationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultExecutionRelationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultExecutionRelationModel.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DefaultExecutionRelationModel` as a Model-style extension point: first id
 ### GetRelationChangeForExecutingHero
 `public override int GetRelationChangeForExecutingHero(Hero victim, Hero hero, out bool showQuickNotification)`
 
-**Purpose:** Gets the current value of `relation change for executing hero`.
+**Purpose:** Reads and returns the `relation change for executing hero` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultExecutionRelationModel from the subsystem API first
+DefaultExecutionRelationModel defaultExecutionRelationModel = ...;
+var result = defaultExecutionRelationModel.GetRelationChangeForExecutingHero(victim, hero, showQuickNotification);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<DefaultExecutionRelationModel>(new MyDefaultExecutionR
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

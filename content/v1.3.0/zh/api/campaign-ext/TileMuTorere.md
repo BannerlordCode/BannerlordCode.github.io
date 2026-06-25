@@ -1,13 +1,7 @@
 ---
 title: "TileMuTorere"
+description: "TileMuTorere 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TileMuTorere`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TileMuTorere
 
 **Namespace:** SandBox.BoardGames.Tiles
@@ -34,9 +28,10 @@ title: "TileMuTorere"
 ## 使用示例
 
 ```csharp
-var value = new TileMuTorere();
+// 从对应子系统 API 获取实例
+TileMuTorere instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "DefaultHideoutModel"
+description: "DefaultHideoutModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultHideoutModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultHideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultHideoutModel : HideoutModel`
 **Base:** `HideoutModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultHideoutModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultHideoutModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultHideoutModel"
 ### GetRogueryXpGainAsGhost
 `public override float GetRogueryXpGainAsGhost()`
 
-**用途 / Purpose:** 获取 `roguery xp gain as ghost` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「roguery xp gain as ghost」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultHideoutModel 实例
+DefaultHideoutModel defaultHideoutModel = ...;
+var result = defaultHideoutModel.GetRogueryXpGainAsGhost();
+```
 
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public override float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**用途 / Purpose:** 获取 `roguery xp gain on hideout mission end` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「roguery xp gain on hideout mission end」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultHideoutModel 实例
+DefaultHideoutModel defaultHideoutModel = ...;
+var result = defaultHideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
+```
 
 ### GetSendTroopsSuccessChance
 `public override float GetSendTroopsSuccessChance(Hideout hideout)`
 
-**用途 / Purpose:** 获取 `send troops success chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「send troops success chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultHideoutModel 实例
+DefaultHideoutModel defaultHideoutModel = ...;
+var result = defaultHideoutModel.GetSendTroopsSuccessChance(hideout);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultHideoutModel>(new MyDefaultHideoutModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

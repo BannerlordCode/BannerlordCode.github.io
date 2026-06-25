@@ -1,13 +1,7 @@
 ---
 title: "AlleyItemComparerBase"
+description: "Auto-generated class reference for AlleyItemComparerBase."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AlleyItemComparerBase`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AlleyItemComparerBase
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -29,19 +23,32 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Sets the value or state of `sort mode`.
+**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of AlleyItemComparerBase from the subsystem API first
+AlleyItemComparerBase alleyItemComparerBase = ...;
+alleyItemComparerBase.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ClanFinanceAlleyItemVM x, ClanFinanceAlleyItemVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of AlleyItemComparerBase from the subsystem API first
+AlleyItemComparerBase alleyItemComparerBase = ...;
+var result = alleyItemComparerBase.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomAlleyItemComparerBase();
+// Typically obtained from a subsystem API or factory
+AlleyItemComparerBase instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

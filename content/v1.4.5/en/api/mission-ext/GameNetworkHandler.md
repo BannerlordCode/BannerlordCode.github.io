@@ -1,20 +1,14 @@
 ---
 title: "GameNetworkHandler"
+description: "Auto-generated class reference for GameNetworkHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameNetworkHandler`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameNetworkHandler
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GameNetworkHandler : IGameNetworkHandler`
 **Base:** `IGameNetworkHandler`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/GameNetworkHandler.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade/GameNetworkHandler.cs`
 
 ## Overview
 
@@ -27,9 +21,9 @@ Treat `GameNetworkHandler` as a Handler-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new GameNetworkHandler());
+var behavior = Mission.Current.GetMissionBehavior<GameNetworkHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

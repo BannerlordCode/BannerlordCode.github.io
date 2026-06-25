@@ -1,13 +1,7 @@
 ---
 title: "VisualOrderHelper"
+description: "VisualOrderHelper 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VisualOrderHelper`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VisualOrderHelper
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual
@@ -29,7 +23,12 @@ title: "VisualOrderHelper"
 ### DoesFormationHaveOrderType
 `public unsafe static bool DoesFormationHaveOrderType(Formation formation, OrderType type)`
 
-**用途 / Purpose:** 处理 `does formation have order type` 相关逻辑。
+**用途 / Purpose:** 返回「formation have order type」对当前对象是否成立的布尔结果。
+
+```csharp
+// 静态调用，不需要实例
+VisualOrderHelper.DoesFormationHaveOrderType(formation, type);
+```
 
 ## 使用示例
 
@@ -39,4 +38,4 @@ VisualOrderHelper.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

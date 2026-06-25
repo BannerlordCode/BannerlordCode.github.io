@@ -1,13 +1,7 @@
 ---
 title: "CampaignOptionItemVM"
+description: "Auto-generated class reference for CampaignOptionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignOptionItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CampaignOptionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -47,40 +41,77 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CampaignOptionItemVM from the subsystem API first
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.RefreshValues();
+```
 
 ### RefreshDisabledStatus
 `public void RefreshDisabledStatus()`
 
-**Purpose:** Refreshes the display or cache of `disabled status`.
+**Purpose:** Keeps the display or cache of `disabled status` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CampaignOptionItemVM from the subsystem API first
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.RefreshDisabledStatus();
+```
 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of CampaignOptionItemVM from the subsystem API first
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.ExecuteAction();
+```
 
 ### OnSelectionOptionValueChanged
 `public void OnSelectionOptionValueChanged(SelectorVM<SelectorItemVM> selector)`
 
-**Purpose:** Called when the `selection option value changed` event is raised.
+**Purpose:** Invoked when the `selection option value changed` event is raised.
+
+```csharp
+// Obtain an instance of CampaignOptionItemVM from the subsystem API first
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.OnSelectionOptionValueChanged(selector);
+```
 
 ### SetValue
 `public void SetValue(float value)`
 
-**Purpose:** Sets the value or state of `value`.
+**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CampaignOptionItemVM from the subsystem API first
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.SetValue(0);
+```
 
 ### SetOnValueChangedCallback
 `public void SetOnValueChangedCallback(Action<CampaignOptionItemVM> onValueChanged)`
 
-**Purpose:** Sets the value or state of `on value changed callback`.
+**Purpose:** Assigns a new value to `on value changed callback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of CampaignOptionItemVM from the subsystem API first
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.SetOnValueChangedCallback(onValueChanged);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CampaignOptionItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CampaignOptionItemVM campaignOptionItemVM = ...;
+campaignOptionItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

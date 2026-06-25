@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerWarmupComponent"
+description: "MultiplayerWarmupComponent 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MultiplayerWarmupComponent`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerWarmupComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -36,42 +30,89 @@ title: "MultiplayerWarmupComponent"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.OnBehaviorInitialize();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.AfterStart();
+```
 
 ### CheckForWarmupProgressEnd
 `public bool CheckForWarmupProgressEnd()`
 
-**用途 / Purpose:** 处理 `check for warmup progress end` 相关逻辑。
+**用途 / Purpose:** 检查「for warmup progress end」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+var result = multiplayerWarmupComponent.CheckForWarmupProgressEnd();
+```
 
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `pre display mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「pre display mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.OnPreDisplayMissionTick(0);
+```
 
 ### EndWarmupProgress
 `public void EndWarmupProgress()`
 
-**用途 / Purpose:** 处理 `end warmup progress` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.EndWarmupProgress();
+```
 
 ### CanMatchStartAfterWarmup
 `public bool CanMatchStartAfterWarmup()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `match start after warmup`。
+**用途 / Purpose:** 检查当前对象是否满足 「match start after warmup」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+var result = multiplayerWarmupComponent.CanMatchStartAfterWarmup();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
+MultiplayerWarmupComponent multiplayerWarmupComponent = ...;
+multiplayerWarmupComponent.OnRemoveBehavior();
+```
 
 ### CommandEndWarmup
 `public static string CommandEndWarmup(List<string> strings)`
 
-**用途 / Purpose:** 处理 `command end warmup` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MultiplayerWarmupComponent.CommandEndWarmup(strings);
+```
 
 ## 使用示例
 
@@ -81,4 +122,4 @@ var component = agent.GetComponent<MultiplayerWarmupComponent>();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

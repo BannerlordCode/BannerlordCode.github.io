@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerClassLoadoutTroopInfoBrushWidget"
+description: "Auto-generated class reference for MultiplayerClassLoadoutTroopInfoBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerClassLoadoutTroopInfoBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerClassLoadoutTroopInfoBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout
@@ -35,14 +29,21 @@ Treat `MultiplayerClassLoadoutTroopInfoBrushWidget` as a Widget-style extension 
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**Purpose:** Called when the `brush changed` event is raised.
+**Purpose:** Invoked when the `brush changed` event is raised.
+
+```csharp
+// Obtain an instance of MultiplayerClassLoadoutTroopInfoBrushWidget from the subsystem API first
+MultiplayerClassLoadoutTroopInfoBrushWidget multiplayerClassLoadoutTroopInfoBrushWidget = ...;
+multiplayerClassLoadoutTroopInfoBrushWidget.OnBrushChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerClassLoadoutTroopInfoBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerClassLoadoutTroopInfoBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

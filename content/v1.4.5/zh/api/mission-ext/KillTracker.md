@@ -1,20 +1,14 @@
 ---
 title: "KillTracker"
+description: "KillTracker 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `KillTracker`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # KillTracker
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KillTracker : GameBadgeTracker`
 **Base:** `GameBadgeTracker`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/KillTracker.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges/KillTracker.cs`
 
 ## 概述
 
@@ -29,15 +23,22 @@ title: "KillTracker"
 ### OnKill
 `public override void OnKill(KillData killData)`
 
-**用途 / Purpose:** 当 `kill` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「kill」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 KillTracker 实例
+KillTracker killTracker = ...;
+killTracker.OnKill(killData);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new KillTracker();
-value.OnKill(killData);
+// 通常从对应子系统 API 获取实例后调用
+KillTracker killTracker = ...;
+killTracker.OnKill(killData);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

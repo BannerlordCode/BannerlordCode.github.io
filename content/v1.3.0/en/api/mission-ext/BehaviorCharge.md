@@ -1,13 +1,7 @@
 ---
 title: "BehaviorCharge"
+description: "Auto-generated class reference for BehaviorCharge."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BehaviorCharge`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BehaviorCharge
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,15 +29,22 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Handles logic related to `tick occasionally`.
+**Purpose:** Advances the `occasionally` state each frame or update cycle.
+
+```csharp
+// Obtain an instance of BehaviorCharge from the subsystem API first
+BehaviorCharge behaviorCharge = ...;
+behaviorCharge.TickOccasionally();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new BehaviorCharge();
-value.TickOccasionally();
+// Typically call this after obtaining an instance from the subsystem API
+BehaviorCharge behaviorCharge = ...;
+behaviorCharge.TickOccasionally();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

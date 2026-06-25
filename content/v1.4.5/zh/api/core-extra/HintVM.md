@@ -1,20 +1,14 @@
 ---
 title: "HintVM"
+description: "HintVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `HintVM`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # HintVM
 
 **Namespace:** TaleWorlds.Core.ViewModelCollection.Information
 **Module:** TaleWorlds.Core
 **Type:** `public class HintVM : TooltipBaseVM`
 **Base:** `TooltipBaseVM`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/HintVM.cs`
+**File:** `bin/TaleWorlds.Core.ViewModelCollection/TaleWorlds.Core.ViewModelCollection.Information/HintVM.cs`
 
 ## 概述
 
@@ -35,7 +29,12 @@ title: "HintVM"
 ### RefreshGenericHintTooltip
 `public static void RefreshGenericHintTooltip(HintVM hint, object args)`
 
-**用途 / Purpose:** 刷新 `generic hint tooltip` 的显示或缓存。
+**用途 / Purpose:** 使 「generic hint tooltip」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 静态调用，不需要实例
+HintVM.RefreshGenericHintTooltip(hint, args);
+```
 
 ## 使用示例
 
@@ -45,4 +44,4 @@ HintVM.RefreshGenericHintTooltip(hint, args);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

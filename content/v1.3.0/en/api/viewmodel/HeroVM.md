@@ -1,13 +1,7 @@
 ---
 title: "HeroVM"
+description: "Auto-generated class reference for HeroVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HeroVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HeroVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection
@@ -43,35 +37,65 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of HeroVM from the subsystem API first
+HeroVM heroVM = ...;
+heroVM.RefreshValues();
+```
 
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Executes the `link` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `link`.
+
+```csharp
+// Obtain an instance of HeroVM from the subsystem API first
+HeroVM heroVM = ...;
+heroVM.ExecuteLink();
+```
 
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of HeroVM from the subsystem API first
+HeroVM heroVM = ...;
+heroVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of HeroVM from the subsystem API first
+HeroVM heroVM = ...;
+heroVM.ExecuteEndHint();
+```
 
 ### GetRelation
 `public static int GetRelation(Hero hero)`
 
-**Purpose:** Gets the current value of `relation`.
+**Purpose:** Reads and returns the `relation` value held by the current object.
+
+```csharp
+// Static call; no instance required
+HeroVM.GetRelation(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new HeroVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+HeroVM heroVM = ...;
+heroVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

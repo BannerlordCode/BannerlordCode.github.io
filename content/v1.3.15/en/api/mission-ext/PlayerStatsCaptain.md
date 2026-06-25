@@ -1,13 +1,7 @@
 ---
 title: "PlayerStatsCaptain"
+description: "Auto-generated class reference for PlayerStatsCaptain."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PlayerStatsCaptain`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PlayerStatsCaptain
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -38,25 +32,44 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int rating, int ratingDeviation, string rank, bool evaluating, int evaluationMatchesPlayedCount, int captainsKilled, int mvps, int score)`
 
-**Purpose:** Handles logic related to `fill with`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerStatsCaptain from the subsystem API first
+PlayerStatsCaptain playerStatsCaptain = ...;
+playerStatsCaptain.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0, 0);
+```
 
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId, int defaultRating, int defaultRatingDeviation)`
 
-**Purpose:** Handles logic related to `fill with new player`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of PlayerStatsCaptain from the subsystem API first
+PlayerStatsCaptain playerStatsCaptain = ...;
+playerStatsCaptain.FillWithNewPlayer(playerId, 0, 0);
+```
 
 ### Update
 `public void Update(BattlePlayerStatsCaptain stats, bool won)`
 
-**Purpose:** Updates the state or data of `update`.
+**Purpose:** Recalculates and stores the latest representation of the current object.
+
+```csharp
+// Obtain an instance of PlayerStatsCaptain from the subsystem API first
+PlayerStatsCaptain playerStatsCaptain = ...;
+playerStatsCaptain.Update(stats, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PlayerStatsCaptain();
-value.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0, 0);
+// Typically call this after obtaining an instance from the subsystem API
+PlayerStatsCaptain playerStatsCaptain = ...;
+playerStatsCaptain.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0, 0, 0, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

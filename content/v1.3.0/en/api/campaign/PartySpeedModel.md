@@ -1,13 +1,7 @@
 ---
 title: "PartySpeedModel"
+description: "Auto-generated class reference for PartySpeedModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartySpeedModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartySpeedModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,19 +30,32 @@ Treat `PartySpeedModel` as a Model-style extension point: first identify who cre
 ### CalculateBaseSpeed
 `public abstract ExplainedNumber CalculateBaseSpeed(MobileParty party, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
 
-**Purpose:** Handles logic related to `calculate base speed`.
+**Purpose:** Calculates the current value or result of `base speed`.
+
+```csharp
+// Obtain an instance of PartySpeedModel from the subsystem API first
+PartySpeedModel partySpeedModel = ...;
+var result = partySpeedModel.CalculateBaseSpeed(party, false, 0, 0);
+```
 
 ### CalculateFinalSpeed
 `public abstract ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
 
-**Purpose:** Handles logic related to `calculate final speed`.
+**Purpose:** Calculates the current value or result of `final speed`.
+
+```csharp
+// Obtain an instance of PartySpeedModel from the subsystem API first
+PartySpeedModel partySpeedModel = ...;
+var result = partySpeedModel.CalculateFinalSpeed(mobileParty, finalSpeed);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartySpeedModel();
+// Typically obtained from a subsystem API or factory
+PartySpeedModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

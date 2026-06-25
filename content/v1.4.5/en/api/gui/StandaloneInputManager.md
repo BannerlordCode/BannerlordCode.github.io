@@ -1,20 +1,14 @@
 ---
 title: "StandaloneInputManager"
+description: "Auto-generated class reference for StandaloneInputManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `StandaloneInputManager`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # StandaloneInputManager
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class StandaloneInputManager : IInputManager`
 **Base:** `IInputManager`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/StandaloneInputManager.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/StandaloneInputManager.cs`
 
 ## Overview
 
@@ -29,27 +23,57 @@ Treat `StandaloneInputManager` as a Manager-style extension point: first identif
 ### SetRumbleEffect
 `public void SetRumbleEffect(float lowFrequencyLevels, float lowFrequencyDurations, int numLowFrequencyElements, float highFrequencyLevels, float highFrequencyDurations, int numHighFrequencyElements)`
 
-**Purpose:** Sets the value or state of `rumble effect`.
+**Purpose:** Assigns a new value to `rumble effect` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandaloneInputManager from the subsystem API first
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetRumbleEffect(0, 0, 0, 0, 0, 0);
+```
 
 ### SetTriggerFeedback
 `public void SetTriggerFeedback(byte leftTriggerPosition, byte leftTriggerStrength, byte rightTriggerPosition, byte rightTriggerStrength)`
 
-**Purpose:** Sets the value or state of `trigger feedback`.
+**Purpose:** Assigns a new value to `trigger feedback` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandaloneInputManager from the subsystem API first
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetTriggerFeedback(0, 0, 0, 0);
+```
 
 ### SetTriggerWeaponEffect
 `public void SetTriggerWeaponEffect(byte leftStartPosition, byte leftEnd_position, byte leftStrength, byte rightStartPosition, byte rightEndPosition, byte rightStrength)`
 
-**Purpose:** Sets the value or state of `trigger weapon effect`.
+**Purpose:** Assigns a new value to `trigger weapon effect` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandaloneInputManager from the subsystem API first
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetTriggerWeaponEffect(0, 0, 0, 0, 0, 0);
+```
 
 ### SetTriggerVibration
 `public void SetTriggerVibration(float leftTriggerAmplitudes, float leftTriggerFrequencies, float leftTriggerDurations, int numLeftTriggerElements, float rightTriggerAmplitudes, float rightTriggerFrequencies, float rightTriggerDurations, int numRightTriggerElements)`
 
-**Purpose:** Sets the value or state of `trigger vibration`.
+**Purpose:** Assigns a new value to `trigger vibration` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandaloneInputManager from the subsystem API first
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetTriggerVibration(0, 0, 0, 0, 0, 0, 0, 0);
+```
 
 ### SetLightbarColor
 `public void SetLightbarColor(float red, float green, float blue)`
 
-**Purpose:** Sets the value or state of `lightbar color`.
+**Purpose:** Assigns a new value to `lightbar color` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of StandaloneInputManager from the subsystem API first
+StandaloneInputManager standaloneInputManager = ...;
+standaloneInputManager.SetLightbarColor(0, 0, 0);
+```
 
 ## Usage Example
 
@@ -59,4 +83,4 @@ var manager = StandaloneInputManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ISessionService"
+description: "ISessionService 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ISessionService`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ISessionService
 
 **Namespace:** TaleWorlds.PlatformService
 **Module:** TaleWorlds.PlatformService
-**Type:** `class`
+**Type:** `public interface ISessionService`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/ISessionService.cs`
+**File:** `bin/TaleWorlds.PlatformService/TaleWorlds.PlatformService/ISessionService.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "ISessionService"
 ## 使用示例
 
 ```csharp
-ISessionService implementation = GetSessionServiceImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IISessionService service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

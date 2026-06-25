@@ -1,20 +1,14 @@
 ---
 title: "RewardGoldOnDeathEffect"
+description: "Auto-generated class reference for RewardGoldOnDeathEffect."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RewardGoldOnDeathEffect`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RewardGoldOnDeathEffect
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class RewardGoldOnDeathEffect : MPPerkEffect`
 **Base:** `MPPerkEffect`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/RewardGoldOnDeathEffect.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects/RewardGoldOnDeathEffect.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetIsTeamRewardedOnDeath
 `public override bool GetIsTeamRewardedOnDeath()`
 
-**Purpose:** Gets the current value of `is team rewarded on death`.
+**Purpose:** Reads and returns the `is team rewarded on death` value held by the current object.
+
+```csharp
+// Obtain an instance of RewardGoldOnDeathEffect from the subsystem API first
+RewardGoldOnDeathEffect rewardGoldOnDeathEffect = ...;
+var result = rewardGoldOnDeathEffect.GetIsTeamRewardedOnDeath();
+```
 
 ### CalculateRewardedGoldOnDeath
 `public override void CalculateRewardedGoldOnDeath(Agent agent, List<(MissionPeer, int)> teamMembers)`
 
-**Purpose:** Handles logic related to `calculate rewarded gold on death`.
+**Purpose:** Calculates the current value or result of `rewarded gold on death`.
+
+```csharp
+// Obtain an instance of RewardGoldOnDeathEffect from the subsystem API first
+RewardGoldOnDeathEffect rewardGoldOnDeathEffect = ...;
+rewardGoldOnDeathEffect.CalculateRewardedGoldOnDeath(agent, list<(MissionPeer, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RewardGoldOnDeathEffect();
-value.GetIsTeamRewardedOnDeath();
+// Typically call this after obtaining an instance from the subsystem API
+RewardGoldOnDeathEffect rewardGoldOnDeathEffect = ...;
+rewardGoldOnDeathEffect.GetIsTeamRewardedOnDeath();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

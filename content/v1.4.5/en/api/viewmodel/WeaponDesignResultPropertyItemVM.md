@@ -1,20 +1,14 @@
 ---
 title: "WeaponDesignResultPropertyItemVM"
+description: "Auto-generated class reference for WeaponDesignResultPropertyItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeaponDesignResultPropertyItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeaponDesignResultPropertyItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class WeaponDesignResultPropertyItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignResultPropertyItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign/WeaponDesignResultPropertyItemVM.cs`
 
 ## Overview
 
@@ -45,15 +39,22 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of WeaponDesignResultPropertyItemVM from the subsystem API first
+WeaponDesignResultPropertyItemVM weaponDesignResultPropertyItemVM = ...;
+weaponDesignResultPropertyItemVM.RefreshValues();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeaponDesignResultPropertyItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+WeaponDesignResultPropertyItemVM weaponDesignResultPropertyItemVM = ...;
+weaponDesignResultPropertyItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

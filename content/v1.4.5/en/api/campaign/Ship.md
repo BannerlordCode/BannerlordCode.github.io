@@ -1,20 +1,14 @@
 ---
 title: "Ship"
+description: "Auto-generated class reference for Ship."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Ship`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Ship
 
 **Namespace:** TaleWorlds.CampaignSystem.Naval
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class Ship : IShipOrigin, IRandomOwner`
 **Base:** `IShipOrigin`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Naval/Ship.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Naval/Ship.cs`
 
 ## Overview
 
@@ -54,75 +48,154 @@ Start from namespace `TaleWorlds.CampaignSystem.Naval` to place it in the stack,
 ### ChangeFigurehead
 `public void ChangeFigurehead(Figurehead figurehead)`
 
-**Purpose:** Handles logic related to `change figurehead`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+ship.ChangeFigurehead(figurehead);
+```
 
 ### GetPieceAtSlot
 `public ShipUpgradePiece GetPieceAtSlot(string slotTag)`
 
-**Purpose:** Gets the current value of `piece at slot`.
+**Purpose:** Reads and returns the `piece at slot` value held by the current object.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+var result = ship.GetPieceAtSlot("example");
+```
 
 ### EquipUpgradePiece
 `public void EquipUpgradePiece(string slotTag, ShipUpgradePiece newUpgradePiece)`
 
-**Purpose:** Handles logic related to `equip upgrade piece`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+ship.EquipUpgradePiece("example", newUpgradePiece);
+```
 
 ### HasSlot
 `public bool HasSlot(string slotTag)`
 
-**Purpose:** Checks whether the current object has/contains `slot`.
+**Purpose:** Determines whether the current object already holds `slot`.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+var result = ship.HasSlot("example");
+```
 
 ### SetName
 `public void SetName(TextObject name)`
 
-**Purpose:** Sets the value or state of `name`.
+**Purpose:** Assigns a new value to `name` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+ship.SetName(name);
+```
 
 ### GetCampaignSpeed
 `public float GetCampaignSpeed()`
 
-**Purpose:** Gets the current value of `campaign speed`.
+**Purpose:** Reads and returns the `campaign speed` value held by the current object.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+var result = ship.GetCampaignSpeed();
+```
 
 ### GetSiegeEngines
 `public MBList<SiegeEngineType> GetSiegeEngines()`
 
-**Purpose:** Gets the current value of `siege engines`.
+**Purpose:** Reads and returns the `siege engines` value held by the current object.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+var result = ship.GetSiegeEngines();
+```
 
 ### UpdateVersionNo
 `public void UpdateVersionNo()`
 
-**Purpose:** Updates the state or data of `version no`.
+**Purpose:** Recalculates and stores the latest representation of `version no`.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+ship.UpdateVersionNo();
+```
 
 ### GetCombatFactor
 `public float GetCombatFactor()`
 
-**Purpose:** Gets the current value of `combat factor`.
+**Purpose:** Reads and returns the `combat factor` value held by the current object.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+var result = ship.GetCombatFactor();
+```
 
 ### OnShipDamaged
 `public void OnShipDamaged(float rawDamage, IShipOrigin rammingShip, out float modifiedDamage)`
 
-**Purpose:** Called when the `ship damaged` event is raised.
+**Purpose:** Invoked when the `ship damaged` event is raised.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+ship.OnShipDamaged(0, rammingShip, modifiedDamage);
+```
 
 ### GetShipVisualSlotInfos
 `public List<ShipVisualSlotInfo> GetShipVisualSlotInfos()`
 
-**Purpose:** Gets the current value of `ship visual slot infos`.
+**Purpose:** Reads and returns the `ship visual slot infos` value held by the current object.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+var result = ship.GetShipVisualSlotInfos();
+```
 
 ### GetShipSlotAndPieceNames
 `public List<ShipSlotAndPieceName> GetShipSlotAndPieceNames()`
 
-**Purpose:** Gets the current value of `ship slot and piece names`.
+**Purpose:** Reads and returns the `ship slot and piece names` value held by the current object.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+var result = ship.GetShipSlotAndPieceNames();
+```
 
 ### OnPlayerCharacterChanged
 `public void OnPlayerCharacterChanged()`
 
-**Purpose:** Called when the `player character changed` event is raised.
+**Purpose:** Invoked when the `player character changed` event is raised.
+
+```csharp
+// Obtain an instance of Ship from the subsystem API first
+Ship ship = ...;
+ship.OnPlayerCharacterChanged();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Ship();
-value.ChangeFigurehead(figurehead);
+// Typically call this after obtaining an instance from the subsystem API
+Ship ship = ...;
+ship.ChangeFigurehead(figurehead);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

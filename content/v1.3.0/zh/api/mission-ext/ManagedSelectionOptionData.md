@@ -1,13 +1,7 @@
 ---
 title: "ManagedSelectionOptionData"
+description: "ManagedSelectionOptionData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ManagedSelectionOptionData`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ManagedSelectionOptionData
 
 **Namespace:** TaleWorlds.MountAndBlade.Options.ManagedOptions
@@ -29,24 +23,42 @@ title: "ManagedSelectionOptionData"
 ### GetSelectableOptionsLimit
 `public int GetSelectableOptionsLimit()`
 
-**用途 / Purpose:** 获取 `selectable options limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selectable options limit」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedSelectionOptionData 实例
+ManagedSelectionOptionData managedSelectionOptionData = ...;
+var result = managedSelectionOptionData.GetSelectableOptionsLimit();
+```
 
 ### GetSelectableOptionNames
 `public IEnumerable<SelectionData> GetSelectableOptionNames()`
 
-**用途 / Purpose:** 获取 `selectable option names` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「selectable option names」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ManagedSelectionOptionData 实例
+ManagedSelectionOptionData managedSelectionOptionData = ...;
+var result = managedSelectionOptionData.GetSelectableOptionNames();
+```
 
 ### GetOptionsLimit
 `public static int GetOptionsLimit(ManagedOptions.ManagedOptionsType optionType)`
 
-**用途 / Purpose:** 获取 `options limit` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「options limit」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ManagedSelectionOptionData.GetOptionsLimit(optionType);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ManagedSelectionOptionData();
+// 该数据对象通常由战役/任务 API 返回
+ManagedSelectionOptionData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

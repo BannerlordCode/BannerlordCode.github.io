@@ -1,20 +1,14 @@
 ---
 title: "DebugObjectDestroyerMissionController"
+description: "Auto-generated class reference for DebugObjectDestroyerMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DebugObjectDestroyerMissionController`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DebugObjectDestroyerMissionController
 
 **Namespace:** TaleWorlds.MountAndBlade.Source.Missions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DebugObjectDestroyerMissionController : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/DebugObjectDestroyerMissionController.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/DebugObjectDestroyerMissionController.cs`
 
 ## Overview
 
@@ -29,7 +23,13 @@ Treat `DebugObjectDestroyerMissionController` as a Controller-style extension po
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of DebugObjectDestroyerMissionController from the subsystem API first
+DebugObjectDestroyerMissionController debugObjectDestroyerMissionController = ...;
+debugObjectDestroyerMissionController.OnMissionTick(0);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<DebugObjectDestroyerMissionC
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

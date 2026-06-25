@@ -1,20 +1,14 @@
 ---
 title: "WindowsForm"
+description: "WindowsForm 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WindowsForm`
-- [← 本领域 / 返回 gui](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WindowsForm
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class WindowsForm`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/WindowsForm.cs`
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/WindowsForm.cs`
 
 ## 概述
 
@@ -38,35 +32,66 @@ title: "WindowsForm"
 ### SetParent
 `public void SetParent(IntPtr parentHandle)`
 
-**用途 / Purpose:** 设置 `parent` 的值或状态。
+**用途 / Purpose:** 为 「parent」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsForm 实例
+WindowsForm windowsForm = ...;
+windowsForm.SetParent(parentHandle);
+```
 
 ### Show
 `public void Show()`
 
-**用途 / Purpose:** 处理 `show` 相关逻辑。
+**用途 / Purpose:** 显示当前对象对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsForm 实例
+WindowsForm windowsForm = ...;
+windowsForm.Show();
+```
 
 ### Hide
 `public void Hide()`
 
-**用途 / Purpose:** 处理 `hide` 相关逻辑。
+**用途 / Purpose:** 隐藏当前对象对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsForm 实例
+WindowsForm windowsForm = ...;
+windowsForm.Hide();
+```
 
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理 `destroy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsForm 实例
+WindowsForm windowsForm = ...;
+windowsForm.Destroy();
+```
 
 ### AddMessageHandler
 `public void AddMessageHandler(WindowsFormMessageHandler messageHandler)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `message handler`。
+**用途 / Purpose:** 将 「message handler」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 WindowsForm 实例
+WindowsForm windowsForm = ...;
+windowsForm.AddMessageHandler(messageHandler);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new WindowsForm();
-value.SetParent(parentHandle);
+// 通常从对应子系统 API 获取实例后调用
+WindowsForm windowsForm = ...;
+windowsForm.SetParent(parentHandle);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

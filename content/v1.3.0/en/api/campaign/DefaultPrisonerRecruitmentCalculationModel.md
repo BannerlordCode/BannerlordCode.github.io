@@ -1,13 +1,7 @@
 ---
 title: "DefaultPrisonerRecruitmentCalculationModel"
+description: "Auto-generated class reference for DefaultPrisonerRecruitmentCalculationModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultPrisonerRecruitmentCalculationModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPrisonerRecruitmentCalculationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,32 +23,68 @@ Treat `DefaultPrisonerRecruitmentCalculationModel` as a Model-style extension po
 ### GetConformityNeededToRecruitPrisoner
 `public override int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**Purpose:** Gets the current value of `conformity needed to recruit prisoner`.
+**Purpose:** Reads and returns the `conformity needed to recruit prisoner` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPrisonerRecruitmentCalculationModel from the subsystem API first
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.GetConformityNeededToRecruitPrisoner(character);
+```
 
 ### GetConformityChangePerHour
 `public override ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject troopToBoost)`
 
-**Purpose:** Gets the current value of `conformity change per hour`.
+**Purpose:** Reads and returns the `conformity change per hour` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPrisonerRecruitmentCalculationModel from the subsystem API first
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.GetConformityChangePerHour(party, troopToBoost);
+```
 
 ### GetPrisonerRecruitmentMoraleEffect
 `public override int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**Purpose:** Gets the current value of `prisoner recruitment morale effect`.
+**Purpose:** Reads and returns the `prisoner recruitment morale effect` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultPrisonerRecruitmentCalculationModel from the subsystem API first
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.GetPrisonerRecruitmentMoraleEffect(party, character, 0);
+```
 
 ### IsPrisonerRecruitable
 `public override bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**Purpose:** Handles logic related to `is prisoner recruitable`.
+**Purpose:** Determines whether the current object is in the `prisoner recruitable` state or condition.
+
+```csharp
+// Obtain an instance of DefaultPrisonerRecruitmentCalculationModel from the subsystem API first
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.IsPrisonerRecruitable(party, character, conformityNeeded);
+```
 
 ### ShouldPartyRecruitPrisoners
 `public override bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**Purpose:** Handles logic related to `should party recruit prisoners`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of DefaultPrisonerRecruitmentCalculationModel from the subsystem API first
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.ShouldPartyRecruitPrisoners(party);
+```
 
 ### CalculateRecruitableNumber
 `public override int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
 
-**Purpose:** Handles logic related to `calculate recruitable number`.
+**Purpose:** Calculates the current value or result of `recruitable number`.
+
+```csharp
+// Obtain an instance of DefaultPrisonerRecruitmentCalculationModel from the subsystem API first
+DefaultPrisonerRecruitmentCalculationModel defaultPrisonerRecruitmentCalculationModel = ...;
+var result = defaultPrisonerRecruitmentCalculationModel.CalculateRecruitableNumber(party, character);
+```
 
 ## Usage Example
 
@@ -64,4 +94,4 @@ Game.Current.ReplaceModel<DefaultPrisonerRecruitmentCalculationModel>(new MyDefa
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

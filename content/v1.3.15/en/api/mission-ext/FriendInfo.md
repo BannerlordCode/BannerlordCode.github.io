@@ -1,13 +1,7 @@
 ---
 title: "FriendInfo"
+description: "Auto-generated class reference for FriendInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FriendInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # FriendInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond
@@ -36,9 +30,10 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ## Usage Example
 
 ```csharp
-var value = new FriendInfo();
+// Obtain an instance from the relevant subsystem API
+FriendInfo instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "Text"
+description: "Auto-generated class reference for Text."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Text`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Text
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class Text : IText`
 **Base:** `IText`
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Text.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/Text.cs`
 
 ## Overview
 
@@ -47,30 +41,55 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### GetPreferredSize
 `public Vector2 GetPreferredSize(bool fixedWidth, float widthSize, bool fixedHeight, float heightSize, SpriteData spriteData, float renderScale)`
 
-**Purpose:** Gets the current value of `preferred size`.
+**Purpose:** Reads and returns the `preferred size` value held by the current object.
+
+```csharp
+// Obtain an instance of Text from the subsystem API first
+Text text = ...;
+var result = text.GetPreferredSize(false, 0, false, 0, spriteData, 0);
+```
 
 ### UpdateSize
 `public void UpdateSize(int width, int height)`
 
-**Purpose:** Updates the state or data of `size`.
+**Purpose:** Recalculates and stores the latest representation of `size`.
+
+```csharp
+// Obtain an instance of Text from the subsystem API first
+Text text = ...;
+text.UpdateSize(0, 0);
+```
 
 ### SetAllDirty
 `public void SetAllDirty()`
 
-**Purpose:** Sets the value or state of `all dirty`.
+**Purpose:** Assigns a new value to `all dirty` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Text from the subsystem API first
+Text text = ...;
+text.SetAllDirty();
+```
 
 ### GetParts
 `public List<TextPart> GetParts()`
 
-**Purpose:** Gets the current value of `parts`.
+**Purpose:** Reads and returns the `parts` value held by the current object.
+
+```csharp
+// Obtain an instance of Text from the subsystem API first
+Text text = ...;
+var result = text.GetParts();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Text();
-value.GetPreferredSize(false, 0, false, 0, spriteData, 0);
+// Typically call this after obtaining an instance from the subsystem API
+Text text = ...;
+text.GetPreferredSize(false, 0, false, 0, spriteData, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

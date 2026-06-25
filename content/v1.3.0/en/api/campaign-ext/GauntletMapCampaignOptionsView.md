@@ -1,13 +1,7 @@
 ---
 title: "GauntletMapCampaignOptionsView"
+description: "Auto-generated class reference for GauntletMapCampaignOptionsView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapCampaignOptionsView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapCampaignOptionsView
 
 **Namespace:** SandBox.GauntletUI.Map
@@ -27,9 +21,10 @@ Treat `GauntletMapCampaignOptionsView` as a View-style extension point: first id
 ## Usage Example
 
 ```csharp
-var view = new GauntletMapCampaignOptionsView();
+// Retrieve this view from the subsystem API or scene
+GauntletMapCampaignOptionsView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

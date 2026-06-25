@@ -1,23 +1,18 @@
 ---
 title: "MatrixExtensions"
+description: "Auto-generated class reference for MatrixExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MatrixExtensions`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MatrixExtensions
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public static class MatrixExtensions`
-**Area:** campaign-ext
+**Base:** none
+**File:** `bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone/MatrixExtensions.cs`
 
 ## Overview
 
-`MatrixExtensions` lives in `TaleWorlds.TwoDimension.Standalone`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MatrixExtensions` lives in `TaleWorlds.TwoDimension.Standalone` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,36 +23,59 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### ToMatrix4x4
 `public static Matrix4x4 ToMatrix4x4(this MatrixFrame matrixFrame)`
 
-**Purpose:** Handles logic related to `to matrix4x4`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixExtensions.ToMatrix4x4(matrixFrame);
+```
 
 ### ToMatrixFrame
 `public static MatrixFrame ToMatrixFrame(this Matrix4x4 matrix)`
 
-**Purpose:** Handles logic related to `to matrix frame`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixExtensions.ToMatrixFrame(matrix);
+```
 
 ### AreAllComponentsValid
 `public static bool AreAllComponentsValid(this Matrix4x4 matrix)`
 
-**Purpose:** Handles logic related to `are all components valid`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixExtensions.AreAllComponentsValid(matrix);
+```
 
 ### AreAllComponentsValid
 `public static bool AreAllComponentsValid(this MatrixFrame matrix)`
 
-**Purpose:** Handles logic related to `are all components valid`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MatrixExtensions.AreAllComponentsValid(matrix);
+```
 
 ### CreateOrthographicOffCenter
 `public static MatrixFrame CreateOrthographicOffCenter(float left, float right, float bottom, float top, float zNearPlane, float zFarPlane)`
 
-**Purpose:** Creates a new `orthographic off center` instance or object.
+**Purpose:** Constructs a new `orthographic off center` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+MatrixExtensions.CreateOrthographicOffCenter(0, 0, 0, 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MatrixExtensions.ToMatrix4x4(matrixFrame);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

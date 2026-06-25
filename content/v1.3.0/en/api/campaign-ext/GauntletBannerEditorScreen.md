@@ -1,13 +1,7 @@
 ---
 title: "GauntletBannerEditorScreen"
+description: "Auto-generated class reference for GauntletBannerEditorScreen."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletBannerEditorScreen`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletBannerEditorScreen
 
 **Namespace:** SandBox.GauntletUI.BannerEditor
@@ -29,20 +23,33 @@ Start from namespace `SandBox.GauntletUI.BannerEditor` to place it in the stack,
 ### OnDone
 `public void OnDone()`
 
-**Purpose:** Called when the `done` event is raised.
+**Purpose:** Invoked when the `done` event is raised.
+
+```csharp
+// Obtain an instance of GauntletBannerEditorScreen from the subsystem API first
+GauntletBannerEditorScreen gauntletBannerEditorScreen = ...;
+gauntletBannerEditorScreen.OnDone();
+```
 
 ### OnCancel
 `public void OnCancel()`
 
-**Purpose:** Called when the `cancel` event is raised.
+**Purpose:** Invoked when the `cancel` event is raised.
+
+```csharp
+// Obtain an instance of GauntletBannerEditorScreen from the subsystem API first
+GauntletBannerEditorScreen gauntletBannerEditorScreen = ...;
+gauntletBannerEditorScreen.OnCancel();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletBannerEditorScreen();
-value.OnDone();
+// Typically call this after obtaining an instance from the subsystem API
+GauntletBannerEditorScreen gauntletBannerEditorScreen = ...;
+gauntletBannerEditorScreen.OnDone();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

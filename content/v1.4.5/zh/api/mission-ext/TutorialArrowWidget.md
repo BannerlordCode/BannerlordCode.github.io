@@ -1,20 +1,14 @@
 ---
 title: "TutorialArrowWidget"
+description: "TutorialArrowWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TutorialArrowWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialArrowWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TutorialArrowWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialArrowWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial/TutorialArrowWidget.cs`
 
 ## 概述
 
@@ -38,24 +32,43 @@ title: "TutorialArrowWidget"
 ### SetArrowProperties
 `public void SetArrowProperties(float width, float height, bool isDirectionDown, bool isDirectionRight)`
 
-**用途 / Purpose:** 设置 `arrow properties` 的值或状态。
+**用途 / Purpose:** 为 「arrow properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialArrowWidget 实例
+TutorialArrowWidget tutorialArrowWidget = ...;
+tutorialArrowWidget.SetArrowProperties(0, 0, false, false);
+```
 
 ### ResetFade
 `public void ResetFade()`
 
-**用途 / Purpose:** 将 `fade` 重置为初始状态。
+**用途 / Purpose:** 将 「fade」 重置回默认或初始状态。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialArrowWidget 实例
+TutorialArrowWidget tutorialArrowWidget = ...;
+tutorialArrowWidget.ResetFade();
+```
 
 ### DisableFade
 `public void DisableFade()`
 
-**用途 / Purpose:** 处理 `disable fade` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialArrowWidget 实例
+TutorialArrowWidget tutorialArrowWidget = ...;
+tutorialArrowWidget.DisableFade();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new TutorialArrowWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+TutorialArrowWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

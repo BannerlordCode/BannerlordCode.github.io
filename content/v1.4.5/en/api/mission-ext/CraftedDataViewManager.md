@@ -1,20 +1,14 @@
 ---
 title: "CraftedDataViewManager"
+description: "Auto-generated class reference for CraftedDataViewManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftedDataViewManager`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftedDataViewManager
 
 **Namespace:** TaleWorlds.MountAndBlade.View
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftedDataViewManager`
 **Base:** none
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/CraftedDataViewManager.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/CraftedDataViewManager.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Treat `CraftedDataViewManager` as a Manager-style extension point: first identif
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Static call; no instance required
+CraftedDataViewManager.Initialize();
+```
 
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Static call; no instance required
+CraftedDataViewManager.Clear();
+```
 
 ### GetCraftedDataView
 `public static CraftedDataView GetCraftedDataView(WeaponDesign craftedData)`
 
-**Purpose:** Gets the current value of `crafted data view`.
+**Purpose:** Reads and returns the `crafted data view` value held by the current object.
+
+```csharp
+// Static call; no instance required
+CraftedDataViewManager.GetCraftedDataView(craftedData);
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ var manager = CraftedDataViewManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

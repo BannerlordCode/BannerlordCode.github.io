@@ -1,13 +1,7 @@
 ---
 title: "GameplayCheatItem"
+description: "GameplayCheatItem 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameplayCheatItem`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameplayCheatItem
 
 **Namespace:** SandBox
@@ -29,14 +23,21 @@ title: "GameplayCheatItem"
 ### ExecuteCheat
 `public abstract void ExecuteCheat()`
 
-**用途 / Purpose:** 执行 `cheat` 操作或流程。
+**用途 / Purpose:** 执行 「cheat」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 GameplayCheatItem 实例
+GameplayCheatItem gameplayCheatItem = ...;
+gameplayCheatItem.ExecuteCheat();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomGameplayCheatItem();
+// 通常通过子系统 API 或工厂获得派生实例
+GameplayCheatItem instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

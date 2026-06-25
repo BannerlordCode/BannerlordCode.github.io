@@ -1,20 +1,14 @@
 ---
 title: "GauntletMapEventVisualCreator"
+description: "Auto-generated class reference for GauntletMapEventVisualCreator."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GauntletMapEventVisualCreator`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GauntletMapEventVisualCreator
 
 **Namespace:** SandBox.GauntletUI.Map
 **Module:** SandBox.GauntletUI
 **Type:** `public class GauntletMapEventVisualCreator : IMapEventVisualCreator`
 **Base:** `IMapEventVisualCreator`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEventVisualCreator.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.Map/GauntletMapEventVisualCreator.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `SandBox.GauntletUI.Map` to place it in the stack, then ins
 ### CreateMapEventVisual
 `public IMapEventVisual CreateMapEventVisual(MapEvent mapEvent)`
 
-**Purpose:** Creates a new `map event visual` instance or object.
+**Purpose:** Constructs a new `map event visual` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of GauntletMapEventVisualCreator from the subsystem API first
+GauntletMapEventVisualCreator gauntletMapEventVisualCreator = ...;
+var result = gauntletMapEventVisualCreator.CreateMapEventVisual(mapEvent);
+```
 
 ### GetCurrentEvents
 `public IEnumerable<GauntletMapEventVisual> GetCurrentEvents()`
 
-**Purpose:** Gets the current value of `current events`.
+**Purpose:** Reads and returns the `current events` value held by the current object.
+
+```csharp
+// Obtain an instance of GauntletMapEventVisualCreator from the subsystem API first
+GauntletMapEventVisualCreator gauntletMapEventVisualCreator = ...;
+var result = gauntletMapEventVisualCreator.GetCurrentEvents();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GauntletMapEventVisualCreator();
-value.CreateMapEventVisual(mapEvent);
+// Typically call this after obtaining an instance from the subsystem API
+GauntletMapEventVisualCreator gauntletMapEventVisualCreator = ...;
+gauntletMapEventVisualCreator.CreateMapEventVisual(mapEvent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "PartyAgentOrigin"
+description: "Auto-generated class reference for PartyAgentOrigin."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyAgentOrigin`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PartyAgentOrigin
 
 **Namespace:** TaleWorlds.CampaignSystem.AgentOrigins
@@ -44,35 +38,66 @@ Start from namespace `TaleWorlds.CampaignSystem.AgentOrigins` to place it in the
 ### SetWounded
 `public void SetWounded()`
 
-**Purpose:** Sets the value or state of `wounded`.
+**Purpose:** Assigns a new value to `wounded` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyAgentOrigin from the subsystem API first
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetWounded();
+```
 
 ### SetKilled
 `public void SetKilled()`
 
-**Purpose:** Sets the value or state of `killed`.
+**Purpose:** Assigns a new value to `killed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyAgentOrigin from the subsystem API first
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetKilled();
+```
 
 ### SetRouted
 `public void SetRouted(bool isOrderRetreat)`
 
-**Purpose:** Sets the value or state of `routed`.
+**Purpose:** Assigns a new value to `routed` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyAgentOrigin from the subsystem API first
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetRouted(false);
+```
 
 ### OnAgentRemoved
 `public void OnAgentRemoved(float agentHealth)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of PartyAgentOrigin from the subsystem API first
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.OnAgentRemoved(0);
+```
 
 ### SetBanner
 `public void SetBanner(Banner banner)`
 
-**Purpose:** Sets the value or state of `banner`.
+**Purpose:** Assigns a new value to `banner` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of PartyAgentOrigin from the subsystem API first
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetBanner(banner);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PartyAgentOrigin();
-value.SetWounded();
+// Typically call this after obtaining an instance from the subsystem API
+PartyAgentOrigin partyAgentOrigin = ...;
+partyAgentOrigin.SetWounded();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

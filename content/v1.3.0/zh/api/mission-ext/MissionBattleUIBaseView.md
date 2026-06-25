@@ -1,13 +1,7 @@
 ---
 title: "MissionBattleUIBaseView"
+description: "MissionBattleUIBaseView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionBattleUIBaseView`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBattleUIBaseView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -35,24 +29,43 @@ title: "MissionBattleUIBaseView"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleUIBaseView 实例
+MissionBattleUIBaseView missionBattleUIBaseView = ...;
+missionBattleUIBaseView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleUIBaseView 实例
+MissionBattleUIBaseView missionBattleUIBaseView = ...;
+missionBattleUIBaseView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionBattleUIBaseView 实例
+MissionBattleUIBaseView missionBattleUIBaseView = ...;
+missionBattleUIBaseView.OnMissionScreenFinalize();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomMissionBattleUIBaseView();
+// 通常通过子系统 API 或工厂获得派生实例
+MissionBattleUIBaseView instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaKingdomsTutorial"
+description: "Auto-generated class reference for EncyclopediaKingdomsTutorial."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `EncyclopediaKingdomsTutorial`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaKingdomsTutorial
 
 **Namespace:** StoryMode.GauntletUI.Tutorial
@@ -27,9 +21,10 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ## Usage Example
 
 ```csharp
-var value = new EncyclopediaKingdomsTutorial();
+// Obtain an instance from the relevant subsystem API
+EncyclopediaKingdomsTutorial instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

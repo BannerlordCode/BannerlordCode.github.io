@@ -1,13 +1,7 @@
 ---
 title: "DefaultParallelDriver"
+description: "DefaultParallelDriver 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultParallelDriver`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultParallelDriver
 
 **Namespace:** TaleWorlds.Library
@@ -29,30 +23,55 @@ title: "DefaultParallelDriver"
 ### For
 `public void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize)`
 
-**用途 / Purpose:** 处理 `for` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultParallelDriver 实例
+DefaultParallelDriver defaultParallelDriver = ...;
+defaultParallelDriver.For(0, 0, body, 0);
+```
 
 ### For
 `public void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize)`
 
-**用途 / Purpose:** 处理 `for` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultParallelDriver 实例
+DefaultParallelDriver defaultParallelDriver = ...;
+defaultParallelDriver.For(0, 0, 0, body, 0);
+```
 
 ### GetMainThreadId
 `public ulong GetMainThreadId()`
 
-**用途 / Purpose:** 获取 `main thread id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「main thread id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultParallelDriver 实例
+DefaultParallelDriver defaultParallelDriver = ...;
+var result = defaultParallelDriver.GetMainThreadId();
+```
 
 ### GetCurrentThreadId
 `public ulong GetCurrentThreadId()`
 
-**用途 / Purpose:** 获取 `current thread id` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「current thread id」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultParallelDriver 实例
+DefaultParallelDriver defaultParallelDriver = ...;
+var result = defaultParallelDriver.GetCurrentThreadId();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new DefaultParallelDriver();
-value.For(0, 0, body, 0);
+// 通常从对应子系统 API 获取实例后调用
+DefaultParallelDriver defaultParallelDriver = ...;
+defaultParallelDriver.For(0, 0, body, 0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

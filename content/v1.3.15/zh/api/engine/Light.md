@@ -1,24 +1,18 @@
 ---
 title: "Light"
+description: "Light 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `Light`
-- [← 本领域 / 返回 engine](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # Light
 
-**命名空间:** TaleWorlds.Engine
-**模块:** TaleWorlds.Engine
-**类型:** `public sealed class Light : GameEntityComponent`
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public sealed class Light : GameEntityComponent`
 **Base:** `GameEntityComponent`
-**领域:** engine
+**File:** `TaleWorlds.Engine/Light.cs`
 
 ## 概述
 
-`Light` 位于 `TaleWorlds.Engine`，它的公开成员表明它是这一子系统暴露给 mod 的一个正式扩展或数据入口。
+`Light` 位于 `TaleWorlds.Engine`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
 
 ## 心智模型
 
@@ -40,41 +34,74 @@ title: "Light"
 ### CreatePointLight
 `public static Light CreatePointLight(float lightRadius)`
 
-**用途 / Purpose:** 创建一个 `point light` 实例或对象。
+**用途 / Purpose:** 构建一个新的 「point light」 实体并返回给调用方。
+
+```csharp
+// 静态调用，不需要实例
+Light.CreatePointLight(0);
+```
 
 ### SetShadowType
 `public void SetShadowType(Light.ShadowType type)`
 
-**用途 / Purpose:** 设置 `shadow type` 的值或状态。
+**用途 / Purpose:** 为 「shadow type」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Light 实例
+Light light = ...;
+light.SetShadowType(type);
+```
 
 ### SetLightFlicker
 `public void SetLightFlicker(float magnitude, float interval)`
 
-**用途 / Purpose:** 设置 `light flicker` 的值或状态。
+**用途 / Purpose:** 为 「light flicker」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Light 实例
+Light light = ...;
+light.SetLightFlicker(0, 0);
+```
 
 ### SetVolumetricProperties
 `public void SetVolumetricProperties(bool volumetricLightEnabled, float volumeParameters)`
 
-**用途 / Purpose:** 设置 `volumetric properties` 的值或状态。
+**用途 / Purpose:** 为 「volumetric properties」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Light 实例
+Light light = ...;
+light.SetVolumetricProperties(false, 0);
+```
 
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 处理 `dispose` 相关逻辑。
+**用途 / Purpose:** 释放当前对象占用的非托管资源。
+
+```csharp
+// 先通过子系统 API 拿到 Light 实例
+Light light = ...;
+light.Dispose();
+```
 
 ### SetVisibility
 `public void SetVisibility(bool value)`
 
-**用途 / Purpose:** 设置 `visibility` 的值或状态。
+**用途 / Purpose:** 为 「visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 Light 实例
+Light light = ...;
+light.SetVisibility(false);
+```
 
 ## 使用示例
 
 ```csharp
-// 先准备该类型需要的上下文，然后直接调用静态入口
 Light.CreatePointLight(0);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
-- [本领域目录](../catalog-engine)
+- [本区域目录](../)

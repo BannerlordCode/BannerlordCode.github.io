@@ -1,13 +1,7 @@
 ---
 title: "CharacterCreationCultureStageVM"
+description: "CharacterCreationCultureStageVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CharacterCreationCultureStageVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CharacterCreationCultureStageVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation
@@ -39,45 +33,88 @@ title: "CharacterCreationCultureStageVM"
 ### OnCultureSelection
 `public void OnCultureSelection(CharacterCreationCultureVM selectedCulture)`
 
-**用途 / Purpose:** 当 `culture selection` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「culture selection」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
+CharacterCreationCultureStageVM characterCreationCultureStageVM = ...;
+characterCreationCultureStageVM.OnCultureSelection(selectedCulture);
+```
 
 ### OnNextStage
 `public override void OnNextStage()`
 
-**用途 / Purpose:** 当 `next stage` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「next stage」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
+CharacterCreationCultureStageVM characterCreationCultureStageVM = ...;
+characterCreationCultureStageVM.OnNextStage();
+```
 
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**用途 / Purpose:** 当 `previous stage` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「previous stage」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
+CharacterCreationCultureStageVM characterCreationCultureStageVM = ...;
+characterCreationCultureStageVM.OnPreviousStage();
+```
 
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `advance to next stage`。
+**用途 / Purpose:** 检查当前对象是否满足 「advance to next stage」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
+CharacterCreationCultureStageVM characterCreationCultureStageVM = ...;
+var result = characterCreationCultureStageVM.CanAdvanceToNextStage();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
+CharacterCreationCultureStageVM characterCreationCultureStageVM = ...;
+characterCreationCultureStageVM.OnFinalize();
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `cancel input key` 的值或状态。
+**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
+CharacterCreationCultureStageVM characterCreationCultureStageVM = ...;
+characterCreationCultureStageVM.SetCancelInputKey(hotKey);
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 设置 `done input key` 的值或状态。
+**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
+CharacterCreationCultureStageVM characterCreationCultureStageVM = ...;
+characterCreationCultureStageVM.SetDoneInputKey(hotKey);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CharacterCreationCultureStageVM();
-value.OnCultureSelection(selectedCulture);
+// 通常从对应子系统 API 获取实例后调用
+CharacterCreationCultureStageVM characterCreationCultureStageVM = ...;
+characterCreationCultureStageVM.OnCultureSelection(selectedCulture);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

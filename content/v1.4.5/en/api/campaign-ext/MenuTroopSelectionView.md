@@ -1,20 +1,14 @@
 ---
 title: "MenuTroopSelectionView"
+description: "Auto-generated class reference for MenuTroopSelectionView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MenuTroopSelectionView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MenuTroopSelectionView
 
 **Namespace:** SandBox.View.Menu
 **Module:** SandBox.View
 **Type:** `public class MenuTroopSelectionView : MenuView`
 **Base:** `MenuView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Menu/MenuTroopSelectionView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Menu/MenuTroopSelectionView.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Treat `MenuTroopSelectionView` as a View-style extension point: first identify w
 ## Usage Example
 
 ```csharp
-var view = new MenuTroopSelectionView();
+// Retrieve this view from the subsystem API or scene
+MenuTroopSelectionView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

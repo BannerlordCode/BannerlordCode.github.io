@@ -1,20 +1,14 @@
 ---
 title: "AccessObjectJsonConverter"
+description: "Auto-generated class reference for AccessObjectJsonConverter."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AccessObjectJsonConverter`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AccessObjectJsonConverter
 
 **Namespace:** TaleWorlds.Diamond
 **Module:** TaleWorlds.Diamond
 **Type:** `public class AccessObjectJsonConverter : JsonConverter`
 **Base:** `JsonConverter`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AccessObjectJsonConverter.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond/AccessObjectJsonConverter.cs`
 
 ## Overview
 
@@ -29,25 +23,44 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**Purpose:** Checks whether the current object can `convert`.
+**Purpose:** Checks whether the current object meets the preconditions for `convert`.
+
+```csharp
+// Obtain an instance of AccessObjectJsonConverter from the subsystem API first
+AccessObjectJsonConverter accessObjectJsonConverter = ...;
+var result = accessObjectJsonConverter.CanConvert(objectType);
+```
 
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `read json`.
+**Purpose:** Reads the data or state of `json`.
+
+```csharp
+// Obtain an instance of AccessObjectJsonConverter from the subsystem API first
+AccessObjectJsonConverter accessObjectJsonConverter = ...;
+var result = accessObjectJsonConverter.ReadJson(reader, objectType, existingValue, serializer);
+```
 
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**Purpose:** Handles logic related to `write json`.
+**Purpose:** Writes `json` to the target location.
+
+```csharp
+// Obtain an instance of AccessObjectJsonConverter from the subsystem API first
+AccessObjectJsonConverter accessObjectJsonConverter = ...;
+accessObjectJsonConverter.WriteJson(writer, value, serializer);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AccessObjectJsonConverter();
-value.CanConvert(objectType);
+// Typically call this after obtaining an instance from the subsystem API
+AccessObjectJsonConverter accessObjectJsonConverter = ...;
+accessObjectJsonConverter.CanConvert(objectType);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "WeakNativeObjectReference"
+description: "Auto-generated class reference for WeakNativeObjectReference."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeakNativeObjectReference`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WeakNativeObjectReference
 
 **Namespace:** TaleWorlds.DotNet
 **Module:** TaleWorlds.DotNet
-**Type:** `public sealed class WeakNativeObjectReference`
+**Type:** `public sealed class WeakNativeObjectReference<T>`
 **Base:** none
-**File:** `TaleWorlds.DotNet/WeakNativeObjectReference.cs`
+**File:** `TaleWorlds.DotNet/WeakNativeObjectReference.2.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### ManualInvalidate
 `public void ManualInvalidate()`
 
-**Purpose:** Handles logic related to `manual invalidate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of WeakNativeObjectReference from the subsystem API first
+WeakNativeObjectReference weakNativeObjectReference = ...;
+weakNativeObjectReference.ManualInvalidate();
+```
 
 ### GetNativeObject
 `public NativeObject GetNativeObject()`
 
-**Purpose:** Gets the current value of `native object`.
+**Purpose:** Reads and returns the `native object` value held by the current object.
+
+```csharp
+// Obtain an instance of WeakNativeObjectReference from the subsystem API first
+WeakNativeObjectReference weakNativeObjectReference = ...;
+var result = weakNativeObjectReference.GetNativeObject();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeakNativeObjectReference();
-value.ManualInvalidate();
+// Typically call this after obtaining an instance from the subsystem API
+WeakNativeObjectReference weakNativeObjectReference = ...;
+weakNativeObjectReference.ManualInvalidate();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

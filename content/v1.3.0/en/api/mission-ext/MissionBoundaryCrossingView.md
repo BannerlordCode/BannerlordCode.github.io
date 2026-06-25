@@ -1,13 +1,7 @@
 ---
 title: "MissionBoundaryCrossingView"
+description: "Auto-generated class reference for MissionBoundaryCrossingView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionBoundaryCrossingView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionBoundaryCrossingView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
@@ -27,9 +21,10 @@ Treat `MissionBoundaryCrossingView` as a View-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var view = new MissionBoundaryCrossingView();
+// Retrieve this view from the subsystem API or scene
+MissionBoundaryCrossingView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

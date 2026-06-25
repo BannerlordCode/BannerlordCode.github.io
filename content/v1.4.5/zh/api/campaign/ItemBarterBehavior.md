@@ -1,20 +1,14 @@
 ---
 title: "ItemBarterBehavior"
+description: "ItemBarterBehavior 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ItemBarterBehavior`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemBarterBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemBarterBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/ItemBarterBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors/ItemBarterBehavior.cs`
 
 ## 概述
 
@@ -29,35 +23,66 @@ title: "ItemBarterBehavior"
 ### CompareTo
 `public int CompareTo(SettlementDistancePair other)`
 
-**用途 / Purpose:** 处理 `compare to` 相关逻辑。
+**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterBehavior 实例
+ItemBarterBehavior itemBarterBehavior = ...;
+var result = itemBarterBehavior.CompareTo(other);
+```
 
 ### GetClosestSettlements
 `public List<Settlement> GetClosestSettlements(Vec2 position)`
 
-**用途 / Purpose:** 获取 `closest settlements` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「closest settlements」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterBehavior 实例
+ItemBarterBehavior itemBarterBehavior = ...;
+var result = itemBarterBehavior.GetClosestSettlements(position);
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterBehavior 实例
+ItemBarterBehavior itemBarterBehavior = ...;
+itemBarterBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterBehavior 实例
+ItemBarterBehavior itemBarterBehavior = ...;
+itemBarterBehavior.SyncData(dataStore);
+```
 
 ### CheckForBarters
 `public void CheckForBarters(BarterData args)`
 
-**用途 / Purpose:** 处理 `check for barters` 相关逻辑。
+**用途 / Purpose:** 检查「for barters」在当前对象中是否成立。
+
+```csharp
+// 先通过子系统 API 拿到 ItemBarterBehavior 实例
+ItemBarterBehavior itemBarterBehavior = ...;
+itemBarterBehavior.CheckForBarters(args);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new ItemBarterBehavior();
-value.CompareTo(other);
+// 通常从对应子系统 API 获取实例后调用
+ItemBarterBehavior itemBarterBehavior = ...;
+itemBarterBehavior.CompareTo(other);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

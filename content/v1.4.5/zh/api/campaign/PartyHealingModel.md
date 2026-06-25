@@ -1,20 +1,14 @@
 ---
 title: "PartyHealingModel"
+description: "PartyHealingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PartyHealingModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyHealingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyHealingModel : MBGameModel<PartyHealingModel>`
 **Base:** `MBGameModel<PartyHealingModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyHealingModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyHealingModel.cs`
 
 ## 概述
 
@@ -29,49 +23,98 @@ title: "PartyHealingModel"
 ### GetSurgeryChance
 `public abstract float GetSurgeryChance(PartyBase party)`
 
-**用途 / Purpose:** 获取 `surgery chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「surgery chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyHealingModel 实例
+PartyHealingModel partyHealingModel = ...;
+var result = partyHealingModel.GetSurgeryChance(party);
+```
 
 ### GetSurvivalChance
 `public abstract float GetSurvivalChance(PartyBase party, CharacterObject agentCharacter, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
 
-**用途 / Purpose:** 获取 `survival chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「survival chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyHealingModel 实例
+PartyHealingModel partyHealingModel = ...;
+var result = partyHealingModel.GetSurvivalChance(party, agentCharacter, damageType, false, null);
+```
 
 ### GetSkillXpFromHealingTroop
 `public abstract int GetSkillXpFromHealingTroop(PartyBase party)`
 
-**用途 / Purpose:** 获取 `skill xp from healing troop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「skill xp from healing troop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyHealingModel 实例
+PartyHealingModel partyHealingModel = ...;
+var result = partyHealingModel.GetSkillXpFromHealingTroop(party);
+```
 
 ### GetDailyHealingForRegulars
 `public abstract ExplainedNumber GetDailyHealingForRegulars(PartyBase partyBase, bool isPrisoner, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `daily healing for regulars` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily healing for regulars」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyHealingModel 实例
+PartyHealingModel partyHealingModel = ...;
+var result = partyHealingModel.GetDailyHealingForRegulars(partyBase, false, false);
+```
 
 ### GetDailyHealingHpForHeroes
 `public abstract ExplainedNumber GetDailyHealingHpForHeroes(PartyBase partyBase, bool isPrisoners, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 获取 `daily healing hp for heroes` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「daily healing hp for heroes」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyHealingModel 实例
+PartyHealingModel partyHealingModel = ...;
+var result = partyHealingModel.GetDailyHealingHpForHeroes(partyBase, false, false);
+```
 
 ### GetHeroesEffectedHealingAmount
 `public abstract int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
 
-**用途 / Purpose:** 获取 `heroes effected healing amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「heroes effected healing amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyHealingModel 实例
+PartyHealingModel partyHealingModel = ...;
+var result = partyHealingModel.GetHeroesEffectedHealingAmount(hero, 0);
+```
 
 ### GetSiegeBombardmentHitSurgeryChance
 `public abstract float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
 
-**用途 / Purpose:** 获取 `siege bombardment hit surgery chance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「siege bombardment hit surgery chance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyHealingModel 实例
+PartyHealingModel partyHealingModel = ...;
+var result = partyHealingModel.GetSiegeBombardmentHitSurgeryChance(party);
+```
 
 ### GetBattleEndHealingAmount
 `public abstract ExplainedNumber GetBattleEndHealingAmount(PartyBase partyBase, Hero hero)`
 
-**用途 / Purpose:** 获取 `battle end healing amount` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「battle end healing amount」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PartyHealingModel 实例
+PartyHealingModel partyHealingModel = ...;
+var result = partyHealingModel.GetBattleEndHealingAmount(partyBase, hero);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPartyHealingModel();
+// 通常通过子系统 API 或工厂获得派生实例
+PartyHealingModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

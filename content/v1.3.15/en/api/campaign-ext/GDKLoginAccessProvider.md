@@ -1,13 +1,7 @@
 ---
 title: "GDKLoginAccessProvider"
+description: "Auto-generated class reference for GDKLoginAccessProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GDKLoginAccessProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # GDKLoginAccessProvider
 
 **Namespace:** TaleWorlds.Diamond.AccessProvider.GDK
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Diamond.AccessProvider.GDK` to place it in the 
 ## Usage Example
 
 ```csharp
-var value = new GDKLoginAccessProvider();
+// Obtain an instance from the relevant subsystem API
+GDKLoginAccessProvider instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ItemRoutedComparer"
+description: "Auto-generated class reference for ItemRoutedComparer."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ItemRoutedComparer`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ItemRoutedComparer
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ItemRoutedComparer : ScoreboardUnitItemComparerBase`
 **Base:** `ScoreboardUnitItemComparerBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSortControllerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard/SPScoreboardSortControllerVM.cs`
 
 ## Overview
 
@@ -29,15 +23,22 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Handles logic related to `compare`.
+**Purpose:** Compares the current object with another instance for ordering.
+
+```csharp
+// Obtain an instance of ItemRoutedComparer from the subsystem API first
+ItemRoutedComparer itemRoutedComparer = ...;
+var result = itemRoutedComparer.Compare(x, y);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ItemRoutedComparer();
-value.Compare(x, y);
+// Typically call this after obtaining an instance from the subsystem API
+ItemRoutedComparer itemRoutedComparer = ...;
+itemRoutedComparer.Compare(x, y);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MissionGauntletMultiplayerMarkerUIHandler"
+description: "MissionGauntletMultiplayerMarkerUIHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionGauntletMultiplayerMarkerUIHandler`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletMultiplayerMarkerUIHandler
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionGauntletMultiplayerMarkerUIHandler : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerMarkerUIHandler.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI/TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission/MissionGauntletMultiplayerMarkerUIHandler.cs`
 
 ## 概述
 
@@ -29,24 +23,42 @@ title: "MissionGauntletMultiplayerMarkerUIHandler"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerMarkerUIHandler 实例
+MissionGauntletMultiplayerMarkerUIHandler missionGauntletMultiplayerMarkerUIHandler = ...;
+missionGauntletMultiplayerMarkerUIHandler.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerMarkerUIHandler 实例
+MissionGauntletMultiplayerMarkerUIHandler missionGauntletMultiplayerMarkerUIHandler = ...;
+missionGauntletMultiplayerMarkerUIHandler.OnMissionScreenFinalize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionGauntletMultiplayerMarkerUIHandler 实例
+MissionGauntletMultiplayerMarkerUIHandler missionGauntletMultiplayerMarkerUIHandler = ...;
+missionGauntletMultiplayerMarkerUIHandler.OnMissionScreenTick(0);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionGauntletMultiplayerMarkerUIHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionGauntletMultiplayerMarkerUIHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

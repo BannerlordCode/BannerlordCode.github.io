@@ -1,20 +1,14 @@
 ---
 title: "MakePeaceKingdomDecision"
+description: "Auto-generated class reference for MakePeaceKingdomDecision."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MakePeaceKingdomDecision`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MakePeaceKingdomDecision
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MakePeaceKingdomDecision : KingdomDecision`
 **Base:** `KingdomDecision`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/MakePeaceKingdomDecision.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/MakePeaceKingdomDecision.cs`
 
 ## Overview
 
@@ -29,120 +23,253 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Gets the current value of `decision title`.
+**Purpose:** Reads and returns the `decision title` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetDecisionTitle();
+```
 
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Gets the current value of `decision description`.
+**Purpose:** Reads and returns the `decision description` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetDecisionDescription();
+```
 
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Gets the current value of `decision link`.
+**Purpose:** Reads and returns the `decision link` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetDecisionLink();
+```
 
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Gets the current value of `decision image identifier`.
+**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetDecisionImageIdentifier();
+```
 
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**Purpose:** Handles logic related to `is allowed`.
+**Purpose:** Determines whether the current object is in the `allowed` state or condition.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.IsAllowed();
+```
 
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**Purpose:** Gets the current value of `proposal influence cost`.
+**Purpose:** Reads and returns the `proposal influence cost` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetProposalInfluenceCost();
+```
 
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**Purpose:** Gets the current value of `general title`.
+**Purpose:** Reads and returns the `general title` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetGeneralTitle();
+```
 
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**Purpose:** Gets the current value of `support title`.
+**Purpose:** Reads and returns the `support title` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetSupportTitle();
+```
 
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**Purpose:** Gets the current value of `choose title`.
+**Purpose:** Reads and returns the `choose title` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetChooseTitle();
+```
 
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**Purpose:** Gets the current value of `support description`.
+**Purpose:** Reads and returns the `support description` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetSupportDescription();
+```
 
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**Purpose:** Gets the current value of `choose description`.
+**Purpose:** Reads and returns the `choose description` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetChooseDescription();
+```
 
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**Purpose:** Handles logic related to `determine initial candidates`.
+**Purpose:** Determines the result of `initial candidates` based on the current state.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.DetermineInitialCandidates();
+```
 
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**Purpose:** Handles logic related to `determine chooser`.
+**Purpose:** Determines the result of `chooser` based on the current state.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.DetermineChooser();
+```
 
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** Handles logic related to `determine sponsors`.
+**Purpose:** Determines the result of `sponsors` based on the current state.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+makePeaceKingdomDecision.DetermineSponsors(possibleOutcomes);
+```
 
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**Purpose:** Applies `chosen outcome` to the current object.
+**Purpose:** Applies the effect of `chosen outcome` to the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+makePeaceKingdomDecision.ApplyChosenOutcome(chosenOutcome);
+```
 
 ### OnShowDecision
 `public override bool OnShowDecision()`
 
-**Purpose:** Called when the `show decision` event is raised.
+**Purpose:** Invoked when the `show decision` event is raised.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.OnShowDecision();
+```
 
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**Purpose:** Gets the current value of `secondary effects`.
+**Purpose:** Reads and returns the `secondary effects` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetSecondaryEffects();
+```
 
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**Purpose:** Applies `secondary effects` to the current object.
+**Purpose:** Applies the effect of `secondary effects` to the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+makePeaceKingdomDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutcome);
+```
 
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, SupportStatus supportStatus, bool isShortVersion = false)`
 
-**Purpose:** Gets the current value of `chosen outcome text`.
+**Purpose:** Reads and returns the `chosen outcome text` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, false);
+```
 
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** Gets the current value of `queried decision outcome`.
+**Purpose:** Reads and returns the `queried decision outcome` value held by the current object.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.GetQueriedDecisionOutcome(possibleOutcomes);
+```
 
 ### CalculateSupport
 `public float CalculateSupport(Clan clan)`
 
-**Purpose:** Handles logic related to `calculate support`.
+**Purpose:** Calculates the current value or result of `support`.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.CalculateSupport(clan);
+```
 
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**Purpose:** Handles logic related to `determine support`.
+**Purpose:** Determines the result of `support` based on the current state.
+
+```csharp
+// Obtain an instance of MakePeaceKingdomDecision from the subsystem API first
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+var result = makePeaceKingdomDecision.DetermineSupport(clan, possibleOutcome);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MakePeaceKingdomDecision();
-value.GetDecisionTitle();
+// Typically call this after obtaining an instance from the subsystem API
+MakePeaceKingdomDecision makePeaceKingdomDecision = ...;
+makePeaceKingdomDecision.GetDecisionTitle();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

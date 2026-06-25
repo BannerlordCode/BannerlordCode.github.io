@@ -1,13 +1,7 @@
 ---
 title: "TutorialPhase"
+description: "TutorialPhase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TutorialPhase`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TutorialPhase
 
 **Namespace:** StoryMode.StoryModePhases
@@ -43,60 +37,121 @@ title: "TutorialPhase"
 ### PlayerTalkedWithBrotherForTheFirstTime
 `public void PlayerTalkedWithBrotherForTheFirstTime()`
 
-**用途 / Purpose:** 处理 `player talked with brother for the first time` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.PlayerTalkedWithBrotherForTheFirstTime();
+```
 
 ### SetLockTutorialVillageEnter
 `public void SetLockTutorialVillageEnter(bool value)`
 
-**用途 / Purpose:** 设置 `lock tutorial village enter` 的值或状态。
+**用途 / Purpose:** 为 「lock tutorial village enter」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.SetLockTutorialVillageEnter(false);
+```
 
 ### CompleteTutorial
 `public void CompleteTutorial(bool isSkipped)`
 
-**用途 / Purpose:** 处理 `complete tutorial` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.CompleteTutorial(false);
+```
 
 ### SetTutorialFocusSettlement
 `public void SetTutorialFocusSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 设置 `tutorial focus settlement` 的值或状态。
+**用途 / Purpose:** 为 「tutorial focus settlement」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.SetTutorialFocusSettlement(settlement);
+```
 
 ### RemoveTutorialFocusSettlement
 `public void RemoveTutorialFocusSettlement()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `tutorial focus settlement`。
+**用途 / Purpose:** 从当前容器或状态中移除 「tutorial focus settlement」。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.RemoveTutorialFocusSettlement();
+```
 
 ### RemoveTutorialFocusMobileParty
 `public void RemoveTutorialFocusMobileParty()`
 
-**用途 / Purpose:** 从当前集合/状态中移除 `tutorial focus mobile party`。
+**用途 / Purpose:** 从当前容器或状态中移除 「tutorial focus mobile party」。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.RemoveTutorialFocusMobileParty();
+```
 
 ### PrepareRecruitOptionForTutorial
 `public void PrepareRecruitOptionForTutorial()`
 
-**用途 / Purpose:** 处理 `prepare recruit option for tutorial` 相关逻辑。
+**用途 / Purpose:** 为即将执行的「recruit option for tutorial」操作完成前置准备工作。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.PrepareRecruitOptionForTutorial();
+```
 
 ### GetAndPrepareBuyProductsOptionForTutorial
 `public ItemRoster GetAndPrepareBuyProductsOptionForTutorial(Village village)`
 
-**用途 / Purpose:** 获取 `and prepare buy products option for tutorial` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「and prepare buy products option for tutorial」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+var result = tutorialPhase.GetAndPrepareBuyProductsOptionForTutorial(village);
+```
 
 ### SetTutorialQuestPhase
 `public void SetTutorialQuestPhase(TutorialQuestPhase tutorialQuestPhase)`
 
-**用途 / Purpose:** 设置 `tutorial quest phase` 的值或状态。
+**用途 / Purpose:** 为 「tutorial quest phase」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.SetTutorialQuestPhase(tutorialQuestPhase);
+```
 
 ### InitializeTutorialVillageItemRoster
 `public void InitializeTutorialVillageItemRoster()`
 
-**用途 / Purpose:** 初始化 `tutorial village item roster` 的状态、资源或绑定。
+**用途 / Purpose:** 为 「tutorial village item roster」 初始化必要的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 TutorialPhase 实例
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.InitializeTutorialVillageItemRoster();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TutorialPhase();
-value.PlayerTalkedWithBrotherForTheFirstTime();
+// 通常从对应子系统 API 获取实例后调用
+TutorialPhase tutorialPhase = ...;
+tutorialPhase.PlayerTalkedWithBrotherForTheFirstTime();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

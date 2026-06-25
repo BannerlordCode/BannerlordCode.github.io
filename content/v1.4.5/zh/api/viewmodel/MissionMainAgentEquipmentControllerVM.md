@@ -1,20 +1,14 @@
 ---
 title: "MissionMainAgentEquipmentControllerVM"
+description: "MissionMainAgentEquipmentControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionMainAgentEquipmentControllerVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionMainAgentEquipmentControllerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionMainAgentEquipmentControllerVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionMainAgentEquipmentControllerVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionMainAgentEquipmentControllerVM.cs`
 
 ## 概述
 
@@ -42,45 +36,87 @@ title: "MissionMainAgentEquipmentControllerVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentEquipmentControllerVM 实例
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.RefreshValues();
+```
 
 ### OnDropControllerToggle
 `public void OnDropControllerToggle(bool isActive)`
 
-**用途 / Purpose:** 当 `drop controller toggle` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「drop controller toggle」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentEquipmentControllerVM 实例
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.OnDropControllerToggle(false);
+```
 
 ### SetCurrentFocusedWeaponEntity
 `public void SetCurrentFocusedWeaponEntity(SpawnedItemEntity weaponEntity)`
 
-**用途 / Purpose:** 设置 `current focused weapon entity` 的值或状态。
+**用途 / Purpose:** 为 「current focused weapon entity」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentEquipmentControllerVM 实例
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.SetCurrentFocusedWeaponEntity(weaponEntity);
+```
 
 ### OnEquipControllerToggle
 `public void OnEquipControllerToggle(bool isActive)`
 
-**用途 / Purpose:** 当 `equip controller toggle` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「equip controller toggle」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentEquipmentControllerVM 实例
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.OnEquipControllerToggle(false);
+```
 
 ### OnCancelEquipController
 `public void OnCancelEquipController()`
 
-**用途 / Purpose:** 当 `cancel equip controller` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「cancel equip controller」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentEquipmentControllerVM 实例
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.OnCancelEquipController();
+```
 
 ### OnCancelDropController
 `public void OnCancelDropController()`
 
-**用途 / Purpose:** 当 `cancel drop controller` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「cancel drop controller」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionMainAgentEquipmentControllerVM 实例
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.OnCancelDropController();
+```
 
 ### GetItemTypeAsString
 `public static string GetItemTypeAsString(ItemObject item)`
 
-**用途 / Purpose:** 获取 `item type as string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「item type as string」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+MissionMainAgentEquipmentControllerVM.GetItemTypeAsString(item);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionMainAgentEquipmentControllerVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MissionMainAgentEquipmentControllerVM missionMainAgentEquipmentControllerVM = ...;
+missionMainAgentEquipmentControllerVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

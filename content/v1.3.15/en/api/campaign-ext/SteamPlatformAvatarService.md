@@ -1,13 +1,7 @@
 ---
 title: "SteamPlatformAvatarService"
+description: "Auto-generated class reference for SteamPlatformAvatarService."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SteamPlatformAvatarService`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SteamPlatformAvatarService
 
 **Namespace:** TaleWorlds.PlatformService.Steam
@@ -29,40 +23,77 @@ Start from namespace `TaleWorlds.PlatformService.Steam` to place it in the stack
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**Purpose:** Gets the current value of `player avatar`.
+**Purpose:** Reads and returns the `player avatar` value held by the current object.
+
+```csharp
+// Obtain an instance of SteamPlatformAvatarService from the subsystem API first
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+var result = steamPlatformAvatarService.GetPlayerAvatar(playerId);
+```
 
 ### FetchPlayerAvatar
 `public void FetchPlayerAvatar(AvatarData avatarData, PlayerId playerId)`
 
-**Purpose:** Handles logic related to `fetch player avatar`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SteamPlatformAvatarService from the subsystem API first
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.FetchPlayerAvatar(avatarData, playerId);
+```
 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SteamPlatformAvatarService from the subsystem API first
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.Initialize();
+```
 
 ### ClearCache
 `public void ClearCache()`
 
-**Purpose:** Handles logic related to `clear cache`.
+**Purpose:** Removes all `cache` from the current object.
+
+```csharp
+// Obtain an instance of SteamPlatformAvatarService from the subsystem API first
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.ClearCache();
+```
 
 ### IsInitialized
 `public bool IsInitialized()`
 
-**Purpose:** Handles logic related to `is initialized`.
+**Purpose:** Determines whether the current object is in the `initialized` state or condition.
+
+```csharp
+// Obtain an instance of SteamPlatformAvatarService from the subsystem API first
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+var result = steamPlatformAvatarService.IsInitialized();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of SteamPlatformAvatarService from the subsystem API first
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.Tick(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SteamPlatformAvatarService();
-value.GetPlayerAvatar(playerId);
+// Typically call this after obtaining an instance from the subsystem API
+SteamPlatformAvatarService steamPlatformAvatarService = ...;
+steamPlatformAvatarService.GetPlayerAvatar(playerId);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

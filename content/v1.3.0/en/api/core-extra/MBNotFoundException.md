@@ -1,13 +1,7 @@
 ---
 title: "MBNotFoundException"
+description: "Auto-generated class reference for MBNotFoundException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBNotFoundException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBNotFoundException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBNotFoundException` as a Exception-style extension point: first identify
 ## Usage Example
 
 ```csharp
-try { CallMBNotFoundException(); } catch (MBNotFoundException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBNotFoundException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,23 +1,18 @@
 ---
 title: "MBExtensions"
+description: "Auto-generated class reference for MBExtensions."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBExtensions`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBExtensions
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBExtensions`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MBExtensions.cs`
 
 ## Overview
 
-`MBExtensions` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBExtensions` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,61 +23,109 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetGlobalOrganicDirection
 `public static Vec2 GetGlobalOrganicDirection(this ColumnFormation columnFormation)`
 
-**Purpose:** Gets the current value of `global organic direction`.
+**Purpose:** Reads and returns the `global organic direction` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBExtensions.GetGlobalOrganicDirection(columnFormation);
+```
 
 ### GetGlobalHeadDirection
 `public static Vec2 GetGlobalHeadDirection(this ColumnFormation columnFormation)`
 
-**Purpose:** Gets the current value of `global head direction`.
+**Purpose:** Reads and returns the `global head direction` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBExtensions.GetGlobalHeadDirection(columnFormation);
+```
 
 ### FindAllWithCompatibleType
 `public static List<GameEntity> FindAllWithCompatibleType(this IEnumerable<GameEntity> sceneProps, params Type types)`
 
-**Purpose:** Handles logic related to `find all with compatible type`.
+**Purpose:** Looks up the matching `all with compatible type` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+MBExtensions.FindAllWithCompatibleType(sceneProps, types);
+```
 
 ### FindAllWithCompatibleType
 `public static List<MissionObject> FindAllWithCompatibleType(this IEnumerable<MissionObject> missionObjects, params Type types)`
 
-**Purpose:** Handles logic related to `find all with compatible type`.
+**Purpose:** Looks up the matching `all with compatible type` in the current collection or scope.
+
+```csharp
+// Static call; no instance required
+MBExtensions.FindAllWithCompatibleType(missionObjects, types);
+```
 
 ### CollectChildrenEntitiesWithTag
 `public static List<GameEntity> CollectChildrenEntitiesWithTag(this GameEntity entity, string tag)`
 
-**Purpose:** Handles logic related to `collect children entities with tag`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBExtensions.CollectChildrenEntitiesWithTag(entity, "example");
+```
 
 ### CollectChildrenEntitiesWithTag
 `public static List<WeakGameEntity> CollectChildrenEntitiesWithTag(this WeakGameEntity entity, string tag)`
 
-**Purpose:** Handles logic related to `collect children entities with tag`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBExtensions.CollectChildrenEntitiesWithTag(entity, "example");
+```
 
 ### GetFirstChildEntityWithName
 `public static WeakGameEntity GetFirstChildEntityWithName(this WeakGameEntity entity, string name)`
 
-**Purpose:** Gets the current value of `first child entity with name`.
+**Purpose:** Reads and returns the `first child entity with name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBExtensions.GetFirstChildEntityWithName(entity, "example");
+```
 
 ### HasParentOfType
 `public static bool HasParentOfType(this GameEntity e, Type t)`
 
-**Purpose:** Checks whether the current object has/contains `parent of type`.
+**Purpose:** Determines whether the current object already holds `parent of type`.
+
+```csharp
+// Static call; no instance required
+MBExtensions.HasParentOfType(e, t);
+```
 
 ### HasParentOfType
 `public static bool HasParentOfType(this WeakGameEntity e, Type t)`
 
-**Purpose:** Checks whether the current object has/contains `parent of type`.
+**Purpose:** Determines whether the current object already holds `parent of type`.
+
+```csharp
+// Static call; no instance required
+MBExtensions.HasParentOfType(e, t);
+```
 
 ### IsOpponentOf
 `public static bool IsOpponentOf(this BattleSideEnum s, BattleSideEnum side)`
 
-**Purpose:** Handles logic related to `is opponent of`.
+**Purpose:** Determines whether the current object is in the `opponent of` state or condition.
+
+```csharp
+// Static call; no instance required
+MBExtensions.IsOpponentOf(s, side);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBExtensions.GetGlobalOrganicDirection(columnFormation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

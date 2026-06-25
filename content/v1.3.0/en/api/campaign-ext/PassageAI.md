@@ -1,13 +1,7 @@
 ---
 title: "PassageAI"
+description: "Auto-generated class reference for PassageAI."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PassageAI`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PassageAI
 
 **Namespace:** SandBox.AI
@@ -27,9 +21,10 @@ Start from namespace `SandBox.AI` to place it in the stack, then inspect its pub
 ## Usage Example
 
 ```csharp
-var value = new PassageAI();
+// Obtain an instance from the relevant subsystem API
+PassageAI instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "ContainerDefinition"
+description: "Auto-generated class reference for ContainerDefinition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ContainerDefinition`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ContainerDefinition
 
 **Namespace:** TaleWorlds.SaveSystem.Definition
 **Module:** TaleWorlds.SaveSystem
 **Type:** `public class ContainerDefinition : TypeDefinitionBase`
 **Base:** `TypeDefinitionBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerDefinition.cs`
+**File:** `bin/TaleWorlds.SaveSystem/TaleWorlds.SaveSystem.Definition/ContainerDefinition.cs`
 
 ## Overview
 
@@ -37,15 +31,22 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate, bool hasNoChildObject)`
 
-**Purpose:** Initializes the state, resources, or bindings for `for auto generation`.
+**Purpose:** Prepares the resources, state, or bindings required by `for auto generation`.
+
+```csharp
+// Obtain an instance of ContainerDefinition from the subsystem API first
+ContainerDefinition containerDefinition = ...;
+containerDefinition.InitializeForAutoGeneration(collectObjectsDelegate, false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ContainerDefinition();
-value.InitializeForAutoGeneration(collectObjectsDelegate, false);
+// Typically call this after obtaining an instance from the subsystem API
+ContainerDefinition containerDefinition = ...;
+containerDefinition.InitializeForAutoGeneration(collectObjectsDelegate, false);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "RefinementActionItemVM"
+description: "Auto-generated class reference for RefinementActionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `RefinementActionItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # RefinementActionItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Refinement
@@ -39,25 +33,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RefinementActionItemVM from the subsystem API first
+RefinementActionItemVM refinementActionItemVM = ...;
+refinementActionItemVM.RefreshValues();
+```
 
 ### RefreshDynamicProperties
 `public void RefreshDynamicProperties()`
 
-**Purpose:** Refreshes the display or cache of `dynamic properties`.
+**Purpose:** Keeps the display or cache of `dynamic properties` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of RefinementActionItemVM from the subsystem API first
+RefinementActionItemVM refinementActionItemVM = ...;
+refinementActionItemVM.RefreshDynamicProperties();
+```
 
 ### ExecuteSelectAction
 `public void ExecuteSelectAction()`
 
-**Purpose:** Executes the `select action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `select action`.
+
+```csharp
+// Obtain an instance of RefinementActionItemVM from the subsystem API first
+RefinementActionItemVM refinementActionItemVM = ...;
+refinementActionItemVM.ExecuteSelectAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new RefinementActionItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+RefinementActionItemVM refinementActionItemVM = ...;
+refinementActionItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

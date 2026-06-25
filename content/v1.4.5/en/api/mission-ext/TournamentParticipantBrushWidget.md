@@ -1,20 +1,14 @@
 ---
 title: "TournamentParticipantBrushWidget"
+description: "Auto-generated class reference for TournamentParticipantBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TournamentParticipantBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentParticipantBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TournamentParticipantBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament/TournamentParticipantBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tournament/TournamentParticipantBrushWidget.cs`
 
 ## Overview
 
@@ -39,9 +33,10 @@ Treat `TournamentParticipantBrushWidget` as a Widget-style extension point: firs
 ## Usage Example
 
 ```csharp
-var widget = new TournamentParticipantBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+TournamentParticipantBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

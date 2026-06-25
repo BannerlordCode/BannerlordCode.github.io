@@ -1,13 +1,7 @@
 ---
 title: "RichTextTag"
+description: "RichTextTag 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RichTextTag`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # RichTextTag
 
 **Namespace:** TaleWorlds.TwoDimension
@@ -36,20 +30,33 @@ title: "RichTextTag"
 ### AddAtrribute
 `public void AddAtrribute(string key, string value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `atrribute`。
+**用途 / Purpose:** 将 「atrribute」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 RichTextTag 实例
+RichTextTag richTextTag = ...;
+richTextTag.AddAtrribute("example", "example");
+```
 
 ### GetAttribute
 `public string GetAttribute(string key)`
 
-**用途 / Purpose:** 获取 `attribute` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「attribute」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 RichTextTag 实例
+RichTextTag richTextTag = ...;
+var result = richTextTag.GetAttribute("example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new RichTextTag();
-value.AddAtrribute("example", "example");
+// 通常从对应子系统 API 获取实例后调用
+RichTextTag richTextTag = ...;
+richTextTag.AddAtrribute("example", "example");
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

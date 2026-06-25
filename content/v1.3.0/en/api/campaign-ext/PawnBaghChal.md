@@ -1,13 +1,7 @@
 ---
 title: "PawnBaghChal"
+description: "Auto-generated class reference for PawnBaghChal."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PawnBaghChal`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PawnBaghChal
 
 **Namespace:** SandBox.BoardGames.Pawns
@@ -38,15 +32,22 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of PawnBaghChal from the subsystem API first
+PawnBaghChal pawnBaghChal = ...;
+pawnBaghChal.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PawnBaghChal();
-value.Reset();
+// Typically call this after obtaining an instance from the subsystem API
+PawnBaghChal pawnBaghChal = ...;
+pawnBaghChal.Reset();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "TrainingIcon"
+description: "Auto-generated class reference for TrainingIcon."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TrainingIcon`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrainingIcon
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class TrainingIcon : UsableMachine`
 **Base:** `UsableMachine`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrainingIcon.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TrainingIcon.cs`
 
 ## Overview
 
@@ -35,60 +29,121 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Gets the current value of `tick requirement`.
+**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetTickRequirement();
+```
 
 ### SetMarked
 `public void SetMarked(bool highlight)`
 
-**Purpose:** Sets the value or state of `marked`.
+**Purpose:** Assigns a new value to `marked` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+trainingIcon.SetMarked(false);
+```
 
 ### GetIsActivated
 `public bool GetIsActivated()`
 
-**Purpose:** Gets the current value of `is activated`.
+**Purpose:** Reads and returns the `is activated` value held by the current object.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetIsActivated();
+```
 
 ### GetTrainingSubTypeTag
 `public string GetTrainingSubTypeTag()`
 
-**Purpose:** Gets the current value of `training sub type tag`.
+**Purpose:** Reads and returns the `training sub type tag` value held by the current object.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetTrainingSubTypeTag();
+```
 
 ### DisableIcon
 `public void DisableIcon()`
 
-**Purpose:** Handles logic related to `disable icon`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+trainingIcon.DisableIcon();
+```
 
 ### EnableIcon
 `public void EnableIcon()`
 
-**Purpose:** Handles logic related to `enable icon`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+trainingIcon.EnableIcon();
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Gets the current value of `description text`.
+**Purpose:** Reads and returns the `description text` value held by the current object.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetDescriptionText(gameEntity);
+```
 
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject = null)`
 
-**Purpose:** Gets the current value of `action text for standing point`.
+**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+var result = trainingIcon.GetActionTextForStandingPoint(null);
+```
 
 ### OnFocusGain
 `public override void OnFocusGain(Agent userAgent)`
 
-**Purpose:** Called when the `focus gain` event is raised.
+**Purpose:** Invoked when the `focus gain` event is raised.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+trainingIcon.OnFocusGain(userAgent);
+```
 
 ### OnFocusLose
 `public override void OnFocusLose(Agent userAgent)`
 
-**Purpose:** Called when the `focus lose` event is raised.
+**Purpose:** Invoked when the `focus lose` event is raised.
+
+```csharp
+// Obtain an instance of TrainingIcon from the subsystem API first
+TrainingIcon trainingIcon = ...;
+trainingIcon.OnFocusLose(userAgent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TrainingIcon();
-value.GetTickRequirement();
+// Typically call this after obtaining an instance from the subsystem API
+TrainingIcon trainingIcon = ...;
+trainingIcon.GetTickRequirement();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

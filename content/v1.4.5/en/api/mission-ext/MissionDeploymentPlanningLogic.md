@@ -1,20 +1,14 @@
 ---
 title: "MissionDeploymentPlanningLogic"
+description: "Auto-generated class reference for MissionDeploymentPlanningLogic."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionDeploymentPlanningLogic`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionDeploymentPlanningLogic
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class MissionDeploymentPlanningLogic : MissionLogic, IMissionDeploymentPlan`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionDeploymentPlanningLogic.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionDeploymentPlanningLogic.cs`
 
 ## Overview
 
@@ -29,124 +23,263 @@ Treat `MissionDeploymentPlanningLogic` as a Logic-style extension point: first i
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.Initialize();
+```
 
 ### ClearAll
 `public virtual void ClearAll()`
 
-**Purpose:** Handles logic related to `clear all`.
+**Purpose:** Removes all `all` from the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.ClearAll();
+```
 
 ### MakeDefaultDeploymentPlans
 `public virtual void MakeDefaultDeploymentPlans()`
 
-**Purpose:** Handles logic related to `make default deployment plans`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.MakeDefaultDeploymentPlans();
+```
 
 ### MakeDeploymentPlan
 `public virtual void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetPathOffset = 0f)`
 
-**Purpose:** Handles logic related to `make deployment plan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.MakeDeploymentPlan(team, 0, 0);
+```
 
 ### RemakeDeploymentPlan
 `public virtual bool RemakeDeploymentPlan(Team team)`
 
-**Purpose:** Handles logic related to `remake deployment plan`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.RemakeDeploymentPlan(team);
+```
 
 ### ClearDeploymentPlan
 `public virtual void ClearDeploymentPlan(Team team)`
 
-**Purpose:** Handles logic related to `clear deployment plan`.
+**Purpose:** Removes all `deployment plan` from the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.ClearDeploymentPlan(team);
+```
 
 ### IsPlanMade
 `public virtual bool IsPlanMade(Team team)`
 
-**Purpose:** Handles logic related to `is plan made`.
+**Purpose:** Determines whether the current object is in the `plan made` state or condition.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.IsPlanMade(team);
+```
 
 ### IsPlanMade
 `public virtual bool IsPlanMade(Team team, out bool isFirstPlan)`
 
-**Purpose:** Handles logic related to `is plan made`.
+**Purpose:** Determines whether the current object is in the `plan made` state or condition.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.IsPlanMade(team, isFirstPlan);
+```
 
 ### IsPositionInsideDeploymentBoundaries
 `public virtual bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)`
 
-**Purpose:** Handles logic related to `is position inside deployment boundaries`.
+**Purpose:** Determines whether the current object is in the `position inside deployment boundaries` state or condition.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.IsPositionInsideDeploymentBoundaries(team, position);
+```
 
 ### HasDeploymentBoundaries
 `public virtual bool HasDeploymentBoundaries(Team team)`
 
-**Purpose:** Checks whether the current object has/contains `deployment boundaries`.
+**Purpose:** Determines whether the current object already holds `deployment boundaries`.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.HasDeploymentBoundaries(team);
+```
 
 ### SupportsReinforcements
 `public virtual bool SupportsReinforcements()`
 
-**Purpose:** Handles logic related to `supports reinforcements`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.SupportsReinforcements();
+```
 
 ### UpdateReinforcementPlan
 `public virtual void UpdateReinforcementPlan(Team team)`
 
-**Purpose:** Updates the state or data of `reinforcement plan`.
+**Purpose:** Recalculates and stores the latest representation of `reinforcement plan`.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.UpdateReinforcementPlan(team);
+```
 
 ### SupportsNavmesh
 `public virtual bool SupportsNavmesh(Team team)`
 
-**Purpose:** Handles logic related to `supports navmesh`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.SupportsNavmesh(team);
+```
 
 ### HasPlayerSpawnFrame
 `public virtual bool HasPlayerSpawnFrame(BattleSideEnum battleSide)`
 
-**Purpose:** Checks whether the current object has/contains `player spawn frame`.
+**Purpose:** Determines whether the current object already holds `player spawn frame`.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.HasPlayerSpawnFrame(battleSide);
+```
 
 ### GetPlayerSpawnFrame
 `public virtual bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)`
 
-**Purpose:** Gets the current value of `player spawn frame`.
+**Purpose:** Reads and returns the `player spawn frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetPlayerSpawnFrame(battleSide, position, direction);
+```
 
 ### GetClosestDeploymentBoundaryPosition
 `public virtual Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)`
 
-**Purpose:** Gets the current value of `closest deployment boundary position`.
+**Purpose:** Reads and returns the `closest deployment boundary position` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetClosestDeploymentBoundaryPosition(team, position);
+```
 
 ### ProjectPositionToDeploymentBoundaries
 `public virtual void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition position)`
 
-**Purpose:** Handles logic related to `project position to deployment boundaries`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+missionDeploymentPlanningLogic.ProjectPositionToDeploymentBoundaries(team, position);
+```
 
 ### GetPathDeploymentBoundaryIntersection
 `public virtual bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition foundPosition)`
 
-**Purpose:** Gets the current value of `path deployment boundary intersection`.
+**Purpose:** Reads and returns the `path deployment boundary intersection` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetPathDeploymentBoundaryIntersection(team, startPosition, endPosition, foundPosition);
+```
 
 ### GetDeploymentFrame
 `public virtual MatrixFrame GetDeploymentFrame(Team team)`
 
-**Purpose:** Gets the current value of `deployment frame`.
+**Purpose:** Reads and returns the `deployment frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetDeploymentFrame(team);
+```
 
 ### GetFormationPlan
 `public virtual IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement = false)`
 
-**Purpose:** Gets the current value of `formation plan`.
+**Purpose:** Reads and returns the `formation plan` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetFormationPlan(team, fClass, false);
+```
 
 ### GetSpawnPathOffset
 `public virtual float GetSpawnPathOffset(Team team)`
 
-**Purpose:** Gets the current value of `spawn path offset`.
+**Purpose:** Reads and returns the `spawn path offset` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetSpawnPathOffset(team);
+```
 
 ### GetZoomFocusFrame
 `public virtual MatrixFrame GetZoomFocusFrame(Team team)`
 
-**Purpose:** Gets the current value of `zoom focus frame`.
+**Purpose:** Reads and returns the `zoom focus frame` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetZoomFocusFrame(team);
+```
 
 ### GetZoomOffset
 `public virtual float GetZoomOffset(Team team, float fovAngle)`
 
-**Purpose:** Gets the current value of `zoom offset`.
+**Purpose:** Reads and returns the `zoom offset` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionDeploymentPlanningLogic from the subsystem API first
+MissionDeploymentPlanningLogic missionDeploymentPlanningLogic = ...;
+var result = missionDeploymentPlanningLogic.GetZoomOffset(team, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMissionDeploymentPlanningLogic();
+// Typically obtained from a subsystem API or factory
+MissionDeploymentPlanningLogic instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

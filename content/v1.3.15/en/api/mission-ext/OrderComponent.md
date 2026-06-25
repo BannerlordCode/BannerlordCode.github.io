@@ -1,13 +1,7 @@
 ---
 title: "OrderComponent"
+description: "Auto-generated class reference for OrderComponent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderComponent`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderComponent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,14 +29,21 @@ Treat `OrderComponent` as a Component-style extension point: first identify who 
 ### GetDirection
 `public Vec2 GetDirection(Formation f)`
 
-**Purpose:** Gets the current value of `direction`.
+**Purpose:** Reads and returns the `direction` value held by the current object.
+
+```csharp
+// Obtain an instance of OrderComponent from the subsystem API first
+OrderComponent orderComponent = ...;
+var result = orderComponent.GetDirection(f);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomOrderComponent();
+// Typically obtained from a subsystem API or factory
+OrderComponent instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "HideoutModel"
+description: "Auto-generated class reference for HideoutModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `HideoutModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # HideoutModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -34,9 +28,10 @@ Treat `HideoutModel` as a Model-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var implementation = new CustomHideoutModel();
+// Typically obtained from a subsystem API or factory
+HideoutModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

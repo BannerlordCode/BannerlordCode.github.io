@@ -1,20 +1,14 @@
 ---
 title: "IMissionTroopSupplier"
+description: "Auto-generated class reference for IMissionTroopSupplier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `IMissionTroopSupplier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # IMissionTroopSupplier
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IMissionTroopSupplier`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IMissionTroopSupplier.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IMissionTroopSupplier.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ## Usage Example
 
 ```csharp
-IMissionTroopSupplier implementation = GetMissionTroopSupplierImplementation();
+// Usually obtained through DI or a factory method
+IIMissionTroopSupplier service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

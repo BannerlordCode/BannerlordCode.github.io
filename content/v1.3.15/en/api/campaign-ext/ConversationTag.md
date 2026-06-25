@@ -1,13 +1,7 @@
 ---
 title: "ConversationTag"
+description: "Auto-generated class reference for ConversationTag."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ConversationTag`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ConversationTag
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation.Tags
@@ -35,19 +29,32 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Tags` to place it i
 ### IsApplicableTo
 `public abstract bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is applicable to`.
+**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+
+```csharp
+// Obtain an instance of ConversationTag from the subsystem API first
+ConversationTag conversationTag = ...;
+var result = conversationTag.IsApplicableTo(character);
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of ConversationTag from the subsystem API first
+ConversationTag conversationTag = ...;
+var result = conversationTag.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomConversationTag();
+// Typically obtained from a subsystem API or factory
+ConversationTag instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "MapInfoItemVM"
+description: "Auto-generated class reference for MapInfoItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapInfoItemVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapInfoItemVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class MapInfoItemVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar/MapInfoItemVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar/MapInfoItemVM.cs`
 
 ## Overview
 
@@ -39,25 +33,44 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapBar` 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Executes the `begin hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `begin hint`.
+
+```csharp
+// Obtain an instance of MapInfoItemVM from the subsystem API first
+MapInfoItemVM mapInfoItemVM = ...;
+mapInfoItemVM.ExecuteBeginHint();
+```
 
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Executes the `end hint` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `end hint`.
+
+```csharp
+// Obtain an instance of MapInfoItemVM from the subsystem API first
+MapInfoItemVM mapInfoItemVM = ...;
+mapInfoItemVM.ExecuteEndHint();
+```
 
 ### SetOverriddenVisualId
 `public void SetOverriddenVisualId(string visualId)`
 
-**Purpose:** Sets the value or state of `overridden visual id`.
+**Purpose:** Assigns a new value to `overridden visual id` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MapInfoItemVM from the subsystem API first
+MapInfoItemVM mapInfoItemVM = ...;
+mapInfoItemVM.SetOverriddenVisualId("example");
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MapInfoItemVM();
-value.ExecuteBeginHint();
+// Typically call this after obtaining an instance from the subsystem API
+MapInfoItemVM mapInfoItemVM = ...;
+mapInfoItemVM.ExecuteBeginHint();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

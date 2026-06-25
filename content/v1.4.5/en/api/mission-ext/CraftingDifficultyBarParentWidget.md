@@ -1,20 +1,14 @@
 ---
 title: "CraftingDifficultyBarParentWidget"
+description: "Auto-generated class reference for CraftingDifficultyBarParentWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CraftingDifficultyBarParentWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingDifficultyBarParentWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CraftingDifficultyBarParentWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingDifficultyBarParentWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting/CraftingDifficultyBarParentWidget.cs`
 
 ## Overview
 
@@ -38,14 +32,21 @@ Treat `CraftingDifficultyBarParentWidget` as a Widget-style extension point: fir
 ### CraftingDifficultyBarParentWidget
 `public class CraftingDifficultyBarParentWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `crafting difficulty bar parent widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CraftingDifficultyBarParentWidget from the subsystem API first
+CraftingDifficultyBarParentWidget craftingDifficultyBarParentWidget = ...;
+var result = craftingDifficultyBarParentWidget.CraftingDifficultyBarParentWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new CraftingDifficultyBarParentWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+CraftingDifficultyBarParentWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

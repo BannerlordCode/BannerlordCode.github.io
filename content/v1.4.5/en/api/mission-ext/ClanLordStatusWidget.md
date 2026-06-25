@@ -1,20 +1,14 @@
 ---
 title: "ClanLordStatusWidget"
+description: "Auto-generated class reference for ClanLordStatusWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ClanLordStatusWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClanLordStatusWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ClanLordStatusWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanLordStatusWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Clan/ClanLordStatusWidget.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `ClanLordStatusWidget` as a Widget-style extension point: first identify w
 ### ClanLordStatusWidget
 `public class ClanLordStatusWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `clan lord status widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of ClanLordStatusWidget from the subsystem API first
+ClanLordStatusWidget clanLordStatusWidget = ...;
+var result = clanLordStatusWidget.ClanLordStatusWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new ClanLordStatusWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+ClanLordStatusWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

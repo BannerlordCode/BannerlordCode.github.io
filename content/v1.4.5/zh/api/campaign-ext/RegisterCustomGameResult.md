@@ -1,20 +1,14 @@
 ---
 title: "RegisterCustomGameResult"
+description: "RegisterCustomGameResult 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `RegisterCustomGameResult`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # RegisterCustomGameResult
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class RegisterCustomGameResult : FunctionResult`
 **Base:** `FunctionResult`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/RegisterCustomGameResult.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/RegisterCustomGameResult.cs`
 
 ## 概述
 
@@ -33,9 +27,10 @@ title: "RegisterCustomGameResult"
 ## 使用示例
 
 ```csharp
-var example = new RegisterCustomGameResult();
+// 从对应子系统 API 获取实例
+RegisterCustomGameResult instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

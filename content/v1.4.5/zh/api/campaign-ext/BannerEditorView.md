@@ -1,20 +1,14 @@
 ---
 title: "BannerEditorView"
+description: "BannerEditorView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerEditorView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerEditorView
 
 **Namespace:** SandBox.GauntletUI.BannerEditor
 **Module:** SandBox.GauntletUI
 **Type:** `public class BannerEditorView`
 **Base:** 无
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.BannerEditor/BannerEditorView.cs`
+**File:** `Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.BannerEditor/BannerEditorView.cs`
 
 ## 概述
 
@@ -38,34 +32,65 @@ title: "BannerEditorView"
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 当 `tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorView 实例
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.OnTick(0);
+```
 
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 当 `finalize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorView 实例
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.OnFinalize();
+```
 
 ### Exit
 `public void Exit(bool isCancel)`
 
-**用途 / Purpose:** 处理 `exit` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorView 实例
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.Exit(false);
+```
 
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**用途 / Purpose:** 当 `deactivate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「deactivate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorView 实例
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.OnDeactivate();
+```
 
 ### GoToIndex
 `public void GoToIndex(int index)`
 
-**用途 / Purpose:** 处理 `go to index` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 BannerEditorView 实例
+BannerEditorView bannerEditorView = ...;
+bannerEditorView.GoToIndex(0);
+```
 
 ## 使用示例
 
 ```csharp
-var view = new BannerEditorView();
+// 从子系统 API 或场景中获取该视图
+BannerEditorView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

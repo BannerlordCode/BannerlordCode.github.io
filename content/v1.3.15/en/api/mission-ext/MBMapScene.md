@@ -1,23 +1,18 @@
 ---
 title: "MBMapScene"
+description: "Auto-generated class reference for MBMapScene."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBMapScene`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MBMapScene
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBMapScene`
-**Area:** mission-ext
+**Base:** none
+**File:** `TaleWorlds.MountAndBlade/MBMapScene.cs`
 
 ## Overview
 
-`MBMapScene` lives in `TaleWorlds.MountAndBlade`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`MBMapScene` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,111 +23,209 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNearestFaceCenterForPosition
 `public static Vec2 GetNearestFaceCenterForPosition(Scene mapScene, Vec2 position, bool isRegionMap0, int excludedFaceIds)`
 
-**Purpose:** Gets the current value of `nearest face center for position`.
+**Purpose:** Reads and returns the `nearest face center for position` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetNearestFaceCenterForPosition(mapScene, position, false, 0);
+```
 
 ### GetNearestFaceCenterForPositionWithPath
 `public static Vec2 GetNearestFaceCenterForPositionWithPath(Scene mapScene, PathFaceRecord pathFaceRecord, bool targetRegionMap0, float maxDist, int excludedFaceIds)`
 
-**Purpose:** Gets the current value of `nearest face center for position with path`.
+**Purpose:** Reads and returns the `nearest face center for position with path` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetNearestFaceCenterForPositionWithPath(mapScene, pathFaceRecord, false, 0, 0);
+```
 
 ### GetAccessiblePointNearPosition
 `public static Vec2 GetAccessiblePointNearPosition(Scene mapScene, Vec2 position, bool isRegionMap1, float radius)`
 
-**Purpose:** Gets the current value of `accessible point near position`.
+**Purpose:** Reads and returns the `accessible point near position` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetAccessiblePointNearPosition(mapScene, position, false, 0);
+```
 
 ### RemoveZeroCornerBodies
 `public static void RemoveZeroCornerBodies(Scene mapScene)`
 
 **Purpose:** Removes `zero corner bodies` from the current collection or state.
 
+```csharp
+// Static call; no instance required
+MBMapScene.RemoveZeroCornerBodies(mapScene);
+```
+
 ### LoadAtmosphereData
 `public static void LoadAtmosphereData(Scene mapScene)`
 
-**Purpose:** Loads `atmosphere data` data.
+**Purpose:** Reads `atmosphere data` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+MBMapScene.LoadAtmosphereData(mapScene);
+```
 
 ### TickStepSound
 `public static void TickStepSound(Scene mapScene, MBAgentVisuals visuals, int terrainType, TerrainTypeSoundSlot soundType, int partySize)`
 
-**Purpose:** Handles logic related to `tick step sound`.
+**Purpose:** Advances the `step sound` state each frame or update cycle.
+
+```csharp
+// Static call; no instance required
+MBMapScene.TickStepSound(mapScene, visuals, 0, soundType, 0);
+```
 
 ### TickAmbientSounds
 `public static void TickAmbientSounds(Scene mapScene, int terrainType)`
 
-**Purpose:** Handles logic related to `tick ambient sounds`.
+**Purpose:** Advances the `ambient sounds` state each frame or update cycle.
+
+```csharp
+// Static call; no instance required
+MBMapScene.TickAmbientSounds(mapScene, 0);
+```
 
 ### GetMouseVisible
 `public static bool GetMouseVisible()`
 
-**Purpose:** Gets the current value of `mouse visible`.
+**Purpose:** Reads and returns the `mouse visible` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetMouseVisible();
+```
 
 ### GetApplyRainColorGrade
 `public static bool GetApplyRainColorGrade()`
 
-**Purpose:** Gets the current value of `apply rain color grade`.
+**Purpose:** Reads and returns the `apply rain color grade` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetApplyRainColorGrade();
+```
 
 ### SendMouseKeyEvent
 `public static void SendMouseKeyEvent(int mouseKeyId, bool isDown)`
 
-**Purpose:** Handles logic related to `send mouse key event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+MBMapScene.SendMouseKeyEvent(0, false);
+```
 
 ### SetMousePos
 `public static void SetMousePos(int posX, int posY)`
 
-**Purpose:** Sets the value or state of `mouse pos`.
+**Purpose:** Assigns a new value to `mouse pos` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBMapScene.SetMousePos(0, 0);
+```
 
 ### TickVisuals
 `public static void TickVisuals(Scene mapScene, float tod, Mesh tickedMapMeshes)`
 
-**Purpose:** Handles logic related to `tick visuals`.
+**Purpose:** Advances the `visuals` state each frame or update cycle.
+
+```csharp
+// Static call; no instance required
+MBMapScene.TickVisuals(mapScene, 0, tickedMapMeshes);
+```
 
 ### ValidateTerrainSoundIds
 `public static void ValidateTerrainSoundIds()`
 
-**Purpose:** Handles logic related to `validate terrain sound ids`.
+**Purpose:** Checks whether `terrain sound ids` satisfies the required constraints, usually returning a boolean.
+
+```csharp
+// Static call; no instance required
+MBMapScene.ValidateTerrainSoundIds();
+```
 
 ### GetGlobalIlluminationOfString
 `public static void GetGlobalIlluminationOfString(Scene mapScene, string value)`
 
-**Purpose:** Gets the current value of `global illumination of string`.
+**Purpose:** Reads and returns the `global illumination of string` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetGlobalIlluminationOfString(mapScene, "example");
+```
 
 ### GetColorGradeGridData
 `public static void GetColorGradeGridData(Scene mapScene, byte gridData, string textureName)`
 
-**Purpose:** Gets the current value of `color grade grid data`.
+**Purpose:** Reads and returns the `color grade grid data` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetColorGradeGridData(mapScene, 0, "example");
+```
 
 ### GetBattleSceneIndexMap
 `public static void GetBattleSceneIndexMap(Scene mapScene, ref byte indexData, ref int width, ref int height)`
 
-**Purpose:** Gets the current value of `battle scene index map`.
+**Purpose:** Reads and returns the `battle scene index map` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetBattleSceneIndexMap(mapScene, indexData, width, height);
+```
 
 ### SetFrameForAtmosphere
 `public static void SetFrameForAtmosphere(Scene mapScene, float tod, float cameraElevation, bool forceLoadTextures)`
 
-**Purpose:** Sets the value or state of `frame for atmosphere`.
+**Purpose:** Assigns a new value to `frame for atmosphere` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBMapScene.SetFrameForAtmosphere(mapScene, 0, 0, false);
+```
 
 ### SetTerrainDynamicParams
 `public static void SetTerrainDynamicParams(Scene mapScene, Vec3 dynamic_params)`
 
-**Purpose:** Sets the value or state of `terrain dynamic params`.
+**Purpose:** Assigns a new value to `terrain dynamic params` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBMapScene.SetTerrainDynamicParams(mapScene, dynamic_params);
+```
 
 ### SetSeasonTimeFactor
 `public static void SetSeasonTimeFactor(Scene mapScene, float seasonTimeFactor)`
 
-**Purpose:** Sets the value or state of `season time factor`.
+**Purpose:** Assigns a new value to `season time factor` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+MBMapScene.SetSeasonTimeFactor(mapScene, 0);
+```
 
 ### GetSeasonTimeFactor
 `public static float GetSeasonTimeFactor(Scene mapScene)`
 
-**Purpose:** Gets the current value of `season time factor`.
+**Purpose:** Reads and returns the `season time factor` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBMapScene.GetSeasonTimeFactor(mapScene);
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 MBMapScene.GetNearestFaceCenterForPosition(mapScene, position, false, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

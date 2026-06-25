@@ -1,13 +1,7 @@
 ---
 title: "MissionLeaveView"
+description: "Auto-generated class reference for MissionLeaveView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionLeaveView`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionLeaveView
 
 **Namespace:** TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer
@@ -27,9 +21,10 @@ Treat `MissionLeaveView` as a View-style extension point: first identify who cre
 ## Usage Example
 
 ```csharp
-var view = new MissionLeaveView();
+// Retrieve this view from the subsystem API or scene
+MissionLeaveView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

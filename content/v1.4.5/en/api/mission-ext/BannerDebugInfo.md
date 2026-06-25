@@ -1,23 +1,18 @@
 ---
 title: "BannerDebugInfo"
+description: "Auto-generated class reference for BannerDebugInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BannerDebugInfo`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerDebugInfo
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public struct BannerDebugInfo`
-**Area:** mission-ext
+**Base:** none
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails/BannerDebugInfo.cs`
 
 ## Overview
 
-`BannerDebugInfo` lives in `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`BannerDebugInfo` lives in `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -28,31 +23,51 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateManual
 `public static BannerDebugInfo CreateManual(string sourceName)`
 
-**Purpose:** Creates a new `manual` instance or object.
+**Purpose:** Constructs a new `manual` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BannerDebugInfo.CreateManual("example");
+```
 
 ### CreateWidget
 `public static BannerDebugInfo CreateWidget(string sourceName)`
 
-**Purpose:** Creates a new `widget` instance or object.
+**Purpose:** Constructs a new `widget` entity and returns it to the caller.
+
+```csharp
+// Static call; no instance required
+BannerDebugInfo.CreateWidget("example");
+```
 
 ### CreateName
 `public string CreateName()`
 
-**Purpose:** Creates a new `name` instance or object.
+**Purpose:** Constructs a new `name` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of BannerDebugInfo from the subsystem API first
+BannerDebugInfo bannerDebugInfo = ...;
+var result = bannerDebugInfo.CreateName();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of BannerDebugInfo from the subsystem API first
+BannerDebugInfo bannerDebugInfo = ...;
+var result = bannerDebugInfo.ToString();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 BannerDebugInfo.CreateManual("example");
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-mountandblade)
+- [Area Index](../)

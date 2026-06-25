@@ -1,13 +1,7 @@
 ---
 title: "WeakenEmpireQuestBehavior"
+description: "Auto-generated class reference for WeakenEmpireQuestBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WeakenEmpireQuestBehavior`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # WeakenEmpireQuestBehavior
 
 **Namespace:** StoryMode.Quests.SecondPhase
@@ -35,20 +29,33 @@ Start from namespace `StoryMode.Quests.SecondPhase` to place it in the stack, th
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of WeakenEmpireQuestBehavior from the subsystem API first
+WeakenEmpireQuestBehavior weakenEmpireQuestBehavior = ...;
+weakenEmpireQuestBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of WeakenEmpireQuestBehavior from the subsystem API first
+WeakenEmpireQuestBehavior weakenEmpireQuestBehavior = ...;
+weakenEmpireQuestBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new WeakenEmpireQuestBehavior();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+WeakenEmpireQuestBehavior weakenEmpireQuestBehavior = ...;
+weakenEmpireQuestBehavior.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "AgentStatusCondition"
+description: "Auto-generated class reference for AgentStatusCondition."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AgentStatusCondition`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AgentStatusCondition
 
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class AgentStatusCondition : MPPerkCondition`
 **Base:** `MPPerkCondition`
-**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/AgentStatusCondition.cs`
+**File:** `Modules.CustomBattle/TaleWorlds.MountAndBlade.Multiplayer/TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions/AgentStatusCondition.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of AgentStatusCondition from the subsystem API first
+AgentStatusCondition agentStatusCondition = ...;
+var result = agentStatusCondition.Check(peer);
+```
 
 ### Check
 `public override bool Check(Agent agent)`
 
-**Purpose:** Handles logic related to `check`.
+**Purpose:** Verifies whether the current object meets the specified condition.
+
+```csharp
+// Obtain an instance of AgentStatusCondition from the subsystem API first
+AgentStatusCondition agentStatusCondition = ...;
+var result = agentStatusCondition.Check(agent);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new AgentStatusCondition();
-value.Check(peer);
+// Typically call this after obtaining an instance from the subsystem API
+AgentStatusCondition agentStatusCondition = ...;
+agentStatusCondition.Check(peer);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

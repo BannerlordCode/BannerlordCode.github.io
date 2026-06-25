@@ -1,20 +1,14 @@
 ---
 title: "PatrolPoint"
+description: "PatrolPoint 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PatrolPoint`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PatrolPoint
 
 **Namespace:** SandBox.Objects
 **Module:** SandBox.Objects
 **Type:** `public class PatrolPoint : StandingPoint`
 **Base:** `StandingPoint`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Objects/PatrolPoint.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Objects/PatrolPoint.cs`
 
 ## 概述
 
@@ -29,30 +23,55 @@ title: "PatrolPoint"
 ### SetAgentItemsVisibility
 `public void SetAgentItemsVisibility(bool isVisible)`
 
-**用途 / Purpose:** 设置 `agent items visibility` 的值或状态。
+**用途 / Purpose:** 为 「agent items visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolPoint 实例
+PatrolPoint patrolPoint = ...;
+patrolPoint.SetAgentItemsVisibility(false);
+```
 
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `use` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolPoint 实例
+PatrolPoint patrolPoint = ...;
+patrolPoint.OnUse(userAgent, 0);
+```
 
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** 当 `use stopped` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「use stopped」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolPoint 实例
+PatrolPoint patrolPoint = ...;
+patrolPoint.OnUseStopped(userAgent, false, 0);
+```
 
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 获取 `description text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PatrolPoint 实例
+PatrolPoint patrolPoint = ...;
+var result = patrolPoint.GetDescriptionText(gameEntity);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new PatrolPoint();
-value.SetAgentItemsVisibility(false);
+// 通常从对应子系统 API 获取实例后调用
+PatrolPoint patrolPoint = ...;
+patrolPoint.SetAgentItemsVisibility(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

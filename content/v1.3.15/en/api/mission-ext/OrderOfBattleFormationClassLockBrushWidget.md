@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleFormationClassLockBrushWidget"
+description: "Auto-generated class reference for OrderOfBattleFormationClassLockBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `OrderOfBattleFormationClassLockBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleFormationClassLockBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle
@@ -35,9 +29,10 @@ Treat `OrderOfBattleFormationClassLockBrushWidget` as a Widget-style extension p
 ## Usage Example
 
 ```csharp
-var widget = new OrderOfBattleFormationClassLockBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+OrderOfBattleFormationClassLockBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

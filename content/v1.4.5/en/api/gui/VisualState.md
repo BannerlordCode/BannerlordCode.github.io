@@ -1,20 +1,14 @@
 ---
 title: "VisualState"
+description: "Auto-generated class reference for VisualState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VisualState`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VisualState
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class VisualState`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/VisualState.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI/VisualState.cs`
 
 ## Overview
 
@@ -53,15 +47,22 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFromWidget
 `public void FillFromWidget(Widget widget)`
 
-**Purpose:** Handles logic related to `fill from widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VisualState from the subsystem API first
+VisualState visualState = ...;
+visualState.FillFromWidget(widget);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VisualState();
-value.FillFromWidget(widget);
+// Typically call this after obtaining an instance from the subsystem API
+VisualState visualState = ...;
+visualState.FillFromWidget(widget);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

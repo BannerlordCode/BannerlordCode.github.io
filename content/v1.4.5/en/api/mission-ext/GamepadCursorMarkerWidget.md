@@ -1,20 +1,14 @@
 ---
 title: "GamepadCursorMarkerWidget"
+description: "Auto-generated class reference for GamepadCursorMarkerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GamepadCursorMarkerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GamepadCursorMarkerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class GamepadCursorMarkerWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/GamepadCursorMarkerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/GamepadCursorMarkerWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `GamepadCursorMarkerWidget` as a Widget-style extension point: first ident
 ## Usage Example
 
 ```csharp
-var widget = new GamepadCursorMarkerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GamepadCursorMarkerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SmoothDecreaseIndicatorFillBar"
+description: "Auto-generated class reference for SmoothDecreaseIndicatorFillBar."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SmoothDecreaseIndicatorFillBar`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SmoothDecreaseIndicatorFillBar
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets
@@ -35,9 +29,10 @@ Start from namespace `TaleWorlds.GauntletUI.ExtraWidgets` to place it in the sta
 ## Usage Example
 
 ```csharp
-var example = new SmoothDecreaseIndicatorFillBar();
+// Obtain an instance from the relevant subsystem API
+SmoothDecreaseIndicatorFillBar instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

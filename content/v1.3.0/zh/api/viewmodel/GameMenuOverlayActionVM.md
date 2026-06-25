@@ -1,13 +1,7 @@
 ---
 title: "GameMenuOverlayActionVM"
+description: "GameMenuOverlayActionVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `GameMenuOverlayActionVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuOverlayActionVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay
@@ -33,9 +27,10 @@ title: "GameMenuOverlayActionVM"
 ## 使用示例
 
 ```csharp
-var example = new GameMenuOverlayActionVM();
+// 从对应子系统 API 获取实例
+GameMenuOverlayActionVM instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

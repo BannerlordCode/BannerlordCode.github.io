@@ -1,20 +1,14 @@
 ---
 title: "MultiplayerTeamPlayerAvatarButtonWidget"
+description: "Auto-generated class reference for MultiplayerTeamPlayerAvatarButtonWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerTeamPlayerAvatarButtonWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MultiplayerTeamPlayerAvatarButtonWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiplayerTeamPlayerAvatarButtonWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerTeamPlayerAvatarButtonWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer/MultiplayerTeamPlayerAvatarButtonWidget.cs`
 
 ## Overview
 
@@ -37,14 +31,21 @@ Treat `MultiplayerTeamPlayerAvatarButtonWidget` as a Widget-style extension poin
 ### MultiplayerTeamPlayerAvatarButtonWidget
 `public class MultiplayerTeamPlayerAvatarButtonWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `multiplayer team player avatar button widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MultiplayerTeamPlayerAvatarButtonWidget from the subsystem API first
+MultiplayerTeamPlayerAvatarButtonWidget multiplayerTeamPlayerAvatarButtonWidget = ...;
+var result = multiplayerTeamPlayerAvatarButtonWidget.MultiplayerTeamPlayerAvatarButtonWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerTeamPlayerAvatarButtonWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerTeamPlayerAvatarButtonWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

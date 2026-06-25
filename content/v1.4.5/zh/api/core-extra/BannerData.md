@@ -1,20 +1,14 @@
 ---
 title: "BannerData"
+description: "BannerData 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerData`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerData
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public class BannerData`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/BannerData.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/BannerData.cs`
 
 ## 概述
 
@@ -42,19 +36,32 @@ title: "BannerData"
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 处理 `equals` 相关逻辑。
+**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+
+```csharp
+// 先通过子系统 API 拿到 BannerData 实例
+BannerData bannerData = ...;
+var result = bannerData.Equals(obj);
+```
 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 获取 `hash code` 的当前值。
+**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+
+```csharp
+// 先通过子系统 API 拿到 BannerData 实例
+BannerData bannerData = ...;
+var result = bannerData.GetHashCode();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new BannerData();
+// 该数据对象通常由战役/任务 API 返回
+BannerData entry = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

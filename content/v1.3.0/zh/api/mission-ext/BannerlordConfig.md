@@ -1,13 +1,7 @@
 ---
 title: "BannerlordConfig"
+description: "BannerlordConfig 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `BannerlordConfig`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # BannerlordConfig
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -93,37 +87,73 @@ title: "BannerlordConfig"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordConfig.Initialize();
+```
 
 ### Save
 `public static SaveResult Save()`
 
-**用途 / Purpose:** 保存 `save` 数据。
+**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordConfig.Save();
+```
 
 ### GetRealBattleSize
 `public static int GetRealBattleSize()`
 
-**用途 / Purpose:** 获取 `real battle size` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「real battle size」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordConfig.GetRealBattleSize();
+```
 
 ### GetRealBattleSizeForSiege
 `public static int GetRealBattleSizeForSiege()`
 
-**用途 / Purpose:** 获取 `real battle size for siege` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「real battle size for siege」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordConfig.GetRealBattleSizeForSiege();
+```
 
 ### GetReinforcementWaveCount
 `public static int GetReinforcementWaveCount()`
 
-**用途 / Purpose:** 获取 `reinforcement wave count` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「reinforcement wave count」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordConfig.GetReinforcementWaveCount();
+```
 
 ### GetRealBattleSizeForSallyOut
 `public static int GetRealBattleSizeForSallyOut()`
 
-**用途 / Purpose:** 获取 `real battle size for sally out` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「real battle size for sally out」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+BannerlordConfig.GetRealBattleSizeForSallyOut();
+```
 
 ### IsValidValue
 `public bool IsValidValue(int value)`
 
-**用途 / Purpose:** 处理 `is valid value` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「valid value」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 BannerlordConfig 实例
+BannerlordConfig bannerlordConfig = ...;
+var result = bannerlordConfig.IsValidValue(0);
+```
 
 ## 使用示例
 
@@ -133,4 +163,4 @@ BannerlordConfig.Initialize();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "SaveLoadVM"
+description: "Auto-generated class reference for SaveLoadVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveLoadVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SaveLoadVM
 
 **Namespace:** SandBox.ViewModelCollection.SaveLoad
 **Module:** SandBox.ViewModelCollection
 **Type:** `public class SaveLoadVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SaveLoadVM.cs`
+**File:** `Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.SaveLoad/SaveLoadVM.cs`
 
 ## Overview
 
@@ -56,60 +50,121 @@ Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the s
 ### Initialize
 `public async void Initialize()`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.Initialize();
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.RefreshValues();
+```
 
 ### ExecuteCreateNewSaveGame
 `public void ExecuteCreateNewSaveGame()`
 
-**Purpose:** Executes the `create new save game` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `create new save game`.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.ExecuteCreateNewSaveGame();
+```
 
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Executes the `done` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `done`.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.ExecuteDone();
+```
 
 ### ExecuteLoadSave
 `public void ExecuteLoadSave()`
 
-**Purpose:** Executes the `load save` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `load save`.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.ExecuteLoadSave();
+```
 
 ### DeleteSelectedSave
 `public void DeleteSelectedSave()`
 
-**Purpose:** Handles logic related to `delete selected save`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.DeleteSelectedSave();
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.OnFinalize();
+```
 
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `done input key`.
+**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.SetDoneInputKey(hotkey);
+```
 
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `cancel input key`.
+**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.SetCancelInputKey(hotkey);
+```
 
 ### SetDeleteInputKey
 `public void SetDeleteInputKey(HotKey hotkey)`
 
-**Purpose:** Sets the value or state of `delete input key`.
+**Purpose:** Assigns a new value to `delete input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SaveLoadVM from the subsystem API first
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.SetDeleteInputKey(hotkey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SaveLoadVM();
-value.Initialize();
+// Typically call this after obtaining an instance from the subsystem API
+SaveLoadVM saveLoadVM = ...;
+saveLoadVM.Initialize();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

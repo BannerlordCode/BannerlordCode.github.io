@@ -1,13 +1,7 @@
 ---
 title: "CustomBattleAutoBlockModel"
+description: "Auto-generated class reference for CustomBattleAutoBlockModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CustomBattleAutoBlockModel`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CustomBattleAutoBlockModel
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -29,7 +23,13 @@ Treat `CustomBattleAutoBlockModel` as a Model-style extension point: first ident
 ### GetBlockDirection
 `public override Agent.UsageDirection GetBlockDirection(Mission mission)`
 
-**Purpose:** Gets the current value of `block direction`.
+**Purpose:** Reads and returns the `block direction` value held by the current object.
+
+```csharp
+// Obtain an instance of CustomBattleAutoBlockModel from the subsystem API first
+CustomBattleAutoBlockModel customBattleAutoBlockModel = ...;
+var result = customBattleAutoBlockModel.GetBlockDirection(mission);
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<CustomBattleAutoBlockModel>(new MyCustomBattleAutoBloc
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

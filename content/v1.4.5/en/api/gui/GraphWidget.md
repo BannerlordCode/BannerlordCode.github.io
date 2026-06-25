@@ -1,20 +1,14 @@
 ---
 title: "GraphWidget"
+description: "Auto-generated class reference for GraphWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GraphWidget`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GraphWidget
 
 **Namespace:** TaleWorlds.GauntletUI.ExtraWidgets.Graph
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class GraphWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets.Graph/GraphWidget.cs`
+**File:** `bin/TaleWorlds.GauntletUI.ExtraWidgets/TaleWorlds.GauntletUI.ExtraWidgets.Graph/GraphWidget.cs`
 
 ## Overview
 
@@ -53,9 +47,10 @@ Treat `GraphWidget` as a Widget-style extension point: first identify who create
 ## Usage Example
 
 ```csharp
-var widget = new GraphWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+GraphWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

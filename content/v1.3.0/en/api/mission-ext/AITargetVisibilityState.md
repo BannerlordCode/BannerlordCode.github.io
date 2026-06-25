@@ -1,18 +1,12 @@
 ---
 title: "AITargetVisibilityState"
+description: "Auto-generated class reference for AITargetVisibilityState."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `AITargetVisibilityState`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # AITargetVisibilityState
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
-**Type:** `class`
+**Type:** `public enum AITargetVisibilityState`
 **Base:** none
 **File:** `TaleWorlds.MountAndBlade/AITargetVisibilityState.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ## Usage Example
 
 ```csharp
-var example = new AITargetVisibilityState();
+// Obtain an instance from the relevant subsystem API
+AITargetVisibilityState instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

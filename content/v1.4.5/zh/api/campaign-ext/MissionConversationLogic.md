@@ -1,20 +1,14 @@
 ---
 title: "MissionConversationLogic"
+description: "MissionConversationLogic 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionConversationLogic`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionConversationLogic
 
 **Namespace:** SandBox.Conversation.MissionLogics
 **Module:** SandBox.Conversation
 **Type:** `public class MissionConversationLogic : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Conversation.MissionLogics/MissionConversationLogic.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Conversation.MissionLogics/MissionConversationLogic.cs`
 
 ## 概述
 
@@ -38,74 +32,152 @@ title: "MissionConversationLogic"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnBehaviorInitialize();
+```
 
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 当 `remove behavior` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnRemoveBehavior();
+```
 
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 当 `agent build` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnAgentBuild(agent, banner);
+```
 
 ### SetSpawnArea
 `public void SetSpawnArea(Alley alley)`
 
-**用途 / Purpose:** 设置 `spawn area` 的值或状态。
+**用途 / Purpose:** 为 「spawn area」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.SetSpawnArea(alley);
+```
 
 ### SetSpawnArea
 `public void SetSpawnArea(Workshop workshop)`
 
-**用途 / Purpose:** 设置 `spawn area` 的值或状态。
+**用途 / Purpose:** 为 「spawn area」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.SetSpawnArea(workshop);
+```
 
 ### SetSpawnArea
 `public void SetSpawnArea(string customTag)`
 
-**用途 / Purpose:** 设置 `spawn area` 的值或状态。
+**用途 / Purpose:** 为 「spawn area」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.SetSpawnArea("example");
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 当 `mission tick` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnMissionTick(0);
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.EarlyStart();
+```
 
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 当 `agent interaction` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent interaction」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnAgentInteraction(userAgent, agent, 0);
+```
 
 ### StartConversation
 `public void StartConversation(Agent agent, bool setActionsInstantly, bool isInitialization = false)`
 
-**用途 / Purpose:** 处理 `start conversation` 相关逻辑。
+**用途 / Purpose:** 启动「conversation」流程或状态机。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.StartConversation(agent, false, false);
+```
 
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 处理 `is there agent action` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+var result = missionConversationLogic.IsThereAgentAction(userAgent, otherAgent);
+```
 
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**用途 / Purpose:** 当 `rendering started` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「rendering started」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.OnRenderingStarted();
+```
 
 ### DisableStartConversation
 `public void DisableStartConversation(bool isDisabled)`
 
-**用途 / Purpose:** 处理 `disable start conversation` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionConversationLogic 实例
+MissionConversationLogic missionConversationLogic = ...;
+missionConversationLogic.DisableStartConversation(false);
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionConversationLogic());
+var behavior = Mission.Current.GetMissionBehavior<MissionConversationLogic>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "AdminUpdateMultiplayerOptions"
+description: "AdminUpdateMultiplayerOptions 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `AdminUpdateMultiplayerOptions`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # AdminUpdateMultiplayerOptions
 
 **Namespace:** NetworkMessages.FromClient
 **Module:** NetworkMessages.FromClient
 **Type:** `public sealed class AdminUpdateMultiplayerOptions : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminUpdateMultiplayerOptions.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromClient/AdminUpdateMultiplayerOptions.cs`
 
 ## 概述
 
@@ -41,25 +35,44 @@ title: "AdminUpdateMultiplayerOptions"
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, bool value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `multiplayer option`。
+**用途 / Purpose:** 将 「multiplayer option」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 AdminUpdateMultiplayerOptions 实例
+AdminUpdateMultiplayerOptions adminUpdateMultiplayerOptions = ...;
+adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, false);
+```
 
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, int value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `multiplayer option`。
+**用途 / Purpose:** 将 「multiplayer option」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 AdminUpdateMultiplayerOptions 实例
+AdminUpdateMultiplayerOptions adminUpdateMultiplayerOptions = ...;
+adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, 0);
+```
 
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, string value)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `multiplayer option`。
+**用途 / Purpose:** 将 「multiplayer option」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 AdminUpdateMultiplayerOptions 实例
+AdminUpdateMultiplayerOptions adminUpdateMultiplayerOptions = ...;
+adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var value = new AdminUpdateMultiplayerOptions();
-value.AddMultiplayerOption(optionType, accessMode, false);
+// 通常从对应子系统 API 获取实例后调用
+AdminUpdateMultiplayerOptions adminUpdateMultiplayerOptions = ...;
+adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,18 +1,12 @@
 ---
 title: "VariableCodeAccessModifier"
+description: "Auto-generated class reference for VariableCodeAccessModifier."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VariableCodeAccessModifier`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VariableCodeAccessModifier
 
 **Namespace:** TaleWorlds.Library.CodeGeneration
 **Module:** TaleWorlds.Library
-**Type:** `class`
+**Type:** `public enum VariableCodeAccessModifier`
 **Base:** none
 **File:** `TaleWorlds.Library/CodeGeneration/VariableCodeAccessModifier.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ## Usage Example
 
 ```csharp
-var example = new VariableCodeAccessModifier();
+// Obtain an instance from the relevant subsystem API
+VariableCodeAccessModifier instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

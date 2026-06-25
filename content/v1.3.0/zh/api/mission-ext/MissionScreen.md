@@ -1,13 +1,7 @@
 ---
 title: "MissionScreen"
+description: "MissionScreen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionScreen`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScreen
 
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens
@@ -58,200 +52,425 @@ title: "MissionScreen"
 ### SetOrderFlagVisibility
 `public void SetOrderFlagVisibility(bool value)`
 
-**用途 / Purpose:** 设置 `order flag visibility` 的值或状态。
+**用途 / Purpose:** 为 「order flag visibility」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.SetOrderFlagVisibility(false);
+```
 
 ### GetFollowText
 `public string GetFollowText()`
 
-**用途 / Purpose:** 获取 `follow text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「follow text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetFollowText();
+```
 
 ### GetFollowPartyText
 `public string GetFollowPartyText()`
 
-**用途 / Purpose:** 获取 `follow party text` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「follow party text」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetFollowPartyText();
+```
 
 ### SetDisplayDialog
 `public bool SetDisplayDialog(bool value)`
 
-**用途 / Purpose:** 设置 `display dialog` 的值或状态。
+**用途 / Purpose:** 为 「display dialog」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.SetDisplayDialog(false);
+```
 
 ### OnFocusChangeOnGameWindow
 `public override void OnFocusChangeOnGameWindow(bool focusGained)`
 
-**用途 / Purpose:** 当 `focus change on game window` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「focus change on game window」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.OnFocusChangeOnGameWindow(false);
+```
 
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**用途 / Purpose:** 处理 `is opening escape menu on focus change allowed` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「opening escape menu on focus change allowed」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.IsOpeningEscapeMenuOnFocusChangeAllowed();
+```
 
 ### SetExtraCameraParameters
 `public void SetExtraCameraParameters(bool newForceCanZoom, float newCameraRayCastStartingPointOffset)`
 
-**用途 / Purpose:** 设置 `extra camera parameters` 的值或状态。
+**用途 / Purpose:** 为 「extra camera parameters」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.SetExtraCameraParameters(false, 0);
+```
 
 ### SetCustomAgentListToSpectateGatherer
 `public void SetCustomAgentListToSpectateGatherer(MissionScreen.GatherCustomAgentListToSpectateDelegate gatherer)`
 
-**用途 / Purpose:** 设置 `custom agent list to spectate gatherer` 的值或状态。
+**用途 / Purpose:** 为 「custom agent list to spectate gatherer」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.SetCustomAgentListToSpectateGatherer(gatherer);
+```
 
 ### UpdateFreeCamera
 `public void UpdateFreeCamera(MatrixFrame frame)`
 
-**用途 / Purpose:** 更新 `free camera` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「free camera」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.UpdateFreeCamera(frame);
+```
 
 ### OnMainAgentWeaponChanged
 `public void OnMainAgentWeaponChanged()`
 
-**用途 / Purpose:** 当 `main agent weapon changed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「main agent weapon changed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.OnMainAgentWeaponChanged();
+```
 
 ### ToggleFixedMissionCamera
 `public static string ToggleFixedMissionCamera(List<string> strings)`
 
-**用途 / Purpose:** 处理 `toggle fixed mission camera` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+MissionScreen.ToggleFixedMissionCamera(strings);
+```
 
 ### SetFixedMissionCameraActive
 `public static void SetFixedMissionCameraActive(bool active)`
 
-**用途 / Purpose:** 设置 `fixed mission camera active` 的值或状态。
+**用途 / Purpose:** 为 「fixed mission camera active」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MissionScreen.SetFixedMissionCameraActive(false);
+```
 
 ### SetShiftCameraSpeed
 `public static string SetShiftCameraSpeed(List<string> strings)`
 
-**用途 / Purpose:** 设置 `shift camera speed` 的值或状态。
+**用途 / Purpose:** 为 「shift camera speed」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MissionScreen.SetShiftCameraSpeed(strings);
+```
 
 ### SetCameraPosition
 `public static string SetCameraPosition(List<string> strings)`
 
-**用途 / Purpose:** 设置 `camera position` 的值或状态。
+**用途 / Purpose:** 为 「camera position」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+MissionScreen.SetCameraPosition(strings);
+```
 
 ### IsViewingCharacter
 `public bool IsViewingCharacter()`
 
-**用途 / Purpose:** 处理 `is viewing character` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「viewing character」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.IsViewingCharacter();
+```
 
 ### GetCameraToggleProgress
 `public float GetCameraToggleProgress()`
 
-**用途 / Purpose:** 获取 `camera toggle progress` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「camera toggle progress」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetCameraToggleProgress();
+```
 
 ### AddMissionView
 `public void AddMissionView(MissionView missionView)`
 
-**用途 / Purpose:** 向当前集合/状态中添加 `mission view`。
+**用途 / Purpose:** 将 「mission view」 添加到当前容器或状态中。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.AddMissionView(missionView);
+```
 
 ### ScreenPointToWorldRay
 `public void ScreenPointToWorldRay(Vec2 screenPoint, out Vec3 rayBegin, out Vec3 rayEnd)`
 
-**用途 / Purpose:** 处理 `screen point to world ray` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.ScreenPointToWorldRay(screenPoint, rayBegin, rayEnd);
+```
 
 ### GetProjectedMousePositionOnGround
 `public bool GetProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
 
-**用途 / Purpose:** 获取 `projected mouse position on ground` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「projected mouse position on ground」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetProjectedMousePositionOnGround(groundPosition, groundNormal, excludeBodyOwnerFlags, false);
+```
 
 ### GetProjectedMousePositionOnWater
 `public bool GetProjectedMousePositionOnWater(out Vec3 waterPosition)`
 
-**用途 / Purpose:** 获取 `projected mouse position on water` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「projected mouse position on water」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetProjectedMousePositionOnWater(waterPosition);
+```
 
 ### CancelQuickPositionOrder
 `public void CancelQuickPositionOrder()`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `cel quick position order`。
+**用途 / Purpose:** 检查当前对象是否满足 「cel quick position order」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.CancelQuickPositionOrder();
+```
 
 ### MissionStartedRendering
 `public bool MissionStartedRendering()`
 
-**用途 / Purpose:** 处理 `mission started rendering` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.MissionStartedRendering();
+```
 
 ### GetOrderFlagPosition
 `public Vec3 GetOrderFlagPosition()`
 
-**用途 / Purpose:** 获取 `order flag position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order flag position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetOrderFlagPosition();
+```
 
 ### GetOrderFlagFrame
 `public MatrixFrame GetOrderFlagFrame()`
 
-**用途 / Purpose:** 获取 `order flag frame` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「order flag frame」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetOrderFlagFrame();
+```
 
 ### UnregisterRadialMenuObject
 `public void UnregisterRadialMenuObject(object radialMenuOwnerObject)`
 
-**用途 / Purpose:** 处理 `unregister radial menu object` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「radial menu object」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.UnregisterRadialMenuObject(radialMenuOwnerObject);
+```
 
 ### SetPhotoModeRequiresMouse
 `public void SetPhotoModeRequiresMouse(bool isRequired)`
 
-**用途 / Purpose:** 设置 `photo mode requires mouse` 的值或状态。
+**用途 / Purpose:** 为 「photo mode requires mouse」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.SetPhotoModeRequiresMouse(false);
+```
 
 ### SetPhotoModeEnabled
 `public void SetPhotoModeEnabled(bool isEnabled)`
 
-**用途 / Purpose:** 设置 `photo mode enabled` 的值或状态。
+**用途 / Purpose:** 为 「photo mode enabled」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.SetPhotoModeEnabled(false);
+```
 
 ### SetConversationActive
 `public void SetConversationActive(bool isActive)`
 
-**用途 / Purpose:** 设置 `conversation active` 的值或状态。
+**用途 / Purpose:** 为 「conversation active」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.SetConversationActive(false);
+```
 
 ### SetCameraLockState
 `public void SetCameraLockState(bool isLocked)`
 
-**用途 / Purpose:** 设置 `camera lock state` 的值或状态。
+**用途 / Purpose:** 为 「camera lock state」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.SetCameraLockState(false);
+```
 
 ### RegisterView
 `public void RegisterView(MissionView missionView)`
 
-**用途 / Purpose:** 处理 `register view` 相关逻辑。
+**用途 / Purpose:** 将「view」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.RegisterView(missionView);
+```
 
 ### UnregisterView
 `public void UnregisterView(MissionView missionView)`
 
-**用途 / Purpose:** 处理 `unregister view` 相关逻辑。
+**用途 / Purpose:** 从当前系统中注销「view」。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.UnregisterView(missionView);
+```
 
 ### TeleportMainAgentToCameraFocusForCheat
 `public virtual void TeleportMainAgentToCameraFocusForCheat()`
 
-**用途 / Purpose:** 处理 `teleport main agent to camera focus for cheat` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.TeleportMainAgentToCameraFocusForCheat();
+```
 
 ### GetPlayerAgentVisuals
 `public IAgentVisual GetPlayerAgentVisuals(MissionPeer lobbyPeer)`
 
-**用途 / Purpose:** 获取 `player agent visuals` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「player agent visuals」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetPlayerAgentVisuals(lobbyPeer);
+```
 
 ### SetAgentToFollow
 `public void SetAgentToFollow(Agent agent)`
 
-**用途 / Purpose:** 设置 `agent to follow` 的值或状态。
+**用途 / Purpose:** 为 「agent to follow」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.SetAgentToFollow(agent);
+```
 
 ### GetSpectatingData
 `public Mission.SpectatorData GetSpectatingData(Vec3 currentCameraPosition)`
 
-**用途 / Purpose:** 获取 `spectating data` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「spectating data」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GetSpectatingData(currentCameraPosition);
+```
 
 ### OnEscape
 `public void OnEscape()`
 
-**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.OnEscape();
+```
 
 ### OnSpectateAgentDelegate
 `public delegate void OnSpectateAgentDelegate(Agent followedAgent)`
 
-**用途 / Purpose:** 当 `spectate agent delegate` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「spectate agent delegate」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+missionScreen.OnSpectateAgentDelegate(followedAgent);
+```
 
 ### GatherCustomAgentListToSpectateDelegate
 `public delegate List<Agent> GatherCustomAgentListToSpectateDelegate(Agent forcedAgentToInclude)`
 
-**用途 / Purpose:** 处理 `gather custom agent list to spectate delegate` 相关逻辑。
+**用途 / Purpose:** 收集或汇总「custom agent list to spectate delegate」到当前对象。
+
+```csharp
+// 先通过子系统 API 拿到 MissionScreen 实例
+MissionScreen missionScreen = ...;
+var result = missionScreen.GatherCustomAgentListToSpectateDelegate(forcedAgentToInclude);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionScreen();
-value.SetOrderFlagVisibility(false);
+// 通常从对应子系统 API 获取实例后调用
+MissionScreen missionScreen = ...;
+missionScreen.SetOrderFlagVisibility(false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,13 +1,7 @@
 ---
 title: "TransferType"
+description: "Auto-generated class reference for TransferType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TransferType`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TransferType
 
 **Namespace:** TaleWorlds.CampaignSystem.Inventory
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ## Usage Example
 
 ```csharp
-TransferType example = TransferType.Value;
+// Obtain an instance from the relevant subsystem API
+TransferType instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

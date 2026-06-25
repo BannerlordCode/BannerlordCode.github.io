@@ -1,20 +1,14 @@
 ---
 title: "TrackVisual"
+description: "TrackVisual 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TrackVisual`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TrackVisual
 
 **Namespace:** SandBox.View.Map.Visuals
 **Module:** SandBox.View
 **Type:** `public class TrackVisual : MapEntityVisual<Track>`
 **Base:** `MapEntityVisual<Track>`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Map.Visuals/TrackVisual.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Map.Visuals/TrackVisual.cs`
 
 ## 概述
 
@@ -29,40 +23,77 @@ title: "TrackVisual"
 ### GetVisualPosition
 `public override Vec3 GetVisualPosition()`
 
-**用途 / Purpose:** 获取 `visual position` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「visual position」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 TrackVisual 实例
+TrackVisual trackVisual = ...;
+var result = trackVisual.GetVisualPosition();
+```
 
 ### IsVisibleOrFadingOut
 `public override bool IsVisibleOrFadingOut()`
 
-**用途 / Purpose:** 处理 `is visible or fading out` 相关逻辑。
+**用途 / Purpose:** 判断当前对象是否处于 「visible or fading out」 状态或条件。
+
+```csharp
+// 先通过子系统 API 拿到 TrackVisual 实例
+TrackVisual trackVisual = ...;
+var result = trackVisual.IsVisibleOrFadingOut();
+```
 
 ### OnHover
 `public override void OnHover()`
 
-**用途 / Purpose:** 当 `hover` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「hover」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TrackVisual 实例
+TrackVisual trackVisual = ...;
+trackVisual.OnHover();
+```
 
 ### OnMapClick
 `public override bool OnMapClick(bool followModifierUsed)`
 
-**用途 / Purpose:** 当 `map click` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「map click」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TrackVisual 实例
+TrackVisual trackVisual = ...;
+var result = trackVisual.OnMapClick(false);
+```
 
 ### OnOpenEncyclopedia
 `public override void OnOpenEncyclopedia()`
 
-**用途 / Purpose:** 当 `open encyclopedia` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「open encyclopedia」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 TrackVisual 实例
+TrackVisual trackVisual = ...;
+trackVisual.OnOpenEncyclopedia();
+```
 
 ### ReleaseResources
 `public override void ReleaseResources()`
 
-**用途 / Purpose:** 处理 `release resources` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 TrackVisual 实例
+TrackVisual trackVisual = ...;
+trackVisual.ReleaseResources();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new TrackVisual();
-value.GetVisualPosition();
+// 通常从对应子系统 API 获取实例后调用
+TrackVisual trackVisual = ...;
+trackVisual.GetVisualPosition();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

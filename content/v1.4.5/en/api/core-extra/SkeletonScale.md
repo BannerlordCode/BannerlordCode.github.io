@@ -1,20 +1,14 @@
 ---
 title: "SkeletonScale"
+description: "Auto-generated class reference for SkeletonScale."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SkeletonScale`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SkeletonScale
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class SkeletonScale : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SkeletonScale.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SkeletonScale.cs`
 
 ## Overview
 
@@ -40,20 +34,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of SkeletonScale from the subsystem API first
+SkeletonScale skeletonScale = ...;
+skeletonScale.Deserialize(objectManager, node);
+```
 
 ### SetBoneIndices
 `public void SetBoneIndices(sbyte boneIndices)`
 
-**Purpose:** Sets the value or state of `bone indices`.
+**Purpose:** Assigns a new value to `bone indices` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of SkeletonScale from the subsystem API first
+SkeletonScale skeletonScale = ...;
+skeletonScale.SetBoneIndices(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SkeletonScale();
-value.Deserialize(objectManager, node);
+// Typically call this after obtaining an instance from the subsystem API
+SkeletonScale skeletonScale = ...;
+skeletonScale.Deserialize(objectManager, node);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

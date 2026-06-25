@@ -1,13 +1,7 @@
 ---
 title: "TournamentMissionViews"
+description: "TournamentMissionViews 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `TournamentMissionViews`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # TournamentMissionViews
 
 **Namespace:** SandBox.View.Missions.Tournaments
@@ -29,22 +23,42 @@ title: "TournamentMissionViews"
 ### OpenTournamentArcheryMission
 `public static MissionView OpenTournamentArcheryMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open tournament archery mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament archery mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionViews.OpenTournamentArcheryMission(mission);
+```
 
 ### OpenTournamentFightMission
 `public static MissionView OpenTournamentFightMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open tournament fight mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament fight mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionViews.OpenTournamentFightMission(mission);
+```
 
 ### OpenTournamentHorseRaceMission
 `public static MissionView OpenTournamentHorseRaceMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open tournament horse race mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament horse race mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionViews.OpenTournamentHorseRaceMission(mission);
+```
 
 ### OpenTournamentJoustingMission
 `public static MissionView OpenTournamentJoustingMission(Mission mission)`
 
-**用途 / Purpose:** 处理 `open tournament jousting mission` 相关逻辑。
+**用途 / Purpose:** 打开「tournament jousting mission」对应的资源或界面。
+
+```csharp
+// 静态调用，不需要实例
+TournamentMissionViews.OpenTournamentJoustingMission(mission);
+```
 
 ## 使用示例
 
@@ -54,4 +68,4 @@ TournamentMissionViews.OpenTournamentArcheryMission(mission);
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

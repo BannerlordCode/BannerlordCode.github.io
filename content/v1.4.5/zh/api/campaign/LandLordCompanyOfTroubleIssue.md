@@ -1,20 +1,14 @@
 ---
 title: "LandLordCompanyOfTroubleIssue"
+description: "LandLordCompanyOfTroubleIssue 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LandLordCompanyOfTroubleIssue`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # LandLordCompanyOfTroubleIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LandLordCompanyOfTroubleIssue`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LandLordCompanyOfTroubleIssueBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Issues/LandLordCompanyOfTroubleIssueBehavior.cs`
 
 ## 概述
 
@@ -36,40 +30,76 @@ title: "LandLordCompanyOfTroubleIssue"
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 获取 `frequency` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 LandLordCompanyOfTroubleIssue 实例
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+var result = landLordCompanyOfTroubleIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 处理 `issue stay alive conditions` 相关逻辑。
+**用途 / Purpose:** 创建或发起「stay alive conditions」。
+
+```csharp
+// 先通过子系统 API 拿到 LandLordCompanyOfTroubleIssue 实例
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+var result = landLordCompanyOfTroubleIssue.IssueStayAliveConditions();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 处理 `register events` 相关逻辑。
+**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+
+```csharp
+// 先通过子系统 API 拿到 LandLordCompanyOfTroubleIssue 实例
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+landLordCompanyOfTroubleIssue.RegisterEvents();
+```
 
 ### company_of_trouble_menu_game_menu_on_init_background
 `public static void company_of_trouble_menu_game_menu_on_init_background(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理 `company_of_trouble_menu_game_menu_on_init_background` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 静态调用，不需要实例
+LandLordCompanyOfTroubleIssue.company_of_trouble_menu_game_menu_on_init_background(args);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** 当 `check for issue` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「check for issue」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 LandLordCompanyOfTroubleIssue 实例
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+landLordCompanyOfTroubleIssue.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 处理 `sync data` 相关逻辑。
+**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+
+```csharp
+// 先通过子系统 API 拿到 LandLordCompanyOfTroubleIssue 实例
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+landLordCompanyOfTroubleIssue.SyncData(dataStore);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LandLordCompanyOfTroubleIssue();
-value.GetFrequency();
+// 通常从对应子系统 API 获取实例后调用
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+landLordCompanyOfTroubleIssue.GetFrequency();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

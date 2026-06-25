@@ -1,13 +1,7 @@
 ---
 title: "FleetManagementModel"
+description: "Auto-generated class reference for FleetManagementModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FleetManagementModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FleetManagementModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,19 +29,32 @@ Treat `FleetManagementModel` as a Model-style extension point: first identify wh
 ### CanTroopsReturn
 `public abstract bool CanTroopsReturn()`
 
-**Purpose:** Checks whether the current object can `troops return`.
+**Purpose:** Checks whether the current object meets the preconditions for `troops return`.
+
+```csharp
+// Obtain an instance of FleetManagementModel from the subsystem API first
+FleetManagementModel fleetManagementModel = ...;
+var result = fleetManagementModel.CanTroopsReturn();
+```
 
 ### GetReturnTimeForTroops
 `public abstract CampaignTime GetReturnTimeForTroops(Ship ship)`
 
-**Purpose:** Gets the current value of `return time for troops`.
+**Purpose:** Reads and returns the `return time for troops` value held by the current object.
+
+```csharp
+// Obtain an instance of FleetManagementModel from the subsystem API first
+FleetManagementModel fleetManagementModel = ...;
+var result = fleetManagementModel.GetReturnTimeForTroops(ship);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomFleetManagementModel();
+// Typically obtained from a subsystem API or factory
+FleetManagementModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

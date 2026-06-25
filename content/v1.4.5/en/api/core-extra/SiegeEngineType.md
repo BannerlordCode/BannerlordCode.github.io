@@ -1,20 +1,14 @@
 ---
 title: "SiegeEngineType"
+description: "Auto-generated class reference for SiegeEngineType."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SiegeEngineType`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SiegeEngineType
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
 **Type:** `public sealed class SiegeEngineType : MBObjectBase`
 **Base:** `MBObjectBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SiegeEngineType.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/SiegeEngineType.cs`
 
 ## Overview
 
@@ -49,20 +43,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of SiegeEngineType from the subsystem API first
+SiegeEngineType siegeEngineType = ...;
+var result = siegeEngineType.ToString();
+```
 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Handles logic related to `deserialize`.
+**Purpose:** Restores the current object from serialized data.
+
+```csharp
+// Obtain an instance of SiegeEngineType from the subsystem API first
+SiegeEngineType siegeEngineType = ...;
+siegeEngineType.Deserialize(objectManager, node);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new SiegeEngineType();
-value.ToString();
+// Typically call this after obtaining an instance from the subsystem API
+SiegeEngineType siegeEngineType = ...;
+siegeEngineType.ToString();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

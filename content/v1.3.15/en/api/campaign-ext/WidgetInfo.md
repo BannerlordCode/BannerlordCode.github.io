@@ -1,23 +1,18 @@
 ---
 title: "WidgetInfo"
+description: "Auto-generated class reference for WidgetInfo."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WidgetInfo`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WidgetInfo
 
 **Namespace:** TaleWorlds.GauntletUI
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public class WidgetInfo`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/WidgetInfo.cs`
 
 ## Overview
 
-`WidgetInfo` lives in `TaleWorlds.GauntletUI`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`WidgetInfo` lives in `TaleWorlds.GauntletUI` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -39,26 +34,39 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Refresh
 `public static void Refresh()`
 
-**Purpose:** Refreshes the display or cache of `refresh`.
+**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+
+```csharp
+// Static call; no instance required
+WidgetInfo.Refresh();
+```
 
 ### GetWidgetInfo
 `public static WidgetInfo GetWidgetInfo(Type type)`
 
-**Purpose:** Gets the current value of `widget info`.
+**Purpose:** Reads and returns the `widget info` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WidgetInfo.GetWidgetInfo(type);
+```
 
 ### GetWidgetInfos
 `public static WidgetInfo GetWidgetInfos()`
 
-**Purpose:** Gets the current value of `widget infos`.
+**Purpose:** Reads and returns the `widget infos` value held by the current object.
+
+```csharp
+// Static call; no instance required
+WidgetInfo.GetWidgetInfos();
+```
 
 ## Usage Example
 
 ```csharp
-// Prepare the required context, then call the static entry point directly
 WidgetInfo.Refresh();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

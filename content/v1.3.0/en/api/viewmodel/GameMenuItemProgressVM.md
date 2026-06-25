@@ -1,13 +1,7 @@
 ---
 title: "GameMenuItemProgressVM"
+description: "Auto-generated class reference for GameMenuItemProgressVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GameMenuItemProgressVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GameMenuItemProgressVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu
@@ -37,20 +31,33 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GameMenuItemProgressVM from the subsystem API first
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.RefreshValues();
+```
 
 ### OnTick
 `public void OnTick()`
 
-**Purpose:** Called when the `tick` event is raised.
+**Purpose:** Invoked when the `tick` event is raised.
+
+```csharp
+// Obtain an instance of GameMenuItemProgressVM from the subsystem API first
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.OnTick();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GameMenuItemProgressVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+GameMenuItemProgressVM gameMenuItemProgressVM = ...;
+gameMenuItemProgressVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

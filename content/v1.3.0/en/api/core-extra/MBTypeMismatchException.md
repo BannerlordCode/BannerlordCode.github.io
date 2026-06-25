@@ -1,13 +1,7 @@
 ---
 title: "MBTypeMismatchException"
+description: "Auto-generated class reference for MBTypeMismatchException."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBTypeMismatchException`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBTypeMismatchException
 
 **Namespace:** TaleWorlds.Core
@@ -27,9 +21,10 @@ Treat `MBTypeMismatchException` as a Exception-style extension point: first iden
 ## Usage Example
 
 ```csharp
-try { CallMBTypeMismatchException(); } catch (MBTypeMismatchException exception) { Handle(exception); }
+try { /* call branch that may throw */ }
+catch (MBTypeMismatchException ex) { /* handle it */ }
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

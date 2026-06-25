@@ -1,13 +1,7 @@
 ---
 title: "SupporterItemIncomeComparer"
+description: "SupporterItemIncomeComparer 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SupporterItemIncomeComparer`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SupporterItemIncomeComparer
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
@@ -29,15 +23,22 @@ title: "SupporterItemIncomeComparer"
 ### Compare
 `public override int Compare(ClanSupporterGroupVM x, ClanSupporterGroupVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SupporterItemIncomeComparer 实例
+SupporterItemIncomeComparer supporterItemIncomeComparer = ...;
+var result = supporterItemIncomeComparer.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SupporterItemIncomeComparer();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+SupporterItemIncomeComparer supporterItemIncomeComparer = ...;
+supporterItemIncomeComparer.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

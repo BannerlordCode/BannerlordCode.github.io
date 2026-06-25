@@ -1,13 +1,7 @@
 ---
 title: "SandBoxSallyOutMissionController"
+description: "Auto-generated class reference for SandBoxSallyOutMissionController."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SandBoxSallyOutMissionController`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandBoxSallyOutMissionController
 
 **Namespace:** SandBox.Missions.MissionLogics
@@ -29,7 +23,13 @@ Treat `SandBoxSallyOutMissionController` as a Controller-style extension point: 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of SandBoxSallyOutMissionController from the subsystem API first
+SandBoxSallyOutMissionController sandBoxSallyOutMissionController = ...;
+sandBoxSallyOutMissionController.OnBehaviorInitialize();
+```
 
 ## Usage Example
 
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<SandBoxSallyOutMissionContro
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

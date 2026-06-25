@@ -1,23 +1,18 @@
 ---
 title: "LandLordCompanyOfTroubleIssue"
+description: "Auto-generated class reference for LandLordCompanyOfTroubleIssue."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `LandLordCompanyOfTroubleIssue`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LandLordCompanyOfTroubleIssue
 
 **Namespace:** TaleWorlds.CampaignSystem.Issues
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class LandLordCompanyOfTroubleIssue`
-**Area:** campaign-ext
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/Issues/LandLordCompanyOfTroubleIssueBehavior.cs`
 
 ## Overview
 
-`LandLordCompanyOfTroubleIssue` lives in `TaleWorlds.CampaignSystem.Issues`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+`LandLordCompanyOfTroubleIssue` lives in `TaleWorlds.CampaignSystem.Issues` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
 
 ## Mental Model
 
@@ -44,42 +39,76 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of LandLordCompanyOfTroubleIssue from the subsystem API first
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+landLordCompanyOfTroubleIssue.RegisterEvents();
+```
 
 ### company_of_trouble_menu_game_menu_on_init_background
 `public static void company_of_trouble_menu_game_menu_on_init_background(MenuCallbackArgs args)`
 
-**Purpose:** Handles logic related to `company_of_trouble_menu_game_menu_on_init_background`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+LandLordCompanyOfTroubleIssue.company_of_trouble_menu_game_menu_on_init_background(args);
+```
 
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Called when the `check for issue` event is raised.
+**Purpose:** Invoked when the `check for issue` event is raised.
+
+```csharp
+// Obtain an instance of LandLordCompanyOfTroubleIssue from the subsystem API first
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+landLordCompanyOfTroubleIssue.OnCheckForIssue(hero);
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of LandLordCompanyOfTroubleIssue from the subsystem API first
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+landLordCompanyOfTroubleIssue.SyncData(dataStore);
+```
 
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Gets the current value of `frequency`.
+**Purpose:** Reads and returns the `frequency` value held by the current object.
+
+```csharp
+// Obtain an instance of LandLordCompanyOfTroubleIssue from the subsystem API first
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+var result = landLordCompanyOfTroubleIssue.GetFrequency();
+```
 
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Handles logic related to `issue stay alive conditions`.
+**Purpose:** Creates or raises `stay alive conditions`.
+
+```csharp
+// Obtain an instance of LandLordCompanyOfTroubleIssue from the subsystem API first
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+var result = landLordCompanyOfTroubleIssue.IssueStayAliveConditions();
+```
 
 ## Usage Example
 
 ```csharp
-// First obtain a LandLordCompanyOfTroubleIssue instance from game state, then call one of its public methods
-var value = new LandLordCompanyOfTroubleIssue();
-value.RegisterEvents();
+// Typically call this after obtaining an instance from the subsystem API
+LandLordCompanyOfTroubleIssue landLordCompanyOfTroubleIssue = ...;
+landLordCompanyOfTroubleIssue.RegisterEvents();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
-- [Area catalog](../catalog-campaign)
+- [Area Index](../)

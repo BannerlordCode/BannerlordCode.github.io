@@ -1,20 +1,14 @@
 ---
 title: "DefaultPrisonerDonationModel"
+description: "DefaultPrisonerDonationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultPrisonerDonationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultPrisonerDonationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class DefaultPrisonerDonationModel : PrisonerDonationModel`
 **Base:** `PrisonerDonationModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPrisonerDonationModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultPrisonerDonationModel.cs`
 
 ## 概述
 
@@ -29,17 +23,35 @@ title: "DefaultPrisonerDonationModel"
 ### CalculateRelationGainAfterHeroPrisonerDonate
 `public override float CalculateRelationGainAfterHeroPrisonerDonate(PartyBase donatingParty, Hero donatedHero, Settlement donatedSettlement)`
 
-**用途 / Purpose:** 处理 `calculate relation gain after hero prisoner donate` 相关逻辑。
+**用途 / Purpose:** 计算「relation gain after hero prisoner donate」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerDonationModel 实例
+DefaultPrisonerDonationModel defaultPrisonerDonationModel = ...;
+var result = defaultPrisonerDonationModel.CalculateRelationGainAfterHeroPrisonerDonate(donatingParty, donatedHero, donatedSettlement);
+```
 
 ### CalculateInfluenceGainAfterPrisonerDonation
 `public override float CalculateInfluenceGainAfterPrisonerDonation(PartyBase donatingParty, CharacterObject donatedPrisoner, Settlement donatedSettlement)`
 
-**用途 / Purpose:** 处理 `calculate influence gain after prisoner donation` 相关逻辑。
+**用途 / Purpose:** 计算「influence gain after prisoner donation」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerDonationModel 实例
+DefaultPrisonerDonationModel defaultPrisonerDonationModel = ...;
+var result = defaultPrisonerDonationModel.CalculateInfluenceGainAfterPrisonerDonation(donatingParty, donatedPrisoner, donatedSettlement);
+```
 
 ### CalculateInfluenceGainAfterTroopDonation
 `public override float CalculateInfluenceGainAfterTroopDonation(PartyBase donatingParty, CharacterObject donatedCharacter, Settlement donatedSettlement)`
 
-**用途 / Purpose:** 处理 `calculate influence gain after troop donation` 相关逻辑。
+**用途 / Purpose:** 计算「influence gain after troop donation」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultPrisonerDonationModel 实例
+DefaultPrisonerDonationModel defaultPrisonerDonationModel = ...;
+var result = defaultPrisonerDonationModel.CalculateInfluenceGainAfterTroopDonation(donatingParty, donatedCharacter, donatedSettlement);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultPrisonerDonationModel>(new MyDefaultPrisonerDon
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

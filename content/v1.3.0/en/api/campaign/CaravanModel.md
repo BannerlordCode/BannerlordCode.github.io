@@ -1,13 +1,7 @@
 ---
 title: "CaravanModel"
+description: "Auto-generated class reference for CaravanModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CaravanModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CaravanModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -35,39 +29,76 @@ Treat `CaravanModel` as a Model-style extension point: first identify who create
 ### GetMaxGoldToSpendOnOneItemCategory
 `public abstract int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
 
-**Purpose:** Gets the current value of `max gold to spend on one item category`.
+**Purpose:** Reads and returns the `max gold to spend on one item category` value held by the current object.
+
+```csharp
+// Obtain an instance of CaravanModel from the subsystem API first
+CaravanModel caravanModel = ...;
+var result = caravanModel.GetMaxGoldToSpendOnOneItemCategory(caravan, itemCategory);
+```
 
 ### GetInitialTradeGold
 `public abstract int GetInitialTradeGold(Hero owner, bool isNavalCaravan, bool eliteCaravan)`
 
-**Purpose:** Gets the current value of `initial trade gold`.
+**Purpose:** Reads and returns the `initial trade gold` value held by the current object.
+
+```csharp
+// Obtain an instance of CaravanModel from the subsystem API first
+CaravanModel caravanModel = ...;
+var result = caravanModel.GetInitialTradeGold(owner, false, false);
+```
 
 ### GetCaravanFormingCost
 `public abstract int GetCaravanFormingCost(bool eliteCaravan, bool navalCaravan)`
 
-**Purpose:** Gets the current value of `caravan forming cost`.
+**Purpose:** Reads and returns the `caravan forming cost` value held by the current object.
+
+```csharp
+// Obtain an instance of CaravanModel from the subsystem API first
+CaravanModel caravanModel = ...;
+var result = caravanModel.GetCaravanFormingCost(false, false);
+```
 
 ### GetPowerChangeAfterCaravanCreation
 `public abstract int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
 
-**Purpose:** Gets the current value of `power change after caravan creation`.
+**Purpose:** Reads and returns the `power change after caravan creation` value held by the current object.
+
+```csharp
+// Obtain an instance of CaravanModel from the subsystem API first
+CaravanModel caravanModel = ...;
+var result = caravanModel.GetPowerChangeAfterCaravanCreation(hero, caravanParty);
+```
 
 ### CanHeroCreateCaravan
 `public abstract bool CanHeroCreateCaravan(Hero hero)`
 
-**Purpose:** Checks whether the current object can `hero create caravan`.
+**Purpose:** Checks whether the current object meets the preconditions for `hero create caravan`.
+
+```csharp
+// Obtain an instance of CaravanModel from the subsystem API first
+CaravanModel caravanModel = ...;
+var result = caravanModel.CanHeroCreateCaravan(hero);
+```
 
 ### GetEliteCaravanSpawnChance
 `public abstract float GetEliteCaravanSpawnChance(Hero hero)`
 
-**Purpose:** Gets the current value of `elite caravan spawn chance`.
+**Purpose:** Reads and returns the `elite caravan spawn chance` value held by the current object.
+
+```csharp
+// Obtain an instance of CaravanModel from the subsystem API first
+CaravanModel caravanModel = ...;
+var result = caravanModel.GetEliteCaravanSpawnChance(hero);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomCaravanModel();
+// Typically obtained from a subsystem API or factory
+CaravanModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

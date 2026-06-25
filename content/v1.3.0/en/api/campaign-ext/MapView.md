@@ -1,13 +1,7 @@
 ---
 title: "MapView"
+description: "Auto-generated class reference for MapView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MapView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MapView
 
 **Namespace:** SandBox.View.Map
@@ -34,9 +28,10 @@ Treat `MapView` as a View-style extension point: first identify who creates it, 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMapView();
+// Typically obtained from a subsystem API or factory
+MapView instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

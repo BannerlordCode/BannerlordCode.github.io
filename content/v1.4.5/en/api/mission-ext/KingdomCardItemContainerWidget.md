@@ -1,20 +1,14 @@
 ---
 title: "KingdomCardItemContainerWidget"
+description: "Auto-generated class reference for KingdomCardItemContainerWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `KingdomCardItemContainerWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # KingdomCardItemContainerWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class KingdomCardItemContainerWidget`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomCardItemContainerWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom/KingdomCardItemContainerWidget.cs`
 
 ## Overview
 
@@ -29,14 +23,21 @@ Treat `KingdomCardItemContainerWidget` as a Widget-style extension point: first 
 ### KingdomCardItemContainerWidget
 `public class KingdomCardItemContainerWidget(UIContext context)`
 
-**Purpose:** Handles logic related to `kingdom card item container widget`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of KingdomCardItemContainerWidget from the subsystem API first
+KingdomCardItemContainerWidget kingdomCardItemContainerWidget = ...;
+var result = kingdomCardItemContainerWidget.KingdomCardItemContainerWidget(context);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new KingdomCardItemContainerWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+KingdomCardItemContainerWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

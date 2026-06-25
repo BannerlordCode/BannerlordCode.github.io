@@ -1,13 +1,7 @@
 ---
 title: "NetworkMain"
+description: "Auto-generated class reference for NetworkMain."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `NetworkMain`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # NetworkMain
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -37,7 +31,12 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetPeers
 `public static void SetPeers(LobbyClient gameClient, CommunityClient communityClient, CustomBattleServer customBattleServer)`
 
-**Purpose:** Sets the value or state of `peers`.
+**Purpose:** Assigns a new value to `peers` and updates the object's internal state.
+
+```csharp
+// Static call; no instance required
+NetworkMain.SetPeers(gameClient, communityClient, customBattleServer);
+```
 
 ## Usage Example
 
@@ -47,4 +46,4 @@ NetworkMain.SetPeers(gameClient, communityClient, customBattleServer);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

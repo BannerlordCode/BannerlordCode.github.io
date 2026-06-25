@@ -1,20 +1,14 @@
 ---
 title: "DefaultVisualOrderProvider"
+description: "Auto-generated class reference for DefaultVisualOrderProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DefaultVisualOrderProvider`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultVisualOrderProvider
 
 **Namespace:** TaleWorlds.MountAndBlade.View.VisualOrders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DefaultVisualOrderProvider : VisualOrderProvider`
 **Base:** `VisualOrderProvider`
-**File:** `Bannerlord.Source/Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.VisualOrders/DefaultVisualOrderProvider.cs`
+**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.VisualOrders/DefaultVisualOrderProvider.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.MountAndBlade.View.VisualOrders` to place it in
 ### IsAvailable
 `public override bool IsAvailable()`
 
-**Purpose:** Handles logic related to `is available`.
+**Purpose:** Determines whether the current object is in the `available` state or condition.
+
+```csharp
+// Obtain an instance of DefaultVisualOrderProvider from the subsystem API first
+DefaultVisualOrderProvider defaultVisualOrderProvider = ...;
+var result = defaultVisualOrderProvider.IsAvailable();
+```
 
 ### GetOrders
 `public override MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**Purpose:** Gets the current value of `orders`.
+**Purpose:** Reads and returns the `orders` value held by the current object.
+
+```csharp
+// Obtain an instance of DefaultVisualOrderProvider from the subsystem API first
+DefaultVisualOrderProvider defaultVisualOrderProvider = ...;
+var result = defaultVisualOrderProvider.GetOrders();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DefaultVisualOrderProvider();
-value.IsAvailable();
+// Typically call this after obtaining an instance from the subsystem API
+DefaultVisualOrderProvider defaultVisualOrderProvider = ...;
+defaultVisualOrderProvider.IsAvailable();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "Track"
+description: "Auto-generated class reference for Track."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Track`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Track
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -42,25 +36,43 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### CanPartyInteract
 `public bool CanPartyInteract(MobileParty mobileParty, float dt)`
 
-**Purpose:** Checks whether the current object can `party interact`.
+**Purpose:** Checks whether the current object meets the preconditions for `party interact`.
+
+```csharp
+// Obtain an instance of Track from the subsystem API first
+Track track = ...;
+var result = track.CanPartyInteract(mobileParty, 0);
+```
 
 ### GetPartyTypeEnum
 `public static Track.PartyTypeEnum GetPartyTypeEnum(MobileParty party)`
 
-**Purpose:** Gets the current value of `party type enum`.
+**Purpose:** Reads and returns the `party type enum` value held by the current object.
+
+```csharp
+// Static call; no instance required
+Track.GetPartyTypeEnum(party);
+```
 
 ### Reset
 `public void Reset()`
 
-**Purpose:** Resets `reset` to its initial state.
+**Purpose:** Returns the current object to its default or initial condition.
+
+```csharp
+// Obtain an instance of Track from the subsystem API first
+Track track = ...;
+track.Reset();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new Track();
-value.CanPartyInteract(mobileParty, 0);
+// Typically call this after obtaining an instance from the subsystem API
+Track track = ...;
+track.CanPartyInteract(mobileParty, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PollCancelled"
+description: "Auto-generated class reference for PollCancelled."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PollCancelled`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PollCancelled
 
 **Namespace:** NetworkMessages.FromServer
 **Module:** NetworkMessages.FromServer
 **Type:** `public sealed class PollCancelled : GameNetworkMessage`
 **Base:** `GameNetworkMessage`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/PollCancelled.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/NetworkMessages.FromServer/PollCancelled.cs`
 
 ## Overview
 
@@ -27,9 +21,10 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ## Usage Example
 
 ```csharp
-var example = new PollCancelled();
+// Obtain an instance from the relevant subsystem API
+PollCancelled instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

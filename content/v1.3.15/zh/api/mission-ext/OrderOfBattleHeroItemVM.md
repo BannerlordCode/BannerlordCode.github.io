@@ -1,13 +1,7 @@
 ---
 title: "OrderOfBattleHeroItemVM"
+description: "OrderOfBattleHeroItemVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `OrderOfBattleHeroItemVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # OrderOfBattleHeroItemVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
@@ -50,40 +44,77 @@ title: "OrderOfBattleHeroItemVM"
 ### SetInitialFormation
 `public void SetInitialFormation(OrderOfBattleFormationItemVM formation)`
 
-**用途 / Purpose:** 设置 `initial formation` 的值或状态。
+**用途 / Purpose:** 为 「initial formation」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleHeroItemVM 实例
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.SetInitialFormation(formation);
+```
 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleHeroItemVM 实例
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.RefreshValues();
+```
 
 ### OnAssignmentRemoved
 `public void OnAssignmentRemoved()`
 
-**用途 / Purpose:** 当 `assignment removed` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「assignment removed」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleHeroItemVM 实例
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.OnAssignmentRemoved();
+```
 
 ### RefreshInformation
 `public void RefreshInformation()`
 
-**用途 / Purpose:** 刷新 `information` 的显示或缓存。
+**用途 / Purpose:** 使 「information」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleHeroItemVM 实例
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.RefreshInformation();
+```
 
 ### RefreshAssignmentInfo
 `public void RefreshAssignmentInfo()`
 
-**用途 / Purpose:** 刷新 `assignment info` 的显示或缓存。
+**用途 / Purpose:** 使 「assignment info」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleHeroItemVM 实例
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.RefreshAssignmentInfo();
+```
 
 ### SetIsPreAssigned
 `public void SetIsPreAssigned(bool isPreAssigned)`
 
-**用途 / Purpose:** 设置 `is pre assigned` 的值或状态。
+**用途 / Purpose:** 为 「is pre assigned」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 OrderOfBattleHeroItemVM 实例
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.SetIsPreAssigned(false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new OrderOfBattleHeroItemVM();
-value.SetInitialFormation(formation);
+// 通常从对应子系统 API 获取实例后调用
+OrderOfBattleHeroItemVM orderOfBattleHeroItemVM = ...;
+orderOfBattleHeroItemVM.SetInitialFormation(formation);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

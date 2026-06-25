@@ -1,20 +1,14 @@
 ---
 title: "MBList2D"
+description: "Auto-generated class reference for MBList2D."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBList2D`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBList2D
 
 **Namespace:** TaleWorlds.Library
 **Module:** TaleWorlds.Library
 **Type:** `public class MBList2D<T> : IMBCollection`
 **Base:** `IMBCollection`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/TaleWorlds.Library/MBList2D.cs`
+**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/MBList2D.cs`
 
 ## Overview
 
@@ -37,30 +31,55 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Contains
 `public bool Contains(T item)`
 
-**Purpose:** Handles logic related to `contains`.
+**Purpose:** Indicates whether the current object contains the specified item.
+
+```csharp
+// Obtain an instance of MBList2D from the subsystem API first
+MBList2D mBList2D = ...;
+var result = mBList2D.Contains(item);
+```
 
 ### Clear
 `public void Clear()`
 
-**Purpose:** Handles logic related to `clear`.
+**Purpose:** Removes all content from the current object.
+
+```csharp
+// Obtain an instance of MBList2D from the subsystem API first
+MBList2D mBList2D = ...;
+mBList2D.Clear();
+```
 
 ### ResetWithNewCount
 `public void ResetWithNewCount(int newCount1, int newCount2)`
 
-**Purpose:** Resets `with new count` to its initial state.
+**Purpose:** Returns `with new count` to its default or initial condition.
+
+```csharp
+// Obtain an instance of MBList2D from the subsystem API first
+MBList2D mBList2D = ...;
+mBList2D.ResetWithNewCount(0, 0);
+```
 
 ### CopyRowTo
 `public void CopyRowTo(int sourceIndex1, int sourceIndex2, MBList2D<T> destination, int destinationIndex1, int destinationIndex2, int copyCount)`
 
-**Purpose:** Handles logic related to `copy row to`.
+**Purpose:** Copies the `row to` state of the current object to a target.
+
+```csharp
+// Obtain an instance of MBList2D from the subsystem API first
+MBList2D mBList2D = ...;
+mBList2D.CopyRowTo(0, 0, destination, 0, 0, 0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBList2D();
-value.Contains(item);
+// Typically call this after obtaining an instance from the subsystem API
+MBList2D mBList2D = ...;
+mBList2D.Contains(item);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

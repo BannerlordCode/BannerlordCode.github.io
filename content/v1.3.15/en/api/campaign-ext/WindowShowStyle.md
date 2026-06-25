@@ -1,19 +1,13 @@
 ---
 title: "WindowShowStyle"
+description: "Auto-generated class reference for WindowShowStyle."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `WindowShowStyle`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # WindowShowStyle
 
 **Namespace:** TaleWorlds.TwoDimension.Standalone.Native.Windows
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
-**Base:** none
+**Type:** `public enum WindowShowStyle : uint`
+**Base:** `uint`
 **File:** `TaleWorlds.TwoDimension.Standalone/Native/Windows/WindowShowStyle.cs`
 
 ## Overview
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ## Usage Example
 
 ```csharp
-var value = new WindowShowStyle();
+// Obtain an instance from the relevant subsystem API
+WindowShowStyle instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

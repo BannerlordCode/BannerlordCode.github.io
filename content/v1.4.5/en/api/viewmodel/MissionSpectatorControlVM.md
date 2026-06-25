@@ -1,20 +1,14 @@
 ---
 title: "MissionSpectatorControlVM"
+description: "Auto-generated class reference for MissionSpectatorControlVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionSpectatorControlVM`
-- [← Area / Back to viewmodel](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionSpectatorControlVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.HUD
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionSpectatorControlVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionSpectatorControlVM.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.ViewModelCollection/TaleWorlds.MountAndBlade.ViewModelCollection.HUD/MissionSpectatorControlVM.cs`
 
 ## Overview
 
@@ -45,50 +39,99 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of MissionSpectatorControlVM from the subsystem API first
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.RefreshValues();
+```
 
 ### OnSpectatedAgentFocusIn
 `public void OnSpectatedAgentFocusIn(Agent followedAgent)`
 
-**Purpose:** Called when the `spectated agent focus in` event is raised.
+**Purpose:** Invoked when the `spectated agent focus in` event is raised.
+
+```csharp
+// Obtain an instance of MissionSpectatorControlVM from the subsystem API first
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.OnSpectatedAgentFocusIn(followedAgent);
+```
 
 ### OnSpectatedAgentFocusOut
 `public void OnSpectatedAgentFocusOut(Agent followedAgent)`
 
-**Purpose:** Called when the `spectated agent focus out` event is raised.
+**Purpose:** Invoked when the `spectated agent focus out` event is raised.
+
+```csharp
+// Obtain an instance of MissionSpectatorControlVM from the subsystem API first
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.OnSpectatedAgentFocusOut(followedAgent);
+```
 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Called when the `finalize` event is raised.
+**Purpose:** Invoked when the `finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionSpectatorControlVM from the subsystem API first
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.OnFinalize();
+```
 
 ### SetMainAgentStatus
 `public void SetMainAgentStatus(bool isDead)`
 
-**Purpose:** Sets the value or state of `main agent status`.
+**Purpose:** Assigns a new value to `main agent status` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionSpectatorControlVM from the subsystem API first
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.SetMainAgentStatus(false);
+```
 
 ### SetPrevCharacterInputKey
 `public void SetPrevCharacterInputKey(GameKey gameKey)`
 
-**Purpose:** Sets the value or state of `prev character input key`.
+**Purpose:** Assigns a new value to `prev character input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionSpectatorControlVM from the subsystem API first
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.SetPrevCharacterInputKey(gameKey);
+```
 
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(GameKey gameKey)`
 
-**Purpose:** Sets the value or state of `next character input key`.
+**Purpose:** Assigns a new value to `next character input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionSpectatorControlVM from the subsystem API first
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.SetNextCharacterInputKey(gameKey);
+```
 
 ### SetTakeControlInputKey
 `public void SetTakeControlInputKey(GameKey gameKey)`
 
-**Purpose:** Sets the value or state of `take control input key`.
+**Purpose:** Assigns a new value to `take control input key` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionSpectatorControlVM from the subsystem API first
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.SetTakeControlInputKey(gameKey);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionSpectatorControlVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+MissionSpectatorControlVM missionSpectatorControlVM = ...;
+missionSpectatorControlVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

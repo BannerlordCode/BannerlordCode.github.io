@@ -1,20 +1,14 @@
 ---
 title: "PlayerSuggestedToPartyMessage"
+description: "PlayerSuggestedToPartyMessage 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PlayerSuggestedToPartyMessage`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PlayerSuggestedToPartyMessage
 
 **Namespace:** Messages.FromLobbyServer.ToClient
 **Module:** Messages.FromLobbyServer
 **Type:** `public class PlayerSuggestedToPartyMessage : Message`
 **Base:** `Message`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerSuggestedToPartyMessage.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/Messages.FromLobbyServer.ToClient/PlayerSuggestedToPartyMessage.cs`
 
 ## 概述
 
@@ -36,9 +30,10 @@ title: "PlayerSuggestedToPartyMessage"
 ## 使用示例
 
 ```csharp
-var example = new PlayerSuggestedToPartyMessage();
+// 从对应子系统 API 获取实例
+PlayerSuggestedToPartyMessage instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

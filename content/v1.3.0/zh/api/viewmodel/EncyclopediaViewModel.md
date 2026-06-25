@@ -1,13 +1,7 @@
 ---
 title: "EncyclopediaViewModel"
+description: "EncyclopediaViewModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EncyclopediaViewModel`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EncyclopediaViewModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia.Pages
@@ -33,10 +27,11 @@ title: "EncyclopediaViewModel"
 ## 使用示例
 
 ```csharp
-var vm = new EncyclopediaViewModel();
+// 将实例绑定到 Movie 或 View 的 ViewModel
+EncyclopediaViewModel vm = ...;
 movie.SetViewModel(vm);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

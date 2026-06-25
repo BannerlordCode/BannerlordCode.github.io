@@ -1,213 +1,101 @@
 ---
 title: "SaveManager"
+description: "Auto-generated class reference for SaveManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SaveManager`
-- [← Area / Back to save-system](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SaveManager
 
-**Namespace:** TaleWorlds.SaveSystem  
-**Module:** TaleWorlds.SaveSystem  
-**Type:** static class
-
-The main entry point for all save and load operations in Bannerlord's save system. This static class provides methods to initialize the save system, check saveable types, and perform save and load operations.
-
-
-<!-- BEGIN DEV-USE-CASES -->
-
-## Developer Use Cases
-
-### Use Case 1: Mark a class as saveable
-
-**Scenario**: Your mod's custom class needs to persist in saves.
-
-```csharp
-[SaveableClass]
-public class MyModData
-{
-    [SaveableProperty(1)] public int Gold { get; set; }
-    [SaveableField(2)] private string _name;
-}
-```
-
-**Key points**: Use `[SaveableClass]` on the class; `[SaveableProperty(id)]` on properties, `[SaveableField(id)]` on fields; `id` must be unique within the class and stable (never reuse a deleted id in version updates).
-
-### Use Case 2: Save game state
-
-**Scenario**: Your mod triggers a manual save (e.g., after a key event).
-
-```csharp
-MetaData meta = new MetaData();
-meta["ModVersion"] = "1.0.0";
-SaveOutput result = SaveManager.Save(
-    Campaign.Current, meta, "mysave", SaveGameDriver);
-if (result.Success) { /* save succeeded */ }
-```
-
-**Key points**: `target` is typically `Campaign.Current`; `saveName` has no extension; errors are caught, not thrown — check `result.Success`.
-
-### Use Case 3: Read save metadata only
-
-**Scenario**: Check version compatibility before loading a full save.
-
-```csharp
-MetaData meta = SaveManager.LoadMetaData("mysave", SaveGameDriver);
-if (meta != null && meta.TryGetValue("ModVersion", out string ver))
-{
-    // check version compatibility
-}
-```
-
-**Key points**: `LoadMetaData` is much faster than `Load` — reads only the file header; returns `null` if the file doesn't exist.
-
-### Use Case 4: Load a save
-
-**Scenario**: Restore a previously saved game state.
-
-```csharp
-LoadResult result = SaveManager.Load("mysave", SaveGameDriver);
-if (result.Success)
-{
-    // result.LoadData() completes deserialization
-}
-```
-
-**Key points**: `Load` returns a `LoadResult`; `loadAsLateInitialize: true` spreads loading across frames for large saves.
-
-<!-- END DEV-USE-CASES -->
-
+**Namespace:** TaleWorlds.SaveSystem
+**Module:** TaleWorlds.SaveSystem
+**Type:** `public static class SaveManager`
+**Base:** none
+**File:** `TaleWorlds.SaveSystem/SaveManager.cs`
 
 ## Overview
 
-SaveManager handles the high-level save/load workflow. It manages the definition context that tracks all saveable types, coordinates with drivers for file I/O, and provides utilities for type checking.
+`SaveManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
 
 ## Mental Model
 
-Treat `SaveManager` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+Treat `SaveManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
-## Constants
-
-| Name | Type | Value | Description |
-|------|------|-------|-------------|
-| SaveFileExtension | string | `"sav"` | File extension for save files |
-
-## Static Properties
-
-| Name | Type | Description |
-|------|------|-------------|
-| OperatingVersion | ApplicationVersion | The game version being operated on during save/load |
-
-## Static Methods
+## Key Methods
 
 ### InitializeGlobalDefinitionContext
+`public static void InitializeGlobalDefinitionContext()`
+
+**Purpose:** Prepares the resources, state, or bindings required by `global definition context`.
 
 ```csharp
-public static void InitializeGlobalDefinitionContext()
+// Static call; no instance required
+SaveManager.InitializeGlobalDefinitionContext();
 ```
-
-Initializes the global definition context. This method must be called before any save operations. It creates a new DefinitionContext and fills it with all types from the current assembly domain. Any errors encountered during type registration are printed to debug output.
 
 ### CheckSaveableTypes
+`public static List<Type> CheckSaveableTypes()`
+
+**Purpose:** Verifies whether `saveable types` holds true for the current object.
 
 ```csharp
-public static List<Type> CheckSaveableTypes()
+// Static call; no instance required
+SaveManager.CheckSaveableTypes();
 ```
-
-Scans all assemblies in the current AppDomain for types that have `[SaveableField]` or `[SaveableProperty]` attributes but lack type definitions. Returns a list of types that need to be registered.
 
 ### Save
+`public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`
+
+**Purpose:** Writes the current object's data to persistent storage or a stream.
 
 ```csharp
-public static SaveOutput Save(
-    object target, 
-    MetaData metaData, 
-    string saveName, 
-    ISaveDriver driver
-)
+// Static call; no instance required
+SaveManager.Save(target, metaData, "example", driver);
 ```
-
-Saves an object graph to a file.
-
-**Parameters:**
-- `target` - The root object to save
-- `metaData` - Metadata to include in the save file
-- `saveName` - Name of the save file (without extension)
-- `driver` - The save driver handling file I/O
-
-**Returns:** A `SaveOutput` object indicating success, failure, or continuation status.
-
-**Throws:** Does not throw. Errors are captured in the returned SaveOutput.
-
-### LoadMetaData
-
-```csharp
-public static MetaData LoadMetaData(string saveName, ISaveDriver driver)
-```
-
-Loads just the metadata from a save file without loading the full game state.
-
-**Parameters:**
-- `saveName` - Name of the save file
-- `driver` - The save driver handling file I/O
-
-**Returns:** The metadata object from the save file.
-
-### Load
-
-```csharp
-public static LoadResult Load(string saveName, ISaveDriver driver)
-public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)
-```
-
-Loads a saved game file.
-
-**Parameters:**
-- `saveName` - Name of the save file
-- `driver` - The save driver handling file I/O
-- `loadAsLateInitialize` - If true, callbacks are deferred for manual invocation
-
-**Returns:** A `LoadResult` object containing the root object and metadata.
 
 ### ShouldResolveConflicts
+`public static bool ShouldResolveConflicts()`
+
+**Purpose:** Performs the operation described by this method.
 
 ```csharp
-public static bool ShouldResolveConflicts()
+// Static call; no instance required
+SaveManager.ShouldResolveConflicts();
 ```
 
-**Returns:** True if currently loading a save, false otherwise. This can be used by type resolvers to handle version compatibility.
+### LoadMetaData
+`public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`
+
+**Purpose:** Reads `meta data` from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+SaveManager.LoadMetaData("example", driver);
+```
+
+### Load
+`public static LoadResult Load(string saveName, ISaveDriver driver)`
+
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+SaveManager.Load("example", driver);
+```
+
+### Load
+`public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)`
+
+**Purpose:** Reads the current object's data from persistent storage or a stream.
+
+```csharp
+// Static call; no instance required
+SaveManager.Load("example", driver, false);
+```
 
 ## Usage Example
 
 ```csharp
-// Initialize before saving
-SaveManager.InitializeGlobalDefinitionContext();
-
-// Save a game
-var metaData = new MetaData();
-metaData.SetApplicationVersion(currentVersion);
-var output = SaveManager.Save(myGameState, metaData, "MySave", fileDriver);
-
-if (output.Result == SaveResult.Success)
-{
-    Console.WriteLine("Game saved successfully");
-}
-
-// Load a game
-var loadResult = SaveManager.Load("MySave", fileDriver);
-if (loadResult.Success)
-{
-    var loadedGame = loadResult.RootObject;
-}
+var manager = SaveManager.Current;
 ```
 
 ## See Also
 
-- [SaveableRootClassAttribute](./SaveAttributes)
-- [SaveablePropertyAttribute](./SaveAttributes)
-- [SaveableFieldAttribute](./SaveAttributes)
-- [SaveContext](./SaveContext)
-- [LoadContext](./LoadContext)
+- [Area Index](../)

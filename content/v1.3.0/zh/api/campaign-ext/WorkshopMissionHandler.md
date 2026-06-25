@@ -1,13 +1,7 @@
 ---
 title: "WorkshopMissionHandler"
+description: "WorkshopMissionHandler 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WorkshopMissionHandler`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopMissionHandler
 
 **Namespace:** SandBox.Missions.MissionLogics.Towns
@@ -35,24 +29,42 @@ title: "WorkshopMissionHandler"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 当 `behavior initialize` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopMissionHandler 实例
+WorkshopMissionHandler workshopMissionHandler = ...;
+workshopMissionHandler.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理 `early start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopMissionHandler 实例
+WorkshopMissionHandler workshopMissionHandler = ...;
+workshopMissionHandler.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopMissionHandler 实例
+WorkshopMissionHandler workshopMissionHandler = ...;
+workshopMissionHandler.AfterStart();
+```
 
 ## 使用示例
 
 ```csharp
-Mission.Current.AddMissionBehavior(new WorkshopMissionHandler());
+var behavior = Mission.Current.GetMissionBehavior<WorkshopMissionHandler>();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

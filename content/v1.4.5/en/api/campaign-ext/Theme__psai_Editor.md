@@ -1,20 +1,14 @@
 ---
-title: "Theme__psai_Editor"
+title: "Theme"
+description: "Auto-generated class reference for Theme."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Theme`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Theme
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
 **Type:** `public class Theme : PsaiMusicEntity, ICloneable`
 **Base:** `PsaiMusicEntity`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.Editor/Theme.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.Editor/Theme.cs`
 
 ## Overview
 
@@ -50,97 +44,208 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred
 `public static bool ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(float weightingPlaycountVsRandom)`
 
-**Purpose:** Handles logic related to `convert playcount vs random weighting to boolean playcount preferred`.
+**Purpose:** Converts `playcount vs random weighting to boolean playcount preferred` into another representation or type.
+
+```csharp
+// Static call; no instance required
+Theme.ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(0);
+```
 
 ### GetClassString
 `public override string GetClassString()`
 
-**Purpose:** Gets the current value of `class string`.
+**Purpose:** Reads and returns the `class string` value held by the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.GetClassString();
+```
 
 ### GetChildren
 `public override List<PsaiMusicEntity> GetChildren()`
 
-**Purpose:** Gets the current value of `children`.
+**Purpose:** Reads and returns the `children` value held by the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.GetChildren();
+```
 
 ### GetParent
 `public override PsaiMusicEntity GetParent()`
 
-**Purpose:** Gets the current value of `parent`.
+**Purpose:** Reads and returns the `parent` value held by the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.GetParent();
+```
 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Handles logic related to `to string`.
+**Purpose:** Returns a human-readable string representation of the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.ToString();
+```
 
 ### AddGroup
 `public bool AddGroup(Group groupToAdd)`
 
 **Purpose:** Adds `group` to the current collection or state.
 
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.AddGroup(groupToAdd);
+```
+
 ### DeleteGroup
 `public void DeleteGroup(Group group)`
 
-**Purpose:** Handles logic related to `delete group`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+theme.DeleteGroup(group);
+```
 
 ### GetSegmentsOfAllGroups
 `public HashSet<Segment> GetSegmentsOfAllGroups()`
 
-**Purpose:** Gets the current value of `segments of all groups`.
+**Purpose:** Reads and returns the `segments of all groups` value held by the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.GetSegmentsOfAllGroups();
+```
 
 ### GetAudioDataRelativeFilePathsUsedByThisTheme
 `public HashSet<string> GetAudioDataRelativeFilePathsUsedByThisTheme()`
 
-**Purpose:** Gets the current value of `audio data relative file paths used by this theme`.
+**Purpose:** Reads and returns the `audio data relative file paths used by this theme` value held by the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.GetAudioDataRelativeFilePathsUsedByThisTheme();
+```
 
 ### GetCompatibilitySetting
 `public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**Purpose:** Gets the current value of `compatibility setting`.
+**Purpose:** Reads and returns the `compatibility setting` value held by the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.GetCompatibilitySetting(targetEntity);
+```
 
 ### GetCompatibilityType
 `public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**Purpose:** Gets the current value of `compatibility type`.
+**Purpose:** Reads and returns the `compatibility type` value held by the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.GetCompatibilityType(targetEntity, reason);
+```
 
 ### GetIndexPositionWithinParentEntity
 `public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**Purpose:** Gets the current value of `index position within parent entity`.
+**Purpose:** Reads and returns the `index position within parent entity` value held by the current object.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.GetIndexPositionWithinParentEntity(parentProject);
+```
 
 ### PropertyDifferencesAffectCompatibilities
 `public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**Purpose:** Handles logic related to `property differences affect compatibilities`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.PropertyDifferencesAffectCompatibilities(otherEntity);
+```
 
 ### SetAsParentThemeForAllGroupsAndSegments
 `public void SetAsParentThemeForAllGroupsAndSegments()`
 
-**Purpose:** Sets the value or state of `as parent theme for all groups and segments`.
+**Purpose:** Assigns a new value to `as parent theme for all groups and segments` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+theme.SetAsParentThemeForAllGroupsAndSegments();
+```
 
 ### CreatePsaiDotNetVersion
 `public psai.net.Theme CreatePsaiDotNetVersion()`
 
-**Purpose:** Creates a new `psai dot net version` instance or object.
+**Purpose:** Constructs a new `psai dot net version` entity and returns it to the caller.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.CreatePsaiDotNetVersion();
+```
 
 ### getTestTheme1
 `public static Theme getTestTheme1()`
 
-**Purpose:** Handles logic related to `get test theme1`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Theme.getTestTheme1();
+```
 
 ### getTestTheme2
 `public static Theme getTestTheme2()`
 
-**Purpose:** Handles logic related to `get test theme2`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Static call; no instance required
+Theme.getTestTheme2();
+```
 
 ### Clone
 `public override object Clone()`
 
-**Purpose:** Handles logic related to `clone`.
+**Purpose:** Duplicates the current object's state and returns a new instance.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.Clone();
+```
 
 ### ShallowCopy
 `public override PsaiMusicEntity ShallowCopy()`
 
-**Purpose:** Handles logic related to `shallow copy`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of Theme from the subsystem API first
+Theme theme = ...;
+var result = theme.ShallowCopy();
+```
 
 ## Usage Example
 
@@ -150,4 +255,4 @@ Theme.ConvertPlaycountVsRandomWeightingToBooleanPlaycountPreferred(0);
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

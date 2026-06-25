@@ -1,20 +1,14 @@
 ---
 title: "GenericHostGameOptionDataVM"
+description: "Auto-generated class reference for GenericHostGameOptionDataVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GenericHostGameOptionDataVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GenericHostGameOptionDataVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public abstract class GenericHostGameOptionDataVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions/GenericHostGameOptionDataVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby.HostGame.HostGameOptions/GenericHostGameOptionDataVM.cs`
 
 ## Overview
 
@@ -40,19 +34,32 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GenericHostGameOptionDataVM from the subsystem API first
+GenericHostGameOptionDataVM genericHostGameOptionDataVM = ...;
+genericHostGameOptionDataVM.RefreshValues();
+```
 
 ### RefreshData
 `public abstract void RefreshData()`
 
-**Purpose:** Refreshes the display or cache of `data`.
+**Purpose:** Keeps the display or cache of `data` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of GenericHostGameOptionDataVM from the subsystem API first
+GenericHostGameOptionDataVM genericHostGameOptionDataVM = ...;
+genericHostGameOptionDataVM.RefreshData();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomGenericHostGameOptionDataVM();
+// Typically obtained from a subsystem API or factory
+GenericHostGameOptionDataVM instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

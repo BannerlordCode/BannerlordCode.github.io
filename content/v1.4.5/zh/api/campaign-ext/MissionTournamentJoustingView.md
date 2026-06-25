@@ -1,20 +1,14 @@
 ---
 title: "MissionTournamentJoustingView"
+description: "MissionTournamentJoustingView 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionTournamentJoustingView`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionTournamentJoustingView
 
 **Namespace:** SandBox.View.Missions.Tournaments
 **Module:** SandBox.View
 **Type:** `public class MissionTournamentJoustingView : MissionView`
 **Base:** `MissionView`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox.View/SandBox.View.Missions.Tournaments/MissionTournamentJoustingView.cs`
+**File:** `Modules.SandBox/SandBox.View/SandBox.View.Missions.Tournaments/MissionTournamentJoustingView.cs`
 
 ## 概述
 
@@ -29,39 +23,76 @@ title: "MissionTournamentJoustingView"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 处理 `after start` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
+MissionTournamentJoustingView missionTournamentJoustingView = ...;
+missionTournamentJoustingView.AfterStart();
+```
 
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** 当 `agent hit` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「agent hit」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
+MissionTournamentJoustingView missionTournamentJoustingView = ...;
+missionTournamentJoustingView.OnAgentHit(affectedAgent, affectorAgent, attackerWeapon, blow, attackCollisionData);
+```
 
 ### ShowMessage
 `public void ShowMessage(string str, float duration, bool hasPriority = true)`
 
-**用途 / Purpose:** 处理 `show message` 相关逻辑。
+**用途 / Purpose:** 显示「message」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
+MissionTournamentJoustingView missionTournamentJoustingView = ...;
+missionTournamentJoustingView.ShowMessage("example", 0, false);
+```
 
 ### ShowMessage
 `public void ShowMessage(Agent agent, string str, float duration, bool hasPriority = true)`
 
-**用途 / Purpose:** 处理 `show message` 相关逻辑。
+**用途 / Purpose:** 显示「message」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
+MissionTournamentJoustingView missionTournamentJoustingView = ...;
+missionTournamentJoustingView.ShowMessage(agent, "example", 0, false);
+```
 
 ### DeleteMessage
 `public void DeleteMessage(string str)`
 
-**用途 / Purpose:** 处理 `delete message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
+MissionTournamentJoustingView missionTournamentJoustingView = ...;
+missionTournamentJoustingView.DeleteMessage("example");
+```
 
 ### DeleteMessage
 `public void DeleteMessage(Agent agent, string str)`
 
-**用途 / Purpose:** 处理 `delete message` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
+MissionTournamentJoustingView missionTournamentJoustingView = ...;
+missionTournamentJoustingView.DeleteMessage(agent, "example");
+```
 
 ## 使用示例
 
 ```csharp
-var view = new MissionTournamentJoustingView();
+// 从子系统 API 或场景中获取该视图
+MissionTournamentJoustingView view = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

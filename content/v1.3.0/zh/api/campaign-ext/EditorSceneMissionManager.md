@@ -1,13 +1,7 @@
 ---
 title: "EditorSceneMissionManager"
+description: "EditorSceneMissionManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EditorSceneMissionManager`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # EditorSceneMissionManager
 
 **Namespace:** SandBox
@@ -29,12 +23,24 @@ title: "EditorSceneMissionManager"
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**用途 / Purpose:** 当 `after campaign start` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「after campaign start」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 EditorSceneMissionManager 实例
+EditorSceneMissionManager editorSceneMissionManager = ...;
+editorSceneMissionManager.OnAfterCampaignStart(game);
+```
 
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**用途 / Purpose:** 当 `load finished` 事件触发时调用此方法。
+**用途 / Purpose:** 在 「load finished」 事件触发时调用此回调。
+
+```csharp
+// 先通过子系统 API 拿到 EditorSceneMissionManager 实例
+EditorSceneMissionManager editorSceneMissionManager = ...;
+editorSceneMissionManager.OnLoadFinished();
+```
 
 ## 使用示例
 
@@ -44,4 +50,4 @@ var manager = EditorSceneMissionManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

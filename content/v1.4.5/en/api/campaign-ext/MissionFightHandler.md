@@ -1,20 +1,14 @@
 ---
 title: "MissionFightHandler"
+description: "Auto-generated class reference for MissionFightHandler."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionFightHandler`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionFightHandler
 
 **Namespace:** SandBox.Missions.MissionLogics
 **Module:** SandBox.Missions
 **Type:** `public class MissionFightHandler : MissionLogic`
 **Base:** `MissionLogic`
-**File:** `Bannerlord.Source/Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionFightHandler.cs`
+**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionFightHandler.cs`
 
 ## Overview
 
@@ -35,99 +29,203 @@ Treat `MissionFightHandler` as a Handler-style extension point: first identify w
 ### OnFightEndDelegate
 `public delegate void OnFightEndDelegate(bool isPlayerSideWon)`
 
-**Purpose:** Called when the `fight end delegate` event is raised.
+**Purpose:** Invoked when the `fight end delegate` event is raised.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.OnFightEndDelegate(false);
+```
 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Called when the `behavior initialize` event is raised.
+**Purpose:** Invoked when the `behavior initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.OnBehaviorInitialize();
+```
 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Handles logic related to `early start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.EarlyStart();
+```
 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Handles logic related to `after start`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.AfterStart();
+```
 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Called when the `mission tick` event is raised.
+**Purpose:** Invoked when the `mission tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.OnMissionTick(0);
+```
 
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Called when the `agent removed` event is raised.
+**Purpose:** Invoked when the `agent removed` event is raised.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
+```
 
 ### StartCustomFight
 `public void StartCustomFight(List<Agent> playerSideAgents, List<Agent> opponentSideAgents, bool dropWeapons, bool isItemUseDisabled, OnFightEndDelegate onFightEndDelegate, float minimumEndTime = float.Epsilon)`
 
-**Purpose:** Handles logic related to `start custom fight`.
+**Purpose:** Starts the `custom fight` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.StartCustomFight(playerSideAgents, opponentSideAgents, false, false, onFightEndDelegate, 0);
+```
 
 ### StartFistFight
 `public void StartFistFight(Agent opponent, OnFightEndDelegate onFightEndDelegate, float minimumEndTime = float.Epsilon)`
 
-**Purpose:** Handles logic related to `start fist fight`.
+**Purpose:** Starts the `fist fight` flow or state machine.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.StartFistFight(opponent, onFightEndDelegate, 0);
+```
 
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Called when the `end mission request` event is raised.
+**Purpose:** Invoked when the `end mission request` event is raised.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+var result = missionFightHandler.OnEndMissionRequest(canPlayerLeave);
+```
 
 ### GetAgentToSpectate
 `public static Agent GetAgentToSpectate()`
 
-**Purpose:** Gets the current value of `agent to spectate`.
+**Purpose:** Reads and returns the `agent to spectate` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MissionFightHandler.GetAgentToSpectate();
+```
 
 ### BeginEndFight
 `public void BeginEndFight()`
 
-**Purpose:** Handles logic related to `begin end fight`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.BeginEndFight();
+```
 
 ### EndFight
 `public void EndFight(bool overrideDuelWonByPlayer = false)`
 
-**Purpose:** Handles logic related to `end fight`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.EndFight(false);
+```
 
 ### IsThereActiveFight
 `public bool IsThereActiveFight()`
 
-**Purpose:** Handles logic related to `is there active fight`.
+**Purpose:** Determines whether the current object is in the `there active fight` state or condition.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+var result = missionFightHandler.IsThereActiveFight();
+```
 
 ### AddAgentToSide
 `public void AddAgentToSide(Agent agent, bool isPlayerSide)`
 
 **Purpose:** Adds `agent to side` to the current collection or state.
 
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+missionFightHandler.AddAgentToSide(agent, false);
+```
+
 ### GetDangerSources
 `public IEnumerable<Agent> GetDangerSources(Agent ownerAgent)`
 
-**Purpose:** Gets the current value of `danger sources`.
+**Purpose:** Reads and returns the `danger sources` value held by the current object.
+
+```csharp
+// Obtain an instance of MissionFightHandler from the subsystem API first
+MissionFightHandler missionFightHandler = ...;
+var result = missionFightHandler.GetDangerSources(ownerAgent);
+```
 
 ### IsAgentAggressive
 `public static bool IsAgentAggressive(Agent agent)`
 
-**Purpose:** Handles logic related to `is agent aggressive`.
+**Purpose:** Determines whether the current object is in the `agent aggressive` state or condition.
+
+```csharp
+// Static call; no instance required
+MissionFightHandler.IsAgentAggressive(agent);
+```
 
 ### IsAgentJusticeWarrior
 `public static bool IsAgentJusticeWarrior(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is agent justice warrior`.
+**Purpose:** Determines whether the current object is in the `agent justice warrior` state or condition.
+
+```csharp
+// Static call; no instance required
+MissionFightHandler.IsAgentJusticeWarrior(character);
+```
 
 ### IsAgentVillian
 `public static bool IsAgentVillian(CharacterObject character)`
 
-**Purpose:** Handles logic related to `is agent villian`.
+**Purpose:** Determines whether the current object is in the `agent villian` state or condition.
+
+```csharp
+// Static call; no instance required
+MissionFightHandler.IsAgentVillian(character);
+```
 
 ## Usage Example
 
 ```csharp
-Mission.Current.AddMissionBehavior(new MissionFightHandler());
+var behavior = Mission.Current.GetMissionBehavior<MissionFightHandler>();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "BanditDensityModel"
+description: "Auto-generated class reference for BanditDensityModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `BanditDensityModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # BanditDensityModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class BanditDensityModel : MBGameModel<BanditDensityModel>`
 **Base:** `MBGameModel<BanditDensityModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BanditDensityModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/BanditDensityModel.cs`
 
 ## Overview
 
@@ -43,29 +37,54 @@ Treat `BanditDensityModel` as a Model-style extension point: first identify who 
 ### GetMaxSupportedNumberOfLootersForClan
 `public abstract int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
 
-**Purpose:** Gets the current value of `max supported number of looters for clan`.
+**Purpose:** Reads and returns the `max supported number of looters for clan` value held by the current object.
+
+```csharp
+// Obtain an instance of BanditDensityModel from the subsystem API first
+BanditDensityModel banditDensityModel = ...;
+var result = banditDensityModel.GetMaxSupportedNumberOfLootersForClan(clan);
+```
 
 ### GetMinimumTroopCountForHideoutMission
 `public abstract int GetMinimumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
 
-**Purpose:** Gets the current value of `minimum troop count for hideout mission`.
+**Purpose:** Reads and returns the `minimum troop count for hideout mission` value held by the current object.
+
+```csharp
+// Obtain an instance of BanditDensityModel from the subsystem API first
+BanditDensityModel banditDensityModel = ...;
+var result = banditDensityModel.GetMinimumTroopCountForHideoutMission(party, false);
+```
 
 ### GetMaximumTroopCountForHideoutMission
 `public abstract int GetMaximumTroopCountForHideoutMission(MobileParty party, bool isAssault)`
 
-**Purpose:** Gets the current value of `maximum troop count for hideout mission`.
+**Purpose:** Reads and returns the `maximum troop count for hideout mission` value held by the current object.
+
+```csharp
+// Obtain an instance of BanditDensityModel from the subsystem API first
+BanditDensityModel banditDensityModel = ...;
+var result = banditDensityModel.GetMaximumTroopCountForHideoutMission(party, false);
+```
 
 ### IsPositionInsideNavalSafeZone
 `public abstract bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
 
-**Purpose:** Handles logic related to `is position inside naval safe zone`.
+**Purpose:** Determines whether the current object is in the `position inside naval safe zone` state or condition.
+
+```csharp
+// Obtain an instance of BanditDensityModel from the subsystem API first
+BanditDensityModel banditDensityModel = ...;
+var result = banditDensityModel.IsPositionInsideNavalSafeZone(position);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomBanditDensityModel();
+// Typically obtained from a subsystem API or factory
+BanditDensityModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

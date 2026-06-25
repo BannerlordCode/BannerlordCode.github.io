@@ -1,13 +1,7 @@
 ---
 title: "CheatActionItemVM"
+description: "Auto-generated class reference for CheatActionItemVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CheatActionItemVM`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CheatActionItemVM
 
 **Namespace:** SandBox.ViewModelCollection.Map.Cheat
@@ -29,20 +23,33 @@ Start from namespace `SandBox.ViewModelCollection.Map.Cheat` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Refreshes the display or cache of `values`.
+**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of CheatActionItemVM from the subsystem API first
+CheatActionItemVM cheatActionItemVM = ...;
+cheatActionItemVM.RefreshValues();
+```
 
 ### ExecuteAction
 `public override void ExecuteAction()`
 
-**Purpose:** Executes the `action` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `action`.
+
+```csharp
+// Obtain an instance of CheatActionItemVM from the subsystem API first
+CheatActionItemVM cheatActionItemVM = ...;
+cheatActionItemVM.ExecuteAction();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new CheatActionItemVM();
-value.RefreshValues();
+// Typically call this after obtaining an instance from the subsystem API
+CheatActionItemVM cheatActionItemVM = ...;
+cheatActionItemVM.RefreshValues();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

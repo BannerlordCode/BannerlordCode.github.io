@@ -1,20 +1,14 @@
 ---
 title: "GarrisonTroopsCampaignBehavior"
+description: "Auto-generated class reference for GarrisonTroopsCampaignBehavior."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `GarrisonTroopsCampaignBehavior`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # GarrisonTroopsCampaignBehavior
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class GarrisonTroopsCampaignBehavior : CampaignBehaviorBase`
 **Base:** `CampaignBehaviorBase`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonTroopsCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonTroopsCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,30 +23,55 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### GetNumberOfTroopsToLeaveForParty
 `public int GetNumberOfTroopsToLeaveForParty()`
 
-**Purpose:** Gets the current value of `number of troops to leave for party`.
+**Purpose:** Reads and returns the `number of troops to leave for party` value held by the current object.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToLeaveForParty();
+```
 
 ### GetNumberOfTroopsToTakeForParty
 `public int GetNumberOfTroopsToTakeForParty()`
 
-**Purpose:** Gets the current value of `number of troops to take for party`.
+**Purpose:** Reads and returns the `number of troops to take for party` value held by the current object.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToTakeForParty();
+```
 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Handles logic related to `register events`.
+**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+garrisonTroopsCampaignBehavior.RegisterEvents();
+```
 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Handles logic related to `sync data`.
+**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+
+```csharp
+// Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+garrisonTroopsCampaignBehavior.SyncData(dataStore);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new GarrisonTroopsCampaignBehavior();
-value.GetNumberOfTroopsToLeaveForParty();
+// Typically call this after obtaining an instance from the subsystem API
+GarrisonTroopsCampaignBehavior garrisonTroopsCampaignBehavior = ...;
+garrisonTroopsCampaignBehavior.GetNumberOfTroopsToLeaveForParty();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

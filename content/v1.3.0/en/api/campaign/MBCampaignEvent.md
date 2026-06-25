@@ -1,13 +1,7 @@
 ---
 title: "MBCampaignEvent"
+description: "Auto-generated class reference for MBCampaignEvent."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBCampaignEvent`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBCampaignEvent
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -39,38 +33,75 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 
 **Purpose:** Adds `handler` to the current collection or state.
 
+```csharp
+// Obtain an instance of MBCampaignEvent from the subsystem API first
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.AddHandler(gameEventDelegate);
+```
+
 ### RunHandlers
 `public void RunHandlers(params object delegateParams)`
 
-**Purpose:** Handles logic related to `run handlers`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBCampaignEvent from the subsystem API first
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.RunHandlers(delegateParams);
+```
 
 ### Unregister
 `public void Unregister(object instance)`
 
-**Purpose:** Handles logic related to `unregister`.
+**Purpose:** Unregisters the current object from the current system.
+
+```csharp
+// Obtain an instance of MBCampaignEvent from the subsystem API first
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.Unregister(instance);
+```
 
 ### CheckUpdate
 `public void CheckUpdate()`
 
-**Purpose:** Handles logic related to `check update`.
+**Purpose:** Verifies whether `update` holds true for the current object.
+
+```csharp
+// Obtain an instance of MBCampaignEvent from the subsystem API first
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.CheckUpdate();
+```
 
 ### DeletePeriodicEvent
 `public void DeletePeriodicEvent()`
 
-**Purpose:** Handles logic related to `delete periodic event`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBCampaignEvent from the subsystem API first
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.DeletePeriodicEvent();
+```
 
 ### CampaignEventDelegate
 `public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)`
 
-**Purpose:** Handles logic related to `campaign event delegate`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MBCampaignEvent from the subsystem API first
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.CampaignEventDelegate(campaignEvent, delegateParams);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MBCampaignEvent();
-value.AddHandler(gameEventDelegate);
+// Typically call this after obtaining an instance from the subsystem API
+MBCampaignEvent mBCampaignEvent = ...;
+mBCampaignEvent.AddHandler(gameEventDelegate);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

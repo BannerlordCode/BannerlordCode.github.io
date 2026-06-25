@@ -1,20 +1,14 @@
 ---
 title: "DuelMatchVM"
+description: "Auto-generated class reference for DuelMatchVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `DuelMatchVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # DuelMatchVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class DuelMatchVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/DuelMatchVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.HUDExtensions/DuelMatchVM.cs`
 
 ## Overview
 
@@ -45,40 +39,77 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.H
 ### OnDuelPrepStarted
 `public void OnDuelPrepStarted(MissionPeer opponentPeer, int prepDuration)`
 
-**Purpose:** Called when the `duel prep started` event is raised.
+**Purpose:** Invoked when the `duel prep started` event is raised.
+
+```csharp
+// Obtain an instance of DuelMatchVM from the subsystem API first
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnDuelPrepStarted(opponentPeer, 0);
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of DuelMatchVM from the subsystem API first
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.Tick(0);
+```
 
 ### OnDuelStarted
 `public void OnDuelStarted(MissionPeer firstPeer, MissionPeer secondPeer, int arenaType)`
 
-**Purpose:** Called when the `duel started` event is raised.
+**Purpose:** Invoked when the `duel started` event is raised.
+
+```csharp
+// Obtain an instance of DuelMatchVM from the subsystem API first
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnDuelStarted(firstPeer, secondPeer, 0);
+```
 
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**Purpose:** Called when the `duel ended` event is raised.
+**Purpose:** Invoked when the `duel ended` event is raised.
+
+```csharp
+// Obtain an instance of DuelMatchVM from the subsystem API first
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnDuelEnded();
+```
 
 ### OnPeerScored
 `public void OnPeerScored(MissionPeer peer)`
 
-**Purpose:** Called when the `peer scored` event is raised.
+**Purpose:** Invoked when the `peer scored` event is raised.
+
+```csharp
+// Obtain an instance of DuelMatchVM from the subsystem API first
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnPeerScored(peer);
+```
 
 ### RefreshNames
 `public void RefreshNames(bool changeGenericNames = false)`
 
-**Purpose:** Refreshes the display or cache of `names`.
+**Purpose:** Keeps the display or cache of `names` in sync with the underlying state.
+
+```csharp
+// Obtain an instance of DuelMatchVM from the subsystem API first
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.RefreshNames(false);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new DuelMatchVM();
-value.OnDuelPrepStarted(opponentPeer, 0);
+// Typically call this after obtaining an instance from the subsystem API
+DuelMatchVM duelMatchVM = ...;
+duelMatchVM.OnDuelPrepStarted(opponentPeer, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

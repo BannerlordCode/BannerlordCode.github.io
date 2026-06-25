@@ -1,20 +1,14 @@
 ---
 title: "Container"
+description: "Auto-generated class reference for Container."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Container`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Container
 
 **Namespace:** TaleWorlds.GauntletUI.BaseTypes
 **Module:** TaleWorlds.GauntletUI
 **Type:** `public abstract class Container : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/Container.cs`
+**File:** `bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/Container.cs`
 
 ## Overview
 
@@ -40,39 +34,76 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### GetDropGizmoPosition
 `public abstract Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `drop gizmo position`.
+**Purpose:** Reads and returns the `drop gizmo position` value held by the current object.
+
+```csharp
+// Obtain an instance of Container from the subsystem API first
+Container container = ...;
+var result = container.GetDropGizmoPosition(draggedWidgetPosition);
+```
 
 ### GetIndexForDrop
 `public abstract int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Gets the current value of `index for drop`.
+**Purpose:** Reads and returns the `index for drop` value held by the current object.
+
+```csharp
+// Obtain an instance of Container from the subsystem API first
+Container container = ...;
+var result = container.GetIndexForDrop(draggedWidgetPosition);
+```
 
 ### OnChildSelected
 `public abstract void OnChildSelected(Widget widget)`
 
-**Purpose:** Called when the `child selected` event is raised.
+**Purpose:** Invoked when the `child selected` event is raised.
+
+```csharp
+// Obtain an instance of Container from the subsystem API first
+Container container = ...;
+container.OnChildSelected(widget);
+```
 
 ### GetItemDescription
 `public ContainerItemDescription GetItemDescription(string id, int index)`
 
-**Purpose:** Gets the current value of `item description`.
+**Purpose:** Reads and returns the `item description` value held by the current object.
+
+```csharp
+// Obtain an instance of Container from the subsystem API first
+Container container = ...;
+var result = container.GetItemDescription("example", 0);
+```
 
 ### AddItemDescription
 `public void AddItemDescription(ContainerItemDescription itemDescription)`
 
 **Purpose:** Adds `item description` to the current collection or state.
 
+```csharp
+// Obtain an instance of Container from the subsystem API first
+Container container = ...;
+container.AddItemDescription(itemDescription);
+```
+
 ### FindParentPanel
 `public ScrollablePanel FindParentPanel()`
 
-**Purpose:** Handles logic related to `find parent panel`.
+**Purpose:** Looks up the matching `parent panel` in the current collection or scope.
+
+```csharp
+// Obtain an instance of Container from the subsystem API first
+Container container = ...;
+var result = container.FindParentPanel();
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomContainer();
+// Typically obtained from a subsystem API or factory
+Container instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

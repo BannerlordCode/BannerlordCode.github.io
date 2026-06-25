@@ -1,20 +1,14 @@
 ---
 title: "CosmeticsManager"
+description: "CosmeticsManager 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CosmeticsManager`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CosmeticsManager
 
 **Namespace:** TaleWorlds.MountAndBlade.Diamond.Cosmetics
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class CosmeticsManager`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics/CosmeticsManager.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond.Cosmetics/CosmeticsManager.cs`
 
 ## 概述
 
@@ -29,12 +23,22 @@ title: "CosmeticsManager"
 ### GetCosmeticElement
 `public static CosmeticElement GetCosmeticElement(string cosmeticId)`
 
-**用途 / Purpose:** 获取 `cosmetic element` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「cosmetic element」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+CosmeticsManager.GetCosmeticElement("example");
+```
 
 ### LoadFromXml
 `public static void LoadFromXml(string path)`
 
-**用途 / Purpose:** 加载 `from xml` 数据。
+**用途 / Purpose:** 从持久化存储或流中读取 「from xml」。
+
+```csharp
+// 静态调用，不需要实例
+CosmeticsManager.LoadFromXml("example");
+```
 
 ## 使用示例
 
@@ -44,4 +48,4 @@ var manager = CosmeticsManager.Current;
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

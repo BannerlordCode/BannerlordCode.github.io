@@ -1,20 +1,14 @@
 ---
 title: "TestLoginAccessProvider"
+description: "Auto-generated class reference for TestLoginAccessProvider."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TestLoginAccessProvider`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # TestLoginAccessProvider
 
 **Namespace:** TaleWorlds.Diamond.AccessProvider.Test
 **Module:** TaleWorlds.Diamond
 **Type:** `public class TestLoginAccessProvider : ILoginAccessProvider`
 **Base:** `ILoginAccessProvider`
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond.AccessProvider.Test/TaleWorlds.Diamond.AccessProvider.Test/TestLoginAccessProvider.cs`
+**File:** `bin/TaleWorlds.Diamond.AccessProvider.Test/TaleWorlds.Diamond.AccessProvider.Test/TestLoginAccessProvider.cs`
 
 ## Overview
 
@@ -29,12 +23,22 @@ Start from namespace `TaleWorlds.Diamond.AccessProvider.Test` to place it in the
 ### GetInt64HashCode
 `public static ulong GetInt64HashCode(string strText)`
 
-**Purpose:** Gets the current value of `int64 hash code`.
+**Purpose:** Reads and returns the `int64 hash code` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TestLoginAccessProvider.GetInt64HashCode("example");
+```
 
 ### GetPlayerIdFromUserName
 `public static PlayerId GetPlayerIdFromUserName(string userName)`
 
-**Purpose:** Gets the current value of `player id from user name`.
+**Purpose:** Reads and returns the `player id from user name` value held by the current object.
+
+```csharp
+// Static call; no instance required
+TestLoginAccessProvider.GetPlayerIdFromUserName("example");
+```
 
 ## Usage Example
 
@@ -44,4 +48,4 @@ TestLoginAccessProvider.GetInt64HashCode("example");
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

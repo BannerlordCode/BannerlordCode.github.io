@@ -1,20 +1,14 @@
 ---
 title: "ClientApplicationConfiguration"
+description: "ClientApplicationConfiguration 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `ClientApplicationConfiguration`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # ClientApplicationConfiguration
 
 **Namespace:** TaleWorlds.Diamond.ClientApplication
 **Module:** TaleWorlds.Diamond
 **Type:** `public class ClientApplicationConfiguration`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/ClientApplicationConfiguration.cs`
+**File:** `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/ClientApplicationConfiguration.cs`
 
 ## 概述
 
@@ -39,22 +33,44 @@ title: "ClientApplicationConfiguration"
 ### GetDefaultConfigurationFromFile
 `public static string GetDefaultConfigurationFromFile()`
 
-**用途 / Purpose:** 获取 `default configuration from file` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「default configuration from file」 的结果。
+
+```csharp
+// 静态调用，不需要实例
+ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
+```
 
 ### SetDefaultConfigurationCategory
 `public static void SetDefaultConfigurationCategory(string category)`
 
-**用途 / Purpose:** 设置 `default configuration category` 的值或状态。
+**用途 / Purpose:** 为 「default configuration category」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 静态调用，不需要实例
+ClientApplicationConfiguration.SetDefaultConfigurationCategory("example");
+```
 
 ### FillFrom
 `public void FillFrom(string configurationName)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientApplicationConfiguration 实例
+ClientApplicationConfiguration clientApplicationConfiguration = ...;
+clientApplicationConfiguration.FillFrom("example");
+```
 
 ### FillFrom
 `public void FillFrom(string configurationCategory, string configurationName)`
 
-**用途 / Purpose:** 处理 `fill from` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 ClientApplicationConfiguration 实例
+ClientApplicationConfiguration clientApplicationConfiguration = ...;
+clientApplicationConfiguration.FillFrom("example", "example");
+```
 
 ## 使用示例
 
@@ -64,4 +80,4 @@ ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

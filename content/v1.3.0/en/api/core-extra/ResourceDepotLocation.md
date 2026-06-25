@@ -1,13 +1,7 @@
 ---
 title: "ResourceDepotLocation"
+description: "Auto-generated class reference for ResourceDepotLocation."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ResourceDepotLocation`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # ResourceDepotLocation
 
 **Namespace:** TaleWorlds.Library
@@ -38,20 +32,33 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### StartWatchingChanges
 `public void StartWatchingChanges(FileSystemEventHandler onChangeEvent, RenamedEventHandler onRenameEvent)`
 
-**Purpose:** Handles logic related to `start watching changes`.
+**Purpose:** Starts the `watching changes` flow or state machine.
+
+```csharp
+// Obtain an instance of ResourceDepotLocation from the subsystem API first
+ResourceDepotLocation resourceDepotLocation = ...;
+resourceDepotLocation.StartWatchingChanges(onChangeEvent, onRenameEvent);
+```
 
 ### StopWatchingChanges
 `public void StopWatchingChanges()`
 
-**Purpose:** Handles logic related to `stop watching changes`.
+**Purpose:** Stops the `watching changes` flow or state machine.
+
+```csharp
+// Obtain an instance of ResourceDepotLocation from the subsystem API first
+ResourceDepotLocation resourceDepotLocation = ...;
+resourceDepotLocation.StopWatchingChanges();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new ResourceDepotLocation();
-value.StartWatchingChanges(onChangeEvent, onRenameEvent);
+// Typically call this after obtaining an instance from the subsystem API
+ResourceDepotLocation resourceDepotLocation = ...;
+resourceDepotLocation.StartWatchingChanges(onChangeEvent, onRenameEvent);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

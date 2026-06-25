@@ -1,20 +1,14 @@
 ---
 title: "MaterialPool"
+description: "Auto-generated class reference for MaterialPool."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MaterialPool`
-- [← Area / Back to gui](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MaterialPool
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
 **Type:** `public class MaterialPool<T>`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/MaterialPool.cs`
+**File:** `bin/TaleWorlds.TwoDimension/TaleWorlds.TwoDimension/MaterialPool.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### New
 `public T New()`
 
-**Purpose:** Handles logic related to `new`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of MaterialPool from the subsystem API first
+MaterialPool materialPool = ...;
+var result = materialPool.New();
+```
 
 ### ResetAll
 `public void ResetAll()`
 
-**Purpose:** Resets `all` to its initial state.
+**Purpose:** Returns `all` to its default or initial condition.
+
+```csharp
+// Obtain an instance of MaterialPool from the subsystem API first
+MaterialPool materialPool = ...;
+materialPool.ResetAll();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MaterialPool();
-value.New();
+// Typically call this after obtaining an instance from the subsystem API
+MaterialPool materialPool = ...;
+materialPool.New();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MinorFactionsModel"
+description: "Auto-generated class reference for MinorFactionsModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MinorFactionsModel`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MinorFactionsModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -36,14 +30,21 @@ Treat `MinorFactionsModel` as a Model-style extension point: first identify who 
 ### GetMercenaryAwardFactorToJoinKingdom
 `public abstract int GetMercenaryAwardFactorToJoinKingdom(Clan mercenaryClan, Kingdom kingdom, bool neededAmountForClanToJoinCalculation = false)`
 
-**Purpose:** Gets the current value of `mercenary award factor to join kingdom`.
+**Purpose:** Reads and returns the `mercenary award factor to join kingdom` value held by the current object.
+
+```csharp
+// Obtain an instance of MinorFactionsModel from the subsystem API first
+MinorFactionsModel minorFactionsModel = ...;
+var result = minorFactionsModel.GetMercenaryAwardFactorToJoinKingdom(mercenaryClan, kingdom, false);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomMinorFactionsModel();
+// Typically obtained from a subsystem API or factory
+MinorFactionsModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "MissionObjectiveMarkerVM"
+description: "MissionObjectiveMarkerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `MissionObjectiveMarkerVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MissionObjectiveMarkerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective
@@ -40,25 +34,44 @@ title: "MissionObjectiveMarkerVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveMarkerVM 实例
+MissionObjectiveMarkerVM missionObjectiveMarkerVM = ...;
+missionObjectiveMarkerVM.RefreshValues();
+```
 
 ### UpdateActiveState
 `public void UpdateActiveState()`
 
-**用途 / Purpose:** 更新 `active state` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「active state」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveMarkerVM 实例
+MissionObjectiveMarkerVM missionObjectiveMarkerVM = ...;
+missionObjectiveMarkerVM.UpdateActiveState();
+```
 
 ### UpdatePosition
 `public void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 更新 `position` 的状态或数据。
+**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+
+```csharp
+// 先通过子系统 API 拿到 MissionObjectiveMarkerVM 实例
+MissionObjectiveMarkerVM missionObjectiveMarkerVM = ...;
+missionObjectiveMarkerVM.UpdatePosition(missionCamera);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new MissionObjectiveMarkerVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+MissionObjectiveMarkerVM missionObjectiveMarkerVM = ...;
+missionObjectiveMarkerVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

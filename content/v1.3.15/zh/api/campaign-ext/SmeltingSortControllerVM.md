@@ -1,13 +1,7 @@
 ---
 title: "SmeltingSortControllerVM"
+description: "SmeltingSortControllerVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SmeltingSortControllerVM`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SmeltingSortControllerVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.Smelting
@@ -43,65 +37,132 @@ title: "SmeltingSortControllerVM"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 刷新 `values` 的显示或缓存。
+**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.RefreshValues();
+```
 
 ### SetListToControl
 `public void SetListToControl(MBBindingList<SmeltingItemVM> listToControl)`
 
-**用途 / Purpose:** 设置 `list to control` 的值或状态。
+**用途 / Purpose:** 为 「list to control」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.SetListToControl(listToControl);
+```
 
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**用途 / Purpose:** 处理 `sort by current state` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.SortByCurrentState();
+```
 
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**用途 / Purpose:** 执行 `sort by name` 操作或流程。
+**用途 / Purpose:** 执行 「sort by name」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.ExecuteSortByName();
+```
 
 ### ExecuteSortByYield
 `public void ExecuteSortByYield()`
 
-**用途 / Purpose:** 执行 `sort by yield` 操作或流程。
+**用途 / Purpose:** 执行 「sort by yield」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.ExecuteSortByYield();
+```
 
 ### ExecuteSortByType
 `public void ExecuteSortByType()`
 
-**用途 / Purpose:** 执行 `sort by type` 操作或流程。
+**用途 / Purpose:** 执行 「sort by type」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.ExecuteSortByType();
+```
 
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 设置 `sort mode` 的值或状态。
+**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+var result = smeltingSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+var result = smeltingSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+var result = smeltingSortControllerVM.Compare(x, y);
+```
 
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 SmeltingSortControllerVM 实例
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+var result = smeltingSortControllerVM.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new SmeltingSortControllerVM();
-value.RefreshValues();
+// 通常从对应子系统 API 获取实例后调用
+SmeltingSortControllerVM smeltingSortControllerVM = ...;
+smeltingSortControllerVM.RefreshValues();
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

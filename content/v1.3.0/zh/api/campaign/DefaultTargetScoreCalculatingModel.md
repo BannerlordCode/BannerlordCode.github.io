@@ -1,13 +1,7 @@
 ---
 title: "DefaultTargetScoreCalculatingModel"
+description: "DefaultTargetScoreCalculatingModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultTargetScoreCalculatingModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultTargetScoreCalculatingModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -39,22 +33,46 @@ title: "DefaultTargetScoreCalculatingModel"
 ### GetPatrollingFactor
 `public override float GetPatrollingFactor(bool isNavalPatrolling)`
 
-**用途 / Purpose:** 获取 `patrolling factor` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「patrolling factor」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.GetPatrollingFactor(false);
+```
 
 ### CalculatePatrollingScoreForSettlement
 `public override float CalculatePatrollingScoreForSettlement(Settlement settlement, bool isFromPort, MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `calculate patrolling score for settlement` 相关逻辑。
+**用途 / Purpose:** 计算「patrolling score for settlement」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.CalculatePatrollingScoreForSettlement(settlement, false, mobileParty);
+```
 
 ### CurrentObjectiveValue
 `public override float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理 `current objective value` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.CurrentObjectiveValue(mobileParty);
+```
 
 ### GetTargetScoreForFaction
 `public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**用途 / Purpose:** 获取 `target score for faction` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「target score for faction」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
+DefaultTargetScoreCalculatingModel defaultTargetScoreCalculatingModel = ...;
+var result = defaultTargetScoreCalculatingModel.GetTargetScoreForFaction(targetSettlement, missionType, mobileParty, 0);
+```
 
 ## 使用示例
 
@@ -64,4 +82,4 @@ Game.Current.ReplaceModel<DefaultTargetScoreCalculatingModel>(new MyDefaultTarge
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

@@ -1,20 +1,14 @@
 ---
 title: "MBGlobals"
+description: "Auto-generated class reference for MBGlobals."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MBGlobals`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MBGlobals
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public static class MBGlobals`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBGlobals.cs`
+**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBGlobals.cs`
 
 ## Overview
 
@@ -29,17 +23,32 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitializeReferences
 `public static void InitializeReferences()`
 
-**Purpose:** Initializes the state, resources, or bindings for `references`.
+**Purpose:** Prepares the resources, state, or bindings required by `references`.
+
+```csharp
+// Static call; no instance required
+MBGlobals.InitializeReferences();
+```
 
 ### GetActionSetWithSuffix
 `public static MBActionSet GetActionSetWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**Purpose:** Gets the current value of `action set with suffix`.
+**Purpose:** Reads and returns the `action set with suffix` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBGlobals.GetActionSetWithSuffix(monster, false, "example");
+```
 
 ### GetActionSet
 `public static MBActionSet GetActionSet(string actionSetCode)`
 
-**Purpose:** Gets the current value of `action set`.
+**Purpose:** Reads and returns the `action set` value held by the current object.
+
+```csharp
+// Static call; no instance required
+MBGlobals.GetActionSet("example");
+```
 
 ## Usage Example
 
@@ -49,4 +58,4 @@ MBGlobals.InitializeReferences();
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

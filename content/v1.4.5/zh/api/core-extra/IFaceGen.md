@@ -1,20 +1,14 @@
 ---
 title: "IFaceGen"
+description: "IFaceGen 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `IFaceGen`
-- [← 本领域 / 返回 core-extra](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # IFaceGen
 
 **Namespace:** TaleWorlds.Core
 **Module:** TaleWorlds.Core
-**Type:** `class`
+**Type:** `public interface IFaceGen`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/IFaceGen.cs`
+**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/IFaceGen.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "IFaceGen"
 ## 使用示例
 
 ```csharp
-IFaceGen implementation = GetFaceGenImplementation();
+// 通常通过依赖注入或工厂方法获得实现
+IIFaceGen service = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

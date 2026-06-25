@@ -1,13 +1,7 @@
 ---
 title: "EpicPlatformServices"
+description: "EpicPlatformServices 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `EpicPlatformServices`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # EpicPlatformServices
 
 **Namespace:** TaleWorlds.PlatformService.Epic
@@ -58,35 +52,66 @@ title: "EpicPlatformServices"
 ### Initialize
 `public bool Initialize(IFriendListService additionalFriendListServices)`
 
-**用途 / Purpose:** 初始化 `initialize` 的状态、资源或绑定。
+**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+
+```csharp
+// 先通过子系统 API 拿到 EpicPlatformServices 实例
+EpicPlatformServices epicPlatformServices = ...;
+var result = epicPlatformServices.Initialize(additionalFriendListServices);
+```
 
 ### Terminate
 `public void Terminate()`
 
-**用途 / Purpose:** 处理 `terminate` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EpicPlatformServices 实例
+EpicPlatformServices epicPlatformServices = ...;
+epicPlatformServices.Terminate();
+```
 
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 处理 `tick` 相关逻辑。
+**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+
+```csharp
+// 先通过子系统 API 拿到 EpicPlatformServices 实例
+EpicPlatformServices epicPlatformServices = ...;
+epicPlatformServices.Tick(0);
+```
 
 ### QueryDefinitions
 `public void QueryDefinitions()`
 
-**用途 / Purpose:** 处理 `query definitions` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 EpicPlatformServices 实例
+EpicPlatformServices epicPlatformServices = ...;
+epicPlatformServices.QueryDefinitions();
+```
 
 ### ShowGamepadTextInput
 `public bool ShowGamepadTextInput(string descriptionText, string existingText, uint maxChars, bool isObfuscated)`
 
-**用途 / Purpose:** 处理 `show gamepad text input` 相关逻辑。
+**用途 / Purpose:** 显示「gamepad text input」对应的界面或元素。
+
+```csharp
+// 先通过子系统 API 拿到 EpicPlatformServices 实例
+EpicPlatformServices epicPlatformServices = ...;
+var result = epicPlatformServices.ShowGamepadTextInput("example", "example", 0, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new EpicPlatformServices();
-value.Initialize(additionalFriendListServices);
+// 通常从对应子系统 API 获取实例后调用
+EpicPlatformServices epicPlatformServices = ...;
+epicPlatformServices.Initialize(additionalFriendListServices);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

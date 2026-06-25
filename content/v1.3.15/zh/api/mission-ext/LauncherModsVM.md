@@ -1,13 +1,7 @@
 ---
 title: "LauncherModsVM"
+description: "LauncherModsVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `LauncherModsVM`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # LauncherModsVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Launcher.Library
@@ -39,15 +33,22 @@ title: "LauncherModsVM"
 ### Refresh
 `public void Refresh(bool isDisabled, bool isMultiplayer)`
 
-**用途 / Purpose:** 刷新 `refresh` 的显示或缓存。
+**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 LauncherModsVM 实例
+LauncherModsVM launcherModsVM = ...;
+launcherModsVM.Refresh(false, false);
+```
 
 ## 使用示例
 
 ```csharp
-var value = new LauncherModsVM();
-value.Refresh(false, false);
+// 通常从对应子系统 API 获取实例后调用
+LauncherModsVM launcherModsVM = ...;
+launcherModsVM.Refresh(false, false);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

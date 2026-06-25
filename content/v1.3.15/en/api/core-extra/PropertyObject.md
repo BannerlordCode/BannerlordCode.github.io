@@ -1,13 +1,7 @@
 ---
 title: "PropertyObject"
+description: "Auto-generated class reference for PropertyObject."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PropertyObject`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # PropertyObject
 
 **Namespace:** TaleWorlds.Core
@@ -36,20 +30,33 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Gets the current value of `name`.
+**Purpose:** Reads and returns the `name` value held by the current object.
+
+```csharp
+// Obtain an instance of PropertyObject from the subsystem API first
+PropertyObject propertyObject = ...;
+var result = propertyObject.GetName();
+```
 
 ### Initialize
 `public void Initialize(TextObject name, TextObject description)`
 
-**Purpose:** Initializes the state, resources, or bindings for `initialize`.
+**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+
+```csharp
+// Obtain an instance of PropertyObject from the subsystem API first
+PropertyObject propertyObject = ...;
+propertyObject.Initialize(name, description);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new PropertyObject();
-value.GetName();
+// Typically call this after obtaining an instance from the subsystem API
+PropertyObject propertyObject = ...;
+propertyObject.GetName();
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

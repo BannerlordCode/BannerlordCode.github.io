@@ -1,20 +1,14 @@
 ---
 title: "CraftingOrderPopupVM"
+description: "CraftingOrderPopupVM 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CraftingOrderPopupVM`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CraftingOrderPopupVM
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class CraftingOrderPopupVM : ViewModel`
 **Base:** `ViewModel`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order/CraftingOrderPopupVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafting.WeaponDesign.Order/CraftingOrderPopupVM.cs`
 
 ## 概述
 
@@ -39,35 +33,66 @@ title: "CraftingOrderPopupVM"
 ### Compare
 `public int Compare(CraftingOrder x, CraftingOrder y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrderPopupVM 实例
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+var result = craftingOrderPopupVM.Compare(x, y);
+```
 
 ### RefreshOrders
 `public void RefreshOrders()`
 
-**用途 / Purpose:** 刷新 `orders` 的显示或缓存。
+**用途 / Purpose:** 使 「orders」 的显示或缓存与底层状态保持一致。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrderPopupVM 实例
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.RefreshOrders();
+```
 
 ### SelectOrder
 `public void SelectOrder(CraftingOrderItemVM order)`
 
-**用途 / Purpose:** 处理 `select order` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrderPopupVM 实例
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.SelectOrder(order);
+```
 
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**用途 / Purpose:** 执行 `open popup` 操作或流程。
+**用途 / Purpose:** 执行 「open popup」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrderPopupVM 实例
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.ExecuteOpenPopup();
+```
 
 ### ExecuteCloseWithoutSelection
 `public void ExecuteCloseWithoutSelection()`
 
-**用途 / Purpose:** 执行 `close without selection` 操作或流程。
+**用途 / Purpose:** 执行 「close without selection」 对应的操作或工作流。
+
+```csharp
+// 先通过子系统 API 拿到 CraftingOrderPopupVM 实例
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.ExecuteCloseWithoutSelection();
+```
 
 ## 使用示例
 
 ```csharp
-var value = new CraftingOrderPopupVM();
-value.Compare(x, y);
+// 通常从对应子系统 API 获取实例后调用
+CraftingOrderPopupVM craftingOrderPopupVM = ...;
+craftingOrderPopupVM.Compare(x, y);
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

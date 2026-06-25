@@ -1,20 +1,14 @@
 ---
 title: "MissionScoreboardPlayerVM"
+description: "Auto-generated class reference for MissionScoreboardPlayerVM."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionScoreboardPlayerVM`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionScoreboardPlayerVM
 
 **Namespace:** TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MissionScoreboardPlayerVM : MPPlayerVM`
 **Base:** `MPPlayerVM`
-**File:** `Bannerlord.Source/Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardPlayerVM.cs`
+**File:** `Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Scoreboard/MissionScoreboardPlayerVM.cs`
 
 ## Overview
 
@@ -44,35 +38,66 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Handles logic related to `tick`.
+**Purpose:** Advances the current object's state by one frame or update cycle.
+
+```csharp
+// Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.Tick(0);
+```
 
 ### UpdateAttributes
 `public void UpdateAttributes(string attributes, int score)`
 
-**Purpose:** Updates the state or data of `attributes`.
+**Purpose:** Recalculates and stores the latest representation of `attributes`.
+
+```csharp
+// Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.UpdateAttributes("example", 0);
+```
 
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Executes the `selection` operation or workflow.
+**Purpose:** Runs the operation or workflow associated with `selection`.
+
+```csharp
+// Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.ExecuteSelection();
+```
 
 ### UpdateIsMuted
 `public void UpdateIsMuted()`
 
-**Purpose:** Updates the state or data of `is muted`.
+**Purpose:** Recalculates and stores the latest representation of `is muted`.
+
+```csharp
+// Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.UpdateIsMuted();
+```
 
 ### SetMVPBadgeCount
 `public void SetMVPBadgeCount(int badgeCount)`
 
-**Purpose:** Sets the value or state of `m v p badge count`.
+**Purpose:** Assigns a new value to `m v p badge count` and updates the object's internal state.
+
+```csharp
+// Obtain an instance of MissionScoreboardPlayerVM from the subsystem API first
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.SetMVPBadgeCount(0);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new MissionScoreboardPlayerVM();
-value.Tick(0);
+// Typically call this after obtaining an instance from the subsystem API
+MissionScoreboardPlayerVM missionScoreboardPlayerVM = ...;
+missionScoreboardPlayerVM.Tick(0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

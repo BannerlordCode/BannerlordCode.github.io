@@ -1,20 +1,14 @@
 ---
 title: "CircularAutoScrollablePanelWidget"
+description: "CircularAutoScrollablePanelWidget 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `CircularAutoScrollablePanelWidget`
-- [← 本领域 / 返回 mission-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # CircularAutoScrollablePanelWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class CircularAutoScrollablePanelWidget : Widget`
 **Base:** `Widget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/CircularAutoScrollablePanelWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets/CircularAutoScrollablePanelWidget.cs`
 
 ## 概述
 
@@ -43,24 +37,43 @@ title: "CircularAutoScrollablePanelWidget"
 ### SetScrollMouse
 `public void SetScrollMouse()`
 
-**用途 / Purpose:** 设置 `scroll mouse` 的值或状态。
+**用途 / Purpose:** 为 「scroll mouse」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CircularAutoScrollablePanelWidget 实例
+CircularAutoScrollablePanelWidget circularAutoScrollablePanelWidget = ...;
+circularAutoScrollablePanelWidget.SetScrollMouse();
+```
 
 ### SetHoverBegin
 `public void SetHoverBegin()`
 
-**用途 / Purpose:** 设置 `hover begin` 的值或状态。
+**用途 / Purpose:** 为 「hover begin」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CircularAutoScrollablePanelWidget 实例
+CircularAutoScrollablePanelWidget circularAutoScrollablePanelWidget = ...;
+circularAutoScrollablePanelWidget.SetHoverBegin();
+```
 
 ### SetHoverEnd
 `public void SetHoverEnd()`
 
-**用途 / Purpose:** 设置 `hover end` 的值或状态。
+**用途 / Purpose:** 为 「hover end」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 CircularAutoScrollablePanelWidget 实例
+CircularAutoScrollablePanelWidget circularAutoScrollablePanelWidget = ...;
+circularAutoScrollablePanelWidget.SetHoverEnd();
+```
 
 ## 使用示例
 
 ```csharp
-var widget = new CircularAutoScrollablePanelWidget(context);
+// 在 Gauntlet 控件树或 Movie 中获取该控件实例
+CircularAutoScrollablePanelWidget widget = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

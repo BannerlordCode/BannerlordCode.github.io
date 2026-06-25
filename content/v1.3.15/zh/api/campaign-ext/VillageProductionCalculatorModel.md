@@ -1,13 +1,7 @@
 ---
 title: "VillageProductionCalculatorModel"
+description: "VillageProductionCalculatorModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `VillageProductionCalculatorModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.15](../../)
-- [⭐ SDK 总览](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # VillageProductionCalculatorModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
@@ -29,24 +23,43 @@ title: "VillageProductionCalculatorModel"
 ### CalculateProductionSpeedOfItemCategory
 `public abstract float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
 
-**用途 / Purpose:** 处理 `calculate production speed of item category` 相关逻辑。
+**用途 / Purpose:** 计算「production speed of item category」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillageProductionCalculatorModel 实例
+VillageProductionCalculatorModel villageProductionCalculatorModel = ...;
+var result = villageProductionCalculatorModel.CalculateProductionSpeedOfItemCategory(item);
+```
 
 ### CalculateDailyProductionAmount
 `public abstract ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
 
-**用途 / Purpose:** 处理 `calculate daily production amount` 相关逻辑。
+**用途 / Purpose:** 计算「daily production amount」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillageProductionCalculatorModel 实例
+VillageProductionCalculatorModel villageProductionCalculatorModel = ...;
+var result = villageProductionCalculatorModel.CalculateDailyProductionAmount(village, item);
+```
 
 ### CalculateDailyFoodProductionAmount
 `public abstract float CalculateDailyFoodProductionAmount(Village village)`
 
-**用途 / Purpose:** 处理 `calculate daily food production amount` 相关逻辑。
+**用途 / Purpose:** 计算「daily food production amount」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 VillageProductionCalculatorModel 实例
+VillageProductionCalculatorModel villageProductionCalculatorModel = ...;
+var result = villageProductionCalculatorModel.CalculateDailyFoodProductionAmount(village);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomVillageProductionCalculatorModel();
+// 通常通过子系统 API 或工厂获得派生实例
+VillageProductionCalculatorModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

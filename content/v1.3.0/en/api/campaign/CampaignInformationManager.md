@@ -1,13 +1,7 @@
 ---
 title: "CampaignInformationManager"
+description: "Auto-generated class reference for CampaignInformationManager."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CampaignInformationManager`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # CampaignInformationManager
 
 **Namespace:** TaleWorlds.CampaignSystem
@@ -29,12 +23,24 @@ Treat `CampaignInformationManager` as a Manager-style extension point: first ide
 ### OnGameLoaded
 `public void OnGameLoaded()`
 
-**Purpose:** Called when the `game loaded` event is raised.
+**Purpose:** Invoked when the `game loaded` event is raised.
+
+```csharp
+// Obtain an instance of CampaignInformationManager from the subsystem API first
+CampaignInformationManager campaignInformationManager = ...;
+campaignInformationManager.OnGameLoaded();
+```
 
 ### NewMapNoticeAdded
 `public void NewMapNoticeAdded(InformationData informationData)`
 
-**Purpose:** Handles logic related to `new map notice added`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of CampaignInformationManager from the subsystem API first
+CampaignInformationManager campaignInformationManager = ...;
+campaignInformationManager.NewMapNoticeAdded(informationData);
+```
 
 ## Usage Example
 
@@ -44,4 +50,4 @@ var manager = CampaignInformationManager.Current;
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,20 +1,14 @@
 ---
 title: "PartyTradeModel"
+description: "Auto-generated class reference for PartyTradeModel."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `PartyTradeModel`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # PartyTradeModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class PartyTradeModel : MBGameModel<PartyTradeModel>`
 **Base:** `MBGameModel<PartyTradeModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTradeModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/PartyTradeModel.cs`
 
 ## Overview
 
@@ -35,14 +29,21 @@ Treat `PartyTradeModel` as a Model-style extension point: first identify who cre
 ### GetTradePenaltyFactor
 `public abstract float GetTradePenaltyFactor(MobileParty party)`
 
-**Purpose:** Gets the current value of `trade penalty factor`.
+**Purpose:** Reads and returns the `trade penalty factor` value held by the current object.
+
+```csharp
+// Obtain an instance of PartyTradeModel from the subsystem API first
+PartyTradeModel partyTradeModel = ...;
+var result = partyTradeModel.GetTradePenaltyFactor(party);
+```
 
 ## Usage Example
 
 ```csharp
-var implementation = new CustomPartyTradeModel();
+// Typically obtained from a subsystem API or factory
+PartyTradeModel instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

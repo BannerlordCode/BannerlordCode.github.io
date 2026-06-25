@@ -1,13 +1,7 @@
 ---
 title: "CommunityGameJoinData"
+description: "Auto-generated class reference for CommunityGameJoinData."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `CommunityGameJoinData`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # CommunityGameJoinData
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -34,9 +28,10 @@ Treat `CommunityGameJoinData` as a Data-style extension point: first identify wh
 ## Usage Example
 
 ```csharp
-var value = new CommunityGameJoinData();
+// This data object is usually returned by campaign/mission APIs
+CommunityGameJoinData entry = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

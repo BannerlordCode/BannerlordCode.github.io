@@ -1,13 +1,7 @@
 ---
 title: "SandboxBattleBannerBearersModel"
+description: "SandboxBattleBannerBearersModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxBattleBannerBearersModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxBattleBannerBearersModel
 
 **Namespace:** SandBox
@@ -29,47 +23,101 @@ title: "SandboxBattleBannerBearersModel"
 ### GetMinimumFormationTroopCountToBearBanners
 `public override int GetMinimumFormationTroopCountToBearBanners()`
 
-**用途 / Purpose:** 获取 `minimum formation troop count to bear banners` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「minimum formation troop count to bear banners」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetMinimumFormationTroopCountToBearBanners();
+```
 
 ### GetBannerInteractionDistance
 `public override float GetBannerInteractionDistance(Agent interactingAgent)`
 
-**用途 / Purpose:** 获取 `banner interaction distance` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner interaction distance」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetBannerInteractionDistance(interactingAgent);
+```
 
 ### CanBannerBearerProvideEffectToFormation
 `public override bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `banner bearer provide effect to formation`。
+**用途 / Purpose:** 检查当前对象是否满足 「banner bearer provide effect to formation」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.CanBannerBearerProvideEffectToFormation(agent, formation);
+```
 
 ### CanAgentPickUpAnyBanner
 `public override bool CanAgentPickUpAnyBanner(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `agent pick up any banner`。
+**用途 / Purpose:** 检查当前对象是否满足 「agent pick up any banner」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.CanAgentPickUpAnyBanner(agent);
+```
 
 ### CanAgentBecomeBannerBearer
 `public override bool CanAgentBecomeBannerBearer(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `agent become banner bearer`。
+**用途 / Purpose:** 检查当前对象是否满足 「agent become banner bearer」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.CanAgentBecomeBannerBearer(agent);
+```
 
 ### GetAgentBannerBearingPriority
 `public override int GetAgentBannerBearingPriority(Agent agent)`
 
-**用途 / Purpose:** 获取 `agent banner bearing priority` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「agent banner bearing priority」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetAgentBannerBearingPriority(agent);
+```
 
 ### CanFormationDeployBannerBearers
 `public override bool CanFormationDeployBannerBearers(Formation formation)`
 
-**用途 / Purpose:** 判断当前对象是否可以执行 `formation deploy banner bearers`。
+**用途 / Purpose:** 检查当前对象是否满足 「formation deploy banner bearers」 的前置条件。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.CanFormationDeployBannerBearers(formation);
+```
 
 ### GetDesiredNumberOfBannerBearersForFormation
 `public override int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
 
-**用途 / Purpose:** 获取 `desired number of banner bearers for formation` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「desired number of banner bearers for formation」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetDesiredNumberOfBannerBearersForFormation(formation);
+```
 
 ### GetBannerBearerReplacementWeapon
 `public override ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
 
-**用途 / Purpose:** 获取 `banner bearer replacement weapon` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「banner bearer replacement weapon」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxBattleBannerBearersModel 实例
+SandboxBattleBannerBearersModel sandboxBattleBannerBearersModel = ...;
+var result = sandboxBattleBannerBearersModel.GetBannerBearerReplacementWeapon(agentCharacter);
+```
 
 ## 使用示例
 
@@ -79,4 +127,4 @@ Game.Current.ReplaceModel<SandboxBattleBannerBearersModel>(new MySandboxBattleBa
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

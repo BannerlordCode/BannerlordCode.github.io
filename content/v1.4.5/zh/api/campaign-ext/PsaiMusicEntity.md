@@ -1,20 +1,14 @@
 ---
 title: "PsaiMusicEntity"
+description: "PsaiMusicEntity 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `PsaiMusicEntity`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # PsaiMusicEntity
 
 **Namespace:** psai.Editor
 **Module:** psai.Editor
 **Type:** `public abstract class PsaiMusicEntity : ICloneable`
 **Base:** `ICloneable`
-**File:** `Bannerlord.Source/bin/TaleWorlds.PSAI/psai.Editor/PsaiMusicEntity.cs`
+**File:** `bin/TaleWorlds.PSAI/psai.Editor/PsaiMusicEntity.cs`
 
 ## 概述
 
@@ -35,59 +29,120 @@ title: "PsaiMusicEntity"
 ### GetClassString
 `public abstract string GetClassString()`
 
-**用途 / Purpose:** 获取 `class string` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「class string」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetClassString();
+```
 
 ### GetCompatibilitySetting
 `public abstract CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**用途 / Purpose:** 获取 `compatibility setting` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compatibility setting」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetCompatibilitySetting(targetEntity);
+```
 
 ### GetCompatibilityType
 `public abstract CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**用途 / Purpose:** 获取 `compatibility type` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「compatibility type」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetCompatibilityType(targetEntity, reason);
+```
 
 ### GetParent
 `public abstract PsaiMusicEntity GetParent()`
 
-**用途 / Purpose:** 获取 `parent` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「parent」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetParent();
+```
 
 ### GetChildren
 `public abstract List<PsaiMusicEntity> GetChildren()`
 
-**用途 / Purpose:** 获取 `children` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「children」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetChildren();
+```
 
 ### GetIndexPositionWithinParentEntity
 `public abstract int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**用途 / Purpose:** 获取 `index position within parent entity` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「index position within parent entity」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetIndexPositionWithinParentEntity(parentProject);
+```
 
 ### Clone
 `public virtual object Clone()`
 
-**用途 / Purpose:** 处理 `clone` 相关逻辑。
+**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.Clone();
+```
 
 ### ShallowCopy
 `public virtual PsaiMusicEntity ShallowCopy()`
 
-**用途 / Purpose:** 处理 `shallow copy` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.ShallowCopy();
+```
 
 ### PropertyDifferencesAffectCompatibilities
 `public virtual bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**用途 / Purpose:** 处理 `property differences affect compatibilities` 相关逻辑。
+**用途 / Purpose:** 执行此方法所描述的操作。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.PropertyDifferencesAffectCompatibilities(otherEntity);
+```
 
 ### GetTheme
 `public Theme GetTheme()`
 
-**用途 / Purpose:** 获取 `theme` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「theme」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 PsaiMusicEntity 实例
+PsaiMusicEntity psaiMusicEntity = ...;
+var result = psaiMusicEntity.GetTheme();
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomPsaiMusicEntity();
+// 通常通过子系统 API 或工厂获得派生实例
+PsaiMusicEntity instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

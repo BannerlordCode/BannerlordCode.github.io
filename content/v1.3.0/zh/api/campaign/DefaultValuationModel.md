@@ -1,13 +1,7 @@
 ---
 title: "DefaultValuationModel"
+description: "DefaultValuationModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DefaultValuationModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DefaultValuationModel
 
 **Namespace:** TaleWorlds.CampaignSystem.GameComponents
@@ -29,17 +23,35 @@ title: "DefaultValuationModel"
 ### GetMilitaryValueOfParty
 `public override float GetMilitaryValueOfParty(MobileParty party)`
 
-**用途 / Purpose:** 获取 `military value of party` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「military value of party」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultValuationModel 实例
+DefaultValuationModel defaultValuationModel = ...;
+var result = defaultValuationModel.GetMilitaryValueOfParty(party);
+```
 
 ### GetValueOfTroop
 `public override float GetValueOfTroop(CharacterObject troop)`
 
-**用途 / Purpose:** 获取 `value of troop` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of troop」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultValuationModel 实例
+DefaultValuationModel defaultValuationModel = ...;
+var result = defaultValuationModel.GetValueOfTroop(troop);
+```
 
 ### GetValueOfHero
 `public override float GetValueOfHero(Hero hero)`
 
-**用途 / Purpose:** 获取 `value of hero` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「value of hero」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 DefaultValuationModel 实例
+DefaultValuationModel defaultValuationModel = ...;
+var result = defaultValuationModel.GetValueOfHero(hero);
+```
 
 ## 使用示例
 
@@ -49,4 +61,4 @@ Game.Current.ReplaceModel<DefaultValuationModel>(new MyDefaultValuationModel());
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

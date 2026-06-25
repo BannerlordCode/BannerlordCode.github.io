@@ -1,13 +1,7 @@
 ---
 title: "MissionGauntletArenaPracticeFightView"
+description: "Auto-generated class reference for MissionGauntletArenaPracticeFightView."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MissionGauntletArenaPracticeFightView`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # MissionGauntletArenaPracticeFightView
 
 **Namespace:** SandBox.GauntletUI.Missions
@@ -29,34 +23,65 @@ Treat `MissionGauntletArenaPracticeFightView` as a View-style extension point: f
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Called when the `mission screen initialize` event is raised.
+**Purpose:** Invoked when the `mission screen initialize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletArenaPracticeFightView from the subsystem API first
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnMissionScreenInitialize();
+```
 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Called when the `mission screen tick` event is raised.
+**Purpose:** Invoked when the `mission screen tick` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletArenaPracticeFightView from the subsystem API first
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnMissionScreenTick(0);
+```
 
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Called when the `mission screen finalize` event is raised.
+**Purpose:** Invoked when the `mission screen finalize` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletArenaPracticeFightView from the subsystem API first
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnMissionScreenFinalize();
+```
 
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Called when the `photo mode activated` event is raised.
+**Purpose:** Invoked when the `photo mode activated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletArenaPracticeFightView from the subsystem API first
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnPhotoModeActivated();
+```
 
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Called when the `photo mode deactivated` event is raised.
+**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+
+```csharp
+// Obtain an instance of MissionGauntletArenaPracticeFightView from the subsystem API first
+MissionGauntletArenaPracticeFightView missionGauntletArenaPracticeFightView = ...;
+missionGauntletArenaPracticeFightView.OnPhotoModeDeactivated();
+```
 
 ## Usage Example
 
 ```csharp
-var view = new MissionGauntletArenaPracticeFightView();
+// Retrieve this view from the subsystem API or scene
+MissionGauntletArenaPracticeFightView view = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

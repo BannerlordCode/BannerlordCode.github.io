@@ -1,20 +1,14 @@
 ---
 title: "DailyTroopXpBonusModel"
+description: "DailyTroopXpBonusModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `DailyTroopXpBonusModel`
-- [← 本领域 / 返回 campaign](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # DailyTroopXpBonusModel
 
 **Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class DailyTroopXpBonusModel : MBGameModel<DailyTroopXpBonusModel>`
 **Base:** `MBGameModel<DailyTroopXpBonusModel>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DailyTroopXpBonusModel.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/DailyTroopXpBonusModel.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "DailyTroopXpBonusModel"
 ### CalculateDailyTroopXpBonus
 `public abstract int CalculateDailyTroopXpBonus(Town town)`
 
-**用途 / Purpose:** 处理 `calculate daily troop xp bonus` 相关逻辑。
+**用途 / Purpose:** 计算「daily troop xp bonus」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DailyTroopXpBonusModel 实例
+DailyTroopXpBonusModel dailyTroopXpBonusModel = ...;
+var result = dailyTroopXpBonusModel.CalculateDailyTroopXpBonus(town);
+```
 
 ### CalculateGarrisonXpBonusMultiplier
 `public abstract float CalculateGarrisonXpBonusMultiplier(Town town)`
 
-**用途 / Purpose:** 处理 `calculate garrison xp bonus multiplier` 相关逻辑。
+**用途 / Purpose:** 计算「garrison xp bonus multiplier」的当前值或结果。
+
+```csharp
+// 先通过子系统 API 拿到 DailyTroopXpBonusModel 实例
+DailyTroopXpBonusModel dailyTroopXpBonusModel = ...;
+var result = dailyTroopXpBonusModel.CalculateGarrisonXpBonusMultiplier(town);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomDailyTroopXpBonusModel();
+// 通常通过子系统 API 或工厂获得派生实例
+DailyTroopXpBonusModel instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

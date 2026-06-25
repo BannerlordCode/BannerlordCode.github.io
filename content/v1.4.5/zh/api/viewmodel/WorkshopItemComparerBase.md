@@ -1,20 +1,14 @@
 ---
 title: "WorkshopItemComparerBase"
+description: "WorkshopItemComparerBase 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WorkshopItemComparerBase`
-- [← 本领域 / 返回 viewmodel](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WorkshopItemComparerBase
 
 **Namespace:** TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public abstract class WorkshopItemComparerBase : IComparer<ClanFinanceWorkshopItemVM>`
 **Base:** `IComparer<ClanFinanceWorkshopItemVM>`
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
+**File:** `bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories/ClanIncomeSortControllerVM.cs`
 
 ## 概述
 
@@ -29,19 +23,32 @@ title: "WorkshopItemComparerBase"
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**用途 / Purpose:** 设置 `sort mode` 的值或状态。
+**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopItemComparerBase 实例
+WorkshopItemComparerBase workshopItemComparerBase = ...;
+workshopItemComparerBase.SetSortMode(false);
+```
 
 ### Compare
 `public abstract int Compare(ClanFinanceWorkshopItemVM x, ClanFinanceWorkshopItemVM y)`
 
-**用途 / Purpose:** 处理 `compare` 相关逻辑。
+**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+
+```csharp
+// 先通过子系统 API 拿到 WorkshopItemComparerBase 实例
+WorkshopItemComparerBase workshopItemComparerBase = ...;
+var result = workshopItemComparerBase.Compare(x, y);
+```
 
 ## 使用示例
 
 ```csharp
-var implementation = new CustomWorkshopItemComparerBase();
+// 通常通过子系统 API 或工厂获得派生实例
+WorkshopItemComparerBase instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

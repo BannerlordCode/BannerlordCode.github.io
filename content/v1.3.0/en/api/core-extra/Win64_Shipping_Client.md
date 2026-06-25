@@ -1,13 +1,7 @@
 ---
 title: "Win64_Shipping_Client"
+description: "Auto-generated class reference for Win64_Shipping_Client."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `Win64_Shipping_Client`
-- [← Area / Back to core-extra](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.0](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # Win64_Shipping_Client
 
 **Namespace:** TaleWorlds.Library
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ## Usage Example
 
 ```csharp
-var example = new Win64_Shipping_Client();
+// Obtain an instance from the relevant subsystem API
+Win64_Shipping_Client instance = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,13 +1,7 @@
 ---
 title: "SettlementNameplateWidget"
+description: "Auto-generated class reference for SettlementNameplateWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `SettlementNameplateWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # SettlementNameplateWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate
@@ -49,14 +43,21 @@ Treat `SettlementNameplateWidget` as a Widget-style extension point: first ident
 ### CompareTo
 `public int CompareTo(SettlementNameplateWidget other)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of SettlementNameplateWidget from the subsystem API first
+SettlementNameplateWidget settlementNameplateWidget = ...;
+var result = settlementNameplateWidget.CompareTo(other);
+```
 
 ## Usage Example
 
 ```csharp
-var widget = new SettlementNameplateWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+SettlementNameplateWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

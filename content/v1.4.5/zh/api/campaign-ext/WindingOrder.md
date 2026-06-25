@@ -1,20 +1,14 @@
 ---
 title: "WindingOrder"
+description: "WindingOrder 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `WindingOrder`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.4.5](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # WindingOrder
 
 **Namespace:** (global)
 **Module:** (global)
-**Type:** `class`
+**Type:** `public enum WindingOrder`
 **Base:** 无
-**File:** `Bannerlord.Source/bin/TaleWorlds.Library/WindingOrder.cs`
+**File:** `bin/TaleWorlds.Library/WindingOrder.cs`
 
 ## 概述
 
@@ -27,9 +21,10 @@ title: "WindingOrder"
 ## 使用示例
 
 ```csharp
-var example = new WindingOrder();
+// 从对应子系统 API 获取实例
+WindingOrder instance = ...;
 ```
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)

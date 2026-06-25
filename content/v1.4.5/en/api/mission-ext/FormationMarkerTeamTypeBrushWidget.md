@@ -1,20 +1,14 @@
 ---
 title: "FormationMarkerTeamTypeBrushWidget"
+description: "Auto-generated class reference for FormationMarkerTeamTypeBrushWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `FormationMarkerTeamTypeBrushWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # FormationMarkerTeamTypeBrushWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FormationMarkerTeamTypeBrushWidget : BrushWidget`
 **Base:** `BrushWidget`
-**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/FormationMarkerTeamTypeBrushWidget.cs`
+**File:** `bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission/FormationMarkerTeamTypeBrushWidget.cs`
 
 ## Overview
 
@@ -33,9 +27,10 @@ Treat `FormationMarkerTeamTypeBrushWidget` as a Widget-style extension point: fi
 ## Usage Example
 
 ```csharp
-var widget = new FormationMarkerTeamTypeBrushWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+FormationMarkerTeamTypeBrushWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

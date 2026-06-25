@@ -1,13 +1,7 @@
 ---
 title: "MultiplayerScoreboardSideWidget"
+description: "Auto-generated class reference for MultiplayerScoreboardSideWidget."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `MultiplayerScoreboardSideWidget`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # MultiplayerScoreboardSideWidget
 
 **Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard
@@ -37,9 +31,10 @@ Treat `MultiplayerScoreboardSideWidget` as a Widget-style extension point: first
 ## Usage Example
 
 ```csharp
-var widget = new MultiplayerScoreboardSideWidget(context);
+// Obtain this widget from the Gauntlet widget tree or movie
+MultiplayerScoreboardSideWidget widget = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

@@ -1,18 +1,12 @@
 ---
 title: "ITwoDimensionResourceContext"
+description: "Auto-generated class reference for ITwoDimensionResourceContext."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `ITwoDimensionResourceContext`
-- [← Area / Back to campaign-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # ITwoDimensionResourceContext
 
 **Namespace:** TaleWorlds.TwoDimension
 **Module:** TaleWorlds.TwoDimension
-**Type:** `class`
+**Type:** `public interface ITwoDimensionResourceContext`
 **Base:** none
 **File:** `TaleWorlds.TwoDimension/ITwoDimensionResourceContext.cs`
 
@@ -27,9 +21,10 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ## Usage Example
 
 ```csharp
-ITwoDimensionResourceContext implementation = GetTwoDimensionResourceContextImplementation();
+// Usually obtained through DI or a factory method
+IITwoDimensionResourceContext service = ...;
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

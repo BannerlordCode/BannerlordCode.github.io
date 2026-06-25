@@ -1,13 +1,7 @@
 ---
 title: "TeamAISallyOutDefender"
+description: "Auto-generated class reference for TeamAISallyOutDefender."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `TeamAISallyOutDefender`
-- [← Area / Back to mission-ext](./)
-- [↑ API Index](../)
-- [🏠 Home v1.3.15](../../)
-- [⭐ SDK Overview](../../architecture/sdk-overview)
-<!-- END BREADCRUMB -->
 # TeamAISallyOutDefender
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -35,25 +29,44 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Called when the `unit added to formation for the first time` event is raised.
+**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+
+```csharp
+// Obtain an instance of TeamAISallyOutDefender from the subsystem API first
+TeamAISallyOutDefender teamAISallyOutDefender = ...;
+teamAISallyOutDefender.OnUnitAddedToFormationForTheFirstTime(formation);
+```
 
 ### CalculateSallyOutReferencePosition
 `public Vec3 CalculateSallyOutReferencePosition(FormationAI.BehaviorSide side)`
 
-**Purpose:** Handles logic related to `calculate sally out reference position`.
+**Purpose:** Calculates the current value or result of `sally out reference position`.
+
+```csharp
+// Obtain an instance of TeamAISallyOutDefender from the subsystem API first
+TeamAISallyOutDefender teamAISallyOutDefender = ...;
+var result = teamAISallyOutDefender.CalculateSallyOutReferencePosition(side);
+```
 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Called when the `deployment finished` event is raised.
+**Purpose:** Invoked when the `deployment finished` event is raised.
+
+```csharp
+// Obtain an instance of TeamAISallyOutDefender from the subsystem API first
+TeamAISallyOutDefender teamAISallyOutDefender = ...;
+teamAISallyOutDefender.OnDeploymentFinished();
+```
 
 ## Usage Example
 
 ```csharp
-var value = new TeamAISallyOutDefender();
-value.OnUnitAddedToFormationForTheFirstTime(formation);
+// Typically call this after obtaining an instance from the subsystem API
+TeamAISallyOutDefender teamAISallyOutDefender = ...;
+teamAISallyOutDefender.OnUnitAddedToFormationForTheFirstTime(formation);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

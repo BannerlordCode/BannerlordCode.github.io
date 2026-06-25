@@ -1,20 +1,14 @@
 ---
 title: "VolunteerTroop"
+description: "Auto-generated class reference for VolunteerTroop."
 ---
-<!-- BEGIN BREADCRUMB -->
-**Home** → **API Index** → **Area** → `VolunteerTroop`
-- [← Area / Back to campaign](./)
-- [↑ API Index](../)
-- [🏠 Home v1.4.5](../../)
-- [⭐ Version Architecture](../../architecture/)
-<!-- END BREADCRUMB -->
 # VolunteerTroop
 
 **Namespace:** TaleWorlds.CampaignSystem.CampaignBehaviors
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public struct VolunteerTroop`
 **Base:** none
-**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
+**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/GarrisonRecruitmentCampaignBehavior.cs`
 
 ## Overview
 
@@ -29,20 +23,33 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### VolunteerTroop
 `public struct VolunteerTroop(Hero ownerNotable, int notableVolunteerArrayIndex)`
 
-**Purpose:** Handles logic related to `volunteer troop`.
+**Purpose:** Performs the operation described by this method.
+
+```csharp
+// Obtain an instance of VolunteerTroop from the subsystem API first
+VolunteerTroop volunteerTroop = ...;
+var result = volunteerTroop.VolunteerTroop(ownerNotable, 0);
+```
 
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**Purpose:** Handles logic related to `compare to`.
+**Purpose:** Compares the current object with the supplied instance for ordering.
+
+```csharp
+// Obtain an instance of VolunteerTroop from the subsystem API first
+VolunteerTroop volunteerTroop = ...;
+var result = volunteerTroop.CompareTo(obj);
+```
 
 ## Usage Example
 
 ```csharp
-var value = new VolunteerTroop();
-value.VolunteerTroop(ownerNotable, 0);
+// Typically call this after obtaining an instance from the subsystem API
+VolunteerTroop volunteerTroop = ...;
+volunteerTroop.VolunteerTroop(ownerNotable, 0);
 ```
 
 ## See Also
 
-- [Complete Class Catalog](../catalog)
+- [Area Index](../)

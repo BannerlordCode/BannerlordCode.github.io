@@ -1,13 +1,7 @@
 ---
 title: "SandboxAgentDecideKilledOrUnconsciousModel"
+description: "SandboxAgentDecideKilledOrUnconsciousModel 的自动生成类参考。"
 ---
-<!-- BEGIN BREADCRUMB -->
-**首页** → **API 目录** → **本领域** → `SandboxAgentDecideKilledOrUnconsciousModel`
-- [← 本领域 / 返回 campaign-ext](./)
-- [↑ API 目录](../)
-- [🏠 首页 v1.3.0](../../)
-- [⭐ 版本架构](../../architecture/)
-<!-- END BREADCRUMB -->
 # SandboxAgentDecideKilledOrUnconsciousModel
 
 **Namespace:** SandBox.GameComponents
@@ -29,7 +23,13 @@ title: "SandboxAgentDecideKilledOrUnconsciousModel"
 ### GetAgentStateProbability
 `public override float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**用途 / Purpose:** 获取 `agent state probability` 的当前值。
+**用途 / Purpose:** 读取并返回当前对象中 「agent state probability」 的结果。
+
+```csharp
+// 先通过子系统 API 拿到 SandboxAgentDecideKilledOrUnconsciousModel 实例
+SandboxAgentDecideKilledOrUnconsciousModel sandboxAgentDecideKilledOrUnconsciousModel = ...;
+var result = sandboxAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, weaponFlags, useSurgeryProbability);
+```
 
 ## 使用示例
 
@@ -39,4 +39,4 @@ Game.Current.ReplaceModel<SandboxAgentDecideKilledOrUnconsciousModel>(new MySand
 
 ## 参见
 
-- [完整类目录](../catalog)
+- [本区域目录](../)
